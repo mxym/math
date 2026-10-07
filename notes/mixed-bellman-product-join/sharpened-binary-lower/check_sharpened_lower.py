@@ -46,8 +46,8 @@ tail_sq = (
     * E8**2
 )
 require(
-    tail_sq > F(1049, 200) ** 2,
-    "uniform D_j > 1049/200 tail inequality failed",
+    tail_sq > F(524511, 100000) ** 2,
+    "uniform D_j > 524511/100000 tail inequality failed",
 )
 
 # Reconstruct the exact binary T5 recurrence through level 7.
@@ -65,8 +65,8 @@ require(a == F(1, 768), "a7 mismatch")
 exponent = 3 * d + 1
 require(exponent == 262144, "endpoint exponent mismatch")
 
-endpoint = F(14267327751, 5000000000)  # 2.8534655502
-tail_constant = F(1049, 200)
+endpoint = F(71336638763, 25000000000)  # 2.85346555052
+tail_constant = F(524511, 100000)
 
 # Clear positive denominators exactly.
 lhs = (
@@ -79,8 +79,8 @@ rhs = (
     * R.numerator**3
     * tail_constant.numerator
 )
-require(lhs < rhs, "2.8534655502 endpoint inequality failed")
+require(lhs < rhs, "2.85346555052 endpoint inequality failed")
 
-print("PASS: D_j > 1049/200 for every j >= 7 by the analytic tail bound.")
+print("PASS: D_j > 524511/100000 for every j >= 7 by the analytic tail bound.")
 print("PASS: exact binary-T5 state reconstructed through d_7 = 87381.")
-print("PASS: Lambda_(2,5) > 2.8534655502.")
+print("PASS: Lambda_(2,5) > 2.85346555052.")
