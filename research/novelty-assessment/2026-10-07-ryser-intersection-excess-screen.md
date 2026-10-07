@@ -12,7 +12,7 @@ I(H)=\sum_{\{A,B\}\subseteq E(H)}(|A\cap B|-1).
 \[
 |E(H)|\ge 5\tau(H)-\left(\frac{27-5\sqrt{17}}4+\delta\right)r-\frac{10I(H)}r-C_\delta.
 \]
-据此，线性类及 (I(H)=o(r^2)) 的 \(\tau\ge r-1\) partite 族会有斜率 \((5\sqrt{17}-7)/4\approx3.40388\) 的候选边数下界。这里的式子和推论仅作为待比较的候选记录。
+据此，线性类及 I(H)=o(r²) 的 τ≥r−1 partite 族会有斜率 (5√17−7)/4≈3.40388 的候选边数下界。Kahn 1994 Corollary 5.4 已蕴含这些线性或 I=o(r²)、τ/r→1 子类的某种超线性边数增长，但没有显式速率或交叠超额惩罚式；一般 partite f(r) 的候选斜率结论不由该非 partite 覆盖推论推出。这里的式子和推论仅作为待比较的候选记录。
 
 ## 最接近的已知方法
 
@@ -26,4 +26,4 @@ I(H)=\sum_{\{A,B\}\subseteq E(H)}(|A\cap B|-1).
 
 ## 初筛结论与范围
 
-本次窄查已核对 Sivashankar 第4节、ABW 的 (f(r)) 主下界证明、以及线性 partite 的 FHMW 主文；另以 `intersection excess`, `near-linear intersecting hypergraph`, `Ryser codegree excess`, `cover number` 等词组检索 arXiv、Crossref/OpenAlex。**未找到**形如 \(|E(H)|\ge 5\tau(H)-c r-C I(H)/r-O(1)\) 的全局交叠超额惩罚定理，也未找到对 (I=o(r^2)) 的 partite (f(r)) 给出大于 10/3 斜率的既有下界。此为有明确来源边界的阴性初筛，不能据此称该结果为首次或断言不存在其他先例。
+本次窄查已核对 Sivashankar 第4节、ABW 的 f(r) 主下界证明、以及线性 partite 的 FHMW 主文；另以 `intersection excess`, `near-linear intersecting hypergraph`, `Ryser codegree excess`, `cover number` 等词组检索 arXiv、Crossref/OpenAlex。未找到形如 |E(H)|≥5τ(H)−c r−C I(H)/r−O(1) 的全局交叠超额惩罚定理。Kahn 1994 Corollary 5.4 已推出线性系统及 I=o(r²)、τ/r→1 子类具有某种超线性边数增长，但不给显式速率；候选的 I 惩罚项及 3.40388 速率不由它给出。对一般 partite f(r)，Kahn 不推出本候选斜率，本次关于 f(r) 的 10/3 比较仍是独立问题。此为有明确来源边界的阴性初筛，不能据此称该结果为首次或断言不存在其他先例。

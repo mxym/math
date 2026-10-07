@@ -251,9 +251,13 @@ The [intersection-excess continuation](notes/partite-intersection-defect-cover/R
 
 ## Superlinear edge necessity for near-linear Ryser equality families
 
+**Prior-work correction:** [Kahn 1994 and a short pruning argument](research/novelty-assessment/2026-10-07-kahn-prior-work-addendum.md) already imply the superlinear necessity in this restricted class. The note below is an independent deduction, not an original solution of that consequence.
+
 The [arbitrary-degree replication theorem](notes/superlinear-near-linear-partite-cover/README.md) proves that intersecting r-partite r-uniform families with tau >= r-1 and intersection excess I(H)=o(r²) must have |E(H)|/r tending to infinity. In particular f_linear(r)/r tends to infinity, taking empty classes as infinity. A fixed budget |E(H)| <= C r forces the linear cover gap tau <= (1-1/(2(C+1)))r + O_C(1). The complete five-page deduction uses the published Kahn bounded-rank small-codegree theorem with explicitly checked parallel-copy conventions; all fixed-parameter constants and orders of limits are specified. Exact replication replay and six partial Lean scalar exports accompany the proof. This strengthens the same programme to a structural limit theorem, but supplies no explicit growth rate, all-rank existence, priority claim or unrestricted Ryser solution.
 
 ## Sparse near-linear cover law without parts
+
+[Kahn's prior harmonic bound](research/novelty-assessment/2026-10-07-kahn-prior-work-addendum.md) and its near-linear corollary are distinguished from the stronger piecewise bound, finite penalty and equality statements below. Historical novelty of those stronger statements remains under review.
 
 The [eight-page cover-law continuation](notes/sparse-near-linear-cover-law/README.md) drops the partite assumption. For intersecting r-uniform families with bounded m/r and I(H)=o(r²), it proves tau/r <= h(m/r)+o(1), where h is the piecewise linear interpolation of a/(a+1) at nonnegative integers a, and h(x) <= x/(1+x). Thus near-linear Erdős–Lovász families with tau/r tending to one also require m/r tending to infinity. Integer equality forces degree variance sum_v(degree(v)-a-1)²=o(r²); affine-space examples attain prime-power endpoints. Every noninteger ratio greater than one has an explicit positive gap below the envelope, whose best size is unresolved. The finite theorem supplies an explicit excess coefficient, a complete proof, exact nonpartite diagnostics and fourteen partial Lean exports. Its external colouring input and limited literature comparison are distinguished from the new deduction; no general nonlinear resolution, priority or full formalization is claimed.
 
