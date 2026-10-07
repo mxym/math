@@ -1,0 +1,26 @@
+Structural finite proof: actual weighted incidence sums, no external
+combinatorial input or optimizer. Standard finite convex separation is
+used only for the LP-duality appendix.
+
+Integer asymptotic consequence only:
+Jeff Kahn, On a Problem of Erdos and Lovasz. II: n(r)=O(r),
+J. Amer. Math. Soc. 7 (1994), 125-143, Corollary 5.4, printed p.140.
+DOI: 10.1090/S0894-0347-1994-1224593-5
+Primary text read in this session:
+https://www.ams.org/journals/jams/1994-07-01/S0894-0347-1994-1224593-5/S0894-0347-1994-1224593-5.pdf
+This rounding input is stated explicitly in paper.md and is not in Lean.
+
+Later literature status, not a mathematical input:
+P. Mark Kayll, DIMACS Technical Report 95-55, December 1995,
+Asymptotically Good Covers in Hypergraphs: Extended Abstract of the
+Dissertation, Theorem 2.1, printed p.5.
+https://archive.dimacs.rutgers.edu/archive/TechnicalReports/TechReports/1995/95-55.ps.gz
+Downloaded original PS.GZ SHA256:
+f0f760999eb13aa2910300d9af6f268192225da248d227205242ba4abdc85a8d
+The primary report was read. It resolves Kahn Conjecture 5.6 under the
+extra local matching-polytope hypothesis. Its theorem is not used in
+our structural note, and does not itself settle Conjecture 5.5.
+
+Exact diagnostics use the standard Fano plane, the fully specified k=2
+sharpness construction, and fixed-seed feasible vectors, all generated
+inside check_exact.py with fixed parameters. No solver output is trusted.

@@ -24,6 +24,8 @@ Uₖ(r,m) = [k(k−1)r²+(2k−1)r+1−m] / [(k²+k−1)r+1−m].
 
 5. **Jeff Kahn and P. Mark Kayll, “Fractional v. Integral Covers in Hypergraphs of Bounded Edge Size,” Journal of Combinatorial Theory, Series A 78(2) (1997), 199–235, DOI 10.1006/jcta.1997.2761.** 本轮只核到书目和出版摘要/检索摘要，没有读主文；因此这里只记录为主题相关的 bounded-edge-size fractional/integral cover 先例，不将其定理认作主稿 Uₖ/φ 的先例或断言其不含相关推论。完整定理级比较仍待核读主文。
 
+   **全文访问复核（2026-10-07）：** Crossref 核实卷 78、期 2、页 199–235、1997 年 5 月及 DOI；OpenAlex 与 Unpaywall 将其记作 bronze OA，但都只给 DOI 落地页，没有仓储 PDF URL，Unpaywall 也标记无 repository copy。Semantic Scholar 的 `openAccessPdf` 同样只指向 DOI，且摘要被出版方省略。尝试直连 ScienceDirect 文章页、`pdfft` 下载端点及 Elsevier API 时，当前代理请求以 403/隧道失败；经 Jina Reader 请求文章页则返回 ScienceDirect 人机验证页。未找到可读的作者/机构仓储副本或 Kayll 学位论文全文。因此**尚未核读该文正文**；目前无法判断它是否证明 Kahn 1994 的 Conjecture 5.5 或 5.6，或是否给出相关局部 cover-polytope/加权码度取整定理。仅凭开放元数据和摘要不作肯定或否定的定理级比较。
+
 6. **仓库内先前的 sparse near-linear cover law。** 该工作给出整数 τ 的 h(m/r) 界，但需 I(H)=o(r²) 等条件，并依赖 Kahn 对满足低交叠条件的整数-cover工具。新稿的 τ* 界无需 partite、线性或小交叠条件；对象、参数和结论均不同。主稿也明确提醒：不能直接把新分数界经 Kahn rounding 变成相同整数界，因为所用最优权重未必满足 Kahn 的加权 pair-codegree 假设。
 
 ## 有限检索结论
@@ -31,6 +33,8 @@ Uₖ(r,m) = [k(k−1)r²+(2k−1)r+1−m] / [(k²+k−1)r+1−m].
 本次围绕 fractional matching/cover 的 m/r 分段界、weight/degree quantile、Füredi、Lovász 与 Kahn 相关主文做了有限检索和上述来源核读。已核实的最近结果分别是 Füredi 的 Δ 对 m 界、Füredi–Kahn–Seymour 的分数匹配对整数匹配界、Lovász 的积分/分数 cover 比率，以及 Kahn 的带固定 edge-size 与低加权 pair-codegree 条件的 rounding。当前已核对来源中没有发现直接陈述主稿 Uₖ、φ(c) 或相同有限等号分类的定理；Kahn–Kayll 1997 主文尚未读，不能据此作排除判断。以上是 limited screen，不代表检索未命中即可证明不存在先例。
 
 ## 新增的非整数比率显式缺口
+
+**同日后续来源更新：** 后续已取得并读到 Kayll 的 DIMACS Technical Report 95-55 扩展摘要，Theorem 2.1 明确解决 Kahn 1994 Conjecture 5.6，并允许 fractional cover。1997 期刊全文仍未取得；关于 5.5 的完整后续状态仍未核实。此前的访问失败记录保留为过程事实，不能再解读为 5.6 状态未知。详见[后续主文比较](2026-10-07-kahn-followup-edge-count-screen.md)。该来源不直接给出本稿无小交叠假设的分数包络。
 
 主稿 §6 Theorem 3 进一步表明：固定非整数 c∈(k−1,k)、k≥2，对任意相交 r-均匀超图序列且 m/r→c，无需小交叠条件，均有 limsup τ*(H)/r ≤ φ(c)−ζ_c，其中 ζ_c>0 有显式保守取值。原稿定义 θ=c−k+1、p=φ(c)、a₀=k−1−θ/k、b₀=1−p、t₀=p/k、d₀=b₀−t₀；令 e₀=min{t₀/4,d₀/4,(k−1)d₀/[4(k+1)]}、δ₀=min{a₀d₀/[8(k+1)],kt₀/4}、M=ceil(2/t₀)，则可取 ζ_c=min{δ₀, θ/((a₀+1)(2M/d₀+(M+1)/e₀))}。此处只记录主稿陈述，不审核证明；ζ_c 被标为保守、非最优。
 
