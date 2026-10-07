@@ -317,6 +317,8 @@ def check_tails() -> dict:
         k = Q(3, 4 * s + 3)
         if s == 1:
             B = Q(3)
+            require(1 - 2 * a_hi * k * B * B > 0,
+                    "s=1 tail endpoint is not an increasing maximum")
             prod = imul(ALPHA_I, (k * B * B, k * B * B))
             upper = logA_upper + log_bounds(B, ALPHA_N)[1] - prod[0] + a_hi
         else:
@@ -331,6 +333,8 @@ def check_tails() -> dict:
         logA_upper = log_g_bounds(s)[1] - s + Q(s * s, 2000)
         k = Q(3, 4 * s + 3)
         Bmid = Q(4 * s + 3, 3)
+        require(1 - 2 * a_hi * k * Bmid * Bmid > 0,
+                f"low/middle tail endpoint is not increasing for s={s}")
         prod = imul(ALPHA_I, (k * Bmid * Bmid, k * Bmid * Bmid))
         mid_upper = (
             logA_upper + log_bounds(Bmid, ALPHA_N)[1] - prod[0] + a_hi

@@ -388,12 +388,20 @@ combine (6.4) with
 The resulting one-variable maxima are all strictly negative. The largest
 certified upper margin among these seven tails is less than \(-0.0045\).
 
-For \(s=2,3\), the low and middle portions are handled by the same quadratic
-bound. On the high branch, (4.4) is bounded below by a limiting quadratic.
-For \(s=2\),
+For \(s=2,3\), the low and middle portions satisfy
+\(B\le B_+<(4s+3)/3\). The function
+\(\log B-\alpha_*[3/(4s+3)]B^2\) is increasing up to
+\(B=(4s+3)/3\), as the checker certifies by its derivative at that endpoint.
+For \(s=1\), the analogous endpoint is \(B=3\).
+
+On the high branch, write \(q^{\mathrm{hi}}_{r,s}=q_{s+1}\) for the
+boundary quadratic in (4.4), rather than for the full piecewise minimum.
+The actual high-branch interval \([B_+,B_{\max}]\) is contained in
+\([s+1,2s+1]\). For \(s=2\), the following bound holds on the enlarged
+interval:
 
 \[
- q_{r,2}(B)\ge
+ q^{\mathrm{hi}}_{r,2}(B)\ge
  q_{\infty,2}(B):=
  \frac32(B^2-6B+11)
  \qquad(3\le B\le5),
@@ -403,7 +411,7 @@ For \(s=2\),
 because
 
 \[
- q_{r,2}(B)-q_{\infty,2}(B)
+ q^{\mathrm{hi}}_{r,2}(B)-q_{\infty,2}(B)
  =
  -\frac{
  r(4B^2-48B+108)+(3B^2-54B+99)}
@@ -414,7 +422,7 @@ because
 throughout \(3\le B\le5\). Likewise,
 
 \[
- q_{r,3}(B)\ge
+ q^{\mathrm{hi}}_{r,3}(B)\ge
  q_{\infty,3}(B):=
  B^2-8B+20
  \qquad(4\le B\le7),
@@ -424,7 +432,7 @@ throughout \(3\le B\le5\). Likewise,
 because
 
 \[
- q_{r,3}(B)-q_{\infty,3}(B)
+ q^{\mathrm{hi}}_{r,3}(B)-q_{\infty,3}(B)
  =
  -\frac{4\{r(B^2-20B+64)-24B+60\}}
  {3(r+1)(r+4)}
