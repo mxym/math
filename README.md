@@ -173,3 +173,7 @@ The [new tensor research note](notes/global-orthogonal-tensor-rigidity/README.md
 ## Active research and literature screening
 
 [Rank-six Ryser exploration](research/ryser-rank-six/README.md) supplies finite SAT search models, a solver-independent witness checker, geometric scouts and a complete integer enumeration excluding one restricted pencil template. No Ryser counterexample or unrestricted nonexistence theorem is claimed. The [initial literature comparison](research/novelty-assessment/2026-10-07-initial-screen.md), prepared with GPT-6 Luna at High reasoning effort, distinguishes known inputs, direct deductions, neighbouring results and unresolved novelty questions for the tensor note and other repository work.
+
+## Sharp binary tensor bounds and optimal order growth
+
+The [binary tensor companion](notes/sharp-binary-tensor-rigidity/README.md) determines the optimal growth order p^(1/4) of the best complete-commutator error constant in dimension two, and proves the exact quartic constant 3^(1/4)/sqrt(2) with full equality classification. A nine-page proof, exact standard-library checker, nine partial Lean exports and a frozen inventory are included. These results use no OpenAI theorem. The [binary benchmark comparison](research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md) and [dimension screening](research/novelty-assessment/2026-10-07-tensor-dimension-screen.md) record read literature and unresolved novelty questions; no priority or whole-paper formalization claim is made.

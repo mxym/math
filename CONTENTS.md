@@ -142,3 +142,7 @@ Both frozen packages passed independent model-conducted analytic and final-copy 
 ## Global orthogonal tensor rigidity
 
 [Global quantitative orthogonal tensor rigidity](notes/global-orthogonal-tensor-rigidity/README.md) proves an unconditional square-root error bound from the complete contraction-commutator defect for every real symmetric tensor order p >= 3, allowing zero and repeated weights. The cubic companion gives an exact binary distance formula and best constant sqrt(3)/2. Complete proofs, PDFs, exact checkers and seven partial Lean algebra exports are supplied. Its separate entropy stability application is conditional on the displayed OpenAI-101 remainder; neither whole-paper formalization nor novelty or major-conjecture resolution is claimed.
+
+## Sharp binary tensor bounds and optimal order growth
+
+[Sharp binary tensor rigidity](notes/sharp-binary-tensor-rigidity/README.md) proves that the best binary complete-commutator error constant grows as p^(1/4), with an explicit upper bound and an exact infinite lower family. The quartic constant 3^(1/4)/sqrt(2) is best possible, and its nonzero-residual equality orbit is classified. [Complete proof and PDF](notes/sharp-binary-tensor-rigidity/paper.md), exact diagnostics, nine partial Lean exports and explicit verification limits are supplied. The asymptotic leading constant and sharp higher-dimensional dependence remain undetermined.
