@@ -1,0 +1,58 @@
+# Improved two-band lower family for binary tensor rigidity
+
+Research note, 7 October 2026.
+
+This note strengthens the lower-bound side of the binary complete-commutator
+rigidity problem from
+[sharp-binary-tensor-rigidity](../sharp-binary-tensor-rigidity/README.md).
+
+For every tensor order p >= 10 we give an explicit symmetric binary tensor
+whose exact orthogonal-decomposition distance and complete contraction
+commutator residual can both be computed in closed form.  The resulting
+asymptotic lower constant is
+
+\[
+\kappa=
+\sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}
+=0.6218758237538317\ldots,
+\]
+
+strictly improving the previously published one-band constant
+\(2^{-3/4}=0.5946035575\ldots\).  Combined with the existing upper bound,
+the current rigorous asymptotic interval is
+
+\[
+0.6218758237\ldots
+\le \liminf_{p\to\infty}\frac{C_p}{p^{1/4}}
+\le \limsup_{p\to\infty}\frac{C_p}{p^{1/4}}
+\le 2^{-1/2}=0.70710678\ldots .
+\]
+
+The complete proof is in [paper.md](paper.md).  It is analytic: the key
+projection maximum is proved separately for even and odd p by coefficient
+domination and a sign argument.  The exact checker is diagnostic rather than
+a substitute for the universal proof.
+
+## Reproduction
+
+Python 3.10+ and only the standard library are required.
+
+~~~~sh
+python3 verify.py
+~~~~
+
+The verifier runs the checker normally and with Python optimization enabled
+and requires byte-identical stdout.  The checker uses exact arithmetic in
+Q(sqrt(2)), replays orders 10 through 120, checks the integer inequalities
+used to pass from finite formulas to all p >= 10, and includes negative
+controls.
+
+See [PROOF_AUDIT.md](PROOF_AUDIT.md) for the claim-by-claim trust boundary and
+[results/exact-checks.txt](results/exact-checks.txt) for the recorded replay.
+
+## Scope
+
+This note does **not** prove that \(C_p/p^{1/4}\) converges, determine its
+optimal leading constant, classify all higher-order extremizers, or improve
+the parent upper bound.  No novelty or priority claim is made.  There is no
+external human peer review or whole-paper formalization.
