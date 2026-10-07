@@ -44,11 +44,6 @@ def divisible(z,g):
 def allowed(z,gs):return all(not divisible(z,g) for g in gs)
 
 def verify_walk(gs,w):
-    require(all(len(g)==2 and all(type(z) is int for z in g) for g in gs),'integer generators')
-    require(len(w['root'])==2 and all(type(z) is int for z in w['root']),'integer root')
-    require(all(len(d)==2 and all(type(z) is int for z in d) for d in w['steps']),'integer steps')
-    require(len(w['voltage'])==2 and all(type(z) is int for z in w['voltage']),'integer voltage')
-    require(type(w['allowed_residues']) is int,'integer count')
     root=tuple(w['root']);steps=[tuple(d) for d in w['steps']]
     require(all(d in F8 for d in steps),'bad step')
     require(allowed(root,gs),'bad root')

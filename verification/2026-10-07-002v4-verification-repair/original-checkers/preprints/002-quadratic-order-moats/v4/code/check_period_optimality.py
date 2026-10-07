@@ -43,12 +43,6 @@ def allowed(z,gs): return all(not divisible(z,g) for g in gs)
 
 def verify_failure(c):
     q=c['q']; gs=[tuple(g) for g in c['generators']]
-    require(type(q) is int and q>0,'integer period')
-    require(all(len(g)==2 and all(type(z) is int for z in g) for g in gs),'integer generators')
-    require(len(c['root'])==2 and all(type(z) is int for z in c['root']),'integer root')
-    require(all(len(d)==2 and all(type(z) is int for z in d) for d in c['steps']),'integer steps')
-    require(len(c['voltage'])==2 and all(type(z) is int for z in c['voltage']),'integer voltage')
-    require(type(c['allowed_residues']) is int,'integer count')
     require(c['rational_primes']==prime_factors(q),'wrong rational prime list')
     require(gs==expected_generators(q),'wrong maximal Gaussian prime generators')
     root=tuple(c['root']);steps=[tuple(d) for d in c['steps']]
@@ -75,7 +69,6 @@ def main():
     here=Path(__file__).resolve().parent
     data=json.loads((here/'period_optimality.json').read_text())
     require(data['schema']=='mxym-math-002-v4-gaussian-f8-period-optimality-1','schema')
-    require(data['positive_generators']==[[1,1],[2,1],[2,-1],[3,2],[3,-2]],'fixed positive generators')
     cases=data['failed_radicals']
     expected=[1]+[q for q in range(2,130) if squarefree(q)]
     require([c['q'] for c in cases]==expected,'incomplete radical coverage')

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — 002v4 verification repair
+
+- 002v4 verification repair: enforce integer witness fields, bind endpoint data and labelled subsets to the stated sieves, clarify the squarefree-q definition, and refresh manifest hashes. All 19 corruption controls reject in normal and optimized Python; valid replay outputs are unchanged. Mathematical claims and scope are unchanged.
+- Added [focused independent audit/control evidence and offline replay](verification/2026-10-07-002v4-verification-repair/README.md), with source pins, exact original checker bytes and normal/optimized results. The [repair manifest](releases/2026-10-07-002v4-verification-repair-v1.json) binds the five-file repair and evidence package. All Lean68, compact cubic, certificate, main manuscript and unrelated source bytes are preserved.
+
+
 ## 2026-10-07 — finite Lean68 and compact cubic supplements
 
 - Added the final independently audited 109-file public68 Lean export, preserving its proof, reporting, coverage, signature/axiom log and control bytes. Lean 4.34.1 and all nine dependency revisions are pinned; all 68 exported declarations use only propext, Classical.choice and Quot.sound.

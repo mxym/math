@@ -66,9 +66,9 @@ primes relevant below the factorization is explicit:
 while \(3,5,11,13\) remain prime in \(R\). Equivalently,
 \(X^2-2\) is irreducible modulo \(3,5,11,13\) and splits modulo \(7\).
 
-For a squarefree positive integer \(q<14\), let
+For any squarefree positive integer \(q\), let
 \(\mathcal P_R(q)\) contain all prime ideals above the rational primes
-dividing \(q\). Thus:
+dividing \(q\). For \(q<14\), the relevant cases are:
 
 - above \(2\): \((\sqrt2)\);
 - above \(7\): \((3+\sqrt2)\) and \((3-\sqrt2)\);
