@@ -2,16 +2,16 @@
 
 ## Main result
 
-For every epsilon > 0, finite m >= 1, and 1 < beta < 3/2, and for arbitrary
-lower bounds on m integer scales, there is one complete smooth metric g on
-R^3 such that:
+For every epsilon > 0, finite m >= 1, beta > 1, and A >= 1 satisfying
+A beta^2 < 9/4, and for arbitrary lower bounds on m integer scales, there
+is one complete smooth metric g on R^3 such that:
 
 - g is Euclidean near the origin;
 - Ric_g >= 0 and Ric_g > 0 outside a compact set;
 - the identity is globally (1+epsilon)-bi-Lipschitz to Euclidean space;
-- at m arbitrarily separated starting degrees k_r, the same g violates
-  Euclidean harmonic-dimension comparison at every integer degree from
-  k_r through floor(beta(k_r+1))-1.
+- at m arbitrarily separated starting degrees k_r, the same g satisfies
+  h_d > A(d+1)^2 at every integer degree from k_r through
+  floor(beta(k_r+1))-1.
 
 The asymptotic volume ratio may be taken arbitrarily close to one.
 
@@ -30,7 +30,9 @@ Run:
     python3 verification/check_bands.py
 
 The checker uses Python integers and fractions.Fraction only. It verifies
-a five-band concrete instance of the finite arithmetic conditions:
+the concrete quantitative choice A=11/10, beta=4/3, theta=7/5 on five
+bands, including the exact slack theta^2-A beta^2=1/225, together with the
+finite arithmetic conditions:
 band separation, strict mean-frequency margin, low-rank margin, block
 containment, and final dimension inequality.
 
