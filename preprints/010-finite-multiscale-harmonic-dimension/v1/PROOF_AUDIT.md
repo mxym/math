@@ -18,17 +18,22 @@ radial, transfer, and matching arguments.
 
 ## B. Parameter feasibility
 
-Choose
+Fix beta > 1 and A >= 1 with A beta^2 < 9/4. Choose a in (2/3,1)
+arbitrarily close to one so that the desired near-Euclidean tensor bound
+holds and
 
-1 < beta < theta < 3a/2, with 2/3 < a < 1.
+A beta^2 < 9a^2/4.
 
-Because beta < 3/2, a can be chosen arbitrarily close to one while
-retaining such a theta. Shrinking the angular neighborhood makes the
-ordered-spectrum comparison constant C_* arbitrarily close to one, so
+Then choose theta with
+
+A beta^2 < theta^2 < 9a^2/4.
+
+Shrinking the angular neighborhood makes the ordered-spectrum comparison
+constant C_* arbitrarily close to one, so
 
 2 theta sqrt(C_*) / (3a) < 1
 
-can be imposed strictly.
+can also be imposed strictly.
 
 For each band choose k_r sufficiently large. The needed conditions are:
 
@@ -37,14 +42,18 @@ For each band choose k_r sufficiently large. The needed conditions are:
    M_r=floor(theta k_r);
 3. the strict band-average inequality;
 4. the fixed-low-rank inequality;
-5. M_r >= floor(beta(k_r+1)).
+5. M_r >= floor(beta(k_r+1));
+6. (M_r+1)^2 > A floor(beta(k_r+1))^2.
 
-All are lower-bound conditions on k_r. In particular, condition 2 can be
+All are lower-bound conditions on k_r; condition 6 is eventually true
+because M_r/k_r tends to theta and theta^2 > A beta^2. In particular, condition 2 can be
 forced by taking k_r > M_{r-1}^2. Thus the scales can be separated as
 widely as desired.
 
-verification/check_bands.py replays a concrete five-band instance using
-only Python integers and Fraction.
+verification/check_bands.py replays the quantitative choice
+A=11/10, beta=4/3, theta=7/5 on five separated bands using only Python
+integers and Fraction. It certifies the exact structural slack
+theta^2-A beta^2=1/225.
 
 ## C. Common-cutoff crossings
 
@@ -182,9 +191,12 @@ D_r = floor(beta(k_r+1)) - 1,
 the parameter choice gives D_r+1 <= M_r. For k_r <= d <= D_r,
 monotonicity of polynomial-growth spaces gives
 
-h_d >= h_{k_r} >= (M_r+1)^2 > M_r^2 >= (d+1)^2.
+h_d >= h_{k_r} >= (M_r+1)^2
+    > A floor(beta(k_r+1))^2
+    >= A(d+1)^2.
 
-This is strict even when beta(k_r+1) is an integer.
+This is strict even when beta(k_r+1) is an integer and proves the same
+A-factor excess on every selected block.
 
 ## J. Geometry
 
