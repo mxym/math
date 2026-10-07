@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-07 — transport and quadratic version 3
+
+- Manuscript 002: 26-page version 3 with arbitrary nonzero nonunit principal-generator certificates, exact quotient-component bounds, and selected-norm restoration.
+- Added complete four-step/eight-step certificates for Z[i] and Z[sqrt(2)], with conservative full irreducible component bounds 20/92820 and 179200/351232, respectively. The failed Q30 Gaussian eight-step candidate is explicitly distinguished from the successful Q130 certificate.
+- Added separate 41-test norm-prime and 24-test general-principal suites, independent lift/multiplication-image checks, and 184 arithmetic checks. These do not prove the general analytic theorem or certify optimality.
+- Added a geometry-dimension literature comparison, distinguishing the full source sheet from compact witness assemblies and avoiding any claim that dimension two is minimal.
+- Manuscript 001: 30-page v3, titled Sharp Brenier stability under target moment bounds; full-Gaussian q>2 sharp one-third map stability, the specified smooth full-support source extension, hard-boundary finite-q rate (q−2)/(3q−2), and the q=2 no-uniform-modulus obstruction. Sharpness and endpoint obstructions require dimension at least two; dimension one is isometric.
+- Geometry remains v1. Every historical v1/v2 file and independent entry 004/005 is preserved byte-for-byte. Exact version-3 changed-file hashes are recorded in the release manifest; disclosure is determined by the commit that publishes them.
+
+
 ## 2026-10-07 — density and simplex-product additions, v1.1
 
 - Added manuscript 004: logarithmic upper Banach density criterion, infinite hits in every affine copy, countable simultaneous avoidance, and effective finite rational-certificate search. Its complete written proof does not claim the unrestricted Erdos similarity conjecture.

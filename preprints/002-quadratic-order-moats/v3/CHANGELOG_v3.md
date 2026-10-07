@@ -1,0 +1,13 @@
+# Mathematical changes in version 3
+
+7 October 2026. Versions 1 and 2 are preserved unchanged in their versioned directories. The original split-pair verifier is unchanged.
+
+1. Added arbitrary nonzero nonunit principal generators as exact arithmetic witnesses. Ideal membership requires both adjugate coordinates to be divisible by the absolute field norm D. The least scalar period is D/gcd(a,b); this is not a claim that the whole ideal is a scalar lattice. Norm-prime generators, including ramified ones and unpaired split generators, are special cases.
+2. Proved that a verified lifted avoiding component projects bijectively onto its quotient component. The exact maximum quotient-component size B can replace the coarser Q² bound.
+3. Sharpened restoration to the selected norm values. For k distinct selected absolute norms, V = (2(B+1)H+1)² − 1, and Delta permitted steps, the full irreducible component bound is max(B, max(1,8k²V)(1+Delta B)). Gaussian cases can instead count the finite exception set directly. Reducible generators are permitted and simply exclude no irreducibles themselves.
+4. Added complete genuinely two-dimensional certificates for the four axial steps F4 and all eight nearest coefficient steps F8. Conservative full-component bounds are 20 and 92,820 for Z[i], and 179,200 and 351,232 for Z[sqrt(2)]. These are not optimal component sizes. Complete JSON potentials and independent checks accompany the manuscript.
+5. Proved safe exhaustive-search retention for the broader certificate classes. The analytic split-pair termination theorem still applies; a search must retain all relevant ideals rather than one arbitrary single kernel per prime or absolute norm. The supplied programs are bounded candidate verifiers, not unbounded search implementations.
+6. Recorded the failed Q30 Gaussian F8 candidate. Its explicit 38-step allowed quotient walk has voltage (1,0), with lifted displacement (30,0). This rejects that avoiding sieve only. The Q130 positive certificate remains valid.
+7. Added separate norm-prime and general-principal checkers, keeping earlier files immutable. The 41-test and 24-test suites, independent finite-lift reconstructions, direct multiplication-image audit, and 184-generator arithmetic stress test all pass. These are exact finite checks, not formal verification or a novelty certificate.
+
+The inherited analytic proof remains attributed to OpenAI's pinned Gaussian source. Version 3 contains 26 pages, with every page rendered and visually inspected. Double compilation produced no warnings, undefined references, missing characters, or overfull/underfull boxes. No public repository action was performed by this manuscript task.

@@ -34,3 +34,7 @@ pdflatex assouad_two_zero_box.tex
   note = {Cite the exact Git commit used; author metadata has not been asserted}
 }
 ```
+
+## Literature comparison
+
+A [geometry-dimension comparison](../../comparisons/2026-10-07-geometry-dimensions.md) separates inherited properties from the simultaneous dimensional conclusion, distinguishes the full source sheet from arbitrary compact witness assemblies, and explains why dimension below one is a barrier without claiming that two is optimal. The v1 manuscript and PDF are unchanged.

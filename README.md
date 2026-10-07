@@ -1,5 +1,6 @@
 # math
 
+
 Mathematical research manuscripts and supporting verification material maintained at **mxym/math**.
 
 中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前五份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题的对数密度判据，以及单纯形直积的精确投影体体积极值。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
@@ -8,8 +9,8 @@ Mathematical research manuscripts and supporting verification material maintaine
 
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
-| 001 | [Sharp one-third stability of Brenier maps for strongly log-concave sources](preprints/001-strongly-log-concave-brenier/README.md) | v2 | Research draft |
-| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v2 | Research draft |
+| 001 | [Sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v3 | Research draft |
+| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
 | 005 | [Exact projection-volume optimization over Cartesian products of simplices](preprints/005-simplex-product-optimum/README.md) | v1.1 | Complete written proof draft; exact finite certificates |
@@ -35,3 +36,13 @@ The upstream OpenAI material retains its Apache-2.0 license, reproduced in [thir
 ## Post-publication comparison
 
 A [primary-literature comparison](comparisons/2026-10-07-primary-literature.md) records exact and partial overlaps found after the initial release. In particular, a nondegenerate semi-discrete W2 one-third estimate predates this collection, and W1 quarter-power estimates are not interchangeable with W2 one-third estimates. The note distinguishes these results from the current source and target scope; it does not certify priority.
+
+## Quadratic version 3
+
+The [quadratic v3 manuscript and complete certificate data](preprints/002-quadratic-order-moats/v3/README.md) extend the finite certificate interface to individual nonzero nonunit principal generators, including ramified norm-prime and composite-norm cases. Exact quotient-component sizes and selected norm values sharpen the integer restoration bounds. Complete two-dimensional four-step and eight-step examples are supplied, together with an explicitly rejected candidate sieve.
+
+The main all-quadratic-order existence theorem and its inherited analytic proof interface are unchanged. The 41 norm-prime tests, 24 general-principal tests, independent finite-lift/direct-multiplication checks, and 184-generator arithmetic checks are finite computational verification only. No unrestricted search implementation, practical-runtime guarantee, formal verification, or optimality claim is made. Exact changed-file hashes are recorded in the [v3 manifest](releases/2026-10-07-v3.json); cite the Git commit actually used.
+
+## Transport version 3
+
+The [30-page transport manuscript](preprints/001-strongly-log-concave-brenier/v3/manuscript.pdf) proves sharp one-third map stability on every fixed q>2 moment class for a full Gaussian source in dimension at least two, with the same positive rate for the specified full-support smooth strongly log-concave class. General source classes admitting hard convex boundaries have the finite-q rate (q−2)/(3q−2), sharp for the displayed conditioned-Gaussian and uniform-cube examples. At q=2 no uniform map modulus holds in dimension at least two, even with second moments exactly one. Dimension one remains isometric. See the [precise scope](preprints/001-strongly-log-concave-brenier/README.md) and [focused literature comparison](comparisons/2026-10-07-gaussian-finite-moments.md).

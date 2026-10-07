@@ -33,3 +33,21 @@ Later refinements and finite executable certificates will receive their own vers
 - The geometry v1 manuscript received a further full correctness audit and remains unchanged.
 
 The public code is a small research verifier, not a formally verified implementation. Source attribution and all limitations above continue to apply.
+
+## Quadratic v3 checks
+
+The 26-page quadratic manuscript and its separate certificate formats are supplied in version 3. The all-quadratic-order theorem and the A1–A5 analytic interface are unchanged. Version 3 proves principal-ideal membership by two adjugate congruences, the least scalar period |N(alpha)|/gcd(a,b), the exact quotient-component replacement for Q², selected-norm restoration, and safe witness retention for the mathematical exhaustive-search argument.
+
+- The 41 norm-prime tests and 24 general-principal tests pass.
+- Independent finite-lift reconstruction and direct multiplication-image reconstruction pass, including the successful Q130 Gaussian eight-step certificate and the rejected Q30 candidate's 38-step nonzero-voltage walk.
+- A separate 184-generator arithmetic test checks ideal membership and minimal scalar periods across five order models.
+- The frozen manuscript build has 26 pages; its final double compilation and page inspection reported no warnings, undefined references, missing characters, overfull/underfull boxes, or detected page-boundary overflow.
+- The old v1/v2 sources, PDFs, bibliography files, and original split-pair verifier are preserved unchanged. The new bounded checkers do not implement the unrestricted terminating search.
+
+All counts refer to bounded exact checks, not a formal proof of the general entropy engine, a Lean replay, external peer review, optimal-bound certification, or publication priority. A failed avoiding-sieve candidate does not establish an infinite walk on irreducibles. Implementation budgets and reproduction commands are stated in the [v3 certificate instructions](../preprints/002-quadratic-order-moats/v3/certificates_v3/README.md). The version-3 manifest identifies the exact changed files.
+
+## Transport v3 checks
+
+The final 30-page manuscript includes all-P2 potential and curve results, clipped target-tail interpolation, the general finite-q rate, full-Gaussian one-third finite-q stability, the specified smooth full-support source extension, matching sharpness examples, and the q=2 endpoint obstruction. Its mathematical scope distinguishes hard-boundary sources from translation-controlled full-support sources and dimension-one isometry from higher-dimensional sharpness.
+
+The final source has 106 unique labels and no unresolved references. Its final compilation and page inspection report no warnings, undefined citations/references, missing glyphs, clipping, or overfull/underfull boxes. A separate-directory build reproduces 30 pages and the extracted text. The final change from the assembled proof audit removed only a forced page break before the bibliography. Frozen source/PDF hashes and the packaged bibliography were verified. These are informal mathematical and artifact checks, not formal verification, external peer review, or a priority certificate.
