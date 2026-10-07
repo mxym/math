@@ -1,0 +1,863 @@
+{
+  "schema": "transport-source-tail-synthesis-publication-v1",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "f20431684cb76d1d7c3098218f1cd518ddea0a31",
+  "base_tree": "4426e3a4de689d1f7d42a7fb75bd1e7822fdcbab",
+  "scope": "Global zero-extended density-root Sobolev characterization of the linear-overlap interpolation method for 1 < s < infinity, coordinatewise finite-liminf criterion, exact rooted strong limit and attributed conditional transport synthesis.",
+  "nonclaims": [
+    "Universal necessity for transport-map stability",
+    "Independent reproving of every historical finite-cell and lower-construction input",
+    "Complete Lean/formal verification",
+    "External human peer review",
+    "Novelty or priority certification",
+    "New blanket license or personal author assignment"
+  ],
+  "frozen_public_copy": {
+    "name": "transport-source-tail-synthesis-public-20261007.tar.gz",
+    "bytes": 921260,
+    "sha256": "d8cb023ad530562f1ff419b1b57d3b6c48782253bbb890aad5da8f959e45a5c0"
+  },
+  "package_root": "notes/transport-source-tail-synthesis/",
+  "package_files": 108,
+  "source_snapshot": "c897a556e12e460380c7cf521e88f84286994915",
+  "pinned_mathematical_inputs": 57,
+  "pdf_pages": 6,
+  "source_archive": {
+    "bytes": 302908,
+    "sha256": "4a39f7a6071d6071bf86e1f56497d155412c698860a754dbfda347c45a7e85bf",
+    "path": "notes/transport-source-tail-synthesis/source/transport-source-tail-synthesis-source.tar.gz"
+  },
+  "tex": {
+    "bytes": 19153,
+    "sha256": "f6ac4fc8175cc3dcc5808c8b5abf0c27086c002fce63e7cd424bee202d8a7726",
+    "path": "notes/transport-source-tail-synthesis/synthesis.tex"
+  },
+  "pdf": {
+    "bytes": 310475,
+    "sha256": "5eff82fb88e966c011fb61ad7bd93248e2ed20a0f4d48be917e23f486f49c25c",
+    "path": "notes/transport-source-tail-synthesis/synthesis.pdf"
+  },
+  "independent_final_copy_review": {
+    "verdict": "PASS",
+    "report_sha256": "fc6eeaf905b1fe155a568263bb8c87e6d7ea549ca405c1ca5640bc1d0f160c58",
+    "kind": "independent model audit",
+    "scope": "11 exposition corrections; 57 pinned dependencies; protected proof bytes; deterministic PDF rebuild and six-page visual review; normal/optimized finite regressions; fail-closed integrity and packaging adversarial tests"
+  },
+  "integration_replay": {
+    "normal_and_optimized_integrity": true,
+    "normal_and_optimized_read_only_packaging": true,
+    "normal_and_optimized_four_regression_suites": true,
+    "shipped_negative_integrity_suite": true,
+    "integration_pdf_rebuild": false,
+    "independently_inspected_pdf_preserved_by_hash": true
+  },
+  "preservation": {
+    "base_files_retained": 1587,
+    "base_files_unchanged_outside_navigation": 1582,
+    "changed_existing": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md",
+      "notes/transport-source-tail-programme/README.md"
+    ],
+    "deleted": [],
+    "frozen_package_bytes_and_modes_unchanged": true
+  },
+  "files": [
+    {
+      "path": "notes/transport-source-tail-synthesis/BUILD_INFO.json",
+      "bytes": 3573,
+      "mode": "100644",
+      "git_blob_sha1": "72a1179c052304f050ca39c89e7f873dfb813c19",
+      "sha256": "caaf8ad409516191e9c0147474aebc929f70ed784ad0db8f25f4a5b42f98ef62"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/DEPENDENCIES.json",
+      "bytes": 29712,
+      "mode": "100644",
+      "git_blob_sha1": "604e9b403ca8da047dcea89a3deca6224ff18e27",
+      "sha256": "4a36673941171a6bb9453f62585448f867eff502caf8c1bddbcfa0087b4082f8"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/DEPENDENCY_MAP.md",
+      "bytes": 6109,
+      "mode": "100644",
+      "git_blob_sha1": "000a7d8886ff50d63b43b0500d788dcf62d1b445",
+      "sha256": "9479c62cbb242ad0a9473070be999a278f195cde24b55c5b014e1e665ddb0b89"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/MANIFEST.json",
+      "bytes": 19628,
+      "mode": "100644",
+      "git_blob_sha1": "c419b458f76a0ce11687c9e8dbfef4fe405819cc",
+      "sha256": "083070d09784f13225e1f8de44c754436a1f81b4708a4640b06b1eb416642e17"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/README.md",
+      "bytes": 5812,
+      "mode": "100644",
+      "git_blob_sha1": "7b2e7757712da754dbf572ab9881eac78cf52e67",
+      "sha256": "35f7703cf2a98ed3565aaaeecd26983140a5826696c3e2c8075eb73b7a7670ef"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/RELEASE_DELTA.json",
+      "bytes": 6673,
+      "mode": "100644",
+      "git_blob_sha1": "346e8f8bd0f0a7094eaefe151ae153bb3a487bd0",
+      "sha256": "a83652bf5697845b70ff6bef5eebe5ed6ec462c9ceedccb476bd2b42c351ba2b"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/RELEASE_DELTA.md",
+      "bytes": 3914,
+      "mode": "100644",
+      "git_blob_sha1": "a63a366f2f82ace21bf1133ba574d3bb6c68df15",
+      "sha256": "e568ddde4f6864dac1625252a095c7f16a240a8e8c14e163f95b2c99ba10f235"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/REVIEW.md",
+      "bytes": 8038,
+      "mode": "100644",
+      "git_blob_sha1": "ff89c25fb4c8878b548b6ff711b02b0e0fe24293",
+      "sha256": "70ea9bbc6801005377baa666da25c2e827d7df0cce9455773b663933c10a0770"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/SHA256SUMS",
+      "bytes": 12450,
+      "mode": "100644",
+      "git_blob_sha1": "69c0279aca70bac7be7d73bc62fe1a01241c2225",
+      "sha256": "76220c057a9da292e3e270b86eea780660e1517ad1737d6ef37b9794de428b79"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/SOURCE_MANIFEST.json",
+      "bytes": 19250,
+      "mode": "100644",
+      "git_blob_sha1": "c79e03e11e3f1ead68a0bb68abceefde739496a1",
+      "sha256": "000b701ee21fdec23cb09495c50d4ee7c324795d59d282207f7333aa9f84b0e3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/B_REVIEW.md",
+      "bytes": 10493,
+      "mode": "100644",
+      "git_blob_sha1": "1d27f52e329b696614ea2d3f95a6b31d69703b91",
+      "sha256": "a6485baa1d49eb3c6161b95f9de7a0c0e052e59018fbd5be7f9df24af51c44c0"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/CORE_PROOF_REVIEW.md",
+      "bytes": 19994,
+      "mode": "100644",
+      "git_blob_sha1": "12ec60a4c44e6a84bcf825678e6ed904cf5141b9",
+      "sha256": "924b1b886726f8a5b174459fc861701674f546f8057626228b3d01ca5401b98e"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/CORRECTION_RECORD.md",
+      "bytes": 5186,
+      "mode": "100644",
+      "git_blob_sha1": "48db7aaeed851bde75031868a353b349ee9d35fe",
+      "sha256": "747a612c9af387a6e3242ecf78616d7c345a8d43ddd6463004149f6c20654c93"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/IMPORT_REVIEW.md",
+      "bytes": 21842,
+      "mode": "100644",
+      "git_blob_sha1": "fee66461320a7c2c6cca24c35e2ce2251176f8fb",
+      "sha256": "fffb9e90c00b8e6916f17ebca02aeb60d25f133a868e18b467d58a3eda9ad73e"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/SANITIZATION_CHANGE_LEDGER.json",
+      "bytes": 26568,
+      "mode": "100644",
+      "git_blob_sha1": "3e0866397d469fa31de1010f097fd8fef0ecabb3",
+      "sha256": "c0865115d6c058eb57befe0b03095c4fa86278456943e6f428c4210392362d73"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/audit/SANITIZATION_CHANGE_LEDGER.md",
+      "bytes": 6731,
+      "mode": "100644",
+      "git_blob_sha1": "6290ea948a7817cbad2a64557f0c2be2fe5fcf8f",
+      "sha256": "8e0a72e8b3a6dc0bd2b302e91fe84d8c1d50c6bee5c408e5a3938f9c39aea956"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/PROTECTED_MATHEMATICS.json",
+      "bytes": 1816,
+      "mode": "100644",
+      "git_blob_sha1": "48284f276ed1b17d9cb0c2abcedb0eacecea66e7",
+      "sha256": "6119e56a3468a75f32aa641543798cc71c6d33decdc9ca6f730644b59ffac9fd"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/RIGHTS_AND_ATTRIBUTION.md",
+      "bytes": 1373,
+      "mode": "100644",
+      "git_blob_sha1": "58cd474cacaca1fa9525d7cc8ac5d50f76fdc5c7",
+      "sha256": "1589a2e37523d29e926a5c0214b6275dd61c86b1528f5eb9bed2cc14b001b167"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/RIGHTS_SOURCE_PINS.json",
+      "bytes": 892,
+      "mode": "100644",
+      "git_blob_sha1": "53fb45639db03c3d083b176ff5cf74a49221b753",
+      "sha256": "ab2ebf9d06a2b2ac71dc31dbeeeffee4c6d63c4ccca23344734892e78239f0d6"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/SANITIZATION_QA.json",
+      "bytes": 494,
+      "mode": "100644",
+      "git_blob_sha1": "5af9974cc33e3ac04120c8c84fe4ba97632a0706",
+      "sha256": "a53e7c04b8cf0e6764da14dc2fde3b4dcba1380e69485755f2dd953b32fb863c"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/provenance/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "mode": "100644",
+      "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/source/transport-source-tail-synthesis-source.tar.gz",
+      "bytes": 302908,
+      "mode": "100644",
+      "git_blob_sha1": "81e324a8881790e3493fe9b855283d08b2b4e3be",
+      "sha256": "4a39f7a6071d6071bf86e1f56497d155412c698860a754dbfda347c45a7e85bf"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/comparisons/2026-10-07-density-overlap-phase.md",
+      "bytes": 2634,
+      "mode": "100644",
+      "git_blob_sha1": "81050eecdf86f27cd0ab41537a381814f079a759",
+      "sha256": "d4374e35635986ac4edbabbfbbd8009a679109f3ce3fe50ae751db023686fa05"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/comparisons/2026-10-07-gaussian-finite-moments.md",
+      "bytes": 8119,
+      "mode": "100644",
+      "git_blob_sha1": "3fde4b0104b209781d529dddb85ddf326d5c5ac7",
+      "sha256": "32fd8877336332189b30e10bc3138d244ca8655330f9718d25fdbc331b64fdc4"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/comparisons/2026-10-07-modulus-tail-reconciliation.md",
+      "bytes": 4487,
+      "mode": "100644",
+      "git_blob_sha1": "129a5ec473caa6233b68c8a9000c046774705582",
+      "sha256": "cfac27d3b1f48d20cb014579cae9beb1ab34c32204f182e21dfded57c0a9d46b"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/comparisons/2026-10-07-source-regularity-reconciliation.md",
+      "bytes": 3342,
+      "mode": "100644",
+      "git_blob_sha1": "a382389b262ee8921b3f8ce26f49715cbc16b6fc",
+      "sha256": "4fcd727002753a2b08646101201658314c5ce23a8a7f9b6dc6bbe0538411a750"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/critical-boundary-slow-variation/BUILD_INFO.txt",
+      "bytes": 1107,
+      "mode": "100644",
+      "git_blob_sha1": "089a67f9afbdbd61c027d12fddde7f78baa5e0ee",
+      "sha256": "2eae67ac5a09fd9d0298f8355851c7745d8f3cd95ad43eb50f1eab1ad7cd38d7"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/critical-boundary-slow-variation/QA.txt",
+      "bytes": 2306,
+      "mode": "100644",
+      "git_blob_sha1": "5c9fc127cd84edeecfb018c4f08e886c7974b55b",
+      "sha256": "fdbf6df97146ce1d14180341350717ecde2a0d83d9cfdcb8b4323993e4d2ad11"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/critical-boundary-slow-variation/README.txt",
+      "bytes": 3820,
+      "mode": "100644",
+      "git_blob_sha1": "757de346ddee58c1fd670ed8a5d71d80109730ef",
+      "sha256": "3c7287399b4134963489912f6d37a04fec7c3d81d94e13965a0ee5b13a18da66"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/critical-boundary-slow-variation/manuscript.tex",
+      "bytes": 20245,
+      "mode": "100644",
+      "git_blob_sha1": "b7b63abc65f58ad45c04887e175f8a90c5d6084e",
+      "sha256": "68923efde65df299b9de5c6b4b21fa9ec60b1960dc2c97c9af24118899e0d5ad"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/stretched-exponential-sharpness/README.md",
+      "bytes": 2133,
+      "mode": "100644",
+      "git_blob_sha1": "41e824c696ddf3577623e76639d1d107c420a085",
+      "sha256": "ab9288d1c98b941fc1c8a208d8a7973f180730ba4f91391d1fd50cdb12ef031f"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/notes/stretched-exponential-sharpness/stretched_exponential_sharpness.tex",
+      "bytes": 16201,
+      "mode": "100644",
+      "git_blob_sha1": "344e2297e51e57c464bee9a5f4d6fbfe327b6fbf",
+      "sha256": "23427c58a263d3d516f31f41cd0babf7ea3a8b8b5cec89cec0de37841ed0562a"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/README.md",
+      "bytes": 6904,
+      "mode": "100644",
+      "git_blob_sha1": "328af4c07fec8a26674169a8bb6122c31c637784",
+      "sha256": "27af7ad53d0d9388a2902ac29714ef93efff1c5d82fe085062753f899d208cd9"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v1/manuscript.tex",
+      "bytes": 48456,
+      "mode": "100644",
+      "git_blob_sha1": "29aa8b7ace5b9c0d0361da3c2b27b92a173b2068",
+      "sha256": "8eed70e91246368d734fe6700d46cec6894fe729e12bf363bdb7c13f9e834004"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v1/references.bib",
+      "bytes": 2516,
+      "mode": "100644",
+      "git_blob_sha1": "d2408255677f388362d1526555080b21ca2246dd",
+      "sha256": "285c9dc556b59ff7864ddb9647b8c297de903d06928461681c2e87f897a3253e"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v2/CHANGELOG.txt",
+      "bytes": 2215,
+      "mode": "100644",
+      "git_blob_sha1": "22485dc445dd891a69148fdfbdb73206f31dfefd",
+      "sha256": "56c00997b77ec6356aa7dbb92edbc6125b46a257450adda525e919bad8719cdf"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v2/manuscript.tex",
+      "bytes": 61178,
+      "mode": "100644",
+      "git_blob_sha1": "d6896f8ac49e3a945324d5d57c54e1797775b1e5",
+      "sha256": "0cfc7c9349b6e9821468670418bb0495a8c57ac9891af80449c2f78b81eecdb8"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v2/references.bib",
+      "bytes": 2516,
+      "mode": "100644",
+      "git_blob_sha1": "d2408255677f388362d1526555080b21ca2246dd",
+      "sha256": "285c9dc556b59ff7864ddb9647b8c297de903d06928461681c2e87f897a3253e"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/BUILD_INFO.txt",
+      "bytes": 881,
+      "mode": "100644",
+      "git_blob_sha1": "b24cac4f9ee6fb04545d1a2e2f4c0738e2c2511f",
+      "sha256": "84bc7a0e123ae982490b101bafbd428b61c5cff8e4f030c58524bd8655a4c52d"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/CHANGELOG.txt",
+      "bytes": 3084,
+      "mode": "100644",
+      "git_blob_sha1": "b6cb9547dcf81999a2163e58785b384a9c148c94",
+      "sha256": "89b6c0927a94492245fa970e27b7247ef5b0aa189f5d52bafa4ecb8fdd5ebb0f"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/QA.txt",
+      "bytes": 983,
+      "mode": "100644",
+      "git_blob_sha1": "11806bb18fa6012b26fab222dfe509340e1b6fe7",
+      "sha256": "8a2c1e18deb7f32cc63207ba7aadec326e6f0dfa15cac718017b56601a81fa6d"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/README.txt",
+      "bytes": 3229,
+      "mode": "100644",
+      "git_blob_sha1": "fda2cc8e0f1f676580a2358cfe4496bc4fe6e3ee",
+      "sha256": "8337a35c54e3f43fbbdc5547083139e59084ddcbaf6f1b543ef7b5737a1c2170"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/manuscript.tex",
+      "bytes": 93015,
+      "mode": "100644",
+      "git_blob_sha1": "0007edf5e28e4b4b0d34b2043cffd6e13e9f5aed",
+      "sha256": "c5a49355eb805e9cd41f97428827e633cd19577ee34fd5f0f02bb5550b1c15fe"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v3/references.bib",
+      "bytes": 2516,
+      "mode": "100644",
+      "git_blob_sha1": "d2408255677f388362d1526555080b21ca2246dd",
+      "sha256": "285c9dc556b59ff7864ddb9647b8c297de903d06928461681c2e87f897a3253e"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/BUILD_INFO.txt",
+      "bytes": 957,
+      "mode": "100644",
+      "git_blob_sha1": "f8ced4402abd898fff93c20a163f7619e92cafa6",
+      "sha256": "c5b30ef5d6fc45a87daa21e4151d13aca0273b77ca2c4c1137c74d9ec61fb174"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/CHANGELOG.txt",
+      "bytes": 2242,
+      "mode": "100644",
+      "git_blob_sha1": "fd3bf530cfcb6f65fcf33224349c942127859cc7",
+      "sha256": "09a714934c437c8d27edca7cf5154cf9b66d52ee3bd272ebae8a3ab5ee97dd9d"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/QA.txt",
+      "bytes": 1186,
+      "mode": "100644",
+      "git_blob_sha1": "8e2a343c2c303b2c63f4e9e0674575f9b7ae299f",
+      "sha256": "14d8abca4cf71493b537f594e13dc8e99c1cf1dc4ddc1ef67039096f149e4f55"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/README.txt",
+      "bytes": 3430,
+      "mode": "100644",
+      "git_blob_sha1": "5b12382a54d8538224fc77a711940fbfcd2d1958",
+      "sha256": "964d954bddc08de5da9c8f411c539d5d8623c97d5bae1a9ab4ef9c2b8ecb6c73"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/manuscript.tex",
+      "bytes": 34773,
+      "mode": "100644",
+      "git_blob_sha1": "48189a28f8f20acbd0269c3f51835e566926629a",
+      "sha256": "fb13c2b8b798f4db23299f7c62bf8bb5081b5945cd5749c258fb122345183368"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v4/references.bib",
+      "bytes": 3104,
+      "mode": "100644",
+      "git_blob_sha1": "cbf3cce58331726fa6bf86f36118818155c45b7f",
+      "sha256": "7aba8539e3ac3270394480b309a8c56bf8522037013030bf08e6f67e0a3cd104"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/BUILD_INFO.txt",
+      "bytes": 1331,
+      "mode": "100644",
+      "git_blob_sha1": "61807e96cbce300a9e76bed33ac2b9a716b62c87",
+      "sha256": "d4fa5ff88e3ae516512d1baefac42e2572c733274a25f815bc2fc80ee86ed447"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/CHANGELOG.txt",
+      "bytes": 3190,
+      "mode": "100644",
+      "git_blob_sha1": "18e034d1a967eb70b9a34deb3f382e080324170d",
+      "sha256": "83dfc4c202b534a4bd754b5624da8e42c34bf5c21dcf245fc5dff1341203e0eb"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/QA.txt",
+      "bytes": 2925,
+      "mode": "100644",
+      "git_blob_sha1": "4d1d03ea13e1147534155b89997a33922f92f91a",
+      "sha256": "17d8cdc394875f9b3a851c5c6f340367bf1ca77341d7f578ad20129cb5041a62"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/README.txt",
+      "bytes": 4907,
+      "mode": "100644",
+      "git_blob_sha1": "30bc6bed30b9418327da3d965370b1160879803c",
+      "sha256": "5be132783aa5f4d5bc6574938bac6a018084fc7fcdb2a38cb57811f09ff13fc5"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/manuscript.tex",
+      "bytes": 76634,
+      "mode": "100644",
+      "git_blob_sha1": "718df1ac409a0e40f3f0a9fcea39274830f360f5",
+      "sha256": "61f7d07e0072e237d9d108fc5a663d6d21d47f1c704958b36c4787cbce533fe4"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/001-strongly-log-concave-brenier/v5/references.bib",
+      "bytes": 5127,
+      "mode": "100644",
+      "git_blob_sha1": "8f23734dc4a9aedac811098b8f61baca155c0b3b",
+      "sha256": "65bc903195ef612a413a0a5f23ecf620ad9d2b954bf2eb1c89e032c90041e7cb"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/README.md",
+      "bytes": 3965,
+      "mode": "100644",
+      "git_blob_sha1": "1e8fcb9a304f30019a35eacb85b9accdb1d533ff",
+      "sha256": "c81c9cbcf183b1bf12cbb9421f358db938adac985b5647a5ed8f808a728440ad"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v1/PROOF_AUDIT.md",
+      "bytes": 2989,
+      "mode": "100644",
+      "git_blob_sha1": "c3653ee4b0b6d625256fa84a6ffbcd7c3e69c933",
+      "sha256": "fc3bc7328a479566829c29dda11dfe6a603f445d08889b296ff5913030c23d35"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v1/main.tex",
+      "bytes": 19961,
+      "mode": "100644",
+      "git_blob_sha1": "2d6f87539f93f87b33e2484334542ab924143057",
+      "sha256": "0ae651b93a9c2d8c5c08316a467668e65c57bb2f31bff2a2cf874786cfb077d3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v1/verification/check_interpolation.py",
+      "bytes": 6241,
+      "mode": "100644",
+      "git_blob_sha1": "dd5476aaafd7be50267c834d68cc759d1cfe2e8c",
+      "sha256": "d674cc3b7b7a621f7b4778e1954ca25326f3947dc9db26554b56879b90f0ca61"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v1/verification/run.txt",
+      "bytes": 198,
+      "mode": "100644",
+      "git_blob_sha1": "0853665c09814aa7a5fbf92a73a5f2f2c4ffa15e",
+      "sha256": "85c42fce4a1098916b19387e5e27d694c545a37038191d8190dc3719fba7bc76"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/PROOF_AUDIT.md",
+      "bytes": 3861,
+      "mode": "100644",
+      "git_blob_sha1": "35d6e5d9341cb7eaf3a3ee8ac90f5d0e78813fc5",
+      "sha256": "ab84b1d9968d1fa1cc33764c3c45098c6c93a79b92ec1380cc193f09a8073ae7"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/README.md",
+      "bytes": 3024,
+      "mode": "100644",
+      "git_blob_sha1": "a32cbb332760abd371acb97c0740923cd5b42d3c",
+      "sha256": "248aad0c621799764730a8cfa506d3c958a82cb85f63dde41fd5c1a0f717806a"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/build.py",
+      "bytes": 3374,
+      "mode": "100644",
+      "git_blob_sha1": "38e78e7b137add7536b9328c1b164ea529cecd56",
+      "sha256": "1e93f43df1eacb719c19b1413bdf63d864cb77f79be08cdc28701467eab505cb"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/core.tex",
+      "bytes": 19961,
+      "mode": "100644",
+      "git_blob_sha1": "2d6f87539f93f87b33e2484334542ab924143057",
+      "sha256": "0ae651b93a9c2d8c5c08316a467668e65c57bb2f31bff2a2cf874786cfb077d3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/extension.tex",
+      "bytes": 14424,
+      "mode": "100644",
+      "git_blob_sha1": "d279f2cb4d11dbd637114d99fc1d19b4506ebb20",
+      "sha256": "cce74d63fb28480a38640d3ea8ed3d0c9471c0ddee2e2eb1c2346ed1358dae8f"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/main.tex",
+      "bytes": 35775,
+      "mode": "100644",
+      "git_blob_sha1": "4ccb79eedf4d5377ac4bd253ae0f6dd3491ae5ab",
+      "sha256": "8866042a074ba26161f277a5786a798bf61786988e1ab283a1063c43232f349b"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/verification/check_steep_example.py",
+      "bytes": 5053,
+      "mode": "100644",
+      "git_blob_sha1": "e9b68ba2621f4658b4eafc4f3f2620062bd94997",
+      "sha256": "9399d011acfcd52a1ec5df2bae1bae91b208ad5782c503dec71654609e9d22ec"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/verification/interpolation_run.txt",
+      "bytes": 198,
+      "mode": "100644",
+      "git_blob_sha1": "0853665c09814aa7a5fbf92a73a5f2f2c4ffa15e",
+      "sha256": "85c42fce4a1098916b19387e5e27d694c545a37038191d8190dc3719fba7bc76"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/007-tail-brenier-stability/v2/verification/steep_run.txt",
+      "bytes": 165,
+      "mode": "100644",
+      "git_blob_sha1": "b8b2800e37d41ca5f51d2fde386fa8fce63f6af3",
+      "sha256": "356593a7e683d9103bdde059f0b501065453436cc9005601b116e6b0033eb3fd"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/README.md",
+      "bytes": 4514,
+      "mode": "100644",
+      "git_blob_sha1": "b149e11329d80a845f1d67488d191623ca6bea91",
+      "sha256": "7dd6fe0d2db8c2adaf1ff0c78564a994b4c9c223acc15921c3e7e759441590bf"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/v1/PROOF_AUDIT.md",
+      "bytes": 4806,
+      "mode": "100644",
+      "git_blob_sha1": "95dc26ee27a753571cabf44674233af0fa687d61",
+      "sha256": "88bb2c423adb886b29b97378da89b304a11ac29342840a66fe15c02167562f98"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/v1/main.tex",
+      "bytes": 32093,
+      "mode": "100644",
+      "git_blob_sha1": "3b2882cef1a65e890549332c5c9014af9dc5f245",
+      "sha256": "24e32066518d97d700cdaed139717726ab6560e0362f4d93b7f0e8243232a013"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/v1/verification/check_exact.py",
+      "bytes": 12719,
+      "mode": "100644",
+      "git_blob_sha1": "dd5fb49fd2035e2b23641e294b7c1ecf1c1ecd53",
+      "sha256": "4db72f90786f5a8ca99cd513a0b864f805ff4894ecb7bdf342b7edec148ff166"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/v1/verification/optimized_run.txt",
+      "bytes": 240,
+      "mode": "100644",
+      "git_blob_sha1": "c576510c1741f858acece33cff100b0b4e3562dc",
+      "sha256": "d2618970bb3307ca01177be2ebec42794de0723469bebf86f528ffe4508d4e4b"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/preprints/008-density-overlap-phase/v1/verification/run.txt",
+      "bytes": 398,
+      "mode": "100644",
+      "git_blob_sha1": "812b2a5c83e0f1a1884ba697d89507c876ae5936",
+      "sha256": "787efea03cb5d937cfd97f86a77430ef9cf453385860e2497ad63c26ed3bbfe3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/reviews/2026-10-07-critical-slow-variation-review.md",
+      "bytes": 3991,
+      "mode": "100644",
+      "git_blob_sha1": "517536c72d5a5090d0384e540cc359e357db18b4",
+      "sha256": "06a675e602ca5b1423ab0617a7a5dfc9fd7cf017def72b3763b6549c0ff40443"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/reviews/2026-10-07-density-overlap-independent-audit.md",
+      "bytes": 5904,
+      "mode": "100644",
+      "git_blob_sha1": "201395e09557d4055d95f530192fbb579cc7920e",
+      "sha256": "93c62db24a27fe7ef9f6be938daa78836c54c6b008413a1f7884f81bb1115bf2"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/sources/reviews/2026-10-07-transport-v5-assembly.md",
+      "bytes": 5935,
+      "mode": "100644",
+      "git_blob_sha1": "d6d1f24af2e776a8d01c5dd2cb4c1dcdd902240b",
+      "sha256": "ea0ffce5ef89663161eb8a23a37c39a8e6a305d1c8e5dc5634aa9142be9bab4b"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/synthesis.pdf",
+      "bytes": 310475,
+      "mode": "100644",
+      "git_blob_sha1": "1a66654ea99cc74c1b9719d7d71e804de4f7e4d5",
+      "sha256": "5eff82fb88e966c011fb61ad7bd93248e2ed20a0f4d48be917e23f486f49c25c"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/synthesis.tex",
+      "bytes": 19153,
+      "mode": "100644",
+      "git_blob_sha1": "8fdc93138d0cb1686ee14562764f4c8762d79b7e",
+      "sha256": "f6ac4fc8175cc3dcc5808c8b5abf0c27086c002fce63e7cd424bee202d8a7726"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/INTEGRITY_QA.json",
+      "bytes": 2096,
+      "mode": "100644",
+      "git_blob_sha1": "ae0b0adfd3ed908842793edc2c627de7462efe50",
+      "sha256": "e0273a4e42a4de3e98cbdc4b21644ff9679277d88db44f2f215d047e7e8e6987"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/build_pdf.sh",
+      "bytes": 1980,
+      "mode": "100644",
+      "git_blob_sha1": "4630a4f87999eccacd65c55165684510a8859a7d",
+      "sha256": "50586a2f10faf675c9f731509efdc51233ab5a59729560aeb46b508cdaa8d069"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/check_root_overlap.py",
+      "bytes": 5249,
+      "mode": "100644",
+      "git_blob_sha1": "160f05b006b6c3a1b4023a8b914c19c0a46bbbec",
+      "sha256": "b7d619b90093939053402bc9d9cd1eb349f133342af759d2f905a846980d590d"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/package_release.py",
+      "bytes": 3781,
+      "mode": "100644",
+      "git_blob_sha1": "db0910142d77d5fc786302cb8ef81aec540d8483",
+      "sha256": "ede05162f0fa6ccb173c1840d84eb5a87228ab2510e3343bd505a0b3172ab8ae"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/regenerate_manifests.py",
+      "bytes": 3764,
+      "mode": "100644",
+      "git_blob_sha1": "1d8a013a172e6075da1d9dcc000c2f90f731d618",
+      "sha256": "b547bbd3cf03852010f114d8015df4aee1c0a5aa318b2fcaee1f79749174f010"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/requirements.txt",
+      "bytes": 77,
+      "mode": "100644",
+      "git_blob_sha1": "dc500efa9a1a0e590a89f9d0edda7fc86fc705b9",
+      "sha256": "036e3db6b6124864e033ee730c618b57cb24d67f2ff433aa816e8d58c78a1a50"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-interpolation-normal.json",
+      "bytes": 3083,
+      "mode": "100644",
+      "git_blob_sha1": "c05b4956672e38514e978cc33c8eefe57088ca12",
+      "sha256": "e9d6177c03cbe3b57edcff2f068f7445fa06a1463732bc6d64364a70e86751ce"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-interpolation-normal.txt",
+      "bytes": 198,
+      "mode": "100644",
+      "git_blob_sha1": "0853665c09814aa7a5fbf92a73a5f2f2c4ffa15e",
+      "sha256": "85c42fce4a1098916b19387e5e27d694c545a37038191d8190dc3719fba7bc76"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-interpolation-optimized.json",
+      "bytes": 3083,
+      "mode": "100644",
+      "git_blob_sha1": "c05b4956672e38514e978cc33c8eefe57088ca12",
+      "sha256": "e9d6177c03cbe3b57edcff2f068f7445fa06a1463732bc6d64364a70e86751ce"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-interpolation-optimized.txt",
+      "bytes": 198,
+      "mode": "100644",
+      "git_blob_sha1": "0853665c09814aa7a5fbf92a73a5f2f2c4ffa15e",
+      "sha256": "85c42fce4a1098916b19387e5e27d694c545a37038191d8190dc3719fba7bc76"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-steep-normal.json",
+      "bytes": 2093,
+      "mode": "100644",
+      "git_blob_sha1": "af19c0c801d98a14254d1d6f44c150462dfc7ca3",
+      "sha256": "43e28b279bb14d612656620dcc04298a312d6553299274d45e443b089b5aa355"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-steep-normal.txt",
+      "bytes": 165,
+      "mode": "100644",
+      "git_blob_sha1": "b8b2800e37d41ca5f51d2fde386fa8fce63f6af3",
+      "sha256": "356593a7e683d9103bdde059f0b501065453436cc9005601b116e6b0033eb3fd"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-steep-optimized.json",
+      "bytes": 2093,
+      "mode": "100644",
+      "git_blob_sha1": "af19c0c801d98a14254d1d6f44c150462dfc7ca3",
+      "sha256": "43e28b279bb14d612656620dcc04298a312d6553299274d45e443b089b5aa355"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/007-steep-optimized.txt",
+      "bytes": 165,
+      "mode": "100644",
+      "git_blob_sha1": "b8b2800e37d41ca5f51d2fde386fa8fce63f6af3",
+      "sha256": "356593a7e683d9103bdde059f0b501065453436cc9005601b116e6b0033eb3fd"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/008-exact-normal.json",
+      "bytes": 15879,
+      "mode": "100644",
+      "git_blob_sha1": "42aaaf78e6b74ec231744888fa9e5e907c811c23",
+      "sha256": "66524bfcbcb533dd9c0723d3febe9cf2db3437bc72e6e90c8c098df9eb6405a5"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/008-exact-normal.txt",
+      "bytes": 398,
+      "mode": "100644",
+      "git_blob_sha1": "812b2a5c83e0f1a1884ba697d89507c876ae5936",
+      "sha256": "787efea03cb5d937cfd97f86a77430ef9cf453385860e2497ad63c26ed3bbfe3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/008-exact-optimized.json",
+      "bytes": 15879,
+      "mode": "100644",
+      "git_blob_sha1": "42aaaf78e6b74ec231744888fa9e5e907c811c23",
+      "sha256": "66524bfcbcb533dd9c0723d3febe9cf2db3437bc72e6e90c8c098df9eb6405a5"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/008-exact-optimized.txt",
+      "bytes": 398,
+      "mode": "100644",
+      "git_blob_sha1": "812b2a5c83e0f1a1884ba697d89507c876ae5936",
+      "sha256": "787efea03cb5d937cfd97f86a77430ef9cf453385860e2497ad63c26ed3bbfe3"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/CHECK_REPORT.json",
+      "bytes": 1243,
+      "mode": "100644",
+      "git_blob_sha1": "e5a7a9ed1f60b6ac9d8cc6f160090664fb3538d1",
+      "sha256": "1bc12d138ca4f7685cfbd4ab9d2aeb8b598f6655a08877b09b80e5902281523c"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/root-overlap-normal.json",
+      "bytes": 8107,
+      "mode": "100644",
+      "git_blob_sha1": "48962739cccf1ae2f74908237d995893da11040a",
+      "sha256": "309761b3e9a0d05bf1fc2dc334ddc41599a2991a224bf272528629adc5e34c05"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/root-overlap-normal.txt",
+      "bytes": 93,
+      "mode": "100644",
+      "git_blob_sha1": "06d5f9f4b31fd7f545aaa3d6cebbd5aca5d3b6a8",
+      "sha256": "eb8375079b053c4937424de323ad32bf0cd34816b961356b88ea3b9ef15688a8"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/root-overlap-optimized.json",
+      "bytes": 8107,
+      "mode": "100644",
+      "git_blob_sha1": "48962739cccf1ae2f74908237d995893da11040a",
+      "sha256": "309761b3e9a0d05bf1fc2dc334ddc41599a2991a224bf272528629adc5e34c05"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/results/root-overlap-optimized.txt",
+      "bytes": 93,
+      "mode": "100644",
+      "git_blob_sha1": "06d5f9f4b31fd7f545aaa3d6cebbd5aca5d3b6a8",
+      "sha256": "eb8375079b053c4937424de323ad32bf0cd34816b961356b88ea3b9ef15688a8"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/run_checks.py",
+      "bytes": 3151,
+      "mode": "100644",
+      "git_blob_sha1": "f4bfbfb1162effd33ef351489a9c15874028588c",
+      "sha256": "9fbcc7debf3f446cad1ea94231ff1e803356288dc1e9502beffb6023928c5fa0"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/test_integrity.py",
+      "bytes": 25676,
+      "mode": "100644",
+      "git_blob_sha1": "e4f7a31bb6955ad99d2a5fdc3aa00789e0a36d8e",
+      "sha256": "43396ba77be27ae50e7194686183c5118e5c99016602f53271772b533f913faf"
+    },
+    {
+      "path": "notes/transport-source-tail-synthesis/verification/verify_integrity.py",
+      "bytes": 30163,
+      "mode": "100644",
+      "git_blob_sha1": "c83f09ef2776226de3d0250c3599ca8b98812e09",
+      "sha256": "53791009ed1fea00f35e71285bc65896a73af8a8df5560f8c63eac58f4920bb2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 38415,
+      "mode": "100644",
+      "git_blob_sha1": "32e8f503f5e839865d44dce27c9e923f50f128fc",
+      "sha256": "ccf56e421c6cf62c2b35156758055ad4c7acd3880bc12fcfa995c01a5066ed03"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 32775,
+      "mode": "100644",
+      "git_blob_sha1": "ae7edbfc44391e13004f334287df73201fc8f080",
+      "sha256": "fc6076f238cdc7d8561c52b0144fd01e9e0366a31d25e5522eae9ab630183d1d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 26840,
+      "mode": "100644",
+      "git_blob_sha1": "4be8264d478b0c0fd24760e0ec5e736718601503",
+      "sha256": "bcf53356abfc349215ac596b61126415dabd9eb207516464be1252a4732ed0d8"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 38238,
+      "mode": "100644",
+      "git_blob_sha1": "8e6e7105aef5025e4e84817d87f3af4129952918",
+      "sha256": "bbe8a8c5122f4822e0f53e886698d0e43be50f586a0f710257e2823ada9494f5"
+    },
+    {
+      "path": "notes/transport-source-tail-programme/README.md",
+      "bytes": 9235,
+      "mode": "100644",
+      "git_blob_sha1": "802c0968634c19f90d341def5bd9a19fd9fd6771",
+      "sha256": "6826019debe901c8d142b81135bdc2cde339f582ad5a04b7eb4b7bb059dfed7f"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-transport-source-tail-synthesis-v1.json",
+  "intake_archive_note": "The frozen_public_copy digest identifies the reviewed integration intake; the complete constituent files are published at package_root. The source archive is also published at its listed path."
+}

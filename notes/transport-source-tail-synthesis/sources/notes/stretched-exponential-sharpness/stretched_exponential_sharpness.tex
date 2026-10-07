@@ -1,0 +1,422 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dd}{\,\mathrm d}
+\title{Sharp logarithmic corrections under\linebreak stretched exponential target bounds}
+\author{}
+\date{Supplementary mathematical note\quad 7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The stretched-exponential upper bound in manuscript 007 has logarithmic
+power $2/(3q)$ at Wasserstein exponent $1/3$. Reweighting the explicit
+two-atom constructions of manuscript 001 v3 shows that this logarithmic
+power is necessary for a fixed uniform cube source and for a fixed
+cube-truncated Gaussian source. The latter is strongly log-concave with
+a hard convex boundary. In contrast, the full Gaussian source has a
+pure one-third bound on the same target class. We give the complete
+lower-bound calculation, including the source-cell masses, direct
+optimality of the maps, optimal target coupling, and logarithmic
+asymptotics.
+\end{abstract}
+
+\paragraph{Scope and dependencies.}
+This note combines existing proved parts of two research drafts. The
+two-atom geometries are those of manuscript 001 v3, Theorem 1.7,
+Section 11 and Section 12.2~\cite{M001}. The upper estimate is manuscript
+007 v1, Corollary 4.1, using its Theorem 3.1 and Corollary 3.2~\cite{M007}.
+The lower bounds below are proved directly and do not use the
+radius-independent potential-stability theorem. The source-specific
+upper bounds use the potential theorems proved in manuscript 001 v3,
+Theorems 1.1 and 1.4; this note does not independently revalidate those
+theorems. No novelty, publication-priority,
+external-peer-review, or journal-level claim is made. Neither frozen
+manuscript is changed by this note.
+
+\section{Statement and common calculation}
+For $q,K>0$, define the pair class
+\[
+ \mathcal E_{q,K}=
+ \left\{(\mu,\nu):
+ \int e^{(|y|/K)^q}\dd\mu(y)
+ +\int e^{(|y|/K)^q}\dd\nu(y)\le4\right\}.
+\]
+Every member has finite moments of every positive order. For an
+absolutely continuous source $\rho$, let $T_\mu$ be its quadratic
+Brenier map to $\mu$, and write
+\[
+ w=W_2(\mu,\nu),\qquad
+ X_\rho(\mu,\nu)=\norm{T_\mu-T_\nu}_{L^2(\rho)},
+\]
+\[
+ \Phi_{q,K}(w)=K^{2/3}w^{1/3}
+             \bigl(1+\log(K/w)\bigr)^{2/(3q)},
+ \qquad 0<w\le K.
+\]
+
+\begin{theorem}\label{thm:main}
+Fix $d\ge2$ and either of the following sources, independently of
+$q,K$ and of the target parameter:
+\begin{enumerate}
+\item the uniform probability measure on $[-1,1]^d$;
+\item the standard Gaussian conditioned on $[-1,1]^d$.
+\end{enumerate}
+For every $q,K>0$, there are pairs $(\mu_a,\nu_a)\in\mathcal E_{q,K}$,
+each target having exactly two atoms, such that $w_a\to0$ as
+$a\downarrow0$, and
+\[
+ \frac{X_\rho(\mu_a,\nu_a)}{\Phi_{q,K}(w_a)}
+       \longrightarrow c_{\rho,q}\in(0,\infty).
+\]
+In particular, no uniform estimate with Wasserstein power $1/3$ and
+logarithmic power $\gamma<2/(3q)$ holds on this class. Nor can
+$\Phi_{q,K}$ be replaced by a function that is $o(\Phi_{q,K})$ as
+$w\downarrow0$.
+
+For these sources, manuscript 007, Corollary 4.1, gives the matching
+upper bound $X_\rho\le C_{\rho,d,q}\Phi_{q,K}(w)$ for
+$(\mu,\nu)\in\mathcal E_{q,K}$ and $0<w\le K$, using the explicitly
+cited potential theorems proved in manuscript 001.
+\end{theorem}
+
+The second source has density
+\[
+ r(x)=Z_d^{-1}e^{-|x|^2/2}\ind_{[-1,1]^d}(x).
+\]
+It is $1$-strongly log-concave in the extended-potential sense:
+$r=Z_d^{-1}e^{-|x|^2/2-W}$ with the proper lower-semicontinuous convex
+function $W=I_{[-1,1]^d}$, equal to zero on the cube and $+\infty$
+outside. Consequently, the necessity of the logarithm holds even for
+one fixed strongly log-concave source with a hard boundary.
+
+\begin{lemma}[Equal-mass two-atom formulas]\label{lem:atoms}
+Let $0<m<1/2$, $R>0$, and let $e,n$ be unit vectors with
+$e\cdot n>0$. Put $\eta=|e-n|$ and
+\[
+ \mu=(1-m)\delta_0+m\delta_{Re},\qquad
+ \nu=(1-m)\delta_0+m\delta_{Rn}.
+\]
+Then
+\begin{equation}\label{eq:Wexact}
+ W_2(\mu,\nu)^2=mR^2\eta^2.
+\end{equation}
+If their Brenier maps from $\rho$ have the form
+$T_\mu=Re\ind_A$ and $T_\nu=Rn\ind_B$, where
+$\rho(A)=\rho(B)=m$, and $D=\rho(A\mathbin\triangle B)$, then
+\begin{equation}\label{eq:Xexact}
+ X_\rho(\mu,\nu)^2
+ =R^2\bigl[D+\eta^2(m-D/2)\bigr].
+\end{equation}
+Finally, taking $R=K[\log(1/m)]^{1/q}$ puts the pair in
+$\mathcal E_{q,K}$, with combined exponential moment exactly $4-2m$.
+\end{lemma}
+\begin{proof}
+A coupling is determined by the mass $s\in[0,m]$ sent from $Re$ to
+$Rn$. Its other three entries, in the natural two-by-two table, are
+$m-s$, $m-s$, and $1-2m+s$. Its cost is
+\[
+ R^2\bigl[2(m-s)+s\eta^2\bigr]
+ =2R^2\bigl[m-s(e\cdot n)\bigr].
+\]
+Since $e\cdot n>0$, this is minimized at $s=m$, proving
+\eqref{eq:Wexact}. The map discrepancy has squared magnitude $R^2$
+on $A\mathbin\triangle B$, $R^2\eta^2$ on $A\cap B$, and zero
+elsewhere. As $\rho(A\cap B)=m-D/2$, this proves
+\eqref{eq:Xexact}. For either target, the exponential moment is
+\[
+ 1-m+m\exp\bigl((R/K)^q\bigr)
+ =1-m+m\exp(\log(1/m))=2-m.
+\]
+\end{proof}
+
+\paragraph{Direct optimality of the ramp maps.}
+Both constructions below use finite convex functions that are maxima
+of two affine functions, with slopes exactly the two desired target
+atoms. To verify optimality without invoking an imported stability
+result, write such a function as
+$u(x)=\max_{y\in\{0,y_1\}}(x\cdot y+c_y)$. Then
+\[
+ x\cdot y+c_y\le u(x)
+\]
+for both target atoms, with equality for the selected gradient slope.
+Integrating against any coupling to the same target bounds
+$\int x\cdot y$ by the fixed number
+$\int u\dd\rho-\sum_y c_y\mu(\{y\})$. The gradient coupling attains
+this number. Since both marginal second moments are fixed, it
+minimizes quadratic cost. The separating hyperplane is source-null,
+so equality selects the unique gradient slope almost everywhere,
+also proving uniqueness of the optimal map. All integrals here are
+finite, because each source is compact and each individual target
+is finite.
+
+\section{Exact uniform-cube construction}
+Let $\rho$ be the uniform probability on $[-1,1]^d$. For
+$0<a<1/2$, set
+\[
+ m=\frac a2,\qquad
+ n_a=\frac{e_1+a e_2}{\sqrt{1+a^2}},\qquad
+ \eta_a=|e_1-n_a|,\qquad
+ R_a=K[\log(2/a)]^{1/q}.
+\]
+Define the rare source cells
+\[
+ A_a=\{x_1>1-a\},\qquad
+ B_a=\{x_1+a x_2>1-a\}.
+\]
+Conditional on $x_2=z\in[-1,1]$, their horizontal widths inside the
+cube are $a$ and $a(1+z)$. Both are in $[0,2]$. The two intervals
+share their right endpoint and hence are nested. If $Z$ is uniform
+on $[-1,1]$, their source probabilities are therefore exactly
+\begin{align}
+ \rho(A_a)=\rho(B_a)&=a/2,\label{eq:cube-mass}\\
+ D_a=\rho(A_a\mathbin\triangle B_a)
+   &=\frac a2\E|Z|=\frac a4,\label{eq:cube-diff}\\
+ \rho(A_a\cap B_a)
+   &=\frac a2\E\min(1,1+Z)=\frac{3a}{8}.
+   \label{eq:cube-intersection}
+\end{align}
+Here the factor $1/2$ in each horizontal probability is the normalized
+one-dimensional cube density. The remaining $d-2$ coordinates
+integrate out.
+
+The convex potentials
+\[
+ u_a(x)=R_a(x_1-1+a)_+,\qquad
+ v_a(x)=\frac{R_a}{\sqrt{1+a^2}}(x_1+a x_2-1+a)_+
+\]
+have gradients $R_a e_1\ind_{A_a}$ and $R_a n_a\ind_{B_a}$.
+By \eqref{eq:cube-mass}, their laws are the two-atom targets in
+Lemma~\ref{lem:atoms}. The direct argument above proves that these
+are their Brenier maps. The lemma now gives the exact identities
+\begin{equation}\label{eq:cube-exact}
+ w_a^2=mR_a^2\eta_a^2,\qquad
+ X_a^2=mR_a^2\left(\frac12+\frac34\eta_a^2\right),\qquad
+ \eta_a^2=2-\frac2{\sqrt{1+a^2}}\sim a^2.
+\end{equation}
+In particular, the combined exponential moment is $4-a\le4$.
+
+Put $\ell_a=\log(2/a)$. Since every fixed power of $\ell_a$ grows
+more slowly than every inverse positive power of $a$,
+\[
+ w_a\sim\frac K{\sqrt2}a^{3/2}\ell_a^{1/q}\longrightarrow0,
+ \qquad
+ X_a\sim\frac K2 a^{1/2}\ell_a^{1/q}.
+\]
+Moreover
+\[
+ \log(K/w_a)
+ =\frac32\log(1/a)-\frac1q\log\ell_a
+      +\frac12\log2+o(1)
+ \sim\frac32\ell_a.
+\]
+Consequently, for every real $\gamma$,
+\begin{equation}\label{eq:cube-ratio}
+ \frac{X_a}{K^{2/3}w_a^{1/3}(1+\log(K/w_a))^\gamma}
+ \sim 2^{-5/6}(3/2)^{-\gamma}
+                   \ell_a^{\,2/(3q)-\gamma}.
+\end{equation}
+This tends to infinity for $\gamma<2/(3q)$ and to the positive constant
+$2^{-5/6}(2/3)^{2/(3q)}$ at equality. The uniform-cube part of
+Theorem~\ref{thm:main} follows.
+
+\section{A fixed cube-truncated Gaussian}
+Let $\rho$ be the standard Gaussian conditioned on $[-1,1]^d$.
+Its density is the product of copies of
+\[
+ f(x)=Z_1^{-1}e^{-x^2/2}\ind_{[-1,1]}(x),\qquad
+ Z_1=\int_{-1}^1 e^{-s^2/2}\dd s.
+\]
+Write its first two coordinates as independent symmetric variables
+$X,Z$, and put $\ell=f(1)>0$. For $0\le s\le2$, define
+\[
+ F(s)=\Pr(X>1-s)=\int_{1-s}^1 f(x)\dd x.
+\]
+This function is continuous and strictly increasing. Smoothness of
+$f$ up to the right endpoint from the interior gives
+\begin{equation}\label{eq:F}
+ F(s)=\ell s+O(s^2)\qquad(s\downarrow0),
+\end{equation}
+uniformly for $0\le s\le Ca$ at every fixed $C$.
+
+Fix once and for all $k=1/8$. For small $a>0$, put $b=ka$ and
+$m_a=F(a)$. Choose $c_a\in[(1-k)a,(1+k)a]$ by
+\begin{equation}\label{eq:match}
+ \E F(c_a+bZ)=F(a).
+\end{equation}
+Existence and uniqueness follow directly: throughout the candidate
+interval, $c+bZ$ lies in $[(1-2k)a,(1+2k)a]\subset(0,2)$ for small
+$a$. At its lower endpoint the widths are at most $a$, strictly
+less almost surely, so the expectation is below $F(a)$; at the
+upper endpoint it is above $F(a)$. Continuity and strict monotonicity
+complete the argument. Since $\E Z=0$, \eqref{eq:F} yields
+\begin{equation}\label{eq:ca}
+ c_a=a+O(a^2),\qquad m_a\sim\ell a.
+\end{equation}
+
+Take
+\[
+ A_a=\{x_1>1-a\},\qquad
+ B_a=\{x_1+b x_2>1-c_a\}.
+\]
+Their masses are exactly $m_a$ by \eqref{eq:match}. On each
+$x_2=z$ slice their intervals are nested and have probabilities
+$F(a)$ and $F(c_a+bz)$. Thus their symmetric-difference mass is exactly
+\begin{equation}\label{eq:D}
+ D_a=\E|F(c_a+bZ)-F(a)|.
+\end{equation}
+Equations \eqref{eq:F}--\eqref{eq:ca} imply, uniformly for
+$z\in[-1,1]$,
+\[
+ F(c_a+bz)-F(a)=\ell k a z+O(a^2).
+\]
+The absolute-value function is $1$-Lipschitz, so taking absolute
+values and expectations gives
+\begin{equation}\label{eq:Dasymptotic}
+ D_a=\ell k\E|Z|\,a+O(a^2),\qquad
+ D_a/m_a\longrightarrow k\E|Z|>0.
+\end{equation}
+The overlap mass is exactly $m_a-D_a/2$.
+
+Now choose
+\[
+ n_a=\frac{e_1+b e_2}{\sqrt{1+b^2}},\qquad
+ \eta_a=|e_1-n_a|,\qquad
+ R_a=K[\log(1/m_a)]^{1/q}.
+\]
+The convex potentials
+\[
+ u_a(x)=R_a(x_1-1+a)_+,\qquad
+ v_a(x)=\frac{R_a}{\sqrt{1+b^2}}(x_1+b x_2-1+c_a)_+
+\]
+give the exact Brenier maps $R_a e_1\ind_{A_a}$ and
+$R_a n_a\ind_{B_a}$, by the same direct supporting-affine-function
+argument. Their target laws are
+\[
+ \mu_a=(1-m_a)\delta_0+m_a\delta_{R_ae_1},\qquad
+ \nu_a=(1-m_a)\delta_0+m_a\delta_{R_an_a}.
+\]
+For small $a$, $m_a<1/2$ and $e_1\cdot n_a>0$. Lemma~\ref{lem:atoms}
+proves that the pair has combined exponential moment $4-2m_a\le4$
+and satisfies the exact formulas
+\begin{equation}\label{eq:gaussian-exact}
+ w_a^2=m_aR_a^2\eta_a^2,\qquad
+ X_a^2=R_a^2[D_a+\eta_a^2(m_a-D_a/2)].
+\end{equation}
+Also
+\[
+ \eta_a^2=2-\frac2{\sqrt{1+k^2a^2}}\sim k^2a^2.
+\]
+Write $L_a=\log(1/m_a)\sim\log(1/a)$. Combining these formulas gives
+\begin{align*}
+ w_a&\sim Kk\sqrt\ell\,a^{3/2}L_a^{1/q}\longrightarrow0,\\
+ X_a&\sim K\sqrt{\ell k\E|Z|}\,a^{1/2}L_a^{1/q},\\
+ \log(K/w_a)&\sim\frac32 L_a.
+\end{align*}
+For the second relation, the angular overlap term in
+\eqref{eq:gaussian-exact} is $O(a^3)$ inside the brackets, whereas
+$D_a$ is asymptotic to a positive constant times $a$.
+It follows that, for every real $\gamma$,
+\begin{equation}\label{eq:gaussian-ratio}
+ \frac{X_a}{K^{2/3}w_a^{1/3}(1+\log(K/w_a))^\gamma}
+ \sim\ell^{1/3}k^{1/6}\sqrt{\E|Z|}\,(3/2)^{-\gamma}
+                  L_a^{\,2/(3q)-\gamma}.
+\end{equation}
+This proves both the divergence for every smaller logarithmic power
+and the finite positive limiting ratio at $\gamma=2/(3q)$. It
+completes the lower-bound proof of Theorem~\ref{thm:main}.
+
+\section{Upper bound and full Gaussian contrast}
+Both fixed sources above satisfy manuscript 007, Corollary 3.2:
+the uniform cube is compact log-concave, and the truncated Gaussian
+is strongly log-concave with $\kappa=1$. Their slice variation is
+finite. Its Corollary 4.1 therefore gives
+\[
+ X_\rho(\mu,\nu)
+ \le C_{q,\rho,d}K^{2/3}w^{1/3}
+           (1+\log(K/w))^{2/(3q)},\qquad 0<w\le K,
+\]
+on $\mathcal E_{q,K}$. This is the stated matching upper bound,
+using the source-dependent potential theorems proved in manuscript
+001 v3, Theorems 1.1 and 1.4. The present note does not independently
+revalidate those theorems. In particular, subgaussian target tails ($q=2$)
+have a necessary logarithmic power $1/3$ for either hard-boundary
+source.
+
+The conclusion differs for the full standard Gaussian $\gamma_d$.
+Use target moment order $p=3$, independently of the stretched-exponential
+parameter $q>0$. Since
+\[
+ s^3\le C_q e^{s^q},\qquad
+ C_q=\sup_{s\ge0}s^3e^{-s^q}=(3/(qe))^{3/q},
+\]
+the class assumption bounds the sum of third moments by $4C_qK^3$.
+Thus the sum $M$ of their third-moment roots satisfies
+\[
+ M\le2^{2/3}(4C_qK^3)^{1/3}.
+\]
+Manuscript 001 v3, Theorem 1.6, applied with moment order three,
+gives the pure bound
+\[
+ \norm{T_\mu-T_\nu}_{L^2(\gamma_d)}
+ \le C_{d,q}K^{2/3}W_2(\mu,\nu)^{1/3}
+ \qquad ((\mu,\nu)\in\mathcal E_{q,K}),
+\]
+with no logarithmic factor. Its one-third exponent is sharp for
+$d\ge2$: the three-atom bounded-target examples of Theorem 1.3 in
+that manuscript can be scaled into the ball of radius
+$K(\log2)^{1/q}$, which places their combined exponential moment
+at most four. Thus a logarithmic loss is necessary for the fixed
+hard-boundary strongly log-concave example but absent for the fixed
+full Gaussian.
+
+\begin{remark}[Dimension and other exponential bounds]
+The lower constructions require $d\ge2$. In dimension one, an
+atomless source has the exact monotone-quantile identity
+$X_\rho=W_2$. The number four in the exponential-moment class is
+only a convenient normalization. For any fixed $B>2$, replace
+$R=K[\log(1/m)]^{1/q}$ by
+$R=K[\log(c/m)]^{1/q}$ with $c=(B-2)/2$, for sufficiently small
+$m<c$. The combined exponential moment becomes $B-2m\le B$,
+and the same asymptotics and logarithmic exponent hold. At $B=2$
+the class contains only the pair $(\delta_0,\delta_0)$.
+\end{remark}
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{M001}
+mxym/math research collection, \emph{Sharp Brenier stability under target moment bounds},
+version 3, 7 October 2026, manuscript 001, \texttt{mxym/math}.
+Theorem 1.7 and Section 11 give the cube-truncated Gaussian
+two-atom family; Section 12.2 gives the exact uniform-cube family.
+Theorem 1.6 gives the full-Gaussian finite-moment one-third bound;
+Theorem 1.3 gives its bounded-target sharpness. Theorems 1.1 and 1.4
+prove the source-dependent potential estimates used for the upper bounds.
+Audited source blob
+\texttt{0007edf5e28e4b4b0d34b2043cffd6e13e9f5aed}.
+Pinned source:
+\url{https://github.com/mxym/math/blob/0bd6c682edbe6f15001ddc2d73aac3c84ac979a4/preprints/001-strongly-log-concave-brenier/v3/manuscript.tex}.
+\bibitem{M007}
+mxym/math research collection, \emph{Tail-sensitive convex-gradient interpolation and
+Brenier stability beyond bounded targets}, version 1,
+7 October 2026, manuscript 007, \texttt{mxym/math}.
+Theorem 3.1, Corollary 3.2, and Corollary 4.1.
+Audited source blob \texttt{2d6f87539f93f87b33e2484334542ab924143057}.
+Pinned source:
+\url{https://github.com/mxym/math/blob/0bd6c682edbe6f15001ddc2d73aac3c84ac979a4/preprints/007-tail-brenier-stability/v1/main.tex}.
+\end{thebibliography}
+\noindent Both sources are read at repository commit
+\texttt{0bd6c682edbe6f15001ddc2d73aac3c84ac979a4}.
+The note records a new combination of their explicit results;
+it makes no claim of novelty relative to the literature.
+\end{document}

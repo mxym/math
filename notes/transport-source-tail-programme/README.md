@@ -4,6 +4,8 @@ A research-programme guide to manuscripts [001](../../preprints/001-strongly-log
 
 ## Common framework and dependencies
 
+The separate [derived synthesis and proof package](../transport-source-tail-synthesis/README.md) gives the density-root Sobolev characterization of linear overlap for 1 < s < infinity, including coordinatewise finite-liminf and rooted strong-limit statements. Its [dependency map](../transport-source-tail-synthesis/DEPENDENCY_MAP.md) retains the distinct proof homes below. It characterizes this interpolation method, while transport applications still require the independent (P) input and moment/domain hypotheses.
+
 Write `q>2` for the target moment order, `s=q/(q-2)` for the source information order, `b` for boundary vanishing order, and `beta` for the logarithmic target-moment parameter. These parameters describe different conditions.
 
 The common route is: centered-potential stability, convex-gradient interpolation using minimum-density weights or coordinate slices, quantitative source overlap, then a target-tail or target-moment bound. The lower constructions test different parts of this route.

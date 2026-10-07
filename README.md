@@ -2,6 +2,8 @@
 
 [Transport programme: source overlap and target tails](notes/transport-source-tail-programme/README.md) connects manuscripts 001, 007 and 008 while preserving their separate versions and proof dependencies.
 
+The [source-overlap synthesis](notes/transport-source-tail-synthesis/README.md) adds a complete six-page proof of the density-root Sobolev characterization of linear overlap for 1 < s < infinity, with pinned sources and reproducible checks. This characterizes the interpolation method; transport applications retain the separate potential estimate (P) and their moment/domain hypotheses.
+
 Mathematical research manuscripts and supporting verification material maintained at **mxym/math**.
 
 中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前九份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积的直积与 join 演算、单纯形刚性，以及非线性避让与光滑源的稳定性反例，并包含硬球气体的随机场路径极限。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。

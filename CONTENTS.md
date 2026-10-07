@@ -22,6 +22,8 @@ For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT
 
 ## Notes
 
+[Source overlap and target tails: derived synthesis](notes/transport-source-tail-synthesis/README.md), with a [six-page proof](notes/transport-source-tail-synthesis/synthesis.pdf), [editable source](notes/transport-source-tail-synthesis/synthesis.tex) and [dependency map](notes/transport-source-tail-synthesis/DEPENDENCY_MAP.md). The 1 < s < infinity root-Sobolev characterization concerns linear overlap, with coordinatewise finite-liminf and strong-limit statements; it is not a universal transport-necessity theorem.
+
 [A nine-piece cover of a balanced projector slice](notes/balanced_borsuk_slice.md) excludes one specific eight-dimensional Borsuk route. It is not a claim about all eight-dimensional sets.
 
 ## Supporting comparisons

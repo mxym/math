@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — source-overlap and target-tail synthesis
+
+- Added the exact independently model-audited 108-file synthesis package: six-page written proof, editable source, 57 byte-exact historical dependencies, proof reconstruction, finite regression controls and deterministic source archive.
+- The global zero-extended density-root characterization holds for 1 < s < infinity and characterizes the linear-overlap method. Applications retain the separate (P), second-moment and proper-convex/L2 hypotheses; inherited sufficient directions and derived bounds remain attributed.
+- Repeated normal/optimized integrity, fail-closed packaging and regression checks during integration. The [release manifest](releases/2026-10-07-transport-source-tail-synthesis-v1.json) records exact file identities. No universal transport necessity, full Lean proof, human peer review, novelty or priority certification is claimed. Historical mathematical files and the programme coverage map remain preserved.
+
 ## 2026-10-07 — dimension refinements of sharp simplex stability
 
 - Published the exact 40-file quadratic-dimensional written refinement, with coefficient at most 4096 d², as the strongest dimension bound in this repository. The sharp 1/(d−1) exponent, every prescribed maximum simplex and its original centroid remain unchanged.

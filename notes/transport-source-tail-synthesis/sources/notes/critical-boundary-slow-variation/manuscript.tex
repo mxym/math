@@ -1,0 +1,301 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Critical boundary stability}
+\fancyhead[R]{\small Supplement to manuscript 008}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\PP}{\mathcal P_2}
+\title{Critical boundary stability\\with slowly varying density factors}
+\author{}
+\date{Supplement to research manuscript 008\quad 7 October 2026}
+\hypersetup{pdftitle={Critical boundary stability with slowly varying density factors},pdfauthor={},pdfsubject={An implicit exact Brenier stability modulus and a necessary iterated logarithm}}
+\begin{document}
+\maketitle\vspace{-1.5em}
+\begin{abstract}
+We extend the critical boundary construction of manuscript~008 to positive slowly varying density factors. For a fixed source with first marginal proportional near zero to $x^{s-1}L(x)e^{-x^2/2}$, $s=p/(p-2)$, we determine the optimal Brenier-map modulus on the unit $p$th-moment target class for every sufficiently small distance. The answer is an implicit formula determined by $1+\int_h^a L(x)\dd x/x$. In particular $L(x)=1/\log(e/x)$ yields the necessary correction $w^{1/3}[\log\log(1/w)]^{1/(3s)}$. The proof retains the global mass-matching construction of~008 and its explicit all-$\mathcal P_2$ potential input from~001~v3.
+\end{abstract}
+
+\paragraph{Scope and provenance.}
+This supplementary research draft to manuscript~008 is not externally peer reviewed or proof-assistant formalized. The multiscale mechanism and overlap interpolation are inherited from \cite{Overlap}; the potential theorem is from \cite{Potential}, which develops the framework of \cite{OpenAI}. We prove the additional uniform estimates, normalization and inversion required by the varying factor. No priority claim is made.
+
+\section{The source and the exact modulus}
+Fix $p>2$, $s=p/(p-2)$, $\beta=s-1>0$ and $d\ge2$. Suppose $L>0$ is $C^2$ near zero and, with $\ell=\log L$,
+\begin{equation}\label{eq:slow}
+ x\ell'(x)\longrightarrow0,\qquad x^2\ell''(x)\longrightarrow0
+ \quad(x\downarrow0).
+\end{equation}
+Choose a fixed probability density $f$ on $(0,\infty)$ such that, for a sufficiently small $a>0$,
+\begin{equation}\label{eq:source}
+ f(x)=c x^\beta L(x)e^{-x^2/2}\quad(0<x<a),
+ \qquad r(x)=f(x_1)\prod_{j=2}^d g(x_j),\quad
+ g(z)=c_g e^{-1/(1-z^2)}\ind_{\{|z|<1\}}.
+\end{equation}
+Here $c,c_g>0$ normalize the densities. The extension of $f$ is chosen so its potential is $C^2$ and $1$-strongly convex on the half-line, with a quadratic tail, as justified below. Write $\rho=r\dd x$. For its quadratic Brenier maps $T_\mu$, set
+\[
+ \mathcal C_p=\left\{\mu:\int|y|^p\dd\mu(y)\le1\right\},
+ \qquad
+ \Omega(w)=\sup_{\substack{\mu,\nu\in\mathcal C_p\\W_2(\mu,\nu)\le w}}
+       \norm{T_\mu-T_\nu}_{L^2(\rho)}.
+\]
+All constants below may depend on the fixed source, $p$ and $d$, but not on targets or $w$. The notation $\asymp$ denotes two-sided bounds by positive constants.
+
+\begin{theorem}\label{thm:main}
+For the fixed source \eqref{eq:source}, put
+\begin{equation}\label{eq:scales}
+ H(h)=1+\int_h^a L(x)\frac{\dd x}{x},\qquad
+ F(h)=h^{3/2}H(h)^{1/(2s)},\qquad
+ G(h)=h^{1/2}H(h)^{1/(2s)}.
+\end{equation}
+The function $F$ is strictly increasing near zero and tends to zero. If $h_w=F^{-1}(w)$ on that interval, then
+\begin{equation}\label{eq:modulus}
+ \Omega(w)\asymp G(h_w)
+       =w^{1/3}H(h_w)^{1/(3s)}
+ \quad\text{for every sufficiently small }w>0.
+\end{equation}
+The source has a $C^2$ potential on its support interior and is strongly log-concave in the extended-valued sense. No full support or regularity across the boundary is asserted. The lower construction has finitely many atoms for each $w$, with their number allowed to grow as $w$ decreases.
+\end{theorem}
+
+To construct the extension, let $V_0=x^2/2-\beta\log x-\ell(x)$. By \eqref{eq:slow}, $V_0''\ge1+\beta/(2x^2)$ on a small interval. Choose $0<a<a_1$ inside it and a cutoff $\chi$ equal to one near $a$, zero near $a_1$, and valued in $[0,1]$. Continue the curvature as $1+\chi(V_0''-1)$ up to $a_1$ and as $1$ thereafter; integrate twice from $V_0(a),V_0'(a)$. The resulting $V$ is $C^2$, has $V''\ge1$, and equals $x^2/2+Ax+B$ eventually. The elementary estimates below give $\ell(x)=o(\log(1/x))$, so $V(x)\to+\infty$ at zero and $e^{-V}$ is integrable there. Its quadratic tail gives integrability at infinity and all polynomial source moments. Extension by $+\infty$ to $x\le0$ makes $V-x^2/2$ proper lower-semicontinuous convex. The transverse potential satisfies
+$(1/(1-z^2))''=2(1+3z^2)/(1-z^2)^3\ge2$ and diverges at its endpoints. Thus $\rho$ is full-dimensional and $1$-strongly log-concave. If $L$ is $C^\infty$, the extension may be chosen $C^\infty$ on the support interior.
+
+\section{Slow variation and the upper bound}
+For every $\eta>0$, choose $a_\eta>0$ so that $|x\ell'(x)|\le\eta$ on $(0,a_\eta)$. Integration gives
+\begin{equation}\label{eq:potter}
+ (x/y)^\eta\le L(x)/L(y)\le(y/x)^\eta\qquad(0<x\le y<a_\eta).
+\end{equation}
+It follows that $\ell(x)=o(\log(1/x))$, that $L(ch)/L(h)\to1$ uniformly for $c$ in each compact subset of $(0,\infty)$, and, for every fixed $C>0$,
+\begin{equation}\label{eq:boundary-integral}
+ \int_0^{Ch}x^\beta L(x)\dd x\le C' h^{\beta+1}L(h).
+\end{equation}
+For the last estimate use \eqref{eq:potter} with $\eta<\beta+1$ on $(0,h)$ and bounded ratios on $(h,Ch)$.
+For any fixed $A>0$, uniform fixed-ratio convergence gives
+$H(h)\ge\int_h^{e^Ah}L(x)\dd x/x=(A+o(1))L(h)$.
+Taking a limsup and then $A\to\infty$ proves $L(h)/H(h)\to0$. Hence
+\begin{equation}\label{eq:derivatives}
+ \frac{hH'}H=-\frac LH\longrightarrow0,\qquad
+ \frac{hF'}F\longrightarrow\frac32,\qquad
+ \frac{hG'}G\longrightarrow\frac12.
+\end{equation}
+Integration also gives $\log H(h)=o(\log(1/h))$. Thus $H$ is slowly varying, $F,G$ tend to zero and are increasing near zero, and for every fixed $C_0>0$,
+\begin{equation}\label{eq:inverse}
+ G(F^{-1}(w/C_0))\asymp G(F^{-1}(w)).
+\end{equation}
+Indeed, near zero the logarithmic derivative of $F$ lies between $1$ and $2$, so its two inverse arguments have a bounded ratio; a bounded logarithmic derivative of $G$ then proves \eqref{eq:inverse}. These facts cover finite as well as divergent limits of $H$.
+
+We state the quantitative inputs precisely. For any full-dimensional
+$\rho=Z^{-1}e^{-\kappa|x|^2/2-W(x)}\dd x$, $\kappa>0$, with $W$ proper lower-semicontinuous convex, manuscript~001~v3, Theorem~1.1 \cite{Potential}, supplies centered convex potentials $U_\mu\in L^2(\rho)$, finite on the source interior, for all $\mu\in\PP(\R^d)$, with
+\begin{equation}\label{eq:potential}
+ \norm{U_\mu-U_\nu}_2\le\sqrt{2/\kappa}\,W_2(\mu,\nu).
+\end{equation}
+Here $\kappa=1$. The overlap interpolation of \cite[Theorem~2.2 and Lemma~2.1]{Overlap}, with the density zero-extended, states
+\begin{align}
+ \norm{\nabla u-\nabla v}_2^2
+ &\le12dh^{-2}\inf_b\norm{u-v-b}_2^2
+ +14\Xi_s(h)\sum_j(\norm{\partial_ju}_p^2+\norm{\partial_jv}_p^2),\label{eq:overlap}\\
+ \Xi_s(h)&:=\max_{j,\pm}
+ \norm{(1-r(\cdot\pm he_j)/r)_+}_{L^s(\rho)}
+ \le s\max_j\norm{r^{1/s}(\cdot+he_j)-r^{1/s}}_{L^s(\dd x)}.\label{eq:root}
+\end{align}
+Losses are set to zero where $r=0$. The functions $u,v$ are finite convex on an open convex domain supporting the density, their gradients belong to $L^p(\rho)$, and their difference is square-integrable up to a constant. The root inequality follows pointwise from $(1-t^s)_+\le s(1-t)_+$. The interpolation uses signed-square derivative increments integrated against $\min(r(x),r(x+he_j))$; both translated terms are integrable because their shifted weights are bounded by $r$. We use these public theorems explicitly, rather than infer \eqref{eq:potential} from density regularity.
+
+Put $U=f^{1/s}$, extended by zero. On $(0,a)$,
+$U'/U=(\beta+x\ell'-x^2)/(sx)$, so $|U'|^s\le C L(x)/x$ since $\beta+1=s$. Away from zero the derivative has integrable $s$th power by the quadratic tail. The contribution to $\int|U(x+h)-U(x)|^s\dd x$ from $(-h,2h)$ is at most $C\int_0^{3h}f\le Ch^sL(h)$. On $x\ge2h$, the fundamental theorem, Hölder and Tonelli bound it by
+$h^s\int_{2h}^\infty|U'|^s\le Ch^sH(h)$.
+The first term is absorbed because $L/H\to0$. Transverse root translations are $O(h)$, as their zero traces and exponential boundary vanishing give $g^{1/s}\in W^{1,s}$. Product integration therefore proves
+\[
+ \max_j\norm{r^{1/s}(\cdot+he_j)-r^{1/s}}_s
+ \le ChH(h)^{1/s}.
+\]
+For targets in $\mathcal C_p$ the coordinate norm sum in \eqref{eq:overlap} is at most $2d$. Combining \eqref{eq:potential}--\eqref{eq:root} yields
+\begin{equation}\label{eq:upper}
+ \norm{T_\mu-T_\nu}_2^2\le C\{w^2/h^2+hH(h)^{1/s}\}
+ \qquad(W_2(\mu,\nu)\le w).
+\end{equation}
+Choose the same $h=h_w$ for every pair in the supremum. Since $w^2=h_w^3H(h_w)^{1/s}$, this proves the upper half of \eqref{eq:modulus}.
+
+\section{Uniform mass matching and global convex potentials}
+We now give the inherited construction with the estimates needed for $L$. Fix a sufficiently small $a_0<a/4$ and let
+\begin{equation}\label{eq:dyadic}
+ t_n=a_0 2^{-n},\quad R_n=t_n^{-\beta/2},\quad
+ S_K=\sum_{n=1}^K L(t_n),\qquad
+ S_K\asymp H(t_K).
+\end{equation}
+The comparison follows by integrating on dyadic intervals, using \eqref{eq:potter}. The fixed upper interval and the added $1$ in $H$ are absorbed by $L(t_1)>0$. It requires neither monotonicity of $L$ nor divergence of $S_K$.
+
+Let $X,Z$ be independent with densities $f,g$, and let $F_0$ be the CDF of $X$. Set $k=1/4$ and take $0<h\le\epsilon t_K$, with one small fixed $\epsilon>0$ to be chosen. Define
+\begin{gather}
+ Q_h(y)=\E F_0(y+khZ),\qquad
+ l_n=Q_h^{-1}(F_0(t_n-h)),\quad
+ r_n=Q_h^{-1}(F_0(t_n+h)),\label{eq:match}\\
+ d_n=(l_n+r_n)/2,\qquad \gamma_n=(r_n-l_n)/(2h).
+\end{gather}
+The inverse is unique at these positive levels. From
+$F_0(y-kh)\le Q_h(y)\le F_0(y+kh)$ one gets
+$|l_n-(t_n-h)|,|r_n-(t_n+h)|\le kh$.
+Uniformly on $|x-t_n|\le3h$,
+\[
+ f(x)\asymp f(t_n),\qquad |f'(x)|\le C f(t_n)/t_n,
+\]
+because $f'/f=\beta/x+\ell'-x=O(1/x)$. Symmetry gives $\E Z=0$, so Taylor's theorem gives
+$|Q_h(y)-F_0(y)|\le Ch^2f(t_n)/t_n$ there, while $Q_h'(y)\ge cf(t_n)$. The inverse mean-value estimate thus proves, uniformly in $n,K,h$,
+\begin{equation}\label{eq:fine}
+ l_n=t_n-h+O(h^2/t_n),\qquad r_n=t_n+h+O(h^2/t_n).
+\end{equation}
+
+The strips
+$A_n=\{t_n-h<X<t_n+h\}$ and
+$C_n=\{l_n-khZ<X<r_n+khZ\}$ have equal mass by the two separate identities
+\begin{equation}\label{eq:cumulative}
+ \E F_0(l_n-khZ)=F_0(t_n-h),\qquad
+ \E F_0(r_n+khZ)=F_0(t_n+h).
+\end{equation}
+The first uses symmetry of $Z$. These equations preserve both neighboring outer masses, as well as the central one. Put $m_n=\rho(A_n)=\rho(C_n)$ and $D_n=\rho(A_n\triangle C_n)$. The coarse bounds imply $|d_n-t_n|\le kh$ and $1-k\le\gamma_n\le1+k$: paired strips overlap and have widths between $h$ and $3h$. All lie within disjoint windows $[t_n-3h,t_n+3h]$ if $\epsilon<1/6$. Comparing endpoints by \eqref{eq:fine}, and replacing density by its value at $t_n$, gives
+\[
+ m_n\asymp hf(t_n),\qquad
+ D_n=2khf(t_n)\E|Z|+O(f(t_n)h^2/t_n).
+\]
+Reduce $\epsilon$ once so the error is at most half the positive leading term. Then
+\begin{equation}\label{eq:local}
+ m_n,D_n\asymp hf(t_n)
+\end{equation}
+with constants independent of $n,K,h$. A fixed sufficiently small bound on $h/t_K$ suffices; that ratio need not tend to zero.
+
+Let $\Phi(x)=\sum_{n=1}^K2R_n(t_n-x)_+$ and
+$\widetilde\Phi(x)=\sum_{n=1}^K2R_n(d_n-x)_+$. The cusps retain their order. At each cusp let $q_n$ be the midpoint of its adjacent slopes, and $L_n,\widetilde L_n$ the respective supporting lines. Monotonicity of slopes gives globally
+$\Phi-L_n\ge R_n|x-t_n|$ and
+$\widetilde\Phi-\widetilde L_n\ge R_n|x-d_n|$,
+with equality between adjacent cusps. Define finite global convex functions
+\begin{align}
+ U_h(x)&=\max\{\Phi(x_1),\,L_n(x_1)+R_nh:1\le n\le K\},\notag\\
+ V_h(x)&=\max\{\widetilde\Phi(x_1),\,
+       \widetilde L_n(x_1)+R_nh\gamma_n+R_nhkx_2:1\le n\le K\}.
+ \label{eq:potentials}
+\end{align}
+On the source domain, each raised plane dominates exactly on its own strip; the windows are disjoint, so no other plane interferes. Outer gradient atoms are the same ordered slopes in both constructions; central atoms are $q_ne_1$ and $q_ne_1+R_nhk e_2$. Equations \eqref{eq:cumulative}, subtracted for adjacent strips, match every outer and central label mass, including the extreme cells. The convex gradients are their Brenier maps: their finite slopes give integrable supporting-plane optimality inequalities.
+
+On a central mismatch the horizontal difference has magnitude $R_n$; the vertical difference is $R_nhk$ exactly on $C_n$. Overlap of paired intervals excludes a direct switch from one outer side to the other. Consequently
+\begin{align}
+ \norm{\nabla U_h-\nabla V_h}_2^2
+ &=\sum_nR_n^2D_n+k^2h^2\sum_nR_n^2m_n,\notag\\
+ W_2((\nabla U_h)_\#\rho,(\nabla V_h)_\#\rho)^2
+ &\le k^2h^2\sum_nR_n^2m_n. \label{eq:costs}
+\end{align}
+The second line uses a valid same-label coupling, without asserting its optimality. By \eqref{eq:local}, both sums have size $hS_K$, because $R_n^2f(t_n)\asymp L(t_n)$.
+
+\section{Moment normalization and the lower envelope}
+The jumps are geometric, $R_{n+1}/R_n=2^{\beta/2}>1$. Thus every active horizontal slope is bounded by
+$C\min(x_1^{-\beta/2},t_K^{-\beta/2})$ on its nonzero region, which lies below a fixed small multiple of $a_0$. Shifted cusps change this by only a constant factor, and central vertical slopes obey the same bound since $hk\le1$. Using $\beta p/2=\beta+1=s$, the contribution above $t_K$ to the sum of both $p$th gradient moments is at most
+$C\int_{t_K}^{Ca_0}L(x)\dd x/x\le CS_K$. The capped portion below a multiple of $t_K$ is at most
+$Ct_K^{-s}\int_0^{Ct_K}x^{s-1}L(x)\dd x\le CL(t_K)\le CS_K$
+by \eqref{eq:boundary-integral}. Fixed remaining pieces are absorbed by $S_K\ge L(t_1)>0$.
+
+Scale both potentials by $\lambda_K=(C_*S_K)^{-1/p}$ with one sufficiently large fixed $C_*$. Each induced target then has $p$th moment at most one. Write $\Delta_{K,h}$ for the $L^2(\rho)$ distance between their Brenier maps and $w_{K,h}$ for their $W_2$ distance. Since $1/2-1/p=1/(2s)$, \eqref{eq:costs} gives
+\begin{equation}\label{eq:normalized}
+ \Delta_{K,h}\ge c h^{1/2}S_K^{1/(2s)},\qquad
+ w_{K,h}\le C h^{3/2}S_K^{1/(2s)}.
+\end{equation}
+For every small $h$, take
+$K=\lfloor\log_2(a_0\epsilon/h)\rfloor$.
+Then $h/\epsilon\le t_K<2h/\epsilon$, so the construction is admissible. Equations \eqref{eq:dyadic} and the uniform fixed-ratio slow variation of $H$ imply
+$S_K\asymp H(t_K)\asymp H(h)$.
+Thus \eqref{eq:normalized} yields $\Delta_h\ge cG(h)$ and $w_h\le C_0F(h)$, uniformly for all small $h$. For any small $w$, choose $h=F^{-1}(w/C_0)$. This pair belongs to the supremum defining $\Omega(w)$, and \eqref{eq:inverse} proves its lower bound in \eqref{eq:modulus}. This constructs a pair for each $w$; neither continuity of the integer $K$ nor interpolation between a sequence of distances is needed. The proof of \Cref{thm:main} is complete.
+
+\section{A necessary iterated logarithm}
+\begin{corollary}\label[corollary]{cor:logs}
+If $L(x)=[\log(e/x)]^\gamma$ near zero, with any real $\gamma$, then
+\begin{equation}\label{eq:hierarchy}
+ \Omega(w)\asymp
+ \begin{cases}
+ w^{1/3}[\log(1/w)]^{(\gamma+1)/(3s)},&\gamma>-1,\\
+ w^{1/3}[\log\log(1/w)]^{1/(3s)},&\gamma=-1,\\
+ w^{1/3},&\gamma<-1
+ \end{cases}
+ \qquad(w\downarrow0).
+\end{equation}
+These are two-sided bounds for every sufficiently small $w$.
+\end{corollary}
+\begin{proof}
+Writing $t=\log(e/x)$ gives $x\ell'=-\gamma/t$ and
+$x^2\ell''=\gamma(t-1)/t^2$, verifying \eqref{eq:slow}. Direct integration gives
+$H(h)=1+\int_{\log(e/a)}^{\log(e/h)}t^\gamma\dd t$.
+Its three regimes are respectively comparable to
+$[\log(1/h)]^{\gamma+1}$, $\log\log(1/h)$ and $1$.
+Since $\log H(h)=o(\log(1/h))$, $F(h_w)=w$ implies
+$\log(1/h_w)\sim(2/3)\log(1/w)$. Substitute in \eqref{eq:modulus}.
+\end{proof}
+
+The case $\gamma=0$ recovers the critical result of manuscript~008. At $\gamma=-1$ the iterated logarithm is necessary, not merely an upper loss.
+
+\begin{corollary}[Exact criterion within the critical family]\label[corollary]{cor:criterion}
+For the source \eqref{eq:source}, the following are equivalent:
+\[
+ \Omega(w)=O(w^{1/3})\ (w\downarrow0),\qquad
+ \int_0^aL(x)\frac{\dd x}{x}<\infty,\qquad
+ r^{1/s}\in W^{1,s}(\R^d),
+\]
+where the density root is extended by zero outside its support.
+\end{corollary}
+\begin{proof}
+By \eqref{eq:modulus}, $\Omega(w)/w^{1/3}\asymp H(h_w)^{1/(3s)}$, proving the first equivalence. Since $\beta>0$ and $x\ell'\to0$,
+$|(f^{1/s})'|^s\sim c(\beta/s)^sL(x)/x$ near zero.
+The derivative is integrable to power $s$ away from zero, and $f^{1/s}$ has zero trace at zero because $\ell(x)=o(\log(1/x))$. Its zero extension therefore lies in $W^{1,s}(\R)$ exactly when the displayed integral is finite. Each transverse root already belongs to $W^{1,s}(\R)$ with zero trace and $L^s$ norm one. Product integration proves the equivalence with the full root condition.
+\end{proof}
+
+This criterion concerns the displayed family, not arbitrary sources. In dimension one, an atomless source has $\norm{T_\mu-T_\nu}_2=W_2(\mu,\nu)$; the obstruction and the dimension restriction here are multidimensional.
+
+\begin{remark}[The implicit inverse is essential]
+In general, $H(h_w)$ cannot be replaced up to constant factors by $H(w^{2/3})$.
+Take $L(x)=\exp([\log(1/x)]^\alpha)$ near zero, with $1/2<\alpha<1$; direct differentiation verifies \eqref{eq:slow}. If $t=\log(1/h)$, substitution and l'Hôpital's rule give
+\[
+ H(e^{-t})\sim\alpha^{-1}t^{1-\alpha}e^{t^\alpha}.
+\]
+Put $t_0=(2/3)\log(1/w)$ and $t_w=\log(1/h_w)$. Taking logarithms of $F(h_w)=w$ yields
+$t_w=t_0+(3s)^{-1}\log H(e^{-t_w})$.
+Since $t_w\sim t_0$, the preceding asymptotic implies
+$t_w-t_0=(3s)^{-1}t_0^\alpha+o(t_0^\alpha)$.
+Taking logarithms of the asymptotic for $H$ and applying the mean-value theorem therefore gives
+\[
+ \log\frac{H(h_w)}{H(w^{2/3})}
+ \sim\frac{\alpha}{3s}t_0^{\,2\alpha-1}\longrightarrow\infty.
+\]
+Thus that substitution loses two-sided comparability. The logarithmic powers in \Cref{cor:logs} are unaffected, as their explicit integration proves.
+\end{remark}
+
+\begingroup\small\raggedright
+\begin{thebibliography}{3}
+\bibitem{Overlap}
+\emph{Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability}.
+mxym/math, research manuscript 008, v1, 7 October 2026.
+\href{https://github.com/mxym/math/blob/9af06fa4cadaa80e176ed633a7176ed7f2e813db/preprints/008-density-overlap-phase/v1/paper.pdf}{Pinned full manuscript};
+\href{https://github.com/mxym/math/blob/9af06fa4cadaa80e176ed633a7176ed7f2e813db/preprints/008-density-overlap-phase/v1/main.tex}{complete source}.
+Revision \texttt{9af06fa4cadaa80e176ed633a7176ed7f2e813db}.
+\bibitem{Potential}
+\emph{Sharp Brenier stability under target moment bounds}.
+mxym/math, research manuscript 001, v3, 7 October 2026.
+\href{https://github.com/mxym/math/blob/5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3/preprints/001-strongly-log-concave-brenier/v3/manuscript.pdf}{Full proof of Theorem 1.1};
+\href{https://github.com/mxym/math/blob/5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3/preprints/001-strongly-log-concave-brenier/v3/manuscript.tex}{complete source}.
+Revision \texttt{5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3}.
+\bibitem{OpenAI}
+OpenAI, \emph{Sharp One-Third Stability of Brenier Maps}.
+OpenAI Math Release preprint, family 374, 25 September 2026.
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Sharp-One-Third-Stability-of-Brenier-Maps-September-25-2026/article.pdf}{Pinned article}.
+Revision \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\end{thebibliography}
+\endgroup
+\end{document}
