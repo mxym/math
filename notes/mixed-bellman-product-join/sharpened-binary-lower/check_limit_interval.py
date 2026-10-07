@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Exact checker for the certified two-sided binary-T5 limit interval."""
+"""Exact checker for the certified two-sided binary-T5 limit interval.
+
+Endpoint comparisons use rigorous rational logarithm intervals rather than
+materializing multi-million-digit powers.
+"""
 
 from fractions import Fraction as F
 from math import factorial
@@ -38,6 +42,49 @@ def exp_upper(y, degree):
         s += term
     nxt = term * y / (degree + 1)
     return s + nxt / (1 - y / (degree + 2))
+
+
+def log_unit_interval(y, terms):
+    """Rigorous log interval for rational 1 <= y <= 2 via atanh series."""
+    require(F(1) <= y <= F(2), "unit log range")
+    z = (y - 1) / (y + 1)
+    total = F(0)
+    zpow = z
+    for j in range(terms):
+        if j:
+            zpow *= z * z
+        total += zpow / (2 * j + 1)
+    lower = 2 * total
+    upper = lower + 2 * z ** (2 * terms + 1) / (
+        (2 * terms + 1) * (1 - z * z)
+    )
+    return lower, upper
+
+
+LOG2 = log_unit_interval(F(2), 40)
+
+
+def log_int_interval(n, bits=96, terms=32):
+    """Rigorous log interval using only the leading bits of a positive integer."""
+    require(isinstance(n, int) and n > 0, "positive integer logarithm")
+    k = n.bit_length() - 1
+    if k >= bits:
+        a = n >> (k - bits)
+        y_lower = F(a, 1 << bits)
+        y_upper = F(a + 1, 1 << bits)
+    else:
+        y_lower = y_upper = F(n, 1 << k)
+    lower_unit, _ = log_unit_interval(y_lower, terms)
+    _, upper_unit = log_unit_interval(y_upper, terms)
+    return k * LOG2[0] + lower_unit, k * LOG2[1] + upper_unit
+
+
+def log_fraction_interval(x):
+    """Rigorous log interval for a positive Fraction."""
+    require(x > 0, "positive rational logarithm")
+    num_lower, num_upper = log_int_interval(x.numerator)
+    den_lower, den_upper = log_int_interval(x.denominator)
+    return num_lower - den_upper, num_upper - den_lower
 
 
 def g(n):
@@ -125,20 +172,22 @@ E7 = 3 * d + 1
 require(E7 == 262144, "E_7 mismatch")
 
 
+# Endpoint comparisons are equivalent to huge integer-power inequalities.
+# We replay them faster through rigorous rational log intervals.  The atanh
+# remainder and the leading-bit enclosure are both one-sided exact bounds.
+log_R = log_fraction_interval(R)
+
 # Lower endpoint:
 # Lambda^E7 > R_7^3 * tail_lower.
 lower_endpoint = F(2853465550695797, 10**15)
-lhs = (
-    lower_endpoint.numerator**E7
-    * R.denominator**3
-    * tail_lower.denominator
+log_lower_endpoint = log_fraction_interval(lower_endpoint)
+log_tail_lower = log_fraction_interval(tail_lower)
+lower_margin = (
+    3 * log_R[0]
+    + log_tail_lower[0]
+    - E7 * log_lower_endpoint[1]
 )
-rhs = (
-    lower_endpoint.denominator**E7
-    * R.numerator**3
-    * tail_lower.numerator
-)
-require(lhs < rhs, "lower endpoint comparison")
+require(lower_margin > 0, "lower endpoint comparison")
 
 
 # Upper endpoint. Since E_8=4 E_7 and R_8=R_7^4 D_7,
@@ -146,19 +195,16 @@ require(lhs < rhs, "lower endpoint comparison")
 E8 = 4 * E7
 require(E8 == 1048576, "E_8 mismatch")
 upper_endpoint = F(2853465550704, 10**12)
-lhs = (
-    R.numerator**12
-    * tail_upper_7.numerator**3
-    * tail_upper_8.numerator
-    * upper_endpoint.denominator**E8
+log_upper_endpoint = log_fraction_interval(upper_endpoint)
+log_tail_upper_7 = log_fraction_interval(tail_upper_7)
+log_tail_upper_8 = log_fraction_interval(tail_upper_8)
+upper_margin = (
+    E8 * log_upper_endpoint[0]
+    - 12 * log_R[1]
+    - 3 * log_tail_upper_7[1]
+    - log_tail_upper_8[1]
 )
-rhs = (
-    R.denominator**12
-    * tail_upper_7.denominator**3
-    * tail_upper_8.denominator
-    * upper_endpoint.numerator**E8
-)
-require(lhs < rhs, "upper endpoint comparison")
+require(upper_margin > 0, "upper endpoint comparison")
 
 print("PASS: D_j > 5.24519195 for every j >= 7.")
 print("PASS: D_7 < 5.245192 and D_j < 5.245207 for every j >= 8.")
