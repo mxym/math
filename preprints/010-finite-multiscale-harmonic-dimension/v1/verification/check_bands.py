@@ -10,6 +10,7 @@ from fractions import Fraction
 from math import isqrt
 
 BETA = Fraction(4, 3)
+A = Fraction(11, 10)
 THETA = Fraction(7, 5)
 # Rational upper surrogate for a^{-1} sqrt(C_*). The analytic construction
 # permits this to be chosen arbitrarily close to 1.
@@ -43,7 +44,7 @@ def data_for(k: int, previous_M: int | None):
         "mean": RHO * numerator < k * denominator,
         "fixed_low": RHO * (L + 1) < k,
         "block_inside": floor_frac(BETA * (k + 1)) <= M,
-        "dimension": (M + 1) ** 2 > (D + 1) ** 2,
+        "dimension": Fraction((M + 1) ** 2, 1) > A * (D + 1) ** 2,
     }
     return L, M, D, numerator, denominator, tests
 
@@ -61,11 +62,15 @@ def choose_k(lower: int, previous_M: int | None):
 
 def main() -> None:
     asymptotic = 2 * THETA * RHO / 3
-    assert 1 < BETA < THETA
+    assert BETA > 1
+    assert A >= 1
+    assert A * BETA * BETA < THETA * THETA
     assert asymptotic < 1
 
     print("beta =", BETA)
+    print("A =", A)
     print("theta =", THETA)
+    print("theta^2 - A*beta^2 =", THETA * THETA - A * BETA * BETA)
     print("rho =", RHO)
     print("2*theta*rho/3 =", asymptotic)
     print("asymptotic slack =", 1 - asymptotic)
@@ -92,7 +97,7 @@ def main() -> None:
         lower = k + 1
 
     print()
-    print("PASS: all exact multiscale band inequalities hold.")
+    print("PASS: all exact quantitative multiscale band inequalities hold.")
 
 
 if __name__ == "__main__":
