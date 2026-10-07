@@ -41,6 +41,9 @@ so it escapes that axis-local class and supplies the more general off-axis
 asymptotic profile mechanism. The upper constant \(2^{-1/2}\) remains
 unchanged.
 
+A later [Fock-profile ceiling continuation](../fock-profile-ceiling-binary-tensor-rigidity/README.md) completes the natural finite-first-moment profile space, proves attainment of its variational optimum, raises the rigorous tensor lower endpoint to \(0.6238973\), and gives the mechanism ceiling \(\kappa_{\rm prof}\le\sqrt{779/2000}=0.624099351\ldots\). This ceiling is for the reflected boundary-profile mechanism only; it is not an upper bound for the true tensor constants.
+
+
 Complete proof: paper.md
 
 Exact rational checkers: checks/check_exact.py and
