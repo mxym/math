@@ -67,7 +67,7 @@ The lower endpoint uses an explicit five-term rational Fock polynomial.  The
 upper endpoint is an infinite-dimensional quadratic-form certificate reduced
 to two rank-one Schur complements and 28 rational parameter intervals.  All
 proof decisions in the checker use Python standard-library
-\`fractions.Fraction\`; the exponential bounds are alternating Taylor
+fractions.Fraction; the exponential bounds are alternating Taylor
 inequalities and positivity on each parameter interval is certified by exact
 Bernstein coefficients.
 
