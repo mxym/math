@@ -1,0 +1,86 @@
+name: Smooth-source tail stability v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tail-stability-v2.yml'
+      - 'preprints/007-tail-brenier-stability/v2/build.py'
+      - 'preprints/007-tail-brenier-stability/v2/core.tex'
+      - 'preprints/007-tail-brenier-stability/v2/extension.tex'
+      - 'preprints/007-tail-brenier-stability/v2/verification/check_steep_example.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tail-stability-v2
+  cancel-in-progress: false
+
+jobs:
+  verify-build-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out current research source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Assemble, verify, and compile
+        shell: bash
+        run: |
+          set -euo pipefail
+          B=preprints/007-tail-brenier-stability/v2
+          python3 "$B/build.py"
+          python3 preprints/007-tail-brenier-stability/v1/verification/check_interpolation.py --output "$B/verification/exact_checks.json" | tee "$B/verification/interpolation_run.txt"
+          python3 "$B/verification/check_steep_example.py" --output "$B/verification/steep_example_checks.json" | tee "$B/verification/steep_run.txt"
+          python3 -O "$B/verification/check_steep_example.py" --output "$B/verification/steep_optimized_mode.json"
+          (cd "$B" && pdflatex -interaction=nonstopmode -halt-on-error main.tex && pdflatex -interaction=nonstopmode -halt-on-error main.tex)
+          cp "$B/main.pdf" "$B/paper.pdf"
+          if grep -E 'LaTeX Warning: (Reference .* undefined|There were undefined references)' "$B/main.log"; then
+            echo 'Unresolved references'; exit 1
+          fi
+      - name: Record hashes and complete distribution bundle
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess,zipfile
+          root=pathlib.Path('preprints/007-tail-brenier-stability/v2')
+          files=[p for p in root.rglob('*') if p.is_file() and p.suffix in {'.md','.tex','.py','.json','.txt','.pdf'} and p.name!='main.pdf']
+          files += [pathlib.Path('preprints/007-tail-brenier-stability/v1/verification/check_interpolation.py'),pathlib.Path('third_party_licenses/openai_math_LICENSE.txt'),pathlib.Path('NOTICE.md'),pathlib.Path('comparisons/2026-10-07-modulus-tail-reconciliation.md')]
+          record={'version':'tail-stability-20261007-v2','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'first_extension_commit':'c8d4fa9d7afc28d10123e666af0dfcdfc3f2681d','scope':'written proof plus finite exact regression; no independent peer review or proof-assistant formalization','sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}}
+          manifest=pathlib.Path('releases/tail-stability-2026-10-07-v2.json');manifest.parent.mkdir(exist_ok=True)
+          manifest.write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
+          with zipfile.ZipFile('/tmp/tail-stability-v2-complete.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(files)+[manifest]:z.write(p,str(p))
+          PY
+      - name: Commit generated files without touching historical versions
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          B=preprints/007-tail-brenier-stability/v2
+          git add "$B/main.tex" "$B/paper.pdf" "$B/verification/exact_checks.json" "$B/verification/steep_example_checks.json" "$B/verification/steep_optimized_mode.json" "$B/verification/interpolation_run.txt" "$B/verification/steep_run.txt" releases/tail-stability-2026-10-07-v2.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build and verify smooth full-support source counterexample and superquadratic estimates v2'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Preserve separate versioned release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG=tail-stability-20261007-v2
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'Existing release retained without replacement.'
+            exit 0
+          fi
+          cp preprints/007-tail-brenier-stability/v2/paper.pdf /tmp/tail-brenier-stability-v2.pdf
+          printf '%s\n' 'Complete 12-page written proof: a fixed smooth full-support strongly log-concave source has sharp finite-moment exponent (q-2)/(3q-2), while the stated superquadratic product sources retain sharp one-third stability.' 'The BV-density interpolation theorem is included. Overlaps with parallel manuscript 001 v3 are explicitly credited.' 'The two-atom counterexample lower bound is direct; matching upper estimates use the identified source potential-stability input.' 'Finite exact regressions do not formalize the analytic infinite construction. Not independently peer reviewed; novelty and journal tier are not certified. Historical v1 is preserved.' > /tmp/tail-stability-v2-notes.txt
+          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title 'Smooth full-support counterexample and superquadratic Brenier stability v2' --notes-file /tmp/tail-stability-v2-notes.txt /tmp/tail-brenier-stability-v2.pdf /tmp/tail-stability-v2-complete.zip releases/tail-stability-2026-10-07-v2.json
