@@ -104,7 +104,9 @@ gives an explicit tensor with an exact projection maximum and exact
 complete-commutator Gram residual. The proof is analytic and the
 standard-library Q(sqrt(2)) replay is diagnostic. The subsequent
 [boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
-raises the current rigorous liminf lower bound above 0.623586 while
+raised the then-current rigorous liminf lower bound above 0.623586 while
 containing this two-band construction at the asymptotic profile level. The
+later Fock-profile ceiling continuation raises the current bound above
+0.6238973. The
 exact leading constant, convergence of \(C_p/p^{1/4}\), and all-order
 extremizers remain open.
