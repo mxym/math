@@ -1,12 +1,16 @@
-# Projection-volume geometry: products, joins, rigidity and spectral amplification
+# Projection-volume geometry: products, joins, rigidity, equality and spectral amplification
 
-**Latest: [version 3 — random-determinant rigidity and explicit spectral amplification](v3/README.md).** Read the [complete proof](v3/paper.md), [audit](v3/PROOF_AUDIT.md), [exact certificate](v3/certificates/exact.json), and [replay report](v3/results/check.json).
+**Latest: [version 4 — complete symmetric equality classification](v4/README.md).** Read the [complete proof](v4/paper.md), [proof audit](v4/PROOF_AUDIT.md), [exact regression checker](v4/code/check_examples.py), [recorded replay](v4/results/check_examples.txt), the [dependency manifest](v4/MANIFEST.json), and [focused prior-work comparison](../../comparisons/2026-10-07-symmetric-projection-cone-equality.md).
 
-**Dated clarification:** [Spectral finiteness, fixed-dimension stability, and historical v2 hashes](../../reviews/2026-10-07-projection-spectral-clarification.md). The theorem statements are unchanged; the note corrects a research-log phrase and makes the exponential bound explicit.
+Version 4 closes the higher-dimensional equality question left open in v3:
+$$
+a(K)=\frac12
+$$
+for a centrally symmetric convex body if and only if, up to an invertible linear map, $K$ is a Cartesian product of centrally symmetric factors of dimensions one and two. It also proves a fixed-dimensional qualitative Banach--Mazur stability theorem for near equality. The exact checker exhausts 7,749 balanced rational Rademacher tests on a finite grid and verifies the non-extreme boundary-law guard example. No first-discovery claim is made before a broader literature review.
 
-Version 3 proves simplex equality for the cone invariant for **all convex bodies**, not just polytopes; a uniform qualitative affine stability statement; the sharp centrally symmetric bound $a\le1/2$; a general random-law determinant comparison with complete lower-equality cases; and an explicit Cartesian-square operation strictly improving every finite-dimensional spectral value. The optimal recursive asymptotic constant and a quantitative geometric stability exponent remain undetermined. First complete v3 disclosure: [`43bb307`](https://github.com/mxym/math/commit/43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc).
+[Version 3](v3/README.md) proves simplex equality for the cone invariant for **all convex bodies**, not just polytopes; a uniform qualitative affine stability statement at the lower endpoint; the sharp centrally symmetric bound $a\le1/2$; a general random-law determinant comparison with complete lower-equality cases; and an explicit Cartesian-square operation strictly improving every finite-dimensional spectral value. First complete v3 disclosure: [43bb307](https://github.com/mxym/math/commit/43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc).
 
-[Version 2](v2/README.md) contains the exact product/join calculus, the sharp recursive-class threshold in dimension fourteen and the certified $2.8534<\Lambda<2.8535$ self-similar family. Its [spectral supplement](v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md) identifies the join-closed asymptotic growth rate as $e\sup\lambda$. Version 3 does not claim to determine that supremum or improve the numerical rate.
+[Version 2](v2/README.md) contains the exact product/join calculus, the sharp recursive-class threshold in dimension fourteen and the certified $2.8534<\Lambda<2.8535$ self-similar family. Its [spectral supplement](v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md) identifies the join-closed asymptotic growth rate as $e\sup\lambda$. Versions 3--4 do not determine that supremum or improve the numerical rate.
 
 The historical version 1.1 record follows. Its optimum is restricted to products of simplices; the later versions enlarge the questions, not the scope of that old optimum.
 
