@@ -1,0 +1,109 @@
+name: Density-overlap phase diagram v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/density-overlap-phase.yml'
+      - 'preprints/008-density-overlap-phase/v1/main.tex'
+      - 'preprints/008-density-overlap-phase/v1/verification/check_exact.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: density-overlap-phase-v1
+  cancel-in-progress: false
+
+jobs:
+  verify-build-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out the triggering snapshot
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify locally reviewed source identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object preprints/008-density-overlap-phase/v1/main.tex)" = 3b2882cef1a65e890549332c5c9014af9dc5f245
+          test "$(git hash-object preprints/008-density-overlap-phase/v1/verification/check_exact.py)" = dd5fb49fd2035e2b23641e294b7c1ecf1c1ecd53
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Replay exact finite checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          B=preprints/008-density-overlap-phase/v1
+          python3 "$B/verification/check_exact.py" --cases 80 --max-scales 6 --output "$B/verification/exact_checks.json" | tee "$B/verification/run.txt"
+          python3 -O "$B/verification/check_exact.py" --cases 10 --max-scales 3 --output "$B/verification/optimized_checks.json" | tee "$B/verification/optimized_run.txt"
+      - name: Build reviewed manuscript
+        shell: bash
+        run: |
+          set -euo pipefail
+          B=preprints/008-density-overlap-phase/v1
+          (cd "$B" && pdflatex -interaction=nonstopmode -halt-on-error main.tex && pdflatex -interaction=nonstopmode -halt-on-error main.tex)
+          cp "$B/main.pdf" "$B/paper.pdf"
+          if grep -E 'LaTeX Warning: (Reference .* undefined|There were undefined references)|Overfull' "$B/main.log"; then
+            echo 'PDF preflight requires review'; exit 1
+          fi
+      - name: Bundle the pinned proof dependency and record hashes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess,zipfile
+          root=pathlib.Path('preprints/008-density-overlap-phase')
+          files=[p for p in root.rglob('*') if p.is_file() and p.suffix in {'.md','.tex','.py','.json','.txt','.pdf'} and p.name!='main.pdf']
+          files += [pathlib.Path('third_party_licenses/openai_math_LICENSE.txt'),pathlib.Path('NOTICE.md'),pathlib.Path('comparisons/2026-10-07-density-overlap-phase.md')]
+          pinned='5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3'
+          dependency={}
+          for name in ['manuscript.tex','references.bib','manuscript.bbl','manuscript.pdf']:
+              path='preprints/001-strongly-log-concave-brenier/v3/'+name
+              dependency['dependencies/001-v3/'+name]=subprocess.check_output(['git','show',pinned+':'+path])
+          tex=dependency['dependencies/001-v3/manuscript.tex']
+          if hashlib.sha1(b'blob '+str(len(tex)).encode()+b'\0'+tex).hexdigest()!='0007edf5e28e4b4b0d34b2043cffd6e13e9f5aed':
+              raise RuntimeError('Potential-stability dependency differs from the cited source')
+          dependency['dependencies/001-v3/PROVENANCE.txt']=('Unmodified source, bibliography and PDF from mxym/math commit '+pinned+'.\nUpper transport bounds in manuscript 008 use this potential-stability theorem. It is an AI-assisted research draft, not independently peer reviewed or formally verified.\n').encode()
+          record={'version':'density-overlap-20261007-v1','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'source_blob':'3b2882cef1a65e890549332c5c9014af9dc5f245','verifier_blob':'dd5fb49fd2035e2b23641e294b7c1ecf1c1ecd53','potential_dependency_commit':pinned,'scope':'complete written proof with explicit dependency; finite exact regressions are not formalization or peer review','sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)},'bundled_dependency_sha256':{name:hashlib.sha256(data).hexdigest() for name,data in dependency.items()}}
+          out=pathlib.Path('releases/density-overlap-2026-10-07-v1.json');out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
+          with zipfile.ZipFile('/tmp/density-overlap-phase-v1-complete.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(files)+[out]:z.write(p,str(p))
+              for name,data in dependency.items():z.writestr(name,data)
+          PY
+      - name: Commit only generated publication artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          B=preprints/008-density-overlap-phase/v1
+          git fetch origin main
+          test "$(git rev-parse origin/main:$B/main.tex)" = 3b2882cef1a65e890549332c5c9014af9dc5f245
+          test "$(git rev-parse origin/main:$B/verification/check_exact.py)" = dd5fb49fd2035e2b23641e294b7c1ecf1c1ecd53
+          git add "$B/paper.pdf" "$B/verification/exact_checks.json" "$B/verification/run.txt" "$B/verification/optimized_checks.json" "$B/verification/optimized_run.txt" releases/density-overlap-2026-10-07-v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build and verify complete boundary phase diagram with sharp critical logarithm'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Preserve a versioned research release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG=density-overlap-20261007-v1
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'Existing release retained without replacement.'
+            exit 0
+          fi
+          cp preprints/008-density-overlap-phase/v1/paper.pdf /tmp/density-overlap-phase-v1.pdf
+          printf '%s\n' 'Complete 11-page proof of a boundary-order phase diagram, including a necessary and sufficient critical logarithmic correction, and a finite-Fisher-information criterion.' 'All prior manuscripts are preserved. Upper transport bounds explicitly use pinned manuscript 001 v3; its unmodified source, bibliography and PDF are bundled.' 'Exact finite regressions include independent full-cell integrations in a rational auxiliary model; they do not formalize the analytic theorem.' 'Research draft, not independently peer reviewed. Novelty, priority and journal tier are not certified.' > /tmp/density-overlap-notes.txt
+          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title 'Density overlap and sharp critical-boundary Brenier stability v1' --notes-file /tmp/density-overlap-notes.txt /tmp/density-overlap-phase-v1.pdf /tmp/density-overlap-phase-v1-complete.zip releases/density-overlap-2026-10-07-v1.json
