@@ -25,7 +25,7 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support counterexample |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
 | 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
-| 010 | [Finite multiscale harmonic-dimension counterexamples](preprints/010-finite-multiscale-harmonic-dimension/README.md) | v1 | Complete finite-multiscale proof; pinned family-361 dependencies and exact band replay |
+| 010 | [Finite multiscale harmonic-dimension counterexamples](preprints/010-finite-multiscale-harmonic-dimension/README.md) | v1 | Complete finite-multiscale proof; full A beta^2 < 9/4 excess tradeoff and exact replay |
 
 A separate [nine-piece balanced-projector cover](notes/balanced_borsuk_slice.md) excludes one proposed Borsuk construction; it is not a solution of the eight-dimensional problem.
 
