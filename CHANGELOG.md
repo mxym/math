@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-07 — density and simplex-product additions, v1.1
+
+- Added manuscript 004: logarithmic upper Banach density criterion, infinite hits in every affine copy, countable simultaneous avoidance, and effective finite rational-certificate search. Its complete written proof does not claim the unrestricted Erdos similarity conjecture.
+- Added manuscript 005: exact simplex-product optimization in every dimension, unique optimal dimension multiset, sharp period-thirteen recurrence beginning at 100, and sharp dimension-mass stability with additive constant 112.
+- First complete source disclosure: `e6c776cae39477baa4e1a03d59a1547417f1a68e`, 2026-10-07 01:00:08 UTC. The v1.1 numbering records revision of private drafts, not earlier publication.
+- Remote workflow replayed seven strict rational inequalities, eighty finite no-tie checks, and exhaustive optimal-partition DP through 300; it also passed six exact cover-checker regression cases, including boundary-only obstructions. The similarity toy cover is not a computed small-measure witness for the full theorem.
+- Both PDFs, verifier outputs, and SHA-256 records were built and committed at `e894ed8678052e45ecd9f1714b6a996cfea33cf3`. Versioned release: [density-simplex-20261007-v1.1](https://github.com/mxym/math/releases/tag/density-simplex-20261007-v1.1), published 2026-10-07 01:03:06 UTC. GitHub's immutable-release flag is not enabled; fixed content commits and hashes are recorded without claiming external archival certification.
+- Added a [post-publication source comparison](comparisons/2026-10-07-density-simplex.md). No priority, external peer review, or proof-assistant certification is asserted.
+- Preserved the pre-existing manuscripts 001--003 and their revision history. Added an elementary balanced-projector covering note, excluding only one Borsuk route.
+
 ## 2026-10-07 — post-publication literature comparison
 
 - Added exact scope comparisons with primary transport and quadratic-walk papers, including earlier semi-discrete W2 one-third estimates and the partial indirect verification of Merigot’s quarter-power result.
