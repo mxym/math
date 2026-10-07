@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-07 — manuscript 005 version 3
+
+- Proved the random-law determinant comparison with complete simplex-support lower-equality cases under a finite first moment; retained singular horizontal tuples and derived an exact cancellation-defect identity with finite sign witnesses.
+- Closed the explicitly reserved general-convex-body equality case for the cone invariant and proved uniform dimensionwise qualitative affine stability in maximum-simplex position.
+- Proved the sharp centrally symmetric bound a <= 1/2, universal planar equality, and an exact octahedron strict case. No complete higher-dimensional upper-equality classification is claimed.
+- Strengthened spectral nonattainment to an explicit Cartesian square of a self-join, with a sufficient threshold and rational cross-powered comparisons. The optimal recursive asymptotic constant is not determined or numerically improved.
+- Published independent exact checking of 23 laws, 18,199 ordered tuples, 1,149 balanced-sign cases, five spectral recipes, 126 octahedron minors and seven rejected corruptions. Normal and optimized reports agree byte-for-byte.
+- Preserved full-default replays of 004, 005 v2 and the new parallel 008; these are finite checks, not external reviews of their infinite arguments. Updated the catalogue without overwriting parallel manuscripts or dirty shared worktree files.
+- Complete v3 proof and certificate disclosure: `43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc`. Added a read-only, commit-pinned CI replay; no first-priority claim or new material license is made.
+
 ## 2026-10-07 — manuscript 001 version 4
 
 - Added a focused 13-page continuation on sharp logarithmic second moments: full-Gaussian exponent min(1/3, beta/(beta+1)), the loss-free beta=1/2 transition, and the beta=0 no-uniform-modulus obstruction in dimension at least two.

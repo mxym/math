@@ -6,7 +6,7 @@
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite rational-cover checker |
-| 005 | [Exact projection-volume optimization over Cartesian products of simplices](preprints/005-simplex-product-optimum/README.md) | v1.1 | Complete written proof draft; exact rational certificates and DP |
+| 005 | [Projection-volume calculus, simplex rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v3 | Complete written proof draft; general-body rigidity and exact finite checks |
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support sharpness and exact algebra checks |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; sharp critical logarithm and exact multiscale cell checks |
@@ -34,3 +34,7 @@ For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT
 [Version 4](preprints/001-strongly-log-concave-brenier/v4/README.txt) is a focused logarithmic-moment continuation using the complete public v3 potential theorem as an explicit proof input. It does not replace v3's broader results or claim to re-prove that input. The [v4 manifest](releases/2026-10-07-v4.json) identifies the changed files.
 
 Its Gaussian logarithmic-target-moment threshold is distinct from 008's source-boundary-vanishing threshold. The former has no additional logarithmic loss at its stated transition; the latter has a necessary logarithmic correction proved by a multiscale construction. The parameters describe different assumptions, so these statements do not conflict and are not counted as duplicate project results.
+
+## Projection geometry version 3
+
+[005 v3](preprints/005-simplex-product-optimum/v3/README.md) extends lower-bound equality from polytopes to all convex bodies, proves qualitative affine stability and a sharp symmetric cone bound, and gives an explicit Cartesian-square spectral amplification theorem. The complete proof and exact replay were disclosed in `43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc`. The [read-only verification workflow](.github/workflows/projection-rigidity-exact.yml) replays rational checks and byte-identity comparisons; it does not rewrite published files. Historical v1.1 and v2 statements and their scopes are retained.

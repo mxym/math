@@ -2,7 +2,7 @@
 
 Mathematical research manuscripts and supporting verification material maintained at **mxym/math**.
 
-中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前七份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、单纯形直积的精确极值，以及非线性避让与光滑源的稳定性反例。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
+中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前八份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积的直积与 join 演算、单纯形刚性，以及非线性避让与光滑源的稳定性反例。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
 
 ## Collection
 
@@ -12,15 +12,16 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
-| 005 | [Exact projection-volume optimization over Cartesian products of simplices](preprints/005-simplex-product-optimum/README.md) | v1.1 | Complete written proof draft; exact finite certificates |
+| 005 | [Projection-volume calculus, simplex rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v3 | Complete written proof draft; general-body rigidity and exact finite checks |
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support counterexample |
+| 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
 
 A separate [nine-piece balanced-projector cover](notes/balanced_borsuk_slice.md) excludes one proposed Borsuk construction; it is not a solution of the eight-dimensional problem.
 
 ## Reading and verification
 
-Each manuscript directory contains LaTeX source, build instructions and upstream attribution. The arguments were developed with AI assistance and checked against explicit hypotheses and proof dependencies. **These are research manuscripts, not externally peer-reviewed or fully machine-formalized results.** See [verification/STATUS.md](verification/STATUS.md) for entries 001--003, the [additional audit record](verification/density-simplex-2026-10-07.md) for 004--005, and the [cross-audit and extensions record](verification/2026-10-07-cross-audit-and-extensions.md) with the [007 v2 audit](preprints/007-tail-brenier-stability/v2/PROOF_AUDIT.md) for the new additions. The exact finite checks do not replace the infinite analytic arguments. The similarity toy certificate is not a computed small-measure witness for the full theorem.
+Each manuscript directory contains complete editable source (LaTeX or Markdown), reproduction instructions and upstream attribution. The arguments were developed with AI assistance and checked against explicit hypotheses and proof dependencies. **These are research manuscripts, not externally peer-reviewed or fully machine-formalized results.** See [verification/STATUS.md](verification/STATUS.md) for entries 001--003, the [additional audit record](verification/density-simplex-2026-10-07.md) for 004--005, and the [cross-audit and extensions record](verification/2026-10-07-cross-audit-and-extensions.md) with the [007 v2 audit](preprints/007-tail-brenier-stability/v2/PROOF_AUDIT.md) for the new additions. The exact finite checks do not replace the infinite analytic arguments. The similarity toy certificate is not a computed small-measure witness for the full theorem.
 
 Several methods build on the public [OpenAI/math collection](https://github.com/openai/math), pinned at commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a`. The manuscripts distinguish inherited arguments from the extensions developed here. No affiliation with or endorsement by OpenAI is implied.
 
@@ -63,3 +64,7 @@ The [30-page transport manuscript](preprints/001-strongly-log-concave-brenier/v3
 The [13-page v4 paper](preprints/001-strongly-log-concave-brenier/v4/manuscript.pdf) proves the sharp full-Gaussian logarithmic-moment exponent min(1/3, beta/(beta+1)), including the loss-free beta=1/2 transition, and the exact order (q−2)^(-1/6) of the best finite-q one-third constant as q decreases to two. Sharpness and the beta=0 no-uniform-modulus obstruction are for dimension at least two; dimension one is isometric. Its stated full-support smooth strongly convex source extension does not include arbitrary hard boundaries.
 
 This focused continuation explicitly uses the complete public v3 all-P2 potential theorem; it restates that input rather than re-proving its cell-calculus argument. [Version 3](preprints/001-strongly-log-concave-brenier/v3/manuscript.pdf) remains the full record of the broader earlier potential, compact-source, tail, curve, and conditional-cell results. All historical files and independent entries are preserved. See the [precise dependency and scope](preprints/001-strongly-log-concave-brenier/README.md) and [v4 changed-file manifest](releases/2026-10-07-v4.json).
+
+## Projection geometry version 3
+
+[005 v3](preprints/005-simplex-product-optimum/v3/README.md) extends lower-bound equality from polytopes to all convex bodies, proves qualitative affine stability and a sharp symmetric cone bound, and gives an explicit Cartesian-square spectral amplification theorem. The complete proof and exact replay were disclosed in `43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc`. The [read-only verification workflow](.github/workflows/projection-rigidity-exact.yml) replays rational checks and byte-identity comparisons; it does not rewrite published files. Historical v1.1 and v2 statements and their scopes are retained.
