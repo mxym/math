@@ -10,7 +10,7 @@ The [source-overlap synthesis](notes/transport-source-tail-synthesis/README.md) 
 
 Mathematical research manuscripts and supporting verification material maintained at **mxym/math**.
 
-中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前九份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积的直积与 join 演算、单纯形刚性，以及非线性避让与光滑源的稳定性反例，并包含硬球气体的随机场路径极限。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
+中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前十份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积与单纯形刚性、非线性避让、光滑源稳定性、硬球气体随机场极限，以及非负 Ricci 三维流形上的多尺度多项式增长调和函数维数反例。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
 
 ## Collection
 
@@ -25,6 +25,7 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support counterexample |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
 | 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
+| 010 | [Finite multiscale harmonic-dimension counterexamples](preprints/010-finite-multiscale-harmonic-dimension/README.md) | v1 | Complete finite-multiscale proof; pinned family-361 dependencies and exact band replay |
 
 A separate [nine-piece balanced-projector cover](notes/balanced_borsuk_slice.md) excludes one proposed Borsuk construction; it is not a solution of the eight-dimensional problem.
 
