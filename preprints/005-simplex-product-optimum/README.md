@@ -10,6 +10,8 @@
 
 The exact optimum in every dimension; a two-candidate balanced-partition formula; a sharp period-thirteen recurrence starting at dimension 100; uniqueness of every optimal dimension multiset; and sharp dimension-mass stability with additive constant 112. The optimal repeated block has dimension thirteen. These statements concern products of simplices and their affine images, not all convex bodies. No proof depends on a private transcript.
 
+An [additional model-conducted review](../../reviews/2026-10-07-independent-model-review.md) found no confirmed correctness defect. The [supplementary rate comparison](../../comparisons/2026-10-07-simplex-product-rate-gap.md) quantifies an already stated restriction: known non-simplex blocks beat this exact simplex-product optimum exponentially. It includes a fully derived rational lower bound and an [exact checker](../../verification/2026-10-07-independent-review/check_nonsimplex_gap.py). These supplements are not human peer review or proof-assistant verification and do not alter the version 1.1 theorems.
+
 ## Build and replay
 
 From `v1.1/`:

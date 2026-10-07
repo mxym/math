@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "true normalized toy cover",
+      "valid": true,
+      "density": "9/10",
+      "states_visited": 2,
+      "claim": "all x in [0,1], all t in [1,2], some listed point hits the periodic open holes"
+    },
+    {
+      "name": "boundary-only obstruction",
+      "valid": false,
+      "reason": "uncovered parameter pair",
+      "density": "7/8",
+      "witness": {
+        "x": "7/8",
+        "t": "1"
+      },
+      "states_visited": 3
+    },
+    {
+      "name": "empty blocker",
+      "valid": false,
+      "reason": "uncovered parameter pair",
+      "density": "0",
+      "witness": {
+        "x": "0",
+        "t": "1"
+      },
+      "states_visited": 2
+    },
+    {
+      "name": "whole circle",
+      "valid": true,
+      "density": "1",
+      "states_visited": 1,
+      "claim": "all x in [0,1], all t in [1,2], some listed point hits the periodic open holes"
+    },
+    {
+      "name": "touching open intervals leave singletons",
+      "valid": false,
+      "reason": "uncovered parameter pair",
+      "density": "1",
+      "witness": {
+        "x": "3/4",
+        "t": "2"
+      },
+      "states_visited": 3
+    },
+    {
+      "name": "density budget enforced",
+      "valid": false,
+      "reason": "measure budget exceeded",
+      "density": "9/10"
+    }
+  ]
+}

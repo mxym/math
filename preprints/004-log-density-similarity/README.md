@@ -10,6 +10,8 @@
 
 A positive logarithmic upper Banach density criterion for nonuniversality; infinitely many points outside the avoiding set in every nontrivial affine copy; countable simultaneous avoidance; and effective certificate search for computably enumerable rational configurations. The squarefree-indexed dyadic sequence is an explicit application. This does not settle arbitrary infinite configurations. No proof depends on a private transcript.
 
+An [additional model-conducted review](../../reviews/2026-10-07-independent-model-review.md) found no confirmed correctness defect and records [independent exact tests](../../verification/2026-10-07-independent-review/README.md). This is not human peer review or proof-assistant verification. The finite checker verifies supplied normalized covers, not the full infinite theorem or membership in a specified infinite configuration.
+
 ## Build and replay
 
 From `v1.1/`:

@@ -10,7 +10,7 @@ Let A be a subset of the positive reals whose occupied dyadic annuli have positi
 
 on that tail for some finite C, infinitely many of its image points lie outside E. The same E can treat countably many prescribed configurations A.
 
-Taking omega_j(t)=t^(1/j) excludes every nonflat smooth germ, every nonconstant real-analytic germ, and every C^(1,alpha) germ with nonzero derivative at zero, for every alpha>0. It does not exclude all C^1 germs or flat smooth germs. It does not settle the unrestricted Erdos similarity conjecture.
+Taking omega_j(t)=t^(1/j) excludes every smooth germ having a nonzero derivative of some positive order at zero (after subtracting its constant term), every nonconstant real-analytic germ, and every C^(1,alpha) germ with nonzero derivative at zero, for every alpha>0. It does not exclude all C^1 germs or flat smooth germs. It does not settle the unrestricted Erdos similarity conjecture.
 
 ## Uniform-tail density placement
 
@@ -48,6 +48,7 @@ Occupied logarithmic-bin density stays positive under a fixed positive power and
 
 ## Endpoint and attribution
 
-For a sequence a_(n+1)<=q*a_n with q<1, every positive-measure set contains an increasing C^1-diffeomorphic copy. At a density point choose image points x+lambda*a_n+e_n with e_n=o(a_n). Disjoint smooth bumps of radius theta*a_n interpolate the errors; their derivative norms are O(|e_n|/a_n) and tend to zero. Choosing lambda small makes the derivative positive everywhere. A detailed endpoint proof will accompany the manuscript. This is closely related to the density-point construction of Feng, Lai and Xiong, *Erdos similarity problem via bi-Lipschitz embedding*, arXiv:2312.01319, Theorem 1.1; endpoint novelty is not asserted.
+For a positive sequence a_(n+1)<=q*a_n with 0<q<1, every Lebesgue-measurable positive-measure set contains an increasing global C^1-diffeomorphic copy. At a density point, choose lambda and actual image points x+lambda*a_n+e_n so that |e_n|/(lambda*a_n) is uniformly smaller than theta/(2*||phi'||_infinity) for all n and tends to zero. Disjoint bumps of radius theta*a_n then give derivative between lambda/2 and 3*lambda/2, including the finite prefix, and a global C^1 inverse. The [complete manuscript and endpoint proof](../preprints/006-modulus-nonlinear-similarity/v1/main.tex) supplies the point selection and extension; merely e_n=o(a_n) would not justify uniform derivative positivity. This is closely related to the density-point construction of Feng, Lai and Xiong, *Erdos similarity problem via bi-Lipschitz embedding*, arXiv:2312.01319, Theorem 1.1; endpoint novelty is not asserted.
 
 The finite routing, local entropy, and exceptional-center repair are inherited from OpenAI family 084 and manuscript 004. The additional argument is uniform-tail template placement followed by a perturbation buffer at the finest grid. Pinned local source: mxym/math commit e894ed8678052e45ecd9f1714b6a996cfea33cf3, preprints/004-log-density-similarity/v1.1/build/main.tex. Upstream source: openai/math commit adc7f1241b42e322a6451854ab7e4b4c146bf78a, family 084. Rights and provenance notices in the repository continue to apply. No journal-tier or priority claim is made.
+
