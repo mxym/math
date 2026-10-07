@@ -2,7 +2,7 @@
 
 Mathematical research manuscripts and supporting verification material maintained at **mxym/math**.
 
-中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前八份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积的直积与 join 演算、单纯形刚性，以及非线性避让与光滑源的稳定性反例。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
+中文：本仓库收录数学研究稿、完整证明和可编辑源码。当前九份稿件涉及最优传输、二次整数阶中的有限步长图、精确维数的不可嵌入紧集、Erdős 相似性问题、投影体积的直积与 join 演算、单纯形刚性，以及非线性避让与光滑源的稳定性反例，并包含硬球气体的随机场路径极限。请从 [CONTENTS.md](CONTENTS.md) 进入各稿件。
 
 ## Collection
 
@@ -12,10 +12,11 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
-| 005 | [Projection-volume calculus, simplex rigidity and symmetric equality](preprints/005-simplex-product-optimum/README.md) | v4 | Complete written proof draft; symmetric equality classification |
+| 005 | [Projection-volume calculus, endpoint rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v5 | Complete written proof; balanced-recursion optimum, symmetric equality classification and exact replay |
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support counterexample |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
+| 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
 
 A separate [nine-piece balanced-projector cover](notes/balanced_borsuk_slice.md) excludes one proposed Borsuk construction; it is not a solution of the eight-dimensional problem.
 
@@ -80,3 +81,11 @@ A [six-page supplement](notes/stretched-exponential-sharpness/README.md) proves 
 The [six-page supplement](notes/critical-boundary-slow-variation/manuscript.pdf), with [complete source](notes/critical-boundary-slow-variation/manuscript.tex) and [scope/build information](notes/critical-boundary-slow-variation/README.txt), extends 008's critical multiscale construction to the specified positive C2 slowly varying factors. It proves a sharp implicit modulus for every sufficiently small target distance and a necessary iterated-logarithm correction at the displayed threshold. Within that exact source family, pure one-third stability is equivalent to the global density-root Sobolev condition; no arbitrary-source necessity claim is made.
 
 The original 008 v1 is unchanged. The supplement explicitly imports its overlap interpolation and global mass-matching mechanism, and the 001 v3 all-P2 potential estimate. It is not a new numbered paper or a priority certification. See the [proof review](reviews/2026-10-07-critical-slow-variation-review.md) and [changed-file manifest](releases/2026-10-07-critical-slow-variation-v1.json).
+
+## Functional kinetic limit and effective geometric rigidity
+
+[Manuscript 009](preprints/009-functional-hard-sphere-fluctuations/README.md) supplies a complete 19-page functional hard-sphere fluctuation proof under its explicit pinned analytic inputs, with a strongly continuous tempered-distribution-valued Gaussian limit. It does not claim a quantitative CLT rate or new global Boltzmann regularity.
+
+The [nine-page additive supplement to 005](notes/quantitative-projection-simplex-stability/README.md) gives an explicit dimension-dependent simplex-containment modulus for arbitrary convex bodies and every maximum-volume inscribed simplex. Its exponent and constants are deliberately conservative. The stronger planar Banach–Mazur bound is explicitly inherited from Böröczky’s prior work. No effective symmetric upper-end modulus or optimal spectral constant is claimed. [Source archive](notes/quantitative-projection-simplex-stability/source.zip).
+
+The [005 v4 independent audit](reviews/2026-10-07-symmetric-projection-equality-review.md) verifies its separate symmetric equality classification. Historical version files are unchanged. The [publication manifest](releases/2026-10-07-functional-kinetic-and-rigidity-v1.json) records every changed file.

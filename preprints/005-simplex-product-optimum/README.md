@@ -59,3 +59,7 @@ The product identity, simplex value, and dimension-twenty example are credited t
 ```
 
 Public disclosure does not certify first discovery. Historical manifests should be checked at their fixed publication commit, because navigation files can subsequently evolve.
+
+## Additive effective-rigidity supplement
+
+The [complete supplement and evidence](../../notes/quantitative-projection-simplex-stability/README.md), [nine-page PDF](../../notes/quantitative-projection-simplex-stability/paper.pdf), and [source archive](../../notes/quantitative-projection-simplex-stability/source.zip) quantify the lower-end simplex-rigidity theorem with explicit dimension-dependent constants for every maximum-volume inscribed simplex. This is separate from v4’s symmetric upper-end equality class. The planar Banach–Mazur comparison credits the stronger existing linear bound. Versions 2–5 are preserved unchanged by this additive release. The [independent v4 review](../../reviews/2026-10-07-symmetric-projection-equality-review.md) found no substantive correction required.

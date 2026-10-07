@@ -69,3 +69,9 @@ The [008 audit](../reviews/2026-10-07-density-overlap-independent-audit.md) inde
 ## Critical slow-variation supplement to 008
 
 The [proof and assembly review](../reviews/2026-10-07-critical-slow-variation-review.md) checks the exact implicit modulus and its all-small-distance lower construction, family-specific root criterion, and inverse-substitution counterexample. The [six-page bundle](../notes/critical-boundary-slow-variation/README.txt) includes all local typesetting inputs, explicit public mathematical dependencies, visual QA, clean-rebuild information, and file hashes. No historical version file is overwritten.
+
+## Functional kinetic and effective-rigidity release
+
+[009’s mathematical audit](../preprints/009-functional-hard-sphere-fluctuations/v1/AUDIT.md) records fresh full-source and component checking, the repaired repeated-pair schedule refinement, and precise dependence on the imported analytic package. Its [artifact report](../preprints/009-functional-hard-sphere-fluctuations/v1/ARTIFACT_QA.md) records 19-page inspection and matching independent/source-archive builds. This is not a quantitative CLT-rate or fixed-Sobolev-norm claim.
+
+The [projection-rigidity supplement audit](../notes/quantitative-projection-simplex-stability/INDEPENDENT_AUDIT.md) checks the arbitrary-body/every-maximum-simplex proof and existing stronger planar comparison. Its manifest pins the full nine-page package and finite regressions. The [separate v4 equality review](../reviews/2026-10-07-symmetric-projection-equality-review.md) preserves the original symmetric-classification source. None of these model audits is external peer review or formal verification.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 — functional hard-sphere manuscript and effective-rigidity supplement
+
+- Added manuscript 009: strong-dual generalized-J1 convergence of exactly centered hard-sphere fluctuation fields on the prescribed regular kinetic interval, conditional on the explicitly restated pinned upstream analytic package. All new geometry, localization, remainder, chaining and topology proofs are included.
+- Repaired and independently rechecked the repeated-pair schedule-slot extraction before public release. Added the 19-page PDF, all nine TeX files, source archive, precise dependency inventory, public technical audit and artifact checks. No quantitative CLT rate, fixed-Sobolev tightness, or true-flow high-moment transfer is asserted.
+- Added a nine-page quantitative simplex-rigidity supplement with explicit d-dependent constants and exact checks. Credited the stronger prior planar Banach–Mazur estimate; no novelty, optimality, dimension-independent or symmetric upper-end stability claim.
+- Recorded the independent 005 v4 equality audit. Preserved all historical version files and unrelated parallel work, and recorded a complete changed-file manifest.
+
 ## 2026-10-07 — critical boundary slow-variation supplement
 
 - Extended 008's critical source-boundary construction to positive C2 slowly varying factors under the stated derivative hypotheses. Proved the sharp implicit modulus at every sufficiently small distance, not merely along a sequence.

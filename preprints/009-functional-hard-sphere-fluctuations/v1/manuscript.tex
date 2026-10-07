@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{enumitem,aliascnt,needspace}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\newaliascnt{assumption}{theorem}
+\newtheorem{assumption}[assumption]{Assumption}
+\aliascntresetthe{assumption}
+\crefname{assumption}{assumption}{assumptions}
+\Crefname{assumption}{Assumption}{Assumptions}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\osc}{\operatorname{osc}}
+\newcommand{\kap}{\kappa}
+\newcommand{\logp}{\log_+}
+\newcommand{\sourcelabel}[1]{\nolinkurl{#1}}
+\newif\iffunctional
+\functionaltrue
+\title{Functional hard-sphere fluctuations\\on regular kinetic intervals}
+\author{}
+\date{Research draft, version 1\\7 October 2026}
+\hypersetup{pdftitle={Functional hard-sphere fluctuations on regular kinetic intervals},pdfsubject={Research draft, version 1 with explicit inherited analytic dependencies},pdfauthor={}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove functional Gaussian convergence of exactly centered hard-sphere
+fluctuations throughout a prescribed regular Boltzmann interval.
+The limit is a Radon law on the path space of tempered distributions,
+with the generalized Skorokhod topology induced by the strong dual,
+and is supported on strongly continuous paths. We use the explicitly stated analytic
+history package and finite-dimensional limit of the pinned upstream
+manuscript. New quantitative first-recollision estimates control connected
+cyclic histories by $C_h\mu^{1-h}\sqrt{\eps(1+\log(1/\eps))}$,
+where $\mu=\eps^{-2}$. A joint squared-flux argument preserves the source's
+factorial summability, including all permitted later weights.
+Actual pasted-law increment cumulants follow after microscopic remainder
+inversion. Passive collision records and a calendar-shift comparison give
+a microscopic modulus, closing a two-grid tightness argument. The true flow
+is reached by uniform exact-centered path comparison. No quantitative rate
+of convergence of the fluctuation law or its limiting covariance is asserted.
+\end{abstract}
+\paragraph{Dependency and manuscript status.}
+The analytic history construction, its coarse estimates, and the existing
+finite-dimensional Gaussian limit are imported from the OpenAI
+preprint~\cite{U}, at the exact snapshot specified below.
+The new Gaussian geometry and weighted summation are proved here.
+This is a research draft (version 1); external peer review and a comprehensive
+publication-priority review have not been completed.
+The strong-dual path topology is specified explicitly; convergence in a fixed negative-Sobolev path norm is not asserted. No publication-priority claim is made.
+\input{sections/01_model}
+\input{sections/02_imports}
+\input{sections/03_geometry}
+\input{sections/04_summation}
+\input{sections/05_increments}
+\iffunctional
+\input{sections/06_microscopic}
+\input{sections/07_functional}
+\input{sections/08_tempered}
+\fi
+\begin{thebibliography}{9}
+\bibitem{U}
+OpenAI, \emph{Hard-sphere fluctuations on the regular Boltzmann lifespan},
+23 September 2026, source at
+\href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build}{openai/math},
+commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\bibitem{DHM}
+Y. Deng, Z. Hani and X. Ma,
+\emph{Long time derivation of the Boltzmann equation from hard sphere dynamics},
+\href{https://arxiv.org/abs/2408.07818v3}{arXiv:2408.07818v3}, 2025.
+\bibitem{BGSS}
+T. Bodineau, I. Gallagher, L. Saint-Raymond and S. Simonella,
+\emph{Statistical dynamics of a hard sphere gas: fluctuating Boltzmann
+equation and large deviations}, Ann. of Math. \textbf{198} (2023), 1047--1201.
+Proof locators refer to
+\href{https://arxiv.org/html/2008.10403v2}{arXiv:2008.10403v2}.
+\bibitem{BGSSeq}
+T. Bodineau, I. Gallagher, L. Saint-Raymond and S. Simonella,
+\emph{Long-time derivation at equilibrium of the fluctuating Boltzmann equation},
+Ann. Probab. \textbf{52} (2024), 217--295;
+\href{https://arxiv.org/abs/2201.04514}{arXiv:2201.04514}.
+\bibitem{Mitoma}
+I. Mitoma, \emph{Tightness of probabilities on $C([0,1];\mathcal S')$
+and $D([0,1];\mathcal S')$}, Ann. Probab. \textbf{11} (1983), 989--999,
+\href{https://doi.org/10.1214/aop/1176993447}{doi:10.1214/aop/1176993447}.
+\bibitem{Jakubowski}
+A. Jakubowski, \emph{On the Skorokhod topology}, Ann. Inst. H. Poincar\'e
+Probab. Statist. \textbf{22} (1986), 263--285;
+\href{https://www.numdam.org/item/AIHPB_1986__22_3_263_0.pdf}{original article}.
+\end{thebibliography}
+\end{document}

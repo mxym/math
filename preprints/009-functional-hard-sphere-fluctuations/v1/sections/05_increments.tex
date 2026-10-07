@@ -1,0 +1,113 @@
+\section{Actual microscopic increment cumulants}\label{sec:increments}
+Fix $I=(s,t]$, and mark each designated particle by
+$y=\phi(z_t)-\phi(z_s)$ using two bounded observation pulses.
+Put $M=\|\phi\|_\infty$ and $D=\|v\cdot\nabla_x\phi\|_\infty$.
+The record satisfies $|y|\leq2M$, and along every prescribed particle line
+\begin{equation}\label{eq:incrementpath}
+ |y|\leq D|I|+2M N_I,
+\end{equation}
+where $N_I$ may count all contacts of its diagram. Counting O contacts
+only increases this bound.
+
+\begin{lemma}[One-window tree localization]\label{lem:treewindow}
+For connected retained merger trees of factorial order $h$, fixed
+complexity and fixed total mark degree $k$, testing at least one increment
+factor gives an absolute bound $C_k\mu^{1-h}|I|$.
+\end{lemma}
+\begin{proof}
+For $a$ ordered times in a slab of length $\tau$,
+\[
+ \int_{\mathcal S_a(\tau)}
+      \sum_{j=1}^a\ind_{\{t_j\in I\}}\dd t
+       =\frac{a|I\cap\text{slab}|\tau^{a-1}}{a!}.
+\]
+This follows by symmetrizing over the cube. Before time integration the
+source's pair-flux and Gaussian majorants are uniform in the merger
+times. Inserting the count therefore costs only a polynomial size factor
+times $|I|/\tau$, preserving summability.
+Apply \eqref{eq:incrementpath} to one marked factor and bound the others
+by $2M$. A contact-free term contributes only its streaming factor.
+Required record lines continue to time zero, so no part of this trajectory
+is hidden in an unmarked independent input.
+\end{proof}
+
+\begin{lemma}[Microscopic remainder after cumulant inversion]\label{lem:remainder}
+For every fixed $k$ and all $h\leq k$,
+\[
+ \|c_h^\eps-\widehat c_h^\eps\|_{\TV}
+       \leq C_k e^{-c_k\Lambda_L},
+\]
+uniformly in the two pulse times.
+\end{lemma}
+\begin{proof}
+The actual normalized factorial masses are at most one.
+Thus the retained factorial variations are at most one plus their
+exponentially small errors. Invert the finite partition identity:
+\[
+ c_h=\sum_{\pi\in\mathcal P([h])}
+       (-1)^{|\pi|-1}(|\pi|-1)!
+       \bigotimes_{B\in\pi}F_{|B|}.
+\]
+Expand each tensor-product difference one factor at a time and use the
+factorial mass bounds. This proves the claim.
+Record updates are measurable pushforwards of norm at most one; their
+number and bounded ranges, not their time separation, control the source
+estimates. No velocity weight is attached to this error.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thm:increments}]
+Fix $k$ and choose one complexity cutoff covering all $h\leq k$ with
+unscaled tail $O(\eps^{2k+2})$. Choose the initial-tail depth afterward.
+Neither operation changes the dynamics.
+For integers $b_j\geq1$ with $\sum_jb_j=k$, split retained connected
+diagrams into merger trees, cyclic $p=0$ histories, physical-link
+histories and the initial-tail remainder.
+\Cref{lem:treewindow,thm:cycles} and the separate link gain imply
+\[
+ \left|\int c_h^\eps\prod_{j=1}^h y_j^{b_j}\right|
+       \leq C_k\mu^{1-h}(|I|+r_\eps).
+\]
+Here the actual microscopic error from \Cref{lem:remainder} is smaller
+than every fixed power, and $\eps^{2k+2}$ is smaller than
+$\mu^{1-h}r_\eps$ for $h\leq k$.
+
+For $S_I=\sum_i y_i$, the finite marked partition identity is
+\[
+ \kap_k(S_I)=\sum_{\pi\in\mathcal P([k])}
+      \mu^{|\pi|}\int c_{|\pi|}^\eps
+                         \prod_{B\in\pi}y_B^{|B|}.
+\]
+It follows by expanding
+$e^{\lambda S_I}=\prod_i[1+(e^{\lambda y_i}-1)]$ and taking the logarithm;
+through degree $k$ it is a finite formal identity.
+At fixed $\eps$ it is also justified by the exponential moments of $N$.
+For $k\geq2$, exact centering changes no cumulant and each partition
+has normalization
+$\mu^{-k/2}\mu^{|\pi|}\mu^{1-|\pi|}
+=\mu^{1-k/2}=\eps^{k-2}$.
+This proves the theorem, including uniformity over pulse times.
+The size-summation bases are independent of fixed order, so $\Gamma,L$
+remain the same throughout.
+\end{proof}
+
+\begin{corollary}[Even moments]\label{cor:moments}
+For each fixed integer $p\geq1$, with $B_I=|I|+r_\eps$,
+\[
+ \E|\Delta_I\zeta^{\eps,p}(\phi)|^{2p}
+       \leq C_p(B_I^p+\eps^{2p-2}B_I).
+\]
+If $0<a<1/2$ and $|I|\leq\eps^a$, the bound is $C_p\eps^{ap}$.
+\end{corollary}
+\begin{proof}
+A centered moment partition has no singleton blocks.
+A partition into $r\leq p$ blocks contributes
+$C_p\eps^{2p-2r}B_I^r$. This geometric progression is bounded by a
+constant times its two endpoint terms. For the last assertion,
+$r_\eps=o(\eps^a)$ and
+$2p-2+a\geq ap$.
+\end{proof}
+
+This argument proves a result for the actual pasted probability law,
+not only a signed retained expansion. It does not transfer its high
+moments to the true flow. The latter transfer will use uniform path
+comparison, which requires substantially less.

@@ -10,6 +10,7 @@
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support sharpness and exact algebra checks |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; sharp critical logarithm and exact multiscale cell checks |
+| 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
 
 All entries contain full proof drafts. This catalogue does not claim novelty certification or formal proof completion. The verification scopes of 004--005 are recorded [separately](verification/density-simplex-2026-10-07.md); their first complete source publication is commit `e6c776cae39477baa4e1a03d59a1547417f1a68e`.
 
@@ -55,3 +56,11 @@ See the [source-regularity reconciliation](comparisons/2026-10-07-source-regular
 The [six-page supplement](notes/critical-boundary-slow-variation/manuscript.pdf), with [complete source](notes/critical-boundary-slow-variation/manuscript.tex) and [scope/build information](notes/critical-boundary-slow-variation/README.txt), extends 008's critical multiscale construction to the specified positive C2 slowly varying factors. It proves a sharp implicit modulus for every sufficiently small target distance and a necessary iterated-logarithm correction at the displayed threshold. Within that exact source family, pure one-third stability is equivalent to the global density-root Sobolev condition; no arbitrary-source necessity claim is made.
 
 The original 008 v1 is unchanged. The supplement explicitly imports its overlap interpolation and global mass-matching mechanism, and the 001 v3 all-P2 potential estimate. It is not a new numbered paper or a priority certification. See the [proof review](reviews/2026-10-07-critical-slow-variation-review.md) and [changed-file manifest](releases/2026-10-07-critical-slow-variation-v1.json).
+
+## Functional kinetic limit and effective geometric rigidity
+
+[Manuscript 009](preprints/009-functional-hard-sphere-fluctuations/README.md) supplies a complete 19-page functional hard-sphere fluctuation proof under its explicit pinned analytic inputs, with a strongly continuous tempered-distribution-valued Gaussian limit. It does not claim a quantitative CLT rate or new global Boltzmann regularity.
+
+The [nine-page additive supplement to 005](notes/quantitative-projection-simplex-stability/README.md) gives an explicit dimension-dependent simplex-containment modulus for arbitrary convex bodies and every maximum-volume inscribed simplex. Its exponent and constants are deliberately conservative. The stronger planar Banach–Mazur bound is explicitly inherited from Böröczky’s prior work. No effective symmetric upper-end modulus or optimal spectral constant is claimed. [Source archive](notes/quantitative-projection-simplex-stability/source.zip).
+
+The [005 v4 independent audit](reviews/2026-10-07-symmetric-projection-equality-review.md) verifies its separate symmetric equality classification. Historical version files are unchanged. The [publication manifest](releases/2026-10-07-functional-kinetic-and-rigidity-v1.json) records every changed file.
