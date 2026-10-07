@@ -17,7 +17,7 @@ For the relationship between entries 001, 007 and 008, see the [transport progra
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support sharpness and exact algebra checks |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; sharp critical logarithm and exact multiscale cell checks |
 | 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
-| 010 | [Finite multiscale harmonic-dimension counterexamples](preprints/010-finite-multiscale-harmonic-dimension/README.md) | v1 | Complete finite-multiscale proof; pinned family-361 dependencies and exact band replay |
+| 010 | [Finite multiscale harmonic-dimension counterexamples](preprints/010-finite-multiscale-harmonic-dimension/README.md) | v1 | Complete finite-multiscale proof; full A beta^2 < 9/4 excess tradeoff and exact replay |
 
 All entries contain full proof drafts. This catalogue does not claim novelty certification or formal proof completion. The verification scopes of 004--005 are recorded [separately](verification/density-simplex-2026-10-07.md); their first complete source publication is commit `e6c776cae39477baa4e1a03d59a1547417f1a68e`.
 
