@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — sharp simplex endpoint, strict-domain slack and positive sextic bound
+
+- Added the independently audited 45-file eight-page sharp simplex package, attaining 1/(d-1) for arbitrary convex bodies and every prescribed maximum simplex about its own centroid. Explicit local/global constants and the preserved truncation family establish sharpness for this theorem class; the earlier 1/d package is unchanged.
+- Added the separate 18-file 12-page retained-deficit/strict-domain complete-calculus note. Complete constant two and its proof architecture remain credited to OpenAI's pinned direct manuscript; the quantitative strict-domain gap may vanish in the outer limit. No first-resolution or novelty claim is made.
+- Added the independently reviewed corrected 15-file seven-page positive sextic Bellman package, with the product/join-class bound 2.8534 < Gamma_C <= exp(104867/100000) < 2.85386. The exact optimum, inherited lower construction and unrestricted-body question remain unchanged.
+- The corrected certificate/audit ZIP preserves all 143 original entries and adds exactly two recovered ancestor manifests, yielding 145 entries and all 63 pinned ancestor sources. Retained historical full-tail arithmetic reports and fresh integrity/coverage checks have separate scopes; no fresh full-tail replay is claimed by this integration.
+- Added four narrow navigation/status changes and a changed-file manifest. Preserved all older proof, Lean, certificate, workflow and source archive files and modes. Analytic model audits, finite arithmetic replay and PDF/integrity checks are not whole-paper formalization, human peer review or priority certification.
+
 ## 2026-10-07 — 002v4 verification repair
 
 - 002v4 verification repair: enforce integer witness fields, bind endpoint data and labelled subsets to the stated sieves, clarify the squarefree-q definition, and refresh manifest hashes. All 19 corruption controls reject in normal and optimized Python; valid replay outputs are unchanged. Mathematical claims and scope are unchanged.

@@ -1,0 +1,550 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\setlength{\emergencystretch}{2em}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\T}{\mathbb T}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\title{Quantitative strict bounds in complete numerical range calculus}
+\author{Research working note prepared with AI assistance}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We retain the nonnegative terms in the complete Crouzeix argument of the pinned public OpenAI direct manuscript and prove an exact singular-vector deficit identity. A Hilbert--Schmidt estimate for reduced singular-vector densities yields an explicit strict complete spectral bound below two on every regular analytic convex domain strictly enclosing the numerical range. The constant is independent of both base and coefficient dimensions. A geometric form extends to bounded operators on arbitrary complex Hilbert spaces and gives a norm-perturbation certificate. We reproduce the analytic and ordered-product ingredients and the outer-approximation argument, which recovers the complete constant-two inequality and is already part of the attributed source architecture. The retained deficit and quantitative certificate are the refinements studied here. A stronger strict disk estimate is deduced separately from classical similarity input. No priority, exhaustive novelty, proof-assistant, or publication-acceptance claim is made.
+\end{abstract}
+\tableofcontents
+
+
+\section{Purpose and attribution}
+For a bounded operator $A$ on a nonzero complex Hilbert space, write
+$W(A)=\{\langle Av,v\rangle:\norm v=1\}$ and let
+$w(A)=\sup\{|z|:z\in W(A)\}$ be its numerical radius.
+The coefficient dimension in a complete numerical-range bound is arbitrary:
+if $F(z)=\sum_j z^j C_j$ with $C_j\in M_m(\C)$, then
+$F[A]=\sum_j A^j\otimes C_j$ acts on the Hilbert tensor product.
+
+This note refines the mechanism in OpenAI's \emph{A direct proof of the complete Crouzeix inequality}, dated 26 September 2026 and pinned at commit
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a} \cite{OAI}.
+That public manuscript already states the full complete constant-two theorem.
+Its Faber coefficient estimates, its two separately ordered products $FG$ and $GF$, its conformal collar, and its analytic convex outer approximation are substantive dependencies of the architecture. They are reproved below with explicit attribution. In particular, the outer-limit complete-two conclusion is not a first resolution or an independent new architecture of this note.
+
+The refinements considered here are the retained nonnegative singular-vector deficit, the cancellation of reduced-density purity factors, and explicit intrinsic, geometric, and perturbation certificates on strictly larger enclosing domains. The positive gap may disappear as the domains shrink to the numerical-range closure. Its dimension independence does not imply a universal constant less than two.
+
+The written proof has undergone an independent AI-assisted mathematical audit under the displayed collar and strict-enclosure hypotheses. Exact rational and Gaussian-rational checks accompany the source. Finite computation supports algebra and examples; it supplies no proof of the analytic or universal quantifiers. The audit is neither proof-assistant formalization nor human peer review. The provenance and verification records state the exact scope of each check.
+
+\subsection{Relation to earlier results}
+Crouzeix--Palencia \cite{CP} proves the complete $1+\sqrt2$ bound using a positive double layer and Cauchy transform. Ransford--Schwenninger \cite{RS} shows that its two abstract norm inequalities alone have sharp constant $1+\sqrt2$; the geometric exterior-coefficient structure used here is therefore important. Lorist--Schwenninger \cite{LS}, Theorem 3 and Section 3(iv), gives a scalar theorem and expressly identifies its amplification obstruction. Our inherited architecture uses both ordered products rather than a matrix amplification of that scalar commutation argument.
+
+Strict complete estimates have older precedents. Badea--Crouzeix--Delyon \cite{BCD}, Theorem 5.1, records the classical disk similarity theorem from Berger and Okubo--Ando; Theorem 5.2 gives a condition number strictly between one and two for the nondegenerate two-by-two ellipse construction. Crouzeix--Greenbaum \cite{CG}, Theorem 2, gives complete two and a strict conclusion for its specified weighted-shift family when the weight product is nonzero. Malman--Mashreghi--O'Loughlin--Ransford \cite{MMOR}, Theorems 2, 3 and 28, gives a scalar domain-dependent constant strictly below $1+\sqrt2$. These are comparisons in their stated settings, not assumptions of our general strict-domain proof.
+
+Section~\ref{sec:disk-comparison} reproduces the audit's elementary deduction of a stronger disk bound from the older similarity theorem. This is not a claim that the displayed formula was located in the cited paper. The bounded literature comparison has not established priority or novelty of the precise deficit identity or the intrinsic $\mu/M$ certificate.
+
+\section{Setting and principal results}
+Let $\Omega\subset\C$ be bounded, convex and open with a regular real-analytic Jordan boundary. Fix an exterior conformal map $h$ that is meromorphic and injective, including infinity, on $\{|\lambda|>r_0\}\cup\{\infty\}$ for some $0<r_0<1$, maps $|\lambda|>1$ onto the exterior of $\bar\Omega$, and satisfies
+\[h(\lambda)=c\lambda+c_0+O(\lambda^{-1}),\quad c\ne0,\qquad q(\lambda)=\lambda h'(\lambda).\]
+These collar properties are the precise conformal input. They follow from the classical Riemann mapping, boundary extension and analytic Schwarz reflection theorems; no additional exterior density is assumed. For the unit disk simply take $h(\lambda)=\lambda$. Write $d\tau(e^{it})=dt/(2\pi)$.
+
+For $A\in M_n(\C)$ with $W(A)\subset\Omega$ put
+\[R_A(\lambda)=q(\lambda)(h(\lambda)I-A)^{-1},\quad H_A=R_A+R_A^*,\quad
+M=\max_{\T}\norm{R_A},\quad \mu=\min_{\T}\lambda_{\min}(H_A).
+\]
+All norms without subscripts are operator norms. $M$ is finite and $0<\mu\le2$ by Lemma~\ref{lem:resolvent}. For $F(z)=\sum_j z^j C_j$, $C_j\in M_m(\C)$, define $F[A]=\sum_j A^j\otimes C_j$.
+
+\begin{theorem}[Intrinsic complete strict bound]\label{thm:intrinsic}
+In this setting, for every $m$ and every matrix-valued polynomial $F$,
+\begin{equation}\label{eq:intrinsic}
+\norm{F[A]}\le \frac{2}{\sqrt{1+\min\{\mu^2,3\}/M^2}}\max_{\bar\Omega}\norm{F(z)}.
+\end{equation}
+The factor is independent of $n,m$ and the degree. Its dependence on $A,\Omega$ is explicit through $M,\mu$.
+\end{theorem}
+
+For infinite-dimensional operators we will use a geometric constant that is uniform over finite compressions. Let $A$ be bounded on a nonzero complex Hilbert space and let $K=\overline{W(A)}\subset\Omega$. Define
+\begin{align*}
+Q&=\max_{\lambda\in\T}|q(\lambda)|,&d&=\min_{\lambda\in\T}\dist(h(\lambda),K),\\
+b&=\min_{\lambda\in\T,z\in K}\Re\{\overline{q(\lambda)}(h(\lambda)-z)\},&
+D&=\max_{\lambda\in\T}\norm{h(\lambda)I-A}.
+\end{align*}
+All four constants are finite and strictly positive. In particular $b>0$ uses strict enclosure, not merely $K\subset\bar\Omega$.
+
+\begin{theorem}[Geometric Hilbert-space form]\label{thm:hilbert}
+Under these assumptions,
+\begin{equation}\label{eq:geometric}
+\norm{F[A]}\le \frac{2}{\sqrt{1+\eta}}\max_{\bar\Omega}\norm{F},\qquad
+\eta=\min\left\{\frac{4b^2}{D^4},3\right\}\frac{d^2}{Q^2}>0.
+\end{equation}
+This holds for every finite coefficient size and degree, including on nonseparable Hilbert spaces.
+\end{theorem}
+
+Analytic convex outer approximation also recovers the complete constant-two numerical-range inequality, as in the pinned direct manuscript; Section~\ref{sec:outer} makes this explicit. The quantitative positive deficit applies on each strictly larger enclosing domain and may vanish as those domains shrink. Neither theorem asserts a universal constant less than two in that limit. Such an assertion is false: $A=\left(\begin{smallmatrix}0&2\\0&0\end{smallmatrix}\right)$ and $F(z)=z$ have ratio two on $W(A)=\bar{\mathbb D}$.
+
+\section{Analytic and coefficient ingredients}
+The next two lemmas reproduce the relevant ingredients of the public direct proof \cite{OAI}. Their attribution is substantive: this note refines that mechanism, rather than claiming a new proof architecture.
+
+\begin{lemma}[Exterior coefficients and their norm]\label{lem:faber}
+Expansion at infinity defines polynomials $b_k$ by
+\begin{equation}\label{eq:faber}
+\frac{q(\lambda)}{h(\lambda)-z}=\sum_{k\ge0}b_k(z)\lambda^{-k}.
+\end{equation}
+Here $b_0=1$, $\deg b_k=k$, and its leading coefficient is $c^{-k}$. If $G=\sum_{k=0}^N b_k C_k$, then
+\begin{equation}\label{eq:coeff}
+\sum_{k=0}^N\norm{C_k}_\HS^2\le
+\int_\T\norm{G(h(\lambda))}_\HS^2\,d\tau\le
+\norm{C_0}_\HS^2+2\sum_{k=1}^N\norm{C_k}_\HS^2.
+\end{equation}
+These estimates hold for matrices of arbitrary coefficient size.
+\end{lemma}
+\begin{proof}
+Factor $c\lambda$ in the denominator of \eqref{eq:faber} and expand geometrically. Its $k$th coefficient has degree $k$ and leading term $c^{-k}z^k$. For the negative boundary coefficients consider
+\[U(\lambda,\zeta)=\frac{h(\lambda)-h(\zeta)}{\lambda-\zeta},\qquad
+s(\lambda,\zeta)=\frac{q(\lambda)}{h(\lambda)-h(\zeta)}-\frac{\lambda}{\lambda-\zeta}.
+\]
+Writing $u=1/\lambda$, $v=1/\zeta$ and $h(\lambda)=c\lambda+g(u)$ gives
+\[U=c-uv\frac{g(u)-g(v)}{u-v}.
+\]
+The divided difference extends holomorphically across $u=v$, and $U$ is nowhere zero on the reciprocal bidisk: off the diagonal this follows from injectivity, on the diagonal from $h'\ne0$, and on the axes from $c\ne0$. Furthermore
+$s=\lambda\partial_\lambda U/U=-u\partial_u U/U$ vanishes on both axes. Thus
+\[s(\lambda,\zeta)=\sum_{k,j\ge1}s_{kj}\lambda^{-k}\zeta^{-j}.
+\]
+For each $r_0<\rho<1$, Cauchy estimates give $|s_{kj}|\le C_\rho\rho^{k+j}$. The series converges absolutely and uniformly on $\T^2$. Comparison of the coefficients at infinity yields
+\[b_k(h(\zeta))=\zeta^k+\sum_{j\ge1}s_{kj}\zeta^{-j}\quad(k\ge1).
+\]
+
+On $\T^2$ the continuous kernel $K_0=1+s+\bar s$ is nonnegative. Indeed, for distinct points $2\Re(\lambda/(\lambda-\zeta))=1$, hence
+\[K_0(\lambda,\zeta)=2\Re\frac{q(\lambda)}{h(\lambda)-h(\zeta)}\ge0.
+\]
+The inequality is the supporting-line property of a convex boundary, with outward normal $q(\lambda)$; continuity handles the diagonal. Every nonconstant term has a nonzero Fourier frequency in each variable, so each angular marginal is one. Consequently the integral operator
+\[(Tu)(\zeta)=\int_\T K_0(\lambda,\zeta)u(\lambda)\,d\tau(\lambda)
+\]
+is a contraction on every Hilbert-valued $L^2$: Jensen gives the pointwise squared norm bound, and the other marginal gives the integrated bound. For $u(\lambda)=\sum_{k\ge1}C_k\lambda^k$ its output is precisely the negative Fourier part $\sum_{j\ge1}(\sum_k s_{kj}C_k)\zeta^{-j}$. Constant, positive and negative parts are orthogonal. Parseval and the contraction prove both sides of \eqref{eq:coeff}. In particular no scalar-to-matrix amplification of a commutation statement is involved.
+\end{proof}
+
+\begin{lemma}[Resolvent coefficients and strict positivity]\label{lem:resolvent}
+For the finite matrix $A$ above,
+\[R_A=\sum_{k\ge0}b_k(A)\lambda^{-k},\quad \int_\T R_A\,d\tau=I,\quad
+\int_\T H_A\,d\tau=2I.
+\]
+The coefficient series converges absolutely uniformly. $H_A$ is uniformly positive definite, so $0<\mu\le2$.
+\end{lemma}
+\begin{proof}
+Every eigenvalue belongs to $W(A)$. Compact separation of the spectrum from $h(\T)$ and the exterior mapping property give a collar $|\lambda|>r_A$, $r_A<1$, on which $R_A$ is holomorphic, including infinity with value $I$. Its expansion is \eqref{eq:faber} with $A$ substituted, first at large $|\lambda|$ and then by continuation. Cauchy estimates give geometric decay of $b_k(A)$. The two integral identities follow from the constant coefficient.
+
+For $B=h(\lambda)I-A$, congruence gives
+\begin{equation}\label{eq:congruence}
+B^*H_AB=\bar qB+qB^*\succeq2bI,
+\end{equation}
+where $b>0$ is the supporting-line margin defined above. Hence
+$H_A\succeq2b\norm{B}^{-2}I\succeq(2b/D^2)I$. This proves strict positivity and, upon integration, $\mu\le2$. It also proves the lower estimate needed for Theorem~\ref{thm:hilbert}.
+\end{proof}
+
+\section{Exact deficit and rank-free slack estimate}
+Normalize $\max_{\partial\Omega}\norm{F}=1$ and suppose $\gamma=\norm{F[A]}>0$. The maximum over the closure agrees with the boundary maximum: apply the scalar maximum principle to $v^*F(z)u$ for unit vectors $u,v$. Choose unit singular vectors $x,y\in\C^n\otimes\C^m$ with
+\[F[A]x=\gamma y,\qquad F[A]^*y=\gamma x.
+\]
+Write $x=\sum_i Xe_i\otimes e_i$, $y=\sum_i Ye_i\otimes e_i$ with $X,Y$ of size $n\times m$; thus $\norm X_\HS=\norm Y_\HS=1$. Define the matrix fields
+\[P=X^*R_AX,\quad Q_1=Y^*R_AY,\quad M_1=Y^*R_AX,\quad L=X^*R_AY.
+\]
+Their $\lambda^{-k}$ coefficients are denoted $P_k,Q_k,M_k,L_k$. We reserve the scalar $M$ for the resolvent norm. Set
+\[a^2=\sum_{k\ge0}\norm{M_k}_\HS^2,
+\quad t=\norm{Y^*X}_\HS^2,
+\quad p=\norm{XX^*}_\HS^2,\quad q_1=\norm{YY^*}_\HS^2.
+\]
+The coefficient series are square summable. Moreover $a>0$, as follows from the coefficient functional below.
+
+\begin{lemma}[Ordered coefficient dual bounds]\label{lem:dual}
+\begin{align}
+\norm{P_0}_\HS^2+\frac12\sum_{k\ge1}\norm{P_k}_\HS^2&\le a^2/\gamma^2,\label{eq:dualP}\\
+\norm{Q_0}_\HS^2+\frac12\sum_{k\ge1}\norm{Q_k}_\HS^2&\le a^2/\gamma^2.\label{eq:dualQ}
+\end{align}
+\end{lemma}
+\begin{proof}
+For a finite Faber polynomial $G=\sum b_k C_k$, tensor expansion gives the bilinear, entrywise pairing
+\[y^*G[A]x=\sum_{k,i,j}(M_k)_{ij}(C_k)_{ij}.
+\]
+Cauchy--Schwarz bounds its modulus by $a(\sum\norm{C_k}_\HS^2)^{1/2}$. Taking $G=F$ proves $a>0$. Polynomial evaluation preserves the multiplication order even for noncommuting coefficients, and the singular-pair relations give
+\[y^*(FG)[A]x=\gamma x^*G[A]x,\qquad
+y^*(GF)[A]x=\gamma y^*G[A]y.
+\]
+Expand each full product in the Faber basis. The lower side of \eqref{eq:coeff}, followed by the pointwise bounds $\norm{FG}_\HS,\norm{GF}_\HS\le\norm G_\HS$, yields
+\[\max\{|x^*G[A]x|,|y^*G[A]y|\}\le
+\frac a\gamma\left(\norm{C_0}_\HS^2+2\sum_{k\ge1}\norm{C_k}_\HS^2\right)^{1/2}.
+\]
+To take the dual, use $C_0=\overline{P_0}$, $C_k=\overline{P_k}/2$ for $1\le k\le N$ and zero thereafter. If $d_N=\norm{P_0}_\HS^2+\frac12\sum_{k=1}^N\norm{P_k}_\HS^2$, this says $d_N\le(a/\gamma)\sqrt{d_N}$, hence $d_N\le a^2/\gamma^2$. Monotone convergence proves \eqref{eq:dualP}. The same finite tests with $Q_k$ prove \eqref{eq:dualQ}. The conjugations are entrywise, rather than an incorrectly transposed matrix product.
+\end{proof}
+
+Define
+\begin{align*}
+U_P&=\int_\T\norm{P+P^*}_\HS^2d\tau,&
+U_Q&=\int_\T\norm{Q_1+Q_1^*}_\HS^2d\tau,\\
+V&=\int_\T\norm{M_1+L^*}_\HS^2d\tau,&
+\mathcal E&=U_P+U_Q-2V,\\
+D_P&=4a^2/\gamma^2-U_P,&D_Q&=4a^2/\gamma^2-U_Q.
+\end{align*}
+
+\begin{theorem}[Nonnegative exact deficit]\label{thm:deficit}
+All $D_P,D_Q,\mathcal E$ are nonnegative, and
+\begin{equation}\label{eq:deficit}
+2a^2\left(\frac4{\gamma^2}-1\right)=
+D_P+D_Q+\mathcal E+6t+2\sum_{k\ge1}\norm{L_k}_\HS^2.
+\end{equation}
+In addition,
+\begin{equation}\label{eq:slack}
+\mathcal E+6t\ge2\min\{\mu^2,3\}\sqrt{p q_1},\qquad
+a^2\le M^2\sqrt{p q_1}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since $P_0=X^*X$, $Q_0=Y^*Y$ are Hermitian, Parseval and Lemma~\ref{lem:dual} give
+\[U_P=4\norm{P_0}_\HS^2+2\sum_{k\ge1}\norm{P_k}_\HS^2\le4a^2/\gamma^2,
+\]
+and the same bound for $U_Q$. Thus $D_P,D_Q\ge0$. The constant coefficient satisfies $L_0^*=M_0=Y^*X$, so
+\[V=4t+\sum_{k\ge1}(\norm{M_k}_\HS^2+\norm{L_k}_\HS^2)
+=a^2+3t+\sum_{k\ge1}\norm{L_k}_\HS^2.
+\]
+The positive matrix $\Delta=[X\ Y]^*H_A[X\ Y]$ has diagonal fields $P+P^*$ and $Q_1+Q_1^*$ and off-diagonal fields $M_1+L^*$ and its adjoint. For $J=\operatorname{diag}(I_m,-I_m)$,
+\[0\le\tr(\Delta J\Delta J)=
+\norm{P+P^*}_\HS^2+\norm{Q_1+Q_1^*}_\HS^2-2\norm{M_1+L^*}_\HS^2.
+\]
+For example its nonnegativity follows from positivity of $\Delta$ and $J\Delta J$. Integration proves $\mathcal E\ge0$. Substitution of the preceding identities proves \eqref{eq:deficit} exactly, with no term discarded.
+
+Here is the quantitative step. Put $\rho_X=XX^*$, $\rho_Y=YY^*$ and $D_0=\rho_X-\rho_Y$. Cyclicity of the finite-dimensional trace gives the pointwise identity
+\[\tr(\Delta J\Delta J)=\tr(H_AD_0H_AD_0)
+=\norm{H_A^{1/2}D_0H_A^{1/2}}_\HS^2\ge\mu^2\norm{D_0}_\HS^2.
+\]
+To verify the last inequality, diagonalize $H_A$; each squared entry of $D_0$ is multiplied by a product of two eigenvalues at least $\mu^2$. Also
+\[\norm{D_0}_\HS^2=p+q_1-2t,\qquad
+t=\tr(\rho_X\rho_Y)\ge0.
+\]
+Let $c_*=\min\{\mu^2,3\}$. Since $p+q_1-2t\ge0$,
+\[\mathcal E+6t\ge c_*(p+q_1-2t)+6t
+\ge c_*(p+q_1)\ge2c_*\sqrt{p q_1}.
+\]
+Finally Parseval and Hilbert--Schmidt Cauchy--Schwarz give
+\begin{align*}
+a^2&=\int_\T\norm{Y^*R_AX}_\HS^2d\tau
+=\int_\T\tr(\rho_YR_A\rho_XR_A^*)d\tau\\
+&\le\int_\T\norm{\rho_Y}_\HS\norm{R_A\rho_XR_A^*}_\HS d\tau
+\le M^2\norm{\rho_X}_\HS\norm{\rho_Y}_\HS=M^2\sqrt{p q_1}.
+\end{align*}
+The factors $\sqrt{p q_1}$ cancel in the final bound; replacing them prematurely by $1/n$ would unnecessarily introduce dimensional loss.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:intrinsic}]
+For a normalized $F$ with $\gamma>0$, \eqref{eq:deficit}--\eqref{eq:slack} yield
+\[\frac4{\gamma^2}-1\ge \frac{c_*\sqrt{p q_1}}{a^2}\ge\frac{c_*}{M^2}.
+\]
+This is \eqref{eq:intrinsic}. If $F=0$ or $\gamma=0$, it is immediate. Otherwise normalize by the boundary maximum and then rescale. The reduced densities have trace one and positive purity, so every division is legitimate.
+\end{proof}
+
+\begin{corollary}[Quantitative necessary conditions for near equality]\label{cor:near}
+In the normalized finite-dimensional setting write $\epsilon=4/\gamma^2-1$. Then
+\[\norm{Y^*X}_\HS^2\le\frac{a^2\epsilon}{3},\qquad
+\sum_{k\ge1}\norm{X^*b_k(A)Y}_\HS^2\le a^2\epsilon,
+\]
+\[\norm{XX^*-YY^*}_\HS\le\frac{\sqrt2a}{\mu}\sqrt\epsilon,\qquad
+D_P,D_Q,\mathcal E\le2a^2\epsilon.
+\]
+\end{corollary}
+\begin{proof}
+Each term on the right of \eqref{eq:deficit} is nonnegative. Keep the indicated term, and use $\mathcal E\ge\mu^2\norm{XX^*-YY^*}_\HS^2$ for the third estimate.
+\end{proof}
+These are necessary conditions on two ordered resolvent directions and the reduced densities. They do not classify extremizers, identify a nilpotent model, or give distance to a prescribed matrix class.
+
+\section{Geometric constants, arbitrary Hilbert spaces, and perturbations}
+\begin{proof}[Proof of Theorem~\ref{thm:hilbert}]
+First let the base space be finite. For $z\notin K$ and a unit $v$,
+\[\norm{(zI-A)v}\ge|\langle(zI-A)v,v\rangle|\ge\dist(z,K).
+\]
+Applying this to the inverse (which exists outside the numerical-range closure) gives
+\[\norm{(zI-A)^{-1}}\le1/\dist(z,K),\qquad M\le Q/d.\]
+The congruence \eqref{eq:congruence} gives $\mu\ge2b/D^2$. Substituting these two estimates in Theorem~\ref{thm:intrinsic} gives \eqref{eq:geometric}.
+
+Now let $A$ act on any Hilbert space. Fix a unit $x=\sum_{i=1}^m x_i\otimes e_i$ and let $s=\deg F$. The span
+\[E=\operatorname{span}\{A^j x_i:1\le i\le m,\ 0\le j\le s\}
+\]
+is finite-dimensional and nonzero. Set $B=P_EA|_E$. For each $j\le s$, induction gives $B^jx_i=A^jx_i$, because every intermediate vector lies in $E$. Thus $F[B]x=F[A]x$. Also $W(B)\subset K$ and
+$\norm{h(\lambda)I_E-B}\le\norm{h(\lambda)I-A}\le D$.
+The finite-dimensional estimates therefore hold for $B$ with the same $Q,d,b,D$. Bound $\norm{F[A]x}$ by \eqref{eq:geometric} and take the supremum over unit $x$. This avoids any norm-attainment assumption in the infinite-dimensional statement.
+\end{proof}
+
+\begin{corollary}[Norm-perturbation robustness]\label{cor:perturb}
+With the constants of Theorem~\ref{thm:hilbert}, let $E_1$ be bounded with $\norm{E_1}\le e<\min\{d,b/Q\}$. Then
+\[\norm{F[A+E_1]}\le\frac2{\sqrt{1+\eta_e}}\max_{\bar\Omega}\norm F,
+\quad
+\eta_e=\min\left\{\frac{4(b-Qe)^2}{(D+e)^4},3\right\}\frac{(d-e)^2}{Q^2}>0.
+\]
+\end{corollary}
+\begin{proof}
+For each unit vector $v$, its numerical-range value changes by at most $e$; hence
+$\overline{W(A+E_1)}\subset K+e\bar{\mathbb D}$.
+Its boundary separation is at least $d-e$ and supporting-line margin at least $b-Qe$. Positivity of the latter places the enlarged set strictly inside every supporting half-plane, hence inside $\Omega$. Its $D$ constant is at most $D+e$. Apply Theorem~\ref{thm:hilbert}.
+\end{proof}
+
+\begin{corollary}[Explicit disk example]\label{cor:disk}
+If $w(A)=\sup_{z\in W(A)}|z|\le r<1$, then, for every finite matrix-valued polynomial,
+\[\norm{F[A]}\le
+\frac2{\sqrt{1+\eta_r}}\max_{|z|\le1}\norm F(z),\qquad
+\eta_r=\min\left\{\frac{4(1-r)^2}{(1+2r)^4},3\right\}(1-r)^2.
+\]
+\end{corollary}
+\begin{proof}
+Use $h(\lambda)=\lambda$. Then $Q=1$, $b,d\ge1-r$, and $D\le1+\norm A\le1+2r$. For completeness, write $A=H+iJ$ with $H,J$ self-adjoint. The numerical-radius bound gives $\norm H,\norm J\le r$ by their real quadratic forms, so $\norm A\le2r$. Substitute these bounds in \eqref{eq:geometric}.
+\end{proof}
+For $r\le1/2$, $A$ is already a contraction and classical complete von Neumann gives constant one. Disk dilation methods can give stronger constants than the conservative formula above. This disk corollary is a reproducible specialization, not a claim of the optimal disk constant. As $r\uparrow1$, our guaranteed gap is of fourth order; a two-by-two nilpotent example has actual ratio $2r$. There is no matching sharpness claim for the fourth-order estimate.
+
+
+\subsection{A stronger disk comparison from classical similarity}\label{sec:disk-comparison}
+The preceding geometric disk specialization is conservative. The following elementary deduction, reproduced from the independent audit, uses the classical disk similarity theorem recorded in \cite[Theorem 5.1]{BCD} and complete von Neumann's inequality. It is a comparison result, not an improvement of the general intrinsic certificate and not a claim of an optimal disk constant.
+
+\begin{proposition}[Classical-input strict disk bound]\label{prop:classical-disk}
+If $w(A)\le r<1$, then for every finite matrix-valued polynomial $F$,
+\[
+ \norm{F[A]}\le C_r\max_{|z|\le1}\norm{F(z)},\qquad
+ C_r=\begin{cases}
+ 1,&0\le r\le1/2,\\
+ \sqrt{5-1/r^2},&1/2<r<1.
+ \end{cases}
+\]
+\end{proposition}
+\begin{proof}
+If $r\le1/2$, then $\norm A\le2w(A)\le1$, so complete von Neumann applies.
+Suppose $r>1/2$ and fix $r<R<1$.
+The classical similarity theorem applied to $A/R$ gives an invertible $S$ with
+$\norm S\norm{S^{-1}}\le2$ and $\norm{SAS^{-1}}\le R$.
+Normalize $P=S^*S$ by its lower spectral bound. Then
+\[
+ I\preceq P\preceq4I,\qquad A^*PA\preceq R^2P,
+ \qquad A^*A\preceq4R^2I.
+\]
+Set $s=(4R^2-1)/(3R^2)$, so $0<s<1$, and put $P_s=(1-s)I+sP$.
+We obtain
+\begin{align*}
+ P_s-A^*P_sA
+ &\succeq(1-s)(1-4R^2)I+s(1-R^2)P\\
+ &\succeq[(1-s)(1-4R^2)+s(1-R^2)]I=0.
+\end{align*}
+Thus $P_s^{1/2}AP_s^{-1/2}$ is a contraction. Since
+$I\preceq P_s\preceq(1+3s)I$, the similarity condition number is at most
+$\sqrt{1+3s}=\sqrt{5-1/R^2}$.
+Complete von Neumann and tensoring the similarity with $I_m$ give this same bound for every finite coefficient dimension. Let $R$ decrease to $r$; no convergence of the similarity metrics or norm attainment is needed.
+\end{proof}
+The comparison constant is strictly below two for $r<1$ and has a first-order gap as $r\uparrow1$. The geometric specialization above guarantees a fourth-order gap. This confirms its conservative character without changing the general strict-domain theorem.
+
+\section{Outer approximation and complete constant two}\label{sec:outer}
+This section explicitly reproduces the outer-limit implication already present in the pinned direct manuscript \cite[Section 4]{OAI}. The following construction works for segments and singletons as well as compact convex sets with interior.
+
+\begin{lemma}[Analytic convex outer approximation]\label{lem:outer}
+Let $K\subset\C$ be nonempty, compact, and convex. There are bounded convex open domains $\Omega_j$ with regular real-analytic Jordan boundaries such that $K\subset\Omega_j$ and
+\[
+ \sup_{z\in\overline\Omega_j}\dist(z,K)\longrightarrow0.
+\]
+\end{lemma}
+\begin{proof}
+For $0<\delta<1$, choose a finite Euclidean $\delta$-net $D_\delta$ of unit directions that includes $1,-1,i,-i$. Let $s_K(\nu)=\max_{z\in K}\Re(\bar\nu z)$ be the support function. Choose $t_\delta>0$ with $|D_\delta|e^{-t_\delta\delta}<1$, and define
+\[
+ \Phi_\delta(z)=\sum_{\nu\in D_\delta}
+ \exp\bigl(t_\delta(\Re(\bar\nu z)-s_K(\nu)-\delta)\bigr),
+ \qquad \Omega_\delta=\{z:\Phi_\delta(z)<1\}.
+\]
+Each point of $K$ satisfies $\Phi_\delta<1$, so $K\subset\Omega_\delta$.
+If $\Phi_\delta(z)\le1$, each positive summand is at most one, and hence
+\[
+ \Re(\bar\nu z)\le s_K(\nu)+\delta\qquad(\nu\in D_\delta).
+\]
+In particular, the four axis directions give
+\[
+ \begin{aligned}
+ \min_{w\in K}\Re w-\delta&\le\Re z\le\max_{w\in K}\Re w+\delta,\\
+ \min_{w\in K}\Im w-\delta&\le\Im z\le\max_{w\in K}\Im w+\delta.
+ \end{aligned}
+\]
+Thus one fixed rectangle contains every closed sublevel for $0<\delta<1$.
+
+The Hessian is a sum of positive multiples of $\nu\nu^{\mathsf T}$ after identifying $\C$ with $\mathbb R^2$. The four axis directions ensure it is positive definite. Thus $\Phi_\delta$ is strictly convex and real analytic.
+
+The gradient cannot vanish at level one: a critical point of a differentiable convex function is a global minimum, whereas every point of $K$ has value less than one. The implicit function theorem therefore makes that level a regular real-analytic curve. The open sublevel set is bounded and convex with nonempty interior. Fix an interior point. Each ray from it crosses level one exactly once; convexity and boundedness give existence and uniqueness. Radial projection from the compact boundary to the circle is a continuous bijection, hence a homeomorphism. The boundary is a Jordan curve, and $\overline\Omega_\delta=\{\Phi_\delta\le1\}$.
+
+It remains to bound the distance of this sublevel from $K$. For
+$z\in\overline\Omega_\delta\setminus K$, let $w\in K$ be nearest to $z$,
+put $d=|z-w|$ and $\nu=(z-w)/d$, and choose $\mu\in D_\delta$ with
+$|\mu-\nu|\le\delta$. Choose $v\in K$ attaining $s_K(\mu)$.
+Since $w+t(v-w)\in K$ for $0\le t\le1$, minimality of $w$ gives
+$\Re(\bar\nu(v-w))\le0$.
+Using this inequality and the support inequality for $\mu$, we obtain
+\[
+ \begin{aligned}
+ (1-\delta)d
+ &\le\Re(\bar\mu(z-w))\\
+ &\le\Re(\bar\mu(v-w))+\delta\\
+ &\le\delta|v-w|+\delta
+ \le\delta\bigl(1+\operatorname{diam}K\bigr).
+ \end{aligned}
+\]
+The first and third inequalities use $|\mu-\nu|\le\delta$. Points of $K$
+have distance zero, so
+\[
+ \sup_{z\in\overline\Omega_\delta}\dist(z,K)
+ \le\frac{\delta(1+\operatorname{diam}K)}{1-\delta}\longrightarrow0.
+\]
+Taking, for example, $\delta_j=1/(j+1)$ completes the construction.
+\end{proof}
+
+
+\begin{corollary}[Attributed outer-limit recovery]\label{cor:complete-two}
+For every bounded operator $A$ on a nonzero complex Hilbert space and every finite matrix-valued polynomial $F$,
+\[
+ \norm{F[A]}\le2\max_{z\in\overline{W(A)}}\norm{F(z)}.
+\]
+The constant is independent of the base space, the coefficient dimension, and the degree. No smaller universal constant is possible.
+\end{corollary}
+\begin{proof}
+The numerical-range closure $K=\overline{W(A)}$ is nonempty and compact because $A$ is bounded. It is convex by the Toeplitz--Hausdorff theorem. One can see the convexity directly by compressing to the span of two unit testing vectors. In dimension two the quadratic form is a complex-valued real-affine function of
+$(2\Re(\bar uv),2\Im(\bar uv),|u|^2-|v|^2)$, which ranges over the unit sphere in $\R^3$. A real-linear map from $\R^3$ to $\R^2$ has a nonzero kernel, so the images of the sphere and ball coincide: move any point of the ball along a kernel direction until it reaches the sphere. The image is convex. The segment between the two original numerical-range values therefore belongs to the compression's numerical range and hence to $W(A)$. This proof also applies on arbitrary Hilbert spaces.
+
+Take $\Omega_j$ from Lemma~\ref{lem:outer}. Their regular real-analytic boundaries have the injective exterior collar proved in Appendix~\ref{sec:collar}; Theorem~\ref{thm:hilbert} consequently gives
+\[
+ \norm{F[A]}\le \frac2{\sqrt{1+\eta_j}}
+ \max_{\overline\Omega_j}\norm F\le2\max_{\overline\Omega_j}\norm F.
+\]
+The distance convergence and containment place all $\overline\Omega_j$ in one compact set. Uniform continuity of the fixed polynomial norm gives
+$\max_{\overline\Omega_j}\norm F\longrightarrow\max_K\norm F$.
+Pass to the limit. No positive limiting lower bound for $\eta_j$ is asserted.
+
+For sharpness take $A=\left(\begin{smallmatrix}0&2\\0&0\end{smallmatrix}\right)$ and $F(z)=z$.
+Then $\norm A=2$ and $W(A)=\bar{\mathbb D}$: on unit vectors the quadratic form has modulus $2|v_1v_2|$, with every modulus in $[0,1]$ and every phase attainable. Thus $\max_{W(A)}|z|=1$. The strict-domain gap can vanish in the outer limit, consistently with this example.
+\end{proof}
+\section{Exact examples and verification scope}
+For $A_t=\left(\begin{smallmatrix}0&t\\0&0\end{smallmatrix}\right)$ with $0<t<2$, $h(\lambda)=\lambda$ and $F(z)=z$, take $x=e_2,y=e_1$. Then
+\[R=I+A_t\lambda^{-1},\quad \gamma=t,\quad a^2=t^2,\quad
+P=Q_1=1,\quad M_1=t\lambda^{-1},\quad L=0.
+\]
+Consequently
+\[D_P=D_Q=0,\quad\mathcal E=8-2t^2,
+\quad 2a^2(4/\gamma^2-1)=8-2t^2.
+\]
+This checks the deficit identity with every constant visible. $\mu=2-t$ and
+$M=(\sqrt{t^2+4}+t)/2$. At $t=2$ the exterior resolvent still exists because the spectrum is zero, but strict numerical-range enclosure fails and $\mu=0$. The boundary example therefore explains exactly where the strict conclusion is lost. At $A=0$, $R=I$, $\mu=2$, $M=1$ and Theorem~\ref{thm:intrinsic} gives constant one, as it should.
+
+The accompanying source package contains the original standard-library-only rational checker and an independently written Gaussian-rational checker. Both have been replayed in ordinary and optimized Python with matching output. The original checker covers 100 rational Laurent block examples, 255 actual nilpotent singular pairs, 1,020 perturbation parameter cases, and two boundary/zero cases. Its generic $X,Y$ examples test identities and positive-block estimates, not singular-vector dual slack for arbitrary $X,Y$.
+
+The independent checker covers 20 complex unitarily conjugated nilpotent density cases, 60 actual complex singular pairs including entangled reduced densities, 120 separately ordered $FG/GF$ bilinear tensor tests, and 36 exact ellipse Faber-coefficient examples. It imports no original checker code. An additional exact rational replay verifies the algebra and parameter range in the classical-input disk deduction. The written proof, rather than finite extrapolation, supplies the analytic and universal statements.
+
+Exact pinned provenance is listed in \texttt{PROVENANCE.json}; input and release checksums are separate from mathematical claims. The independent audit found no core mathematical correction under the stated hypotheses. The standalone presentation corrects ``pure densities'' to ``reduced densities'', explicitly attributes complete-two outer recovery, and removes the unrelated survey. No proof-assistant formalization or human peer-review acceptance is claimed.
+
+Open questions here include optimal intrinsic and geometric constants, a full classification of extremizers or near-extremizers, and an exhaustive comparison with earlier resolvent and dilation estimates. The near-equality inequalities are necessary conditions, not a stability theorem to a prescribed matrix model. Priority and novelty remain unverified.
+
+\appendix
+\section{The conformal collar}\label{sec:collar}
+For completeness, we reproduce the collar justification from Appendix A of the pinned direct manuscript \cite{OAI}. The Riemann mapping theorem, Carath\'eodory boundary extension, and Schwarz reflection are the classical inputs \cite{Ahlfors}.
+
+\begin{lemma}[Exterior coordinate and a univalent collar]
+\label{lem:exterior-collar}
+Let $\Omega\subset\mathbb C$ be a bounded convex domain whose boundary
+is a regular real-analytic Jordan curve. There are $0<r_0<1$ and a map
+$h$, meromorphic on $\{\lambda:|\lambda|>r_0\}\cup\{\infty\}$,
+which is one-to-one there as a map of the sphere, has a simple pole at
+infinity, and maps $|\lambda|>1$ conformally onto
+$\mathbb C\setminus\overline\Omega$. It maps the unit circle onto
+$\partial\Omega$ and has an expansion
+\[
+ h(\lambda)=c\lambda+c_0+\sum_{j\ge1}c_j\lambda^{-j},\qquad c\ne0.
+\]
+For $\lambda$ on the unit circle, $q(\lambda)=\lambda h'(\lambda)$
+is a nonzero outward normal vector at $h(\lambda)$. In particular,
+\[
+ \operatorname{Re}\bigl(\overline{q(\lambda)}(h(\lambda)-z)\bigr)
+ \ge0\qquad (z\in\overline\Omega).
+\]
+\end{lemma}
+
+\begin{proof}
+Fix $z_*\in\Omega$ and apply $z\mapsto1/(z-z_*)$, with infinity
+mapped to zero, to the spherical exterior
+$(\mathbb C\setminus\overline\Omega)\cup\{\infty\}$. Its image $U$ is
+a bounded simply connected domain containing zero, with a regular
+real-analytic Jordan boundary. Indeed, each ray from $z_*$ meets
+$\partial\Omega$ at a unique positive radius; inversion turns the
+exterior portions of these rays into a star-shaped domain about zero.
+The Riemann mapping theorem \cite[Chapter~6, Section~1.1, Theorem~1]{Ahlfors}
+supplies a conformal bijection
+$g:\mathbb D\to U$ with $g(0)=0$. Carath\'eodory's Jordan-domain theorem
+\cite[Chapter~6, Section~1.2]{Ahlfors} extends $g$ to a homeomorphism $\overline{\mathbb D}\to\overline U$.
+
+We justify the stronger boundary continuation needed below. A regular
+real-analytic boundary arc has a real-analytic parametrization with
+nonzero derivative. Its holomorphic continuation and the holomorphic
+inverse-function theorem provide a local coordinate in which the arc
+is a real interval and the domain is one side of that interval. Choose
+such coordinates at $\zeta\in\partial\mathbb D$ and
+$p=g(\zeta)\in\partial U$. Continuity of the boundary extension lets us
+shrink the source neighborhood so that $g$ maps its intersection with
+$\overline{\mathbb D}$ into the target chart.
+The composition representing $g$ in these
+coordinates is holomorphic on a half disk, continuous on its real
+interval, and real-valued there. Schwarz reflection extends it
+holomorphically across the interval
+\cite[Chapter~4, Section~6.5; Chapter~6, Sections~1.3--1.4]{Ahlfors}. Apply the same procedure to
+$g^{-1}$. Shrink the neighborhoods so that the reflected maps can be
+composed. Their compositions equal the identity on the original domain
+side, and hence throughout a smaller neighborhood by the identity theorem.
+Thus the continued $g$ has nonzero derivative at each boundary point.
+
+To patch the local continuations, choose around every
+$\zeta\in\partial\mathbb D$ a disk $B(\zeta,R_\zeta)$ carrying such a continuation, agreeing
+with $g$ on its intersection with $\mathbb D$. Select finitely many of
+the third-radius disks $V_i=B(\zeta_i,R_i/3)$ that cover the circle,
+and denote the larger disks by $U_i=B(\zeta_i,R_i)$. If
+$V_i\cap V_j\ne\varnothing$ and $R_i\ge R_j$, then
+$|\zeta_i-\zeta_j|<(R_i+R_j)/3\le2R_i/3<R_i$.
+The connected lens $U_i\cap U_j$ therefore contains $\zeta_j$ and
+meets $\mathbb D$. The two continuations coincide there by the identity
+theorem. They consequently patch with $g$ to a holomorphic map on
+$\mathbb D\cup\bigcup_iV_i$, a neighborhood of the closed disk.
+
+The extension is injective on a smaller neighborhood of the closed
+disk. Otherwise, distinct colliding pairs arbitrarily close to that
+compact set would have subsequential limits in the closed disk.
+Continuity and injectivity on the closed disk identify their limits.
+Both points of each pair would then eventually lie in one local
+inverse neighborhood of that common limit, a contradiction. By compactness,
+this injective neighborhood contains the disk $\{w:|w|<R_0\}$ for some $R_0>1$.
+Thus $g$ is univalent on that disk. Its sole zero there
+is $0$, and that zero is simple. Set
+\[
+ h(\lambda)=z_*+\frac1{g(1/\lambda)},\qquad r_0=R_0^{-1}.
+\]
+This gives all mapping and extension assertions, including the simple
+pole with coefficient $c=1/g'(0)\ne0$.
+
+Finally, at $\lambda=e^{i\theta}$ the radial and angular derivatives
+are $q(\lambda)$ and $iq(\lambda)$, respectively. They are perpendicular
+and nonzero. Increasing the radial parameter enters the exterior of
+$\overline\Omega$, so $q(\lambda)$ points outward. The supporting
+half-plane property of a smooth convex boundary proves the final
+inequality.
+\end{proof}
+\begin{thebibliography}{10}
+\bibitem{OAI} OpenAI, \emph{A direct proof of the complete Crouzeix inequality}, 26 September 2026. Pinned source: \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-direct-proof-of-the-complete-Crouzeix-inequality-September-26-2026/paper.pdf}{public manuscript}. The exact source path, commit, byte count and SHA-256 hash are in \texttt{PROVENANCE.json}. This is a public manuscript; no peer-review acceptance is inferred.
+\bibitem{CP} M. Crouzeix and C. Palencia, \emph{The numerical range as a spectral set}, \href{https://arxiv.org/abs/1702.00668v1}{arXiv:1702.00668v1} (2017), published in SIAM J. Matrix Anal. Appl. 38, 649--655.
+\bibitem{RS} T. Ransford and F. L. Schwenninger, \emph{Remarks on the Crouzeix--Palencia proof}, \href{https://arxiv.org/abs/1708.08633v1}{arXiv:1708.08633v1} (2017).
+\bibitem{LS} E. Lorist and F. L. Schwenninger, \emph{A solution to Crouzeix's conjecture}, \href{https://arxiv.org/abs/2608.03841v2}{arXiv:2608.03841v2}, 17 August 2026. Scalar theorem; amplification limitation in Section 3(iv).
+\bibitem{CG} M. Crouzeix and A. Greenbaum, \emph{A New Proof that the Numerical Range is a Complete 2-Spectral Set for Weighted Shift Matrices}, \href{https://arxiv.org/abs/2508.12768v1}{arXiv:2508.12768v1} (2025).
+\bibitem{BCD} C. Badea, M. Crouzeix and B. Delyon, \emph{Convex domains and $K$-spectral sets}, \href{https://arxiv.org/abs/math/0501184v2}{arXiv:math/0501184v2} (2005), Section 5.
+\bibitem{MMOR} B. Malman, J. Mashreghi, R. O'Loughlin and T. Ransford, \emph{Double-layer potentials, configuration constants and applications to numerical ranges}, \href{https://arxiv.org/abs/2407.19049v2}{arXiv:2407.19049v2} (2025).
+\bibitem{Ahlfors} L. V. Ahlfors, \emph{Complex Analysis}, 3rd ed., McGraw--Hill, 1979, Chapters 4 and 6.
+\end{thebibliography}
+\end{document}

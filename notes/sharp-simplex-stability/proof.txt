@@ -1,0 +1,432 @@
+                      Sharp lower-end simplex stability from
+                     integrated witnesses and projection caps
+                         AI-assisted research supplement to entry005
+
+                                         7 October 2026
+
+
+Result. For every fixed d ≥ 3 and every maximum-volume inscribed simplex S,
+                                                     1/(d−1)
+                                         ♯          1
+                             E(K, S) ≤ Gd a(K) −               .
+                                                  d+1
+All constants below are explicit. The exponent matches the exact truncation obstruction. The
+additional geometric step uses centering to compare normalized projection volumes, controls scale
+by first variation, and then puts a cap in a (d − 1)-dimensional projection. No inverse-Minkowski
+stability theorem is an input. The supplied explicit 1/d theorem is preserved as a separate source,
+with its constants unchanged. An independent analytic model audit passed, with independently
+implemented finite checks. No human peer review or proof-assistant formalization is claimed. No
+priority or best-known-result claim is made.
+
+
+1    Definitions and explicit constants
+For a convex body K ⊂ Rd , let ΠK denote the projection body with hΠK (u) = |K | u⊥ |d−1 for
+unit u, and put
+                                         d
+                 |ΠK|                 d      R(PK)                            1
+         R(K) =    d−1
+                       ,    a(K) =                   − 1,    e(K) = a(K) −       .
+                |K|                  d+1      R(K)                          d+1
+Here PK is a pyramid over K, as in entry005. For a simplex S ⊂ K with centroid zS , define
+
+                        E(K, S) = inf{t ≥ 0 : K ⊂ zS + (1 + t)(S − zS )}.
+
+For the constants set
+                                                   1
+    R0 = d(d + 1),                        b=             ,                    M = b−1 ,         (1)
+                                                4(dR0 )d
+    Q = (d + 1)(d + 2)8d b−4d ,          m = d − 1,                           L = m(M + 1),     (2)
+         d
+    J = (2R0 )d 1 + M + d2d−1 M ,
+                                 
+                                                                                                (3)
+         2                  
+                      1                            r♯
+    r♯ = min b,                 ,        e♯ =            ,                                      (4)
+                 J(8M dL)m                      Q(d + 1)
+                                                                  −1/m
+    A♯d = 4M dL[JQ(d + 1)]1/m ,          G♯d = max{A♯d , (R0 − 1)e♯      }.                     (5)
+
+All constants other than the displayed mth roots are positive rationals. They are extremely poor
+numerically and depend on dimension.
+
+                                                 1
+Theorem 1. For every convex body K ⊂ Rd , d ≥ 3, and every maximum-volume inscribed simplex
+S,
+                                E(K, S) ≤ G♯d e(K)1/(d−1) .
+                                                                1/(d−1)
+If 0 ≤ e(K) ≤ e♯ , the constant A♯d applies, and A♯d e♯      ≤ 1/2. No larger power can hold
+uniformly near e = 0, even if one permits a dimension-dependent constant.
+
+
+2    Normalization and the cone law
+Fix an arbitrary maximum simplex and map it affinely to a regular simplex ∆ with centroid zero
+and inradius one. Its vertices have norm d. Replacing a vertex by x ∈ K multiplies the simplex
+volume by the absolute value of the corresponding barycentric coordinate. Maximality therefore
+gives |αi (x)| ≤ 1, and
+                                     B2d ⊂ ∆ ⊂ K ⊂ R0 B2d .                                (6)
+Both a and E are preserved by this affine normalization.
+    Write hK for the support function and SK for surface area measure. Push the probability
+measure hRK (u)dSK (u)/(d|K|) forward
+                                R      by u 7→ u/hK (u); call the resulting law ν. The classical
+identities u dSK (u) = 0 and hK dSK = d|K| show that ν is centered. It is supported on
+∂K ◦ ⊂ B2d . For independent samples from ν, define
+
+                 A = E| det(X1 , . . . , Xd )|,       B = E| det((X1 , 1), . . . , (Xd+1 , 1))|.
+
+The entry005 cone-law representation is
+                            B
+               a(K) =             ,        D := B − A = (d + 1)Ae(K) ≤ (d + 1)e(K).                (7)
+                         (d + 1)A
+
+Here 0 < A ≤ 1, the upper bound following from Hadamard’s inequality. For completeness, the
+representation for polytopes follows by expanding the two determinant expectations over distinct
+facets, with the d! and (d + 1)! permutation factors. Polytope approximation, uniform support-
+function convergence and weak convergence of surface area measures give the arbitrary-body iden-
+tity; all laws stay in a common compact set. This representation, already established in entry005
+v3, is the only entry005-specific identity imported here.
+    For a body H containing zero in its interior, its cone law satisfies the Cauchy identity
+
+                                                2|H | u⊥ |d−1
+                            Z
+                              |u · x| dνH (x) =                 (|u| = 1).                     (8)
+                                                   d|H|
+                                                                  R
+Indeed the factors hH cancel in the pushforward integral, leaving |u·n| dSH (n)/(d|H|). Centering,
+Cauchy’s formula, and (6) give
+
+                                                  |K | u⊥ |d−1   (2/d)d−1
+                             E(−u · X)+ =                      ≥          = 2b.                    (9)
+                                                     d|K|        d(2R0 )d
+
+The projected unit ball contains a cube of side 2/d.
+
+
+
+
+                                                        2
+3    The integrated assignment bound, including nonatomic laws
+This section reproduces the probabilistic argument in the supplied readable fallback so that the
+quantitative proof is complete. For an ordered base tuple x = (x1 , . . . , xd ) put
+
+       Fx (y) = det((x1 , 1), . . . , (xd , 1), (y, 1)),   P (x) = E(Fx (X))+ ,   N (x) = E(−Fx (X))+ .
+
+Since EX = 0, EFx (X) is the horizontal determinant, up to sign. Subtracting its absolute value
+from E|Fx (X)| and integrating gives
+
+                                        D = 2EX min{P (X), N (X)} ≥ 0.                                    (10)
+
+No nonsingularity assumption on a sampled base is needed.
+   Use the continuous nonnegative witness
+
+                  ψx (y, z) = min{(Fx (y))+ , (−Fx (z))+ } + min{(−Fx (y))+ , (Fx (z))+ }.
+
+For independent Y, Z each of its minima has expectation at most min(P, N ); hence
+
+                                                EX,Y,Z ψX (Y, Z) ≤ D.                                     (11)
+
+Lemma 2 (Integrated assignment). For any centered law on B2d satisfying (9), there are affinely
+independent w0 , . . . , wd ∈ supp ν and a measurable assignment X 7→ wI(X) with
+
+                                            h := E∥X − wI(X) ∥ ≤ QD.
+
+If QD ≤ b, then bB2d ⊂ T := conv(w0 , . . . , wd ) ⊂ B2d .
+
+Proof. Let W0 , . . . , Wd be independent samples and let V (W ) = | det((W0 , 1), . . . , (Wd , 1))|. For
+Σ = EXX T , centering and (9) give E|u · X| ≥ 4b and uT Σu ≥ 16b2 . Expanding determinants and
+using independence yields
+
+                                EV 2 = (d + 1)! det Σ ≥ (d + 1)!16d b2d ≥ 2b2d .
+
+The lifted second-moment matrix is diag(Σ, 1); the determinant expansion gives (d + 1)! times its
+determinant. Subtracting one lifted column from the others and applying Hadamard gives V ≤ 2d .
+Consequently, with
+
+                            v0 = bd ,       q0 = b2d /4d ,       E = {W : V (W ) ≥ v0 },
+
+we have P(E) ≥ q0 , since EV 2 ≤ b2d + 4d P(E).
+    For each i use the other d anchors as base and test wi , x. For each pair i < j, use x and the
+other d − 1 anchors as base and test wi , wj . Let H(W ) be the integral in x of their sum; there are
+Nd = (d + 1)(d + 2)/2 summands. Each uses d + 2 independent samples before conditioning, so (11)
+gives EH(W ) ≤ Nd D. Conditioning on E, choose anchors with H(W ) ≤ Nd D/q0 . This selection is
+valid for nonatomic laws: H is continuous by dominated convergence, E ∩ (supp ν)d+1 is compact
+with positive probability, and its minimum is at most its conditional average.
+    Let αi (x) be barycentric coordinates in the selected simplex. The first witness is
+
+                                                V min{1, (−αi (x))+ }.
+
+
+
+                                                             3
+The pair witness is at least V min{(αi (x))+ , (αj (x))+ }: when both coefficients are positive the
+tested determinants have opposite signs and magnitudes V αj (x) and V αi (x). Thus
+                                                                              
+                    X                          X                                   Nd D
+            Φ := E    min{1, (−αi (X))+ } +        min{(αi (X))+ , (αj (X))+ } ≤        .
+                                                                                   q0 v 0
+                      i                         i<j
+
+Replacement determinants are at most 2d , so |αi (x)| ≤ L0 := 2d /v0 for x ∈ B2d . Assign x to its
+largest
+P        positive coefficient,
+                           P with deterministic tie-breaking, and call this index r. Writing Nx =
+   i (−αi (x))+ and Ux =      i̸=r (αi (x))+ , we have
+                         X                                  X
+               Nx ≤ L0       min{1, (−αi (x))+ },      Ux ≤   min{(αi (x))+ , (αj (x))+ }.
+                          i                               i<j
+
+
+ P the second inequality use the pairs containing r. The diameter bound gives ∥x − wr ∥ ≤
+For
+2 i̸=r |αi (x)| = 2(Nx + Ux ). Therefore
+                                    2L0 Nd
+                      h ≤ 2L0 Φ ≤           D = (d + 1)(d + 2)8d b−4d D = QD.
+                                     q0 v 0
+Finally, (u · x)+ is one-Lipschitz and its expectation is at least 2b. The assigned law has expectation
+at least 2b−h ≥ b if QD ≤ b. In every direction an anchor therefore has u·wi ≥ b, proving bB2d ⊂ T .
+The upper inclusion is automatic.
+
+
+4    Centering controls normalized projection volumes
+Assume now QD ≤ b, select the anchors from Lemma 2, and put P = T ◦ . It is an enclosing
+simplex:
+                                 B2d ⊂ K ⊂ P ⊂ M B2d .                              (12)
+Each wi ∈ ∂K ◦ , so hK (wi ) = hP (wi ) = 1. Let qi be the vertex of P opposite its facet with normal
+wi , and let λi be the barycentric coordinates of zero in T . They are positive and sum to one. The
+cone law of P is
+                                                  Xd
+                                            νP =      λi δwi .                                    (13)
+                                                 i=0
+To see this, the polar images of the facet normals of P are precisely wi . Its cone law is centered,
+so its probability weights are the uniquePbarycentric coordinates of zero.
+    Write pi = P(I(X) = i) and c =         i pi wi . Centering of ν gives ∥c∥ ≤ h. The barycentric
+coordinate functions of T have the exact formula
+                                         αi (x) = λi (1 − qi · x).                             (14)
+                                                         P
+For j ̸= i, qi · wj = 1; taking the scalar product of j λj wj = 0 with qi gives qi · wi = 1 − 1/λi .
+These values prove (14) on an affine basis. Consequently
+                                                  X
+                         pi − λi = −λi qi · c,         |pi − λi | ≤ M ∥c∥ ≤ M h.               (15)
+                                                  i
+
+For any unit u, the function x 7→ |u · x| is one-Lipschitz and bounded by one on T . Comparing first
+with the assigned law and then with (13) gives
+                           Z                   Z
+                             |u · x| dν(x) − |u · x| dνP (x) ≤ (1 + M )h.
+
+
+                                                  4
+By (8), if πH (u) = |H | u⊥ |d−1 , then
+
+                                    πK (u) πP (u)  d
+                                          −       ≤ (1 + M )h.                                      (16)
+                                     |K|    |P |   2
+This is the additional information retained by the integrated assignment.
+
+
+5    Scale control and absolute projection deficits
+Since hP is M -Lipschitz and equals one at every anchor,
+                                     Z
+                            0 ≤ z := (hP (x) − 1) dν(x) ≤ M h ≤ 1.
+
+The integral is V (K[d−1], P )/|K|−1. The volume first-variation formula and the Brunn–Minkowski
+inequality give Minkowski’s first inequality, and hence
+                           |P |
+                                ≤ (1 + z)d ,     |P | − |K| ≤ d2d−1 M h |K|.                        (17)
+                           |K|
+
+The second bound uses (1 + z)d − 1 ≤ d2d−1 z for 0 ≤ z ≤ 1. Explicitly, differentiating |K + tP |1/d ≥
+|K|1/d + t|P |1/d at t = 0+ proves the mixed-volume inequality just used.
+   Since νP is supported on B2d , (8) gives πP (u)/|P | ≤ d/2. Using (16) and (17),
+                                                                                   
+                                        πP (u)                        πP (u) πK (u)
+                  0 ≤ πP (u) − πK (u) =          (|P | − |K|) + |K|         −
+                                          |P |                         |P |   |K|
+                                        d
+                                      ≤ |K| d2d−1 M + 1 + M h ≤ Jh.
+                                                                  
+                                        2
+The last step uses |K| ≤ (2R0 )d . We have thus obtained the uniform absolute projection bound
+
+                                      sup {πP (u) − πK (u)} ≤ Jh.                                   (18)
+                                     |u|=1
+
+The nonnegativity uses the actual inclusion K ⊂ P .
+
+
+6    A cap in one projection
+Lemma 3 (Projection cap). If B2d ⊂ K ⊂ P ⊂ M B2d , d ≥ 2, and πP (u) − πK (u) ≤ ε in every
+direction, then
+                           dH (K, P ) ≤ (d − 1)(M + 1)ε1/(d−1) .
+No simplex hypothesis is needed for this lemma.
+Proof. Put s = dH (K, P ). If s = 0 there is nothing to prove. Otherwise choose a farthest q ∈ P
+and its metric projection k ∈ K, and set n = (q − k)/s. The projection optimality condition gives
+n · k = hK (n), so n · q − hK (n) = s. Also s ≤ M , since 0 ∈ K. Choose a unit u ⊥ n and project
+orthogonally onto u⊥ . Let P , K, q be the projected objects. The space has dimension m = d − 1,
+n lies in it, P contains its unit ball and is contained in its ball of radius M , and n · q − hK (n) = s.
+    With τ = s/[2(M + 1)] < 1, convexity places the ball (1 − τ )q + τ B2m inside P . Its lowest
+n-coordinate is at least
+                                   n · q − τ (M + 1) = hK (n) + s/2,
+
+                                                   5
+so it is disjoint from K. A cube of side 2τ /m fits in that ball. Therefore
+                                                                      d−1
+                                                 m             s
+                         ε ≥ |P | − |K| ≥ (2τ /m) =                         .
+                                                        (d − 1)(M + 1)
+This proves the claim.
+
+    Equations (18) and Lemma 3 yield the simplex-specific surface/assignment conversion
+
+                         s = dH (K, P ) ≤ L(Jh)1/m ≤ L[JQ(d + 1)e(K)]1/m .                     (19)
+
+It is stronger in exponent than the full-dimensional volume-cap conversion.
+
+
+7    Retaining every initially chosen maximum simplex
+If 0 ≤ e ≤ e♯ , then QD ≤ Q(d + 1)e ≤ r♯ ≤ b and (19) gives s ≤ 1/(8M d). Because hP ≥ 1 and
+hK ≥ hP − s, (1 − s)P ⊂ K. The initially selected ∆ is maximum, so
+                                       |∆|
+                                            ≥ (1 − s)d ≥ 1 − ds.
+                                       |P |
+Put δ = ds ≤ 1/8. The barycentric coordinates of the vertices of ∆ in P form a nonnegative
+column-stochastic (d + 1) × (d + 1) matrix W with | det W | = |∆|/|P | ≥ 1 − δ. Each column has
+norm at most one. Hadamard’s inequality therefore gives squared norm at least (1 − δ)2 in each
+column, so each column has an entry at least 1 − 2δ.
+    These dominant rows are distinct. Indeed, the permanent is the probability that independent
+row selections from the columns are all distinct and dominates | det W |. A common dominant row
+in two columns would give
+
+                           | det W | ≤ per W ≤ 1 − (1 − 2δ)2 ≤ 4δ < 1 − δ,
+
+a contradiction. Match the vertices by these rows. Each vertex of ∆ is within 2δ diam P ≤ 4M d s
+of its matched vertex of P . Taking convex combinations and using B2d ⊂ ∆ gives
+
+                             K ⊂ P ⊂ ∆ + 4M d s B2d ⊂ (1 + 4M d s)∆.
+
+By (19), E(K, ∆) ≤ A♯d e1/m . This also covers e = 0: then h = 0, the projection deficits vanish,
+s = 0, and the same matrix argument gives zero excess. At the threshold,
+                                        1/m                     1
+                                   A♯d e♯     = 4M dL(Jr♯ )1/m ≤ .
+                                                                2
+For e > e♯ , (6) gives K ⊂ R0 ∆ and hence E(K, ∆) ≤ R0 − 1, which is covered by G♯d in (5).
+Undoing the affine normalization restores the centroid of the arbitrary initial S. Thus the estimate
+holds for every maximum simplex.
+
+
+8    Sharpness and the obstruction to using volume alone
+The pinned truncation source gives the following exact calculation; the needed parts are derived
+here. In unnormalized coordinates let
+                                                              P
+             P0 = conv(0, e1 , . . . , ed ), Kt = {xi ≥ 0, t ≤ i xi ≤ 1}, 0 < t < 1.
+
+                                                    6
+Put q = td−1 and c = 1/(d − 1)!. Its facet area vectors and area times support numbers are
+
+             (ui , bi ) = (−c(1 − q)ei , 0),     (u+ , b+ ) = (c1, c),     (u− , b− ) = (−cq1, −ctd ).
+
+The polytope determinant formula for entry005 is a = Ldet /(d|Kt |Hdet ). Horizontal d-minors and
+lifted (d + 1)-minors give respectively
+
+                         Hdet = cd (1 − q)d−1 [d + 1 + (d − 1)q],
+                         Ldet = cd+1 (1 − q)d−1 [1 + (d − 1)q − (d − 1)td − qtd ].
+
+For the first sum the all-coordinate subset contributes cd (1 − q)d , while each subset with one of
+the parallel top/bottom normals contributes cd (1 − q)d−1 or cd q(1 − q)d−1 . For the second sum,
+the all-coordinate subsets with top or bottom contribute cd+1 (1 − q)d and cd+1 (1 − q)d td ; each of
+the d remaining subsets contributes cd+1 (1 − q)d−1 (q − td ). Since |Kt | = (1 − td )/d!, subtraction of
+1/(d + 1) gives
+
+                         td−1 [d(d − 1) − (d + 1)(d − 2)t − 2td ]                e(Kt )   d(d − 1)
+              e(Kt ) =                                            ,         lim         =          .     (20)
+                          (d + 1)(1 − td )[d + 1 + (d − 1)td−1 ]             t↓0 t d−1    (d + 1)2
+
+Using nonpositive support numbers here is legitimate: this is a facet determinant calculation, not
+a probability law. Translation changes the lifted determinants by a row operation and leaves them
+unchanged.
+    The simplex St = conv(e1 , . . . , ed , te1 ) is maximum. Indeed a nondegenerate vertex simplex
+must represent all d coordinate rays, with one ray doubled. If k of its other selected vertices are
+bottom vertices, its lifted determinant has magnitude (1−t)tk . The maximum is 1−t. For arbitrary
+inscribed vertices, separate affine linearity and the triangle inequality bound their determinant by
+that same vertex P maximum. Thus |St | = (1 − t)/d! is the global maximum.
+    Writing sx = i xi , barycentric coordinates in St are
+
+                             1 − sx
+                      β0 =          ,       β1 = x1 − tβ0 ,           βi = xi        (2 ≤ i ≤ d).
+                              1−t
+The minimum of β1 on Kt is −t, attained at te2 ; the other coordinates have minimum zero. Centroid
+dilation by factor 1 + ϵ is equivalent to βi ≥ −ϵ/(d + 1). Hence
+
+                                               E(Kt , St ) = (d + 1)t.
+
+Together with (20), this forbids every power α > 1/(d − 1) in an every-maximum-simplex estimate.
+At the endpoint any such universal constant must satisfy
+                                                                      1/(d−1)
+                                                           (d + 1)2
+                                                       
+                                        Gd ≥ (d + 1)                             .
+                                                           d(d − 1)
+
+    There is also an exact obstruction to strengthening only the old scalar mixed-volume step. For
+this nested pair,
+                                        t      V (Kt [d − 1], P0 )       td
+                       dH (Kt , P0 ) = √ ,                         −1=        .
+                                         d            |Kt |            1 − td
+The distance maximum occurs at the missing vertex zero; its nearest point√ is (t/d)1. In the
+first-variation
+√ d−1           integral only the bottom facet has a support gap, namely t/ d, and its area is
+   d t /(d − 1)!. This proves the mixed-volume formula. Thus an estimate using this scalar alone
+
+                                                           7
+cannot have a power greater than 1/d. For all sufficiently small t, a fixed translation and dilation
+put these pairs in a position with a common inner ball and a fixed outer ball; √ the obstruction is
+therefore not caused by the coordinate origin. In contrast, for u = (e1 − e2 )/ 2, Cauchy’s formula
+gives
+                                                          td−1
+                                  πP0 (u) − πKt (u) = √            .
+                                                        2 (d − 1)!
+The top and bottom area vectors are perpendicular to u, and only the two coordinate facets
+contribute. This identifies exactly the information that the projection argument preserves.
+
+
+9    Provenance and verification scope
+The already published 1/d manuscript is included separately as sources/prior-integrated-w
+itness/paper.tex, with its theorem and constants preserved. Its exact public revision and
+readable-source hashes are pinned in PROVENANCE.json. The received historical fallback differs
+only by disclosed editorial changes; its original hash is recorded separately. No inaccessible source
+is required for replay.
+    The pinned v3 source was read for the cone-law representation. The pinned quantitative supple-
+ment was read for normalization, first variation, and the every-maximum conversion. The actual
+pinned truncation proof.tex and exact checker were read. The new centering/brightness and
+projection-cap arguments above are self-contained quantitative estimates.
+    check exact.py uses rational arithmetic and checks the barycentric weight correction, centered
+truncation cone laws, normalized and absolute projection identities, mixed-volume and projection
+scalings, both sets of explicit threshold constants, and finite near-permutation matrices. Its mo-
+ment/witness regressions enumerate actual rational samples. The inherited truncation checker is
+replayed in a separate directory. Finite checks supplement the analytic proof and do not establish
+its arbitrary-body or nonatomic assertions. No inverse-Minkowski stability theorem, including the
+disputed proof of arXiv:2603.17726v3, is used.
+
+
+References
+[1] mxym, Random-determinant rigidity, sharp symmetric cone bounds, and spectral nonattain-
+    ment, entry005 v3, commit 31e3d8a37e4a3051a7f5a2535be1c75642e15bcc. https:
+    //github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/prepr
+    ints/005-simplex-product-optimum/v3/paper.md.
+
+[2] mxym, Effective simplex rigidity for the projection cone invariant, Sections 2, 4–6, inspected at
+    commit 87868bcb65bf0460a90d6bc2efc3324e46481230. https://github.com/mxym/math/b
+    lob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/quantitative-projection-sim
+    plex-stability/paper.md.
+
+[3] mxym, An exact exponent obstruction for lower-end projection-cone simplex stability, inspected
+    at the same commit. https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2ef
+    c3324e46481230/notes/simplex-truncation-stability/proof.tex.
+
+[4] R. Schneider, Convex Bodies: The Brunn–Minkowski Theory, second expanded edition, Cam-
+    bridge University Press, 2014. Only classical Cauchy, surface area, first-variation and Brunn–
+    Minkowski identities are used.
+
+
+                                                 8
+

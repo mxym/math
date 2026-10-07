@@ -1,0 +1,510 @@
+{
+  "schema": "audited-refinements-additive-release-v1",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "d214056797117f70f356ff15cbdfd5de5d57d27e",
+  "base_tree": "e9745c318888ffe3749ff713c47f8676742e7903",
+  "publication_scope": "Additive sharp-simplex, attributed strict-domain complete-calculus and restricted product/join positive-sextic notes; four navigation/status changes only.",
+  "package_counts": {
+    "sharp_simplex": 45,
+    "strict_domain_crouzeix": 18,
+    "corrected_positive_sextic": 15
+  },
+  "preservation": "All 752 base paths retained; all 748 non-navigation paths and modes unchanged. All historical manuscripts, proof/source archives, certificates, Lean files and workflows preserved.",
+  "verification_scope": "Independent analytic/model and final-copy reviews, exact package-byte/mode checks, source-complete archives, normal/optimized integrity and Crouzeix finite replay. No new full-tail arithmetic replay for sextic correction or integration, whole-paper formalization, human peer review or novelty/priority claim.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 21401,
+      "mode": "100644",
+      "sha256": "3e46b72b6f9b9df9e80cfb75b80f14472fcd14edf283db0c12e5beb32077d9b1"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 22039,
+      "mode": "100644",
+      "sha256": "374eaada8d8b26c2980049407cc03d405dfb5dd3a2039e843a639f20dd872744"
+    },
+    {
+      "path": "README.md",
+      "bytes": 27250,
+      "mode": "100644",
+      "sha256": "a9e788b12d126b8917187e9a3bcf068e05388de2f862849a9771c95acba12752"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/MANIFEST.json",
+      "bytes": 2766,
+      "mode": "100644",
+      "sha256": "bc0d12407810e37804bf30bc0244212d8b2b6c815f7bc8df1fd11c4c234cf7ff"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/ORIGINAL_INPUT_HASHES.json",
+      "bytes": 1056,
+      "mode": "100644",
+      "sha256": "392ab8b42266455d0fb34e762199dc9900ffd1e0966c362b52f9db29f657b517"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/PROVENANCE.json",
+      "bytes": 2909,
+      "mode": "100644",
+      "sha256": "36925c5df1c4ea9daca238e908ed3f318f2981c5c321bc98ffe0270b1c695fc8"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/PUBLICATION_WHITELIST.json",
+      "bytes": 720,
+      "mode": "100644",
+      "sha256": "67a1b73f5d47e3c75f45b730cc4a6473908c23ca41dfcb8c5581bf9982a27606"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/README.md",
+      "bytes": 5451,
+      "mode": "100644",
+      "sha256": "a3270a60296dae5fbedd9b2ca196415d894ba53a315d35a9005888f730515207"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/SOURCE_MANIFEST.json",
+      "bytes": 2154,
+      "mode": "100644",
+      "sha256": "68b897a0fa6bd34141b92b22fb5de0e04b725a3eb7480ea5566437b608abcee8"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/TECHNICAL_AUDIT.md",
+      "bytes": 12350,
+      "mode": "100644",
+      "sha256": "fd6f942eb604e37b024ae010d20529773dfb1dadc32d31bcdeceb5f094c633b2"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/VERIFICATION.json",
+      "bytes": 2616,
+      "mode": "100644",
+      "sha256": "02c29a79e2cf295159f95f6a60b76c64a515fb3ce374794b55bdcc08393eb2ce"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/check_disk_comparison.py",
+      "bytes": 1170,
+      "mode": "100644",
+      "sha256": "e9ba2d20dab48e22aab402c2aa87d0ef8595d3659a83c8372b763a3dabaf7ef8"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/check_exact.py",
+      "bytes": 5087,
+      "mode": "100644",
+      "sha256": "b42c7497a94968941a52cb931f12cad331acbab549df9289a1ff21e8f2506218"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/disk_comparison_replay.json",
+      "bytes": 325,
+      "mode": "100644",
+      "sha256": "b70197ca39ab9280d6c3b9f6397fc1b196995efd2043a3dbb46a7a1593321606"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/independent_complex_exact.py",
+      "bytes": 5887,
+      "mode": "100644",
+      "sha256": "df6ecfddc960258301a41ae55e1cad805067040a801298dbdb13cd21f6fbd3e4"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/independent_replay.json",
+      "bytes": 396,
+      "mode": "100644",
+      "sha256": "fb6224659b8dae5d091834dcb07294612484129a2a8a237168be30d86b2b1148"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/checks/original_replay.json",
+      "bytes": 361,
+      "mode": "100644",
+      "sha256": "0756c3cc0be02d403e963d05a519d669baaf3619fdc6ab61164f8b7e8f81502d"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/paper.pdf",
+      "bytes": 354214,
+      "mode": "100644",
+      "sha256": "0115d94796b3c304963218aa03f470964aba7f0c04434a907b66a8c9ff9ef9c8"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/research.tex",
+      "bytes": 39144,
+      "mode": "100644",
+      "sha256": "c2833449c17cd8e27a599038ccc1802a5693e7f521066c9703486cacc67c437f"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/source.tar.gz",
+      "bytes": 29882,
+      "mode": "100644",
+      "sha256": "84aeeb35ae1bac03b1063ac333adb4569424eb11f18d9875a2ee1974167347e6"
+    },
+    {
+      "path": "notes/complete-crouzeix-deficit/verify.py",
+      "bytes": 3945,
+      "mode": "100644",
+      "sha256": "9f2ccd2625d82f254b607f9f1f80efdd4f1e4c04d3b48d314c7109e2f4ca93cd"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/ARCHIVE_INVENTORY.json",
+      "bytes": 38625,
+      "mode": "100644",
+      "sha256": "d3656a71c063821ab9a4f03709eb2145b007534f1315efb8d37bdbff38c9aa5c"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/AUDIT_SUMMARY.md",
+      "bytes": 3830,
+      "mode": "100644",
+      "sha256": "603b4600bb3950efe7582d4a12fe0ad24ff555af123b95796675f31b3cb6857b"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/MANIFEST.json",
+      "bytes": 2820,
+      "mode": "100644",
+      "sha256": "16c693c2149d4e7210f864eea9cb2ce6af31703546d448c3c8edbb60a5ac7288"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/README.md",
+      "bytes": 6596,
+      "mode": "100644",
+      "sha256": "b5667a2d03532c51f98ec4d7f6b37dd816486a3914f5aed79802f0a3129c1117"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/SOURCE_MAP.json",
+      "bytes": 4903,
+      "mode": "100644",
+      "sha256": "34019f4cfb58305ed327d322f54021a660cf4c453d50dfde1f451ae59bf501e5"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/build.sh",
+      "bytes": 1725,
+      "mode": "100755",
+      "sha256": "ccd896fa7739449b4b97d8802a12f1366e3354d9c0eba92994300c276a8bbff1"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/certificates-and-independent-audit.zip",
+      "bytes": 4697086,
+      "mode": "100644",
+      "sha256": "b069821e04e84b4d55c97bafd0820969bacedae0dcc84652f6f3075e4af1b533"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/dependencies/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md",
+      "bytes": 9032,
+      "mode": "100644",
+      "sha256": "4e86069432d563910f3c58e75ef777d98e1c5ab088a45687b640e2a3f88e4b0e"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/dependencies/v2/certificates/exact.json",
+      "bytes": 231066,
+      "mode": "100644",
+      "sha256": "7cdd69c6ae451a94d09cd56716e2bf901473666afd0c5171a5a3a0a6d0051175"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/dependencies/v2/code/check.py",
+      "bytes": 15072,
+      "mode": "100644",
+      "sha256": "b68da0937f9c16af85dff26c295aaa1fc8952150f365d03a43bbac2e970c0f7d"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/dependencies/v2/paper.md",
+      "bytes": 31278,
+      "mode": "100644",
+      "sha256": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/paper.pdf",
+      "bytes": 330514,
+      "mode": "100644",
+      "sha256": "cfcb135c5e9bcb4fbf2f1429397941e19832ff491a1c5401bb0158d3a72ecdc0"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/paper.tex",
+      "bytes": 18740,
+      "mode": "100644",
+      "sha256": "9f4ae55350d9094d3ddbb40401c2f64bc8400c79f4c2db0f54e459d14f12b277"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/proof.md",
+      "bytes": 16764,
+      "mode": "100644",
+      "sha256": "e6b320a0b08d3a956c49265032ce68bac29a3255ed0e99bdb37f5e5f48a20f12"
+    },
+    {
+      "path": "notes/mixed-bellman-product-join/positive-sextic/verify_release.py",
+      "bytes": 12134,
+      "mode": "100644",
+      "sha256": "1ee9a5d247ffdb6cfe828a82e1d78fd39250a0ce99bc7878c8a7c6c8f1a69af9"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/.gitignore",
+      "bytes": 20,
+      "mode": "100644",
+      "sha256": "c7cd0fc55d4b88bc4ed87b1cdc33670d9046174ab762188a0f2ce10290bb56e0"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/AUDIT.md",
+      "bytes": 1447,
+      "mode": "100644",
+      "sha256": "d5f5dc3d7f518f496b3057c8f2e929df562a201acee3bf8b8b98b262fe4c2782"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/AUDIT_RESULT.json",
+      "bytes": 1575,
+      "mode": "100644",
+      "sha256": "33d748b01df3f9ebb549b9fb484e5ca9c4d8b85dc433beca17a5fa712e9c1ea3"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/EDITORIAL_CHANGES.md",
+      "bytes": 1271,
+      "mode": "100644",
+      "sha256": "5f1036a74f5f8c958ad4ba28efd6a480988dcad5ed4b14a25ac029b9b64826c1"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/INDEPENDENT_ANALYTIC_AUDIT.md",
+      "bytes": 12275,
+      "mode": "100644",
+      "sha256": "1f27e5c789d71e990abc760a96cb4d80b5a41e3f420defdb28c7a51d07cf84c0"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/MANIFEST.json",
+      "bytes": 6771,
+      "mode": "100644",
+      "sha256": "74f4a157e11f257227cde74e146ea37512c9b4744cf57f8efe963c445fc4e37d"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/NOTICE.md",
+      "bytes": 749,
+      "mode": "100644",
+      "sha256": "a45bc43856a890225ef975decf2b6e638124422432cf451c1b37f1bb95e8bc64"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/PACKAGE_FILES.txt",
+      "bytes": 1003,
+      "mode": "100644",
+      "sha256": "20f68bf5462d5ec8fcf5548258f41444852b127cfc89b2aa089ec945854077c9"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/PDF_QA.md",
+      "bytes": 753,
+      "mode": "100644",
+      "sha256": "74b5c2e03d6273a1933e6bae90228ed10259517ed1c50057742222c196cffb6c"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/PROVENANCE.json",
+      "bytes": 3538,
+      "mode": "100644",
+      "sha256": "4bf4bdb0a727cf4bea1d14cffc896b7081b285ad42f637dd4bc427f5d133bc22"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/README.md",
+      "bytes": 4703,
+      "mode": "100644",
+      "sha256": "e6358ada738b6f4d8a9c9c5833d5d63b86a88e1a8774c8db23f6fe9f77117910"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/SHA256SUMS",
+      "bytes": 3739,
+      "mode": "100644",
+      "sha256": "21b2df30453f79e0d4f10448f1f9d7f38968d54063df28cd9ab735cd828c973c"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/SOURCE_CHANGES.json",
+      "bytes": 2632,
+      "mode": "100644",
+      "sha256": "7eb6bfcaf665894feb6edb2e2bfe1e6958de112ded2824908e31c718200d9850"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/VERIFICATION.md",
+      "bytes": 1348,
+      "mode": "100644",
+      "sha256": "300c2c7d61fe9f4556b182f30e9f39acb985313823708d9de76f51796e0af711"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/build.sh",
+      "bytes": 1956,
+      "mode": "100644",
+      "sha256": "b2c0f7c2b2877a79c0ce32140e5804325a01bf9450cae0067b09a6815cec7adc"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/check_exact.py",
+      "bytes": 17821,
+      "mode": "100644",
+      "sha256": "1a627f4a33aee55c1eac844868669fdaeb68f833ce22faccf5f3027fe6704b72"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/check_package.py",
+      "bytes": 2867,
+      "mode": "100644",
+      "sha256": "27c2fbd373ad890f8da2bd6cee406b442f8d99774961ce200cda9d7a310bec4a"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/check_prior_independent.py",
+      "bytes": 5382,
+      "mode": "100644",
+      "sha256": "1d0c264f8a60dbfe221f0decc88d516fc66b4f30cddb0887de254444101fb630"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/check_results.json",
+      "bytes": 26882,
+      "mode": "100644",
+      "sha256": "cac4575e072bc9be04ed45c44f928e44711a5bd45dec86c9186611562c7e613f"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/independent_certificate.json",
+      "bytes": 36485,
+      "mode": "100644",
+      "sha256": "bf32f40af6ea1467723d90e12777df143beb0657954fd37af233796a5887d4a0"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/independent_checks.py",
+      "bytes": 13546,
+      "mode": "100644",
+      "sha256": "7894912020935c7b7dc64caf1292d8edfc8d0f00f4330b3310e7afde0c8f1117"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/make_package.py",
+      "bytes": 2031,
+      "mode": "100644",
+      "sha256": "42398923eb21847160596817f205f2a4c1d9a303394b955fcc736b0552eab192"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/proof.pdf",
+      "bytes": 263071,
+      "mode": "100644",
+      "sha256": "c9be7aab9d5480d2080eea54d869ccd4e2330ccdc74cd07fce2129a5be696a7a"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/proof.tex",
+      "bytes": 22992,
+      "mode": "100644",
+      "sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/proof.txt",
+      "bytes": 25662,
+      "mode": "100644",
+      "sha256": "a901c1ddec43234911b9d64e7c2de3a64edc0223ff07a25e0d98ec2b4befa7af"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/independent.normal.log",
+      "bytes": 340,
+      "mode": "100644",
+      "sha256": "e6e60d42e023b35f6c0bbe6a1fe142f99e9207752b078bff8e0f4589bba3a703"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/independent.optimized.log",
+      "bytes": 340,
+      "mode": "100644",
+      "sha256": "e6e60d42e023b35f6c0bbe6a1fe142f99e9207752b078bff8e0f4589bba3a703"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/prior_independent.normal.log",
+      "bytes": 220,
+      "mode": "100644",
+      "sha256": "1c088badebc57d8f26299e5218e2b9067bdf901b29743b373dd1588dfaefd234"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/prior_independent.optimized.log",
+      "bytes": 220,
+      "mode": "100644",
+      "sha256": "1c088badebc57d8f26299e5218e2b9067bdf901b29743b373dd1588dfaefd234"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/supplied.normal.log",
+      "bytes": 374,
+      "mode": "100644",
+      "sha256": "145ed14ff9193a1f3f8eef3e48d863ef54c939cd38ff80bca91486bf558a680f"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/supplied.optimized.log",
+      "bytes": 374,
+      "mode": "100644",
+      "sha256": "145ed14ff9193a1f3f8eef3e48d863ef54c939cd38ff80bca91486bf558a680f"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/truncation.normal.log",
+      "bytes": 505,
+      "mode": "100644",
+      "sha256": "05b4cadf7854b2ac5b018b135c5f98921821c653865d1ee423f0a64b6743b1de"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/truncation.optimized.log",
+      "bytes": 505,
+      "mode": "100644",
+      "sha256": "05b4cadf7854b2ac5b018b135c5f98921821c653865d1ee423f0a64b6743b1de"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/results/verification.json",
+      "bytes": 3339,
+      "mode": "100644",
+      "sha256": "45a2e103d0a618151bb339e222ae2dc0820f6319d324032af2dc8380c2ca2027"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/source.zip",
+      "bytes": 389593,
+      "mode": "100644",
+      "sha256": "4d360a282bf8785401096574dce435a5d9314fe224df982af65c89a639a6d7b9"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/DEPENDENCY_MAP.txt",
+      "bytes": 1640,
+      "mode": "100644",
+      "sha256": "60fda6bb0fa486200019fd61c12042b3d94d12e341c37cd7af2ff3c05873ef88"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/entry005-v3.md",
+      "bytes": 29756,
+      "mode": "100644",
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "mode": "100644",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/prior-integrated-witness/paper.tex",
+      "bytes": 13368,
+      "mode": "100644",
+      "sha256": "990f7c2d76c8dc377e779715ff2bc37bd4abb57fba64bdea35737c182a3d08e4"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/released-explicit-modulus.md",
+      "bytes": 20103,
+      "mode": "100644",
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/truncation/check_exact.py",
+      "bytes": 12456,
+      "mode": "100644",
+      "sha256": "cfee38bd2b866e7f7ed5dcc5fc5013f8d49508235cd66cf774051ea315e502c3"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/truncation/exact_certificate.json",
+      "bytes": 141401,
+      "mode": "100644",
+      "sha256": "fbfb6ee471650adc87b9e110f6cd12bcb6a376d3df7188130fb89723b0541196"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/sources/truncation/proof.tex",
+      "bytes": 21403,
+      "mode": "100644",
+      "sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac"
+    },
+    {
+      "path": "notes/sharp-simplex-stability/verify.py",
+      "bytes": 5176,
+      "mode": "100644",
+      "sha256": "0ae363dc505286fec452ce345be18ce8a5e3d7c87fa775843f5c8441883b9b5c"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 26305,
+      "mode": "100644",
+      "sha256": "30008c640a551b18acba54a6b7c34801d830a595d899be8de9df79b436f9529d"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-sharp-simplex-crouzeix-sextic-v1.json"
+}
