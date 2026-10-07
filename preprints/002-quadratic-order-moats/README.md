@@ -2,7 +2,7 @@
 
 Latest version **v4**, prepared 7 October 2026.
 
-Version 4 proves an exact optimality statement for the Gaussian eight-neighbor principal-ideal sieve: the smallest possible common scalar period is exactly 130. Every period below 130 is ruled out by a complete family of exact nonzero-voltage certificates, while the historical period-130 potential is independently replayed.
+Version 4 proves an exact optimality statement for the Gaussian eight-neighbor principal-ideal sieve: the smallest possible common scalar period is exactly 130. Every period below 130 is ruled out by a complete family of exact nonzero-voltage certificates, while the historical period-130 potential is independently replayed. It also proves the parallel sharp classification in \(\mathbb Z[\sqrt2]\): minimum period 14, with exactly the two conjugate two-generator endpoint sieves.
 
 - [Version 4 theorem and proof](v4/paper.md)
 - [Version 4 proof audit](v4/PROOF_AUDIT.md)

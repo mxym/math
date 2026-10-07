@@ -2,37 +2,51 @@
   "date": "2026-10-07",
   "entry": "002",
   "files": {
-    "PROOF_AUDIT.md": "8c968257e75d61b319e9b76efd516e867158c35ba469a980772ed5786b4ccaa6",
-    "README.md": "b8f975d66adedd262702bf5be70daea6a23159fb501b42a7790056ade7f419fe",
+    "PROOF_AUDIT.md": "08b857cbd8ec437a6bf2fdb78c694b4d7c65fc1875f2fef8489b7e78a5c6c70d",
+    "README.md": "33a166992fd3ea6bfe5c7aa4fefb37720df876ebd48b875ab20a8152d433402b",
     "code/check_endpoint_rigidity.py": "fef53e295fa6088b519e6deb74b6dae742555e41835a82491e24476c89348f3e",
     "code/check_period_optimality.py": "3dc290326691750f4f0683208fc9cd46848400ea387028a18c55ad55be78eff5",
+    "code/check_sqrt2_period.py": "01a06dfbb1f9738fe88096d6ebac61aa6d30a937ba7ee4d000b18d87bc035495",
     "code/endpoint_rigidity.json": "6255a5661c6ba151efaefd30042cc7a487db1b60d417de2872d6ba69e9d1627c",
     "code/generate_endpoint_rigidity.py": "46d8e88d0e34ae49acccdd408e096380ece0e465c0ec7c51825208808cccae01",
     "code/generate_period_optimality.py": "9e37a84104bfb8e70744d7a79ce3d75ba7ba48b64addc9dc3f4ba45d9ced66fd",
+    "code/generate_sqrt2_period.py": "6f7ffeb8a75a4905a092c903029d787ab4a22aec1e747e763f1f1542f7d173da",
     "code/period_optimality.json": "d5d90d7c15cce9d69f92ed83197d8b7b66e9b6040fdb54a06ffcfb7eb60f11f2",
+    "code/sqrt2_period_endpoint.json": "635326212d26aef65115d4b4a5a14240455aa6b700481b744d50b5b547b69723",
     "paper.md": "71bf6c0fc1732bd27c43f185873b863a35eadecd7c6660ec94ff1d66c4d31273",
     "results/endpoint_rigidity_replay.txt": "2eea7de6e765287d16beea5337a7cf0c328923263c706b42f1ad0faf030b4d45",
     "results/endpoint_rigidity_replay_optimized.txt": "2eea7de6e765287d16beea5337a7cf0c328923263c706b42f1ad0faf030b4d45",
     "results/replay.txt": "01d68934cc21a6e266575ed984013fd80ecb33431d041bd570bcb7593130c42b",
-    "results/replay_optimized.txt": "01d68934cc21a6e266575ed984013fd80ecb33431d041bd570bcb7593130c42b"
+    "results/replay_optimized.txt": "01d68934cc21a6e266575ed984013fd80ecb33431d041bd570bcb7593130c42b",
+    "results/sqrt2_period_replay.txt": "dc37fcd45e38fcb4d32891b4a6b72fb13a784a4cc73c00ef62af4c5f2dca12bd",
+    "results/sqrt2_period_replay_optimized.txt": "dc37fcd45e38fcb4d32891b4a6b72fb13a784a4cc73c00ef62af4c5f2dca12bd",
+    "sqrt2_period.md": "dcfae18fbba445efe424b1094a04ee1cbefb4afd7814a91bd28dcbfb92571a3c"
   },
   "inherited_v3_dependencies": {
     "preprints/002-quadratic-order-moats/v3/certificates_v3/gaussian_eight_steps_principal.json": "8d47e771d38f7723b361db0bdedb466a4976753feb244c06065c57c27f7ca9d6",
-    "preprints/002-quadratic-order-moats/v3/certificates_v3/principal_ideal_checker.py": "b50e9b7f46143cbeb8fff0b8205d60f4594b889bfd450af879b6c494944404bf"
+    "preprints/002-quadratic-order-moats/v3/certificates_v3/prime_element_checker.py": "650701ea2795eab021080c5da27acdb135ca0e85558d332a2f9bf7d650ddf72a",
+    "preprints/002-quadratic-order-moats/v3/certificates_v3/principal_ideal_checker.py": "b50e9b7f46143cbeb8fff0b8205d60f4594b889bfd450af879b6c494944404bf",
+    "preprints/002-quadratic-order-moats/v3/certificates_v3/sqrt2_eight_steps.json": "6d49ee601dabda004c500d91594ecac529573f8497310cceaa24f41bc86f6b74"
   },
   "results": [
-    "minimal common scalar period 130 for Gaussian F8 finite principal-ideal periodic sieves",
-    "at sharp period, at least five generators; five-generator list unique up to associates and order"
+    "Gaussian F8: minimal common principal-sieve scalar period 130",
+    "Gaussian F8 sharp period: at least five generators; five-generator list unique up to associates/order",
+    "Z[sqrt(2)] F8: minimal common principal-sieve scalar period 14",
+    "Z[sqrt(2)] F8 sharp period: at least two generators; exactly two conjugate two-generator lists up to associates/order"
   ],
-  "schema": "mxym-math-002-v4-manifest-2",
-  "scope": "Principal-ideal periodic-sieve optimality and sharp-period rigidity only.",
+  "schema": "mxym-math-002-v4-manifest-3",
+  "scope": "Sharp scalar-period and minimal-generator endpoint classification inside the finite principal-ideal periodic-sieve framework only.",
   "verification": {
-    "endpoint_divisor_ideals": 47,
-    "endpoint_failure_steps": 23016,
-    "endpoint_failure_witnesses": 154,
-    "failed_squarefree_radicals_below_130": 79,
+    "gaussian_endpoint_divisor_ideals": 47,
+    "gaussian_endpoint_failure_steps": 23016,
+    "gaussian_endpoint_failure_witnesses": 154,
+    "gaussian_failed_squarefree_radicals_below_130": 79,
+    "gaussian_period_failure_steps": 5009,
     "ordinary_and_optimized_replays_byte_identical": true,
-    "period_failure_steps": 5009
+    "sqrt2_endpoint_divisor_ideals": 11,
+    "sqrt2_failed_lower_radicals": 9,
+    "sqrt2_failure_steps": 464,
+    "sqrt2_failure_witnesses": 38
   },
   "version": "v4"
 }

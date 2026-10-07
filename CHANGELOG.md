@@ -7,6 +7,8 @@
 - Added exact nonzero-voltage witnesses for all 79 squarefree radicals below 130 (5009 stored F8 steps, maximum witness length 129), plus an independent checker that reconstructs prime generators, ideal membership and the complete failed-radical list.
 - Replayed the frozen period-130 positive certificate, recovering 4608 allowed residues, quotient component bound 580 and the inherited conservative Gaussian irreducible-component bound 92820.
 - Classified the sharp-period five-generator endpoint: every successful period-130 sieve needs at least five generators, and with exactly five the list is unique up to associates and order. Exact endpoint witnesses cover all 47 nonunit divisor ideals of 130, all 31 proper prime subsets and 123 proper-subideal replacements.
+- Proved the parallel Z[sqrt(2)] F8 classification: minimum principal-sieve period 14; at the sharp period at least two generators are needed, and the two-generator endpoint is exactly one of the two conjugate pairs {sqrt(2), 3+sqrt(2)} or {sqrt(2), 3-sqrt(2)} up to associates/order.
+- Added 38 exact real-quadratic failure witnesses covering all nine lower radicals, all 11 nonunit divisor ideals at period 14, five failed prime subsets and 24 proper-subideal replacements; ordinary and optimized replays are byte-identical.
 - The optimality claim is restricted to the finite principal-ideal periodic-sieve framework; it is not an unrestricted lower bound on all proofs or on the true Gaussian component size.
 
 ## 2026-10-07 — 006 v2 log-bi-Lipschitz profile avoidance

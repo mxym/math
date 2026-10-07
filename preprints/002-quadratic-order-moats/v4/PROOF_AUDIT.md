@@ -113,7 +113,7 @@ Up to associates this has exactly 48 divisor ideals, 47 of them nonunit. The ind
 
 The endpoint-rigidity package contains 154 exact failure witnesses, 23016 steps in total, with maximum walk length 186. Ordinary and optimized Python reports are byte-identical.
 
-## 5. Replays
+## 6. Gaussian replays
 
 Ordinary Python and optimized Python produce byte-identical output:
 
@@ -125,11 +125,64 @@ SHA-256 of code/period_optimality.json:
 
 d5d90d7c15cce9d69f92ed83197d8b7b66e9b6040fdb54a06ffcfb7eb60f11f2.
 
-## 7. Nonclaims
+## 7. Real-quadratic period and endpoint audit
+
+For \(R=\mathbb Z[\sqrt2]\), the scalar-period formula inherited from v3 is
+\[
+t(a+b\sqrt2)=\frac{|a^2-2b^2|}{\gcd(|a|,|b|)}.
+\]
+The same radical-domination argument is valid because \(R\) is a PID and,
+for a prime element \(\pi\), the contraction
+\[
+(\pi)\cap\mathbb Z=(p)
+\]
+for the rational prime below it. Since
+\(t(\alpha)\in(\pi)\cap\mathbb Z\), that rational prime divides
+\(t(\alpha)\).
+
+The lower-period checker exhausts the nine squarefree radicals
+\[
+1,2,3,5,6,7,10,11,13.
+\]
+It independently reconstructs the ramified prime over \(2\), both split
+primes over \(7\), and the inert ideals over \(3,5,11,13\). Every maximal
+prime sieve in this range has a stored nonzero-voltage \(F_8\) walk.
+
+At period \(14\),
+\[
+14=(\sqrt2)^2(3+\sqrt2)(3-\sqrt2).
+\]
+Unique factorization therefore gives exactly
+\(3\cdot2\cdot2=12\) divisor ideals up to associates, 11 nonunit. The
+endpoint checker reconstructs all 11 from the exponent triples, rather than
+from a coefficient box.
+
+Among prime subsets of size at most two, the only successful pairs are
+\[
+\{\sqrt2,3+\sqrt2\},\qquad
+\{\sqrt2,3-\sqrt2\}.
+\]
+The empty set, all three singletons, and the pair of the two conjugate
+norm-seven primes have explicit nonzero-voltage failures.
+
+For each of the two successful pairs, replacing either prime ideal by any
+proper nonunit divisor ideal of \((14)\) contained in it also has an exact
+nonzero-voltage witness. There are 24 such replacement cases. This proves
+the two-generator endpoint classification: any successful period-14
+two-generator list must, up to associates and order, be one of the two
+displayed pairs.
+
+The package contains 38 real-quadratic failure witnesses, 464 \(F_8\) steps
+in total, with maximum length 14. Ordinary and optimized Python reports are
+byte-identical. The frozen v3 positive certificate is replayed independently
+and gives period 14, avoiding quotient bound 6, and inherited conservative
+irreducible-component bound 351232.
+
+## 8. Nonclaims
 
 The audit does not establish:
 
-- optimality of the true Gaussian irreducible component size;
+- optimality of the true Gaussian or real-quadratic irreducible component size;
 - optimality among periodic obstructions not expressible as finite unions of
   principal ideals;
 - a lower bound for arbitrary proofs of the Gaussian moat theorem;
