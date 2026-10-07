@@ -68,6 +68,25 @@ pass under ordinary and optimized Python.
 
 The frozen outputs are in results/.
 
+## Concurrent two-band comparison
+
+Before publication the shared main branch added
+notes/binary-tensor-two-band-lower-bound, with asymptotic constant
+\[
+\kappa=\sqrt{2/7+\sqrt2/14}=0.6218758237\ldots .
+\]
+Its supplied exact verifier was rerun successfully, including
+\(\mathbb Q(\sqrt2)\) formulas, orders 10 through 120, universal integer
+gates and negative controls. The present primary and secondary checkers also
+verify by rational squaring that
+\[
+ 0.623586>\kappa.
+\]
+The present theorem is therefore not indexed as a duplicate of that note:
+it provides a general finite-profile limit theorem and a stronger asymptotic
+constant. The two-band note still has a distinct exact finite-\(p\) witness
+statement.
+
 ## Diagnostic finite-order check
 
 A non-proof floating diagnostic reconstructed the full tensors and directly

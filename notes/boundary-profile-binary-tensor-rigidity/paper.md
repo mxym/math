@@ -120,8 +120,22 @@ Then
 \]
 
 This strictly improves the previous \(2^{-3/4}=0.59460\ldots\) lower
-constant. The upper constant \(2^{-1/2}\) is unchanged, so (2) does not
-determine the sharp asymptotic constant.
+constant. During final review a concurrent repository continuation,
+binary-tensor-two-band-lower-bound, became public on the shared main
+branch. It proves the closed-form lower constant
+\[
+ \kappa=\sqrt{\frac27+\frac{\sqrt2}{14}}
+ =0.6218758237\ldots
+\]
+with an exact witness for every \(p\ge10\). The present bound is also
+strictly stronger than that constant:
+\[
+ 0.623586>\kappa.
+\]
+The two results are complementary: the concurrent note has exact finite-order
+formulas, whereas Theorem A gives a general finite-profile asymptotic
+variational mechanism. The upper constant \(2^{-1/2}\) is unchanged, so
+(2) does not determine the sharp asymptotic constant.
 
 ## 2. The residual for a reflected boundary profile
 
@@ -414,7 +428,27 @@ Theorem A is a reusable asymptotic lower-bound mechanism, not merely one
 numerical witness. It converts any finite boundary coefficient profile
 into a one-variable Gaussian/Fock-type extremal problem. The explicit
 three-term profile captures a stronger obstruction than the former
-two-term family.
+one-band family and the concurrently published exact two-band family.
+
+For comparison, the concurrent two-band coefficients have a fixed
+boundary-profile limit
+\[
+ (a_0,a_1,a_2)=(1,\sqrt{1+\sqrt2},-1).
+\]
+For this profile,
+\[
+ A(x)^2+A(-x)^2
+ =2\left(1+x^2+\frac{x^4}{2}\right),
+\]
+so its profile maximum is \(2\): with \(y=x^2\ge0\),
+\[
+ e^{-y}\left(1+y+\frac{y^2}{2}\right)\le1
+\]
+by the positive exponential series, with equality at \(y=0\). Formula
+(1) therefore recovers \(\sqrt{2/7+\sqrt2/14}\) after taking the final
+square root. Thus the new framework contains the asymptotic shape of that
+construction, while the concurrent paper separately supplies its stronger
+finite-\(p\) closed formulas.
 
 This note does not prove that finite boundary profiles contain all
 asymptotic extremizers, does not determine the supremum of the profile
