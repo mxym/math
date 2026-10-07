@@ -146,3 +146,9 @@ Both frozen packages passed independent model-conducted analytic and final-copy 
 ## Sharp binary tensor bounds and optimal order growth
 
 [Sharp binary tensor rigidity](notes/sharp-binary-tensor-rigidity/README.md) proves that the best binary complete-commutator error constant grows as p^(1/4), with an explicit upper bound and an exact infinite lower family. The quartic constant 3^(1/4)/sqrt(2) is best possible, and its nonzero-residual equality orbit is classified. [Complete proof and PDF](notes/sharp-binary-tensor-rigidity/paper.md), exact diagnostics, nine partial Lean exports and explicit verification limits are supplied. The asymptotic leading constant and sharp higher-dimensional dependence remain undetermined.
+
+The [boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
+proves a finite-profile Gaussian/Fock asymptotic formula and improves the
+binary leading-constant lower bound to
+liminf C_p / p^(1/4) > 0.623586. Two exact rational checkers certify the
+explicit three-term profile. The sharp leading constant remains open.

@@ -20,6 +20,12 @@ proves all statements and covers zero residual and degenerate weights.
 [PDF](paper.pdf) · [Exact checker](checks/check_exact.py) ·
 [Lean scalar proofs](formal/QuarticCertificate.lean).
 
+An [additive boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+subsequently improves this note's asymptotic lower constant from
+2^(-3/4) to a certified value above 0.623586; the upper constant and the
+sharp asymptotic value remain open. The statements and certificates in this
+parent note are preserved.
+
 No OpenAI theorem is used in these results. The qualitative odeco algebraic
 characterization has established prior literature; our scope is quantitative.
 The [preliminary literature comparison](../../research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md)
