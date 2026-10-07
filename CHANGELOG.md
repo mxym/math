@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — symmetric upper-end and restricted virial/stress supplements
+
+- Added the 11-page symmetric projection-cone stability proof, explicit d^15 deficit^(1/(6d)) bound and corner-truncated-cube obstruction to powers above 1/d. The distance is to the full line/plane product equality class; optimal exponent and dimension-independent power are distinguished.
+- Added the 12-page full-density virial/stress proof under compact initial support and pinned H1--H6 imports. This is a restricted first-order mean result, not a complete one-particle corrector or an extension of the fluctuation theorem to unbounded tests.
+- Included complete editable source archives, precise public dependencies, proof-audit scope, package manifests and normal/optimized offline verification. Preserved the already visually audited PDF bytes; no Lean formalization, external peer review or novelty claim.
+- Clarified only the Bellman audit summary's phrase “affine images” to “affine-isomorphic images on their affine hulls,” consistent with v2's dimension-indexed recursive class. No manuscript bound, proof or certificate changed.
+- Preserved every unrelated file and mode, including parallel 005 work. The additive release manifest pins the base commit/tree and each changed payload file.
+
 ## 2026-10-07 — functional hard-sphere manuscript and effective-rigidity supplement
 
 - Added manuscript 009: strong-dual generalized-J1 convergence of exactly centered hard-sphere fluctuation fields on the prescribed regular kinetic interval, conditional on the explicitly restated pinned upstream analytic package. All new geometry, localization, remainder, chaining and topology proofs are included.

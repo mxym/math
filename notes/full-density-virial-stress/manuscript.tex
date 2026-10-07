@@ -1,0 +1,452 @@
+\documentclass[11pt,letterpaper]{article}
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem,booktabs,longtable}
+\usepackage{xcolor}
+\usepackage[breaklinks,colorlinks,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Full-density virial, spatial spread, and collisional stress},pdfsubject={Research supplement conditional on a pinned history package},pdfauthor={}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Full-density virial and collisional stress}\fancyhead[R]{\small Research supplement}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}\newcommand{\Prob}{\mathbb P}
+\newcommand{\eps}{\varepsilon}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ind}{\mathbf 1}\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\bex}{b_{\mathrm{ex}}}\newcommand{\Pcoll}{\Pi_{\mathrm{coll}}}
+\newcommand{\clip}{\operatorname{clip}}\newcommand{\lab}[1]{\texttt{\detokenize{#1}}}
+\title{Full-density virial and spatial-spread corrections\\and the collisional momentum-balance defect\\[0.5em]\large A research supplement conditional on a pinned history package}
+\author{}
+\date{7 October 2026 \quad Version 1}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the three-dimensional excluded-product grand-canonical hard-sphere gas at activity $\mu=\eps^{-2}$, we derive uniform first-order corrections to the mean virial and spatial second moment on a regular Boltzmann interval. We also identify a local momentum-balance defect as a classical collisional-stress tensor. The datum is smooth with compact position and velocity support. The proof extends an unweighted component expansion to speed-weighted passive collision records, using globally clipped output tests, retained-history energy and size bounds, and reverse-chronological cancellation of unused auxiliary contacts. Exact mechanical identities then transfer the result from a capped pasted flow to the true flow. This is an independent statement and proof of the extension \emph{conditional on} the operational history package stated below; the package itself is not independently reproved here. No convergence of the full one-particle mean correction, no extension of a fluctuation theorem to these unbounded spatial tests, and no priority or peer-review claim is made.
+\end{abstract}
+\tableofcontents
+
+\section{Model, normalization, and conclusions}\label{sec:statement}
+Write $z=(x,v)\in\R^3\times\R^3$ and $f_t(q)=\int q(x,v)f_t(x,v)\dd x\dd v$. For $\beta>0$ put
+\[
+ \|g\|_{\mathrm{Bol},\beta}
+ =\sum_{a\in\mathbb Z^3}\sup_{|x-a|\le1,\ v\in\R^3}
+                   e^{\beta|v|^2}|g(x,v)|.
+\]
+\begin{assumption}[Regular interval and compact datum]\label{ass:model}
+The function $f_0\ge0$ is a smooth probability density with compact support in both position and velocity. Fix $R_x,R_v<\infty$ such that its support lies in $\{|x|\le R_x,|v|\le R_v\}$. On $[0,T]$ there is a nonnegative classical Boltzmann solution $f$ with initial datum $f_0$ and
+\[
+ \sup_{t\le T,x,v} e^{2\beta|v|^2}f_t(x,v)<\infty.
+\]
+In particular $\|f_0\|_{\mathrm{Bol},2\beta}+\|\nabla_x f_0\|_{\mathrm{Bol},2\beta}<\infty$. The standard propagated Bol bounds and global velocity moments in the pinned package of Section~\ref{sec:imports} are used.
+\end{assumption}
+Compact initial support is a deliberate additional assumption, used in deterministic bounds below. Compact velocity support of $f_t$ for positive times is neither assumed nor needed.
+
+The sphere diameter is $\eps$, the activity is $\mu=\eps^{-2}$, and the initial law is
+\begin{equation}\label{eq:ensemble}
+ \Prob_\eps(N,\dd Z_N)=\mathcal Z_\eps^{-1}\frac{\mu^N}{N!}
+ \prod_{j=1}^N f_0(z_j)
+ \prod_{i<j}\ind_{\{|x_i-x_j|>\eps\}}\dd Z_N.
+\end{equation}
+The empirical measure and mean correction are
+\[
+ \pi_t^\eps=\mu^{-1}\sum_{j=1}^N\delta_{z_j(t)},\qquad
+ m_\eps(t;q)=\E\pi_t^\eps(q),\qquad
+ b_\eps(t;q)=\frac{m_\eps(t;q)-f_t(q)}{\eps}.
+\]
+There is no auxiliary small-amplitude parameter in these definitions.
+
+For centers $x,x+\eps\omega$ and incoming velocities $v,w$, set
+\begin{equation}\label{eq:collision}
+ g=v-w,\quad B=(g\cdot\omega)_+,\qquad
+ v'=v-(g\cdot\omega)\omega,\quad w'=w+(g\cdot\omega)\omega.
+\end{equation}
+Scattering is used only when $B>0$. All sphere integrals use ordinary, unnormalized surface measure. The Boltzmann collision operator is fixed by
+\[
+ \int Q(f,f)\phi\dd v
+ =\frac12\int_{\R^3\times\R^3\times S^2}
+ Bff_*[\phi(v')+\phi(w')-\phi(v)-\phi(w)]\dd v\dd w\dd\omega
+\]
+at a common position, and $\partial_t f+v\cdot\nabla_xf=Q(f,f)$.
+Put $\rho_0(x)=\int f_0(x,v)\dd v$ and $\bex=4\pi/3$. Define
+\begin{equation}\label{eq:J}
+ \begin{split}
+ J_f(s)&=\int_{\R^3\times\R^3\times\R^3\times S^2}
+ B^2 f_s(x,v)f_s(x,w)\dd x\dd v\dd w\dd\omega\\
+ &=\frac{2\pi}{3}\int |v-w|^2 f_s(x,v)f_s(x,w)\dd x\dd v\dd w.
+ \end{split}
+\end{equation}
+Thus $J_f$ uses the full Boltzmann solution.
+
+\begin{theorem}[Virial and spatial spread]\label{thm:virial}
+Under Assumption~\ref{ass:model} and the pinned operational package in Section~\ref{sec:imports}, the true hard-sphere mean satisfies, uniformly for $0\le t\le T$,
+\begin{align}
+ b_\eps(t;x\cdot v)&\longrightarrow
+ -\bex\int\rho_0(x)f_0(x,v)(x\cdot v+t|v|^2)\dd x\dd v
+ +\frac12\int_0^t J_f(s)\dd s,\label{eq:virial-limit}\\
+ b_\eps(t;|x|^2)&\longrightarrow
+ -\bex\int\rho_0(x)f_0(x,v)|x+tv|^2\dd x\dd v
+ +\int_0^t(t-s)J_f(s)\dd s.\label{eq:spread-limit}
+\end{align}
+\end{theorem}
+
+\begin{theorem}[Local momentum-balance defect]\label{thm:stress}
+Under the assumptions of Theorem~\ref{thm:virial}, for $a\in C_c^\infty(\R^3;\R^3)$ define
+\begin{equation}\label{eq:defect}
+ D_\eps(t;a)=b_\eps(t;a(x)\cdot v)-b_\eps(0;a(x)\cdot v)
+   -\int_0^t b_\eps(s;v\otimes v:\nabla a(x))\dd s.
+\end{equation}
+With $(\nabla a)_{ij}=\partial_j a_i$, uniformly on $[0,T]$,
+\begin{equation}\label{eq:stress-limit}
+ D_\eps(t;a)\longrightarrow
+ \int_0^t\int_{\R^3}\Pcoll[f_s](x):\nabla a(x)\dd x\dd s,
+\end{equation}
+where
+\begin{equation}\label{eq:stress-tensor}
+ \begin{split}
+ \Pcoll[f](x)
+ &=\frac12\int B^2\omega\otimes\omega\,f(x,v)f(x,w)\dd v\dd w\dd\omega\\
+ &=\frac{\pi}{15}\int f(x,v)f(x,w)
+       \bigl(|g|^2I+2g\otimes g\bigr)\dd v\dd w.
+ \end{split}
+\end{equation}
+No separate convergence of the three terms containing $b_\eps$ in \eqref{eq:defect} is asserted.
+\end{theorem}
+
+\section{The precise imported history package}\label{sec:imports}
+The primary source $U$ is the TeX snapshot of \emph{Hard-sphere fluctuations on the regular Boltzmann lifespan} at commit
+\begin{center}\small\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.\end{center}
+Every source label below refers to that snapshot \cite{U}. The public functional manuscript $F$ records the same imports and supplies a collision-count-record extension \cite{F}. Its fluctuation conclusions are not used. Commit-pinned public source paths, SHA-256 hashes, labels, and an offline verification procedure are supplied in \texttt{DEPENDENCIES.md} and \texttt{dependency-inventory.json}. Neither those documents nor this supplement certify or independently reprove $U$.
+
+\subsection{The single auxiliary dynamics}
+Choose once the cycle-excess cap $\Gamma$ and the number $L$ of slabs allowed by $U$, independently of later fixed moment orders. Let $\tau=T/L$ and, with harmless integer rounding,
+\begin{equation}\label{eq:caps}
+ A_L=|\log\eps|,\qquad \Lambda_i=A_i^{30},\qquad
+ A_{i-1}=\Lambda_i^{30}\quad (i=L,\ldots,1).
+\end{equation}
+Within slab $i$, an incoming contact is accepted only if its addition leaves the connected collision component with at most $\Lambda_i$ labels and excess at most $\Gamma$. Excess is edges minus vertices plus components; repeated contacts count as repeated edges. Accepted C contacts scatter elastically, and rejected contacts continue straight. At each slab boundary only collision prehistory restarts. Positions and velocities are not reset; overlaps are permitted. O contacts in the expansion are signed non-scattering contacts. They are distinct from a physical accepted C event and do not increment its record.
+
+\subsection{Operational inputs}
+We use exactly the following facts; in particular item~\ref{imp:unweighted} is unweighted.
+\begin{enumerate}[label=H\arabic*.,ref=H\arabic*,leftmargin=2.7em]
+\item\label{imp:initial} \textbf{Initial and kinetic control.}
+Normalized ordered factorial densities satisfy $0\le F_{h,0}^\eps\le f_0^{\otimes h}$, and $(1-C\eps)f_0\le F_{1,0}^\eps\le f_0$. Hence $\sup_\eps\E(N/\mu)^p<\infty$ for each fixed integer $p$. The one-root birth inputs $g_i$ have a common Gaussian Bol envelope and converge to $f_{i\tau}$ in a common smaller Bol norm. The same approximation is valid on partial final slabs. The kinetic bounds propagate and supply global velocity moments.
+
+\item\label{imp:algebra} \textbf{Autonomous partition and root-output algebra.}
+For a finite label set $V$, let $\Psi_C$ be its autonomous capped evolution on a block $C$, $\kappa_C$ its connected-accepted-graph indicator, and $\chi(C,D)$ the indicator that two autonomous blocks have no cross-contact acceptable under their prefix prehistories. Then
+\begin{align}
+ 1&=\sum_{\mathcal C\in\mathcal P(V)}\prod_{C\in\mathcal C}\kappa_C
+                         \prod_{\{C,D\}\subset\mathcal C}\chi(C,D),\label{eq:partition}\\
+ H(\Psi_V|_S)&=\sum_{\mathcal C\in\mathcal P(V)}\prod_C\kappa_C
+             \prod_{\{C,D\}}\chi(C,D)H(\Psi_{\mathcal C}|_S)\label{eq:rootoutput}
+\end{align}
+for a bounded test $H$ of designated root histories $S$. Expanding incompatibilities into rooted forest blocks gives a finite retained operator $\mathcal L_s$ and positive stopped domination $\mathcal E_s$ with
+\[
+ F'_s=\mathcal L_sF+R_s,\qquad |R_s(H)|\le(\mathcal E_sF)(|H|).
+\]
+The kernels are signed sums of root-output pushforwards multiplied by physical indicators; their weights do not depend on passive records. Spectator blocks sum to one before integration. Choosing $j$ fresh labels gives precisely $\mu^j/j!$, by
+\[
+ \frac1{(n-s)!}\binom{n-s}{j}=\frac1{j!(n-s-j)!}.
+\]
+Required recorded lines continue to time zero. Forgetting records commutes with root-output pushforwards and one-root regrouping; newly unmarked singleton blocks sum to $g_i$. These are algebraic identities, not independence of the actual gas at slab boundaries.
+
+\item\label{imp:unweighted} \textbf{Unweighted retained remainder and complexity tails.}
+For a fixed factorial order $h$ and a fixed finite number of bounded record coordinates, the actual and retained factorial hierarchies obey
+\begin{equation}\label{eq:unweighted}
+ \|F_h^\eps-\widehat F_h^\eps\|_{\TV}
+ \le C_h e^{-c_h\Lambda_L},\qquad \Lambda_L=|\log\eps|^{30}.
+\end{equation}
+The estimate holds also on partial final slabs. Finite factorial-cumulant inversion retains the connected diagrams. Their complexity is
+$\rho=|H_0|+\sum_i(|H_i|+r_i)$, where $H_i$ are continuing/designated roots, $H_0$ the lines incident to initial links, and $r_i$ the slab cycle excess. For each fixed order and prescribed $P$, the sum with $\rho>K$ is $O(\eps^P)$ after choosing a fixed $K$. Nonphysical initial tails permit an arbitrary-power choice too. These choices do not change the dynamics. No Gaussian or energy weight is asserted for a general microscopic expansion remainder.
+
+\item\label{imp:majorant} \textbf{Chronological coordinates and positive retained bounds.}
+Each global birth has one independent phase coordinate; continuation has no new coordinate. For total birth energy $E$, active energy never exceeds $E$. A merger of disjoint chronological components has coordinates $(s,\omega)$ with Jacobian $\eps^2 B\dd s\dd\omega$; a redundant contact is a determined incoming-intersection indicator, with its update determined by preceding data. Missing branches are extended by zero. At fixed complexity, with $m$ birth lines, $q$ continuations, $p$ physical initial links, $n=\sum_i n_i=m+q$, and $A=\sum_i A_i^{\rm mer}=m-1-p$ for a connected one-root history,
+\[
+ n-A=q+1+p=O_K(1),\qquad
+ \mu^{m-1}\eps^{2A}\eps^{3p}=\eps^p.
+\]
+There are $O_K(1)$ redundant contacts. Integrating one common translation, or prescribing a root position and taking spatial suprema, bounds the birth product by $C^m e^{-bE}$. Fresh-label factorials and ordered times give, after summation of pair choices, a size majorant
+\begin{equation}\label{eq:majorant}
+ C_K(1+n)^{d_K}(C\tau\sqrt L)^n,\qquad C\tau\sqrt L<1.
+\end{equation}
+It holds both globally and uniformly at a fixed root position, with a fixed small Gaussian reservation. The exponential base and chosen $L$ are independent of subsequent fixed polynomial degrees and moment orders.
+
+\item\label{imp:tree} \textbf{Finite-tree limit, completeness, and splitting.}
+At fixed finite size and bounded birth energy, away from null grazing, zero-relative-speed, coincident-time and extra-contact sets, all prescribed trajectories, times, normals and velocities converge as $\eps\to0$, and there are no undeclared contacts for sufficiently small $\eps$. Physical initial links retain their factor $\eps$; cyclic histories vanish qualitatively after truncation and domination. The surviving signed C/O trees form the complete leading class, with signs $(-1)^{\#O}$ and inputs $f_{i\tau}$. Their unmarked one-root marginal at any time is $f_t$.
+
+After projecting unused records, global reverse-chronological C/O cancellation removes latest contacts that meet no tested root. Deleting the last remaining root contact then splits its tree into two incoming component histories at their common position. The factorization of their fresh-label weights is
+\[
+ \frac1{(j_1+j_2)!}\binom{j_1+j_2}{j_1}=\frac1{j_1!j_2!}.
+\]
+The operation is performed in the limiting finite-tree class with a combined-size cutoff, removed afterward by absolute summability. Conditional spatial tree measures are weakly continuous in the root position, with uniform conditional and integrated Gaussian bounds; their collision product is defined by the common-translation coordinates, equivalently by an approximate identity for equal positions.
+
+\item\label{imp:coupling} \textbf{True/pasted coupling.}
+On common initial data the probability of a trajectory discrepancy anywhere in $[0,T]$ is at most $C\eps^{21/20}$. The almost-everywhere elastic flows and their right-continuous velocity versions are defined, and deterministic-time collision sets are null.
+\end{enumerate}
+
+\paragraph{Exact source locators.}
+{\small\raggedright
+These are printed section numbers, not filename prefixes. H1: $U$ \S2, \lab{prop:initial}, \lab{eq:initial-factorial-upper}, \lab{eq:initial-N-moments}, \lab{lem:target-moments}; \S3, \lab{lem:kinetic-envelopes}, \lab{thm:dhm-package}, \lab{eq:dhm-partial-slab}; \S4, \lab{prop:one-root}. H2--H3: $U$ \S4, \lab{lem:autonomous-partition}, \lab{eq:retained-kernel}, \lab{lem:one-slab-expansion}, \lab{eq:crude-operator}, \lab{lem:marked-regrouping}, \lab{lem:diagram-labels}, \lab{lem:stopped-variation}, \lab{thm:marked-expansion}. H4: $U$ \S5, \lab{eq:sharp-input-bounds}, \lab{lem:sharp-merger-coordinates}, \lab{eq:sharp-scaling}, \lab{lem:sharp-factorials}, \lab{lem:sharp-summability}. H5: $U$ \S5, \lab{lem:sharp-no-extra}, \lab{eq:sharp-uniform-tree-convergence}, \lab{lem:sharp-spatial-traces}, \lab{lem:sharp-tree-completeness}, \lab{lem:sharp-tree-splitting}; \S6, proof of \lab{prop:tree-evolution}. H6: $U$ \S7, \lab{prop:cutoff}, \lab{eq:cutoff-probability}; its flow inputs are traced to \cite[Proposition 1.2 and Appendix A, proof of Proposition 4.5]{DHM} in $F$ \S1.\par}
+
+The passage from bounded observation records to speed-weighted collision records is \emph{proved in Section~\ref{sec:weighted}}, using this algebra. It is not part of H1--H6. The collision-count lemma $F$, \S6, \lab{lem:record}, motivates the extension, but no weighted-incidence convergence theorem is imported from it.
+
+\section{Exact identities and the initial correction}\label{sec:exact}
+Let $\mathcal C_t$ be the actual collision events by time $t$, each counted once, and let $B_c\ge0$ be its incoming normal relative speed. Define
+\begin{equation}\label{eq:H}
+ H_\eps(t)=\mu^{-1}\E\sum_{c\in\mathcal C_t}B_c.
+\end{equation}
+A superscript $p$ denotes the pasted flow and counts only accepted C events.
+
+\begin{lemma}[Mechanical identities and domination]\label{lem:mechanics}
+For either flow,
+\begin{align}
+ m_\eps(t;x\cdot v)&=m_\eps(0;x\cdot v)+t m_\eps(0;|v|^2)+\eps H_\eps(t),\label{eq:micro-virial}\\
+ m_\eps(t;|x|^2)&=m_\eps(0;|x|^2)+2t m_\eps(0;x\cdot v)+t^2m_\eps(0;|v|^2)
+       +2\eps\int_0^tH_\eps(s)\dd s.\label{eq:micro-spread}
+\end{align}
+The absolute particle sums of $|x|^2$, $|v|^2$ and $x\cdot v$ are at most $C_TN$, simultaneously for all $t\le T$.
+\end{lemma}
+\begin{proof}
+For $X=(x_1,\ldots,x_N)$ and $V=(v_1,\ldots,v_N)$, conservation of energy and Minkowski's inequality give
+\[
+ \|V(t)\|_2\le R_v\sqrt N,\qquad
+ \|X(t)\|_2\le \|X(0)\|_2+\int_0^t\|V(s)\|_2\dd s
+                    \le(R_x+TR_v)\sqrt N.
+\]
+Cauchy--Schwarz bounds $\sum_i|x_i\cdot v_i|$. At one contact,
+\[
+ x\cdot(v'-v)+(x+\eps\omega)\cdot(w'-w)=\eps B.
+\]
+Between contacts, $\mathrm d\sum x_i\cdot v_i/\mathrm dt=\sum|v_i|^2$ and $\mathrm d\sum|x_i|^2/\mathrm dt=2\sum x_i\cdot v_i$. Integration proves the formulas. Rejected contacts have no impulse. Overlaps in the pasted flow do not affect the identities: its accepted contacts have separation $\eps$ and the same incoming orientation. The deterministic bounds and H1 justify expectations. The virial identity also bounds the nonnegative collision sum by $C_TN/\eps$, so its finiteness needs no additional true-flow collision-count estimate.
+\end{proof}
+
+\begin{lemma}[Initial vacancy coefficient]\label{lem:initial}
+For every polynomial $q$ used in Theorem~\ref{thm:virial},
+\begin{equation}\label{eq:vacancy}
+ b_\eps(0;q)\longrightarrow-\bex\int\rho_0 f_0q.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The insertion identity for \eqref{eq:ensemble} gives
+$m_\eps(0,x,v)=f_0(x,v)\Prob\{K_x=0\}$, where $K_x$ counts centers of an independent configuration with law \eqref{eq:ensemble} in $B(x,\eps)$. By H1,
+\[
+ \E K_x=\mu\int_{B(x,\eps)}\rho_{1,0}^\eps(y)\dd y
+       =\eps\bex\rho_0(x)+O(\eps^2),\qquad
+ \E K_x(K_x-1)\le\mu^2\Bigl(\int_{B(x,\eps)}\rho_0\Bigr)^2=O(\eps^2).
+\]
+The first estimate uses $(1-C\eps)\rho_0\le\rho_{1,0}^\eps\le\rho_0$ and smoothness of $\rho_0$; all errors are uniform in $x$. The elementary inequalities
+$\E K_x-\tfrac12\E K_x(K_x-1)\le\Prob(K_x\ge1)\le\E K_x$
+therefore give
+\[
+ m_\eps(0,x,v)=f_0(x,v)\{1-\eps\bex\rho_0(x)+O(\eps^2)\}.
+\]
+Multiplication by $q$ and integration are harmless on the compact support of $f_0$.
+\end{proof}
+
+\section{The weighted passive-record extension}\label{sec:weighted}
+\begin{proposition}[Weighted incidence limit]\label{prop:incidence}
+For the single pasted flow,
+\begin{equation}\label{eq:pasted-limit}
+ H_\eps^p(t)\longrightarrow H(t):=\frac12\int_0^tJ_f(s)\dd s
+ \quad\hbox{uniformly on }[0,T].
+\end{equation}
+The same proof applies to the signed event mark
+\begin{equation}\label{eq:qmark}
+ q_\eps^a(x,v,w,\omega)
+ =B\omega\cdot\frac{a(x+\eps\omega)-a(x)}{\eps},
+\end{equation}
+yielding, uniformly in $t$,
+\begin{equation}\label{eq:signed-limit}
+ \mu^{-1}\E\sum_{c\in\mathcal C_t^p}q_\eps^a(c)
+ \longrightarrow\frac12\int_0^t\int B^2 f_sf_{s,*}
+                         (\omega\otimes\omega):\nabla a(x)\dd x\dd v\dd w\dd\omega\dd s.
+\end{equation}
+\end{proposition}
+\begin{proof}
+We give the raw first-moment argument, including the required bounds on all signed branches.
+
+\paragraph{1. Deterministic mark bound.}
+Give each particle a scalar mark $y$, initially zero. At an accepted C contact add $B$ to the marks of both participants. O contacts and rejected contacts add nothing. The marks do not affect acceptance, positions, velocities, or graph caps, and no particle copies its partner's prior mark.
+
+Suppose slab-start speeds are at most $V_i$. A final accepted C component has at most $\Lambda_i$ labels. No accepted collision crosses its boundary, so the energy of all its labels is conserved throughout that slab, including before its prefixes have joined. Every speed in it is thus at most $\sqrt{\Lambda_i}V_i$. Iterating through the fixed $L$ slabs gives
+\[
+ \max_{j,t}|v_j^p(t)|\le R_v\prod_{i=1}^L\sqrt{\Lambda_i}.
+\]
+A particle has at most $\sum_i(\Lambda_i-1+\Gamma)$ accepted incidences. Hence its mark is bounded by
+\begin{equation}\label{eq:mark-bound}
+ D_\eps=2R_v\left(\prod_{i=1}^L\sqrt{\Lambda_i}\right)
+                      \sum_{i=1}^L(\Lambda_i-1+\Gamma).
+\end{equation}
+This is a fixed power of $|\log\eps|$. Put $P_\eps=1+D_\eps$, so $P_\eps\to\infty$.
+
+\paragraph{2. Exact extension and global clipping.}
+Appending this passive coordinate to the autonomous root-output maps in H2 preserves \eqref{eq:rootoutput}: compatible components reproduce the same accepted root trajectory and the same mark. Compatibility factors, spectator cancellation, and the fresh-label identity are unchanged. Pushforward does not increase variation; the crude operator and stopped forest estimates depend on bounded output tests, not derivatives of the output coordinate. Required marked lines continue to zero, with one coordinate per required label. This proves the same finite expansion and unweighted error mechanism for the new record.
+
+In every signed-branch output test use
+\begin{equation}\label{eq:clip}
+ \ell_\eps(y)=\clip(y/P_\eps,-1,1),\qquad
+          \clip(u,-1,1)=\max(-1,\min(u,1)),
+\end{equation}
+and bounded fixed powers thereof. This is a \emph{globally} bounded test even on artificial signed birth inputs. On the actual process, $P_\eps\ell_\eps(y)=y$. For every real $y$ on any retained branch,
+\[
+ |P_\eps\ell_\eps(y)|\le|y|.
+\]
+On a fixed finite history the clipping is eventually inactive. Restoring a degree-$r$ raw statistic multiplies the unweighted remainder and complexity-tail errors only by $P_\eps^r$. Thus \eqref{eq:unweighted} and the arbitrary-power tail choice make them vanish. No support assertion for artificial signed inputs and no weighted microscopic remainder is used.
+
+\paragraph{3. Raw retained-history domination.}
+At complexity at most $K$ and total slab size $n$, there are at most $n+C_K$ contacts. Each incoming speed obeys $B\le\sqrt{2E}$, with $E$ the conserved total birth energy. Consequently
+\begin{equation}\label{eq:rawbound}
+ |y|^r\le C_{K,r}(1+n)^r(1+E)^{r/2}
+ \quad\hbox{for every fixed }r\ge1.
+\end{equation}
+The common $e^{-bE}$ envelope absorbs each fixed energy power with a fixed Gaussian reservation. More explicitly, the source energy-bin bound involves $E^{A/2}$; replacing it by $E^{(A+r)/2}$ costs a fixed polynomial in $1+A$ after the gamma-integral/Stirling estimate. The geometric size base is therefore unchanged, and \eqref{eq:majorant} sums the remaining fixed polynomial in $n$. These bounds hold both after integrating the common position and with one root position prescribed: H4 uses the same birth-energy envelope in both cases. They also hold for conditional collision products, by a uniform conditional bound on one component and an integrated bound on the other, reserving a fixed Gaussian fraction for the incoming flux.
+
+At each fixed complexity cutoff, all fixed raw moments are bounded over the retained histories and limits. In particular the second moment gives uniform integrability of the first; higher fixed moments give it for the second as needed. Large incoming speeds have Gaussian control. The auxiliary Gaussian reservation is fixed independently of $r$, so no new choice of the microscopic $L$ is required.
+
+\paragraph{4. Finite-history convergence before removing truncations.}
+After removing the errors with the clipped tests, fix complexity, finite size and bounded birth energy. The finite sum of incoming-speed marks converges outside the exceptional sets in H5; there are no additional contacts for small $\eps$. Bol-norm convergence of the interface birth inputs permits their replacement by $f_{i\tau}$. Spatial truncations can be removed using the inherited summable Bol envelopes; \eqref{eq:rawbound} and \eqref{eq:majorant} remove the energy and size truncations. Physical initial links still gain $\eps$, and cyclic contributions still vanish by fixed-history dominated convergence with the same weighted majorants. Thus the raw first moment converges to its absolutely summable limiting tree statistic. We have \emph{not} multiplied a merely qualitative normalized-record convergence by the divergent factor $P_\eps$.
+
+\paragraph{5. Identify the scalar moment by last-contact deletion.}
+Work in the limiting finite-size tree class, where the diverging caps no longer remove any fixed C/O choice. Inspect contacts in global reverse chronological order. If the latest contact meets no tested root, project all its unused future auxiliary records. Its C and O choices then have equal incoming flux, opposite signs, and the same tested-root output, including its mark. They cancel. Repeat until the latest remaining contact meets the designated root. This pruning is essential: deleting only the last root contact while retaining later auxiliary contacts would not yet give two incoming component laws.
+
+Delete the surviving root contact at time $s$. The two incoming components factor at their common position by H5, with their original fresh-label factorials. For the scalar terminal test $y$, the C-minus-O increment is exactly $B$, independent of both incoming marks. Therefore both components may be projected onto their unmarked phase points. Those projected measures are $f_s(x,v)$ and $f_s(x,w)$, also inside a partial slab. The deletion identity for the normalized one-root mark moment $M_y(t)$ is
+\begin{equation}\label{eq:scalar-moment}
+ M_y(t)=\int_0^t\int B^2 f_s(x,v)f_s(x,w)\dd x\dd v\dd w\dd\omega\dd s.
+\end{equation}
+There is no factor $1/2$ in this one-root insertion; symmetrizing would give pair increment $2B$ and unordered-pair factor $1/2$, with the same result. At a combined-size cutoff the components retain that cutoff; an unrestricted product appears only after the summable majorants remove it. The unused historical partner mark is projected out, never replaced by an invented fresh zero history.
+
+Microscopically $\sum_j y_j(t)=2\sum_{c\in\mathcal C_t^p}B_c$. Equation~\eqref{eq:scalar-moment} therefore proves \eqref{eq:pasted-limit} at each fixed $t$, including partial final slabs.
+
+\paragraph{6. Uniform time convergence and signed marks.}
+The Gaussian pointwise bound on one factor of $f_s$, and the global mass and energy bounds on the other, bound $J_f(s)$ integrably on $[0,T]$. Thus $H$ is continuous. Each $H_\eps^p$ is nondecreasing. A finite time partition on which the increments of $H$ are small sandwiches every intermediate $H_\eps^p(t)$ between its endpoint values, upgrading pointwise convergence to uniform convergence.
+
+For \eqref{eq:qmark}, particle exchange sends $(x,v,w,\omega)$ to $(x+\eps\omega,w,v,-\omega)$ and leaves the mark unchanged. The mean-value theorem gives
+\[
+ |q_\eps^a|\le\|\nabla a\|_\infty B,\qquad
+ q_\eps^a\longrightarrow B(\omega\otimes\omega):\nabla a(x)
+\]
+on each fixed history. Give both participants this signed increment. The previous argument applies with symmetric clipping at scale $\max(1,\|\nabla a\|_\infty)P_\eps$, and the same domination and last-contact deletion. It yields \eqref{eq:signed-limit} for each fixed time. The signed cumulative expectation need not be monotone, but its absolute increment between $s$ and $t$ is bounded by
+$\|\nabla a\|_\infty[H_\eps^p(t)-H_\eps^p(s)]$.
+Uniform convergence of $H_\eps^p$ to continuous $H$ gives the required asymptotic equicontinuity. A finite partition again proves uniform convergence.
+\end{proof}
+
+\section{Transfer to the true flow and proof of the theorems}\label{sec:transfer}
+\begin{lemma}[Weighted coupling transfer]\label{lem:transfer}
+For $q=x\cdot v$ or $q=|x|^2$, and each fixed integer $p>21$,
+\begin{equation}\label{eq:transfer}
+ \sup_{t\le T}\frac{|m_\eps(t;q)-m_\eps^p(t;q)|}{\eps}
+ \le C_{T,p}\eps^{(p-21)/(20p)}=o(1).
+\end{equation}
+The same estimate holds for $q=a(x)\cdot v$ and $q=v\otimes v:\nabla a(x)$.
+\end{lemma}
+\begin{proof}
+Let $E_\eps$ be the full-time coupling failure event. Off it the observables agree. Lemma~\ref{lem:mechanics} gives, uniformly in time, an absolute particle-sum difference at most $C_TN$. For the local tests use instead
+\[
+ \sum_i|a(x_i)\cdot v_i|\le\|a\|_\infty R_vN,\qquad
+ \sum_i|v_i\otimes v_i:\nabla a(x_i)|\le\|\nabla a\|_\infty R_v^2N.
+\]
+\ref{imp:initial}, \ref{imp:coupling}, and H\"older's inequality yield
+\[
+ \eps^{-1}\E[(N/\mu)\ind_{E_\eps}]
+ \le \eps^{-1}\bigl(\E(N/\mu)^p\bigr)^{1/p}
+                   \Prob(E_\eps)^{1-1/p}
+ \le C_p\eps^{-1+(21/20)(1-1/p)}.
+\]
+The exponent is $(p-21)/(20p)>0$ exactly when $p>21$.
+\end{proof}
+
+Applying \eqref{eq:micro-virial} to both coupled flows, their initial and energy terms agree. Hence \eqref{eq:transfer} implies
+\begin{equation}\label{eq:true-incidence}
+ \sup_{t\le T}|H_\eps(t)-H_\eps^p(t)|=o(1),\qquad
+ H_\eps\longrightarrow\frac12\int_0^\cdot J_f(s)\dd s
+ \quad\hbox{uniformly}.
+\end{equation}
+No estimate of the difference of raw collision records on $E_\eps$ is required.
+
+\begin{proof}[Proof of Theorem~\ref{thm:virial}]
+Boltzmann's local collision invariants imply
+\begin{equation}\label{eq:Bol-virial}
+ f_t(x\cdot v)=f_0(x\cdot v)+tf_0(|v|^2),\qquad
+ f_t(|x|^2)=f_0(|x+tv|^2).
+\end{equation}
+These are integrated identities. One first inserts spatial and velocity cutoffs, then removes them with energy and spatial second-moment bounds. The latter propagate from compact initial support using streaming and $2|x\cdot v|\le|x|^2+|v|^2$; collision terms for these invariants vanish at coincident positions. Subtract \eqref{eq:Bol-virial} from \eqref{eq:micro-virial}--\eqref{eq:micro-spread}, divide by $\eps$, and use Lemma~\ref{lem:initial} and \eqref{eq:true-incidence}. Finally
+$2\int_0^t H(s)\dd s=\int_0^t(t-s)J_f(s)\dd s$.
+Every convergence used is uniform in the upper endpoint, proving both limits.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:stress}]
+The exact pair increment of $a(x)\cdot v$ is
+\[
+ a(x)\cdot(v'-v)+a(x+\eps\omega)\cdot(w'-w)
+       =B\omega\cdot[a(x+\eps\omega)-a(x)].
+\]
+Streaming gives $v\otimes v:\nabla a$. The Boltzmann local momentum identity has zero collision term for $a(x)\cdot v$. After subtraction and division by $\eps$, the pasted version of \eqref{eq:defect} is exactly
+$\mu^{-1}\E\sum_{c\in\mathcal C_t^p}q_\eps^a(c)$.
+Proposition~\ref{prop:incidence} proves its uniform limit. For the true flow, Lemma~\ref{lem:transfer} controls both endpoints and the streaming integral, the latter costing only a factor $T$.
+
+To evaluate the tensor integral, align $g$ with the third axis. The hemisphere integrals of $(g\cdot\omega)_+^2\omega_i^2$ are $2\pi|g|^2/15$, $2\pi|g|^2/15$, and $2\pi|g|^2/5$; mixed entries vanish. Rotational covariance gives
+\[
+ \int_{S^2}(g\cdot\omega)_+^2\omega\otimes\omega\dd\omega
+       =\frac{2\pi}{15}\bigl(|g|^2I+2g\otimes g\bigr).
+\]
+The unordered-event factor $1/2$ gives \eqref{eq:stress-tensor}.
+\end{proof}
+The trace satisfies $\int\operatorname{tr}\Pcoll[f_s]\dd x=J_f(s)/2$, in agreement with the virial formula. The sign in the weak momentum balance is positive; a formal strong momentum equation would carry force $-\nabla_x\cdot\Pcoll$.
+
+\section{What the result excludes, and what remains open}\label{sec:scope}
+The finite-diameter impulse already contains a factor $\eps$. For the observables proved here this reduces the dynamical task to a zeroth-order weighted collision-statistics limit. It does not determine the order-$\eps$ expansion of a generic incoming contact trace.
+
+\begin{corollary}[Obstruction in a moment-controlling topology]\label{cor:obstruction}
+Under the assumptions of Theorem~\ref{thm:virial}, suppose $J_f$ is nonzero on a set of positive time measure. Consider a proposed $C^0$-in-time first-order mean expansion with initial bias $-\bex\rho_0f_0$, in a topology controlling the global virial $x\cdot v$ and energy $|v|^2$. It cannot have an unforced linearized Boltzmann corrector in a solution class with sufficient absolute weighted integrability to justify its global energy and virial identities by cutoff approximation.
+\end{corollary}
+\begin{proof}
+For an unforced linearized equation
+$\partial_tb+v\cdot\nabla_xb=Q(f,b)+Q(b,f)$,
+the moment identities would give $b_t(|v|^2)=b_0(|v|^2)$ and
+$b_t(x\cdot v)=b_0(x\cdot v)+tb_0(|v|^2)$.
+The positive extra term in \eqref{eq:virial-limit} contradicts that conclusion. For smooth nondegenerate data with $J_f(0)>0$, regularity gives a positive contribution at sufficiently small positive times.
+\end{proof}
+This corollary is not an obstruction in a topology tested only by compactly supported functions without moment control. Nor does it assert that the separate terms of the local defect converge.
+
+For specificity, write $F_{2,t}^{\eps,\mathrm{in}}(x,v;x+\eps\omega,w)$ for the normalized ordered incoming pair trace, and suppress time in the following expression. The generic remainder not determined here is
+\begin{align*}
+ R_\eps={}&F_2^{\eps,\mathrm{in}}(x,v;x+\eps\omega,w)
+                 -f(x,v)f(x+\eps\omega,w)\\
+ &-\eps\{b_\eps(x,v)f(x+\eps\omega,w)
+                      +f(x,v)b_\eps(x+\eps\omega,w)\}.
+\end{align*}
+For a generic smooth test, put
+\[
+ \Delta_\eps\phi=\phi(x,v')-\phi(x,v)
+       +\phi(x+\eps\omega,w')-\phi(x+\eps\omega,w),\qquad
+ \nu_\eps(\phi)=\frac1{2\eps}\int BR_\eps\Delta_\eps\phi.
+\]
+A sufficiently controlled signed, time-integrated limit of $\nu_\eps$ is an additional contact theorem needed for a general mean correction. The expression deliberately retains possible $\eps^2b_\eps b_\eps$ terms; it does not assume $b_\eps$ is bounded. Our weighted-incidence theorem supplies no such first-order contact rate. No replacement of exact microscopic centering by $f$ in a released fluctuation theorem follows.
+
+The quantitative correlation and Enskog comparison of Pulvirenti--Simonella \cite{PS} and the exactly centered fluctuation theory of Bodineau--Gallagher--Saint-Raymond--Simonella \cite{BGSS} do not supply the general first-corrector theorem for this ensemble. Neither an initial contact coefficient nor a qualitative one-root limit suffices to determine that correction. These statements concern the cited theorem scopes, not a claim of literature nonexistence. The tensor and impulse geometry in \eqref{eq:stress-tensor} are classical; no novelty or priority is asserted.
+
+\appendix
+\section{Reproducibility and dependency boundary}
+This source contains the entire conditional statement, operational imported package, and proof of the extension. It compiles without reading external source files. The build fixes \texttt{SOURCE\_DATE\_EPOCH=1791331200} (7 October 2026, 00:00 UTC), runs pdf\LaTeX{} without shell escape, and records its inputs. The accompanying dependency map identifies public repository paths at exact commits. The offline verifier accepts explicit checkouts of those repositories and compares their bytes against fixed hashes; it never downloads sources or updates expected hashes.
+
+The accompanying mathematical audit checks this extension relative to the stated dependencies; it is neither independent certification of the imported package nor external peer review. Historical review hashes are recorded separately from mathematical source dependencies. The public-reference edits and preservation of the audited mathematical content are documented in \texttt{EDITORIAL\_CHANGES.md}.
+
+\clearpage
+\begin{thebibliography}{9}\small
+\bibitem{U} OpenAI. \emph{Hard-sphere fluctuations on the regular Boltzmann lifespan}. Pinned TeX snapshot, 23 September 2026, commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}. Sections 2--7 and source labels specified in Section~\ref{sec:imports}. \href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build}{Pinned source repository}.
+\bibitem{F} \emph{Functional hard-sphere fluctuations on regular kinetic intervals}, version 1, 7 October 2026. Entry 009 in \texttt{mxym/math}, commit \texttt{6785c1c830f8e19e2eb07b0bb89f4d475a8b154a}. Model, imports, and passive incidence record in Sections 1, 2, and 6. \href{https://github.com/mxym/math/tree/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/009-functional-hard-sphere-fluctuations/v1}{Commit-pinned manuscript and source}.
+\bibitem{DHM} Y. Deng, Z. Hani, and X. Ma. \emph{Long time derivation of the Boltzmann equation from hard sphere dynamics}. arXiv:2408.07818v3, 18 July 2025. \url{https://arxiv.org/abs/2408.07818v3}. Used through the pinned package; its proof is not repeated here.
+\bibitem{PS} M. Pulvirenti and S. Simonella. \emph{The Boltzmann--Grad limit of a hard sphere system: analysis of the correlation error}. \href{https://arxiv.org/abs/1405.4676v2}{arXiv:1405.4676v2}. Theorem 2.4 and the Enskog comparison are used only for scope comparison, not as theorem inputs here.
+\bibitem{BGSS} T. Bodineau, I. Gallagher, L. Saint-Raymond, and S. Simonella. \emph{Statistical dynamics of a hard sphere gas: fluctuating Boltzmann equation and large deviations}. Ann. of Math. \textbf{198} (2023), 1047--1201; \href{https://arxiv.org/abs/2008.10403v2}{arXiv:2008.10403v2}. Its exact microscopic centering is distinguished from the mean correction studied here.
+\end{thebibliography}
+\end{document}

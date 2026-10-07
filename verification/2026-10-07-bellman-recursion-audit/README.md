@@ -9,7 +9,7 @@ The original v5 balanced-recursion certificate and the new v2 Bellman verifier b
 Two different optimization statements must be kept separate:
 
 - v5 fixes one integer arity `t >= 2` and a simplex seed dimension `p >= 1`, and iterates `K_(j+1) = (K_j^t)^{*t}` from `T_p`. Its limiting projection-volume root rate has unique maximum at `(t,p)=(2,5)`. It does not classify unequal arities, changing arities, arbitrary operation trees, or all convex bodies.
-- The Bellman supplement covers the entire point-generated class of finite Cartesian-product/join expressions and affine images. Its inequality is `log Q <= alpha (D-H^2/D)`, with `alpha=(11/85)log(189/128)`. Combined with the spectral reduction and v2 lower construction, this proves `2.8534 < Gamma_C <= e(189/128)^(11/85) < 2.8589`. It neither determines `Gamma_C` exactly nor proves that the binary `T_5` orbit is optimal in this larger class. It is not an upper bound for all convex bodies.
+- The Bellman supplement covers the entire point-generated class of finite Cartesian-product/join expressions and affine-isomorphic images on their affine hulls. Its inequality is `log Q <= alpha (D-H^2/D)`, with `alpha=(11/85)log(189/128)`. Combined with the spectral reduction and v2 lower construction, this proves `2.8534 < Gamma_C <= e(189/128)^(11/85) < 2.8589`. It neither determines `Gamma_C` exactly nor proves that the binary `T_5` orbit is optimal in this larger class. It is not an upper bound for all convex bodies.
 
 The coefficient of this particular quadratic potential is sharp, because `T_5 x T_5` forces equality. Sharpness of that coefficient does not establish attainability of the resulting asymptotic upper bound.
 

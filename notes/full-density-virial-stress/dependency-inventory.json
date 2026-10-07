@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "verification": "Offline only; explicit repository roots; never update expected hashes automatically.",
+  "dependency_boundary": "Only public mathematical and source-provenance references are listed. Historical review hashes are separate in AUDIT_PROVENANCE.json and are not required inputs.",
+  "repositories": {
+    "upstream": {
+      "url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+    },
+    "mxym": {
+      "url": "https://github.com/mxym/math",
+      "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a"
+    }
+  },
+  "files": [
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/main.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/main.tex",
+      "sha256": "4f84d56fd4dcb78bb2f776063969c097279feaa19a74e95a63be2613d90e53af",
+      "git_blob_sha1": "fd0e2981390c55f076c43103e837f0beb3701e59",
+      "bytes": 3819,
+      "role": "Pinned upstream compile order: printed sections differ from filename prefixes",
+      "source_labels": []
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/02-initial-target.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/02-initial-target.tex",
+      "sha256": "51fad6beefe3041c56ea2686776dbfdedf8522120762f4aaef019947fe902396",
+      "git_blob_sha1": "1050ba9ab12b849d5f13c9394145c6de7bd4432d",
+      "bytes": 23065,
+      "role": "Imported static bounds and global kinetic moments",
+      "source_labels": [
+        "prop:initial",
+        "eq:initial-factorial-upper",
+        "eq:initial-N-moments",
+        "eq:initial-insertion",
+        "eq:initial-centering-shift",
+        "lem:target-moments"
+      ],
+      "printed_section": 2
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/03-dhm-inputs.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/03-dhm-inputs.tex",
+      "sha256": "a2506a516767704d4d3630e65395ed7b9481fbcbddff912ad38ba2441e5c1cbf",
+      "git_blob_sha1": "ffa665888b0880d2db70d38e5224930e8220825d",
+      "bytes": 20583,
+      "role": "Imported capped dynamics, common envelopes, partial-slab input convergence",
+      "source_labels": [
+        "eq:dhm-cutoffs",
+        "lem:kinetic-envelopes",
+        "def:dhm-history",
+        "thm:dhm-package",
+        "eq:dhm-partial-slab"
+      ],
+      "printed_section": 3
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/04-cluster-expansion.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/04-cluster-expansion.tex",
+      "sha256": "5f824af314132999e830425354a43a273d2e17e14bf46d02a4d254917c8f8d47",
+      "git_blob_sha1": "87d6cdc96897bf2ee2a3f26fdd16c9129a36acef",
+      "bytes": 39676,
+      "role": "Imported autonomous output algebra and UNWEIGHTED microscopic remainder",
+      "source_labels": [
+        "lem:autonomous-partition",
+        "eq:autonomous-partition",
+        "eq:autonomous-observation",
+        "eq:retained-kernel",
+        "lem:one-slab-expansion",
+        "eq:fresh-label-factorial",
+        "eq:crude-operator",
+        "prop:one-root",
+        "lem:marked-regrouping",
+        "lem:diagram-labels",
+        "lem:stopped-variation",
+        "thm:marked-expansion"
+      ],
+      "printed_section": 4
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/05-cutoff.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/05-cutoff.tex",
+      "sha256": "e5380f7a81c4f32ce23ebf3ad62aee4f23c4530d342da2198cd2b9602ecfac4e",
+      "git_blob_sha1": "81f66d308c4b56ec6c590b957812860ad6cb0a8d",
+      "bytes": 52765,
+      "role": "Imported full-time true/pasted discrepancy probability",
+      "source_labels": [
+        "prop:cutoff",
+        "eq:cutoff-probability"
+      ],
+      "printed_section": 7
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/06-sharp-asymptotics.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/06-sharp-asymptotics.tex",
+      "sha256": "32a5a00ce410873a30fbed113b0b1ec56a80da5b6bc28664ae19a73637282883",
+      "git_blob_sha1": "dfa4a25d5099bd82301c83bb31c612f0bfae4788",
+      "bytes": 47771,
+      "role": "Imported retained-history positive bounds, qualitative convergence, and unweighted tree algebra",
+      "source_labels": [
+        "eq:sharp-input-bounds",
+        "lem:sharp-merger-coordinates",
+        "eq:sharp-scaling",
+        "lem:sharp-factorials",
+        "lem:sharp-summability",
+        "eq:sharp-energy-sum",
+        "lem:sharp-no-extra",
+        "eq:sharp-uniform-tree-convergence",
+        "lem:sharp-spatial-traces",
+        "lem:sharp-tree-completeness",
+        "lem:sharp-tree-splitting"
+      ],
+      "printed_section": 5
+    },
+    {
+      "repository": "upstream",
+      "repository_url": "https://github.com/openai/math",
+      "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "path": "preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/07-gaussian-limit.tex",
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/07-gaussian-limit.tex",
+      "sha256": "9cf6ab1d1c78ab4203a403bfc09331779c2b9b029280f1751009b0ac4faf99e4",
+      "git_blob_sha1": "abc670cb5738eeae520ac52863f4a87bd2a2994a",
+      "bytes": 20846,
+      "role": "Imported root-output projection and reverse-chronological last-contact proof mechanism; original marks are observation marks",
+      "source_labels": [
+        "eq:limit-F-disintegration",
+        "prop:tree-evolution",
+        "eq:limit-F-evolution"
+      ],
+      "printed_section": 6
+    },
+    {
+      "repository": "mxym",
+      "repository_url": "https://github.com/mxym/math",
+      "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+      "path": "preprints/009-functional-hard-sphere-fluctuations/v1/sections/01_model.tex",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/009-functional-hard-sphere-fluctuations/v1/sections/01_model.tex",
+      "sha256": "748784193418598e3d6ee3e0af50bcff359f313c6359a588509640c83c3a90e6",
+      "git_blob_sha1": "b15900d347a6296146f8ad204abd58b21bb1bef7",
+      "bytes": 5706,
+      "role": "Public entry 009 model and flow-version locator",
+      "source_labels": [
+        "ass:kinetic",
+        "lem:convention"
+      ]
+    },
+    {
+      "repository": "mxym",
+      "repository_url": "https://github.com/mxym/math",
+      "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+      "path": "preprints/009-functional-hard-sphere-fluctuations/v1/sections/02_imports.tex",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/009-functional-hard-sphere-fluctuations/v1/sections/02_imports.tex",
+      "sha256": "947c388dc6af1cc30c85e2621823370da699dc73f1b82829704537379af0ee0c",
+      "git_blob_sha1": "942361d63fce5d30a7998961c76b3a06beddbb97",
+      "bytes": 6652,
+      "role": "Public entry 009 operational history-package formulation",
+      "source_labels": [
+        "prop:imports"
+      ]
+    },
+    {
+      "repository": "mxym",
+      "repository_url": "https://github.com/mxym/math",
+      "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+      "path": "preprints/009-functional-hard-sphere-fluctuations/v1/sections/06_microscopic.tex",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/009-functional-hard-sphere-fluctuations/v1/sections/06_microscopic.tex",
+      "sha256": "9b2662b8146bc01932ee03f00ebe854dd96edbcc88dadef070b91ac7996ba2e0",
+      "git_blob_sha1": "c3d0fe92909cf4f02eee5764e1234c7e7460c73d",
+      "bytes": 8245,
+      "role": "Public entry 009 passive incidence-count precedent; speed-weighted convergence is NOT imported",
+      "source_labels": [
+        "lem:record"
+      ]
+    },
+    {
+      "repository": "mxym",
+      "repository_url": "https://github.com/mxym/math",
+      "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+      "path": "preprints/009-functional-hard-sphere-fluctuations/v1/DEPENDENCIES.md",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/009-functional-hard-sphere-fluctuations/v1/DEPENDENCIES.md",
+      "sha256": "f7149133a63bd487d27800aaba148f93f477246ec3be05c1843304de5b4c592e",
+      "git_blob_sha1": "b8a7ca185d291ad54b0c22f7ea5a0718771b4728",
+      "bytes": 5866,
+      "role": "Public entry 009 provenance and dependency boundary",
+      "source_labels": []
+    }
+  ]
+}
