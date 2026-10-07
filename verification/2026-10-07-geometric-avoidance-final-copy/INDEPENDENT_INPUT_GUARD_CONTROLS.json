@@ -1,0 +1,170 @@
+[
+  {
+    "case": "baseline",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": true,
+    "diagnostic": "RuntimeError: install exact toolchain or use --bootstrap / --lean-bin"
+  },
+  {
+    "case": "baseline",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": true,
+    "diagnostic": "RuntimeError: install exact toolchain or use --bootstrap / --lean-bin"
+  },
+  {
+    "case": "proof_term_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric/MainProof.lean"
+  },
+  {
+    "case": "proof_term_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric/MainProof.lean"
+  },
+  {
+    "case": "proof_import_added",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric.lean"
+  },
+  {
+    "case": "proof_import_added",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric.lean"
+  },
+  {
+    "case": "proof_axiom_added",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric/Target.lean"
+  },
+  {
+    "case": "proof_axiom_added",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: ContinuumGeometric/Target.lean"
+  },
+  {
+    "case": "lake_revision_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: lake-manifest.json"
+  },
+  {
+    "case": "lake_revision_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: lake-manifest.json"
+  },
+  {
+    "case": "original_source_hash_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: provenance/ORIGINAL_SOURCE_SHA256.json"
+  },
+  {
+    "case": "original_source_hash_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: provenance/ORIGINAL_SOURCE_SHA256.json"
+  },
+  {
+    "case": "release_member_hash_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: checks/ExactMain.lean"
+  },
+  {
+    "case": "release_member_hash_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: member digest differs: checks/ExactMain.lean"
+  },
+  {
+    "case": "release_path_traversal",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: unsafe member path: '../outside'"
+  },
+  {
+    "case": "release_path_traversal",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: unsafe member path: '../outside'"
+  },
+  {
+    "case": "release_manifest_removed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: missing or non-regular required file: SOURCE_MANIFEST.json"
+  },
+  {
+    "case": "release_manifest_removed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: missing or non-regular required file: SOURCE_MANIFEST.json"
+  },
+  {
+    "case": "release_member_omitted_and_wrapper_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: manifest coverage differs; missing=['checks/ExactMain.lean']; extra=[]"
+  },
+  {
+    "case": "release_member_omitted_and_wrapper_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: manifest coverage differs; missing=['checks/ExactMain.lean']; extra=[]"
+  },
+  {
+    "case": "release_metadata_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: manifest metadata differs: source_archive_sha256"
+  },
+  {
+    "case": "release_metadata_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: manifest metadata differs: source_archive_sha256"
+  },
+  {
+    "case": "sha256sums_changed",
+    "optimized": false,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: SHA256SUMS bytes or complete cross-coverage differ"
+  },
+  {
+    "case": "sha256sums_changed",
+    "optimized": true,
+    "returncode": 1,
+    "passed_release_integrity_guards": false,
+    "diagnostic": "release_integrity.ReleaseIntegrityError: RELEASE_INTEGRITY: SHA256SUMS bytes or complete cross-coverage differ"
+  }
+]

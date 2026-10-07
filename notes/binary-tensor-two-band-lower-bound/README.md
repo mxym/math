@@ -18,8 +18,8 @@ asymptotic lower constant is
 \]
 
 strictly improving the previously published one-band constant
-\(2^{-3/4}=0.5946035575\ldots\).  Combined with the existing upper bound,
-the current rigorous asymptotic interval is
+\(2^{-3/4}=0.5946035575\ldots\). Combined with the existing upper bound,
+this note by itself gives
 
 \[
 0.6218758237\ldots
@@ -56,3 +56,28 @@ This note does **not** prove that \(C_p/p^{1/4}\) converges, determine its
 optimal leading constant, classify all higher-order extremizers, or improve
 the parent upper bound.  No novelty or priority claim is made.  There is no
 external human peer review or whole-paper formalization.
+
+
+## Mechanism-level optimality
+
+The same proof now shows more than a single improved example.  Among every
+fixed-width palindromic boundary-band family whose coordinate axes remain
+local projection maxima, the normalized witness constant is asymptotically
+at most \(\kappa\).  Equality in the limiting profile optimization forces
+\(\gamma_1^2=1+\sqrt2\), \(\gamma_2=-1\), and all higher boundary-band
+profiles to vanish.  The explicit tensors in this note attain that profile.
+This does not rule out wider, non-palindromic, or non-axis mechanisms.
+
+The subsequent
+[boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+realizes the last route explicitly. Its three-term fixed-width palindromic
+profile has
+\[
+ \gamma_1^2+\sqrt2\gamma_2
+ =\frac{12346629}{9765625}>1,
+\]
+so the coordinate axis fails the necessary local-maximum condition above;
+the projection maximum moves off-axis. That continuation raises the current
+repository lower endpoint to
+\(\liminf C_p/p^{1/4}>0.623586\). Thus the mechanism-optimality statement
+here remains sharp on its stated axis-local class.

@@ -51,3 +51,19 @@ point computation, SAT result, or unverifiable solver certificate is used.
 The note does not establish convergence of \(C_p/p^{1/4}\), the optimal
 leading constant, all-order equality cases, a higher-dimensional analogue,
 or novelty/priority.
+
+
+## Finite-band optimality audit
+
+Section 7 was checked separately from the explicit witness calculation.  The
+second derivative at the coordinate axes gives the necessary limit constraint
+\(\gamma_1^2+\sqrt2\gamma_2\le1\).  The norm and both Gram-entry asymptotics
+were recomputed term by term under fixed boundary width.  The remaining
+profile problem reduces to three nonnegative quantities and an exact
+one-variable factorization.  The checker now verifies the two polynomial
+factorizations, both negative discriminants, and the positive H² coefficient
+in Q(sqrt(2)).
+
+This result is intentionally restricted to fixed-width palindromic boundary
+profiles with axis local maximality.  It does not exclude a better lower
+constant from growing-width, non-palindromic, or non-axis constructions.

@@ -1,0 +1,1576 @@
+{
+  "schema": "geometric-avoidance-publication-v2",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "3ad4c2019cfa95332f5851cff40186aa8fe69370",
+  "base_tree": "f5e7f5937cd868adbb8466e2da5f9540dc2601ac",
+  "scope": "For every real 0<epsilon<1, one compact E subset [0,1] of genuine Lebesgue volume >1-epsilon simultaneously avoids arbitrarily late terms of all real affine geometric sequences with a != 0 and 0<q<1.",
+  "closed_theorem": "ContinuumGeometric.geometric_main_target : ContinuumGeometric.MainTarget",
+  "package_root": "formalizations/geometric-avoidance",
+  "package_files": 184,
+  "source_archive": {
+    "path": "releases/2026-10-07-geometric-avoidance-source-v2.tar.gz",
+    "bytes": 4197726,
+    "sha256": "b5d8970b6481fb8646e7357a8a540085bf0e297da75fd011360448d01966450e"
+  },
+  "source_manifest_sha256": "18997027c5069cab7079f69c9f5287e98fafd3ab6ab63bcd4c22994bd89c3ed2",
+  "original_audited_source_zip_sha256": "747386b02dbd12ae6f7b763d79fdb1e9bd70ca1e195e1b84d943cb0bcff82cb5",
+  "mathematical_sources_byte_identical": 46,
+  "verification": {
+    "owned_modules_rebuilt": 46,
+    "public_theorems": 454,
+    "owned_declarations": 1164,
+    "safe_owned_declarations": 1155,
+    "main_closure_declarations_replayed": 34771,
+    "toolchain_distribution_files_verified": 17750,
+    "positive_controls": 21,
+    "intended_negative_controls": 22,
+    "exact_arithmetic_regressions": 1176885,
+    "original_independent_graph_inventory_and_closure_equal": true
+  },
+  "independent_final_copy_audit": {
+    "kind": "independent model audit",
+    "verdict": "PASS",
+    "report_path": "verification/2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.txt",
+    "report_sha256": "10b0ec9537e1097e73c2d2072a621bad3a6402ba173a666c4be37d17340a58f9",
+    "evidence_files": 25,
+    "direct_exact_final_archive_replay": true
+  },
+  "integration_checks": {
+    "source_integrity_normal_and_optimized": true,
+    "packaging_guards_normal_and_optimized": true,
+    "deterministic_archive_normal_and_optimized": true,
+    "fresh_full_lean_kernel_replay": "Performed by the independent final-copy audit; not redundantly rerun during repository integration."
+  },
+  "preservation": {
+    "base_files_retained": 1738,
+    "unchanged_outside_navigation": 1734,
+    "changed_existing": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md"
+    ],
+    "deleted": [],
+    "frozen_payload_unchanged": true
+  },
+  "limits": [
+    "Standard Lean propext, Classical.choice and Quot.sound; implementation/runtime/machine trust remain.",
+    "Pinned official dependency caches reused read-only; not a source rebuild of all Mathlib.",
+    "Online bootstrap and remote CI have not been exercised.",
+    "Nine owned olean binaries differ from the original audit across build locations and contain source-path metadata; no cross-location binary identity claim. All mathematical sources and full stored graph agree.",
+    "AI/model independent audit is not external professional-human peer review.",
+    "No novelty, priority or absolute-infallibility claim.",
+    "Stronger nonlinear-remainder/continuum-profile theorem remains written only.",
+    "Existing repository attribution policy retained; no new blanket license grant."
+  ],
+  "nonclaims": [
+    "Stronger nonlinear-remainder/continuum-profile formalization",
+    "Novelty or priority certification",
+    "External professional-human peer review",
+    "Cross-location compiled-binary identity",
+    "Online-bootstrap or remote-CI success",
+    "New blanket license or personal-author assignment"
+  ],
+  "files": [
+    {
+      "path": "formalizations/geometric-avoidance/.gitignore",
+      "bytes": 51,
+      "mode": "100644",
+      "git_blob_sha1": "d8788f9a7075b17b6304a9e9ba9cd6cc926e5088",
+      "sha256": "4f887371c4e816b47e9ac089f3c7d860ccd793356f7ba9e00aae48f1d48c3159"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ATTRIBUTION.md",
+      "bytes": 2842,
+      "mode": "100644",
+      "git_blob_sha1": "6e01555d3f1ef23504feea680eddc1ecd62fcbe2",
+      "sha256": "9ae1e210d3482ddbcdacb9f40173c61ca4f44a572456e9b45e5e1aae5ebdb177"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/CHANGE_LEDGER.md",
+      "bytes": 4749,
+      "mode": "100644",
+      "git_blob_sha1": "cd04172a7803abe7e206cdd968b374844f533737",
+      "sha256": "3b46d444b6150dc09871a7f9fc59fe653ce88e50146f9508e794ff4ca69b8dd7"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/CI.md",
+      "bytes": 3712,
+      "mode": "100644",
+      "git_blob_sha1": "09f5eb33c289db3f748595134686623d22f3e1ac",
+      "sha256": "247eb0c45998fe4ec405d888d5b900d3bd7cedf5129d666bc80aad0c4cc4b116"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/Activation.lean",
+      "bytes": 5522,
+      "mode": "100644",
+      "git_blob_sha1": "26dfdf7c783bc5cc68ac20919186d5bce621937e",
+      "sha256": "b8c4a97d881cedf74e4382721e2568ac76896a7b30d0d0d36bad7fbfc2a6c274"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/BoundedGrid.lean",
+      "bytes": 6786,
+      "mode": "100644",
+      "git_blob_sha1": "8b1fb0d077bcf63aa01c1729be20e5d768f20607",
+      "sha256": "b29c054a7f2b3bc4bded548ac104e45f61c93e9ea07278f5afb7dbf8443af2f2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/CandidateBounds.lean",
+      "bytes": 23554,
+      "mode": "100644",
+      "git_blob_sha1": "98d95c84e6353c908651e0f3722db6a39dcc0df8",
+      "sha256": "856ce708fde8909f25c5ac5fcd0a17e5f071e937f94a518c40d19491337631c5"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/ClosedProjection.lean",
+      "bytes": 8655,
+      "mode": "100644",
+      "git_blob_sha1": "941f3042f66298a1ac5f8e367f46132a86953ef9",
+      "sha256": "252c293730712539cdbd3eb762d76d9af23f2bcfbcd63c782e6474ddb2f9e260"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/ClosedRepair.lean",
+      "bytes": 1475,
+      "mode": "100644",
+      "git_blob_sha1": "1a17f1083c762ecaf89b34e333a82e132239b1e4",
+      "sha256": "28420d29569aa72b3e626435bb5c875b14a47fd8de74c0a1ae491dd5f1722ffe"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/CoefficientCover.lean",
+      "bytes": 3153,
+      "mode": "100644",
+      "git_blob_sha1": "324c7fc4667d021849837a9be875af995a55b870",
+      "sha256": "8e9f8fd5e1f7107534ba602dcf09f7cf28d8dd7eea830b6cc699a14a65a7ba9c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/CountableExhaustion.lean",
+      "bytes": 6557,
+      "mode": "100644",
+      "git_blob_sha1": "5540ec068a5019d2e0bf7cbe0e87f4b113ad3f37",
+      "sha256": "582331df019a37777f75bae17673b06dbf47c0613167c068d6d6f45b95a5e604"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/EntropySchedule.lean",
+      "bytes": 5494,
+      "mode": "100644",
+      "git_blob_sha1": "6c35d3133b7fb56fe064c75b5605954691480d09",
+      "sha256": "057888a76dd637de0a583ac5b54888ad17449699fdb154faac8e7a77e8ebb827"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/FiniteRoutingProbability.lean",
+      "bytes": 23648,
+      "mode": "100644",
+      "git_blob_sha1": "33d97e5bac15361a3aac8e3ecbf8394b9d7f22e4",
+      "sha256": "06876bd7ded4848d5adc660f496e35609b73c8634f83e0c7db884e6edb5a257a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/GeometricParameters.lean",
+      "bytes": 1984,
+      "mode": "100644",
+      "git_blob_sha1": "8f68a49f20aab6c198f7db469bfd8ec908e158fe",
+      "sha256": "f76acf715504e7e564323485b8549d36378107ba7eeca1f90ec6c78f040a74dd"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/GeometryChain.lean",
+      "bytes": 3325,
+      "mode": "100644",
+      "git_blob_sha1": "e96b770c6fa360e8180ca9382279c6d5754a25a8",
+      "sha256": "cf06c5cb88521da5d6937560935a0093f6ec9510a3a872513cf1f4b02acc63f4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/GridCutBridge.lean",
+      "bytes": 6919,
+      "mode": "100644",
+      "git_blob_sha1": "487b70ed197f7e4a3c1a8ace34bd0cd113228c0e",
+      "sha256": "c17484cd1a2daa8db21aec218f7f82d5472c93e71db1c8cf688b4a7de50a9f06"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/Interfaces.lean",
+      "bytes": 1607,
+      "mode": "100644",
+      "git_blob_sha1": "61818bd8410f371fc39ebd9f298b1bba05aa0d95",
+      "sha256": "6a9e6e586b5c38847b74aa2a1fccd392ef4badae32829370dc203257ff7f5c59"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/LineSignBound.lean",
+      "bytes": 8524,
+      "mode": "100644",
+      "git_blob_sha1": "598053c110397e9530789ec50a34b30aeb05968d",
+      "sha256": "6723e0f31d9169e04a3b87eafef0e52991b375d52a15cdd2703f7803d19d774c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/LocalSignatures.lean",
+      "bytes": 17218,
+      "mode": "100644",
+      "git_blob_sha1": "7cd579cb6ae7ad7f5fb44800ec0c47e9a6ec9dba",
+      "sha256": "9c9e72e5ed4e89c60f1c7fee15d4f0a7cb89de0632f0158e95b747dd635564ee"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/MainProof.lean",
+      "bytes": 1261,
+      "mode": "100644",
+      "git_blob_sha1": "59a2b074bfb0187293524ad1ce8dc06bcaec2d04",
+      "sha256": "bccd4b0c9e6450d957ef46f6cad5b27d4d8d514097ca7558f1f32f0459a1ddd9"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/NoDefaultProbability.lean",
+      "bytes": 13820,
+      "mode": "100644",
+      "git_blob_sha1": "c109129035eaa5f8e12ccee2a849d153977be9a5",
+      "sha256": "418d7470b47c82fe8db948921a00780d479b70e67cedae3e610b7a9d57ef397e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/PeriodicRepair.lean",
+      "bytes": 20178,
+      "mode": "100644",
+      "git_blob_sha1": "636745858c201aced11788fc7395ee4dd595cc0d",
+      "sha256": "fdfdb155956eeb6e089bdb274017caa103b60f6abc8be6e378a3ae829f6346f9"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/Planar.lean",
+      "bytes": 13629,
+      "mode": "100644",
+      "git_blob_sha1": "3a0e8c7bd17849ad818e7ed0afac810340bee99f",
+      "sha256": "e32fdf89990a6ac7cb63896c8bb03a148060dcc9bafa00784d6e38d07c991168"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingActiveGeometry.lean",
+      "bytes": 13231,
+      "mode": "100644",
+      "git_blob_sha1": "a36a5b32f8c7a75a8ca4b592bf36512c904d7e56",
+      "sha256": "a9a9f5d9f10659abac17ff25450a1f7795d4557911d18281c4f4b580d1713cd3"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingAssembly.lean",
+      "bytes": 7472,
+      "mode": "100644",
+      "git_blob_sha1": "009cd75a7e8ddbbe0a708bebe321f01343ee9046",
+      "sha256": "84a5ae3e18aa403208bb752e165ce612d8f25d5d887ceab0de005904179658c2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingCenterAtoms.lean",
+      "bytes": 5485,
+      "mode": "100644",
+      "git_blob_sha1": "426fab8771f5405ea75b67b22f3d45dc5e28e0c4",
+      "sha256": "9927a44d3085548342dc40dcf997acd6ac1bf8b31060fae64884aab88d8bf8ea"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingChoices.lean",
+      "bytes": 3504,
+      "mode": "100644",
+      "git_blob_sha1": "3809acb21c6a9087e6e5676c0da21f52dc797865",
+      "sha256": "58b4c0d243dadb17d16a6c5f4962d7409d40d0e149bded33522deb4bffc61054"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingEntropy.lean",
+      "bytes": 4379,
+      "mode": "100644",
+      "git_blob_sha1": "4d45dc4072f3730e4ff2724ca51cf9172a9db199",
+      "sha256": "bc2f1fc7f677269a94401275f4b15148014a7bd7dc1990683328cdb332c3ccdc"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingFactorization.lean",
+      "bytes": 9021,
+      "mode": "100644",
+      "git_blob_sha1": "4c9a88649bf2da9ac31193ba940e89251ffe23e6",
+      "sha256": "95a7ce5b46206828481161b38f28010351b27a0a23d38f73d4247cc87b73d91d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingGeometry.lean",
+      "bytes": 7368,
+      "mode": "100644",
+      "git_blob_sha1": "d7f51eef9ecc355747eb1564d21dbc09440bc2bd",
+      "sha256": "5b9b97cb42b5e50797d10acad6371acac3d3d1ffd3eb5a17aad0d52734e9612c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingGlobalGrid.lean",
+      "bytes": 6328,
+      "mode": "100644",
+      "git_blob_sha1": "35b7de029a6177560c6d78a5481c7e59f3dca45a",
+      "sha256": "e4bb0a2e08170e42494a2a6b85db4114952f275d7b461f9998c3d478e5b73284"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingInterfaces.lean",
+      "bytes": 2440,
+      "mode": "100644",
+      "git_blob_sha1": "c2347e94656860dd561495250bdb2071cd654590",
+      "sha256": "cd223d89d946e641950fb6786a087d9772492ca7950b471c66799cbc7d633432"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingLocalHit.lean",
+      "bytes": 9799,
+      "mode": "100644",
+      "git_blob_sha1": "fb952de009ddf6e409b8d6872f7745ecde6091c8",
+      "sha256": "95ce74a8a559b229898b7477cf45a57eee3ed80a46fa3bf51e5ec452b5d9599d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingLocalProbability.lean",
+      "bytes": 19552,
+      "mode": "100644",
+      "git_blob_sha1": "4a83dd9c687469cd612da4b0667f3cfce6e0779a",
+      "sha256": "013659ca4c882b77a0487ce997dbd5bd34b4978c37e46fe3109a5cc00de7d46a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingMeasure.lean",
+      "bytes": 18528,
+      "mode": "100644",
+      "git_blob_sha1": "def824708fbc4266f2711ebac1413bae18533c6b",
+      "sha256": "6fa06cf3606d7f1af0040d1c1bc7823e0a39548971c7b100d98b701e5f869266"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingModel.lean",
+      "bytes": 10225,
+      "mode": "100644",
+      "git_blob_sha1": "5573c5b2e99474fbc2ff11243d86ec15674574a0",
+      "sha256": "1c1f7ac892fa7eb7d2b8cbc04c4c8bda7bdf66016c6975890d422919e3c91b6e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingPreorder.lean",
+      "bytes": 26872,
+      "mode": "100644",
+      "git_blob_sha1": "51359b87b399f77a699293118d655b6cbe99da11",
+      "sha256": "db74174c0ede0733c7354f6f3ef035a705a519d78b1172545b94a0526e7a4f7b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingProbability.lean",
+      "bytes": 8895,
+      "mode": "100644",
+      "git_blob_sha1": "2e7306aa920b6187a4de7cc53f36a090d98762bb",
+      "sha256": "281ce8b97d381ea20524d7147ac6f588eb13db8ad106de91bfd25afa789ffba3"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingSchedule.lean",
+      "bytes": 5996,
+      "mode": "100644",
+      "git_blob_sha1": "0c4885dbc656b10d0f42c3387ae0229e50275765",
+      "sha256": "8c9a6f21c3140622c0abf7b53c844d8d839204ae7d42a5878150a98657e19759"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingSeparation.lean",
+      "bytes": 7945,
+      "mode": "100644",
+      "git_blob_sha1": "86de5d3be0d016c07d4b9646e11bf6d8b8999151",
+      "sha256": "ea959d3be4808529d4669bd6f1686762a8639784889461949c6307b58dda1c7e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingStableGeometry.lean",
+      "bytes": 4368,
+      "mode": "100644",
+      "git_blob_sha1": "1fe88fd1ca848b4bf5a6fcfb0eaeae727b2e0cb9",
+      "sha256": "72629533b740555ff29bea5f312e5343dbcb77a90c26cfaf59fe43fb21b25092"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingStableMeasure.lean",
+      "bytes": 9208,
+      "mode": "100644",
+      "git_blob_sha1": "a65509cfc78fd0f08153af43d6617cde8a22c89d",
+      "sha256": "317e3a6bb3ebe8d61ebd17e9bc5708ccbcef7447ffc57ff404c12e1279830a0f"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingStableProbability.lean",
+      "bytes": 8858,
+      "mode": "100644",
+      "git_blob_sha1": "e4634cddd0a0eddf08c2d0bd133318b6d0f87204",
+      "sha256": "4b88b8d3eaa582b3f5a458bd8e1f6be5fa027256f926bbd55fa04d98d3c0171d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingTemplate.lean",
+      "bytes": 7314,
+      "mode": "100644",
+      "git_blob_sha1": "906400ae1a378ba0890f3e89a961d817f70084f8",
+      "sha256": "8d6e31240dfb28375d6fad2e0ce55df1f2a0ad56e48f243df43b40ecc15f5251"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/RoutingTreeBounds.lean",
+      "bytes": 10259,
+      "mode": "100644",
+      "git_blob_sha1": "250dfdab319c9f29e4a0062faf718183b9ade01a",
+      "sha256": "bcbc8e5c378180bfeb521833482ec85f24aed5cb7173f00b6dd557dc24b90262"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/ShiftedActivation.lean",
+      "bytes": 1989,
+      "mode": "100644",
+      "git_blob_sha1": "ae5089370becbb70cc9ac98c3f44e2c25fe64b16",
+      "sha256": "4523b9eb88e1ad1934658bc46e137b85bda10bcddf50be0f8423bd58199ba4c7"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/SignFiberCount.lean",
+      "bytes": 5268,
+      "mode": "100644",
+      "git_blob_sha1": "a305d1325567f987018e8bf22c21080ad2047743",
+      "sha256": "722ee810575bc17165c041b0e61bf5ff3076f7fab78f7af6466c5f7e8f8e97b3"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/Target.lean",
+      "bytes": 816,
+      "mode": "100644",
+      "git_blob_sha1": "b799c8035ec8a3dc8f2b4f1546c9f7539aa1eefd",
+      "sha256": "5ac9c8a13941c709116fca8cc31a56ae9c1a5c85de9eabdd4d868d3a5358af55"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric/ZeroErrorBuffer.lean",
+      "bytes": 1797,
+      "mode": "100644",
+      "git_blob_sha1": "587bbb9657059e9fdbea78099424cbf6e20ff41b",
+      "sha256": "c94be450574234868c56961afb1ebc43d0e88ae8377c64e79fb74ee87abd05f8"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ContinuumGeometric.lean",
+      "bytes": 1914,
+      "mode": "100644",
+      "git_blob_sha1": "2fbb3f1f0bf8923bcc405cb0e8a972abc4b90474",
+      "sha256": "d2811254016dbb36d75ef10e231c967c9295c4b258001bfe93782ef4d9b72f1e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/DEPENDENCIES.md",
+      "bytes": 5301,
+      "mode": "100644",
+      "git_blob_sha1": "5349e6223e7a4f83dd9456411dd022ecb367145f",
+      "sha256": "20eacdeb8fd35a99c7a7fc4a6e346ee2c12d8fb28e2ada626aab1c5714a7a150"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/DEPENDENCY_PROVENANCE.json",
+      "bytes": 14444,
+      "mode": "100644",
+      "git_blob_sha1": "7b7cf619c7bf31b974786a477df82118297ec54f",
+      "sha256": "e67a1bab8528d1c0f35452d0553b3bccd23410323e4282103c9b7ab319be6ab7"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/NOTICE.md",
+      "bytes": 1550,
+      "mode": "100644",
+      "git_blob_sha1": "e7ac4caf2571730333457ab8c9a248066556cbf4",
+      "sha256": "d23de62f70a79c26b21bd03fbc07ab49ef9603b58aa989e5442637db94cf5d8d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/PROOF_ROADMAP.md",
+      "bytes": 30423,
+      "mode": "100644",
+      "git_blob_sha1": "f93cb3bf8227069886ce6d4b220cb14b95f6474a",
+      "sha256": "76478c724b33efe70e82b29aa9eeea8b27b55334295a802e3a0f807c87e9c48a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/PublicTheorems.json",
+      "bytes": 24486,
+      "mode": "100644",
+      "git_blob_sha1": "ea4f12fab2dbad21c7a0dc2ce6a03a382e28651d",
+      "sha256": "9deb352eadbd5c03afaf4bfae56e68f6e0227991dea76d38d77a863eb4dd57a4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/README.md",
+      "bytes": 9453,
+      "mode": "100644",
+      "git_blob_sha1": "b5b00d86cc480e1d6ed829a3249774309d899daa",
+      "sha256": "41bb753a01baa2576647ae2c45c1d17c45c9afabac659ffae3934f4ca82b6e84"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/SHA256SUMS",
+      "bytes": 19477,
+      "mode": "100644",
+      "git_blob_sha1": "f40a427fa50ef614d01d06addd2dc95b11612543",
+      "sha256": "59ae5c98df713125c2c91dc7c2af9c0c05b795f2c9e3e7200a11670b03da773b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/SOURCE_MANIFEST.json",
+      "bytes": 21247,
+      "mode": "100644",
+      "git_blob_sha1": "e0d3ccf5952d465229dc487f22ec3a3c31580c85",
+      "sha256": "18997027c5069cab7079f69c9f5287e98fafd3ab6ab63bcd4c22994bd89c3ed2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/THEOREM_MAP.md",
+      "bytes": 30538,
+      "mode": "100644",
+      "git_blob_sha1": "4bd8b03e32427dfcd42c3f5bb85c431799012562",
+      "sha256": "331204773b44c1be77fccc25c26ee7e45117b2cd929e86b3b09d0055b9649823"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/TRUST_AND_SCOPE.md",
+      "bytes": 4617,
+      "mode": "100644",
+      "git_blob_sha1": "efde57073a7fd893688282eb4cbd9e48992e0b88",
+      "sha256": "2f0af656d70f45256dd7b23e0535ecc9040d7e5802c0bfd43116f45a4a46ade4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/ClosureAudit.lean",
+      "bytes": 31100,
+      "mode": "100644",
+      "git_blob_sha1": "c063ec338bdff5384e2dff43151f5c64703909b7",
+      "sha256": "b7bcc83ba70c67308d6b92f0458b4471f590f79e2d1280e10b60c4bf552c254f"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/ExactMain.lean",
+      "bytes": 1708,
+      "mode": "100644",
+      "git_blob_sha1": "579fb17e5adfcd53e9bb0a0fd35143ea191a5798",
+      "sha256": "9596d006b711bebb52a5d76071803f4c406df3fc7c0dc3ab0c96bbe0bd6217b5"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/IndependentBoundaryFacts.lean",
+      "bytes": 1748,
+      "mode": "100644",
+      "git_blob_sha1": "8ce64d950cf8c067c9b8dc61a222c7f846383e10",
+      "sha256": "da35c05e3ba99c5de54fb13aab6cf4b2e92a101132c096f2c945272ad8c0d847"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/PublicAxioms.lean",
+      "bytes": 28596,
+      "mode": "100644",
+      "git_blob_sha1": "549da777ec36145c8a15c8cedfc0f22508f005af",
+      "sha256": "4c68b09576c9aa657edabd86ad00a425ed80d5f448e50b9dd4c63c6923c21107"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/ReplayClosure.lean",
+      "bytes": 1700,
+      "mode": "100644",
+      "git_blob_sha1": "687733eb3f032a3066c243a0f18bf2cb5a17082c",
+      "sha256": "e8e011b4e33645b78b4d4606bcbd02e856a13a03518868c2373acf2499a5f019"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/DropBoundaryZero.lean",
+      "bytes": 215,
+      "mode": "100644",
+      "git_blob_sha1": "603560c6838449c2528beeecfef5b159079b4c2c",
+      "sha256": "a35e4ab85fe9d2bbc50bbfb5bceb08b34d356d5de79ad01f941692aa87f05f86"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileClosedActivation.lean",
+      "bytes": 220,
+      "mode": "100644",
+      "git_blob_sha1": "c8f38306fb9a057bf847429490795597fe9c71d6",
+      "sha256": "a292b2a1081314d7a0fa212a7541d1dcbb5c5b4ee4e5398b8befa041360fa2aa"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileDefaultReadOmission.lean",
+      "bytes": 370,
+      "mode": "100644",
+      "git_blob_sha1": "cc61a74d5e68c7afd788a3dee32144deed1b0da3",
+      "sha256": "72edd453ba2988f4f3484e4ec6e992e180ec241d459de430875dfcc046881e19"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileDuplicateOwn.lean",
+      "bytes": 370,
+      "mode": "100644",
+      "git_blob_sha1": "c33c3de26620ddd47423df8128a5fe1eca939f4f",
+      "sha256": "15b488a7a6758977f6cc029ac80e6ebcd93e0ff0405eb5e1277ec1d0d4964875"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileDuplicateTerminal.lean",
+      "bytes": 519,
+      "mode": "100644",
+      "git_blob_sha1": "d7a9f2909091e20da4d0a13a8f2f7ef4b4c11161",
+      "sha256": "770d23eef6f182c1b30f25a95a63aa51ec871278b67cc88e8c93bb27b81ef8d9"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileMissingGap.lean",
+      "bytes": 453,
+      "mode": "100644",
+      "git_blob_sha1": "a3a4b59f73e6e2bd9c81c2f986fbf844c283527b",
+      "sha256": "73c378d6ca7c60231388e8f9db66f35b3fe008854d14d477c4db98ad02ba2c93"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileReverseRefinement.lean",
+      "bytes": 361,
+      "mode": "100644",
+      "git_blob_sha1": "e72a76ad1266090e04aadeae47114108a578f8cd",
+      "sha256": "5a98485e4caba8d14628e68693a46e97a80fb2f6040183624d997703ee096c0a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRightBoundary.lean",
+      "bytes": 165,
+      "mode": "100644",
+      "git_blob_sha1": "e4f37f7455b5f7b96ddd02a17d27c517aceadd7d",
+      "sha256": "fdce536235cdccdb76ca409cdb696837e1d1f1855483571016765a8f2f1eba26"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootAbsolutePosition.lean",
+      "bytes": 256,
+      "mode": "100644",
+      "git_blob_sha1": "99a03c6a3783bbcc3895dee6b628dc404e1ea6cd",
+      "sha256": "96aa85e5c11269836f0a03c5ef6d9a640dd385a219cb7163b193e80b1481bde5"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootNegativeCoefficient.lean",
+      "bytes": 256,
+      "mode": "100644",
+      "git_blob_sha1": "bb40daddb46f2fb3f7a326e8cc98ec22abb4fdc7",
+      "sha256": "bb3142be1b67bd22a794714b73fcb214216b6844df3a58e91d83eec4b73e9b40"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootPZero.lean",
+      "bytes": 204,
+      "mode": "100644",
+      "git_blob_sha1": "62aba88dba21b43251fd8049b4a22cb84e3b0822",
+      "sha256": "c7501bd4ce8e4de7af4c80ff366769d56b78546257beda0849e0396df718609c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootPositionFreeEntropy.lean",
+      "bytes": 228,
+      "mode": "100644",
+      "git_blob_sha1": "a3d927b2f5f14f6b2e3b7ff0fe1371b844ccd983",
+      "sha256": "724505994929fc859bb5dbabaf3818c62b624bb07657f70ec4daf033a551ec89"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootSmallExceptional.lean",
+      "bytes": 299,
+      "mode": "100644",
+      "git_blob_sha1": "1c20cdccfd38837c2ea560992eb9fae5bdff8de1",
+      "sha256": "eb27856874664ad83643ab18e8021e308a6e707bcfb6ee2f8d12abaa93eeeff3"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileRootWrapEndpoint.lean",
+      "bytes": 239,
+      "mode": "100644",
+      "git_blob_sha1": "5ae8896dddb83bd63dc6866a29bf93f27fcbf0f8",
+      "sha256": "43668000143c2ddf8159886a87d162bcb7fc16b0bd99b9f0f5a4facb2988b006"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/HostileZeroActivation.lean",
+      "bytes": 318,
+      "mode": "100644",
+      "git_blob_sha1": "920279042892bddb705304568ee8f3905a144b6c",
+      "sha256": "bb3bdee360855f0ae2ee50a6fd9860ce5100c708019bf9f9eed71e6ca513478f"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/IgnoreSignCrossing.lean",
+      "bytes": 1325,
+      "mode": "100644",
+      "git_blob_sha1": "9b5bba3eaeee87d486f16a8b6970f254166fc84a",
+      "sha256": "e67b33ef6a08fb11a5833d290c6e5973bd8337cec4f1b02f29db942cd462bd5d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/assign_grid_boundary_to_left_cell.lean",
+      "bytes": 125,
+      "mode": "100644",
+      "git_blob_sha1": "c93e7b854b19e995b8cd7f06ef7cd472ba7de8ba",
+      "sha256": "12ad0cc6f4efe2b2ba16f47fcaa4cce7798cee6fce25fa952c4ab10c9cfa7734"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/drop_open_window_loss.lean",
+      "bytes": 192,
+      "mode": "100644",
+      "git_blob_sha1": "7907de88c94d76e56057250120ffdb4496f1b252",
+      "sha256": "f00886a76123686581a26dd5299f8b51c21f1b9c1277547234d9f29eb9041f45"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/expected.json",
+      "bytes": 1083,
+      "mode": "100644",
+      "git_blob_sha1": "1ff19caee7b5a667833b738bd91fde7228083675",
+      "sha256": "e6d327bfb22225f0c5733495e7b0487d748f604bc5b16adb3b318a756d043ac0"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/include_left_boundary.lean",
+      "bytes": 164,
+      "mode": "100644",
+      "git_blob_sha1": "dbc9657bdf029d392edf611407d6b9eb1e15f665",
+      "sha256": "d639c2af34b89aa63793a5365cd8e0cb8e9535c3ef3423f3e60880ea21ef7b73"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/log_the_zero_center_boundary.lean",
+      "bytes": 174,
+      "mode": "100644",
+      "git_blob_sha1": "f3fa01221672955fd8a6340183c7f29afcab846c",
+      "sha256": "8ad78a7a25392f10db3b2c10be444ecb35681c9c36ffa10c343c06b15e010bfc"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/omit_coefficient_shift.lean",
+      "bytes": 180,
+      "mode": "100644",
+      "git_blob_sha1": "53fc9ca5df00ab22911ab5230463f9438b42a862",
+      "sha256": "d19e01d60e81fe90c31f056102e3dadfb73688c5c10416db87ee237b7a4b09e2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/negative/strict_buffer_budget_without_positive_p.lean",
+      "bytes": 111,
+      "mode": "100644",
+      "git_blob_sha1": "bff289f87bcef7a49f21f89ad311ce846c254bb9",
+      "sha256": "e5b43000df01f2825f2f1b247fa20aef3841b917d31e42a36604bd21b54af4f6"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/APIProbe.lean",
+      "bytes": 816,
+      "mode": "100644",
+      "git_blob_sha1": "8e9dcd1c586d9d4115d37a16153fb7573ef191b6",
+      "sha256": "ec62c21a1758bfa50cf4f3246db0a18b022d732d7803561709a6e4f97f833c11"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/ArrangementAudit.lean",
+      "bytes": 2739,
+      "mode": "100644",
+      "git_blob_sha1": "fa4853c9c91fd82f0acd769296508cdaa2aed2b6",
+      "sha256": "d10d05c6f2decf811c9f41ca435582c5091d59866a8c172cda1ad6a3ec8e82a0"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/Audit.lean",
+      "bytes": 28596,
+      "mode": "100644",
+      "git_blob_sha1": "549da777ec36145c8a15c8cedfc0f22508f005af",
+      "sha256": "4c68b09576c9aa657edabd86ad00a425ed80d5f448e50b9dd4c63c6923c21107"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/BoundaryControls.lean",
+      "bytes": 958,
+      "mode": "100644",
+      "git_blob_sha1": "037a93511f74810fe71c1c6ef834704425e44556",
+      "sha256": "fbf5262411d7a69ff6d84b38c67496f7d295bfe33882fbb50c2ac2ad256da114"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/GridBoundaryControls.lean",
+      "bytes": 1248,
+      "mode": "100644",
+      "git_blob_sha1": "e58b95b59d56deeecae3473d471e9dcbf4a811f0",
+      "sha256": "88194b303fe2908841d62ab0e81db50d9ceddb6a70586e5fe8d6abd57a4a111a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/LocalBoundaryControls.lean",
+      "bytes": 1308,
+      "mode": "100644",
+      "git_blob_sha1": "b63ef4eb2de40772e83c2d9f04e283e77b3cb3f3",
+      "sha256": "9b63503d69d25c2d8c06e1efebc3ae8f5c045668c1884d4e16f27958d8628a58"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/MainTargetProbe.lean",
+      "bytes": 442,
+      "mode": "100644",
+      "git_blob_sha1": "1ec43c8f317fdab31668180041586d6246493538",
+      "sha256": "7675393e2dead2b4226283862f35af5eacf1ec049b20595ec1984c3cc7b8ff36"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/ProjectionBoundaryControls.lean",
+      "bytes": 2567,
+      "mode": "100644",
+      "git_blob_sha1": "6e874cf8c1111271502ed7239e6e173436a36eae",
+      "sha256": "bd113ed68dc47d81fa71971c703148ac53b57aa1791f830fef4ef29e0ea246e0"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/geometry_evidence_ActiveAxiomAudit.lean",
+      "bytes": 549,
+      "mode": "100644",
+      "git_blob_sha1": "4d41d1086737fec396151f815675e75d51fb15a6",
+      "sha256": "22ffb88e8781680f0788965b358424b94b6073df6382bf514f6a892bdfce0b74"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/geometry_evidence_AxiomAudit.lean",
+      "bytes": 983,
+      "mode": "100644",
+      "git_blob_sha1": "655d1769b792f9f8de3311e55f6b11fd830d06ac",
+      "sha256": "8e5801fa7b3466f74e116c89c631fccfdaf3b999701ea2f7d7abbd090e626f70"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/geometry_evidence_CandidateAxiomAudit.lean",
+      "bytes": 1429,
+      "mode": "100644",
+      "git_blob_sha1": "0ff0cf5d73b5d661a36f42144fec75807798f848",
+      "sha256": "8bfe670c6481da9911920256e30bfd213aeea77588fa9cd7b372b7d5206301cd"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/geometry_evidence_PositiveControls.lean",
+      "bytes": 3601,
+      "mode": "100644",
+      "git_blob_sha1": "389f2e8a73cd8f95435340a4e9c1fdaee616d519",
+      "sha256": "faf3ad5f609873d54cee94a650e21f080444ccf6ee834dd160ee495cbd216f01"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/geometry_evidence_PreorderAxiomAudit.lean",
+      "bytes": 1205,
+      "mode": "100644",
+      "git_blob_sha1": "dca2e2899fe2dba4374785f1476c9198b7bd4d6b",
+      "sha256": "8b8d3ccd88580d8e394d8cd2eb65683f8d7ca47bbcfdfb397bf40e869e36f508"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/probability_evidence_ProbabilityAudit.lean",
+      "bytes": 1660,
+      "mode": "100644",
+      "git_blob_sha1": "d8701ff1a2af992a5270993348cee6111d116545",
+      "sha256": "2cf0092de4715d004c6e86dcf2685e5797256c52051039923dac38397d07900b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/probability_evidence_center_atom_evidence_CenterAtomAudit.lean",
+      "bytes": 619,
+      "mode": "100644",
+      "git_blob_sha1": "69223195627cb681349f284937cb921eab91c9b7",
+      "sha256": "fdd8c6e5cdfdae302767857b89b61a97387e81ea0cf76c8d09faaf4b3ce316ca"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/probability_evidence_measure_evidence_MeasureAudit.lean",
+      "bytes": 869,
+      "mode": "100644",
+      "git_blob_sha1": "4afcec5ad79ba56edb71ef245496d47c92422350",
+      "sha256": "feb829e3eb5b7d568f64df6954d8018cfdcbcbbc8b555129389ffb2a02107af1"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/probability_evidence_no_default_evidence_NoDefaultAudit.lean",
+      "bytes": 672,
+      "mode": "100644",
+      "git_blob_sha1": "2cbd15ab161b50856edbf82af5e9969d4285f21c",
+      "sha256": "ff706829788e8d07e35fb9c294af507d3bcd8dc83de96d57185a365af1892a5d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/probability_evidence_probability_controls_ProbabilityControls.lean",
+      "bytes": 9988,
+      "mode": "100644",
+      "git_blob_sha1": "979308d1b45f9c2f81d57a7f18700e73ec79dfd3",
+      "sha256": "9ff137531f0d054d9f2f3c9d7c98ecff3781615fad68a58c81b1ef98d136dcf5"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/repair_evidence_BoundaryAudit.lean",
+      "bytes": 1535,
+      "mode": "100644",
+      "git_blob_sha1": "c256f4381ff2d23b4204fd637c608115f25cde1e",
+      "sha256": "f50c59a96a575d05ca05e77ab4bb596f779bab524485d9e4d69915cf015fedd6"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/repair_evidence_RootAssemblyAudit.lean",
+      "bytes": 4353,
+      "mode": "100644",
+      "git_blob_sha1": "b2d454170485665566fa2c64dadb792b58727760",
+      "sha256": "707c2688c5acbd563971c4aa6855c169c2c5d441b5d3b43763d3f847905a89e2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/checks/positive/repair_evidence_StableBoundaryAudit.lean",
+      "bytes": 1617,
+      "mode": "100644",
+      "git_blob_sha1": "c555ffbbf73fe6c64b15e3015dd30f27cbac2002",
+      "sha256": "3f17171f5603a783c1abdc9eae23bcb03a022ab5a540bebddf8b9bd1c131b7bf"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/ci/geometric-avoidance.yml.proposed",
+      "bytes": 1908,
+      "mode": "100644",
+      "git_blob_sha1": "d460269bde4d57f3b2577c1138273d1bd22899f5",
+      "sha256": "d28d7fd1289ca668fd84dd7e71cf7e6a84f0fb81afa4d424d98cd7d4851fd42e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/ACTUAL_MODULE_SOURCE_ARTIFACT_HASHES.json",
+      "bytes": 631295,
+      "mode": "100644",
+      "git_blob_sha1": "3bf27fd784ef072ba1477cfdefc070112c3ece75",
+      "sha256": "d08a4c4cdb1e0a88980ecde0b5ae92eba8c52d0fd1aa55045cc861cd91a1de8c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/AUDIT_REPORT.txt",
+      "bytes": 10732,
+      "mode": "100644",
+      "git_blob_sha1": "d192da98f692ee3225636155dc667426d81933c7",
+      "sha256": "de1b7691bdcab39fd29eb6ccd08245167ced48e3b8dc76869a92c7039a65f2a6"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/BUILD_NORMAL_OPTIMIZED_EQUALITY.json",
+      "bytes": 19466,
+      "mode": "100644",
+      "git_blob_sha1": "3288c13f54c896e4273f983b05223bf87adff353",
+      "sha256": "2c953566938094dddc1bd7307fe287ce1265fe56598041012b1115758da1f4eb"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/COMPLETE_STORED_PROOF_GRAPH.json.gz",
+      "bytes": 2458977,
+      "mode": "100644",
+      "git_blob_sha1": "7bef5c892dadc8c364b6ddb9e8b27e9cb65402ab",
+      "sha256": "969ae85492c775edaba7a92d2eb65e7380193d02c303de7e3bb6b41f672e7193"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/CONTROLS_NORMAL_OPTIMIZED_EQUALITY.json",
+      "bytes": 119,
+      "mode": "100644",
+      "git_blob_sha1": "62ed9427742f70593c6c7fb0d92f7ed98ca86583",
+      "sha256": "eea7f8f46fa4708bde4099cae7000ac04e5a034056f2fe17f3c13f115905499f"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/INVENTORY_GUARD_CONTROL.json",
+      "bytes": 177,
+      "mode": "100644",
+      "git_blob_sha1": "d461111638b1c3d5558db5ac4d029240911c4864",
+      "sha256": "0b2788306ef92cd0c32b21696526ceb5d3cbbf6feeee2d7b70bc54e2b0456a2e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/LEAN_PYTHON_CLOSURE_EQUALITY.json",
+      "bytes": 56429,
+      "mode": "100644",
+      "git_blob_sha1": "d48e55e7daa3ce503102aa6455cf316857fe8a49",
+      "sha256": "9f869b982961974d9a3806262daecd78254513cca568518e63c00382b07f65e2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/MAIN_OWNED_CLOSURE.json",
+      "bytes": 45280,
+      "mode": "100644",
+      "git_blob_sha1": "bb288f92fd5badff1793088885d352bb29060269",
+      "sha256": "2892bce0397abdd988afb427fe5053014aaaa473001fbecb3a5400b3359e3cb7"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/MAIN_PROOF_CLOSURE.json",
+      "bytes": 1323600,
+      "mode": "100644",
+      "git_blob_sha1": "fa8ff76f519d1d8ee464aca10731388e29c3c75e",
+      "sha256": "e3b1812cac2ccf377ea7bbf5f4ab5df65b379787e285ae114c175167cfa978ed"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/MAIN_PUBLIC_DEPENDENCIES.json",
+      "bytes": 20311,
+      "mode": "100644",
+      "git_blob_sha1": "0cdfbf931dd8dcc5b75e4f36cacb11f5858767b4",
+      "sha256": "1e2431a14f0c84d8c2f7a399b7fc551e268d5a6d8aeb659098700b7ad6c6ab21"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/OWNED_INVENTORY.json",
+      "bytes": 3688296,
+      "mode": "100644",
+      "git_blob_sha1": "f327eda71969e2de08136a00bc967dd3e6624a56",
+      "sha256": "1fe1b2719b8659837c9b753776529fa67d717eee19a53f643be5b581a53b8440"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/OWNED_MODULES.json",
+      "bytes": 1851,
+      "mode": "100644",
+      "git_blob_sha1": "18f457f589926f46c56225fb4cca4bed2f858b20",
+      "sha256": "72409ce2310d20242b8c8b32597be95592db8c8c0e99c4a19452d22d41279519"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/PUBLIC_ROOT_SUMMARY.json",
+      "bytes": 843882,
+      "mode": "100644",
+      "git_blob_sha1": "cae01528e6be608f6952257f4df0a67b2cf8bc45",
+      "sha256": "dffd133d02bdb61688f8531ea6c4814e921dffa680ba0688124671afe1c3178b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/REAL_LEBESGUE_PROVENANCE.json",
+      "bytes": 1385,
+      "mode": "100644",
+      "git_blob_sha1": "0dd4a6f8e8cfeb7e6e1dd138c69086c2e0fdc9b1",
+      "sha256": "d6c227c30e0abef44352b1e30c210bae28e5dd73e96de9500f60c80b72aa17f0"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/SEMANTIC_CHECK_MANIFEST.json",
+      "bytes": 648,
+      "mode": "100644",
+      "git_blob_sha1": "0b20bd38dbdae5c13b8d278ee04bb74041631c99",
+      "sha256": "72cb97b7f8eb0db919003e38d6126860685413be41cb1c9052fde270ece647ed"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/SEMANTIC_EXACT_CHECKS.json",
+      "bytes": 1235,
+      "mode": "100644",
+      "git_blob_sha1": "b6986f0c2818e4392bd38a229d508e420c649074",
+      "sha256": "1b4a176fd9e1b7995aea7c391d3b8da1f005fb319815e21fc6a6400bb3d9ce3c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/SEMANTIC_REVIEW.txt",
+      "bytes": 18720,
+      "mode": "100644",
+      "git_blob_sha1": "5a292ddffaeb7b18758909b7d896046aa8a50f6f",
+      "sha256": "72082e453c93790796c0e34cfaec34ee0a81fc5c831a5236786a53aa96c1082e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/SEMANTIC_SOURCE_REFERENCES.json",
+      "bytes": 5184,
+      "mode": "100644",
+      "git_blob_sha1": "3a0481fbe4e4bd6792b2dd2294637efe3fabdc89",
+      "sha256": "4f446cec2444cc85586a444e1f9c0f3cfeebeb292dbfd7fe1fed65cce41bd0a7"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/SOURCE_INSPECTION.json",
+      "bytes": 800,
+      "mode": "100644",
+      "git_blob_sha1": "ab717e65c2377d458e9c0da4c93e6c7e6fdbe773",
+      "sha256": "4bf08c84e6e3be85fbadf4a30545c2c95182a299d4469ddeb8dde8a360ce7d10"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/VERIFICATION.json",
+      "bytes": 2452,
+      "mode": "100644",
+      "git_blob_sha1": "c11fad10ed87569c16f7112e0749ca496099aa81",
+      "sha256": "29ee474396a8079e0fb476582fc3a214f35eb564e9e299ac10b84b271c3ef2a2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/Audit.log",
+      "bytes": 48977,
+      "mode": "100644",
+      "git_blob_sha1": "d968958b2a37650ecfb4365b43321bc76bbdf81a",
+      "sha256": "8294d82e10b24f3ec88c9763362cc46fb576722f7f2c25b1a5b8f66aca4698ca"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/ClosureAudit.log",
+      "bytes": 100,
+      "mode": "100644",
+      "git_blob_sha1": "fe9552135905bd628427c3cbb402c2afcc678da4",
+      "sha256": "38573abe7ccb546e2d66bb0655f9b7d3eea1b2ac0acf112427202e950590cace"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/ExactMain.log",
+      "bytes": 3199,
+      "mode": "100644",
+      "git_blob_sha1": "abfc958d0f422e5336eab656b3ba35158393b909",
+      "sha256": "c8687b122d943e362d714166a430febd75a4d33e681804aa82f30f1682edffb2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/FastClosureAudit.log",
+      "bytes": 100,
+      "mode": "100644",
+      "git_blob_sha1": "fe9552135905bd628427c3cbb402c2afcc678da4",
+      "sha256": "38573abe7ccb546e2d66bb0655f9b7d3eea1b2ac0acf112427202e950590cace"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/IndependentBoundaryFacts.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/ReplayClosure.log",
+      "bytes": 120,
+      "mode": "100644",
+      "git_blob_sha1": "0605455f6b7831a09486edc62187c05d4a4b03d9",
+      "sha256": "38c39853087bd504fc008f536b7fb2c4caa37e5188c267df1a462405695b3bbd"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/independent/logs/pins.json",
+      "bytes": 738,
+      "mode": "100644",
+      "git_blob_sha1": "3b2040f29ff4bb3cc6534e40b7beddac5d8d86c1",
+      "sha256": "797c616885a5151f9910ac4e92544116e677fb3fc6363887ae35c6426311d4e4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/BUILD.json",
+      "bytes": 3123,
+      "mode": "100644",
+      "git_blob_sha1": "8c2f05e2ab72dd698eb0dca1010c231a07b9a334",
+      "sha256": "1af3124bdc81ca92833ef6d6a8452f22047c4e95c7a460ff01540366a2c8bbe0"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/CONTROLS.json",
+      "bytes": 5187,
+      "mode": "100644",
+      "git_blob_sha1": "947079f0fcabadd6425c2c7b6b122e65bf6aa40f",
+      "sha256": "3a9f2292ca32c206055f4a82af43686a702d6430593846d3a239595a634694a3"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/FINAL_REPLAY.json",
+      "bytes": 1787,
+      "mode": "100644",
+      "git_blob_sha1": "1daa42a75cb4427dc4c391e445223c5f0bf9b992",
+      "sha256": "25042be82efee4782eb9fd89c651dfb72488e28d632bb3c95134ad3b14a72763"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/INDEPENDENT_BUILD_COMPARISON.json",
+      "bytes": 13541,
+      "mode": "100644",
+      "git_blob_sha1": "d5158f812b3f68fb04aaa40149cb9654985bcd23",
+      "sha256": "b5309139835be8b54adac18175e0482a683538b82ce1574df7295a454c40228b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/OWNED_BUILD_SHA256.json",
+      "bytes": 5255,
+      "mode": "100644",
+      "git_blob_sha1": "60b050101527faac33f09102aa1659e09da2ec22",
+      "sha256": "6f879e4df4521fcb355a170123bea38f62540983a9a5237e8b614c8b41448b88"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/PUBLIC_ROOT_SUMMARIES.json",
+      "bytes": 81568,
+      "mode": "100644",
+      "git_blob_sha1": "737ee0e10a92b98755e2c364c447aa74197e5f75",
+      "sha256": "f09cbf905a973ff45d95cd19adc10bd6b3c19ec896accfe560ea3cb8ba26a453"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/REPLAY_INPUT_MANIFEST.json",
+      "bytes": 21247,
+      "mode": "100644",
+      "git_blob_sha1": "4975f909ce92664926b914a3bfc2dfde449065a2",
+      "sha256": "db56224cd3bcfbb74184c2d2f52894011dfcabf93c7d95d689f0e00cfc48966d"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/VERIFICATION.json",
+      "bytes": 6349,
+      "mode": "100644",
+      "git_blob_sha1": "789beb24edd725244d57acdaf9077ff5206b16b6",
+      "sha256": "66e17fc5047e3b24c4de87fb32a7f60a59da4d9381e48e5778591fbf548d07f1"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/ClosureAudit.log",
+      "bytes": 100,
+      "mode": "100644",
+      "git_blob_sha1": "fe9552135905bd628427c3cbb402c2afcc678da4",
+      "sha256": "38573abe7ccb546e2d66bb0655f9b7d3eea1b2ac0acf112427202e950590cace"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/ExactMain.log",
+      "bytes": 3199,
+      "mode": "100644",
+      "git_blob_sha1": "abfc958d0f422e5336eab656b3ba35158393b909",
+      "sha256": "c8687b122d943e362d714166a430febd75a4d33e681804aa82f30f1682edffb2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/IndependentBoundaryFacts.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/PublicAxioms.log",
+      "bytes": 48977,
+      "mode": "100644",
+      "git_blob_sha1": "d968958b2a37650ecfb4365b43321bc76bbdf81a",
+      "sha256": "8294d82e10b24f3ec88c9763362cc46fb576722f7f2c25b1a5b8f66aca4698ca"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/ReplayClosure.log",
+      "bytes": 120,
+      "mode": "100644",
+      "git_blob_sha1": "0605455f6b7831a09486edc62187c05d4a4b03d9",
+      "sha256": "38c39853087bd504fc008f536b7fb2c4caa37e5188c267df1a462405695b3bbd"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/ownership-injection-rejection.log",
+      "bytes": 117,
+      "mode": "100644",
+      "git_blob_sha1": "2b8e275b61d7b3df5e4d7a64231d4764db461f90",
+      "sha256": "3e0dcb490c610a55dc133597eb082d53a2e0d683102378f571838aafa408e75a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/semantic-normal.log",
+      "bytes": 1235,
+      "mode": "100644",
+      "git_blob_sha1": "b6986f0c2818e4392bd38a229d508e420c649074",
+      "sha256": "1b4a176fd9e1b7995aea7c391d3b8da1f005fb319815e21fc6a6400bb3d9ce3c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/evidence/release/logs/semantic-optimized.log",
+      "bytes": 1235,
+      "mode": "100644",
+      "git_blob_sha1": "b6986f0c2818e4392bd38a229d508e420c649074",
+      "sha256": "1b4a176fd9e1b7995aea7c391d3b8da1f005fb319815e21fc6a6400bb3d9ce3c"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/lake-manifest.json",
+      "bytes": 3169,
+      "mode": "100644",
+      "git_blob_sha1": "ac5e3ca72206a241670515461cd3f13ab051ea10",
+      "sha256": "e47bfb25c8cdba035776c5a96f08b553d005d6e8d0d05e2861d60bde895ed7a2"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/lakefile.toml",
+      "bytes": 268,
+      "mode": "100644",
+      "git_blob_sha1": "4f0a826e7af3fad05abb6bdaa76e2e54fc842cb5",
+      "sha256": "91afd82387b35fa977412b9c6a7ea9c85cab9237ce468f12a1d7bfa3ad63b861"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/lean-toolchain",
+      "bytes": 25,
+      "mode": "100644",
+      "git_blob_sha1": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/CHECK_WRAPPER_PROVENANCE.json",
+      "bytes": 1589,
+      "mode": "100644",
+      "git_blob_sha1": "09e303b6acbd70f38004bcd3fa4348bc6954cb1d",
+      "sha256": "323eae91edc7d4abc329aba11d442fff4094dcdb4fa2a92cdd42b484b0d4d349"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/CI_VALIDATION.json",
+      "bytes": 543,
+      "mode": "100644",
+      "git_blob_sha1": "3be57414f25ce3ea8762f65bc8b0683782f9631f",
+      "sha256": "71e64b3ef00b7bf0ca712bf3307affa25b1bf07f97c56c269c61831f15dae15e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/ORIGINAL_SOURCE_SHA256.json",
+      "bytes": 5569,
+      "mode": "100644",
+      "git_blob_sha1": "01adcf7ecbde4cec308419459387fdd78f5ba39a",
+      "sha256": "5b45965560db62aafbae3c5e9e17434935d52a568abce3131e64fc40c81c7501"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/PACKAGING_GUARD_CONTROLS.json",
+      "bytes": 29665,
+      "mode": "100644",
+      "git_blob_sha1": "c83fb4e6e214a8ba34811c15983c310a5aa68103",
+      "sha256": "2e0ab45dbd8a8b1a494cdf51d6087be1240fbe341c707e13395f6c7c3de63c81"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/PACKAGING_REPAIR.json",
+      "bytes": 2587,
+      "mode": "100644",
+      "git_blob_sha1": "af0be1a1827c607b41a06bbc453dbd4d2d37059d",
+      "sha256": "92f6cf7d7853619978afddb1635adf90b51c697e14b474368c8da427039b4c07"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/PROOF_BYTE_COMPARISON.json",
+      "bytes": 13097,
+      "mode": "100644",
+      "git_blob_sha1": "2967ff843e27d3ba4ae69fd07fd87e69458ce952",
+      "sha256": "1a5d001d792a989ffc4009b5df140d131bd3ff1bee0e813290dc3a494fe85e65"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/PUBLIC_DERIVATIVE_LEDGER.json",
+      "bytes": 10192,
+      "mode": "100644",
+      "git_blob_sha1": "bd882b78bf9fcc1a70644fd9d01fc0097dfa52cd",
+      "sha256": "87e1dfac58d3fa8f9ec0e83058d0becc39ddeb13e9fe9b58d64765706957ca4b"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/provenance/TOOLCHAIN_FILES_SHA256.json",
+      "bytes": 2121799,
+      "mode": "100644",
+      "git_blob_sha1": "44fea5e792612364a7de114fa560cab110cfacba",
+      "sha256": "5ce0ade313b607222e8409a5bcbf1a7c2161ea1ef7ef5ba11edd11f8a45779e8"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/scripts/make_archive.py",
+      "bytes": 980,
+      "mode": "100644",
+      "git_blob_sha1": "75f784a9a61ef51152e4d90daee253c273ee83da",
+      "sha256": "c4936c968410cb71e2e0000ff70b93a676d468a60ef75cba1016ccec95efddef"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/scripts/release_integrity.py",
+      "bytes": 17878,
+      "mode": "100644",
+      "git_blob_sha1": "b25325e8775d9230030097d26e9189605598d28b",
+      "sha256": "66bb85485f02604a6d17e18ce082f4a28fdbe62f7fd38928c6d52a0c9404eb92"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/scripts/reproduce.py",
+      "bytes": 16100,
+      "mode": "100644",
+      "git_blob_sha1": "82cf9dbfa91a597c4fcf533d9e1aae496280010e",
+      "sha256": "c3389db42826487e9887d5df9621398c9c9186d520fc6a64f42c64e66fb0f9b5"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/scripts/semantic_exact_checks.py",
+      "bytes": 9918,
+      "mode": "100644",
+      "git_blob_sha1": "649d3f9d3eba78a6ee10ce49bd3bcbd513c62a98",
+      "sha256": "7885636501a80475e2b1c24a5c6b25f4ec53e48b4b943278b56fdf717761006a"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/scripts/test_release_integrity.py",
+      "bytes": 10950,
+      "mode": "100644",
+      "git_blob_sha1": "0fd8400c5c136d368d560cbefbba05fa8ff309dd",
+      "sha256": "dbb29b1be70e1e34050ad6cc9d18ada13116756ec1a441c4f9b6259afced3cea"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/Cli/LICENSE",
+      "bytes": 1062,
+      "mode": "100644",
+      "git_blob_sha1": "98b19b60b19889fb74443ff5fe2cf36babf017f9",
+      "sha256": "f7e95706807e931782b6efd9a9d2789508a52423ad67b56ee7e5e324362d4aac"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/LeanSearchClient/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/Qq/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/SHA256SUMS",
+      "bytes": 1581,
+      "mode": "100644",
+      "git_blob_sha1": "fecddd3efeb469505f829bf1ff17810b48ded017",
+      "sha256": "3054501d11c151ecff9caa3755066d234139e58f4f2ebcaf2bba524f81ca28ef"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/aesop/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/batteries/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/importGraph/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/importGraph/html-template/LICENSE_source",
+      "bytes": 1068,
+      "mode": "100644",
+      "git_blob_sha1": "9c0b6d7205b531c3afbaef35b18acd460bc8d2a5",
+      "sha256": "49110e6ed9990dbd0869c66bdae2882a9e74776094a12e87f25067979e777502"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/lean4/LICENSE",
+      "bytes": 9160,
+      "mode": "100644",
+      "git_blob_sha1": "813da297567374691eaae7a88739dbbefd2afdfd",
+      "sha256": "8b28515ffffc5c0fe2807d8ae3735b00b324d9b7ce807dd63ff6ac8922fbce7e"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/lean4/LICENSES",
+      "bytes": 81854,
+      "mode": "100644",
+      "git_blob_sha1": "37427171b06efa9b2d05065de853f2bf93d63df0",
+      "sha256": "00cce2ac071f63d470a287438a7c6bbc4334706be244384e9af4fc9ead11cdce"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/mathlib/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/openai_math_LICENSE.txt",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/plausible/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/proofwidgets/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/geometric-avoidance/third_party_licenses/repository_NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/BINARY_GRAPH_COMPARISON.json",
+      "bytes": 16594,
+      "mode": "100644",
+      "git_blob_sha1": "4c6707efbd153710168dedd26ce1e592c5f3b96e",
+      "sha256": "9b8d3fa1222a0e9d631752b913a5102da9a50c084c7ffccb35fe006d991897da"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/BUILD.json",
+      "bytes": 3123,
+      "mode": "100644",
+      "git_blob_sha1": "8c2f05e2ab72dd698eb0dca1010c231a07b9a334",
+      "sha256": "1af3124bdc81ca92833ef6d6a8452f22047c4e95c7a460ff01540366a2c8bbe0"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/CI_STATIC_REVIEW.json",
+      "bytes": 522,
+      "mode": "100644",
+      "git_blob_sha1": "8dbf87497f61d091dac3c2298e601ed67316ceab",
+      "sha256": "dd40085a4801d351960c966c9d1f2a979f5450a53b310a219a9197a7860fc53c"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/CONTROL_SOURCE_IDENTITY.json",
+      "bytes": 12050,
+      "mode": "100644",
+      "git_blob_sha1": "9341863ee91c4e2d5760062a7ca808188dc731d9",
+      "sha256": "f13b29e2396c17c900056d576a4701ac88e440c61be7d1c320cec4b1d4d1653d"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/DEPENDENCY_NOTICE_CHECK.json",
+      "bytes": 3890,
+      "mode": "100644",
+      "git_blob_sha1": "9dd941bae8879b64b105ee1cecf088c6098dc1bf",
+      "sha256": "5e74342b78ffda90e94c4b0119847947aadf73f421372c7049e023001dcff08b"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/EVIDENCE_PROVENANCE_CHECK.json",
+      "bytes": 9169,
+      "mode": "100644",
+      "git_blob_sha1": "addf2f6b5c4e9c8e7a30cea720acbd8e968fee9f",
+      "sha256": "4db60357baf0d61ba46c79887af062be29375182214d86a78a87623ebfbe5f7e"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/EVIDENCE_SHA256.json",
+      "bytes": 2503,
+      "mode": "100644",
+      "git_blob_sha1": "a8db4cd7b72c0bc4fc863a639a8b6d59de9dcc14",
+      "sha256": "e86dfce83a198c9c99ebfc79845f70052c2f7768458b90ffa9695732e7d85457"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.json",
+      "bytes": 3354,
+      "mode": "100644",
+      "git_blob_sha1": "a74c04aa622e9bfe1aee42bbd353cda5968b8ae5",
+      "sha256": "c655373989cc61b013cfd9ba70682534f447e616b2e63f17c4824a52654e4306"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.txt",
+      "bytes": 5200,
+      "mode": "100644",
+      "git_blob_sha1": "66bc554d46ccad2c50878a969da46484821fb2af",
+      "sha256": "10b0ec9537e1097e73c2d2072a621bad3a6402ba173a666c4be37d17340a58f9"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/INDEPENDENT_INPUT_GUARD_CONTROLS.json",
+      "bytes": 6387,
+      "mode": "100644",
+      "git_blob_sha1": "0ef9073635acb750a4becb89d1cff6190df83c93",
+      "sha256": "1e334a3ddf9757991aeba49cf8af649a82a70f6402f3e5b611bcdd5a2c2ca57f"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/KERNEL_GUARD_CONTROLS.json",
+      "bytes": 516,
+      "mode": "100644",
+      "git_blob_sha1": "b211e04121d1b6279b24a24c71417abb0f40946a",
+      "sha256": "7855764ac9f7c95e314f11f540c7b518326e8e4c2a6003387eb39573b1684652"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/MATHEMATICAL_CONTROLS.json",
+      "bytes": 5187,
+      "mode": "100644",
+      "git_blob_sha1": "947079f0fcabadd6425c2c7b6b122e65bf6aa40f",
+      "sha256": "3a9f2292ca32c206055f4a82af43686a702d6430593846d3a239595a634694a3"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/PACKAGING_GUARD_CONTROLS.json",
+      "bytes": 29665,
+      "mode": "100644",
+      "git_blob_sha1": "c83fb4e6e214a8ba34811c15983c310a5aa68103",
+      "sha256": "2e0ab45dbd8a8b1a494cdf51d6087be1240fbe341c707e13395f6c7c3de63c81"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/SOURCE_ARCHIVE_INTEGRITY.json",
+      "bytes": 6555,
+      "mode": "100644",
+      "git_blob_sha1": "c0a8d42cc7b3f5c0dfb9fe74ffc1544e04fe810f",
+      "sha256": "d420d691508a3c1c483a6337c072c0f9dbb6984b896793865dad97748579e883"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/VERIFICATION.json",
+      "bytes": 6349,
+      "mode": "100644",
+      "git_blob_sha1": "789beb24edd725244d57acdaf9077ff5206b16b6",
+      "sha256": "66e17fc5047e3b24c4de87fb32a7f60a59da4d9381e48e5778591fbf548d07f1"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/ClosureAudit.log",
+      "bytes": 100,
+      "mode": "100644",
+      "git_blob_sha1": "fe9552135905bd628427c3cbb402c2afcc678da4",
+      "sha256": "38573abe7ccb546e2d66bb0655f9b7d3eea1b2ac0acf112427202e950590cace"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/ExactMain.log",
+      "bytes": 3199,
+      "mode": "100644",
+      "git_blob_sha1": "abfc958d0f422e5336eab656b3ba35158393b909",
+      "sha256": "c8687b122d943e362d714166a430febd75a4d33e681804aa82f30f1682edffb2"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/IndependentBoundaryFacts.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/ReplayClosure.log",
+      "bytes": 120,
+      "mode": "100644",
+      "git_blob_sha1": "0605455f6b7831a09486edc62187c05d4a4b03d9",
+      "sha256": "38c39853087bd504fc008f536b7fb2c4caa37e5188c267df1a462405695b3bbd"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/hostile-added_unapproved_axiom.log",
+      "bytes": 116,
+      "mode": "100644",
+      "git_blob_sha1": "6218c88b68ac14bf40a7c34ee583abe200339ac8",
+      "sha256": "981484825bddf32a179725a0cb2ff410388fb449d4c68009c4dfbfe2bfb99a76"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/hostile-altered_stored_proof.log",
+      "bytes": 377,
+      "mode": "100644",
+      "git_blob_sha1": "e445fafeeb9d0909b87fc0f7ec228266f8317615",
+      "sha256": "8796f9143cd6ffb3370f57eee685e5a0794eecb6691e621cf856f666bca5ecfb"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/ownership-injection-rejection.log",
+      "bytes": 117,
+      "mode": "100644",
+      "git_blob_sha1": "2b8e275b61d7b3df5e4d7a64231d4764db461f90",
+      "sha256": "3e0dcb490c610a55dc133597eb082d53a2e0d683102378f571838aafa408e75a"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/package-integrity-controls.log",
+      "bytes": 57,
+      "mode": "100644",
+      "git_blob_sha1": "e090ffbb05eed1a075d19672d44b5ccf140e5509",
+      "sha256": "8e0061b44a37a86e6bedcabf419ae3218ba2b10e546f1313d12c06103a486d76"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/semantic-normal.log",
+      "bytes": 1235,
+      "mode": "100644",
+      "git_blob_sha1": "b6986f0c2818e4392bd38a229d508e420c649074",
+      "sha256": "1b4a176fd9e1b7995aea7c391d3b8da1f005fb319815e21fc6a6400bb3d9ce3c"
+    },
+    {
+      "path": "verification/2026-10-07-geometric-avoidance-final-copy/logs/semantic-optimized.log",
+      "bytes": 1235,
+      "mode": "100644",
+      "git_blob_sha1": "b6986f0c2818e4392bd38a229d508e420c649074",
+      "sha256": "1b4a176fd9e1b7995aea7c391d3b8da1f005fb319815e21fc6a6400bb3d9ce3c"
+    },
+    {
+      "path": "releases/2026-10-07-geometric-avoidance-source-v2.tar.gz",
+      "bytes": 4197726,
+      "mode": "100644",
+      "git_blob_sha1": "c4d6a727a0c35e51768e0ed23f42d385b2aa181c",
+      "sha256": "b5d8970b6481fb8646e7357a8a540085bf0e297da75fd011360448d01966450e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 43528,
+      "mode": "100644",
+      "git_blob_sha1": "48b0fc4bb96b32b35b3f0ef5e0a7e56df3b1db56",
+      "sha256": "f60a61465c7ea4721130959e4908ab927ecdd94ed7bfbbb0f25488c11b72aa73"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 34966,
+      "mode": "100644",
+      "git_blob_sha1": "af4357d44d0de25352a2fea0a22f7d4ede693d72",
+      "sha256": "e177c35324a7ec1309b7965fd861ea65b76a4f7bfac764dd18f272aac67972d0"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 30115,
+      "mode": "100644",
+      "git_blob_sha1": "875c760e7eb801c34e4605309f28c62e047ebb4f",
+      "sha256": "ad8520ec443aff3eb427263ecd1d48d2e77d11214d9a61e190bccd98249e36b8"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 40086,
+      "mode": "100644",
+      "git_blob_sha1": "fff64b4cad9432cd39daa1494bce037c5058d593",
+      "sha256": "aed94ae583d67a2d26c1202b7c5860d1defc5c5ee4b4a6570fe16f99a56bd930"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-geometric-avoidance-v2.json"
+}

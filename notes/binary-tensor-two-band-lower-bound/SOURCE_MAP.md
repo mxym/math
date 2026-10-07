@@ -16,3 +16,8 @@ framework already published in this repository.
 
 No OpenAI/math theorem is required for the new lower-bound proof.  This file
 records mathematical dependence only and makes no novelty or priority claim.
+
+
+The later Section 7 finite-band optimality theorem is also new in this note.
+It uses only the same binary distance/Gram identities plus a direct
+second-variation calculation and an elementary exact profile optimization.

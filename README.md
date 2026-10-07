@@ -1,5 +1,9 @@
 # math
 
+## Full all-ratio affine-geometric avoidance in Lean
+
+The separate [complete Lean project](formalizations/geometric-avoidance/README.md) proves the original all-real affine-geometric theorem: for every 0 < ε < 1, one compact E ⊆ [0,1] with Lebesgue measure > 1 − ε has arbitrarily late misses for every a qⁿ + b, simultaneously for all real a ≠ 0, b and 0 < q < 1. The exact frozen release passed an independent model-conducted [final-copy audit](verification/2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.txt), including empty trust-level-zero kernel replay of the complete 34,771-declaration main closure. [Source archive](releases/2026-10-07-geometric-avoidance-source-v2.tar.gz) · [Release manifest](releases/2026-10-07-geometric-avoidance-v2.json). The historical 101-export checkpoint remains unchanged; this is a separate complete formalization of the original affine-geometric avoidance theorem. The stronger nonlinear-remainder theorem is outside this release. Standard Lean foundations and implementation trust remain; no novelty or external human peer-review claim is made.
+
 [Transport programme: source overlap and target tails](notes/transport-source-tail-programme/README.md) connects manuscripts 001, 007 and 008 while preserving their separate versions and proof dependencies.
 
 The [source-overlap synthesis](notes/transport-source-tail-synthesis/README.md) adds a complete six-page proof of the density-root Sobolev characterization of linear overlap for 1 < s < infinity, with pinned sources and reproducible checks. This characterizes the interpolation method; transport applications retain the separate potential estimate (P) and their moment/domain hypotheses.
@@ -181,6 +185,24 @@ The [new tensor research note](notes/global-orthogonal-tensor-rigidity/README.md
 
 The [binary tensor companion](notes/sharp-binary-tensor-rigidity/README.md) determines the optimal growth order p^(1/4) of the best complete-commutator error constant in dimension two, and proves the exact quartic constant 3^(1/4)/sqrt(2) with full equality classification. A nine-page proof, exact standard-library checker, nine partial Lean exports and a frozen inventory are included. These results use no OpenAI theorem. The [binary benchmark comparison](research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md) and [dimension screening](research/novelty-assessment/2026-10-07-tensor-dimension-screen.md) record read literature and unresolved novelty questions; no priority or whole-paper formalization claim is made.
 
+## Boundary-profile lower bounds for binary tensor rigidity
+
+The [boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
+turns every fixed finite edge-coefficient profile into an explicit
+Gaussian/Fock variational lower bound for the sharp binary tensor constants.
+An exact three-term profile proves
+liminf C_p / p^(1/4) > 0.623586, improving both the original
+2^(-3/4) lower constant and the concurrently published exact two-band
+constant sqrt(2/7+sqrt(2)/14) = 0.6218758237... while leaving the current
+2^(-1/2) upper constant open. The analytic profile limit has a complete written proof; two
+standard-library exact implementations certify the displayed rational
+corollary in ordinary and optimized Python. A concurrent mechanism theorem
+shows the smaller two-band constant is optimal whenever the coordinate axes
+remain local projection maxima; the new profile has
+\(\gamma_1^2+\sqrt2\gamma_2=12346629/9765625>1\), so its improvement is
+an explicit off-axis escape from that sharp subclass. No priority or external
+peer-review claim is made.
+
 ## Simultaneous harmonic-degree blocks
 
 The [harmonic-dimension block note](notes/simultaneous-harmonic-degree-blocks/README.md)
@@ -198,11 +220,13 @@ with violations at infinitely many unbounded degrees.
 ## Improved binary tensor lower constant
 
 The [two-band binary tensor companion](notes/binary-tensor-two-band-lower-bound/README.md)
-gives, for every tensor order p >= 10, an explicit exact family that raises
-the normalized complete-commutator rigidity lower constant from
-\(2^{-3/4}=0.5946035\ldots\) to
-\(\sqrt{(2+\sqrt2)/(2(3+\sqrt2))}=0.6218758\ldots\).
-The projection maximum and Gram residual are proved in closed form; an exact
-standard-library Q(sqrt(2)) checker supplies diagnostic replay.  The upper
-constant \(2^{-1/2}\), convergence question and optimal leading constant
-remain unchanged and open.
+gives, for every tensor order p >= 10, an explicit exact family whose own
+normalized asymptotic constant is
+\(\sqrt{(2+\sqrt2)/(2(3+\sqrt2))}=0.6218758\ldots\), improving the
+original \(2^{-3/4}\) family. The projection maximum and Gram residual are
+proved in closed form; an exact standard-library Q(sqrt(2)) checker supplies
+diagnostic replay. The
+[boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
+subsequently raises the overall rigorous liminf lower bound above 0.623586.
+The upper constant \(2^{-1/2}\), convergence question and optimal leading
+constant remain open.

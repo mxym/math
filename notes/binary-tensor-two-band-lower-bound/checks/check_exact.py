@@ -151,6 +151,67 @@ def universal_gates():
     return kappa2
 
 
+
+def profile_optimality_certificate():
+    """Exact polynomial certificate for Section 7's profile optimization."""
+    def padd(a, b):
+        n = max(len(a), len(b))
+        return [(a[i] if i < len(a) else Q2())
+                + (b[i] if i < len(b) else Q2())
+                for i in range(n)]
+
+    def psub(a, b):
+        return padd(a, [-x for x in b])
+
+    def pmul(a, b):
+        out = [Q2() for _ in range(len(a)+len(b)-1)]
+        for i, x in enumerate(a):
+            for j, y in enumerate(b):
+                out[i+j] = out[i+j] + x*y
+        return out
+
+    def pscale(a, c):
+        return [x*c for x in a]
+
+    def peq(a, b):
+        n = max(len(a), len(b))
+        aa = a + [Q2()]*(n-len(a))
+        bb = b + [Q2()]*(n-len(b))
+        return aa == bb
+
+    den = (Q2(3)+S)**2
+    r = ((Q2(2)+S)/(Q2(3)+S))**2
+    A = [Q2(1), S, Q2(1)]
+    B = [Q2(1), S, Q2(2)]
+    one_plus_A = [Q2(2), S, Q2(1)]
+
+    D0 = psub(pscale(pmul(one_plus_A, B), r), pmul(A, A))
+    expected_D0 = pscale(
+        pmul([Q2(1), Q2(-2), Q2(1)],
+             [Q2(1)+2*S, Q2(2), Q2(1)+2*S]),
+        Q2(1)/den)
+    require(peq(D0, expected_D0), "profile D(0) factorization")
+
+    Dprime0 = psub(
+        pscale(padd(B, pscale(one_plus_A, Q2(3))), r),
+        pscale(A, Q2(2)))
+    expected_prime = pscale(
+        [Q2(10)+8*S, Q2(4)+S, 4*(Q2(1)+S)],
+        Q2(2)/den)
+    require(peq(Dprime0, expected_prime), "profile D'(0) factorization")
+
+    require(3*r-Q2(1) == Q2(F(5, 49), F(24, 49)),
+            "profile H^2 coefficient")
+    discr_D0 = Q2(4) - 4*(Q2(1)+2*S)**2
+    require(discr_D0.sign() < 0, "profile D(0) positive quadratic")
+    discr_prime = ((Q2(4)+S)**2
+                    - 16*(Q2(1)+S)*(Q2(10)+8*S))
+    require(discr_prime == Q2(-398)-280*S,
+            "profile D'(0) discriminant identity")
+    require(discr_prime.sign() < 0, "profile D'(0) positive quadratic")
+    print("Finite-band profile optimality certificate: EXACT PASS")
+
+
 def negative_controls():
     p = 17
     r2 = (Q2(p) + S*(p-1))/(p*p)
@@ -167,6 +228,7 @@ def negative_controls():
 
 def main():
     universal_gates()
+    profile_optimality_certificate()
     for p in range(10, 121):
         formulas(p)
     negative_controls()

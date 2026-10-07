@@ -1,0 +1,184 @@
+INDEPENDENT FULL-TARGET LEAN AUDIT
+7 October 2026
+
+VERDICT: PASS for the ORIGINAL all-real geometric MainTarget.
+No unresolved proof premise or mathematical construction gap was found.
+
+The exact submitted theorem ContinuumGeometric.geometric_main_target proves
+MainTarget unconditionally. It is a closed theorem with no universe parameters,
+context parameters, blocker hypothesis, probability assumption, or imported
+target axiom. Independent empty-context applications compile both its literal
+type and the complete original statement.
+
+This is an independent AI/model semantic review plus Lean kernel verification.
+It is not external professional-human mathematical peer review. The standard
+foundational and implementation trust in Lean remains; the audit goes beyond
+ordinary import checking by replaying every declaration in the actual main
+proof closure into a fresh, EMPTY trust-level-zero kernel environment.
+
+1. Exact theorem certified
+
+For every real epsilon with 0 < epsilon < 1, there exists ONE set E of REALS
+such that E is compact, E is contained in [0,1], and genuine Lebesgue
+volume(E) > 1-epsilon. That same E simultaneously satisfies:
+for every real a != 0, every real b, every real q with 0 < q < 1, and every
+natural N, there is a natural n >= N with a*q^n+b outside E.
+
+E is chosen before all sequence parameters and tails. The statement contains
+no rational restriction, finite sample substitution, exceptional set of centers,
+changed measure, or weakened order of quantifiers. The measure inequality is
+ENNReal.ofReal(1-epsilon) < volume E, with the standard Real.measureSpace.
+Real is Mathlib's Cauchy completion of rational sequences; the topology and
+arithmetic are the ordinary real instances. Independent interval-volume probes
+verify volume([u,v])=ENNReal.ofReal(v-u), including volume([0,1])=1.
+
+2. Input identity and source preservation
+
+Version: 3; modified 2026-10-07 14:17:43 UTC
+Filename: geometric-lean-first-chain.zip
+Size: 1,657,406 bytes
+SHA-256: 747386b02dbd12ae6f7b763d79fdb1e9bd70ca1e195e1b84d943cb0bcff82cb5
+
+The full submitted archive manifest was checked.
+All 16 modules of the independently reviewed version 2 are byte-identical.
+Target.lean also matches the original version 1 exactly:
+5ac9c8a13941c709116fca8cc31a56ae9c1a5c85de9eabdd4d868d3a5358af55.
+Only the relevant mathematical proof and public-clean evidence are included here.
+No submitted Lean source was changed.
+
+3. Fresh builds and pinned environment
+
+Lean 4.34.1, official commit 5045d0056413266e57c625dcd7c365b10e377c52.
+Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
+All nine package HEADs match the submitted lockfile, and tracked sources are
+clean. The Lean executable hash matches the earlier independently verified
+installation. Source and binary provenance are retained in evidence.
+
+All 45 owned specification/implementation modules plus the aggregate import
+module were rebuilt from their source into EMPTY independent output directories,
+once under ordinary Python and once under Python -O. All 46 resulting owned
+olean files and all 46 corresponding compiler logs are byte-identical.
+No delivered owned olean was trusted.
+
+Existing pinned official dependency caches were reused read-only via a verified
+symlink overlay. Only the missing official Mathlib.MeasureTheory.Function.Floor
+was source-built, into this audit's own overlay. No full cache was copied and
+no shared dependency output or frozen prior audit was edited. This does not
+claim a rebuild of all Mathlib. Instead, the actual main proof's complete
+stored dependency closure was independently kernel-replayed as described below.
+
+4. Actual declarations, proof graph, and axioms
+
+The inventory uses actual defining-module ownership, never namespace-prefix
+matching. It contains 1,164 owned declarations:
+  890 theorem/helper declarations
+  260 definitions, including nine compiler-only recursion implementations
+  4 inductives, 6 constructors, and 4 recursors
+
+The 454 public source theorems exactly match the declared public inventory and
+all 454 print-axioms probes. Twenty-five private/generated declarations lie
+outside the visible ContinuumGeometric name prefix and are still included.
+A deliberately injected target axiom outside the namespace is correctly rejected
+by the module-ownership guard; this adversary is isolated from the proof build.
+
+Nine automatically generated *_unsafe_rec implementations are marked partial
+by Lean's compiler. The submitted source has NO unsafe/partial declaration.
+Their ordinary defining functions have terminating kernel bodies (for example,
+preorderEdgeCount uses Nat.brecOn). The nine compiler implementations were
+inventoried rather than silently omitted. NONE occurs in the stored type/proof
+closure of ANY of the 1,155 safe owned declarations. Thus there is no
+unsafe/partial proof escape. They are not grounds for rejecting an otherwise
+kernel-checked terminating definition.
+
+The complete safe-owned graph contains 35,197 declarations. Each node records
+its actual defining module, kind, separate type/value references, and complete
+constant dependencies. Raw graph traversal and Lean's printed/exported axiom
+collector agree for every safe owned declaration and every public theorem.
+Independent Lean and Python traversals agree on the complete closure and
+owned closure of every one of the 454 public roots. The only axiom dependencies
+are propext, Classical.choice and Quot.sound.
+There is no sorryAx, added axiom, imported MainTarget assumption, native_decide,
+or custom elaborator/unsafe source escape.
+
+The actual geometric_main_target closure contains 34,771 declarations, including
+841 owned declarations and 380 of the 454 public roots. The complete closure,
+not an import graph or a claimed lemma list, is provided. Its declarations span
+1,298 defining modules. The complete safe-owned graph spans 1,301 modules across the owned project, Mathlib,
+Batteries and Init; their source and olean/private/server hashes are recorded.
+
+Most importantly, ReplayClosure.lean reconstructed the 34,771-declaration main
+closure and sent it to the official Lean kernel in a NEW EMPTY environment
+with trust level ZERO. Every declaration was accepted, and the resulting root
+again has exactly MainTarget as its type. This checks stored proof terms and
+referenced library declarations without relying merely on imported axiom-cache
+claims. Constructors and recursors are checked against kernel-generated ones.
+
+5. Mathematical construction audit
+
+The independent detailed review is evidence/SEMANTIC_REVIEW.txt; 53 precise
+source references are in SEMANTIC_SOURCE_REFERENCES.json. No gap was found.
+The essential connections, previously absent in version 2, are now proved:
+
+- Exact finite candidates retain original subsequence indices m*n, signed
+  coefficient shifts, strict activation endpoints, and the original tail N.
+- The actual complete M-ary tree includes default edges and complete subtrees.
+  Its preorder, predecessor bounds and grid refinement establish all-earlier
+  routing stability and exact own/terminal address separation.
+- Local signatures determine the real routing readout uniformly for EVERY
+  random table assignment. The continuum parameter count is connected to
+  actual local failure, with negative/zero/positive boundary strata preserved.
+- Finite product averaging proves the JOINT center-atom miss identity. It first
+  fixes all selectors, averages distinct terminal coordinates, then averages
+  distinct unexposed own bits. Shared auxiliary reads are allowed; zero-mass
+  atoms require no division. Actual atom partition/default-node selection
+  connects this identity to the global missed-center event.
+- The actual no-default probability is proved. The schedule chooses stride,
+  branching, depth and gap BEFORE the late position and logarithmic base length.
+  It retains the absolute-position entropy factor and the P=0 constant cost 500.
+- The actual routed set is a finite periodic grid. Measured double open buffers,
+  an actual small open periodic cover of the closed missed-center set, and
+  finite-sum Fubini select one finite outcome with density budget <=5p and
+  repair EVERY center to produce a blocker of density <6p.
+- MainProof takes p=delta/12 and proves SmallCompactBlockerSpec itself.
+  Countably summable budgets cover all K, integer scales, natural tails and both
+  signs. Their one common open periodic union has density <epsilon. Taking its
+  complement in [0,1] preserves compactness and STRICT volume >1-epsilon.
+
+Conditional helper interfaces are genuinely discharged in MainProof; they are
+not hidden assumptions of the final theorem. Retained OPEN/UNRESOLVED comments
+inside frozen or staged modules describe local/historical stages, not remaining
+premises of the final result. They may warrant editorial clarification only.
+
+6. Controls and independent arithmetic checks
+
+All 21 supplied positive probes compile. All 22 deliberately false controls
+fail for their intended mathematical diagnostics. Ordinary and Python -O
+results and log hashes are identical. Separate independent boundary theorems
+show why a != 0, q > 0 and q < 1 are necessary and why E cannot simply be [0,1].
+The outside-namespace axiom-injection control verifies ownership-based detection.
+
+A separately written exact integer/rational regression program passed
+1,176,885 checks, with byte-identical normal and -O reports. These stress the
+actual tree/preorder, predecessor bounds, local keys, selector-dependent
+terminal law, three hypothesis-drop counterexamples, readout/global-route
+connection, candidate/tail guards, no-default law, entropy constant and periodic
+wrap/buffer estimates. Runtime validation does not use removable assertions.
+These finite regressions support the audit; they do not replace the universal
+Lean proofs or the all-real mathematical semantic review.
+
+7. Release boundary
+
+An accurately scoped statement is:
+"The original all-real affine-geometric avoidance MainTarget is proved by a
+closed Lean theorem, independently rebuilt and checked through complete
+proof-closure replay, with an independent model-based semantic audit."
+
+Do NOT extend this PASS to the stronger continuum leading-exponent/nonlinear-
+remainder theorem, which remains a separate WRITTEN result. No claim about
+arbitrary C1 or flat germs, arbitrary slow remainders, or finite-sieve optimality
+is certified here. Novelty/priority and external human peer review remain
+separate. Large/noncomputable construction constants do not invalidate the
+existence theorem, but the audit does not provide practical numerical E data.
+
+This report records the independent audit at its conclusion. Public packaging
+and the separate release rebuild are documented in the release README.

@@ -20,6 +20,16 @@ proves all statements and covers zero residual and degenerate weights.
 [PDF](paper.pdf) · [Exact checker](checks/check_exact.py) ·
 [Lean scalar proofs](formal/QuarticCertificate.lean).
 
+Two additive continuations strengthen the asymptotic lower side. The
+[exact two-band family](../binary-tensor-two-band-lower-bound/README.md)
+gives the closed constant sqrt(2/7+sqrt(2)/14) = 0.6218758237... with a
+finite-order witness for every p >= 10. The
+[boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+then gives a general Gaussian/Fock profile theorem and raises the certified
+lower constant above 0.623586. The upper constant and sharp asymptotic value
+remain open. The statements and certificates in this parent note are
+preserved.
+
 No OpenAI theorem is used in these results. The qualitative odeco algebraic
 characterization has established prior literature; our scope is quantitative.
 The [preliminary literature comparison](../../research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md)
@@ -82,12 +92,16 @@ conjecture or award-level breakthrough is claimed.
 ## Two-band lower-bound strengthening
 
 The additive [two-band companion](../binary-tensor-two-band-lower-bound/README.md)
-raises the rigorous asymptotic lower constant from \(2^{-3/4}\) to
+gives the exact-family asymptotic constant
 \[
-\sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}=0.6218758237\ldots .
+\sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}=0.6218758237\ldots ,
 \]
-For every \(p\ge10\) it gives an explicit tensor with an exact projection
-maximum and exact complete-commutator Gram residual.  The proof is analytic
-and the standard-library Q(sqrt(2)) replay is diagnostic.  The exact leading
-constant, convergence of \(C_p/p^{1/4}\), and all-order extremizers remain
-open.
+strictly above the original \(2^{-3/4}\) family. For every \(p\ge10\) it
+gives an explicit tensor with an exact projection maximum and exact
+complete-commutator Gram residual. The proof is analytic and the
+standard-library Q(sqrt(2)) replay is diagnostic. The subsequent
+[boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+raises the current rigorous liminf lower bound above 0.623586 while
+containing this two-band construction at the asymptotic profile level. The
+exact leading constant, convergence of \(C_p/p^{1/4}\), and all-order
+extremizers remain open.

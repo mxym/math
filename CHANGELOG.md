@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-07 — full original geometric-avoidance Lean proof
+
+- Added the exact independently model-audited 184-file revision-2 source package for the closed original all-real affine-geometric MainTarget, with one common compact set, strict Lebesgue-measure bound and arbitrarily late escaping terms for every 0 < q < 1.
+- Published adjacent final-copy audit evidence and a deterministic source archive. The final independent replay rebuilt 46 modules, checked 454 public roots, and replayed the 34,771-declaration main closure in an empty trust-level-zero official Lean kernel. All 21 positive, 22 intended negative and 1,176,885 exact arithmetic controls passed, with 136 packaging-guard outcomes. Integration independently repeats source-integrity, packaging and deterministic-archive checks.
+- Preserved the entire historical 101-export checkpoint and all unrelated repository files. The [release manifest](releases/2026-10-07-geometric-avoidance-v2.json) binds the source, audit evidence and additive navigation. No stronger nonlinear-remainder proof, new installed workflow, blanket license, personal-author assignment, online-bootstrap validation, remote-CI success, novelty or human peer-review claim is included.
+
+## 2026-10-07 — boundary-profile binary tensor rigidity
+
+- Proved a general finite boundary-profile limit theorem for the sharp binary complete-commutator constants, reducing every fixed reflected edge profile to an explicit Gaussian/Fock variational quotient.
+- Certified the rational three-term profile a0=1, a1=4627/3125, a2=-58 sqrt(2)/125 and obtained liminf C_p/p^(1/4) > 0.623586.
+- Reconciled the concurrently published exact two-band family: its asymptotic profile is contained in the new framework, its closed constant 0.6218758237... is strictly smaller by an exact rational-squaring check, while its all-p>=10 finite closed formulas remain a distinct strength.
+- After the concurrent note proved that same constant optimal for fixed-width palindromic profiles with axis-local projection maxima, certified that the new profile violates the necessary condition exactly: gamma1^2 + sqrt(2) gamma2 = 12346629/9765625 > 1. Thus the stronger bound is an explicit off-axis mechanism, not a contradiction of the subclass optimality theorem.
+- Added two separately implemented exact rational checkers using different exponential majorants, frozen reports, a proof audit, and ordinary/optimized replay. Numerical finite-order optimization is diagnostic only; no novelty, human peer-review or whole-paper formalization claim is made.
+
 ## 2026-10-07 — binary T5 limit interval
 
 - Strengthened entry 005's inherited binary T5 recursion from the previous one-sided endpoint to the certified two-sided interval 2.853465550695797 < Lambda_(2,5) < 2.853465550704.
