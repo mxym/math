@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "frozen_stage_unchanged": true,
+  "scope": "Fresh package integrity, finite checker replay, extracted-archive replay and deterministic source-archive regeneration only. No new analytic audit, PDF rebuild or Lean compilation.",
+  "checks": [
+    {
+      "package": "polynomial",
+      "check": "verify.py",
+      "optimized_parent": false,
+      "returncode": 0,
+      "log_sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "status": "PASS"
+    },
+    {
+      "package": "polynomial",
+      "check": "verify.py",
+      "optimized_parent": true,
+      "returncode": 0,
+      "log_sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "status": "PASS"
+    },
+    {
+      "package": "polynomial",
+      "check": "verify.py --extracted",
+      "optimized_parent": false,
+      "returncode": 0,
+      "log_sha256": "56fe2fa3dcf7bbfb268c1430e194898804ed70e01b2c7ff87000553ea94d9335",
+      "status": "PASS"
+    },
+    {
+      "package": "polynomial",
+      "check": "verify.py --extracted",
+      "optimized_parent": true,
+      "returncode": 0,
+      "log_sha256": "56fe2fa3dcf7bbfb268c1430e194898804ed70e01b2c7ff87000553ea94d9335",
+      "status": "PASS"
+    },
+    {
+      "package": "polynomial",
+      "check": "archive inventory and deterministic regeneration",
+      "archive_members": 34,
+      "archive_sha256": "4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a",
+      "status": "PASS"
+    },
+    {
+      "package": "quadratic",
+      "check": "verify.py",
+      "optimized_parent": false,
+      "returncode": 0,
+      "log_sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da",
+      "status": "PASS"
+    },
+    {
+      "package": "quadratic",
+      "check": "verify.py",
+      "optimized_parent": true,
+      "returncode": 0,
+      "log_sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da",
+      "status": "PASS"
+    },
+    {
+      "package": "quadratic",
+      "check": "verify.py --extracted",
+      "optimized_parent": false,
+      "returncode": 0,
+      "log_sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f",
+      "status": "PASS"
+    },
+    {
+      "package": "quadratic",
+      "check": "verify.py --extracted",
+      "optimized_parent": true,
+      "returncode": 0,
+      "log_sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f",
+      "status": "PASS"
+    },
+    {
+      "package": "quadratic",
+      "check": "archive inventory and deterministic regeneration",
+      "archive_members": 39,
+      "archive_sha256": "d79b07df28ad259f6f02c396335a69a9a3bff98b0a98dfd17d89e5199d4b980d",
+      "status": "PASS"
+    }
+  ]
+}

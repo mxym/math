@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — dimension refinements of sharp simplex stability
+
+- Published the exact 40-file quadratic-dimensional written refinement, with coefficient at most 4096 d², as the strongest dimension bound in this repository. The sharp 1/(d−1) exponent, every prescribed maximum simplex and its original centroid remain unchanged.
+- Preserved the exact 35-file 2^20 d^6 companion method, including its 11-page PDF, shared weighted-anchor argument and linear lower obstruction. These are stages of the same entry-005 refinement; optimal dimension order remains unresolved.
+- Included independent model-conducted final-copy evidence, frozen deterministic source archives, fresh normal/optimized finite and integrity replay, and a [changed-file manifest](releases/2026-10-07-dimension-refinements-v1.json). No full Lean, human peer-review, novelty or priority claim is made. All unrelated historical bytes and Git modes are preserved.
+
 ## 2026-10-07 — additive 101-export Lean checkpoint
 
 - Added seven finite stochastic-matrix exports and 26 projection-cap/constant exports to the preserved 68-export project. All original theorem signatures, logical axiom sets, protected proof/pin/source bytes and prior compiler declarations are preserved.

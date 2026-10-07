@@ -1,0 +1,578 @@
+{
+  "schema": "quadratic-final-copy-audit-evidence-v1",
+  "date": "2026-10-07",
+  "verdict": "PASS",
+  "required_fixes": [],
+  "release_root": "notes/quadratic-dimensional-simplex-stability/",
+  "release_files": 40,
+  "manifest_files": 37,
+  "source_zip_entries": 39,
+  "release_identity": {
+    "source_zip": {
+      "bytes": 342836,
+      "sha256": "d79b07df28ad259f6f02c396335a69a9a3bff98b0a98dfd17d89e5199d4b980d"
+    },
+    "manifest": {
+      "bytes": 6227,
+      "sha256": "f84d3d1989c39333159f99d8fa22a7e2e58385f6bc4911f13d4e815bc867e486"
+    },
+    "checksums": {
+      "bytes": 3605,
+      "sha256": "ea714e1b27b27d264740149db32fd052c443a73303536e626bba634f56b78115"
+    },
+    "transport_zip": {
+      "bytes": 689448,
+      "sha256": "1b9f50f00fbc529fd4b47f96be91cc3e1184dc67869e7698943fec2182661a19"
+    }
+  },
+  "source_fidelity": {
+    "basis_archive_bytes": 119723,
+    "basis_archive_members": 35,
+    "basis_archive_sha256": "e4692f094731baa994ae10a2d81bc0b50334ed65bb5e5f676c3e48d5b21fe978",
+    "all_basis_members_match": true,
+    "ordered_edits": 36,
+    "line_segments": 64,
+    "derivative_files": 7,
+    "unchanged_file_records": 18,
+    "public_source_pins": 13,
+    "original_audit_source_mappings": 11,
+    "ledger_verified": true
+  },
+  "independent_integrity": [
+    {
+      "check": "exact frozen source, transport and basis archive identities",
+      "status": "PASS"
+    },
+    {
+      "check": "independent inventory, exact checksum coverage, archive safety and all archived bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "independent deterministic source and transport archive reconstruction, without importing release packager",
+      "status": "PASS"
+    },
+    {
+      "check": "hostile controls, each normal and -O",
+      "status": "PASS",
+      "controls": 30,
+      "executions": 60,
+      "regenerated_manifest_controls": 19
+    },
+    {
+      "check": "frozen public tree unchanged after all tests",
+      "status": "PASS"
+    }
+  ],
+  "regression_replays": [
+    {
+      "name": "verify_normal",
+      "command": "python verify.py",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da"
+    },
+    {
+      "name": "verify_optimized",
+      "command": "python -O verify.py",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da"
+    },
+    {
+      "name": "verify_optimized_env",
+      "command": "python -O verify.py",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da"
+    },
+    {
+      "name": "extracted_integrity_normal",
+      "command": "python check_package.py --extracted",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "5d24809d04c7874e3283289f8a29d2dd8a20508b5f94af76a53994e188140a33"
+    },
+    {
+      "name": "extracted_verify_normal",
+      "command": "python verify.py --extracted",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f"
+    },
+    {
+      "name": "extracted_integrity_optimized",
+      "command": "python -O check_package.py --extracted",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "5d24809d04c7874e3283289f8a29d2dd8a20508b5f94af76a53994e188140a33"
+    },
+    {
+      "name": "extracted_verify_optimized",
+      "command": "python -O verify.py --extracted",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f"
+    },
+    {
+      "name": "regenerate_package",
+      "command": "python make_package.py",
+      "returncode": 0,
+      "status": "PASS",
+      "output_sha256": "b9feeb8fac1cbac5592216fe68a2de0de84e4b0b9a67166f5bcd11fb8fb2f210"
+    },
+    {
+      "name": "supplied packager reproduction",
+      "status": "PASS",
+      "byte_identical": true,
+      "sha256": "d79b07df28ad259f6f02c396335a69a9a3bff98b0a98dfd17d89e5199d4b980d"
+    }
+  ],
+  "regression_outputs": {
+    "schema": "quadratic-stability-replay-v1",
+    "status": "PASS",
+    "checks": [
+      {
+        "script": "check_weighted_anchors.py",
+        "status": "PASS",
+        "assertions": "enabled in isolated unoptimized child",
+        "stdout_sha256": "6e9e56e0971d32c8fc9f665b59c1874c11d543f1ff30a5e58322ac3cc8419cdb"
+      },
+      {
+        "script": "check_constants.py",
+        "status": "PASS",
+        "assertions": "enabled in isolated unoptimized child",
+        "stdout_sha256": "ed35c9baa2bc353dcdd2a2dc6f9e87a3f7db7bde39436e49b68472cb44c9be26"
+      },
+      {
+        "script": "check_independent_refinement_audit.py",
+        "status": "PASS",
+        "assertions": "enabled in isolated unoptimized child",
+        "stdout_sha256": "a1cb69e1930ea829771a8292ec7501e7140a73b8930f51abd7708f07867fc6a5"
+      },
+      {
+        "script": "check_quadratic_constants.py",
+        "status": "PASS",
+        "assertions": "enabled in isolated unoptimized child",
+        "stdout_sha256": "0ecf3bbe2f38a70135e5d2cee08087d9186872a19327a1e48f9fca7adbdb5048"
+      },
+      {
+        "script": "check_independent_quadratic_audit.py",
+        "status": "PASS",
+        "assertions": "enabled in isolated unoptimized child",
+        "stdout_sha256": "fa504e43555903fca88891dde66d44865bb285940024e3fc115805e5e173e82f"
+      }
+    ],
+    "scope": "Finite arithmetic/normalization checks supplement the written analytic proof; they do not establish the universal theorem."
+  },
+  "hostile_controls": [
+    {
+      "case": "changed pinned dependency: QUADRATIC_DIMENSION_THEOREM.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Frozen public proof differs: QUADRATIC_DIMENSION_THEOREM.md",
+      "optimized_rejection": "RuntimeError: Frozen public proof differs: QUADRATIC_DIMENSION_THEOREM.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: INTRINSIC_NORM_CONVERSION.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Frozen public proof differs: INTRINSIC_NORM_CONVERSION.md",
+      "optimized_rejection": "RuntimeError: Frozen public proof differs: INTRINSIC_NORM_CONVERSION.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Frozen public proof differs: intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md",
+      "optimized_rejection": "RuntimeError: Frozen public proof differs: intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: imports/POLYNOMIAL_REFINEMENT.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Derivative mismatch: imports/POLYNOMIAL_REFINEMENT.md",
+      "optimized_rejection": "RuntimeError: Derivative mismatch: imports/POLYNOMIAL_REFINEMENT.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: imports/weighted_anchors.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Derivative mismatch: imports/weighted_anchors.md",
+      "optimized_rejection": "RuntimeError: Derivative mismatch: imports/weighted_anchors.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/HISTORICAL_SOURCE_PINS.json",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/HISTORICAL_SOURCE_PINS.json",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/HISTORICAL_SOURCE_PINS.json",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/sharp-simplex-proof.tex",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/sharp-simplex-proof.tex",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/sharp-simplex-proof.tex",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/entry005-v3.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/entry005-v3.md",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/entry005-v3.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/released-explicit-modulus.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/released-explicit-modulus.md",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/released-explicit-modulus.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/truncation-proof.tex",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/truncation-proof.tex",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/truncation-proof.tex",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: imports/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: imports/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: imports/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/UPSTREAM_NOTICE.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/UPSTREAM_NOTICE.md",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/UPSTREAM_NOTICE.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed pinned dependency: sources/openai_math_LICENSE.txt",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: sources/openai_math_LICENSE.txt",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: sources/openai_math_LICENSE.txt",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: INDEPENDENT_QUADRATIC_AUDIT.md",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Derivative mismatch: INDEPENDENT_QUADRATIC_AUDIT.md",
+      "optimized_rejection": "RuntimeError: Derivative mismatch: INDEPENDENT_QUADRATIC_AUDIT.md",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: check_independent_quadratic_audit.py",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Derivative mismatch: check_independent_quadratic_audit.py",
+      "optimized_rejection": "RuntimeError: Derivative mismatch: check_independent_quadratic_audit.py",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: check_constants.py",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: check_constants.py",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: check_constants.py",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: check_weighted_anchors.py",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: check_weighted_anchors.py",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: check_weighted_anchors.py",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: check_independent_refinement_audit.py",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: check_independent_refinement_audit.py",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: check_independent_refinement_audit.py",
+      "status": "PASS"
+    },
+    {
+      "case": "changed audit or regression: check_quadratic_constants.py",
+      "legitimate_package_regeneration_before_check": true,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unchanged source mismatch: check_quadratic_constants.py",
+      "optimized_rejection": "RuntimeError: Unchanged source mismatch: check_quadratic_constants.py",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate checksum",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Checksum list is incomplete, duplicated, reordered, or mismatched",
+      "optimized_rejection": "RuntimeError: Checksum list is incomplete, duplicated, reordered, or mismatched",
+      "status": "PASS"
+    },
+    {
+      "case": "missing checksum",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Checksum list is incomplete, duplicated, reordered, or mismatched",
+      "optimized_rejection": "RuntimeError: Checksum list is incomplete, duplicated, reordered, or mismatched",
+      "status": "PASS"
+    },
+    {
+      "case": "unlisted root file",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unlisted file: extra.txt",
+      "optimized_rejection": "RuntimeError: Unlisted file: extra.txt",
+      "status": "PASS"
+    },
+    {
+      "case": "unlisted cache file",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Unlisted file: __pycache__/hidden.py",
+      "optimized_rejection": "RuntimeError: Unlisted file: __pycache__/hidden.py",
+      "status": "PASS"
+    },
+    {
+      "case": "payload file symlink",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Symlink prohibited: sources/entry005-v3.md",
+      "optimized_rejection": "RuntimeError: Symlink prohibited: sources/entry005-v3.md",
+      "status": "PASS"
+    },
+    {
+      "case": "results directory symlink",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Symlink prohibited: results",
+      "optimized_rejection": "RuntimeError: Symlink prohibited: results",
+      "status": "PASS"
+    },
+    {
+      "case": "deleted proof",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Missing file or symlink: INTRINSIC_NORM_CONVERSION.md",
+      "optimized_rejection": "RuntimeError: Missing file or symlink: INTRINSIC_NORM_CONVERSION.md",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate manifest enumeration",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "optimized_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "status": "PASS"
+    },
+    {
+      "case": "missing manifest enumeration",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "optimized_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "status": "PASS"
+    },
+    {
+      "case": "reorder manifest enumeration",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "optimized_rejection": "RuntimeError: Manifest enumeration differs from fixed payload",
+      "status": "PASS"
+    },
+    {
+      "case": "malicious archive enumeration",
+      "legitimate_package_regeneration_before_check": false,
+      "normal_returncode": 1,
+      "optimized_returncode": 1,
+      "normal_rejection": "RuntimeError: Archive differs from deterministic payload",
+      "optimized_rejection": "RuntimeError: Archive differs from deterministic payload",
+      "status": "PASS"
+    }
+  ],
+  "public_commit_source_verification": [
+    {
+      "path": "sources/sharp-simplex-proof.tex",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/notes/sharp-simplex-stability/proof.tex",
+      "bytes": 22992,
+      "sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/entry005-v3.md",
+      "url": "https://github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum/v3/paper.md",
+      "bytes": 29756,
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/released-explicit-modulus.md",
+      "url": "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/quantitative-projection-simplex-stability/paper.md",
+      "bytes": 20103,
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/truncation-proof.tex",
+      "url": "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/simplex-truncation-stability/proof.tex",
+      "bytes": 21403,
+      "sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/UPSTREAM_NOTICE.md",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/openai_math_LICENSE.txt",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/third_party_licenses/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "status": "PASS"
+    }
+  ],
+  "actual_polynomial_sibling_comparison": [
+    {
+      "quadratic_path": "imports/POLYNOMIAL_REFINEMENT.md",
+      "polynomial_path": "POLYNOMIAL_REFINEMENT.md",
+      "polynomial_bytes": 16680,
+      "polynomial_sha256": "2b398cba3afd73819dbf90d5106e64be64ba06a07f9e42d23f4c2037ff5cd791",
+      "quadratic_sha256": "fa920be0d844f3fefd779103d8f204f4041dd815e6e20cbcd84a0ad812da2a63",
+      "byte_identical": false,
+      "mathematical_content_equal": true,
+      "changes": "Contextual wording and release-relative links only"
+    },
+    {
+      "quadratic_path": "imports/weighted_anchors.md",
+      "polynomial_path": "weighted_anchors.md",
+      "polynomial_bytes": 21313,
+      "polynomial_sha256": "76af987c3e66b749ff9238c78e040ef91d6f17406753b4bfeca1cb3bc81ba3dd",
+      "quadratic_sha256": "b7d75699d80daf2e11d539dd43cc59a3278a58c93a51cca0b22741c14f0587ac",
+      "byte_identical": false,
+      "mathematical_content_equal": true,
+      "changes": "Contextual wording and release-relative links only"
+    },
+    {
+      "quadratic_path": "imports/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "polynomial_path": "SQUARE_PYRAMID_LOWER_BOUND.md",
+      "polynomial_bytes": 3759,
+      "polynomial_sha256": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e",
+      "quadratic_sha256": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e",
+      "byte_identical": true,
+      "mathematical_content_equal": true,
+      "changes": "None"
+    },
+    {
+      "quadratic_path": "sources/entry005-v3.md",
+      "polynomial_path": "sources/entry005-v3.md",
+      "polynomial_bytes": 29756,
+      "polynomial_sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "quadratic_sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "byte_identical": true,
+      "mathematical_content_equal": true,
+      "changes": "None"
+    },
+    {
+      "quadratic_path": "sources/sharp-simplex-proof.tex",
+      "polynomial_path": "sources/sharp-simplex-proof.tex",
+      "polynomial_bytes": 22992,
+      "polynomial_sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "quadratic_sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "byte_identical": true,
+      "mathematical_content_equal": true,
+      "changes": "None"
+    },
+    {
+      "quadratic_path": "sources/truncation-proof.tex",
+      "polynomial_path": "sources/truncation-proof.tex",
+      "polynomial_bytes": 21403,
+      "polynomial_sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "quadratic_sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "byte_identical": true,
+      "mathematical_content_equal": true,
+      "changes": "None"
+    },
+    {
+      "quadratic_path": "sources/released-explicit-modulus.md",
+      "polynomial_path": "sources/released-explicit-modulus.md",
+      "polynomial_bytes": 20103,
+      "polynomial_sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "quadratic_sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "byte_identical": true,
+      "mathematical_content_equal": true,
+      "changes": "None"
+    }
+  ],
+  "new_release_links_checked": 41,
+  "new_release_links_resolve": true,
+  "disclosed_historical_context_links": [
+    {
+      "file": "sources/entry005-v3.md",
+      "target": "../v2/paper.md",
+      "exists": false
+    },
+    {
+      "file": "sources/entry005-v3.md",
+      "target": "../v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md",
+      "exists": false
+    }
+  ],
+  "frozen_sources_unchanged": true,
+  "review_limits": [
+    "Independent analytic model audit",
+    "No human peer review or proof-assistant verification",
+    "Finite checks do not establish universal theorem",
+    "No novelty or optimal-dimension claim",
+    "No separate construction or open-route audit"
+  ],
+  "evidence_format": "Newly authored release-relative factual summary; execution paths and raw traceback frames are not reproduced."
+}

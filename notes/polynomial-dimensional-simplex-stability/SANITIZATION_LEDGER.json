@@ -1,0 +1,136 @@
+{
+  "schema": "public-sanitization-ledger-v1",
+  "date": "2026-10-07",
+  "basis_manifest_sha256": "8fdac6d99df6f57a97552998fb6a4415306ac1ce196c01935a72e1bd08ee5da0",
+  "basis_archive_sha256": "e6e4af35a09d55c35cca98610d25d76d4d3a967fd7cd437ff072a637e6077379",
+  "unchanged_files": [
+    {
+      "path": "POLYNOMIAL_REFINEMENT.md",
+      "sha256": "2b398cba3afd73819dbf90d5106e64be64ba06a07f9e42d23f4c2037ff5cd791"
+    },
+    {
+      "path": "SQUARE_PYRAMID_LOWER_BOUND.md",
+      "sha256": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e"
+    },
+    {
+      "path": "check_constants.py",
+      "sha256": "7162b2270f611e8ce2225a77210c194b3feb63bf546fe0cf9448e3005d4399bd"
+    },
+    {
+      "path": "check_weighted_anchors.py",
+      "sha256": "701b924efa85be95791f4a0ca81ca35110ff32f94b4a2f85e2be9ea9ace6c44f"
+    },
+    {
+      "path": "check_independent_refinement_audit.py",
+      "sha256": "ea28f927e6886825eeef99fe5d5e9e816ad8e06d7641aefc9b10fd63677f9c58"
+    }
+  ],
+  "audited_main_core": {
+    "start_inclusive": "## 1.",
+    "end_exclusive": "## 9.",
+    "sha256": "94c4e777b0000e5e33e024d59c47e258594fbfacc554e4faa91f8b5264c503f5"
+  },
+  "mapping_convention": "Source locations are recorded by sequential source line and exact fragment hashes. Prior private locators are intentionally not reproduced; their replacements and exact original file hashes make the public derivation explicit without disclosing workspace paths. Each line number is evaluated after earlier listed edits.",
+  "derivatives": [
+    {
+      "path": "weighted_anchors.md",
+      "before_sha256": "4378ebfb1438fe10fe45bc24fbafffff73b5f7f6419ed5b4b8bd8653ec5af538",
+      "after_sha256": "76af987c3e66b749ff9238c78e040ef91d6f17406753b4bfeca1cb3bc81ba3dd",
+      "mathematical_changes": "None. Only three source/scope prose replacements.",
+      "edits": [
+        {
+          "id": "anchor-main-reference",
+          "source_line_1based": 331,
+          "before_fragment_sha256": "561c8add5b41f5f107d430f43c78b73115602e5cb0fd72fc7773986c47f45a8e",
+          "after_fragment_sha256": "899a3b5899fee975770a9886e3300f48adc2dac8f9886d0872fd10a87a20169a",
+          "replacement": "The main proof, POLYNOMIAL_REFINEMENT.md, assembles the remaining endpoint conversion and its explicit polynomial global constant."
+        },
+        {
+          "id": "anchor-sharp-source-reference",
+          "source_line_1based": 517,
+          "before_fragment_sha256": "9fc12d2897ab832010eb2ae41e529a5015551e6eb9249982cc6ff962e73dee6e",
+          "after_fragment_sha256": "5d5e6a31b2d571d140af69b9c75593486551e39fd54cd6598c998dd192456bae",
+          "replacement": "[sources/sharp-simplex-proof.tex](sources/sharp-simplex-proof.tex), pinned in SOURCE_PINS.json"
+        },
+        {
+          "id": "anchor-scope-prose",
+          "source_line_1based": 519,
+          "before_fragment_sha256": "aa1a6ffe1894ea0d0b3ce118e46a26fa3cf6a429bf1f5eba81e11d9e50799e00",
+          "after_fragment_sha256": "e38f5043c965ba5583c22fcbd304efa3c60d9a8f9ba3fec00d8e99c86969b47e",
+          "replacement": "No external stability theorem is used in this argument."
+        }
+      ]
+    },
+    {
+      "path": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "before_sha256": "387bbad70fa80ad3f949bead3d770b0ad72b83b257d7b63086c24c79729ec503",
+      "after_sha256": "05ec04f17a2fe58c582edcadb83201bb021b1ec162938b458095d641bb277370",
+      "mathematical_changes": "No change to the main theorem or square-pyramid audit. One paragraph about a broader construction class is explicitly omitted as outside the release scope.",
+      "edits": [
+        {
+          "id": "audit-derivative-disclosure",
+          "source_line_1based": 3,
+          "before_fragment_sha256": "43f867ade2a0fe666bf61b88db1bb1c00c715bc402d8322f6a9c84a89fec98a1",
+          "after_fragment_sha256": "4323a58355a506d19e78b0867e2ddad96d0d11ba4d32e2a455f72b8a252840f8",
+          "replacement": "Date: 7 October 2026.\n\nPublic derivative of the independent analytic model audit. Source locators have been mapped to the exact local public-source copies, and discussion of a broader construction class outside this supplement has been omitted. The upper-bound analysis in Sections 1–7 and the square-pyramid calculation in Section 8 are unchanged. See SANITIZATION_LEDGER.json for the source hash and each editorial operation.\n"
+        },
+        {
+          "id": "audit-lower-source-reference",
+          "source_line_1based": 29,
+          "before_fragment_sha256": "6112ddb03438e8e69024278c8883d029294fc0601d1055f6f0b11bc5d2e67be7",
+          "after_fragment_sha256": "3c4b69fab156de344417b823b21a52bf7249d4b078e9d0181473d06750d4b202",
+          "replacement": "- The square-pyramid construction, reproduced in `SQUARE_PYRAMID_LOWER_BOUND.md`; the broader construction-class discussion is outside this supplement"
+        },
+        {
+          "id": "audit-sharp-source-reference",
+          "source_line_1based": 33,
+          "before_fragment_sha256": "0e80ff4da6bb87715f087abea8b83c661d7d71bb64df5b30b8605976f15f8e15",
+          "after_fragment_sha256": "dc8c46e8b01568d26c364cd8b6c6c5a6fe31d2ca02dca28e141a1f49cf380061",
+          "replacement": "[sources/sharp-simplex-proof.tex](sources/sharp-simplex-proof.tex)"
+        },
+        {
+          "id": "audit-v3-reference",
+          "source_line_1based": 34,
+          "before_fragment_sha256": "0c08c503f4aa390f093ed968410b92995b3b5ae9f4fb30a2553a00701e0394ef",
+          "after_fragment_sha256": "f53d108604c90e6e8e298b4dac8f9c6de3164b1eeb563d3b65ade27e422d11bb",
+          "replacement": "- The pinned [sources/entry005-v3.md](sources/entry005-v3.md)"
+        },
+        {
+          "id": "audit-v2-reference",
+          "source_line_1based": 35,
+          "before_fragment_sha256": "ec50d383ac8eeb27e51d196807deee3e9b6dd173c9f38b0ed15c27bab61c8419",
+          "after_fragment_sha256": "4311ce7b4c17c6478d9e4addc79e6e392baa1450a41346dd959fdfcdcfd26ff6",
+          "replacement": "[sources/entry005-v2.md](sources/entry005-v2.md)"
+        },
+        {
+          "id": "audit-scope-prose",
+          "source_line_1based": 41,
+          "before_fragment_sha256": "97ba72317c4160c04b0d54fcc0f931cb01da7e5e1288311dbaa5c74952315712",
+          "after_fragment_sha256": "785255bc0af17cc389f6a45bec101a77ea2cf09bcbaac8c4504f3c799f0fae7c",
+          "replacement": "The audit made no changes to the source proofs. Its independent regression script and recorded output are included below. Separate anisotropic and simultaneous-truncation research is not part of this supplement and is not a dependency of the polynomial theorem."
+        },
+        {
+          "id": "audit-excluded-construction-class",
+          "source_line_1based": 208,
+          "before_fragment_sha256": "1619b943a460f1f6eef2f92e913acadeba4dd40d42b6094e050c6953bddf320c",
+          "after_fragment_sha256": "4a973a4dd6a53c3626a60c3e9b0d55e4d99a3f276d62432a9cd673189678aa13",
+          "replacement": "[Editorial omission: the broader construction-class discussion is outside the scope of this supplement.]\n\n"
+        },
+        {
+          "id": "audit-check-log-reference",
+          "source_line_1based": 215,
+          "before_fragment_sha256": "e3b96bf81d8a52686ffb081be2490cae2b1f86a3cedfc2f314ab9615b7ac3256",
+          "after_fragment_sha256": "bee6414d2f3318392a2554fd755ff7a914b872197bbeb4be99b92c5078522e2d",
+          "replacement": "- `verification/check_independent_refinement_audit.log`"
+        },
+        {
+          "id": "audit-historical-source-scope",
+          "source_line_1based": 233,
+          "before_fragment_sha256": "97fee896ad171b7e1cd8b5a2616c4c06fcefd6c2626cb50b174462247b215ceb",
+          "after_fragment_sha256": "bb8991239f7d11d61c98032580dc332cf1eccaaafe5c1379f73a6d0b685a3fe4",
+          "replacement": "5. The refinement is separate from the earlier sharp-exponent proof, which is preserved unchanged as a pinned source."
+        }
+      ]
+    }
+  ]
+}
