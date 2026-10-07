@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — binary T5 limit interval
+
+- Strengthened entry 005's inherited binary T5 recursion from the previous one-sided endpoint to the certified two-sided interval 2.853465550695797 < Lambda_(2,5) < 2.853465550704.
+- Retained the Robbins exponential correction, used rigorous Machin/Taylor bounds on both sides, and reduced the endpoints to exact integer comparisons after reconstructing R_7.
+- Added a standard-library checker passing ordinary and optimized Python. The result fixes the rate of this particular recursive construction to an interval of width below 8.3e-12; it does not prove global optimality in the product/join class or alter the positive-sextic Bellman upper theorem.
+
 ## 2026-10-07 — source-overlap and target-tail synthesis
 
 - Added the exact independently model-audited 108-file synthesis package: six-page written proof, editable source, 57 byte-exact historical dependencies, proof reconstruction, finite regression controls and deterministic source archive.
