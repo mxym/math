@@ -37,6 +37,10 @@ num = 2*S-profile_upper
 checks["positive_distance_limit_lower"] = num > 0
 checks["target_bound"] = num*num > 16*target**4*S*M1
 checks["old_constant_improved"] = target**4 > Fraction(1, 8)
+delta_two_band = target*target - Fraction(2, 7)
+checks["concurrent_two_band_improved"] = (
+    delta_two_band > 0 and delta_two_band*delta_two_band > Fraction(1, 98)
+)
 
 if not all(checks.values()):
     raise SystemExit("FAILED: " + ", ".join(k for k,v in checks.items() if not v))

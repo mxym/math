@@ -187,9 +187,10 @@ The [boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidit
 turns every fixed finite edge-coefficient profile into an explicit
 Gaussian/Fock variational lower bound for the sharp binary tensor constants.
 An exact three-term profile proves
-liminf C_p / p^(1/4) > 0.623586, improving the preceding
-2^(-3/4) lower constant while leaving the current 2^(-1/2) upper
-constant open. The analytic profile limit has a complete written proof; two
+liminf C_p / p^(1/4) > 0.623586, improving both the original
+2^(-3/4) lower constant and the concurrently published exact two-band
+constant sqrt(2/7+sqrt(2)/14) = 0.6218758237... while leaving the current
+2^(-1/2) upper constant open. The analytic profile limit has a complete written proof; two
 standard-library exact implementations certify the displayed rational
 corollary in ordinary and optimized Python. No priority or external
 peer-review claim is made.

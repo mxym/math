@@ -150,5 +150,6 @@ Both frozen packages passed independent model-conducted analytic and final-copy 
 The [boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
 proves a finite-profile Gaussian/Fock asymptotic formula and improves the
 binary leading-constant lower bound to
-liminf C_p / p^(1/4) > 0.623586. Two exact rational checkers certify the
+liminf C_p / p^(1/4) > 0.623586, strictly above the concurrent exact
+two-band constant 0.6218758237.... Two exact rational checkers certify the
 explicit three-term profile. The sharp leading constant remains open.

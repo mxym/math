@@ -20,11 +20,15 @@ proves all statements and covers zero residual and degenerate weights.
 [PDF](paper.pdf) · [Exact checker](checks/check_exact.py) ·
 [Lean scalar proofs](formal/QuarticCertificate.lean).
 
-An [additive boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
-subsequently improves this note's asymptotic lower constant from
-2^(-3/4) to a certified value above 0.623586; the upper constant and the
-sharp asymptotic value remain open. The statements and certificates in this
-parent note are preserved.
+Two additive continuations strengthen the asymptotic lower side. The
+[exact two-band family](../binary-tensor-two-band-lower-bound/README.md)
+gives the closed constant sqrt(2/7+sqrt(2)/14) = 0.6218758237... with a
+finite-order witness for every p >= 10. The
+[boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+then gives a general Gaussian/Fock profile theorem and raises the certified
+lower constant above 0.623586. The upper constant and sharp asymptotic value
+remain open. The statements and certificates in this parent note are
+preserved.
 
 No OpenAI theorem is used in these results. The qualitative odeco algebraic
 characterization has established prior literature; our scope is quantitative.

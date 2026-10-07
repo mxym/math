@@ -25,8 +25,12 @@ An exact three-term profile then proves
 \liminf_{p\to\infty}\frac{C_p}{p^{1/4}}>0.623586,
 \]
 
-improving the parent note's \(2^{-3/4}=0.59460\ldots\) lower constant. The
-upper constant \(2^{-1/2}\) remains unchanged.
+improving the parent note's \(2^{-3/4}=0.59460\ldots\) lower constant and
+the concurrently published exact two-band constant
+\(\sqrt{2/7+\sqrt2/14}=0.6218758237\ldots\). The concurrent note retains
+the stronger finite-order feature of an exact closed witness for every
+\(p\ge10\); this note supplies the more general asymptotic profile theorem.
+The upper constant \(2^{-1/2}\) remains unchanged.
 
 Complete proof: paper.md
 

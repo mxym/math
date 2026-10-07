@@ -56,6 +56,10 @@ checks["numerator_positive"] = numerator_lower > 0
 margin = numerator_lower*numerator_lower - 16*c**4*S*M1
 checks["constant_bound"] = margin > 0
 checks["strictly_improves_old_constant"] = c**4 > Fraction(1, 8)
+two_band_delta = c*c - Fraction(2, 7)
+checks["strictly_improves_concurrent_two_band"] = (
+    two_band_delta > 0 and two_band_delta*two_band_delta > Fraction(1, 98)
+)
 
 if not all(checks.values()):
     failed = [k for k, v in checks.items() if not v]
