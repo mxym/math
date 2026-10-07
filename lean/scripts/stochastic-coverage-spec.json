@@ -1,0 +1,44 @@
+{
+  "Mxym.StochasticRigidity.abs_det_le_column_l1_product": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "necessary algebraic helper",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix A. No nonempty/cardinality premise. No stochastic or sign assumptions.",
+    "description": "The absolute determinant is bounded by the product of column l1 norms, proved by the full Leibniz expansion and finite function-product identity."
+  },
+  "Mxym.StochasticRigidity.abs_det_le_column_max": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "necessary stochastic helper",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. A chosen column j, a real upper bound m, and every entry in column j <= m.",
+    "description": "The absolute determinant is at most every common upper bound on any chosen column; partial-permutation injection is proved."
+  },
+  "Mxym.StochasticRigidity.column_l1_distance": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "exact finite distance identity",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Chosen row i and column j.",
+    "description": "The l1 distance from column j to coordinate vector e_i is exactly 2(1-W(i,j))."
+  },
+  "Mxym.StochasticRigidity.abs_det_le_of_shared_row": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "necessary collision helper",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Distinct columns j,k; common row i; any real \u03b4; both W(i,j),W(i,k)>=1-\u03b4. No smallness or \u03b4>=0 premise.",
+    "description": "If two columns concentrate on one row, |det W|<=4\u03b4 by a determinant-preserving column difference and the column-l1 product bound."
+  },
+  "Mxym.StochasticRigidity.near_permutation_sharp": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "complete finite conversion; stronger constants",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Real \u03b4 with 0<=\u03b4<=1/8 and 1-\u03b4<=|det W|. The \u03b4>=0 binder is explicitly present but redundant in this stronger proof.",
+    "description": "There is a row permutation \u03c3 with W(\u03c3(j),j)>=1-\u03b4 and column l1 distance from e_\u03c3(j)<=2\u03b4, simultaneously for every j."
+  },
+  "Mxym.StochasticRigidity.near_permutation": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "complete requested finite paper conversion",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Real \u03b4 with 0<=\u03b4<=1/8 and 1-\u03b4<=|det W|.",
+    "description": "There is a row permutation \u03c3 with W(\u03c3(j),j)>=1-2\u03b4 and column l1 distance from e_\u03c3(j)<=4\u03b4, simultaneously for every j."
+  },
+  "Mxym.StochasticRigidity.exact_permutation": {
+    "paper_statement": "mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.",
+    "coverage_kind": "complete zero-defect endpoint",
+    "assumptions_summary": "An arbitrary finite index type \u03b9 with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. 1<=|det W|; no other determinant, rank or invertibility hypothesis.",
+    "description": "W is exactly a permutation matrix: W(i,j)=1 if i=\u03c3(j), and zero otherwise for one permutation \u03c3."
+  }
+}

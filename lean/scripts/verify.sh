@@ -24,5 +24,10 @@ lake env lean Audit.lean > logs/axioms.log 2>&1
 lake env lean Statements.lean > logs/statements.log 2>&1
 python3 scripts/check_axioms.py > logs/axiom-check.log
 python3 scripts/generate_coverage.py > logs/coverage-check.log
+python3 scripts/check_baseline.py > logs/baseline-preservation.log
+python3 scripts/check_inventory.py > logs/inventory-check.log
+python3 scripts/check_previous_declarations.py > logs/prior-declaration-preservation.log
+python3 scripts/check_targets.py > logs/target-check.log
+python3 scripts/check_dependencies.py > logs/dependency-check.log
 cat logs/axiom-check.log
 cat logs/coverage-check.log

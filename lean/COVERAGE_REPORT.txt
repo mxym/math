@@ -1,137 +1,62 @@
-MXym/math Lean verification report — 7 October 2026
+MXym/math additive Lean checkpoint — 7 October 2026
 
-OUTCOME
-68 exported theorems successfully compile, including supporting lemmas and
-four audited upstream theorems. The primary achievement is the full finite
-balanced Rademacher inequality and equality criterion (entry005 v3 Lemma 6.1,
-entry005 v4 Lemma 2.1), valid for arbitrary finite real coefficients including
-the zero case. No geometric identity is postulated to prove those statements.
+SCOPE AND COUNTS
+101 public theorem exports compile: all original 68 finite/scalar exports,
+seven exact stochastic determinant-rigidity exports, and 26 new Entry005
+exports (16 geometric lemmas plus ten exact-constant positivity statements).
+Supporting lemmas count as exports, not as 101 distinct paper theorems.
+All original 68 exact signatures, axiom sets, proof files, source references,
+vendored originals and compiler/dependency pins are preserved.
 
-For N coefficients, sign(true)=1, sign(false)=-1 and
-  mean(c) = [sum over all epsilon: index -> Bool of |sum_i sign(epsilon_i)c_i|]
-            / card(index -> Bool),
-and the latter cardinality is proved to be 2^N. This is exactly the independent
-uniform finite sign expectation in the paper; no measure-theory bridge is needed
-for this finite formulation. Balance means |c_i| <= (sum_j |c_j|)/2 for every i.
-The two main Lean results are:
-  Mxym.Rademacher.balanced_bound
-  Mxym.Rademacher.balanced_equality_iff
-Equality holds precisely when support size <=3 or a coefficient has half mass.
+GENUINE GEOMETRIC ENDPOINT
+For actual compact nested convex bodies B subset K subset P subset M B in a
+finite-dimensional real inner-product space of dimension d >= 2, M >= 0 and
+eta >= 0, a bound eta on EVERY actual intrinsic hyperplane projection-volume
+deficit gives d_H(K,P) <= (d-1)(M+1) eta^(1/(d-1)). The theorem includes eta=0.
+It derives the nearest point, supporting normal, perpendicular projection,
+true codimension, cap inclusion/disjointness, Haar gain, inner cube bound,
+and root conversion. No cap conclusion is assumed as a proof premise.
 
-QUANTITATIVE FINITE EXTENSION
-The two additional coefficient theorems prove the supplement's Lemma 3.1
-equation (3.1) with four distinct selected coordinates or a zero t threshold.
-They do not prove the same lemma's l1-distance-to-equality estimate, a sorted
-order-statistic construction, or any integrated/geometric stability result.
+WHAT REMAINS UNPROVED
+The actual projection-deficit hypothesis is not derived from entryDefect.
+Cone law/determinant representation, Cauchy projection, Minkowski/scale control,
+integrated nonatomic witnesses/anchors, maximum-simplex normalization,
+barycentric stochasticity and determinant versus actual simplex volume,
+same-centroid conversion, all constant gates, end-to-end local/global stability,
+and actual truncation sharpness remain unproved. The newly explicit
+thresholdGateGoal and corrected small-positive-defect sharpness target are
+Prop definitions only. Positivity proofs do not discharge the threshold gate.
+See COMPLETENESS_MATRIX.md and target-status.json. No whole-paper formalization,
+complete sharp simplex theorem, or novelty claim is made.
 
-FINITE NORMED RELATION AND COFACTOR EXTENSION
-Eight new theorems derive balance from a zero-sum real vector relation and
-unit norms on active coefficients. Algebraic cofactors satisfy that relation,
-and a supplied real linear equivalence maps it into a supplied normed space.
-The new normalized-column sign-average corollaries derive rather than assume
-cofactor balance. The convex-body Minkowski norm, boundary-unit normalization,
-even law and integration are still unformalized. The equality statement keeps
-both the small-support and half-mass branches; it does not prove exposedness.
+VERIFICATION AND TRUST
+Lean 4.34.1, compiler 5045d0056413266e57c625dcd7c365b10e377c52;
+Lake 5.0.0-src+5045d00; mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
+All nine reviewed official dependency sources and revisions remain pinned.
+Verification clean-rebuilds owned modules, checks all exact signatures and
+axiom sets, preserves the original 68, matches source exports with compiler
+inventory and traverses stored proof bodies. Normal and optimized Python
+verification and adversarial controls are recorded under logs/.
+Axiom sets are subsets of propext, Classical.choice and Quot.sound. No owned
+sorry, custom axiom, native proof shortcut, unsafe or opaque declaration is
+accepted. Lean, its standard library and official cached dependency oleans
+remain within the trust boundary; they were not independently rebuilt from
+source, and no external independent kernel checker was run.
 
-OTHER CERTIFIED COVERAGE
-The determinant expansion, horizontal cofactor relation and independent-sign
-cancellation are unconditional identities for arbitrary real d by (d+1)
-matrices, including singular cases. The lift puts its added row FIRST, whereas
-the paper uses the last row. Moving that row changes the determinant by (-1)^d;
-the paper applications here use absolute values, so this convention has no
-effect on their statements. The two balanced determinant corollaries explicitly
-ASSUME the balance inequality. The new normed corollaries derive balance from
-the supplied active-column unit norms. Constructing the actual convex-body
-Minkowski norm, proving boundary normalization and the integrated symmetric
-boundary-law bound remain unformalized.
-
-The finite defect identity uses P=sum_i p_i max(z_i,0), Q=sum_i p_i max(-z_i,0).
-It proves sum_i p_i|z_i|-|sum_i p_i z_i|=2 min(P,Q), weighted Jensen, a two-sign
-witness bound, strictness, and the full finite equality criterion. The algebraic
-identity even permits signed weights; the Jensen/strictness statements require
-p_i>=0. No sum_i p_i=1 assumption is needed. These are the inner-law mechanisms
-of entry005 v3 (3.1)-(3.2), not the entire integrated determinant identities.
-
-The ordered signed-square estimate and intermediate-value/three-term scalar
-inequalities used in entries001/008 are proved directly over the reals. An
-additional scalar equality criterion is proved and labeled as an extension.
-
-The dimension/invariant recurrences in entry005 v5 (2.1)-(2.2) are explicit Lean
-recursive definitions, and their closed forms are proved by induction. Exact
-binary-orbit scalar values d_6=21845 and a_6=1/384 are checked. Calling them the
-invariants of the actual geometric recursion still requires the unformalized
-product/join identities; this project does not certify v5 Theorem 1.1 or its
-strict infinite-parameter optimality gap, or the later Bellman certificates.
-
-REPRODUCIBILITY AND ACTUAL VALIDATION
-Lean 4.34.1 (official binary), compiler commit
-5045d0056413266e57c625dcd7c365b10e377c52; Lake 5.0.0-src+5045d00;
-mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
-lean-toolchain, lakefile.toml and lake-manifest.json pin all dependencies.
-scripts/bootstrap.sh installs official pinned tooling into project-local paths.
-scripts/verify.sh removes the project .lake/build and compiles all active proof
-modules. Dependency builds/cache are retained and not independently rebuilt.
-The recorded clean compilation succeeded (2321 Lake jobs, exit status zero).
-All 68 #print axioms commands and all 68 #check statements succeeded.
-scripts/check_pins.py verified the compiler commit and all nine dependency
-checkout commits with no tracked source modifications.
-
-TRUST AND AXIOMS
-The exact axiom list for EVERY theorem is in axiom-report.json and below.
-Their union is precisely:
-  propext          — propositional extensionality;
-  Classical.choice — classical choice;
-  Quot.sound       — quotient soundness.
-These are standard Lean logical axioms, not an axiom-free proof claim.
-No theorem depends on sorryAx, a custom theorem-replacing axiom, or an extra
-compiler/native-evaluation axiom. Active sources have no sorry, admit, axiom,
-native_decide, unsafe, or implemented_by. norm_num/ring/nlinarith and finite
-enumeration construct proof terms checked by Lean's kernel. The source scan is
-an additional guard, not the primary mathematical certificate. The primary
-evidence is successful Lean compilation plus transitive #print axioms output.
-The trust boundary includes the official Lean binary, standard library and
-official pinned dependency .olean cache. We did not rebuild Lean/mathlib from
-source or run an independent external kernel checker.
-
-UPSTREAM REUSE
-OpenAI/math adc7f1241b42e322a6451854ab7e4b4c146bf78a supplied the exact Arithmetic
-module, the exact simplexConstant definition (with narrower imports), and the
-exact twice_sum_negative_eq_sum_abs statement/proof (with narrower imports).
-All four reused theorems compile afresh and pass the same transitive axiom audit.
-Their full originals and Apache-2.0 license are included under vendor/openai/.
-No challenge file is imported. Only the four compiled finite/scalar
-upstream theorems listed above are certified here; upstream geometry is outside
-this project's certified scope.
-
-UNFORMALIZED PAPER DEPENDENCIES / REMAINING WORK
-- General centered-law A<=B<(d+1)A, simplex support rigidity, support and
-  Caratheodory/separation arguments, B-A's outer integral and the d! witness
-  factor, arbitrary-law neighborhood arguments, and geometric stability.
-- Cone-volume/surface-area/Minkowski identities, projection/cone geometry,
-  geometric product/join laws, actual boundary-unit norm construction, and
-  integration under even boundary laws. Thus v3 Theorem 6.2 is not fully certified.
-- Exposed-point rigidity, cofactor rank arguments, rank-two decomposition and
-  full convex-body product classification in v4 Theorem 1.1.
-- v5's R recurrence, Robbins/Stirling estimates, infinite logarithmic limit,
-  tail control, rational-log/integer global screening, uniqueness and gap.
-  Any Python rational verifier in the source repository remains outside Lean.
-- Convex derivative/secant order, almost-everywhere domain legitimacy,
-  minimum-density integration, translation identities and all transport,
-  Sobolev, regularity, moment, and optimal-map estimates in entries001/008.
-- Full upstream OpenAI geometric volume/product theorems and identification
-  of the explicit simplexConstant with a geometric invariant.
-
-These are mathematical scope boundaries, not installation or build blockers.
-All supplied finite/scalar identities have proofs; none is supplied merely as
-an implication from an assumed geometric identity. The conditional cofactor
-corollaries and geometric applications are explicitly distinguished above.
+ORIGINAL COVERAGE AND ATTRIBUTION
+The original finite balanced Rademacher bound and full equality criterion,
+finite defect/Jensen mechanisms, normed/cofactor algebra, scalar transport
+bounds and defined scalar recurrences remain proved with their original exact
+assumptions. Four reused OpenAI/math finite/scalar exports retain their exact
+upstream attribution and Apache-2.0 source license. The whole upstream
+geometric solution is not certified. PROVENANCE.md records added source pins,
+exact-byte imports and the sole target-only correction.
 
 THEOREM-BY-THEOREM MAP
-The following includes every exported theorem. Helpers are explicitly labeled
-and are not counted as separate published paper lemmas. Every exact signature
-records all formal assumptions and typeclass requirements. Paper source paths,
-commits and snapshot hashes are in references/SOURCES.json; all application
-gaps are also repeated per theorem in coverage.json/coverage.csv.
+Every public theorem is listed below with its exact compiler signature,
+axioms, intended paper locator, assumptions and unformalized application
+requirements. Targets, definitions and informal dependencies are not counted
+as proved exports.
 
 1. Mxym.BalancedRecursion.shifted_dimension
 Source: Mxym/BalancedRecursion.lean
@@ -875,7 +800,92 @@ Axioms: propext, Classical.choice, Quot.sound
 Exact Lean signature:
 Mxym.Transport.three_term_square (x y z : ℝ) : (x + y + z) ^ 2 ≤ 3 * (x ^ 2 + y ^ 2 + z ^ 2)
 
-65. OAI.Paper092.twice_sum_negative_eq_sum_abs
+65. Mxym.StochasticRigidity.abs_det_le_column_l1_product
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: necessary algebraic helper
+Meaning: The absolute determinant is bounded by the product of column l1 norms, proved by the full Leibniz expansion and finite function-product identity.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix A. No nonempty/cardinality premise. No stochastic or sign assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.abs_det_le_column_l1_product.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι]
+  (A : Matrix ι ι ℝ) : |A.det| ≤ ∏ j : ι, ∑ i : ι, |A i j|
+
+66. Mxym.StochasticRigidity.abs_det_le_column_max
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: necessary stochastic helper
+Meaning: The absolute determinant is at most every common upper bound on any chosen column; partial-permutation injection is proved.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. A chosen column j, a real upper bound m, and every entry in column j <= m.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.abs_det_le_column_max.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (j : ι) (m : ℝ)
+  (hmax : ∀ (i : ι), W i j ≤ m) : |W.det| ≤ m
+
+67. Mxym.StochasticRigidity.column_l1_distance
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: exact finite distance identity
+Meaning: The l1 distance from column j to coordinate vector e_i is exactly 2(1-W(i,j)).
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Chosen row i and column j.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.column_l1_distance.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (i j : ι) :
+  ∑ r : ι, |W r j - if r = i then 1 else 0| = 2 * (1 - W i j)
+
+68. Mxym.StochasticRigidity.abs_det_le_of_shared_row
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: necessary collision helper
+Meaning: If two columns concentrate on one row, |det W|<=4δ by a determinant-preserving column difference and the column-l1 product bound.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Distinct columns j,k; common row i; any real δ; both W(i,j),W(i,k)>=1-δ. No smallness or δ>=0 premise.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.abs_det_le_of_shared_row.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (i j k : ι) (hjk : j ≠ k) (δ : ℝ)
+  (hj : 1 - δ ≤ W i j) (hk : 1 - δ ≤ W i k) : |W.det| ≤ 4 * δ
+
+69. Mxym.StochasticRigidity.near_permutation_sharp
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: complete finite conversion; stronger constants
+Meaning: There is a row permutation σ with W(σ(j),j)>=1-δ and column l1 distance from e_σ(j)<=2δ, simultaneously for every j.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Real δ with 0<=δ<=1/8 and 1-δ<=|det W|. The δ>=0 binder is explicitly present but redundant in this stronger proof.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.near_permutation_sharp.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (δ : ℝ) (_hδ0 : 0 ≤ δ) (hδ : δ ≤ 1 / 8)
+  (hdet : 1 - δ ≤ |W.det|) :
+  ∃ (σ : Equiv.Perm ι), ∀ (j : ι), 1 - δ ≤ W (σ j) j ∧ ∑ i : ι, |W i j - if i = σ j then 1 else 0| ≤ 2 * δ
+
+70. Mxym.StochasticRigidity.near_permutation
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: complete requested finite paper conversion
+Meaning: There is a row permutation σ with W(σ(j),j)>=1-2δ and column l1 distance from e_σ(j)<=4δ, simultaneously for every j.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. Real δ with 0<=δ<=1/8 and 1-δ<=|det W|.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.near_permutation.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (δ : ℝ) (hδ0 : 0 ≤ δ) (hδ : δ ≤ 1 / 8)
+  (hdet : 1 - δ ≤ |W.det|) :
+  ∃ (σ : Equiv.Perm ι), ∀ (j : ι), 1 - 2 * δ ≤ W (σ j) j ∧ ∑ i : ι, |W i j - if i = σ j then 1 else 0| ≤ 4 * δ
+
+71. Mxym.StochasticRigidity.exact_permutation
+Source: Mxym/StochasticRigidity.lean
+Paper: mxym/math 72d04aba5744ad940702e88a58073eb126229b6c, notes/integrated-witness-simplex-stability/paper.md, Explicit geometric conversion, prescribed-maximum-simplex stochastic-matrix paragraph.
+Coverage: complete zero-defect endpoint
+Meaning: W is exactly a permutation matrix: W(i,j)=1 if i=σ(j), and zero otherwise for one permutation σ.
+Assumptions: An arbitrary finite index type ι with Fintype and DecidableEq, and a square real matrix W. No nonempty/cardinality premise. All entries nonnegative and each column sums to one. 1<=|det W|; no other determinant, rank or invertibility hypothesis.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Mxym.StochasticRigidity.exact_permutation.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (W : Matrix ι ι ℝ)
+  (hnonneg : ∀ (i j : ι), 0 ≤ W i j) (hsum : ∀ (j : ι), ∑ i : ι, W i j = 1) (hdet : 1 ≤ |W.det|) :
+  ∃ (σ : Equiv.Perm ι), ∀ (i j : ι), W i j = if i = σ j then 1 else 0
+
+72. OAI.Paper092.twice_sum_negative_eq_sum_abs
 Source: Mxym/UpstreamCancellation.lean
 Paper: OpenAI/math lean/OAI/Geometry/ProjectionVolume/ProjectionCoefficients.lean:twice_sum_negative_eq_sum_abs
 Coverage: audited exact upstream reuse
@@ -886,7 +896,7 @@ Exact Lean signature:
 OAI.Paper092.twice_sum_negative_eq_sum_abs.{uι} {ι : Type uι} [Fintype ι] (v : ι → ℝ) (hv : ∑ i : ι, v i = 0) :
   2 * ∑ i : { i : ι // v i < 0 }, -v ↑i = ∑ i : ι, |v i|
 
-66. OAI.Paper092.simplex_constant_product_ratio
+73. OAI.Paper092.simplex_constant_product_ratio
 Source: OAI/Geometry/ProjectionVolume/Arithmetic.lean
 Paper: OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:simplex_constant_product_ratio
 Coverage: audited exact upstream reuse
@@ -898,7 +908,7 @@ OAI.Paper092.simplex_constant_product_ratio (r s : ℕ) (hr : 0 < r) (hs : 0 < s
   OAI.Paper092.simplexConstant r * OAI.Paper092.simplexConstant s / OAI.Paper092.simplexConstant (r + s) =
     (↑r + 1) * (↑s + 1) / (↑r + ↑s + 1) * ↑((r + s).choose r) * (↑r ^ r * ↑s ^ s / ↑(r + s) ^ (r + s))
 
-67. OAI.Paper092.dimension_twenty_ratio
+74. OAI.Paper092.dimension_twenty_ratio
 Source: OAI/Geometry/ProjectionVolume/Arithmetic.lean
 Paper: OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:dimension_twenty_ratio
 Coverage: audited exact upstream reuse
@@ -910,7 +920,7 @@ OAI.Paper092.dimension_twenty_ratio :
   OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10 / OAI.Paper092.simplexConstant 20 =
     22355476 / 22020096
 
-68. OAI.Paper092.dimension_twenty_strict
+75. OAI.Paper092.dimension_twenty_strict
 Source: OAI/Geometry/ProjectionVolume/Arithmetic.lean
 Paper: OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:dimension_twenty_strict
 Coverage: audited exact upstream reuse
@@ -920,3 +930,326 @@ Axioms: propext, Classical.choice, Quot.sound
 Exact Lean signature:
 OAI.Paper092.dimension_twenty_strict :
   OAI.Paper092.simplexConstant 20 < OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10
+
+76. Entry005.euclidean_unit_ball_cube
+Source: Entry005/BallVolume.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 380–384 (cube inside the intrinsic unit ball after rescaling).
+Coverage: proved Euclidean volume helper
+Meaning: Proves ENNReal.ofReal((2/m)^m) ≤ volume(closedBall(0,1)). The coordinate cube [−1/m,1/m]^m is proved to lie in the Euclidean unit ball; its actual product-box measure is transported by the volume-preserving PiLp map. No synthetic volume or exact unit-ball volume formula is assumed.
+Assumptions: An integer m ≥ 1; actual EuclideanSpace ℝ (Fin m) with its canonical Euclidean volume.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.euclidean_unit_ball_cube (m : ℕ) (hm : 1 ≤ m) :
+  ENNReal.ofReal ((2 / ↑m) ^ m) ≤ MeasureTheory.volume (Metric.closedBall 0 1)
+
+77. Entry005.unit_ball_cube
+Source: Entry005/BallVolume.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 368–370 and 380–384 (intrinsic dimension m and cube lower bound).
+Coverage: proved intrinsic volume helper
+Meaning: Proves ENNReal.ofReal((2/m)^m) ≤ volume(closedBall(0:E,1)) for the actual intrinsic volume. It transports the Euclidean cube bound through a volume-preserving orthonormal-coordinate isometry.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. The dimension m = finrank ℝ E satisfies m ≥ 1.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.unit_ball_cube.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  [MeasurableSpace E] [BorelSpace E] (hm : 1 ≤ Module.finrank ℝ E) :
+  ENNReal.ofReal ((2 / ↑(Module.finrank ℝ E)) ^ Module.finrank ℝ E) ≤ MeasureTheory.volume (Metric.closedBall 0 1)
+
+78. Entry005.closest_support
+Source: Entry005/Cap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–365 (closest point and supporting unit normal).
+Coverage: proved geometric support helper
+Meaning: Produces k ∈ K and a unit normal n with s = ‖q−k‖ > 0, inner(n,q)−inner(n,k)=s, inner(n,x) ≤ inner(n,k) for every x ∈ K, and ‖q−k‖ ≤ ‖q−x‖ for every x ∈ K. The nearest point and whole-set supporting inequality are derived.
+Assumptions: A real inner product space E (NormedAddCommGroup and InnerProductSpace ℝ). K is a nonempty complete convex subset of E; q ∉ K. No finite-dimensionality, enclosing body, ball, projection-deficit or supporting-normal assumption.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.closest_support.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (K : Set E)
+  (hK : Convex ℝ K) (hc : IsComplete K) (hne : K.Nonempty) (q : E) (hq : q ∉ K) :
+  ∃ k ∈ K,
+    ∃ (n : E),
+      0 < ‖q - k‖ ∧
+        ‖n‖ = 1 ∧
+          inner ℝ n q - inner ℝ n k = ‖q - k‖ ∧ (∀ x ∈ K, inner ℝ n x ≤ inner ℝ n k) ∧ ∀ x ∈ K, ‖q - k‖ ≤ ‖q - x‖
+
+79. Entry005.cap_ball
+Source: Entry005/Cap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 373–379 (actual disjoint cap ball).
+Coverage: proved geometric cap construction
+Meaning: For τ=s/[2(M+1)], proves closedBall((1−τ)q,τ) ⊆ P and disjointness of this actual ball from K. The support gap is a stated helper input; the terminal nested-body/projection theorems derive it.
+Assumptions: A real inner product space E (NormedAddCommGroup and InnerProductSpace ℝ). Actual sets K,P; P convex and containing the closed unit ball; q ∈ P; ‖n‖=1; M ≥ 0; ‖q‖ ≤ M; 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). No convexity/completeness of K or inclusion K ⊆ P is required by this helper.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.cap_ball.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (K P : Set E) (n q k : E)
+  (M s : ℝ) (hP : Convex ℝ P) (hball : Metric.closedBall 0 1 ⊆ P) (hq : q ∈ P) (hn : ‖n‖ = 1) (hM : 0 ≤ M)
+  (hqM : ‖q‖ ≤ M) (hs : 0 < s) (hsM : s ≤ M) (hgap : inner ℝ n q - inner ℝ n k = s)
+  (hsep : ∀ x ∈ K, inner ℝ n x ≤ inner ℝ n k) :
+  have τ := s / (2 * (M + 1));
+  Metric.closedBall ((1 - τ) • q) τ ⊆ P ∧ Disjoint K (Metric.closedBall ((1 - τ) • q) τ)
+
+80. Entry005.cap_measure_gain
+Source: Entry005/Cap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 373–384 (cap inclusion, disjoint additivity and actual volume gain).
+Coverage: proved Haar-volume cap helper
+Meaning: Proves μ(K)+ENNReal.ofReal((s/[2(M+1)])^finrank(ℝ,E)) μ(closedBall(0,1)) ≤ μ(P). The summand is the Haar measure of the actual constructed disjoint cap ball, derived using Haar scaling and measure additivity; it is not a conclusion-shaped assumed gain.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Any additive Haar measure μ on E. Actual sets K ⊆ P, P convex and containing the closed unit ball, q ∈ P, ‖n‖=1, M ≥ 0, ‖q‖ ≤ M, 0 < s ≤ M, exact supporting gap inner(n,q)−inner(n,k)=s, and inner(n,x) ≤ inner(n,k) for all x ∈ K.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.cap_measure_gain.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [MeasurableSpace E]
+  [BorelSpace E] [FiniteDimensional ℝ E] (μ : MeasureTheory.Measure E) [μ.IsAddHaarMeasure] (K P : Set E) (n q k : E)
+  (M s : ℝ) (hKP : K ⊆ P) (hP : Convex ℝ P) (hball : Metric.closedBall 0 1 ⊆ P) (hq : q ∈ P) (hn : ‖n‖ = 1) (hM : 0 ≤ M)
+  (hqM : ‖q‖ ≤ M) (hs : 0 < s) (hsM : s ≤ M) (hgap : inner ℝ n q - inner ℝ n k = s)
+  (hsep : ∀ x ∈ K, inner ℝ n x ≤ inner ℝ n k) :
+  μ K + ENNReal.ofReal ((s / (2 * (M + 1))) ^ Module.finrank ℝ E) * μ (Metric.closedBall 0 1) ≤ μ P
+
+81. Entry005.nested_body_cap_gain
+Source: Entry005/Cap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–365 and 373–384 (support construction followed by actual cap-volume gain).
+Coverage: proved nested-body cap-volume theorem
+Meaning: Produces a closest k ∈ K and proves μ(K)+ENNReal.ofReal((‖q−k‖/[2(M+1)])^finrank(ℝ,E)) μ(B) ≤ μ(P). The supporting normal and gap are derived from compact convex K, and ‖q−k‖ ≤ M follows by comparing with 0 ∈ K.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies K,P; M ≥ 0; closed unit ball B ⊆ K ⊆ P ⊆ closedBall(0,M); q ∈ P and q ∉ K. Any additive Haar measure μ on E. No assumed nearest point, normal, cap inequality or projection deficit.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.nested_body_cap_gain.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [MeasurableSpace E]
+  [BorelSpace E] [FiniteDimensional ℝ E] (μ : MeasureTheory.Measure E) [μ.IsAddHaarMeasure] (K P : ConvexBody E) (M : ℝ)
+  (hM : 0 ≤ M) (hball : Metric.closedBall 0 1 ⊆ ↑K) (hKP : K ≤ P) (hPM : ↑P ⊆ Metric.closedBall 0 M) (q : E)
+  (hq : q ∈ P) (hqK : q ∉ K) :
+  ∃ k ∈ K,
+    (∀ x ∈ K, ‖q - k‖ ≤ ‖q - x‖) ∧
+      μ ↑K + ENNReal.ofReal ((‖q - k‖ / (2 * (M + 1))) ^ Module.finrank ℝ E) * μ (Metric.closedBall 0 1) ≤ μ ↑P
+
+82. Entry005.R0_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 57 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < R0(d)=d(d+1). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.R0_pos {d : ℕ} (hd : 1 ≤ d) : 0 < Entry005.R0 d
+
+83. Entry005.b_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 58 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < b(d)=1/[4(dR0(d))^d]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.b_pos {d : ℕ} (hd : 1 ≤ d) : 0 < Entry005.b d
+
+84. Entry005.M_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 59 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < M(d)=1/b(d). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.M_pos {d : ℕ} (hd : 1 ≤ d) : 0 < Entry005.M d
+
+85. Entry005.Q_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 60 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < Q(d)=(d+1)(d+2)8^d M(d)^(4d), exactly the written b(d)^(−4d) expression. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.Q_pos {d : ℕ} (hd : 1 ≤ d) : 0 < Entry005.Q d
+
+86. Entry005.L_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 61–62 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < L(d)=(d−1)(M(d)+1). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.L_pos {d : ℕ} (hd : 2 ≤ d) : 0 < Entry005.L d
+
+87. Entry005.J_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 63–64 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < J(d)=(d/2)(2R0(d))^d[1+M(d)+d·2^(d−1)M(d)]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.J_pos {d : ℕ} (hd : 1 ≤ d) : 0 < Entry005.J d
+
+88. Entry005.rSharp_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 65–66 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < rSharp(d)=min{b(d), 1/[J(d)(8M(d)dL(d))^(d−1)]}. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.rSharp_pos {d : ℕ} (hd : 2 ≤ d) : 0 < Entry005.rSharp d
+
+89. Entry005.eSharp_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 67 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < eSharp(d)=rSharp(d)/[Q(d)(d+1)]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.eSharp_pos {d : ℕ} (hd : 2 ≤ d) : 0 < Entry005.eSharp d
+
+90. Entry005.aSharp_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 68 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < aSharp(d)=4M(d)dL(d)[J(d)Q(d)(d+1)]^(1/(d−1)). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.aSharp_pos {d : ℕ} (hd : 2 ≤ d) : 0 < Entry005.aSharp d
+
+91. Entry005.gSharp_pos
+Source: Entry005/Constants.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 69–70 and 72.
+Coverage: proved constant positivity only
+Meaning: Proves 0 < gSharp(d)=max{aSharp(d),(R0(d)−1)eSharp(d)^(−1/(d−1))}. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.
+Assumptions: A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.gSharp_pos {d : ℕ} (hd : 2 ≤ d) : 0 < Entry005.gSharp d
+
+92. Entry005.project_body_mono
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap hypothesis and proof, lines 352 and 366–371 (nested actual projected bodies).
+Coverage: proved orthogonal-projection inclusion helper
+Meaning: Proves projectBody(U,K) ⊆ projectBody(U,P) for the genuine image under orthogonalProjectionOnto U. No formal surrogate projected body is used.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, genuine compact nonempty convex bodies K,P, and K ⊆ P. No dimension lower bound or measure hypothesis.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.project_body_mono.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  (U : Submodule ℝ E) (K P : ConvexBody E) (h : K ≤ P) : Entry005.projectBody U K ≤ Entry005.projectBody U P
+
+93. Entry005.project_body_unit_ball
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 369–370 (intrinsic unit ball survives projection).
+Coverage: proved orthogonal-projection inner-ball helper
+Meaning: Proves closedBall(0:U,1) ⊆ projectBody(U,K), using the actual orthogonal projection and its identity on U.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E and a genuine compact nonempty convex body K containing closedBall(0:E,1). No dimension lower bound or projection deficit.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.project_body_unit_ball.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] (U : Submodule ℝ E) (K : ConvexBody E) (hball : Metric.closedBall 0 1 ⊆ ↑K) :
+  Metric.closedBall 0 1 ⊆ ↑(Entry005.projectBody U K)
+
+94. Entry005.project_body_outer_ball
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 369–370 (projected enclosing radius M).
+Coverage: proved orthogonal-projection outer-ball helper
+Meaning: Proves projectBody(U,P) ⊆ closedBall(0:U,M) by the actual orthogonal projection contraction.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, a genuine compact nonempty convex body P, a real M, and P ⊆ closedBall(0:E,M). No separate M ≥ 0 assumption is present.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.project_body_outer_ball.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] (U : Submodule ℝ E) (P : ConvexBody E) (M : ℝ) (hPM : ↑P ⊆ Metric.closedBall 0 M) :
+  ↑(Entry005.projectBody U P) ⊆ Metric.closedBall 0 M
+
+95. Entry005.inner_project
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 366–371 (support gap preserved in the target subspace).
+Coverage: proved orthogonal-projection support identity
+Meaning: Proves inner(⟨n,hnU⟩, orthogonalProjectionOnto(U,x)) = inner(n,x). This supplies the exact linear-functional identity that preserves the supporting gap after projection.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, n ∈ U, and arbitrary x ∈ E. No unit-normal, ball, body or measure assumption.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.inner_project.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  (U : Submodule ℝ E) (n : E) (hnU : n ∈ U) (x : E) : inner ℝ ⟨n, hnU⟩ (U.orthogonalProjectionOnto x) = inner ℝ n x
+
+96. Entry005.exists_perpendicular_unit
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, line 366 (unit projection direction perpendicular to the normal).
+Coverage: proved perpendicular-direction helper
+Meaning: Produces a unit u with inner(u,n)=0 by using the positive-dimensional orthogonal complement of the span of n.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). finrank ℝ E ≥ 2 and a vector n with ‖n‖=1. No convex-body or measure assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.exists_perpendicular_unit.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] (hd : 2 ≤ Module.finrank ℝ E) (n : E) (hn : ‖n‖ = 1) : ∃ (u : E), ‖u‖ = 1 ∧ inner ℝ u n = 0
+
+97. Entry005.hyperplane_dimension
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, line 368 (true intrinsic dimension m=d−1).
+Coverage: proved codimension-one identity
+Meaning: Proves finrank ℝ ((ℝ ∙ u)ᗮ) = finrank ℝ E − 1. The exponent and coefficient in the final cap theorem therefore use the actual hyperplane dimension, not ambient dimension.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A vector u with ‖u‖=1. No explicit ambient-dimension lower bound, body or measure assumptions.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.hyperplane_dimension.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] (u : E) (hu : ‖u‖ = 1) : Module.finrank ℝ ↥(ℝ ∙ u)ᗮ = Module.finrank ℝ E - 1
+
+98. Entry005.projection_cap_gain
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 366–384 (gap-preserving projection and intrinsic cap-volume gain).
+Coverage: proved intrinsic projected-cap volume helper
+Meaning: Writing m=finrank ℝ U, proves projectedVolume(U,K)+ENNReal.ofReal((s/[2(M+1)])^m) volume(closedBall(0:U,1)) ≤ projectedVolume(U,P). projectedVolume is actual canonical Haar volume on U of the image convex body, never ambient-dimensional volume of a hyperplane.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; a submodule U; q ∈ P; ‖n‖=1 and n ∈ U; s=‖q−k‖ satisfies 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). The helper takes k,n and their gap/support properties as inputs, and does not require k ∈ K.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.projection_cap_gain.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  [MeasurableSpace E] [BorelSpace E] (K P : ConvexBody E) (U : Submodule ℝ E) (M : ℝ) (hM : 0 ≤ M)
+  (hball : Metric.closedBall 0 1 ⊆ ↑K) (hKP : K ≤ P) (hPM : ↑P ⊆ Metric.closedBall 0 M) (q k n : E) (hq : q ∈ P)
+  (hn : ‖n‖ = 1) (hnU : n ∈ U) (hs : 0 < ‖q - k‖) (hsM : ‖q - k‖ ≤ M) (hgap : inner ℝ n q - inner ℝ n k = ‖q - k‖)
+  (hsep : ∀ x ∈ K, inner ℝ n x ≤ inner ℝ n k) :
+  Entry005.projectedVolume U K +
+      ENNReal.ofReal ((‖q - k‖ / (2 * (M + 1))) ^ Module.finrank ℝ ↥U) * MeasureTheory.volume (Metric.closedBall 0 1) ≤
+    Entry005.projectedVolume U P
+
+99. Entry005.projection_cap_cube_gain
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 380–384 (explicit coarse cube coefficient).
+Coverage: proved explicit intrinsic projected-cap lower bound
+Meaning: Proves projectedVolume(U,K)+ENNReal.ofReal((s/[m(M+1)])^m) ≤ projectedVolume(U,P). The exact coefficient follows from the proved actual unit-ball cube bound, not an assumed scalar cap formula.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; a submodule U; q ∈ P; ‖n‖=1 and n ∈ U; s=‖q−k‖ satisfies 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). The helper takes k,n and their gap/support properties as inputs, and does not require k ∈ K. In addition m=finrank ℝ U ≥ 1.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.projection_cap_cube_gain.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (K P : ConvexBody E) (U : Submodule ℝ E)
+  (hm : 1 ≤ Module.finrank ℝ ↥U) (M : ℝ) (hM : 0 ≤ M) (hball : Metric.closedBall 0 1 ⊆ ↑K) (hKP : K ≤ P)
+  (hPM : ↑P ⊆ Metric.closedBall 0 M) (q k n : E) (hq : q ∈ P) (hn : ‖n‖ = 1) (hnU : n ∈ U) (hs : 0 < ‖q - k‖)
+  (hsM : ‖q - k‖ ≤ M) (hgap : inner ℝ n q - inner ℝ n k = ‖q - k‖) (hsep : ∀ x ∈ K, inner ℝ n x ≤ inner ℝ n k) :
+  Entry005.projectedVolume U K + ENNReal.ofReal ((‖q - k‖ / (↑(Module.finrank ℝ ↥U) * (M + 1))) ^ Module.finrank ℝ ↥U) ≤
+    Entry005.projectedVolume U P
+
+100. Entry005.exists_projection_cap
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–384 (closest point, codimension-one projection and explicit cap lower bound).
+Coverage: proved complete geometric projection-cap lower bound
+Meaning: Produces k ∈ K closest to q and a unit u such that projectedVolume(uᗮ,K)+ENNReal.ofReal((‖q−k‖/[(d−1)(M+1)])^(d−1)) ≤ projectedVolume(uᗮ,P). The proof constructs the supporting normal and perpendicular projection direction and derives the actual codimension-one cap geometry and volume.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Ambient dimension d=finrank ℝ E ≥ 2; genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; q ∈ P and q ∉ K. No nearest point, supporting normal, projection direction, deficit or cap conclusion is assumed.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.exists_projection_cap.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (hd : 2 ≤ Module.finrank ℝ E) (K P : ConvexBody E) (M : ℝ)
+  (hM : 0 ≤ M) (hball : Metric.closedBall 0 1 ⊆ ↑K) (hKP : K ≤ P) (hPM : ↑P ⊆ Metric.closedBall 0 M) (q : E)
+  (hq : q ∈ P) (hqK : q ∉ K) :
+  ∃ k ∈ K,
+    ∃ (u : E),
+      ‖u‖ = 1 ∧
+        (∀ x ∈ K, ‖q - k‖ ≤ ‖q - x‖) ∧
+          Entry005.projectedVolume (ℝ ∙ u)ᗮ K +
+              ENNReal.ofReal ((‖q - k‖ / (↑(Module.finrank ℝ E - 1) * (M + 1))) ^ (Module.finrank ℝ E - 1)) ≤
+            Entry005.projectedVolume (ℝ ∙ u)ᗮ P
+
+101. Entry005.hausdorff_from_projection_deficit
+Source: Entry005/ProjectionCap.lean
+Paper: mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap Lemma (lem:projection-cap), lines 351–357, and its proof lines 360–387.
+Coverage: complete natural geometric lemma under genuine projection-deficit hypothesis
+Meaning: Proves Metric.hausdorffDist(K,P) ≤ (d−1)(M+1)η^(1/(d−1)), including η=0, with exactly the written coarse cube coefficient and exponent. Nearest points, support normals, codimension-one projection directions, cap inclusion/disjointness and volume gain are derived; compactness establishes finite projected volumes before ENNReal.toReal conversion. This is the natural geometric projection-cap lemma, not the end-to-end entryDefect stability theorem or a best-possible multiplicative-constant claim.
+Assumptions: A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Ambient dimension d=finrank ℝ E ≥ 2; genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M); M ≥ 0 and η ≥ 0. For every actual unit u ∈ E, projectedVolume(uᗮ,P).toReal − projectedVolume(uᗮ,K).toReal ≤ η, where each projectedVolume is actual canonical intrinsic volume on the orthogonal hyperplane. No simplex, cone-law, Cauchy, Minkowski, nearest-point, supporting-normal, cap-gain or Hausdorff-conclusion hypothesis.
+Axioms: propext, Classical.choice, Quot.sound
+Exact Lean signature:
+Entry005.hausdorff_from_projection_deficit.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (hd : 2 ≤ Module.finrank ℝ E) (K P : ConvexBody E)
+  (M η : ℝ) (hM : 0 ≤ M) (hη : 0 ≤ η) (hball : Metric.closedBall 0 1 ⊆ ↑K) (hKP : K ≤ P)
+  (hPM : ↑P ⊆ Metric.closedBall 0 M)
+  (hdef :
+    ∀ (u : E),
+      ‖u‖ = 1 → (Entry005.projectedVolume (ℝ ∙ u)ᗮ P).toReal - (Entry005.projectedVolume (ℝ ∙ u)ᗮ K).toReal ≤ η) :
+  Metric.hausdorffDist ↑K ↑P ≤ ↑(Module.finrank ℝ E - 1) * (M + 1) * η ^ (1 / ↑(Module.finrank ℝ E - 1))

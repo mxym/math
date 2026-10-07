@@ -14,7 +14,8 @@ run_cmd do
     if let some idx := env.getModuleIdxFor? n then
       let modName := env.header.moduleNames[idx.toNat]!
       if modName.toString.startsWith "Mxym" ||
-          modName.toString.startsWith "OAI.Geometry.ProjectionVolume" then
+          modName.toString.startsWith "OAI.Geometry.ProjectionVolume" ||
+          modName.toString.startsWith "Entry005" then
         selected := selected.push (n, ci, modName)
   selected := selected.qsort (fun a b => Name.lt a.1 b.1)
   let mut theoremCount : Nat := 0
@@ -37,6 +38,8 @@ run_cmd do
       ("unsafe", toJson ci.isUnsafe),
       ("partial", toJson ci.isPartial),
       ("private", toJson (privateToUserName? n).isSome),
+      ("internal_detail", toJson n.isInternalDetail),
+      ("equation", toJson (← liftCoreM <| isEqnThm n)),
       ("type", toJson typeFmt.pretty),
       ("axioms", toJson (axs.map Name.toString))]
     logInfo m!"{j.compress}"

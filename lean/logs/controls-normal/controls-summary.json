@@ -1,0 +1,450 @@
+{
+  "negative_checks": 32,
+  "negative_passed": 32,
+  "positive_checks": 9,
+  "failed": [],
+  "controls": [
+    {
+      "name": "semantic-NormedMeaningChecks",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--root=<project>/controls",
+        "-o",
+        "<project>/.lake/controls-anldak23/helpers/NormedMeaningChecks.olean",
+        "<project>/controls/NormedMeaningChecks.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "semantic-ExtensionMeaningChecks",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--root=<project>/controls",
+        "-o",
+        "<project>/.lake/controls-anldak23/helpers/ExtensionMeaningChecks.olean",
+        "<project>/controls/ExtensionMeaningChecks.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "semantic-MeaningChecks",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--root=<project>/controls",
+        "-o",
+        "<project>/.lake/controls-anldak23/helpers/MeaningChecks.olean",
+        "<project>/controls/MeaningChecks.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "semantic-StochasticMeaningChecks",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--root=<project>/controls",
+        "-o",
+        "<project>/.lake/controls-anldak23/helpers/StochasticMeaningChecks.olean",
+        "<project>/controls/StochasticMeaningChecks.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "semantic-GeometricMeaningChecks",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--root=<project>/controls",
+        "-o",
+        "<project>/.lake/controls-anldak23/helpers/GeometricMeaningChecks.olean",
+        "<project>/controls/GeometricMeaningChecks.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "compiler-inventory",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "<project>/controls/IndependentAudit.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "axiom-baseline",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-1",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-2",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-3",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-4",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-5",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-6",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-7",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-missing-8",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-duplicate",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Duplicate axiom output",
+      "passed": true
+    },
+    {
+      "name": "axiom-unexpected",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Missing or unexpected #print axioms result",
+      "passed": true
+    },
+    {
+      "name": "axiom-sorry",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Unpermitted axiom",
+      "passed": true
+    },
+    {
+      "name": "axiom-custom",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Unpermitted axiom",
+      "passed": true
+    },
+    {
+      "name": "axiom-native",
+      "command": [
+        "python3",
+        "scripts/check_axioms.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Unpermitted axiom",
+      "passed": true
+    },
+    {
+      "name": "pin-revision",
+      "command": [
+        "python3",
+        "scripts/check_pins.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "mathlib: locked source or revision differs from reviewed pin",
+      "passed": true
+    },
+    {
+      "name": "pin-origin",
+      "command": [
+        "python3",
+        "scripts/check_pins.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "mathlib: locked source or revision differs from reviewed pin",
+      "passed": true
+    },
+    {
+      "name": "pin-optimized",
+      "command": [
+        "python3",
+        "-O",
+        "scripts/check_pins.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Toolchain file differs from reviewed pin",
+      "passed": true
+    },
+    {
+      "name": "coverage-signature",
+      "command": [
+        "python3",
+        "scripts/generate_coverage.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Stored signature log differs from freshly elaborated signatures",
+      "passed": true
+    },
+    {
+      "name": "coverage-axioms",
+      "command": [
+        "python3",
+        "scripts/generate_coverage.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Stored axiom log differs from fresh Lean output",
+      "passed": true
+    },
+    {
+      "name": "protected-compile",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Mxym/NormedBalance.lean"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true
+    },
+    {
+      "name": "protected-inventory",
+      "command": [
+        "python3",
+        "scripts/generate_audit.py"
+      ],
+      "actual_exit": 0,
+      "negative": false,
+      "expected_diagnostic": "",
+      "passed": true,
+      "observed_export_count": 102
+    },
+    {
+      "name": "source-sorry",
+      "command": [
+        "python3",
+        "scripts/generate_audit.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Forbidden proof escape",
+      "passed": true
+    },
+    {
+      "name": "source-axiom",
+      "command": [
+        "python3",
+        "scripts/generate_audit.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Forbidden proof escape",
+      "passed": true
+    },
+    {
+      "name": "source-native",
+      "command": [
+        "python3",
+        "scripts/generate_audit.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Forbidden proof escape",
+      "passed": true
+    },
+    {
+      "name": "source-unsafe",
+      "command": [
+        "python3",
+        "scripts/generate_audit.py"
+      ],
+      "actual_exit": 1,
+      "negative": true,
+      "expected_diagnostic": "Forbidden proof escape",
+      "passed": true
+    },
+    {
+      "name": "math-missing-unit",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-missing-relation",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-small-norm",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-nonunit-cofactor",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-four-witness",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-repeated-witness",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-mass-normalization",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-negative-coefficient",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-cap-gap",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    },
+    {
+      "name": "math-fourth-bound",
+      "actual_exit": 1,
+      "refutation_exit": 0,
+      "negative": true,
+      "passed": true
+    }
+  ]
+}

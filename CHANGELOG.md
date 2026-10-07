@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — additive 101-export Lean checkpoint
+
+- Added seven finite stochastic-matrix exports and 26 projection-cap/constant exports to the preserved 68-export project. All original theorem signatures, logical axiom sets, protected proof/pin/source bytes and prior compiler declarations are preserved.
+- Independently repeated normal and optimized clean owned-module builds and adversarial checks. The actual-body cap/Hausdorff theorem uses genuine intrinsic projection-volume deficits; the exact scope and trust boundary are in the [final integration audit](verification/2026-10-07-lean101-independent-audit/README.md).
+- Published the exact 452-file frozen tree, deterministic [source archive](releases/2026-10-07-lean101-verified-checkpoint.tar.gz) and [release manifest](releases/2026-10-07-lean101-v1.json). Five goals remain unproved definitions; no full sharp simplex/avoidance result or actual simplex-volume bridge is included. Historical unrelated files are unchanged.
+
 ## 2026-10-07 — continuum powers, semiconvex entropy and conditional quadratic fluctuations
 
 - Added the exact independently audited 29-file continuum-power avoidance release, with its 11-page written proof, preserved source snapshots, exact finite controls and deterministic source archive. The affine geometric-progression consequence is restricted to the dated BGKMW Question 1 formulation; no current-open/priority or general positive-upper-Banach-density theorem is asserted.

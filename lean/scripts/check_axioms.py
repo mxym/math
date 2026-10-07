@@ -6,17 +6,22 @@ import re
 
 root = Path(__file__).resolve().parent.parent
 expected = json.loads((root / 'exported-theorems.json').read_text())
+if len(expected)!=101 or len({row['name'] for row in expected})!=101:
+    raise RuntimeError('Expected 101 distinct audited exports')
 output = (root / 'logs/axioms.log').read_text()
 allowed = {'propext', 'Classical.choice', 'Quot.sound'}
 results = {}
-for name, axioms in re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", output):
+for line in output.splitlines():
+    if not line.strip():
+        continue
+    match = re.fullmatch(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", line)
+    empty = re.fullmatch(r"'([^']+)' does not depend on any axioms", line)
+    if not match and not empty:
+        raise RuntimeError('Malformed or extraneous axiom output: ' + line)
+    name = (match or empty).group(1)
     if name in results:
         raise RuntimeError(f'Duplicate axiom output for {name}')
-    results[name] = [a.strip() for a in axioms.split(',') if a.strip()]
-for name in re.findall(r"'([^']+)' does not depend on any axioms", output):
-    if name in results:
-        raise RuntimeError(f'Duplicate axiom output for {name}')
-    results[name] = []
+    results[name] = [a.strip() for a in match.group(2).split(',') if a.strip()] if match else []
 if set(results) != {item['name'] for item in expected}:
     raise RuntimeError('Missing or unexpected #print axioms result')
 for item in expected:

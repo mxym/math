@@ -27,11 +27,13 @@ def strip_comments(text):
         raise RuntimeError('Unclosed Lean comment')
     return ''.join(result)
 
-paths = [ROOT / 'Mxym.lean'] + sorted((ROOT / 'Mxym').glob('*.lean')) + sorted((ROOT / 'OAI').rglob('*.lean'))
+paths = [ROOT / 'Mxym.lean'] + sorted((ROOT / 'Mxym').glob('*.lean')) + sorted((ROOT / 'OAI').rglob('*.lean')) + [ROOT / 'Entry005.lean'] + sorted((ROOT / 'Entry005').glob('*.lean'))
 exports = []
 for path in paths:
     code = strip_comments(path.read_text())
-    forbidden = re.findall(r'\b(?:sorry|admit|axiom|native_decide|unsafe|implemented_by)\b', code)
+    forbidden = re.findall(r'\b(?:sorry|admit|axiom|native_decide|unsafe|implemented_by|opaque|extern)\b', code)
+    if 'debug.skipKernelTC' in code:
+        raise RuntimeError(f'Forbidden kernel-check option in {path}')
     if forbidden:
         raise RuntimeError(f'Forbidden proof escape in {path}: {forbidden}')
     namespaces = []

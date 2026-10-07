@@ -1,0 +1,401 @@
+====== scripts/check_pins.py ======
+BYTE IDENTICAL
+
+====== scripts/generate_audit.py ======
+--- public68/scripts/generate_audit.py
++++ frozen101/scripts/generate_audit.py
+@@ -27,11 +27,13 @@
+         raise RuntimeError('Unclosed Lean comment')
+     return ''.join(result)
+ 
+-paths = [ROOT / 'Mxym.lean'] + sorted((ROOT / 'Mxym').glob('*.lean')) + sorted((ROOT / 'OAI').rglob('*.lean'))
++paths = [ROOT / 'Mxym.lean'] + sorted((ROOT / 'Mxym').glob('*.lean')) + sorted((ROOT / 'OAI').rglob('*.lean')) + [ROOT / 'Entry005.lean'] + sorted((ROOT / 'Entry005').glob('*.lean'))
+ exports = []
+ for path in paths:
+     code = strip_comments(path.read_text())
+-    forbidden = re.findall(r'\b(?:sorry|admit|axiom|native_decide|unsafe|implemented_by)\b', code)
++    forbidden = re.findall(r'\b(?:sorry|admit|axiom|native_decide|unsafe|implemented_by|opaque|extern)\b', code)
++    if 'debug.skipKernelTC' in code:
++        raise RuntimeError(f'Forbidden kernel-check option in {path}')
+     if forbidden:
+         raise RuntimeError(f'Forbidden proof escape in {path}: {forbidden}')
+     namespaces = []
+
+====== scripts/check_axioms.py ======
+--- public68/scripts/check_axioms.py
++++ frozen101/scripts/check_axioms.py
+@@ -6,17 +6,22 @@
+ 
+ root = Path(__file__).resolve().parent.parent
+ expected = json.loads((root / 'exported-theorems.json').read_text())
++if len(expected)!=101 or len({row['name'] for row in expected})!=101:
++    raise RuntimeError('Expected 101 distinct audited exports')
+ output = (root / 'logs/axioms.log').read_text()
+ allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+ results = {}
+-for name, axioms in re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", output):
++for line in output.splitlines():
++    if not line.strip():
++        continue
++    match = re.fullmatch(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", line)
++    empty = re.fullmatch(r"'([^']+)' does not depend on any axioms", line)
++    if not match and not empty:
++        raise RuntimeError('Malformed or extraneous axiom output: ' + line)
++    name = (match or empty).group(1)
+     if name in results:
+         raise RuntimeError(f'Duplicate axiom output for {name}')
+-    results[name] = [a.strip() for a in axioms.split(',') if a.strip()]
+-for name in re.findall(r"'([^']+)' does not depend on any axioms", output):
+-    if name in results:
+-        raise RuntimeError(f'Duplicate axiom output for {name}')
+-    results[name] = []
++    results[name] = [a.strip() for a in match.group(2).split(',') if a.strip()] if match else []
+ if set(results) != {item['name'] for item in expected}:
+     raise RuntimeError('Missing or unexpected #print axioms result')
+ for item in expected:
+
+====== scripts/generate_coverage.py ======
+--- public68/scripts/generate_coverage.py
++++ frozen101/scripts/generate_coverage.py
+@@ -20,7 +20,10 @@
+ if (ROOT / 'logs/axioms.log').read_text() != fresh_axioms:
+     raise RuntimeError('Stored axiom log differs from fresh Lean output')
+ subprocess.run(['python3', str(ROOT / 'scripts/check_axioms.py')], cwd=ROOT, check=True)
+-entries = json.loads((ROOT / 'axiom-report.json').read_text())
++regenerated_entries = json.loads((ROOT / 'axiom-report.json').read_text())
++if entries != regenerated_entries:
++    raise RuntimeError('Stored coverage axiom inventory differs from fresh audited output')
++entries = regenerated_entries
+ 
+ RADE = 'entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)'
+ EQUAL = 'entry005 v4 §2 Lemma 2.1'
+@@ -140,10 +143,21 @@
+  ('dimension_twenty_strict', OAI + 'Arithmetic.lean:dimension_twenty_strict', 'audited exact upstream reuse', 'No hypotheses; the same explicit scalar definition.', 'C_20<C_10^2. This does not itself prove a geometric product or projection-volume formula.'),
+ ])
+ 
++# Reviewed additive module specifications. Definitions and targets are never exports.
++for filename in ['stochastic-coverage-spec.json','geometry-coverage-spec.json']:
++    for name, row in json.loads((ROOT/'scripts'/filename).read_text()).items():
++        if name in spec:raise RuntimeError('Duplicate reviewed coverage entry: '+name)
++        spec[name]=(row['paper_statement'],row['coverage_kind'],row['assumptions_summary'],row['description'])
+ if set(spec) != {e['name'] for e in entries}:
+     raise RuntimeError('Unreviewed or missing coverage entry: ' + repr(set(spec) ^ {e['name'] for e in entries}))
+ 
+ def application_gaps(name):
++    if name.startswith('Entry005.'):
++        return json.loads((ROOT/'scripts/geometry-coverage-spec.json').read_text())[name]['unformalized_application_dependencies']
++    if name.startswith('Mxym.StochasticRigidity.'):
++        return ['This is a genuine finite matrix theorem. Construction of a barycentric matrix from actual maximum simplices, proof of stochasticity and determinant versus real simplex-volume correspondence are not supplied.',
++                'Cone-law construction, Cauchy/Minkowski identities, integrated witness assignment, same-centroid geometric conversion, full sharp stability assembly and truncation sharpness remain unproved.']
++
+     if name.startswith('Mxym.NormedBalance.') or name in {
+         'Mxym.Determinant.cofactor_vector_relation', 'Mxym.Determinant.mapped_cofactor_relation',
+         'Mxym.Determinant.cofactor_balance_of_normalized_columns',
+@@ -177,7 +191,7 @@
+     if start is None:
+         raise RuntimeError('Missing exact signature for ' + name)
+     tail = statements[start.start():]
+-    next_start = re.search(r'\n(?:Mxym\.|OAI\.)', tail)
++    next_start = re.search(r'\n(?:Mxym\.|OAI\.|Entry005\.)', tail)
+     signature = tail[:next_start.start() if next_start else len(tail)].strip()
+     paper, kind, assumptions, description = spec[name]
+     out.append({**e, 'paper_statement': paper, 'coverage_kind': kind,
+@@ -193,141 +207,66 @@
+     for e in out:
+         writer.writerow({k: '; '.join(e[k]) if isinstance(e[k], list) else e[k] for k in columns})
+ 
+-intro = '''MXym/math Lean verification report — 7 October 2026
+-
+-OUTCOME
+-68 exported theorems successfully compile, including supporting lemmas and
+-four audited upstream theorems. The primary achievement is the full finite
+-balanced Rademacher inequality and equality criterion (entry005 v3 Lemma 6.1,
+-entry005 v4 Lemma 2.1), valid for arbitrary finite real coefficients including
+-the zero case. No geometric identity is postulated to prove those statements.
+-
+-For N coefficients, sign(true)=1, sign(false)=-1 and
+-  mean(c) = [sum over all epsilon: index -> Bool of |sum_i sign(epsilon_i)c_i|]
+-            / card(index -> Bool),
+-and the latter cardinality is proved to be 2^N. This is exactly the independent
+-uniform finite sign expectation in the paper; no measure-theory bridge is needed
+-for this finite formulation. Balance means |c_i| <= (sum_j |c_j|)/2 for every i.
+-The two main Lean results are:
+-  Mxym.Rademacher.balanced_bound
+-  Mxym.Rademacher.balanced_equality_iff
+-Equality holds precisely when support size <=3 or a coefficient has half mass.
+-
+-QUANTITATIVE FINITE EXTENSION
+-The two additional coefficient theorems prove the supplement's Lemma 3.1
+-equation (3.1) with four distinct selected coordinates or a zero t threshold.
+-They do not prove the same lemma's l1-distance-to-equality estimate, a sorted
+-order-statistic construction, or any integrated/geometric stability result.
+-
+-FINITE NORMED RELATION AND COFACTOR EXTENSION
+-Eight new theorems derive balance from a zero-sum real vector relation and
+-unit norms on active coefficients. Algebraic cofactors satisfy that relation,
+-and a supplied real linear equivalence maps it into a supplied normed space.
+-The new normalized-column sign-average corollaries derive rather than assume
+-cofactor balance. The convex-body Minkowski norm, boundary-unit normalization,
+-even law and integration are still unformalized. The equality statement keeps
+-both the small-support and half-mass branches; it does not prove exposedness.
+-
+-OTHER CERTIFIED COVERAGE
+-The determinant expansion, horizontal cofactor relation and independent-sign
+-cancellation are unconditional identities for arbitrary real d by (d+1)
+-matrices, including singular cases. The lift puts its added row FIRST, whereas
+-the paper uses the last row. Moving that row changes the determinant by (-1)^d;
+-the paper applications here use absolute values, so this convention has no
+-effect on their statements. The two balanced determinant corollaries explicitly
+-ASSUME the balance inequality. The new normed corollaries derive balance from
+-the supplied active-column unit norms. Constructing the actual convex-body
+-Minkowski norm, proving boundary normalization and the integrated symmetric
+-boundary-law bound remain unformalized.
+-
+-The finite defect identity uses P=sum_i p_i max(z_i,0), Q=sum_i p_i max(-z_i,0).
+-It proves sum_i p_i|z_i|-|sum_i p_i z_i|=2 min(P,Q), weighted Jensen, a two-sign
+-witness bound, strictness, and the full finite equality criterion. The algebraic
+-identity even permits signed weights; the Jensen/strictness statements require
+-p_i>=0. No sum_i p_i=1 assumption is needed. These are the inner-law mechanisms
+-of entry005 v3 (3.1)-(3.2), not the entire integrated determinant identities.
+-
+-The ordered signed-square estimate and intermediate-value/three-term scalar
+-inequalities used in entries001/008 are proved directly over the reals. An
+-additional scalar equality criterion is proved and labeled as an extension.
+-
+-The dimension/invariant recurrences in entry005 v5 (2.1)-(2.2) are explicit Lean
+-recursive definitions, and their closed forms are proved by induction. Exact
+-binary-orbit scalar values d_6=21845 and a_6=1/384 are checked. Calling them the
+-invariants of the actual geometric recursion still requires the unformalized
+-product/join identities; this project does not certify v5 Theorem 1.1 or its
+-strict infinite-parameter optimality gap, or the later Bellman certificates.
+-
+-REPRODUCIBILITY AND ACTUAL VALIDATION
+-Lean 4.34.1 (official binary), compiler commit
+-5045d0056413266e57c625dcd7c365b10e377c52; Lake 5.0.0-src+5045d00;
+-mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
+-lean-toolchain, lakefile.toml and lake-manifest.json pin all dependencies.
+-scripts/bootstrap.sh installs official pinned tooling into project-local paths.
+-scripts/verify.sh removes the project .lake/build and compiles all active proof
+-modules. Dependency builds/cache are retained and not independently rebuilt.
+-The recorded clean compilation succeeded (2321 Lake jobs, exit status zero).
+-All 68 #print axioms commands and all 68 #check statements succeeded.
+-scripts/check_pins.py verified the compiler commit and all nine dependency
+-checkout commits with no tracked source modifications.
+-
+-TRUST AND AXIOMS
+-The exact axiom list for EVERY theorem is in axiom-report.json and below.
+-Their union is precisely:
+-  propext          — propositional extensionality;
+-  Classical.choice — classical choice;
+-  Quot.sound       — quotient soundness.
+-These are standard Lean logical axioms, not an axiom-free proof claim.
+-No theorem depends on sorryAx, a custom theorem-replacing axiom, or an extra
+-compiler/native-evaluation axiom. Active sources have no sorry, admit, axiom,
+-native_decide, unsafe, or implemented_by. norm_num/ring/nlinarith and finite
+-enumeration construct proof terms checked by Lean's kernel. The source scan is
+-an additional guard, not the primary mathematical certificate. The primary
+-evidence is successful Lean compilation plus transitive #print axioms output.
+-The trust boundary includes the official Lean binary, standard library and
+-official pinned dependency .olean cache. We did not rebuild Lean/mathlib from
+-source or run an independent external kernel checker.
+-
+-UPSTREAM REUSE
+-OpenAI/math adc7f1241b42e322a6451854ab7e4b4c146bf78a supplied the exact Arithmetic
+-module, the exact simplexConstant definition (with narrower imports), and the
+-exact twice_sum_negative_eq_sum_abs statement/proof (with narrower imports).
+-All four reused theorems compile afresh and pass the same transitive axiom audit.
+-Their full originals and Apache-2.0 license are included under vendor/openai/.
+-No challenge file is imported. Only the four compiled finite/scalar
+-upstream theorems listed above are certified here; upstream geometry is outside
+-this project's certified scope.
+-
+-UNFORMALIZED PAPER DEPENDENCIES / REMAINING WORK
+-- General centered-law A<=B<(d+1)A, simplex support rigidity, support and
+-  Caratheodory/separation arguments, B-A's outer integral and the d! witness
+-  factor, arbitrary-law neighborhood arguments, and geometric stability.
+-- Cone-volume/surface-area/Minkowski identities, projection/cone geometry,
+-  geometric product/join laws, actual boundary-unit norm construction, and
+-  integration under even boundary laws. Thus v3 Theorem 6.2 is not fully certified.
+-- Exposed-point rigidity, cofactor rank arguments, rank-two decomposition and
+-  full convex-body product classification in v4 Theorem 1.1.
+-- v5's R recurrence, Robbins/Stirling estimates, infinite logarithmic limit,
+-  tail control, rational-log/integer global screening, uniqueness and gap.
+-  Any Python rational verifier in the source repository remains outside Lean.
+-- Convex derivative/secant order, almost-everywhere domain legitimacy,
+-  minimum-density integration, translation identities and all transport,
+-  Sobolev, regularity, moment, and optimal-map estimates in entries001/008.
+-- Full upstream OpenAI geometric volume/product theorems and identification
+-  of the explicit simplexConstant with a geometric invariant.
+-
+-These are mathematical scope boundaries, not installation or build blockers.
+-All supplied finite/scalar identities have proofs; none is supplied merely as
+-an implication from an assumed geometric identity. The conditional cofactor
+-corollaries and geometric applications are explicitly distinguished above.
++intro = """MXym/math additive Lean checkpoint — 7 October 2026
++
++SCOPE AND COUNTS
++101 public theorem exports compile: all original 68 finite/scalar exports,
++seven exact stochastic determinant-rigidity exports, and 26 new Entry005
++exports (16 geometric lemmas plus ten exact-constant positivity statements).
++Supporting lemmas count as exports, not as 101 distinct paper theorems.
++All original 68 exact signatures, axiom sets, proof files, source references,
++vendored originals and compiler/dependency pins are preserved.
++
++GENUINE GEOMETRIC ENDPOINT
++For actual compact nested convex bodies B subset K subset P subset M B in a
++finite-dimensional real inner-product space of dimension d >= 2, M >= 0 and
++eta >= 0, a bound eta on EVERY actual intrinsic hyperplane projection-volume
++deficit gives d_H(K,P) <= (d-1)(M+1) eta^(1/(d-1)). The theorem includes eta=0.
++It derives the nearest point, supporting normal, perpendicular projection,
++true codimension, cap inclusion/disjointness, Haar gain, inner cube bound,
++and root conversion. No cap conclusion is assumed as a proof premise.
++
++WHAT REMAINS UNPROVED
++The actual projection-deficit hypothesis is not derived from entryDefect.
++Cone law/determinant representation, Cauchy projection, Minkowski/scale control,
++integrated nonatomic witnesses/anchors, maximum-simplex normalization,
++barycentric stochasticity and determinant versus actual simplex volume,
++same-centroid conversion, all constant gates, end-to-end local/global stability,
++and actual truncation sharpness remain unproved. The newly explicit
++thresholdGateGoal and corrected small-positive-defect sharpness target are
++Prop definitions only. Positivity proofs do not discharge the threshold gate.
++See COMPLETENESS_MATRIX.md and target-status.json. No whole-paper formalization,
++complete sharp simplex theorem, or novelty claim is made.
++
++VERIFICATION AND TRUST
++Lean 4.34.1, compiler 5045d0056413266e57c625dcd7c365b10e377c52;
++Lake 5.0.0-src+5045d00; mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
++All nine reviewed official dependency sources and revisions remain pinned.
++Verification clean-rebuilds owned modules, checks all exact signatures and
++axiom sets, preserves the original 68, matches source exports with compiler
++inventory and traverses stored proof bodies. Normal and optimized Python
++verification and adversarial controls are recorded under logs/.
++Axiom sets are subsets of propext, Classical.choice and Quot.sound. No owned
++sorry, custom axiom, native proof shortcut, unsafe or opaque declaration is
++accepted. Lean, its standard library and official cached dependency oleans
++remain within the trust boundary; they were not independently rebuilt from
++source, and no external independent kernel checker was run.
++
++ORIGINAL COVERAGE AND ATTRIBUTION
++The original finite balanced Rademacher bound and full equality criterion,
++finite defect/Jensen mechanisms, normed/cofactor algebra, scalar transport
++bounds and defined scalar recurrences remain proved with their original exact
++assumptions. Four reused OpenAI/math finite/scalar exports retain their exact
++upstream attribution and Apache-2.0 source license. The whole upstream
++geometric solution is not certified. PROVENANCE.md records added source pins,
++exact-byte imports and the sole target-only correction.
+ 
+ THEOREM-BY-THEOREM MAP
+-The following includes every exported theorem. Helpers are explicitly labeled
+-and are not counted as separate published paper lemmas. Every exact signature
+-records all formal assumptions and typeclass requirements. Paper source paths,
+-commits and snapshot hashes are in references/SOURCES.json; all application
+-gaps are also repeated per theorem in coverage.json/coverage.csv.
+-'''
++Every public theorem is listed below with its exact compiler signature,
++axioms, intended paper locator, assumptions and unformalized application
++requirements. Targets, definitions and informal dependencies are not counted
++as proved exports.
++"""
+ parts = [intro]
+ for index, e in enumerate(out, 1):
+     parts.append(f"\n{index}. {e['name']}\n"
+
+====== scripts/check_controls.py ======
+--- public68/scripts/check_controls.py
++++ frozen101/scripts/check_controls.py
+@@ -34,16 +34,20 @@
+  TEMP=Path(temp)
+  helpers=TEMP/'helpers';helpers.mkdir()
+  ENV['LEAN_PATH']=str(helpers)+(':'+ENV['LEAN_PATH'] if ENV.get('LEAN_PATH') else '')
+- for name in ['NormedMeaningChecks','ExtensionMeaningChecks','MeaningChecks']:
++ for name in ['NormedMeaningChecks','ExtensionMeaningChecks','MeaningChecks','StochasticMeaningChecks','GeometricMeaningChecks']:
+   row,output=run('semantic-'+name,['lake','env','lean','--root='+str(ROOT/'controls'),
+                  '-o',str(helpers/(name+'.olean')),str(ROOT/'controls'/(name+'.lean'))],ROOT)
+   if not row['passed'] or 'uses `sorry`' in output:raise RuntimeError('Semantic baseline failed: '+name)
+- inventory,_=run('compiler-inventory',['lake','env','lean',str(ROOT/'controls/IndependentAudit.lean')],ROOT)
++ inventory,inventory_output=run('compiler-inventory',['lake','env','lean',str(ROOT/'controls/IndependentAudit.lean')],ROOT)
+  if not inventory['passed']:raise RuntimeError('Compiler environment audit failed')
+  original=(ROOT/'logs/axioms.log').read_text()
+  entries=json.loads((ROOT/'exported-theorems.json').read_text())
+  new=[e for e in entries if e['source'] in {'Mxym/NormedBalance.lean','Mxym/CofactorNormedBalance.lean'}]
+- if len(entries)!=68 or len(new)!=8:raise RuntimeError('Unexpected project inventory')
++ if len(entries)!=101 or len(new)!=8:raise RuntimeError('Unexpected project inventory')
++ compiler_rows=[json.loads(line) for line in inventory_output.splitlines() if line.startswith('{')]
++ compiler_exports={v['name'] for v in compiler_rows if v['kind']=='theorem' and not v['private'] and not v['internal_detail'] and not v['equation'] and not v['name'].endswith(('.congr_simp','.eq_def'))}
++ if compiler_exports!={v['name'] for v in entries}:raise RuntimeError('Compiler/source export inventory mismatch')
++ if any(v['kind'] in {'axiom','opaque'} or (v['kind']=='theorem' and (v['unsafe'] or v['partial'])) for v in compiler_rows):raise RuntimeError('Unsafe owned declaration')
+ 
+  def axiom_case(label,text,negative,diagnostic=''):
+   p=TEMP/label;(p/'scripts').mkdir(parents=True);(p/'logs').mkdir()
+@@ -93,7 +97,7 @@
+  compiled,_=run('protected-compile',['lake','env','lean','Mxym/NormedBalance.lean'],p)
+  inventoried,_=run('protected-inventory',['python3','scripts/generate_audit.py'],p)
+  exports=json.loads((p/'exported-theorems.json').read_text())
+- inventoried['passed']=inventoried['passed'] and compiled['passed'] and len(exports)==69 and any(
++ inventoried['passed']=inventoried['passed'] and compiled['passed'] and len(exports)==102 and any(
+      e['name']=='Mxym.NormedBalance.inventorySentinel' for e in exports)
+  inventoried['observed_export_count']=len(exports)
+  for label,code in [('source-sorry','theorem escape : True := by sorry'),
+
+====== scripts/verify.sh ======
+--- public68/scripts/verify.sh
++++ frozen101/scripts/verify.sh
+@@ -24,5 +24,10 @@
+ lake env lean Statements.lean > logs/statements.log 2>&1
+ python3 scripts/check_axioms.py > logs/axiom-check.log
+ python3 scripts/generate_coverage.py > logs/coverage-check.log
++python3 scripts/check_baseline.py > logs/baseline-preservation.log
++python3 scripts/check_inventory.py > logs/inventory-check.log
++python3 scripts/check_previous_declarations.py > logs/prior-declaration-preservation.log
++python3 scripts/check_targets.py > logs/target-check.log
++python3 scripts/check_dependencies.py > logs/dependency-check.log
+ cat logs/axiom-check.log
+ cat logs/coverage-check.log
+
+====== controls/IndependentAudit.lean ======
+--- public68/controls/IndependentAudit.lean
++++ frozen101/controls/IndependentAudit.lean
+@@ -14,7 +14,8 @@
+     if let some idx := env.getModuleIdxFor? n then
+       let modName := env.header.moduleNames[idx.toNat]!
+       if modName.toString.startsWith "Mxym" ||
+-          modName.toString.startsWith "OAI.Geometry.ProjectionVolume" then
++          modName.toString.startsWith "OAI.Geometry.ProjectionVolume" ||
++          modName.toString.startsWith "Entry005" then
+         selected := selected.push (n, ci, modName)
+   selected := selected.qsort (fun a b => Name.lt a.1 b.1)
+   let mut theoremCount : Nat := 0
+@@ -37,6 +38,8 @@
+       ("unsafe", toJson ci.isUnsafe),
+       ("partial", toJson ci.isPartial),
+       ("private", toJson (privateToUserName? n).isSome),
++      ("internal_detail", toJson n.isInternalDetail),
++      ("equation", toJson (← liftCoreM <| isEqnThm n)),
+       ("type", toJson typeFmt.pretty),
+       ("axioms", toJson (axs.map Name.toString))]
+     logInfo m!"{j.compress}"
+
+====== scripts/bootstrap.sh ======
+BYTE IDENTICAL
+
+====== lakefile.toml ======
+--- public68/lakefile.toml
++++ frozen101/lakefile.toml
+@@ -16,3 +16,6 @@
+ 
+ [[lean_lib]]
+ name = "OAI"
++
++[[lean_lib]]
++name = "Entry005"
+
+====== Mxym.lean ======
+--- public68/Mxym.lean
++++ frozen101/Mxym.lean
+@@ -7,3 +7,5 @@
+ import Mxym.UpstreamCancellation
+ import OAI.Geometry.ProjectionVolume.Arithmetic
+ import Mxym.RademacherDefect
++import Mxym.StochasticRigidity
++import Entry005

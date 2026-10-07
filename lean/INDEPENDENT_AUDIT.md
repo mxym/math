@@ -1,50 +1,64 @@
-# Independent audit — 7 October 2026
+# Audit evidence and scope
 
-The 68 exported finite/scalar theorems passed a clean project rebuild using Lean
-4.34.1 (`5045d0056413266e57c625dcd7c365b10e377c52`), Lake
-`5.0.0-src+5045d00` and mathlib
-`d13f23b723b8a846827a245b89c10fc7d3f11612`. The build reported 2,321 Lake jobs;
-retained dependency artifacts contribute to that count. All project and curated
-upstream proof modules were recompiled.
+The original public 68-export project, the seven stochastic matrix exports,
+and the 26 geometric/constant exports each received separate independent
+source, kernel-build, signature, axiom and adversarial review. Their exact
+compiled mathematical source bytes are preserved in this additive checkpoint.
+The current integrated project is additionally clean-rebuilt and audited as
+one 101-export import closure. Its final separate integration review is a
+publication gate; no publication action is performed by this packet.
 
-All 68 full signatures and literal axiom audits passed. Their axiom union is
-`propext`, `Classical.choice`, `Quot.sound`; no custom/sorry/native-proof axiom
-appears. An independent compiler inventory found 158 declarations, including
-136 theorem declarations and 22 definitions. The difference from 68 is generated
-and private helpers. Direct traversal of checked types and stored bodies visited
-24,789 constants, with no missing or reachable unsafe/partial proof dependency.
-Generated partial runtime implementations are excluded as traversal roots; any
-unsafe dependency reached from a safe proof root is still rejected.
+## Prior independent findings retained
 
-The normed/cofactor results derive balance from a zero-sum relation and supplied
-unit norms on active vectors; they do not assume the balance inequality. Semantic
-controls include nonzero normalized examples, inactive vectors without unit
-norms, strictness, singular cofactors, and exact counterexamples to removing the
-relation or weakening normalization. The normalized dimension-zero cofactor
-hypotheses are infeasible; positive-dimensional examples are nonvacuous.
+- The original 68-export review passed the arbitrary-finite Rademacher bound
+  and full equality criterion, finite defect, determinant, normed/cofactor,
+  scalar transport, recurrence and four attributed upstream mechanisms.
+- The seven stochastic exports passed an independent combined 75-export build,
+  exact prior-68 signature/axiom and declaration preservation, direct stored-body
+  traversal, 25 supplied two-mode checker controls and 37 independent negative
+  plus eight positive checks. No mathematical proof correction was needed.
+- Four standalone reporting weaknesses were identified: actual checkout origin,
+  untracked dependency source, extra locked dependency and protected theorem
+  inventory. The public 68 parent already had stronger origin/cleanliness/lock
+  and protected-declaration guards. Those guards are retained here; all four
+  cases are directly retested. The separate standalone script-only correction
+  is provenance, not an overwrite of the stronger integrated guards.
+- The projection-cap checkpoint passed two clean owned-module builds, all 33
+  then-present exports (26 geometric/constants plus the seven matrix exports),
+  exact signatures and standard axiom checks, recursive dependency traversal,
+  11 negative controls and kernel-checked zero-deficit actual-body equality.
+- Its target-only correction was independently typechecked. It adds an explicit
+  threshold gate and arbitrarily small positive defect to the truncation target.
+  It proves neither target and changes no geometric proof.
 
-Reporting guards check reviewed dependency revisions/origins and source
-cleanliness, remain active under Python optimization, include protected theorem
-declarations, reject proof escapes, and require fresh Lean signature/axiom output
-before generating coverage. A compiler inventory supplements the lexical source
-inventory. `scripts/check_controls.py` provides reproducible negative reporting
-and semantic controls. All 32 negative controls and 7 positive checks passed;
-their commands, exit codes and expected diagnostics are in
-`logs/controls-summary.json`. Nonzero exits in individual negative-control logs
-are the intended rejection results.
+## Current integrated evidence
 
-The verified scope is finite Rademacher mathematics, its coefficient-defect and
-normed-relation extensions, determinant identities, weighted finite Jensen/defect
-mechanisms, elementary scalar inequalities, explicit scalar recurrences and
-curated finite/scalar upstream reuse. The complete theorem map gives assumptions
-and application gaps. Constructing a convex-body Minkowski norm and boundary-unit
-normalization, measure integration, exposed-point rigidity, geometric
-classification/stability, the coefficient-distance bound and global optimality
-remain outside scope.
+scripts/verify.sh clean-rebuilds all owned modules, checks the nine official
+origins/revisions and compiler pin, regenerates all 101 exact signatures and
+axiom sets, checks every original 68 signature and protected source byte, preserves all
+158 original and ten stochastic compiler declaration types/kinds/axioms/flags,
+matches compiler-known public source theorem exports to the exhaustive
+inventory and traverses stored constant types/bodies.
 
-The trust boundary includes the official Lean compiler/standard library and
-official pinned third-party `.olean` cache. This is a clean project rebuild,
-without a full dependency/compiler-from-source rebuild or an external kernel
-checker. Axiom/body traversal is a dependency audit, not a re-typecheck of every
-imported cached proof. The build log's local path was normalized for distribution;
-all theorem signature and axiom output remains verbatim.
+Compiler-generated auxiliaries and private helpers are fully inventoried and
+covered by the logical dependency audit, while the public export count is the
+101 explicit non-private source theorem declarations. The pre-existing
+compiler-generated unsafe recursion evaluator is excluded as a logical root;
+it is not reachable from safe owned proof roots. Any reachable unsafe, partial,
+missing or nonstandard-axiom dependency is rejected.
+
+All checked theorem axiom sets are subsets of propext, Classical.choice and
+Quot.sound. Normal and optimized Python verification and controls use explicit
+runtime checks. Negative fixtures are isolated copies; none is imported as an
+active proof source or changes the frozen original project/dependency sources.
+
+The natural cap/Hausdorff endpoint is proved with a genuine actual-projection
+volume deficit premise. The functional-to-deficit bridge, cone law, Cauchy,
+Minkowski, integrated witnesses, maximum-simplex/real-volume interface,
+same-centroid assembly, threshold gate and truncation sharpness are unproved.
+See COMPLETENESS_MATRIX.md. No full sharp theorem or whole-paper formalization
+is certified.
+
+Lean 4.34.1, its standard library and official pinned cached dependency oleans
+remain trusted. Owned project sources are rebuilt; Lean/mathlib are not rebuilt
+from source and no separate external kernel checker was run.

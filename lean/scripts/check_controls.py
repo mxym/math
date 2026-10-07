@@ -34,16 +34,20 @@ with tempfile.TemporaryDirectory(prefix='controls-',dir=ROOT/'.lake') as temp:
  TEMP=Path(temp)
  helpers=TEMP/'helpers';helpers.mkdir()
  ENV['LEAN_PATH']=str(helpers)+(':'+ENV['LEAN_PATH'] if ENV.get('LEAN_PATH') else '')
- for name in ['NormedMeaningChecks','ExtensionMeaningChecks','MeaningChecks']:
+ for name in ['NormedMeaningChecks','ExtensionMeaningChecks','MeaningChecks','StochasticMeaningChecks','GeometricMeaningChecks']:
   row,output=run('semantic-'+name,['lake','env','lean','--root='+str(ROOT/'controls'),
                  '-o',str(helpers/(name+'.olean')),str(ROOT/'controls'/(name+'.lean'))],ROOT)
   if not row['passed'] or 'uses `sorry`' in output:raise RuntimeError('Semantic baseline failed: '+name)
- inventory,_=run('compiler-inventory',['lake','env','lean',str(ROOT/'controls/IndependentAudit.lean')],ROOT)
+ inventory,inventory_output=run('compiler-inventory',['lake','env','lean',str(ROOT/'controls/IndependentAudit.lean')],ROOT)
  if not inventory['passed']:raise RuntimeError('Compiler environment audit failed')
  original=(ROOT/'logs/axioms.log').read_text()
  entries=json.loads((ROOT/'exported-theorems.json').read_text())
  new=[e for e in entries if e['source'] in {'Mxym/NormedBalance.lean','Mxym/CofactorNormedBalance.lean'}]
- if len(entries)!=68 or len(new)!=8:raise RuntimeError('Unexpected project inventory')
+ if len(entries)!=101 or len(new)!=8:raise RuntimeError('Unexpected project inventory')
+ compiler_rows=[json.loads(line) for line in inventory_output.splitlines() if line.startswith('{')]
+ compiler_exports={v['name'] for v in compiler_rows if v['kind']=='theorem' and not v['private'] and not v['internal_detail'] and not v['equation'] and not v['name'].endswith(('.congr_simp','.eq_def'))}
+ if compiler_exports!={v['name'] for v in entries}:raise RuntimeError('Compiler/source export inventory mismatch')
+ if any(v['kind'] in {'axiom','opaque'} or (v['kind']=='theorem' and (v['unsafe'] or v['partial'])) for v in compiler_rows):raise RuntimeError('Unsafe owned declaration')
 
  def axiom_case(label,text,negative,diagnostic=''):
   p=TEMP/label;(p/'scripts').mkdir(parents=True);(p/'logs').mkdir()
@@ -93,7 +97,7 @@ with tempfile.TemporaryDirectory(prefix='controls-',dir=ROOT/'.lake') as temp:
  compiled,_=run('protected-compile',['lake','env','lean','Mxym/NormedBalance.lean'],p)
  inventoried,_=run('protected-inventory',['python3','scripts/generate_audit.py'],p)
  exports=json.loads((p/'exported-theorems.json').read_text())
- inventoried['passed']=inventoried['passed'] and compiled['passed'] and len(exports)==69 and any(
+ inventoried['passed']=inventoried['passed'] and compiled['passed'] and len(exports)==102 and any(
      e['name']=='Mxym.NormedBalance.inventorySentinel' for e in exports)
  inventoried['observed_export_count']=len(exports)
  for label,code in [('source-sorry','theorem escape : True := by sorry'),
