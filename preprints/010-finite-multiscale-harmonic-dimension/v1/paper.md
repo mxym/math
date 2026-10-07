@@ -22,7 +22,8 @@ by one metric.
 **Theorem 1 (finite multiscale counterexample).**
 Fix
 \[
- \varepsilon>0,\qquad m\in\mathbb N,\qquad 1<\beta<\frac32.
+ \varepsilon>0,\qquad m\in\mathbb N,\qquad \beta>1,\qquad A\ge1,
+ \qquad A\beta^2<\frac94.
 \]
 Given arbitrary lower bounds \(K_1,\ldots,K_m\), there exist integers
 \[
@@ -45,12 +46,17 @@ and a single complete smooth metric \(g\) on \(\mathbb R^3\) such that:
    \]
    one has
    \[
-   h_d(\mathbb R^3,g)>(d+1)^2
-   =h_d(\mathbb R^3,g_{\mathrm E}).
+   h_d(\mathbb R^3,g)>A(d+1)^2
+   =A\,h_d(\mathbb R^3,g_{\mathrm E}).
    \]
 
-The integers \(k_r\) may be taken arbitrarily far apart.  The metric can
-also be chosen with asymptotic volume ratio arbitrarily close to one.  It
+The integers \(k_r\) may be taken arbitrarily far apart.  Thus the same
+finite-multiscale statement retains the full quantitative tradeoff
+\[
+ A\beta^2<\frac94
+\]
+from the one-scale construction.  The metric can also be chosen with
+asymptotic volume ratio arbitrarily close to one.  It
 has the same qualitative tangent-cone and radial-sectional-curvature
 features as the pinned upstream construction: uncountably many pairwise
 nonisometric pointed tangent cones at infinity, and negative radial
@@ -146,12 +152,15 @@ A dependency-by-dependency audit is in PROOF_AUDIT.md.
 
 We now build one angular program for \(m\) scales.
 
-Choose numbers
+Choose \(a\in(2/3,1)\) sufficiently close to one that it gives the
+desired \((1+\varepsilon)\)-bi-Lipschitz bound and
 \[
- \beta<\vartheta<\frac{3a}{2},\qquad \frac23<a<1,
+ A\beta^2<\frac{9a^2}{4}.
 \]
-with \(a\) sufficiently close to one for the desired
-\((1+\varepsilon)\)-bi-Lipschitz bound.  Choose
+Then choose \(\vartheta>1\) so that
+\[
+ A\beta^2<\vartheta^2<\frac{9a^2}{4}.
+\]  Choose
 \[
  a^2<\kappa_*<1.
 \]
@@ -203,10 +212,19 @@ We also require
 \]
 and
 \[
- M_r\ge\lfloor\beta(k_r+1)\rfloor.
+ M_r\ge\lfloor\beta(k_r+1)\rfloor,
  \tag{3.5}
 \]
-All these are eventually automatic.
+as well as the quantitative dimension margin
+\[
+ (M_r+1)^2>
+ A\,\lfloor\beta(k_r+1)\rfloor^2.
+ \tag{3.6}
+\]
+All these are eventually automatic: the last inequality follows from
+\(M_r/k_r\to\vartheta\),
+\(\lfloor\beta(k_r+1)\rfloor/k_r\to\beta\), and
+\(\vartheta^2>A\beta^2\).
 
 Set \(p=p_m\).  For each adjacent pair \(i,i+1\) lying in one of the
 bands \(I_r\), first take the double supplied by the adjacent-double
@@ -340,14 +358,15 @@ Let
 \]
 By (3.5), \(D_r\le M_r-1\).  The inclusion
 \(\mathcal H_{k_r}\subseteq\mathcal H_d\) for \(d\ge k_r\), together with
-(5.1), gives for every integer \(k_r\le d\le D_r\)
+(5.1) and (3.6), gives for every integer \(k_r\le d\le D_r\)
 \[
  h_d(\mathbb R^3,g)
  \ge (M_r+1)^2
- > M_r^2
- \ge (d+1)^2.
+ > A\,\lfloor\beta(k_r+1)\rfloor^2
+ \ge A(d+1)^2.
 \]
-This proves the simultaneous comparison failure on all \(m\) blocks.
+This proves the simultaneous \(A\)-factor comparison failure on all
+\(m\) blocks.
 
 The recursive choice of \(k_r\) only imposes lower bounds, so the prescribed
 \(K_r\) can be met and the scales can be separated by arbitrarily large
@@ -384,7 +403,8 @@ Theorem 1 proves
  \forall m<\infty\ \exists g\ \exists k_1<\cdots<k_m
 \]
 with simultaneous integer-degree failures, and in fact with a linear-size
-block of failures around every \(k_r\).
+block carrying the same prescribed \(A\)-factor excess around every
+\(k_r\), throughout the full region \(A\beta^2<9/4\).
 
 It does not interchange the first two quantifiers to produce one metric
 working for infinitely many \(k_r\).  The finite proof deliberately fixes
