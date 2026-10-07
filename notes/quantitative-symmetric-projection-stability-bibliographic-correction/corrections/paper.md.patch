@@ -1,0 +1,111 @@
+--- a/paper.md
++++ b/paper.md
+@@ -113,6 +113,23 @@
+  \qquad
+  B=\mathbb E\left|\det\begin{pmatrix}X_1&\cdots&X_N\\1&\cdots&1\end{pmatrix}\right|.
+ \]
++These determinant expectations are classical zonoid volumes. In the
++normalization \(Z(\nu)=\mathbb E[0,X]\) and
++\(\widehat Z(\nu)=\mathbb E[0,(1,X)]\), Koshevoy–Mosler,
++*Lift zonoids, random convex hulls and the variability of random vectors*,
++Bernoulli 4 (1998), 377–399, Section 4, gives
++\[
++ |Z(\nu)|=A/d!,\qquad |\widehat Z(\nu)|=B/(d+1)!.
++\]
++Consequently the cone-law identity used here reads
++\[
++ a(K)=|\widehat Z(\nu_K)|/|Z(\nu_K)|.
++\]
++The determinant representation is established background; the restriction to
++cone laws and the endpoint inequality, equality analysis and stability are
++separate assertions. See the [primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf),
++printed p. 387, Theorem 4.1 and equation (4.3).
++
+ We import the v3 identity \(a(K)=B/(NA)\), affine invariance, and the balanced
+ Rademacher inequality. These hold for arbitrary convex bodies, by the
+ surface-area formulation and the continuity argument proved there. The law is
+@@ -302,6 +319,13 @@
+ 
+ ## 4. A quantitative matching of line and plane blocks
+ 
++The exact rank-two decomposition underlying this lemma has a matroid antecedent:
++van der Pol–Walsh–Wigal, [arXiv:2502.03673v2](https://arxiv.org/html/2502.03673v2#S5),
++Lemma 5.2, classify \(U_{3,4}\)-minor-free matroids as direct sums of
++rank-at-most-two matroids. The estimate below concerns small expected cofactor
++magnitudes and supplies a conditioned basis and quantitative approximation to
++such blocks.
++
+ **Lemma 4.1.** Let \(\nu\) be any Borel probability law supported in the
+ unit ball, with \(A\ge a\), \(0<a\le1\), and suppose its expected fourth absolute
+ cofactor is at most \(\varepsilon\). Put
+@@ -411,6 +435,12 @@
+ \[
+  (1-(2dv)^{1/d})P\subseteq Q\subseteq P.                       \tag{5.2}
+ \]
++
++The conversion from relative volume loss to containment is the standard
++nested-body cap argument; compare Böröczky–Henk,
++[*Cone-volume measure and stability*](https://www.renyi.hu/~carlos/cone-volume-stability.pdf),
++Lemma 3.1(i), printed p. 8. Central symmetry permits the constant 2 in place of
++the centered-body constant e in that result.
+ 
+ **Proof.** The projection product contains \(Q\), is symmetric, and lies in
+ \(\sqrt m R B_2^d\). Its support function agrees with \(h_Q\) on every
+@@ -592,6 +622,16 @@
+ This proves Theorem B. \(\square\)
+ 
+ ## 7. Comparison with primary cone-volume and stability literature
++
++The class \(\mathcal E_d\) is the familiar class of affine Cartesian products
++of centrally symmetric intervals and planar bodies, called Weil bodies in
++Saroglou, [*On the shape of a convex body with respect to its second projection
++body*](https://arxiv.org/pdf/1409.4347v2), pp. 2–4. That paper relates the class
++to Weil's polytopal classification for homothety under the second projection-body
++operator and gives a three-dimensional zonoid endpoint with symmetric-cylinder
++equality (Theorem 1.2). These use a different functional from \(a(K)\); the
++common extremal class alone does not make their statements equivalent to
++entry005 v4's equality theorem or Theorem A here.
+ 
+ The relevant antecedent is Böröczky–Lutwak–Yang–Zhang,
+ [The logarithmic Minkowski problem](https://www.renyi.hu/~carlos/minkowski0-prob.pdf),
+@@ -632,14 +672,13 @@
+ control. Cone-volume data additionally contains the unknown support function;
+ Lemma 5.1 avoids solving that inverse problem.
+ 
+-Böröczky–De also compare a cube with a volume-normalized unconditional body
+-obtained by truncating its vertices: the cone-volume Wasserstein distance is
+-\(O_d(\varepsilon)\), whereas the containment loss is
+-\(\Omega_d(\varepsilon^{1/d})\). This is a related cap-volume obstruction.
+-Theorem B instead computes the upper-end scalar deficit
++Böröczky–De also discuss volume-normalized unconditional bodies obtained by
++truncating vertices of a cube ([published version](https://real.mtak.hu/196592/1/1-s2.0-S0022039621004393-main.pdf),
++p. 302). This provides related geometric context. Theorem B independently
++computes the upper-end scalar deficit
+ \(1/2-a(K_t)\) and proves a distance lower bound against every affine product
+ of symmetric one- and two-dimensional bodies. A comparison with one fixed cube
+-would not establish that lower bound.
++would not establish that full-class lower bound.
+ 
+ Saroglou's
+ [Volumes of projection bodies of some classes of convex bodies](https://doi.org/10.1112/S0025579311001860)
+@@ -704,6 +743,20 @@
+   Minkowski first inequality via a quadratic estimate for the cone-volume
+   measure*, Advances in Mathematics 492 (2026), 110886.
+   [DOI](https://doi.org/10.1016/j.aim.2026.110886).
++- [KM] G. Koshevoy and K. Mosler, *Lift zonoids, random convex hulls and the
++  variability of random vectors*, Bernoulli 4 (1998), 377–399.
++  [Primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf),
++  Section 4, Theorem 4.1 and equation (4.3).
++- [VPWW] J. van der Pol, Z. Walsh, and M.C. Wigal, *Turán densities for matroid
++  basis hypergraphs*, arXiv:2502.03673v2, 10 March 2025.
++  [Primary manuscript](https://arxiv.org/html/2502.03673v2#S5), Section 5,
++  Lemma 5.2 (printed p. 15).
++- [SS] C. Saroglou, *On the shape of a convex body with respect to its second
++  projection body*, arXiv:1409.4347v2.
++  [Primary manuscript](https://arxiv.org/pdf/1409.4347v2), pp. 2–4 and Theorem 1.2.
++  It cites W. Weil, *Über die Projektionenkörper konvexer Polytope*,
++  Archiv der Mathematik 22 (1971), 664–672; that original article was not
++  obtained for this comparison.
+ - [Sch] R. Schneider, *Convex Bodies: The Brunn–Minkowski Theory*, second
+   expanded edition, Cambridge University Press, 2014. Support functions,
+   surface area, John normalization, and mixed volumes.

@@ -1,0 +1,71 @@
+{
+  "changes": [
+    {
+      "file": "paper.md",
+      "label": "5: classical zonoid determinant attribution",
+      "before": "We import the v3 identity",
+      "after": "These determinant expectations are classical zonoid volumes. In the\nnormalization \\(Z(\\nu)=\\mathbb E[0,X]\\) and\n\\(\\widehat Z(\\nu)=\\mathbb E[0,(1,X)]\\), Koshevoy–Mosler,\n*Lift zonoids, random convex hulls and the variability of random vectors*,\nBernoulli 4 (1998), 377–399, Section 4, gives\n\\[\n |Z(\\nu)|=A/d!,\\qquad |\\widehat Z(\\nu)|=B/(d+1)!.\n\\]\nConsequently the cone-law identity used here reads\n\\[\n a(K)=|\\widehat Z(\\nu_K)|/|Z(\\nu_K)|.\n\\]\nThe determinant representation is established background; the restriction to\ncone laws and the endpoint inequality, equality analysis and stability are\nseparate assertions. See the [primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf),\nprinted p. 387, Theorem 4.1 and equation (4.3).\n\nWe import the v3 identity"
+    },
+    {
+      "file": "paper.md",
+      "label": "4: matroid antecedent before quantitative rank lemma",
+      "before": "**Lemma 4.1.**",
+      "after": "The exact rank-two decomposition underlying this lemma has a matroid antecedent:\nvan der Pol–Walsh–Wigal, [arXiv:2502.03673v2](https://arxiv.org/html/2502.03673v2#S5),\nLemma 5.2, classify \\(U_{3,4}\\)-minor-free matroids as direct sums of\nrank-at-most-two matroids. The estimate below concerns small expected cofactor\nmagnitudes and supplies a conditioned basis and quantitative approximation to\nsuch blocks.\n\n**Lemma 4.1.**"
+    },
+    {
+      "file": "paper.md",
+      "label": "6: standard nested-body cap attribution",
+      "before": "**Proof.** The projection product contains",
+      "after": "The conversion from relative volume loss to containment is the standard\nnested-body cap argument; compare Böröczky–Henk,\n[*Cone-volume measure and stability*](https://www.renyi.hu/~carlos/cone-volume-stability.pdf),\nLemma 3.1(i), printed p. 8. Central symmetry permits the constant 2 in place of\nthe centered-body constant e in that result.\n\n**Proof.** The projection product contains"
+    },
+    {
+      "file": "paper.md",
+      "label": "1: remove unsupported numerical Wasserstein comparison",
+      "before": "Böröczky–De also compare a cube with a volume-normalized unconditional body\nobtained by truncating its vertices: the cone-volume Wasserstein distance is\n\\(O_d(\\varepsilon)\\), whereas the containment loss is\n\\(\\Omega_d(\\varepsilon^{1/d})\\). This is a related cap-volume obstruction.\nTheorem B instead computes the upper-end scalar deficit\n\\(1/2-a(K_t)\\) and proves a distance lower bound against every affine product\nof symmetric one- and two-dimensional bodies. A comparison with one fixed cube\nwould not establish that lower bound.\n",
+      "after": "Böröczky–De also discuss volume-normalized unconditional bodies obtained by\ntruncating vertices of a cube ([published version](https://real.mtak.hu/196592/1/1-s2.0-S0022039621004393-main.pdf),\np. 302). This provides related geometric context. Theorem B independently\ncomputes the upper-end scalar deficit\n\\(1/2-a(K_t)\\) and proves a distance lower bound against every affine product\nof symmetric one- and two-dimensional bodies. A comparison with one fixed cube\nwould not establish that full-class lower bound.\n"
+    },
+    {
+      "file": "paper.md",
+      "label": "7: Weil-body and second projection-body context",
+      "before": "The relevant antecedent is Böröczky–Lutwak–Yang–Zhang,",
+      "after": "The class \\(\\mathcal E_d\\) is the familiar class of affine Cartesian products\nof centrally symmetric intervals and planar bodies, called Weil bodies in\nSaroglou, [*On the shape of a convex body with respect to its second projection\nbody*](https://arxiv.org/pdf/1409.4347v2), pp. 2–4. That paper relates the class\nto Weil's polytopal classification for homothety under the second projection-body\noperator and gives a three-dimensional zonoid endpoint with symmetric-cylinder\nequality (Theorem 1.2). These use a different functional from \\(a(K)\\); the\ncommon extremal class alone does not make their statements equivalent to\nentry005 v4's equality theorem or Theorem A here.\n\nThe relevant antecedent is Böröczky–Lutwak–Yang–Zhang,"
+    },
+    {
+      "file": "paper.md",
+      "label": "bibliography: add checked primary antecedents",
+      "before": "- [Sch] R. Schneider,",
+      "after": "- [KM] G. Koshevoy and K. Mosler, *Lift zonoids, random convex hulls and the\n  variability of random vectors*, Bernoulli 4 (1998), 377–399.\n  [Primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf),\n  Section 4, Theorem 4.1 and equation (4.3).\n- [VPWW] J. van der Pol, Z. Walsh, and M.C. Wigal, *Turán densities for matroid\n  basis hypergraphs*, arXiv:2502.03673v2, 10 March 2025.\n  [Primary manuscript](https://arxiv.org/html/2502.03673v2#S5), Section 5,\n  Lemma 5.2 (printed p. 15).\n- [SS] C. Saroglou, *On the shape of a convex body with respect to its second\n  projection body*, arXiv:1409.4347v2.\n  [Primary manuscript](https://arxiv.org/pdf/1409.4347v2), pp. 2–4 and Theorem 1.2.\n  It cites W. Weil, *Über die Projektionenkörper konvexer Polytope*,\n  Archiv der Mathematik 22 (1971), 664–672; that original article was not\n  obtained for this comparison.\n- [Sch] R. Schneider,"
+    },
+    {
+      "file": "LITERATURE.md",
+      "label": "2: qualitative truncation comparison retaining equator hypothesis",
+      "before": "The introduction also uses volume-normalized unconditional vertex-truncated\ncubes: cone-volume Wasserstein error is \\(O_d(\\varepsilon)\\), while containment\nloss is \\(\\Omega_d(\\varepsilon^{1/d})\\). This is a related cap-volume\nmechanism. The supplement instead computes the scalar upper deficit and bounds\ndistance to the entire affine one-/two-dimensional product class, rather than\nto a fixed cube. Example 1.4 shows weak-measure collapse under anisotropic\nsqueezing for volume-one bodies satisfying zero cone mass on the specified\nequator. That hypothesis must be retained.\n",
+      "after": "The introduction discusses volume-normalized unconditional bodies obtained by\ntruncating vertices of a cube ([published version](https://real.mtak.hu/196592/1/1-s2.0-S0022039621004393-main.pdf),\np. 302). The shared truncation geometry is relevant background. The supplement's\nTheorem B independently computes its own scalar deficit and bounds distance to\nthe entire affine one-/two-dimensional product class. Example 1.4 separately\nshows weak-measure collapse under anisotropic squeezing for volume-one bodies\nsatisfying zero cone mass on the specified equator; that hypothesis must be\nretained.\n"
+    },
+    {
+      "file": "LITERATURE.md",
+      "label": "background: classical zonoid and matroid attribution",
+      "before": "## Exact subspace concentration and complementary factors",
+      "after": "## Classical determinant identities and block structure\n\nThe determinant expectations \\(A\\) and \\(B\\) in Section 2 are zonoid and\nlift-zonoid volumes in the normalization \\(Z(\\nu)=\\mathbb E[0,X]\\) and\n\\(\\widehat Z(\\nu)=\\mathbb E[0,(1,X)]\\). G. Koshevoy and K. Mosler,\n*Lift zonoids, random convex hulls and the variability of random vectors*,\nBernoulli **4** (1998), 377–399, give the relevant determinant representation\nin Section 4, Theorem 4.1 and equation (4.3), printed p. 387 of the\n[primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf).\nThe determinant identity is background; the cone-law endpoint and stability\nassertions require the further arguments in entry005 and this supplement.\n\nThe finite-support exact rank-two block structure has a matroid antecedent:\nJ. van der Pol, Z. Walsh and M.C. Wigal, *Turán densities for matroid basis\nhypergraphs*, [arXiv:2502.03673v2](https://arxiv.org/html/2502.03673v2#S5),\nSection 5 and Lemma 5.2, printed pp. 14–15. They classify\n\\(U_{3,4}\\)-minor-free matroids as direct sums of matroids of rank at most two.\nCircuits of size at most three give that excluded-minor condition. Entry005 v4\nincludes a direct proof for its almost-sure measure formulation; the present\nquantitative lemma estimates approximation from small expected cofactors.\n\n## Exact subspace concentration and complementary factors"
+    },
+    {
+      "file": "LITERATURE.md",
+      "label": "7: Weil-body context with explicit original-source limit",
+      "before": "C. Saroglou, *Volumes of projection bodies of some classes of convex bodies*,",
+      "after": "The class \\(\\mathcal E_d\\) is the familiar class of affine Cartesian products\nof centrally symmetric intervals and planar bodies, called Weil bodies in\nC. Saroglou, *On the shape of a convex body with respect to its second projection\nbody*, [arXiv:1409.4347v2](https://arxiv.org/pdf/1409.4347v2), pp. 2–4.\nThat paper relates the class to Weil's polytopal classification for homothety\nunder the second projection-body operator and gives a three-dimensional zonoid\nendpoint with symmetric-cylinder equality (Theorem 1.2). These use a different\nfunctional from \\(a(K)\\); the common extremal class alone does not make their\nstatements equivalent to entry005 v4's equality theorem or Theorem A here.\nThe Weil reference listed there is W. Weil, *Über die Projektionenkörper\nkonvexer Polytope*, Arch. Math. **22** (1971), 664–672. The original 1971\narticle was not obtained, and no exact theorem number in it is asserted.\n\nC. Saroglou, *Volumes of projection bodies of some classes of convex bodies*,"
+    },
+    {
+      "file": "LITERATURE.md",
+      "label": "source extent: clarify published truncation locator",
+      "before": "| Böröczky–De, 2021 | Full arXiv v2 available; Theorem 1.2, truncation comparison and Example 1.4 checked; published metadata verified independently. |",
+      "after": "| Böröczky–De, 2021 | Full arXiv v2 and the published PDF available; Theorem 1.2, the qualitative truncation discussion on journal p. 302 and Example 1.4 checked. No Wasserstein scaling for the illustrative truncation is asserted here. |"
+    },
+    {
+      "file": "LITERATURE.md",
+      "label": "source extent: record three newly checked primary manuscripts",
+      "before": "| Saroglou, 2011 | Publication record and abstract only; full-text comparison remains incomplete. |",
+      "after": "| Saroglou, 2011 | Publication record and abstract only; full-text comparison remains incomplete. |\n| Saroglou, 2014, v2 | Full primary manuscript available; Weil-body terminology, pp. 2–4 and Theorem 1.2 checked. Weil's 1971 original was not obtained. |\n| Koshevoy–Mosler, 1998 | Full primary author PDF available; Sections 2–4, Theorem 4.1 and equation (4.3), printed p. 387 checked. |\n| van der Pol–Walsh–Wigal, 2025, v2 | Full primary manuscript available; Section 5 and Lemma 5.2, printed pp. 14–15 checked. |"
+    }
+  ],
+  "v4_insertion": "The finite-support structural statement below is the representable case of an\nestablished matroid fact. A matroid whose circuits all have at most three elements\nis \\(U_{3,4}\\)-minor-free and is a direct sum of matroids of rank at most two;\nsee van der Pol–Walsh–Wigal, *Turán densities for matroid basis hypergraphs*,\n[arXiv:2502.03673v2](https://arxiv.org/html/2502.03673v2#S5), Section 5 and\nLemma 5.2. We include a direct proof for the almost-sure measure formulation\nneeded here. This structural fact is distinct from the preceding cone-volume\nargument that forces short circuits at equality.\n\n"
+}

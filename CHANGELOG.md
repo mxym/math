@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — stronger endpoint stability and bibliographic correction
+
+- Added the complete five-page integrated-witness proof of the explicit 1/d lower-end modulus for arbitrary convex bodies and every maximum inscribed simplex with its own centroid. The separate 1/(d-1) truncation obstruction leaves a gap.
+- Added the complete 44-page symmetric upper-end assembly, with both explicit 1/(3d) and 1/(3(d-1)) bounds for the full affine line/plane product equality class. The standalone geometry interface explicitly states origin symmetry; the obstruction ceiling remains 1/d.
+- Added an independent 11-page bibliographic correction bundle for the historical 1/(6d) theorem, without changing its mathematical proofs. The corrected article is the active catalogue reference; the original release bytes remain untouched. The separate v4 attribution patch is retained for review, not applied.
+- Published exactly 129 audited package files, source archives for both stronger proofs, explicit dependency pins and bounded normal/optimized verification. All 60 final PDF pages were inspected. File identity, model-assisted analytic review, finite replay and visual checks have distinct scopes.
+- Preserved every historical numbered version, earlier note package, concurrent file and mode. Narrow catalogue/verification edits and a non-self-referential changed-file manifest record integration. No inverse-Minkowski dependency, novelty/priority certification, optimal composed exponent, human peer review or full Lean verification is claimed.
+
 ## 2026-10-07 — mixed Bellman ceiling and simplex-truncation obstruction
 
 - Added the 11-page mixed Bellman proof, exact finite and infinite-tail certificates, portable verification, dependency map and editable source archive. The claim Gamma_C <= exp(1049/1000) < 2.855 is restricted to finite point-generated product/join expressions and affine isomorphisms on affine hulls; rank-dropping maps are excluded.

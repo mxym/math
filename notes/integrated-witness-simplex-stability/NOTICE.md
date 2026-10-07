@@ -1,0 +1,3 @@
+# Provenance and scope notice
+
+This is an AI-assisted research supplement to mxym/math entry 005. The invariant and cone-law conventions are inherited from the exact public sources pinned in DEPENDENCIES.json. New arguments and audit scope are identified separately. The repository-level provenance notice is preserved unchanged in sources/UPSTREAM_NOTICE.md, with its referenced Apache-2.0 text in sources/openai_math_LICENSE.txt. Retaining these records does not impose a new blanket license on separately authored material. Classical geometric results and external research remain attributed to their authors. No third-party full research paper is redistributed.

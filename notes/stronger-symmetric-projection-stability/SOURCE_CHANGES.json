@@ -1,0 +1,105 @@
+{
+  "scope": "Two origin-symmetry clarifications are the only mathematical source edits. Other changes are public editorial cleanup and completed audit status. All programs and the corrected baseline proof are byte preserved.",
+  "records": [
+    {
+      "received_file": "stronger-upper-end-stability.md",
+      "received_sha256": "29b85f27bc82ecce733e79963e8b3894473548ad17eef2914b7c700d845836be",
+      "public_file": "stronger-upper-end-stability.md",
+      "public_sha256": "5cb7ce36f99beaa7b9c7509df68b42e9ceda036474af69a9ed517808f2780269",
+      "operations": [
+        {
+          "from": "The newly located 2026 inverse-Minkowski preprint is not a proof input.\n[literature-caution.md](literature-caution.md) gives a smooth explicit\ncounterexample to one displayed convex-dual product estimate in its proof,\nwithout claiming that its stated inverse theorem is false.",
+          "to": "No quantitative inverse-Minkowski theorem is a proof input. The direct\nsection/coarea proof supplies the geometric estimate used here."
+        },
+        {
+          "from": "The unchanged complete baseline proof is in the\n[completed supplement bundle]([removed private handoff URL]).\nIts `paper.md` has SHA-256\n`08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf786507aaef862c`.",
+          "to": "The complete baseline proof is included in\n[dependencies/completed-proof.md](dependencies/completed-proof.md). Its\ncorrected text has SHA-256\n`6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193`;\nthe immutable original has SHA-256\n`08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf786507aaef862c`."
+        },
+        {
+          "from": "this research bundle includes the corrected baseline mathematical proof in",
+          "to": "this package includes the corrected baseline mathematical proof in"
+        },
+        {
+          "from": "No human\npeer review, proof-assistant verification, publication, or novelty claim is\nmade.",
+          "to": "No human\npeer review, proof-assistant verification, or novelty claim is made."
+        },
+        {
+          "from": "\u4e2d\u6587\u72b6\u6001\uff1a\u5df2\u4e25\u683c\u5c06\u4e0a\u7aef\u7a33\u5b9a\u6027\u6307\u6570\u4ece \\(1/(6d)\\) \u63d0\u9ad8\u5230\n\\(1/[3(d-1)]\\)\uff0c\u5e76\u7ed9\u51fa\u663e\u5f0f\u5e38\u6570 \\(d^{19}\\)\uff1b\u53e6\u4fdd\u7559\u5e38\u6570\u8f83\u5c0f\u7684\n\\(d^{12}\\delta^{1/(3d)}\\) \u754c\u3002\u534a\u8d28\u91cf\u6392\u9664\u3001\u5e73\u65b9\u6839\u5339\u914d\u548c\u76f4\u63a5\u51e0\u4f55\u6062\u590d\n\u5404\u6709\u4e25\u683c\u4e2d\u95f4\u6700\u4f18\u6027\u969c\u788d\uff0c\u4f46\u4e0d\u80fd\u636e\u6b64\u65ad\u8a00\u6700\u7ec8\u6307\u6570\u6700\u4f18\u3002\n\u8fbe\u5230\u539f\u59cb\u4e8f\u635f\u7684 \\(1/d\\) \u6307\u6570\u4ecd\u5f85\u89e3\u51b3\uff0c\u5df2\u5b8c\u6210\u7248\u672c\u672a\u4fee\u6539\u3002",
+          "to": "The optimal final exponent remains unresolved between \\(1/[3(d-1)]\\)\nand \\(1/d\\). The isolated intermediate examples do not establish\noptimality of the composed bound. The original completed release is preserved."
+        }
+      ],
+      "unified_diff": "--- received/stronger-upper-end-stability.md\n+++ public/stronger-upper-end-stability.md\n@@ -375,21 +375,21 @@\n [geometry-next.md](geometry-next.md) give a counterexample. No unproved\n coupled support-surplus theorem is used in either bound.\n \n-The newly located 2026 inverse-Minkowski preprint is not a proof input.\n-[literature-caution.md](literature-caution.md) gives a smooth explicit\n-counterexample to one displayed convex-dual product estimate in its proof,\n-without claiming that its stated inverse theorem is false.\n+No quantitative inverse-Minkowski theorem is a proof input. The direct\n+section/coarea proof supplies the geometric estimate used here.\n \n ## 6. Dependency and verification scope\n \n-The unchanged complete baseline proof is in the\n-[completed supplement bundle]([removed private handoff URL]).\n-Its `paper.md` has SHA-256\n+The complete baseline proof is included in\n+[dependencies/completed-proof.md](dependencies/completed-proof.md). Its\n+corrected text has SHA-256\n+`6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193`;\n+the immutable original has SHA-256\n `08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf786507aaef862c`.\n The baseline pins the v2\u2013v4 sources of `mxym/math` to\n `6785c1c830f8e19e2eb07b0bb89f4d475a8b154a`. The exact dependency map remains\n applicable. Bibliographic attributions and comparisons are corrected separately;\n-this research bundle includes the corrected baseline mathematical proof in\n+this package includes the corrected baseline mathematical proof in\n `dependencies/completed-proof.md`. Neither the lower-end simplex modulus\n nor the v5 spectral recursion is imported here.\n \n@@ -398,11 +398,8 @@\n checks under Python optimization. They do not prove the general integral,\n surface-measure, or convex-geometric assertions. The written proof and its\n independent model audit are separate from these finite regressions. No human\n-peer review, proof-assistant verification, publication, or novelty claim is\n-made.\n-\n-\u4e2d\u6587\u72b6\u6001\uff1a\u5df2\u4e25\u683c\u5c06\u4e0a\u7aef\u7a33\u5b9a\u6027\u6307\u6570\u4ece \\(1/(6d)\\) \u63d0\u9ad8\u5230\n-\\(1/[3(d-1)]\\)\uff0c\u5e76\u7ed9\u51fa\u663e\u5f0f\u5e38\u6570 \\(d^{19}\\)\uff1b\u53e6\u4fdd\u7559\u5e38\u6570\u8f83\u5c0f\u7684\n-\\(d^{12}\\delta^{1/(3d)}\\) \u754c\u3002\u534a\u8d28\u91cf\u6392\u9664\u3001\u5e73\u65b9\u6839\u5339\u914d\u548c\u76f4\u63a5\u51e0\u4f55\u6062\u590d\n-\u5404\u6709\u4e25\u683c\u4e2d\u95f4\u6700\u4f18\u6027\u969c\u788d\uff0c\u4f46\u4e0d\u80fd\u636e\u6b64\u65ad\u8a00\u6700\u7ec8\u6307\u6570\u6700\u4f18\u3002\n-\u8fbe\u5230\u539f\u59cb\u4e8f\u635f\u7684 \\(1/d\\) \u6307\u6570\u4ecd\u5f85\u89e3\u51b3\uff0c\u5df2\u5b8c\u6210\u7248\u672c\u672a\u4fee\u6539\u3002\n+peer review, proof-assistant verification, or novelty claim is made.\n+\n+The optimal final exponent remains unresolved between \\(1/[3(d-1)]\\)\n+and \\(1/d\\). The isolated intermediate examples do not establish\n+optimality of the composed bound. The original completed release is preserved.\n"
+    },
+    {
+      "received_file": "matching.md",
+      "received_sha256": "8899699adf0eba7c59c788daf575de4e24cb195f150cad11940dd603d0882f1c",
+      "public_file": "matching.md",
+      "public_sha256": "8899699adf0eba7c59c788daf575de4e24cb195f150cad11940dd603d0882f1c",
+      "operations": [],
+      "unified_diff": ""
+    },
+    {
+      "received_file": "geometry-rigidity.md",
+      "received_sha256": "92b8d3135326b678a51cbc55c1ee296a314ecf329707c09e11e99e613369a27f",
+      "public_file": "geometry-rigidity.md",
+      "public_sha256": "9dff4ffe4f34abdce72e0250b4e5feea04072b65d2fe700a3234e550ca61690c",
+      "operations": [
+        {
+          "from": "Let \\(d\\ge2\\), and let \\(Q\\subset\\mathbb R^d\\) be a centrally symmetric,\nfull-dimensional convex body such that",
+          "to": "Let \\(d\\ge2\\), and let \\(Q\\subset\\mathbb R^d\\) be an origin-symmetric\n(\\(Q=-Q\\)), full-dimensional convex body such that"
+        },
+        {
+          "from": "Keep \\(Q\\subset RB_2^d\\), its central symmetry, and the block\ndecomposition. Define",
+          "to": "Keep \\(Q=-Q\\), \\(Q\\subset RB_2^d\\), and the orthogonal block\ndecomposition from above. Define"
+        },
+        {
+          "from": "This consequence should undergo independent audit before being merged\nwith any stronger matching result. It does not change the completed\nrelease and does not rely on the false extra-factor estimate refuted in\n`geometry-next.md`.",
+          "to": "The direct geometric estimate and its use in the stronger matching\nassembly passed an independent analytic model audit. It does not change\nthe completed release and does not rely on the extra-factor estimate\nrefuted in `geometry-next.md`."
+        },
+        {
+          "from": "\u4e2d\u6587\u72b6\u6001\uff1a\u5df2\u7ed9\u51fa\u66f4\u5f3a\u7684\u76f4\u63a5\u6062\u590d\u8bc1\u660e\uff1a\u5c0f\u8bef\u5dee\u60c5\u5f62\u65e0\u9700\u5185\u63a5\u7403\u5e38\u6570\uff0c\n\u4ec5\u7528\u5916\u63a5\u534a\u5f84\u548c\u79bb\u5757\u6cd5\u5411\u91cf\u79ef\u5206\u5373\u53ef\u53d6\u5f97 \\(1/(d-1)\\) \u51e0\u4f55\u6307\u6570\u3002\n\u5c06\u622a\u9762\u7528\u51f8\u4f53\u81ea\u8eab\u52a0\u539a\uff0c\u5e76\u7528\u540c\u4e00\u652f\u6301\u65b9\u5411\u4f30\u8ba1\u7ea4\u7ef4\u9762\u79ef\uff0c\u6d88\u9664\u4e86\u6761\u4ef6\u6570\n\u635f\u5931\u3002\u539f\u59cb\u4e8f\u635f\u7684\u6700\u4f18\u6307\u6570\u4ecd\u672a\u89e3\u51b3\uff1b\u672a\u6539\u52a8\u5df2\u5b8c\u6210\u7684\u8bba\u6587\u6216\u53d1\u5e03\u6587\u4ef6\u3002",
+          "to": "The direct recovery proof uses thickening by the body itself and a shared support direction to cancel the conditioning loss. Its small-error estimate needs no inradius constant and has geometric power \\(1/(d-1)\\). The optimal original-deficit exponent remains unresolved."
+        }
+      ],
+      "unified_diff": "--- received/geometry-rigidity.md\n+++ public/geometry-rigidity.md\n@@ -5,8 +5,8 @@\n \n ## 1. Statement\n \n-Let \\(d\\ge2\\), and let \\(Q\\subset\\mathbb R^d\\) be a centrally symmetric,\n-full-dimensional convex body such that\n+Let \\(d\\ge2\\), and let \\(Q\\subset\\mathbb R^d\\) be an origin-symmetric\n+(\\(Q=-Q\\)), full-dimensional convex body such that\n \n \\[\n rB_2^d\\subset Q\\subset RB_2^d,\\qquad 0<r\\le R.\n@@ -326,18 +326,18 @@\n satisfies \\(U^TK\\subset dB_2^d\\). Thus the existing estimate\n \\(s\\le L_d\\delta^{1/6}\\) yields an improved geometric exponent\n \\(\\delta^{1/[6(d-1)]}\\), with constants obtained directly from (1.3).\n-This consequence should undergo independent audit before being merged\n-with any stronger matching result. It does not change the completed\n-release and does not rely on the false extra-factor estimate refuted in\n-`geometry-next.md`.\n+The direct geometric estimate and its use in the stronger matching\n+assembly passed an independent analytic model audit. It does not change\n+the completed release and does not rely on the extra-factor estimate\n+refuted in `geometry-next.md`.\n \n ## 6. Stronger homothetic recovery without an inradius constant\n \n The interior-ball thickening can be replaced by a thickening with \\(Q\\)\n itself. This removes the inradius from the small-error bound.\n \n-Keep \\(Q\\subset RB_2^d\\), its central symmetry, and the block\n-decomposition. Define\n+Keep \\(Q=-Q\\), \\(Q\\subset RB_2^d\\), and the orthogonal block\n+decomposition from above. Define\n \n \\[\n T=\\left(2^{2d-1}\\,dR\\,s\\right)^{1/(d-1)},\\qquad\n@@ -563,7 +563,4 @@\n The new proof does not infer a sharp original-deficit exponent from that\n intermediate sharpness.\n \n-\u4e2d\u6587\u72b6\u6001\uff1a\u5df2\u7ed9\u51fa\u66f4\u5f3a\u7684\u76f4\u63a5\u6062\u590d\u8bc1\u660e\uff1a\u5c0f\u8bef\u5dee\u60c5\u5f62\u65e0\u9700\u5185\u63a5\u7403\u5e38\u6570\uff0c\n-\u4ec5\u7528\u5916\u63a5\u534a\u5f84\u548c\u79bb\u5757\u6cd5\u5411\u91cf\u79ef\u5206\u5373\u53ef\u53d6\u5f97 \\(1/(d-1)\\) \u51e0\u4f55\u6307\u6570\u3002\n-\u5c06\u622a\u9762\u7528\u51f8\u4f53\u81ea\u8eab\u52a0\u539a\uff0c\u5e76\u7528\u540c\u4e00\u652f\u6301\u65b9\u5411\u4f30\u8ba1\u7ea4\u7ef4\u9762\u79ef\uff0c\u6d88\u9664\u4e86\u6761\u4ef6\u6570\n-\u635f\u5931\u3002\u539f\u59cb\u4e8f\u635f\u7684\u6700\u4f18\u6307\u6570\u4ecd\u672a\u89e3\u51b3\uff1b\u672a\u6539\u52a8\u5df2\u5b8c\u6210\u7684\u8bba\u6587\u6216\u53d1\u5e03\u6587\u4ef6\u3002\n+The direct recovery proof uses thickening by the body itself and a shared support direction to cancel the conditioning loss. Its small-error estimate needs no inradius constant and has geometric power \\(1/(d-1)\\). The optimal original-deficit exponent remains unresolved.\n"
+    },
+    {
+      "received_file": "halfmass.md",
+      "received_sha256": "e6247229c3469bedea80f5b7e57481c53275fde24313a2a103eab0988dce0c10",
+      "public_file": "halfmass.md",
+      "public_sha256": "e6247229c3469bedea80f5b7e57481c53275fde24313a2a103eab0988dce0c10",
+      "operations": [],
+      "unified_diff": ""
+    },
+    {
+      "received_file": "geometry-next.md",
+      "received_sha256": "73a0a7a9343aede1d4b63174605a8466e1ce62836dc0b605781c1d7b58216471",
+      "public_file": "geometry-next.md",
+      "public_sha256": "6cac58dea95cdbabf2d4c6783520730a01bb2bf6e29e6f2ddbf0bc2cbbb2c615",
+      "operations": [
+        {
+          "from": "\u4e2d\u6587\u72b6\u6001\uff1a\u4f53\u79ef\u4fe1\u606f\u5230\u5305\u542b\u8bef\u5dee\u7684 \\(1/d\\) \u6307\u6570\u786e\u5b9e\u6700\u4f18\uff1b\u6cd5\u5411\u91cf\u8ddd\u79bb\n\\(s\\) \u7684\u622a\u89d2\u7acb\u65b9\u4f53\u5c3a\u5ea6\u662f \\(t^{d-1}\\)\uff0c\u56e0\u6b64\u53ea\u6392\u9664\u5927\u4e8e\n\\(1/(d-1)\\) \u7684\u51e0\u4f55\u6307\u6570\u3002\u5bf9\u5168\u90e8\u52a0\u6743\u53cc\u622a\u89d2\u7acb\u65b9\u4f53\u5df2\u8bc1\u660e\n\\(1/(d-1)\\) \u6062\u590d\u5b9a\u7406\uff1b\u53e6\u6587 `geometry-rigidity.md` \u968f\u540e\u7528\u4e8c\u7ef4\n\u622a\u9762\u548c\u4f59\u9762\u79ef\u516c\u5f0f\u8bc1\u660e\u4e86\u56fa\u5b9a\u5185\u5916\u534a\u5f84\u4e0b\u7684\u4e00\u822c\u6062\u590d\u5b9a\u7406\u3002\u8bd5\u56fe\u5728\u6df7\u5408\n\u4f53\u79ef\u4f30\u8ba1\u4e2d\u989d\u5916\u4e58\u4ee5\u5305\u542b\u8bef\u5dee\u7684\u505a\u6cd5\u6709\u660e\u786e\u53cd\u4f8b\uff0c\u4e0d\u80fd\u7528\u4f5c\u65b0\u8bc1\u660e\u3002",
+          "to": "The corner-cut examples distinguish missing volume of order \\(t^d\\) from off-block normal mass of order \\(t^{d-1}\\). The geometric \\(1/(d-1)\\) estimate is established separately; the extra containment factor proposed for mixed-volume recovery is contradicted by the displayed family."
+        }
+      ],
+      "unified_diff": "--- received/geometry-next.md\n+++ public/geometry-next.md\n@@ -262,9 +262,4 @@\n proof of any universal statement. It needs only Python's standard library,\n uses explicit exceptions, and retains checks under `python -O`.\n \n-\u4e2d\u6587\u72b6\u6001\uff1a\u4f53\u79ef\u4fe1\u606f\u5230\u5305\u542b\u8bef\u5dee\u7684 \\(1/d\\) \u6307\u6570\u786e\u5b9e\u6700\u4f18\uff1b\u6cd5\u5411\u91cf\u8ddd\u79bb\n-\\(s\\) \u7684\u622a\u89d2\u7acb\u65b9\u4f53\u5c3a\u5ea6\u662f \\(t^{d-1}\\)\uff0c\u56e0\u6b64\u53ea\u6392\u9664\u5927\u4e8e\n-\\(1/(d-1)\\) \u7684\u51e0\u4f55\u6307\u6570\u3002\u5bf9\u5168\u90e8\u52a0\u6743\u53cc\u622a\u89d2\u7acb\u65b9\u4f53\u5df2\u8bc1\u660e\n-\\(1/(d-1)\\) \u6062\u590d\u5b9a\u7406\uff1b\u53e6\u6587 `geometry-rigidity.md` \u968f\u540e\u7528\u4e8c\u7ef4\n-\u622a\u9762\u548c\u4f59\u9762\u79ef\u516c\u5f0f\u8bc1\u660e\u4e86\u56fa\u5b9a\u5185\u5916\u534a\u5f84\u4e0b\u7684\u4e00\u822c\u6062\u590d\u5b9a\u7406\u3002\u8bd5\u56fe\u5728\u6df7\u5408\n-\u4f53\u79ef\u4f30\u8ba1\u4e2d\u989d\u5916\u4e58\u4ee5\u5305\u542b\u8bef\u5dee\u7684\u505a\u6cd5\u6709\u660e\u786e\u53cd\u4f8b\uff0c\u4e0d\u80fd\u7528\u4f5c\u65b0\u8bc1\u660e\u3002\n+The corner-cut examples distinguish missing volume of order \\(t^d\\) from off-block normal mass of order \\(t^{d-1}\\). The geometric \\(1/(d-1)\\) estimate is established separately; the extra containment factor proposed for mixed-volume recovery is contradicted by the displayed family.\n"
+    },
+    {
+      "received_file": "global-next.md",
+      "received_sha256": "841982eab2efcef004ab2c408c7992ecedf8475a5b65a4f8cc5154a06f1f9c0c",
+      "public_file": "global-next.md",
+      "public_sha256": "841982eab2efcef004ab2c408c7992ecedf8475a5b65a4f8cc5154a06f1f9c0c",
+      "operations": [],
+      "unified_diff": ""
+    },
+    {
+      "received_file": "completed-proof.md",
+      "received_sha256": "6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193",
+      "public_file": "dependencies/completed-proof.md",
+      "public_sha256": "6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193",
+      "operations": [],
+      "unified_diff": ""
+    }
+  ],
+  "dependency_record_cleanup": "Removed private original_library_bundle_id; renamed public package schema; non-inputs clarified."
+}
