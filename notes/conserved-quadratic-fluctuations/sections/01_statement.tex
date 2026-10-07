@@ -1,0 +1,139 @@
+\section{Model and principal statements}\label{sec:statement}
+Write $z=(x,v)\in\R^3\times\R^3$ and $f_t(q)=\int q(z)f_t(z)\dd z$.
+The diameter is $\eps$, the activity is $\mu=\eps^{-2}$, and the initial law is
+\begin{equation}\label{eq:ensemble}
+ \Prob_\eps(N,\dd Z_N)=\mathcal Z_\eps^{-1}\frac{\mu^N}{N!}
+ \prod_{j=1}^N f_0(z_j)
+ \prod_{i<j}\ind_{\{|x_i-x_j|>\eps\}}\dd Z_N.
+\end{equation}
+\begin{assumption}[Datum and regular kinetic interval]\label{ass:model}
+The function $f_0$ is a smooth nonnegative probability density supported in
+$\{|x|\le R_x,\ |v|\le R_v\}$ for fixed finite $R_x,R_v$.
+On $[0,T]$ there is a nonnegative classical Boltzmann solution $f_t$ with
+initial datum $f_0$ and a uniform bound
+$\sup_{t\le T,x,v}e^{2\beta|v|^2}f_t(x,v)<\infty$ for some $\beta>0$.
+The propagated Bol norms and global velocity moments of the pinned package
+in Section~\ref{sec:package} are used.
+\end{assumption}
+For reference, the spatially summable Gaussian Bol norm is
+\[
+ \|g\|_{\mathrm{Bol},\beta}
+ =\sum_{a\in\mathbb Z^3}\sup_{|x-a|\le1,\,v\in\R^3}
+                  e^{\beta|v|^2}|g(x,v)|.
+\]
+Compact initial support is stronger than the datum assumption of entry 009.
+No compact velocity support of $f_t$ at positive times is assumed.
+
+For centers $x,x+\eps\omega$ and incoming velocities $v,w$, use
+\begin{equation}\label{eq:collision}
+ B=((v-w)\cdot\omega)_+,
+ \qquad v'=v-((v-w)\cdot\omega)\omega,
+ \qquad w'=w+((v-w)\cdot\omega)\omega.
+\end{equation}
+Scattering occurs only in the incoming sector $B>0$.
+The angular measure on $S^2$ is ordinary surface measure, and
+\[
+ \int Q(f,f)\phi\dd v
+ =\frac12\int Bff_*[\phi(v')+\phi(w')-\phi(v)-\phi(w)]
+                 \dd v\dd w\dd\omega.
+\]
+In particular $\partial_t f+v\cdot\nabla_x f=Q(f,f)$.
+
+For the true elastic flow and the single pasted flow described below, put
+\begin{equation}\label{eq:fields}
+ \pi_t^\eps=\mu^{-1}\sum_{j=1}^N\delta_{z_j(t)},\qquad
+ \zeta_t^\eps(q)=\eps^{-1}[\pi_t^\eps(q)-\E\pi_t^\eps(q)],\qquad
+ Y_t^\eps(q)=\eps^{-1}[\pi_t^\eps(q)-f_t(q)].
+\end{equation}
+Superscript $p$ denotes the pasted law. Velocities are outgoing and right
+continuous at contacts; positions are continuous. Thus the moment paths are
+c\`adl\`ag. The sphere normalization gives
+\begin{equation}\label{eq:drift}
+ \begin{split}
+ J_f(s)&=\int B^2 f_s(x,v)f_s(x,w)\dd x\dd v\dd w\dd\omega
+       =\frac{2\pi}{3}\int |v-w|^2 f_s(x,v)f_s(x,w)\dd x\dd v\dd w,\\
+ H(t)&=\frac12\int_0^t J_f(s)\dd s.
+ \end{split}
+\end{equation}
+The Gaussian pointwise bound on one factor and mass and energy on the other
+bound $J_f$ integrably. Hence $H$ is continuous and nondecreasing.
+Set
+\begin{equation}\label{eq:bias}
+ \rho_0(x)=\int f_0(x,v)\dd v,\qquad \bex=\frac{4\pi}{3},\qquad
+ a(q)=-\bex\int\rho_0(x)f_0(x,v)q(x,v)\dd x\dd v.
+\end{equation}
+
+\subsection{The maximal quadratic family}
+Let $\cQ$ be the space of polynomials of total degree at most two for which
+$q(x+tv,v)$ is a co-located elastic collision invariant for every real $t$.
+It is the thirteen-dimensional space
+\begin{equation}\label{eq:Q}
+ q(x,v)=\alpha+b\cdot x+c\cdot v+\kappa|v|^2+x^T Rv
+                         +d\,x\cdot v+e\,|x|^2,\qquad R^T=-R.
+\end{equation}
+The coefficients $d=d(q)$ and $e=e(q)$ are uniquely determined. A basis is
+\begin{equation}\label{eq:basis}
+ 1,\quad x_1,x_2,x_3,\quad v_1,v_2,v_3,\quad |v|^2,
+ \quad (x\times v)_1,(x\times v)_2,(x\times v)_3,
+ \quad x\cdot v,\quad |x|^2.
+\end{equation}
+Write $r_q(t,z)=q(x+tv,v)$. Let $Z_0$ be a centered Gaussian linear map on
+$\cQ$ with covariance
+\begin{equation}\label{eq:initial-cov}
+ \E Z_0(q)Z_0(r)=\int f_0(z)q(z)r(z)\dd z.
+\end{equation}
+There is no canonical subtraction in this grand-canonical covariance.
+
+\begin{theorem}[Conserved quadratic functional limit]\label{thm:main}
+Assume Assumption~\ref{ass:model}, H1--H6 in Section~\ref{sec:package}, and
+the existing functional input F in that section. For either the true flow
+or the one fixed pasted flow, the vector of $Y^\eps$ on the basis
+\eqref{eq:basis} converges in $D([0,T],\R^{13})$, with its ordinary $J_1$
+topology, to the continuous Gaussian process determined by
+\begin{equation}\label{eq:main-limit}
+ Y_q(t)=Z_0(r_q(t))+a(r_q(t))
+                +d(q)H(t)+2e(q)\int_0^tH(s)\dd s,\qquad q\in\cQ.
+\end{equation}
+The convergence is joint with the exactly centered strong tempered-distribution
+process of entry 009. If its Gaussian limit is $G$, then
+$Z_0(q)=G_0(\eta q)$ for any $\eta\in C_c^\infty$ equal to one near
+$\operatorname{supp}f_0$.
+
+For both laws the first moments satisfy, uniformly in $t$,
+\begin{equation}\label{eq:mean-limit}
+ \E Y_t^\eps(q)\longrightarrow
+ a(r_q(t))+d(q)H(t)+2e(q)\int_0^tH(s)\dd s.
+\end{equation}
+Their exactly centered moment processes converge to $Z_0(r_q(t))$.
+The covariance of the limiting process is
+\begin{equation}\label{eq:limit-cov}
+ \operatorname{Cov}(Y_q(t),Y_r(s))
+                    =\int f_0(z)r_q(t,z)r_r(s,z)\dd z.
+\end{equation}
+For the pasted law its prelimit covariances converge uniformly in $t,s$
+to \eqref{eq:limit-cov}. True prelimit covariance convergence is not a
+conclusion of the present theorem.
+\end{theorem}
+
+The proof establishes that \eqref{eq:Q} is maximal with its stated
+transport/invariance property. A general anisotropic spatial quadratic does
+not share this scalar conserved closure.
+
+\begin{corollary}[Energy, virial, and spread]\label{cor:three}
+For $q_E=|v|^2$, $q_V=x\cdot v$, and $q_X=|x|^2$, the limit in
+$D([0,T],\R^3)$ is
+\begin{equation}\label{eq:three-limit}
+ Y(t)=A(t)(Z+a_*)+c(t),\qquad
+ A(t)=\begin{pmatrix}1&0&0\\t&1&0\\t^2&2t&1\end{pmatrix},\qquad
+ c(t)=\begin{pmatrix}0\\H(t)\\2\int_0^tH(s)\dd s\end{pmatrix},
+\end{equation}
+where $(a_*)_i=a(q_i)$ and $\operatorname{Cov}(Z_i,Z_j)=\int f_0q_iq_j$.
+Its covariance is $A(t)\Sigma A(s)^T$, and its mean is
+\begin{align*}
+ a(|v|^2),\qquad
+ a(x\cdot v+t|v|^2)+\frac12\int_0^tJ_f(s)\dd s,\qquad
+ a(|x+tv|^2)+\int_0^t(t-s)J_f(s)\dd s.
+\end{align*}
+The scalar $q_E$ equals twice the physical kinetic energy. The initial
+vacancy term and the collisional term are both part of Boltzmann centering.
+\end{corollary}

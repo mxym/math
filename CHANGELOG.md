@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 — continuum powers, semiconvex entropy and conditional quadratic fluctuations
+
+- Added the exact independently audited 29-file continuum-power avoidance release, with its 11-page written proof, preserved source snapshots, exact finite controls and deterministic source archive. The affine geometric-progression consequence is restricted to the dated BGKMW Question 1 formulation; no current-open/priority or general positive-upper-Banach-density theorem is asserted.
+- Added the exact 29-file semiconvex Gaussian entropy release, nine-page proof, sharp strict-horizon comparison, conditional extension and counterexamples. The helper-domain correction and metadata-only final-copy correction are disclosed; no general nonconvex LSI is claimed.
+- Added the exact 70-file conditional conserved-quadratic release and complete deterministic archive. Smooth compact support, H1–H6 and input F remain explicit; pasted covariance, true first-moment transfer and unresolved true covariance remain distinct.
+- Preserved every older proof, Lean, certificate, source archive and workflow byte/mode. Fresh integration replay is scoped to finite controls and exact integrity, with no new PDF rebuild, complete Lean, human peer review, journal or novelty claim.
+
 ## 2026-10-07 — bounded clusters, critical covering gauges and arithmetic sieves
 
 - Added the exact independently audited 47-file avoidance/covering release: a 10-page bounded-cluster selector proof, a 14-page prescribed-gauge Banach nonembedding proof with its supporting analytic appendix, 14 pinned primary-source snapshots, preserved upstream credit/license and exact finite replay.

@@ -1,0 +1,245 @@
+Public presentation of the independent AI-assisted mathematical audit.
+Editorial changes remove delivery/workflow text and update package filenames;
+all mathematical assessments and exact-control results are retained.
+The separately supplied prior-work comparison does not certify novelty.
+
+INDEPENDENT MATHEMATICAL AUDIT: CONTINUUM POWER AVOIDANCE
+7 October 2026
+
+VERDICT: PASS AS A COMPLETE WRITTEN MATHEMATICAL PROOF.
+
+No substantive gap or counterexample was found in the bounded-logarithmic-gap
+statement in the received PROOF.txt. This verdict is specific to that statement,
+its positive-power remainder bound, and the countable prescribed source family.
+It is not a Lean result, novelty certification, external referee report, practical
+construction claim, or proof of the larger positive-upper-Banach-density theorem.
+
+Theorem actually audited
+-----------------------
+For a prescribed nonempty countable family A_l whose occupied dyadic logarithmic
+bins have bounded gaps eventually, and each epsilon in (0,1), one closed,
+nowhere-dense, one-periodic E has measure greater than 1-epsilon in every unit
+interval and simultaneously has infinitely many distinct misses in every small
+image tail satisfying f(a)=y+c a^s+O(a^(s+alpha)), with s,alpha>0, c nonzero,
+y arbitrary, and finite error constant. The functions need no regularity or
+measurability. In particular, for A={2^-n}, it excludes every affine null
+geometric progression for every ratio in (0,1) simultaneously.
+
+I. Infinite proof checks
+------------------------
+
+1. The selected subsequence is valid for arbitrary source sets.
+   Occupied bins give z_n=-log_2(a_n) in [j_n,j_n+1). Taking a bin jump in
+   [m,m+G-1], m=ceil(3/s0)+2, gives the strict lower gap 3/s0 and strict upper
+   gap m+G. Thus every exponent in [s0,s1] gives output gaps in (3,D),
+   D=s1(m+G). No cardinality, source measurability, or distribution assumption
+   is being silently added.
+
+2. The uniform count includes activation endpoints.
+   Once u is after the first output point, an open interval (u,u+ell) contains
+   at least ell/D-1 points: its length is covered by at most N+1 consecutive
+   output gaps. For ell>=2D this is at least ell/(2D). Points equal to either
+   endpoint are not counted. This is the correct count for the open activation
+   later needed in the closed exceptional-center argument.
+
+3. The preorder recurrence and local span are correct.
+   A nonleaf edge has its own length ell_r=g+sigma_(r-1), followed by a gap
+   and its child's subtree. Their span is exactly 2ell_r. All grids in that
+   local test are refined by its final descendant grid. The whole tree's
+   recurrence is sigma_r=2M sigma_(r-1)+(3M-1)g. With the finite tree fixed,
+   its total span T is affine in the base length L.
+
+4. Stable centers preserve every needed earlier decision.
+   For a current window starting at u=b+g+1, every active positive offset is
+   smaller than 2^(1-u)=2^(-b-g). The unstable measure per predecessor grid is
+   at most 2^(b+3)2^(-b-g)=2^(3-g). At a stable center, nesting preserves all
+   earlier keys, including ancestor decisions and preceding siblings. The
+   endpoint convention (x,x+delta] is correct: a center may itself be a grid
+   boundary, but reaching the next boundary is forbidden.
+
+5. Selector and terminal address independence survives routing dependence.
+   Current active offsets and the center have distinct own-grid addresses.
+   Differences are bounded below by the logarithmic spacing; all offsets are
+   in an interval of length at most 1/8, avoiding circular-distance problems.
+   After center exposure, the tested own selector entries are independent fair
+   bits. Conditional on all selectors, terminal table/address pairs are
+   distinct: separate child subtrees use different tables; common leaves have
+   finer grids, preserving the own-grid distinction. Therefore conditional
+   failure is (1-p)^(sum of own selectors), and averaging is exactly
+   (1-p/2)^(number of tests). Shared auxiliary selector entries would be
+   harmless; shared terminal addresses would not be. The proof does not
+   assume independent routing paths.
+
+6. The continuum reduction is a finite exact stratification.
+   The candidate-index count depends polynomially on absolute U+T+|k| and is
+   not treated as an exponent-independent constant. An active pair has at
+   most 1+2^(2ell+3) relevant finest-grid boundary curves.
+
+   A particularly transparent justification is to change the second parameter
+   to v=log_2(t), so v is in [0,1]. Every recorded crossing curve becomes the
+   straight line v=log_2(beta)-k+z_n s. Activation boundaries are vertical
+   lines. Thus the purported curve arrangement is an ordinary finite line
+   arrangement in a rectangle. Coincident lines may be merged while retaining
+   their labels. Its cells, open line pieces, and points have O(C^2) strata;
+   the submitted bound 20(C+1)^2 is conservative. All activation boundaries,
+   parameter edges, intersections, and degenerate point portions are retained.
+   On every stratum the active flags and finest keys are constant for every
+   realization of the remaining randomness. Representatives depend only on
+   the fixed center, center-exposure atom, inputs, and grids. They are chosen
+   before the remaining random entries. No rational approximation to s and
+   no sampled exponent grid is used.
+
+7. The terminal union bound and absolute-position cost are correct.
+   Each stratum representative has the same uniform lower active count,
+   including representatives on activation and parameter boundaries. A
+   successful local test forces actual membership in B. A union bound gives
+     20[P(3+2^(2ell+3))+5]^2 exp(-lambda ell)
+     <=5120 M^2(U+T+|k|+2)^2 exp(-kappa ell),
+   where lambda=p eta(M-1)/2 and kappa=lambda-4 log(2)>0.
+   The choice p eta(M-1)>=12 gives lambda>=6. There is no union bound over
+   uncountably many powers, over every center-exposure atom with an extra
+   entropy factor, or over the whole tree's finest grid in place of the local
+   final grid.
+
+8. The window and buffer choices are noncircular.
+   M,d,K,g are fixed before U. The submitted L(U)=O(log U) gives T(U)=O(log U).
+   For all sufficiently large U one has T<=U and |k|<U, so the polynomial
+   entropy factor is absorbed by the explicit four-log-U base window length.
+   The local miss probability is then less than p at every local length.
+
+   The error radius is
+     r_U=(q 2^-k+1)2^-U 2^(-alpha0(U+k)/s1).
+   The double-buffer cost on the overall finest grid is exactly
+     4N r_U=2^(T(U)+4)(q 2^-k+1)2^(-alpha0(U+k)/s1).
+   Its logarithm is O(log U)-alpha0 U log(2)/s1, so it tends to minus infinity.
+   Both the entropy and buffer inequalities hold for every sufficiently large
+   U. Increasing U and recomputing L,T does not invalidate an earlier choice.
+   Positive alpha0 is essential to this argument.
+
+9. The exceptional-center set is genuinely closed.
+   There are finitely many potentially active indices. For each, 'inactive
+   OR outside B1' is closed in the compact center/parameter product, because
+   activation is open and B1 is open. The finite intersection is closed; its
+   projection from a compact product is closed. This supplies measurable R
+   for each outcome. There is no requirement to choose stratum representatives
+   measurably as a function of the center in order to integrate the pointwise
+   probability estimate.
+
+10. The density and robust-boundary budgets close.
+    Expected B2 density is at most p+4Nr_U<2p. Stable-center miss probability
+    is less than 2p; unstable density is less than p. Thus expected R density
+    is at most 3p, and a finite-table outcome has rho(B2)+rho(R)<=5p. Outer
+    regularity gives V containing R at extra cost at most p, hence rho(H)<=6p.
+    A point in the first open buffer B1 remains in the second open buffer B2
+    under any allowed error, including equality in the error bound. At a center
+    in R, openness of V and uniform convergence of the offsets and bounded
+    errors supply late points in V. Those repair points need not be active in
+    the finite template. This handles all error families, even ones chosen
+    after H; no probabilistic independence of the errors is needed.
+
+11. The theorem's quantifier order and distinctness conclusion hold.
+    Summing over (l,N,j,k,q,h), with exponent compact ranges [1/N,N], alpha0=1/j,
+    covers every real s,alpha>0. Coefficients use c=2^k t with t in [1,2], and
+    negative coefficients use reflections. A total budget 12 sum p_tuple<epsilon
+    gives the required strict density. Once h is large enough, f is defined and
+    its error bound is valid on the entire tail. Hits at inputs below 2^-h tend
+    to zero, and their values tend to y without equaling y, by the explicit
+    lower bound |f(a)-y| >= |c|a^s/2. A finite set of non-y values cannot do this,
+    so every sufficiently small image tail has infinitely many distinct misses.
+    Affine maps with s=1 are included and rule out any interval in E, proving
+    nowhere density. Periodicity gives the same measure in every unit interval.
+
+II. The sparse-block obstruction is valid at precisely its stated scope
+---------------------------------------------------------------------
+Let R_m=2^(2^m), S=union_{m>=3}{R_m,...,R_m+m}, and A={2^-j:j in S}.
+Every integer length L occurs in an occupied block, so F_S(L)=L and upper
+Banach density is 1. For any fixed C and late U with 0<T<=C log U, an activating
+j for some s in [1,2] must lie in [U/2,U+T]. At most one block intersects this
+interval eventually, since intersecting centers have R_m>=U/3 and the next
+center is R_m^2>5U/4. Its length parameter is O(log log U). All activating
+exponents for the block are contained in
+  (U/(R_m+m),(U+T)/R_m),
+whose length is at most 3T/U+9m/U, eventually less than 1. Some s in [1,2]
+is therefore completely inactive across the template.
+
+This is a counterexample to using the present bounded-gap uniform-occupancy
+step with every late logarithmic-span template. It is not a counterexample
+to a continuum avoidance theorem for all positive-upper-Banach-density sources.
+Longer spans or a different placement/routing principle remain unaddressed.
+
+III. Exact source matching and provenance
+----------------------------------------
+All six mathematical source components were independently retrieved at the
+stated commit pins; their UTF-8 bytes exactly match the reference components.
+Verification URLs and Git blob SHAs are recorded in PINNED_SOURCE_VERIFICATION.json.
+
+- OpenAI/math at adc7f1241b42e322a6451854ab7e4b4c146bf78a, family 084 main:
+  the statement is for each fixed geometric ratio and explicitly permits the
+  set to depend on that ratio. Its window/routing/scale components match the
+  mechanism cited here. The present simultaneous-ratio corollary is a genuine
+  strengthening of that quoted statement, without establishing literature
+  novelty or priority.
+- mxym/math at 87868bcb65bf0460a90d6bc2efc3324e46481230, entry 006v2:
+  Theorem 3.1 uses a prescribed COUNTABLE profile family; its scope section
+  explicitly does not claim all real exponents simultaneously. It cannot
+  supply the new continuum quantifier. The new proof does supply it by its
+  own finite arrangement and coupled schedule.
+- 006v1 treats integer leading powers and prescribed countable moduli on the
+  broader positive-upper-Banach-density source class. The C1-diffeomorphism
+  endpoint is separately proved in that source. No bounded-finite-cluster
+  switching proof was imported as justification for the continuum parameter.
+- Feng--Lai--Xiong, arXiv:2312.01319v1, Theorem 1.1 was checked against the
+  primary HTML: https://arxiv.org/html/2312.01319v1. It gives a global
+  bi-Lipschitz embedding with f'(0)=1 under limsup a_(n+N)/a_n<1. It does not
+  state a global C1-diffeomorphism conclusion. The artifact appropriately uses
+  the distinct embedding endpoint only for comparison; its stronger C1 claim
+  is supported by the separate 006v1 proof rather than relabeling this theorem.
+
+IV. Independent finite controls and limitations
+-----------------------------------------------
+The supplied replay passes normally and under Python -O, byte-identically,
+matching its supplied exact report. Its manifest hashes all match.
+
+Separately authored independent_oracles.py uses explicit RuntimeError checks,
+not Python asserts. Normal and -O outputs are byte-identical. It verifies:
+- 5,322 exact rational activation-boundary and open-stratum representatives
+- 320 preorder templates, exact unused-gap counts, local spans and recurrences
+- 2,352 exact entropy-coefficient inequalities
+- 4,096 selector assignments in an actual two-level nested-grid routing instance,
+  conditioning on all center entries and integrating terminal bits exactly
+- sharp parameter-boundary, closed-activation, and one-buffer negative controls
+- 20 independent exact sparse-block missing-exponent witnesses
+
+The actual routing oracle gives distinct-terminal failure 28561/38416. Deliberate
+terminal-key coarsening gives 469225/614656 instead, with 732 selector outcomes
+having collisions. Thus the oracle detects the precise address independence
+whose loss would invalidate the submitted product identity.
+
+These finite checks validate interfaces and detect specified faulty replacements.
+They do not prove the infinite theorem, enumerate its enormous calibrated tree,
+or constitute Lean formalization. The PASS verdict rests on the analytic proof
+checks in I and II. 
+V. Hashes
+---------
+Received ZIP (independently recomputed, 55,549 bytes):
+643b7ef8d2a5b3af44af0ffcad684328738ebfbd3a5e745eb87120245e26ab04
+
+Received PROOF.txt:
+b1ab2e159c35bce8b9ae22eee8f57b59c1ed74a841e83d5476d6a7d456849c55
+Received check_exact.py:
+3aead52e4afc2a4b96b70a47c1726d5366e5b0fdf4b442f3b7b8bc96ec9dda47
+Received exact report, both modes:
+0f518a0cc8275812088a68e89d85f06ca4fad0bc6335f340941a3ad481c0ac42
+
+Pinned mathematical source SHA-256 values:
+006-v1-main.tex 103ebb2e59b7a0ab884f7cb1b196301dba550754cb1ea2af7e245defa4eeae55
+006-v2-paper.md 2bbdd8c242effa5e248387b2279d0fd6b25dd00394cb8737058c026636aebf16
+084-03-windows.tex 8556c2b128c63df3f2cbc1c3b595838df5b9e93bbc386ed7aa2b11bea2e1aeb0
+084-04-routing.tex 973fbd5dbcc2ea4752528e659a9f004962f275142f23932a3c86eea00aa8d4e1
+084-05-scales.tex b1511f9f5a5d17183e2996c437e48fca2aa215f4960f9087377bf439096eef54
+084-main.tex 2b2660c50a9f0fa7d4df0e572f581b47f2a1f584a9f5c456f8e5d0c54b63e398
+
+Independent oracle source:
+41ccece03c662793cbf89184587ac50e6a5aeba510bf5cc5785c5a14394997e7
+Independent normal and -O report:
+42f5242f31324fdb4c78fc7f723af1b7348d846ccafdc47605b73d83f6188780

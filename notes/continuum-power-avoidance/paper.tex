@@ -1,0 +1,676 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Continuum power avoidance for logarithmically syndetic configurations}}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi
+\usepackage{enumitem}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\rhoo}{\operatorname{dens}}
+\newcommand{\logtwo}{\log_2}
+\DeclareMathOperator{\dist}{dist}
+\title{Continuum power avoidance for logarithmically syndetic configurations}
+\author{}
+\date{7 October 2026}
+\begin{document}
+\begin{center}
+{\LARGE Continuum power avoidance for logarithmically syndetic configurations\par}
+\vspace{10pt}
+7 October 2026
+\end{center}
+\vspace{4pt}
+\begin{abstract}
+For any prescribed countable family of positive configurations whose occupied
+dyadic logarithmic bins have bounded gaps near zero, we construct one closed,
+nowhere-dense, one-periodic set with measure greater than $1-\varepsilon$ in
+every unit interval. Every image with a nonzero leading real power and a
+positive-power remainder has infinitely many distinct points outside this
+set in every sufficiently small tail, simultaneously for all real exponents,
+translations, nonzero coefficients, and finite error constants. No regularity
+of the image function is assumed. In particular the same set avoids all affine
+null geometric progressions for all ratios in $(0,1)$. We give the full routing
+proof and an exact sparse-block obstruction to extending this particular
+logarithmic-span output-window mechanism to all sources of positive upper
+Banach logarithmic density.
+\end{abstract}
+
+This is a complete written mathematical proof with an independent AI-assisted
+mathematical audit. It is not proof-assistant formalization, human peer review,
+a novelty certification, or a practical small-density construction. The exact
+finite programs accompanying the note check boundary and arithmetic interfaces;
+the infinite theorem is proved below. The inherited routing mechanisms and the
+prior finite parameter-arrangement principle are attributed in Section~9.
+
+\section{Statements and quantifiers}
+For $A\subset(0,\infty)$ define
+\[
+ S(A)=\{j\ge1:A\cap(2^{-j-1},2^{-j}]\ne\varnothing\}.
+\]
+We call $A$ \emph{logarithmically syndetic near zero} if there are integers
+$G,J\ge1$ such that $S(A)$ meets $\{j,j+1,\ldots,j+G-1\}$ for every integer
+$j\ge J$. This is stronger than positive logarithmic upper Banach density.
+There is no measurability or cardinality hypothesis on $A$.
+
+\begin{theorem}\label{thm:main}
+Let $(A_\ell)$ be a nonempty prescribed countable family of logarithmically
+syndetic configurations. For every $0<\varepsilon<1$ there is a closed,
+nowhere-dense, one-periodic $E\subset\R$ such that
+\[
+ |E\cap[x,x+1]|>1-\varepsilon\qquad(x\in\R),
+\]
+and the following holds simultaneously for every $\ell$, every real
+$s,\alpha>0$, every $y\in\R$, every $c\ne0$, and every finite $M\ge0$.
+If $f$ is defined on a sufficiently small tail of $A_\ell$ and
+\[
+ |f(a)-y-ca^s|\le M a^{s+\alpha}
+\]
+for every sufficiently small $a\in A_\ell$, then for every sufficiently small
+$\varrho>0$ the set
+\[
+ f(A_\ell\cap(0,\varrho))\setminus E
+\]
+contains infinitely many distinct points. No regularity or measurability of
+$f$ is assumed.
+\end{theorem}
+The functions, exponents, and translations in this statement are not
+enumerated. The countable family of configurations is prescribed first.
+
+\begin{corollary}\label{cor:geometric}
+Taking $A=\{2^{-n}:n\ge1\}$ gives one such $E$ excluding every affine null
+geometric progression $\{y+cq^n:n\ge1\}$, simultaneously for every
+$q\in(0,1)$, $y\in\R$, and $c\ne0$, with infinitely many distinct misses in
+every tail.
+\end{corollary}
+Indeed set $s=-\logtwo q$ and use zero remainders. This corollary is a consequence
+of the proof; no literature-priority conclusion is attached to it.
+
+The main local statement is the following compact-continuum lemma. Here and
+below the density of a periodic measurable set is its measure on one period.
+\begin{lemma}[Uniform robust blocker]\label{lem:blocker}
+Fix $A$ as above, $0<s_0<s_1<\infty$, $\alpha_0>0$, $k\in\Z$, integers
+$q,h\ge1$, and $0<p<1/12$. There is an open one-periodic $H$ of density at most
+$6p$ such that, for every $x\in\R$, $s\in[s_0,s_1]$, $t\in[1,2]$, and every
+prescribed error family on $A\cap(0,2^{-h})$ with
+\[
+ |e(a)|\le q a^{s+\alpha_0},
+\]
+some $a$ in that tail satisfies
+\[
+ x+t2^k a^s+e(a)\in H.
+\]
+The same $H$ works for all these parameters and error families and can be based
+on routing windows at an arbitrarily late output logarithmic position $U$.
+\end{lemma}
+The error family is arbitrary; in particular its members need not be mutually
+independent random variables. All probability, entropy, and perturbation costs
+needed for the lemma are specified next.
+
+\section{A uniformly spaced input subsequence}
+Choose an occupied index $j_1$ beyond $J,4,h$ and put
+\[
+ m=\lceil3/s_0\rceil+2.
+\]
+Given $j_n$, choose an occupied $j_{n+1}$ in
+$\{j_n+m,\ldots,j_n+m+G-1\}$, possible by syndeticity, and choose $a_n$ in
+its dyadic bin. Then, with $z_n=-\logtwo a_n$,
+\[
+ a_n\downarrow0,\qquad z_n\in[j_n,j_n+1),\qquad
+ 3/s_0<z_{n+1}-z_n<m+G.
+\]
+Every $a_n$ lies in $A\cap(0,2^{-h})$. Only this subsequence is used.
+
+Put $B_0=m+G$ and $D=s_1B_0$. For each $s\in[s_0,s_1]$, the output logarithms
+\[
+ w_n(s)=sz_n-k
+\]
+strictly increase to infinity, with successive gaps between $3$ and $D$.
+Take $U\ge s_1z_1-k$. Every open interval $(u,u+\ell)$, $u\ge U$, contains
+at least $\ell/D-1$ of these output logarithms, uniformly in $s$.
+To see this, take the last member at most $u$ and the first member at least
+$u+\ell$. If $N_\mathrm{int}$ counts the strictly interior members, the interval
+is covered by at most $N_\mathrm{int}+1$ consecutive gaps, each at most $D$.
+Thus $\ell\le(N_\mathrm{int}+1)D$. This handles equality at either endpoint.
+Consequently, for $\ell\ge2D$ and $\eta=1/(2D)$, there are at least
+$\eta\ell$ interior members. The lower gap $3$ also gives an upper count
+$1+\ell/3\le\ell$ for integer $\ell\ge2$.
+
+The windows are fixed on the \emph{output} axis. Every exponent supplies its
+own active input points in these windows, without altering the random set or
+its grids. Fixing input windows instead would require separation at $s_1$
+while preserving earlier keys at $s_0$, leading to incompatible scales.
+
+\section{The routing template and stable centers}
+Fix $p,\eta$ and choose an integer $M\ge2$ with
+\[
+ p\eta(M-1)\ge12.
+\]
+Put $\lambda=p\eta(M-1)/2$ and $\kappa=\lambda-4\log2>0$, where $\log$ is
+natural. Choose an integer $d\ge1$ with
+\[
+ (1-2^{1-M})^d<p;
+\]
+for example any integer $d>2^{M-1}\log(1/p)$ suffices. Let $K$ be the number
+of edges in the complete ordered $M$-ary tree of depth $d$. Choose an integer
+$g\ge1$ with $K2^{3-g}<p$. These choices do not depend on $U$ or on unexposed
+randomness.
+
+List the edges in preorder. Give every edge leaving height $r$ a window of
+length $\ell_r$ and leave exactly $g$ unused integer indices between consecutive
+windows. Define
+\begin{align*}
+ \ell_1&=L,&\sigma_1&=ML+(M-1)g,\\
+ \ell_r&=g+\sigma_{r-1},&
+ \sigma_r&=M(\ell_r+g+\sigma_{r-1})+(M-1)g\quad(r\ge2).
+\end{align*}
+Set $T=\sigma_d$ and start the template at integer $U$. For an edge $e$ write
+its integer window endpoints as $u_e,v_e=u_e+\ell_r-1$, and let $v_e^*$ be the
+last endpoint of its edge and child subtree. Then
+\[
+ v_e^*-u_e+1\le2\ell_r.
+\]
+For a leaf this span is $\ell_1$; otherwise it equals
+$\ell_r+g+\sigma_{r-1}=2\ell_r$. All $\ell_r\ge L$, and the last endpoint of
+the complete template is $U+T-1$.
+
+Input $n$ is active on edge $e$ at exponent $s$ exactly when
+\[
+ u_e<w_n(s)<v_e+1.                                    \tag{A}
+\]
+Both inequalities are strict. The count just proved applies even at exponents
+where an input is deactivated at a window boundary. For $L\ge\lceil2D\rceil$
+every edge has at least $\eta\ell_r$ active tests.
+
+At integer endpoint $b$ use the nested periodic grid of $N_b=2^{b+3}$ cells,
+with key $J_b(z)=\lfloor N_b\{z\}\rfloor$. Cells are closed on the left and
+open on the right. For each nondefault edge $(P,i)$, $i<M$, assign a table of
+independent fair bits at its endpoint grid. Assign each terminal leaf an
+independent Bernoulli-$p$ table at its incoming-edge grid. All entries in all
+tables are mutually independent. Route a real point to the first nondefault
+child whose addressed selector bit is one, and otherwise to the default child
+$M$. Let $B$ be the points whose terminal bit is one. This is constant on the
+finest grid, whose size is
+\[
+ N=2^{U+T+2},\qquad \mathbb E\rhoo(B)=p.
+\]
+For the expectation, condition on all selectors: each fixed point's addressed
+terminal bit remains Bernoulli-$p$. The probability space is finite.
+
+Call a center $x$ \emph{stable} if, for every noninitial window starting at
+$u=b+g+1$ with $b$ the preceding window's endpoint, the interval
+\[
+ (x,x+2^{-b-g}]
+\]
+contains no boundary of that predecessor grid. The unstable density is at most
+$K2^{3-g}<p$, since each grid has $2^{b+3}$ boundaries per period and the
+interval has length $2^{-b-g}$. At a stable center every active offset satisfies
+\[
+ t2^ka_n^s=t2^{-w_n(s)}\le2^{1-u_e},
+\]
+and crosses no predecessor boundary. Grid nesting preserves \emph{all}
+preceding keys, including ancestor decisions and preceding siblings.
+
+At its own grid the active points and center have pairwise distinct addresses.
+Every active offset is greater than $2^{-u_e-\ell_r}$; the cell width is
+$2^{-u_e-\ell_r-2}$. Two active output logarithms differ by more than $3$,
+so their offset difference is greater than
+$(7/8)2^{-u_e-\ell_r}$, again greater than the cell width. Multiplication by
+$t\ge1$ preserves the inequalities. When $U\ge4$, all offsets lie in an
+interval of length at most $1/8$, so circular distance is ordinary distance.
+Distinctness persists on finer grids and holds at every center.
+
+\section{Conditional independence at a fixed continuum parameter}
+Fix a stable $x$ and expose its addressed entry in \emph{every} selector table.
+Its route is determined. Before conditioning, its probability of never using
+a default child is $(1-2^{1-M})^d<p$. On a center-exposure atom with a first
+default at a vertex of height $r$, consider every outgoing nondefault edge
+$e_i$ and all active indices at a fixed $(s,t)$.
+
+Earlier-key stability makes such points follow the center through the strict
+ancestors and reject the preceding siblings at the default vertex. If the
+point's own selector bit is one, it enters child $i$. Define its local test
+$Q_{i,n}$ to be this own selector multiplied by the terminal bit obtained by
+routing from child $i$. Success implies actual membership in $B$.
+
+There are at least $\eta(M-1)\ell_r$ active tests. Their own selector addresses
+are distinct, avoid exposed center entries, and are independent fair bits.
+Next condition on \emph{all} selectors. The local terminal addresses are
+distinct: different child subtrees or leaves use different tables, while points
+sharing a leaf retain distinct keys on its finer grid. Thus the terminal bits
+are independent Bernoulli-$p$ variables. If $A_j$ are the tested own selectors,
+conditional failure is $(1-p)^{\sum A_j}$. Averaging these fair bits gives
+exactly
+\[
+ (1-p/2)^{\text{number of active tests}}
+ \le \exp(-\lambda\ell_r).
+\]
+Auxiliary selector entries may be shared. Active indices may vary with $s$.
+Independence is asserted only at a fixed $(s,t)$ after this conditioning;
+routing paths themselves are not assumed independent.
+
+\section{Exact finite representation of the continuum}
+Keep $x$ and its center-exposure atom fixed, hence also the first-default vertex
+and its outgoing windows. For an edge of length $\ell=\ell_r$, candidate indices
+can occur only with
+\[
+ (u_e+k)/s_1\le z_n\le(u_e+\ell+k)/s_0.
+\]
+Assume $U>|k|$. The gaps of $z_n$ exceed $3/s_0$, so each edge has at most
+$\lceil(U+T+|k|)/3\rceil+1$ candidate indices. The number of candidate
+edge-index pairs at this vertex is therefore at most
+\[
+ P=(M-1)\bigl(\lceil(U+T+|k|)/3\rceil+1\bigr).
+\]
+For each pair record the activation boundaries
+\[
+ s=(u_e+k)/z_n,\qquad s=(u_e+\ell+k)/z_n
+\]
+when they lie in $[s_0,s_1]$, and its local finest-grid boundary curves. A local
+test is determined by $J_{v_e^*}(x+t2^{k-sz_n})$. Active offsets are positive
+and less than $2^{1-u_e}$, so there are at most
+\[
+ B_\ell=1+2^{2\ell+3}
+\]
+possible lifted grid boundaries $\beta=b/N_{v_e^*}-x$ in that offset range.
+For every such positive $\beta$ the crossing curve is
+\[
+ t=\beta2^{-k}2^{z_ns}.
+\]
+Retain its full portion in $[s_0,s_1]\times[1,2]$. Irrelevant retained portions
+only increase the count.
+
+Every exponential curve is simple and monotone. Distinct curves intersect at
+most once, since equality becomes affine in $s$ after logarithms. For the same
+input, different coefficients give no intersection; equal coefficients give
+coincident curves, merged with all labels retained. Vertical activation lines
+intersect a curve at most once, as do $t=1,2$. Coincident or parallel boundary
+lines are treated in the same way. Equivalently the change $v=\logtwo t$ turns
+crossing curves into ordinary lines
+\[
+ v=\logtwo\beta-k+z_ns
+\]
+in the rectangle $[s_0,s_1]\times[0,1]$. This is an exact change of parameters,
+not a numerical approximation.
+
+Include the rectangle's four boundary arcs. There are at most
+$C=P(B_\ell+2)+4$ distinct arcs. Pair intersections number at most
+$C(C-1)/2$, and endpoints at most $2C$. Splitting at intersections gives at most
+$C^2$ open arc pieces; inserting arcs successively gives at most
+$1+C(C+1)/2$ open two-dimensional cells. All vertices, open arc pieces, and
+open two-dimensional cells therefore admit at most
+\[
+ 20(C+1)^2
+\]
+representatives, a conservative bound. Degenerate arcs retain their singleton
+points separately; the bound still holds by treating at most one singleton
+per candidate arc as a vertex.
+
+On each stratum the complete vector of activation indicators and active local
+finest-grid keys is constant. Open cells avoid recorded boundaries. On an
+exponential boundary the key is the exact integer-boundary key assigned to the
+cell on its right; intersections split that arc. On an activation boundary the
+pair is inactive by (A). Parameter endpoints and intersections have individual
+representatives. Thus all active local tests are constant on a stratum for
+\emph{every} realization of the unexposed entries. Representatives are chosen
+before those entries are sampled. No sampled exponent grid is used.
+
+If all active local tests fail at any parameter, they fail at a retained
+representative. At every representative the uniform active count and Section~4
+give failure probability at most $e^{-\lambda\ell}$. The conditional
+all-parameter miss probability is consequently at most
+\begin{align}
+ &20[P(3+2^{2\ell+3})+5]^2e^{-\lambda\ell}\notag\\
+ &\hspace{15mm}\le5120M^2(U+T+|k|+2)^2e^{-\kappa\ell}.       \label{eq:entropy}
+\end{align}
+Indeed $P\le M(U+T+|k|+2)$ and, for $P\ge1$,
+$P(3+2^{2\ell+3})+5\le16P2^{2\ell}$.
+The absolute-position entropy cost is genuinely polynomial in $U+T+|k|$, and
+its local-window exponential rate is $4\log2$ before the failure factor.
+It is not treated as an exponent-independent constant. We have taken no union
+bound over uncountably many parameters or over every exposure atom with an
+extra entropy factor, and use the local final grid rather than the whole
+tree's finest grid.
+
+\section{A noncircular window and buffer schedule}
+All $M,d,K,g,\eta,\lambda,\kappa$ are fixed. For integer $U$ set
+\begin{align*}
+ L(U)=\max\Bigl\{g,\lceil2D\rceil,2,
+ \Bigl\lceil\frac{4\log(U+2)+\log(46080M^2/p)+1}{\kappa}\Bigr\rceil\Bigr\}.
+\end{align*}
+Use this $L$ in the template to obtain $T(U)=\sigma_d$. For the fixed tree,
+$T$ is affine in $L$, because
+\[
+ \sigma_r=2M\sigma_{r-1}+(3M-1)g\quad(r\ge2),\qquad
+ \sigma_1=ML+(M-1)g.
+\]
+Thus $T(U)=O(\log U)$, with a finite tree-dependent constant. No practical
+size claim is made.
+
+Choose $U$ arbitrarily large subject to
+\[
+ U\ge4,\quad U>|k|,\quad U\ge s_1z_1-k,\quad T(U)\le U.    \tag{B}
+\]
+Such integers exist since $T(U)/U\to0$. For every local $\ell\ge L(U)$,
+\eqref{eq:entropy} is bounded by
+\[
+ 46080M^2(U+1)^2e^{-\kappa L(U)}
+ \le p e^{-1}\frac{(U+1)^2}{(U+2)^4}<p.                    \tag{C}
+\]
+The no-default event costs less than $p$, so the probability of an all-parameter
+miss by the active finite tests is less than $2p$ at each stable center.
+Unstable centers have probability at most one, and integrated miss density is
+at most $3p$.
+
+If an input is active on any template window, $w_n(s)>U$ and $s\le s_1$ imply
+\[
+ 2^ka_n^s<2^{-U},\qquad z_n>(U+k)/s_1.
+\]
+Hence
+\[
+ q a_n^{s+\alpha_0}
+ \le q2^{-k}2^{-U}2^{-\alpha_0(U+k)/s_1}.
+\]
+Set the strictly positive common buffer radius
+\[
+ r_U=(q2^{-k}+1)2^{-U}2^{-\alpha_0(U+k)/s_1}.
+\]
+At the finest grid $N=2^{U+T(U)+2}$, the double-buffer cost is
+\[
+ 4Nr_U=2^{T(U)+4}(q2^{-k}+1)2^{-\alpha_0(U+k)/s_1}.        \tag{D}
+\]
+Since $T(U)=O(\log U)$ and $\alpha_0U/s_1$ is positive and linear, (D) tends
+to zero. Increase $U$ until (D) is less than $p$, keeping (B)--(C).
+This is noncircular: $L,T$ are explicit logarithmic functions of $U$, and both
+the entropy and buffer inequalities hold for every sufficiently large $U$.
+The positive lower bound $\alpha_0>0$ is essential here.
+
+\section{Closed missed centers and repair of every center}
+On the circle, lifted periodically, put
+\[
+ B_1=B+(-r_U,r_U),\qquad B_2=B+(-2r_U,2r_U).
+\]
+For any union of $N$ grid cells, enlargement by radius $r$ increases density
+by at most $2Nr$. Therefore $\mathbb E\rhoo(B_2)\le p+4Nr_U<2p$.
+
+Only finitely many indices can be active anywhere for some $s\in[s_0,s_1]$:
+their $z_n$ belong to $[(U+k)/s_1,(U+T+k)/s_0]$. Let $I$ be this finite index
+set and let $S_n$ consist of the $s$ for which $w_n(s)$ lies in the union of the
+\emph{open} template windows. Define $R$ as the centers for which there is
+some $(s,t)$ in the compact rectangle such that
+\[
+ x+t2^ka_n^s\notin B_1\quad\hbox{for every $n$ with $s\in S_n$}.
+\]
+For each $n\in I$ the relevant condition is
+\[
+ [s\notin S_n]\quad\hbox{or}\quad[x+t2^ka_n^s\notin B_1].
+\]
+This is closed: $S_n$ is relatively open, and the second condition is closed
+by continuity of the power map and openness of $B_1$. A finite intersection
+remains closed. Projecting this closed subset of the compact product of the
+circle and the parameter rectangle shows that $R$ is closed. Closed activation
+would invalidate this argument; Section~10 gives an exact counterexample.
+No measurable choice of stratum representatives as a function of $x$ is needed
+for the pointwise probability estimate.
+
+Since $B\subset B_1$, membership in $R$ at a stable center implies failure
+of all local tests at the first-default vertex, unless there is no default.
+The preceding sections give $\mathbb E\rhoo(R)\le3p$. A finite-table outcome
+therefore has
+\[
+ \rhoo(B_2)+\rhoo(R)\le5p.
+\]
+By outer regularity choose an open periodic $V\supset R$ with
+$\rhoo(V)\le\rhoo(R)+p$, and put $H=B_2\cup V$. It is open, periodic, and
+has density at most $6p$.
+
+Fix $x,s,t$ and any allowed error family. If $x\notin R$, at this parameter
+an active finite point lies in $B_1$. Its error is at most $r_U$, so its perturbed
+point lies in $B_2$: distance strictly less than $r_U$ from $B$ stays strictly
+less than $2r_U$ after an error of size at most $r_U$. Both buffers are open;
+equality in the error bound loses no boundary point.
+
+If $x\in R$, then $x\in V$, and along the full selected sequence
+$t2^ka_n^s+e(a_n)\to0$. Sufficiently late perturbed points therefore lie in $V$.
+These indices need not lie in $I$ or be active on the finite template. This
+repairs every exceptional center. In fact convergence is uniform in $s,t$,
+because for $a_n<1$ the absolute offset is at most
+\[
+ 2^{k+1}a_n^{s_0}+q a_n^{s_0+\alpha_0}.
+\]
+The errors require no measurability or mutual dependence assumptions and may
+be selected after $H$. This completes the proof of Lemma~\ref{lem:blocker}.
+
+\section{One avoiding set for all real powers}
+Apply the lemma to every tuple $(\ell,N,j,k,q,h)$ with integers
+$N\ge2$, $j,q,h\ge1$, $k\in\Z$, setting
+\[
+ [s_0,s_1]=[1/N,N],\qquad\alpha_0=1/j.
+\]
+Choose $0<p_{\rm tuple}<1/12$ with $12\sum p_{\rm tuple}<\varepsilon$.
+The tuple family is countable although each blocker handles a continuum of
+$s$. Let $\mathcal U$ be the union of all blockers and their reflections and
+put $E=\R\setminus\mathcal U$. The density of $\mathcal U$ is less than
+$\varepsilon$, so $E$ is closed, one-periodic, and has the required measure
+in every unit interval.
+
+Given $s,\alpha>0$, choose $N$ with $s\in[1/N,N]$ and $j$ with $1/j\le\alpha$.
+For $a<1$ and integer $q\ge\max(1,M)$,
+\[
+ M a^{s+\alpha}\le q a^{s+1/j}.
+\]
+For $c>0$ write $c=2^kt$ with $t\in[1,2]$. For every sufficiently large $h$,
+$f$ is defined and its inequality holds on the whole tail below $2^{-h}$.
+The corresponding blocker gives a hit at some $a_h\in A_\ell$, $a_h<2^{-h}$.
+For $c<0$ apply the positive argument to $-f$ and use reflected blockers.
+
+Since $M a^\alpha\to0$, eventually
+\[
+ (|c|/2)a^s\le |f(a)-y|\le(3|c|/2)a^s.
+\]
+The hits approach $y$ without equaling it; a finite set of non-$y$ values
+cannot do this. They therefore contain infinitely many distinct values in
+ every sufficiently small tail. This proves the full order of quantifiers
+in Theorem~\ref{thm:main}. There is no uncountable union of density budgets or
+rational approximation of a real exponent.
+
+Affine maps occur with $s=1$ and zero errors. If $E$ contained an interval, a
+small affine image of a bounded nonempty tail of some $A_\ell$ would fit inside
+it, contradicting the hitting property. Thus $E$ has empty interior and is
+nowhere dense because it is closed. In particular $E\cap[0,1]$ is compact,
+has measure greater than $1-\varepsilon$, and has the corresponding tail
+avoidance property.
+
+\section{Scope and attributed mechanisms}
+The proved statement assumes bounded gaps between occupied logarithmic bins.
+It covers all real $s>0$ by countably many compact exponent ranges, and within
+each blocker $s$ is an uncountable parameter. The active indices move with $s$.
+The proof does not substitute a prescribed countable profile list or a
+finite-alphabet bounded-cluster switching argument for this continuum step.
+
+The nested-grid random routing and exceptional-center repair are inherited
+from the pinned OpenAI geometric-case family 084 and entry 006v1. Their exact
+conditional-independence argument is reproved here. Entry 006v2's logarithmic
+profile viewpoint motivates the output-axis choice. The combination used here
+is exponent-dependent activation in fixed output windows, boundary-complete
+parameter stratification, and a logarithmic-window/positive-power-buffer
+schedule. Bounded gaps supply uniform counts at every output location; positive
+upper Banach logarithmic density alone does not do so.
+
+The finite parameter-arrangement principle has a primary antecedent in
+Kolountzakis--Papageorgiou, Theorem~4.1 and its proof \cite{KP}. They record
+grid-hyperplane crossings as equations linear in a transformation parameter
+and bound polynomially many grid-address regions before a probability union
+bound. Our crossing curves become lines under $v=\logtwo t$; the arrangement
+principle itself is not asserted to be new. Their theorem concerns a finite
+$P$ with at most $N^\zeta$ points and transforms with at least $\alpha(N)$
+$N^{-\beta}$-separated image points, where $\alpha(N)/\log N\to\infty$.
+It is not used as a premise here. The moving power-activation windows, complete
+boundary strata, absolute-position cost, and positive-power buffers are
+proved explicitly above. No exhaustive prior-work assessment or novelty
+conclusion is made.
+
+There is no extension here to all positive-upper-Banach-density configurations,
+arbitrary prescribed slow remainders, arbitrary $C^1$ diffeomorphisms, or flat
+smooth germs. The buffer schedule requires $\alpha_0>0$. In particular profiles
+such as $2^{-1/a}$ fall outside the nonzero leading-power class. The construction
+is existential with enormous finite parameters; no practical generation or
+runtime bound is claimed.
+
+The distinct embedding boundary must be attributed precisely.
+Feng--Lai--Xiong, Theorem~1.1 \cite{FLX}, gives a global bi-Lipschitz embedding
+with $f'(0)=1$ under $\limsup a_{n+N}/a_n<1$. It does \emph{not} state a global
+$C^1$-diffeomorphism conclusion. The global $C^1$ endpoint used for comparison
+is separately proved in the pinned 006v1 source \cite{M006}. Such an embedding
+for a lacunary sequence may have a remainder violating every positive-power
+rate treated here. Neither embedding theorem is a premise of the present proof.
+
+A precise dated consequence concerns Burgin--Goldberg--Keleti--MacMahon--Wang,
+Question~1 in arXiv:2210.09284v1 (17 October 2022) \cite{BGKMW}. Their
+formulation asks whether every positive-measure measurable set contains some
+translated, nonconstant null geometric progression. Take the set $E$ above
+for $A=\{2^{-n}:n\ge1\}$ and set $F=E\cap[0,1]$. Then $F$ is compact and
+$|F|>1-\varepsilon$. For any $a\ne0$, $b\in\R$, and $q\in(0,1)$, put
+$s=-\log q/\log2$ and $f(u)=b+au^s$. Its remainder is zero and
+$f(2^{-n})=b+aq^n$, so infinitely many points of every tail lie outside $E$,
+hence outside $F$. This gives a negative answer to that exact 2022 formulation.
+We do not assert that the question remained open in 2026 or claim priority.
+The comparison with later literature is incomplete; no broader resolution of
+the Erd\H{o}s similarity conjecture is asserted.
+
+The source pins are \texttt{87868bcb65bf0460a90d6bc2efc3324e46481230} for
+\texttt{mxym/math} entries 006v1 and 006v2, and
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a} for
+\texttt{openai/math} family 084, especially its full window, routing, and scale
+sections \cite{O084}. Family 084 states the theorem for each fixed geometric
+ratio and permits the set to depend on that ratio. Entry 006v2 treats a
+prescribed countable profile family and does not assert all real exponents
+simultaneously. These source comparisons do not establish priority.
+Exact component URLs, byte hashes, original notices, and licensing limits are
+retained in the accompanying provenance files.
+
+\section{Exact boundary controls}
+These controls are not the infinite proof. Take $a_1=1/2,a_2=1/4$, all
+$s,t\in[1,2]$, $x\in\R$, and the open holes $H=(1/10,1)+\Z$. With a common
+independent error radius $r\ge0$, every parameter succeeds when $r<7/160$,
+and the certificate fails at $r=7/160$.
+
+For success put $u=2^{-s}\in[1/4,1/2]$. The positive unperturbed difference
+$t(u-u^2)$ lies in $[3/16,1/2]$. With two errors the difference lies in
+$[3/16-2r,1/2+2r]$. If $r<7/160$ this interval is strictly contained in
+$(1/10,9/10)$. Two points outside the open holes are in closed complementary
+gaps $[m,m+1/10]$; their positive difference is either at most $1/10$ or at
+least $9/10$, a contradiction.
+
+At $r=7/160$, take $s=2,t=1,x=143/160$ and errors $(-7/160,+7/160)$.
+The perturbed points are $11/10$ and $1$, both excluded endpoints. At this radius
+all $s<2$ or $t>1$ still succeed, so deleting the parameter boundary loses the
+failure. This guards the compact closed exponent/coefficient rectangle and
+retained point/curve strata without floating powers or sampled grids.
+
+For the closed-activation counterexample, use one input $a=1/2$, $x=0,t=1$,
+activation $[1,2]$, and the hole $(2/5,3/5)$. For $s<1$ the input is inactive,
+so the condition ``if active, then missed'' holds. At $s=1$ the input becomes
+active and $2^{-s}=1/2$ is in the hole, so the condition fails. Its failure set
+is not closed. Open activation $(1,2)$ keeps the limiting point inactive and
+makes the implication set closed, as Section~7 requires.
+
+The executable controls check these sharp rational endpoints, curve-intersection
+inequalities, positive-error buffer costs, and negative replacements with
+explicit exceptions that remain active under Python optimization. Independent
+controls enumerate 5,322 activation-boundary/open-stratum representatives,
+320 preorder templates, 2,352 entropy inequalities, and 4,096 selector
+assignments in an actual two-level nested-grid routing instance. The latter
+conditions on all center entries and integrates terminal bits exactly:
+distinct-terminal failure is $28561/38416$. Deliberate terminal-key coarsening
+instead gives $469225/614656$, with collisions in 732 selector outcomes.
+It detects the address-independence loss that would invalidate the product
+identity. Sharp parameter-boundary, closed-activation, one-buffer, and
+sparse-block controls accompany it. None enumerates the full calibrated tree
+or formalizes the infinite analytic proof.
+
+\section{A sparse-block obstruction for this mechanism}
+Define
+\[
+ R_m=2^{2^m},\qquad
+ S=\bigcup_{m\ge3}\{R_m,R_m+1,\ldots,R_m+m\},\qquad
+ A=\{2^{-j}:j\in S\}.
+\]
+For integers $L\ge1$ define
+$F_S(L)=\sup_{r\in\Z}\#(S\cap\{r+1,\ldots,r+L\})$ and
+$d^*(S)=\limsup_{L\to\infty}F_S(L)/L$.
+Every length $L$ fits in an occupied block, so $F_S(L)=L$ and $d^*(S)=1$.
+Nevertheless uniform occupancy fails for every sufficiently late logarithmic-span
+template at some exponent in $[1,2]$.
+
+\begin{proposition}\label{prop:sparse}
+For every fixed finite $C>0$, every sufficiently large $U$, and every
+$0<T\le C\log U$, some $s\in[1,2]$ has no $j\in S$ satisfying
+\[
+ U<sj<U+T.
+\]
+Thus this exponent has no active input anywhere in the template.
+\end{proposition}
+\begin{proof}
+An activating $j$ must lie in $[U/2,U+T]$. For large $U$ we have $T\le U/4$.
+Any block intersecting this interval has $R_m\le5U/4$, hence
+$m=O(\log\log U)$, and $R_m+m\ge U/2$, hence $R_m\ge U/3$ eventually.
+There is at most one intersecting block: the next center is
+$R_{m+1}=R_m^2\ge U^2/9>5U/4$, and previous centers are separated in the
+same way. If there is no intersecting block, every $s$ works. Otherwise every
+exponent activating any member of that block lies in
+\[
+ \left(\frac{U}{R_m+m},\frac{U+T}{R_m}\right).
+\]
+Its length is
+\[
+ \frac{T}{R_m}+\frac{Um}{R_m(R_m+m)}
+ \le \frac{3T}{U}+\frac{9m}{U},
+\]
+which tends uniformly to zero for $T\le C\log U$. It is eventually less than
+one, so this open interval cannot cover $[1,2]$. Choosing $s$ outside it proves
+the claim.
+\end{proof}
+This counterexample obstructs the \emph{specific uniform output-window,
+logarithmic-span mechanism} for general positive-upper-Banach-density sources.
+It does not disprove a continuum avoidance theorem for that larger class.
+Longer variable spans, different placement principles, or another routing
+architecture are not addressed. The proved theorem remains the bounded-gap
+statement.
+
+\begin{thebibliography}{9}
+\bibitem{O084} OpenAI/math, \emph{The geometric case of the Erd\H{o}s similarity
+conjecture}, family 084, 5 October 2026, pinned revision
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+Main, windows, routing, and scale components are included with exact URLs
+and hashes in the package.
+\bibitem{M006} mxym/math, \emph{Modulus nonlinear similarity}, entry 006,
+versions 1 and 2, pinned revision
+\texttt{87868bcb65bf0460a90d6bc2efc3324e46481230}.
+Reference components and notices are included in the package.
+\bibitem{FLX} Feng, Lai, and Xiong, \emph{Erd\H{o}s similarity problem via
+bi-Lipschitz embedding}, arXiv:2312.01319v1, Theorem 1.1.
+\url{https://arxiv.org/html/2312.01319v1}.
+\bibitem{KP} Mihail N. Kolountzakis and Effie Papageorgiou,
+\emph{Large sets containing no copies of a given infinite sequence},
+Analysis \& PDE \textbf{18} (2025), 93--108,
+\href{https://doi.org/10.2140/apde.2025.18.93}{doi:10.2140/apde.2025.18.93}.
+Theorem 4.1 and proof in arXiv:2208.02637v2 (6 October 2023),
+\url{https://arxiv.org/html/2208.02637v2\#S4}.
+\bibitem{BGKMW} Alex Burgin, Samuel Goldberg, Tam\'as Keleti, Connor MacMahon,
+and Xianzhi Wang, \emph{Large sets avoiding infinite arithmetic / geometric
+progressions}, arXiv:2210.09284v1 (17 October 2022), Question 1.
+\url{https://arxiv.org/html/2210.09284v1\#S1}.
+\end{thebibliography}
+\end{document}

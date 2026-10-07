@@ -1,0 +1,1049 @@
+        Conserved quadratic fluctuations and collisional drift in a
+                            hard-sphere gas
+               A conditional functional theorem and intrinsic-moment extension
+
+
+
+                                      7 October 2026         Version 1
+
+
+                                                  Abstract
+          For the three-dimensional excluded-product grand-canonical hard-sphere gas with diameter ε
+      and activity µ = ε−2 , we prove a functional Gaussian limit for the maximal thirteen-dimensional
+      quadratic family closed under free transport and co-located elastic collision invariance. The limit
+      contains an initial vacancy bias and a finite-diameter deterministic collisional drift; its Gaussian
+      randomness is entirely the initial field. The proof supplies the two-root connected estimate
+      for speed-weighted passive records, derives a uniform incidence law of large numbers, and uses
+      exact mechanical identities rather than an unbounded-test functional theorem. A corollary
+      treats per-particle thermal energy, intrinsic virial, and spread about the center of mass. The
+      assertion is conditional on the explicitly stated, commit-pinned operational history package and
+      the existing exactly centered Schwartz functional theorem. True-flow distributional convergence,
+      first-moment transfer, and pasted prelimit covariance convergence are proved separately. The
+      available probability coupling does not establish true prelimit covariance convergence, and does
+      not imply its divergence. No full phase-space mean correction is asserted.
+
+
+Contents
+1 Model and principal statements                                                                             2
+  1.1 The maximal quadratic family . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .             3
+
+2 Pinned operational hypotheses                                                                              4
+  2.1 One auxiliary dynamics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .             4
+  2.2 H1–H6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          4
+  2.3 Existing functional input F . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .            6
+
+3 Speed records and a uniform incidence law                                                                  6
+
+4 Conservation, maximality, and initial bias                                                                  9
+
+5 Proof of the functional and joint limits                                                                   11
+
+6 Intrinsic per-particle moments                                                                             13
+
+7 Endpoint cutoffs and precise scope                                                               14
+  7.1 The unresolved covariance transfer . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+  7.2 Other boundaries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+
+                                                       1
+Conserved quadratic fluctuations                                                                             Conditional theorem
+
+
+A Exact source map and reproducibility                                                                                       16
+  A.1 Imported results and their exact locations . . . . . . . . . . . . . . . . . . . . . . . .                             16
+  A.2 Proof contribution and conclusion ledger . . . . . . . . . . . . . . . . . . . . . . . . .                             18
+  A.3 Reproduction package . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                             18
+
+
+1    Model and principal statements
+Write z = (x, v) ∈ R3 × R3 and ft (q) =                   q(z)ft (z) dz. The diameter is ε, the activity is µ = ε−2 ,
+                                                      R
+
+and the initial law is
+                                                               N
+                                                          µN Y
+                                Pε (N, dZN ) = Zε−1
+                                                                           Y
+                                                                  f0 (zj )     1{|xi −xj |>ε} dZN .                         (1.1)
+                                                          N ! j=1          i<j
+
+Assumption 1.1 (Datum and regular kinetic interval). The function f0 is a smooth nonnegative
+probability density supported in {|x| ≤ Rx , |v| ≤ Rv } for fixed finite Rx , Rv . On [0, T ] there
+is a nonnegative classical Boltzmann solution ft with initial datum f0 and a uniform bound
+                 2
+supt≤T,x,v e2β|v| ft (x, v) < ∞ for some β > 0. The propagated Bol norms and global velocity
+moments of the pinned package in Section 2 are used.
+    For reference, the spatially summable Gaussian Bol norm is
+                                                      X                             2
+                                       ∥g∥Bol,β =                sup           eβ|v| |g(x, v)|.
+                                                      a∈Z3   |x−a|≤1, v∈R3
+
+Compact initial support is stronger than the datum assumption of entry 009. No compact velocity
+support of ft at positive times is assumed.
+   For centers x, x + εω and incoming velocities v, w, use
+           B = ((v − w) · ω)+ ,                 v ′ = v − ((v − w) · ω)ω,                   w′ = w + ((v − w) · ω)ω.        (1.2)
+Scattering occurs only in the incoming sector B > 0. The angular measure on S 2 is ordinary surface
+measure, and
+                                            1
+                    Z                           Z
+                          Q(f, f )ϕ dv =            Bf f∗ [ϕ(v ′ ) + ϕ(w′ ) − ϕ(v) − ϕ(w)] dv dw dω.
+                                            2
+In particular ∂t f + v · ∇x f = Q(f, f ).
+    For the true elastic flow and the single pasted flow described below, put
+                 N
+     πtε = µ−1                         ζtε (q) = ε−1 [πtε (q) − Eπtε (q)],              Ytε (q) = ε−1 [πtε (q) − ft (q)].
+                 X
+                         δzj (t) ,                                                                                          (1.3)
+                 j=1
+
+Superscript p denotes the pasted law. Velocities are outgoing and right continuous at contacts;
+positions are continuous. Thus the moment paths are càdlàg. The sphere normalization gives
+                                                                      2π
+                Z                                                          Z
+     Jf (s) =       B 2 fs (x, v)fs (x, w) dx dv dw dω =                       |v − w|2 fs (x, v)fs (x, w) dx dv dw,
+                                                                       3
+                    Z t                                                                                                     (1.4)
+                1
+      H(t) =              Jf (s) ds.
+                2    0
+
+The Gaussian pointwise bound on one factor and mass and energy on the other bound Jf integrably.
+Hence H is continuous and nondecreasing. Set
+                                                        4π
+                     Z                                                                  Z
+        ρ0 (x) =          f0 (x, v) dv,         bex =      ,       a(q) = −bex              ρ0 (x)f0 (x, v)q(x, v) dx dv.   (1.5)
+                                                         3
+
+                                                                  2
+Conserved quadratic fluctuations                                                                                 Conditional theorem
+
+
+1.1    The maximal quadratic family
+Let Q be the space of polynomials of total degree at most two for which q(x + tv, v) is a co-located
+elastic collision invariant for every real t. It is the thirteen-dimensional space
+                q(x, v) = α + b · x + c · v + κ|v|2 + xT Rv + d x · v + e |x|2 ,                             RT = −R.            (1.6)
+The coefficients d = d(q) and e = e(q) are uniquely determined. A basis is
+           1,     x1 , x2 , x3 ,   v1 , v2 , v3 ,    |v|2 ,      (x × v)1 , (x × v)2 , (x × v)3 ,            x · v,   |x|2 .     (1.7)
+Write rq (t, z) = q(x + tv, v). Let Z0 be a centered Gaussian linear map on Q with covariance
+                                                                    Z
+                                         EZ0 (q)Z0 (r) =                    f0 (z)q(z)r(z) dz.                                   (1.8)
+
+There is no canonical subtraction in this grand-canonical covariance.
+Theorem 1.2 (Conserved quadratic functional limit). Assume Assumption 1.1, H1–H6 in Section 2,
+and the existing functional input F in that section. For either the true flow or the one fixed pasted
+flow, the vector of Y ε on the basis (1.7) converges in D([0, T ], R13 ), with its ordinary J1 topology,
+to the continuous Gaussian process determined by
+                                                                                        Z t
+                 Yq (t) = Z0 (rq (t)) + a(rq (t)) + d(q)H(t) + 2e(q)                          H(s) ds,          q ∈ Q.           (1.9)
+                                                                                         0
+
+The convergence is joint with the exactly centered strong tempered-distribution process of entry 009.
+If its Gaussian limit is G, then Z0 (q) = G0 (ηq) for any η ∈ Cc∞ equal to one near supp f0 .
+     For both laws the first moments satisfy, uniformly in t,
+                                                                                          Z t
+                             EYtε (q) −→ a(rq (t)) + d(q)H(t) + 2e(q)                             H(s) ds.                      (1.10)
+                                                                                              0
+
+Their exactly centered moment processes converge to Z0 (rq (t)). The covariance of the limiting
+process is                                 Z
+                                   Cov(Yq (t), Yr (s)) =                f0 (z)rq (t, z)rr (s, z) dz.                            (1.11)
+
+For the pasted law its prelimit covariances converge uniformly in t, s to (1.11). True prelimit
+covariance convergence is not a conclusion of the present theorem.
+   The proof establishes that (1.6) is maximal with its stated transport/invariance property. A
+general anisotropic spatial quadratic does not share this scalar conserved closure.
+Corollary 1.3 (Energy, virial, and spread). For qE = |v|2 , qV = x · v, and qX = |x|2 , the limit in
+D([0, T ], R3 ) is
+                                                                                                                      
+                                                             1 0 0                                         0
+      Y (t) = A(t)(Z + a∗ ) + c(t),                 A(t) =  t 1 0 ,
+                                                                    
+                                                                                              c(t) = 
+                                                                                                     
+                                                                                                         H(t)    ,
+                                                                                                                 
+                                                                                                                                (1.12)
+                                                                                                       Rt
+                                                             t2 2t 1                                  2 0 H(s) ds
+
+                                                        f0 qi qj . Its covariance is A(t)ΣA(s)T , and its mean is
+                                                    R
+where (a∗ )i = a(qi ) and Cov(Zi , Zj ) =
+                                                        Z t                                           Z t
+                                                    1
+         a(|v|2 ),        a(x · v + t|v|2 ) +                 Jf (s) ds,           a(|x + tv|2 ) +          (t − s)Jf (s) ds.
+                                                    2    0                                             0
+
+The scalar qE equals twice the physical kinetic energy. The initial vacancy term and the collisional
+term are both part of Boltzmann centering.
+
+                                                                        3
+Conserved quadratic fluctuations                                                                  Conditional theorem
+
+
+2      Pinned operational hypotheses
+The conditional boundary is explicit. Sources F and V mean the public entry-009 manuscript and
+virial supplement [1, 2] at
+                             87868bcb65bf0460a90d6bc2efc3324e46481230.
+
+Their upstream source U is [3] at
+                             adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+
+The H1–H6 hypotheses below have the same mathematical content as those in V. They are imported,
+not independently reproved here. Appendix A maps them to exact labels and files.
+
+2.1     One auxiliary dynamics
+Choose the admissible cycle-excess cap Γ and fixed number L of slabs from U before later fixed
+moment orders. Put τ = T /L and, up to integer rounding,
+
+                     AL = | log ε|,    Λi = A30
+                                             i ,           Ai−1 = Λ30
+                                                                   i        (i = L, . . . , 1).                 (2.1)
+
+An incoming contact is accepted when adding its edge keeps the connected collision component
+within Λi labels and excess Γ in slab i. Excess is edges minus vertices plus components; repeated
+contacts are repeated edges. Accepted C contacts scatter elastically; rejected contacts continue
+straight. Only collision prehistory restarts at slab interfaces. Positions and velocities are not reset,
+and overlaps are allowed. Expansion O contacts are signed non-scattering contacts and are distinct
+from accepted C events.
+
+2.2     H1–H6
+    H1. Initial and kinetic control. Ordered factorial densities normalized by µ−h obey 0 ≤ Fh,0
+                                                                                             ε ≤
+
+        f0⊗h and (1 − Cε)f0 ≤ F1,0
+                                 ε ≤ f . In particular sup E(N/µ)p < ∞ for each fixed integer p.
+                                      0                    ε
+        One-root birth inputs gi have a common Gaussian Bol envelope and converge to fiτ in a
+        common smaller Bol norm, including a partial final slab. The kinetic bounds propagate and
+        provide global velocity moments.
+
+    H2. Autonomous partition and output algebra. For a finite label set V , let ΨC be au-
+        tonomous capped evolution on block C, κC its connected-accepted-graph indicator, and
+        χ(C, D) the indicator that the two autonomous blocks have no cross-contact acceptable under
+        their prefix prehistories. For designated roots S and a bounded root-history test K,
+                                              X     Y             Y
+                                      1=                   κC             χ(C, D),                              (2.2)
+                                             C∈P(V ) C∈C        {C,D}⊂C
+                                              X Y               Y
+                               K(ΨV |S ) =               κC           χ(C, D)K(ΨC |S ).                         (2.3)
+                                             C∈P(V ) C        {C,D}
+
+        Expanding incompatibilities into rooted forest blocks gives a finite retained operator Ls and
+        positive stopped domination Es with Fs′ = Ls F + Rs and |Rs (K)| ≤ (Es F )(|K|). The signed
+        kernels are root-output pushforwards multiplied by physical indicators; their weights are
+
+
+
+
+                                                     4
+Conserved quadratic fluctuations                                                        Conditional theorem
+
+
+      independent of passive records. Spectators sum to one before integration. Choosing j fresh
+      labels contributes precisely µj /j!, using
+                                                      !
+                                           −1   n−s
+                                   (n − s)!               = [j!(n − s − j)!]−1 .
+                                                 j
+
+      Required recorded lines continue to time zero. Forgetting records commutes with output
+      pushforwards and one-root regrouping; newly unmarked singleton blocks sum to gi . These
+      are exact algebraic identities, not independence of the actual gas at interfaces.
+
+ H3. Unweighted remainder and complexity tails. For fixed factorial order and fixed finite
+     bounded record count, the actual and retained factorial hierarchies satisfy
+
+                               ∥Fhε − Fbhε ∥TV ≤ Ch e−ch ΛL ,      ΛL = | log ε|30 ,                  (2.4)
+
+      also on partial final slabs. Finite factorial-cumulant inversion retains connected diagrams.
+      Complexity is ρ = |H0 | + i (|Hi | + ri ), with continuing/designated roots Hi , initial-link
+                                   P
+
+      incident lines H0 , and slab cycle excess ri . At every fixed order and prescribed P , choosing a
+      fixed K makes the retained sum with ρ > K be O(εP ). Nonphysical initial tails also admit
+      an arbitrary-power auxiliary choice. These choices do not alter the dynamics. No energy or
+      Gaussian weight is assumed for a general microscopic remainder.
+
+ H4. Chronological coordinates and positive retained bounds. Every global birth has one
+     independent phase coordinate; continuation adds none. If E is total birth energy, active
+     energy never exceeds E. Mergers of disjoint chronological components have (s, ω) coordinates
+     with Jacobian ε2 B ds dω. A redundant contact is a determined incoming-intersection indicator
+     with update fixed by preceding data; a missing branch is zero. At fixed complexity, let m
+                                                                             P
+     be birth count, q continuation count, p physical initial-link count, n = i ni = m + q, and
+     a = i ai = m − 1 − p for a connected one-root history. Then
+         P
+
+
+                             n − a = q + 1 + p = OK (1),          µm−1 ε2a ε3p = εp .
+
+      There are OK (1) redundant contacts. Integrating one common translation, or prescribing a
+      root position and taking spatial suprema, bounds the birth product by C m e−bE . Fresh-label
+      factorials, ordered times, and pair choices give the size majorant
+                                                   √             √
+                                 CK (1 + n)DK (Cτ L)n ,        Cτ L < 1.                     (2.5)
+
+      It holds globally and at a fixed root position with a fixed small Gaussian reservation. The
+      exponential base and choice of L are independent of later fixed polynomial degrees and
+      moment orders. For h designated roots the connected normalization is µ1−h εp , as follows
+      from the same birth count; see (3.6) below and F’s imported package.
+
+ H5. Finite-tree convergence, completeness, and splitting. At fixed finite size and bounded
+     birth energy, prescribed paths, times, normals, and velocities converge as ε → 0 away from
+     the null grazing, zero-relative-speed, coincident-time, and extra-contact sets. There are no
+     undeclared contacts for sufficiently small ε. Physical initial links retain their ε factor. Cyclic
+     histories vanish qualitatively after truncation and domination. The surviving signed C/O
+     trees form the complete leading class, with signs (−1)#O and inputs fiτ ; their unmarked
+     one-root marginal at time t is ft .
+
+
+                                                    5
+Conserved quadratic fluctuations                                                                                Conditional theorem
+
+
+        After unused records are projected out, reverse-chronological C/O cancellation removes the
+        latest contacts meeting no tested root. Deleting the last remaining root contact splits its tree
+        into two incoming components at their common position, with fresh-label factorization
+                                                                                 !
+                                                              −1       j1 + j2
+                                             (j1 + j2 )!                             = (j1 !j2 !)−1 .
+                                                                          j1
+
+        This operation is made in the finite limiting tree class with a combined-size cutoff, removed
+        subsequently by absolute summability. Conditional spatial tree measures are weakly con-
+        tinuous in root position with uniform conditional and integrated Gaussian bounds. Their
+        equal-position collision product is defined by the common-translation coordinates, equivalently
+        by an approximate identity.
+
+    H6. Full-time true/pasted coupling. On common initial data, the probability of a trajectory
+        discrepancy anywhere on [0, T ] is at most Cε21/20 . The almost-everywhere elastic flows and
+        their outgoing right-continuous velocity versions are defined, and deterministic-time collision
+        sets are null.
+
+2.3     Existing functional input F
+We use the already proved exactly centered functional theorem of F: the true and the one fixed
+pasted signed-measure fields converge weakly in D([0, T ], Sβ′ (R6 )), with the generalized J1 topology
+induced by the strong Schwartz dual, to a Radon law supported on strongly continuous paths. Its
+finite Schwartz evaluations are centered Gaussian with covariance
+                                     Z                                       Z s∧t
+                EGt (ϕ)Gs (ψ) =          f0 U (0, t)ϕ U (0, s)ψ +                       Cr (U (r, t)ϕ, U (r, s)ψ) dr.         (2.6)
+                                                                                 0
+
+Here
+   R
+     U is the existing backward propagator, and Cr is its collision noise covariance. Initial covariance
+is f0 ϕψ and the noise is independent of the initial field. The static initial bounded-test CLT
+and convergence of its covariances are used in their existing scope. For clarity, the pinned initial
+proof gives µ∥cε2,0 ∥TV = O(ε). No unbounded positive-time test CLT and no polynomial mapping
+property of U is included in input F. The source’s nuclear tightness proof also supplies tightness
+of both path-law families along every sequence εn → 0. This is the tightness used in the product
+argument in Section 5.
+
+
+3      Speed records and a uniform incidence law
+Give each particle a passive mark yj (t), initially zero. At every accepted C event add its incoming
+normal speed B to each participant. O and rejected contacts add zero. A particle never copies its
+partner’s previous mark. Define the random cumulative speed sum
+                                                           1 X          1 X
+                                         Hεp (t) =             yj (t) =      Bc .                                             (3.1)
+                                                          2µ j          µ  p
+                                                                                      c∈Ct
+
+Its expectation is denoted mε (t). This random variable must be distinguished from V’s deterministic
+notation for its expectation.
+    With root phase/record variables ξj , let
+
+               Fhε = µ−h E
+                                    X
+                                                   δ(ξi1 ,...,ξi ) ,       cε1 = F1ε ,          cε2 = F2ε − F1ε ⊗ F1ε .
+                                                               h
+                             i1 ,...,ih distinct
+
+
+                                                                       6
+Conserved quadratic fluctuations                                                                      Conditional theorem
+
+
+Records at different times can be included as a fixed finite root-output list. No positive separation
+of those times is needed.
+
+Lemma 3.1 (Weighted one- and two-root bounds). Uniformly over observation times in [0, T ], for
+h ≤ 2 and nonnegative integers bj with bj ≤ 2,
+                                      P
+
+                                             Z          h
+                                                          bj
+                                                 cε,p
+                                                        Y
+                                                  h            yj    ≤ Cµ1−h .                                      (3.2)
+                                                        j=1
+
+In particular
+                                       sup Var(Hεp (t)) ≤ Cµ−1 = Cε2 .                                              (3.3)
+                                       t≤T
+
+Proof. We first bound actual records, then estimate all signed-branch tests globally. In slab i a final
+accepted component has at most Λi labels and no accepted edge to its complement. Its energy is
+conserved throughout the slab, including before its prefixes
+                                                        √ merge. If slab-start speeds are bounded
+by Vi , every later speed in that component is at most Λi Vi . Across the fixed slab list this gives
+                                             L p
+                                                                     max |vjp (t)| ≤ Vε .
+                                             Y
+                                Vε = Rv                 Λi ,
+                                                                      j,t
+                                             i=1
+
+Its accepted multigraph has at most Λi − 1 + Γ edges, so
+                                                               X
+                   0 ≤ yj (t) ≤ Dε ,         Dε = 2Vε               (Λi − 1 + Γ),       Pε = 1 + Dε .               (3.4)
+                                                                i
+
+For fixed L these quantities are fixed powers of 1 + | log ε|.
+    Append the passive coordinate to the H2 root-output maps and use ℓε (y) = clip(y/Pε , −1, 1)
+on every signed branch. Compatibility reproduces the same accepted history, hence the same
+mark. Kernel weights, spectators, fresh-label coefficients, and one-root regrouping are unchanged.
+Pushforward has variation norm at most one. Required recorded lines continue to zero. Thus the
+finite output algebra and H3 unweighted error mechanism remain valid, just as for the accepted-
+contact count record in F. The mark normalization changes no trajectory.
+    On the actual process Pε ℓε (y) = y, while on any artificial branch |Pε ℓε (y)| ≤ |y|. The bounded
+test must be global: actual speed support cannot be assigned to artificial independent birth inputs.
+Write δh = ∥Fh − Fbh ∥TV . Actual factorial masses are at most one by H1 and conservation of N , so
+∥Fb1 ∥TV ≤ 1 + δ1 . Finite inversion gives, directly,
+
+                                       ∥c2 − cb2 ∥TV ≤ δ2 + δ1 (2 + δ1 ).
+
+Restoring degree at most two costs at most Pε2 . It leaves H3’s exponential remainder smaller than
+every fixed power of ε. Choose complexity and nonphysical initial-tail accuracies after this degree;
+for example an unweighted O(ε6 ) tail, restored by a fixed polylogarithm, is o(ε2 ) = o(µ−1 ). For
+a later field covariance, its additional factor µ is included before choosing accuracy. No weighted
+microscopic remainder is used.
+    At fixed complexity K, total√ slab size n, and total birth energy E, there are at most n + CK
+prescribed contacts and B ≤ 2E. Consequently
+
+                                  √              Y bj                                            X
+                |yj | ≤ CK (1 + n) E,                   yj     ≤ CK (1 + n)2 (1 + E)        if       bj ≤ 2.        (3.5)
+                                                   j
+
+
+                                                                7
+Conserved quadratic fluctuations                                                       Conditional theorem
+
+
+This uses active energy on the realizable branch, including determined redundant updates; un-
+realizable branches remain zero. It also dominates the restored clipped output. With m births,
+a = m − 1 − p mergers, and p physical initial links, the exact connected normalization at h roots is
+
+                                        µm−h ε2a ε3p = µ1−h εp .                                     (3.6)
+
+Continuation contributes no extra birth or activity factor.
+    We detail why the energy insertion preserves the size base. On a dyadic energy bin of upper
+                                                                    3/2 √
+scale P , summing the next merger pair in slab i costs at most ni         P . Normal integration adds
+                                                           a
+a fixed exponential factor, ordered merger times give τ /ai !, and fresh labels give 1/ni ! up to
+                                                            i
+
+fixed complexity polynomials. The birth product after one translation integration is C m e−bE . The
+source’s energy-bin calculation therefore gives, before the final Stirling estimate,
+
+                                                            Y n3ai /2
+                                     C n+a τ a (1 + a)a/2             i
+                                                                               ,                     (3.7)
+                                                             i
+                                                                  ai !ni !
+
+up to a fixed polynomial. Reserving a fixed Gaussian fraction absorbs (1 + E) in (3.5). Equivalently,
+a fixed integer shift r of the energy-bin power has gamma ratio
+                                               r
+                               Γ(s + r + 1)   Y
+                                            =    (s + k) ≤ Cr (1 + s)r ,
+                                 Γ(s + 1)     k=1
+
+and costs only a fixed power of size. Since δi = ni − ai ≥ 0 and i δi = OK (1), Stirling and convexity
+                                                                             P
+
+yield
+                          3a /2
+                         ni i                         −n /2   Y n
+                                  ≤ e2ni (1 + ni )δi ni i ,      ni i ≥ (n/L)n .
+                         ai !ni !                              i
+                                                                        √
+Inserting these into (3.7) gives CK µ1−h εp (1 + n)DK θn with θ = Cτ L < 1. Choose L once for the
+fixed smaller Gaussian exponent. Later fixed degrees change front constants and powers of size,
+not that choice. Summing n and adding the restored small errors proves (3.2). The reasoning is
+uniform on partial slabs and finite record lists.
+                      P
+    Finally, for Sy = j yj , the identical-index and distinct-index terms give the exact identity
+                                                Z                 Z
+                                   Var Sy = µ       F1 y 2 + µ2           c2 y1 y2 .
+
+Dividing by 4µ2 proves (3.3). The second integral may be signed; its absolute bound suffices. The
+1/2 in (3.1) is necessary because each contact is recorded by both participants.
+
+Lemma 3.2 (Speed-incidence mean). The same pasted dynamics satisfies mε (t) = EHεp (t) → H(t)
+uniformly on [0, T ].
+Proof. This is the weighted incidence theorem of V; the short proof from the stated package is
+included. Remove microscopic and complexity errors with the globally clipped degree-one test as
+above. At fixed size and bounded birth energy the raw finite speed sum converges by H5, and
+clipping is eventually inactive. The bound (3.5), its Gaussian domination, and the size majorant
+remove the energy and size cutoffs. Physical initial links retain ε and cyclic terms vanish after the
+same weighted truncation and domination. Bol-norm convergence replaces interface births by fiτ .
+No qualitative normalized-record convergence is multiplied by Pε .
+    In the surviving finite limiting tree class, inspect contacts in reverse chronological order. Project
+unused future auxiliary records. The latest contact that meets no tested root has equal incoming
+
+                                                      8
+Conserved quadratic fluctuations                                                                    Conditional theorem
+
+
+C/O flux, opposite signs, and the same root output, including its mark, so its choices cancel. Repeat
+until the latest remaining contact meets the root. Delete that contact at time s using H5. Its two
+incoming components factor with their original fresh-label weights and the combined-size cutoff.
+For the terminal test y, the C-minus-O increment is exactly B, independently of both incoming
+historical marks. Both components can therefore be projected onto their unmarked phase points,
+whose measures are fs (x, v) and fs (x, w). The one-root moment is
+                                        Z tZ
+                            My (t) =                B 2 fs (x, v)fs (x, w) dx dv dw dω ds.
+                                          0
+The flux supplies one B and the mark supplies the second. Absolute summability removes the
+combined-size cutoff before replacing the incoming components by their unrestricted product. A
+                                                    P         P
+one-root insertion has no factor 1/2; the relation j yj = 2 c Bc then gives H = My /2. The
+unused partner history was projected out, not replaced by a fresh zero mark. The argument holds
+at every fixed time, including a partial final slab. Both mε and H are nondecreasing and H is
+continuous. A fixed finite grid with small H increments sandwiches intermediate values, giving
+uniform convergence from the fixed-time convergence.
+
+Proposition 3.3 (Uniform incidence LLN). For the pasted flow,
+                                          E sup |Hεp (t) − H(t)|2 −→ 0.                                           (3.8)
+                                              t≤T
+
+For the true speed sum Hε (t) = µ−1
+                                              P
+                                                 c∈Ct Bc ,
+
+                                  sup |Hε (t) − H(t)| −→ 0            in probability.                             (3.9)
+                                  t≤T
+
+Proof. Given η > 0, take a fixed grid whose successive H increments are at most η. Uniform mean
+convergence makes successive mε grid increments at most 3η for small ε. Every sample and every
+mean Hεp , mε is nondecreasing. Thus
+                           sup |Hεp (t) − mε (t)| ≤ max |Hεp (ti ) − mε (ti )| + 3η.
+                             t                                i
+
+The squared expectation of the maximum is bounded by the sum of its endpoint variances, at most
+C#{ti }ε2 . First let ε → 0 for this fixed grid, then η → 0, and add ∥mε − H∥∞ . This proves (3.8).
+On the good event in H6 the true and pasted events, hence their entire speed-sum paths, agree. Its
+exceptional probability tends to zero, proving (3.9). No squared bad-event comparison is used.
+
+
+4    Conservation, maximality, and initial bias
+Lemma 4.1 (Mechanical identities and global quadratic bounds). For either microscopic flow,
+almost surely on its defined trajectories,
+                    πtε (|v|2 ) = π0ε (|v|2 ),                                                                    (4.1)
+                   πtε (x · v) = π0ε (x · v) + tπ0ε (|v|2 ) + εHε (t),                                            (4.2)
+                                                                                     Z t
+                   πtε (|x|2 ) = π0ε (|x|2 ) + 2tπ0ε (x · v) + t2 π0ε (|v|2 ) + 2ε         Hε (s) ds.             (4.3)
+                                                                                      0
+Mass, momentum, and angular momentum are constant, and the position sum is its initial value
+plus t times momentum. For every fixed q ∈ Q,
+                                                    X
+                                              sup        |q(zj (t))| ≤ Cq,T N.                                    (4.4)
+                                              t≤T    j
+
+
+                                                              9
+Conserved quadratic fluctuations                                                            Conditional theorem
+
+
+                                                                              √
+Proof. Energy conservation and the initial velocity support give ∥V (t)∥2 ≤ Rv N . With continuous
+positions and their piecewise velocity derivative, Minkowski gives
+                                                 Z t                               √
+                      ∥X(t)∥2 ≤ ∥X(0)∥2 +                ∥V (s)∥2 ds ≤ (Rx + T Rv ) N .
+                                                     0
+
+Cauchy–Schwarz controls the absolute mixed and angular sums and the linear position and velocity
+sums, proving (4.4). At a contact the pair energy and momentum jumps are zero, whereas
+
+                               x · (v ′ − v) + (x + εω) · (w′ − w) = εB.
+
+The angular jump is εB ω × ω = 0. Streaming gives derivatives |v|2 for x · v, 2x · v for |x|2 , and
+zero for x × v. Integration proves the identities. Accepted pasted contacts have exactly the same
+separation and orientation; rejected contacts and restarts have no phase impulse. Overlaps introduce
+no additional term. The nonnegative cumulative speed sum is bounded by CT N/ε, so no extra true
+collision-count moment estimate is required for its integrability. H1 justifies taking expectations.
+
+Proposition 4.2 (Maximal transport-closed quadratic invariants). The definition of Q gives exactly
+(1.6). In spatial dimension d, its dimension is 2d + 4 + d(d − 1)/2.
+
+Proof. Write a general quadratic as
+
+                α + b · x + c · v + xT Dx + xT M v + v T F v,           DT = D,       F T = F.
+
+At a common collision position the linear-in-velocity terms depend only on pair momentum. Express-
+ing the velocities by their center velocity and relative velocity g, pair invariance of the remaining
+term requires g T F g invariant under every reflection of g. A reflection can send a vector to any
+other vector of the same length; hence F = κI. The velocity-quadratic coefficient of q(x + tv, v) is
+F + t sym M + t2 D. For it to be scalar at every t, sym M = dI and D = eI. The skew part of M is
+arbitrary. Conversely these conditions make all the transported tests collision invariant. They give
+(1.6). Counting its independent coefficients gives the dimension. This proves maximality with the
+stated property, without asserting invariance for an arbitrary anisotropic quadratic.
+
+   For q ∈ Q, the mechanical identities combine to
+                                                                       Z t           
+                       πtε (q) = π0ε (rq (t)) + ε d(q)Hε (t) + 2e(q)          Hε (s) ds .                 (4.5)
+                                                                         0
+
+The skew term in (1.6) has neither a streaming derivative nor a finite-diameter impulse. Boltzmann’s
+co-located invariants give
+                                          ft (q) = f0 (rq (t)).                                 (4.6)
+These deterministic moment identities can be justified first with spatial and velocity cutoffs. Global
+energy and the propagated spatial second moment remove them; the latter follows from compact
+initial support and 2|x · v| ≤ |x|2 + |v|2 . This deterministic integration is not an unbounded
+fluctuation theorem.
+
+Lemma 4.3 (Initial vacancy bias). For every fixed polynomial q,
+
+                                   aε (q) := ε−1 [Eπ0ε (q) − f0 (q)] −→ a(q).                             (4.7)
+
+
+
+
+                                                          10
+Conserved quadratic fluctuations                                                                  Conditional theorem
+
+
+                                            ε (x, v) = f (x, v)P{K = 0}, where K counts centers
+Proof. The insertion identity for (1.1) is F1,0         0         x             x
+of an independent initial configuration in the radius-ε ball about x. H1, smoothness of ρ0 , and
+µε3 = ε give, uniformly in x,
+                                                                             Z             !2
+                                       2                             2
+             EKx = εbex ρ0 (x) + O(ε ),         EKx (Kx − 1) ≤ µ                      ρ0        = O(ε2 ).
+                                                                             B(x,ε)
+
+The elementary Bonferroni inequalities
+
+                             EKx − 12 EKx (Kx − 1) ≤ P(Kx ≥ 1) ≤ EKx
+       ε = f [1 − εb ρ + O(ε2 )]. Multiply by q and integrate on the compact support of f . This
+yield F1,0    0      ex 0                                                                0
+proves (4.7). In particular the activity µ cannot be identified with EN at the order relevant to
+Boltzmann centering.
+
+Lemma 4.4 (True mean transfer). For q ∈ Q and every fixed integer p > 21,
+
+                           sup ε−1 |Eπtε (q) − Eπtε,p (q)| ≤ Cq,T,p ε(p−21)/(20p) .                             (4.8)
+                           t≤T
+
+Moreover EHε → H uniformly.
+
+Proof. Let Eε be H6’s full-time discrepancy event. Off it the moment paths agree; on it (4.4) bounds
+their absolute particle-sum difference by Cq,T N . Holder and H1 give
+
+                      ε−1 E[(N/µ)1Eε ] ≤ Cp ε−1+(21/20)(1−1/p) = Cp ε(p−21)/(20p) .
+
+For p = 42 the exponent is 1/40. Apply (4.2) to both coupled flows: their initial and energy
+terms agree, so Hε − Hεp = ε−1 [πtε (x · v) − πtε,p (x · v)]. The mean comparison therefore controls the
+speed-sum expectation uniformly. Lemma 3.2 completes the proof. This is first-moment transfer,
+not a deduction from probability coupling alone.
+
+
+5    Proof of the functional and joint limits
+Proof of Theorem 1.2. Fix η ∈ Cc∞ equal to one near supp f0 . Initially every particle lies in that
+support, so for each q ∈ Q, π0ε (q) = π0ε (ηq) almost surely, including equality of expectations. Input
+F therefore gives the initial Gaussian vector Z0 with covariance (1.8). This is an exact compact-
+test substitution at time zero, not an unbounded positive-time observation. Lemma 4.3 adds its
+deterministic vector a for Boltzmann centering. Since rq (t) is a fixed finite linear combination of
+the basis (1.7), all of its initial fluctuations follow jointly from this one vector.
+    Subtract (4.6) from (4.5) and divide by ε:
+                                                                       Z t
+                         Ytε (q) = Y0ε (rq (t)) + d(q)Hε (t) + 2e(q)         Hε (s) ds.                         (5.1)
+                                                                         0
+
+For the pasted law use (3.8); for the true law use (3.9). The event term converges uniformly in
+probability to its continuous deterministic limit. The initial-vector map is continuous into the space
+of continuous finite-coefficient polynomial paths. Ordinary finite-dimensional Slutsky gives the joint
+D([0, T ], R13 ), J1 limit (1.9). Indeed (5.1) provides a uniform-in-time residual tending to zero. No
+independence between the initial vector and the speed sum is required, since the latter limit is
+deterministic.
+
+                                                     11
+Conserved quadratic fluctuations                                                         Conditional theorem
+
+
+   Taking expectations in the same identity, using the vacancy bias and the separate mean
+convergence of both speed sums, proves (1.10). Uniformity follows from the fixed polynomial
+coefficients and the uniform expectation limit. Subtracting the convergent means proves the exactly
+centered limit. Formula (1.11) is then the covariance of the Gaussian linear initial field.
+    For  the pasted prelimit covariance, let Z0,ε (q) = ζ0ε (q) and Rq,ε (t) = d(q)[Hεp (t) − mε (t)] +
+      Rt p
+2e(q) 0 [Hε (s) − mε (s)] ds. The centered path identity reads
+                                     ζtε,p (q) = Z0,ε (rq (t)) + Rq,ε (t).
+Proposition 3.3 implies E supt |Rq,ε (t)|2 → 0. The initial covariance matrices converge to (1.8) by
+the initial static factorial bounds, and are bounded. Finite coefficients in rq (t) and Cauchy–Schwarz
+make every covariance involving a residual uniformly small in t, s. The remaining initial covariance
+converges uniformly to (1.11). This argument transfers no squared bad-event error to the true law.
+    It remains to justify the product with the strong-dual field. Let E = D([0, T ], Sβ′ ) have input F’s
+generalized J1 topology, and let Zε be its exactly centered field. Evaluation at zero against a fixed
+finite Schwartz list is continuous: every allowed time change fixes zero. With the basis q1 , . . . , q13 ,
+                                     Y0ε (qi ) = Zε (0)(ηqi ) + aε (qi ).
+Define the continuous map from E to E × D([0, T ], R13 ) which retains its first coordinate and
+constructs its second by (1.9), replacing Z0 (qi ) by z(0)(ηqi ). Input F and continuous mapping give
+its weak limit. The actual second coordinate differs uniformly in probability from this construction
+by (5.1) and aε → a.
+    For completeness, this perturbation step can be proved without assuming a general nonmetrizable
+Slutsky theorem. Given a bounded continuous function g on the product and a compact K ⊂ E
+carrying all but arbitrarily small probability of the tight field laws, the constructed graph over K
+is compact. At each graph point continuity gives a field neighborhood and a radius in the metric
+J1 second factor where g changes by less than a chosen δ. Shrink the field neighborhood using
+continuity of the constructed second coordinate. A finite subcover of K gives a common positive
+radius. If the field lies in K and the second-coordinate perturbation is smaller than this radius,
+the two g values differ by at most 2δ. Its exceptional probability tends to zero. Outside K, use
+2∥g∥∞ ; then let the compact exception and δ tend to zero. This proves convergence of all bounded
+continuous product tests, as required. The joint conclusion follows, with Z0 (q) = G0 (ηq).
+Proof of Corollary 1.3. The transported tests are rE = |v|2 , rV = x · v + t|v|2 , and rX = |x + tv|2 .
+Their initial-coefficient matrix is A(t) in (1.12). For virial d = 1, e = 0, and forR spread d = 0,Re = 1;
+energy has both zero. Theorem 1.2 gives all assertions. Fubini gives 2 0t H(s) ds = 0t (t −
+s)Jf (s) ds.
+   The joint Gaussian cross covariance, for q ∈ Q and ϕ ∈ S, is
+                                                 Z
+                         Cov(Gs (ϕ), Yq (t)) =       f0 (z)[U (0, s)ϕ](z)rq (t, z) dz.                 (5.2)
+
+Replace rq by ηrq on the compact initial support and use independence of the initial Gaussian field
+and its noise in input F. This proves (5.2) using only the existing compact/Schwartz interpretation
+of U . The phase-space field in the joint theorem retains exact microscopic centering; no generic
+Boltzmann recentering of that field is implicit.
+    The collisional drift is nonzero for the stated smooth nonzero Rdatum. At some open set of positions
+the initial velocity density is positive on an open velocity set, so |v −w|2 f0 (x, v)f0 (x, w) dx dv dw >
+0. Continuity on a compact subregion preserves a positive lower bound for small positive times.
+Thus H(t) > 0 there. The Gaussian part, by contrast, comes entirely from the initial field because
+all transported tests in Q are co-located collision invariants.
+
+                                                      12
+Conserved quadratic fluctuations                                                                    Conditional theorem
+
+
+6     Intrinsic per-particle moments
+The conserved family has a nonlinear consequence without enlarging the unbounded-test class. Let
+                    Mε = π0ε (1) = N/µ,           pε = πtε (v)/Mε ,           xε (t) = πtε (x)/Mε .
+On N > 0 define the intensive intrinsic moments
+                                           Uε = πtε (|v|2 )/Mε − |pε |2 ,
+                                     Dε (t) = πtε (x · v)/Mε − xε (t) · pε ,                                         (6.1)
+                                      Sε (t) = πtε (|x|2 )/Mε − |xε (t)|2 .
+Assign any fixed values on N = 0. The mass coordinate of Theorem 1.2 implies Mε → 1 in
+probability, so that exceptional probability tends to zero. Write
+ p0 = f0 (v),   x0 = f0 (x),    u0 = f0 (|v − p0 |2 ),     d0 = f0 ((x − x0 ) · (v − p0 )),         s0 = f0 (|x − x0 |2 ).
+Their Boltzmann values are (u0 , d0 + tu0 , s0 + 2td0 + t2 u0 ). Define three effective initial tests
+           ϕU = |v − p0 |2 − u0 ,      ϕD = (x − x0 ) · (v − p0 ) − d0 ,               ϕS = |x − x0 |2 − s0 .        (6.2)
+Each belongs to Q and integrates to zero against f0 .
+Corollary 6.1 (Thermal energy and intrinsic spread). For either flow, the Boltzmann-centered
+vector of (6.1), scaled by ε−1 , converges in D([0, T ], R3 ), J1 , to
+                                                                 Z
+                    A(t)(Z int + aint ) + c(t),          Σint
+                                                          ij =       f0 ϕi ϕj ,       aint
+                                                                                       i = a(ϕi ),                   (6.3)
+
+where Z int is centered Gaussian with covariance Σint , and A, c are from (1.12). This convergence is
+joint with the exactly centered Schwartz field, with Ziint = G0 (ηϕi ). It describes the weak limit and
+its covariance; it does not add a true prelimit covariance assertion.
+Proof. Mass and momentum are constant, and xε (t) = xε (0) + tpε . Substitution in (4.1)–(4.3) gives,
+exactly,
+                        Uε (t) = Uε (0),
+                        Dε (t) = Dε (0) + tUε (0) + εHε (t)/Mε ,
+                                                                            Z t
+                                                          2
+                        Sε (t) = Sε (0) + 2tDε (0) + t Uε (0) + 2ε                Hε (s) ds/Mε .
+                                                                             0
+
+Since Mε → 1, Proposition 3.3 gives the same uniform deterministic event term after division by
+Mε .
+     For clarity, denote the raw initial moments by (M, P, X, E, V, Q). The three rational maps
+are E/M − |P |2 /M 2 , V /M − X · P/M 2 , and Q/M − |X|2 /M 2 . At the deterministic point
+(1, p0 , x0 , f0 (|v|2 ), f0 (x · v), f0 (|x|2 )) their differentials, represented as tests of an empirical per-
+turbation, are exactly (6.2). For example the first differential is
+                      δE − 2p0 · δP + (2|p0 |2 − f0 (|v|2 ))δM = δπ |v − p0 |2 − u0 .
+                                                                                                
+
+The same calculation gives the other two tests. The initial thirteen-vector has an OP (ε) deviation
+and its scaled limit is its Gaussian vector plus the vacancy bias. On M bounded away from zero the
+rational maps have bounded second derivatives in a fixed neighborhood. Thus their ε−1 -scaled Taylor
+remainders are OP (ε) → 0. The finite-dimensional delta method gives the initial limit Z int + aint ,
+jointly with the field. The exact triangular identities and the uniform event LLN prove (6.3).
+
+                                                          13
+Conserved quadratic fluctuations                                                    Conditional theorem
+
+
+    The observables are unchanged by a constant spatial translation or Galilean boost. Normalization
+by the particle count removes the leading mass direction; this explains the zero means of the effective
+tests under f0 , while the initial vacancy functional a(ϕi ) can still be nonzero. The corollary does
+not require a separate positive-time CLT for these rational observables.
+
+
+7    Endpoint cutoffs and precise scope
+The main theorem needs only initial compact tests and exact conservation. The following separate
+endpoint gate records what Gaussian birth energy also proves, and the order of limits it permits.
+
+Lemma 7.1 (Pasted polynomial endpoint covariance gate). Let q be any fixed polynomial, 0 ≤
+χ ≤ 1 a smooth cutoff equal to one on the unit phase ball and zero outside the radius-two ball,
+χR (z) = χ(z/R), and q >R = q(1 − χR ). For every fixed M > 0, uniformly for sufficiently large R
+and sufficiently small ε,
+                                                            2
+                           sup E|ζtε,p (q >R )|2 ≤ Cq e−cq R + Cq,M εM .                     (7.1)
+                              t≤T
+
+The statement holds for fixed finite endpoint record lists and gives covariance cutoff approximation
+at two times. In particular its cutoff limit takes ε → 0 first, then R → ∞.
+
+Proof. The actual pasted speed bound (3.4) gives |xpj (t)| ≤ Rx +T Vε . Choose a fixed polylogarithmic
+Qε ≥ 1 dominating |q| on that actual phase region, independently of R. Use the globally bounded
+test clip(q >R /Qε , −1, 1) on every signed branch. On actual endpoints restoring Qε gives the raw
+tail, and on artificial branches its absolute value is bounded by |q >R |. Restore degree two only after
+H3’s unweighted remainder and tail estimates. Choose their arbitrary-power accuracy after the
+degree, requested M , and the covariance factor µ. All restored errors are O(εM ) uniformly in R.
+     Every tested endpoint is on a required record-bearing line continued to zero. Its initial input is
+supported in the compact position support of f0 , either through F1,0 ε or through an initial cumulant
+
+dominated by products of f0 . Retain this anchor before spatial envelope domination. H4 gives, on
+every nonzero retained branch with birth energy E,
+                                          √                          √
+                                |vj (t)| ≤ E,       |xj (t)| ≤ Rx + T E.
+
+The continued line is position-continuous. Thus for R ≥ max(1, 2Rx ) a nonzero tail factor forces
+E ≥ R2 /[4(T + 1)2 ]. If q has degree d, two raw endpoint factors are bounded by
+
+                                       Cq,T (1 + E)d 1{E≥cT R2 } .
+
+Only after extracting this implication discard the compact-anchor indicator. One birth factor is
+integrated in the common translation and the others bounded by spatial suprema, leaving C m e−bE
+                                                      2
+as in H4. One fixed Gaussian fraction extracts e−cq R , a second absorbs the fixed polynomial, and
+the rest supports the same factorial and time sum. The gamma-ratio estimate in Lemma 3.1 shows
+that fixed degree changes only the size polynomial. The reserved fractions and the admissible
+size base are fixed once; L is not chosen after R or q. At connected order h = 1, 2 the bound is
+              2
+Cq µ1−h e−cq R , uniformly in record times. Later independent births need not have compact spatial
+support.
+    For a field test u the exact second-cumulant identity is
+                                                Z               Z
+                              Var ζtε,p (u) =        ε,p 2
+                                                    F1,t u +µ       cε,p
+                                                                     2,t (u ⊗ u).
+
+
+
+
+                                                      14
+Conserved quadratic fluctuations                                                  Conditional theorem
+
+
+The retained bounds at u = q >R and the restored errors prove (7.1). The same proof without
+a tail gives bounded second moments. Cauchy–Schwarz then proves two-time covariance cutoff
+approximation, uniformly in its two record times.
+
+   For q ∈ Q, the true law inherits a marginal probability cutoff gate. Indeed |q >R | ≤ |q|, so (4.4)
+and the Holder estimate (4.8) compare the exact centerings uniformly in R, t. Off H6’s full-time
+exceptional event the raw paths agree. Chebyshev applied to (7.1), then this comparison, gives for
+every δ > 0
+                              lim lim sup sup P{|ζtε (q >R )| > δ} = 0.
+                               R→∞    ε→0   t≤T
+
+It is a marginal statement, not an assertion of a true covariance bound.
+    Uniform marginal variance alone does not imply a uniform path cutoff. For example, a randomly
+placed interval of length 1/m on the unit time circle has an indicator with variance at most 1/m at
+each fixed time, whereas its centered time supremum is 1 − 1/m. Theorem 1.2 avoids that issue
+by (5.1) and the monotone speed-sum LLN. Likewise taking R beyond the actual polylog endpoint
+range at each fixed ε would produce a vacuous tail bound; the iterated order stated in the lemma is
+the relevant one.
+    For q ∈ Q the lemma also defines the Gaussian L2 endpoint limit of Gt (qχR ). Apply its bound
+to differences of compact cutoffs, pass to their fixed finite-dimensional Gaussian limits, and obtain
+an L2 -Cauchy family. Joint probability comparison with the moment limit already proved identifies
+it as Z0 (rq (t)). This supplies the indicated finite-dimensional covariance interpretation, not an
+all-polynomial strong-dual functional theorem.
+
+7.1   The unresolved covariance transfer
+On the bad event the mechanical bound allows a quadratic fluctuation difference of order ε−1 N/µ.
+H1 and H6 give only
+                          ε−2 E[(N/µ)2 1Eε ] ≤ Cp ε−2+(21/20)(1−2/p) .                       (7.2)
+Its exponent approaches −19/20 as p → ∞ and equals −1 at p = 42. Thus this method does not
+establish true prelimit covariance convergence. A growing upper bound supplies no lower bound on
+the actual covariance and proves no physical divergence.
+    A scalar example displays the logical gap. Take a bounded centered W and an independent
+event Aε of probability ε21/20 , and set
+
+                                   Xε = W + ε−1 (1Aε − ε21/20 ).
+
+Then Xε − W → 0 in probability, its uncentered mean shift ε1/20 vanishes, but
+
+                            Var Xε − Var W = ε−19/20 (1 − ε21/20 ) → ∞.
+
+This is not a hard-sphere counterexample. Additional weighted true-flow control could prove
+covariance convergence; the present results leave it unresolved.
+
+7.2   Other boundaries
+The theorem identifies global quadratic moments and their first means. It does not establish
+a phase-space distribution limit of ε−1 (Eπtε − ft ), a full unit-activity mean corrector, or a local
+stress-corrector equation. No compact cubic activity result is used or reproduced. The invariant
+projection and Gaussian mapping are standard; the additional work is the clipped two-root weighted
+
+
+                                                  15
+Conserved quadratic fluctuations                                                   Conditional theorem
+
+
+record bound, its uniform weak-law use, the exact conserved closure, and the intrinsic corollary, all
+relative to the pinned package.
+    The compact initial position anchor is substantive for Lemma 7.1. With large initial position
+and small velocity, its implication E ≥ cR2 fails. A summable spatial Bol norm alone does not
+force a second spatial moment. The compact support assumption also makes the initial polynomial-
+to-compact substitution exact. Removal of this assumption requires separate weighted initial
+information.
+
+
+A     Exact source map and reproducibility
+All imports are public text at immutable commits. F and V are in mxym/math at
+                             87868bcb65bf0460a90d6bc2efc3324e46481230.
+
+U is in OpenAI/math at
+                             adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+
+The original shorthand mxym/math009 did not identify an accessible repository; the audited source
+is entry 009 within mxym/math. The twenty-five audited F/V files have identical Git blob hashes at
+the first commit and 1c67b4146f9e54291c8a5ca1f42a028bf307629f. No result here depends on
+an unpinned working tree.
+
+A.1    Imported results and their exact locations
+In the following map, paths are repository-relative and labels are the literal TeX labels in the pinned
+source. Line numbers are conveniences for the pinned bytes, not the basis of identification.
+
+Virial supplement V. All of the following labels are in notes/full-density-virial-stress/
+manuscript.tex:
+
+ Use here                    Exact source label(s)                      Pinned line(s)
+ Model, diameter, ensem-     ass:model, eq:ensemble                     46, 56
+ ble
+ Collision and sphere nor-   eq:collision, eq:J                         70, 82
+ malization
+ H1                          imp:initial                                142
+ H2                          imp:algebra,             eq:partition,     145, 149, 151
+                             eq:rootoutput
+ H3                          imp:unweighted, eq:unweighted              163, 165
+ H4                          imp:majorant, eq:majorant                  172, 179
+ H5                          imp:tree                                   184
+ H6                          imp:coupling                               193
+ Mechanical identities       lem:mechanics,       eq:micro-virial,      210, 213, 215
+                             eq:micro-spread
+ Vacancy expansion           lem:initial, eq:vacancy                    233, 235
+ Incidence mean and clip-    prop:incidence,         eq:mark-bound,     257, 286, 296, 308, 323
+ ping                        eq:clip,                  eq:rawbound,
+                             eq:scalar-moment
+ First-moment transfer       lem:transfer,             eq:transfer,     344, 346, 369
+                             eq:true-incidence
+
+
+                                                     16
+Conserved quadratic fluctuations                                                    Conditional theorem
+
+
+   The proof of Lemma 3.2 reproduces the weighted mean argument in V. V’s Hεp denotes an
+expectation; this manuscript’s Hεp is random and mε = EHεp . Confusing these two would bypass the
+required variance estimate.
+
+Functional manuscript F. Use the prefix preprints/009-functional-hard-sphere-fluct
+uations/v1/sections/.
+
+File                               Exact labels                          Use here
+01_model.tex                       ass:kinetic, lem:convention           Kinetic interval, path ver-
+                                                                         sions
+02_imports.tex                     eq:counts, prop:imports               Factorial/cumulant nor-
+                                                                         malization and package
+05_increments.tex                  lem:remainder                         Unweighted record errors
+06_microscopic.tex                 lem:record                            Passive bounded records
+                                                                         and zero continuation
+07_functional.tex                  thm:functional                        Exactly centered Schwartz
+                                                                         functional limit
+08_tempered.tex                    thm:tempered,                         Strong-dual path limit,
+                                   eq:tempered-covariance                Gaussian covariance
+
+   The connected scaling at several roots in (3.6) uses F’s normalized factorial convention and V’s
+chronological birth/link count. The initial Gaussian covariance and initial/noise independence are
+those of F. Its positive-time test space is retained exactly as stated.
+
+Upstream source U. Use the prefix preprints/Hard-sphere-fluctuations-on-the-regul
+ar-Boltzmann-lifespan-September-23-2026/build/sections/.
+
+File                               Exact labels or portion               Use here
+02-initial-target.tex              prop:initial, proof’s static cumu-    Bounded initial CLT and
+                                   lant bound                            µ∥c2,0 ∥TV = O(ε)
+03-dhm-inputs.tex                  Gaussian input envelope and dy-       Bol inputs within H1
+                                   namics
+04-cluster-expansion.tex           Autonomous partition and coarse       Operational basis of
+                                   variation argument                    H2/H3
+05-cutoff.tex                      prop:cutoff,                          Full-time O(ε21/20 ) proba-
+                                   eq:cutoff-probability                 bility comparison
+06-sharp-asymptotics.tex           eq:sharp-input-bounds,                Chronological scaling, en-
+                                   eq:sharp-scaling,                     ergy bins, Stirling and en-
+                                   lem:sharp-factorials,                 tropy sum
+                                   lem:sharp-summability,
+                                   eq:sharp-energy-sum
+07-gaussian-limit.tex              Leading-tree cancellation and Gaus-   Basis of H5 and input F
+                                   sian identification
+
+    The seven-file U inventory includes its build/main.tex. These operational and functional
+inputs are the conditional foundation; this manuscript does not claim to reprove the entire upstream
+hierarchy.
+
+                                                  17
+Conserved quadratic fluctuations                                                  Conditional theorem
+
+
+A.2    Proof contribution and conclusion ledger
+Lemma 3.1 proves the previously missing degree-two, two-root passive-speed estimate by global
+clipping and retained Gaussian energy. The exact variance formula then proves (3.3); monotonicity
+proves the uniform pasted L2 LLN and H6 gives the true probability LLN. Sections 4 and 5 supply
+maximal quadratic closure, the full thirteen-component theorem, the joint-field argument, and
+pasted covariance convergence. Corollary 6.1 adds the per-particle intrinsic observables via explicit
+differentials. Lemma 7.1 is a separate endpoint covariance result. The true prelimit covariance
+obstruction in (7.2) remains an unresolved transfer problem.
+
+A.3    Reproduction package
+The source archive contains this manuscript and all its sections, the PDF, build.py, README.txt,
+optimization-safe symbolic checks, negative-control evidence, and source provenance. The thirty-two
+exact pinned verification-cache files are bundled under sources/; their URL, byte count, SHA-256
+and Git blob SHA-1 are recorded in provenance/source-manifest.json and provenance/upstr
+eam-manifest.json. This cache contains the audited imports, rather than complete standalone
+distributions of F, V and U. The public strict checker verifies all cache bytes and literal source
+labels offline; optional fetching uses ordinary TLS verification.
+    audit/AUDIT.txt is a documented public derivative of the original mathematical audit. The
+seven original audit objects remain unchanged and are represented by their hashes in provenance
+/original-object-pins.json. The original patch has SHA-256
+              6c659d81faafc9a803efe97da399e16aa7aa642ab352213e5c3f77d360442528.
+
+The public checker uses explicit exceptions and verifies fixed audit, provenance, manuscript and
+cached-source anchors under both ordinary Python and python -O. Deliberate corruption is rejected
+in both modes. These checks verify identities, normalizations and source correspondence; the
+analytic proofs are in the text above. No Lean verification is claimed.
+     The build fixes the source epoch, omits volatile PDF dates and identifiers, disables shell escape,
+and performs three pdfLaTeX passes in a fresh directory. build/determinism.json records two fresh
+matching builds. The isolated fallback format loads english hyphen.tex when the standard installa-
+tion lacks its generated format or font map. Byte reproducibility across different TeX or font versions
+is not asserted. PUBLIC_FILES.json is the publication whitelist; package-manifest.json hashes
+its files except the self-excluded manifest. checks/verify_package.py also rejects unexpected files.
+References
+[1] Functional hard-sphere fluctuations, entry 009, version 1. Public source at the pinned mxym/math
+    commit.
+
+[2] Full-density virial and spatial-spread corrections and the collisional momentum-balance defect,
+    version 1, 7 October 2026. Public source at the same pinned commit.
+
+[3] Hard-sphere fluctuations on the regular Boltzmann lifespan, OpenAI Math Release, 23 September
+    2026. Public TeX snapshot at the pinned OpenAI/math commit.
+
+
+
+
+                                                  18
+

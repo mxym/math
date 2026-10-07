@@ -1,0 +1,128 @@
+\section{Fluxes and the complete retained size sum}\label{sec:summation}
+Assume first that initial cumulants are trivial, so $p=0$.
+Fix a bounded-complexity exceptional skeleton, including the first
+redundant-contact slot. Let $s$ range over decorated merger pair schedules.
+After spatial-envelope domination write $F_s$ for the full nonnegative
+merger-flux weight, with all needed redundant-branch indicators retained.
+It is zero on an unrealizable branch. Let $G_s$ be the Gaussian transverse
+return demand determined solely by the formal forest before its first
+redundancy. Then $\operatorname{supp}F_s\subset G_s$.
+No post-return Gaussian invariance is asserted.
+
+\begin{lemma}[Squared-flux sum]\label{lem:squared}
+At fixed merger times,
+\[
+ \sum_s\int F_s^2\dd\Omega
+       \leq C^aE^a\prod_i n_i^{a_i}.
+\]
+The number of ordered pair schedules is at most
+$C^a\prod_i n_i^{2a_i}$.
+\end{lemma}
+\begin{proof}
+At a valid branch node in slab $i$,
+\[
+ \sum_{p<q}|v_p-v_q|^2
+ =n_i\sum_p|v_p|^2-\left|\sum_pv_p\right|^2\leq n_iE.
+\]
+The squared incoming flux is at most its squared relative speed.
+Integrate the free normal and sum C/O choices, then induct backward
+through the pair-choice tree. Every valid child preserves the energy
+bound, including all intervening determined redundant scatterings.
+Invalid children remain zero; adding other pair speeds only enlarges
+the estimate. Thus no fictitious velocity is needed on an invalid branch.
+The schedule count follows by permitting every unordered pair at every
+merger, ignoring forest restrictions only in this numerical upper bound.
+\end{proof}
+
+Apply Cauchy--Schwarz jointly in schedules and the product parameter
+measure $\nu$:
+\begin{equation}\label{eq:jointCS}
+ \sum_s\int F_s\dd\nu
+ \leq\left(\sum_s\int F_s^2\dd\nu\right)^{1/2}
+       \left(\sum_s\int\ind_{G_s}\dd\nu\right)^{1/2}.
+\end{equation}
+For $m$ birth Gaussians and $a=m-1\leq n$,
+\[
+ \E_\gamma E^a=(2\sigma^2)^a
+       \frac{\Gamma(3m/2+a)}{\Gamma(3m/2)}
+       \leq(C_bn)^a .
+\]
+In the nonneighbor case include \emph{all} free merger times in $\nu$.
+With $V_t=\prod_i\tau^{a_i}/a_i!$ and
+$B_\eps=1+\logp(\sigma\tau/\eps)$, the two factors in \eqref{eq:jointCS},
+before taking square roots, are bounded by
+\[
+ C^{m+a}V_t n^a\prod_i n_i^{a_i},
+ \qquad
+ C^aV_t\prod_i n_i^{2a_i}\frac{Cn\eps B_\eps}{\sigma\tau}.
+\]
+Their product restores the full time volume and gives
+\begin{equation}\label{eq:preStirling}
+ C^{n+a}V_t n^{a/2}\prod_i n_i^{3a_i/2}
+              \sqrt{\frac{n\eps B_\eps}{\sigma\tau}} .
+\end{equation}
+Only the second factor uses the Gaussian forest geometry. In particular
+later merger weights and nonlinear determined returns stay in the first.
+
+In the repeated-pair sector, refine the exceptional skeleton by the
+earlier pair-contact slot and the first later C endpoint-update slot.
+These at most $a^2\leq n^2$ choices are absorbed in the fixed-complexity
+polynomial. Within each refined class $t_0$, $t_1$, and the elementary
+gap selected below are common to all schedules. Classes with no such
+C update vanish by \Cref{lem:repeated}.
+We may now apply \eqref{eq:jointCS} at fixed times
+and use \Cref{lem:repeated}. The resulting factor is
+$\min(1,\sqrt{\eps/(\sigma\ell)})$.
+If the earlier edge lies in slab $i$, choose either its next same-slab
+merger gap or the terminal gap to that slab's endpoint. In both cases
+the chosen gap $\Delta$ is at most $\ell$. Under the normalized ordered
+slab simplex,
+\[
+ \E\Delta^{-1/2}
+ =\tau^{-1/2}
+   \frac{\Gamma(1/2)\Gamma(a_i+1)}{\Gamma(a_i+1/2)}
+ \leq C\sqrt{(1+a_i)/\tau}.
+\]
+Thus \eqref{eq:preStirling} holds without $B_\eps$ in that sector.
+
+\begin{proof}[Proof of \Cref{thm:cycles}]
+Insert the fresh-label denominator $\prod_i n_i!$ and the fixed
+complexity polynomial. The source's elementary Stirling calculation,
+with $\delta_i=n_i-a_i\geq0$, gives
+\[
+ \frac{n_i^{3a_i/2}}{n_i!a_i!}
+ \leq e^{2n_i}(1+n_i)^{\delta_i}n_i^{-n_i/2},
+ \qquad
+ \prod_i n_i^{n_i}\geq(n/L)^n .
+\]
+Because $\sum_i\delta_i=O_K(1)$, \eqref{eq:preStirling} is bounded by
+\[
+ C_{K,h,T}\mu^{1-h}r_\eps
+       (1+n)^{d_K}(C_b\tau\sqrt L)^n .
+\]
+The activity factor is exactly $\mu^{m-h}\eps^{2a}=\mu^{1-h}$.
+The number of slab-size vectors of total $n$ is polynomial for fixed $L$.
+Choose $L$ once so that $C_bT/\sqrt L<1$. The size series converges.
+The repeated sector gives $\sqrt\eps$ in place of $r_\eps$.
+The first redundant pair is either an earlier edge or a nonneighbor,
+so these cases exhaust the $p=0$ cyclic class.
+\end{proof}
+
+Physical initial-link sectors separately have $\eps^p$, $p\geq1$,
+and the original summable majorant bounds them by
+$C_K\mu^{1-h}\eps$. Nonphysical initial tails and high complexity
+are treated by their actual arbitrary-power estimates in
+\Cref{prop:imports}; they are not made independent by the new geometry.
+
+\begin{remark}
+Uniform $C^n$ flux moments for each fixed particle tree would be false.
+For collinear C contacts $(1,2),(2,3),\ldots,(n-1,n)$, the same ancestral
+normal scalar is transported along the chain. Its flux product is
+$\prod_{j=2}^n(X_1-X_j)_+$ with independent Gaussian $X_j$.
+The event $X_1/\sigma\in[2\sqrt{n-1},2\sqrt{n-1}+1]$ and
+$|X_j|/\sigma\leq1$ gives expectation at least
+$c^n\sigma^{n-1}(n-1)^{(n-1)/2}$.
+The particle tree has degree two. Our all-schedule squared-flux proof
+preserves, and then cancels, this Gaussian growth through the two
+factorial denominators.
+\end{remark}

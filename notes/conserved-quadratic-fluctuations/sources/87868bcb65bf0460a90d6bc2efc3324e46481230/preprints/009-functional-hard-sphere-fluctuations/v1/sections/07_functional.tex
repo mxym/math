@@ -1,0 +1,96 @@
+\section{Finite families of fluctuation processes}\label{sec:functional}
+For a test $\phi$ write
+$\Delta\phi=\phi(x,v')+\phi(x,v_*')-\phi(x,v)-\phi(x,v_*)$.
+The inherited Gaussian finite-dimensional law has weak drift and noise
+\begin{align*}
+ A_t\phi&=v\cdot\nabla_x\phi+
+       \int B(v-v_*,\omega)f_t(x,v_*)\Delta\phi\dd v_*\dd\omega,\\
+ C_t(\phi,\psi)&=\tfrac12\int
+       B(v-v_*,\omega)f_t(x,v)f_t(x,v_*)
+                  \Delta\phi\,\Delta\psi\dd x\dd v\dd v_*\dd\omega .
+\end{align*}
+Its initial covariance is $\int f_0\phi\psi$.
+The initial field is independent of the Gaussian noise whose covariance
+is $\int_0^{s\wedge t}C_r(\phi,\psi)\dd r$.
+We use the source's backward mild construction and finite-dimensional
+identification~\cite[\S\S2,7--8]{U}, not an assumed path-space theorem.
+
+\begin{theorem}[Regular-lifespan finite-family convergence]\label{thm:functional}
+Under \Cref{ass:kinetic} and the imported package, for every fixed
+$\phi_1,\ldots,\phi_d\in C_c^\infty(\R^6)$ the exactly centered true
+hard-sphere processes converge in
+$D([0,T],\R^d)$ with its Skorokhod $J_1$ topology to a continuous
+Gaussian version of the inherited finite-dimensional law.
+The same holds for the one fixed pasted dynamics.
+\end{theorem}
+\begin{proof}
+Choose $\Gamma$ as required by the source's component expansion and
+global cutoff estimate. Choose $L$ once large enough for its original
+majorants, the squared-flux bounds, and the doubled-slab/fixed-Gaussian
+reservation in \Cref{lem:calendar}. All additional bases are independent
+of moment order and auxiliary accuracy. Thus all estimates below concern
+one microscopic process. Accuracy cutoffs are chosen only afterward.
+
+It suffices first to work with one fixed test, writing $X_\eps(t)$ for
+its pasted fluctuation. The finite-particle paths are cadlag.
+Their expectation is cadlag by dominated convergence, since the
+observation sum is bounded by $\|\phi\|_\infty N$ and $\E N<\infty$.
+
+Use a uniform mesoscopic grid of spacing $h_\eps\asymp\eps^{1/4}$ and
+let $Y_\eps$ linearly interpolate the values of $X_\eps$ there.
+For nodes separated by $d\geq h_\eps$, \Cref{cor:moments} gives
+\[
+ \E|X_\eps(t)-X_\eps(s)|^4
+ \leq C[(d+r_\eps)^2+\eps^2(d+r_\eps)]\leq C'd^2 .
+\]
+The same bound $C|t-s|^2$ holds for the interpolation at arbitrary times:
+inside a cell its fourth moment has the fractional factor
+$(|t-s|/h_\eps)^4$, and across cells split into the two end pieces and
+the node-to-node middle interval.
+Tight initial laws are inherited. The Kolmogorov criterion therefore
+makes $Y_\eps$ tight in $C([0,T])$.
+
+Subdivide each mesoscopic cell into equal intervals of length at most
+$\eps^2$ and comparable to it. There are $O(\eps^{-2})$ fine-grid points.
+For each point compare $X_\eps$ with its mesoscopic left endpoint,
+also including right endpoints in the comparison.
+The fixed eighteenth-moment case of \Cref{cor:moments} gives
+\[
+ \Pp\left\{\max_{\text{fine points }t}
+ |X_\eps(t)-X_\eps(\ell(t))|>\lambda\right\}
+       \leq C_\lambda\eps^{9/4-2}\longrightarrow0 .
+\]
+In particular all neighboring mesoscopic increments vanish uniformly.
+\Cref{prop:micro} with $J=2$ controls every point between fine nodes.
+It follows that $\sup_{t\leq T}|X_\eps(t)-Y_\eps(t)|\to0$ in probability.
+Fixed-time comparisons and the inherited finite-dimensional Gaussian
+convergence identify every subsequential interpolation limit. This also
+constructs a continuous version of that law. A finite product argument
+gives the joint assertion for the $d$ tests.
+
+Finally couple true and pasted flows by their common initial data.
+The source cutoff event $E_\eps$ concerns disagreement anywhere in
+$[0,T]$ and has probability $O(\eps^{21/20})$~\cite[\S5]{U}.
+Both flows conserve $N$. Uniformly in time,
+\[
+ \sqrt\mu\,|\E\pi_t^{\eps,\mathrm{true}}(\phi)
+                    -\E\pi_t^{\eps,p}(\phi)|
+ \leq2\|\phi\|_\infty\eps^{-1}
+              \E[(N/\mu)\ind_{E_\eps}]
+ \leq C_\phi\eps^{1/40},
+\]
+using the uniform forty-second moment and
+$(21/20)(41/42)-1=1/40$.
+Outside $E_\eps$ the uncentered paths agree at every time.
+Hence the exactly centered paths differ uniformly in probability by
+something tending to zero. This transfers the finite-family weak limit.
+\end{proof}
+
+\begin{remark}
+Only finite families of tests are asserted in \Cref{thm:functional}.
+The separate strong-dual functional theorem, including its topology
+and tightness argument, is proved in \Cref{thm:tempered}. Likewise uniform path comparison does not imply
+true-flow high-moment convergence: a fluctuation of size $\eps^{-1}$ on
+an event of probability $\eps^{21/20}$ has diverging variance despite
+vanishing probability. None of our conclusions uses that invalid transfer.
+\end{remark}

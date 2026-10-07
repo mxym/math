@@ -1,0 +1,1075 @@
+{
+  "schema": "continuum-entropy-quadratic-and-transfer-additive-release-v1",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "e7b92916b31605c396643eccb5509afd6718a135",
+  "base_tree": "e5a407bbd51804cf89fda596b1c5527eb307272e",
+  "packages": [
+    {
+      "name": "continuum_power_avoidance",
+      "root": "notes/continuum-power-avoidance",
+      "files": 29,
+      "manifest_path": "notes/continuum-power-avoidance/MANIFEST.json",
+      "manifest_sha256": "91e157edc47c82de536ef3a59a5ee22691f3359b2b7605ff339a49ccbfa07a46"
+    },
+    {
+      "name": "semiconvex_gaussian_entropy",
+      "root": "notes/semiconvex-gaussian-entropy",
+      "files": 29,
+      "manifest_path": "notes/semiconvex-gaussian-entropy/MANIFEST.json",
+      "manifest_sha256": "7d9bc298af2c3cc1f523c8c71331ae15e2de53e68cdae3333858b48e9801a371"
+    },
+    {
+      "name": "conditional_conserved_quadratic_fluctuations",
+      "root": "notes/conserved-quadratic-fluctuations",
+      "files": 70,
+      "manifest_path": "notes/conserved-quadratic-fluctuations/package-manifest.json",
+      "manifest_sha256": "9dac73495ab806a9dadc7b90f9df7cd44ecda10a8f6dbc7584447bab2c13ed0b"
+    }
+  ],
+  "package_counts": {
+    "continuum_power_avoidance": 29,
+    "semiconvex_gaussian_entropy": 29,
+    "conditional_conserved_quadratic_fluctuations": 70
+  },
+  "delivery_archives": [
+    {
+      "path": "releases/2026-10-07-conserved-quadratic-fluctuations-v1.tar.gz",
+      "bytes": 657429,
+      "sha256": "061498157a44775756298c1348338bad2f8834206fba3b39afeec8b8aa5e5453",
+      "git_blob_sha1": "1725b980056bbe032a28f0fcda0f387d09188b0c",
+      "mode": "100644",
+      "members": 70
+    }
+  ],
+  "source_archives": [
+    {
+      "path": "notes/continuum-power-avoidance/source.tar.gz",
+      "sha256": "47dbfa6cac9017d9c3abac25524550dbc89376c75dbe006c516c79d3c58c1ed2",
+      "members": 25
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/source.tar.gz",
+      "sha256": "c3b90e3a48795f658c6105fda19c1594655cef8ee464260128259d695fe12fdb",
+      "members": 25
+    }
+  ],
+  "pdfs": [
+    {
+      "path": "notes/continuum-power-avoidance/paper.pdf",
+      "pages": 11,
+      "sha256": "63a9438294c34fcdea963d3dfa33420dcde0e58ba6f73883efed646e5f35da22"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/paper.pdf",
+      "pages": 9,
+      "sha256": "272f5e24f12bd6fcc40a327f2c04a628e99321830ea71e21f9b38872dd98b793"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/manuscript.pdf",
+      "pages": 18,
+      "sha256": "249dff84101ccb719b7419413ffb9aa7853c2fcb84b5a4d8e154c7792c1a5f89"
+    }
+  ],
+  "complete_transfer_comparison": {
+    "path": "notes/crouzeix-complete-transfer-comparison/README.md",
+    "bytes": 8484,
+    "sha256": "444d64bbb1ad12a4dff258d7f665fe91447ea78f9b3aaf58c5b4f2c335cb9c44",
+    "scope": "Documented norm-margin and same-domain perturbation deduction from attributed complete constant two and ACV arXiv:2608.27346v3 complete base-similarity transfer. Separate sibling note; the prior 18-file strict-domain proof/PDF/archive package is unchanged. No first-result claim."
+  },
+  "review_bindings": [
+    {
+      "label": "continuum_release_review",
+      "bytes": 9753,
+      "sha256": "782ebad6c4e8cd425fa4cb8e4e05d93a272ae9edb437adb157e9be9c68f32b43"
+    },
+    {
+      "label": "semiconvex_final_copy_review",
+      "bytes": 5231,
+      "sha256": "bbd7efbadf19b64003af32359098aad94a79ad5d774ba6b21a7dd481c121ec98"
+    },
+    {
+      "label": "semiconvex_metadata_delta_review",
+      "bytes": 407,
+      "sha256": "c0240bb7ec9419940383ac0896a707464b8721be74c7ddda8ceb8e398bd4b239"
+    },
+    {
+      "label": "kinetic_final_copy_review",
+      "bytes": 8684,
+      "sha256": "2caf953b49d7fdaccb84125a4408674f4ae6d1bd576df1dc15a6aa6b79389e44"
+    },
+    {
+      "label": "complete_transfer_comparison_review",
+      "bytes": 865,
+      "sha256": "3b0b22b93f0570f33c76f73407a34824636b1d6f001508fb3f79932abed3ea16"
+    }
+  ],
+  "semiconvex_corrections": {
+    "helper_domain": "0 <= theta < a/2; original negative-theta counterexample documented; positive downstream applications unchanged",
+    "metadata_delta": "Three exact metadata descriptions and four regenerated bindings only; other 22 package files unchanged from reviewed copy",
+    "no_general_nonconvex_LSI": true
+  },
+  "scope": "Bounded-logarithmic-gap continuum-power avoidance with positive-power remainder and exact dated BGKMW 2022 Question 1 consequence; sharp semiconvex Gaussian entropy loss on the strict curvature-time horizon; conserved thirteen-dimensional quadratic fluctuations conditional on H1-H6 and input F; attributed complete base-similarity transfer comparison.",
+  "verification_scope": "Independent model-conducted analytic and final-copy review; fresh ordinary/optimized finite and package integrity checks; 32 kinetic source files and 82 labels checked offline; fresh 20-case kinetic optimization-regression suite in each interpreter mode; all three deterministic archives recreated in isolated copies. Already independently inspected PDFs preserved by hash; no integration PDF rebuild or Lean compilation.",
+  "nonclaims": [
+    "No arbitrary C1/flat/general positive-upper-Banach-density avoidance theorem",
+    "No later-literature completeness or first/current-open priority claim",
+    "No general nonconvex logarithmic Sobolev inequality",
+    "No true prelimit covariance or full phase-space mean theorem",
+    "No complete Lean proof, human peer review or journal acceptance"
+  ],
+  "preservation": {
+    "base_paths_retained": 907,
+    "non_navigation_base_bytes_and_modes_unchanged": 903,
+    "modified_existing_paths": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md"
+    ],
+    "deleted_paths": [],
+    "historical_proof_lean_certificate_archive_workflow_bytes_and_modes_unchanged": true
+  },
+  "package_mode_policy": "Frozen continuum and kinetic packages are uniformly 100644. Semiconvex package retains its approved 100755 tools/build_pdf.sh and all other files 100644. No frozen package file is edited.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 23920,
+      "mode": "100644",
+      "git_blob_sha1": "d4a3949eb33dbb9154d9d9ee34945c467dc7ca62",
+      "sha256": "b6c1bf71445ee2fc787034a98e2882e61ac113d9f75395b18e9b1eff36854c7b"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 29206,
+      "mode": "100644",
+      "git_blob_sha1": "c3b7cbef1ff5dde53481020423114f411812e5e3",
+      "sha256": "dcebe483357ae9b5eab2430e271e02bac1fbfb694edc9d053f9dd179d0ea57af"
+    },
+    {
+      "path": "README.md",
+      "bytes": 34417,
+      "mode": "100644",
+      "git_blob_sha1": "0a454ddba571d1dbce19274e0cc67742a9ab5701",
+      "sha256": "118c7f833927a3ce3c4c27b73d39e70cba32072624b97beeeaa29bbf15f1f4d0"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/EDITORIAL_CHANGES.md",
+      "bytes": 2896,
+      "mode": "100644",
+      "git_blob_sha1": "9822fa2a3662177fe09d432a406bc84af06ce209",
+      "sha256": "fde856c30c100846af6d4aeaa2fee6538753ca86d6fe2122ceb85f83032682f0"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/PUBLIC_FILES.json",
+      "bytes": 5582,
+      "mode": "100644",
+      "git_blob_sha1": "524c20ee9226c9f68cdcd56bb9ff2570bba8f34b",
+      "sha256": "409076f4d0e94d2ba8ffb1bde561650ae48be44b4e4e09d51bfe2f370abe9cb6"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/README.txt",
+      "bytes": 3921,
+      "mode": "100644",
+      "git_blob_sha1": "94f134f643152e86e913e55e38a1db987b774df3",
+      "sha256": "a2952e4aa50c7167be1bdf3c1816b264cee2f7977922d2cc637b9dd91c580d6f"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/audit/AUDIT.txt",
+      "bytes": 34856,
+      "mode": "100644",
+      "git_blob_sha1": "ea607efd2c8f549b6511b47af5e4c000f32806c6",
+      "sha256": "a5822dd2ebb7b2aba38661fb62c35ad11c79ba892eb45e84d5b8f3a40945c756"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/audit/INDEPENDENT_AUDIT.md",
+      "bytes": 6413,
+      "mode": "100644",
+      "git_blob_sha1": "7d19840bfc9ac489051e7c568ef7bc2694e05c72",
+      "sha256": "364851d1823fdab2de46dba0efc607794b66f17ab7a8b25b85c88df4779cb5b9"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build.py",
+      "bytes": 5281,
+      "mode": "100644",
+      "git_blob_sha1": "90125ea666f09d9af0a86f2503a4c389f02ee169",
+      "sha256": "b0927175d03b874f2c04f5a442829d95d48d21e301fae1f9e055ca532a636fd3"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/determinism.json",
+      "bytes": 25217,
+      "mode": "100644",
+      "git_blob_sha1": "92f104581a6835f9d67d9672d2e74cd578a495b1",
+      "sha256": "56bb26e1c7f40ded08917b24832e64a07386d4a9c2eedd86094241c9361d156a"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/manuscript.log",
+      "bytes": 29395,
+      "mode": "100644",
+      "git_blob_sha1": "9588950790ddcf5ebac3fcc0e308aa0577254bb7",
+      "sha256": "20d13730bd2d3ed2db9f149877ff5aa4c5c732b7347f43b03bd880f8c4792d96"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/manuscript.txt",
+      "bytes": 69976,
+      "mode": "100644",
+      "git_blob_sha1": "1e463440fbd78dc8ea5a153eb4520d4f9e8b86ba",
+      "sha256": "211c18ad0a7d19c6e3cdab4b3a3c4ddebae9a9697000422ba9b945d8cbca415b"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/pdffonts.txt",
+      "bytes": 2256,
+      "mode": "100644",
+      "git_blob_sha1": "d7bb28fa1408764aae7da1e730c97c9bfcd1696f",
+      "sha256": "a07eb5a982f813f3959e95c40f301b7e1793fe6f46bead46ae967ea3d00418ef"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/pdfinfo.txt",
+      "bytes": 587,
+      "mode": "100644",
+      "git_blob_sha1": "f5d6ee5bb51ccd79ce6856b39c3155149cfd149e",
+      "sha256": "f3f450862c1f3808083e938e9ccd7e28566e02a1dcd2db12a91cdf0f48010020"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/build/quality-review.json",
+      "bytes": 722,
+      "mode": "100644",
+      "git_blob_sha1": "7ba3f5092ac2272b5f8d2f4dd06e3eb83b142fb2",
+      "sha256": "28f4bc8b6487a31cf510132edf06d387f2ccba5aeed19073a588b2ee33ad83a6"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/optimization-regression.json",
+      "bytes": 3545,
+      "mode": "100644",
+      "git_blob_sha1": "294acf8087e4f3949bcb116153a302629041108b",
+      "sha256": "25b69cc2fb77def686c5f91ab89ee99830d705231b461c507fd5d641a744c7bf"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/optimization_regression.py",
+      "bytes": 3784,
+      "mode": "100644",
+      "git_blob_sha1": "02f8bd60c4a08d715211666072e289bf61aae841",
+      "sha256": "68a2d5952667d6d2fc7f80cb2a553286fa684c82c22008376af75e716e7eacea"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/reconstruction-evidence.json",
+      "bytes": 545,
+      "mode": "100644",
+      "git_blob_sha1": "e5cc15e236b83959b33cf9252bff7fe1637e6b81",
+      "sha256": "7356d7a615d3400debf7b1f1072eb10ed75498b746f8b0760d67ff674ca587a6"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/replay_release.py",
+      "bytes": 4079,
+      "mode": "100644",
+      "git_blob_sha1": "0e27c15240c0ffc1ff5a08a29a8114fb521c5474",
+      "sha256": "bc1ac46f69beef1b47d7239d0ac34fc6989bbccfff9986cdb72fece46ec73496"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/strict-evidence-optimized.json",
+      "bytes": 1418,
+      "mode": "100644",
+      "git_blob_sha1": "7a00f866849ee643f4ac4d9ed412b1929910e261",
+      "sha256": "7918a5448f6a13e83476fc82a95d67a91832f41229a2c998932a449f76d3ae7c"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/strict-evidence.json",
+      "bytes": 1419,
+      "mode": "100644",
+      "git_blob_sha1": "b660c1fafa61ef6febf04c78bc751547404dac7e",
+      "sha256": "a3241c83772f9cf7f53340ccc13a790ee95af29a44b16a7cb72d24e15dddea71"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/strict_check.py",
+      "bytes": 11266,
+      "mode": "100644",
+      "git_blob_sha1": "37fc6ef43293be46efebd3e315f28d80f1d0bc05",
+      "sha256": "929388c8eb4b68ff65603fc15e580c886b234dcf2a1226a34ed1bd6153a4f0b9"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/checks/verify_package.py",
+      "bytes": 2096,
+      "mode": "100644",
+      "git_blob_sha1": "af768792897a7e3d64a644b44ac340ec2adbaa15",
+      "sha256": "d5e16a20a3aa694f4627d06f655dd552957560d41e8233b541548ecbf4558a20"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/manuscript.pdf",
+      "bytes": 430455,
+      "mode": "100644",
+      "git_blob_sha1": "4bc71ad5434a5fda1f5a951523184fa48ddf0162",
+      "sha256": "249dff84101ccb719b7419413ffb9aa7853c2fcb84b5a4d8e154c7792c1a5f89"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/manuscript.tex",
+      "bytes": 4520,
+      "mode": "100644",
+      "git_blob_sha1": "d940f59a3f6190157d91e14f2425a25027130272",
+      "sha256": "3212b74a3ce459a9dac329c9e807dc5a625396da31412e1ffa46ba1e2a288225"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/package-manifest.json",
+      "bytes": 14421,
+      "mode": "100644",
+      "git_blob_sha1": "479e592379b33ece707e32215fa16cfbd4d7ee9f",
+      "sha256": "9dac73495ab806a9dadc7b90f9df7cd44ecda10a8f6dbc7584447bab2c13ed0b"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/package.py",
+      "bytes": 4117,
+      "mode": "100644",
+      "git_blob_sha1": "a70e351396160763aa0fd59c06b5d14286c53cbe",
+      "sha256": "180f786a52d2aa6dd8debbe31e8e6fe72f1248109376bee0abbefa8ea2154e6e"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/manuscript-correspondence.json",
+      "bytes": 2752,
+      "mode": "100644",
+      "git_blob_sha1": "70317dcbc536a556597baacd8fa9741f1c6bd21b",
+      "sha256": "ea3cbea9755dd602567da2996019f8b30cfef0b67e751d4cc4b91f2d39c10ff2"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/original-object-pins.json",
+      "bytes": 1603,
+      "mode": "100644",
+      "git_blob_sha1": "eac078495fe23502ec300179ebe6c7fe2023c049",
+      "sha256": "377ee878826a289ff5c8cb6dbcc2fbb63812652590bde98a9cdf8a83026c57ee"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/public-derivative.json",
+      "bytes": 508,
+      "mode": "100644",
+      "git_blob_sha1": "e8bae408909a50e7c2dfd001ee3b2c8f80cf3cc6",
+      "sha256": "01308be460f33bee4146eff5d2265dbfe9f79bdd8e6041772fd836e6e4f0fcb5"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/source-label-map.json",
+      "bytes": 15480,
+      "mode": "100644",
+      "git_blob_sha1": "30c42bb2068f2979d9e00ed1d1d52ff28559c6ef",
+      "sha256": "bc01cab305cfca0830721f27faa9dc00093663044f7d74c7f862ae3cab2dd300"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/source-manifest.json",
+      "bytes": 11643,
+      "mode": "100644",
+      "git_blob_sha1": "670abd1d12df895b864ec0fe9d2fa94abccb44d5",
+      "sha256": "3f273a37cea10c58f9cb4b248f52a59dcf14e7035f10638c340ff324dd639429"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/provenance/upstream-manifest.json",
+      "bytes": 5347,
+      "mode": "100644",
+      "git_blob_sha1": "75f047e0313404456e1dd52c111a4206dd2783bb",
+      "sha256": "6534af9ff1b3aed25b66e781d625d39416c4371c97096ec5c1f2eb5d1df0f743"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/01_statement.tex",
+      "bytes": 6093,
+      "mode": "100644",
+      "git_blob_sha1": "6f2cdd8094ddcc0dfff3047fdd046bb997b9a66a",
+      "sha256": "4b42169033f37641fa1a413b7c5746129019dfcc898f885c2b6e803ec68171a3"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/02_package.tex",
+      "bytes": 8831,
+      "mode": "100644",
+      "git_blob_sha1": "095ba2afefe15694e499f42ce54afbf6f87ff72e",
+      "sha256": "5ef3ad20d1011ab437916ced361164b91bfb7053c372518355c934f67b02777e"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/03_records.tex",
+      "bytes": 10185,
+      "mode": "100644",
+      "git_blob_sha1": "7befc693129a07b8c8eed3b491795eb82427452c",
+      "sha256": "8f1ac01360bcbf712e6d9b44af1727157864d762068bf5c3fdc577cbc2712df7"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/04_mechanics.tex",
+      "bytes": 5976,
+      "mode": "100644",
+      "git_blob_sha1": "67a74ab55977d153575351436c08dab5c465068a",
+      "sha256": "f4855f11cba077c7df5dd056ebeb0a6ee5adaa5b87c0dd2ac186cad5f1373627"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/05_process.tex",
+      "bytes": 5995,
+      "mode": "100644",
+      "git_blob_sha1": "97073b20349813430b694cc3da01b73a44b2f4a4",
+      "sha256": "f7c3a9b52f6e1931fec73d8c06c6da9eb9b4c1198b3cd184c5441e0f3d8e9e2a"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/06_intrinsic.tex",
+      "bytes": 3849,
+      "mode": "100644",
+      "git_blob_sha1": "b3c822278b6554a574276e84fe77c036746687f2",
+      "sha256": "5c1276f17c3fee9a3c4aef4d0ad18bc4f83c09ddebf8599114872fcbc5e417e7"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/07_cutoff_scope.tex",
+      "bytes": 7135,
+      "mode": "100644",
+      "git_blob_sha1": "cec1203212e0465d5ce4dfb388c1e9807d620a27",
+      "sha256": "f1afe2a50fa626933cc4d8d7e45654b975e46c4ff8dd709aa8019cd7cc64ebd6"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sections/08_sources.tex",
+      "bytes": 7790,
+      "mode": "100644",
+      "git_blob_sha1": "8542854f671ffdf2799c50ceee0b0bc1dd395d15",
+      "sha256": "9964c95641e4d89376311ff7bca2cfe5b2cc3f0a3e52bf4494c2e724adbe55e7"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/ARCHIVE_VERIFICATION.json",
+      "bytes": 575,
+      "mode": "100644",
+      "git_blob_sha1": "2acfcbdb575a10f82bddc1f68a54d9bb81fb4838",
+      "sha256": "ffc636a233c86bf5400346a81be36f337da248dc42953a65b6872ac4780630e4"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/ARTIFACT_QA.md",
+      "bytes": 2546,
+      "mode": "100644",
+      "git_blob_sha1": "d09ed0ed10fb4362f8db9e5408b0ffe6749683de",
+      "sha256": "e73ea83ba2c9b56f67f241dddb2ccd49f8430d81e513832725694b009b6742ce"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/AUDIT_PROVENANCE.json",
+      "bytes": 684,
+      "mode": "100644",
+      "git_blob_sha1": "79b99b5da19c6bb95c6be586ad7810946099e86c",
+      "sha256": "d4f8e5a4366d62d54d66a4c7e7fe4a51af2b35ffef01cbcc378ec096dfbb1525"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/BUILD_ENVIRONMENT.md",
+      "bytes": 833,
+      "mode": "100644",
+      "git_blob_sha1": "bfc89b292bb70847e8520fbd05f340141600a465",
+      "sha256": "c874245d80bf61515ea9eacef27f053d3fbafa9a69d5fd5f17bb54188cee399b"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/DEPENDENCIES.md",
+      "bytes": 9185,
+      "mode": "100644",
+      "git_blob_sha1": "a4961ccaeec4e432630092909f35ae7968b4df50",
+      "sha256": "627972cda1fefb35fcd3580c957a4605dffe2082dce27632a3310d3c1139ea1f"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/EDITORIAL_CHANGES.md",
+      "bytes": 1091,
+      "mode": "100644",
+      "git_blob_sha1": "b90dd548aa4adb6f0fc971d4bff3d23aa42c9250",
+      "sha256": "efb3d42bdad0daf89e2ad02e82345292d5e28015387d29d4a597493e75ee5f7d"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/MATHEMATICAL_AUDIT.md",
+      "bytes": 13444,
+      "mode": "100644",
+      "git_blob_sha1": "568fa10319e5ed932cd1e34b5e3e2009386ff3c4",
+      "sha256": "3566c51a208850e911765abe2f3b52564253036a3f81907684aff9ce90711f28"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/PACKAGE_MANIFEST.json",
+      "bytes": 3171,
+      "mode": "100644",
+      "git_blob_sha1": "8df4da229e2b698605eb2ed6676f153973767e4c",
+      "sha256": "573850afdb1653e4f32ec8303f91c69f6e7afaf2ba79231e3aabaa195f9dac07"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/README.md",
+      "bytes": 2276,
+      "mode": "100644",
+      "git_blob_sha1": "2e9e036289a2bdd7d1802d073828a0fe3a77a002",
+      "sha256": "f8576b7e59b73d6b999064b4152a34fffbf1f778ea3bc98d97f4174423a6054a"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/dependency-inventory.json",
+      "bytes": 10656,
+      "mode": "100644",
+      "git_blob_sha1": "14e5a89ef310c7069fdbc09b3546f43e5f06861a",
+      "sha256": "24ff3ea9d92378edb6f78794bd719fd528caa179de5784b1a359b698792497b1"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress/manuscript.tex",
+      "bytes": 38019,
+      "mode": "100644",
+      "git_blob_sha1": "b2123f44a88d69ce73090f7a8cab1c9d2c65f945",
+      "sha256": "0a7a44d4900f964d036cceb6a6826d3c306d57dae5b625896b390633932beec3"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/README.md",
+      "bytes": 5405,
+      "mode": "100644",
+      "git_blob_sha1": "e21a2f63bbc54f5d0f4baf13a05d699e40568d06",
+      "sha256": "ee7c9933bb3109280c5eb9a5e26f62d40c9c36aff0dc2b0257394739be9b0277"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/ARTIFACT_QA.md",
+      "bytes": 2571,
+      "mode": "100644",
+      "git_blob_sha1": "bc73faae59418bda697fdcd67d4858c220cd02fe",
+      "sha256": "fc9321937eaa62663bbedb159d725f3dd5c32838499c2357df9fa497f4b442a3"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/AUDIT.md",
+      "bytes": 7812,
+      "mode": "100644",
+      "git_blob_sha1": "fed1178e171c6a869bbe18c71df806a6e63bf64d",
+      "sha256": "e8378bd169ddcf28df5bf2360fcdf7beca0f4296a1a9ada677cfe7bb222591a9"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/DEPENDENCIES.md",
+      "bytes": 5866,
+      "mode": "100644",
+      "git_blob_sha1": "b8a7ca185d291ad54b0c22f7ea5a0718771b4728",
+      "sha256": "f7149133a63bd487d27800aaba148f93f477246ec3be05c1843304de5b4c592e"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/README.md",
+      "bytes": 3448,
+      "mode": "100644",
+      "git_blob_sha1": "0bc0c41d20d523a8dd2e171f724402a19abd755c",
+      "sha256": "40341c46ed54cf74fb281e8dab7bce0a8463d4371b51c3ffac94e4934ce95190"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/manuscript.tex",
+      "bytes": 5825,
+      "mode": "100644",
+      "git_blob_sha1": "e2ba5affa73b901a3a712c6ebf1d882b5d175a0b",
+      "sha256": "f081be42459cc888790621b3f56abd77724035f17e7ab1569daa7b8f2eeaa31f"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/01_model.tex",
+      "bytes": 5706,
+      "mode": "100644",
+      "git_blob_sha1": "b15900d347a6296146f8ad204abd58b21bb1bef7",
+      "sha256": "748784193418598e3d6ee3e0af50bcff359f313c6359a588509640c83c3a90e6"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/02_imports.tex",
+      "bytes": 6652,
+      "mode": "100644",
+      "git_blob_sha1": "942361d63fce5d30a7998961c76b3a06beddbb97",
+      "sha256": "947c388dc6af1cc30c85e2621823370da699dc73f1b82829704537379af0ee0c"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/03_geometry.tex",
+      "bytes": 7710,
+      "mode": "100644",
+      "git_blob_sha1": "c37028fa7172356c5a602cecd0f08bc44312f0f9",
+      "sha256": "619385a0f93a30def8f9ff27510b11acfcbde4ca28b0c53bbf1efabfb3da70c0"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/04_summation.tex",
+      "bytes": 5404,
+      "mode": "100644",
+      "git_blob_sha1": "8246995e6c98a1d71a28ec460adaf779a964b88f",
+      "sha256": "8c196f972d19b013b204e8cefb3d42b9a0a21215ce542dfea4266213a909e6d7"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/05_increments.tex",
+      "bytes": 4666,
+      "mode": "100644",
+      "git_blob_sha1": "b59020297a9a3edcb3ee0b6db72e89744fd0ddfd",
+      "sha256": "db2650174a51d059932fd97a00c311034db79b980c0ee9ba09c0edc7524cd069"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/06_microscopic.tex",
+      "bytes": 8245,
+      "mode": "100644",
+      "git_blob_sha1": "c3d0fe92909cf4f02eee5764e1234c7e7460c73d",
+      "sha256": "9b2662b8146bc01932ee03f00ebe854dd96edbcc88dadef070b91ac7996ba2e0"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/07_functional.tex",
+      "bytes": 4705,
+      "mode": "100644",
+      "git_blob_sha1": "3ddc311362bc2250a98e1bc172d61d6e9929ad6a",
+      "sha256": "73e0f5f97a6ea8968d3aedceba38bdc72c6c7a9bbb911b5c893f4a548e23a04f"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1/sections/08_tempered.tex",
+      "bytes": 19289,
+      "mode": "100644",
+      "git_blob_sha1": "51f4ba985194edf5d4f56f261155662a120bfb71",
+      "sha256": "4c93f569c24cbeab34602d3f9ac7fb901bdb1fa70a102d483e6338869e013fd3"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/main.tex",
+      "bytes": 3819,
+      "mode": "100644",
+      "git_blob_sha1": "fd0e2981390c55f076c43103e837f0beb3701e59",
+      "sha256": "4f84d56fd4dcb78bb2f776063969c097279feaa19a74e95a63be2613d90e53af"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/02-initial-target.tex",
+      "bytes": 23065,
+      "mode": "100644",
+      "git_blob_sha1": "1050ba9ab12b849d5f13c9394145c6de7bd4432d",
+      "sha256": "51fad6beefe3041c56ea2686776dbfdedf8522120762f4aaef019947fe902396"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/03-dhm-inputs.tex",
+      "bytes": 20583,
+      "mode": "100644",
+      "git_blob_sha1": "ffa665888b0880d2db70d38e5224930e8220825d",
+      "sha256": "a2506a516767704d4d3630e65395ed7b9481fbcbddff912ad38ba2441e5c1cbf"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/04-cluster-expansion.tex",
+      "bytes": 39676,
+      "mode": "100644",
+      "git_blob_sha1": "87d6cdc96897bf2ee2a3f26fdd16c9129a36acef",
+      "sha256": "5f824af314132999e830425354a43a273d2e17e14bf46d02a4d254917c8f8d47"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/05-cutoff.tex",
+      "bytes": 52765,
+      "mode": "100644",
+      "git_blob_sha1": "81f66d308c4b56ec6c590b957812860ad6cb0a8d",
+      "sha256": "e5380f7a81c4f32ce23ebf3ad62aee4f23c4530d342da2198cd2b9602ecfac4e"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/06-sharp-asymptotics.tex",
+      "bytes": 47771,
+      "mode": "100644",
+      "git_blob_sha1": "dfa4a25d5099bd82301c83bb31c612f0bfae4788",
+      "sha256": "32a5a00ce410873a30fbed113b0b1ec56a80da5b6bc28664ae19a73637282883"
+    },
+    {
+      "path": "notes/conserved-quadratic-fluctuations/sources/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/07-gaussian-limit.tex",
+      "bytes": 20846,
+      "mode": "100644",
+      "git_blob_sha1": "abc670cb5738eeae520ac52863f4a87bd2a2994a",
+      "sha256": "9cf6ab1d1c78ab4203a403bfc09331779c2b9b029280f1751009b0ac4faf99e4"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/MANIFEST.json",
+      "bytes": 4446,
+      "mode": "100644",
+      "git_blob_sha1": "65cb92bf19c9c20751217625f5e8d09517bf40d7",
+      "sha256": "91e157edc47c82de536ef3a59a5ee22691f3359b2b7605ff339a49ccbfa07a46"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/ORIGINAL_INPUT_HASHES.json",
+      "bytes": 4432,
+      "mode": "100644",
+      "git_blob_sha1": "943b985656fb0bec10b34208269956df57dd92fc",
+      "sha256": "f703cf42397bfa1a5af1e9eab9b162c48b4bed5dd172bc315357c39507bfad0b"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/PINNED_SOURCE_VERIFICATION.json",
+      "bytes": 2484,
+      "mode": "100644",
+      "git_blob_sha1": "6cab7ae91ddbc97667ce5a5faa65f7f586b7bbf9",
+      "sha256": "d3443b1cdf06fbb6169c21b97ae8f3b7a6edda809fe265fa156aeaa6c7f9d04f"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/PROOF.txt",
+      "bytes": 25995,
+      "mode": "100644",
+      "git_blob_sha1": "d7587b40245bee46619f55ad71cc668c506a6822",
+      "sha256": "6b0fef3c5fc6d9eab88bbfccdbbfebc02def8248d067a10f1020de01bfb606d8"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/PROOF_MAP.json",
+      "bytes": 6267,
+      "mode": "100644",
+      "git_blob_sha1": "791396602e1d98aa96a0b1fadf1a8c5b190728f5",
+      "sha256": "eaf80b72ba4047b7702efd7699adb1ccd6c2129b419d58834c509482c7179455"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/PROVENANCE.json",
+      "bytes": 6883,
+      "mode": "100644",
+      "git_blob_sha1": "656a9d78751f8212bb1851da4f3ac2c634bbc125",
+      "sha256": "a87d6cb5368874c785d77289d5e2ed1c1bff0b45bb6f9612edc21c5a0dfc37a4"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/PUBLICATION_WHITELIST.json",
+      "bytes": 955,
+      "mode": "100644",
+      "git_blob_sha1": "17a663a0479fc1741a7de53076ccfc1c8f9db5de",
+      "sha256": "87a3444d4c60b869fe269750303a403473f659720f7d719842bc6843c5e278b7"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/README.md",
+      "bytes": 7203,
+      "mode": "100644",
+      "git_blob_sha1": "5a723013796d807eeb4e75a815829cd187c91547",
+      "sha256": "491f4a9d400be545a63187218db08368074499126320c714a5b92dc82c227ac7"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/REFERENCE_MANIFEST.json",
+      "bytes": 2515,
+      "mode": "100644",
+      "git_blob_sha1": "8f66966df6225c47cd994b3507d6d97670324e99",
+      "sha256": "109c7f43c9e2a8cab0779e9d7c19aed8a7e1cd5be9189c9d9dcc1fe07bc9edc2"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/SOURCE_MANIFEST.json",
+      "bytes": 4697,
+      "mode": "100644",
+      "git_blob_sha1": "5d1147bcbc54eaae048d3d285ad0e2a4af8ce839",
+      "sha256": "c8feafa2ff06b7918cc8555b6cbe7fd9e2b1713fb320cecbaff5bfccee0cdfd3"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/TECHNICAL_AUDIT.txt",
+      "bytes": 14619,
+      "mode": "100644",
+      "git_blob_sha1": "aca75f84956f63c828a55af19f82305798cc277d",
+      "sha256": "9efa1e06eef86064019c0d18a07b2deccdec60a89e188990fdb15fa4eeeb4d62"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/VERIFICATION.json",
+      "bytes": 3182,
+      "mode": "100644",
+      "git_blob_sha1": "74bb983ec82310d447f975de97df4b9d431b586a",
+      "sha256": "b1d6d382236b1a71e76171ba82afd4e1f22919fbec1c19c1a76003bd4c1a3a1e"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/checks/check_exact.py",
+      "bytes": 8609,
+      "mode": "100644",
+      "git_blob_sha1": "af3a5431c673e2d34c91abb064f99089990df47b",
+      "sha256": "3aead52e4afc2a4b96b70a47c1726d5366e5b0fdf4b442f3b7b8bc96ec9dda47"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/checks/independent_expected.json",
+      "bytes": 2548,
+      "mode": "100644",
+      "git_blob_sha1": "b7909ff733ff70635f8bd4720f96ea3b7d26c8c8",
+      "sha256": "42f5242f31324fdb4c78fc7f723af1b7348d846ccafdc47605b73d83f6188780"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/checks/independent_oracles.py",
+      "bytes": 8821,
+      "mode": "100644",
+      "git_blob_sha1": "f031393ec441806f17ca58fb2b67d76bdb067d7d",
+      "sha256": "41ccece03c662793cbf89184587ac50e6a5aeba510bf5cc5785c5a14394997e7"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/checks/submitted_expected.json",
+      "bytes": 7277,
+      "mode": "100644",
+      "git_blob_sha1": "287147e0ef49c1c916c97338020782cccfd77306",
+      "sha256": "0f518a0cc8275812088a68e89d85f06ca4fad0bc6335f340941a3ad481c0ac42"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/pack.py",
+      "bytes": 3470,
+      "mode": "100644",
+      "git_blob_sha1": "fc86e7ac530352bf2d7d09d0ed0749597ca642ac",
+      "sha256": "acad49e1333bb2456e5f3b7d40830ed21546efaeaab1ac3e852d62a97b77b4b7"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/paper.pdf",
+      "bytes": 318358,
+      "mode": "100644",
+      "git_blob_sha1": "51e6c293570e230853b377999b36e2fa20992b9a",
+      "sha256": "63a9438294c34fcdea963d3dfa33420dcde0e58ba6f73883efed646e5f35da22"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/paper.tex",
+      "bytes": 32485,
+      "mode": "100644",
+      "git_blob_sha1": "35ce1cea19a222e4f1516c536a42f39ad8a7a29b",
+      "sha256": "781b8912066b2177c605de004aef717ab7f7aaf085487522ffb3b00bf3fd2840"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/source.tar.gz",
+      "bytes": 78002,
+      "mode": "100644",
+      "git_blob_sha1": "97d0146d5c166c7c5d23746a358559667a0d7f91",
+      "sha256": "47dbfa6cac9017d9c3abac25524550dbc89376c75dbe006c516c79d3c58c1ed2"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/006-v1-main.tex",
+      "bytes": 25411,
+      "mode": "100644",
+      "git_blob_sha1": "aecd9bcaee246a9702f3478baedd63b06e6c907c",
+      "sha256": "103ebb2e59b7a0ab884f7cb1b196301dba550754cb1ea2af7e245defa4eeae55"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/006-v2-paper.md",
+      "bytes": 13228,
+      "mode": "100644",
+      "git_blob_sha1": "9420984e274950f43aa3ef1b449f9a951b0f3dde",
+      "sha256": "2bbdd8c242effa5e248387b2279d0fd6b25dd00394cb8737058c026636aebf16"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/084-03-windows.tex",
+      "bytes": 7439,
+      "mode": "100644",
+      "git_blob_sha1": "d409f3f9d8d8ace0318b47af74f1ea94e52060e4",
+      "sha256": "8556c2b128c63df3f2cbc1c3b595838df5b9e93bbc386ed7aa2b11bea2e1aeb0"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/084-04-routing.tex",
+      "bytes": 9430,
+      "mode": "100644",
+      "git_blob_sha1": "f2b5233fa155e02eff559aadb238c6e881b69041",
+      "sha256": "973fbd5dbcc2ea4752528e659a9f004962f275142f23932a3c86eea00aa8d4e1"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/084-05-scales.tex",
+      "bytes": 7592,
+      "mode": "100644",
+      "git_blob_sha1": "b9697d933e9798792eace89e3ef0f34d52c7e213",
+      "sha256": "b1511f9f5a5d17183e2996c437e48fca2aa215f4960f9087377bf439096eef54"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/084-main.tex",
+      "bytes": 1886,
+      "mode": "100644",
+      "git_blob_sha1": "1c63c67a52892a2c8efec1df9b245664b90a9c5b",
+      "sha256": "2b2660c50a9f0fa7d4df0e572f581b47f2a1f584a9f5c456f8e5d0c54b63e398"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/mxym-NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/sources/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "mode": "100644",
+      "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "notes/continuum-power-avoidance/verify.py",
+      "bytes": 6386,
+      "mode": "100644",
+      "git_blob_sha1": "6ca135a09067646837dc1fea72b73a9bb32fc9ba",
+      "sha256": "0e4878edbe4add531e25089ca67fa6809f87a3ade5b443a4d9e8ac2b8f486164"
+    },
+    {
+      "path": "notes/crouzeix-complete-transfer-comparison/README.md",
+      "bytes": 8484,
+      "mode": "100644",
+      "git_blob_sha1": "f38be451654243bce7eb0260d5f75cbdfb950429",
+      "sha256": "444d64bbb1ad12a4dff258d7f665fe91447ea78f9b3aaf58c5b4f2c335cb9c44"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/AUDIT_VERIFICATION.json",
+      "bytes": 2660,
+      "mode": "100644",
+      "git_blob_sha1": "18f9eaf221115902519ca4692a89f96208d3c23b",
+      "sha256": "587be9e23af3bdbd82084c2c21cb976e02be388267255e945c48612f93ac025b"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/MANIFEST.json",
+      "bytes": 4325,
+      "mode": "100644",
+      "git_blob_sha1": "70d840ae28be90fe6013851959516641e42efa7b",
+      "sha256": "7d9bc298af2c3cc1f523c8c71331ae15e2de53e68cdae3333858b48e9801a371"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/ORIGINAL_INPUT_HASHES.json",
+      "bytes": 1156,
+      "mode": "100644",
+      "git_blob_sha1": "a3af706f2b100f71f08de4c1621db6c572869b37",
+      "sha256": "a861158e54a4c42dbc79df4d7db2e26adaef8faa0b121041b8d5e27c48cd6b3a"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/PROVENANCE.json",
+      "bytes": 3059,
+      "mode": "100644",
+      "git_blob_sha1": "3e7ce4be8771046bf6377133bdf0d3d3968974c6",
+      "sha256": "645dad3f3f61a0cfa9f0fc3dc7b8cf53b39e8c6bbe2dbf6d3222c37133c7559d"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/PUBLICATION_WHITELIST.json",
+      "bytes": 971,
+      "mode": "100644",
+      "git_blob_sha1": "654dd690013fca027d2cd52857254e6fb9c7039c",
+      "sha256": "4ad33270416051157c99347808fe39ee66c978763d6b0910a19a47cc7a0239c2"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/README.md",
+      "bytes": 6520,
+      "mode": "100644",
+      "git_blob_sha1": "1c381aae9c4a880a55a1451d6109ae56b3a27d08",
+      "sha256": "c4a6f9ec0455cceea5e2f7296edc0f4d8aa1a859dadd77144597d88892405618"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/SHA256SUMS",
+      "bytes": 2436,
+      "mode": "100644",
+      "git_blob_sha1": "003c38c63cab14c016542403c3b04a04a19e5df2",
+      "sha256": "17cd39a9d8025ab3c3cea1ec678bc6fa989ed9657bb1236acd240b4a9feea7b3"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/SOURCE_MANIFEST.json",
+      "bytes": 3868,
+      "mode": "100644",
+      "git_blob_sha1": "a6ab17de75006dd71ada5f132e9abad7b603de82",
+      "sha256": "709a78289cd0b0eb68004227b680ea72601b3c27ac38cd7478d1aceed91ad00d"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/SOURCE_MAP.md",
+      "bytes": 6031,
+      "mode": "100644",
+      "git_blob_sha1": "3cc01c983eea7fedb281da7acd185b074c377bd4",
+      "sha256": "af89317c5f78e8ef7be73820e15eda199d74ae725fa8945825f56b0cef0b5dd7"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/TECHNICAL_AUDIT.md",
+      "bytes": 30003,
+      "mode": "100644",
+      "git_blob_sha1": "4bd3c205c0f67085134bdb5ae2a0ddebae206c6e",
+      "sha256": "ff5fc0f02a993282deeb70ea0967b263a47cec5262a9601ea016a04b4aeeb56e"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/VERIFICATION.json",
+      "bytes": 2416,
+      "mode": "100644",
+      "git_blob_sha1": "107d556c6235197a946082a7b7467607eb088c72",
+      "sha256": "1ff692bac18ebec682de058822be45b38620029492115e7a16afcdc0de692f58"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/check_correction.py",
+      "bytes": 4166,
+      "mode": "100644",
+      "git_blob_sha1": "c5731399a6f4f81a71de5a473f69f760c5798838",
+      "sha256": "1db1903fa1e4740f29c0a8c17eca975906bd274aa6990595b36656241c7b967a"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/check_exact.py",
+      "bytes": 10037,
+      "mode": "100644",
+      "git_blob_sha1": "afb95c75c6a5bf2f02cadc89a00e2c0fe51f6e20",
+      "sha256": "a2d7c72910b2f21ea45a9b01935fbd09b2f9769e29a6df494da778dd91dae643"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/correction_replay.json",
+      "bytes": 546,
+      "mode": "100644",
+      "git_blob_sha1": "2ceb06e35fbd2ae2c5ec2d0b0dd5ee2dca044b6a",
+      "sha256": "238023c2921307b67d69211aa30ed86e5ebdc8ede232da15fa03198f86d8f553"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/independent_checks.py",
+      "bytes": 8755,
+      "mode": "100644",
+      "git_blob_sha1": "37621b396112e759255d5856a232651ba0ab7d82",
+      "sha256": "a6e5dc2b4dae2210564f505fb7a15c3d80856e8ca8bc3b4c956f7cccf13e06f4"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/independent_replay.json",
+      "bytes": 1210,
+      "mode": "100644",
+      "git_blob_sha1": "a9fecf55ad18576d30aa49e161a570ceaa8ed46f",
+      "sha256": "e346c7dfc13668e8cf2e3e36a02cca931fed00e3f2eddb45be7a8782cb42240b"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/checks/original_replay.json",
+      "bytes": 1327,
+      "mode": "100644",
+      "git_blob_sha1": "34378b31082f6905f7ffdefd697a2fca4abb462c",
+      "sha256": "adc5c95a004b83a3070fc103e65adc0900fc8ae217d969f4360ac1f27e9612a4"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/entropy.tex",
+      "bytes": 30174,
+      "mode": "100644",
+      "git_blob_sha1": "32f31f506c4affc053c7b5c677e9c33cd98672d7",
+      "sha256": "5f6d15f4c267a54100eb242cde20f97c96bb0b0cc38596745a159f6716551e4e"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/fetch_sources.py",
+      "bytes": 1475,
+      "mode": "100644",
+      "git_blob_sha1": "eff16ac21d791c4b01fb119810ad5f3d7b1084d7",
+      "sha256": "80463a66d14cd5e29129a9bdf1bc3c3ec3a5f7ec74853b5c8ac2a5ab313af76e"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/originals/entropy.corrected.tex",
+      "bytes": 29717,
+      "mode": "100644",
+      "git_blob_sha1": "9dffc91b132fbfb5b53dd19b676391f8e2c09616",
+      "sha256": "362bdb991e3ee44ad5c52d43301d7834d7e246146e74f70c78120a294a6dd16c"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/originals/entropy.tex",
+      "bytes": 29712,
+      "mode": "100644",
+      "git_blob_sha1": "528865bac4b9fbdf06fdb8f5f74758b7c206e607",
+      "sha256": "fcc5e043e333b922a13e3b36c7a1e660d92c50210f240b2b634b568440c25a48"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/paper.pdf",
+      "bytes": 391084,
+      "mode": "100644",
+      "git_blob_sha1": "e7debb450eebeeae27835e6d65fc563f3490cb24",
+      "sha256": "272f5e24f12bd6fcc40a327f2c04a628e99321830ea71e21f9b38872dd98b793"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/public_editorial.patch",
+      "bytes": 3580,
+      "mode": "100644",
+      "git_blob_sha1": "ffefd7b4ff4b43676398c84520627f93ba698a23",
+      "sha256": "aa31f0f3647f50099fba5aee29f0b91fcb8362be1d4e3968bca5cbd602a479ca"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/source.tar.gz",
+      "bytes": 55018,
+      "mode": "100644",
+      "git_blob_sha1": "2af347c89470766daad6015139a0d3a231b48ac7",
+      "sha256": "c3b90e3a48795f658c6105fda19c1594655cef8ee464260128259d695fe12fdb"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/sources.json",
+      "bytes": 1198,
+      "mode": "100644",
+      "git_blob_sha1": "a8e4cd7b189772d6f12f78d2bf18316169298b20",
+      "sha256": "1a45eab3feb1795d19be05c565a41ec67d6a97b793e4df4a21fd3cd87a7485a1"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/square_exponential_domain.patch",
+      "bytes": 333,
+      "mode": "100644",
+      "git_blob_sha1": "a0edc461ab2838d542c3cda05014764faed3da3e",
+      "sha256": "744d7be5b7651216e29495f8258f30ab58ee80aa1431bf798ca60d1813cf2cb5"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/tools/build_pdf.sh",
+      "bytes": 2319,
+      "mode": "100755",
+      "git_blob_sha1": "8dbf4773d5ac450acc56374df060752ba930e1af",
+      "sha256": "02a8138fbd0b6c86f80690d57337f45add4096eb6ffd68745576e67dbaedb766"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/tools/release_integrity.py",
+      "bytes": 2783,
+      "mode": "100644",
+      "git_blob_sha1": "6916a64bfc8fc6ba0b2afdb26b902272942f3a44",
+      "sha256": "7e507116963d934baf680c40cd7516656bc94878998f7fc63531969e697f9104"
+    },
+    {
+      "path": "notes/semiconvex-gaussian-entropy/verify.py",
+      "bytes": 7360,
+      "mode": "100644",
+      "git_blob_sha1": "2004e0a83c71137697873afdb556b65133be3147",
+      "sha256": "0959fd91a01fc9b898f9a721c540852b39f19ec10115062d303e2b7bd8653c28"
+    },
+    {
+      "path": "releases/2026-10-07-conserved-quadratic-fluctuations-v1.tar.gz",
+      "bytes": 657429,
+      "mode": "100644",
+      "git_blob_sha1": "1725b980056bbe032a28f0fcda0f387d09188b0c",
+      "sha256": "061498157a44775756298c1348338bad2f8834206fba3b39afeec8b8aa5e5453"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 33305,
+      "mode": "100644",
+      "git_blob_sha1": "9939596848bbe1cc90d7992538a0e0d847b0eb4b",
+      "sha256": "ae03004b331a707bf1927d7ed973fb38009831865937a6046d388a4ae0ac71dc"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-continuum-entropy-quadratic-and-transfer-v1.json"
+}

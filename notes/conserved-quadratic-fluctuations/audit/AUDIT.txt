@@ -1,0 +1,784 @@
+Independent audit and conserved-moment extension
+7 October 2026
+
+Verdict
+=======
+
+The native draft's three-moment synthesis is valid relative to the stated
+operational history package H1--H6 and the exactly centered functional theorem
+of entry 009. The missing two-root speed-record estimate follows from that
+package by the globally clipped record extension proved below. No unbounded
+positive-time test CLT is imported. The correct limit is
+
+  Y(t) = A(t)(Z+a) + (0, H(t), 2 integral_0^t H(s) ds),
+  A(t) = [[1,0,0],[t,1,0],[t^2,2t,1]].
+
+Both the initial vacancy bias a and the collision term are needed. The two-root
+factorial normalization and the factor 1/2 in the total incidence are correct.
+The pasted uniform L2 LLN and the true uniform probability LLN are justified.
+The product path-space extension with the exactly centered Schwartz field is
+also valid; a compact-localization proof is supplied below to cover its
+nonmetrizable first factor explicitly.
+
+The endpoint Gaussian cutoff gate is valid under the source's compact initial
+anchor assumption, with the iterated order epsilon -> 0, then R -> infinity.
+It is a uniform marginal covariance gate, not a general supremum-over-time
+cutoff theorem. The native draft's conserved identities already resolve this
+distinction for its three coordinates, so it is not a blocker for that theorem.
+
+Pasted prelimit covariances converge. The stated coupling alone does not prove
+true prelimit covariance convergence. This failure of a proof method supplies
+no evidence of physical covariance divergence. The rare-event example in the
+draft correctly illustrates the logical limitation, rather than a physical
+counterexample.
+
+The substantive generalization here is the maximal 13-dimensional quadratic
+family closed under free transport and co-located collision invariance, and
+its intensive, translation- and Galilean-invariant moment corollary. Neither
+requires a new positive-time polynomial test-space CLT or a cubic activity
+calculation.
+
+Dependency boundary: this audit verifies the pinned source statements and
+proves the extensions from them. It does not independently certify the entire
+upstream kinetic construction. No remaining obstruction to the conditional
+synthesis was found.
+
+1. Exact source pinning and normalization
+========================================
+
+The relevant repository is mxym/math, with entry 009 at
+preprints/009-functional-hard-sphere-fluctuations/v1, rather than a repository
+called mxym/math009. The latter returned 404. Once the native draft supplied
+the actual repository name, the requested source was obtained at
+
+  87868bcb65bf0460a90d6bc2efc3324e46481230.
+
+All 25 relevant downloaded text files have Git blob identities equal to their
+identities at the native draft's newer commit
+
+  1c67b4146f9e54291c8a5ca1f42a028bf307629f.
+
+The mathematical source files therefore agree at both commits. Seven upstream
+dependencies at OpenAI/math commit
+
+  adc7f1241b42e322a6451854ab7e4b4c146bf78a
+
+were separately downloaded and checked against the virial supplement's byte
+counts, SHA-256 hashes, and Git blob hashes. The manifests accompany this report.
+
+Throughout, the diameter is epsilon, activity mu=epsilon^(-2), and
+
+  pi_t(q) = mu^(-1) sum_j q(x_j(t),v_j(t)),
+  zeta_t(q) = sqrt(mu) [pi_t(q)-E pi_t(q)]
+            = epsilon^(-1) [pi_t(q)-E pi_t(q)].
+
+The ensemble is the excluded-product grand-canonical law in the supplied
+draft, with integral f0=1 and f0 smooth and supported in
+|x|<=Rx, |v|<=Rv. In particular, mu is an activity, not E N. They differ at
+the first order relevant here.
+
+For centers x and x+epsilon*omega, |omega|=1, incoming relative velocity
+g=v-w has g.omega>0. Put B=g.omega in this incoming sector; globally the
+rate is B=(g.omega)_+. Scattering sends
+
+  v -> v-B*omega,   w -> w+B*omega.
+
+The scalar energy test |v|^2 is twice the usual kinetic energy per unit mass.
+The angular measure is ordinary surface measure. Consequently
+
+  integral_{S^2} (g.omega)_+^2 d omega = (2 pi/3)|g|^2,
+  J_f(t) = integral B^2 f_t(x,v) f_t(x,w) dx dv dw d omega,
+  H(t) = (1/2) integral_0^t J_f(s) ds.
+
+The unordered-pair factor is 1/2. There is no small-amplitude datum parameter.
+The initial Gaussian covariance is integral f0*phi*psi, with no canonical
+subtraction of (integral f0*phi)(integral f0*psi).
+
+2. Complete weighted two-root proof
+==================================
+
+Give every particle a passive mark y_j(t), initially zero. At every accepted
+pasted C event, add its incoming speed B to both participant marks. Add zero
+at O events and rejected contacts. Do not copy a partner's prior mark. These
+marks change no trajectory or acceptance decision.
+
+For root variables xi containing their terminal phase points and passive
+records, define the ordered normalized factorial measure
+
+  F_h = mu^(-h) E sum_{i_1,...,i_h distinct} delta_(xi_i1,...,xi_ih).
+
+Here c_1=F_1 and c_2=F_2-F_1 tensor F_1. A record can be taken at any fixed
+observation time; using a finite list changes record count, not particle
+normalization.
+
+Claim. Uniformly over the observation times in [0,T], for h=1,2 and
+nonnegative integers b_j with sum b_j<=2,
+
+  | integral c_h product_j y_j^(b_j) | <= C mu^(1-h).       (W)
+
+The convention is y^0=1. Constants can depend on the fixed record list,
+source bounds, T, and the single chosen auxiliary dynamics, but not epsilon.
+
+Step 1: an actual-process clipping scale.
+
+In slab i a final accepted component has at most Lambda_i labels and no
+accepted edge to its complement. Its total energy is conserved even before
+its prefix components merge. If incoming speeds are bounded by V_i, all
+its later speeds are bounded by sqrt(Lambda_i)*V_i. Across the fixed L slabs,
+
+  V_epsilon = Rv product_i sqrt(Lambda_i)
+
+bounds every actual pasted speed. A connected accepted multigraph with at
+most Lambda_i vertices and excess at most Gamma has at most
+Lambda_i-1+Gamma edges. Thus each actual record satisfies
+
+  0<=y_j(t)<=D_epsilon,
+  D_epsilon=2 V_epsilon sum_i (Lambda_i-1+Gamma).
+
+The definitions A_L=|log epsilon|, Lambda_i=A_i^30, and
+A_(i-1)=Lambda_i^30, with fixed L, make D_epsilon a fixed power of
+1+|log epsilon|. Set P_epsilon=1+D_epsilon.
+
+Step 2: use a bounded test on every branch, including artificial ones.
+
+Extend each autonomous root output by the passive record and test it with
+ell(y)=clip(y/P_epsilon,-1,1). H2 applies because compatible autonomous
+components reproduce the same complete root histories, hence the same
+accumulated records. Its weights, incompatibility factors, spectator
+cancellation, and fresh-label coefficients are unchanged. Required recorded
+lines continue to zero. The variation estimate uses bounded output kernels
+and their finite record count; it needs no derivative of this output.
+
+On actual trajectories, P_epsilon*ell(y)=y. On any signed artificial branch,
+
+  |P_epsilon*ell(y)|<=|y|.
+
+One must clip globally on those branches. An actual-process speed bound
+cannot be asserted as support of their independent birth inputs.
+
+Step 3: restore degree two only after estimating microscopic errors.
+
+Write delta_h=||F_h-Fhat_h||_TV. H3 gives
+delta_h<=C exp(-c |log epsilon|^30), uniformly in the finite observation list.
+Actual factorial masses are at most one, so ||Fhat_1||_TV<=1+delta_1. Directly,
+
+  ||c_2-chat_2||_TV
+  <=delta_2+delta_1(2+delta_1).
+
+This follows by expanding Fhat_1 tensor Fhat_1-F_1 tensor F_1 one factor
+at a time. The h=1 error is delta_1. Restoring raw total degree <=2 costs
+at most P_epsilon^2. It remains smaller than every prescribed power of
+epsilon. The retained high-complexity and nonphysical-initial tails have
+arbitrary-power unweighted bounds; choose their accuracy after the record
+degree. For example, accuracy epsilon^6 absorbs any fixed polylogarithm
+and leaves an error o(epsilon^2), which is o(mu^(-1)). More generally,
+accuracy is chosen after every explicit power of mu appearing in the
+statistic. No weighted microscopic remainder is used.
+
+Step 4: retain the raw energy bound on finite-complexity histories.
+
+At fixed complexity K, total slab size n, and total birth energy E, there
+are at most n+C_K prescribed contacts. H4 gives active energy<=E, even
+after redundant elastic updates. Hence B<=sqrt(2E) and
+
+  |y_j| <= C_K(1+n)sqrt(E),
+  |product_j y_j^(b_j)| <= C_K(1+n)^2(1+E)   if sum b_j<=2.   (R)
+
+These statements concern prescribed realizable branches. Missing branches
+have weight zero. Inequality (R) also majorizes restored clipped tests.
+
+The exact connected activity/Jacobian count is
+
+  mu^(m-h) epsilon^(2a) epsilon^(3p)
+  =mu^(1-h) epsilon^p,
+  a=m-1-p,
+
+where p is the number of physical initial links. Continuing a particle
+through an interface introduces no birth and no new activity factor.
+
+After integrating the common spatial translation the birth envelope is
+C^m exp(-bE). Reserve a fixed Gaussian fraction for (1+E), and keep the
+remaining fraction for the same pair-choice, ordered-time, and fresh-label
+summation. Alternatively, the dyadic energy-bin power E^(a/2) is shifted
+to E^(a/2+1); its gamma integral differs by a fixed polynomial in 1+a.
+This is the decisive distinction from a new exponential cost per contact.
+
+Explicitly, on an energy bin of upper scale P, the sum over merger pair
+choices in slab i is bounded at each step by n_i^(3/2)sqrt(P). Summing
+normal choices and integrating ordered times gives
+
+  C^(m+a) tau^a (1+a)^(a/2)
+     product_i n_i^(3a_i/2)/(n_i! a_i!)
+
+up to fixed polynomials. The record insertion contributes only another
+fixed polynomial in n and E. Put delta_i=n_i-a_i; sum delta_i=O_K(1).
+Stirling's inequality and
+
+  product_i n_i^(n_i) >= (n/L)^n
+
+give the summable majorant
+
+  C_K mu^(1-h) epsilon^p
+     (1+n)^(D_K) theta^n,   theta=C tau sqrt(L)<1.
+
+A fixed smaller Gaussian exponent may increase C. Choose L once to make
+the resulting base less than one, as allowed by the source; front constants
+and polynomial degrees, rather than this base, depend on moment degree.
+This choice is independent of epsilon and subsequent fixed record orders.
+Summing n and adding Step 3's restored errors proves (W). This proof does
+not use a new cyclic small-ball estimate or an unbounded-test CLT.
+
+Step 5: variance normalization.
+
+Every accepted event contributes to exactly two marks, so
+
+  H_epsilon^p(t) = (1/(2mu)) sum_j y_j(t)
+                 = (1/mu) sum_{accepted events c<=t} B_c.
+
+Its expectation is the supplement's deterministic H_epsilon^p notation;
+here the symbol denotes the random cumulative sum. Distinguishing the
+random sum from its expectation prevents a centering error.
+
+For S_y=sum_j y_j, separating identical and distinct indices yields
+
+  Var S_y=mu integral F_1 y^2 + mu^2 integral c_2 y_1 y_2.
+
+Consequently
+
+  Var H_epsilon^p
+  =(1/(4mu)) integral F_1 y^2+(1/4) integral c_2 y_1 y_2
+  <=C/mu=C epsilon^2.                                    (V)
+
+The second integral is signed; its absolute bound suffices. Omitting
+either the diagonal term or the factor 1/2 in H would be incorrect.
+
+3. Uniform LLN and exact true-flow transfer
+=========================================
+
+The supplement's speed-incidence mean theorem gives
+m_epsilon(t)=E H_epsilon^p(t)->H(t) uniformly. H is continuous, nonnegative,
+and nondecreasing. Each sample H_epsilon^p is also nondecreasing.
+
+For eta>0 choose a fixed finite grid 0=t_0<...<t_k=T with all H increments
+<=eta. Uniform convergence of m_epsilon makes its grid increments <=3eta
+for sufficiently small epsilon. Monotonicity sandwiches the values between
+grid endpoints and gives
+
+  sup_t |H_epsilon^p(t)-m_epsilon(t)|
+  <=max_i |H_epsilon^p(t_i)-m_epsilon(t_i)|+3eta.
+
+The squared expectation of the maximum is at most the sum of its k+1
+second moments. By (V) it is O((k+1)epsilon^2). Squaring the preceding
+inequality, first letting epsilon->0 for this fixed grid, then eta->0,
+and adding ||m_epsilon-H||_infinity proves
+
+  E sup_t |H_epsilon^p(t)-H(t)|^2 ->0.                    (L2)
+
+The order of these limits is essential. No grid whose size diverges with
+epsilon is required.
+
+H6 couples true and pasted trajectories on the same initial configuration
+with probability of any full-time discrepancy <=C epsilon^(21/20).
+On its complement all accepted events and incoming speed marks agree.
+Therefore, for the true speed sum H_epsilon,
+
+  sup_t |H_epsilon(t)-H(t)| ->0 in probability.            (P)
+
+This is probability transfer, not covariance transfer.
+
+The needed true mean convergence has a separate valid proof. Conservation
+of energy and the initial support imply, for either flow,
+
+  sum |v_j(t)|^2 <= Rv^2 N,
+  (sum |x_j(t)|^2)^(1/2) <= (Rx+T Rv)sqrt(N),
+  sum |x_j(t).v_j(t)| <= (Rx+T Rv)Rv N.
+
+Thus the absolute particle sums of all three quadratics are <=C_T N.
+Holder's inequality on the failure event E_epsilon gives, for p>21,
+
+  epsilon^(-1) E[(N/mu) 1_Eepsilon]
+  <=C_p epsilon^[-1+(21/20)(1-1/p)]
+  =C_p epsilon^[(p-21)/(20p)] ->0.
+
+For p=42 the exponent is 1/40. Applying the exact virial identity to
+the two flows cancels their common initial and energy terms, so the same
+bound controls |E H_epsilon-E H_epsilon^p| uniformly. This proves
+E H_epsilon->H uniformly. Equivalently it is eq:true-incidence of the
+supplement. Merely differentiating an asymptotic spread-mean formula would
+not supply this statement; the source supplies the stronger virial identity.
+
+4. Mechanical identities, initial centering, and the process limit
+================================================================
+
+At one contact the pair energy change is zero, and
+
+  x.(v'-v)+(x+epsilon*omega).(w'-w)=epsilon*B.
+
+Streaming gives d sum(x.v)/dt=sum |v|^2 and
+d sum |x|^2/dt=2 sum(x.v). For either flow, pathwise,
+
+  pi_t(q_E)=pi_0(q_E),
+  pi_t(q_V)=pi_0(q_V)+t pi_0(q_E)+epsilon H_epsilon(t),
+  pi_t(q_X)=pi_0(q_X)+2t pi_0(q_V)+t^2 pi_0(q_E)
+             +2epsilon integral_0^t H_epsilon(s) ds.       (M)
+
+Rejected events do not contribute. Restarts change no phase coordinates.
+Overlaps of pasted paths do not invalidate these identities: accepted
+contacts still have the stated separation and incoming orientation.
+
+Boltzmann's co-located collision invariants and streaming give the same
+free moment formulas without the finite-diameter H terms. The deterministic
+moment integrations are justified by the source's Gaussian velocity and
+propagated spatial second-moment bounds. This deterministic cutoff argument
+is not a fluctuation theorem for unbounded tests.
+
+Initial bias proof. The insertion identity for the excluded-product law is
+
+  F_1,0(x,v)=f0(x,v) P{K_x=0},
+
+where K_x counts centers of an independent configuration in the radius
+epsilon ball about x. The initial factorial upper bound and one-root lower
+bound yield, uniformly in x,
+
+  E K_x=epsilon (4pi/3)rho0(x)+O(epsilon^2),
+  E K_x(K_x-1)=O(epsilon^2).
+
+The first formula uses the smoothness of rho0 and the factor
+mu*epsilon^3=epsilon. The elementary Bonferroni bounds
+
+  E K_x-(1/2)E K_x(K_x-1) <=P(K_x>=1)<=E K_x
+
+give
+
+  F_1,0=f0[1-epsilon(4pi/3)rho0+O(epsilon^2)].
+
+For every fixed polynomial q, compact initial support now gives
+
+  a_epsilon(q)=epsilon^(-1)[E pi_0(q)-f0(q)] ->
+  a(q)=-(4pi/3) integral rho0 f0 q.                       (A0)
+
+This also applies to the mass, momentum, position, and angular momentum
+tests below. The negative mass correction alone shows why the activity
+cannot silently be replaced by the expected particle count.
+
+Choose eta in C_c^infinity equal to one near supp f0. Initially every
+particle lies in supp f0, so pi_0(q_i)=pi_0(eta*q_i), almost surely, with
+equality of expectations. Entry 009's compact/Schwartz initial theorem
+therefore gives, exactly rather than by a positive-time approximation,
+
+  epsilon^(-1)(pi_0(q_i)-E pi_0(q_i)) -> Z_i,
+  Cov(Z_i,Z_j)=integral f0 q_i q_j,
+  epsilon^(-1)(pi_0(q_i)-f0(q_i)) -> Z_i+a(q_i).
+
+Write Y_epsilon for the Boltzmann-centered vector of the three moments.
+Subtract the Boltzmann formulas from (M) to get the exact path identity
+
+  Y_epsilon(t)=A(t)Y_epsilon(0)
+       +(0,H_epsilon(t),2 integral_0^t H_epsilon(s) ds).    (Y)
+
+For the pasted law use (L2), for the true law use (P). The second term
+converges uniformly in probability to the continuous deterministic c(t).
+The first term is a continuous map of the finite initial vector into a
+continuous polynomial path. Slutsky and (Y) prove convergence in
+D([0,T],R^3), J1, to A(t)(Z+a)+c(t). In fact the residual in (Y) tends to
+zero in the uniform norm. No independence between the initial vector and
+H_epsilon is required because H has a deterministic limit.
+
+The mean limit is
+
+  a(|v|^2),
+  a(x.v+t|v|^2)+(1/2) integral_0^t J_f(s) ds,
+  a(|x+tv|^2)+integral_0^t (t-s)J_f(s) ds.
+
+The limiting covariance is
+
+  A(t)Sigma A(s)^T,
+  Sigma_ij=integral f0 q_i q_j,
+  Cov(Y_i(t),Y_j(s))=integral f0 r_i(t)r_j(s),
+
+with r_E=|v|^2, r_V=x.v+t|v|^2, and r_X=|x+tv|^2.
+Since f0 is a nonzero smooth probability density, its local velocity
+variance is positive on a set of positive measure. Hence J_f(0)>0, and
+the continuous collisional drift is nonzero near the initial time.
+
+Uniform convergence of the true means was proved separately above and
+in (A0); subtracting them gives the exact-centered limit A(t)Z. For the
+pasted law, the centered H remainder tends to zero in L2 of the time
+supremum. Initial covariance convergence follows from the initial
+factorial-cumulant bounds (the scaled pair term is O(epsilon)).
+Cauchy--Schwarz now proves uniform pasted prelimit covariance convergence
+to A(t)Sigma A(s)^T.
+
+5. Joint convergence with the exactly centered Schwartz field
+=============================================================
+
+Let E denote entry 009's strong-dual generalized-J1 path space, and let
+mathcal Z_epsilon be its exactly centered microscopic field. Its laws are
+tight and converge to the Radon continuous Gaussian law G. Evaluation at
+time zero against each fixed eta*q_i is continuous in this path topology:
+every allowed time change fixes zero. Thus
+
+  Y_epsilon(0)=
+  (mathcal Z_epsilon(0)(eta*q_i))_i+a_epsilon
+
+is an exact equality, not a statement that the positive-time polynomial
+is a Schwartz test. Define the continuous map
+
+  F(z)=(z, t -> A(t)[(z(0)(eta*q_i))_i+a]+c(t)).
+
+Continuity follows from finite-dimensional evaluation at zero and the
+uniform continuity of the resulting finite-coefficient paths. The
+continuous mapping theorem gives F(mathcal Z_epsilon)->F(G).
+By (Y), the actual second coordinate differs uniformly in probability
+from F's second coordinate by a quantity tending to zero.
+
+Here is an explicit justification of that last perturbation step despite
+E being nonmetrizable. For a bounded continuous function g on E x D(R^3)
+and a compact K carrying all but arbitrarily small probability of the
+field laws, the graph {(z,F_2(z)):z in K} is compact. At each graph point,
+continuity supplies a field neighborhood and a radius in the ordinary
+metric J1 second factor on which g changes by less than a chosen eta.
+Shrink the field neighborhoods using continuity of F_2, and choose a
+finite subcover of K. The minimum of the finitely many radii is positive.
+Whenever z lies in K and the second coordinate is within that radius of
+F_2(z), its g value differs by at most 2eta. The exceptional probability
+tends to zero; outside K use the bound 2||g||. Let the probability outside
+K and eta tend to zero. This proves the desired convergence of integrals
+of every bounded continuous g on the product, without assuming a general
+nonmetrizable Slutsky theorem.
+
+Consequently
+
+  (mathcal Z_epsilon,Y_epsilon)
+  -> (G,A(.)[Z+a]+c),   Z_i=G_0(eta*q_i).
+
+Only the three moments are Boltzmann centered here. The phase-space field
+remains exactly microscopically centered. Its cross covariance is
+
+  Cov(G_s(phi),Y_i(t))
+   =integral f0(z) [U(0,s)phi](z) r_i(t,z) dz.
+
+The r_i factor can be replaced by eta*r_i on supp f0. Independence of
+the source Gaussian noise from its initial field proves this formula.
+No polynomial mapping property of the backward propagator is assumed.
+
+6. Hostile audit of the endpoint cutoff gate
+==========================================
+
+Let chi_R(z)=chi(z/R), with 0<=chi<=1, chi=1 on |z|<=1 and chi=0 on
+|z|>=2. Fix a polynomial q of degree d and q_R^tail=q(1-chi_R).
+
+First, all actual pasted endpoints satisfy
+
+  |v_j(t)|<=V_epsilon,
+  |x_j(t)|<=Rx+T V_epsilon.
+
+Choose a polylogarithmic Q_epsilon>=1 dominating |q| on this actual
+endpoint region. It is independent of R. On all signed branches use
+clip(q_R^tail/Q_epsilon,-1,1). Restoring total endpoint degree two costs
+Q_epsilon^2. Exactly as in Section 2, choose error accuracy after this
+degree, the requested M, and the explicit covariance factor mu. The
+restored error contributes O(epsilon^M), uniformly in R. All tests used
+on the microscopic error remain globally bounded.
+
+On a retained branch the tested record-bearing particle line continues
+to zero. Its initial input is supported in |x|<=Rx: either a one-root
+initial density dominated by f0 or a physical initial cumulant dominated
+by products of f0. Before replacing these inputs by spatial suprema,
+retain this compact anchor. The continued line is position-continuous,
+and H4 bounds every prescribed active speed by sqrt(E). Hence, at any
+record time,
+
+  |v_j(t)|<=sqrt(E),  |x_j(t)|<=Rx+T sqrt(E).
+
+With Euclidean phase norm, |z_j(t)|<=Rx+(T+1)sqrt(E). If a tail factor
+is nonzero and R>=max(1,2Rx), this implies
+
+  E >= R^2/[4(T+1)^2].
+
+The raw endpoint polynomial obeys |q(z_j(t))|<=C_q,T(1+E)^(d/2).
+A product of two factors is therefore dominated by
+
+  C_q,T(1+E)^d 1_{E>=c_T R^2}.
+
+Use one fixed Gaussian fraction to extract exp(-c R^2), a second fixed
+fraction to absorb the fixed polynomial, and the remaining fraction for
+the H4 size sum. These reservations are made once; L is chosen once for
+the resulting base. Constants may depend on d but the size base need
+not. One can also check this with
+
+  Gamma(s+r+1)/Gamma(s+1)
+   =product_{k=1}^r(s+k)<=C_r(1+s)^r
+
+for integer r, which shows the energy-bin power shift costs a fixed
+size polynomial. This gives, at h=1,2, retained connected bounds
+C mu^(1-h) exp(-c R^2), uniformly in observation times. The compact
+anchor is discarded only after it has furnished the energy implication.
+Later interface birth inputs need no compact spatial support.
+
+The exact field variance identity is
+
+  Var zeta_t^p(u)=integral F_1,t u^2+mu integral c_2,t (u tensor u).
+
+Thus
+
+  sup_t E|zeta_t^p(q_R^tail)|^2
+    <=C_q exp(-c_q R^2)+C_q,M epsilon^M.
+
+The constants and restored microscopic remainder are uniform in R.
+For the iterated cutoff limit only finite constants at each fixed R
+would be needed, but the global clipping here proves the stronger
+uniform statement. One must take epsilon->0 first, then R->infinity;
+letting R exceed the actual polylog endpoint bound at each fixed epsilon
+would otherwise give a vacuous zero tail.
+
+For the three quadratics the true law inherits the marginal probability
+gate through the full-path coupling and the first-moment Holder bound
+of Section 3, uniformly in R. It does not inherit the pasted covariance
+gate from that argument.
+
+Uniform marginal variance is not uniform path approximation in general.
+For example, on the unit time circle let U be uniform and
+X_m(t)=1 when the circular distance t-U lies in [0,1/m), zero otherwise.
+For every t, E X_m(t)=1/m and Var X_m(t)<=1/m; but the supremum of its
+centered absolute value is 1-1/m for m>=2. This is only an illustration
+of the logical distinction. The native theorem uses the monotone event
+sum and exact identities to prove full path convergence, so it does not
+commit this error.
+
+The cutoff estimates also define the Gaussian L2 endpoint limits of
+G_t(q_i chi_R). To see this without importing an unbounded target theorem,
+apply the pasted tail variance bound to differences of cutoffs, pass to
+their fixed finite-dimensional Gaussian limits, and obtain an L2-Cauchy
+family. Its joint probability comparison with the already established
+moment limit identifies its limit as (A(t)Z)_i. This is a statement about
+the three endpoint coordinates and finite-dimensional covariances, not
+an all-polynomial nuclear path theorem.
+
+7. Precise covariance limitation
+===============================
+
+On the bad coupling event a quadratic fluctuation difference can be
+bounded by C epsilon^(-1)(N/mu), uniformly in time. The available moments
+therefore give only
+
+  epsilon^(-2) E[(N/mu)^2 1_Eepsilon]
+  <=C_p epsilon^[-2+(21/20)(1-2/p)].
+
+Even as p tends to infinity the exponent approaches -19/20, not a
+positive number. This upper bound cannot establish L2 convergence.
+It also cannot establish divergence: an upper bound that increases
+provides no lower bound on the actual covariance.
+
+For a purely logical example, take an independent event A of probability
+epsilon^(21/20) and a bounded centered W. Let
+
+  X_epsilon=W+epsilon^(-1)(1_A-epsilon^(21/20)).
+
+Its difference from W tends to zero in probability, and its uncentered
+expectation correction epsilon^(1/20) tends to zero. Yet
+
+  Var X_epsilon-Var W
+   =epsilon^(-19/20)(1-epsilon^(21/20)) ->infinity.
+
+This satisfies the scales of the comparison bound but is not a hard-sphere
+example. An additional weighted estimate could establish actual physical
+covariance convergence; this audit neither rules it out nor claims it.
+
+8. Generalization: the maximal quadratic conserved family
+========================================================
+
+Define P_2^inv to consist of all degree-at-most-two real polynomials q
+such that q(x+t v,v) is a co-located elastic collision invariant for
+every real t. In three dimensions it is the 13-dimensional space
+
+  q(x,v)=a+b.x+c.v+k|v|^2+x^T A v+d(x.v)+e|x|^2,
+  A^T=-A.                                                (Q)
+
+A basis is mass (1), position (three coordinates), momentum (three),
+energy (one), angular momentum x cross v (three), scalar virial (one),
+and spatial spread (one).
+
+Maximality proof. Write a general quadratic as
+
+  a+b.x+c.v+x^T D x+x^T M v+v^T F v,
+
+with D,F symmetric. In a collision at the same x, momentum is conserved.
+Writing pair velocities as their center velocity plus/minus half their
+relative velocity shows that pair invariance requires g^T F g unchanged
+under every reflection of g. A single reflection can send g to any
+other vector of the same length. Hence F=kI. The velocity-quadratic
+coefficient of q(x+t v,v) is F+t sym(M)+t^2 D. Requiring it scalar for
+every t forces sym(M)=dI and D=eI, while the skew part of M is arbitrary.
+This proves (Q), and also proves maximality among degree-two families
+with this transport/invariance property. Its dimension in d dimensions
+is 2d+4+d(d-1)/2, hence 13 for d=3.
+
+Mechanical proof. Mass and momentum are constant. The position sum is
+X(t)=X(0)+tP. At a finite-diameter contact the angular-momentum jump is
+epsilon*B omega cross omega=0; its streaming derivative is also zero.
+The skew term in (Q) therefore has no impulse or streaming derivative.
+Energy is constant. The virial and spread are given by (M). Consequently,
+for r_q(t,z)=q(x+t v,v), either microscopic flow obeys
+
+  pi_t(q)=pi_0(r_q(t))
+       +epsilon[d H_epsilon(t)+2e integral_0^t H_epsilon(s) ds].
+
+The Boltzmann moment is f_t(q)=f0(r_q(t)). The whole finite-dimensional
+family therefore converges jointly in D([0,T],R^13), J1, with
+
+  Y_q(t)=Z_0(r_q(t))+a(r_q(t))
+            +d H(t)+2e integral_0^t H(s) ds,
+  Cov(Z_0(q),Z_0(r))=integral f0 q r.                     (G13)
+
+Here Z_0 is a single Gaussian linear map on P_2^inv. Only the compact
+initial tests eta*q are used to obtain it. Exactly centered limits are
+Z_0(r_q(t)). The proof is the same finite-coefficient path argument as
+Section 4, now with the explicitly conserved moment vector. Its joint
+extension with the Schwartz field follows from Section 5 verbatim.
+All q in (Q) have absolute particle sum <=C_q,T N, so the source's
+first-moment mean transfer continues to apply. Pasted prelimit covariance
+convergence follows from the same L2 event-sum residual. The true
+prelimit covariance limitation is unchanged.
+
+An anisotropic spatial quadratic x^T D x with nonscalar D fails this
+closure: two transport derivatives produce 2 v^T D v, which is not a
+co-located collision invariant. The scalar energy/virial/spread reduction
+therefore does not silently cover the full anisotropic stress tensor.
+
+9. Intensive intrinsic-moment corollary
+======================================
+
+The conserved family gives a useful nonlinear consequence. Let
+
+  M_epsilon=pi_0(1)=N/mu,
+  p_epsilon=pi_t(v)/M_epsilon,
+  x_epsilon(t)=pi_t(x)/M_epsilon.
+
+On N>0 define the per-particle intrinsic moments
+
+  U_epsilon=pi_t(|v|^2)/M_epsilon-|p_epsilon|^2,
+  D_epsilon(t)=pi_t(x.v)/M_epsilon-x_epsilon(t).p_epsilon,
+  S_epsilon(t)=pi_t(|x|^2)/M_epsilon-|x_epsilon(t)|^2.
+
+Assign any fixed value on N=0, whose probability tends to zero because
+M_epsilon->1 in probability. Let p0=f0(v), x0=f0(x) and
+
+  u0=f0(|v-p0|^2),
+  d0=f0((x-x0).(v-p0)),
+  s0=f0(|x-x0|^2).
+
+Their Boltzmann values are (u0,d0+t u0,s0+2t d0+t^2 u0). Define compactly
+supported initial observations by cutting off the three effective tests
+
+  phi_U=|v-p0|^2-u0,
+  phi_D=(x-x0).(v-p0)-d0,
+  phi_S=|x-x0|^2-s0
+
+on supp f0. Let Z^int be centered Gaussian with covariance
+integral f0 phi_i phi_j, and a^int_i=a(phi_i). Then the fluctuations of
+(U_epsilon,D_epsilon,S_epsilon), scaled by epsilon^(-1) about these
+Boltzmann values, converge jointly to
+
+  A(t)(Z^int+a^int)+(0,H(t),2 integral_0^t H(s) ds).        (INT)
+
+Proof. Momentum and mass are constant, and
+x_epsilon(t)=x_epsilon(0)+t p_epsilon. Algebra in (M) gives the same
+triangular identities for these intrinsic moments, with collision
+term epsilon H_epsilon/M_epsilon. Since M_epsilon->1, its unscaled event
+term has the same uniform deterministic limit. At time zero the
+differential of E/M-|P/M|^2 at M=1 is represented by phi_U; those of
+V/M-(X/M).(P/M) and Q/M-|X/M|^2 are phi_D and phi_S. Expanding the three
+smooth rational maps proves these formulas explicitly. The initial
+13-vector is epsilon-close in probability to its deterministic value,
+and is O_P(epsilon) away from it. On M bounded away from zero, the
+epsilon^(-1)-scaled Taylor remainder is O_P(epsilon)->0. Thus the
+ordinary finite-dimensional delta method supplies Z^int+a^int. The
+triangular path identity and uniform event LLN prove (INT).
+
+This describes thermal velocity spread, intrinsic dilation, and spatial
+spread about the center of mass; the result is invariant under constant
+translations and Galilean boosts. The effective tests integrate to zero
+under f0 because normalization by particle count removes the leading
+mass direction. This is a weak-law Gaussian conclusion and a limiting
+covariance formula, not an assertion of true prelimit covariance transfer.
+
+10. Source map and reproducibility
+==================================
+
+All mxym locators below refer to commit 87868bcb65bf0460a90d6bc2efc3324e46481230.
+All U locators refer to OpenAI/math commit adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+Line numbers are for the downloaded LF TeX source; labels are decisive.
+
+  Model, diameter/activity, initial ensemble, collision orientation, J_f:
+    notes/full-density-virial-stress/manuscript.tex, lines 46--87,
+    labels ass:model, eq:ensemble, eq:collision, eq:J.
+  Algebra and required zero-time record continuation:
+    same file, line 145, imp:algebra (H2).
+  Bounded-only microscopic error and accuracy tails:
+    same file, line 163, imp:unweighted (H3).
+  Birth energy, factorial/time sum, fixed Gaussian reservation:
+    same file, line 172, imp:majorant (H4).
+  Full-time coupling rate:
+    same file, line 193, imp:coupling (H6).
+  Mechanical quadratic bounds and vacancy coefficient:
+    same file, lines 210 and 233, lem:mechanics and lem:initial.
+  Speed-incidence expectation convergence and bounded passive extension:
+    same file, line 257, prop:incidence; proof paragraphs 1--6.
+  True mean transfer and true incidence expectation:
+    same file, lines 344 and 369, lem:transfer and eq:true-incidence.
+  Normalized marked factorial cumulants and general h-root scaling:
+    preprints/009-functional-hard-sphere-fluctuations/v1/sections/02_imports.tex,
+    definition of F_h,c_h; eq:counts and prop:imports, items (i)--(vi).
+  Finite inversion error:
+    entry-009 sections/05_increments.tex, line 34, lem:remainder.
+  Passive accepted-contact record precedent:
+    entry-009 sections/06_microscopic.tex, line 5, lem:record.
+  Exactly centered finite-family path theorem and initial/noise covariance:
+    entry-009 sections/07_functional.tex, line 18, thm:functional.
+  Strong-dual path convergence and covariance formula:
+    entry-009 sections/08_tempered.tex, lines 40 and 50,
+    thm:tempered and eq:tempered-covariance.
+  Upstream initial bounded-test CLT and static covariance convergence:
+    U build/sections/02-initial-target.tex, prop:initial;
+    its proof gives mu*||c_2,0||_TV=O(epsilon).
+  Upstream birth-energy and sharp factorial summation:
+    U build/sections/06-sharp-asymptotics.tex,
+    eq:sharp-input-bounds, eq:sharp-scaling, lem:sharp-factorials,
+    lem:sharp-summability, eq:sharp-energy-sum, thm:sharp-cumulants.
+  Upstream true/pasted discrepancy:
+    U build/sections/05-cutoff.tex, prop:cutoff and eq:cutoff-probability.
+
+New derivations in this audit, relative to those inputs: (W), (V), (L2),
+the compact-localization product argument, (G13) and its maximality proof,
+and (INT). The geometric endpoint cutoff gate was independently checked
+using the compact anchor and the same bounds. The Boltzmann mean and
+initial vacancy formulas agree with the supplied supplement.
+
+The public derivative includes this report, an optimization-safe checker,
+source manifests, and the exact source-label map. From the release directory
+run:
+
+  python3 checks/strict_check.py
+
+Python 3 and SymPy are needed for the symbolic checks. They verify the
+collision energy/virial/angular identities, sphere factors, triangular
+equations, Holder exponents, 13-dimensional count, and intensive-moment
+differentials. They are reproducible algebra checks, not a numerical
+substitute for the analytic proof or a certification of H1--H6.
+
+With already downloaded source trees, also run:
+
+  python3 checks/strict_check.py --source-root sources
+
+Here that directory contains a subdirectory named for each commit, then
+the original repository-relative paths. The bundled pinned sources support offline verification. For an optional
+fresh download, the checker provides:
+
+  python3 checks/strict_check.py --fetch-sources new-source-directory
+
+It uses ordinary HTTPS with inherited proxy and CA settings, verifies
+every byte count and both content hashes, and performs no repository
+mutation. The release evidence records the executed offline checks against all
+32 pinned files. The label map and manifests make every source location
+and result independently reviewable.

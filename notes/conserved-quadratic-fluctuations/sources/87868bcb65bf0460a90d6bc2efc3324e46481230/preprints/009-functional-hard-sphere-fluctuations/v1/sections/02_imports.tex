@@ -1,0 +1,133 @@
+\section{The imported history package}\label{sec:imports}
+We state the analytical and combinatorial inputs from~\cite{U}, always
+at the exact commit specified in the bibliography.
+Their proofs, including the positive history estimates and kinetic
+construction based on~\cite{DHM}, are not reproduced. Our results are
+conditional on this inherited package; we add no equilibrium,
+small-data, or shortened-lifespan assumption.
+
+For a fixed bounded record attached to each particle, write $\xi_i$ for
+its phase point together with that record. The ordered normalized
+factorial measure of the actual pasted law is
+\[
+ F_h^\eps=\mu^{-h}\E\sum_{i_1,\ldots,i_h\ \text{distinct}}
+           \delta_{(\xi_{i_1},\ldots,\xi_{i_h})}.
+\]
+Its factorial cumulants are the finite partition polynomials
+\[
+c_h^\eps=\sum_{\pi\in\mathcal P([h])}
+(-1)^{|\pi|-1}(|\pi|-1)!\bigotimes_{B\in\pi}F_{|B|}^\eps,
+\]
+with tensor factors assigned to their labeled slots. A hat denotes the
+source's finite retained hierarchy and its corresponding cumulants.
+The source retains layered C/O histories with the cluster caps above,
+forest O-graphs between C-components, rooted layer components, forest
+initial links, and the continuation rules of its Definition
+\sourcelabel{def:dhm-history}. Its complexity is
+$\rho=|H_0|+\sum_i(|H_i|+r_i)$: $H_i$ is the set of designated or
+continuing roots in slab $i$, $H_0$ consists of lines incident to initial
+links, and $r_i$ is the slab's cycle excess. ``Fixed complexity'' means
+$\rho\leq K$. Thus it does not bound the total particle count.
+A global vertex is one physical particle line. A continued line retains
+its old phase coordinate; a new interface birth has an independent one.
+A contact between previously disjoint chronological components is a
+merger; all others are redundant. C scatters and O continues straight.
+At complexity $K$, let $m$ count birth lines, $n_i$ lines in slab $i$,
+$a_i$ its mergers, $q$ interface continuations and $p$ physical initial
+links. For a connected history,
+\begin{equation}\label{eq:counts}
+ a=\sum_i a_i=m-1-p,\qquad n=\sum_i n_i=m+q,\qquad
+ \sum_i(n_i-a_i)=q+1+p=O_K(1).
+\end{equation}
+The redundant-contact count is also $O_K(1)$.
+
+\Needspace{6\baselineskip}
+\begin{proposition}[Imported package]\label{prop:imports}
+The following hold for the single pasted dynamics.
+\begin{enumerate}[label=(\roman*)]
+\item Independent birth inputs have one common Gaussian Bol envelope.
+Integrating a common spatial translation per component and taking spatial
+suprema of the other inputs gives $C^m e^{-bE}$, uniformly in every
+displacement, where $E$ is total birth energy. Active energy never exceeds
+$E$.
+\item Merger coordinates consist of birth velocities, representative
+translations, an initial displacement per physical link, and a free
+$(t,\omega)$ per dynamic merger. Its Jacobian is $\eps^2B\dd t\dd\omega$.
+A redundant incoming intersection has indicator mass and a determined
+velocity update. A missing branch is extended by zero. Every step uses
+only preceding parameters.
+\item The normalization is
+$\mu^{m-h}\eps^{2a}\eps^{3p}=\mu^{1-h}\eps^p$.
+Beyond ordered merger pair lists, choices cost
+$C_K(1+n)^{d_K}C^a$. Fresh-label denominators give $\prod_i n_i!$ in the
+denominator up to fixed polynomial factors. Merger pairs are not included
+in that prefactor.
+\item The actual marked factorial hierarchy and its retained version obey
+\[
+ \|F_h^\eps-\widehat F_h^\eps\|_{\TV}
+       \leq C_h e^{-c_h\Lambda_L},\qquad
+ \Lambda_L=(\log(1/\eps))^{30}.
+\]
+This is uniform at every fixed order and bounded record count, including
+partial final slabs. It is unweighted total variation.
+Retained factorial-cumulant inversion keeps exactly connected diagrams.
+\item For every fixed order and prescribed $P$, a fixed complexity cutoff
+makes the unscaled high-complexity retained tail $O(\eps^P)$.
+Physical links gain $\eps^p$. Nonphysical initial tails can be erased and
+assigned arbitrary powers by an auxiliary depth choice.
+These choices do not change the microscopic dynamics.
+\item Actual normalized factorial masses are at most one, and every
+fixed moment of $N/\mu$ is uniformly bounded.
+\item For the same dynamics, the actual unmarked cumulants obey
+$\|c_{h,t}^\eps\|_{\TV}\leq C_h\mu^{1-h}$ at every fixed order.
+The exactly centered pasted observations at any fixed finite list of
+compact smooth tests and times converge to the Gaussian law described
+in \Cref{sec:functional}. Its target is a continuous linear map
+$C_0(\R^6)\to L^2$ with
+$\sup_{t\leq T}\|G_t(\phi)\|_{L^2}\leq C\|\phi\|_\infty$.
+On the common-initial-data coupling, the probability that the true and
+pasted trajectories differ anywhere in $[0,T]$ is at most
+$C\eps^{21/20}$.
+\end{enumerate}
+Exponential bases and the choice of $L$ are independent of subsequent
+fixed orders and cutoffs; front constants and polynomial degrees may
+depend on them.
+\end{proposition}
+
+The following exact source locators distinguish the inputs. Labels refer
+to the TeX sources at the pinned snapshot, not to claims proved here.
+\begin{itemize}[leftmargin=1.5em]\raggedright
+\item Items (i)--(iii): \cite[\S3]{U},
+\sourcelabel{thm:dhm-package}; \cite[\S4]{U},
+\sourcelabel{prop:one-root}; and \cite[\S6]{U},
+\sourcelabel{eq:sharp-input-bounds},
+\sourcelabel{lem:sharp-merger-coordinates},
+\sourcelabel{lem:sharp-factorials}, and
+\sourcelabel{lem:sharp-summability}.
+\item Items (iv)--(v): \cite[\S4]{U},
+\sourcelabel{lem:autonomous-partition},
+\sourcelabel{lem:one-slab-expansion},
+\sourcelabel{lem:marked-regrouping},
+\sourcelabel{lem:diagram-labels},
+\sourcelabel{lem:stopped-variation}, and
+\sourcelabel{thm:marked-expansion}; physical-link scaling and initial-tail
+deletion are in \cite[\S6]{U},
+\sourcelabel{eq:sharp-initial-link} and
+\sourcelabel{eq:sharp-scaling}.
+\item Item (vi): \cite[\S2]{U}, \sourcelabel{prop:initial}, especially
+\sourcelabel{eq:initial-factorial-upper} and
+\sourcelabel{eq:initial-N-moments}.
+\item Item (vii): \cite[\S6]{U},
+\sourcelabel{thm:sharp-cumulants}; \cite[\S7]{U},
+\sourcelabel{prop:cumulant-clt}; \cite[\S2]{U},
+\sourcelabel{prop:gaussian-target} and
+\sourcelabel{eq:target-field-bound}; and \cite[\S5]{U},
+\sourcelabel{prop:cutoff}. The exact-centering argument from
+\cite[\S8]{U}, \sourcelabel{lem:center-transfer}, is reproduced below.
+\end{itemize}
+Required record lines continue to time zero.
+The finite identities depend on bounded output kernels and record count,
+not on a positive separation between observation times.
+Our Gaussian reference has covariance $\sigma^2I$ per birth velocity,
+obtained after a fixed reservation of the exponent in (i).
+It is not a conditional law of the physical gas.

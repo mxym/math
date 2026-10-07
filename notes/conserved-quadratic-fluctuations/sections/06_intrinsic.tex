@@ -1,0 +1,90 @@
+\section{Intrinsic per-particle moments}\label{sec:intrinsic}
+The conserved family has a nonlinear consequence without enlarging the
+unbounded-test class. Let
+\[
+ M_\eps=\pi_0^\eps(1)=N/\mu,\qquad
+ p_\eps=\pi_t^\eps(v)/M_\eps,\qquad
+ x_\eps(t)=\pi_t^\eps(x)/M_\eps.
+\]
+On $N>0$ define the intensive intrinsic moments
+\begin{equation}\label{eq:intrinsic-def}
+ \begin{split}
+ U_\eps&=\pi_t^\eps(|v|^2)/M_\eps-|p_\eps|^2,\\
+ D_\eps(t)&=\pi_t^\eps(x\cdot v)/M_\eps-x_\eps(t)\cdot p_\eps,\\
+ S_\eps(t)&=\pi_t^\eps(|x|^2)/M_\eps-|x_\eps(t)|^2.
+ \end{split}
+\end{equation}
+Assign any fixed values on $N=0$. The mass coordinate of
+Theorem~\ref{thm:main} implies $M_\eps\to1$ in probability, so that
+exceptional probability tends to zero. Write
+\[
+ p_0=f_0(v),\quad x_0=f_0(x),\quad
+ u_0=f_0(|v-p_0|^2),\quad
+ d_0=f_0((x-x_0)\cdot(v-p_0)),\quad
+ s_0=f_0(|x-x_0|^2).
+\]
+Their Boltzmann values are $(u_0,d_0+tu_0,s_0+2td_0+t^2u_0)$.
+Define three effective initial tests
+\begin{equation}\label{eq:effective-tests}
+ \phi_U=|v-p_0|^2-u_0,\qquad
+ \phi_D=(x-x_0)\cdot(v-p_0)-d_0,\qquad
+ \phi_S=|x-x_0|^2-s_0.
+\end{equation}
+Each belongs to $\cQ$ and integrates to zero against $f_0$.
+
+\begin{corollary}[Thermal energy and intrinsic spread]\label{cor:intrinsic}
+For either flow, the Boltzmann-centered vector of
+\eqref{eq:intrinsic-def}, scaled by $\eps^{-1}$, converges in
+$D([0,T],\R^3)$, $J_1$, to
+\begin{equation}\label{eq:intrinsic-limit}
+ A(t)(Z^{\rm int}+a^{\rm int})+c(t),
+ \qquad
+ \Sigma^{\rm int}_{ij}=\int f_0\phi_i\phi_j,\qquad
+ a_i^{\rm int}=a(\phi_i),
+\end{equation}
+where $Z^{\rm int}$ is centered Gaussian with covariance
+$\Sigma^{\rm int}$, and $A,c$ are from \eqref{eq:three-limit}.
+This convergence is joint with the exactly centered Schwartz field, with
+$Z_i^{\rm int}=G_0(\eta\phi_i)$. It describes the weak limit and its
+covariance; it does not add a true prelimit covariance assertion.
+\end{corollary}
+\begin{proof}
+Mass and momentum are constant, and
+$x_\eps(t)=x_\eps(0)+tp_\eps$.
+Substitution in \eqref{eq:energy}--\eqref{eq:spread} gives, exactly,
+\begin{align*}
+ U_\eps(t)&=U_\eps(0),\\
+ D_\eps(t)&=D_\eps(0)+tU_\eps(0)+\eps\cH_\eps(t)/M_\eps,\\
+ S_\eps(t)&=S_\eps(0)+2tD_\eps(0)+t^2U_\eps(0)
+                         +2\eps\int_0^t\cH_\eps(s)\dd s/M_\eps.
+\end{align*}
+Since $M_\eps\to1$, Proposition~\ref{prop:LLN} gives the same uniform
+deterministic event term after division by $M_\eps$.
+
+For clarity, denote the raw initial moments by
+$(M,P,X,E,V,Q)$. The three rational maps are
+$E/M-|P|^2/M^2$, $V/M-X\cdot P/M^2$, and
+$Q/M-|X|^2/M^2$. At the deterministic point
+$(1,p_0,x_0,f_0(|v|^2),f_0(x\cdot v),f_0(|x|^2))$
+their differentials, represented as tests of an empirical perturbation, are
+exactly \eqref{eq:effective-tests}. For example the first differential is
+\[
+ \delta E-2p_0\cdot\delta P
+       +(2|p_0|^2-f_0(|v|^2))\delta M
+ =\delta\pi\bigl(|v-p_0|^2-u_0\bigr).
+\]
+The same calculation gives the other two tests. The initial thirteen-vector
+has an $O_{\Prob}(\eps)$ deviation and its scaled limit is its Gaussian
+vector plus the vacancy bias. On $M$ bounded away from zero the rational
+maps have bounded second derivatives in a fixed neighborhood. Thus their
+$\eps^{-1}$-scaled Taylor remainders are $O_{\Prob}(\eps)\to0$.
+The finite-dimensional delta method gives the initial limit
+$Z^{\rm int}+a^{\rm int}$, jointly with the field. The exact triangular
+identities and the uniform event LLN prove \eqref{eq:intrinsic-limit}.
+\end{proof}
+
+The observables are unchanged by a constant spatial translation or Galilean
+boost. Normalization by the particle count removes the leading mass direction;
+this explains the zero means of the effective tests under $f_0$, while the
+initial vacancy functional $a(\phi_i)$ can still be nonzero. The corollary
+does not require a separate positive-time CLT for these rational observables.

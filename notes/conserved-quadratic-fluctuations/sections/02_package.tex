@@ -1,0 +1,164 @@
+\section{Pinned operational hypotheses}\label{sec:package}
+The conditional boundary is explicit. Sources F and V mean the public
+entry-009 manuscript and virial supplement \cite{F,V} at
+\begin{center}\small\texttt{\srcpin}.\end{center}
+Their upstream source U is \cite{U} at
+\begin{center}\small\texttt{\uppin}.\end{center}
+The H1--H6 hypotheses below have the same mathematical content as those in V.
+They are imported, not independently reproved here. Appendix~\ref{sec:sources}
+maps them to exact labels and files.
+
+\subsection{One auxiliary dynamics}
+Choose the admissible cycle-excess cap $\Gamma$ and fixed number $L$ of slabs
+from U before later fixed moment orders. Put $\tau=T/L$ and, up to integer
+rounding,
+\begin{equation}\label{eq:caps}
+ A_L=|\log\eps|,\qquad \Lambda_i=A_i^{30},\qquad
+ A_{i-1}=\Lambda_i^{30}\quad(i=L,\ldots,1).
+\end{equation}
+An incoming contact is accepted when adding its edge keeps the connected
+collision component within $\Lambda_i$ labels and excess $\Gamma$ in slab $i$.
+Excess is edges minus vertices plus components; repeated contacts are repeated
+edges. Accepted C contacts scatter elastically; rejected contacts continue
+straight. Only collision prehistory restarts at slab interfaces. Positions
+and velocities are not reset, and overlaps are allowed. Expansion O contacts
+are signed non-scattering contacts and are distinct from accepted C events.
+
+\subsection{H1--H6}
+\begin{enumerate}[label=H\arabic*.,ref=H\arabic*,leftmargin=2.8em]
+\item\label{H:initial}\textbf{Initial and kinetic control.}
+Ordered factorial densities normalized by $\mu^{-h}$ obey
+$0\le F_{h,0}^\eps\le f_0^{\otimes h}$ and
+$(1-C\eps)f_0\le F_{1,0}^\eps\le f_0$.
+In particular $\sup_\eps\E(N/\mu)^p<\infty$ for each fixed integer $p$.
+One-root birth inputs $g_i$ have a common Gaussian Bol envelope and converge
+to $f_{i\tau}$ in a common smaller Bol norm, including a partial final slab.
+The kinetic bounds propagate and provide global velocity moments.
+
+\item\label{H:algebra}\textbf{Autonomous partition and output algebra.}
+For a finite label set $V$, let $\Psi_C$ be autonomous capped evolution on
+block $C$, $\kappa_C$ its connected-accepted-graph indicator, and
+$\chi(C,D)$ the indicator that the two autonomous blocks have no cross-contact
+acceptable under their prefix prehistories. For designated roots $S$ and
+a bounded root-history test $K$,
+\begin{align}
+ 1&=\sum_{\mathcal C\in\mathcal P(V)}\prod_{C\in\mathcal C}\kappa_C
+                                \prod_{\{C,D\}\subset\mathcal C}\chi(C,D),
+ \label{eq:partition}\\
+ K(\Psi_V|_S)&=\sum_{\mathcal C\in\mathcal P(V)}\prod_C\kappa_C
+          \prod_{\{C,D\}}\chi(C,D)K(\Psi_{\mathcal C}|_S).
+ \label{eq:output}
+\end{align}
+Expanding incompatibilities into rooted forest blocks gives a finite retained
+operator $\mathcal L_s$ and positive stopped domination $\mathcal E_s$ with
+$F'_s=\mathcal L_sF+R_s$ and
+$|R_s(K)|\le(\mathcal E_sF)(|K|)$.
+The signed kernels are root-output pushforwards multiplied by physical
+indicators; their weights are independent of passive records. Spectators
+sum to one before integration. Choosing $j$ fresh labels contributes precisely
+$\mu^j/j!$, using
+\[
+ (n-s)!^{-1}\binom{n-s}{j}=[j!(n-s-j)!]^{-1}.
+\]
+Required recorded lines continue to time zero. Forgetting records commutes
+with output pushforwards and one-root regrouping; newly unmarked singleton
+blocks sum to $g_i$. These are exact algebraic identities, not independence
+of the actual gas at interfaces.
+
+\item\label{H:remainder}\textbf{Unweighted remainder and complexity tails.}
+For fixed factorial order and fixed finite bounded record count, the actual
+and retained factorial hierarchies satisfy
+\begin{equation}\label{eq:unweighted}
+ \|F_h^\eps-\widehat F_h^\eps\|_{\TV}
+       \le C_h e^{-c_h\Lambda_L},\qquad\Lambda_L=|\log\eps|^{30},
+\end{equation}
+also on partial final slabs. Finite factorial-cumulant inversion retains
+connected diagrams. Complexity is
+$\rho=|H_0|+\sum_i(|H_i|+r_i)$, with continuing/designated roots $H_i$,
+initial-link incident lines $H_0$, and slab cycle excess $r_i$.
+At every fixed order and prescribed $P$, choosing a fixed $K$ makes the
+retained sum with $\rho>K$ be $O(\eps^P)$.
+Nonphysical initial tails also admit an arbitrary-power auxiliary choice.
+These choices do not alter the dynamics. No energy or Gaussian weight is
+assumed for a general microscopic remainder.
+
+\item\label{H:majorant}\textbf{Chronological coordinates and positive retained bounds.}
+Every global birth has one independent phase coordinate; continuation adds
+none. If $E$ is total birth energy, active energy never exceeds $E$.
+Mergers of disjoint chronological components have $(s,\omega)$ coordinates
+with Jacobian $\eps^2B\dd s\dd\omega$. A redundant contact is a determined
+incoming-intersection indicator with update fixed by preceding data; a missing
+branch is zero. At fixed complexity, let $m$ be birth count, $q$ continuation
+count, $p$ physical initial-link count, $n=\sum_i n_i=m+q$, and
+$a=\sum_i a_i=m-1-p$ for a connected one-root history. Then
+\[
+ n-a=q+1+p=O_K(1),\qquad
+ \mu^{m-1}\eps^{2a}\eps^{3p}=\eps^p.
+\]
+There are $O_K(1)$ redundant contacts. Integrating one common translation,
+or prescribing a root position and taking spatial suprema, bounds the birth
+product by $C^m e^{-bE}$. Fresh-label factorials, ordered times, and pair
+choices give the size majorant
+\begin{equation}\label{eq:majorant}
+ C_K(1+n)^{D_K}(C\tau\sqrt L)^n,
+                       \qquad C\tau\sqrt L<1.
+\end{equation}
+It holds globally and at a fixed root position with a fixed small Gaussian
+reservation. The exponential base and choice of $L$ are independent of later
+fixed polynomial degrees and moment orders. For $h$ designated roots the
+connected normalization is $\mu^{1-h}\eps^p$, as follows from the same
+birth count; see \eqref{eq:scaling} below and F's imported package.
+
+\item\label{H:trees}\textbf{Finite-tree convergence, completeness, and splitting.}
+At fixed finite size and bounded birth energy, prescribed paths, times,
+normals, and velocities converge as $\eps\to0$ away from the null grazing,
+zero-relative-speed, coincident-time, and extra-contact sets. There are no
+undeclared contacts for sufficiently small $\eps$. Physical initial links
+retain their $\eps$ factor. Cyclic histories vanish qualitatively after
+truncation and domination. The surviving signed C/O trees form the complete
+leading class, with signs $(-1)^{\#O}$ and inputs $f_{i\tau}$; their unmarked
+one-root marginal at time $t$ is $f_t$.
+
+After unused records are projected out, reverse-chronological C/O cancellation
+removes the latest contacts meeting no tested root. Deleting the last
+remaining root contact splits its tree into two incoming components at their
+common position, with fresh-label factorization
+\[
+ (j_1+j_2)!^{-1}\binom{j_1+j_2}{j_1}=(j_1!j_2!)^{-1}.
+\]
+This operation is made in the finite limiting tree class with a combined-size
+cutoff, removed subsequently by absolute summability. Conditional spatial
+tree measures are weakly continuous in root position with uniform
+conditional and integrated Gaussian bounds. Their equal-position collision
+product is defined by the common-translation coordinates, equivalently by
+an approximate identity.
+
+\item\label{H:coupling}\textbf{Full-time true/pasted coupling.}
+On common initial data, the probability of a trajectory discrepancy anywhere
+on $[0,T]$ is at most $C\eps^{21/20}$. The almost-everywhere elastic flows
+and their outgoing right-continuous velocity versions are defined, and
+deterministic-time collision sets are null.
+\end{enumerate}
+
+\subsection{Existing functional input F}
+We use the already proved exactly centered functional theorem of F: the true
+and the one fixed pasted signed-measure fields converge weakly in
+$D([0,T],\cS'_\beta(\R^6))$, with the generalized $J_1$ topology induced
+by the strong Schwartz dual, to a Radon law supported on strongly continuous
+paths. Its finite Schwartz evaluations are centered Gaussian with covariance
+\begin{equation}\label{eq:field-cov}
+ \E G_t(\phi)G_s(\psi)
+ =\int f_0 U(0,t)\phi\,U(0,s)\psi
+  +\int_0^{s\wedge t}C_r(U(r,t)\phi,U(r,s)\psi)\dd r.
+\end{equation}
+Here $U$ is the existing backward propagator, and $C_r$ is its collision
+noise covariance. Initial covariance is $\int f_0\phi\psi$ and the noise
+is independent of the initial field. The static initial bounded-test CLT
+and convergence of its covariances are used in their existing scope.
+For clarity, the pinned initial proof gives
+$\mu\|c_{2,0}^\eps\|_{\TV}=O(\eps)$.
+No unbounded positive-time test CLT and no polynomial mapping property
+of $U$ is included in input F.
+The source's nuclear tightness proof also supplies tightness of both path-law
+families along every sequence $\eps_n\to0$. This is the tightness used in
+the product argument in Section~\ref{sec:process}.
