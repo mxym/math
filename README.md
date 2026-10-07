@@ -181,6 +181,19 @@ The [new tensor research note](notes/global-orthogonal-tensor-rigidity/README.md
 
 The [binary tensor companion](notes/sharp-binary-tensor-rigidity/README.md) determines the optimal growth order p^(1/4) of the best complete-commutator error constant in dimension two, and proves the exact quartic constant 3^(1/4)/sqrt(2) with full equality classification. A nine-page proof, exact standard-library checker, nine partial Lean exports and a frozen inventory are included. These results use no OpenAI theorem. The [binary benchmark comparison](research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md) and [dimension screening](research/novelty-assessment/2026-10-07-tensor-dimension-screen.md) record read literature and unresolved novelty questions; no priority or whole-paper formalization claim is made.
 
+## Boundary-profile lower bounds for binary tensor rigidity
+
+The [boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
+turns every fixed finite edge-coefficient profile into an explicit
+Gaussian/Fock variational lower bound for the sharp binary tensor constants.
+An exact three-term profile proves
+liminf C_p / p^(1/4) > 0.623586, improving the preceding
+2^(-3/4) lower constant while leaving the current 2^(-1/2) upper
+constant open. The analytic profile limit has a complete written proof; two
+standard-library exact implementations certify the displayed rational
+corollary in ordinary and optimized Python. No priority or external
+peer-review claim is made.
+
 ## Simultaneous harmonic-degree blocks
 
 The [harmonic-dimension block note](notes/simultaneous-harmonic-degree-blocks/README.md)
