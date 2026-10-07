@@ -1,0 +1,1267 @@
+{
+  "cases": [
+    {
+      "dimension": 1,
+      "expected": {
+        "A": "1",
+        "B": "1",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/2",
+        "singular_defect": "0"
+      },
+      "name": "uniform-simplex-d1",
+      "points": [
+        [
+          "1"
+        ],
+        [
+          "-1"
+        ]
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 1,
+      "expected": {
+        "A": "2/3",
+        "B": "2/3",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/2",
+        "singular_defect": "0"
+      },
+      "name": "nonuniform-simplex-d1",
+      "points": [
+        [
+          "1"
+        ],
+        [
+          "-1/2"
+        ]
+      ],
+      "weights": [
+        "1/3",
+        "2/3"
+      ]
+    },
+    {
+      "dimension": 1,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "1/2",
+        "B": "3/4",
+        "defect": "1/4",
+        "lower_equality": false,
+        "normalized_a": "3/4",
+        "singular_defect": "1/4"
+      },
+      "expected_ratio": "3/2",
+      "name": "simplex-origin-mixture-d1-t1_2",
+      "points": [
+        [
+          "1"
+        ],
+        [
+          "-1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          2
+        ],
+        "bound": "1/4",
+        "minus": 0,
+        "minus_det": "1",
+        "plus": 1,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/4",
+        "1/4",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 1,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "1/7",
+        "B": "13/49",
+        "defect": "6/49",
+        "lower_equality": false,
+        "normalized_a": "13/14",
+        "singular_defect": "6/49"
+      },
+      "expected_ratio": "13/7",
+      "name": "simplex-origin-mixture-d1-t1_7",
+      "points": [
+        [
+          "1"
+        ],
+        [
+          "-1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          2
+        ],
+        "bound": "6/49",
+        "minus": 0,
+        "minus_det": "1",
+        "plus": 1,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/14",
+        "1/14",
+        "6/7"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "2/3",
+        "B": "2/3",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/3",
+        "singular_defect": "0"
+      },
+      "name": "uniform-simplex-d2",
+      "points": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1"
+        ]
+      ],
+      "weights": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "1/3",
+        "B": "1/3",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/3",
+        "singular_defect": "0"
+      },
+      "name": "nonuniform-simplex-d2",
+      "points": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1/3",
+          "-2/3"
+        ]
+      ],
+      "weights": [
+        "1/6",
+        "1/3",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "1/6",
+        "B": "1/3",
+        "defect": "1/6",
+        "lower_equality": false,
+        "normalized_a": "2/3",
+        "singular_defect": "1/6"
+      },
+      "expected_ratio": "2",
+      "name": "simplex-origin-mixture-d2-t1_2",
+      "points": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          3
+        ],
+        "bound": "1/18",
+        "minus": 1,
+        "minus_det": "1",
+        "plus": 2,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "2/147",
+        "B": "38/1029",
+        "defect": "8/343",
+        "lower_equality": false,
+        "normalized_a": "19/21",
+        "singular_defect": "8/343"
+      },
+      "expected_ratio": "19/7",
+      "name": "simplex-origin-mixture-d2-t1_7",
+      "points": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          3
+        ],
+        "bound": "8/1029",
+        "minus": 1,
+        "minus_det": "1",
+        "plus": 2,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/21",
+        "1/21",
+        "1/21",
+        "6/7"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "3/8",
+        "B": "3/8",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/4",
+        "singular_defect": "0"
+      },
+      "name": "uniform-simplex-d3",
+      "points": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1",
+          "-1"
+        ]
+      ],
+      "weights": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "18/125",
+        "B": "18/125",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/4",
+        "singular_defect": "0"
+      },
+      "name": "nonuniform-simplex-d3",
+      "points": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1/4",
+          "-1/2",
+          "-3/4"
+        ]
+      ],
+      "weights": [
+        "1/10",
+        "1/5",
+        "3/10",
+        "2/5"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "3/64",
+        "B": "15/128",
+        "defect": "9/128",
+        "lower_equality": false,
+        "normalized_a": "5/8",
+        "singular_defect": "9/128"
+      },
+      "expected_ratio": "5/2",
+      "name": "simplex-origin-mixture-d3-t1_2",
+      "points": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          4
+        ],
+        "bound": "3/256",
+        "minus": 2,
+        "minus_det": "1",
+        "plus": 3,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expect_singular_all": true,
+      "expected": {
+        "A": "3/2744",
+        "B": "75/19208",
+        "defect": "27/9604",
+        "lower_equality": false,
+        "normalized_a": "25/28",
+        "singular_defect": "27/9604"
+      },
+      "expected_ratio": "25/7",
+      "name": "simplex-origin-mixture-d3-t1_7",
+      "points": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          4
+        ],
+        "bound": "9/19208",
+        "minus": 2,
+        "minus_det": "1",
+        "plus": 3,
+        "plus_det": "1"
+      },
+      "weights": [
+        "1/28",
+        "1/28",
+        "1/28",
+        "1/28",
+        "6/7"
+      ]
+    },
+    {
+      "dimension": 4,
+      "expected": {
+        "A": "24/125",
+        "B": "24/125",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/5",
+        "singular_defect": "0"
+      },
+      "name": "uniform-simplex-d4",
+      "points": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ]
+      ],
+      "weights": [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5"
+      ]
+    },
+    {
+      "dimension": 4,
+      "expected": {
+        "A": "64/1125",
+        "B": "64/1125",
+        "defect": "0",
+        "lower_equality": true,
+        "normalized_a": "1/5",
+        "singular_defect": "0"
+      },
+      "name": "nonuniform-simplex-d4",
+      "points": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1/5",
+          "-2/5",
+          "-3/5",
+          "-4/5"
+        ]
+      ],
+      "weights": [
+        "1/15",
+        "2/15",
+        "1/5",
+        "4/15",
+        "1/3"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "1/2",
+        "B": "3/4",
+        "defect": "1/4",
+        "lower_equality": false,
+        "normalized_a": "1/2",
+        "singular_defect": "1/4"
+      },
+      "expected_a": "1/2",
+      "name": "axes-boundary-d2",
+      "points": [
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1
+        ],
+        "bound": "1/8",
+        "minus": 2,
+        "minus_det": "2",
+        "plus": 3,
+        "plus_det": "2"
+      },
+      "symmetric_boundary_slabs": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "1",
+        "B": "3/2",
+        "defect": "1/2",
+        "lower_equality": false,
+        "normalized_a": "1/2",
+        "singular_defect": "1/2"
+      },
+      "name": "cube-vertices-boundary-d2",
+      "points": [
+        [
+          "-1",
+          "-1"
+        ],
+        [
+          "-1",
+          "1"
+        ],
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          3
+        ],
+        "bound": "1/4",
+        "minus": 2,
+        "minus_det": "4",
+        "plus": 1,
+        "plus_det": "4"
+      },
+      "symmetric_boundary_slabs": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "1/8",
+        "B": "9/32",
+        "defect": "5/32",
+        "lower_equality": false,
+        "normalized_a": "3/4",
+        "singular_defect": "5/32"
+      },
+      "expected_a": "3/4",
+      "interior_counterexample": true,
+      "name": "even-interior-counterexample-d2",
+      "points": [
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1
+        ],
+        "bound": "1/64",
+        "minus": 2,
+        "minus_det": "2",
+        "plus": 3,
+        "plus_det": "2"
+      },
+      "weights": [
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "2/9",
+        "B": "4/9",
+        "defect": "2/9",
+        "lower_equality": false,
+        "normalized_a": "1/2",
+        "singular_defect": "2/9"
+      },
+      "expected_a": "1/2",
+      "name": "axes-boundary-d3",
+      "points": [
+        [
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          2
+        ],
+        "bound": "1/54",
+        "minus": 4,
+        "minus_det": "2",
+        "plus": 5,
+        "plus_det": "2"
+      },
+      "symmetric_boundary_slabs": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "3/2",
+        "B": "45/16",
+        "defect": "21/16",
+        "lower_equality": false,
+        "normalized_a": "15/32",
+        "singular_defect": "9/8"
+      },
+      "name": "cube-vertices-boundary-d3",
+      "points": [
+        [
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "-1",
+          "-1",
+          "1"
+        ],
+        [
+          "-1",
+          "1",
+          "-1"
+        ],
+        [
+          "-1",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-1",
+          "-1"
+        ],
+        [
+          "1",
+          "-1",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-1"
+        ],
+        [
+          "1",
+          "1",
+          "1"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          6
+        ],
+        "bound": "3/128",
+        "minus": 2,
+        "minus_det": "8",
+        "plus": 4,
+        "plus_det": "8"
+      },
+      "symmetric_boundary_slabs": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "1/36",
+        "B": "1/12",
+        "defect": "1/18",
+        "lower_equality": false,
+        "normalized_a": "3/4",
+        "singular_defect": "1/18"
+      },
+      "expected_a": "3/4",
+      "interior_counterexample": true,
+      "name": "even-interior-counterexample-d3",
+      "points": [
+        [
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          2
+        ],
+        "bound": "1/864",
+        "minus": 4,
+        "minus_det": "2",
+        "plus": 5,
+        "plus_det": "2"
+      },
+      "weights": [
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/2"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "43/50",
+        "B": "129/100",
+        "defect": "43/100",
+        "lower_equality": false,
+        "normalized_a": "1/2",
+        "singular_defect": "31/125"
+      },
+      "expected_a": "1/2",
+      "name": "nonuniform-square-boundary",
+      "points": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "1"
+        ],
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "-1",
+          "-1"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-1"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          2
+        ],
+        "bound": "3/1000",
+        "minus": 1,
+        "minus_det": "1",
+        "plus": 3,
+        "plus_det": "1"
+      },
+      "symmetric_boundary_slabs": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/20",
+        "1/10",
+        "3/20",
+        "1/5",
+        "1/20",
+        "1/10",
+        "3/20",
+        "1/5"
+      ]
+    },
+    {
+      "dimension": 2,
+      "expected": {
+        "A": "4934/3375",
+        "B": "2062/1125",
+        "defect": "1252/3375",
+        "lower_equality": false,
+        "normalized_a": "1031/2467",
+        "singular_defect": "0"
+      },
+      "name": "centered-generic-d2",
+      "points": [
+        [
+          "-17/15",
+          "-4/5"
+        ],
+        [
+          "13/15",
+          "-4/5"
+        ],
+        [
+          "-17/15",
+          "11/5"
+        ],
+        [
+          "13/15",
+          "6/5"
+        ],
+        [
+          "-2/15",
+          "-9/5"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1
+        ],
+        "bound": "16/675",
+        "minus": 4,
+        "minus_det": "2",
+        "plus": 2,
+        "plus_det": "6"
+      },
+      "weights": [
+        "1/15",
+        "2/15",
+        "1/5",
+        "4/15",
+        "1/3"
+      ]
+    },
+    {
+      "dimension": 3,
+      "expected": {
+        "A": "120424/64827",
+        "B": "25040/9261",
+        "defect": "54856/64827",
+        "lower_equality": false,
+        "normalized_a": "10955/30106",
+        "singular_defect": "0"
+      },
+      "name": "centered-generic-d3",
+      "points": [
+        [
+          "-8/21",
+          "-25/21",
+          "-11/7"
+        ],
+        [
+          "34/21",
+          "-25/21",
+          "-11/7"
+        ],
+        [
+          "-8/21",
+          "38/21",
+          "-11/7"
+        ],
+        [
+          "-8/21",
+          "-25/21",
+          "17/7"
+        ],
+        [
+          "34/21",
+          "17/21",
+          "-4/7"
+        ],
+        [
+          "-29/21",
+          "-4/21",
+          "3/7"
+        ]
+      ],
+      "strictness_witness": {
+        "base": [
+          0,
+          1,
+          4
+        ],
+        "bound": "80/7203",
+        "minus": 3,
+        "minus_det": "16",
+        "plus": 2,
+        "plus_det": "6"
+      },
+      "weights": [
+        "1/21",
+        "2/21",
+        "1/7",
+        "4/21",
+        "5/21",
+        "2/7"
+      ]
+    }
+  ],
+  "schema": "005-v3-random-determinants-1",
+  "spectral_examples": [
+    {
+      "final_Q": "5/4",
+      "final_dimension": 6,
+      "improvement_ratio": "25/16",
+      "joins": 2,
+      "kind": "simplex",
+      "seed_Q": "1",
+      "seed_R": "2",
+      "seed_a": "1/2",
+      "seed_dimension": 1,
+      "threshold_ratio": "1"
+    },
+    {
+      "final_Q": "175/128",
+      "final_dimension": 8,
+      "improvement_ratio": "164130859375/34359738368",
+      "joins": 1,
+      "kind": "simplex",
+      "seed_Q": "1",
+      "seed_R": "160/3",
+      "seed_a": "1/5",
+      "seed_dimension": 4,
+      "threshold_ratio": "3125/1024"
+    },
+    {
+      "final_Q": "7363596625/18596183472",
+      "final_dimension": 38,
+      "improvement_ratio": "26460769486128074549724681408342041015625/10889035741470030830827987437816582766592",
+      "joins": 5,
+      "kind": "cube",
+      "seed_Q": "8/9",
+      "seed_R": "8",
+      "seed_a": "1/2",
+      "seed_dimension": 3,
+      "threshold_ratio": "625/324"
+    },
+    {
+      "final_Q": "1656455157421875/2251799813685248",
+      "final_dimension": 30,
+      "improvement_ratio": "2617518156896474857023615/1208925819614629174706176",
+      "joins": 4,
+      "kind": "octahedron",
+      "seed_Q": "15/16",
+      "seed_R": "9",
+      "seed_a": "15/32",
+      "seed_dimension": 3,
+      "threshold_ratio": "16777216/11390625"
+    },
+    {
+      "final_Q": "2735834245224609375/576460752303423488",
+      "final_dimension": 34,
+      "improvement_ratio": "2675939738010995188851752887312511132933979358489508582001642848273163293552398681640625/124330809102446660538845562036705210025114037699336929360115994223289874253133343883264",
+      "joins": 2,
+      "kind": "two-four-simplices",
+      "seed_Q": "175/128",
+      "seed_R": "25600/9",
+      "seed_a": "1/5",
+      "seed_dimension": 8,
+      "threshold_ratio": "116825103759765625/3249918613389312"
+    }
+  ]
+}
