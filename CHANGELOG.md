@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — Fock-profile variational ceiling for binary tensor rigidity
+
+- Completed the natural square-summable finite-first-moment closure of the reflected boundary-profile variational problem and proved that its supremum is attained.
+- Replaced the previous three-term lower witness by an exact five-term rational Fock polynomial, raising the rigorous tensor liminf lower constant from 0.623586 to > 0.6238973.
+- Proved an infinite-dimensional dual operator ceiling Lambda_prof <= 779/2000 by parity rank-one Schur complements, alternating rational exponential bounds and 28 rational t-intervals with strictly positive exact Bernstein coefficients. Hence 0.6238973 < kappa_prof <= 0.6240993511.
+- Replayed the committed checker from the public raw GitHub file under ordinary and optimized Python; both runs pass. The ceiling applies only to the reflected boundary-profile mechanism and does not improve the true tensor upper constant 2^(-1/2). No external peer review, complete Lean formalization or priority claim is asserted.
+
+
 ## 2026-10-07 — full original geometric-avoidance Lean proof
 
 - Added the exact independently model-audited 184-file revision-2 source package for the closed original all-real affine-geometric MainTarget, with one common compact set, strict Lebesgue-measure bound and arbitrarily late escaping terms for every 0 < q < 1.
