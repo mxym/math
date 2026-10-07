@@ -9,10 +9,13 @@
 | 005 | [Exact projection-volume optimization over Cartesian products of simplices](preprints/005-simplex-product-optimum/README.md) | v1.1 | Complete written proof draft; exact rational certificates and DP |
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support sharpness and exact algebra checks |
+| 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; sharp critical logarithm and exact multiscale cell checks |
 
 All entries contain full proof drafts. This catalogue does not claim novelty certification or formal proof completion. The verification scopes of 004--005 are recorded [separately](verification/density-simplex-2026-10-07.md); their first complete source publication is commit `e6c776cae39477baa4e1a03d59a1547417f1a68e`.
 
 For 006--007 see the [cross-audit](verification/2026-10-07-cross-audit-and-extensions.md), [007 v2 proof audit](preprints/007-tail-brenier-stability/v2/PROOF_AUDIT.md), and [parallel-work reconciliation](comparisons/2026-10-07-modulus-tail-reconciliation.md). Overlapping target-tail results from 001 v3 and 007 v1 are not counted as separate new project results. The additional smooth full-support counterexample and superquadratic-source statements are in 007 v2. The 006 statement excludes nonflat smooth germs, not all C1 or flat-smooth maps.
+
+For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT.md), [scope comparison](comparisons/2026-10-07-density-overlap-phase.md), and [versioned release](https://github.com/mxym/math/releases/tag/density-overlap-20261007-v1). First complete source: `f2398f916f6ae9a46b814522b3e1d34124b74f19`; compiled and replayed publication snapshot: `b6986ffce1448abf09db40b32b3158ab603c428a`. Its exact classification is restricted to the displayed boundary-vanishing source family. Upper bounds explicitly use the pinned potential theorem of 001 v3; independent interpolation and lower constructions are proved in 008. The critical lower bound allows a growing number of target atoms.
 
 ## Notes
 
@@ -24,7 +27,10 @@ For 006--007 see the [cross-audit](verification/2026-10-07-cross-audit-and-exten
 - [Gaussian finite-moment stability: focused literature comparison](comparisons/2026-10-07-gaussian-finite-moments.md). Comparison for the transport v3 finite-moment extension.
 - [Additional model review of 004--005](reviews/2026-10-07-independent-model-review.md), including independent exact replays and the known non-simplex rate comparison.
 - [Nonlinear avoidance and transport-tail reconciliation](comparisons/2026-10-07-modulus-tail-reconciliation.md), distinguishing inherited, overlapping, and additional results.
+- [Density overlap and boundary criticality](comparisons/2026-10-07-density-overlap-phase.md), including the explicit source-family and proof-dependency limits.
 
 ## Manuscript 001 version 4 scope
 
 [Version 4](preprints/001-strongly-log-concave-brenier/v4/README.txt) is a focused logarithmic-moment continuation using the complete public v3 potential theorem as an explicit proof input. It does not replace v3's broader results or claim to re-prove that input. The [v4 manifest](releases/2026-10-07-v4.json) identifies the changed files.
+
+Its Gaussian logarithmic-target-moment threshold is distinct from 008's source-boundary-vanishing threshold. The former has no additional logarithmic loss at its stated transition; the latter has a necessary logarithmic correction proved by a multiscale construction. The parameters describe different assumptions, so these statements do not conflict and are not counted as duplicate project results.
