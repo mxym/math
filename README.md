@@ -167,3 +167,7 @@ Both frozen packages passed independent model-conducted analytic and final-copy 
 ## Global orthogonal tensor rigidity
 
 The [new tensor research note](notes/global-orthogonal-tensor-rigidity/README.md) gives an unconditional global square-root bound from contraction-commutator defects to orthogonal decomposition for every real symmetric tensor order p >= 3, including degenerate weights. It includes an exact sharp two-dimensional cubic formula, complete written proofs, four exact checkers and seven partial Lean algebra exports. Its separate entropy application remains conditional on an explicitly stated upstream remainder. Novelty and publication significance remain under investigation.
+
+## Active research and literature screening
+
+[Rank-six Ryser exploration](research/ryser-rank-six/README.md) supplies finite SAT search models, a solver-independent witness checker, geometric scouts and a complete integer enumeration excluding one restricted pencil template. No Ryser counterexample or unrestricted nonexistence theorem is claimed. The [initial literature comparison](research/novelty-assessment/2026-10-07-initial-screen.md), prepared with GPT-6 Luna at High reasoning effort, distinguishes known inputs, direct deductions, neighbouring results and unresolved novelty questions for the tensor note and other repository work.
