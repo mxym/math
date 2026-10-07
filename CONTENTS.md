@@ -160,6 +160,8 @@ explicit three-term profile. It lies strictly outside the concurrently
 proved axis-local fixed-band optimality class, providing an off-axis
 mechanism improvement. The sharp leading constant remains open.
 
+The [Fock-profile ceiling continuation](notes/fock-profile-ceiling-binary-tensor-rigidity/README.md) completes the natural finite-first-moment Gaussian/Fock profile space. It proves that the profile supremum is attained, improves the tensor liminf bound to liminf C_p / p^(1/4) > 0.6238973, and gives the exact-certified mechanism window 0.6238973 < kappa_prof <= sqrt(779/2000) = 0.624099351.... The upper endpoint is only a ceiling for the reflected boundary-profile mechanism; the true tensor upper constant 2^(-1/2), convergence, and sharp asymptotic constant remain open. The five-term lower witness and the 28-interval infinite-dimensional dual ceiling are replayed by a standard-library exact rational checker.
+
 ## Rank-six Ryser: necessary nineteen-edge bound
 
 [Nineteen-edge theorem](research/ryser-rank-six/NINETEEN_EDGE_BOUND.md): every intersecting six-partite six-uniform hypergraph with at most eighteen distinct edges has tau<=5; the vertex widths are unrestricted. [PDF](research/ryser-rank-six/nineteen-edge-bound.pdf), exact full degree-pattern replay, a separate integer certificate and three partial Lean exports are supplied. The [search programme](research/ryser-rank-six/README.md) continues at nineteen edges with structural reductions. No unrestricted Ryser solution, general q(6)>=19 statement or priority claim is made.
