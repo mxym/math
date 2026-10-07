@@ -47,3 +47,13 @@ f(r)\ge \frac{293}{96}r+O(1)\approx 3.05208r+O(1).
 线性子类方面，窄查未发现已知 (f_{linear}(r)) 渐近下界超过 10/3。Francetić–Herke–McKay–Wanless, “On Ryser’s Conjecture for Linear Intersecting Multipartite Hypergraphs,” *European Journal of Combinatorics* 61 (2017), 91–105, DOI 10.1016/j.ejc.2016.10.004, arXiv:1508.00951v3，已读主文第 2 节：它对线性相交 partite 系统按度数计数并处理高次数顶点，但结论限于 `r≤9` 时 Ryser 界成立，没有给出线性类 edge-minimum function 的渐近下界。ABW 的 f(r) 全类下界 `293r/96+O(1)` 当然也适用于线性子类；其 Theorem 1.3 的射影平面子序列随机删边构造本身为线性，给出上界 `f_linear(r)\le22r\log r`（当 `(r-1)` 阶射影平面存在）。在本轮核对的文献中没有发现 `f_linear(r)` 斜率超过 10/3 的既有下界；因此候选 `(5\sqrt{17}-7)r/4\approx3.40388r` 应明确标作待证明的新候选，不是已证明结论或先例结论。
 
 需区分 J. Kahn, “On a problem of Erdős and Lovász II: n(r)=O(r),” *Journal of the American Mathematical Society* 7 (1994), 125–143（ABW 文献 [12]）。该结果是**非 partite**、(\tau=r) 的相交 r-均匀超图线性边数存在性上界；ABW 将其用于截短射影平面随机抽线的构造。它不提供 (f(r)) 的下界，也未在本轮核对到它给出上述 4-block weighted-saving 估计。故“借鉴 Kahn 型匹配结论”应作为候选证明所用的一般工具陈述，并避免暗示 Kahn 已证明 10/3 partite 边数界。
+
+## 20 边 rank-six 更新：与已知 f(6)=13 的区分
+
+新稿 `notes/rank-six-twenty-edge-bound/paper.md` 陈述的是另一参数问题：若六部相交六均匀超图满足 **τ(H)=6**（即确为 Ryser 反例），则至少需要 20 条边。这个 20 边候选结论不等于也不由已知 `f(6)=13` 表达；后者定义为 τ(H)≥5 的最小边数，而已知 13 边实例实际 τ=5。故 `f(6)=13` 是 τ=5 的极值例，不能当成 τ=6 反例或 τ=6 边数下界。
+
+新稿的 Input F 写为：每个六部相交六均匀 H 若边数至多 12，则 τ(H)≤4。已核读其先例 Abu-Khazneh–Pokrovskiy, **Theorem 1.1, §2.1**：作者先引用 Mansour–Song–Yuster 已有 `f(6)≥12`，排除不超过 11 条边的 τ≥5 情形；随后 Lemma 2.9 对恰有 12 条边的情形按最大度分类手工排除 τ=5。该 lemma 字面设 τ=5；τ=6 可由同一分类中的贪心界直接处理：若最大度至少 6，则删去该点关联边后至多 6 条边可由至多 3 点覆盖，连同高次点共至多 4 点；最大度为 5 或 4 时，余下 7 或 8 条边可贪心用至多 4 点覆盖，加上所删高次点给 τ≤5；最大度至多 3 时，文中按 τ≥5 推出的每部至少 5 个顶点及交点总数上限本身矛盾。因此结合已知 `f(6)≥12`，确有“边数≤12 ⇒ τ≤4”的推论。AP 的下界论证是度数分类与手工计数（使用 Lemmas 2.1、2.8、2.9 和 Claims 2.10–2.11），不是计算机证书；该文明确把 computer-aided search 用于 13 边上界构造，而非 12 边下界。
+
+AP 来源应标作预印本 **Ahmad Abu-Khazneh and Alexey Pokrovskiy, “Intersecting extremal constructions in Ryser’s Conjecture for r-partite hypergraphs,” arXiv:1409.4938v1 (submitted 17 Sep 2014; arXiv PDF manuscript dated 9 Oct 2018)**，https://arxiv.org/abs/1409.4938v1。对这篇同题 AP 作品未核到单独期刊发表书目，不附会卷页或 DOI。相同 `f(6)=13` 结果另由 Ron Aharoni, János Barát, Ian M. Wanless 独立发表：“Multipartite hypergraphs achieving equality in Ryser’s conjecture,” *Graphs and Combinatorics* 32(1) (2016), 1–15, DOI [10.1007/s00373-015-1575-9](https://doi.org/10.1007/s00373-015-1575-9)，arXiv:1409.4833v2。两条文献身份与发表状态应分开记录。
+
+对“六部相交且 τ=6 的超图至少 20 条边”做了窄范围快速检索（关键词覆盖 six-partite/intersecting、τ=6、Ryser counterexample、minimum edges，并检查本报告已列的 AP、ABW、Mansour–Song–Yuster、Barát 与 Sivashankar 来源）。目前未命中直接给出同一受限 partite 参数下界 20 的定理；一般 τ=r 的已核一般界仍只给 `g(6)≥14`，而 AP/ABW 的 `f(6)=13` 是 τ≥5 定义。检索范围很有限，只能写“在本次核对的来源中未见”，不据此作原创性、优先权或文献不存在结论。此段记录新稿所引 Input F 的来源和问题参数对照，不审查新稿的 20 边证明。
