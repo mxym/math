@@ -1,0 +1,240 @@
+\section{Translation regularity beyond bounded Hessians}\label{sec:translation}
+The parallel manuscript 001 v3~\cite{M001v3} proves an unclipped Gaussian interpolation inequality and extends it to full-support strongly convex $C^{1,1}$ source potentials with globally bounded Hessian. Its signed-square and minimum-weight argument suggests the following explicit hypothesis. We reproduce that argument to specify precisely what is used, then verify the hypothesis for superquadratic sources not covered by a global Hessian bound.
+
+Let $r>0$ on $\R^d$, let $q>2$ and $s=q/(q-2)$, and suppose
+\begin{equation}\label{eq:translation-assumption}
+ \mathcal R_s(r):=\max_{1\le j\le d}\sup_{0<h\le1,\,\epsilon\in\{-1,1\}}
+ \frac1h\left\|\frac{r(\cdot+\epsilon he_j)}r-1\right\|_{L^s(r)}<\infty.
+\end{equation}
+This is an integrable translation-ratio condition, not merely pointwise smoothness.
+
+\begin{proposition}[Translation-ratio interpolation]\label{prop:translation}
+For finite convex $u,v$ on $\R^d$, gradients in $L^q(r)$, and $u-v-a\in L^2(r)$, condition~\eqref{eq:translation-assumption} implies, for $0<h\le1$,
+\[
+ \norm{\nabla u-\nabla v}_{L^2(r)}^2
+ \le12d h^{-2}\norm{u-v-a}_{L^2(r)}^2
+ +8h\mathcal R_s(r)\sum_{j=1}^d
+ \bigl(\norm{\partial_j u}_{L^q(r)}^2+
+       \norm{\partial_j v}_{L^q(r)}^2\bigr).
+\]
+If the source also satisfies the potential estimate~\eqref{eq:P}, then, with
+$M=\norm{T_\mu}_{L^q(r)}+\norm{T_\nu}_{L^q(r)}$,
+\begin{equation}\label{eq:translation-map}
+ \norm{T_\mu-T_\nu}_{L^2(r)}
+ \le\sqrt{d(12K_\rho^2+8\mathcal R_s(r))}\,
+             M^{2/3}W_2(\mu,\nu)^{1/3}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Fix a coordinate and set $m_h(x)=\min(r(x),r(x+he_j))$.
+Writing $f=u-v-a$, both endpoints of its difference quotient are controlled by their original weights, so
+\[
+ \int|D_{j,h}f|^2m_h\le4h^{-2}\norm f_{L^2(r)}^2.
+\]
+Let $z=\partial_j u$. Convexity gives
+$0\le D_{j,h}u-z\le z(x+he_j)-z(x)$.
+For real $A\le B$,
+$(B-A)^2\le2(B|B|-A|A|)$.
+With $g=z|z|$, monotonicity and $m_h\le r$ therefore give
+\[
+ \int|D_{j,h}u-z|^2m_h
+ \le2\int(g(x+he_j)-g(x))r(x)\,dx
+ \le2h\mathcal R_s(r)\norm z_{L^q(r)}^2.
+\]
+For the last step change variables in the first term, then apply H\"older with exponents $q/2,s$. Absolute integrability of the translated signed-square functions follows from the same hypothesis: their integrals are bounded by the original integral plus
+$h\mathcal R_s\norm g_{L^{q/2}(r)}$.
+The same calculation applies to $v$. The three-term square inequality for the difference quotient and its two errors gives coefficient six for each derivative norm on $m_h$. On the remaining weight,
+\[
+ \int|\partial_j u-\partial_j v|^2(r-m_h)
+ \le2h\mathcal R_s(r)
+       (\norm{\partial_j u}_q^2+\norm{\partial_j v}_q^2).
+\]
+This proves coefficient eight and the asserted interpolation after summing coordinates.
+
+For transport, the coordinate norm sum is at most $dM^2$. Also $w=W_2(\mu,\nu)\le M$, by the triangle inequality through $\delta_0$ and the $L^q$ moment bound. If $w>0$, put $h=(w/M)^{2/3}\le1$ and use~\eqref{eq:P}; this gives~\eqref{eq:translation-map}. Zero cases follow from uniqueness.
+\end{proof}
+
+\begin{corollary}[Superquadratic confinement]\label{cor:polynomial}
+Let $r=Z^{-1}e^{-V}$, where $V\in C^1(\R^d)$ is $\kappa$-strongly convex. Suppose for some $m>1$ and finite positive constants $c,C$,
+\[
+ V(x)\ge c|x|^m-C,\qquad
+ |\nabla V(x)|\le C(1+|x|)^{m-1}.
+\]
+Then for every $q>2$, $\mathcal R_{q/(q-2)}(r)<\infty$, and the one-third estimate~\eqref{eq:translation-map} holds with $K_\rho=\sqrt{2/\kappa}$.
+In particular this covers $V(x)=\kappa|x|^2/2+|x|^m$ for every real $m>2$, although its Hessian is unbounded.
+\end{corollary}
+\begin{proof}
+For either unit coordinate shift of size $h\le1$, the fundamental theorem of calculus gives
+$|V(x\pm he_j)-V(x)|\le hG(x)$ with
+$G(x)=C(2+|x|)^{m-1}$. Hence
+\[
+ \left|r(x\pm he_j)/r(x)-1\right|
+ \le hG(x)e^{G(x)}.
+\]
+For every finite $s$, $(G e^G)^s$ is integrable against $r$: its exponential growth is $O(|x|^{m-1})$, strictly smaller than the confining order $c|x|^m$, and its polynomial factor is harmless. This proves~\eqref{eq:translation-assumption}. Strong log-concavity supplies~\eqref{eq:P} from 001. The displayed example is strongly convex and has the stated growth bounds.
+\end{proof}
+
+\begin{corollary}[Product superquadratic sources]\label{cor:product}
+For every fixed source
+\[
+ r(x)=\prod_{j=1}^d Z_j^{-1}
+       \exp(-\kappa_jx_j^2/2-\lambda_j|x_j|^{m_j}),
+ \quad \kappa_j,\lambda_j>0,\quad m_j>2,
+\]
+the map estimate has exponent $1/3$ for every finite target moment order $q>2$. If $d\ge2$, that exponent is sharp for each such fixed source, even for three-atom targets in $B_1$.
+\end{corollary}
+\begin{proof}
+A coordinate translation changes only its corresponding marginal. The preceding growth argument applies separately with exponent $m_j$, proving the translation-ratio condition despite possibly unequal growth orders. The source is strongly log-concave with parameter $\min_j\kappa_j$.
+
+For sharpness let $X,Z$ be its first two independent coordinates and put $F(t)=\Pr(|X|<t)$ for $t\ge0$. The even density of $X$ is bounded and has value $f_1(0)>0$, so $F(t)/t\to2f_1(0)$ and $F(t)\le C t$. Fix $k>0$, set $b=ka$, and choose $c_a$ from
+\[
+ \E F((c_a+kaZ)_+)=F(a)=:m_a.
+\]
+The left side increases continuously from zero to one, and has a unique solution at the positive level $F(a)$. Dominated convergence and monotone bracketing give $c_a/a\to c_0$, where $\E(c_0+kZ)_+=1$. The finite first moment of $Z$ suffices here. Its nondegeneracy implies
+\[
+ \frac1a\E|F((c_a+kaZ)_+)-F(a)|
+ \longrightarrow2f_1(0)\E|(c_0+kZ)_+-1|>0.
+\]
+Use convex potentials $u_a=\max(-x_1,x_1,a)$ and
+$v_a=\max(-x_1,x_1,c_a+ka x_2)$. Symmetry in $x_1$ gives the same outer masses. Their targets have outer atoms $\pm e_1$ and central atoms $0$ and $be_2$, respectively, all in $B_1$ for small $a$. Exactly as in the three-atom construction of 001, the target distance satisfies $W_2^2=m_ab^2\asymp a^3$, whereas the squared map discrepancy is the central-cell symmetric difference plus $m_ab^2$, and is $\asymp a$. This excludes every exponent above $1/3$. The calculation identifies every needed property of the new source; it does not appeal to class-level sharpness via a different Gaussian source.
+\end{proof}
+
+\section{A smooth full-support source with boundary-type instability}\label{sec:steep}
+The previous positive result cannot be deduced from smoothness, full support and strong log-concavity alone. We construct one fixed smooth source for which the general finite-moment exponent is optimal. The source does not depend on the moment order.
+
+\begin{theorem}[Smoothness and full support are insufficient]\label{thm:steep}
+For every $d\ge2$ there is a fixed strictly positive $C^\infty$ probability density $r$ on $\R^d$, with $-\log r$ having Hessian at least the identity, such that for every $q>2$ and every
+$\alpha>(q-2)/(3q-2)$,
+\[
+ \sup_{\substack{\mu,\nu\text{ two-atom targets}\\
+       \int|y|^q\,d\mu=\int|y|^q\,d\nu=1}}
+ \frac{\norm{T_\mu-T_\nu}_{L^2(r)}}{W_2(\mu,\nu)^\alpha}
+ =\infty.
+\]
+Together with Theorem~\ref{thm:transport}, this makes $(q-2)/(3q-2)$ the optimal power for each fixed $q>2$ for this same source. For $q=2$, the construction gives exact unit-second-moment targets with $W_2\to0$ but map discrepancy bounded away from zero. No boundary of the source support is present.
+\end{theorem}
+
+\subsection*{An explicit locally finite sequence of smooth steep layers}
+Let $\theta\in C^\infty(\R)$ be the increasing step equal to zero on $(-\infty,0]$, one on $[1,\infty)$, and on $(0,1)$ given by
+\[
+ \theta(t)=\frac{e^{-1/t}}{e^{-1/t}+e^{-1/(1-t)}}.
+\]
+All its derivatives are flat at the endpoints, and $\theta(1-t)=1-\theta(t)$. Put $\Psi(t)=\int_0^t\theta(s)\,ds$. Then $\Psi$ is smooth and convex, is zero for $t\le0$, and equals $t-1/2$ for $t\ge1$.
+
+Define recursively, for integers $n\ge2$,
+\[
+ B_n=\frac{n^2}{2}+\sum_{2\le j<n}M_j(n-j-\varepsilon_j/2),
+ \qquad D_n=n+\sum_{2\le j<n}M_j,
+\]
+\begin{equation}\label{eq:layer-parameters}
+ N_n=n^2\bigl(1+\lceil B_n+D_n\rceil\bigr),\quad
+ a_n=2^{-N_n},\quad M_n=a_n^{-2},\quad\varepsilon_n=a_n^4.
+\end{equation}
+Every step is an exact rational or integer definition, although the numbers grow extremely rapidly. Define
+\begin{equation}\label{eq:steep-potential}
+ V(x)=x^2/2+\sum_{n\ge2}M_n\varepsilon_n
+                       \Psi((x-n)/\varepsilon_n),\qquad
+ r_1(x)=Z_1^{-1}e^{-V(x)}.
+\end{equation}
+On every compact set only finitely many summands are nonzero. Hence $V$ is finite and $C^\infty$, with $V''\ge1$. All added terms are nonnegative, so $0<Z_1\le\sqrt{2\pi}$; a positive lower bound follows by integration over $(-1,0)$. Moreover $V(n)=B_n$ and $V'(n)=D_n$. Since every $\varepsilon_j<1/4$, all earlier layers are in their linear regimes at $n$. The recursion implies
+\begin{equation}\label{eq:layer-limits}
+ a_nD_n\longrightarrow0,\quad
+ \frac{B_n}{|\log a_n|}\longrightarrow0,\quad
+ \frac{\varepsilon_n}{a_n}\longrightarrow0,\quad
+ \frac1{M_na_n}\longrightarrow0.
+\end{equation}
+Indeed $N_n\ge n^2(1+B_n+D_n)$ and $|\log a_n|=N_n\log2$; the last two ratios are $a_n^3$ and $a_n$.
+
+\subsection*{Local tails converge to a hard-edge profile without a hard edge}
+Let $X$ have density $r_1$ and put $\beta_n=r_1(n)$. Define
+\[
+ G_n(t)=\frac{\Pr(X>n-a_nt)}{\beta_na_n}\quad(t\in\R).
+\]
+For every fixed real $t$,
+\begin{equation}\label{eq:profile-limit}
+ G_n(t)\longrightarrow t_+,
+ \qquad
+ 0\le G_n(t)\le t_+e^{t_+}+1.
+\end{equation}
+To prove this, the mass to the right of $n$ is bounded by
+\[
+ \Pr(X>n)\le\beta_n(\varepsilon_n+M_n^{-1}):
+\]
+the layer interval costs at most $\beta_n\varepsilon_n$, and afterward $V'\ge M_n$, so its remaining tail costs at most $\beta_n/M_n$. After division by $\beta_na_n$ this tends to zero. For $t>0$ the remaining interval is $[n-a_nt,n]$. For fixed $t$ it lies between consecutive layers for all large $n$, where
+\[
+ V(n-a_ns)=B_n-D_na_ns+a_n^2s^2/2\quad(0\le s\le t).
+\]
+Equation~\eqref{eq:layer-limits} makes its normalized integral tend to $t$. For arbitrary $t>0$, convexity at $n$ gives
+$r_1(n-a_ns)/\beta_n\le e^{D_na_ns}$. Since $D_na_n\le1$, the global bound in~\eqref{eq:profile-limit} follows, including the vanishing right tail; for $t\le0$ use that right-tail bound alone.
+
+Set the $d$-dimensional source to be
+\[
+ r(x)=r_1(x_1)\prod_{j=2}^d\varphi(x_j),
+ \qquad \varphi(t)=(2\pi)^{-1/2}e^{-t^2/2}.
+\]
+It has the smoothness, positivity and convexity properties in the theorem. Its slice functional is finite: $V(r)=Z_1^{-1}+(d-1)/\sqrt{2\pi}$, since $V$ has its minimum zero at the origin and each marginal is unimodal.
+
+\subsection*{Two rare atoms with exactly normalized moments}
+Fix $k>0$, let $Z\sim N(0,1)$ be independent of $X$, and set
+$m_n=\Pr(X>n-a_n)=\beta_na_nG_n(1)$ and $b_n=ka_n$.
+Choose $s_n\in\R$ to match the half-space masses:
+\begin{equation}\label{eq:layer-mass-match}
+ \E G_n(s_n+kZ)=G_n(1).
+\end{equation}
+The unnormalized tail on the left is continuous and strictly increasing from zero to one as $s_n$ increases, so the solution exists uniquely. The majorant in~\eqref{eq:profile-limit} is Gaussian-integrable for $t=s+kZ$, uniformly for bounded $s$. Dominated convergence and monotone bracketing yield
+\[
+ s_n\to s_0,\qquad \E(s_0+kZ)_+=1.
+\]
+In particular $(s_n)$ is bounded. For the cells
+\[
+ A_n=\{x_1>n-a_n\},\qquad
+ C_n=\{x_1+b_nx_2>n-a_ns_n\},
+\]
+both masses equal $m_n$, and the nested intervals on each $x_2$ slice give
+\begin{equation}\label{eq:layer-symdiff}
+ \frac{r(A_n\mathbin\triangle C_n)}{m_n}
+ =\frac{\E|G_n(s_n+kZ)-G_n(1)|}{G_n(1)}
+ \longrightarrow d_0:=\E|(s_0+kZ)_+-1|>0.
+\end{equation}
+This limit uses the same Gaussian-integrable majorant. Nondegeneracy of $Z$ makes $d_0$ strictly positive.
+
+For $q\ge2$, put $R_n=m_n^{-1/q}$ and
+$v_n=(e_1+b_ne_2)/\sqrt{1+b_n^2}$. Use targets
+\[
+ \mu_n=(1-m_n)\delta_0+m_n\delta_{R_ne_1},\qquad
+ \nu_n=(1-m_n)\delta_0+m_n\delta_{R_nv_n}.
+\]
+Their $q$th moments are exactly one. Their convex potentials are
+\[
+ u_n(x)=R_n(x_1-n+a_n)_+,\qquad
+ w_n(x)=\frac{R_n}{\sqrt{1+b_n^2}}
+             (x_1+b_nx_2-n+a_ns_n)_+.
+\]
+Their gradients have the stated target laws by~\eqref{eq:layer-mass-match}, and integrating convex supporting inequalities proves quadratic optimality. All functions have at most linear growth for each fixed $n$, so source integrability causes no difficulty.
+
+Let $\Delta_n=|e_1-v_n|\sim ka_n$. A target coupling sends some mass $t\le m_n$ between the two rare atoms and the remaining rare mass through zero. Its cost is
+$R_n^2[t\Delta_n^2+2(m_n-t)]$. Since $\Delta_n^2<2$, the optimum is $t=m_n$, which is feasible. Hence
+\[
+ W_2(\mu_n,\nu_n)^2=m_nR_n^2\Delta_n^2.
+\]
+The exact map-cost identity is
+\[
+ \norm{T_{\mu_n}-T_{\nu_n}}_{L^2(r)}^2
+ =R_n^2\bigl(r(A_n\mathbin\triangle C_n)
+                  +\Delta_n^2r(A_n\cap C_n)\bigr).
+\]
+Writing $\vartheta_q=1/2-1/q$, equation~\eqref{eq:layer-symdiff} gives
+\begin{equation}\label{eq:layer-costs}
+ \norm{T_{\mu_n}-T_{\nu_n}}_2\sim\sqrt{d_0}\,m_n^{\vartheta_q},
+ \qquad W_2(\mu_n,\nu_n)\sim k a_nm_n^{\vartheta_q}.
+\end{equation}
+Finally $m_n=Z_1^{-1}e^{-B_n}a_n(1+o(1))$, so~\eqref{eq:layer-limits} implies
+\[
+ \frac{\log m_n}{\log a_n}\longrightarrow1.
+\]
+For any $\alpha>\vartheta_q/(1+\vartheta_q)=(q-2)/(3q-2)$, the logarithm of the ratio in Theorem~\ref{thm:steep}, divided by $|\log a_n|$, tends to
+$\alpha-\vartheta_q(1-\alpha)>0$. This proves divergence. At $q=2$,~\eqref{eq:layer-costs} gives map distance tending to $\sqrt{d_0}>0$ while $W_2\to0$. The source is the same for every $q$, and the matching upper exponent follows from Theorem~\ref{thm:transport} and the strong-log-concavity potential estimate. This completes the proof of Theorem~\ref{thm:steep}.
+
+\begin{remark}[What the counterexample distinguishes]
+The loss from $1/3$ is not a phenomenon exclusive to hard source boundaries. The source above is smooth and has full support, but its derivatives contain increasingly steep layers and its Hessian is unbounded. In contrast, polynomial confinement and the globally bounded-Hessian class satisfy an integrable translation-ratio bound and retain $1/3$. The construction is a separate two-atom example, not an inference from the one-dimensional interpolation ramp. Its lower bounds require no unproved source stability input; that input is used only for the matching upper estimate.
+\end{remark}
