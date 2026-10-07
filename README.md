@@ -212,11 +212,13 @@ with violations at infinitely many unbounded degrees.
 ## Improved binary tensor lower constant
 
 The [two-band binary tensor companion](notes/binary-tensor-two-band-lower-bound/README.md)
-gives, for every tensor order p >= 10, an explicit exact family that raises
-the normalized complete-commutator rigidity lower constant from
-\(2^{-3/4}=0.5946035\ldots\) to
-\(\sqrt{(2+\sqrt2)/(2(3+\sqrt2))}=0.6218758\ldots\).
-The projection maximum and Gram residual are proved in closed form; an exact
-standard-library Q(sqrt(2)) checker supplies diagnostic replay.  The upper
-constant \(2^{-1/2}\), convergence question and optimal leading constant
-remain unchanged and open.
+gives, for every tensor order p >= 10, an explicit exact family whose own
+normalized asymptotic constant is
+\(\sqrt{(2+\sqrt2)/(2(3+\sqrt2))}=0.6218758\ldots\), improving the
+original \(2^{-3/4}\) family. The projection maximum and Gram residual are
+proved in closed form; an exact standard-library Q(sqrt(2)) checker supplies
+diagnostic replay. The
+[boundary-profile continuation](notes/boundary-profile-binary-tensor-rigidity/README.md)
+subsequently raises the overall rigorous liminf lower bound above 0.623586.
+The upper constant \(2^{-1/2}\), convergence question and optimal leading
+constant remain open.
