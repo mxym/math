@@ -13,7 +13,7 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
 | 005 | [Projection-volume calculus, endpoint rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v5 | Complete written proof; balanced-recursion optimum, symmetric equality classification and exact replay |
-| 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
+| 006 | [Modulus-controlled nonlinear avoidance and log-bi-Lipschitz profile extensions](preprints/006-modulus-nonlinear-similarity/README.md) | v2 | Complete written proof draft; profile invariance and inherited exact robust-cover replay |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support counterexample |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
 | 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
@@ -58,7 +58,7 @@ The [30-page transport manuscript](preprints/001-strongly-log-concave-brenier/v3
 
 ## Nonlinear similarity extension
 
-[006](preprints/006-modulus-nonlinear-similarity/README.md) excludes all finite-order images controlled by prescribed countable families of vanishing remainder moduli. It includes all nonflat smooth and nonconstant analytic germs for configurations satisfying the logarithmic-density hypothesis. It explicitly does not exclude all C1 diffeomorphisms or flat smooth maps, and does not solve the unrestricted Erdos similarity conjecture.
+[006 v2](preprints/006-modulus-nonlinear-similarity/v2/README.md) extends the same robust-routing theorem from integer monomial leading terms to arbitrary prescribed countable families of log-bi-Lipschitz profiles. It covers positive power and power-log profiles and, by taking all rational powers and the standard power moduli, every convergent Puiseux germ with finite limit at zero. The endpoint restrictions remain: arbitrary C1 diffeomorphisms and flat smooth germs are not excluded.
 
 ## Transport version 4: focused logarithmic-moment continuation
 
