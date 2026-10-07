@@ -230,3 +230,7 @@ diagnostic replay. The
 subsequently raises the overall rigorous liminf lower bound above 0.623586.
 The upper constant \(2^{-1/2}\), convergence question and optimal leading
 constant remain open.
+
+## A nineteen-edge necessary bound for rank-six Ryser
+
+The [rank-six degree theorem](research/ryser-rank-six/NINETEEN_EDGE_BOUND.md) proves that every intersecting six-partite six-uniform hypergraph with at most eighteen distinct edges has a five-cover, without bounding the vertices in each part. A six-page proof, exact replay of all 134,596 final degree-pattern combinations, a separate scalar certificate and three partial Lean exports are included. Thus a rank-six counterexample would need at least nineteen edges. The unrestricted conjecture remains unresolved here; the [source comparison](research/novelty-assessment/2026-10-07-ryser-nineteen-edge-precedent.md) distinguishes this partite bound from the general cover-number problem and records finite literature scope. Root-flower, private-neighbour and first-case edge-criticality constraints support continued witness searches.

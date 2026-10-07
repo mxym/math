@@ -1,6 +1,50 @@
 # Rank-six Ryser exploration: explicit scope and certificate interface
 
-7 October 2026. This is an exploratory programme, **not a mathematical result or a claimed counterexample**.
+7 October 2026. This programme combines a proved necessary edge-count bound
+with exploratory searches. **No Ryser counterexample or unrestricted
+nonexistence theorem is claimed.**
+
+## Proved necessary condition
+
+The [nineteen-edge theorem](NINETEEN_EDGE_BOUND.md) proves that every
+intersecting six-partite six-uniform hypergraph with at most eighteen
+distinct edges has a cover of size at most five, without a bound on the
+vertices in each part. An assumed counterexample forces every active
+vertex degree to be at least two. Counting repeated intersections then
+gives a degree-partition inequality. Six sufficient patterns and a
+strict negative integer certificate exclude the last eighteen-edge case.
+[PDF](nineteen-edge-bound.pdf) · [Exact checker](check_degree_bound.py) ·
+[Three partial Lean certificates](formal/DegreeCertificate.lean).
+
+```sh
+python3 -B check_degree_bound.py
+python3 -B -O check_degree_bound.py
+python3 verify_degree_bound.py
+cd formal
+./bootstrap.sh
+```
+
+The independent exact replay exhausts all 19 possible part-degree patterns,
+all 134,596 unordered six-part combinations, and a separate 462-case
+reduced count certificate. The written proof gives a direct scalar
+certificate, rather than relying only on an enumeration status. Lean
+checks the three scalar inequalities; hypergraph definitions and their
+reductions remain written proofs. No human peer review or full Lean
+formalization is claimed.
+
+`DEGREE_MANIFEST.json` and `DEGREE_SHA256SUMS` bind the theorem, PDF, exact
+checkers, partial Lean source and the associated search-interface changes.
+With Lean on PATH, `python3 verify_degree_bound.py --lean` replays all three
+exports against their recorded axioms. PDF rebuilding uses
+`./build_degree_bound.sh /tmp/ryser-nineteen-edge-pdf` and does not alter the
+published `nineteen-edge-bound.pdf`.
+
+The [rank-six status comparison](../novelty-assessment/2026-10-07-ryser-rank-six-status.md)
+distinguishes the intersecting case from general Ryser. The [edge-count
+comparison](../novelty-assessment/2026-10-07-ryser-nineteen-edge-precedent.md)
+records the 2026 general bound q(6)>=14 and the separate tau=5 result
+f(6)=13. Our theorem is a nineteen-edge necessary condition for the
+six-partite subclass; it does not assert q(6)>=19 or priority.
 
 The classical intersecting form of Ryser's question asks whether every intersecting r-partite r-uniform hypergraph has a vertex cover of size at most r-1. The pinned OpenAI large-prime construction does not settle rank six. Our target is an explicit six-partite intersecting witness with cover number six, or a structurally meaningful theorem about this rank.
 
@@ -45,6 +89,16 @@ At the pinned python-sat version and q=6, runs with N=24 and N=48, each limited 
 A q=7, N=36 run, also limited to 240 seconds, examined 759 models without a checked counterexample. Here q bounds the number of available vertices per part; the hypergraph rank remains six. A variable-shadowing defect in an initial extension was detected and corrected before these recorded runs. The corrected search and cover oracle were checked with both widths.
 
 Next meaningful searches should exploit additional structure, vary the vertex bound, or incorporate certified exhaustive subfamilies. Merely extending an unsuccessful time limit is not evidence of a theorem.
+
+The [root-flower reduction](ROOT_FLOWER.md) now supplies safe symmetry
+normalizations and the every-edge private-neighbour necessary condition.
+A q=6, N=36 root-flower/label-precedence run examined 360 models within
+240 seconds without a checked counterexample. A q=7, N=24 run also requiring
+private neighbours for every edge examined no SAT model within 240 seconds.
+Both are bounded experiments, not proof certificates. For any tau=6
+candidate with N distinct edges, degree>=2 implies at most floor(N/2)
+active vertices in a part. Thus a search at N=19, q=9 covers the possible
+vertex widths of that edge-count case, but a timeout still excludes nothing.
 
 ## A concrete barrier to copying the large-prime template
 

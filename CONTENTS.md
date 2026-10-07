@@ -159,3 +159,7 @@ two-band constant 0.6218758237.... Two exact rational checkers certify the
 explicit three-term profile. It lies strictly outside the concurrently
 proved axis-local fixed-band optimality class, providing an off-axis
 mechanism improvement. The sharp leading constant remains open.
+
+## Rank-six Ryser: necessary nineteen-edge bound
+
+[Nineteen-edge theorem](research/ryser-rank-six/NINETEEN_EDGE_BOUND.md): every intersecting six-partite six-uniform hypergraph with at most eighteen distinct edges has tau<=5; the vertex widths are unrestricted. [PDF](research/ryser-rank-six/nineteen-edge-bound.pdf), exact full degree-pattern replay, a separate integer certificate and three partial Lean exports are supplied. The [search programme](research/ryser-rank-six/README.md) continues at nineteen edges with structural reductions. No unrestricted Ryser solution, general q(6)>=19 statement or priority claim is made.
