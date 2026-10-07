@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — manuscript 001 version 5 and supporting audits
+
+- Added exact minimum-density weight and fixed-source Sobolev little-o results; cross-credited the root-density/Fisher criterion shared with 008.
+- Added a smooth full-support construction with the necessary stronger scale separation for stretched-exponential logarithmic-power obstructions, with sequence and endpoint qualifications explicit. Retained the complete v4 Gaussian results and pinned v3 potential dependency.
+- Added a separately audited six-page hard-boundary stretched-exponential supplement and an independent analytic audit/expanded exact replay of 008. No additional numbered paper or duplicate-result count.
+- Added a dated 005 clarification: explicit spectral exponential bound, fixed-dimension stability scope, and a later navigation-only historical hash difference. Frozen v2/v3 files are unchanged.
+- Preserved historical papers and parallel publications; recorded source, build, review, and changed-file hashes.
+
 ## 2026-10-07 — manuscript 005 version 3
 
 - Proved the random-law determinant comparison with complete simplex-support lower-equality cases under a finite first moment; retained singular horizontal tuples and derived an exact cancellation-defect identity with finite sign witnesses.

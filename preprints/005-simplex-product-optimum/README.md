@@ -2,6 +2,8 @@
 
 **Latest: [version 3 — random-determinant rigidity and explicit spectral amplification](v3/README.md).** Read the [complete proof](v3/paper.md), [audit](v3/PROOF_AUDIT.md), [exact certificate](v3/certificates/exact.json), and [replay report](v3/results/check.json).
 
+**Dated clarification:** [Spectral finiteness, fixed-dimension stability, and historical v2 hashes](../../reviews/2026-10-07-projection-spectral-clarification.md). The theorem statements are unchanged; the note corrects a research-log phrase and makes the exponential bound explicit.
+
 Version 3 proves simplex equality for the cone invariant for **all convex bodies**, not just polytopes; a uniform qualitative affine stability statement; the sharp centrally symmetric bound $a\le1/2$; a general random-law determinant comparison with complete lower-equality cases; and an explicit Cartesian-square operation strictly improving every finite-dimensional spectral value. The optimal recursive asymptotic constant and a quantitative geometric stability exponent remain undetermined. First complete v3 disclosure: [`43bb307`](https://github.com/mxym/math/commit/43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc).
 
 [Version 2](v2/README.md) contains the exact product/join calculus, the sharp recursive-class threshold in dimension fourteen and the certified $2.8534<\Lambda<2.8535$ self-similar family. Its [spectral supplement](v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md) identifies the join-closed asymptotic growth rate as $e\sup\lambda$. Version 3 does not claim to determine that supremum or improve the numerical rate.

@@ -1,0 +1,54 @@
+Verification record for research manuscript 001 v5
+7 October 2026
+
+Final source SHA-256:
+61f7d07e0072e237d9d108fc5a663d6d21d47f1c704958b36c4787cbce533fe4
+Final PDF SHA-256:
+ac39b675676d9fb3ee9ecac34d7082a319b6406d59dda2b7dc82aaa7020fefb6
+PDF length: 26 pages
+
+Build and layout
+- Native LaTeX source compiled with BibTeX and repeated pdflatex passes.
+- Final log contains no warning, error, overfull, underfull or undefined
+  reference/citation messages.
+- All 114 distinct labels resolve, with no duplicate labels.
+- All pages were rendered at 110 dpi and visually inspected. Every changed
+  page was rendered and inspected again after the final edits; unchanged page
+  images were checked by hash. No clipping, overlaps, lost symbols, malformed
+  commands or excessive equation widths remain.
+- All ten references are gathered on page 26.
+- A separate clean rebuild using build.sh gives a 26-page PDF with byte-
+  identical layout text. The frozen source and PDF were not rebuilt in place
+  during that check.
+
+Mathematical scope checks
+- Arbitrary-density interpolation is separated from the imported transport
+  potential theorem; BV and Sobolev regularity are not treated as substitutes.
+- All zero-density and proper-convex-domain conventions are explicit.
+- The directional BV norm includes jumps and uses S, twice manuscript 007's V.
+- Fixed-source uniform little-o statements and their excluded q=infinity
+  endpoint are explicit.
+- Gaussian log-moment normalizations, beta=0 obstruction, d=1 exception and
+  exact finite-q constant normalization are preserved.
+- The smooth construction uses the revised doubly exponential recursion.
+- Finite-q and stretched-exponential endpoint ratios tend to zero; the
+  logarithmic-second-moment example alone has a positive limiting ratio.
+- Gaussian proximity is total variation and forward KL only.
+- Manuscript 007's overlapping results and adaptable conclusions are credited.
+  Manuscript 008 is cross-credited for the same root-density/Fisher criterion.
+  No priority claim or source classification is inferred from overlap.
+- Pinned 007 and 008 source/PDF paths were verified in their exact Git trees;
+  the first 007 extension is distinguished from the later complete assembly.
+
+Fresh independent assembly review: PASS on the final source and bibliography.
+The complete mathematical body, constants, endpoint scopes and proof dependency
+were checked. The final editorial diff and corrected pinned references were
+verified. A separate independent clean build reproduced the 26-page layout
+text with a clean log. No required mathematical correction remains.
+This record is a research verification summary, not external peer review or a
+proof-assistant certificate.
+
+Preservation
+The v1, v2, v3 and v4 source/PDF hashes were checked against their previously
+frozen identities and agree. No historical version or public staging file was
+changed while producing this version.

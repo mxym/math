@@ -1,3 +1,26 @@
+# Source regularity and sharp Brenier stability under target moment bounds
+
+Version **v5**, prepared 7 October 2026. A coherent continuation of manuscript 001.
+
+- [Version 5 PDF](v5/manuscript.pdf), [complete editable source](v5/manuscript.tex), and [bibliography](v5/references.bib)
+- [Source archive](v5/transport_latex_source_v5.zip), [scope and build instructions](v5/README.txt), [changes](v5/CHANGELOG.txt), [verification record](v5/QA.txt), and [file hashes](v5/SHA256SUMS)
+- [Version 4 PDF](v4/manuscript.pdf) and [complete broader version 3 PDF](v3/manuscript.pdf)
+- [Version 5 assembly audit](../../reviews/2026-10-07-transport-v5-assembly.md)
+
+## Version 5 scope and dependencies
+
+The paper proves a minimum-density finite-difference inequality for proper convex potentials under its explicit domain conventions, allowing zero and disconnected density support. It gives the sharp universal weight-mean coefficient seven and the exact first-order weight limit for W1,1 densities. For each fixed such density, bounded finite-q and stretched-exponential gradient classes have uniform little-o improvements over the general BV rates. These improvements do not imply a larger power or a smaller logarithmic power.
+
+The global root-density Sobolev criterion gives one-third interpolation and, when the separately stated potential estimate holds, transport stability. This criterion overlaps the parallel result in [008](../008-density-overlap-phase/README.md) and is cross-credited. The explicit density proportional to exp(-exp(x²)) shows that root-density control is strictly weaker than the earlier raw translation-ratio condition. Density Sobolev regularity alone is not claimed to provide the potential estimate.
+
+A single smooth, positive, full-support strongly log-concave source, arbitrarily close to Gaussian in total variation and forward relative entropy, exhibits the general finite-q sharp powers and the stretched-exponential sharp logarithmic powers. Its endpoint ratios tend to zero in those two regimes, consistently with the fixed-source little-o results. The logarithmic-second-moment lower scale is attained along a sequence; no all-small-distance lower envelope or reverse-relative-entropy claim is made. The earlier finite-q and q=2 geometry in [007 v2](../007-tail-brenier-stability/v2/README.md) and its adaptations are explicitly credited.
+
+The v4 Gaussian logarithmic-second-moment and critical-constant proofs are retained. Transport estimates use the public all-P2 centered-potential theorem in [001 v3](v3/manuscript.tex), pinned at 5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3. The paper restates its hypotheses and conclusion; it does not re-prove the cell-calculus dependency.
+
+Research draft with independent model audits, not external human peer review or full formal verification. No novelty, priority, or journal-tier certification is made. All historical version files remain unchanged.
+
+## Historical version 4 description
+
 # Sharp Gaussian Brenier stability under logarithmic second moments
 
 Version **v4**, prepared 7 October 2026. A focused 13-page continuation of manuscript 001.

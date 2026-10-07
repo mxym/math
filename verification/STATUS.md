@@ -59,3 +59,9 @@ Version 4 is a focused 13-page continuation. Its logarithmic-moment, minimum-den
 The final source/PDF match their frozen hashes. All 13 pages were visually inspected; final compilation reported no warnings, undefined references/citations, missing symbols, or overfull/underfull boxes. All 50 label targets resolve. A separate-directory build reproduced 13 pages and identical extracted text. Source archive and local bibliography inputs are supplied. Artifact checks and informal assembly reviews are not formal verification or external peer review.
 
 The new logarithmic theorem's hard-boundary exclusion, higher-dimensional sharpness and endpoint restrictions, class-level smooth-source sharpness, and exact one-dimensional isometry are explicit. Earlier broader v3 results and all unrelated manuscripts are preserved, not retracted or subsumed by the shorter v4 paper.
+
+## Version 5 transport and supporting checks
+
+See the [source-pinned assembly audit](../reviews/2026-10-07-transport-v5-assembly.md) and [artifact record](../preprints/001-strongly-log-concave-brenier/v5/QA.txt). The exact weight, Sobolev little-o, root-density sufficient condition, and smooth-source counterexample were also checked in separate mathematical passes. Finite sanity checks and successful builds are not formal proofs. The 007 bibliography links and the 008 overlap attribution were specifically checked before publication.
+
+The [008 audit](../reviews/2026-10-07-density-overlap-independent-audit.md) independently reconstructs its analytic proof and replays the inspected published checker at expanded settings. It does not claim a new independent checker implementation or an independent PDF rebuild. The hard-boundary stretched-exponential supplement has a self-contained lower construction and explicitly imported upper estimates.

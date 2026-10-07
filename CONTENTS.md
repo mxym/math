@@ -2,7 +2,7 @@
 
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
-| 001 | [Sharp Gaussian Brenier stability under logarithmic second moments](preprints/001-strongly-log-concave-brenier/README.md) | v4 | Research draft |
+| 001 | [Source regularity and sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v5 | Research draft; source regularity and sharp target-tail distinctions |
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite rational-cover checker |
@@ -38,3 +38,11 @@ Its Gaussian logarithmic-target-moment threshold is distinct from 008's source-b
 ## Projection geometry version 3
 
 [005 v3](preprints/005-simplex-product-optimum/v3/README.md) extends lower-bound equality from polytopes to all convex bodies, proves qualitative affine stability and a sharp symmetric cone bound, and gives an explicit Cartesian-square spectral amplification theorem. The complete proof and exact replay were disclosed in `43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc`. The [read-only verification workflow](.github/workflows/projection-rigidity-exact.yml) replays rational checks and byte-identity comparisons; it does not rewrite published files. Historical v1.1 and v2 statements and their scopes are retained.
+
+## Manuscript 001 version 5: source regularity
+
+[Version 5](preprints/001-strongly-log-concave-brenier/v5/README.txt) combines the v4 Gaussian results with an exact minimum-density weight, fixed-source Sobolev little-o refinements, and stronger smooth-source target-tail obstructions. The root-density/Fisher criterion overlaps [008](preprints/008-density-overlap-phase/README.md) and is explicitly cross-credited, not counted twice. Its strict comparison with raw translation ratios and its endpoint qualifications are stated in full. The finite-q and stretched-exponential endpoint lower ratios tend to zero; the assertions are sharp powers, not matching positive endpoint constants or all-small-distance envelopes.
+
+A [six-page supplement](notes/stretched-exponential-sharpness/README.md) proves matching stretched-exponential logarithmic lower bounds for fixed hard-boundary examples. It is a supplement to 001 and 007, not a new numbered paper. The [008 independent audit](reviews/2026-10-07-density-overlap-independent-audit.md) includes expanded exact replays. Historical sources remain unchanged.
+
+See the [source-regularity reconciliation](comparisons/2026-10-07-source-regularity-reconciliation.md) for the overlap among 001 v5, 007 v2 and 008, and the focused earlier boundary-density comparison.
