@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — manuscript 001 version 4
+
+- Added a focused 13-page continuation on sharp logarithmic second moments: full-Gaussian exponent min(1/3, beta/(beta+1)), the loss-free beta=1/2 transition, and the beta=0 no-uniform-modulus obstruction in dimension at least two.
+- Established the exact order (q−2)^(-1/6) of the best finite-q Gaussian one-third constant for fixed dimension at least two, with exact normalized constant one in dimension one.
+- Included the stated full-support strongly convex C1,1 source extension with globally Lipschitz gradient; no arbitrary hard-boundary extension or individual sharpness for every non-Gaussian source is claimed.
+- Explicitly uses the complete public v3 all-P2 potential theorem at commit 5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3. The theorem is restated as a proof input, not independently re-proved. Version 3 retains the broader earlier results and full cell-calculus proof.
+- Preserved all historical versions and unrelated entries. Added local build inputs, source archive, artifact checks, and a changed-file SHA-256 manifest. No formal verification, external peer review, or priority certification is claimed.
+
 ## 2026-10-07 — transport and quadratic version 3
 
 - Manuscript 002: 26-page version 3 with arbitrary nonzero nonunit principal-generator certificates, exact quotient-component bounds, and selected-norm restoration.

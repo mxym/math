@@ -8,7 +8,7 @@ Mathematical research manuscripts and supporting verification material maintaine
 
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
-| 001 | [Sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v3 | Research draft |
+| 001 | [Sharp Gaussian Brenier stability under logarithmic second moments](preprints/001-strongly-log-concave-brenier/README.md) | v4 | Research draft |
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
@@ -57,3 +57,9 @@ The [30-page transport manuscript](preprints/001-strongly-log-concave-brenier/v3
 ## Nonlinear similarity extension
 
 [006](preprints/006-modulus-nonlinear-similarity/README.md) excludes all finite-order images controlled by prescribed countable families of vanishing remainder moduli. It includes all nonflat smooth and nonconstant analytic germs for configurations satisfying the logarithmic-density hypothesis. It explicitly does not exclude all C1 diffeomorphisms or flat smooth maps, and does not solve the unrestricted Erdos similarity conjecture.
+
+## Transport version 4: focused logarithmic-moment continuation
+
+The [13-page v4 paper](preprints/001-strongly-log-concave-brenier/v4/manuscript.pdf) proves the sharp full-Gaussian logarithmic-moment exponent min(1/3, beta/(beta+1)), including the loss-free beta=1/2 transition, and the exact order (q−2)^(-1/6) of the best finite-q one-third constant as q decreases to two. Sharpness and the beta=0 no-uniform-modulus obstruction are for dimension at least two; dimension one is isometric. Its stated full-support smooth strongly convex source extension does not include arbitrary hard boundaries.
+
+This focused continuation explicitly uses the complete public v3 all-P2 potential theorem; it restates that input rather than re-proving its cell-calculus argument. [Version 3](preprints/001-strongly-log-concave-brenier/v3/manuscript.pdf) remains the full record of the broader earlier potential, compact-source, tail, curve, and conditional-cell results. All historical files and independent entries are preserved. See the [precise dependency and scope](preprints/001-strongly-log-concave-brenier/README.md) and [v4 changed-file manifest](releases/2026-10-07-v4.json).

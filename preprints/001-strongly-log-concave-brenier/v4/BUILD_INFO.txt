@@ -1,0 +1,18 @@
+Build information for manuscript 001 version 4
+
+Typesetting: pdfTeX 3.141592653-2.6-1.40.26, TeX Live 2025/dev/Debian;
+LaTeX, BibTeX with plain bibliography style, 11-point Latin Modern, US Letter.
+Visual inspection: Poppler pdftoppm page renders at 120 dpi.
+
+Run sh build.sh in the artifact directory. The LaTeX build needs no network
+resources, external figures or downloaded assets. manuscript.bbl is included
+alongside its editable references.bib input.
+
+The public v3 reference is a mathematical proof dependency, not a network build
+dependency. Its exact hypotheses are restated in Theorem 2.1 and its immutable
+source/PDF links are in the paper and README.
+
+SHA256SUMS identify the exact distributed snapshot. Rebuilding with different
+TeX/font/package versions or PDF timestamps can change binary hashes without
+changing mathematical content. A separate-directory rebuild is checked for
+matching page count and extracted text before final delivery.

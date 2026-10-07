@@ -2,7 +2,7 @@
 
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
-| 001 | [Sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v3 | Research draft |
+| 001 | [Sharp Gaussian Brenier stability under logarithmic second moments](preprints/001-strongly-log-concave-brenier/README.md) | v4 | Research draft |
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite rational-cover checker |
@@ -24,3 +24,7 @@ For 006--007 see the [cross-audit](verification/2026-10-07-cross-audit-and-exten
 - [Gaussian finite-moment stability: focused literature comparison](comparisons/2026-10-07-gaussian-finite-moments.md). Comparison for the transport v3 finite-moment extension.
 - [Additional model review of 004--005](reviews/2026-10-07-independent-model-review.md), including independent exact replays and the known non-simplex rate comparison.
 - [Nonlinear avoidance and transport-tail reconciliation](comparisons/2026-10-07-modulus-tail-reconciliation.md), distinguishing inherited, overlapping, and additional results.
+
+## Manuscript 001 version 4 scope
+
+[Version 4](preprints/001-strongly-log-concave-brenier/v4/README.txt) is a focused logarithmic-moment continuation using the complete public v3 potential theorem as an explicit proof input. It does not replace v3's broader results or claim to re-prove that input. The [v4 manifest](releases/2026-10-07-v4.json) identifies the changed files.
