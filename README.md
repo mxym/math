@@ -177,3 +177,16 @@ The [new tensor research note](notes/global-orthogonal-tensor-rigidity/README.md
 ## Sharp binary tensor bounds and optimal order growth
 
 The [binary tensor companion](notes/sharp-binary-tensor-rigidity/README.md) determines the optimal growth order p^(1/4) of the best complete-commutator error constant in dimension two, and proves the exact quartic constant 3^(1/4)/sqrt(2) with full equality classification. A nine-page proof, exact standard-library checker, nine partial Lean exports and a frozen inventory are included. These results use no OpenAI theorem. The [binary benchmark comparison](research/novelty-assessment/2026-10-07-binary-odeco-benchmarks.md) and [dimension screening](research/novelty-assessment/2026-10-07-tensor-dimension-screen.md) record read literature and unresolved novelty questions; no priority or whole-paper formalization claim is made.
+
+## Simultaneous harmonic-degree blocks
+
+The [harmonic-dimension block note](notes/simultaneous-harmonic-degree-blocks/README.md)
+extracts a quantitative consequence of OpenAI/math family 361. For every
+block ratio beta < 3/2 and every sufficiently large starting integer k, one
+near-Euclidean complete Ricci-nonnegative metric on R^3 violates the
+Euclidean polynomial-growth harmonic-dimension comparison simultaneously
+at every integer degree from k through floor(beta(k+1))-1. More generally,
+an A-factor excess is obtained throughout the block whenever
+A beta^2 < 9/4. The proof is exact and uses only degree monotonicity plus
+the pinned upstream one-degree theorem. It does not give one fixed metric
+with violations at infinitely many unbounded degrees.
