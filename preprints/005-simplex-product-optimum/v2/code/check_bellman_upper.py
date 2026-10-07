@@ -11,9 +11,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from fractions import Fraction as Q
 from functools import lru_cache
 from pathlib import Path
+
+if hasattr(sys, "set_int_max_str_digits"):
+    sys.set_int_max_str_digits(0)
 
 
 def require(cond: bool, msg: str) -> None:
