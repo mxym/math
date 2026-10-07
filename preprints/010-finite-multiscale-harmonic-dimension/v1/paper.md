@@ -237,6 +237,16 @@ where the supports are disjoint, each \(C_r\) is one cycle on \(I_r\),
 and every position outside the union of the \(I_r\) is fixed.  No
 unwanted crossing occurs through \(p+1\).
 
+Let
+\[
+ Q=\operatorname{lcm}(N_1,\ldots,N_m),\qquad
+ N_r=|I_r|.
+\]
+After \(QS\), every continued eigenvalue returns to its original ordered
+position; after at most \(2QS\), the chosen real eigenframe also returns,
+allowing for signs.  Thus all pairwise frequency differences used by the
+matching argument have one common finite period.
+
 ## 4. Mean frequencies for all scales at once
 
 The crucial point is that adding the other bands does not change the
@@ -268,9 +278,10 @@ Therefore, ignoring the finitely many crossing phases of measure zero,
    \sum_{j\in I_r}\mathfrak d(a^{-2}\lambda_j(H(t)))\,dt.
  \tag{4.1}
 \]
-This identity is exact.  In particular, the durations and geometry of all
-the other band loops are already averaged over the full set of ranks in
-\(I_r\); they create no extra error term.
+This identity is exact.  Repeating it \(Q/N_r\) times shows that the
+same value is also the mean over the common period \(QS\).  In particular,
+the durations and geometry of all the other band loops are already averaged
+over the full set of ranks in \(I_r\); they create no extra error term.
 
 Applying (2.1) rank by rank to (4.1) gives precisely the left side of
 (3.3).  Hence every label in \(I_r\) has mean frequency strictly below
