@@ -203,6 +203,8 @@ remain local projection maxima; the new profile has
 an explicit off-axis escape from that sharp subclass. No priority or external
 peer-review claim is made.
 
+The [Fock-profile ceiling continuation](notes/fock-profile-ceiling-binary-tensor-rigidity/README.md) then completes the natural finite-first-moment profile variational problem, proves attainment, raises the tensor liminf lower bound to \(>0.6238973\), and certifies \(0.6238973<\kappa_{\rm prof}\le\sqrt{779/2000}=0.624099351\ldots\). This upper endpoint is a ceiling only for the reflected boundary-profile mechanism; the true tensor upper constant remains \(2^{-1/2}\).
+
 ## Simultaneous harmonic-degree blocks
 
 The [harmonic-dimension block note](notes/simultaneous-harmonic-degree-blocks/README.md)
