@@ -77,7 +77,8 @@ profile has
  =\frac{12346629}{9765625}>1,
 \]
 so the coordinate axis fails the necessary local-maximum condition above;
-the projection maximum moves off-axis. That continuation raises the current
+the projection maximum moves off-axis. That continuation historically raised the
 repository lower endpoint to
+The later [Fock-profile ceiling continuation](../fock-profile-ceiling-binary-tensor-rigidity/README.md) raises the current tensor liminf lower constant above 0.6238973 and nearly localizes the optimum of the full reflected-profile mechanism.
 \(\liminf C_p/p^{1/4}>0.623586\). Thus the mechanism-optimality statement
 here remains sharp on its stated axis-local class.
