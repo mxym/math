@@ -193,3 +193,16 @@ an A-factor excess is obtained throughout the block whenever
 A beta^2 < 9/4. The proof is exact and uses only degree monotonicity plus
 the pinned upstream one-degree theorem. It does not give one fixed metric
 with violations at infinitely many unbounded degrees.
+
+
+## Improved binary tensor lower constant
+
+The [two-band binary tensor companion](notes/binary-tensor-two-band-lower-bound/README.md)
+gives, for every tensor order p >= 10, an explicit exact family that raises
+the normalized complete-commutator rigidity lower constant from
+\(2^{-3/4}=0.5946035\ldots\) to
+\(\sqrt{(2+\sqrt2)/(2(3+\sqrt2))}=0.6218758\ldots\).
+The projection maximum and Gram residual are proved in closed form; an exact
+standard-library Q(sqrt(2)) checker supplies diagnostic replay.  The upper
+constant \(2^{-1/2}\), convergence question and optimal leading constant
+remain unchanged and open.
