@@ -1,0 +1,848 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\pdfmapfile{+euler.map}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Bounded step walks on irreducibles in quadratic orders},pdfsubject={Source-dependent research proof draft version 2 with exact certificates},pdflang={en-US}}
+\usepackage{bookmark}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Quadratic order moat theorem}
+\fancyhead[R]{\small Research proof draft v2}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}\newcommand{\C}{\mathbb C}
+\newcommand{\OO}{\mathcal O}\newcommand{\PP}{\mathcal P}
+\newcommand{\E}{\mathbb E}\newcommand{\Prob}{\mathbb P}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\Lb}{\overline{\ell}}
+\newcommand{\TV}{\operatorname{TV}}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\av}{\operatorname{av}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\disc}{\operatorname{disc}}
+\title{Bounded step walks on irreducibles in quadratic orders}
+\author{}
+\date{7 October 2026\quad\textnormal{Research proof draft v2}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every order in a quadratic number field, every fixed full planar lattice embedding, and every fixed step bound, we give a proof that the bounded-step graph on irreducible elements has uniformly bounded component cardinalities. The argument transfers the geometric and entropy method of OpenAI's \emph{Bounded-Step Walks on Gaussian Primes} to an explicit five-hypothesis lattice interface. Ray class fields supply principal split primes in nonmaximal orders. A bounded-norm isolation lemma and a graph restoration lemma handle the infinitely many associates that occur in real quadratic fields. The conclusion includes $\Z[\sqrt2]$ in coefficient or Minkowski coordinates. The analytic scale choices are not quantified. An exact finite graph certificate and a terminating search nevertheless give a computable integer bound from an integral order model and a supplied finite coefficient-step set; no practical runtime estimate is asserted.
+\end{abstract}
+
+\paragraph{Attribution and verification status.}
+The geometric sampling, signed-prime separation, entropy enrichment, coverage transfer, multiscale schedule, and information telescope are inherited from OpenAI's manuscript~\cite{openai}, especially its Sections 3--8. They are rewritten here for the stated arithmetic interface; they are not presented as an independently invented method. The proposed extension consists of this interface, its verification for all quadratic orders, restoration of the bounded-norm exceptional elements, and an exact certificate formulation yielding computable bounds for discrete step data. This is a complete informal research proof draft, not a claim of Lean verification, external peer review, publication acceptance, or certified priority. The Gaussian source's formal artifacts have not been replayed here and do not by themselves verify this extension. Standard class field theory and Chebotarev are used as external mathematical inputs.
+
+\section{Statement and scope}
+
+Let $K/\Q$ be a quadratic number field and let $\OO=\Z+f\OO_K$ be an order, with conductor $f\ge1$. Fix a real-linear isomorphism from its two-dimensional coefficient space to $\R^2$; write $\iota$ for its restriction to $\OO$ and $\Lambda=\iota(\OO)$. Thus $\Lambda$ is a full lattice. An irreducible is a nonzero nonunit that has no factorization into two nonunits of $\OO$. No assumption of unique factorization is made.
+
+For $D\ge0$, let $G_D(\OO,\iota)$ have vertex set $\Irr(\OO)$, joining distinct $x,y$ when $\norm{\iota(x)-\iota(y)}\le D$.
+
+\begin{theorem}[Quadratic order moat theorem]\label{thm:main}
+For every quadratic order $\OO$, every embedding $\iota$ as above, and every finite $D\ge0$, there is a finite constant $B_{\OO,\iota,D}$ such that every connected component of $G_D(\OO,\iota)$ has at most $B_{\OO,\iota,D}$ vertices. Consequently, every injective walk on irreducibles with steps at most $D$ has at most $B_{\OO,\iota,D}$ terms.
+\end{theorem}
+
+All fixed norms on the two-dimensional real coefficient space are equivalent, so the same conclusion holds for any such norm. In a real quadratic field one may use the Minkowski embedding $x\mapsto(\sigma_1(x),\sigma_2(x))$ or an integral-basis coefficient embedding. A \emph{single} real embedding $K\hookrightarrow\R$ does not give a discrete planar lattice and is outside the statement. The theorem has no asserted uniformity as $K$, $f$, $\iota$, or $D$ vary, and the analytic argument does not quantify its scale thresholds. Section~\ref{sec:effective} obtains computable bounds for precisely specified discrete inputs; this does not assume effective access to arbitrary real metric data.
+
+\paragraph{Proof structure.}
+Sections~\ref{sec:interface}--\ref{sec:telescope} prove the abstract finite-sieve statement, including its entropy engine. Section~\ref{sec:arithmetic} constructs the requisite residue maps. Section~\ref{sec:restoration} restores the exceptional irreducibles and completes the proof. Section~\ref{sec:effective} proves the exact certificate criterion, a fully integer bound, and termination of an exhaustive search. The construction is source-dependent in the precise sense stated above; the Gaussian theorem alone would not imply Theorem~\ref{thm:main}.
+
+\section{An arithmetic interface for planar sieving}\label{sec:interface}
+
+Let $\Lambda\subset\R^2$ be a full lattice of covolume $c_\Lambda$. Let $\PP$ be a fixed set of rational primes. For each $p\in\PP$, suppose that two surjective additive maps
+\[
+ \phi_{p,+},\phi_{p,-}:\Lambda\longrightarrow\F_p
+\]
+are given. A nonzero lattice vector is \emph{primitive} if it is not $av$ for another lattice vector $v$ and an integer $\abs a>1$. Impose the following fixed-data hypotheses.
+\begin{enumerate}[label=\textup{(A\arabic*)},leftmargin=3.6em]
+\item\label{ax:crt} For distinct $p_1,\ldots,p_r\in\PP$ and arbitrary signs $\sigma_i$, the joint map $\Lambda\to\prod_i\F_{p_i}$ is surjective. Its kernel therefore has index $\prod_i p_i$.
+\item\label{ax:pair} $\ker\phi_{p,+}\cap\ker\phi_{p,-}=p\Lambda$.
+\item\label{ax:collision} For a fixed $c>0$, every nonzero vector in either kernel at $p$ has length at least $c\sqrt p$.
+\item\label{ax:product} For a fixed $C\ge1$, every primitive $v\in\Lambda$ and finite $S\subset\PP$ satisfy
+\[
+ \prod_{\substack{p\in S:\phi_{p,+}(v)=0\ \text{or}\ \phi_{p,-}(v)=0}}p
+ \le C\norm v^2.
+\]
+\item\label{ax:density} For a fixed $\rho>0$,
+\[
+ \#\set{p\in\PP:T\le p\le2T}=(\rho+o(1))\frac T{\log T}
+ \qquad(T\longrightarrow\infty).
+\]
+\end{enumerate}
+
+For finite $S\subset\PP$, define the periodic avoiding set
+\[
+ A(S)=\set{x\in\Lambda:\phi_{p,+}(x)\ne0,\ \phi_{p,-}(x)\ne0
+                 \text{ for every }p\in S}.
+\]
+\begin{theorem}[Finite planar sieve]\label{thm:engine}
+Under \textup{(A1)--(A5)}, for each finite $D\ge0$ there is a finite $S_D\subset\PP$ such that $A(S_D)$ contains no infinite injective $D$-step walk. Writing $Q=\prod_{p\in S_D}p$, every component of its $D$-step graph has at most $Q^2$ vertices.
+\end{theorem}
+
+A fixed scalar rescaling lets us assume that the shortest nonzero vector of $\Lambda$ has length at least one. It only changes the fixed constants. The assertion is immediate if $D<1$, so assume $D\ge1$. Throughout the proof, constants in $O(\cdot)$ may depend on the fixed interface, lattice and $D$, but not on the walk, its exact starting time, or the asymptotic parameters unless specified.
+
+The component conclusion follows from the no-walk conclusion. The graph is locally finite; an infinite component has an infinite simple path by the finitely branching path-tree argument. Each map kills $p\Lambda$, so translations by $Q\Lambda$ preserve $A(S_D)$. If two vertices of a finite component differ by nonzero $v\in Q\Lambda$, translating that component by $v$ gives an intersecting component, hence the same component. A nonempty finite set cannot be invariant under a nonzero translation. The component thus injects into $\Lambda/Q\Lambda$, which has $Q^2$ elements.
+
+\section{Geometric separation and entropy conventions}\label{sec:geometry}
+
+We use natural logarithms. For finite variables, $H$ denotes Shannon entropy and
+$I(X;Y\mid Z)=H(X\mid Z)-H(X\mid Y,Z)$. Write
+$h(u)=-u\log u-(1-u)\log(1-u)$ and use total variation with its usual factor $1/2$.
+The following elementary facts will be used repeatedly.
+
+\begin{lemma}[Finite information estimates]\label{lem:info}
+For finite random times $T_0,T_1$ on a deterministic $D$-step lattice walk, if $\abs{T_1-T_0}\le n$, then
+\[
+ H(z_{T_1}-z_{T_0})\le2\log(n+1)+O(1).
+\]
+For any vector $F$ of additive residue maps,
+\[
+ H(F(z_{T_1}))\ge H(F(z_{T_0}))-H(z_{T_1}-z_{T_0}).
+\]
+If two laws on a product alphabet of size at most $a$ are at total variation distance $\varepsilon\le1/2$, their conditional entropies differ by at most $2h(\varepsilon)+2\varepsilon\log a$.
+Finally, if $X$ has at most $a$ values and a data-dependent list $L(Y)$ obeys
+$\Prob\{X\in L(Y),\abs{L(Y)}\le b\}=u$, then
+\[
+ \log a-H(X\mid Y)\ge u\log(a/b)-h(u).
+\]
+\end{lemma}
+\begin{proof}
+A displacement lies in a disk of radius $Dn$, containing $O((n+1)^2)$ lattice points. The second inequality follows because the final residue and displacement determine the initial residue. For continuity, couple the two laws with mismatch probability $\varepsilon$ and apply the entropy bound $h(\varepsilon)+\varepsilon\log a$ to the joint law and to the conditioning marginal. For the list bound, introduce the indicator of the specified success event and use
+$H(X\mid Y)\le h(u)+u\log b+(1-u)\log a$.
+\end{proof}
+
+We also use Pinsker's inequality
+$\log a-H(X)\ge2\TV(\mathcal L(X),\operatorname{Unif}_a)^2$,
+Hoeffding's bounded-sum inequality, and the Chernoff bound for independent Bernoulli trials. These statements are applied only to finite variables. The deterministic walk itself is never randomized: all randomness below comes from finitely supported times, endpoint choices, and auxiliary residue selections.
+
+\begin{lemma}[Many differences]\label{lem:differences}
+Let $E$ be the vertices of a self-avoiding $D$-step segment of $n\ge1$ steps. Let $R$ be its diameter, choose a diameter line, and let $W$ be the larger of $1$ and the greatest distance from $E$ to that line. Set $A=RW$. Then
+\[
+ n\ll_\Lambda A\le D^2n^2,
+ \qquad \abs{E-E}\gg_{\Lambda,D} A.
+\]
+\end{lemma}
+\begin{proof}
+The projection of $E$ to a diameter line lies between its endpoints; otherwise one endpoint would be farther than the diameter. Thus $E$ lies in a rectangle of length $R$ and width $2W$, with $R\ge W\ge1$. Packing fixed disjoint disks around lattice points proves $n+1\ll_\Lambda RW$; also $R\le Dn$ and $W\le R$.
+
+If $W=1$, then $\abs{E-E}\ge n+1\ge R/D$. Otherwise choose diameter endpoints $p_0,p_1$ and a point $p_2$ at transverse distance $W$. Put $a=p_1-p_0$, $b=p_2-p_0$. The torus $\R^2/(\Z a+\Z b)$ has area $A$. Following the linearly interpolated walk in either time direction gives paths $\alpha,\gamma$ from $p_0$ to $p_1,p_2$. The map
+\[
+ (s,t)\longmapsto \alpha(s)-\gamma(t)\pmod{\Z a+\Z b}
+\]
+descends from the parameter square to its torus. An endpoint-preserving homotopy to straight segments shows it has degree $-1$, hence is onto: a map missing a point factors through a punctured torus, whose second homology is zero. Each interpolated point is within $D$ of a vertex, so radius-$2D$ disks about projected differences cover the torus. Their total area is at most $4\pi D^2\abs{E-E}$.
+\end{proof}
+
+\begin{lemma}[A randomly signed product separates a thin rectangle]\label{lem:rectangle}
+There are $a,b,A_0>0$, depending only on $c_\Lambda,C$, with the following property. Take distinct $p_1,\ldots,p_r\in\PP\cap[T,2T]$, $T\ge5$, and set $P_0=\prod_i p_i$. Let $\mathcal R$ be an origin-centered rectangle, in any orientation, with half-lengths $R_1\ge W_1\ge1$. If
+\[
+ R_1W_1\le P_0^{1-d},\qquad 0<d<\tfrac14,\qquad d^3r\ge A_0,
+\]
+then independent fair signs satisfy
+\[
+ \Prob\left\{(\mathcal R\setminus\{0\})\cap
+                 \bigcap_i\ker\phi_{p_i,\sigma_i}\ne\varnothing\right\}
+ \le a e^{-bd^3r}.
+\]
+\end{lemma}
+\begin{proof}
+Call a sign vector bad when it has a nonzero witness. If two bad vectors differ in $h\le dr/4$ signs, their witnesses $w,w'$ lie in the common-kernel lattice of the unchanged coordinates. With $P_{\rm com}$ the \emph{exact product} of those primes, (A1) gives
+\[
+ \det(w,w')\in c_\Lambda P_{\rm com}\Z,
+ \qquad P_{\rm com}\ge\frac{P_0}{(2T)^h}.
+\]
+The rectangle gives $\abs{\det(w,w')}\le2R_1W_1\le2P_0^{1-d}$. The logarithm of the ratio of the nonzero determinant lower bound to this upper bound is at least
+\[
+ dr\log T-\frac{dr}{4}\log(2T)+\log(c_\Lambda/2)>0
+\]
+once $A_0$ is sufficiently large. Thus the witnesses are collinear. This also proves that each bad vector has a unique witness line.
+
+Fix a line with primitive lattice direction $v$. By (A2), at most one of the two maps at a prime kills $v$. If a selected map does not kill $v$, it kills $mv$, $m\in\Z$, precisely when $p\mid m$. If $P_\sigma(v)$ is the product of selected primes whose maps kill $v$, a nonzero common-kernel point on this line has length at least $\norm v P_0/P_\sigma(v)$. Since every point of $\mathcal R$ has length at most $\sqrt2R_1\le\sqrt2P_0^{1-d}$, a witness forces
+\[
+ \log P_\sigma(v)\ge\log\norm v+d\log P_0-\tfrac12\log2.
+\]
+On the other hand, independence, fair signs and (A4) imply
+\[
+ \E\log P_\sigma(v)\le\tfrac12\log(C\norm v^2)
+                     =\log\norm v+\tfrac12\log C.
+\]
+The required upward deviation is at least $\frac d2r\log T$ after increasing $A_0$. Each summand has range at most $\log(2T)$; Hoeffding gives a fixed-line probability at most $e^{-b_0d^2r}$.
+
+It remains to combine lines without counting them. Distinct witness-line classes in the $r$-dimensional Boolean cube have Hamming separation greater than $dr/4$. Their neighborhoods of radius $h_0=\lfloor dr/10\rfloor$ are disjoint. The cube edge-isoperimetric bound yields
+\[
+ \abs{\partial_{\mathrm v}F}\ge\frac{\abs F}{r}
+                   \log_2\frac{2^r}{\abs F}.
+\]
+Here the edge bound $\abs{\partial_{\mathrm e}F}\ge\abs F\log_2(2^r/\abs F)$ follows by induction after splitting the cube into two faces, and division by the maximum degree $r$ gives the displayed vertex bound. While an enlarging class has density at most $e^{-b_0d^2r/2}$, each enlargement increases its size by a factor at least $1+b_1d^2$. After $h_0$ enlargements this is at least $e^{b_2d^3r}$. If the threshold was crossed earlier, its ratio to the initial density, at most $e^{-b_0d^2r}$, is already large enough. Summing the disjoint enlarged classes proves the assertion. Fixed covolume and norm constants have only altered the threshold $A_0$.
+\end{proof}
+
+\section{Entropy enrichment}\label{sec:enrichment}
+
+Fix a batch of $k$ primes in $[T,2T]$ and put $\Lb=k^{-1}\sum_p\log p$. A signed $s$-selection chooses $s$ distinct batch primes uniformly and gives each an independent fair sign. Write $F_S$ for the resulting residue vector and, for a finitely supported $\Lambda$-valued variable $Z$, set
+\[
+ f_Z(s)=\E_S H(F_S(Z)).
+\]
+Each entropy is computed with $S$ fixed, before averaging; it is not the entropy of a mixture including $S$. Exchangeability and decreasing conditional entropy imply discrete concavity of $f_Z$, as well as $f_Z(0)=0$ and $f_Z(s)\le s\Lb$.
+
+Fix an infinite deterministic self-avoiding $D$-step walk $(z_t)_{t\ge0}$, and a finite random time $\tau$ with $Z=z_\tau$. Given $U>0$, $0<g<10^{-2}$, let $n=\lfloor e^{gU}\rfloor$. At exact time $\tau=t$, sample $h$ uniformly from the \emph{distinct differences} of $E_t=\set{z_t,\ldots,z_{t+n}}$. For each difference fix an ordered endpoint pair $(X,Y)$ with $X-Y=h$, then let $V$ be a fair choice between $X$ and $Y$. This is a forward time transition by at most $n$ steps; its law does not involve residue selections.
+
+\begin{lemma}[Enrichment]\label{lem:enrichment}
+Set $q=\lfloor U/\Lb\rfloor$ and $b=\lfloor g^2U/\Lb\rfloor$. In any regime with $T\to\infty$, $q\le k$, and
+\[
+ \frac{g^jU}{\log T}\longrightarrow\infty
+ \quad\text{for every fixed }j>0,
+\]
+one has
+\begin{equation}\label{eq:enrich}
+ \frac{f_V(b)}{b\Lb}\ge
+ \frac12\left(1+\frac{f_Z(q)}{q\Lb}\right)-O(g).
+\end{equation}
+The error constants and sufficiently-large-parameter thresholds are uniform over the walk, the batch, every exact start, and every finitely supported starting-time law. In particular, $1\le b<q$ eventually.
+\end{lemma}
+\begin{proof}
+Choose a signed $q$-selection $Q$ and a uniform $b$-prefix $S$, and set $B_X=F_S(X)$, $B_Y=F_S(Y)$. At exact time $t$, Lemma~\ref{lem:differences} gives
+\[
+ gU-O(1)\le\log A\le2gU+O(1).
+\]
+Let $r=\lceil(1+10g)\log A/\Lb\rceil$. Uniformly in $t$, the admissible regime gives
+\[
+ \tfrac12gq\le r\le3gq\le q-b
+\]
+for large parameters. Select $r$ further coordinates $J$ from $Q\setminus S$. The sum of their prime logarithms has mean $r\Lb$ and variance $O(r)$: all logarithms lie in an interval of length $\log2$, and sampling is without replacement. Hence its probability of being below $(1+5g)\log A$ is $O((g^2r\Lb^2)^{-1})$.
+
+Differences of differences lie in an origin-centered rectangle whose half-length product is at most $16A$. Lemma~\ref{lem:rectangle}, with $d$ a fixed positive multiple of $g$, therefore makes $F_J$ injective on $E_t-E_t$, apart from probability
+\[
+ \varepsilon=O\left(\frac1{g^2r\Lb^2}+e^{-b_3g^3r}\right)=o(g).
+\]
+The factor $16$ is absorbed because $g\log A\to\infty$; also $g^3r\to\infty$ with all needed margins. Since $h$ is uniform on distinct differences, conditioning on $B_X,B_Y$ costs at most $2b\log(2T)$, and
+\[
+ \E H(F_J(h)\mid B_X,B_Y,\tau=t)
+ \ge(1-\varepsilon)(\log A-O(1))-2b\log(2T).
+\]
+Conditional subadditivity, divided by $r$, yields for a uniform remaining coordinate $j$
+\begin{equation}\label{eq:onecoordinate}
+ \E H(\phi_j(h)\mid B_X,B_Y,\tau=t)\ge(1-O(g))\Lb.
+\end{equation}
+Although $r$ depends on $t$, the one-coordinate marginal is the same uniform marginal at each fixed time. We may therefore average over $t$ and remove conditioning on $\tau$.
+
+For fixed indices, the chain rule and $h=X-Y$ give
+\begin{align*}
+ H(\phi_j(h)\mid B_X,B_Y)
+ &\le H(\phi_j(X)\mid B_X)+H(\phi_j(Y)\mid B_Y)\\
+ &\hspace{1em}-H(\phi_j(X)\mid B_X,B_Y,h).
+\end{align*}
+Conditioning on the full displacement $h$, rather than only $\phi_j(h)$, decreases the subtracted entropy and keeps the inequality in this direction. Subadditivity over the $q-b$ remaining coordinates bounds their average subtracted term below by
+\[
+ \frac{f_Z(q)-2b\log(2T)-H(h)-H(X-Z)}{q-b}.
+\]
+Indeed the full $X$ residue determines the full $Z$ residue when $X-Z$ is given; conditioning additionally on $B_X,B_Y,h$ costs at most their joint entropy. Both displacements are supported in a disk of radius $Dn$, so
+\[
+ H(h)+H(X-Z)\le4\log(n+1)+O(1)=O(gU).
+\]
+The last lower bound is consequently $f_Z(q)/q-O(g)\Lb$. The first two terms in the chain-rule inequality average to forward differences of $f_X$ and $f_Y$ at $b$, each at most $f_X(b)/b$ or $f_Y(b)/b$ by concavity. Finally entropy is concave under the fair endpoint mixture, so $f_V(b)\ge(f_X(b)+f_Y(b))/2$. Combining with~\eqref{eq:onecoordinate} proves~\eqref{eq:enrich}.
+\end{proof}
+
+\section{Coverage from shared displacement data}\label{sec:coverage}
+
+A law on a group of order $p$ has \emph{$(\tau,\beta)$-coverage} if fewer than $p^{1-\beta}$ residues have mass less than $\tau/p$. In the following lemma, a coordinate means one of the $2k$ signed batch coordinates, with uniform averaging over them. This step is the abstract probabilistic mechanism of \cite[Theorem 5.2]{openai}.
+
+\begin{lemma}[Coverage transfer]\label{lem:coverage}
+Let $T\ge2$ be real. Let $k,s,n$ be integers with $1\le s\le k$ and $n\ge1$, and let $0<\eta\le1$, $0\le\eta'\le1$, and $\varepsilon,\kappa\ge0$. Let $A$ be finite, $Y=y(A)\in\Lambda$, and, conditional on $A$, let $h_1,\ldots,h_n$ be independent samples of a finitely supported displacement law depending on $A$. Put $Z=Y+h_1$ and $\mathcal H=(h_1,\ldots,h_n)$. All auxiliary signed selections are independent of this experiment.
+
+At each exact $A=a$, suppose all but a fraction $\eta'$ of signed coordinates have $(\tau+4\lambda,\beta')$-coverage for $Z$. Suppose further that
+\[
+ \E_S H(F_S(Y))\ge(1-\varepsilon)s\Lb,
+ \qquad H(\mathcal H)\le\kappa s\Lb,
+\]
+and that the following inequalities hold for every batch prime $p$:
+\begin{gather}
+ 0<\tau\le\tfrac38,\quad 0<\lambda\le\tfrac1{64},\quad
+ 0<\beta'\le\beta<1,\label{eq:covdomains}\\
+ \eta'\le\frac{\eta\lambda}{100},\qquad
+ \varepsilon+\kappa\le\frac{\eta\lambda\beta'}{16},\label{eq:coverrors}\\
+ p\exp\left(-\tfrac12\lambda^2np^{-\beta}\right)\le\lambda/100,\label{eq:covconcentration}\\
+ \lambda^{-1}<p^{\beta'/2},\qquad
+ \log(2e/\lambda)\le\tfrac14\beta'\log T.\label{eq:covlogs}
+\end{gather}
+Then all but a fraction $\eta$ of coordinates have $(\tau,\beta)$-coverage for the unconditional law of $Z$.
+\end{lemma}
+\begin{proof}
+Conditioning on $\mathcal H$ costs its entropy only once for the selected vector. Subadditivity then gives the shared-data estimate
+\begin{equation}\label{eq:shared}
+ \av_c\bigl[\log p_c-H(\phi_c(Y)\mid\mathcal H)\bigr]
+ \le(\varepsilon+\kappa)\Lb.
+\end{equation}
+Suppose instead that a fraction $\theta>\eta$ is deficient. For each deficient coordinate $c$, choose $u_p=\lceil p^{1-\beta}\rceil$ low-mass residues $K_c$ and define
+\[
+ L_c(\mathcal H)=\left\{x:\sum_{\ell=1}^n
+  \mathbf1_{x+\phi_c(h_\ell)\in K_c}
+  \le n(\tau+\lambda)u_p/p\right\}.
+\]
+The true residue $\phi_c(Y)$ is on this list with probability at least
+$1-\tau/(\tau+\lambda)\ge\lambda$, by Markov's inequality and the common one-trial marginal.
+
+At exact $A=a$ where conditional coverage holds, let $E_{a,c}$ be the exceptional displacement residues; $\abs{E_{a,c}}<p^{1-\beta'}$. The counting identity
+\[
+ \sum_x\abs{(K_c-x)\cap E_{a,c}}=u_p\abs{E_{a,c}}
+\]
+shows that, except for fewer than $\lambda^{-1}p^{1-\beta'}$ values of $x$, at most $\lambda u_p$ points of $K_c-x$ are exceptional. For every other $x$, one trial has hit probability at least
+\[
+ (\tau+4\lambda)(1-\lambda)u_p/p\ge(\tau+2\lambda)u_p/p.
+\]
+Conditional independence and the Chernoff lower-tail bound put the pass probability below $\exp(-\lambda^2np^{-\beta}/2)$. Taking a union bound over candidates and using~\eqref{eq:covlogs}, the list has at most $p^{1-\beta'/2}$ entries with probability at least $1-\lambda/100$.
+
+Average first over $A$, then over deficient coordinates. The fraction of pairs lacking conditional coverage is at most $\eta'/\theta<\lambda/100$. The average probability $a_c$ of simultaneous small-list success is therefore $a=\av_c a_c\ge\lambda/2$. Lemma~\ref{lem:info} gives
+\[
+ \log p_c-H(\phi_c(Y)\mid\mathcal H)
+ \ge a_c\frac{\beta'}2\log p_c-h(a_c).
+\]
+Concavity gives $\av h(a_c)\le h(a)\le a\log(2e/\lambda)$, using $a\ge\lambda/2$. Thus the average deficit over deficient coordinates is at least $\lambda\beta'\log T/8$. Since $\Lb\le2\log T$ and $\theta>\eta$, this contradicts~\eqref{eq:shared} and~\eqref{eq:coverrors}.
+\end{proof}
+
+\section{A finite schedule with uniform margins}\label{sec:schedule}
+
+We now construct one common sampling law that works simultaneously for finitely many widely separated prime batches. All constants are chosen before the final integer parameter $M$ tends to infinity. This is the multiscale design of~\cite[Section 6]{openai}, with the density and lattice constants allowed by (A1)--(A5).
+
+Let $K_D=\#\set{v\in\Lambda:\norm v\le D}$, including zero. Set
+\[
+ \beta_0=1/200,\qquad e_0=\beta_0/50.
+\]
+Choose constants in the following order.
+\begin{enumerate}[leftmargin=2em]
+\item By (A5), choose $a_0>0$ such that $a_0T/\Lb\le k_T$ for all large $T$, where $k_T=\#(\PP\cap[T,2T])$; any $a_0<\rho/2$ works.
+\item Choose an integer $\ell_0$ with $2^{-\ell_0}<e_0/3$. Choose $g_0\in(0,10^{-2})$ small enough that the enrichment and displacement errors in the top-band argument below total less than $2e_0/3$. Those constants depend only on already fixed data.
+\item Choose $c_0>0$ with $c_0<a_0g_0^{2(\ell_0+1)}/2$.
+\item Choose a fixed $B>2$ so large that, for selected geometric batches,
+\begin{equation}\label{eq:oldalphabet}
+ \sum_{T'<T}k_{T'}\log(2T')\le e_0c_0T.
+\end{equation}
+Indeed (A5) gives $k_{T'}\log(2T')\le C_0T'$ eventually; summing $T'=B^j<T$ gives at most $C_0T/(B-1)$.
+\end{enumerate}
+
+Let $M\to\infty$ through integers, $X_m=100^m$, and use all batches at $T=B^j$ for which
+\[
+ X_m\le\log T\le1.05X_m
+ \quad\text{for some }\lceil M/2\rceil\le m\le M.
+\]
+These batches are disjoint since $B>2$. Put $T_+=\exp(1.05X_M)$. From any exact starting time, perform the enrichment transitions of Section~\ref{sec:enrichment} in decreasing $U$, using these three bands in each window $m$:
+\begin{align*}
+ 0.8X_m\le\log U\le1.3X_m &: \quad g=g_0,\\
+ 0.20X_m\le\log U\le0.30X_m &: \quad g=g_1=e^{-M^3},\\
+ 0.05X_m\le\log U\le0.10X_m &: \quad g=g_2=e^{-100M^{20}}.
+\end{align*}
+Within a band, successive $U$ have ratio $g^2$; take the geometric progression down from its upper endpoint while inside the band. Each transition uses fresh randomness conditional on the exact current time. Finally add an independent uniform offset in $\{0,\ldots,N-1\}$, with $N=\lceil T_+^{10}\rceil$, and call the terminal time $t_*$. This entire schedule is independent of all residue selections. Although the time support is very large, it is finite.
+
+\subsection{Displacement support and smoothing}
+
+At a checkpoint just before scale $V$ in a band with parameter $g$, every remaining forward time displacement is at most
+\[
+ S_V=N-1+\sum_{\text{remaining }U}\lfloor\exp(g_UU)\rfloor.
+\]
+Uniformly over all checkpoints, for large $M$,
+\begin{equation}\label{eq:future}
+ \log(1+S_V)\le2gV.
+\end{equation}
+To see this, later scales in the same band have $g_UU\le gV$. Gaps between successive bands are fixed positive multiples of $X_m$; even across windows the smallest gap is
+$0.05X_m-1.3X_{m-1}=0.037X_m$. They dominate all parameter ratios, since $100M^{20}=o(X_{\lceil M/2\rceil})$. There are $\exp(O(M))$ operations. Moreover
+\[
+ \log(gV)\ge0.05X_{\lceil M/2\rceil}-100M^{20},
+ \qquad \log N=O(X_M)=o(gV).
+\]
+Taking the logarithm of the sum proves~\eqref{eq:future}. Consequently every future physical displacement has entropy $O(gV)$, from one deterministic disk support valid over all exact starts. This unconditional support assertion is stronger than a conditional entropy bound.
+
+The final uniform offset also gives, conditional on any earlier exact checkpoint,
+\begin{equation}\label{eq:smoothing}
+ \TV(\mathcal L(t_*),\mathcal L(t_*+a))\le T_+^{-9},
+ \qquad 0\le a\le T_+.
+\end{equation}
+It follows by coupling a uniform interval with its shift, then mixing the earlier time.
+
+\subsection{Top-band entropy that persists}
+
+For a batch $T$, begin at the first top scale $U\le a_0T$, which is greater than $g_0^2a_0T$. After $\ell_0$ transitions let $V$ be the next scale and record
+$q_T=\lfloor V/\Lb\rfloor$. Adjacent input and output coordinate counts match exactly because the scale ratio is $g_0^2$. If $d_j$ is the normalized entropy deficit, Lemma~\ref{lem:enrichment} gives
+\[
+ d_{j+1}\le\tfrac12d_j+C_1g_0.
+\]
+Preservation to any later checkpoint loses only $O(g_0V)$ entropy by~\eqref{eq:future} and Lemma~\ref{lem:info}. The choices above imply
+\begin{equation}\label{eq:persistent}
+ f_Z(q_T)\ge(1-e_0)q_T\Lb,
+ \qquad q_T\Lb\ge c_0T
+\end{equation}
+at every later checkpoint. These scales lie inside the top band for large $M$. This is where the supply density influences $a_0,c_0$, and ultimately the spacing $B$; no specified numerical density is needed.
+
+\subsection{Middle checkpoints and bottom accuracy}
+
+For each batch, put
+\[
+ \beta_i=2^{-i}\beta_0,\qquad r_0=\tfrac14,\qquad
+ r_{i+1}=r_i-2\beta_i.
+\]
+Stop at the least $J$ with $\beta_J\log T\le M^{20}$. Then $J=O(M)$,
+\[
+ M^{20}/2<\beta_J\log T\le M^{20},\qquad 0.23<r_i\le0.25.
+\]
+Let $A_i$ be the random checkpoint time just before the first scheduled $U\le T^{r_i}$. It lies in the middle band at a scale in $(g_1^2T^{r_i},T^{r_i}]$. From any exact start at $A_i$, all displacements to later checkpoints lie in a common finite disk $\mathcal D_i$ with
+\begin{equation}\label{eq:disk}
+ \log\abs{\mathcal D_i}\le C_2T^{r_i}.
+\end{equation}
+For $i<J$, the first $\lceil M^3\rceil$ middle transitions after $A_i$ fit before $A_{i+1}$: they consume $O(M^6)$ logarithmic scale, whereas the available gap is
+$2\beta_i\log T>2M^{20}$. At the recorded coordinate count $s_i$, enrichment and subsequent preservation give, from every exact $A_i$ start,
+\begin{gather}
+ f_{z_{A_{i+1}}}(s_i)\ge(1-e^{-c_1M^3})s_i\Lb,\label{eq:middleentropy}\\
+ s_i\Lb\ge\exp(r_i\log T-O(M^6)).\label{eq:middlesize}
+\end{gather}
+Here one may fix $c_1>0$ sufficiently small. The bottom band, starting from exact $A_J$, has room for $\lceil200M^{20}\rceil$ transitions, whose total logarithmic scale use is $O(M^{40})=o(X_m)$. With $g_2=e^{-100M^{20}}$, the resulting normalized deficit, preserved to $t_*$, is at most $e^{-90M^{20}}$. Concavity therefore gives
+\begin{equation}\label{eq:bottom}
+ f_{z_{t_*}}(1)\ge(1-e^{-90M^{20}})\Lb.
+\end{equation}
+All invocations of enrichment are admissible uniformly: the smallest $U$ has logarithm a positive multiple of $X_{\lceil M/2\rceil}$, which dominates every fixed power loss from $g_2$ and $\log T$.
+
+\subsection{Backward coverage induction}
+
+Set
+\[
+ \tau_i=\tfrac38-2^{-i-3},\quad \lambda_i=2^{-i-6},\quad
+ \eta_0=1/100,\quad \eta_{i+1}=\eta_i\lambda_i/100.
+\]
+Then $\tau_{i+1}=\tau_i+4\lambda_i$, $\log(1/\lambda_i)=O(M)$, and
+$\eta_i\lambda_i\beta_{i+1}\ge e^{-O(M^2)}$.
+
+At an exact $A_J$ start, failure of $(\tau_J,\beta_J)$-coverage entails total variation from uniform at least $(1-\tau_J)p^{-\beta_J}\ge c_2e^{-M^{20}}$. Pinsker and~\eqref{eq:bottom} show that the fraction of failing signed coordinates is at most
+\[
+ C_3\Lb e^{-88M^{20}}<\eta_J.
+\]
+For the induction step fix exact $A_i$, run to $Y=z_{A_{i+1}}$, and repeat the continuation to $t_*$ independently \emph{conditional on the exact next checkpoint time}, using
+$n_i=\lceil T^{6\beta_i/5}\rceil$ trials. Their shared displacement vector has unconditional entropy at most $C_2n_iT^{r_{i+1}}$ by~\eqref{eq:disk}. Relative to~\eqref{eq:middlesize}, its cost obeys
+\[
+ \kappa_i\le C_4\exp\left(-\tfrac45\beta_i\log T+O(M^6)\right)
+ \le e^{-M^3}.
+\]
+Together with~\eqref{eq:middleentropy}, this is below
+$\eta_i\lambda_i\beta_{i+1}/16$. Also
+\[
+ n_ip^{-\beta_i}\ge\tfrac12\exp(M^{20}/5).
+\]
+Thus $\lambda_i^2n_ip^{-\beta_i}/2$ dominates $\log p+\log(100/\lambda_i)$, because $\log p=O(100^M)$, while the former grows as $\exp(M^{20}/5-O(M))$. The logarithmic conditions~\eqref{eq:covlogs} follow from
+$\beta_{i+1}\log T>M^{20}/2$ and $\log(1/\lambda_i)=O(M)$. Lemma~\ref{lem:coverage} applies with $(\beta,\beta')=(\beta_i,\beta_{i+1})$ and proves the induction.
+
+We have established the following uniform statement: from every exact $A_0$ start, at least $99\%$ of signed batch coordinates have terminal mass at least $1/(4p)$ outside fewer than $p^{199/200}$ exceptional residues. Exact-start uniformity permits later posterior mixtures without assuming independence of a checkpoint and its residues.
+
+\section{The information cost of avoiding zero}\label{sec:cost}
+
+Suppose that the hypothetical infinite walk avoids both zero classes for every selected prime. For each batch choose $q_T$ distinct primes with independent fair signs, independently across batches; let $\mathcal C$ denote all choices. These choices are independent of the schedule. Set
+\[
+ L_T=2^{\lfloor\log_2(T^{2/5})\rfloor}.
+\]
+Let $X'_T$ be the selected $T$-residues at $t_*$, let $O'_T$ contain selected smaller-batch residues there, and let $W_L(t)$ be the word of the next $L$ increments after time $t$.
+
+\begin{proposition}[A charge for each batch]\label{prop:charge}
+There is a constant $c_*>0$, depending only on the fixed data, such that for every selected batch and all sufficiently large $M$,
+\[
+ \frac{\E_{\mathcal C} I(X'_T;W_{L_T}(t_*)\mid O'_T)}{L_T}
+ \ge\frac{c_*}{\log T}.
+\]
+\end{proposition}
+\begin{proof}
+Fix $T$ and abbreviate $L=L_T$. At $A_0(T)$ let $X,O$ be the corresponding current- and smaller-batch residue vectors. Let $s=z_{t_*}-z_{A_0}$ and $W=W_L(t_*)$. Equations~\eqref{eq:persistent} and~\eqref{eq:oldalphabet} give
+\begin{equation}\label{eq:initialinformation}
+ \E_{\mathcal C}H(X\mid O)\ge(1-2e_0)q_T\Lb,
+ \qquad H(s)\le C_5T^{1/4}.
+\end{equation}
+Conditionally on $\mathcal C,O,X$, draw
+\[
+ m=\left\lceil K_0\frac TL\log T\right\rceil
+\]
+independent packages $(s_a,W_a)$ from the original conditional law. For each selected coordinate, test every candidate checkpoint residue $x$ against every package, retaining it exactly when every tested position avoids zero. The true coordinate of $X$ always survives, since the actual walk avoids zero. One may use the $L$ positions at offsets $0,\ldots,L-1$ in each package.
+
+The package law conditional on $(O,X,\mathcal C)$ is a posterior mixture of fresh continuation laws from exact $A_0$ times. At each such time at most $\eta_0$ of all signed coordinates lack the coverage proved above. By the tower property, the expected number of selected coordinates whose posterior probability of good coverage is below $1/2$ is at most $2\eta_0q_T$. This statement averages over both residue choices and the posterior; it does not assume that the checkpoint and $\mathcal C$ remain independent after conditioning on $O,X$. Call the other coordinates favorable.
+
+For a favorable coordinate, at least half of the posterior weight is on good exact starts. Each good start excludes fewer than $p^{1-\beta_0}$ displacement residues. Averaging these exceptional sets shows that all but at most $4p^{1-\beta_0}$ candidate residues have terminal displacement hit probability at least $\tau_0/(4p)$, with $\tau_0=1/4$. To see the factor $4$, the total posterior exceptional mass, summed over candidates, is at most $p^{1-\beta_0}$; candidates with exceptional mass above $1/4$ number at most four times this quantity. Each remaining candidate has good, nonexceptional posterior weight at least $1/4$.
+
+Conditional smoothing~\eqref{eq:smoothing} persists under this posterior mixture. For large $T$ each of the $L$ offsets therefore has hit probability at least $\tau_0/(8p)$. Within one package these hit events are disjoint: two hits would give a nonzero vector in the same kernel with length at least $c\sqrt p$ by (A3), while its length is at most
+\[
+ DL\le DT^{2/5}<c\sqrt T\le c\sqrt p.
+\]
+The vector is nonzero because the walk is self-avoiding. Hence one package rejects every such candidate with probability at least $c_5L/p$. Conditional independence of the repeated packages gives expected survivor count at a favorable coordinate at most
+\[
+ 4p^{1-\beta_0}+p\exp(-c_5Lm/p)\le5p^{1-\beta_0}
+\]
+when the fixed $K_0$ is large enough.
+
+The true residue is supported on its survivor list. Subadditivity, Jensen's inequality for the logarithm, and the full alphabet bound on unfavorable coordinates yield
+\[
+ \E_{\mathcal C}H(X\mid O,\text{all packages})
+ \le(1-\beta_0/2)q_T\Lb
+\]
+for large $T$. The loss from an expected $2\eta_0q_T$ unfavorable coordinates is harmless here: their lost saving is at most $2\eta_0\beta_0q_T\log(2T)$, and the additive $q_T\log5$ is negligible. From~\eqref{eq:initialinformation}, the packages thus carry at least $(\beta_0/3)q_T\Lb$ information about $X$ given $O$. Their conditional independence given $X,O,\mathcal C$ bounds this by
+$m\,\E_{\mathcal C}I(X;s,W\mid O)$.
+
+Given $s$, additive translation bijectively changes $(X,O)$ into $(X'_T,O'_T)$. The chain rule gives
+\begin{align*}
+ I(X;s,W\mid O)
+ &\le H(s)+I(X;W\mid O,s)\\
+ &=H(s)+I(X'_T;W\mid O'_T,s)\\
+ &\le I(X'_T;W\mid O'_T)+2H(s).
+\end{align*}
+No independence of $s$ is required. Consequently
+\[
+ \E_{\mathcal C}I(X'_T;W\mid O'_T)
+ \ge\frac{\beta_0q_T\Lb}{3m}-2H(s)
+ \ge c_6\frac L{\log T}-C_6T^{1/4}.
+\]
+Since $L>T^{2/5}/2$, the final error is $o(L/\log T)$, proving the claim.
+\end{proof}
+
+\section{A common-law telescope}\label{sec:telescope}
+
+Fix $\mathcal C$ and order the selected batches $T_1<\cdots<T_n$, writing $L_j=L_{T_j}$. Let $Q_j(t)$ be the selected residues through batch $j$ at $z_t$, with $Q_0$ empty. Define
+\[
+ a_j=\frac{H(W_{L_j}(t_*)\mid Q_{j-1}(t_*))}{L_j},
+ \qquad
+ b_j=\frac{H(W_{L_j}(t_*)\mid Q_j(t_*))}{L_j}.
+\]
+The normalized information charge is $a_j-b_j$. The nondecreasing dyadic $L_j$ divide subsequent lengths. Partition $W_{L_{j+1}}(t_*)$ into $L_j$-blocks. Its initial $Q_j$ and preceding increments determine each block's starting residue vector. The entropy chain rule, followed by removal of additional conditioning, bounds the entropy of the long word by the sum of block entropies conditioned only on their respective starting residues.
+
+Every block-start offset is at most $T_+^{2/5}\le T_+$. By~\eqref{eq:smoothing}, the joint law of its word and starting residue vector is within $T_+^{-9}$ of the corresponding joint law at $t_*$. The logarithm of the full residue alphabet is at most
+\[
+ \sum_T k_T\log(2T)=O(T_+),
+\]
+by (A5) and geometric spacing, and the word alphabet has logarithm at most $L_j\log K_D=O_D(T_+)$. Lemma~\ref{lem:info} therefore bounds the conditional entropy error of each block by $C_7T_+^{-7}$. Importantly, continuity is applied to the \emph{joint} laws, not to separately conditioned laws. Dividing the block sum by $L_{j+1}$ yields
+\[
+ a_{j+1}\le b_j+C_7T_+^{-7}.
+\]
+There are $O(\log T_+)$ batches. Since $a_1\le\log K_D$ and $b_n\ge0$, telescoping gives, uniformly in $\mathcal C$ and the walk,
+\[
+ \sum_T\frac{I(X'_T;W_{L_T}(t_*)\mid O'_T)}{L_T}
+ \le\log K_D+o(1).
+\]
+Averaging and applying Proposition~\ref{prop:charge} forces
+\begin{equation}\label{eq:contradiction}
+ c_*\sum_T\frac1{\log T}\le\log K_D+o(1).
+\end{equation}
+For each $m$, the interval $[X_m,1.05X_m]$ contains at least $c_7X_m/\log B$ multiples of $\log B$ for large $M$. Its contribution to the sum is at least $c_7/(1.05\log B)$. There are order $M$ windows, contradicting~\eqref{eq:contradiction} as $M\to\infty$.
+
+Every threshold used above is uniform in the hypothetical walk and its starting times. Fix one sufficiently large $M$ and let $S_D$ be the union of its finitely many prime batches. No infinite self-avoiding walk can avoid the selected zero classes. The periodic argument in Section~\ref{sec:interface} supplies the bound $Q^2$. This completes the proof of Theorem~\ref{thm:engine}.
+
+\section{Verification for every quadratic order}\label{sec:arithmetic}
+
+The arithmetic construction uses only ideals of the maximal order for class field theory; the final residue kernels are genuinely principal ideals of the possibly nonmaximal order $\OO$.
+
+\begin{proposition}[Principal split prime supply]\label{prop:supply}
+Let $\OO=\Z+f\OO_K$. There is a set $\PP$ of rational primes of positive dyadic density such that, for every $p\in\PP$, there are conjugate elements $\alpha_p,\alpha'_p\in\OO$ with $\abs{\N_{K/\Q}(\alpha_p)}=p$. Their principal ideals are distinct and satisfy
+\[
+ \OO/\alpha_p\OO\simeq\F_p,\qquad
+ \OO/\alpha'_p\OO\simeq\F_p,\qquad
+ \alpha_p\OO\cap\alpha'_p\OO=p\OO.
+\]
+\end{proposition}
+\begin{proof}
+Let $R_f/K$ be the ray class field for the finite modulus $f\OO_K$, with no infinite places included. Let $L/\Q$ be its finite normal closure. Choose rational primes splitting completely in $L$, discarding those dividing $\disc(\OO)$. Chebotarev, in natural-density form, and the prime number theorem give
+\begin{equation}\label{eq:raydensity}
+ \#(\PP\cap[T,2T])\sim\frac1{[L:\Q]}\frac T{\log T}.
+\end{equation}
+The class field theory inputs used here are ray class reciprocity and existence, and Chebotarev; see~\cite[Chapter V, Theorems 3.5, 3.6, 3.23 and Remark 3.26(d)]{milne}. Only this fixed-extension asymptotic is needed.
+
+For such a prime, $p\OO_K=\mathfrak p\mathfrak p'$ with distinct degree-one primes, and $\mathfrak p$ splits in $R_f$. Triviality of its ray class gives
+\[
+ \mathfrak p=\alpha\OO_K,
+ \qquad \alpha\equiv1\pmod{f\OO_K}.
+\]
+Initially the congruence is local at primes dividing $f$. Since $\alpha\OO_K$ is an integral ideal, $\alpha\in\OO_K$; these local congruences then say globally that $\alpha-1\in f\OO_K$. Thus $\alpha\in1+f\OO_K\subset\OO$. Its conjugate $\alpha'$ also lies in $\OO$, generates $\mathfrak p'$, and has the same absolute norm $p$. No positivity at real embeddings is imposed or needed.
+
+Multiplication by $\alpha$ on the rank-two free abelian group $\OO$ has determinant $\N(\alpha)$, so $[\OO:\alpha\OO]=p$. The quotient, a unital ring of prime order, is $\F_p$. The same holds for $\alpha'$. Because $p\nmid f$, the natural map
+\[
+ \OO/p\OO\longrightarrow\OO_K/p\OO_K\simeq\F_p\times\F_p
+\]
+is an isomorphism. For completeness, the index $[\OO_K:\OO]=f$ is prime to $p$, so its finite cokernel has invertible multiplication by $p$; reducing modulo $p$ gives both injectivity and surjectivity. The image of $\alpha$ vanishes in the $\mathfrak p$ factor and not the $\mathfrak p'$ factor, because $(\alpha)=\mathfrak p$. Hence $\alpha\OO$ is contained in the first factor kernel, and equality follows from their common index $p$. Similarly $\alpha'\OO$ is the other kernel. Their intersection is $p\OO$.
+\end{proof}
+
+For the maximal order ($f=1$), one may take the ordinary Hilbert class field $H_K$. It is normal over $\Q$: conjugation preserves the defining maximal everywhere-unramified abelian extension, including the condition at infinite places. If $h_K$ is the ordinary ideal class number, its degree over $\Q$ is $2h_K$ and the density is $1/(2h_K)$. For nonmaximal orders, the possibly smaller density in~\eqref{eq:raydensity} suffices; no formula in terms of an order class number is asserted.
+
+\begin{proposition}[The interface holds]\label{prop:interface}
+Using the two quotient maps in Proposition~\ref{prop:supply}, every fixed planar embedding of $\OO$ satisfies \textup{(A1)--(A5)}.
+\end{proposition}
+\begin{proof}
+Identify $\OO$ with $\Lambda$. Distinct selected index-$p$ ring ideals at different rational primes are comaximal, since they contain their respective rational primes. The Chinese remainder theorem gives (A1), and Proposition~\ref{prop:supply} gives (A2).
+
+The field norm is a homogeneous real quadratic polynomial on the coefficient space. For a fixed embedding there is $C\ge1$ such that
+\begin{equation}\label{eq:normbound}
+ \abs{\N(v)}\le C\norm v^2\qquad(v\in\Lambda).
+\end{equation}
+If a nonzero $v$ is in either selected principal ideal, $p\mid\abs{\N(v)}$; the norm is a nonzero integer. Thus $\norm v\ge C^{-1/2}\sqrt p$, proving (A3). For a primitive $v$, both maps at $p$ cannot kill it, by (A2). Every eligible prime divides the nonzero integer $\abs{\N(v)}$, so the product of all distinct eligible primes divides that integer and is at most $C\norm v^2$. This is (A4). Equation~\eqref{eq:raydensity} is (A5).
+\end{proof}
+
+In particular, no ideal factorization theorem for $\OO$ itself has been invoked. Using all split prime ideals without ensuring principality in $\OO$ would not justify the subsequent irreducible-element argument. Also, the field norm need not be positive definite: only its absolute value and its nonvanishing on nonzero field elements were used.
+
+\section{Bounded norm exceptions and component restoration}\label{sec:restoration}
+
+The finite sieve removes every irreducible except associates of finitely many chosen elements. In a real quadratic order the number of these associates can be infinite, so replacing their set by a finite set is not permissible. The following lemmas address this issue directly.
+
+\begin{lemma}[Isolation for anisotropic binary forms]\label{lem:conic}
+Let $q$ be a nondegenerate rational quadratic form on a rank-two lattice, anisotropic over $\Q$. For $M,R>0$, put
+$E_M=\set{x\in\Lambda:0<\abs{q(x)}\le M}$. There are only finitely many ordered pairs of distinct $x,y\in E_M$ with $\norm{x-y}\le R$.
+\end{lemma}
+\begin{proof}
+There are finitely many nonzero differences $v=y-x\in\Lambda$ of length at most $R$. After clearing one denominator of $q$, there are finitely many possible values $a=q(x)$ and $b=q(x+v)$. For fixed $(v,a,b)$, write the polarization as $B_q(x,v)=q(x+v)-q(x)-q(v)$. The equations are
+\[
+ q(x)=a,\qquad B_q(x,v)=b-a-q(v).
+\]
+Nondegeneracy makes the second equation an affine rational line. Its direction has a nonzero rational spanning vector $w$, and anisotropy gives $q(w)\ne0$. Restricting $q(x)=a$ to the line therefore gives a genuine quadratic polynomial equation, with at most two real solutions. There are finitely many triples $(v,a,b)$.
+\end{proof}
+
+For a quadratic field the norm is anisotropic over $\Q$, since $\N(x)=0$ only when $x=0$. A sharper statement is available using its multiplicative structure.
+
+\begin{lemma}[An explicit radius for close bounded-norm pairs]\label{lem:radius}
+Use the real Minkowski norm $\norm x_{\mathrm M}=(\abs{\sigma_1x}^2+\abs{\sigma_2x}^2)^{1/2}$ in a real quadratic field, and the complex absolute value in an imaginary quadratic field. If distinct $x,y\in\OO$ satisfy
+\[
+ 0<\abs{\N(x)},\abs{\N(y)}\le M,\qquad
+ \norm{x-y}_{\mathrm M}\le R,
+\]
+then
+\[
+ \norm x_{\mathrm M},\norm y_{\mathrm M}\le(2M+2)R.
+\]
+For any fixed planar embedding, the same conclusion holds with right-hand side $\kappa(2M+2)R$, where $\kappa$ is the product of the operator norms of the linear change from Minkowski coordinates and its inverse.
+\end{lemma}
+\begin{proof}
+Let $v=y-x\ne0$ and $t=x/v\in K$. Since $\N(v)$ is a nonzero integer,
+\[
+ \abs{\N(t)}\le M,
+ \qquad
+ \Tr(t)=\frac{\N(y)-\N(x)-\N(v)}{\N(v)},
+ \qquad \abs{\Tr(t)}\le2M+1.
+\]
+The conjugates of $t$ are roots of $u^2-\Tr(t)u+\N(t)$. The elementary root bound for a monic polynomial gives
+$\max_\sigma\abs{\sigma(t)}\le1+\max(\abs{\Tr(t)},\abs{\N(t)})\le2M+2$.
+Multiplication by $t$ has operator norm at most this quantity in the stated Minkowski norm, hence $\norm x_{\mathrm M}=\norm{vt}_{\mathrm M}\le(2M+2)R$. Interchanging $x,y$ proves the same bound for $y$. Equivalence of the two coordinate norms gives the last assertion.
+\end{proof}
+
+\begin{lemma}[Restoring exceptional vertices]\label{lem:restoration}
+Let a graph $G$ on a subset $V$ of a lattice have edges of length at most $D$ and maximum degree at most $\Delta$. Let $E\subset V$. Suppose every component of $G\setminus E$ has at most $B$ vertices. On $E$, join two distinct points whenever their distance is at most $D(B+1)$, and suppose this enlarged exceptional graph has component size at most $M_E$. Then every component of $G$ has at most
+\[
+ \max\{B,\ M_E(1+\Delta B)\}
+\]
+vertices.
+\end{lemma}
+\begin{proof}
+Between successive exceptional vertices on a simple path there is either one edge or a passage through a single component of $G\setminus E$, using at most $B$ intermediate vertices. Their distance is at most $D(B+1)$. Thus all exceptional vertices of a $G$-component belong to one enlarged exceptional component and number at most $M_E$. At most $\Delta M_E$ nonexceptional components can meet them, each contributing at most $B$ vertices. A component with no exceptional vertex already has size at most $B$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Apply Proposition~\ref{prop:interface} and Theorem~\ref{thm:engine}, obtaining $S_D$ and $Q=\prod_{p\in S_D}p$. Put $B=Q^2$. If $S_D$ is empty, every irreducible is in the avoiding set and the conclusion is immediate. Otherwise let $E$ consist of irreducibles divisible in $\OO$ by one of $\alpha_p,\alpha'_p$, $p\in S_D$. Each chosen element has absolute norm $p$, so is a nonunit. If it divides an irreducible, the other factor must be a unit. Thus every element of $E$ is an associate of one of these finitely many generators.
+
+A unit of $\OO$ has norm $\pm1$, since multiplication by it is an invertible integral matrix. Consequently, with $M=\max_{p\in S_D}p$,
+\[
+ E\subset\set{x\in\OO:0<\abs{\N(x)}\le M}.
+\]
+Every irreducible outside $E$ is in $A(S_D)$, so each component after deleting $E$ has at most $B$ vertices. The graph degree is at most
+$\Delta=\#\set{v\in\Lambda:0<\norm v\le D}<\infty$.
+
+By Lemma~\ref{lem:conic}, the exceptional graph with edge radius $D(B+1)$ has only finitely many edges, hence a uniform component bound $M_E$. More concretely, Lemma~\ref{lem:radius} puts both endpoints of every such edge in the finite lattice ball of radius
+\[
+ R_*=\kappa(2M+2)D(Q^2+1).
+\]
+One may take $M_E$ to be the larger of $1$ and the number of lattice points in that ball. All exceptional vertices outside it are isolated. Lemma~\ref{lem:restoration} gives the finite bound
+\[
+ B_{\OO,\iota,D}=\max\{Q^2,\ M_E(1+\Delta Q^2)\}.
+\]
+This expression establishes uniformity over all starting irreducibles, but the analytic argument has not assigned numerical values to its scale choices. For discrete coefficient-step data, the finite-certificate search and integer bound in Section~\ref{sec:effective} remove the resulting computability obstruction without a practical runtime estimate.
+\end{proof}
+
+\begin{corollary}
+For each fixed $D$, the coefficient-plane graph on irreducibles $a+b\sqrt2\in\Z[\sqrt2]$, with distance
+$\sqrt{(a-c)^2+(b-d)^2}$ between $a+b\sqrt2$ and $c+d\sqrt2$, has uniformly bounded component sizes. The same is true in its two-real-embedding Minkowski metric.
+\end{corollary}
+
+\section{Exact certificates and computable bounds}\label{sec:effective}
+
+The preceding analytic construction does not provide numerical scale thresholds. Nevertheless, its finite-sieve conclusion implies a terminating exact search. This gives a computable component bound when the input is an integral order model and a finite list of permitted coefficient steps. The computability claim is deliberately restricted to such discrete input; no oracle for an arbitrary real metric or embedding is assumed. The voltage criterion below is an elementary covering-graph observation, included as a verification device without a separate novelty claim.
+
+\subsection{Integral input and arithmetic witnesses}
+
+Write
+\[
+ \OO=\Z[\omega],\qquad \omega^2=u\omega+v,\qquad u,v\in\Z,
+ \qquad u^2+4v\notin\{t^2:t\in\Q\}.
+\]
+Here the last condition means that the discriminant is not the square of a rational number; negative discriminants are allowed. Every quadratic order has such a model. In the coefficient identification $a+b\omega\leftrightarrow(a,b)$,
+\begin{equation}\label{eq:integralnorm}
+ \N(a+b\omega)=a^2+uab-vb^2,
+ \qquad \overline{a+b\omega}=(a+ub)-b\omega.
+\end{equation}
+Let $F\subset\Z^2\setminus\{0\}$ be a supplied finite symmetric set. The corresponding graph joins $x$ to $x+d$ for $d\in F$ whenever both endpoints lie in its vertex set. Symmetry makes it undirected, although we retain both orientations in finite certificates.
+
+For each prime in a finite set $S$, an arithmetic witness is an element $\alpha_p=(a_p,b_p)$ with $\abs{\N(\alpha_p)}=p$. Its multiplication matrix and adjugate are
+\[
+ A_\alpha=\begin{pmatrix}a&vb\\ b&a+ub\end{pmatrix},
+ \qquad
+ \operatorname{adj}(A_\alpha)=
+ \begin{pmatrix}a+ub&-vb\\-b&a\end{pmatrix}.
+\]
+The determinant is $\N(\alpha)=\pm p$. Modulo $p$, the matrix has rank one: rank zero would make its determinant divisible by $p^2$. Choose a nonzero adjugate row $\ell_{p,+}\in\F_p^2$; it annihilates $A_\alpha$ modulo $p$. Applying the same construction to $\bar\alpha$ gives $\ell_{p,-}$. Require
+\begin{equation}\label{eq:rowindependent}
+ \det\begin{pmatrix}\ell_{p,+}\\\ell_{p,-}\end{pmatrix}\ne0\pmod p.
+\end{equation}
+All of these tests use integers only, including deterministic primality testing.
+
+The preimage in $\Z^2$ of $\ker\ell_{p,+}$ contains $\alpha_p\OO$. Both have index $p$, so they are equal. Similarly the other row represents $\bar\alpha_p\OO$. Condition~\eqref{eq:rowindependent} gives intersection $p\OO$. Thus the finite arithmetic data certify exactly the principal kernels needed for the irreducible exception argument, without computing a class field. These rows need only be additive maps; their kernels, which are what matters, are principal ring ideals.
+
+\subsection{The finite quotient with integer edge labels}
+
+Put $Q=\prod_{p\in S}p$, with the empty product equal to one, and let
+\[
+ \mathcal R=\left\{r\in\{0,\ldots,Q-1\}^2:
+ \ell_{p,+}r\ne0,\ \ell_{p,-}r\ne0\pmod p\text{ for all }p\in S\right\}.
+\]
+These are exactly the representatives of the avoiding set modulo $Q\Z^2$. For every $r\in\mathcal R$ and $d\in F$ with $s=(r+d)\bmod Q\in\mathcal R$, form a directed edge $r\to s$ with integer label, or \emph{voltage},
+\begin{equation}\label{eq:voltage}
+ k(r,d)=\frac{r+d-s}{Q}\in\Z^2.
+\end{equation}
+Keep every such edge, including loops and parallel edges arising from different steps. Omitting them could incorrectly certify an infinite component as finite.
+
+\begin{theorem}[Exact finite certificate criterion]\label{thm:certificate}
+For the above finite data, the following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item There is a function $h:\mathcal R\to\Z^2$ such that every directed edge satisfies
+\begin{equation}\label{eq:potential}
+ h(s)-h(r)=k(r,d).
+\end{equation}
+\item Every closed walk in the finite quotient graph has total voltage zero.
+\item Every component of the lifted avoiding graph on $\Z^2$ is finite.
+\item Every component of that lifted graph has at most $\abs{\mathcal R}\le Q^2$ vertices.
+\end{enumerate}
+If these conditions fail, the avoiding graph has an infinite simple path. This equivalence concerns the periodic \emph{avoiding graph}; it does not assert that failure of a candidate certificate produces an infinite walk on irreducibles.
+\end{theorem}
+\begin{proof}
+Summing~\eqref{eq:potential} around a closed walk proves (i)$\Rightarrow$(ii). Conversely, choose a root in each quotient component and set its potential to zero. Define $h(r)$ by summing voltages along a path from its root. Reversing an edge negates its voltage because $F$ is symmetric. Condition (ii) makes this definition path-independent and gives (i).
+
+A lifted vertex is uniquely $r+Qn$, with $r\in\mathcal R$ and $n\in\Z^2$. Along the lift of an edge, $n$ changes to $n+k(r,d)$, while $h(r)$ changes by the same amount. Thus $n-h(r)$ is constant on each lifted component. There is at most one vertex of that component over each representative $r$, proving (i)$\Rightarrow$(iv)$\Rightarrow$(iii).
+
+If a closed quotient walk has nonzero voltage $k$, its lift joins a vertex to its distinct translate by $Qk$. Repeating translated copies of this walk puts all translates by $mQk$, $m\ge0$, in one component, which is therefore infinite. This proves (iii)$\Rightarrow$(ii). Alternatively, any infinite lifted component has two different vertices over some common representative; a path between them projects to a closed walk of nonzero voltage. Local finiteness then gives an infinite simple path.
+\end{proof}
+
+Spanning-tree propagation constructs the candidate potentials, and every non-tree edge checks the same equations. A failed equation yields a nonzero-voltage closed walk by following the two tree paths and that edge. A successful certificate can be verified independently by checking the arithmetic witnesses, the \emph{complete} set $\mathcal R$, and every equation~\eqref{eq:potential}, without trusting the construction procedure. The finite empty graph causes no difficulty: its empty potential is a valid certificate.
+
+\subsection{An entirely integer exceptional-component bound}
+
+\begin{proposition}[Bound from a successful certificate]\label{prop:integerbound}
+Suppose the arithmetic witnesses satisfy~\eqref{eq:rowindependent} and a potential satisfying~\eqref{eq:potential} is supplied. Set $B=Q^2$ and $\Delta=\abs F$. If $S\ne\varnothing$, define
+\begin{align}
+ H&=\max\bigl(\{\abs{d_1},\abs{d_2}:d\in F\}\cup\{0\}\bigr),
+ &M&=\max_{p\in S}p,\nonumber\\
+ V_0&=\bigl(2(B+1)H+1\bigr)^2-1,
+ &M_E&=\max\{1,8M^2V_0\}.\label{eq:integerconstants}
+\end{align}
+Then the irreducible graph with steps in $F$ has component cardinalities at most
+\begin{equation}\label{eq:integerbound}
+ \max\{B,M_E(1+\Delta B)\}.
+\end{equation}
+For $S=\varnothing$, the bound $B=1$ suffices whenever the certificate succeeds.
+\end{proposition}
+\begin{proof}
+Outside the exceptional set of associates of the $\alpha_p$ and $\bar\alpha_p$, every irreducible is in the avoiding set. Theorem~\ref{thm:certificate} bounds each nonexceptional component by $B$. The exception set is contained in $0<\abs{\N(x)}\le M$, exactly as in the proof of Theorem~\ref{thm:main}.
+
+A path between successive exceptional vertices uses at most $B$ nonexceptional intermediate vertices, hence at most $B+1$ steps. Its nonzero coefficient difference lies in the integer box
+$[-(B+1)H,(B+1)H]^2$, which contains $V_0$ nonzero vectors. Enlarge the exceptional graph by joining every pair whose difference is in this box. For each such difference $w$ and each ordered pair of nonzero integer norm values $a,b\in[-M,M]$, the proof of Lemma~\ref{lem:conic} gives at most two ordered pairs of endpoints. There are $(2M)^2$ norm-value pairs, so the enlarged graph has at most
+\[
+ 2(2M)^2V_0=8M^2V_0
+\]
+ordered edges. Because the box is symmetric, each nonisolated vertex is the initial endpoint of some ordered edge. The number of nonisolated exceptional vertices, and hence the size of every nontrivial exceptional component, is bounded by this same integer. Isolated vertices account for the maximum with one in~\eqref{eq:integerconstants}.
+
+The counting argument of Lemma~\ref{lem:restoration} now applies: a full component meets at most $M_E$ exceptional vertices and at most $\Delta M_E$ nonexceptional components. This proves~\eqref{eq:integerbound}. If $S$ is empty there are no exceptions, so the certificate alone gives $B=Q^2=1$.
+\end{proof}
+
+This estimate uses neither numerical operator norms nor algebraic-real root approximations. It does not enumerate unit associates or require an algorithm deciding irreducibility. The geometric radius in Lemma~\ref{lem:radius} remains useful independently, but is not needed for the integer bound.
+
+\subsection{A terminating exhaustive search}
+
+\begin{theorem}[Computability for finite coefficient-step input]\label{thm:computable}
+On input integers $u,v$ with $u^2+4v$ not a rational square and a finite symmetric $F\subset\Z^2\setminus\{0\}$, there is an algorithm that terminates with arithmetic witnesses and a valid finite potential certificate. It returns an integer bounding every component of the irreducible $F$-step graph. Thus such a bound is a total computable function on the stated discrete input domain.
+\end{theorem}
+\begin{proof}
+First test the empty prime set. Then enumerate integer pairs $\alpha=(a,b)$ in increasing coefficient boxes. At each finite stage, test whether $\abs{a^2+uab-vb^2}$ is prime and whether the two adjugate rows satisfy~\eqref{eq:rowindependent}. Keep one passing witness for each distinct prime encountered. Run the finite quotient test on the accumulated prime set after each stage. If it succeeds, output its potential and the integer in Proposition~\ref{prop:integerbound}. Every individual stage is finite: trial division, row arithmetic, enumeration of $Q^2$ representatives, and finite graph propagation suffice.
+
+To prove termination, if $F$ is nonempty take an integer $D\ge2H$, so every coefficient step has Euclidean length at most $D$. Theorem~\ref{thm:engine}, verified for this order in Proposition~\ref{prop:interface}, gives a finite successful prime set $S_D$ from the ray class supply. Each of its norm-prime generators is an integer pair and eventually occurs in the exhaustive enumeration.
+
+Keeping an earlier passing generator for the same prime does not change its unordered pair of kernels. Indeed, two distinct index-$p$ principal kernels give
+$\OO/p\OO\simeq\F_p\times\F_p$, by their index and intersection. This ring has exactly two maximal ideals. Every other norm-$p$ principal ideal is an index-$p$ maximal ideal containing $p\OO$, and a passing conjugate pair must therefore be the same two kernels. Hence the accumulated avoiding set eventually is a subset of $A(S_D)$.
+
+Adding primes only removes vertices, so after that stage every avoiding component is finite. The necessity direction of Theorem~\ref{thm:certificate} guarantees that the finite potential test succeeds. If $F$ is empty, the initial empty-prime certificate succeeds immediately. Proposition~\ref{prop:integerbound} supplies the computable output in all cases.
+\end{proof}
+
+The theorem extracts an algorithm from the analytic existence proof without calculating its asymptotic thresholds or any ray class field. It supplies no useful a priori search-stage estimate and no feasibility claim; the quotient may be extremely large. Accordingly, ``nonexplicit'' applies to the analytic scale choices and the absence of a practical closed-form estimate, not to computability of the bound from discrete step data.
+
+For example, a nonnegative rational radius in the standard coefficient Euclidean metric gives an effectively enumerable finite $F$ by exact integer comparisons with its square. A conservative supplied coefficient box also suffices. The theorem does not assert an algorithm with arbitrary, potentially noncomputable real metric coefficients as input. The unrestricted metric statement of Theorem~\ref{thm:main} is an existence theorem; the effective statement here has the narrower, precisely specified input representation.
+
+\subsection{Small exact checks and their limited scope}
+
+The accompanying standard-library Python checker constructs potentials by breadth-first propagation and verifies them separately by enumerating every directed edge equation. It uses integer arithmetic and deterministic trial-division primality tests. Validation uses assertions, and the program explicitly refuses Python optimization mode, which would disable them. This is a research implementation, not a formally verified executable.
+
+Two illustrative examples use only horizontal unit steps $F=\{(1,0),(-1,0)\}$:
+\begin{enumerate}[leftmargin=2em]
+\item In $\Z[i]$, take $\alpha=2+i$ of norm $5$. Then $Q=5$, there are $16$ allowed representatives, and~\eqref{eq:integerbound} gives $28\,641\,600$.
+\item In $\Z[\sqrt2]$, take $\alpha=3+\sqrt2$ of norm $7$. Then $Q=7$, there are $36$ allowed representatives, and the same formula gives $395\,841\,600$. A complete potential is included in the accompanying JSON example.
+\end{enumerate}
+These small certificates can also be written without code. For each row coordinate $b$, choose the forbidden horizontal coordinate $c_b=2b\bmod5$ in the Gaussian example, or $c_b=3b\bmod7$ in the real example, represented in $\{0,\ldots,p-1\}$. On every allowed $(a,b)$ set
+\[
+ h(a,b)=\bigl(-\mathbf1_{a>c_b},0\bigr).
+\]
+Along any permitted horizontal edge without wraparound the potential is unchanged, since the possible discontinuity crosses the forbidden coordinate $c_b$. Across wraparound it changes by exactly the voltage in~\eqref{eq:voltage}. Thus all edge equations hold. A different choice of additive constant on any quotient component is immaterial. Direct enumeration gives maximum avoiding-component sizes $4$ and $6$, respectively; the much larger integers above are conservative bounds for the \emph{full irreducible graphs}, including exceptions.
+
+The seven bundled test cases cover empty steps, an unsieved infinite line, the Gaussian certificate, rejection of a changed potential, a same-residue step with nonzero voltage, the real certificate, and rejection of coincident kernels from a ramified generator. The supplied real JSON was separately reverified, as were additional rejection checks for missing or duplicate representatives, a wrong modulus, and inconsistent potentials. These examples test the exact verifier and demonstrate only these elementary step sets. They neither verify the general entropy argument nor constitute a large-step moat computation. No exhaustive search for a difficult instance or Lean replay is reported.
+
+\section{Context and limits of the present draft}
+
+The Gaussian case is the result and proof source of OpenAI~\cite{openai}. Prasad~\cite{prasad} studies computations and walks in class-number-one imaginary quadratic fields. Li, Miller, Popescu, Sarnecki and Wattanawanichkul~\cite{li} formulate the corresponding bounded-walk question in $\Z[\sqrt2]$ and prove a restricted asymptote-strip result. Prime-free discs, such as those studied by Khale~\cite{khale}, give a different kind of obstruction: a planar path can go around a hole, so holes alone do not establish this component conclusion.
+
+The all-order statement here is proposed as a source-dependent extension. A limited literature check found these predecessors but does not establish priority. Further specialist checking, a broader literature review, and any desired formalization remain appropriate before treating the draft as a publication-ready or certified result. No claim is made about higher-degree number fields, a single real embedding, a practical closed-form moat size, or bounds uniform over orders. The computability theorem has the specific integral-model and finite-step input domain of Theorem~\ref{thm:computable}.
+
+\paragraph{Source snapshot.}
+The inherited proof was read at repository commit
+\begin{center}\small\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.\end{center}
+The source PDF has SHA-256
+\begin{center}\small\texttt{a032c3f94f247e90de8077457439a0aad38325ae6f2557c2d08bfb63bfae78d4}.\end{center}
+Its source family is 028. The accompanying Gaussian formal statement concerns uniform component bounds and bounded injective walks on Gaussian irreducibles; no analogous quadratic-order formalization or replay is claimed here.
+
+\begin{thebibliography}{9}
+\bibitem{openai}
+OpenAI, \emph{Bounded-Step Walks on Gaussian Primes}, 26 September 2026.
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/paper.pdf}{Pinned manuscript in the OpenAI math repository}.
+See Sections 3--8 for the inherited geometric and entropy method, and
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/028.md}{the family 028 scope note} for the source's formal artifacts.
+
+\bibitem{milne}
+J. S. Milne, \emph{Class Field Theory}, version 4.03, 2020.
+\href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{Author's course notes}.
+Chapter V, Theorems 3.5 and 3.6 (reciprocity and existence), Theorem 3.23 and Remark 3.26(d) (Chebotarev and natural density); Introduction, Theorem 0.4 (Hilbert class field).
+
+\bibitem{prasad}
+S. Prasad, \emph{Walks on Primes in Imaginary Quadratic Fields}, 2014.
+\href{https://arxiv.org/abs/1412.2310}{arXiv:1412.2310}.
+
+\bibitem{li}
+B. Li, S. J. Miller, T. Popescu, D. Sarnecki and N. Wattanawanichkul,
+\emph{Modeling Random Walks to Infinity on Primes in $\Z[\sqrt2]$}, 2020, revised 2022.
+\href{https://arxiv.org/abs/2011.07386}{arXiv:2011.07386}.
+
+\bibitem{khale}
+T. Khale, \emph{Prime-free discs in imaginary quadratic fields}, 2025.
+\href{https://arxiv.org/abs/2510.14006}{arXiv:2510.14006}.
+\end{thebibliography}
+\end{document}

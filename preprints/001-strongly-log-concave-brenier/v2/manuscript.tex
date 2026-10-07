@@ -1,0 +1,864 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Brenier stability for strongly log-concave sources}
+\fancyhead[R]{\small Research draft}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathcal P}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\esssup}{\operatorname*{ess\,sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Law}{\operatorname{Law}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\interior}{\operatorname{int}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\DeclareMathOperator{\Lip}{Lip}
+\title{Sharp one-third stability of Brenier maps\\for strongly log-concave sources}
+\author{}
+\date{Research draft, version 2\quad 7 October 2026}
+\hypersetup{pdftitle={Sharp one-third stability of Brenier maps for strongly log-concave sources},pdfsubject={Research draft with complete proofs and an unresolved literature comparison},pdfauthor={}}
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+\begin{abstract}
+Let $\rho=Z^{-1}e^{-\kappa|x|^2/2-W(x)}\dd x$ be a full-dimensional probability measure on $\R^d$, where $\kappa>0$ and $W$ is a proper lower-semicontinuous convex function, possibly extended-valued. For all targets with finite second moment, we prove a radius-free Lipschitz estimate for centered Brenier potentials in $L^2(\rho)$ with constant $\sqrt{2/\kappa}$. The resulting lift of Wasserstein absolutely continuous curves has controlled Hilbert-space action. For targets in a fixed ball, a weighted convex-gradient interpolation inequality yields uniform $W_2^{1/3}$ stability of the Brenier maps. The exponent is optimal already for one fixed standard Gaussian source in every dimension at least two and targets with three atoms. An exponential transport inequality for conditional Laguerre-cell laws, valid also for unbounded sources, yields the main differential estimate for normalized cell barycenters. Strong log-concavity controls these derivatives by mass derivatives, and a fixed-mass moving-site identity combines this control with conditional covariance through the law of total variance. Convex truncation passes the result to unbounded sources without a logarithmic loss. We also give a companion theorem for compactly supported log-concave sources, without a positive lower density bound.
+\end{abstract}
+
+\paragraph{Editorial status.}
+This is a mathematical research draft. The proofs have been checked by mathematical argument but are not formally verified or externally peer reviewed. The work extends the proof framework of the OpenAI preprint \cite{OpenAI2026}, with attribution detailed below. No publication-priority claim is made. Comparison with the full text of M\'erigot's recent preprint \cite{Merigot2026} remains unfinished; that limitation concerns the literature comparison, not a premise of any proof below.
+
+\section{Statements and context}\label{sec:intro}
+For probabilities $\mu,\nu$ with finite second moments, write
+\[
+ W_2(\mu,\nu)^2=\inf_{\pi\in\Pi(\mu,\nu)}
+ \int_{\R^d\times\R^d}|y-z|^2\dd\pi(y,z).
+\]
+Here $\Pi(\mu,\nu)$ is the set of couplings. For an absolutely continuous source $\rho$, $T_\mu$ denotes its quadratic-cost optimal map to $\mu$. Brenier's theorem identifies it, uniquely $\rho$-almost everywhere, as $\nabla u_\mu$ for a convex potential \cite{Brenier1991}. When the targets lie in the closed ball $B_L=\{y:|y|\le L\}$, the potentials may be chosen globally $L$-Lipschitz. Potentials are understood up to additive constants on the source support.
+
+For a density $r$, define its coordinate slice functional
+\begin{equation}\label{eq:slice-functional}
+ S(r)=\sum_{j=1}^d\int_{e_j^\perp}
+       \esssup_{t\in\R} r(z+t e_j)\dd z.
+\end{equation}
+The essential supremum is with respect to one-dimensional Lebesgue measure. In dimension one, the integral over $e_1^\perp=\{0\}$ uses zero-dimensional Lebesgue measure, of mass one.
+
+\begin{theorem}[Potential stability for all finite-second-moment targets]\label{thm:strong}
+Let $d\ge1$, $\kappa>0$, and
+\begin{equation}\label{eq:strong-density}
+ \rho=r\dd x,\qquad
+ r(x)=Z^{-1}\exp\bigl(-\kappa|x|^2/2-W(x)\bigr),
+\end{equation}
+where $W:\R^d\to(-\infty,+\infty]$ is proper, lower-semicontinuous and convex, and $\rho$ is a full-dimensional probability measure. Put $D=\interior\supp\rho$. For every $\mu\in\Prob_2(\R^d)$, its Brenier potential has a finite convex representative on $D$ belonging to $L^2(\rho)$, unique up to an additive constant. Denote its unique centered representative by $U_\mu$. Then for all $\mu,\nu\in\Prob_2(\R^d)$,
+\begin{equation}\label{eq:main-potential}
+ \norm{U_\mu-U_\nu}_{L^2(\rho)}^2
+ =\Var_\rho(u_\mu-u_\nu)
+ \le \frac{2}{\kappa}W_2(\mu,\nu)^2.
+\end{equation}
+The representative on $D$ extends to a proper lower-semicontinuous convex function on $\R^d$, possibly taking $+\infty$ outside $D$.
+\end{theorem}
+
+Here $\Prob_2(\R^d)$ denotes the probability measures with finite second moment. The full-dimensional hypothesis means that the effective domain of $W$ has nonempty interior. The theorem allows hard convex boundaries and nonsmooth $W$. No target-support radius or source diameter enters \eqref{eq:main-potential}. For unbounded targets, no global Lipschitz bound on the potential is asserted.
+
+\begin{theorem}[Map stability for bounded targets]\label{thm:maps}
+Let $\rho$ satisfy \eqref{eq:strong-density}. Let $L>0$ and let $Y\subset B_L$ be nonempty and compact. Then $S(r)<\infty$, and for every $\mu,\nu\in\Prob(Y)$,
+\begin{equation}\label{eq:main-map}
+ \norm{T_\mu-T_\nu}_{L^2(\rho)}
+ \le C_d\,\kappa^{-1/6}L^{2/3}S(r)^{1/3}
+          W_2(\mu,\nu)^{1/3},
+\end{equation}
+where one admissible constant is
+\begin{equation}\label{eq:main-constant}
+ C_d=\sqrt3\,2^{-1/3}(24d)^{1/6}28^{1/3}.
+\end{equation}
+\end{theorem}
+
+The map constant may depend on the source through $S(r)$; it is not asserted to depend only on $\kappa,d,L$. No atom-mass bound, number of atoms, site separation, or convexity of $Y$ is required. The quantitative map theorem is restricted to a common bounded target set.
+
+\begin{theorem}[Gaussian sharpness]\label{thm:sharp}
+For the standard Gaussian source $\gamma_d$,
+\[
+ S(\gamma_d)=\frac{d}{\sqrt{2\pi}},\qquad
+ \norm{T_\mu-T_\nu}_{L^2(\gamma_d)}
+ \le C\sqrt d\,L^{2/3}W_2(\mu,\nu)^{1/3}
+ \quad(\mu,\nu\in\Prob(B_L)),
+\]
+where $C$ is a numerical constant. If $d\ge2$, then for every $\alpha>1/3$,
+\begin{equation}\label{eq:sharp-claim}
+ \sup_{\substack{\mu,\nu\in\Prob(B_1),\ \mu\ne\nu\\
+                  \mu,\nu\text{ each have three atoms}}}
+ \frac{\norm{T_\mu-T_\nu}_{L^2(\gamma_d)}}{W_2(\mu,\nu)^\alpha}
+ =+\infty.
+\end{equation}
+\end{theorem}
+
+The restriction $d\ge2$ in the sharpness assertion is essential: in one dimension the common monotone-quantile coupling gives $\norm{T_\mu-T_\nu}_{L^2(\rho)}=W_2(\mu,\nu)$ for every atomless source.
+
+\begin{theorem}[Compact log-concave companion]\label{thm:compact}
+Let $\rho=r\dd x$ be a full-dimensional log-concave probability measure supported on a compact convex body $K\subset B_R$, where $R>0$. Let $Y\subset B_L$ be nonempty and compact. Then $S(r)<\infty$, and for every $\mu,\nu\in\Prob(Y)$,
+\begin{align}
+ \Var_\rho(u_\mu-u_\nu)^{1/2}
+ &\le (1+\sqrt{162})R\,W_2(\mu,\nu),\label{eq:compact-potential}\\
+ \norm{T_\mu-T_\nu}_{L^2(\rho)}
+ &\le C_{\rho,R,L,d}W_2(\mu,\nu)^{1/3},\label{eq:compact-map}
+\end{align}
+with
+\[
+ C_{\rho,R,L,d}^{\,2}
+ =12d(1+\sqrt{162})^2R^2+28L^2S(r).
+\]
+No positive lower density bound or boundary regularity is assumed.
+\end{theorem}
+
+\subsection{Provenance and comparison}
+The finite-cell differential calculus, prescribed-mass interpolation of target sites, uniform-source moment argument and coordinate-gradient interpolation are inherited from \emph{Sharp One-Third Stability of Brenier Maps}, the OpenAI Math Release preprint \cite{OpenAI2026}, family 374 at the pinned repository revision recorded in the bibliography. That preprint proves the sharp uniform-convex-source theorem. We reproduce the necessary arguments, adapt them to log-concave weights, and explicitly separate the new estimate for normalized cell barycenters from the inherited framework. The three-plane Gaussian construction in \Cref{sec:gaussian} adapts the compact-source construction of that preprint.
+
+The potential-to-gradient strategy has earlier antecedents in Delalande and M\'erigot \cite{DelalandeMerigot2023}. Mischler and Trevisan \cite[Theorems 1.1--1.2]{MischlerTrevisan2026} establish potential stability for bounded perturbations of compactly supported log-concave measures and, under two-sided Lebesgue density bounds, a $W_1^{1/6}$ map bound for quadratic cost. Their Section 1.4 discusses weighted gradient interpolation as an obstacle for more general log-concave sources. The layer-cake proof below supplies one such interpolation inequality.
+
+Letrouit and M\'erigot \cite[Theorem 1.4]{LetrouitMerigot2026} treat strongly log-concave sources and bounded logarithmic perturbations. Under both lower and upper Hessian bounds, their map exponent in $W_1$ is $\kappa/(2\kappa'+7\kappa)$; for a Gaussian this is $1/9$, with exponents below $1/8$ also discussed. Their Section 2.2 uses source truncation and induced targets. We use that same elementary restriction principle, after obtaining a radius-free compact-source estimate. Since the metrics and source classes differ, these statements are not an assertion that every earlier result is subsumed here. In particular, arbitrary bounded non-log-concave perturbations are not covered by \Cref{thm:strong}.
+
+The bibliographic existence of \cite{Merigot2026} is verified, but its full theorem statements and hypotheses have not been checked. No comparison with it is used as evidence of novelty. Pr\'ekopa's marginal theorem \cite{Prekopa1973} and the covariance reduction principle \cite{KanterProppe1977} are classical; the contribution developed here is their use with the normalized-barycenter estimate and the moving-site cancellation.
+
+\section{Source and potential preliminaries}\label{sec:prelim}
+We use the upper-semicontinuous representative of a log-concave density. Its closed support $K$ is convex, the density is positive and continuous on $\interior K$, and $\partial K$ has zero Lebesgue measure. Indeed, a full-dimensional convex effective domain has the same interior as its closure, and a finite convex function is continuous on its open domain. The null-boundary assertion follows by contracting bounded convex sections toward an interior point and then exhausting an unbounded set.
+
+\begin{lemma}[Bounds on the density]\label[lemma]{lem:density}
+A compactly supported full-dimensional log-concave probability density is bounded and has finite $S(r)$. Under \eqref{eq:strong-density}, there are $A<\infty$ and $a\in\R^d$ such that
+\begin{equation}\label{eq:envelope}
+ r(x)\le A\exp\bigl(-\kappa|x|^2/2-a\cdot x\bigr).
+\end{equation}
+Consequently all source moments are finite, $r$ is bounded, $S(r)<\infty$, and every positive superlevel set of $r$ is bounded.
+\end{lemma}
+\begin{proof}
+For the compact case, take a ball $B\subset\interior K$ and $m>0$ with $r\ge m$ on $B$. Log-concavity gives, for every $x$ with $r(x)>0$,
+\[
+ r((x+y)/2)\ge\sqrt{m r(x)}\qquad(y\in B).
+\]
+Integration on $(x+B)/2$ bounds $r(x)$ by a constant depending on $m,|B|,d$. The bound extends to the chosen representative, or equivalently suffices as an essential bound. Hence
+\[
+ S(r)\le\norm r_\infty\sum_j|\proj_{e_j^\perp}K|_{d-1}<\infty.
+\]
+For the strongly log-concave case, choose an interior point of the effective domain of $W$ and a subgradient there. The associated supporting affine function gives $W(x)\ge a\cdot x+b$. This proves \eqref{eq:envelope}. Completing the square bounds all polynomial moments. For $z\in e_j^\perp$, the supremum of the right side of \eqref{eq:envelope} over the $e_j$ coordinate is a finite constant times
+$\exp(-\kappa|z|^2/2-a\cdot z)$, whose integral is finite. This proves the assertion about $S(r)$ and the superlevel sets.
+\end{proof}
+
+\begin{lemma}[Lipschitz representatives and restriction]\label[lemma]{lem:potentials}
+For the sources considered here and a target in $B_L$, a Brenier potential has a convex, globally $L$-Lipschitz representative agreeing with it $\rho$-almost everywhere up to its chosen constant. Two such potentials for the same map differ by a constant on $\interior K$. Restricting an optimal convex-gradient map to a positive-mass source subset leaves it optimal to its induced target.
+\end{lemma}
+\begin{proof}
+Let $u$ be a Brenier potential. On a full-source-measure set $A$ in $\interior K$, $u$ is differentiable and $\nabla u(x)\in B_L$. Define
+\[
+ \widehat u(z)=\sup_{x\in A}\{u(x)+\nabla u(x)\cdot(z-x)\}.
+\]
+Fix $x_0\in\interior K$ where $u(x_0)$ is finite. Each supporting plane at $x\in A$ is at most $u(x_0)$ at $x_0$, so the displayed supremum is finite above by $u(x_0)+L|z-x_0|$; a single supporting plane bounds it below. It is convex and $L$-Lipschitz, and equals $u$ on $A$. The difference of two locally Lipschitz potentials for the same map has vanishing weak gradient on $\interior K$, since $r>0$ there; connectedness makes this difference constant.
+
+For restriction, the graph of a convex gradient is cyclically monotone. Equivalently, its Fenchel inequality is an equality along that graph and remains so on any restriction. Integrating the inequality over competing plans with the restricted marginals proves optimality. The first and second moments needed here are finite. Uniqueness follows from the almost-everywhere uniqueness of the supporting slope under an absolutely continuous source.
+\end{proof}
+
+\begin{lemma}[Conditional covariance]\label[lemma]{lem:covariance}
+If $\rho$ satisfies \eqref{eq:strong-density} and $P$ is a convex set with $\rho(P)>0$, then
+\begin{equation}\label{eq:covariance}
+ \Cov_{\rho(\cdot\mid P)}(X)\preceq \kappa^{-1}I_d.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Changing $P$ on its boundary does not affect its conditional law. Absorb the convex indicator of its closure into $W$ and denote the resulting proper extended-valued convex function by $V$. Set
+\[
+ Z_P(t)=\int_{\R^d}\exp\bigl(t\cdot x-\kappa|x|^2/2-V(x)\bigr)\dd x.
+\]
+An affine lower bound for $V$ gives Gaussian domination locally uniformly in $t$, including after multiplication by any quadratic polynomial in $x$. Thus $Z_P$ is twice differentiable and
+$D^2\log Z_P(0)=\Cov_{\rho(\cdot\mid P)}(X)$.
+Completing the square yields
+\[
+ e^{-|t|^2/(2\kappa)}Z_P(t)
+ =\int_{\R^d}\exp\bigl(-\kappa|x-t/\kappa|^2/2-V(x)\bigr)\dd x.
+\]
+The integrand is jointly log-concave in $(t,x)$. Pr\'ekopa's marginal theorem makes the right side log-concave in $t$. Taking the Hessian of its logarithm gives \eqref{eq:covariance}. This proof applies to hard convex boundaries and nonsmooth $V$. The resulting covariance inequality is also the classical Gaussian variance reduction theorem of Kanter and Proppe \cite{KanterProppe1977}.
+\end{proof}
+
+\section{Weighted finite-cell calculus}\label{sec:cells}
+In this section, suppose $\rho=r\dd x$ is log-concave with compact convex support $K$. For distinct sites $y_1,\ldots,y_N$ and intercepts $c_1,\ldots,c_N$, put
+\begin{align*}
+ u_{c,y}(x)&=\max_i(x\cdot y_i+c_i),\\
+ P_i(c,y)&=K\cap\bigcap_{j\ne i}
+       \{x:x\cdot(y_i-y_j)+c_i-c_j\ge0\},\\
+ M_i(c,y)&=\int_{P_i}r\dd x,\qquad
+ B_i(c,y)=\int_{P_i}xr\dd x,\\
+ b_i(c,y)&=B_i/M_i\quad(M_i>0).
+\end{align*}
+We distinguish the unnormalized first moment $B_i$ from the barycenter $b_i$. Let $H_{ij}$ be the equality hyperplane of sites $i,j$ and $F_{ij}=P_i\cap P_j$. Define
+\begin{equation}\label{eq:face}
+ g_{ij}=\frac1{|y_i-y_j|}\int_{F_{ij}}r\dd\mathcal H^{d-1},
+ \qquad
+ \beta_{ij}=\frac1{|y_i-y_j|}\int_{F_{ij}}xr\dd\mathcal H^{d-1}.
+\end{equation}
+A lower-dimensional or empty face contributes zero. These coefficients are symmetric in $i,j$.
+
+\begin{proposition}[Differentials and prescribed masses]\label[proposition]{prop:cells}
+On the open locus of distinct sites and positive cell masses, $M_i,B_i,b_i$ are jointly $C^1$. For an intercept direction $q=(q_i)$ and site direction $v=(v_i)$,
+\begin{align}
+ DM_i[q,v]&=\sum_{j\ne i}
+       \bigl[g_{ij}(q_i-q_j)+\beta_{ij}\cdot(v_i-v_j)\bigr],\label{eq:dm}\\
+ DB_i[q,0]&=\sum_{j\ne i}\beta_{ij}(q_i-q_j).\label{eq:db}
+\end{align}
+The graph with edges $g_{ij}>0$ is connected. Therefore the operator
+$Gq=(DM_i[q,0])_i$ has kernel the constants and range
+$H_0=\{z:\sum_i z_i=0\}$.
+
+For every positive vector $m=(m_i)$ with $\sum_i m_i=1$, there is a unique intercept vector satisfying
+\begin{equation}\label{eq:prescribed}
+ M_i(c,y)=m_i\quad\hbox{for all }i,\qquad \sum_i m_i c_i=0.
+\end{equation}
+It depends $C^1$ on the distinct sites.
+\end{proposition}
+\begin{proof}
+We give the weighted version of the cell argument in \cite{OpenAI2026}. A positive-mass cell contains a point of $\interior K$ where its affine function is strictly maximal: remove the boundary and the finite collection of tie planes. Strictly active points for $i$ and $j$ show that $H_{ij}$ meets $\interior K$. Whenever an affine hyperplane $H$ meets $\interior K$, the relative interior of $K\cap H$ equals $H\cap\interior K$. To see this, choose an ambient interior point in the section and extend the segment from it through a relative interior point slightly beyond the latter. Thus $H\cap\partial K$ is surface-null.
+
+No two planes $H_{ij},H_{ik}$ coincide for three distinct indices: otherwise the three affine functions lie on an affine line, one strictly between the other two, and that function cannot be strictly maximal. Triple ties therefore have codimension at least two.
+
+For $f=1$ or a coordinate function, write
+\[
+ I_i^f=\int_K f(x)r(x)\prod_{j\ne i}\ind_{\{\ell_{ij}(x)\ge0\}}\dd x,
+ \qquad \ell_{ij}(x)=x\cdot(y_i-y_j)+c_i-c_j.
+\]
+Perturb by $h(q,v)$ and telescope the change of the indicator product. The term where the $j$th indicator changes is supported in $|\ell_{ij}|\le Ch$. In coordinates
+$x=z+htn_{ij}$, with $z\in H_{ij}$ and $n_{ij}=(y_i-y_j)/|y_i-y_j|$, the volume factor $h$ cancels the difference quotient. On a fixed bounded region of $(z,t)$, the other indicators converge outside the surface-null boundary and triple-tie sets. There $r(z+htn_{ij})\to r(z)$, by interior continuity. Boundedness of $r$, $K$ and $f$ supplies domination. The integral of the changed indicator in the $t$ variable is
+\[
+ \frac{q_i-q_j+z\cdot(v_i-v_j)}{|y_i-y_j|}.
+\]
+The same calculation for negative $h$ proves the two-sided formula
+\[
+ DI_i^f[q,v]=\sum_{j\ne i}\frac1{|y_i-y_j|}
+  \int_{F_{ij}}f(z)r(z)
+       \bigl(q_i-q_j+z\cdot(v_i-v_j)\bigr)\dd\mathcal H^{d-1}(z).
+\]
+This gives \eqref{eq:dm}--\eqref{eq:db} and all site derivatives of $B_i$.
+For continuity, identify each nearby equality plane with the original one as an affine graph. Graph maps and surface Jacobians converge uniformly on a bounded integration region. The same null-set observation and domination prove continuity of the face integrals, also with quadratic coordinate factors. Continuity of the masses themselves follows from volume dominated convergence away from the tie planes, proving openness of the locus. The quotient rule gives $C^1$ regularity of $b_i$.
+
+Choose generic strictly active interior endpoints. The segment between them stays in $\interior K$ and avoids every triple-tie set. At a change of active index, an open piece of the corresponding face lies in the interior, where $r$ is positive. Each such crossing gives an edge with $g_{ij}>0$. This proves connectivity, including the one-dimensional case. The identity
+\[
+ q\cdot Gq=\sum_{i<j}g_{ij}(q_i-q_j)^2
+\]
+then proves the kernel and range statements.
+
+Finally minimize the convex functional
+\[
+ \mathcal F_y(c)=\int_K\max_i(x\cdot y_i+c_i)\dd\rho
+                    -\sum_i m_ic_i
+\]
+on $H_m=\{c:\sum_i m_ic_i=0\}$. If $K\subset B_R$ and $S=\max_i|y_i|$, then $\mathcal F_y(c)\ge\max_i c_i-RS$. On $H_m$, positivity of the weights makes $\max_i c_i\to\infty$ whenever $|c|\to\infty$. Thus a minimum exists. Distinct sites imply a unique maximizing index almost everywhere, so bounded difference quotients give $\nabla_c\mathcal F_y=M-m$. At a constrained minimum this vector is a multiple of $m$, and its coordinate sum is zero, forcing $M=m$. Conversely every solution is a minimum.
+
+At a solution, $G:H_m\to H_0$ is an isomorphism. The implicit-function theorem gives a locally unique $C^1$ solution as the sites vary. If two normalized solutions existed at fixed sites, convexity would make their entire segment minimizing, contradicting local isolation. Thus the solution is unique globally and its local $C^1$ branches agree. The case $N=1$ is immediate, since its normalized intercept is $c_1=0$.
+\end{proof}
+
+\section{Midpoint coupling and normalized barycenters}\label{sec:midpoint}
+For the next lemma, the log-concave source has compact convex support $K$. The argument is a weighted form of the triangular-quantile midpoint construction in \cite{OpenAI2026}. We include the substitution details to avoid regularity assumptions on the density or cell boundaries.
+
+\begin{lemma}[Weighted midpoint coupling]\label[lemma]{lem:midpoint}
+Let $U,V$ be compact convex subsets of $K$ with masses $\alpha=\rho(U)>0$ and $\beta=\rho(V)>0$. There is a coupling $(X,Z)$ of their conditional source laws such that, with $H=(X+Z)/2$ and $\gamma=\sqrt{\alpha\beta}$,
+\begin{equation}\label{eq:midpoint-ordinary}
+ \gamma\E[g(H)]\le\int_{(U+V)/2}g(x)r(x)\dd x
+ \qquad(g\ge0\text{ Borel}).
+\end{equation}
+If $r$ is $\kappa$-strongly log-concave, the same coupling satisfies
+\begin{equation}\label{eq:midpoint-strong}
+ \gamma\E\left[g(H)e^{\kappa|X-Z|^2/8}\right]
+ \le\int_{(U+V)/2}g(x)r(x)\dd x.
+\end{equation}
+The right sides may instead be integrated over any Borel set containing all the constructed midpoints.
+\end{lemma}
+\begin{proof}
+For the restriction to $U$, let
+\[
+ p_k(\xi)=\int_{\R^{d-k}}\ind_{\interior U}(\xi,\eta)r(\xi,\eta)\dd\eta
+ \quad(0\le k<d),\qquad
+ p_d(x)=\ind_{\interior U}(x)r(x).
+\]
+Thus $p_0=\alpha$. The functions $p_k$ are positive and continuous on the projections of $\interior U$. Continuity follows by dominated convergence on bounded fibers: a slice meeting the interior intersects the convex boundary in slice-null measure, while $r$ is continuous at the interior points and bounded everywhere. The claim for $p_d$ is immediate there. Boundaries do not affect any integral.
+
+Starting from $s=(s_1,\ldots,s_d)\in(0,1)^d$, construct $X_k$ recursively as the $s_k$ quantile of
+\[
+ t\longmapsto
+ \frac{p_k(X_1,\ldots,X_{k-1},t)}{p_{k-1}(X_1,\ldots,X_{k-1})}.
+\]
+This density is positive and continuous on an open interval, and has total mass one. Its quantile is strictly increasing and $C^1$ in $s_k$, for each fixed earlier prefix. The maps are Borel, as follows by comparing the conditional cumulative distribution functions at rational points. Successive conditioning gives $X\sim\rho(\cdot\mid U)$ and
+\[
+ \partial_{s_k}X_k=
+ \frac{p_{k-1}(X_1,\ldots,X_{k-1})}{p_k(X_1,\ldots,X_k)}>0,
+ \qquad
+ \prod_{k=1}^d\partial_{s_k}X_k=\frac{\alpha}{r(X)}.
+\]
+Construct $Z$ from the same parameters for $V$. For the triangular midpoint map $H$, arithmetic--geometric mean on the diagonal derivatives gives
+\begin{equation}\label{eq:triangular-jacobian}
+ J_H:=\prod_k\partial_{s_k}H_k
+ \ge\sqrt{\frac{\alpha\beta}{r(X)r(Z)}}.
+\end{equation}
+For a nonnegative Borel function $f$, successive one-dimensional substitutions, beginning with $s_d$ and then proceeding backwards, give
+\begin{equation}\label{eq:substitution}
+ \int_{(0,1)^d}f(H(s))J_H(s)\dd s\le\int_{\R^d}f(x)\dd x.
+\end{equation}
+Indeed, at each step the last coordinate is a strictly increasing $C^1$ function of its own parameter; its image interval may be enlarged to the full real line. Earlier coordinates and diagonal factors depend only on earlier parameters, so Tonelli applies repeatedly. No cross-coordinate differentiability or derivative bound near the cube boundary is needed. Using $f$ times the indicator of a set containing the image gives the restricted version.
+
+Ordinary log-concavity and \eqref{eq:triangular-jacobian} imply $r(H)J_H\ge\gamma$. Strong log-concavity gives instead
+\[
+ r(H)\ge\sqrt{r(X)r(Z)}e^{\kappa|X-Z|^2/8},
+ \qquad r(H)J_H\ge\gamma e^{\kappa|X-Z|^2/8}.
+\]
+Multiplying by $g(H)$, integrating on the parameter cube and using \eqref{eq:substitution} proves both conclusions. The factor involving displacement is integrated on this particular coupling; it does not presume that displacement is defined by the midpoint of an arbitrary coupling.
+\end{proof}
+
+\begin{proposition}[Exponential transport inequality for conditional cells]\label[proposition]{prop:cell-transport}
+Let $\rho$ satisfy \eqref{eq:strong-density}, without a compact-support assumption, and put $K=\supp\rho$. Fix distinct sites and two intercept vectors $c^-,c^+$. Suppose every cell
+\[
+ P_i^\pm=K\cap\bigcap_{j\ne i}
+ \{x:x\cdot(y_i-y_j)+c_i^\pm-c_j^\pm\ge0\}
+\]
+has positive mass. Write
+\[
+ \alpha_i=\rho(P_i^-),\quad \beta_i=\rho(P_i^+),\quad
+ \gamma_i=\sqrt{\alpha_i\beta_i},\quad \Gamma=\sum_i\gamma_i,
+ \qquad \rho_i^\pm=\rho(\cdot\mid P_i^\pm).
+\]
+Then $0<\Gamma\le1$, and
+\begin{equation}\label{eq:cell-exponential}
+ \sum_i\gamma_i
+ \exp\left(\frac\kappa8 W_2(\rho_i^-,\rho_i^+)^2\right)\le1.
+\end{equation}
+In particular,
+\begin{align}
+ \sum_i\gamma_iW_2(\rho_i^-,\rho_i^+)^2
+ &\le\frac{8\Gamma}\kappa\log\frac1\Gamma
+ \le\frac8\kappa(1-\Gamma)\notag\\
+ &\le\frac1\kappa\sum_i\frac{(\alpha_i-\beta_i)^2}{\gamma_i}.
+ \label{eq:cell-transport}
+\end{align}
+If $\Gamma=1$, every pair of corresponding conditional cell laws coincides.
+\end{proposition}
+\begin{proof}
+First assume $K$ is compact and couple $\rho_i^-,\rho_i^+$ by \Cref{lem:midpoint}, using coupled points $X_i,Z_i$. Averaging the defining affine inequalities puts each midpoint in cell $i$ for $c^0=(c^-+c^+)/2$. Therefore \eqref{eq:midpoint-strong} with $g=1$ and the cell partition at $c^0$ give
+\[
+ \sum_i\gamma_i\E\exp\left(\frac\kappa8|X_i-Z_i|^2\right)
+ \le\sum_i\rho(P_i(c^0,y))=1.
+\]
+The original midpoint cells need not have positive mass a priori; the inequality itself gives this whenever the corresponding endpoint masses are positive. Jensen's inequality and the definition of $W_2$ yield
+\[
+ \E e^{\kappa|X_i-Z_i|^2/8}
+ \ge e^{(\kappa/8)\E|X_i-Z_i|^2}
+ \ge e^{(\kappa/8)W_2(\rho_i^-,\rho_i^+)^2},
+\]
+proving \eqref{eq:cell-exponential} in the compact case.
+
+For an unbounded source, restrict and normalize to $\rho_R=\rho|_{B_R}/p_R$, where $p_R=\rho(B_R)$. This source is still $\kappa$-strongly log-concave. For all sufficiently large $R$ every truncated cell has positive mass. The resulting masses
+\[
+ \alpha_{i,R}=\frac{\rho(P_i^-\cap B_R)}{p_R},\qquad
+ \beta_{i,R}=\frac{\rho(P_i^+\cap B_R)}{p_R}
+\]
+converge to $\alpha_i,\beta_i$. The truncated conditional law is exactly $\rho_i^\pm(\cdot\mid B_R)$, and it converges to $\rho_i^\pm$ in $W_2$. To verify this explicitly for any $\sigma\in\Prob_2(\R^d)$, let $q_R=\sigma(B_R)$ and $\sigma_R=\sigma(\cdot\mid B_R)$. Coupling the common mass identically and the remainder independently gives
+\[
+ W_2(\sigma_R,\sigma)^2
+ \le2(1-q_R)\int|x|^2\dd\sigma_R(x)
+      +2\int_{B_R^c}|x|^2\dd\sigma(x)\longrightarrow0.
+\]
+The conditional cell laws have finite second moments by \Cref{lem:density}. Apply the compact exponential inequality and pass to the limit in its finite sum, using the triangle inequality for convergence of the conditional $W_2$ distances. This proves \eqref{eq:cell-exponential} without differentiating any unbounded cell.
+
+Cauchy--Schwarz gives $\Gamma\le\sqrt{\sum_i\alpha_i\sum_i\beta_i}=1$. Applying Jensen once more with weights $\gamma_i/\Gamma$ yields
+\[
+ \Gamma\exp\left(\frac{\kappa}{8\Gamma}
+        \sum_i\gamma_iW_2(\rho_i^-,\rho_i^+)^2\right)\le1.
+\]
+Taking logarithms proves the first inequality in \eqref{eq:cell-transport}. The bound $\Gamma\log(1/\Gamma)\le1-\Gamma$ gives the second. Finally,
+\[
+ 1-\Gamma
+ =\sum_i\left(\frac{\alpha_i+\beta_i}{2}-\sqrt{\alpha_i\beta_i}\right)
+ =\sum_i\frac{(\alpha_i-\beta_i)^2}
+                 {2(\sqrt{\alpha_i}+\sqrt{\beta_i})^2}
+ \le\frac18\sum_i\frac{(\alpha_i-\beta_i)^2}{\gamma_i},
+\]
+which proves the last inequality. If $\Gamma=1$, the first bound forces all the nonnegative conditional squared distances to be zero.
+\end{proof}
+
+The number $\Gamma$ is the Hellinger affinity of the two cell-mass vectors. Equation \eqref{eq:cell-exponential} controls the entire conditional distributions, rather than only their barycenters. The following differential consequence is the input to potential stability.
+
+\begin{proposition}[Normalized-barycenter estimate]\label[proposition]{prop:barycenter}
+Suppose $r$ is $\kappa$-strongly log-concave and compactly supported. At any distinct-site configuration with all $M_i>0$, every intercept direction $q$ satisfies
+\begin{equation}\label{eq:barycenter}
+ \sum_i M_i|Db_i[q,0]|^2
+ \le\frac1\kappa\sum_i\frac{|DM_i[q,0]|^2}{M_i}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Hold the sites fixed and use $c^\pm=c\pm sq$ for small $s>0$. Let $\alpha_i,\beta_i$ be the two cell masses and $\gamma_i=\sqrt{\alpha_i\beta_i}$. The masses remain positive by \Cref{prop:cells}. Every coupling bounds the difference of its marginal means, so
+\[
+ |b_i(c-sq,y)-b_i(c+sq,y)|^2
+ \le W_2(\rho_i^-,\rho_i^+)^2.
+\]
+The last inequality of \eqref{eq:cell-transport} therefore gives
+\[
+ \sum_i\gamma_i|b_i(c-sq,y)-b_i(c+sq,y)|^2
+ \le\frac1\kappa\sum_i\frac{(\alpha_i-\beta_i)^2}{\gamma_i}.
+\]
+Divide by $4s^2$ and use $C^1$ regularity from \Cref{prop:cells} and $\gamma_i\to M_i$. The result is \eqref{eq:barycenter}, with no loss in its constant and no uniform lower mass bound.
+\end{proof}
+
+The normalization in \eqref{eq:barycenter} is important. The derivative of the first moment is
+\begin{equation}\label{eq:normalization}
+ DB_i=b_i\,DM_i+M_i\,Db_i.
+\end{equation}
+The first term contains the cell location. A uniform estimate for $DB_i$ in an unbounded source cannot simply discard that term. The cancellation below handles it before taking a norm.
+
+\section{Moving sites and centered potential stability}\label{sec:moving}
+\begin{proposition}[Finite-target estimate on a compact source]\label[proposition]{prop:finite}
+Under the hypotheses of \Cref{thm:strong}, assume in addition that the source is compactly supported. For finite targets $\mu,\nu$ in $B_L$, the estimate \eqref{eq:main-potential} holds.
+\end{proposition}
+\begin{proof}
+Write an optimal finite target coupling, after deleting zero masses and merging identical pairs, as
+\[
+ \pi=\sum_{i=1}^N m_i\delta_{(y_i^0,y_i^1)},\qquad
+ v_i=y_i^1-y_i^0,\quad y_i(t)=(1-t)y_i^0+ty_i^1.
+\]
+Set $w=W_2(\mu,\nu)$, so $\sum_i m_i|v_i|^2=w^2$. Two-point optimality gives
+$(y_i^0-y_j^0)\cdot(y_i^1-y_j^1)\ge0$: otherwise swapping a small equal amount of the two coupling masses reduces cost. Thus, for $0<t<1$, distinct endpoint pairs yield distinct sites, since
+\[
+ |y_i(t)-y_j(t)|^2
+ =(1-t)^2|y_i^0-y_j^0|^2+t^2|y_i^1-y_j^1|^2
+ +2t(1-t)(y_i^0-y_j^0)\cdot(y_i^1-y_j^1)>0.
+\]
+Choose the $C^1$ intercepts from \Cref{prop:cells} that keep masses $m_i$ fixed and satisfy $\sum_i m_i c_i(t)=0$. Let $a_i=c_i'(t)$ at a fixed interior time. Differentiation of the mass constraints, and the symmetries in \eqref{eq:face}, give for every $q$
+\begin{equation}\label{eq:moving-duality}
+ \sum_i a_i DM_i[q,0]= -\sum_i v_i\cdot DB_i[q,0].
+\end{equation}
+For clarity, the mass part of $\sum_i q_iDM_i[a,v]=0$ is
+$\sum_{i<j}g_{ij}(q_i-q_j)(a_i-a_j)$; its site part is
+$\sum_{i<j}(q_i-q_j)\beta_{ij}\cdot(v_i-v_j)$.
+This is precisely \eqref{eq:moving-duality}.
+
+Use \eqref{eq:normalization} and $M_i=m_i$ to rewrite it as
+\begin{equation}\label{eq:moving-cancel}
+ \sum_i(a_i+b_i\cdot v_i)DM_i[q,0]
+ =-\sum_i m_i v_i\cdot Db_i[q,0].
+\end{equation}
+Put $h_i=a_i+b_i\cdot v_i$, $\overline h=\sum_i m_i h_i$ and $z_i=h_i-\overline h$. The range of $G$ allows a choice of $q$ with $DM_i[q,0]=m_i z_i$. The left side of \eqref{eq:moving-cancel} is then $\sum_i m_i z_i^2$. Cauchy--Schwarz and \Cref{prop:barycenter} yield
+\[
+ \sum_i m_i z_i^2
+ \le w\left(\sum_i m_i|Db_i[q,0]|^2\right)^{1/2}
+ \le\frac w{\sqrt\kappa}\left(\sum_i m_i z_i^2\right)^{1/2}.
+\]
+Consequently
+\begin{equation}\label{eq:cellmean-variance}
+ \Var_m(h)=\sum_i m_i z_i^2\le\frac{w^2}\kappa.
+\end{equation}
+The case $N=1$ has no nonzero centered cell-mean term and satisfies the same formula.
+
+Define $u_t(x)=\max_i(x\cdot y_i(t)+c_i(t))$. On a compact time interval inside $(0,1)$ it is uniformly Lipschitz in time for $x\in K$. Outside the tie planes its derivative is
+\[
+ \dot u_t(x)=x\cdot v_i+a_i\qquad(x\in P_i(t)).
+\]
+Fubini justifies this identity for almost every $(t,x)$. The conditional mean in cell $i$ is $h_i$. By the law of total variance, \Cref{lem:covariance} and \eqref{eq:cellmean-variance},
+\begin{align}
+ \Var_\rho(\dot u_t)
+ &=\sum_i m_i\Var_{\rho(\cdot\mid P_i)}(x\cdot v_i)+\Var_m(h)\notag\\
+ &\le\frac1\kappa\sum_i m_i|v_i|^2+\frac{w^2}\kappa
+ =\frac{2w^2}\kappa.\label{eq:velocity-variance}
+\end{align}
+Thus $\bar u_t=u_t-\int u_t\dd\rho$ satisfies
+\begin{equation}\label{eq:time-lipschitz}
+ \norm{\bar u_t-\bar u_s}_{L^2(\rho)}
+ \le\sqrt{2/\kappa}\,w|t-s|\qquad(0<s,t<1).
+\end{equation}
+This is the fundamental theorem of calculus and Minkowski's inequality on each compact interior time interval.
+
+We verify endpoints even when sites merge. Choose $R$ with $K\subset B_R$. Since $\sum_i m_i a_i=0$, we have $\overline h=\sum_i m_i b_i\cdot v_i$, hence $|\overline h|\le Rw$. Also $\norm{(b_i\cdot v_i)_i}_{\ell^2(m)}\le Rw$. Equation \eqref{eq:cellmean-variance} therefore gives
+\[
+ \norm{a}_{\ell^2(m)}\le(\kappa^{-1/2}+2R)w.
+\]
+For each fixed index, $|c_i'|\le(\kappa^{-1/2}+2R)w/\sqrt{m_i}$. Each intercept has finite endpoint limits. The finite maxima converge uniformly on $K$ to endpoint maxima. At an endpoint, merge repeated slopes by taking their largest intercept. Except on finitely many tie planes, the maximizing slope is unique, and all maximizing slopes from approaching times converge to it. Dominated convergence of their laws identifies the endpoint gradient laws with $\mu,\nu$.
+
+To check optimality directly, for an endpoint maximum let $c(y)$ be its intercept at slope $y$. The inequality $x\cdot y+c(y)\le u(x)$ bounds the scalar-product integral for every plan to the induced target; equality holds for its gradient plan. The fixed marginal second moments turn maximal scalar product into minimal quadratic cost. Equality forces the unique maximizing slope almost everywhere, proving uniqueness. Taking endpoint limits in \eqref{eq:time-lipschitz} proves the proposition. The $R$-dependent estimate was used only for endpoint existence and does not occur in \eqref{eq:velocity-variance}.
+\end{proof}
+
+\begin{lemma}[Finite-target approximation]\label[lemma]{lem:approx}
+For a compactly supported full-dimensional log-concave source, approximate any $\lambda\in\Prob(Y)$ by finite targets $\lambda_n$ with $W_2(\lambda_n,\lambda)\to0$. Their globally $L$-Lipschitz convex potentials, normalized at one point of $K$, have uniformly convergent subsequences on $K$, and along each such subsequence their gradients converge in $L^2(\rho)$ to $T_\lambda$. All compact-source inequalities above pass to arbitrary targets.
+\end{lemma}
+\begin{proof}
+Take finite $\varepsilon_n$-nets in $Y$ and Borel nearest-point selections $Q_n$ with $\varepsilon_n\downarrow0$, and let $\lambda_n=(Q_n)_\#\lambda$. Then $W_2(\lambda_n,\lambda)\le\varepsilon_n$. The finite maps and maximum potentials exist by \Cref{prop:cells} and the optimality argument just given. Normalize $u_n(x_*)=0$ at fixed $x_*\in K$. Their common Lipschitz bound gives uniform boundedness and equicontinuity on $K$, so Arzel\`a--Ascoli yields a convex, $L$-Lipschitz limit $u$ along a subsequence.
+
+At every interior point $x$ where $u$ and all the $u_n$ are differentiable, any subsequential limit $p$ of the bounded vectors $\nabla u_n(x)$ satisfies
+\[
+ u(z)\ge u(x)+p\cdot(z-x)\qquad(z\in K).
+\]
+The supporting slope at such an $x$ is unique, so $p=\nabla u(x)$. The excluded set is Lebesgue-null, hence $\rho$-null. Therefore $\nabla u_n\to\nabla u$ almost everywhere and in $L^2(\rho)$. Testing the gradient laws against continuous functions on $B_L$ proves $(\nabla u)_\#\rho=\lambda$.
+
+For completeness define $u_K^*(y)=\max_{z\in K}(z\cdot y-u(z))$. It is continuous and bounded on $B_L$. Fenchel's inequality gives $x\cdot y\le u(x)+u_K^*(y)$, with equality for $y=\nabla u(x)$ almost everywhere. The same scalar-product argument proves optimality and uniqueness of the limit map. Thus it is $T_\lambda$; \Cref{lem:potentials} identifies the potential up to a constant. Apply this simultaneously to the two targets, noting $W_2(\mu_n,\nu_n)\to W_2(\mu,\nu)$ and continuity of variance under uniform convergence, to pass every stated inequality.
+\end{proof}
+
+\section{Weighted interpolation and unbounded sources}\label{sec:global}
+\begin{lemma}[Convex-gradient interpolation]\label[lemma]{lem:interpolation}
+Let $r$ be a log-concave probability density whose positive superlevel sets are bounded and for which $S(r)<\infty$. Let $u,v$ be convex, globally $L$-Lipschitz functions. For every $h>0$ and $a\in\R$,
+\begin{equation}\label{eq:weighted-interpolation}
+ \int|\nabla u-\nabla v|^2r\dd x
+ \le\frac{12d}{h^2}\int|u-v-a|^2r\dd x+28L^2hS(r).
+\end{equation}
+The assertion also holds for convex $L$-Lipschitz functions on the compact convex support of $r$.
+\end{lemma}
+\begin{proof}
+We first prove the unweighted inequality on a compact convex body $C$. Put $f=u-v-a$ and $A_j=|\proj_{e_j^\perp}C|_{d-1}$. Let
+\[
+ C_{j,h}=\{x\in C:x+he_j\in C\},\qquad
+ D_{j,h}u(x)=\frac{u(x+he_j)-u(x)}h.
+\]
+On almost every coordinate slice, a convex $L$-Lipschitz function has a monotone derivative between $-L$ and $L$. Where the derivatives exist,
+\[
+ 0\le\delta_u(x):=D_{j,h}u(x)-\partial_j u(x)
+ \le\partial_j u(x+he_j)-\partial_j u(x)\le2L.
+\]
+On a slice $[\alpha,\beta]$ of length at least $h$, cancellation of translates gives
+\[
+ \int_\alpha^{\beta-h}(u'(t+h)-u'(t))\dd t
+ =\int_{\beta-h}^{\beta}u'(t)\dd t-
+   \int_\alpha^{\alpha+h}u'(t)\dd t\le2Lh.
+\]
+Shorter slices contribute no allowed portion. Hence
+\[
+ \int_{C_{j,h}}\delta_u^2\dd x\le4L^2hA_j,
+ \qquad |C\setminus C_{j,h}|\le hA_j.
+\]
+The same holds for $v$. Translation invariance and $(s-t)^2\le2s^2+2t^2$ give
+\[
+ \int_{C_{j,h}}|D_{j,h}f|^2\dd x\le\frac4{h^2}\int_C f^2\dd x.
+\]
+Using $\partial_jf=D_{j,h}f-\delta_u+\delta_v$ on the allowed set, and $|\partial_j f|\le2L$ elsewhere, we obtain
+\[
+ \int_C|\partial_j f|^2\dd x
+ \le\frac{12}{h^2}\int_Cf^2\dd x+28L^2hA_j.
+\]
+Sum over $j$. Convex locally Lipschitz functions are differentiable almost everywhere, so these are the components of the usual gradient. The proof uses no lower bound on $|C|$ and is valid for every $h>0$.
+
+For $s>0$ put $C_s=\overline{\{r>s\}}$. Discard levels of zero volume. The remaining $C_s$ are compact convex bodies; replacing a full-dimensional convex set by its closure changes neither the volume nor the displayed integrals. Apply the unweighted inequality on $C_s$ and integrate in $s$. Layer cake and Tonelli yield both weighted norm terms. For the boundary term, on almost every line parallel to $e_j$, a positive-length intersection with a superlevel set is equivalent to $s<\esssup_t r(z+te_j)$. Projection boundaries are null for full-dimensional convex level sets. Thus another application of Tonelli gives
+\[
+ \int_0^\infty|\proj_{e_j^\perp}C_s|_{d-1}\dd s
+ =\int_{e_j^\perp}\esssup_t r(z+te_j)\dd z.
+\]
+Levels of zero volume contribute zero; their exceptional projection-boundary sets do not change this equality. This proves \eqref{eq:weighted-interpolation}. The same argument uses only restrictions of the potentials to the support in the compact case.
+\end{proof}
+
+\begin{proof}[Bounded-target potential estimate and proof of \Cref{thm:maps}]
+In this proof $\mu,\nu$ are supported in a common ball $B_L$. On a compact source, \Cref{prop:finite,lem:approx} prove \eqref{eq:main-potential} for all targets. The density conditions needed in \Cref{lem:interpolation} follow from \Cref{lem:density}.
+
+Now let the source be unbounded. Use globally $L$-Lipschitz representatives of the original potentials. For large $R$, set
+\[
+ p_R=\rho(B_R)>0,\qquad \rho_R=p_R^{-1}\rho|_{B_R},\qquad
+ \mu_R=(T_\mu)_\#\rho_R,\quad \nu_R=(T_\nu)_\#\rho_R.
+\]
+The truncated source remains $\kappa$-strongly log-concave, by adding the convex indicator of $B_R$ to $W$. By \Cref{lem:potentials}, the restrictions of the original maps are optimal for these induced targets. Put $\varepsilon_R=1-p_R$. Decomposing
+$\mu=p_R\mu_R+\varepsilon_R\mu_R^{\mathrm{out}}$, a coupling that keeps the common $p_R$ mass fixed and couples the remaining parts arbitrarily gives
+\begin{equation}\label{eq:induced-target-bound}
+ W_2(\mu_R,\mu)\le2L\sqrt{\varepsilon_R},\qquad
+ W_2(\nu_R,\nu)\le2L\sqrt{\varepsilon_R}.
+\end{equation}
+Indeed, every target pair is at distance at most $2L$. Thus $w_R=W_2(\mu_R,\nu_R)\to w=W_2(\mu,\nu)$.
+
+For the fixed function $f=u_\mu-u_\nu$, compact-source stability yields
+\[
+ \Var_{\rho_R}(f)\le\frac2\kappa w_R^2.
+\]
+The function $f$ has at most linear growth, and \Cref{lem:density} supplies a finite second moment. Its first and second moments under $\rho_R$ converge to those under $\rho$. Letting $R\to\infty$ proves \eqref{eq:main-potential}. This argument uses no differentiation of unbounded cells.
+
+Apply \Cref{lem:interpolation} with $a=\int f\dd\rho$. The variance estimate gives
+\begin{equation}\label{eq:optimize}
+ \norm{T_\mu-T_\nu}_{L^2(\rho)}^2
+ \le A w^2h^{-2}+Bh,
+ \qquad A=\frac{24d}\kappa,\quad B=28L^2S(r).
+\end{equation}
+Here $S(r)>0$, since $r$ is a probability density. If $w>0$, choose
+$h=(2Aw^2/B)^{1/3}$. The right side becomes
+$3\,2^{-2/3}A^{1/3}B^{2/3}w^{2/3}$. Its square root is exactly \eqref{eq:main-map}--\eqref{eq:main-constant}. If $w=0$, let $h\downarrow0$ in \eqref{eq:optimize}.
+
+One may alternatively pass the compact map inequality directly through the same induced-target truncations: $S(r\ind_{B_R}/p_R)\le S(r)/p_R$, and the discarded tail of the squared map difference is at most $4L^2\varepsilon_R$. This confirms explicitly that the constant remains bounded as $R\to\infty$.
+\end{proof}
+
+\section{Completion to all finite-second-moment targets}\label{sec:p2}
+The constant in \eqref{eq:main-potential} is independent of the target-support radius. This permits a completion argument in $L^2(\rho)$. The essential point is to retain convexity and identify the gradient of the limit; no uniform Lipschitz constant is available for these approximating potentials.
+
+\begin{lemma}[Local convex compactness]\label[lemma]{lem:convex-compactness}
+Let $D\subset\R^d$ be open and convex, and let $f_n$ be finite convex functions on $D$. If $f_n\to f$ in $L^1_{\mathrm{loc}}(D)$, then $f$ has a finite convex representative, and $f_n$ converge to it locally uniformly. At every point where this representative and all the $f_n$ are differentiable,
+\[
+ \nabla f_n(x)\longrightarrow\nabla f(x).
+\]
+\end{lemma}
+\begin{proof}
+Fix $\overline{B(x,2r)}\subset D$. Local $L^1$ convergence supplies a common bound $M$ for $\int_{B(x,2r)}|f_n|$. For $z\in B(x,r)$, Jensen's inequality on $B(z,r)$ gives
+\[
+ f_n(z)\le\frac{M}{|B(0,r)|}=:A.
+\]
+For $z\in B(x,r/2)$ choose $w\in B(z,r/4)$ with
+$|f_n(w)|\le2M/|B(0,r/4)|$; such a point exists by the integral bound, with the case $M=0$ immediate. The point $v=2w-z$ belongs to $B(x,r)$. Convexity at $w=(z+v)/2$ gives
+\[
+ f_n(z)\ge2f_n(w)-f_n(v)
+ \ge-\frac{4M}{|B(0,r/4)|}-A.
+\]
+Thus the sequence is uniformly bounded above and below on a smaller ball. On a further smaller ball, a uniform bound on subgradients follows by testing a supporting affine function at points displaced a fixed distance in each subgradient direction: the directional product is at most the common oscillation divided by that distance. This gives a uniform local Lipschitz bound.
+
+Arzel\`a--Ascoli and a countable compact exhaustion yield locally uniformly convergent subsequences, with finite convex limits. Every such limit agrees almost everywhere with the given $L^1_{\mathrm{loc}}$ limit. Two continuous representatives agreeing almost everywhere coincide, so all limits are the same. Local precompactness then implies convergence of the full sequence to that representative.
+
+At a common differentiability point $x$, the local Lipschitz bounds make $\nabla f_n(x)$ bounded. Every accumulation vector $p$ satisfies
+\[
+ f(z)\ge f(x)+p\cdot(z-x)\qquad(z\in D)
+\]
+by passing to the supporting inequalities. Differentiability at $x$ forces $p=\nabla f(x)$. This proves convergence of the full gradient sequence. The exceptional set for the countably many functions is Lebesgue-null.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thm:strong}]
+The bounded-target case was proved in \Cref{sec:global}. Fix $\mu\in\Prob_2(\R^d)$ and let $Q_n$ be radial projection onto $B_n$. With $\mu_n=(Q_n)_\#\mu$,
+\[
+ W_2(\mu_n,\mu)^2
+ \le\int|Q_n(y)-y|^2\dd\mu(y)\longrightarrow0
+\]
+by dominated convergence. Let $U_n$ be the centered globally $n$-Lipschitz potential for $\mu_n$. For any $n,m$, their two targets have a common bounded support, so the established estimate gives
+\[
+ \norm{U_n-U_m}_{L^2(\rho)}
+ \le\sqrt{2/\kappa}\,W_2(\mu_n,\mu_m).
+\]
+Hence $U_n$ converges in $L^2(\rho)$ to a centered function $U$.
+
+Put $D=\interior\supp\rho$. On every compact subset of $D$, the density $r$ is positive, continuous and bounded below. Thus this convergence implies $L^1_{\mathrm{loc}}(D)$ convergence. By \Cref{lem:convex-compactness}, $U$ has a finite convex representative on $D$, $U_n\to U$ locally uniformly there, and $\nabla U_n\to\nabla U$ almost everywhere on $D$. The boundary of the support is $\rho$-null. For every bounded continuous $\psi$ on $\R^d$, dominated convergence and the weak convergence $\mu_n\to\mu$ imply
+\[
+ \int\psi(\nabla U)\dd\rho
+ =\lim_n\int\psi(\nabla U_n)\dd\rho
+ =\lim_n\int\psi\dd\mu_n=\int\psi\dd\mu.
+\]
+Therefore $(\nabla U)_\#\rho=\mu$, in particular $\nabla U\in L^2(\rho)$.
+
+Extend $U$ by the supremum of all its supporting affine functions at points of $D$. The result, denoted $\widetilde U$, is lower-semicontinuous and convex, agrees with $U$ on $D$, is bounded below by one affine function, and is finite at every point of $D$. It is therefore proper, although it may be $+\infty$ outside $D$.
+We verify the optimality of its gradient without an extra compactness assumption. Fenchel's inequality gives
+\[
+ x\cdot y\le\widetilde U(x)+\widetilde U^*(y),
+\]
+with equality at $y=\nabla U(x)$ for almost every source point. The source has finite second moment by \Cref{lem:density}; the target does by hypothesis; and $U\in L^2(\rho)$. Consequently
+\[
+ \widetilde U^*(\nabla U(x))=x\cdot\nabla U(x)-U(x)
+\]
+is integrable in absolute value. Since $(\nabla U)_\#\rho=\mu$, this also proves absolute integrability of $\widetilde U^*$ under $\mu$. The Fenchel inequality can therefore be integrated against every competing plan with these marginals. The gradient plan maximizes the scalar-product integral and hence minimizes quadratic cost. Equality forces the unique supporting slope at almost every source point, proving that this plan is the unique optimal plan. Thus $\nabla U=T_\mu$.
+
+Any other convex Brenier potential is finite on $D$ and locally Lipschitz there. Indeed, its convex effective domain contains a full-source-measure subset, and the interior of that domain contains $D$. The two potentials have the same weak gradient almost everywhere on $D$, since $r>0$ there. Their difference is constant on the connected open set $D$. This proves uniqueness of the centered $L^2(\rho)$ representative.
+
+Perform the construction for $\mu,\nu$ with the same $Q_n$. Their centered potentials converge in $L^2(\rho)$, and the triangle inequality gives $W_2(\mu_n,\nu_n)\to W_2(\mu,\nu)$. Passing to the bounded-target inequality proves \eqref{eq:main-potential}. Uniqueness, or the same estimate for two approximation sequences, shows that the construction is independent of the approximation.
+\end{proof}
+
+\begin{corollary}[Absolutely continuous curve lifting]\label[corollary]{cor:curves}
+Under \eqref{eq:strong-density}, let $t\mapsto\mu_t$ be a $W_2$-absolutely-continuous curve in $\Prob_2(\R^d)$ on $[0,T]$. Then $t\mapsto U_{\mu_t}$ is absolutely continuous in the Hilbert space
+\[
+ L^2_0(\rho)=\{f\in L^2(\rho):\textstyle\int f\dd\rho=0\},
+\]
+and its Hilbert-space derivative satisfies, for almost every $t$,
+\begin{equation}\label{eq:curve-derivative}
+ \left\|\frac{\mathrm d}{\mathrm dt}U_{\mu_t}\right\|_{L^2(\rho)}
+ \le\sqrt{2/\kappa}\,|\dot\mu_t|_{W_2}.
+\end{equation}
+In particular, whenever the Wasserstein quadratic action is finite,
+\begin{equation}\label{eq:curve-action}
+ \int_0^T\left\|\frac{\mathrm d}{\mathrm dt}U_{\mu_t}\right\|_{L^2(\rho)}^2\dd t
+ \le\frac2\kappa\int_0^T|\dot\mu_t|_{W_2}^2\dd t.
+\end{equation}
+\end{corollary}
+\begin{proof}
+The metric derivative of an absolutely continuous metric-space curve exists almost everywhere and gives its interval bound
+$W_2(\mu_s,\mu_t)\le\int_s^t|\dot\mu_r|_{W_2}\dd r$ for $s\le t$. Apply \Cref{thm:strong} to the two endpoints. The resulting integral bound is precisely absolute continuity of the Hilbert-valued lift. An absolutely continuous curve in a Hilbert space has a strong derivative almost everywhere. At a common point of differentiability, divide the endpoint Lipschitz estimate by $|t-s|$ and pass to the limit to obtain \eqref{eq:curve-derivative}. Squaring and integrating proves \eqref{eq:curve-action}.
+\end{proof}
+
+The completion argument supplies a Lipschitz potential map on all of $\Prob_2(\R^d)$. It does not supply a quantitative $L^2$ map modulus uniform over this whole space: the gradient interpolation estimate still requires a common bound on the Lipschitz constants of the potentials, or additional hypotheses that can replace it.
+
+\section{Exact sharpness for a fixed Gaussian}\label{sec:gaussian}
+\begin{proof}[Proof of \Cref{thm:sharp}]
+For $r(x)=(2\pi)^{-d/2}e^{-|x|^2/2}$, taking the supremum in the $e_j$ coordinate sets that coordinate to zero. Its integral over $e_j^\perp$ is $(2\pi)^{-1/2}$. Thus $S(r)=d/\sqrt{2\pi}$, and \Cref{thm:maps} gives the asserted upper bound.
+
+Assume $d\ge2$. Let $G,Z$ be independent standard normal variables, write $\varphi(t)=(2\pi)^{-1/2}e^{-t^2/2}$, and put
+\[
+ F(t)=\Pr(|G|<t)=\int_{-t}^t\varphi(s)\dd s\qquad(t\ge0).
+\]
+Fix $k>0$. For each small $a>0$, set $b=ka$ and choose $c_a\in\R$ so that
+\begin{equation}\label{eq:ca-definition}
+ \E F((c_a+kaZ)_+)=F(a),\qquad t_+=\max(t,0).
+\end{equation}
+The left side, as a function of $c_a$, is continuous, strictly increasing, and tends to $0$ and $1$ at its two infinite endpoints. Strictness follows by considering values of $Z$ for which both positive parts are positive and differ. Hence $c_a$ exists uniquely.
+
+Define convex potentials on $\R^d$ by
+\begin{equation}\label{eq:gaussian-potentials}
+ u_a(x)=\max\{-x_1,x_1,a\},\qquad
+ v_a(x)=\max\{-x_1,x_1,c_a+ka x_2\}.
+\end{equation}
+Their central cells, up to null boundaries, are
+\[
+ A_a=\{|x_1|<a\},\qquad
+ B_a=\{|x_1|<(c_a+ka x_2)_+\}.
+\]
+Both have Gaussian mass $m_a=F(a)$. Symmetry in $x_1$ gives equal outer masses for each potential. Consequently their induced targets are
+\begin{align}
+ \mu_a&=\frac{1-m_a}{2}(\delta_{-e_1}+\delta_{e_1})+m_a\delta_0,\notag\\
+ \nu_a&=\frac{1-m_a}{2}(\delta_{-e_1}+\delta_{e_1})+m_a\delta_{be_2}.
+ \label{eq:gaussian-targets}
+\end{align}
+These are exactly three positive-mass atoms in $B_1$ when $a$ is sufficiently small. The gradients in \eqref{eq:gaussian-potentials} are the unique quadratic optimal maps to these targets. This follows either from Brenier's theorem or directly by integrating the affine supporting inequalities; the potentials have linear growth, so the Gaussian integrals are finite.
+
+Fixing the outer atoms and moving the central atom gives squared target cost $m_ab^2$. Conversely every point of $\supp\mu_a$ has second coordinate zero, so every target coupling has squared cost at least the second-coordinate contribution $m_ab^2$. Therefore
+\begin{equation}\label{eq:gaussian-w2}
+ W_2(\mu_a,\nu_a)^2=m_ab^2.
+\end{equation}
+
+We next determine the cell-reassignment scale. There is a unique $c_0\in\R$ with
+\begin{equation}\label{eq:c0}
+ \E(c_0+kZ)_+=1.
+\end{equation}
+Indeed the expectation is continuous and strictly increasing, with limits zero and infinity. For each fixed $q\in\R$, the bounds
+$F(t)\le2\varphi(0)t$ and $F(at)/a\to2\varphi(0)t$ imply by dominated convergence that
+\begin{equation}\label{eq:width-limit}
+ \frac1a\E F(a(q+kZ)_+)
+ \longrightarrow 2\varphi(0)\E(q+kZ)_+.
+\end{equation}
+For any $q_-<c_0<q_+$, the limits in \eqref{eq:width-limit} strictly bracket $F(a)/a\to2\varphi(0)$. Monotonicity and \eqref{eq:ca-definition} give $q_-<c_a/a<q_+$ for all sufficiently small $a$. Taking $q_\pm$ arbitrarily close to $c_0$ proves
+\begin{equation}\label{eq:ca-limit}
+ c_a/a\longrightarrow c_0.
+\end{equation}
+In particular these ratios stay bounded.
+
+For fixed $x_2$, the two central intervals are nested. The probability of their symmetric difference is therefore
+\[
+ D_a=\gamma_d(A_a\mathbin\triangle B_a)
+ =\E\bigl|F((c_a+kaZ)_+)-F(a)\bigr|.
+\]
+By \eqref{eq:ca-limit}, the integrand divided by $a$ converges pointwise to $2\varphi(0)|(c_0+kZ)_+-1|$. It is bounded by a fixed multiple of $1+|Z|$, using the boundedness of $c_a/a$ and the bound on $F$. Thus
+\begin{equation}\label{eq:Da-limit}
+ \frac{D_a}{a}\longrightarrow
+ D_0:=2\varphi(0)\E|(c_0+kZ)_+-1|>0.
+\end{equation}
+The limit is positive because $(c_0+kZ)_+$ is not almost surely constant.
+
+The first-coordinate map difference is of magnitude one precisely on $A_a\mathbin\triangle B_a$. The second-coordinate difference is of magnitude $b$ on $B_a$. Orthogonality gives the pointwise identity
+\[
+ |T_{\mu_a}-T_{\nu_a}|^2
+ =\ind_{A_a\mathbin\triangle B_a}+b^2\ind_{B_a}
+ \qquad\gamma_d\text{-almost everywhere}.
+\]
+It follows that
+\begin{equation}\label{eq:gaussian-map}
+ \norm{T_{\mu_a}-T_{\nu_a}}_{L^2(\gamma_d)}^2=D_a+m_ab^2.
+\end{equation}
+Since $m_a\sim2\varphi(0)a$, equations \eqref{eq:gaussian-w2}, \eqref{eq:Da-limit} and \eqref{eq:gaussian-map} show
+\[
+ W_2(\mu_a,\nu_a)\sim k\sqrt{2\varphi(0)}\,a^{3/2},
+ \qquad
+ \norm{T_{\mu_a}-T_{\nu_a}}_{L^2(\gamma_d)}\sim\sqrt{D_0}\,a^{1/2}.
+\]
+The quotient in \eqref{eq:sharp-claim} diverges like a positive constant times $a^{(1-3\alpha)/2}$ whenever $\alpha>1/3$. The remaining coordinates integrate out, so the construction works in each fixed dimension $d\ge2$.
+\end{proof}
+
+\section{The compact log-concave companion theorem}\label{sec:companion}
+For general compactly supported log-concave sources, the ordinary midpoint inequality controls unnormalized first moments with a source-radius factor. This is the weighted transfer of the moment algebra in \cite{OpenAI2026}.
+
+\begin{lemma}[Compact first-moment estimate]\label[lemma]{lem:compact-moment}
+Under the assumptions of \Cref{thm:compact}, at a distinct-site positive-mass configuration,
+\begin{equation}\label{eq:compact-moment}
+ \sum_i\frac{|DB_i[q,0]|^2}{M_i}
+ \le162R^2\sum_i\frac{|DM_i[q,0]|^2}{M_i}
+ \qquad(q\in\R^N).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Fix the sites and use the perturbed cell partitions at $c-sq$ and $c+sq$ for sufficiently small $s>0$. Write their masses as $\alpha_i,\beta_i$, and set $\gamma_i=\sqrt{\alpha_i\beta_i}$ and $\delta_i=\alpha_i-\beta_i$. Couple the corresponding conditional laws by \Cref{lem:midpoint}, with coupled points $X_i,Z_i$, and put $D_i=\E|X_i-Z_i|^2$. Averaging the cell inequalities puts each midpoint in its original cell. By \eqref{eq:midpoint-ordinary},
+\[
+ \gamma_i\Law((X_i+Z_i)/2)\le\rho|_{P_i}.
+\]
+Use $\Phi(x)=R^2-|x|^2\ge0$ on $K$ and denote $A_i^-=\E\Phi(X_i)$, $A_i^+=\E\Phi(Z_i)$. Since
+\[
+ \Phi((X_i+Z_i)/2)=\tfrac12\Phi(X_i)+\tfrac12\Phi(Z_i)
+                          +\tfrac14|X_i-Z_i|^2,
+\]
+summing over the cells gives
+\[
+ \sum_i\gamma_i\left(\frac{A_i^-+A_i^+}{2}+\frac{D_i}4\right)
+ \le\frac12\sum_i(\alpha_iA_i^-+\beta_iA_i^+).
+\]
+Let $\mathcal A=\sum_i\gamma_iD_i$ and $\mathcal B=\sum_i\delta_i^2/\gamma_i$. The elementary square-root inequality used above, $0\le A_i^\pm\le R^2$, and
+$|A_i^--A_i^+|\le2R\sqrt{D_i}$ imply
+\[
+ \frac{\mathcal A}4\le\frac{R^2\mathcal B}8
+                         +\frac R2\sqrt{\mathcal A\mathcal B}.
+\]
+Young's inequality bounds the last term by $\mathcal A/8+R^2\mathcal B/2$, whence $\mathcal A\le5R^2\mathcal B$.
+
+Write $\Delta B_i=B_i(c-sq)-B_i(c+sq)$. Since
+$\Delta B_i=\alpha_i\E X_i-\beta_i\E Z_i$,
+\[
+ |\Delta B_i|\le R|\delta_i|+\alpha_i\sqrt{D_i}.
+\]
+For the fixed configuration, take $s$ sufficiently small that each of $\alpha_i,\beta_i,\gamma_i$ lies between $M_i/2$ and $2M_i$. With $\mathcal E=\sum_i\delta_i^2/M_i$, we have $\mathcal B\le2\mathcal E$ and $\alpha_i^2/M_i\le8\gamma_i$. Thus
+\[
+ \sum_i\frac{|\Delta B_i|^2}{M_i}
+ \le2R^2\mathcal E+16\mathcal A
+ \le162R^2\mathcal E.
+\]
+Divide by $4s^2$ and use \Cref{prop:cells}. The threshold for $s$ may depend on the masses and sites; the limiting constant does not.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thm:compact}]
+Boundedness of $r$ and finiteness of $S(r)$ follow from \Cref{lem:density}. For finite targets use the same optimal-coupling site interpolation and prescribed masses as in \Cref{prop:finite}. Write $a_i=c_i'(t)$ and $w=W_2(\mu,\nu)$. Since $\sum_i m_i a_i=0$, choose $q$ with $DM_i[q,0]=m_i a_i$. Equations \eqref{eq:moving-duality} and \eqref{eq:compact-moment} yield
+\[
+ \sum_i m_i a_i^2
+ \le w\left(\sum_i\frac{|DB_i[q,0]|^2}{m_i}\right)^{1/2}
+ \le\sqrt{162}Rw\left(\sum_i m_i a_i^2\right)^{1/2}.
+\]
+Therefore $\norm a_{\ell^2(m)}\le\sqrt{162}Rw$, and the uncentered potential velocity satisfies
+\[
+ \norm{\dot u_t}_{L^2(\rho)}
+ \le R\left(\sum_i m_i|v_i|^2\right)^{1/2}
+      +\left(\sum_i m_i a_i^2\right)^{1/2}
+ \le(1+\sqrt{162})Rw.
+\]
+Integration gives the same bound for the endpoint potential difference. Each $|c_i'|\le\sqrt{162}Rw/\sqrt{m_i}$, so endpoint existence and the identification of their gradient laws follow exactly from the finite-maxima argument in \Cref{prop:finite}. Taking the variance can only decrease the squared norm, proving \eqref{eq:compact-potential} for finite targets. \Cref{lem:approx} passes it to arbitrary targets.
+
+Finally, apply \Cref{lem:interpolation} with a centered difference and $h=w^{2/3}$ when $w>0$. The squared upper bound is
+\[
+ \bigl(12d(1+\sqrt{162})^2R^2+28L^2S(r)\bigr)w^{2/3}.
+\]
+For $w=0$ let $h\downarrow0$. This is \eqref{eq:compact-map}.
+\end{proof}
+
+\section{Scope of the estimates}\label{sec:scope}
+The strong-source proof uses three different forms of convexity. Convex cells permit weighted midpoint comparison; strong log-concavity supplies its quantitative exponential deficit and the conditional covariance bound; convex density level sets transfer unweighted interpolation to the source weight. These steps survive vanishing boundary density and extended-valued convex potentials.
+
+The normalized-barycenter estimate is radius-free, as is the centered velocity bound. This is the reason that restricting the original optimal maps to larger and larger convex sets gives the exact exponent. A source-radius-dependent estimate alone would not justify the same unbounded-source conclusion with its stated constant.
+
+The constants given here are explicit but are not claimed optimal. The one-third exponent is sharp as a statement uniform over all bounded targets for a fixed Gaussian in dimension at least two. The construction allows the central atom mass to vanish, so it does not rule out stronger estimates for classes imposing target nondegeneracy. The potential theorem and curve lift allow every finite-second-moment target. The quantitative map bound remains restricted to bounded targets; no uniform all-$\Prob_2$ map modulus is claimed. Arbitrary bounded non-log-concave perturbations of the source density are also outside the stated theorems.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

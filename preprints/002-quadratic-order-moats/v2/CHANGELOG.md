@@ -1,0 +1,12 @@
+# Mathematical changes in version 2
+
+7 October 2026. Version 1 is preserved unchanged under `v1/`.
+
+1. Added the exact finite quotient certificate in Theorem 11.1. Integer vertex potentials satisfy every directed voltage equation, including loops and parallel edges. This is equivalent to all lifted avoiding components being finite and gives a uniform bound of at most the number of allowed residue representatives. Failure concerns the avoiding graph, not necessarily the irreducible graph.
+2. Added exact arithmetic validation from norm-prime generators in an integral model omega² = u omega + v. Nonzero adjugate rows describe the principal ideals; independence of the conjugate rows certifies the two split kernels. Class-field computation is unnecessary for checking a supplied certificate.
+3. Added Proposition 11.2, an entirely integer restoration bound. With B = Q², Delta = |F|, H the maximum absolute step coordinate, M the largest selected prime, and V₀ = (2(B+1)H+1)² − 1, take M_E = max(1, 8M²V₀) and return max(B, M_E(1+Delta B)). The proof counts bounded-norm conic intersections and does not enumerate infinite unit orbits.
+4. Added Theorem 11.3, proving that exhaustive enumeration of norm-prime generators and exact quotient testing terminates. The existing analytic theorem ensures that a finite successful sieve is eventually included. The proof explicitly handles duplicate primes and the empty step set.
+5. Corrected the effectiveness boundary throughout. The analytic scale thresholds and useful runtime estimates remain unquantified, but a total computable bound exists for the integral order model and a supplied finite symmetric coefficient-step set. No claim of effective access to arbitrary noncomputable real metric data is made.
+6. Added small Gaussian and real-quadratic certificates, an explicit horizontal-step potential, and limited verifier tests. These tests neither certify the entropy theorem nor establish practical performance for difficult moat instances. No Lean replay or priority guarantee is claimed.
+
+The principal all-quadratic-order theorem and its inherited analytic argument are unchanged. The geometric and entropy method remains prominently attributed to OpenAI's pinned Gaussian source. Version 2 has 21 pages and was rebuilt twice and visually checked throughout; the final compilation has no warnings, undefined references, missing-character errors, or overfull/underfull boxes.

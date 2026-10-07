@@ -8,8 +8,8 @@ Mathematical research manuscripts and supporting verification material maintaine
 
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
-| 001 | [Sharp one-third stability of Brenier maps for strongly log-concave sources](preprints/001-strongly-log-concave-brenier/README.md) | v1 | Research draft |
-| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v1 | Research draft |
+| 001 | [Sharp one-third stability of Brenier maps for strongly log-concave sources](preprints/001-strongly-log-concave-brenier/README.md) | v2 | Research draft |
+| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v2 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 
 ## Reading and verification
@@ -20,7 +20,7 @@ Several methods build on the public [OpenAI/math collection](https://github.com/
 
 ## Versions and disclosure
 
-Versions are kept in separate `v1`, `v2`, ... directories. Corrections and extensions are recorded in [CHANGELOG.md](CHANGELOG.md); earlier versions remain accessible. [releases/2026-10-07-v1.json](releases/2026-10-07-v1.json) records exact file hashes. GitHub commit timestamps document this repository's disclosure history; they do **not** certify mathematical correctness or first discovery. Literature comparison continues separately, and no priority assertion is made.
+Versions are kept in separate `v1`, `v2`, ... directories. Corrections and extensions are recorded in [CHANGELOG.md](CHANGELOG.md); earlier versions remain accessible. The [v1 manifest](releases/2026-10-07-v1.json) and [v2 manifest](releases/2026-10-07-v2.json) record exact file hashes. Historical manifests must be checked at their corresponding publication commit, because the root catalogue evolves. The first research publication commit is [`4d718fe55d8b53eb8dd8634508c3297f0a978149`](https://github.com/mxym/math/commit/4d718fe55d8b53eb8dd8634508c3297f0a978149). GitHub commit timestamps document this repository's disclosure history; they do **not** certify mathematical correctness or first discovery. Literature comparison continues separately, and no priority assertion is made.
 
 ## Rights and provenance
 
