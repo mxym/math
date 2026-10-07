@@ -25,3 +25,7 @@ Versions are kept in separate `v1`, `v2`, ... directories. Corrections and exten
 ## Rights and provenance
 
 The upstream OpenAI material retains its Apache-2.0 license, reproduced in [third_party_licenses/openai_math_LICENSE.txt](third_party_licenses/openai_math_LICENSE.txt). See [NOTICE.md](NOTICE.md). No additional license for newly authored material has been selected; do not infer one merely from the repository being public.
+
+## Post-publication comparison
+
+A [primary-literature comparison](comparisons/2026-10-07-primary-literature.md) records exact and partial overlaps found after the initial release. In particular, a nondegenerate semi-discrete W2 one-third estimate predates this collection, and W1 quarter-power estimates are not interchangeable with W2 one-third estimates. The note distinguishes these results from the current source and target scope; it does not certify priority.

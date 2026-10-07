@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-07 — post-publication literature comparison
+
+- Added exact scope comparisons with primary transport and quadratic-walk papers, including earlier semi-discrete W2 one-third estimates and the partial indirect verification of Merigot’s quarter-power result.
+- Recorded the v2 publication commit without changing the v1 or v2 manuscript bytes.
+
 ## 2026-10-07 — extensions release v2
 
 - Manuscript 001: all-P2 centered potentials, absolutely continuous curve lifting, and exponential conditional-cell transport control. The map modulus remains bounded-target only.
