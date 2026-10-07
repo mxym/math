@@ -114,8 +114,9 @@ prefix 1,...,p_r, whose maximum mean is strictly below k_r.
    band loops.
 6. Prefix mean-frequency bound max_{i<=p_r} mu_i < k_r simultaneously for
    all selected scales.
-7. Conversion of those prefix bounds into simultaneous dimension failures
-   on m consecutive integer-degree blocks.
+7. Conversion of those prefix bounds into simultaneous A-factor dimension
+   failures on m consecutive integer-degree blocks throughout the parameter
+   region A beta^2 < 9/4.
 
 ## Scope
 
