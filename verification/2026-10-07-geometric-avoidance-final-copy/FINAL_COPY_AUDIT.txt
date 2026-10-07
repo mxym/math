@@ -1,0 +1,88 @@
+GEOMETRIC AVOIDANCE — FINAL PUBLIC-COPY AUDIT
+7 October 2026
+
+VERDICT: PASS. No required correction remains in revision 2.
+
+Reviewed source archive: geometric-avoidance-source-20261007-v2.tar.gz
+Size: 4,197,726 bytes
+SHA-256: b5d8970b6481fb8646e7357a8a540085bf0e297da75fd011360448d01966450e
+Source-manifest SHA-256:
+18997027c5069cab7079f69c9f5287e98fafd3ab6ab63bcd4c22994bd89c3ed2
+Original audited v3 source ZIP SHA-256:
+747386b02dbd12ae6f7b763d79fdb1e9bd70ca1e195e1b84d943cb0bcff82cb5
+
+THEOREM AND SOURCE
+
+For every real epsilon with 0 < epsilon < 1, there is one compact E subset [0,1] with genuine Lebesgue volume(E) > 1-epsilon such that, for all real a,b,q with a != 0 and 0 < q < 1, every natural N has a natural n >= N with a*q^n+b outside E.
+The same E is chosen before every sequence parameter and tail. The closed Lean
+result is ContinuumGeometric.geometric_main_target : ContinuumGeometric.MainTarget.
+All 46 mathematical modules and all 50 original source/configuration entries
+match the exact audited ZIP byte-for-byte. The fully expanded independent target
+probe, ordinary real interval-volume normalization, and boundary probes pass.
+This review does not extend the formalization to the stronger nonlinear-
+remainder/continuum-profile theorem, which remains written only.
+
+EXACT FINAL-ARCHIVE REPLAY
+
+The final archive identified above was freshly extracted and its actual
+production entry point run under Python -O, with empty owned output directories.
+All 46 modules rebuilt. The complete 34,771-declaration main proof closure passed
+replay in a new EMPTY trust-level-zero official Lean kernel environment.
+
+The 1,164 owned declarations are selected by actual defining module; all 1,155
+safe owned declarations and all 454 public roots pass graph and axiom checks.
+The 35,197-node safe-owned graph, inventory and main-closure summary match the
+original independent audit. Nine compiler-only unsafe recursion implementations
+are inventoried and absent from every safe proof closure. Only propext,
+Classical.choice and Quot.sound occur as axioms.
+
+All 21 positive controls, all 22 intended negative controls, and 1,176,885 exact
+integer/rational regressions pass. The production ownership guard rejects an
+outside-namespace target axiom. Two additional attacks against the final replay
+code reject a substituted ill-typed stored main proof and an unapproved axiom.
+All 17,750 recorded official toolchain files and nine dependency revisions were
+checked. Exact pinned dependency caches were reused read-only, with isolated
+outputs; this is not a from-source rebuild of the compiler and all Mathlib.
+
+PACKAGING CORRECTION AND FINAL INTEGRITY
+
+The initial candidate's mathematical replay passed, but its release guards did
+not fail closed for several missing/altered manifest and checksum cases.
+Revision 2 repairs that issue without changing mathematical source or theorem
+statements. One shared validator now enforces the complete 184-file payload,
+mandatory manifests/checksums, fixed metadata, canonical paths, duplicate-key
+rejection, exact coverage, all digests, the immutable 50-entry source/pin record,
+and the five preserved independent wrappers. This audit independently reproduced
+the initial failures and confirmed the repaired production guards reject them.
+
+The final replay includes 34 packaging cases exercising both production entry
+points under normal Python and -O: 136 successful expected outcomes. A separate
+24-invocation audit retest of the original attacks also passes. Normal and
+optimized archive creation both reproduce the exact final archive digest above.
+A trusted external archive digest or repository commit is still required for
+authenticity; internal unkeyed hashes alone cannot authenticate a wholly replaced
+release.
+
+DOCUMENTATION, PAYLOAD AND TRUST BOUNDARY
+
+The proof roadmap and theorem map accurately explain the construction, parameter
+order, boundary strata, finite probability law, open repair of every center,
+signed countable exhaustion and strict compact-set measure bound. Quantifiers,
+limits and proof status are accurate. The private historical handoffs, unrelated
+checker-repair archives, caches and compiled binaries are absent. Retained
+licenses/provenance check against exact dependency Git objects and supplied
+notices. No new blanket license or personal-author credit is added.
+
+Cross-location binary identity is deliberately not claimed: 37 owned .olean
+files agree and nine differ, each containing the respective build-source path.
+The evidence establishes exact source identity, stored dependency-graph identity
+and successful kernel replay; graph equality alone is not proof-body-byte
+identity. Compiled binaries are not distributed.
+
+The CI file remains an uninstalled, read-only proposal. Its YAML and Bash were
+statically checked; online bootstrap and remote CI were not run. This audit made
+no remote writes. Standard Lean foundations and implementation/runtime/machine
+trust remain. AI/model review is not external professional-human peer review.
+No novelty, priority, practical numerical construction, or infallibility claim
+is made. Compact public evidence accompanies this report; full local logs are
+kept separately.

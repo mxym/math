@@ -1,0 +1,12 @@
+import ContinuumGeometric.RoutingCenterAtoms
+
+#print axioms ContinuumGeometric.actual_default_vertex_exists
+#print axioms ContinuumGeometric.centerTableAssignment_satisfies_atom
+#print axioms ContinuumGeometric.centerTableAssignment_default_vertex_exists
+#print axioms ContinuumGeometric.center_atom_default_vertex_exists
+#print axioms ContinuumGeometric.actual_center_atom_iff_readout
+#print axioms ContinuumGeometric.actual_center_atom_partition
+
+#check ContinuumGeometric.actual_default_vertex_exists
+#check ContinuumGeometric.center_atom_default_vertex_exists
+#check ContinuumGeometric.actual_center_atom_partition

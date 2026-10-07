@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — full original geometric-avoidance Lean proof
+
+- Added the exact independently model-audited 184-file revision-2 source package for the closed original all-real affine-geometric MainTarget, with one common compact set, strict Lebesgue-measure bound and arbitrarily late escaping terms for every 0 < q < 1.
+- Published adjacent final-copy audit evidence and a deterministic source archive. The final independent replay rebuilt 46 modules, checked 454 public roots, and replayed the 34,771-declaration main closure in an empty trust-level-zero official Lean kernel. All 21 positive, 22 intended negative and 1,176,885 exact arithmetic controls passed, with 136 packaging-guard outcomes. Integration independently repeats source-integrity, packaging and deterministic-archive checks.
+- Preserved the entire historical 101-export checkpoint and all unrelated repository files. The [release manifest](releases/2026-10-07-geometric-avoidance-v2.json) binds the source, audit evidence and additive navigation. No stronger nonlinear-remainder proof, new installed workflow, blanket license, personal-author assignment, online-bootstrap validation, remote-CI success, novelty or human peer-review claim is included.
+
 ## 2026-10-07 — boundary-profile binary tensor rigidity
 
 - Proved a general finite boundary-profile limit theorem for the sharp binary complete-commutator constants, reducing every fixed reflected edge profile to an explicit Gaussian/Fock variational quotient.

@@ -1,5 +1,13 @@
 # Verification status
 
+## Full original affine-geometric MainTarget
+
+The separate [geometric-avoidance project](../formalizations/geometric-avoidance/README.md) proves ContinuumGeometric.geometric_main_target : ContinuumGeometric.MainTarget with no geometric, probability, scheduling or blocker premise. Its fully expanded independent probe states one compact E ⊆ [0,1], chosen before every real a ≠ 0, b and 0 < q < 1, with genuine Lebesgue measure > 1 − ε and arbitrarily late misses. The older 101-export checkpoint remains byte-preserved and its historical scope is unchanged.
+
+The [independent final-copy audit](2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.txt) directly replayed the exact revision-2 archive: 46 owned modules, 454 public roots, 1,164 owned declarations and a 34,771-declaration empty-environment trust-level-zero kernel replay. All 21 positive and 22 intended negative controls, 1,176,885 exact arithmetic regressions, 136 packaging outcomes and additional hostile stored-proof/axiom tests passed. Only propext, Classical.choice and Quot.sound occur as logical axioms. The compiler/kernel implementation, runtime and machine remain trusted; pinned dependency caches were reused, and this is not a source rebuild of all Mathlib. Cross-location compiled-binary identity is not claimed.
+
+Integration checks revalidate the exact 184-file payload, normal/optimized packaging guards and deterministic source archive, while preserving the independently audited mathematical bytes. See the [release manifest](../releases/2026-10-07-geometric-avoidance-v2.json) for exact identities. The stronger nonlinear-remainder theorem remains outside this release. The CI proposal is uninstalled; online bootstrap and remote CI were not exercised. Independent model audit is not external professional-human peer review or novelty certification.
+
 ## What was checked for v1
 
 - Complete proof texts were read, including the upstream arguments used by each extension.

@@ -1,5 +1,9 @@
 # Manuscript catalogue
 
+## Complete affine-geometric avoidance formalization
+
+[Full original all-ratio theorem and reproducible Lean sources](formalizations/geometric-avoidance/README.md): the same large-measure compact set avoids arbitrarily late terms of every real affine geometric sequence with a ≠ 0 and 0 < q < 1. Includes the [proof roadmap](formalizations/geometric-avoidance/PROOF_ROADMAP.md), [theorem map](formalizations/geometric-avoidance/THEOREM_MAP.md), [trust boundary](formalizations/geometric-avoidance/TRUST_AND_SCOPE.md), [independent final-copy audit](verification/2026-10-07-geometric-avoidance-final-copy/FINAL_COPY_AUDIT.txt), [frozen source archive](releases/2026-10-07-geometric-avoidance-source-v2.tar.gz) and [release manifest](releases/2026-10-07-geometric-avoidance-v2.json). All 46 mathematical modules are byte-preserved from the audited source. The older 101-export project is retained as its own historical checkpoint. The stronger nonlinear-remainder theorem is not included.
+
 For the relationship between entries 001, 007 and 008, see the [transport programme and coverage map](notes/transport-source-tail-programme/README.md).
 
 | ID | Manuscript | Latest | Status |
