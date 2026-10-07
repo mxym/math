@@ -1,0 +1,417 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}\newcommand{\Prob}{\mathbb P}
+\newcommand{\E}{\mathbb E}\newcommand{\ind}{\mathbf 1}
+\DeclareMathOperator{\Leb}{m}
+\title{A logarithmic upper Banach density criterion\\for the Erd\H{o}s similarity problem}
+\author{mxym\thanks{Repository account and project attribution: \url{https://github.com/mxym/math}. Prepared with AI assistance. No institutional affiliation is asserted.}}
+\date{October 7, 2026 \quad Version 1.1}
+\begin{document}\maketitle
+\begin{abstract}
+We extend the finite random-routing construction for geometric sequences to sets occupying a positive upper Banach density of dyadic annuli near zero. For each such set and each positive error, we construct a closed, nowhere-dense, one-periodic set whose measure in every unit interval exceeds one minus the error and whose complement meets every nontrivial affine copy in infinitely many points. Countably many prescribed sets can be treated simultaneously. The additional ingredient is a density-flattening lemma that fills every window in a finite multiscale template. An application treats dyadic powers indexed by squarefree integers, a configuration containing no affine copy of a full null geometric sequence. This is not a resolution of the unrestricted Erd\H{o}s similarity conjecture.
+\end{abstract}
+\paragraph{Status and attribution.}
+This is a newly developed mathematical proof draft, not a peer-reviewed paper or a proof-assistant certificate. The routing, local entropy, and exceptional-center repair mechanisms are adapted explicitly from OpenAI's geometric-case manuscript~\cite{OpenAI084}. The density-flattening lemma and its application to positive logarithmic upper Banach density are the proposed extension. The argument below supplies its own proofs and does not invoke the geometric-case main theorem as a black box. A limited literature search has not established priority. No claim of independent verification or formal verification is made.
+
+\section{Statement and relation to earlier results}
+For $S\subseteq\N=\{1,2,\ldots\}$ put
+\[
+ F_S(L)=\sup_{m\ge0}|S\cap\{m+1,\ldots,m+L\}|,
+ \qquad d^*(S)=\lim_{L\to\infty}\frac{F_S(L)}L.
+\]
+The limit exists and equals $\inf_{L\ge1}F_S(L)/L$: the integer-valued function $F_S$ is subadditive, and division into blocks of any fixed length proves the assertion. For $A\subset(0,\infty)$ define
+\[
+ S(A)=\{j\ge1:A\cap(2^{-j-1},2^{-j}]\ne\varnothing\}.
+\]
+Only accumulation near zero is relevant in this definition.
+
+\begin{theorem}\label{thm:main}
+Suppose $d^*(S(A))>0$. For every $0<\varepsilon<1$ there exists a closed, nowhere-dense, one-periodic set $E\subset\R$ such that
+\[
+ \Leb(E\cap[x,x+1])>1-\varepsilon\quad(x\in\R),
+ \qquad y+tA\not\subseteq E\quad(y\in\R,\ t\ne0).
+\]
+In fact, $\#\{a\in A:y+ta\notin E\}=\infty$ for every $y\in\R$ and $t\ne0$. In particular, $E\cap[0,1]$ is compact of measure greater than $1-\varepsilon$ and contains no nontrivial affine copy of $A$.
+\end{theorem}
+
+A set is measure universal if every measurable set of positive measure contains a nontrivial affine copy of it. The Erd\H{o}s similarity conjecture states that no infinite set is measure universal. Classical results include nonuniversality for sublacunary null sequences and Bourgain's three-fold sumset theorem; see~\cite{JLM}. The geometric case in~\cite{OpenAI084} deals with $\{q^n:n\ge1\}$ for each fixed $0<q<1$. Our hypothesis allows irregularly missing scales, without requiring the successive ratios of the remaining sequence to have a positive lower bound.
+
+\begin{corollary}\label{cor:squarefree}
+Let $\mathcal Q$ be the squarefree positive integers. Theorem~\ref{thm:main} holds for
+\[
+ A_{\rm sf}=\{2^{-n}:n\in\mathcal Q\}.
+\]
+This set contains no affine copy of any full geometric sequence $\{q^k:k\ge1\}$ with $0<q<1$.
+\end{corollary}
+
+\begin{corollary}\label{cor:ratios}
+Let $a_n$ be a strictly decreasing positive sequence tending to zero. If
+\[
+ \liminf_{n\to\infty}\frac{a_{n+1}}{a_n}>0,
+\]
+then Theorem~\ref{thm:main} holds for the set $A=\{a_n:n\ge1\}$.
+\end{corollary}
+
+\section{A finite density-flattening lemma}
+We isolate the step which permits missing logarithmic scales. An integer interval of length $L$ consists of $L$ consecutive integers; empty complementary intervals have length zero.
+
+\begin{lemma}\label{lem:uniform-upper}
+Let $d^*(S)=\delta$. For every $\xi>0$ there is $C_\xi<\infty$ such that every integer interval $I$ satisfies
+\[
+ |S\cap I|\le(\delta+\xi)|I|+C_\xi.
+\]
+For every integer $T\ge1$, some interval of length $T$ contains at least $\delta T$ elements of $S$. The same statements hold after deleting any finite initial segment of $S$, with the same $\delta$.
+\end{lemma}
+\begin{proof}
+Choose $L_0$ with $F_S(L_0)\le(\delta+\xi)L_0$. Partition an arbitrary interval into blocks of length $L_0$ and one remainder; its count is at most $(\delta+\xi)|I|+L_0$. Since $F_S(T)\ge\delta T$ and is a supremum of integers in $\{0,\ldots,T\}$, it is attained. Deleting at most $H$ points changes $F_S(T)$ by at most $H$, and hence does not change its limiting quotient.
+\end{proof}
+
+\begin{lemma}[Simultaneous filling of a finite template]\label{lem:flatten}
+Suppose $d^*(S)=\delta>0$ and $0<\eta<\delta$. For each sufficiently large integer $L$, consider a finite family of integer intervals (windows) inside a template interval of length $T_L$, where
+\[
+ T_L\le C L,\qquad |W|\ge L
+\]
+for a constant $C$ independent of $L$. For all sufficiently large $L$, a translate of the whole template satisfies
+\[
+ |S\cap W|\ge\eta|W|\quad\hbox{for every translated window }W.
+\]
+The translate may be required to lie beyond any fixed initial index.
+\end{lemma}
+\begin{proof}
+To force the translated template beyond a fixed index $H$, apply the argument to $S_H=\{j\ge1:j+H\in S\}$ and then translate back by $H$. This set has the same upper Banach density. We may therefore take $H=0$ below. Take $\xi>0$ with $\xi C<(\delta-\eta)/2$. By Lemma~\ref{lem:uniform-upper}, place the template on an interval $J$ of length $T_L$ with at least $\delta T_L$ points. The complement of any window $W\subset J$ is the union of at most two integer intervals. Consequently,
+\begin{align*}
+ |S\cap W|
+ &\ge \delta T_L-(\delta+\xi)(T_L-|W|)-2C_\xi\\
+ &\ge \delta|W|-\xi C L-2C_\xi.
+\end{align*}
+For large $L$ the last two terms cost at most $(\delta-\eta)L$. As $|W|\ge L$, the desired inequality follows for every window at once. No bound on their number is needed beyond the finite template assumption.
+\end{proof}
+
+\section{Windows, grids, and stable centers}
+Upper Banach density is subadditive under finite unions. Thus at least one of the even-index and odd-index parts of $S(A)$ has positive upper Banach density. Fix one such set $S$, put $\delta=d^*(S)>0$, and choose
+\[
+ a_j\in A\cap(2^{-j-1},2^{-j}]\quad(j\in S).
+\]
+Discard indices below $4$. We will block the bounded null set $B_0=\{a_j:j\in S\}$; blocking this subset also blocks $A$. Fix $0<\eta<\delta$.
+
+For now let $M\ge2,d\ge1,g\ge1$ and $L\ge g$ be integers. Take a complete ordered $M$-ary rooted tree of depth $d$, with leaves of height zero, and let $K$ be its number of edges. Order the edges in preorder: each edge is immediately followed by the entire subtree of its child, before the next sibling edge is listed. Assign one integer window to each edge and exactly $g$ unused indices between consecutive windows. All edges leaving a vertex of height $h$ have window length $\ell_h$. Define
+\[
+ \ell_1=L,\qquad \sigma_1=ML+(M-1)g,
+\]
+\[
+ \ell_h=g+\sigma_{h-1},\qquad
+ \sigma_h=M(\ell_h+g+\sigma_{h-1})+(M-1)g\quad(2\le h\le d).
+\]
+Here $\sigma_h$ is the span of a subtree of height $h$, including internal gaps. For fixed $M,d,g$, the total span $\sigma_d$ is affine in $L$ and at most $C L$ for $L\ge g$. Also every $\ell_h\ge L$.
+
+Apply Lemma~\ref{lem:flatten} to translate this template so that all indices are at least $4$ and every edge window $W_e=[u_e,v_e]\cap\Z$ satisfies
+\begin{equation}\label{eq:occupied}
+ |S\cap W_e|\ge\eta\ell_h
+ \quad\text{if }e\text{ leaves height }h.
+\end{equation}
+Let $v_e^*$ be the largest window endpoint belonging to the edge $e$ or its child subtree. The preorder arrangement gives
+\begin{equation}\label{eq:span}
+ v_e^*-u_e+1\le2\ell_h.
+\end{equation}
+Indeed, for a leaf edge the span is $\ell_1$; otherwise it is $\ell_h+g+\sigma_{h-1}=2\ell_h$.
+
+Use the nested periodic grids
+\[
+ N_b=2^{b+3},\quad \Gamma_b=N_b^{-1}\Z,
+ \qquad J_b(z)=\lfloor N_b\{z\}\rfloor.
+\]
+A finer key determines every coarser one. Cells are closed on the left and open on the right.
+
+Call a center $x$ stable if, for each noninitial window starting at $u$ whose predecessor ends at $b'$, the interval $(x,x+2^{1-u}]$ contains no point of $\Gamma_{b'}$. Denote the stable set by $\mathcal S$. All density computations below are over one period, written $\rho$.
+
+\begin{lemma}\label{lem:stable}
+The unstable centers have density at most $K2^{3-g}$. At every stable $x$, if $j\in S\cap W_e$ and $t\in[1,2]$, then
+\[
+ J_{v_f}(x+t a_j)=J_{v_f}(x)
+ \quad\text{for every edge }f\text{ preceding }e.
+\]
+\end{lemma}
+\begin{proof}
+For one predecessor pair, unstable centers occupy intervals of total density at most
+$N_{b'}2^{1-u}=2^{b'+4-u}=2^{3-g}$, since $u=b'+g+1$. Sum over at most $K-1$ pairs. For a stable center, $0<t a_j\le2^{1-u}$ crosses no predecessor boundary; nesting gives all the earlier keys. Excluding $x$ from the stability interval respects the left-closed cell convention.
+\end{proof}
+
+\begin{lemma}\label{lem:separation}
+For an edge with endpoint $b$, the points $x$ and $x+t a_j$, $j\in S\cap W_e$, have pairwise distinct $J_b$ keys, and distinct keys at every finer grid, for every $x$ and $t\in[1,2]$.
+\end{lemma}
+\begin{proof}
+The indices in $S$ have one parity. For $j<k$ in the window, $k\ge j+2$ and
+\[
+ a_j-a_k>2^{-j-1}-2^{-j-2}=2^{-j-2}\ge2^{-b}.
+\]
+Also $a_j>2^{-b-1}$. All the displayed points lie in an interval of length at most $1/8$, so their circular distances equal their ordinary distances. These distances exceed the cell width $2^{-b-3}$. Refinement preserves distinctness.
+\end{proof}
+
+\section{Finite routing and conditional independence}
+This section gives the routing argument of~\cite{OpenAI084} with the occupied test indices from~\eqref{eq:occupied} in place of a full geometric block.
+
+Fix $0<p<1$. On every nondefault edge $e=(P,i)$, $i<M$, place an independent fair-bit table $S_e$ indexed by $\{0,\ldots,N_{v_e}-1\}$. The child $M$ is the default and has no selector. For each leaf $V$, place an independent Bernoulli-$p$ table $T_V$ at the grid indexed by the endpoint $b(V)$ of its incoming edge. All entries of all tables are independent. This is a finite probability space.
+
+Route a point $z$ at vertex $P$ to the first child $i<M$ for which $S_{(P,i)}(J_{v_{(P,i)}}(z))=1$, or to child $M$ when all these entries vanish. Let $V(z)$ be the terminal leaf, and set
+\[
+ B=\{z:T_{V(z)}(J_{b(V(z))}(z))=1\}.
+\]
+This random set is a union of finitely many half-open periodic cells. Conditional on all selectors, the terminal entry used by a fixed point remains Bernoulli-$p$. Thus
+\begin{equation}\label{eq:mean}
+ \E\rho(B)=p.
+\end{equation}
+
+For a fixed $x$, expose its addressed selector entry in \emph{every} selector table. Let $\mathcal F_x$ be the sigma-field of this exposure. Each atom has positive probability, and all unexposed entries retain their original independent laws. The route of $x$ is now fixed. Prior to the exposure, the probability that this route never takes a default is
+\begin{equation}\label{eq:no-default}
+ (1-2^{1-M})^d.
+\end{equation}
+This follows by exposing successive vertices along the route: each new vertex uses tables independent of all its ancestors.
+
+Suppose $x$ is stable and an exposure atom has first default at $U$, of height $h$. Put $\ell=\ell_h$. For $i<M$, let $e_i=(U,i)$ and let $V_i(z)$ be the terminal leaf obtained by routing $z$ starting at the child $U_i$. Define
+\[
+ Q_i(z)=S_{e_i}(J_{v_{e_i}}(z))\,
+ T_{V_i(z)}(J_{b(V_i(z))}(z)).
+\]
+For every $j\in S\cap W_{e_i}$ and $t\in[1,2]$, the point $y_j=x+t a_j$ follows $x$ through the strict ancestors of $U$ and rejects the children $1,\ldots,i-1$ at $U$. These decisions use only earlier edges and are preserved by Lemma~\ref{lem:stable}. Hence
+\begin{equation}\label{eq:implication}
+ Q_i(y_j)=1\quad\Longrightarrow\quad y_j\in B.
+\end{equation}
+
+\begin{lemma}[Exact failure probability]\label{lem:independence}
+Conditional on such an exposure atom, and for every fixed $t\in[1,2]$, if
+\[
+ m=\sum_{i=1}^{M-1}|S\cap W_{e_i}|\ge\eta(M-1)\ell,
+\]
+then
+\[
+ \Prob(Q_i(x+t a_j)=0\text{ for all tested }(i,j)\mid\mathcal F_x)
+ =(1-p/2)^m.
+\]
+\end{lemma}
+\begin{proof}
+The tested edge selectors are independent fair bits conditional on the atom. Within a table their addresses are distinct and avoid the exposed center entry by Lemma~\ref{lem:separation}; different edges have different tables.
+
+Now condition on all selectors. All local terminal leaves and addresses are determined. The terminal addresses of distinct tests are distinct: different children use disjoint subtrees, different leaves use different tables, and two tests at the same leaf retain distinct keys at its finer grid. Thus the terminal bits used by the tests are independent Bernoulli-$p$ variables. If $A_1,\ldots,A_m$ are the tested edge selector bits, the conditional failure probability is $(1-p)^{A_1+\cdots+A_m}$. Averaging over these independent fair bits gives $(1-p/2)^m$. Possible sharing of other selector entries does not affect this conditioning argument.
+\end{proof}
+
+\section{All scales in a compact interval}
+Fix the center and the exposure atom as above. For each tested $(i,j)$, the entire test $Q_i(x+t a_j)$ is determined by the single finest grid $N_{v_{e_i}^*}$. As $t$ traverses $[1,2]$, it changes only when $x+t a_j$ meets that grid. There are at most
+\[
+ 1+a_j N_{v_{e_i}^*}\le1+2^{2\ell+3}
+\]
+such parameter values, using~\eqref{eq:span}. This bound is deliberately nonsharp. All these grid boundaries are deterministic after fixing $x$ and the atom; they do not depend on unexposed entries.
+
+Take the union of these parameter values, add $1,2$, and take one midpoint in every complementary open interval. The resulting finite representative set has size at most
+\begin{equation}\label{eq:entropy}
+ D_M(\ell)=4+2(M-1)\ell(1+2^{2\ell+3}).
+\end{equation}
+The vector of all local tests is constant between consecutive boundaries, for every table outcome. Each boundary itself is represented separately, so there is no loss from half-open cells. By Lemma~\ref{lem:independence} and a union bound, the probability that some $t\in[1,2]$ has no successful local test is at most
+\begin{equation}\label{eq:miss}
+ D_M(\ell)\exp[-p\eta(M-1)\ell/2].
+\end{equation}
+
+\begin{proposition}[Normalized periodic blocker]\label{prop:normalized}
+For every $0<p<1/12$ there exists an open one-periodic set $H$ of density at most $6p$ meeting $x+tB_0$ for every $x\in\R$ and $t\in[1,2]$.
+\end{proposition}
+\begin{proof}
+Choose the parameters in the following order. First choose $M$ with $p\eta(M-1)>4$, so that $p\eta(M-1)/2>2>2\log2$. Choose $d$ so that~\eqref{eq:no-default} is less than $p$. Determine the finite number $K$ of edges and choose $g$ so that $K2^{3-g}<p$. Finally choose $L\ge g$ large enough for Lemma~\ref{lem:flatten} and for~\eqref{eq:miss} to be less than $p$ for every integer $\ell\ge L$. The latter is possible because its exponential decay rate exceeds the entropy rate $2\log2$. This order contains no dependence of $M,d,g$ on the eventual translate or on random outcomes.
+
+At any stable center, the probability of having no default is less than $p$. On each atom having a first default,~\eqref{eq:miss} costs less than $p$. Thus the probability that some normalized scale misses $B$ at all indices in the finite test union is at most $2p$.
+
+For every table outcome, enlarge $B$ to an open periodic $B^+$ with $\rho(B^+)\le\rho(B)+p$. Let
+\[
+ R=\{x:\exists t\in[1,2]\ \forall j\in\mathcal I,
+                      \ x+t a_j\notin B^+\},
+\]
+where $\mathcal I=S\cap\bigcup_e W_e$ is the finite union of test indices. This is a closed periodic set: on $(\R/\Z)\times[1,2]$ the relevant avoidance set is closed and its projection is closed by compactness. Integration over centers gives
+\[
+ \E\rho(R)\le3p,\qquad \E\rho(B^+)\le2p,
+\]
+using the instability bound and~\eqref{eq:mean}. Choose a table outcome with $\rho(R)+\rho(B^+)\le5p$. Outer regularity on the circle gives an open periodic $V\supseteq R$ with $\rho(V)\le\rho(R)+p$. Put $H=B^+\cup V$.
+
+If $x\notin R$, a finite test already hits $B^+$. If $x\in R$, then $x\in V$ and $a_j\to0$ along $S$, so $x+t a_j\in V$ for all sufficiently large selected indices. This last step uses indices beyond the finite test union and repairs every exceptional center. Finally $\rho(H)\le6p$.
+\end{proof}
+
+\section{All dilations, signs, and applications}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+For each $H\ge1$ put $B_H=\{a_j:j\in S,\ j\ge H\}$. For each
+$k\in\Z$, the dyadic annular indices of $2^kB_H$, restricted near zero,
+are an integer shift of a tail of $S$, and thus have positive upper
+Banach density. Apply Proposition~\ref{prop:normalized} to each
+$2^kB_H$ with positive $p_{k,H}<1/12$ such that
+\[
+ 12\sum_{k\in\Z}\sum_{H\ge1}p_{k,H}<\varepsilon.
+\]
+The proposition may select a further parity class or tail; its blocker
+still meets every copy of the prescribed $2^kB_H$. Write $H_{k,H}$
+for the resulting open one-periodic blocker, and set
+\[
+ U=\bigcup_{k\in\Z,\,H\ge1}(H_{k,H}\cup(-H_{k,H})),
+ \qquad E=\R\setminus U.
+\]
+Then $U$ is open and one-periodic, of density less than $\varepsilon$.
+Any positive dilation is $2^kt_0$, $t_0\in[1,2]$. For every cutoff $H$,
+a point of its affine copy of $B_H$ lies in $H_{k,H}$. Thus arbitrarily
+large selected indices give points outside $E$, and these points are
+distinct. Reflection gives the same assertion for negative dilations.
+This proves the strengthened assertion for $B_0$ and therefore for $A$.
+
+The set $E$ is closed and periodic, with the claimed measure in every unit interval. It has empty interior: $B_0$ is bounded, so a sufficiently small positive affine copy of it would fit in any open interval contained in $E$. Its restriction to $[0,1]$ is compact.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:squarefree}]
+The non-squarefree integers at most $N$ lie among the multiples of $m^2$, $m\ge2$. Their number is at most $N\sum_{m\ge2}m^{-2}<3N/4$, since
+\[
+ \sum_{m\ge2}m^{-2}=\frac14+\sum_{m\ge3}m^{-2}
+ <\frac14+\int_2^\infty x^{-2}\,dx=\frac34.
+\]
+Thus $d^*(\mathcal Q)\ge1/4$, and $S(A_{\rm sf})=\mathcal Q$.
+
+Suppose $b+cq^k\in A_{\rm sf}$ for every $k\ge1$, with $c\ne0$ and $0<q<1$. Its distinct terms converge to $b$. The only accumulation point of $A_{\rm sf}$ is zero, so $b=0$ and $c>0$. Write $cq^k=2^{-n_k}$. Consecutive ratios force $q=2^{-d}$ for a positive integer $d$, and the exponents form an infinite arithmetic progression. Choose a prime $p$ not dividing $d$. Some term of this progression, arbitrarily far along it, is divisible by $p^2$, a contradiction to squarefreeness.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ratios}]
+For some $c>0$, eventually $a_{n+1}\ge c a_n$. Hence the strictly increasing sequence $-\log_2 a_n$ has gaps at most $\log_2(1/c)$. Its occupied integer bins have bounded gaps after a finite prefix. A set with gaps bounded by an integer $D$ has at least $L/D-O(1)$ elements in every sufficiently late interval of length $L$, and therefore has positive upper Banach density. Apply Theorem~\ref{thm:main}.
+\end{proof}
+
+\paragraph{Why the squarefree case is a genuine extension of the geometric statement.}
+Avoiding copies of a geometric sequence automatically avoids its supersets, not its subsets. The preceding proof shows that $A_{\rm sf}$ contains no affine geometric sequence at all. Thus the geometric main theorem by itself and monotonicity do not imply this application. More generally, a subset of dyadic powers has no sublacunary subsequence: successive ratios of distinct decreasing terms are at most $1/2$. These observations distinguish the application from two immediate earlier mechanisms; they do not establish complete bibliographic novelty.
+
+There is also an elementary additive distinction: $A_{\rm sf}$ cannot contain $B+C$ when each of $B,C$ has two distinct elements. To see this, binary expansion shows that a sum of two dyadic powers uniquely determines the unordered pair, including repeated powers. If $b_1\ne b_2$ and $c_1\ne c_2$, the identity
+\[
+ (b_1+c_1)+(b_2+c_2)=(b_1+c_2)+(b_2+c_1)
+\]
+would give two different unordered pairs in the dyadic powers, a contradiction. Thus a nontrivial two-fold sumset cannot be found inside this configuration. The proposed contribution concerns the logarithmic-density hypothesis, not a claim of novelty for the general shape of a periodic avoiding set.
+
+
+\begin{corollary}[Countable simultaneous avoidance]\label{cor:countable}
+Let $(A_m)_{m\ge1}$ be any countable family of subsets of $(0,\infty)$
+with $d^*(S(A_m))>0$ for every $m$. For every $\varepsilon>0$ there
+is one closed, nowhere-dense, one-periodic set $E$, of measure greater
+than $1-\varepsilon$ in every unit interval, such that every
+nontrivial affine copy of every $A_m$ has infinitely many points outside
+$E$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:main} with errors $\varepsilon_m>0$ whose sum
+is less than $\min\{\varepsilon,1\}$. Intersect the resulting closed
+periodic avoiding sets $E_m$. The union bound gives the measure
+estimate. The intersection is a subset of $E_1$, so is nowhere dense;
+every infinite-complement assertion is inherited from the corresponding
+$E_m$.
+\end{proof}
+
+\begin{proposition}[Independence of the logarithmic base]
+For $b>1$ let $S_b(A)=\{j\ge1:A\cap(b^{-j-1},b^{-j}]\ne\varnothing\}$.
+Then $d^*(S_b(A))>0$ if and only if $d^*(S(A))>0$.
+\end{proposition}
+\begin{proof}
+Work in the coordinate $u=-\log_2 a$ and discard a bounded initial
+interval, which does not affect the density of occupied bins. The two
+bin lengths are $1$ and $h=\log_2 b>0$. A bin of length $1$ meets at
+most $\lceil1/h\rceil+2$ bins of length $h$. An occupied block of $L$
+consecutive length-$h$ bins is contained in at most $hL+3$
+consecutive unit bins. If at least $\delta L$ of the former are
+occupied, at least $\delta L/(\lceil1/h\rceil+2)$ of the latter are
+occupied. Taking arbitrarily large $L$, and using existence of the
+upper Banach density limit, proves positivity for the unit bins.
+Interchanging the two bin systems proves the converse. Half-open
+endpoint conventions only reduce intersections and do not affect these
+bounds.
+\end{proof}
+
+
+\section{Effective finite certificates for rational configurations}
+This section does not claim a practical runtime or supply a small-density
+blocker computed in this work. It specifies an exact, independent
+verification interface and proves existence of a terminating search.
+
+A normalized rational certificate consists of a finite list of rational
+numbers $a_1,\ldots,a_N$ from the configuration and a finite list of open
+intervals with rational endpoints. Repeat the latter with period one to
+obtain $H$. The certificate asserts a rational upper bound on $\rho(H)$
+and
+\begin{equation}\label{eq:rational-cert}
+ \forall(x,t)\in[0,1]\times[1,2]\quad
+ \exists j\le N:\ x+ta_j\in H.
+\end{equation}
+
+\begin{proposition}[Exact decidability of a normalized certificate]
+The two assertions of a normalized rational certificate can be checked
+by a finite algorithm using rational arithmetic only.
+\end{proposition}
+\begin{proof}
+All possible $x+ta_j$ lie in a bounded rational interval. In that
+interval the complement of $H$ is a finite union of closed rational
+intervals, including possible singleton gaps. Failure of
+\eqref{eq:rational-cert} amounts to feasibility, for some choice of one
+gap $[l_j,r_j]$ for each $j$, of
+\[
+ 0\le x\le1,\quad 1\le t\le2,\quad
+ l_j\le x+ta_j\le r_j\quad(1\le j\le N).
+\]
+There are finitely many choices. Each feasibility problem has rational
+linear inequalities in two variables. Successive exact half-plane
+intersection with the closed rectangle decides it; segments and points
+are retained, so boundary counterexamples are not discarded. The measure
+of $H$ is the sum of the lengths of the merged intervals over one period,
+also a rational computation.
+\end{proof}
+
+\begin{corollary}[Effective realization for rational representatives]
+Suppose the selected null sequence consists of computably enumerable
+rational numbers and its occupied dyadic indices have positive upper
+Banach density. Then, for rational $\varepsilon>0$, the complement $U$
+in Theorem~\ref{thm:main} can be enumerated as rational open intervals.
+Each normalized component can be accompanied by a finite certificate
+of the preceding kind. This applies to $A_{\rm sf}$.
+\end{corollary}
+\begin{proof}
+Fix one dilation-and-tail component and its positive rational measure
+budget. Proposition~\ref{prop:normalized}, applied with strictly smaller
+budget, gives an open periodic blocker. For each $(x,t)$ in the compact
+rectangle choose a hit and a rational interval about it contained in the
+blocker, using a lift to the real line when necessary. These intervals
+and hits give an open cover of the rectangle. A finite subcover yields
+finitely many rational intervals and finitely many sequence elements
+satisfying~\eqref{eq:rational-cert}, with measure below the budget.
+
+Enumerate all finite rational interval lists and finite prefixes of the
+computably enumerated sequence. Test each list by the exact algorithm
+above and retain the first successful certificate of acceptable measure.
+The preceding compactness argument proves that this search terminates.
+Repeat for the countably many dilation-and-tail components, using
+summable rational budgets, and reflect to treat negative scales.
+The union of the resulting intervals is computably enumerable and the
+proof of Theorem~\ref{thm:main} supplies the claimed measure and
+infinite-hit properties. Squarefree indices and their dyadic powers
+are computable, so the application follows.
+\end{proof}
+
+The supplied \texttt{verification/check\_cover.py} implements this finite
+certificate check with \texttt{Fraction} arithmetic. Its regression tests
+include a true cover, an empty blocker, touching open intervals, and a
+counterexample existing only at a closed boundary. These tests are not a
+computed witness for the full small-measure theorem. A certificate for
+one normalized component is not by itself a certificate for all dilations;
+the countable-scale and summable-budget argument is still required.
+
+\paragraph{Limits.}
+The annular index sets for $\{2^{-n^2}\}$ and $\{2^{-2^n}\}$ have upper Banach density zero. This proof does not settle those configurations, let alone arbitrary infinite sets. The construction is existential and uses arbitrarily large finite probability spaces; no computed small-density interval list or practical resource bound is claimed. The effective search above has no asserted feasible complexity. The positive-density assumption concerns the logarithmic indices of a null set, not the original growing sequences in the ``in the large'' variant of the problem.
+
+\begin{thebibliography}{9}
+\bibitem{OpenAI084} OpenAI, \emph{The geometric case of the Erd\H{o}s similarity conjecture}, October 5, 2026. Repository \texttt{openai/math}, family 084; snapshot \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}. Especially source sections 03-windows, 04-routing, and 05-scales. \href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-geometric-case-of-the-Erdos-similarity-conjecture-October-5-2026}{Pinned source directory}.
+\bibitem{JLM} Y. Jung, C.-K. Lai, and Y. Mooroogen, \emph{Fifty years of the Erd\H{o}s similarity conjecture}, arXiv:2412.11062v2, January 1, 2025. \url{https://arxiv.org/abs/2412.11062}.
+\end{thebibliography}
+\end{document}

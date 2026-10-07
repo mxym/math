@@ -1,0 +1,296 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{needspace}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\N}{\mathbb N}\newcommand{\Z}{\mathbb Z}
+\newcommand{\T}{\mathbb R/\mathbb Z}\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}\newcommand{\dens}{\operatorname{dens}}
+\title{Modulus-controlled nonlinear avoidance\\and a differentiability boundary for null patterns}
+\author{mxym\thanks{Repository-account attribution: \url{https://github.com/mxym/math}. Prepared with AI assistance. No institutional affiliation is asserted.}}
+\date{October 7, 2026\quad Version 1}
+\hypersetup{pdfauthor={mxym},pdflang={en-US}}
+\begin{document}\maketitle
+\begin{abstract}
+Let a positive null configuration occupy a positive upper Banach density of logarithmic annuli. Given any countable family of prescribed vanishing moduli, we construct a closed one-periodic set of measure arbitrarily close to one in every unit interval which excludes all finite-order images with remainders controlled by those moduli. Every such image has infinitely many points outside the set. In particular, one set excludes all nonflat smooth germs, all nonconstant analytic germs, and all germs with nonzero derivative and any positive H\"older regularity. The mechanism is a uniform-tail version of finite-template density flattening followed by a small buffer around a finite routing grid. We also give direct proofs that lacunary null sequences are universal under increasing $C^1$ diffeomorphisms, and that arbitrary null sequences are universal under increasing smooth maps flat at zero. These distinguish the nonflat and quantitative-remainder conclusions from unjustified claims about all differentiable or all smooth maps.
+\end{abstract}
+\paragraph{Status and provenance.}
+This is a complete written research argument, not independent peer review or a proof-assistant formalization. Finite routing and local entropy are adapted from OpenAI family 084~\cite{O084} and the positive-logarithmic-density manuscript~\cite{M004}; their required finite form is reproved in Section~\ref{sec:engine}. The new step is translation-uniform template placement and a finest-grid perturbation buffer. The positive $C^1$ endpoint is closely related to Feng--Lai--Xiong~\cite{FLX} and is not asserted to be a new universality mechanism. No publication-priority or journal-tier claim is made.
+
+\section{Statements}
+For $S\subseteq\N$, set
+\[
+ F_S(L)=\sup_{h\ge0}|S\cap\{h+1,\ldots,h+L\}|,
+ \qquad d^*(S)=\lim_{L\to\infty}F_S(L)/L.
+\]
+Subadditivity gives the limit and the identity $d^*(S)=\inf_L F_S(L)/L$.
+For $A\subset(0,\infty)$ put
+\[
+ S(A)=\{j\ge1:A\cap(2^{-j-1},2^{-j}]\ne\varnothing\}.
+\]
+A \emph{null modulus} is a nondecreasing function $\omega:(0,\infty)\to[0,\infty)$ which is finite everywhere and tends to zero at zero. A modulus initially defined near zero may be extended constantly outside a smaller neighborhood.
+
+\begin{theorem}[Prescribed-modulus avoidance]\label{thm:main}
+Let $(A_l)_{l\ge1}$ be a nonempty countable family with $d^*(S(A_l))>0$, and let $(\omega_j)_{j\ge1}$ be a nonempty countable family of null moduli. For every $0<\varepsilon<1$ there is a closed, nowhere-dense, one-periodic $E\subset\R$ with
+\[
+ |E\cap[x,x+1]|>1-\varepsilon\quad(x\in\R)
+\]
+satisfying the following assertion. Suppose $f$ is defined on a sufficiently small tail of some $A_l$, and, for some $m\in\N$, $j\in\N$, $c\ne0$, $y\in\R$, and $C<\infty$,
+\begin{equation}\label{eq:germ}
+ |f(a)-y-ca^m|\le C a^m\omega_j(a)
+ \quad\text{for all sufficiently small }a\in A_l.
+\end{equation}
+Then, for every sufficiently small $r>0$, the set $f(A_l\cap(0,r))\setminus E$ is infinite. No measurability, monotonicity, or smoothness of $f$ is assumed.
+\end{theorem}
+
+\begin{corollary}[Nonflat smooth and analytic images]\label{cor:smooth}
+For each prescribed family $(A_l)$ as above, one such $E$ simultaneously excludes, on every sufficiently small tail, all of the following images:
+\begin{enumerate}
+\item $f(A_l)$ for every real $C^\infty$ germ at zero whose first nonzero derivative of positive order has finite order;
+\item $f(A_l)$ for every nonconstant real-analytic germ at zero;
+\item $f(A_l)$ for every $C^{1,\alpha}$ germ with $f'(0)\ne0$, for every $\alpha>0$ for which that notation is used.
+\end{enumerate}
+More generally, the conclusion holds whenever
+$f(a)=y+ca^m+O(a^{m+\alpha})$ with $m\in\N$, $c\ne0$, and $\alpha>0$.
+\end{corollary}
+\begin{proof}
+Use $\omega_j(a)=a^{1/j}$. For any $\alpha>0$ choose $j$ with $1/j\le\alpha$ and restrict to $0<a<1$. Taylor's theorem supplies the required remainder for a nonflat smooth germ and, in particular, for a nonconstant analytic germ. For a $C^{1,\alpha}$ germ with nonzero derivative, integration of the derivative modulus supplies $O(a^{1+\alpha})$ (or any weaker positive exponent).
+\end{proof}
+
+An explicit example is $A=\{2^{-n}:n\text{ squarefree}\}$. Its occupied indices have positive density: the nonsquarefree indices up to $N$ are at most
+$N\sum_{r\ge2}r^{-2}<3N/4$. Another is any fixed geometric null sequence. Neither corollary treats arbitrary infinite configurations.
+
+\begin{theorem}[Two unavoidable endpoints]\label{thm:endpoints}
+Let $F\subset\R$ be measurable of positive measure.
+\begin{enumerate}
+\item If $a_n\downarrow0$ and $a_{n+1}\le q a_n$ for a fixed $q<1$, there is an increasing global $C^1$ diffeomorphism $g:\R\to\R$ with $g(a_n)\in F$ for every $n$.
+\item For every strictly decreasing positive null sequence $(a_n)$, there is a strictly increasing $C^\infty$ map on $[0,a_1]$, smooth up to the endpoints and flat at zero, sending every $a_n$ into $F$. It is not a diffeomorphism at zero.
+\end{enumerate}
+\end{theorem}
+The second assertion makes the nonflat restriction essential. The first shows why one cannot take an uncountable union over all vanishing moduli and claim avoidance of every $C^1$ diffeomorphism.
+
+\section{Uniform placement in arbitrary tails}\label{sec:flatten}
+\begin{lemma}\label{lem:upper}
+If $d^*(S)=\delta$, then for each $\xi>0$ there is $C_\xi<\infty$ such that every integer interval $I\subset\N$ obeys
+\[
+ |S\cap I|\le(\delta+\xi)|I|+C_\xi.
+\]
+For every $H\ge0$ and every $T\ge1$ there is an interval $J\subset\{H+1,H+2,\ldots\}$ of length $T$ with $|S\cap J|\ge\delta T$.
+\end{lemma}
+\begin{proof}
+Choose $L_0$ with $F_S(L_0)\le(\delta+\xi)L_0$, and partition any interval into length-$L_0$ blocks and one remainder. Take $C_\xi=L_0$. Deleting the first $H$ integers changes maximal counts by at most $H$; translating the tail back to $\N$ therefore preserves its upper Banach density. For that tail, subadditivity gives maximal length-$T$ count at least $\delta T$ for every $T$. The supremum is attained because the possible counts are integers between zero and $T$.
+\end{proof}
+
+\begin{lemma}[The threshold does not depend on the tail]\label{lem:flatten}
+Let $d^*(S)=\delta>\eta>0$. For every sufficiently large integer $L$, let a fixed interval template of length $T_L\le C_0L$ contain finitely many interval windows, each of length at least $L$. There is a threshold for $L$, independent of $H$, such that the template can be translated entirely beyond any prescribed index $H$ and every window $W$ has $|S\cap W|\ge\eta|W|$.
+\end{lemma}
+\begin{proof}
+Use Lemma~\ref{lem:upper} to put the template on $J$ beyond $H$ with count at least $\delta T_L$. The complement of any window in $J$ consists of at most two intervals, to which the same global upper-count constant applies. Thus
+\[
+ |S\cap W|\ge\delta|W|-\xi C_0 L-2C_\xi.
+\]
+Choose $\xi C_0<(\delta-\eta)/2$, then $L$ so large that $2C_\xi\le(\delta-\eta)L/2$. Neither choice involves $H$. This is stronger than a statement that merely allows a fixed tail to be chosen before increasing $L$.
+\end{proof}
+
+\section{The finite routing engine}\label{sec:engine}
+We record the precise finite output needed for perturbation control, with its proof. One parity of $S(A)$ has positive upper Banach density, since $d^*$ is subadditive under finite unions. Fix such a parity set $S$ and representatives
+\[
+ a_j\in A\cap(2^{-j-1},2^{-j}]\quad(j\in S).
+\]
+They are distinct, tend to zero, and successive representatives in increasing index order have ratio less than $1/2$.
+
+\begin{lemma}[Finite output with translation-independent complexity]\label{lem:engine}
+Fix $0<p<1/12$. There is a finite integer span $T$, chosen independently of a lower bound on the template's starting index, with the following property. Arbitrarily far out one can place a template $[u,u+T-1]$ and choose a finite nonempty test set $\mathcal I\subseteq S\cap[u,u+T-1]$. There is a finite probability space of periodic grid-cell sets $B$ at resolution
+\begin{equation}\label{eq:resolution}
+ N=2^{u+T+2}
+\end{equation}
+such that $\E\dens(B)=p$. There is a deterministic set of unstable centers, of density less than $p$, outside which
+\begin{equation}\label{eq:failure}
+ \Prob\{\exists t\in[1,2]:x+ta_j\notin B\ \text{for every }j\in\mathcal I\}<2p.
+\end{equation}
+All bounds are uniform in the actual starting index $u$.
+\end{lemma}
+\begin{proof}
+Fix $0<\eta<d^*(S)$. Choose an integer $M\ge2$ with $p\eta(M-1)>4$, and a depth $d$ with
+$(1-2^{1-M})^d<p$. On a complete ordered $M$-ary rooted tree of depth $d$, let $K$ be the number of edges and choose an integer gap $g$ with $K2^{3-g}<p$.
+
+Order edges in preorder, so an edge is followed by its entire child subtree before its next sibling. Give edges leaving height $h$ equal window length $\ell_h$, and put exactly $g$ unused indices between adjacent windows. For a base length $L\ge g$ use
+\[
+ \ell_1=L,\quad \sigma_1=ML+(M-1)g,
+\]
+\[
+ \ell_h=g+\sigma_{h-1},\quad
+ \sigma_h=M(\ell_h+g+\sigma_{h-1})+(M-1)g\quad(h\ge2).
+\]
+The total span $T=\sigma_d$ is at most $C_0L$ with $C_0$ independent of $L$. If an edge window is $[u_e,v_e]$ and $v_e^*$ is the last index of it and its child subtree, then
+\begin{equation}\label{eq:local-span}
+ v_e^*-u_e+1\le2\ell_h.
+\end{equation}
+By Lemma~\ref{lem:flatten}, once $L$ is sufficiently large we may place the template arbitrarily far out, with at least $\eta\ell_h$ selected indices in every window. Require all indices at least four.
+
+Use nested grids of mesh $2^{-b-3}$ and keys
+$J_b(z)=\lfloor2^{b+3}\{z\}\rfloor$. For each nondefault edge $e=(P,i)$, $i<M$, assign an independent fair-bit table at grid $v_e$. Child $M$ is default. Route $z$ to the first nondefault child whose addressed bit is one, or to the default if none is one. Each leaf has an independent Bernoulli-$p$ table at its incoming-edge grid. The set $B$ consists of points for which the terminal addressed bit is one. It is constant on the finest cells in~\eqref{eq:resolution}, and conditioning on all selectors shows that $\E\dens(B)=p$.
+
+Call $x$ stable when, at every noninitial window starting at $v+g+1$, its interval $(x,x+2^{-v-g}]$ crosses no grid boundary at the preceding endpoint $v$. For this pair the unstable density is at most
+$2^{v+3}2^{-v-g}=2^{3-g}$, so total instability is less than $p$. At a stable $x$, every $x+ta_j$, $t\in[1,2]$, in a window has the same grid keys as $x$ for all preceding edges. This uses $ta_j\le2^{1-u_e}$ and nesting. At its own window's grid, its key differs from the center key and from other selected tests: parity-separated indices have $a_j-a_k>2^{-j-2}$ for $k\ge j+2$, while the grid mesh is $2^{-v_e-3}$. All displacements lie within an interval of length at most $1/8$, so wraparound does not identify keys. Distinctness persists at finer grids.
+
+For a fixed stable center expose its addressed selector entry in every table, but no terminal bits. The route of $x$ is now fixed. Before exposure its probability of never taking a default is $(1-2^{1-M})^d<p$. On any atom having first default at a vertex of height $h$, test every selected index in each of its first $M-1$ outgoing windows. The point agrees with the center on preceding routing decisions. If its own edge bit is one, it enters that child, and a terminal success there implies membership in $B$.
+
+There are $m\ge\eta(M-1)\ell_h$ such tests. Conditional on all selectors, their terminal entries are independent: different children use disjoint subtrees; at the same leaf, distinct tests have distinct finer keys. The tested own-edge bits are independent fair bits avoiding the exposed center entries. Averaging over them gives exact failure probability $(1-p/2)^m$ for any fixed $t$. This argument permits shared auxiliary selectors and does not assume that all routing paths are independent.
+
+A test's entire outcome is determined by its edge-subtree's finest grid. As $t$ ranges over $[1,2]$, it crosses at most $1+2^{2\ell_h+3}$ deterministic boundaries, by~\eqref{eq:local-span}. Represent every crossing and both endpoints separately, and put a representative in every intervening open interval. At most
+\[
+ D_M(\ell)=4+2(M-1)\ell(1+2^{2\ell+3})
+\]
+representatives are needed. The union bound gives failure probability at most
+\[
+ D_M(\ell)\exp[-p\eta(M-1)\ell/2].
+\]
+Choose $L$ large enough that this is less than $p$ for all integers $\ell\ge L$. This is possible because its decay exponent exceeds $2\log2$. Together with the no-default probability it gives~\eqref{eq:failure}. All choices $M,d,g,L,T$ precede the tail location. Boundary representatives retain failures existing only at an endpoint.
+\end{proof}
+
+\section{Absorbing arbitrary controlled perturbations}\label{sec:robust}
+For a set in $\R$, periodic sums with intervals are understood on $\T$ and then lifted. If $B$ is a union of cells in an $N$-cell periodic grid, then
+\begin{equation}\label{eq:buffer-measure}
+ \dens(B+(-r,r))\le\dens(B)+2Nr\quad(r>0).
+\end{equation}
+Indeed, enlarge each occupied cell by $r$ at both endpoints; summing lengths bounds the union. This remains valid if intervals wrap or the upper bound exceeds one.
+
+\begin{proposition}[Robust normalized blocker]\label{prop:robust}
+Fix a null modulus $\omega$ and a configuration $A$ with positive logarithmic upper Banach density. For every $0<p<1/12$ there is an open one-periodic $H$ of density at most $6p$ such that, for every $x\in\R$, every $t\in[1,2]$, and every independent collection of errors obeying
+\[
+ |e(a)|\le a\omega(a)\quad(a\in A),
+\]
+at least one point $x+ta+e(a)$ lies in $H$. It is enough that the errors be prescribed on a sufficiently small specified tail; the proposition can be applied to that tail.
+\end{proposition}
+\begin{proof}
+Take the finite span $T$ from Lemma~\ref{lem:engine}. For a prospective starting index $u$ set
+\[
+ \eta_u=\omega(2^{-u})+2^{-u},\qquad r_u=2^{-u}\eta_u>0.
+\]
+For every selected finite test, $|e(a_j)|\le r_u$. Choose a lower bound on $u$ so large that
+\begin{equation}\label{eq:buffer-cost}
+ 4Nr_u=2^{T+4}\eta_u<p,
+ \qquad N=2^{u+T+2}.
+\end{equation}
+Monotonicity of $\omega$ makes the inequality hold at every later start. Uniform-tail placement permits the density-filled template after this choice.
+
+For each random $B$ put $B_1=B+(-r_u,r_u)$ and $B_2=B+(-2r_u,2r_u)$. Let
+\[
+ R=\{x:\exists t\in[1,2]\ \forall j\in\mathcal I,
+                      \ x+ta_j\notin B_1\}.
+\]
+This is closed on the circle: it is the projection of a closed subset of the compact space $\T\times[1,2]$. Since $B\subset B_1$, Lemma~\ref{lem:engine} gives $\E\dens(R)\le3p$. Equations~\eqref{eq:buffer-measure}--\eqref{eq:buffer-cost} give $\E\dens(B_2)\le2p$. Choose an outcome with $\dens(B_2)+\dens(R)\le5p$, and an open periodic $V\supset R$ with $\dens(V)\le\dens(R)+p$. Set $H=B_2\cup V$.
+
+If $x\notin R$, a finite test lies in $B_1$, so adding any error of size at most $r_u$ puts it in $B_2$. The use of two buffers treats equality at the error endpoint correctly. If $x\in R$, then $x\in V$ and $ta_j+e(a_j)\to0$ along the selected null sequence; all sufficiently late perturbed points therefore lie in $V$. This repairs every exceptional center, not just almost every one. The density is at most $6p$.
+\end{proof}
+
+\section{Powers, coefficients, tails, and simultaneous quantifiers}
+\begin{lemma}\label{lem:powers}
+Positive logarithmic upper Banach density is preserved by $a\mapsto c a^s$ for fixed $c,s>0$, and by discarding any neighborhood complement $A\cap[r,\infty)$ with $r>0$.
+\end{lemma}
+\begin{proof}
+In logarithmic coordinates $z=-\log_2 a$, the map is $z\mapsto sz-\log_2 c$. A bin of either fixed positive length intersects at most a fixed finite number of bins of the other length. A block of $L$ occupied-index positions in one system is contained in at most $C_1L+C_2$ consecutive bins of the other, and one bin in the other can account for at most $C_3$ of the occupied bins. Blocks with at least $\delta L$ occupied bins therefore imply arbitrarily long blocks with positive density in the other system. Existence of the upper Banach density limit gives positivity. Translation and deletion of a finite number of logarithmic bins do not affect this argument. Apply it in both directions.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+It suffices first to consider one configuration and one modulus. For $m\ge1$, $k\in\Z$, an integer $q\ge1$, and tail cutoff $h\ge1$, apply Proposition~\ref{prop:robust} to
+\[
+ A_{m,k,h}=\{2^k a^m:a\in A,\ 0<a<2^{-h}\},
+\]
+which satisfies its density hypothesis by Lemma~\ref{lem:powers}, and to the null modulus
+\[
+ \omega_{m,k,q}(b)=q\,2^{-k}\omega((2^{-k}b)^{1/m}).
+\]
+Choose positive budgets $p_{m,k,q,h}<1/12$ with $12\sum p_{m,k,q,h}<\varepsilon$. Take the union of all resulting blockers and their reflections, and let $E$ be its complement. It is closed, periodic, and has the required measure.
+
+For~\eqref{eq:germ} with $c>0$, write $c=2^kt$ with $t\in[1,2]$, and enlarge $C$ to an integer $q$. On every sufficiently late tail, after the substitution $b=2^ka^m$, the error is at most $b\omega_{m,k,q}(b)$. The corresponding normalized blocker supplies a hit. Letting $h$ increase produces hits at arbitrarily small inputs. On sufficiently small inputs,
+\[
+ \tfrac12|c|a^m\le |f(a)-y|\le\tfrac32|c|a^m,
+\]
+so these hits approach $y$ without equalling $y$; hence infinitely many distinct image points occur. For $c<0$ apply the same argument to $-f$ and use the reflected blockers.
+
+For countably many $A_l$ and $\omega_j$, add these two indices to the summable budget. This is countable bookkeeping over parameters describing error classes, not over individual functions or arbitrary moduli. Finally $E$ has empty interior: affine images are among the excluded images, and a small affine image of a bounded tail would fit into any interval contained in $E$. A closed set with empty interior is nowhere dense.
+\end{proof}
+
+\begin{corollary}[No prescribed differentiability rate for an embedding]
+For a lacunary configuration covered by Theorem~\ref{thm:main}, every $C^1$ map with nonzero derivative at zero that sends a full tail into the constructed $E$ satisfies
+\[
+ \limsup_{a\to0,\ a\in A}
+ \frac{|f(a)-f(0)-f'(0)a|}{a\omega_j(a)}=\infty
+\]
+for every prescribed modulus which is strictly positive near zero. Such $C^1$ embeddings nevertheless exist by Theorem~\ref{thm:endpoints}.
+\end{corollary}
+\begin{proof}
+A finite limsup would give~\eqref{eq:germ} with $m=1$ and finite $C$, contradicting the theorem. Apply the endpoint result to the positive-measure set $E\cap[0,1]$.
+\end{proof}
+
+\section{Proofs of the differentiability endpoints}
+\begin{proof}[Proof of Theorem~\ref{thm:endpoints}(1)]
+Take a compact positive-measure subset $K\subset F$, and a Lebesgue density point $x\in K$. Then
+\begin{equation}\label{eq:density-distance}
+ \operatorname{dist}(x+r,K)=o(r)\quad(r\downarrow0).
+\end{equation}
+Otherwise, an interval of length at least a fixed positive multiple of $r$ around $x+r$ would miss $K$, contradicting density at $x$ in a comparable interval.
+
+Choose $0<\theta<(1-q)/(1+q)$ and a smooth bump $\psi$ supported in $(-1,1)$ with $\psi(0)=1$. The intervals
+$(a_n(1-\theta),a_n(1+\theta))$ are pairwise disjoint. Choose $\lambda>0$ sufficiently small that nearest points $y_n\in K$ to $x+\lambda a_n$ obey, for every $n$,
+\[
+ |e_n|:=|y_n-x-\lambda a_n|
+ \le\frac{\theta\lambda}{2\|\psi'\|_\infty}a_n.
+\]
+This follows from~\eqref{eq:density-distance} uniformly for $0<r\le\lambda a_1$; also $e_n/a_n\to0$. Define on the whole real line
+\[
+ g(s)=x+\lambda s+\sum_{n\ge1}e_n
+                  \psi\left(\frac{s-a_n}{\theta a_n}\right).
+\]
+At most one term is nonzero. Away from zero the sum is locally finite. At zero the correction is $o(s)$, and its derivative on the $n$th interval is bounded by $|e_n|\|\psi'\|_\infty/(\theta a_n)\to0$. Thus $g$ is $C^1$, with $g'(0)=\lambda$ and $\lambda/2\le g'\le3\lambda/2$ everywhere. It is affine outside a bounded interval, hence onto, and its inverse is $C^1$. Finally $g(a_n)=y_n\in K$. The construction is a smooth interpolation of the density-point mechanism underlying~\cite[Theorem 1.1]{FLX}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:endpoints}(2)]
+Let $x$ be a density point of a compact positive-measure subset $K\subset F$, so $K-x$ has arbitrarily small positive points. Put $\Delta_n=a_n-a_{n+1}>0$. Choose recursively $b_n\in K-x$ with
+\[
+ 0<b_{n+1}<b_n/2,\qquad
+ b_n\le2^{-n}\min\{1,\Delta_n,a_{n+1}\}^{n}.
+\]
+This is possible by right accumulation at zero. Let $\chi:[0,1]\to[0,1]$ be a smooth increasing step with $\chi(0)=0$, $\chi(1)=1$, positive derivative in $(0,1)$, and all positive-order derivatives zero at both endpoints. On $[a_{n+1},a_n]$ set
+\[
+ g(s)=x+b_{n+1}+(b_n-b_{n+1})
+              \chi\left(\frac{s-a_{n+1}}{\Delta_n}\right),
+ \qquad g(0)=x.
+\]
+The pieces join smoothly at every $a_n$, are strictly increasing, and send $a_n$ to $x+b_n\in K$. For each fixed $k\ge1$, the $k$th derivative on the $n$th interval is bounded by
+$\|\chi^{(k)}\|_\infty b_n\Delta_n^{-k}$, which tends to zero. Also $|g(s)-x|/s^k\le b_n/a_{n+1}^k\to0$. The derivatives therefore extend continuously with value zero at zero, successively proving smoothness and flatness. All derivatives at $a_1$ from the left are zero, so a smooth extension past that endpoint is immediate. This is not an embedding by a diffeomorphism at the accumulation point.
+\end{proof}
+
+\section{Finite robust certificates and limitations}
+For rational points $a_j$, rational radii $r_j\ge0$, and an open periodic union $H$ of rational intervals, a robust normalized certificate asserts
+\[
+ \forall(x,t)\in[0,1]\times[1,2]\ \forall(e_j),\ |e_j|\le r_j,
+ \quad\exists j:\ x+ta_j+e_j\in H.
+\]
+For a fixed $(x,t)$, independence of the error choices makes this equivalent to the existence of a $j$ whose whole interval
+$[x+ta_j-r_j,x+ta_j+r_j]$ is contained in $H$. Failure is a finite disjunction of rational linear feasibility problems: for each $j$, choose a closed complementary gap $[l_j,u_j]$ of $H$ in the relevant bounded lift, and impose
+\[
+ l_j-r_j\le x+ta_j\le u_j+r_j,
+ \quad 0\le x\le1,\quad1\le t\le2.
+\]
+Exact intersection of half-planes decides each case, retaining segments and singleton boundary witnesses. Periodic density is computed by merging open intervals, without filling gaps formed by touching endpoints.
+
+The accompanying standard-library Python checker verifies supplied finite certificates and reports exact rational counterexamples. Regression cases include the points $1/8,1/4$, the holes $(1/10,1)+\Z$, a valid common uncertainty radius $1/100$, and failure at radius $1/80$. These are small test instances, not a computed certificate for the full small-density theorem. The finite routing construction, arbitrary-tail selection, and countable union are written proofs; no feasible complexity bound or global machine formalization is asserted.
+
+The density hypothesis remains substantive. It does not cover the logarithmic index sets $\{n^2\}$ or $\{2^n\}$. The theorem controls any prescribed countable family of vanishing remainders but not all moduli at once. It also does not exclude flat smooth images, as the endpoint construction proves. A literature comparison may identify earlier special cases; the evidence of this paper is its explicit argument, not a claim to have certified novelty.
+
+\begin{thebibliography}{9}
+\bibitem{O084} OpenAI, \emph{The geometric case of the Erd\H{o}s similarity conjecture}, October 5, 2026, family 084. Repository \texttt{openai/math}, pinned commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}; especially sections 03-windows, 04-routing and 05-scales.
+\bibitem{M004} mxym, \emph{A logarithmic upper Banach density criterion for the Erd\H{o}s similarity problem}, v1.1, October 7, 2026. AI-assisted research manuscript, \texttt{mxym/math}, manuscript 004; pinned commit \texttt{e894ed8678052e45ecd9f1714b6a996cfea33cf3}.
+\bibitem{FLX} D.-J. Feng, C.-K. Lai and Y. Xiong, \emph{Erd\H{o}s similarity problem via bi-Lipschitz embedding}, International Mathematics Research Notices 2024(17), 12327--12342. DOI: \href{https://doi.org/10.1093/imrn/rnae167}{10.1093/imrn/rnae167}; arXiv:2312.01319. The stated theorem comparison was checked against the arXiv v1 text and journal metadata.
+\end{thebibliography}
+\end{document}

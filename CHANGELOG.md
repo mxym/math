@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 — bounded clusters, critical covering gauges and arithmetic sieves
+
+- Added the exact independently audited 47-file avoidance/covering release: a 10-page bounded-cluster selector proof, a 14-page prescribed-gauge Banach nonembedding proof with its supporting analytic appendix, 14 pinned primary-source snapshots, preserved upstream credit/license and exact finite replay.
+- Added the exact independently audited 26-file conditional rank-one/all-degree-restoration arithmetic supplement, with a nine-page proof, unchanged cubic F6/F8chain certificates, archival originals, strict public checker derivatives and ordinary/optimized replay.
+- Added both unchanged deterministic source/certificate archives and a changed-file manifest. Finite avoiding maxima 6 and 56 remain separate from irreducible cardinality bounds; the supplied rank-one gate and exact step-set hypotheses remain explicit.
+- Preserved every older proof, Lean, certificate, archive and workflow file byte/mode. Four narrow catalogue/status edits explain scope, replay and the documented arithmetic directional-reference typo without changing frozen payloads. No universal avoidance/moat, minimal dimension, full-paper Lean, human peer review or novelty claim is made.
+
 ## 2026-10-07 — sharp simplex endpoint, strict-domain slack and positive sextic bound
 
 - Added the independently audited 45-file eight-page sharp simplex package, attaining 1/(d-1) for arbitrary convex bodies and every prescribed maximum simplex about its own centroid. Explicit local/global constants and the preserved truncation family establish sharpness for this theorem class; the earlier 1/d package is unchanged.

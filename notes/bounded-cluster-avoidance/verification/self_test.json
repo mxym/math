@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact rational",
+  "tests": [
+    {
+      "name": "singleton clusters recover ordinary cover",
+      "valid": true,
+      "density": "9/10",
+      "states_visited": 2,
+      "claim": "every normalized parameter pair forces one entire cluster into holes for every allowed independent error"
+    },
+    {
+      "name": "one two-point cluster is stronger than two singleton tests",
+      "valid": false,
+      "reason": "one candidate can escape in every cluster",
+      "density": "9/10",
+      "states_visited": 2,
+      "witness": {
+        "x": "3/4",
+        "t": "1",
+        "chosen_failures": [
+          {
+            "point": "1/4",
+            "error": "0",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "whole circle covers every cluster and error",
+      "valid": true,
+      "density": "1",
+      "states_visited": 1,
+      "claim": "every normalized parameter pair forces one entire cluster into holes for every allowed independent error"
+    },
+    {
+      "name": "boundary-only failure retained",
+      "valid": false,
+      "reason": "one candidate can escape in every cluster",
+      "density": "7/8",
+      "states_visited": 3,
+      "witness": {
+        "x": "7/8",
+        "t": "1",
+        "chosen_failures": [
+          {
+            "point": "1/8",
+            "error": "0",
+            "value": "1"
+          },
+          {
+            "point": "1/4",
+            "error": "0",
+            "value": "9/8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "touching open intervals leave singleton gaps",
+      "valid": false,
+      "reason": "one candidate can escape in every cluster",
+      "density": "1",
+      "states_visited": 3,
+      "witness": {
+        "x": "3/4",
+        "t": "2",
+        "chosen_failures": [
+          {
+            "point": "1/8",
+            "error": "0",
+            "value": "1"
+          },
+          {
+            "point": "3/8",
+            "error": "0",
+            "value": "3/2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "empty holes",
+      "valid": false,
+      "reason": "one candidate can escape in every cluster",
+      "density": "0",
+      "states_visited": 2,
+      "witness": {
+        "x": "0",
+        "t": "1",
+        "chosen_failures": [
+          {
+            "point": "1/8",
+            "error": "0",
+            "value": "1/8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "density budget enforced",
+      "valid": false,
+      "reason": "density budget exceeded",
+      "density": "9/10"
+    }
+  ],
+  "scope": "finite regressions, not the global arbitrarily-small-density theorem"
+}

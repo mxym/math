@@ -1,0 +1,102 @@
+--- bounded-cluster-audited-subject.md
++++ bounded-cluster-clarified-subject.md
+@@ -67,13 +67,16 @@
+ 
+ Indeed choose L0 with F_S(L0)<=(delta+xi)L0 and partition I into blocks of
+ length L0 and a remainder; C_xi=L0 suffices. Every tail of S has the same upper
+-Banach density, and every length T has a maximizing interval containing at
+-least delta T points, arbitrarily far out. The supremum is attained since the
+-possible counts are integers in a finite set.
++Banach density. For every cutoff H and every length T, some interval of
++length T beyond H contains at least delta T points. Choose an interval
++maximizing the count for that translated tail, rather than requiring it to
++maximize the original S. The supremum is attained since the possible counts
++are integers in a finite set.
+ 
+ Fix 0<eta<delta. Suppose an interval template has total span T_L<=C0 L and
+ contains finitely many windows, each of length at least L. Put the template
+-on a maximizing interval J of length T_L beyond any requested initial index.
++on a length-T_L interval J beyond any requested initial index that contains
++at least delta T_L points, as supplied by the translated-tail argument.
+ For every window W, its complement in J consists of at most two intervals.
+ Applying (1) there gives
+ 
+@@ -228,9 +231,10 @@
+ 
+   density(B2)<=density(B)+4N r_u,
+ 
+-so E density(B2)<2p. Define the exceptional-center set
+-
+-  R={x: there is t in [1,2] such that for every tested j,
++so E density(B2)<2p. Let I=S intersect the union of all edge windows be the deterministic finite
++test-index set. Define the exceptional-center set
++
++  R={x: there is t in [1,2] such that for every j in I,
+          at least one candidate in x+t F_j lies outside B1}.
+ 
+ It is closed and periodic: the failure condition is a finite intersection
+@@ -253,7 +257,9 @@
+ 
+ We have proved: for every x, every t in [1,2], and every allowed independent
+ error array, at least one entire cluster x+tF_j+errors lies in H. The
+-statement may be applied to any specified tail and any integer dilation
++successful index for a fixed x,t can be chosen before the error array: the
++whole closed uncertainty interval for every candidate is contained in H.
++The statement may be applied to any specified tail and any dyadic dilation
+ of the cluster system.
+ 
+ ## All coefficients and infinitely many hits
+@@ -270,7 +276,8 @@
+ and their reflections, and E=R\U. This is closed and one-periodic, and its
+ complement has density less than epsilon.
+ 
+-For c>0 write c=2^k t with 1<=t<=2, and choose q>=M. At b=2^k a the error
++For c>0 write c=2^k t with 1<=t<=2, and choose q at least the finite
++error constant M from Theorem A (not the local routing arity). At b=2^k a the error
+ bound M a omega_r(a) is at most b Omega_(r,k,q)(b). For every sufficiently
+ late h, the component with that tail supplies an entire cluster as in (A.1).
+ Thus the good cluster indices are unbounded. For c<0 use the reflected
+@@ -339,8 +346,11 @@
+ 
+ These profiles are also uniformly bi-Lipschitz in the ordinary variable
+ away from zero, and extend continuously to zero; on an interpolation
+-segment their derivatives are the logarithmic slope times phi_sigma(a)/a,
+-which lies in [1,3/2]. This does not assert all such profiles are C1 at zero.
++segment interior their derivatives are the logarithmic slope times
++phi_sigma(a)/a. The ratio phi_sigma(a)/a lies in [1,3/2], so the derivative
++lies between 1-log_2(3/2) and (3/2)(1+log_2(3/2)). These common bounds imply
++ordinary bi-Lipschitz estimates, which extend to zero by continuity. This
++does not assert all such profiles are C1 at zero.
+ For non-eventually-constant sigma, phi_sigma(2^(-n))/2^(-n) does not
+ converge, so differentiability at zero already fails.
+ 
+@@ -385,10 +395,14 @@
+ certificate is nontrivial and tests the stronger all-candidates assertion.
+ It is not a computed small-density witness for every epsilon.
+ 
+-For computably listed rational clusters and computable rational radii
+-with r_a/a uniformly tending to zero by cluster index, there is also a
++Under the bounded-cardinality and positive-annular-density hypotheses of
++Theorem A, for computably listed rational clusters and computable rational
++radii with r_a/a uniformly tending to zero by cluster index, there is also a
+ terminating exact search for normalized certificates of any rational
+-positive density budget. The robust normalized proof provides an open H
++positive density budget. The relative radii admit a finite nondecreasing null-modulus majorant on
++the annular tail, obtained by taking the supremum of r_a/a over all
++candidates below a given scale. No computable convergence rate is needed
++for existence. The robust normalized proof therefore provides an open H
+ of strictly smaller density. Entire closed uncertainty intervals are
+ contained in H for a successful cluster, and this is an open condition
+ on x,t. Compactness supplies a finite subcover by successful clusters.
+--- check_cluster_cover.py
++++ check_cluster_cover.py
+@@ -6,7 +6,8 @@
+ A certificate specifies positive rational points, nonnegative error radii,
+ periodically repeated OPEN intervals, and a density budget. It asserts that for
+ all x in [0,1], t in [1,2], and independent errors of the specified sizes,
+-at least one x+t*a+error lies in the holes. This is not a computed witness for
++one entire listed cluster lies in the holes for every allowed independent
++error. The successful cluster may depend on x,t and is chosen before the errors. This is not a computed witness for
+ the manuscript's arbitrarily-small-density theorem. Worst-case exponential.
+ All decisions use Fraction arithmetic; closed boundary failures are retained.
+ """
