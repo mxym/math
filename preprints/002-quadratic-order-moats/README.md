@@ -1,8 +1,14 @@
 # Bounded step walks on irreducibles in quadratic orders
 
-Version **v3**, prepared 7 October 2026.
+Latest version **v4**, prepared 7 October 2026.
 
-An all-quadratic-order extension of the planar sieve argument, with infinite-unit exception restoration and exact finite certificates.
+Version 4 proves an exact optimality statement for the Gaussian eight-neighbor principal-ideal sieve: the smallest possible common scalar period is exactly 130. Every period below 130 is ruled out by a complete family of exact nonzero-voltage certificates, while the historical period-130 potential is independently replayed.
+
+- [Version 4 theorem and proof](v4/paper.md)
+- [Version 4 proof audit](v4/PROOF_AUDIT.md)
+- [Version 4 exact replay](v4/README.md)
+
+Version 3 remains the full all-quadratic-order manuscript, with infinite-unit exception restoration and exact finite certificates.
 
 - [Complete PDF, 26 pages](v3/quadratic_order_moat_v3.pdf)
 - [Editable LaTeX](v3/source.tex)
@@ -14,7 +20,7 @@ An all-quadratic-order extension of the planar sieve argument, with infinite-uni
 - [Historical version 1 PDF](v1/paper.pdf) and [source](v1/source.tex)
 - [Upstream source, OpenAI family 028](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/paper.pdf)
 
-## Version 3 scope
+## Version 3 scope (preserved)
 
 The main all-quadratic-order existence theorem and A1–A5 analytic interface are unchanged. New finite certificates permit individual nonzero nonunit principal generators, including ramified norm-prime and composite-norm cases. Two adjugate congruences determine ideal membership, and the least scalar period is |N(alpha)|/gcd(a,b). Exact quotient-component sizes and selected norm values yield stronger conservative integer restoration bounds.
 

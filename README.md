@@ -9,7 +9,7 @@ Mathematical research manuscripts and supporting verification material maintaine
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
 | 001 | [Source regularity and sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v5 | Research draft; source regularity and sharp target-tail distinctions |
-| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
+| 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v4 | Complete Gaussian F8 principal-sieve period classification; all-order v3 preserved |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite-cover verifier |
 | 005 | [Projection-volume calculus, endpoint rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v5 | Complete written proof; balanced-recursion optimum, symmetric equality classification and exact replay |

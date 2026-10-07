@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — 002 v4 Gaussian F8 period optimality
+
+- Proved that every successful finite principal-ideal periodic sieve for the Gaussian eight-neighbor step graph has common scalar period at least 130; the version-3 five-generator period-130 sieve attains equality.
+- Reduced arbitrary principal-generator lists to the maximal Gaussian-prime sieve over the radical of the common scalar period, so composite, nonprimitive, inert, split and ramified generators cannot evade the lower-period obstruction.
+- Added exact nonzero-voltage witnesses for all 79 squarefree radicals below 130 (5009 stored F8 steps, maximum witness length 129), plus an independent checker that reconstructs prime generators, ideal membership and the complete failed-radical list.
+- Replayed the frozen period-130 positive certificate, recovering 4608 allowed residues, quotient component bound 580 and the inherited conservative Gaussian irreducible-component bound 92820.
+- The optimality claim is restricted to the finite principal-ideal periodic-sieve framework; it is not an unrestricted lower bound on all proofs or on the true Gaussian component size.
+
 ## 2026-10-07 — 006 v2 log-bi-Lipschitz profile avoidance
 
 - Proved that positive logarithmic upper Banach density is preserved by every profile whose logarithmic-coordinate map is bi-Lipschitz on a tail.
