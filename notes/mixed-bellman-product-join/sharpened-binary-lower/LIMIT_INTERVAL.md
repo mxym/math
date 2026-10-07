@@ -198,8 +198,9 @@ R_7^3(5.24519195),
 E_7=262144.
 \tag{10}
 \]
-The checker reconstructs \(R_7\) exactly and proves by a single integer
-comparison that
+The checker reconstructs \(R_7\) exactly and proves with a rigorous
+rational logarithm enclosure (equivalently, the corresponding exact
+integer-power comparison) that
 \[
 (2.853465550695797)^{262144}
 <
@@ -220,7 +221,7 @@ Equations (7)--(9) give
 R_7^{12}(5.245192)^3(5.245207).
 \tag{12}
 \]
-A second exact integer comparison proves
+A second rigorous rational logarithm enclosure proves
 \[
 R_7^{12}(5.245192)^3(5.245207)
 <
@@ -246,7 +247,8 @@ The checker uses only Python's standard library, integers, and
 - the specific upper factor (7);
 - the uniform upper tail (8);
 - the exact T5 recurrence through \(R_7\);
-- the integer endpoint comparisons (11) and (13).
+- the endpoint comparisons (11) and (13) using exact rational atanh-series
+  logarithm intervals and leading-bit enclosures of the large integers.
 
 The analytic monotonicity statements reducing the infinite tails to the
 checked rational endpoints are written above; the finite arithmetic checker
