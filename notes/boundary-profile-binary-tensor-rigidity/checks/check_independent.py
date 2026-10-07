@@ -28,6 +28,7 @@ checks = {
     "critical_derivative_negative": 2*C-B < 0,
     "factor_increasing": B > 0 and C > 0,
 }
+checks["escapes_axis_local_mechanism"] = B > 1
 # Positive Taylor polynomial for e^L gives a strict lower bound for e^L.
 N = 8
 expL_lower = sum(L**n / Fraction(factorial(n)) for n in range(N+1))

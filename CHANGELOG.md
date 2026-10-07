@@ -5,6 +5,7 @@
 - Proved a general finite boundary-profile limit theorem for the sharp binary complete-commutator constants, reducing every fixed reflected edge profile to an explicit Gaussian/Fock variational quotient.
 - Certified the rational three-term profile a0=1, a1=4627/3125, a2=-58 sqrt(2)/125 and obtained liminf C_p/p^(1/4) > 0.623586.
 - Reconciled the concurrently published exact two-band family: its asymptotic profile is contained in the new framework, its closed constant 0.6218758237... is strictly smaller by an exact rational-squaring check, while its all-p>=10 finite closed formulas remain a distinct strength.
+- After the concurrent note proved that same constant optimal for fixed-width palindromic profiles with axis-local projection maxima, certified that the new profile violates the necessary condition exactly: gamma1^2 + sqrt(2) gamma2 = 12346629/9765625 > 1. Thus the stronger bound is an explicit off-axis mechanism, not a contradiction of the subclass optimality theorem.
 - Added two separately implemented exact rational checkers using different exponential majorants, frozen reports, a proof audit, and ordinary/optimized replay. Numerical finite-order optimization is diagnostic only; no novelty, human peer-review or whole-paper formalization claim is made.
 
 ## 2026-10-07 — binary T5 limit interval

@@ -192,7 +192,11 @@ liminf C_p / p^(1/4) > 0.623586, improving both the original
 constant sqrt(2/7+sqrt(2)/14) = 0.6218758237... while leaving the current
 2^(-1/2) upper constant open. The analytic profile limit has a complete written proof; two
 standard-library exact implementations certify the displayed rational
-corollary in ordinary and optimized Python. No priority or external
+corollary in ordinary and optimized Python. A concurrent mechanism theorem
+shows the smaller two-band constant is optimal whenever the coordinate axes
+remain local projection maxima; the new profile has
+\(\gamma_1^2+\sqrt2\gamma_2=12346629/9765625>1\), so its improvement is
+an explicit off-axis escape from that sharp subclass. No priority or external
 peer-review claim is made.
 
 ## Simultaneous harmonic-degree blocks

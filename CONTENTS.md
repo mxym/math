@@ -152,4 +152,6 @@ proves a finite-profile Gaussian/Fock asymptotic formula and improves the
 binary leading-constant lower bound to
 liminf C_p / p^(1/4) > 0.623586, strictly above the concurrent exact
 two-band constant 0.6218758237.... Two exact rational checkers certify the
-explicit three-term profile. The sharp leading constant remains open.
+explicit three-term profile. It lies strictly outside the concurrently
+proved axis-local fixed-band optimality class, providing an off-axis
+mechanism improvement. The sharp leading constant remains open.

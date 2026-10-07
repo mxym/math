@@ -705,6 +705,15 @@ Equality forces \(H=0\), then \(x=1\) in (7.12), and saturation
 proving Theorem 5.
 
 This optimality theorem is deliberately scoped to fixed-width palindromic
-boundary profiles with axis local maximality.  It does not exclude
+boundary profiles with axis local maximality. It does not exclude
 improvements from bands whose width grows with \(p\), non-palindromic
-families, or extremizers with genuinely nonlocal maximizing bases.
+families, or extremizers with genuinely nonlocal maximizing bases. The
+subsequent boundary-profile continuation in this repository realizes the
+last possibility with a three-term fixed-width palindromic profile:
+\[
+ \gamma_1^2+\sqrt2\gamma_2
+ =\frac{12346629}{9765625}>1,
+\]
+so (7.4) fails strictly and the projection maximum is off-axis. Its certified
+bound \(\liminf C_p/p^{1/4}>0.623586\) is therefore compatible with, and
+strictly outside the hypotheses of, Theorem 5.

@@ -24,6 +24,7 @@ U = Fraction(29461, 100000)    # 0.29461
 
 checks = {}
 checks["B_gt_1"] = B > 1
+checks["escapes_axis_local_mechanism"] = B > 1
 checks["C_pos"] = C > 0
 checks["qprime_negative_on_nonnegative_axis"] = 2*C - B < 0
 checks["q_L_pos"] = q(L) > 0
