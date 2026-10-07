@@ -29,7 +29,7 @@ D_j=2a_j\frac{g(4d_j+1)}{g(2d_j)^2},
 
 The main result is
 \[
-\boxed{\Lambda_{2,5}>2.8534655502,}
+\boxed{\Lambda_{2,5}>2.85346555052,}
 \]
 where
 \[
@@ -39,7 +39,7 @@ where
 Consequently the full point-generated product/join class satisfies
 \[
 \boxed{
-2.8534655502<\Gamma_{\mathcal C}<2.85386,
+2.85346555052<\Gamma_{\mathcal C}<2.85386,
 }
 \]
 using the separately certified positive-sextic Bellman upper theorem.
@@ -135,12 +135,12 @@ Exact rational arithmetic verifies
 \frac{32\cdot4^7-2}{3\cdot4^7}
 E_8(y)^2
 >
-\left(\frac{1049}{200}\right)^2.
+\left(\frac{524511}{100000}\right)^2.
 \tag{5}
 \]
 All quantities are positive, so (4)--(5) prove
 \[
-\boxed{D_j>\frac{1049}{200}=5.245\qquad(j\ge7).}
+\boxed{D_j>\frac{524511}{100000}=5.24511\qquad(j\ge7).}
 \tag{6}
 \]
 
@@ -170,7 +170,7 @@ give
 \[
 \Lambda_{2,5}>
 \left(
-\frac{1049}{200}R_7^3
+\frac{524511}{100000}R_7^3
 \right)^{1/(3d_7+1)}.
 \tag{8}
 \]
@@ -182,14 +182,14 @@ d_7=87381,\qquad 3d_7+1=262144.
 The supplied checker reconstructs the exact rational \(R_7\) from the
 recurrence, without floating point, and verifies the integer inequality
 \[
-\left(\frac{14267327751}{5000000000}\right)^{262144}
+\left(\frac{71336638763}{25000000000}\right)^{262144}
 <
-\frac{1049}{200}R_7^3.
+\frac{524511}{100000}R_7^3.
 \tag{9}
 \]
 The rational number on the left base is exactly
 \[
-\frac{14267327751}{5000000000}=2.8534655502.
+\frac{71336638763}{25000000000}=2.85346555052.
 \]
 Combining (8) and (9) proves the stated lower endpoint.
 
