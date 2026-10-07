@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — 006 v2 log-bi-Lipschitz profile avoidance
+
+- Proved that positive logarithmic upper Banach density is preserved by every profile whose logarithmic-coordinate map is bi-Lipschitz on a tail.
+- Extended the version-1 robust nonlinear-avoidance theorem from integer monomial leading terms to arbitrary prescribed countable families of such profiles and vanishing relative-error moduli.
+- Added simultaneous corollaries for arbitrary prescribed positive power exponents, power-log profiles, differentiable slowly varying factors, and all convergent Puiseux germs through rational leading exponents.
+- Reran the inherited version-1 exact robust-cover checker under ordinary and optimized Python with byte-identical reports; SHA-256 efd03ab6f3d92e2f96b10f4441114dcabccde2cc314bb6f872f59a3410d67e50.
+- Added a proof audit and pinned v2 source manifest. The theorem does not claim simultaneous avoidance of uncountably many profiles, all C1 diffeomorphisms, or flat smooth germs; no novelty or formalization claim is made.
+
 ## 2026-10-07 — symmetric upper-end and restricted virial/stress supplements
 
 - Added the 11-page symmetric projection-cone stability proof, explicit d^15 deficit^(1/(6d)) bound and corner-truncated-cube obstruction to powers above 1/d. The distance is to the full line/plane product equality class; optimal exponent and dimension-independent power are distinguished.
