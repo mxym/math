@@ -1,0 +1,52 @@
+name: Complete density-simplex provenance bundle
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/density-simplex-provenance-bundle.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preserve-complete-bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read the fixed publication snapshot
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: e894ed8678052e45ecd9f1714b6a996cfea33cf3
+          persist-credentials: false
+      - name: Download the existing released archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download density-simplex-20261007-v1.1 --repo "$GITHUB_REPOSITORY" --pattern density-simplex-v1.1.zip --dir /tmp
+      - name: Preserve proof bytes and add distribution notices
+        run: |
+          python3 - <<'PY'
+          import hashlib, pathlib, zipfile
+          old = pathlib.Path('/tmp/density-simplex-v1.1.zip')
+          expected = '53bf2bf5c2b6d4eee1a07bb66f7e54c7f452ac6747625763f56c688c2917986a'
+          if hashlib.sha256(old.read_bytes()).hexdigest() != expected:
+              raise RuntimeError('Released archive differs from the recorded first release')
+          new = pathlib.Path('/tmp/density-simplex-v1.1-complete.zip')
+          with zipfile.ZipFile(old) as source, zipfile.ZipFile(new, 'w', zipfile.ZIP_DEFLATED) as target:
+              for entry in source.infolist():
+                  target.writestr(entry, source.read(entry.filename))
+              for name in ['third_party_licenses/openai_math_LICENSE.txt', 'NOTICE.md', 'verification/density-simplex-2026-10-07.md', 'notes/balanced_borsuk_slice.md']:
+                  target.write(name, name)
+              target.writestr('RELEASE_README.md', '# Complete research bundle\n\nThe two manuscripts, PDFs, exact verifiers and generated certificates are byte-for-byte unchanged from the initial density-simplex-v1.1.zip release. This package additionally includes the upstream Apache-2.0 license, provenance notices, verification scope and the balanced-projector note.\n\nFirst complete-source publication: e6c776cae39477baa4e1a03d59a1547417f1a68e. Compiled release snapshot: e894ed8678052e45ecd9f1714b6a996cfea33cf3. Original archive SHA-256: '+expected+'.\n\nNo independent peer review, proof-assistant formalization, novelty certification or DOI archive is claimed. The similarity toy certificate is not a computed small-density witness for the full theorem.\n')
+          with zipfile.ZipFile(old) as source, zipfile.ZipFile(new) as target:
+              for name in source.namelist():
+                  if source.read(name) != target.read(name):
+                      raise RuntimeError('A released proof artifact changed during repackaging')
+          digest = hashlib.sha256(new.read_bytes()).hexdigest()
+          pathlib.Path('/tmp/density-simplex-v1.1-complete.sha256').write_text(digest+'  '+new.name+'\n')
+          print('PASS: all original proof artifact bytes preserved; license and notices included')
+          PY
+      - name: Add complete bundle without replacing the initial release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload density-simplex-20261007-v1.1 --repo "$GITHUB_REPOSITORY" /tmp/density-simplex-v1.1-complete.zip /tmp/density-simplex-v1.1-complete.sha256
