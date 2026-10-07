@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-07 — finite Lean68 and compact cubic supplements
+
+- Added the final independently audited 109-file public68 Lean export, preserving its proof, reporting, coverage, signature/axiom log and control bytes. Lean 4.34.1 and all nine dependency revisions are pinned; all 68 exported declarations use only propext, Classical.choice and Quot.sound.
+- The formalized scope covers finite/scalar algebra, recurrences and normed-relation/cofactor mechanisms. Full convex geometry, integration, exposedness, geometric stability/classification and global optimality remain outside scope.
+- Added the separate 21-file ten-page compact cubic contact/mean package. Its exact-source sign-off is unchanged, and the public TeX has only the three approved review-status substitutions. Gaussian, matched-layer, activity-summed and unsummed full-unit-amplitude extensions are excluded.
+- Added reader links and a changed-file manifest. Publication integration checked exact hashes/modes and replayed the cubic offline review verifier and finite checker; it relies on the already completed independent Lean rebuild. All historical manuscript/certificate bytes and unrelated files are preserved.
+
+
 ## 2026-10-07 — stronger endpoint stability and bibliographic correction
 
 - Added the complete five-page integrated-witness proof of the explicit 1/d lower-end modulus for arbitrary convex bodies and every maximum inscribed simplex with its own centroid. The separate 1/(d-1) truncation obstruction leaves a gap.

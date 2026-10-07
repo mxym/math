@@ -1,0 +1,1220 @@
+[
+  {
+    "name": "Mxym.BalancedRecursion.shifted_dimension",
+    "source": "Mxym/BalancedRecursion.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v5 §2 (2.1)-(2.2)",
+    "coverage_kind": "complete explicitly defined scalar recurrence",
+    "assumptions_summary": "Natural t,p,j with t≥2. p≥1 is not needed for this algebraic formula.",
+    "description": "dimension_0=p, dimension_(j+1)=t^2 dimension_j+t-1; then dimension_j+1/(t+1)=(p+1/(t+1))(t^2)^j. Nat subtraction is justified in the proof.",
+    "exact_lean_signature": "Mxym.BalancedRecursion.shifted_dimension (t p j : ℕ) (ht : 2 ≤ t) :\n  ↑(Mxym.BalancedRecursion.dimension t p j) + 1 / (↑t + 1) = (↑p + 1 / (↑t + 1)) * (↑t ^ 2) ^ j",
+    "unformalized_application_dependencies": [
+      "Geometric product/join dimension and invariant identities connecting these defined scalars to actual convex bodies are not formalized.",
+      "R recurrence, Stirling/Robbins estimates, infinite logarithmic limit/tail bounds, rational-log/large-integer screening, Bellman work, and global uniqueness of (2,5) are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.BalancedRecursion.invariant_closed_form",
+    "source": "Mxym/BalancedRecursion.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v5 §2 (2.1)-(2.2)",
+    "coverage_kind": "complete explicitly defined scalar recurrence",
+    "assumptions_summary": "Any natural t,p,j. Division is Lean real division, including its defined zero-denominator behavior; the paper only uses t≥2,p≥1.",
+    "description": "invariant_0=1/(p+1), invariant_(j+1)=invariant_j/t; then invariant_j=1/((p+1)t^j).",
+    "exact_lean_signature": "Mxym.BalancedRecursion.invariant_closed_form (t p j : ℕ) :\n  Mxym.BalancedRecursion.invariant t p j = 1 / ((↑p + 1) * ↑t ^ j)",
+    "unformalized_application_dependencies": [
+      "Geometric product/join dimension and invariant identities connecting these defined scalars to actual convex bodies are not formalized.",
+      "R recurrence, Stirling/Robbins estimates, infinite logarithmic limit/tail bounds, rational-log/large-integer screening, Bellman work, and global uniqueness of (2,5) are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.BalancedRecursion.dimension_binary",
+    "source": "Mxym/BalancedRecursion.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v5 §2 (2.1)-(2.2), t=2",
+    "coverage_kind": "scalar recurrence corollary",
+    "assumptions_summary": "Any natural p,j.",
+    "description": "3 dimension(2,p,j)+1=(3p+1)4^j.",
+    "exact_lean_signature": "Mxym.BalancedRecursion.dimension_binary (p j : ℕ) : 3 * Mxym.BalancedRecursion.dimension 2 p j + 1 = (3 * p + 1) * 4 ^ j",
+    "unformalized_application_dependencies": [
+      "Geometric product/join dimension and invariant identities connecting these defined scalars to actual convex bodies are not formalized.",
+      "R recurrence, Stirling/Robbins estimates, infinite logarithmic limit/tail bounds, rational-log/large-integer screening, Bellman work, and global uniqueness of (2,5) are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.BalancedRecursion.winning_dimension_level_six",
+    "source": "Mxym/BalancedRecursion.lean",
+    "axioms": [
+      "propext"
+    ],
+    "paper_statement": "entry005 v5 §2 (2.1)-(2.2), (t,p,j)=(2,5,6)",
+    "coverage_kind": "exact scalar instance",
+    "assumptions_summary": "No hypotheses.",
+    "description": "dimension(2,5,6)=21845. The name does not certify that the pair is optimal.",
+    "exact_lean_signature": "Mxym.BalancedRecursion.winning_dimension_level_six : Mxym.BalancedRecursion.dimension 2 5 6 = 21845",
+    "unformalized_application_dependencies": [
+      "Geometric product/join dimension and invariant identities connecting these defined scalars to actual convex bodies are not formalized.",
+      "R recurrence, Stirling/Robbins estimates, infinite logarithmic limit/tail bounds, rational-log/large-integer screening, Bellman work, and global uniqueness of (2,5) are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.BalancedRecursion.winning_invariant_level_six",
+    "source": "Mxym/BalancedRecursion.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v5 §2 (2.1)-(2.2), (t,p,j)=(2,5,6)",
+    "coverage_kind": "exact scalar instance",
+    "assumptions_summary": "No hypotheses.",
+    "description": "invariant(2,5,6)=1/384. The name does not certify that the pair is optimal.",
+    "exact_lean_signature": "Mxym.BalancedRecursion.winning_invariant_level_six : Mxym.BalancedRecursion.invariant 2 5 6 = 1 / 384",
+    "unformalized_application_dependencies": [
+      "Geometric product/join dimension and invariant identities connecting these defined scalars to actual convex bodies are not formalized.",
+      "R recurrence, Stirling/Robbins estimates, infinite logarithmic limit/tail bounds, rational-log/large-integer screening, Bellman work, and global uniqueness of (2,5) are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.cofactor_vector_relation",
+    "source": "Mxym/CofactorNormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "unconditional vector identity",
+    "assumptions_summary": "Any natural d and real d×(d+1) matrix; no norm, rank or coefficient normalization hypothesis.",
+    "description": "The proved row-wise horizontal cofactor relation is assembled into sum_j cofactor_j • column_j=0.",
+    "exact_lean_signature": "Mxym.Determinant.cofactor_vector_relation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) :\n  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j • Mxym.Determinant.column x j = 0",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.mapped_cofactor_relation",
+    "source": "Mxym/CofactorNormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2",
+    "coverage_kind": "unconditional linear image identity",
+    "assumptions_summary": "Any natural d and real matrix x; a supplied real linear equivalence phi:(Fin d→Real)≃ₗE into a real normed space. No unit norm or balance assumption.",
+    "description": "Linear mapping preserves the cofactor zero-sum vector relation. The normed structure is printed in the signature, although the identity uses only linearity.",
+    "exact_lean_signature": "Mxym.Determinant.mapped_cofactor_relation.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E] {d : ℕ}\n  (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E) :\n  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j • φ (Mxym.Determinant.column x j) = 0",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.cofactor_balance_of_normalized_columns",
+    "source": "Mxym/CofactorNormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2",
+    "coverage_kind": "pointwise normed cofactor bridge",
+    "assumptions_summary": "Any natural d and real d×(d+1) matrix x; a supplied real linear equivalence phi:(Fin d→Real)≃ₗE into a real normed space; norm(phi(column_j))=1 for every nonzero cofactor. No balance hypothesis, rank assumption or unit condition on zero-cofactor columns.",
+    "description": "Derives cofactor balance from the mapped algebraic relation and unit norms on active columns. The actual convex-body Minkowski norm and boundary-point normalization are not constructed.",
+    "exact_lean_signature": "Mxym.Determinant.cofactor_balance_of_normalized_columns.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]\n  {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)\n  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1)\n  (i : Fin (d + 1)) : |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.normalized_sign_average_bound",
+    "source": "Mxym/CofactorNormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2; v4 (2.2)",
+    "coverage_kind": "pointwise normalized-column cofactor corollary",
+    "assumptions_summary": "Any natural d and real d×(d+1) matrix x; a supplied real linear equivalence phi:(Fin d→Real)≃ₗE into a real normed space; norm(phi(column_j))=1 for every nonzero cofactor. No balance hypothesis, rank assumption or unit condition on zero-cofactor columns.",
+    "description": "The signed lifted determinant average is bounded by half the total cofactor mass using derived balance; no balance inequality is assumed.",
+    "exact_lean_signature": "Mxym.Determinant.normalized_sign_average_bound.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E] {d : ℕ}\n  (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)\n  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1) :\n  (∑ ε : Fin (d + 1) → Bool,\n        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n              fun (x : Fin (d + 1)) => 1).det|) /\n      ↑(Fintype.card (Fin (d + 1) → Bool)) ≤\n    (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.normalized_sign_average_equality_iff",
+    "source": "Mxym/CofactorNormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2; v4 Lemma 2.1",
+    "coverage_kind": "pointwise normalized-column cofactor equality criterion",
+    "assumptions_summary": "Any natural d and real d×(d+1) matrix x; a supplied real linear equivalence phi:(Fin d→Real)≃ₗE into a real normed space; norm(phi(column_j))=1 for every nonzero cofactor. No balance hypothesis, rank assumption or unit condition on zero-cofactor columns.",
+    "description": "The complete finite sign-average equality criterion under active-column normalization: support<=3 OR a half-mass cofactor. Exposedness and elimination of the half-mass branch are not formalized.",
+    "exact_lean_signature": "Mxym.Determinant.normalized_sign_average_equality_iff.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]\n  {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)\n  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1) :\n  (∑ ε : Fin (d + 1) → Bool,\n          |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n                fun (x : Fin (d + 1)) => 1).det|) /\n        ↑(Fintype.card (Fin (d + 1) → Bool)) =\n      (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2 ↔\n    Fintype.card { j : Fin (d + 1) // Mxym.Determinant.cofactor x j ≠ 0 } ≤ 3 ∨\n      ∃ (j : Fin (d + 1)), |Mxym.Determinant.cofactor x j| = (∑ k : Fin (d + 1), |Mxym.Determinant.cofactor x k|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.lift_expansion",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "unconditional algebraic identity",
+    "assumptions_summary": "Any natural d, real d×(d+1) matrix x, and real top-row vector a.",
+    "description": "Laplace expansion of the lift along its first row in terms of the explicitly defined signed cofactors.",
+    "exact_lean_signature": "Mxym.Determinant.lift_expansion {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (a : Fin (d + 1) → ℝ) :\n  (Mxym.Determinant.lift x a).det = ∑ j : Fin (d + 1), a j * Mxym.Determinant.cofactor x j",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.horizontal_cofactor_relation",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "complete algebraic paper statement",
+    "assumptions_summary": "Any natural d, real d×(d+1) matrix x, and row i:Fin(d).",
+    "description": "For each row, sum_j c_j x_ij=0. All ranks and singular cases are allowed; no geometric identity is assumed.",
+    "exact_lean_signature": "Mxym.Determinant.horizontal_cofactor_relation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (i : Fin d) :\n  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j * x i j = 0",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.sign_cancellation",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "complete algebraic paper statement",
+    "assumptions_summary": "Any natural d, real horizontal matrix x and Boolean sign vector ε.",
+    "description": "The absolute lifted determinant after independent column signs equals |sum_j ε_j c_j|. The common product of signs is proved to cancel.",
+    "exact_lean_signature": "Mxym.Determinant.sign_cancellation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (ε : Fin (d + 1) → Bool) :\n  |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n          fun (x : Fin (d + 1)) => 1).det| =\n    |Mxym.Rademacher.signedSum (Mxym.Determinant.cofactor x) ε|",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.sign_average_eq",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "complete algebraic paper statement",
+    "assumptions_summary": "Any natural d and real horizontal matrix x.",
+    "description": "Exact average of signed lifted determinants equals the Rademacher mean of the cofactor family.",
+    "exact_lean_signature": "Mxym.Determinant.sign_average_eq {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) :\n  (∑ ε : Fin (d + 1) → Bool,\n        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n              fun (x : Fin (d + 1)) => 1).det|) /\n      ↑(Fintype.card (Fin (d + 1) → Bool)) =\n    Mxym.Rademacher.mean (Mxym.Determinant.cofactor x)",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.balanced_sign_average_bound",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1)",
+    "coverage_kind": "conditional pointwise corollary",
+    "assumptions_summary": "Any natural d and real horizontal matrix x; every |cofactor_i|≤half the total absolute cofactor mass.",
+    "description": "The pointwise cofactor sign-average upper bound. The balance assumption is explicit.",
+    "exact_lean_signature": "Mxym.Determinant.balanced_sign_average_bound {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ)\n  (hbal :\n    ∀ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2) :\n  (∑ ε : Fin (d + 1) → Bool,\n        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n              fun (x : Fin (d + 1)) => 1).det|) /\n      ↑(Fintype.card (Fin (d + 1) → Bool)) ≤\n    (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Determinant.balanced_sign_average_equality_iff",
+    "source": "Mxym/Determinant.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 proof of Theorem 6.2; v4 §3 (3.1); entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "conditional pointwise corollary",
+    "assumptions_summary": "Any natural d and real horizontal matrix x; every |cofactor_i|≤half the total absolute cofactor mass.",
+    "description": "Complete pointwise equality criterion under the explicit balance assumption.",
+    "exact_lean_signature": "Mxym.Determinant.balanced_sign_average_equality_iff {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ)\n  (hbal :\n    ∀ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2) :\n  (∑ ε : Fin (d + 1) → Bool,\n          |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)\n                fun (x : Fin (d + 1)) => 1).det|) /\n        ↑(Fintype.card (Fin (d + 1) → Bool)) =\n      (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2 ↔\n    Fintype.card { i : Fin (d + 1) // Mxym.Determinant.cofactor x i ≠ 0 } ≤ 3 ∨\n      ∃ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| = (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2",
+    "unformalized_application_dependencies": [
+      "The two original balanced corollaries assume balance explicitly. The new normalized-column corollaries derive it; constructing the actual convex-body Minkowski norm and proving boundary-unit normalization are not formalized.",
+      "Even boundary-law sign averaging, integration, A/B identification, and convex-body equality classification are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.mean_decomposition",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite algebraic mechanism",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Weights may even be signed.",
+    "description": "sum_i p_i z_i=P-Q for P=sum p_i max(z_i,0), Q=sum p_i max(-z_i,0).",
+    "exact_lean_signature": "Mxym.FiniteDefect.mean_decomposition.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :\n  ∑ i : ι, p i * z i = Mxym.FiniteDefect.positiveMass p z - Mxym.FiniteDefect.negativeMass p z",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.absolute_decomposition",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite algebraic mechanism",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Weights may even be signed.",
+    "description": "sum_i p_i |z_i|=P+Q.",
+    "exact_lean_signature": "Mxym.FiniteDefect.absolute_decomposition.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :\n  ∑ i : ι, p i * |z i| = Mxym.FiniteDefect.positiveMass p z + Mxym.FiniteDefect.negativeMass p z",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.defect_identity",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite inner-law specialization",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Weights may even be signed.",
+    "description": "sum_i p_i|z_i|-|sum_i p_i z_i|=2 min(P,Q). The outer determinant-law integral in the paper is not part of this statement.",
+    "exact_lean_signature": "Mxym.FiniteDefect.defect_identity.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :\n  ∑ i : ι, p i * |z i| - |∑ i : ι, p i * z i| =\n    2 * min (Mxym.FiniteDefect.positiveMass p z) (Mxym.FiniteDefect.negativeMass p z)",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.finite_jensen",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite inner-law specialization",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0.",
+    "description": "Weighted finite triangle/Jensen inequality.",
+    "exact_lean_signature": "Mxym.FiniteDefect.finite_jensen.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :\n  |∑ i : ι, p i * z i| ≤ ∑ i : ι, p i * |z i|",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.defect_lower_bound",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite witness mechanism",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0; chosen i,j with z_i≥0 and z_j≤0.",
+    "description": "Defect ≥2 min(p_i z_i,p_j(-z_j)); this is the inner-law factor in (3.2), without the outer d! product factor.",
+    "exact_lean_signature": "Mxym.FiniteDefect.defect_lower_bound.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (i j : ι)\n  (hi : 0 ≤ z i) (hj : z j ≤ 0) : 2 * min (p i * z i) (p j * -z j) ≤ ∑ k : ι, p k * |z k| - |∑ k : ι, p k * z k|",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.strict_of_opposite_signs",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "finite strictness mechanism",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0; chosen i,j with p_i,p_j>0 and z_i>0>z_j.",
+    "description": "Strict Jensen inequality whenever positive-weight values have opposite strict signs.",
+    "exact_lean_signature": "Mxym.FiniteDefect.strict_of_opposite_signs.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i)\n  (i j : ι) (hpi : 0 < p i) (hpj : 0 < p j) (hi : 0 < z i) (hj : z j < 0) : |∑ k : ι, p k * z k| < ∑ k : ι, p k * |z k|",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.positive_mass_eq_zero_iff",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0.",
+    "description": "P=0 iff all positive-weight values are nonpositive.",
+    "exact_lean_signature": "Mxym.FiniteDefect.positive_mass_eq_zero_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :\n  Mxym.FiniteDefect.positiveMass p z = 0 ↔ ∀ (i : ι), 0 < p i → z i ≤ 0",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.negative_mass_eq_zero_iff",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0.",
+    "description": "Q=0 iff all positive-weight values are nonnegative.",
+    "exact_lean_signature": "Mxym.FiniteDefect.negative_mass_eq_zero_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :\n  Mxym.FiniteDefect.negativeMass p z = 0 ↔ ∀ (i : ι), 0 < p i → 0 ≤ z i",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.FiniteDefect.finite_jensen_eq_iff",
+    "source": "Mxym/FiniteDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §3 (3.1)-(3.2), finite inner-law mechanism; v3 §2 sign condition after (2.2)",
+    "coverage_kind": "finite equality mechanism",
+    "assumptions_summary": "Finite index type, real values and weights; Fintype instance. Probability normalization is not required. Every p_i≥0.",
+    "description": "Weighted finite Jensen equality iff all positive-weight values have one common weak sign; zero weights impose no restriction.",
+    "exact_lean_signature": "Mxym.FiniteDefect.finite_jensen_eq_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :\n  |∑ i : ι, p i * z i| = ∑ i : ι, p i * |z i| ↔ (∀ (i : ι), 0 < p i → 0 ≤ z i) ∨ ∀ (i : ι), 0 < p i → z i ≤ 0",
+    "unformalized_application_dependencies": [
+      "General measure integrability/Fubini, determinant inner-mean identification, and the outer law integral in B-A are not formalized.",
+      "The outer d! permutations/product-weight factor of (3.2), simplex rigidity, and geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.NormedBalance.coefficient_balance",
+    "source": "Mxym/NormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2",
+    "coverage_kind": "complete finite normed relation mechanism",
+    "assumptions_summary": "Finite real coefficients c and vectors x in a real normed space E; sum_j c_j • x_j = 0; norm(x_j)=1 whenever c_j is nonzero. No coefficient-balance hypothesis.",
+    "description": "Derives |c_i|<=half the total absolute coefficient mass using the zero-sum relation, norm homogeneity and the triangle inequality. Unit normalization is required only on active coefficients.",
+    "exact_lean_signature": "Mxym.NormedBalance.coefficient_balance.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]\n  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)\n  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) (i : ι) : |c i| ≤ (∑ j : ι, |c j|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.NormedBalance.rademacher_bound",
+    "source": "Mxym/NormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2; v4 (2.2)",
+    "coverage_kind": "finite normed relation corollary",
+    "assumptions_summary": "Finite real coefficients c and vectors x in a real normed space E; sum_j c_j • x_j = 0; norm(x_j)=1 whenever c_j is nonzero. No coefficient-balance hypothesis.",
+    "description": "The finite independent-sign upper bound follows from the derived coefficient balance.",
+    "exact_lean_signature": "Mxym.NormedBalance.rademacher_bound.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]\n  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)\n  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) : Mxym.Rademacher.mean c ≤ (∑ j : ι, |c j|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.NormedBalance.rademacher_equality_iff",
+    "source": "Mxym/NormedBalance.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 section 3, norm argument immediately after equation (3.1); v3 section 6 proof of Theorem 6.2; v4 Lemma 2.1",
+    "coverage_kind": "finite normed relation equality criterion",
+    "assumptions_summary": "Finite real coefficients c and vectors x in a real normed space E; sum_j c_j • x_j = 0; norm(x_j)=1 whenever c_j is nonzero. No coefficient-balance hypothesis.",
+    "description": "The full finite equality criterion follows from derived balance: support size<=3 OR a coefficient has half the total absolute mass. It retains the half-mass branch and is not the exposed-point rigidity conclusion of v4 Lemma 3.1.",
+    "exact_lean_signature": "Mxym.NormedBalance.rademacher_equality_iff.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]\n  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)\n  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) :\n  Mxym.Rademacher.mean c = (∑ j : ι, |c j|) / 2 ↔\n    Fintype.card { j : ι // c j ≠ 0 } ≤ 3 ∨ ∃ (j : ι), |c j| = (∑ k : ι, |c k|) / 2",
+    "unformalized_application_dependencies": [
+      "A convex body or its Minkowski functional is not constructed; the real normed space, linear equivalence where used, and active-vector unit norms are supplied.",
+      "Boundary-law normalization/evenness, measure integration, exposed-point rigidity, rank/circuit classification and geometric equality/stability remain unformalized. The half-mass equality branch remains present."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.abs_sign",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Any Boolean b.",
+    "description": "Each sign has absolute value one.",
+    "exact_lean_signature": "Mxym.Rademacher.abs_sign (b : Bool) : |Mxym.Rademacher.sign b| = 1",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.sign_not",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Any Boolean b.",
+    "description": "Flipping a Boolean negates its real sign.",
+    "exact_lean_signature": "Mxym.Rademacher.sign_not (b : Bool) : (Mxym.Rademacher.sign !b) = -Mxym.Rademacher.sign b",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.sign_space_card",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "The independent sign space has cardinality 2^N.",
+    "exact_lean_signature": "Mxym.Rademacher.sign_space_card.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] :\n  Fintype.card (ι → Bool) = 2 ^ Fintype.card ι",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_nonneg",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "Uniform sign average is nonnegative.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_nonneg.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) : 0 ≤ Mxym.Rademacher.mean c",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_smul",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. Any real scalar a.",
+    "description": "Absolute homogeneity of the sign average.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_smul.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ℝ) (c : ι → ℝ) :\n  Mxym.Rademacher.mean (a • c) = |a| * Mxym.Rademacher.mean c",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.convex_mean",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "The sign average is convex on the entire real coefficient space.",
+    "exact_lean_signature": "Mxym.Rademacher.convex_mean.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : ConvexOn ℝ Set.univ Mxym.Rademacher.mean",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.continuous_mean",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "Continuity of the finite sign average.",
+    "exact_lean_signature": "Mxym.Rademacher.continuous_mean.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : Continuous Mxym.Rademacher.mean",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.abs_pair",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Real a,z with |z| ≤ |a|.",
+    "description": "|a+z|+|-a+z| = 2|a|.",
+    "exact_lean_signature": "Mxym.Rademacher.abs_pair (a z : ℝ) (hz : |z| ≤ |a|) : |a + z| + |-a + z| = 2 * |a|",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_eq_of_dominant",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "proved extension",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. A chosen k satisfies sum_i |c_i| - |c_k| ≤ |c_k|.",
+    "description": "The sign average equals the absolute value of a dominant coefficient, for arbitrary N.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_eq_of_dominant.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (k : ι)\n  (hk : ∑ i : ι, |c i| - |c k| ≤ |c k|) : Mxym.Rademacher.mean c = |c k|",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.compact_balancedPolytope",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite real coefficient space; no nonemptiness assumption.",
+    "description": "Compactness of the normalized capped simplex.",
+    "exact_lean_signature": "Mxym.Rademacher.compact_balancedPolytope.{u_1} {ι : Type u_1} [Fintype ι] : IsCompact Mxym.Rademacher.balancedPolytope",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.convex_balancedPolytope",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite real coefficient space.",
+    "description": "Convexity of the normalized capped simplex.",
+    "exact_lean_signature": "Mxym.Rademacher.convex_balancedPolytope.{u_1} {ι : Type u_1} [Fintype ι] : Convex ℝ Mxym.Rademacher.balancedPolytope",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.extreme_has_half",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t is an extreme point of balancedPolytope.",
+    "description": "An extreme point saturates the 1/2 cap. This uses a proved perturbation argument.",
+    "exact_lean_signature": "Mxym.Rademacher.extreme_has_half.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Set.extremePoints ℝ Mxym.Rademacher.balancedPolytope) : ∃ (i : ι), t i = 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_bound",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "normalized paper statement",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1.",
+    "description": "mean(t) ≤ 1/2, proved using the audited mathlib Krein-Milman theorem; this theorem is not assumed as a custom axiom.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) : Mxym.Rademacher.mean t ≤ 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_abs",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "Absorbing all coefficient signs leaves the average unchanged.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_abs.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) :\n  (Mxym.Rademacher.mean fun (i : ι) => |c i|) = Mxym.Rademacher.mean c",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_zero",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature.",
+    "description": "The average of the zero coefficient vector is zero.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_zero.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : Mxym.Rademacher.mean 0 = 0",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.balanced_bound",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2)",
+    "coverage_kind": "complete finite paper statement",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. Every |c_i| ≤ (sum_j |c_j|)/2; all-zero and empty-index cases are included.",
+    "description": "mean(c) ≤ (sum_i |c_i|)/2 for every finite family of real coefficients.",
+    "exact_lean_signature": "Mxym.Rademacher.balanced_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ)\n  (hbal : ∀ (i : ι), |c i| ≤ (∑ j : ι, |c j|) / 2) : Mxym.Rademacher.mean c ≤ (∑ j : ι, |c j|) / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_eq_half_of_half_mass",
+    "source": "Mxym/Rademacher.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "paper equality mechanism",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. A chosen k satisfies |c_k| = (sum_i |c_i|)/2.",
+    "description": "A half-mass coefficient gives equality, for arbitrary N. No separate balance assumption is needed.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_eq_half_of_half_mass.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (k : ι)\n  (hk : |c k| = (∑ i : ι, |c i|) / 2) : Mxym.Rademacher.mean c = (∑ i : ι, |c i|) / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_defect_lower_bound",
+    "source": "Mxym/RademacherDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "quantitative-symmetric-projection-stability supplement, Lemma 3.1 equation (3.1), mxym/math dd5c29fc50c3e0694591260f60f3030d551d304d",
+    "coverage_kind": "finite coefficient defect bound",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1. Nonnegative real thresholds t,g; an embedding e:Fin(4)↪ι selects four distinct coefficients each at least t; every coefficient is at most 1/2-g.",
+    "description": "Defect 1/2-mean(a) is at least min(t/2,g/4). Taking t to be the fourth-largest coefficient and g=1/2-max(a) recovers equation (3.1), provided the sorted-coordinate witness is supplied. No order-statistic selector, coefficient-distance estimate, determinant-law integration or geometric stability theorem is proved.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_defect_lower_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ι → ℝ)\n  (ha : a ∈ Mxym.Rademacher.balancedPolytope) (t g : ℝ) (ht : 0 ≤ t) (hg : 0 ≤ g) (e : Fin 4 ↪ ι)\n  (het : ∀ (k : Fin 4), t ≤ a (e k)) (hgap : ∀ (i : ι), a i ≤ 1 / 2 - g) :\n  min (t / 2) (g / 4) ≤ 1 / 2 - Mxym.Rademacher.mean a",
+    "unformalized_application_dependencies": [
+      "Only Lemma 3.1 equation (3.1) is proved in witness form; its additional l1-distance bound 8(N-3)D is not formalized.",
+      "Construction of sorted coefficient order statistics and their witness, geometric cofactor normalization, boundary-law integration and subsequent quantitative geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_defect_lower_bound_or_zero",
+    "source": "Mxym/RademacherDefect.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "quantitative-symmetric-projection-stability supplement, Lemma 3.1 equation (3.1), mxym/math dd5c29fc50c3e0694591260f60f3030d551d304d",
+    "coverage_kind": "finite coefficient defect bound, zero-threshold extension",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1. Nonnegative t,g; every coefficient at most 1/2-g; either t=0 or an embedding selects four distinct coefficients each at least t.",
+    "description": "The same defect bound permits t=0 without a four-coordinate witness, including index types with fewer than four elements. The family is still normalized to mass one: this is not a theorem about an all-zero normalized family. No coefficient-distance estimate or geometric result is included.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_defect_lower_bound_or_zero.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ι → ℝ)\n  (ha : a ∈ Mxym.Rademacher.balancedPolytope) (t g : ℝ) (ht : 0 ≤ t) (hg : 0 ≤ g) (hgap : ∀ (i : ι), a i ≤ 1 / 2 - g)\n  (hwitness : t = 0 ∨ ∃ (e : Fin 4 ↪ ι), ∀ (k : Fin 4), t ≤ a (e k)) :\n  min (t / 2) (g / 4) ≤ 1 / 2 - Mxym.Rademacher.mean a",
+    "unformalized_application_dependencies": [
+      "Only Lemma 3.1 equation (3.1) is proved in witness form; its additional l1-distance bound 8(N-3)D is not formalized.",
+      "Construction of sorted coefficient order statistics and their witness, geometric cofactor normalization, boundary-law integration and subsequent quantitative geometric stability are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_reindex",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite types ι,κ with Fintype and DecidableEq; an equivalence e:ι≃κ; real c on κ.",
+    "description": "Reindexing preserves the uniform sign average.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_reindex.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ] [DecidableEq ι]\n  [DecidableEq κ] (e : ι ≃ κ) (c : κ → ℝ) : (Mxym.Rademacher.mean fun (i : ι) => c (e i)) = Mxym.Rademacher.mean c",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_sum_zero",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite types ι,κ with Fintype and DecidableEq; real c on ι.",
+    "description": "Padding a coefficient family with any finite set of zero coefficients preserves its average.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_sum_zero.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ] [DecidableEq ι]\n  [DecidableEq κ] (c : ι → ℝ) : Mxym.Rademacher.mean (Sum.elim c fun (x : κ) => 0) = Mxym.Rademacher.mean c",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_restrict",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. A decidable predicate p; c_i=0 whenever not p(i).",
+    "description": "Restricting to a set containing the support preserves the average.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_restrict.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (p : ι → Prop)\n  [DecidablePred p] (hc : ∀ (i : ι), ¬p i → c i = 0) :\n  Mxym.Rademacher.mean c = Mxym.Rademacher.mean fun (i : { i : ι // p i }) => c ↑i",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.sum_signs_succ",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Any n:Nat and any real function on Fin(n+1)→Bool.",
+    "description": "Exact finite sign-sum recursion into the true and false first-coordinate cases.",
+    "exact_lean_signature": "Mxym.Rademacher.sum_signs_succ {n : ℕ} (f : (Fin (n + 1) → Bool) → ℝ) :\n  ∑ ε : Fin (n + 1) → Bool, f ε = ∑ ε : Fin n → Bool, f (Fin.cons true ε) + ∑ ε : Fin n → Bool, f (Fin.cons false ε)",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_three_nonneg",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v3 §6 Lemma 6.1 / (6.1); v4 §2 (2.2); entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "paper three-variable identity",
+    "assumptions_summary": "Real a,b,c ≥0 with a≤b+c, b≤a+c, c≤a+b.",
+    "description": "The three-coefficient sign average equals (a+b+c)/2; signs are enumerated through proven finite equivalences.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_three_nonneg (a b c : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ b) (hc : 0 ≤ c) (ha' : a ≤ b + c) (hb' : b ≤ a + c)\n  (hc' : c ≤ a + b) : Mxym.Rademacher.mean ![a, b, c] = (a + b + c) / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.mean_four_quarters",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1, strictness witness",
+    "coverage_kind": "paper strictness witness",
+    "assumptions_summary": "Exactly four coefficients, each 1/4.",
+    "description": "Exact kernel-checked value 3/8, without native_decide.",
+    "exact_lean_signature": "Mxym.Rademacher.mean_four_quarters : (Mxym.Rademacher.mean fun (x : Fin 4) => 1 / 4) = 3 / 8",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_strict_positive",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "paper strictness mechanism",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1. All t_i>0, all t_i<1/2, and card(ι)≥4.",
+    "description": "Strict inequality mean(t)<1/2 using an explicit convex mixture with the four-quarter witness.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_strict_positive.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hpos : ∀ (i : ι), 0 < t i) (hlt : ∀ (i : ι), t i < 1 / 2)\n  (hcard : 4 ≤ Fintype.card ι) : Mxym.Rademacher.mean t < 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.restrict_balanced",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "Finite real family t with t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1.",
+    "description": "Restricting to nonzero coordinates preserves the normalized constraints.",
+    "exact_lean_signature": "Mxym.Rademacher.restrict_balanced.{u_1} {ι : Type u_1} [Fintype ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) :\n  (fun (i : { i : ι // t i ≠ 0 }) => t ↑i) ∈ Mxym.Rademacher.balancedPolytope",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_strict",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "paper strictness mechanism",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1. All t_i<1/2 and at least four nonzero coordinates.",
+    "description": "Strict inequality after reduction to the support.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_strict.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hlt : ∀ (i : ι), t i < 1 / 2)\n  (hcard : 4 ≤ Fintype.card { i : ι // t i ≠ 0 }) : Mxym.Rademacher.mean t < 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_small_finite",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "helper",
+    "assumptions_summary": "v:Fin(n)→Real lies in balancedPolytope and n≤3.",
+    "description": "Exact equality for a normalized family with at most three coordinates; impossible low-dimensional normalized cases are handled by their hypotheses.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_small_finite {n : ℕ} (v : Fin n → ℝ) (hv : v ∈ Mxym.Rademacher.balancedPolytope)\n  (hn : n ≤ 3) : Mxym.Rademacher.mean v = 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_small_support",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "paper equality mechanism",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1. At most three nonzero coordinates.",
+    "description": "Exact equality for normalized families with small support.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_small_support.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hcard : Fintype.card { i : ι // t i ≠ 0 } ≤ 3) :\n  Mxym.Rademacher.mean t = 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.normalized_equality_iff",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "normalized paper statement",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. t lies in balancedPolytope: every 0 ≤ t_i ≤ 1/2 and sum_i t_i = 1.",
+    "description": "mean(t)=1/2 iff at most three coordinates are nonzero or a coordinate equals 1/2.",
+    "exact_lean_signature": "Mxym.Rademacher.normalized_equality_iff.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)\n  (ht : t ∈ Mxym.Rademacher.balancedPolytope) :\n  Mxym.Rademacher.mean t = 1 / 2 ↔ Fintype.card { i : ι // t i ≠ 0 } ≤ 3 ∨ ∃ (i : ι), t i = 1 / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Rademacher.balanced_equality_iff",
+    "source": "Mxym/RademacherEquality.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry005 v4 §2 Lemma 2.1",
+    "coverage_kind": "complete finite paper statement",
+    "assumptions_summary": "Finite index type, real coefficients; Fintype and DecidableEq instances as printed in the exact signature. Every |c_i| ≤ (sum_j |c_j|)/2; all-zero and empty-index cases are included.",
+    "description": "mean(c)=(sum_i |c_i|)/2 iff at most three coefficients are nonzero or one has half the total absolute mass. This is the full published Lemma 2.1, including the zero case.",
+    "exact_lean_signature": "Mxym.Rademacher.balanced_equality_iff.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ)\n  (hbal : ∀ (i : ι), |c i| ≤ (∑ j : ι, |c j|) / 2) :\n  Mxym.Rademacher.mean c = (∑ j : ι, |c j|) / 2 ↔\n    Fintype.card { i : ι // c i ≠ 0 } ≤ 3 ∨ ∃ (i : ι), |c i| = (∑ j : ι, |c j|) / 2",
+    "unformalized_application_dependencies": [
+      "The finite Rademacher statement itself has no unformalized mathematical dependency beyond the compiled pinned libraries.",
+      "Its application to convex-body boundary laws, exposed-point circuits, rank-two decomposition, and the full v4 equality classification is not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Transport.signed_square",
+    "source": "Mxym/SignedSquare.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry001 v5 proof of Lemma lem:minimum, eq:signed-square; entry008 v1 §2 proof of thm:interpolation",
+    "coverage_kind": "complete scalar paper statement",
+    "assumptions_summary": "Any real a,b with a≤b.",
+    "description": "(b-a)^2≤2(b|b|-a|a|).",
+    "exact_lean_signature": "Mxym.Transport.signed_square (a b : ℝ) (hab : a ≤ b) : (b - a) ^ 2 ≤ 2 * (b * |b| - a * |a|)",
+    "unformalized_application_dependencies": [
+      "Convex derivative/secant monotonicity, almost-everywhere endpoint legitimacy, minimum-density integration, translation changes of variables, and transport/potential estimates are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Transport.signed_square_eq_iff",
+    "source": "Mxym/SignedSquare.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry001 v5 proof of Lemma lem:minimum, eq:signed-square; entry008 v1 §2 proof of thm:interpolation",
+    "coverage_kind": "proved extension",
+    "assumptions_summary": "Any real a,b with a≤b.",
+    "description": "Equality in the scalar signed-square bound iff a=b or a=-b; the paper does not assert this extension explicitly.",
+    "exact_lean_signature": "Mxym.Transport.signed_square_eq_iff (a b : ℝ) (hab : a ≤ b) : (b - a) ^ 2 = 2 * (b * |b| - a * |a|) ↔ a = b ∨ a = -b",
+    "unformalized_application_dependencies": [
+      "Convex derivative/secant monotonicity, almost-everywhere endpoint legitimacy, minimum-density integration, translation changes of variables, and transport/potential estimates are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Transport.intermediate_square",
+    "source": "Mxym/SignedSquare.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry001 v5 proof of Lemma lem:minimum, eq:signed-square; entry008 v1 §2 proof of thm:interpolation, subsequent pointwise error bound",
+    "coverage_kind": "complete scalar mechanism",
+    "assumptions_summary": "Any real a,q,b with a≤q≤b.",
+    "description": "(q-a)^2≤2(b|b|-a|a|). Establishing derivative/secant order analytically is outside this scalar statement.",
+    "exact_lean_signature": "Mxym.Transport.intermediate_square (a q b : ℝ) (haq : a ≤ q) (hqb : q ≤ b) : (q - a) ^ 2 ≤ 2 * (b * |b| - a * |a|)",
+    "unformalized_application_dependencies": [
+      "Convex derivative/secant monotonicity, almost-everywhere endpoint legitimacy, minimum-density integration, translation changes of variables, and transport/potential estimates are not formalized."
+    ]
+  },
+  {
+    "name": "Mxym.Transport.three_term_square",
+    "source": "Mxym/SignedSquare.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "entry001 v5 proof of Lemma lem:minimum, eq:signed-square; entry008 v1 §2 proof of thm:interpolation, three-term decomposition",
+    "coverage_kind": "complete scalar mechanism",
+    "assumptions_summary": "Any real x,y,z.",
+    "description": "(x+y+z)^2≤3(x^2+y^2+z^2).",
+    "exact_lean_signature": "Mxym.Transport.three_term_square (x y z : ℝ) : (x + y + z) ^ 2 ≤ 3 * (x ^ 2 + y ^ 2 + z ^ 2)",
+    "unformalized_application_dependencies": [
+      "Convex derivative/secant monotonicity, almost-everywhere endpoint legitimacy, minimum-density integration, translation changes of variables, and transport/potential estimates are not formalized."
+    ]
+  },
+  {
+    "name": "OAI.Paper092.twice_sum_negative_eq_sum_abs",
+    "source": "Mxym/UpstreamCancellation.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "OpenAI/math lean/OAI/Geometry/ProjectionVolume/ProjectionCoefficients.lean:twice_sum_negative_eq_sum_abs",
+    "coverage_kind": "audited exact upstream reuse",
+    "assumptions_summary": "Finite real family v with sum_i v_i=0.",
+    "description": "Twice the total negative mass equals the total absolute mass. This is a finite cancellation identity, not a geometric volume identity.",
+    "exact_lean_signature": "OAI.Paper092.twice_sum_negative_eq_sum_abs.{uι} {ι : Type uι} [Fintype ι] (v : ι → ℝ) (hv : ∑ i : ι, v i = 0) :\n  2 * ∑ i : { i : ι // v i < 0 }, -v ↑i = ∑ i : ι, |v i|",
+    "unformalized_application_dependencies": [
+      "No full upstream geometric theorem is certified here; the excerpt is independent finite/scalar algebra.",
+      "Identifying simplexConstant with an actual projection-volume invariant and the geometric product/join laws is not formalized in this project."
+    ]
+  },
+  {
+    "name": "OAI.Paper092.simplex_constant_product_ratio",
+    "source": "OAI/Geometry/ProjectionVolume/Arithmetic.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:simplex_constant_product_ratio",
+    "coverage_kind": "audited exact upstream reuse",
+    "assumptions_summary": "Natural r,s>0; simplexConstant(d) is explicitly (d+1)d^d/d!.",
+    "description": "Exact factorial/binomial scalar product ratio; no equality with an actual convex-body invariant is asserted here.",
+    "exact_lean_signature": "OAI.Paper092.simplex_constant_product_ratio (r s : ℕ) (hr : 0 < r) (hs : 0 < s) :\n  OAI.Paper092.simplexConstant r * OAI.Paper092.simplexConstant s / OAI.Paper092.simplexConstant (r + s) =\n    (↑r + 1) * (↑s + 1) / (↑r + ↑s + 1) * ↑((r + s).choose r) * (↑r ^ r * ↑s ^ s / ↑(r + s) ^ (r + s))",
+    "unformalized_application_dependencies": [
+      "No full upstream geometric theorem is certified here; the excerpt is independent finite/scalar algebra.",
+      "Identifying simplexConstant with an actual projection-volume invariant and the geometric product/join laws is not formalized in this project."
+    ]
+  },
+  {
+    "name": "OAI.Paper092.dimension_twenty_ratio",
+    "source": "OAI/Geometry/ProjectionVolume/Arithmetic.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:dimension_twenty_ratio",
+    "coverage_kind": "audited exact upstream reuse",
+    "assumptions_summary": "No hypotheses; the same explicit scalar definition.",
+    "description": "C_10^2/C_20=22355476/22020096 by kernel-checked exact arithmetic.",
+    "exact_lean_signature": "OAI.Paper092.dimension_twenty_ratio :\n  OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10 / OAI.Paper092.simplexConstant 20 =\n    22355476 / 22020096",
+    "unformalized_application_dependencies": [
+      "No full upstream geometric theorem is certified here; the excerpt is independent finite/scalar algebra.",
+      "Identifying simplexConstant with an actual projection-volume invariant and the geometric product/join laws is not formalized in this project."
+    ]
+  },
+  {
+    "name": "OAI.Paper092.dimension_twenty_strict",
+    "source": "OAI/Geometry/ProjectionVolume/Arithmetic.lean",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "paper_statement": "OpenAI/math lean/OAI/Geometry/ProjectionVolume/Arithmetic.lean:dimension_twenty_strict",
+    "coverage_kind": "audited exact upstream reuse",
+    "assumptions_summary": "No hypotheses; the same explicit scalar definition.",
+    "description": "C_20<C_10^2. This does not itself prove a geometric product or projection-volume formula.",
+    "exact_lean_signature": "OAI.Paper092.dimension_twenty_strict :\n  OAI.Paper092.simplexConstant 20 < OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10",
+    "unformalized_application_dependencies": [
+      "No full upstream geometric theorem is certified here; the excerpt is independent finite/scalar algebra.",
+      "Identifying simplexConstant with an actual projection-volume invariant and the geometric product/join laws is not formalized in this project."
+    ]
+  }
+]
