@@ -1,5 +1,11 @@
 # Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns
 
+**Latest: version 2, 2026-10-07.** [Log-bi-Lipschitz profile avoidance](v2/README.md) extends the nonlinear theorem from integer monomial leading terms to arbitrary prescribed countable families of profiles with bounded distortion in logarithmic coordinates. It includes arbitrary prescribed positive power exponents, power-log profiles, smoothly varying power profiles, and all convergent Puiseux germs through their rational leading exponents.
+
+Version 2 has a complete written proof and [proof audit](v2/PROOF_AUDIT.md). Its new density-preservation lemma has no numerical proof dependency; the inherited version-1 robust-cover checker was rerun in ordinary and optimized Python with byte-identical output. See the [v2 manifest](v2/MANIFEST.json).
+
+## Version 1
+
 **Version 1, 2026-10-07.** Complete written proof draft, prepared with AI assistance; not independently peer reviewed or proof-assistant formalized.
 
 [Complete source](v1/main.tex) · [PDF](v1/paper.pdf) · [Proof audit](v1/PROOF_AUDIT.md) · [Exact finite robust-cover checker](v1/verification/check_robust_cover.py)
