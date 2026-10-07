@@ -29,8 +29,17 @@ improving the parent note's \(2^{-3/4}=0.59460\ldots\) lower constant and
 the concurrently published exact two-band constant
 \(\sqrt{2/7+\sqrt2/14}=0.6218758237\ldots\). The concurrent note retains
 the stronger finite-order feature of an exact closed witness for every
-\(p\ge10\); this note supplies the more general asymptotic profile theorem.
-The upper constant \(2^{-1/2}\) remains unchanged.
+\(p\ge10\). Its later mechanism-optimality theorem shows that this two-band
+constant is best among fixed-width palindromic profiles whose coordinate
+axes remain local projection maxima. The profile here satisfies the exact
+opposite inequality
+\[
+ \gamma_1^2+\sqrt2\,\gamma_2
+ =\frac{12346629}{9765625}>1,
+\]
+so it escapes that axis-local class and supplies the more general off-axis
+asymptotic profile mechanism. The upper constant \(2^{-1/2}\) remains
+unchanged.
 
 Complete proof: paper.md
 

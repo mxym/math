@@ -134,8 +134,25 @@ strictly stronger than that constant:
 \]
 The two results are complementary: the concurrent note has exact finite-order
 formulas, whereas Theorem A gives a general finite-profile asymptotic
-variational mechanism. The upper constant \(2^{-1/2}\) is unchanged, so
-(2) does not determine the sharp asymptotic constant.
+variational mechanism. During final integration that concurrent note was
+strengthened further: it proves that \(\kappa\) is optimal among fixed-width
+palindromic boundary bands for which the coordinate axes remain local
+projection maxima. Our profile lies strictly outside that mechanism. Indeed,
+with its limiting coefficients
+\[
+ \gamma_1=b,\qquad \gamma_2=-\frac{58\sqrt2}{125},
+\]
+the necessary axis-local condition from that theorem becomes
+\[
+ \gamma_1^2+\sqrt2\,\gamma_2=B
+ =\frac{12346629}{9765625}>1.
+\]
+Equivalently, the profile derivative in (17) satisfies
+\(q(0)=B-1>0\), so the axis is not a local maximum on the boundary scale;
+the maximizing basis moves off-axis. Thus (2) explicitly realizes a route
+left open by the mechanism-optimality theorem rather than contradicting it.
+The upper constant \(2^{-1/2}\) is unchanged, so (2) does not determine the
+sharp asymptotic constant.
 
 ## 2. The residual for a reflected boundary profile
 

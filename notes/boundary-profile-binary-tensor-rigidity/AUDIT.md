@@ -87,6 +87,19 @@ it provides a general finite-profile limit theorem and a stronger asymptotic
 constant. The two-band note still has a distinct exact finite-\(p\) witness
 statement.
 
+The concurrent note was then strengthened by an axis-local
+mechanism-optimality theorem. Its necessary condition is
+\(\gamma_1^2+\sqrt2\gamma_2\le1\). For the present rational profile the
+left side is exactly
+\[
+ B=12346629/9765625>1,
+\]
+already checked by both the profile algebra and the critical-point
+certificate. Hence the two theorems have disjoint mechanism hypotheses at
+the improved witness: the new constant comes from an off-axis projection
+maximum. No conclusion of the concurrent optimality theorem is used as an
+input to Theorem A.
+
 ## Diagnostic finite-order check
 
 A non-proof floating diagnostic reconstructed the full tensors and directly
