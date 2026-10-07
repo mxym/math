@@ -6,7 +6,7 @@
 | 002 | [Bounded step walks on irreducibles in quadratic orders](preprints/002-quadratic-order-moats/README.md) | v3 | Research draft |
 | 003 | [Compact Banach space obstructions with Assouad dimension two](preprints/003-assouad-two-zero-box/README.md) | v1 | Research draft |
 | 004 | [A logarithmic upper Banach density criterion for the Erdos similarity problem](preprints/004-log-density-similarity/README.md) | v1.1 | Complete written proof draft; finite rational-cover checker |
-| 005 | [Projection-volume calculus, endpoint rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v4 | Complete written proof; symmetric equality classification, qualitative stability and exact finite checks |
+| 005 | [Projection-volume calculus, endpoint rigidity and spectral amplification](preprints/005-simplex-product-optimum/README.md) | v5 | Complete written proof; balanced-recursion optimum, symmetric equality classification and exact replay |
 | 006 | [Modulus-controlled nonlinear avoidance and a differentiability boundary for null patterns](preprints/006-modulus-nonlinear-similarity/README.md) | v1 | Complete written proof draft; robust finite-cover checker |
 | 007 | [Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets](preprints/007-tail-brenier-stability/README.md) | v2 | Complete written proof draft; smooth full-support sharpness and exact algebra checks |
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; sharp critical logarithm and exact multiscale cell checks |
@@ -28,6 +28,7 @@ For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT
 - [Additional model review of 004--005](reviews/2026-10-07-independent-model-review.md), including independent exact replays and the known non-simplex rate comparison.
 - [Nonlinear avoidance and transport-tail reconciliation](comparisons/2026-10-07-modulus-tail-reconciliation.md), distinguishing inherited, overlapping, and additional results.
 - [Density overlap and boundary criticality](comparisons/2026-10-07-density-overlap-phase.md), including the explicit source-family and proof-dependency limits.
+- [Balanced projection-recursion comparison](comparisons/2026-10-07-balanced-recursion.md), distinguishing the v5 recursive theorem from the classical Brannen/Saroglou projection-body literature.
 
 ## Manuscript 001 version 4 scope
 
@@ -35,9 +36,11 @@ For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT
 
 Its Gaussian logarithmic-target-moment threshold is distinct from 008's source-boundary-vanishing threshold. The former has no additional logarithmic loss at its stated transition; the latter has a necessary logarithmic correction proved by a multiscale construction. The parameters describe different assumptions, so these statements do not conflict and are not counted as duplicate project results.
 
-## Projection geometry version 3
+## Projection geometry versions 3--5
 
-[005 v3](preprints/005-simplex-product-optimum/v3/README.md) extends lower-bound equality from polytopes to all convex bodies, proves qualitative affine stability and a sharp symmetric cone bound, and gives an explicit Cartesian-square spectral amplification theorem. The complete proof and exact replay were disclosed in `43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc`. The [read-only verification workflow](.github/workflows/projection-rigidity-exact.yml) replays rational checks and byte-identity comparisons; it does not rewrite published files. Historical v1.1 and v2 statements and their scopes are retained.
+[005 v3](preprints/005-simplex-product-optimum/v3/README.md) extends lower-bound equality from polytopes to all convex bodies, proves qualitative affine stability and a sharp symmetric cone bound, and gives an explicit Cartesian-square spectral amplification theorem. [005 v4](preprints/005-simplex-product-optimum/v4/README.md) classifies every centrally symmetric equality case \(a=1/2\) as an affine product of one- and two-dimensional symmetric factors and proves qualitative near-equality stability.
+
+[005 v5](preprints/005-simplex-product-optimum/v5/README.md) proves that the binary \(T_5\) orbit is the unique optimum among all balanced homogeneous simplex recursions \((K^t)^{*t}\), uniformly over every integer arity and seed dimension. Its [exact checker](preprints/005-simplex-product-optimum/v5/code/check_balanced.py) uses Fraction arithmetic and rational logarithm intervals; ordinary and optimized Python reports are required to agree. The [read-only workflow](.github/workflows/projection-balanced-recursion.yml) replays the pinned manifest and both checker modes. The theorem does not cover unequal product/join arities or arbitrary recursive trees. Historical v1.1 and v2 statements and their scopes are retained.
 
 ## Manuscript 001 version 5: source regularity
 

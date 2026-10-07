@@ -1,16 +1,22 @@
 # Projection-volume geometry: products, joins, rigidity, equality and spectral amplification
 
-**Latest: [version 4 — complete symmetric equality classification](v4/README.md).** Read the [complete proof](v4/paper.md), [proof audit](v4/PROOF_AUDIT.md), [exact regression checker](v4/code/check_examples.py), [recorded replay](v4/results/check_examples.txt), the [dependency manifest](v4/MANIFEST.json), and [focused prior-work comparison](../../comparisons/2026-10-07-symmetric-projection-cone-equality.md).
+**Latest: [version 5 — unique optimum in the balanced homogeneous simplex recursion](v5/README.md).** Read the [complete proof](v5/paper.md), [proof audit](v5/PROOF_AUDIT.md), [exact logarithm checker](v5/code/check_balanced.py), [recorded replay](v5/results/check_balanced.txt), [dependency manifest](v5/MANIFEST.json), and [focused prior-work comparison](../../comparisons/2026-10-07-balanced-recursion.md).
 
-Version 4 closes the higher-dimensional equality question left open in v3:
-$$
+Version 5 proves an infinite-family spectral classification. For every integer arity \(t\ge2\) and simplex seed dimension \(p\ge1\), iterate
+\[
+K_{j+1}=(K_j^t)^{*t}.
+\]
+The asymptotic projection-volume root rate has a **unique** maximum at \((t,p)=(2,5)\). Every competitor is rigorously bounded below \(e^{131/125}<2.8534\), while the binary \(T_5\) orbit retains the certified \(2.8534<\Lambda<2.8535\) rate. The exact checker closes a 342-pair finite core plus both infinite parameter tails using rational logarithm intervals. This does not yet prove optimality over unequal product/join arities or arbitrary recursive trees.
+
+[Version 4](v4/README.md) closes the higher-dimensional equality question left open in v3:
+\[
 a(K)=\frac12
-$$
-for a centrally symmetric convex body if and only if, up to an invertible linear map, $K$ is a Cartesian product of centrally symmetric factors of dimensions one and two. It also proves a fixed-dimensional qualitative Banach--Mazur stability theorem for near equality. The exact checker exhausts 7,749 balanced rational Rademacher tests on a finite grid and verifies the non-extreme boundary-law guard example. No first-discovery claim is made before a broader literature review.
+\]
+for a centrally symmetric convex body if and only if, up to an invertible linear map, \(K\) is a Cartesian product of centrally symmetric factors of dimensions one and two. It also proves a fixed-dimensional qualitative Banach--Mazur stability theorem for near equality.
 
-[Version 3](v3/README.md) proves simplex equality for the cone invariant for **all convex bodies**, not just polytopes; a uniform qualitative affine stability statement at the lower endpoint; the sharp centrally symmetric bound $a\le1/2$; a general random-law determinant comparison with complete lower-equality cases; and an explicit Cartesian-square operation strictly improving every finite-dimensional spectral value. First complete v3 disclosure: [43bb307](https://github.com/mxym/math/commit/43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc).
+[Version 3](v3/README.md) proves simplex equality for the cone invariant for **all convex bodies**, not just polytopes; a uniform qualitative affine stability statement at the lower endpoint; the sharp centrally symmetric bound \(a\le1/2\); a general random-law determinant comparison with complete lower-equality cases; and an explicit Cartesian-square operation strictly improving every finite-dimensional spectral value. First complete v3 disclosure: [43bb307](https://github.com/mxym/math/commit/43bb307c76ec83d09feb2fe3aa74b2a40e3d2bdc).
 
-[Version 2](v2/README.md) contains the exact product/join calculus, the sharp recursive-class threshold in dimension fourteen and the certified $2.8534<\Lambda<2.8535$ self-similar family. Its [spectral supplement](v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md) identifies the join-closed asymptotic growth rate as $e\sup\lambda$. Versions 3--4 do not determine that supremum or improve the numerical rate.
+[Version 2](v2/README.md) contains the exact product/join calculus, the sharp recursive-class threshold in dimension fourteen and the certified \(2.8534<\Lambda<2.8535\) self-similar family. Its [spectral supplement](v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md) identifies the join-closed asymptotic growth rate as \(e\sup\lambda\). Versions 3--5 do not determine the full recursive-class spectral supremum.
 
 The historical version 1.1 record follows. Its optimum is restricted to products of simplices; the later versions enlarge the questions, not the scope of that old optimum.
 
