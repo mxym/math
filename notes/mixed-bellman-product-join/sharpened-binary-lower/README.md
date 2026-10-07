@@ -27,19 +27,26 @@ D_j=2a_j\frac{g(4d_j+1)}{g(2d_j)^2},
 \qquad g(n)=\frac{n^n}{n!}.
 \]
 
-The main result is
+The original result of this file is
 \[
-\boxed{\Lambda_{2,5}>2.85346555052,}
-\]
-where
-\[
+\Lambda_{2,5}>2.85346555052,
+\qquad
 \Lambda_{2,5}=\lim_{j\to\infty}R_j^{1/d_j}.
 \]
+It remains a valid short certificate.
 
-Consequently the full point-generated product/join class satisfies
+A stronger additive companion now proves the two-sided interval
 \[
 \boxed{
-2.85346555052<\Gamma_{\mathcal C}<2.85386,
+2.853465550695797<\Lambda_{2,5}<2.853465550704.
+}
+\]
+See [LIMIT_INTERVAL.md](LIMIT_INTERVAL.md) and
+[check_limit_interval.py](check_limit_interval.py).  Consequently the full
+point-generated product/join class satisfies
+\[
+\boxed{
+2.853465550695797<\Gamma_{\mathcal C}<2.85386,
 }
 \]
 using the separately certified positive-sextic Bellman upper theorem.
@@ -213,7 +220,17 @@ fractions.Fraction. It verifies:
 
 No floating-point value is used in a proof decision.
 
-## 4. Scope
+## 4. Stronger two-sided companion
+
+The additive [limit-interval note](LIMIT_INTERVAL.md) retains the Robbins
+exponential corrections on both sides and uses two exact restart levels.  Its
+standard-library checker passes in ordinary and optimized Python and certifies
+\[
+2.853465550695797<\Lambda_{2,5}<2.853465550704.
+\]
+The older one-sided proof above and its checker are preserved unchanged.
+
+## 5. Scope
 
 This is a sharper certificate for the existing binary \(T_5\) family.
 It does not prove that this family is optimal in the full product/join
