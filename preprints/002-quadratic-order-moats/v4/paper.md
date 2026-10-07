@@ -264,6 +264,122 @@ Thus replacing the period-30 generators by other principal generators,
 including ramified, inert, split, nonprimitive, or composite-norm elements,
 cannot produce a successful certificate of smaller period.
 
+### Proposition 4.3. Exact endpoint failure families
+
+Let
+\[
+\mathcal P_{130}
+ =
+ \{(1+i),(2+i),(2-i),(3+2i),(3-2i)\}.
+\]
+The following two finite statements hold.
+
+1. Every proper subset of \(\mathcal P_{130}\) has an infinite \(F_8\)
+   avoiding component.
+2. Fix \((\pi)\in\mathcal P_{130}\). Let \(\alpha\) be any nonunit Gaussian
+   divisor of \(130\), up to associates, satisfying
+   \[
+   (\alpha)\subsetneq(\pi).
+   \]
+   Then the sieve obtained from the other four ideals in
+   \(\mathcal P_{130}\) together with \((\alpha)\) has an infinite
+   \(F_8\) avoiding component.
+
+**Exact verification.**
+The first family contains all \(31\) proper subsets of the five prime
+ideals. For the second family, unique factorization gives
+\[
+ 130\sim
+ (1+i)^2(2+i)(2-i)(3+2i)(3-2i).
+ \tag{4.3}
+\]
+Thus, up to associates, there are exactly
+\[
+ 3\cdot2^4-1=47
+\]
+nonunit Gaussian divisor ideals of \(130\). The endpoint certificate
+reconstructs all 47 from (4.3). There are 31 proper replacements inside
+\((1+i)\) and 23 inside each of the other four prime ideals, for a total of
+\[
+ 31+4\cdot23=123
+\]
+replacement cases.
+
+The file code/endpoint_rigidity.json supplies an explicit nonzero-voltage
+walk for all \(31+123=154\) failures. The independent checker reconstructs
+the 47 divisor ideals, the complete two case families, direct ideal
+membership, every visited lattice point, and every voltage. The witnesses
+contain 23016 \(F_8\)-steps in total; the longest has 186 steps.
+\(\square\)
+
+### Theorem 4.4. Rigidity at the minimal period
+
+Let \(\mathcal G\) be a successful finite principal-ideal \(F_8\) sieve with
+\[
+ Q(\mathcal G)=130.
+\]
+Then
+\[
+ |\mathcal G|\ge5.
+ \tag{4.4}
+\]
+If equality holds, then, after reordering and replacing generators by
+associates,
+\[
+ \boxed{
+ \mathcal G=
+ \{1+i,\ 2+i,\ 2-i,\ 3+2i,\ 3-2i\}.}
+ \tag{4.5}
+\]
+
+Thus the period-minimizing sieve from version 3 is also the unique
+five-generator sieve at the sharp period, up to the evident symmetries.
+
+**Proof.**
+For each \(\alpha\in\mathcal G\), choose a Gaussian prime divisor
+\(\pi(\alpha)\). The proof of Lemma 2.1 shows that its prime ideal belongs to
+\(\mathcal P_{130}\) and
+\[
+ (\alpha)\subseteq(\pi(\alpha)).
+ \tag{4.6}
+\]
+Replace every generator ideal by its chosen prime ideal. This can only
+delete additional vertices, so a successful original sieve would give a
+successful prime-ideal sieve. Proposition 4.3(1) says that no proper subset
+of the five prime ideals is successful. Hence the chosen prime ideals must
+cover all five members of \(\mathcal P_{130}\), proving
+\(|\mathcal G|\ge5\).
+
+Now suppose \(|\mathcal G|=5\). The chosen prime divisors in (4.6) must then
+be the five distinct members of \(\mathcal P_{130}\). Relabel so that
+\[
+ (\alpha_j)\subseteq(\pi_j),
+ \qquad
+ \{\pi_1,\ldots,\pi_5\}=\mathcal P_{130}.
+\]
+
+Because \(t(\alpha_j)\mid130\) and
+\(t(\alpha_j)\mathbb Z[i]\subseteq(\alpha_j)\), the element
+\(\alpha_j\) divides the rational integer \(t(\alpha_j)\), hence divides
+\(130\) in \(\mathbb Z[i]\). Therefore its ideal occurs among the 47
+divisor ideals in Proposition 4.3.
+
+Suppose some containment is strict:
+\[
+ (\alpha_j)\subsetneq(\pi_j).
+\]
+Replace the other four ideals \((\alpha_i)\), \(i\ne j\), by the larger
+prime ideals \((\pi_i)\), but keep \((\alpha_j)\). The new avoiding set is
+a subset of the original avoiding set. Proposition 4.3(2) gives an infinite
+component in this new avoiding set, hence the same infinite component in
+the original one, a contradiction. Thus every containment is equality:
+\[
+ (\alpha_j)=(\pi_j).
+\]
+In the principal ideal domain \(\mathbb Z[i]\), equality of principal ideals
+means the generators are associates. This proves (4.5). \(\square\)
+
+
 ## 5. Relation to irreducible-component bounds
 
 The theorem concerns the finite periodic obstruction used to control the

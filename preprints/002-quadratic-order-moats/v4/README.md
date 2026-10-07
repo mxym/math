@@ -24,6 +24,12 @@ The five-generator list
 1+i,\quad2\pm i,\quad3\pm2i
 \]
 attains equality.
+Moreover, at the sharp period 130 every successful sieve uses at least five generators. If exactly five are used, then up to associates and reordering the list is uniquely
+\[
+1+i,\quad2+i,\quad2-i,\quad3+2i,\quad3-2i.
+\]
+The endpoint-rigidity certificate exhausts all 47 nonunit Gaussian divisor ideals of 130, all 31 proper prime subsets, and all 123 proper-subideal replacement cases.
+
 
 The proof reduces an arbitrary principal list of period \(Q\) to the
 maximal sieve formed from all Gaussian prime ideals over
@@ -40,6 +46,9 @@ fails while \(Q=130\) succeeds” to a complete lower-period classification.
 - code/period_optimality.json: 79 exact nonzero-voltage witnesses.
 - code/check_period_optimality.py: independent exact checker.
 - code/generate_period_optimality.py: deterministic witness producer.
+- code/endpoint_rigidity.json: 154 exact endpoint-rigidity failure witnesses.
+- code/check_endpoint_rigidity.py: independent endpoint-rigidity checker.
+- code/generate_endpoint_rigidity.py: deterministic endpoint witness producer.
 - results/replay.txt: recorded exact replay.
 
 ## Replay
@@ -58,7 +67,8 @@ The outputs are byte-identical and report:
 - successful endpoint period 130;
 - 4608 allowed endpoint residues;
 - maximum endpoint quotient component size 580;
-- inherited Gaussian full-component bound 92820.
+- inherited Gaussian full-component bound 92820;
+- 47 endpoint divisor ideals, 31 failed proper prime subsets and 123 failed proper-subideal replacements.
 
 All proof decisions in the negative certificates use exact integer
 arithmetic. The positive endpoint is independently replayed from the

@@ -101,6 +101,18 @@ Thus the lower bound and attainment use independent certificate types:
 explicit nonzero-voltage walks below 130 and a full integer potential at
 130.
 
+## 5. Sharp-period generator rigidity
+
+If a successful period-130 list had fewer than five generators, choose one Gaussian prime divisor of each generator and replace each principal ideal by that larger prime ideal. The avoiding set only shrinks, so success would persist. The exact endpoint certificate rules out all 31 proper subsets of the five prime ideals above 2, 5 and 13. Hence at least five generators are required.
+
+For equality, factor
+\[
+130\sim(1+i)^2(2+i)(2-i)(3+2i)(3-2i).
+\]
+Up to associates this has exactly 48 divisor ideals, 47 of them nonunit. The independent endpoint checker reconstructs this complete divisor list directly from the exponents. If a five-generator successful list is given, its chosen prime divisors must be the five distinct endpoint primes. If one generator is a proper subideal of its assigned prime ideal, enlarge the other four generators to the remaining four prime ideals. The resulting avoiding set is still a subset of the original one. The certificate supplies a nonzero-voltage walk for every such replacement: 31 possibilities inside the ramified prime and 23 inside each of the four split primes, 123 cases total. Thus every containment must be equality, proving uniqueness up to associates and order.
+
+The endpoint-rigidity package contains 154 exact failure witnesses, 23016 steps in total, with maximum walk length 186. Ordinary and optimized Python reports are byte-identical.
+
 ## 5. Replays
 
 Ordinary Python and optimized Python produce byte-identical output:
@@ -113,7 +125,7 @@ SHA-256 of code/period_optimality.json:
 
 d5d90d7c15cce9d69f92ed83197d8b7b66e9b6040fdb54a06ffcfb7eb60f11f2.
 
-## 6. Nonclaims
+## 7. Nonclaims
 
 The audit does not establish:
 
