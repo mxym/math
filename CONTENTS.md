@@ -1,5 +1,7 @@
 # Manuscript catalogue
 
+For the relationship between entries 001, 007 and 008, see the [transport programme and coverage map](notes/transport-source-tail-programme/README.md).
+
 | ID | Manuscript | Latest | Status |
 | --- | --- | --- | --- |
 | 001 | [Source regularity and sharp Brenier stability under target moment bounds](preprints/001-strongly-log-concave-brenier/README.md) | v5 | Research draft; source regularity and sharp target-tail distinctions |

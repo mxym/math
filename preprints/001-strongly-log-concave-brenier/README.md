@@ -1,5 +1,7 @@
 # Source regularity and sharp Brenier stability under target moment bounds
 
+See the [transport programme and coverage map](../../notes/transport-source-tail-programme/README.md) for the relationship with 007 and 008. All versions below retain their individual scope.
+
 Version **v5**, prepared 7 October 2026. A coherent continuation of manuscript 001.
 
 - [Version 5 PDF](v5/manuscript.pdf), [complete editable source](v5/manuscript.tex), and [bibliography](v5/references.bib)

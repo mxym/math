@@ -1,5 +1,7 @@
 # Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability
 
+See the [transport programme and coverage map](../../notes/transport-source-tail-programme/README.md) for shared root-density results and the distinct boundary phase diagram and slowly-varying supplement.
+
 
 **Supplement, 7 October 2026:** [Critical boundary stability with slowly varying factors](../../notes/critical-boundary-slow-variation/manuscript.pdf), [source](../../notes/critical-boundary-slow-variation/manuscript.tex), and [scope/build record](../../notes/critical-boundary-slow-variation/README.txt). This extends the critical construction to an implicit exact modulus, including a necessary log-log correction. The v1 paper below is preserved unchanged.
 

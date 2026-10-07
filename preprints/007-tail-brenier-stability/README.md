@@ -1,5 +1,7 @@
 # Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets
 
+See the [transport programme and coverage map](../../notes/transport-source-tail-programme/README.md) for shared transport inputs and the distinct interpolation, superquadratic and smooth-source results.
+
 **Latest: version 2, 2026-10-07.** Complete written proof draft, prepared with AI assistance; not independently peer reviewed or proof-assistant formalized.
 
 [12-page PDF](v2/paper.pdf) · [Complete source](v2/main.tex) · [Build and theorem details](v2/README.md) · [Proof audit](v2/PROOF_AUDIT.md) · [Versioned release](https://github.com/mxym/math/releases/tag/tail-stability-20261007-v2)
