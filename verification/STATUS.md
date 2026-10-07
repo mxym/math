@@ -65,3 +65,7 @@ The new logarithmic theorem's hard-boundary exclusion, higher-dimensional sharpn
 See the [source-pinned assembly audit](../reviews/2026-10-07-transport-v5-assembly.md) and [artifact record](../preprints/001-strongly-log-concave-brenier/v5/QA.txt). The exact weight, Sobolev little-o, root-density sufficient condition, and smooth-source counterexample were also checked in separate mathematical passes. Finite sanity checks and successful builds are not formal proofs. The 007 bibliography links and the 008 overlap attribution were specifically checked before publication.
 
 The [008 audit](../reviews/2026-10-07-density-overlap-independent-audit.md) independently reconstructs its analytic proof and replays the inspected published checker at expanded settings. It does not claim a new independent checker implementation or an independent PDF rebuild. The hard-boundary stretched-exponential supplement has a self-contained lower construction and explicitly imported upper estimates.
+
+## Critical slow-variation supplement to 008
+
+The [proof and assembly review](../reviews/2026-10-07-critical-slow-variation-review.md) checks the exact implicit modulus and its all-small-distance lower construction, family-specific root criterion, and inverse-substitution counterexample. The [six-page bundle](../notes/critical-boundary-slow-variation/README.txt) includes all local typesetting inputs, explicit public mathematical dependencies, visual QA, clean-rebuild information, and file hashes. No historical version file is overwritten.

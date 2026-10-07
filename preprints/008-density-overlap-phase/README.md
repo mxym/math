@@ -1,5 +1,8 @@
 # Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability
 
+
+**Supplement, 7 October 2026:** [Critical boundary stability with slowly varying factors](../../notes/critical-boundary-slow-variation/manuscript.pdf), [source](../../notes/critical-boundary-slow-variation/manuscript.tex), and [scope/build record](../../notes/critical-boundary-slow-variation/README.txt). This extends the critical construction to an implicit exact modulus, including a necessary log-log correction. The v1 paper below is preserved unchanged.
+
 **Version 1, 2026-10-07.** Complete written research proof, prepared with AI assistance. Not independently peer reviewed or proof-assistant formalized.
 
 [11-page PDF](v1/paper.pdf) · [Complete source](v1/main.tex) · [Proof audit](v1/PROOF_AUDIT.md) · [Exact finite checks](v1/verification/check_exact.py) · [Versioned release](https://github.com/mxym/math/releases/tag/density-overlap-20261007-v1)

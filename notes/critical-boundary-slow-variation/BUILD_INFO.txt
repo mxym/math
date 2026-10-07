@@ -1,0 +1,24 @@
+Build information
+Critical boundary stability with slowly varying density factors
+Supplement to manuscript 008, 7 October 2026
+
+Final source SHA-256:
+68923efde65df299b9de5c6b4b21fa9ec60b1960dc2c97c9af24118899e0d5ad
+Final PDF SHA-256:
+287d391c841cf3e5497813eeeac20919f8d3ece4acf4d85f88131899da3d4e75
+
+PDF: 6 pages, US Letter, 11-point Latin Modern, 0.9-inch margins
+Author field: blank
+Engine: pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
+Packages: fontenc, lmodern, amsmath, amssymb, amsthm, mathtools, microtype,
+geometry, hyperref, cleveref, fancyhdr
+Bibliography: embedded in manuscript.tex, with three pinned references
+
+build.sh runs three pdflatex passes. It was executed in a clean separate
+directory containing only manuscript.tex and build.sh. The rebuilt PDF is
+six pages and its pdftotext -layout output is byte-identical to the final PDF's
+layout text. The final build log is clean.
+
+PDF timestamps and engine metadata can vary on another installation; a
+byte-identical PDF across platforms is not asserted. No network access is
+needed once the ordinary TeX packages are installed.

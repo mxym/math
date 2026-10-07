@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 — critical boundary slow-variation supplement
+
+- Extended 008's critical source-boundary construction to positive C2 slowly varying factors under the stated derivative hypotheses. Proved the sharp implicit modulus at every sufficiently small distance, not merely along a sequence.
+- Proved the logarithmic / iterated-logarithmic / pure one-third hierarchy and a necessary-and-sufficient root-Sobolev criterion within the precise displayed family.
+- Included a counterexample showing why the implicit inverse cannot generally be replaced by the naive power argument. No general source classification or fixed atom-count obstruction is asserted.
+- Added a complete six-page source/PDF bundle, clean rebuild and visual checks, proof-review record and exact changed-file manifest. Original version files are unchanged; no new numbered paper, priority claim or external peer-review claim.
+
 ## 2026-10-07 — manuscript 001 version 5 and supporting audits
 
 - Added exact minimum-density weight and fixed-source Sobolev little-o results; cross-credited the root-density/Fisher criterion shared with 008.

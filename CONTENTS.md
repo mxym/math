@@ -46,3 +46,9 @@ Its Gaussian logarithmic-target-moment threshold is distinct from 008's source-b
 A [six-page supplement](notes/stretched-exponential-sharpness/README.md) proves matching stretched-exponential logarithmic lower bounds for fixed hard-boundary examples. It is a supplement to 001 and 007, not a new numbered paper. The [008 independent audit](reviews/2026-10-07-density-overlap-independent-audit.md) includes expanded exact replays. Historical sources remain unchanged.
 
 See the [source-regularity reconciliation](comparisons/2026-10-07-source-regularity-reconciliation.md) for the overlap among 001 v5, 007 v2 and 008, and the focused earlier boundary-density comparison.
+
+## Critical boundary supplement: slowly varying density factors
+
+The [six-page supplement](notes/critical-boundary-slow-variation/manuscript.pdf), with [complete source](notes/critical-boundary-slow-variation/manuscript.tex) and [scope/build information](notes/critical-boundary-slow-variation/README.txt), extends 008's critical multiscale construction to the specified positive C2 slowly varying factors. It proves a sharp implicit modulus for every sufficiently small target distance and a necessary iterated-logarithm correction at the displayed threshold. Within that exact source family, pure one-third stability is equivalent to the global density-root Sobolev condition; no arbitrary-source necessity claim is made.
+
+The original 008 v1 is unchanged. The supplement explicitly imports its overlap interpolation and global mass-matching mechanism, and the 001 v3 all-P2 potential estimate. It is not a new numbered paper or a priority certification. See the [proof review](reviews/2026-10-07-critical-slow-variation-review.md) and [changed-file manifest](releases/2026-10-07-critical-slow-variation-v1.json).
