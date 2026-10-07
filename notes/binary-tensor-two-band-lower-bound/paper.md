@@ -454,3 +454,257 @@ No numerical optimizer, floating-point sign decision, SAT/SMT assumption,
 or unverified solver result enters the theorem.  The checker is not a
 whole-paper formalization, and no external human peer review or novelty
 certification is claimed.
+
+
+## 7. Optimality within finite palindromic boundary-band witnesses
+
+The two-band choice above is not merely locally convenient.  It is
+asymptotically optimal in a broad class of finite-width boundary
+constructions for which the coordinate axes remain locally maximizing
+projection directions.
+
+Fix \(m\ge2\).  For each sufficiently large \(p>2m+2\), let \(T^{(p)}\)
+be a symmetric binary tensor satisfying
+
+\[
+ t_0=t_p=1,\qquad t_k=t_{p-k}\quad(1\le k\le m),
+ \qquad t_k=0\quad(m<k<p-m),
+\]
+and suppose that for real numbers \(\gamma_1,\ldots,\gamma_m\),
+
+\[
+ t_k=\gamma_k\frac{\sqrt{k!}}{p^{k/2}}
+      +o(p^{-k/2})
+ \qquad(1\le k\le m). \tag{7.1}
+\]
+
+Assume that the coordinate axes are local maximizers of
+
+\[
+ \Phi_p(\theta)=
+ f_{T^{(p)}}(\cos\theta,\sin\theta)^2+
+ f_{T^{(p)}}(-\sin\theta,\cos\theta)^2
+\]
+for all sufficiently large \(p\).  Put
+
+\[
+ S=\sum_{k=1}^m\gamma_k^2,\qquad
+ W=\sum_{k=1}^m k\gamma_k^2,
+\]
+and assume \(W>0\).
+
+**Theorem 5 (finite-band mechanism is sharp).**
+For every such family,
+
+\[
+ \limsup_{p\to\infty}
+ p^{-1/4}\frac{d_p(T^{(p)})}{\sqrt{R_p(T^{(p)})}}
+ \le
+ \sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}=\kappa. \tag{7.2}
+\]
+
+Equality in the profile optimization underlying (7.2) is possible only for
+
+\[
+ \gamma_1^2=1+\sqrt2,\qquad
+ \gamma_2=-1,\qquad
+ \gamma_k=0\quad(k\ge3). \tag{7.3}
+\]
+
+The tensors \(U_p\) of Theorem 1 have precisely this limiting profile and
+attain (7.2).  Thus adding any fixed number of further palindromic boundary
+bands cannot improve the asymptotic constant while staying in this
+axis-locally-maximizing mechanism.
+
+### 7.1 The necessary second-variation constraint
+
+Only \(t_0,t_1,t_2\) and their palindromic partners enter the second
+variation at the coordinate axes.  Write
+
+\[
+ c_1=pt_1,\qquad c_2=\binom p2t_2.
+\]
+
+At \(\theta=0\),
+
+\[
+ \begin{aligned}
+ f(\cos\theta,\sin\theta)
+ &=1+c_1\theta+(c_2-p/2)\theta^2+O(\theta^3),\\
+ f(-\sin\theta,\cos\theta)
+ &=1-c_1\theta+(c_2-p/2)\theta^2+O(\theta^3).
+ \end{aligned}
+\]
+
+Therefore
+
+\[
+ \Phi_p''(0)=4(c_1^2+2c_2-p).
+\]
+
+Local maximality gives
+
+\[
+ p^2t_1^2+p(p-1)t_2\le p.
+\]
+
+Using (7.1) for \(k=1,2\) and passing to the limit yields the necessary
+profile constraint
+
+\[
+ \boxed{\ \gamma_1^2+\sqrt2\,\gamma_2\le1.\ } \tag{7.4}
+\]
+
+The family \(U_p\) saturates the finite-\(p\) second-variation inequality
+exactly.
+
+### 7.2 Norm and Gram asymptotics
+
+The fixed width in (7.1) gives, term by term,
+
+\[
+ \|T^{(p)}\|_F^2=2+2S+o(1). \tag{7.5}
+\]
+
+Because the coordinate axes always give projection energy \(2\), Lemma 3
+implies
+
+\[
+ d_p(T^{(p)})^2\le2S+o(1). \tag{7.6}
+\]
+
+Palindromicity makes the off-diagonal Gram entry vanish exactly: the term
+with index \(k\) cancels the term with index \(p-2-k\).  For the two diagonal
+entries, the fixed-band scaling gives
+
+\[
+ G_{11}=2(1+S)+o(1),\qquad
+ G_{22}=\frac{8W}{p}+o(p^{-1}). \tag{7.7}
+\]
+
+Indeed
+\(\binom{p-2}{k}t_k^2\to\gamma_k^2\), while every cross term
+between \(t_k\) and \(t_{k+2}\) is lower by one power of \(p\); similarly
+
+\[
+ 4\binom{p-2}{k}t_{k+1}^2
+ =\frac{4(k+1)\gamma_{k+1}^2}{p}+o(p^{-1})
+\]
+on each boundary.  Hence Lemma 4 gives
+
+\[
+ R_p(T^{(p)})
+ =\frac{4\sqrt{(1+S)W}}{\sqrt p}+o(p^{-1/2}). \tag{7.8}
+\]
+
+Combining (7.6)--(7.8),
+
+\[
+ \limsup_{p\to\infty}
+ p^{-1/4}\frac{d_p(T^{(p)})}{\sqrt{R_p(T^{(p)})}}
+ \le
+ \left(\frac{S^2}{4(1+S)W}\right)^{1/4}. \tag{7.9}
+\]
+
+It remains to optimize the elementary expression on the right under (7.4).
+
+### 7.3 Exact profile optimization
+
+Set \(s=\sqrt2\) and
+
+\[
+ r=\left(\frac{2+s}{3+s}\right)^2.
+\]
+
+We prove
+
+\[
+ \frac{S^2}{(1+S)W}\le r. \tag{7.10}
+\]
+
+Put
+
+\[
+ a=\gamma_1^2,\qquad x=-\gamma_2,\qquad
+ H=\sum_{k=3}^m\gamma_k^2.
+\]
+
+Then (7.4) says \(a\le1+sx\), and
+
+\[
+ S=a+x^2+H,\qquad
+ W\ge a+2x^2+3H. \tag{7.11}
+\]
+
+For fixed \(x,H\), replace \(W\) by the lower bound in (7.11).  The resulting
+quantity
+\(S^2/((1+S)W)\) is increasing in \(a\): since \(W\ge S\),
+
+\[
+ \frac{\partial}{\partial a}
+ \log\frac{S^2}{(1+S)W}
+ =
+ \frac2S-\frac1{1+S}-\frac1W
+ \ge\frac1{S(1+S)}>0
+\]
+whenever \(S>0\).  Thus it suffices to take \(a=1+sx\).
+
+Define
+
+\[
+ A=1+sx+x^2,\qquad B=1+sx+2x^2
+\]
+and, for \(H\ge0\),
+
+\[
+ D(H)=r(1+A+H)(B+3H)-(A+H)^2.
+\]
+
+At \(H=0\) there is the exact factorization
+
+\[
+ D(0)=
+ \frac{(x-1)^2\big((1+2s)x^2+2x+1+2s\big)}
+      {(3+s)^2}\ge0. \tag{7.12}
+\]
+
+The quadratic in parentheses is positive for every real \(x\), since its
+leading coefficient is positive and its discriminant is
+\(4-4(1+2s)^2<0\).
+
+Moreover,
+
+\[
+ D'(H)=D'(0)+2(3r-1)H,
+\]
+where
+
+\[
+ 3r-1=\frac{5+24s}{49}>0
+\]
+and
+
+\[
+ D'(0)=
+ \frac{2\big(4(1+s)x^2+(4+s)x+10+8s\big)}
+      {(3+s)^2}>0. \tag{7.13}
+\]
+
+The numerator quadratic in (7.13) has positive leading coefficient and
+discriminant \(-398-280s<0\).  Consequently \(D(H)\ge D(0)\ge0\) for every
+\(H\ge0\), proving (7.10).
+
+Equality forces \(H=0\), then \(x=1\) in (7.12), and saturation
+\(a=1+sx\).  This is exactly (7.3).  Finally, (7.9)--(7.10) give
+
+\[
+ \left(\frac{r}{4}\right)^{1/4}
+ =
+ \sqrt{\frac{2+s}{2(3+s)}}=\kappa,
+\]
+proving Theorem 5.
+
+This optimality theorem is deliberately scoped to fixed-width palindromic
+boundary profiles with axis local maximality.  It does not exclude
+improvements from bands whose width grows with \(p\), non-palindromic
+families, or extremizers with genuinely nonlocal maximizing bases.
