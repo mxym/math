@@ -2,7 +2,7 @@
 
 **Version 2 — complete written proofs and replayable exact certificates, 7 October 2026.**
 
-Read the [manuscript](paper.md), [proof audit](PROOF_AUDIT.md), and [post-disclosure literature and direction assessment](RESEARCH_LOG.md). The previous [v1.1](../v1.1/) remains unchanged: its optimizer is restricted to products of simplices. This version moves beyond that class rather than revising its correct conclusions.
+Read the [manuscript](paper.md), [proof audit](PROOF_AUDIT.md), [asymptotic spectral reduction](ASYMPTOTIC_SPECTRAL_REDUCTION.md), and [post-disclosure literature and direction assessment](RESEARCH_LOG.md). The previous [v1.1](../v1.1/) remains unchanged: its optimizer is restricted to products of simplices. This version moves beyond that class rather than revising its correct conclusions.
 
 ## Main results
 
