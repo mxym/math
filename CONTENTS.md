@@ -165,3 +165,7 @@ The [Fock-profile ceiling continuation](notes/fock-profile-ceiling-binary-tensor
 ## Rank-six Ryser: necessary nineteen-edge bound
 
 [Nineteen-edge theorem](research/ryser-rank-six/NINETEEN_EDGE_BOUND.md): every intersecting six-partite six-uniform hypergraph with at most eighteen distinct edges has tau<=5; the vertex widths are unrestricted. [PDF](research/ryser-rank-six/nineteen-edge-bound.pdf), exact full degree-pattern replay, a separate integer certificate and three partial Lean exports are supplied. The [search programme](research/ryser-rank-six/README.md) continues at nineteen edges with structural reductions. No unrestricted Ryser solution, general q(6)>=19 statement or priority claim is made.
+
+## Partite intersecting cover-number lower bounds
+
+The [all-rank partite cover note](notes/partite-cover-number-lower-bound/README.md) proves m >= 5 tau(H) - 7r/4 - 5 for every finite simple intersecting r-partite r-uniform hypergraph, r >= 2. Thus the minimum edge count under tau >= r-1 satisfies f(r) >= ceil(13r/4 - 10). The six-page complete proof includes the explicitly attributed Sivashankar degree-three lemma and a separate independent elementary branch with coefficient 511/160. Exact checkers and nine partial Lean scalar exports are supplied. This is stronger than the directly applicable 293/96 coefficient in the literature checked; no priority, full Lean formalization or resolution of Ryser's conjecture is claimed.
