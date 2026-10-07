@@ -92,12 +92,16 @@ conjecture or award-level breakthrough is claimed.
 ## Two-band lower-bound strengthening
 
 The additive [two-band companion](../binary-tensor-two-band-lower-bound/README.md)
-raises the rigorous asymptotic lower constant from \(2^{-3/4}\) to
+gives the exact-family asymptotic constant
 \[
-\sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}=0.6218758237\ldots .
+\sqrt{\frac{2+\sqrt2}{2(3+\sqrt2)}}=0.6218758237\ldots ,
 \]
-For every \(p\ge10\) it gives an explicit tensor with an exact projection
-maximum and exact complete-commutator Gram residual.  The proof is analytic
-and the standard-library Q(sqrt(2)) replay is diagnostic.  The exact leading
-constant, convergence of \(C_p/p^{1/4}\), and all-order extremizers remain
-open.
+strictly above the original \(2^{-3/4}\) family. For every \(p\ge10\) it
+gives an explicit tensor with an exact projection maximum and exact
+complete-commutator Gram residual. The proof is analytic and the
+standard-library Q(sqrt(2)) replay is diagnostic. The subsequent
+[boundary-profile continuation](../boundary-profile-binary-tensor-rigidity/README.md)
+raises the current rigorous liminf lower bound above 0.623586 while
+containing this two-band construction at the asymptotic profile level. The
+exact leading constant, convergence of \(C_p/p^{1/4}\), and all-order
+extremizers remain open.
