@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 — mixed Bellman ceiling and simplex-truncation obstruction
+
+- Added the 11-page mixed Bellman proof, exact finite and infinite-tail certificates, portable verification, dependency map and editable source archive. The claim Gamma_C <= exp(1049/1000) < 2.855 is restricted to finite point-generated product/join expressions and affine isomorphisms on affine hulls; rank-dropping maps are excluded.
+- Added the actual separate independent Bellman checker, full historical audit and unchanged exact evidence. The public replay freshly checks all finite rectangles, tail intervals and elementary constants in both Python modes; other copied control reports are explicitly historical evidence.
+- Added the eight-page exact simplex-truncation proof and 33-file package. It establishes an exponent ceiling 1/(d-1) and necessary endpoint constants, not a universal endpoint upper estimate. It does not depend on the separate inverse-Minkowski positive extension.
+- Added narrow catalogue and verification navigation plus a changed-file release manifest. Numbered manuscript versions, Lean files and unrelated supplements remain byte- and mode-identical. No priority, external peer-review, formalization or optimal-universal-bound claim is made.
+
 ## 2026-10-07 — 002 v4 Gaussian F8 period optimality
 
 - Proved that every successful finite principal-ideal periodic sieve for the Gaussian eight-neighbor step graph has common scalar period at least 130; the version-3 five-generator period-130 sieve attains equality.

@@ -1,0 +1,555 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,xurl,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,
+ pdftitle={An exact exponent obstruction for lower-end projection-cone simplex stability},
+ pdfauthor={Research supplement to entry005}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\BM}{d_{\mathrm{BM}}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\ee}{\mathfrak e}
+\title{An exact exponent obstruction for lower-end projection-cone simplex stability}
+\author{Research supplement to entry005; AI-assisted research note}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Outcome.} In every fixed dimension $d\ge3$, any power estimate for
+the lower-end defect of entry005, whether in Banach--Mazur distance to any simplex
+or in centroid containment by every maximum-volume inscribed simplex, must have
+exponent at most $1/(d-1)$. The example also gives an exact lower bound on the
+constant in the latter estimate at this exponent. This is a necessary limit,
+not a claim that the endpoint exponent has been proved for arbitrary bodies.
+The existing explicit power theorem in the quantitative supplement is not reproved here.
+
+\section{Conventions and public-source scope}
+
+For a full-dimensional convex body in $\mathbb R^d$, use exactly the public
+entry005 convention
+\[
+ R(K)=\frac{|\Pi K|}{|K|^{d-1}},\qquad
+ a(K)=\left(\frac d{d+1}\right)^d\frac{R(\mathcal P K)}{R(K)}-1,
+ \qquad \ee(K)=a(K)-\frac1{d+1}.
+\]
+Here $\mathcal P K$ is a pyramid over $K$ and $\Pi K$ is its projection body.
+The definition and the determinant formula below were read in public v3;
+v4 preserves the definition. The latest public v5 at commit
+\nolinkurl{31e3d8a37e4a3051a7f5a2535be1c75642e15bcc} concerns balanced
+product/join recursions and does not replace the lower-end definition or add
+a quantitative lower-end theorem within that versioned package.
+
+The additive quantitative supplement is available publicly
+at commit \nolinkurl{6785c1c830f8e19e2eb07b0bb89f4d475a8b154a}.
+Its source defines $a$ and $E$ exactly as above and proves the
+every-maximum-simplex bound with exponent
+$1/[d(d^2+2d+2)]$. Its stated inputs are the v2--v3 invariant identities
+and classical Cauchy and mixed-volume formulas; its manifest pins the
+audited dependency commit
+\nolinkurl{dd969ea280508a15995fbe83a80cac0f6d227f73}.
+This note does not repeat that quantitative proof.
+
+For a simplex $S\subset K$ with centroid $g_S$, define the \emph{excess}
+centroid dilation by
+\[
+ E(K,S)=\inf\{\epsilon\ge0:K\subset g_S+(1+\epsilon)(S-g_S)\}.
+\]
+Thus the dilation factor itself is $1+E$. Write $M(K)$ for the maximum volume
+of an inscribed $d$-simplex. For any fixed reference simplex $\Delta_d$, the
+usual affine Banach--Mazur distance to its affine class can equivalently be
+written
+\[
+ \BM(K,\Delta_d)=\inf\{\lambda\ge1:
+ S\subset K\subset v+\lambda S,
+ \ S\text{ a full-dimensional simplex},\ v\in\mathbb R^d\}.
+ \tag{1}
+\]
+The free translation in (1) and optimization over all $S$ are important.
+They are both absent from the prescribed-centroid, prescribed-maximum-simplex
+quantity $E$.
+
+For a polytope with facet area times outward unit normal $u_i$ and facet area
+times support number $b_i$, public v3 gives
+\[
+ a(K)=\frac{\displaystyle\sum_{|I|=d+1}
+       |\det((u_i,b_i):i\in I)|}
+ {d|K|\displaystyle\sum_{|J|=d}|\det(u_j:j\in J)|}.
+ \tag{2}
+\]
+It is legitimate to use (2) before translating an interior point to zero:
+a translation by $z$ replaces $b_i$ by $b_i-u_i\cdot z$, an elementary row
+operation in every lifted determinant. No nonpositive $b_i$ is used as a
+probability weight in this note.
+
+\section{The obstruction family and its complete calculation}
+
+Let $e_1,\ldots,e_d$ be the coordinate vectors and, for $0<t<1$, set
+\[
+ K_t=\{x\in\mathbb R^d:x_i\ge0,\ t\le x_1+\cdots+x_d\le1\}
+     =\conv\{e_1,\ldots,e_d,te_1,\ldots,te_d\}.
+ \tag{3}
+\]
+This is a standard simplex with a homothetic cap cut from one vertex.
+
+\begin{theorem}\label{thm:exact}
+For every integer $d\ge2$ and $0<t<1$, the following assertions hold.
+
+\medskip\noindent
+\textup{(i)} With $q=t^{d-1}$, the invariant is exactly
+\[
+ a(K_t)=
+ \frac{1+(d-1)q-(d-1)t^d-qt^d}
+ {(1-t^d)(d+1+(d-1)q)},
+ \tag{4}
+\]
+and consequently
+\[
+ \ee(K_t)=
+ \frac{t^{d-1}\bigl[d(d-1)-(d+1)(d-2)t-2t^d\bigr]}
+ {(d+1)(1-t^d)(d+1+(d-1)t^{d-1})}.
+ \tag{5}
+\]
+In particular,
+\[
+ \lim_{t\downarrow0}\frac{\ee(K_t)}{t^{d-1}}
+   =c_d:=\frac{d(d-1)}{(d+1)^2}>0.
+ \tag{6}
+\]
+
+\medskip\noindent
+\textup{(ii)} The maximum simplex volume is
+\[
+ M(K_t)=\frac{1-t}{d!}.
+ \tag{7}
+\]
+Every maximum-volume inscribed simplex, including those with vertices in the
+relative interiors of faces, has the form
+\[
+ S_p=\conv\{e_1,\ldots,e_d,tp\},\qquad
+ p_i\ge0,\quad\sum_{i=1}^d p_i=1.
+ \tag{8}
+\]
+For each such simplex,
+\[
+ E(K_t,S_p)=(d+1)t\max_i p_i.
+ \tag{9}
+\]
+Thus
+\[
+ \inf_{S\text{ maximum}}E(K_t,S)=\frac{d+1}{d}t,
+ \qquad
+ \sup_{S\text{ maximum}}E(K_t,S)=(d+1)t.
+ \tag{10}
+\]
+
+\medskip\noindent
+\textup{(iii)} The distance to any simplex satisfies
+\[
+ \left(1+t+\cdots+t^{d-1}\right)^{1/d}
+ \le \BM(K_t,\Delta_d)\le 1+t.
+ \tag{11}
+\]
+In fact, for every fixed maximum simplex $S_p$, its smallest enclosing
+\emph{translated} homothet has factor exactly $1+t$.
+In particular, for $0<t<1$,
+\[
+ \frac{t}{2d}\le \BM(K_t,\Delta_d)-1\le t,
+ \qquad
+ \liminf_{t\downarrow0}\frac{\BM(K_t,\Delta_d)-1}{t}\ge\frac1d.
+ \tag{12}
+\]
+
+\medskip\noindent
+\textup{(iv)} The Minkowski asymmetry is exactly
+\[
+ s(K_t):=\inf\{r\ge1:\exists z,
+              -(K_t-z)\subset r(K_t-z)\}=d-t.
+ \tag{13}
+\]
+\end{theorem}
+
+\begin{proof}
+We prove each assertion directly.
+
+\medskip\noindent\textbf{Facet determinants.}
+Put $c=1/(d-1)!$ and $r=1-q$. The $d$ coordinate facets have area
+$c(1-t^{d-1})$. The top and bottom facets have areas $c\sqrt d$ and
+$c\sqrt d\,t^{d-1}$, respectively. The facet data in the coordinates (3) are
+therefore
+\[
+ (u_i,b_i)=(-cr e_i,0)\quad(1\le i\le d),\qquad
+ (u_+,b_+)=(c\mathbf1,c),\qquad
+ (u_-,b_-)=(-cq\mathbf1,-ct^d).
+ \tag{14}
+\]
+The volume is $|K_t|=(1-t^d)/d!$, so $d|K_t|=c(1-t^d)$.
+
+For horizontal $d$-minors, the all-coordinate subset contributes $c^d r^d$;
+the $d$ subsets with the top facet contribute $c^d r^{d-1}$ each; and the
+$d$ subsets with the bottom facet contribute $c^d q r^{d-1}$ each.
+Subsets with both top and bottom have determinant zero because their normals
+are parallel. Hence the horizontal sum is
+\[
+ H=c^d r^{d-1}\bigl[d+1+(d-1)q\bigr].
+ \tag{15}
+\]
+For the lifted $(d+1)$-minors, the subset containing all coordinate facets
+and the top facet contributes $c^{d+1}r^d$. Replacing the top facet by the
+bottom facet gives $c^{d+1}r^dt^d$. Each of the $d$ subsets with top, bottom and $d-1$
+coordinate facets contributes
+$c^{d+1}r^{d-1}(q-t^d)$; here $q-t^d=q(1-t)>0$.
+Thus the lifted sum is
+\[
+ L=c^{d+1}r^{d-1}
+   \bigl[1+(d-1)q-(d-1)t^d-qt^d\bigr].
+ \tag{16}
+\]
+Dividing $L$ by $d|K_t|H$ gives (4); subtracting $1/(d+1)$ gives (5).
+The bracket in (5) decreases strictly to zero as $t\uparrow1$, so the defect
+is positive. Dividing (5) by $t^{d-1}$ and passing to $t=0$ proves the exact
+limit (6), without any numerical fitting.
+
+\medskip\noindent\textbf{Maximum simplices, including nonvertex ones.}
+First consider a simplex selected from the $2d$ vertices in (3). If a ray
+$\mathbb R_+e_i$ is unrepresented, the simplex lies in the coordinate
+hyperplane $x_i=0$ and has zero volume. Otherwise $d+1$ distinct vertices
+on $d$ rays give exactly one doubled ray, with vertices $e_j,te_j$, and one
+vertex on every other ray. Subtract the two doubled columns in the lifted
+vertex determinant. If $k$ of the other $d-1$ selected vertices are bottom
+vertices, its absolute determinant is
+\[
+ (1-t)t^k.
+ \tag{17}
+\]
+The largest value is $1-t$, attained precisely by all $d$ top vertices and
+one bottom vertex. Repeated vertices give determinant zero.
+
+Now let $z_0,\ldots,z_d$ be arbitrary vertices of an inscribed simplex.
+Represent each $z_j$ as a convex combination of the $2d$ vertices, and
+independently sample a vertex $Y_j$ from that combination. Multiaffinity of
+the lifted determinant $D$ gives
+\[
+ |D(z_0,\ldots,z_d)|
+ =|\mathbb E D(Y_0,\ldots,Y_d)|
+ \le\mathbb E|D(Y_0,\ldots,Y_d)|\le1-t.
+ \tag{18}
+\]
+This proves the upper bound (7), already attained by the preceding examples.
+If the simplex is maximum, equality in (18) implies that
+$|D(Y_0,\ldots,Y_d)|=1-t$ almost surely. By (17), exactly one of the $Y_j$
+is a bottom vertex and the other $d$ are the $d$ distinct top vertices,
+almost surely.
+
+Let $I_j$ be the indicator that $Y_j$ is a bottom vertex. Independence and
+$\sum_j I_j=1$ almost surely imply
+\[
+ 0=\operatorname{Var}\Bigl(\sum_j I_j\Bigr)
+  =\sum_j \mathbb P(I_j=1)\bigl[1-\mathbb P(I_j=1)\bigr].
+\]
+Thus every slot has deterministic top/bottom type, with precisely one bottom
+slot. The supports of the $d$ top slots must be pairwise disjoint; otherwise
+independent sampling gives a repeated top vertex with positive probability.
+There are $d$ nonempty disjoint supports in a set of $d$ top vertices, so
+each is a singleton. The bottom slot is any convex combination $tp$.
+This proves (8). Conversely, the height above the hyperplane
+$\sum x_i=1$ of any point $tp$ is fixed, so every simplex (8) has volume
+$(1-t)/d!$.
+
+\medskip\noindent\textbf{Centroid containment.}
+Write $s_x=\sum_i x_i$. Barycentric coordinates for $S_p$, with index $0$
+for $tp$, are
+\[
+ \beta_0(x)=\frac{1-s_x}{1-t},\qquad
+ \beta_i(x)=x_i-tp_i\beta_0(x)\quad(1\le i\le d).
+ \tag{19}
+\]
+Evaluation at the $2d$ vertices of $K_t$ shows
+\[
+ \min_{K_t}\beta_0=0,\qquad \min_{K_t}\beta_i=-tp_i.
+ \tag{20}
+\]
+For the latter minimum, use $te_j$ with $j\ne i$, available since $d\ge2$.
+Affine functions attain their extrema on these vertices.
+The centroid-dilated simplex $g_{S_p}+(1+\epsilon)(S_p-g_{S_p})$
+is exactly the region $\beta_i\ge-\epsilon/(d+1)$ for every
+$0\le i\le d$. Equations (20) give (9), and optimizing $\max_i p_i$
+on the probability simplex gives (10).
+
+\medskip\noindent\textbf{Translated containment and distance to any simplex.}
+For barycentric coordinates of any simplex $S$, a translated homothet
+$v+\lambda S$ has inequalities $\beta_i\ge a_i$ with
+$\sum_i a_i=1-\lambda$. Conversely any such thresholds describe a
+translated homothet. To contain $K$, one needs
+$a_i\le\min_K\beta_i$ for each $i$, so
+\[
+ \lambda\ge1-\sum_i\min_K\beta_i.
+ \tag{21}
+\]
+Choosing all thresholds equal to their minima realizes equality whenever
+$S\subset K$. For (20), the sum is $-t$, giving factor exactly $1+t$.
+Concretely,
+\[
+ K_t\subset -tp+(1+t)S_p.
+ \tag{22}
+\]
+This proves the upper bound in (11) under the full freedom in (1).
+
+For the lower bound, any simplex $S\subset K_t$ has $|S|\le M(K_t)$.
+If $K_t\subset v+\lambda S$, volume monotonicity and (7) imply
+\[
+ \lambda^d\ge\frac{|K_t|}{|S|}
+ \ge\frac{|K_t|}{M(K_t)}
+ =\frac{1-t^d}{1-t}=1+t+\cdots+t^{d-1}.
+ \tag{23}
+\]
+Taking the infimum proves the lower bound in (11). Furthermore
+\[
+ (1+t)^{1/d}-1
+ =\frac1d\int_0^t(1+u)^{-(d-1)/d}\,du
+ \ge\frac{t}{d\,2^{(d-1)/d}}\ge\frac{t}{2d}.
+\]
+Finally the derivative at zero of
+$(1+t+\cdots+t^{d-1})^{1/d}$ is $1/d$, proving (12).
+This lower bound concerns \emph{all} simplices, not only maximum simplices.
+We do not assert an exact formula for the unrestricted distance in (11).
+
+\medskip\noindent\textbf{Minkowski asymmetry.}
+The containment in (13) is equivalent to
+$-K_t+(r+1)z\subset rK_t$. Writing $Z=\sum_i z_i$, its necessary and
+sufficient facet inequalities are
+\[
+ (r+1)z_i\ge1\quad(1\le i\le d),\qquad
+ 1+rt\le(r+1)Z\le r+t.
+ \tag{24}
+\]
+Summing the coordinate inequalities and using the last upper bound gives
+$r\ge d-t$. This value is attainable: take
+$z_i=1/(d+1-t)$. The bottom inequality follows from
+\[
+ d-1-(d-t)t=(1-t)(d-1-t)\ge0.
+\]
+All other inequalities in (24) are equalities. This proves (13).
+\end{proof}
+
+\section{Universal implications and necessary constants}
+
+\begin{corollary}\label{cor:power}
+Fix $d\ge3$. A power estimate valid for every full-dimensional body of
+dimension $d$, even restricted to a sufficiently small lower-end defect,
+can have exponent $\alpha$ only if $\alpha\le1/(d-1)$, for each of:
+\[
+ \BM(K,\Delta_d)-1\le C_d\ee(K)^\alpha;
+ \tag{25}
+\]
+\[
+ \inf_{S\text{ maximum}}E(K,S)\le C_d\ee(K)^\alpha;
+ \tag{26}
+\]
+\[
+ E(K,S)\le G_d\ee(K)^\alpha
+ \quad\text{for every maximum-volume inscribed simplex }S.
+ \tag{27}
+\]
+At the critical exponent $1/(d-1)$, any constant in (27) must satisfy
+\[
+ G_d\ge(d+1)\left(\frac{(d+1)^2}{d(d-1)}\right)^{1/(d-1)}>d+1.
+ \tag{28}
+\]
+Any constant in (26) must be at least $1/d$ times the right-hand side of
+(28), and any constant in (25) must be at least
+\[
+ \frac1d\left(\frac{(d+1)^2}{d(d-1)}\right)^{1/(d-1)}.
+ \tag{29}
+\]
+These are necessary constants, not claimed optimal universal constants.
+In particular a dimension-independent constant is impossible in (27)
+at the critical exponent.
+\end{corollary}
+
+\begin{proof}
+Equations (6), (10), and (12) give a positive constant times $t$ on the
+left of each estimate and a constant times $t^{(d-1)\alpha}$ on its right.
+If $(d-1)\alpha>1$, division by $t$ and passage to $t\downarrow0$ is a
+contradiction. At equality of exponents, take $p=e_1$ in (9) for (28),
+$p_i=1/d$ for (26), and the lower-limit bound in (12) for (29).
+\end{proof}
+
+Combining the released upper estimate with Corollary \ref{cor:power} places
+the supremum of admissible powers, for either the every-maximum-simplex
+quantity or the unrestricted simplex Banach--Mazur distance, in the interval
+\[
+ \frac1{d(d^2+2d+2)}\ \le\ \alpha_d^*\ \le\ \frac1{d-1}.
+ \tag{29a}
+\]
+For $d=3$ this is $1/51\le\alpha_3^*\le1/2$. The gap between these
+two endpoints remains unresolved here.
+
+\noindent\textbf{The tetrahedral case.}
+For $d=3$, cancellation of $1-t$ in (5) gives the especially simple formula
+\[
+ \boxed{\ee(K_t)=
+ \frac{t^2(t^2+t+3)}{4(1+t+t^2)(2+t^2)},\qquad
+ \lim_{t\downarrow0}\frac{\ee(K_t)}{t^2}=\frac38.}
+ \tag{30}
+\]
+Every maximum tetrahedron is $S_p=\conv\{e_1,e_2,e_3,tp\}$ and has
+$E=4t\max p_i$. Thus no exponent greater than $1/2$ is possible;
+at exponent $1/2$ the every-maximum-tetrahedron constant is at least
+$4\sqrt{8/3}$, and the best-maximum-tetrahedron constant is at least
+$(4/3)\sqrt{8/3}$.
+
+\section{A precise obstruction to a direct Rogers--Shephard bridge}
+
+\begin{proposition}\label{prop:rs}
+For the same family in dimension three, put
+\[
+ \delta_{\rm RS}(K)=1-\frac{|K-K|}{20|K|}.
+\]
+Then
+\[
+ |K_t-K_t|=\frac{10-3t-6t^2-t^3}{3},\qquad
+ \delta_{\rm RS}(K_t)=\frac{3t(1+3t)}{10(1+t+t^2)}.
+ \tag{31}
+\]
+In particular,
+\[
+ \lim_{t\downarrow0}\frac{\delta_{\rm RS}(K_t)}t=\frac3{10},
+ \qquad 3-s(K_t)=t.
+ \tag{32}
+\]
+Neither $\delta_{\rm RS}(K)\le C\ee(K)$ nor
+$3-s(K)\le C\ee(K)$ can hold uniformly near the lower endpoint.
+More generally either of these two bridges with $\ee^\beta$ requires
+$\beta\le1/2$.
+\end{proposition}
+
+\begin{proof}
+For $x\in\mathbb R^3$, let $P=\sum_i(x_i)_+$ and $N=\sum_i(-x_i)_+$.
+Every representation $x=a-b$ with $a,b\ge0$ has
+$a=x_++w$, $b=x_-+w$ for some $w\ge0$.
+Writing $W=\sum_i w_i$, membership $a,b\in K_t$ is equivalent to
+\[
+ \max(0,t-\min(P,N))\le W\le1-\max(P,N).
+\]
+Hence
+\[
+ K_t-K_t=\{P\le1,\ N\le1,\ |P-N|\le1-t\}.
+ \tag{33}
+\]
+The difference body of the uncut simplex is $\{P\le1,N\le1\}$.
+Its two pure-sign orthants each have volume $1/6$, and each of the six
+mixed orthants has volume $1/2$. Its total volume is therefore $10/3$.
+The two caps $P-N>1-t$ and $N-P>1-t$ are disjoint and have equal volumes.
+
+For the first cap, the all-positive orthant contributes
+$[1-(1-t)^3]/6$. Each of the three orthants with two positive coordinates
+and one negative coordinate contributes
+\[
+ \int_{1-t}^1 P(P-1+t)\,dP=
+ \frac{(1-t)t^2}{2}+\frac{t^3}{3}.
+\]
+Each of the three orthants with one positive coordinate and two negative
+coordinates contributes
+\[
+ \frac12\int_{1-t}^1(P-1+t)^2\,dP=\frac{t^3}{6}.
+\]
+These integrals follow by summing the nonnegative coordinates: two such
+coordinates have slice density equal to their sum.
+The cap volume is consequently $t/2+t^2+t^3/6$. Subtracting twice this
+from $10/3$ gives the first formula in (31). Substitute
+$|K_t|=(1-t^3)/6$ and cancel $1-t$ to obtain the second.
+Equations (30), (32), and (13) prove the bridge obstructions by taking
+$t\downarrow0$.
+\end{proof}
+
+\section{Literature check, limitations, and verification}
+
+\noindent\textbf{Rogers--Shephard and Zhang.}
+B\"or\"oczky's 2005 paper proves linear Banach--Mazur stability for the
+normalized Rogers--Shephard deficit, and a power $1/d$ estimate for the
+polar projection (Zhang) deficit. Its Example 19 already uses truncation at
+all simplex vertices and gives an obstruction beyond $1/(d-1)$ for that
+different invariant. Truncation as a sharpness method is therefore prior
+work. Equations (4)--(10) calculate the entry005 invariant and all its
+maximum-simplex centroid distances specifically. Proposition \ref{prop:rs} shows why
+the linear Rogers--Shephard result alone cannot give a linear bound in
+$\ee$ in dimension three.
+
+\medskip\noindent\textbf{Random simplices.}
+Ambrus--B\"or\"oczky's random-simplex stability paper studies uniform
+interior sampling; its stability theorem for the simplex as a maximizer is planar.
+Entry005 instead uses determinants for the centered cone-volume law on
+the polar boundary. No identity transporting the relevant defects between
+these sampling models has been established here. The cited theorem is
+therefore not a quantitative solution for this invariant in $d\ge3$.
+
+\medskip\noindent\textbf{Inverse Minkowski.}
+B\"or\"oczky--Machado--Ramos, arXiv:2603.17726v3, prove the sharp
+Hausdorff exponent $1/(d-1)$ for inverse Minkowski stability in the
+dual-convex distance of suitably dispersed normalized surface-area measures.
+This is a plausible conversion step once closeness to a simplex measure
+has been proved. It does not itself supply a bound on that measure distance
+from the scalar gap $\ee$. This missing implication remains a separate
+obligation, and no unconditional improved exponent is asserted from it.
+
+\medskip\noindent\textbf{Minkowski asymmetry.}
+Brandenberg, Gonz\'alez Merino, and Grundbacher (arXiv:2607.27041v2)
+prove dimension-independent linear-order simplex approximation when
+$d-s(K)$ is small. Equation (13) identifies that parameter exactly in
+our family; (6) shows that a linear control of it by $\ee$ is impossible
+in $d\ge3$. Thus this useful geometric theorem also requires a root-type
+bridge in the present invariant.
+
+\medskip\noindent\textbf{What is and is not proved.}
+The exponent ceiling, exact invariant, maximum-simplex classification,
+centroid excesses, translated excesses for those simplices, asymmetry,
+and (31) are proved above. The general upper bound with exponent
+$1/(d-1)$, the exact unrestricted distance in (11), and optimal universal
+constants are not proved. No first-discovery or best-known claim is made.
+The exact obstruction is compatible with the quantitative supplement's much smaller
+positive exponent.
+
+\medskip\noindent\textbf{Exact supporting computation.}
+The accompanying standard-library script \texttt{check\_exact.py} uses
+\texttt{fractions.Fraction} throughout. It checks facet determinants,
+all vertex-subset simplex volumes, barycentric containment for several
+different maximum simplices, and the dimension-three difference-body
+volume by independently enumerating supporting facets and triangulating
+them with rational arithmetic. These are finite regressions; the
+all-dimensional statements and asymptotic conclusions rest on the written
+proof, not on those computations. Errors are raised explicitly, so checks
+remain active under \texttt{python3 -O}.
+
+\begin{thebibliography}{9}
+\bibitem{entry}
+mxym, entry005, public versions 3--5, pinned commit
+\nolinkurl{31e3d8a37e4a3051a7f5a2535be1c75642e15bcc}.
+\url{https://github.com/mxym/math/tree/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum}.
+\bibitem{supplement}
+mxym, \emph{Effective simplex rigidity for the projection cone invariant},
+additive supplement to entry005, public source at commit
+\nolinkurl{6785c1c830f8e19e2eb07b0bb89f4d475a8b154a}.
+\url{https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/notes/quantitative-projection-simplex-stability/paper.md}.
+\bibitem{rs}
+K. B\"or\"oczky, Jr., \emph{The stability of the Rogers--Shephard inequality
+and of some related inequalities}, Advances in Mathematics 190 (2005),
+47--76. Author-hosted manuscript:
+\url{https://www.renyi.hu/~carlos/rogerstab.pdf}.
+\bibitem{random}
+G. Ambrus and K. J. B\"or\"oczky, \emph{Stability results for the volume
+of random simplices}, American Journal of Mathematics 136 (2014), 833--857.
+\url{https://arxiv.org/abs/1005.5024}.
+\bibitem{minkowski}
+K. B\"or\"oczky, J. M. Machado and J. P. G. Ramos,
+\emph{Quantitative Stability for Minkowski's problem}, arXiv:2603.17726v3,
+13 May 2026. \url{https://arxiv.org/abs/2603.17726v3}.
+\bibitem{asymmetry}
+R. Brandenberg, B. Gonz\'alez Merino and F. Grundbacher,
+\emph{Tight Stability Estimates Near the Simplex and Applications for
+the Banach--Mazur Distance and Rogers--Shephard-Type Inequalities},
+arXiv:2607.27041v2, 14 September 2026.
+\url{https://arxiv.org/abs/2607.27041v2}.
+\end{thebibliography}
+\end{document}
