@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — unified traditional avoidance manuscript, revision 2
+
+- Published the exact reviewed 14-page PDF and TeX with the complete traditional proof, compact/geometric corollaries, source correspondence, and preserved missing-hypothesis correction history. The frozen 30-file public package preserves all 17 original revision-2 source members without editing the mathematics or assigning authorship.
+- Verified all 12 external formalization/evidence links at the actual prepublication base. Bound the complete 184-file geometric and 278-file continuum formalizations to that remote tree. Both normal and optimized integration runs passed all public checks, the 65-module/759-declaration/20-step/57-declaration source comparisons, and isolated three-pass PDF rebuilds with exact extracted-text equality. No new Lean build or kernel replay is claimed by these manuscript checks.
+- Added adjacent public packaging-review and integration records, a frozen archive, and a [release manifest](releases/2026-10-08-unified-avoidance-revision2.json). Retained all prior repository files and releases. Independent model review does not certify novelty or constitute external human peer review; the author field remains blank and no new blanket license or CI workflow is added.
+
 ## 2026-10-07 — continuum-power remainder avoidance in Lean
 
 - Added the frozen 278-file stronger source package, retaining all 110 project Lean files without changes. Its closed endpoint proves prescribed-family continuum-power avoidance with eventual power-controlled remainders and infinitely many distinct escaping outputs in every positive tail, together with the compact corollary.

@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "scope": "Independent local public-manuscript packaging review; not another mathematical audit, Lean build, kernel replay, legal clearance, or remote-publication verification.",
+  "date": "2026-10-07",
+  "package": "continuum-power-avoidance-unified",
+  "remaining_packaging_blockers": [],
+  "checked_snapshot": {
+    "checker_sha256": "b23bc9c04cc325d6d969e219c9b2536502adc48c55291d8aebc942e4c1d10acc",
+    "manifest_sha256": "123a35b05bc84b73cc778fd4f870a4c14fd1cf67155848f3e1728e95342e0bab",
+    "sha256sums_sha256": "70c025455888cb309f9e6416c3542022338afd162a51bf581d71006f1e945c33",
+    "manifest_payload_entries": 28,
+    "total_regular_files": 30
+  },
+  "preservation": {
+    "unchanged_revision2_members_compared": 17,
+    "original_manifest_byte_identical": true,
+    "original_report_hashes_verified": 3,
+    "review_derivative_edits_match_disclosure": true,
+    "mathematical_source_modified_by_reviewer": false,
+    "package_modified_by_reviewer": false
+  },
+  "independent_executions": {
+    "standalone_normal": "PASS",
+    "standalone_optimized": "PASS",
+    "explicit_local_formal_sources_normal": "PASS",
+    "explicit_local_formal_sources_optimized": "PASS",
+    "source_modules": 65,
+    "source_visible_declaration_locations": 759,
+    "mapped_declarations": 57,
+    "mapped_paper_steps": 20,
+    "reused_geometric_modules": 45,
+    "frozen_continuum_modules": 18
+  },
+  "corruption_controls": {
+    "cases": 15,
+    "modes_per_case": 2,
+    "expected_results_observed": 30,
+    "negative_cases_per_mode": 14,
+    "includes_resigned_source_anchor_failure": true,
+    "artifact": "independent-corruption-controls.json",
+    "snapshot_note": "Controls ran on the earlier 27-payload-entry snapshot. The final 28-entry snapshot adds a reproduction record and documentation, and has the identical checker. The original control outputs are retained unchanged apart from temporary-path redaction; final 28-entry checks were separately rerun in both modes."
+  },
+  "privacy": {
+    "known_removed_delivery_identifiers_found": 0,
+    "text_scan_private_paths_or_credentials_found": 0,
+    "pdf_author_fields_blank": true,
+    "retained_current_and_baseline_pdfs_pages": [
+      14,
+      14
+    ],
+    "current_pdf_embedded_files": 0,
+    "limitation": "Targeted content and metadata inspection, not an exhaustive secret-detection guarantee."
+  },
+  "external_links": {
+    "local_targets_verified": 12,
+    "checked_against_supplied_separate_formalization_roots": true,
+    "resolve_with_intended_repository_layout": true,
+    "resolve_in_isolated_manuscript_stage": false,
+    "remote_presence": "NOT_VERIFIED"
+  },
+  "offline_behavior": {
+    "standalone_dependencies": [
+      "Python 3 standard library",
+      "GNU patch"
+    ],
+    "private_services_required": false,
+    "network_calls_in_checker": false,
+    "pdf_rebuild_optional": true,
+    "pdf_rebuild_shell_escape": false,
+    "format_bootstrap_reads_installed_standard_tex_files_only": true,
+    "format_font_map_and_cache_outputs_confined_to_temporary_build": true
+  },
+  "pdf_build_evidence": {
+    "independently_repeated_by_packaging_reviewer": false,
+    "packager_report_inspected": [
+      "normal-full.json",
+      "optimized-full.json"
+    ],
+    "reported_status": "PASS",
+    "reported_text_sha256": "ba9167b9a458b40394d99af196983e7f4e44f15082c59006ef8523ad16572e77",
+    "note": "The packager executed the optional full PDF rebuild; this review inspected the implementation and report and did not duplicate that build.",
+    "reported_builds": 2
+  },
+  "publication_gate": "Re-run the sealed inventory checks after adding any final reproduction note or verified remote provenance. Public-link presence requires separate publication receipts.",
+  "final_archive": {
+    "bytes": 827349,
+    "sha256": "26be553e00f704324770213d5ac1f51b756ac66e9a4ab199a92e9d3d9ea4c6d2",
+    "regular_members": 30,
+    "all_member_bytes_match_final_stage": true,
+    "owner_metadata_normalized": true
+  },
+  "public_reproduction_summary": {
+    "raw_report_hashes_verified": 2,
+    "summarized_results_match_raw_reports": true,
+    "checker_hash_matches": true,
+    "additional_44_member_archive_comparison": "Packager-reported; not independently repeated by this packaging reviewer."
+  }
+}

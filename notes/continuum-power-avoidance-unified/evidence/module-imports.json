@@ -1,0 +1,614 @@
+{
+  "ContinuumGeometric": {
+    "path": "project/ContinuumGeometric.lean",
+    "sha256": "d2811254016dbb36d75ef10e231c967c9295c4b258001bfe93782ef4d9b72f1e",
+    "imports": [
+      "ContinuumGeometric.Activation",
+      "ContinuumGeometric.BoundedGrid",
+      "ContinuumGeometric.CandidateBounds",
+      "ContinuumGeometric.ClosedProjection",
+      "ContinuumGeometric.ClosedRepair",
+      "ContinuumGeometric.CoefficientCover",
+      "ContinuumGeometric.CountableExhaustion",
+      "ContinuumGeometric.EntropySchedule",
+      "ContinuumGeometric.FiniteRoutingProbability",
+      "ContinuumGeometric.GeometricParameters",
+      "ContinuumGeometric.GeometryChain",
+      "ContinuumGeometric.GridCutBridge",
+      "ContinuumGeometric.Interfaces",
+      "ContinuumGeometric.LineSignBound",
+      "ContinuumGeometric.LocalSignatures",
+      "ContinuumGeometric.MainProof",
+      "ContinuumGeometric.NoDefaultProbability",
+      "ContinuumGeometric.PeriodicRepair",
+      "ContinuumGeometric.Planar",
+      "ContinuumGeometric.RoutingActiveGeometry",
+      "ContinuumGeometric.RoutingAssembly",
+      "ContinuumGeometric.RoutingCenterAtoms",
+      "ContinuumGeometric.RoutingChoices",
+      "ContinuumGeometric.RoutingEntropy",
+      "ContinuumGeometric.RoutingFactorization",
+      "ContinuumGeometric.RoutingGeometry",
+      "ContinuumGeometric.RoutingGlobalGrid",
+      "ContinuumGeometric.RoutingInterfaces",
+      "ContinuumGeometric.RoutingLocalHit",
+      "ContinuumGeometric.RoutingLocalProbability",
+      "ContinuumGeometric.RoutingMeasure",
+      "ContinuumGeometric.RoutingModel",
+      "ContinuumGeometric.RoutingPreorder",
+      "ContinuumGeometric.RoutingProbability",
+      "ContinuumGeometric.RoutingSchedule",
+      "ContinuumGeometric.RoutingSeparation",
+      "ContinuumGeometric.RoutingStableGeometry",
+      "ContinuumGeometric.RoutingStableMeasure",
+      "ContinuumGeometric.RoutingStableProbability",
+      "ContinuumGeometric.RoutingTemplate",
+      "ContinuumGeometric.RoutingTreeBounds",
+      "ContinuumGeometric.ShiftedActivation",
+      "ContinuumGeometric.SignFiberCount",
+      "ContinuumGeometric.Target",
+      "ContinuumGeometric.ZeroErrorBuffer"
+    ]
+  },
+  "ContinuumGeometric.Activation": {
+    "path": "project/ContinuumGeometric/Activation.lean",
+    "sha256": "b8c4a97d881cedf74e4382721e2568ac76896a7b30d0d0d36bad7fbfc2a6c274",
+    "imports": [
+      "Mathlib.Data.Int.Interval",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "ContinuumGeometric.GeometricParameters"
+    ]
+  },
+  "ContinuumGeometric.BoundedGrid": {
+    "path": "project/ContinuumGeometric/BoundedGrid.lean",
+    "sha256": "b29c054a7f2b3bc4bded548ac104e45f61c93e9ea07278f5afb7dbf8443af2f2",
+    "imports": [
+      "ContinuumGeometric.GridCutBridge",
+      "Mathlib.Data.Int.Interval"
+    ]
+  },
+  "ContinuumGeometric.CandidateBounds": {
+    "path": "project/ContinuumGeometric/CandidateBounds.lean",
+    "sha256": "856ce708fde8909f25c5ac5fcd0a17e5f071e937f94a518c40d19491337631c5",
+    "imports": [
+      "ContinuumGeometric.RoutingInterfaces",
+      "ContinuumGeometric.ShiftedActivation",
+      "ContinuumGeometric.LocalSignatures"
+    ]
+  },
+  "ContinuumGeometric.ClosedProjection": {
+    "path": "project/ContinuumGeometric/ClosedProjection.lean",
+    "sha256": "252c293730712539cdbd3eb762d76d9af23f2bcfbcd63c782e6474ddb2f9e260",
+    "imports": [
+      "ContinuumGeometric.GeometricParameters",
+      "Mathlib.Topology.Maps.Proper.Basic",
+      "Mathlib.Topology.Order.Compact",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Continuity",
+      "Mathlib.MeasureTheory.Constructions.BorelSpace.Real"
+    ]
+  },
+  "ContinuumGeometric.ClosedRepair": {
+    "path": "project/ContinuumGeometric/ClosedRepair.lean",
+    "sha256": "28420d29569aa72b3e626435bb5c875b14a47fd8de74c0a1ae491dd5f1722ffe",
+    "imports": [
+      "ContinuumGeometric.ClosedProjection",
+      "ContinuumGeometric.ZeroErrorBuffer"
+    ]
+  },
+  "ContinuumGeometric.CoefficientCover": {
+    "path": "project/ContinuumGeometric/CoefficientCover.lean",
+    "sha256": "8e9f8fd5e1f7107534ba602dcf09f7cf28d8dd7eea830b6cc699a14a65a7ba9c",
+    "imports": [
+      "ContinuumGeometric.GeometryChain",
+      "ContinuumGeometric.ClosedProjection"
+    ]
+  },
+  "ContinuumGeometric.CountableExhaustion": {
+    "path": "project/ContinuumGeometric/CountableExhaustion.lean",
+    "sha256": "582331df019a37777f75bae17673b06dbf47c0613167c068d6d6f45b95a5e604",
+    "imports": [
+      "ContinuumGeometric.PeriodicRepair",
+      "ContinuumGeometric.CoefficientCover",
+      "Mathlib.Analysis.SpecificLimits.Basic"
+    ]
+  },
+  "ContinuumGeometric.EntropySchedule": {
+    "path": "project/ContinuumGeometric/EntropySchedule.lean",
+    "sha256": "057888a76dd637de0a583ac5b54888ad17449699fdb154faac8e7a77e8ebb827",
+    "imports": [
+      "ContinuumGeometric.GeometryChain",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic"
+    ]
+  },
+  "ContinuumGeometric.FiniteRoutingProbability": {
+    "path": "project/ContinuumGeometric/FiniteRoutingProbability.lean",
+    "sha256": "06876bd7ded4848d5adc660f496e35609b73c8634f83e0c7db884e6edb5a257a",
+    "imports": [
+      "ContinuumGeometric.RoutingInterfaces",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Algebra.BigOperators.GroupWithZero.Finset",
+      "ContinuumGeometric.RoutingModel",
+      "ContinuumGeometric.RoutingMeasure"
+    ]
+  },
+  "ContinuumGeometric.GeometricParameters": {
+    "path": "project/ContinuumGeometric/GeometricParameters.lean",
+    "sha256": "f76acf715504e7e564323485b8549d36378107ba7eeca1f90ec6c78f040a74dd",
+    "imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Analysis.SpecificLimits.Basic",
+      "Mathlib.Tactic"
+    ]
+  },
+  "ContinuumGeometric.GeometryChain": {
+    "path": "project/ContinuumGeometric/GeometryChain.lean",
+    "sha256": "cf06c5cb88521da5d6937560935a0093f6ec9510a3a872513cf1f4b02acc63f4",
+    "imports": [
+      "ContinuumGeometric.Activation"
+    ]
+  },
+  "ContinuumGeometric.GridCutBridge": {
+    "path": "project/ContinuumGeometric/GridCutBridge.lean",
+    "sha256": "c17484cd1a2daa8db21aec218f7f82d5472c93e71db1c8cf688b4a7de50a9f06",
+    "imports": [
+      "ContinuumGeometric.Planar",
+      "ContinuumGeometric.ClosedProjection"
+    ]
+  },
+  "ContinuumGeometric.Interfaces": {
+    "path": "project/ContinuumGeometric/Interfaces.lean",
+    "sha256": "6a9e6e586b5c38847b74aa2a1fccd392ef4badae32829370dc203257ff7f5c59",
+    "imports": [
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Finset.Card"
+    ]
+  },
+  "ContinuumGeometric.LineSignBound": {
+    "path": "project/ContinuumGeometric/LineSignBound.lean",
+    "sha256": "6723e0f31d9169e04a3b87eafef0e52991b375d52a15cdd2703f7803d19d774c",
+    "imports": [
+      "ContinuumGeometric.Interfaces",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.FieldSimp"
+    ]
+  },
+  "ContinuumGeometric.LocalSignatures": {
+    "path": "project/ContinuumGeometric/LocalSignatures.lean",
+    "sha256": "9c9e72e5ed4e89c60f1c7fee15d4f0a7cb89de0632f0158e95b747dd635564ee",
+    "imports": [
+      "ContinuumGeometric.BoundedGrid"
+    ]
+  },
+  "ContinuumGeometric.MainProof": {
+    "path": "project/ContinuumGeometric/MainProof.lean",
+    "sha256": "bccd4b0c9e6450d957ef46f6cad5b27d4d8d514097ca7558f1f32f0459a1ddd9",
+    "imports": [
+      "ContinuumGeometric.RoutingStableProbability",
+      "ContinuumGeometric.CountableExhaustion"
+    ]
+  },
+  "ContinuumGeometric.NoDefaultProbability": {
+    "path": "project/ContinuumGeometric/NoDefaultProbability.lean",
+    "sha256": "418d7470b47c82fe8db948921a00780d479b70e67cedae3e610b7a9d57ef397e",
+    "imports": [
+      "ContinuumGeometric.RoutingProbability",
+      "ContinuumGeometric.FiniteRoutingProbability",
+      "ContinuumGeometric.RoutingChoices",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Sigma"
+    ]
+  },
+  "ContinuumGeometric.PeriodicRepair": {
+    "path": "project/ContinuumGeometric/PeriodicRepair.lean",
+    "sha256": "fdfdb155956eeb6e089bdb274017caa103b60f6abc8be6e378a3ae829f6346f9",
+    "imports": [
+      "ContinuumGeometric.RoutingInterfaces",
+      "ContinuumGeometric.ClosedRepair",
+      "Mathlib.MeasureTheory.Constructions.BorelSpace.Metric",
+      "Mathlib.MeasureTheory.Measure.Regular",
+      "Mathlib.MeasureTheory.Group.Measure"
+    ]
+  },
+  "ContinuumGeometric.Planar": {
+    "path": "project/ContinuumGeometric/Planar.lean",
+    "sha256": "e32fdf89990a6ac7cb63896c8bb03a148060dcc9bafa00784d6e38d07c991168",
+    "imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.Fintype.Prod",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.FieldSimp",
+      "ContinuumGeometric.Interfaces",
+      "ContinuumGeometric.SignFiberCount",
+      "ContinuumGeometric.LineSignBound"
+    ]
+  },
+  "ContinuumGeometric.RoutingActiveGeometry": {
+    "path": "project/ContinuumGeometric/RoutingActiveGeometry.lean",
+    "sha256": "a9a9f5d9f10659abac17ff25450a1f7795d4557911d18281c4f4b580d1713cd3",
+    "imports": [
+      "ContinuumGeometric.RoutingGeometry",
+      "ContinuumGeometric.CandidateBounds"
+    ]
+  },
+  "ContinuumGeometric.RoutingAssembly": {
+    "path": "project/ContinuumGeometric/RoutingAssembly.lean",
+    "sha256": "84a5ae3e18aa403208bb752e165ce612d8f25d5d887ceab0de005904179658c2",
+    "imports": [
+      "ContinuumGeometric.RoutingGlobalGrid",
+      "ContinuumGeometric.FiniteRoutingProbability",
+      "ContinuumGeometric.RoutingSchedule",
+      "ContinuumGeometric.RoutingStableMeasure",
+      "ContinuumGeometric.RoutingStableGeometry"
+    ]
+  },
+  "ContinuumGeometric.RoutingCenterAtoms": {
+    "path": "project/ContinuumGeometric/RoutingCenterAtoms.lean",
+    "sha256": "9927a44d3085548342dc40dcf997acd6ac1bf8b31060fae64884aab88d8bf8ea",
+    "imports": [
+      "ContinuumGeometric.NoDefaultProbability",
+      "ContinuumGeometric.RoutingProbability"
+    ]
+  },
+  "ContinuumGeometric.RoutingChoices": {
+    "path": "project/ContinuumGeometric/RoutingChoices.lean",
+    "sha256": "58b4c0d243dadb17d16a6c5f4962d7409d40d0e149bded33522deb4bffc61054",
+    "imports": [
+      "ContinuumGeometric.EntropySchedule",
+      "ContinuumGeometric.LocalSignatures"
+    ]
+  },
+  "ContinuumGeometric.RoutingEntropy": {
+    "path": "project/ContinuumGeometric/RoutingEntropy.lean",
+    "sha256": "bc2f1fc7f677269a94401275f4b15148014a7bd7dc1990683328cdb332c3ccdc",
+    "imports": [
+      "ContinuumGeometric.RoutingChoices",
+      "Mathlib.Analysis.SpecialFunctions.Exp"
+    ]
+  },
+  "ContinuumGeometric.RoutingFactorization": {
+    "path": "project/ContinuumGeometric/RoutingFactorization.lean",
+    "sha256": "95a7ce5b46206828481161b38f28010351b27a0a23d38f73d4247cc87b73d91d",
+    "imports": [
+      "ContinuumGeometric.RoutingTreeBounds"
+    ]
+  },
+  "ContinuumGeometric.RoutingGeometry": {
+    "path": "project/ContinuumGeometric/RoutingGeometry.lean",
+    "sha256": "5b9b97cb42b5e50797d10acad6371acac3d3d1ffd3eb5a17aad0d52734e9612c",
+    "imports": [
+      "ContinuumGeometric.RoutingTemplate",
+      "ContinuumGeometric.LocalSignatures",
+      "Mathlib.Data.Int.ModEq"
+    ]
+  },
+  "ContinuumGeometric.RoutingGlobalGrid": {
+    "path": "project/ContinuumGeometric/RoutingGlobalGrid.lean",
+    "sha256": "e4bb0a2e08170e42494a2a6b85db4114952f275d7b461f9998c3d478e5b73284",
+    "imports": [
+      "ContinuumGeometric.RoutingModel",
+      "ContinuumGeometric.RoutingTreeBounds",
+      "ContinuumGeometric.PeriodicRepair"
+    ]
+  },
+  "ContinuumGeometric.RoutingInterfaces": {
+    "path": "project/ContinuumGeometric/RoutingInterfaces.lean",
+    "sha256": "cd223d89d946e641950fb6786a087d9772492ca7950b471c66799cbc7d633432",
+    "imports": [
+      "ContinuumGeometric.Target",
+      "ContinuumGeometric.ClosedProjection",
+      "ContinuumGeometric.BoundedGrid"
+    ]
+  },
+  "ContinuumGeometric.RoutingLocalHit": {
+    "path": "project/ContinuumGeometric/RoutingLocalHit.lean",
+    "sha256": "95ce74a8a559b229898b7477cf45a57eee3ed80a46fa3bf51e5ec452b5d9599d",
+    "imports": [
+      "ContinuumGeometric.RoutingProbability",
+      "ContinuumGeometric.RoutingTreeBounds"
+    ]
+  },
+  "ContinuumGeometric.RoutingLocalProbability": {
+    "path": "project/ContinuumGeometric/RoutingLocalProbability.lean",
+    "sha256": "013659ca4c882b77a0487ce997dbd5bd34b4978c37e46fe3109a5cc00de7d46a",
+    "imports": [
+      "ContinuumGeometric.FiniteRoutingProbability",
+      "ContinuumGeometric.RoutingSeparation",
+      "ContinuumGeometric.RoutingFactorization",
+      "ContinuumGeometric.RoutingEntropy",
+      "ContinuumGeometric.CandidateBounds",
+      "ContinuumGeometric.RoutingSchedule"
+    ]
+  },
+  "ContinuumGeometric.RoutingMeasure": {
+    "path": "project/ContinuumGeometric/RoutingMeasure.lean",
+    "sha256": "6fa06cf3606d7f1af0040d1c1bc7823e0a39548971c7b100d98b701e5f869266",
+    "imports": [
+      "ContinuumGeometric.RoutingInterfaces",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Basic.ENNReal.BigOperators",
+      "Mathlib.MeasureTheory.Function.Floor"
+    ]
+  },
+  "ContinuumGeometric.RoutingModel": {
+    "path": "project/ContinuumGeometric/RoutingModel.lean",
+    "sha256": "1c1f7ac892fa7eb7d2b8cbc04c4c8bda7bdf66016c6975890d422919e3c91b6e",
+    "imports": [
+      "ContinuumGeometric.RoutingGeometry"
+    ]
+  },
+  "ContinuumGeometric.RoutingPreorder": {
+    "path": "project/ContinuumGeometric/RoutingPreorder.lean",
+    "sha256": "db74174c0ede0733c7354f6f3ef035a705a519d78b1172545b94a0526e7a4f7b",
+    "imports": [
+      "ContinuumGeometric.RoutingTemplate",
+      "Mathlib.Data.List.Chain"
+    ]
+  },
+  "ContinuumGeometric.RoutingProbability": {
+    "path": "project/ContinuumGeometric/RoutingProbability.lean",
+    "sha256": "281ce8b97d381ea20524d7147ac6f588eb13db8ad106de91bfd25afa789ffba3",
+    "imports": [
+      "ContinuumGeometric.FiniteRoutingProbability"
+    ]
+  },
+  "ContinuumGeometric.RoutingSchedule": {
+    "path": "project/ContinuumGeometric/RoutingSchedule.lean",
+    "sha256": "8c9a6f21c3140622c0abf7b53c844d8d839204ae7d42a5878150a98657e19759",
+    "imports": [
+      "ContinuumGeometric.RoutingEntropy",
+      "ContinuumGeometric.CandidateBounds",
+      "ContinuumGeometric.RoutingTemplate"
+    ]
+  },
+  "ContinuumGeometric.RoutingSeparation": {
+    "path": "project/ContinuumGeometric/RoutingSeparation.lean",
+    "sha256": "ea959d3be4808529d4669bd6f1686762a8639784889461949c6307b58dda1c7e",
+    "imports": [
+      "ContinuumGeometric.RoutingTreeBounds",
+      "ContinuumGeometric.RoutingActiveGeometry"
+    ]
+  },
+  "ContinuumGeometric.RoutingStableGeometry": {
+    "path": "project/ContinuumGeometric/RoutingStableGeometry.lean",
+    "sha256": "72629533b740555ff29bea5f312e5343dbcb77a90c26cfaf59fe43fb21b25092",
+    "imports": [
+      "ContinuumGeometric.RoutingPreorder",
+      "ContinuumGeometric.RoutingStableMeasure",
+      "ContinuumGeometric.RoutingLocalHit",
+      "ContinuumGeometric.RoutingActiveGeometry"
+    ]
+  },
+  "ContinuumGeometric.RoutingStableMeasure": {
+    "path": "project/ContinuumGeometric/RoutingStableMeasure.lean",
+    "sha256": "317e3a6bb3ebe8d61ebd17e9bc5708ccbcef7447ffc57ff404c12e1279830a0f",
+    "imports": [
+      "ContinuumGeometric.RoutingGeometry",
+      "ContinuumGeometric.PeriodicRepair"
+    ]
+  },
+  "ContinuumGeometric.RoutingStableProbability": {
+    "path": "project/ContinuumGeometric/RoutingStableProbability.lean",
+    "sha256": "4b88b8d3eaa582b3f5a458bd8e1f6be5fa027256f926bbd55fa04d98d3c0171d",
+    "imports": [
+      "ContinuumGeometric.RoutingLocalProbability",
+      "ContinuumGeometric.RoutingStableGeometry",
+      "ContinuumGeometric.RoutingAssembly",
+      "ContinuumGeometric.NoDefaultProbability",
+      "ContinuumGeometric.RoutingCenterAtoms"
+    ]
+  },
+  "ContinuumGeometric.RoutingTemplate": {
+    "path": "project/ContinuumGeometric/RoutingTemplate.lean",
+    "sha256": "8d6e31240dfb28375d6fad2e0ce55df1f2a0ad56e48f243df43b40ecc15f5251",
+    "imports": [
+      "ContinuumGeometric.RoutingInterfaces",
+      "Mathlib.Data.List.OfFn"
+    ]
+  },
+  "ContinuumGeometric.RoutingTreeBounds": {
+    "path": "project/ContinuumGeometric/RoutingTreeBounds.lean",
+    "sha256": "bcbc8e5c378180bfeb521833482ec85f24aed5cb7173f00b6dd557dc24b90262",
+    "imports": [
+      "ContinuumGeometric.RoutingModel"
+    ]
+  },
+  "ContinuumGeometric.ShiftedActivation": {
+    "path": "project/ContinuumGeometric/ShiftedActivation.lean",
+    "sha256": "4523b9eb88e1ad1934658bc46e137b85bda10bcddf50be0f8423bd58199ba4c7",
+    "imports": [
+      "ContinuumGeometric.Activation"
+    ]
+  },
+  "ContinuumGeometric.SignFiberCount": {
+    "path": "project/ContinuumGeometric/SignFiberCount.lean",
+    "sha256": "722ee810575bc17165c041b0e61bf5ff3076f7fab78f7af6466c5f7e8f8e97b3",
+    "imports": [
+      "ContinuumGeometric.Interfaces",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset"
+    ]
+  },
+  "ContinuumGeometric.Target": {
+    "path": "project/ContinuumGeometric/Target.lean",
+    "sha256": "5ac9c8a13941c709116fca8cc31a56ae9c1a5c85de9eabdd4d868d3a5358af55",
+    "imports": [
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Topology.Order.Compact"
+    ]
+  },
+  "ContinuumGeometric.ZeroErrorBuffer": {
+    "path": "project/ContinuumGeometric/ZeroErrorBuffer.lean",
+    "sha256": "c94be450574234868c56961afb1ebc43d0e88ae8377c64e79fb74ee87abd05f8",
+    "imports": [
+      "Mathlib.Topology.MetricSpace.Thickening",
+      "Mathlib.Tactic"
+    ]
+  },
+  "ContinuumRemainder": {
+    "path": "project/ContinuumRemainder.lean",
+    "sha256": "be188dad51f0dbefdf002fe07abcdd7036047afb3e75684a6db5575712080452",
+    "imports": [
+      "ContinuumRemainder.FinalProof"
+    ]
+  },
+  "ContinuumRemainder.Counting": {
+    "path": "project/ContinuumRemainder/Counting.lean",
+    "sha256": "b5fcc35d32cecd9318bad1cb4029bdf9572400aecd446998520386d1e290d83a",
+    "imports": [
+      "ContinuumRemainder.Sampling",
+      "ContinuumGeometric.CandidateBounds",
+      "ContinuumRemainder.LogGeometry"
+    ]
+  },
+  "ContinuumRemainder.DistinctMisses": {
+    "path": "project/ContinuumRemainder/DistinctMisses.lean",
+    "sha256": "008a7784505ca91390668a443eb931441f4b15139f709b401f2d732e04f0a090",
+    "imports": [
+      "ContinuumRemainder.Specification",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Continuity"
+    ]
+  },
+  "ContinuumRemainder.ErrorDomination": {
+    "path": "project/ContinuumRemainder/ErrorDomination.lean",
+    "sha256": "13d0e8c3816a5c40aa1862490986ac05ff80b2f79d7e7c50b9fca095b01e1e94",
+    "imports": [
+      "ContinuumGeometric.ZeroErrorBuffer",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+    ]
+  },
+  "ContinuumRemainder.ErrorSchedule": {
+    "path": "project/ContinuumRemainder/ErrorSchedule.lean",
+    "sha256": "e46f059b4c5a67613f39ea22de1677f31b3db90f623ec0b9a51a4c4872a67224",
+    "imports": [
+      "ContinuumRemainder.ErrorDomination",
+      "ContinuumGeometric.EntropySchedule",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+    ]
+  },
+  "ContinuumRemainder.Exhaustion": {
+    "path": "project/ContinuumRemainder/Exhaustion.lean",
+    "sha256": "a3cc0bba82583bef5f9a79532cbd342fbbec554d8b5d841973df4377d3971f9c",
+    "imports": [
+      "ContinuumRemainder.DistinctMisses",
+      "ContinuumGeometric.CountableExhaustion"
+    ]
+  },
+  "ContinuumRemainder.FinalProof": {
+    "path": "project/ContinuumRemainder/FinalProof.lean",
+    "sha256": "f54bc7886852aaf0a36a537556bbe92d193eb49944863f36f87bcd05c122f912",
+    "imports": [
+      "ContinuumRemainder.SampleStableProbability",
+      "ContinuumRemainder.TopologyConclusion"
+    ]
+  },
+  "ContinuumRemainder.LogGeometry": {
+    "path": "project/ContinuumRemainder/LogGeometry.lean",
+    "sha256": "6aa56bac33c49b78789a3df4ef67abbcd7b2cb31aa712e1214644814e4f4b376",
+    "imports": [
+      "ContinuumGeometric.RoutingActiveGeometry",
+      "ContinuumGeometric.RoutingStableGeometry"
+    ]
+  },
+  "ContinuumRemainder.LogRouting": {
+    "path": "project/ContinuumRemainder/LogRouting.lean",
+    "sha256": "c01bba8fcf66f362ea6e7a92f5626a7cf0bf1721d207ef28ef8474ab0bd1fd61",
+    "imports": [
+      "ContinuumRemainder.LogSignatures",
+      "ContinuumGeometric.RoutingFactorization",
+      "ContinuumGeometric.FiniteRoutingProbability",
+      "ContinuumGeometric.RoutingSeparation"
+    ]
+  },
+  "ContinuumRemainder.LogRoutingProbability": {
+    "path": "project/ContinuumRemainder/LogRoutingProbability.lean",
+    "sha256": "c0e01a1d735c0d8c454ae89d015c16f7e5816f2bd6830f6fb0b04dbf61cf5579",
+    "imports": [
+      "ContinuumRemainder.LogRouting",
+      "ContinuumGeometric.RoutingEntropy"
+    ]
+  },
+  "ContinuumRemainder.LogSignatures": {
+    "path": "project/ContinuumRemainder/LogSignatures.lean",
+    "sha256": "c745a4da97850910825cbb9e8c6b465c2069db2dca46fd6d5f16efe566e11b66",
+    "imports": [
+      "ContinuumRemainder.LogGeometry",
+      "ContinuumGeometric.LocalSignatures"
+    ]
+  },
+  "ContinuumRemainder.RobustAssembly": {
+    "path": "project/ContinuumRemainder/RobustAssembly.lean",
+    "sha256": "d933faf8d71dd662eda3f9470cfdd6c119dff57a5dbc9e31dbe2c166071cf0dd",
+    "imports": [
+      "ContinuumRemainder.Specification",
+      "ContinuumRemainder.RobustRepair",
+      "ContinuumGeometric.RoutingAssembly"
+    ]
+  },
+  "ContinuumRemainder.RobustRepair": {
+    "path": "project/ContinuumRemainder/RobustRepair.lean",
+    "sha256": "845d6c2555972928b9d2c3aa5022a4c8d7775923bd48923b6437e9d6f70e4cc0",
+    "imports": [
+      "ContinuumRemainder.ErrorDomination",
+      "ContinuumGeometric.ClosedProjection"
+    ]
+  },
+  "ContinuumRemainder.SampleLocalProbability": {
+    "path": "project/ContinuumRemainder/SampleLocalProbability.lean",
+    "sha256": "1915e9daf2766ed8a966284ce25a1129f316427507f1888e869bea23c7c8afae",
+    "imports": [
+      "ContinuumRemainder.Counting",
+      "ContinuumRemainder.LogRoutingProbability",
+      "ContinuumGeometric.RoutingLocalProbability"
+    ]
+  },
+  "ContinuumRemainder.SampleSchedule": {
+    "path": "project/ContinuumRemainder/SampleSchedule.lean",
+    "sha256": "0ccdc4138f2bc29ea85d3d6d378be4c5d431d619af7027a7302a10f82ea25cd7",
+    "imports": [
+      "ContinuumRemainder.Counting",
+      "ContinuumRemainder.ErrorSchedule",
+      "ContinuumGeometric.RoutingChoices",
+      "ContinuumGeometric.RoutingEntropy",
+      "ContinuumGeometric.RoutingTemplate"
+    ]
+  },
+  "ContinuumRemainder.SampleStableProbability": {
+    "path": "project/ContinuumRemainder/SampleStableProbability.lean",
+    "sha256": "c3a1191e6808824cc50095132153f3abd5658d49349acabde8108f01008ff882",
+    "imports": [
+      "ContinuumRemainder.SampleLocalProbability",
+      "ContinuumRemainder.SampleSchedule",
+      "ContinuumRemainder.RobustAssembly",
+      "ContinuumGeometric.RoutingStableProbability"
+    ]
+  },
+  "ContinuumRemainder.Sampling": {
+    "path": "project/ContinuumRemainder/Sampling.lean",
+    "sha256": "f2c37c5966a32fef6cd6c658ab309a2638fbaf5f58e96a98b600c60685ba7e62",
+    "imports": [
+      "ContinuumRemainder.Specification",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+    ]
+  },
+  "ContinuumRemainder.Specification": {
+    "path": "project/ContinuumRemainder/Specification.lean",
+    "sha256": "0a98b8858428b1cd7c34263358c67a769121d049ae964008bd91abcd1382102e",
+    "imports": [
+      "ContinuumGeometric.GeometricParameters",
+      "ContinuumGeometric.RoutingInterfaces",
+      "Mathlib.Topology.MetricSpace.Isometry"
+    ]
+  },
+  "ContinuumRemainder.TopologyConclusion": {
+    "path": "project/ContinuumRemainder/TopologyConclusion.lean",
+    "sha256": "3990f7aa3df3aa0ccdea31582c41d601e08045344aba0a16f304dc1cc718e3b9",
+    "imports": [
+      "ContinuumRemainder.Exhaustion"
+    ]
+  }
+}
