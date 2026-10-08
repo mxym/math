@@ -1,6 +1,6 @@
 # Gaussian equal-mass simplex first moments: Lean progress, all k
 
-**Partial formalization. The full all-k theorem is not proved.** This directory is an active coordination checkpoint, not a completed verification release.
+**Partial formalization. The full all-k theorem is not proved in Lean.** At the user's direction, further full formalization is paused to prioritize independent mathematical review of the manuscript using the published Gaussian multi-bubble theorem. This directory preserves a coordination checkpoint, not a completed Lean verification release.
 
 The target is the sharp first-moment energy bound for actual measurable equal-mass Gaussian partitions, its almost-everywhere regular-simplex equality classification, the strict dimension obstruction, and the exact deficit identity. The mathematical baseline is [the fixed source commit](https://github.com/mxym/math/tree/890422e18fd7c80f3ce834426081211763cbc956).
 
@@ -12,9 +12,9 @@ The next development has proved the actual variational perimeter identities, fin
 
 ## Current evidence
 
-All 132 source modules have successful development compilations matching their exact SHA-256 values. [STATUS.json](STATUS.json) gives the hashes, records and exact scope. Compiler output is preserved in `evidence/development/` with local paths normalized. These records are not a fresh independent verification of the whole project.
+All 136 source modules have successful development compilations matching their exact SHA-256 values. [STATUS.json](STATUS.json) gives the hashes, records and exact scope. Compiler output is preserved in `evidence/development/` with local paths normalized. These records are not a fresh independent verification of the whole project.
 
-The prior frozen audit covered 53 matching modules, 528 owned declarations and their 59,703-declaration closure, replayed into an empty Lean kernel at trust level 0. That audit gives no credit to later source bytes. At the user's request, the unified fresh compilation, audit of every owned declaration and empty-kernel replay will occur after the entire mathematical proof is complete.
+The prior frozen audit covered 53 matching modules, 528 owned declarations and their 59,703-declaration closure, replayed into an empty Lean kernel at trust level 0. That audit gives no credit to later source bytes. No unified fresh compilation, owned-declaration audit or empty-kernel replay of the entire partial bundle is claimed.
 
 ## Build the partial project
 
