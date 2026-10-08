@@ -107,7 +107,7 @@ The [verification record](VERIFICATION.md) separates the complete written proofs
 
 The [independent checker](code/check_three_subset_certificates.py) uses only standard-library integer and Fraction arithmetic, enumerates **every conjugacy class and every three-element subset** for each of the 18 degrees, verifies all orbital moment constraints and every dual inequality, and replays a valid small attaining perturbation. The [separate rational certificate generator](code/generate_three_subset_certificates.py) is not called by the checker. A fresh public GitHub download of the fixed JSON and checker into a new Windows directory passed all 18 degrees; see [replay scope](VERIFICATION.md#independent-fixed-certificate-three-subset-replay).
 
-This is a **finite exact classification with full replayable proof evidence**, not a conjectural all-degree formula for triple actions. Degrees n≥24 and the general asymptotic law for these rank-four representations remain open.
+This is a **finite exact classification with full replayable proof evidence**, not a conjectural all-degree formula for triple actions. This subsection's original fixed certificates stop at n=23; the later Theorem 21 extends exact finite coverage through n=120, and Theorem 22 proves a sharp all-n first-order asymptotic. The exact optimum for individual n≥121 remains open.
 
 
 ## Three-cycle compression, full degree-120 classification, and sharp 18/n asymptotics
@@ -127,3 +127,10 @@ The proof gives an explicit all-degree orbital dual with exact cubic-polynomial 
 The [separate SymPy algebra checker](code/check_three_subset_asymptotic_algebra.py) validates the exact polynomial identities, leading determinant -192m⁹ and matching first-order probability masses for all four residue classes. The symbolic checker was freshly downloaded from public main and ran successfully on the authorized VPS. The all-n proof does **not** rely on extrapolating the degree-120 table.
 
 The [verification and trust-boundary record](VERIFICATION.md) records what is machine checked, what is proved analytically, and what still requires independent human mathematical review. No complete exact all-degree formula, k≥4 asymptotic, external peer review or priority claim is made.
+
+
+## Uniform higher-rank orbital limits and the Chebyshev mechanism
+
+[Theorem 23](paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) proves, for **every fixed subset rank k**, a uniform quantitative approximation of its normalized orbitals by the \(k\)-th Bernstein polynomial basis. This rigorous all-k statement reduces higher-rank asymptotic orbital geometry to a space of degree-k polynomials, with an \(O_k(1/n)\) error valid uniformly over all permutations.
+
+[Proposition 24](paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) identifies the already-proved leading dual polynomials at k=1,2,3 as \((1-T_k(2a-1))/2\), where \(T_k\) is the Chebyshev polynomial. Their endpoint derivatives give the *proved* sharp first-order constants 2, 8, and 18. The proposed \(2k^2\) first-order constant for fixed k≥4 is **explicitly a conjecture**; the Bernstein approximation alone is not a proof of it, and no k≥4 full optimality assertion is made.
