@@ -6,6 +6,11 @@
 - Proved a general even-row balanced Laplace transfer theorem valid in dimension 2m for all m>=1, and the universal bosonic symmetric-tensor coefficient identity sum(alpha! |c_alpha|^2)=per(UU*) with its exact collision-free orthonormal-row equality condition.
 - Supplied 41,066 exact permutation/shuffle sign replays for n=2,4,6,8, rational bosonic/fermionic Gram checks, all-power endpoint controls, frozen ordinary/optimized reports and updated CI. The sharp 3x6 rectangular inequality that would close the full six-row case is stated only as an **unproved target**, not a theorem; no external referee, priority or full Lean claim is made.
 
+## 2026-10-08 — sharp uniform nesting gap in every dimension from 55 onward
+
+- Strengthened 005's **first mandatory nesting at d=55** to a **sharp all-dimensional multiplicative theorem**: for every integer `d>=55`, the full arbitrary-tree optimum divided by the two-layer join-of-two-simplex-products optimum is at least the known exact 55D rational ratio `666588049410094050176708629890606697662639715/661941565426077453299492872184552524829687808 > 1.007`. Equality is attained **only at d=55**; `d>=56` gives a strict factor `>101/100`, and the entire infinite tail `d>=85` gives `>209/200`. Additionally, the ratio grows **at least exponentially**: it exceeds `(1009/1000)^(d-84)/45` for each `d>=85`.
+- Independently extended the complete two-layer sharp Pareto certificate from D=56 through D=85 (11,234 new attained states, 2,837,399 checked exact point/block operations), recorded thirty nested rational witnesses for `d=55..84`, and derived a continuous sharp two-layer envelope from the previously certified global block inequalities.
+- Closed **all dimensions d>=85** by an explicit binary-orbit 85D body, join extensions using its remainder class modulo 11, monotonicity of the state ratio, eleven rational-power comparisons and an additional exact exponential-rate inequality; no finite-range extrapolation or float optimizer entered the proof. Included a self-contained written argument, source manifest, normal/optimized exact checker, adversarial corruptions, and read-only CI. All historical 005 source packages remain byte-preserved.
 
 ## 2026-10-08 — sharp norm-six principal-sieve period 1122
 

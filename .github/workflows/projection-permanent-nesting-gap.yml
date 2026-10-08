@@ -1,0 +1,42 @@
+name: Projection-body sharp permanent nesting gap
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-permanent-nesting-gap.yml'
+      - 'notes/projection-persistent-nesting-gap/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-permanent-nesting-gap.yml'
+      - 'notes/projection-persistent-nesting-gap/**'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-certificate-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen source and certificate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd notes/projection-persistent-nesting-gap
+          sha256sum -c SHA256SUMS
+      - name: Check sharp uniform theorem with exact rational arithmetic
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-persistent-nesting-gap/code/check.py > /tmp/gap-normal.log
+          python3 -O notes/projection-persistent-nesting-gap/code/check.py > /tmp/gap-optimized.log
+          cmp /tmp/gap-normal.log /tmp/gap-optimized.log
+          cmp /tmp/gap-normal.log notes/projection-persistent-nesting-gap/certificates/check.log
+      - name: Reject incorrect states, false tails and wrong provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-persistent-nesting-gap/code/negative_controls.py > /tmp/gap-negative.log
+          cmp /tmp/gap-negative.log notes/projection-persistent-nesting-gap/certificates/negative.log
