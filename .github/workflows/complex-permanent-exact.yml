@@ -21,6 +21,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Exact all-coefficient complex pencil norm
+        shell: bash
+        run: |
+          python3 notes/complex-permanent-determinant/check_full_norm.py > /tmp/fullnorm-normal.txt
+          python3 -O notes/complex-permanent-determinant/check_full_norm.py > /tmp/fullnorm-optimized.txt
+          cmp /tmp/fullnorm-normal.txt /tmp/fullnorm-optimized.txt
+          cmp /tmp/fullnorm-normal.txt notes/complex-permanent-determinant/results/full-norm-replay.txt
       - name: Full sharp complex coefficient lens, exact rational replay
         shell: bash
         run: |
@@ -42,6 +49,13 @@ jobs:
           python3 -O notes/complex-permanent-determinant/check_matrix.py > /tmp/complex-matrix-optimized.txt
           cmp /tmp/complex-matrix-normal.txt /tmp/complex-matrix-optimized.txt
           cmp /tmp/complex-matrix-normal.txt notes/complex-permanent-determinant/results/matrix-replay.txt
+      - name: Exact normalized tensor product witnesses
+        shell: bash
+        run: |
+          python3 notes/complex-permanent-determinant/check_tensor.py > /tmp/tensor-normal.txt
+          python3 -O notes/complex-permanent-determinant/check_tensor.py > /tmp/tensor-optimized.txt
+          cmp /tmp/tensor-normal.txt /tmp/tensor-optimized.txt
+          cmp /tmp/tensor-normal.txt notes/complex-permanent-determinant/results/tensor-replay.txt
       - name: Frozen package hashes
         shell: bash
         run: |

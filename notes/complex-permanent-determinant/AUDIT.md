@@ -6,7 +6,7 @@ certification.
 
 ## Claim and dependency audit
 
-The new manuscript first proves the **exact coefficient lens**: at the sharp permanent coefficient \(2/\sqrt3\), all complex coefficients \(\lambda\) with universal validity are **exactly** those satisfying \(|\lambda|^2+2|\operatorname{Re}\lambda|\le1/3\). Odd and even permutation matrices establish necessity; the full rational Hermitian certificate establishes sufficiency. In particular it proves, for arbitrary complex \(3\times3\) matrices,
+The new manuscript proves the **exact all-coefficient norm** via a five-template maximum and independently deduces the **exact coefficient lens**: at the sharp permanent coefficient \(2/\sqrt3\), all complex coefficients \(\lambda\) with universal validity are **exactly** those satisfying \(|\lambda|^2+2|\operatorname{Re}\lambda|\le1/3\). Odd and even permutation matrices establish necessity; the full rational Hermitian certificate establishes sufficiency. In particular it proves, for arbitrary complex \(3\times3\) matrices,
 \[
 |\operatorname{per}A|+(2/\sqrt3-1)|\det A|
 \le(2/\sqrt3)\prod_i\|A_{i,*}\|_2,
@@ -18,13 +18,42 @@ inherited real-radius statement is made here. The complex inequality
 uses a separate Hermitian certificate and has a genuine additional
 absolute value around the permanent.
 
+The stronger full-norm theorem has five necessary equality witnesses:
+all-ones, both parity permutation matrices, and two Fourier-mode
+rows. Its universal upper bound uses \(B=C_\lambda^2\) and
+three explicit constraints \(B\ge4/3\),
+\(B\ge1+q+2|x|\), \(B\ge q+1/3+2|y|/\sqrt3\).
+The new exact determinant identity is
+\[
+\det H_B=B(h^2-v^2)U+B(3h^2+v^2)V
++(3B-4)([3(B-q)-1]^2-12y^2)XYZ.
+\]
+The AM–GM positivity of \(U,V\), the sign gates and all
+Hermitian principal-minor arguments are proved directly in the manuscript.
+[check_full_norm.py](check_full_norm.py) separately verifies its two
+rational polynomial identities at all 4,096 six-variable interpolation
+points, hence as global formal polynomial identities. This is additional
+to, and strictly stronger than, the sharp-lens certificate.
+
+The resulting three-row **sharp multilinear functional norm** is
+\(\kappa(t)=\max\{1,(\sqrt3/2)(1+6|t|)\}\)
+for *every* uniform-marginal \(S_3\) law. Exact tensorization over independent
+nonidentical columns gives the product \(\prod_\ell\kappa(t_\ell)\).
+The upper bound follows by conditional \(L^2\)-norm induction, while
+nonnegative constant/indicator row tensors attain equality. The
+[exact finite tensor checker](check_tensor.py) independently reconstructs
+all uniform marginals, expectations and normalized \(L^2\) ratios for
+ten rational parameter vectors, totaling 960 permutation tuples.
+This finite replay corroborates the extremizers; the *all-N* proof
+is analytic in the manuscript.
+
 The key proof reductions have explicit checks:
 
 - Expansion \(c^{\mathsf T}M_\lambda(a)b=\operatorname{per}A+\lambda\det A\) is obtained term by term from (2).
 - The Hermitian coefficient formulas in (5)–(6) follow from matrix
   multiplication; [check_matrix.py](check_matrix.py) separately
   exercises the matrix-entry identities at 60 exact complex test pairs
-  with \(|\lambda|=s\). This is a regression, not an all-input proof.
+  including complex phases on and inside the circle of radius \(s\). This is a regression, not an all-input proof.
 - All three first-order principal minors are nonnegative for
   \(-s\le\operatorname{Re}\lambda\le s\).
 - Formula (7) is a nonnegative-coefficient polynomial for the **full lens**, with the cyclic analogues covering the remaining principal minors.
@@ -45,21 +74,24 @@ The key proof reductions have explicit checks:
 
 ## Exact replay and what it certifies
 
-Run the two scripts in both Python modes and compare each with its
+Run all five scripts in both Python modes and compare each with its
 frozen report:
 
 ~~~sh
+python3 notes/complex-permanent-determinant/check_full_norm.py
+python3 -O notes/complex-permanent-determinant/check_full_norm.py
 python3 notes/complex-permanent-determinant/check_lens.py
 python3 -O notes/complex-permanent-determinant/check_lens.py
 python3 notes/complex-permanent-determinant/check.py
 python3 -O notes/complex-permanent-determinant/check.py
 python3 notes/complex-permanent-determinant/check_matrix.py
 python3 -O notes/complex-permanent-determinant/check_matrix.py
+python3 notes/complex-permanent-determinant/check_tensor.py
+python3 -O notes/complex-permanent-determinant/check_tensor.py
 (cd notes/complex-permanent-determinant && sha256sum -c SHA256SUMS)
 ~~~
 
-There are 1,024 exact checks of each full lens identity, 256 checks of each centered-disk identity, 60
-entrywise complex matrix regressions, and two maliciously
+There are 4,096 exact checks of each complete-norm identity, 1,024 checks of each full lens identity, 256 checks of each centered-disk identity, 60 entrywise complex matrix regressions and 960 exact tensor-witness tuple cases, and two maliciously
 corrupted-formula negative controls in the main checker.
 No floating point, numerical optimization, randomized solver, or
 unreplayable certificate is used. Optimization mode cannot disable
