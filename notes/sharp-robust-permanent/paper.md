@@ -879,3 +879,93 @@ and the second becomes
 Their quotient is at most `9\max(a,b)`, with equality for perturbations entirely within the zero-sum coordinates of the heavier parity block (setting `S_x=0`). Any smaller `p` would violate (36) for sufficiently small positive and negative such perturbations. This proves (47) and its stated exact second-variation interpretation. QED.
 
 This gives the separate necessary estimate `R_3(p)\le(p-3/2)/3` for `q_3<p<3`, though the singleton bound is stronger on the known exact interval of Theorem 12.
+
+
+## 14. Fully rational local stability neighborhoods
+
+The two local neighborhoods used in Theorem 12 admit explicit rational sizes and uniform *rational lower deficits*. Thus only the compact complement remains non-effective.
+
+**Proposition 14 (uniform local certificates).** Put \(q=q_3\), \(c_p=3^{-3/p}\), \(t_p=c_p-1/6\), and let \(q\le p\le 2\).
+
+**(a) Constant neighborhood.** If \(f_i=1+g_i\), every \(g_i\) has uniform mean zero, and \(\max_{i,j}|g_i(j)|\le1/1000\), then with \(V=\sum_i\mathbb E_jg_i(j)^2\),
+
+\[
+\prod_i\|f_i\|_p-P_{\nu_{t_p}}(f_1,f_2,f_3)\ \ge\ \frac{V}{100}. \tag{48}
+\]
+
+**(b) Even-permutation singleton neighborhood.** If \(f_i(i)=1\) and \(0\le f_i(j)\le1/100\) for \(j\ne i\), then with \(S=\sum_{i\ne j}f_i(j)^p\),
+
+\[
+\prod_i\|f_i\|_p-P_{\nu_{t_p}}(f_1,f_2,f_3)\ \ge\ \frac{S}{1200}. \tag{49}
+\]
+
+The same bound holds after relabeling around either other even-permutation singleton configuration. Both estimates hold for **all real** \(p\in[q,2]\).
+
+**Proof.** The necessary arithmetic comparisons are
+
+\[
+3^{15}>6^9,\qquad 3^{30}<6^{19},\qquad
+100^{19}>17^{19}3^{30},\qquad 173^2<3\cdot100^2. \tag{50}
+\]
+
+Thus \(9/5<q<19/10\), \(3^{-30/19}>17/100\), and \(\sqrt3>173/100\).
+
+For (a), let \(h=1/1000\). The uniform-permutation cubic term in the expansion at constants has absolute value at most \(hV/2\). Hadamard's inequality bounds the cubic determinant term by \((3\sqrt3/2)hV\). Since \(0\le t_p\le t_2\) and \(3\sqrt3 t_2=1-\sqrt3/2<1\), the total cubic contribution is at most \(hV\). The quadratic estimate of Theorem 12(a) therefore reads
+
+\[
+P_{\nu_{t_p}}(f_1,f_2,f_3)
+\le 1+\left(\frac54-\frac{\sqrt3}{2}+h\right)V. \tag{51}
+\]
+
+Write \(V_i=\mathbb E_jg_i(j)^2\) and \(A_i=\mathbb E_j(1+g_i(j))^p-1\). Taylor's theorem on \([1/2,3/2]\), using \(|p(p-1)(p-2)x^{p-3}|\le8\), gives
+
+\[
+\left|A_i-\frac{p(p-1)}2V_i\right|\le2hV_i. \tag{52}
+\]
+
+As \(p>9/5\) and \(h\le1/2\), one has \(0\le A_i\le 2V_i\) and \(V_i\le h^2\). For \(\alpha=1/p\in(0,1)\) and \(A\ge0\), Taylor's theorem gives \((1+A)^\alpha\ge1+\alpha A-A^2/8\), since the second derivative on \([1,\infty)\) is at least \(-1/4\). Consequently,
+
+\[
+\begin{aligned}
+\|1+g_i\|_p
+&\ge1+\frac{p-1}{2}V_i-\frac{2h}{p}V_i-\frac{A_i^2}{8}\\
+&\ge1+\left(\frac{p-1}{2}-3h\right)V_i.
+\end{aligned}
+\]
+
+Each norm is at least one by Jensen, so their product is at least \(1+((p-1)/2-3h)V\). Combining with (51) and using \(p>9/5\) and \(\sqrt3>173/100\) yields
+
+\[
+\prod_i\|f_i\|_p-P_{\nu_{t_p}}(A)
+\ge\left(\frac{\sqrt3}{2}-\frac{17}{20}-4h\right)V
+>\left(\frac3{200}-\frac4{1000}\right)V
+>\frac V{100}.
+\]
+
+For (b), recall from Theorem 12(b) that the deficit is at least \(S(d_p-c_ph/2-c_pS/8)\), where \(d_p=c_p/p-(1/3-c_p)/2\). We first prove the explicit bound \(d_p>1/300\).
+
+If \(q\le p\le19/10\), then \(c_p\ge1/6\), \(1/3-c_p\le1/6\), and \(1/p\ge10/19\). Therefore
+
+\[
+d_p\ge\frac16\frac{10}{19}-\frac1{12}=\frac1{228}>\frac1{300}.
+\]
+
+If \(19/10\le p\le2\), then \(1/p\ge1/2\), so by (50),
+
+\[
+d_p\ge c_p-\frac16
+\ge3^{-30/19}-\frac16
+>\frac{17}{100}-\frac16=\frac1{300}.
+\]
+
+Take \(h=1/100\). Since \(c_p\le c_2=1/(3\sqrt3)<1/5\) and \(q>1\), the off-diagonal \(p\)-power sum satisfies \(S\le6h^q\le6h\), hence
+
+\[
+\frac{c_ph}{2}+\frac{c_pS}{8}
+\le\frac15\left(\frac1{200}+\frac6{800}\right)
+=\frac1{400}.
+\]
+
+The deficit is thus at least \(S(1/300-1/400)=S/1200\), proving (49). QED.
+
+The exact integer comparisons (50) are independently replayed by the small checker in code/check_local_gaps.py. **Limit of effectiveness:** although these neighborhoods and margins are explicit, the strict bound on the complement of their union in the normalized matrix compactum is still qualitative. A verified global complement margin would make the interval endpoint \(p_0\) effective.
