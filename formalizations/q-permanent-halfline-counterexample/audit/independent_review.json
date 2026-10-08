@@ -1,0 +1,178 @@
+{
+  "evidence_manifest_hashes_verified": 38,
+  "source_config_and_control_consistency": "PASS",
+  "owned_count": 26,
+  "all_owned_closure_count": 13134,
+  "root_union_count": 13131,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "closure_graph_consistency": "PASS",
+  "per_root_closure": [
+    {
+      "name": "QPermanentHalfline.explicit_counterexample",
+      "closure_count": 13127
+    },
+    {
+      "name": "QPermanentHalfline.halfLineConjecture_false",
+      "closure_count": 13124
+    },
+    {
+      "name": "QPermanentHalfline.counterexampleMatrix_posDef",
+      "closure_count": 12714
+    },
+    {
+      "name": "QPermanentHalfline.counterexampleMatrix_exact_decrease",
+      "closure_count": 7852
+    }
+  ],
+  "public_reference_files_matching_local_publication": 6,
+  "independent_fraction_checks": {
+    "status": "PASS",
+    "all_permutations_enumerated": 24,
+    "nonzero_terms": [
+      {
+        "permutation_0_based": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "inversions": 0,
+        "term": "1"
+      },
+      {
+        "permutation_0_based": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "inversions": 3,
+        "term": "1/64"
+      },
+      {
+        "permutation_0_based": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "inversions": 1,
+        "term": "9801/10000"
+      },
+      {
+        "permutation_0_based": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "inversions": 4,
+        "term": "-99/400000"
+      },
+      {
+        "permutation_0_based": [
+          3,
+          0,
+          2,
+          1
+        ],
+        "inversions": 4,
+        "term": "-99/400000"
+      },
+      {
+        "permutation_0_based": [
+          3,
+          1,
+          2,
+          0
+        ],
+        "inversions": 5,
+        "term": "1/250000"
+      }
+    ],
+    "coefficients": [
+      "1",
+      "9801/10000",
+      "0",
+      "1/64",
+      "-99/200000",
+      "1/250000",
+      "0"
+    ],
+    "P49": "81807513/500000",
+    "P50": "7969/50",
+    "difference": "2117513/500000",
+    "positive_quadratic_pivots": [
+      "1",
+      "199/10000",
+      "1",
+      "944/4975"
+    ]
+  },
+  "verification_limit": "Static semantic, hash, manifest graph and independent rational arithmetic audit only. No local Lean installation, compilation or kernel replay performed.",
+  "overall_static_semantic_audit": "PASS",
+  "blocking_defects": [],
+  "source_semantic_findings": {
+    "q_permanent": "All Equiv.Perm (Fin n), actual inversions i<j with sigma(j)<sigma(i); full four-index order retained. No asserted polynomial is used as a definition or premise.",
+    "matrix": "Explicit 4x4 rational symmetric matrix, diagonal identically 1, cast into reals. Genuine mathlib Matrix.PosDef and not-diagonal proofs.",
+    "conjecture_scope": "For each real a<=-1, not MonotoneOn on Ici a and not StrictMonoOn on Ioi a. Separately refutes universal real non-diagonal positive-definite conjecture with some a<-1.",
+    "premises": "Main explicit_counterexample and halfLineConjecture_false have no unproved parameters or premises. Standard propext/Classical.choice/Quot.sound only.",
+    "formalization_not_included": [
+      "dimension-four minimality or n<=3 result",
+      "general family for every t>1",
+      "original Bapat interval [-1,1]"
+    ]
+  },
+  "replay_static_audit": {
+    "fresh": "New uniquely named source/build/check/log dirs; input source hashes checked, all four source modules covered, no old owned build paths; 4 recorded fresh compiles exited 0.",
+    "closure": "ConstantInfo.getUsedConstantsAsSet covers type and value with allowOpaque=true; structural family/constructor/recursor dependencies added; all serialized graph edges independently closed.",
+    "kernel": "mkEmptyEnvironment 0 establishes trust level zero, with an explicit empty-constants assertion. Lean.Kernel.Environment.replay submits definitions, theorem values, opaque values and inductives through addDeclCore. The two zeros in addDeclCore 0 0 are maxHeartbeats and maxRecDepth, not trust level. Constructors/recursors are compared with regenerated kernel data.",
+    "negative": "False theorem with value True.intro rejected; exact logged error is kernel declaration type mismatch in that test theorem.",
+    "tool_scope": "The audit harness includes partial traversal functions, which are implementation code outside the audited mathematical declarations and their proof closure.",
+    "execution_attribution": "The package owner recorded Lean execution. This independent auditor did not rerun Lean.",
+    "wrapper_enforcement": "Lean.Replay itself skips unsafe/partial constants and permits axioms; the reviewed outer auditor rejects unsafe/partial closure members before replay, permits only propext, Classical.choice and Quot.sound, asserts the base constants are empty, then checks every requested closure declaration is present with matching type and universe parameters."
+  },
+  "upstream_pinned_interfaces": [
+    {
+      "path": "Lean/Replay.lean",
+      "url": "https://github.com/leanprover/lean4/blob/5045d0056413266e57c625dcd7c365b10e377c52/src/Lean/Replay.lean",
+      "git_blob_sha": "71012211da8d22961873d9ff70feadac973715a8",
+      "sha256": "c434b5b2bc5047ca58d4a095fcf1d9935d413c788ae98a4f21948e6a95ca3fb0",
+      "git_blob_hash_recomputed_matches": true
+    },
+    {
+      "path": "Lean/Util/FoldConsts.lean",
+      "url": "https://github.com/leanprover/lean4/blob/5045d0056413266e57c625dcd7c365b10e377c52/src/Lean/Util/FoldConsts.lean",
+      "git_blob_sha": "5429906bfda3805967920ea17f77e68611007fdf",
+      "sha256": "bc3748d1faae55d11cc0fcf3e9d74935c01187c499d36ceadffcb0df46bbfbf3",
+      "git_blob_hash_recomputed_matches": true
+    },
+    {
+      "path": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+      "git_blob_sha": "d85277376a28a5c2265aad6e21472b1fec73185a",
+      "sha256": "1b69b42201896947aab412c7ba340b51aad187ada7c1bcf0bd1545e8a3270acf",
+      "git_blob_hash_recomputed_matches": true
+    },
+    {
+      "path": "Mathlib/Data/Fintype/Perm.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Data/Fintype/Perm.lean",
+      "git_blob_sha": "cf6aa654c15e44e6507143793a3f5903760d3c51",
+      "sha256": "1a021b8a92315c3886238a689e3f275e9b74eab635ef4cc26a54bab15bb18548",
+      "git_blob_hash_recomputed_matches": true
+    }
+  ],
+  "download_manifest_files_independently_verified": 7,
+  "supplemental_owner_confirmation": {
+    "status": "Reported by executing Lean owner; not rerun by this static auditor",
+    "time_utc": "2026-10-08T10:46:50Z",
+    "context": "Same fresh-run LEAN_PATH with import QPermanentCounterexample",
+    "result": "Three #print commands exited 0. Matrix.PosDef is Hermitian plus strict positivity for every nonzero finitely supported vector; of_dotProduct_mulVec_pos uses the finite-vector equivalence; fintypePerm is permsOfFinset univ with completeness. Source pins and clean worktrees unchanged.",
+    "print_log_sha256": "a259a71d68b472f7a58e97188f2f63c6e9ed2767d36681275c356961f15200e6",
+    "pinned_upstream_source_hashes": "All four reported source SHA256 values match this auditor’s independently retrieved exact-pin source copies."
+  }
+}
