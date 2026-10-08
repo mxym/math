@@ -76,3 +76,26 @@ This combines uniform strict local estimates near **every** classified `p=2` ext
 [Section 14](paper.md#14-fully-rational-local-stability-neighborhoods) makes the two local estimates used in the one-sided exact interval quantitative and rational. Uniformly for \(q_3\le p\le2\), a mean-zero \(1/1000\) perturbation of the constant triple has permanent deficit at least \(V/100\); an off-diagonal \(1/100\) perturbation of an even-permutation singleton triple has deficit at least \(S/1200\). [Exact integer checker](code/check_local_gaps.py). These local estimates **do not certify a specific \(p_0\)**, because the compact complement is still treated qualitatively.
 
 [Theorem 15](paper.md#15-a-sharp-atom-modulus-theorem-for-all-doubly-transitive-groups) extends the optimal atom-concentration mechanism to **every finite doubly transitive permutation group**. For group \(G\) of degree \(n\ge3\) with minimal degree \(m(G)\), the sharp coefficient relating one atom's deviation from uniform to total variation is \((n-m(G))/n\), under exact uniform one-point marginals. Explicit identity/derangement/minimum-support mixtures attain equality. This includes symmetric groups \((n-2)/n\), alternating groups \((n-3)/n\) for \(n\ge4\), and affine \(\operatorname{AGL}(1,\mathbb F_q)\) groups \(1/q\). The [pure-rational checker](code/check_doubly_transitive.py) replays nine finite witnesses; the all-group proof is analytic, not an extrapolation of enumeration.
+
+
+## Two-subset exact formula and universal orbital duality
+
+[Theorem 16](paper.md#16-exact-non-doubly-transitive-obstruction-the-edge-action-of-s_5) proves that for the S5 action on the ten edges of K5 the **sharp atom-vs-TV coefficient is exactly 1/3**, strictly below the minimal-degree bound 2/5. An explicit dual function built from fixed-edge and adjacent-edge counts has range exactly 1/3, and identity/3-cycle versus transposition probability mixtures attain equality. Its [fully rational 120-permutation checker](code/check_edge_action_s5.py) independently verifies all seven cycle types, all 100 edge-image marginals and the sharp primal-dual equality.
+
+[Theorem 17](paper.md#17-exact-sharp-atom-modulus-for-every-two-subset-action-of-s_n) extends the S5 example to the **complete infinite family** of natural Sn-actions on unordered vertex pairs. The exact sharp constant is
+
+\[
+C_n=
+\begin{cases}
+(n^2-2n+8)/[(n+2)(n+4)],&n\ge4\text{ even},\\
+(n^2-n+4)/[(n+3)(n+4)],&n\ge5\text{ odd}.
+\end{cases}
+\]
+
+The proof gives simple all-n **quadratic dual inequalities** and matching **explicit class-mixture primal measures** in each parity. It strictly improves the minimal-degree coefficient for every n≥5. The [independent finite conjugacy checker](code/check_all_two_subset_actions.py) uses only integer/Fraction arithmetic to exhaust all integer partitions for 4≤n≤40 and verify the rational formulas, dual inequalities, and matching moment/positivity certificates. This finite replay is supplementary; the analytic proof covers every n≥4.
+
+[Theorem 18](paper.md#18-universal-orbital-primal-dual-theorem-for-finite-permutation-actions) proves an **exact general framework** valid for any finite permutation group action: its sharp single-atom TV response equals both a rational primal LP on class-invariant probability laws and a dual *orbital-count oscillation* LP. The theorem proves rational optimal certificates and existence of centrally symmetric disjoint-support extremal probability measures (when the coefficient is positive). The earlier 2-transitive and pair-action results become rank-two and rank-three instances. The full higher-order k-subset problem, k≥3, is not solved by the structural reduction alone.
+
+### Public replay and review limits
+
+The [verification record](VERIFICATION.md) separates the complete written proofs from the finite exact replay tools, records what each checker establishes, and identifies remaining open cases. No result is called externally peer reviewed, globally priority-certified, or Lean-formalized merely because its exact arithmetic checker passed.
