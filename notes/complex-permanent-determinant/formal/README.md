@@ -268,3 +268,43 @@ and its strict-below-TV-threshold refinement have *not*
 been fully formalized. Theorem 1A, Theorem 1B, the sharp
 absolute-value theorem, the one-column exact norm and
 the all-column **exact tensor norm** are now kernel-verified.
+
+## Full sharp nonidentical-column tensor product norm (Corollary 7)
+
+**Completely Lean kernel verified.** The new modules
+`TensorWitnessLocal.lean`, `TensorProduct.lean`,
+`TensorFactor.lean`, `TensorWitnessExact.lean` and
+`TensorSharp.lean` close the previously unproved lower
+bound for any finite number of nonidentical (S_3) laws.
+
+The endpoint `ComplexPencilTensor.tensorSquaredBound_iff`
+quantifies over every finite parameter list `ts : List ℝ`
+with every `|t| ≤ 1/6`, every real candidate squared
+constant (B), and **all** complex functions on words
+of length `ts.length`. It proves the sharp universal
+squared expectation bound if and only if
+[
+ B geleft(prod_{tin ts}
+  max{1,	frac{sqrt3}{2}(1+6|t|)}ight)^2 .
+]
+The actual Lean `tensorized_complex_norm_bound`
+provides the upper inequality. The lower bound uses
+explicit nonnegative per-column optimal functions
+(constant functions inside the unamplified regime and
+favored-parity permutation indicators outside it),
+with exact expectation and (L^2)-energy product
+factorizations. All of this is valid without assuming
+identical columns or restricting the number of columns.
+
+`TensorSharp.log` records successful compilation and a
+`#print axioms` report containing **only**
+`propext`, `Classical.choice` and `Quot.sound`.
+There is no `sorryAx`; each intermediate module's
+actual compiler logs are separately published.
+
+**Remaining unformalized research claim:** Theorem 2,
+the *complete classification* of all equality matrices
+for the complex absolute-value inequality. This is
+separate from attaining the optimal norm, for which the
+five extremal witness classes and full tensor witnesses
+are already formalized.
