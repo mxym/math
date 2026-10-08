@@ -2,6 +2,8 @@
 
 **Latest: [version 5 — unique optimum in the balanced homogeneous simplex recursion](v5/README.md).** Read the [complete proof](v5/paper.md), [proof audit](v5/PROOF_AUDIT.md), [exact logarithm checker](v5/code/check_balanced.py), [recorded replay](v5/results/check_balanced.txt), [dependency manifest](v5/MANIFEST.json), and [focused prior-work comparison](../../comparisons/2026-10-07-balanced-recursion.md).
 
+**Independent-arity continuation.** The [new exact classification](../../notes/unbalanced-homogeneous-projection-recursion/README.md) strengthens v5 by proving the same unique winner across all positive product arities `m`, join arities `k`, and simplex seed dimensions `p`, not only `m=k`. The supplement contains its own [full written proof](../../notes/unbalanced-homogeneous-projection-recursion/paper.md) and [rational interval checker](../../notes/unbalanced-homogeneous-projection-recursion/checker.py). Historical v5 files are unchanged; periodic/nonhomogeneous trees remain outside scope.
+
 Version 5 proves an infinite-family spectral classification. For every integer arity \(t\ge2\) and simplex seed dimension \(p\ge1\), iterate
 \[
 K_{j+1}=(K_j^t)^{*t}.
