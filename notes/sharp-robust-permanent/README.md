@@ -133,4 +133,21 @@ The [verification and trust-boundary record](VERIFICATION.md) records what is ma
 
 [Theorem 23](paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) proves, for **every fixed subset rank k**, a uniform quantitative approximation of its normalized orbitals by the \(k\)-th Bernstein polynomial basis. This rigorous all-k statement reduces higher-rank asymptotic orbital geometry to a space of degree-k polynomials, with an \(O_k(1/n)\) error valid uniformly over all permutations.
 
-[Proposition 24](paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) identifies the already-proved leading dual polynomials at k=1,2,3 as \((1-T_k(2a-1))/2\), where \(T_k\) is the Chebyshev polynomial. Their endpoint derivatives give the *proved* sharp first-order constants 2, 8, and 18. The proposed \(2k^2\) first-order constant for fixed k≥4 is **explicitly a conjecture**; the Bernstein approximation alone is not a proof of it, and no k≥4 full optimality assertion is made.
+[Proposition 24](paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) identifies the already-proved leading dual polynomials at k=1,2,3 as \((1-T_k(2a-1))/2\), where \(T_k\) is the Chebyshev polynomial. Their endpoint derivatives give the *proved* sharp first-order constants 2, 8, and 18. **Historical status correction:** the proposed \(2k^2\) first-order constant for every fixed k≥4 has since been **proved in Theorem 25, Section 24**. The Bernstein approximation alone was insufficient; the completed proof requires the corrected Chebyshev dual and exact positive Chebyshev-node primal measures. Finite-n exact classification remains open.
+
+
+## All-rank sharp Chebyshev asymptotic and exact transfer-matrix compression
+
+The original **higher-rank conjecture is now rigorously resolved**. [Theorem 25 and its complete analytic proof](paper.md#24-resolution-of-the-fixed-rank-chebyshev-atom-modulus-conjecture) establish for **every fixed k≥1**
+
+\[
+C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2}).
+\]
+
+The proof constructs (1) a uniform first-order expansion of all k-subset orbital laws in terms of fixed-point and two-cycle densities, (2) a **Chebyshev dual with a uniquely interpolated first-order correction** that works uniformly over every permutation, and (3) **exact marginal-matched positive central probability measures** from a rational k-by-k linear system at Chebyshev-Lobatto nodes. The first-order primal masses are explicit; their identity mass is \(1-2k^2/n+O_k(n^{-2})\), while their transposition-class mass is \(1-2(k^2-1)/(3n)+O_k(n^{-2})\).
+
+The first previously unproved instance k=4 has [independent exact symbolic and rational-primal replay](code/check_k4_chebyshev_dual.py), including the explicit corrected dual with algebraic coefficient field Q(sqrt(2)), and exact positive probability weights at six large finite degrees. The **general k theorem is analytic** and is not inferred from those checks. No effective universal finite-n optimal constant or threshold is claimed.
+
+Separately, [Theorem 30](paper.md#25-an-exact-cycle-index-and-transfer-matrix-compression-theorem-for-every-rank) proves an **all-n, all-k exact orbital formula** using the 2-by-2 transfer matrix M(u,t)=[[1,u],[1,ut]]. The entire k-subset orbital vector depends only on cycle counts c_1,...,c_k. Thus finite primal-dual certification can enumerate O_k(n^k) short-cycle types rather than all integer partitions. The [independent integer checker](code/check_all_k_orbital_compression.py) compares the transfer-matrix recurrence with direct subset enumeration for every partition of 3≤n≤12 and all 1≤k≤min(n,6).
+
+These close the **leading asymptotic** and the **general exact compression framework**, while the exact optimal coefficient for arbitrary individual finite (n,k) remains a distinct open problem. See [verification scope](VERIFICATION.md).
