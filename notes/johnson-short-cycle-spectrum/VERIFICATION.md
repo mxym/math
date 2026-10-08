@@ -221,3 +221,52 @@ The *mathematical* power-mean proof then covers every moved count at least 42, s
 **Negative controls and Python optimization:** All checks use explicit ArithmeticError/require paths, **not Python assert statements**. Running the primary checker under Python's -O flag continues to execute every check and passes, so assertion-stripping does not silently disable validation. Four isolated mutations—altered integer weight, broken finite/tail cutoff, altered tail exponent, and a deliberately false strict tail target—were each rejected with nonzero ArithmeticError. The untouched public files were not modified by negative controls.
 
 **Mathematical trust boundary:** The machine-checkable portion is the exact, finite list of inequalities and the strict rational tail threshold; its completeness follows from the explicit nonincreasing-partition recursion and analytic tail inequality in the paper. The converse four-class measure identity, faithfulness/group translation, middle-rank inclusion-matrix argument, and support/class-mass equality theorems are **written mathematical proofs** not inferred from the finite replay. Model-assisted research; **no external peer review, Lean formalization, or mathematical priority adjudication** is asserted.
+
+
+## Alternative reciprocal-node certificate (independently certified)
+
+A *second* rational dual, with evaluation parameters \(1/2,1/3,1/4,1/5,1/6\) and all weights sharing the much smaller integer denominator \(30,625\), independently proves the same global 5/14 bound. Its certificate covers **every** partition with 2--43 moved vertices, or **63,260** nonincreasing partitions with parts >=2; a strict rational bound \(\sum_i|\widetilde\alpha_i|\widetilde\rho_i^{22}<7/50\) proves every moved count >=44. This is a different **mathematical dual** from the 44,582-partition original, not merely a second implementation of the same rational numbers.
+
+**Fresh fixed-commit VPS source replay:**
+
+| Exact proof input | Public immutable commit | SHA-256 |
+|---|---|---|
+| [Reduced-denominator integer checker](check_allrank_sharp_five_fourteenths_small.py) | [562548b](https://github.com/mxym/math/commit/562548b37d280890cd19c6899a103878dbe2fb58) | a5d6cc2abcaa6350be540540b1f4e0104e171d887af0972324310afaa59f9a86 |
+| [Independent reconstructed Fraction checker](check_allrank_sharp_five_fourteenths_small_independent.py) | [91cfe61](https://github.com/mxym/math/commit/91cfe61682a60c82bdcc7d8c57d82be1fb7695a7) | 8c8d856c3a2f9df90f784ab3044d46cd48d7cdd3d7bfe7a6bc62055710085a0c |
+| [Adversarial mutation check](check_allrank_sharp_five_fourteenths_small_negative_controls.py) | [f5fe9f5](https://github.com/mxym/math/commit/f5fe9f59da2dc06e4e7b0c03712ad1de94de1e86) | 3157da6f924d444685e4a6a998a4e8873593602c930c77d17ef7c4bd1dab8b4b |
+
+**Reproduce in ordinary Python 3:**
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small.py
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small_independent.py
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small_negative_controls.py
+~~~
+
+**Observed complete audit:**
+
+~~~text
+EXACT CONTACTS: Phi(2)=Phi(3,3)=9/14; Phi(4)=1.
+RATIONAL INPUT DENOMINATOR: 30625
+FINITE PARTITIONS (all cycle lengths >=2, moved<=43): 63260
+EXACT GLOBAL FINITE MINIMUM: 9/14 at (2,)
+EXACT GLOBAL FINITE MAXIMUM: 1 at (4,)
+UNBOUNDED TAIL: sum |weight| rho^22 < 7/50: True
+ALL-RANK 5/14 UNIVERSAL DUAL CERTIFICATE PASS.
+
+EXACT RATIONAL COEFFICIENTS RECONSTRUCTED:
+[576642/4375, -354, 13334928/30625, -289, 2344953/30625]
+INDEPENDENT FRACTION PARTITIONS REPLAYED: 63260
+LOWER CONTACT SHAPES: [(2,), (3, 3)]
+UPPER CONTACT SHAPES: [(4,)]
+TAIL < 7/50: True
+INDEPENDENT SMALL-DENOMINATOR 5/14 CHECKER PASSED
+
+EXPECTED REJECTION: modified rational input
+EXPECTED REJECTION: finite-tail gap
+EXPECTED REJECTION: tail exponent
+EXPECTED REJECTION: false strict tail
+ALL SMALL-DENOMINATOR NEGATIVE CONTROLS PASS; ORDINARY AND -O BOTH EXPLICITLY CHECKED
+~~~
+
+The checker uses exact integer comparisons with a common parameter denominator \(60\) and weight denominator \(30,625\). The independently authored Fraction-check path **reconstructs** the missing three weights from fixed integers \(-354,-289\) and the exact cycle-contact equations, and checks every possible short moved cycle list. The analytic power-mean proof from Section 3 of the main paper covers all unbounded cases; no finite-LP extrapolation or heuristic inequality enters the result. Both literal-source replays and all four negative-control mutations passed; Python optimized mode does not disable any verification step.
