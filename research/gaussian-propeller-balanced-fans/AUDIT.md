@@ -39,6 +39,36 @@
    algebraic equation 4c^2+c-2=0 with a simple root,
    giving an O(k^-2) angle error.
 
+## Fixed-mass duality and power-diagram audit
+
+- Weak duality comes from the pointwise maximum of linear
+  Gaussian scores with price offsets lambda_i.
+- For all positive masses, the price objective is coercive
+  after fixing min(lambda_i)=0: it is bounded below by
+  p_min times max(lambda_i). It therefore attains its minimum.
+- Pairwise distinct score vectors give Gaussian-null affine
+  tie sets. Differentiation under expectation is justified
+  by pointwise Lipschitzness and dominated convergence.
+  Stationarity enforces all prescribed masses exactly.
+- Duplicate score vectors are handled by approximation,
+  together with uniform Lipschitz continuity of both
+  primal and dual objectives in the score vectors.
+  No unsupported arbitrary tie-breaking is assumed.
+- Euclidean norm duality converts the linear assignment
+  problem into a max-min representation of the squared
+  centroid objective over finitely many real parameters.
+- The final Laguerre structure theorem is conditional
+  on a partition attaining the global optimum.
+  It proves distinct centroids by swapping equal-mass
+  patches and obtaining a strict squared-norm gain.
+- The two-cell all-mass formula is established by a
+  sign-definite halfspace exchange, without a solver.
+- The three-cell equal-mass global upper bound is
+  **attributed to OpenAI-096**, not an independent theorem.
+- The fixed-mass outer max-min is still generally
+  nonconvex. No claim is made to have proved the full
+  Standard Simplex Conjecture.
+
 ## High-dimensional counterexample audit
 
 - The score covariance equals the projected iid-Gaussian
