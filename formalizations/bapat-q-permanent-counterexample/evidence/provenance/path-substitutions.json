@@ -1,0 +1,67 @@
+{
+  "operation": "Ordered literal UTF-8 replacement only; original machine prefixes are represented by SHA-256, not disclosed.",
+  "rules": [
+    {
+      "rule": 1,
+      "original_literal_sha256": "609cefa6c5753c1161b35e33f597fabd1e59117a9862cf23ad68c33ba6faf664",
+      "replacement": "${RUN_ROOT}"
+    },
+    {
+      "rule": 2,
+      "original_literal_sha256": "168d52aa09880c9cee6f5980f4687f9aa5fe1335a994a696e386ce86746e9430",
+      "replacement": "${FAILED_RUN_ROOT}"
+    },
+    {
+      "rule": 3,
+      "original_literal_sha256": "44cada25d07798d76e83d3906f891882599f80f8de72d60bd2647f83b903a98f",
+      "replacement": "${PROJECT_ROOT}"
+    },
+    {
+      "rule": 4,
+      "original_literal_sha256": "9253a70198a96f758d1a66a6a877a4b72c74dbc0430f241789987ccddfe24cc1",
+      "replacement": "${TOOLCHAIN_ROOT}"
+    },
+    {
+      "rule": 5,
+      "original_literal_sha256": "09cdadb36886c476568a5f037c5ffeed5f5998127a3810e1c250d2257e63f443",
+      "replacement": "${PACKAGES_ROOT}"
+    },
+    {
+      "rule": 6,
+      "original_literal_sha256": "7880ca9033e8b395773b241b1d535c19bd21444999266a8db7ca43ab25544dc5",
+      "replacement": "${CACHE_ROOT}"
+    },
+    {
+      "rule": 7,
+      "original_literal_sha256": "b1247b9cd11b9cdca5e3e08cec4f35b6e3c9495c6796fe9d19d19c4724b7670e",
+      "replacement": "${ENV_ROOT}"
+    },
+    {
+      "rule": 8,
+      "original_literal_sha256": "ec0c699095cd82c7c2e7c28406997349c0496f69051bc9e787001bee07a534c2",
+      "replacement": "${VERIFIER_ROOT}"
+    },
+    {
+      "rule": 9,
+      "original_literal_sha256": "c52ddf65534b7b46035084358ab7902be4bfef220bdb503ac7039cc861905b05",
+      "replacement": "${WORKSPACE_ROOT}"
+    },
+    {
+      "rule": 10,
+      "original_literal_sha256": "3afddf2925bb97333c453e2e30e1d35c677f75825dd69c4bc8f3cb81d0d7a837",
+      "replacement": "bapat-n200"
+    }
+  ],
+  "additional_rule": "Remove JSON pid lines; keep execution timestamps, argv, exit codes, mathematical content and proof source bytes.",
+  "interpretation": {
+    "${RUN_ROOT}": "Fresh successful output directory; historical execution timestamps remain in status/commands.",
+    "${FAILED_RUN_ROOT}": "Earlier rejected audit, documented in first-audit-failure.json.",
+    "${PROJECT_ROOT}": "This package formalization directory.",
+    "${TOOLCHAIN_ROOT}": "Local pinned Lean toolchain.",
+    "${PACKAGES_ROOT}": "Directory with pinned mathlib and the eight additional package checkouts.",
+    "${CACHE_ROOT}": "Local cache; not used to trust own compilation products.",
+    "${VERIFIER_ROOT}": "Writable copied verifier root for a new verification.",
+    "${WORKSPACE_ROOT}": "Original workspace role; no original root is disclosed.",
+    "${ENV_ROOT}": "Original shared environment role."
+  }
+}

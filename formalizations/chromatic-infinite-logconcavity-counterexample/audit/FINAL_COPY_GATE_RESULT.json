@@ -1,0 +1,59 @@
+{
+  "status": "PASS_FINAL_PUBLIC_COPY_GATE",
+  "scope": "Independent static, exact-byte projection, integer arithmetic, and prepare-only tests; no Lean compiler or kernel executed",
+  "reviewed_manifest_sha256": "658bb671d85e7eeb48e319d1fa116afc7796b79a806afe79b1482c8848322094",
+  "reviewed_checksums_sha256": "e2c66924bf8982b95493df47c484f8d94d2a63eae4df7d1f75a81802059b673a",
+  "manifest_payload_files": 97,
+  "formalization_files_total": 99,
+  "separate_note_files": 1,
+  "historical_input_public_archive_sha256": "3abea26096508a6a12a87eea65785bb37e7656fd13d496d6900e2f2d7c699617",
+  "archive_members_accounted_for": 75,
+  "byte_identical_original_members": 62,
+  "machine_root_only_projected_members": [
+    "formalization/RESULT.json",
+    "formalization/records/PrintInterfaces-command.json",
+    "formalization/verify.json",
+    "fresh-verification/logs/000-CycleColoring.dependencies.log",
+    "fresh-verification/logs/001-ChromaticPolynomial.dependencies.log",
+    "fresh-verification/logs/002-LogConcavityCounterexample.dependencies.log",
+    "fresh-verification/manifest/commands.json",
+    "fresh-verification/manifest/environment-config.json",
+    "fresh-verification/manifest/environment.json",
+    "fresh-verification/manifest/input.json",
+    "fresh-verification/manifest/search-path.json",
+    "fresh-verification/manifest/status.json",
+    "verifier/config/environment.json"
+  ],
+  "historical_manifest_renames": {
+    "PUBLIC_PROFILE.json": "PUBLIC_PROFILE.historical.json",
+    "SHA256SUMS": "SHA256SUMS.historical",
+    "fresh-verification/manifest/SHA256SUMS": "fresh-verification/manifest/SHA256SUMS.historical"
+  },
+  "audit_report_byte_identical": true,
+  "audit_result_only_machine_root_projected": true,
+  "sources_compiled_outputs_graphs_and_mathematical_certificates_byte_identical": true,
+  "no_original_machine_root_bytes_anywhere_in_public_copy": true,
+  "packaged_test_controls": [
+    "Full inventory, complete historical projection, graph, declarations, axioms, source bindings, recorded commands, and all exact C17 arithmetic pass",
+    "All four assertion-based public entry points fail closed under Python -O",
+    "Changed Lean source rejected",
+    "Unexpected unmanifested file rejected",
+    "Duplicate public manifest entry rejected",
+    "Truncated closure evidence rejected",
+    "Prepare-only supports spaces, preserves all pins/scope/roots/source hashes, copies exact verifier/checks, imports no owned binaries, and never invokes synthetic Lean",
+    "Existing output directory rejected",
+    "Output inside public snapshot rejected",
+    "Missing toolchain asset rejected",
+    "Portable audit refuses output inside public snapshot",
+    "All original public snapshot files unchanged after positive and negative tests"
+  ],
+  "additional_independent_negative_controls": [
+    "Unlisted file rejected in __pycache__",
+    "Unlisted file rejected in .cache/deep",
+    "Unlisted file rejected in evidence/fresh-verification/build/cache",
+    "Unexpected symlink rejected",
+    "All four Python entrypoints explicitly reject optimization mode",
+    "Independent prepare-only rerun: driver and both checker sources copied byte-identically; no Lean execution or owned binary input"
+  ],
+  "public_tree_unchanged_after_tests": true
+}

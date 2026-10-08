@@ -352,3 +352,7 @@ The [arbitrary-degree replication theorem](notes/superlinear-near-linear-partite
 ## Entry 002: complete finite principal-sieve optimum and conditional prime-constellation reduction
 
 [Exact 197 finite-sieve optimum, complete paper and independent six-stage integer checker](notes/sqrt-minus-two-exact-sieve-optimum/README.md); [classical Schinzel H conditional B_D=197 theorem with 197 explicit quadratic polynomials and CRT certificate](notes/sqrt-minus-two-conditional-prime-197/README.md). The unconditional prime-component result remains 90 <= B_D <= 197, distinct from the now fully proved equality for the finite principal-ideal sieve optimum.
+
+## General exact CRT minimax identity for periodic lattice sieves
+
+[Complete analytical proof with rigorous principal-ideal corollary](notes/periodic-sieve-admissibility-minimax/README.md). Arbitrary dimension, finite step sets and prime-indexed allowed residue sets: minimum finite-sieve maximum component size equals maximum universally locally admissible connected pattern cardinality, and a finite sieve attains the optimum whenever it is finite. Numerical quadratic instance: the already certified exact value 197; true prime-only maximum remains unknown unconditionally.

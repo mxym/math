@@ -1,4 +1,4 @@
-# Oct 8 2026: fully exact *polynomial admissibility only* replay
+# Exact local arithmetic, 2026-10-08. Conditional theorems still require the unproved Hypothesis H.
 $ python3 code/check_polynomials.py
 PATTERN: 197 independently pinned distinct lattice coordinates
 FAMILY: 197 distinct monic integral quadratics with strictly negative discriminants
@@ -13,6 +13,16 @@ SMALL-PRIME LOCAL DATA: all 77 primes <=394 covered by one CRT shift at n=0
 GLOBAL CRT MODULUS: digits 159 horizontal/vertical shift digits 159 159
 LARGE-PRIME REASON: product monic degree 394, so no fixed divisor prime p>394
 SCHINZEL INPUTS EXACTLY VERIFIED; NO PRIMALITY EXISTENCE ASSERTED
+$ python3 code/check_boundary_spectrum.py
+INERT BLOCKERS: 1186 exact rational primes, all >394 and inert in Q(sqrt(-2))
+EXACT PREFIXES: all 197 connected prefixes, maximal exterior boundary 1186
+LOCAL BOUNDARY CHECKS: 15563538 integer norm nonvanishing predicates verified
+BOUNDARY BLOCKING INPUTS VERIFIED; PRIME COMPONENT SPECTRUM IS CONDITIONAL ON SCHINZEL H
+$ python3 -O code/check_boundary_spectrum.py
+INERT BLOCKERS: 1186 exact rational primes, all >394 and inert in Q(sqrt(-2))
+EXACT PREFIXES: all 197 connected prefixes, maximal exterior boundary 1186
+LOCAL BOUNDARY CHECKS: 15563538 integer norm nonvanishing predicates verified
+BOUNDARY BLOCKING INPUTS VERIFIED; PRIME COMPONENT SPECTRUM IS CONDITIONAL ON SCHINZEL H
 $ python3 code/self_test.py
 REJECTED: missing small prime
 REJECTED: wrong prime index

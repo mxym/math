@@ -93,3 +93,7 @@ historical entry 002 versions are unchanged.
 ## Exact norm-six sieve optimum and conditional genuine prime-graph equality
 
 [The exact optimum](../../notes/sqrt-minus-two-exact-sieve-optimum/README.md) of finite principal-ideal sieve component size is 197, with matching constructive upper and universal admissible-pattern lower certificates. This also gives unconditional prime-only bounds **90 <= B_D <= 197**. A [separate explicitly conditional number-theoretic reduction](../../notes/sqrt-minus-two-conditional-prime-197/README.md) proves B_D=197 if one fully specified admissible family of 197 monic quadratic forms satisfies the unproved Schinzel Hypothesis H. Distinguish the completed unconditional sieve theorem from the not-yet-solved unconditional prime-only exact maximum. Independent exact checkers and proof audits are included; older 002 source files remain intact.
+
+## Universal finite-sieve/admissible-connected-shape minimax theorem
+
+The [abstract CRT duality](../../notes/periodic-sieve-admissibility-minimax/README.md) proves finite-sieve component-optimality equals the largest universally locally admissible connected pattern in any finite-step integer lattice graph, with finite attainment and no number theory hypotheses. In Z[sqrt(-2)], a proved principal-ideal/norm-residue equivalence recovers the exact 197 method optimum. The separate, genuinely prime-only graph remains unconditional only in [90,197], with Schinzel-H conditional exact 197 covered by a different, explicitly conditional paper.

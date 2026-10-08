@@ -14,6 +14,8 @@
 
 Classical Schinzel–Sierpiński **Hypothesis H** asserts simultaneous prime values infinitely often for a finite family of irreducible integer polynomials of positive leading coefficient with no fixed prime divisor. The exact 197-form list satisfies its **hypotheses**. The checker does **not** test, assume or establish its **conclusion**. Consequently the assertion `B_D=197` is proved here **only conditional on H for this explicit family**. The unconditional range remains `[90,197]`.
 
+The stronger component-size-spectrum theorem for **all** sizes 1 to 197 requires **full classical Hypothesis H**, i.e., separate simultaneous-primality predictions for 197 constructible polynomial families, one for each connected prefix. It is not a consequence solely of the one-family conditional maximum theorem. The boundary-blocking lemma forces each exterior neighbor to be divisible by a separate inert rational prime with nonunit quotient. The frozen `code/inert_boundary_primes.json` and `code/check_boundary_spectrum.py` verify all 1,186 blockers and 15,563,538 finite modular nonvanishing conditions; prime-value existence itself remains unproved.
+
 Tao's Gaussian-prime constellation theorem and its number-field generalization permit **dilation**, so they cannot simply replace H to obtain bounded unit-scale differences. No proof of historical novelty or external human peer review is claimed.
 
 ## Reproduction
@@ -21,6 +23,8 @@ Tao's Gaussian-prime constellation theorem and its number-field generalization p
 ```sh
 python3 code/check_polynomials.py
 python3 -O code/check_polynomials.py
+python3 code/check_boundary_spectrum.py
+python3 -O code/check_boundary_spectrum.py
 python3 code/self_test.py
 python3 -O code/self_test.py
 sha256sum -c SHA256SUMS

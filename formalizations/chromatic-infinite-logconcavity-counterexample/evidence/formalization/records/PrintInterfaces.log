@@ -1,0 +1,34 @@
+@[reducible] def ChromaticC17.C17 : SimpleGraph (Fin 17) :=
+SimpleGraph.cycleGraph 17
+@[reducible] def SimpleGraph.Coloring.{u, v} : {V : Type u} → SimpleGraph V → Type v → Type (max u v) :=
+fun {V} G α => G →g SimpleGraph.completeGraph α
+def ChromaticC17.IsChromaticPolynomial.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Polynomial ℤ → Prop :=
+fun {V} [Fintype V] G P => ∀ (q : ℕ), Polynomial.eval (↑q) P = ↑(Fintype.card (G.Coloring (Fin q)))
+def ChromaticC17.cyclePolynomial : Polynomial ℤ :=
+(Polynomial.X - 1) ^ 17 - (Polynomial.X - 1)
+def ChromaticC17.absCoefficients : Polynomial ℤ → ℕ → ℤ :=
+fun P k => |P.coeff k|
+def ChromaticC17.logConcavityOp : (ℕ → ℤ) → ℕ → ℤ :=
+fun a k => a k ^ 2 - (if k = 0 then 0 else a (k - 1)) * a (k + 1)
+def ChromaticC17.logConcavityIterate : (ℕ → ℤ) → ℕ → ℕ → ℤ :=
+fun a x => Nat.brecOn (motive := fun x => ℕ → ℤ) x (ChromaticC17.logConcavityIterate._f a)
+def ChromaticC17.InfinitelyLogConcave : (ℕ → ℤ) → Prop :=
+fun a => ∀ (r : ℕ), 1 ≤ r → ∀ (k : ℕ), 0 ≤ ChromaticC17.logConcavityIterate a r k
+def ChromaticC17.ChromaticInfiniteLogConcavityConjecture : Prop :=
+∀ (n : ℕ) (G : SimpleGraph (Fin n)) (P : Polynomial ℤ),
+  ChromaticC17.IsChromaticPolynomial G P → ChromaticC17.InfinitelyLogConcave (ChromaticC17.absCoefficients P)
+ChromaticC17.IsChromaticPolynomial.unique.{u_1} {V : Type u_1} [Fintype V] {G : SimpleGraph V} {P Q : Polynomial ℤ}
+  (hP : ChromaticC17.IsChromaticPolynomial G P) (hQ : ChromaticC17.IsChromaticPolynomial G Q) : P = Q
+ChromaticC17.cyclePolynomial_isChromatic :
+  ChromaticC17.IsChromaticPolynomial ChromaticC17.C17 ChromaticC17.cyclePolynomial
+ChromaticC17.explicit_counterexample :
+  ChromaticC17.C17.Connected ∧
+    ChromaticC17.IsChromaticPolynomial ChromaticC17.C17 ChromaticC17.cyclePolynomial ∧
+      ChromaticC17.logConcavityIterate (ChromaticC17.absCoefficients ChromaticC17.cyclePolynomial) 3 2 < 0
+ChromaticC17.every_C17_chromatic_polynomial_fails (P : Polynomial ℤ)
+  (hP : ChromaticC17.IsChromaticPolynomial ChromaticC17.C17 P) :
+  ¬ChromaticC17.InfinitelyLogConcave (ChromaticC17.absCoefficients P)
+'ChromaticC17.chromatic_infinite_logconcavity_conjecture_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ChromaticC17.third_iterate_value' depends on axioms: [propext, Classical.choice, Quot.sound]
