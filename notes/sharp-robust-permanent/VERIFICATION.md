@@ -38,3 +38,17 @@ To reproduce, run the six Python files above from the directory notes/sharp-robu
 5. Full literature novelty and mathematical priority checks remain pending; no first-discovery or external-verification claim is warranted.
 
 These finite checkers support specific algebraic and finite combinatorial assertions. They are **not substitutes** for the arbitrary-parameter analytic proofs.
+
+
+## Additional complete orbital certificates (October 8 continuation)
+
+The existing six checkers above were all replayed directly from published main with zero exit status. Two further public checkers were subsequently freshly fetched and executed, both passing:
+
+- code/check_edge_action_s5.py: enumerated all 120 vertex permutations, verified seven cycle-type rows for fixed and adjacent edge statistics, checked all 100 edge-to-edge marginals for two explicit primal probability distributions, the exact 1/3 dual range, exact 1/3 atom excess, and probability positivity. Output ended: S5 EDGE-ACTION PRIMAL-DUAL CERTIFICATE REPLAY PASSED.
+- code/check_all_two_subset_actions.py: for each n=4,...,40, enumerated every integer partition (hence every conjugacy type), verified every even/odd dual inequality with Fraction arithmetic, checked exact moment matching and positivity of the primal class mixtures, and matched the closed formula C_n. The published checker was freshly downloaded from main **after its final target-assertion correction**. Output ended: PASS: all 37 degrees, full conjugacy partitions, exact dual extremes, primal moments, and rational positivity.
+
+**Important distinction:** Theorem 17 is an all-parameter theorem proved by symbolic quadratic inequalities (77)--(86) and explicit class measures (73)--(75). Partition enumeration through n=40 is supplementary, not an extrapolation from finite cases. Theorem 16 has an independent finite all-120-element proof replay, with mathematical primal and dual inequalities also written in full.
+
+**General reduction:** Theorem 18 is an exact finite-dimensional LP duality argument written out in the manuscript. It establishes a rational primal-dual certificate interface for arbitrary finite permutation actions, not a claim that every representation has a simple closed formula.
+
+**Outstanding:** external mathematical peer review and systematic novelty research remain pending, together with the unresolved S3 exponent interval q3<p<p0, exact 2<p<3 radius, an effective p0 certificate, and higher-rank k-subset orbital optima for k>=3. The expanded paper is not Lean formalized.
