@@ -1693,7 +1693,110 @@ lower construction (Theorem 13); Theorem 13
 alone does not identify the global maximum.
 
 
-## 16. Provenance, audit and limitations
+
+## 16. Dimension saturation for arbitrary prescribed Gaussian masses
+
+The exact dual has a strong, general consequence:
+**ambient dimension never needs to exceed
+one less than the number of cells**, even with
+arbitrary positive prescribed masses.
+
+**Corollary 20 (fixed-mass dimension reduction
+and cylindrical rigidity).**
+For every \(k\ge2\), positive mass vector
+\(p=(p_1,\dots,p_k)\) with \(\sum p_i=1\),
+and every \(d\ge k-1\),
+\[
+ \boxed{\displaystyle
+       \mathcal M_d(p)=\mathcal M_{k-1}(p).}
+ \tag{54}
+\]
+Moreover, whenever an optimal partition
+in \(\mathbb R^d\) exists, its cells
+are, up to Gaussian-null sets and an
+orthogonal coordinate change, products
+of Laguerre cells in
+\(\mathbb R^r\) with
+\(\mathbb R^{d-r}\) for some
+\(r\le k-1\).
+
+*Proof.* In the dual formula (48),
+the linear assignment value
+\(C_p(v)=\min_\lambda\Psi_v(\lambda)\)
+is unchanged upon adding any common
+vector \(w\) to all the score vectors:
+\[
+ C_p(v_1+w,\dots,v_k+w)=C_p(v_1,\dots,v_k),
+\]
+because \(\mathbb E\langle w,G\rangle=0\).
+Write \(\bar v=k^{-1}\sum_i v_i\).
+The centered list \(v'_i=v_i-\bar v\)
+satisfies
+\[
+ \sum_i\|v'_i\|^2
+ =\sum_i\|v_i\|^2-k\|\bar v\|^2
+ \le\sum_i\|v_i\|^2.
+\]
+The fixed-mass optimal value is strictly
+positive: a Gaussian upper halfspace
+for the first cell has a nonzero
+first moment, and the other positive
+masses may be allocated within its
+complement. Hence the outer maximum
+of \(C_p\) on the score-vector unit
+sphere is positive. Any maximizer
+may therefore be replaced by its
+centered list, rescaled to unit norm
+if necessary, without decreasing
+the objective. (The linear optimum
+\(C_p\) is positively homogeneous.)
+
+Now \(\sum_i v'_i=0\), so the span of
+the \(k\) score vectors has dimension
+at most \(k-1\). For every \(d\ge k-1\),
+such a centered list in \(\mathbb R^d\)
+is isometric to a score list in
+\(\mathbb R^{k-1}\). Their joint Gaussian
+linear-score distributions coincide,
+so their functions \(\Psi_v(\lambda)\),
+their minima over \(\lambda\), and
+the outer dual values all coincide.
+This proves (54). The reverse
+inequality is also immediate by lifting
+a partition from \(\mathbb R^{k-1}\)
+to the higher-dimensional Gaussian
+product; thus no closure or
+attainment assumption is needed.
+
+If a partition attains the maximum,
+Theorem 18 identifies it as the
+Laguerre partition for its distinct
+centroids \(b_i\). The Gaussian mean
+is zero, so \(\sum_i b_i=0\).
+The span \(L=\operatorname{span}\{b_i\}\)
+has dimension \(r\le k-1\).
+Every Laguerre inequality
+\(\langle b_i-b_j,x\rangle
+   \ge\lambda_i-\lambda_j\)
+depends only on the orthogonal
+projection of \(x\) onto \(L\).
+Therefore each cell is cylindrical
+along \(L^\perp\), proving the
+rigidity statement. \(\square\)
+
+**Consequence for the unresolved case.**
+For four prescribed positive Gaussian
+cell masses, the unrestricted
+first-moment problem in any dimension
+\(d\ge3\) is **exactly** equivalent
+to the corresponding problem in
+\(\mathbb R^3\). This is a dimensional
+reduction, not a proof that the
+tetrahedral candidate is the
+global maximizer.
+
+
+## 17. Provenance, audit and limitations
 
 - **Comparator [OAI-096]:** OpenAI, *The Gaussian propeller bound
   in every dimension*, September 24, 2026; public source in the
