@@ -1,7 +1,15 @@
 # Mathematical audit and verification scope
 
-Frozen manuscript SHA-256:
+Original six-page manuscript SHA-256:
 `8416f741398ceb4207edcc3ff31964883ae14044698043bf17a75d66c1dec832`.
+
+Expanded seven-page manuscript SHA-256:
+`e1528f549be95d495dd03f2e97890bb4c83cd7501dc60dee8c885ecb2edb562a`.
+
+The [new derivation review](review/INDEPENDENT_MATHEMATICAL_REVIEW.md)
+and [revision provenance](review/REVISION_PROVENANCE.json) document the
+expanded price Hessian, covariance derivative and theorem application.
+The archived reviews below bind only the original six-page version.
 
 ## Complete proof chain
 
@@ -53,8 +61,8 @@ conjectures compared in `LITERATURE_STATUS.md`.
 
 ## What has actually been checked
 
-Both archived model reviews read the complete manuscript with the hash
-above and checked the full analytic chain and source conventions. They
+Both archived model reviews read the original complete manuscript with
+the original six-page hash above and checked the full analytic chain and source conventions. They
 are internal reviews, not independent human peer review.
 
 `Algebra.lean` proves general finite weighted Cauchy and three scalar
@@ -69,8 +77,12 @@ condition fails compilation; the rational model `h(t)=t` shows why.
 Gaussian measure, covariance continuity/differentiability, price
 regularity, flux, the multi-bubble theorem and satisfaction of the
 abstract differential hypotheses have **not** been formalized here.
-They are mathematical claims proved or cited in the paper. The complete
-Gaussian endpoint is not certified by the partial Lean checks.
+They are mathematical claims proved or cited in the paper. This scope
+statement concerns the preserved eight-export package. The
+[separate 136-module Lean development](https://github.com/mxym/math/pull/3)
+covers substantial Gaussian analysis with its geometric perimeter
+premise explicit. Neither package certifies the unconditional complete
+Gaussian endpoint in Lean.
 
 `check_exact.py` performs finite rational sanity controls and identifies
 countermodels to weakened scalar claims. No finite computation is a

@@ -14,7 +14,7 @@ For `d < k-1` every partition satisfies strict inequality; no sharp
 fixed-lower-dimensional value is claimed. Fractional partitions are
 included, with the same equality classification.
 
-Read the complete **six-page [paper](paper.pdf)** or its editable
+Read the expanded **seven-page [paper](paper.pdf)** or its editable
 [Markdown](paper.md) and [TeX](paper.tex). This proves the equal-mass
 subcase for all cell counts of Heilman's 2019 first-moment conjecture,
 and the full four-cell dimension-three question of his 2014 Conjecture 3.
@@ -33,15 +33,22 @@ false arbitrary-mass Euclidean statement, or full covariance concavity.
 
 - [Audit and scope](AUDIT.md): dependencies, boundary/equality cases and
   the explicit limits of machine checking.
-- [Internal reviews](review/): two model reviewers checked the frozen
-  manuscript and its cited perimeter normalization independently.
-  These are not external human peer review.
+- [Current derivation review](review/INDEPENDENT_MATHEMATICAL_REVIEW.md)
+  checks the full proof chain against the published theorem.
+  [Revision provenance](review/REVISION_PROVENANCE.json) binds the expanded
+  manuscript; the two archived reviews retain their original six-page
+  source scope. These are internal reviews, not external human peer review.
 - [Partial Lean proofs](formal/README.md): general finite weighted
   Cauchy, scalar identities, and the abstract real differential
   comparison. Eight exports were checked with official Lean 4.34.1,
   including an empty-kernel replay of 18,013 used declarations. Gaussian
   measure, flux, balancing prices and the imported geometric theorem
   remain in the written proof.
+- [Separate Lean development](https://github.com/mxym/math/pull/3):
+  136 modules with exact-byte incremental compilation, including actual
+  Gaussian analytic interfaces. The perimeter lower bound remains an
+  explicit premise. Its earlier independent empty-kernel audit covers
+  only 53 matching modules, and is not a certificate for all 136.
 - `check_exact.py`: finite rational diagnostic controls, not a proof of
   the infinite-dimensional mathematical statement.
 - `verify.py`: package integrity and recorded verification provenance.
@@ -61,6 +68,6 @@ For fresh Lean replay, follow [formal/README.md](formal/README.md).
 
 `MANIFEST.json` and `SHA256SUMS` bind every package file except themselves.
 They provide integrity, not independent verification of the written
-Gaussian analysis. The public immutable Release binds its frozen Git
-commit and attachments; it supplies a disclosure record, not a judgment
-of mathematical originality.
+Gaussian analysis. The earlier immutable Release binds its original frozen Git commit and
+attachments. This expanded manuscript is a separate draft revision and
+does not change the identity or review scope of that release.
