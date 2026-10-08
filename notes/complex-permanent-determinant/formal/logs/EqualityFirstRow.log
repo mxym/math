@@ -1,0 +1,15 @@
+EqualityFirstRow.lean:64:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+EqualityFirstRow.lean:77:31: warning: This simp argument is unused:
+  pow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [qval, ComplexPencilLink.sq, Complex.normSq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'ComplexPencilEquality.pencil_equality_forces_V_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

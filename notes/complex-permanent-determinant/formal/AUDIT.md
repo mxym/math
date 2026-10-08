@@ -152,3 +152,65 @@ successful Lean 4.34.1 compilation and unchanged
 standard axioms (no \`sorryAx\`, \`axiom\`, or \`admit\`).
 The complete original paper's equality classification
 (Theorem 2) remains outside this checkpoint.
+
+## Complete sharp nonidentical tensor norm audit
+
+The endpoint `tensorSquaredBound_iff` is the actual
+universally quantified best-constant result for all
+finite lists of legal parameters and all complex
+functions on the corresponding product alphabet.
+
+- `TensorMain.tensorized_complex_norm_bound`: inductive
+  exact upper bound via complex 6-term expectation,
+  nonnegative probability weights, and normalized
+  (L^2) energies. The proof does not assume
+  joint-identical distributions.
+- `TensorWitnessLocal.extremal_square_saturation`: for
+  every real column parameter (t), shows a concrete
+  nonnegative 3-function triple attains exactly
+  the square of the sharp coefficient.
+- `TensorProduct.energy_scale`,
+  `tensor_scale`, `energy_productEntries`:
+  universal n-fold product scaling identities.
+- `TensorFactor.tensor_productEntries` and
+  `productK_sq`: exact n-fold expectation and
+  coefficient factorization.
+- `TensorWitnessExact.tensor_extremal_normSq`:
+  an explicit nonzero-energy n-fold witness reaches
+  the product coefficient by equality.
+- `TensorSharp.tensorSquaredBound_iff`: upper and
+  matching lower optimality for every candidate B;
+  `tensor_witness_energy_pos` justifies division
+  by positive witness energy with no zero-case gap.
+
+The Lean kernel output for `TensorSharp.lean` records
+only standard foundational axioms; earlier intermediate
+failed attempts are *not* included in the published
+certificates. No sorry/admit/custom axiom appears
+in the final source.
+
+The complete equality classification of all
+nonzero-row matrices in Theorem 2 remains a distinct,
+unformalized theorem. Sharp norm witness existence
+does **not** automatically classify every equality
+case, so it is not counted as a completed theorem.
+
+## Theorem 2 equality classification trust audit
+
+The full kernel endpoint is
+ComplexPencilEquality.absolute_equality_iff_full:
+an exact squared-form equality if and only if the matrix has
+a zero row, a nonzero balanced rank-one form, or is a nonzero
+complex monomial matrix, over all nine unrestricted complex entries.
+
+Necessity reuses the independently checked sparse/flat first-row
+case classification. Sufficiency is proved by two separate new
+modules plus explicit zero-row cases. The proof does not assume
+nonzero rows or that the optimizer is attained; all finite cases
+are covered by universal complex-quantified theorems.
+
+The source files are EqualitySufficiencyVerified.lean,
+EqualityMonomialVerified.lean, EqualityCompletionFull.lean.
+All three compile in Lean 4.34.1 and their kernel axiom audits
+show only propext, Classical.choice, Quot.sound. No sorryAx.
+The immutable source content is sealed by EQUALITY_SHA256SUMS.
