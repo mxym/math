@@ -57,7 +57,7 @@ lemma directionalCutoffTest_divergence_tendsto (u : Space d)
     Tendsto (fun N => gaussianDivergence (directionalCutoffTest N u hu) x)
       atTop (𝓝 ⟪u,x⟫) := by
   simp_rw [directionalCutoffTest_divergence]
-  have h := (scaledGaussianCutoff_directional_tendsto x u).neg.add
+  have h := (scaledGaussianCutoff_directional_tendsto_zero x u).neg.add
     ((scaledGaussianCutoff_tendsto x).mul_const ⟪x,u⟫)
   simpa only [neg_zero, zero_add, one_mul, real_inner_comm x u] using h
 
