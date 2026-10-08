@@ -71,7 +71,7 @@ claim of mathematical world-first priority.
   individually optimal halfspace centroid envelope,
   independent of every mass ratio and ambient
   dimension d>=k-1.
-- The explicit **19/17** weighted-entropy two-sided
+- The sharpened **6/3** weighted-entropy two-sided
   envelope, including arbitrary-mass two-log
   asymptotics and collision-weighted concentration
   consequences.
@@ -101,3 +101,16 @@ a first solution or first proof.
 The public GitHub commit timestamps document
 a mathematical disclosure, not an automatic
 priority determination.
+
+## Quantitative sharpening and dimension dependence
+
+The normal-tail scalar estimate has subsequently been tightened
+from a symmetric +/-17 bound to the rigorous asymmetric
+[-4,+3] estimate, yielding a global mass-entropy envelope
+[B(p)-6Q(p), B(p)+3Q(p)]. The dimension-rate continuation
+uses a hierarchical Gaussian threshold code; the converse is
+an adaptation of the classical Gaussian rate-distortion lower
+bound. Historical priority for such dimension compression is
+not asserted (compare Gaussian vector quantization theory and
+De--Mossel--Neeman's approximately low-dimensional noise
+stability framework, Theory of Computing 15 (2019), article 6).
