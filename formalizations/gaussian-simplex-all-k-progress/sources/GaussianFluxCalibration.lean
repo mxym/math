@@ -93,7 +93,6 @@ theorem symmetric_flux_calibration_equality_for_equal_edges (v m : Fin k → Spa
       simp
     · have hh : a⁻¹ * a^2 = a := by
         field_simp [ha.ne']
-        ring
       calc
         _ = w i j * (a⁻¹ * ‖v i-v j‖^2) := by
           rw [← smul_sub,real_inner_smul_left,real_inner_self_eq_norm_sq]
