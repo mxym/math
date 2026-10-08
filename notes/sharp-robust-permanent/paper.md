@@ -2541,3 +2541,63 @@ Their degree-four Bernstein coefficient vectors are
 The published exact checker in code/check_k4_chebyshev_dual.py independently verifies the first-order orbital expansion, every Chebyshev contact, and the Bernstein coefficients using algebraic arithmetic in \(\mathbb Q(\sqrt2)\); it additionally constructs **strictly positive rational primal weights** at several larger finite degrees and checks the moment equations exactly.
 
 **Precisely what is now closed.** Equation (129) settles the sharp first-order asymptotic coefficient for **every fixed \(k\)**, not merely \(k=1,2,3\), and proves the higher-rank conjecture previously stated in Section 23. It does **not** determine the individual exact value of \(C_n^{(k)}\) for arbitrary finite \(n,k\); nor does the qualitative proof specify a common explicit threshold in \(n\) beyond which all primal weights are positive. Those stronger effective/finite problems remain open, and no novelty or external-peer-review claim is implied.
+
+
+### 24.5. Explicit asymptotic masses at every Chebyshev node
+
+The construction in (149)–(157) admits closed, positive leading weights, not merely an existence argument.
+
+**Corollary 29 (universal Chebyshev–Lobatto mass formula).** In Theorem 25, define
+\(c_j=1\) for \(1\le j<k\) and \(c_k=2\). For the nodes
+\(a_j=(1+\cos(j\pi/k))/2\), the unique asymptotic solution to (149) has
+
+\[
+\boxed{
+w_{j,n}=\frac{1}{n}
+\frac{4}{c_j(1-a_j)}+O_k(n^{-2})
+=\frac1n\frac{8}{c_j[1-\cos(j\pi/k)]}
++O_k(n^{-2})
+\quad(1\le j\le k).} \tag{161}
+\]
+
+Consequently the constructed central primal measures satisfy
+
+\[
+\boxed{
+P_n(I_n)=1-\frac{2k^2}{n}+O_k(n^{-2}),\qquad
+Q_n([T_n])=1-\frac{2(k^2-1)}{3n}+O_k(n^{-2}),}
+\tag{162}
+\]
+
+where \(Q_n([T_n])\) denotes the total mass of the transposition conjugacy class. In particular, \(w_{k,n}=2/n+O_k(n^{-2})\) for every \(k\), and the entire leading mass profile is **explicit**.
+
+**Proof.** For Chebyshev–Lobatto nodes in decreasing order, the Lagrange barycentric weights are proportional to \((-1)^j/c_j\), with both endpoint denominators equal to \(2\) and all interior denominators equal to \(1\). The derivative formula for a Lagrange cardinal polynomial at \(a_0=1\) is therefore
+
+\[
+\ell_j'(1)=\frac{(-1)^j\,2}{c_j(1-a_j)},\qquad j\ge1.
+\]
+
+Combining with (154)–(155) gives (161), including the endpoint mass \(w_{k,n}=2/n+O_k(n^{-2})\).
+
+The odd-weight identity is already (156). For the even weights, interpolation of the complementary polynomial \(1-H\) gives
+
+\[
+\sum_{\substack{j\ge2\\j\ \mathrm{even}}}\ell_j'(1)
+=(1-H)'(1)-\ell_0'(1)=k^2-\ell_0'(1).
+\]
+
+But
+\(\ell_0'(1)=\sum_{j=1}^k(1-a_j)^{-1}=(2k^2+1)/3\).
+For completeness, the node polynomial for \(a_1,\ldots,a_k\), under \(t=2a-1\), is proportional to \((t+1)U_{k-1}(t)\), where \(U_{k-1}\) is the Chebyshev polynomial of the second kind. Logarithmic differentiation at \(t=1\), using \(U_{k-1}(1)=k\) and \(U_{k-1}'(1)=k(k^2-1)/3\), gives exactly
+\(\ell_0'(1)=1+2(k^2-1)/3=(2k^2+1)/3\).
+Hence
+
+\[
+\sum_{j\ \mathrm{even}}u_j
+=2\left(k^2-\frac{2k^2+1}{3}\right)
+=\frac{2(k^2-1)}3,
+\]
+
+which, with (155), yields the second formula in (162). QED.
+
+The weights in (161) are the *leading asymptotics* of strictly positive, **exactly rational** solutions of (149). They are not claimed to be the exact finite-\(n\) weights at all \(n\), and not every leading coefficient is rational.
