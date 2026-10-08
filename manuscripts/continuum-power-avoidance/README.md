@@ -17,6 +17,14 @@ python3 -B verification/finalization/replay_continuum.py \
 
 The main endpoint is `ContinuumRemainder.continuum_power_target : ContinuumPowerTarget`; the compact endpoint is `ContinuumRemainder.compact_power_avoidance`. The main traditional proof is unchanged. The public frozen release is at `formalizations/continuum-remainder-avoidance`. Use the pinned cache-miss adapter above for correct import parsing and Mathlib build options. The auxiliary upper-Banach-density obstruction is a written scope result, not part of the full Lean endpoint. This does not settle the entire Erdos similarity conjecture or avoid arbitrary flat smooth germs.
 
+The [current complete replay](../../verification/finalization/results/continuum/VERIFICATION.json)
+passed after rebuilding all 65 owned modules. It checks 568 public theorems,
+replays 35,620 declarations covering every safe owned declaration in an empty
+trust-zero kernel environment, and passes all 66 semantic/boundary controls.
+The full graph and ownership inventory match the historical reference exactly;
+the original sealed postbuild checks remain unchanged. Complete raw logs and
+the precise standard-axiom trust boundary are in the verification directory.
+
 The [common finite replay](../../verification/finalization/replay_finite.py) runs
 all relevant exact checkers in disposable copies and compares normal and
 optimized-launcher output with assertions enabled. The

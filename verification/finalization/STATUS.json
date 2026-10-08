@@ -1,6 +1,6 @@
 {
   "schema": "manuscript-finalization-status-v1",
-  "timestamp_utc": "2026-10-08T06:20:57.783465+00:00",
+  "timestamp_utc": "2026-10-08T06:46:23.313723+00:00",
   "integration_snapshot": "bddf3ac39f90fe828c85be269e984ffe050a4136",
   "papers": 5,
   "pdf_pages": 88,
@@ -29,7 +29,21 @@
       "all_owned_empty_kernel": 55162,
       "historical_count_drift_recorded": true
     },
-    "continuum": "RUNNING"
+    "continuum": {
+      "status": "PASS",
+      "report": "results/continuum/VERIFICATION.json",
+      "fresh_owned_modules": 65,
+      "public_proofs": 568,
+      "owned_declarations": 1454,
+      "safe_owned_declarations": 1445,
+      "main_closure": 34919,
+      "endpoint_union_empty_kernel": 34923,
+      "all_safe_empty_kernel": 35620,
+      "controls": 66,
+      "historical_graph_and_ownership_identical": true,
+      "source_identical_defining_modules": 1322,
+      "original_postbuild_guards_unchanged": true
+    }
   },
   "formal_limits": [
     "Quadratic simplex coefficient has a complete written proof but is not fully Lean-formalized.",
@@ -48,5 +62,6 @@
     "scanner_compiler_controls": "PASS in normal and optimized launchers",
     "aborted_runs_are_not_pass_records": true,
     "cache_union": "materialize every pinned package cache, including Batteries"
-  }
+  },
+  "all_scoped_replays_completed": true
 }

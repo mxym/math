@@ -1,0 +1,4308 @@
+{
+  "status": "PASS",
+  "scope": "Packaging integrity controls, not mathematical proof tests",
+  "case_count": 88,
+  "production_invocations": 547,
+  "positive_cases": 2,
+  "negative_cases": 86,
+  "normal_and_optimized_entry_points_exercised": true,
+  "archive_bytes_match_across_repeated_runs_mtimes_and_python_optimization": true,
+  "extracted_archive_verifies_normal_and_optimized": true,
+  "archive_output_containment_and_symlink_controls": true,
+  "archive_member_bytes_types_prefix_ownership_modes_and_times_verified": true,
+  "archive_entry_point_does_not_reseal": true,
+  "build_entry_point_rejects_before_lean_or_output_creation": true,
+  "sealing_requires_explicit_initialization": true,
+  "no_lean_or_network_execution": true,
+  "authenticity_limit": "Trust an external archive digest or commit; self-consistent rewriting of the validator and all records is outside this check.",
+  "results": [
+    {
+      "case": "baseline",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "accept",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "documented_runtime_directories",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "accept",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_missing",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksums_missing",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "both_seal_records_missing",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_malformed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_excessive_nesting",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_nonfinite_number",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_top_level_array",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_manifest_key",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_member_key",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_unknown_field",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hashes_array",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_format_boolean",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_invalid",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_nonstring",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_uppercase",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_hash_wrong",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_member_missing",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_whitespace_stale_binding",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_corrupt",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_wrong_digest",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_omitted_row",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_duplicate_row",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_order_changed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_bytes_changed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "proof_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "pin_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "toolchain_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "source_freeze_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "original_map_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "dependency_metadata_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "input_archive_metadata_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "license_checksums_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "public_probe_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "audit_report_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "ledger_outer_rehashed",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "coordinated_source_provenance_rewrite",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_source_file",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_script",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_empty_directory",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_nested_runtime",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "manifest_symlink",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "checksum_symlink",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_source_symlink",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "declared_directory_symlink",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unlisted_symlink",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "non_regular_fifo",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_format",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_format",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_release_date",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_release_date",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_package",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_package",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_scope",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_scope",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_source_archive_sha256",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_source_archive_sha256",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_missing_archive_prefix",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "metadata_altered_archive_prefix",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_audit_checks_ExactMain.lean",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_ContinuumRemainder_FinalProof.lean",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_project_lake-manifest.json",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_ORIGINAL_SOURCE_SHA256.json",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_provenance_PUBLIC_DERIVATIVE_LEDGER.json",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_submitted-evidence_source-freeze.json",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_mathlib_LICENSE",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_third_party_licenses_lean4_LICENSES",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_README.md",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_PROVENANCE.md",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_verify.py",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_verify.py",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_verify.py",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_verify.py",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "missing_required_scripts_seal_release.py",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'../outside'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'/outside'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit//Other.lean'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/../Other.lean'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/./Other.lean'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit\\\\Other.lean'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "unsafe_member_'audit/line\\nname'",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_.git",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_.git",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_replay-evidence",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_replay-evidence",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_vendor",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_vendor",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_symlink_project/.lake",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "verify_integrity",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "make_archive",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "verify",
+      "optimized": false,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "verify_integrity",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "make_archive",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "runtime_file_project/.lake",
+      "entry_point": "verify",
+      "optimized": true,
+      "expected": "reject_before_archive",
+      "returncode": 1,
+      "passed": true
+    },
+    {
+      "case": "valid_unsealed",
+      "entry_point": "seal_release",
+      "optimized": false,
+      "expected": "accept",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "existing_seal",
+      "entry_point": "seal_release",
+      "optimized": false,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "one_existing_seal",
+      "entry_point": "seal_release",
+      "optimized": false,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "mutated_source",
+      "entry_point": "seal_release",
+      "optimized": false,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "missing_license",
+      "entry_point": "seal_release",
+      "optimized": false,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "valid_unsealed",
+      "entry_point": "seal_release",
+      "optimized": true,
+      "expected": "accept",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "existing_seal",
+      "entry_point": "seal_release",
+      "optimized": true,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "one_existing_seal",
+      "entry_point": "seal_release",
+      "optimized": true,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "mutated_source",
+      "entry_point": "seal_release",
+      "optimized": true,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    },
+    {
+      "case": "missing_license",
+      "entry_point": "seal_release",
+      "optimized": true,
+      "expected": "reject_without_reseal",
+      "passed": true,
+      "returncode": 1
+    }
+  ]
+}

@@ -156,6 +156,32 @@ remain an immutable historical record; use this adapter for a cache-miss
 replay with current pinned sources. A passing final report, not merely an
 import or successful dependency scan, establishes completion of the suite.
 
+The current [full continuum result](results/continuum/VERIFICATION.json) is
+PASS: 65 owned modules were freshly compiled, all 568 public theorems were
+checked, and all 1,445 safe owned declarations were selected for replay.
+The unchanged frozen Lean checkers replayed 34,923 endpoint-union declarations
+and 35,620 all-safe closure declarations into empty trust-zero kernel
+environments. The full declaration graph and 1,454-declaration ownership
+inventory match their historical versions exactly. The main endpoint's own
+closure contains 34,919 declarations. All original postbuild guards and numeric
+postconditions passed; no count continuation was needed for this package.
+
+All 1,322 actual defining-module source hashes match the independent reference;
+reused dependency artifacts pass the original provenance guards. The adapter
+rebuilt 1,107 missing external modules from pinned sources. An outside-namespace
+injected axiom was rejected by the production ownership audit. All 66 supplied
+and independent controls passed, exact semantic output agreed in normal and
+optimized launchers, and 88 packaging-integrity cases exercised 547 production
+entry-point invocations. Earlier failed builds remain labeled as failures.
+
+The [run context](results/continuum/FINALIZATION_CONTEXT.json) binds the adapter,
+original verifier and scanner hashes. The [complete raw-log archive](results/continuum/all-logs.tar.gz)
+contains all 1,249 logs, including quiet source-build logs; the
+[log inventory](results/continuum/LOG_FILES_SHA256.json) records their exact bytes
+and hashes. Full graphs, artifact/source comparisons, controls and the two
+kernel logs are published alongside the result. These records support replay
+and inspection; reading a PASS receipt alone is not independent verification.
+
 The [compiler-option diagnostic](results/continuum-build-options.json) records
 both failures and successes against the same pinned Mathlib source. The
 [import controls](results/continuum-import-controls.json) compare four scanner

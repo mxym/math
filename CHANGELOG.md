@@ -399,3 +399,9 @@ Disclosure time is the timestamp of the Git commit that first adds this release,
 - Replayed every required declaration in empty trust-zero kernel environments: 55,066 upper and 55,162 lower declarations, plus 54,276 for the literal upper Main. Preserve the sealed harnesses' historical-count rejections and original reports; publish complete current graphs and an independently checked complete-root-closure continuation.
 - Clarify that the lower main target is existential sharpness; all-maxima classification, best-maximum and free-translation Banach--Mazur assertions have separate full written proofs. Add a Chinese manuscript guide and correct a TeX separator.
 - Complete the continuum cache union over every pinned package, retaining its actual cache-failure diagnostics. The continuum full replay remains in progress in the separately recorded status.
+
+## 2026-10-08 — finish full continuum replay and close the five-paper audit
+
+- Freshly rebuild all 65 owned continuum modules and 1,107 missing pinned external modules. All 568 public proofs and 1,454 owned declarations match the historical inventory; the complete declaration graph is identical.
+- Pass the unchanged original empty-kernel checks at 34,923 endpoint-union and 35,620 all-safe declarations, the 1,322 defining-module source/artifact guards, the injected-axiom rejection, all 66 semantic/boundary controls, and 88 packaging-integrity cases in normal/optimized entry points.
+- Publish complete current reports, graphs, source/object comparisons and all 1,249 raw logs. Mark all scoped full Lean replays complete, retaining earlier failures and the precise written-versus-formal proof boundaries. No external peer review or submission is represented as completed.
