@@ -1,0 +1,165 @@
+\section{The digit construction and dimensions}\label{sec:construction}
+Choose positive integers $L_j$ with $aL_j$, $L_j/2$, and $bL_j$ integral.
+Let $n_0=0$ and $n_j=\sum_{i=1}^j L_i$. At stage $j$, the free horizontal
+binary positions, counted relative to $n_{j-1}$, are
+\begin{equation}\label{eq:free-positions}
+ \{1,\ldots,aL_j\}\ \cup\ \{L_j/2+1,\ldots,L_j\};
+\end{equation}
+the free vertical positions are $\{1,\ldots,bL_j\}$. All remaining
+digits are zero. All free bits in both coordinates are independent and fair.
+Let $\kappa_X$ and $\kappa_Y$ be the resulting probabilities.
+
+Fix $k$ with $\eta=2^{-k}<1/8$ and take $L_1$ sufficiently large that
+the first $k$ positions are free in both coordinates. Condition $\kappa_X$
+on its all-zero length-$k$ prefix to obtain $\kappa$. Condition $\kappa_Y$
+on its all-zero and all-one length-$k$ prefixes to obtain $\zeta_-$ and
+$\zeta_+$ respectively. Define
+\begin{equation}\label{eq:measures}
+ \lambda=\kappa\times\zeta_-,\quad
+ \mu=\kappa\times\zeta_+,\quad E_\pm=\supp(\kappa\times\zeta_\pm).
+\end{equation}
+Supports are images of the compact coding spaces. At a binary endpoint one
+uses a supporting closed coding cylinder; no zero-mass endpoint is added
+by an arbitrary half-open convention. The fixed prefix conditioning changes
+mass constants by $2^k$ in each coordinate, and never changes a later
+stage exponent.
+
+For every $p\in P_-$ and $y\in P_+$, including filled-tail points, set
+\begin{equation}\label{eq:separation}
+ v_0=1-2\eta>0,\qquad D_0=2;
+ \qquad y_2-p_2\geq v_0,\quad |y-p|\leq D_0.
+\end{equation}
+Hence the vertical derivative of distance is at least $v_0/D_0$.
+All output probabilities are supported in $I=[v_0,D_0]$.
+
+\subsection{Two exact schedules}
+In the superlacunary schedule, assume
+\begin{equation}\label{eq:superlacunary}
+ \frac{L_j}{n_{j-1}}\longrightarrow\infty\qquad(j\geq2).
+\end{equation}
+For any rational $\alpha$, choose an integer $d$ for which $ad,bd,d/2$
+are integers, choose an admissible large $L_1$, and take
+$L_j=d(n_{j-1}+1)^2$ for $j\geq2$. This gives an actual realization.
+For example $\alpha=13/10$, $\eta=1/16$, $L_1=40$, and
+$L_j=20(n_{j-1}+1)^2$ give $a=3/20$, $b=13/20$ and
+$n_1-aL_2=-5003$.
+
+In the fixed-ratio schedule, an integer $K\geq1$ is fixed and
+\begin{equation}\label{eq:fixed-schedule}
+ L_j=K n_{j-1},\quad n_j=(K+1)n_{j-1}\quad(j\geq2).
+\end{equation}
+Choosing $L_1$ divisible by the necessary denominators preserves all
+integrality requirements. In particular $n_{j-1}=n_1(K+1)^{j-2}$.
+No rounding argument or assertion for irrational $\alpha$ is used.
+
+The original non-$L^2$ example was restricted to $1<\alpha<4/3$ and also
+imposed $(2-3\alpha/2)L_j-\alpha n_{j-1}\to\infty$.
+Condition~\eqref{eq:superlacunary} implies that condition in this range.
+There is no need to impose it for the enlarged family $1<\alpha<2$.
+
+\subsection{Frostman bounds and Hausdorff dimension}
+Let $F_X(N),F_Y(N)$ count free positions through depth $N$, before prefix
+conditioning. In a stage of length $L$ the relative counts are
+\[
+ f_X(l)=\min(l,aL)+\max(0,l-L/2),\qquad f_Y(l)=\min(l,bL).
+\]
+Their sum equals
+\begin{equation}\label{eq:total-free}
+ f_X(l)+f_Y(l)=
+ \begin{cases}
+ 2l,&0\leq l\leq aL,\\
+ l+aL,&aL\leq l\leq L/2,\\
+ 2l-cL,&L/2\leq l\leq bL,\\
+ l+(\alpha-1)L,&bL\leq l\leq L.
+ \end{cases}
+\end{equation}
+Each expression is at least $\alpha l$, and the endpoint value is
+$\alpha L$. Consequently
+\begin{equation}\label{eq:counts}
+ F_X(N)+F_Y(N)\geq\alpha N,\qquad
+ F_X(n_j)=F_Y(n_j)=bn_j.
+\end{equation}
+For $N\geq k$, every occupied depth-$N$ square has mass
+$2^{2k-F_X(N)-F_Y(N)}$. A ball of radius comparable to $2^{-N}$ meets
+only a bounded number of such squares. Thus both probabilities obey the
+$\alpha$-Frostman estimate $\rho(B(x,r))\leq C r^\alpha$.
+At $N=n_j$ there are at most $C2^{\alpha n_j}$ occupied squares, so
+$\dimH E_\pm\leq\alpha$. The Frostman estimate gives the reverse
+inequality and hence equality.
+
+Also $f_X(l)\geq\beta l$ and $b\geq\beta$, whence
+\begin{equation}\label{eq:horizontal-frostman}
+ F_X(N)\geq\beta N,\qquad
+ \kappa([u-\varepsilon,u+\varepsilon])\leq K_X\varepsilon^\beta
+ \quad(0<\varepsilon\leq1).
+\end{equation}
+The interval bound follows by comparison with dyadic intervals and includes
+all real $u$. In particular $\kappa$ is nonatomic. Each coordinate support
+has a cover at depth $n_j$ by $C2^{bn_j}$ intervals of length $2^{-n_j}$.
+The total length tends to zero because $b<1$. The coordinate laws are
+therefore singular, and are nonatomic because their free counts diverge.
+There is no hidden Lebesgue coordinate in the limiting product.
+
+\subsection{Packing dimensions of the planar supports}
+Under~\eqref{eq:superlacunary}, in each sufficiently late stage the first
+$aL_j$ bits of both coordinates are free. Every fixed coding cylinder thus
+contains at least $2^{2aL_j}$ occupied squares at depth
+$n_{j-1}+aL_j$, and
+\[
+ \frac{2aL_j}{n_{j-1}+aL_j}\longrightarrow2.
+\]
+Every such cylinder has upper box dimension two. Every nonempty relatively
+open subset of the support contains a coding cylinder. To pass from upper
+box to packing dimension, use the countable-cover characterization by
+modified upper box dimension: take relative closures in any countable
+cover, which do not change upper box dimension. Baire's theorem implies
+that one closure contains a relatively open subset. Its upper box dimension
+is two, proving $\dimP E_\pm=2$.
+
+For~\eqref{eq:fixed-schedule}, the total-count ratio during a stage is
+$[\alpha n+f_X(l)+f_Y(l)]/(n+l)$, with $L=Kn$. It is monotone on each
+of the four pieces in~\eqref{eq:total-free}. Its values at $l=0,L/2,L$
+are $\alpha$, and its two possible maxima are
+\[
+ B_1=\frac{\alpha+2aK}{1+aK},\qquad
+ B_2=\frac{\alpha+(3b-1)K}{1+bK}.
+\]
+After clearing denominators, the numerator of $B_1-B_2$ is
+$a(1-b)K^2>0$. Thus the upper box dimension is
+$\beta_K=B_1<2$. A fixed coding prefix changes the free count by a constant,
+so every cylinder has this same upper box dimension. The preceding Baire
+argument proves
+\begin{equation}\label{eq:planar-dimensions}
+ \dimH E_\pm=\alpha,\qquad
+ \dimP E_\pm=
+ \begin{cases}2,&\text{superlacunary},\\
+ (\alpha+2aK)/(1+aK),&\text{fixed ratio}.
+ \end{cases}
+\end{equation}
+No regular subset is substituted for the original supports.
+
+\subsection{Filled tails and the exact replacement}
+Choose a stage $j_0$ with $n_{j_0}\geq k$. For $j\geq j_0$, define
+$\mu_j$ by retaining the first $n_j$ digits of $\mu$ and replacing all
+later digits by independent fair bits. Equivalently, each occupied
+$2^{-n_j}$-square is filled uniformly with its exact $\mu$-mass.
+Then $\mu_j\rightharpoonup\mu$.
+
+Inside a parent square $Q$ of side $h=2^{-n}$, where $n=n_{j-1}$,
+the conditional parent law is uniform and the next law is the affine image
+of $\xi_{A,w}\times\zeta_{B,v}$, where
+\begin{align}
+ \xi_{A,w}&=\frac1A\sum_{i=0}^{A-1}\Unif[i/A,i/A+w],\nonumber\\
+ \zeta_{B,v}&=\frac1B\sum_{l=0}^{B-1}\Unif[l/B,l/B+v],\label{eq:template}\\
+ A&=2^{aL},\quad B=2^{bL},\quad w=2^{-L/2},\quad v=2^{-L},
+ \qquad L=L_j.\nonumber
+\end{align}
+The initial horizontal free block chooses the $A$ positions; the last half
+of the horizontal bits and the filled tail produce the entire width $w$.
+The vertical free block chooses $B$ positions and the filled tail supplies
+width $v$. Therefore
+\begin{equation}\label{eq:resolution}
+ Bw=A,\qquad Bv=2^{-cL},\qquad w\leq A^{-1},\quad v\leq B^{-1}.
+\end{equation}
+This exact placement, rather than the number of descendants alone, is the
+input to the next section.

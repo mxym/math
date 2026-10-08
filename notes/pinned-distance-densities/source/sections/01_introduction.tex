@@ -1,0 +1,128 @@
+\section{Introduction and main results}\label{sec:introduction}
+For a pin $p\in\R^2$, write $D_p(y)=|y-p|$. The size of the compact
+set $D_p(E)$ and the regularity of a particular probability
+$(D_p)_*\mu$ supported on it are different questions. This paper gives
+explicit nested examples in which every studied distance set contains an
+interval, while the original probability can fail $L^2$ at every original
+pin. It also shows how changing the stage schedule changes both the critical
+integrability exponent and whether that exponent is attained.
+
+Throughout, $\alpha\in(1,2)$ is rational, and
+\begin{equation}\label{eq:parameters}
+ a=\frac{\alpha-1}{2},\qquad b=\frac\alpha2,\qquad
+ c=1-b,\qquad \beta=\alpha-1.
+\end{equation}
+In particular $b-a=1/2$ and $a+c=1/2$. Section~\ref{sec:construction}
+constructs compact sets $E_-$ and $E_+$ and probabilities
+$\lambda=\kappa\times\zeta_-$ and $\mu=\kappa\times\zeta_+$ on them.
+For a fixed $\eta=2^{-k}<1/8$, they lie respectively in
+\[
+ P_-=[0,\eta]^2,\qquad P_+=[0,\eta]\times[1-\eta,1].
+\]
+Pins range over the whole rectangle $P=P_-$. Set
+\[
+ H=\supp\kappa,\qquad \mathcal B=H\times[0,\eta],\qquad
+ \nu_p=(D_p)_*\mu.
+\]
+Thus $E_-\subset\mathcal B\subset P$. When $\nu_p$ is absolutely
+continuous, $g_p$ denotes its density. All $L^q$ norms below use Lebesgue
+measure on $\R$. A continuous density means a continuous version on all of
+$\R$, including the endpoints of its support.
+
+\begin{theorem}[Superlacunary schedule]\label{thm:main-super}
+Use the digit construction of Section~\ref{sec:construction} with
+$L_j/n_{j-1}\to\infty$. Then both $E_\pm$ have Hausdorff dimension
+$\alpha$ and packing dimension two, and both $\lambda,\mu$ are
+$\alpha$-Frostman probabilities with singular coordinate marginals.
+Every $\nu_p$, $p\in P$, is absolutely continuous.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item If $1<\alpha<3/2$, put
+\begin{equation}\label{eq:qstar}
+ q_* = \frac{2-\alpha}{3-2\alpha}=\frac{c}{c-a}.
+\end{equation}
+Then $\sup_{p\in P}\norm{g_p}_{q_*}<\infty$. For every
+$p\in\mathcal B$, the exact membership range is $1\leq q\leq q_*$;
+no such density belongs to any $L^q$ with $q>q_*$, including $q=\infty$.
+\item If $3/2\leq\alpha<2$, the densities admit one bounded jointly
+continuous version on $P\times\R$.
+\item In every parameter range, the original density is locally jointly
+continuous on $(P\setminus\mathcal B)\times\R$, and
+$\norm{g_p}_\infty\leq C/\dist(p_1,H)$ for $p\notin\mathcal B$.
+\end{enumerate}
+\end{theorem}
+At $\alpha=4/3$, the uniform upper conclusion is $L^2$ for \emph{all}
+$p\in P$; failure of every $L^{2+\varepsilon}$ applies exactly to pins
+with $p_1\in H$. There is no conflict with boundedness off $H$.
+The endpoint $\alpha=3/2$ is a direct uniform-convergence theorem,
+not a formal limiting value of the finite exponent.
+
+\begin{theorem}[Fixed stage ratio]\label{thm:main-fixed}
+Use $L_j=K n_{j-1}$ for $j\geq2$, with an integer $K\geq1$, and set
+\begin{equation}\label{eq:DK-main}
+ D_K=K(3/2-\alpha)+1-\alpha,
+ \qquad \beta_K=\frac{\alpha+2aK}{1+aK}.
+\end{equation}
+The sets $E_\pm$ have Hausdorff dimension $\alpha$ and packing dimension
+$\beta_K<2$, and their probabilities are $\alpha$-Frostman with singular
+coordinate marginals. Assume $aK>2$ for the following regularity statements.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item If $D_K>0$, set $q_K=c(K+1)/D_K$. For every $1\leq q<q_K$,
+$\sup_{p\in P}\norm{g_p}_q<\infty$. At every $p\in\mathcal B$, the
+exact range is $1\leq q<q_K$: the finite critical endpoint fails.
+\item If $D_K<0$, the original densities are bounded and jointly
+continuous on $P\times\R$.
+\item If $D_K=0$, all finite $L^q$ upper bounds hold, and
+\begin{equation}\label{eq:boundary-main}
+ \sup_{p\in P}\norm{g_p}_q\leq C\log(e+q),\qquad 1\leq q<\infty.
+\end{equation}
+For each $p\in\mathcal B$ there is no continuous-density version.
+Whether $g_p\in L^\infty$ at such pins remains open. Equation
+\eqref{eq:boundary-main} is only an upper bound; no matching norm growth
+lower bound is asserted.
+\item Off $\mathcal B$, the local bounded-continuity conclusion of
+Theorem~\ref{thm:main-super}(iii) holds in all three regimes.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Positive restrictions and actual distance intervals]
+\label{thm:main-intervals}
+Assume either the superlacunary schedule, or the fixed-ratio schedule with
+$aK>1$. For each fixed $0<\varepsilon\leq1$, the positive subprobability
+\[
+ \nu_{p,\varepsilon}=(D_p)_*\bigl(
+ \ind_{\{|y_1-p_1|\geq\varepsilon\}}\mu\bigr)
+\]
+has a jointly continuous density $g_\varepsilon(p,r)$ satisfying
+\[
+ 0\leq g_\varepsilon(p,r)\leq C/\varepsilon,
+ \qquad \nu_{p,\varepsilon}(\R)\geq1-C\varepsilon^{\alpha-1}.
+\]
+There exists $\ell>0$ such that every $D_p(E_+)$, $p\in P_-$, contains
+an interval of length $\ell$. The reversed assertion holds from $P_+$
+to $E_-$. In particular every pin in $E_-\cup E_+$ has an interval in
+its distance set to that union. The interval may depend on the pin;
+only its length lower bound is uniform.
+\end{theorem}
+
+We also determine the exact exceptional sets for stronger density
+regularity, their dimensions, and positive-mask stability. At the
+fixed-ratio boundary we obtain a double-exponential \emph{upper} tail and
+uniform double-exponential integrability on the bounded output interval.
+
+\subsection{Relation to earlier work and verification status}
+The near-track obstruction and far-track smoothing distinction already
+appears in Guth--Iosevich--Ou--Wang \cite[Sections~1.2 and~6]{GIOW}.
+Their general good-source construction uses a wave-packet decomposition.
+Here the restriction is an actual positive, fixed horizontal-band deletion
+for one explicitly placed nested model. Neither that finite-scale intuition
+nor a general distance-set threshold is claimed as new. Peres--Schlag
+\cite{PS} provides classical generalized-projection background; no result
+from that theory is an input to the proofs below.
+
+This candidate consolidates four analytic source notes after a separate
+model-based analytic review and a limited recheck of two scope
+clarifications. That process is not professional human peer review or
+formal verification. The consolidation is expository, and no priority claim
+or comprehensive literature-novelty certification is made. The package's
+source map records the exact inputs and editorial changes. All mathematical
+arguments needed here are included in the paper.

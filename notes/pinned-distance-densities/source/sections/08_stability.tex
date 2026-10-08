@@ -1,0 +1,148 @@
+\section{Positive masks and nonuniform replacement stability}\label{sec:stability}
+The fixed restriction controls arbitrary further positive source masks
+without requiring cancellation, a product structure for those masks, or
+an independent copy of the pin.
+
+\subsection{Domination and the retained mass cost}
+Fix $\varepsilon>0$, and let $0\leq F(p,y)\leq M_\varepsilon(p,y)$
+be jointly Borel. Set
+\[
+ \sigma_p=(D_p)_*(F(p,\cdot)\mu),\qquad
+ m(p)=\int F(p,y)\,d\mu(y).
+\]
+Positive domination gives a density $f_p$ satisfying
+\begin{equation}\label{eq:domination}
+ 0\leq f_p\leq g_\varepsilon(p,\cdot)\leq C_*/\varepsilon.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:mask-L2}
+ \norm{f_p}_2^2\leq(C_*/\varepsilon)m(p).
+\end{equation}
+For $m(p)>0$, normalization yields
+\begin{equation}\label{eq:normalized}
+ \norm{f_p/m(p)}_\infty\leq\frac{C_*}{\varepsilon m(p)},
+ \qquad
+ \norm{f_p/m(p)}_2^2\leq\frac{C_*}{\varepsilon m(p)}.
+\end{equation}
+The squared $L^2$ norm is divided by $m(p)^2$; the unnormalized bound
+already contains one factor $m(p)$. Uniform normalized bounds therefore
+require a genuine lower bound on retained mass. One may integrate these
+fiber inequalities against any probability on $P$, using that same pin
+in both distance factors. Jointly measurable versions follow from the
+finite coarea formulas and convergence in the separable space $L^1(I)$.
+
+Whenever the original density itself is uniformly bounded, as in the
+superlacunary range $\alpha\geq3/2$ and the fixed-ratio range $D_K<0$
+under the stated growth hypothesis, the same argument applies to every
+$0\leq F\leq1$ without a preliminary band, using the raw supremum bound.
+
+\subsection{Previously imposed decreasing restrictions}
+Suppose $0\leq\Gamma_N\leq1$ is a decreasing sequence and
+\[
+ \int\Gamma_\infty\,d(\lambda\times\mu)\geq c_*>0.
+\]
+Choose one $\varepsilon$ with $K_X\varepsilon^\beta<c_*/2$ and put
+$F_N=M_\varepsilon\Gamma_N$. This is still a decreasing family,
+loses at most $K_X\varepsilon^\beta$ additional pair mass, and has
+limiting pair mass at least $c_*/2$. Every fiber has the density bound
+\eqref{eq:domination}; the limiting family has nonzero fibers on a
+positive-$\lambda$ set of pins. All conditions encoded by $\Gamma_N$
+remain imposed.
+
+This multiplication need not preserve a previously asserted relative
+retained fraction in every spatial cell. Such local fractions must be
+checked separately or obtained by further pruning with their actual mass
+budget. Positive domination survives any further pruning but does not
+supply its missing mass.
+
+\subsection{Endpoint perturbations and whole low frequency bounds}
+For a positive measure $\tau$ on $\R$, define
+\[
+ \operatorname{Coll}_\delta(\tau)
+ =\iint\ind_{\{|s-t|\leq\delta\}}\,d\tau(s)\,d\tau(t).
+\]
+Move a retained source endpoint by at most $A_0\delta$, possibly through
+a pin-dependent probability kernel. Pull the retained coupling back to its
+original marginal $F(p,y)\mu$ with $F\leq M_\varepsilon$ and mass
+$m(p)$. If two perturbed distances differ by at most $\delta$, their
+original distances differ by at most $(1+2A_0)\delta$. Since the original
+positive density is bounded by $C_*/\varepsilon$, the perturbed law
+$\widetilde\sigma_p$ satisfies
+\begin{equation}\label{eq:perturbed-collision}
+ \operatorname{Coll}_\delta(\widetilde\sigma_p)
+ \leq2(1+2A_0)\delta\,(C_*/\varepsilon)m(p).
+\end{equation}
+After division by $m(p)^2$, the probability version is bounded by
+$2(1+2A_0)\delta C_*/[\varepsilon m(p)]$.
+A shared pin displacement of magnitude at most $A_p\delta$ changes the
+factor $1+2A_0$ to $1+2A_0+2A_p$. The same physical pin is used before
+and after each two-distance comparison.
+
+For completeness, with Fourier convention
+$\widehat\tau(\xi)=\int e^{-2\pi i\xi t}\,d\tau(t)$, positivity gives
+\begin{equation}\label{eq:lowpass}
+ \int_{-R}^R|\widehat\tau(\xi)|^2\,d\xi
+ \leq C R\operatorname{Coll}_{1/R}(\tau).
+\end{equation}
+Indeed take $k_\delta(t)=(1-|t|/\delta)_+$ with $\delta=(2R)^{-1}$.
+Its Fourier transform is
+$\delta[\sin(\pi\delta\xi)/(\pi\delta\xi)]^2$, nonnegative and
+bounded below by a positive multiple of $\delta$ on $[-R,R]$.
+Fourier inversion gives
+\[
+ \int\widehat k_\delta(\xi)|\widehat\tau(\xi)|^2\,d\xi
+ =\iint k_\delta(s-t)\,d\tau(s)\,d\tau(t)
+ \leq\operatorname{Coll}_{1/R}(\tau),
+\]
+which proves~\eqref{eq:lowpass}. Finite-measure Fourier inversion is
+legitimate since $\widehat k_\delta$ is integrable.
+Thus~\eqref{eq:perturbed-collision} supplies whole-low-pass control.
+It does not imply a decaying high-frequency shell estimate for arbitrary
+varying masks or endpoint perturbations.
+
+\subsection{A weighted nonuniform sufficient condition}
+The positive-filter argument has a broader deterministic form that does
+not require a globally product limiting source. Its conclusion is weaker
+than the exact endpoint phase diagrams.
+
+\begin{theorem}[Weighted rectangular replacements]\label{thm:nonuniform}
+Let $\rho_j$ be probabilities on finite unions of filled dyadic squares
+in the separated source rectangle, converging weakly to $\rho$.
+At step $j$, replace each parent square $Q$, of side $h_Q$ and mass $m_Q$,
+by the affine product template of Section~\ref{sec:quadrature}, preserving
+its mass. Allow the parameters $A_Q,B_Q,w_Q,v_Q$ and masses to depend
+on $Q$. Suppose the new filled leaves refine their parents, their maximum
+diameter tends to zero, and
+\begin{equation}\label{eq:nonuniform-E}
+ \mathcal E=\sum_j\sum_{Q\text{ at step }j}\frac{m_Q}{h_Q}
+ \left(A_Q^{-1}+(B_Qw_Q)^{-1}\right)<\infty.
+\end{equation}
+Assume the first-coordinate marginal of $\rho$ has no atoms. Then for
+each fixed $\varepsilon>0$ and every pin in the separated pin rectangle,
+$(D_p)_*(M_\varepsilon\rho)$ has a density bounded by
+$C(1+\varepsilon^{-1})$. Every original $(D_p)_*\rho$ is absolutely
+continuous. If the horizontal marginal satisfies a $\gamma$-Frostman
+interval bound, the raw densities are uniformly weak-$L^{1+\gamma}$.
+\end{theorem}
+\begin{proof}
+Apply~\eqref{eq:fixed-band} with each parent's parameters, multiply by
+$m_Q$, and sum. Condition~\eqref{eq:nonuniform-E} makes the density
+increments absolutely summable in $L^\infty$. The initial finite mixture
+of filled squares has a bounded distance density by vertical coarea.
+Nonatomicity makes both hard-cut boundary lines $\rho$-null, so the same
+weak-limit identification as in Proposition~\ref{prop:fixed-filter} applies.
+Increasing the positive restrictions as $\varepsilon\downarrow0$ gives
+raw absolute continuity. Finally the lost mass is $O(\varepsilon^\gamma)$;
+the Markov decomposition in Corollary~\ref{cor:weak} yields the
+weak-$L^{1+\gamma}$ estimate.
+\end{proof}
+For uniform stages~\eqref{eq:nonuniform-E} reduces to
+\[
+ \sum_j 2^{n_{j-1}}
+       \bigl[A_j^{-1}+(B_jw_j)^{-1}\bigr]<\infty.
+\]
+The criterion records actual spatial resolution and accumulated weighted
+error. It covers adaptive parent-dependent templates with a common
+coordinate orientation, not arbitrary rotations. It does not by itself
+imply the exact critical exponents: those also use the globally aligned
+bin masses and product marginals in~\eqref{eq:global-M}--\eqref{eq:global-H}.

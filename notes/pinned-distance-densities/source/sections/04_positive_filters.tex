@@ -1,0 +1,130 @@
+\section{Positive filters and intervals at every pin}\label{sec:filters}
+The arguments in this section apply whenever
+\begin{equation}\label{eq:S}
+ S=\sum_{j>j_0}2^{n_{j-1}-aL_j}<\infty.
+\end{equation}
+This follows from superlacunarity, since eventually $aL_j\geq2n_{j-1}$
+and $n_{j-1}\geq j-1$. For a fixed ratio it follows from $aK>1$, since
+the summands are $2^{-(aK-1)n_{j-1}}$.
+
+\begin{proposition}[One fixed positive restriction]\label{prop:fixed-filter}
+For every $p\in P$ and fixed $0<\varepsilon\leq1$, the actual measure
+$\nu_{p,\varepsilon}=(D_p)_*(M_\varepsilon(p,\cdot)\mu)$ has a
+jointly continuous density $g_\varepsilon(p,r)$, with
+\begin{equation}\label{eq:fixed-good-bound}
+ \norm{g_\varepsilon(p,\cdot)}_\infty\leq C_*/\varepsilon,
+ \qquad \nu_{p,\varepsilon}(\R)\geq1-K_X\varepsilon^\beta.
+\end{equation}
+One possible constant is
+\begin{equation}\label{eq:Cstar}
+ C_*=(D_0/v_0)2^{n_{j_0}}+4D_0(1+v_0^{-1})S.
+\end{equation}
+It may depend on the finitely many initial stages, but is independent of
+$p$ and any finest observation scale.
+\end{proposition}
+\begin{proof}
+Let $g_{j,p,\varepsilon}$ be the masked density for $\mu_j$.
+Apply Lemma~\ref{lem:fixed-band} in every parent square, multiply by
+its exact parent mass, and add. The masses sum to one. By $Bw=A$,
+\begin{equation}\label{eq:fixed-increment}
+ \norm{g_{j,p,\varepsilon}-g_{j-1,p,\varepsilon}}_\infty
+ \leq4D_0(v_0^{-1}+\varepsilon^{-1})2^{n_{j-1}-aL_j}.
+\end{equation}
+No count of cells appears. At the initial filled stage, vertical coarea
+on each square gives
+$\norm{g_{j_0,p,\varepsilon}}_\infty\leq(D_0/v_0)2^{n_{j_0}}$.
+Thus the densities converge in $L^\infty$ uniformly in $p$, and the
+bound~\eqref{eq:Cstar} follows.
+
+For a fixed $p$, the discontinuities of the mask are on
+$y_1=p_1\pm\varepsilon$. These lines have zero $\mu$-mass by
+\eqref{eq:horizontal-frostman}. Weak convergence can therefore be applied
+to a bounded continuous distance test function multiplied by the mask.
+It identifies the weak limit with $(D_p)_*(M_\varepsilon\mu)$.
+The common bounded output support makes the $L^\infty$ convergence also
+$L^1$ convergence, identifying its density with the same measure.
+This argument works for \emph{each} pin with the same bounds, without an
+exceptional pin set. The retained-mass estimate follows directly from
+\eqref{eq:horizontal-frostman}.
+
+To obtain the continuous version, write the finite filled-tail density
+$f_j$ as a finite linear combination of rectangle indicators. Polar coarea
+gives, for $r>0$,
+\begin{equation}\label{eq:polar-continuity}
+ g_{j,\varepsilon}(p,r)=r\int_0^{2\pi}
+ f_j(p+r\omega(\theta))
+ \ind_{\{|r\cos\theta|\geq\varepsilon\}}\,d\theta,
+ \quad\omega(\theta)=(\cos\theta,\sin\theta).
+\end{equation}
+A circle with positive radius meets each rectangle boundary in only finitely
+many angles. The mask equality also has at most finitely many angles.
+For a convergent sequence of $(p,r)$ the integrand therefore converges at
+almost every angle and has a bounded integrable majorant. Dominated
+convergence proves joint continuity. Around $r=0$ the density is zero by
+uniform vertical separation; extend by zero for negative $r$.
+
+For continuous radius fibers the supremum is the essential supremum.
+Thus~\eqref{eq:fixed-increment} is a uniform supremum estimate on the
+continuous versions over $P\times\R$. Their uniform limit is jointly
+continuous and represents the actual positive restriction at every pin.
+\end{proof}
+
+\begin{corollary}[Raw absolute continuity and weak integrability]
+\label{cor:weak}
+Every $\nu_p$ is absolutely continuous. Its density satisfies
+\begin{equation}\label{eq:weak-alpha}
+ \sup_{p\in P}|\{r:g_p(r)>T\}|\leq C T^{-\alpha}
+ \qquad(T>0).
+\end{equation}
+In particular $\sup_p\norm{g_p}_q<\infty$ for $1\leq q<\alpha$.
+\end{corollary}
+\begin{proof}
+As $\varepsilon\downarrow0$, the positive restricted measures increase
+to $\nu_p$, since $\mu\{y_1=p_1\}=0$. A Lebesgue-null set has zero
+mass for every restriction and hence for the limit. This proves absolute
+continuity. Write $g_p=g_\varepsilon(p,\cdot)+b_{p,\varepsilon}$ with
+$b_{p,\varepsilon}\geq0$ and
+$\int b_{p,\varepsilon}\leq K_X\varepsilon^\beta$.
+For sufficiently large $T$, choose $\varepsilon=2C_*/T\leq1$.
+Then the good density is at most $T/2$, so Markov's inequality gives
+\[
+ |\{g_p>T\}|\leq\frac2T\int b_{p,\varepsilon}
+ \leq2K_X(2C_*)^\beta T^{-(1+\beta)}.
+\]
+Since $1+\beta=\alpha$, this is the claim for large $T$; bounded output
+support handles smaller $T$. Layer-cake integration gives the stated
+strong $L^q$ bounds.
+\end{proof}
+
+\begin{proposition}[Uniform length in the actual distance sets]
+\label{prop:intervals}
+There is $\ell>0$ such that every $D_p(E_+)$, $p\in P_-$, contains
+an interval of length $\ell$. The reversed conclusion holds for
+$p\in P_+$ and source $E_-$.
+\end{proposition}
+\begin{proof}
+Choose a fixed $\varepsilon_0>0$ with
+$K_X\varepsilon_0^\beta\leq1/2$. Every nonnegative fiber of
+$g_{\varepsilon_0}$ then has mass at least $1/2$ on the interval
+$I=[v_0,D_0]$ of length $W=D_0-v_0$. It has some point $r_p$ with
+$g_{\varepsilon_0}(p,r_p)\geq1/(2W)$. Joint continuity and compactness,
+using the continuous zero extension outside $I$, supply one $\delta>0$
+such that
+\[
+ |r-r_p|\leq\delta\quad\Longrightarrow\quad
+ g_{\varepsilon_0}(p,r)\geq1/(4W)
+\]
+for every $p$. The support of this submeasure is contained in the compact
+set $D_p(E_+)$ because the submeasure is a positive restriction of the
+actual source law. Thus the entire interval is in the actual image, not
+only in a finite approximation or an almost-everywhere version of that
+image. Taking any fixed $\ell\leq\delta$ proves the first assertion.
+
+In the reverse configuration the vertical separation has negative sign,
+but the absolute derivative bound is unchanged. The vertical branch is
+still unique and the BV monotonicities simply reverse sign. The same proof
+therefore applies. If necessary take the smaller of the two length bounds.
+\end{proof}
+Proposition~\ref{prop:intervals} proves Theorem~\ref{thm:main-intervals}.
+In particular, failure of $L^2$ or even unboundedness of the raw density
+is compatible with an interval in every one of the distance images here.

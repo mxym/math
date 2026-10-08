@@ -1,0 +1,96 @@
+\section{Fixed ratio and the excluded critical endpoint}\label{sec:fixed}
+Assume~\eqref{eq:fixed-schedule}. The fixed-mask proof and interval theorem
+already hold when $aK>1$. In this section use the convenient common
+hypothesis $aK>2$. Set
+\begin{equation}\label{eq:DK}
+ D_K=K(c-a)+(c-b)=K(3/2-\alpha)+1-\alpha.
+\end{equation}
+If $D_K>0$, define $q_K=c(K+1)/D_K$. Notice that
+\[
+ c(K+1)-D_K=b+aK>0,
+\]
+so $q_K>1$ as required for the H\"older argument.
+
+\subsection{Upper estimates}
+The outer estimate~\eqref{eq:outer} becomes
+\begin{equation}\label{eq:fixed-outer}
+ C(1+Kn)2^{-(aK-2)n},
+\end{equation}
+which is summable since $aK>2$ and $n=n_1(K+1)^{j-2}$.
+The global inner estimate~\eqref{eq:inner-general} becomes
+\begin{align}
+ C2^{[-b-aK+c(K+1)(1-1/q)]n}
+ &=C2^{[D_K-c(K+1)/q]n}.\label{eq:fixed-inner}
+\end{align}
+Its constants arise from the same aligned-bin mass bound, true product
+structure, and vertical coarea estimate; the old filled law has the
+additional favorable factor $2^{-c(1-1/q)L}$.
+
+If $D_K>0$, the exponent in~\eqref{eq:fixed-inner} is negative exactly
+when $q<q_K$. If $D_K<0$, it is negative for $q=\infty$. If $D_K=0$,
+it is negative for every fixed finite $q$. Combining the inner and outer
+bounds proves uniform $L^q$ Cauchy convergence in precisely the upper
+ranges asserted in Theorem~\ref{thm:main-fixed}. Weak convergence identifies
+the limiting original law. In the $L^\infty$ case the continuous finite
+versions converge uniformly, yielding joint continuity.
+
+For a particular finite exponent one can weaken the outer condition.
+Every conditional output from a parent square lies in an interval of
+length at most $\sqrt2h$, because distance is $1$-Lipschitz. Apply this
+support-length gain before summing conditional increments with their
+parent masses. Minkowski's inequality gives the outer $L^q$ estimate
+\begin{equation}\label{eq:improved-fixed-outer}
+ C_q(1+Kn)2^{(2-1/q-aK)n}.
+\end{equation}
+Thus sufficient conditions for a given finite $q$ are
+\begin{equation}\label{eq:weaker-fixed}
+ aK>2-1/q,\qquad D_K-c(K+1)/q<0.
+\end{equation}
+If $D_K>0$, the whole subcritical range follows under the weaker strict
+condition $aK>2-1/q_K$. These are sufficient conditions furnished by the
+proof, not claims that $aK=1$ or $aK=2$ is an exact geometric threshold.
+
+\subsection{Failure at the endpoint}
+For every $p\in\mathcal B$, the track image~\eqref{eq:track-image}
+satisfies $|U_j|\to0$. Substituting $L=Kn$ into
+\eqref{eq:track-lower} gives
+\begin{equation}\label{eq:fixed-lower}
+ \int_{U_j}g_p(r)^q\,dr
+ \geq c_q 2^{[qD_K-c(K+1)]n}.
+\end{equation}
+For $q>q_K$ the right side diverges. More importantly, for $q=q_K$
+it is bounded below by a fixed positive constant. If $g_p\in L^{q_K}$,
+the absolute continuity of the Lebesgue integral of $g_p^{q_K}$ would
+force the left side to tend to zero as $|U_j|\to0$, a contradiction.
+The $U_j$ need not be disjoint or nested. A constant lower bound for the
+\emph{whole} norm alone would not prove endpoint failure; localization to
+shrinking-measure sets is essential. This proves the exact open range on
+$\mathcal B$.
+
+\subsection{Examples and the endpoint switch}
+For $\alpha=13/10$, $a=3/20$ and $b=13/20$. The fixed ratio $K=14$
+satisfies $aK=21/10>2$ and gives
+\[
+ D_K=5/2,\qquad q_K=21/10,\qquad\beta_K=55/31.
+\]
+All pins in $P$ have $L^2$ original densities, and pins in $\mathcal B$
+have exactly $1\leq q<21/10$. For the superlacunary construction with
+the same $\alpha$, $q_*=7/4$ is attained, every pin in $\mathcal B$
+fails $L^2$, and the planar packing dimension is two. These are two
+specific schedules with controlled placements; the comparison does not
+show that packing dimension alone determines the phase diagram.
+
+The boundary $D_K=0$ occurs at
+\begin{equation}\label{eq:fixed-boundary-alpha}
+ \alpha=\frac32-\frac1{2(K+1)}.
+\end{equation}
+For example $K=9$, $\alpha=29/20$ gives $aK=81/40>2$.
+The next section proves noncontinuity on $\mathcal B$ and the logarithmic
+norm upper bound there, while keeping the $L^\infty$ question open.
+
+The endpoint contrast has a precise exponent explanation. In the
+superlacunary regime the leading critical $L$ exponent cancels while the
+inherited horizontal mass leaves the summable $2^{-n/2}$ gain.
+At a fixed ratio the shifted critical exponent cancels the entire
+$n$-and-$L$ power simultaneously in~\eqref{eq:fixed-lower}, leaving a
+positive amount of $L^{q_K}$ mass on the shrinking track images.

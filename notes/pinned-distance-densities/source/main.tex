@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{xurl,hyperref,enumitem,booktabs}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
+ pdftitle={Pinned distance densities in nested train track models},
+ pdfauthor={AI-assisted manuscript candidate}}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Unif}{\operatorname{Unif}}
+\newcommand{\Bad}{\operatorname{Bad}}
+\newcommand{\dimH}{\dim_{\mathrm H}}
+\newcommand{\dimP}{\dim_{\mathrm P}}
+\newcommand{\dimB}{\overline{\dim}_{\mathrm B}}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\ind}{\mathbf 1}
+\title{Pinned distance densities in nested train track models}
+\author{AI-assisted manuscript candidate}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the original pinned distance probabilities of explicit deterministic
+planar product-digit measures with singular coordinate marginals. For every
+rational $1<\alpha<2$, a superlacunary construction has Hausdorff dimension
+$\alpha$ and packing dimension two. Its distance densities have the uniform
+attained exponent $q_*=(2-\alpha)/(3-2\alpha)$ when $\alpha<3/2$, and are
+bounded and jointly continuous when $\alpha\geq3/2$. The finite exponent is
+sharp precisely at pins whose first coordinate belongs to the horizontal
+support; off that support the densities are locally bounded and continuous.
+At a fixed stage ratio the critical exponent changes and its finite endpoint
+fails. We determine the corresponding exceptional pin sets and their
+Hausdorff and packing dimensions. A two-step bounded-variation and coarea
+estimate gives a fixed positive restriction with a jointly continuous density
+at every pin, and hence intervals of uniformly positive length in all the
+studied distance sets. At the fixed-ratio transition the densities belong to
+every finite $L^q$, with an $O(\log q)$ norm upper bound and a
+double-exponential tail upper bound, but have no continuous version on the
+horizontal-support pin set. Essential boundedness there remains open.
+These conclusions use the exact rectangular placement and stage schedule;
+they are not general Falconer-type dimension thresholds.
+\end{abstract}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\input{sections/01_introduction}
+\input{sections/02_construction}
+\input{sections/03_quadrature}
+\input{sections/04_positive_filters}
+\input{sections/05_superlacunary}
+\input{sections/06_fixed_ratio}
+\input{sections/07_exceptional_pins}
+\input{sections/08_stability}
+\input{sections/09_scope}
+\appendix
+\input{sections/appendix_subcritical}
+\begin{thebibliography}{9}
+\bibitem{GIOW}
+L.~Guth, A.~Iosevich, Y.~Ou, and H.~Wang,
+\emph{On Falconer's distance set problem in the plane},
+arXiv:1808.09346v1 (2018), especially Sections~1.2 and~6.
+\url{https://arxiv.org/abs/1808.09346v1}.
+\bibitem{PS}
+Y.~Peres and W.~Schlag,
+\emph{Smoothness of projections, Bernoulli convolutions, and the dimension
+of exceptions}, Duke Mathematical Journal \textbf{102} (2000), 193--251.
+\url{https://doi.org/10.1215/S0012-7094-00-10222-0}.
+\end{thebibliography}
+\end{document}
