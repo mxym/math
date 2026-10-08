@@ -1,5 +1,19 @@
 # math
 
+## Five complete integrated research manuscripts
+
+The [manuscript collection](manuscripts/README.md) brings four near-complete
+research lines into five standalone papers (88 pages): sharp simplex stability
+with its exact obstruction, continuum power avoidance, the full fractional
+cover spectrum and near-design stability, sharp three/four-row permanent norms,
+and orbital atom stability with the latest subset-action results. Complete
+proofs, precise classical/formal dependencies, editable sources and PDFs are
+supplied. The new standard-library [Cramer polynomial certificate](verification/finalization/check_cramer_polynomials.py)
+verifies the infinite triple-action primal families independently of a CAS;
+[verification status](verification/finalization/STATUS.json) separates exact
+checks from partial/full Lean replays. These consolidate existing research and
+parallel extensions, without counting packaging as new breakthroughs.
+
 ## Exact triple-action spectrum, asymptotics, and orbital Chebyshev structure
 
 The [permutation permanent / finite-group action research programme](notes/sharp-robust-permanent/README.md) has established a **sharp universal first-order theorem** for the action of \(S_n\) on three-element subsets:

@@ -1,0 +1,292 @@
+\section{The truncation obstruction: complete calculation}
+
+Let $e_1,\ldots,e_d$ be the coordinate vectors and, for $0<t<1$, set
+\[
+ K_t=\{x\in\mathbb R^d:x_i\ge0,\ t\le x_1+\cdots+x_d\le1\}
+     =\conv\{e_1,\ldots,e_d,te_1,\ldots,te_d\}.
+ \tag{3}
+\]
+This is a standard simplex with a homothetic cap cut from one vertex.
+
+\begin{theorem}\label{thm:exact}
+For every integer $d\ge2$ and $0<t<1$, the following assertions hold.
+
+\medskip\noindent
+\textup{(i)} With $q=t^{d-1}$, the invariant is exactly
+\[
+ a(K_t)=
+ \frac{1+(d-1)q-(d-1)t^d-qt^d}
+ {(1-t^d)(d+1+(d-1)q)},
+ \tag{4}
+\]
+and consequently
+\[
+ \ee(K_t)=
+ \frac{t^{d-1}\bigl[d(d-1)-(d+1)(d-2)t-2t^d\bigr]}
+ {(d+1)(1-t^d)(d+1+(d-1)t^{d-1})}.
+ \tag{5}
+\]
+In particular,
+\[
+ \lim_{t\downarrow0}\frac{\ee(K_t)}{t^{d-1}}
+   =c_d:=\frac{d(d-1)}{(d+1)^2}>0.
+ \tag{6}
+\]
+
+\medskip\noindent
+\textup{(ii)} The maximum simplex volume is
+\[
+ M(K_t)=\frac{1-t}{d!}.
+ \tag{7}
+\]
+Every maximum-volume inscribed simplex, including those with vertices in the
+relative interiors of faces, has the form
+\[
+ S_p=\conv\{e_1,\ldots,e_d,tp\},\qquad
+ p_i\ge0,\quad\sum_{i=1}^d p_i=1.
+ \tag{8}
+\]
+For each such simplex,
+\[
+ E(K_t,S_p)=(d+1)t\max_i p_i.
+ \tag{9}
+\]
+Thus
+\[
+ \inf_{S\text{ maximum}}E(K_t,S)=\frac{d+1}{d}t,
+ \qquad
+ \sup_{S\text{ maximum}}E(K_t,S)=(d+1)t.
+ \tag{10}
+\]
+
+\medskip\noindent
+\textup{(iii)} The distance to any simplex satisfies
+\[
+ \left(1+t+\cdots+t^{d-1}\right)^{1/d}
+ \le \BM(K_t,\Delta_d)\le 1+t.
+ \tag{11}
+\]
+In fact, for every fixed maximum simplex $S_p$, its smallest enclosing
+\emph{translated} homothet has factor exactly $1+t$.
+In particular, for $0<t<1$,
+\[
+ \frac{t}{2d}\le \BM(K_t,\Delta_d)-1\le t,
+ \qquad
+ \liminf_{t\downarrow0}\frac{\BM(K_t,\Delta_d)-1}{t}\ge\frac1d.
+ \tag{12}
+\]
+
+\medskip\noindent
+\textup{(iv)} The Minkowski asymmetry is exactly
+\[
+ s(K_t):=\inf\{r\ge1:\exists z,
+              -(K_t-z)\subset r(K_t-z)\}=d-t.
+ \tag{13}
+\]
+\end{theorem}
+
+\begin{proof}
+We prove each assertion directly.
+
+\medskip\noindent\textbf{Facet determinants.}
+Put $c=1/(d-1)!$ and $r=1-q$. The $d$ coordinate facets have area
+$c(1-t^{d-1})$. The top and bottom facets have areas $c\sqrt d$ and
+$c\sqrt d\,t^{d-1}$, respectively. The facet data in the coordinates (3) are
+therefore
+\[
+ (u_i,b_i)=(-cr e_i,0)\quad(1\le i\le d),\qquad
+ (u_+,b_+)=(c\mathbf1,c),\qquad
+ (u_-,b_-)=(-cq\mathbf1,-ct^d).
+ \tag{14}
+\]
+The volume is $|K_t|=(1-t^d)/d!$, so $d|K_t|=c(1-t^d)$.
+
+For horizontal $d$-minors, the all-coordinate subset contributes $c^d r^d$;
+the $d$ subsets with the top facet contribute $c^d r^{d-1}$ each; and the
+$d$ subsets with the bottom facet contribute $c^d q r^{d-1}$ each.
+Subsets with both top and bottom have determinant zero because their normals
+are parallel. Hence the horizontal sum is
+\[
+ H=c^d r^{d-1}\bigl[d+1+(d-1)q\bigr].
+ \tag{15}
+\]
+For the lifted $(d+1)$-minors, the subset containing all coordinate facets
+and the top facet contributes $c^{d+1}r^d$. Replacing the top facet by the
+bottom facet gives $c^{d+1}r^dt^d$. Each of the $d$ subsets with top, bottom and $d-1$
+coordinate facets contributes
+$c^{d+1}r^{d-1}(q-t^d)$; here $q-t^d=q(1-t)>0$.
+Thus the lifted sum is
+\[
+ L=c^{d+1}r^{d-1}
+   \bigl[1+(d-1)q-(d-1)t^d-qt^d\bigr].
+ \tag{16}
+\]
+Dividing $L$ by $d|K_t|H$ gives (4); subtracting $1/(d+1)$ gives (5).
+The bracket in (5) decreases strictly to zero as $t\uparrow1$, so the defect
+is positive. Dividing (5) by $t^{d-1}$ and passing to $t=0$ proves the exact
+limit (6), without any numerical fitting.
+
+\medskip\noindent\textbf{Maximum simplices, including nonvertex ones.}
+First consider a simplex selected from the $2d$ vertices in (3). If a ray
+$\mathbb R_+e_i$ is unrepresented, the simplex lies in the coordinate
+hyperplane $x_i=0$ and has zero volume. Otherwise $d+1$ distinct vertices
+on $d$ rays give exactly one doubled ray, with vertices $e_j,te_j$, and one
+vertex on every other ray. Subtract the two doubled columns in the lifted
+vertex determinant. If $k$ of the other $d-1$ selected vertices are bottom
+vertices, its absolute determinant is
+\[
+ (1-t)t^k.
+ \tag{17}
+\]
+The largest value is $1-t$, attained precisely by all $d$ top vertices and
+one bottom vertex. Repeated vertices give determinant zero.
+
+Now let $z_0,\ldots,z_d$ be arbitrary vertices of an inscribed simplex.
+Represent each $z_j$ as a convex combination of the $2d$ vertices, and
+independently sample a vertex $Y_j$ from that combination. Multiaffinity of
+the lifted determinant $D$ gives
+\[
+ |D(z_0,\ldots,z_d)|
+ =|\mathbb E D(Y_0,\ldots,Y_d)|
+ \le\mathbb E|D(Y_0,\ldots,Y_d)|\le1-t.
+ \tag{18}
+\]
+This proves the upper bound (7), already attained by the preceding examples.
+If the simplex is maximum, equality in (18) implies that
+$|D(Y_0,\ldots,Y_d)|=1-t$ almost surely. By (17), exactly one of the $Y_j$
+is a bottom vertex and the other $d$ are the $d$ distinct top vertices,
+almost surely.
+
+Let $I_j$ be the indicator that $Y_j$ is a bottom vertex. Independence and
+$\sum_j I_j=1$ almost surely imply
+\[
+ 0=\operatorname{Var}\Bigl(\sum_j I_j\Bigr)
+  =\sum_j \mathbb P(I_j=1)\bigl[1-\mathbb P(I_j=1)\bigr].
+\]
+Thus every slot has deterministic top/bottom type, with precisely one bottom
+slot. The supports of the $d$ top slots must be pairwise disjoint; otherwise
+independent sampling gives a repeated top vertex with positive probability.
+There are $d$ nonempty disjoint supports in a set of $d$ top vertices, so
+each is a singleton. The bottom slot is any convex combination $tp$.
+This proves (8). Conversely, the height above the hyperplane
+$\sum x_i=1$ of any point $tp$ is fixed, so every simplex (8) has volume
+$(1-t)/d!$.
+
+\medskip\noindent\textbf{Centroid containment.}
+Write $s_x=\sum_i x_i$. Barycentric coordinates for $S_p$, with index $0$
+for $tp$, are
+\[
+ \beta_0(x)=\frac{1-s_x}{1-t},\qquad
+ \beta_i(x)=x_i-tp_i\beta_0(x)\quad(1\le i\le d).
+ \tag{19}
+\]
+Evaluation at the $2d$ vertices of $K_t$ shows
+\[
+ \min_{K_t}\beta_0=0,\qquad \min_{K_t}\beta_i=-tp_i.
+ \tag{20}
+\]
+For the latter minimum, use $te_j$ with $j\ne i$, available since $d\ge2$.
+Affine functions attain their extrema on these vertices.
+The centroid-dilated simplex $g_{S_p}+(1+\epsilon)(S_p-g_{S_p})$
+is exactly the region $\beta_i\ge-\epsilon/(d+1)$ for every
+$0\le i\le d$. Equations (20) give (9), and optimizing $\max_i p_i$
+on the probability simplex gives (10).
+
+\medskip\noindent\textbf{Translated containment and distance to any simplex.}
+For barycentric coordinates of any simplex $S$, a translated homothet
+$v+\lambda S$ has inequalities $\beta_i\ge a_i$ with
+$\sum_i a_i=1-\lambda$. Conversely any such thresholds describe a
+translated homothet. To contain $K$, one needs
+$a_i\le\min_K\beta_i$ for each $i$, so
+\[
+ \lambda\ge1-\sum_i\min_K\beta_i.
+ \tag{21}
+\]
+Choosing all thresholds equal to their minima realizes equality whenever
+$S\subset K$. For (20), the sum is $-t$, giving factor exactly $1+t$.
+Concretely,
+\[
+ K_t\subset -tp+(1+t)S_p.
+ \tag{22}
+\]
+This proves the upper bound in (11) under the full freedom in (1).
+
+For the lower bound, any simplex $S\subset K_t$ has $|S|\le M(K_t)$.
+If $K_t\subset v+\lambda S$, volume monotonicity and (7) imply
+\[
+ \lambda^d\ge\frac{|K_t|}{|S|}
+ \ge\frac{|K_t|}{M(K_t)}
+ =\frac{1-t^d}{1-t}=1+t+\cdots+t^{d-1}.
+ \tag{23}
+\]
+Taking the infimum proves the lower bound in (11). Furthermore
+\[
+ (1+t)^{1/d}-1
+ =\frac1d\int_0^t(1+u)^{-(d-1)/d}\,du
+ \ge\frac{t}{d\,2^{(d-1)/d}}\ge\frac{t}{2d}.
+\]
+Finally the derivative at zero of
+$(1+t+\cdots+t^{d-1})^{1/d}$ is $1/d$, proving (12).
+This lower bound concerns \emph{all} simplices, not only maximum simplices.
+We do not assert an exact formula for the unrestricted distance in (11).
+
+\medskip\noindent\textbf{Minkowski asymmetry.}
+The containment in (13) is equivalent to
+$-K_t+(r+1)z\subset rK_t$. Writing $Z=\sum_i z_i$, its necessary and
+sufficient facet inequalities are
+\[
+ (r+1)z_i\ge1\quad(1\le i\le d),\qquad
+ 1+rt\le(r+1)Z\le r+t.
+ \tag{24}
+\]
+Summing the coordinate inequalities and using the last upper bound gives
+$r\ge d-t$. This value is attainable: take
+$z_i=1/(d+1-t)$. The bottom inequality follows from
+\[
+ d-1-(d-t)t=(1-t)(d-1-t)\ge0.
+\]
+All other inequalities in (24) are equalities. This proves (13).
+\end{proof}
+
+\section{Universal implications and necessary constants}
+
+\begin{corollary}\label{cor:power}
+Fix $d\ge3$. A power estimate valid for every full-dimensional body of
+dimension $d$, even restricted to a sufficiently small lower-end defect,
+can have exponent $\alpha$ only if $\alpha\le1/(d-1)$, for each of:
+\[
+ \BM(K,\Delta_d)-1\le C_d\ee(K)^\alpha;
+ \tag{25}
+\]
+\[
+ \inf_{S\text{ maximum}}E(K,S)\le C_d\ee(K)^\alpha;
+ \tag{26}
+\]
+\[
+ E(K,S)\le G_d\ee(K)^\alpha
+ \quad\text{for every maximum-volume inscribed simplex }S.
+ \tag{27}
+\]
+At the critical exponent $1/(d-1)$, any constant in (27) must satisfy
+\[
+ G_d\ge(d+1)\left(\frac{(d+1)^2}{d(d-1)}\right)^{1/(d-1)}>d+1.
+ \tag{28}
+\]
+Any constant in (26) must be at least $1/d$ times the right-hand side of
+(28), and any constant in (25) must be at least
+\[
+ \frac1d\left(\frac{(d+1)^2}{d(d-1)}\right)^{1/(d-1)}.
+ \tag{29}
+\]
+These are necessary constants, not claimed optimal universal constants.
+In particular a dimension-independent constant is impossible in (27)
+at the critical exponent.
+\end{corollary}
+
+\begin{proof}
+Equations (6), (10), and (12) give a positive constant times $t$ on the
+left of each estimate and a constant times $t^{(d-1)\alpha}$ on its right.
+If $(d-1)\alpha>1$, division by $t$ and passage to $t\downarrow0$ is a
+contradiction. At equality of exponents, take $p=e_1$ in (9) for (28),
+$p_i=1/d$ for (26), and the lower-limit bound in (12) for (29).
+\end{proof}

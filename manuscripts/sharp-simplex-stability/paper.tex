@@ -1,0 +1,341 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,xurl}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=3em
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\BM}{d_{\mathrm{BM}}}
+\newcommand{\ee}{\mathfrak e}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\title{Sharp-exponent simplex stability with a quadratic dimension constant}
+\author{mxym/math research project\\AI-assisted research manuscript}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the lower-end projection-pyramid deficit, we prove centroid containment by
+every prescribed maximum-volume inscribed simplex with sharp exponent
+$1/(d-1)$ and an explicit coefficient at most $4096d^2$ in every dimension
+$d\ge3$. The proof combines a conditioning-free, volume-weighted anchor
+theorem with an intrinsic first-moment conversion and a relative projection-cap
+argument. A truncated simplex gives the sharp obstruction, including the
+classification of all its maximum-volume inscribed simplices. The optimal
+coefficient lies between linear and quadratic order in the dimension; this
+paper does not close that gap. The traditional proof is complete. Existing
+Lean releases cover the original sharp-exponent upper theorem and the exact
+truncation obstruction; the improved quadratic coefficient is a written
+analytic refinement, not represented as fully formalized.
+\end{abstract}
+
+\section{Definitions and the main statement}
+Let $K\subset\R^d$ be a full-dimensional compact convex body. Its projection
+body has support function $h_{\Pi K}(u)=\|u\|_2\vol_{d-1}(K|u^\perp)$.
+Write $R(K)=\vol_d(\Pi K)/\vol_d(K)^{d-1}$, and let $\mathcal P K$ be a
+pyramid in dimension $d+1$ with base $K$. Set
+\[
+a(K)=\left(\frac d{d+1}\right)^d\frac{R(\mathcal P K)}{R(K)}-1,
+\qquad \ee(K)=a(K)-\frac1{d+1}.
+\]
+The height and apex location do not affect this affine invariant. For an
+inscribed simplex $S$ of maximum volume, let $g_S$ denote its original centroid
+and define
+\[
+E(K,S)=\inf\{t\ge0:K\subset g_S+(1+t)(S-g_S)\}.
+\]
+Thus $E$ is excess dilation, not the dilation factor itself. For a reference
+simplex $\Delta_d$ the affine Banach--Mazur distance to its affine class is
+\[
+\BM(K,\Delta_d)=\inf\{\lambda\ge1:S'\subset K\subset v+\lambda S',
+\ S'\text{ a full-dimensional simplex},\ v\in\R^d\}. \tag{1}
+\]
+The free translation and optimization in (1) distinguish it from $E(K,S)$.
+
+\begin{theorem}\label{thm:main}
+For every $d\ge3$, every such $K$, and every prescribed maximum-volume
+inscribed simplex $S$,
+\[
+\begin{gathered}
+\ee(K)\ge0,\qquad E(K,S)\le G_d\ee(K)^{1/(d-1)},\\
+G_d=16(d+1)^2[3d^2(d+1)^3(d+2)]^{1/(d-1)}\le4096d^2.
+\end{gathered}
+\]
+The exponent cannot be increased, even for the best choice of maximum $S$
+or for $\BM(K,\Delta_d)-1$. Any coefficient valid for every maximum $S$
+at this exponent is at least
+$(d+1)[(d+1)^2/(d(d-1))]^{1/(d-1)}$.
+\end{theorem}
+No product, join, smoothness or strict-convexity assumption is imposed on $K$.
+All maximum simplices exist by compactness. Replacement of one vertex of a
+maximum $S$ by any $x\in K$ shows that every $S$-barycentric coordinate
+$\alpha_i(x)$ has $|\alpha_i(x)|\le1$. Consequently $E(K,S)\le d+1$.
+
+\section{Cone law and the exact deficit identity}
+Translate an interior point of $K$ to zero, write $v=\vol_d K$, and denote its
+surface-area measure by $S_K$. Push the probability measure
+$h_K(u)dS_K(u)/(dv)$ on the unit sphere forward by $u\mapsto u/h_K(u)$;
+call the resulting law $\nu$. It is centered, bounded and supported on
+$\partial K^\circ$, with full affine span. Centering follows from
+$\int u\,dS_K(u)=0$; the total mass follows from the divergence formula.
+The support of $S_K$ spans $\R^d$ for a full-dimensional body. Since $\nu$ is
+centered, linear and affine full span are equivalent. For independent samples
+put
+\[
+A=\E|\det(X_1,\ldots,X_d)|,\quad
+B=\E|\det((X_0,1),\ldots,(X_d,1))|,\quad D=B-A.
+\]
+Then $B>0$ and
+\[
+a(K)=\frac B{(d+1)A},\qquad
+\frac DB=\frac{(d+1)\ee(K)}{1+(d+1)\ee(K)}.
+\]
+Here is a direct derivation, including the normalization. For a polytope let
+$u_i$ be facet area times outward unit normal and $b_i$ facet area times support
+number. Set $H=\sum_{|I|=d}|\det(u_i:i\in I)|$ and
+$L=\sum_{|I|=d+1}|\det((u_i,b_i):i\in I)|$. Cauchy's formula and the
+zonotope volume formula give $\vol\Pi K=H$. For the pyramid with height $t$
+and apex above zero, the facet area vectors are
+$(0,-v)$ and $(t u_i/d,b_i/d)$, and its volume is $tv/(d+1)$. Therefore
+\[
+\vol\Pi(\mathcal P K)=(t/d)^d(vH+L/d),\qquad
+a(K)=\frac L{dvH}. \tag{2}
+\]
+Translation replaces $b_i$ by $b_i-u_i\cdot z$, an elementary row operation,
+so (2) is translation invariant even when some uncentered $b_i$ vanish.
+For the centered cone law, determinant multilinearity gives
+$A=d!H/(dv)^d$ and $B=(d+1)!L/(dv)^{d+1}$, proving the identity.
+General bodies follow by polytope approximation: choose a common interior
+ball and common exterior ball; support functions converge uniformly and
+surface-area measures weakly. The cone laws then converge weakly with uniformly
+bounded support, so both determinant integrals converge. Projection bodies and
+volumes also converge. Positivity of $A,B$ follows from full span and positive
+measure neighborhoods of independent support tuples.
+
+\section{Conditioning-free volume-weighted anchors}
+The following statement is independent of convex-body realizability.
+\begin{lemma}\label{lem:anchors}
+For any centered bounded Borel law with full affine support in $\R^d$, and
+any norm with support diameter $\Lambda$, there are affinely independent
+support anchors $w_0,\ldots,w_d$ and a Borel assignment $I$ such that
+\[
+\E\|X-w_{I(X)}\|\le\Lambda\frac{(d+1)(d+2)}2\frac DB.
+\]
+In particular $D\ge0$.
+\end{lemma}
+\begin{proof}
+For a base $\mathbf x=(x_1,\ldots,x_d)$ put
+$F_{\mathbf x}(y)=\det((x_1,1),\ldots,(x_d,1),(y,1))$,
+$P(\mathbf x)=\E(F_{\mathbf x}(X))_+$ and
+$N(\mathbf x)=\E(-F_{\mathbf x}(X))_+$. Affinity and centering give
+$D=2\E\min(P,N)\ge0$, including singular bases. Define
+\[
+\psi_{\mathbf x}(y,z)=\min((F(y))_+,(-F(z))_+)
+                       +\min((-F(y))_+,(F(z))_+).
+\]
+For independent base and test points, each minimum has conditional mean at
+most $\min(P,N)$, so $\E\psi\le D$.
+For an anchor tuple $W$ write $V(W)=|\det((w_i,1)_{i=0}^d)|$. Form $G(W,x)$
+by summing the witness for each base of all anchors except $w_i$, tested at
+$w_i,x$, and for each $i<j$ the base of $x$ and all anchors except $w_i,w_j$,
+tested at $w_i,w_j$. Orientations are irrelevant. There are
+$N_d=(d+1)(d+2)/2$ witnesses, each on $d+2$ independent samples. Thus for
+$H(W)=\int G(W,x)d\nu(x)$ we have $\E H\le N_dD$.
+
+When $V>0$ let $\alpha_i(x)$ be anchor barycentric coordinates. The singleton
+witness is $V\min(1,(-\alpha_i)_+)$. The pair witness is
+$V[\min((\alpha_i)_+,(\alpha_j)_+)+\min((-\alpha_i)_+,(-\alpha_j)_+)]$.
+Choose the least index $r$ maximizing $\alpha_i$. Put
+$N_x=\sum_i(-\alpha_i)_+$ and $U_x=\sum_{i\ne r}(\alpha_i)_+$.
+Affinity and the independent diameter bound give
+\[
+\begin{aligned}
+\|x-w_r\|&\le\Lambda\min(1,N_x+U_x)\\
+&\le\Lambda\left[\sum_i\min(1,(-\alpha_i)_+)
+                  +\sum_{i<j}\min((\alpha_i)_+,(\alpha_j)_+)\right]\\
+&\le\Lambda G(W,x)/V(W).
+\end{aligned}
+\]
+The middle inequality uses the pairs containing the largest positive
+coordinate to pay for $U_x$; the capped negative terms pay for
+$\min(1,N_x)$. This remains valid for arbitrarily large negative coordinates.
+
+Full affine support gives $B=\E V>0$. Under the probability measure
+$d\widehat\mu=(V/B)d\nu^{d+1}$, concentrated on $V>0$,
+\[
+\E_{\widehat\mu}(H/V)=\E[H\mathbf1_{V>0}]/B\le N_dD/B.
+\]
+There exists a tuple in this probability-one domain with $H/V$ at most its
+mean; otherwise the positive difference has positive integral. Selecting it
+and integrating the pointwise bound proves the lemma. This is not a minimum
+argument for a possibly singular ratio. The least-index assignment is Borel.
+If $D=0$, its cost is zero and the law is supported on its $d+1$ anchors;
+their positive probabilities and centering put zero inside their simplex.
+\end{proof}
+
+\section{Intrinsic conversion to an enclosing simplex}
+We now translate the centroid of the prescribed maximum $S$ to zero, and use
+this centering for the cone law. Write $n=d+1$, $Q=K-K$, $N(y)=h_Q(y)$,
+whose dual norm on $u$ is the gauge $p_Q(u)$. Replacement maximality gives
+$-K\subset dS\subset dK$: the $S$-barycentric coordinates of $-x/d$ are
+$(1-\alpha_i(x))/d$. For a cone support point, $h_K(x)=1$, hence
+$N(x)\le n$, and the support diameter is at most $2n$.
+Lemma~\ref{lem:anchors} gives anchors and assignment of cost
+\[
+h=\E N(X-w_I)\le\frac{n^3(n+1)\ee}{1+n\ee}\le C\ee,
+\qquad C=(d+1)^3(d+2).
+\]
+For nonzero $u$, every chord of $K$ parallel to $u$ has length at most the
+radial function of $Q$ in that direction. Fiber integration and Cauchy's
+formula imply, with the homogeneous projection function $\pi_K$,
+\[
+\pi_K(u)/v\ge p_Q(u),\qquad \E(u\cdot X)_+=\pi_K(u)/(dv)\ge p_Q(u)/d.
+\]
+Assignment error in that direction is at most $h p_Q(u)$, so
+$T=\conv(w_i)$ contains $(1/d-h)Q^\circ$.
+When $h<1/(2d)$, $0\in\operatorname{int}T$ and its polar simplex $P$ satisfies
+$K\subset P\subset2dQ$. Each $w_i$ is on both polar boundaries and
+$h_K(w_i)=h_P(w_i)=1$.
+
+Let $q_i$ be the vertex of $P$ opposite the facet with normal $w_i$, and
+$\lambda_i>0$ the barycentric coordinates of zero in $T$. The cone law of $P$
+has weights $\lambda_i$: they are its unique centered probabilities. Its
+anchor barycentric functions are $\lambda_i(1-q_i\cdot x)$.
+Set $p_i=\Pr(I=i)$ and $c=\sum p_iw_i$. Then $N(c)\le h$ and
+\[
+p_i-\lambda_i=-\lambda_iq_i\cdot c,\qquad
+|q_i\cdot c|\le2dh=:r,qquad p_i\ge(1-r)\lambda_i.
+\]
+For $f_K(u)=\E|u\cdot X|$ and the analogous $f_P$ we obtain
+\[
+(1-r)f_P(u)\le\E|u\cdot w_I|
+\le f_K(u)+h p_Q(u)\le(1+dh/2)f_K(u).
+\]
+Thus $[\pi_P(u)/\vol P]/[\pi_K(u)/v]\le(1+r/4)/(1-r)$.
+Furthermore $z=\E[h_P(X)-1]\in[0,r]$, because
+$h_P(y)\le2dN(y)$ and $h_P(w_I)=1$. The mixed-volume formula gives
+$1+z=V(K[d-1],P)/v$, and Minkowski's first inequality yields
+$\vol P/v\le(1+z)^d\le(1+r)^d$. Consequently
+\[
+\delta:=\sup_{u\ne0}\frac{\pi_P(u)-\pi_K(u)}{\pi_P(u)}
+\le1-\frac{1-r}{(1+r)^d(1+r/4)}\le(d+5/4)r\le3d^2h.
+\]
+The middle bound follows from $1-abc\le(1-a)+(1-b)+(1-c)$ for factors in
+$[0,1]$, and the derivative bounds for $(1+r)^{-d}$ and $(1+r/4)^{-1}$.
+Put $H=3d^2C$. If $\ee\le1/H$, then
+$h\le1/(3d^2)<1/(2d)$, $r<1$ and $\delta\le H\ee\le1$;
+every denominator and strict gate above remains valid at the endpoint.
+
+\section{Relative projection caps retain every maximum simplex}
+\begin{lemma}\label{lem:caps}
+If $K\subset P$ and $P$ is a simplex, put
+$\rho=[\sup_u(\pi_P(u)-\pi_K(u))/\pi_P(u)]^{1/(d-1)}$.
+Then every maximum $S\subset K$ satisfies $E(K,S)\le16n^2\rho$.
+If $\rho\le1/(16n)$, the stronger bound $E(K,S)\le8n\rho$ holds.
+\end{lemma}
+\begin{proof}
+For each vertex of $P$, a projection direction parallel to its opposite facet
+makes the corresponding barycentric coordinate descend to the projection.
+If $\max_K\lambda_i=1-t$, the missing projected cap has relative volume
+$t^{d-1}$. Hence choose $k_i\in K$ with $\lambda_i(k_i)\ge1-\rho$.
+Let $Q_0$ be their nonnegative column-stochastic barycentric matrix.
+Independent row choices from its columns show
+$\det Q_0\ge2\prod_i(Q_0)_{ii}-1\ge1-2n\rho$.
+
+For $\rho\le1/(16n)$ put $\eta=2n\rho\le1/8$. If $W$ is the barycentric
+matrix of the prescribed maximum $S$, maximality gives
+$|\det W|\ge1-\eta$. Hadamard's inequality forces every column to have norm
+at least $1-\eta$, hence an entry at least $(1-\eta)^2\ge1-2\eta$.
+These entries have distinct rows: otherwise two columns collide with
+probability at least $(1-2\eta)^2$, and
+$|\det W|\le\operatorname{per}W\le4\eta<1-\eta$, a contradiction.
+Relabel so $W_{ii}\ge1-4n\rho$. Then
+$\|W-I\|_1\le8n\rho\le1/2$. For $B_0=W^{-1}$,
+\[
+\|B_0-I\|_1\le\frac{8n\rho}{1-8n\rho},\qquad
+\beta:=\max_{ij}|(B_0)_{ij}-\mathbf1_{i=j}|
+\le\frac{4n\rho}{1-8n\rho}\le1/2.
+\]
+The factor $1/2$ follows because columns of $B_0-I$ have sum zero.
+Put $r_i=1-W_{ii}$. The $ii$ entry of $B_0W=I$ gives
+$(B_0)_{ii}-1\ge(1-\beta)r_i/(1-r_i)\ge r_i/2$.
+Replacing the $i$th vertex of $S$ by $k_i$ cannot increase volume, so
+$|(B_0Q_0)_{ii}|\le1$. Its lower bound is
+$(1-\rho)(B_0)_{ii}-\rho\beta$. Therefore
+$(B_0)_{ii}-1\le\rho((B_0)_{ii}+\beta)\le2\rho$ and $r_i\le4\rho$.
+Now $\|W-I\|_1\le8\rho$, so every negative entry of $B_0$ has magnitude
+at most $4\rho/(1-8\rho)\le8\rho$. These columns are precisely the
+$S$-barycentric coordinates of the vertices of $P$. A centroid homothety of
+excess $t$ is characterized by all barycentric coordinates being at least
+$-t/n$. Thus $E(K,S)\le8n\rho$.
+For $\rho>1/(16n)$ the universal bound $E\le n$ gives $E<16n^2\rho$.
+This proves both assertions without replacing the prescribed maximum $S$.
+\end{proof}
+
+\section{Completion of the upper bound and dimension dependence}
+On the branch $\ee\le1/H$, the enclosing simplex and
+Lemma~\ref{lem:caps} give $E\le16n^2(H\ee)^{1/(d-1)}$.
+On the other branch this same right side exceeds $n\ge E$.
+This proves the upper bound, including $\ee=0$.
+For the explicit coefficient, $H_3=8640<144^2$, and
+\[
+\frac{H_{d+1}}{H_d}
+=\left(\frac{d+1}{d}\right)^2
+ \left(\frac{d+2}{d+1}\right)^3\frac{d+3}{d+2}
+\le\frac{25}{6}<144\quad(d\ge3).
+\]
+Induction gives $H_d^{1/(d-1)}\le144$; since $n/d\le4/3$, $G_d\le4096d^2$.
+Also $G_d\sim16d^2$. The local linear bound has an exponentially smaller
+deficit gate $H\ee\le(16n)^{-(d-1)}$; it does not imply a global $O(d)$
+coefficient.
+
+\appendix
+\input{truncation.tex}
+
+\section{Provenance, formal scope and prior work}
+The invariant is taken from mxym/math entry 005, whose facet and cone identities
+are derived above. The volume-weighted anchor argument, intrinsic conversion
+and relative cap bridge consolidate the later research packages; the full
+source map and fixed hashes accompany this manuscript. The truncation appendix
+retains the original complete computation and all-maximum-simplex classification.
+Together they prove the remaining sharpness assertions in
+Theorem~\ref{thm:main}. Its formulas are valid also for $d=2$, while the main
+upper theorem is stated for $d\ge3$.
+
+The frozen releases
+\nolinkurl{formalizations/sharp-simplex-upper-bound} and
+\nolinkurl{formalizations/simplex-truncation-sharpness} provide Lean proofs
+of the earlier sharp-exponent bound and the truncation obstruction, respectively.
+The former has a larger coefficient. They must not be described as Lean
+proofs of the present $G_d\le4096d^2$ refinement. Fresh compilation, target
+axiom checks and empty-environment kernel replay have distinct verification
+records; arithmetic regressions do not prove this analytic refinement.
+Full formalization of the improved coefficient and optimal dimension dependence
+remain open tasks. No external human review or literature-wide priority
+certification is claimed.
+
+Classical tools used above are Cauchy's projection formula, zonotope volumes,
+the surface-area and mixed-volume formulas, Minkowski's first inequality,
+polytope approximation and Hadamard's inequality. Standard references are
+R. Schneider, \emph{Convex Bodies: The Brunn--Minkowski Theory}, 2nd edition,
+Cambridge University Press, 2014, and P. McMullen,
+\emph{On zonotopes}, Transactions of the AMS 159 (1971), 91--109.
+These are inputs, not project results.
+
+Related results include K. J. B\"or\"oczky Jr.,
+\emph{The stability of the Rogers--Shephard inequality and of some related
+inequalities}, Advances in Mathematics 190 (2005), 47--76,
+DOI \nolinkurl{10.1016/j.aim.2003.11.015}. In the plane, the invariant identifies
+with a difference-body ratio and the published result gives a direct linear
+Banach--Mazur comparison. It does not directly give the prescribed-centroid,
+all-maximizer assertion in dimensions $d\ge3$. The accompanying limited
+comparison also records cone-volume and random-simplex stability papers.
+No absence of an exact match in that screen is treated as proof of novelty.
+The exact deficit, prescribed centroid and universal quantifier over maximum
+simplices are essential when comparing statements.
+\end{document}

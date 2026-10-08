@@ -345,3 +345,10 @@
 - Preserved explicit distinctions between mathematical proof drafts, external peer review, machine formalization and novelty assessment.
 
 Disclosure time is the timestamp of the Git commit that first adds this release, not the time at which a local draft was prepared.
+
+## 2026-10-08 — complete five integrated manuscripts and strengthen reproduction
+
+- Consolidated four near-complete research lines into five full papers with editable sources, 88 PDF pages, precise theorem scopes, classical inputs, formal coverage and source pins. Incorporated related parallel permanent/orbital work through the recorded integration snapshot.
+- Added a continuous sharp-simplex proof with the quadratic coefficient and full truncation obstruction, and a self-contained standard-library polynomial certificate for all four infinite triple-action primal families. It checks complete Cramer identities and publishes every coefficient.
+- Replayed 20 exact checkers, retained imported-helper assertions even under an optimized launcher, and rejected deliberately false/corrupted proof obligations. Recompiled the partial fractional Lean exports. Full fresh Lean replay status and its exact trust boundary are recorded separately.
+- Repaired the sealed continuum verifier's cache-miss handling of Lean import-all syntax via a pinned external adapter; preserved historical proof sources and seals. No external peer-review, journal-submission or priority claim is added.

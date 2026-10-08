@@ -1,0 +1,22 @@
+The available formal evidence has two levels. The original manuscript's
+delivered harness and source correspondence are retained as historical records.
+The current repository additionally provides the full frozen proof release at
+\nolinkurl{formalizations/continuum-remainder-avoidance}, with its public
+strict replay harness and explicit empty-environment kernel checker. The
+reproduction guide for this integrated manuscript identifies the exact
+targets, source hashes, toolchain and fresh replay records. A successful
+source-integrity check alone is not a proof-assistant replay.
+
+A cache-miss exposed a dependency-parser defect in the release harness:
+Lean's \code{import all Module} syntax was parsed as importing a module named
+\code{all}. The pinned adapter
+\nolinkurl{verification/finalization/replay_continuum.py}
+repairs only that import parser. It does not alter any mathematical source,
+release hash, target, axiom check, fresh-owned-module compilation rule, or
+kernel replay check. The historical package is left intact. The adapter is
+required when reproducing the proof from dependencies without a complete cache.
+
+All fresh replay counts and outcomes belong to the corresponding machine-readable
+records; earlier reported kernel counts are not silently relabeled as new
+replays. No external human referee or professional mathematician is represented
+as having reviewed this manuscript.
