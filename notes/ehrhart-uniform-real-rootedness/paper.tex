@@ -1,0 +1,933 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,geometry,booktabs,longtable,microtype}
+\geometry{margin=1in}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Uniform real-rootedness of the (132,213)-avoiding permutation-polytope family},pdfauthor={mxym}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Rpoly}{\mathcal R}
+\newcommand{\Hcal}{\mathcal H}
+\newcommand{\Bcal}{\mathcal B}
+\newcommand{\Fcal}{\mathcal F}
+\newcommand{\EE}{\mathcal E}
+\newcommand{\norm}[1]{\left\|#1\right\|_x}
+\newcommand{\dd}{\,dt}
+\newcommand{\cc}{2-\sqrt3}
+\title{Uniform real-rootedness of the $(132,213)$-avoiding\\permutation-polytope family}
+\author{mxym}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that the Ehrhart $h^*$-polynomial of the convex hull of the
+$(132,213)$-avoiding permutations in $S_d$ has only negative real zeros for
+every $d\ge3$. A uniform analytic argument proves positivity of the repaired
+Eulerian tails for every $d\ge1001$. Combining this with de Castro's finite
+Theorem 1.3 for $d\le1000$ resolves Conjecture 10.1 of
+arXiv:2609.06096v1. The new argument uses centered Bernoulli-sum comparison,
+finite centered moments of an infinite correction series, and degree smoothing
+for its large components. Exact rational certificates establish scalar
+envelopes on 33 closed intervals and the finite bases of infinite inductions.
+The original finite dataset is an explicitly cited prior input, not an
+independently reconstructed computation. A short corollary applies Zhang's
+known Veronese preservation theorem to all positive integral dilates of this
+particular family.
+\end{abstract}
+\tableofcontents
+
+\section{Statement, dependencies, and notation}\label{sec:inputs}
+Let $P_d$ be the convex hull of the permutations in $S_d$ avoiding both
+$132$ and $213$, in its induced affine lattice, and write
+$H_d(t)=h^*(P_d;t)$. The subscripted polynomials $P_n(z)$ below denote
+primitive auxiliary products, not the polytope $P_d$.
+\begin{theorem}\label{thm:main}
+For every integer $d\ge3$, all zeros of $H_d$ are real and strictly negative.
+For $d=1,2$, $H_d=1$.
+\end{theorem}
+The new analytic result in this paper covers \emph{every} $d\ge1001$.
+The remaining dimensions use the prior finite Theorem 1.3 of
+de Castro~\cite{decastro}. We do not claim a new general preservation theorem
+for other pattern classes, poset permutahedra, or arbitrary lattice polytopes.
+
+We use the following precise prior inputs from the fixed version
+\cite{decastro}. Its refined Eulerian coordinates $a_{d,j}$ satisfy the exact
+transform in its equation (25). Its Corollary 6.2 says that nonnegative
+endpoint coordinates together with
+\begin{equation}\label{eq:tails}
+ S_{d,r}(c)=\sum_{j=r}^{d-2}c^{j-r}a_{d,j}\ge0
+ \quad(1\le r\le d-2),\qquad c=\cc,
+\end{equation}
+imply real-rootedness for $d\ge4$. The endpoint coordinates are nonnegative,
+with $a_{d,0}=1$ and positive terminal coordinate for $d\ge3$.
+Its Theorem 1.3 supplies $d\le1000$.
+The criterion is sometimes called Proposition 6.2 elsewhere in that source;
+we refer to its displayed Corollary 6.2.
+
+The primitive and divisor polynomials, and the signed correction series, are
+\begin{align}
+ P_n(z)&=\frac{1}{n^2(n-1)!}\prod_{q=1}^{n-1}(2n-q+qz),\label{eq:primitive}\\
+ J_n(z)&=\sum_{h\mid n}\frac{\varphi(h)}{h^2}(z-1)^{n-n/h}P_{n/h}(z),\\
+ J(u,z)&=\sum_{n\ge1}J_n(z)u^n,\qquad
+ \Hcal(u,z)=e^{(z-1)J(u,z)}=\sum_{s\ge0}\Hcal_s(z)u^s.
+\end{align}
+Their exact marked identity is
+\begin{equation}\label{eq:marked}
+ \Rpoly_d(z):=\sum_{m=0}^{d-1}a_{d,d-1-m}z^m
+ =\sum_{s=0}^{d-1}\frac{d-s}{d}J_{d-s}(z)\Hcal_s(z).
+\end{equation}
+These identities are equations (34)--(37) of \cite{decastro}.
+For $x>0$ let
+\begin{align}
+ f_x(t)&=\frac{xt}{2+(x-1)t},&
+ p&=\frac{x}{1+x},&
+ \nu&=\int_0^1f_x(t)\dd,\\
+ X_{n,x}&=\sum_{q=1}^{n-1}\operatorname{Bernoulli}(f_x(q/n)),&
+ \mu_n&=\E X_{n,x},&
+ V_n&=\Var X_{n,x}.
+\end{align}
+All Bernoulli summands are independent. In particular,
+\begin{equation}\label{eq:PB}
+ [z^j]P_n(z)x^j=P_n(x)\Prb(X_{n,x}=j),\qquad
+ \frac{\mu_n}{1+x}\le V_n\le\mu_n.
+\end{equation}
+The mean $\mu_d(x)$ increases continuously and strictly from $0$ to $d-1$;
+hence $1\le m\le d-2$ determines a unique saddle $\mu_d(x)=m$.
+
+Set
+\begin{equation}
+ \lambda=\exp\left(1+\int_0^1\log(2+(x-1)t)\dd\right),\quad
+ R=\lambda^{-1},\quad q=(1+x)R,\quad E=\Hcal(R,x).
+\end{equation}
+We also use the following product and norm bounds from Lemma 9.1 of
+\cite{decastro}, uniformly for $0\le x\le15$:
+\begin{align}
+ P_n(x)R^n
+ &=\frac{e^{\delta_n}}{\sqrt{4\pi(1+x)}\,n^{5/2}},
+ \qquad -1/n<\delta_n<0\quad(n\ge2),\label{eq:product}\\
+ \lambda&\ge4,\qquad q\le4/5,\qquad
+ \norm{J_n-P_n}R^n\le(4/5)^{n/2}\quad(n\ge1).\label{eq:periodic}
+\end{align}
+Here $\norm F=\sum_j|[z^j]F|x^j$.
+Darroch's theorem~\cite{darroch}, in the form reviewed in
+\cite[p.~284]{pitman}, identifies an integer mean of a finite Bernoulli sum
+with its largest atom. No prior eventual-dimension conclusion is needed below.
+
+\section{The forward repaired tails}\label{sec:forward}
+We sharpen only the mass constant in the forward estimate of
+\cite[Lemmas 8.1--8.3 and Proposition 8.4]{decastro}.
+Write
+\[
+ L_n(x)=\frac{1}{n^2(n-1)!}\prod_{q=1}^{n-1}(xn+q),
+ \qquad \EE(x)=\frac{(1+x)^{1+x}}{x^x}.
+\]
+For $5/54\le x\le2$, the Robbins and Riemann bounds give
+\[
+ L_n(x)\EE(x)^{-n}\le\frac{n^{-5/2}}{x\sqrt{2\pi}}
+ <\frac92n^{-5/2}\quad(n\ge2).
+\]
+At $n=1$ the normalized term is $q_F=\EE(x)^{-1}<49/64$.
+Since $\sum_{n\ge2}n^{-5/2}<3/8$ and
+$\varphi(h)/h^2\le1/2$ for $h\ge2$, the normalized connected mass satisfies
+\[
+ A<\left(\frac{49}{64}+\frac92\frac38\right)
+       \left(1+\frac{q_F}{2(1-q_F)}\right)
+ <\frac{157}{64}\frac{79}{30}=\frac{12403}{1920}<\frac{13}{2}.
+\]
+The connected series is $K(u,x)=\sum_n k_n(x)u^n$, with
+$k_n(x)=\sum_{h\mid n}\varphi(h)h^{-2}L_{n/h}(x)$, and
+$\Fcal_d(x)=[u^d]e^{K(u,x)}$. Its coefficients are nonnegative.
+The prior connected coefficient bound $5000n^{-5/2}$ remains valid.
+For nonnegative logarithmic coefficients bounded by $Cn^{-5/2}$ and mass
+$A$, a $k$-part composition has a part at least $n/k$; freely summing the
+others yields $Ck^{7/2}A^{k-1}n^{-5/2}$.
+Summing its exponential weights, using $k^{7/2}\le k^4$, gives
+\[
+ [u^n]\exp\left(\sum b_ju^j\right)
+ \le Ce^A(A^3+6A^2+7A+1)n^{-5/2}.
+\]
+Consequently the prior $\exp(140)$ envelope can be replaced by $\exp(30)$:
+\[
+ 5000e^A(A^3+6A^2+7A+1)
+ <5000\cdot687e^{13/2}<2^{22}e^{13/2}<e^{30}.
+\]
+Here is the explicit tail comparison to which the improved envelope applies.
+Let $y=\sqrt3-1$, $q_C=5/113$, and $x_C=5/54$. The refined transform gives
+\[
+ \mathcal A_d(z)=\sum_j a_{d,j}z^j
+ =(1-z)^{d-1}\Fcal_d(2z/(1-z)).
+\]
+Its alternative polynomial expansion in the nonnegative coefficients of
+$\Fcal_d$ bounds it on $|z|=q_C$ by
+$(1+q_C)^{d-1}\Fcal_d(x_C)$.
+Put $\mathcal M=c^{-r}y^{d-1}\Fcal_d(y)>0$.
+Subtracting the initial coordinates and the terminal coordinate gives
+\[
+ S_{d,r}(c)=\mathcal M-c^{-r}\sum_{j<r}c^ja_{d,j}
+                  -c^{d-1-r}a_{d,d-1}.
+\]
+Cauchy's coefficient bound and the geometric sum show that the relative
+absolute initial-coordinate loss is at most
+\[
+ \mathcal R=\frac{q_C}{c-q_C}(c/q_C)^r
+       ((1+q_C)/y)^{d-1}\frac{\Fcal_d(x_C)}{\Fcal_d(y)}.
+\]
+The terminal loss is at most
+$\mathcal U=(c/y)^{d-1}\Fcal_d(2)/\Fcal_d(y)$, since
+$0<a_{d,d-1}\le\Fcal_d(2)$.
+The prior primitive lower bound is
+$\Fcal_d(y)\ge d^{-5/2}\EE(y)^d/36$.
+The exact inequalities of \cite[Lemma 8.3]{decastro} are
+\[
+ (c/q_C)^{1/4}\frac{1+q_C}{y}\frac{\EE(x_C)}{\EE(y)}<19/20,
+ \qquad \frac cy\frac{\EE(2)}{\EE(y)}<77/100 .
+\]
+For $r\le d/4$, insert the improved upper envelope and use
+$q_C(c-q_C)^{-1}y/(1+q_C)<1$ and $y/c<3$.
+The two relative losses are therefore bounded by
+$36e^{30}(19/20)^d$ and $108e^{30}(77/100)^d$.
+All intermediate bounds in that argument hold already for $d\ge2$; its old
+dimension threshold arose only from these final errors. For $d\ge1001$,
+$e<4$, $(19/20)^{14}<1/2$, and $(77/100)^3<1/2$ give respective bounds
+$2^{-5}$ and $2^{-266}$. Their sum is below one.
+\begin{proposition}\label{prop:forward}
+For $d\ge1001$ and $1\le r\le\lfloor d/4\rfloor$, $S_{d,r}(\cc)>0$.
+\end{proposition}
+
+\section{Centered local comparison}\label{sec:centered}
+\subsection{Fourier profiles and a modal lower bound}
+For a finite Bernoulli parameter vector $\boldsymbol r$, of mean $\mu$ and
+variance $V$, define its centered characteristic function and real profile
+\[
+ \psi(t)=\E e^{it(X-\mu)},\qquad
+ F(y)=\frac1{2\pi}\int_{-\pi}^{\pi}\psi(t)e^{-iyt}\dd .
+\]
+The profile is real by conjugate symmetry. It equals a point probability
+only when $y+\mu$ is an integer; no probability interpretation at other
+arguments is needed.
+
+For one parameter put $g_r(t)=e^{-irt}(1-r+re^{it})$.
+Taylor's integral remainder gives
+\[
+ |\partial_rg_r(t)|
+ \le|e^{it}-1-it|+r|t||e^{it}-1|\le\tfrac32t^2.
+\]
+If the other summands in each replacement have variance at least $W\ge0$,
+their characteristic product is bounded by $e^{-2W\sin^2(t/2)}$.
+Pad the shorter vector by zero parameters and let
+$D=\sum_i|p_i-q_i|$. Telescoping proves
+\begin{equation}\label{eq:centercompare}
+ |F_{\boldsymbol p}(y)-F_{\boldsymbol q}(y)|
+ \le\tfrac32D C_2(W),\quad
+ C_2(W)=\frac1{2\pi}\int_{-\pi}^{\pi}t^2e^{-2W\sin^2(t/2)}\dd .
+\end{equation}
+Apply replacements with nonnegative variance increments first, then negative
+ones. Every intermediate total variance is at least the smaller endpoint
+variance. Removing one coordinate costs at most $1/4$, so one may take
+$W=\max(0,\min(V_{\boldsymbol p},V_{\boldsymbol q})-1/4)$.
+For $W>0$, using $\sin(t/2)\ge|t|/\pi$ yields
+\begin{equation}\label{eq:C2general}
+ C_2(W)\le\min\left(\frac{\pi^2}{3},
+       \frac{\pi^{5/2}}{4\cdot2^{3/2}}W^{-3/2}\right).
+\end{equation}
+
+Linear sine terms in $\operatorname{Im}g_r$ cancel, giving
+$|\operatorname{Im}g_r(t)|\le r(1-r)|t|^3/6$.
+Telescoping a product against its conjugate gives
+$|\operatorname{Im}\psi(t)|\le(V/6)|t|^3
+ e^{-2(V-1/4)\sin^2(t/2)}$ when $V>1/4$.
+Differentiating the finite integral therefore proves
+\begin{align}
+ |F(\Delta)-F(0)|&\le A_1(V)|\Delta|
+                       +\tfrac12C_2(V)\Delta^2,\label{eq:shift}\\
+ A_1(V)&\le V\pi^4/30\quad(V\ge0),\\
+ A_1(V)&\le\frac{\pi^{9/2}}{16\cdot2^{5/2}}
+                   \frac{V}{(V-1/4)^{5/2}}\quad(V>1/4).\label{eq:A1general}
+\end{align}
+In particular $A_1(V)<4$ for all $V>0$, and
+$A_1(V)<4V^{-3/2}$ for $V\ge1$.
+
+\begin{lemma}\label{lem:mode}
+Every integer-valued distribution with finite variance $V$ and largest atom
+$M$ satisfies $M\ge(12V+1)^{-1/2}$. If a Bernoulli sum has integer mean $m$,
+this bounds $\Prb(X=m)$ from below.
+\end{lemma}
+\begin{proof}
+Adding an independent uniform variable on $[-1/2,1/2]$ gives a density bounded
+by $M$, with variance $V+1/12$. Among mass-one densities bounded by $M$, the
+density equal to $M$ on the interval of length $1/M$ centered at the mean
+minimizes the second moment. Indeed, subtract that density and integrate
+against $(t-\mu)^2-1/(4M^2)$: both the inside and outside products are
+nonnegative, and the constant term integrates to zero. Its variance is
+$1/(12M^2)$. Darroch's integer-mean mode theorem gives the last assertion.
+\end{proof}
+
+\subsection{Sharp constants for variance at least twenty}\label{sec:sharp}
+\begin{lemma}\label{lem:sharp}
+If $V\ge20$, then $C_2(V)<(3/5)V^{-3/2}$ and
+$A_1(V)<(1/3)V^{-3/2}$.
+\end{lemma}
+\begin{proof}
+For $|t|\le1$, $\sin(t/2)\ge t/2-t^3/48$ and hence
+$2\sin^2(t/2)\ge11t^2/24$. For $1\le|t|\le\pi$ it is at least
+$529/1152$. The Gaussian second moment is below $(12/25)V^{-3/2}$,
+using $\sqrt{2\pi}>12/5$; squaring verifies the remaining rational comparison.
+The other portion is at most $\pi^2e^{-529V/1152}$.
+After multiplication by $V^{3/2}$ this decreases for $V\ge20$ and is
+below $900/8000=9/80$ at twenty. Thus $12/25+9/80<3/5$.
+
+Put $W=V-1/4\ge79V/80$. The imaginary-part bound makes $A_1$ at most $V/6$
+times a normalized fourth-moment integral. Split at $1$ and $\pi/2$.
+The first portion, enlarged to the full Gaussian line, is below
+$(8/5)W^{-5/2}$. On $[1,\pi/2]$, $\sin t\ge\sin1>5/6$, so
+\[
+ 2\sin^2(t/2)\ge529/1152+(5/6)(t-1).
+\]
+Since $t^4<7$ and $\pi>3$, this portion is below
+$(14/(5W))e^{-529W/1152}$. The last portion is below $100e^{-W}$.
+It follows that
+\[
+ A_1(V)<\frac4{15}VW^{-5/2}
+ +\frac7{15}\frac VW e^{-529W/1152}
+ +\frac{50}{3}Ve^{-W}.
+\]
+After multiplication by $V^{3/2}$ these are bounded by
+\[
+ \frac4{15}\frac{26}{25}
+ +\frac7{15}\frac{80}{79}\frac{90}{8000}
+ +\frac{50}{3}\frac{1800}{10^8}<\frac13.
+\]
+Here $(80/79)^3<26/25$, the normalized exponential terms decrease,
+$529(79/4)/1152>9$, and $79/4>19$.
+The positive sums $\sum_{k=0}^{40}9^k/k!>8000$ and
+$\sum_{k=0}^{60}19^k/k!>10^8$ are exact rational witnesses.
+\end{proof}
+
+\subsection{The primitive arrays and endpoint error}\label{sec:arrays}
+For $n=d-s$, retained parameters satisfy $f_x(q/n)\ge f_x(q/d)$.
+The means increase in the dimension: shifting $q$ to $q+1$ embeds the old
+array beneath the new one. Thus the padded parameter distance is
+\begin{equation}\label{eq:D}
+ D=\mu_n-\mu_d+2\sum_{q=n}^{d-1}f_x(q/d)\le2sp.
+\end{equation}
+Put $e_j=j\nu-\mu_j$. The increasing Riemann bounds give $0\le e_j\le p$.
+At $\mu_d=m$ the shift needed by the n-law is
+\[
+ \Delta=m-k-\mu_n=s\nu-k+\eta,\qquad
+ \eta=e_n-e_d=\mu_d-\mu_n-s\nu.
+\]
+The trapezoid formula writes $e_j=p/2-\epsilon_j$ with
+\[
+ |\epsilon_j|\le\frac{|f_x'(1)-f_x'(0)|}{8j}.
+\]
+The errors $\epsilon_j$ have the same sign for all $j$, because $f_x$ is
+convex for $x<1$, concave for $x>1$, and linear for $x=1$. Consequently
+$|\eta|\le |f_x'(1)-f_x'(0)|/(8n)$, without adding two endpoint bounds.
+For $x\le1/10$ this is at most $3x/(16n)$; for $x\le15$ it is at most
+$15/(16n)$. Concavity also gives $e_j\ge p/2$ when $x\ge1$.
+
+\section{The positive majorant and its centered moments}\label{sec:majorant}
+Define the nonnegative series
+\[
+ \Bcal(u,z)=(1+z)\sum_{n\ge1}u^n
+  \sum_{h\mid n}\frac{\varphi(h)}{h^2}(1+z)^{n-n/h}P_{n/h}(z).
+\]
+Its exponential majorizes the absolute coefficients of $\Hcal$.
+At $z=x$, write
+\[
+ v_a=(1+x)P_a(x)R^a,\quad
+ w_{a,h}=v_a\frac{\varphi(h)}{h^2}q^{(h-1)a},\quad
+ \beta=\sum_{a,h}w_{a,h},\quad \beta_1=\sum_{a,h}ha\,w_{a,h}.
+\]
+A logarithmic component has dimension $n=ha$ and degree law
+\begin{equation}\label{eq:componentlaw}
+ K=X_{a,x}+\operatorname{Binomial}((h-1)a+1,p).
+\end{equation}
+Set $\ell=(h-1)a$, $t_a=p-e_a$, $r=p-\nu$, and $T_j=\sum w_{a,h}\ell^j$.
+Then $0\le t_a\le p$, $r\ge0$, and
+\[
+ \E(K-n\nu)=t_a+\ell r.
+\]
+After including the first extra Bernoulli, there are $a$ parameters of total
+mean $a\nu+t_a$. Cauchy's inequality bounds their variance by
+$a\nu(1-\nu)+t_a(1-2\nu)-t_a^2/a$. Therefore
+\begin{equation}\label{eq:jensen}
+ \Var K\le n\nu(1-\nu)+p\max(1-2\nu,0)
+                      +\ell\{p(1-p)-\nu(1-\nu)\}.
+\end{equation}
+Let $M_1=\sum w\,\E(K-n\nu)$ and
+$M_2=\sum w\,\E(K-n\nu)^2$. If $t_a\le t_0$ and $r\le r_0$, then
+\begin{align}
+ M_1&\le t_0\beta+r_0T_1,\label{eq:M1}\\
+ M_2&\le \nu(1-\nu)\beta_1+p\max(1-2\nu,0)\beta
+ +\max(0,p(1-p)-\nu(1-\nu))T_1\notag\\
+ &\hspace{6mm}+t_0^2\beta+2t_0r_0T_1+r_0^2T_2.\label{eq:M2}
+\end{align}
+
+Write $c_{s,k}=R^sx^k[u^sz^k]\exp\Bcal(u,z)\ge0$ and $h_s=\sum_kc_{s,k}$.
+The exponential formula gives
+\begin{align}
+ \sum_s h_s&=e^\beta,& \sum_s s h_s&=e^\beta\beta_1,\\
+ \sum_{s,k}c_{s,k}(k-s\nu)^2&=e^\beta(M_2+M_1^2),\label{eq:compound}\\
+ e^{-\beta}\sum_{s,k}c_{s,k}|k-s\nu|
+ &\le \min\left(\sqrt{M_2+M_1^2},\,2\nu\beta_1+M_1\right).\label{eq:absolute}
+\end{align}
+These are infinite-series statements. First restrict to finite sets of
+components, for which the independent compound-Poisson calculation is exact.
+All coefficients and the squared weights are nonnegative; increasing component
+sets increases their sums. The component means are nonnegative, and the
+finite bounds below give finite $M_1,M_2,\beta,\beta_1$. Monotone convergence
+proves \eqref{eq:compound}. The last bound follows both from Cauchy and
+$|k-s\nu|\le k+s\nu$.
+The divergent uncentered second \emph{dimension} moment is never used.
+
+Both $q$ and $v_a$ increase with $x$, since
+\[
+ \frac{d\log q}{dx}=\frac{p-\nu}{x}\ge0,\qquad
+ \frac{d\log v_a}{dx}=\frac{p-e_a}{x}\ge0.
+\]
+Thus $\beta,\beta_1,T_j,b_n,h_s$ increase too, where
+$b_n=[u^n]\Bcal(Ru,x)$.
+Finally,
+\begin{equation}\label{eq:Jmoment}
+ \sum_n n\norm{J_n}R^n\le\frac{\beta_1}{1+x},\qquad
+ E=e^{(x-1)J(R,x)}>e^{-\beta}.
+\end{equation}
+
+\section{Degree smoothing and coefficient-tail induction}\label{sec:smoothing}
+\begin{lemma}\label{lem:smoothing}
+Let $v_*=p(1-p)$ and
+$c(x)=\min(2/3,(1+x)^2/6)$. Each degree law of a fixed composition of
+components of total dimension $s$ has variance at least $c(x)s v_*$.
+Every coefficient of the normalized positive majorant of dimension $s\ge1$,
+even after convolution with a normalized nonnegative polynomial, is at most
+\[
+ h_s\frac{\sqrt\pi}{2\sqrt{2c(x)s v_*}}.
+\]
+\end{lemma}
+\begin{proof}
+The Bernoulli variance integrand is precisely
+\[
+ g_x(t)=f_x(t)(1-f_x(t))
+       =\frac{xt(2-t)}{[2+(x-1)t]^2}.
+\]
+For $x\ge1$ it is at least $v_*t(2-t)$; for $x\le1$ it is at least
+$(1+x)^2v_*t(2-t)/4$. Include the first extra Bernoulli as the endpoint
+$t=1$, and use
+\[
+ \sum_{q=1}^a(q/a)(2-q/a)=\frac{(a+1)(4a-1)}{6a}\ge\frac{2a}{3}.
+\]
+The remaining $(h-1)a$ Bernoulli variables each have variance $v_*$,
+and $c(x)\le1$. Variances add in fixed compositions. Fourier inversion and
+$\sin(|t|/2)\ge |t|/\pi$ bound the largest atom of a Bernoulli sum of variance
+$V$ by $\sqrt\pi/(2\sqrt{2V})$. A positive mixture has the same bound,
+and convolution is a weighted average of translates.
+\end{proof}
+
+\begin{lemma}\label{lem:induction}
+If $b_n\le Bn^{-5/2}$ for the needed large indices and $h_j\le Cj^{-5/2}$
+is proved for the needed smaller indices, then
+\begin{equation}\label{eq:induction}
+ h_s\le s^{-5/2}\left[
+  \frac{6\beta_1}{s}C+Be^\beta\left(1+\frac{9\beta_1}{s}\right)\right].
+\end{equation}
+\end{lemma}
+\begin{proof}
+Use $s h_s=\sum_{n=1}^s n b_nh_{s-n}$. For $n\le s/2$, the ratio
+$(1-n/s)^{-5/2}$ is at most $2^{5/2}<6$. For $n>s/2$, put $j=s-n$
+and use $(1-j/s)^{-3/2}\le1+9j/s$ on $[0,1/2]$.
+Sum $\sum h_j=e^\beta$ and $\sum jh_j=e^\beta\beta_1$.
+In particular bases $64\le j\le127$ suffice for induction from $s=128$;
+no bound for $j<64$ is needed in the first part.
+\end{proof}
+If $v_a\le Aa^{-5/2}$ and $q\le q_0<1$, the proper divisor contributions give
+\begin{equation}\label{eq:b-tail}
+ n^{5/2}b_n\le A+3A n^{3/2}q_0^{n/2}.
+\end{equation}
+Indeed $\varphi(h)/h^2\le1/h=a/n$, $a\le n/2$ for $h\ge2$, and
+$\sum_a a^{-3/2}<3$. The right side decreases in the ranges used below.
+
+\section{A common marked-identity decomposition}\label{sec:split}
+Fix $d\ge1001$, an integer $1\le m\le d-2$, and its saddle $x\le15$.
+Write $\kappa=[z^m]P_d>0$ and $S=\lfloor d/8\rfloor$.
+For $n=d-s$, the primitive multiplier is
+\begin{equation}
+ A_s=\frac nd\lambda^s\frac{P_n(x)}{P_d(x)}
+     =(d/n)^{3/2}e^{\delta_n-\delta_d}.
+\end{equation}
+For $s\le S$, \eqref{eq:product} gives
+\begin{equation}\label{eq:A}
+ A_s<5/4,\quad |A_s-1|<\{(9/4)s+3\}/d\quad(s\ge1),\quad A_0=1.
+\end{equation}
+The derivative of $(1-t)^{-3/2}$ is below $9/4$ for $t\le1/8$.
+Also $|\delta_n-\delta_d|<1/n$ and
+$e^{1/n}\le(1-1/n)^{-1}$; their multiplier contributes less than $3/d$.
+For $n\ge d/2$, the coarser bound is $A_s<4$.
+
+For each signed coefficient of $\Hcal_s$, first compare the profiles at zero
+by \eqref{eq:centercompare}, then shift the n-profile by
+$\Delta=m-k-\mu_n$ using \eqref{eq:shift}. Divide by the integer-mean d-mode
+using Lemma~\ref{lem:mode}. Thus the probability error is bounded by
+\begin{equation}\label{eq:relative}
+ \sqrt{12V_d+1}\left\{\tfrac32D C_2(W)
+            +A_1(V_n)|\Delta|+\tfrac12C_2(V_n)\Delta^2\right\}.
+\end{equation}
+The intermediate n-profile at zero need not itself be a probability.
+
+To compare \eqref{eq:marked} with $E$, use the small-$s$ primitive terms,
+the middle primitive terms $S<s\le d/2$, and the full $J_n$ terms $s>d/2$.
+Handle $J_n-P_n$ for every $n\ge d/2$ separately.
+Finally bound the infinite tail of $E$ after $s=S$ by $\sum_{s>S}h_s$.
+These pieces exhaust the marked identity and its comparison series;
+integer cutoffs use $s\le\lfloor d/2\rfloor$ where appropriate.
+
+\section{Small saddles}\label{sec:small}
+\begin{proposition}\label{prop:small}
+If $d\ge1001$, $\mu_d(x)=m\in\{1,\ldots,d-2\}$, and $0<x\le1/10$,
+then $[z^m]\Rpoly_d>0$.
+\end{proposition}
+\subsection{Scalar bounds and their infinite tails}
+At $x=1/10$, $q=(11/20)^{20/9}<53/200<4/15$, certified by ninth powers.
+For all smaller $x$, \eqref{eq:product} and $\pi>55/18$ imply
+$v_a<(3/10)a^{-5/2}$ for $a\ge2$, while $v_1=q<3/10$.
+The exact small-saddle script certifies
+\begin{equation}\label{eq:smallcaps}
+ \beta<2/5,\quad \beta_1<4/5,\quad T_1<3/25,\quad T_2<1/5.
+\end{equation}
+For completeness its finite mass sums use $a\le64,h\le16$.
+For $t=q^a$, the h tails in the mass and dimension moment are respectively
+$t^{16}/(17(1-t))$ and $a t^{16}/(1-t)$.
+For $a>64$ their total tails are bounded by
+$1/2560$ times $1+q^{65}/(2(1-q^{65}))$, and
+$(3/40)/(1-q^{65})$.
+The direct periodic-moment envelopes are
+\[
+ T_1\le\frac{q^2}{1-q}
+ +\frac9{80}\frac{q^2}{(1-q)(1-q^2)},\quad
+ T_2\le\frac{q^2}{(1-q)^2}
+ +\frac9{40}\frac{q^2}{(1-q)(1-q^2)^2}.
+\]
+The first terms handle $a=1$; the others use
+$a^{-3/2}<3/8$ and $a^{-1/2}<3/4$ for $a\ge2$.
+
+Equation~\eqref{eq:b-tail} with $A=3/10,q_0=4/15$ is below $2/5$ at
+$n=16$ and decreases thereafter. The exact bases $n<16$ verify this same
+$b_n$ bound. Exact $h_s^2s^5<1$ for $1\le s\le23$ and
+\eqref{eq:induction} at $s=24$, with $B=2/5,C=1,e^\beta<3/2$, give
+\[
+ h_s<s^{-5/2}\ (s\ge1),\qquad E>2/3,\qquad e^\beta/E<9/4.
+\]
+Integral bounds yield $(9/25)x\le\nu<(2/5)x$.
+For the lower bound, $\nu/x$ decreases in $x$ and at $1/10$ it equals
+$-10/9+(200/81)\log(20/11)$; the positive nine-term log series with
+$t=9/31$ proves the claim. For the upper bound its limit at zero is
+$2\log2-1<2/5$. The integer mean forces $y=dx>5/2$, and $V_d<(2/5)y$.
+
+\subsection{Centered losses for small components}
+Equations~\eqref{eq:M1}--\eqref{eq:M2} give
+$M_1\le(13/25)x$ and $M_2+M_1^2<(24/25)x$.
+One explicit loose bound is $M_2\le(21/25)x+(21/25)x^2$:
+its variance's linear coefficient is at most
+$(2/5)(4/5)+2/5+(16/25)(3/25)=0.7968$;
+the component squared-mean coefficient is at most
+$2/5+2(16/25)(3/25)+(16/25)^2(1/5)=0.63552$.
+Together with $M_1^2\le(169/625)x^2$, these are below the stated bound at
+$x\le1/10$. Equation~\eqref{eq:absolute} also bounds the absolute first
+moment by $e^\beta(29/25)x$.
+
+For $s\le S$, $n\ge7d/8$, so $|\eta|<x/(4d)$. Thus the weighted absolute
+and squared shift moments are respectively below
+$e^\beta(117/100)x$ and $e^\beta(97/100)x$.
+The weighted D bound is $2pe^\beta\beta_1<e^\beta(8/5)x$.
+The prefactor error from \eqref{eq:A}, divided by $E$, is below $27/(4d)$.
+
+The elementary bound $V_j\ge(j\nu-p)/(1+x)$ gives, for both needed arrays,
+\[
+ V_n\ge\frac{63}{220}y-\frac1{11},\qquad
+ W\ge\frac{63}{220}y-\frac{15}{44}>0.
+\]
+The bounds of Section~\ref{sec:centered} imply
+\begin{align}
+ y\sqrt{(24/5)y+1}\,C_2(W)&<50,\\
+ y\sqrt{(24/5)y+1}\,C_2(V_n)&<50,\\
+ y\sqrt{(24/5)y+1}\,A_1(V_n)&<100.
+\end{align}
+For $C_2$, split at $y=7/2$. Below it use $C_2<10/3$ and the square-root
+bound $17/4$; above it use $W\ge3y/16$, square root below
+$(23/10)\sqrt y$, Gaussian constant below $8/5$, and
+$(16/3)^{3/2}<25/2$.
+For $A_1$, when $y<5$ the global bound $A_1<4$ gives a normalized bound
+below 100. When $y\ge5$, $V_n\ge y/4$ and the bound $4V_n^{-3/2}$
+gives a bound below 72, hence below 100.
+Using \eqref{eq:relative}, the probability error divided by $E$ is below
+\[
+ \frac1d\frac54\frac94
+ \left\{\frac{12}{5}50+\frac{117}{100}100+\frac{97}{200}50\right\}
+ <\frac{735}{d}.
+\]
+Including the prefactor error gives $742/d$.
+
+\subsection{Middle terms, large terms, and periodic terms}
+Since $S\ge d/9$, the omitted E tail divided by $E$ is below
+$27d^{-3/2}$. For $S<s\le d/2$,
+$V_n\ge(9/55)y-1/11$ and the primitive largest-atom/d-mode ratio is below
+5, by squaring the Gaussian bound and using $y>5/2,\pi<4$.
+With $A_s<4$, the middle contribution is below $540d^{-3/2}$.
+
+For $s>d/2$, Lemma~\ref{lem:smoothing} has $c\ge1/6$ and $v_*>(4/5)x$.
+Its atom bound is below $\sqrt{15/(4sx)}$.
+Also \eqref{eq:product} gives $P_d(x)R^d>(5/19)d^{-5/2}$, and the inverse
+d-mode is below $(23/10)\sqrt y$.
+The full $J_n$ contribution is consequently bounded by
+\[
+ \frac{35}{2}d^2\sum_{n<d/2}n\norm{J_n}R^n(d-n)^{-3}.
+\]
+Use \eqref{eq:Jmoment}, $\beta_1<4/5$, $E>2/3$, and
+$(d-n)^{-3}<8d^{-3}$ to obtain $169/d$ after division by $E$.
+
+All periodic terms with $n\ge d/2$, using \eqref{eq:periodic}, the same
+product and mode bounds, and $e^\beta/E<9/4$, total less than
+$35d^3e^{-d/20}<1/1000$. The function decreases for $d>60$.
+At $1001$, $e>8/3$ and
+$35000\cdot1001^3(3/8)^{50}<1$ are an exact witness.
+The overall relative error is therefore
+\[
+ \frac{912}{d}+\frac{567}{d^{3/2}}+\frac1{1000}
+ \le\frac{912}{1001}+\frac{567}{1001\cdot31}+\frac1{1000}<1.
+\]
+Thus $|[z^m]\Rpoly_d/\kappa-E|<E$, proving Proposition~\ref{prop:small}.
+
+\section{Larger saddles and interval certificates}\label{sec:large}
+\begin{proposition}\label{prop:large}
+If $d\ge1001$, $\mu_d(x)=m$ is an integer, and $1/10\le x\le15$,
+then $[z^m]\Rpoly_d>0$.
+\end{proposition}
+\subsection{Variance and uniform local comparison}
+The variance density is
+\[
+ v(x)=\int_0^1\frac{xt(2-t)}{[2+(x-1)t]^2}\dd.
+\]
+For $x\ne1$, direct integration gives
+\begin{align}
+ \nu(x)&=\frac{x}{x-1}-\frac{2x\log((1+x)/2)}{(x-1)^2},\\
+ v(x)&=\frac{2x(x+1)\log((1+x)/2)}{(x-1)^3}
+                  -\frac{x(3x+1)}{(x+1)(x-1)^2},\label{eq:vclosed}
+\end{align}
+with $\nu(1)=1/4,v(1)=1/6$.
+Both $\nu/x$ and $v/x$ decrease in $x$, while $\nu$ increases.
+The integrand $g_x$ is nonnegative, unimodal and at most $1/4$.
+Its total variation is at most $1/2-g_x(1)$, with $g_x(0)=0$.
+Comparing the right Riemann sum and then subtracting the endpoint proves
+\[
+ jv-1/2\le V_j\le jv+1/2.
+\]
+Every certified interval has $v\ge3/100$, so $dv\ge30.03$.
+For $s\le S$, this implies
+\[
+ W\ge(17/20)dv,\quad V_n\ge(6/7)dv,\quad
+ \sqrt{12V_d+1}<(7/2)\sqrt{dv}.
+\]
+In particular $W,V_n>20$.
+Lemma~\ref{lem:sharp} yields
+\[
+ \sqrt{12V_d+1}\,C_2(W),\
+ \sqrt{12V_d+1}\,C_2(V_n)<\frac{27}{10dv},
+ \quad
+ \sqrt{12V_d+1}\,A_1(V_n)<\frac{3}{2dv}.
+\]
+The numerical comparisons follow by squaring positive rational quantities.
+Section~\ref{sec:arrays} gives $|\eta|<1/500$, since
+$15/(16n)\le15/(16\cdot7\cdot1001/8)<1/500$.
+
+\subsection{Whole-interval envelopes}\label{sec:envelopes}
+Fix a closed interval $[a,b]\subset[1/10,15]$ from Table~\ref{tab:intervals}.
+The endpoint helper gives rational lower and upper bounds on $\nu$ and $v$,
+and upper bounds $\beta,B_1,T_1,T_2$ at $b$.
+Set
+\[
+ v_{\rm low}=a\,v(b)_{\rm low}/b,\qquad
+ v_{\rm high}=\min(1/4,b\,v(a)_{\rm high}/a).
+\]
+Let $N_{\rm hi},N_{\rm lo}$ be the maximum and minimum of $t(1-t)$ over the
+enclosed $\nu$ range, and $P_{\rm hi},P_{\rm lo}$ the analogous bounds over
+the exact endpoint p range. These extrema include a possible crossing of
+$1/2$. Put $p_a=a/(1+a),p_b=b/(1+b)$ and
+\[
+ r_0=\min\left(p_b-\nu(a)_{\rm low},
+           \frac{p_b(p_a-\nu(a)_{\rm low})}{p_a}\right),\qquad
+ t_0=\begin{cases}p_b/2,&a\ge1,\\p_b,&a<1.\end{cases}
+\]
+The second r bound follows because
+$(p-\nu)/p=\int_0^1 2(1-t)/[2+(x-1)t]\dd$ decreases in x.
+The improved $t_0$ follows from concavity when $a\ge1$.
+Define
+\begin{align}
+ M&=t_0\beta+r_0T_1,\\
+ Q&=N_{\rm hi}B_1+p_b\max(1-2\nu(a)_{\rm low},0)\beta
+          +\max(0,P_{\rm hi}-N_{\rm lo})T_1\notag\\
+  &\quad+t_0^2\beta+2t_0r_0T_1+r_0^2T_2+M^2,\\
+ U&=\min(\sqrt Q,\,2\nu(b)_{\rm high}B_1+M),\qquad \epsilon=1/500.
+\end{align}
+Equations~\eqref{eq:compound}--\eqref{eq:absolute} bound the required shifted
+moments by $e^\beta(U+\epsilon)$ and
+$e^\beta(Q+2\epsilon U+\epsilon^2)$.
+
+For a lower bound $L$ on $\log E$, use $L=-\beta$ when $a<1$.
+For $a\ge1$, set $\rho=(x-1)/(x+1)$ and note
+\[
+ \log E=\rho\sum_{j,h}v_j\frac{\varphi(h)}{h^2}
+                                  (\rho q)^{(h-1)j}.
+\]
+All factors are nonnegative and increasing in x. A positive finite sum at
+a is therefore a valid lower bound throughout the interval.
+Take certified $R_{\exp}\ge e^{\beta-L}$ and $I_{\exp}\ge e^{-L}$.
+The small-component probability and prefactor errors, divided by E, are
+bounded by $K_{\rm small}/d$ and $K_{\rm pref}/d$, where
+\begin{align}
+ K_{\rm small}&=\frac54\frac{R_{\exp}}{v_{\rm low}}
+ \left\{\frac{81}{10}p_bB_1+\frac32(U+\epsilon)
+       +\frac{27}{20}(Q+2\epsilon U+\epsilon^2)\right\},\\
+ K_{\rm pref}&=R_{\exp}\left(\frac94B_1+3\beta\right).
+\end{align}
+In the first term, $(3/2)\cdot(2p_bB_1)\cdot(27/10)=
+(81/10)p_bB_1$; thus the full weighted parameter loss is included.
+
+\subsection{Tail bases and the remaining marked terms}
+The exact tail script uses the following caps at four endpoints.
+By monotonicity each cap applies to every smaller positive x.
+Here $A$ bounds $v_a a^{5/2}$, $q_0$ bounds q, B bounds
+$b_nn^{5/2}$ for $n\ge64$, and $e_0$ bounds $e^\beta$.
+\begin{center}\small
+\begin{tabular}{c c c c c c c c}
+\toprule
+x&A&$q_0$&B&$\beta$&$\beta_1$&$e_0$&C\\\midrule
+1&$41/100$&$3/8$&$1/2$&$7/12$&$6/5$&$9/5$&$3/2$\\
+3&$4/7$&$1/2$&$3/5$&$81/100$&$7/4$&$9/4$&2\\
+7&$81/100$&$16/25$&$5/6$&$9/8$&$8/3$&$25/8$&4\\
+15&$8/7$&$3/4$&$4/3$&$3/2$&4&$9/2$&10\\\bottomrule
+\end{tabular}
+\end{center}
+The script checks $A^2>(1+x)5/62$ using $\pi>31/10$, and $q_0<A$ for
+$a=1$. It checks \eqref{eq:b-tail} at 64 and its decreasing continuation,
+the exact h bases 64..127, and
+$6\beta_1C/128+Be_0(1+9\beta_1/128)<C$.
+Lemma~\ref{lem:induction} gives $h_s<Cs^{-5/2}$ for every $s\ge64$.
+
+For $S<s\le d/2$, $V_n\ge dv/2-1/2$; the squared Gaussian atom ratio
+to the d-mode is below four squared, since $dv\ge30$.
+Using $A_s<4$ and $S\ge d/9$, the middle contribution and omitted E tail
+together are below $306CI_{\exp}d^{-3/2}$.
+
+For $s>d/2$, use Lemma~\ref{lem:smoothing} and \eqref{eq:Jmoment}.
+Set
+\[
+ c_{\rm low}=\min(2/3,(1+a)^2/6),\qquad
+ U_P=\sqrt{4(22/7)(1+b)}\,\frac{1001}{1000}.
+\]
+Equation~\eqref{eq:product} and $e^{1/d}\le1001/1000$ give the inverse
+primitive scale bound $U_Pd^{5/2}$.
+Since $\sqrt\pi/(2\sqrt2)<16/25$ and $s^{-3}<8/d^3$, the full large-s
+contribution, divided by E, is below $K_{\rm large}/d$, where
+\[
+ K_{\rm large}=U_P\frac72\frac{16}{25}\,8
+ \sqrt{\frac{v_{\rm high}}{c_{\rm low}P_{\rm lo}}}\,
+                  \frac{CB_1}{1+a}I_{\exp}.
+\]
+The square root uses the corrected smoothing variance factor.
+
+The remaining periodic terms with $n\ge d/2$ are bounded using
+$P_d(x)R^d>d^{-5/2}/32$, inverse mode below $2\sqrt d$,
+$e^\beta<9/2$, and $E^{-1}<9/2$.
+Equation~\eqref{eq:periodic} gives
+\[
+ 1296d^3e^{-d/20}<1/1000\quad(d\ge1001).
+\]
+This decreases for $d>60$; at 1001 its exact endpoint certificate is
+$1296000\cdot1001^3(3/8)^{50}<1$, using $e>8/3$.
+
+The large-saddle verifier certifies, on each whole closed interval,
+\begin{equation}\label{eq:finalinterval}
+ \frac{K_{\rm small}+K_{\rm pref}+K_{\rm large}}{1001}
+       +\frac{306CI_{\exp}}{1001\cdot31}+\frac1{1000}<1.
+\end{equation}
+Every term bounds all $d\ge1001$, because the algebraic errors decrease in d
+and the periodic term has the monotonicity just proved.
+Thus this is a uniform dimension proof, not finite dimension sampling.
+Together with the split of Section~\ref{sec:split}, it proves
+$|[z^m]\Rpoly_d/\kappa-E|<E$ and Proposition~\ref{prop:large}.
+
+\input{interval-table.tex}
+
+\section{Exact endpoint arithmetic and reproducibility}\label{sec:exact}
+This section specifies the analytic tails and enclosure rules used by the
+certificates. None of the scalar tests replaces a preceding analytic proof.
+For a rational endpoint x,
+\[
+ q=\left(\frac{1+x}{2}\right)^{-2/(x-1)}\ (x\ne1),\qquad q(1)=e^{-1}.
+\]
+Exact rational-power bisection encloses q in 48 steps.
+The logarithm of a positive rational a is enclosed using
+$t=(a-1)/(a+1)$, 128 terms, and remainder
+$2|t|^{257}/(257(1-t^2))$.
+For exponentials use 97 positive terms (indices 0..96) and the upper remainder
+$a^{97}/(97!(1-a/98))$ for $0\le a<20$; negative arguments use reciprocals.
+Signed linear combinations in \eqref{eq:vclosed} use the correct endpoint
+order. Upward and downward rounding use the dyadic lattice of denominator
+$2^{72}$. An upward square-root bound is
+\[
+ \frac{\lfloor\sqrt{\lfloor a2^{100}\rfloor}\rfloor+1}{2^{50}}.
+\]
+No floating-point value controls a logical decision.
+
+For the large endpoint sums take $a\le64$ and
+$h\le H_a=\max(2,\lfloor128/a\rfloor)$. With $t=q^a$, the four omitted
+h tails for $\beta,\beta_1,T_1,T_2$, before multiplication by $v_a$, are
+\[
+ \frac{t^{H_a}}{(H_a+1)(1-t)},\quad
+ \frac{a t^{H_a}}{1-t},\quad
+ \frac{a t^{H_a}}{1-t},\quad
+ a^2t^{H_a}\left(\frac{H_a}{1-t}+\frac{t}{(1-t)^2}\right).
+\]
+Let $A>\sqrt{(1+x)/(4\pi)}$ also bound $v_1$ and put $t=q^{65}$.
+The omitted a tails are at most
+\[
+ \frac A{768}\left(1+\frac{t}{2(1-t)}\right),\quad
+ \frac A{4(1-t)},\quad
+ \frac A{512}\frac{t}{(1-q)(1-t)},\quad
+ \frac A8\frac{t}{(1-q)(1-t)^2}.
+\]
+The first two follow from integral sums after 64; the others use
+$a^{-3/2}\le1/512$, $a^{-1/2}\le1/8$ and geometric sums.
+For the positive lower log-E sum take $a\le32$ and
+$h\le\max(1,\lfloor32/a\rfloor)$, discarding only nonnegative terms.
+
+The three scalar programs use only Python's standard library:
+\begin{center}\small\begin{tabular}{l}
+\texttt{verify\_small\_x\_majorant.py}\\
+\texttt{verify\_majorant\_tail\_constants.py}\\
+\texttt{verify\_large\_x\_intervals.py}
+\end{tabular}\end{center}
+They are preserved byte for byte from the reviewed candidate.
+The second imports the third's enclosure helpers. All checks raise explicit
+exceptions; they do not use Python \texttt{assert}.
+The certificates give respectively the small-saddle scalar/base checks,
+four finite-base/induction residuals, and 33 whole-interval rational bounds.
+Their exact rational entries and SHA256 digests accompany this paper.
+The 6-decimal numbers in Table~\ref{tab:intervals} are rounded
+\emph{upwards} from already-certified rational bounds.
+The largest exact bound, on $[14,15]$, is
+\[
+ \frac{2235941074644793697351}{2361183241434822606848}<0.947.
+\]
+The reproducibility entry point also runs the independent scalar residual
+checks, verifies file integrity, and compares the generated witnesses.
+Floating-point displays are diagnostics only.
+
+The new proof was manually reviewed and its three exact programs reproduced
+independently as part of the accompanying audit. This record is not Lean
+verification or external human peer review. The source audit maps every
+necessary candidate argument to the final sections; historical incomplete
+labels and a corrected scratch variance expression occur only in the
+separately identified historical review record.
+
+\section{Completion of the proof}\label{sec:completion}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+For $d\ge1001$, Proposition~\ref{prop:forward} covers
+$r\le\lfloor d/4\rfloor$. For the remaining needed coordinates put
+$m=d-1-j$, so
+\[
+ 1\le m\le d-2-\lfloor d/4\rfloor<3d/4.
+\]
+The last strict inequality holds for every residue class of d modulo four.
+The elementary estimate
+$\mu_d(15)\ge d\nu(15)-15/16>3d/4$ for $d>1000$ follows from
+$\log8<209/100$ and
+$\nu(15)=15/14-(15/98)\log8>751/1000$.
+Thus each required unique saddle lies below 15.
+Propositions~\ref{prop:small} and \ref{prop:large} cover all these saddles,
+including their common endpoint $1/10$.
+Hence $a_{d,j}>0$ for $\lfloor d/4\rfloor+1\le j\le d-2$.
+Every remaining tail \eqref{eq:tails} is a positive sum of these coordinates.
+The prior endpoint facts and repair criterion give real zeros.
+Since the Ehrhart coefficients are nonnegative and $H_d(0)=1$,
+$H_d(t)>0$ for $t\ge0$, so all its zeros are strictly negative.
+
+For $d\le1000$, apply de Castro's finite Theorem 1.3.
+Its base cases include $H_1=H_2=1$ and $H_3=(1+t)^2$.
+This covers all dimensions.
+\end{proof}
+
+\subsection{The imported finite certificate}
+The finite theorem uses the author's official release
+\href{https://github.com/tashimir/ehrhart-132-213-polytopes/releases/tag/v1.0.0}
+{\texttt{tashimir/ehrhart-132-213-polytopes}, release \texttt{v1.0.0}},
+published on 5 September 2026. The file is
+\texttt{refined\_coordinates\_d1\_d1000.csv}, of size 996682200 bytes.
+The official release asset digest is
+\begin{center}\small\ttfamily
+8dbb43cad35659199cd23b5fddc23dd50\\
+f76d35adff5b636ac366d460069b5ce
+\end{center}
+A complete streamed download independently confirmed this byte length and SHA256
+digest, and counted 500501 lines including the header. The accompanying
+provenance record distinguishes byte-integrity verification from mathematical
+reconstruction. We have not independently
+reconstructed the CSV or rerun the source's 498500 finite tail inequalities.
+Theorem~\ref{thm:main} depends transparently on that prior finite theorem.
+
+\section{A corollary for integral dilates}\label{sec:dilates}
+\begin{corollary}\label{cor:dilates}
+For every pair of positive integers d,r, the polynomial $h^*(rP_d;t)$ is
+constant or has only strictly negative real zeros.
+\end{corollary}
+\begin{proof}
+For $d\ge3$, $P_d$ has dimension $d-1$ in its affine lattice, so the Ehrhart
+series has denominator $(1-t)^d$. The Veronese construction gives
+\[
+ h^*(rP_d;t)=U^d_{r,0}H_d(t),\qquad
+ U^d_{r,k}h=\left((1+t+\cdots+t^{r-1})^dh(t)\right)^{\langle r,k\rangle}.
+\]
+Here $f(t)=\sum_{k=0}^{r-1}t^kf^{\langle r,k\rangle}(t^r)$ defines the
+sections. By Theorem~\ref{thm:main}, $H_d$ has nonnegative coefficients and
+only negative real zeros. Zhang's Corollary 3.4~\cite[p.~7]{zhang} applies
+for every positive integer r, with no degree threshold on r, and makes
+the sequence $(U^d_{r,r-1}H_d,\ldots,U^d_{r,0}H_d)$ interlacing.
+In particular the zeroth member is real-rooted. Its nonnegative coefficients
+and constant term one exclude nonnegative roots.
+For $d=1$ the numerator is 1; for $d=2$ the primitive lattice segment
+gives $1+(r-1)t$ directly. This is an application of the established Veronese
+theorem to this family, not a new preservation theorem.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{decastro}
+P.~M.~M.~de Castro,
+\emph{Ehrhart $h^*$-polynomials of $(132,213)$-avoiding permutation
+polytopes: A repair cone and eventual real-rootedness},
+arXiv:2609.06096v1, 5 September 2026.
+\url{https://arxiv.org/abs/2609.06096v1}.
+
+\bibitem{darroch}
+J.~N.~Darroch,
+\emph{On the distribution of the number of successes in independent trials},
+Ann.\ Math.\ Statist.\ \textbf{35} (1964), 1317--1321, Theorem 4.
+
+\bibitem{pitman}
+J.~Pitman,
+\emph{Probabilistic bounds on the coefficients of polynomials with only real zeros},
+J.\ Combin.\ Theory Ser.\ A \textbf{77} (1997), 279--303.
+\url{https://www.stat.berkeley.edu/~pitman/453.pdf}.
+
+\bibitem{zhang}
+P.~B.~Zhang,
+\emph{Interlacing polynomials and the Veronese construction for rational
+formal power series}, author PDF, Corollary 3.4 and equation (1).
+\url{https://zhangbiaomath.github.io/papers/2020-prm-ipvc.pdf}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "scope": "exact scalar/base certificates and reviewed analytic reductions; not Lean or original finite-data reconstruction",
+  "payload_files": 31,
+  "normal_runs": [
+    {
+      "mode": "normal",
+      "program": "verify_small_x_majorant.py",
+      "exit": 0,
+      "witness_sha256": "82b7d8cb106480bc25555d6c71c0caadd77a3296d67b9ade9a3dfc0e01b18254"
+    },
+    {
+      "mode": "normal",
+      "program": "verify_majorant_tail_constants.py",
+      "exit": 0,
+      "witness_sha256": "faba2d64e83706289c3bcf354f1686f9f80b2c5dc1d773a98a3aa4ccdb694a7c"
+    },
+    {
+      "mode": "normal",
+      "program": "verify_large_x_intervals.py",
+      "exit": 0,
+      "witness_sha256": "98deadaf633738978694af345417177779973282a6cc75012fa8a1fac49bb677"
+    },
+    {
+      "mode": "O",
+      "program": "verify_small_x_majorant.py",
+      "exit": 0,
+      "witness_sha256": "82b7d8cb106480bc25555d6c71c0caadd77a3296d67b9ade9a3dfc0e01b18254"
+    },
+    {
+      "mode": "O",
+      "program": "verify_majorant_tail_constants.py",
+      "exit": 0,
+      "witness_sha256": "faba2d64e83706289c3bcf354f1686f9f80b2c5dc1d773a98a3aa4ccdb694a7c"
+    },
+    {
+      "mode": "O",
+      "program": "verify_large_x_intervals.py",
+      "exit": 0,
+      "witness_sha256": "98deadaf633738978694af345417177779973282a6cc75012fa8a1fac49bb677"
+    },
+    {
+      "mode": "OO",
+      "program": "verify_small_x_majorant.py",
+      "exit": 0,
+      "witness_sha256": "82b7d8cb106480bc25555d6c71c0caadd77a3296d67b9ade9a3dfc0e01b18254"
+    },
+    {
+      "mode": "OO",
+      "program": "verify_majorant_tail_constants.py",
+      "exit": 0,
+      "witness_sha256": "faba2d64e83706289c3bcf354f1686f9f80b2c5dc1d773a98a3aa4ccdb694a7c"
+    },
+    {
+      "mode": "OO",
+      "program": "verify_large_x_intervals.py",
+      "exit": 0,
+      "witness_sha256": "98deadaf633738978694af345417177779973282a6cc75012fa8a1fac49bb677"
+    }
+  ],
+  "additional_exact_residual_checks": 39,
+  "negative_controls": [
+    {
+      "mutation": "q_underestimate",
+      "mode": "normal",
+      "rejected": true,
+      "expected_error": "critical q upper"
+    },
+    {
+      "mutation": "q_underestimate",
+      "mode": "O",
+      "rejected": true,
+      "expected_error": "critical q upper"
+    },
+    {
+      "mutation": "q_underestimate",
+      "mode": "OO",
+      "rejected": true,
+      "expected_error": "critical q upper"
+    },
+    {
+      "mutation": "invalid_margin",
+      "mode": "normal",
+      "rejected": true,
+      "expected_error": "uniform interval positivity envelope"
+    },
+    {
+      "mutation": "invalid_margin",
+      "mode": "O",
+      "rejected": true,
+      "expected_error": "uniform interval positivity envelope"
+    },
+    {
+      "mutation": "invalid_margin",
+      "mode": "OO",
+      "rejected": true,
+      "expected_error": "uniform interval positivity envelope"
+    }
+  ],
+  "closed_intervals": 33,
+  "worst_interval": [
+    "14/1",
+    "15/1"
+  ],
+  "worst_total_upper": "2235941074644793697351/2361183241434822606848"
+}
