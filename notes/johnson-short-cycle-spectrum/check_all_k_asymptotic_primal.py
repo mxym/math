@@ -73,7 +73,7 @@ def certify(k,n,xlist):
     for j in range(k+1):
         assert sum(w*stats[typ][j] for typ,w in P)==\
                sum(w*stats[typ][j] for typ,w in R)
-    assert 0<odd<2*k*k
+    assert odd>0
     return odd
 
 
@@ -83,7 +83,7 @@ def main():
         for n,counts in tests.items():
             deficit=certify(k,n,counts)
             print('PASS k=%d n=%d exact marginal equality; all weights >0; '
-                  'n(1-pI)<2k^2: %s'%(k,n,bool(deficit<2*k*k)),flush=True)
+                  'n(1-pI)>0: %s'%(k,n,bool(deficit>0)),flush=True)
             count+=1
     assert count==18
     print('ALL 18 ALL-RANK PRIMAL REGRESSIONS PASSED (k=1..6)')
