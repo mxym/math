@@ -258,3 +258,64 @@ Other exact admissibility tests include `(n,p)=(3,15/8),(6,5/3),(12,3/2)`; for `
 
 1. A. Bristiel and P. Caputo (2024), *Entropy inequalities for random walks and permutations*, Ann. Inst. Henri Poincare Probab. Stat. 60(1), 54--81. DOI: https://doi.org/10.1214/22-AIHP1267. Corollary 1.14.
 2. OpenAI (September 26, 2026), *A strict four-row permanent inequality and permutation moments*, https://github.com/openai/math/blob/main/preprints/A-strict-four-row-permanent-inequality-and-permutation-moments-September-26-2026/build/sections/02-permanent.tex . Theorem 1 and Section 2.
+
+
+## 8. Further result: the exact local single-atom TV modulus
+
+The cyclic-mixture obstruction above is simple but not the strongest possible atom concentration. The following exact refinement is useful independently of the permanent inequality.
+
+**Proposition (sharp atom concentration).** For `n >= 3`, put `beta_n=(n-2)/n` and `c_n=binom(n,2)/n!`. If `nu` is any probability measure on `S_n` with uniform one-point marginals, then for every `sigma in S_n`,
+
+```math
+\left|\nu(\sigma)-\frac1{n!}\right|
+\le \beta_n\,\|\nu-u\|_{TV}. \tag{12}
+```
+
+This coefficient is optimal, and for **every** `0 <= delta <= c_n` there is a uniform-one-point-marginal measure `nu_delta` with TV distance exactly `delta` from `u` and
+
+```math
+\nu_\delta(\sigma)=\frac1{n!}+\beta_n\delta. \tag{13}
+```
+
+**Proof.** Relabel outputs so `sigma=id`. Let `v=nu-u=v_+-v_-` be the signed Jordan decomposition, where the positive and negative parts each have total mass `delta=TV(nu,u)`. Let `F(pi)=|{i:pi(i)=i}|` count fixed points. Marginal preservation implies `sum_pi v(pi)F(pi)=0`. Crucially, `F(id)=n` while `F(pi)<=n-2` for every nonidentity permutation: a nonidentity bijection cannot move just one point.
+
+If `v(id)>0`, the positive part contributes at least `n v(id)` to the nonnegative fixed-point sum, whereas the negative part is supported away from `id` and contributes at most `(n-2)delta`. Since the two sums agree, `n v(id)<=(n-2)delta`. If `v(id)<0`, exchange positive and negative parts. This proves (12).
+
+To prove sharpness, let `D` be uniform measure on the **derangements** (permutations with no fixed points), and `T` uniform measure on the `binom(n,2)` transpositions. Define
+
+```math
+P=\left(1-\frac2n\right)\delta_{id}+\frac2n D,
+\qquad Q=T. \tag{14}
+```
+
+Both have the same one-point marginals: for every `i`, the diagonal probability is `1-2/n`, and each off-diagonal probability equals `2/[n(n-1)]`. For `D`, the latter follows by symmetry under conjugations fixing `i`; for `T`, exactly one transposition maps `i` to each `j != i`. The measures `P,Q` have disjoint supports. Hence
+
+```math
+\nu_\delta=u+\delta(P-Q)
+```
+
+is a probability distribution with uniform one-point marginals whenever `delta <= binom(n,2)/n!`: only the transposition masses decrease, each by `delta/binom(n,2)`, so all masses remain nonnegative. Disjointness gives `TV(nu_delta,u)=delta`, while `P(id)=1-2/n` and `Q(id)=0`, proving (13). Left-translate this construction to any `sigma`. QED.
+
+**Sharper upper bound near the critical exponent.** Write `Delta_n(p)=n^{-n/p}-1/n!`. If `q_n<p<=2` and
+
+```math
+\frac{\Delta_n(p)}{\beta_n}<\frac{\binom n2}{n!}, \tag{15}
+```
+
+then the identity-indicator test applied to (13), taking `delta` just larger than `Delta_n(p)/beta_n`, gives
+
+```math
+R_n(p)\le\frac{\Delta_n(p)}{\beta_n}
+=\frac{n}{n-2}\left(n^{-n/p}-\frac1{n!}\right). \tag{16}
+```
+
+Condition (15) holds automatically for all `p>q_n` sufficiently close to `q_n` (with `n` fixed). Compared with the global cyclic upper bound in (2), (16) improves the coefficient by a factor `n-2`. In particular, the linear critical-window estimate is refined to
+
+```math
+\frac1{4n^4B_n}
+\le \liminf_{p\downarrow q_n}\frac{R_n(p)}{p-q_n}
+\le \limsup_{p\downarrow q_n}\frac{R_n(p)}{p-q_n}
+\le \frac{n^2\log n}{(n-2)n!\,q_n^2}. \tag{17}
+```
+
+The exact value of the limiting critical-window coefficient, and whether it is always controlled solely by the permutation-singleton test, are **not** claimed. This stronger upper bound is a purely combinatorial result: it does not require Bristiel--Caputo or any numerical computation.
