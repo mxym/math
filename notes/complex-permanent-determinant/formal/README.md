@@ -147,3 +147,33 @@ To replay the stronger endpoint after the seven earlier modules:
 
 The actual `MatrixTheorem.log` axiom check shows only
 `propext`, `Classical.choice`, and `Quot.sound`.
+
+## Sharp complex absolute-value estimate, kernel verified
+
+The new `NormCanonical.lean` identifies the **literal usual complex
+norm** version of the five-branch exact formula, including its
+(2/\sqrt3) and (1/\sqrt3) constants. It supplies
+`matrix_canonical_squared_iff`.
+
+The new `AbsolutePencil.lean` proves the original paper's
+**Theorem 1 absolute-value strengthening** by choosing an aligned
+complex coefficient on the centered sharp disk and using the
+already-verified coefficient lens. The theorem
+`sharp_absolute_value` quantifies over all nine complex entries,
+and proves
+
+[
+ |\operatorname{per}A|
+ +(2/\sqrt3-1)|\det A|
+ \le(2/\sqrt3)\prod_{i=1}^{3}\|A_{i,*}\|_2.
+]
+
+Separate Lean theorems `determinant_weight_sharp` (identity
+permutation witness) and `prefactor_sharp` (all-ones matrix witness)
+formally establish **joint coefficient optimality**.
+Actual compiler `AbsolutePencil.log` verifies all three endpoints
+with only Lean foundational axioms. No `sorry`.
+
+**Still unformalized:** complete equality characterization and
+complex-valued permutation tensorization, plus the paper's
+probability-law interpretation.
