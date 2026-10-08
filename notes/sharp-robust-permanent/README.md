@@ -108,3 +108,22 @@ The [verification record](VERIFICATION.md) separates the complete written proofs
 The [independent checker](code/check_three_subset_certificates.py) uses only standard-library integer and Fraction arithmetic, enumerates **every conjugacy class and every three-element subset** for each of the 18 degrees, verifies all orbital moment constraints and every dual inequality, and replays a valid small attaining perturbation. The [separate rational certificate generator](code/generate_three_subset_certificates.py) is not called by the checker. A fresh public GitHub download of the fixed JSON and checker into a new Windows directory passed all 18 degrees; see [replay scope](VERIFICATION.md#independent-fixed-certificate-three-subset-replay).
 
 This is a **finite exact classification with full replayable proof evidence**, not a conjectural all-degree formula for triple actions. Degrees n≥24 and the general asymptotic law for these rank-four representations remain open.
+
+
+## Three-cycle compression, full degree-120 classification, and sharp 18/n asymptotics
+
+[Theorem 20](paper.md#20-an-exact-three-cycle-statistic-compression-theorem) proves that all four orbitals of the natural S_n action on three-element subsets are **explicit integer polynomials** in the counts of fixed points, 2-cycles, and 3-cycles. Every feasible count triple is realized by a canonical permutation, so exact classwise dual verification reduces from partition-number many classes to only O(n³) types.
+
+[Theorem 21](paper.md#21-complete-exact-rank-four-atom-modulus-classification-through-degree-120) extends the exact coefficient classification from n≤23 to **every 3≤n≤120**. The 97 new degrees 24–120 have fully frozen [rational primal-dual certificates](certificates/three_subset_n24_120.json) and an [optimizer-free, standard-library integer checker](code/check_three_subset_compressed_24_120.py). A fresh **public-GitHub-source** replay from an isolated VPS directory verified **1,489,083 distinct compressed cycle states** and all class moment and positivity conditions, with exit status 0. This remains a *finite* theorem, not an all-degree exact formula.
+
+The separate **infinite-parameter** [Theorem 22](paper.md#22-sharp-universal-first-order-asymptotics-for-all-three-subset-actions) establishes
+
+\[
+\boxed{C_n^{(3)}=1-\frac{18}{n}+O(n^{-2})\quad(n\to\infty).}
+\]
+
+The proof gives an explicit all-degree orbital dual with exact cubic-polynomial expansion, a rigorous global real-variable bound, and **four exact moment-matched rational primal families** indexed by n modulo 4. It includes the explicit (conservative) inequality
+\(C_n^{(3)}\le1-18/n+406304/n^2\) for every n≥2048.
+The [separate SymPy algebra checker](code/check_three_subset_asymptotic_algebra.py) validates the exact polynomial identities, leading determinant -192m⁹ and matching first-order probability masses for all four residue classes. The symbolic checker was freshly downloaded from public main and ran successfully on the authorized VPS. The all-n proof does **not** rely on extrapolating the degree-120 table.
+
+The [verification and trust-boundary record](VERIFICATION.md) records what is machine checked, what is proved analytically, and what still requires independent human mathematical review. No complete exact all-degree formula, k≥4 asymptotic, external peer review or priority claim is made.
