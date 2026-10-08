@@ -1,8 +1,19 @@
-EqualityKernel.lean:57:23: warning: This simp argument is unused:
-  zero_mul
+EqualityKernel.lean:16:19: warning: Variable name `h2` is not explicitly referenced.
 
-Hint: Omit it from the simp argument list.
-  [apply] simp only [mul_zero] at hs
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-'ComplexPencilEquality.Q3_zero_det_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EqualityKernel.lean:16:33: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EqualityKernel.lean:19:5: warning: Variable name `h23` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h23
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'ComplexPencilEquality.hermitian3_zero_quadratic_det_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
