@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-08 — exact small-radius Z[sqrt(-2)] prime graph and sieve classification
+
+- Proved the complete graph structure at every real radius D<2,
+  with exactly two exceptional 3-vertex paths, generic components
+  of size at most 2, and no new prime edges at the norm-3 threshold.
+- Proved sharp principal-sieve period 6 and classified all successful
+  optimal-period ideal lists using three minimal positive bases and
+  four maximal negative voltage witnesses, allowing composite generators.
+- Published the complete [research note](notes/sqrt-minus-two-sharp-moats/README.md),
+  12 finite exact witnesses, independent checker, and mutation tests;
+  independently enumerated all 2,048 subfamilies of the 11 divisor ideals.
+  AI-assisted, not priority-certified, Lean-formalized or human-refereed.
+
 ## 2026-10-08 — sharp all-tree projection-body extrema through dimension 48
 
 - Proved an exact Pareto-dominance dynamic program for arbitrary point-generated Cartesian-product/affine-join expression trees, with full induction showing no optimum is lost by coordinatewise frontier pruning. This is an all-dimensional algorithmic theorem.

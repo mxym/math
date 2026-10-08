@@ -1,5 +1,18 @@
 # math
 
+## Sharp Z[sqrt(-2)] prime graph and complete sieve classification
+
+The [exact small-radius research note](notes/sqrt-minus-two-sharp-moats/README.md)
+classifies the entire irreducible-element graph for every Euclidean step
+radius D<2: two three-vertex paths for 1<=D<2, with every other
+component isolated or a single edge, so the global optimum is exactly
+3. For the full eight-neighbor step set it proves the minimum
+principal-ideal scalar period is 6 and classifies **all** successful
+optimal-period ideal lists, including composite generators. Twelve
+short arithmetic certificates, an independent checker, mutation tests,
+and an exhaustive 2,048-subfamily cross-check are available. This is
+AI-assisted written mathematics, not external peer review or Lean.
+
 ## Sharp permutation-permanent robustness and group atom moduli
 
 The [complete proof dossier](notes/sharp-robust-permanent/README.md) proves quantitative normalized permanent robustness for all arities, an exact sharp (S_3) stability radius at (p=2), and **exact radii on a nontrivial one-sided interval below 2** (with an existential lower endpoint). It classifies all endpoint equalities, gives an exact rational (p=5/2) counterexample to extending the singleton-radius formula above 2, and computes the (K_{3,3}) entropy reduction. An independent further theorem determines the optimal atom-vs-TV coefficient for **every finite doubly transitive permutation group**, sharply attained in symmetric, alternating and affine families. The [manuscript](notes/sharp-robust-permanent/paper.md) includes complete proofs, exact rational local margins and reproducible checkers; human peer review, priority assessment and a numerical lower endpoint for the exact interval remain open.

@@ -54,3 +54,16 @@ for arbitrary composite-generator lists.
 Complete finite proof witnesses and an independent integer checker
 are provided. This is an additive note; the v3 all-order and v4
 Gaussian/real-quadratic records remain unchanged.
+
+## Sharp small-radius Z[sqrt(-2)] classification
+
+The additive [Z[sqrt(-2)] prime-graph research note](../../notes/sqrt-minus-two-sharp-moats/README.md)
+proves the **full infinite graph classification** for Euclidean step
+radii D<2, with exactly two 3-vertex components and all remaining
+components of size at most 2. It further proves the **least principal-
+ideal sieve period 6** for the coefficient eight-neighbor graph,
+and classifies every successful optimal-period generator list,
+including composite generators and redundant ideals. Its full paper,
+12 exact finite witnesses, independent checker, and mutation tests are
+published separately, leaving the v3 all-order proof and v4 sharp
+Gaussian/real-quadratic results unchanged.
