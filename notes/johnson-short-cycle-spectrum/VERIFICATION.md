@@ -78,3 +78,45 @@ The checks covered exactly **129,523** feasible short-cycle types and reconstruc
 **Second set of negative controls:** running the new checker with -O exited nonzero and rejected optimized mode. Replacing the literal n=26 certificate target 31178983/66734529 by 31178983/66734530 caused a nonzero AssertionError. The original file was restored; its SHA-256 was rechecked and matched the pinned value above.
 
 **Current mathematical scope:** Complete four-subset sharp constants for each integer 11<=n<=50, together with the all-n fixed-k compression and subset-rank monotonicity theorems. There is no asserted exact formula beyond n=50, historical priority, or external referee verification.
+
+
+## All fixed subset ranks: exact symbolic and rational cross-checks
+
+The subsequent [all-fixed-rank theorem](ALL_K_CHEBYSHEV_ASYMPTOTICS.md) proves for every fixed integer k >= 1 that C(n,k) = 1 - 2 k^2/n + O_k(1/n^2), combining a global Chebyshev dual with positive, exactly moment-matched rational class measures. Its proof, especially the uniform dual interpolation for *all* n and k, is a mathematical analytic argument **not** based on a finite test cutoff.
+
+**Public inputs independently downloaded at fixed commits:**
+
+- [All-rank rational primal check, commit 8f8a0ee](https://github.com/mxym/math/commit/8f8a0ee3b4b9d9d0e111dc31c06897c0f7d74236): check_all_k_asymptotic_primal.py SHA-256 **5626cba86dc907df487bb829e981557fba408d4a63289af110a3bbb42e16ea13**.
+- [All-rank exact Lobatto-algebra check, commit 8428e17](https://github.com/mxym/math/commit/8428e17273dab7f7d37e12da946f7cdeb631eb96): check_all_k_lobatto_algebra.py SHA-256 **2a929dd9ef2a3b905dbef61262ce366ab3982218fa2b01868b62edb041672c19**.
+- [k=4 symbolic dual and primal limit checker, commit c50b12f](https://github.com/mxym/math/commit/c50b12fdf727e35bd988b7ee1b9fe56d503d9695): check_k4_asymptotic_algebra.py SHA-256 **14c5c300f9d245d6c677909806a45aa69b98e04cfa90b89dae2ecb18e7fc860e**.
+- [k=4 rational asymptotic primal checker, commit d892eac](https://github.com/mxym/math/commit/d892eacc8ef87f4ac1c32364c9ab4cb7c59aa916): check_k4_asymptotic_primal.py SHA-256 **55592bc2f287ebeedea2e70d976fd35155dfb92f24ba4b9286c84dd591b8e43d**.
+
+All sources were retrieved into the clean VPS replay folder, separate from the active Git checkout and with no numerical discovery script imported by any proof checker.
+
+Reproduction from the repository root:
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_all_k_asymptotic_primal.py
+python3 notes/johnson-short-cycle-spectrum/check_all_k_lobatto_algebra.py
+python3 notes/johnson-short-cycle-spectrum/check_k4_asymptotic_algebra.py
+python3 notes/johnson-short-cycle-spectrum/check_k4_asymptotic_primal.py
+~~~
+
+Observed complete results:
+
+~~~text
+ALL 18 ALL-RANK PRIMAL REGRESSIONS PASSED (k=1..6)
+SIX EXACT ALGEBRAIC LOBATTO CHECKS PASSED
+EXACT k=4 TRANSFER POLYNOMIAL: H, J, R3, R2, R1 verified
+ABSOLUTE REMAINDER COEFFICIENT SUM = 1704864
+LIMITING PRIMAL MATRIX DET = -sqrt(2)/4096
+LIMITING PRIMAL WEIGHTS = (16-8sqrt(2), 16+8sqrt(2), 2, 8)
+SHARP FIRST ORDER COEFFICIENT = 32 (algebra verified)
+NINE EXACT FOUR-SUBSET ASYMPTOTIC PRIMAL REGRESSIONS PASS
+~~~
+
+The rational all-rank tests check k=1,...,6 at n=100,300,1000, with **every orbital moment** exact, strictly positive weights, and finite-dimensional linear systems reconstructed from integer cycle types. The symbolic Lobatto checker uses exact SymPy algebra (no floating-point evaluation) to verify the derivative identity on every monomial through degree k and the limiting primal matrix in ranks 1,...,6. The separate k=4 symbolic checker reconstructs the complete finite dual polynomial identity and the limiting algebraic primal solution, while the rational k=4 primal checker tests genuine positive class measures in degrees through 2000.
+
+**Negative controls:** Python optimized mode -O was rejected by each all-rank certificate checker. In a temporary copy of the all-k primal checker, changing k=2,n=100 support from [50,0] to duplicated [0,0] caused a nonzero AssertionError; the mutated copy was removed. The earlier n=11 and n=26 exact-target mutation tests also failed as expected.
+
+**Audit limitation:** Neither 18 finite rational instances nor six exact algebraic checks imply the infinite-family theorem; the written proofs of the transfer expansion, globally corrected Chebyshev dual, Lagrange derivative quadrature and continuity/positivity of exact rational class measures do. This project has not obtained human peer review, formalized the arguments in a proof assistant, or verified historical world-first novelty.
