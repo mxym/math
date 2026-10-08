@@ -87,6 +87,7 @@ This focused continuation explicitly uses the complete public v3 all-P2 potentia
 ## Independent-arity homogeneous product–join optimum
 
 The [005 independent-arity supplement](notes/unbalanced-homogeneous-projection-recursion/README.md) closes a natural generalization of v5: for all positive integers `(m,k,p)`, the simplex-seeded recursion `K_{j+1}=(K_j^m)^{*k}` has a **unique** maximum asymptotic projection-volume root rate at `(2,2,5)`. Every competitor has log rate `<131/125`, strictly below the inherited winner `>2.8534`. The [complete proof](notes/unbalanced-homogeneous-projection-recursion/paper.md) excludes all infinite arity and seed tails; the [exact rational checker](notes/unbalanced-homogeneous-projection-recursion/checker.py) verifies 6,155 finite exclusions, endpoints and logarithm bounds in both Python modes. Unequal arities are now covered; arbitrary nonhomogeneous operation trees remain unresolved. This is model-assisted research, not human peer review, Lean verification or a novelty claim.
+The subsequent [parallel independent-arity proof package](notes/independent-arity-simplex-recursions/README.md) gives an alternative derivation and exact checker of **the same** classification, not an additional distinct mathematical result; see the [cross-check](reviews/2026-10-07-independent-arity-parallel-audit.md).
 
 ## Projection geometry version 3
 

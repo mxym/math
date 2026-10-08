@@ -14,3 +14,5 @@ python3 -O notes/unbalanced-homogeneous-projection-recursion/checker.py
 ```
 
 Inherited geometric calculus: [005 v2](../../preprints/005-simplex-product-optimum/v2/paper.md). Inherited winner and benchmark: [005 v5](../../preprints/005-simplex-product-optimum/v5/paper.md). New: all independent-arity upper bounds, full four-way infinite-tail proof, exact finite classification, boundary arities. These are not claims of priority, human peer review, or full Lean formalization.
+
+**Parallel verification:** [a separate proof/certificate package](../independent-arity-simplex-recursions/README.md) was also published for the *same* full independent-arity theorem, with different infinite-tail reductions. See the [cross-audit](../../reviews/2026-10-07-independent-arity-parallel-audit.md). It must not be counted as a second mathematical theorem.

@@ -71,3 +71,5 @@ and [new exact certificate](check.py).
 There is no external human refereeing, full Lean formalization, or
 priority/novelty certification. Author attribution is the mxym repository
 account with AI-assisted preparation.
+
+**Parallel verification:** [another full proof/certificate package](../unbalanced-homogeneous-projection-recursion/README.md) was published for the *same* independent-arity theorem, with smaller finite core and different tail reductions. The [cross-audit](../../reviews/2026-10-07-independent-arity-parallel-audit.md) records shared inputs, actual overlap and replay results; neither package is a different theorem.

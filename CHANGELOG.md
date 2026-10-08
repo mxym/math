@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-07 — reconcile parallel independent-arity 005 proofs
+
+- Recorded that the `de012fc` and `b64b11c` proof packages concern **one identical all-positive-integer independent-arity classification**, not two distinct advances. Their different analytic tail decompositions and exact rational checkers both replayed successfully; hashes and the older 005 v5 winner certificate were checked.
+- Linked each package to the other and added a scoped model-assisted cross-audit. Preserved the two proof records and avoided retroactive claims of independent first discovery or external review.
+
 ## 2026-10-08 — unified traditional avoidance manuscript, revision 2
 
 - Published the exact reviewed 14-page PDF and TeX with the complete traditional proof, compact/geometric corollaries, source correspondence, and preserved missing-hypothesis correction history. The frozen 30-file public package preserves all 17 original revision-2 source members without editing the mathematics or assigning authorship.
