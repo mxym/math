@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — prove infinite strict product-depth hierarchy and complete depth-two projection spectrum
+
+- Established an **infinite strictly increasing hierarchy** of spectral optima for every fixed product nesting depth `k` in the point-generated Cartesian-product/affine-join class. At each finite `k` the maximum is *attained* and is an *exactly computable algebraic number*, whereas no finite depth attains the full-class limit. The corresponding asymptotic growth rates `e*lambda_k` strictly increase, so every bounded-depth grammar loses by a **dimension-exponential factor**. The proof combines a uniform sublinear product multiplier, a constructive central-binomial amplification step, and a certified finite-depth search cutoff.
+- **Completely classified every depth-two expression in all dimensions**: the sharp primitive product state is the 42-dimensional square of the join of two `T5 x T5` blocks, with exact rational `Q=257554342358885086515/36893488147419103232`, hence spectral constant `Q^(1/43)`. Two analytic infinite tails and an **independent 2,770,504-candidate exact checker** (over 1,214 dimension splits) exclude all competitors. An independent producer pins each split's winning rational state, and a 170D third-depth example strictly exceeds the depth-two optimum.
+- Released a complete mathematical proof, predecessor-source hashes and attribution, ordinary/optimized Python replays, four adversarial corruption controls, frozen finite split certificates and read-only CI. Historical entry-005 calculus, depth-one and Bellman packages remain unchanged. No exact all-depth optimum, external peer-review or priority claim is made.
+
 ## 2026-10-08 — convex Pareto envelope and universal even-row permanent transfer
 
 - Strengthened the sharp four-row permanent/determinant inequality into a **complete convex Pareto envelope**: every convex functional nondecreasing in |per A| has its normalized optimum at one of the flat rank-one and monomial endpoints. Consequently, for every **real exponent r>=1**, the exact sharp power objective is max((3/2)^r,1+c), with complete equality classification and critical coefficient c=(3/2)^r-1.
