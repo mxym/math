@@ -1,0 +1,617 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\hypersetup{pdftitle={Counterexamples to Bapat's q-permanent monotonicity conjecture},pdfauthor={Yongxian Zhang},pdfsubject={Explicit complex and integer real symmetric counterexamples}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\DeclareMathOperator{\per}{per}
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Rea}{Re}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\normF}[1]{\lVert #1\rVert_{\mathrm F}}
+\newcommand{\normW}[1]{\lvert #1\rvert_{\wedge}}
+\newcommand{\dd}{\,\mathrm d}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+
+\title{Counterexamples to Bapat's\protect\\$q$-permanent monotonicity conjecture}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering,
+South China University of Technology, Guangzhou, China.
+Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}.
+ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
+\date{October 8, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Bapat conjectured that the inversion-weighted $q$-permanent of every
+non-diagonal Hermitian positive-definite matrix is strictly increasing on
+$[-1,1]$. We give two counterexamples to this assertion. First, we specify
+a $200\times200$ complex Hermitian positive-definite matrix with rational
+real and imaginary parts, together with a rational $q_0\in(0,1)$ for which
+$P_{q_0}>P_1$. Its rank-two Gram precursor is checked by two independent
+integer-arithmetic certificates. Second, we prove the existence of a
+non-diagonal integer real symmetric positive-definite matrix and rational
+$0<q_0<q_1<1$ for which $P_{q_0}>P_{q_1}$. This second proof uses
+equidistributed real linear forms, a conjugate-pair selector, a Gaussian
+ratio ordering estimate, and concentration under contiguous repetition.
+It supplies no numerical real matrix or explicit dimension bound.
+Both counterexample conclusions have complete Lean formalizations for
+the actual inversion-weighted polynomial, with publicly reproducible
+proof-closure verification records.
+\end{abstract}
+
+\section{Introduction and main results}
+For an ordered $N\times N$ matrix $A=(a_{ij})$, define
+\begin{equation}\label{eq:qper}
+ P_q(A)=\sum_{\pi\in\mathfrak S_N}q^{\inv(\pi)}
+             \prod_{i=1}^N a_{i,\pi(i)},\qquad
+ \inv(\pi)=\#\{(i,j):i<j,\ \pi(i)>\pi(j)\}.
+\end{equation}
+Thus $P_q(A)$ is a polynomial in $q$, with $P_1(A)=\per A$.
+A prime denotes its derivative in $q$. The index order is fixed and
+matters: simultaneous row and column relabeling need not preserve this
+polynomial. For Hermitian $A$, $P_q(A)$ is real when $q$ is real.
+Indeed, the terms for $\pi$ and $\pi^{-1}$ are conjugates and have the
+same inversion count.
+
+The conjecture introduced by Bapat~\cite{Bapat1992} asserts strict
+increase on $[-1,1]$ for every non-diagonal Hermitian positive-definite
+matrix. Mitchell~\cite{Mitchell} explicitly states this formulation and
+discusses its positive-semidefinite extension; Bapat and
+Lal~\cite{BapatLal1994} is an early follow-up. Our counterexamples concern
+this original interval, rather than a proposed extension beyond $q=1$.
+
+For the explicit construction let $n=200$, $J=\binom n2=19900$, and put
+\begin{equation}\label{eq:explicitconstants}
+ \Gamma=Jn!n\,1601^{n-1},\qquad K=J(J-1)n!\,1601^n,
+ \qquad \varepsilon=\frac1{4\Gamma},\qquad h=\frac1{8K}.
+\end{equation}
+Appendix~\ref{app:data} specifies the ordered Gaussian-integer rows
+$v_i=(a_i,b_i)\in\C^2$. Let $V$ have these rows and set
+$B_{\C}=VV^*+\varepsilon I_n$.
+
+\begin{theorem}[Specified rational complex counterexample]\label{thm:complex}
+The matrix $B_{\C}$ is non-diagonal, Hermitian, positive definite, and
+has rational real and imaginary parts. The specified rational
+$q_0=1-h$ satisfies $0<q_0<1$ and
+\[
+ P_{q_0}(B_{\C})-P_1(B_{\C})\ge h/8>0.
+\]
+In addition, $P'_1(B_{\C})\le-1/4$ and
+$P'_q(B_{\C})\le-1/8$ for $q\in[1-h,1]$.
+\end{theorem}
+
+The next theorem disproves even the real symmetric restriction.
+\begin{theorem}[Integer real symmetric counterexample]\label{thm:main}
+There exist an integer $N>4$, a non-diagonal real symmetric
+positive-definite matrix $B\in\Z^{N\times N}$, and rational numbers
+$0<q_0<q_1<1$ such that
+\[
+ P'_1(B)<0\qquad\text{and}\qquad P_{q_0}(B)>P_{q_1}(B).
+\]
+\end{theorem}
+
+Positive definiteness is a quadratic-form condition; entrywise
+nonnegativity is not asserted. The real proof passes through a Gram
+matrix of rank at most four, whereas its final positive-definite matrix
+has full rank. Theorem~\ref{thm:main} is existential and gives neither an
+explicit $N$ nor a numerical real matrix. The proofs of the two theorems
+are independent: the real proof does not use the finite complex data.
+We consolidate the previously archived proof packages~\cite{ComplexLean,RealLean}
+into a single paper, without making an exhaustive historical priority claim.
+
+\section{The explicit complex construction}\label{sec:explicit}
+Write $A=VV^*$. The data have $|\Rea a_i|,|\Im a_i|,
+|\Rea b_i|,|\Im b_i|\le20$, so $\|v_i\|^2\le1600$ and
+$|A_{ij}|\le1600$. The first two rows are
+$(13-5i,-6-13i)$ and $(12-6i,-5-14i)$. Their Gram entry is
+$A_{12}=398-i$, and their determinant is $15-37i$. Thus $A$ has
+rank two and is not diagonal.
+
+\subsection{A marked-inversion identity}
+If $A^{ij,kl}$ denotes the matrix obtained by deleting rows $i,j$
+and columns $k,l$ in their original order, differentiating at $q=1$
+and marking an inverted pair gives
+\begin{equation}\label{eq:complexendpoint}
+ P'_1(A)=\sum_{i<j,\,k<l} A_{il}A_{jk}\per(A^{ij,kl}).
+\end{equation}
+For each row pair, expand the permanent in those two rows; summing gives
+\[
+ J\per(A)=\sum_{i<j,\,k<l}(A_{ik}A_{jl}+A_{il}A_{jk})\per(A^{ij,kl}).
+\]
+Consequently, for every complex matrix,
+\begin{equation}\label{eq:complexmarked}
+ 2P'_1(A)=J\per(A)-\sum_{i<j,\,k<l}
+ (A_{ik}A_{jl}-A_{il}A_{jk})\per(A^{ij,kl}).
+\end{equation}
+
+\subsection{Binary forms and the integer certificate}
+Put $\ell_i(x,y)=a_ix+b_iy$ and define
+\[
+ F=\prod_i\ell_i,\qquad
+ S=\sum_{i<j}(a_ib_j-b_ia_j)\prod_{r\notin\{i,j\}}\ell_r.
+\]
+For a homogeneous form $T=\sum_{j=0}^d t_jx^{d-j}y^j$ set
+$\|T\|_{\mathrm F}^2=\sum_j(d-j)!j!|t_j|^2$.
+Expanding monomials proves that the Fischer inner product of two
+products of linear forms is the permanent of their cross-Gram matrix:
+the factorial weight counts exactly the coordinate-matching bijections.
+Thus $\per(A)=\|F\|_{\mathrm F}^2$. Also
+\[
+ A_{ik}A_{jl}-A_{il}A_{jk}
+ =(a_ib_j-b_ia_j)\overline{(a_kb_l-b_ka_l)}.
+\]
+Expanding $\|S\|_{\mathrm F}^2$ in the same way identifies the sum in
+\eqref{eq:complexmarked}, so
+\begin{equation}\label{eq:binaryendpoint}
+ 2P'_1(A)=J\|F\|_{\mathrm F}^2-\|S\|_{\mathrm F}^2.
+\end{equation}
+Let $F_j,S_j$ use the first $j$ rows. They have the exact recurrences
+\begin{equation}\label{eq:recurrence}
+ F_0=1,\quad S_0=0,\quad F_j=\ell_jF_{j-1},\quad
+ S_j=\ell_jS_{j-1}+b_j\partial_xF_{j-1}-a_j\partial_yF_{j-1}.
+\end{equation}
+The derivative terms are precisely the new pairs ending at $j$.
+All coefficients are Gaussian integers. Write
+$T=\|F\|_{\mathrm F}^2$ and $D=\|S\|_{\mathrm F}^2-JT$.
+The accompanying \texttt{anc/verify\_recurrence.py} evaluates
+\eqref{eq:recurrence} using integer pairs for Gaussian integers and
+checks the strict integer inequalities
+\begin{equation}\label{eq:certificate}
+ T>0,\qquad 23JT<1000D<24JT.
+\end{equation}
+Hence $D$ is a positive integer and $P'_1(A)=-D/2\le-1/2$.
+The independent \texttt{anc/verify\_pairs.py} builds $F$, divides out
+each of its $19900$ unordered pairs of factors with exact
+Gaussian-integer synthetic division, and sums the defining terms of
+$S$. Every remainder is checked to be zero. The two implementations
+agree on all four certificate integers. Neither imports the other.
+The certificate computation uses no floating point, optimizer, or
+numerical integration. The actual finite inequality is also proved by
+the Lean package described in Section~\ref{sec:verification}.
+
+\subsection{Positive definiteness and specified parameters}
+For $0\le t\le1$, telescope a product of $n$ entries of $A+tI$.
+At most $n$ terms occur, each bounded in modulus by
+$t\,1601^{n-1}$. Since $\inv(\pi)\le J$, summing over $n!$
+permutations gives
+\[
+ |P'_1(A+tI)-P'_1(A)|\le Jn!n\,t\,1601^{n-1}=\Gamma t.
+\]
+The specified $\varepsilon$ therefore gives
+$P'_1(B_{\C})\le-1/2+1/4=-1/4$.
+Its positive diagonal perturbation makes $B_{\C}$ positive definite
+and leaves the nonzero off-diagonal entry unchanged. All entries are
+rational in real and imaginary parts.
+
+For $q\in[0,1]$, terms of inversion count zero or one have zero
+second derivative. For the remaining terms, $q^{\inv(\pi)-2}\le1$,
+so termwise differentiation gives
+$|P''_q(B_{\C})|\le J(J-1)n!\,1601^n=K$.
+Thus, for $q\in[1-h,1]$,
+$P'_q(B_{\C})\le-1/4+Kh=-1/8$. The constants in
+\eqref{eq:explicitconstants} give $0<h<1$; integration gives
+$P_{1-h}(B_{\C})-P_1(B_{\C})\ge h/8>0$.
+This proves Theorem~\ref{thm:complex}. In particular this proof
+contradicts monotonicity on the original interval $[-1,1]$.
+
+\section{Real Gram matrices: the endpoint identity and repetition}
+Let $n\geq2$ and let $v_1,\ldots,v_n$ be arbitrary real coefficient rows in $\R^r$. Put $A_{ij}=v_i\cdot v_j$ and, using the bilinear complex extension of the real dot product, define
+\begin{align}
+ \ell_i(z)&=v_i\cdot z,\qquad F(z)=\prod_{i=1}^n\ell_i(z),\label{eq:forms}\\
+ S_{ab}(z)&=\sum_{i<j}(v_{ia}v_{jb}-v_{ib}v_{ja})
+                  \prod_{k\notin\{i,j\}}\ell_k(z),\qquad 1\leq a<b\leq r.
+ \label{eq:wedge}
+\end{align}
+Write $S=(S_{ab})_{a<b}$. For a homogeneous polynomial $T(z)=\sum_{|\alpha|=d}t_\alpha z^\alpha$, its Fischer norm is
+\[
+ \normF{T}^2=\sum_{|\alpha|=d}\alpha!\,|t_\alpha|^2,
+ \qquad \normF{S}^2=\sum_{a<b}\normF{S_{ab}}^2.
+\]
+At a point $z$ we instead use the Euclidean wedge-coordinate norm
+\[
+ \normW{S(z)}^2=\sum_{a<b}|S_{ab}(z)|^2.
+\]
+These are distinct notions. Unit length of the rows is not assumed in the algebra below.
+
+\begin{lemma}\label{lem:endpoint}
+For these real rows,
+\begin{equation}\label{eq:endpoint}
+ 2P'_1(A)=\binom n2\normF{F}^2-\normF{S}^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Differentiating \eqref{eq:qper} at $1$ counts a permutation together with a marked inversion. For $i<j$ and $k<l$, that inversion assigns $i$ to $l$ and $j$ to $k$. Consequently
+\[
+ P'_1(A)=\sum_{i<j,\,k<l}A_{il}A_{jk}
+                    \per A[\{i,j\}^{c},\{k,l\}^{c}].
+\]
+For each fixed $i<j$, expansion of the permanent in those two rows gives
+\[
+ \per A=\sum_{k<l}(A_{ik}A_{jl}+A_{il}A_{jk})
+                   \per A[\{i,j\}^{c},\{k,l\}^{c}].
+\]
+Here complements are in $\{1,\ldots,n\}$ and the permanent of the empty matrix is $1$. Summation and subtraction yield
+\begin{equation}\label{eq:marked}
+ \binom n2\per A-2P'_1(A)
+   =\sum_{\substack{I,J\subseteq\{1,\ldots,n\}\\|I|=|J|=2}}
+       \det A[I,J]\,\per A[I^c,J^c].
+\end{equation}
+There are no cofactor signs on the complementary permanents.
+
+The Fischer inner product of two products of real linear forms is the permanent of their cross-Gram matrix. To see this directly, expand both products into monomials: the factor $\alpha!$ counts exactly the bijections matching each of the $\alpha_a$ occurrences of coordinate $a$ in one product with those in the other. Thus $\normF{F}^2=\per A$, and the complementary-product inner product equals $\per A[I^c,J^c]$.
+
+If $I=\{i,j\}$, $J=\{k,l\}$ with indices increasing, Cauchy--Binet gives
+\[
+ \det A[I,J]=\sum_{a<b}
+ (v_{ia}v_{jb}-v_{ib}v_{ja})(v_{ka}v_{lb}-v_{kb}v_{la}).
+\]
+Expanding $\normF{S}^2$ now identifies it with the right-hand side of \eqref{eq:marked}, proving \eqref{eq:endpoint}.
+\end{proof}
+
+Repeat each row $L$ times \emph{contiguously}, preserving the order of the original blocks, and denote the resulting polynomials by $F_L,S_L$. Same-block wedges vanish and each pair of distinct blocks contributes $L^2$ copies. Hence
+\begin{equation}\label{eq:repeat}
+ F_L=F^L,\qquad S_L=L^2F^{L-1}S.
+\end{equation}
+Let $\mu$ be normalized unitary-invariant measure on $\CP^{r-1}$, with homogeneous expressions evaluated at unit representatives. For a homogeneous polynomial of degree $d$,
+\begin{equation}\label{eq:cp}
+ \normF{T}^2=\frac{(d+r-1)!}{(r-1)!}\int_{\CP^{r-1}}|T|^2\dd\mu.
+\end{equation}
+Indeed, coordinate phase invariance kills mixed monomials of different multi-index. For a uniformly distributed complex unit vector the squared coordinate moduli have uniform Dirichlet distribution on the simplex, as follows by normalizing independent exponential squared moduli of complex Gaussians. Its elementary monomial integral is
+\[
+ \int |z^\alpha|^2\dd\mu=\frac{\alpha!(r-1)!}{(d+r-1)!},\qquad |\alpha|=d,
+\]
+which proves \eqref{eq:cp}.
+
+With $N=nL$, equations \eqref{eq:repeat}--\eqref{eq:cp} give the exact ratio
+\begin{equation}\label{eq:ratio}
+ R_L:=\frac{\normF{S_L}^2}{\binom N2\normF{F_L}^2}
+ =\frac{L^4}{\binom N2(N+r-1)(N+r-2)}
+ \frac{\int |F|^{2L-2}\normW{S}^2\dd\mu}
+      {\int |F|^{2L}\dd\mu}.
+\end{equation}
+The factor in front of the integral quotient tends to $2/n^4$ for a fixed base. In our application $r=4$, so the two last factors in the denominator are precisely $(N+3)(N+2)$.
+
+\section{Complex maxima of equidistributed real rows}
+Choose unit real vectors $v_1,v_2,\ldots\in S^3$ with empirical measures
+\[
+ \sigma_m=\frac1m\sum_{i=1}^m\delta_{v_i}\ \Longrightarrow\ \sigma,
+\]
+where $\sigma$ is uniform probability measure on $S^3$. Such a deterministic sequence exists: apply the strong law to a countable uniformly dense collection of continuous functions on the compact sphere for independent uniform samples, intersect the resulting probability-one events, and fix one sample sequence. Uniform approximation extends the convergence to every continuous function.
+
+Let $F_m(z)=\prod_{i=1}^m(v_i\cdot z)$, and choose a global maximizer $[u_m]\in\CP^3$ of $|F_m|$. Its maximum is positive, since a finite union of proper complex hyperplanes cannot cover $\C^4$. Thus no factor vanishes at $u_m$.
+
+For any unit $u=x+iy\in\C^4$, multiplication by a phase diagonalizes the real $2\times2$ Gram matrix of $x,y$; a further phase can interchange their lengths. A real orthogonal coordinate change then puts it in the form
+\begin{equation}\label{eq:canonical}
+ u=\sqrt t\,e_1+i\sqrt{1-t}\,e_2,\qquad \tfrac12\leq t\leq1.
+\end{equation}
+The parameter is intrinsic and continuous:
+\begin{equation}\label{eq:t}
+ t(u)=\frac{1+|u^{\mathsf T}u|}{2}.
+\end{equation}
+Call a unit vector \emph{balanced} if $t(u)=1/2$, equivalently $u^{\mathsf T}u=0$.
+
+\begin{lemma}\label{lem:balance}
+For any choices of the global maximizers, $t(u_m)\longrightarrow1/2$.
+\end{lemma}
+\begin{proof}
+For a complex unit vector put
+\[
+ U(u)=\int_{S^3}\log|v\cdot u|\dd\sigma(v).
+\]
+Phase and real orthogonal invariance reduce it to a function $U(t)$. Write a uniform real sphere vector as $G/\|G\|$, where $G_1,\ldots,G_4$ are independent standard real Gaussians. Then
+\begin{equation}\label{eq:potential}
+ U(t)=\tfrac12\E\log\bigl(tG_1^2+(1-t)G_2^2\bigr)-\E\log\|G\|.
+\end{equation}
+These logarithms are integrable, including at $t=0,1$: for $t\geq1/2$ the first logarithm lies between $\log t+\log G_1^2$ and $\log(G_1^2+G_2^2)$, both integrable; use symmetry for the other half. The Gaussian-radius logarithm is integrable as well. The first expectation is strictly concave in $t$, because $G_1^2\ne G_2^2$ almost surely, and symmetric about $1/2$. Its unique maximum is therefore at $1/2$; denote the maximum by $U_{\mathrm{bal}}$.
+
+Fix $u_{\mathrm{bal}}=(e_1+ie_2)/\sqrt2$. Haar averaging over $O(4)$ gives
+\[
+ \int_{O(4)}\frac1m\log|F_m(Ru_{\mathrm{bal}})|\dd R=U_{\mathrm{bal}},
+\]
+since each unit real row has the same rotational average. The finite sum is integrable. It follows for every $m$ that
+\begin{equation}\label{eq:lower}
+ \frac1m\log|F_m(u_m)|\geq U_{\mathrm{bal}}.
+\end{equation}
+
+For the opposite bound, take a convergent subsequence of projective maximizers and choose unit representatives converging to $u$. The joint measures $\sigma_m\otimes\delta_{u_m}$ converge weakly to $\sigma\otimes\delta_u$. For $K>0$ the function
+\[
+ \phi_K(v,z)=\log\max\{|v\cdot z|,e^{-K}\}
+\]
+is bounded and continuous on the product of the real and complex unit spheres. Since $\log|v\cdot z|\leq\phi_K(v,z)$,
+\[
+ \limsup_m\frac1m\log|F_m(u_m)|
+       \leq\int_{S^3}\phi_K(v,u)\dd\sigma(v).
+\]
+Let $K\to\infty$. Monotone convergence applied to the negatives, and the integrability already proved, identify the limit as $U(u)$. Combining with \eqref{eq:lower} gives $U(u)\geq U_{\mathrm{bal}}$, so $u$ is balanced. Every cluster point is balanced; compactness and \eqref{eq:t} prove the assertion.
+\end{proof}
+
+For each $m$, make a real orthogonal change of the coefficient coordinates that puts its selected maximizer into \eqref{eq:canonical}; now write $t_m=t(u_m)$ and relabel the transformed rows as $v_i$. These moving changes preserve equidistribution of the finite clouds. In fact every subsequence of the orthogonal matrices has a convergent further subsequence, and for each continuous test function the transformed test functions then converge uniformly. The limit preserves $\sigma$. All subsequences consequently have the same limiting empirical measure. No continuous or measurable choice of the canonical coordinates is needed.
+
+\section{Four real factors select a conjugate pair}
+For all sufficiently large $m$, Lemma~\ref{lem:balance} gives $1/2\leq t=t_m<3/4$. Set
+\begin{equation}\label{eq:selector}
+ c=\frac{2t-1}{t(3-4t)},\qquad a=\sqrt{1+c},\qquad
+ H_t(z)=z_1z_2(az_1+z_2)(az_1-z_2).
+\end{equation}
+All four coefficient rows are real and nonzero.
+
+\begin{lemma}\label{lem:selector}
+The global projective maxima of $|H_t|$ on $\CP^3$ are exactly
+\[
+ [u]=[\sqrt t\,e_1+i\sqrt{1-t}\,e_2]
+ \quad\text{and}\quad[\overline u].
+\]
+\end{lemma}
+\begin{proof}
+A nonzero quartic value strictly increases when any mass outside the first two coordinates is removed and those two coordinates are renormalized. Thus a global maximizer is supported on the first two coordinates. For $s=|z_1|^2$ and $|z_2|^2=1-s$, the triangle inequality gives
+\[
+ |H_t(z)|\leq\sqrt{s(1-s)}\,[a^2s+(1-s)]
+          =f_c(s):=\sqrt{s(1-s)}(1+cs).
+\]
+The maximum is positive and interior. There, equality requires $z_1^2$ and $z_2^2$ to have opposite arguments, so the relative phase is $\pm\pi/2$. The derivative of $f_c$ has the sign of
+\[
+ p_c(s)=1-2s+c(3s-4s^2).
+\]
+For $c=0$ its sole zero is $1/2$. For $c>0$ the quadratic roots have product $-1/(4c)$, and $p_c(0)>0>p_c(1)$. There is exactly one zero in $(0,1)$, with a change from increasing to decreasing. The choice \eqref{eq:selector} makes this zero $s=t$. These modulus and phase conditions give exactly the two stated projective points.
+\end{proof}
+
+Both $u_m$ and $\overline{u_m}$ maximize $|F_m|$, because its coefficients are real. They also maximize $|H_{t_m}|$. The augmented product
+\[
+ \widetilde F_m=F_mH_{t_m},\qquad n=m+4,
+\]
+therefore attains the product of the separate maxima, and equality anywhere requires equality for both factors. Its maximum set is exactly this conjugate pair. The four appended rows need not have unit length; normalizing them would only multiply the product by a nonzero constant.
+
+\section{The Cauchy ratio and an ordering estimate}
+In the canonical coordinates take $w=(e_3+ie_4)/\sqrt2$, a Hermitian unit vector orthogonal to $u_m$. For every row of the augmented list define
+\begin{equation}\label{eq:ratios}
+ \zeta_i=\frac{v_i\cdot w}{v_i\cdot u_m},\qquad x_i=\Rea\zeta_i.
+\end{equation}
+All denominators are nonzero at the positive maximum. The four appended rows have $\zeta_i=0$.
+
+By the preserved equidistribution and $t_m\to1/2$, the empirical ratio laws converge weakly to the law of
+\begin{equation}\label{eq:cauchyratio}
+ Z=\frac{G_3+iG_4}{G_1+iG_2}.
+\end{equation}
+For precision, apply the almost-everywhere continuous mapping theorem to the joint empirical measures of $(v_i,t_m)$. At the limiting parameter $1/2$ the ratio map fails to be continuous only on $v_1=v_2=0$, a set of $\sigma$-measure zero. The real normalization $G/\|G\|$ cancels in the ratio, as do the two factors $1/\sqrt2$. The four additional zero ratios have vanishing empirical mass.
+
+The independent complex Gaussian ratio \eqref{eq:cauchyratio} has density
+\begin{equation}\label{eq:cauchydensity}
+ f_Z(z)=\frac{1}{\pi(1+|z|^2)^2},\qquad z\in\C.
+\end{equation}
+For a direct verification, write the numerator and denominator as independent complex variables with densities $(2\pi)^{-1}e^{-|h|^2/2}$. In the change of variables $(z,d)\mapsto(zd,d)$ the real Jacobian is $|d|^2$. Integrating gives
+\[
+ \frac{1}{4\pi^2}\int_{\C}|d|^2e^{-(1+|z|^2)|d|^2/2}\dd d
+       =\frac{1}{\pi(1+|z|^2)^2}.
+\]
+Here $\dd d$ denotes planar Lebesgue measure. Integration in the imaginary coordinate gives the real marginal and its distribution function:
+\begin{equation}\label{eq:marginal}
+ f_X(x)=\frac{1}{2(1+x^2)^{3/2}},\qquad
+ J(x)=\frac12\left(1+\frac{x}{\sqrt{1+x^2}}\right).
+\end{equation}
+For independent copies $X,Y$, the indicator representation of $|X-Y|$ and Tonelli's theorem imply
+\begin{equation}\label{eq:gini}
+ \E|X-Y|=2\int_{\R}J(x)(1-J(x))\dd x
+        =\frac12\int_{\R}\frac{\dd x}{1+x^2}=\frac\pi2.
+\end{equation}
+
+Let $\eta_m=n^{-1}\sum_{i=1}^n\delta_{x_i}$ for the augmented list. Its weak convergence implies that of $\eta_m\otimes\eta_m$. For each $T>0$ use the bounded continuous function $h_T(x,y)=\min\{|x-y|,T\}$. The diagonal terms are zero, so
+\[
+ \liminf_m\frac{2}{n^2}\sum_{i<j}|x_i-x_j|
+       \geq\E h_T(X,Y).
+\]
+Increasing $T$ and using \eqref{eq:gini} gives
+\begin{equation}\label{eq:score}
+ \liminf_m\frac1{n^2}\sum_{i<j}|x_i-x_j|\geq\frac\pi4.
+\end{equation}
+Only this lower bound is used; no convergence of unbounded moments or uniform integrability of the empirical ratios is assumed.
+
+Reorder the entire augmented row list by nondecreasing $x_i$. This leaves $\widetilde F_m$ and its maximum set unchanged. The reordering is an intentional choice of the ordered matrix in \eqref{eq:qper}, not a claimed invariance of the $q$-permanent. Form $S$ for this row order as in \eqref{eq:wedge}, and abbreviate $F=\widetilde F_m$ and $u=u_m$.
+
+Choose a unitary matrix $U$ with first two columns $u,w$, and change polynomial variables by $z=Uy$. The new coefficient rows are $v_iU$. Direct expansion of each wedge gives
+\begin{equation}\label{eq:exterior}
+ S'_{ab}(y)=\sum_{c<d}\det U[\{c,d\},\{a,b\}]\,S_{cd}(Uy).
+\end{equation}
+In row-vector notation, $S'(y)=S(Uy)(\Lambda^2U)$. The exterior square of a unitary matrix is unitary for the orthonormal basis $e_a\wedge e_b$, $a<b$. Hence
+\[
+ \normW{S'(e_1)}=\normW{S(u)},\qquad F'(e_1)=F(u).
+\]
+The primes on $S',F'$ in this paragraph denote transformed polynomials, not derivatives. This unitary coordinate calculation does not change the constructed real Gram matrix: $(VU)(VU)^*=VV^{\mathsf T}$.
+
+Its first wedge coordinate satisfies
+\[
+ \frac{S'_{12}(e_1)}{F(u)}=\sum_{i<j}(\zeta_j-\zeta_i).
+\]
+Since the $x_i$ are sorted, the real part is $\sum_{i<j}|x_i-x_j|$. Define, only on the open set $F\ne0$ and at unit representatives,
+\begin{equation}\label{eq:g}
+ g(z)=\frac{\normW{S(z)}^2}{|F(z)|^2}.
+\end{equation}
+It is continuous there and phase-invariant. The preceding coordinate estimate and \eqref{eq:score} show
+\begin{equation}\label{eq:threshold}
+ g(u_m)\geq\left(\sum_{i<j}|x_i-x_j|\right)^2,
+ \qquad
+ \liminf_m\frac{g(u_m)}{(m+4)^4}\geq\frac{\pi^2}{16}>\frac12.
+\end{equation}
+All ordered coefficient rows are real, so $F(\overline u)=\overline{F(u)}$ and $S(\overline u)=\overline{S(u)}$. Thus the same fixed row order gives equal $g$-values at the conjugate maxima; no second sorting is performed.
+
+\section{Concentration and the finite negative derivative}
+Choose and fix one sufficiently large finite $m$ so that $t_m<3/4$ and, for its augmented ordered base of size $n=m+4$,
+\begin{equation}\label{eq:fixed}
+ g(u)=g(\overline u)=g_0>\frac{n^4}{2}.
+\end{equation}
+From now on $n$, all base rows, $F$, $S$, and the two maximizing points are fixed. Only the repetition number $L$ tends to infinity.
+
+Let $M=\max_{\CP^3}|F|>0$. We claim
+\begin{equation}\label{eq:concentration}
+ \frac{\int |F|^{2L-2}\normW{S}^2\dd\mu}
+      {\int |F|^{2L}\dd\mu}\ \longrightarrow\ g_0.
+\end{equation}
+Given $\varepsilon>0$, take disjoint small neighborhoods of the two maxima on which $F\ne0$ and $|g-g_0|<\varepsilon$. Their compact complement has $|F|\leq a<M$, where we may take $a>0$. Choose $a<b<M$. A positive-measure neighborhood of one maximum has $|F|\geq b$, so for some $c_0>0$,
+\[
+ D_L:=\int |F|^{2L}\dd\mu\geq c_0b^{2L}.
+\]
+The continuous polynomial vector $S$ is bounded on the unit sphere. Thus the contribution of the complement to the numerator is at most $C a^{2L-2}$, whose ratio to $D_L$ tends to zero. The complementary denominator mass divided by $D_L$ also tends to zero. In the chosen neighborhoods the numerator is $|F|^{2L}g$, and differs from $g_0$ times that denominator mass by at most $\varepsilon$ times the mass. Taking $L\to\infty$ and then $\varepsilon\downarrow0$ proves \eqref{eq:concentration}.
+
+This concentration argument requires no nondegenerate Hessian and no calculation of the relative weights of the two peaks. Their common $g$-value is enough. It also never bounds $g$ at zeros of $F$: the original numerator is estimated directly off the peak neighborhoods.
+
+Apply \eqref{eq:ratio} with $r=4$ to the fixed base. By \eqref{eq:fixed} and \eqref{eq:concentration},
+\[
+ R_L\longrightarrow\frac{2g_0}{n^4}>1.
+\]
+Choose and fix one sufficiently large finite integer $L$ for which $R_L>1$. The Gram matrix $A_L$ of the contiguous repeated rows is real symmetric positive semidefinite, has rank at most four and positive diagonal, and Lemma~\ref{lem:endpoint} gives
+\begin{equation}\label{eq:negative}
+ P'_1(A_L)<0.
+\end{equation}
+In particular a finite real endpoint witness exists before any rational or positive-definite perturbation.
+
+\section{Rational and integer positive-definite matrices}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The repeated row list now has a fixed finite size $N=nL>4$. The quantity $P'_1$ of its Gram matrix is a polynomial in its finitely many real row entries. Approximate those entries by rational numbers closely enough to preserve the strict inequality \eqref{eq:negative} and to keep every row nonzero. The resulting rational Gram matrix $A$ has positive diagonal and rank at most four. It cannot be diagonal, since a diagonal $N\times N$ matrix with positive diagonal has rank $N>4$.
+
+Choose a sufficiently small positive rational $\delta$ that the rational matrix
+\[
+ B=A+\delta I_N
+\]
+still satisfies $P'_1(B)<0$, by polynomial continuity. For every nonzero real column $x$, one has $x^{\mathsf T}Bx=x^{\mathsf T}Ax+\delta\|x\|^2>0$. Thus $B$ is positive definite. Its off-diagonal entries are unchanged, so it remains non-diagonal.
+
+Continuity in $q$ gives an $h\in(0,1)$ with $P'_q(B)<0$ on $(1-h,1]$. Choose rational $q_0<q_1$ in $(1-h,1)$. Integrating the strictly negative derivative gives
+\[
+ P_{q_1}(B)-P_{q_0}(B)=\int_{q_0}^{q_1}P'_q(B)\dd q<0.
+\]
+Finally let $D$ be a positive integer common denominator of the entries of $B$. Then $DB\in\Z^{N\times N}$, and the defining polynomial gives, term by term,
+\begin{equation}\label{eq:scale}
+ P_q(DB)=D^NP_q(B),\qquad P'_q(DB)=D^NP'_q(B).
+\end{equation}
+Positive scalar multiplication preserves positive definiteness and non-diagonality, and \eqref{eq:scale} preserves both strict inequalities at the same rational $q_0,q_1$. Replacing $B$ by $DB$ proves the integer assertion.
+\end{proof}
+
+The choices have a strict order: first choose and fix a sufficiently large equidistributed cloud, its selector, and its row ordering; then choose and fix a repetition number; then choose a rational row approximation; then a positive rational diagonal perturbation; finally the two interior rational parameters and the positive denominator multiplier. There is no simultaneous limit in cloud size and repetition number. The peak structure, unit normalization, and ratio ordering need not survive rational approximation, because they have already produced the open strict inequality $P'_1<0$.
+
+
+\section{Formal verification and reproducibility}\label{sec:verification}
+The two main counterexample conclusions are formalized for the
+actual inversion-weighted sum over all permutations in the fixed row
+order, rather than a surrogate polynomial. The public packages use
+Lean 4.34.1 (compiler commit
+\texttt{5045d0056413266e57c625dcd7c365b10e377c52}) and mathlib
+commit \texttt{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+
+The complex endpoint in \texttt{N200Explicit.lean} is
+\begin{quote}\small
+\path{BapatExplicit.explicit_rational_counterexample}
+\end{quote}
+It proves positive definiteness,
+non-diagonality, the specified $q_0\in(0,1)$, and the specified gap
+$P_{q_0}(B_{\C})-P_1(B_{\C})\ge h/8>0$, without mathematical
+hypotheses. Rational entries and real-valuedness have separate
+formal theorems. The six-module extension records 30 theorem roots
+and replay of their 22,812-declaration dependency closure in an
+initially empty kernel at trust level zero. Its earlier finite
+certificate input additionally has a complete continuation checking
+all 928 owned declarations and their 22,371-declaration union closure.
+An earlier timed-out input run is retained as a failed run, not
+relabeled as a pass. The successful continuation is a separate record.
+
+The real endpoint is
+\begin{quote}\small
+\path{BapatRealExistence.exists_integer_real_symmetric_counterexample}
+\end{quote}
+It proves the existence of the integer matrix, its actual positive
+definiteness and negative endpoint derivative, and two rational
+interior parameters with strict decrease, without mathematical
+hypotheses. Its record contains 67 freshly compiled modules, all
+776 owned declarations, and empty-kernel replay of a
+54,739-declaration union closure at trust level zero.
+For the ordering estimate the Lean route directly proves the needed
+Gaussian Gini integral; it does not separately formalize every
+density and CDF calculation printed in this paper. Nonconstructive
+choice is allowed, so this certificate does not extract a numerical
+real matrix or dimension bound.
+
+Both records permit only the standard axioms \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}; their complete
+signatures have supplemental checks. Deliberately false proof
+controls are rejected. The mathematical dependency closures contain
+no additional axioms, unsafe proofs, or admitted analytic bridges.
+This certifies the stated endpoints, not an assertion that every
+expository sentence or auxiliary formulation here was separately
+formalized. Full sources, pinned dependencies, execution records,
+semantic reviews, and reproduction instructions are preserved in
+the immutable archives~\cite{ComplexLean,RealLean}.
+The present combined manuscript changes presentation and author
+metadata; it does not replace those archived proof bytes.
+
+To replay the integer certificate distributed with this submission,
+run the following commands:
+\begin{verbatim}
+python3 anc/verify_recurrence.py
+python3 anc/verify_pairs.py
+\end{verbatim}
+Both require only Python's
+standard library and reject optimized execution, because their
+checks use assertions. The second writes a result file next to its
+source. The finite checks establish the complex certificate;
+they are not finite tests of the real limiting proof.
+
+\section*{Acknowledgments and disclosures}
+This research was conducted independently and received no external
+funding. OpenAI AI assistants were used to assist mathematical
+research, proof development, Lean formalization, verification code,
+manuscript preparation, and internal reviews. These internal reviews
+are not external human peer review. The author is responsible for
+the manuscript's contents. No journal acceptance or exhaustive
+historical priority certification is asserted.
+
+\clearpage
+\appendix
+\section{The ordered complex witness}\label{app:data}
+Each tuple below is $(\Rea a_i,\Im a_i,\Rea b_i,\Im b_i)$, with
+the integer at its left specifying the row $i$. Table blocks must
+be read by their row indices. The same data are supplied in
+\path{anc/counterexample_vectors_n200.csv}, whose SHA-256 is
+\begin{center}\scriptsize\texttt{9d16617d6eb287535a752cf5ef6f3d4672a133812bf0fbd908738a10c223fc25}.\end{center}
+The table and CSV specify all entries of $V$; the remaining
+parameters are exactly \eqref{eq:explicitconstants}.
+\input{witness.tex}
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{Bapat1992}
+R. B. Bapat, \emph{Interpolating the determinantal and permanental
+Hadamard inequality}, Linear and Multilinear Algebra \textbf{32}
+(1992), 335--337.
+\bibitem{BapatLal1994}
+R. B. Bapat and A. K. Lal, \emph{Inequalities for the $q$-permanent},
+Linear Algebra and its Applications \textbf{197--198} (1994), 397--409.
+\href{https://doi.org/10.1016/0024-3795(94)90497-9}{doi:10.1016/0024-3795(94)90497-9}.
+\bibitem{Mitchell}
+L. Mitchell, \emph{A note on Bapat's $q$-permanent conjecture},
+Operators and Matrices \textbf{14} (2020), no.~4, 915--919.
+\href{https://doi.org/10.7153/oam-2020-14-56}{doi:10.7153/oam-2020-14-56}.
+\bibitem{ComplexLean}
+Y. Zhang, \emph{Bapat $q$-permanent counterexample: specified rational
+complex witness and complete Lean certificate}, mxym/math research
+archive, immutable release \texttt{bapat-q-permanent-counterexample-v1.2},
+commit \texttt{6aa1adcc7897635b4ab2c82b0ae22c23106f91e6} (2026).
+\href{https://github.com/mxym/math/releases/tag/bapat-q-permanent-counterexample-v1.2}{Proof sources and verification records}.
+\bibitem{RealLean}
+Y. Zhang, \emph{Integer real symmetric Bapat counterexample: existence
+proof and complete Lean certificate}, mxym/math research archive,
+immutable release \texttt{bapat-real-symmetric-existence-counterexample-v1.1},
+commit \texttt{6ff60a4bad0bd78925f29faf8e3b252aa8b3e455} (2026).
+\href{https://github.com/mxym/math/releases/tag/bapat-real-symmetric-existence-counterexample-v1.1}{Proof sources and verification records}.
+\end{thebibliography}
+\end{document}

@@ -21,6 +21,15 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 已覆盖实际 200 阶复 Hermitian 矩阵、指定有理扰动和参数、正定性及原区间内的严格反向不等式。
 [完整作者资料与论文署名模板](AUTHOR.md) · [结构化作者资料](authors/zhang-yongxian.json)
 
+## arXiv 投稿准备
+
+Bapat 的指定复数有理反例与实对称整数反例存在定理，已合并为一篇 13 页论文：
+[PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) ·
+[可上传的 TeX ZIP](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/bapat-arxiv-source.zip) ·
+[审计记录与验证范围](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/AUDIT.md)。
+当前状态为完成投稿准备，尚未向 arXiv 提交。
+高斯论文的 arXiv 投稿延后，先继续研究并完善主证明链的 Lean 覆盖。
+
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
 
 The [complete six-page proof](research/gaussian-fixed-mass-propeller-counterexample/paper.pdf)
