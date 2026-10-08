@@ -99,3 +99,12 @@ The proof gives simple all-n **quadratic dual inequalities** and matching **expl
 ### Public replay and review limits
 
 The [verification record](VERIFICATION.md) separates the complete written proofs from the finite exact replay tools, records what each checker establishes, and identifies remaining open cases. No result is called externally peer reviewed, globally priority-certified, or Lean-formalized merely because its exact arithmetic checker passed.
+
+
+## Full exact rank-four triple-action spectrum through degree 23
+
+[Theorem 19](paper.md#19-a-complete-certified-three-subset-spectrum-through-degree-23) determines the **complete exact optimal atom-vs-TV coefficient** for the natural action of S_n on its 3-element subsets, for every 3≤n≤23. For n=3,4,5 the answer follows from trivial action, doubly transitive action, or the two-subset complement, respectively. The 18 genuinely rank-four cases 6≤n≤23 use **fixed rational primal-dual certificates** in [certificates/three_subset_n6_23.json](certificates/three_subset_n6_23.json).
+
+The [independent checker](code/check_three_subset_certificates.py) uses only standard-library integer and Fraction arithmetic, enumerates **every conjugacy class and every three-element subset** for each of the 18 degrees, verifies all orbital moment constraints and every dual inequality, and replays a valid small attaining perturbation. The [separate rational certificate generator](code/generate_three_subset_certificates.py) is not called by the checker. A fresh public GitHub download of the fixed JSON and checker into a new Windows directory passed all 18 degrees; see [replay scope](VERIFICATION.md#independent-fixed-certificate-three-subset-replay).
+
+This is a **finite exact classification with full replayable proof evidence**, not a conjectural all-degree formula for triple actions. Degrees n≥24 and the general asymptotic law for these rank-four representations remain open.
