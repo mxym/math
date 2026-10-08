@@ -11,7 +11,7 @@ This partial lemma **does not** formalize the maximal-minor formula, the rank de
 ## Precise missing formalization obligations
 
 1. Define the two-state transfer matrix over truncated formal polynomials and prove the orbital coefficient/cycle-index identity for arbitrary finite n,k.
-2. Formalize the full-rank binomial-product determinant proof using finite differences and Taylor coefficients at t=1.
+2. **Preferred simpler route:** formalize the full-rank determinant with *only integer-polynomial trace recurrences* via Lemma F of Section 11: the exact forward-difference identity ∇^r G_0(t)=(t-1)^r[u^(m-r)] Z_(n-2r)(u,t), then Z_L(u,1)=(1+u)^L. This avoids implicit roots and formal power-series derivatives. The pure integer checker independently replayed 30 small parameter pairs.
 3. Prove the general alternating maximal-minor kernel vector identity for rectangular matrices over a field.
 4. Establish an exact sparse-support reduction for sign-constrained rational kernel vectors: any non-circuit signed dependence splits into smaller-support sign-compatible dependencies.
 5. Prove the maximum-minor objective equals the complete finite-dimensional signed kernel norm optimum, including degenerate and empty-kernel cases.
