@@ -61,6 +61,10 @@ compilation avoids repeatedly loading the same large mathlib environment
 and records the hashes of every original source file.
 
 Recorded evidence is in `verification/`.
+The [frozen-archive integrity record](verification/ARCHIVE_VERIFICATION.json)
+binds the committed package byte for byte to that full replay, including
+the generated bundle and compiler logs. This archival check is not a
+second Lean replay.
 The [rational-witness review](reviews/rational-witnesses.md) and
 [endpoint review](reviews/endpoint.md) identify exact source hashes; their
 original scratch paths correspond byte for byte to the files in this package. A successful
