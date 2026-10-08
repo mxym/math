@@ -58,6 +58,15 @@ dependencies), with a false-proof control. The continuation verifies that its
 root list equals the actual declarations owned by all 22 imported modules.
 This avoids repeated individual traversals without reducing proof coverage.
 
+A separate [standard-axiom signature audit](verification/axiom-signatures/report.json)
+checks the actual complete types, universe parameters, declaration kind and
+safety of the three allowed axioms loaded with this verified bundle. All 13
+deliberately altered signatures/kinds/universes/safety flags were rejected.
+The checker is adapted, with attribution, from the original package's
+[standard-axiom supplement](../bapat-q-permanent-counterexample/standard-axioms-addendum-v1/README.txt).
+This supplemental execution checks foundations and does not count as another
+mathematical kernel replay.
+
 The universal 52-theorem explicit perturbation package separately completed
 its fresh run (21,571 declarations). The new runner checks the source
 inventories, successful continuation/run evidence, compiler identity and
@@ -101,6 +110,7 @@ To check correspondence of the preserved source and execution record:
 ```sh
 python3 -B formalizations/bapat-q-permanent-explicit-rational/check_record.py
 python3 -O -B formalizations/bapat-q-permanent-explicit-rational/check_record.py
+python3 -B formalizations/bapat-q-permanent-explicit-rational/verify_axiom_signatures.py --check-record
 ```
 
 These commands verify evidence integrity; they do not run Lean. To compile and
@@ -141,3 +151,21 @@ bridge kernel check with the original input kernel check. The runner emits an
 overall PASS only after the continuation completes successfully and its actual
 source/build/evidence hashes are validated. Both input artifacts and all new
 mathematical source bytes are checked again before the final report.
+
+After reproducing the proof with paired input directories, the supplemental
+signature audit can be rerun using the same paths:
+
+```sh
+python3 -B formalizations/bapat-q-permanent-explicit-rational/verify_axiom_signatures.py \
+  --lean /path/to/lean-4.34.1/bin/lean \
+  --dependency-project /path/to/pinned-dependency-project \
+  --proof-run /path/to/new-explicit-rational-run \
+  --original-proof-run /path/to/completed-original-source-run \
+  --parameter-proof-run /path/to/completed-parameter-run \
+  --output /new/path/signature-audit
+```
+
+The supplemental runner requires correspondence with the frozen successful
+proof report and its source and imported artifact hashes. It freshly compiles
+the signature checker and tests the loaded standard axioms; its `--check-record`
+mode only checks preserved evidence integrity.
