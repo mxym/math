@@ -8,6 +8,16 @@ Gaussian source coding and Gaussian maxima literature.
 
 ## Core classical ingredients
 
+**Primary quantitative Berry–Esseen locator:** I. S. Tyurin,
+*A Refinement of the Remainder in the Lyapunov Theorem*,
+*Theory of Probability & Its Applications* **56** (2012),
+693–696, DOI [10.1137/S0040585X9798572X](https://doi.org/10.1137/S0040585X9798572X).
+The journal abstract explicitly states an absolute bound
+\(0.5591\) for the **non-identically distributed** summand
+case, which rigorously permits our more conservative
+constant \(1\). This is a theorem taken from the
+literature, not certified by the finite checker.
+
 - **Berry–Esseen inequality** for sums of independent,
   non-identically distributed centered real summands,
   in the standardized form
@@ -67,7 +77,7 @@ extends it to *every* sufficiently large k.
 The additive-accuracy dimension therefore has
 the optimal growth order Theta((log k)^2)
 for all integer cell counts, with an explicit
-95/k tolerance.
+92/k tolerance.
 
 The gluing step is a rigorously quantified
 synthesis of standard entropy coding, product
