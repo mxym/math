@@ -1,0 +1,31 @@
+# Exact independent 197-point sieve-obstruction certificate replay
+$ python3 code/check.py
+SHAPE: 197 distinct connected lattice points; bounds a=369..413, b=-34..34
+LOCAL: complete literal admissible shifts for all 45 primes p<=197
+ALGEBRA: exact split/inert modular norm identities checked on selected primes
+ALL FINITE PROOF WITNESSES VERIFIED
+$ python3 -O code/check.py
+SHAPE: 197 distinct connected lattice points; bounds a=369..413, b=-34..34
+LOCAL: complete literal admissible shifts for all 45 primes p<=197
+ALGEBRA: exact split/inert modular norm identities checked on selected primes
+ALL FINITE PROOF WITNESSES VERIFIED
+$ python3 code/check_projection.py
+INDEPENDENT PROJECTION CERTIFICATE: {'ramified': 1, 'split': 20, 'inert': 24}
+EVERY RATIONAL PRIME p<=197 IS LOCALLY ADMISSIBLE
+$ python3 -O code/check_projection.py
+INDEPENDENT PROJECTION CERTIFICATE: {'ramified': 1, 'split': 20, 'inert': 24}
+EVERY RATIONAL PRIME p<=197 IS LOCALLY ADMISSIBLE
+$ python3 code/self_test.py
+REJECTED: deleted shape point
+REJECTED: repeated shape point
+REJECTED: missing small-prime certificate
+REJECTED: nonprime index inserted
+REJECTED: fabricated norm-zero local shift at p19
+ALL NEGATIVE CONTROLS PASSED
+$ python3 -O code/self_test.py
+REJECTED: deleted shape point
+REJECTED: repeated shape point
+REJECTED: missing small-prime certificate
+REJECTED: nonprime index inserted
+REJECTED: fabricated norm-zero local shift at p19
+ALL NEGATIVE CONTROLS PASSED
