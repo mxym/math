@@ -94,3 +94,20 @@ Final replay marker: ASYMPTOTIC SYMBOLIC CERTIFICATE REPLAY PASSED.
 The asymptotic theorem for **all sufficiently large n** does not rely on applying the finite checker at untested degrees. It is proved analytically: Section 22 explicitly bounds a Chebyshev-type cubic dual on every real feasible parameter region, and independently constructs moment-matched positive class measures in all four congruence classes. The SymPy script verifies claimed algebraic identities and asymptotic coefficients, **not** the entire quantified real-variable inequality. That inequality is written and must be reviewed as mathematics.
 
 **Status / still open:** the all-n exact optimum (not just its 1/n coefficient), explicit eventual optimal supports, k-subset actions at k>=4, a formal Lean/Coq proof, full independent mathematical peer review, and priority/novelty verification. A symbolic CAS pass and a finite certificate do not establish worldwide novelty or constitute human refereeing.
+
+
+## All-fixed-rank analytic closure and transfer-matrix replay
+
+**Theorem 25 (all fixed k)** now resolves the Section 23 Chebyshev leading-coefficient conjecture, proving C_n^(k)=1-2k^2/n+O_k(n^-2) for every fixed integer k>=1. The proof is **analytic**, and no finite tests can establish its quantified range. The exact assumptions and independent mathematical ingredients are:
+
+- Lemma 26: coefficientwise, uniform-in-permutation O_k(n^-2) expansion of the complete k-subset orbital generating function, using finite hypergeometric factorial moments and the maximum-degree-two pair-event graph.
+- Corollary 27: first-order differential correction J_P(a,b)=(k-1)(1-a)P'(a)+(b-3a(1-a)/2)P''(a) to all polynomial orbital observables of degree <=k.
+- Lemma 28: Chebyshev-Lobatto interpolation of the first-order correction, followed by **uniform local estimates at every interior and boundary extremum**, plus a compact complement and the nonidentity constraint n-x>=2. This proves the oscillation upper bound 1-2k^2/n+O_k(n^-2).
+- Theorem 25 primal: exactly rational k-by-k moment-matching linear system for conjugation-invariant probability measures; nonsingularity by Bernstein/Vandermonde interpolation; **strict positivity** via the signs of Lagrange cardinal derivatives and asymptotic weights; equality of all image marginals holds exactly.
+- Corollary 29: closed Chebyshev-Lobatto leading mass profile, including sums 2k^2 and 2(k^2-1)/3. This is not a finite-n closed formula.
+
+**Independent k=4 replay:** code/check_k4_chebyshev_dual.py was fetched from the public repository into a fresh authorized VPS directory and run with Python 3.10 + SymPy 1.14. It passed exact identities in Q(sqrt2), the Bernstein coefficients, the four contacts of the corrected dual, and six exact rational moment-matching positive-primal cases at n=60,120,240,480,960,1920. Exit status zero. These cases are cross-checks, not the basis for the all-k theorem.
+
+**Theorem 30 (all n,k)** proves the exact 2-state transfer-matrix/cycle-index formula. Every k-subset orbital count depends only on the counts of cycles of lengths at most k, giving an O_k(n^k) exact LP compression. The independent public source code/check_all_k_orbital_compression.py uses **integer arithmetic only** to compute the formal-power-series root and cycle trace via explicit recurrences, and crosschecks against separate direct subset enumeration for every conjugacy partition of n=3,...,12 and k<=min(n,6). These finite checks passed locally before publication.
+
+**Open scope after the closure:** the exact finite-n optimum for arbitrary (n,k), explicit effective n thresholds in the all-k proof, and independently peer-reviewed or proof-assistant formal verification of the full analytic theorem. A mathematical paper draft plus symbolic/finite checkers is **not** equivalent to machine-formal proof of the universal result. Literature priority checks remain incomplete.
