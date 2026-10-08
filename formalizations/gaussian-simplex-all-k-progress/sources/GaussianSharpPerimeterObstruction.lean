@@ -185,3 +185,52 @@ theorem actual_radial_deficit_perimeter_variance_split
 
 #print axioms actual_radial_deficit_perimeter_variance_split
 end GaussianMeasureBridge
+
+
+namespace GaussianMeasureBridge
+
+/-!
+An exact finite weighted Cauchy-defect identity. It does not require
+nonnegative weights; positivity is needed only when interpreting the
+result as a variance in the actual Gaussian facet application.
+-/
+
+/-- Exact weighted edge-variance identity around the weighted mean.
+This quantifies, rather than merely bounds, the weighted Cauchy defect. -/
+theorem finite_weighted_cauchy_defect_eq_variance
+    {ι : Type*} [Fintype ι] (w ell : ι → ℝ)
+    (hA : (∑ i, w i) ≠ 0) :
+    (∑ i, w i) * (∑ i, w i * ell i ^ 2) -
+        (∑ i, w i * ell i) ^ 2 =
+      (∑ i, w i) *
+        (∑ i, w i *
+          (ell i - (∑ j, w j * ell j) / (∑ j, w j)) ^ 2) := by
+  classical
+  let A : ℝ := ∑ i, w i
+  let B : ℝ := ∑ i, w i * ell i
+  let C : ℝ := ∑ i, w i * ell i ^ 2
+  let m : ℝ := B / A
+  have hA' : A ≠ 0 := hA
+  have hm : A * m = B := by
+    dsimp only [m]
+    field_simp
+    ring
+  have hexpand :
+      (∑ i, w i * (ell i - m)^2) = C - 2*m*B + m^2*A := by
+    calc
+      _ = ∑ i, (w i*ell i^2 - (2*m)*(w i*ell i) + m^2*w i) := by
+        apply Finset.sum_congr rfl
+        intro i _
+        ring
+      _ = C - 2*m*B + m^2*A := by
+        simp only [Finset.sum_add_distrib, Finset.sum_sub_distrib, ← Finset.mul_sum]
+        ring
+  change A*C - B^2 = A*(∑ i, w i*(ell i-m)^2)
+  rw [hexpand]
+  calc
+    A*C-B^2 = A*C-2*(A*m)*B+(A*m)^2 := by rw [hm]; ring
+    _ = A*(C-2*m*B+m^2*A) := by ring
+
+#print axioms finite_weighted_cauchy_defect_eq_variance
+
+end GaussianMeasureBridge
