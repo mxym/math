@@ -34,7 +34,7 @@ theorem tensor_normSq_upper (ts : List ℝ)
     rw [mul_pow, mul_pow, mul_pow,
       Real.sq_sqrt (energy_nonneg ts f),
       Real.sq_sqrt (energy_nonneg ts g),
-      Real.sq_sqrt (energy_nonneg ts h)] <;> ring
+      Real.sq_sqrt (energy_nonneg ts h)]
   rw [Complex.normSq_eq_norm_sq]
   nlinarith
 
@@ -69,10 +69,10 @@ theorem tensorSquaredBound_lower (ts : List ℝ) (B : ℝ)
         (energy ts f * energy ts g * energy ts j) ≤
       B * (energy ts f * energy ts g * energy ts j) := by
     simpa only [mul_assoc] using hineq
-  by_contra hn
-  have hx : B < (productK ts)^2 := lt_of_not_ge hn
-  have hh := mul_lt_mul_of_pos_right hx hp
-  exact (not_lt_of_ge hmul) hh
+  by_contra hnot
+  have hlt : B < (productK ts)^2 := lt_of_not_ge hnot
+  have ht := mul_lt_mul_of_pos_right hlt hp
+  exact (not_lt_of_ge hmul) ht
 
 /-- Full sharp tensor result for all finite lengths and all
     nonidentical legal S₃ permutation laws: no real squared
