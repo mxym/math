@@ -30,3 +30,7 @@ lake build
 Use the supplied lock without running an unqualified `lake update`. These commands perform ordinary development compilation; they do not perform the deferred independent kernel replay. Dependency sources and caches are obtained from their official repositories and the official Mathlib cache service; no credentials are needed for this public project.
 
 Do not reuse private absolute build paths or old compiled outputs as proof of new source bytes. `module-order.json` records a valid order of the current local imports. `SOURCE_MANIFEST.json` hashes this checkpoint's distributed files; the Git commit is its publication identity.
+
+## Independent mathematical review
+
+The [step-by-step mathematical review](review/INDEPENDENT_MATHEMATICAL_REVIEW.md) independently rederives the six-page manuscript's proof using the published Gaussian multi-bubble theorem. It found no fatal gap in the theorem, equality classification, singular endpoints or exact covariance deficit, and records recommended expansions to the price Hessian and related analytic details. Its [provenance record](review/REVIEW_PROVENANCE.json) binds the reviewed source bytes. This is an internal mathematical review, not an external human peer review or a Lean kernel certificate. The original frozen manuscript remains the reviewed baseline. The analytic clarifications have now been written into a separate [expanded seven-page draft](https://github.com/mxym/math/pull/7), with new source hashes and the earlier review scope preserved.
