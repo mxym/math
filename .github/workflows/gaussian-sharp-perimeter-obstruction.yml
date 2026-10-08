@@ -1,0 +1,43 @@
+name: Verify Gaussian sharp-perimeter obstruction (development)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/gaussian-sharp-perimeter-obstruction-20261008
+    paths:
+      - '.github/workflows/gaussian-sharp-perimeter-obstruction.yml'
+      - 'formalizations/gaussian-simplex-all-k-progress/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-development-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and obtain Mathlib artifacts
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/gaussian-simplex-all-k-progress
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build all unconditional obstruction lemmas
+        working-directory: formalizations/gaussian-simplex-all-k-progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '^[[:space:]]*(sorry|admit|axiom)[[:space:]]' sources/GaussianSharpPerimeterObstruction.lean; then
+            echo 'Forbidden proof placeholder/declaration detected'
+            exit 1
+          fi
+          lake build +GaussianSharpPerimeterObstruction
+      - name: Explicit scope notice
+        shell: bash
+        run: |
+          echo 'Only obstruction and deficit decomposition lemmas were checked.'
+          echo 'The sharp Gaussian multi-bubble perimeter lower bound remains UNPROVED.'
+          echo 'This is NOT the complete Gaussian simplex first-moment theorem.'
