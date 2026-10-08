@@ -1,9 +1,8 @@
 # Full Lean verification of the sharp complex permanent–determinant coefficient lens
 
-**Status:** A complete Lean 4.34.1 / Mathlib proof of Theorem 1A from
+**Status:** Complete Lean 4.34.1 / Mathlib proofs of Theorems **1A and 1B** from
 the public complex three-row permanent–determinant manuscript.
-Theorem 1B (the five-term exact norm formula for *every* coefficient)
-and all equality classifications are not yet fully formalized.
+Theorem 2 (the full equality classification) and tensorization corollaries are not yet fully Lean-formalized.
 
 ## Full theorem proved
 
@@ -33,6 +32,31 @@ shows that every candidate squared-norm constant valid for all complex
 matrices must be at least 4/3, by the all-ones matrix witness.
 Thus 2/sqrt(3) is the optimal unsquared constant throughout the lens.
 
+## Entire complex coefficient norm, formally proved
+
+The additional kernel theorem `ComplexPencilFull.sharp_full_pencil_norm_iff`
+proves for **every** complex `lambda` and **every** real proposed squared-norm constant `B`:
+
+    [for all 3x3 complex A,
+       |per(A) + lambda*det(A)|^2 <= B*product(row squared norms)]
+             iff normBoundSq(lambda) <= B.
+
+The quantity `normBoundSq` is explicitly the maximum of
+
+    4/3,
+    1+|lambda|^2 + 2 Re(lambda),
+    1+|lambda|^2 - 2 Re(lambda),
+    |lambda|^2 + 1/3 + (2/sqrt(3)) Im(lambda),
+    |lambda|^2 + 1/3 - (2/sqrt(3)) Im(lambda).
+
+It is therefore exactly the square of the five-term norm formula
+from Theorem 1B. Two explicit Fourier matrices give the sharp
+complex-imaginary endpoints; parity permutation matrices give the
+real endpoints; the all-ones matrix gives the 4/3 endpoint.
+
+This is a full universal-norm **minimax theorem**, not merely an
+upper bound or finite symbolic interpolation.
+
 ## Kernel-checked proof
 
 - HermitianCertificate.lean: real six-parameter determinant and
@@ -47,6 +71,13 @@ Thus 2/sqrt(3) is the optimal unsquared constant throughout the lens.
 - Main.lean: original lambda-dependent matrix, phase and normSq
   identities, actual determinant/three minor matches, positivity,
   complete coefficient lens sufficiency AND necessity, sharp constant.
+- NormCurve.lean: five candidate squared norms, exactly quantified
+  parameter inequalities and upper certificate for all complex lambda.
+- Witnesses.lean: explicit primitive-cube-root Fourier matrices,
+  precise permanent/determinant evaluations and two optimal
+  imaginary-direction squared-modulus witnesses.
+- ExactNorm.lean: universal quantified five-branch minimax theorem
+  with both upper and lower bounds, plus its Lean axiom audit.
 
 No theorem assumes the missing endpoint as a hypothesis.
 The boundary cases are covered by nonstrict polynomial inequalities.
@@ -65,24 +96,28 @@ cache using Lake:
     lake env lean -o .lake/build/lib/lean/HermitianCertificate.olean HermitianCertificate.lean
     lake env lean -o .lake/build/lib/lean/PSD3.olean PSD3.lean
     lake env lean -o .lake/build/lib/lean/Link.olean Link.lean
-    lake env lean Main.lean
+    lake env lean -o .lake/build/lib/lean/Main.olean Main.lean
+    lake env lean -o .lake/build/lib/lean/NormCurve.olean NormCurve.lean
+    lake env lean -o .lake/build/lib/lean/Witnesses.olean Witnesses.lean
+    lake env lean ExactNorm.lean
     sha256sum -c SHA256SUMS
 
 The original true compiler outputs are included:
 cert-build.log, psd-build.log, Link.log, Main.log.
-In Main.log the built-in Lean axiom reports for the two endpoints
+In Main.log the built-in Lean axiom reports for the Theorem 1A endpoints
 and three core dependencies list only
 propext, Classical.choice and Quot.sound.
-No sorry, admit, native_decide, unsafe or custom axiom appears
-in the owned proof files.
+The `ExactNorm.log` audit of the Theorem 1B endpoint also lists only
+these same standard axioms. No sorry, admit, native_decide, unsafe
+or custom axiom appears in the owned proof files.
 
 ## Precise limitation
 
-Complete for Theorem 1A (complex sharp lens equivalence) and its
-optimal coefficient. NOT complete for the stronger Theorem 1B exact
-five-term coefficient-dependent operator norm, or Theorem 2 equality
-classification. These remaining targets require additional fully
-checked optimality witnesses and parameter analysis.
+Complete for Theorem 1A (complex sharp coefficient-lens equivalence)
+and Theorem 1B (five-branch exact coefficient-dependent operator norm),
+including all five optimality witnesses and squared norm formulation.
+Theorem 2 equality classification and higher tensorization corollaries
+are NOT yet kernel formalized.
 
 The mathematical proof comes from
 https://github.com/mxym/math/tree/main/notes/complex-permanent-determinant .
