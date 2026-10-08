@@ -1,0 +1,86 @@
+{
+  "schema": "mxym-math-research-release-manifest-v1",
+  "title": "Exact universal 5/14 Johnson all-rank atom-TV theorem",
+  "publication_date_utc": "2026-10-08",
+  "status": "complete traditional proof with independently replayed exact finite certificates; no external referee or Lean claim",
+  "theorems": [
+    "For every n>=6, C_n^all=C_{n,floor(n/2)}=5/14 exactly, attained by rational four-conjugacy-class measures",
+    "For all n>=1, C_n^all=0 (n<=2), 1/3 (n=3,4,5), 5/14 (n>=6); small cases import prior proved natural and edge action theorems",
+    "For any faithful G<=S_n matching its uniform group's full subset-image marginals at every rank, every group atom has sharp universal upper coefficient 5/14",
+    "All equality directions have positive support on identity/four-cycle and negative support on transpositions/two disjoint three-cycles (or reversed); class masses are rigid",
+    "The same sharp 5/14 inequality at the identity holds under the weaker invariant-subset-count expectation constraints alone"
+  ],
+  "proof": {
+    "paper": "notes/johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md",
+    "proof_commit": "e16f70d90ebd294c94a043b2012df5d0189e4a69",
+    "primary_dual": {
+      "q": [
+        "1/2",
+        "3/8",
+        "1/4",
+        "1/5",
+        "1/6"
+      ],
+      "integer_denominator": 7840000000,
+      "moved_finite_max": 41,
+      "finite_nontrivial_cycle_partitions": 44582,
+      "tail_first_moved": 42,
+      "tail_half_exponent": 21
+    },
+    "alternative_dual": {
+      "q": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "1/5",
+        "1/6"
+      ],
+      "integer_denominator": 30625,
+      "moved_finite_max": 43,
+      "finite_nontrivial_cycle_partitions": 63260,
+      "tail_first_moved": 44,
+      "tail_half_exponent": 22
+    },
+    "tail_certification": "Both duals satisfy a strict rational sum(|alpha_i|*(q_i^2+(1-q_i)^2)^r)<7/50, with analytic power-mean domination for all larger cycles.",
+    "sharp_primal": "5 U_identity + 9 U_one-4cycle = 12 U_one-transposition + 2 U_two-disjoint-3cycles, at the level of every subset-image orbital; normalize as 5/14,9/14 and 6/7,1/7."
+  },
+  "independently_verified_public_inputs": [
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths.py",
+      "commit": "27dd9a53ebad814cca2448910926199e7b69deed",
+      "sha256": "9eb31dcc9f70b3d1c3ae898dfb9568b5517f98a1ce3c645c37994784f5978472"
+    },
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_independent.py",
+      "commit": "d70f300c2d5601d073fde02e3a2f844395d6721f",
+      "sha256": "2c69d99b2465047ae2f5cf1a5c0eacfd52ffef702b492daecd9b4162a08c1371"
+    },
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_negative_controls.py",
+      "commit": "c13fe635d40327faa21c769becaf076bbb8e77e3",
+      "sha256": "c2cf6964c5ea893c0e94ff178c89fe24da2ea5de686125f6262ac469ddbf6b66"
+    },
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small.py",
+      "commit": "562548b37d280890cd19c6899a103878dbe2fb58",
+      "sha256": "a5d6cc2abcaa6350be540540b1f4e0104e171d887af0972324310afaa59f9a86"
+    },
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small_independent.py",
+      "commit": "91cfe61682a60c82bdcc7d8c57d82be1fb7695a7",
+      "sha256": "8c8d856c3a2f9df90f784ab3044d46cd48d7cdd3d7bfe7a6bc62055710085a0c"
+    },
+    {
+      "path": "notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_small_negative_controls.py",
+      "commit": "f5fe9f59da2dc06e4e7b0c03712ad1de94de1e86",
+      "sha256": "3157da6f924d444685e4a6a998a4e8873593602c930c77d17ef7c4bd1dab8b4b"
+    }
+  ],
+  "reproduction": "From repository root run each of the six scripts above with python3; they use only standard-library integer and Fraction arithmetic.",
+  "detailed_audit": "notes/johnson-short-cycle-spectrum/VERIFICATION.md",
+  "warnings": [
+    "No external human peer review or Lean proof is claimed",
+    "No world-first novelty or mathematical priority claim is made",
+    "Two explicit duals are distinct certificates for the same theorem; the finite computational parts are fully enumerated exact integer assertions, not numerical optimization"
+  ]
+}
