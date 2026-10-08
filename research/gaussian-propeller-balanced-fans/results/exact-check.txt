@@ -1,0 +1,24 @@
+PASS: exact Machin pi interval, width<1e-65
+candidate k=4, eps/pi=0: undominated_r=[3], max_interval_width<1e-45
+candidate k=4, eps/pi=1/4: undominated_r=[3], max_interval_width<1e-45
+candidate k=4, eps/pi=1/3: undominated_r=[3], max_interval_width<1e-45
+candidate k=5, eps/pi=1/6: undominated_r=[2], max_interval_width<1e-45
+candidate k=5, eps/pi=1/4: undominated_r=[2], max_interval_width<1e-45
+candidate k=5, eps/pi=1/3: undominated_r=[1, 2], max_interval_width<1e-45
+candidate k=6, eps/pi=1/10: undominated_r=[2], max_interval_width<1e-45
+candidate k=6, eps/pi=1/5: undominated_r=[2], max_interval_width<1e-45
+candidate k=7, eps/pi=1/10: undominated_r=[2], max_interval_width<1e-45
+candidate k=7, eps/pi=1/5: undominated_r=[1, 2], max_interval_width<1e-45
+candidate k=10, eps/pi=1/10: undominated_r=[2], max_interval_width<1e-45
+candidate k=10, eps/pi=3/20: undominated_r=[1], max_interval_width<1e-45
+PASS: sharp five-sector critical value and four-sector ordering
+PASS: first transition eps_*(k=5)/pi in (1/10,1/6)
+PASS: first transition eps_*(k=6)/pi in (1/20,1/10)
+PASS: first transition eps_*(k=10)/pi in (1/100,1/20)
+PASS: first transition eps_*(k=100)/pi in (1/500,1/400)
+PASS: grid k=4, eps/pi=1/4, resolution=12, vectors=455, all scores certified <= candidate maximum + 1e-35
+PASS: grid k=5, eps/pi=1/4, resolution=10, vectors=1001, all scores certified <= candidate maximum + 1e-35
+PASS: grid k=5, eps/pi=1/3, resolution=14, vectors=3060, all scores certified <= candidate maximum + 1e-35
+PASS: grid k=6, eps/pi=1/5, resolution=8, vectors=1287, all scores certified <= candidate maximum + 1e-35
+PASS: sharp quadratic stability grid (1225 triples) and both exact equality orbits
+ALL EXACT-RATIONAL CHECKS PASSED
