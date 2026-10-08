@@ -64,3 +64,20 @@ Thus for the actual three-cycle, every principal submatrix—including empty and
 The source was **compiled by Lean 4.34.1 with exit code zero**, and \`#print axioms\` reported only \`propext\`, \`Classical.choice\`, \`Quot.sound\` for both \`complete_three_graph_strongChollet\` and \`proper_induced_bipartite_fin_three\`. For reproduction, compile the earlier bipartite package's \`Nonnegative.lean\`, \`Signed.lean\`, \`Target.lean\`, \`Induced.lean\`, then this package's \`Triangle.lean\`, \`Reindex.lean\`, \`K3.lean\`, \`K3AllSubsets.lean\` with the exact pinned toolchain and appropriate local LEAN_PATH. The former files are referenced, not copied or independently reauthored.
 
 **Important:** The statement about the complete 3-cycle is not a theorem for arbitrary simple graphs. The analytic and combinatorial all-graph bridges remain missing in Lean; no nonbipartite universal theorem has been silently substituted.
+
+
+## Complete three-vertex classification (all simple graphs, all principal subsets)
+
+[AllFinThree.lean](AllFinThree.lean) further proves
+
+\`\`\`lean
+Chollet.strongChollet_fin_three
+    (G : SimpleGraph (Fin 3)) [DecidableRel G.Adj] :
+    Chollet.StrongChollet G
+\`\`\`
+
+This is an **unconditional theorem for every labeled simple graph on three vertices**, with the complete all-subsets inequality and original graph degrees. The proof shows that omitting any of the three possible edges gives an explicit two-coloring, hence invokes the previously proved all-bipartite graph theorem. If all three edges are present, the graph is the complete triangle, so it applies the verified all-principal theorem in K3AllSubsets. This includes disconnected graphs, isolated vertices, the empty principal matrix, and the full nonbipartite triangle.
+
+AllFinThree.lean was compiled by the pinned Lean 4.34.1 toolchain **with exit code 0**, and the included axiom audit printed only \`[propext, Classical.choice, Quot.sound]\` for \`Chollet.strongChollet_fin_three\`. The source uses neither custom axioms nor admitted proofs. For reproducibility, also compile the bipartite package's \`GraphMain.lean\` and this package's \`K3AllSubsets.lean\` before AllFinThree.lean.
+
+This finite three-vertex classification does **not** close the unrestricted arbitrary-order graph theorem, whose noncycle block/matching and cycle/block-gluing arguments still lack full Lean formalization.
