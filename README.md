@@ -1,5 +1,23 @@
 # math
 
+## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
+
+The [complete six-page proof](research/gaussian-fixed-mass-propeller-counterexample/paper.pdf)
+refutes **Conjecture 1.16 as written in Heilman, arXiv:1901.03934v1 (2019)**:
+for every mass vector $(p,(1-p)/3,(1-p)/3,(1-p)/3)$ with $0<p<1/4$,
+every translated or rotated regular-tetrahedral Gaussian partition is
+strictly suboptimal for the squared first-moment objective. An actual
+equal-measure ball exchange improves it; the proof also establishes
+optimizer existence and uniqueness of the regular candidate at those
+masses. [Exact arithmetic, partial Lean checks and source comparison](research/gaussian-fixed-mass-propeller-counterexample/README.md)
+are public. This addresses the arbitrary-mass conjecture; the equal-mass
+tetrahedral problem remains unresolved, and no worldwide priority is claimed.
+
+The separate [growing-logarithmic-gap avoidance theorem](research/erdos-similarity-growing-gaps/README.md)
+extends positive-measure Erdős similarity avoidance to some sequences
+with adjacent ratios tending to zero. It is a proved class extension,
+not a full solution of the Erdős similarity conjecture.
+
 ## Exact universal 5/14 law for all subset-image marginals
 
 A new [complete standalone mathematical proof](notes/johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) establishes, **for every integer n≥6**,

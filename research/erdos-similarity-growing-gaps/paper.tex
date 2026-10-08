@@ -1,0 +1,697 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=25mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb,mathtools,xurl}
+\emergencystretch=3em
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Positive-measure avoidance with growing logarithmic gaps},
+  pdfauthor={mxym/math research project (AI-assisted)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Positive-measure avoidance with growing logarithmic gaps}
+\author{mxym/math research project (AI-assisted)}
+\date{8 October 2026}
+
+\begin{document}
+\maketitle
+
+\subsection{Abstract}\label{abstract}
+
+We prove positive-measure affine non-universality for decreasing null
+sequences whose consecutive logarithmic gaps are \(o(\log\log z)\),
+where \(z=-\log_2 a\). This includes sequences whose adjacent ratios
+tend to zero and whose occupied logarithmic bins have upper Banach
+density zero. A more general theorem needs this filling condition only
+on arbitrarily late multiplicative logarithmic windows. For each
+prescribed countable family we construct a closed periodic set of
+measure arbitrarily close to one that misses infinitely many distinct
+outputs in every tail of every nonzero leading-power map with a
+power-controlled remainder. The proof allows the branching, depth and
+separation gap of a finite routing tree to grow with its position. Its
+new schedule has total span \(U^{o(1)}\), which leaves sufficient room
+for the error buffer.
+
+The finite routing construction is inherited and explicitly reproved
+below. The contributions here are the variable-parameter schedule,
+local-window sampling, the resulting zero-density sequence classes and
+the intermittent window extension. No complete solution of the Erdős
+similarity conjecture, world-first claim or external human peer review
+is asserted.
+
+\subsection{1. Problem, notation and
+statements}\label{problem-notation-and-statements}
+
+All unmarked logarithms are natural. Lebesgue measure is denoted by
+\(m\). For a measurable one-periodic set \(S\), put
+\(\operatorname{dens}(S)=m(S\cap[0,1))\). A positive null sequence is
+strictly decreasing, \(a_n>0\), \(a_n\to 0\). Discarding finitely many
+initial terms will always be permitted when selecting test inputs, and
+never weakens the eventual avoidance conclusion. Put
+\(z_n=-\log_2 a_n\); eventually \(z_n>e\), and \(z_n\) increases to
+infinity.
+
+An affine copy of \(A=\{a_n\}\) is \(y+cA\) with \(c\ne 0\). The Erdős
+similarity conjecture asks whether every infinite subset of the line is
+absent in this sense from some positive-measure measurable set. We treat
+a specified class of null sequences, not all infinite sets.
+
+\textbf{Definition 1 (filling on late annuli).} A sequence \((z_n)\) has
+property \(W\) if, for every integer \(R\ge 2\), there are integers
+\(U_j\to \infty\) and real numbers \(D_j\ge 1\) with
+
+\[
+\frac{D_j}{\log\log U_j}\longrightarrow0,                 \tag{1}
+\]
+
+such that every closed interval \([v,v+D_j]\) contained in
+\([U_j/R,RU_j]\) contains a member of \((z_n)\). Only sufficiently large
+\(j\) are relevant, so all logarithms in (1) have positive arguments.
+
+\textbf{Theorem 2 (local-window avoidance).} Let \((A_l)\) be a
+prescribed nonempty countable family of positive null sequences whose
+logarithms have property \(W\). For every \(0<\varepsilon <1\) there is
+a closed nowhere dense one-periodic set \(E\subset\mathbb R\) with
+\(m(E\cap [t,t+1])>1-\varepsilon\) for every real \(t\), with the
+following property. After \(E\) has been chosen, fix any family member
+and any \(s,\alpha >0\), \(c\ne 0\), \(y\in\mathbb R\), and \(M\ge 0\).
+If \(f\) is defined on a sufficiently small tail of that member and
+
+\[
+ |f(a)-y-ca^s|\le M a^{s+\alpha}                           \tag{2}
+\]
+
+there, then in every positive input tail there are infinitely many
+distinct values of \(f(a)\) outside \(E\). In particular
+\(F=E\cap [0,1]\) is compact, \(m(F)>1-\varepsilon\), and contains no
+nontrivial affine copy of any family member.
+
+The family is fixed before \(E\); the theorem does not construct a
+single set for all null sequences. There are no regularity or
+injectivity assumptions on \(f\) beyond (2). Its domain need only be the
+stated tail.
+
+\textbf{Corollary 3 (growing consecutive gaps).} Theorem 2 applies
+whenever
+
+\[
+ z_{n+1}-z_n=o(\log\log z_n).                              \tag{3}
+\]
+
+\textbf{Corollary 4 (ratios tending to zero).} For every fixed
+\(0<\beta <1\) it applies to
+
+\[
+ a_n=2^{-n(\log\log(n+20))^\beta},\qquad n\ge1.            \tag{4}
+\]
+
+For this sequence \(a_{n+1}/a_n\to 0\), and its occupied dyadic
+logarithmic bins have upper Banach density zero. One may also prescribe
+countably many such sequences at once. The assertion is not simultaneous
+over an unspecified uncountable family of \(\beta\).
+
+\subsection{2. Sampling from a finite logarithmic
+annulus}\label{sampling-from-a-finite-logarithmic-annulus}
+
+Fix one sequence, a requested input tail \(a<2^{-h}\), and a compact
+exponent rectangle \(0<s_0\le s_1\). Fix an integer coefficient scale
+\(k\). Write
+
+\[
+ \delta=4/s_0,\qquad R\ge\max(2,4s_1,8/s_0),              \tag{5}
+\]
+
+with integer \(R\). Choose the annuli from Definition 1 for this \(R\).
+All subsequent choices are made separately on the \(j\)th annulus.
+
+Start with a logarithm in \([U_j/R,U_j/R+D_j]\), which exists for large
+\(j\). Thereafter select greedily the first original logarithm strictly
+larger than the previous selected one plus \(\delta\). Continue
+indefinitely, not just inside the annulus. Denote the selected
+logarithms by \(\zeta _i\) and the inputs by \(b_i=2^{-\zeta _i}\). For
+large \(j\) every selected input is in the requested tail. Consecutive
+selected logarithms have gaps greater than \(\delta\).
+
+Whenever \(\zeta _i+\delta +1/2+D_j\le RU_j\), the interval
+\([\zeta _i+\delta +1/2,\zeta _i+\delta +1/2+D_j]\) contains an original
+logarithm. The first eligible logarithm therefore satisfies
+
+\[
+ \delta<\zeta_{i+1}-\zeta_i<\delta+D_j+1.                 \tag{6}
+\]
+
+Put
+
+\[
+ D=s_1(\delta+D_j+2),\quad \eta=1/(2D).                    \tag{7}
+\]
+
+In particular \(D\ge 4\), and \(D=o(\log\log  U_j)\) along these annuli.
+Suppose a routing template lies in \([U,U+T]\), with \(U=U_j\) and
+\(T\le U\). For all sufficiently large \(j\), its entire relevant
+logarithm range, including the extra \(\delta +D_j+1\), lies strictly
+below \(RU\). The first selected logarithm lies below \((U+k)/s_1\);
+these assertions follow from (5), \(D_j=o(U)\), and the fact that
+\(k,\delta\) are fixed.
+
+For each \(s\in [s_0,s_1]\), set \(w_i=s\zeta _i-k\). The sequence
+starts below \(U\), is separated by more than three, and every gap
+needed to cross a window inside \([U,U+T]\) is less than \(D\), by (6).
+Thus for every open window \((u,u+\ell )\) in that template, if
+\(\ell \ge 2D\),
+
+\[
+ \eta\ell\le\#\{i:u<w_i<u+\ell\}\le1+\ell/3.            \tag{8}
+\]
+
+For the lower bound, the last member at or below \(u\) and the first
+member at or above \(u+\ell\) enclose \(r\) strictly interior members.
+The length is at most \((r+1)D\), so \(r\ge \ell /D-1\ge \ell /(2D)\).
+This argument includes equality at either endpoint. The upper bound uses
+separation. None of (6)--(8) requires a bound on the logarithmic gaps
+after leaving the annulus.
+
+\subsection{3. A uniform finite routing
+lemma}\label{a-uniform-finite-routing-lemma}
+
+Here we give the finite construction with all its numerical guards. They
+are valid for each parameter choice separately; their proof never
+requires the tree parameters to be fixed while \(U\) tends to infinity.
+
+Fix \(0<p<1/12\). Choose integers \(b\ge 2\), \(d\ge 1\), \(g\ge 1\),
+and \(L\ge 2\). Use a complete ordered \(b\)-ary tree of depth \(d\),
+with \(K=\sum _{r=1}^d b^r\) edges. Recursively define
+
+\[
+ T_1=bL+(b-1)g,\qquad
+ L_r=g+T_{r-1},\quad
+ T_r=2bT_{r-1}+(3b-1)g\quad(r\ge2).                       \tag{9}
+\]
+
+Place an integer window of length \(L_r\) on each edge from a
+height-\(r\) vertex. The edge is followed by its whole child subtree,
+and consecutive pieces are separated by \(g\) unused integers. The
+template starts at \(U\). Its total span is \(T=T_d\). An edge window of
+length \(\ell =L_r\), together with its subtree, has span at most
+\(2\ell\). All lengths are at least \(L\). These facts follow directly
+from (9), including the height-one case. More explicitly, the preorder
+traversal places \(g\) unused indices between every consecutive pair of
+edge windows. A window starting at \(u\) ends at \(v=u+\ell -1\); the
+last endpoint of the whole template is \(U+T-1\).
+
+Assume the local samples obey (8), and the following guards hold:
+
+\[
+\begin{gathered}
+ U\ge4,\quad U>|k|,\quad T\le U,\quad L\ge2D,\quad L\ge g,\qquad
+ \lambda=p\eta(b-1)/2,\quad \kappa=\lambda-4\log2>0,\\
+ (1-2^{1-b})^d<p,\qquad K2^{3-g}<p,\\
+ 46080b^2(U+1)^2e^{-\kappa L}<p.                           \tag{10}
+\end{gathered}
+\]
+
+The initially selected sample must precede \(U\) in every output
+exponent, as proved in Section 2. Finally fix an error exponent
+\(\alpha _0>0\) and an integer error bound \(q\ge 1\). Let
+
+\[
+ N=2^{U+T+2},\quad
+ r_U=(q2^{-k}+1)2^{-U}2^{-\alpha_0(U+k)/s_1},\quad
+ 4Nr_U<p.                                                 \tag{11}
+\]
+
+\textbf{Lemma 5 (finite blocker).} Under these assumptions there is an
+open one-periodic set \(H\) of density less than \(6p\) such that, for
+every \(x\in\mathbb R\), \(s\in [s_0,s_1]\), \(t\in [1,2]\) and
+arbitrary errors \(|e(b_i)|\le q b_i^{s+\alpha _0}\), at least one
+selected input satisfies
+
+\[
+ x+t2^k b_i^s+e(b_i)\in H.                                 \tag{12}
+\]
+
+The index in (12) may lie beyond the finite template. This is essential
+for repairing exceptional centers.
+
+\subsubsection{3.1 Tables, stable centers and actual
+addresses}\label{tables-stable-centers-and-actual-addresses}
+
+At integer endpoint \(v\) use the periodic grid of \(2^{v+3}\) half-open
+cells. The address of a real point is
+\(\lfloor2^{v+3}x\rfloor\bmod 2^{v+3}\), and cells are left closed and
+right open. At each nonlast outgoing edge put independent fair bits
+indexed by its endpoint-grid cells. At each leaf put independent
+Bernoulli-\(p\) bits indexed by its incoming endpoint grid. Entries of
+different tables are independent. Route a point to the first nonlast
+child whose bit is one, or to the last child when all those bits are
+zero. Include the point in \(B\) exactly when its reached terminal bit
+is one. The set \(B\) is a union of cells on the finest \(N\)-grid. For
+a fixed point, conditioning on the selector tables leaves its terminal
+entry Bernoulli-\(p\); hence \(\mathbb E\,\operatorname{dens}(B)=p\).
+
+If a window begins at \(u=v+g+1\) after a preceding endpoint \(v\), call
+a center unstable when a boundary of the \(2^{v+3}\) grid lies in
+\((x,x+2^{-v-g}]\). Over one period its measure is at most \(2^{3-g}\).
+The unstable union has measure at most \(K2^{3-g}<p\).
+
+An active offset on a length-\(\ell\) window obeys
+
+\[
+ 2^{-u-\ell}<t2^{k-s\zeta_i}<2^{1-u}.                     \tag{13}
+\]
+
+At a stable center it shares all earlier grid addresses with the center,
+since (13) is smaller than the stability allowance. At its own grid its
+address differs from the center's; the grid width is one quarter of the
+lower bound in (13). Different active inputs have offsets in a ratio
+greater than eight, so their addresses differ too. Offsets lie in an
+interval of length less than \(1/8\); periodic wrapping cannot defeat
+these separations. The distinctions persist on every finer grid. Exact
+grid boundaries use the stated half-open convention.
+
+\subsubsection{3.2 Conditional probability at a first
+default}\label{conditional-probability-at-a-first-default}
+
+At a stable center expose its addressed entry in every selector table.
+This determines its entire route. The probability that its route has no
+default child is exactly \((1-2^{1-b})^d<p\). Otherwise condition on the
+complete exposure atom and its first default, at height \(r\).
+
+For each of the \(b-1\) nondefault edges from that vertex and each
+active input, test its own selector bit and then the terminal bit found
+by routing it in that child subtree. Earlier addresses agree with the
+center; the required preceding nondefault bits are zero. A successful
+test is therefore a point of the actual global set \(B\), not of a
+hypothetical local set.
+
+There are at least \(m_*\ge \eta (b-1)L_r\) tests. Their own selector
+entries are distinct and were not exposed. Condition next on all
+selectors. Points that reach different leaves use different terminal
+tables. Points that reach the same leaf have distinct addresses already
+on their common own edge, and hence distinct finer terminal addresses.
+Consequently the conditional probability of failure of all tests is
+\((1-p)^{\sum  A_i}\), where \(A_i\) are the tested own selector bits.
+Averaging the independent fair \(A_i\) gives
+
+\[
+ (1-p/2)^{m_*}\le e^{-\lambda L_r}.                        \tag{14}
+\]
+
+Shared auxiliary selector reads do not affect this calculation. Entire
+routing paths are not being assumed independent. Multiplying (14) by the
+exposure-atom mass yields a joint estimate, also valid for zero-mass
+atoms.
+
+\subsubsection{3.3 The continuum of parameters and all boundary
+strata}\label{the-continuum-of-parameters-and-all-boundary-strata}
+
+Fix the center and the first-default vertex, and put \(\ell =L_r\).
+There are at most
+
+\[
+ P=(b-1)\left(\left\lceil (U+T+|k|)/3\right\rceil+1\right) \tag{15}
+\]
+
+candidate edge--input pairs: any candidate logarithm is positive, is
+below \((U+T+|k|)/s_0\), and is separated from the others by more than
+\(3/s_0\). For each pair retain the two activation equations. Retain
+also all boundaries of its local finest grid whose positive offsets from
+the center are less than \(2^{1-u}\). Its local span is at most
+\(2\ell\), so there are at most \(1+2^{2\ell +3}\) such boundaries.
+
+Writing \(v=\log  t\), a boundary of positive offset \(\beta\) is
+crossed at
+
+\[
+ v-s\zeta_i\log2+k\log2-\log\beta=0.                     \tag{16}
+\]
+
+All retained equations are affine lines in \((s,v)\). Their full sign
+vectors determine activation and each actual local finest-grid address.
+Inactive values at activation equality and right-cell floor values at
+grid equality are encoded by zero signs. At most \(m=P(3+2^{2\ell +3})\)
+lines occur.
+
+For \(m\) affine lines in the plane the total number of distinct sign
+vectors is at most \(2m^2+1\): after merging coincident lines, there are
+at most \(m(m-1)/2\) vertices, \(m^2\) open line edges, and
+\(1+m(m+1)/2\) faces. Each stratum has a constant full sign vector. This
+count also handles parallel lines, repeated intersections and constant
+equations. Intersect the strata with the closed parameter rectangle and
+select one point from each realized sign vector. No table entries are
+used in that choice.
+
+The resulting representative count is bounded by \(20(m+5)^2\). Union
+bounding (14) over these representatives gives a continuum miss
+probability on the exposure atom at most its mass times
+
+\[
+ 5120b^2(U+T+|k|+2)^2e^{-\kappa\ell}
+ \le46080b^2(U+1)^2e^{-\kappa L}<p.                       \tag{17}
+\]
+
+Indeed \(P\le b(U+T+|k|+2)\) and, for \(P\ge 1,\ell \ge 2\),
+\(P(3+2^{2\ell +3})+5\le 16P2^{2\ell }\). Squaring accounts for
+\(4\log 2\) in \(\kappa\); \(T\le U\) and \(|k|<U\) account for the
+factor nine in (17). The representatives work for every assignment of
+unexposed bits. They need not be selected measurably as functions of the
+center; only a pointwise bound is used before a finite sum and
+integration.
+
+\subsubsection{3.4 Closed exceptional centers and open
+repair}\label{closed-exceptional-centers-and-open-repair}
+
+Let \(B_1=B+(-r_U,r_U)\) and \(B_2=B+(-2r_U,2r_U)\). Enlarging a union
+of finest-grid cells by radius \(2r_U\) increases its periodic density
+by at most \(4Nr_U\). Therefore
+\(\mathbb E\,\operatorname{dens}(B_2)<2p\). There are finitely many
+potentially active inputs: their logarithms are bounded above by
+\((U+T+|k|)/s_0\). Let \(I\) contain them, and let \(S_i\) be the
+relatively open set of exponents for which \(s\zeta _i-k\) belongs to
+the union of all the open template windows. Define \(Q\) as the set of
+centers for which some parameter pair has, for every \(i\in I\), either
+\(s\notin S_i\) or its unperturbed output outside \(B_1\).
+
+Each inactivity condition is closed in the closed parameter rectangle,
+because activation windows are open. Each outside-\(B_1\) condition is
+closed by continuity. Their finite intersection is closed, and
+projection along the compact rectangle is closed. Thus \(Q\) is closed
+and periodic. At stable centers, membership forces a continuum miss at
+the first default or a route with no default. Equations (10) and (17)
+bound its probability by \(2p\). Integrating and allowing the unstable
+union gives \(\mathbb E\,\operatorname{dens}(Q)\le 3p\). This uses only
+finite sums and measurable indicators.
+
+Choose an outcome with
+\(\operatorname{dens}(B_2)+\operatorname{dens}(Q)\le 5p\). Thicken the
+closed periodic \(Q\) to an open periodic \(V\) with
+\(\operatorname{dens}(V)<\operatorname{dens}(Q)+p\); continuity from
+above on a finite period justifies this, including the empty-set case.
+Put \(H=B_2\cup V\). Its density is less than \(6p\).
+
+If \(x\notin Q\), some active input has unperturbed output in \(B_1\).
+Activation gives \(s\zeta _i-k>U\), so its allowed error satisfies
+
+\[
+ q b_i^{s+\alpha_0}
+ \le q2^{-k}2^{-U}2^{-\alpha_0(U+k)/s_1}<r_U.              \tag{18}
+\]
+
+That perturbed output belongs to \(B_2\). If \(x\in Q\subset V\), use
+the full selected tail: the perturbed offsets converge to zero uniformly
+under the fixed bounds \(2^{k+1}b_i^{s_0}+q b_i^{s_0+\alpha _0}\). An
+output is eventually in the open neighborhood \(V\) of \(x\). This input
+need not be active in the finite template. These two cases prove Lemma
+5.
+
+\subsection{4. Growing trees fit on the same
+annulus}\label{growing-trees-fit-on-the-same-annulus}
+
+We now prove the main new scheduling step. In this section all tree
+parameters are allowed to depend on \(j\), equivalently on \(U=U_j\).
+They are chosen before any table outcome or center.
+
+Take \(D\) from (7), and set
+
+\begin{equation*}
+\begin{aligned}
+ b&=2+\lceil24D/p\rceil,\qquad
+ d=\left\lceil2^{b-1}\log(2/p)\right\rceil,\\
+ K&=\sum_{r=1}^d b^r,\qquad
+ g=1+\left\lceil\log_2(8K/p)\right\rceil,\\
+ \lambda&=p(b-1)/(4D),\qquad \kappa=\lambda-4\log2,\\
+ L&=\max\left(g,\lceil2D\rceil,2,
+ \left\lceil\frac{4\log(U+2)+\log(46080b^2/p)+1}{\kappa}\right\rceil\right).
+\end{aligned}
+                                                               \tag{19}
+\end{equation*}
+
+These are finite integers, however enormous. Since \(\lambda \ge 6\) and
+\(\log 2<3/4\), \(\kappa >3\). Also
+
+\[
+ (1-2^{1-b})^d\le e^{-2^{1-b}d}\le p/2<p,\qquad
+ K2^{3-g}<p.                                                  \tag{20}
+\]
+
+The definition of \(L\) gives the last entropy guard directly:
+
+\[
+46080b^2(U+1)^2e^{-\kappa L}
+\le pe^{-1}(U+1)^2/(U+2)^4<p.                                \tag{21}
+\]
+
+\textbf{Lemma 6 (uniform tree-span bound).} For every real
+\(b\ge 2,g,L\ge 0\) and integer \(r\ge 1\), the recurrence (9) satisfies
+
+\[
+ T_r+2g\le b(2b)^{r-1}(L+2g),\qquad
+ T_r\le(2b)^r(L+2g).                                        \tag{22}
+\]
+
+\emph{Proof.} At \(r=1\), \(T_1+2g=bL+(b+1)g\le b(L+2g)\). For
+\(r\ge 2\), \(T_r+2g=2bT_{r-1}+(3b+1)g\le 2b(T_{r-1}+2g)\). Induction
+proves the first inequality. The second follows from \(g\ge 0\),
+\(L+2g\ge 0\), and \(b\le 2b\). This proof is uniform in depth and
+branching. \(\square\)
+
+\textbf{Lemma 7 (sublinear span).} With (19) and \(D=o(\log\log  U)\),
+
+\[
+ L=O_p(\log U),\qquad T=T_d=U^{o(1)},\qquad T/U\to0.        \tag{23}
+\]
+
+\emph{Proof.} Put \(t=\log  U\), so \(D=o(\log  t)\) and
+\(b=o(\log  t)\). For every fixed \(\theta >0\),
+
+\[
+ d\log(2b)=t^{o(1)}=o(t).                                   \tag{24}
+\]
+
+Here is a direct justification, also covering bounded \(b\). We have
+\(d\le 1+2^{b-1}\log (2/p)\). The logarithm of the right-hand side times
+\(\log (2b)\) is at most \(b \log 2+O_p(1)+\log\log (2b)=o(\log  t)\).
+Thus the expression is eventually at most \(t^\theta\); take
+\(\theta <1\). The geometric sum gives \(K\le 2b^d\), and hence
+\(g=O_p(1+d \log (2b))=t^{o(1)}=o(t)\). The lower-bound terms \(g,2D,2\)
+in (19) are \(o(t)\) or bounded. The numerator of its final term is
+\(4t+o(t)+O_p(1)\) and \(\kappa >3\), so \(L=O_p(t)\). By (22),
+
+\[
+ \log T\le d\log(2b)+\log(L+2g)=o(t).
+\]
+
+Consequently for every \(\theta >0\), \(T\le U^\theta\) eventually. In
+particular \(T/U\to 0\). Unlike a fixed-tree asymptotic argument, this
+calculation retains the changing depth and all changing coefficients.
+\(\square\)
+
+For large \(j\) we have \(T\le U\), all the annulus margins in Section
+2, and every standing integer guard. These statements follow along the
+very same chosen annuli; no independent choice of a later \(U\) with an
+older gap bound is made. Finally (11) obeys
+
+\[
+ 4Nr_U=2^{T+4}(q2^{-k}+1)2^{-\alpha_0(U+k)/s_1}\to0,        \tag{25}
+\]
+
+because its logarithm is \(-(\alpha _0 \log 2/s_1)U+o(U)+O(1)\). Thus
+one sufficiently late annulus supplies all guards of Lemma 5. This
+proves a blocker of density less than \(6p\) for every prescribed tail,
+bounded exponent rectangle, coefficient scale and error bound.
+
+\subsection{5. Completion of the global
+theorem}\label{completion-of-the-global-theorem}
+
+Enumerate the countable tuples \((l,N,j,k,q,h)\), where \(N\ge 2\),
+\(j,q,h\ge 1\) are integers and \(k\in\mathbb Z\). Assign strictly
+positive budgets \(p_\tau <1/12\) with
+\(12\sum _\tau  p_\tau <\varepsilon\). Apply the blocker just proved
+with \([s_0,s_1]=[1/N,N]\), \(\alpha _0=1/j\), the requested sequence
+and input tail, and coefficient scale \(k\). Let its open periodic set
+be \(H_\tau\). Define
+
+\[
+ \mathcal U=\bigcup_\tau(H_\tau\cup(-H_\tau)),\qquad
+ E=\mathbb R\setminus\mathcal U.                             \tag{26}
+\]
+
+Then \(E\) is closed and periodic and its measure in a period is greater
+than \(1-\varepsilon\). For a measurable one-periodic set, splitting any
+unit interval at integers and translating its two pieces shows the same
+measure for every unit interval. Endpoints have measure zero.
+
+Fix the data in (2). Choose \(N\) with \(s\in [1/N,N]\), \(j\) with
+\(1/j\le \alpha\), and integer \(q\ge \max (1,M)\). For \(a<1\) its
+remainder is at most \(q a^{s+1/j}\). When \(c>0\), write \(c=2^k t\),
+\(1\le t<2\). For every sufficiently large \(h\), the selected inputs
+are inside the actual domain of \(f\) and the eventual remainder bound.
+Lemma 5 at the tuple with that \(h\) produces a value in
+\(H_\tau \subset\mathcal U\). When \(c<0\), apply it to \(-f\) and then
+reflect; the value belongs to \(-H_\tau\).
+
+We therefore obtain missed values at inputs tending to zero. Eventually
+\((1/2)|c|a^s\le |f(a)-y|\le (3/2)|c|a^s\), so these values are
+different from \(y\) and tend to it. A finite set avoiding \(y\) cannot
+have that property. They give infinitely many distinct missed values
+inside every input tail. No injectivity was used. If \(E\) had an open
+interval, take an interior center and the map \(f(a)=y+a\) on a small
+tail of any one family member; all outputs would be in that interval, a
+contradiction. Nonemptiness of the family is used here. Thus \(E\) is
+nowhere dense. Intersecting with \([0,1]\) proves the compact assertion.
+This finishes Theorem 2. \(\square\)
+
+\subsection{6. Consecutive gaps, explicit zero-density examples, and
+intermittent
+windows}\label{consecutive-gaps-explicit-zero-density-examples-and-intermittent-windows}
+
+\emph{Proof of Corollary 3.} Discard a finite prefix so the logarithms
+are positive. Define \(\Omega (Z)=\max \{z_{n+1}-z_n:z_n\le Z\}\), using
+zero for an empty maximum. There are only finitely many entries under
+any finite \(Z\). Hypothesis (3) implies \(\Omega (Z)=o(\log\log  Z)\):
+for any positive \(\eta\), all sufficiently late entries are at most
+\(\eta  \log\log  z_n\le \eta  \log\log  Z\); the finitely many early
+entries contribute a fixed bound, whose ratio tends to zero. For a fixed
+integer \(R\), set \(U_j=j\) and \(D_j=1+\Omega (Rj)\) once \(j\) is
+large. In any closed interval \([v,v+D_j]\subset [j/R,Rj]\), the last
+logarithm at or below \(v\) is followed by one at distance at most
+\(\Omega (Rj)<D_j\) from it. Unless the left endpoint already is a
+logarithm, this successor is strictly inside the interval. Thus
+Definition 1 holds. Since \(\log\log (Rj)/\log\log  j\to 1\), its ratio
+condition holds too. \(\square\)
+
+\emph{Proof of Corollary 4.} Put \(\ell (x)=\log\log (x+20)\) and
+\(z(x)=x \ell (x)^\beta\). Then
+
+\[
+ z'(x)=\ell(x)^\beta+
+ \frac{\beta x\ell(x)^{\beta-1}}{(x+20)\log(x+20)}
+       \sim(\log\log x)^\beta.                              \tag{27}
+\]
+
+The mean-value theorem gives \(z_{n+1}-z_n\sim (\log\log  n)^\beta\),
+while \(\log\log  z_n\sim \log\log  n\). Their ratio tends to zero
+because \(\beta <1\); the gap itself tends to infinity because
+\(\beta >0\). Thus adjacent ratios tend to zero. The integer parts of
+the \(z_n\) are eventually distinct and have gaps tending to infinity.
+For each integer \(M\), discard finitely many bins until these gaps are
+at least \(M\). Every interval of \(L\) consecutive bins then contains
+at most \(C_M+1+L/M\) occupied bins. Taking its supremum, then
+\(\limsup\) divided by \(L\), and then \(M\to \infty\), proves upper
+Banach density zero. The existing positive-density criterion does not
+apply. \(\square\)
+
+Property \(W\) is strictly broader than (3). Here is an explicit
+example. For integers \(j\ge 2\), let \(U_j=2^{2^{j^2}}\) and take all
+logarithms
+
+\[
+ Z_j=\{\lceil U_j/j\rceil+mj:m\ge0,
+                    \ \lceil U_j/j\rceil+mj\le jU_j\}.     \tag{28}
+\]
+
+List the disjoint blocks \(Z_j\) in increasing order and set
+\(a_n=2^{-z_n}\). For each fixed \(R\), all sufficiently large \(j>2R\)
+have \([U_j/R,RU_j]\) strictly inside the span of \(Z_j\), with margins
+greater than \(2j\). Every length-\(2j\) subinterval there contains a
+lattice point. Also \(2j/\log\log  U_j\to 0\), since
+\(\log\log  U_j=j^2 \log 2+\log\log 2\). Thus property \(W\) holds. The
+gap between successive blocks is far larger than \(\log\log  z_n\), so
+(3) fails. Within a late block gaps equal \(j\), and between blocks they
+are larger; the same bin-counting argument proves zero upper Banach
+density. Theorem 2 therefore also treats sequences with arbitrarily
+large gaps outside their useful annuli.
+
+\subsection{7. Prior work, proof dependence and
+limitations}\label{prior-work-proof-dependence-and-limitations}
+
+The finite center-exposure routing, parameter sign representatives and
+open repair used in Section 3 were developed in the geometric/continuum
+power-avoidance work publicly recorded in \texttt{mxym/math}, itself
+using the geometric-case method of OpenAI Mathematics. The earlier
+theorem assumed globally bounded occupied logarithmic gaps. Its complete
+release was replayed from all 65 owned source modules, with 568 public
+theorems and 35,620 safe-closure declarations checked in empty Lean
+kernel environments. The relevant published files and hashes are listed
+in \texttt{SOURCES.json}. We do not substitute that formalized
+bounded-gap endpoint for the new claim: Sections 2 and 4 are the added
+arguments and have complete written proofs; the whole new endpoint is
+not yet Lean-formalized.
+
+Cruz--Lai--Pramanik, \emph{Large Sets Avoiding Affine Copies of Infinite
+Sequences}, Real Analysis Exchange 48(2) (2023), 251--270,
+arXiv:2204.12720, construct a dimension-one Borel avoiding set under a
+slow-growth condition on \(\log\log (a_n/a_{n+1})\). Its positive
+measure is not established; Section 4.4 explicitly discusses this
+missing point. Their dimension-one subset \(O\) has measure zero; this
+does not mean that their whole avoiding set \(E_K\) is proved to have
+measure zero. Our specified examples have positive-measure avoiding
+sets, indeed measure arbitrarily close to one. This is a distinction in
+the mathematical conclusions, not a certified priority assertion based
+on an exhaustive literature survey.
+
+Feng--Lai--Xiong, arXiv:2312.01319, prove bi-Lipschitz universality for
+suitable lacunary sequences, including (4). That uses transformations
+more general than affine maps and does not contradict this result. The
+earlier geometric case and the repository's positive logarithmic-density
+criterion do not cover the zero-density examples (4) and (28).
+
+For \(a_n=2^{-n^2}\), consecutive logarithmic gaps are of order
+\(\sqrt(z_n)\); for \(a_n=2^{-2^n}\), they are of order \(z_n\). Neither
+satisfies our hypotheses, nor the local annular condition. Both, and
+arbitrary null sequences, remain outside our result. The proof also does
+not cover arbitrary flat germs, zero leading coefficients, or an
+uncontrolled \(o(a^s)\) error. All sets are existence constructions; the
+finite tables can be astronomically large. The exact checker supplies
+algebraic and finite controls, not a computed high-measure avoiding set.
+The whole analytic theorem is not represented as independently
+human-reviewed or fully formalized.
+
+\end{document}

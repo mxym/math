@@ -1,5 +1,17 @@
 # Manuscript catalogue
 
+## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
+
+[Complete six-page paper and verification](research/gaussian-fixed-mass-propeller-counterexample/README.md)
+refute the arbitrary-mass Conjecture 1.16 in Heilman 2019 v1 by an
+exact-mass facet exchange. Every regular-tetrahedral candidate is
+suboptimal for $(p,(1-p)/3,(1-p)/3,(1-p)/3)$, $0<p<1/4$; optimizer
+existence is proved. The equal-mass case is untouched.
+
+[Positive-measure avoidance with growing logarithmic gaps](research/erdos-similarity-growing-gaps/README.md)
+is a separate nine-page class-extension theorem within the Erdős
+similarity problem, with a variable-tree schedule and partial Lean algebra.
+
 ## Universal exact value for every finite subset-action parameter pair
 
 The [new 10-page exact determinant paper](notes/sharp-robust-permanent/universal-exact/typeset/paper.pdf) and [complete proof/readme](notes/sharp-robust-permanent/universal-exact/README.md) establishes a **terminating, exact rational formula valid for every finite \((n,k)\)** for the marginal-preserving atom-versus-total-variation constant of the \(S_n\)-action on \(k\)-element subsets. Write \(m=\min(k,n-k)\); then the optimum equals a **finite maximum of explicit signed maximal-minor ratios** of size \((m+1)\times(m+1)\), with all matrix entries computed by an integer cycle-index recurrence. The theorem proves a **closed, nonzero binomial-product rank determinant** and an attaining marginal-preserving perturbation supported on at most \(m+2\) conjugacy classes. That sparse support bound is sharp, as witnessed by the exact \((n,k)=(11,4)\) certificate.

@@ -1,0 +1,395 @@
+# A facet-exchange counterexample to the fixed-mass regular-simplex conjecture
+
+mxym/math research project — AI-assisted mathematical research, 8 October 2026
+
+## Abstract
+
+We give an explicit family of positive four-cell mass vectors for which
+no translated regular-tetrahedral Gaussian partition maximizes the sum
+of squared first moments. This disproves the arbitrary-prescribed-mass
+statement of Conjecture 1.16 in Steven Heilman's *Stable Gaussian Minimal
+Bubbles*, arXiv:1901.03934v1 (2019). The centering in its Problem 1.15
+adds a constant under the prescribed-mass constraints. For a tetrahedral
+apex displaced toward one vertex, its two kinds of Gaussian facet measure
+are strictly unequal. The difference of the adjacent cell moments
+therefore has a nonzero tangential component. Exchanging two equal-measure
+small balls gives a genuine partition with exactly the same masses and
+strictly larger objective. We prove that every regular-tetrahedral
+partition with this mass vector is congruent to the displaced candidate,
+and that a measurable optimizer exists, so the refutation is not vacuous.
+
+The equal-mass tetrahedral conjecture is not refuted or proved here.
+Related unequal-mass positive-noise results already exist; they are
+distinguished from the first-moment objective. No worldwide priority or
+external human-review assertion is made.
+
+## 1. Exact conjecture and theorem
+
+Let $\gamma_d$ denote the standard Gaussian probability measure on
+$\mathbb R^d$, with density
+$\varphi_d(x)=(2\pi)^{-d/2}\exp(-\|x\|^2/2)$.
+For a measurable partition $\mathcal C=(C_1,C_2,C_3,C_4)$, define
+
+\[
+ p_i=\gamma_d(C_i),\qquad m_i=\int_{C_i}x\,d\gamma_d(x),
+ \qquad \mathcal E(\mathcal C)=\sum_{i=1}^4\|m_i\|^2.       \tag{1}
+\]
+
+Boundaries of the polyhedral cells below have Gaussian measure zero and
+may be assigned to the smallest label. We use Lebesgue integrals and
+Euclidean norms throughout.
+
+Problem 1.15 in arXiv:1901.03934v1 fixes positive masses $a_i$ summing to
+one, defines a common vector $w$ from a translated regular-simplex
+partition, and writes $w^{(i)}=w/a_i$. Its objective, up to the common
+positive factor $\sqrt{\pi/2}$, is
+
+\[
+ \sum_i\left\|\int_{C_i}(x-w/a_i)\,d\gamma_d(x)\right\|^2
+ =\sum_i\|m_i-w\|^2
+ =\mathcal E(\mathcal C)+4\|w\|^2.                       \tag{2}
+\]
+
+The last equality uses $\sum_i m_i=\int x\,d\gamma_d(x)=0$.
+Thus the prescribed-mass maximizers are exactly those of (1), regardless
+of the fixed centering vector. Conjecture 1.16 states that for $m-1\le d$
+the maximizing sets in Problem 1.15 are simplicial cones over a regular
+simplex. Its $m=4,d=3$, arbitrary-positive-mass case is enough to refute
+the statement as written.
+
+Use the regular-tetrahedral vectors
+
+\[
+ v_1=(1,1,1),\quad v_2=(1,-1,-1),\quad
+ v_3=(-1,1,-1),\quad v_4=(-1,-1,1).                       \tag{3}
+\]
+
+They sum to zero, have norm $\sqrt3$, and every pair is separated by
+$\ell=2\sqrt2$. For each $t>0$, put $w_t=t v_1$ and
+
+\[
+ C_i(t)=\{x:\langle v_i,x-w_t\rangle\ge
+                   \langle v_j,x-w_t\rangle\ \forall j\},\qquad
+ p_i(t)=\gamma_3(C_i(t)).                                \tag{4}
+\]
+
+The mass vector is specified by the fixed Gaussian integrals (4), not
+by numerical optimization. In particular $t=1$ gives a single fixed
+counterexample instance with $w_1=(1,1,1)$.
+
+**Theorem 1 (counterexample for every $t>0$).** For each mass vector
+$(p_1(t),p_2(t),p_3(t),p_4(t))$ in (4):
+
+1. All entries are positive, $p_1(t)<1/4$, and
+   $p_2(t)=p_3(t)=p_4(t)=(1-p_1(t))/3$.
+2. There is a measurable four-cell partition with precisely these masses
+   and strictly larger $\mathcal E$ than $\mathcal C(t)$.
+3. Every regular-tetrahedral conical partition with precisely these
+   masses, allowing any rotation and apex, has the same objective as
+   $\mathcal C(t)$.
+4. A maximizing measurable partition with these masses exists. None of
+   the maximizing partitions can be regular-tetrahedral conical.
+
+Consequently the arbitrary-mass Conjecture 1.16 just quoted is false.
+The same counterexample persists by cylindrical extension in every
+ambient dimension $d\ge3$.
+
+**Corollary 1.1 (a full interval of mass vectors).** For every
+$0<p<1/4$, regular-tetrahedral cones fail to maximize (1) at masses
+$(p,(1-p)/3,(1-p)/3,(1-p)/3)$. In particular, counterexamples occur
+arbitrarily close to the equal-mass vector. Indeed (5) and its null
+boundaries show that $p_1(t)$ is continuous, strictly decreases from
+$1/4$ to zero as $t$ goes from zero to infinity, and hence has precisely
+that range. Continuity and the endpoint limit follow by dominated
+convergence. Theorem 1 supplies the strict improvement at every such $t$.
+
+## 2. Exact geometry and the two facet measures
+
+Write $\phi(u)=(2\pi)^{-1/2}e^{-u^2/2}$ and let $\Phi$ be its distribution
+function. Symmetries permuting $v_2,v_3,v_4$ and fixing $v_1$ are orthogonal
+and fix $w_t$. They give the three equal masses in Theorem 1. The first
+cell is
+
+\[
+ C_1(t)=\{(x,y,z):x+y\ge2t,\ x+z\ge2t,\ y+z\ge2t\}.      \tag{5}
+\]
+
+At $t=0$ symmetry gives mass $1/4$ to every cell. For $t>0$, (5) is
+strictly smaller up to a set of positive Gaussian measure. The set
+difference contains an open ball, for example around a point with all
+three coordinates strictly between $0$ and $t$. Every cell contains a
+nonempty open set, so all four masses are positive.
+
+For an interface between cells $i,j$, its Gaussian facet measure is
+
+\[
+ A_{ij}(t)=\int_{\Sigma_{ij}(t)}\varphi_3(x)\,d\mathcal H^2(x),
+ \quad \Sigma_{ij}(t)=\overline C_i(t)\cap\overline C_j(t). \tag{6}
+\]
+
+Triple intersections have surface measure zero. Symmetry leaves two
+values: $A=A_{12}=A_{13}=A_{14}$ and
+$B=A_{23}=A_{24}=A_{34}$. Both are strictly positive.
+
+**Lemma 2 (strict facet imbalance).** For every $t>0$,
+
+\[
+ A(t)=\phi(\sqrt2t)\,\mathbb P(X\ge t+|Y|/\sqrt2),\qquad
+ B(t)=\phi(0)\,\mathbb P(Z\le\min(X/\sqrt2,2t-X/\sqrt2)),\tag{7}
+\]
+
+where the Gaussian coordinates in each probability are independent
+standard normals. In particular $0<A(t)<A(0)=B(0)<B(t)$.
+
+*Proof.* The interface $\Sigma_{12}$ lies in $y+z=2t$. Use its orthonormal
+coordinates $X=x$, $Y=(y-z)/\sqrt2$, so
+$y=t+Y/\sqrt2,z=t-Y/\sqrt2$. The two remaining inequalities in (5)
+become $X\ge t+|Y|/\sqrt2$. Its normal coordinate is $\sqrt2t$, proving
+the first formula in (7).
+
+The interface $\Sigma_{23}$ lies in $x=y$. With orthonormal coordinates
+$X=(x+y)/\sqrt2$ and $Z=z$, the conditions that the common score of
+$v_2,v_3$ dominates $v_1$ and $v_4$ are respectively
+$Z\le2t-X/\sqrt2$ and $Z\le X/\sqrt2$. Its normal coordinate is zero,
+proving the second formula.
+
+The first probability strictly decreases as $t$ grows from zero, and
+$\phi(\sqrt2t)<\phi(0)$. In the second formula the domain at $t=0$
+is $Z\le-|X|/\sqrt2$, contained in the domain for $t>0$. The inclusion
+is strict on an open set: take $0<X<t/\sqrt2$ and $Z$ close to zero.
+Gaussian densities are positive there. Finally $A(0)=B(0)$ by tetrahedral
+orthogonal symmetry. This proves every strict comparison. $\square$
+
+## 3. First moments and a tangential obstruction
+
+**Lemma 3 (Gaussian flux formula).** For the cells in (4),
+
+\[
+ m_i=\frac1\ell\sum_{j\ne i} A_{ij}(v_i-v_j).              \tag{8}
+\]
+
+*Proof.* The Gaussian identity $\nabla\varphi_3=-x\varphi_3$ and the
+divergence theorem give the negative outward normal integral on each
+cell. On its $ij$ facet the inward normal is $(v_i-v_j)/\ell$.
+To justify the unbounded cells, first intersect them with a radius-$R$
+ball. The artificial spherical boundary integral has magnitude at most
+a constant times $R^2e^{-R^2/2}$, tending to zero. The moment and facet
+integrals converge absolutely. This gives (8). $\square$
+
+Using (3) and the two facet values,
+
+\[
+ m_1=\frac{4A}{\ell}v_1,\qquad
+ m_j=\frac{(A+3B)v_j+(B-A)v_1}{\ell}\quad(j=2,3,4).       \tag{9}
+\]
+
+Let $e=(1,0,0)$ and $n=(0,1,1)/\sqrt2$; the first is tangent to
+$\Sigma_{12}$ and the second is its unit normal into $C_1$. In these
+orthonormal directions the moment difference is
+
+\[
+ d=m_1-m_2=\sqrt2(A-B)e+(3A+B)n.                         \tag{10}
+\]
+
+Thus $d\cdot e<0$ by Lemma 2. A volume-constrained first variation would
+require the scalar score $d\cdot x$ to be constant along this facet.
+It is not constant. The next section does not rely on a formal
+variational argument: it constructs an actual exact-mass improvement.
+
+## 4. An actual equal-measure ball exchange
+
+Fix any $t>0$ and its positive constants $A<B$. Define
+
+\[
+ \eta=\frac{B-A}{100(A+B)}\in(0,1/100),\quad
+ q=(t+1,t,t)-\eta n,\qquad r=(t+2,t,t)+\eta n.             \tag{11}
+\]
+
+The open ball $U$ centered at $q$ of radius $\eta/2$ lies strictly inside
+$C_2(t)$, and the open ball $V$ centered at $r$ of the same radius lies
+strictly inside $C_1(t)$. Indeed their centers have distance $\eta$ from
+the $12$ plane on their respective sides. Distances from either center
+to the other relevant separating planes exceed $1/2$, by the explicit
+inequalities used in Section 2 and $\eta<1/100$. Moving by $\eta/2$
+cannot cross any of those planes. The two balls are disjoint.
+
+Put $\delta=\tfrac12\min(\gamma_3(U),\gamma_3(V))>0$.
+Gaussian measure of a concentric ball is continuous and strictly
+increasing in its radius from zero. There are therefore smaller
+concentric balls $U'\subset U$ and $V'\subset V$ with
+
+\[
+ \gamma_3(U')=\gamma_3(V')=\delta.                        \tag{12}
+\]
+
+Transfer $U'$ from cell 2 to cell 1 and $V'$ from cell 1 to cell 2;
+leave cells 3 and 4 unchanged. This defines a measurable partition
+$\mathcal C'$ with exactly the same four masses. If
+
+\[
+ \Delta=\int_{U'}x\,d\gamma_3(x)-\int_{V'}x\,d\gamma_3(x), \tag{13}
+\]
+
+its changed moments are $m_1+\Delta,m_2-\Delta$. We verify strict
+improvement rather than assume it from the tangent calculation.
+
+By (10),
+$d\cdot(q-r)=\sqrt2(B-A)-2\eta(3A+B)$ and
+$\|d\|\le\sqrt2|A-B|+3A+B<5(A+B)$.
+For every $x\in U'$ and $z\in V'$, Cauchy--Schwarz consequently gives
+
+\[
+\begin{aligned}
+ d\cdot(x-z)
+ &\ge\sqrt2(B-A)-2\eta(3A+B)-\eta\|d\|\\
+ &>\left(\sqrt2-\frac6{100}-\frac5{100}\right)(B-A)
+   >(B-A)>0.
+\end{aligned}                                             \tag{14}
+\]
+
+Here $\sqrt2>7/5$ is sufficient for the last inequality. Integrating
+(14) over the product of the two restricted Gaussian measures and
+using their common mass $\delta$ yields
+$d\cdot\Delta>\delta(B-A)$. Finally the exact norm identity gives
+
+\[
+ \mathcal E(\mathcal C')-\mathcal E(\mathcal C(t))
+ =2d\cdot\Delta+2\|\Delta\|^2
+ >2\delta(B-A)>0.                                        \tag{15}
+\]
+
+This proves part 2 of Theorem 1 with genuine Gaussian volumes and
+strict inequalities. No floating computation or solver output enters.
+
+## 5. All regular-tetrahedral candidates with these masses
+
+It is not enough to improve one chosen apex. We must rule out a
+different regular tetrahedron with the same mass vector.
+
+Every regular-tetrahedral conical partition, after an orthogonal change
+of coordinates and common harmless scaling of scores, can be written
+
+\[
+ D_i(\lambda)=\{x:\langle v_i,x\rangle-\lambda_i
+                     \ge\langle v_j,x\rangle-\lambda_j\ \forall j\},
+ \qquad\sum_i\lambda_i=0.                               \tag{16}
+\]
+
+Its apex is the unique $w$ with $\lambda_i=\langle v_i,w\rangle$.
+The linear map $x\mapsto(\langle v_i,x\rangle)_i$ is a bijection from
+$\mathbb R^3$ onto the hyperplane $\sum_i s_i=0$. The score vector has a
+strictly positive Gaussian density on that hyperplane and is invariant
+under every label permutation.
+
+**Lemma 4 (strict mass-price ordering).** In (16),
+
+\[
+ \gamma_3(D_i(\lambda))=\gamma_3(D_j(\lambda))
+           \quad\Longleftrightarrow\quad\lambda_i=\lambda_j.
+                                                                  \tag{17}
+\]
+
+If $\lambda_i<\lambda_j$, the first mass is strictly larger.
+
+*Proof.* Swapping labels $i,j$ preserves the score distribution. Swap
+their prices to obtain $\lambda'$. Then the mass of cell $i$ at
+$\lambda'$ is the mass of cell $j$ at $\lambda$.
+If $\lambda_i<\lambda_j$, changing from $\lambda'$ to $\lambda$ lowers
+the price of score $i$ and raises that of score $j$, with other prices
+fixed. Every score vector won by $i$ before is still won by $i$ after.
+The inclusion is strict on an open subset of the score hyperplane:
+take $s_i,s_j$ equal and sufficiently large, and all other scores
+sufficiently small, subject to zero sum. Before the change $j$ wins,
+and after it $i$ wins. Small perturbations retain both strict wins.
+The positive density gives strict mass increase. Equality of prices
+gives equality of masses by symmetry. $\square$
+
+The three equal masses $p_2,p_3,p_4$ therefore force
+$\lambda_2=\lambda_3=\lambda_4$. Since their sum is zero, their prices
+have form $(3u,-u,-u,-u)$ and their apex is $u v_1$.
+Also $p_1<p_2$ forces $u>0$. By (5), $p_1(u)$ is a strictly decreasing
+function of $u$: for $u_2>u_1$, the cell inclusion is strict on an open
+ball centered at $(b,b,b)$ with $u_1<b<u_2$.
+Thus $p_1(u)=p_1(t)$ forces $u=t$. Orthogonal changes preserve all
+moments and norms. This proves part 3, including rotations and
+permutations of the three equal-mass labels.
+
+## 6. Existence of a genuine maximizing partition
+
+For completeness we give the existence argument, so part 4 and the
+refutation do not rely on an unproved assumption about attaining the
+supremum. Fix any positive masses $p_i$ summing to one.
+
+Consider the fractional partitions in the real Hilbert space
+$L^2(\gamma_3)^4$:
+
+\[
+ \mathcal K=\{(f_i):0\le f_i\le1,\ \sum_i f_i=1
+                \text{ a.e.},\ \int f_i\,d\gamma_3=p_i\}. \tag{18}
+\]
+
+This is a nonempty bounded norm-closed convex set, and is weakly
+compact by Hilbert-space reflexivity. Each coordinate of
+$m_i(f)=\int x f_i(x)\,d\gamma_3(x)$ is a continuous linear functional
+because each Gaussian coordinate belongs to $L^2$. Thus the objective,
+which depends on finitely many such coordinates, is weakly continuous
+and has a maximum $M$ at some $f^*$. Let $m_i^*=m_i(f^*)$.
+
+The linear functional $L(f)=\sum_i m_i^*\cdot m_i(f)$ satisfies
+$L(f)\le\sqrt M\sqrt{\mathcal E(f)}\le M$, with equality at $f^*$.
+Its maximizers form a nonempty weakly compact face of $\mathcal K$.
+The Krein--Milman theorem supplies an extreme point of this face,
+which is also extreme in $\mathcal K$.
+
+Every extreme point of $\mathcal K$ is an indicator partition. Otherwise
+two components lie between $\epsilon$ and $1-\epsilon$ on a common
+positive-measure region, for some $\epsilon>0$ (use the finite number
+of component pairs and a countable union over positive rational
+$\epsilon$). Gaussian measure is nonatomic. Split that region into two
+disjoint sets of equal positive measure and put $h=1_{S_+}-1_{S_-}$.
+Adding $\epsilon h/2$ to one component and subtracting it from the
+other, or reversing both changes, yields two distinct elements of
+$\mathcal K$ with the original as midpoint. This contradicts extremality.
+
+Call the indicator extreme point $g$. Its $L(g)=M$ and
+Cauchy--Schwarz imply $\mathcal E(g)\ge M$ when $M>0$.
+If $M=0$, every member already has the maximum; a measurable partition
+with the prescribed masses is obtained by splitting an atomless
+probability space. In either case a genuine maximizing partition
+exists. The standard results used here are Hilbert-space reflexivity,
+weak compactness of bounded closed convex subsets of a reflexive space,
+and the Krein--Milman theorem; none asserts Gaussian simplex optimality.
+
+Part 2 gives a strictly better partition than the objective of every
+regular-tetrahedral candidate identified in part 3. The existing
+optimizer cannot be any of those candidates. This finishes Theorem 1.
+For $d>3$, append independent unused Gaussian coordinates to the
+construction. Orthogonal reduction of any regular four-cell simplex
+to its three-dimensional span gives the same uniqueness argument.
+$\square$
+
+## 7. Literature and exact scope of the refutation
+
+The target is the **arbitrary-positive-prescribed-mass statement as
+written** in Heilman, *Stable Gaussian Minimal Bubbles*,
+arXiv:1901.03934v1, Section 1.4, Problem 1.15 and Conjecture 1.16,
+printed page 8 (13 January 2019). Its equal-mass specialization is
+different and is untouched by the present counterexample.
+
+Heilman--Mossel--Neeman, *Standard Simplices and Pluralities are Not the
+Most Noise Stable*, Israel Journal of Mathematics 213 (2016), 33–53,
+arXiv:1403.0885v3, Theorem 2.6, already proves a nonoptimality statement
+for unequal masses and every positive noise parameter $0<\rho<1$.
+That theorem statement does not itself assert strict improvement of
+the first-Hermite coefficient: a strictly positive function for
+$\rho>0$ may have zero derivative at zero. Here strict first-moment
+improvement is proved directly by (15). No novelty claim is based
+merely on taking a limit of the known noisy result.
+
+The finite literature comparison is in `PRIOR_WORK.md`; the archived
+primary-source hashes are in `SOURCES.json`. We do not claim this
+obstruction has never been observed. The proof uses Gaussian integrals
+and elementary inequalities, with no computational theorem input.
+The partial Lean check verifies algebraic identities and the strict
+exchange-margin reduction, not the full Gaussian geometry or existence
+theorem. All mathematical claims above have explicit written proofs.

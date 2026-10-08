@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-10-08 — refute the arbitrary-mass Gaussian regular-simplex conjecture
+
+- Gave a complete counterexample to Heilman 2019 v1 Conjecture 1.16:
+  for every $0<p<1/4$, all regular-tetrahedral partitions with masses
+  $(p,(1-p)/3,(1-p)/3,(1-p)/3)$ are strictly suboptimal for the Gaussian
+  squared first-moment objective. Exact facet integrals and an actual
+  equal-measure ball exchange prove strict gain. A strict mass-price
+  argument rules out other regular apexes; weak compactness and an
+  extreme-point argument prove existence of a genuine optimizer.
+- Released the full six-page proof, exact quadratic-field controls and
+  four partial Lean lemmas with a fresh 7,680-declaration empty-kernel
+  replay. The equal-mass conjecture remains untouched. The related
+  positive-noise unequal-mass theorem is credited; worldwide novelty
+  and external human review are not asserted.
+- Separately proved a positive-measure Erdős similarity class extension
+  for growing logarithmic gaps $o(\log\log z_n)$ and useful late annuli,
+  including ratio-zero and zero-logarithmic-density examples. Released
+  its complete nine-page proof, exact controls and four partial Lean
+  algebraic lemmas with a 7,157-declaration empty-kernel replay. This
+  result does not resolve the full Erdős similarity conjecture.
+
 ## 2026-10-08 — strengthen sharp Bellman oscillation to every binary-orbit level
 
 - Upgraded the newly certified 005 **no-quadratic-germ** theorem from an asymptotic `limsup` statement to an **every-index signed excursion**: for each `j>=1`, at least one of two explicit attainable ratios from `K_j*point^(*2^(j−1))` differs from its forced quadratic by `>1/4000` in the required positive/negative direction. It is not a numerical conjecture: **all nine** finite indices `j=1..9` pass strict rational Robbins/log-interval checks, and a single rational inequality `3/(64*1024)+1/(30*1024²)<1/20480` together with analytic dimension inequalities excludes **every j>=10**.
