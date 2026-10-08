@@ -514,3 +514,83 @@ By complementarity \(A_r(g)=A_{n-r}(g)\) and the tautological \(A_0=A_n=1\), onl
 is sharp even if (43), rather than full subset-image marginal uniformity, is the **only** hypothesis.
 
 However, (44) cannot be promoted to every other atom under (43) alone. Indeed, for two distinct **conjugate nonidentity** permutations \(\sigma,\tau\), the perturbation \(v=\delta(\mathbf1_{\{\sigma\}}-\mathbf1_{\{\tau\}})\) (with \(\delta>0\) sufficiently small) annihilates every central function \(A_r\), but has atom/TV ratio **1 at \(\sigma\)**. Thus the full image-marginal hypothesis is essential for the every-atom assertions of Theorems 1 and 5. This distinction is part of the precise theorem scope, not an unstated assumption.
+
+
+## 11. A second, smaller-denominator rational dual proof
+
+The main proof uses evaluation points \((1/2,3/8,1/4,1/5,1/6)\) with common rational-weight denominator \(7\,840\,000\,000\). To make the certificate **less sensitive to seemingly arbitrary numerical precision**, we give an entirely separate rational choice whose evaluation points are simply reciprocals of five consecutive integers and whose denominator is only **30,625**.
+
+**Theorem 8 (independent simplified global dual).** Set
+
+\[
+(\widetilde q_1,\ldots,\widetilde q_5)
+=(1/2,1/3,1/4,1/5,1/6),\qquad
+\widetilde D=30\,625,
+\]
+
+\[
+(\widetilde\beta_1,\ldots,\widetilde\beta_5)
+=(4\,036\,494,\;-10\,841\,250,\;13\,334\,928,\;
+  -8\,850\,625,\;2\,344\,953),
+\]
+
+and
+
+\[
+\widetilde\Phi(g)=\sum_{i=1}^5
+\frac{\widetilde\beta_i}{\widetilde D}
+\bigl(1-U_{\widetilde q_i}(g)\bigr).
+\tag{45}
+\]
+
+Then the complete sharp dual statement also holds:
+
+\[
+\boxed{\widetilde\Phi(e)=0,\qquad
+9/14\le\widetilde\Phi(g)\le1\quad(g\ne e)}
+\tag{46}
+\]
+
+for **every** permutation of **every** finite degree, with equality **only** at the same nonidentity cycle shapes \((2),(3,3)\) for the lower contact and \((4)\) for the upper contact.
+
+*Proof.* Direct exact rational substitution verifies
+
+\[
+\sum_i\widetilde\beta_i/\widetilde D=4/5,\quad
+\widetilde\Phi((2))=\widetilde\Phi((3,3))=9/14,\quad
+\widetilde\Phi((4))=1.
+\]
+
+For permutations with \(2\le M\le43\) moved points, enumerate all nonincreasing partitions of \(M\) with parts at least two. Their total number is \(p(43)-1=63\,260\). Let \(\widetilde S=\operatorname{lcm}(2,3,4,5,6)=60\). With the same exact integers \(N_i(\lambda)\) as in (14) evaluated at the new parameters, check the **two integer inequalities**
+
+\[
+9\widetilde D\,\widetilde S^M
+\le14\sum_i\widetilde\beta_i
+\left(\widetilde S^M-
+N_i(\lambda)(\widetilde S/\widetilde s_i)^M\right)
+\le14\widetilde D\,\widetilde S^M.
+\tag{47}
+\]
+
+The public [small-denominator integer checker](check_allrank_sharp_five_fourteenths_small.py) verifies (47) for **all 63,260** such partitions and confirms the complete contact classification, using only arbitrary-precision integer comparisons. The separate [Fraction checker](check_allrank_sharp_five_fourteenths_small_independent.py) reconstructs three weights from the remaining two **literal integers** \(-354,-289\) and the contact equations, independently enumerates every partition and checks all inequalities with Fraction operations. Neither invokes the other, an LP solver or floating-point approximation.
+
+For \(M\ge44\), the analytic power-mean bound (18)--(19) applies with the new five numbers
+
+\[
+\widetilde\rho_i
+=\left(\frac12,\frac59,\frac58,\frac{17}{25},\frac{13}{18}\right).
+\]
+
+The two new checkers verify the one exact rational inequality
+
+\[
+\boxed{
+\sum_{i=1}^{5}
+\frac{|\widetilde\beta_i|}{\widetilde D}
+\widetilde\rho_i^{22}<\frac7{50}.}
+\tag{48}
+\]
+
+Thus \(|\widetilde\Phi(g)-4/5|<7/50\) for **all \(M\ge44\)**, which again places it strictly inside \((9/14,1)\). This proves (46) over every nontrivial cycle type. Combined with the **same** four-class primal (23), it provides a second independently replayable proof of the universal exact optimum \(5/14\), including the equality-contact rigidity. QED.
+
+The alternative certificate deliberately trades **18,678 more finite integer partitions** for a denominator over **two hundred thousand times smaller**, cleaner rational nodes, and an independently reconstructed dual. It is not a stronger numerical constant or a priority claim. Both versions remain available, and either version alone suffices for Theorem 1.
