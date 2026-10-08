@@ -1995,3 +1995,95 @@ uniformly over all four residues modulo four.
 Combine (122) with (109), valid for all \(n\ge2048\). The two bounds match at order \(1/n\), giving (108) with an error \(O(n^{-2})\) and the **exact first-order constant \(18\)**.
 
 The asymptotic theorem is logically independent of the fixed \(n\le120\) table. Its proof consists of a universal orbital dual, an exact polynomial expansion and global real-variable inequalities, and four rational primal families with directly checkable full moment equations. It does **not** prove that those particular families are exactly optimal at every sufficiently large finite degree; proving eventual exact support stabilization and explicit parity-wise formulas remains open.
+
+
+## 23. General \(k\)-subset orbital Bernstein limits and a Chebyshev research direction
+
+The first-order constants \(2,8,18\) in the one-, two-, and three-subset actions have a common structure. The orbital basis of **every fixed subset rank** converges to the Bernstein polynomial basis, while the explicit duals in ranks \(1,2,3\) converge to *shifted Chebyshev polynomials*. The first observation is a rigorously proved general theorem. Its extension to a sharp all-\(k\) atom-TV asymptotic remains a conjecture.
+
+Let \(1\le k\le n\), let \(\Omega_{n,k}=\binom{[n]}k\), and define
+
+\[
+F_j^{(k)}(g)
+=\#\{E\in\Omega_{n,k}:|E\cap g(E)|=j\}
+\quad(0\le j\le k).
+\]
+
+Write \(x(g)\) for the number of fixed vertices and \(a(g)=x(g)/n\). Define the Bernstein basis
+\(B_{j,k}(a)=\binom kj a^j(1-a)^{k-j}\).
+
+**Theorem 23 (uniform Bernstein orbital approximation).** For every \(n\ge\max(k,2)\), every permutation \(g\in S_n\), and every \(0\le j\le k\),
+
+\[
+\boxed{
+\left|\frac{F_j^{(k)}(g)}{\binom nk}
+       -B_{j,k}(a(g))\right|
+\le\frac{k(k-1)}{n-1}+\frac{k(k-1)}{2n}.
+} \tag{123}
+\]
+
+Indeed the **total variation distance between the entire two distributions** on \(j=0,\ldots,k\) satisfies the same bound. Consequently for every fixed \(k\), the \(k+1\) normalized orbital statistics converge uniformly over \(g\in S_n\), at rate \(O_k(n^{-1})\), to the Bernstein basis of polynomials of degree at most \(k\).
+
+**Proof.** Choose a uniformly random \(k\)-subset \(E\), and let \(X=|E\cap g(E)|\). Let \(S\) be the fixed-vertex set of \(g\), with \(|S|=x\), and put \(Y=|E\cap S|\). Every fixed vertex in \(E\) also belongs to \(g(E)\), hence \(X\ge Y\). Any extra element \(v\in E\cap g(E)\setminus S\) requires the two **distinct** vertices \(v\) and \(g^{-1}(v)\) both to belong to \(E\). For each moved vertex \(v\), the probability of this pair event is exactly \(k(k-1)/(n(n-1))\). By the union bound,
+
+\[
+\mathbb P(X\ne Y)
+\le (n-x)\frac{k(k-1)}{n(n-1)}
+\le\frac{k(k-1)}{n-1}. \tag{124}
+\]
+
+The variable \(Y\) has the hypergeometric distribution of the number of successes in \(k\) draws without replacement from a population of \(n\) with \(x\) successes. Draw instead \(k\) vertices independently and uniformly with replacement, and let \(Z\sim\operatorname{Binomial}(k,x/n)\) count successes. The distribution of the ordered independent sample **conditioned on distinctness** is exactly that of ordered sampling without replacement. The probability of a collision is at most \(\binom k2/n=k(k-1)/(2n)\); thus the total variation distance between \(Y\) and \(Z\) is at most this probability. By the coupling characterization and the triangle inequality,
+
+\[
+d_{\mathrm{TV}}\bigl(\mathcal L(X),\mathcal L(Z)\bigr)
+\le\mathbb P(X\ne Y)+
+d_{\mathrm{TV}}\bigl(\mathcal L(Y),\mathcal L(Z)\bigr),
+\]
+
+which is (123) for the full distributions and hence for each coordinate. QED.
+
+**Proposition 24 (Chebyshev limiting duals in ranks \(1,2,3\)).** Let \(T_k\) denote the Chebyshev polynomial of the first kind, \(T_k(\cos\theta)=\cos(k\theta)\). In each of the already proved ranks \(k=1,2,3\), the leading nonidentity orbital dual polynomial of the sharp or sharp-order certificates is
+
+\[
+\boxed{H_k(a)=\frac{1-T_k(2a-1)}2,}
+\]
+
+namely
+
+\[
+H_1(a)=1-a,\qquad
+H_2(a)=4a(1-a),\qquad
+H_3(a)=(1-a)(4a-1)^2.
+\tag{125}
+\]
+
+All satisfy \(0\le H_k(a)\le1\) for \(0\le a\le1\), \(H_k(1)=0\), and the endpoint derivative identity
+
+\[
+-H_k'(1)=k^2. \tag{126}
+\]
+
+**Proof.** The polynomial identities follow by substituting \(T_1(t)=t\), \(T_2(t)=2t^2-1\), and \(T_3(t)=4t^3-3t\). For \(k=1\), the fixed-point dual \(h(g)=\mathbf1_{\{g=e\}}+(n-x(g))/n\) has nonidentity profile \(H_1(x/n)\) exactly. For \(k=2\), the exact duals (76) and (81) have the common leading nonidentity profile \(4a(1-a)\): substitute the leading terms of (68) with \(x=an\) and \(y=O(n)\). For \(k=3\), equation (113) provides the exact leading polynomial \(H_3\). The range and derivative statements follow from \(|T_k(t)|\le1\) on \([-1,1]\) and \(T_k'(1)=k^2\). QED.
+
+This exhibits why the exact first-order constants are
+
+\[
+\begin{array}{c|c}
+k & \displaystyle\lim_{n\to\infty}n(1-C_n^{(k)})\\ \hline
+1&2\quad\text{(Theorem 15)},\\
+2&8\quad\text{(Theorem 17)},\\
+3&18\quad\text{(Theorem 22)}.
+\end{array}
+\tag{127}
+\]
+
+A nonidentity vertex permutation must move at least two vertices, so the closest possible fixed-point fraction to \(1\) is \(1-2/n\). For a shifted Chebyshev dual, the endpoint loss is therefore \(2k^2/n+O_k(n^{-2})\). This interpretation is exact for the three established ranks; it motivates but **does not prove** the following general question.
+
+**Conjecture (higher-rank sharp atom modulus).** For every fixed \(k\ge4\), the optimal coefficient for \(S_n\) acting on its \(k\)-subsets satisfies
+
+\[
+C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2})
+\qquad(n\to\infty). \tag{128}
+\]
+
+A viable proof must address **both sides**: construct a uniformly valid orbital dual with the appropriate subleading corrections, and match it by genuine nonnegative class measures with exactly equal \(k\)-subset image marginals. Theorem 23 alone proves only Bernstein convergence; it does not control the \(1/n\) coefficient or justify a Chebyshev optimizer. Numerical LP output at fixed degrees also cannot establish (128). The general theorem is left **explicitly open**.
