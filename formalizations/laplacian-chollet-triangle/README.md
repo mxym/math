@@ -46,3 +46,21 @@ The supplementary [K3.lean](K3.lean) closes the actual finite graph instance, ra
 **Chollet.complete_three_graph_full_laplacian_strong** proves the strong Chollet inequality for the full matrix \`(⊤ : SimpleGraph (Fin 3)).lapMatrix ℝ\`, with exactly the Mathlib graph degree product \`∏ i : Fin 3, ((⊤ : SimpleGraph (Fin 3)).degree i : ℝ)\`. Its preparatory kernel-checked theorem \`top3_laplacian_eq\` establishes equality with \`triangleL 1 1 1\`, including all three diagonal degrees and all three undirected edges.
 
 This module was freshly compiled with pinned Lean 4.34.1 and exact Mathlib version, exit code zero. Both the public main theorem and the actual-graph matrix-identity proof depend only on \`[propext, Classical.choice, Quot.sound]\`. This is a **genuine nonbipartite graph case**, but it currently covers the full three-vertex matrix only; the full all-graph quantifier over arbitrary graphs and all principal subsets is not claimed. The separate [induced-bipartite principal-submatrix theorem](../laplacian-chollet-bipartite/src/Induced.lean) handles every principal subset with bipartite induced support, including proper subsets of the triangle.
+
+
+## Closed literal all-principal target for the actual three-cycle
+
+The additional [Reindex.lean](Reindex.lean) proves a general theorem: conjugate/reindex **any** finite square real matrix along an equivalence of index types and its Mathlib permanent is exactly unchanged. This lemma is proved directly from the permutation-sum definition, with no reindexing axiom.
+
+[K3AllSubsets.lean](K3AllSubsets.lean) upgrades the earlier full-matrix case to the **literal shared all-subsets proposition**:
+
+\`\`\`lean
+Chollet.complete_three_graph_strongChollet :
+  Chollet.StrongChollet (⊤ : SimpleGraph (Fin 3))
+\`\`\`
+
+Thus for the actual three-cycle, every principal submatrix—including empty and full—and the original graph degree product are covered. The proof invokes the previously proved arbitrary-ambient-graph bipartite-induced principal theorem for proper subsets; the full subset is handled by the exact weighted-triangle algebra and the newly proved permanent-reindexing equivalence. This closes the complete strong-Chollet target on one genuinely nonbipartite graph.
+
+The source was **compiled by Lean 4.34.1 with exit code zero**, and \`#print axioms\` reported only \`propext\`, \`Classical.choice\`, \`Quot.sound\` for both \`complete_three_graph_strongChollet\` and \`proper_induced_bipartite_fin_three\`. For reproduction, compile the earlier bipartite package's \`Nonnegative.lean\`, \`Signed.lean\`, \`Target.lean\`, \`Induced.lean\`, then this package's \`Triangle.lean\`, \`Reindex.lean\`, \`K3.lean\`, \`K3AllSubsets.lean\` with the exact pinned toolchain and appropriate local LEAN_PATH. The former files are referenced, not copied or independently reauthored.
+
+**Important:** The statement about the complete 3-cycle is not a theorem for arbitrary simple graphs. The analytic and combinatorial all-graph bridges remain missing in Lean; no nonbipartite universal theorem has been silently substituted.
