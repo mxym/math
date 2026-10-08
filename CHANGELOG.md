@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — sharp all-tree projection-body extrema through dimension 48
+
+- Proved an exact Pareto-dominance dynamic program for arbitrary point-generated Cartesian-product/affine-join expression trees, with full induction showing no optimum is lost by coordinatewise frontier pruning. This is an all-dimensional algorithmic theorem.
+- Independently certified sharp normalized projection-body maxima for **all dimensions 1–48**, extending 005 v2's exact range through dimension 14. At dimension 48 the optimum is `105488578125/34359738368 > 3` times the simplex, attained by the join of three `T4 x T4` and two `T5 x T5` blocks. Each checked dimension has an optimal join of simplex products; complete equality classification is not asserted.
+- Added a 6,494-state exact rational certificate, independent checker for 1,956,775 product/join candidate pairs, read-only reproduction commands, negative controls, complete optima table and trust-boundary audit. Inherited v2 geometry remains pinned and untouched; no extrapolation to dimension 49+, asymptotic optimum, unrestricted convex bodies, priority, or external peer review is claimed.
+
 ## 2026-10-08 — literal simplex-truncation sharpness in Lean
 
 - Published the exact 365-file v2 sharpness formalization and deterministic archive, preserving all 125 mathematical modules. The literal truncationSharpnessGoal uses the actual geometric defect, a global maximum inscribed simplex, its original centroid, and exponent 1/(d−1), with no assumed formula for these objects. It existentially selects a maximizing simplex and does not assert the same excess for all maximizers.

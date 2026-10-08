@@ -1,0 +1,38 @@
+name: Projection all-tree Pareto certificate through dimension 48
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-all-tree-pareto48.yml'
+      - 'notes/exact-product-join-finite-optima/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-all-tree-pareto48.yml'
+      - 'notes/exact-product-join-finite-optima/**'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pinned hashes
+        run: cd notes/exact-product-join-finite-optima && sha256sum -c SHA256SUMS
+      - name: Exact Pareto checker, ordinary and optimized
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/exact-product-join-finite-optima/code/check.py > /tmp/all-tree-normal.txt
+          python3 -O notes/exact-product-join-finite-optima/code/check.py > /tmp/all-tree-optimized.txt
+          cmp /tmp/all-tree-normal.txt /tmp/all-tree-optimized.txt
+          cmp /tmp/all-tree-normal.txt notes/exact-product-join-finite-optima/certificates/check.log
+      - name: Reject deliberately corrupted certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/exact-product-join-finite-optima/code/negative_controls.py > /tmp/all-tree-negative.txt
+          cmp /tmp/all-tree-negative.txt notes/exact-product-join-finite-optima/certificates/negative.log

@@ -62,6 +62,10 @@ The product identity, simplex value, and dimension-twenty example are credited t
 
 Public disclosure does not certify first discovery. Historical manifests should be checked at their fixed publication commit, because navigation files can subsequently evolve.
 
+## Arbitrary-tree exact finite optimization
+
+The [exact Pareto algorithm and sharp-value certificate through dimension 48](../../notes/exact-product-join-finite-optima/README.md) determine the maximum of the projection-body volume ratio **over all point-generated product/join expressions**, not just homogeneous recursions, for each dimension 1–48. The dimension-48 sharp ratio is `105488578125/34359738368` times the simplex, attained by joining three `T4 x T4` and two `T5 x T5` blocks. The [complete proof](../../notes/exact-product-join-finite-optima/paper.md) establishes the all-dimensional correctness of a rational Pareto dynamic program; the evaluated sharp-value certificate stops at dimension 48. Prior v2/v5 source files remain unchanged.
+
 ## Additive effective-rigidity supplement
 
 The [complete supplement and evidence](../../notes/quantitative-projection-simplex-stability/README.md), [nine-page PDF](../../notes/quantitative-projection-simplex-stability/paper.pdf), and [source archive](../../notes/quantitative-projection-simplex-stability/source.zip) quantify the lower-end simplex-rigidity theorem with explicit dimension-dependent constants for every maximum-volume inscribed simplex. This is separate from v4’s symmetric upper-end equality class. The planar Banach–Mazur comparison credits the stronger existing linear bound. Versions 2–5 are preserved unchanged by this additive release. The [independent v4 review](../../reviews/2026-10-07-symmetric-projection-equality-review.md) found no substantive correction required.
