@@ -20,5 +20,16 @@ PASS: grid k=4, eps/pi=1/4, resolution=12, vectors=455, all scores certified <= 
 PASS: grid k=5, eps/pi=1/4, resolution=10, vectors=1001, all scores certified <= candidate maximum + 1e-35
 PASS: grid k=5, eps/pi=1/3, resolution=14, vectors=3060, all scores certified <= candidate maximum + 1e-35
 PASS: grid k=6, eps/pi=1/5, resolution=8, vectors=1287, all scores certified <= candidate maximum + 1e-35
+PASS: heterogenous floors ['0', '1/4', '1/6', '1/3'], 14 feasible (<=3 free) candidates, 286 certified grid vectors
+PASS: heterogenous floors ['1/6', '1/4', '1/8', '1/12', '1/10'], 25 feasible (<=3 free) candidates, 715 certified grid vectors
+PASS: heterogenous floors ['1/3', '1/3', '1/3', '1/3', '1/3'], 25 feasible (<=3 free) candidates, 1001 certified grid vectors
+PASS: heterogenous floors ['1/2', '1/3', '1/3', '5/6'], 5 feasible (<=3 free) candidates, 56 certified grid vectors
+PASS: heterogenous floors ['1/6', '1/4', '1/3', '1/5', '1/7', '1/8'], 41 feasible (<=3 free) candidates, 792 certified grid vectors
+PASS: 3 exact rational inequalities establish the all-k>=4 simplex-vs-equal-mass-planar gap
+PASS: exact tetra-vs-all-planar transition bracket pi/50 < epsilon_tet < pi/40; positive delta < 1/8
+PASS: exact rational arcsine interval certifies four-cell tetrahedral objective in (0.353,0.354), planar objective in (0.318,0.319)
+PASS: infinite-rank k>=7 bound by m7 and finite k=5,6 bound by m5
+PASS: exact first-Hermite Gaussian noise stability comparison for 0<rho<=1/30
+PASS: unique first-Hermite witness noise correlation root lies in (29/100,3/10), exact rational enclosures
 PASS: sharp quadratic stability grid (1225 triples) and both exact equality orbits
 ALL EXACT-RATIONAL CHECKS PASSED
