@@ -177,3 +177,29 @@ with only Lean foundational axioms. No `sorry`.
 **Still unformalized:** complete equality characterization and
 complex-valued permutation tensorization, plus the paper's
 probability-law interpretation.
+
+## Exact one-column permutation amplification
+
+The two new verified modules `RealLaw.lean` and `RealLawNorm.lean`
+specialize the full complex norm to **all real coefficients** and
+prove the *optimal normalized one-column constant*, not just an upper
+estimate.
+
+For every real (t) and real squared amplification proposal (B),
+`ComplexPencilReal.law_bound_exact` establishes
+[
+ igl[,orall A\in\mathbb C^{3\times3}:
+  \left|\tfrac16(\operatorname{per}A+6t\det A)\right|^2
+  \le B\prod_{i=1}^3(\|A_{i,*}\|_2^2/3),\bigr]
+ \iff
+ B\ge\max\left\{1,\frac34(1+6|t|)^2\right\}.
+]
+For (|t|\le1/6) this is exactly the optimal one-column
+complex-valued permutation-moment amplification, i.e.
+the square of (kappa(t)=\max\{1,\frac{\sqrt3}{2}(1+6|t|)\}).
+The proof covers all complex functions and every real (t), with
+no finite test grid and no unproved extremizer assumption.
+The actual `RealLawNorm.log` reports only standard Lean axioms.
+
+**Still pending:** the finite-product tensorization theorem for
+nonidentical columns and the complete equality classification.
