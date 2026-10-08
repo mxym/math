@@ -1628,3 +1628,145 @@ A fresh-copy Windows replay downloaded both the published JSON and the standalon
 followed by a successful fresh-public-source completion marker. The full independent replay and its boundaries are recorded in VERIFICATION.md.
 
 **Scope and open continuation.** Unlike Theorem 17, this is an **exact finite classification**, not a universal closed expression for \(C_n^{(3)}\). The increasingly varied conjugacy-class supports suggest phase changes in the rank-four orbital convex hull. Determining an all-\(n\) algebraic formula, stabilization ranges, or rigorous asymptotic expansion is the next natural theoretical step. Any conjecture about \(n>23\) must remain labelled computational until its own proof or independently verified certificates exist.
+
+
+## 20. An exact three-cycle-statistic compression theorem
+
+The rank-four orbital data for the natural \(S_n\)-action on its three-element subsets have a much simpler representation than full conjugacy-class partitions suggest. **Only the counts of cycles of lengths 1, 2 and 3 matter.** This fact gives a finite rational LP with \(O(n^3)\) candidate types and makes exact certificates for substantially larger degrees practical.
+
+Let \(n\ge3\), \(\Omega=\binom{[n]}3\), and let \(g\in S_n\) have \(x\) fixed points, \(y\) two-cycles and \(z\) three-cycles. For \(j=0,1,2,3\), write
+
+\[
+F_j(g)=\#\{E\in\Omega:|E\cap g(E)|=j\},
+\qquad N=\binom n3.
+\]
+
+**Theorem 20 (three-cycle compression).** Define
+
+\[
+\begin{aligned}
+M_1(x)&=x\binom{n-1}{2}+(n-x)(n-2)
+     =\frac{n-2}{2}\,[2n+(n-3)x],\\
+M_2(x,y)&=(n-2)\binom x2+x(n-x)+(n-2)y+(n-x-2y)\\
+        &=(n-2)\binom x2+(x+1)(n-x)+(n-4)y,\\
+M_3(x,y,z)&=\binom x3+xy+z.
+\tag{99}
+\end{aligned}
+\]
+
+Then
+
+\[
+\boxed{
+\begin{aligned}
+F_3&=M_3,\\
+F_2&=M_2-3M_3,\\
+F_1&=M_1-2M_2+3M_3,\\
+F_0&=N-M_1+M_2-M_3.
+\end{aligned}} \tag{100}
+\]
+
+In particular, all four orbital counts depend **only** on \((x,y,z)\), not on the remaining cycle structure.
+
+Moreover, a triple of nonnegative integers \((x,y,z)\) occurs for some permutation in \(S_n\) **if and only if**
+
+\[
+r:=n-x-2y-3z\quad\text{equals \(0\) or is at least \(4\)}. \tag{101}
+\]
+
+Every feasible triple has the canonical representative with cycle type
+\(1^x2^y3^z\), supplemented by one \(r\)-cycle if \(r\ge4\).
+Consequently the *full* rational primal-dual LP of Theorem 18 can be compressed, **without changing its optimum**, to the finite set
+
+\[
+\mathcal T_n=
+\{(x,y,z)\in\mathbb Z_{\ge0}^3:
+n-x-2y-3z\in\{0\}\cup[4,\infty)\}. \tag{102}
+\]
+
+Here \(|\mathcal T_n|=O(n^3)\), instead of the partition number \(p(n)\) conjugacy classes. Each compressed primal variable represents a central probability mass distributed uniformly on its canonical conjugacy class. Group elements with the same \((x,y,z)\) have identical dual evaluations, so no constraint is lost.
+
+**Proof.** Let \(K(E)=|E\cap g(E)|\) for \(E\in\Omega\). Binomial inversion on \(K\in\{0,1,2,3\}\) shows that the four \(F_j\) are determined by
+
+\[
+M_a=\sum_{E\in\Omega}\binom{K(E)}a,\qquad a=1,2,3,
+\]
+
+together with \(M_0=N\); solving this triangular system gives (100).
+
+To count \(M_1\), fix a vertex \(v\). If \(g(v)=v\), then \(v\) lies in \(E\cap g(E)\) exactly when \(v\in E\), giving \(\binom{n-1}{2}\) triples. Otherwise, both \(v\) and its distinct preimage \(g^{-1}(v)\) must be in \(E\), giving \(n-2\) triples. Summing over the \(x\) fixed and \(n-x\) moved vertices gives the first formula in (99).
+
+For \(M_2\), count unordered pairs \(\{v,w\}\subset E\cap g(E)\). There are four disjoint cases:
+
+- Both are fixed: \(\binom x2\) possible vertex pairs, each in \(n-2\) triples.
+- Exactly one is fixed: \(x(n-x)\) pairs, each determining its unique required third vertex \(g^{-1}(w)\) (or \(g^{-1}(v)\)).
+- They are the two vertices of the same transposition: \(y\) pairs, each in \(n-2\) triples.
+- They are consecutive in a cycle of length at least three: every such cycle contributes exactly its length many unordered adjacent pairs, so \(n-x-2y\) pairs overall; each has exactly one completing third vertex.
+
+There are no other pairs for which the four vertices \(v,w,g^{-1}(v),g^{-1}(w)\) occupy at most three distinct positions. This establishes \(M_2\).
+
+Finally, \(K(E)=3\) precisely when \(g(E)=E\). A three-point invariant set is a union of cycles of total size three, hence is either three fixed points, a fixed point plus a transposition, or one three-cycle. There are exactly \(\binom x3+xy+z\) such sets. This is \(M_3\).
+
+Cycles of length at least four account for \(r\) vertices. Their total size is either zero or at least four; conversely one \(r\)-cycle realizes every \(r\ge4\). This proves (101). Theorem 18 already reduces the marginal-constrained optimization to conjugation-invariant probability distributions and conjugacy-invariant orbital dual functions. Since their orbital data factor through \((x,y,z)\), aggregating probabilities over classes with identical triples preserves all constraints and the distinguished identity atom; conversely each feasible triple has the displayed representative. Thus this aggregation preserves the optimum. QED.
+
+**Note on complexity.** The theorem changes the *number of distinct constraints* from \(p(n)\) to \(O(n^3)\). It does not say that an optimizer is trustworthy by itself: any claimed optimum still requires exact primal weights and a dual function whose inequalities are checked for all types in (102).
+
+## 21. Complete exact rank-four atom-modulus classification through degree 120
+
+The compression theorem enables a substantial extension of Theorem 19 while retaining a short, **independent and optimizer-free** integer checker.
+
+**Theorem 21 (finite exact triple-action classification).** The sharp coefficient \(C_n^{(3)}\) for \(S_n\) acting on \(\binom{[n]}3\), under preservation of all triple-image one-point marginals, is now determined **exactly for every \(3\le n\le120\)**.
+
+Degrees \(3\le n\le23\) are covered by Theorems 15, 17 and 19 and their earlier fixed certificates. For each degree \(24\le n\le120\), the additional fixed public certificate file
+
+\[
+\texttt{certificates/three\_subset\_n24\_120.json} \tag{103}
+\]
+
+contains an explicit pair of *conjugation-invariant*, disjointly supported probability measures \(P_n,Q_n\), each described by rational masses on canonical cycle types of the form \((x,y,z,r)\), together with three rational coefficients \(\lambda_{0,n},\lambda_{1,n},\lambda_{2,n}\), dual extrema \(\ell_n,u_n\), and the exact fraction
+
+\[
+C_n^{(3)}=P_n(e)-Q_n(e)=u_n-\ell_n. \tag{104}
+\]
+
+For clarity, selected newly certified values are
+
+| \(n\) | Exact \(C_n^{(3)}\) | \(n\) | Exact \(C_n^{(3)}\) |
+|---:|:---|---:|:---|
+|24|32461/57220|25|80848/140761|
+|26|108592/185523|30|102746/165985|
+|40|284639/416012|50|555884/760975|
+|60|822469/1074757|70|4211614/5317095|
+|80|18639283/22912384|90|38205728/45980475|
+|100|3177111/3758198|120|53562383/61708904|
+
+Every one of the other exact fractions for \(24\le n\le120\) appears in (103). No extrapolation beyond degree 120 is asserted.
+
+**Proof by independently checkable finite rational certificates.** For each \(n=24,\ldots,120\), the fixed JSON file records three positive rational masses for \(P_n\) (one on the identity class) and two for \(Q_n\), summing to one on each side. The verifier checks that their canonical conjugacy-class supports are disjoint and that all four orbital moments match:
+
+\[
+\mathbb E_{P_n}F_j=\mathbb E_{Q_n}F_j\qquad(0\le j\le3). \tag{105}
+\]
+
+Since both are class-invariant, these four equalities imply equality of **every** triple-image marginal (Theorem 18). For the recorded dual data, define
+
+\[
+h_n(g)=\mathbf1_{\{g=e\}}-
+\sum_{j=0}^2\lambda_{j,n}F_j(g). \tag{106}
+\]
+
+The public checker then verifies **for every** \((x,y,z)\in\mathcal T_n\),
+
+\[
+\ell_n\le h_n(x,y,z)\le u_n, \tag{107}
+\]
+
+and equality with \(u_n\) on all \(P_n\)-support classes and \(\ell_n\) on all \(Q_n\)-support classes. By Theorem 20, this is an exhaustive check over **all possible** \(S_n\) conjugacy classes, including those having many cycles of length at least four. No unexamined real or integer parameter remains in the stated finite degree range.
+
+All dual denominators are cleared first, so (107) is verified by **integer comparisons**; the only fractions handled are the five primal weights and three dual coefficients per degree. The checker also verifies normalizations, all moment equations, positive class cardinalities and an explicit small rational \(\delta>0\) for which \(u_{S_n}+\delta(P_n-Q_n)\) is a probability law. Theorem 18 now proves the upper bound \(C_n^{(3)}\le u_n-\ell_n\), while this actual attaining perturbation proves the reverse inequality. The exact identity (104) is checked for each degree. Hence every advertised coefficient is rigorously established by a finite replayable certificate. QED.
+
+**Computational trust boundary.** The published standalone program
+\(\texttt{code/check\_three\_subset\_compressed\_24\_120.py}\)
+uses **only Python 3 standard-library integers and fractions**. Its loops cover the 97 degrees and all \(\mathcal T_n\), amounting to exactly **1,489,083 compressed type evaluations** in the fixed range. It uses no optimizer, floating-point comparison, Sage, SciPy, SymPy or solver oracle. The original support discovery *did* use floating-point linear programming, followed by exact rational reconstruction; that discovery history is not used by the checker or as a logical premise of Theorem 21.
+
+This is a **large but finite** exact classification. Neither the observed apparent support periodicity nor the numerical trend of \(C_n^{(3)}\) justifies claiming an all-degree formula or asymptotic expansion. The next frontier is to prove an infinite parameterized primal-dual family, ideally by factorization of the cubic polynomial (106) in the constrained cycle-count region (102).
