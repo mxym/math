@@ -308,3 +308,31 @@ for the complex absolute-value inequality. This is
 separate from attaining the optimal norm, for which the
 five extremal witness classes and full tensor witnesses
 are already formalized.
+
+## Full Theorem 2 equality classification — Lean complete
+
+Complete kernel proof now published in EqualityCompletionFull.lean:
+  ComplexPencilEquality.absolute_equality_iff_full.
+The theorem is an if-and-only-if for all nine complex matrix entries.
+It includes three zero-row cases, nonzero balanced rank-one matrices,
+and nonzero complex monomial matrices; the two nonzero branches
+are exactly the classes in the research manuscript.
+
+Necessity uses the separately checked EqualityCases module.
+Sufficiency is checked independently by
+EqualitySufficiencyVerified.flatRankOne_saturates_verified and
+EqualityMonomialVerified.monomialRows_saturates_verified.
+Zero-row equality is proved explicitly.
+All three new modules have successful Lean 4.34.1 build logs
+under logs/, and EQUALITY_SHA256SUMS seals the source files.
+All three #print axioms results list only standard Lean axioms
+(propext, Classical.choice, Quot.sound); there is no sorryAx.
+
+Core theorem coverage now includes Theorem 1A (complex lens),
+Theorem 1B (five-branch exact norm), the sharp complex absolute
+inequality and joint optimality, Theorem 2 (full equality cases),
+and the optimal nonidentical-column tensor amplification.
+
+Remaining outside exact kernel formalization are ancillary
+expository statements and independent probability-law
+parameterization from the manuscript.
