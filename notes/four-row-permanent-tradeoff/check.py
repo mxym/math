@@ -166,6 +166,23 @@ def interpolation_path_test():
         fail("critical-weight quadratic gap polynomial")
     print("critical-weight interpolation: exact quadratic stability gap")
 
+def convex_power_witness_test():
+    # Only tests exact endpoint witnesses. The all-real-exponent
+    # convexity proof is mathematical and appears in PAPER.md.
+    flat=[[F(1,2)]*4 for _ in range(4)]
+    perm=[[F(i==j) for j in range(4)] for i in range(4)]
+    pf,df=evaluate(flat)
+    pp,dp=evaluate(perm)
+    count=0
+    for r in range(1,9):
+        for c in (F(0),F(1,10),F(1,2),F(5,4),F(7),F(30)):
+            expected=max(F(3,2)**r,1+c)
+            attained=max(abs(pf)**r+c*abs(df)**r,
+                         abs(pp)**r+c*abs(dp)**r)
+            if attained!=expected:fail("sharp convex-power endpoints")
+            count+=1
+    print("convex-power endpoint rational witnesses:",count)
+
 def parity_and_tensor_test():
     perms=list(permutations(range(4)))
     even=sum(sign(p)==1 for p in perms)
@@ -194,6 +211,7 @@ def main():
     laplace_test()
     sharpness_test()
     interpolation_path_test()
+    convex_power_witness_test()
     parity_and_tensor_test()
     print("PASS: sharp 4x4 permanent/determinant tradeoff and parity witnesses")
     print("certificate: exact polynomial coefficients and Fraction witnesses")

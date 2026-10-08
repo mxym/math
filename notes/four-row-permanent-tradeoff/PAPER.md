@@ -186,6 +186,98 @@ endpoint. The polynomial identity in (14a) is also checked by the
 formal exact checker. This example does not by itself prove a
 universal optimal distance-to-extremizers modulus.
 
+## 4B. Complete convex Pareto envelope and all power exponents
+
+The linear endpoint inequality (1) determines much more than one
+objective: it identifies the optimal value of **every convex objective
+nondecreasing in the permanent coordinate**.
+
+Normalize the four nonzero rows separately and write
+\[
+x(A)=|\operatorname{per}A|,\qquad y(A)=|\det A|.
+\]
+By Theorem 1 at \(c=1/2\) and the elementary Hadamard determinant
+bound, every normalized matrix satisfies
+\[
+0\le y(A)\le1,\qquad 0\le x(A)\le\frac32-\frac12y(A).
+\tag{14b}
+\]
+Both endpoints \((3/2,0)\) and \((1,1)\) are attained,
+respectively by the flat rank-one and monomial matrices.
+
+**Theorem 4B (sharp universal convex objectives).**
+Let \(\Phi:[0,3/2]\times[0,1]\to\mathbb R\) be a
+convex function which is nondecreasing in its first argument.
+Then
+\[
+\boxed{
+\sup_{\|A_{i,*}\|_2=1}
+\Phi\bigl(|\operatorname{per}A|,|\det A|\bigr)
+=\max\left\{\Phi(3/2,0),\,\Phi(1,1)\right\}.
+}\tag{14c}
+\]
+If \(\Phi\) is strictly increasing in its first argument,
+every maximizing matrix is one of the two sharp classes
+from Theorem 1 (rank-one equimodular or monomial).
+Only the class whose endpoint gives the larger value
+can occur; if the two endpoint values tie, both occur.
+
+**Proof.** By monotonicity in the first variable, (14b) gives
+\[
+\Phi(x(A),y(A))
+\le\Phi\left(\frac32-\frac12y(A),y(A)\right).
+\]
+The argument on the right is the convex combination
+\((1-y)(3/2,0)+y(1,1)\), with \(0\le y\le1\).
+Convexity yields
+\[
+\Phi\left(\frac32-\frac y2,y\right)
+\le(1-y)\Phi(3/2,0)+y\Phi(1,1)
+\le\max\{\Phi(3/2,0),\Phi(1,1)\}.
+\]
+Both endpoints are realized by explicit matrices.
+
+For the equality refinement, strict increase in the first
+coordinate forces equality in the linear constraint
+\(x+y/2\le3/2\), otherwise the first displayed inequality
+would be strict. Theorem 1 at \(c=1/2\) classifies
+those equality matrices as exactly the two extremal classes.
+Their images are the two endpoints, so the larger endpoint
+value selects the maximizing class. QED.
+
+**Corollary 4C (sharp power tradeoff for every real exponent).**
+For **every real** \(r\ge1\), every \(c\ge0\) and every
+complex \(4\times4\) matrix,
+\[
+\boxed{
+|\operatorname{per}A|^r+c|\det A|^r
+\le\max\{(3/2)^r,\,1+c\}
+\left(\prod_{i=1}^4\|A_{i,*}\|_2\right)^r.
+}\tag{14d}
+\]
+All coefficients are optimal. Among matrices with four
+nonzero rows, the complete equality classification is:
+\[
+\begin{array}{c|c}
+c<(3/2)^r-1&\text{rank-one equimodular}\\
+c=(3/2)^r-1&\text{rank-one equimodular or monomial}\\
+c>(3/2)^r-1&\text{monomial}.
+\end{array}\tag{14e}
+\]
+**Proof.** Apply Theorem 4B to
+\(\Phi(x,y)=x^r+c y^r\). Both power functions are
+convex for \(r\ge1\), and \(\Phi\) is strictly increasing
+in \(x\ge0\); the endpoint values are exactly
+\((3/2)^r\) and \(1+c\). Restore the row normalizations
+by homogeneity. The equality cases follow from
+Theorem 4B. QED.
+
+This is a genuine infinite continuum of sharp exponent
+inequalities, not a finite table of integer-power checks.
+The theorem characterizes all convex monotone upper objectives,
+but does **not** classify every attainable interior point of
+the two-dimensional permanent/determinant region.
+
 ## 5. Exact parity-biased S4 norm and tensorization
 
 Let u be uniform on the symmetric group S4. For real t with |t| <= 1/24 define
@@ -251,5 +343,11 @@ python3 -B -O notes/four-row-permanent-tradeoff/check.py
 The reports must match each other and [the frozen replay](results/replay.txt). The analytic Cauchy–Schwarz, stability and tensor arguments are contained in this paper; they are not replaced by the finite checker.
 
 The classical sharp permanent-only complex row-norm bound of Carlen, Lieb and Loss, *An inequality of Hadamard type for permanents* (2006), [arXiv:math/0508096](https://arxiv.org/abs/math/0508096), has constant n!/n^(n/2), equal to 3/2 at n=4. The present elementary argument recovers its four-row case while retaining the **sharp determinant term** and complete equality/deficit information. The earlier [three-row complex pencil norm](../complex-permanent-determinant/PAPER.md) treats three rows by a different Hermitian method. The four-row setting is related to [OpenAI/math's strict four-row permanent and permutation moment manuscript](https://github.com/openai/math/blob/main/preprints/A-strict-four-row-permanent-inequality-and-permutation-moments-September-26-2026/build/sections/02-permanent.tex), but no improvement in the full Thorp-shuffle mixing time is claimed.
+
+The independent [structural even-row note](EVEN_ROW_TRANSFER.md)
+proves an all-even balanced Laplace transfer and the all-rank
+bosonic Gram-permanent coefficient identity. It isolates the precise
+3-by-6 rectangular obstruction to the next six-row optimum.
+These are proven structural results, not a six-row classification.
 
 The exact **nonreal** four-row pencil norm remains unclassified. The tradeoff (1) is not claimed for five or more rows. The radius (18) applies **only** to parity-mixture S4 laws, not arbitrary uniform-one-point-marginal measures on S4. No novelty/priority certification, human referee review or full proof-assistant formalization is asserted.

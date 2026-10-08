@@ -28,6 +28,30 @@ c|a_jb_k-a_kb_j|^2\right)
 =\max\{2-2/n,1+c\}.
 \]
 
+## Stronger convex and all-exponent conclusions
+
+The [same paper](PAPER.md#4b-complete-convex-pareto-envelope-and-all-power-exponents) now solves **every convex objective nondecreasing in the permanent coordinate** for the normalized pair (|per A|,|det A|). Its sharp maximum is always achieved at the flat rank-one or monomial endpoint. In particular, for every **real exponent r>=1** and c>=0,
+
+\[
+|\operatorname{per}A|^r+c|\det A|^r
+\le \max\{(3/2)^r,1+c\}
+\left(\prod_i\|A_{i,*}\|_2
+ight)^r.
+\]
+
+The critical coefficient is exactly (3/2)^r-1, with complete
+equality cases on and on either side of that transition.
+
+The [general even-row transfer note](EVEN_ROW_TRANSFER.md) proves
+the **all-even-dimensional** balanced Laplace/Cauchy–Schwarz
+reduction, and a fully general bosonic Gram/permanent coefficient
+identity with sharp collision-free orthonormal-row equality.
+It isolates the exact unresolved 3-by-6 rectangular inequality
+needed for the next six-row advance; no six-row optimum is claimed.
+The [integer/rational companion checker](check_even_transfer.py)
+replays 41,066 permutation-sign bijections in dimensions 2,4,6,8
+and six bosonic tensor examples.
+
 ## Permutation application (restricted parity family)
 
 For S4 let nu_t(pi)=1/24+t sgn(pi), with |t| <= 1/24.
@@ -53,14 +77,18 @@ all matrix sizes beyond four.
 
 ## Proof and exact replay
 
-- [Full proof, including rigidity and tensorization](PAPER.md)
+- [Full proof, including convex objectives, rigidity and tensorization](PAPER.md)
+- [All-even Laplace transfer and bosonic Gram coefficient theorem](EVEN_ROW_TRANSFER.md)
 - [Formal polynomial-identity certificate](check.py): all two-row
   symmetric/alternating and four-row Laplace identities, checked as
   exact integer-polynomial coefficient equalities, not finite sampling.
+- [All-even transfer exact replay](check_even_transfer.py): 41,066
+  permutation sign checks and rational tensor/Gram identities.
 - [Independent exact tensor witnesses](check_tensor.py): twelve rational
   parameter vectors and 43,896 enumerated permutation tuples.
 - [Audit and trust boundary](AUDIT.md)
-- [Frozen output](results/replay.txt), [tensor output](results/tensor-replay.txt)
+- [Frozen output](results/replay.txt), [tensor output](results/tensor-replay.txt),
+  [even-row transfer output](results/even-transfer-replay.txt)
   and [source-integrity inventory](SHA256SUMS).
 
 From the repository root, Python 3.10+ standard library:
@@ -70,6 +98,8 @@ python3 -B notes/four-row-permanent-tradeoff/check.py
 python3 -B -O notes/four-row-permanent-tradeoff/check.py
 python3 -B notes/four-row-permanent-tradeoff/check_tensor.py
 python3 -B -O notes/four-row-permanent-tradeoff/check_tensor.py
+python3 -B notes/four-row-permanent-tradeoff/check_even_transfer.py
+python3 -B -O notes/four-row-permanent-tradeoff/check_even_transfer.py
 (cd notes/four-row-permanent-tradeoff && sha256sum -c SHA256SUMS)
 ~~~
 

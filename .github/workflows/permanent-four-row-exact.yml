@@ -35,6 +35,13 @@ jobs:
           python3 -B -O notes/four-row-permanent-tradeoff/check_tensor.py > /tmp/permanent-tensor-optimized.txt
           cmp /tmp/permanent-tensor-normal.txt /tmp/permanent-tensor-optimized.txt
           cmp /tmp/permanent-tensor-normal.txt notes/four-row-permanent-tradeoff/results/tensor-replay.txt
+      - name: All-even Laplace and bosonic Gram exact replay
+        shell: bash
+        run: |
+          python3 -B notes/four-row-permanent-tradeoff/check_even_transfer.py > /tmp/permanent-even-normal.txt
+          python3 -B -O notes/four-row-permanent-tradeoff/check_even_transfer.py > /tmp/permanent-even-optimized.txt
+          cmp /tmp/permanent-even-normal.txt /tmp/permanent-even-optimized.txt
+          cmp /tmp/permanent-even-normal.txt notes/four-row-permanent-tradeoff/results/even-transfer-replay.txt
       - name: Frozen source package integrity
         shell: bash
         run: |

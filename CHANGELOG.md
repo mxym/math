@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-08 — convex Pareto envelope and universal even-row permanent transfer
+
+- Strengthened the sharp four-row permanent/determinant inequality into a **complete convex Pareto envelope**: every convex functional nondecreasing in |per A| has its normalized optimum at one of the flat rank-one and monomial endpoints. Consequently, for every **real exponent r>=1**, the exact sharp power objective is max((3/2)^r,1+c), with complete equality classification and critical coefficient c=(3/2)^r-1.
+- Proved a general even-row balanced Laplace transfer theorem valid in dimension 2m for all m>=1, and the universal bosonic symmetric-tensor coefficient identity sum(alpha! |c_alpha|^2)=per(UU*) with its exact collision-free orthonormal-row equality condition.
+- Supplied 41,066 exact permutation/shuffle sign replays for n=2,4,6,8, rational bosonic/fermionic Gram checks, all-power endpoint controls, frozen ordinary/optimized reports and updated CI. The sharp 3x6 rectangular inequality that would close the full six-row case is stated only as an **unproved target**, not a theorem; no external referee, priority or full Lean claim is made.
+
+
 ## 2026-10-08 — sharp norm-six principal-sieve period 1122
 
 - Proved the exact minimum successful finite principal-ideal

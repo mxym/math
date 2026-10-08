@@ -85,6 +85,8 @@ python3 -B notes/four-row-permanent-tradeoff/check.py
 python3 -B -O notes/four-row-permanent-tradeoff/check.py
 python3 -B notes/four-row-permanent-tradeoff/check_tensor.py
 python3 -B -O notes/four-row-permanent-tradeoff/check_tensor.py
+python3 -B notes/four-row-permanent-tradeoff/check_even_transfer.py
+python3 -B -O notes/four-row-permanent-tradeoff/check_even_transfer.py
 (cd notes/four-row-permanent-tradeoff && sha256sum -c SHA256SUMS)
 ~~~
 
@@ -105,6 +107,34 @@ construction, while the all-N norm is proved in the paper.
 No floating-point optimization, stochastic evidence, external
 solver or Python assertions on the essential code paths
 is used in the final certificates.
+
+## Convex-objective and all-even-transfer extensions
+
+The full power-exponent result is a consequence of **the already
+proved** critical tradeoff |per|+(1/2)|det|<=3/2, together with the
+Hadamard bound |det|<=1 for normalized rows. Every achievable
+normalized pair lies below the segment from (3/2,0) to (1,1).
+Convexity and first-coordinate monotonicity put the maximum of every
+admissible convex objective at these two attained endpoints.
+This yields the exact continuum of exponents r>=1 and all critical
+coefficients (3/2)^r-1. The finite 48-instance Fraction replay
+checks only endpoint algebra; the continuous real-r theorem is
+**mathematically proved**, not extrapolated from integer powers.
+
+The [even-row transfer](EVEN_ROW_TRANSFER.md) follows by exact
+Laplace cofactor decomposition and two Cauchy–Schwarz steps for
+all even sizes. The orthonormal-row collision-free theorem follows
+from the symmetric tensor/Gram permanent coefficient identity.
+The companion [exact checker](check_even_transfer.py) confirms the
+Laplace sign bijection on all 41,066 permutations through size 8,
+ordinary Gram/fermionic Cauchy–Binet and bosonic coefficient identities
+on six rational frames. The all-dimension proofs are explicit in
+the text; this is not finite-computation extrapolation.
+
+**Unproved:** the proposed sharp 3-by-6 rectangular energy bound
+S3+(7/3)det(UU*)<=10/3 product(row norms squared).
+No complete six-row permanent/determinant sharp inequality is
+claimed by this addendum.
 
 ## Remaining boundaries
 
