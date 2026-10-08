@@ -1,0 +1,9 @@
+import FourRoots
+
+#print axioms EntropyCounterexample.exists_zero_Ioo_of_pos_neg
+#print axioms EntropyCounterexample.exists_zero_Ioo_of_neg_pos
+#print axioms EntropyCounterexample.four_roots_in_open_intervals
+#print axioms EntropyCounterexample.four_ordered_roots
+#print axioms EntropyCounterexample.four_distinct_roots
+#print axioms EntropyCounterexample.root_outside_any_pair
+#print axioms EntropyCounterexample.not_exactly_two_roots

@@ -1,0 +1,138 @@
+EntropyCounterexample.root_polynomial_strictMono : StrictMonoOn (fun x => x ^ 10 * (1 + x)) (Set.Ioi 0)
+'EntropyCounterexample.root_polynomial_strictMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_exists : ∃ a, 117 / 125 < a ∧ a < 937 / 1000 ∧ a ^ 10 * (1 + a) = 1
+'EntropyCounterexample.alpha_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_lower : 117 / 125 < EntropyCounterexample.alpha
+'EntropyCounterexample.alpha_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_upper : EntropyCounterexample.alpha < 937 / 1000
+'EntropyCounterexample.alpha_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_equation : EntropyCounterexample.alpha ^ 10 * (1 + EntropyCounterexample.alpha) = 1
+'EntropyCounterexample.alpha_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_pos : 0 < EntropyCounterexample.alpha
+'EntropyCounterexample.alpha_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_lt_one : EntropyCounterexample.alpha < 1
+'EntropyCounterexample.alpha_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_unique {x : ℝ} (hx : 0 < x) (heq : x ^ 10 * (1 + x) = 1) : x = EntropyCounterexample.alpha
+'EntropyCounterexample.alpha_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_existsUnique : ∃! a, a ∈ Set.Ioo 0 1 ∧ a ^ 10 * (1 + a) = 1
+'EntropyCounterexample.alpha_existsUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.h_eleven_eleven (x : ℝ) : EntropyCounterexample.h 11 11 x = EntropyCounterexample.P x
+'EntropyCounterexample.h_eleven_eleven' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.h_eleven_ten (x : ℝ) : EntropyCounterexample.h 11 10 x = EntropyCounterexample.Q x / 11
+'EntropyCounterexample.h_eleven_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.p_special (a x : ℝ) :
+  EntropyCounterexample.p 11 10 a x = a * EntropyCounterexample.A x - EntropyCounterexample.B x
+'EntropyCounterexample.p_special' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.p_strictMono_parameter {x : ℝ} (hx : 0 < EntropyCounterexample.A x) :
+  StrictMono fun a => EntropyCounterexample.p 11 10 a x
+'EntropyCounterexample.p_strictMono_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.sample_one_fifth : 0 < EntropyCounterexample.p 11 10 EntropyCounterexample.alpha (1 / 5)
+'EntropyCounterexample.sample_one_fifth' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.sample_two_fifths : EntropyCounterexample.p 11 10 EntropyCounterexample.alpha (2 / 5) < 0
+'EntropyCounterexample.sample_two_fifths' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.sample_three_fifths : 0 < EntropyCounterexample.p 11 10 EntropyCounterexample.alpha (3 / 5)
+'EntropyCounterexample.sample_three_fifths' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.sample_two_thirds : EntropyCounterexample.p 11 10 EntropyCounterexample.alpha (2 / 3) < 0
+'EntropyCounterexample.sample_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.sample_four_fifths : 0 < EntropyCounterexample.p 11 10 EntropyCounterexample.alpha (4 / 5)
+'EntropyCounterexample.sample_four_fifths' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.exists_zero_Ioo_of_pos_neg {f : ℝ → ℝ} {a b : ℝ} (hab : a < b) (hf : ContinuousOn f (Set.Icc a b))
+  (ha : 0 < f a) (hb : f b < 0) : ∃ x ∈ Set.Ioo a b, f x = 0
+'EntropyCounterexample.exists_zero_Ioo_of_pos_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.exists_zero_Ioo_of_neg_pos {f : ℝ → ℝ} {a b : ℝ} (hab : a < b) (hf : ContinuousOn f (Set.Icc a b))
+  (ha : f a < 0) (hb : 0 < f b) : ∃ x ∈ Set.Ioo a b, f x = 0
+'EntropyCounterexample.exists_zero_Ioo_of_neg_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.four_roots_in_open_intervals {f : ℝ → ℝ} (hf : Continuous f) (h1 : 0 < f (1 / 5))
+  (h2 : f (2 / 5) < 0) (h3 : 0 < f (3 / 5)) (h4 : f (2 / 3) < 0) (h5 : 0 < f (4 / 5)) :
+  ∃ x1 x2 x3 x4,
+    x1 ∈ Set.Ioo (1 / 5) (2 / 5) ∧
+      x2 ∈ Set.Ioo (2 / 5) (3 / 5) ∧
+        x3 ∈ Set.Ioo (3 / 5) (2 / 3) ∧ x4 ∈ Set.Ioo (2 / 3) (4 / 5) ∧ f x1 = 0 ∧ f x2 = 0 ∧ f x3 = 0 ∧ f x4 = 0
+'EntropyCounterexample.four_roots_in_open_intervals' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.four_ordered_roots {f : ℝ → ℝ} (hf : Continuous f) (h1 : 0 < f (1 / 5)) (h2 : f (2 / 5) < 0)
+  (h3 : 0 < f (3 / 5)) (h4 : f (2 / 3) < 0) (h5 : 0 < f (4 / 5)) :
+  ∃ x1 x2 x3 x4, 0 < x1 ∧ x1 < x2 ∧ x2 < x3 ∧ x3 < x4 ∧ x4 < 1 ∧ f x1 = 0 ∧ f x2 = 0 ∧ f x3 = 0 ∧ f x4 = 0
+'EntropyCounterexample.four_ordered_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.four_distinct_roots {f : ℝ → ℝ} (hf : Continuous f) (h1 : 0 < f (1 / 5)) (h2 : f (2 / 5) < 0)
+  (h3 : 0 < f (3 / 5)) (h4 : f (2 / 3) < 0) (h5 : 0 < f (4 / 5)) :
+  ∃ x1 x2 x3 x4,
+    x1 ∈ Set.Ioo 0 1 ∧
+      x2 ∈ Set.Ioo 0 1 ∧
+        x3 ∈ Set.Ioo 0 1 ∧
+          x4 ∈ Set.Ioo 0 1 ∧
+            x1 ≠ x2 ∧ x1 ≠ x3 ∧ x1 ≠ x4 ∧ x2 ≠ x3 ∧ x2 ≠ x4 ∧ x3 ≠ x4 ∧ f x1 = 0 ∧ f x2 = 0 ∧ f x3 = 0 ∧ f x4 = 0
+'EntropyCounterexample.four_distinct_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.root_outside_any_pair {f : ℝ → ℝ} (hf : Continuous f) (h1 : 0 < f (1 / 5)) (h2 : f (2 / 5) < 0)
+  (h3 : 0 < f (3 / 5)) (h4 : f (2 / 3) < 0) (h5 : 0 < f (4 / 5)) (u v : ℝ) : ∃ x ∈ Set.Ioo 0 1, f x = 0 ∧ x ≠ u ∧ x ≠ v
+'EntropyCounterexample.root_outside_any_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.not_exactly_two_roots {f : ℝ → ℝ} (hf : Continuous f) (h1 : 0 < f (1 / 5)) (h2 : f (2 / 5) < 0)
+  (h3 : 0 < f (3 / 5)) (h4 : f (2 / 3) < 0) (h5 : 0 < f (4 / 5)) :
+  ¬∃ u v, u ≠ v ∧ ∀ x ∈ Set.Ioo 0 1, f x = 0 ↔ x = u ∨ x = v
+'EntropyCounterexample.not_exactly_two_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.eval_hPolynomial (k r : ℕ) (x : ℝ) :
+  Polynomial.eval x (EntropyCounterexample.hPolynomial k r) = EntropyCounterexample.h k r x
+'EntropyCounterexample.eval_hPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.eval_pPolynomial (k r : ℕ) (a x : ℝ) :
+  Polynomial.eval x (EntropyCounterexample.pPolynomial k r a) = EntropyCounterexample.p k r a x
+'EntropyCounterexample.eval_pPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.p_continuous : Continuous (EntropyCounterexample.p 11 10 EntropyCounterexample.alpha)
+'EntropyCounterexample.p_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_four_intervals :
+  ∃ x1 x2 x3 x4,
+    x1 ∈ Set.Ioo (1 / 5) (2 / 5) ∧
+      x2 ∈ Set.Ioo (2 / 5) (3 / 5) ∧
+        x3 ∈ Set.Ioo (3 / 5) (2 / 3) ∧
+          x4 ∈ Set.Ioo (2 / 3) (4 / 5) ∧
+            EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x1 = 0 ∧
+              EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x2 = 0 ∧
+                EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x3 = 0 ∧
+                  EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x4 = 0
+'EntropyCounterexample.counterexample_four_intervals' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_four_ordered_roots :
+  ∃ x1 x2 x3 x4,
+    0 < x1 ∧
+      x1 < x2 ∧
+        x2 < x3 ∧
+          x3 < x4 ∧
+            x4 < 1 ∧
+              EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x1 = 0 ∧
+                EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x2 = 0 ∧
+                  EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x3 = 0 ∧
+                    EntropyCounterexample.p 11 10 EntropyCounterexample.alpha x4 = 0
+'EntropyCounterexample.counterexample_four_ordered_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.pPolynomial_ne_zero : EntropyCounterexample.pPolynomial 11 10 EntropyCounterexample.alpha ≠ 0
+'EntropyCounterexample.pPolynomial_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.root_count_ge_four {q : Polynomial ℝ} (hq : q ≠ 0) {x1 x2 x3 x4 : ℝ} (hx1 : x1 ∈ Set.Ioo 0 1)
+  (hx2 : x2 ∈ Set.Ioo 0 1) (hx3 : x3 ∈ Set.Ioo 0 1) (hx4 : x4 ∈ Set.Ioo 0 1) (h12 : x1 ≠ x2) (h13 : x1 ≠ x3)
+  (h14 : x1 ≠ x4) (h23 : x2 ≠ x3) (h24 : x2 ≠ x4) (h34 : x3 ≠ x4) (hz1 : Polynomial.eval x1 q = 0)
+  (hz2 : Polynomial.eval x2 q = 0) (hz3 : Polynomial.eval x3 q = 0) (hz4 : Polynomial.eval x4 q = 0) :
+  4 ≤ EntropyCounterexample.unitRootCount q
+'EntropyCounterexample.root_count_ge_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_root_count :
+  4 ≤ EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial 11 10 EntropyCounterexample.alpha)
+'EntropyCounterexample.counterexample_root_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_not_two :
+  EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial 11 10 EntropyCounterexample.alpha) ≠ 2
+'EntropyCounterexample.counterexample_not_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_to_conjecture_two :
+  ∃ k r a,
+    0 < r ∧
+      r < k ∧
+        k.Coprime r ∧
+          a ∈ Set.Ioo 0 1 ∧
+            a ^ r * (1 + a) ^ (k - r) = 1 ∧
+              4 ≤ EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial k r a)
+'EntropyCounterexample.counterexample_to_conjecture_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_for_any_parameter {a : ℝ} (ha : a ∈ Set.Ioo 0 1) (heq : a ^ 10 * (1 + a) = 1) :
+  4 ≤ EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial 11 10 a)
+'EntropyCounterexample.counterexample_for_any_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.wakhare_conjecture_two_false :
+  ¬∀ (k r : ℕ),
+      0 < r →
+        r < k →
+          k.Coprime r →
+            ∀ a ∈ Set.Ioo 0 1,
+              a ^ r * (1 + a) ^ (k - r) = 1 →
+                EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial k r a) = 2
+'EntropyCounterexample.wakhare_conjecture_two_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+elapsed_seconds=2.469 user_seconds=1.789 sys_seconds=0.828

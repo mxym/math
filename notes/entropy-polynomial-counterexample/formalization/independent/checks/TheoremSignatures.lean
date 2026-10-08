@@ -1,0 +1,116 @@
+import Counterexample
+
+set_option pp.universes false
+set_option pp.fullNames true
+
+#check EntropyCounterexample.root_polynomial_strictMono
+#print axioms EntropyCounterexample.root_polynomial_strictMono
+
+#check EntropyCounterexample.alpha_exists
+#print axioms EntropyCounterexample.alpha_exists
+
+#check EntropyCounterexample.alpha_lower
+#print axioms EntropyCounterexample.alpha_lower
+
+#check EntropyCounterexample.alpha_upper
+#print axioms EntropyCounterexample.alpha_upper
+
+#check EntropyCounterexample.alpha_equation
+#print axioms EntropyCounterexample.alpha_equation
+
+#check EntropyCounterexample.alpha_pos
+#print axioms EntropyCounterexample.alpha_pos
+
+#check EntropyCounterexample.alpha_lt_one
+#print axioms EntropyCounterexample.alpha_lt_one
+
+#check EntropyCounterexample.alpha_unique
+#print axioms EntropyCounterexample.alpha_unique
+
+#check EntropyCounterexample.alpha_existsUnique
+#print axioms EntropyCounterexample.alpha_existsUnique
+
+#check EntropyCounterexample.h_eleven_eleven
+#print axioms EntropyCounterexample.h_eleven_eleven
+
+#check EntropyCounterexample.h_eleven_ten
+#print axioms EntropyCounterexample.h_eleven_ten
+
+#check EntropyCounterexample.p_special
+#print axioms EntropyCounterexample.p_special
+
+#check EntropyCounterexample.p_strictMono_parameter
+#print axioms EntropyCounterexample.p_strictMono_parameter
+
+#check EntropyCounterexample.sample_one_fifth
+#print axioms EntropyCounterexample.sample_one_fifth
+
+#check EntropyCounterexample.sample_two_fifths
+#print axioms EntropyCounterexample.sample_two_fifths
+
+#check EntropyCounterexample.sample_three_fifths
+#print axioms EntropyCounterexample.sample_three_fifths
+
+#check EntropyCounterexample.sample_two_thirds
+#print axioms EntropyCounterexample.sample_two_thirds
+
+#check EntropyCounterexample.sample_four_fifths
+#print axioms EntropyCounterexample.sample_four_fifths
+
+#check EntropyCounterexample.exists_zero_Ioo_of_pos_neg
+#print axioms EntropyCounterexample.exists_zero_Ioo_of_pos_neg
+
+#check EntropyCounterexample.exists_zero_Ioo_of_neg_pos
+#print axioms EntropyCounterexample.exists_zero_Ioo_of_neg_pos
+
+#check EntropyCounterexample.four_roots_in_open_intervals
+#print axioms EntropyCounterexample.four_roots_in_open_intervals
+
+#check EntropyCounterexample.four_ordered_roots
+#print axioms EntropyCounterexample.four_ordered_roots
+
+#check EntropyCounterexample.four_distinct_roots
+#print axioms EntropyCounterexample.four_distinct_roots
+
+#check EntropyCounterexample.root_outside_any_pair
+#print axioms EntropyCounterexample.root_outside_any_pair
+
+#check EntropyCounterexample.not_exactly_two_roots
+#print axioms EntropyCounterexample.not_exactly_two_roots
+
+#check EntropyCounterexample.eval_hPolynomial
+#print axioms EntropyCounterexample.eval_hPolynomial
+
+#check EntropyCounterexample.eval_pPolynomial
+#print axioms EntropyCounterexample.eval_pPolynomial
+
+#check EntropyCounterexample.p_continuous
+#print axioms EntropyCounterexample.p_continuous
+
+#check EntropyCounterexample.counterexample_four_intervals
+#print axioms EntropyCounterexample.counterexample_four_intervals
+
+#check EntropyCounterexample.counterexample_four_ordered_roots
+#print axioms EntropyCounterexample.counterexample_four_ordered_roots
+
+#check EntropyCounterexample.pPolynomial_ne_zero
+#print axioms EntropyCounterexample.pPolynomial_ne_zero
+
+#check EntropyCounterexample.root_count_ge_four
+#print axioms EntropyCounterexample.root_count_ge_four
+
+#check EntropyCounterexample.counterexample_root_count
+#print axioms EntropyCounterexample.counterexample_root_count
+
+#check EntropyCounterexample.counterexample_not_two
+#print axioms EntropyCounterexample.counterexample_not_two
+
+#check EntropyCounterexample.counterexample_to_conjecture_two
+#print axioms EntropyCounterexample.counterexample_to_conjecture_two
+
+#check EntropyCounterexample.counterexample_for_any_parameter
+#print axioms EntropyCounterexample.counterexample_for_any_parameter
+
+#check EntropyCounterexample.wakhare_conjecture_two_false
+#print axioms EntropyCounterexample.wakhare_conjecture_two_false
+
