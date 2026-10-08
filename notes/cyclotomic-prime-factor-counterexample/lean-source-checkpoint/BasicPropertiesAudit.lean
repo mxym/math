@@ -1,0 +1,11 @@
+import BasicProperties
+#print axioms CyclotomicCounterexample.F_monic
+#print axioms CyclotomicCounterexample.F_natDegree
+#print axioms CyclotomicCounterexample.F_degree
+#print axioms CyclotomicCounterexample.F_ne_one
+#print axioms CyclotomicCounterexample.F_coeff_zero
+#print axioms CyclotomicCounterexample.F_isCyclotomicProduct
+#print axioms CyclotomicCounterexample.F_isBasicCGF_of_nonnegative
+#check Polynomial.constantCoeff
+#check Polynomial.monic_prod_of_monic
+#check Polynomial.eval_prod
