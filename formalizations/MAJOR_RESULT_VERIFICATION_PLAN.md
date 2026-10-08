@@ -143,7 +143,23 @@ rechecked the completed fresh original source build after the earlier
 reproducer's timeout; the failed earlier record is retained as FAILED.
 The complete 52-theorem input run was reused and explicitly recorded.
 
-The separate real-symmetric existence theorem remains
-without full Lean certification; its equidistribution, concentration and
-rational-approximation chain are separate obligations. The transfer theorem
-does not assert existence of its negative input.
+The separate real-symmetric existence chain is now closed in the
+[complete public package](bapat-real-symmetric-existence-counterexample/README.md).
+`BapatRealExistence.exists_integer_real_symmetric_counterexample` proves the
+finite integer positive-definite counterexample without a negative-input
+premise. Its recorded independent run compiled 67 modules and replayed the
+54,739-declaration closure into an empty kernel. It supplies no explicit
+matrix dimension or dimension bound. This later completion does not change
+the narrower scope of the earlier transfer theorem or its historical audit.
+
+## Publication inventory after the all-cycle completion
+
+The [October 2026 preprint collection](../preprints/lean-certified-2026-10/README.md)
+maps each printable principal theorem to its actual complete Lean endpoint,
+records manuscript-only ancillary statements separately, and preserves the
+fixed formal source snapshot. It includes cycle classification, sharp simplex
+stability and exponent sharpness, all-quadratic-order moats, robust continuum
+avoidance, finite-action orbital primal/dual theory, and three exact
+conjecture-counterexample papers. The already published combined Bapat paper
+is indexed separately. Gaussian geometric endpoints and arbitrary-graph
+Chollet remain outside the complete-main inventory.

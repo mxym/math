@@ -1,0 +1,355 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,longtable,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\hypersetup{pdfauthor={Yongxian Zhang}}
+
+\title{The exact norm of the complex three-row permanent-determinant pencil}
+\author{Yongxian Zhang\\[2pt]\small School of Computer Science and Engineering\\\small South China University of Technology\\\small\texttt{mxymmxym1@gmail.com}\\\small ORCID: 0009-0000-3864-3536}
+\date{8 October 2026}
+\begin{document}\maketitle
+\begin{abstract}For every complex coefficient, we compute the exact trilinear norm of the permanent plus that coefficient times the determinant on three complex rows. The answer is the maximum of five explicit moduli, each attained by a concrete matrix. A Hermitian certificate gives the matching universal upper bound, including zero and singular rows. The coefficient lens and full norm have complete Lean proofs, with a bridge to the actual Mathlib matrix permanent and determinant.\end{abstract}
+\section{Definitions and context}\label{definitions-and-context}
+
+For a complex matrix \(A\) of order three with rows \(a,b,c\), put \(\rho=2/\sqrt3\), and let
+\[
+\operatorname{per}A=\sum_{\sigma\in S_3}\prod_i a_{i,\sigma(i)},\qquad
+\det A=\sum_{\sigma\in S_3}\operatorname{sgn}(\sigma)\prod_i a_{i,\sigma(i)}.
+\]
+For each complex \(\lambda\), we determine the least constant in \[
+|\operatorname{per}A+\lambda\det A|\le C_\lambda
+                       \prod_{i=1}^3\|A_{i,*}\|_2.
+\] At \(\lambda=0\) the constant \(2/\sqrt3\) is the three-row case of
+the classical permanent Hadamard inequality of Carlen, Lieb and Loss,
+\emph{An inequality of Hadamard type for permanents}, Methods and
+Applications of Analysis \textbf{13} (2006), 1--18. The determinant
+itself has the classical Hadamard bound. The proof below determines the
+simultaneous pencil throughout the complex plane using a Hermitian
+principal-minor certificate and five sharp witnesses. No worldwide
+priority claim is made. See~\cite{CLL} for the classical permanent case and
+\cite{Parent} for the public parent research note.
+
+\section{The coefficient lens and its Hermitian
+certificate}\label{the-coefficient-lens-and-its-hermitian-certificate}
+
+For a complex coefficient \(\lambda\), put \[
+q=|\lambda|^2,\qquad x=\operatorname{Re}\lambda,\qquad
+h=\frac13-q,\quad v=2x.
+\] The \textbf{coefficient lens} is the closed region \[
+\mathcal L=\left\{\lambda\in\mathbb C:q+2|x|\le\frac13\right\}
+=\left\{\lambda:|1+\lambda|\le\rho,\ |1-\lambda|\le\rho\right\}.
+\tag{2a}
+\] The second equality follows by squaring the two absolute values and
+using \(\rho^2=4/3\).
+
+\textbf{Theorem 1 (coefficient classification).} For each complex
+\(\lambda\), the trilinear inequality \[
+\boxed{\quad
+|\operatorname{per}A+\lambda\det A|
+\le\rho\,\prod_{i=1}^3\|A_{i,*}\|_2
+\quad\text{for every }A\in\mathbb C^{3\times3}
+\quad}\tag{2b}
+\] holds \textbf{if and only if} \(\lambda\in\mathcal L\). No larger
+complex coefficient domain is possible at the sharp \(\rho\).
+
+\textbf{Necessity.} For the identity matrix,
+\(\operatorname{per}I_3=\det I_3=1\) and the row-norm product is 1, so
+(2b) requires \(|1+\lambda|\le\rho\). For any odd permutation matrix,
+its permanent is 1 and determinant is \(-1\), and (2b) requires
+\(|1-\lambda|\le\rho\). Together these inequalities are equivalent to
+(2a). \(\square\)
+
+We next prove sufficiency. For any complex \(\lambda\), expanding in the
+last row gives the exact matrix identity \[
+\operatorname{per}A+\lambda\det A
+=c^{\mathsf T}M_\lambda(a)b,
+\quad
+M_\lambda(a)=
+\begin{pmatrix}
+0&(1-\lambda)a_3&(1+\lambda)a_2\\
+(1+\lambda)a_3&0&(1-\lambda)a_1\\
+(1-\lambda)a_2&(1+\lambda)a_1&0
+\end{pmatrix}.
+\tag{2}
+\]
+
+\textbf{Lemma 3 (Hermitian lens certificate).} For all
+\(\lambda\in\mathcal L\) and \(a\in\mathbb C^3\), \[
+M_\lambda(a)^*M_\lambda(a)
+\preceq\rho^2\|a\|_2^2I_3.
+\tag{3}
+\]
+
+\textbf{Proof.} Write \(\lambda=x+iy\), so \(q=x^2+y^2\). Set
+\(X=|a_1|^2,Y=|a_2|^2,Z=|a_3|^2\). Since \(\lambda\in\mathcal L\), one
+has \(h\ge|v|\) and therefore \(h+v\ge0,\ h-v\ge0,\ h^2-v^2\ge0\). The
+exact normalization is \[
+\rho^2=\frac43,\qquad s:=\rho-1>0,\qquad
+s^2+2s=\frac13.
+\tag{4}
+\]
+
+Define the Hermitian matrix
+\(H=\rho^2(X+Y+Z)I_3-M_\lambda(a)^*M_\lambda(a)\). Its diagonal entries
+are \[
+d_1=\rho^2X+(h+v)Y+(h-v)Z,\quad
+d_2=(h-v)X+\rho^2Y+(h+v)Z,
+\] \[
+d_3=(h+v)X+(h-v)Y+\rho^2Z.
+\tag{5}
+\] All are nonnegative. For \(z=1-q+2iy\), the off-diagonal entries obey
+\[
+H_{12}=-z\bar a_2a_1,\quad
+H_{23}=-z\bar a_3a_2,\quad
+H_{31}=-z\bar a_1a_3,
+\quad
+|z|^2=(1+q)^2-v^2,
+\tag{6}
+\] with the remaining entries fixed by Hermitian symmetry.
+
+Direct algebra gives the nonnegative-coefficient expansion for the
+\(\{1,2\}\)-principal minor: \[
+\boxed{
+\begin{aligned}
+d_1d_2-|z|^2XY={}&
+\rho^2(h-v)X^2+\rho^2(h+v)Y^2+(h^2-v^2)Z^2\\
+&+2\rho^2hXY
++\bigl(\rho^2(h+v)+(h-v)^2\bigr)XZ\\
+&+\bigl((h+v)^2+\rho^2(h-v)\bigr)YZ .
+\end{aligned}}
+\tag{7}
+\] Every term is nonnegative because \(h\ge|v|\). The other two
+second-order principal minors follow by cyclic permutation of \(X,Y,Z\).
+
+The determinant of \(H\) satisfies \[
+\det H=d_1d_2d_3-|z|^2(d_1YZ+d_2XZ+d_3XY)
+-2\operatorname{Re}(z^3)XYZ,
+\tag{8}
+\] with \(\operatorname{Re}(z^3)=(1-q)^3-12(1-q)(q-x^2)\). For the
+\textbf{entire coefficient lens}, the exact rational
+sum-of-nonnegative-terms identity is \[
+\boxed{
+\begin{aligned}
+\det H=\rho^2\bigg[
+ &(h^2-v^2)\left(X^3+Y^3+Z^3-3XYZ\right)\\
++&(3h^2+v^2)\left(\sum_{i\ne j}X_i^2X_j-6XYZ\right)
+\bigg],
+\end{aligned}}
+\tag{9}
+\] where \((X_1,X_2,X_3)=(X,Y,Z)\). Both coefficients are nonnegative;
+the first cubic is nonnegative by AM--GM, and the second is \[
+\sum_{i\ne j}X_i^2X_j-6XYZ
+=(X+Y+Z)(XY+YZ+ZX)-9XYZ\ge0
+\tag{10}
+\] by two more AM--GM inequalities, including boundary cases where a
+variable vanishes.
+
+All three diagonal entries, all three \(2\times2\) principal minors, and
+the full determinant are nonnegative, so the Hermitian principal-minor
+criterion gives \(H\succeq0\). This proves Lemma 3. \(\square\)
+
+Cauchy--Schwarz applied to (2)--(3) yields \[
+|\operatorname{per}A+\lambda\det A|
+\le\rho\|a\|_2\|b\|_2\|c\|_2
+\qquad(\lambda\in\mathcal L).
+\tag{11}
+\] Together with the two permutation-matrix necessity witnesses, this
+proves Theorem 1. \(\square\)
+
+\section{The exact norm for every complex
+coefficient}\label{the-exact-norm-for-every-complex-coefficient}
+
+The preceding sharp-lens theorem answers when the best constant is at
+most \(2/\sqrt3\). In fact, the same Hermitian calculus determines the
+\textbf{exact optimal constant for every \(\lambda\in\mathbb C\)}, both
+inside and outside that lens.
+
+\textbf{Theorem 2 (full pencil norm).} For every
+\(\lambda\in\mathbb C\), the least \(C_\lambda\ge0\) such that \[
+|\operatorname{per}A+\lambda\det A|
+\le C_\lambda\prod_{i=1}^3\|A_{i,*}\|_2
+\qquad\text{for every }A\in\mathbb C^{3\times3}
+\tag{20}
+\] is exactly \[
+\boxed{
+C_\lambda=\max\left\{
+\frac2{\sqrt3},\ |1+\lambda|,\ |1-\lambda|,\
+\left|\lambda+\frac{i}{\sqrt3}\right|,\
+\left|\lambda-\frac{i}{\sqrt3}\right|
+\right\}.}
+\tag{21}
+\] Each entry inside the maximum is attained by an explicit unit-row
+matrix, so none is an extraneous upper-bound device.
+
+\textbf{Proof: five sharp lower witnesses.} The all-ones matrix,
+normalized so all its rows have norm one, has permanent \(2/\sqrt3\) and
+determinant zero. An even permutation matrix has permanent \(1\) and
+determinant \(1\), while an odd permutation matrix has permanent \(1\)
+and determinant \(-1\). These establish the first three entries in (21).
+
+For the last two, put \(a=(1,1,1)/\sqrt3\) in the exact operator matrix
+(2). It is a \textbf{normal circulant matrix} with eigenvalues \[
+\frac2{\sqrt3},\quad
+\frac{-1+i\sqrt3\lambda}{\sqrt3},\quad
+\frac{-1-i\sqrt3\lambda}{\sqrt3}.
+\tag{22}
+\] The absolute values of the last two are \(|\lambda+i/\sqrt3|\) and
+\(|\lambda-i/\sqrt3|\) (up to their order). In each case let \(b\) be
+the corresponding unit Fourier eigenvector and \(c=\overline b\). Then
+the matrix with rows \(a,b,c\) has unit row norms and
+\(c^{\mathsf T}M_\lambda(a)b\) equal to that eigenvalue. This realizes
+each of the last two entries of the maximum. Therefore the optimal
+constant is at least the right side of (21).
+
+\textbf{Proof: universal matching upper bound.} Write \[
+q=|\lambda|^2,\quad x=\operatorname{Re}\lambda,\quad
+y=\operatorname{Im}\lambda,\quad
+B=C_\lambda^2,\quad h=B-1-q,\quad v=2x.
+\] By the definition of \(C_\lambda\), \[
+B\ge\frac43,\qquad
+B\ge1+q+2|x|,\qquad
+B\ge q+\frac13+\frac{2|y|}{\sqrt3}.
+\tag{23}
+\] In particular \(h\ge|v|\) and \(h^2-v^2\ge0\). The third bound in
+(23) implies \[
+3(B-q)-1\ge2\sqrt3|y|\ge0,
+\qquad
+F:=[3(B-q)-1]^2-12y^2\ge0.
+\tag{24}
+\]
+
+As in the preceding section, let \(X=|a_1|^2,Y=|a_2|^2,Z=|a_3|^2\) and
+form \[
+H_B=B(X+Y+Z)I_3-M_\lambda(a)^*M_\lambda(a).
+\] The diagonal and off-diagonal formulas (5)--(6) remain valid with
+\(\rho^2\) replaced by \(B\) and \(h=B-1-q\). Thus its diagonal entries
+are \[
+d_1=BX+(h+v)Y+(h-v)Z,\quad
+d_2=(h-v)X+BY+(h+v)Z,\quad
+d_3=(h+v)X+(h-v)Y+BZ.
+\tag{25}
+\] They are all nonnegative. Its \(\{1,2\}\) principal minor is \[
+\begin{aligned}
+d_1d_2-|z|^2XY={}&
+B(h-v)X^2+B(h+v)Y^2+(h^2-v^2)Z^2\\
+&+2BhXY+
+\bigl(B(h+v)+(h-v)^2\bigr)XZ\\
+&+\bigl((h+v)^2+B(h-v)\bigr)YZ\ge0,
+\end{aligned}
+\tag{26}
+\] where \(z=1-q+2iy\); the other two principal minors are its cyclic
+analogues. The coefficients are all nonnegative by (23).
+
+The determinant admits a more general \textbf{exact rational SOS
+decomposition}. Write the two nonnegative cubic forms \[
+U=X^3+Y^3+Z^3-3XYZ\ge0,
+\qquad
+V=(X+Y+Z)(XY+YZ+ZX)-9XYZ\ge0.
+\] Then, with no restriction on the symbolic parameters \(B,q,x\) for
+the identity itself, \[
+\boxed{
+\begin{aligned}
+\det H_B={}&
+B(h^2-v^2)U+B(3h^2+v^2)V\\
+&+(3B-4)\Big([3(B-q)-1]^2-12(q-x^2)\Big)XYZ .
+\end{aligned}}
+\tag{27}
+\] Here \(q-x^2=y^2\). Every term in (27) is nonnegative: the first two
+by \(B>0,h\ge|v|\), and the last by \(3B-4\ge0\) and \(F\ge0\) from
+(24). Thus \(\det H_B\ge0\).
+
+All seven principal minors of the Hermitian \(3\times3\) matrix \(H_B\)
+are nonnegative. By the principal-minor criterion, \(H_B\succeq0\),
+equivalently \[
+\|M_\lambda(a)b\|_2^2\le
+B\|a\|_2^2\|b\|_2^2
+\quad\text{for all }a,b\in\mathbb C^3.
+\] Using (2) and complex Cauchy--Schwarz in the last row gives (20) with
+\(C_\lambda=\sqrt B\), as required. Combined with the five explicit
+lower witnesses, this proves Theorem 2. \(\square\)
+
+\textbf{Exact independent verification.} The two polynomial identities
+(26) and (27), each of degree at most three separately in
+\(X,Y,Z,B,q,x\), are certified in \texttt{check\_full\_norm.py} over
+\(\mathbb Q\). It compares both sides at all \(4^6=4096\) rational nodes
+and applies iterated polynomial interpolation to establish each identity
+for \emph{every} choice of those six symbolic variables. The proof of
+the sign conditions (23)--(24), the seven-minor criterion and the five
+lower witnesses is written above. The checker thus does \textbf{not}
+infer a general theorem from a numerical scan over \(\lambda\).
+
+\textbf{Examples and consequences.} For real \(t\), (21) becomes \[
+C_t=\max\left\{\frac2{\sqrt3},1+|t|\right\};
+\tag{28}
+\] indeed \(|t\pm i/\sqrt3|^2=t^2+1/3<
+(1+|t|)^2\). For \(t=iy\) purely imaginary, \[
+C_{iy}=\max\left\{\frac2{\sqrt3},
+\sqrt{1+y^2},\ |y|+\frac1{\sqrt3}\right\}.
+\tag{29}
+\] In particular, Theorem 1 follows again: \(C_\lambda\le2/\sqrt3\)
+holds if and only if the two even/odd permutation-matrix bounds
+\(|1\pm\lambda|\le2/\sqrt3\) hold; these imply the Fourier bounds
+through \(q+2|x|\le1/3\).
+
+\section{Formal scope}\label{formal-scope}
+
+This manuscript isolates the fully formalized coefficient-norm results
+from the broader repository note. Its formal endpoint is a universal
+equivalence for the proposed squared bound; the stated unsquared norm
+follows by taking nonnegative square roots. The native Mathlib matrix
+bridge proves that the six-monomial expansions are the actual matrix
+permanent and determinant. The parent note's complete equality
+classification and tensor statements are not claimed as covered by this
+paper.
+
+\section{Formal verification and reproduction}
+The principal theorem has a complete Lean proof. The precise scope is:
+Exact best constant for every complex coefficient and every actual Mathlib 3-by-3 complex matrix, including zero rows. The coefficient lens is a corollary. The full equality classification and tensorization in the parent manuscript are outside this paper.
+The public proof source snapshot is fixed at commit
+\nolinkurl{02af7db99db789fecb0d5f5f8f37b1a4e40762a0} in \url{https://github.com/mxym/math}.
+The proof packages, with their own dependency locks, audit records and
+reproduction instructions, are:
+\begin{itemize}
+\item \nolinkurl{notes/complex-permanent-determinant/formal}.
+\end{itemize}
+The main formal entry points are:
+\begin{itemize}
+\item \nolinkurl{ComplexPencilFull.sharp_full_pencil_norm_iff}.
+\item \nolinkurl{ComplexPencilFull.matrix_squared_norm_iff}.
+\end{itemize}
+Lean is fixed to version 4.34.1, compiler commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}; Mathlib is fixed to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The audited mathematical roots depend only on the standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The archived audits state their actual compilation and replay scopes;
+publication of this typeset version does not imply a new execution of every
+previous empty-kernel replay. The companion README maps each printed
+principal result to its formal theorem and explains how to repeat verification.
+
+\section*{Research and preparation disclosures}
+This research, formalization and manuscript preparation used AI assistance.
+The author is responsible for the manuscript. The principal claims are
+supported by the readable proofs and the public Lean artifacts specified
+above. Formal verification is not external human peer review; no such review
+is claimed. No external funding was received. No worldwide priority or
+journal acceptance is asserted.
+\begin{thebibliography}{9}
+\bibitem{CLL} E. Carlen, E. H. Lieb and M. Loss,
+\emph{An inequality of Hadamard type for permanents},
+Methods and Applications of Analysis \textbf{13} (2006), 1--18.
+\url{https://doi.org/10.4310/MAA.2006.v13.n1.a1}.
+\bibitem{Parent} Y. Zhang, \emph{A sharp complex permanent--determinant
+inequality in three rows}, public research note, Sections 2 and 2B.
+Frozen source: \url{https://github.com/mxym/math/blob/02af7db99db789fecb0d5f5f8f37b1a4e40762a0/notes/complex-permanent-determinant/PAPER.md}.
+The present preprint isolates its completely formalized coefficient-norm results.
+\end{thebibliography}
+\end{document}

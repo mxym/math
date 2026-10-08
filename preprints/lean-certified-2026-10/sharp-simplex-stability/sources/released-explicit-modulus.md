@@ -1,0 +1,243 @@
+---
+title: Effective simplex rigidity for the projection cone invariant
+author: mxym
+date: Supplement to entry 005, 7 October 2026
+---
+
+## Abstract
+
+For every fixed dimension $d\ge2$, we give a fully explicit power modulus for the lower equality case of the projection-cone invariant. If $e(K)=a(K)-1/(d+1)$ and $S$ is any maximum-volume simplex inscribed in $K$, with centroid $z$, then
+$$S\subseteq K\subseteq z+(1+G_d e(K)^{\theta_d})(S-z),
+\qquad \theta_d=\frac1{d(d^2+2d+2)}.$$
+All constants are specified. The proof works for arbitrary convex bodies and cone-volume laws, including nonatomic laws. Its constants are extremely poor and no optimality or novelty is asserted. In dimension two the exact identity $a(K)=2|K|/|K-K|$ connects the question to classical Rogers--Shephard stability: an estimate in Böröczky's work already implies the much stronger linear bound $d_{BM}(K,T_2)\le1+576e(K)$. Only the simplex endpoint is treated here; version 4 concerns the symmetric product endpoint.
+
+## 1. Statement and scope
+
+A convex body is a compact convex set with nonempty interior. For $K\subset\mathbb R^d$, let $|K|$ denote volume and let $\Pi K$ be its projection body, normalized by
+$$h_{\Pi K}(u)=|K\mid u^\perp|_{d-1}\qquad (|u|=1).$$
+Put
+$$R(K)=\frac{|\Pi K|}{|K|^{d-1}},\qquad
+a(K)=\left(\frac d{d+1}\right)^d
+\frac{R(\mathcal P K)}{R(K)}-1,$$
+where $\mathcal P K$ is a pyramid over $K$. Versions 2--3 establish that $a$ is a continuous affine invariant, give its cone-volume representation recalled below, and prove $a(K)\ge1/(d+1)$ with equality exactly for simplices. We use those identities and standard Cauchy and mixed-volume formulas. The full quantitative argument is supplied here.
+
+For any maximum-volume inscribed simplex $S$ with centroid $z$, define
+$$E(K,S)=\inf\{t\ge0:K\subseteq z+(1+t)(S-z)\}.$$
+The multiplicative affine Banach--Mazur distance from $K$ to a simplex is the infimum of dilation factors for a sandwich between an inscribed simplex and a translate of its dilate. In particular it is at most $1+E(K,S)$.
+
+**Explicit constants.** For $d\ge2$, define, in this order,
+$$\begin{aligned}
+R_0&=d(d+1),& b&=\frac1{4(dR_0)^d},&M&=\frac2b,\\
+L&=d2^d,&Z&=M(2d+3),&C&=4d^2R_0(M+1),\\
+p&=d^2+2d+2,&\theta_d&=\frac1{dp},&
+\chi&=b^d\left(\frac{b^d}{12dL}\right)^{d(d+1)}.
+\end{aligned}$$
+Next set
+$$\begin{aligned}
+\eta_0&=\min\left\{\frac1{2(d+1)},\frac b{4d},\frac1Z,
+                  \frac1{Z(8MdC)^d}\right\},\\
+e_0&=\frac{\chi\eta_0^p}{2(d+1)},\\
+A_d&=4MdC Z^{1/d}\left(\frac{2(d+1)}\chi\right)^{\theta_d},\\
+G_d&=\max\{A_d,(R_0-1)e_0^{-\theta_d}\}.
+\end{aligned}$$
+These are explicit numbers depending only on $d$; $\chi,\eta_0,e_0$ are rational.
+
+**Theorem 1 (effective simplex rigidity).** For every convex body $K\subset\mathbb R^d$, $d\ge2$, and every maximum-volume inscribed simplex $S$,
+$$E(K,S)\le G_d e(K)^{\theta_d},\qquad e(K)=a(K)-\frac1{d+1}.$$
+If $0\le e(K)\le e_0$, the sharper stated constant applies:
+$$E(K,S)\le A_d e(K)^{\theta_d},\qquad A_de_0^{\theta_d}\le\frac12.$$
+Consequently
+$$\delta(d,\varepsilon)=\min\{e_0,(\varepsilon/A_d)^{dp}\}$$
+is an explicit choice in version 3's qualitative containment theorem. In dimension one $K$ is itself an interval and $E(K,S)=0$.
+
+The first exponents are $1/20,1/51,1/104$ in dimensions $2,3,4$. Already for $d=2$ the displayed local threshold satisfies $10^{-279}\le e_0<10^{-278}$. The theorem supplies an effective modulus, not a practical numerical estimate. Section 8 explains the stronger inherited planar result. No dimension-independent conclusion follows.
+
+## 2. Normalization and the exact cancellation defect
+
+Fix an arbitrary maximum simplex $S$. Map it affinely to a regular simplex $\Delta$ with centroid zero and inradius one. Its vertices $v_0,\ldots,v_d$ have norm $d$. If $\alpha_i(x)$ are barycentric coordinates relative to $\Delta$, replacing $v_i$ by $x\in K$ multiplies volume by $|\alpha_i(x)|$. Maximality gives $|\alpha_i(x)|\le1$, hence
+$$B_2^d\subseteq\Delta\subseteq K\subseteq R_0 B_2^d.\tag{2.1}$$
+The deficit is unchanged by this normalization.
+
+Write $h=h_K$ and let $S_K$ denote surface area measure. Push the probability measure
+$$\frac{h(u)}{d|K|}\,dS_K(u)$$
+forward by $u\mapsto u/h(u)$, obtaining $\nu$. This centered law is supported on $\partial K^\circ\subseteq B_2^d$. For independent samples $X_i$ of law $\nu$, put
+$$A=\mathbb E|\det(X_1,\ldots,X_d)|,\qquad
+B=\mathbb E|\det((X_1,1),\ldots,(X_{d+1},1))|.$$
+The cone-volume representation from version 3 reads
+$$a(K)=\frac B{(d+1)A},\qquad
+D:=B-A=(d+1)Ae(K)\le(d+1)e(K),\tag{2.2}$$
+because $0<A\le1$. For every unit vector $u$, centering and Cauchy's projection formula give
+$$\int(-\langle u,x\rangle)_+\,d\nu(x)
+=\frac{|K\mid u^\perp|_{d-1}}{d|K|}
+\ge\frac{(2/d)^{d-1}}{d(2R_0)^d}=2b.\tag{2.3}$$
+Here the projection contains the unit ball in dimension $d-1$, which contains a cube of side $2/d$.
+
+For an ordered base tuple $\mathbf x=(x_1,\ldots,x_d)$ define
+$$F_{\mathbf x}(y)=\det((x_1,1),\ldots,(x_d,1),(y,1))
+=\det(x_1-y,\ldots,x_d-y),$$
+and $P(\mathbf x)=\int(F_{\mathbf x})_+\,d\nu$, $N(\mathbf x)=\int(-F_{\mathbf x})_+\,d\nu$. Centering gives
+$$P(\mathbf x)-N(\mathbf x)=\det(x_1,\ldots,x_d).$$
+Thus the exact cancellation identity is
+$$D=2\int\min\{P(\mathbf x),N(\mathbf x)\}\,d\nu^{\otimes d}(\mathbf x).\tag{2.4}$$
+This identity includes horizontally singular base tuples.
+
+If two $(d+1)$-tuples in $B_2^d$ have corresponding points at distance at most $r$, their affine determinants differ by at most
+$$Lr=d2^dr.\tag{2.5}$$
+Indeed, write it using the $d$ difference columns above and telescope one column at a time. Each old or new column has norm at most two and each change has norm at most $2r$.
+
+## 3. Concentration on heavy cells
+
+Fix $0<\eta\le\eta_0$ and set
+$$r=\frac{\eta b^d}{4L},\qquad
+\tau=\eta\left(\frac r{3d}\right)^d,\qquad
+\gamma=\eta b^d.\tag{3.1}$$
+Partition $[-1,1]^d$ into measurable cubes of diameter at most $r$, assigning boundaries to single cells. Dividing each axis into $\lceil2\sqrt d/r\rceil$ intervals uses at most $(3d/r)^d$ cells, since $r\le1$. Call a cell heavy if its $\nu$-mass is at least $\tau$. The light cells together have mass at most $\eta$.
+
+Choose one support point in each heavy cell and let $X$ be this finite set. The chosen points need not have positive individual mass. The function $(-\langle u,x\rangle)_+$ is one-Lipschitz and bounded by one on the support. Discarding light cells and replacing samples by representatives therefore gives
+$$\sum_{Q\text{ heavy}}\nu(Q)(-\langle u,x_Q\rangle)_+
+\ge2b-\eta-r\ge b.$$
+The weights sum to at most one, so for every unit $u$ some representative has $\langle u,x_Q\rangle\le-b$. Hence
+$$bB_2^d\subseteq\operatorname{conv}X.\tag{3.2}$$
+
+Choose a maximum-volume simplex $T=\operatorname{conv}(w_0,\ldots,w_d)$ with vertices in $X$, and put
+$$V=|\det((w_0,1),\ldots,(w_d,1))|.$$
+Then $V\ge b^d$: the simplex with vertices $0,be_1,\ldots,be_d$ lies in $\operatorname{conv}X$, and separate convexity of the absolute affine determinant lets each of its vertices be replaced successively by a point of $X$ without decreasing the determinant. At this stage we do not assume that $0\in T$.
+
+Write $x=\sum_i\alpha_iw_i$ for $x\in X$, with $\sum_i\alpha_i=1$. There are two possible robust witnesses:
+
+1. If some $\alpha_i\le-\eta$, use the $d$ vertices other than $w_i$ as base. The determinant values at $w_i$ and $x$ have opposite signs and magnitudes at least $\eta V$.
+2. If $\alpha_i,\alpha_j\ge\eta$ for two distinct indices, use $x$ and the $d-1$ original vertices other than $w_i,w_j$ as base. Expansion of $(x,1)$ gives opposite determinant values at $w_i,w_j$, of magnitudes $\alpha_jV$ and $\alpha_iV$.
+
+In each case the $d$ base representatives and the two tested representatives lie in $d+2$ distinct heavy cells. Since $Lr=\gamma/4$ and $\eta V\ge\gamma$, inequality (2.5) preserves both signs with margin at least $\gamma/2$ for every tuple of actual support points in the corresponding cells. For each sampled base tuple, both integrals in (2.4) are at least $\tau\gamma/2$. The ordered product of base cells has mass at least $\tau^d$. Consequently either witness forces
+$$D\ge\tau^{d+1}\gamma=\chi\eta^p.\tag{3.3}$$
+This integrates over full positive-measure cells, not over the selected points.
+
+Assume now that
+$$D<\chi\eta^p.\tag{3.4}$$
+Both witnesses are impossible. Every representative has all coefficients greater than $-\eta$ and at most one coefficient at least $\eta$. There is exactly one such coefficient since $\eta\le1/[2(d+1)]$. The other $d$ coefficients have absolute value at most $\eta$, whence
+$$\operatorname{dist}(x,\{w_0,\ldots,w_d\})\le2d\eta
+\qquad(x\in X).$$
+Combining this with (3.2), support functions and $2d\eta\le b/2$ proves
+$$\frac b2 B_2^d\subseteq T\subseteq B_2^d.\tag{3.5}$$
+Thus zero is now known to be interior to $T$. Assign a sample in each heavy cell to its nearby vertex and assign light-cell samples arbitrarily. The resulting expected distance satisfies
+$$\int\operatorname{dist}(x,\{w_0,\ldots,w_d\})\,d\nu(x)
+\le r+2d\eta+2\eta\le(2d+3)\eta.\tag{3.6}$$
+
+## 4. An enclosing simplex and a volume estimate
+
+Let
+$$P=T^\circ=\{y:\langle w_i,y\rangle\le1\text{ for all }i\}.$$
+Each $w_i$ belongs to $\partial K^\circ$. By (3.5), $P$ is a bounded simplex and
+$$K\subseteq P\subseteq MB_2^d.\tag{4.1}$$
+Every $w_i$ is a vertex of $T$, so $h_P(w_i)=1$. Also $h_K(x)=1$ on $\operatorname{supp}\nu$. The support function $h_P$ is $M$-Lipschitz, and (3.6) implies
+$$0\le\int(h_P(x)-1)\,d\nu(x)\le Z\eta.\tag{4.2}$$
+The left-hand side equals
+$$\frac1{d|K|}\int h_P(u)\,dS_K(u)-1
+=\frac{V(K[d-1],P)}{|K|}-1.$$
+Minkowski's first inequality therefore gives
+$$|P|^{1/d}\le|K|^{1/d}(1+Z\eta).$$
+Since $Z\eta\le1$,
+$$|P|-|K|\le(2R_0)^d d2^{d-1}Z\eta.\tag{4.3}$$
+The conversion uses the constructed circumscribed simplex directly; it does not require an inverse-continuity constant for surface area measures.
+
+## 5. A cap estimate
+
+Put $s=d_H(K,P)$. If $s>0$, choose a farthest point $q\in P$ from $K$ and the unit direction $u$ from its metric projection onto $K$, so
+$$\langle u,q\rangle-h_K(u)=s.$$
+Set $t=s/[2(M+1)]$. We have $s\le M$, hence $0<t<1$. The ball
+$$ (1-t)q+tB_2^d$$
+lies in $\operatorname{conv}(q,B_2^d)\subseteq P$. Its lowest $u$-coordinate is at least $h_K(u)+s/2$, because $\langle u,q\rangle\le M$. It is therefore disjoint from $K$. Its inscribed cube has side $2t/d$, giving
+$$|P|-|K|\ge\left(\frac{s}{d(M+1)}\right)^d.$$
+Together with (4.3), this yields, also when $s=0$,
+$$s\le2dR_0(M+1)[d2^{d-1}]^{1/d}(Z\eta)^{1/d}
+\le C(Z\eta)^{1/d}.\tag{5.1}$$
+The last term in the definition of $\eta_0$ ensures
+$$s\le\frac1{8Md}.\tag{5.2}$$
+
+## 6. Returning to the original maximum simplex
+
+The conclusion must concern the original arbitrarily chosen $\Delta$, not just the simplex $P$ constructed from the law. Since $h_P\ge1$ on the unit sphere and $h_K\ge h_P-s$,
+$$ (1-s)P\subseteq K\subseteq P.$$
+Maximality of $\Delta$ then gives
+$$\frac{|\Delta|}{|P|}\ge(1-s)^d\ge1-ds.$$
+Put $\delta=ds\le1/8$. The barycentric coordinates of the $d+1$ vertices of $\Delta$ relative to $P$ form a nonnegative column-stochastic matrix $W$ satisfying
+$$|\det W|=\frac{|\Delta|}{|P|}\ge1-\delta.\tag{6.1}$$
+Each column has Euclidean norm at most one. Hadamard's inequality forces the squared norm of each column to be at least $(1-\delta)^2$, so its largest entry is at least $1-2\delta$.
+
+The dominant rows are distinct. Indeed, the permanent is the probability that independent categorical draws from the columns choose distinct rows. A common dominant row in two columns would imply
+$$|\det W|\le\operatorname{per}W
+\le1-(1-2\delta)^2\le4\delta<1-\delta,$$
+contrary to (6.1). Relabel the vertices of $P$ accordingly. Each vertex of $\Delta$ is within
+$$2\delta\operatorname{diam}P\le4M\delta$$
+of its matched vertex of $P$. Taking convex combinations proves
+$$d_H(\Delta,P)\le4Md s.$$
+Because $B_2^d\subseteq\Delta$ and $\Delta$ has centroid zero,
+$$K\subseteq P\subseteq\Delta+4Md sB_2^d
+\subseteq(1+4Md s)\Delta.$$
+We have proved the parameterized estimate
+$$E(K,\Delta)\le4MdC(Z\eta)^{1/d}\tag{6.2}$$
+whenever $0<\eta\le\eta_0$ and $D<\chi\eta^p$.
+
+## 7. Completing the explicit modulus
+
+If $0<e=e(K)\le e_0$, choose
+$$\eta=\left(\frac{2(d+1)e}{\chi}\right)^{1/p}.$$
+Then $\eta\le\eta_0$ and (2.2) gives
+$$D\le(d+1)e=\frac\chi2\eta^p<\chi\eta^p.$$
+Substituting in (6.2) proves $E(K,\Delta)\le A_de^{\theta_d}$. At $e=0$, the parameterized bound holds for every sufficiently small positive $\eta$; letting $\eta\downarrow0$ proves the same assertion. No equality conclusion is obtained by merely passing to a limit of strict inequalities.
+
+At the threshold,
+$$A_de_0^{\theta_d}=4MdC(Z\eta_0)^{1/d}\le\frac12.$$
+For $e>e_0$, (2.1) gives $K\subseteq R_0\Delta$, hence
+$$E(K,\Delta)\le R_0-1
+\le(R_0-1)e_0^{-\theta_d}e^{\theta_d}.$$
+This proves the global constant $G_d$. Undo the initial affine map: the centroid goes back to $z$, and the homotheties become those about $z$. The original maximum simplex was arbitrary and all constants depend only on $d$, so the result holds for every such simplex. This completes the proof of Theorem 1.
+
+## 8. The planar identity and stronger inherited stability
+
+**Proposition 2 (planar reduction).** Every planar convex body satisfies
+$$a(K)R(K)=2,\qquad R(K)=\frac{|K-K|}{|K|}.$$
+
+**Proof.** First take a polygon with the origin in its interior. List its edges counterclockwise. Let $u_i$ be the edge length times outward unit normal, $b_i$ the edge length times support number, and $w_i=(u_i,b_i)$. Then $b_i>0$ and $u_i/b_i$ are the counterclockwise polar vertices. Hence for $i<j<k$ all lifted determinants have positive sign, and the numerator in the polytope formula for $a$ is
+$$\Sigma=\sum_{i<j<k}\det(w_i,w_j,w_k).$$
+Let $T_0=\sum_{i<j}\det(u_i,u_j)$. On expanding $\Sigma$, the coefficient of $b_k$ is
+$$\sum_{i<j<k}\det(u_i,u_j)
+-\sum_{i<k<j}\det(u_i,u_j)
++\sum_{k<i<j}\det(u_i,u_j).$$
+It equals $T_0$. To verify this, put $U=\sum_{i<k}u_i$ and $W=\sum_{j>k}u_j$. Closure gives $W=-U-u_k$, so
+$$\det(U,W)=-\det(U,u_k),\qquad
+\det(u_k,W)=\det(U,u_k),$$
+which cancels the difference between the two expressions. The vectors $u_i$ are the oriented edges rotated by a fixed quarter-turn; the signed area formula gives $T_0=2|K|$. Also $\sum_i b_i=2|K|$. Thus $\Sigma=4|K|^2$.
+
+The denominator in the polytope formula from version 2 is $2|K|\,|\Pi K|$, so $a(K)=2|K|/|\Pi K|$. In the plane the support function of $\Pi K$ is the width in a perpendicular direction; consequently $\Pi K$ is a quarter-turn of $K-K$. This proves both identities for polygons. Polygonal approximation and continuity extend them to every planar convex body.
+
+Put $e=a(K)-1/3$ and $\rho=1-R(K)/6$. Proposition 2 gives
+$$\rho=\frac{3e}{1+3e}.$$
+Theorem 1 of Böröczky [B] already gives a linear Banach--Mazur stability estimate. More sharply, Section 8 of the inspected author-hosted text gives $R(K)\le6-t/32$ when $d_{BM}(K,T_2)=1+t$. Hence the inherited consequence is
+$$\boxed{d_{BM}(K,T_2)-1\le192\rho
+=\frac{576e}{1+3e}\le576e.}$$
+This prior planar result is stronger in exponent than Theorem 1's planar Banach--Mazur consequence. We do not present planar stability as a new theorem. The reduction to a difference body is specific to dimension two; no such formula is asserted in higher dimensions.
+
+## 9. Relation to version 4 and limitations
+
+Version 4 classifies the centrally symmetric upper endpoint: $a(K)=1/2$ holds exactly, up to an invertible linear map, for Cartesian products of centrally symmetric bodies of dimensions one and two. It also gives a fixed-dimensional qualitative stability statement for that class. The present theorem treats the lower deficit $a(K)-1/(d+1)$, whose equality class consists of simplices. It does not produce a quantitative modulus for $1/2-a(K)$, and it does not determine the spectral supremum discussed in versions 2--3.
+
+No boundary smoothness or atom assumption occurs in the proof. The quantitative witness uses $d+2$ positive-mass cells; all determinant signs are made uniform on those cells before integration. The losses in the exponent come from the covering, the $d+1$ cell-mass factors, and the cap estimate. No sharpness or favorable dependence on dimension is claimed. The previously documented family $T_m\times T_m$ remains a barrier to a dimension-independent additive-defect modulus.
+
+Quantitative random-simplex stability [AB], cone-volume stability [BH], and inverse stability for surface area measures [HS] are established subjects. The particular cone-law deficit and elementary enclosing-simplex argument are the formulation proved here, not evidence that it lacks antecedents. Saroglou's cone/projection-body work [S] is especially relevant; only its publisher abstract and author listing were available in this comparison, so formula-by-formula overlap remains unchecked. This is a bounded literature comparison, not a priority or best-known-rate claim.
+
+The standard-library exact checks accompany the written proof. They verify the displayed constants in dimensions 2 through 8, 400 determinant perturbations, 400 barycentric matrices, 8,320 nonatomic box-corner sign tests, and 200 polygon identities. Finite checks are regression evidence, not a proof of the general theorem. Independent model audits are not external human peer review or proof-assistant formalization.
+
+## References and provenance
+
+- [005v2] mxym, *Projection-volume calculus for joins and Cartesian products*, entry 005, version 2, with its spectral supplement. Definitions and cone/product formulas. [Repository source](https://github.com/mxym/math/tree/dd969ea280508a15995fbe83a80cac0f6d227f73/preprints/005-simplex-product-optimum/v2).
+- [005v3] mxym, *Random-determinant rigidity, sharp symmetric cone bounds, and spectral nonattainment*, entry 005, version 3. Cone-law representation and qualitative lower-end rigidity. [Repository source](https://github.com/mxym/math/tree/dd969ea280508a15995fbe83a80cac0f6d227f73/preprints/005-simplex-product-optimum/v3).
+- [005v4] mxym, *Equality in the symmetric projection-cone bound*, entry 005, version 4. [Pinned source](https://github.com/mxym/math/blob/dd969ea280508a15995fbe83a80cac0f6d227f73/preprints/005-simplex-product-optimum/v4/paper.md).
+- [B] K. Böröczky Jr., *The stability of the Rogers--Shephard inequality and of some related inequalities*, Advances in Mathematics 190 (2005), 47--76, DOI [10.1016/j.aim.2003.11.015](https://doi.org/10.1016/j.aim.2003.11.015). [Inspected author-hosted text](https://www.renyi.hu/~carlos/rogerstab.pdf), Theorem 1 and Section 8, printed pages 1 and 20. This hosted version carries a later submission timestamp.
+- [AB] G. Ambrus and K. J. Böröczky, *Stability results for the volume of random simplices*, American Journal of Mathematics 136 (2014), 833--857, DOI 10.1353/ajm.2014.0030. [Author-hosted text](https://www.renyi.hu/~carlos/randomsimplex.pdf).
+- [HS] D. Hug and R. Schneider, *Hölder continuity for support measures of convex bodies*. [Primary preprint](https://arxiv.org/abs/1501.06214).
+- [BH] K. J. Böröczky and M. Henk, *Cone-volume measure and stability*, Advances in Mathematics 306 (2017), 24--50, DOI 10.1016/j.aim.2016.10.005. [Author-hosted text](https://users.renyi.hu/~carlos/cone-volume-stability.pdf).
+- [S] C. Saroglou, *Volumes of projection bodies of some classes of convex bodies*, Mathematika 57 (2011), 329--353, DOI [10.1112/S0025579311001860](https://doi.org/10.1112/S0025579311001860).
+- [Sch] R. Schneider, *Convex Bodies: The Brunn--Minkowski Theory*, second expanded edition, Cambridge University Press, 2014. Standard support-function, surface-area, projection and mixed-volume inputs.
+
+Versions 2--4 preserve and credit the product and simplex computations inherited from OpenAI family 088, pinned at commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a`. This supplement adds an explicit quantitative proof to that continuing record; it does not replace historical versions. The manuscript is AI-assisted research and makes no first-discovery assertion.

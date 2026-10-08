@@ -1,0 +1,640 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,xurl,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,
+pdftitle={Sharp lower-end simplex stability from integrated witnesses and projection caps},
+pdfauthor={Yongxian Zhang}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\BB}{B_2^d}
+\newcommand{\vol}{\operatorname{vol}}
+\title{Sharp lower-end simplex stability from\\integrated witnesses and projection caps}
+\author{Yongxian Zhang\\[2pt]\small School of Computer Science and Engineering\\\small South China University of Technology\\\small\texttt{mxymmxym1@gmail.com}\\\small ORCID: 0009-0000-3864-3536}
+\date{8 October 2026}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\usepackage{xurl}
+\hypersetup{pdfauthor={Yongxian Zhang}}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Result.}
+For every fixed $d\ge3$ and every maximum-volume inscribed simplex $S$,
+\[
+ E(K,S)\le G_d^\sharp
+ \left(a(K)-\frac1{d+1}\right)^{1/(d-1)}.
+\]
+All constants below are explicit. The exponent matches the exact truncation
+obstruction. The additional geometric step uses centering to compare normalized
+projection volumes, controls scale by first variation, and then puts a cap
+in a $(d-1)$-dimensional projection. No inverse-Minkowski stability theorem
+is an input. The supplied explicit $1/d$ theorem is preserved as a separate
+source, with its constants unchanged. An independent analytic model audit
+passed, with independently implemented finite checks. The main bound and its exponent obstruction now have complete Lean proofs;
+see the formal-verification section. No external human peer review is claimed.
+No priority or best-known-result claim is made.
+
+\section{Definitions and explicit constants}
+
+For a convex body $K\subset\mathbb R^d$, let $\Pi K$ denote the projection
+body with $h_{\Pi K}(u)=|K\mid u^\perp|_{d-1}$ for unit $u$, and put
+\[
+ R(K)=\frac{|\Pi K|}{|K|^{d-1}},\qquad
+ a(K)=\left(\frac d{d+1}\right)^d
+       \frac{R(\mathcal P K)}{R(K)}-1,\qquad
+ e(K)=a(K)-\frac1{d+1}.
+\]
+Here $\mathcal P K=\operatorname{conv}(K\times\{0\},(0,1))$ is the
+pyramid over $K$; the ratio is independent of the chosen nonzero height.
+For a simplex $S\subset K$ with centroid $z_S$, define
+\[
+ E(K,S)=\inf\{t\ge0:K\subset z_S+(1+t)(S-z_S)\}.
+\]
+For the constants set
+\begin{align}
+ R_0&=d(d+1),&
+ b&=\frac1{4(dR_0)^d},&
+ M&=b^{-1},\label{eq:constants1}\\
+ Q&=(d+1)(d+2)8^d b^{-4d},&
+ m&=d-1,&
+ L&=m(M+1),\label{eq:constants2}\\
+ J&=\frac d2(2R_0)^d
+       \bigl[1+M+d2^{d-1}M\bigr],\label{eq:J}\\
+ r_\sharp&=\min\left\{b,\,
+             \frac1{J(8MdL)^m}\right\},&
+ e_\sharp&=\frac{r_\sharp}{Q(d+1)},\label{eq:gate}\\
+ A_d^\sharp&=4MdL[JQ(d+1)]^{1/m},&
+ G_d^\sharp&=\max\{A_d^\sharp,\,
+                    (R_0-1)e_\sharp^{-1/m}\}.\label{eq:global}
+\end{align}
+All constants other than the displayed $m$th roots are positive rationals.
+They are extremely poor numerically and depend on dimension.
+
+\begin{theorem}\label{thm:endpoint}
+For every convex body $K\subset\mathbb R^d$, $d\ge3$, and every
+maximum-volume inscribed simplex $S$,
+\[
+ E(K,S)\le G_d^\sharp e(K)^{1/(d-1)}.
+\]
+If $0\le e(K)\le e_\sharp$, the constant $A_d^\sharp$ applies, and
+$A_d^\sharp e_\sharp^{1/(d-1)}\le1/2$.
+No larger power can hold uniformly near $e=0$, even if one permits
+a dimension-dependent constant.
+\end{theorem}
+
+\section{Normalization and the cone law}
+
+Fix an arbitrary maximum simplex and map it affinely to a regular simplex
+$\Delta$ with centroid zero and inradius one. Its vertices have norm $d$.
+Replacing a vertex by $x\in K$ multiplies the simplex volume by the absolute
+value of the corresponding barycentric coordinate. Maximality therefore
+gives $|\alpha_i(x)|\le1$, and
+\begin{equation}\label{eq:normalization}
+ \BB\subset\Delta\subset K\subset R_0\BB.
+\end{equation}
+Both $a$ and $E$ are preserved by this affine normalization.
+
+Write $h_K$ for the support function and $S_K$ for surface area measure.
+Push the probability measure $h_K(u)dS_K(u)/(d|K|)$ forward by
+$u\mapsto u/h_K(u)$; call the resulting law $\nu$.
+The classical identities $\int u\,dS_K(u)=0$ and
+$\int h_K\,dS_K=d|K|$ show that $\nu$ is centered.
+It is supported on $\partial K^\circ\subset\BB$.
+For independent samples from $\nu$, define
+\[
+ A=\EE|\det(X_1,\ldots,X_d)|,\qquad
+ B=\EE|\det((X_1,1),\ldots,(X_{d+1},1))|.
+\]
+The entry005 cone-law representation is
+\begin{equation}\label{eq:cone}
+ a(K)=\frac{B}{(d+1)A},\qquad
+ D:=B-A=(d+1)Ae(K)\le(d+1)e(K).
+\end{equation}
+Here $0<A\le1$, the upper bound following from Hadamard's inequality.
+For completeness, the representation for polytopes follows by expanding
+the two determinant expectations over distinct facets, with the $d!$
+and $(d+1)!$ permutation factors. Polytope approximation, uniform
+support-function convergence and weak convergence of surface area measures
+give the arbitrary-body identity; all laws stay in a common compact set.
+This representation, already established in entry005 v3, is the only
+entry005-specific identity imported here.
+
+For a body $H$ containing zero in its interior, its cone law satisfies
+the Cauchy identity
+\begin{equation}\label{eq:brightness}
+ \int |u\cdot x|\,d\nu_H(x)
+   =\frac{2|H\mid u^\perp|_{d-1}}{d|H|}
+       \qquad (|u|=1).
+\end{equation}
+Indeed the factors $h_H$ cancel in the pushforward integral, leaving
+$\int|u\cdot n|\,dS_H(n)/(d|H|)$.
+Centering, Cauchy's formula, and \eqref{eq:normalization} give
+\begin{equation}\label{eq:dispersion}
+ \EE\pos{-u\cdot X}
+ =\frac{|K\mid u^\perp|_{d-1}}{d|K|}
+ \ge\frac{(2/d)^{d-1}}{d(2R_0)^d}=2b.
+\end{equation}
+The projected unit ball contains a cube of side $2/d$.
+
+\section{The integrated assignment bound, including nonatomic laws}
+
+This section reproduces the probabilistic argument in the supplied readable
+fallback so that the quantitative proof is complete.
+For an ordered base tuple $\mathbf x=(x_1,\ldots,x_d)$ put
+\[
+ F_{\mathbf x}(y)
+   =\det((x_1,1),\ldots,(x_d,1),(y,1)),
+\quad
+ P(\mathbf x)=\EE\pos{F_{\mathbf x}(X)},
+\quad
+ N(\mathbf x)=\EE\pos{-F_{\mathbf x}(X)}.
+\]
+Since $\EE X=0$, $\EE F_{\mathbf x}(X)$ is the horizontal determinant,
+up to sign. Subtracting its absolute value from $\EE|F_{\mathbf x}(X)|$
+and integrating gives
+\begin{equation}\label{eq:cancellation}
+ D=2\EE_{\mathbf X}\min\{P(\mathbf X),N(\mathbf X)\}\ge0.
+\end{equation}
+No nonsingularity assumption on a sampled base is needed.
+
+Use the continuous nonnegative witness
+\[
+ \psi_{\mathbf x}(y,z)
+ =\min\{\pos{F_{\mathbf x}(y)},\pos{-F_{\mathbf x}(z)}\}
+  +\min\{\pos{-F_{\mathbf x}(y)},\pos{F_{\mathbf x}(z)}\}.
+\]
+For independent $Y,Z$ each of its minima has expectation at most
+$\min(P,N)$; hence
+\begin{equation}\label{eq:witness}
+ \EE_{\mathbf X,Y,Z}\psi_{\mathbf X}(Y,Z)\le D.
+\end{equation}
+
+\begin{lemma}[Integrated assignment]\label{lem:assignment}
+For any centered law on $\BB$ satisfying \eqref{eq:dispersion}, there are
+affinely independent $w_0,\ldots,w_d\in\supp\nu$ and a measurable assignment
+$X\mapsto w_{I(X)}$ with
+\[
+ h:=\EE\|X-w_{I(X)}\|\le QD.
+\]
+If $QD\le b$, then $b\BB\subset T:=\conv(w_0,\ldots,w_d)\subset\BB$.
+\end{lemma}
+
+\begin{proof}
+Let $W_0,\ldots,W_d$ be independent samples and let
+$V(W)=|\det((W_0,1),\ldots,(W_d,1))|$.
+For $\Sigma=\EE XX^{\mathsf T}$, centering and
+\eqref{eq:dispersion} give $\EE|u\cdot X|\ge4b$ and
+$u^{\mathsf T}\Sigma u\ge16b^2$.
+Expanding determinants and using independence yields
+\[
+ \EE V^2=(d+1)!\det\Sigma
+       \ge(d+1)!16^d b^{2d}\ge2b^{2d}.
+\]
+The lifted second-moment matrix is $\operatorname{diag}(\Sigma,1)$;
+the determinant expansion gives $(d+1)!$ times its determinant.
+Subtracting one lifted column from the others and applying Hadamard gives
+$V\le2^d$. Consequently, with
+\[
+ v_0=b^d,\qquad q_0=b^{2d}/4^d,\qquad
+ \mathcal E=\{W:V(W)\ge v_0\},
+\]
+we have $\mathbb P(\mathcal E)\ge q_0$, since
+$\EE V^2\le b^{2d}+4^d\mathbb P(\mathcal E)$.
+
+For each $i$ use the other $d$ anchors as base and test $w_i,x$.
+For each pair $i<j$, use $x$ and the other $d-1$ anchors as base and
+test $w_i,w_j$.
+Let $H(W)$ be the integral in $x$ of their sum; there are
+$N_d=(d+1)(d+2)/2$ summands.
+Each uses $d+2$ independent samples before conditioning, so
+\eqref{eq:witness} gives $\EE H(W)\le N_dD$.
+Conditioning on $\mathcal E$, choose anchors with
+$H(W)\le N_dD/q_0$.
+This selection is valid for nonatomic laws: $H$ is continuous by dominated
+convergence, $\mathcal E\cap(\supp\nu)^{d+1}$ is compact with positive
+probability, and its minimum is at most its conditional average.
+
+Let $\alpha_i(x)$ be barycentric coordinates in the selected simplex.
+The first witness is
+\[
+ V\min\{1,\pos{-\alpha_i(x)}\}.
+\]
+The pair witness is at least
+$V\min\{\pos{\alpha_i(x)},\pos{\alpha_j(x)}\}$:
+when both coefficients are positive the tested determinants have opposite
+signs and magnitudes $V\alpha_j(x)$ and $V\alpha_i(x)$.
+Thus
+\[
+ \Phi:=\EE\left[
+    \sum_i\min\{1,\pos{-\alpha_i(X)}\}
+    +\sum_{i<j}\min\{\pos{\alpha_i(X)},\pos{\alpha_j(X)}\}\right]
+ \le\frac{N_dD}{q_0v_0}.
+\]
+Replacement determinants are at most $2^d$, so
+$|\alpha_i(x)|\le L_0:=2^d/v_0$ for $x\in\BB$.
+Assign $x$ to its largest positive coefficient, with deterministic
+tie-breaking, and call this index $r$.
+Writing $N_x=\sum_i\pos{-\alpha_i(x)}$ and
+$U_x=\sum_{i\ne r}\pos{\alpha_i(x)}$, we have
+\[
+ N_x\le L_0\sum_i\min\{1,\pos{-\alpha_i(x)}\},
+ \qquad
+ U_x\le\sum_{i<j}\min\{\pos{\alpha_i(x)},\pos{\alpha_j(x)}\}.
+\]
+For the second inequality use the pairs containing $r$.
+The diameter bound gives
+$\|x-w_r\|\le2\sum_{i\ne r}|\alpha_i(x)|=2(N_x+U_x)$.
+Therefore
+\[
+ h\le2L_0\Phi
+ \le\frac{2L_0N_d}{q_0v_0}D
+ =(d+1)(d+2)8^d b^{-4d}D=QD.
+\]
+Finally, $\pos{u\cdot x}$ is one-Lipschitz and its expectation is at
+least $2b$. The assigned law has expectation at least $2b-h\ge b$
+if $QD\le b$. In every direction an anchor therefore has
+$u\cdot w_i\ge b$, proving $b\BB\subset T$.
+The upper inclusion is automatic.
+\end{proof}
+
+\section{Centering controls normalized projection volumes}
+
+Assume now $QD\le b$, select the anchors from Lemma
+\ref{lem:assignment}, and put $P=T^\circ$.
+It is an enclosing simplex:
+\begin{equation}\label{eq:P}
+ \BB\subset K\subset P\subset M\BB.
+\end{equation}
+Each $w_i\in\partial K^\circ$, so $h_K(w_i)=h_P(w_i)=1$.
+Let $q_i$ be the vertex of $P$ opposite its facet with normal $w_i$,
+and let $\lambda_i$ be the barycentric coordinates of zero in $T$.
+They are positive and sum to one.
+The cone law of $P$ is
+\begin{equation}\label{eq:Plaw}
+ \nu_P=\sum_{i=0}^d\lambda_i\delta_{w_i}.
+\end{equation}
+To see this, the polar images of the facet normals of $P$ are precisely
+$w_i$. Its cone law is centered, so its probability weights are the
+unique barycentric coordinates of zero.
+
+Write $p_i=\mathbb P(I(X)=i)$ and $c=\sum_i p_iw_i$.
+Centering of $\nu$ gives $\|c\|\le h$.
+The barycentric coordinate functions of $T$ have the exact formula
+\begin{equation}\label{eq:barycentric}
+ \alpha_i(x)=\lambda_i(1-q_i\cdot x).
+\end{equation}
+For $j\ne i$, $q_i\cdot w_j=1$; taking the scalar product of
+$\sum_j\lambda_jw_j=0$ with $q_i$ gives
+$q_i\cdot w_i=1-1/\lambda_i$.
+These values prove \eqref{eq:barycentric} on an affine basis.
+Consequently
+\begin{equation}\label{eq:weights}
+ p_i-\lambda_i=-\lambda_i q_i\cdot c,\qquad
+ \sum_i|p_i-\lambda_i|\le M\|c\|\le Mh.
+\end{equation}
+For any unit $u$, the function $x\mapsto|u\cdot x|$ is one-Lipschitz
+and bounded by one on $T$.
+Comparing first with the assigned law and then with \eqref{eq:Plaw} gives
+\[
+ \left|\int|u\cdot x|\,d\nu(x)
+       -\int|u\cdot x|\,d\nu_P(x)\right|
+ \le (1+M)h.
+\]
+By \eqref{eq:brightness}, if $\pi_H(u)=|H\mid u^\perp|_{d-1}$, then
+\begin{equation}\label{eq:normalized-projections}
+ \left|\frac{\pi_K(u)}{|K|}-\frac{\pi_P(u)}{|P|}\right|
+ \le\frac d2(1+M)h.
+\end{equation}
+This is the additional information retained by the integrated assignment.
+
+\section{Scale control and absolute projection deficits}
+
+Since $h_P$ is $M$-Lipschitz and equals one at every anchor,
+\[
+ 0\le z:=\int(h_P(x)-1)\,d\nu(x)\le Mh\le1.
+\]
+The integral is $V(K[d-1],P)/|K|-1$.
+The volume first-variation formula and the Brunn--Minkowski inequality give
+Minkowski's first inequality, and hence
+\begin{equation}\label{eq:volume}
+ \frac{|P|}{|K|}\le(1+z)^d,\qquad
+ |P|-|K|\le d2^{d-1}Mh\,|K|.
+\end{equation}
+The second bound uses $(1+z)^d-1\le d2^{d-1}z$ for $0\le z\le1$.
+Explicitly, differentiating
+$|K+tP|^{1/d}\ge|K|^{1/d}+t|P|^{1/d}$ at $t=0+$
+proves the mixed-volume inequality just used.
+
+Since $\nu_P$ is supported on $\BB$, \eqref{eq:brightness} gives
+$\pi_P(u)/|P|\le d/2$.
+Using \eqref{eq:normalized-projections} and \eqref{eq:volume},
+\begin{align*}
+ 0\le\pi_P(u)-\pi_K(u)
+ &=\frac{\pi_P(u)}{|P|}(|P|-|K|)
+    +|K|\left(\frac{\pi_P(u)}{|P|}
+              -\frac{\pi_K(u)}{|K|}\right)\\
+ &\le\frac d2 |K|
+       \bigl[d2^{d-1}M+1+M\bigr]h
+ \le Jh.
+\end{align*}
+The last step uses $|K|\le(2R_0)^d$.
+We have thus obtained the uniform absolute projection bound
+\begin{equation}\label{eq:projection-deficit}
+ \sup_{|u|=1}\{\pi_P(u)-\pi_K(u)\}\le Jh.
+\end{equation}
+The nonnegativity uses the actual inclusion $K\subset P$.
+
+\section{A cap in one projection}
+
+\begin{lemma}[Projection cap]\label{lem:projection-cap}
+If $\BB\subset K\subset P\subset M\BB$, $d\ge2$, and
+$\pi_P(u)-\pi_K(u)\le\varepsilon$ in every direction, then
+\[
+ d_H(K,P)\le(d-1)(M+1)\varepsilon^{1/(d-1)}.
+\]
+No simplex hypothesis is needed for this lemma.
+\end{lemma}
+
+\begin{proof}
+Put $s=d_H(K,P)$. If $s=0$ there is nothing to prove.
+Otherwise choose a farthest $q\in P$ and its metric projection $k\in K$,
+and set $n=(q-k)/s$.
+The projection optimality condition gives $n\cdot k=h_K(n)$, so
+$n\cdot q-h_K(n)=s$. Also $s\le M$, since $0\in K$.
+Choose a unit $u\perp n$ and project orthogonally onto $u^\perp$.
+Let $\overline P,\overline K,\overline q$ be the projected objects.
+The space has dimension $m=d-1$, $n$ lies in it,
+$\overline P$ contains its unit ball and is contained in its ball of
+radius $M$, and
+$n\cdot\overline q-h_{\overline K}(n)=s$.
+
+With $\tau=s/[2(M+1)]<1$, convexity places the ball
+$(1-\tau)\overline q+\tau B_2^m$ inside $\overline P$.
+Its lowest $n$-coordinate is at least
+\[
+ n\cdot q-\tau(M+1)=h_{\overline K}(n)+s/2,
+\]
+so it is disjoint from $\overline K$.
+A cube of side $2\tau/m$ fits in that ball. Therefore
+\[
+ \varepsilon\ge|\overline P|-|\overline K|
+ \ge(2\tau/m)^m
+ =\left[\frac{s}{(d-1)(M+1)}\right]^{d-1}.
+\]
+This proves the claim.
+\end{proof}
+
+Equations \eqref{eq:projection-deficit} and Lemma
+\ref{lem:projection-cap} yield the simplex-specific surface/assignment
+conversion
+\begin{equation}\label{eq:newconversion}
+ s=d_H(K,P)\le L(Jh)^{1/m}
+ \le L[JQ(d+1)e(K)]^{1/m}.
+\end{equation}
+It is stronger in exponent than the full-dimensional volume-cap conversion.
+
+\section{Retaining every initially chosen maximum simplex}
+
+If $0\le e\le e_\sharp$, then
+$QD\le Q(d+1)e\le r_\sharp\le b$ and
+\eqref{eq:newconversion} gives $s\le1/(8Md)$.
+Because $h_P\ge1$ and $h_K\ge h_P-s$,
+$(1-s)P\subset K$.
+The initially selected $\Delta$ is maximum, so
+\[
+ \frac{|\Delta|}{|P|}\ge(1-s)^d\ge1-ds.
+\]
+Put $\delta=ds\le1/8$.
+The barycentric coordinates of the vertices of $\Delta$ in $P$ form
+a nonnegative column-stochastic $(d+1)\times(d+1)$ matrix $W$ with
+$|\det W|=|\Delta|/|P|\ge1-\delta$.
+Each column has norm at most one.
+Hadamard's inequality therefore gives squared norm at least
+$(1-\delta)^2$ in each column, so each column has an entry at least
+$1-2\delta$.
+
+These dominant rows are distinct.
+Indeed, the permanent is the probability that independent row selections
+from the columns are all distinct and dominates $|\det W|$.
+A common dominant row in two columns would give
+\[
+ |\det W|\le\operatorname{per}W
+ \le1-(1-2\delta)^2\le4\delta<1-\delta,
+\]
+a contradiction.
+Match the vertices by these rows.
+Each vertex of $\Delta$ is within
+$2\delta\operatorname{diam}P\le4Md\,s$ of its matched vertex of $P$.
+Taking convex combinations and using $\BB\subset\Delta$ gives
+\[
+ K\subset P\subset\Delta+4Md\,s\,\BB
+          \subset(1+4Md\,s)\Delta.
+\]
+By \eqref{eq:newconversion},
+$E(K,\Delta)\le A_d^\sharp e^{1/m}$.
+This also covers $e=0$: then $h=0$, the projection deficits vanish,
+$s=0$, and the same matrix argument gives zero excess.
+At the threshold,
+\[
+ A_d^\sharp e_\sharp^{1/m}
+   =4MdL(Jr_\sharp)^{1/m}\le\frac12.
+\]
+For $e>e_\sharp$, \eqref{eq:normalization} gives
+$K\subset R_0\Delta$ and hence $E(K,\Delta)\le R_0-1$,
+which is covered by $G_d^\sharp$ in \eqref{eq:global}.
+Undoing the affine normalization restores the centroid of the arbitrary
+initial $S$. Thus the estimate holds for every maximum simplex.
+
+\section{Sharpness and the obstruction to using volume alone}
+
+The pinned truncation source gives the following exact calculation;
+the needed parts are derived here.
+In unnormalized coordinates let
+\[
+ P_0=\conv(0,e_1,\ldots,e_d),\qquad
+ K_t=\{x_i\ge0,\ t\le\textstyle\sum_i x_i\le1\},\quad 0<t<1.
+\]
+Put $q=t^{d-1}$ and $c=1/(d-1)!$.
+Its facet area vectors and area times support numbers are
+\[
+ (u_i,b_i)=(-c(1-q)e_i,0),\quad
+ (u_+,b_+)=(c\mathbf1,c),\quad
+ (u_-,b_-)=(-cq\mathbf1,-ct^d).
+\]
+The polytope determinant formula for entry005 is
+$a=L_{\rm det}/(d|K_t|H_{\rm det})$.
+Horizontal $d$-minors and lifted $(d+1)$-minors give respectively
+\begin{align*}
+ H_{\rm det}
+ &=c^d(1-q)^{d-1}[d+1+(d-1)q],\\
+ L_{\rm det}
+ &=c^{d+1}(1-q)^{d-1}
+        [1+(d-1)q-(d-1)t^d-qt^d].
+\end{align*}
+For the first sum the all-coordinate subset contributes
+$c^d(1-q)^d$, while each subset with one of the parallel top/bottom
+normals contributes $c^d(1-q)^{d-1}$ or
+$c^dq(1-q)^{d-1}$.
+For the second sum, the all-coordinate subsets with top or bottom
+contribute $c^{d+1}(1-q)^d$ and
+$c^{d+1}(1-q)^dt^d$; each of the $d$ remaining subsets contributes
+$c^{d+1}(1-q)^{d-1}(q-t^d)$.
+Since $|K_t|=(1-t^d)/d!$, subtraction of $1/(d+1)$ gives
+\begin{equation}\label{eq:truncation}
+ e(K_t)=
+ \frac{t^{d-1}[d(d-1)-(d+1)(d-2)t-2t^d]}
+ {(d+1)(1-t^d)[d+1+(d-1)t^{d-1}]},
+ \quad
+ \lim_{t\downarrow0}\frac{e(K_t)}{t^{d-1}}
+ =\frac{d(d-1)}{(d+1)^2}.
+\end{equation}
+Using nonpositive support numbers here is legitimate: this is a facet
+determinant calculation, not a probability law. Translation changes
+the lifted determinants by a row operation and leaves them unchanged.
+
+The simplex $S_t=\conv(e_1,\ldots,e_d,te_1)$ is maximum.
+Indeed a nondegenerate vertex simplex must represent all $d$ coordinate
+rays, with one ray doubled. If $k$ of its other selected vertices are
+bottom vertices, its lifted determinant has magnitude $(1-t)t^k$.
+The maximum is $1-t$.
+For arbitrary inscribed vertices, separate affine linearity and the
+triangle inequality bound their determinant by that same vertex maximum.
+Thus $|S_t|=(1-t)/d!$ is the global maximum.
+
+Writing $s_x=\sum_i x_i$, barycentric coordinates in $S_t$ are
+\[
+ \beta_0=\frac{1-s_x}{1-t},\qquad
+ \beta_1=x_1-t\beta_0,\qquad
+ \beta_i=x_i\quad(2\le i\le d).
+\]
+The minimum of $\beta_1$ on $K_t$ is $-t$, attained at $te_2$;
+the other coordinates have minimum zero.
+Centroid dilation by factor $1+\epsilon$ is equivalent to
+$\beta_i\ge-\epsilon/(d+1)$.
+Hence
+\[
+ E(K_t,S_t)=(d+1)t.
+\]
+Together with \eqref{eq:truncation}, this forbids every power
+$\alpha>1/(d-1)$ in an every-maximum-simplex estimate.
+At the endpoint any such universal constant must satisfy
+\[
+ G_d\ge(d+1)
+       \left[\frac{(d+1)^2}{d(d-1)}\right]^{1/(d-1)}.
+\]
+
+There is also an exact obstruction to strengthening only the old scalar
+mixed-volume step.
+For this nested pair,
+\[
+ d_H(K_t,P_0)=\frac{t}{\sqrt d},\qquad
+ \frac{V(K_t[d-1],P_0)}{|K_t|}-1
+       =\frac{t^d}{1-t^d}.
+\]
+The distance maximum occurs at the missing vertex zero; its nearest
+point is $(t/d)\mathbf1$.
+In the first-variation integral only the bottom facet has a support gap,
+namely $t/\sqrt d$, and its area is
+$\sqrt d\,t^{d-1}/(d-1)!$. This proves the mixed-volume formula.
+Thus an estimate using this scalar alone cannot have a power greater
+than $1/d$.
+For all sufficiently small $t$, a fixed translation and dilation put
+these pairs in a position with a common inner ball and a fixed outer ball;
+the obstruction is therefore not caused by the coordinate origin.
+In contrast, for $u=(e_1-e_2)/\sqrt2$, Cauchy's formula gives
+\[
+ \pi_{P_0}(u)-\pi_{K_t}(u)
+ =\frac{t^{d-1}}{\sqrt2\,(d-1)!}.
+\]
+The top and bottom area vectors are perpendicular to $u$, and only
+the two coordinate facets contribute. This identifies exactly the
+information that the projection argument preserves.
+
+\section{Provenance and verification scope}
+
+The already published $1/d$ manuscript is included separately as
+\nolinkurl{sources/prior-integrated-witness/paper.tex}, with its theorem
+and constants preserved. Its exact public revision and readable-source
+hashes are pinned in \texttt{PROVENANCE.json}. The received historical
+fallback differs only by disclosed editorial changes; its original hash
+is recorded separately. No inaccessible source is required for replay.
+
+The pinned v3 source was read for the cone-law representation.
+The pinned quantitative supplement was read for normalization,
+first variation, and the every-maximum conversion.
+The actual pinned truncation \texttt{proof.tex} and exact checker were read.
+The new centering/brightness and projection-cap arguments above are
+self-contained quantitative estimates.
+
+\texttt{check\_exact.py} uses rational arithmetic and checks the barycentric
+weight correction, centered truncation cone laws, normalized and absolute
+projection identities, mixed-volume and projection scalings, both sets
+of explicit threshold constants, and finite near-permutation matrices.
+Its moment/witness regressions enumerate actual rational samples.
+The inherited truncation checker is replayed in a separate directory.
+Finite checks supplement the analytic proof and do not establish its
+arbitrary-body or nonatomic assertions.
+No inverse-Minkowski stability theorem, including the disputed proof of
+arXiv:2603.17726v3, is used.
+
+\section{Formal verification and reproduction}
+The principal theorem has a complete Lean proof. The precise scope is:
+Actual convex bodies and projection-body deficit in every dimension d $\ge$ 3; upper bound for every maximum-volume inscribed simplex, and failure of every larger exponent using specified actual maximum simplices. Constants are explicit, not optimal.
+The public proof source snapshot is fixed at commit
+\nolinkurl{02af7db99db789fecb0d5f5f8f37b1a4e40762a0} in \url{https://github.com/mxym/math}.
+The proof packages, with their own dependency locks, audit records and
+reproduction instructions, are:
+\begin{itemize}
+\item \nolinkurl{formalizations/sharp-simplex-upper-bound}.
+\item \nolinkurl{formalizations/simplex-truncation-sharpness}.
+\end{itemize}
+The main formal entry points are:
+\begin{itemize}
+\item \nolinkurl{Entry005.sharpMain}.
+\item \nolinkurl{Entry005.truncationSharpness}.
+\end{itemize}
+Lean is fixed to version 4.34.1, compiler commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}; Mathlib is fixed to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The audited mathematical roots depend only on the standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The archived audits state their actual compilation and replay scopes;
+publication of this typeset version does not imply a new execution of every
+previous empty-kernel replay. The companion README maps each printed
+principal result to its formal theorem and explains how to repeat verification.
+
+\section*{Research and preparation disclosures}
+This research, formalization and manuscript preparation used AI assistance.
+The author is responsible for the manuscript. The principal claims are
+supported by the readable proofs and the public Lean artifacts specified
+above. Formal verification is not external human peer review; no such review
+is claimed. No external funding was received. No worldwide priority or
+journal acceptance is asserted.
+
+\begin{thebibliography}{9}
+\bibitem{entry}
+mxym, \emph{Random-determinant rigidity, sharp symmetric cone bounds, and
+spectral nonattainment}, entry005 v3, commit
+\nolinkurl{31e3d8a37e4a3051a7f5a2535be1c75642e15bcc}.
+\url{https://github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum/v3/paper.md}.
+\bibitem{released}
+mxym, \emph{Effective simplex rigidity for the projection cone invariant},
+Sections 2, 4--6, inspected at commit
+\nolinkurl{87868bcb65bf0460a90d6bc2efc3324e46481230}.
+\url{https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/quantitative-projection-simplex-stability/paper.md}.
+\bibitem{truncation}
+mxym, \emph{An exact exponent obstruction for lower-end projection-cone
+simplex stability}, inspected at the same commit.
+\url{https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/simplex-truncation-stability/proof.tex}.
+\bibitem{classical}
+R. Schneider, \emph{Convex Bodies: The Brunn--Minkowski Theory},
+second expanded edition, Cambridge University Press, 2014.
+Only classical Cauchy, surface area, first-variation and
+Brunn--Minkowski identities are used.
+\end{thebibliography}
+\end{document}

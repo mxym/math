@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,longtable,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\hypersetup{pdfauthor={Yongxian Zhang}}
+
+\title{A counterexample to the prime-order-factor conjecture for unimodal cyclotomic generating functions}
+\author{Yongxian Zhang\\[2pt]\small School of Computer Science and Engineering\\\small South China University of Technology\\\small\texttt{mxymmxym1@gmail.com}\\\small ORCID: 0009-0000-3864-3536}
+\date{8 October 2026}
+\begin{document}\maketitle
+\begin{abstract}We exhibit an explicit unimodal basic cyclotomic generating function of degree 216 whose cyclotomic factors have only the composite orders 4, 9, 25 and 30. A complete positive centered q-integer expansion certifies strict unimodality. The example refutes the prime-order-factor conjecture of Billey and Swanson. The actual polynomial, coefficient certificate, basic quotient identity and universal prime exclusion have complete Lean proofs.\end{abstract}
+\section{The conjecture and the counterexample}
+Billey and Swanson~\cite{BS}, Conjecture 48, propose that every nonconstant
+unimodal basic cyclotomic generating function has a prime-order cyclotomic
+factor. Here $[m]_q=1+q+\cdots+q^{m-1}$ for $m\ge1$; a basic CGF is a
+polynomial with nonnegative integer coefficients that is a quotient of
+products of these $q$-integers, without an additional scalar or monomial
+factor. The conjecture imposes no squarefreeness condition or exclusion
+of powers. The predicted factor is $\Phi_p$ for a prime $p$, not an
+arbitrary prime-power order.
+
+\begin{theorem}
+The polynomial
+\[
+ F(q)=\bigl(\Phi_4(q)\Phi_9(q)\Phi_{25}(q)\Phi_{30}(q)\bigr)^6
+\]
+is a nonconstant basic CGF of degree 216. Its integer coefficients are
+strictly positive, strictly increasing up to degree 108 and strictly
+decreasing thereafter. No $\Phi_p$ with $p$ prime divides it.
+Consequently Conjecture 48 of~\cite{BS} is false.
+\end{theorem}
+
+\section{Factorization and the basic-CGF identity}
+Put $B=\Phi_4\Phi_9\Phi_{25}\Phi_{30}$. The factors are
+\begin{align*}
+ \Phi_4(q)&=1+q^2,\\
+ \Phi_9(q)&=1+q^3+q^6,\\
+ \Phi_{25}(q)&=1+q^5+q^{10}+q^{15}+q^{20},\\
+ \Phi_{30}(q)&=1+q-q^3-q^4-q^5+q^7+q^8.
+\end{align*}
+The identity $q^m-1=\prod_{d\mid m}\Phi_d(q)$ implies
+\begin{equation}\label{eq:quotient}
+ B(q)=\frac{[4]_q[9]_q[25]_q[30]_q}
+                    {[1]_q[6]_q[10]_q[15]_q}.
+\end{equation}
+Indeed, after cancelling the four copies of $q-1$ on each side, the
+cyclotomic factors of the numerator are those with orders dividing
+4, 9, 25 or 30, with multiplicities. Cancelling the factors whose orders
+divide 1, 6, 10 or 15 leaves exactly 4, 9, 25 and 30 once each.
+The denominator is a nonzero polynomial. Raising \eqref{eq:quotient} to
+the sixth power supplies the required quotient representation for $F$.
+The remaining requirement of coefficient nonnegativity is verified next.
+
+\section{A complete finite coefficient certificate}
+All four factors are reciprocal. Consequently if
+$F=\sum_{j=0}^{216}a_jq^j$, then $a_j=a_{216-j}$.
+Exact integer multiplication yields
+\begin{equation}\label{eq:centered}
+ F(q)=\sum_{j=0}^{108}d_jq^j[217-2j]_q.
+\end{equation}
+The complete list of weights follows; each row starts at its displayed
+index and lists consecutive values. The last row has only four values.
+\begin{longtable}{r|rrrrr}
+$j$ & \multicolumn{5}{c}{Consecutive values $d_j,d_{j+1},\ldots$}\\\hline
+0 & 1 & 5 & 15 & 35 & 64\\
+5 & 96 & 126 & 150 & 180 & 238\\
+10 & 326 & 426 & 501 & 531 & 567\\
+15 & 701 & 991 & 1371 & 1692 & 1866\\
+20 & 1980 & 2326 & 3071 & 4023 & 4806\\
+25 & 5124 & 5250 & 5856 & 7269 & 9147\\
+30 & 10585 & 11189 & 11655 & 13079 & 15982\\
+35 & 19290 & 21585 & 22779 & 24183 & 27587\\
+40 & 32545 & 36825 & 39095 & 40213 & 43527\\
+45 & 50235 & 57570 & 62100 & 62948 & 64882\\
+50 & 72555 & 84635 & 95020 & 97758 & 96567\\
+55 & 100479 & 113595 & 130975 & 140138 & 138138\\
+60 & 135060 & 142464 & 162645 & 180663 & 184173\\
+65 & 177591 & 176555 & 194149 & 218922 & 230692\\
+70 & 223826 & 212586 & 221560 & 248612 & 269481\\
+75 & 265241 & 241396 & 232836 & 254723 & 286675\\
+80 & 295956 & 268346 & 238156 & 241074 & 275394\\
+85 & 304410 & 288381 & 244691 & 218995 & 235689\\
+90 & 273250 & 275390 & 232581 & 184211 & 174619\\
+95 & 208125 & 227485 & 197435 & 138246 & 102744\\
+100 & 124275 & 158475 & 150360 & 91356 & 28794\\
+105 & 23500 & 59600 & 78150 & 38406 &\\
+\end{longtable}
+
+Identity~\eqref{eq:centered} is a finite polynomial certificate: expanding
+the four displayed factors and raising their product to power six gives
+its left-hand side, and expanding the 109 specified centered $q$-integers
+gives its right-hand side. The coefficient list and an independent
+integer-arithmetic verifier of both sides accompany this paper; the
+complete identity is also proved in Lean.
+For $0\le k\le108$, a term with index $j$ contributes to degree $k$
+exactly when $j\le k$: its support is $[j,216-j]$. Hence
+\[
+ a_k=\sum_{j=0}^k d_j.
+\]
+Every listed $d_j$ is strictly positive, so the first-half coefficients
+are strictly positive and strictly increasing. Reciprocity gives the
+strictly decreasing second half. This proves the required nonnegativity
+and strict unimodality, with a unique peak at 108. The coefficient sum
+is $30^6=729000000$ and $a_{108}=11434392$.
+
+\section{Excluding every prime-order factor}
+Cyclotomic polynomials are irreducible over $\mathbb Q$, and distinct
+cyclotomic polynomials are relatively prime. The complete factorization
+of $F$ has only orders 4, 9, 25 and 30, none prime. Thus $\Phi_p$ does not
+divide $F$ for any prime $p$. Equivalently, a primitive $p$th root cannot
+have any of these four distinct composite orders. This proves the
+universal prime exclusion without extrapolating from finitely many primes.
+Finally $\deg F=6(2+6+20+8)=216>0$, so $F\ne1$. All assertions of the
+theorem follow.
+
+\section{Reproduction and scope}
+Run \texttt{python3 verify\_counterexample.py} in this paper's directory.
+The standard-library checker reconstructs the cyclotomic factors from
+$q^m-1$, verifies \eqref{eq:quotient}, multiplies out all 217 coefficients,
+checks all 109 weights and independently reconstructs \eqref{eq:centered}.
+It also checks exact remainders for every possible prime up to 217; larger
+prime-order divisors are excluded by degree. That finite check supplements
+the universal factorization proof above. There is no numerical-root
+computation. No minimum-degree or worldwide-first claim is made, and the
+distinct later HSOP-membership problem is not the conjecture addressed here.
+\section{Formal verification and reproduction}
+The principal theorem has a complete Lean proof. The precise scope is:
+The explicit degree-216 polynomial, strict unimodality, basic q-integer quotient, and exclusion of every prime-order cyclotomic factor. No degree-minimality claim.
+The public proof source snapshot is fixed at commit
+\nolinkurl{02af7db99db789fecb0d5f5f8f37b1a4e40762a0} in \url{https://github.com/mxym/math}.
+The proof packages, with their own dependency locks, audit records and
+reproduction instructions, are:
+\begin{itemize}
+\item \nolinkurl{formalizations/cyclotomic-prime-factor-counterexample}.
+\end{itemize}
+The main formal entry points are:
+\begin{itemize}
+\item \nolinkurl{CyclotomicCounterexample.explicit_counterexample}.
+\item \nolinkurl{CyclotomicCounterexample.conjecture48_false}.
+\item \nolinkurl{CyclotomicCounterexample.F_centered_certificate}.
+\item \nolinkurl{CyclotomicCounterexample.F_qInteger_quotient_certificate}.
+\end{itemize}
+Lean is fixed to version 4.34.1, compiler commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}; Mathlib is fixed to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The audited mathematical roots depend only on the standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The archived audits state their actual compilation and replay scopes;
+publication of this typeset version does not imply a new execution of every
+previous empty-kernel replay. The companion README maps each printed
+principal result to its formal theorem and explains how to repeat verification.
+
+\section*{Research and preparation disclosures}
+This research, formalization and manuscript preparation used AI assistance.
+The author is responsible for the manuscript. The principal claims are
+supported by the readable proofs and the public Lean artifacts specified
+above. Formal verification is not external human peer review; no such review
+is claimed. No external funding was received. No worldwide priority or
+journal acceptance is asserted.
+\begin{thebibliography}{9}
+\bibitem{BS} S. C. Billey and J. P. Swanson,
+\emph{Cyclotomic Generating Functions}, Electronic Journal of Combinatorics
+\textbf{31}(4) (2024), P4.4. \url{https://doi.org/10.37236/12687}.
+Pinned manuscript: \url{https://arxiv.org/abs/2305.07620v3},
+Definitions 1, 3 and 45; Conjecture 48, printed page 32.
+\end{thebibliography}
+\end{document}

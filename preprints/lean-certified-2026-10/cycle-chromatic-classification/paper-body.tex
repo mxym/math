@@ -1,0 +1,176 @@
+\section{Statement and context}
+Let $C_n$ be the undirected cycle with $n\ge3$ vertices. For its chromatic
+polynomial $\chi_n(q)$, write $a_k=|[q^k]\chi_n(q)|$, and extend this
+sequence by zero to every $k\in\mathbb Z$ outside $0\le k\le n$.
+For any zero-extended finite sequence define
+\[
+ (\mathcal La)_k=a_k^2-a_{k-1}a_{k+1}.
+\]
+A sequence is infinitely log-concave if every entry of $\mathcal L^r a$
+is nonnegative for every integer $r\ge0$. The endpoint positions are
+retained at every iteration.
+
+\begin{theorem}\label{thm:classification}
+The absolute coefficient sequence of the chromatic polynomial of $C_n$
+is infinitely log-concave if and only if $3\le n\le11$.
+For $n=12$ its fifth iterate has a negative entry at degree two;
+for $13\le n\le16$ its fourth iterate does; and for every $n\ge17$
+its third iterate does.
+\end{theorem}
+
+In particular this family refutes Conjecture 21 of Amdeberhan and Moll
+\cite{AM}, which proposes infinite log-concavity of the absolute coefficient
+sequences of all chromatic polynomials. The same proposal appears as
+Conjecture 13.1 of Amdeberhan \cite{A}. We use the explicit zero-extension
+convention of Br\"and\'en \cite{B}; we do not silently replace it by
+deleting endpoints at each iteration. No claim that $C_{12}$ is a smallest
+counterexample among all finite graphs is made.
+
+\section{The actual graph and its coefficients}
+Deleting an edge of $C_n$ produces a path on $n$ vertices, and contracting
+it produces $C_{n-1}$ when $n\ge4$. Deletion--contraction and the path
+coloring count give
+\[
+ \chi_n(q)=q(q-1)^{n-1}-\chi_{n-1}(q),\qquad
+ \chi_3(q)=q(q-1)(q-2).
+\]
+Induction proves
+\begin{equation}\label{eq:poly}
+ \chi_n(q)=(q-1)^n+(-1)^n(q-1).
+\end{equation}
+Consequently the full absolute coefficients, in ascending degree, are
+\begin{equation}\label{eq:sequence}
+ a_0=0,\qquad a_1=n-1,\qquad
+ a_k=\binom nk\quad(2\le k\le n).
+\end{equation}
+The formal proof also verifies the genuine graph correspondence: it
+constructs a bijection between proper colorings of Mathlib's
+\texttt{SimpleGraph.cycleGraph n} with $q$ colors and closed walks of length
+$n$ in the complete $q$-color graph. A trace computation gives
+\eqref{eq:poly} for every $q\in\mathbb N$, including $q=0,1,2$.
+Thus the formal sequence is not an assumed binomial surrogate for the
+graph's chromatic polynomial.
+
+\section{A uniform third-iterate obstruction}
+Put $b=\mathcal La$ and $c=\mathcal Lb$. For $n\ge5$, substitution of
+\eqref{eq:sequence} gives
+\begin{align*}
+b_1&=(n-1)^2,&
+b_2&=\frac{n(n-1)^2(n+4)}{12},\\
+b_3&=\frac{n^2(n-2)(n-1)^2(n+1)}{144},&
+b_4&=\frac{n^2(n-3)(n-2)^2(n-1)^2(n+1)}{2880}.
+\end{align*}
+A second subtraction gives
+\begin{align*}
+c_1&=(n-1)^4,\\
+c_2&=\frac{n^2(n-1)^4(n+2)}{16},\\
+c_3&=\frac{n^3(n-2)^2(n-1)^4(n+1)(n^2+n+18)}{51840}.
+\end{align*}
+These equalities follow by replacing each binomial coefficient by its
+product formula and collecting factors; all denominators are fixed positive
+integers. Subtracting $c_1c_3$ from $c_2^2$ yields the exact identity
+\begin{equation}\label{eq:third}
+ (\mathcal L^3a)_2
+ =-\frac{n^3(n-1)^8(n+4)}{103680}
+       \bigl(2n^4-12n^3-327n^2-412n+36\bigr).
+\end{equation}
+With $n=u+17$, the final factor becomes
+\[
+ 2u^4+124u^3+2529u^2+17370u+6615.
+\]
+It is strictly positive for every $u\ge0$. All other factors in
+\eqref{eq:third}, apart from its minus sign, are positive for $n\ge17$.
+This proves the entire infinite negative family in Theorem~\ref{thm:classification}
+by one identity and a uniform sign argument.
+
+For example, $C_{17}$ starts with
+$(a_0,\ldots,a_5)=(0,16,136,680,2380,6188)$ and
+$(b_0,\ldots,b_4)=(0,256,7616,138720,1456560)$.
+Then $c_1=65536$, $c_2=22491136$, $c_3=8150077440$, and
+\[
+ (\mathcal L^3a)_2=22491136^2-65536\cdot8150077440
+                 =-28272276537344.
+\]
+
+\section{The remaining negative cases}
+Starting from \eqref{eq:sequence}, exact repeated integer subtraction gives
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+$n$ & iterate $r$ & $(\mathcal L^r a)_2$\\\midrule
+12 & 5 & $-249621701601023742801969101519201265582387397744$\\
+13 & 4 & $-3618341131654935620812800$\\
+14 & 4 & $-199158562975246657489530096$\\
+15 & 4 & $-2734560032125157358883149375$\\
+16 & 4 & $-25982668618402950000000000000$\\\bottomrule
+\end{tabular}
+\end{center}
+The particularly large entry for $n=12$ can be checked from its three
+preceding neighbors:
+\[
+ (\mathcal L^4 a)_1=45949729863572161,\qquad
+ (\mathcal L^4 a)_2=1505318939996586804452286,
+\]
+\[
+ (\mathcal L^4 a)_3=54746933663864342589859620161140.
+\]
+The square of the middle number minus the product of the outer two is
+the displayed fifth-iterate value. The companion certificate contains the
+complete preceding sequences for every case, and the Lean declarations
+\texttt{cycle12\_negative} through \texttt{cycle16\_negative} check the same
+integer statements by kernel-checked finite arithmetic.
+
+\section{An invariant proving infinitely many positive iterates}
+\begin{lemma}\label{lem:invariant}
+Suppose a nonnegative zero-extended finite sequence $v$ satisfies
+$v_k^2\ge3v_{k-1}v_{k+1}$ at every index. Then $w=\mathcal Lv$ is
+nonnegative and satisfies the same inequalities.
+\end{lemma}
+\begin{proof}
+For every index,
+\[
+ \frac23v_k^2\le w_k\le v_k^2.
+\]
+Thus $w$ is nonnegative, and
+\[
+ w_{k-1}w_{k+1}\le v_{k-1}^2v_{k+1}^2\le\frac19v_k^4,
+ \qquad w_k^2\ge\frac49v_k^4.
+\]
+It follows that $w_k^2\ge4w_{k-1}w_{k+1}\ge3w_{k-1}w_{k+1}$.
+Zeros at the boundaries cause no division or exceptional case.
+\end{proof}
+If finitely many nonnegative initial iterates reach this invariant, induction
+using Lemma~\ref{lem:invariant} proves nonnegativity of every subsequent
+iterate. For each $3\le n\le11$ the following complete finite certificate
+specifies such an iterate $j$. Its third column is the minimum of
+$v_k^2-3v_{k-1}v_{k+1}$ over $2\le k\le n-1$, for $v=\mathcal L^j a$.
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+$n$ & $j$ & minimum exact slack\\\midrule
+3&0&3\\4&1&28\\5&2&25825\\6&2&90846\\7&2&271656\\
+8&3&711608924160\\9&3&4029124698225\\
+10&3&19225238518750\\11&3&79738750726206\\\bottomrule
+\end{tabular}
+\end{center}
+Each row is a directly specified finite integer computation: form
+\eqref{eq:sequence}, iterate the displayed local rule $j$ times, check every
+preceding entry is nonnegative, then check the listed minimum. Full
+intermediate arrays are supplied in \texttt{exact\_certificates.json}.
+At index one the slack is $v_1^2$ because $v_0=0$; at index zero and the
+right boundary the assertions are automatic. All indices outside the
+support remain zero under iteration. This verifies every index, and the
+invariant proves the positive half of Theorem~\ref{thm:classification}.
+Together with the negative certificates this completes its proof.
+
+\section{Exact reproduction and limits}
+Run \texttt{python3 verify\_cycle\_counterexample.py} from this paper's
+directory. The standard-library checker recomputes the binomial arrays,
+all finite certificates, deletion--contraction polynomial identities and
+\eqref{eq:third} over exact rational polynomials. Finite calculation proves
+only the finitely specified certificates; the infinite claims use the
+invariant and the shifted positive polynomial above, both fully formalized.
+The result classifies cycles, not all finite graphs or all chromatic
+coefficient sequences. The earlier public $C_{17}$ counterexample and
+written classification are retained and credited as predecessors of this
+full graph-family formalization.
