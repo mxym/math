@@ -49,6 +49,19 @@ formalized or externally peer-reviewed. The
 is preserved, along with the historical partial
 [rank-rigidity note](research/gaussian-balanced-four-rigidity/README.md).
 
+The [seven-page prescribed-mass generalization](research/gaussian-prescribed-mass-centroid-ellipsoid/paper.pdf)
+proves the sharp centroid ellipsoid inequality **tr(Bᵀ H_p⁺ B) ≤ I(p)**
+for every positive mass vector and all measurable or fractional Gaussian
+partitions. Here I(p) is the established multi-cell perimeter profile,
+and H_p is its model interface-area Laplacian, with Hess I(p) = −H_p⁺
+on the label tangent space. Equality holds exactly for the translated
+regular-simplex partition when dimension is at least k−1. This is a
+mass-dependent matrix metric; it does not assert the false unequal-mass
+ordinary squared-moment conjecture. It generalizes the same proof method
+and does not count the uniform corollary as a separate solved conjecture.
+[Complete proof, source screen, internal reviews and nine partial Lean exports](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md)
+are available, with confirmed author metadata and AI assistance disclosed.
+
 Future major, fully proved results will follow the owner's
 [immutable-release publication workflow](releases/README.md).
 

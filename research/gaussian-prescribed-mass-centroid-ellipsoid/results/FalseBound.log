@@ -1,0 +1,8 @@
+FalseBound.lean:9:66: error: Tactic `assumption` failed
+
+h hp : ℝ → ℝ
+hzero : h 0 = 0
+hd : ∀ t ∈ Set.Ioo 0 1, HasDerivAt h (hp t) t
+hi : ∀ t ∈ Set.Ioo 0 1, t * hp t ≤ h t
+hend : ContinuousWithinAt h (Set.Iio 1) 1
+⊢ HasDerivAt h 0 0
