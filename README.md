@@ -13,6 +13,21 @@ masses. [Exact arithmetic, partial Lean checks and source comparison](research/g
 are public. This addresses the arbitrary-mass conjecture; the equal-mass
 tetrahedral problem remains unresolved, and no worldwide priority is claimed.
 
+The [equal-mass continuation](research/gaussian-balanced-four-rigidity/README.md)
+now supplies a [complete ten-page proof](research/gaussian-balanced-four-rigidity/paper.pdf)
+that every four-cell equal-mass Gaussian maximizer in dimension at least three
+has moment rank three, excluding all planar Laguerre candidates. An
+origin-conical maximizer is necessarily regular tetrahedral; the regular
+solution is locally isolated and strictly locally optimal, including against
+arbitrary measurable competitors with nearby normalized moments. The
+remaining global gap is exclusion of noncentral irregular full-rank
+maximizers. Five partial Lean exports, exact algebra diagnostics, and
+explicitly noncertifying numerical searches accompany the written proof.
+The complete equal-mass conjecture is **not** claimed solved.
+
+Future major, fully proved results will follow the owner's
+[immutable-release publication workflow](releases/README.md).
+
 The separate [growing-logarithmic-gap avoidance theorem](research/erdos-similarity-growing-gaps/README.md)
 extends positive-measure Erdős similarity avoidance to some sequences
 with adjacent ratios tending to zero. It is a proved class extension,
