@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Unbounded normalized cofactor spectra for rank two Gram matrices}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\per}{per}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Ree}{Re}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\one}{\mathbf 1}
+\title{Unbounded normalized cofactor spectra\\for rank two Gram matrices}
+\author{}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a positive-semidefinite Hermitian matrix $A$, let
+$C(A)_{ij}=a_{ij}\per A(i\mid j)$, where the minor deletes row $i$ and column $j$.
+We prove that $\lambda_{\max}(C(A))/\per A$ has no dimension-independent upper bound,
+already for complex rank-two correlation matrices. The same construction makes
+$\lambda_{\max}(\Ree C(A))/\per A$ arbitrarily large. The proof computes a spectral
+limit under repeated Gram vectors and combines it with projective equidistribution.
+It also gives positive-definite examples and unbounded local second-order relative
+coefficients for entrywise-positive real correlation perturbations.
+\end{abstract}
+
+\section{Statement and scope}
+Our convention is that $A(i\mid j)$ deletes row $i$ and column $j$, without
+transposing this minor. All Hermitian inner products below are linear in their
+first argument. The matrix $C(A)$ is positive semidefinite and
+$C(A)\one=(\per A)\one$. Drury disproved the assertion that this prescribed
+eigenvalue is always the largest one \cite{drury}. Here we consider all constant
+multiples of the permanent.
+
+\begin{theorem}\label{thm:main}
+For every $R>0$ there are an integer $N$ and a complex Hermitian correlation
+matrix $A$ of rank exactly two such that
+\[
+ \lambda_{\max}(C(A))>R\per A,
+ \qquad \lambda_{\max}(\Ree C(A))>R\per A.
+\]
+There are also positive-definite correlation matrices with both inequalities.
+The positive-definite assertion does not retain rank two.
+\end{theorem}
+
+The real part is entrywise, so its largest eigenvalue is the maximum Rayleigh
+quotient over real unit vectors. The theorem is an unboundedness assertion as
+the order varies; no rate in $N$ is asserted. It is distinct from unbounded
+Hadamard-product bunching ratios \cite{seron}, and from bounds for the full
+Schur-power matrix. It does not resolve Lieb's normalized character or subgroup
+permanental-dominance conjecture \cite{wanless}. A separate source audit records
+the finite literature search; no claim of exhaustive priority verification is made.
+
+\section{A repetition limit}
+Let $v_i=(a_i,b_i)$ be nonzero unit rows, $1\le i\le n$, put
+$\ell_i(x,y)=a_i x+b_i y$, and set $P=\prod_i\ell_i$ and $A_{ij}=v_i v_j^*$.
+For binary forms of degree $d$ define
+\[
+ \left\langle\sum_{k=0}^d p_kx^{d-k}y^k,
+ \sum_{k=0}^d q_kx^{d-k}y^k\right\rangle_B
+ =\sum_{k=0}^d(d-k)!k!p_k\overline{q_k}.
+\]
+Leibniz expansion gives
+\begin{equation}\label{eq:gram}
+ \left\langle\prod_i\ell_i,\prod_j\ell'_j\right\rangle_B
+ =\per[\langle\ell_i,\ell'_j\rangle_B].
+\end{equation}
+In particular $\per A=\|P\|_B^2>0$, and $C(A)$ is the Gram matrix of
+$v_i\otimes(P/\ell_i)$. This proves its positivity with the stated conventions.
+For Haar probability measure $\mu$ on $\CP^1$, represented by unit vectors,
+\begin{equation}\label{eq:sphere}
+ \langle p,q\rangle_B=(d+1)!\int p\overline q\,d\mu.
+\end{equation}
+Indeed, phase integration makes distinct monomials orthogonal and
+$\int|x|^{2a}|y|^{2b}\,d\mu=a!b!/(a+b+1)!$.
+
+Repeat each row $L$ times, write $N=nL$, and let $A_L$ be the resulting Gram
+matrix. Then $P_L=P^L$ and, with cluster indices $(i,a)$,
+\begin{equation}\label{eq:cluster}
+ C(A_L)_{(i,a),(j,b)}
+ =A_{ij}\langle P^L/\ell_i,P^L/\ell_j\rangle_B.
+\end{equation}
+Let $U_L:\mathbb C^n\to\mathbb C^{nL}$ map $e_i$ to the vector equal to
+$L^{-1/2}$ on cluster $i$ and zero elsewhere. All clusters in \eqref{eq:cluster}
+are constant, so $C(A_L)$ vanishes on $\operatorname{ran}(U_L)^\perp$.
+Its nonzero normalized spectrum, including multiplicities, is that of
+$K_L=U_L^*C(A_L)U_L/\per A_L$.
+Writing $d\mu_L=|P|^{2L}d\mu/\int|P|^{2L}d\mu$, the factorials in
+\eqref{eq:sphere} give the exact formula
+\begin{equation}\label{eq:compression}
+ (K_L)_{ij}=\frac{L}{nL+1}A_{ij}
+       \int\frac{d\mu_L}{\ell_i\overline{\ell_j}}.
+\end{equation}
+The expression against the density at a zero is interpreted through the
+polynomial $(P^L/\ell_i)\overline{(P^L/\ell_j)}$.
+
+\begin{lemma}\label{lem:limit}
+Suppose $|P|$ has a unique projective maximum. Rotate it to $(1,0)$ and put
+$z_i=b_i/a_i$. Then every $a_i\ne0$, $\sum_i z_i=0$, and
+\[
+ K_L\longrightarrow\frac{J_n+zz^*}{n}
+ \quad\hbox{in operator norm}.
+\]
+Consequently
+\begin{align}
+ \lim_{L\to\infty}\frac{\lambda_{\max}(C(A_L))}{\per A_L}
+ &=\max\left(1,\frac{\|z\|^2}{n}\right),\label{eq:speclimit}\\
+ \lim_{L\to\infty}\frac{\lambda_{\max}(\Ree C(A_L))}{\per A_L}
+ &\ge\max\left(1,\frac{\|z\|^2}{2n}\right).\label{eq:reallimit}
+\end{align}
+\end{lemma}
+\begin{proof}
+The maximum of the nonzero polynomial is positive, so no factor vanishes there.
+The integrand in \eqref{eq:compression} is continuous near the maximum $u$.
+Outside any neighborhood of $u$, $|P|\le a<|P(u)|$. On a smaller neighborhood
+of positive measure, $|P|\ge b>a$. The absolute unnormalized tail is bounded by
+\[
+ a^{2L-2}\sup\left|(P/\ell_i)(P/\ell_j)\right|,
+\]
+whereas the denominator is bounded below by a positive constant times $b^{2L}$.
+Thus the apparent poles cause no problem and the integral tends to
+$(a_i\overline{a_j})^{-1}$. Since $n$ is fixed, entrywise convergence implies
+operator-norm convergence and gives the stated matrix limit.
+
+In the local coordinate $(1,t)/\sqrt{1+|t|^2}$,
+\[
+ \log|P|^2=\text{constant}+\sum_i\log|1+z_i t|^2
+                    -n\log(1+|t|^2).
+\]
+The two real first derivatives at zero vanish, hence $\sum_i z_i=0$.
+The limiting matrix therefore has eigenvalues $1$, $\|z\|^2/n$, and zeros,
+which proves \eqref{eq:speclimit}. For $z=x+iy$ its real part is
+$(J_n+xx^T+yy^T)/n$, with $x,y\perp\one$. The last two terms have rank at most
+two and trace $\|z\|^2/n$, proving \eqref{eq:reallimit}. Compression commutes
+with real part because $U_L$ is real.
+\end{proof}
+
+\section{Equidistribution and selection of one maximum}
+Choose collections of $m$ unit rows whose empirical projective measures
+converge weakly to Haar measure on $\CP^1$. Such a sequence is obtained from
+midpoint grids in $p=|a|^2\in(0,1)$ and the relative phase, with both grid sizes
+tending to infinity. Let $u_m$ be any maximum of the corresponding product,
+and rotate variables so that $u_m=(1,0)$.
+
+These moving rotations preserve weak convergence to Haar. Indeed, every
+subsequence of rotations has a convergent subsubsequence by compactness of
+$U(2)$. For each continuous test function, the rotated functions then converge
+uniformly; weak convergence and Haar invariance give the same limiting integral.
+This subsequence argument proves the claim for the full sequence.
+
+For $T>0$ the function
+\[
+ f_T([a:b])=\min(|b/a|^2,T),\qquad f_T([0:1])=T,
+\]
+is continuous. Since $|a|^2$ is uniform on $[0,1]$ under Haar measure,
+\begin{equation}\label{eq:truncation}
+ \int f_T\,d\mu=\int_0^1\min\left(\frac{1-p}{p},T\right)dp
+ =\log(1+T).
+\end{equation}
+Every $a_i$ in the rotated configuration is nonzero. It follows that
+\[
+ \liminf_{m\to\infty}\frac1m\sum_{i=1}^m|b_i/a_i|^2\ge\log(1+T)
+ \quad\text{for every }T>0.
+\]
+Hence these averages tend to infinity. Only bounded continuous test functions
+have been used; there is no assumption of convergence of an unbounded moment.
+
+To make the maximum unique, append one unit linear form $\ell_u(z)=\langle z,u_m\rangle$,
+linear in $z$. On the unit sphere its modulus is at most one, with equality
+only at the projective point $u_m$. Multiplication by this factor leaves the
+old maximum value unchanged and makes its location unique. In the rotated
+coordinates the added row is $(1,0)$, contributing $z=0$. For the augmented
+base $n=m+1$ we still have
+\begin{equation}\label{eq:divergence}
+ \frac1n\sum_{i=1}^n|z_i|^2
+ =\frac1{m+1}\sum_{i=1}^m|b_i/a_i|^2\longrightarrow\infty.
+\end{equation}
+
+\begin{proof}[Proof of Theorem \ref{thm:main}]
+Given $R$, first choose one finite base in \eqref{eq:divergence} with average
+exceeding $2R+2$. Equidistribution ensures that a sufficiently large base spans
+$\mathbb C^2$. Freeze it and then take a sufficiently large integer $L$ in
+Lemma~\ref{lem:limit}. Both ratios exceed $R$, all rows are unit, and the Gram
+matrix has rank exactly two.
+
+For a strict witness $A$, polynomial dependence of $C(A)$ and $\per A$, continuity
+of Hermitian eigenvalues, and $\per A>0$ show that the strict inequalities persist
+for $A+\varepsilon I$ with sufficiently small $\varepsilon>0$. The matrix
+$(A+\varepsilon I)/(1+\varepsilon)$ is a positive-definite correlation matrix.
+Both ratios are unchanged by this final scalar rescaling, since
+$C(cA)=c^N C(A)$ and $\per(cA)=c^N\per A$.
+\end{proof}
+
+\section{A local consequence and an exact finite certificate}
+The following is the real-direction specialization of the perturbation formula
+of Pioge and coauthors \cite[Lemma~1]{pioge}; we include the calculation to fix
+the Gram and conjugation conventions. For a real unit vector $w$, let
+\[
+ B(\varepsilon)_{ij}=
+ \frac{1+\varepsilon^2w_iw_j}
+ {\sqrt{(1+\varepsilon^2w_i^2)(1+\varepsilon^2w_j^2)}}.
+\]
+This is a real correlation matrix of rank at most two, with strictly positive
+entries for sufficiently small $\varepsilon$. Expanding the entries and then
+the permanent gives
+\begin{equation}\label{eq:local}
+ \frac{\per(A\circ B(\varepsilon))}{\per A}
+ =1+\varepsilon^2\left(\frac{w^T\Ree C(A)w}{\per A}-1\right)
+       +O(\varepsilon^4).
+\end{equation}
+In fact the quadratic coefficient before division by $\per A$ is
+\[
+ \sum_{ij}C(A)_{ij}\left(w_iw_j-\frac{w_i^2+w_j^2}{2}\right)
+ =w^TC(A)w-\per A=w^T\Ree C(A)w-\per A,
+\]
+using both row and column sums. Theorem~\ref{thm:main} therefore makes the
+relative coefficient in \eqref{eq:local} arbitrarily large. This is a local
+statement; it gives no uniform finite-$\varepsilon$ gain or perturbative interval.
+For complex $w$, the column-Gram convention in \cite{pioge} has numerator
+$1+\varepsilon^2\overline{w_i}w_j$; replacing it by the opposite convention
+would conjugate the Rayleigh direction.
+
+For an optional finite check, the companion file \texttt{witness\_n200.csv}
+specifies $200$ Gaussian-integer rows $v_i\in\mathbb Z[i]^2$ and a vector
+$w\in\mathbb Z[i]^{200}$. The standard-library integer verifier proves
+\[
+ \frac{269}{100}<\frac{w^*C(VV^*)w}{\per(VV^*)\|w\|^2}<\frac{27}{10}.
+\]
+It independently forms each omitted-factor polynomial and evaluates
+$\sum_{a=1}^2\|\sum_i\overline{w_i}v_{ia}(P/\ell_i)\|_B^2$.
+This certificate illustrates a finite violation and checks the conventions;
+unboundedness follows from the analytic proof, not from numerical extrapolation.
+
+\begin{thebibliography}{9}
+\bibitem{drury} S.~Drury, A counterexample to a question of Bapat \& Sunder,
+\emph{Math. Inequal. Appl.} \textbf{21} (2018), 517--520.
+\href{https://doi.org/10.7153/mia-2018-21-37}{doi:10.7153/mia-2018-21-37}.
+\bibitem{pioge} L.~Pioge, K.~K.~Pietrasz, B.~Seron, L.~Novo and N.~J.~Cerf,
+A logical implication between two conjectures on matrix permanents,
+\emph{Linear Algebra Appl.} \textbf{725} (2025), 309--318.
+\href{https://doi.org/10.1016/j.laa.2025.07.011}{doi:10.1016/j.laa.2025.07.011};
+\href{https://arxiv.org/abs/2508.00111}{arXiv:2508.00111}.
+\bibitem{seron} B.~Seron, L.~Novo and N.~J.~Cerf,
+Boson bunching is not maximized by indistinguishable particles,
+\emph{Nature Photonics} \textbf{17} (2023), 702--709.
+\href{https://doi.org/10.1038/s41566-023-01213-0}{doi:10.1038/s41566-023-01213-0}.
+\bibitem{wanless} I.~M.~Wanless, Lieb's permanental dominance conjecture,
+In \emph{The Physics and Mathematics of Elliott Lieb}, vol.~II,
+EMS Press (2022), 501--516.
+\href{https://doi.org/10.4171/90-2/48}{doi:10.4171/90-2/48};
+\href{https://arxiv.org/abs/2202.01867}{arXiv:2202.01867}.
+\end{thebibliography}
+\end{document}
