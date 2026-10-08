@@ -26,6 +26,27 @@ The complete paper.md also proves the following.
   non-minimal angles. At most k + C(k,2) + C(k,3) explicit candidates
   suffice, versus the originally continuous optimization.
 
+- **Radial universality:** the entire fan theory holds for
+  every rotationally invariant probability law with finite
+  nonzero first radial moment and no atom at the origin.
+- **Higher-dimensional gap:** for every k>=4, equal-mass
+  regular-simplex Gaussian partitions in dimension k-1
+  strictly beat *all planar fan partitions* with equal
+  masses 1/k. The score ratio grows as (4/pi) log k.
+  For k=4 this is an explicit 3D tetrahedron:
+  P_tet = 3/(4pi) [1+(2/pi) arcsin(1/3)]^2 > 1/pi.
+- **Interior dimension-jump threshold:** the fixed
+  tetrahedron beats all four-sector fans whenever their
+  minimum mass exceeds an explicit q_tet in (1/100,1/80),
+  with an exact trigonometric formula for q_tet.
+- **Gaussian noise-stability consequence:** the tetrahedral
+  four-cell partition strictly exceeds four equal-mass planar
+  quadrants for every Gaussian correlation 0 < rho <= rho_*,
+  where rho_* is the unique root of an explicit arcsine
+  equation and 29/100 < rho_* < 3/10. The endpoint is
+  strict because higher Hermite levels are nonzero.
+  This comparison does **not** prove full regular-simplex
+  optimality among all fixed-mass partitions.
 - A **two-transition phase diagram** for every k>=5:
   the optimal number of non-minimal-mass sectors is successively
   3, 2, 1. The first transition has a unique explicit root,
@@ -57,7 +78,9 @@ for pi, and outward-rounded integer Taylor intervals for cosine.
 It does not use binary floating point in any certified comparison.
 Tests cover candidate values, certified phase-transition brackets
 for k=5,6,10,100, homogeneous and heterogeneous angle grids,
-and equality cases.
+and sharp all-k dimension-jump rational inequalities,
+the tetrahedral transition bracket, exact small-noise
+arcsine brackets, and equality cases.
 Full test output is in results/exact-check.txt. See AUDIT.md.
 
 **Finite-grid tests are not mathematical proofs.** The
@@ -75,9 +98,18 @@ adc7f1241b42e322a6451854ab7e4b4c146bf78a
 The Gaussian problem is inherited; all constrained fan proofs
 presented here are developed independently.
 
+Fixed-mass Gaussian centroid partition problems, including the
+regular-simplex conjecture, have been studied previously:
+Steven Heilman, *Euclidean Partitions Optimizing Noise Stability*
+(arXiv:1211.7138) and *Stable Gaussian Minimal Bubbles*
+(arXiv:1901.03934). The Gaussian multi-bubble perimeter result
+of Milman and Neeman (Annals of Mathematics, 2022) optimizes
+a different functional. Our simplex construction is a strict
+lower-bound comparison, not a claimed global optimum.
+
 ## Limitations and unfinished bibliographic work
 
-No constrained inequality for arbitrary nonconical Gaussian
+No sharp universal optimum for arbitrary nonconical fixed-mass Gaussian
 partitions is asserted. Systematic historical literature checking
 and external peer review remain outstanding. We do not claim
 the world-first proof of any result.
