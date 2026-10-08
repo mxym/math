@@ -1,0 +1,30 @@
+{
+  "updated_utc": "2026-10-08T23:09:38.812717+00:00",
+  "status": "FOUNDATIONS_COMPILED_SHARP_LOWER_BOUND_UNPROVED",
+  "full_gaussian_theorem_proved": false,
+  "proved_without_geometric_hypotheses": [
+    "Variational Gaussian perimeter is invariant under complement and Gaussian-null changes",
+    "All compact divergence tests are continuous under actual indicator-L1 convergence",
+    "Total finite-cluster BV perimeter obeys lower semicontinuity under actual indicator-L1 convergence",
+    "Actual regular scores construct a measurable equal-mass finite-BV competitor in every required dimension",
+    "The infimum over actual balanced clusters is finite and has a genuine uniformly bounded minimizing sequence",
+    "Actual indicator-L1 limits preserve Gaussian masses and the AE sum-of-indicators partition constraint",
+    "A first-label repair removes null overlaps and gives literally disjoint measurable cells without changing masses or BV perimeter"
+  ],
+  "proved_conditional_reductions": [
+    "A supplied cellwise measurable indicator-L1 limit of a minimizing sequence yields an actual balanced minimizing cluster",
+    "GaussianClusterBVCompactness implies existence of an actual balanced minimizing cluster"
+  ],
+  "explicit_unproved_compactness": "GaussianMeasureBridge.GaussianClusterBVCompactness (d+1) (d+2)",
+  "compactness_source": "sources/GaussianBVCompactnessInterface.lean",
+  "sharp_unproved_target": "GaussianMeasureBridge.GaussianBalancedBVLowerBound d",
+  "next_geometry": [
+    "Prove actual Gaussian-BV compactness of indicator sets; no suitable ready lemma was found in the pinned mathlib sources",
+    "For a Milman-Neeman route, establish the required cluster regularity, volume-constrained variations and stability, including junction terms",
+    "Derive the sharp perimeter minimum; full effective dimension of a minimizer cannot be assumed",
+    "The published proof uses the prescribed-mass profile as well as flatness; a Lean implementation may need the general positive-mass family beyond the present balanced interface"
+  ],
+  "primary_reference": "https://arxiv.org/pdf/1805.10961v3",
+  "own_route_note": "The smooth dual-normal construction completed only the general BV upper bridge. The new minimization foundations do not prove the sharp cluster lower bound.",
+  "independent_review": "Deferred until the complete theorem is formalized, by user instruction."
+}
