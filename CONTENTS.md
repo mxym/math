@@ -1,5 +1,14 @@
 # Manuscript catalogue
 
+## Sharp norm-six Z[sqrt(-2)] principal-sieve theorem
+
+The [full proof and certificates](notes/sqrt-minus-two-sqrt6-period/README.md)
+prove optimal principal sieve period **1122** for the 14-step
+Euclidean sqrt(6)<=D<sqrt(8) phase, a factor-187 jump from
+period 6. Data include 682 nonzero-voltage lower-period proofs,
+6,688 complete positive finite groups and an exact 90-prime
+exceptional component; global prime size bounded in [90,2283].
+
 ## Exact three-subset optimality spectrum with rational proof certificates
 
 The [permutation action manuscript](notes/sharp-robust-permanent/paper.md#19-a-complete-certified-three-subset-spectrum-through-degree-23) also determines the exact marginal-preserving atom-vs-total-variation coefficient for **every S_n action on 3-element subsets through n=23**. The nontrivial rank-four degrees n=6,...,23 are independently certified by [18 fixed rational primal-dual witnesses](notes/sharp-robust-permanent/certificates/three_subset_n6_23.json) and an [optimizer-free exhaustive checker](notes/sharp-robust-permanent/code/check_three_subset_certificates.py). The checker and published JSON passed a fresh isolated Windows replay from public GitHub main; see the [verification record](notes/sharp-robust-permanent/VERIFICATION.md). This is a complete exact **finite classification** only; no all-degree k=3 closed formula or priority certification is claimed.

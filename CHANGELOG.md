@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-10-08 — sharp norm-six principal-sieve period 1122
+
+- Proved the exact minimum successful finite principal-ideal
+  scalar period **1122** for 14 Euclidean steps in Z[sqrt(-2)];
+  this is a factor-187 jump from the norm-four phase.
+- Certified every lower squarefree period with 682 integer
+  nonzero-voltage paths, and completely replayed 204,800 allowed
+  residues as 6,688 components of maximum sieve size 2,283.
+- Proved a separate closed exceptional **90-prime** component
+  and global explicit prime size range [90,2283] for
+  sqrt(6)<=D<sqrt(8). Published [full paper and code](notes/sqrt-minus-two-sqrt6-period/README.md).
+  Exact arithmetic replay passed; no human-review/priority claim.
+
 ## 2026-10-08 — sharp radius-two prime graph jump and sieve classification
 
 - Established the global Z[sqrt(-2)] component bound **7**, attained

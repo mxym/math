@@ -1,5 +1,21 @@
 # math
 
+## Sharp period-1122 sieve jump at the norm-six prime step threshold
+
+The [complete norm-six research note](notes/sqrt-minus-two-sqrt6-period/README.md)
+proves that in Z[sqrt(-2)] the **least** finite principal-ideal
+sieve period jumps sharply from 6 to **1122** as the genuine
+Euclidean step radius reaches sqrt(6), remaining sharp until
+sqrt(8). Its seven-generator norm sieve partitions **204,800**
+allowed residues modulo 1122 into **6,688** finite components
+of largest size 2,283. Every smaller scalar period is excluded
+by 682 explicit nonzero-voltage paths. The true prime graph
+contains a certified **90-prime** component, and every prime
+component has at most 2,283 vertices. Independent standard-library
+checker, complete literal witnesses, mutation tests and proof
+roadmap are included. The true global prime maximum remains open;
+no novelty, external peer-review or Lean claim is made.
+
 ## Exact three-subset optimality spectrum with rational proof certificates
 
 The [permutation action manuscript](notes/sharp-robust-permanent/paper.md#19-a-complete-certified-three-subset-spectrum-through-degree-23) also determines the exact marginal-preserving atom-vs-total-variation coefficient for **every S_n action on 3-element subsets through n=23**. The nontrivial rank-four degrees n=6,...,23 are independently certified by [18 fixed rational primal-dual witnesses](notes/sharp-robust-permanent/certificates/three_subset_n6_23.json) and an [optimizer-free exhaustive checker](notes/sharp-robust-permanent/code/check_three_subset_certificates.py). The checker and published JSON passed a fresh isolated Windows replay from public GitHub main; see the [verification record](notes/sharp-robust-permanent/VERIFICATION.md). This is a complete exact **finite classification** only; no all-degree k=3 closed formula or priority certification is claimed.

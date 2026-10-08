@@ -77,3 +77,15 @@ and identifies the **unique** inclusion-minimal successful principal-
 ideal sieve at the unchanged optimal scalar period 6 for the ten-step
 set. Full proof, finite witnesses, checker, tamper tests and historical
 comparison are supplied separately; older v3 and v4 are unchanged.
+
+## Sharp norm-six threshold: exact minimal sieve period 1122
+
+The [additive Z[sqrt(-2)] norm-six note](../../notes/sqrt-minus-two-sqrt6-period/README.md)
+proves the sharp minimum principal-ideal scalar period **1122**
+for all 14 steps of squared Euclidean norm at most six,
+and a complete exact positive sieve decomposition of
+204,800 residues. Its 682 lower-period voltage certificates
+are checked independently of the generator, and it separately
+proves a closed 90-irreducible component and uniform bound 2,283.
+The exact unrestricted prime maximum is not determined;
+historical entry 002 versions are unchanged.
