@@ -1,5 +1,9 @@
 # Universal exact finite \((n,k)\) atom-TV coefficient: determinant formula
 
+**Preferred reading version:** [10-page research PDF](typeset/paper.pdf), [editable typeset source](typeset/paper.md), and [rebuild/hash information](typeset/README.md). The [complete proof source](paper.md) remains authoritative.
+
+**Lean-friendly proof refinement:** [Section 11](paper.md#11-a-purely-polynomial-proof-of-the-binomial-rank-determinant-preferred-for-lean) proves the full-rank product without any algebraic-root formal series, using only the integer trace-polynomial recurrence and a forward-difference factorization. The [independent exact recurrence checker](../code/check_finite_difference_rank.py) has passed 30 integer parameter-pair tests.
+
 **Main result:** [Complete theorem, explicit integer formula and proof](paper.md).
 
 For the natural \(S_n\)-action on \(k\)-subsets, this note gives a **finite maximum of explicit integer maximal-minor ratios** equal to the sharp marginal-preserving single-atom total-variation constant \(C_{n,k}\), for **every finite** \(n\ge1,\ 0\le k\le n\). It **does not require an LP solver** and gives a genuine nonnegative attaining perturbation.
