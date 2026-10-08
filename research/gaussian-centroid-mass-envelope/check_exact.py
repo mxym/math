@@ -184,6 +184,22 @@ def cases(quick: bool):
         yield "two_levels_640", [400]*40+[1]*600
 
 
+def sharpened_scalar_constants_check():
+    """Independent exact integer/rational bounds used in the -4,+3 proof."""
+    assert F(8,3)**4 > F(16)*F(22,7)
+    assert F(27,10)**7 > F(1000)
+    assert log_bounds(F(2))[0]>F(2,3)
+    assert log_bounds(F(10))[1]<F(7,3)
+    assert log_bounds(F(16)*F(22,7))[1]<F(4)
+    lower_ln10,upper_ln10=log_bounds(F(10))
+    assert lower_ln10>2
+    assert log_bounds(lower_ln10)[0]>F(2,3)
+    # These are pure algebraic endpoints of the quantitative
+    # Mills / mgf argument proved in paper.md; they are NOT
+    # a grid verification of the universal Gaussian lemma.
+    return True
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--quick",action="store_true")
@@ -202,7 +218,10 @@ def main():
             print(f"PASS {name}: {result['number_of_cells']} exact masses, "
                   "outward-rational log intervals, sorted entropy bound")
     report["negative_control"]=negative_control()
+    report["sharpened_scalar_constants"]=sharpened_scalar_constants_check()
     if not args.json:
+        print("PASS exact rational constants for sharpened scalar "
+              "Gaussian hazard bracket [-4,+3]")
         print("PASS negative control: reversing mass order can violate the "
               "sorted residual-mass entropy inequality")
         print(f"ALL CHECKS PASSED: {len(report['test_cases'])} positive cases, "
