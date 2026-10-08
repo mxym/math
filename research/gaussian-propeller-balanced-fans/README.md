@@ -47,6 +47,14 @@ The complete paper.md also proves the following.
   (weighted power-diagram) partition. The paper gives a
   complete elementary duality proof, including duplicate-score
   and exact-mass issues.
+- **Dimension saturation for all fixed masses:** the arbitrary
+  d-dimensional Gaussian optimum is exactly equal to
+  the (k-1)-dimensional optimum whenever d>=k-1.
+  Every attaining optimizer is cylindrical in at most
+  k-1 coordinates, after an orthogonal transformation.
+  In particular, four-cell global first-moment research
+  in any ambient dimension reduces exactly to R^3,
+  without assuming a tetrahedral optimizer.
 - **Global calibration:** all two-cell prescribed-mass
   Gaussian partitions have exact halfspace optimum
   2*phi(Phi^{-1}(1-p))^2. The equal-three-cell global
