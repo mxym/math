@@ -1,5 +1,16 @@
 # Sharp Chebyshev Atom Moduli for Fixed-Rank Subset Actions
 
+## Preferred typeset revision (v2)
+
+The [21-page revised PDF](v2/paper.pdf) and its [matching editable source](v2/paper.md) use the same mathematical proof as the preserved first 22-page typesetting, but more balanced A4 page breaks and margins. This revision was compiled, visually checked (first, proof, and final pages), and independently rebuilt from the public source.
+
+- v2 compiled PDF SHA-256: \`ace1367323ab6dbc0a2ad53c199fe24723a2ca471c9a3e8ad56e415b1099d262\`.
+- v2 Markdown source SHA-256: \`3fc60615906235f8d2bf1060c2a338af9c2c32e57389c82fd2d90bfe007f3ffa\`.
+- v2 Git PDF blob: \`5f860617a1b03bcf57bebcfda8c7bd8df6977c7d\`.
+
+The historical first paper.pdf and paper.md remain unchanged for reproducibility; cite v2 unless a specific earlier publication snapshot is required.
+
+
 This directory contains a **22-page independently readable research manuscript** on the sharp leading asymptotic coefficient for marginal-preserving permutation laws, its exact cycle-index transfer-matrix proof technology, and its finite four-subset classification.
 
 - **[Compiled paper](paper.pdf)** — A4, 22 pages; visually checked in sample pages and programmatically inspected on the authorized VPS.
