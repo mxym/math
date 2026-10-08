@@ -13,6 +13,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 
 个人独立开展研究，无外部研究经费。使用AI进行辅助研究；
 各项成果分别说明证明和验证范围。
+重大成果优先推进[完整 Lean 形式化](formalizations/MAJOR_RESULT_VERIFICATION_PLAN.md)；
+局部形式化验证与完整主定理验证分别标明。
 [完整作者资料与论文署名模板](AUTHOR.md) · [结构化作者资料](authors/zhang-yongxian.json)
 
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
