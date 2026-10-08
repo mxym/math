@@ -2079,14 +2079,14 @@ k & \displaystyle\lim_{n\to\infty}n(1-C_n^{(k)})\\ \hline
 
 A nonidentity vertex permutation must move at least two vertices, so the closest possible fixed-point fraction to \(1\) is \(1-2/n\). For a shifted Chebyshev dual, the endpoint loss is therefore \(2k^2/n+O_k(n^{-2})\). This interpretation is exact for the three established ranks; it motivates but **does not prove** the following general question.
 
-**Conjecture (higher-rank sharp atom modulus).** For every fixed \(k\ge4\), the optimal coefficient for \(S_n\) acting on its \(k\)-subsets satisfies
+**Historical conjecture (now proved in Theorem 25).** For every fixed \(k\ge4\), the optimal coefficient for \(S_n\) acting on its \(k\)-subsets satisfies
 
 \[
 C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2})
 \qquad(n\to\infty). \tag{128}
 \]
 
-A viable proof must address **both sides**: construct a uniformly valid orbital dual with the appropriate subleading corrections, and match it by genuine nonnegative class measures with exactly equal \(k\)-subset image marginals. Theorem 23 alone proves only Bernstein convergence; it does not control the \(1/n\) coefficient or justify a Chebyshev optimizer. Numerical LP output at fixed degrees also cannot establish (128). The general theorem is left **explicitly open**.
+A viable proof must address **both sides**: construct a uniformly valid orbital dual with the appropriate subleading corrections, and match it by genuine nonnegative class measures with exactly equal \(k\)-subset image marginals. Theorem 23 alone proves only Bernstein convergence; it does not control the \(1/n\) coefficient or justify a Chebyshev optimizer. Numerical LP output at fixed degrees also cannot establish (128). **Status update:** this was the research conjecture at the time of Section 23; the full fixed-rank statement is now **proved** in Theorem 25, Section 24. The finite-n exact classification remains open.
 
 
 ## 24. Resolution of the fixed-rank Chebyshev atom-modulus conjecture
