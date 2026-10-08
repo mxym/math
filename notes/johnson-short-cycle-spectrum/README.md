@@ -2,6 +2,13 @@
 
 Research note, 8 October 2026. This note extends the [orbital primal-dual method](../sharp-robust-permanent/paper.md) from particular permutation actions to all symmetric-group actions on fixed-size subsets, and certifies 40 exact sharp constants for the four-subset action through degree 50. The parent work already contains the independent three-subset classification through degree 120; the present four-subset computation is distinct. No novelty priority, outside peer review, or Lean formalization is asserted.
 
+## Related rigorous continuations
+
+- **All fixed ranks, sharp asymptotics.** The [separate all-k Chebyshev proof](ALL_K_CHEBYSHEV_ASYMPTOTICS.md) establishes \(C_{n,k}=1-2k^2/n+O_k(n^{-2})\) for every fixed \(k\) and an eventual strict gap \(C_{n,k}-C_{n,k+1}=(4k+2)/n+O_k(n^{-2})\). The same principal theorem was proved independently and **earlier** by a parallel task as [Theorem 25 in the parent manuscript](../sharp-robust-permanent/paper.md); our supplement gives an alternative rational-coefficient dual construction. The [separate k=4 explicit asymptotic note](ASYMPTOTIC_RANK_FIVE.md) supplies a quantitative upper bound and its independent symbolic checker.
+- **Five-subset exact classification.** The [rank-six note](RANK_SIX_EXACT_11_40.md) gives **30 sharp rational constants for all \(n=11,\ldots,40\)**, including 26 new exact 7-class primal-dual certificates and 4 exceptional 4-class certificates.
+- **Simultaneous all-rank structure.** The [trace-kernel theorem](ALL_RANK_TRACE_KERNEL.md) proves the entire span of all Johnson-action orbital class functions in degree \(n\) has rank precisely \(\lfloor n/2\rfloor+1\), and an exact four-class probability relation preserves **all** subset-image marginal matrices simultaneously.
+- **Independent verification.** The [pinned replay report](VERIFICATION.md) contains source hashes, all exact finite checks and mutation controls; numerics were discovery-only.
+
 ## 1. Definitions
 
 Let \(n\ge2\), \(1\le k\le n\), \(G=S_n\), \(\Omega=\binom{[n]}k\), and \(u\) the uniform probability on \(G\). Define \(\mathcal C_{n,k}\) as the least number such that all probability laws \(\nu\) on \(G\) with uniform image marginals
@@ -257,4 +264,4 @@ To reproduce from the repository root:
 python3 notes/johnson-short-cycle-spectrum/check_k4_26_50.py
 ~~~
 
-The checker rejects Python -O optimized mode, and an independent mutation test confirmed that modifying the n=26 target fraction is detected. The replay hash, logs and trust boundary are in [VERIFICATION.md](VERIFICATION.md). No formula valid for all \(n>50\), all-degree \(k=4\) asymptotic constant, priority or external review is claimed.
+The checker rejects Python -O optimized mode, and an independent mutation test confirmed that modifying the n=26 target fraction is detected. The replay hash, logs and trust boundary are in [VERIFICATION.md](VERIFICATION.md). This finite classification does not give an exact closed formula for every \(n>50\). The **sharp k=4 asymptotic constant**, however, is rigorously proved in the separate [rank-five asymptotic note](ASYMPTOTIC_RANK_FIVE.md) and generalized to all fixed ranks in the [all-k supplement](ALL_K_CHEBYSHEV_ASYMPTOTICS.md). No historical priority or external review is claimed.
