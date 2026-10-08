@@ -10,14 +10,14 @@ Mathematical reduction (in ALL_RANK_SHARP_FIVE_FOURTEENTHS.md):
   permutation of EVERY degree:
        9/14 <= Phi(g) <= 1.
 
-For moved point count 2..41 it checks EVERY partition with parts>=2 using
+For moved point count 2..43 it checks EVERY partition with parts>=2 using
 ONLY exact integer products and comparisons. For >=44 it checks an exact
 rational tail inequality and the analytic power-mean inequality stated
 in the paper handles ALL unbounded cycles. No LP solver, floating point,
 randomness, or external package. Explicit exceptions, not disabled asserts.
 
 Run from any directory:
-  python3 check_allrank_sharp_five_fourteenths.py
+  python3 check_allrank_sharp_five_fourteenths_small.py
 """
 
 from fractions import Fraction
@@ -142,7 +142,7 @@ def check_finite():
 
 
 def check_tail(params, weights):
-    """Prove all moved counts >= 42 by one exact rational inequality.
+    """Prove all moved counts  >= 44 by one exact rational inequality.
 
     For ell>=2:
       q^ell + (1-q)^ell <= (q^2 + (1-q)^2)^(ell/2).
