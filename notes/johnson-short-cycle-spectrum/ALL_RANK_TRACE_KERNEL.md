@@ -2,6 +2,8 @@
 
 **Research note, 8 October 2026.** The preceding [fixed-rank orbital compression theorem](README.md) describes one \(k\)-subset action at a time. This note identifies the **entire joint linear information** contained in *all* subset-action orbital statistics in a fixed degree \(n\), proves its precise rank, and exhibits an exact positive central measure relation that preserves **all** subset-image marginals simultaneously. The relation leads to a universal \(5/14\) atom/total-variation obstruction. No world-first or independently refereed originality assertion is made: the underlying cycle-index and character-polynomial formalism has classical antecedents.
 
+**Subsequent exact resolution:** [The universal sharp 5/14 theorem](ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) proves that the lower bound from this historical note is in fact **equal to the sharp all-rank and single middle-rank constant in every degree n>=6**. The proof includes a five-point rational dual, 44,582 exhaustive integer certificates, a uniform analytic tail, and a complete equality-contact classification.
+
 ## 1. The complete cycle polynomial
 
 For \(g\in S_n\) with \(m_\ell(g)\) cycles of length \(\ell\), define the *cycle-invariant subset polynomial*
@@ -163,7 +165,7 @@ Q=\frac67U_T+\frac17U_E.
 
 They are disjointly supported, conjugation-invariant, positive, rational probability measures with \(P(e)=5/14\), \(Q(e)=0\). By (9) and centrality, their image marginal matrices agree on **every** subset family, not merely at some fixed \(k\). For any sufficiently small rational \(\delta>0\), the law \(u_n+\delta(P-Q)\) is nonnegative, has uniform image marginals for all subset ranks, and has TV distance \(\delta\) and identity-atom excess \(5\delta/14\). Therefore \(C_n^{\rm all}\ge5/14\). QED.
 
-The sharpness of (13) for **every** \(n\) is a *separate question*: the lower bound is proved here, but an all-degree matching upper bound is **not** claimed. Numerical LP exploration through degree 30 suggests equality, and is explicitly classified as *computational evidence*, not proof.
+**Historical scope of this earlier note:** At its original publication, (13) was only a lower bound, and numerical LP exploration through degree 30 suggested sharpness. The subsequent [complete five-point rational dual proof](ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) has now proved the **matching universal upper bound in every degree n>=6**. The earlier lower-bound argument remains a separate proof ingredient; no numerical extrapolation is used in the completed theorem.
 
 ## 3. A single middle-rank action controls *all* subset ranks
 
@@ -217,7 +219,7 @@ C_{n,\lfloor n/2\rfloor}\ge5/14
 \tag{17}
 \]
 
-The exact-value question \(C_{n,\lfloor n/2\rfloor}=5/14\) for all \(n\ge6\) remains a **conjecture**, supported by non-certifying finite LP exploration through degree 30. Neither equality nor an all-degree optimal dual is asserted.
+**Resolved subsequent to this note.** The [sharp universal all-rank theorem](ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) constructs an explicit dual using five rational cycle-polynomial evaluations, verifies 44,582 finite shapes by two independent exact checkers, and proves every unbounded case by a strict rational tail inequality. It establishes **C_{n,floor(n/2)}=5/14 for every n>=6**, as well as sharp support rigidity and the faithful-subgroup bound. This replaces the earlier conjecture; the original historical lower-bound record is retained.
 
 ## 4. Reproduction, scope and follow-up
 
