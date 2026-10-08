@@ -1,0 +1,33 @@
+name: Gaussian two-cell sharp perimeter Lean candidate
+
+on:
+  push:
+    branches:
+      - research/gaussian-two-cell-sharp-20261008
+    paths:
+      - '.github/workflows/gaussian-two-cell-sharp-lean.yml'
+      - 'formalizations/gaussian-simplex-all-k-progress/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-two-cell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile the pinned 121-module Gaussian development
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/gaussian-simplex-all-k-progress
+          use-mathlib-cache: 'true'
+          build: 'true'
+          test: 'false'
+      - name: Compile exact sharp two-cell statement and print its axioms
+        shell: bash
+        working-directory: formalizations/gaussian-simplex-all-k-progress
+        run: |
+          set -euo pipefail
+          lake env lean sources/GaussianTwoCellSharpPerimeter.lean
