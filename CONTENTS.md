@@ -34,6 +34,8 @@ For 008 see its [proof audit](preprints/008-density-overlap-phase/v1/PROOF_AUDIT
 
 ## Notes
 
+[**Sharp-order robustness of permutation permanent inequalities**](notes/sharp-robust-permanent/README.md): a complete all-arity quantitative proof draft extending the robust four-row method. For each fixed n >= 3 it gives an explicit TV radius with exact uniform one-point marginals for every p above the sharp uniform-law exponent, proves the perturbation radius has optimal linear order near threshold, and tensorizes nonidentical laws. The [full proof](notes/sharp-robust-permanent/paper.md) uses the published Bristiel--Caputo uniform permanent bound; the [exact finite checker](notes/sharp-robust-permanent/code/check_examples.py) illustrates arithmetic and endpoint obstructions but is not the analytic proof. Independent human review and novelty certification are pending.
+
 [Source overlap and target tails: derived synthesis](notes/transport-source-tail-synthesis/README.md), with a [six-page proof](notes/transport-source-tail-synthesis/synthesis.pdf), [editable source](notes/transport-source-tail-synthesis/synthesis.tex) and [dependency map](notes/transport-source-tail-synthesis/DEPENDENCY_MAP.md). The 1 < s < infinity root-Sobolev characterization concerns linear overlap, with coordinatewise finite-liminf and strong-limit statements; it is not a universal transport-necessity theorem.
 
 [A nine-piece cover of a balanced projector slice](notes/balanced_borsuk_slice.md) excludes one specific eight-dimensional Borsuk route. It is not a claim about all eight-dimensional sets.
