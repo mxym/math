@@ -84,7 +84,7 @@ theorem covariance_excess_forces_sharp_simplicial_perimeter_failure
       (d+1:ℕ)*simplexConstant (d+2)^2 := by
     have hh : covarianceValue (covarianceSegment Q t)*fluxTrace w/
         (d+1:ℕ) < simplexConstant (d+2)^2 := by linarith
-    exact (div_lt_iff₀ hn).mp hh
+    nlinarith [(div_lt_iff₀ hn).mp hh]
   have hflux : (fluxPerimeter r w)^2 <
       (d+1:ℕ)*simplexConstant (d+2)^2/2 := by
     nlinarith [hcs,hprod]
@@ -126,7 +126,11 @@ theorem fractional_moment_excess_forces_sharp_simplicial_perimeter_failure
     have hscore : equalMassValue F.moment ≤
         simplexConstant (d+2)*Real.sqrt F.momentEnergy := by
       rw [F.equalMassValue_moment_normalize hEpos]
-      exact mul_le_mul_of_nonneg_left hCle (Real.sqrt_nonneg _)
+      calc
+        Real.sqrt F.momentEnergy * covarianceValue F.normalizedMomentCovariance ≤
+          Real.sqrt F.momentEnergy * simplexConstant (d+2) :=
+            mul_le_mul_of_nonneg_left hCle (Real.sqrt_nonneg F.momentEnergy)
+        _ = _ := mul_comm _ _
     have hbound := F.momentEnergy_le_sq_of_score_bound hmass
       (simplexConstant (d+2)) (simplexConstant_nonneg) hscore
     exact (not_lt.mpr hbound) hbad
