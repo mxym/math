@@ -1364,7 +1364,336 @@ These strict comparisons certify
 quadrature or floating-point computation
 enters the certificate. \(\square\)
 
-## 14. Provenance, audit and limitations
+
+## 14. Exact finite-dimensional dual for fixed-mass Gaussian partitions
+
+The preceding results expose the main remaining problem:
+what is the optimum over **all measurable Gaussian
+partitions** with given positive cell masses?
+There is an exact finite-dimensional variational
+reduction, independent of any planar assumption.
+Related power-diagram first-variation ideas appear
+in the Gaussian partition literature, including
+Khot--Naor and Heilman; the proof is included
+for completeness, not claimed to be historically new.
+
+Fix \(d\ge1,\ k\ge2\) and
+\(p=(p_1,\dots,p_k)\) with
+\(p_i>0,\ \sum_i p_i=1\).
+Write
+\[
+ \mathcal M_d(p):=\sup_{\substack{
+ (A_i)\ {\rm measurable\ partition\ of}\ \mathbb R^d\\
+ \gamma_d(A_i)=p_i}}
+ \sum_{i=1}^k
+ \left\|\int_{A_i}x\,d\gamma_d(x)\right\|^2 .
+ \tag{46}
+\]
+For a list \(v=(v_1,\dots,v_k)\) of vectors
+in \(\mathbb R^d\), let
+\[
+ \Psi_v(\lambda):=
+    \sum_{i=1}^k p_i\lambda_i+
+   \mathbb E\max_{1\le i\le k}
+     \left(\langle v_i,G\rangle-\lambda_i\right),
+       \qquad \lambda\in\mathbb R^k.
+ \tag{47}
+\]
+
+**Theorem 18 (exact Gaussian mass-constrained
+dual reduction).** For every admissible
+\((d,k,p)\),
+\[
+ \boxed{\displaystyle
+ \sqrt{\mathcal M_d(p)}
+ =\max_{\sum_i\|v_i\|^2=1}
+      \ \min_{\lambda\in\mathbb R^k}
+         \Psi_v(\lambda).}
+ \tag{48}
+\]
+Both extrema on the right are attained.
+The inner minimum can be normalized by
+\(\min_i\lambda_i=0\); hence (48)
+is an exact finite-dimensional optimization
+over at most \(kd+k\) real parameters.
+
+For pairwise **distinct** \(v_i\), an optimal
+partition for the inner linear assignment
+problem is precisely the Laguerre partition
+\[
+ A_i(v,\lambda)=\left\{x:
+  \langle v_i,x\rangle-\lambda_i
+     > \langle v_j,x\rangle-\lambda_j
+      \text{ for every }j\ne i\right\},
+ \tag{49}
+\]
+where \(\lambda\) minimizes (47).
+The cells have exactly masses \(p_i\)
+and their boundaries are contained in
+affine hyperplanes.
+
+Moreover, if \((A_i)\) **attains**
+\(\mathcal M_d(p)\), all its Gaussian
+first moments \(b_i=\int_{A_i}x\,d\gamma_d\)
+are pairwise distinct. The partition is
+then, up to Gaussian-null sets, a Laguerre
+partition (49) with \(v_i=b_i\) for
+some offsets \(\lambda_i\).
+
+*Proof.* Begin with the **linear**
+partition problem for fixed \(v\):
+\[
+ C_p(v):=\sup_{\gamma_d(A_i)=p_i}
+          \sum_i\int_{A_i}\langle v_i,x\rangle\,
+                     d\gamma_d(x).
+\]
+For arbitrary real \(\lambda_i\) and any
+feasible partition, the pointwise maximum
+inequality gives
+\[
+ \begin{aligned}
+ \sum_i\int_{A_i}\langle v_i,x\rangle\,d\gamma
+ &=\sum_i\int_{A_i}
+           (\langle v_i,x\rangle-\lambda_i)\,d\gamma
+           +\sum_i p_i\lambda_i\\
+ &\le\mathbb E\max_i(\langle v_i,G\rangle-\lambda_i)
+           +\sum_i p_i\lambda_i
+  =\Psi_v(\lambda).
+ \end{aligned}
+\]
+Thus \(C_p(v)\le\inf_\lambda\Psi_v(\lambda)\).
+
+The dual function is continuous and invariant
+under common shifts \(\lambda\mapsto\lambda+c(1,\dots,1)\).
+Choose the representative with
+\(\min_i\lambda_i=0\). Let \(i_0\) have
+\(\lambda_{i_0}=0\). Then
+\[
+ \Psi_v(\lambda)
+ \ge\sum_i p_i\lambda_i
+       +\mathbb E\langle v_{i_0},G\rangle
+ =\sum_i p_i\lambda_i
+ \ge p_{\min}\max_i\lambda_i.
+ \tag{50}
+\]
+Since \(p_{\min}>0\), this proves
+coercivity on the closed gauge slice
+\(\min\lambda=0\). Thus \(\Psi_v\)
+has a minimizer \(\lambda^*\).
+
+First suppose \(v_i\ne v_j\) whenever
+\(i\ne j\). For every fixed \(\lambda\),
+ties between any two affine scores
+\(\langle v_i,G\rangle-\lambda_i\)
+have Gaussian probability zero.
+The pointwise maximum is Lipschitz
+in \(\lambda\), so dominated convergence
+gives
+\[
+ \frac{\partial\Psi_v}{\partial\lambda_i}
+       =p_i-\gamma_d(A_i(v,\lambda)).
+\]
+At a global minimizer of this
+translation-invariant differentiable
+function all partial derivatives vanish.
+Hence the Laguerre cells in (49)
+have masses exactly \(p_i\).
+They attain equality pointwise in the
+weak-duality inequality, so
+\[
+ C_p(v)=\min_\lambda\Psi_v(\lambda).
+ \tag{51}
+\]
+
+For arbitrary \(v\), approximate it
+by vector lists \(v^{(m)}\) whose
+entries are pairwise distinct.
+The primal functional is Lipschitz:
+\[
+ |C_p(v)-C_p(w)|
+ \le\mathbb E\|G\|
+       \left(\sum_i\|v_i-w_i\|^2\right)^{1/2}.
+\]
+The same bound holds for
+\(\big|\min_\lambda\Psi_v(\lambda)
+     -\min_\lambda\Psi_w(\lambda)\big|\),
+since the pointwise maxima differ by
+at most \(\|G\|\max_i\|v_i-w_i\|\),
+independently of \(\lambda\).
+Taking limits extends (51) to
+every \(v\), including duplicate
+score vectors. This proves exact
+linear duality without an unproved
+tie-breaking assumption.
+
+For a given partition, let
+\(b_i=\int_{A_i}x\,d\gamma_d(x)\).
+Euclidean norm duality yields
+\[
+ \left(\sum_i\|b_i\|^2\right)^{1/2}
+ =\max_{\sum_i\|v_i\|^2=1}
+          \sum_i\langle v_i,b_i\rangle.
+\]
+Taking suprema jointly over \(v\)
+and the partitions, and then
+applying (51), gives exactly (48).
+The value \(C_p(v)\) is continuous
+in \(v\), and the unit sphere in
+\(\mathbb R^{kd}\) is compact, so
+the outer maximum is attained.
+
+It remains to justify the stated
+structure for a partition that
+attains \(\mathcal M_d(p)\).
+Suppose two distinct cell indices
+\(i,j\) have the same centroid
+\(b_i=b_j=b\). Since both cells have
+positive Gaussian measure and the
+Gaussian law is nonatomic with
+strictly positive density, choose
+small disjoint balls around distinct
+density points of these cells.
+Within their intersections with
+the cells, take subsets
+\(E\subseteq A_i,F\subseteq A_j\)
+of the same positive Gaussian mass.
+The balls may be chosen so small
+that \(\int_E x\,d\gamma\ne
+      \int_F x\,d\gamma\).
+Interchanging \(E\) and \(F\)
+preserves every cell mass and replaces
+\(b_i,b_j\) by \(b+\delta,b-\delta\)
+for a nonzero vector \(\delta\).
+Their squared-norm sum increases
+strictly by \(2\|\delta\|^2\),
+contradicting global maximality.
+Thus the \(b_i\) are pairwise distinct.
+
+Finally, take \(v_i=b_i\).
+The optimal partition maximizes
+the **linear** objective with these
+weights. Indeed, if some other
+feasible partition with moments
+\(c_i\) had
+\(\sum_i\langle b_i,c_i\rangle
+  >\sum_i\|b_i\|^2\),
+then
+\[
+ \sum_i\|c_i\|^2
+ =2\sum_i\langle b_i,c_i\rangle
+   -\sum_i\|b_i\|^2
+   +\sum_i\|c_i-b_i\|^2
+ >\sum_i\|b_i\|^2,
+\]
+a contradiction.
+By (51), the linear objective has
+a Laguerre maximizing partition
+with offsets \(\lambda^*\).
+For the distinct vectors \(b_i\),
+its affine-score ties are
+Gaussian-null. Equality in the
+pointwise maximum inequality forces
+the original partition to equal
+that Laguerre partition almost
+everywhere. \(\square\)
+
+**Research boundary.** This exact duality
+does *not* identify the maximizer in (48).
+It rigorously reduces the remaining
+unrestricted fixed-mass problem to
+a finite-dimensional but generally
+nonconvex variational optimization.
+The special regular simplex supplies
+an explicit feasible lower certificate;
+a genuine solution of the corresponding
+Standard Simplex question requires a
+matching universal upper bound (or a
+counterexample) for this dual objective.
+
+
+## 15. Exact fixed-mass calibration cases
+
+The dual reduction is consistent with two classical
+extremal situations that can be evaluated exactly.
+They delimit what is currently resolved in the
+fully unrestricted partition problem.
+
+**Corollary 19 (arbitrary two-cell masses;
+equal three-cell masses).**
+Let \(d\ge1\), \(0<p<1\), and
+\(t_p=\Phi^{-1}(1-p)\). Then
+\[
+ \boxed{\displaystyle
+ \mathcal M_d(p,1-p)
+       =2\varphi(t_p)^2
+       =\frac1\pi e^{-t_p^2}.}
+ \tag{52}
+\]
+The maximizers are precisely, up to
+Gaussian-null sets and Euclidean rotations,
+a halfspace of Gaussian measure \(p\)
+and its complement.
+
+For \(d\ge2\), the uniform three-cell case
+satisfies
+\[
+ \boxed{\displaystyle
+ \mathcal M_d(1/3,1/3,1/3)
+           =\frac9{8\pi}.}
+ \tag{53}
+\]
+The upper bound in (53) is **inherited**
+from the published OpenAI Gaussian propeller
+theorem [OAI-096], whereas attainment follows
+by the explicit 120-degree sector construction.
+
+*Proof of (52).* Let \(A\subset\mathbb R^d\)
+have mass \(p\) and \(b=\int_A x\,d\gamma_d\).
+Since the entire Gaussian is centered,
+the complement has first moment \(-b\);
+the two-cell objective is \(2\|b\|^2\).
+If \(b\ne0\), take \(u=b/\|b\|\) and
+\(H=\{x:\langle u,x\rangle\ge t_p\}\),
+which has measure \(p\). For every \(x\),
+the factor \(\langle u,x\rangle-t_p\)
+has the same sign as
+\(\mathbf1_H(x)-\mathbf1_A(x)\)
+whenever those indicators differ.
+Therefore
+\[
+ \int(\langle u,x\rangle-t_p)
+       (\mathbf1_H-\mathbf1_A)\,d\gamma_d\ge0.
+\]
+Because \(\gamma_d(H)=\gamma_d(A)=p\),
+the threshold terms cancel, giving
+\[
+ \|b\|=\int_A\langle u,x\rangle\,d\gamma_d
+ \le\int_H\langle u,x\rangle\,d\gamma_d
+ =\int_{t_p}^\infty s\varphi(s)\,ds
+ =\varphi(t_p).
+\]
+Equality requires \(A=H\) up to Gaussian
+null sets, since the integrand is strictly
+positive wherever the indicators differ
+outside the null hyperplane. If \(b=0\),
+the objective is zero, strictly below
+the positive halfspace optimum.
+Thus (52) and its equality classification
+follow. The Gaussian propeller upper bound,
+applied to three cells, and the explicit
+equal 120-degree sectors prove (53).
+\(\square\)
+
+For \(k\ge4\) and positive fixed masses,
+Theorem 18 supplies an exact dual framework
+but **not** a solution of its nonconvex
+outer optimization. For uniform masses
+the regular simplex gives a rigorous
+lower construction (Theorem 13); Theorem 13
+alone does not identify the global maximum.
+
+
+## 16. Provenance, audit and limitations
 
 - **Comparator [OAI-096]:** OpenAI, *The Gaussian propeller bound
   in every dimension*, September 24, 2026; public source in the
