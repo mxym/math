@@ -1,5 +1,17 @@
 # math
 
+## Exact radius-two jump in the Z[sqrt(-2)] prime graph
+
+The [radius-two research continuation](notes/sqrt-minus-two-radius-two/README.md)
+proves the maximum prime-component size jumps sharply from 3 to 7 at D=2;
+for every real 2<=D<sqrt(6) exactly two 7-vertex components exist and
+all others have at most two vertices. For ten coefficient steps,
+period-six principal ideal sieves succeed **exactly when** they contain
+(t),(1+t),(1-t), t=sqrt(-2); the minimum number of generators rises
+from 2 to 3. Complete written proof, independent exact integer checker,
+certificates, 2,048-subfamily audit and tamper tests are provided,
+without external-referee or novelty claims.
+
 ## The original sharp simplex stability upper Main in Lean
 
 The separate [complete upper-bound project](formalizations/sharp-simplex-upper-bound/README.md) proves Entry005.sharpMain : Entry005.sharpMainGoal with the unchanged original gSharp and exponent 1/(d−1). For every dimension d ≥ 3, actual compact convex body with nonempty interior, and every prescribed maximum-volume inscribed simplex S, the actual excess about S's original centroid is at most gSharp(d) times the actual entryDefect to power 1/(d−1). No geometric bridge remains as an assumed premise. The [exact theorem](formalizations/sharp-simplex-upper-bound/THEOREM.md) retains the full constant definitions and quantifiers. This is the audited 204-file input composition, including the missing source supplement, with all 123 mathematical modules unchanged. [Final-copy review](verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md) · [Release manifest](releases/2026-10-08-sharp-simplex-upper-bound-v2.json) · [Frozen archive](releases/2026-10-08-sharp-simplex-upper-bound-source-v2.tar.gz). This package contains the original upper theorem, not a later improved-constant candidate; the matching lower proof is a separate project.

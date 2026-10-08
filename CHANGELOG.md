@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-10-08 — sharp radius-two prime graph jump and sieve classification
+
+- Established the global Z[sqrt(-2)] component bound **7**, attained
+  by exactly two components, for 2<=D<sqrt(6), all others <=2.
+- Determined the unique minimal ten-step principal-ideal sieve at
+  scalar period 6, including all composite-generator alternatives;
+  generator complexity jumps from two to three at D=2.
+- Released [complete proofs and integer evidence](notes/sqrt-minus-two-radius-two/README.md)
+  with direct finite closure, three voltage obstructions, five
+  lower-period witnesses, independent checker and 2,048-family replay.
+  AI-assisted, no claimed priority or external peer review.
+
 ## 2026-10-08 — original literal sharp simplex upper Main
 
 - Added the frozen 304-file v2 upper Main source package. It preserves 123 mathematical modules and the original target/constants, proving the bound for every prescribed maximizing simplex about its own centroid. The certified input is the complete 204-file composition; the originally delivered 203-file patch was missing one source and is not retrospectively called complete.

@@ -1,5 +1,13 @@
 # Manuscript catalogue
 
+## Exact radius-two jump and optimal ten-step sieve classification
+
+[Full research note and independent integer proofs](notes/sqrt-minus-two-radius-two/README.md)
+classify prime components for 2<=D<sqrt(6) in Z[sqrt(-2)], obtaining
+a sharp maximum 7 and two unique 7-component examples, and classify
+**all** successful period-six principal-ideal lists for the ten-step
+set, even with composite generators.
+
 ## Original sharp simplex stability upper theorem
 
 [Complete upper Main formalization](formalizations/sharp-simplex-upper-bound/README.md), with the actual geometric body/defect, every caller-prescribed globally maximum inscribed simplex, that simplex's own centroid, the original gSharp and exponent 1/(d−1). Read the [exact theorem](formalizations/sharp-simplex-upper-bound/THEOREM.md), [proof roadmap](formalizations/sharp-simplex-upper-bound/PROOF_ROADMAP.md), [literal Lean endpoint](formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpUpperMain.lean), [independent final-copy review](verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md), [release manifest](releases/2026-10-08-sharp-simplex-upper-bound-v2.json) and [source archive](releases/2026-10-08-sharp-simplex-upper-bound-source-v2.tar.gz). The separately scoped [truncation sharpness proof](formalizations/simplex-truncation-sharpness/README.md) is not merged or counted in this upper package.

@@ -67,3 +67,13 @@ including composite generators and redundant ideals. Its full paper,
 12 exact finite witnesses, independent checker, and mutation tests are
 published separately, leaving the v3 all-order proof and v4 sharp
 Gaussian/real-quadratic results unchanged.
+
+## Exact Euclidean radius-two phase transition in Z[sqrt(-2)]
+
+The [new radius-two continuation](../../notes/sqrt-minus-two-radius-two/README.md)
+extends the entire irreducible graph classification through every
+real D<sqrt(6), with a sharp largest component jump 3 to 7 at D=2,
+and identifies the **unique** inclusion-minimal successful principal-
+ideal sieve at the unchanged optimal scalar period 6 for the ten-step
+set. Full proof, finite witnesses, checker, tamper tests and historical
+comparison are supplied separately; older v3 and v4 are unchanged.
