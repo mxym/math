@@ -1,5 +1,16 @@
 # math
 
+## Eisenstein irreducible graph: exact component maxima and sharp sieves
+
+The [Eisenstein quadratic-order continuation](notes/eisenstein-prime-components/README.md)
+proves that the six-unit and eight-neighbor irreducible-element graphs
+in Z[omega] have unique largest components of **48 and 132** vertices.
+Sharp principal-ideal scalar sieve periods are **6 and 546**, with
+prime-generator endpoint classification for the eight-neighbor graph.
+An explicit full proof, 333 nonzero-voltage cycles, complete quotient
+partitions, prime-closure witnesses and an independent exact checker
+are included. This is model-assisted, not external human review.
+
 ## Unified traditional proof of continuum-power avoidance
 
 The [14-page revision-2 paper](notes/continuum-power-avoidance-unified/continuum-avoidance.pdf) gives the complete traditional proof of large closed sets avoiding a continuum of power asymptotics. For each prescribed nonempty countable log-syndetic family and 0 < ε < 1, one large-measure closed nowhere-dense periodic set works for every permitted positive real leading power and power-controlled remainder, with infinitely many distinct escaping outputs in every positive tail. The family is fixed before the set. The [reading guide and TeX source](notes/continuum-power-avoidance-unified/README.md) retain the exact corrected manuscript, the earlier defect and repair history, and a 20-step/57-declaration Lean correspondence. Both linked formalizations and all 12 external evidence destinations were verified on the repository. The independent model [revision-closure review](notes/continuum-power-avoidance-unified/review/REVISION2_CLOSURE.md) reports no remaining mathematical blocker; this is not external human peer review or novelty certification. [Publication manifest](releases/2026-10-08-unified-avoidance-revision2.json) · [Frozen source archive](releases/2026-10-08-unified-avoidance-revision2-source.tar.gz).

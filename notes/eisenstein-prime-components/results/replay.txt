@@ -1,0 +1,37 @@
+# Exact replay, Python standard library, Oct 7 2026
+$ python3 code/check.py
+LOWER: 333 nonzero-voltage cycles; max length 594
+IDEAL REDUCTION: all 298116 residues, six exact divisibility tests
+HEXAGONS: 3 quotient components of size 6
+ENDPOINT: 63 residues 93312 components 16536 largest 74
+ENDPOINT: 23 residues 117936 components 4368 largest 94
+ENDPOINT: 27 residues 117936 components 4368 largest 125
+ENDPOINT: 39 residues 117936 components 4368 largest 125
+ENDPOINT: 43 residues 117936 components 4368 largest 94
+CLOSURE: 6 vertices 54 irreducibles 48 all irreducibles connected
+CLOSURE: 8 vertices 138 irreducibles 132 all irreducibles connected
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check.py
+LOWER: 333 nonzero-voltage cycles; max length 594
+IDEAL REDUCTION: all 298116 residues, six exact divisibility tests
+HEXAGONS: 3 quotient components of size 6
+ENDPOINT: 63 residues 93312 components 16536 largest 74
+ENDPOINT: 23 residues 117936 components 4368 largest 94
+ENDPOINT: 27 residues 117936 components 4368 largest 125
+ENDPOINT: 39 residues 117936 components 4368 largest 125
+ENDPOINT: 43 residues 117936 components 4368 largest 94
+CLOSURE: 6 vertices 54 irreducibles 48 all irreducibles connected
+CLOSURE: 8 vertices 138 irreducibles 132 all irreducibles connected
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+TAMPER REJECTED: empty negative walk
+TAMPER REJECTED: negative walk modified displacement
+TAMPER REJECTED: missing endpoint vertex
+TAMPER REJECTED: missing exceptional-closure vertex
+ALL TAMPER AND IRREDUCIBILITY TESTS PASSED
+$ python3 -O code/self_test.py
+TAMPER REJECTED: empty negative walk
+TAMPER REJECTED: negative walk modified displacement
+TAMPER REJECTED: missing endpoint vertex
+TAMPER REJECTED: missing exceptional-closure vertex
+ALL TAMPER AND IRREDUCIBILITY TESTS PASSED

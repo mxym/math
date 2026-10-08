@@ -42,3 +42,14 @@ The source includes its bibliography and needs no external figures or bibliograp
 ## Status and citation
 
 Research proof draft with explicit upstream attribution. No external peer review, complete machine formalization, publication-priority claim, or personal authorship assertion is made. Versions 1 and 2 remain byte-for-byte preserved. Cite the exact version and Git commit actually used.
+
+## Eisenstein quadratic-order continuation
+
+A separate [exact Eisenstein graph research note](../../notes/eisenstein-prime-components/README.md)
+proves global largest irreducible-element component sizes 48 for the
+six-unit step set and 132 for the full eight-neighbor step set, together
+with sharp principal-sieve scalar periods 6 and 546 and the sharp
+period's four-generator classification (for irreducible generators).
+Complete finite proof witnesses and an independent integer checker
+are provided. This is an additive note; the v3 all-order and v4
+Gaussian/real-quadratic records remain unchanged.

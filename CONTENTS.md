@@ -1,5 +1,14 @@
 # Manuscript catalogue
 
+## Exact Eisenstein graph certificates
+
+The [Eisenstein continuation of entry 002](notes/eisenstein-prime-components/README.md)
+provides a complete written proof of the six-unit and eight-neighbor
+largest irreducible-component sizes (48 and 132) and the minimum
+principal-sieve scalar periods (6 and 546), supported by 333 negative
+voltage witnesses, five full positive partitions and an independent
+integer checker.
+
 ## Unified continuum-power avoidance manuscript
 
 [Traditional proof, revision 2](notes/continuum-power-avoidance-unified/README.md): [reviewed 14-page PDF](notes/continuum-power-avoidance-unified/continuum-avoidance.pdf), [unchanged TeX](notes/continuum-power-avoidance-unified/source/continuum-avoidance.tex), [independent closure review](notes/continuum-power-avoidance-unified/review/REVISION2_CLOSURE.md), and preserved correction history. The same set works across all permitted real powers and power-controlled remainders after a prescribed nonempty countable log-syndetic family is fixed; every input tail has infinitely many distinct escaping values. The appendix maps 20 proof steps to 57 Lean declarations and links the separately published [geometric](formalizations/geometric-avoidance/README.md) and [stronger continuum-remainder](formalizations/continuum-remainder-avoidance/README.md) projects. [Release manifest](releases/2026-10-08-unified-avoidance-revision2.json) · [Source archive](releases/2026-10-08-unified-avoidance-revision2-source.tar.gz).

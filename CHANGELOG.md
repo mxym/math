@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-10-07 — Eisenstein graph maxima and sharp principal-sieve periods
+
+- Proved exact unique largest irreducible-element component sizes 48
+  (six-unit steps) and 132 (eight-neighbor steps); remaining components
+  are bounded by 6/74, respectively.
+- Proved optimal scalar periods 6 and 546 for finite principal-ideal
+  sieves, and classified four-generator irreducible lists at 546.
+- Added 333 lower-period voltage witnesses, five quotient partitions,
+  two exceptional closures, independent exact checker and tamper tests.
+  See [the research note](notes/eisenstein-prime-components/README.md).
+  No external referee or priority claim.
+
 ## 2026-10-07 — reconcile parallel independent-arity 005 proofs
 
 - Recorded that the `de012fc` and `b64b11c` proof packages concern **one identical all-positive-integer independent-arity classification**, not two distinct advances. Their different analytic tail decompositions and exact rational checkers both replayed successfully; hashes and the older 005 v5 winner certificate were checked.
