@@ -103,10 +103,29 @@ analytic/equality chain remain necessary dependencies of a fully formal
 Gaussian endpoint; they are not discharged by scalar or measure-foundation
 checks.
 
-The newly public original-interval complex-Hermitian Bapat q-permanent
-counterexample also remains without full Lean certification. A separate
-formalization track is developing the actual inversion-weighted permanent
-endpoint identity, deleted-minor combinatorics, Gram/Bargmann bridge, exact
-finite integer certificate and positive-definite perturbation. Proving only
-a Gram positivity lemma or certificate arithmetic does not constitute the
-complete counterexample proof.
+The parallel [complete complex-Hermitian Bapat formalization](bapat-q-permanent-counterexample/README.md)
+now proves the original-interval existential order-200 counterexample.
+Its recorded verification covers all 22 source modules and 928 owned
+declarations, with a 22,371-declaration empty-kernel replay. The actual
+Gram/Fischer correspondence, ordered recurrence and all 200 arithmetic
+transitions are included. Its positive diagonal shift and interior
+decrease points are existential real numbers, rather than the paper's
+specified rational epsilon and q0. The root task inspected its actual
+final statements and recorded scope; this is a parallel contribution.
+
+The separate
+[actual endpoint and perturbation package](bapat-q-permanent-dependencies/README.md)
+proves the universal deleted-minor identities, Hermitian real-value
+correspondence, exact inversion bound, positive-definite perturbation,
+non-diagonality, and an explicit violation on the original interval from
+an actual negative-endpoint Gram input. The complete fresh-source record
+checks 52 owned theorems and replays 21,571 declarations from an empty kernel,
+with three positive controls and one rejected omitted-derivative control.
+
+This 52-theorem package does not itself contain the order-200 certificate.
+Connecting the complete parallel certificate to its explicit-parameter
+wrapper still requires a proof of the actual definition and input
+correspondence. The separate real-symmetric existence theorem remains
+without full Lean certification; its equidistribution, concentration and
+rational-approximation chain are separate obligations. The transfer theorem
+does not assert existence of its negative input.

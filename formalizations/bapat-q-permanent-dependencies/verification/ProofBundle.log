@@ -1,0 +1,23 @@
+ProofBundle.lean:445:40: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ProofBundle.lean:498:13: warning: Variable name `hR` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hR
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ProofBundle.lean:699:32: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [diagonalPerturbation, abs_of_nonneg ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ProofBundle.lean:700:32: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [diagonalPerturbation, hij, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
