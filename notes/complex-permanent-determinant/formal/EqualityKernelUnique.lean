@@ -1,103 +1,84 @@
-import EqualityFromAbsolute
+import AbsoluteEqFirstRow
 
-namespace ComplexPencilEquality
-
-open ComplexPencilCert
 open scoped ComplexConjugate
+namespace ComplexPencilEquality
+open ComplexPencilCert
 
 noncomputable section
 
-/-- The determinant-zero, positive-leading-minors Hermitian kernel
-is a complex line.  This lemma does *not* assume the desired
-rank-one matrix conclusion: it proves the nullspace statement
-directly from the division-free Cholesky polynomial certificate. -/
-theorem Hermitian_nullspace_is_line
-    (d1 d2 d3 : ℝ) (u v w : ℂ)
-    (a0 a1 a2 b0 b1 b2 : ℂ)
-    (hd1 : 0 < d1) (hminor : 0 < m12 d1 d2 u)
-    (hdet : det3 d1 d2 d3 u v w = 0)
-    (ha : Q3 d1 d2 d3 u v w a0 a1 a2 = 0)
-    (hb : Q3 d1 d2 d3 u v w b0 b1 b2 = 0)
-    (ha2 : a2 ≠ 0) :
-    ∃ z : ℂ, b0 = z*a0 ∧ b1 = z*a1 ∧ b2 = z*a2 := by
-  let m : ℝ := m12 d1 d2 u
-  let alpha : ℂ := (d1 : ℂ)*w - (conj u)*v
-  have ham : Q3 d1 d2 d3 u v w a0 a1 a2 = 0 := ha
-  have hbm : Q3 d1 d2 d3 u v w b0 b1 b2 = 0 := hb
-  have hm : 0 < m := hminor
-  have hza1 : ComplexPencilCert.sq ((d1 : ℂ)*a0+u*a1+v*a2) = 0 := by
-    have hch := cholesky_polynomial d1 d2 d3 u v w a0 a1 a2
-    rw [ham, hdet] at hch
-    simp only [mul_zero, zero_mul, zero_add] at hch
-    have hsq2 : 0 ≤ ComplexPencilCert.sq ((m:ℂ)*a1+alpha*a2) := ComplexPencilCert.sq_nonneg _
-    have hs : m*ComplexPencilCert.sq ((d1:ℂ)*a0+u*a1+v*a2) = 0 := by
-      have hfirst : 0 ≤ m*ComplexPencilCert.sq
-          ((d1:ℂ)*a0+u*a1+v*a2) :=
-        mul_nonneg (le_of_lt hm) (ComplexPencilCert.sq_nonneg _)
-      dsimp [m, alpha] at hsq2 hfirst ⊢
-      linarith
-    have hn : m ≠ 0 := ne_of_gt hm
-    exact (mul_eq_zero.mp hs).resolve_left hn
-  have hza2 : ComplexPencilCert.sq ((m : ℂ)*a1+alpha*a2) = 0 := by
-    have hch := cholesky_polynomial d1 d2 d3 u v w a0 a1 a2
-    rw [ham, hdet] at hch
-    simp only [mul_zero, zero_mul, zero_add] at hch
-    have hp1 : 0 ≤ m*ComplexPencilCert.sq ((d1:ℂ)*a0+u*a1+v*a2) :=
-      mul_nonneg (le_of_lt hm) (ComplexPencilCert.sq_nonneg _)
-    dsimp [m, alpha] at hp1 ⊢
-    nlinarith
-  have hzb1 : ComplexPencilCert.sq ((d1 : ℂ)*b0+u*b1+v*b2) = 0 := by
-    have hch := cholesky_polynomial d1 d2 d3 u v w b0 b1 b2
-    rw [hbm, hdet] at hch
-    simp only [mul_zero, zero_mul, zero_add] at hch
-    have hsq2 : 0 ≤ ComplexPencilCert.sq ((m:ℂ)*b1+alpha*b2) := ComplexPencilCert.sq_nonneg _
-    have hs : m*ComplexPencilCert.sq ((d1:ℂ)*b0+u*b1+v*b2) = 0 := by
-      have hfirst : 0 ≤ m*ComplexPencilCert.sq
-          ((d1:ℂ)*b0+u*b1+v*b2) :=
-        mul_nonneg (le_of_lt hm) (ComplexPencilCert.sq_nonneg _)
-      dsimp [m, alpha] at hsq2 hfirst ⊢
-      linarith
-    exact (mul_eq_zero.mp hs).resolve_left (ne_of_gt hm)
-  have hzb2 : ComplexPencilCert.sq ((m : ℂ)*b1+alpha*b2) = 0 := by
-    have hch := cholesky_polynomial d1 d2 d3 u v w b0 b1 b2
-    rw [hbm, hdet] at hch
-    simp only [mul_zero, zero_mul, zero_add] at hch
-    have hp1 : 0 ≤ m*ComplexPencilCert.sq ((d1:ℂ)*b0+u*b1+v*b2) :=
-      mul_nonneg (le_of_lt hm) (ComplexPencilCert.sq_nonneg _)
-    dsimp [m, alpha] at hp1 ⊢
-    nlinarith
-  have ha1eq : (d1 : ℂ)*a0+u*a1+v*a2=0 := sq_zero _ hza1
-  have ha2eq : (m:ℂ)*a1+alpha*a2=0 := sq_zero _ hza2
-  have hb1eq : (d1 : ℂ)*b0+u*b1+v*b2=0 := sq_zero _ hzb1
-  have hb2eq : (m:ℂ)*b1+alpha*b2=0 := sq_zero _ hzb2
-  let z : ℂ := b2/a2
-  have hz : b2=z*a2 := by
-    dsimp [z]
-    field_simp
-  have hb1eq' : b1=z*a1 := by
-    have hz0 : (m:ℂ)*(b1-z*a1)=0 := by
-      calc
-        _ = ((m:ℂ)*b1+alpha*b2) -
-              z*((m:ℂ)*a1+alpha*a2) := by rw [hz]; ring
-        _ = 0 := by rw [hb2eq,ha2eq]; ring
-    have hmcomplex : (m:ℂ) ≠ 0 := by
-      exact_mod_cast (ne_of_gt hm)
-    have hx := (mul_eq_zero.mp hz0).resolve_left hmcomplex
-    exact sub_eq_zero.mp hx
-  have hb0eq' : b0=z*a0 := by
-    have hz0 : (d1:ℂ)*(b0-z*a0)=0 := by
-      calc
-        _ = ((d1:ℂ)*b0+u*b1+v*b2) -
-              z*((d1:ℂ)*a0+u*a1+v*a2) := by
-                rw [hz,hb1eq']; ring
-        _ = 0 := by rw [hb1eq,ha1eq]; ring
-    have hdcomplex : (d1:ℂ) ≠ 0 := by
-      exact_mod_cast (ne_of_gt hd1)
-    have hx := (mul_eq_zero.mp hz0).resolve_left hdcomplex
-    exact sub_eq_zero.mp hx
-  exact ⟨z,hb0eq',hb1eq',hz⟩
+theorem hermitian3_zero_Q_linear_constraints
+    (d1 d2 d3 : ℝ) (u v w b1 b2 b3 : ℂ)
+    (hd1 : 0 < d1) (hm12 : 0 < m12 d1 d2 u)
+    (hdet : 0 ≤ det3 d1 d2 d3 u v w)
+    (hQ : Q3 d1 d2 d3 u v w b1 b2 b3=0) :
+    (d1 : ℂ)*b1+u*b2+v*b3=0 ∧
+    ((m12 d1 d2 u : ℝ):ℂ)*b2 +
+      ((d1 : ℂ)*w-(conj u)*v)*b3=0 := by
+  have hpoly := cholesky_polynomial d1 d2 d3 u v w b1 b2 b3
+  rw [hQ] at hpoly
+  have hA : 0 ≤ m12 d1 d2 u *
+      ComplexPencilCert.sq ((d1 : ℂ)*b1+u*b2+v*b3) :=
+    mul_nonneg (le_of_lt hm12) (ComplexPencilCert.sq_nonneg _)
+  have hB : 0 ≤ ComplexPencilCert.sq (((m12 d1 d2 u : ℝ):ℂ)*b2+
+     ((d1 : ℂ)*w-(conj u)*v)*b3) := ComplexPencilCert.sq_nonneg _
+  have hC : 0 ≤ d1*det3 d1 d2 d3 u v w*ComplexPencilCert.sq b3 :=
+    mul_nonneg (mul_nonneg (le_of_lt hd1) hdet) (ComplexPencilCert.sq_nonneg _)
+  have hAz : m12 d1 d2 u *
+      ComplexPencilCert.sq ((d1 : ℂ)*b1+u*b2+v*b3)=0 := by linarith
+  have hBz : ComplexPencilCert.sq (((m12 d1 d2 u : ℝ):ℂ)*b2+
+     ((d1 : ℂ)*w-(conj u)*v)*b3)=0 := by linarith
+  have hE0 : (d1 : ℂ)*b1+u*b2+v*b3=0 := by
+    apply sq_zero
+    exact (mul_eq_zero.mp hAz).resolve_left (ne_of_gt hm12)
+  exact ⟨hE0,sq_zero _ hBz⟩
 
-#print axioms ComplexPencilEquality.Hermitian_nullspace_is_line
+theorem hermitian3_nullspace_line
+    (d1 d2 d3 : ℝ) (u v w : ℂ)
+    (a1 a2 a3 b1 b2 b3 : ℂ)
+    (hd1 : 0 < d1) (hm12 : 0 < m12 d1 d2 u)
+    (hdet : 0 ≤ det3 d1 d2 d3 u v w)
+    (ha : Q3 d1 d2 d3 u v w a1 a2 a3=0)
+    (hb : Q3 d1 d2 d3 u v w b1 b2 b3=0)
+    (ha3 : a3 ≠ 0) :
+    ∃ t : ℂ, b1=t*a1 ∧ b2=t*a2 ∧ b3=t*a3 := by
+  obtain ⟨ha0, ha1⟩ :=
+    hermitian3_zero_Q_linear_constraints
+      d1 d2 d3 u v w a1 a2 a3 hd1 hm12 hdet ha
+  obtain ⟨hb0, hb1⟩ :=
+    hermitian3_zero_Q_linear_constraints
+      d1 d2 d3 u v w b1 b2 b3 hd1 hm12 hdet hb
+  let t : ℂ := b3/a3
+  have hb3 : b3=t*a3 := by
+    dsimp [t]
+    field_simp [ha3]
+  have hDelta2 :
+      (((m12 d1 d2 u:ℝ):ℂ)*(b2-t*a2))=0 := by
+    calc
+      _ = (((m12 d1 d2 u:ℝ):ℂ)*b2+
+        ((d1:ℂ)*w-(conj u)*v)*b3) -
+        t*((((m12 d1 d2 u:ℝ):ℂ)*a2)+
+          ((d1:ℂ)*w-(conj u)*v)*a3) := by
+             rw [hb3]; ring
+      _ = 0 := by rw [hb1, ha1]; ring
+  have hb2 : b2=t*a2 := by
+    have hh : b2-t*a2=0 :=
+      (mul_eq_zero.mp hDelta2).resolve_left (by
+        exact_mod_cast (ne_of_gt hm12))
+    exact sub_eq_zero.mp hh
+  have hDelta1 : (d1:ℂ)*(b1-t*a1)=0 := by
+    calc
+      _ = ((d1:ℂ)*b1+u*b2+v*b3) -
+          t*((d1:ℂ)*a1+u*a2+v*a3) := by
+          rw [hb2,hb3]; ring
+      _ = 0 := by rw [hb0,ha0]; ring
+  have hb1final : b1=t*a1 := by
+    have hh : b1-t*a1=0 :=
+      (mul_eq_zero.mp hDelta1).resolve_left (by
+        exact_mod_cast (ne_of_gt hd1))
+    exact sub_eq_zero.mp hh
+  exact ⟨t,hb1final,hb2,hb3⟩
+
+#print axioms ComplexPencilEquality.hermitian3_nullspace_line
 
 end
 end ComplexPencilEquality
