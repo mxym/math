@@ -1,0 +1,157 @@
+import Counterexample
+import CenteredCertificate
+
+set_option pp.universes false
+
+#check CyclotomicCounterexample.ofCoeffs
+#print axioms CyclotomicCounterexample.ofCoeffs
+#check CyclotomicCounterexample.coeff_ofCoeffs
+#print axioms CyclotomicCounterexample.coeff_ofCoeffs
+#check CyclotomicCounterexample.cyclotomic_four_int
+#print axioms CyclotomicCounterexample.cyclotomic_four_int
+#check CyclotomicCounterexample.cyclotomic_nine_int
+#print axioms CyclotomicCounterexample.cyclotomic_nine_int
+#check CyclotomicCounterexample.cyclotomic_twenty_five_int
+#print axioms CyclotomicCounterexample.cyclotomic_twenty_five_int
+#check CyclotomicCounterexample.cyclotomic_thirty_int
+#print axioms CyclotomicCounterexample.cyclotomic_thirty_int
+#check CyclotomicCounterexample.cyclotomic_not_dvd_product_pow_rat
+#print axioms CyclotomicCounterexample.cyclotomic_not_dvd_product_pow_rat
+#check CyclotomicCounterexample.prime_cyclotomic_not_dvd_rat
+#print axioms CyclotomicCounterexample.prime_cyclotomic_not_dvd_rat
+#check CyclotomicCounterexample.prime_cyclotomic_not_dvd_int
+#print axioms CyclotomicCounterexample.prime_cyclotomic_not_dvd_int
+#check CyclotomicCounterexample.F
+#print axioms CyclotomicCounterexample.F
+#check CyclotomicCounterexample.NonnegativeCoeffs
+#print axioms CyclotomicCounterexample.NonnegativeCoeffs
+#check CyclotomicCounterexample.IsCyclotomicProduct
+#print axioms CyclotomicCounterexample.IsCyclotomicProduct
+#check CyclotomicCounterexample.IsBasicCGF
+#print axioms CyclotomicCounterexample.IsBasicCGF
+#check CyclotomicCounterexample.UnimodalCoeffs
+#print axioms CyclotomicCounterexample.UnimodalCoeffs
+#check CyclotomicCounterexample.F_monic
+#print axioms CyclotomicCounterexample.F_monic
+#check CyclotomicCounterexample.F_natDegree
+#print axioms CyclotomicCounterexample.F_natDegree
+#check CyclotomicCounterexample.F_degree
+#print axioms CyclotomicCounterexample.F_degree
+#check CyclotomicCounterexample.F_ne_one
+#print axioms CyclotomicCounterexample.F_ne_one
+#check CyclotomicCounterexample.F_coeff_zero
+#print axioms CyclotomicCounterexample.F_coeff_zero
+#check CyclotomicCounterexample.F_isCyclotomicProduct
+#print axioms CyclotomicCounterexample.F_isCyclotomicProduct
+#check CyclotomicCounterexample.F_isBasicCGF_of_nonnegative
+#print axioms CyclotomicCounterexample.F_isBasicCGF_of_nonnegative
+#check CyclotomicCounterexample.coefficients
+#print axioms CyclotomicCounterexample.coefficients
+#check CyclotomicCounterexample.product_eq_coefficient_polynomial
+#print axioms CyclotomicCounterexample.product_eq_coefficient_polynomial
+#check CyclotomicCounterexample.a
+#print axioms CyclotomicCounterexample.a
+#check CyclotomicCounterexample.coefficients_length
+#print axioms CyclotomicCounterexample.coefficients_length
+#check CyclotomicCounterexample.data_positive
+#print axioms CyclotomicCounterexample.data_positive
+#check CyclotomicCounterexample.data_increase
+#print axioms CyclotomicCounterexample.data_increase
+#check CyclotomicCounterexample.data_decrease
+#print axioms CyclotomicCounterexample.data_decrease
+#check CyclotomicCounterexample.data_palindrome
+#print axioms CyclotomicCounterexample.data_palindrome
+#check CyclotomicCounterexample.data_peak
+#print axioms CyclotomicCounterexample.data_peak
+#check CyclotomicCounterexample.data_unique_peak
+#print axioms CyclotomicCounterexample.data_unique_peak
+#check CyclotomicCounterexample.data_first_difference
+#print axioms CyclotomicCounterexample.data_first_difference
+#check CyclotomicCounterexample.data_zero_tail
+#print axioms CyclotomicCounterexample.data_zero_tail
+#check CyclotomicCounterexample.F_coeff
+#print axioms CyclotomicCounterexample.F_coeff
+#check CyclotomicCounterexample.F_coeff_positive
+#print axioms CyclotomicCounterexample.F_coeff_positive
+#check CyclotomicCounterexample.F_coeff_zero_tail
+#print axioms CyclotomicCounterexample.F_coeff_zero_tail
+#check CyclotomicCounterexample.F_nonnegative
+#print axioms CyclotomicCounterexample.F_nonnegative
+#check CyclotomicCounterexample.F_strict_increase
+#print axioms CyclotomicCounterexample.F_strict_increase
+#check CyclotomicCounterexample.F_increase_margin
+#print axioms CyclotomicCounterexample.F_increase_margin
+#check CyclotomicCounterexample.F_strict_decrease
+#print axioms CyclotomicCounterexample.F_strict_decrease
+#check CyclotomicCounterexample.F_palindrome
+#print axioms CyclotomicCounterexample.F_palindrome
+#check CyclotomicCounterexample.F_unique_peak
+#print axioms CyclotomicCounterexample.F_unique_peak
+#check CyclotomicCounterexample.F_peak_value
+#print axioms CyclotomicCounterexample.F_peak_value
+#check CyclotomicCounterexample.F_minimum_increase
+#print axioms CyclotomicCounterexample.F_minimum_increase
+#check CyclotomicCounterexample.F_unimodal
+#print axioms CyclotomicCounterexample.F_unimodal
+#check CyclotomicCounterexample.F_basic
+#print axioms CyclotomicCounterexample.F_basic
+#check CyclotomicCounterexample.F_no_prime_cyclotomic
+#print axioms CyclotomicCounterexample.F_no_prime_cyclotomic
+#check CyclotomicCounterexample.Conjecture48
+#print axioms CyclotomicCounterexample.Conjecture48
+#check CyclotomicCounterexample.explicit_counterexample
+#print axioms CyclotomicCounterexample.explicit_counterexample
+#check CyclotomicCounterexample.conjecture48_false
+#print axioms CyclotomicCounterexample.conjecture48_false
+#check CyclotomicCounterexample.centeredWeights
+#print axioms CyclotomicCounterexample.centeredWeights
+#check CyclotomicCounterexample.centeredWeights_length
+#print axioms CyclotomicCounterexample.centeredWeights_length
+#check CyclotomicCounterexample.centeredWeights_zero
+#print axioms CyclotomicCounterexample.centeredWeights_zero
+#check CyclotomicCounterexample.centeredWeights_positive
+#print axioms CyclotomicCounterexample.centeredWeights_positive
+#check CyclotomicCounterexample.qInteger
+#print axioms CyclotomicCounterexample.qInteger
+#check CyclotomicCounterexample.centeredExpansion
+#print axioms CyclotomicCounterexample.centeredExpansion
+#check CyclotomicCounterexample.qInteger_coeff
+#print axioms CyclotomicCounterexample.qInteger_coeff
+#check CyclotomicCounterexample.centeredTerm_coeff
+#print axioms CyclotomicCounterexample.centeredTerm_coeff
+#check CyclotomicCounterexample.centeredCoefficient
+#print axioms CyclotomicCounterexample.centeredCoefficient
+#check CyclotomicCounterexample.centeredExpansion_coeff
+#print axioms CyclotomicCounterexample.centeredExpansion_coeff
+#check CyclotomicCounterexample.centered_coefficients_match
+#print axioms CyclotomicCounterexample.centered_coefficients_match
+#check CyclotomicCounterexample.centeredCoefficient_tail
+#print axioms CyclotomicCounterexample.centeredCoefficient_tail
+#check CyclotomicCounterexample.coefficient_polynomial_eq_centeredExpansion
+#print axioms CyclotomicCounterexample.coefficient_polynomial_eq_centeredExpansion
+#check CyclotomicCounterexample.product_eq_centeredExpansion
+#print axioms CyclotomicCounterexample.product_eq_centeredExpansion
+#check CyclotomicCounterexample.F_centered_qInteger_expansion
+#print axioms CyclotomicCounterexample.F_centered_qInteger_expansion
+#check CyclotomicCounterexample.F_centered_certificate
+#print axioms CyclotomicCounterexample.F_centered_certificate
+#check CyclotomicCounterexample.qIntegerNumerator
+#print axioms CyclotomicCounterexample.qIntegerNumerator
+#check CyclotomicCounterexample.qIntegerDenominator
+#print axioms CyclotomicCounterexample.qIntegerDenominator
+#check CyclotomicCounterexample.qInteger_base_identity
+#print axioms CyclotomicCounterexample.qInteger_base_identity
+#check CyclotomicCounterexample.qInteger_eval_one
+#print axioms CyclotomicCounterexample.qInteger_eval_one
+#check CyclotomicCounterexample.qIntegerDenominator_eval_one
+#print axioms CyclotomicCounterexample.qIntegerDenominator_eval_one
+#check CyclotomicCounterexample.qIntegerDenominator_ne_zero
+#print axioms CyclotomicCounterexample.qIntegerDenominator_ne_zero
+#check CyclotomicCounterexample.F_qInteger_quotient_certificate
+#print axioms CyclotomicCounterexample.F_qInteger_quotient_certificate
+
+#print CyclotomicCounterexample.F
+#print CyclotomicCounterexample.IsBasicCGF
+#print CyclotomicCounterexample.IsCyclotomicProduct
+#print CyclotomicCounterexample.UnimodalCoeffs
+#print CyclotomicCounterexample.Conjecture48

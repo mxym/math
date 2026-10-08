@@ -1,0 +1,11 @@
+import Counterexample
+import CenteredCertificate
+
+#print Polynomial.cyclotomic
+#check Polynomial.cyclotomic.irreducible_rat
+#check Polynomial.cyclotomic.isCoprime_rat
+#check Polynomial.map_cyclotomic_int
+#print CyclotomicCounterexample.NonnegativeCoeffs
+#print CyclotomicCounterexample.qInteger
+#print CyclotomicCounterexample.qIntegerNumerator
+#print CyclotomicCounterexample.qIntegerDenominator
