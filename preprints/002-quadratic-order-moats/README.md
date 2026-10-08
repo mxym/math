@@ -89,3 +89,7 @@ are checked independently of the generator, and it separately
 proves a closed 90-irreducible component and uniform bound 2,283.
 The exact unrestricted prime maximum is not determined;
 historical entry 002 versions are unchanged.
+
+## Exact norm-six sieve optimum and conditional genuine prime-graph equality
+
+[The exact optimum](../../notes/sqrt-minus-two-exact-sieve-optimum/README.md) of finite principal-ideal sieve component size is 197, with matching constructive upper and universal admissible-pattern lower certificates. This also gives unconditional prime-only bounds **90 <= B_D <= 197**. A [separate explicitly conditional number-theoretic reduction](../../notes/sqrt-minus-two-conditional-prime-197/README.md) proves B_D=197 if one fully specified admissible family of 197 monic quadratic forms satisfies the unproved Schinzel Hypothesis H. Distinguish the completed unconditional sieve theorem from the not-yet-solved unconditional prime-only exact maximum. Independent exact checkers and proof audits are included; older 002 source files remain intact.

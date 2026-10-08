@@ -587,3 +587,7 @@ review tied to the manuscript hashes. The result is separate from the explicit
 complex order-200 witness above. No complete Lean formalization of this real
 existence theorem, external human peer-review acceptance, or historical
 priority is claimed.
+
+## Entry 002: exact 197 finite-sieve optimum and conditional real prime maximum
+
+The [fully certified six-stage period-sieve proof](notes/sqrt-minus-two-exact-sieve-optimum/README.md) matches the universal 197-point CRT obstruction to prove the **exact global optimum 197 over every finite principal-ideal sieve** for the norm-six graph of Z[sqrt(-2)]. The same proof gives the *unconditional prime-only bound* **90 <= B_D <= 197**, for every genuine Euclidean radius sqrt(6) <= D < sqrt(8). A separate [explicit 197-quadratic conditional theorem](notes/sqrt-minus-two-conditional-prime-197/README.md) proves **B_D=197 under classical Schinzel's Hypothesis H**, using an exact fixed-degree polynomial admissibility certificate; **H is unproved**, so the actual unconditional maximum is **not** yet determined. Both notes include complete source, proof dependencies, independent exact checkers and mutation tests.
