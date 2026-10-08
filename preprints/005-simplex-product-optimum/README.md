@@ -62,6 +62,10 @@ The product identity, simplex value, and dimension-twenty example are credited t
 
 Public disclosure does not certify first discovery. Historical manifests should be checked at their fixed publication commit, because navigation files can subsequently evolve.
 
+## Exact first mandatory nesting dimension: 55
+
+The [independently certified first-crossover theorem](../../notes/projection-first-nesting-d55/README.md) determines the **exact least dimension** in which the point-generated *arbitrary-tree* maximum cannot be attained by any join of simplex product blocks: it is **dimension 55**. The same restricted-class sharp maximum **can** be attained without nesting in every dimension 1–54. In dimension 55, the full-tree maximum and two-layer maximum have distinct exact rational values and explicit attaining expressions, proved by a SHA-pinned extension of the 48D certificate and an independent two-layer closure checker. [Full proof](../../notes/projection-first-nesting-d55/paper.md) · [full-tree verification](../../notes/projection-first-nesting-d55/code/check_all_tree.py) · [two-layer verification](../../notes/projection-first-nesting-d55/code/check_two_layer.py). The historical 85-dimensional separation remains correct but is not earliest. This does not settle arbitrary-convex-body maximization or the unrestricted recursive-class asymptotic spectral rate.
+
 ## Sharp two-layer spectrum and a certified depth gap
 
 The [two-layer spectral/depth supplement](../../notes/two-layer-projection-depth-separation/README.md) gives a new **infinite-parameter classification** for all `T_p x T_q` building blocks, identifies sharp rates at `(5,5)` and `(4,4)` for two distinct invariants, and proves a strict **85-dimensional and asymptotic** advantage of nested products over every join of simplex products. It does not claim to solve the full arbitrary-tree spectral optimum. [Full proof](../../notes/two-layer-projection-depth-separation/paper.md) · [exact certificate](../../notes/two-layer-projection-depth-separation/code/check.py).

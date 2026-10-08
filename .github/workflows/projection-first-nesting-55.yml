@@ -1,0 +1,48 @@
+name: Exact first projection-body nesting dimension 55
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-first-nesting-55.yml'
+      - 'notes/projection-first-nesting-d55/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-first-nesting-55.yml'
+      - 'notes/projection-first-nesting-d55/**'
+
+permissions:
+  contents: read
+
+jobs:
+  rational-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify all frozen source and certificate hashes
+        run: cd notes/projection-first-nesting-d55 && sha256sum -c SHA256SUMS
+      - name: Independently replay inherited full-tree base dimensions 1-48
+        run: python3 notes/exact-product-join-finite-optima/code/check.py
+      - name: Check exact full-tree extension through dimension 55 in both modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-first-nesting-d55/code/check_all_tree.py > /tmp/C-normal.txt
+          python3 -O notes/projection-first-nesting-d55/code/check_all_tree.py > /tmp/C-optimized.txt
+          cmp /tmp/C-normal.txt /tmp/C-optimized.txt
+          cmp /tmp/C-normal.txt notes/projection-first-nesting-d55/certificates/all_tree_check.txt
+      - name: Check independent join-of-simplex-product optima in both modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-first-nesting-d55/code/check_two_layer.py > /tmp/B-normal.txt
+          python3 -O notes/projection-first-nesting-d55/code/check_two_layer.py > /tmp/B-optimized.txt
+          cmp /tmp/B-normal.txt /tmp/B-optimized.txt
+          cmp /tmp/B-normal.txt notes/projection-first-nesting-d55/certificates/two_layer_check.txt
+      - name: Verify corrupted certificates are rejected
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-first-nesting-d55/code/negative_controls.py > /tmp/mutations.txt
+          cmp /tmp/mutations.txt notes/projection-first-nesting-d55/certificates/negative_controls.txt
