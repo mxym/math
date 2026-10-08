@@ -367,3 +367,150 @@ python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_
 Both checkers were downloaded from **pinned Git commit SHA URLs** into a fresh VPS directory and passed independently. The audit record in [VERIFICATION.md](VERIFICATION.md) lists source hashes, replay outputs and negative controls. The computer-assisted step is a **finite, exactly described mathematical assertion** with a complete enumerator and two independent rational implementations. The **unbounded** part of the proof is Lemma 2's explicit analytic tail argument, not an extrapolation from the 44,582 checked cases. The four-class primal and middle-rank equivalence are analytic identities proved in Sections 4--5.
 
 This closes the previous \(5/14\) all-rank conjecture from [ALL_RANK_TRACE_KERNEL.md](ALL_RANK_TRACE_KERNEL.md). It does **not** solve the general exact finite-\((n,k)\) atom-modulus problem at arbitrary nonmiddle rank, characterize every extremizer, or prove historical first-discovery priority.
+
+
+## 8. Extension to every faithful finite permutation group
+
+The upper-bound argument uses only the fact that every nonidentity group element moves some vertices. It does **not** require the group to be the full symmetric group.
+
+**Theorem 5 (universal sharp subgroup bound).** Let \(G\le S_n\) be an arbitrary finite subgroup, acting faithfully on \([n]\), and let \(u_G\) be its uniform probability law. Suppose a probability law \(\nu\) on \(G\) has **the same subset-image marginals as \(u_G\)** for every subset rank:
+
+\[
+\nu\{g\in G:gE=H\}
+=u_G\{g\in G:gE=H\}
+\quad\text{for all }E,H\subseteq[n]\text{ of equal size}.
+\tag{34}
+\]
+
+No transitivity or homogeneity is assumed; in particular, the common values in (34) need **not** equal \(\binom nk^{-1}\). Then for **every** \(\sigma\in G\),
+
+\[
+\boxed{\left|\nu(\sigma)-\frac1{|G|}\right|
+\le\frac5{14}\|\nu-u_G\|_{\rm TV}.}
+\tag{35}
+\]
+
+The constant \(5/14\) is best possible **uniformly over all faithful permutation groups**, since equality occurs for \(G=S_n\) in every degree \(n\ge6\).
+
+*Proof.* The signed measure \(v=\nu-u_G\) annihilates every individual indicator \(\mathbf1_{\{gE=H\}}\), hence the invariant-subset counts (5), hence the five \(U_{q_i}\) and \(\Phi\) of (8). The explicit global dual inequality (13) holds for every nonidentity permutation in \(S_n\), so it also holds after restriction to \(G\). Faithfulness ensures that the only element represented by the identity permutation is the group identity. Thus the range of \(\mathbf1_{\{g=e_G\}}+\Phi(g)\) has length at most \(5/14\), proving (35) at \(e_G\).
+
+For an arbitrary \(\sigma\in G\), translate \(\nu\) on the left by \(\sigma^{-1}\). The group-uniform law \(u_G\) and its image marginals are invariant under that translation, so the translated measure still satisfies (34), and total variation is unchanged. The estimate at the identity becomes the estimate at \(\sigma\). Sharpness of the universal coefficient follows from the attaining \(S_n\) family (23). QED.
+
+If faithfulness is dropped, different group elements can induce the same permutation, and the constant \(5/14\) is not generally valid: moving probability mass between two elements acting identically leaves every image marginal unchanged and can have atom/TV ratio 1.
+
+## 9. Rigidity of every equality case
+
+The two exact finite checkers establish **more** than merely the minimum and maximum: among all nonidentity permutations, the only points at which the constructed dual \(\Phi\) has either endpoint value are
+
+\[
+\begin{aligned}
+\Phi(g)=1
+&\quad\Longleftrightarrow\quad
+g\text{ is a single 4-cycle, with all other points fixed},\\
+\Phi(g)=9/14
+&\quad\Longleftrightarrow\quad
+g\text{ is a single transposition or a product of two disjoint 3-cycles}.
+\end{aligned}
+\tag{36}
+\]
+
+Indeed, the independent checker enumerates the **complete** lower-contact list \((2),(3,3)\) and upper-contact list \((4)\) for all 44,582 finite partitions, not only one attaining partition. The primary checker independently enforces the same contact classification by exact integer equalities. The strict tail interval (21) excludes all additional contacts with at least 42 moved vertices. Thus (36) is a rigorous global statement for all \(n\ge6\), not finite evidence about larger degrees.
+
+**Theorem 6 (sharp-support rigidity and class-mass classification).** Fix \(n\ge6\). Let \(\nu\) be any law with the uniform all-rank subset-image marginals and let \(v=\nu-u\), \(\delta=\|v\|_{\rm TV}>0\). Suppose equality holds at the identity with **positive** atom deviation:
+
+\[
+v(e)=\frac5{14}\delta.
+\tag{37}
+\]
+
+Then the positive and negative Jordan parts of \(v\) have **necessarily** the supports
+
+\[
+\operatorname{supp}v_+\subseteq I\cup K,\qquad
+\operatorname{supp}v_-\subseteq T\cup E,
+\tag{38}
+\]
+
+where \(I,K,T,E\) are the four conjugacy classes in Section 4, and their **total class masses are rigid**:
+
+\[
+\boxed{
+\begin{aligned}
+v_+(I)&=\frac5{14}\delta,&
+v_+(K)&=\frac9{14}\delta,\\
+v_-(T)&=\frac67\delta,&
+v_-(E)&=\frac17\delta.
+\end{aligned}}
+\tag{39}
+\]
+
+In particular, if \(\nu\) is conjugation-invariant, its signed perturbation is **uniquely** of the form
+
+\[
+\boxed{v=\delta(P-Q)}
+\tag{40}
+\]
+
+with \(P,Q\) exactly as in (23). Negative-atom equality has the sign-reversed Jordan pattern; equality at any other \(\sigma\) is obtained by left-translation. No claim is made that (39) forces **individual class densities** to be uniform when \(\nu\) is noncentral.
+
+*Proof.* Let \(h(e)=1\), and \(h(g)=\Phi(g)\) for \(g\ne e\). In the chain
+
+\[
+v(e)=\int h\,dv
+=\int h\,dv_+-\int h\,dv_-
+\le 1\cdot\delta-\frac9{14}\delta=\frac5{14}\delta,
+\]
+
+equality forces \(v_+\) to be supported entirely on **upper contact points** of \(h\), and \(v_-\) entirely on **lower contact points**. The complete contact classification (36) gives (38).
+
+Normalize the positive and negative Jordan parts by \(\delta\). Let \(x=v_+(I)/\delta\) and \(y=v_-(T)/\delta\). The normalized two measures have total class-mass distributions
+
+\[
+xI+(1-x)K,\qquad yT+(1-y)E.
+\tag{41}
+\]
+
+The fixed-subset moments (5) vanish against \(v\), so the associated convex combinations of their cycle polynomials are **equal**. Divide this polynomial identity by the nonzero common factor \((1+z)^{n-6}\). The remaining four polynomials are
+
+\[
+(1+z)^6,\quad (1+z)^2(1+z^4),\quad
+(1+z)^4(1+z^2),\quad (1+z^3)^2
+\]
+
+for \(I,K,T,E\), respectively. Comparing coefficients of \(z\) and \(z^2\) gives the two exact equations
+
+\[
+6x+2(1-x)=4y,\qquad
+15x+1(1-x)=7y.
+\tag{42}
+\]
+
+The unique solution is \(x=5/14\), \(y=6/7\); the remaining masses follow from normalization. This proves (39) without any centrality assumption on \(\nu\).
+
+If \(\nu\) is central, its restriction to each conjugacy class is constant, so the class totals in (39) determine \(v\) completely and yield (40). Sign reversal and left translation give the other cases. QED.
+
+A partial converse is immediate and sharp: if a signed marginal-preserving perturbation has its positive part on the upper-contact set and its negative part on the lower-contact set, then every inequality in the displayed oscillation bound is an equality. Thus **the support criterion is also sufficient**, subject to the stated marginal equalities and nonnegativity of the resulting probability law.
+
+## 10. Weaker invariant-subset moment constraints: precise scope
+
+The dual upper bound uses only the \(n+1\) **aggregate** constraints
+
+\[
+\mathbb E_\nu A_r(g)=\mathbb E_u A_r(g)=1,
+\qquad 0\le r\le n.
+\tag{43}
+\]
+
+By complementarity \(A_r(g)=A_{n-r}(g)\) and the tautological \(A_0=A_n=1\), only the \(\lfloor n/2\rfloor\) nontrivial constraints matter. The same four-class probability perturbation (23) obeys these aggregate equations. Therefore:
+
+**Corollary 7 (a still weaker sharp identity-atom theorem).** For every \(n\ge6\), the **identity-atom** inequality
+
+\[
+\boxed{\left|\nu(e)-\frac1{n!}\right|
+\le\frac5{14}\|\nu-u\|_{\rm TV}}
+\tag{44}
+\]
+
+is sharp even if (43), rather than full subset-image marginal uniformity, is the **only** hypothesis.
+
+However, (44) cannot be promoted to every other atom under (43) alone. Indeed, for two distinct **conjugate nonidentity** permutations \(\sigma,\tau\), the perturbation \(v=\delta(\mathbf1_{\{\sigma\}}-\mathbf1_{\{\tau\}})\) (with \(\delta>0\) sufficiently small) annihilates every central function \(A_r\), but has atom/TV ratio **1 at \(\sigma\)**. Thus the full image-marginal hypothesis is essential for the every-atom assertions of Theorems 1 and 5. This distinction is part of the precise theorem scope, not an unstated assumption.
