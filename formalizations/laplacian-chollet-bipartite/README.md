@@ -73,3 +73,24 @@ The addition [BlockClosureAlgebra.lean](src/BlockClosureAlgebra.lean) formalizes
 **one_point_sum_algebra**: under the corresponding two-block strong-minor and singleton-pivot inequalities and explicit nonnegativity conditions, the exact one-point-sum squared-permanent upper expression `Q1*T2 + T1*Q2 + 2*a1*a2*T1*T2` is dominated by `h1*h2*(a1+a2)*(P1*R2+R1*P2)`. This handles arbitrary real parameters and includes zero diagonals.
 
 Both statements compile using pinned Lean 4.34.1 and Mathlib. Their `#print axioms` listings contain only `propext`, `Classical.choice`, and `Quot.sound`; there are no admitted proofs. **The statements are algebraic lemmas with precisely stated premises, not purported proofs that the full matrix permanent satisfies those premises.** In particular the permanent gluing identities and Lieb's PSD singleton inequality remain unformalized, so the arbitrary-graph strong Chollet theorem remains out of reach in the current Lean package.
+
+
+## Exact matrix-level permanent update and diagonal-stability theorem
+
+Three additional source modules extend the original graph proof to a fully general real-matrix algebraic step, with all missing assumptions explicit.
+
+1. [PermanentDiagonal.lean](src/PermanentDiagonal.lean) proves, for arbitrary finite-index square real matrices A and arbitrary t, the exact linear dependence of \`Matrix.permanent\` on a single diagonal entry. Its coefficient is a sum over permutations fixing that vertex; this identity is proved from the Mathlib permutation-sum definition.
+2. [CofactorOption.lean](src/CofactorOption.lean) proves that the fixed-vertex coefficient, when the distinguished vertex is \`Option.none\`, equals **the permanent of the genuine principal deletion**. The proof uses Mathlib's exact permutation decomposition of \`Option α\`, not an external certificate.
+3. [PermanentDiagonalMinor.lean](src/PermanentDiagonalMinor.lean) combines this with [Reindex.lean](../laplacian-chollet-triangle/Reindex.lean) to prove the universally quantified exact identity for any square real matrix and any distinguished index:
+
+   \[
+   \operatorname{per}(A+tE_{vv})
+   =\operatorname{per}(A)+t\operatorname{per}(A[V\setminus\{v\}]).
+   \]
+
+   No assumption of PSD, symmetry, nonnegativity or nonzero diagonal entries is imposed.
+4. [PermanentDiagonalStability.lean](src/PermanentDiagonalStability.lean) upgrades the previously published scalar closure lemma to the **literal Mathlib matrix permanent**. The theorem \`Chollet.strongChollet_diagonalBump_of_pivot\` states that the strong inequality for a matrix and its genuine principal deletion, plus nonnegative diagonal entries and the explicit *singleton permanent pivot inequality* \(\operatorname{per}(A)\ge A_{vv}\operatorname{per}(A[V\setminus\{v\}])\), implies that increasing \(A_{vv}\) by any \(t\ge0\) preserves strong Chollet on that matrix. It proves the exact squared-matrix update \((A+tE_{vv})\circ(A+tE_{vv})=(A\circ A)+(2A_{vv}t+t^2)E_{vv}\) and the updated diagonal-product formula inside Lean.
+
+All four source files were actually compiled with pinned Lean 4.34.1 and Mathlib commit \`d13f23b723b8a846827a245b89c10fc7d3f11612\`. The final statements \`permanent_diagonalBump_principal\` and \`strongChollet_diagonalBump_of_pivot\` passed \`#print axioms\` with only \`propext\`, \`Classical.choice\`, and \`Quot.sound\`; no source uses \`sorry\`, admitted proofs, or custom axioms.
+
+**Important open dependency:** the singleton pivot bound is not asserted for all PSD matrices here. It is an explicit theorem hypothesis. Likewise, the universal one-point graph block permanent identities are NOT claimed completed. The overall all-finite-graphs strong Chollet theorem remains unformalized.
