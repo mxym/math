@@ -1,0 +1,73 @@
+{
+  "title": "Sharp Chebyshev atom moduli for fixed-rank subset actions",
+  "release_date": "2026-10-08",
+  "status": "AI-assisted complete proof draft; no external peer review, no novelty priority certification",
+  "theorems": [
+    "All fixed k>=1: sharp leading asymptotic C_{n,k}=1-2k^2/n+O_k(n^-2) (Theorem 25)",
+    "Every n,k: exact two-state transfer matrix orbital identity, cycle compression O_k(n^k) (Theorem 30)",
+    "Exact optimum for every n=4,...,64 at k=4 (Theorem 31; complementary n=4..7 and 57 rational finite certificates n=8..64)"
+  ],
+  "artifacts": [
+    {
+      "path": "notes/sharp-robust-permanent/focused-paper/paper.pdf",
+      "sha256": "a25586b8a78e1d3f52b6217ebedcf66f2de1e86b8b68f321f342ef1d99ab4be6",
+      "git_blob_sha": "ac2976278868d23d57466bb9699b439a3776900e",
+      "pages": 22
+    },
+    {
+      "path": "notes/sharp-robust-permanent/focused-paper/paper.md",
+      "sha256": "2c2aab0ed0220e5a79770b1362d3bdd59aabbbffa473549195da2a5cde6f2a60",
+      "git_blob_sha": "d18d7de5f6a3750753e367b0d9eed65ebcb5be85"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/paper.md",
+      "description": "Full proof dossier Theorems 1-31"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_k4_chebyshev_dual.py",
+      "description": "Exact algebra and rational primal checks"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_all_k_orbital_compression.py",
+      "description": "Exact integer transfer-matrix checker"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/certificates/four_subset_n8_64.json",
+      "description": "57 frozen rational primal-dual certificates"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_four_subset_n8_64.py",
+      "description": "Optimizer-free exhaustive finite certificate checker"
+    }
+  ],
+  "fresh_replay": {
+    "fixed_rank4": {
+      "degrees": "8..64",
+      "compressed_types": 440670,
+      "success": true
+    },
+    "all_rank_orbital_integer": {
+      "degrees": "3..12",
+      "rank_limit": 6,
+      "success": true
+    },
+    "k4_corrected_chebyshev": {
+      "degrees_tested": [
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920
+      ],
+      "success": true
+    },
+    "public_markdown_pdf_rebuild": {
+      "pages": 22,
+      "success": true,
+      "bitwise_pdf_identical": false,
+      "notes": "Compilation is reproducible as a document. Bitwise PDF differences from TeX metadata are explicitly allowed."
+    }
+  },
+  "trust_boundary": "The all-k theorem is analytic, finite certificates are exact checked computations; neither a Lean formalization nor external peer review has been performed."
+}
