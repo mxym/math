@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "controls_from_independently_extracted_v2": true,
+  "owned_artifact_origin": "producer fresh v1 run, all 123 actual regular files rehashed against BUILD.json; identical mathematical source verified between v1 and v2",
+  "full_owned_compilation_not_duplicated_by_reviewer": true,
+  "results": [
+    {
+      "control": "LiteralPositiveControls",
+      "exit_code": 0,
+      "intended_outcome": "PASS",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "control": "NegativeAbbreviationAsProof",
+      "exit_code": 1,
+      "intended_outcome": "type mismatch rejection",
+      "log_sha256": "36cedb820407758b4e8aa08d4b3a840a03c2abfb0be53dc36f65fdecd29d9af0"
+    },
+    {
+      "control": "NegativeConstantOmission",
+      "exit_code": 1,
+      "intended_outcome": "type mismatch rejection",
+      "log_sha256": "959322ed7db72bfd0cab983bada8ae982c426cd0a1a26f8f617b1b82013935a6"
+    },
+    {
+      "control": "NegativeWrongQuantifier",
+      "exit_code": 1,
+      "intended_outcome": "type mismatch rejection",
+      "log_sha256": "51df1f4c78835757743f19cfb6c5a24cadae2464e21fa44169e7cdb8437d7b51"
+    },
+    {
+      "control": "KernelNegativeControl",
+      "exit_code": 0,
+      "intended_outcome": "PASS",
+      "log_sha256": "d70a655bc077fa7334a048e107448dcdb282bf0b0e03f121492edb8709702a19"
+    }
+  ]
+}

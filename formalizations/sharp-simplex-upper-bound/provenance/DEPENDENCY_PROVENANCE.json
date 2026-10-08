@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "collected_date_utc": "2026-10-07",
+  "scope": "License and source provenance for the pinned Lean dependencies and the official Linux x86_64 Lean toolchain. No license for the original proof is granted by this inventory.",
+  "lockfile": {
+    "release_path": "project/formal/lake-manifest.json",
+    "sha256": "77dff81399a610f631302a0d71db235aa1373e983cd684cd471c2d5ed0cd95a6"
+  },
+  "toolchain": {
+    "name": "Lean 4",
+    "version": "4.34.1",
+    "toolchain_declaration": "leanprover/lean4:v4.34.1",
+    "repository_url": "https://github.com/leanprover/lean4",
+    "revision": "5045d0056413266e57c625dcd7c365b10e377c52",
+    "revision_evidence": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "source_url": "https://github.com/leanprover/lean4/tree/5045d0056413266e57c625dcd7c365b10e377c52",
+    "artifact_url": "https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst",
+    "artifact_sha256": "47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4",
+    "artifact_digest_evidence": "Pinned in the independently audited source reproduction script; not re-downloaded in this documentation pass.",
+    "notices": [
+      {
+        "bundled_path": "third_party_licenses/lean4/LICENSE",
+        "sha256": "8b28515ffffc5c0fe2807d8ae3735b00b324d9b7ce807dd63ff6ac8922fbce7e",
+        "bytes": 9160,
+        "upstream_path": "lean-4.34.1-linux/LICENSE",
+        "source_url": "https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst",
+        "verification": "Copied unchanged from the locally installed official-version distribution; the archive was not re-downloaded in this documentation pass.",
+        "license_identifier": "Apache-2.0"
+      },
+      {
+        "bundled_path": "third_party_licenses/lean4/LICENSES",
+        "sha256": "00cce2ac071f63d470a287438a7c6bbc4334706be244384e9af4fc9ead11cdce",
+        "bytes": 81854,
+        "upstream_path": "lean-4.34.1-linux/LICENSES",
+        "source_url": "https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst",
+        "verification": "Copied unchanged from the locally installed official-version distribution; the archive was not re-downloaded in this documentation pass.",
+        "license_identifier": "See the complete bundled LICENSES text (multiple component licenses)."
+      }
+    ]
+  },
+  "packages": [
+    {
+      "name": "mathlib",
+      "repository_url": "https://github.com/leanprover-community/mathlib4.git",
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "source_url": "https://github.com/leanprover-community/mathlib4/tree/d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "role": "direct Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/mathlib/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/LICENSE",
+          "git_blob_sha1": "8dada3edaf50dbc082c9a125058f25def75e625a",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "plausible",
+      "repository_url": "https://github.com/leanprover-community/plausible",
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "source_url": "https://github.com/leanprover-community/plausible/tree/118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/plausible/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/plausible/blob/118aa17ee84656b8bd727fef7c458ee8c833385c/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "LeanSearchClient",
+      "repository_url": "https://github.com/leanprover-community/LeanSearchClient",
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "source_url": "https://github.com/leanprover-community/LeanSearchClient/tree/ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/LeanSearchClient/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/LeanSearchClient/blob/ddf04cf3949fa556442341e87d47f9f6e6074707/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "importGraph",
+      "repository_url": "https://github.com/leanprover-community/import-graph",
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "source_url": "https://github.com/leanprover-community/import-graph/tree/e928b72544873815af278d38681b31c0293588e3",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/importGraph/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/import-graph/blob/e928b72544873815af278d38681b31c0293588e3/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "bundled_path": "third_party_licenses/importGraph/html-template/LICENSE_source",
+          "sha256": "49110e6ed9990dbd0869c66bdae2882a9e74776094a12e87f25067979e777502",
+          "bytes": 1068,
+          "upstream_path": "html-template/LICENSE_source",
+          "source_url": "https://github.com/leanprover-community/import-graph/blob/e928b72544873815af278d38681b31c0293588e3/html-template/LICENSE_source",
+          "git_blob_sha1": "9c0b6d7205b531c3afbaef35b18acd460bc8d2a5",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "MIT"
+        }
+      ]
+    },
+    {
+      "name": "proofwidgets",
+      "repository_url": "https://github.com/leanprover-community/ProofWidgets4",
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "source_url": "https://github.com/leanprover-community/ProofWidgets4/tree/106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/proofwidgets/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/ProofWidgets4/blob/106ff4fafc74ef4ac99d81dbf3ab399118f497a5/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "aesop",
+      "repository_url": "https://github.com/leanprover-community/aesop",
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "source_url": "https://github.com/leanprover-community/aesop/tree/355695d523e41d0554926416cba2a2b3544fbbc9",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/aesop/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/aesop/blob/355695d523e41d0554926416cba2a2b3544fbbc9/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "Qq",
+      "repository_url": "https://github.com/leanprover-community/quote4",
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "source_url": "https://github.com/leanprover-community/quote4/tree/6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/Qq/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/quote4/blob/6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "batteries",
+      "repository_url": "https://github.com/leanprover-community/batteries",
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "source_url": "https://github.com/leanprover-community/batteries/tree/f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/batteries/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover-community/batteries/blob/f2effa3d803fda822b1f97b806c47cf2adfbcbc2/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "name": "Cli",
+      "repository_url": "https://github.com/leanprover/lean4-cli",
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "source_url": "https://github.com/leanprover/lean4-cli/tree/e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "role": "transitive Lean dependency",
+      "notices": [
+        {
+          "bundled_path": "third_party_licenses/Cli/LICENSE",
+          "sha256": "f7e95706807e931782b6efd9a9d2789508a52423ad67b56ee7e5e324362d4aac",
+          "bytes": 1062,
+          "upstream_path": "LICENSE",
+          "source_url": "https://github.com/leanprover/lean4-cli/blob/e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204/LICENSE",
+          "git_blob_sha1": "98b19b60b19889fb74443ff5fe2cf36babf017f9",
+          "verification": "Byte-identical to the tracked file at the manifest commit; cached checkout origin and HEAD checked.",
+          "license_identifier": "MIT"
+        }
+      ]
+    }
+  ],
+  "path_base": "Package root (formalizations/sharp-simplex-upper-bound).",
+  "repository_attribution_policy": {
+    "repository": "https://github.com/mxym/math",
+    "checked_commit": "cdf26c1a1e2f7e90a4ee7c76f1db7688f92e368f",
+    "checked_date_utc": "2026-10-07",
+    "files": [
+      {
+        "path": "NOTICE.md",
+        "source_url": "https://github.com/mxym/math/blob/cdf26c1a1e2f7e90a4ee7c76f1db7688f92e368f/NOTICE.md",
+        "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+        "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+        "bytes": 1162
+      },
+      {
+        "path": "third_party_licenses/openai_math_LICENSE.txt",
+        "source_url": "https://github.com/mxym/math/blob/cdf26c1a1e2f7e90a4ee7c76f1db7688f92e368f/third_party_licenses/openai_math_LICENSE.txt",
+        "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+        "bytes": 11358
+      }
+    ],
+    "release_description": "maintained in mxym/math; developed with AI assistance",
+    "scope": "Preserve the existing root NOTICE and upstream OpenAI/math license. Existing Apache-2.0 terms apply to inherited material; no new blanket license or personal author attribution is added.",
+    "notice_copy": {
+      "bundled_path": "third_party_licenses/repository_NOTICE.md",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca"
+    }
+  },
+  "inherited_mathematical_material": {
+    "name": "OpenAI/math",
+    "repository_url": "https://github.com/OpenAI/math",
+    "revision": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "policy_source": "mxym/math root NOTICE at the recorded checked commit",
+    "license_identifier": "Apache-2.0",
+    "upstream_path": "LICENSE",
+    "bundled_path": "third_party_licenses/openai_math_LICENSE.txt",
+    "source_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/LICENSE",
+    "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357,
+    "verification": "Fetched exact pinned upstream LICENSE through the GitHub connector; Git blob SHA-1 recomputed from bytes. License text agrees with mxym/math retained copy, whose additional final newline is recorded by its own hash."
+  }
+}

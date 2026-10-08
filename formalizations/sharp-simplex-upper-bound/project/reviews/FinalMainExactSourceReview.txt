@@ -1,0 +1,83 @@
+ENTRY005 FINAL UPPER MAIN: EXACT-SOURCE INDEPENDENT REVIEW
+2026-10-07. Verdict: PASS. No outstanding blocker within this review scope.
+
+Exact source hashes:
+SharpUpperMain.lean
+  03d5ac8ccde7b92d7f5084a50e9aa841ad539684a8582a98d0546431c170a2aa
+SharpMainRetentionAssembly.lean
+  92c7338e28b397b0d2e4e002ed3e16aab8f7fd1a818dc73371a5a50e8c1beeae
+
+The two exact source copies were independently recompiled using pinned Lean
+4.34.1 with -DautoImplicit=false into fresh owned regular olean outputs.
+Dependencies were reused read-only from the full incoming cache. Both exits
+are 0 with empty logs and zero warnings. MainTarget.lean was also copied and
+compiled to a fresh owned output, exit 0 and empty log.
+
+FinalMainAudit.lean independently checks all six source theorem signatures,
+the MainTarget alias, and five external literal target checks. All twelve
+axiom records contain only propext, Classical.choice, Quot.sound. Audit exit
+0, no warnings/errors. The checks prove exact inhabitation of sharpMainGoal,
+MainTarget and sharpLocalGoal. Two further literal statements unfold the
+original-centroid sInf/homothety expression and the original actual
+pyramid/projection-ratio defect, respectively. Neither uses an assumed local,
+coarse, cone-law, scale, cap, retention or Main conclusion.
+
+SEMANTIC FINDINGS
+* sharpMain introduces arbitrary d>=3, compact convex K with nonempty interior,
+  and EVERY prescribed actual maximum simplex S. It does not return an
+  existential or preferred simplex. Its inputs are exactly those of the
+  original sharpMainGoal. The local theorem is the original sharpLocalGoal.
+* sharpLocal normalizes the supplied S via an actual affine equivalence,
+  preserves its actual maximality, derives the R0 containing ball, and pulls
+  back both entryDefect and excess via their proved equalities. The center
+  remains that original S.centroid; the literal external check exposes it
+  inside the infimum and homothety, without replacing it by K's or P's center.
+* normalized_sharp_upper_local takes one actual joint compact-limit mu,phi
+  and its raw law, support anchors w and assignment. It derives actual
+  normalized directional roundness and the ball-containing hull on those
+  same w, constructs an actual enclosing polar simplex, and passes that same
+  mu,phi,w,assignment to the direct radial cap. No independent existential
+  law or separately selected determinant witness is equated to this one.
+* I read the consumed PolarSimplexConstruction source (hash
+  25c218de019a59683a5ff589c4c398e91fec9f79b3c511cc4424c02b2d992e67):
+  its affine basis is built from the supplied w; positive origin barycentric
+  weights follow from the actual ball-containing hull. Actual dual gradients
+  construct polar vertices, their affine independence and exact halfspace
+  carrier are proved. Unit-ball containment, radius M, injective normalized
+  normals, positive heights, exact n_i/h_i=w_i and sigma_P(w_i)=1 are derived.
+  Thus the former explicit enclosing-geometry interface is genuinely supplied
+  by a construction, not retained as an assumption in final Main.
+* The consumed ActualFiniteEnclosingRadialCap passes the same strong cost to
+  actual_body_original_scale_of_strong_same_assignment, independently reviewed
+  earlier. Actual facet-weight centering/correction supplies brightness and
+  the 1/2 ceiling; the original scale/cap algebra supplies the actual Hausdorff
+  bound. No finite Minkowski or first-variation obligation is supplied to
+  normalized_sharp_upper_local, sharpLocal or sharpMain. An older conditional
+  Minkowski module remains an import of shared scalar helpers but is not
+  invoked by this proof chain.
+* Retention is applied to the originally prescribed S, a genuine enclosing P,
+  actual cap distance and the proved original threshold d*rho<=1/8. It obtains
+  vertex bounds from P's actual carrier radius and invokes the actual
+  Hausdorff shrink and maximum-volume retention at S.centroid. Its cap premise
+  is discharged by normalized_sharp_upper_local, not left in sharpMain.
+* Nonnegative actual entryDefect follows from the normalized actual-body
+  first-moment theorem and affine invariance. The actual coarse bound for
+  the same S and original global scalar gluing finish sharpMain. Zero error
+  is included throughout; no division by the error or assignment budget occurs.
+* Original Constants.lean and Targets.lean are byte-identical between the
+  baseline root formal tree and incoming exact sources, hashes respectively
+  b3cdc026d3b5be2f495e8613bd98f36408b6ece56811adc1b562994fc447425e and
+  8bc873bff65384b67b05d3d4fd405bdf9c728e0befb0e6ac355373fa3ded7c94.
+  Original gSharp/aSharp/eSharp and exponent 1/(d-1) therefore remain literal.
+
+SCOPE
+This is an independent source/statement review and fresh recompilation of
+the final two modules (six proofs), plus the alias and literal target checks.
+It does not re-audit the separate B714 dependency corpus or re-count the
+parent's full release. Its axiom checks are transitive for the final theorem.
+Some earlier geometric and probability dependencies were authored by this
+agent and independently reviewed elsewhere; this review independently covers
+the new final assembly and retention, which were authored by the root.
+The unconditional sharp UPPER Main target is closed within the recorded exact
+proof environment. The separate truncationSharpnessGoal is outside this task.
+No shared source/build or earlier frozen report was modified.

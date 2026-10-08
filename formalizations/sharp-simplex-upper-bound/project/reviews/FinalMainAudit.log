@@ -1,0 +1,51 @@
+Entry005.original_cap_radius_retention_gate {d : ℕ} (hd : 2 ≤ d) (e : ℝ) (he : 0 ≤ e) (hsmall : e ≤ Entry005.eSharp d) :
+  ↑d * (Entry005.L d * (Entry005.J d * (Entry005.Q d * (↑d + 1) * e)) ^ (1 / ↑(d - 1))) ≤ 1 / 8
+'Entry005.original_cap_radius_retention_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.normalized_maximum_simplex_excess_of_original_cap {d : ℕ} (hd : 2 ≤ d) (K : ConvexBody (Entry005.Space d))
+  (P S : Affine.Simplex ℝ (Entry005.Space d) d) (hmax : Entry005.maximumInscribed K S)
+  (hKP : ↑K ⊆ Entry005.simplexSet P) (hPM : Entry005.simplexSet P ⊆ closedBall 0 (Entry005.M d))
+  (hcentroid : S.centroid = 0) (hbS : closedBall 0 1 ⊆ Entry005.simplexSet S) (e : ℝ) (he : 0 ≤ e)
+  (hsmall : e ≤ Entry005.eSharp d)
+  (hcap :
+    hausdorffDist (↑K) (Entry005.simplexSet P) ≤
+      Entry005.L d * (Entry005.J d * (Entry005.Q d * (↑d + 1) * e)) ^ (1 / ↑(d - 1))) :
+  Entry005.excess (↑K) S ≤ Entry005.aSharp d * e ^ (1 / ↑(d - 1))
+'Entry005.normalized_maximum_simplex_excess_of_original_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.normalized_sharp_upper_local {d : ℕ} [Nontrivial (Entry005.Space d)] (hd : 2 ≤ d)
+  (K : ConvexBody (Entry005.Space d)) (S : Affine.Simplex ℝ (Entry005.Space d) d) (hmax : Entry005.maximumInscribed K S)
+  (hcentroid : S.centroid = 0) (hbS : closedBall 0 1 ⊆ Entry005.simplexSet S)
+  (hbound : ↑K ⊆ closedBall 0 (Entry005.R0 d)) (hsmall : Entry005.entryDefect ↑K ≤ Entry005.eSharp d) :
+  Entry005.excess (↑K) S ≤ Entry005.aSharp d * Entry005.entryDefect ↑K ^ (1 / ↑(d - 1))
+'Entry005.normalized_sharp_upper_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.sharpLocal : Entry005.sharpLocalGoal
+'Entry005.sharpLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_entryDefect_nonnegative_of_prescribed_maximum {d : ℕ} (hd : 1 ≤ d) (K : ConvexBody (Entry005.Space d))
+  (S : Affine.Simplex ℝ (Entry005.Space d) d) (hmax : Entry005.maximumInscribed K S) : 0 ≤ Entry005.entryDefect ↑K
+'Entry005.actual_entryDefect_nonnegative_of_prescribed_maximum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Entry005.sharpMain : Entry005.sharpMainGoal
+'Entry005.sharpMain' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.MainTarget : Prop
+'Entry005.MainTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.FinalMainIndependentReview.original_goal : Entry005.sharpMainGoal
+'Entry005.FinalMainIndependentReview.original_goal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.FinalMainIndependentReview.named_target : Entry005.MainTarget
+'Entry005.FinalMainIndependentReview.named_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.FinalMainIndependentReview.original_local_goal : Entry005.sharpLocalGoal
+'Entry005.FinalMainIndependentReview.original_local_goal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.FinalMainIndependentReview.literal_original_centroid (d : ℕ) (hd : 3 ≤ d) (K : ConvexBody (Entry005.Space d))
+  (hK : (interior ↑K).Nonempty) (S : Affine.Simplex ℝ (Entry005.Space d) d) (hS : Entry005.maximumInscribed K S) :
+  sInf {t | 0 ≤ t ∧ ↑K ⊆ (fun x => S.centroid + (1 + t) • (x - S.centroid)) '' (convexHull ℝ) (Set.range S.points)} ≤
+    Entry005.gSharp d * Entry005.entryDefect ↑K ^ (1 / ↑(d - 1))
+'Entry005.FinalMainIndependentReview.literal_original_centroid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Entry005.FinalMainIndependentReview.literal_actual_defect (d : ℕ) (hd : 3 ≤ d) (K : ConvexBody (Entry005.Space d))
+  (hK : (interior ↑K).Nonempty) (S : Affine.Simplex ℝ (Entry005.Space d) d) (hS : Entry005.maximumInscribed K S) :
+  Entry005.excess (↑K) S ≤
+    Entry005.gSharp d *
+      ((↑d / (↑d + 1)) ^ d * Entry005.projectionRatio (Entry005.pyramidSet ↑K) / Entry005.projectionRatio ↑K - 1 -
+          1 / (↑d + 1)) ^
+        (1 / ↑(d - 1))
+'Entry005.FinalMainIndependentReview.literal_actual_defect' depends on axioms: [propext, Classical.choice, Quot.sound]

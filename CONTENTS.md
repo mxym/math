@@ -1,5 +1,9 @@
 # Manuscript catalogue
 
+## Original sharp simplex stability upper theorem
+
+[Complete upper Main formalization](formalizations/sharp-simplex-upper-bound/README.md), with the actual geometric body/defect, every caller-prescribed globally maximum inscribed simplex, that simplex's own centroid, the original gSharp and exponent 1/(d−1). Read the [exact theorem](formalizations/sharp-simplex-upper-bound/THEOREM.md), [proof roadmap](formalizations/sharp-simplex-upper-bound/PROOF_ROADMAP.md), [literal Lean endpoint](formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpUpperMain.lean), [independent final-copy review](verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md), [release manifest](releases/2026-10-08-sharp-simplex-upper-bound-v2.json) and [source archive](releases/2026-10-08-sharp-simplex-upper-bound-source-v2.tar.gz). The separately scoped [truncation sharpness proof](formalizations/simplex-truncation-sharpness/README.md) is not merged or counted in this upper package.
+
 ## Sharp small-radius Z[sqrt(-2)] graph and optimal sieve lists
 
 The [complete note, witnesses and checker](notes/sqrt-minus-two-sharp-moats/README.md)

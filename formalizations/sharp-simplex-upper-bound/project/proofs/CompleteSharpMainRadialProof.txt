@@ -1,0 +1,376 @@
+ENTRY005: COMPLETE WRITTEN UPPER MAIN ASSEMBLY BY RADIAL FACET CONES
+Independent mathematical review, 2026-10-07.
+
+Status: the written upper-bound argument below is complete relative to the
+already proved actual-geometry and actual-probability primitives identified
+in section 1. No logical obstruction was found. This report is a written
+proof, not a new Lean theorem or a claim that sharpMainGoal has been inhabited.
+In particular, the new radial scale assembly and the explicit polar-simplex
+construction below must be represented by proof terms before an unconditional
+kernel-checked Main claim. Neither Brunn--Minkowski, Minkowski first variation,
+nor any external paper is a premise of the argument below.
+
+Throughout, volume and projected volume mean actual canonical Euclidean
+Lebesgue measure, and support means sigma_C(x)=max_{y in C}<x,y>.
+The finite cone probabilities and iid moments are actual measures, not
+formal kernels. Euclidean raw coordinates are identified by WithLp.toLp 2.
+
+1. Statement, constants, and consumed actual primitives
+
+Fix d>=3, a compact convex body K with nonempty interior, and ANY prescribed
+maximum-volume inscribed full-dimensional simplex S. Write c_S for the
+centroid of THIS S. Let e=entryDefect(K), r=1/(d-1), and let E(K,S) be the
+actual infimum of t>=0 for which K is contained in
+c_S+(1+t)(S-c_S). The desired conclusion is
+
+  E(K,S) <= gSharp(d) e^r.
+
+Use exactly the original constants, without enlargement or replacement:
+
+  R0=d(d+1), b=1/[4(d R0)^d], M=1/b,
+  c=(d+1)(d+2), Q=c 8^d M^(4d), L=(d-1)(M+1),
+  J=(d/2)(2R0)^d [1+M+d 2^(d-1) M],
+  rSharp=min(b, 1/[J(8MdL)^(d-1)]),
+  eSharp=rSharp/[Q(d+1)],
+  aSharp=4MdL [JQ(d+1)]^r,
+  gSharp=max(aSharp,(R0-1)eSharp^(-r)).
+
+These are literal definitions in Entry005/Constants.lean. In particular
+M>=1, all relevant constants are positive, and d-1 is positive.
+
+Consumed primitives and their actual scope:
+
+* RegularSimplex, MaximumOuterBall, PrescribedSimplex, HausdorffRetention,
+  and EntryAffineInvariance give actual affine normalization of the prescribed
+  S, actual Haar-volume maximality, actual Hausdorff shrink and vertex matching,
+  and invariance of entryDefect and of its original-centroid excess.
+* ActualPyramidJointCone.actual_body_joint_polar_pyramid_assignment supplies
+  ONE compact weak-limit law mu, ONE supporting-approximation subsequence phi,
+  its raw law nu, and the SAME supplied atoms w and measurable assignment.
+  This includes actual A/B moment identities, positivity, brightness,
+  unit-ball support, centering and fixed-K polar-boundary support.
+* HalfspaceApproximationSequence supplies actual finite bodies Q_m cut out by
+  unit normals with heights sigma_K(n_i), their actual finite cone laws, and
+  convergence of volumes along the same phi.
+* FacetRadialMass supplies compact actual facet cones C_i, their volume
+  h_i area(F_i)/d, actual volume decomposition, and hence actual probabilities
+  p_i=volume(C_i)/volume(Q_m).
+* CenteredAtomCorrection and FiniteHalfspaceCenteredCorrection supply the
+  SAME-atom centered correction and its identification with actual facet
+  weights when the actual atom identity n_i/h_i=w_i is supplied.
+* ProjectionCap supplies actual intrinsic projection cap volume and the
+  Hausdorff estimate L eta^r. ProjectionScaleAssembly supplies the final
+  algebra from scale and normalized brightness to the ORIGINAL J.
+* SharpConstantGates supplies the original small-error and threshold bounds
+  and the global scalar gluing. Those six proofs were independently strictly
+  recompiled and checked for standard axioms only in this agent's earlier
+  isolated review; no new mathematical premise is added by their threshold.
+
+The B/pyramid formulas are consumed as verified source lemmas. This report
+does not reprove facet B formulas or perform their separate kernel audit.
+
+2. Normalize the prescribed S and derive the coarse bound
+
+Take the actual invertible affine map f which sends the vertices of the
+prescribed S to the regular simplex with centroid zero and unit inradius.
+Replace (K,S) temporarily by (f(K),f(S)). The actual normalized S has
+centroid 0, contains the unit ball, and has vertex norms d. Maximality is
+preserved: every simplex in f(K) pulls back to one in K, and every actual
+volume is multiplied by the same positive determinant factor.
+
+For x in normalized K each actual barycentric coordinate of x relative to
+S has absolute value at most 1. Otherwise replacing that vertex by x would
+give an actual contained simplex with volume |coordinate| times volume(S),
+contradicting maximality. The barycentric reconstruction of x consequently
+gives ||x||<=sum_{i=0}^d ||S_i||<=d(d+1)=R0. Thus
+
+  unitBall subset S subset K subset R0 unitBall.
+
+It follows directly that K subset R0 S and E(K,S)<=R0-1. This holds for
+every prescribed maximum S; it does not choose a preferred maximum.
+
+The affine map sends the literal original centroid c_S to 0 and intertwines
+homotheties at c_S with homotheties at 0. It follows that excess is exactly
+unchanged. EntryDefect is also exactly unchanged, by actual projection-body
+covariance and the actual apex-fixing affine pyramid lift. We restore these
+equalities in section 10; no Hausdorff-invariance assertion is needed.
+
+3. Use one actual cone law and its strong assignment; e is nonnegative
+
+Apply the joint actual cone-law theorem to normalized K. Let nu be its raw
+probability. It is centered, supported in the Euclidean unit ball, and has
+support on sigma_K(x)=1. For every unit u it has the exact brightness identity
+
+  k(u):=int max(0,-<u,x>) dnu = PV(K,u)/(d volume(K)).
+
+Its actual horizontal and affine iid FIRST absolute-determinant moments A,B
+satisfy A>0, B>=A and
+
+  entryA(K)=B/[(d+1)A],
+  D=B-A=(d+1)A e,       B=A[1+(d+1)e].
+
+B>=A follows from centered iid integration and |int determinant|<=int|det|;
+it is the proved centered_iid_lifted_moment_ge_horizontal primitive. Hence
+e>=0. Put t=(d+1)e>=0. The SAME joint theorem supplies affinely independent
+w_0,...,w_d in the actual support of nu, with ||w_i||<=1, and a measurable
+assignment a(x) into those SAME indices such that the actual cost
+
+  epsilon:=int ||x-w_{a(x)}|| dnu
+    <= c D/B = c t/(1+t).                         (3.1)
+
+Every supplied w_i satisfies sigma_K(w_i)=1 by fixed-body support membership.
+All these statements use the original mu and phi. No other cone law or
+independently chosen determinant witness is substituted later.
+
+For the local argument assume e<=eSharp and define h=Q t=Q(d+1)e. The original
+budget gives 0<=h<=rSharp<=b and Mh<=1. Since Q>=c, (3.1) also gives
+epsilon<=h. Retain (3.1) itself: the stronger cost, not just epsilon<=h, is
+essential to the radial scale absorption in section 7.
+
+4. Roundness of the SAME supplied atoms
+
+The projection of the unit ball onto u-perp contains its intrinsic cube of
+side 2/d, so its intrinsic (d-1)-volume is at least (2/d)^(d-1). The actual
+volume of K is at most (2R0)^d by its containing coordinate cube. Therefore
+
+  k(u)>= (2/d)^(d-1)/[d(2R0)^d]
+       =1/[2(d R0)^d]=2b.
+
+Let p_i=nu{a(x)=i}, the actual assigned pushforward singleton probabilities.
+They are nonnegative and sum to 1. The negative-part directional test is
+1-Lipschitz, so its assigned weighted mean differs from k(u) by at most
+epsilon<=h<=b. Therefore sum_i p_i max(0,-<u,w_i>)>=b for every unit u.
+In particular some w_i has <u,w_i><=-b. Replacing u by -u shows that the
+support function of C=conv(w_0,...,w_d) is at least b in every unit direction.
+The closed convex support-halfspace characterization gives
+
+  b unitBall subset C.
+
+This is exactly the same supplied w; it neither reselects a witness nor
+derives the estimate from a separate determinant-moment witness.
+
+5. Explicit actual polar simplex P from those SAME w
+
+Define P={y:<w_i,y><=1 for every i}. From sigma_K(w_i)=1 one has K subset P.
+From ||w_i||<=1 one has unitBall subset P. If y in P, the preceding b-ball
+in C gives b||y||<=max_i<w_i,y><=1, so ||y||<=1/b=M. Thus P is a compact
+convex full-dimensional body with
+
+  unitBall subset K subset P subset M unitBall.          (5.1)
+
+Here is an explicit proof that P is a genuine d-simplex, including its
+nonredundant facets and exact support values. Since w is affinely independent
+and 0 is interior to C, its unique barycentric probabilities beta_i at 0 are
+all strictly positive. A zero coefficient would place 0 on a proper facet
+of C, contradicting b unitBall subset C. Hence sum beta_i=1 and
+sum beta_i w_i=0, with every beta_i>0.
+
+The linear map L_0:y |-> (<w_i,y>)_i is injective because the w_i span the
+ambient space. Its image is the d-dimensional hyperplane
+H={a:sum beta_i a_i=0}. For each j define a^j_i=1 for i!=j and
+a^j_j=1-1/beta_j. This vector is in H; let v_j be its unique preimage.
+All v_j are in P. For y in P let lambda_j=beta_j(1-<w_j,y>). Then every
+lambda_j>=0, sum lambda_j=1, and coordinatewise
+
+  L_0(sum lambda_j v_j)_i=1-lambda_i/beta_i=<w_i,y>.
+
+Injectivity gives y=sum lambda_j v_j. Thus P=conv(v_0,...,v_d).
+These v_j are affinely independent: for a linear relation with coefficient
+sum zero, its ith L_0 coordinate is -coefficient_i/beta_i. All coefficients
+therefore vanish. Consequently P is an actual full-dimensional simplex.
+
+Since d>=1, for each i there is j!=i and <w_i,v_j>=1; hence sigma_P(w_i)=1.
+Every w_i is nonzero, already implied by sigma_K(w_i)=1. Take the actual
+normalized presentation n_i=w_i/||w_i||, H_i=1/||w_i||. Its facet inequalities
+are exactly those defining P, n_i/H_i=w_i, ||n_i||=1, and H_i>=1>0.
+The normals are injective: equal normalized normals would make w_i and w_j
+positive multiples; sigma_P(w_i)=sigma_P(w_j)=1 forces that multiple to be 1,
+contradicting affine independence. This supplies the explicit atom identity
+required by the actual finite-halfspace weight wrapper, rather than assuming
+that the selected atoms are facet normals of an unspecified body.
+
+6. Center the assigned weights and identify the ACTUAL P cone law
+
+Let z=sum p_i w_i. Centering of nu and integral norm bounds give ||z||<=epsilon
+<=h. When h>0 the point -z/(Mh) lies in b unitBall subset C. Choose a genuine
+convex combination q on the SAME w with that mean and define
+
+  beta'_i=(p_i+Mh q_i)/(1+Mh).
+
+These are probabilities with mean zero. For every finite test 0<=f_i<=1,
+the difference of its beta' and p averages is
+[Mh/(1+Mh)] times the difference of its q and p averages, hence at most Mh.
+When h=0, ||z||=0 and beta'=p directly; no division by h is made.
+
+For unit u, apply this bound to f_i=|<u,w_i>| in [0,1]. The assigned p
+absolute directional average differs from int|<u,x>| dnu by at most epsilon
+<=h, by Cauchy--Schwarz and the actual assignment cost. Since both beta' and
+nu have zero mean, their negative directional averages equal half their
+absolute averages. Their difference is therefore at most (M+1)h/2.
+
+The actual finite-halfspace cone weights of P are
+
+  gamma_i=area(F_i) H_i/[d volume(P)].
+
+Actual facet mass and normal balance prove gamma>=0, sum gamma=1 and
+sum gamma_i(n_i/H_i)=sum gamma_i w_i=0. Affine independence makes any two
+sum-one, zero-mean weights on the SAME w equal. Hence gamma=beta'. The actual
+cone law of P is exactly sum gamma_i delta_{w_i}; no body-law identification
+is assumed. Its actual Cauchy/brightness formula yields, for unit u,
+
+  p(u):=PV(P,u)/(d volume(P)),
+  |p(u)-k(u)|<=(M+1)h/2,       p(u)<=1/2.               (6.1)
+
+The ceiling follows from centering and |<u,w_i>|<=1: the negative average
+is half an absolute average bounded by 1. In the endpoint h=0 the correction
+and the actual brightness equality are exact.
+
+7. Radial finite-cone volume estimate: no first variation or Minkowski
+
+Fix an actual supporting approximant Q=Q_{phi(m)} from the SAME retained
+subsequence. Write its finite unit normals n_i and exact heights
+h_i=sigma_K(n_i)>=1. Let F_i be its actual facet, C_i its actual radial cone
+{lambda q:0<=lambda<=1, q in F_i}, and let p_i=volume(C_i)/volume(Q).
+The actual cone-volume/decomposition identities give p>=0 and sum p=1,
+including empty or lower-dimensional facets with zero weights. Its actual
+law has mass p_i at x_i=n_i/h_i.
+
+Define s_i=sigma_P(n_i)/h_i=sigma_P(x_i). Since K subset P, h_i=sigma_K(n_i),
+h_i>=1 and P subset M unitBall, one has 1<=s_i<=M. No assertion Q subset P
+is required or used.
+
+For every nonzero y in P, the ray from 0 through y exits the compact Q at
+q=t_0 y for t_0>0. Explicitly the set of i with <n_i,y>>0 is nonempty:
+otherwise the entire positive ray is contained in Q, contrary to boundedness.
+Set t_0=min_{<n_i,y>>0} h_i/<n_i,y>. All h_i are positive, so t_0>0; q is in
+Q and lies on a minimizing facet F_i. Put lambda=1/t_0. Its active inequality
+and y in P give
+
+  lambda=<n_i,y>/h_i<=sigma_P(n_i)/h_i=s_i.
+
+Therefore y=s_i[(lambda/s_i)q] is in s_i C_i, since 0<lambda/s_i<=1.
+This covers y inside Q as well as outside Q. The origin can be added as a
+null singleton (ambient d>=1). Thus actual volume subadditivity and actual
+dilation scaling give
+
+  volume(P) <= sum_i s_i^d volume(C_i)
+            = volume(Q) sum_i p_i s_i^d.                (7.1)
+
+For 1<=s<=M and M>=1,
+
+  s^d-1=(s-1)sum_{j=0}^{d-1}s^j <= d M^(d-1)(s-1).
+
+Let I_m=int sigma_P(x) dnu_Q(x)=sum p_i s_i. Combining with (7.1) gives
+
+  volume(P)/volume(Q_{phi(m)})
+       <= 1+d M^(d-1)(I_m-1).                         (7.2)
+
+The support function sigma_P is continuous and M-Lipschitz, so its restriction
+to the fixed compact raw unit ball is a bounded continuous test. The SAME
+weak convergence mu,phi used for A, B, support, and assignment therefore gives
+I_m -> I=int sigma_P dnu. Actual volume(Q_{phi(m)}) -> volume(K)>0.
+Passing to the limit in (7.2) yields
+
+  alpha:=volume(P)/volume(K) <= 1+d M^(d-1)(I-1).
+
+Because sigma_P(w_i)=1, the actual assignment and M-Lipschitz continuity give
+I-1<=M epsilon. Also I>=1 since K subset P and nu is carried by sigma_K=1.
+Consequently
+
+  alpha-1 <= d M^d epsilon <= d M^d c t/(1+t).           (7.3)
+
+The ORIGINAL Q absorbs this factor: c M^(d-1)<=c 8^d M^(4d)=Q for M>=1.
+Since t>=0, (7.3) gives
+
+  1<=alpha<=1+d M Q t/(1+t)<=1+d M h<=(1+Mh)^d.         (7.4)
+
+The last inequality is the elementary Bernoulli inequality for Mh>=0.
+This is precisely the scale premise used by ProjectionScaleAssembly, with
+the original h=Q(d+1)e and all original constants. If one replaced the
+stronger cost (3.1) by epsilon<=h before (7.3), one would obtain an extra
+M^(d-1) and lose this conclusion; retaining (3.1) is essential.
+
+8. Actual absolute projection deficit and sharp Hausdorff exponent
+
+Put V=volume(K), alpha=volume(P)/V and the normalized brightnesses p,k from
+(6.1). K subset P implies alpha>=1. Since Mh<=1, (7.4) and the elementary
+power increment give alpha-1<=d 2^(d-1) M h. Therefore
+
+  PV(P,u)-PV(K,u)
+   =d V [alpha p(u)-k(u)]
+   =d V [(alpha-1)p(u)+(p(u)-k(u))]
+   <= (d/2) V [d 2^(d-1)M+(M+1)]h
+   <= J h,                                             (8.1)
+
+using V<=(2R0)^d. This is the ORIGINAL J, without any replacement.
+
+The actual projection cap lemma applied to unitBall subset K subset P subset
+M unitBall converts (8.1) to
+
+  hausdorffDist(K,P)<=rho:=L(Jh)^r.                      (8.2)
+
+For clarity, its genuine geometric mechanism is as follows. For q in P\K,
+choose a nearest point k in K and its unit separating normal n. Choose a
+unit u perpendicular to n, possible since d>=2. Projection to u-perp keeps
+the supporting gap s=||q-k||. The actual convex cap includes a disjoint
+intrinsic ball cap whose cube lower bound is [s/((d-1)(M+1))]^(d-1).
+The projection deficit at u bounds this quantity by Jh, giving
+s<=(d-1)(M+1)(Jh)^r. Taking the actual Hausdorff distance gives (8.2).
+No volume derivative, hidden smoothness, or body-surface representation is
+needed in this step.
+
+9. Retain EVERY prescribed maximum S about its original normalized centroid
+
+Since h<=rSharp<=1/[J(8MdL)^(d-1)],
+
+  rho=L(Jh)^r<=1/(8Md),          d rho<=1/(8M)<=1/8.
+
+The actual Hausdorff support estimate and unitBall subset P give
+sigma_K(u)>=sigma_P(u)-rho>=(1-rho)sigma_P(u) for unit u, since sigma_P(u)>=1.
+Hence (1-rho)P subset K. This shrink is about 0, which is precisely the
+centroid of the normalized originally prescribed S. As rho<1, the shrink
+is a genuine full-dimensional simplex. Maximality of THAT S gives
+
+  volume(S)/volume(P)>=(1-rho)^d>=1-d rho.
+
+The actual barycentric matrix of S in P has nonnegative columns of sum one
+and absolute determinant equal to this actual volume ratio. The proved
+near-permutation theorem at delta=d rho<=1/8 matches its vertices to those
+of P with column l1 error <=2d rho. Since all P vertices have norm <=M,
+the corresponding actual vertex distances are <=2Md rho. Convex hull and
+unitBall subset S therefore give
+
+  K subset P subset S+2Md rho unitBall subset (1+2Md rho)S.
+
+This uses maximality of every supplied S, not maximality or centroid of P,
+and no fresh maximum simplex is chosen. Consequently
+
+  E(K,S)<=2Md rho
+          <=2Md L[JQ(d+1)]^r e^r
+          =(aSharp/2)e^r<=aSharp e^r.                   (9.1)
+
+Thus the original aSharp even retains its factor-two slack. The original
+threshold gives aSharp eSharp^r<=1/2. For e=0 all costs and deficits vanish,
+rho=0 and the same retention argument gives E=0 exactly; none of the
+arguments in sections 7--9 divides by e or h.
+
+10. Global Main and restoration of the literal original centroid
+
+We proved e>=0 and the coarse bound E<=R0-1 for the prescribed S. If
+e<=eSharp, (9.1) gives E<=aSharp e^r<=gSharp e^r. If e>=eSharp>0, monotonicity
+of e^r gives
+
+  E<=R0-1<=(R0-1)eSharp^(-r)e^r<=gSharp e^r.
+
+All statements were obtained after normalization of this prescribed S.
+EntryDefect and the infimum defining original-centroid excess are exactly
+affine invariant under that same f. Pulling the final containment back gives
+K_original subset c_S+(1+2Md rho)(S_original-c_S), and pulling back the excess
+bound gives the precise target for the original K and this original S.
+Since S was arbitrary among the prescribed actual maxima, the universal
+quantifier over EVERY maximum simplex in sharpMainGoal is preserved.
+
+This closes the written upper Main proof with exponent 1/(d-1), the original
+gSharp/aSharp/eSharp and centroid, and no finite Minkowski or first-variation
+premise. It does not prove the separate truncationSharpnessGoal, and it does
+not by itself constitute a new Lean proof term for sharpMainGoal.

@@ -1,5 +1,15 @@
 # Verification status
 
+## Original sharp simplex upper Main
+
+The [upper Main package](../formalizations/sharp-simplex-upper-bound/README.md) proves Entry005.sharpMain : Entry005.sharpMainGoal and the unchanged MainTarget alias for every d ≥ 3, qualifying actual convex body, and every prescribed maximum-volume inscribed simplex, using that original simplex's own centroid, the actual entryDefect, original gSharp and exponent 1/(d−1). The target is literal and closed, without assumed geometric bridges. The separate lower construction is not included or counted here. Later constant improvements are outside this release.
+
+The exact audited input combines the original incomplete 203-file patch and its missing SelectedAnchorHullRoundness source into 204 files. All 123 mathematical modules and 140 delivered Lean files are preserved. Historical independent mathematical audit freshly checked the complete 4,743-module source closure, 848 public proofs and all 1,833 safe owned declarations, with genuine empty trust-zero replays of the 54,277-declaration Main and 55,067-declaration all-owned closure. Only propext, Classical.choice and Quot.sound are permitted.
+
+The producer completed a fresh public-wrapper run from the exact v2 archive. The [independent final-copy review](2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md) verified those actual sources, objects, inventories and replay logs, independently checked official compiler import parsing, and executed genuine missing-source/cache attacks plus literal and malformed-proof controls. It did not redundantly rerun all 123 compilations or the two large replays. V2 changes only seven nonmathematical provenance/seal files; proof sources and verification logic remain unchanged.
+
+Integration again passed normal/optimized integrity, exact archive reproduction, and 91-case/730-entrypoint packaging suites. See the [release manifest](../releases/2026-10-08-sharp-simplex-upper-bound-v2.json) for exact identities and attribution. Reused toolchain/dependency artifacts were hashed, not all rebuilt or downloaded again; internal hashes are not signatures, and the kernel/runtime remain trusted. Optional online bootstrap and remote CI were not exercised. No novelty or external human peer-review certification is claimed.
+
 ## Literal simplex-truncation sharpness checkpoint
 
 The [sharpness source package](../formalizations/simplex-truncation-sharpness/README.md) proves Entry005.truncationSharpness : Entry005.truncationSharpnessGoal with the actual entryDefect, an exhibited simplex maximum over all inscribed affine simplices, its own original centroid, and the literal exponent 1/(d−1). This is the existential sharpness obstruction for d ≥ 3. The separate sharpMainGoal upper bound, best-maximum upper estimates and classification of all maximizers are outside this package. Historical statements that upper Main was open apply to this checkpoint, not to the status of separately reviewed upper work.

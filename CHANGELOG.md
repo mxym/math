@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — original literal sharp simplex upper Main
+
+- Added the frozen 304-file v2 upper Main source package. It preserves 123 mathematical modules and the original target/constants, proving the bound for every prescribed maximizing simplex about its own centroid. The certified input is the complete 204-file composition; the originally delivered 203-file patch was missing one source and is not retrospectively called complete.
+- Retained 12 adjacent final-copy audit receipts. Historical independent mathematical review and the producer's exact fresh-wrapper runs establish 123 rebuilt modules, 848 public proofs, 1,833 owned declarations, and genuine empty-kernel replays of the 54,277-declaration literal Main and 55,067-declaration all-owned closure. The final-copy reviewer rehashed the actual fresh objects/logs and independently tested source/cache attacks and literal/kernel controls; it did not repeat the whole compilation/replay.
+- Integration passed normal/optimized sealed-source checks, deterministic archive reproduction, and both 91-case/730-entrypoint packaging suites. Prior repository content remains intact, with only additive navigation edits. This is the original gSharp upper theorem, not a later improved-constant candidate, and it excludes the separate lower proof. No new blanket license, authorship assignment, CI workflow, novelty or external human peer-review claim is made.
+
 ## 2026-10-08 — exact small-radius Z[sqrt(-2)] prime graph and sieve classification
 
 - Proved the complete graph structure at every real radius D<2,
