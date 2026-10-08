@@ -76,3 +76,32 @@ matrix construction, unequal-mass dimension laws,
 stability, and exact finite-\(k\) optimizers remain open.
 Comprehensive specialist originality review is still needed
 before claiming historical priority or journal novelty.
+
+## Follow-on sharp-constant extension
+
+The [quantitative dimension–accuracy continuation](../research/gaussian-sharp-dimension-rate/README.md)
+now strengthens two aspects of the result above.
+
+- The regular-simplex comparator admits an explicit
+  normal-maxima Gumbel constant:
+  \(k(U_k-F_\infty(k))\le2(1-\gamma)+o(1)\).
+- The spherical-cap argument yields
+  \(\liminf k(U_k-F_d(k))\ge1/c\) when
+  \(d/(\log k)^2\to c\in(0,\infty)\), and consequently
+  \[
+  \liminf\frac{D_C(k)}{(\log k)^2}
+  \ge\frac1{C+2(1-\gamma)}.
+  \]
+- The binary-code construction extends to every dimensional
+  coefficient \(A\ge1\), with additive error at most
+  \[
+  \frac{4+4\log2+2\sqrt2(5+10/\sqrt A+8/A)}k.
+  \]
+  Strict rational certificates verify, among others,
+  \((A,C)=(1,72),(64,25),(1024,22),(262144,21)\).
+
+The original \(92/k\) result is retained as an independently
+replayed historical stage. The sharper statements have their
+own full analytic proofs, exact-rational checker, and source audit.
+No exact finite-\(k\) optimizer or optimal leading dimension
+coefficient is claimed.
