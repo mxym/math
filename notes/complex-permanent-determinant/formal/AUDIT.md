@@ -194,3 +194,23 @@ nonzero-row matrices in Theorem 2 remains a distinct,
 unformalized theorem. Sharp norm witness existence
 does **not** automatically classify every equality
 case, so it is not counted as a completed theorem.
+
+## Theorem 2 equality classification trust audit
+
+The full kernel endpoint is
+ComplexPencilEquality.absolute_equality_iff_full:
+an exact squared-form equality if and only if the matrix has
+a zero row, a nonzero balanced rank-one form, or is a nonzero
+complex monomial matrix, over all nine unrestricted complex entries.
+
+Necessity reuses the independently checked sparse/flat first-row
+case classification. Sufficiency is proved by two separate new
+modules plus explicit zero-row cases. The proof does not assume
+nonzero rows or that the optimizer is attained; all finite cases
+are covered by universal complex-quantified theorems.
+
+The source files are EqualitySufficiencyVerified.lean,
+EqualityMonomialVerified.lean, EqualityCompletionFull.lean.
+All three compile in Lean 4.34.1 and their kernel axiom audits
+show only propext, Classical.choice, Quot.sound. No sorryAx.
+The immutable source content is sealed by EQUALITY_SHA256SUMS.
