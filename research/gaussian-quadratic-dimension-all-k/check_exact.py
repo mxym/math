@@ -170,7 +170,7 @@ def check_binary_entropy():
         assert moment<=4
         entropy_upper=sum((w*ln(F(k,q))[1]
                            for q,w in zip(blocks,weights)),F(0))
-        assert entropy_upper<4*ln2_lo,(k,entropy_upper)
+        assert entropy_upper<2*ln2_lo,(k,entropy_upper)
         # The sum of strict small powers below 2^r0 is bounded
         # by its geometric series and independent of k.
         for r0 in (3,8,16):
@@ -179,11 +179,12 @@ def check_binary_entropy():
             assert small<Q0
         reports.append({"k_bits":k.bit_length(),
                         "binary_blocks":len(blocks),
-                        "entropy_lt_4_log2":True,
+                        "entropy_lt_2_log2":True,
                         "small_block_geometric_bound":True})
     # All-k selector adds a single Gaussian axis, and
-    # the final error bound is <88+8log2+1<95.
-    assert 88+8*ln2_hi+1<95
+    # the final error bound is <88+4log2+1<92.
+    assert ln2_hi<F(3,4)
+    assert 88+4*ln2_hi+1<92
     # For Q0>=1024 and k>=Q0^2,
     # 2 Q0 log(k)/k <=4 log(Q0)/Q0<1.
     for r0 in (10,11,17,64):
@@ -191,7 +192,7 @@ def check_binary_entropy():
         assert F(4)*ln(F(Q0))[1]/Q0<1
     # Without binary/geometric-size blocks the selector entropy
     # can grow unboundedly: 100 equal singleton branches have H=ln100.
-    assert ln(F(100))[0] > 4*ln2_hi
+    assert ln(F(100))[0] > 2*ln2_hi
     return reports
 
 
@@ -218,7 +219,7 @@ def main():
                           "all_pass":True},sort_keys=True,indent=2))
     else:
         print(f"PASS exact all-integer binary glue: {len(binary)} "
-              "vectors, entropy <4log2, additive bound <95")
+              "vectors, entropy <2log2, additive bound <92")
         print("PASS negative control: 100 unrestricted singleton "
               "branches violate the bounded-entropy property")
         print("PASS exact Berry-Esseen, tilted variance, bad-event "
