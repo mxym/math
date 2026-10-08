@@ -60,14 +60,15 @@ smoothness, conical, or simplex hypothesis is inserted.
    uses exactly k-1 coordinates; tensoring with an
    independent centered Gaussian preserves both cell
    masses and the norm of each first moment.
-8. **Quantile entropy bound**: the universal +/-17
-   scalar estimate splits at q=1/10. When q<=1/10,
-   Mills bounds, q(1)>1/10 and elementary logarithm
-   inequalities give the stated two-sided bound
-   with smaller constants. When q>1/10,
-   the Gaussian density maximum and pi>3 give
-   h(q)^2<17, while the entropy scalar lies in
-   [0,5]. No numerical tail fit appears.
+8. **Quantile entropy bound**: the sharpened asymmetric
+   scalar estimate [-4,+3] splits at q=1/10.
+   In the small-tail regime, two Mills bounds and the
+   rational inequality (8/3)^4>16(22/7) certify
+   log(16pi)<4. In the large-tail regime, conditional
+   Jensen gives h(q)^2<=2log(1/q), while the entropy
+   scalar lies in [0,4]; e>27/10 and log2>2/3
+   give a fully elementary endpoint comparison.
+   No numerical normal-tail fit is used.
 9. **Asymptotic quantifiers**: for arbitrary p_max->0,
    all log(1/p_i) >=log(1/p_max)->infinity.
    Thus both the log-log correction and the O(Q)
@@ -132,3 +133,14 @@ depends on the written proofs, not an observed PASS.
 
 For current manuscript scope, prior work and
 limitations, see paper.md and LITERATURE.md.
+
+## Follow-on dimension-rate result
+
+The companion note research/gaussian-centroid-dimension-rate
+proves that the one-pass uniform staircase has exact asymptotic
+gap 2/k, while a balanced b-ary threshold tree achieves
+(1-epsilon) of the global k-cell optimum in O_epsilon(log k)
+Gaussian dimensions. It also proves a Gaussian mutual-information
+rate-distortion converse and a stricter necessary dimension scale
+for preserving the second logarithmic term. Its statements have
+separate analytic proofs and independently checked certificates.
