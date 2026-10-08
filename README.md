@@ -11,19 +11,24 @@ equal-measure ball exchange improves it; the proof also establishes
 optimizer existence and uniqueness of the regular candidate at those
 masses. [Exact arithmetic, partial Lean checks and source comparison](research/gaussian-fixed-mass-propeller-counterexample/README.md)
 are public. This addresses the arbitrary-mass conjecture; the equal-mass
-tetrahedral problem remains unresolved, and no worldwide priority is claimed.
+case is settled in the separate global proof below. No worldwide priority
+is claimed.
 
-The [equal-mass continuation](research/gaussian-balanced-four-rigidity/README.md)
-now supplies a [complete ten-page proof](research/gaussian-balanced-four-rigidity/paper.pdf)
-that every four-cell equal-mass Gaussian maximizer in dimension at least three
-has moment rank three, excluding all planar Laguerre candidates. An
-origin-conical maximizer is necessarily regular tetrahedral; the regular
-solution is locally isolated and strictly locally optimal, including against
-arbitrary measurable competitors with nearby normalized moments. The
-remaining global gap is exclusion of noncentral irregular full-rank
-maximizers. Five partial Lean exports, exact algebra diagnostics, and
-explicitly noncertifying numerical searches accompany the written proof.
-The complete equal-mass conjecture is **not** claimed solved.
+The [complete eleven-page global proof](research/gaussian-balanced-four-global/paper.pdf)
+now establishes the sharp **four equal-mass Gaussian first-moment theorem**
+in every dimension d ≥ 3, including arbitrary measurable and fractional
+partitions: the value is **12(arctan √2)²/π³**, with equality precisely
+for central regular tetrahedral cones extended cylindrically. This resolves
+Heilman's 2014 Conjecture 3 in dimension three and the equal-mass four-cell
+case of his broader 2019 statement. The standalone proof combines
+Milman–Neeman's established multi-bubble theorem with covariance
+regularization, a constrained deformation argument, and boundary rank
+obstructions. [Source comparisons, internal reviews, exact algebra controls
+and eight partial Lean exports](research/gaussian-balanced-four-global/README.md)
+are public; the analytic endpoint is not claimed fully Lean-formalized
+or externally peer-reviewed. The earlier
+[rank-rigidity note](research/gaussian-balanced-four-rigidity/README.md)
+remains a historical partial checkpoint.
 
 Future major, fully proved results will follow the owner's
 [immutable-release publication workflow](releases/README.md).
