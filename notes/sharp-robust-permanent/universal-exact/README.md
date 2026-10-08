@@ -49,3 +49,20 @@ Its integer Bareiss determinant routine checks the cofactor kernel identity for 
 The full mathematical proof is in [paper.md](paper.md), independent of the finite examples. The previous [complete proof dossier](../paper.md), [standalone 21-page fixed-rank asymptotic paper](../focused-paper/v2/paper.pdf), and [verification record](../VERIFICATION.md) remain preserved.
 
 This is an AI-assisted research proof draft. The integer checker is not a Lean kernel proof; independent mathematical refereeing, full Lean formalization, and systematic literature novelty review are still pending. In particular, a simple non-maximization casewise rational formula has **not** been established.
+
+
+## Explicit middle-rank collapse of the universal determinant maximum
+
+A separate, independent [sharp simultaneous-Johnson theorem](../../johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) has now **evaluated the full max-minor formula in an infinite two-parameter diagonal family**: for every \(n\ge6\) and \(m=\lfloor n/2\rfloor\),
+
+\[
+\boxed{\max_T\frac{2|\Delta_0(T)|}{\sum_i|\Delta_i(T)|}
+=C_{n,m}=\frac5{14}.}
+\]
+
+Equivalently, every full-size minor set in the finite formula satisfies
+\(28|\Delta_0(T)|\le5\sum_i|\Delta_i(T)|\),
+and **some** admissible maximal-minor circuit attains equality in every degree \(n\ge6\).
+The proof does not enumerate those determinant sets. Instead it uses an explicit **five-evaluation rational dual** over all group elements, with two independently replayed exact finite/tail certificates, and an attaining four-conjugacy-class signed measure. The corresponding all-rank optimum is also \(5/14\); a single middle-rank image-marginal condition enforces all other ranks even for noncentral probability laws.
+
+This supplies a particularly simple closed rational evaluation of the universal determinant theorem on the full middle-rank family, while leaving the nonmiddle-rank **elementary, no-maximization** formula problem open. Historical novelty, independent external review, and Lean kernel certification are not claimed.
