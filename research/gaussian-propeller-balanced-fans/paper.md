@@ -521,7 +521,112 @@ Local uniform convergence and the lower bound on
 Dividing by \(k\) proves (17).
 The second-boundary expansion is algebraic. \(\square\)
 
-## 8. Provenance, audit and limitations
+## 8. Heterogeneous minimum masses: a polynomial-size exact reduction
+
+The uniform mass condition in Theorem 2 is unnecessary for the
+small-support principle. This provides an exact answer also when
+the lower mass varies from sector to sector.
+
+**Theorem 11 (arbitrary unequal angle floors).**
+Let \(k\ge3\) and fix any real numbers
+\(\ell_i\ge0\) with \(\sum_{i=1}^k\ell_i\le2\pi\).
+For each nonempty set \(S\subseteq\{1,\dots,k\}\)
+of cardinality \(r=|S|\le3\), put
+\[
+ a_S=\frac{2\pi-\sum_{j\notin S}\ell_j}{r},
+ \quad
+ W_S=r f(a_S)+\sum_{j\notin S}f(\ell_j).
+ \tag{18}
+\]
+Call \(S\) admissible when
+\(a_S\ge\max_{i\in S}\ell_i\).
+There is at least one admissible singleton, and
+\[
+ \boxed{\displaystyle
+ \max_{\theta_i\ge\ell_i,\ \sum\theta_i=2\pi}
+ P(\theta)
+ =\frac1{2\pi}
+   \max_{\substack{S\ne\varnothing,\ |S|\le3\\
+                     S\ {\rm admissible}}} W_S.}
+ \tag{19}
+\]
+Consequently, even with completely heterogeneous minimum
+Gaussian cell masses \(\ell_i/(2\pi)\), the exact global
+optimization reduces to at most
+\[
+                 k+\binom{k}{2}+\binom{k}{3}
+\]
+explicit candidate values, a **cubic-size** list.
+
+*Proof.* At least one singleton is admissible:
+for any \(i\),
+\[
+ 2\pi-\sum_{j\ne i}\ell_j
+ =\ell_i+(2\pi-\sum_j\ell_j)\ge\ell_i.
+\]
+Each admissible \(S\) defines a feasible angle vector
+by setting \(\theta_i=a_S\) for \(i\in S\), and
+\(\theta_j=\ell_j\) otherwise. It remains to prove
+that some such vector is optimal.
+
+Choose any maximizer on the compact feasible polytope.
+Let \(F=\{i:\theta_i>\ell_i\}\). If \(F\) is empty,
+the vector is already represented by any admissible
+singleton (all floors sum \(2\pi\)).
+If \(F\) has one element, it is represented by that
+singleton. When \(|F|\ge2\), all free coordinates
+satisfy \(\sin\theta_i=\sin\theta_j\) by first-order
+feasible perturbations.
+
+The remainder of Theorem 2's active-face analysis uses
+only the following facts: every constrained coordinate
+is fixed at its floor, all free angles are positive, and
+their total is at most \(2\pi\). It does **not** use equality
+of the different floors. Explicitly, free angles above
+\(\pi\) are impossible by opposite derivative signs;
+free angles equal to \(\pi\) must form the two-angle
+\((\pi,\pi)\) pattern; two free angles below \(\pi/2\)
+yield a strictly positive second derivative; and a
+single free small angle \(s<\pi/2\) with at least two
+larger free angles \(\pi-s\) admits the strictly
+positive second derivative
+\(\tfrac12(r-1)(r-2)\cos s\).
+If there are exactly two free angles \(s,\pi-s\),
+their score is \(1\) independent of \(s\). Reduce
+the smaller one to **its own** floor \(\ell_i\),
+increasing the larger by the same amount. This
+preserves the angle sum and objective, leaves only
+one free coordinate, and produces a singleton
+candidate.
+
+Thus every remaining maximizer has all free angles
+equal to some \(\alpha\ge\pi/2\). Their total is
+at most \(2\pi\), so there are at most four. Four
+equal free angles require all four to be \(\pi/2\),
+and every other coordinate to be zero. Since
+the four are strictly free, all have floors
+strictly below \(\pi/2\), and the cubic perturbation
+\((\pi/2+t,\pi/2+t,\pi/2+t,\pi/2-3t)\)
+is feasible for sufficiently small \(t>0\)
+and strictly increases the objective. Hence at most
+three free angles remain.
+
+Writing \(S=F\), the constraint forces their common
+value to be \(a_S\). Since these angles exceed their
+floors, \(S\) is admissible and the maximum equals
+\(W_S/(2\pi)\). The candidate lower bound already
+proved yields (19). \(\square\)
+
+Theorems 2 and 11 produce exact finite-dimensional
+optimization *certificates*: their formulas are
+valid for arbitrary real floors. Rational-angle
+specializations admit rigorous trigonometric interval
+evaluation as in the companion checker. For
+nonuniform floors, the concise two-transition
+classification of Theorem 9 need not persist;
+Theorem 11 is the correct general statement.
+
+## 9. Provenance, audit and limitations
 
 - **Comparator [OAI-096]:** OpenAI, *The Gaussian propeller bound
   in every dimension*, September 24, 2026; public source in the
