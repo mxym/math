@@ -151,3 +151,14 @@ The first previously unproved instance k=4 has [independent exact symbolic and r
 Separately, [Theorem 30](paper.md#25-an-exact-cycle-index-and-transfer-matrix-compression-theorem-for-every-rank) proves an **all-n, all-k exact orbital formula** using the 2-by-2 transfer matrix M(u,t)=[[1,u],[1,ut]]. The entire k-subset orbital vector depends only on cycle counts c_1,...,c_k. Thus finite primal-dual certification can enumerate O_k(n^k) short-cycle types rather than all integer partitions. The [independent integer checker](code/check_all_k_orbital_compression.py) compares the transfer-matrix recurrence with direct subset enumeration for every partition of 3≤n≤12 and all 1≤k≤min(n,6).
 
 These close the **leading asymptotic** and the **general exact compression framework**, while the exact optimal coefficient for arbitrary individual finite (n,k) remains a distinct open problem. See [verification scope](VERIFICATION.md).
+
+
+## Complete fixed-degree four-subset certificate spectrum
+
+[Theorem 31 in the full manuscript](paper.md#26-complete-exact-four-subset-atom-modulus-classification-for-4-le-n-le64) now determines **every exact optimal atom-vs-TV coefficient for S_n acting on its 4-element subsets, for all 4≤n≤64**. Degrees 4–7 reduce by complementation to previously proved trivial, one-, two-, and three-subset results; the remaining **57 degrees 8–64** have frozen [rational primal-dual certificates](certificates/four_subset_n8_64.json).
+
+A completely separate, [optimizer-free Fraction/integer verifier](code/check_four_subset_n8_64.py) enumerates every feasible quadruple of 1-, 2-, 3-, and 4-cycle counts (including a possible residual cycle), validates five marginal-orbital moment equalities, nonnegative disjoint probability measures, dual contact and all class inequalities, and constructs a positive rational attaining perturbation. The checker and fixed certificates were downloaded fresh from public GitHub into an isolated VPS directory and replayed successfully:
+
+    EXACT k4 FRACTIONAL OPTIMALITY CERTIFIED: 57 DEGREES, 440670 TYPES
+
+The general compression proof is Theorem 30; rank-4 moment formulas are written explicitly in Section 26 as an independent combinatorial derivation. This is a **finite complete classification through n=64**, whereas Theorem 25 independently proves the **infinite** sharp leading coefficient \(32\) for all sufficiently large n. No exact all-finite-n formula, external human refereeing, or novelty-priority certification is claimed.
