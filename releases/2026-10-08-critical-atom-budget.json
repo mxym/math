@@ -1,0 +1,233 @@
+{
+  "schema": "critical-atom-budget-publication-v1",
+  "date": "2026-10-08",
+  "repository": "mxym/math",
+  "package_root": "notes/critical-atom-budget",
+  "package_files": 15,
+  "root_navigation_updated": false,
+  "scope": "Fixed critical source, p>2, d>=2, s=p/(p-2); each target at most N atoms and p-moment at most one. The modulus has order w^(1/3) min(N,log(e/w))^(1/(3s)), with constants and small-distance threshold uniform in all N>=2. N=1 is exactly min(w,2). The upper bound explicitly imports premise (P), while the 008 source/lower constructions retain their attribution.",
+  "source_archive": {
+    "path": "releases/2026-10-08-critical-atom-budget-source.tar.gz",
+    "filename": "critical-atom-budget-source-20261008.tar.gz",
+    "bytes": 382127,
+    "sha256": "851aaf1aa7cad243465a291269dbd573e76f6838700de100400ccdd535fc7534",
+    "files": 15,
+    "deterministic": true
+  },
+  "pdf_sha256": "d117df45635753ce0ad88d82dbff2854803f2c558adaaf82e06bdf7cfb28dbfc",
+  "pdf_pages": 7,
+  "pdf_text_sha256": "744264dcb7968e4fc23cdfeb24883289bcadbdafe34989a4930ce4ada8de1682",
+  "original_input_identities": [
+    {
+      "source_filename": "PROOF.md",
+      "public_path": "PROOF.md",
+      "bytes": 22652,
+      "sha256": "88d9971c062414b1637806b0b61248585f1132c6082783df227266fe7122996e",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper.tex",
+      "public_path": "paper.tex",
+      "bytes": 19500,
+      "sha256": "208d9643aec88d143c26028fb616144c7cc5cd2e0c3822265b413ddee0c4d030",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper.pdf",
+      "public_path": "paper.pdf",
+      "bytes": 353567,
+      "sha256": "d117df45635753ce0ad88d82dbff2854803f2c558adaaf82e06bdf7cfb28dbfc",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "PARENT_INDEPENDENT_REVIEW.md",
+      "public_path": "review/PARENT_INDEPENDENT_REVIEW.md",
+      "bytes": 3405,
+      "sha256": "f0a135768a3efd6d86772dd689636f7fa264fda8168b1239b99538dd5e959d1c",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "FINAL_COPY_REVIEW.json",
+      "public_path": "review/FINAL_COPY_REVIEW.json",
+      "bytes": 1140,
+      "sha256": "a94c88cd8a1d97c1717eabd6edb8fe355bd564fd9c5d9a889cb6a91b72e0cd5a",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper-v1.tex",
+      "public_path": "history/paper-v1.tex",
+      "bytes": 19476,
+      "sha256": "fb526952185098b61c90f89bc4f5b4e47a0f4300ae9008949fdabfafeeb9395b",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper-v1-to-final.diff",
+      "public_path": "history/paper-v1-to-final.diff",
+      "bytes": 979,
+      "sha256": "aab833916f148174989c9c29588b539990614a809e49cb8d76fb1f5114008321",
+      "byte_identical": true
+    }
+  ],
+  "upstream_exact_source_blobs": [
+    {
+      "path": "preprints/008-density-overlap-phase/v1/main.tex",
+      "ref": "c2281bc871c9bf60994985d6665ae45f4711d080",
+      "git_blob_sha1": "3b2882cef1a65e890549332c5c9014af9dc5f245",
+      "read_success": true
+    },
+    {
+      "path": "preprints/001-strongly-log-concave-brenier/v3/manuscript.tex",
+      "ref": "5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3",
+      "git_blob_sha1": "0007edf5e28e4b4b0d34b2043cffd6e13e9f5aed",
+      "read_success": true
+    }
+  ],
+  "integration": {
+    "status": "PASS_LIGHTWEIGHT_PUBLIC_PREPARATION",
+    "source_archive": {
+      "filename": "critical-atom-budget-source-20261008.tar.gz",
+      "bytes": 382127,
+      "sha256": "851aaf1aa7cad243465a291269dbd573e76f6838700de100400ccdd535fc7534",
+      "files": 15,
+      "deterministic": true
+    },
+    "pdf_sha256": "d117df45635753ce0ad88d82dbff2854803f2c558adaaf82e06bdf7cfb28dbfc",
+    "pdf_pages": 7,
+    "pdf_text_sha256": "744264dcb7968e4fc23cdfeb24883289bcadbdafe34989a4930ce4ada8de1682",
+    "reviewed_input_files_unchanged": 7,
+    "normal_and_optimized_integrity": "PASS",
+    "small_integrity_controls": 6,
+    "isolated_three_pass_pdf_reproduction": "PASS; exact extracted text and page breaks",
+    "raw_machine_local_build_logs_included": false,
+    "unrelated_matrix_or_planning_material_included": false,
+    "lean_verified": false,
+    "novelty_certified": false
+  },
+  "preservation": {
+    "existing_repository_files_modified": false,
+    "root_navigation_updated": false,
+    "source_package_files_byte_preserved": 15,
+    "runtime_base_and_remote_preservation_checks": "Recorded in the publication commit parent and final verification receipt."
+  },
+  "limits": [
+    "Written theorem with an explicit imported potential premise (P); not a Lean formalization.",
+    "The same fixed source is used for all target atom budgets; no arbitrary-source classification or exact numerical optimal constant is asserted.",
+    "The original checkpoint-status line is preserved as historical source text; current review scope is in the public README and retained review records.",
+    "No external human peer review, novelty certification, new authorship assignment, blanket license or CI workflow."
+  ],
+  "files": [
+    {
+      "path": "notes/critical-atom-budget/MANIFEST.json",
+      "bytes": 1879,
+      "mode": "100644",
+      "git_blob_sha1": "2cb7fc539101d5a7818283a0b9a9bc87b76a1e3a",
+      "sha256": "ec270274b4bb8f6d2549c7adcf47ec5be9128560df9e241207bfc1fd6a63fdad"
+    },
+    {
+      "path": "notes/critical-atom-budget/PROOF.md",
+      "bytes": 22652,
+      "mode": "100644",
+      "git_blob_sha1": "c11ec5ec9bc22117e63b82f06a5a87a4e0e08485",
+      "sha256": "88d9971c062414b1637806b0b61248585f1132c6082783df227266fe7122996e"
+    },
+    {
+      "path": "notes/critical-atom-budget/README.md",
+      "bytes": 4570,
+      "mode": "100644",
+      "git_blob_sha1": "ac2f077c4213bf9099831dcfb08cad42c11a367f",
+      "sha256": "35573b76556cf2de07386b74377741b40cabec011b0f9d6946e19ee3f6d57a63"
+    },
+    {
+      "path": "notes/critical-atom-budget/SHA256SUMS",
+      "bytes": 1186,
+      "mode": "100644",
+      "git_blob_sha1": "ef9041bd37bab7d71a2a6b10a4a7159d6a92fdec",
+      "sha256": "a8492dff035ac880ac8b5605cdb7175ceef5fdba094e92f5a86528da489e3780"
+    },
+    {
+      "path": "notes/critical-atom-budget/SOURCE_MAP.json",
+      "bytes": 3357,
+      "mode": "100644",
+      "git_blob_sha1": "64aa2df59636e8922b303e8f3de1edb1b32188fb",
+      "sha256": "33d4142fe600dec7a47b66f625c018701de4cbbbc6fd66d06f847aa3c74f7f51"
+    },
+    {
+      "path": "notes/critical-atom-budget/UPSTREAM_REFERENCES.json",
+      "bytes": 1244,
+      "mode": "100644",
+      "git_blob_sha1": "69af925455505e6616d8922d37c67dbfaf085733",
+      "sha256": "3674a74e8c2c5131eb41f38d363c13ee61e74d2984ecf97d0e50ed2db623bce5"
+    },
+    {
+      "path": "notes/critical-atom-budget/build.sh",
+      "bytes": 235,
+      "mode": "100644",
+      "git_blob_sha1": "2668cf5decd295d5f33349d1913c954c64fa2ea5",
+      "sha256": "172731215c7069d79e48c46cef473a347c2a3721caef44aa9eaa436bec2e5271"
+    },
+    {
+      "path": "notes/critical-atom-budget/history/paper-v1-to-final.diff",
+      "bytes": 979,
+      "mode": "100644",
+      "git_blob_sha1": "d33b0f192511eab98b16decb9d8611548e809924",
+      "sha256": "aab833916f148174989c9c29588b539990614a809e49cb8d76fb1f5114008321"
+    },
+    {
+      "path": "notes/critical-atom-budget/history/paper-v1.tex",
+      "bytes": 19476,
+      "mode": "100644",
+      "git_blob_sha1": "f17c0d7fb4cc201abb1ecffa6d5366ab9714c176",
+      "sha256": "fb526952185098b61c90f89bc4f5b4e47a0f4300ae9008949fdabfafeeb9395b"
+    },
+    {
+      "path": "notes/critical-atom-budget/paper.pdf",
+      "bytes": 353567,
+      "mode": "100644",
+      "git_blob_sha1": "11df737cf748a324672e03e97ac8f85636e01a97",
+      "sha256": "d117df45635753ce0ad88d82dbff2854803f2c558adaaf82e06bdf7cfb28dbfc"
+    },
+    {
+      "path": "notes/critical-atom-budget/paper.tex",
+      "bytes": 19500,
+      "mode": "100644",
+      "git_blob_sha1": "0e864f5ef19b3ff411878433d311568f5b670c0c",
+      "sha256": "208d9643aec88d143c26028fb616144c7cc5cd2e0c3822265b413ddee0c4d030"
+    },
+    {
+      "path": "notes/critical-atom-budget/review/FINAL_COPY_REVIEW.json",
+      "bytes": 1140,
+      "mode": "100644",
+      "git_blob_sha1": "4bfe5962934fd286565dda3c37937c15c04df54c",
+      "sha256": "a94c88cd8a1d97c1717eabd6edb8fe355bd564fd9c5d9a889cb6a91b72e0cd5a"
+    },
+    {
+      "path": "notes/critical-atom-budget/review/INTEGRATION_CHECKS.json",
+      "bytes": 1298,
+      "mode": "100644",
+      "git_blob_sha1": "96f9ad1860c9fd0676c6f4ce5ebe57aa6e918ff7",
+      "sha256": "c47434c9b8e67688efaf5088944216be2e1b0eb583f8f679e88defcf99636542"
+    },
+    {
+      "path": "notes/critical-atom-budget/review/PARENT_INDEPENDENT_REVIEW.md",
+      "bytes": 3405,
+      "mode": "100644",
+      "git_blob_sha1": "4c47ffa8c5fda21f37b10be8ac6a8c32d5a41c99",
+      "sha256": "f0a135768a3efd6d86772dd689636f7fa264fda8168b1239b99538dd5e959d1c"
+    },
+    {
+      "path": "notes/critical-atom-budget/verify.py",
+      "bytes": 8348,
+      "mode": "100644",
+      "git_blob_sha1": "018719a512b60e8737d89f76566d341b1a3f8029",
+      "sha256": "daaf41746368b8127002480207bcc1a6595b61fdcabff849802f91c5b9f548a9"
+    },
+    {
+      "path": "releases/2026-10-08-critical-atom-budget-source.tar.gz",
+      "bytes": 382127,
+      "mode": "100644",
+      "git_blob_sha1": "bb561f8b59db218df0c655f1d3ae421dd69b3823",
+      "sha256": "851aaf1aa7cad243465a291269dbd573e76f6838700de100400ccdd535fc7534"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-08-critical-atom-budget.json"
+}
