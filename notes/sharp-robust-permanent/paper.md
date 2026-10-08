@@ -1159,3 +1159,267 @@ The construction attains (60) at every stated \(\delta\), and left translation a
 **Structural interpretation.** The fixed-point argument alone sees the maximum of \(F(g)\) among nonidentity elements (four fixed edges) and gives \(2/5\). The additional adjacent-edge orbital supplies a new linear constraint. The dual function \(h\) in (61) gives the better coefficient \(1/3\), while (63)--(64) attain that coefficient. The result illustrates why extending Theorem 15 to arbitrary transitive actions requires the full *orbital-marginal geometry*, rather than minimal degree alone.
 
 The table, explicit dual range, equal marginal matrices, nonnegative perturbation, exact TV value and atom excess are replayed with Python integer/Fraction arithmetic in code/check_edge_action_s5.py. No linear-programming solver output is used as final evidence. A floating-point LP was used only to discover the certificate, and the proof above replaces it entirely.
+
+
+## 17. Exact sharp atom modulus for every two-subset action of \(S_n\)
+
+The exact \(S_5\) theorem has an **all-\(n\) closed-form extension**. The dual obstacle and the matching primal probability measures admit elementary polynomial proofs for both parities. This yields an infinite family of non-doubly-transitive actions whose atom-concentration constant is completely determined.
+
+Write \(\Omega_n=\binom{[n]}2\), \(N=\binom n2\), and let \(G=S_n\) act on \(\Omega_n\) in the natural way. Let \(u\) be uniform on the \(n!\) elements of \(G\). A probability law \(\nu\) on \(G\) has *uniform edge-image marginals* if
+
+\[
+\nu\{g:g(E)=H\}=\frac1N\quad(E,H\in\Omega_n).
+\]
+
+**Theorem 17 (the complete two-subset atom-modulus law).** For every integer \(n\ge4\) define
+
+\[
+\boxed{
+C_n=
+\begin{cases}
+\displaystyle\frac{n^2-2n+8}{(n+2)(n+4)},&n\text{ even},\\[5pt]
+\displaystyle\frac{n^2-n+4}{(n+3)(n+4)},&n\text{ odd}.
+\end{cases}} \tag{65}
+\]
+
+If \(\nu\) has uniform edge-image marginals, then for **every** \(\sigma\in S_n\),
+
+\[
+\left|\nu(\sigma)-\frac1{n!}\right|
+\le C_n\,\|\nu-u\|_{\mathrm{TV}}. \tag{66}
+\]
+
+The coefficient \(C_n\) is **optimal for every \(n\ge4\)**. More precisely, for every \(\sigma\) there exists \(\delta_0(n)>0\) such that for every \(0\le\delta\le\delta_0(n)\) a uniform-edge-marginal law attains the positive equality
+
+\[
+\|\nu-u\|_{\mathrm{TV}}=\delta,\qquad
+\nu(\sigma)=\frac1{n!}+C_n\delta. \tag{67}
+\]
+
+In particular,
+
+\[
+C_{2r}=1-\frac{8(2r)}{(2r+2)(2r+4)},\qquad
+C_{2r+1}=1-\frac{8(2r+2)}{(2r+4)(2r+5)}.
+\]
+
+Thus \(C_n=1-8/n+O(n^{-2})\). In contrast, for this action the fixed-point/minimal-degree estimate is \(1-4(n-2)/(n(n-1))=1-4/n+O(n^{-2})\), which is strictly larger for every \(n\ge5\). The \(n=5\) case specializes to Theorem 16.
+
+### 17.1. Two conjugacy statistics control all edge marginals
+
+For a vertex permutation \(g\in S_n\), let \(x=x(g)\) be its number of fixed vertices, and \(y=y(g)\) its number of 2-cycles. Define \(F(g)\) as the number of unordered vertex pairs fixed as *sets*, and \(A(g)\) as the number of pairs whose images share exactly one vertex with the original pair. Then
+
+\[
+F(g)=\binom x2+y,\qquad
+A(g)=(x+1)(n-x)-2y. \tag{68}
+\]
+
+To see the first identity, a fixed edge consists either of two fixed vertices or of one transposition cycle. For the second, edges joining a fixed to a moved vertex contribute \(x(n-x)\). Among edges joining moved vertices, those whose images intersect in exactly one vertex are exactly the consecutive pairs in each cycle of length at least three, one for each vertex in these cycles, giving \(n-x-2y\). All other edges are disjoint from their images.
+
+Because simultaneous relabeling of the two edges has precisely three orbitals—equal, adjacent, and disjoint—any *conjugation-invariant* probability measure on \(S_n\) has its complete edge-image transition matrix determined by \(\mathbb EF\) and \(\mathbb EA\). No invariance is assumed for the arbitrary law \(\nu\) in (66).
+
+Let \(T\) be the class of vertex transpositions. Then
+
+\[
+(F_T,A_T)=(N-2(n-2),\,2(n-2)). \tag{69}
+\]
+
+Let \(K_k\) be the class of one \(k\)-cycle with all other vertices fixed, \(3\le k\le n\). Then
+
+\[
+(F_{K_k},A_{K_k})
+=\left(\binom{n-k}{2},\ k(n-k+1)\right),\quad
+D_{K_k}:=N-F_{K_k}-A_{K_k}=\frac{k(k-3)}2. \tag{70}
+\]
+
+Let \(H\) denote the class of perfect vertex matchings if \(n\) is even (cycle type \(2^{n/2}\)), or of one 3-cycle together with \((n-3)/2\) transpositions if \(n\) is odd (cycle type \(3\,2^{(n-3)/2}\)). Its relevant statistics are
+
+\[
+(F_H,A_H,D_H)=
+\begin{cases}
+\left(n/2,0,n(n-2)/2\right),&n\text{ even},\\[2pt]
+\left((n-3)/2,3,(n-3)(n+1)/2\right),&n\text{ odd}.
+\end{cases} \tag{71}
+\]
+
+### 17.2. Explicit sharp measures for every \(n\)
+
+Choose
+
+\[
+k=\begin{cases}
+n/2+1,&n\text{ even},\\
+(n+3)/2,&n\text{ odd},
+\end{cases}
+\qquad
+s_n=\begin{cases}
+\displaystyle\frac{2(n-4)}{(n-2)(n+4)},&n\text{ even},\\[5pt]
+\displaystyle\frac2{n+4},&n\text{ odd}.
+\end{cases} \tag{72}
+\]
+
+For all \(n\ge4\), \(0<C_n<1\), \(0\le s_n<1\), and the following are probability laws on \(S_n\):
+
+\[
+P=C_n\delta_{\mathrm{id}}+(1-C_n)\,U_{K_k},
+\qquad
+Q=(1-s_n)U_T+s_n U_H. \tag{73}
+\]
+
+Their supports are disjoint (at \(n=4\), \(s_n=0\)). We claim that \(P,Q\) have **identical edge-image marginals**. Both are conjugation-invariant, so it suffices to check the two expectations \(F,A\) discussed above.
+
+Put \(w=1-C_n\). Formulae (69)–(72) give, in both parity cases,
+
+\[
+w\frac{k(k-3)}2=s_nD_H,\qquad
+wk(n-k+1)=(1-s_n)\,2(n-2)+s_n A_H. \tag{74}
+\]
+
+For even \(n\), these identities follow by substituting
+\(w=8n/((n+2)(n+4))\), \(k=(n+2)/2\), and
+\(D_H=n(n-2)/2\). For odd \(n\), substitute
+\(w=8(n+1)/((n+3)(n+4))\), \(k=(n+3)/2\), and \(D_H=(n-3)(n+1)/2\). The first identity matches the mean number of disjoint edge-images, while the second matches adjacent images. The fixed-image mean agrees automatically, since these three counts sum to \(N\). Therefore all marginal probabilities agree.
+
+Because \(P,Q\) are disjoint, for any sufficiently small \(\delta\ge0\) the signed perturbation
+
+\[
+\nu_\delta=u+\delta(P-Q) \tag{75}
+\]
+
+remains a probability law. Specifically, one may take
+
+\[
+0\le\delta\le \delta_0(n):=
+\left(n!\max_{g\in S_n}Q(g)\right)^{-1}>0.
+\]
+
+It has uniform edge-image marginals, TV distance exactly \(\delta\), and \(\nu_\delta(\mathrm{id})=1/n!+C_n\delta\). Left translation extends this to any \(\sigma\). Thus to complete Theorem 17 it remains only to prove the universal upper bound (66).
+
+### 17.3. Exact even-degree dual certificate
+
+Suppose \(n\ge4\) is even. Define
+
+\[
+L_e(g)=4F(g)-(n-4)A(g),\qquad
+D_e=(n-2)(n+2)(n+4),
+\quad h_e(g)=\mathbf1_{\{g=\mathrm{id}\}}-\frac{4L_e(g)}{D_e}. \tag{76}
+\]
+
+For any nonidentity permutation \(g\), \(0\le x(g)\le n-2\) and
+\(0\le y(g)\le(n-x(g))/2\). By (68),
+
+\[
+L_e(x,y)=
+(n-2)x^2-(n-2)(n-3)x-n(n-4)+2(n-2)y. \tag{77}
+\]
+
+The positive coefficient of \(y\) and the quadratic minimum at
+\(x=(n-3)/2\) show that for integer \(x\), \(L_e(x,y)\ge L_e(K_k)\), attained by either adjacent integer closest to that half-integer. Our chosen \(K_k\), for which \(x=(n-2)/2\) and \(y=0\), is one such minimizer.
+
+For the other side, insert \(y\le(n-x)/2\) in (77). Elementary factorization gives
+
+\[
+L_e(x,y)\le 2n-(n-2)x(n-2-x)\le2n=L_e(T)=L_e(H). \tag{78}
+\]
+
+Thus every \(g\ne\mathrm{id}\) satisfies \(L_e(K_k)\le L_e(g)\le2n\). Direct substitution also gives
+
+\[
+4\big(L_e(\mathrm{id})-L_e(K_k)\big)=D_e. \tag{79}
+\]
+
+Consequently \(h_e\) lies **everywhere on \(S_n\)** in the interval
+
+\[
+-\frac{8n}{D_e}
+\ \le\ h_e(g)\ \le\
+1-\frac{16N}{D_e},
+\]
+
+whose length is exactly
+
+\[
+\left(1-\frac{16N}{D_e}\right)+\frac{8n}{D_e}
+=\frac{n^2-2n+8}{(n+2)(n+4)}=C_n. \tag{80}
+\]
+
+Since \(v=\nu-u\) has zero total mass and the same edge-image marginals as zero, it annihilates both \(F\) and \(A\). Therefore
+
+\[
+\nu(\mathrm{id})-\frac1{n!}
+=\sum_{g\in S_n}v(g)h_e(g),
+\]
+
+whose absolute value is at most \(C_n\|v\|_{\mathrm{TV}}\), because the positive and negative parts of \(v\) have equal total mass \(\|v\|_{\mathrm{TV}}\) and the range length of \(h_e\) is \(C_n\).
+
+### 17.4. Exact odd-degree dual certificate
+
+Suppose \(n\ge5\) is odd. Put
+
+\[
+L_o(g)=\frac{n^2-6n+11}{2}\,A(g)-(2n-7)\,F(g),\quad
+D_o=\frac{(n-3)(n-2)(n+3)(n+4)}8,
+\quad h_o(g)=\mathbf1_{\{g=\mathrm{id}\}}+\frac{L_o(g)}{D_o}. \tag{81}
+\]
+
+We claim that for all nonidentity \(g\),
+
+\[
+L_o(T)=L_o(H)\le L_o(g)\le L_o(K_k). \tag{82}
+\]
+
+For the upper bound, the coefficient of \(y\) in \(L_o(x,y)\) is exactly \(-(n-2)^2<0\), so \(L_o(x,y)\le L_o(x,0)\). The latter is a concave quadratic in \(x\), with real maximum at
+
+\[
+x_*=\frac{n-3}{2}+\frac{3}{2(n-2)}.
+\]
+
+Because \(x\) is an integer and \(n\ge5\) is odd, its maximum is attained at \(x=(n-3)/2\) (also at the adjacent integer when \(n=5\)). This is exactly the fixed-vertex count of \(K_k\), proving the upper bound.
+
+For the lower bound first assume \(1\le x\le n-2\). Because \(y\le(n-x)/2\) and its coefficient is negative, direct factorization gives
+
+\[
+\begin{aligned}
+L_o(x,y)-L_o(T)
+&\ge L_o\!\left(x,\frac{n-x}{2}\right)-L_o(T)\\
+&=\frac{n-2}{2}(n-2-x)\big((n-2)x-3\big)\ge0, \tag{83}
+\end{aligned}
+\]
+
+where the final inequality uses \(n\ge5\) and \(x\ge1\). If \(x=0\), the number of 2-cycles satisfies \(y\le(n-3)/2\): otherwise the odd number \(n-2y\) of remaining vertices would equal one and create a fixed point. Therefore
+
+\[
+L_o(0,y)\ge L_o\!\left(0,\frac{n-3}{2}\right)=L_o(T). \tag{84}
+\]
+
+This proves (82) for every nonidentity element. Direct substitution also verifies
+
+\[
+L_o(K_k)-L_o(\mathrm{id})=D_o,\qquad
+L_o(K_k)-L_o(T)=
+\frac{(n-3)(n-2)(n^2-n+4)}8. \tag{85}
+\]
+
+Hence the identity attains the same **maximum** of \(h_o\) as \(K_k\), and the transposition class attains its minimum. Their difference is
+
+\[
+\frac{L_o(K_k)-L_o(T)}{D_o}
+=\frac{n^2-n+4}{(n+3)(n+4)}=C_n. \tag{86}
+\]
+
+As in the even case, the difference \(v=\nu-u\) annihilates both \(F,A\) and has equal positive/negative total variation masses. Integrating \(h_o\) proves
+\(\left|\nu(\mathrm{id})-1/n!\right|\le C_n\|v\|_{\mathrm{TV}}\).
+Left translation again treats arbitrary \(\sigma\). This concludes the universal inequality, while the matching construction (73)–(75) gives sharpness. **Theorem 17 is proved for all \(n\ge4\).** QED.
+
+**Why minimal degree is genuinely weaker.** For the edge action, the vertex transposition fixes \(N-2(n-2)\) edges and maximizes the number of fixed edges among nonidentity vertex permutations (use \(F=\binom x2+y\), \(x\le n-2\), \(y\le(n-x)/2\)). The resulting upper coefficient is \(1-4(n-2)/(n(n-1))\). Subtracting \(C_n\) gives
+
+\[
+\begin{cases}
+\displaystyle\frac{4(n-4)(n^2-2n-4)}{n(n-1)(n+2)(n+4)},&n\text{ even},\\[5pt]
+\displaystyle\frac{4(n^3-5n^2+24)}{n(n-1)(n+3)(n+4)},&n\text{ odd},
+\end{cases}
+\]
+
+strictly positive for every \(n\ge5\). The improvement is of order \(4/n\).
+
+**Reproducibility.** The checker code/check_all_two_subset_actions.py exhausts all conjugacy types (integer partitions) for \(4\le n\le40\), checks the exact rational dual range and all four moment/positivity conditions for the primal construction, and matches the closed formula \(C_n\). This finite replay is **not** the proof for arbitrary \(n\); the symbolic quadratic estimates (77)–(86) and the explicit measures (73)–(75) supply that proof. In particular, the original floating-point LP exploration is discovery-only and no solver result is used as a theorem premise.
