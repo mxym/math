@@ -40,3 +40,11 @@ None of the above implies the main statement \`∀ V, ∀ G : SimpleGraph V, Cho
 - An independent fresh source rebuild, axiom audit and empty-environment, trust-zero kernel replay on the finally completed theorem and its exact dependency closure.
 
 No missing theorem is silently postulated as an axiom or a hypothesis equivalent to the all-graph conclusion. A green build of the finite-dimensional pieces is not a complete proof of the global main theorem. No human peer-review, absolute publication novelty or authorship priority is claimed.
+
+## Fresh 11-module owned-source compilation
+
+A separate empty directory for freshly rebuilt *owned* Lean sources was created after publication. All 11 source modules were copied there as text and newly compiled against the pinned official Lean 4.34.1 compiler and Mathlib dependency artifacts. **Every module compiled successfully, final exit code 0**. None of the previous author-owned compiled object files were used as input.
+
+The actual compiler stdout/stderr is published as [fresh-build-11.log](laplacian-chollet-triangle/verification/fresh-build-11.log); the SHA256 identities of all 11 new source files, with machine-local path prefixes removed, are published as [fresh-build-sources.sha256](laplacian-chollet-triangle/verification/fresh-build-sources.sha256). Each theorem-root axiom report lists only propext, Classical.choice and Quot.sound. Benign old-simp-lemma deprecation warnings were present, no errors.
+
+Scope remains narrowly stated: fresh compilation of owned sources against pinned reused Mathlib artifacts, NOT a full Mathlib rebuild, NOT an independent empty-environment trust-zero kernel replay and NOT a proof of the still-uncompleted arbitrary-simple-graph target.
