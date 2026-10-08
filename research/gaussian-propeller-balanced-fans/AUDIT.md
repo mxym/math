@@ -61,6 +61,21 @@
   on a partition attaining the global optimum.
   It proves distinct centroids by swapping equal-mass
   patches and obtaining a strict squared-norm gain.
+- Centering all Gaussian score vectors leaves every fixed-mass
+  linear objective unchanged. Normalization shows that outer
+  maximizers may be taken centered; their span therefore has
+  dimension at most k-1.
+- The joint law of the centered Gaussian score list depends
+  only on its Gram matrix. Orthogonal compression to R^(k-1)
+  preserves the entire inner mass-price dual objective.
+- Conversely any lower-dimensional feasible partition lifts
+  under Gaussian product measure with identical cell masses
+  and first-moment score.
+- For an attaining partition, the already-proved Laguerre
+  structure and the zero sum of centroids force every
+  boundary inequality to depend on at most k-1 coordinates.
+  This proves cylindrical rigidity without assuming that
+  the regular simplex is globally optimal.
 - The two-cell all-mass formula is established by a
   sign-definite halfspace exchange, without a solver.
 - The three-cell equal-mass global upper bound is
