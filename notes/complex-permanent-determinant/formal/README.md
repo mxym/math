@@ -123,3 +123,27 @@ The mathematical proof comes from
 https://github.com/mxym/math/tree/main/notes/complex-permanent-determinant .
 AI-assisted authorship, lack of external peer review, and lack
 of historical mathematical priority certification remain disclosed.
+
+## Verified Mathlib-native matrix theorem
+
+The additional kernel theorem
+`ComplexPencilFull.matrix_squared_norm_iff` quantifies directly over
+`A : Matrix (Fin 3) (Fin 3) ℂ`, uses **Mathlib**
+`A.permanent` and `A.det`, and defines squared row norms as
+`∑ j : Fin 3, Complex.normSq (A i j)`.
+
+It proves the same *if-and-only-if five-term optimum* over all matrices.
+The bridge module `MatrixBridge.lean` proves that the six-term
+polynomial expressions are exactly Mathlib's matrix permanent
+and determinant, by a complete six-permutation
+enumeration and `Matrix.det_fin_three`.
+`MatrixTheorem.lean` checks the passage from arbitrary
+nine complex entries to the standard matrix object.
+
+To replay the stronger endpoint after the seven earlier modules:
+
+    lake env lean -o .lake/build/lib/lean/MatrixBridge.olean MatrixBridge.lean
+    lake env lean MatrixTheorem.lean
+
+The actual `MatrixTheorem.log` axiom check shows only
+`propext`, `Classical.choice`, and `Quot.sound`.
