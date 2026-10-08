@@ -443,6 +443,27 @@ where the \(k^2\) identity uses Lemma 6. The associated total-variation extremiz
 
 The universal dual bound (25) and the exact rational primal lower bound (37) match to order \(1/n\). Thus (3)--(4) follow for every fixed \(k\ge2\). The rank-one dual gives the same upper bound at \(k=1\), while the universal primal construction includes \(k=1\) with \(\gamma_1=2\). **Theorem 1 is proved for every fixed \(k\ge1\).** QED.
 
+**Corollary 8 (eventual strict Johnson-rank separation).** For every **fixed pair** of distinct positive integers \(1\le k<\ell\),
+
+\[
+\boxed{\displaystyle
+C_{n,k}-C_{n,\ell}
+=\frac{2(\ell^2-k^2)}{n}+O_{k,\ell}(n^{-2})>0
+\quad\text{for all sufficiently large }n.}
+\tag{38}
+\]
+
+In particular,
+
+\[
+\lim_{n\to\infty}n(C_{n,k}-C_{n,k+1})=4k+2.
+\tag{39}
+\]
+
+*Proof.* Apply Theorem 1 separately at the two fixed ranks and subtract the resulting estimates. The leading coefficient \(2(\ell^2-k^2)>0\) dominates the \(O_{k,\ell}(n^{-2})\) error once \(n\) is sufficiently large. For \(\ell=k+1\), simplify \(2((k+1)^2-k^2)=4k+2\). QED.
+
+This **eventually upgrades the non-strict all-degree hierarchy** from the companion [Theorem E](README.md#6-a-universal-hierarchy-under-increasing-subset-rank) to a strict hierarchy between any two fixed subset ranks. It is not an assertion of uniform strictness at every finite degree or at ranks proportional to \(n\).
+
 **Executable regression material** (from the repository root):
 
 ~~~sh
