@@ -162,3 +162,18 @@ A completely separate, [optimizer-free Fraction/integer verifier](code/check_fou
     EXACT k4 FRACTIONAL OPTIMALITY CERTIFIED: 57 DEGREES, 440670 TYPES
 
 The general compression proof is Theorem 30; rank-4 moment formulas are written explicitly in Section 26 as an independent combinatorial derivation. This is a **finite complete classification through n=64**, whereas Theorem 25 independently proves the **infinite** sharp leading coefficient \(32\) for all sufficiently large n. No exact all-finite-n formula, external human refereeing, or novelty-priority certification is claimed.
+
+
+## Universal exact formula at arbitrary finite n and k
+
+The new [dedicated proof](universal-exact/paper.md) establishes an exact rational arithmetic formula for the optimal marginal-preserving atom/TV coefficient **for every finite parameter pair**, not only a sharp asymptotic or finite table. Reduce by complements to \(m=\min(k,n-k)\). Enumerate feasible short-cycle counts and form an integer matrix of normalized mass and the first \(m\) intersection orbitals. The exact coefficient equals a **finite maximum of explicit alternating \((m+1)\)-minor ratios**, with no LP variables or solver dependence.
+
+The proof establishes a universal nonzero rank determinant
+\[
+(-1)^m\prod_{r=0}^{m-1}\binom{n-2r}{m-r},
+\]
+shows an optimum always has an attaining signed perturbation on at most \(m+2\) conjugacy classes, and proves this support bound is **sharp** at \(n=11,k=4\). It generalizes the exact minor formula to every finite permutation group action through its conjugacy-class/orbital matrix.
+
+The [pure-integer checker](code/check_universal_max_minors.py) evaluates the full finite maximum with Bareiss determinants and reproduces independently the earlier rank-1 through rank-4 values; the [six-contact exact checker](code/check_sparse_support_sharpness.py) certifies sharpness of the sparse support bound. [Generic exact random-matrix circuit audits](code/check_generic_circuit_audit.py) compare the determinant formula with an independent SymPy rational-nullspace circuit search. These supplement the full analytic proof and are run in GitHub Actions.
+
+The initial [Lean proof fragment](formal/KernelMass.lean) is genuinely compiled but covers only the first-row mass-zero fact. The [Lean roadmap](universal-exact/LEAN_ROADMAP.md) lists the substantial remaining formalization obligations. **A compact elementary formula with no finite maximization is not claimed.**
