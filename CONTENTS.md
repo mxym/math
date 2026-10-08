@@ -1,5 +1,17 @@
 # Manuscript catalogue
 
+## Exact triple-action spectrum, asymptotics, and orbital Chebyshev structure
+
+The [permutation permanent / finite-group action research programme](notes/sharp-robust-permanent/README.md) has established a **sharp universal first-order theorem** for the action of \(S_n\) on three-element subsets:
+
+\[
+C_n^{(3)}=1-\frac{18}{n}+O(n^{-2}).
+\]
+
+Its [full analytic proof](notes/sharp-robust-permanent/paper.md#22-sharp-universal-first-order-asymptotics-for-all-three-subset-actions) combines an explicit global orbital dual bound and four exactly moment-matched positive probability constructions indexed by \(n\bmod4\). Independently, an exact finite classification now covers **every degree \(3\le n\le120\)**. The new degrees 24–120 have [97 fixed rational certificates](notes/sharp-robust-permanent/certificates/three_subset_n24_120.json), replayed through [1,489,083 exhaustive compressed cycle-type checks](notes/sharp-robust-permanent/code/check_three_subset_compressed_24_120.py). The [general three-cycle compression theorem](notes/sharp-robust-permanent/paper.md#20-an-exact-three-cycle-statistic-compression-theorem) explains why this is exhaustive.
+
+The [higher-rank Bernstein theorem](notes/sharp-robust-permanent/paper.md#23-general-k-subset-orbital-bernstein-limits-and-a-chebyshev-research-direction) proves a uniform \(O_k(n^{-1})\) polynomial approximation for all fixed \(k\); its shifted Chebyshev mechanism explains the proven constants \(2,8,18\) at \(k=1,2,3\). The analogous \(2k^2\) law for \(k\ge4\) is a **conjecture**, not a published theorem. The [verification record](notes/sharp-robust-permanent/VERIFICATION.md) distinguishes analytic arguments, fixed exact finite certificates, independently replayed symbolic identities, and incomplete novelty/external-peer-review work.
+
 ## Sharp norm-six Z[sqrt(-2)] principal-sieve theorem
 
 The [full proof and certificates](notes/sqrt-minus-two-sqrt6-period/README.md)
