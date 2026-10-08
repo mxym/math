@@ -20,6 +20,12 @@ Gaussian moments is max(V_1,V_2,V_3)/(2pi).
 
 The complete paper.md also proves the following.
 
+- An **arbitrary heterogeneous minimum-mass theorem**: if every
+  sector has its own lower angle ell_i, the exact maximum is still
+  the greatest among candidate vectors with at most three
+  non-minimal angles. At most k + C(k,2) + C(k,3) explicit candidates
+  suffice, versus the originally continuous optimization.
+
 - A **two-transition phase diagram** for every k>=5:
   the optimal number of non-minimal-mass sectors is successively
   3, 2, 1. The first transition has a unique explicit root,
@@ -50,7 +56,8 @@ The checker uses fractions.Fraction, exact Machin-series bounds
 for pi, and outward-rounded integer Taylor intervals for cosine.
 It does not use binary floating point in any certified comparison.
 Tests cover candidate values, certified phase-transition brackets
-for k=5,6,10,100, angle grids and equality cases.
+for k=5,6,10,100, homogeneous and heterogeneous angle grids,
+and equality cases.
 Full test output is in results/exact-check.txt. See AUDIT.md.
 
 **Finite-grid tests are not mathematical proofs.** The
