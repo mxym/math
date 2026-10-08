@@ -30,6 +30,13 @@ Bapat 的指定复数有理反例与实对称整数反例存在定理，已合�
 当前状态为完成投稿准备，尚未向 arXiv 提交。
 高斯论文的 arXiv 投稿延后，先继续研究并完善主证明链的 Lean 覆盖。
 
+## Zenodo DOI 归档
+
+Bapat 合并修订稿已公开：[DOI 10.5281/zenodo.23248431](https://doi.org/10.5281/zenodo.23248431)。
+[全部 25 条版本 DOI、文件核验与引用信息](releases/ZENODO_RECORDS.md)。
+归档包含 24 个研究 Release 版本与 1 篇合并预印本，保留原公开时间及证明范围。
+DOI 是持久引用与第三方档案，不自动认证原创性或数学正确性。
+
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
 
 The [complete six-page proof](research/gaussian-fixed-mass-propeller-counterexample/paper.pdf)
