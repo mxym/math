@@ -34,14 +34,31 @@ This is obtained from the sharp Gaussian
 
 valid for **all** measurable equal-mass partitions in \(\mathbb R^d\).
 
+There is also a **much stronger constructive result at
+the additive-accuracy scale**: for every k>=100,
+a cyclic Gaussian score-orbit partition has exactly k
+cells of mass 1/k, dimension
+
+    d <= 8 * (log k)**3 + 2,
+
+and achieves at least F_infty(k) - 14/k.
+A root-of-unity concentration argument constructs
+pairwise almost-orthogonal orbit directions.
+The cyclic Gaussian isometry ensures exactly equal
+masses, and a Gaussian-max comparison gives
+the quantitative squared-centroid lower bound.
+No mass correction or numerical optimizer is involved.
+
 A substantially stronger necessary dimensional scale arises if
 the target is **additive \(O(1/k)\) accuracy**, rather than
 constant-relative accuracy:
 
     d >= (2-o(1)) * (log k)**2 / log(log k).
 
-No matching constructive upper dimensional bound at this second
-scale is claimed; identifying it is the primary next problem.
+The additive-accuracy dimension is therefore sandwiched between
+an asymptotic lower of (2-o(1)) (log k)^2/loglog k and an
+explicit upper of 8(log k)^3+2. Matching these bounds
+remains the principal unresolved dimensional problem.
 
 ## Proof mechanism
 
@@ -92,8 +109,16 @@ It is **not** a lower bound on the true global optimum.
 - [check_exact.py](check_exact.py): pure Python 3 standard library;
   outward-rounded rational logs and exponentials, exact integer
   tree-count verification, and a set of certified parameter cases.
+- [check_orbit.py](check_orbit.py): independent fixed-point
+  rational checker for the cyclic Gaussian orbit construction,
+  using exact intervals for pi, cosines and 1/log k.
+- [certificates/](certificates/): three frozen integer frequency
+  lists for k=17,101,257, verified against all nonzero
+  cyclic-covariance constraints without floating point.
 - [results/check_report.txt](results/check_report.txt): exact
-  output of the default verifier.
+  output of the main tree-and-converse verifier.
+- [results/orbit_check.txt](results/orbit_check.txt):
+  independent orbit-certificate replay output.
 - [AUDIT.md](AUDIT.md): proof-scope and dependency audit.
 - [LITERATURE.md](LITERATURE.md): prior-work context and
   unverified historical originality claims.
@@ -103,6 +128,8 @@ Run:
 
     python3 check_exact.py
     python3 check_exact.py --quick
+    python3 check_exact.py --json
+    python3 check_orbit.py
     sha256sum -c SHA256SUMS
 
 All Gaussian analysis is proved **symbolically** in paper.md.
