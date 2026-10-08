@@ -45,6 +45,11 @@ for p,v in ((5,H),(4,J),(3,R3),(2,R2),(1,R1),(0,0)):
 K=sum(sum(abs(S.Rational(v)) for v in
           S.Poly(P,a,b,c,d).coeffs()) for P in (R3,R2,R1))
 assert K==1704864
+# All numerical constants used in the interval-free global dual proof.
+assert S.Rational(4096*63,8)>3408
+assert S.Rational(4096*7,64)>352
+assert S.Rational(4096*3,2)>320
+assert 43280**2/S.Integer(60)+28800+2*K<35000000
 P=8*a*a-8*a+1
 Q=16*(a-1)*(22*a-7)
 assert S.expand(H-(1-P**2))==0
