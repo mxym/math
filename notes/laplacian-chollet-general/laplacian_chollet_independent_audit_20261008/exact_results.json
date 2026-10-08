@@ -1,0 +1,806 @@
+{
+  "status": "PASS: all bounded diagnostic assertions",
+  "proof_sha256": "d1d3b891b4ebdde7fe7a59f32207e04eed44bf7c77ccfe06ad93112de7d8fa39",
+  "method": "Independent integer Ryser inclusion-exclusion; Fraction constraints; no candidate-audit import",
+  "graph_cases": 23,
+  "principal_checks": 3183,
+  "odd_set_checks": 808,
+  "deficit_checks": 1533,
+  "glue_identity_pairs": 16,
+  "cases": [
+    {
+      "name": "empty",
+      "vertices": 0,
+      "edges": [],
+      "all_principals": 1,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": null
+    },
+    {
+      "name": "isolated",
+      "vertices": 1,
+      "edges": [],
+      "all_principals": 2,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "edge",
+      "vertices": 2,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "all_principals": 4,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_3",
+      "vertices": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "all_principals": 8,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_4",
+      "vertices": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "all_principals": 16,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_5",
+      "vertices": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "all_principals": 32,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_6",
+      "vertices": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "all_principals": 64,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_7",
+      "vertices": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "all_principals": 128,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_8",
+      "vertices": 8,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "all_principals": 256,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "cycle_9",
+      "vertices": 9,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "all_principals": 512,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "theta_(1, 2, 2)",
+      "vertices": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "all_principals": 16,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "theta_(1, 2, 4)",
+      "vertices": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "all_principals": 64,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "theta_(2, 2, 3)",
+      "vertices": 6,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "all_principals": 64,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "theta_(3, 3, 3)",
+      "vertices": 8,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "all_principals": 256,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "theta_(2, 3, 4)",
+      "vertices": 8,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "all_principals": 256,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "chorded_cycle_5",
+      "vertices": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "all_principals": 32,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "chorded_cycle_7",
+      "vertices": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "all_principals": 128,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "chorded_cycle_9",
+      "vertices": 9,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "all_principals": 512,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "two_triangles_cut_vertex",
+      "vertices": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "all_principals": 32,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "mixed_blocks_and_isolates",
+      "vertices": 9,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "all_principals": 512,
+      "noncycle_block": false,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "subdivided_K4",
+      "vertices": 7,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "all_principals": 128,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "K5",
+      "vertices": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "all_principals": 32,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    },
+    {
+      "name": "K2_5",
+      "vertices": 7,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "all_principals": 128,
+      "noncycle_block": true,
+      "minimum_nonempty_strong_gap": 0
+    }
+  ],
+  "scope_limit": "These finite diagnostics are auxiliary only. Universal validity is assessed in the independent written audit."
+}

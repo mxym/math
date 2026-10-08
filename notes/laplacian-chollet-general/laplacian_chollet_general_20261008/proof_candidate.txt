@@ -1,0 +1,137 @@
+A strong Chollet inequality for every simple graph Laplacian
+8 October 2026. Complete proof candidate, awaiting independent audit.
+
+THEOREM. Let G be any finite simple undirected graph, L its Laplacian, and S any subset of vertices. Then
+  per(L[S] o L[S]) <= per(L[S]) product_{v in S} deg_G(v).                 (1)
+Consequently, for S=V(G),
+  per(L o L) <= per(L) product_v deg_G(v) <= per(L)^2.
+Here o is entrywise multiplication and the permanent of the empty matrix is 1.
+This answers both all-graph questions explicitly stated in Section 6 of Pant--Singh, arXiv:2604.24192v2, 18 September 2026.
+It makes no assertion for arbitrary PSD matrices or arbitrary weighted graph Laplacians.
+
+We use only two standard theorems, stated precisely below.
+
+LIEB'S BLOCK PERMANENT INEQUALITY. If A is Hermitian PSD and its index set is partitioned into parts S_1,...,S_k, then
+  per A >= product_j per A[S_j].
+In particular per A >= product_i a_ii. See E. H. Lieb, Proofs of some conjectures on permanents, J. Math. Mech. 16 (1966), 127--134. This theorem is also stated as Lemma 1 in Pant--Singh v2.
+
+EDMONDS' MATCHING POLYTOPE THEOREM. For a finite graph H, a vector x indexed by edges is a convex combination of incidence vectors of matchings iff
+  x_e >=0;
+  sum_{e incident with v} x_e <=1 for each v;
+  sum_{e in E_H(U)} x_e <=(|U|-1)/2 for every odd subset U of vertices.
+Thus any real edge weights w_e admit a matching of weight at least sum_e x_e w_e whenever x satisfies these inequalities. See J. Edmonds, Maximum matching and a polyhedron with 0,1-vertices, J. Res. NBS 69B (1965), 125--130, DOI 10.6028/jres.069B.013.
+
+1. A permanent upper bound
+
+Let C be a real symmetric entrywise nonnegative matrix with zero diagonal and every row sum at most 1/2. Put E(C)={ij:i<j, c_ij>0}. Then
+  log per(I+C) <= (19/12) sum_{ij in E(C)} c_ij^2.                       (2)
+
+Proof. Expand per(I+C) by the nontrivial directed cycles of a permutation. A directed cycle of length 2 is counted once, and longer cycles are counted up to cyclic rotation, with their two directions distinguished. Its weight is the product of its C entries. If Z_cyc is the sum of weights of all such simple directed cycles, then
+  per(I+C) <= product_{simple directed cycles gamma}(1+w(gamma))
+             <= exp(Z_cyc).
+The first product allows intersecting cycles and therefore only adds nonnegative terms. For every length k, simple directed cycles have total weight at most tr(C^k)/k. Since C is symmetric and its row sums are at most 1/2, every eigenvalue lies in [-1/2,1/2]. For k>=2,
+  tr(C^k) <= 2^{-(k-2)} tr(C^2),
+by applying lambda^k <= 2^{-(k-2)}lambda^2 to each eigenvalue. Therefore
+  Z_cyc <= tr(C^2) sum_{k>=2} 2^{-(k-2)}/k.
+The series is bounded by
+  1/2 + 1/6 + (1/4) sum_{k>=4} 2^{-(k-2)} = 19/24.
+Since tr(C^2)=2 sum_{i<j}c_ij^2, (2) follows. The diagonal term of the permanent is 1, so its logarithm is defined.
+
+2. A fractional matching in a noncycle block
+
+Let G be a 2-vertex-connected finite simple graph that is not a cycle. Let d_v=deg_G(v), so every d_v>=2. For each edge uv define
+  c_uv=1/(d_ud_v),       x_uv=(9/5)c_uv.                               (3)
+Then x belongs to the matching polytope of G.
+
+Proof. Nonnegativity is immediate. At a vertex v,
+  sum_{u~v}x_uv=(9/(5d_v))sum_{u~v}1/d_u <=9/10<1.
+We check every odd-set inequality.
+
+First establish a useful deficit. Given U with |U|>=2, call v in U exceptional if either d_v>=3 or v has a neighbor outside U. There are at least two exceptional vertices. Indeed, if U is proper and has at most one exception v, every vertex of U minus {v} has all its neighbors in U; deletion of v disconnects U minus {v} from V(G) minus U, contradicting 2-connectivity. With no exception, connectivity already gives a contradiction. If U=V(G), a noncycle 2-connected graph cannot have only one vertex v of degree greater than 2: G-v would be a connected graph of maximum degree 2 with at least three degree-one vertices (the neighbors of v), which is impossible. Thus again at least two vertices are exceptional.
+
+Write d_U(v) for the number of neighbors of v in U. The elementary inequality 2/(d_ud_v)<=1/d_u^2+1/d_v^2 gives
+  4 sum_{uv in E(U)}c_uv <=2 sum_{v in U} d_U(v)/d_v^2.
+For any v, 1-2d_U(v)/d_v^2>=0. If d_v>=3 this difference is at least 1/3. If d_v=2 and v has an external neighbor, it is at least 1/2. The two exceptional vertices therefore imply
+  4 sum_{uv in E(U)}c_uv <= |U|-2/3.                                  (4)
+For odd |U|>=5, (4) yields
+  sum_{uv in E(U)}x_uv <=(9|U|-6)/20 <=(|U|-1)/2,
+where the last inequality is equivalent to |U|>=4.
+
+For |U|=3, if G[U] has at most two edges, sum c_uv<=2/4=1/2, and sum x_uv<=9/10<1. If G[U] is a triangle, at least two of its vertices have degree at least 3: otherwise the third vertex would separate the two degree-two vertices from the rest of G, unless G were that triangle, which was excluded. Hence
+  sum_{uv in E(U)}c_uv <=1/6+1/6+1/9=4/9,
+and sum x_uv<=4/5<1. The one-vertex constraint is trivial. All matching-polytope inequalities hold.
+
+3. Every principal submatrix of a noncycle block satisfies (1)
+
+Fix a 2-connected noncycle G as in Section 2 and any S subset V(G). If S is empty there is nothing to prove. All original degrees d_v are positive. Normalize
+  M=diag(d_v^{-1/2}:v in S) L_G[S] diag(d_v^{-1/2}:v in S)=I-B.
+Then M is PSD, B is symmetric with zero diagonal, and on any edge uv of G[S],
+  b_uv=1/sqrt(d_ud_v),      b_uv^2=c_uv<=1/4.
+Put C=B o B. Its row sums are at most 1/2, including for a principal submatrix, because
+  sum_{u in S:u~v} c_uv <=(1/d_v)sum_{u~v}1/2=1/2.
+Section 1 gives
+  log per(M o M)=log per(I+C) <=(19/12)sum_{uv in E(G[S])}c_uv^2.        (5)
+
+Restrict x from (3) to E(G[S]); this still satisfies every matching-polytope inequality (or restrict a convex decomposition of x into matchings). Use edge weights log(1+c_uv). Edmonds' theorem provides a matching F in G[S] such that
+  sum_{uv in F}log(1+c_uv) >=(9/5)sum_{uv in E(G[S])}c_uv log(1+c_uv).
+Partition S into the pairs of F and remaining singleton vertices. By Lieb's inequality,
+  per M >= product_{uv in F}(1+b_uv^2)=product_{uv in F}(1+c_uv).
+For 0<=t<=1/4,
+  log(1+t) >=2t/(2+t)>=(8/9)t.
+The first inequality follows by differentiating: its difference has derivative t^2/((1+t)(2+t)^2)>=0 and value 0 at t=0. Consequently
+  log per M >=(8/5)sum_{uv in E(G[S])}c_uv^2.                          (6)
+Since 8/5-19/12=1/60>0, (5)--(6) imply per(M o M)<=per M, strictly if G[S] has an edge. Undoing the diagonal normalization gives exactly (1). If S has no internal edge, M=I and equality holds.
+
+4. Cycle and edge blocks
+
+Call a real PSD matrix A hereditarily strong if every principal submatrix H satisfies per(H o H)<=per H product diag H.
+
+A PSD matrix with nonpositive off-diagonal entries and bipartite support is hereditarily strong. Each nonzero permanent monomial t_sigma is nonnegative, because every nontrivial permutation cycle has even length. Moreover
+  |t_sigma|=product_i |h_i,sigma(i)| <=product_i sqrt(h_ii h_sigma(i),sigma(i))=product_i h_ii,
+using PSD 2-by-2 principal minors. Therefore
+  per(H o H)=sum_sigma t_sigma^2 <=(product diag H)sum_sigma t_sigma.
+This proves the assertion, including zero diagonal entries. It covers K_2 and even cycles, and all proper principal submatrices of any cycle Laplacian, because their support is a forest.
+
+It remains to treat the full Laplacian of an odd cycle C_n, n>=3. Normalize M=L(C_n)/2=I-B, with b_uv=1/2 on cycle edges. A maximum matching has (n-1)/2 edges; Lieb's inequality gives
+  log per M >=((n-1)/2)log(5/4)>=(n-1)/9.                            (7)
+For C=B o B, all cycle-edge entries are 1/4. Its simple directed cycles comprise n directed 2-cycles, each of weight 1/16, and the two orientations of the full n-cycle, each of weight 4^{-n}. The cycle-product bound from Section 1 yields
+  log per(M o M)<=n/16+2/4^n.                                       (8)
+For every integer n>=3,
+  (n-1)/9 - n/16 - 2/4^n=(7n-16)/144-2/4^n>0.
+The expression is increasing in n, and at n=3 it equals 1/288. Thus (7)--(8) prove the full odd-cycle strong inequality. Every cycle Laplacian is hereditarily strong.
+
+5. Closure under vertex coalescence
+
+For completeness, the needed closure is proved here; it is also Theorem 4.3 of Pant--Singh v2.
+
+First, hereditary strength is preserved by addition of a nonnegative diagonal matrix. It suffices to add alpha>=0 to a single diagonal entry a of A. For any relevant principal submatrix let P=per A, R=per A(v), Q=per(A o A), T=per(A(v) o A(v)), and h=product diag A(v). Then
+  per(A+alpha E_vv)=P+alpha R,
+  per((A+alpha E_vv)o(A+alpha E_vv))=Q+(2a alpha+alpha^2)T.
+By hereditary strength Q<=a hP and T<=hR, while Lieb gives P>=aR. It follows that
+  Q+(2a alpha+alpha^2)T
+      <=h[aP+(2a alpha+alpha^2)R]
+      <=h(a+alpha)(P+alpha R).
+The same argument applies to every principal submatrix containing v; other principal submatrices are unchanged.
+
+Next let A_1,A_2 be hereditarily strong PSD matrices with distinguished diagonal entries a_1,a_2. Form their one-point sum A by identifying those indices, adding their diagonal entries, and setting cross entries between the two remaining index sets to zero. Let B_i be A_i with its distinguished index deleted, and set
+  P_i=per A_i, R_i=per B_i, Q_i=per(A_i o A_i), T_i=per(B_i o B_i),
+  h_i=product diag B_i.
+Expansion by the permutation cycle containing the common index gives
+  per A=P_1R_2+R_1P_2,
+  per(A o A)=Q_1T_2+T_1Q_2+2a_1a_2T_1T_2.
+(The cycle cannot visit both sides, because that would require passing through the common vertex twice.) The strong inequalities imply
+  per(A o A)<=h_1h_2[a_1P_1R_2+a_2R_1P_2+2a_1a_2R_1R_2].
+The target product per A product diag A is h_1h_2(a_1+a_2)(P_1R_2+R_1P_2). The difference of its bracket and the preceding bracket is
+  a_2R_2(P_1-a_1R_1)+a_1R_1(P_2-a_2R_2)>=0,
+again by Lieb. Thus A is strong.
+
+For a principal submatrix omitting the common index, multiplicativity on direct sums proves its inequality. If it contains the common index and vertices from both sides, apply the preceding calculation to the corresponding principal submatrices of A_1,A_2. If it contains vertices from only one side, it is a principal submatrix of that side with a nonnegative addition to the common diagonal; use the diagonal-addition argument. The one-point sum is therefore hereditarily strong.
+
+Finally, the Laplacian of a connected finite simple graph is obtained by successive one-point sums of the Laplacians of its blocks. A block is either a bridge K_2 or a 2-connected graph, which is either a cycle or a noncycle. Sections 3 and 4 prove hereditary strength for every block, and Section 5 preserves it under assembly. A one-vertex component has zero Laplacian and is immediate. Disconnected graphs are handled by direct sums. This proves (1) for all G and all S. The last inequality in the theorem follows from Lieb's diagonal-product lower bound. QED.
+
+Primary sources verified
+- Pant--Singh latest v2 and its expressly remaining all-graph questions: https://arxiv.org/html/2604.24192
+- Edmonds original matching-polytope paper: https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf
+- Lieb block permanent theorem: DOI 10.1512/iumj.1967.16.16008; also Pant--Singh Lemma 1.
+
+No numerical experiment is used as a premise in this proof.

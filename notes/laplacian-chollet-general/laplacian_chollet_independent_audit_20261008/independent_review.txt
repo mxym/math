@@ -1,0 +1,282 @@
+INDEPENDENT AUDIT: ALL-SIMPLE-GRAPH STRONG CHOLLET PROOF
+Audit date: 8 October 2026 (UTC)
+Reviewer: independent AI audit, separate from the proof author.
+
+VERDICT
+PASS for the universal mathematical argument in the frozen file identified below.
+No fatal error, missing graph class, unproved case split, or mandatory logical
+repair was found. The proof establishes the stated inequality for every finite
+simple undirected unweighted graph and every principal index set. The diagnosis
+is based on reconstructing its lemmas, not extrapolation from finite examples.
+This is an independent AI audit, not human peer review or formal verification.
+It does not establish priority or originality.
+
+Frozen object:
+  research_math/laplacian_chollet_general_20261008/proof_candidate.txt
+  SHA-256 d1d3b891b4ebdde7fe7a59f32207e04eed44bf7c77ccfe06ad93112de7d8fa39
+The original file was not edited. All diagnostic code and this report were
+written in a separate audit directory.
+
+1. EXACT TARGET AND VERSION
+
+Pant--Singh's current arXiv record has v2 dated 18 September 2026, titled
+Structural Classes for Chollet's Permanent Conjecture. Section 6 asks whether
+every graph Laplacian satisfies self-Chollet, and explicitly asks the stronger
+inequality
+  per(L_G o L_G) <= per(L_G) product_{v in V(G)} deg_G(v).
+Their graph convention is simple, with the ordinary 0/1 adjacency and degree
+Laplacian, not arbitrary weighted or multigraph Laplacians. The statement does
+not assume connectivity. The candidate's S=V(G) case is exactly this stronger
+question; the arbitrary-principal-S conclusion is an additional strengthening.
+The full Hermitian PSD conjecture is a different, broader question and is not
+settled by the candidate. The explicit Section 6 strong question belongs to v2;
+v1 Section 6 instead lists different closure/equality questions.
+
+Verified primary links:
+  https://arxiv.org/abs/2604.24192
+  https://arxiv.org/html/2604.24192v2#S6
+  https://arxiv.org/html/2604.24192v2#S2
+  https://arxiv.org/html/2604.24192v1#S2
+
+2. IMPORTED THEOREMS AND THEIR ACTUAL HYPOTHESES
+
+2.1 Edmonds
+The original 1965 article, Section 2, Theorem (P), characterizes the convex hull
+of matching incidence vectors by nonnegativity, vertex upper bounds of 1, and
+internal-edge upper bounds r for subsets of 2r+1 vertices. It permits real edge
+weights in its linear optimization consequence. Thus the candidate may apply
+it to the real weights log(1+c_e). The singleton odd-set condition is vacuous.
+There is no missing perfect-matching requirement or cardinality constraint.
+  https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf
+
+2.2 Lieb
+The needed assertion is the non-strict two-principal-block inequality
+  per([[B,C],[C*,D]]) >= per(B) per(D)
+for Hermitian PSD matrices. It is not the unsolved permanental dominance
+conjecture, nor the multi-block permanent-of-permanents conjecture. Repeated
+application to complementary principal blocks gives the finite-partition
+product bound used here.
+
+The original publisher-hosted first page identifies the result and bibliographic
+record. A separate primary proof by D. Z. Djokovic proves nonnegativity of the
+coefficients of per([[lambda B,C],[C*,D]]). The top coefficient is per(B)per(D),
+so evaluation at lambda=1 supplies the desired inequality. The stated no-zero-row
+hypothesis in that presentation causes no restriction: with a zero row, per(A)
+and at least one complementary-block permanent are zero. Iteration also proves
+nonnegativity of all PSD principal permanents and their diagonal-product lower
+bound. Singular PSD Laplacians are therefore fully included.
+
+Djokovic notes a correction to an equality condition in Lieb's original paper;
+that correction does not alter coefficient nonnegativity or the non-strict
+inequality used by the candidate. No equality characterization is imported.
+
+Primary references checked:
+  https://iumj.s3-us-west-2.amazonaws.com/abstracts/16008_abs.pdf
+  https://www.jstor.org/stable/24901474
+  https://www.cambridge.org/core/services/aop-cambridge-core/content/view/11B16E85A563E6DA515825E0BD3B33F4/S0017089500000525a.pdf/simple_proof_of_a_theorem_on_permanents.pdf
+The correct original citation is J. Math. Mech. 16 (1966), 127--134,
+DOI 10.1512/iumj.1967.16.16008. The year embedded in the DOI is not the printed
+publication year. Direct full-text retrieval of the Lieb article was not
+available; the actual PSD hypothesis was checked against the accessible primary
+Djokovic proof and Pant--Singh Lemma 1. Pant--Singh's JSTOR reference link points
+to front matter, so the correct article link above should be used instead.
+
+3. RECONSTRUCTION OF THE CANDIDATE'S UNIVERSAL LEMMAS
+
+3.1 Cycle-gas upper bound: PASS
+For symmetric entrywise-nonnegative zero-diagonal C with row sums <=1/2,
+nontrivial cycles of a permutation form a vertex-disjoint family. Expanding
+product_gamma(1+w_gamma) admits every such family and additional intersecting
+families, all with nonnegative weights. Thus
+  log per(I+C) <= sum_gamma w_gamma.
+A directed 2-cycle is a single cyclic object; trace(C^2)/2 counts its two possible
+starting vertices correctly. For k>=3, trace(C^k)/k counts each oriented simple
+cycle once, together with additional nonnegative nonsimple closed walks.
+No reversal division by 2 is permissible or used for longer directed cycles.
+
+Symmetry gives real eigenvalues, and the row-sum bound gives |lambda|<=1/2.
+For every k>=2, lambda^k <= (1/2)^(k-2) lambda^2, including negative lambda and
+odd k. Hence trace(C^k) has the needed upper bound. It is also nonnegative
+independently, from the closed-walk expansion. The infinite series converges,
+although a finite graph has only finitely many simple cycles. The numerical
+bound is exactly
+  sum_{k>=2} 2^{-(k-2)}/k
+  <= 1/2 + 1/6 + (1/4)(1/2) = 19/24.
+Multiplication by trace(C^2)=2 sum_e c_e^2 gives 19/12. The empty matrix and
+edgeless support give per=1 and logarithm 0; logarithms have no zero argument.
+
+3.2 Matching feasibility: PASS
+For a 2-vertex-connected noncycle simple graph, all degrees are >=2. Set
+  c_uv=1/(d_u d_v), x_uv=(9/5)c_uv.
+Vertex feasibility follows from sum_{u~v} 1/d_u <= d_v/2, so incident x-mass
+is <=9/10.
+
+For any U of size >=2, a vertex is exceptional if its full degree is >=3 or it
+has a neighbor outside U. There are at least two exceptions:
+* If U is proper and only v can be exceptional, deleting v separates the
+  nonempty sets U\{v} and V\U. If no vertex is exceptional, connectivity itself
+  is contradicted.
+* If U=V, absence of exceptions makes the connected graph a cycle. If there is
+  only one high-degree vertex v, deleting v gives a connected maximum-degree-2
+  graph with at least three distinct degree-1 vertices, impossible. Simplicity
+  ensures those neighbors are distinct and each loses exactly one incident edge.
+
+The inequality 2/(d_u d_v)<=1/d_u^2+1/d_v^2 yields
+  4 sum_{e in E(U)} c_e <= 2 sum_{v in U} d_U(v)/d_v^2.
+Each ordinary vertex contributes at most 1 to the last sum; each exceptional
+vertex lowers its contribution by >=1/3. For degree 2 with an external neighbor,
+the drop is even >=1/2. Therefore the right side is <=|U|-2/3.
+For odd |U|>=5, multiplying by 9/20 gives
+  sum x_e <=(9|U|-6)/20 <=(|U|-1)/2,
+since the last comparison is precisely |U|>=4.
+
+For a three-vertex U with at most two edges, c-mass<=1/2 and x-mass<=9/10.
+If it is a triangle, at least two of its vertices have degree >=3: otherwise
+the possible unique attachment vertex is a cut vertex, or the whole graph is
+the excluded triangle. Therefore c-mass<=1/9+1/6+1/6=4/9, so x-mass<=4/5.
+This covers all odd subsets, with no omission of U=V or small U.
+
+3.3 Application to every principal submatrix: PASS
+For arbitrary S in the noncycle block, every d_v remains the degree in the
+whole block, not in G[S]. The normalized principal Laplacian M=I-B is PSD by
+principal restriction and positive diagonal congruence. Its squared off-diagonal
+weights are c_e, with 0<c_e<=1/4; C=B o B has row sums <=1/2 even after restricting
+to S. The cycle bound therefore gives
+  log per(M o M) <=(19/12) sum_{e in E(G[S])} c_e^2.
+
+The restricted x-vector lies in the matching polytope of G[S], either by its
+constraints or by restricting every matching in a convex decomposition. There
+is a matching F whose log(1+c)-weight is at least the fractional weight.
+The 2-by-2 PSD blocks on matched edges have permanent 1+c_e; unmatched singleton
+blocks have permanent 1. Lieb therefore gives the logarithmic lower bound.
+The calculus step is exact:
+  [log(1+t)-2t/(2+t)]' = t^2/((1+t)(2+t)^2) >=0.
+On [0,1/4], 2/(2+t)>=8/9. Thus
+  log per M >=(9/5)(8/9) sum c_e^2=(8/5) sum c_e^2.
+The gap is 8/5-19/12=1/60, strictly positive if an internal edge exists. Lieb
+also ensures per M>=1, so the lower logarithm is valid despite singularity.
+
+For h=product_{v in S}d_v>0, the unnormalization identities are
+  per M=per(L_G[S])/h,
+  per(M o M)=per(L_G[S] o L_G[S])/h^2.
+This gives precisely the desired strong inequality. If there is no internal
+edge, M=I. No assumption that L_G[S] is the Laplacian of the induced graph is
+made or needed.
+
+3.4 Cycle and bridge blocks: PASS
+For a real PSD matrix with nonpositive off-diagonal entries and bipartite
+support, every nonzero permutation monomial has nonnegative sign because all
+nontrivial cycles have even length. Every monomial has magnitude at most the
+diagonal product by the PSD 2-by-2 minor inequality. Therefore its square is
+bounded by that product times itself. Summation gives hereditary strength,
+including zero diagonal entries (then the corresponding PSD row is zero).
+This treats K_2, every even cycle, and every proper principal submatrix of any
+cycle, whose off-diagonal support is a forest.
+
+For the full odd n-cycle, M=L/2 has off-diagonal -1/2. A maximum matching gives
+  log per M >=((n-1)/2)log(5/4)>=(n-1)/9.
+For C=B o B, the cycle gas contains exactly n two-cycles of weight 1/16 and two
+orientations of the full n-cycle, each of weight 4^(-n). This is also correct
+for n=3. The upper bound is n/16+2/4^n. The difference is
+  f(n)=(7n-16)/144-2/4^n,
+with f(3)=1/288 and f(n+1)-f(n)=7/144+6/4^(n+1)>0.
+The claimed positive gap therefore holds for all required odd n>=3.
+
+3.5 Diagonal increase and vertex coalescence: PASS
+All factors multiplied in the closure inequalities are nonnegative: diagonals
+and principal permanents of PSD matrices are nonnegative. No division by them
+is used, so zero or singular cases remain valid.
+
+For increasing a distinguished diagonal a by alpha>=0, permanent multilinearity
+gives P+alpha R and the entrywise-square permanent gives
+Q+(2a alpha+alpha^2)T. The final comparison reduces exactly to
+  alpha(P-aR)>=0,
+which is Lieb's one-index case. This applies separately to every relevant
+principal submatrix, including a singleton with empty complementary submatrix.
+
+For a one-point sum, the new matrix is PSD because it is the sum of the two
+zero-padded PSD embeddings. The common-vertex permutation cycle cannot move
+between the two sides without repeating that vertex. Its fixed-point case
+contributes (a_1+a_2)R_1R_2. This verifies, without double counting,
+  per A=P_1R_2+R_1P_2,
+  per(A o A)=Q_1T_2+T_1Q_2+2a_1a_2T_1T_2.
+The difference after applying strength to both sides is
+  h_1h_2[a_2R_2(P_1-a_1R_1)+a_1R_1(P_2-a_2R_2)]>=0.
+The factors in square brackets are nonnegative by Lieb. The same reasoning
+works if either side has only its distinguished vertex.
+
+For a principal submatrix omitting the common vertex, it is a direct sum of
+principal submatrices with their original diagonals retained. If it includes
+the common vertex, restrict both operands while retaining that distinguished
+index. In a one-sided restriction, the other operand contributes its original
+nonnegative distinguished diagonal; the diagonal-increase lemma handles this
+exactly. Thus excluded neighbors never cause an incorrect degree reduction.
+
+Finally, finite connected graphs decompose along their block-cut tree into
+bridges and 2-connected blocks. At each identified vertex, block degrees add
+to the degree in the assembled graph. All block types have been covered.
+A singleton isolated component has zero Laplacian; any nonempty principal
+containing that zero row has both sides zero. Empty principal matrices have
+permanent and empty diagonal product 1. Direct sums handle arbitrary disconnected
+and empty graphs. The all-principal universal statement follows.
+
+4. TWO DIFFERENT GRAPH LAPLACIANS
+
+For two same-order real matrices A,B let t_sigma=product_i a_i,sigma(i) and
+u_sigma=product_i b_i,sigma(i). Then ordinary Cauchy--Schwarz gives
+  |per(A o B)| <= sqrt(per(A o A) per(B o B)).
+Applying the established self-Chollet inequality separately to two simple-graph
+Laplacians (or matching-size principal Laplacian submatrices) yields
+  per(A o B) <= per(A) per(B),
+because their permanents are nonnegative. The signed odd-cycle monomials do not
+invalidate Cauchy--Schwarz. More strongly the proof supplies the symmetric bound
+  |per(A o B)| <= sqrt(per(A) h(A) per(B) h(B)).
+This is not the asymmetric mixed strong inequality per(A o B)<=per(A)h(B).
+Neither the mixed argument nor the base proof proves the general Hermitian PSD
+conjecture or an arbitrary weighted-graph version.
+
+5. AUXILIARY EXACT DIAGNOSTICS
+
+check_exact.py was independently written, does not import the author's audit,
+and computes permanent by integer Ryser inclusion-exclusion rather than the
+author's row/subset dynamic program. Exact Fraction arithmetic checks matching
+constraints and deficits. Deterministic cases emphasize small odd cycles,
+subdivided theta graphs, chorded cycles, subdivided K4, bipartite and complete
+blocks, cut vertices, mixed blocks, and isolated vertices.
+
+Results in exact_results.json:
+* 23 targeted graph cases
+* 3,183 principal strong and self-Chollet inequalities
+* 808 odd-set matching inequalities
+* 1,533 exceptional-vertex deficit checks
+* 16 algebraic coalescence pairs using integer Gram PSD matrices, including
+  dimension-one operands, singularity, zero rows, and signed off-diagonals
+* exact checks of the rational margins 1/60 and 1/288
+All assertions passed. The run is small and reproducible using Python's standard
+library. These finite checks are diagnostics only; none is a proof premise.
+
+6. EDITORIAL SUGGESTIONS AND SCOPE OF PASS
+
+No mathematical repair is required. Before a public final copy, two optional
+clarifications would improve readability without changing the proof:
+(a) explicitly write the two permanent normalization identities in Section 3;
+(b) explicitly state that a one-point sum is PSD as a sum of PSD embeddings.
+The original bibliography should use the correct Lieb/JSTOR link, not the
+mistargeted link in Pant--Singh's bibliography. If added, the two-graph consequence
+should be called ordinary Chollet, not mixed strong Bapat--Sunder.
+
+This audit covers exactly the SHA-256-identified frozen object. Changes to a
+final copy need a diff check; a materially different proof needs fresh review.
+No Lean certificate, independent human review, or authorship/priority claim is
+implied. No manuscript was published and no author was contacted by this audit.
+
+7. PUBLIC STATUS CHECK (BOUNDED, NOT PRIORITY CERTIFICATION)
+
+The current arXiv version history lists v1 and v2 and no withdrawal. A targeted
+primary-source search found no public full-graph solution, correction, or
+retraction applicable to the v2 Section 6 question. This means only that no such
+record was found in this search, not that none exists.
+An August 2026 preprint by Li--Zhao--Luo claims a complex-Hermitian dimension-at-most-6
+result; that is a different finite-order scope. Its proof was not audited here.
+  https://www.preprints.org/manuscript/202608.2196
+The public-status check is bounded and does not certify priority.

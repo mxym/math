@@ -1,0 +1,31 @@
+FINAL-COPY AUDIT GATE
+8 October 2026, UTC
+
+Verdict: PASS, limited to fidelity of the identified final copy to the independently
+audited complete proof. This gate is not an additional human or formal review.
+
+Audited candidate SHA-256:
+  d1d3b891b4ebdde7fe7a59f32207e04eed44bf7c77ccfe06ad93112de7d8fa39
+Final proof SHA-256:
+  1ca73b56a67af220a63cb8599678fe5aca757403d766bdf2c961eaa18e99f70a
+Complete independent audit report SHA-256:
+  0fe564cbabaceac0b6f44fa51e4da7c49c48f64cd0f3590f109cf301995eda03
+
+The exact byte-level diff was read. It contains only these three changes:
+1. The historical line calling the file a candidate awaiting independent audit
+   is replaced by "Complete proof."
+2. Section 3 adds the correct equalities per(L_G[S])=Z_S per M and
+   per(L_G[S] o L_G[S])=Z_S^2 per(M o M), where Z_S=product_{v in S}d_v.
+3. Section 5 explicitly notes that the one-point sum is PSD because it is the
+   sum of the two matrices embedded on their respective index sets.
+
+Changes 2 and 3 are precisely the two optional clarifications recommended in
+the independent audit. No hypothesis, coefficient, inequality direction,
+quantifier, graph case, or argument was otherwise changed. All mathematical
+findings in independent_review.txt therefore apply to this final copy.
+
+The candidate remains unchanged. Both recomputed file hashes match the author's
+proof_hashes.json. This gate covers these exact bytes; later alterations require
+another fidelity check. The result does not certify priority, originality,
+Lean formalization, or human peer review. The bounded exact diagnostics remain
+auxiliary and are not the basis for the universal theorem.

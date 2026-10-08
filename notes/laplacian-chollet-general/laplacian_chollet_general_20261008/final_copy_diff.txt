@@ -1,0 +1,27 @@
+--- proof_candidate.txt
++++ proof_final.txt
+@@ -1,5 +1,5 @@
+ A strong Chollet inequality for every simple graph Laplacian
+-8 October 2026. Complete proof candidate, awaiting independent audit.
++8 October 2026. Complete proof.
+ 
+ THEOREM. Let G be any finite simple undirected graph, L its Laplacian, and S any subset of vertices. Then
+   per(L[S] o L[S]) <= per(L[S]) product_{v in S} deg_G(v).                 (1)
+@@ -80,7 +80,7 @@
+   log(1+t) >=2t/(2+t)>=(8/9)t.
+ The first inequality follows by differentiating: its difference has derivative t^2/((1+t)(2+t)^2)>=0 and value 0 at t=0. Consequently
+   log per M >=(8/5)sum_{uv in E(G[S])}c_uv^2.                          (6)
+-Since 8/5-19/12=1/60>0, (5)--(6) imply per(M o M)<=per M, strictly if G[S] has an edge. Undoing the diagonal normalization gives exactly (1). If S has no internal edge, M=I and equality holds.
++Since 8/5-19/12=1/60>0, (5)--(6) imply per(M o M)<=per M, strictly if G[S] has an edge. Writing Z_S=product_{v in S}d_v, diagonal scaling gives per(L_G[S])=Z_S per M and per(L_G[S] o L_G[S])=Z_S^2 per(M o M). Undoing the diagonal normalization therefore gives exactly (1). If S has no internal edge, M=I and equality holds.
+ 
+ 4. Cycle and edge blocks
+ 
+@@ -113,7 +113,7 @@
+       <=h(a+alpha)(P+alpha R).
+ The same argument applies to every principal submatrix containing v; other principal submatrices are unchanged.
+ 
+-Next let A_1,A_2 be hereditarily strong PSD matrices with distinguished diagonal entries a_1,a_2. Form their one-point sum A by identifying those indices, adding their diagonal entries, and setting cross entries between the two remaining index sets to zero. Let B_i be A_i with its distinguished index deleted, and set
++Next let A_1,A_2 be hereditarily strong PSD matrices with distinguished diagonal entries a_1,a_2. Form their one-point sum A by identifying those indices, adding their diagonal entries, and setting cross entries between the two remaining index sets to zero. The result is PSD, being the sum of the two matrices embedded on their respective index sets. Let B_i be A_i with its distinguished index deleted, and set
+   P_i=per A_i, R_i=per B_i, Q_i=per(A_i o A_i), T_i=per(B_i o B_i),
+   h_i=product diag B_i.
+ Expansion by the permutation cycle containing the common index gives
