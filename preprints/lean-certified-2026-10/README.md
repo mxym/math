@@ -6,7 +6,7 @@ ORCID https://orcid.org/0009-0000-3864-3536；通讯邮箱 mxymmxym1@gmail.com�
 
 本轮将已有公开研究整理为九份署名清晰、证明可读、主定理与 Lean 入口一一对应的预印本。
 “完整”针对下面明确限定的主定理；不表示仓库全部研究、所有附带结论或所有程序都已 Lean 化。
-每篇提供 PDF、独立可编译的 TeX ZIP、形式化版本锁和复现入口。DOI 发布信息将记录在本页及 `PUBLICATIONS.json`。
+每篇提供 PDF、独立可编译的 TeX ZIP、形式化版本锁和复现入口。九篇已在 Zenodo 以预印本类型公开，39 个文件均已匿名下载逐字节核对；九个 DOI 均已在 DataCite 注册为 findable。
 当前 arXiv 仍需 math.CO 背书；Zenodo 预印本公开不等于已向 arXiv 投稿。
 
 | 论文 | 页数 | 完整 Lean 主结论 |
@@ -20,6 +20,24 @@ ORCID https://orcid.org/0009-0000-3864-3536；通讯邮箱 mxymmxym1@gmail.com�
 | [单峰 CGF 素数阶因子猜想反例](cyclotomic-unimodal-counterexample/README.md) | 4 | The explicit degree-216 polynomial, strict unimodality, basic q-integer quotient, and exclusion of every prime-order cyclotomic factor. No degree-minimality claim. |
 | [q-永久量半轴单调性反例](q-permanent-halfline/README.md) | 3 | Only the displayed 4-by-4 real rational positive-definite counterexample and its exact decrease between q=49 and q=50. Minimal dimension and the all-t>1 family from the older research note are outside this paper. |
 | [复三行永久量—行列式全参数精确范数](complex-pencil-norm/README.md) | 6 | Exact best constant for every complex coefficient and every actual Mathlib 3-by-3 complex matrix, including zero rows. The coefficient lens is a corollary. The full equality classification and tensorization in the parent manuscript are outside this paper. |
+
+## 本轮公开 DOI
+
+| 预印本 | 版本 DOI |
+|---|---|
+| 周期图完整分类 | [10.5281/zenodo.23249722](https://doi.org/10.5281/zenodo.23249722) |
+| 单纯形稳定性与锐指数 | [10.5281/zenodo.23249732](https://doi.org/10.5281/zenodo.23249732) |
+| 二次整环有界步长图 | [10.5281/zenodo.23249743](https://doi.org/10.5281/zenodo.23249743) |
+| 连续幂渐近避让 | [10.5281/zenodo.23249747](https://doi.org/10.5281/zenodo.23249747) |
+| 有限群轨道原始—对偶 | [10.5281/zenodo.23249749](https://doi.org/10.5281/zenodo.23249749) |
+| 熵多项式根猜想反例 | [10.5281/zenodo.23249754](https://doi.org/10.5281/zenodo.23249754) |
+| 单峰 CGF 素数阶因子猜想反例 | [10.5281/zenodo.23249757](https://doi.org/10.5281/zenodo.23249757) |
+| q-永久量半轴单调性反例 | [10.5281/zenodo.23249758](https://doi.org/10.5281/zenodo.23249758) |
+| 复三行永久量—行列式精确范数 | [10.5281/zenodo.23249773](https://doi.org/10.5281/zenodo.23249773) |
+
+[完整文件哈希与 DOI 清单](PUBLICATIONS.json) · [BibTeX 引用](CITATION.bib) · [匿名文件与 DataCite 复核](../../releases/lean-preprints-20261008/PUBLIC_DOWNLOAD_AUDIT.json)
+
+Wakhare 反例新增[五模块独立 Lean 工程](../../formalizations/wakhare-entropy-four-roots-lean/README.md)，真实 `ℝ[X]` 多项式的四根定理已获[远端 CI 完整通过](https://github.com/mxym/math/actions/runs/37853632676)。这是既有反例的新增完整证明实现；本轮 DOI 冻结归档仍保留此前完整证明，不回填新增工程。[更新证据](audit/WAKHARE_ADDITIONAL_STATUS.json)。
 
 ## 已经发表的完整主定理论文
 

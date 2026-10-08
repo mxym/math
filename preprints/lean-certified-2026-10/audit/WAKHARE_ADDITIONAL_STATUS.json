@@ -1,0 +1,61 @@
+{
+  "checked_at_utc": "2026-10-08T22:33:24.804140+00:00",
+  "package": "formalizations/wakhare-entropy-four-roots-lean",
+  "commit": "93a7512b3606581fcbbca310c7d2d587a8c1a903",
+  "main_theorem": "EntropyRoot.actual_polynomial_has_four_distinct_roots",
+  "scope": "Actual real polynomial built from original binomial sums; at least four distinct strictly ordered roots in (0,1) for k=11, r=10. Not an exact root count. Older formalization separately proves original real-power parameter equivalence.",
+  "ci": {
+    "id": 37853632676,
+    "head_sha": "93a7512b3606581fcbbca310c7d2d587a8c1a903",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/mxym/math/actions/runs/37853632676",
+    "updated_at": "2026-10-08T22:32:00Z"
+  },
+  "jobs": [
+    {
+      "name": "lean-kernel",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check full source and evidence checksum inventory",
+          "conclusion": "success"
+        },
+        {
+          "name": "Compile original conjecture formula and four-root Lean theorem",
+          "conclusion": "success"
+        },
+        {
+          "name": "Audit complete theorem axioms and reject intentionally invalid proof",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "lake_build_tasks": 1643,
+  "local_source_hash_check": {
+    "status": "PASS",
+    "file_count": 20,
+    "output": ".gitignore: OK\nEntropyWakhare/Alpha.lean: OK\nEntropyWakhare/Core.lean: OK\nEntropyWakhare/FourRoots.lean: OK\nEntropyWakhare/Polynomial.lean: OK\nEntropyWakhare/Signs.lean: OK\nEntropyWakhare.lean: OK\nREADME.md: OK\naudit/AUDIT.md: OK\naudit/AxiomsAudit.lean: OK\naudit/InvalidProof.lean: OK\nlake-manifest.json: OK\nlakefile.toml: OK\nlean-toolchain: OK\nresults/axioms.txt: OK\nresults/invalid-proof.txt: OK\nresults/source_sha256.txt: OK\nresults/verification.txt: OK\nscripts/check_axioms.py: OK\nscripts/replay.sh: OK\n"
+  },
+  "local_recorded_axiom_audit": "PASS: 12 roots; only propext, Classical.choice, Quot.sound",
+  "ci_log_sha256": "3ef143f29b70732ed726fc5a8520a926ebf0a4d175e7c536d2766812de7d64a3",
+  "existing_preprint_doi": "10.5281/zenodo.23249754",
+  "archive_boundary": "Existing DOI 2.0 freezes the older complete proof; later five-module implementation is linked from GitHub and is not retrospectively included in that archive. No new mathematical discovery or human peer review claimed."
+}

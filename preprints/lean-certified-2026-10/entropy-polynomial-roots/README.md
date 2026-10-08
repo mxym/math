@@ -1,5 +1,7 @@
 # A counterexample to the entropy polynomial root conjecture
 
+**Zenodo 预印本：[10.5281/zenodo.23249754](https://doi.org/10.5281/zenodo.23249754)**，版本 2.0。PDF、TeX 和固定提交证明归档已公开；arXiv 尚未提交。
+
 Author: Yongxian Zhang (张永贤). ORCID: https://orcid.org/0009-0000-3864-3536.
 School of Computer Science and Engineering, South China University of Technology.
 Correspondence: mxymmxym1@gmail.com. No external funding. AI-assisted research.
@@ -34,6 +36,14 @@ pdflatex -interaction=nonstopmode -halt-on-error paper.tex
 ```
 
 The archive includes the corresponding formal packages and a fixed-commit source manifest. Exact checkers supplement readable proofs and the Lean kernel; their return values alone are not a mathematical proof.
+
+## Additional complete polynomial formalization (8 October 2026)
+
+A second self-contained [five-module Lake project](../../../formalizations/wakhare-entropy-four-roots-lean/README.md), published at [93a7512](https://github.com/mxym/math/commit/93a7512b3606581fcbbca310c7d2d587a8c1a903), constructs an actual `ℝ[X]` polynomial directly from the original binomial sums. Its endpoint `EntropyRoot.actual_polynomial_has_four_distinct_roots` proves at least four strictly ordered roots in `(0,1)`; it does not assert that there are exactly four. The unique positive parameter, five rational sign certificates and evaluation identity are also formalized.
+
+[GitHub CI 37853632676](https://github.com/mxym/math/actions/runs/37853632676) **completed successfully** on that exact commit: 1,643 Lake build tasks, all source hashes, 12 theorem-root axiom audits and rejection of an intentionally invalid proof. The permitted logical axioms are `propext`, `Classical.choice` and `Quot.sound`.
+
+This is an additional proof implementation of the already public counterexample. The DOI 2.0 source archive remains frozen at the older snapshot above and does **not** contain this later package. The older proof separately supplies the original real-power parameter bridge; neither historical proof record is replaced. [Current status and CI evidence](../audit/WAKHARE_ADDITIONAL_STATUS.json).
 
 ## Rights and provenance
 

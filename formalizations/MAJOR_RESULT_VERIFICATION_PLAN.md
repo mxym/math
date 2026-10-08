@@ -163,3 +163,13 @@ avoidance, finite-action orbital primal/dual theory, and three exact
 conjecture-counterexample papers. The already published combined Bapat paper
 is indexed separately. Gaussian geometric endpoints and arbitrary-graph
 Chollet remain outside the complete-main inventory.
+
+The later [Wakhare four-root Lake project](wakhare-entropy-four-roots-lean/README.md)
+also closes the actual `ℝ[X]` endpoint directly from the original binomial sums.
+Its [CI run 37853632676](https://github.com/mxym/math/actions/runs/37853632676)
+passed at commit `93a7512b3606581fcbbca310c7d2d587a8c1a903`: 1,643 Lake tasks,
+12 standard-axiom audits, source hashes and an invalid-proof rejection control.
+The older entropy formalization already proves the original real-power bridge
+and is retained in DOI `10.5281/zenodo.23249754`; that frozen archive does not
+include the later five-module implementation. This is an additional complete
+formalization, not a new discovery of the mathematical counterexample.

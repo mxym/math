@@ -1,5 +1,7 @@
 # Infinite log-concavity of cycle chromatic coefficients: a complete classification
 
+**Zenodo 预印本：[10.5281/zenodo.23249722](https://doi.org/10.5281/zenodo.23249722)**，版本 2.0。PDF、TeX 和固定提交证明归档已公开；arXiv 尚未提交。
+
 Author: Yongxian Zhang (张永贤). ORCID: https://orcid.org/0009-0000-3864-3536.
 School of Computer Science and Engineering, South China University of Technology.
 Correspondence: mxymmxym1@gmail.com. No external funding. AI-assisted research.

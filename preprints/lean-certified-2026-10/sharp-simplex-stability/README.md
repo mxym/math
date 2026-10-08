@@ -1,5 +1,7 @@
 # Sharp lower-end simplex stability from integrated witnesses and projection caps
 
+**Zenodo 预印本：[10.5281/zenodo.23249732](https://doi.org/10.5281/zenodo.23249732)**，版本 1.0。PDF、TeX 和固定提交证明归档已公开；arXiv 尚未提交。
+
 Author: Yongxian Zhang (张永贤). ORCID: https://orcid.org/0009-0000-3864-3536.
 School of Computer Science and Engineering, South China University of Technology.
 Correspondence: mxymmxym1@gmail.com. No external funding. AI-assisted research.
