@@ -1,6 +1,6 @@
 # Lean proof and semantic fidelity audit
 
-## What is completely kernel-verified
+## What is completely kernel-verified: Theorems 1A and 1B
 
 The endpoint
 ComplexPencilMain.sharp_complex_lens_iff
@@ -19,6 +19,33 @@ ComplexPencilMain.coefficient_four_thirds_is_sharp
 quantifies over all candidate real squared-norm constants B, proves
 B >= 4/3 whenever the inequality holds for all complex matrices,
 and supplies the explicit all-ones witness.
+
+## Full complex pencil minimax: added verified dependencies
+
+9. `NormCurve.normBoundSq` is the maximum of five explicit real
+   squared-norm candidate values for arbitrary complex coefficients.
+   The `bound_preconditions` proof formally derives all sign and
+   determinant discriminant conditions, including Fourier offsets,
+   from this maximum. It therefore feeds the previously verified
+   universal Hermitian positive semidefinite result with **no lens
+   restriction**.
+10. `Witnesses.omega_sq`, `omegaBar_sq`, `per_fourier`,
+    `det_fourier`, `fourier_minus_exact` and
+    `fourier_plus_exact` provide precise non-real complex extremizers
+    with squared row norm product 27. They prove the two additional
+    lower bounds (imaginary Fourier extrema); the parity and all-ones
+    witnesses prove the other three.
+11. `ExactNorm.sharp_full_pencil_norm_iff` is the complete
+    squared-constant minimax equivalence:
+    for *every* complex coefficient and real B, the full inequality
+    holds for *all* complex matrices if and only if
+    B is at least the explicit five-branch candidate maximum.
+    No matrix regularity, nonzero-row assumption or optimizer
+    assumption is inserted in the theorem.
+12. Its actual `#print axioms` output lists only the standard
+    three Lean axioms; no `sorryAx` is present. The complete complex
+    norm result thus has a kernel-checked proof rather than
+    a finite sample certificate.
 
 ## Proven dependency chain
 
@@ -58,8 +85,8 @@ There are no user-provided axioms, sorry, admit or native_decide in
 the proof source. All source hashes and logs are independently
 replayable.
 
-The complete five-term coefficient-dependent norm outside the lens
-(Theorem 1B), and equality classifications (Theorem 2), are NOT
-covered by this endpoint. They must not be represented as formally
-verified until their actual mathematical statements are proved in
-Lean with the required witnesses.
+Theorem 1B now **is** fully kernel-verified by the three additional
+modules and its five sharp witnesses. Theorem 2 (complete equality
+classification for the absolute-value endpoint) and finite-dimensional
+tensorization remain **outside the formalization scope**. They must not
+be represented as Lean-proven until separately completed.
