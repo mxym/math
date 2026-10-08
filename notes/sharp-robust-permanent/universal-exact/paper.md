@@ -336,3 +336,83 @@ Lemma C, now with row rank \(\rho\), gives precisely (28), its rationality and t
 For the symmetric \(k\)-subset action, complementation reduces to \(m=\min(k,n-k)\), exact cycle compression replaces every conjugacy class by its short-cycle vector, and Theorem B proves that \(\rho=m+1\). Thus Theorem A is the **explicit, compressed, nondegenerate specialization** of Theorem E, not merely a restatement of finite-group LP duality.
 
 **Computational scope:** the general group formula requires as input the finite group conjugacy classes and their integer orbital counts, while the symmetric-subset formula computes those columns directly from \((n,k)\). No uniform elementary branch classification of all finite group actions is asserted.
+
+
+## 11. A purely polynomial proof of the binomial rank determinant (preferred for Lean)
+
+Theorem B admits a second, **strictly more elementary** proof that avoids the formal algebraic root \(\Lambda(u,t)\), its derivative, and all infinite power-series manipulations. It uses only the exact integer-polynomial trace recurrence (3). This is particularly useful for a finite polynomial-ring Lean formalization.
+
+Retain \(n\ge2m\ge2\). Let
+\[
+Z_0(u,t)=2,\quad Z_1(u,t)=1+ut,\qquad
+Z_\ell(u,t)=(1+ut)Z_{\ell-1}(u,t)-u(t-1)Z_{\ell-2}(u,t).
+\]
+For each \(0\le j<m\), the permutation \(g_j\) consists of \(j\) fixed vertices and one \((n-j)\)-cycle. Its **exact, untruncated** generating polynomial is
+\[
+G_j(t)=[u^m](1+ut)^jZ_{n-j}(u,t).
+\tag{29}
+\]
+
+**Lemma F (exact finite-difference factorization).** For every \(r,j\ge0\) with \(j+r\le m-1\),
+
+\[
+\boxed{
+\nabla^rG_j(t)
+=(t-1)^r[u^{m-r}]
+(1+ut)^jZ_{n-j-2r}(u,t).
+}
+\tag{30}
+\]
+
+Here \(\nabla G_j=G_{j+1}-G_j\). All subscripts in (30) are nonnegative, and the identity takes place in the finite integer polynomial ring \(\mathbb Z[t]\).
+
+**Proof.** The trace recurrence rearranges into the exact identity
+\[
+(1+ut)Z_{L-1}-Z_L=u(t-1)Z_{L-2}
+\qquad(L\ge2).
+\tag{31}
+\]
+For \(r=0\), (30) is exactly (29). Suppose (30) holds for \(r\) and \(j+r+1\le m-1\). Then
+\[
+\begin{aligned}
+\nabla^{r+1}G_j(t)
+&=\nabla^rG_{j+1}(t)-\nabla^rG_j(t)\\
+&=[u^{m-r}](t-1)^r(1+ut)^j
+\bigl[(1+ut)Z_{n-j-2r-1}-Z_{n-j-2r}\bigr]\\
+&=[u^{m-r}]u(t-1)^{r+1}(1+ut)^jZ_{n-j-2r-2}\\
+&=(t-1)^{r+1}[u^{m-r-1}](1+ut)^jZ_{n-j-2(r+1)},
+\end{aligned}
+\]
+using (31) with \(L=n-j-2r\). The needed condition \(L\ge2\) follows from \(n\ge2m\) and \(j+r+1\le m-1\). Thus the induction is valid. QED.
+
+In particular, taking \(j=0\) gives
+\[
+\nabla^rG_0(t)
+=(t-1)^r[u^{m-r}]Z_{n-2r}(u,t).
+\tag{32}
+\]
+At \(t=1\), the second term in the recurrence for \(Z_L\) vanishes. Since \(Z_1(u,1)=1+u\),
+\[
+Z_L(u,1)=(1+u)^L\qquad(L\ge1).
+\tag{33}
+\]
+Because \(n-2r\ge2\), the **first nonzero Taylor coefficient** of (32) at \(t=1\) is therefore
+\[
+[(t-1)^r]\nabla^rG_0(t)\big|_{t=1}
+=[u^{m-r}]Z_{n-2r}(u,1)
+=\binom{n-2r}{m-r}>0.
+\tag{34}
+\]
+
+The column change \(G_j\mapsto\nabla^rG_0\) is unit triangular, and the coefficient change from the monomial basis \(t^h\) to \((t-1)^h\) is unit triangular. Equation (32) supplies zero coefficients below the diagonal, and (34) its nonzero diagonal entries. Taking determinants gives
+
+\[
+\det(F_h(g_j))_{0\le h,j<m}
+=\prod_{r=0}^{m-1}\binom{n-2r}{m-r}.
+\]
+
+Expanding along the last identity column yields the full statement of Theorem B, with sign \((-1)^m\). **Thus the rank theorem follows entirely from elementary exact polynomial identities in \(\mathbb Z[u,t]\).**
+
+The independent public checker [check_finite_difference_rank.py](../code/check_finite_difference_rank.py) implements (29)–(34) directly with sparse integer-polynomial dictionaries, without importing the maximal-minor algorithm. Its separate test suite covers 30 parameter pairs for \(1\le m\le10\). The **proof above**, not those finite tests, establishes the statement for every \(n,m\).
+
+**Lean implication.** A formal development can use finitely truncated polynomial arithmetic and two simple recurrences rather than requiring algebraic roots in a formal power-series ring. The full Lean proof is still pending; the existing compiled [KernelMass.lean](../formal/KernelMass.lean) certifies only the signed total-mass lemma.
