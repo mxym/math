@@ -381,3 +381,10 @@ Disclosure time is the timestamp of the Git commit that first adds this release,
 
 - Restore pinned Mathlib compilation options and recursively visit cached dependency imports in the sealed-verifier adapter. Use the separately pinned comment/string-aware scanner, with direct Lean parser controls. Preserve proof sources, original seals, artifact guards and kernel replay checks.
 - Publish actual compiler-option diagnostics and aborted-run outputs, and rebuild all five PDFs. The still-running full Lean outcomes remain separately marked in the finalization status.
+
+## 2026-10-08 — complete current simplex kernel audits and publish declaration graphs
+
+- Rebuilt 123 upper and 125 lower modules from their sealed sources. Rechecked 848/850 public proofs and 1,833/1,849 owned declarations against their exact historical names, types, owners, kinds and axiom sets.
+- Replayed every required declaration in empty trust-zero kernel environments: 55,066 upper and 55,162 lower declarations, plus 54,276 for the literal upper Main. Preserve the sealed harnesses' historical-count rejections and original reports; publish complete current graphs and an independently checked complete-root-closure continuation.
+- Clarify that the lower main target is existential sharpness; all-maxima classification, best-maximum and free-translation Banach--Mazur assertions have separate full written proofs. Add a Chinese manuscript guide and correct a TeX separator.
+- Complete the continuum cache union over every pinned package, retaining its actual cache-failure diagnostics. The continuum full replay remains in progress in the separately recorded status.

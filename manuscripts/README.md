@@ -1,5 +1,7 @@
 # Complete research manuscripts
 
+[中文说明与定理边界](README.zh-CN.md)
+
 This directory consolidates four research lines into five readable papers.
 It adds complete proof chains, precise formalization boundaries, reproducible
 builds and current verification records. It does not count repackaged results

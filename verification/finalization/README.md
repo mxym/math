@@ -70,6 +70,52 @@ kernel replay. Missing or mismatched external artifacts are rebuilt from pinned
 sources. No cached owned proof artifacts are accepted. The upper package proves
 the earlier `gSharp` theorem, not the improved quadratic coefficient.
 
+### Historical dependency-count fingerprints
+
+The complete fresh upper build and its frozen kernel checks passed with 55,066
+all-owned closure declarations and 54,276 literal-Main declarations. Its 848
+public proofs and 1,833 owned names/types/owners/kinds/axiom sets match the
+historical inventories exactly; the literal Main's 1,197 owned dependencies
+also match exactly. The sealed Python harness subsequently rejected the
+historical numeric fingerprints 55,067/54,277. That failure is retained in
+the [original harness record](results/simplex-upper/LEGACY_HARNESS_RESULT.json).
+
+The [complete-graph continuation](replay_simplex_postbuild.py) validates the
+current fresh builder's receipt, source closure, toolchain, package pins,
+object hashes and original external artifact-reference guards. It reruns the
+frozen ownership, axiom, positive/negative, exact-rational and empty-kernel
+audits. A graph export is inserted before the unchanged kernel replay; the
+Python checker independently checks that this graph is exactly the recursive
+closure of every required root, with no unsafe/partial nodes or unexpected
+axioms. It records both historical and actual sizes without resealing history.
+Its [upper result](results/simplex-upper/VERIFICATION.json) is PASS.
+The [lower result](results/simplex-lower/VERIFICATION.json) is also PASS:
+125 fresh modules, 850 public proofs, 1,849 owned declarations and 55,162
+empty-kernel declarations. Its historical fingerprint is 55,163; the
+[original lower rejection](results/simplex-lower/LEGACY_HARNESS_RESULT.json)
+is retained as well.
+
+The old upper package did not publish the full external declaration graph,
+so this record does not identify a particular removed historical node. The
+current full graphs are public for future comparisons. Kernel acceptance of
+the complete required roots, together with the frozen type/source checks,
+is the mathematical evidence; the graph cardinality is a build fingerprint.
+
+After running the sealed fresh builder, use a new continuation output:
+
+```sh
+python3 -B verification/finalization/replay_simplex_postbuild.py \
+  --kind upper --fresh-build /tmp/new-simplex-upper \
+  --lean-bin /path/to/lean-4.34.1/bin \
+  --dependency-project /path/to/pinned-dependency-project \
+  --output /tmp/new-simplex-upper-complete-graph
+```
+
+Use `--kind lower` with the lower builder's fresh directory for that suite.
+An incomplete build receipt, changed object, source/pin/type/axiom discrepancy,
+missing graph node or failed kernel check is rejected. This is a continuation
+of the current source build; no historical owned proof objects are substituted.
+
 ## Continuum cache-miss repair
 
 `replay_continuum.py` corrects cache-miss build defects in the sealed
@@ -84,6 +130,9 @@ Cached modules may themselves import an absent dependency, so the adapter
 also traverses their pinned source imports. It uses the separately SHA-pinned
 comment/string-aware scanner from the simplex release: comment delimiters in
 Lean string literals must not be parsed as actual comments.
+All pinned package caches, including Batteries, are merged into the overlay.
+Lean selects an entire module root, so a partial overlay must not hide cached
+sibling modules in a later package root.
 
 The adapter pins the original verifier's SHA-256 and runs that verifier with
 its import-scanning function replaced, cached import closures traversed, and
@@ -120,4 +169,6 @@ python3 -B verification/finalization/check_continuum_imports.py \
 Earlier aborted runs are retained as reproduction diagnostics:
 [default-option failure](results/continuum-default-mathlib-options-failure.txt)
 and [incomplete-cache failure](results/continuum-incomplete-transitive-cache-failure.txt).
+The subsequent [shadowed-package failure](results/continuum-shadowed-package-cache-failure.txt)
+motivated merging all pinned package caches into the overlay.
 These are build failures, not counterexamples to a mathematical theorem.

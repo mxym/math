@@ -25,7 +25,10 @@ gives a Banach--Mazur lower bound allowing free translation. The sharp exponent
 and every-maximum constant obstruction follow from these actual convex bodies.
 
 The two full Lean packages prove the earlier sharp exponent upper theorem
-and exact truncation obstruction. They do not formalize the improved quadratic
+and the existential truncation sharpness target. The manuscript's all-maxima
+classification, best-maximum and free-translation Banach--Mazur conclusions
+have complete written proofs, with no claim that the one lower Lean target
+contains all those stronger assertions. The packages do not formalize the improved quadratic
 constant. Its full traditional proof is now in one manuscript. Floating
 constant diagnostics are supplementary; the `4096 d^2` bound is established by
 the elementary induction in the text. The optimal dimension order remains open.

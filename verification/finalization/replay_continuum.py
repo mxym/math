@@ -38,6 +38,13 @@ def load_verifier():
     if source.count(old_call) != 1:
         raise RuntimeError("The pinned external-compilation call changed")
     source = source.replace(old_call, new_call)
+    old_union = "for d in [extra/'.lake/build/lib/lean',dep/'.lake/packages/mathlib/.lake/build/lib/lean']:"
+    new_union = "for d in [extra/'.lake/build/lib/lean']+[p/'.lake/build/lib/lean' for p in sources]:"
+    if source.count(old_union) != 1:
+        raise RuntimeError("The pinned dependency-cache union changed")
+    # Lean selects an entire module root. Materialize every package cache,
+    # including Batteries, so a partial overlay cannot hide its cached siblings.
+    source = source.replace(old_union, new_union)
     old_seen = "seen=set();official=[]"
     old_cache = "  if any((d/rel.with_suffix('.olean')).is_file() for d in [overlay]+dep_roots):return"
     new_cache = """  if n in official_seen:return

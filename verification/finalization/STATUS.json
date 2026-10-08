@@ -1,6 +1,6 @@
 {
   "schema": "manuscript-finalization-status-v1",
-  "timestamp_utc": "2026-10-08T05:02:35.628384+00:00",
+  "timestamp_utc": "2026-10-08T06:20:57.783465+00:00",
   "integration_snapshot": "bddf3ac39f90fe828c85be269e984ffe050a4136",
   "papers": 5,
   "pdf_pages": 88,
@@ -10,8 +10,25 @@
   "negative_controls": "PASS: entrypoint/imported false assertions and corrupted objective rejected",
   "fractional_partial_lean": "PASS: nine + seven + three new finite exports; nine frontier exports reused",
   "fresh_full_lean": {
-    "simplex_upper": "RUNNING",
-    "simplex_lower": "RUNNING",
+    "simplex_upper": {
+      "status": "PASS",
+      "report": "results/simplex-upper/VERIFICATION.json",
+      "fresh_owned_modules": 123,
+      "public_proofs": 848,
+      "owned_declarations": 1833,
+      "all_owned_empty_kernel": 55066,
+      "literal_main_empty_kernel": 54276,
+      "historical_count_drift_recorded": true
+    },
+    "simplex_lower": {
+      "status": "PASS",
+      "report": "results/simplex-lower/VERIFICATION.json",
+      "fresh_owned_modules": 125,
+      "public_proofs": 850,
+      "owned_declarations": 1849,
+      "all_owned_empty_kernel": 55162,
+      "historical_count_drift_recorded": true
+    },
     "continuum": "RUNNING"
   },
   "formal_limits": [
@@ -29,6 +46,7 @@
       "maxSynthPendingDepth=3"
     ],
     "scanner_compiler_controls": "PASS in normal and optimized launchers",
-    "aborted_runs_are_not_pass_records": true
+    "aborted_runs_are_not_pass_records": true,
+    "cache_union": "materialize every pinned package cache, including Batteries"
   }
 }

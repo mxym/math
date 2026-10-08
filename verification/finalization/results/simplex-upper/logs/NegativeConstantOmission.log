@@ -1,0 +1,6 @@
+${RELEASE}/audit/checks/NegativeConstantOmission.lean:7:2: error: Type mismatch
+  sharpMain d hd K hK S hS
+has type
+  excess (↑K) S ≤ gSharp d * entryDefect ↑K ^ (1 / ↑(d - 1))
+but is expected to have type
+  excess (↑K) S ≤ entryDefect ↑K ^ (1 / ↑(d - 1))

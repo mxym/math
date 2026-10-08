@@ -21,6 +21,17 @@ python3 -B formalizations/simplex-truncation-sharpness/scripts/verify.py \
 
 The exact targets are `Entry005.sharpMain : Entry005.sharpMainGoal` and `Entry005.truncationSharpness : Entry005.truncationSharpnessGoal`. The former uses the original larger `gSharp` coefficient. The quadratic coefficient in this manuscript has a complete traditional proof, not a full Lean formalization. These are separate claims. The literal `Main` target is included in the upper replay; the lower package does not claim the upper theorem. The optimal dimension order remains between linear and quadratic.
 
+The lower target supplies an actual truncated body and a maximum simplex
+violating every proposed stronger exponent. The manuscript's additional
+classification of all maxima, the obstruction for the best maximum, and the
+free-translation Banach--Mazur conclusion have their full written proofs in
+the appendix; they are not all asserted by that single Lean target.
+
+Fresh recompilation changed the external dependency-count fingerprints.
+The [complete-graph continuation and actual records](../../verification/finalization/README.md#historical-dependency-count-fingerprints)
+finish all frozen kernel checks, retain the original count rejection and
+publish the current full graphs. The historical proof packages stay unchanged.
+
 The [common finite replay](../../verification/finalization/replay_finite.py) runs
 all relevant exact checkers in disposable copies and compares normal and
 optimized-launcher output with assertions enabled. The
