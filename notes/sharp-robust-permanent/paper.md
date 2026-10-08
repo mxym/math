@@ -2355,3 +2355,189 @@ By Theorem 18, the sharp coefficient is no greater than the **oscillation** of a
 \]
 
 The case \(k=1\) is already given exactly by Theorem 15: \(C_n^{(1)}=(n-2)/n\).
+
+
+### 24.3. Matching exact positive probability measures
+
+We now obtain the reverse inequality in (129), for **every sufficiently large \(n\)** and fixed \(k\). Crucially, this constructs genuinely nonnegative probability measures whose subset-image marginals agree **exactly**, not just in an asymptotic expansion.
+
+Let \(a_0=1>a_1>\cdots>a_k=0\) be the nodes (136). For each \(1\le j\le k\), choose an integer \(x_j(n)\) with
+
+\[
+|x_j(n)-na_j|\le1.
+\]
+
+Let \(g_{j,n}\in S_n\) have exactly \(x_j(n)\) fixed vertices and one additional cycle of length \(n-x_j(n)\). Because \(k\) is fixed and every \(a_j<1\), for sufficiently large \(n\) all these long cycles have length at least \(k+1\). The \(k\) cycle types are mutually distinct, nonidentity and not transpositions. Let \(I_n\) denote the identity, and \(T_n\) a transposition.
+
+Define the **rational orbital vector** in \(k\) coordinates
+
+\[
+V_n(g)=
+\left(
+\frac{F_0^{(k)}(g)}{\binom nk},\ldots,
+\frac{F_{k-1}^{(k)}(g)}{\binom nk}
+\right). \tag{147}
+\]
+
+Thus \(V_n(I_n)=0\). Form the \(k\times k\) matrix \(D_n\) with columns
+
+\[
+D_{n,j}=
+\begin{cases}
+V_n(g_{j,n})-V_n(I_n),&j\text{ odd},\\
+V_n(T_n)-V_n(g_{j,n}),&j\text{ even},
+\end{cases}
+\quad(1\le j\le k), \tag{148}
+\]
+
+and consider the **specified rational linear system**
+
+\[
+D_n w_n=V_n(T_n)-V_n(I_n),\qquad
+w_n=(w_{1,n},\ldots,w_{k,n})^T. \tag{149}
+\]
+
+We prove that \(D_n\) is invertible, that **all** weights \(w_{j,n}\) are strictly positive, and that
+
+\[
+\sum_{j\ \mathrm{odd}}w_{j,n}
+=\frac{2k^2}{n}+O_k(n^{-2}) \tag{150}
+\]
+
+for all sufficiently large \(n\).
+
+Write \(B_j(a)=\binom kj a^j(1-a)^{k-j}\) and
+\(\mathbf B(a)=(B_0(a),\ldots,B_{k-1}(a))\). The uniform Bernstein approximation in Theorem 23, together with the rounding of \(x_j(n)\), gives
+
+\[
+V_n(g_{j,n})=\mathbf B(a_j)+O_k(n^{-1}).
+\tag{151}
+\]
+
+The exact transposition count is
+
+\[
+\Pr_{E\in\binom{[n]}k}(|E\cap T_n(E)|=k-1)
+=\frac{2\binom{n-2}{k-1}}{\binom nk}
+=\frac{2k(n-k)}{n(n-1)}
+=\frac{2k}{n}+O_k(n^{-2}),
+\]
+
+and every other changed-image orbital has probability zero. Equivalently,
+
+\[
+V_n(T_n)-V_n(I_n)
+=-\frac2n\mathbf B'(1)+O_k(n^{-2}). \tag{152}
+\]
+
+The limiting matrix \(D_\infty\) has columns \(+\mathbf B(a_j)\) at odd \(j\) and \(-\mathbf B(a_j)\) at even \(j\). It is invertible: every \(B_i(a)\) with \(0\le i<k\) contains the factor \((1-a)\). Dividing the evaluation matrix at the \(k\) distinct points \(a_1,\ldots,a_k<1\) by these nonzero row factors leaves an evaluation matrix for a basis of polynomials of degree at most \(k-1\), which is invertible by the Vandermonde theorem. Therefore \(D_n\) is invertible for all large \(n\), and its inverses are uniformly bounded in \(n\).
+
+For each \(j=0,\ldots,k\), let \(\ell_j(a)\) be the degree-\(k\) **Lagrange cardinal polynomial** for the nodes \(a_0,\ldots,a_k\). Thus for every polynomial \(P\) of degree at most \(k\),
+
+\[
+P'(1)=\sum_{j=0}^k\ell_j'(1)P(a_j). \tag{153}
+\]
+
+For \(j\ge1\) the sign of \(\ell_j'(1)\) is \((-1)^j\): indeed
+
+\[
+\ell_j'(1)=
+\frac{\prod_{i\notin\{0,j\}}(1-a_i)}
+{\prod_{i\ne j}(a_j-a_i)},
+\]
+
+and exactly \(j\) denominator factors are negative, since the nodes are strictly decreasing. Put
+
+\[
+u_j=2|\ell_j'(1)|>0,\qquad1\le j\le k. \tag{154}
+\]
+
+Applying (153) to \(B_0,\ldots,B_{k-1}\), all of which vanish at \(a_0=1\), shows that \(u\) solves the **limiting** equation
+
+\[
+D_\infty u=-2\mathbf B'(1).
+\]
+
+Now \(D_n=D_\infty+O_k(n^{-1})\) from (151) and \(n[V_n(T_n)-V_n(I_n)]=-2\mathbf B'(1)+O_k(n^{-1})\) from (152). Uniform boundedness of \(D_n^{-1}\) therefore gives
+
+\[
+\boxed{
+w_{j,n}=\frac{u_j}{n}+O_k(n^{-2})\quad(1\le j\le k).}
+\tag{155}
+\]
+
+Since every \(u_j>0\), this proves **strict positivity of the exact rational solution** \(w_{j,n}\) for sufficiently large \(n\).
+
+Finally, the Chebyshev polynomial \(H\) has \(H(a_j)=1\) for odd \(j\) and \(0\) for even \(j\), while \(H(1)=0\). Applying (153) to \(H\) and using \(H'(1)=-k^2\),
+
+\[
+\sum_{j\ \mathrm{odd}}u_j
+=-2\sum_{j\ \mathrm{odd}}\ell_j'(1)
+=-2H'(1)=2k^2. \tag{156}
+\]
+
+Equation (150) follows.
+
+Now define actual **central probability laws**
+
+\[
+\begin{aligned}
+P_n={}&
+\left(1-\sum_{j\ \mathrm{odd}}w_{j,n}\right)U_{\{I_n\}}
++\sum_{j\ \mathrm{odd}}w_{j,n}U_{[g_{j,n}]},\\
+Q_n={}&
+\left(1-\sum_{j\ \mathrm{even}}w_{j,n}\right)U_{[T_n]}
++\sum_{j\ \mathrm{even}}w_{j,n}U_{[g_{j,n}]},
+\end{aligned}
+\tag{157}
+\]
+
+where \(U_{[g]}\) is uniform probability on the conjugacy class of \(g\). By (155), every coefficient is positive for sufficiently large \(n\); the two supports are disjoint.
+
+Equation (149) is **exact** and says that all \(k\) orbital coordinates of \(P_n\) and \(Q_n\) match. The final orbital coordinate matches automatically because the \(k+1\) normalized coordinates sum to one. Since the measures are conjugation-invariant, equality of all orbital moments is equivalent to equality of **every** \(k\)-subset one-point image marginal (Theorem 18).
+
+For every sufficiently small rational \(\delta>0\), the signed perturbation
+\(\nu_\delta=u_{S_n}+\delta(P_n-Q_n)\) is therefore a nonnegative probability measure with **exact uniform subset-image marginals**, total variation exactly \(\delta\), and
+
+\[
+\nu_\delta(I_n)-\frac1{n!}
+=\delta P_n(I_n)
+=\delta\left(1-\frac{2k^2}{n}+O_k(n^{-2})\right).
+\]
+
+Consequently Theorem 18 supplies the reverse estimate
+
+\[
+\boxed{C_n^{(k)}\ge1-\frac{2k^2}{n}+O_k(n^{-2}).} \tag{158}
+\]
+
+Together with the matching dual bound (146), this proves Theorem 25 for every fixed \(k\ge2\). For \(k=1\), the already proved exact identity \(C_n^{(1)}=(n-2)/n\) finishes the statement. **Theorem 25 is completely proved.** QED.
+
+### 24.4. Exact four-subset example and the remaining finite-degree problem
+
+In the first previously unresolved rank \(k=4\),
+
+\[
+H(a)=16a(1-a)(2a-1)^2,
+\]
+
+and the interpolation system (140) yields the explicitly checkable **integer-coefficient correction**
+
+\[
+R(a)=16(a-1)(200a^3-232a^2+63a-4). \tag{159}
+\]
+
+Their degree-four Bernstein coefficient vectors are
+
+\[
+(\beta_0,\ldots,\beta_4)=(0,4,-16/3,4,0),
+\]
+
+\[
+(\gamma_0,\ldots,\gamma_4)=(64,-204,944/3,-108,0).
+\tag{160}
+\]
+
+The published exact checker in code/check_k4_chebyshev_dual.py independently verifies the first-order orbital expansion, every Chebyshev contact, and the Bernstein coefficients using algebraic arithmetic in \(\mathbb Q(\sqrt2)\); it additionally constructs **strictly positive rational primal weights** at several larger finite degrees and checks the moment equations exactly.
+
+**Precisely what is now closed.** Equation (129) settles the sharp first-order asymptotic coefficient for **every fixed \(k\)**, not merely \(k=1,2,3\), and proves the higher-rank conjecture previously stated in Section 23. It does **not** determine the individual exact value of \(C_n^{(k)}\) for arbitrary finite \(n,k\); nor does the qualitative proof specify a common explicit threshold in \(n\) beyond which all primal weights are positive. Those stronger effective/finite problems remain open, and no novelty or external-peer-review claim is implied.
