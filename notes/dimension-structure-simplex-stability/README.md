@@ -23,3 +23,9 @@ The [final-copy report](../../verification/2026-10-08-dimension-structure-simple
 Preparation-time pending/unpublished labels within the unchanged source snapshot are historical and are superseded by the dated final-copy report. No mathematical source or PDF was edited for publication. These are written proofs and analytic/copy checks; no new result is claimed Lean-formalized, professionally human-peer-reviewed, journal-accepted or priority-certified. Source attributions and existing rights remain; no new license or personal authorship is assigned.
 
 The [publication manifest](../../releases/2026-10-08-dimension-structure-simplex-stability.json) binds the exact files and the limited public release scope.
+
+## Research-source supplement — 8 October 2026 UTC
+
+The [original 55-payload research and certificate archive](../../releases/2026-10-08-dimension-structure-research-sources.zip) is now public in a separate supplement, with [checksum](../../releases/2026-10-08-dimension-structure-research-sources.zip.sha256) and [scope/reproduction record](../../releases/2026-10-08-dimension-structure-research-supplement.md). The unchanged ZIP has SHA-256 `631a80b594fb9a597fef15e1c76870956ecb768fbbb14f3b7953e1809970296e` and contains 55 payload files plus its manifest.
+
+The manuscript-only and “not included” statements above describe the initial paper release at commit `9248953f29f4a27a97275765bf9af8978e992f9d`; this dated supplement supersedes that archive-availability status. They remain here as the historical release record. The PDF, all 19 mathematical/manuscript-source files, original paper ZIP and review reports have not changed. Archive availability adds no new mathematical, Lean, human-peer-review or priority claim; its four old temporary local-artifact pointers remain historical, as explained in the supplement.
