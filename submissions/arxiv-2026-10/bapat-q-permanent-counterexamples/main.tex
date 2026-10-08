@@ -71,8 +71,21 @@ The conjecture introduced by Bapat~\cite{Bapat1992} asserts strict
 increase on $[-1,1]$ for every non-diagonal Hermitian positive-definite
 matrix. Mitchell~\cite{Mitchell} explicitly states this formulation and
 discusses its positive-semidefinite extension; Bapat and
-Lal~\cite{BapatLal1994} is an early follow-up. Our counterexamples concern
-this original interval, rather than a proposed extension beyond $q=1$.
+Lal~\cite{BapatLal1994} is an early follow-up, continued by
+Lal~\cite{Lal1998}. Mitchell proves the order-three case and the
+rank-one case of the nontrivial positive-semidefinite extension.
+These special cases do not settle the general conjecture.
+Our counterexamples concern the original interval, rather than a
+proposed extension beyond $q=1$.
+
+This question is distinct from the Bapat--Sunder conjecture for the
+ordinary permanent of a Schur product. That conjecture proposed
+$\per(A\circ C)\le\per(A)\prod_i c_{ii}$ for positive-semidefinite
+matrices $A,C$, where $\circ$ denotes entrywise multiplication;
+Drury~\cite{Drury2016} disproved it in 2016, as discussed in
+Zhang's survey~\cite{ZhangSurvey}. Here the matrix is fixed and the
+inversion weight $q$ varies. A failure of the Schur-product inequality
+alone therefore does not resolve the monotonicity problem studied here.
 
 For the explicit construction let $n=200$, $J=\binom n2=19900$, and put
 \begin{equation}\label{eq:explicitconstants}
@@ -500,6 +513,15 @@ Positive scalar multiplication preserves positive definiteness and non-diagonali
 
 The choices have a strict order: first choose and fix a sufficiently large equidistributed cloud, its selector, and its row ordering; then choose and fix a repetition number; then choose a rational row approximation; then a positive rational diagonal perturbation; finally the two interior rational parameters and the positive denominator multiplier. There is no simultaneous limit in cloud size and repetition number. The peak structure, unit normalization, and ratio ordering need not survive rational approximation, because they have already produced the open strict inequality $P'_1<0$.
 
+The nonconstructive steps select a finite cloud and a finite repetition
+number from convergence statements, without quantitative thresholds.
+Once these choices are fixed, openness of a strict polynomial inequality
+permits rational approximation and diagonal perturbation; clearing
+denominators then gives a finite integer matrix. Thus the conclusion
+is an exact existence theorem, not a numerical approximation claim.
+Obtaining an effective dimension bound or extracting an explicit real
+integer witness remains a natural further problem.
+
 
 \section{Formal verification and reproducibility}\label{sec:verification}
 The two main counterexample conclusions are formalized for the
@@ -566,14 +588,34 @@ checks use assertions. The second writes a result file next to its
 source. The finite checks establish the complex certificate;
 they are not finite tests of the real limiting proof.
 
-\section*{Acknowledgments and disclosures}
-This research was conducted independently and received no external
-funding. OpenAI AI assistants were used to assist mathematical
-research, proof development, Lean formalization, verification code,
-manuscript preparation, and internal reviews. These internal reviews
-are not external human peer review. The author is responsible for
-the manuscript's contents. No journal acceptance or exhaustive
-historical priority certification is asserted.
+For a concise reproduction route, start with \path{anc/README.md} for
+the finite certificate and the two commands above. For the complex Lean
+endpoint, use \path{replay.py} in the fixed
+\href{https://github.com/mxym/math/tree/6aa1adcc7897635b4ab2c82b0ae22c23106f91e6/formalizations/bapat-q-permanent-explicit-rational}{complex formalization package}.
+For the real Lean endpoint, use \path{reproduce.py} in the fixed
+\href{https://github.com/mxym/math/tree/6ff60a4bad0bd78925f29faf8e3b252aa8b3e455/formalizations/bapat-real-symmetric-existence-counterexample}{real formalization package}.
+Each package's README supplies the pinned environment and full commands
+for the named theorem above. Checking stored record hashes alone is
+not a fresh Lean replay.
+
+\section*{Acknowledgments}
+This research was conducted independently and received no external funding.
+
+\section*{AI-assisted research methods}
+OpenAI AI assistants were used in mathematical research, proof development,
+Lean formalization, verification code, and internal reviews. Mathematical
+claims are supported by the written proofs, exact certificates, and public
+formal-verification records described above; AI output by itself is not
+proof evidence. Internal AI-assisted reviews are not external human peer
+review. No journal acceptance or exhaustive historical priority
+certification is asserted.
+
+\section*{Declaration of generative AI and AI-assisted technologies
+in the writing process}
+OpenAI AI assistants were used in drafting, organizing, and editing the
+manuscript and its LaTeX presentation. The author takes responsibility
+for the manuscript's contents, including its mathematical claims and
+its descriptions of the verification evidence.
 
 \clearpage
 \appendix
@@ -597,6 +639,18 @@ Hadamard inequality}, Linear and Multilinear Algebra \textbf{32}
 R. B. Bapat and A. K. Lal, \emph{Inequalities for the $q$-permanent},
 Linear Algebra and its Applications \textbf{197--198} (1994), 397--409.
 \href{https://doi.org/10.1016/0024-3795(94)90497-9}{doi:10.1016/0024-3795(94)90497-9}.
+\bibitem{Lal1998}
+A. K. Lal, \emph{Inequalities for the $q$-permanent. II},
+Linear Algebra and its Applications \textbf{274} (1998), 1--16.
+\href{https://doi.org/10.1016/S0024-3795(97)00083-9}{doi:10.1016/S0024-3795(97)00083-9}.
+\bibitem{Drury2016}
+S. Drury, \emph{A counterexample to a question of Bapat and Sunder},
+The Electronic Journal of Linear Algebra \textbf{31} (2016), 69--70.
+\href{https://doi.org/10.13001/1081-3810.3178}{doi:10.13001/1081-3810.3178}.
+\bibitem{ZhangSurvey}
+F. Zhang, \emph{An update on a few permanent conjectures},
+Special Matrices \textbf{4} (2016), 305--316.
+\href{https://doi.org/10.1515/spma-2016-0030}{doi:10.1515/spma-2016-0030}.
 \bibitem{Mitchell}
 L. Mitchell, \emph{A note on Bapat's $q$-permanent conjecture},
 Operators and Matrices \textbf{14} (2020), no.~4, 915--919.

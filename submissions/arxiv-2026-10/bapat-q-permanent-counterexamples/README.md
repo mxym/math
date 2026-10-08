@@ -32,7 +32,7 @@ the real certificate has 776 owned declarations and a 54,739-declaration
 union replay closure. Historical input-run timeouts and subsequent successful
 continuations remain distinguished. See [the audit](AUDIT.md) for exact scope.
 
-To submit after registering, upload **`bapat-arxiv-source.zip`** as the TeX
+To submit after obtaining the requested endorsement, upload **`bapat-arxiv-source.zip`** as the TeX
 source, use `main.tex` as the compilation entry point, and copy the prepared
 title, author, and abstract from [the metadata](SUBMISSION_METADATA.json).
 The primary category suggestion is `math.CO`, with `math.RA` as a possible
@@ -41,7 +41,8 @@ Choose the distribution license in the arXiv interface and check the PDF
 compiled by arXiv before completing submission. Do not upload `paper.pdf`
 alongside the TeX ZIP as an extra source document.
 
-The author has not yet registered; no arXiv identifier, submission date,
+The author has registered and is awaiting the requested math.CO endorsement;
+no arXiv identifier, submission date,
 acceptance, human peer-review approval, or guaranteed historical priority
 is claimed. AI assistance and absence of external funding are disclosed
 in the manuscript. Source provenance and verification inventories are

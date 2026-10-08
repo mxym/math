@@ -23,7 +23,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 
 ## arXiv 投稿准备
 
-Bapat 的指定复数有理反例与实对称整数反例存在定理，已合并为一篇 13 页论文：
+Bapat 的指定复数有理反例与实对称整数反例存在定理，已合并为一篇 14 页论文：
 [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) ·
 [可上传的 TeX ZIP](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/bapat-arxiv-source.zip) ·
 [审计记录与验证范围](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/AUDIT.md)。

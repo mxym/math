@@ -3,14 +3,14 @@
 **Status: PASS for the scope below; prepared, not submitted.**
 
 Manuscript: *Counterexamples to Bapat's q-permanent monotonicity conjecture*,
-Yongxian Zhang, 13 pages. This audit was conducted by the primary Codex
+Yongxian Zhang, 14 pages. This audit was conducted by the primary Codex
 assistant without subagents. It is internal mathematical, editorial and
 technical review, not external human peer review or arXiv acceptance.
 
 The reviewed PDF SHA-256 is
-`2121fc8d86c79af0d7b4f505ecf00a923c49eb298875e30d92101eb3b05e04e1`.
+`42aac0d142a93c85775f95842e6acd6a778c9bd607248006f771361e1b624cd5`.
 The upload ZIP SHA-256 is
-`8d543b9c59ec1c73f1986d226475067fc748ea5c33331a38be1ac5276a534bcd`.
+`205784e05e80069a7f9cbe59444e9f33467c598dee8e3792107ecb66f6c84707`.
 The detailed build and source hashes are in [qa/BUILD_REPORT.json](qa/BUILD_REPORT.json).
 
 ## Mathematical statements and proof correspondence
@@ -88,7 +88,7 @@ deliberately false rank-one replacement input. These are actual executions,
 not stored `true` results or numerical tests of the real limiting proof.
 
 All 40 source labels are unique, all 32 references resolve, and all cited
-keys are present in the five-item bibliography. The final log contains:
+keys are present in the eight-item bibliography. The final log contains:
 
 | Diagnostic | Count |
 | --- | ---: |
@@ -105,7 +105,7 @@ figures or shell commands in the manuscript.
 
 ## Editorial and visual review
 
-All 13 pages were inspected individually as 110-dpi renderings. In the final
+All 14 pages were inspected individually as 110-dpi renderings. In the final
 revision, only pages 3, 10 and 11 changed and were reinspected; the remaining
 ten rendered pages were pixel-identical to the reviewed preceding version.
 See [the contact sheet](qa/contact.png) and [rendering record](qa/VISUAL_RECORD.json).
@@ -123,13 +123,15 @@ external funding and AI assistance are disclosed. The paper does not assert
 external referee approval, numerical extraction of the real witness, or
 historical first-proof priority. Bibliographic details were checked against
 the repository's documented primary-source screen; this preparation is not
-a new exhaustive literature search. The earlier screen read Mitchell's 2020
+a new exhaustive literature search. The additional citations and source-access
+limits are recorded in [RELATED_WORK_AUDIT.md](RELATED_WORK_AUDIT.md).
+The earlier screen read Mitchell's 2020
 article, while the full 1992 and 1994 originals were not obtained.
 
 ## Remaining submission steps
 
-The author has not yet registered an arXiv account. After registration, handle
-any category endorsement requested by arXiv, choose the distribution license,
+The author has registered an arXiv account and is awaiting the requested
+math.CO endorsement. Obtain the endorsement, choose the distribution license,
 upload the source ZIP, copy the prepared metadata, and inspect arXiv's own
 compiled preview. Differences in arXiv's TeX installation can change line or
 page breaks, so the platform's preview remains a final operational check.
