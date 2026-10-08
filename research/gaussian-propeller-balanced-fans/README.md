@@ -55,6 +55,14 @@ The complete paper.md also proves the following.
   In particular, four-cell global first-moment research
   in any ambient dimension reduces exactly to R^3,
   without assuming a tetrahedral optimizer.
+- **Sharp unrestricted equal-mass asymptotic:** with k
+  equal-mass Gaussian cells and ambient dimension at least k-1,
+  the unknown global squared-centroid optimum equals
+  [2 log k - log log k - log(4 pi) + O(1)]/k.
+  The regular-simplex candidate is asymptotically optimal
+  up to a relative factor 1+O(1/log k), proved by exact
+  simplex lower construction and Gaussian halfspace upper
+  rearrangement. No finite-k simplex optimality is presumed.
 - **Global calibration:** all two-cell prescribed-mass
   Gaussian partitions have exact halfspace optimum
   2*phi(Phi^{-1}(1-p))^2. The equal-three-cell global
