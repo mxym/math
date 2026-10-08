@@ -15,6 +15,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 各项成果分别说明证明和验证范围。
 重大成果优先推进[完整 Lean 形式化](formalizations/MAJOR_RESULT_VERIFICATION_PLAN.md)；
 局部形式化验证与完整主定理验证分别标明。
+[有限群轨道原始—对偶定理的完整 Lean 证明](formalizations/orbital-primal-dual/README.md)
+已覆盖原定理 18 的真实边缘条件、有理最优证书、尖锐常数与等号构造；117 个定理通过空内核重放。
 [完整作者资料与论文署名模板](AUTHOR.md) · [结构化作者资料](authors/zhang-yongxian.json)
 
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture

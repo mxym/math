@@ -73,3 +73,40 @@ including web-hosted manuscripts. The Foregger prior-collision record
 in `research/novelty-assessment/2026-10-08-foregger-power-prior-collision.md`
 explains why that candidate is not currently scheduled as a new original
 conjecture breakthrough.
+
+## Completed: universal finite-group orbital primal-dual theorem
+
+The [complete package](orbital-primal-dual/README.md) formalizes Theorem 18
+of `notes/sharp-robust-permanent/paper.md`, with the original actual
+probability, image-marginal, TV, kernel-supremum, orbital and conjugacy-class
+objects. It includes real optimality, rational primal/dual certificates,
+the actual linear-span formulation, all atoms and sharp disjoint
+perturbations. Missing real-duality and rationality bridges were proved
+rather than imported as assumptions. The verified record contains 117 owned
+theorems, 28,264 declarations replayed from an empty kernel at trust level
+zero, three positive controls and one rejected omitted-mass control.
+Internal independent AI semantic reviews cover both the rational bridge
+and the final correspondence with the original theorem.
+
+This completion does not certify the note's separate closed formulas in
+Theorems 15–17, every theorem elsewhere in the repository, or the Gaussian
+analytic endpoints above. It is a full verification contribution for this
+existing theorem, not a new conjecture solution.
+
+## Further actual bridges now under development
+
+The Gaussian work is proceeding from the actual `stdGaussian` measure,
+measurable fractional labels, and actual Bochner first moments. Price-dual
+support bounds and balancing prices must be proved, not packaged as assumed
+Gaussian properties. The imported multi-bubble theorem and subsequent
+analytic/equality chain remain necessary dependencies of a fully formal
+Gaussian endpoint; they are not discharged by scalar or measure-foundation
+checks.
+
+The newly public original-interval complex-Hermitian Bapat q-permanent
+counterexample also remains without full Lean certification. A separate
+formalization track is developing the actual inversion-weighted permanent
+endpoint identity, deleted-minor combinatorics, Gram/Bargmann bridge, exact
+finite integer certificate and positive-definite perturbation. Proving only
+a Gram positivity lemma or certificate arithmetic does not constitute the
+complete counterexample proof.
