@@ -678,3 +678,204 @@ x\phi'(x)=\sum_{j=1}^3\frac{x}{x+o_j}-p.
 The right side increases strictly from `-p` to `3-p`. Thus `phi` first strictly decreases and then strictly increases: each horizontal level has at most two positive preimages. The same argument interchanges the `e` and `o` roles. QED.
 
 **Research boundary.** Theorem 9 is an **exact reformulation**, not a closed-form solution for `p_*(t)`. Proposition 11 applies only to strictly positive stationary points; boundary extrema must still be checked. The conjecture that the singleton threshold is sufficient throughout `q_3<p<2` is supported by numerical discovery but **not established** by the results in this section. Section 10 rigorously disproves its extension to `2<p<3`.
+
+
+## 12. Exact critical radius on an entire interval below two
+
+The endpoint classification in Theorem 6 also settles an **open interval of exponents** rather than an isolated endpoint. The argument below is entirely analytic: no numerical optimization, discretization, or computer-assisted compactness search is used.
+
+**Theorem 12 (one-sided exact-radius interval).** There exists `p_0\in(q_3,2)` such that for every `p_0\le p\le2`, the exact uniform-marginal total-variation robustness radius on `S_3` is
+
+```math
+\boxed{R_3(p)=3\left(3^{-3/p}-\frac16\right).} \tag{39}
+```
+
+Equivalently, throughout this interval the three-row normalized `L^p` permanent inequality holds for **every** uniform-one-point-marginal law `nu_t` exactly when
+
+```math
+|t|\le3^{-3/p}-\frac16. \tag{40}
+```
+
+The constant `p_0` is **existential**: this proof does not produce a numerical lower endpoint. Together with Corollary 8, the theorem shows that singleton saturation is exact throughout some interval immediately **below** exponent two, but is strictly **non-sharp above** two.
+
+**Proof.** Put `q=q_3`, `c_p=3^{-3/p}`, `t_p=c_p-1/6`, and `b_p=1/3-c_p`. For `q\le p\le2`, one has
+
+```math
+\frac16\le c_p\le\frac1{3\sqrt3},\qquad
+0\le t_p\le t_2,\qquad
+b_p>0. \tag{41}
+```
+
+It suffices to prove the inequality at `nu_{t_p}`, since exchanging two columns handles `nu_{-t_p}`, interpolation handles every intermediate `t`, and singleton indicators force the converse `|t|\le t_p`.
+
+We establish a **uniform strict local inequality** near the two types of endpoint extremizers of Theorem 6, valid for *every* `p\in[q,2]`. We then apply compactness **only to the complement**, where the exact `p=2` theorem already has a strict gap.
+
+**(a) Neighborhood of the constant triple.** By row homogeneity, write all rows sufficiently close to constants as `f_i=1+g_i`, with `\mathbb E_{j\in[3]}g_i(j)=0` and `\|g_i\|_\infty\le h`. Put `V_i=\mathbb E_jg_i(j)^2` and `V=\sum_iV_i`. For uniform `u`, sampling without replacement gives
+
+```math
+\sum_{i<j}\mathbb E_u g_i(\pi(i))g_j(\pi(j))
+=\frac14\left(V-\Big\|\sum_i g_i\Big\|_2^2\right)
+\le\frac V4.
+```
+
+The cubic term in the uniform product expansion is bounded in absolute value by `hV/2`. From `P_{\nu_t}(A)=P_u(A)+t\det(A)` and the expansion of the determinant in the row perturbations,
+
+```math
+\det(1+g_1,1+g_2,1+g_3)
+=\sum_{i<j}\det(\ldots,1,\ldots,g_i,\ldots,g_j,\ldots)
++\det(g_1,g_2,g_3),
+```
+
+where the first sum means precisely the three determinants obtained by taking two `g` rows and the all-ones row. Hadamard's determinant bound gives
+
+```math
+\left|\sum_{i<j}\det(\ldots,1,\ldots,g_i,\ldots,g_j,\ldots)\right|
+\le3\sqrt3\,V,
+\qquad
+|\det(g_1,g_2,g_3)|\le \frac{3\sqrt3}{2}hV.
+```
+
+(The normalized variance satisfies `\|g_i\|_{\ell^2}=\sqrt{3V_i}`, and `\sqrt{V_iV_j}\le(V_i+V_j)/2`.) Since `0\le t_p\le t_2`, there is an absolute constant `C` such that
+
+```math
+P_{\nu_{t_p}}(1+g_1,1+g_2,1+g_3)
+\le 1+\left(\frac14+3\sqrt3\,t_2+Ch\right)V. \tag{42}
+```
+
+Uniform Taylor expansion of the normalized `L^p` norms for `p\in[q,2]` and `h\le1/2` yields
+
+```math
+\prod_i\|1+g_i\|_p
+\ge1+\left(\frac{p-1}{2}-Ch\right)V. \tag{43}
+```
+
+Here `C` may be enlarged and is independent of `p`, because the derivatives of `x^p` are uniformly bounded on `[1/2,3/2]\times[q,2]`. A strict uniform gap exists: the exact integer comparison `3^{15}>6^9` gives `q>9/5`, hence `(p-1)/2>2/5`; while
+
+```math
+\frac14+3\sqrt3\,t_2
+=\frac54-\frac{\sqrt3}{2}
+<\frac25,
+```
+
+since `\sqrt3>17/10`. Choose `h>0` sufficiently small to absorb both `Ch` terms. Equations (42)--(43) prove the required uniform local inequality, with equality only when `V=0`, i.e. at the constant triple.
+
+**(b) Neighborhood of each even-permutation singleton triple.** By permutation symmetry and row scaling, take the dominant entries to be `f_i(i)=1` and denote the six off-diagonal entries by `z_{ij}\in[0,h]` for `i\ne j`, where `0<h<1`. Define
+
+```math
+s_i=\sum_{j\ne i}z_{ij}^{p},\qquad
+S=\sum_i s_i\le6h^q.
+```
+
+The three even-permutation monomials consist of the identity contribution `1` and two 3-cycle monomials; the three odd-permutation monomials consist of three transposition products. By `xy\le(x^2+y^2)/2`, `z_{ij}^2\le z_{ij}^p` for `p\le2`, and the bound `z_{ij}\le h`,
+
+```math
+\sum_{\substack{\pi\text{ even}\\\pi\ne id}}
+ \prod_i f_i(\pi(i))\le\frac h2 S,
+\qquad
+\sum_{\pi\text{ odd}}\prod_i f_i(\pi(i))\le\frac12 S.
+```
+
+Therefore
+
+```math
+P_{\nu_{t_p}}(A)\le c_p\left(1+\frac h2 S\right)+\frac{b_p}{2}S. \tag{44}
+```
+
+For the normalized row norm product, the elementary inequality `\prod_i(1+s_i)\ge1+S` and Taylor's theorem for `0<1/p<1` imply
+
+```math
+\begin{aligned}
+\prod_i\|f_i\|_p
+&=c_p\prod_i(1+s_i)^{1/p}
+\ge c_p(1+S)^{1/p}\\
+&\ge c_p\left(1+\frac S p-\frac{S^2}{8}\right). \tag{45}
+\end{aligned}
+```
+
+The last estimate holds for every `S\ge0` because the second derivative of `x^{1/p}` on `[1,\infty)` is at least `-1/4`. Crucially, the coefficient
+
+```math
+d_p:=\frac{c_p}{p}-\frac{b_p}{2}
+=\frac12\left[c_p\left(1+\frac2p\right)-\frac13\right]
+```
+
+is **strictly positive** for every `p\in[q,2]`: indeed `c_p\ge1/6` and `1+2/p\ge2`, and the two equalities cannot hold simultaneously because `q<2`. By compactness of this scalar parameter interval, `d=\min_{p\in[q,2]}d_p>0`. Choose `h>0` so small that
+
+```math
+\frac{c_2h}{2}+\frac{6c_2h^q}{8}<d.
+```
+
+Equations (44)--(45) then give the **strict** lower deficit
+
+```math
+\prod_i\|f_i\|_p-P_{\nu_{t_p}}(A)
+\ge S\left(d_p-\frac{c_ph}{2}-\frac{c_pS}{8}\right)>0
+\quad\text{if }S>0. \tag{46}
+```
+
+The same neighborhood argument applies to the other two even-permutation singleton triples by relabeling rows and columns.
+
+**(c) Global completion by a strict compact complement.** Normalize each nonzero row by its normalized `L^2` norm and set
+
+```math
+\mathcal K=\{A\in[0,\infty)^{3\times3}:
+\|f_i\|_2=1\text{ for }i=1,2,3\}.
+```
+
+This is compact. The ratio
+
+```math
+\mathcal F(p,A)
+=\frac{P_{\nu_{t_p}}(A)}{\prod_i\|f_i\|_p}
+```
+
+is jointly continuous on `[q,2]\times\mathcal K`. At `p=2`, Theorems 4 and 6 give `\mathcal F(2,A)\le1`, with equality **only** at the constant triple and the three even-permutation singleton triples. Parts (a)--(b) yield a fixed relatively open neighborhood `U\subset\mathcal K` of these four normalized configurations on which `\mathcal F(p,A)\le1` **for every** `p\in[q,2]`.
+
+On the compact complement `\mathcal K\setminus U`, the function `\mathcal F(2,\cdot)` has maximum strictly less than one. Joint continuity consequently supplies `\delta>0` such that `\mathcal F(p,A)<1` on that complement whenever `2-\delta\le p\le2`. Reduce `\delta` if necessary to ensure `2-\delta>q`. Combining the complement with `U`, we obtain the endpoint law inequality for every `p\in[2-\delta,2]` and every `A\in\mathcal K`, and hence (by homogeneity) for all nonnegative row functions, including zero rows.
+
+Finally, an odd column permutation converts `nu_{t_p}` into `nu_{-t_p}`. Every `nu_t` with `|t|\le t_p` is a convex combination of these two endpoint laws. The indicator test gives failure whenever `|t|>t_p` (for an even or odd permutation according to sign), proving (39)--(40). Set `p_0=2-\delta`. QED.
+
+**Remark.** The positive gaps in (42)--(46) are explicit up to harmless uniform Taylor constants. The **remaining compact complement** is handled qualitatively, so Theorem 12 is a genuine infinite-interval theorem but does not certify a specified rational value of `p_0`. A rational endpoint requires a separate effective bound or a replayable interval certificate; plotting a numerical optimizer is not sufficient.
+
+## 13. Exact infinitesimal entropy obstruction
+
+The entropy reformulation gives an independent, *sharp at quadratic order*, necessary condition for every full-support `nu_t`.
+
+**Proposition 13 (local entropy threshold).** Let `|t|<1/6`, `a=1/6+t`, `b=1/6-t`. If the normalized `L^p` permanent inequality holds for `nu_t`, then necessarily
+
+```math
+p\ge9\max(a,b)=\frac32+9|t|
+=\frac32+3\|\nu_t-u\|_{TV}. \tag{47}
+```
+
+The coefficient on the right is **exactly** the supremum of the ratio of the quadratic terms of the two relative entropies in (38) at `\mu=\nu_t`. This is a statement about the local second variation, **not** sufficiency for the global inequality.
+
+**Proof.** Perturb the six masses in (36) as `e_i=a+x_i`, `o_j=b+y_j`, where `\sum_i x_i+\sum_j y_j=0`, and put `S_x=\sum_i x_i=-\sum_j y_j`. Both sides of (36) have vanishing first variation at this base point. Their second-order terms are
+
+```math
+\begin{aligned}
+\frac32\sum_{i,j}(x_i+y_j)^2
+ &=\frac92\left(\sum_i x_i^2+\sum_j y_j^2\right)-3S_x^2,\\
+\frac12\left(\sum_i\frac{x_i^2}{a}
+ +\sum_j\frac{y_j^2}{b}\right).
+\end{aligned}
+```
+
+Write `x_i=x_i^0+S_x/3` and `y_j=y_j^0-S_x/3`, where both centered triples have sum zero. The first quadratic expression reduces exactly to
+
+```math
+\frac92\left(\sum_i(x_i^0)^2+\sum_j(y_j^0)^2\right),
+```
+
+and the second becomes
+
+```math
+\frac12\left[
+\frac{\sum_i(x_i^0)^2}{a}
++\frac{\sum_j(y_j^0)^2}{b}
++\frac{S_x^2}{3}\left(\frac1a+\frac1b\right)\right].
+```
+
+Their quotient is at most `9\max(a,b)`, with equality for perturbations entirely within the zero-sum coordinates of the heavier parity block (setting `S_x=0`). Any smaller `p` would violate (36) for sufficiently small positive and negative such perturbations. This proves (47) and its stated exact second-variation interpretation. QED.
+
+This gives the separate necessary estimate `R_3(p)\le(p-3/2)/3` for `q_3<p<3`, though the singleton bound is stronger on the known exact interval of Theorem 12.
