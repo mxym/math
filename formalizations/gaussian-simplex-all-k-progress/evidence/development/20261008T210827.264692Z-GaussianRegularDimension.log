@@ -1,0 +1,9 @@
+sources/GaussianRegularDimension.lean:27:21: warning: This simp argument is unused:
+  Ne.symm (Fin.succ_ne_zero i)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.gram_apply, inner_sub_left, inner_sub_right, hg, ite_true, Fin.succ_ne_zero,
+    Ne.symm (Fin.succ_ne_zero j), ite_false, Fin.succ_inj, Matrix.smul_apply, smul_eq_mul, Matrix.add_apply,
+    Matrix.one_apply, Matrix.vecMulVec_apply, mul_one, div_eq_mul_inv, Nat.cast_add, Nat.cast_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

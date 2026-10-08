@@ -1,0 +1,25 @@
+sources/GaussianCovarianceSegment.lean:16:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.covarianceSegment_zero`:
+  [NeZero n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianCovarianceSegment.lean:19:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.covarianceSegment_one`:
+  [NeZero n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianCovarianceSegment.lean:22:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.covarianceSegment_posSemidef`:
+  [NeZero n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianCovarianceSegment.lean:46:82: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [covarianceSegment, Matrix.trace_add, Matrix.trace_smul, hr.2.2, hQ.2.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,30 @@
+{
+  "status": "UNPROVED",
+  "required_lean_proposition": "GaussianMeasureBridge.EqualMassSimplicialPerimeterBound d",
+  "source": "sources/GaussianPerimeterComparisonReduction.lean",
+  "scope": "For every affinely independent Fin(d+2) score family in Gaussian Space(d+1), the canonical equal-mass winning cluster has squared intrinsic total inner perimeter at least (d+1)*simplexConstant(d+2)^2/2.",
+  "normalization": "Total perimeter = one half the sum of each cell perimeter. Each cell functional is minus the right derivative of its actual closed-ball erosion mass at zero.",
+  "proved_bridge": "Every actual full simplicial cell has an erosion derivative equal to the constructed Gaussian density facet-flux sum.",
+  "conventional_BV_bridge_proved": false,
+  "model_value_proved": "sources/GaussianRegularPerimeter.lean",
+  "exact_model_square": "(d+1)*simplexConstant(d+2)^2/2",
+  "no_axiom_registered": true,
+  "paper_external_reference": "https://arxiv.org/pdf/1805.10961v3",
+  "independent_thought_notes": [
+    "The full score-price fan has a unique common apex and is a translation of the zero-price conical fan; this is proved in GaussianSimplicialApex.lean.",
+    "An elementary derivation from individual one-cell Gaussian isoperimetry is too weak to give the required all-k constant.",
+    "Minimizing over affine fans alone does not automatically imply stationarity under arbitrary local variations; a finite-family minimum argument must establish the required variation directions rather than assume them.",
+    "Triple-junction force balance would enforce equidistance by affine independence, but deriving that balance at a relevant minimizer remains an unproved geometric step."
+  ],
+  "halfspace_BV_bridge_proved": true,
+  "halfspace_bridge_scope": "All unit-normal halfspaces in arbitrary positive ambient dimension, at every offset; compiled development proofs, independent audit deferred.",
+  "two_cell_BV_bridge_proved": true,
+  "BV_upper_bridge_route": {
+    "criterion": "sources/GaussianBVApproximation.lean",
+    "actual_approximants": "sources/GaussianSmoothWinningApproximation.lean",
+    "smoothness_bounds_and_pointwise_convergence_proved": true,
+    "gradient_integral_estimate_proved": false,
+    "natural_cluster_interface": "sources/GaussianBVComparisonInterface.lean"
+  },
+  "updated_utc": "2026-10-08T22:26:34.424578+00:00"
+}

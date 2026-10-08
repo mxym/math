@@ -1,0 +1,14 @@
+sources/GaussianNormalCoordinates.lean:35:24: warning: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [z, norm_smul, abs_of_nonneg (inv_nonneg.mpr (norm_nonneg u)), inv_mul_cancel₀ hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+sources/GaussianNormalCoordinates.lean:35:42: warning: This simp argument is unused:
+  abs_of_nonneg (inv_nonneg.mpr (norm_nonneg u))
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [z, norm_smul, Real.norm_eq_abs, inv_mul_cancel₀ hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

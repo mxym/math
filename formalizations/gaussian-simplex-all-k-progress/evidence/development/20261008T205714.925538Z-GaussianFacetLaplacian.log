@@ -1,0 +1,38 @@
+sources/GaussianFacetLaplacian.lean:15:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.facetLaplacian_mulVec`:
+  [NeZero k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianFacetLaplacian.lean:24:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.facetLaplacian_trace`:
+  [NeZero k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianFacetLaplacian.lean:26:23: warning: This simp argument is unused:
+  trace_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [facetLaplacian, Matrix.trace, hd, fluxTrace]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+sources/GaussianFacetLaplacian.lean:33:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.facetLaplacian_symmetric`:
+  [NeZero k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+sources/GaussianFacetLaplacian.lean:37:67: warning: This simp argument is unused:
+  conj_trivial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [facetLaplacian, Matrix.sub_apply, Matrix.diagonal_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+sources/GaussianFacetLaplacian.lean:42:0: warning: automatically included section variable(s) unused in theorem `GaussianMeasureBridge.facetLaplacian_trace_mul`:
+  [NeZero k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

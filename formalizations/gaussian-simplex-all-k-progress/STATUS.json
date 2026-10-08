@@ -1,0 +1,938 @@
+{
+  "status": "PARTIAL_ACTIVE",
+  "full_gaussian_theorem_proved": false,
+  "source_commit": "890422e18fd7c80f3ce834426081211763cbc956",
+  "prepared_utc": "2026-10-08T22:45:29.357401+00:00",
+  "source_modules": 114,
+  "compiled_current_modules": 114,
+  "lean_version": "4.34.1",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "remaining_required_proposition": "GaussianMeasureBridge.EqualMassSimplicialPerimeterBound d",
+  "BV_bridge": "General simplicial BV upper bridge is in progress; arbitrary halfspaces and two-cell cases are proved.",
+  "sharp_cluster_lower_bound": "GaussianBalancedBVLowerBound d remains unproved.",
+  "review_policy": "Unified fresh compilation, full owned-declaration audit and empty-kernel trust-level-0 replay are deferred until the entire theorem is formalized, as requested by the user.",
+  "prior_frozen_audit": {
+    "modules": 53,
+    "owned_declarations": 528,
+    "all_owned_closure_declarations": 59703,
+    "empty_base": true,
+    "trust_level": 0,
+    "current_matching_modules": 53,
+    "scope": "Only the matching source hashes are covered; the later modules have development compilation evidence only."
+  },
+  "development_modules": {
+    "GaussianPartition": {
+      "sha256": "0e36a239332f67b642d0b56afa4458a069cfbb0480e6ef8033a25676a4bbc9b0",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192101.960805Z-GaussianPartition",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianPrices": {
+      "sha256": "a2827ce0b1047780a6198a749fc0e0e9afe53d075ab24df816743800a7ad5214",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192105.434913Z-GaussianPrices",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianNoTies": {
+      "sha256": "5031e4ffa88306d5a0f21b9533d244e1443a15bff26ff5ff724c19b563d56421",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192107.931563Z-GaussianNoTies",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianBalancedPrices": {
+      "sha256": "bfea3b1cc0a110be98675c7bee01445730ec5c6a159a56e5cfb526a062beaff1",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192110.241278Z-GaussianBalancedPrices",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianWinningPartition": {
+      "sha256": "d84143b76a987bc1efd81160205b0751388a7583c7acd0baf5869044f97415e3",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192112.724902Z-GaussianWinningPartition",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianFullSupport": {
+      "sha256": "75bcde779f0148d4297a9ed8d5018f43ad0d97df9b8160f74db5d8c887314b78",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192114.928257Z-GaussianFullSupport",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianUniquePrices": {
+      "sha256": "42d0e13cba5e63b48c51c937cdf890df6d9f9663ee098a1cd4a53d58bd30d612",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192116.972635Z-GaussianUniquePrices",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianPrimalDual": {
+      "sha256": "f7103eface47b713d3e2df030fe8c8222caff9ca7658a01107eeb266b5079433",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192119.426962Z-GaussianPrimalDual",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianBalancedValue": {
+      "sha256": "a05d7b86df89efcb31c0d801d50dfefd80c0079a00d408f5ab4250d0eaedd06d",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192332.045642Z-GaussianBalancedValue",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianValueScaling": {
+      "sha256": "65c6315920b21fee9249729027985a34c4ca4154c20227f5a642b92fa9ea04ed",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192415.142809Z-GaussianValueScaling",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianCovarianceValue": {
+      "sha256": "086d06287abb550e38876271af806181cf19d4e7791d71c4c3a33432d18219f2",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192804.294220Z-GaussianCovarianceValue",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianScoreSymmetry": {
+      "sha256": "b992d9616699168f3f0c5b00d6547bf8f871b2a5d06ecd39d445901038f1a879",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T193132.481282Z-GaussianScoreSymmetry",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianPriceContinuity": {
+      "sha256": "ee9a4793e3169cb84dd8721791f18220033495eaf823a123e757255dbecc9125",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T195757.249126Z-GaussianPriceContinuity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianWinningContinuity": {
+      "sha256": "1adfc2b9f6a44cc2ba5a610527f3b7f0c5176528bc1330890e2f26759747d845",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T200515.185522Z-GaussianWinningContinuity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianActualEnvelope": {
+      "sha256": "c2be5a43b0dc1cdaef5bfdba07150ce4457e1beebf41f01fe5063de50bcb59c3",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T200800.768624Z-GaussianActualEnvelope",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianCoordinateSplit": {
+      "sha256": "dc0bc38238867d8393f3d0886c0704202584f6ff38b4da046f3dff3a4b077776",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T202855.968778Z-GaussianCoordinateSplit",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianScoreDerivative": {
+      "sha256": "233eeee626d03588d6686a0e511bc99f98d0748906a7d615629147e38b2dd918",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T194935.723137Z-GaussianScoreDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianRotationalMomentIdentity": {
+      "sha256": "cb29bd5d7c4bc270cd59b850c7e261636b72e8ae30ad8de0df63a3f3bf564686",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T202740.262253Z-GaussianRotationalMomentIdentity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianHalflineFlux": {
+      "sha256": "31540bd46621651b19ac2ed08883ea4d39c5b86eced54a3a142d6d5b8ea5b4f6",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T194901.639912Z-GaussianHalflineFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSliceFlux": {
+      "sha256": "162ef80def74294faee1a71c6533a6cf76cf15c1ecd0714d59f4db99455afaae",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T201212.043345Z-GaussianSliceFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianPolyhedralGraphFlux": {
+      "sha256": "5be1551954470e563767fc1ac1a8aa61a270403748a63112df31d7b0129b5f15",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T201938.236770Z-GaussianPolyhedralGraphFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianGraphLift": {
+      "sha256": "41e7443506b44199bb6b7a82c1dcd3912cbdd37ef204de4e50f8dd911fe6d422",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T203051.600140Z-GaussianGraphLift",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianMaskedSliceFlux": {
+      "sha256": "5aafad3234f85af11f07a308b8841fab28fce2bf8637086ee0081a7be4e1e7f7",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T203025.741982Z-GaussianMaskedSliceFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianGraphVectorFlux": {
+      "sha256": "cbbc426957ac6f20ebb5df3629550ae701d49feb340bf7d2172b7aec6e7c0a2e",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T203254.415871Z-GaussianGraphVectorFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianCovarianceContinuity": {
+      "sha256": "b7b6cda68e6b5d6a1b86c6be3186d57d892c926fdd3922f68a1aa311030250ff",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T193127.673095Z-GaussianCovarianceContinuity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianMomentCovariance": {
+      "sha256": "53555252ad525c39332308d57c328dee1300ac19098350b25ecbda5534d50133",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T193249.747940Z-GaussianMomentCovariance",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianRegularValue": {
+      "sha256": "1a251f407f6bdaca30f6d62f169e4365fb748d7f9481403961594353bc47fe0d",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T193503.965381Z-GaussianRegularValue",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianMomentSymmetry": {
+      "sha256": "cd66e6193b9fa53da1f05501d4aa70beb20f3c2e391be3cb13a36cc3e7fe8c87",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T201623.050073Z-GaussianMomentSymmetry",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianWinningGraphFlux": {
+      "sha256": "5570e31dc0ceb64fee802932902f8b5ba25598e560ddc917abd7157b80046786",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T203428.756974Z-GaussianWinningGraphFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianNormalCoordinates": {
+      "sha256": "35517e8598d26bd9eaaed27a000d0b3ea861b103e145780a6cc50bd51c1ede81",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T203831.732695Z-GaussianNormalCoordinates",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianFacetDensityPositive": {
+      "sha256": "685c7fb8214c4d9876f6e452603b72607238efdf3200ed3aa57d439bc4f73403",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T204347.366859Z-GaussianFacetDensityPositive",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSimplicialFlux": {
+      "sha256": "7833dc6c227adb3304b19d87129ba801e729ad3ff20719b48fd5fb3bd931f9ba",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T204401.677632Z-GaussianSimplicialFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianAllCellsFlux": {
+      "sha256": "ce1687dc6461bcd9f69afaa3b13ec3669402638afd94ded8e2d78bfea3b5b180",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T204824.997303Z-GaussianAllCellsFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianFluxCoefficientSymmetry": {
+      "sha256": "3af79afb3a24cb54a10298cff406491e5faecde4be0c9882e114c4286d6feff6",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T204825.006922Z-GaussianFluxCoefficientSymmetry",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSymmetricFlux": {
+      "sha256": "b401fc25e8089449f5002ecad725484aec36fefe5bdf7a95b17fad59b06260ff",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205138.364236Z-GaussianSymmetricFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSimplexAlgebra": {
+      "sha256": "15d36255d82a00e743c92fac5b0633309a487b8f474f3f26ff3f4e6cad92955c",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192124.230507Z-GaussianSimplexAlgebra",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianFluxEnergy": {
+      "sha256": "0748ee6c7972aa80144573f3488974ad0e93cd9b775e1b8d85b656f0fab36dfa",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205258.962709Z-GaussianFluxEnergy",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianDiagonalCovarianceDerivative": {
+      "sha256": "88fce39fb6416eacacf9492408aacb77bc3c4bef475bc1fa8ea8a1abf4b596f8",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T200922.032141Z-GaussianDiagonalCovarianceDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianCovarianceFluxDerivative": {
+      "sha256": "1bd7369cce5a57bf170fb993398cdf04c2597daa7492687aac7804777d3ba442",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205339.122876Z-GaussianCovarianceFluxDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianFacetLaplacian": {
+      "sha256": "f4fa04eb7ae0f5a93016aaa0c6b21d27925c3b1f1e1906b2e76387920a6e956a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205714.925538Z-GaussianFacetLaplacian",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianAffineLiftDerivative": {
+      "sha256": "551f506c765570a7b3d08788eb99530a700ba16b867f2af1f11471603d18e608",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210620.016673Z-GaussianAffineLiftDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCenteredRowIndependence": {
+      "sha256": "6001df8ca30b2f12ceba5935f9c9d46ea565e0c42a97fd4c162153d7664ab3cb",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211250.791427Z-GaussianCenteredRowIndependence",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianMinimalCovarianceRows": {
+      "sha256": "7c99567cb4664d13c3a8b274231b147860dbbed452682e2d5f4fdfb62c53279e",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211225.562069Z-GaussianMinimalCovarianceRows",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianPrincipalNondegeneracy": {
+      "sha256": "4c493f8462b3d00b021668ac3d06a23a4dc483f74f335067dc743ebc6a69321d",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211313.795165Z-GaussianPrincipalNondegeneracy",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianAffineMatrixFactorization": {
+      "sha256": "0776db9934cbe979ac9c47ac189d8d0878a7645692f624b755625089522f5339",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211845.921025Z-GaussianAffineMatrixFactorization",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianWeightedHalflineFlux": {
+      "sha256": "0a4800c892dea874210417991d2115c0db866d1273433b9344a7069c44ee93cd",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215101.458894Z-GaussianWeightedHalflineFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRealStein": {
+      "sha256": "0e825b3dc734d0338eb2eefe04eddc308da5ccf74b3573b0cb1886b2da5e66cb",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T220042.388119Z-GaussianRealStein",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCoordinateStein": {
+      "sha256": "22c0ecd9729d352fed8949201ae1c1d8ba5954691e69942c1167b57ad19b6a56",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T220610.897710Z-GaussianCoordinateStein",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianAllCoordinateStein": {
+      "sha256": "355aecc927295ce20b5effa3bbebd63b7169fcf313250057ae90ed419e3e5e3e",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T220741.134705Z-GaussianAllCoordinateStein",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRealBVPerimeter": {
+      "sha256": "bd9bf461262b510ad5000917ceda8609b0b07edb9030ec3190ef07640afc5890",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215604.958818Z-GaussianRealBVPerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianVariationalPerimeter": {
+      "sha256": "d030aa604741f9b685233b1a1ca1cebed33623447620ed4fd4c55737b39eac6e",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215929.101046Z-GaussianVariationalPerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianDivergenceStein": {
+      "sha256": "72faeb7cdb545e6ce2fb8af4615cffcc174175e12ae91a8ea2fb85b69967af9e",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T220841.794348Z-GaussianDivergenceStein",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianSmoothTestProduct": {
+      "sha256": "f636dabb96c9e029c6e6cf2e103ada338b2d9f78e52aa122d539695e11d422e8",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T222433.014213Z-GaussianSmoothTestProduct",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianBVApproximation": {
+      "sha256": "87da18340147f055bfcc8f0fd17556ca9c735f7c2b46214553a80b806ef694f4",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T222444.715570Z-GaussianBVApproximation",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianHalfspaceTestFlux": {
+      "sha256": "0c45d9517e0ae33cd625aea550817b4baa41b18a77a000d322ebc70df5e0dd8a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221046.532084Z-GaussianHalfspaceTestFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianHalfspaceBVPerimeter": {
+      "sha256": "85c945ed2a87f9d56aefb0bd57b56c6268f3f0259133fb725fcd2e630fab070f",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221322.224594Z-GaussianHalfspaceBVPerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianBVIsometry": {
+      "sha256": "1e326be08de22ce8365f898be469d6259ab291eb245f5dc4f2bb4b27834cf3cd",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221502.488027Z-GaussianBVIsometry",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianTailCalculus": {
+      "sha256": "d9b7b1f55dea1cfbe9d5411ed2a967388c58901e7074f78f3190a2a7eba69509",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T202113.615621Z-GaussianTailCalculus",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianGraphMassDerivative": {
+      "sha256": "0af2d56e272358d8f0c87157185c817d38a19eda485067a97592af3e9f17d961",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T202328.607050Z-GaussianGraphMassDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianWinningMassDerivative": {
+      "sha256": "67a73d49dd21c5ffe4cfb97bdfd275feeac04f85788a7663c22c5a106fad5a46",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205714.929095Z-GaussianWinningMassDerivative",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSimplicialMassFlux": {
+      "sha256": "bdac1388db878e87fea1c0449be18fd1d452e5e21ff397c061e79d6b6a15f40f",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205844.122786Z-GaussianSimplicialMassFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianParallelBoundary": {
+      "sha256": "ceb7a8ad0b3097c8a8985c239b8b437cc4d6250f34f53657795191afebf3176b",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T205920.674032Z-GaussianParallelBoundary",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianCellErosion": {
+      "sha256": "b7f2eb2f2dcdbf05edf0d768a3d466becb796364f111495c629805e6165f87e7",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210010.337607Z-GaussianCellErosion",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianIntrinsicInnerPerimeter": {
+      "sha256": "6131938050f73dfc004743b7e09df14a500f7c6ec065d4f022c744d7a4811cfd",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213136.676329Z-GaussianIntrinsicInnerPerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianHalfspaceFlux": {
+      "sha256": "1ff5a96492947d3d8a9be77f69669976360331424751560a7f3a3174557a60d7",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T195217.317821Z-GaussianHalfspaceFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianHalfspacePerimeterBridge": {
+      "sha256": "c90208d23be81e46386e3e529eeeeffd92f2332c14c05da2275e6fb21568aebb",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221634.065251Z-GaussianHalfspacePerimeterBridge",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianUnitHalfspacePerimeter": {
+      "sha256": "c781e50f1bf48118d1ce025b230f385cf6dac77397bff783d632be5cfc4afaa3",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221727.019579Z-GaussianUnitHalfspacePerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianPositiveAffineLift": {
+      "sha256": "8cc42a8be45e235237ac2d3910ae751638f41bf7909406ca20bc63a33c48dc10",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212018.517939Z-GaussianPositiveAffineLift",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCenteredCovarianceBlock": {
+      "sha256": "4e939993fbe093ea6ea4b7fc98781cdc83f2f1e93cf87a59adf6a2a2fade2ec9",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211924.094269Z-GaussianCenteredCovarianceBlock",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCenteredAffineLift": {
+      "sha256": "b835eef12004817c9dc249268367255d820543e09dcde2815818069ac8a66c1a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212050.585438Z-GaussianCenteredAffineLift",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCovarianceDifferential": {
+      "sha256": "2101fc4d77a6b50969570cc871cd40c219620fc904fa87dc663536a91f336f33",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212134.537248Z-GaussianCovarianceDifferential",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianGramIsometry": {
+      "sha256": "999ce753511a9706e1f591ff37b87bf72eaa765eb56a20172c9cf66b9728a678",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212628.645321Z-GaussianGramIsometry",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularMoments": {
+      "sha256": "f512bbaec621cae982db25a466733e7249fb39f8bce23c149dfeb3e7dff2ff05",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T201839.038311Z-GaussianRegularMoments",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianRegularStationarity": {
+      "sha256": "cab6d5c166782ab1ae6a49618b60ca8c2303e05c4d44ab91b72469c7f78e662f",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T202021.638190Z-GaussianRegularStationarity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianRegularGramMoments": {
+      "sha256": "73767c368b55ff446a5827f684198ad5642d84c6a4c265a5c4be5f1b5fd1663a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212751.275963Z-GaussianRegularGramMoments",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularPrincipal": {
+      "sha256": "f0a2e2383b5fc93122dee10b93a65af3999f27d95698eed822410ab7a3266261",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211538.149867Z-GaussianRegularPrincipal",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCovarianceStationarity": {
+      "sha256": "f15cf2cd75494c93e8241018fc608df7672f41d413269e9775f5f355c8378cfb",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T212832.427628Z-GaussianCovarianceStationarity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCovarianceSegment": {
+      "sha256": "0dc19f1b0c7006bf227bdc56c2e6570926b3191d9afb91494efbe5daf428cc71",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T211637.499294Z-GaussianCovarianceSegment",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCovarianceRadialDifferential": {
+      "sha256": "a464e650c739d11cbfb6f99edacc51aa58cc26100422fca8c737f1903a3d65f0",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213125.541884Z-GaussianCovarianceRadialDifferential",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianSimplexRadialComparison": {
+      "sha256": "a66740074da86a0a2ea6af0f9806a3b03165d37337de4cd0807ce812fdfafa86",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192126.488155Z-GaussianSimplexRadialComparison",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianRadialDeficitIntegral": {
+      "sha256": "3e5b1ce47bd98a30637ba0736fcec2a9e54caab96680c7ef4c2c1621f03e2b84",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210200.663166Z-GaussianRadialDeficitIntegral",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianPerimeterComparisonReduction": {
+      "sha256": "2da538cfff25c4cd72fa4f0a14b2edbcccd93da9d2667bf611e88dd81141d365",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213302.840490Z-GaussianPerimeterComparisonReduction",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianBVComparisonInterface": {
+      "sha256": "afd4ad993324c0b07ccbd30ae44bdc7b3bf3fdecde9ee3cbf9d68d5b70300c55",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T221840.300218Z-GaussianBVComparisonInterface",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianBalancedEnvelopeDirection": {
+      "sha256": "4d301f2caaa03a71d20fbeb17d96c6241b49c53baf1b2d4e9768ae3acbb6606f",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T195332.393415Z-GaussianBalancedEnvelopeDirection",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianBoundaryCases": {
+      "sha256": "d4bd9718bc5aa6abe18a76aa28ff33cbf2576cb75ff26b3e1f8931569a9c1c31",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T193607.281782Z-GaussianBoundaryCases",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianSmoothWinningApproximation": {
+      "sha256": "491244b71c2b4059a314cf19a0d9b6cda123118d8495b5139bd13848c4ddde8b",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T222556.040155Z-GaussianSmoothWinningApproximation",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianSmoothTransitionKernel": {
+      "sha256": "6a34bbf32a5719048ec60ece6fe3a684bce32dbc3a0db3d7d635d2dbb5c4c0bd",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T222957.379134Z-GaussianSmoothTransitionKernel",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianProductGradientBound": {
+      "sha256": "247cbcf02e3f1a1258689f6ba02382b124729fece0d485a8465bd95bc85385ce",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T223038.599271Z-GaussianProductGradientBound",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianSmoothWinningGradient": {
+      "sha256": "3d45ee3f7a367dd34df4f864244bfa88c9b90170fce9988eaa05c886eaead847",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T223414.032562Z-GaussianSmoothWinningGradient",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianScaledCutoff": {
+      "sha256": "e65e330a4c52196ab30ed135f7e588534287ae4a80c17618bf3f8b22967edd0d",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T223758.964710Z-GaussianScaledCutoff",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianScaledCutoffGradient": {
+      "sha256": "85aa2346a35839350b16012d195664c2d2de42bdbb687b69b753b2d96c5d0b34",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T223901.256880Z-GaussianScaledCutoffGradient",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianCutoffTestField": {
+      "sha256": "3f04e833a34f90776ca8f8b277fcccac608896d7be2b5746b80bb957a9dffb4c",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T224036.035718Z-GaussianCutoffTestField",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianBoundedCoordinateStein": {
+      "sha256": "5cd6ec55029f3a2a576092838cbc83db6629ef02377748ba46a5d574082c8511",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T224051.333822Z-GaussianBoundedCoordinateStein",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianEquidistantRigidity": {
+      "sha256": "63f4ed4669acf49fe680abda34595896ac7b714050d66a2537d5c6d96d82b159",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210620.010245Z-GaussianEquidistantRigidity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianWeightedRigidity": {
+      "sha256": "4696235c62fb172b237d32d1456b5faec4ccd4519549903fd9930cde8ad61a73",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210315.127996Z-GaussianWeightedRigidity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianFacetRigidity": {
+      "sha256": "cc78cbcb8d9e961dea14613c6cee1c0c82869eae94b91279b3e34294bf897d5f",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210656.280882Z-GaussianFacetRigidity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianFractionalEquality": {
+      "sha256": "b251d8a7f8ed6be0b4fe6da68757765f152a30088ba1ae3b91b8ad8474ecf061",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T192121.732083Z-GaussianFractionalEquality",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": true
+    },
+    "GaussianWinningMomentSpan": {
+      "sha256": "0012cf77011123ba16c6f62577d019f3e815ed9eb8a4b65ec3ff55ec4bb8786d",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213944.334908Z-GaussianWinningMomentSpan",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianGramMomentTransport": {
+      "sha256": "2f00cc9d9b558c74d2bc99929afae69aace7cf3e2039e660244a7c20423e4e31",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214202.421850Z-GaussianGramMomentTransport",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianGramPrices": {
+      "sha256": "611b2310b99213e69e789a6f5aebf4914f9737abb3a721e045c548e387a18fa0",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213834.944899Z-GaussianGramPrices",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianJunctionBalanceRigidity": {
+      "sha256": "e03119bdd64bf5019a151cc6b57bc1d9bfde50b8543144fcc4c7e702d39818f4",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214923.530089Z-GaussianJunctionBalanceRigidity",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianJunctionBalanceGlobal": {
+      "sha256": "dc9705438ddfaba729f15f5ad78b18a8e617eddc9cb21f4193870aec6a8ec93a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215050.490938Z-GaussianJunctionBalanceGlobal",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRadialEquality": {
+      "sha256": "bb287f78727d61dffe6bfcf2114e906d12ead6d6194803a24ddc764aa9ae08f6",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210553.479343Z-GaussianRadialEquality",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianPerimeterRigidityReduction": {
+      "sha256": "3cea56690a3c98e590117da61ff7cf4caed6ba85fb6707dd29f2c69eeed24b4a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213525.941942Z-GaussianPerimeterRigidityReduction",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularFlux": {
+      "sha256": "24831df0c60daeef90f42e92a125dfcae20514f623623c6663c9981253e6bad9",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213515.684791Z-GaussianRegularFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularDimension": {
+      "sha256": "c5339322c916c9bc036691090a9aef1f588bf107ad874fdf75dde21301a1ff29",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T210827.264692Z-GaussianRegularDimension",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianMomentEqualityReduction": {
+      "sha256": "fe2b22a386b3b394b31f4b68483c5e2df46de0745d95dcb184a840137e7aa3b8",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T213922.246356Z-GaussianMomentEqualityReduction",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRealPerimeterBridge": {
+      "sha256": "01afaf50dd1ab4eb22068385116bd73c5d2e3069bfacf90a7450885f284a2bd8",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215823.541430Z-GaussianRealPerimeterBridge",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularEmbeddedMoments": {
+      "sha256": "8ebddb688edd41b68ac42a6cc695c5e335bc67d4b10e8c59daac64b16c5169d2",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214302.916300Z-GaussianRegularEmbeddedMoments",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularFanClassification": {
+      "sha256": "d965a43ba12f505e5db44e3b30d6cd4cd975cdb2f5ecfcc27d7fa7fe4e6b11eb",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214508.888684Z-GaussianRegularFanClassification",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianRegularPerimeter": {
+      "sha256": "73a93a7b5d5ff6a479e0cf77bb7eb63f8745e5f500d166906c09b8d0e03ebb8a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214646.528878Z-GaussianRegularPerimeter",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianSimplicialApex": {
+      "sha256": "f3a037f7a01eafa1b9d84b2caa9bb7c7d57970640c136a742d1f1793d027f10a",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T214657.183006Z-GaussianSimplicialApex",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianTwoCellBVBridge": {
+      "sha256": "83b540e4930ccdc32eb35706dd6a8105b7a61832f7ed4b9d59f5320e76b1197c",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T222124.034885Z-GaussianTwoCellBVBridge",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    },
+    "GaussianWeightedGraphFlux": {
+      "sha256": "8cd034d42d4b85bdd5740361df85a39c962882c274efb1ebc6416ec2a62e9f2c",
+      "exit_code": 0,
+      "source_stable": true,
+      "compiled_utc_record": "20261008T215355.079819Z-GaussianWeightedGraphFlux",
+      "purpose": "development compilation only",
+      "current_bytes_match_prior_53_module_kernel_audit": false
+    }
+  }
+}
