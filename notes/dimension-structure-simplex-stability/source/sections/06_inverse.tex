@@ -1,0 +1,771 @@
+\section{Inverse minor rigidity in structured classes}
+\label{sec:inverse}
+
+Let $W$ be an invertible nonnegative column-stochastic $n\times n$
+matrix, and write
+\[
+ B=W^{-1},\qquad
+ M_k(B)=\max_{|I|=|J|=k}|\det B_{I,J}|,\qquad
+ a(B)=\max\{0,-\min_{i,j}B_{ij}\}.
+\]
+The general problem asks for a dimension-free bound
+$a(B)\leq C(c-1)$ when $M_k(B)\leq c^k$ for every $1\leq k\leq n$,
+with $c\geq1$.  We prove such bounds for support-two matrices,
+low-order blocks, and symmetric positive-definite matrices.  The
+first class yields an all-scale geometric estimate for every
+prescribed maximum simplex of an edge-supported body.  The
+unrestricted inverse-minor problem is not resolved by these results.
+
+\subsection{Weighted cycles}
+
+\begin{lemma}[Weighted cyclic blocks]
+\label{lem:inverse-cycles}
+Suppose a column-stochastic block of order $q\geq2$ has the form
+\[
+ W=(\Id_q+P R_d)D,\qquad
+ D=\diag(d_i),\quad R_d=\diag(r_i),\quad
+ d_i=\frac1{1+r_i},\quad r_i>0,
+\]
+where $P$ is a cyclic permutation matrix.  If
+$M_1(B)\leq c$ and $M_2(B)\leq c^2$, then
+\begin{align}
+ a(B)&\leq c^2-1 &&(1\leq c<\sqrt2),\label{eq:inverse-cycle-local}\\
+ a(B)&\leq(2+\sqrt2)(c-1)&&(c\geq1).
+ \label{eq:inverse-cycle-global}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Let $R=\prod_i r_i$.  Interchanging the two cyclic matchings by a
+row permutation replaces this product by $R^{-1}$.  We may choose
+the orientation with $R\leq1$.  In even order, $R=1$ is excluded by
+invertibility.  Thus
+\[
+ L=1-(-1)^qR>0.
+\]
+The finite geometric identity gives
+\begin{equation}
+ B=\frac1L D^{-1}
+ \bigl[\Id_q-PR_d+(PR_d)^2-\cdots+
+                   (-1)^{q-1}(PR_d)^{q-1}\bigr].
+ \label{eq:inverse-cycle-expansion}
+\end{equation}
+In particular,
+\begin{equation}
+ B_{ii}=\frac{1+r_i}{L},\qquad
+ \det B_{\{i,j\},\{i,j\}}=
+ \frac{(1+r_i)(1+r_j)}{L}\quad(i\ne j).
+ \label{eq:inverse-cycle-two-minor}
+\end{equation}
+For the second formula, Jacobi's complementary-minor identity
+applies.  Directly, when $q>2$, deleting vertices $i,j$ from the
+directed cycle leaves an acyclic principal submatrix, triangular
+after topological ordering, with determinant the product of its
+$d_\ell$.  For $q=2$, the formula is simply
+$\det B=1/(d_1d_2L)$.
+
+First suppose every $r_i\leq1$.  If $q$ is odd, then $R\leq r_i$,
+so $B_{ii}\geq1$; if $q$ is even, $L\leq1$ gives the same
+conclusion.  In row $i$, each absolute inverse entry in
+\eqref{eq:inverse-cycle-expansion} is the common factor
+$(1+r_i)/L$ times a product of consecutive ratios.  Negative entries
+correspond to odd-length paths.  Every such product is at most the
+last one-edge factor $r_j$, where $j$ is the predecessor of $i$.
+Thus the largest negative magnitude in that row occurs on the
+incoming edge and equals
+\[
+ -B_{ij}=\frac{(1+r_i)r_j}{L}.
+\]
+The principal two-minor on $i,j$ is
+\[
+ \frac{(1+r_i)(1+r_j)}L
+ =B_{ii}+(-B_{ij})\geq1+(-B_{ij}).
+\]
+It follows that $a(B)\leq M_2(B)-1\leq c^2-1$.
+
+Next suppose some ratio is at least one, and let $x\geq y$ be the
+two largest ratios, with $x\geq1$.  Then $R\leq xy$: if $y\leq1$
+all the remaining ratios are at most one, while if $y\geq1$ then
+$xy\geq1\geq R$.  In odd order,
+\begin{align*}
+ (1+x)(1+y)-2(1+R)
+ &\geq(1+x)(1+R/x)-2(1+R)\\
+ &=(x-1)(1-R/x)\geq0.
+\end{align*}
+The corresponding two-minor in
+\eqref{eq:inverse-cycle-two-minor} is therefore at least two.  In
+even order $L\leq1$ and $(1+x)(1+y)\geq2$ give the same result.
+Hence this case requires $c\geq\sqrt2$.
+
+Consequently $c<\sqrt2$ forces the first case and proves
+\eqref{eq:inverse-cycle-local}.  For $c\geq\sqrt2$, the entry bound
+$a(B)\leq c$ yields
+\[
+ \frac{a(B)}{c-1}\leq\frac c{c-1}\leq2+\sqrt2.
+\]
+For $1<c<\sqrt2$, the first case gives
+$a(B)/(c-1)\leq c+1<1+\sqrt2$.  At $c=1$ its conclusion is
+$a(B)=0$.  This proves \eqref{eq:inverse-cycle-global}.
+\end{proof}
+
+Independent row and column permutations of $W$ merely permute the
+rows and columns of $B$ independently and change signs of its minors.
+All these inequalities are therefore invariant under such
+permutations.  Zero edge weights may be included by continuity, but
+the support decomposition below handles them without treating a
+zero-weight edge as part of a genuine cycle.
+
+\subsection{Columns supported on at most two rows}
+
+\begin{theorem}[Support-two inverse-minor rigidity]
+\label{thm:inverse-support-two}
+Suppose every column of $W$ has at most two nonzero entries.  If
+$M_1(B)\leq c$ and $M_2(B)\leq c^2$, then
+\begin{align}
+ a(B)&\leq c^2-1 &&(1\leq c<\sqrt2),
+ \label{eq:inverse-support-local}\\
+ a(B)&\leq(2+\sqrt2)(c-1)&&(c\geq1).
+ \label{eq:inverse-support-global}
+\end{align}
+For $n=1$ only the order-one bound is needed.  The constants do not
+depend on the matrix order, cycle lengths, or sizes of attached trees.
+\end{theorem}
+
+\begin{proof}
+Associate a multigraph to $W$.  Its vertices are the row indices;
+a column with two positive entries is an edge between its two
+supporting rows, and a singleton column is a loop at its supporting
+row.  Parallel edges are allowed.  Connected components partition
+the rows and columns into matrix blocks.  Each block must be square:
+if a component has unequal row and column counts, summing the
+component rank bounds, each at most the smaller count, makes the
+whole square matrix singular.  Every connected component therefore
+has equally many edges and vertices and is unicyclic, including
+loops and doubled edges as cycles of lengths one and two.
+
+Remove the trees attached to the unique cycle.  Pair each non-core
+vertex $v$ with the edge joining it to its parent $p(v)$ towards
+the core.  Order core rows and columns first and tree vertices in
+parent-before-child order.  Then
+\[
+ W=\begin{pmatrix}W_C&F\\0&T\end{pmatrix},
+\]
+where $T$ is triangular.  The column paired with $v$ has weight
+$d_v>0$ at $v$ and $1-d_v$ at its parent.  Its full inverse diagonal
+entry is $1/d_v$, so
+\begin{equation}
+ r_v:=\frac{1-d_v}{d_v}=\frac1{d_v}-1\leq c-1.
+ \label{eq:inverse-tree-ratio}
+\end{equation}
+The core inverse $B_C=W_C^{-1}$ is a submatrix of $B$ and inherits
+the order-one and order-two bounds.  A loop core has $B_C=[1]$;
+the other cores satisfy Lemma~\ref{lem:inverse-cycles}.
+
+For completeness, let $b_v=B e_v$ denote an inverse column.  The
+identity $BW e_v=e_v$ gives the exact recursion
+\begin{equation}
+ b_v=d_v^{-1}e_v-r_v b_{p(v)}.
+ \label{eq:inverse-tree-recursion}
+\end{equation}
+For a core index $p$, $b_p$ has core part $B_Ce_p$ and zero tree
+part.  Repeatedly applying \eqref{eq:inverse-tree-recursion} shows
+that every off-diagonal entry in a tree column is a product of at
+least one tree ratio, times a core inverse entry or an ancestor
+diagonal entry $1/d_u$.  Every such starting factor has absolute
+value at most $c$.  Equivalently, the tree block has the form
+$(\Id+N)D$ with $N_{p(v),v}=r_v$, and the finite nilpotent expansion
+of $(\Id+N)^{-1}$ gives these unique path products.
+
+If $c<\sqrt2$, then $0\leq r_v\leq c-1<1$.  Every tree-column
+off-diagonal magnitude is therefore at most
+$c(c-1)\leq c^2-1$.  Tree diagonal entries are positive, and core
+negative entries satisfy the same $c^2-1$ bound by the cyclic
+lemma.  This proves \eqref{eq:inverse-support-local}.  For
+$c\geq\sqrt2$, the bound $a(B)\leq c$ gives
+\eqref{eq:inverse-support-global} as in that lemma; for smaller
+$c$ the local bound already implies it.  Taking direct sums and
+undoing the permutations completes the proof.
+\end{proof}
+
+\subsection{Retention of a prescribed maximum simplex}
+
+The next reduction records why the matrix estimates control the
+entire body, including points beyond the selected near-vertex
+comparison simplex.
+
+\begin{lemma}[From near-vertex points to inverse minors]
+\label{lem:inverse-geometric-reduction}
+Let $P$ have $n$ vertices, let $K\subset P$ be a convex body, and
+let $S$ be a prescribed maximum-volume simplex in $K$.  Let $W$ be
+the matrix of its vertex coordinates in the barycentric system of
+$P$.  Suppose $K$ contains $n$ points whose nonnegative
+column-stochastic barycentric matrix $Q$ satisfies
+$Q_{ii}\geq1-\rho$.  For $0\leq\rho<1/2$, put
+\[
+ B=W^{-1},\qquad A=BQ,\qquad c=(1-2\rho)^{-1}.
+\]
+Then every square minor of $A$ has absolute value at most one,
+and $M_k(B)\leq c^k$ for every $k$.  Moreover,
+\begin{equation}
+ E(K,S)\leq n\min\{1,a(B)\}.
+ \label{eq:inverse-all-body-excess}
+\end{equation}
+The latter conclusion applies to all of $K$ and uses the original
+centroid of the prescribed $S$.
+\end{lemma}
+
+\begin{proof}
+Replacing any selected set of vertices of $S$ by selected columns
+of $Q$ gives a simplex in $K$.  The determinant ratio is the
+corresponding square minor of $A$, up to sign.  Maximality of $S$
+therefore gives the all-minor bound.  Since
+$\|Q-\Id_n\|_1\leq2\rho$, the Neumann series gives
+$\|Q^{-1}\|_1\leq c$.  From $B=AQ^{-1}$, Cauchy--Binet bounds
+each $k$-minor of $B$ by the sum of absolute $k$-minors of
+$Q^{-1}$ with a fixed column set.  Expanding their determinants
+over injections bounds that sum by the product of the corresponding
+$k$ absolute column sums, at most $c^k$.
+
+For any $x\in K$, its $P$-barycentric vector $z$ is nonnegative and
+sums to one.  Its $S$-barycentric vector is $Bz$, whose every entry
+is at least $\min B$.  Single-vertex replacement maximality also
+gives $|\alpha_i^S(x)|\leq1$.  The original-centroid dilation
+criterion \eqref{eq:dilationcoords} is
+$\alpha_i^S(x)\geq-E/n$.  Combining these two lower bounds for
+every $x\in K$ proves \eqref{eq:inverse-all-body-excess}.
+\end{proof}
+
+\begin{theorem}[Edge-supported prescribed simplex]
+\label{thm:inverse-edge-simplex}
+Under the hypotheses of Lemma~\ref{lem:inverse-geometric-reduction},
+suppose every vertex of the originally prescribed maximum simplex
+$S$ lies on an edge of $P$, allowing vertices of $P$ themselves.
+For every $\rho\geq0$ for which the stated near-vertex hypothesis
+holds,
+\begin{equation}
+ E(K,S)\leq(4+2\sqrt2)n\rho.
+ \label{eq:inverse-edge-geometric}
+\end{equation}
+No bound on the number of vertices of $K$ is required.
+\end{theorem}
+
+\begin{proof}
+The support assumption says every column of $W$ has at most two
+nonzero entries.  Put
+\[
+ \rho_0=\frac{1-1/\sqrt2}{2}.
+\]
+For $0\leq\rho<\rho_0$, the reduction has
+$c=(1-2\rho)^{-1}<\sqrt2$.  By
+Theorem~\ref{thm:inverse-support-two} and
+\eqref{eq:inverse-all-body-excess},
+\[
+ \frac{E(K,S)}n\leq c^2-1
+ =\frac{4\rho(1-\rho)}{(1-2\rho)^2}
+ \leq(4+2\sqrt2)\rho.
+\]
+Indeed $4(1-\rho)/(1-2\rho)^2$ increases on this interval and
+equals $4+2\sqrt2$ at $\rho_0$.  For $\rho\geq\rho_0$, universal
+single-replacement maximality gives $E(K,S)\leq n$, and
+$1/\rho_0=4+2\sqrt2$.  This proves the entire large-$\rho$ branch,
+including $\rho\geq1/2$ without using the Neumann reduction.
+\end{proof}
+
+\begin{theorem}[Every prescribed maximizer of an edge-supported body]
+\label{thm:inverse-edge-body}
+Let $K\subset P$ be a full-dimensional polytope whose every vertex
+lies on an edge of $P$.  Suppose $K$ contains the near-vertex points
+in Lemma~\ref{lem:inverse-geometric-reduction}.  Then
+\eqref{eq:inverse-edge-geometric} holds for every prescribed
+maximum-volume simplex $S$ of $K$, even if its own vertices are
+not edge-supported.
+\end{theorem}
+
+\begin{proof}
+Let $v_1,\ldots,v_N$ be the vertices of $K$.  Write every vertex
+$s_j$ of the prescribed $S$ as a convex combination
+$s_j=\sum_\ell\lambda_{\ell j}v_\ell$.  Independently sample
+$T_j=v_\ell$ with probabilities $\lambda_{\ell j}$.  Use homogeneous
+affine coordinates, in which the determinant of the $n$ columns
+is proportional to oriented simplex volume, and order $S$ so that
+$\det S=D>0$.  Determinant multilinearity gives
+\[
+ \mathbb E[\det T]=\det S=D.
+\]
+Maximality gives $|\det T|\leq D$ for every sampled tuple.  Hence
+every positive-probability tuple has $\det T=D$: it is
+nondegenerate, has the same orientation, and is a maximum vertex
+simplex.
+
+Fix $x\in K$ and an index $j$.  Cramer's rule and multilinearity
+in all unreplaced columns give
+\begin{align}
+ \alpha_j^S(x)
+ &=\frac{\det(S\text{ with column }j\text{ replaced by }x)}D
+ \nonumber\\
+ &=\frac{\mathbb E[\det(T\text{ with column }j
+                              \text{ replaced by }x)]}D
+  =\mathbb E[\alpha_j^T(x)].
+ \label{eq:inverse-maximum-averaging}
+\end{align}
+Each sampled $T$ is edge-supported.  The coordinate bound in the
+proof of Theorem~\ref{thm:inverse-edge-simplex} therefore gives
+$\alpha_j^T(x)\geq-(4+2\sqrt2)\rho$ for all $x,j$.
+Averaging proves the identical coordinate bound for the original
+$S$.  The dilation criterion then yields
+\eqref{eq:inverse-edge-geometric} with $S$ and its own centroid.
+No sampled centroid is substituted.
+\end{proof}
+
+\begin{corollary}[Compact bodies supported on the one-skeleton]
+\label{cor:inverse-extreme-skeleton}
+Theorem~\ref{thm:inverse-edge-body} also applies when $K$ is a compact
+convex body and every extreme point of $K$ lies on the finite
+one-skeleton of $P$.
+\end{corollary}
+
+\begin{proof}
+For every edge $F$ of $P$, $K\cap F$ is empty, a point, or a closed
+interval.  A point in the relative interior of a nontrivial such
+interval is not extreme in $K$.  Thus each edge contains at most
+two extreme points of $K$, its interval endpoints.  There are only
+finitely many edges, so $K$ has finitely many extreme points and,
+by the finite-dimensional compact convex hull theorem, is their
+convex hull.  It is therefore a polytope to which
+Theorem~\ref{thm:inverse-edge-body} applies.  In particular, the same
+conclusion holds when $K$ is the convex hull of finitely many closed
+segments on the edges of $P$.
+\end{proof}
+
+\subsection{A conditional corollary for the actual defect}
+
+\begin{corollary}[Actual-defect retention with compatible edge support]
+\label{cor:inverse-actual-defect}
+Retain the original actual invariant
+\begin{equation}
+ e(K)=\left(\frac d{d+1}\right)^d
+       \frac{R(\pyr K)}{R(K)}-1-\frac1{d+1},
+ \qquad
+ R(L)=\frac{\vol(\Pi L)}{\vol(L)^{\dim L-1}},
+ \label{eq:inverse-original-defect}
+\end{equation}
+and put $H_d=3d^2(d+1)^3(d+2)$, $n=d+1$, $d\geq3$.
+On the branch $0\leq e(K)\leq H_d^{-1}$, assume additionally that
+at least one enclosing simplex $P$ admitted by the actual-defect,
+projection, and cap chain has every extreme point of $K$ on its
+one-skeleton.  Then for every originally prescribed maximum simplex
+$S$,
+\begin{equation}
+ E(K,S)\leq(4+2\sqrt2)(d+1)H_d^{1/(d-1)}
+                         e(K)^{1/(d-1)}.
+ \label{eq:inverse-actual-edge}
+\end{equation}
+In particular,
+\begin{equation}
+ E(K,S)\leq(768+384\sqrt2)d\,e(K)^{1/(d-1)}.
+ \label{eq:inverse-actual-edge-coarse}
+\end{equation}
+For $e(K)>H_d^{-1}$, both bounds hold without the compatibility or
+edge-support hypothesis.
+\end{corollary}
+
+\begin{proof}
+On the stated small-defect branch, the retained actual chain
+supplies the compatible enclosing $P$, relative projection deficit
+at most $\delta=H_de(K)$, and near-vertex radius
+$\rho=\delta^{1/(d-1)}$.  The extreme-point assumption makes $K$
+a polytope by Corollary~\ref{cor:inverse-extreme-skeleton}.
+Substitution into Theorem~\ref{thm:inverse-edge-body} gives
+\eqref{eq:inverse-actual-edge}; the zero-defect endpoint is included
+by the zero-radius cap conclusion.  The retained estimate
+$H_d^{1/(d-1)}\leq144$, together with $d+1\leq4d/3$, gives
+\eqref{eq:inverse-actual-edge-coarse}, since
+$192(4+2\sqrt2)=768+384\sqrt2$.
+For completeness, the numerical bound on $H_d$ follows from
+$H_3=8640<144^2$ and
+$H_{d+1}/H_d\leq25/6<144$ for $d\geq3$, by induction.
+If $e(K)>H_d^{-1}$, then $H_d^{1/(d-1)}e(K)^{1/(d-1)}>1$,
+so the universal $E(K,S)\leq d+1$ proves
+\eqref{eq:inverse-actual-edge} directly; the coarser bound follows.
+\end{proof}
+
+\begin{remark}[The compatibility quantifier]
+\label{rem:inverse-compatible-P}
+The hypothesis refers to a $P$ produced by the actual-defect chain.
+The existence of some unrelated enclosing simplex with edge-supported
+extreme points is insufficient.  No result here shows that the
+chain's $P$ can always be chosen with this property.  If only one
+prescribed $S$ is to be retained, it is enough that this $S$ be
+edge-supported relative to an admissible $P$, by
+Theorem~\ref{thm:inverse-edge-simplex}.  The body-level hypothesis is
+what gives the conclusion simultaneously for every prescribed
+maximum simplex without inspecting each support.  The exact
+coefficient in \eqref{eq:inverse-actual-edge} is asymptotic to
+$(4+2\sqrt2)d$, since $H_d^{1/(d-1)}\to1$.  These are conditional
+corollaries of the original invariant and the retained upstream
+chain, not an unconditional theorem for all convex bodies.
+\end{remark}
+
+\subsection{Order three and an exact golden-ratio obstruction}
+
+\begin{theorem}[An order-three two-minor inequality]
+\label{thm:inverse-order-three}
+If $n=3$, then
+\begin{equation}
+ 1-\min_{i,j}B_{ij}\leq M_2(B).
+ \label{eq:inverse-order-three}
+\end{equation}
+Consequently, if $M_1(B)\leq c$ and $M_2(B)\leq c^2$, then
+\begin{equation}
+ a(B)\leq\min\{c,c^2-1\}\leq\varphi^2(c-1),
+ \qquad \varphi=\frac{1+\sqrt5}{2}.
+ \label{eq:inverse-order-three-linear}
+\end{equation}
+The coefficient $\varphi^2$ is optimal.  The same conclusions hold
+for direct sums of blocks of orders at most three, after independent
+row and column permutations.
+\end{theorem}
+
+\begin{proof}
+Permutations preserve stochasticity and the quantities in
+\eqref{eq:inverse-order-three}.  First arrange
+$D=\det W>0$.  Independent even row and column permutations are
+transitive on the three indices, so any chosen entry of $B$ can be
+placed at position $(3,1)$ while preserving $D>0$.  Write
+\[
+ W=\begin{pmatrix}
+ u&v&z\\r&s&t\\1-u-r&1-v-s&1-z-t
+ \end{pmatrix}.
+\]
+If $C_{13}$ is the cofactor at row $1$, column $3$, direct
+expansion gives
+\begin{align*}
+ D-C_{13}
+ &=(s-r)(1-z)+t(v-u)\\
+ &=(1-z-t)(s-r)+t[(v+s)-(u+r)]+z\cdot0.
+\end{align*}
+This is a convex combination, with the third-column weights
+$1-z-t,t,z$, of the values
+$s-r$, $W_{31}-W_{32}$, and $0$.  Each is at most
+$w_*:=\max_{i,j}W_{ij}$.  Since $B_{31}=C_{13}/D$,
+\[
+ 1-B_{31}\leq\frac{w_*}{D}.
+\]
+Jacobi's complementary-minor identity gives $M_2(B)=w_*/D$.
+Applying the argument to every entry proves
+\eqref{eq:inverse-order-three}.  Thus $a(B)\leq c^2-1$, and the
+entry bound gives $a(B)\leq c$.  For $c>1$, the upper envelope
+of $\min\{c,c^2-1\}/(c-1)$ has maximum $\varphi^2$ at the crossing
+$c=\varphi$; $c=1$ follows directly.
+
+A one-by-one block is $[1]$.  In order two, every
+column-stochastic inverse can be written
+\[
+ \begin{pmatrix}x&y\\1-x&1-y\end{pmatrix}.
+\]
+Each negative entry has a positive entry in its column larger in
+absolute value by one.  Hence $a(B)\leq M_1(B)-1\leq c-1$ in
+that order.  Applying the appropriate bound in each block proves
+the direct-sum assertion.  Optimality follows from the next exact
+example.
+\end{proof}
+
+\begin{proposition}[An all-order golden-ratio extremizer]
+\label{prop:inverse-golden-example}
+Let $p=\varphi^{-1}$ and set
+\[
+ W=\begin{pmatrix}
+ 0&p&1/2\\p&0&1/2\\1-p&1-p&0
+ \end{pmatrix}.
+\]
+Then $W$ is nonnegative and column-stochastic,
+$\det W=p(1-p)=\varphi^{-3}$, and
+\[
+ B=W^{-1}=\begin{pmatrix}
+ -\varphi/2&\varphi/2&\varphi^2/2\\
+ \varphi/2&-\varphi/2&\varphi^2/2\\
+ 1&1&-\varphi
+ \end{pmatrix}.
+\]
+Its all-order root bound is exactly $c=\varphi$, and
+\begin{equation}
+ M_1(B)=\varphi,\quad M_2(B)=\varphi^2,\quad
+ M_3(B)=\varphi^3,\quad
+ a(B)=\varphi=c^2-1=\varphi^2(c-1).
+ \label{eq:inverse-golden-equality}
+\end{equation}
+Thus any universal estimate $a(B)\leq C(c-1)$ valid for all
+$c\geq1$ must have $C\geq\varphi^2$.
+\end{proposition}
+
+\begin{proof}
+The stochasticity and displayed inverse follow by direct
+multiplication using $\varphi^2=\varphi+1$.  The largest absolute
+entry of $B$ is $\varphi$.  Jacobi gives
+$M_2(B)=p/\det W=\varphi^2$, and
+$M_3(B)=1/\det W=\varphi^3$.  The minimum entry is $-\varphi$,
+which yields all equalities in \eqref{eq:inverse-golden-equality}.
+\end{proof}
+
+This is an exact obstruction to a smaller global constant.  It is
+not a counterexample in the limit $c\downarrow1$.  The order-three
+inequality \eqref{eq:inverse-order-three} is dimension-specific;
+the corresponding proposed estimate with
+$\max\{M_1(B),M_2(B)\}$ is false in order five.  In particular, an
+unrestricted extension based only on first- and second-order minors
+would require a new argument.
+
+\subsection{Positive definiteness and a local permutation basin}
+
+\begin{theorem}[Symmetric positive-definite case]
+\label{thm:inverse-positive-definite}
+If $W$ is symmetric and positive definite, then $M_1(B)\leq c$
+alone implies
+\begin{equation}
+ a(B)\leq c-1.
+ \label{eq:inverse-PSD}
+\end{equation}
+The coefficient one is sharp even under all-order minor bounds.
+In the setting of Lemma~\ref{lem:inverse-geometric-reduction}, a
+symmetric positive-definite prescribed $W$ gives the all-scale bound
+\begin{equation}
+ E(K,S)\leq4n\rho.
+ \label{eq:inverse-PSD-geometric}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+A nonnegative column-stochastic matrix has spectral radius at most
+one.  Symmetry and positive definiteness put all eigenvalues of $W$
+in $(0,1]$.  Therefore $H=B-\Id_n$ is positive semidefinite and
+\[
+ 0\leq H_{ii}=B_{ii}-1\leq c-1.
+\]
+Every two-coordinate positive-semidefinite restriction gives, for
+$i\ne j$,
+\[
+ |B_{ij}|=|H_{ij}|\leq\sqrt{H_{ii}H_{jj}}\leq c-1.
+\]
+The diagonal entries are at least one, so this proves
+\eqref{eq:inverse-PSD}.
+
+For sharpness take
+$W=\left(\begin{smallmatrix}1-s&s\\s&1-s\end{smallmatrix}\right)$
+with $0<s<1/2$.  Its inverse has negative magnitude
+$a=s/(1-2s)$, diagonal $1+a$, and determinant $1+2a$.
+Since $(1+a)^2\geq1+2a$, its all-order root bound is $c=1+a$.
+Thus equality holds in \eqref{eq:inverse-PSD}.
+
+For the geometric claim, if $0\leq\rho<1/2$ then
+\eqref{eq:inverse-all-body-excess} gives
+$E(K,S)/n\leq\min\{1,c-1\}$ with $c=(1-2\rho)^{-1}$.
+For $\rho\leq1/4$,
+$c-1=2\rho/(1-2\rho)\leq4\rho$; for $\rho\geq1/4$ the
+universal bound $E(K,S)/n\leq1\leq4\rho$ applies, also beyond
+the Neumann range.
+\end{proof}
+
+The symmetry and positive-definiteness assumption is
+coordinate-dependent.  It must be verified and does not follow
+from positivity of the entries of $W$.
+
+\begin{lemma}[A local permutation basin]
+\label{lem:inverse-local-basin}
+Suppose independent row and column permutations put $W$ in a form
+with
+\[
+ s=\max_j(1-W_{jj})<\frac14.
+\]
+Then $M_1(B)\leq c$ implies
+\begin{equation}
+ a(B)\leq\frac{c-1}{1-4s}.
+ \label{eq:inverse-local-basin}
+\end{equation}
+In particular, $s\leq1/8$ gives $a(B)\leq2(c-1)$.
+\end{lemma}
+
+\begin{proof}
+Put $H=\Id_n-W$.  Its induced column norm is
+$\|H\|_1=2s$, and its maximum entry modulus is at most $s$.
+For $k\geq1$,
+\[
+ \max_{i,j}|(H^k)_{ij}|\leq s(2s)^{k-1}.
+\]
+The Neumann series therefore gives $a(B)\leq s/(1-2s)$.
+At an index $j$ with $H_{jj}=s$, it also gives
+\[
+ B_{jj}\geq1+s-\frac{2s^2}{1-2s}
+ =1+\frac{s(1-4s)}{1-2s}.
+\]
+Since $B_{jj}\leq c$, combining these inequalities proves
+\eqref{eq:inverse-local-basin}.  The case $s=0$ is immediate.
+\end{proof}
+
+This lemma does not assert the existence of a suitable permutation.
+A dimension-free argument placing arbitrary instances in such a
+basin would itself constitute a substantive missing step.
+
+\subsection{Additional all-order reductions}
+
+The following results preserve useful information beyond the
+support-two theorem.  Here the hypothesis is again
+$M_k(B)\leq c^k$ for every relevant order.
+
+\begin{proposition}[Localized minor completion and occupancy]
+\label{prop:inverse-occupancy}
+Let $R,S\subset[n]$ be disjoint row-label sets, with
+$|R|=k$ and $|S|=\ell$, and let $J\subset[n]$ have size $k$.
+For each $s\in S$, independently draw $Y_s$ from the distribution
+$W_{:,s}$.  Then
+\begin{equation}
+ |\det B_{R,J}|
+ \leq c^{k+\ell}\mathbb P\bigl(
+     Y_s\text{ are pairwise distinct and all outside }J\bigr).
+ \label{eq:inverse-occupancy}
+\end{equation}
+In particular, for any $B_{ij}$ and $S\subset[n]\setminus\{i\}$,
+\begin{align}
+ |B_{ij}|&\leq c^{|S|+1}
+  \mathbb P\bigl(Y_s\text{ are distinct and all different from }j\bigr)
+  \nonumber\\
+ &\leq c^{|S|+1}\prod_{s\in S}(1-W_{j,s}).
+ \label{eq:inverse-occupancy-entry}
+\end{align}
+With $k=0$ and the empty determinant equal to one,
+\begin{equation}
+ 1\leq c^{|S|}\mathbb P(Y_s\text{ are pairwise distinct}).
+ \label{eq:inverse-injection}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Order $R\cup S$ with $R$ first.  Form the $(k+\ell)$-square
+matrix whose first $k$ columns are $B_{R\cup S,J}$ and whose
+last $\ell$ columns are the coordinate vectors $e_s$ restricted to
+$R\cup S$.  Its determinant is $\det B_{R,J}$ up to a fixed
+ordering sign.  Substitute
+\[
+ e_s=\sum_h W_{h,s}B_{:,h}
+\]
+and expand multilinearly in the last $\ell$ columns.  A term
+vanishes if its selected indices repeat or if one belongs to $J$.
+Every remaining determinant is a $(k+\ell)$-minor of $B$, bounded
+in magnitude by $c^{k+\ell}$.  The sum of the corresponding
+nonnegative product weights is exactly the probability in
+\eqref{eq:inverse-occupancy}.  Taking $k=1$ gives the first entry
+bound.  Dropping the collision-free condition and using the
+independent draws gives the product bound.  Taking $k=0$ gives
+\eqref{eq:inverse-injection}.
+\end{proof}
+
+The collision-free term retains both the fixed minor and its
+forbidden column set and can be stronger than the displayed product
+bound.
+
+\begin{proposition}[Regularization of a uniformly almost nonnegative inverse]
+\label{prop:inverse-regularization}
+Suppose $A$ is invertible, every square minor of $A$ has absolute
+value at most one, $\ones^{\mathsf T}A=\ones^{\mathsf T}$, and
+$V=A^{-1}$ satisfies
+$V_{ij}\geq-\eta/n$ for some $\eta\geq0$.  With
+$J=\ones\ones^{\mathsf T}$, define
+\[
+ W=\frac{V+(\eta/n)J}{1+\eta},\qquad
+ Q=(1+\eta)\Id_n-\frac\eta n J,\qquad B=W^{-1}=AQ.
+\]
+Then $W$ is nonnegative and column-stochastic,
+\begin{equation}
+ |B_{ij}-A_{ij}|\leq2\eta,
+ \qquad M_k(B)\leq(1+2\eta)^k\quad(1\leq k\leq n).
+ \label{eq:inverse-regularization}
+\end{equation}
+Thus a universal bound $a(B)\leq C(c-1)$ in the stochastic
+inverse-minor problem would imply
+$-\min A\leq(2C+2)\eta$ under these hypotheses.
+\end{proposition}
+
+\begin{proof}
+The assumed lower bound gives $W\geq0$, and
+$\ones^{\mathsf T}V=\ones^{\mathsf T}$ gives its column sums.
+Using the same column-sum identity for $A$ verifies $B=AQ$.
+Entrywise,
+\[
+ B_{ij}-A_{ij}
+ =\eta\left(A_{ij}-\frac1n\sum_h A_{ih}\right).
+\]
+The order-one minor bound on $A$ proves the first part of
+\eqref{eq:inverse-regularization}.
+
+For a fixed $k$-element column set, the only nonzero $k$-minors
+of $Q$ have the same row set or exchange one index.  The principal
+minor is
+\[
+ (1+\eta)^{k-1}(1+\eta-k\eta/n),
+\]
+and each of the $k(n-k)$ one-index-exchange minors has magnitude
+$(\eta/n)(1+\eta)^{k-1}$.  Cauchy--Binet therefore gives
+\begin{align*}
+ |\det B_{I,J}|&\leq
+ (1+\eta)^{k-1}
+ \left[1+\eta+\frac{\eta k(n-k-1)}n\right]\\
+ &\leq(1+\eta)^{k-1}[1+(k+1)\eta]
+ \leq(1+2\eta)^k.
+\end{align*}
+For the last inequality, Bernoulli's inequality gives
+\[
+ \frac{(1+2\eta)^k}{(1+\eta)^{k-1}}
+ =(1+\eta)\left(1+\frac\eta{1+\eta}\right)^k
+ \geq1+(k+1)\eta.
+\]
+Applying the hypothetical stochastic bound with $c=1+2\eta$
+and then the entrywise difference estimate gives
+$-\min A\leq2C\eta+2\eta$, as asserted.
+\end{proof}
+
+This is a one-way reduction.  It does not establish that an
+arbitrary stochastic instance admits the stronger regularized
+representation in the opposite direction.
+
+\begin{lemma}[Conditional stability from a dominant matching]
+\label{lem:inverse-dominant-matching}
+If, after a row permutation, $W_{ii}\geq1-\varepsilon$ for every
+$i$, with $0\leq\varepsilon<1/2$, then
+\begin{equation}
+ \|W^{-1}-\Id_n\|_1\leq
+ \frac{2\varepsilon}{1-2\varepsilon}.
+ \label{eq:inverse-dominant-matching}
+\end{equation}
+In particular the same upper bound holds for the negative entry
+magnitudes in the permuted inverse.
+\end{lemma}
+
+\begin{proof}
+Nonnegativity and column stochasticity give
+$\|\Id_n-W\|_1\leq2\varepsilon$.  The Neumann series yields
+\[
+ \|W^{-1}-\Id_n\|_1
+ \leq\frac{\|\Id_n-W\|_1}{1-\|\Id_n-W\|_1}
+ \leq\frac{2\varepsilon}{1-2\varepsilon}.
+\]
+Every negative entry is bounded by this norm, proving the claim.
+\end{proof}
+
+A dimension-free dominant-matching theorem of the form
+$W_{i,\sigma(i)}\geq1-O(c-1)$ would settle the target through
+this lemma.  No such matching theorem is established here.
+
+\subsection{Limitations of the structural results}
+
+The support-two proof uses the unicyclic graph decomposition
+essentially.  A column supported on three or more rows does not
+reduce to the same path recursion, and no reduction of arbitrary
+$W$ to this class is supplied.  The all-order conjecture
+$a(B)\leq c^2-1$ remains open in general; its analogue based only
+on first- and second-order bounds is false in order five.
+Neither an unrestricted dimension-free inverse-minor theorem nor
+a counterexample to it follows from this section.  The special
+central-$Q_t$ formulation from Section~\ref{sec:projection} and
+the unrestricted prescribed-maximum linear dimension bound also
+remain open.  In particular, a matrix construction by itself is
+not an actual-defect lower-bound body: the all-direction projection
+and enclosing-simplex requirements must still be verified.

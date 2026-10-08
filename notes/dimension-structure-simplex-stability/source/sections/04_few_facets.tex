@@ -1,0 +1,110 @@
+\section{The asymptotically optimal coefficient for few facets}\label{sec:few}
+\subsection{From the actual facet law to a single clipping}
+Proposition~\ref{prop:enclosure}, proved in full in the appendices, gives
+the precise finite-facet interface needed here: for
+$0\le e(K)\le H_d^{-1}$ there is an enclosing simplex $P$, formed by
+exactly $d+1$ distinct irredundant $K$-facet halfspaces, such that
+\begin{equation}\label{eq:facet-proj}
+ \pi_P(u)-\pi_K(u)\le H_de(K)\pi_P(u)\quad(\norm u=1).
+\end{equation}
+It uses the actual atoms $X_F=\nu_F/h_F$ and probabilities
+$p_F=s_Fh_F/(d|K|)$. In particular, the selected halfspaces are actual
+facets, rather than unspecified support planes inferred from a compact
+limit. The determinant identity is exactly
+$(B-A)/B=ne/(1+ne)$ for this law. The assignment bound is
+$h\le n^3(n+1)e/(1+ne)$; at the upper endpoint
+$h\le1/(3d^2)<1/(2d)$, so its strict enclosure gate remains valid.
+
+We also record the projection-cap argument explicitly.
+\begin{lemma}[Near corners from all projections]\label{lem:cap}
+If $K\subset P$, with $P$ a full-dimensional simplex, and
+$\pi_P(u)-\pi_K(u)\le\delta\pi_P(u)$ for every unit $u$, where
+$0\le\delta\le1$, then each corner loss satisfies
+\[
+ 1-\max_{x\in K}\lambda_i^P(x)\le\delta^{1/(d-1)}.
+\]
+\end{lemma}
+\begin{proof}
+Let $q_i$ be the corresponding vertex and let
+$t_i=1-\max_K\lambda_i^P\in[0,1]$. Choose a unit direction parallel to
+its opposite facet. The affine function $\lambda_i^P$ descends under
+this projection, and has range $[0,1]$ on the projected simplex.
+For $0<s<t_i$, the projected homothetic cap $q_i+s(P-q_i)$ is contained
+in $\{\lambda_i^P\ge1-s\}$ and disjoint from the projection of $K$.
+Its projected volume is $s^{d-1}\pi_P(u)$. Both sets lie in the
+projection of $P$, so $s^{d-1}\le\delta$. Letting $s\uparrow t_i$
+proves the claim; $t_i=0$ is immediate. Strict caps avoid any assumption
+about the measure of the boundary, and include $\delta=0$.
+\end{proof}
+
+\begin{proof}[Proof of the upper bound in Theorem~\ref{thm:few-facet}]
+A full-dimensional polytope has at least $d+1$ facets. With exactly $d+1$
+it is a simplex, and $E=e=0$. Otherwise it has $d+2$ facets. The $P$
+above uses $d+1$ of them, so $K=P\cap H$ for the remaining facet
+halfspace. Set $\rho=(H_de(K))^{1/m}$. Lemma~\ref{lem:cap} bounds all
+corner losses by $\rho$, and Theorem~\ref{thm:clipping} gives
+$E(K,S)\le n\rho$ for this same originally prescribed maximum.
+The argument includes $e=0$ and $e=H_d^{-1}$. For larger $e$, the universal
+maximum-simplex bound $E\le n$ suffices, since $\rho>1$.
+
+For the uniform scalar estimate, $H_3=8640\le144^2$, and
+$H_{d+1}/H_d\le18\le64$ follows from
+$(d+1)/d\le2$, $(d+2)/(d+1)\le3/2$, and
+$(d+3)/(d+2)\le4/3$ in its squared, cubed, and linear factors.
+Induction gives $H_d\le144^{d-1}$. Since $n\le4d/3$,
+$nH_d^{1/m}\le192d$.
+\end{proof}
+
+\subsection{Sharp exponent and a realized lower coefficient}
+The body $K_t$ in \eqref{eq:truncation-body} has exactly $d+2$ facets.
+Theorem~\ref{thm:clipping} identifies vertex maxima with
+$E(K_t,S_t)=nt$, and \eqref{eq:truncation-exact} gives
+$e(K_t)\sim d(d-1)t^m/n^2$. Thus for every fixed $d$ and every
+$\eta>1/m$, the ratio $E/e^\eta$ diverges as $t\downarrow0$.
+No such stronger exponent can hold uniformly even with a
+dimension-dependent coefficient.
+
+For the all-scale lower coefficient take
+\[
+ C_d=\conv(0,e_1,e_2,e_1+e_2,e_3,\ldots,e_d),\qquad
+ S_d=\conv(0,e_1,\ldots,e_d).
+\]
+This is a square followed by $d-2$ pyramids, with irredundant inequalities
+\[
+ x_i\ge0\ (1\le i\le d),\qquad
+ x_1+\sum_{i=3}^dx_i\le1,\qquad x_2+\sum_{i=3}^dx_i\le1.
+\]
+Every full-dimensional vertex simplex contains all pyramid vertices and
+three of the four square vertices. Every such square triangle has area
+$1/2$, so the resulting volume is $1/d!$. Separate determinant expansion
+in convex combinations bounds arbitrary inscribed simplices by the same
+volume. Thus $S_d$ is maximum. The omitted square vertex has coordinates
+$(-1,1,1,0,\ldots,0)$ in $S_d$, so $E(C_d,S_d)=n$.
+
+For completeness, a direct actual-facet certificate gives the defect.
+Set $c=1/(d-1)!$. The area-normal/support pairs are
+\[
+ (-ce_1,0),\quad(-ce_2,0),\quad(-2ce_i,0)\ (3\le i\le d),
+\]
+\[
+ \left(c\left(e_1+\sum_{i=3}^de_i\right),c\right),\qquad
+ \left(c\left(e_2+\sum_{i=3}^de_i\right),c\right).
+\]
+The volume is $2/d!$. For the raw sums of
+Appendix~\ref{prop:actual-moments}, direct minors give
+\[
+ \mathcal H(C_d)=c^d d2^{d-1},\qquad
+ \mathcal L(C_d)=c^{d+1}2^d.
+\]
+Only four lifted subsets contribute, each by $c^{d+1}2^{d-2}$:
+omit one top facet or one of the first two coordinate facets.
+For horizontal minors the contributions with zero, one, and two top
+facets are respectively $1,d,d-1$, multiplied by $c^d2^{d-2}$.
+The exact actual identity $a=\mathcal L/(d|C_d|\mathcal H)$ therefore
+gives $a(C_d)=1/d$ and $e(C_d)=1/(dn)$. Hence
+$G_d^{\rm fac}\ge n[dn]^{1/m}$.
+
+Finally, $H_d$ is a fixed polynomial in $d$, so $H_d^{1/m}\to1$;
+also $[dn]^{1/m}\to1$. Divide the two coefficient bounds by $d$ and
+squeeze to obtain \eqref{eq:few-squeeze}. No uniformity in a
+fixed-dimensional truncation remainder is needed.

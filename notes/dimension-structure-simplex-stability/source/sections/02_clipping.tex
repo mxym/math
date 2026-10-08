@@ -1,0 +1,207 @@
+\section{All maximum simplices in a single halfspace clipping}\label{sec:clipping}
+\begin{theorem}[Exact clipping retention]\label{thm:clipping}
+Let $P$ be a full-dimensional $d$-simplex, let $H$ be a closed halfspace,
+and suppose $K=P\cap H$ is full dimensional. With $n=d+1$ and the
+$P$-barycentric coordinates $\lambda_i$, put
+\[
+ \rho_* =\max_i\left(1-\max_{x\in K}\lambda_i(x)\right).
+\]
+Every prescribed maximum-volume simplex $S\subset K$ satisfies
+\begin{equation}\label{eq:clip-bound}
+ E(K,S)\le n\rho_*.
+\end{equation}
+Consequently corner losses at most $\rho\ge0$ imply $E(K,S)\le n\rho$.
+The coefficient $n$ is sharp for every $d\ge2$ and every $0<\rho_*<1$.
+All maximum simplices and their exact excess are described below.
+\end{theorem}
+
+\subsection{The vertices and a candidate maximum}
+Use affine $P$-coordinates, so $P=\conv(e_1,\ldots,e_n)$ in
+$\sum_i x_i=1$. Write $H=\{f\ge0\}$ and $f_i=f(e_i)$. If no $f_i$ is
+negative, $K=P$ and the result is immediate. Otherwise full dimension
+implies that at least one $f_i$ is positive. Partition the indices as
+\[
+ I=\{i:f_i=-a_i<0\},\qquad J=\{j:f_j=b_j>0\},\qquad Z=\{z:f_z=0\}.
+\]
+Let $B=\max_{j\in J}b_j>0$, $J_* =\{j:b_j=B\}$, and
+\[
+ t_i=\frac B{a_i+B},\qquad s_i=\frac{a_i}{a_i+B}=1-t_i\quad(i\in I).
+\]
+The vertices of $K$ are precisely
+\begin{equation}\label{eq:clip-vertices}
+ e_j\ (j\in J\cup Z),\qquad
+ v_{ij}=\frac{b_je_i+a_ie_j}{a_i+b_j}\quad(i\in I,\ j\in J).
+\end{equation}
+Indeed, a new vertex lies on an old edge crossing the cut hyperplane.
+Equivalently, the active coordinate constraints leave at most two positive
+coordinates, and the two-coordinate case gives this expression.
+
+For $z\in Z$, only the vertex $e_z$ has a nonzero $z$-coordinate, so it
+is mandatory in every full-dimensional vertex simplex. Its column can be
+expanded out. The determinant calculation may therefore be performed on
+$I\cup J$ and all $e_z$ then adjoined. Fix $j_*\in J_*$. The simplex
+with every retained $e_j$ and with $v_{i j_*}$ for every $i\in I$ has
+normalized determinant
+\begin{equation}\label{eq:clip-D}
+ D_* =\prod_{i\in I}t_i>0.
+\end{equation}
+Expansion in the retained standard columns proves this identity. Moreover,
+\begin{equation}\label{eq:clip-loss}
+ \max_K\lambda_i=t_i\ (i\in I),\qquad
+ \max_K\lambda_j=1\ (j\in J\cup Z),\qquad
+ \rho_* =\max_{i\in I}s_i.
+\end{equation}
+
+\subsection{Weighted rooted forests and equality}
+Select $|I|+|J|$ columns from the vertices with these row indices.
+Represent each $v_{ij}$ by an edge $ij$ in the bipartite graph on $I\cup J$
+and each selected $e_j$ by a root mark at $j$. Include isolated row
+vertices. Multiply row $i\in I$ by $a_i$ and row $j\in J$ by $-b_j$.
+The edge and root columns become, respectively,
+\[
+ \frac{a_ib_j}{a_i+b_j}(e_i-e_j),\qquad -b_je_j.
+\]
+Columns in a connected component form a basis of its coordinate space
+exactly when that component is a tree with one selected root. An unrooted
+component on $v$ vertices has incidence rank $v-1$. A rooted component
+has rank at most $v$, and full independence together with the total column
+count requires exactly $v$ columns in each component. Connectivity needs
+at least $v-1$ edges and full rank needs at least one root, hence there
+are exactly $v-1$ edges and one root. Cycles or excess roots force
+column dependence. Conversely, leaf elimination shows that an unweighted
+rooted tree has determinant of absolute value one.
+
+Orient every edge of a rooted forest toward its root. Leaf elimination
+before row scaling gives the exact product
+\begin{equation}\label{eq:forest-product}
+ |\det W|=\prod_{\text{nonroot vertices }u}
+       (\text{entry at }u\text{ of its parent-edge column}).
+\end{equation}
+A bad vertex $i\in I$ is never a root; if its parent is $j$, its factor
+$b_j/(a_i+b_j)$ is at most $t_i$. A nonroot good vertex has factor
+$a_i/(a_i+b_j)<1$. Thus every selected determinant satisfies
+\[
+ |\det W|\le\prod_{i\in I}t_i=D_*.
+\]
+Equality holds exactly when every good vertex is a root and every bad
+vertex attaches directly to a member of $J_*$. All vertex maxima are
+therefore
+\begin{equation}\label{eq:vertex-maxima}
+ \conv\bigl(\{e_j:j\in J\cup Z\}\cup\{v_{i j_i}:i\in I\}\bigr),
+ \qquad j_i\in J_*,
+\end{equation}
+with independent choices of $j_i$. Ordered by their original bad and
+retained indices, all these oriented determinants equal $D_*$. Expanding
+an arbitrary simplex's determinant separately in convex combinations of
+$K$-vertices proves that its absolute determinant is also at most $D_*$.
+
+\subsection{Every prescribed maximum including nonvertex maxima}
+Let $S$ be any maximum and express each of its vertices as a convex
+combination of vertices of $K$. Sample the combinations independently.
+The oriented determinant of $S$ is the expectation of the sampled
+oriented determinant. Equality in
+\[
+ |\E\det W|\le\E|\det W|\le D_*
+\]
+forces every positive-probability tuple to be a maximum from
+\eqref{eq:vertex-maxima}, with the same orientation.
+
+If no column selected a mandatory retained vertex $e_j$ surely,
+independence would give positive probability that the whole tuple omitted
+it. Hence each retained vertex occupies a deterministic column. After
+removing those columns, each of the disjoint groups
+$G_i=\{v_{ij}:j\in J_*\}$ must appear exactly once in every tuple.
+The same avoidance argument forces some column to belong surely to each
+$G_i$. Distinct groups require distinct columns, accounting for all
+remaining columns. Merely relabeling the vertices of this same $S$ gives
+\begin{equation}\label{eq:all-maxima}
+ \begin{gathered}
+ S=\conv\bigl(\{e_j:j\in J\cup Z\}\cup\{w_i:i\in I\}\bigr),\\
+ w_i=t_ie_i+s_iz_i,\qquad z_i\in\conv\{e_j:j\in J_*\}.
+ \end{gathered}
+\end{equation}
+Conversely every such simplex has determinant $D_*$ and is maximum.
+This includes all continuous tie cases.
+
+\subsection{Exact excess about the same centroid}
+Write $z_i=\sum_{j\in J_*}z_{ji}e_j$, with $z_{ji}\ge0$ and
+$\sum_jz_{ji}=1$. The $S$-coordinates of an affine point $x$ are
+\begin{equation}\label{eq:clip-inverse}
+ \begin{aligned}
+ \alpha_i(x)&=(1+a_i/B)x_i &&(i\in I),\\
+ \alpha_j(x)&=x_j-\sum_{i\in I}(a_i/B)z_{ji}x_i &&(j\in J_*),\\
+ \alpha_j(x)&=x_j &&(j\notin I\cup J_*).
+ \end{aligned}
+\end{equation}
+For $j\in J_*$ put $B_{-j}=\max(\{b_h:h\in J,\ h\ne j\}\cup\{0\})$.
+The exact largest negative coordinate magnitude is
+\begin{equation}\label{eq:clip-beta}
+ \beta(S)=\max_{\substack{i\in I\\j\in J_*}}
+       \frac{z_{ji}a_iB_{-j}}{B(a_i+B_{-j})}.
+\end{equation}
+A zero $B_{-j}$ contributes zero. At $v_{ih}$ with $h\ne j$, the possibly
+negative coordinate is $-z_{ji}a_ib_h/[B(a_i+b_h)]$. At $v_{ij}$ it is
+$s_i(1-z_{ji})\ge0$, and retained vertices have nonnegative coordinates.
+Monotonicity of $b/(a_i+b)$ gives \eqref{eq:clip-beta}; convex averaging
+covers every $x\in K$. Since $B_{-j}\le B$, it follows that
+$\beta(S)\le\max_i a_i/(a_i+B)=\rho_*$.
+
+A centroid dilation by $1+u$ has all simplex coordinates at least $-u/n$.
+Consequently the exact identity is
+\begin{equation}\label{eq:clip-exact-E}
+ E(K,S)=n\beta(S)\le n\rho_*.
+\end{equation}
+This proves Theorem~\ref{thm:clipping} for the prescribed simplex and its
+original centroid.
+If $|J_*|\ge2$, then
+$\beta(S)=\max_i(s_i\max_{j\in J_*}z_{ji})$. Every vertex maximum has
+$E=n\rho_*$, while balanced nonvertex maxima can have smaller excess.
+If $J_* =\{j_*\}$, the maximum is unique as a set, and
+\[
+ \beta(S)=\max_i\frac{a_iB_2}{B(a_i+B_2)},
+\]
+where $B_2$ is the second-largest positive value, or zero if there is none.
+If $|J|=1$, $K$ itself is a simplex and $\beta=0$.
+An equal-intercept one-vertex truncation has one bad vertex and, for
+$d\ge2$, at least two tied good vertices. Setting $s_i=\rho$ and taking
+a vertex maximum gives $\beta=\rho$, proving the stated sharpness.
+The graph in this proof concerns clipping vertices; it is not the
+facet-normal spanning-two-forest construction for a $d+2$-vertex circuit.
+
+\subsection{An arbitrary body containing an opposite facet}
+\begin{theorem}[One-corner bodies]\label{thm:one-corner}
+Let $P=\conv(v_0,\ldots,v_d)$ be full dimensional and let $K$ be a convex
+body with $\conv(v_1,\ldots,v_d)\subset K\subset P$. Put
+$t=\max_K\lambda_0>0$ and $\rho=1-t$. Every prescribed maximum simplex is
+\[
+ S=\conv(v_1,\ldots,v_d,q),\qquad q\in K,\quad\lambda_0(q)=t,
+\]
+and $E(K,S)\le(d+1)\rho$. The coefficient is sharp for $d\ge2$ and
+$0<\rho<1$. No polyhedral or boundary-regularity hypothesis is imposed.
+\end{theorem}
+\begin{proof}
+If $t=1$, the maximizing point is $v_0$, so $K=P$. Otherwise set
+$L=\{x\in P:\lambda_0(x)\le t\}$. By the complete clipping classification,
+its maximum volume is $t|P|$, and all maxima consist of the opposite facet
+and an apex at height $t$. Compactness gives an apex $q\in K$ attaining
+that height, and the entire opposite facet is in $K$. This simplex has
+volume $t|P|$, so $K$ and $L$ have the same maximum volume. Every
+prescribed maximum of $K$ is therefore a maximum of $L$ and has precisely
+the claimed form. Its apex belongs to $K$, without any requirement that
+it be an extreme point of $K$.
+
+Write the coordinates of $q$ as $(t,q_1,\ldots,q_d)$, where
+$q_j\ge0$ and $\sum_jq_j=\rho$. For $x\in K$, its $S$-coordinates are
+\[
+ \alpha_0(x)=\lambda_0(x)/t,\qquad
+ \alpha_j(x)=\lambda_j(x)-(q_j/t)\lambda_0(x)\ge-q_j\ge-\rho.
+\]
+The centroid formula proves the stronger estimate
+$E(K,S)\le(d+1)\max_jq_j$. Equality in the asserted bound is attained by
+$L$ and an apex on one truncated edge, using a second truncated edge to
+realize the negative coordinate.
+\end{proof}
+If the actual enclosure chain supplies a $P$ satisfying the additional
+opposite-facet containment hypothesis, the theorem may be used with
+$\rho=(H_de(K))^{1/m}$. That extra hypothesis is not asserted for an
+arbitrary body or an unrelated enclosing simplex.

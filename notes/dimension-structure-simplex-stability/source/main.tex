@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=-1
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{xurl,hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
+ pdftitle={Dimension structure in simplex stability},
+ pdfauthor={Entry 005 AI-assisted research manuscript candidate}}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\pyr}{\operatorname{pyr}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Id}{I}
+\newcommand{\ones}{\mathbf 1}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\title{Dimension structure in simplex stability}
+\author{Entry 005 research manuscript\\\small AI-assisted manuscript candidate}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study approximation of a convex body by each prescribed maximum-volume
+inscribed simplex, with dilation centered at that simplex's own centroid,
+using the projection-body pyramid defect. For polytopes with at most
+$d+2$ facets, the optimal coefficient of the sharp power $1/(d-1)$ has
+asymptotic value $d$: its ratio to $d$ tends to one. The geometric basis is
+an exact classification of all maximum simplices in a simplex cut by one
+halfspace, including nonvertex maxima, through weighted rooted forests.
+Signed maximal cofactors of the actual facet area-normal/support matrix
+give an exact formula for the defect. We also derive concentric cores and
+a face-depth hierarchy from full projection control, and prove
+linear-dimensional retention for edge-supported configurations through
+inverse-minor rigidity of stochastic matrices with two-supported columns.
+We reproduce the finite actual-facet enclosure argument and preserve its
+compatibility conditions. The unrestricted gap between linear lower and
+quadratic upper dimension orders remains open.
+\end{abstract}
+\noindent\textbf{Status.} This is an unpublished manuscript candidate.
+The new results have written proofs and the source-specific traditional
+review record described in Appendix~\ref{app:review}; they have not been
+formalized in Lean. Independent model review, parent integration review,
+and an author's self-reviewed contribution are distinguished there.
+No professional peer-review, novelty certification, or priority claim is made.
+\setcounter{tocdepth}{1}
+\tableofcontents
+\input{sections/01_introduction}
+\input{sections/02_clipping}
+\input{sections/03_cofactor}
+\input{sections/04_few_facets}
+\input{sections/05_projection}
+\input{sections/06_inverse}
+\appendix
+\input{sections/07_assignment}
+\input{sections/08_enclosure}
+\input{sections/09_review}
+\input{references}
+\end{document}
