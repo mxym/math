@@ -289,3 +289,50 @@ Conjugation averaging cannot increase total variation or change the identity ato
 
 Every stated dual contact inequality, complete contact set and integer maximal minor is independently replayed by the published pure-integer/Fraction checker
 check_sparse_support_sharpness.py. The proof is an exact finite certificate, not a numerical LP conclusion. QED.
+
+
+## 10. Extension to all finite group actions
+
+The same maximal-minor method works beyond symmetric subset actions, with the cycle-compression-specific rank formula replaced by an explicit rational row-basis selection.
+
+**Theorem E (universal finite-group exact-minor formula).** Let a finite group \(G\) act on a nonempty finite set \(\Omega\), without requiring transitivity or faithfulness. Let \(u_G\) be uniform on \(G\). A law \(\nu\) is admissible when its entire image matrix agrees with that of \(u_G\):
+\[
+\nu\{g:g(x)=y\}=u_G\{g:g(x)=y\}
+\quad (x,y\in\Omega).
+\]
+Let \(C(G,\Omega)\) be the optimal single-atom versus TV coefficient, with value zero when no nonuniform admissible law exists.
+
+Let \(\mathcal O_1,\ldots,\mathcal O_s\) be the orbitals of \(G\) on ordered pairs \(\Omega\times\Omega\), and let \(K_0=\{e\},K_1,\ldots,K_{p-1}\) be its conjugacy classes. Define
+\[
+F_j(g)=|\{x\in\Omega:(x,gx)\in\mathcal O_j\}|.
+\]
+Build the explicit integer \((s+1)\times p\) matrix with columns
+\[
+a_i=(1,F_1(K_i),\ldots,F_s(K_i))^T.
+\]
+Its top row consists of ones, and \(\sum_jF_j(g)=|\Omega|\), so the row rank \(\rho\) satisfies \(1\le\rho\le s\). Choose **any independent set of \(\rho\) rows containing the all-ones row**, obtaining a full-row-rank integer matrix \(D\in\mathbb Z^{\rho\times p}\).
+
+For every \(\rho\)-subset \(J\subseteq\{1,\ldots,p-1\}\), form \((d_0,d_{j_1},\ldots,d_{j_\rho})\) and its alternating \(\rho\times\rho\) maximal-minor vector \(\Delta(J)\). Then, with the empty maximum defined to be zero,
+
+\[
+\boxed{
+C(G,\Omega)=
+\max_{\substack{J\subseteq\{1,\ldots,p-1\},\ |J|=\rho\\
+\sum_i|\Delta_i(J)|>0}}
+\frac{2|\Delta_0(J)|}{\sum_i|\Delta_i(J)|}.
+}
+\tag{28}
+\]
+
+The value is independent of the chosen rational row basis. In particular \(C(G,\Omega)\) is **rational**, and, whenever positive, it is attained by an admissible perturbation supported in its signed part on at most \(\rho+1\le s+1\) conjugacy classes.
+
+**Proof.** Conjugation averaging preserves the distinguished identity atom and the full image-marginal conditions while not increasing total variation. For central laws, equality of each entry of the image transition matrix is equivalent to equality of the \(s\) orbital-average counts: the entries are constant on each ordered-pair orbital, and the sum over that orbital is \(F_j\). Therefore every central signed admissible perturbation corresponds exactly to a signed class-mass vector \(v\) annihilated by the displayed integer matrix. Passing to the independent rows \(D\) does not change this kernel. Conversely a signed vector in \(\ker D\) determines central signed masses on the conjugacy classes, which can be added with sufficiently small amplitude to the strictly positive uniform group law. Thus its absolute total variation is exactly one half its class-mass \(\ell^1\) norm, and
+\[
+C(G,\Omega)=\sup_{v\ne0,\ Dv=0}
+\frac{2|v_0|}{\sum_i|v_i|}.
+\]
+Lemma C, now with row rank \(\rho\), gives precisely (28), its rationality and the support bound. The same maximal-minor vector produces the exact attaining positive and negative class mixtures as in (19). QED.
+
+For the symmetric \(k\)-subset action, complementation reduces to \(m=\min(k,n-k)\), exact cycle compression replaces every conjugacy class by its short-cycle vector, and Theorem B proves that \(\rho=m+1\). Thus Theorem A is the **explicit, compressed, nondegenerate specialization** of Theorem E, not merely a restatement of finite-group LP duality.
+
+**Computational scope:** the general group formula requires as input the finite group conjugacy classes and their integer orbital counts, while the symmetric-subset formula computes those columns directly from \((n,k)\). No uniform elementary branch classification of all finite group actions is asserted.
