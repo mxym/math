@@ -1,0 +1,207 @@
+\section{From the actual facet law to an enclosing simplex}
+\label{sec:enclosure}
+\subsection{Raw facet identities and the original defect}
+For a full-dimensional $p$-polytope $L$, let $u_i=s_i n_i$ be its
+facet area-normal vectors and $b_i=s_i h_L(n_i)$, where $n_i$ is the
+outward unit normal and $s_i>0$ is the facet area. Set
+\begin{equation}\label{eq:rawsums}
+ \mathcal H(L)=\sum_{|J|=p}\abs{\det(u_j:j\in J)},\qquad
+ \mathcal L(L)=\sum_{|J|=p+1}\abs{\det((u_j,b_j):j\in J)}.
+\end{equation}
+The order chosen within a subset is immaterial. Translating $L$ replaces
+$b_i$ by $b_i-\ip{u_i}{z}$ and leaves these sums unchanged.
+
+Cauchy's formula gives $b_L(z)=\frac12\sum_i\abs{\ip{z}{u_i}}$.
+Hence $\Pi L=\sum_i[-u_i/2,u_i/2]$, and the usual volume formula for a
+zonotope gives $|\Pi L|=\mathcal H(L)$. Direct facet parametrization of the
+unit-height pyramid gives its side pairs and bottom pair as
+\begin{equation}\label{eq:pyrfacets}
+ \left(\frac{(u_i,b_i)}p,\frac{b_i}p\right),\qquad ((0,-|L|),0),
+\end{equation}
+respectively. One way to check the factor $1/p$ is to integrate the
+$(p-1)$-dimensional slices of each side face: its oriented area vector is
+$(u_i,b_i)\int_0^1(1-t)^{p-1}dt=(u_i,b_i)/p$.
+Expanding the corresponding minors gives
+\begin{align}
+ \mathcal H(\pyr L)&=p^{-(p+1)}\mathcal L(L)
+                     +|L|p^{-p}\mathcal H(L),\label{eq:pyrH}\\
+ \mathcal L(\pyr L)&=|L|p^{-(p+1)}\mathcal L(L),
+ &|\pyr L|&=\frac{|L|}{p+1}.\label{eq:pyrL}
+\end{align}
+For the second identity, an all-side lifted minor is zero because its
+last two coordinate rows coincide; minors using the bottom give the
+stated expression. Substituting \eqref{eq:pyrH} into the definition of $a$
+therefore proves the exact identity
+\begin{equation}\label{eq:a_raw}
+ a(L)=\frac{\mathcal L(L)}{p|L|\mathcal H(L)}.
+\end{equation}
+These computations concern the original projection bodies, not a substitute
+invariant. The standard projection covariance
+$\Pi(AL)=|\det A|A^{-T}\Pi L$ shows that $R$, and hence $a$ and $e$,
+are affine invariant; affine maps of a base extend to its pyramid.
+The quantity $E$ is affine invariant as well.
+
+\subsection{Normalization and the finite cone law}
+Affinely normalize the prescribed maximum $S$ so that its own centroid is
+zero and its image contains the closed unit ball. Continue to write $K,S$
+for the images. With $n=d+1$, maximum-volume replacement gives
+\begin{equation}\label{eq:replacement}
+ |\alpha_i^S(x)|\le1\quad(x\in K).
+\end{equation}
+Indeed replacing vertex $i$ by $x$ multiplies the absolute volume by
+$|\alpha_i^S(x)|$. Since $\sum_i\alpha_i^S(x)=1$ and the centroid is zero,
+$-x/d$ has $S$-coordinates $(1-\alpha_i^S(x))/d\ge0$. Thus
+\begin{equation}\label{eq:asymmetry}
+ -K\subset dS\subset dK,\qquad E(K,S)\le n.
+\end{equation}
+The second conclusion uses the exact centered-dilation description
+\begin{equation}\label{eq:dilationcoords}
+ g_S+(1+\tau)(S-g_S)=\{x:\alpha_i^S(x)\ge-\tau/n\text{ for all }i\}.
+\end{equation}
+
+For the actual irredundant facets $F$ of $K$, use the notation
+$n_F,s_F,h_F=h_K(n_F)$ and put
+\begin{equation}\label{eq:law}
+ X_F=\frac{n_F}{h_F},\qquad p_F=\frac{s_Fh_F}{d|K|},\qquad
+ \mu=\sum_F p_F\delta_{X_F}.
+\end{equation}
+Here $h_F\ge1$ because the unit ball is in $K$. The cone-volume identity
+$\sum_Fs_Fh_F=d|K|$ and the surface-area balance $\sum_Fs_Fn_F=0$ show
+that $\mu$ is a centered probability law. Its atoms are precisely actual
+facet normals divided by their positive support numbers, with
+$\norm{X_F}\le1$ and $h_K(X_F)=1$.
+Boundedness of $K$ forces these atoms to span $\R^d$; centeredness with
+positive weights then gives full affine span. In particular the horizontal
+and lifted moments $A,B$ of Section~\ref{sec:assignment} are positive.
+
+Cauchy's formula and centeredness give the exact brightness identities
+\begin{equation}\label{eq:brightness}
+ m_K(z):=\E(\ip{z}{X})_+=\frac{b_K(z)}{d|K|},\qquad
+ f_K(z):=\E|\ip zX|=2m_K(z).
+\end{equation}
+Expanding the iid determinants by distinct facet subsets gives
+\[
+ A=\frac{d!\mathcal H(K)}{(d|K|)^d},\qquad
+ B=\frac{(d+1)!\mathcal L(K)}{(d|K|)^{d+1}}.
+\]
+Together with \eqref{eq:a_raw}, this proves
+\begin{equation}\label{eq:momentdefect}
+ a(K)=\frac{B}{nA},\qquad
+ \frac{B-A}{B}=\frac{ne(K)}{1+ne(K)}.
+\end{equation}
+Jensen's inequality, or \eqref{eq:Dsign}, proves $B\ge A$ and hence $e(K)\ge0$.
+
+Let $N=h_{K-K}$, a continuous seminorm. At every atom,
+\[
+ N(X_F)=h_K(X_F)+h_K(-X_F)\le1+d=n
+\]
+by \eqref{eq:asymmetry}. Lemma~\ref{lem:assignment}, with $R_0=n$, gives
+$d+1$ affinely independent \emph{actual atoms} $w_i$ and an assignment with
+\begin{equation}\label{eq:hbudget}
+ h=\E N(X-w_{I(X)})\le
+ \frac{Ce(K)}{1+ne(K)},\qquad C=n^3(n+1).
+\end{equation}
+Thus every selected $w_i$ is an actual facet normal, a fact that is stronger
+than merely knowing that an anchor belongs to an unspecified support law.
+
+\subsection{Width and same-anchor enclosure}
+For every $z,y\in\R^d$ one has
+\begin{equation}\label{eq:width}
+ |\ip zy|\le d\,m_K(z)N(y).
+\end{equation}
+To see this, first take unit $v$ and $c=\ip yv\ne0$. In coordinates
+$x=q+tv$ with $q\in v^\perp$, the determinant-one shear
+$(q,t)\mapsto(q,t+\ip yq/c)$ places $K$ in a cylinder with base the
+projection of $K$ and height $N(y)/|c|$. Thus
+$|c||K|\le N(y)\pi_K(v)$. Scaling $v$ to $z$ and using
+\eqref{eq:brightness} proves \eqref{eq:width}; zero cases are immediate.
+
+Let $p_i=\mu\{I=i\}$. Positive-part Lipschitz continuity gives
+\begin{equation}\label{eq:positivecomp}
+ \sum_i p_i(\ip z{w_i})_+\ge(1-dh)m_K(z).
+\end{equation}
+Assume $h<1/(2d)$. On the unit sphere, $m_K$ has a positive lower bound,
+since $K$ contains the unit ball. Hence for every unit $z$ some anchor has
+positive pairing with $z$, uniformly bounded away from zero. Support
+separation puts zero in the interior of $\conv(w_0,\ldots,w_d)$.
+Its polar
+\begin{equation}\label{eq:outer}
+ P=\{x:\ip{w_i}x\le1\text{ for }0\le i\le d\}
+\end{equation}
+is therefore a genuine $d$-simplex containing $K$. Every defining
+inequality is an actual $K$-facet inequality. The corresponding full facet
+of $K$ lies in a facet of $P$, giving exactly the hypothesis of
+Corollary~\ref{cor:caps}.
+
+For $z\in P$, the left side of \eqref{eq:positivecomp} is at most one;
+therefore $m_K(z)\le2$. Equation~\eqref{eq:width} and support separation
+then give the intrinsic containment
+\begin{equation}\label{eq:intrinsiccontain}
+ P\subset2d(K-K).
+\end{equation}
+
+\subsection{Probability correction and relative projection error}
+Let $\lambda_i>0$ be the barycentric coordinates of zero in the anchor
+simplex. Let $q_i$ be the vertex of $P$ opposite the facet with normal $w_i$.
+The anchor-simplex coordinates satisfy
+\begin{equation}\label{eq:polarcoords}
+ \alpha_i^w(x)=\lambda_i(1-\ip{q_i}x).
+\end{equation}
+Both sides agree at each anchor. The actual cone probabilities of $P$
+satisfy the same mass and mean equations as $\lambda_i$ and hence equal
+$\lambda_i$. Put $c=\sum_i p_iw_i$. Since $\E X=0$,
+\eqref{eq:intrinsiccontain} gives $|\ip{q_i}c|\le2dh$. Evaluating
+\eqref{eq:polarcoords} at $c$ yields
+\[
+ p_i=\lambda_i(1-\ip{q_i}c)\ge(1-2dh)\lambda_i.
+\]
+Also \eqref{eq:width} and the absolute-value triangle inequality give
+\[
+ \sum_i p_i|\ip z{w_i}|\le f_K(z)+d m_K(z)h
+ =(1+dh/2)f_K(z).
+\]
+Write $\theta=2dh<1$. The exact brightness formulas for $P$ and $K$ imply
+\begin{equation}\label{eq:brightnesscomp}
+ (1-\theta)\frac{\pi_P(u)}{|P|}
+ \le(1+\theta/4)\frac{\pi_K(u)}{|K|}\qquad(\norm u=1).
+\end{equation}
+
+The finite first mixed-volume formula and Minkowski's first inequality give
+\begin{equation}\label{eq:volumeroot}
+ \left(\frac{|P|}{|K|}\right)^{1/d}
+ \le\frac{V(K[d-1],P)}{|K|}
+ =\E h_P(X).
+\end{equation}
+Indeed the last expression is
+$\sum_Fs_Fh_P(n_F)/(d|K|)$. Since $h_P(w_i)=1$, subadditivity and
+\eqref{eq:intrinsiccontain} bound it by $1+2dh=1+\theta$.
+Combining \eqref{eq:brightnesscomp} and \eqref{eq:volumeroot},
+\[
+ \frac{\pi_K(u)}{\pi_P(u)}
+ \ge\frac{1-\theta}{(1+\theta)^d(1+\theta/4)}.
+\]
+For factors in $[0,1]$, the deficit of their product is at most the sum of
+their deficits. Thus the missing fraction above is at most
+\begin{equation}\label{eq:scalar}
+ \theta+d\theta+\theta/4
+ =2d(d+5/4)h\le3d^2h\qquad(d\ge3).
+\end{equation}
+Here $1-(1+\theta)^{-d}\le d\theta$ follows from
+$1-t^d\le d(1-t)$ for $0\le t\le1$.
+
+\begin{proposition}[Finite actual-facet enclosure]\label{prop:enclosure}
+For $d\ge3$, if $0\le e(K)\le H_d^{-1}$, the normalized $K$ is contained
+in a simplex $P$ whose facet hyperplanes are actual $K$-facet hyperplanes,
+and
+\begin{equation}\label{eq:finalprojection}
+ \pi_P(u)-\pi_K(u)\le H_de(K)\pi_P(u)\qquad(\norm u=1).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Since $H_d=3d^2C$, \eqref{eq:hbudget} gives
+$h\le1/(3d^2)<1/(2d)$ even at $e(K)=H_d^{-1}$. All strict enclosure gates
+hold. Equations~\eqref{eq:scalar} and \eqref{eq:hbudget} give
+$3d^2h\le H_de(K)$.
+\end{proof}
+Every step used the same finite actual facet law. No compact approximation,
+subsequence, or limiting-law identification is needed for this proposition.

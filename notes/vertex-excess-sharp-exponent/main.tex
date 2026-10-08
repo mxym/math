@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{xurl,hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
+ pdftitle={Vertex excess and the sharp exponent in simplex stability},
+ pdfauthor={AI-assisted research manuscript for Entry 005}}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\pyr}{\operatorname{pyr}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\pathref}[1]{\nolinkurl{#1}}
+\title{Vertex excess and the sharp exponent in simplex stability}
+\author{Entry 005 research manuscript\\\small AI-assisted manuscript candidate}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a full-dimensional convex $d$-polytope with at most $d+1+r$ vertices,
+we determine the sharp power of the projection-body pyramid defect that
+controls containment in a dilation of every prescribed maximum-volume
+inscribed simplex, centered at that same simplex's centroid. The exponent
+is $1/\min(r,d-1)$. We give an explicit all-scale upper bound and a
+truncation-and-pyramid family with an exact limiting lower constant.
+The geometric step is a cone-volume estimate controlled by the number of
+inner apex points: collapsing two base rays under projection improves the
+usual cap exponent. A finite law on the actual facets supplies the facet
+incidence needed to convert a vertex bound into this apex count. We include
+the finite determinant assignment, enclosure, and prescribed-simplex
+retention arguments so that the dependence on the original geometric defect
+can be checked directly.
+\end{abstract}
+
+\noindent\textbf{Verification status.} The underlying traditional proof and
+sharpness construction received a separate analytic review by an independent
+model, with a PASS disposition. This is not professional peer review. The
+present manuscript is an expanded exposition of that reviewed argument;
+the new vertex-excess theorem has not been formalized in Lean. Earlier Lean
+results are identified in Appendix~\ref{app:sources}, with no claim that an
+older compiled main theorem certifies the new result. No priority or
+first-discovery claim is made.
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\input{sections/01_statement}
+\input{sections/02_cones}
+\input{sections/03_assignment}
+\input{sections/04_enclosure}
+\input{sections/05_retention}
+\input{sections/06_assembly}
+\input{sections/07_sharpness}
+\input{sections/08_geometric_sharpness}
+\input{sections/09_sources}
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{BS}
+F.~Bihan and I.~Soprunov,
+\emph{Criteria for strict monotonicity of the mixed volume of convex polytopes},
+arXiv:1702.07676v2 (2017).
+\url{https://arxiv.org/abs/1702.07676v2}.
+\bibitem{SchneiderBook}
+R.~Schneider, \emph{Convex Bodies: The Brunn--Minkowski Theory},
+second expanded edition, Encyclopedia of Mathematics and its Applications
+151, Cambridge University Press, 2014.
+\bibitem{SchneiderStability}
+R.~Schneider, \emph{Stability for some extremal properties of the simplex},
+Journal of Geometry \textbf{96} (2009), 135--148.
+\url{https://doi.org/10.1007/s00022-010-0028-0}.
+\bibitem{BH}
+K.~J.~B\"or\"oczky and M.~Henk, \emph{Cone-volume measure and stability},
+Advances in Mathematics \textbf{306} (2017), 24--50.
+\url{https://arxiv.org/abs/1407.7272}.
+\bibitem{Saroglou}
+C.~Saroglou, \emph{Volumes of projection bodies of some classes of convex bodies},
+Mathematika \textbf{57} (2011), 329--353.
+\url{https://doi.org/10.1112/S0025579311001860}.
+\bibitem{Brannen}
+N.~S.~Brannen, \emph{Volumes of projection bodies},
+Mathematika \textbf{43} (1996), 255--264.
+\url{https://doi.org/10.1112/S002557930001175X}.
+\end{thebibliography}
+\end{document}

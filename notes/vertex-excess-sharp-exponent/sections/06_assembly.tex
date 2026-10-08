@@ -1,0 +1,36 @@
+\section{Assembly of the upper estimate}
+\label{sec:assembly}
+We prove \eqref{eq:main}, leaving the sharpness statement to the next
+section. Fix any of the maximum simplices $S$ specified in
+Theorem~\ref{thm:main}, and normalize that same simplex as in
+Section~\ref{sec:enclosure}. The affine map preserves vertex count,
+maximality, $e(K)$, $E(K,S)$, and the correspondence of centroids.
+
+Suppose first that $0\le e(K)\le H_d^{-1}$. Proposition~\ref{prop:enclosure}
+provides an actual-facet-supported simplex $P$ with relative projection
+error $\delta=H_de(K)\in[0,1]$. Since $K$ has at most $n+r$ vertices,
+Corollary~\ref{cor:caps} gives one point of $K$ in each cap of coordinate
+loss at most
+\[
+ \rho=\delta^{1/k},\qquad k=\min(r,d-1).
+\]
+Both conclusions of Proposition~\ref{prop:retention} concern the same
+$K,S,\rho$. Taking their minimum yields
+\[
+ E(K,S)\le\min(64nr,16n^2)\rho
+ =T_{d,r}H_d^{1/k}e(K)^{1/k}.
+\]
+At $e(K)=0$, this gives $\rho=0$ and $E(K,S)=0$ without division by
+any vanishing parameter. At $e(K)=H_d^{-1}$ the strict enclosure gate
+remains strict, as checked in Proposition~\ref{prop:enclosure}.
+
+For $e(K)>H_d^{-1}$, we have $(H_de(K))^{1/k}>1$ and
+$T_{d,r}\ge n$. Therefore the universal replacement bound $E(K,S)\le n$
+proves the same estimate. Undoing the affine map yields \eqref{eq:main}
+for the originally prescribed maximum and its original centroid.
+
+The exponent is supplied by the finite apex count; the constants $64nr$
+and $16n^2$ come from retention. Their minimum does not select different
+maxima or different centers. No classification of all polytopes with two
+extra vertices, stronger all-minor stochastic conjecture, or forest
+conjecture enters this argument.

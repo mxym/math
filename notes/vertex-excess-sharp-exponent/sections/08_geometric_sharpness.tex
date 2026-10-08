@@ -1,0 +1,54 @@
+\section{Exact sharpness of the geometric projection step}
+\label{sec:geometricsharp}
+The preceding family proves sharpness for the original invariant.
+Here we separately verify sharpness of the existence-of-direction bound
+in Lemma~\ref{lem:collapse}. Equality in just one direction would not
+suffice for this purpose; an upper bound in every direction is needed.
+
+Fix integers $1\le r\le d-1$, put $m=r+1$, and let $0<\rho<1$. Set
+\begin{align*}
+ P&=\conv(0,e_1,\ldots,e_d),\\
+ K&=\conv(e_1,\ldots,e_d,\rho e_1,\ldots,\rho e_m)\\
+  &=\left\{x\ge0:\sum_i x_i\le1,\quad
+       \rho^{-1}\sum_{i\le m}x_i+\sum_{i>m}x_i\ge1\right\}.
+\end{align*}
+The barycentric loss at zero is $\rho$. This body has $d+m=d+1+r$
+vertices and is an iterated pyramid over the $m$-dimensional equal
+truncation. Every facet plane of $P$ supports a full facet of $K$.
+
+With $c=1/(d-1)!$, the actual facet area-normal vectors of $K$ are
+\begin{align*}
+ &-c(1-\rho^{m-1})e_i &&(i\le m),\\
+ &-c(1-\rho^m)e_i &&(i>m),\\
+ &c\mathbf1,\qquad
+ -c(\underbrace{\rho^{m-1},\ldots,\rho^{m-1}}_{m},
+       \underbrace{\rho^m,\ldots,\rho^m}_{d-m}).
+\end{align*}
+For a coordinate facet the removed simplex has the corresponding product
+of intercept scales; the last vector is obtained from the intercepts of
+the new cut facet. These vectors sum to zero, as required.
+
+For nonzero $z\in\R^d$ write
+\[
+ A=\sum_{i\le m}z_i,\quad B=\sum_{i>m}z_i,\quad
+ A_* =\sum_{i\le m}|z_i|,\quad B_* =\sum_{i>m}|z_i|.
+\]
+Cauchy's formula gives the exact \emph{homogeneous} brightness ratio
+\begin{equation}\label{eq:sharpbrightness}
+ \frac{b_P(z)-b_K(z)}{b_P(z)}
+ =\rho^{m-1}\frac{A_*+\rho B_*-|A+\rho B|}
+                         {A_*+B_*+|A+B|}.
+\end{equation}
+The denominator is positive. The numerator is nonnegative by the triangle
+inequality and is at most the denominator. Therefore the relative deficit
+is at most $\rho^{m-1}=\rho^r$ in every direction. For
+$z=e_1-e_2$, the ratio equals $\rho^r$, and that direction is parallel to
+the opposite base facet of $P$. Upon normalizing $z$, we conclude
+\begin{equation}\label{eq:maxsharp}
+ \max_{\norm u=1}\frac{\pi_P(u)-\pi_K(u)}{\pi_P(u)}=\rho^r.
+\end{equation}
+The same maximum is attained among base-parallel unit directions.
+Thus both the exponent and the constant one in
+Lemma~\ref{lem:collapse} are sharp throughout $1\le r\le d-1$.
+The distinction between $b_K(z)$ and $\pi_K(u)$ avoids any convention for
+projection notation at nonunit vectors.
