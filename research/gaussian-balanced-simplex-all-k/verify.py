@@ -66,16 +66,33 @@ def main():
     need('assumption' in false and 'HasDerivAt h 0 0' in false,
          'Expected omitted-initial-derivative failure missing')
     hpaper = digest(HERE/'paper.md')
+    need(manifest['paper_source_sha256'] == hpaper, 'Current manuscript identity changed')
+    prior = manifest['prior_paper_source_sha256']
+    need(prior == '8416f741398ceb4207edcc3ff31964883ae14044698043bf17a75d66c1dec832',
+         'Original manuscript identity changed')
     for name in ['ANALYSIS_FINAL.md', 'COMBINATORICS_FINAL.md']:
-        need(hpaper in (HERE/'review'/name).read_text(), 'Final review hash missing: '+name)
+        need(prior in (HERE/'review'/name).read_text(), 'Archived review hash missing: '+name)
+    review = json.loads((HERE/'review/REVIEW_PROVENANCE.json').read_text())
+    revision = json.loads((HERE/'review/REVISION_PROVENANCE.json').read_text())
+    need(review['sources']['manuscript_md_sha256'] == prior,
+         'Baseline derivation review scope changed')
+    need(review['report_sha256'] == digest(HERE/'review/INDEPENDENT_MATHEMATICAL_REVIEW.md')
+         == revision['mathematical_review_report_sha256'], 'Current report identity changed')
+    need(revision['original_paper_source_sha256'] == prior
+         and revision['revised_paper_source_sha256'] == hpaper
+         and revision['revised_paper_pdf_sha256'] == digest(HERE/'paper.pdf')
+         and revision['revised_paper_tex_sha256'] == digest(HERE/'paper.tex'),
+         'Revision identity changed')
+    need(revision['whole_136_module_empty_kernel_audit_performed'] is False,
+         'Separate Lean audit scope changed')
     info = subprocess.run(['pdfinfo', str(HERE/'paper.pdf')],
                           capture_output=True, check=True).stdout.decode()
     match = re.search(r'^Pages:\s+(\d+)$', info, re.M)
-    need(match and int(match[1]) == 6, 'Unexpected PDF page count')
+    need(match and int(match[1]) == manifest['pdf_pages'] == revision['revised_pdf_pages'], 'Unexpected PDF page count')
     extracted = subprocess.run(['pdftotext', '-layout', str(HERE/'paper.pdf'), '-'],
                                capture_output=True, check=True).stdout
     need(extracted == (HERE/'results/paper.txt').read_bytes(), 'PDF extracted text differs')
-    print(json.dumps({'status': 'PASS', 'bound_files': len(expected), 'pdf_pages': 6,
+    print(json.dumps({'status': 'PASS', 'bound_files': len(expected), 'pdf_pages': manifest['pdf_pages'],
                       'normal_optimized_exact_equal': True,
                       'partial_lean_roots': 8, 'empty_kernel_declarations': 18013,
                       'scope': 'package integrity, finite rational diagnostics and recorded partial Lean provenance',
