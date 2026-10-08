@@ -601,9 +601,16 @@ argument, with no explicit dimension bound or numerical real witness.
 The [source, complete Markdown copy, proof-dependency map, and exact algebra checks](notes/bapat-real-symmetric-existence-counterexample/README.md)
 include two independent model-conducted mathematical reviews and a final-copy
 review tied to the manuscript hashes. The result is separate from the explicit
-complex order-200 witness above. No complete Lean formalization of this real
-existence theorem, external human peer-review acceptance, or historical
-priority is claimed.
+complex order-200 witness above. The [complete Lean formalization](formalizations/bapat-real-symmetric-existence-counterexample/README.md)
+now proves the same integer real-symmetric existence theorem without mathematical
+hypotheses. Its recorded fresh run compiled 67 modules and replayed all 776 owned
+declarations through a 54,739-declaration empty-kernel closure at trust level zero;
+only the three standard logical axioms occur, with checked full signatures.
+The [publication report](formalizations/bapat-real-symmetric-existence-counterexample/PUBLICATION_REPORT.md)
+distinguishes that kernel execution from the publisher's independent semantic,
+hash and evidence review. The [immutable v1.1 Release](https://github.com/mxym/math/releases/tag/bapat-real-symmetric-existence-counterexample-v1.1)
+binds the full proof package. External human peer-review acceptance and historical
+priority are not claimed.
 
 ## Entry 002: exact 197 finite-sieve optimum and conditional real prime maximum
 
