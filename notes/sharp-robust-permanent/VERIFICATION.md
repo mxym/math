@@ -52,3 +52,21 @@ The existing six checkers above were all replayed directly from published main w
 **General reduction:** Theorem 18 is an exact finite-dimensional LP duality argument written out in the manuscript. It establishes a rational primal-dual certificate interface for arbitrary finite permutation actions, not a claim that every representation has a simple closed formula.
 
 **Outstanding:** external mathematical peer review and systematic novelty research remain pending, together with the unresolved S3 exponent interval q3<p<p0, exact 2<p<3 radius, an effective p0 certificate, and higher-rank k-subset orbital optima for k>=3. The expanded paper is not Lean formalized.
+
+
+## Independent fixed-certificate three-subset replay
+
+A further **fixed-scope finite theorem** is established by Section 19: the exact sharp atom-vs-TV coefficients for S_n acting on three-element subsets in every degree 6≤n≤23 (complementation and previous theorems handle n=3,4,5).
+
+**Frozen machine-readable input:** certificates/three_subset_n6_23.json contains 18 complete rational primal/dual entries, each with explicit conjugacy-class supports and weights, three dual coefficients, both dual extrema and the claimed exact optimal fraction. No float values are stored.
+
+**Discovery/generation is separate:** code/generate_three_subset_certificates.py computes the fractions by exact Fraction-based Gaussian elimination on pinned class supports. It is neither imported nor executed by the checker.
+
+**Independent verifier:** code/check_three_subset_certificates.py uses only Python standard-library integers and fractions; it loads the fixed JSON, independently enumerates all integer partitions of 6,...,23, calculates each representative's image intersections for all three-element subsets, checks every one of the four marginal-orbital moment equalities and *every* classwise dual inequality, verifies the exact upper-lower primal equality, class-size totals, disjoint supports, and positivity of a small rational attaining perturbation. Its finite loops have explicit terminating degree and partition bounds.
+
+**Fresh public-source replay:** On the authorized Windows machine a new isolated folder was created under D:\mcp-workspace\math-research\three-subset-public-replay. Both the standalone checker and frozen JSON were freshly downloaded from public GitHub main (not copied from the prior local generator). The replay completed all 18 degrees without an error and printed:
+
+    EIGHTEEN EXACT THREE-SUBSET CERTIFICATES REPLAYED; all classes, primal/dual bounds, rational positivity.
+    FRESH PUBLIC JSON AND INDEPENDENT CHECKER VERIFIED
+
+This is a complete **finite exact computer-assisted proof** under the usual trust in the published short checker, Python integer arithmetic, and the finite LP duality mathematical argument of Theorem 18; it is not a Lean kernel formalization or a solution to the full all-degree three-subset problem. Independent human review and a literature novelty audit are still pending. The fixed certificate covers only the stated degrees n=6,...,23; no extension to n≥24 is inferred.
