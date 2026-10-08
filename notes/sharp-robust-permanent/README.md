@@ -57,3 +57,15 @@ This exact `n=3,p=2` result is additional to the earlier all-arity sharp-order a
 A fully rational `p=5/2` counterexample demonstrates that *passing every singleton test does not imply the permanent inequality* above exponent two. The [exact checker](code/check_s3_phase.py) verifies the strict rational inequalities, `S_3` parity incidence, and equality kernels. This counterexample is a **mathematical theorem** proved in the manuscript, not an inference from numerical search.
 
 [Section 11](paper.md#11-an-exact-six-variable-entropy-criterion-for-the-remaining-exponent-problem) gives an exact necessary-and-sufficient `K_{3,3}` entropy variational criterion for the entire `S_3` problem. It proves that parity-pure entropy tests reduce precisely to singleton tests, and that each parity block has at most two distinct positive values at any interior stationary obstruction. This variational criterion does **not** by itself settle the exact best radius for `q_3<p<2`. The conjectured singleton sufficiency in that interval remains explicitly open.
+
+## Exact critical window below exponent two
+
+[Theorem 12 and its full analytic proof](paper.md#12-exact-critical-radius-on-an-entire-interval-below-two) prove an actual **interval**, not just the endpoint `p=2`: there exists `p_0\in(q_3,2)` such that
+
+```math
+R_3(p)=3(3^{-3/p}-1/6) \qquad (p_0\le p\le 2).
+```
+
+This combines uniform strict local estimates near **every** classified `p=2` extremizer with a strict compactness argument on the complement. No numerical optimizer or discretization is used. The existence of `p_0` is rigorous but **non-effective**; no particular numerical exponent below two has been certified by this proof. By contrast, Corollary 8 proves the same singleton formula is strictly *incorrect* as soon as `2<p<3`.
+
+[Proposition 13](paper.md#13-exact-infinitesimal-entropy-obstruction) computes the exact quadratic entropy threshold `p\ge 3/2+9|t|` for any full-support `nu_t`. It is a necessary local condition, not a global sufficiency assertion. The fully exact `q_3<p<p_0` interval and the optimal numeric value of `p_0` remain unresolved.
