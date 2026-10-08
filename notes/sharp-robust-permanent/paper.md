@@ -1535,3 +1535,96 @@ When the optimum \(\gamma>0\), an optimal reduced pair \(P,Q\) must be **mutuall
 Finally, for any law \(\nu\) with the uniform law's one-point marginals, \(v=\nu-u_G\in\mathcal V\) and the defining norm bound gives (94) at the identity. Replacing \(\nu\) by its left translate by \(\sigma^{-1}\) preserves marginal equality with \(u_G\), total variation and atom excess, proving (94) for every \(\sigma\). The same translation transports the attained equality. QED.
 
 **Consequences and scope.** Theorem 18 gives a fully finite **exact certificate interface** for *every* finite permutation group action: exhibit a central primal pair of matching orbital moments and a dual orbital linear combination whose oscillation equals the primal atom excess. It also explains Theorem 15 (rank-two orbital geometry and a single fixed-point statistic), Theorem 16 (rank-three geometry in degree ten), and Theorem 17 (a full parity-dependent family of exact rank-three optima). The theorem does **not** assert a similarly explicit symbolic formula for arbitrary higher-rank actions. Determining a closed analytic optimum for \(S_n\) acting on \(k\)-subsets with \(k\ge3\) is a natural next target; numerical LP output there must be converted to rational primal-dual certificates before any theorem claim.
+
+
+## 19. A complete certified three-subset spectrum through degree 23
+
+The general orbital principle of Theorem 18 also yields an exact finite classification in the **next Johnson rank**, namely \(S_n\) acting on its three-element subsets. In this case, ordered pairs of subsets have four orbitals, indexed by their intersection sizes \(0,1,2,3\). The optimal coefficient is no longer given by the simple parity formula of Theorem 17, but a complete fixed rational certificate has been constructed for **every degree \(3\le n\le23\)**.
+
+Define \(C_n^{(3)}\) to be the optimal atom-vs-TV coefficient for \(S_n\) on \(\binom{[n]}3\) under marginal preservation, as in Theorem 18. For \(n=3\), the subset action is trivial and \(C_3^{(3)}=1\). For \(n=4\), the complement map identifies the action with the natural doubly transitive action of \(S_4\), so \(C_4^{(3)}=1/2\) by Theorem 15. For \(n=5\), complementation identifies the triple action with the pair action, giving \(C_5^{(3)}=C_5=1/3\) by Theorem 17.
+
+**Theorem 19 (complete exact small-degree triple-action classification).** For every \(6\le n\le23\), the exact optimum is given in the following table. Together with the three elementary cases above, this determines **every degree \(3\le n\le23\)**.
+
+| \(n\) | \(C_n^{(3)}\) | \(n\) | \(C_n^{(3)}\) | \(n\) | \(C_n^{(3)}\) |
+|---:|---:|---:|---:|---:|---:|
+|6|5/14|12|97/232|18|5656/11331|
+|7|5/14|13|283/661|19|3859/7609|
+|8|89/244|14|1328/2975|20|169/322|
+|9|259/691|15|14311/31629|21|7411/13909|
+|10|368/935|16|5579/11744|22|2485/4554|
+|11|1027/2593|17|1679/3469|23|6219/11242|
+
+The exact statement includes **attainment** of each bound by a sufficiently small marginal-preserving rational perturbation of the uniform law. No claim for every \(n>23\) or of an all-\(n\) closed formula is made.
+
+### 19.1. Fixed primal-dual certificates
+
+For each \(n=6,\ldots,23\), the public file
+
+\[
+\text{certificates/three\_subset\_n6\_23.json} \tag{95}
+\]
+
+contains **fixed exact fractions** specifying:
+
+- two conjugation-invariant probability measures \(P_n,Q_n\), each as weights on explicit \(S_n\) conjugacy classes (cycle partitions);
+- three rational dual coefficients \(\lambda_0,\lambda_1,\lambda_2\), associated with the three nonidentity-intersection orbital counts;
+- two rational dual extrema \(\ell_n,u_n\);
+- the proposed exact optimum \(c_n=u_n-\ell_n=P_n(e)-Q_n(e)\).
+
+The supports are disjoint, and no entry is a decimal approximation.
+
+For clarity, if \(g\in S_n\), set
+
+\[
+F_j(g)=\#\left\{E\in\binom{[n]}3:\ |E\cap g(E)|=j\right\},
+\qquad j=0,1,2,3. \tag{96}
+\]
+
+Each \(F_j\) is constant on conjugacy classes. The certificate verifier independently checks for every \(n\) that
+
+\[
+\begin{aligned}
+&\sum_{g}P_n(g)=\sum_{g}Q_n(g)=1,\qquad P_n,Q_n\ge0,\qquad
+\operatorname{supp}P_n\cap\operatorname{supp}Q_n=\varnothing,\\
+&\mathbb E_{P_n}F_j=\mathbb E_{Q_n}F_j\quad(0\le j\le3),\\
+&\ell_n\le
+\mathbf1_{\{g=e\}}-\sum_{j=0}^{2}\lambda_jF_j(g)
+\le u_n\quad\text{for every conjugacy class }[g]\subseteq S_n,\\
+&\left(\mathbf1_{\{g=e\}}-\sum_{j=0}^{2}\lambda_jF_j(g)\right)
+=\begin{cases}u_n,&g\in\operatorname{supp}P_n,\\
+\ell_n,&g\in\operatorname{supp}Q_n,
+\end{cases}\\
+&u_n-\ell_n=P_n(e)-Q_n(e)=c_n.
+\tag{97}
+\end{aligned}
+\]
+
+Because the action on ordered pairs of triples has exactly the four intersection-size orbitals, equality of the four moments is **equivalent to equality of all one-point triple-image marginals** for the central measures \(P_n,Q_n\). The central dual function in (97) is a linear combination of the marginal indicators. Its oscillation bounds the atom defect of *any* marginal-preserving law, central or not. Conversely, for all sufficiently small \(\delta>0\),
+
+\[
+\nu_\delta=u_{S_n}+\delta(P_n-Q_n)
+\]
+
+is nonnegative, retains uniform triple-image marginals, has TV distance \(\delta\), and its identity atom increases by exactly \(c_n\delta\). Thus (97) supplies both the universal upper bound and an attaining lower bound for each degree.
+
+### 19.2. Reproducible finite exhaustive proof
+
+The fixed JSON certificate file and the **separate optimizer-free checker**
+
+\[
+\text{code/check\_three\_subset\_certificates.py} \tag{98}
+\]
+
+form the complete finite proof evidence. The checker uses only standard-library integer and \(\mathrm{fractions.Fraction}\) arithmetic, not SciPy, SymPy, a numerical optimizer, randomization, or floating-point values. It independently enumerates every integer partition of every \(n=6,\ldots,23\). Integer partitions parameterize **all** \(S_n\) conjugacy classes, so verifying (97) on one canonical cycle representative of each partition checks the dual inequality on **every permutation**. For each representative it enumerates every three-element subset, explicitly counts the four intersection orbitals, and evaluates all primal and dual assertions as rational equalities or inequalities. It additionally verifies the exact conjugacy-class cardinalities sum to \(n!\), positive perturbation margins, all certificate contact equalities and the values in the table.
+
+The program verifies a **finite, fixed** mathematical assertion, not an infinite family inferred from sample data. Termination is manifest from the bounded partition/subset loops. A separate script, code/generate_three_subset_certificates.py, reconstructs the fixed fractions by rational Gaussian elimination on predetermined class supports. The **checker does not call or trust this generator** and accepts only the separately published fixed JSON data.
+
+A fresh-copy Windows replay downloaded both the published JSON and the standalone checker into a new isolated directory, ran the checker, and returned
+
+\[
+\texttt{EIGHTEEN EXACT THREE-SUBSET CERTIFICATES REPLAYED}
+\]
+
+followed by a successful fresh-public-source completion marker. The full independent replay and its boundaries are recorded in VERIFICATION.md.
+
+**Scope and open continuation.** Unlike Theorem 17, this is an **exact finite classification**, not a universal closed expression for \(C_n^{(3)}\). The increasingly varied conjugacy-class supports suggest phase changes in the rank-four orbital convex hull. Determining an all-\(n\) algebraic formula, stabilization ranges, or rigorous asymptotic expansion is the next natural theoretical step. Any conjecture about \(n>23\) must remain labelled computational until its own proof or independently verified certificates exist.
