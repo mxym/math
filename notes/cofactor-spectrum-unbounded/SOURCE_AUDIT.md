@@ -117,12 +117,14 @@ conjecture. It does not prove or refute Lieb's character/subgroup conjecture.
 
 MathDB's page
 https://mathdb.com/p/369591/bapat-sunder-s-largest-eigenvalue-conjecture-for-the-permane
-correctly marks the R=1 conjecture refuted. Its numerical description, however,
-mixes Drury's 2016 order-7 Hadamard example with the 2018 cofactor counterexample:
-45 and 525/8 are respectively per A and per(A circ conjugate(A)) in the former
-example, not per A and its cofactor maximum eigenvalue. Pioge et al. explicitly
-state that the 2016 example satisfies the cofactor assertion. We also checked
-that distinction directly by a separate permanent/minor computation. The
+correctly marks the R=1 conjecture refuted. Its numerical description of a 7 by 7 example with per A=45 and cofactor maximum
+525/8 is inconsistent with the primary sources. For Drury's 2016 seven-dimensional
+example, per(A circ conjugate(A))=6185/128, whereas the cofactor maximum equals
+per A=45. The cofactor counterexample in Drury's 2018 paper has order eight.
+The value 525/8 is not assigned to another matrix quantity here. Pioge et al. explicitly
+state that the 2016 example satisfies the cofactor assertion. An independent exact computation in the fifth cyclotomic field gives
+per A=45, per(A circ conjugate(A))=6185/128, and cofactor spectrum
+45, 105/4, 105/4, 105/4, 75/4, 105/8, 105/8. The
 publisher's 2018 article is the controlling source for the cofactor example.
 
 ## Search limits and result
