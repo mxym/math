@@ -131,10 +131,19 @@ an actual negative-endpoint Gram input. The complete fresh-source record
 checks 52 owned theorems and replays 21,571 declarations from an empty kernel,
 with three positive controls and one rejected omitted-derivative control.
 
-This 52-theorem package does not itself contain the order-200 certificate.
-Connecting the complete parallel certificate to its explicit-parameter
-wrapper still requires a proof of the actual definition and input
-correspondence. The separate real-symmetric existence theorem remains
+The separate [complete specified-rational proof](bapat-q-permanent-explicit-rational/README.md)
+now supplies that actual definition and input correspondence and proves the
+paper's specified dimension-200 complex Hermitian witness unconditionally.
+It includes rational entry formulas, the exact rational epsilon and q0,
+positive definiteness and the strict reversal on the original interval.
+Its six mathematical modules, 30 theorem roots and 22,812 dependency declarations
+passed a fresh source compilation, complete empty-kernel replay and false-data
+control. A separate 928-owned-declaration, 22,371-declaration continuation
+rechecked the completed fresh original source build after the earlier
+reproducer's timeout; the failed earlier record is retained as FAILED.
+The complete 52-theorem input run was reused and explicitly recorded.
+
+The separate real-symmetric existence theorem remains
 without full Lean certification; its equidistribution, concentration and
 rational-approximation chain are separate obligations. The transfer theorem
 does not assert existence of its negative input.

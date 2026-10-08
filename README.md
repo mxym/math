@@ -17,6 +17,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 局部形式化验证与完整主定理验证分别标明。
 [有限群轨道原始—对偶定理的完整 Lean 证明](formalizations/orbital-primal-dual/README.md)
 已覆盖原定理 18 的真实边缘条件、有理最优证书、尖锐常数与等号构造；117 个定理通过空内核重放。
+[Bapat 原猜想的指定有理反例完整 Lean 证明](formalizations/bapat-q-permanent-explicit-rational/README.md)
+已覆盖实际 200 阶复 Hermitian 矩阵、指定有理扰动和参数、正定性及原区间内的严格反向不等式。
 [完整作者资料与论文署名模板](AUTHOR.md) · [结构化作者资料](authors/zhang-yongxian.json)
 
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
@@ -575,8 +577,17 @@ This disproves the original [-1,1] conjecture for complex Hermitian positive
 definite matrices. It includes a separate non-computational existence proof,
 three exact standard-library verifiers, full independent model-conducted
 mathematical reviews, and a file-integrity manifest. The separate [real-symmetric finite-existence proof](notes/bapat-real-symmetric-existence-counterexample/README.md)
-below establishes the real restriction as well. No complete Lean certification, external
-journal peer review, or historical priority is claimed. Earlier work on the
+below establishes the real restriction as well. The separate
+[complete specified-rational Lean proof](formalizations/bapat-q-permanent-explicit-rational/README.md)
+now verifies the actual ordered dimension-200 complex matrix, its rational
+entries, specified rational epsilon and q0, positive definiteness,
+non-diagonality, and a strict original-interval reversal with lower bound h/8.
+All 30 new theorem roots passed a fresh 22,812-declaration empty-kernel replay;
+the complete original 928-owned-declaration certificate also passed an independent
+22,371-declaration continuation. The earlier
+[existential Lean proof](formalizations/bapat-q-permanent-counterexample/README.md)
+is preserved with its original scope. The real-symmetric proof remains written.
+No external journal peer review or historical priority is claimed. Earlier work on the
 extension beyond q=1 is preserved as a separate historical result.
 
 ## Real symmetric positive-definite counterexamples to Bapat's q-permanent conjecture
