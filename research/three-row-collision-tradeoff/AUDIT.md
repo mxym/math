@@ -17,6 +17,8 @@ does **not** settle the unrestricted complex six-row tradeoff.
 | Two-flat arbitrary-third collision (8/3) and equality | Section 8 diagonal-plus-rank-one Schur complement and Jensen | 177 all-complex rational cases, varied third-row magnitudes/zeros and first-row scalings |
 | Critical 7/3 on the two-flat locus | Section 8 collision plus Gram AM–GM | Direct permanent-minor/determinant-minor inequalities |
 | Sharp six-by-six mixed norm on certified partitions | Section 9 balanced-Laplace Cauchy at 7/3, Hadamard for larger c | Direct 720-permutation permanents/determinants and exact complex norm comparisons for three certified subclasses |
+| Gram-only three-row certificate and full-dimensional coherence region | Section 10 exact identity (45), AM–GM, balanced-Laplace interpolation | Exact Gram identity in arbitrary Gaussian-rational frames and 17 coherent full square matrices |
+| Necessary correlation and Bargmann phase conditions for a counterexample | Section 10 AM–GM, elementary quadratic root and cyclic phase | Symbolic argument; no counterexample is presumed or numerically fabricated |
 | Rank-one scalar factorization (36) | Clearing denominators and multiplying three factors | Exact bivariate integer-polynomial coefficient equality |
 | Stronger Gram shortcut is false | Literal rational witness in Section 6 | Direct exact 22/5 violation |
 
@@ -34,6 +36,10 @@ does **not** settle the unrestricted complex six-row tradeoff.
 - Jensen is applied only with m<1 and denominators
   1+m Re(r_j)>0. It establishes A>=1/(1+m^2), independent of
   sampling, symbolic algebra, or external optimization.
+- Section 10 uses the denominator-free Gram screen 5T<=Q and
+  the exact bosonic collision deficit. Coherence <=3/5 is a
+  sufficient *not necessary* condition. The strict coherence
+  inequality defines an open set and does not imply the full conjecture.
 - Section 9 relies only on exact minor expansions, positivity of
   the rectangular bounds, and Hadamard at c >= 7/3; its two explicit
   extremizer families satisfy the certified partition condition.

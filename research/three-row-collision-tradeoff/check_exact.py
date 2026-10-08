@@ -381,10 +381,42 @@ def six_by_six_per_det(A):
     return p, d
 
 
+def GramScreen(U):
+    G=Gram3(U)
+    norms=[G[i][i].x for i in range(3)]
+    P=norms[0]*norms[1]*norms[2]
+    Q=G[0][1].norm2()*norms[2]+G[1][2].norm2()*norms[0]+G[2][0].norm2()*norms[1]
+    T=(G[0][1]*G[1][2]*G[2][0]).x
+    return P,Q,T,G
+
+
+def exact_gram_screen_checks():
+    count=0
+    for n in range(3,9):
+        for seed in range(25):
+            U=[[z(Q((3*i+2*j+seed)%9-4,5),
+                    Q((i*i+j*seed+2)%7-3,4)) for j in range(n)]
+                for i in range(3)]
+            S,W,PP=bosonic_collision(U)
+            P,Qv,T,G=GramScreen(U)
+            delta=PP-S
+            equal(S+Q(7,3)*W-Q(10,3)*P,
+                  Q(4,3)*(5*T-Qv)-delta,
+                  "exact unrestricted Gram identity")
+            if 5*T<=Qv:
+                check(S+Q(7,3)*W<=Q(10,3)*P,
+                      "Gram-screen certificate")
+            count+=1
+    flat=[[ONE]*6 for _ in range(3)]
+    P,Qv,T,G=GramScreen(flat)
+    check(5*T>Qv,"negative control: flat rank-one is not Gram-certified")
+    return count+1
+
+
 def structured_six_row_checks():
     """Independently compare direct full square-matrix minors with theorem."""
     count=0
-    for kind in range(3):
+    for kind in range(4):
         for seed in range(17):
             flat=phase_sample(6,seed)
             flat.append(phase_sample(6,seed+11)[0])
@@ -399,10 +431,26 @@ def structured_six_row_checks():
             elif kind==1:
                 A=[coord0,coord1]+arb[2:6]
                 R=(0,2,3)
-            else:
+            elif kind==2:
                 A=[coord0,flat[1],flat[2]]+arb[3:6]
                 R=(0,3,4)
+            else:
+                A=[[ONE if i==j else z(Q((i+2*j+seed)%5-2,55),
+                                              Q((3*i+j+seed)%5-2,55))
+                    for j in range(6)] for i in range(6)]
+                R=(0,1,2)
+                for i in range(6):
+                    for j in range(i+1,6):
+                        assert_n_i=squared(A[i]); assert_n_j=squared(A[j])
+                        check(25*inner(A[i],A[j]).norm2() <= 9*assert_n_i*assert_n_j,
+                              "exact global 3/5 coherence condition")
             Rc=tuple(i for i in range(6) if i not in R)
+            if kind==3:
+                for rows in (R,Rc):
+                    U=[A[i] for i in rows]
+                    Pgram,Qgram,Tgram,Ggram=GramScreen(U)
+                    check(5*Tgram<=Qgram,
+                          "exact triple Gram-screen condition")
             p,d=six_by_six_per_det(A)
             prod=Q(1)
             for row in A:
@@ -449,7 +497,8 @@ def main():
     print("general three-row collision formula checks:",check_two_flat_general_formula())
     print("sharp two-flat critical checks:",two_flat_critical_checks())
     print("rank-one inversion factor identity monomials:",check_rank_one_factorization())
-    print("structured six-row exact bound/Laplace checks:",structured_six_row_checks())
+    print("Gram-screen three-row identity checks:",exact_gram_screen_checks())
+    print("structured/coherent six-row exact bound/Laplace checks:",structured_six_row_checks())
     print("stronger Gram shortcut is false, exact gap:",shortcut_negative_control())
     print("PASS: all-width formulas, sharp two-flat critical case and structured six-row class; unrestricted case OPEN")
 

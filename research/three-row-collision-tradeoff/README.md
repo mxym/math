@@ -4,6 +4,23 @@
 [Frozen replay](results/check_exact.txt) · [Hashes](SHA256SUMS) ·
 [Proof audit](AUDIT.md)
 
+**Full-dimensional Gram certificate.** The same sharp six-row
+bound holds for every matrix with nonzero rows whose normalized
+pairwise coherences are all at most \(3/5\); this includes an
+**open neighborhood of every unitary matrix**. More generally,
+each triple in the balanced row partition may be certified by the
+denominator-free inequality \(5T\le Q\), where
+\(T=\Re(G_{12}G_{23}G_{31})\) and
+\(Q=|G_{12}|^2G_{33}+|G_{23}|^2G_{11}
++|G_{31}|^2G_{22}\).
+No flatness is required for this Gram-certified case.
+The proof also locates any possible critical rectangular
+counterexample in the strongly correlated regime
+\(|\langle\hat u,\hat v\rangle| >
+(5-\sqrt{17})/2\) for every row pair and three-cycle phase
+cosine greater than \(3/5\).
+See Theorem 11, Corollary 12 and Proposition 13.
+
 **Sharp six-row square-matrix theorem on a structured class.**
 If the six rows can be divided into two triples, each containing
 either a coordinate row or two flat-modulus rows, then for **every**

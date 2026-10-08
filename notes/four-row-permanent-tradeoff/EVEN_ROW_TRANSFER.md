@@ -207,6 +207,9 @@ Its Theorem 10 uses the balanced Laplace transfer above to prove the
 exact sharp six-row mixed permanent--determinant bound, for all
 nonnegative weights, on the class admitting a partition into two
 triples each containing two equimodular rows or one coordinate row.
+The same paper also supplies a denominator-free three-row
+Gram screen and proves the sharp six-row bound on an explicit
+full-dimensional open coherence region around the unitary group.
 The global unrestricted six-row inequality remains open.
 
 The proof does not imply any sharp bounds for

@@ -644,3 +644,131 @@ not merely a numerical special-case verification. To extend it
 to all complex six-by-six matrices it remains necessary to
 prove the unrestricted rectangular critical estimate (19),
 or to find a different global inequality circumventing that step.
+
+## 10. A Gram-only certificate and a full-dimensional six-row region
+
+The sharp six-row statement is also provable for an explicit
+**full-dimensional open set** of complex matrices, rather than only
+the algebraic flat/coordinate loci. This observation uses the
+**sign** of the cycle term in (20) and needs no optimizer.
+
+For three arbitrary (not necessarily normalized) rows \(u,v,w\),
+write \(G=UU^*\), \(P=G_{11}G_{22}G_{33}\),
+\[
+Q=|G_{12}|^2G_{33}+|G_{23}|^2G_{11}+|G_{31}|^2G_{22},
+\qquad
+T=\Re(G_{12}G_{23}G_{31}).
+\tag{42}
+\]
+Define the **Gram screen** by the polynomial inequality \(5T\le Q\).
+It is computable without normalization, square roots or solving
+any polynomial system.
+
+**Theorem 11 (unrestricted three-row Gram certificate).**
+For every complex \(U\in\mathbb C^{3\times6}\), not necessarily
+flat and allowing zero coordinates, if \(5T\le Q\), then
+\[
+\boxed{S_6(U)+\frac73\det(UU^*)\le\frac{10}{3}P.}
+\tag{43}
+\]
+For three nonzero rows, a sufficient condition is
+\[
+|\langle\widehat u,\widehat v\rangle|^2+
+|\langle\widehat v,\widehat w\rangle|^2+
+|\langle\widehat w,\widehat u\rangle|^2
+\le\frac{27}{25},
+\tag{44}
+\]
+where hats denote unit row normalizations. In particular it suffices
+that the absolute correlation of **each** row pair is at most \(3/5\).
+
+**Proof.** The Gram permanent and determinant obey
+\(\operatorname{per}G=P+Q+2T\) and
+\(\det G=P-Q+2T\). Lemma 1 gives
+\(\Delta=\operatorname{per}G-S_6\ge0\). Hence the following
+identity holds **without row normalization**:
+\[
+\boxed{\displaystyle
+S_6+\frac73\det G-\frac{10}{3}P
+=\frac43(5T-Q)-\Delta.}
+\tag{45}
+\]
+The Gram screen makes both terms on its right nonpositive,
+proving (43). To prove (44), for normalized rows let
+\(s=|a|^2+|b|^2+|d|^2\); by (3),
+\(t\le(s/3)^{3/2}\le s/5\) whenever \(s\le27/25\).
+This is exactly \(5T\le Q\) after restoring norms. The uniform
+correlation bound \(3/5\) implies \(s\le3(3/5)^2=27/25\). QED.
+
+**Corollary 12 (sharp six-row inequality on an open coherence region).**
+The conclusion (39) holds for every complex \(6\times6\) matrix whose
+six nonzero, individually normalized rows satisfy
+\[
+\max_{1\le i<j\le6}
+|\langle\widehat A_{i,*},\widehat A_{j,*}\rangle|
+\le\frac35.
+\tag{46}
+\]
+More generally, Theorem 10 remains valid when its definition of a
+certified row triple is enlarged to permit **any triple satisfying
+the Gram screen \(5T\le Q\)**. The enlarged class still has
+the sharp global constant \(\max\{10/3,1+c\}\), and contains a
+**nonempty open neighborhood of every unitary six-by-six matrix**.
+
+**Proof.** Under (46), every three-row submatrix satisfies
+Theorem 11, so choose any balanced row partition and repeat
+(40)--(41), including the interpolation to all \(c\ge0\).
+The same argument works whenever each triple in some partition
+has one of the three certified properties. The two sharpness witnesses
+from Theorem 10 remain in this enlarged class.
+
+The set with all six pairwise correlations strictly below \(3/5\)
+is open, by continuity of Gram entries away from zero rows,
+and it contains the full unitary group (all its distinct row
+correlations are zero). Thus the inequality is proved on an
+open set with full ambient dimension in \(\mathbb C^{6\times6}\).
+The word “open” is not used to imply the entire space. QED.
+
+**Proposition 13 (necessary Gram geometry of any critical
+three-row counterexample).** If a normalized complex
+\(3\times6\) matrix violates (43), and
+\(a,b,d,s,t\) are as in (2), then necessarily
+\[
+s>\frac{27}{25},\qquad
+|a|,|b|,|d|>\frac{5-\sqrt{17}}2,
+\qquad
+\frac{t}{|abd|}>\frac35.
+\tag{47}
+\]
+In particular all pairwise row overlaps are bounded **strictly
+away from zero**, and the invariant Bargmann three-cycle
+phase has cosine strictly greater than \(3/5\).
+
+**Proof.** By the exact identity (45), a violation forces
+\(5t>s\). AM–GM (3) then gives \(s>27/25\).
+Write \(x=|a|,y=|b|,z=|d|\le1\). Since
+\(xyz\ge t>s/5\), we have
+\[
+5xyz>x^2+y^2+z^2\ge2xy+z^2.
+\]
+Thus \(5z-2>0\), and using \(xy\le1\) gives
+\(z^2<5z-2\). The root in \([0,1]\) of the quadratic
+\(z^2-5z+2=0\) is \((5-\sqrt{17})/2\).
+The other two pairwise bounds follow by cyclic symmetry.
+Finally
+\[
+\frac{t}{xyz}>
+\frac{s}{5xyz}
+\ge\frac{3\sqrt3}{5\sqrt{s}}\ge\frac35,
+\]
+where the first last inequalities use AM–GM
+\(xyz\le(s/3)^{3/2}\) and \(s\le3\). QED.
+
+**Remaining gap.** Gram screening proves a large, robust,
+full-dimensional region and precisely localizes potential
+counterexamples to strongly correlated row triples.
+It cannot handle near-parallel triples by itself: the flat
+parallel extremizer has \(s=t=3,1\), hence \(5t>s\),
+yet Theorem 7 proves the needed collision compensation there.
+A genuinely global bound still needs control of this
+collision deficit when none of the rows is flat or coordinate.
