@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 from fractions import Fraction as Q
 from functools import lru_cache
-from itertools import product
+from itertools import combinations
 from math import factorial
 
 
@@ -186,6 +186,50 @@ def check_grid(k: int, ep: Q, steps: int):
           "all scores certified <= candidate maximum + 1e-35")
 
 
+def heterogeneous_candidate_intervals(floors: tuple[Q,...]):
+    k=len(floors)
+    assert k>=3 and all(x>=0 for x in floors) and sum(floors)<=2
+    vals=[]
+    for r in (1,2,3):
+        for inds in combinations(range(k),r):
+            inside=set(inds)
+            a=(Q(2)-sum((floors[j] for j in range(k)
+                         if j not in inside),Q(0)))/r
+            if a<max(floors[i] for i in inds):
+                continue
+            xlo,xhi=f_interval(a)
+            low=r*xlo
+            high=r*xhi
+            for j in range(k):
+                if j not in inside:
+                    l,h=f_interval(floors[j])
+                    low+=l
+                    high+=h
+            vals.append((inds,low,high))
+    assert vals
+    return vals
+
+
+def check_heterogeneous_grid(floors: tuple[Q,...], steps: int):
+    k=len(floors)
+    T=Q(2)-sum(floors,Q(0))
+    choices=heterogeneous_candidate_intervals(floors)
+    certified_upper=max(ceil_fixed(hi) for _,_,hi in choices)
+    tables=[
+        [ceil_fixed(f_interval(floors[i]+T*j/steps)[1])
+         for j in range(steps+1)]
+        for i in range(k)
+    ]
+    total=0
+    for js in compositions(steps,k):
+        up=sum(tables[i][js[i]] for i in range(k))
+        assert up <= certified_upper+TOLERANCE,(floors,js)
+        total+=1
+    print(f"PASS: heterogenous floors {list(map(str,floors))}, "
+          f"{len(choices)} feasible (<=3 free) candidates, "
+          f"{total} certified grid vectors")
+
+
 def check_sharp_stability_grid(steps: int):
     count = 0
     for i in range(2*steps+1):
@@ -220,6 +264,13 @@ def main():
     if not args.quick:
         check_grid(5,Q(1,3),14)
         check_grid(6,Q(1,5),8)
+    check_heterogeneous_grid((Q(0),Q(1,4),Q(1,6),Q(1,3)),10)
+    check_heterogeneous_grid((Q(1,6),Q(1,4),Q(1,8),Q(1,12),Q(1,10)),9)
+    if not args.quick:
+        check_heterogeneous_grid((Q(1,3),)*5,10)
+        check_heterogeneous_grid((Q(1,2),Q(1,3),Q(1,3),Q(5,6)),5)
+        check_heterogeneous_grid((Q(1,6),Q(1,4),Q(1,3),
+                                  Q(1,5),Q(1,7),Q(1,8)),7)
     check_sharp_stability_grid(12 if args.quick else 24)
     print("ALL EXACT-RATIONAL CHECKS PASSED")
 
