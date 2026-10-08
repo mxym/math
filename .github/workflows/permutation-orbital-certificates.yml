@@ -46,6 +46,11 @@ jobs:
           python notes/sharp-robust-permanent/code/check_all_two_subset_actions.py
           python notes/sharp-robust-permanent/code/check_three_subset_certificates.py
           python notes/sharp-robust-permanent/code/check_three_subset_compressed_24_120.py
+      - name: Exact all-degree rank-three four-branch formulas and frozen sign certificates
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_rank3_eventual_formula.py
+          python notes/sharp-robust-permanent/code/check_rank3_eventual_integer_replay.py
       - name: All-rank transfer-matrix and k=4 finite certificates
         run: |
           set -e
