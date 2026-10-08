@@ -53,3 +53,31 @@ local maxima must be proved rather than read from the root searches.
 The next meaningful endpoint is that exclusion, which would close the
 original conjecture using Theorems 1–2. Producing another numerical root
 batch or merely optimizing constants would not close it.
+
+The next attempt changes the global formulation. For the balanced value
+C(Q), with score covariance Q, permutation averaging would give the sharp
+upper bound if covariance concavity held. A separate proof shows that
+concavity only along the rays to P/3 would already suffice, including
+uniqueness through the established strict local maximum. The full Hessian
+was derived by following a linear covariance path, differentiating prices,
+and integrating the facet moments. It reduces the problem to the explicit
+surface quadratic inequality R6 of GLOBAL_COVARIANCE_ROUTE.md; direction
+R7 suffices. This is a precise new possible bottleneck, not a proved sign
+inequality or a replacement of the original conjecture by a theorem.
+
+The code evaluates this Hessian from bivariate truncated Gaussian moments
+rather than finite differences. A separate finite-difference diagnostic
+checks its signs, factor four and necessary price adjustment. Two fixed
+covariance batches, 200 and 300 cases, found no eigenvalue above 1e-5;
+near-boundary positive values of roundoff size do occur. None are certified
+signs. Broader scratch tests with unequal label masses did not settle a
+general theorem and are not represented as such. The neighboring unpriced
+nonconcavity example in Sun–Hu–Lan was checked at its exact source; it
+neither proves nor refutes the fixed-mass covariance property.
+
+The analytic sign question remains open. The branch cannot be closed by
+repeating numerical batches. The current objective is to prove the radial
+version of R6, find a certified obstruction to this route, or obtain a
+different complete global comparison. The earlier algebra-only Lean roots
+were meanwhile freshly rechecked against all pinned Lake checkouts, with
+the same empty-kernel closure and byte-identical logs.

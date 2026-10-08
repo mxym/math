@@ -56,3 +56,19 @@ root, with no proof of search-space coverage; a broad run generated an
 IntegrationWarning. No result relies on solver output. No external expert
 has reviewed this AI-assisted note. This audit is an internal structured
 review, not independent professional peer review.
+
+The subsequent covariance route has a full derivation of its Hessian
+and conditional global implication in GLOBAL_COVARIANCE_ROUTE.md. The
+sign inequality R6, even restricted to the radial direction R7, is still
+unproved. The minimum over prices is essential: the explicit diagnostic
+detects a substantially different Hessian if prices are held fixed. The
+500 floating covariance cases have no interval-certified prices, CDFs,
+eigenvalues, or search-space cover. Near degenerating covariances a small
+computed positive eigenvalue can be roundoff. Neither these experiments
+nor a neighboring unpriced Gaussian-maximum theorem resolves R6.
+
+After environment restoration, the existing five algebra exports were
+freshly recompiled using all nine pinned Lake dependency revisions. The
+empty-kernel replay again checked 11,769 declarations, rejected the false
+control, and produced logs byte-identical to the earlier replay. This is
+a refreshed validation record, not new formalization of Gaussian analysis.

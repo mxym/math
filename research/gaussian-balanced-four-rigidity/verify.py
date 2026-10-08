@@ -67,6 +67,27 @@ def main():
              len(data['records']) == data['requested_starts'] == starts and
              data['seed'] == seed and data['spread'] == spread,
              'Discovery metadata differs from the documented source/parameters')
+    for name, cases, lower in [('covariance-200.json', 200, -8.),
+                                ('covariance-300.json', 300, -10.)]:
+        data = json.loads((HERE / 'discovery' / name).read_text())
+        need(data['discovery_only'] is True and data['proof_certificate'] is False
+             and data['covariance_concavity_proved'] is False,
+             'Covariance experiment mislabeled as proof')
+        need(data['complete'] is True and data['requested_cases'] == cases
+             and data['seed'] == 20261012 and data['log_eigenvalue_range'] == [lower, 1.]
+             and len(data['records']) + len(data['failures']) == cases,
+             'Incomplete or differently parameterized covariance experiment')
+        for source, digest in data['sources'].items():
+            need(sha256((HERE / 'discovery' / source).read_bytes()).hexdigest() == digest,
+                 'Covariance source differs from experiment: ' + source)
+    diagnostic = json.loads((HERE / 'discovery/covariance-diagnostic.json').read_text())
+    need(diagnostic['diagnostic_pass'] is True and diagnostic['proof_certificate'] is False
+         and diagnostic['wrong_factor_detected'] is True
+         and diagnostic['omitted_price_adjustment_detected'] is True,
+         'Floating Hessian diagnostic incomplete or mislabeled')
+    for source, digest in diagnostic['sources'].items():
+        need(sha256((HERE / 'discovery' / source).read_bytes()).hexdigest() == digest,
+             'Hessian diagnostic source differs: ' + source)
     print(json.dumps({'status': 'PASS', 'bound_files': len(files),
         'normal_optimized_exact_equal': True,
         'partial_lean_roots': 5, 'empty_kernel_declarations': lean['empty_kernel_declarations'],
