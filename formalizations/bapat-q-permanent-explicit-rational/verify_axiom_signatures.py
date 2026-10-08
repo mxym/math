@@ -50,10 +50,21 @@ def main():
         [str(lean), '--githash'], text=True).strip() == COMMIT, 'Wrong official compiler')
     run = a.proof_run.resolve(strict=True)
     report_path = run / 'report.json'
-    need(digest(report_path) == digest(HERE / 'verification/report.json'), 'Wrong proof run')
     main_report = json.loads(report_path.read_text())
-    need(main_report['status'] == 'PASS' and main_report['positive_theorems'] == 30,
+    frozen = json.loads((HERE / 'verification/report.json').read_text())
+    need(main_report['status'] == 'PASS' and main_report['positive_theorems'] == 30 and
+         main_report['empty_kernel_declarations'] == 22812,
          'Proof run did not pass')
+    for field in ['roots', 'owned_source_sha256', 'generated_source_sha256',
+                  'package_revisions', 'compiler_git_commit', 'compiler_sha256']:
+        need(main_report[field] == frozen[field], 'Different mathematical proof input: ' + field)
+    need(main_report['driver_sha256'] == digest(HERE / 'replay.py'), 'Changed mathematical driver')
+    codes = {c['source']: c['exit'] for c in main_report['commands']}
+    need(all(codes[n] == 0 for n in ['ExplicitBundle.lean', 'AxiomAudit.lean', 'Replay.lean']) and
+         codes['FalseCoordinateBound.lean'] != 0, 'Incomplete mathematical execution record')
+    for field in ['generated_source_sha256', 'log_sha256']:
+        for n, h in main_report[field].items():
+            need(digest(run / n) == h, 'Changed mathematical execution evidence: ' + n)
     need(digest(run / 'ExplicitBundle.lean') ==
          main_report['generated_source_sha256']['ExplicitBundle.lean'], 'Changed bundle source')
     artifacts = {'ExplicitBundle.olean': run / 'ExplicitBundle.olean'}
