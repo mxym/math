@@ -65,6 +65,13 @@ identified published source).
   quadrants, with a rationally bracketed first-Hermite
   certificate threshold. This is a two-explicit-partition
   comparison, not a resolution of Standard Simplex.
+- **Ambient dimension reduction:** for k fixed positive
+  cell masses, we prove exact stabilization of the
+  first-moment optimum in dimension k-1 and cylindrical
+  rigidity of attaining partitions. Related Gaussian
+  dimension-reduction ideas occur in Khot–Naor-type
+  Gaussian partition arguments; originality of the
+  general reduction is not claimed.
 - **Finite-dimensional fixed-mass dual and Laguerre property:**
   a fully proved unified reduction including degenerate
   score cases. Related first-variation/power-diagram ideas
