@@ -72,6 +72,13 @@ def main():
   startLower={0:2*m-3,1:2*m-3,2:2*m-2,3:2*m-2}[r]
   BY=s.diff(N,y); BZ=s.diff(N,z); BL=BY-s.Rational(2,3)*BZ
   checks={}
+  candidate_types=P+Q
+  primal_mat=s.Matrix([[1,1,1,0,0],[0,0,0,1,1]]+
+    [[F(n,*c)[j]*(1 if i<3 else -1) for i,c in enumerate(candidate_types)] for j in range(3)])
+  dual_mat=s.Matrix([F(n,*c)[:3]+([1,0] if i<3 else [0,1]) for i,c in enumerate(candidate_types)])
+  assert s.simplify(primal_mat.det()+dual_mat.det())==0
+  checks['primal matrix nonzero negative determinant']=-primal_mat.det()
+  checks['dual matrix nonzero positive determinant']=dual_mat.det()
   checks['positive D']=D
   checks['z decreasing']=-BZ
   assert not (BZ.free_symbols - {m})
