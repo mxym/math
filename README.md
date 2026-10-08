@@ -1,5 +1,15 @@
 # math
 
+## Exact universal 5/14 law for all subset-image marginals
+
+A new [complete standalone mathematical proof](notes/johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md) establishes, **for every integer n≥6**,
+
+\[
+\boxed{C_n^{\mathrm{all}}=C_{n,\lfloor n/2\rfloor}=\frac5{14}.}
+\]
+
+Here \(C_n^{\mathrm{all}}\) is the sharp single-atom/TV coefficient when a law on \(S_n\) preserves uniform image marginals on **all subset sizes**; a single **middle-rank** marginal constraint is equivalent to all of them, even for noncentral measures. Including smaller degrees, the exact all-rank sequence is \(0\) for \(n=1,2\), \(1/3\) for \(n=3,4,5\), and \(5/14\) for every \(n\ge6\). The theorem uses a **five-point rational dual**, [two independent exact checkers](notes/johnson-short-cycle-spectrum/VERIFICATION.md) covering **44,582** complete finite cycle types, a strict rational tail bound proving every unbounded case, and a matching four-conjugacy-class rational probability construction. Equality-support rigidity and an optimal **universal 5/14 upper bound for arbitrary faithful finite permutation groups** under matching all-subset image marginals follow. The complete source, fixed commit hashes and negative mutation controls are public; no solver output, novelty-first assertion or external human-referee claim is used.
+
 ## Universal exact value for every finite subset-action parameter pair
 
 The [new 10-page exact determinant paper](notes/sharp-robust-permanent/universal-exact/typeset/paper.pdf) and [complete proof/readme](notes/sharp-robust-permanent/universal-exact/README.md) establishes a **terminating, exact rational formula valid for every finite \((n,k)\)** for the marginal-preserving atom-versus-total-variation constant of the \(S_n\)-action on \(k\)-element subsets. Write \(m=\min(k,n-k)\); then the optimum equals a **finite maximum of explicit signed maximal-minor ratios** of size \((m+1)\times(m+1)\), with all matrix entries computed by an integer cycle-index recurrence. The theorem proves a **closed, nonzero binomial-product rank determinant** and an attaining marginal-preserving perturbation supported on at most \(m+2\) conjugacy classes. That sparse support bound is sharp, as witnessed by the exact \((n,k)=(11,4)\) certificate.
