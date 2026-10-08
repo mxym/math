@@ -48,7 +48,13 @@ nonnegative deficit integral.
 [Source comparisons, two internal reviews and eight partial Lean exports](research/gaussian-balanced-simplex-all-k/README.md)
 are public. Lean checks the algebra and abstract real differential
 comparison; the complete Gaussian endpoint is not claimed fully
-formalized or externally peer-reviewed. The
+formalized or externally peer-reviewed. The separate
+[actual Gaussian optimization formalization](formalizations/gaussian-measure-primal-dual/README.md)
+now completely proves balancing prices, uniqueness modulo common shift,
+primal-dual attainment and fractional equality using actual Gaussian
+measure and Bochner moments. All 50 roots passed a 52,742-declaration
+empty-kernel replay; the sharp geometric comparison remains separate.
+The
 [earlier eleven-page four-cell proof](research/gaussian-balanced-four-global/README.md)
 is preserved, along with the historical partial
 [rank-rigidity note](research/gaussian-balanced-four-rigidity/README.md).

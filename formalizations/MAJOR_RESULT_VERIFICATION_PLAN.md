@@ -95,10 +95,19 @@ existing theorem, not a new conjecture solution.
 
 ## Further actual bridges now under development
 
-The Gaussian work is proceeding from the actual `stdGaussian` measure,
-measurable fractional labels, and actual Bochner first moments. Price-dual
-support bounds and balancing prices must be proved, not packaged as assumed
-Gaussian properties. The imported multi-bubble theorem and subsequent
+The [actual Gaussian optimization package](gaussian-measure-primal-dual/README.md)
+now proves price minimizer existence, balancing cells, uniqueness up to a
+common shift, attained primal-dual equality and almost-everywhere fractional
+rigidity using the actual `stdGaussian` measure and Bochner moments. Its
+nine frozen mathematical modules and all 50 roots passed an empty-kernel
+replay of 52,742 declarations at trust level zero. A second fresh compilation
+and replay passed through the portable runner's unchanged proof-checking
+body; its final strengthened toolchain preflight was tested separately and
+the recorded scope explicitly distinguishes these executions. An
+[independent internal semantic review](reviews/gaussian-measure-primal-dual-2026-10-08.md)
+checks the actual definitions and endpoint assumptions.
+
+The imported multi-bubble theorem and subsequent
 analytic/equality chain remain necessary dependencies of a fully formal
 Gaussian endpoint; they are not discharged by scalar or measure-foundation
 checks.
