@@ -1,5 +1,13 @@
 # Manuscript catalogue
 
+## Universal exact value for every finite subset-action parameter pair
+
+The [new complete proof note](notes/sharp-robust-permanent/universal-exact/README.md) establishes a **terminating, exact rational formula valid for every finite \((n,k)\)** for the marginal-preserving atom-versus-total-variation constant of the \(S_n\)-action on \(k\)-element subsets. Write \(m=\min(k,n-k)\); then the optimum equals a **finite maximum of explicit signed maximal-minor ratios** of size \((m+1)\times(m+1)\), with all matrix entries computed by an integer cycle-index recurrence. The theorem proves a **closed, nonzero binomial-product rank determinant** and an attaining marginal-preserving perturbation supported on at most \(m+2\) conjugacy classes. That sparse support bound is sharp, as witnessed by the exact \((n,k)=(11,4)\) certificate.
+
+The [full proof](notes/sharp-robust-permanent/universal-exact/paper.md) and [solver-free integer implementation](notes/sharp-robust-permanent/code/check_universal_max_minors.py) are publicly reproducible. The formula extends to **arbitrary finite permutation group actions** using conjugacy classes and ordered-pair orbitals. An [initial genuinely compiled Lean lemma](notes/sharp-robust-permanent/formal/KernelMass.lean) and an explicit [Lean proof roadmap](notes/sharp-robust-permanent/universal-exact/LEAN_ROADMAP.md) distinguish the existing traditional proof from **not-yet-completed** proof-assistant formalization.
+
+**Scope distinction:** the full exact arithmetic formula still maximizes over a finite, explicitly enumerable list of determinant values. A short, non-maximization, elementary piecewise rational function valid for all \((n,k)\) has **not** been derived, and the theorem is not claimed to be Lean-formalized or externally peer-reviewed. Historical fixed-rank sharp asymptotics and exact finite classifications remain documented separately below.
+
 **Preferred standalone research paper:** the [21-page v2 PDF](notes/sharp-robust-permanent/focused-paper/v2/paper.pdf), [editable v2 source](notes/sharp-robust-permanent/focused-paper/v2/paper.md), [reading guide](notes/sharp-robust-permanent/focused-paper/README.md), and [frozen v2 manifest](releases/2026-10-08-chebyshev-fixed-rank-v2.json). This is a typesetting revision of the fully proved sharp fixed-k asymptotic and exact all-rank cycle-compression manuscript; the first 22-page version is preserved.
 
 ## Sharp all-rank Chebyshev theorem and exact k=4 classification
