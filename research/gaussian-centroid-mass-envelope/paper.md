@@ -29,7 +29,7 @@ dimension- and mass-distribution-independent.
 
 We also establish the fully explicit mass-entropy approximation
 \[
- B(p)-19Q(p)\le\mathcal M_d(p)\le B(p)+17Q(p),\qquad
+ B(p)-6Q(p)\le\mathcal M_d(p)\le B(p)+3Q(p),\qquad
  B(p)=\sum_i p_i^2\left[
  2\log\frac1{p_i}-\log^+\!\log\frac1{p_i}\right],               \tag{2}
 \]
@@ -362,76 +362,93 @@ For \(0<q<1\), define
 The positive-part logarithm avoids a spurious
 \(-\log\log(1/q)\) divergence when \(q\to1\).
 
-**Lemma 5 (universal hazard/entropy comparison).**
+**Lemma 5 (sharpened universal hazard/entropy comparison).**
 For every \(0<q<1\),
 \[
- \boxed{\quad
- \left|h(q)^2-\mathfrak b(q)\right|\le17.
- \quad}                                                   \tag{18}
+ \boxed{\displaystyle
+     \mathfrak b(q)-4
+       \le h(q)^2\le\mathfrak b(q)+3.}       \tag{18}
 \]
-All constants are absolute; no asymptotic or
-unspecified \(o(1)\) occurs.
+Both constants are absolute and hold without any
+small-tail asymptotic assumption.
 
-*Proof.* Let \(L=\log(1/q)\) and \(t=t_q\).
-We use the classical Mills inequalities, which
-follow by integrating \(\varphi'=-t\varphi\):
+*Proof.* Set \(L=\log(1/q)\), \(t=t_q\).
+By an integration by parts, for every \(t>0\)
+the familiar Mills bounds are
 \[
- \frac{t}{t^2+1}\varphi(t)
- \le\overline\Phi(t)\le\frac{\varphi(t)}t
-                      \qquad(t>0).                        \tag{19}
+ \frac{t}{1+t^2}\varphi(t)
+       \le\overline\Phi(t)
+       \le\frac{\varphi(t)}t.                 \tag{19}
 \]
-First suppose \(q>1/10\). Since
-\(\varphi(t)^2\le1/(2\pi)\) and \(\pi>3\),
-\[
- 0<h(q)^2=\frac{\varphi(t)^2}{q^2}
-      <\frac{100}{2\pi}<17.
-\]
-Also \(0\le\mathfrak b(q)\le2\log10<5\):
-positivity follows from \(\log L\le L-1\)
-for \(L\ge1\) (and is immediate for \(L\le1\)).
-Thus (18) holds in this range.
 
-Now suppose \(q\le1/10\).
+First consider \(q\le1/10\).
 Mills' lower bound at \(t=1\) gives
-\(\overline\Phi(1)\ge\varphi(1)/2>1/10\).
-Indeed \(\varphi(1)=1/\sqrt{2\pi e}>1/5\)
-using the elementary rational inequalities
+\(\overline\Phi(1)\ge\varphi(1)/2>1/10\);
+indeed \(2\pi e<24<25\) using
 \(\pi<4\) and \(e<3\).
-Thus \(t>1\), and \(L\ge\log10>1\).
-The Mills inequalities imply
+Consequently \(t>1\) and \(L>1\).
+The Mills bounds yield
 \[
- t\le h(q)\le t+1/t,\qquad
+ t\le h(q)\le t+\frac1t,\qquad
  \frac{t^2}{2}+\log t+\frac12\log(2\pi)
-      \le L
-      \le\frac{t^2}{2}
-            +\log(t+1/t)+\frac12\log(2\pi).
- \tag{20}
+ \le L\le
+ \frac{t^2}{2}+\log(t+1/t)+\frac12\log(2\pi).
+                                                       \tag{20}
 \]
-In particular \(t^2\le2L\), since \(t\ge1\).
-Using \(t+1/t\le2t\le2\sqrt{2L}\)
-in the right inequality of (20) yields
+In particular \(t^2\le2L\).
+Since \(t+1/t\le2\sqrt{2L}\),
+the right inequality gives
 \[
  t^2\ge2L-\log L-\log(16\pi).
- \tag{21}
+                                                       \tag{21}
 \]
-Since \(h(q)^2\ge t^2\), this proves
-the lower half of (18) (in fact with the
-much smaller constant \(\log(16\pi)<4\)).
+To see \(\log(16\pi)<4\) with strict
+elementary inequalities, note that
+\(e>8/3\) and \(\pi<22/7\), while
+\((8/3)^4=4096/81>352/7=16(22/7)\).
+Hence \(h(q)^2\ge t^2>\mathfrak b(q)-4\).
 
-For the upper half, \(h(q)^2\le t^2+3\).
-If \(t^2\ge L\), then the left inequality
-of (20) gives
+For the upper bound, \(h(q)^2\le t^2+3\).
+If \(t^2\ge L\), the left inequality
+in (20) gives
+\(t^2\le2L-\log L-\log(2\pi)\),
+so \(h(q)^2\le\mathfrak b(q)+3\).
+If \(t^2<L\), the elementary inequality
+\(L-\log L\ge1\) gives
+\(h(q)^2<L+3\le\mathfrak b(q)+2\).
+Thus the result holds for all \(q\le1/10\).
+
+Next suppose \(q>1/10\). Then
+\(L<\log10\). Conditional Jensen applied
+to \(q\,e^{\lambda h(q)}
+ \le\mathbb E e^{\lambda Z}=e^{\lambda^2/2}\)
+at \(\lambda=h(q)\) gives
+\(h(q)^2\le2L\).
+Therefore
 \[
- t^2\le2L-\log L-\log(2\pi),
+ h(q)^2-\mathfrak b(q)
+       \le\max(0,\log L)
+       \le\log\log10<1<3.
 \]
-hence \(h(q)^2\le 2L-\log L+3\).
-If instead \(t^2<L\), then
+For the lower bound, \(h(q)^2\ge0\)
+and we show \(\mathfrak b(q)<4\).
+For \(L\le1\), \(\mathfrak b(q)=2L\le2\).
+For \(1<L<\log10\), the function
+\(2L-\log L\) is increasing, so its
+maximum occurs at \(L=\log10\).
+Now \(\log10<7/3\), since \(e>27/10\)
+(which follows by summing the first
+five terms of its power series) implies
+\(e^7>(27/10)^7>10^3\).
+Also \(\log10>2\), since \(e<3\),
+and \(\log2>2/3\) by the positive
+arctanh series. Consequently
 \[
- h(q)^2<L+3\le2L-\log L+2,
+ 2\log10-\log\log10
+       <\frac{14}{3}-\frac23=4.
 \]
-using \(L-\log L\ge1\) for \(L>1\).
-Thus \(h(q)^2\le\mathfrak b(q)+3\)
-in both cases, proving (18). \(\square\)
+This proves \(\mathfrak b(q)-4<h(q)^2\)
+and completes the proof. \(\square\)
 
 **Theorem 6 (unrestricted mass-entropy envelope).**
 For every \(k\ge2\), positive probability vector
@@ -442,12 +459,12 @@ For every \(k\ge2\), positive probability vector
 Then
 \[
  \boxed{\displaystyle
- B(p)-19Q(p)\le\mathcal M_d(p)
-                  \le B(p)+17Q(p).}                       \tag{22}
+ B(p)-6Q(p)\le\mathcal M_d(p)
+                  \le B(p)+3Q(p).}                       \tag{22}
 \]
 
-*Proof.* Applying Lemma 5 to each mass,
-\(|U(p)-B(p)|\le17Q(p)\).
+*Proof.* Applying Lemma 5 to each mass gives
+\(B(p)-4Q(p)\le U(p)\le B(p)+3Q(p)\).
 Theorem 4 gives \(U(p)-2Q(p)
  \le\mathcal M_d(p)\le U(p)\).
 Combining these inequalities proves (22).
@@ -465,7 +482,7 @@ Then
  \mathcal M_d(p)=
  2\sum_i p_i^2\log\frac1{p_i}
  -\sum_i p_i^2\log\log\frac1{p_i}
- +E(p),\qquad |E(p)|\le19Q(p).}             \tag{23}
+ +E(p),\qquad |E(p)|\le6Q(p).}             \tag{23}
 \]
 For *any* family of probability vectors with
 \(p_{\max}\to0\), regardless of the ratio
@@ -477,7 +494,7 @@ For *any* family of probability vectors with
 \]
 The logarithmic second term is meaningful:
 its magnitude divided by \(Q(p)\) tends to infinity,
-whereas the error in (23) is at most \(19Q(p)\).
+whereas the error in (23) is at most \(6Q(p)\).
 
 *Proof.* If \(p_i\le e^{-1}\), then
 \(L(p_i)\ge1\) and \(\log^+ L(p_i)=\log L(p_i)\),
@@ -495,7 +512,7 @@ Finally
  \ge(\log L_*)Q(p)\), proving the
 assertion about the second term. \(\square\)
 
-**Corollary 8 (near-uniform masses with an exact
+**Corollary 8 (near-uniform masses and the exact
 log-log coefficient).**
 Fix \(0<a\le1\le b<\infty\).
 Uniformly for all \(k\to\infty\), vectors with
@@ -515,20 +532,23 @@ so uniformly in \(i\),
  2L(p_i)-\log L(p_i)
        =2\log k-\log\log k+O_{a,b}(1).
 \]
-The constant term \(-\log(4\pi)\)
-may be included or omitted within the
-displayed \(O_{a,b}(1)\) error.
+The constant term \(-\log(4\pi)\) is
+**not identified** by the stated \(O_{a,b}(1/k)\)
+precision; inserting it in (25) merely
+aligns the expression with the normal quantile
+convention. Only the coefficients of the
+leading and log-log terms are determined here.
 Moreover \(Q(p)\le b/k\), since
 \(\sum_i p_i^2\le(\max_i p_i)\sum_i p_i\).
 Now apply (23). \(\square\)
 
 **Corollary 9 (constructive global relative saturation).**
-If \(p_{\max}\le e^{-40}\), set
+If \(p_{\max}\le e^{-10}\), set
 \(L_*=\log(1/p_{\max})\ge40\). Then
 \[
  \boxed{\displaystyle
  \frac{\mathcal M_d(p)}{U(p)}
- \ge 1-\frac{2}{2L_*-\log L_*-17}
+ \ge 1-\frac{2}{2L_*-\log L_*-4}
  \ge1-\frac2{L_*}\qquad(d\ge k-1).}         \tag{26}
 \]
 The *explicit staircase partition (5)* satisfies
@@ -540,19 +560,19 @@ even for arbitrarily heterogeneous masses.
 
 *Proof.* By Lemma 5, for \(L_i=L(p_i)\ge L_*\),
 \[
- h(p_i)^2\ge 2L_i-\log L_i-17
-           \ge2L_*-\log L_*-17
+ h(p_i)^2\ge 2L_i-\log L_i-4
+           \ge2L_*-\log L_*-4
            \ge L_*,
 \]
-because \(2L-\log L\) increases for \(L\ge40\)
-and \(L-\log L-17>0\) there.
+because \(2L-\log L\) increases for \(L\ge10\)
+and \(L-\log L-4>0\) there.
 Therefore \(U(p)\ge
- (2L_*-\log L_*-17)Q(p)\ge L_*Q(p)\).
+ (2L_*-\log L_*-4)Q(p)\ge L_*Q(p)\).
 Divide Theorem 4 and its explicit staircase
 version by \(U(p)\). \(\square\)
 
 **Corollary 10 (quadratic-mass concentration of near-maximizers).**
-Let \(p_{\max}\le e^{-40}\) and \(0<\eta<1\).
+Let \(p_{\max}\le e^{-10}\) and \(0<\eta<1\).
 For any feasible Gaussian partition with
 squared-centroid objective at least \(U(p)-2Q(p)\),
 write \(b_i=\int_{A_i}x\,d\gamma_d(x)\).
