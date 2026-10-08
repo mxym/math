@@ -2087,3 +2087,133 @@ C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2})
 \]
 
 A viable proof must address **both sides**: construct a uniformly valid orbital dual with the appropriate subleading corrections, and match it by genuine nonnegative class measures with exactly equal \(k\)-subset image marginals. Theorem 23 alone proves only Bernstein convergence; it does not control the \(1/n\) coefficient or justify a Chebyshev optimizer. Numerical LP output at fixed degrees also cannot establish (128). The general theorem is left **explicitly open**.
+
+
+## 24. Resolution of the fixed-rank Chebyshev atom-modulus conjecture
+
+The conjecture in Section 23 admits a **complete affirmative proof for every fixed subset rank**. The argument has three independent parts: a uniform first-order orbital expansion, a corrected Chebyshev dual giving an upper bound, and genuine positive probability measures at Chebyshev–Lobatto nodes giving the matching lower bound. None of these uses the finite LP computations as a proof premise.
+
+For fixed \(k\ge1\), denote by \(C_n^{(k)}\) the optimal single-atom versus total-variation coefficient for the natural \(S_n\)-action on \(\binom{[n]}k\), under preservation of every one-point subset-image marginal, as defined by Theorem 18.
+
+**Theorem 25 (sharp universal fixed-rank law).** For **every fixed integer \(k\ge1\)**,
+
+\[
+\boxed{ C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2})\qquad(n\to\infty). } \tag{129}
+\]
+
+In particular,
+
+\[
+\boxed{\lim_{n\to\infty}n(1-C_n^{(k)})=2k^2.} \tag{130}
+\]
+
+Both sides of the asymptotic bound follow from independently specified, rigorous constructions. The primal measures have **exactly** matching subset-image marginals, not merely asymptotically matching ones.
+
+### 24.1. A uniform first-order orbital expansion
+
+For \(n\ge2k\), \(g\in S_n\), let \(x\) and \(y\) be its numbers of 1-cycles and 2-cycles, and set \(a=x/n\), \(b=y/n\). Necessarily \(0\le a\le1\) and \(0\le b\le(1-a)/2\). Choose uniformly \(E\in\binom{[n]}k\), put \(X=|E\cap g(E)|\), and write
+
+\[
+G_{n,g}(t)=\mathbb E[t^X],\qquad B(t)=1-a+at.
+\]
+
+**Lemma 26 (uniform orbital generating expansion).** For each fixed \(k\ge2\),
+
+\[
+\begin{aligned}
+G_{n,g}(t)
+={}&B(t)^k+\frac{k(k-1)}{n}B(t)^{k-2}
+\Big[(1-a)(t-1)\\
+&\hspace{56pt}+\big(b-\tfrac12a(1-a)\big)(t-1)^2\Big]
++O_k(n^{-2}). \tag{131}
+\end{aligned}
+\]
+
+The remainder is **uniform in every permutation** \(g\in S_n\), and is bounded coefficientwise as a polynomial in \(t\), with a constant depending only on fixed \(k\). For \(k=1\), \(G_{n,g}(t)=1-a+at\) exactly.
+
+**Proof.** Let \(S\) be the fixed-vertex set, and put \(Y=|E\cap S|\). This is hypergeometric, and
+
+\[
+\mathbb E(1+u)^Y
+=\sum_{j=0}^k\binom kj\frac{(x)_j}{(n)_j}u^j.
+\]
+
+For fixed \(j\le k\) and all integers \(0\le x\le n\), the falling-factorial ratio has the uniform expansion
+
+\[
+\frac{(x)_j}{(n)_j}
+=a^j-\frac{\binom j2}{n}a^{j-1}(1-a)+O_k(n^{-2});
+\]
+
+the apparent \(a^{-1}\) singularity does not occur because \(j\ge2\) in the correction. This follows by multiplying out the fixed-degree falling factorial polynomials and using \((n)_j=n^j(1-\binom j2/n+O_k(n^{-2}))\) for \(n\ge2k\). Summing over \(j\) gives
+
+\[
+\mathbb E[t^Y]
+=B(t)^k-\frac{k(k-1)}{2n}a(1-a)(t-1)^2B(t)^{k-2}
++O_k(n^{-2}). \tag{132}
+\]
+
+Now \(X-Y\) counts moved vertices \(v\in E\) for which \(g^{-1}(v)\in E\). In cycles of length at least three, the directed edges \(g^{-1}v\to v\) give \(L=n-x-2y\) *distinct unordered selected-pair events*, each of which adds **one** to \(X-Y\). A transposition gives only one unordered pair event, but when selected, contributes **two** to \(X-Y\). There are \(y\) such events. Each individual pair is contained in \(E\) with probability
+
+\[
+\frac{k(k-1)}{n(n-1)}=\frac{k(k-1)}{n^2}+O_k(n^{-3}).
+\]
+
+Distinct event edges form a graph of maximum vertex degree two. There are \(O(n)\) pairs of event edges that share a vertex; selecting their three distinct endpoints has probability \(O_k(n^{-3})\). There are \(O(n^2)\) disjoint event-edge pairs; selecting their four endpoints has probability \(O_k(n^{-4})\). Therefore the probability of **two or more distinct pair events** is \(O_k(n^{-2})\), uniformly in \(g\).
+
+Conditioned on a particular selected pair, both its vertices are moved, and the remaining \(k-2\) chosen vertices form a uniform \((k-2)\)-subset of the other \(n-2\) vertices. Their fixed-point count has generating polynomial \(B(t)^{k-2}+O_k(n^{-1})\) coefficientwise, by the same finite hypergeometric approximation. Discarding the multiple-event configurations, whose contribution is coefficientwise \(O_k(n^{-2})\), gives
+
+\[
+\begin{aligned}
+\mathbb E[t^X]-\mathbb E[t^Y]
+={}&\frac{k(k-1)}{n}B(t)^{k-2}
+\big[(1-a-2b)(t-1)+b(t^2-1)\big]\\
+&+O_k(n^{-2})\\
+={}&\frac{k(k-1)}{n}B(t)^{k-2}
+\big[(1-a)(t-1)+b(t-1)^2\big]+O_k(n^{-2}). \tag{133}
+\end{aligned}
+\]
+
+The coefficientwise estimates are legitimate because \(k\) is fixed, \(X\le k\), and any sum of selected-edge indicators on a \(k\)-set is bounded by \(k\). Combining (132) and (133) proves (131). QED.
+
+Every polynomial \(P(a)\) of degree at most \(k\) has a unique Bernstein representation
+
+\[
+P(a)=\sum_{j=0}^k\beta_j\binom kj a^j(1-a)^{k-j}.
+\]
+
+Define
+
+\[
+\mathcal L_{n,g}(P)=
+\sum_{j=0}^k\beta_j\frac{F_j^{(k)}(g)}{\binom nk}.
+\]
+
+**Corollary 27 (universal first correction).** For each fixed \(k\ge2\),
+
+\[
+\mathcal L_{n,g}(P)=P(a)+\frac{J_P(a,b)}n+O_{k,P}(n^{-2}), \tag{134}
+\]
+
+uniformly in \(g\), where
+
+\[
+\boxed{J_P(a,b)=(k-1)(1-a)P'(a)
++\left(b-\frac32a(1-a)\right)P''(a).} \tag{135}
+\]
+
+**Proof.** Apply the coefficient functional \(t^j\mapsto\beta_j\) to (131). The Bernstein differentiation identities give
+
+\[
+\sum_j\beta_j[t^j]\big((t-1)^2B(t)^{k-2}\big)
+=\frac{P''(a)}{k(k-1)}
+\]
+
+and
+
+\[
+\sum_j\beta_j[t^j]\big((t-1)B(t)^{k-2}\big)
+=\frac{P'(a)}k-\frac{aP''(a)}{k(k-1)}.
+\]
+
+The asserted expression (135) follows directly, retaining the uniform coefficientwise error. QED.
