@@ -75,6 +75,67 @@ theorem symmetric_flux_pairing_le_perimeter (v q m : Fin k → Space d)
   unfold fluxPerimeter
   linarith only [hsum]
 
+/-- Exact edgewise deficit for any symmetric Gaussian flux system.
+For unit-diameter q, every summand is nonnegative. -/
+theorem symmetric_flux_calibration_gap (v q m : Fin k → Space d)
+    (w : Fin k → Fin k → ℝ)
+    (hs : ∀ i j, w i j = w j i)
+    (hf : ∀ i, m i = ∑ j, w i j • (v i-v j)) :
+    fluxPerimeter v w - (∑ i,⟪q i,m i⟫) =
+      (∑ i,∑ j,w i j*(‖v i-v j‖-⟪q i-q j,v i-v j⟫))/2 := by
+  rw [symmetric_flux_pairing v q m w hs hf]
+  unfold fluxPerimeter
+  simp_rw [mul_sub, Finset.sum_sub_distrib]
+  ring
+
+lemma symmetric_flux_calibration_gap_term_nonneg (v q : Fin k → Space d)
+    (w : Fin k → Fin k → ℝ)
+    (hw : ∀ i j, 0 ≤ w i j)
+    (hq : ∀ i j, ‖q i-q j‖ ≤ 1) (i j : Fin k) :
+    0 ≤ w i j*(‖v i-v j‖-⟪q i-q j,v i-v j⟫) := by
+  apply mul_nonneg (hw i j)
+  apply sub_nonneg.mpr
+  calc
+    ⟪q i-q j,v i-v j⟫ ≤ ‖q i-q j‖*‖v i-v j‖ :=
+      real_inner_le_norm _ _
+    _ ≤ 1*‖v i-v j‖ :=
+      mul_le_mul_of_nonneg_right (hq i j) (norm_nonneg (v i-v j))
+    _ = ‖v i-v j‖ := one_mul _
+
+/-- If all off-diagonal face weights are positive, saturation of the
+Lipschitz calibration forces saturation on every single face. -/
+theorem symmetric_flux_calibration_equality_edges (v q m : Fin k → Space d)
+    (w : Fin k → Fin k → ℝ)
+    (hw : ∀ i j, 0 ≤ w i j)
+    (hp : ∀ i j, i ≠ j → 0 < w i j)
+    (hs : ∀ i j, w i j = w j i)
+    (hf : ∀ i, m i = ∑ j, w i j • (v i-v j))
+    (hq : ∀ i j, ‖q i-q j‖ ≤ 1)
+    (heq : (∑ i,⟪q i,m i⟫) = fluxPerimeter v w)
+    (i j : Fin k) (hij : i ≠ j) :
+    ⟪q i-q j,v i-v j⟫ = ‖v i-v j‖ := by
+  let gap : Fin k → Fin k → ℝ :=
+    fun a b => w a b * (‖v a-v b‖-⟪q a-q b,v a-v b⟫)
+  have hn (a b : Fin k) : 0 ≤ gap a b :=
+    symmetric_flux_calibration_gap_term_nonneg v q w hw hq a b
+  have hzero : (∑ a,∑ b,gap a b) = 0 := by
+    have h := symmetric_flux_calibration_gap v q m w hs hf
+    rw [heq, sub_self] at h
+    change (0:ℝ) = (∑ a,∑ b,gap a b)/2 at h
+    linarith
+  have hi : gap i j ≤ ∑ b,gap i b :=
+    Finset.single_le_sum (fun b _ => hn i b) (Finset.mem_univ j)
+  have hj : (∑ b,gap i b) ≤ ∑ a,∑ b,gap a b :=
+    Finset.single_le_sum
+      (fun a _ => Finset.sum_nonneg (fun b _ => hn a b)) (Finset.mem_univ i)
+  have he : gap i j = 0 := by
+    have hle := hi.trans hj
+    linarith [hn i j,hzero]
+  change w i j*(‖v i-v j‖-⟪q i-q j,v i-v j⟫) = 0 at he
+  have hd : ‖v i-v j‖-⟪q i-q j,v i-v j⟫ = 0 :=
+    (mul_eq_zero.mp he).resolve_left (hp i j hij).ne'
+  linarith
+
 /-- The dual lower estimate is exactly attained on equidistant score
 families, with edge-normalized score directions. -/
 theorem symmetric_flux_calibration_equality_for_equal_edges (v m : Fin k → Space d)
@@ -138,6 +199,8 @@ theorem actual_equal_edges_flux_calibration_equality
 
 #print axioms symmetric_flux_pairing
 #print axioms symmetric_flux_pairing_le_perimeter
+#print axioms symmetric_flux_calibration_gap
+#print axioms symmetric_flux_calibration_equality_edges
 #print axioms symmetric_flux_calibration_equality_for_equal_edges
 #print axioms actual_simplicial_flux_calibration
 #print axioms actual_equal_edges_flux_calibration_equality
