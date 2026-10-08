@@ -31,10 +31,10 @@ The theorem eliminates continuous LP variables and solver assumptions. Its proof
 
 From the root of the public repository, using only Python 3.9+ standard library:
 
-\`\`\`bash
+```bash
 python notes/sharp-robust-permanent/code/check_universal_max_minors.py
 python notes/sharp-robust-permanent/code/check_universal_max_minors.py 9 4
-\`\`\`
+```
 
 The checker imports the independently developed and published exact cycle transfer recurrence at
 [code/check_all_k_orbital_compression.py](../code/check_all_k_orbital_compression.py).
