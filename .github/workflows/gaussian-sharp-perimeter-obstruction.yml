@@ -34,7 +34,8 @@ jobs:
             echo 'Forbidden proof placeholder/declaration detected'
             exit 1
           fi
-          lake build +GaussianSharpPerimeterObstruction
+          lake build +GaussianPerimeterComparisonReduction +GaussianMomentCovariance
+          lake env lean sources/GaussianSharpPerimeterObstruction.lean
       - name: Explicit scope notice
         shell: bash
         run: |
