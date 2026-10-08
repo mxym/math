@@ -70,3 +70,27 @@ A further **fixed-scope finite theorem** is established by Section 19: the exact
     FRESH PUBLIC JSON AND INDEPENDENT CHECKER VERIFIED
 
 This is a complete **finite exact computer-assisted proof** under the usual trust in the published short checker, Python integer arithmetic, and the finite LP duality mathematical argument of Theorem 18; it is not a Lean kernel formalization or a solution to the full all-degree three-subset problem. Independent human review and a literature novelty audit are still pending. The fixed certificate covers only the stated degrees n=6,...,23; no extension to n≥24 is inferred.
+
+
+## Exact three-cycle compression, degree-120 certificates and universal asymptotic (October 8)
+
+**New mathematical statements.** Theorems 20–22 in [paper.md](paper.md) add (i) a fully explicit three-cycle-statistic formula for the four orbital counts of the S_n action on three-element subsets, (ii) a complete finite certificate classification for every n=24,...,120, extending the previously covered 3,...,23, and (iii) a **separate all-n asymptotic theorem** C_n^(3)=1-18/n+O(n^-2), including an explicit upper bound for n>=2048.
+
+**Exact independent finite replay.** The fixed [97-record rational input](certificates/three_subset_n24_120.json) and [standalone integer checker](code/check_three_subset_compressed_24_120.py) were fetched *from GitHub main* into a fresh isolated VPS directory at /srv/mcp-workspace/permanent-continuation-20261007/published-120 (not reused from the LP-discovery workspace). The checker uses Python standard-library only. It checks all primal probabilities, all four orbital moment equalities, disjoint supports, dual contact equalities, positivity of a rational attaining perturbation, and **every** compressed permutation cycle type for **each** n=24,...,120. Final exit status was zero, with this exact result:
+
+    VERIFIED 97 FIXED EXACT OPTIMA 24..120; 1489083 EXHAUSTIVE CONJUGACY-TYPE CHECKS
+
+The compression theorem is proved combinatorially in Section 20: four orbital statistics depend only on the numbers of 1-, 2-, and 3-cycles. Every realizable cycle triple has a canonical representative with one extra long cycle (or none). Thus the finite loops are exhaustive over every conjugacy class, not merely randomly sampled examples. Floating-point LPs were used to **discover candidate supports only**; the frozen rational evidence and its independent checker have no solver dependency. This does **not** prove a closed-form optimum for all n beyond 120.
+
+**Exact symbolic all-n replay.** The independent published [SymPy script](code/check_three_subset_asymptotic_algebra.py) was also fetched afresh from GitHub main into the isolated VPS replay directory, executed under Python 3.10 and SymPy 1.14, and passed all five checks:
+
+- exact expansion of the analytic dual into H(a), J(a,b), R2(a,b,c), R3(a,b,c), including coefficient absolute-sum bounds 6826+10276=17102;
+- for each residue n mod 4, the leading determinant -192m^9 of the **exact** five-class orbital moment matrix;
+- for each residue, the leading rational primal weights m(1-p_I)→9/2, mp_K→4, mp_H→1/2 and mq_E→4/3;
+- numerical constants in the dual-oscillation bound, all verified using exact integer/rational symbolic identities.
+
+Final replay marker: ASYMPTOTIC SYMBOLIC CERTIFICATE REPLAY PASSED.
+
+The asymptotic theorem for **all sufficiently large n** does not rely on applying the finite checker at untested degrees. It is proved analytically: Section 22 explicitly bounds a Chebyshev-type cubic dual on every real feasible parameter region, and independently constructs moment-matched positive class measures in all four congruence classes. The SymPy script verifies claimed algebraic identities and asymptotic coefficients, **not** the entire quantified real-variable inequality. That inequality is written and must be reviewed as mathematics.
+
+**Status / still open:** the all-n exact optimum (not just its 1/n coefficient), explicit eventual optimal supports, k-subset actions at k>=4, a formal Lean/Coq proof, full independent mathematical peer review, and priority/novelty verification. A symbolic CAS pass and a finite certificate do not establish worldwide novelty or constitute human refereeing.
