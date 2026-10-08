@@ -1,0 +1,58 @@
+[
+  {
+    "label": "guard-compile",
+    "argv": [
+      "${TOOLCHAIN_ROOT}/bin/lean",
+      "-o",
+      "${ADDENDUM_RUN}/build/StandardAxiomGuard.olean",
+      "${ADDENDUM_ROOT}/sources/StandardAxiomGuard.lean"
+    ],
+    "started_utc": "2026-10-08T13:52:08.026933+00:00",
+    "ended_utc": "2026-10-08T13:52:09.395140+00:00",
+    "exit_code": 0
+  },
+  {
+    "label": "loaded-bapat-axioms",
+    "argv": [
+      "${TOOLCHAIN_ROOT}/bin/lean",
+      "${ADDENDUM_ROOT}/sources/CheckLoadedAxioms.lean"
+    ],
+    "started_utc": "2026-10-08T13:52:09.395515+00:00",
+    "ended_utc": "2026-10-08T13:52:12.271200+00:00",
+    "exit_code": 0
+  },
+  {
+    "label": "smoke-compile",
+    "argv": [
+      "${TOOLCHAIN_ROOT}/bin/lean",
+      "-o",
+      "${ADDENDUM_RUN}/build/SmokeOwned.olean",
+      "${ADDENDUM_ROOT}/sources/SmokeOwned.lean"
+    ],
+    "started_utc": "2026-10-08T13:52:12.271613+00:00",
+    "ended_utc": "2026-10-08T13:52:12.637947+00:00",
+    "exit_code": 0
+  },
+  {
+    "label": "hardened-smoke-audit",
+    "argv": [
+      "${TOOLCHAIN_ROOT}/bin/lean",
+      "-j2",
+      "-M6144",
+      "${ADDENDUM_RUN}/SmokeAudit.lean"
+    ],
+    "started_utc": "2026-10-08T13:52:12.638901+00:00",
+    "ended_utc": "2026-10-08T13:52:21.232921+00:00",
+    "exit_code": 0
+  },
+  {
+    "label": "invalid-proof-kernel-control",
+    "argv": [
+      "${TOOLCHAIN_ROOT}/bin/lean",
+      "${ADDENDUM_ROOT}/sources/RejectInvalidProof.lean"
+    ],
+    "started_utc": "2026-10-08T13:52:21.233276+00:00",
+    "ended_utc": "2026-10-08T13:52:22.702212+00:00",
+    "exit_code": 0
+  }
+]

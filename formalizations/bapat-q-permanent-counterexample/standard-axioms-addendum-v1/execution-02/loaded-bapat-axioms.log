@@ -1,0 +1,18 @@
+axiom propext : ∀ {a b : Prop}, Iff a b → @Eq.{1} Prop a b
+axiom Classical.choice.{u} : {α : Sort u} → Nonempty.{u} α → α
+axiom Quot.sound.{u} : ∀ {α : Sort u} {r : α → α → Prop} {a b : α},
+  r a b → @Eq.{u} (@Quot.{u} α r) (@Quot.mk.{u} α r a) (@Quot.mk.{u} α r b)
+SIGNATURE_NEGATIVE_REJECTED propext: wrong type False: AXIOM_SIGNATURE_MISMATCH propext
+SIGNATURE_NEGATIVE_REJECTED propext: extra universe: AXIOM_UNIVERSE_PARAMETERS_MISMATCH propext
+SIGNATURE_NEGATIVE_REJECTED propext: unsafe flag: AXIOM_KIND_OR_SAFETY_MISMATCH propext
+SIGNATURE_NEGATIVE_REJECTED propext: wrong kind: AXIOM_KIND_OR_SAFETY_MISMATCH propext
+SIGNATURE_NEGATIVE_REJECTED Classical.choice: wrong type False: AXIOM_SIGNATURE_MISMATCH Classical.choice
+SIGNATURE_NEGATIVE_REJECTED Classical.choice: extra universe: AXIOM_UNIVERSE_PARAMETERS_MISMATCH Classical.choice
+SIGNATURE_NEGATIVE_REJECTED Classical.choice: unsafe flag: AXIOM_KIND_OR_SAFETY_MISMATCH Classical.choice
+SIGNATURE_NEGATIVE_REJECTED Classical.choice: wrong kind: AXIOM_KIND_OR_SAFETY_MISMATCH Classical.choice
+SIGNATURE_NEGATIVE_REJECTED Quot.sound: wrong type False: AXIOM_SIGNATURE_MISMATCH Quot.sound
+SIGNATURE_NEGATIVE_REJECTED Quot.sound: extra universe: AXIOM_UNIVERSE_PARAMETERS_MISMATCH Quot.sound
+SIGNATURE_NEGATIVE_REJECTED Quot.sound: unsafe flag: AXIOM_KIND_OR_SAFETY_MISMATCH Quot.sound
+SIGNATURE_NEGATIVE_REJECTED Quot.sound: wrong kind: AXIOM_KIND_OR_SAFETY_MISMATCH Quot.sound
+SIGNATURE_NEGATIVE_REJECTED binder visibility: AXIOM_SIGNATURE_MISMATCH propext
+STANDARD_AXIOM_SIGNATURES_PASS; 3 actual declarations; 13 negative controls rejected
