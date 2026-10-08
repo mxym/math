@@ -72,13 +72,23 @@ the earlier `gSharp` theorem, not the improved quadratic coefficient.
 
 ## Continuum cache-miss repair
 
-`replay_continuum.py` corrects one dependency-scanning defect in the sealed
+`replay_continuum.py` corrects cache-miss build defects in the sealed
 continuum-remainder release: `import all Module.Name` is a Lean import with an
 `all` modifier, not an import of a module called `all`. The original scanner
 failed when a required external module was absent from the local cache.
+In addition, a direct compilation of a missing Mathlib module must use its
+fixed Lake options `autoImplicit=false` and `maxSynthPendingDepth=3`. A fresh
+compile of `Mathlib.RingTheory.TensorProduct.Maps` fails with the defaults and
+passes with these official options; they affect elaboration, not kernel trust.
+Cached modules may themselves import an absent dependency, so the adapter
+also traverses their pinned source imports. It uses the separately SHA-pinned
+comment/string-aware scanner from the simplex release: comment delimiters in
+Lean string literals must not be parsed as actual comments.
 
 The adapter pins the original verifier's SHA-256 and runs that verifier with
-only its import-scanning function replaced. Its original full release seal,
+its import-scanning function replaced, cached import closures traversed, and
+the single external Mathlib compile call supplied with those options.
+Its original full release seal,
 toolchain/source pins, fresh owned-module build, axiom checks, semantic
 controls and two empty-kernel replays remain active. It neither updates a
 historical seal nor substitutes cached owned proof objects for source.
@@ -96,3 +106,18 @@ Use a fresh external output directory. The original reproduction instructions
 remain an immutable historical record; use this adapter for a cache-miss
 replay with current pinned sources. A passing final report, not merely an
 import or successful dependency scan, establishes completion of the suite.
+
+The [compiler-option diagnostic](results/continuum-build-options.json) records
+both failures and successes against the same pinned Mathlib source. The
+[import controls](results/continuum-import-controls.json) compare four scanner
+cases with Lean's own `--deps`, with identical normal/optimized output:
+
+```sh
+python3 -B verification/finalization/check_continuum_imports.py \
+  --lean-bin /path/to/lean-4.34.1/bin
+```
+
+Earlier aborted runs are retained as reproduction diagnostics:
+[default-option failure](results/continuum-default-mathlib-options-failure.txt)
+and [incomplete-cache failure](results/continuum-incomplete-transitive-cache-failure.txt).
+These are build failures, not counterexamples to a mathematical theorem.

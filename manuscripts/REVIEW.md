@@ -45,7 +45,10 @@ Partial-domain and total-function formulations have the same tail values.
 
 The main endpoint has a full Lean proof. The auxiliary mechanism obstruction
 in the written paper is not claimed as a theorem of that Lean release. The
-corrected dependency scanner only repairs `import all` syntax. A successful
+replay adapter supplies a pinned comment/string-aware `import all` scanner,
+walks cached modules' imports and restores the pinned Mathlib Lake options
+for missing external modules, without changing proof sources or kernel guards.
+A successful
 fresh build is required in addition to inventory checks; actual kernel replay
 outcomes are recorded separately from historical review counts.
 

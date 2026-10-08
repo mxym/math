@@ -15,7 +15,7 @@ python3 -B verification/finalization/replay_continuum.py \
   --output /tmp/new-continuum-run
 ```
 
-The main endpoint is `ContinuumRemainder.continuum_power_target : ContinuumPowerTarget`; the compact endpoint is `ContinuumRemainder.compact_power_avoidance`. The main traditional proof is unchanged. The public frozen release is at `formalizations/continuum-remainder-avoidance`. Use the pinned import-parser adapter above on a cache miss. The auxiliary upper-Banach-density obstruction is a written scope result, not part of the full Lean endpoint. This does not settle the entire Erdos similarity conjecture or avoid arbitrary flat smooth germs.
+The main endpoint is `ContinuumRemainder.continuum_power_target : ContinuumPowerTarget`; the compact endpoint is `ContinuumRemainder.compact_power_avoidance`. The main traditional proof is unchanged. The public frozen release is at `formalizations/continuum-remainder-avoidance`. Use the pinned cache-miss adapter above for correct import parsing and Mathlib build options. The auxiliary upper-Banach-density obstruction is a written scope result, not part of the full Lean endpoint. This does not settle the entire Erdos similarity conjecture or avoid arbitrary flat smooth germs.
 
 The [common finite replay](../../verification/finalization/replay_finite.py) runs
 all relevant exact checkers in disposable copies and compares normal and

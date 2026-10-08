@@ -784,7 +784,11 @@ A cache-miss exposed a dependency-parser defect in the release harness:
 Lean's \code{import all Module} syntax was parsed as importing a module named
 \code{all}. The pinned adapter
 \nolinkurl{verification/finalization/replay_continuum.py}
-repairs only that import parser. It does not alter any mathematical source,
+uses a separately SHA-pinned, comment/string-aware scanner from the simplex
+release, walks imports of cached modules to complete partial dependency caches,
+and supplies the pinned Mathlib Lake elaboration options
+\code{autoImplicit=false} and \code{maxSynthPendingDepth=3} when compiling
+missing Mathlib dependencies. It does not alter any mathematical source,
 release hash, target, axiom check, fresh-owned-module compilation rule, or
 kernel replay check. The historical package is left intact. The adapter is
 required when reproducing the proof from dependencies without a complete cache.

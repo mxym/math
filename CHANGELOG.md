@@ -358,3 +358,8 @@ Disclosure time is the timestamp of the Git commit that first adds this release,
 - Added a continuous sharp-simplex proof with the quadratic coefficient and full truncation obstruction, and a self-contained standard-library polynomial certificate for all four infinite triple-action primal families. It checks complete Cramer identities and publishes every coefficient.
 - Replayed 20 exact checkers, retained imported-helper assertions even under an optimized launcher, and rejected deliberately false/corrupted proof obligations. Recompiled the partial fractional Lean exports. Full fresh Lean replay status and its exact trust boundary are recorded separately.
 - Repaired the sealed continuum verifier's cache-miss handling of Lean import-all syntax via a pinned external adapter; preserved historical proof sources and seals. No external peer-review, journal-submission or priority claim is added.
+
+## 2026-10-08 — repair complete-cache-miss continuum reproduction
+
+- Restore pinned Mathlib compilation options and recursively visit cached dependency imports in the sealed-verifier adapter. Use the separately pinned comment/string-aware scanner, with direct Lean parser controls. Preserve proof sources, original seals, artifact guards and kernel replay checks.
+- Publish actual compiler-option diagnostics and aborted-run outputs, and rebuild all five PDFs. The still-running full Lean outcomes remain separately marked in the finalization status.
