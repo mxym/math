@@ -1,0 +1,33 @@
+name: Gaussian BV first-moment calibration — Lean candidate
+
+on:
+  push:
+    branches:
+      - research/gaussian-bv-moment-20261008
+    paths:
+      - '.github/workflows/gaussian-bv-first-moment.yml'
+      - 'formalizations/gaussian-simplex-all-k-progress/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bv-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile pinned Gaussian development, including first-moment calibration
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/gaussian-simplex-all-k-progress
+          use-mathlib-cache: 'true'
+          build: 'true'
+          test: 'false'
+      - name: Print kernel axiom dependencies for new declarations
+        shell: bash
+        working-directory: formalizations/gaussian-simplex-all-k-progress
+        run: |
+          set -euo pipefail
+          lake env lean sources/GaussianBVFirstMoment.lean
