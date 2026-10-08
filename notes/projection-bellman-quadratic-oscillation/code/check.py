@@ -140,6 +140,32 @@ def check():
     eps_lb=F(1,200)/correction
     need(eps_lb==F(16,63375) and eps_lb>F(1,4000),
          'universal quadratic oscillation lower bound wrong')
+
+    # A stronger EVERY-SCALE signed dichotomy: if a sharp ψ had
+    # δ(t_in)/t_in² <= 1/4000 and δ(t_out)/t_out² >= -1/4000,
+    # product closure would fail. Verify the strict quadratic worst-case
+    # upper bound for j=1..9 using rational Robbins/log intervals.
+    alpha_hi=F(8,81)*L_hi
+    epsilon=F(1,4000)
+    for j in range(1,10):
+        n=2**j
+        r=(16*4**j-1)//3+n//2
+        h=F(13*n,2)
+        inp=F(2,r+1)-F(1,2*r+1)
+        corr=h*h*(F(2,r+1)+F(1,2*r+1))
+        upper=-c_lo+alpha_hi*h*h*inp-log_bounds(h)[0]-delta_g_bounds(r)[0]
+        need(upper+epsilon*corr<0,
+             f'every-scale signed obstruction fails at explicit orbit level j={j}')
+
+    # All j>=10 have n=2^j>=1024. With δ_n=(3n−2)/(32n²),
+    # r>5n², z_j²<507/64 and 0<alpha, the Stirling lower bound gives
+    # S_j(alpha*t²) < S_inf+3/(64n)+1/(30n²).
+    # The epsilon correction is <epsilon*(5/2)*507/64.
+    need(F(3,64*1024)+F(1,30*1024**2)<F(1,20480),
+         'every-scale analytic tail j>=10 is not closed')
+    need(F(1,200)-epsilon*correction==F(1,20480),
+         'negative limit margin for every-scale tail miscomputed')
+
     print('PASS: exact independent checker for no-quadratic-germ sharp Bellman obstruction')
     print('binary T5 cstar strictly between 485/10000 and 49/1000')
     print('L=cstar+0.5*ln(27/(4*pi)) < 54/125')
@@ -147,6 +173,8 @@ def check():
     print('asymptotic scaled-H ratio squared is 507/64; ratio z/z0 is 13/12')
     print('quadratic-germ self-product slack limit < -1/200')
     print('forced limsup second-order relative error > 16/63375 > 1/4000')
+    print('every binary orbit level j>=1 forces a signed residual excursion >1/4000')
+    print('finite per-scale checks j=1..9; analytic uniform tail j>=10')
     print('therefore no sharp separately-closed scalar psi can possess a quadratic germ')
     print('all comparisons are exact Fraction/arctanh; infinite limits proven on paper')
 

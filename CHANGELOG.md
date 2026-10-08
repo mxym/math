@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-08 — strengthen sharp Bellman oscillation to every binary-orbit level
+
+- Upgraded the newly certified 005 **no-quadratic-germ** theorem from an asymptotic `limsup` statement to an **every-index signed excursion**: for each `j>=1`, at least one of two explicit attainable ratios from `K_j*point^(*2^(j−1))` differs from its forced quadratic by `>1/4000` in the required positive/negative direction. It is not a numerical conjecture: **all nine** finite indices `j=1..9` pass strict rational Robbins/log-interval checks, and a single rational inequality `3/(64*1024)+1/(30*1024²)<1/20480` together with analytic dimension inequalities excludes **every j>=10**.
+- Retained the independent canonical nonanalytic Gamma-profile failure (`d=8`, strict margin `>1/20000`), prior 005 geometric dependencies and interval replay outputs. This is a necessary constraint on a specific sharp scalar proof architecture, not an assertion about the still-open unrestricted spectral optimum.
+
 ## 2026-10-08 — prove universal no-quadratic-germ oscillation and reject canonical nonanalytic Bellman interpolation
 
 - Strengthened the entry-005 sharp-Bellman method obstruction from positive powers/polynomials/analytic germs to **all continuous-at-zero homogeneous scalar profiles with a quadratic asymptotic expansion**, requiring only standard separate product/join induction on actual point-generated bodies. The binary `T5` orbit forces the unique coefficient `alpha=8/81*(c*+log(27/(4*pi))/2)`; a second actual family joining `2^(j−1)` points to the `j`th orbit body gives limiting self-product slack `<−1/200`. Therefore **every** sharp profile has explicit nonzero second-order oscillation: `liminf |psi−alpha*t²|/t²=0`, `limsup >1/4000`, excluding even twice-differentiable profiles **without a convexity hypothesis**. An independent exact rational checker certifies all numerical premises; the infinite statement is proved analytically.

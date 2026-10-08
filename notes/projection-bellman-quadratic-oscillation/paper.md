@@ -104,6 +104,20 @@ It needs only Robbins factorial bounds, the elementary pi enclosure \(333/106<\p
  >\frac1{4000}.}
  \tag{2.3}
 \]
+Even more strongly, the absolute oscillation in (2.3) occurs at **every orbit scale**, not just along a subsequence. With the actual point-joined dimensions \(r_j,h_j\) from (4.2), let
+\[
+ \tau_j=\frac{h_j}{r_j+1},\qquad \sigma_j=\frac{h_j}{2r_j+1},\qquad
+ \delta(t)=\psi(t)-\alpha_*t^2.
+\]
+Then for **every integer \(j\ge1\)**, at least one of the following two **signed** inequalities holds:
+\[
+ \boxed{\frac{\delta(\tau_j)}{\tau_j^2}>\frac1{4000}
+ \quad\text{or}\quad
+ \frac{\delta(\sigma_j)}{\sigma_j^2}<-\frac1{4000}.}
+ \tag{2.4}
+\]
+This sharpened statement is proved by nine finite exact interval comparisons and **one analytic tail argument covering every \(j\ge10\)**. It specifies a deterministic two-point excursion at each scale, without presupposing derivatives.
+
 In particular, \(\lim_{t\downarrow0}\psi(t)/t^2\) **does not exist**, and \(\psi\) cannot be **twice differentiable at the origin**. This excludes *even nonanalytic* \(C^2\) sharp scalar Bellman profiles. It is strictly stronger, under the same closure architecture, than the earlier nonanalyticity and finite-polynomial exclusions.
 
 The theorem concerns the ratio variable \(t=H/D\). It does **not** exclude sharp potentials depending additionally on dimension, the actual \(Q\)-deficit, a multidimensional reachability invariant, or proofs that do not establish (1.9)–(1.10) individually.
@@ -240,6 +254,74 @@ Pass to the limit and then let \(\varepsilon\downarrow0\). Combining this with L
 \]
 Meanwhile (3.5) states that the same normalized residual tends to zero **along the original orbit** \(t_j=H_j/D_j\). Therefore its liminf is zero but its limsup exceeds \(1/4000\), proving (2.3) in full. \(\square\)
 
+### Theorem 5.1 (an explicit signed excursion at every binary-orbit level)
+
+The stronger pointwise alternative (2.4) holds **for every** integer \(j\ge1\), not just for sufficiently large \(j\).
+
+**Proof.** Write \(\varepsilon=1/4000\). If both inequalities in (2.4) failed at some index \(j\), we would have
+\[
+ \frac{\delta(\tau_j)}{\tau_j^2}\le\varepsilon,
+ \qquad \frac{\delta(\sigma_j)}{\sigma_j^2}\ge-\varepsilon.
+\]
+The product-closure deficit (4.4) would then satisfy
+\[
+ 0\le S_j(\psi)\le S_j(\psi_0)
+ +\varepsilon h_j^2\left(\frac2{r_j+1}+\frac1{2r_j+1}\right).
+ \tag{5.2}
+\]
+We prove that the upper expression on the right is **strictly negative** for every index.
+
+For the **first nine levels \(1\le j\le9\)**, the independent exact checker substitutes (4.2), bounds \(c_*\) and \(\alpha_*\) by the rational intervals from its independently verified binary-orbit series, and bounds \(\log[h_jC(r_j)]\) by rational-log intervals and two-sided Robbins factorial inequalities. It then verifies the strict rational upper inequality
+\[
+ \boxed{-c_{\rm lo}+\alpha_{\rm hi}h_j^2
+ \left(\frac2{r_j+1}-\frac1{2r_j+1}\right)
+ -\log_{\rm lo}(h_j)-\log_{\rm lo}C(r_j)
+ +\varepsilon h_j^2\left(\frac2{r_j+1}+\frac1{2r_j+1}\right)<0}
+ \tag{5.3}
+\]
+for each integer \(j\in\{1,\ldots,9\}\). Every comparison is made over exact rational endpoints, not over floats.
+
+For the **entire tail \(j\ge10\)**, set \(n=2^j\ge1024\). The exact formulas (4.2) imply
+\[
+ r_j=\frac{16n^2}{3}(1+\omega_n),\quad
+ \omega_n=\frac{3n-2}{32n^2}<\frac3{32n},\quad
+ \frac{h_j^2}{r_j}=\frac{507/64}{1+\omega_n},\quad
+ r_j>5n^2.
+ \tag{5.4}
+\]
+The elementary product identities
+\[
+ r\left(\frac2{r+1}-\frac1{2r+1}\right)<\frac32,
+ \qquad r\left(\frac2{r+1}+\frac1{2r+1}\right)<\frac52
+\]
+and Robbins's central-binomial lower bound
+\[
+ \log C(r)>-\frac12\log(\pi r)-\frac1{6r}
+\]
+then give, using \(\alpha_*>0\) and \(z/z_0=13/12\),
+\[
+ \boxed{S_j(\psi_0)
+ <\left(\frac{25}{144}L-\log\frac{13}{12}\right)
+ +\frac12\log(1+\omega_n)+\frac1{6r_j}
+ < -\frac1{200}+\frac3{64n}+\frac1{30n^2}.}
+ \tag{5.5}
+\]
+The entire perturbation term in (5.2) is smaller than
+\[
+ \varepsilon\,\frac52\,\frac{507}{64}=\frac{2535}{512000}.
+\]
+All that remains is the **single rational tail inequality**
+\[
+ \boxed{\frac3{64\cdot1024}+\frac1{30\cdot1024^2}
+ <\frac1{20480}
+ =\frac1{200}-\frac{2535}{512000}.}
+ \tag{5.6}
+\]
+It is checked exactly by the same independent checker. Both positive remainders in (5.5) decrease with \(n\), so (5.6) proves the right side of (5.2) is strictly negative **for every \(j\ge10\)**. Combined with the nine finite exact tests, this contradicts product closure whenever both alternatives in (2.4) fail, completing the proof for **every index**. \(\square\)
+
+The stronger statement does not assert which of the two signed deviations occurs at a given index: the sign choice may change with scale. Its value is that **a sharp potential must visibly depart from its forced quadratic approximation at every single binary-orbit scale**, not merely along some sparse subsequence.
+
+
 If \(\psi\) possessed any quadratic expansion \(\psi(t)=a t^2+o(t^2)\), the orbit limit (3.5) would force \(a=\alpha_*\), contradicting (5.1). In particular, if \(\psi\) were twice differentiable at zero, its finite orbit limit would force \(\psi'(0)=0\) and \(\psi''(0)/2=\alpha_*\), again contradicting (5.1). Thus the sharp scalar induction must have a **genuinely oscillatory second-order germ**, irrespective of whether it is a polynomial, analytic, smooth, convex or otherwise.
 
 ### Corollary 5.2 (the exact differentiability threshold for convex sharp profiles)
@@ -269,7 +351,7 @@ These imply \(L<49/1000+383/1000=54/125\). The [standalone checker](code/check.p
  G(5)=\frac29\log2+
  2\sum_{j\ge0}\frac1{4^{j+1}}\log\frac{g(d_j)^2}{g(2d_j)},
 \]
-with the first thirteen summands bracketed by two-sided Robbins factorial inequalities and the entire infinite tail bounded by a closed geometric/logarithmic remainder. It certifies \(333/106<\pi<355/113\) from the Machin arctangent identity, brackets all logarithms using finite rational atanh series with exact remainders, and checks \(27/(4\cdot333/106)=159/74\). The second estimate then follows from an exact interval for \(\tfrac12\log(159/74)\). The checker also verifies the explicit point-join formulas and all purely rational constants (4.3), (4.5) and (5.1).
+with the first thirteen summands bracketed by two-sided Robbins factorial inequalities and the entire infinite tail bounded by a closed geometric/logarithmic remainder. It certifies \(333/106<\pi<355/113\) from the Machin arctangent identity, brackets all logarithms using finite rational atanh series with exact remainders, and checks \(27/(4\cdot333/106)=159/74\). The second estimate then follows from an exact interval for \(\tfrac12\log(159/74)\). The checker also verifies the explicit point-join formulas and all purely rational constants (4.3), (4.5), (5.1), the **nine finite signed-excursion tests (5.3)**, and the **all-index analytic-tail cutoff (5.6)**.
 
 The **infinite-index** claims are not inferred from checking sixteen sample dimensions: they follow analytically from the exact state recursion, Stirling's central binomial limit, backward summation in Section 3, and the limiting product inequalities in Sections 4–5. The checker is independent of the previously published Python sources; it uses only `int`, `fractions.Fraction` and the Python standard library. No floats, random search, optimizer or non-replayable solver output contribute to mathematical decisions.
 
