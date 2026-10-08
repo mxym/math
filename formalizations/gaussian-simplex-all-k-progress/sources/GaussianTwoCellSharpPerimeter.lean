@@ -81,10 +81,9 @@ theorem equal_mass_simplicial_perimeter_bound_zero :
       (∑ i, gaussianInnerPerimeter (winningCell v (canonicalPrices v) i)) =
         ∑ i, gaussianInnerPerimeter (winningCell r (canonicalPrices r) i) :=
     Finset.sum_congr rfl (fun i _ => hi i)
-  change (1:ℝ) * simplexConstant 2 ^ 2 / 2 ≤
-    ((∑ i, gaussianInnerPerimeter (winningCell v (canonicalPrices v) i))/2)^2
   rw [hsum]
-  exact le_of_eq (regular_intrinsic_cluster_perimeter_squared r hr hz hg).symm
+  exact le_of_eq
+    (regular_intrinsic_cluster_perimeter_squared (d := 0) r hr hz hg).symm
 
 #print axioms standardTail_strictAnti
 #print axioms two_winning_cell_inner_perimeter_eq_of_mass
