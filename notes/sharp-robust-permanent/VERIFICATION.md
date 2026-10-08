@@ -111,3 +111,16 @@ The asymptotic theorem for **all sufficiently large n** does not rely on applyin
 **Theorem 30 (all n,k)** proves the exact 2-state transfer-matrix/cycle-index formula. Every k-subset orbital count depends only on the counts of cycles of lengths at most k, giving an O_k(n^k) exact LP compression. The independent public source code/check_all_k_orbital_compression.py uses **integer arithmetic only** to compute the formal-power-series root and cycle trace via explicit recurrences, and crosschecks against separate direct subset enumeration for every conjugacy partition of n=3,...,12 and k<=min(n,6). These finite checks passed locally before publication.
 
 **Open scope after the closure:** the exact finite-n optimum for arbitrary (n,k), explicit effective n thresholds in the all-k proof, and independently peer-reviewed or proof-assistant formal verification of the full analytic theorem. A mathematical paper draft plus symbolic/finite checkers is **not** equivalent to machine-formal proof of the universal result. Literature priority checks remain incomplete.
+
+
+## Rank-four exact finite classification and fresh-source replay
+
+**Theorem 31** supplies an exact finite classification for the S_n action on 4-subsets in **every degree 4≤n≤64**. Its elementary complement cases n=4,5,6,7 are covered by older theorems; all **57 nontrivial degrees n=8,...,64** have fixed rational primal-dual certificates in certificates/four_subset_n8_64.json.
+
+**Independent replay conducted:** The certificate JSON and the separate standalone verifier code/check_four_subset_n8_64.py were freshly read from the public GitHub main branch, and written to a new isolated VPS folder /srv/mcp-workspace/permanent-continuation-20261007/rank4-published. Executing the public checker (Python 3.10, standard library Fraction/int only; no optimizer, SciPy, or SymPy) returned exit status zero and final line:
+
+    EXACT k4 FRACTIONAL OPTIMALITY CERTIFIED: 57 DEGREES, 440670 TYPES
+
+For each degree, the checker exhaustively evaluates every possible compressed cycle-count tuple (numbers of 1-, 2-, 3-, and 4-cycles, plus either no residual or a long residual cycle), independently checks the five rank-4 orbital moment formulae, both probability normalizations, nonnegativity, disjoint support, equality of all orbital moments, the global dual bound at each feasible type, sharp contact values and a positive rational perturbation attaining the proposed coefficient.
+
+**Trust boundary:** This is a *finite exact computer-assisted certificate proof* for the displayed 57 degrees based on the written combinatorial orbital reduction (Theorems 18 and 30, plus Section 26's direct rank-4 binomial moment derivation) and the publicly readable verifier. It is not a proof assistant formalization of the arithmetic implementation. The supports were discovered using floating LP, but final certificates were reconstructed using exact fractions and are checked independently: no numerical optimizer output is needed to trust the finite claim. Theorem 25's all-fixed-rank asymptotic law and Theorem 30's all-n,k transfer matrix formula are separate analytic results that are not inferred from any finite classification. External mathematical peer review and novelty assessment remain pending.
