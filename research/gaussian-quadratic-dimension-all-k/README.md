@@ -20,18 +20,18 @@ the existence of an exactly equal-mass partition in
 
 with objective at least
 
-    F_infty(k)-95/k.
+    F_infty(k)-92/k.
 
 The independent spherical-cap converse proves that
-**every** partition within 95/k of this
+**every** partition within 92/k of this
 global optimum has dimension at least
 
-    d >= (log k)^2 / 111.
+    d >= (log k)^2 / 108.
 
-Consequently, writing D_95(k) for the smallest
+Consequently, writing D_92(k) for the smallest
 dimension achieving the fixed additive error,
 
-    D_95(k) = Theta((log k)^2)  (all large integers k).
+    D_92(k) = Theta((log k)^2)  (all large integers k).
 
 This completes the optimal **dimension order** for
 bounded additive O(1/k) approximation of the unrestricted
@@ -55,20 +55,24 @@ exact equal conditional masses. Every final
 cell has mass exactly 1/k.
 
 The binary-block probabilities w_j=q_j/k have
-uniformly bounded entropy
+a **sharp universal entropy bound**
 
-    H(w) <= 4 log 2.
+    H(w) < 2 log 2,
+
+approached by k=2^s-1 as s tends to infinity.
+The proof uses exact binary conditional entropies
+and the half-survival property of distinct dyadic powers.
 
 The global squared Gaussian hazard is 2-Lipschitz
 in log tail mass, so glueing costs at most
-2H(w) <=8log2 in the objective, in units of 1/k.
+2H(w) <4log2 in the objective, in units of 1/k.
 The mass of blocks below the dyadic threshold
 is negligible for all sufficiently large k.
 The local dyadic proof actually supplies a stronger
 88/q bound relative to the individual halfspace
 envelope (although Theorem 1 quotes the rounder
-100/q corollary). Thus 88+8log2+1<95
-proves the all-k 95/k theorem without requiring
+100/q corollary). Thus 88+4log2+1<92
+proves the all-k 92/k theorem without requiring
 source coding or numerical mass correction.
 
 ## Key mechanism
