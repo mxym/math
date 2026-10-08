@@ -1,0 +1,37 @@
+\section{Introduction and notation}\label{sec:intro}
+The entrywise powers of a complex Hadamard matrix impose a family of coupled orthogonality conditions. Exact solutions may be discrete or may lie on phase circles, so residual-to-distance estimates depend both on arithmetic root structure and on local geometry. This paper develops explicit quantitative estimates under the full power range $1,\ldots,m-1$ for matrices of order $2m$. All input entries are required to have \emph{exactly} unit modulus.
+
+Fix an integer $m\ge2$ and put $n=2m$. Write $M^*$ for the conjugate transpose and $M^{\circ k}$ for the entrywise $k$th power, never the ordinary matrix power. Put
+\[
+ \mu_m=\{z\in\C:z^m=1\},\qquad \zeta_m=e^{2\pi i/m},\qquad
+ h=H_{m-1}=\sum_{k=1}^{m-1}\frac1k.
+\]
+The norms $\norm{\cdot}_\op$ and $\norm{\cdot}_\mx$ denote respectively the Euclidean operator norm and the maximum absolute entry. For a unit-modulus $H$, define
+\begin{equation}\label{eq:residual}
+ \eps(H)=\max_{1\le k<m}\norm{H^{\circ k}(H^{\circ k})^*-nI}_\op,
+ \qquad K_{ij}=\frac{H_{ij}H_{00}}{H_{i0}H_{0j}}.
+\end{equation}
+We retain all row and column labels. The initial row and column of the dephasing $K$ are all ones. Dephasing multiplies every entrywise power by diagonal unitaries, so $\eps(K)=\eps(H)$. For every square $M$, the eigenvalue multisets of $MM^*$ and $M^*M$ coincide, including zero multiplicities. Thus
+\begin{equation}\label{eq:column-residual}
+ \norm{M^*M-nI}_\op=\norm{MM^*-nI}_\op.
+\end{equation}
+In particular every off-diagonal row or column correlation of each required power has modulus at most $\eps$.
+
+\begin{definition}
+A cyclic $\GH(m,2)$ \emph{seed} is a $2m\times2m$ matrix $G$ with entries in $\mu_m$ such that each ratio of distinct rows contains each element of $\mu_m$ exactly twice. Unless stated otherwise, seeds are labelled and dephased. The set $\mathcal X_m$ consists of all labelled dephased unit-modulus matrices satisfying $\eps=0$.
+
+A rectangle $Q=R\times S$, with $|R|=|S|=m$ and both initial indices excluded, is \emph{compatible} with $G$ if for every $a\in R$ and $b\notin R$, the multiset
+\[
+ \{G_{aj}\overline{G_{bj}}:j\in S\}
+\]
+contains every $m$th root once. Its complement then has the same property. For $|\alpha|=1$, write $\Phi_{G,Q}(\alpha)=\alpha G$ on $Q$ and $G$ off $Q$.
+\end{definition}
+Finite Fourier inversion shows that the seed condition is equivalent to all the required power orthogonalities for a root matrix. Compatibility makes $\Phi_{G,Q}(\alpha)$ exact for every $\alpha$. The external exact classification states that all exact dephased matrices are seeds or such circle points; odd $m$ admits no compatible rectangle. Appendix~\ref{app:exact} gives the attributed proof and the exact local geometry used below.
+
+\paragraph{Main results.}
+Theorems~\ref{thm:odd} and \ref{thm:all} prove the explicit threshold and rounding statement at odd and arbitrary half-order. Proposition~\ref{prop:nonroot} gives a linear bound away from root intersections, while Proposition~\ref{prop:orderfour} proves genuine square-root sharpness at $m=2$. The integer tangent test of Section~\ref{sec:integer} is converted into a graph-component formula in Theorem~\ref{thm:graphkernel}. Graph diameter gives polynomial conditioning and, for the quadratic prime-order family, a uniform diameter-seven bound. Theorem~\ref{thm:twojet} classifies second-order admissibility, and Theorem~\ref{thm:local} determines the best local exponent at each supplied exact point.
+
+\paragraph{Attribution and scope.}
+The exact root/single-rectangle classification, the two-polygon/common-support/projection-trace architecture, and the finite-circle geometry are attributed to the pinned \texttt{mio-qwq/math} source~\cite{mio}. That source in turn identifies OpenAI's order-six argument~\cite{openai} as its starting point. These two attribution layers are retained throughout; neither the exact classification nor the known seeds are claimed as new here. The linearized phase and ordinary-defect framework is classical~\cite{TZ}. The quadratic seeds are from the classical MUB construction~\cite{MW,BOP}; the present theorem concerns their \emph{simultaneous all-power} kernel. Ordinary first-power isolation and zero ordinary defect are distinct assertions. The results here do not establish the ordinary isolation conjecture discussed in~\cite{BOP}.
+
+This manuscript consolidates the corrected research batch of 8 October 2026. An independent AI-assisted analytical review and a limited revision recheck accepted that batch's stated mathematical core. These are not formal verification, professional mathematical peer review, or historical-priority certification. The finite computations are supplementary exact certificates and are not inputs to the infinite-family analytical proofs. The source map records the precise revision and all inherited material.

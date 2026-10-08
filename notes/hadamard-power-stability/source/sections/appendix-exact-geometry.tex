@@ -1,0 +1,71 @@
+\section{Attributed exact classification and local geometry}\label{app:exact}
+For self-contained use of the zero-residual endpoint and the local distance arguments, this appendix presents the relevant exact proof from the pinned source~\cite{mio}. The root/single-support dichotomy, compatible-circle exhaustiveness, and finite-circle geometry are attributed to that source, including its declared OpenAI order-six antecedent~\cite{openai}. The common-support product obstruction is also the elementary cyclic-even complete-mapping obstruction, as discussed there in connection with Hall--Paige~\cite{HP} and~\cite{EMM}. No deep converse from that theory is used.
+
+\subsection{Exact polygons and coincident supports}
+Let $v_1,\ldots,v_{2m}$ be unit and satisfy $\sum_jv_j^k=0$ for $1\le k<m$. Newton's identities make $e_1,\ldots,e_{m-1}$ zero. The complement identity $e_{2m-k}=e_{2m}\overline{e_k}$ makes the corresponding upper coefficients vanish, so
+\begin{equation}\label{eq:exactpolygons}
+ \prod_j(z-v_j)=z^{2m}+(-1)^me_mz^m+e_{2m}
+ =(z^m-a)(z^m-b),\qquad |a|=|b|=1.
+\end{equation}
+The moduli follow because the roots of both factors are among the unit $v_j$. Each factor has $m$ simple roots; repeated factors are counted with multiplicity. Thus the entries form two rotated regular $m$-gons and their product is exactly $ab$.
+
+For an exact dephased $K$, apply this to distinct row and column ratios. Let $L=K^{\circ m}$. Every noninitial row, compared to the initial row, is either all ones in $L$ or has $m$ ones and $m$ copies of one $x\ne1$. Call the latter $m$ positions its support; they exclude column zero. Columns have the analogous alternative.
+
+If two nonconstant rows have different supports $S,U$, put $t=|S\cap U|$. Since both have size $m$ and exclude the initial column, $1\le t\le m-1$. Their $L$ ratio has values $1,x,y^{-1},xy^{-1}$ on $\left(S\cup U\right)^c,S\setminus U,U\setminus S,S\cap U$, with multiplicities $t,m-t,m-t,t$. At most two values are allowed. As $x,y^{-1}\ne1$, this forces $y^{-1}=x$, then $x^2=1$ and $x=y=-1$.
+
+Each actual row has product $-1$ by~\eqref{eq:exactpolygons}, because its power values are $1,-1$. Their actual ratio also has those two distinct power values, so the same formula makes its product $-1$. But its product is the quotient $(-1)/(-1)=1$, a contradiction. Hence all nonconstant row supports coincide, and transposition proves the column statement. This argument does not require parity.
+
+\subsection{The exact balanced block alternative}
+If $L\ne J$, let $R$ be its nonconstant rows and $S$ their common support. A column in $S$ is nonconstant precisely on $R$, so the column alternative gives $|R|=|S|=m$ and one common non-one value $x$. Consequently, after placing the constant groups first,
+\[
+ K=\begin{pmatrix}A&B\\C&D\end{pmatrix},\qquad
+ L=\begin{pmatrix}J_m&J_m\\J_m&xJ_m\end{pmatrix}.
+\]
+For a cross-group row or column ratio, the distinct power values split its two regular polygons by groups. Each restricted sum is zero, giving
+\[
+ A^*B=C^*D=AC^*=BD^*=0,
+\]
+while the diagonal Gram identities give $AA^*+BB^*=CC^*+DD^*=2mI$. For each block $V$, it follows that $(VV^*)^2=2mVV^*$. Thus $VV^*/(2m)$ is a projection with
+\[
+ \rank V=\tr\bigl(VV^*/(2m)\bigr)=m/2,
+\]
+and all its nonzero singular values are $\sqrt{2m}$. The integer rank forces $m$ even. Hence odd $m$ admits only the root pattern $K^{\circ m}=J$.
+
+In the root pattern, let $N_r$ be the root counts of a row ratio. All nontrivial Fourier coefficients vanish and the zeroth is $2m$, so Fourier inversion gives $N_r=2$. Conversely these counts make all required power sums vanish. This applies to composite $m$ without a primality assumption, and also gives the column counts.
+
+\subsection{Compatible circles and exhaustiveness}
+For a seed and compatible rectangle, same-group row ratios are unchanged when the rectangle is multiplied by $\alpha$. In a cross-group pair, the power sum vanishes separately on $S$ and $S^c$, because each half contains all roots once. Multiplication of one zero sum by $\alpha^{\pm k}$ preserves orthogonality. Hence every $\Phi_{G,Q}(\alpha)$ belongs to $\mathcal X_m$.
+
+Conversely, in a nonroot block pattern choose $\alpha^m=x$ and put
+\[
+ G=\begin{pmatrix}A&B\\C&\alpha^{-1}D\end{pmatrix}.
+\]
+Its entries lie in $\mu_m$. At every power $k$, cross-group row ratios of $K$ split into two regular polygons, so, writing $V_k=V^{\circ k}$, $A_kC_k^*=B_kD_k^*=0$. Replacing $D_k$ by $\alpha^{-k}D_k$ leaves the diagonal Gram blocks unchanged and the off-diagonal blocks zero. Thus $G$ is exact and is a seed by Fourier inversion. Each restricted cross-group ratio in $G$ is one full polygon in $\mu_m$, proving compatibility. This proves exhaustiveness.
+
+There are finitely many root matrices and finitely many possible rectangles for fixed $m$. Thus $\mathcal X_m$ is a finite union of roots and compact circle images, possibly empty. At odd $m$ there are no compatible circles, since one would produce $\alpha^m\ne1$ and contradict the projection rank.
+
+\subsection{Intersections and local branches}
+A nonroot point on a circle has $m$th power $1$ off its rectangle and $\alpha^m\ne1$ on it; therefore it determines the rectangle uniquely. If
+\[
+ \Phi_{G,Q}(\alpha)=\Phi_{G',Q'}(\beta)
+\]
+is nonroot, then $Q=Q'$, the seeds coincide outside $Q$, and $G'=(\alpha/\beta)G$ on $Q$, with $\alpha/\beta\in\mu_m$. Their entire circle images agree by reparametrization. After duplicate images are removed, distinct circles meet only at roots.
+
+Every phase map is injective, as one rectangle entry recovers $\alpha$. It has exactly $m$ root points, corresponding to $\alpha^m=1$. These roots divide it into $m$ open arcs, each with distinct endpoints for $m\ge2$. The finite graph obtained by identifying actual labelled root endpoints maps continuously and bijectively to $\mathcal X_m$; compactness and the Hausdorff property make it a homeomorphism. Parallel edges and isolated vertices are permitted.
+
+The map has affine form
+\[
+ \Phi_{G,Q}(\alpha)=G+(\alpha-1)(G\circ\ind_Q),
+\]
+so each image is a smooth circle with nonzero derivative $ie^{it}(G\circ\ind_Q)$. A nonroot point lies on exactly one image and is a positive distance from the other finitely many compact images and root points. Locally it is therefore one smooth arc. A root incident with $b$ circles has $2b$ local branches; each incident circle can use the root itself as seed and has tangent line $\R(iG\circ\ind_Q)$. Distinct incident rectangles give distinct tangent lines. These actual branch lines need not fill the linearized kernel.
+
+If $c_m$ is the number of distinct circles and $b(G)$ the number of compatible rectangles at a seed, each circle has precisely $m$ seed-rectangle representations, so
+\[
+ \sum_{G\text{ a seed}}b(G)=mc_m,\qquad\deg(G)=2b(G).
+\]
+No quotient by matrix equivalence is taken; such a quotient would require separate stabilizer analysis.
+
+\subsection{Boundary and prime-order cautions}
+At $m=2$, the dephased Fourier matrix $F_4=(i^{ij})$ is Hadamard but has a nonreal entry, so odd rigidity cannot extend unchanged to even half-orders. Its invariant rectangular ratio $i$ also prevents conversion to a real seed using only row and column phases. The classical real seed in Proposition~\ref{prop:orderfour} has the compatible rectangle $R=\{1,3\}$, $S=\{2,3\}$ (zero-based labels), and produces a classical order-four phase family. For each cross-group pair, the two ratios on $S$ are $1,-1$, directly verifying compatibility. No general existence at even $m>2$ follows.
+
+For odd prime $p$, an exact first-power Hadamard matrix with entries in $\mu_p$ automatically has each ratio root twice: its count polynomial $f(X)=\sum_{r=0}^{p-1}N_rX^r$ vanishes at $\zeta_p$ and has degree at most $p-1$, so it is a rational multiple of $\Phi_p(X)=1+\cdots+X^{p-1}$. Its coefficient sum is $2p$, fixing the multiple to two. This argument concerns integer counts, not arbitrary real tangent coefficients. For composite odd $m$, a single Butson condition does not replace the full power range here. At $m=3$, $F_6$ fails the second-power requirement because its square has repeated rows. At $m=4$, our range also requires power three and therefore cannot establish order-eight S-Hadamard nonexistence from assumptions on powers one and two alone.

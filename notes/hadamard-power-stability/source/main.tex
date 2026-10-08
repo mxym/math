@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\hypersetup{pdftitle={Quantitative stability and local error exponents for power Hadamard matrices},pdfsubject={Analytical research manuscript},pdfkeywords={power Hadamard matrices, quantitative stability, tangent kernel, rectangle graph}}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[2]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\mx}{\mathrm{max}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GH}{\operatorname{GH}}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\Had}[2]{#1^{\circ #2}}
+\title{Quantitative stability and local error exponents for power Hadamard matrices}
+\author{}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $H$ be a unit-modulus matrix of order $2m$, and measure the largest unnormalized operator-norm orthogonality residual among its entrywise powers $1,\ldots,m-1$. For every $m\ge2$, a residual at most $2^{-24}m^{-3}$ gives an exact solution at dephased maximum-entry distance at most $512\sqrt{\eps/m}$, together with a certified cyclic generalized Hadamard seed and, when needed, a compatible phase rectangle. For odd $m$, nearest-root rounding itself produces the seed. A rectangle graph computes the entire simultaneous first-order kernel and supplies polynomial local conditioning. We classify second-order liftable velocities and the best local error exponent at every labelled exact point. For the classical quadratic mutually unbiased basis family at odd primes, the graph has diameter at most seven, giving the explicit linear rate $56H_{p-1}\eps/p$. The global square-root exponent is necessary already at order four. General connectedness at odd half-orders and new seed existence remain open. The exact classification and phase-circle geometry used here retain their external attribution; no historical-priority claim is made.
+\end{abstract}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+\input{sections/01-introduction}
+\input{sections/02-quantitative-core}
+\input{sections/03-global-stability}
+\input{sections/04-integer-tangent}
+\input{sections/05-rectangle-graph}
+\input{sections/06-component-obstructions}
+\input{sections/07-quadratic-family}
+\input{sections/08-second-order}
+\input{sections/09-local-exponents}
+\input{sections/10-discussion}
+\appendix
+\input{sections/appendix-exact-geometry}
+\input{sections/appendix-certificates}
+\input{references}
+\end{document}

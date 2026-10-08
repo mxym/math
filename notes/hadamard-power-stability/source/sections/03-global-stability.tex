@@ -1,0 +1,154 @@
+\section{Global stability and sharpness}\label{sec:global}
+\subsection{Odd half-order and a half-integer trace}
+\begin{theorem}[Odd half-order rounding]\label{thm:odd}
+Let $m\ge3$ be odd and $H$ have exactly unit-modulus entries. If
+\begin{equation}\label{eq:global-threshold}
+ \eps(H)\le2^{-24}m^{-3},
+\end{equation}
+nearest-$m$th-root rounding of its labelled dephasing $K$ gives a dephased cyclic $\GH(m,2)$ seed $G$, and
+\begin{equation}\label{eq:odd-distance}
+ \norm{K-G}_\mx\le512\sqrt{\eps/m}.
+\end{equation}
+Undoing the same dephasing gives an exact $H_{\rm exact}$ at the same maximum-entry distance from $H$. If no cyclic $\GH(m,2)$ seed exists, every such $H$ has $\eps(H)>2^{-24}m^{-3}$.
+\end{theorem}
+\begin{proof}
+First take $\eps>0$. If $s>8\delta$, use the blocks from Section~\ref{subsec:rectangle}. The top principal block of $KK^*-2mI$ gives
+\[
+ E=AA^*+BB^*-2mI,\qquad\norm E_\op\le\eps.
+\]
+Set $P=AA^*/(2m)$. It is positive semidefinite and $\tr P=m/2$ exactly, because all $m^2$ entries of $A$ have modulus one. Moreover
+\[
+ P^2-P=\frac{AA^*E-A(A^*B)B^*}{(2m)^2}.
+\]
+The bounds $\norm A_\op^2,\norm B_\op^2\le2m+\eps$ and~\eqref{eq:half-sum} give
+\begin{equation}\label{eq:approxproj}
+ \norm{P^2-P}_\op\le\frac{2m+\eps}{4m^2}
+       \left(\eps+\frac{128m^2\eps}{s}\right).
+\end{equation}
+For every $\lambda\ge0$, $\dist(\lambda,\{0,1\})\le2|\lambda(\lambda-1)|$. Rounding the $m$ eigenvalues of $P$ therefore produces an integer at distance at most $2m\norm{P^2-P}_\op$ from $m/2$. Oddness implies
+\[
+ \norm{P^2-P}_\op\ge\frac1{4m}.
+\]
+For $\eps\le1/6$, comparison with~\eqref{eq:approxproj} yields
+\[
+ \frac13\le\eps+\frac{128m^2\eps}s,
+ \qquad s\le768m^2\eps.
+\]
+If also $\eps\le1/(9m^3)$, then $768m^2\eps\le256\sqrt{m\eps}=8\delta$, a contradiction. Threshold~\eqref{eq:global-threshold} implies both restrictions. Hence $s\le256\sqrt{m\eps}$, and~\eqref{eq:coarse} gives
+\begin{equation}\label{eq:rootpower}
+ \norm{K^{\circ m}-J}_\mx\le258\sqrt{m\eps}.
+\end{equation}
+For any unit $z$, its nearest $m$th root $g$ satisfies
+\begin{equation}\label{eq:angle-bound}
+ |z-g|\le\frac\pi{2m}|z^m-1|.
+\end{equation}
+Indeed choose the reduced angle $\theta\in[-\pi/m,\pi/m]$ and use $2\sin(m|\theta|/2)\ge2m|\theta|/\pi$. Rounding $K$ entrywise therefore gives
+\[
+ q_0=\norm{K-G}_\mx\le129\pi\sqrt{\eps/m}<512\sqrt{\eps/m}.
+\]
+The threshold gives $q_0\le1/(8m^2)$, so every nearest root is unique and the initial row and column stay $1$.
+
+For distinct rows $a,b$ and $1\le k<m$, telescoping unit powers gives
+\begin{align}
+ \abs{\sum_j(G_{aj}\overline{G_{bj}})^k}
+ &\le\eps+4mkq_0\nonumber\\
+ &\le\eps+\frac{m-1}{2m}<1.\label{eq:integer-round}
+\end{align}
+Let $N_r$ count ratios equal to $\zeta_m^r$. Their sum is $2m$, and Fourier inversion gives the integer
+\[
+ N_r-2=\frac1m\sum_{k=1}^{m-1}
+ \left[\sum_j(G_{aj}\overline{G_{bj}})^k\right]\zeta_m^{-kr}.
+\]
+By~\eqref{eq:integer-round} its modulus is strictly less than $1$, hence it is zero. This proves the full seed condition, also when $m$ is composite. If $\eps=0$, the exact classification in Appendix~\ref{app:exact} gives $K=G$ directly. Finally
+\[
+ (H_{\rm exact})_{ij}=\frac{H_{i0}H_{0j}}{H_{00}}G_{ij}
+\]
+is exact and has the asserted distance. The nonexistence gap is the strict contrapositive of this construction; no distance to an empty exact set is assigned.
+\end{proof}
+For the normalized residual $\rho=\max_k\norm{H^{\circ k}(H^{\circ k})^*/(2m)-I}_\op$, the hypothesis is $\rho\le2^{-25}m^{-4}$ and the distance bound is $512\sqrt{2\rho}$. If instead every off-diagonal \emph{row} correlation is bounded by $\eta$, the Hermitian row-sum bound gives $\eps\le(2m-1)\eta$. No equality of row and column maximum-entry residuals is assumed.
+
+\subsection{All half-orders and certified compatibility}
+\begin{theorem}[All half-orders]\label{thm:all}
+For every $m\ge2$, a unit-modulus $H$ satisfying~\eqref{eq:global-threshold} has a dephased cyclic $\GH(m,2)$ seed $G$ and either $T=G$ or $T=\Phi_{G,Q}(\alpha)$ for a compatible rectangle $Q$ and a unit $\alpha$, such that
+\[
+ \norm{K-T}_\mx\le512\sqrt{\eps/m}.
+\]
+The construction certifies both the actual seed and compatibility. The same nonexistence residual gap holds if no seed exists at $m$.
+\end{theorem}
+\begin{proof}
+For $\eps=0$ use Appendix~\ref{app:exact}; assume $\eps>0$. If $s\le8\delta$,~\eqref{eq:coarse} gives~\eqref{eq:rootpower}, and the root rounding and integer Fourier certificate above are parity-free. Thus $T=G$ works.
+
+Suppose $s>8\delta$. Use~\eqref{eq:coarserectangle} and choose $\alpha^m=x$. Divide entries on $R\times S$ by $\alpha$ and round all entries to $\mu_m$, obtaining $G$. Put $T=\Phi_{G,R\times S}(\alpha)$. By~\eqref{eq:angle-bound},
+\begin{equation}\label{eq:circlecoarse}
+ q_0=\norm{K-T}_\mx\le17\pi\sqrt{\eps/m}<64\sqrt{\eps/m}.
+\end{equation}
+The initial indices are outside $R,S$, so both matrices are dephased.
+
+For two rows in the same group the block phase cancels. Each nontrivial Fourier sum of the root ratios is bounded by
+\[
+ \eps+4mkq_0\le\eps+256k\sqrt{m\eps}<1.
+\]
+The integer argument certifies multiplicity two for all these pairs.
+
+Take a cross-group pair $a\in R,b\notin R$. Active-row matching and~\eqref{eq:coarserectangle} give $|d_a-x|\le\delta/4$ and $|d_b-1|<\delta$. The actual row-ratio product $d=d_a/d_b$ thus satisfies
+\[
+ t=|d-1|\ge s-5\delta/4>s/2\ge\delta.
+\]
+Outside $S$, the ratio's $m$th power is within $9\delta/8$ of $1$. Lemma~\ref{lem:matching} matches it with power error at most $\delta/16$; it cannot belong to the $d$-polygon because $t-\delta/16>9\delta/8$. The $m$ outside entries therefore match bijectively to $\mu_m$ and the $m$ inside entries to the other polygon. For $1\le k<m$, each actual restricted sum has modulus at most $128mk\eps/s$.
+
+Dividing the rectangle by $\alpha$ rotates one restricted sum, and rounding changes either by at most $2mkq_0$. Hence either restricted root sum in $G$ has modulus at most
+\begin{equation}\label{eq:restricted-integer}
+ \frac{128mk\eps}{s}+2mkq_0
+ <129k\sqrt{m\eps}\le\frac{129}{4096}<1.
+\end{equation}
+For either set of $m$ columns, the zeroth Fourier coefficient of its root counts is $m$. Formula~\eqref{eq:restricted-integer} makes each integer $N_r-1$ have modulus less than $1$. Thus every root occurs once on each half. This proves both that $G$ is a seed and that the rectangle is compatible. The exact compatible-circle construction proves $T\in\mathcal X_m$, and~\eqref{eq:circlecoarse} is stronger than required. Undoing dephasing preserves distance, and the gap again follows by contraposition.
+\end{proof}
+
+\subsection{Linear stability away from root intersections}
+\begin{proposition}\label{prop:nonroot}
+Under~\eqref{eq:global-threshold}, if $s>256\sqrt{m\eps}$, the circle point constructed above satisfies
+\begin{equation}\label{eq:nonrootlinear}
+ \norm{K-T}_\mx\le512\eps/s.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Put $h_0=64m\eps/s$. In the coarse rectangle, active row products are within $\delta/4$ of $x$ and active column products within $\delta/8$ of $x$, so their separations from $1$ are at least $s/2$. Reapply Lemma~\ref{lem:matching}: active rows and columns now have phase-power matching error at most $2h_0$, while the original maximizing row has error at most $h_0$. The separated coarse supports cannot switch.
+
+For $j\in S$, comparison at the maximizing row gives $|c_j-x|\le3h_0$, hence $|L_{ij}-x|\le5h_0$ on the rectangle. Both off-rectangle strips have $|L_{ij}-1|\le2h_0$. For a top-left entry $(b,j)$, compare row $b$ with the maximizing row $a$. The ratio product $x/d_b$ has separation at least $s-\delta>s/2$. Its $m$th power at $j$ is within $9\delta/8$ of $1$ by the coarse estimate, and therefore belongs to the one-polygon. Improved matching bounds its error by $2h_0$. Since $|L_{aj}-1|\le h_0$, we get $|L_{bj}-1|\le3h_0$.
+
+The whole power-pattern error is at most $5h_0=320m\eps/s$. Equation~\eqref{eq:angle-bound} yields
+\[
+ \norm{K-T}_\mx\le\frac\pi{2m}5h_0=160\pi\eps/s<512\eps/s.
+\]
+Nearest-root uniqueness at the coarse threshold identifies the same seed and rectangle as in Theorem~\ref{thm:all}.
+\end{proof}
+At a nonroot exact point $s=|\alpha^m-1|>0$. Thus the deterioration of the explicit local linear constant is displayed as one approaches a root intersection.
+
+\subsection{A genuine square-root obstruction at order four}
+\begin{proposition}\label{prop:orderfour}
+Let
+\[
+ G=\begin{pmatrix}1&1&1&1\\1&-1&1&-1\\1&1&-1&-1\\1&-1&-1&1\end{pmatrix},\qquad
+ K(t)=\begin{pmatrix}
+ 1&1&1&1\\1&-e^{it}&e^{2it}&-e^{it}\\
+ 1&e^{2it}&-e^{it}&-e^{it}\\1&-e^{it}&-e^{it}&e^{2it}
+ \end{pmatrix}.
+\]
+Then
+\[
+ \eps(K(t))=6(1-\cos t)\le3t^2,
+ \qquad \dist_\mx(K(t),\mathcal X_2)\ge2t/\pi\quad(0<t\le1/4).
+\]
+Consequently no exponent larger than $1/2$ can replace the square root uniformly over the class containing even half-orders, already at $m=2$.
+\end{proposition}
+\begin{proof}
+Before dephasing, multiply entries $(0,0),(1,2),(2,1),(3,3)$ of $G$ by $e^{it}$ and swap columns $1,2$. The resulting matrix is $A+(e^{it}-1)I$, where $A$ is real symmetric Hadamard with diagonal all one and eigenvalues $2,2,2,-2$. Its Gram error is $2(\cos t-1)(A-I)$, of norm $6(1-\cos t)$. Undoing the permutation and dephasing gives the displayed $K(t)$ and preserves the residual.
+
+Every exact circle through $G$ changes only one $2\times2$ rectangle. At least one of the nine noninitial cells is outside it, and every such cell has phase $t$ or $2t$ in $K(t)$. Its distance is at least $2t/\pi$.
+
+A circle not through $G$ has distance at least $\sqrt2$ from $G$. Outside its rectangle the seed signs are fixed, and a disagreement costs $2$. If there is no such disagreement, either all seed-to-$G$ ratios on the rectangle are the same sign, so the circle contains $G$, or both signs occur. In the latter case $\max(|\alpha-1|,|\alpha+1|)\ge\sqrt2$ for every unit $\alpha$. Since $\norm{K(t)-G}_\mx\le2t$, a nonincident circle has distance at least $\sqrt2-2t>2t/\pi$ in the stated range. Other root points are separated as well. Exhaustiveness of the finite-circle classification now proves the distance lower bound.
+\end{proof}
+This does not prove square-root sharpness at odd half-order. The order-four family and its intersecting branches are classical; no historical priority is asserted for this residual curve.
+
+\paragraph{Scalar sharpness is insufficient for matrix sharpness.}
+There is also a scalar square-root example: take two copies of each $m$th root, keep both copies of $1$ fixed, and replace the two copies of another root $\zeta_m$ by $\zeta_me^{it},\zeta_me^{-it}$. The moment errors are $2\zeta_m^k(\cos(kt)-1)=O_m(t^2)$. The bottleneck distance to a union of two regular $m$-gons is bounded below by a positive multiple of $|t|$ for small $t$: unchanged roots force both rotation parameters close to zero, whereas the split root forces one a distance comparable to $t$ away. This scalar obstruction alone says nothing about simultaneous matrix row and column conditions; those may remove the first-order split directions.

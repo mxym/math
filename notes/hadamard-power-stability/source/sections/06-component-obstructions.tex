@@ -1,0 +1,57 @@
+\section{Component-weight obstructions at odd half-order}\label{sec:obstructions}
+Let $W$ be the zero-one indicator of any union of rectangle-graph components of a seed $G$. Its row and column weights equal the same integer $c$.
+
+\begin{lemma}\label{lem:evenintersection}
+Any two distinct row supports of $W$ have even intersection; the same holds for columns. In particular, over $\F_2$,
+\[
+ WW^{\mathsf T}=(c\bmod2)I.
+\]
+\end{lemma}
+\begin{proof}
+For distinct rows $a,b$, the ratio pairing sends a common-support column $j$ to its unique other equal-ratio column $\ell$. Diagonal component invariance gives $W_{a\ell}=W_{bj}=1$ and $W_{b\ell}=W_{aj}=1$, partitioning the common support into pairs. The column proof is identical; the diagonal of the displayed product is $c\bmod2$.
+\end{proof}
+
+\begin{proposition}\label{prop:weightsmall}
+A union of components with row weight $c=1$ or $c=2$ forces $n=2m$ to be a square. Thus these weights are impossible when $m$ is odd.
+\end{proposition}
+\begin{proof}
+Put $A=G\circ W$. Pairing the two columns of every ratio class and swapping them shows that the corresponding sums weighted by $W_{aj}$ and $W_{bj}$ coincide. Hence $AG^*=GA^*$, so
+\[
+ P=AG^*/\sqrt n
+\]
+is Hermitian. From $GG^*=G^*G=nI$ and $AG^*=GA^*$ one obtains $G^*A=A^*G$, and consequently
+\begin{equation}\label{eq:component-spectral}
+ P^2=AA^*,\qquad\tr P=c\sqrt n.
+\end{equation}
+If $c=1$, then $A$ is a unitary monomial matrix. Thus $P^2=I$, its eigenvalues are $\pm1$, and~\eqref{eq:component-spectral} makes $\sqrt n$ an integer.
+
+If $c=2$, even intersections force overlapping row supports to coincide. Column weight two then makes $W$, after row and column permutations, a block-diagonal union of $2\times2$ all-ones blocks. The corresponding $G$ block has rank one: the two common columns must be paired with each other by the equal-ratio pairing. Each block of $A$ has singular values $2,0$. Thus the spectrum of $P$ lies in $\{0,2,-2\}$, and $\tr P=2\sqrt n$ again forces $\sqrt n$ to be an integer. Odd $m$ gives $n\equiv2\pmod4$, which is not a square.
+\end{proof}
+The Hermitian structure is produced by the component relation and the factor $A$; no assertion that an arbitrary complex Hadamard matrix can be made Hermitian is used.
+
+\begin{proposition}\label{prop:weightmod4}
+For odd $m$, no union of components has row weight $c\equiv3\pmod4$.
+\end{proposition}
+\begin{proof}
+For odd $c$, Lemma~\ref{lem:evenintersection} makes $W$ invertible over $\F_2$. Write its rows as $w_i$. Inclusion-exclusion for XOR Hamming weight gives, for $x\in\F_2^n$,
+\[
+ \operatorname{wt}\left(\sum_ix_iw_i\bmod2\right)
+ \equiv c\operatorname{wt}(x)\pmod4.
+\]
+Indeed pair intersections are even, annihilating their coefficient-two terms modulo four, and all higher terms have coefficients divisible by four. Since $x\mapsto xW$ is a bijection,
+\[
+ (1+i)^n=\sum_xi^{\operatorname{wt}(xW)}=(1+i^c)^n.
+\]
+If $c\equiv3\pmod4$, this gives $(1+i)^n=(1-i)^n$, hence $i^n=1$ and $4\mid n$, contradicting odd $m$.
+\end{proof}
+The underlying binary quadratic-form/Gauss-sum identity is elementary and is not claimed as novel.
+
+\begin{corollary}\label{cor:m3}
+At odd half-order, every component has row weight at least four. Every cyclic $\GH(3,2)$ has connected rectangle graph and zero simultaneous tangent kernel, without a seed classification.
+\end{corollary}
+\begin{proof}
+Weights $1,2$ are excluded by Proposition~\ref{prop:weightsmall}, and weight $3$ by Proposition~\ref{prop:weightmod4}. A disconnected graph at $m=3$ would have a component of weight at most three because the weights sum to six.
+\end{proof}
+The exclusion is exactly $c\in\{1,2\}$ or $c\equiv3\pmod4$; it does \emph{not} exclude the entire residue classes one and two. For instance the abstract partitions $4+6$ and $5+5$ at $m=5$ remain possible under these restrictions.
+
+Because every union obeys Proposition~\ref{prop:weightmod4}, no component of weight one modulo four can coexist with one of weight two modulo four, and there are at most two components of weight one modulo four. Since the total weight is two modulo four, either exactly two weights are one modulo four and all others are zero modulo four, or all weights are even with an odd number equal to two modulo four. These are necessary conditions, not a construction or classification. The weight-one spectral obstruction was independently suggested during the original collaborative development; the full argument, weight-two extension, and binary obstruction are preserved here.

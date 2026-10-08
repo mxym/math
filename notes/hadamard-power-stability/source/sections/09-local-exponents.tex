@@ -1,0 +1,73 @@
+\section{The best local exponent at every exact point}\label{sec:local}
+\begin{definition}\label{def:exponent}
+Fix $K_0\in\mathcal X_m$. An exponent $\alpha>0$ is valid locally if there is a neighborhood of $K_0$ in the unit-modulus dephased matrices and a finite constant $C$ such that every $K$ in that neighborhood satisfies
+\[
+ \dist_\mx(K,\mathcal X_m)\le C\eps(K)^\alpha.
+\]
+The neighborhood and constant may depend on $K_0$. The best local exponent is the supremum of these $\alpha$.
+\end{definition}
+
+\begin{theorem}\label{thm:local}
+At a root seed $G$, let $r$ be its number of rectangle-graph components and $b$ its number of compatible rectangles. The best local exponent equals $1$ if $r=1$, or if $r=2,b=1$; it equals $1/2$ in all other cases. At every nonroot exact point it equals $1$.
+\end{theorem}
+When $r=2$, the sign test in~\eqref{eq:signassignment} allows at most one compatible rectangle. Thus a smooth circle with its one-dimensional tangent kernel is distinguished from a smooth circle with additional obstructed first-order directions.
+
+\subsection{Explicit linear estimates at the two root types}
+Write $K=G\circ e^{iX}$ in dephased small principal phases, and put $x=\norm X_\mx$.
+
+If $r=1$, the restriction
+\begin{equation}\label{eq:rootradiusone}
+ x\le1/(128m^3)
+\end{equation}
+is sufficient for
+\begin{equation}\label{eq:rootlinearone}
+ \dist_\mx(K,\mathcal X_m)\le48h\eps.
+\end{equation}
+Indeed $y\le4x$ and $D<6m$, so~\eqref{eq:rootradiusone} implies the absorption radius in Section~\ref{sec:graph}; equation~\eqref{eq:graphlinear} then proves~\eqref{eq:rootlinearone}.
+
+Suppose $r=2,b=1$ and let $Q$ be the compatible rectangle. The two components are exactly the positive and negative cells of its balanced rank-one sign matrix. Each has row weight $m$ and diameter at most $3m-1$. In this case
+\begin{equation}\label{eq:rootradiustwo}
+ x\le1/(8192hm^4)
+\end{equation}
+implies that some exact circle point $T$ through $G$ satisfies
+\begin{equation}\label{eq:rootlineartwo}
+ \norm{K-T}_\mx\le24h\eps.
+\end{equation}
+
+Here is the full quantitative transverse argument. Let $D$ be the larger component diameter. Double-center $X$ and subtract its two component means, which are opposites because component sizes agree. Dephase the component-constant part to write
+\[
+ X=\beta\ind_Q+Z,\qquad |\beta|\le16x,\qquad z=\norm Z_\mx\le17x.
+\]
+The centered version of $Z$ has mean zero on each component. For the derivative $\mathcal D_G$ of the all-power row Gram map, with output norm the maximum operator norm over powers, the linear edge argument on each component gives
+\begin{equation}\label{eq:transversecoercivity}
+ z\le C_0\norm{\mathcal D_G(Z)},\qquad C_0=4Dh/m<12h.
+\end{equation}
+The column derivative has the same norm: at an exact Hadamard matrix it is a unitary conjugate of the row derivative. This accounts for the row-and-column edge estimate and the dephasing factor four.
+
+Let $T=G\circ e^{i\beta\ind_Q}$, which is exact, and let $\mathcal F$ denote the tuple of power Gram residuals. Direct differentiation and Taylor's inequality give
+\begin{align*}
+ \norm{(\mathcal D_T-\mathcal D_G)(Z)}&\le B|\beta|z,\\
+ \norm{\mathcal F(T\circ e^{iZ})-\mathcal D_T(Z)}&\le Bz^2,
+ \qquad B=2n^2(m-1)^2\le8m^4.
+\end{align*}
+For the first bound, use $|e^{ik\beta\Delta(\ind_Q)}-1|\le k|\beta|$ and $|\Delta Z|\le2z$ entrywise, sum $n$ terms, and bound an $n\times n$ operator norm by $n$ times its maximum entry. The second bound uses the same quadratic Taylor remainder as before. Equation~\eqref{eq:transversecoercivity} now yields
+\[
+ z\le C_0\eps+C_0B(|\beta|+z)z.
+\]
+Since $|\beta|+z\le33x$,~\eqref{eq:rootradiustwo} gives
+\[
+ C_0B(33x)<\frac{(12h)(8m^4)33}{8192hm^4}<\frac12.
+\]
+Absorb to obtain $z\le2C_0\eps<24h\eps$, proving~\eqref{eq:rootlineartwo}. These are local phase-radius estimates; no residual-only entrance condition selecting a prescribed even-order root neighborhood is asserted.
+
+\subsection{Sharpness in every other root case}
+The kernel dimension is $r-1$. If $r=2,b=0$, every nonzero kernel vector lies outside the exact tangent cone. If $r\ge3$, the kernel has dimension at least two while the cone is a finite union of compatible-rectangle lines, so again select $X$ outside it. Along $K(t)=G\circ e^{itX}$ the residual is $O_{m,X}(t^2)$.
+
+The exact local set is the finite union of incident smooth circles and the root point, by Appendix~\ref{app:exact}. The chosen velocity has positive angle from every incident tangent line, so its distance from that local union is at least $c_X|t|$ for sufficiently small $t$. Nonincident compact exact components have a positive fixed distance from $G$. Thus no exponent greater than $1/2$ can hold. Theorem~\ref{thm:all} supplies exponent $1/2$.
+
+In the linear root cases, a direction transverse to the isolated point or the sole incident circle gives distance of order $|t|$ and residual $O(|t|)$, excluding exponents greater than one. This completes the root part of Theorem~\ref{thm:local}. It does not assert that any disconnected odd seed exists; if one is found, its lack of compatible rectangles automatically puts it in the square-root case.
+
+\subsection{Nonroot points}
+At a fixed nonroot point the separation $s$ tends to $|\alpha^m-1|>0$. Continuity ensures both the global small-residual threshold and $s>256\sqrt{m\eps}$ in a sufficiently small neighborhood. Proposition~\ref{prop:nonroot} then gives a local linear estimate. The local exact set is one smooth arc. A transverse phase perturbation has distance $\Omega(|t|)$ and residual $O(|t|)$, ruling out exponent greater than one and completing the theorem.
+
+Thus, at a supplied seed, the exponent is computable by forming the exact rectangle graph and counting components; only in the two-component case is the balanced rank-one sign test needed. No general Lojasiewicz exponent calculation is required.
