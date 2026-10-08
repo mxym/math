@@ -5,7 +5,7 @@ Standard Python 3.10+. No floating arithmetic, solver, random-number generator,
 optimizer or assert-based checks. All matrices have Gaussian-rational entries.
 """
 from fractions import Fraction as Q
-from itertools import combinations, permutations, product
+from itertools import combinations, permutations
 from dataclasses import dataclass
 
 
@@ -252,14 +252,128 @@ def shortcut_negative_control():
     return gap
 
 
+
+def check_two_flat_general_formula():
+    """Independent complex-rational replay of the general identity (27)."""
+    count = 0
+    for n in range(3, 9):
+        for seed in range(8):
+            U = [[z(Q((3*i+2*j+seed)%9-4, 5),
+                    Q((i*i+j*seed+2)%7-3, 4))
+                  for j in range(n)] for i in range(3)]
+            u, v, w = U
+            S, W, P = bosonic_collision(U)
+            aa = inner(u, v)
+            pu = [x.norm2() for x in u]
+            pv = [x.norm2() for x in v]
+            nu, nv = squared(u), squared(v)
+            rhs = 2 * sum(pu[j]*pv[j] for j in range(n))*squared(w)
+            rhs += 2 * sum((pu[j]*nv+pv[j]*nu)*w[j].norm2() for j in range(n))
+            rhs -= 12 * sum(pu[j]*pv[j]*w[j].norm2() for j in range(n))
+            rhs += 4 * sum(
+                ((u[j]*v[j].conj())*aa.conj()).x*w[j].norm2()
+                for j in range(n))
+            pw = [z(pu[j])*v[j] for j in range(n)]
+            qw = [z(pv[j])*u[j] for j in range(n)]
+            rhs += 4 * (
+                inner(pw,w)*inner(v,w).conj()+
+                inner(qw,w)*inner(u,w).conj()).x
+            equal(P-S, rhs, "general collision expansion n=%s seed=%s" % (n, seed))
+            count += 1
+    return count
+
+
+def two_flat_critical_checks():
+    """Two flat rows, fully arbitrary complex-rational third row."""
+    count = 0
+    for seed in range(176):
+        u, v = phase_sample(6,seed)[:2]
+        w = [
+            z(Q((j+3*seed)%13-6,7), Q((j*j+2*seed)%11-5,9))
+            for j in range(6)]
+        if seed%3 == 0:
+            w[seed%6] = ZERO
+        if seed%5 == 0:
+            u = [ui*z(2,1) for ui in u]
+        if seed%7 == 0:
+            v = [vi*z(3,-2) for vi in v]
+        U = [u,v,w]
+        S, W = energies3(U)
+        G = Gram3(U)
+        aa,bb,dd = G[0][1], G[1][2], G[2][0]
+        cyc = (aa*bb*dd).x
+        P = perm3(G).x
+        deficit = P-S
+        check(deficit >= Q(8,3)*cyc, "two-flat collision Theorem 7")
+        prod = squared(u)*squared(v)*squared(w)
+        check(S+Q(7,3)*W <= Q(10,3)*prod, "two-flat critical Corollary 8")
+        if seed%5 != 0 and seed%7 != 0:
+            # Original unnormalized collision identity with two unit-phase rows.
+            rhs = 24*squared(w) + 4*(inner(u,w).norm2()+
+                                    inner(v,w).norm2()) + 4*sum(
+                ((u[j]*v[j].conj())*aa.conj()).x*w[j].norm2()
+                for j in range(6))
+            equal(deficit, rhs, "two-flat quadratic polynomial identity")
+        count += 1
+    flat = [[ONE]*6 for _ in range(3)]
+    S, W = energies3(flat)
+    G=Gram3(flat)
+    delta = perm3(G).x-S
+    cyc = (G[0][1]*G[1][2]*G[2][0]).x
+    equal(delta,Q(8,3)*cyc,"sharp universal two-flat coefficient")
+    check(delta < (Q(8,3)+Q(1,100))*cyc,
+          "sharp collision coefficient negative control")
+    equal(S+Q(7,3)*W,Q(10,3)*Q(6**3),
+          "sharp two-flat critical endpoint")
+    return count+1
+
+
+def check_rank_one_factorization():
+    """Exact bivariate integer polynomial verification of equation (36)."""
+    def const(c):
+        return {(0,0):int(c)} if c else {}
+    def plus(P,Q):
+        R=P.copy()
+        for k,v in Q.items():
+            R[k]=R.get(k,0)+v
+            if R[k]==0:del R[k]
+        return R
+    def neg(P):
+        return {k:-v for k,v in P.items()}
+    def minus(P,Q):
+        return plus(P,neg(Q))
+    def mul(P,Q):
+        R={}
+        for (i,j),a in P.items():
+            for (k,l),b in Q.items():
+                h=(i+k,j+l)
+                R[h]=R.get(h,0)+a*b
+        return {k:v for k,v in R.items() if v}
+    def scale(P,n):
+        return {k:n*v for k,v in P.items() if n*v}
+    one=const(1);m={(1,0):1};A={(0,1):1}
+    m2=mul(m,m)
+    den=mul(m2,minus(mul(plus(const(5),scale(m2,4)),A),const(3)))
+    k=minus(one,mul(plus(one,scale(m2,2)),A))
+    fourm2=minus(scale(m2,4),one)
+    left=minus(den,mul(fourm2,minus(mul(A,den),mul(k,k))))
+    right=mul(mul(minus(one,m2),
+                  plus(one,mul(minus(scale(m,2),one),A))),
+              minus(mul(plus(scale(m,2),one),A),one))
+    equal(left,right,"exact bivariate polynomial factorization (36)")
+    return len(left)
+
 def main():
     print("Gaussian-rational independent replay; integers/Fraction only")
     print("flat-formula/objective checks:",flat_bound_checks())
     print("coordinate-row checks:",coordinate_checks())
     print("Johnson-incidence checks:",johnson_checks())
     print("all-width high-determinant checks:",high_weight_checks())
+    print("general three-row collision formula checks:",check_two_flat_general_formula())
+    print("sharp two-flat critical checks:",two_flat_critical_checks())
+    print("rank-one inversion factor identity monomials:",check_rank_one_factorization())
     print("stronger Gram shortcut is false, exact gap:",shortcut_negative_control())
-    print("PASS: all exact checks; n=3..10; NO general six-row certificate claimed")
+    print("PASS: exact all-n formula checks and two-flat six-column tests; unrestricted six-row case OPEN")
 
 
 if __name__=="__main__":

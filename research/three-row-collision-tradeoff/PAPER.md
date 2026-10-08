@@ -256,8 +256,10 @@ three-by-six rectangular estimate
 \tag{19}
 \]
 were established. This research note does **not** prove (19).
-Theorem 3 covers arbitrary phases at flat moduli, and Proposition 5
-covers the coordinate-row face; Theorem 2 covers all-row weights
+Theorem 7 below extends the critical result to any matrix with
+**at least two separately equimodular rows**, with no restriction
+on the third row. Proposition 5 covers the coordinate-row face;
+Theorem 2 covers all-row weights
 \(c\ge5\), which is insufficient.
 
 For normalized rows and the collision deficit
@@ -309,3 +311,241 @@ external solver. Its finite checks are NOT a substitute for Sections
 1–5, which prove the infinite statements mathematically.
 No novelty priority, external peer-review, or Lean formalization is
 claimed; the general critical six-row claim remains open.
+
+## 8. Sharp collision inequality with only **two** equimodular rows
+
+The preceding full flat-modulus optimization assumed that **all three**
+rows have constant coordinate moduli. We now remove that condition
+entirely from the **third** row in the critical six-column dimension.
+This gives a more substantial portion of the conjectured (19) and,
+unlike a numerical search, provides a rigorous all-complex proof.
+
+**Theorem 7 (two-flat-row collision theorem; sharp constant).**
+Suppose \(U\in\mathbb C^{3\times6}\) has two rows whose respective
+six coordinate moduli are equal (the two common moduli need not
+coincide). The third row is **arbitrary**. Then, with the notation
+of (2) and (5) for normalized nonzero rows,
+\[
+\boxed{\quad
+\Delta_6(U)\ge \frac83\,\Re\!\left(
+\langle u,v\rangle\langle v,w\rangle\langle w,u\rangle
+\right).\quad}
+\tag{22}
+\]
+Both sides scale by the product of row squared norms, so the statement
+also holds without normalization. The constant \(8/3\) is **best
+possible** for this class; with three nonzero rows, equality occurs
+**only** when the rows are parallel and equimodular.
+
+**Corollary 8 (full critical tradeoff on the two-flat-row locus).**
+For all matrices under Theorem 7,
+\[
+\boxed{\quad
+S_6(U)+\frac73\det(UU^*)
+\le\frac{10}{3}\|u\|^2\|v\|^2\|w\|^2.\quad}
+\tag{23}
+\]
+Apart from a zero row, equality occurs precisely for three parallel
+equimodular rows. In particular, **the third row is not required to be
+equimodular or nonvanishing in every coordinate** for (23).
+
+The proof is organized so its only nontrivial sign claim reduces to
+a factored identity in two real scalar variables.
+
+### 8.1. The exact two-flat collision formula
+
+After row normalization and a permutation of the rows, assume \(u,v\)
+are the two equimodular rows. Multiplying each column by a unimodular
+scalar leaves every squared permanent minor, Gram invariant and
+determinant minor unchanged. We may therefore arrange
+\[
+u=f=\frac1{\sqrt6}(1,\ldots,1),\qquad
+v=\frac1{\sqrt6}(r_1,\ldots,r_6),\quad |r_j|=1.
+\tag{24}
+\]
+Multiplying \(v\) by a scalar of modulus one, arrange further that
+\[
+m:=\frac16\sum_{j=1}^6r_j\in[0,1]\text{ is real},\qquad
+\langle u,v\rangle=m.
+\tag{25}
+\]
+The vector \(w\in\mathbb C^6\) is entirely unrestricted and need not be
+normalized in the intermediate quadratic-form argument.
+
+**Lemma 9.** Under (24)--(25),
+\[
+\boxed{\displaystyle
+\Delta_6(f,v,w)=\frac23\left(
+\|w\|^2+|\langle w,f\rangle|^2
++|\langle w,v\rangle|^2
++m\sum_{j=1}^6\Re(r_j)|w_j|^2\right).}
+\tag{26}
+\]
+
+**Proof.** Apply the exact collision identity (10) to the rows
+\(f,v,w\). In the intermediate expression
+\(\sum_j\|q_j\|^2\), the terms quadratic in \(w\) can be
+collected without assuming anything about the moduli of its entries.
+For arbitrary normalized \(u,v\), let
+\(a=\langle u,v\rangle\) and \(p_j=|u_j|^2,q_j=|v_j|^2\).
+Direct expansion of (10), grouping the diagonal and off-diagonal
+coordinate products, yields
+\[
+\begin{aligned}
+\Delta_n(u,v,w)
+={}&2\Big(\sum_jp_jq_j\Big)\|w\|^2
++2\sum_j(p_j+q_j)|w_j|^2
+-12\sum_jp_jq_j|w_j|^2\\
+&+4\sum_j\Re(u_j\overline{v_j}\,\overline a)|w_j|^2
++4\Re\!\left(
+\langle (p_jv_j)_j,w\rangle\,
+\overline{\langle v,w\rangle}
++\langle(q_ju_j)_j,w\rangle\,
+\overline{\langle u,w\rangle}\right).
+\end{aligned}
+\tag{27}
+\]
+This formula is an equality in complex arithmetic. When both
+\(u,v\) have modulus \(1/\sqrt6\), we have
+\(p_j=q_j=1/6\) and \(\sum p_jq_j=1/6\);
+the coefficient of \(\sum|w_j|^2\) from the first line is
+\(2/6+4/6-12/36=2/3\). The last line's two inner-product
+terms become \((2/3)(|\langle v,w\rangle|^2+
+|\langle u,w\rangle|^2)\), while the remaining diagonal
+term becomes \((2/3)m\sum_j\Re(r_j)|w_j|^2\).
+This is exactly (26). QED.
+
+### 8.2. Positive-definite rank-one comparison
+
+Put
+\[
+\beta=\langle w,v\rangle,\qquad
+d=\langle w,f\rangle,\qquad
+a_j=1+m\Re(r_j),\qquad z=v-2mf.
+\tag{28}
+\]
+Since \(t=m\Re(d\overline\beta)\), completing a scalar square
+in (26) gives the exact identity
+\[
+\boxed{\displaystyle
+\frac32\left(\Delta_6-\frac83t\right)
+=\sum_{j=1}^6a_j|w_j|^2
++|\langle w,z\rangle|^2
+-(4m^2-1)|\langle w,f\rangle|^2.}
+\tag{29}
+\]
+
+If \(0\le m\le1/2\), then \(a_j\ge1-m>0\) and
+\(4m^2-1\le0\), proving (22), strictly for nonzero \(w\).
+If \(m=1\), all \(r_j=1\), so \(v=f,z=-f,a_j=2\);
+the right side of (29) is
+\[
+2\big(\|w\|^2-|\langle w,f\rangle|^2\big)\ge0,
+\tag{30}
+\]
+with equality precisely when \(w\) is proportional to \(f\).
+
+It remains to treat \(1/2<m<1\). Write
+\(D=\operatorname{diag}(a_1,\ldots,a_6)\) and
+\(H=D+zz^*\). All \(a_j\ge1-m>0\), so \(H\)
+is positive definite. By the weighted Cauchy--Schwarz inequality,
+\[
+|\langle w,f\rangle|^2
+\le\langle f,H^{-1}f\rangle\,\langle w,Hw\rangle.
+\tag{31}
+\]
+It therefore suffices to prove
+\[
+(4m^2-1)\langle f,H^{-1}f\rangle\le1.
+\tag{32}
+\]
+
+Define three scalars
+\[
+A=\frac16\sum_j\frac1{a_j},\qquad
+B=\frac16\sum_j\frac{r_j-2m}{a_j},\qquad
+C=\frac16\sum_j\frac{|r_j-2m|^2}{a_j}.
+\tag{33}
+\]
+The rank-one inverse identity (obtained by directly multiplying
+\(D+zz^*\) by
+\(D^{-1}-D^{-1}zz^*D^{-1}/(1+z^*D^{-1}z)\))
+gives **exactly**
+\[
+\langle f,H^{-1}f\rangle=A-\frac{|B|^2}{1+C}
+\le A-\frac{(\Re B)^2}{1+C}.
+\tag{34}
+\]
+Let \(x_j=\Re(r_j)\). From (25), \(\sum_j x_j/6=m\),
+and \(a_j=1+mx_j\). The identity
+\(mx_j/a_j=1-1/a_j\) yields
+\[
+\frac16\sum_j\frac{x_j}{a_j}=\frac{1-A}{m}.
+\]
+Using \(|r_j|=1\) in the definitions of \(B,C\),
+\[
+\boxed{\quad
+\Re B=\frac{1-(1+2m^2)A}{m},\qquad
+1+C=(5+4m^2)A-3>0.\quad}
+\tag{35}
+\]
+
+Substitute (35) into the desired estimate (32). The difference
+between 1 and its **stronger** upper bound factorizes as
+\[
+\begin{aligned}
+&1-(4m^2-1)
+\left(
+A-\frac{[1-(1+2m^2)A]^2}
+{m^2[(5+4m^2)A-3]}
+\right)\\
+&\hspace{20pt}=
+\boxed{\displaystyle
+\frac{(1-m^2)\,[1+(2m-1)A]\,[(2m+1)A-1]}
+{m^2[(5+4m^2)A-3]}.}
+\end{aligned}
+\tag{36}
+\]
+Equation (36) is an elementary polynomial identity after
+clearing its positive denominator; an independent integer-polynomial
+checker is included in the companion code.
+
+Every factor on the right is **strictly positive** for
+\(1/2<m<1\): the denominator is positive by (35),
+\(1-m^2>0\), \(1+(2m-1)A>0\), and Jensen's
+inequality for the convex function \(x\mapsto1/(1+mx)\)
+gives
+\[
+A\ge\frac{1}{1+m(6^{-1}\sum_jx_j)}
+=\frac1{1+m^2},
+\qquad
+(2m+1)A-1
+\ge\frac{2m-m^2}{1+m^2}>0.
+\tag{37}
+\]
+Combining (34)--(37) proves (32) **with strict inequality**.
+Then (31) proves (29) nonnegative, strictly for nonzero \(w\).
+This completes the proof of Theorem 7. Sharpness occurs at
+\(u=v=w=f\), where \(\Delta_6=8/3\), \(t=1\);
+(30) proves the only nonzero equality class.
+
+**Proof of Corollary 8.** For normalized nonzero rows,
+(20), Theorem 7 and (3) give
+\[
+S_6+\frac73 W_6-\frac{10}{3}
+=\frac43(5t-s)-\Delta_6
+\le\frac43(3t-s)\le0.
+\tag{38}
+\]
+An equality case in (38) must attain equality in Theorem 7,
+and hence all rows are parallel and equimodular. Conversely,
+that family has \(S_6=10/3,W_6=0\).
+The statement with arbitrary row norms follows by homogeneity,
+and a zero row is a trivial equality case. QED.
+
+**Research boundary.** The proof treats all complex matrices with
+at least **two separately equimodular rows**, including wildly
+nonflat third rows. It does not establish the collision bound (21)
+or critical tradeoff (19) when **none or only one** of the
+three rows has constant coordinate moduli. Numerical eigenvalue
+experiments outside the proved locus are discovery-only.

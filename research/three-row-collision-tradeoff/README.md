@@ -1,9 +1,29 @@
 # Three-row collision energies: sharp infinite families
 
 [Complete written proof](PAPER.md) · [Independent exact checker](check_exact.py) ·
-[Frozen replay](results/check_exact.txt) · [Hashes](SHA256SUMS)
+[Frozen replay](results/check_exact.txt) · [Hashes](SHA256SUMS) ·
+[Proof audit](AUDIT.md)
 
-This paper proves for complex 3-by-n matrices, **all n >= 3**:
+**New sharp six-column result:** If **any two** of the three
+nonzero rows have constant coordinate moduli (with arbitrary complex
+phases and independent row normalizations), **the third row can be
+completely arbitrary**. The paper proves the sharp collision inequality
+\[
+\operatorname{per}(UU^*)-S_6(U)
+\ge\frac83\Re(\langle u,v\rangle
+\langle v,w\rangle\langle w,u\rangle)
+\]
+and hence the full critical
+\(S_6+(7/3)\det(UU^*)\le(10/3)\prod\|u_i\|_2^2\)
+on this two-flat-row locus, including exact equality.
+The proof uses a positive diagonal-plus-rank-one quadratic form,
+Jensen's inequality, and an **exact factored rational identity (36)**,
+verified as a bivariate integer-polynomial identity by the checker.
+No restriction on the third row's phases, magnitudes or zero entries
+is imposed.
+
+The other infinite-width results prove for complex 3-by-n matrices,
+**all n >= 3**:
 
 - The **exact phase-unrestricted flat-modulus Pareto envelope**, all
   nonnegative weights, and every equality class:
@@ -17,7 +37,7 @@ This paper proves for complex 3-by-n matrices, **all n >= 3**:
 - Complete coordinate-row reduction and an exact Johnson-incidence
   representation, including its complete all-n spectrum.
 
-At the **six-row critical coefficient 7/3**, the flat-modulus and
+At the **six-row critical coefficient 7/3**, the two-flat-row and
 coordinate-row cases are solved; the **unrestricted 3-by-6 inequality
 remains open**. The paper isolates the precise sufficient unproved
 collision deficit estimate and gives an exact counterexample to an
