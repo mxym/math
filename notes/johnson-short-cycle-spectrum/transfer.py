@@ -122,4 +122,7 @@ def test():
     print('EXACT TRANSFER IDENTITY VERIFIED',tests,'(degree,subset size,conjugacy type) combinations')
 
 
+if not __debug__:
+    raise RuntimeError('Run without -O: optimized Python disables assert checks')
+
 if __name__=='__main__':test()
