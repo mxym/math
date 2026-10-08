@@ -59,11 +59,11 @@ the six-generator sieve has \(93,312\) allowed residues modulo \(546\),
 partitioning into \(16,536\) lifted components, the largest of size
 \(74\).
 
-**Theorem C (fewest prime-ideal generators at the sharp eight-step
-period).** Restrict at \(Q=546\) to lists whose generators are irreducibles
-(up to associates). At least four generators are necessary. Exactly four
-are sufficient, and, up to associates and ordering, the four possible
-minimal lists are
+**Theorem C (four generators are necessary and sufficient).** At
+\(Q=546\), **every** successful principal-ideal sieve, even with
+composite nonzero nonunit generators, has at least four generators.
+Exactly four suffice. If the four generators are all irreducible,
+then, up to associates and ordering, the four possible lists are
 \[
  \{2,1-\omega,u,v\},\quad
  u\in\{3+\omega,2-\omega\},\quad
@@ -341,7 +341,42 @@ certificates to the infinite-lattice assertions. \(\square\)
 The six generators of mask \(63\) have common scalar period \(546\),
 so Lemma 5.2 closes the existence direction in Theorem B.
 
-*Proof of Theorem C.* At period \(546\), any irreducible generator
+**Lemma 5.3 (prime replacement at the optimal scalar period).**
+Let \(R\) be a unique-factorization domain in which each
+nonzero element divides some positive rational integer. Fix any
+translation-invariant step set and a successful finite principal-ideal
+sieve \(\mathcal G=\{g_1,\ldots,g_k\}\). For each \(j\), choose
+an irreducible factor \(\pi_j\mid g_j\). Then the list
+\(\mathcal P=(\pi_1,\ldots,\pi_k)\) is successful and
+\(Q(\mathcal P)\mid Q(\mathcal G)\). If
+\(Q(\mathcal G)=Q_0\) is the least successful scalar period
+among all principal sieves, then \(Q(\mathcal P)=Q_0\).
+Consequently the minimum number of generators among successful
+sieves at the optimal period is attained by an irreducible-generator
+sieve, even if composite generators were originally permitted.
+
+*Proof.* Divisibility gives
+\((g_j)\subseteq(\pi_j)\). Consequently the allowed lattice points
+for \(\mathcal P\) form a subset of those for \(\mathcal G\).
+Passing to an induced subgraph cannot create an infinite connected
+component when all original components are finite, so
+\(\mathcal P\) is successful. Because
+\(\pi_j\mid g_j\mid q(g_j)\), the least scalar period
+\(q(\pi_j)\) divides \(q(g_j)\): divide the latter by
+\(q(\pi_j)\) with remainder in \(\mathbb Z\), and use the
+minimality of \(q(\pi_j)\) for the zero remainder. Taking least
+common multiples gives
+\(Q(\mathcal P)\mid Q(\mathcal G)\).
+If \(Q(\mathcal G)=Q_0\), minimality forces
+\(Q(\mathcal P)\ge Q_0\), proving equality.
+The construction uses at most the same number of generators;
+duplicate prime factors can be discarded without affecting the
+generated sieve. \(\square\)
+
+*Proof of Theorem C.* By Lemma 5.3, to obtain a lower bound
+on the number of generators at the optimal period \(546\),
+it suffices to consider irreducible generators.
+At period \(546\), any irreducible generator
 \(g\) divides the rational integer \(546\). By (2.2)--(2.3) and the
 Eisenstein unique-factorization property it is an associate of one
 of the six \(g_i\). If \(g_0=2\) is omitted, all retained prime ideals
@@ -354,7 +389,22 @@ does so. Hence any successful list requires \(g_0,g_1\), at least one
 of \(g_2,g_3\), and at least one of \(g_4,g_5\). It uses at least
 four prime generators, and a four-generator list must be one of the
 four displayed in Theorem C. Their masks are respectively
-\(23,27,39,43\); each is successful by Lemma 5.2. \(\square\)
+\(23,27,39,43\); each is successful by Lemma 5.2.
+Lemma 5.3 extends the four-generator lower bound from prime lists
+to arbitrary composite lists. This proves Theorem C. \(\square\)
+
+**Corollary 5.4 (two generators are optimal for the six-unit sieve).**
+Among all successful principal sieves of optimal scalar period \(6\),
+at least two generators are necessary, even if composites are
+allowed. The pair \(\{2,1-\omega\}\) attains the bound.
+
+*Proof.* By Lemma 5.3, any one-generator successful sieve at the
+optimal period \(6\) could be replaced by a one-generator
+irreducible sieve of period \(6\). But an irreducible divisor
+of \(6\) is associate to either \(2\), of scalar period \(2\),
+or \(1-\omega\), of scalar period \(3\). No such generator has
+period \(6\). The two-generator example was proved successful
+in Section 3. \(\square\)
 
 ## 6. Exact largest components of irreducibles
 

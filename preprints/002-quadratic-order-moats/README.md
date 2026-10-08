@@ -49,7 +49,8 @@ A separate [exact Eisenstein graph research note](../../notes/eisenstein-prime-c
 proves global largest irreducible-element component sizes 48 for the
 six-unit step set and 132 for the full eight-neighbor step set, together
 with sharp principal-sieve scalar periods 6 and 546 and the sharp
-period's four-generator classification (for irreducible generators).
+period's universal four-generator lower bound, with classification
+for irreducible-generator lists.
 Complete finite proof witnesses and an independent integer checker
 are provided. This is an additive note; the v3 all-order and v4
 Gaussian/real-quadratic records remain unchanged.

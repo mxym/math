@@ -14,14 +14,18 @@ unit steps and the eight nearest coefficient-lattice steps.
 | Six Eisenstein units | 48, uniquely attained | at most 6 | 6 |
 | All eight nonzero \(\{-1,0,1\}^2\) coefficient steps | 132, uniquely attained | at most 74 | 546 |
 
-The optimal six-step sieve uses \(2\) and \(1-\omega\). Its allowed
-lattice is a disjoint union of six-cycles, also proved analytically.
+The optimal six-step sieve uses \(2\) and \(1-\omega\); two generators
+are also minimal even when composite generators are allowed.
+Its allowed lattice is a disjoint union of six-cycles, also
+proved analytically.
 The eight-step full sieve uses the six generators
 \(2,1-\omega,3+\omega,2-\omega,4+\omega,3-\omega\).
-At period \(546\), **four irreducible generators** are necessary and
-sufficient; all four minimal lists are classified in Section 5 of the
-paper. The four-generator minimality statement is *not* extended to
-arbitrary composite generators.
+At period \(546\), **at least four generators are necessary even when
+composite generators are allowed**, and four suffice. A general
+prime-factor replacement lemma proves this stronger lower bound.
+When the generators are irreducible, all four minimal lists are
+classified in Section 5. We do not classify the composite-generator
+four-element lists.
 
 The infinite results follow from explicit finite proofs:
 333 checked nonzero-displacement walks exclude every squarefree period

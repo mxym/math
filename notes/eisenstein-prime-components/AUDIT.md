@@ -75,8 +75,10 @@ independent theorem prover.
 
 The eight-step scalar-period result optimizes within **finite
 principal-ideal periodic sieves**, not nonperiodic blocking
-strategies. The four-generator classification is restricted to
-irreducible generators; composite lists are not classified.
+strategies. The **four-generator lower bound** includes composite generators
+via the prime-replacement lemma. Classification of which
+four-generator lists succeed is restricted to irreducibles;
+composite lists are not classified.
 The note treats only the specified two step sets and Eisenstein
 integers, not every quadratic order. It does not replace
 entry 002 v3's general existence argument. Finite arithmetic is exactly
