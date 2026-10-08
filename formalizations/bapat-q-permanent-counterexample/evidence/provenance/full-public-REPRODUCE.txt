@@ -1,0 +1,26 @@
+The original mathematical source is pinned to mxym/math commit
+c5d7f68e78b6c80912041c6cf1fd4d3cd950beb6.
+Lean: 4.34.1, commit 5045d0056413266e57c625dcd7c365b10e377c52.
+mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612.
+The exact remaining package pins and binary hashes are recorded in the
+environment manifests. Dependency binaries are not bundled.
+
+The preserved command list, complete own build outputs, source hashes,
+all-owned inventory, dependency graph, and kernel replay logs are under
+fresh-verification. RESULT.json and FORMAL_SCOPE.txt state the exact scope.
+
+For an independent rerun, copy verifier into a new writable working root,
+set only toolchain_path/packages_root/cache_root to the corresponding local
+pinned installations in config/environment.json, and create locks/ there.
+Copy formalization/verify.json and update only source_dir to the absolute
+location of formalization/sources. Keep all source hashes, audit modules,
+roots, trust rules, and package pins intact. Then invoke:
+  python3 verifier/bin/leanctl.py doctor
+  python3 verifier/bin/leanctl.py verify /absolute/path/to/verify.json
+The runner creates a new output directory and recompiles every own module.
+It rejects unexpected axioms and unsafe/partial owned declarations, replays
+the entire all-owned dependency closure from an empty trust-zero kernel,
+and runs an invalid-proof negative control.
+
+The proof uses a small positive real shift obtained by continuity. The paper's
+specific rational epsilon and q0 estimates are not formalized in this version.

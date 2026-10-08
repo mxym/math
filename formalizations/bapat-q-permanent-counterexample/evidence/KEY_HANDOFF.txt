@@ -1,0 +1,837 @@
+KEY SEMANTIC HANDOFF
+All following source sections are full, byte-preserved files.
+
+RESULT.json
+{
+  "status": "PASS_FULL_ORIGINAL_COMPLEX_HERMITIAN_BAPAT_COUNTEREXAMPLE",
+  "source_commit": "c5d7f68e78b6c80912041c6cf1fd4d3cd950beb6",
+  "csv_sha256": "9d16617d6eb287535a752cf5ef6f3d4672a133812bf0fbd908738a10c223fc25",
+  "run": "${RUN_ROOT}",
+  "replay": {
+    "trust_level": 0,
+    "status": "PASS",
+    "roots": [
+      {
+        "name": "BapatRankTwo.N200.originalBapatConjecture_false",
+        "closure_count": 21963
+      },
+      {
+        "name": "BapatRankTwo.N200.explicit_counterexample",
+        "closure_count": 21962
+      },
+      {
+        "name": "BapatRankTwo.N200.matrix_derivative_negative",
+        "closure_count": 13345
+      },
+      {
+        "name": "BapatRankTwo.rankTwo_fischer_inversion_identity",
+        "closure_count": 11748
+      },
+      {
+        "name": "BapatRankTwo.qPermanent_eq_ofReal_eval",
+        "closure_count": 9759
+      },
+      {
+        "name": "BapatRankTwo.N200.norm_gap_positive",
+        "closure_count": 1775
+      }
+    ],
+    "requested_root_union_count": 21986,
+    "owned_count": 928,
+    "empty_base": true,
+    "all_owned_closure_count": 22371
+  },
+  "evidence_files_sha256_checked": 128,
+  "scope": {
+    "full_original_complex_Hermitian_PD_conjecture_target": true,
+    "paper_specific_epsilon_and_q0_formalized": false,
+    "PD_shift_is_existential_real_number": true,
+    "PD_matrix_proved_rational_complex": false,
+    "CP1_asymptotic_route_formalized": false,
+    "real_symmetric_restriction_refuted": false,
+    "historical_priority_claimed": false
+  },
+  "github_writes": 0,
+  "toolchain_reinstallations": 0,
+  "fresh_source_directory": "${PROJECT_ROOT}/sources",
+  "verification_config": "${PROJECT_ROOT}/verify.json",
+  "negative_kernel_control": "PASS",
+  "shared_package_cache_unchanged": true,
+  "all_owned_declarations_audited": true,
+  "excluded_owned_declarations": [],
+  "source_claim_and_quantifiers_review": "semantic-review.json"
+}
+
+MODULES.json
+[
+  {
+    "module": "BapatMarkedInversions",
+    "path": "BapatMarkedInversions.lean",
+    "sha256": "fd060f9a5c1b11c4a2bf9f257248b6671955e4c033593c804c4420474fe7b235"
+  },
+  {
+    "module": "BapatTwoRowCofactor",
+    "path": "BapatTwoRowCofactor.lean",
+    "sha256": "f1a08b653544094bbceecc2c4eb75274df8a7f3699a6ccfdc1a466a234501917"
+  },
+  {
+    "module": "BapatColorTransport",
+    "path": "BapatColorTransport.lean",
+    "sha256": "a995914abe376c8ea810a3663701f7c65894f3da7d70ed22309ac0440cb95341"
+  },
+  {
+    "module": "BapatColorExpansion",
+    "path": "BapatColorExpansion.lean",
+    "sha256": "d362195ef40fffe7d67d30f5f76cfdc27a8c21895269e58175ad6930d8e5bae9"
+  },
+  {
+    "module": "BapatPermanentFischer",
+    "path": "BapatPermanentFischer.lean",
+    "sha256": "b4d8af7cef2180b71e3a1728e5d2885cba76eba81ff9c499c2680d6cce8db3cf"
+  },
+  {
+    "module": "BapatMixedFischer",
+    "path": "BapatMixedFischer.lean",
+    "sha256": "b189412cb9b8fe366bba95a53316b6fab36195a42276c8c3f4dbab7f42de8cf3"
+  },
+  {
+    "module": "BapatDefs",
+    "path": "BapatDefs.lean",
+    "sha256": "2ceaea73bef6822627d80b3157af5698732c3182d658474730348a7b6ee39dcc"
+  },
+  {
+    "module": "BapatReality",
+    "path": "BapatReality.lean",
+    "sha256": "58287330a230ac12a0ad7dc4d9f398d8b2efcd1bb22974a7c64edd17dbe69c51"
+  },
+  {
+    "module": "BapatContinuity",
+    "path": "BapatContinuity.lean",
+    "sha256": "5667aefbe06a3e0c98d6037ec334514eca9545a7ca9ed5b10c0e31fe849ad1a3"
+  },
+  {
+    "module": "BapatOriginalStatement",
+    "path": "BapatOriginalStatement.lean",
+    "sha256": "c972b02b7e3a1f53b656ba8b90842b4ac299bc3635c20572dbc7bf1bbdee227c"
+  },
+  {
+    "module": "BapatRankTwoIdentity",
+    "path": "BapatRankTwoIdentity.lean",
+    "sha256": "278f8238ea1256a4190f9d30d2d490da439fcb4ece69aca7b4597e526ec3f6e2"
+  },
+  {
+    "module": "BapatWedgeRecurrence",
+    "path": "BapatWedgeRecurrence.lean",
+    "sha256": "2cba3808ffdcdfd24a853c267632b0ddd2765173f68821ac12d742a96cbc6415"
+  },
+  {
+    "module": "BapatExactCoefficients",
+    "path": "BapatExactCoefficients.lean",
+    "sha256": "4964f0e2526dca996a1ccf46970e6850d4357895e87860c89a1c06dd91ed4758"
+  },
+  {
+    "module": "BapatExactStateBridge",
+    "path": "BapatExactStateBridge.lean",
+    "sha256": "3083b27dcec0d9eaa89741a5d08ee25f6a148dfe98a9ac97701fe2b09d1d6395"
+  },
+  {
+    "module": "BapatN200Data",
+    "path": "BapatN200Data.lean",
+    "sha256": "c356e4233e924be8029c522d5406a8d63d6d7ac002d6874c14fde87d2be639c0"
+  },
+  {
+    "module": "BapatN200Matrix",
+    "path": "BapatN200Matrix.lean",
+    "sha256": "a8c82235303d4bdcd973324cf489caa0058db96c44f14e404949aca71a958203"
+  },
+  {
+    "module": "BapatN200Trace0",
+    "path": "BapatN200Trace0.lean",
+    "sha256": "83bdb9baf294f21800deae53a38401e44e366542fced0d49185c9a2cb05fd899"
+  },
+  {
+    "module": "BapatN200Trace1",
+    "path": "BapatN200Trace1.lean",
+    "sha256": "9c21750c33a304d11b413e8ea300dd8426550ac275ac416803206da0da80e987"
+  },
+  {
+    "module": "BapatN200Trace2",
+    "path": "BapatN200Trace2.lean",
+    "sha256": "9d43ba79441e36dd0706f17abbbf0525b0225cd87eef8a2096385747f43dad12"
+  },
+  {
+    "module": "BapatN200Trace3",
+    "path": "BapatN200Trace3.lean",
+    "sha256": "91cd8bcfa9eaaeacfd95b93c8c87cb948f107176ff98a8b4cd146d8a21ccac1f"
+  },
+  {
+    "module": "BapatN200Trace",
+    "path": "BapatN200Trace.lean",
+    "sha256": "8209cbc46c1df3f7ad2263bcf202f0e24b33403f390668fc72c2542f3be157cb"
+  },
+  {
+    "module": "BapatN200Counterexample",
+    "path": "BapatN200Counterexample.lean",
+    "sha256": "cde9d4af8a38ecb6d5e79fb81f504b5a830708c0f317a7f347abd1d2b7f2ccd7"
+  }
+]
+
+
+===== BapatDefs.lean (full file) =====
+import BapatMarkedInversions
+import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.LinearAlgebra.Matrix.Permanent
+import Mathlib.Algebra.Polynomial.Derivative
+import Mathlib.Analysis.Complex.Order
+import Mathlib.Analysis.RCLike.Basic
+
+open scoped BigOperators ComplexOrder
+open Polynomial Matrix
+
+set_option autoImplicit false
+
+namespace BapatRankTwo
+
+/-- Original ordered inversion statistic on all permutations. -/
+def inversions {n : ℕ} (σ : Equiv.Perm (Fin n)) : ℕ :=
+  (Finset.univ.filter fun p : Fin n × Fin n => p.1 < p.2 ∧ σ p.2 < σ p.1).card
+
+/-- The actual q-permanent, with no restriction of its permutation sum. -/
+def qPermanent {R : Type*} [CommSemiring R] {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) R) (q : R) : R :=
+  letI : Fintype (Equiv.Perm (Fin n)) := fintypePerm
+  ∑ σ : Equiv.Perm (Fin n), q ^ inversions σ * ∏ i, A i (σ i)
+
+/-- Real polynomial encoding the real part of the complex q-permanent on real q. -/
+noncomputable def realQPolynomial {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) : ℝ[X] :=
+  letI : Fintype (Equiv.Perm (Fin n)) := fintypePerm
+  ∑ σ : Equiv.Perm (Fin n), C (∏ i, A i (σ i)).re * X ^ inversions σ
+
+theorem realQPolynomial_eval {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) (q : ℝ) :
+    (realQPolynomial A).eval q = (qPermanent A (q : ℂ)).re := by
+  simp only [realQPolynomial, qPermanent, eval_finsetSum, eval_mul, eval_C,
+    eval_pow, eval_X, Complex.re_sum, Complex.mul_re, ← Complex.ofReal_pow,
+    Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero]
+  apply Finset.sum_congr rfl
+  intro σ _
+  exact mul_comm _ _
+
+theorem realQPolynomial_derivative_one {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) :
+    (realQPolynomial A).derivative.eval 1 =
+      (MarkedInversions.weightedInversionSum A).re := by
+  simp [realQPolynomial, eval_finsetSum, derivative_mul, derivative_X_pow,
+    MarkedInversions.weightedInversionSum, MarkedInversions.permutationWeight,
+    MarkedInversions.originalInversions, inversions, Complex.mul_re, mul_comm]
+
+/-- Gram matrix of the complex two-vectors (a i,b i). -/
+def gram {ι : Type*} (a b : ι → ℂ) : Matrix ι ι ℂ :=
+  fun i j => a i * star (a j) + b i * star (b j)
+
+theorem gram_posSemidef {ι : Type*} [Fintype ι] (a b : ι → ℂ) :
+    (gram a b).PosSemidef := by
+  exact (Matrix.posSemidef_vecMulVec_self_star a).add
+    (Matrix.posSemidef_vecMulVec_self_star b)
+
+theorem gram_isHermitian {ι : Type*} [Fintype ι] (a b : ι → ℂ) :
+    (gram a b).IsHermitian := (gram_posSemidef a b).isHermitian
+
+/-- The genuine two by two minor of the Gram matrix factors through wedges. -/
+theorem gram_minor {ι : Type*} (a b : ι → ℂ) (i j k l : ι) :
+    gram a b i k * gram a b j l - gram a b i l * gram a b j k =
+      (a i * b j - b i * a j) * star (a k * b l - b k * a l) := by
+  simp only [gram, star_sub, star_mul]
+  ring
+
+/-- The real diagonal perturbation of a complex matrix. -/
+def perturb {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) (δ : ℝ) :
+    Matrix (Fin n) (Fin n) ℂ := A + Matrix.diagonal (fun _ => (δ : ℂ))
+
+theorem perturb_posDef {n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ}
+    (hA : A.PosSemidef) {δ : ℝ} (hδ : 0 < δ) : (perturb A δ).PosDef := by
+  exact Matrix.PosDef.posSemidef_add hA
+    (Matrix.PosDef.diagonal fun _ => by exact_mod_cast hδ)
+
+@[simp] theorem perturb_zero {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) :
+    perturb A 0 = A := by simp [perturb]
+
+/-- Monotonicity in Bapat's original real interval, on complex Hermitian PD matrices. -/
+def BapatConjecture : Prop :=
+  ∀ (n : ℕ) (A : Matrix (Fin n) (Fin n) ℂ), A.PosDef →
+    MonotoneOn (fun q : ℝ => (qPermanent A (q : ℂ)).re) (Set.Icc (-1) 1)
+
+end BapatRankTwo
+
+
+===== BapatReality.lean (full file) =====
+import BapatDefs
+
+open scoped BigOperators ComplexOrder
+
+set_option autoImplicit false
+
+namespace BapatRankTwo
+
+theorem inversions_symm {n : ℕ} (σ : Equiv.Perm (Fin n)) :
+    inversions σ = inversions σ.symm := by
+  unfold inversions
+  apply Finset.card_bij (fun p _ => (σ p.2, σ p.1))
+  · intro p hp
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hp ⊢
+    simpa using And.intro hp.2 hp.1
+  · intro p hp q hq he
+    have h1 := σ.injective (congrArg Prod.fst he)
+    have h2 := σ.injective (congrArg Prod.snd he)
+    exact Prod.ext h2 h1
+  · intro q hq
+    refine ⟨(σ.symm q.2, σ.symm q.1), ?_, by simp⟩
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hq ⊢
+    simpa using And.intro hq.2 hq.1
+
+theorem permutationWeight_star_of_isHermitian {n : ℕ}
+    {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.IsHermitian)
+    (σ : Equiv.Perm (Fin n)) :
+    star (∏ i, A i (σ i)) = ∏ i, A i (σ.symm i) := by
+  rw [star_prod]
+  simp_rw [hA.apply]
+  simpa using Equiv.prod_comp σ (fun i => A i (σ.symm i))
+
+/-- Hermitian matrices have real q-permanents at real q; the proof reindexes
+the full sum by inverse permutation, which preserves the actual inversion count. -/
+theorem qPermanent_star_of_isHermitian {n : ℕ}
+    {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.IsHermitian) (q : ℝ) :
+    star (qPermanent A (q : ℂ)) = qPermanent A (q : ℂ) := by
+  classical
+  letI : Fintype (Equiv.Perm (Fin n)) := fintypePerm
+  unfold qPermanent
+  simp only [star_sum, star_mul, star_pow, Complex.star_def, Complex.conj_ofReal]
+  calc
+    _ = ∑ σ : Equiv.Perm (Fin n),
+        (q : ℂ) ^ inversions σ.symm * ∏ i, A i (σ.symm i) := by
+      apply Finset.sum_congr rfl
+      intro σ _
+      rw [← Complex.star_def, permutationWeight_star_of_isHermitian hA,
+        inversions_symm σ]
+      exact mul_comm _ _
+    _ = _ := by
+      exact Equiv.sum_comp (Equiv.inv (Equiv.Perm (Fin n)))
+        (fun σ => (q : ℂ) ^ inversions σ * ∏ i, A i (σ i))
+
+theorem qPermanent_eq_ofReal_eval {n : ℕ}
+    {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.IsHermitian) (q : ℝ) :
+    qPermanent A (q : ℂ) = (((realQPolynomial A).eval q : ℝ) : ℂ) := by
+  rw [realQPolynomial_eval]
+  exact (Complex.conj_eq_iff_re.mp (qPermanent_star_of_isHermitian hA q)).symm
+
+end BapatRankTwo
+
+
+===== BapatOriginalStatement.lean (full file) =====
+import BapatReality
+import BapatContinuity
+import Mathlib.LinearAlgebra.Matrix.IsDiag
+
+open scoped ComplexOrder
+open Set
+
+set_option autoImplicit false
+
+namespace BapatRankTwo
+
+/-- Mitchell (2020), p. 915: non-diagonal complex Hermitian positive definite
+matrices have strictly increasing q-permanents on the original interval. -/
+def OriginalBapatConjecture : Prop :=
+  ∀ (n : ℕ) (A : Matrix (Fin n) (Fin n) ℂ), A.PosDef → ¬ A.IsDiag →
+    StrictMonoOn (fun q : ℝ => (qPermanent A (q : ℂ)).re) (Icc (-1) 1)
+
+theorem perturb_not_isDiag {n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ}
+    (hA : ¬ A.IsDiag) (δ : ℝ) : ¬ (perturb A δ).IsDiag := by
+  intro hd
+  apply hA
+  intro i j hij
+  have hz := hd hij
+  simpa [perturb, Matrix.diagonal_apply_ne _ hij] using hz
+
+/-- A PSD negative endpoint derivative, together with non-diagonality,
+refutes the original strict formulation including all its hypotheses. -/
+theorem originalBapatConjecture_false_of_psd_derivative_neg {n : ℕ}
+    {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.PosSemidef) (hdiag : ¬ A.IsDiag)
+    (hneg : (realQPolynomial A).derivative.eval 1 < 0) :
+    ¬ OriginalBapatConjecture := by
+  obtain ⟨δ, hδ, hPD, a, ha, b, hb, hab, hdec⟩ :=
+    exists_posDef_interior_counterexample_of_psd_derivative_neg hA hneg
+  intro hc
+  have hinc := hc n (perturb A δ) hPD (perturb_not_isDiag hdiag δ)
+    ⟨ha.1.le, ha.2.le⟩ ⟨hb.1.le, hb.2.le⟩ hab
+  exact (not_lt_of_gt hinc) hdec
+
+end BapatRankTwo
+
+
+===== BapatExactCoefficients.lean (full file) =====
+import BapatMixedFischer
+import Mathlib.NumberTheory.Zsqrtd.Basic
+import Mathlib.Algebra.Polynomial.Derivative
+
+open Polynomial
+open scoped BigOperators
+
+set_option autoImplicit false
+
+namespace BapatRankTwo.Exact
+
+abbrev GI := Zsqrtd (-1)
+abbrev Coeffs := List GI
+
+noncomputable def toComplex : GI →+* ℂ := Zsqrtd.lift ⟨Complex.I, by simp⟩
+
+/-- Ascending coefficient lists, interpreted by Horner's rule. No trimming or
+degree hypothesis is built into the representation. -/
+noncomputable def interpret : Coeffs → ℂ[X]
+  | [] => 0
+  | c :: cs => C (toComplex c) + X * interpret cs
+
+noncomputable def add : Coeffs → Coeffs → Coeffs
+  | [], ys => ys
+  | xs, [] => xs
+  | x :: xs, y :: ys => (x + y) :: add xs ys
+
+noncomputable def scale (z : GI) : Coeffs → Coeffs
+  | [] => []
+  | c :: cs => (z * c) :: scale z cs
+
+noncomputable def neg : Coeffs → Coeffs
+  | [] => []
+  | c :: cs => (-c) :: neg cs
+
+noncomputable def sub (P Q : Coeffs) : Coeffs := add P (neg Q)
+
+noncomputable def shift (P : Coeffs) : Coeffs := 0 :: P
+
+noncomputable def mulLinear (a b : GI) (P : Coeffs) : Coeffs :=
+  add (scale a P) (shift (scale b P))
+
+noncomputable def derivativeAux (k : ℕ) : Coeffs → Coeffs
+  | [] => []
+  | c :: cs => ((k : GI) * c) :: derivativeAux (k + 1) cs
+
+noncomputable def derivative (P : Coeffs) : Coeffs := derivativeAux 1 P.tail
+
+/-- m is the number of old factors, before appending the new vector (a,b). -/
+noncomputable def sStep (m : ℕ) (a b : GI) (F S : Coeffs) : Coeffs :=
+  sub (add (mulLinear a b S)
+    (scale b (sub (scale (m : GI) F) (shift (derivative F)))))
+    (scale a (derivative F))
+
+noncomputable def state (v : ℕ → GI × GI) : ℕ → Coeffs × Coeffs
+  | 0 => ([1], [])
+  | m + 1 =>
+      let old := state v m
+      (mulLinear (v m).1 (v m).2 old.1,
+        sStep m (v m).1 (v m).2 old.1 old.2)
+
+noncomputable def vectorAt (v : List (GI × GI)) (m : ℕ) : GI × GI :=
+  (v[m]?).getD (0, 0)
+
+noncomputable def squareAbs (z : GI) : ℤ := z.re * z.re + z.im * z.im
+
+/-- This deliberately reads exactly n+1 coefficients, padding with zero and
+ignoring any further coefficients. Thus the norm interpretation requires no
+list length or no-trailing-zero side condition. -/
+noncomputable def fischerInt (n : ℕ) (P : Coeffs) : ℤ :=
+  ∑ k ∈ Finset.range (n + 1),
+    ((Nat.factorial (n - k) * Nat.factorial k : ℕ) : ℤ) *
+      squareAbs ((P[k]?).getD 0)
+
+@[simp] theorem interpret_nil : interpret [] = 0 := rfl
+
+theorem interpret_add (P Q : Coeffs) :
+    interpret (add P Q) = interpret P + interpret Q := by
+  induction P generalizing Q with
+  | nil => simp [add, interpret]
+  | cons c P ih =>
+      cases Q with
+      | nil => simp [add, interpret]
+      | cons d Q =>
+          simp only [add, interpret, ih, map_add]
+          ring
+
+theorem interpret_scale (z : GI) (P : Coeffs) :
+    interpret (scale z P) = C (toComplex z) * interpret P := by
+  induction P with
+  | nil => simp [scale, interpret]
+  | cons c P ih =>
+      simp only [scale, interpret, ih, map_mul]
+      ring
+
+theorem interpret_neg (P : Coeffs) : interpret (neg P) = -interpret P := by
+  induction P with
+  | nil => simp [neg, interpret]
+  | cons c P ih =>
+      simp only [neg, interpret, ih, map_neg]
+      ring
+
+theorem interpret_sub (P Q : Coeffs) :
+    interpret (sub P Q) = interpret P - interpret Q := by
+  rw [sub, interpret_add, interpret_neg, sub_eq_add_neg]
+
+theorem interpret_shift (P : Coeffs) : interpret (shift P) = X * interpret P := by
+  simp [shift, interpret]
+
+theorem interpret_mulLinear (a b : GI) (P : Coeffs) :
+    interpret (mulLinear a b P) =
+      (C (toComplex a) + C (toComplex b) * X) * interpret P := by
+  rw [mulLinear, interpret_add, interpret_scale, interpret_shift, interpret_scale]
+  ring
+
+theorem interpret_derivativeAux (k : ℕ) (P : Coeffs) :
+    interpret (derivativeAux k P) =
+      C (k : ℂ) * interpret P + X * (interpret P).derivative := by
+  induction P generalizing k with
+  | nil => simp [derivativeAux, interpret]
+  | cons c P ih =>
+      simp only [derivativeAux, interpret, ih, map_mul, map_natCast,
+        Polynomial.derivative_add, Polynomial.derivative_C, Polynomial.derivative_mul,
+        Polynomial.derivative_X, zero_add, one_mul, Nat.cast_add, Nat.cast_one,
+        map_add, map_one]
+      ring
+
+theorem interpret_derivative (P : Coeffs) :
+    interpret (derivative P) = (interpret P).derivative := by
+  cases P with
+  | nil => simp [derivative, derivativeAux, interpret]
+  | cons c P =>
+      simp only [derivative, List.tail_cons, interpret_derivativeAux, interpret,
+        Polynomial.derivative_add, Polynomial.derivative_C, Polynomial.derivative_mul,
+        Polynomial.derivative_X, Nat.cast_one, map_one, one_mul, zero_add]
+
+theorem interpret_sStep (m : ℕ) (a b : GI) (F S : Coeffs) :
+    interpret (sStep m a b F S) =
+      (C (toComplex a) + C (toComplex b) * X) * interpret S +
+        C (toComplex b) * (C (m : ℂ) * interpret F - X * (interpret F).derivative) -
+          C (toComplex a) * (interpret F).derivative := by
+  simp only [sStep, interpret_sub, interpret_add, interpret_mulLinear,
+    interpret_scale, interpret_shift, interpret_derivative, map_natCast]
+
+theorem coeff_interpret (P : Coeffs) (k : ℕ) :
+    (interpret P).coeff k = toComplex ((P[k]?).getD 0) := by
+  induction P generalizing k with
+  | nil => simp [interpret]
+  | cons c P ih =>
+      cases k with
+      | zero => simp [interpret]
+      | succ k => simp [interpret, Polynomial.coeff_X_mul, ih]
+
+theorem squareAbs_toComplex (z : GI) :
+    (squareAbs z : ℝ) = Complex.normSq (toComplex z) := by
+  simp [squareAbs, Complex.normSq_apply, toComplex, Zsqrtd.lift_apply_apply]
+
+/-- Exact integer Fischer computation agrees with the genuine polynomial
+norm, for every list and every supplied homogeneous degree, including lists
+with trailing zeroes or lists longer/shorter than the degree bound. -/
+theorem fischerInt_correct (n : ℕ) (P : Coeffs) :
+    (fischerInt n P : ℝ) = BapatFischer.fischerNormSq n (interpret P) := by
+  simp only [fischerInt, BapatFischer.fischerNormSq, Int.cast_sum, Int.cast_mul,
+    Int.cast_natCast, coeff_interpret, squareAbs_toComplex]
+
+end BapatRankTwo.Exact
+
+
+===== BapatN200Data.lean (full file) =====
+import BapatExactCoefficients
+
+set_option autoImplicit false
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+namespace BapatRankTwo.N200
+open Exact
+
+/-- Exactly the 200 published CSV rows, without reordering. -/
+def vectors : List (GI × GI) := [
+  (⟨13, -5⟩, ⟨-6, -13⟩),
+  (⟨12, -6⟩, ⟨-5, -14⟩),
+  (⟨5, 12⟩, ⟨15, -3⟩),
+  (⟨4, 12⟩, ⟨15, -4⟩),
+  (⟨-5, -14⟩, ⟨-11, 8⟩),
+  (⟨-5, -12⟩, ⟨-13, 8⟩),
+  (⟨-4, -12⟩, ⟨-15, -1⟩),
+  (⟨-3, -11⟩, ⟨-16, 0⟩),
+  (⟨-12, -4⟩, ⟨1, 15⟩),
+  (⟨-14, -5⟩, ⟨1, 13⟩),
+  (⟨-5, -9⟩, ⟨-15, 9⟩),
+  (⟨-6, -8⟩, ⟨-16, 8⟩),
+  (⟨-9, -5⟩, ⟨-2, 17⟩),
+  (⟨-9, -4⟩, ⟨-2, 17⟩),
+  (⟨6, 13⟩, ⟨8, -12⟩),
+  (⟨5, 11⟩, ⟨9, -14⟩),
+  (⟨5, 6⟩, ⟨15, -11⟩),
+  (⟨3, 7⟩, ⟨14, -12⟩),
+  (⟨5, -10⟩, ⟨-8, -15⟩),
+  (⟨5, -11⟩, ⟨-7, -14⟩),
+  (⟨-5, 5⟩, ⟨9, 16⟩),
+  (⟨-5, 8⟩, ⟨7, 16⟩),
+  (⟨3, -7⟩, ⟨-18, 4⟩),
+  (⟨4, -8⟩, ⟨-17, 4⟩),
+  (⟨5, 11⟩, ⟨4, -15⟩),
+  (⟨4, 9⟩, ⟨4, -17⟩),
+  (⟨-5, -1⟩, ⟨-9, 17⟩),
+  (⟨-7, 1⟩, ⟨-9, 16⟩),
+  (⟨14, 3⟩, ⟨-8, -12⟩),
+  (⟨15, 3⟩, ⟨-6, -11⟩),
+  (⟨4, -2⟩, ⟨-17, -9⟩),
+  (⟨2, -3⟩, ⟨-17, -9⟩),
+  (⟨-1, 6⟩, ⟨13, -14⟩),
+  (⟨0, 3⟩, ⟨14, -14⟩),
+  (⟨8, -4⟩, ⟨-18, 1⟩),
+  (⟨7, -3⟩, ⟨-18, 2⟩),
+  (⟨3, -1⟩, ⟨9, -18⟩),
+  (⟨5, -2⟩, ⟨9, -17⟩),
+  (⟨12, -4⟩, ⟨-15, -2⟩),
+  (⟨11, -2⟩, ⟨-17, -2⟩),
+  (⟨5, 3⟩, ⟨-14, -12⟩),
+  (⟨3, 3⟩, ⟨-15, -13⟩),
+  (⟨0, 1⟩, ⟨14, 15⟩),
+  (⟨-1, -2⟩, ⟨14, 14⟩),
+  (⟨2, 8⟩, ⟨14, 12⟩),
+  (⟨3, 6⟩, ⟨14, 13⟩),
+  (⟨-4, -8⟩, ⟨9, 15⟩),
+  (⟨-6, -9⟩, ⟨9, 15⟩),
+  (⟨8, 11⟩, ⟨-4, -14⟩),
+  (⟨11, 11⟩, ⟨-1, -12⟩),
+  (⟨3, -2⟩, ⟨17, -10⟩),
+  (⟨-1, -2⟩, ⟨18, -9⟩),
+  (⟨7, 1⟩, ⟨-18, 3⟩),
+  (⟨6, 2⟩, ⟨-19, 3⟩),
+  (⟨-9, -5⟩, ⟨-17, 1⟩),
+  (⟨-10, -7⟩, ⟨-16, 1⟩),
+  (⟨-7, 11⟩, ⟨9, -12⟩),
+  (⟨-6, 14⟩, ⟨10, -8⟩),
+  (⟨4, 4⟩, ⟨-19, -1⟩),
+  (⟨1, 4⟩, ⟨-20, -1⟩),
+  (⟨2, 4⟩, ⟨0, 19⟩),
+  (⟨3, 2⟩, ⟨0, 20⟩),
+  (⟨-7, 6⟩, ⟨8, -16⟩),
+  (⟨-8, 8⟩, ⟨9, -14⟩),
+  (⟨0, -6⟩, ⟨3, -19⟩),
+  (⟨3, -8⟩, ⟨2, -18⟩),
+  (⟨13, 1⟩, ⟨-15, 0⟩),
+  (⟨15, -2⟩, ⟨-13, -2⟩),
+  (⟨-4, 4⟩, ⟨-16, -12⟩),
+  (⟨-3, 6⟩, ⟨-15, -12⟩),
+  (⟨-6, 6⟩, ⟨-1, -18⟩),
+  (⟨-7, 4⟩, ⟨-1, -18⟩),
+  (⟨-10, -1⟩, ⟨15, -9⟩),
+  (⟨-11, 0⟩, ⟨14, -8⟩),
+  (⟨1, 6⟩, ⟨-14, 13⟩),
+  (⟨3, 6⟩, ⟨-14, 12⟩),
+  (⟨8, 0⟩, ⟨18, 2⟩),
+  (⟨7, -3⟩, ⟨18, 4⟩),
+  (⟨10, -9⟩, ⟨-7, 13⟩),
+  (⟨10, -7⟩, ⟨-6, 14⟩),
+  (⟨-8, 6⟩, ⟨-1, -17⟩),
+  (⟨-9, 8⟩, ⟨0, -16⟩),
+  (⟨15, 5⟩, ⟨-12, -5⟩),
+  (⟨13, 6⟩, ⟨-13, -3⟩),
+  (⟨-3, -8⟩, ⟨17, -5⟩),
+  (⟨-5, -9⟩, ⟨17, -4⟩),
+  (⟨-5, -9⟩, ⟨-9, -15⟩),
+  (⟨-4, -10⟩, ⟨-10, -13⟩),
+  (⟨6, 7⟩, ⟨-1, 18⟩),
+  (⟨4, 9⟩, ⟨0, 18⟩),
+  (⟨-8, 6⟩, ⟨-15, -10⟩),
+  (⟨-8, 4⟩, ⟨-15, -9⟩),
+  (⟨-6, 9⟩, ⟨-13, -10⟩),
+  (⟨-7, 8⟩, ⟨-14, -10⟩),
+  (⟨-12, -2⟩, ⟨7, -14⟩),
+  (⟨-13, -1⟩, ⟨7, -14⟩),
+  (⟨15, 6⟩, ⟨-11, -3⟩),
+  (⟨13, 7⟩, ⟨-13, 0⟩),
+  (⟨14, -1⟩, ⟨-10, 10⟩),
+  (⟨14, 1⟩, ⟨-9, 12⟩),
+  (⟨-10, 6⟩, ⟨-15, -8⟩),
+  (⟨-11, 3⟩, ⟨-15, -6⟩),
+  (⟨8, 8⟩, ⟨9, 14⟩),
+  (⟨9, 7⟩, ⟨8, 14⟩),
+  (⟨2, -16⟩, ⟨6, 11⟩),
+  (⟨5, -14⟩, ⟨9, 10⟩),
+  (⟨-1, -13⟩, ⟨15, -2⟩),
+  (⟨1, -13⟩, ⟨15, -4⟩),
+  (⟨-15, 7⟩, ⟨10, -4⟩),
+  (⟨-16, 5⟩, ⟨9, -6⟩),
+  (⟨10, 10⟩, ⟨-10, 10⟩),
+  (⟨12, 9⟩, ⟨-11, 8⟩),
+  (⟨9, -14⟩, ⟨0, 11⟩),
+  (⟨10, -13⟩, ⟨2, 11⟩),
+  (⟨-6, -16⟩, ⟨-2, 10⟩),
+  (⟨-5, -17⟩, ⟨-1, 10⟩),
+  (⟨-2, -13⟩, ⟨12, -9⟩),
+  (⟨0, -13⟩, ⟨11, -11⟩),
+  (⟨0, -16⟩, ⟨12, 2⟩),
+  (⟨-1, -16⟩, ⟨11, 3⟩),
+  (⟨12, -5⟩, ⟨11, -10⟩),
+  (⟨11, -6⟩, ⟨13, -9⟩),
+  (⟨11, 10⟩, ⟨-6, 12⟩),
+  (⟨12, 10⟩, ⟨-7, 10⟩),
+  (⟨-12, 5⟩, ⟨-15, -2⟩),
+  (⟨-12, 9⟩, ⟨-12, -5⟩),
+  (⟨4, 18⟩, ⟨-4, -8⟩),
+  (⟨5, 17⟩, ⟨-1, -9⟩),
+  (⟨7, 16⟩, ⟨-9, -1⟩),
+  (⟨8, 16⟩, ⟨-8, -3⟩),
+  (⟨-3, 15⟩, ⟨-11, 7⟩),
+  (⟨-5, 13⟩, ⟨-10, 10⟩),
+  (⟨-14, 2⟩, ⟨-14, -2⟩),
+  (⟨-14, 0⟩, ⟨-14, -1⟩),
+  (⟨0, 18⟩, ⟨-9, -2⟩),
+  (⟨-1, 17⟩, ⟨-10, -1⟩),
+  (⟨16, 3⟩, ⟨3, 11⟩),
+  (⟨17, 2⟩, ⟨2, 10⟩),
+  (⟨-18, 6⟩, ⟨5, -6⟩),
+  (⟨-17, 7⟩, ⟨7, -3⟩),
+  (⟨13, -8⟩, ⟨13, -1⟩),
+  (⟨13, -10⟩, ⟨12, 1⟩),
+  (⟨-4, 18⟩, ⟨-8, -1⟩),
+  (⟨-6, 16⟩, ⟨-10, 4⟩),
+  (⟨-19, -1⟩, ⟨4, -5⟩),
+  (⟨-19, -2⟩, ⟨2, -6⟩),
+  (⟨-18, 4⟩, ⟨-5, -6⟩),
+  (⟨-18, 5⟩, ⟨-3, -6⟩),
+  (⟨-15, 12⟩, ⟨3, -5⟩),
+  (⟨-15, 12⟩, ⟨0, -5⟩),
+  (⟨-13, -5⟩, ⟨-14, 2⟩),
+  (⟨-14, -3⟩, ⟨-14, 0⟩),
+  (⟨13, -11⟩, ⟨10, -4⟩),
+  (⟨13, -12⟩, ⟨9, -1⟩),
+  (⟨-16, -1⟩, ⟨-13, 0⟩),
+  (⟨-16, 0⟩, ⟨-11, -2⟩),
+  (⟨-19, -1⟩, ⟨-5, -5⟩),
+  (⟨-18, -2⟩, ⟨-8, -4⟩),
+  (⟨18, -8⟩, ⟨2, 4⟩),
+  (⟨18, -8⟩, ⟨5, 3⟩),
+  (⟨-19, 1⟩, ⟨5, 1⟩),
+  (⟨-19, 1⟩, ⟨6, 3⟩),
+  (⟨-14, -14⟩, ⟨3, 1⟩),
+  (⟨-14, -14⟩, ⟨2, -1⟩),
+  (⟨-13, 12⟩, ⟨9, 2⟩),
+  (⟨-14, 12⟩, ⟨7, 0⟩),
+  (⟨-19, 5⟩, ⟨-3, -2⟩),
+  (⟨-19, 4⟩, ⟨-6, -1⟩),
+  (⟨-8, -14⟩, ⟨-8, -8⟩),
+  (⟨-10, -14⟩, ⟨-6, -8⟩),
+  (⟨-6, -19⟩, ⟨0, 0⟩),
+  (⟨-6, -19⟩, ⟨-1, 3⟩),
+  (⟨-5, -18⟩, ⟨-1, -6⟩),
+  (⟨-5, -18⟩, ⟨-2, -8⟩),
+  (⟨18, -8⟩, ⟨4, -2⟩),
+  (⟨18, -8⟩, ⟨2, -1⟩),
+  (⟨1, -15⟩, ⟨-8, -11⟩),
+  (⟨0, -16⟩, ⟨-6, -10⟩),
+  (⟨16, 12⟩, ⟨1, -3⟩),
+  (⟨16, 11⟩, ⟨1, -5⟩),
+  (⟨18, 1⟩, ⟨9, -3⟩),
+  (⟨19, 1⟩, ⟨7, -2⟩),
+  (⟨-18, -8⟩, ⟨-3, 2⟩),
+  (⟨-18, -8⟩, ⟨-5, 1⟩),
+  (⟨-14, 11⟩, ⟨8, 4⟩),
+  (⟨-15, 11⟩, ⟨6, 4⟩),
+  (⟨-9, -15⟩, ⟨-9, -4⟩),
+  (⟨-9, -16⟩, ⟨-7, -2⟩),
+  (⟨-18, -6⟩, ⟨-4, 4⟩),
+  (⟨-18, -7⟩, ⟨-2, 6⟩),
+  (⟨13, 10⟩, ⟨11, -2⟩),
+  (⟨12, 10⟩, ⟨12, -2⟩),
+  (⟨2, 18⟩, ⟨7, 4⟩),
+  (⟨1, 18⟩, ⟨7, 2⟩),
+  (⟨1, -18⟩, ⟨-9, 1⟩),
+  (⟨0, -18⟩, ⟨-9, 0⟩),
+  (⟨9, 15⟩, ⟨10, -1⟩),
+  (⟨9, 14⟩, ⟨11, 0⟩),
+  (⟨-17, 1⟩, ⟨0, 10⟩),
+  (⟨-17, 2⟩, ⟨-2, 10⟩)
+]
+
+theorem vectors_length : vectors.length = 200 := rfl
+
+end BapatRankTwo.N200
+
+
+===== BapatN200Matrix.lean (full file) =====
+import BapatN200Data
+import BapatOriginalStatement
+
+set_option autoImplicit false
+
+open scoped ComplexOrder
+
+namespace BapatRankTwo.N200
+
+noncomputable def a (i : Fin 200) : ℂ := Exact.toComplex (Exact.vectorAt vectors i.val).1
+noncomputable def b (i : Fin 200) : ℂ := Exact.toComplex (Exact.vectorAt vectors i.val).2
+noncomputable def matrix : Matrix (Fin 200) (Fin 200) ℂ := gram a b
+
+theorem matrix_posSemidef : matrix.PosSemidef := gram_posSemidef a b
+
+/-- The first off-diagonal entry of the actual published ordered matrix. -/
+theorem matrix_zero_one : matrix 0 1 = 398 - Complex.I := by
+  change Exact.toComplex ⟨13, -5⟩ * star (Exact.toComplex ⟨12, -6⟩) +
+    Exact.toComplex ⟨-6, -13⟩ * star (Exact.toComplex ⟨-5, -14⟩) = _
+  apply Complex.ext <;>
+    norm_num [Exact.toComplex, Zsqrtd.lift_apply_apply, Complex.mul_re, Complex.mul_im]
+
+theorem matrix_not_isDiag : ¬ matrix.IsDiag := by
+  intro hd
+  have hz := hd (by decide : (0 : Fin 200) ≠ 1)
+  change matrix 0 1 = 0 at hz
+  rw [matrix_zero_one] at hz
+  have hi := congrArg Complex.im hz
+  norm_num at hi
+
+theorem perturb_matrix_posDef {δ : ℝ} (hδ : 0 < δ) : (perturb matrix δ).PosDef :=
+  perturb_posDef matrix_posSemidef hδ
+
+theorem perturb_matrix_not_isDiag (δ : ℝ) : ¬ (perturb matrix δ).IsDiag :=
+  perturb_not_isDiag matrix_not_isDiag δ
+
+end BapatRankTwo.N200
+
+
+===== BapatN200Counterexample.lean (full file) =====
+import BapatN200Trace
+import BapatN200Matrix
+import BapatExactStateBridge
+
+set_option autoImplicit false
+set_option maxRecDepth 100000
+
+open scoped ComplexOrder
+open Set
+
+namespace BapatRankTwo.N200
+
+theorem matrix_derivative_negative : (realQPolynomial matrix).derivative.eval 1 < 0 := by
+  apply Exact.derivative_negative_of_gap (Exact.vectorAt vectors) 200
+  rw [state_eq_200]
+  change 0 < wedgeNorm - 19900 * permanentNorm
+  exact sub_pos.mpr norm_gap_positive
+
+/-- A full counterexample to the original conjecture, in dimension 200.
+The small positive shift and two interior real points are existential; this
+theorem does not claim the paper's particular epsilon or q0 bounds. -/
+theorem explicit_counterexample :
+    ∃ δ : ℝ, 0 < δ ∧ (perturb matrix δ).PosDef ∧ ¬ (perturb matrix δ).IsDiag ∧
+      ∃ q₁ ∈ Ioo (-1 : ℝ) 1, ∃ q₂ ∈ Ioo (-1 : ℝ) 1,
+        q₁ < q₂ ∧ (qPermanent (perturb matrix δ) (q₂ : ℂ)).re <
+          (qPermanent (perturb matrix δ) (q₁ : ℂ)).re := by
+  obtain ⟨δ, hδ, hp, q₁, h₁, q₂, h₂, hlt, hdec⟩ :=
+    exists_posDef_interior_counterexample_of_psd_derivative_neg
+      matrix_posSemidef matrix_derivative_negative
+  exact ⟨δ, hδ, hp, perturb_matrix_not_isDiag δ, q₁, h₁, q₂, h₂, hlt, hdec⟩
+
+theorem originalBapatConjecture_false : ¬ OriginalBapatConjecture :=
+  originalBapatConjecture_false_of_psd_derivative_neg
+    matrix_posSemidef matrix_not_isDiag matrix_derivative_negative
+
+theorem bapatConjecture_false : ¬ BapatConjecture :=
+  bapatConjecture_false_of_psd_derivative_neg matrix_posSemidef matrix_derivative_negative
+
+end BapatRankTwo.N200
