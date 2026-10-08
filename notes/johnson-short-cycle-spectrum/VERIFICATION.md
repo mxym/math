@@ -120,3 +120,47 @@ The rational all-rank tests check k=1,...,6 at n=100,300,1000, with **every orbi
 **Negative controls:** Python optimized mode -O was rejected by each all-rank certificate checker. In a temporary copy of the all-k primal checker, changing k=2,n=100 support from [50,0] to duplicated [0,0] caused a nonzero AssertionError; the mutated copy was removed. The earlier n=11 and n=26 exact-target mutation tests also failed as expected.
 
 **Audit limitation:** Neither 18 finite rational instances nor six exact algebraic checks imply the infinite-family theorem; the written proofs of the transfer expansion, globally corrected Chebyshev dual, Lagrange derivative quadrature and continuity/positivity of exact rational class measures do. This project has not obtained human peer review, formalized the arguments in a proof assistant, or verified historical world-first novelty.
+
+
+## New rank-six and simultaneous all-rank audit (2026-10-08 UTC)
+
+All four proof inputs were downloaded anew in the clean VPS replay directory from immutable Git commits, without using numeric discovery sources:
+
+| Public proof input | Pinned commit | SHA-256 of downloaded bytes |
+|---|---|---|
+| [check_k5_11_14.py](check_k5_11_14.py) | [6dd88f6](https://github.com/mxym/math/commit/6dd88f6c7b9aa93baff5a905e5f339ad783f8c11) | 9ced5bfa4a9fa634b568d90a3742b02db143d4ec40300cd59bc13d00cb78d7b6 |
+| [check_k5_15_40.py](check_k5_15_40.py) | [346267e](https://github.com/mxym/math/commit/346267ea1b7a8d09b4c283d727ca4e079d7a231a) | b122e12b4fe20acc257fd82c60f84316f7a07385369025808fd1bab49653c359 |
+| [certificates/k5_n15_40.json](certificates/k5_n15_40.json) | [346267e](https://github.com/mxym/math/commit/346267ea1b7a8d09b4c283d727ca4e079d7a231a) | 16623243b5412135542b3148d2872fc70feb31129ddd79cc1f15843373b687f3 |
+| [check_all_rank_trace_kernel.py](check_all_rank_trace_kernel.py) | [72af1c6](https://github.com/mxym/math/commit/72af1c6dbc719dd38398ec6dca389ab304185fcc) | 2341b55c2bacf9409720208dd2bb892399b059da94997ee14407ad3c9e31c100 |
+
+Reproduce directly from the public repository root with ordinary Python:
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_k5_11_14.py
+python3 notes/johnson-short-cycle-spectrum/check_k5_15_40.py
+python3 notes/johnson-short-cycle-spectrum/check_all_rank_trace_kernel.py
+~~~
+
+Fresh replay terminal summaries (individual degree values are in [the rank-six paper](RANK_SIX_EXACT_11_40.md)):
+
+~~~text
+PASS rank-six k=5 n=11: sharp C=5/14
+PASS rank-six k=5 n=12: sharp C=5/14
+PASS rank-six k=5 n=13: sharp C=5/14
+PASS rank-six k=5 n=14: sharp C=5/14
+ALL FOUR DEGENERATE RANK-SIX CERTIFICATES PASS; types=361
+PASS k=5 n=15 states=167 sharp=29275/81761
+...
+PASS k=5 n=40 states=10584 sharp=6198650425199/13306819837380
+ALL 26 RANK-SIX EXACT CERTIFICATES PASSED; STATES=82377
+PASS degree-six polynomial identity for n=6..100
+PASS every orbital k=1..n for n=6..21
+PASS exact full trace-rank floor(n/2)+1 for n=6..30
+ALL-RANK TRACE-KERNEL TESTS PASSED
+~~~
+
+The 30 new rank-six certificates exhaust a total of **82,738** feasible five-short-cycle types with exact integer/Fraction arithmetic. The primal and dual weights are independently reconstructed, and every represented class is realizable by a concrete permutation. The all-rank trace checker tests the exact degree-six polynomial identity, every subset rank in small degrees, and independent rational rank witnesses; the [paper](ALL_RANK_TRACE_KERNEL.md) proves the corresponding all-degree results algebraically, not by extrapolation.
+
+**Negative controls:** All three new scripts reject optimized Python mode (-O). Modifying the rank-six n=15 target fraction from 29275/81761 to 29275/81762 in a temporary JSON input caused a nonzero AssertionError. Modifying the n=11 exceptional dual coefficient 121/300 to 121/301 in a temporary checker also caused AssertionError. The original certificate input was restored, and its pinned SHA-256 was verified.
+
+**Scope:** The exact rank-six table covers n=11,...,40; larger n are not claimed. The simultaneous all-rank four-class relation proves a **lower bound** 5/14 for all n>=6. Whether this lower bound is the exact all-ranks sharp value for every n remains **conjectural** despite finite numerical LP observations. No optimizer outputs, claimed historical priority, or outside peer review are used in the proofs.
