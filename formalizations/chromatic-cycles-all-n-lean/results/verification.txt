@@ -1,0 +1,10 @@
+Lean: 4.34.1, commit 5045d0056413266e57c625dcd7c365b10e377c52
+Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612
+Result: 11 locally owned prefixed proof modules and the root entrypoint compiled successfully.
+Result: 13 explicit root declarations were audited for axioms.
+Result: only propext, Classical.choice, Quot.sound were reported.
+Result: an intentionally invalid proof of False from True.intro was rejected as a type mismatch.
+File `verified-source-sha256.txt`: byte hashes of the 11 proof modules verified in Lean.
+File `axioms.txt`: exact Lean output for the 13 root declarations after prefixed-module compilation.
+The initial full prefix build was performed with Lean 4.34.1 under WSL; the source code matches this published package byte-for-byte for all 11 proof modules. The top-level import-only entrypoint adds source comments but imports the identical kernel-checked main theorem module.
+Publication CI repeats a clean Lake build and positive/negative audit.
