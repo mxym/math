@@ -164,3 +164,60 @@ The 30 new rank-six certificates exhaust a total of **82,738** feasible five-sho
 **Negative controls:** All three new scripts reject optimized Python mode (-O). Modifying the rank-six n=15 target fraction from 29275/81761 to 29275/81762 in a temporary JSON input caused a nonzero AssertionError. Modifying the n=11 exceptional dual coefficient 121/300 to 121/301 in a temporary checker also caused AssertionError. The original certificate input was restored, and its pinned SHA-256 was verified.
 
 **Scope:** The exact rank-six table covers n=11,...,40; larger n are not claimed. The simultaneous all-rank four-class relation proves a **lower bound** 5/14 for all n>=6. Whether this lower bound is the exact all-ranks sharp value for every n remains **conjectural** despite finite numerical LP observations. No optimizer outputs, claimed historical priority, or outside peer review are used in the proofs.
+
+
+## Closure audit: exact 5/14 theorem for every n>=6 (8 October 2026)
+
+**Result:** The previously conjectural all-subset simultaneous-image atom/TV modulus is **exactly 5/14 for every symmetric group of degree n>=6**, and equivalently for its single middle-rank subset action. The full written proof is [ALL_RANK_SHARP_FIVE_FOURTEENTHS.md](ALL_RANK_SHARP_FIVE_FOURTEENTHS.md). Unlike earlier exploratory finite LP observations, the theorem relies on an exact **global rational dual** and a matching explicit **four-class rational primal**, with no unverified numerical step. It further proves a universal 5/14 upper bound for any faithful finite permutation subgroup under matching all-subset image marginals, and characterizes the contact-supported equality class masses.
+
+**Pinned public inputs and byte hashes**, independently downloaded from raw.githubusercontent.com into the authorized VPS replay directory:
+
+| Input | Immutable commit | SHA-256 |
+|---|---|---|
+| Primary cleared-integer dual checker | [27dd9a5](https://github.com/mxym/math/commit/27dd9a53ebad814cca2448910926199e7b69deed) | 9eb31dcc9f70b3d1c3ae898dfb9568b5517f98a1ce3c645c37994784f5978472 |
+| Independent Fraction and rational-Gaussian dual checker | [d70f300](https://github.com/mxym/math/commit/d70f300c2d5601d073fde02e3a2f844395d6721f) | 2c69d99b2465047ae2f5cf1a5c0eacfd52ffef702b492daecd9b4162a08c1371 |
+| Negative-control runner | [c13fe63](https://github.com/mxym/math/commit/c13fe635d40327faa21c769becaf076bbb8e77e3) | c2cf6964c5ea893c0e94ff178c89fe24da2ea5de686125f6262ac469ddbf6b66 |
+| Proof note, including faithful-subgroup theorem and equality rigidity | [0e7ae9b](https://github.com/mxym/math/commit/0e7ae9b7831c7ceaa4a67141ada96969841bbcf4) | The immutable Git blob can be retrieved directly at this commit |
+
+**Replay from public repository root** with standard-library Python 3 (no optimizer, SymPy or external dependencies):
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths.py
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_independent.py
+python3 notes/johnson-short-cycle-spectrum/check_allrank_sharp_five_fourteenths_negative_controls.py
+~~~
+
+**Observed complete exact replay assertions:**
+
+~~~text
+EXACT CONTACTS: Phi(2)=Phi(3,3)=9/14; Phi(4)=1.
+FINITE PARTITIONS (all cycle lengths >=2, moved<=41): 44582
+EXACT GLOBAL FINITE MINIMUM: 9/14 at (2,)
+EXACT GLOBAL FINITE MAXIMUM: 1 at (4,)
+UNBOUNDED TAIL: sum |weight| rho^21 < 7/50: True
+ALL-RANK 5/14 UNIVERSAL DUAL CERTIFICATE PASS.
+
+EXACT RATIONAL COEFFICIENTS RECONSTRUCTED:
+  [239124191777/1120000000, -344827/1000,
+   138704974923/490000000, -205889/1000,
+   430736498793/7840000000]
+INDEPENDENT FRACTION PARTITIONS REPLAYED: 44582
+LOWER CONTACT SHAPES: [(2,), (3, 3)]
+UPPER CONTACT SHAPES: [(4,)]
+TAIL < 7/50: True
+INDEPENDENT UNIVERSAL 5/14 CHECKER PASSED
+
+EXPECTED REJECTION: modified rational input
+EXPECTED REJECTION: finite-tail gap
+EXPECTED REJECTION: tail exponent
+EXPECTED REJECTION: false strict tail
+ALL NEGATIVE CONTROLS PASS; ORDINARY AND -O BOTH EXPLICITLY CHECKED
+~~~
+
+The first program implements an **integer cleared-denominator inequality** on every partition; the second independently **reconstructs the dual coefficients** using exact rational Gaussian elimination and uses its own partition generator and Fraction products. Both certify exactly **44,582** nontrivial partitions of moved counts 2,...,41, the unique upper and lower contact shapes, and the exact rational bound
+\(\sum_i|\alpha_i|[q_i^2+(1-q_i)^2]^{21}<7/50\).
+The *mathematical* power-mean proof then covers every moved count at least 42, so **no infinite or unchecked cycle-type range is left**.
+
+**Negative controls and Python optimization:** All checks use explicit ArithmeticError/require paths, **not Python assert statements**. Running the primary checker under Python's -O flag continues to execute every check and passes, so assertion-stripping does not silently disable validation. Four isolated mutations—altered integer weight, broken finite/tail cutoff, altered tail exponent, and a deliberately false strict tail target—were each rejected with nonzero ArithmeticError. The untouched public files were not modified by negative controls.
+
+**Mathematical trust boundary:** The machine-checkable portion is the exact, finite list of inequalities and the strict rational tail threshold; its completeness follows from the explicit nonincreasing-partition recursion and analytic tail inequality in the paper. The converse four-class measure identity, faithfulness/group translation, middle-rank inclusion-matrix argument, and support/class-mass equality theorems are **written mathematical proofs** not inferred from the finite replay. Model-assisted research; **no external peer review, Lean formalization, or mathematical priority adjudication** is asserted.
