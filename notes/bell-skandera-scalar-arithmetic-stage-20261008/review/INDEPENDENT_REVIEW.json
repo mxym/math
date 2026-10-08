@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-08T18:57:59.724337+00:00",
+  "scope": "Ended-stage weak scalar relaxation only: all nonzero integer pairs satisfy trace >=7 using only |Norm|>=1. No Bell-Skandera counterexample and no obstruction to full affine norm or general arithmetic methods.",
+  "original_handoff": {
+    "commit": "3a2500a556ff7d78786651952cd5dd5e377f70b2",
+    "files": 6,
+    "bytes": 14137,
+    "all_git_hashes_and_original_checksum_entries_verified": true,
+    "original_private_files_unchanged": true
+  },
+  "changed_core_files": [
+    {
+      "path": "ARITHMETIC_RELAXATION_OBSTRUCTION.md",
+      "original_sha256": "f2ce0b60e80a73aad18c13fc12dd6a5d84ae56860a16b962ec5044c30b986d01",
+      "revised_sha256": "3e20702d20fdd6212f29b042764c2b8a16bd0143da6149e42c90e2ec7d41a405"
+    },
+    {
+      "path": "README.md",
+      "original_sha256": "3c8c34489dab74b513156ea39368c8df5190a28f73a99597f139474e14ddcdc2",
+      "revised_sha256": "50634a06835aded474af010fd76571287b44df5724c6329dadccd010cc227467"
+    },
+    {
+      "path": "arithmetic_relaxation_exact.json",
+      "original_sha256": "dc47c2166813307ebaa6d6e173c44beb830c74f462254a8f2963838d5d06f374",
+      "revised_sha256": "d7b7d0948ecfa8ff7b67967ed08a5bc7a629dc389d40bf3054f72aeb17e86e55"
+    },
+    {
+      "path": "verify_arithmetic_relaxation.py",
+      "original_sha256": "c29541c620fa0bf57be631cffe6ca17f14122e7c1024f1e1fa34497e402086eb",
+      "revised_sha256": "5cbc327f93bf329203c8a29aafd97c5469e07fc9e13cdec2cf552c8987819815"
+    }
+  ],
+  "exact_verifier": {
+    "status": "PASS",
+    "ordinary_exit_code": 0,
+    "stdout_matches_generated_json": true,
+    "output_sha256": "d7b7d0948ecfa8ff7b67967ed08a5bc7a629dc389d40bf3054f72aeb17e86e55",
+    "disabled_assertion_control_exit": 2,
+    "disabled_assertion_control_did_not_overwrite_output": true
+  },
+  "mathematical_checks": {
+    "finite_field_irreducibility": "PASS. Degree 7 is prime; all factor degrees divide 7 by Frobenius identity, and the gcd condition excludes degree 1. Monic mod-11 irreducibility implies Q irreducibility.",
+    "Sturm": "PASS. Exact negative-remainder rational chain; endpoint signs at -infinity, zero and +infinity give exactly 3 real roots, all positive for G. G(0)=-1 and nonzero discriminant exclude endpoint or multiple roots.",
+    "weak_all_integer_pairs": "PASS. The symbolic coefficient identity and a=0/a!=0 proof yield trace >=7 for every nonzero integer pair, without pair sampling.",
+    "actual_norm_negative_certificate": {
+      "affine_pair": [
+        1,
+        -3
+      ],
+      "square_trace": 34,
+      "absolute_norm": 355,
+      "trace_power_7": 52523350144,
+      "seven_power_7_times_norm_squared": 103787006575,
+      "actual_norm_AM_GM_inequality_holds": false
+    },
+    "KK": "PASS. The valid fourth binomial expansion has decreasing upper indices 7>5>3>1; its shadow is 49>48.",
+    "Newton_discriminant_norm_Hermite": "PASS. All six positive strict slacks, discriminant 93667157, algebraic norm 1, and Hermite determinant -3432 are exact."
+  },
+  "revised_claims_exclude": [
+    "Main conjecture counterexample",
+    "All affine resultant/norm constraints satisfied",
+    "General arithmetic methods obstructed",
+    "Major result",
+    "Priority claim"
+  ],
+  "source_audit": {
+    "file": "CURRENT_SOURCE_AUDIT.md",
+    "byte_unchanged_from_original": true,
+    "sha256": "1a239a2934b63f73a1320e56ce6b9ca94cf8d89c8598a6e84b54991092bf6232",
+    "publisher_performed_new_literature_search": false,
+    "historical_inspection_time": "2026-10-08 16:26\u201316:29 UTC"
+  },
+  "checksum_diff_scope": "REVISIONS.diff covers the four revised core files; generated checksum files are excluded from the diff to avoid circular hashes. Original SHA256SUMS is retained separately and current payload hashes are in PUBLICATION_MANIFEST.json/SHA256SUMS.",
+  "publication": "Standalone notes directory; no Release",
+  "remaining_mathematical_blockers": []
+}

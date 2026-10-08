@@ -1,0 +1,214 @@
+--- original-handoff/ARITHMETIC_RELAXATION_OBSTRUCTION.md
++++ published-note/ARITHMETIC_RELAXATION_OBSTRUCTION.md
+@@ -1,78 +1,65 @@
+-# End of the scalar-arithmetic stage (2026-10-08)
++# End of the weak scalar-arithmetic stage (2026-10-08)
+ 
+ ## Result and its exact scope
+ 
+-The following combination of necessary conditions is insufficient for the
+-Bell–Skandera conclusion: positive integral coefficients and constant term 1;
+-strict Newton inequalities; irreducibility; a positive integral discriminant;
+-positive integral norm; and every affine squared-trace lower bound obtained
+-from the nonzero integral norm of an affine polynomial in a putative totally
+-positive algebraic integer.
++A precisely bounded combination of necessary conditions is insufficient for the Bell–Skandera conclusion: positive integral coefficients and constant term one; strict Newton inequalities; irreducibility; positive integral discriminant and algebraic norm; and, for every nonzero integer pair (a,b), the uniform weak bound
+ 
+-An explicit obstruction is
++`Tr((a lambda+b)^2) >= 7`,
+ 
+-f(t)=1+9t+28t^2+48t^3+49t^4+27t^5+8t^6+t^7.
++obtained using only the nonzero integral-norm lower bound `|Norm(a lambda+b)| >= 1`. The statement does not assert satisfaction of bounds retaining the actual norm magnitude.
++
++The candidate is
++
++`f(t)=1+9t+28t^2+48t^3+49t^4+27t^5+8t^6+t^7`.
+ 
+ Its reciprocal signed monic polynomial is
+ 
+-G(X)=X^7-9X^6+28X^5-48X^4+49X^3-27X^2+8X-1.
++`G(X)=X^7-9X^6+28X^5-48X^4+49X^3-27X^2+8X-1`.
+ 
+-The example is NOT real-rooted and NOT a counterexample to Bell–Skandera.
+-It has exactly three real roots, all positive for G (all negative for f).
+-The four remaining roots are nonreal. It rules out the stated relaxation only.
++The example is **not real-rooted** and **not a Bell–Skandera counterexample**. G has exactly three real roots, all positive; the corresponding roots of f are negative. The other four roots are nonreal. This example addresses only the weak relaxation specified above.
+ 
+ ## Exact certificates
+ 
+-1. Every coefficient is a positive integer and f(0)=1. The positive root norm
+-   of G is 1. Maclaurin's elementary lower bounds c_k >= binom(7,k) hold.
++1. Every coefficient is a positive integer and f(0)=1. The algebraic norm, the product of all seven conjugates of a root of G, is 1. The elementary Maclaurin lower bounds `c_k >= binom(7,k)` hold.
++
+ 2. The six strict Newton cross-multiplication slacks
+-   c_k^2 binom(7,k-1)binom(7,k+1)-c_(k-1)c_(k+1)binom(7,k)^2 are
+-   329,1568,12740,177135,5733,21, all positive.
+-3. The discriminant of G is 93667157 > 1. G is irreducible over Q: its monic
+-   reduction modulo 11 is irreducible by the degree-7 finite-field criterion
+-   gcd(G,X^11-X)=1 and X^(11^7)=X modulo G.
+-4. Newton sums give p_1=9,p_2=25. For every pair of integers (a,b) != (0,0),
++   `c_k^2 binom(7,k-1)binom(7,k+1)-c_(k-1)c_(k+1)binom(7,k)^2`
++   are `329,1568,12740,177135,5733,21`, all positive.
+ 
+-   sum_j (a lambda_j+b)^2
+-   =25a^2+18ab+7b^2
+-   =(7b+9a)^2/7+94a^2/7 >=7.
++3. The discriminant of G is `93667157 > 1`. Its monic reduction modulo 11 is irreducible: `gcd(G,X^11-X)=1` and `X^(11^7)=X modulo G`. Since 7 is prime, the latter identity forces irreducible factor degrees to divide 7; the gcd condition excludes degree one. Thus the degree-seven reduction, and hence G over Q, is irreducible.
+ 
+-   If a != 0 the last quantity is >=94/7>7; if a=0 it is 7b^2>=7.
+-   Thus all affine squared-trace/norm necessary inequalities pass, even though
+-   the lambda_j here are not all real. Irreducibility also ensures that every
+-   nonzero affine resultant is a nonzero integer.
+-5. The fourth lower-shadow inequality fails. The fourth binomial expansion is
++4. Newton sums give `p_0=7,p_1=9,p_2=25`. For every pair of integers `(a,b)!=(0,0)`,
+ 
+-   49=binom(7,4)+binom(5,3)+binom(3,2)+binom(1,1),
++   `Tr((a lambda+b)^2)=25a^2+18ab+7b^2=((7b+9a)^2+94a^2)/7 >= 7`.
+ 
+-   whose shadow has size
++   If a is nonzero, this is at least `94/7>7`; if a=0, b is nonzero and it is `7b^2>=7`. This is an argument for all integer pairs, not a finite search. Irreducibility implies that every nonzero affine polynomial in lambda has a nonzero integral norm. For a putative totally real root, applying AM–GM to the seven nonzero squared conjugates and using only the norm's integrality gives the uniform bound 7. Here the conjugates are not all real; the polynomial trace still satisfies this weak arithmetic test.
+ 
+-   binom(7,3)+binom(5,2)+binom(3,1)+binom(1,0)=35+10+3+1=49>48=c_3.
+-6. The first 3x3 Hermite moment determinant is -3432. This exhibits exactly
+-   which stronger real-root constraints the example does not pass. The full
+-   discriminant cannot replace the missing hierarchy of Hermite positivity.
++5. The stronger AM–GM condition retaining the actual norm magnitude is
++   `Tr((a lambda+b)^2)^7 >= 7^7 * |Norm(a lambda+b)|^2`
++   when the conjugates are all real. This candidate fails it already at `(a,b)=(1,-3)`:
+ 
+-`verify_arithmetic_relaxation.py` independently verifies these claims in exact
+-integer and rational arithmetic, without numerical root approximations.
++   `Tr((lambda-3)^2)=25-6*9+9*7=34`,
++   `Norm(lambda-3)=-G(3)=355`, and
+ 
+-## Consequence for target selection
++   `34^7=52,523,350,144 < 103,787,006,575=7^7*355^2`.
+ 
+-This stage did not produce a complete main-conjecture result or an all-degree
+-structural inequality. The original reduction to irreducible totally positive
+-algebraic integers and trace bounds is already in Bell–Skandera. Existing
+-numerical prefix searches and known degree-10 positive controls give no new
+-all-degree information. The scalar discriminant/affine-resultant patch is now
+-explicitly obstructed. Higher polynomial-resultant inequalities may still be
+-useful, but no invariant that implies the KK integer roundings has been found;
+-replacing them by full Hermite positivity merely reinstates real-rootedness.
++   Thus keeping the actual affine norm magnitude excludes the candidate. The observation does not obstruct the full affine norm constraints or the complete arithmetic approach.
+ 
+-We therefore end this attack stage rather than extend non-exhaustive scans.
+-The main Bell–Skandera problem remains unresolved here. No claim is made that
+-all arithmetic approaches are impossible, or that the conjecture is hopeless.
+-The new obstruction is a modest auxiliary observation, with no priority claim;
+-it is not a major solution and should only be published as an ended-stage
+-research record after the parent's usual review.
++6. The fourth Kruskal–Katona lower-shadow inequality fails. The unique fourth binomial expansion is
+ 
+-Primary source status and exact hypotheses remain those in
+-CURRENT_SOURCE_AUDIT.md, checked 2026-10-08. Third-party PDFs are research
+-sources only and must not be included in a public package.
++   `49=binom(7,4)+binom(5,3)+binom(3,2)+binom(1,1)`,
++
++   with decreasing upper indices. Its lower shadow is
++   `binom(7,3)+binom(5,2)+binom(3,1)+binom(1,0)=35+10+3+1=49>48=c_3`.
++
++7. Newton sums through degree four are `7,9,25,117,589`. The first 3x3 Hermite moment determinant is `-3432`; therefore the stronger moment-positivity test also excludes the candidate. Discriminant positivity alone cannot stand in for the real-root moment constraints.
++
++The companion verifier checks the finite-field, determinant, Sturm, Newton, binomial-shadow and stronger-norm certificates using exact integer and rational arithmetic. Its coefficient identity verifies the algebra in the quantified weak-bound proof; the case split above supplies the argument for every integer pair.
++
++## End of the stage
++
++This modest auxiliary observation limits only the explicitly weakened scalar tests that discard norm magnitudes. It provides no complete main-conjecture result or all-degree structural inequality. The stronger actual-norm constraint already removes this candidate. Neither all affine resultant constraints nor arithmetic approaches in general are ruled out.
++
++The original irreducible totally positive algebraic-integer and trace-bound reduction is prior work discussed in Bell–Skandera, as recorded in the dated source audit. The present attack stage is ended without expanding non-exhaustive searches. The main Bell–Skandera question remains unresolved here; no major-result or priority claim is made.
++
++`CURRENT_SOURCE_AUDIT.md` is the original dated source-preparation record, not a new publication-time literature audit. Third-party PDFs are research sources and are excluded from the public package. The private original hashes, the revision diff, the independent review and the fresh exact-verifier record are retained separately.
+--- original-handoff/README.md
++++ published-note/README.md
+@@ -1,19 +1,14 @@
+-# Bell–Skandera: ended scalar-arithmetic attack stage
++# Bell–Skandera: an ended weak scalar-arithmetic stage
+ 
+-This is a low-key research record, not a conjecture resolution. The main question
+-remains unresolved by this work. No priority claim is made.
++This is a modest ended-stage research record, not a conjecture resolution. The Bell–Skandera main question remains unresolved by this work. The candidate is not real-rooted and is not a counterexample to that question. No priority claim is made.
+ 
+-The proved auxiliary statement is a limitation of a precisely bounded relaxation:
+-coefficient integrality, strict Newton inequalities, irreducibility, discriminant
+-positivity, norm positivity, and all affine squared-trace inequalities do not
+-imply the Kruskal–Katona inequalities. It says nothing against all higher-degree
+-resultant constraints or against the main real-rooted conjecture.
++The auxiliary observation has a limited scope: positive integral coefficients and constant term one, strict Newton inequalities, irreducibility, positive discriminant, positive algebraic norm, and the uniform weak bounds
++`Tr((a lambda+b)^2) >= 7` for every nonzero integer pair `(a,b)` do not imply the Kruskal–Katona inequalities. These particular trace bounds use only `|Norm(a lambda+b)| >= 1`; they discard the actual norm magnitude.
+ 
+-Run `python verify_arithmetic_relaxation.py` using ordinary Python 3. No external
+-packages, downloads or numerical root approximations are needed. The companion
+-proof records the all-integer-pairs inequality; finite computation is not used
+-as a surrogate for that quantified claim.
++Retaining that magnitude already excludes this candidate. At `(a,b)=(1,-3)`, the square trace is 34 and the absolute norm is 355, while
++`34^7 = 52,523,350,144 < 103,787,006,575 = 7^7 * 355^2`.
++Thus the observation is not an obstruction to the full family of affine norm constraints, to higher-degree resultant constraints, or to arithmetic methods in general.
+ 
+-Files: exact proof, exact verifier and output, primary-source audit. Third-party
+-PDFs and exploratory searches have deliberately not been packaged. The SHA-256
+-manifest fixes the exact source bytes before independent review/publication.
++Run `python3 verify_arithmetic_relaxation.py` using ordinary Python 3. The verifier uses exact integer and rational arithmetic, requires no external packages or downloads, and refuses to run when assertions are disabled. The proof gives the all-integer-pairs argument; finite sampling is not substituted for that quantified claim. The generated JSON includes the stronger actual-norm negative certificate.
++
++The original private delivery was corrected during independent review. `provenance/ORIGINAL_HANDOFF_MANIFEST.json` and `provenance/ORIGINAL_SHA256SUMS` preserve its hashes; `review/REVISIONS.diff` shows the revisions. The original source-audit record is retained, with its dated inspection scope; the publisher has not performed a new literature search. Third-party PDFs and exploratory scans are excluded. See `review/INDEPENDENT_REVIEW.md` and `verification/RUN_RECORD.json` for the completed review and reproduction. This record is published as a small note, without a Release.
+--- original-handoff/arithmetic_relaxation_exact.json
++++ published-note/arithmetic_relaxation_exact.json
+@@ -22,7 +22,23 @@
+   ],
+   "real_roots": 3,
+   "positive_reciprocal_roots": 3,
+-  "all_affine_square_trace_bounds": "proved for all integer pairs by completed square identity",
++  "uniform_affine_square_trace_bound": {
++    "bound": 7,
++    "domain": "all nonzero integer pairs (a,b)",
++    "uses_only_norm_absolute_value_at_least": 1,
++    "proof": "completed square identity and integer case split"
++  },
++  "strong_actual_norm_negative_certificate": {
++    "affine_pair": [
++      1,
++      -3
++    ],
++    "square_trace": 34,
++    "absolute_norm": 355,
++    "trace_power_7": 52523350144,
++    "seven_power_7_times_norm_squared": 103787006575,
++    "actual_norm_AM_GM_inequality_holds": false
++  },
+   "KK_failure": {
+     "k": 4,
+     "shadow": 49,
+--- original-handoff/verify_arithmetic_relaxation.py
++++ published-note/verify_arithmetic_relaxation.py
+@@ -3,7 +3,11 @@
+ from fractions import Fraction as F
+ from math import comb
+ import json
++import sys
+ from pathlib import Path
++if not __debug__:
++ print("Verification requires enabled assertions; run ordinary Python 3.", file=sys.stderr)
++ raise SystemExit(2)
+ c=[1,9,28,48,49,27,8,1]
+ G=[F((-1)**(7-j)*c[7-j]) for j in range(8)] # ascending
+ 
+@@ -94,6 +98,16 @@
+  p.append(v)
+ H3=det([[p[i+j] for j in range(3)] for i in range(3)])
+ assert H3==-3432
+-out={'scope':'auxiliary relaxation obstruction; NOT Bell-Skandera counterexample','coefficients':c,'irreducible_mod_prime':q,'discriminant':Discriminant,'strict_Newton_slacks':slacks,'real_roots':real_count,'positive_reciprocal_roots':positive_count,'all_affine_square_trace_bounds':'proved for all integer pairs by completed square identity','KK_failure':{'k':4,'shadow':shadow,'previous':c[3]},'Hermite_3_determinant':H3}
++assert p[:3]==[7,9,25]
++# Retaining the actual norm magnitude rules out this candidate.
++affine_a,affine_b=1,-3
++square_trace=affine_a**2*p[2]+2*affine_a*affine_b*p[1]+affine_b**2*p[0]
++g_at_3=sum(int(v)*3**j for j,v in enumerate(G))
++affine_norm=(-1)**7*g_at_3
++left=square_trace**7
++right=7**7*affine_norm**2
++assert g_at_3==-355 and affine_norm==355 and square_trace==34
++assert left==52523350144 and right==103787006575 and left<right
++out={'scope':'auxiliary relaxation obstruction; NOT Bell-Skandera counterexample','coefficients':c,'irreducible_mod_prime':q,'discriminant':Discriminant,'strict_Newton_slacks':slacks,'real_roots':real_count,'positive_reciprocal_roots':positive_count,'uniform_affine_square_trace_bound':{'bound':7,'domain':'all nonzero integer pairs (a,b)','uses_only_norm_absolute_value_at_least':1,'proof':'completed square identity and integer case split'},'strong_actual_norm_negative_certificate':{'affine_pair':[affine_a,affine_b],'square_trace':square_trace,'absolute_norm':abs(affine_norm),'trace_power_7':left,'seven_power_7_times_norm_squared':right,'actual_norm_AM_GM_inequality_holds':False},'KK_failure':{'k':4,'shadow':shadow,'previous':c[3]},'Hermite_3_determinant':H3}
+ print(json.dumps(out,indent=2))
+ Path(__file__).with_name('arithmetic_relaxation_exact.json').write_text(json.dumps(out,indent=2)+'\n')
