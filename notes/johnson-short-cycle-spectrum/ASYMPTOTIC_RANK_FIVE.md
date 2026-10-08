@@ -2,6 +2,8 @@
 
 **Research supplement, 8 October 2026.** This note proves the first higher-rank case of the Chebyshev asymptotic problem raised in Section 23 of the [permutation-action manuscript](../sharp-robust-permanent/paper.md). It concerns the \(S_n\) action on its four-element subsets. The [fixed-rank transfer theorem](README.md) and orbital primal--dual theorem supply the general setting. Both the upper and lower bounds below hold for **all sufficiently large degrees**, with no extrapolation from finite optimizations. We make no claim of historical priority or external referee certification.
 
+**Current cross-reference.** After this explicit \(k=4\) proof was released, the [parent manuscript, Theorem 25](../sharp-robust-permanent/paper.md) was found to have an **earlier, independent** proof of the sharp \(2k^2/n\) law for *every fixed \(k\)*. A second [all-fixed-rank note](ALL_K_CHEBYSHEV_ASYMPTOTICS.md) supplies a complementary transfer-matrix proof with rational-coefficient duals and the strict-rank separation corollary. Consequently the \(k\ge5\) cases are no longer open within this shared repository. This manuscript remains useful for its **explicit finite-degree \(k=4\) dual, quantitative \(O(n^{-2})\) upper bound**, and separately checked radical primal construction.
+
 ## 1. Main theorem
 
 Let \(u_n\) be the uniform probability measure on \(S_n\). Let \(C_{n,4}\) be the best constant in
