@@ -89,18 +89,22 @@ in paper.md and referenced in LITERATURE.md.
 18. The data-coordinate squared centroid contribution
     is exactly sum_j (q_j/k)^2 P_j; the selector
     contribution is nonnegative and can be discarded.
-19. Sorted binary powers have w_j=q_j/k<=2^(1-j),
-    so entropy H(w)<=4 log2 by a geometric
-    reference law and KL positivity. This bound is
-    uniform even when k has many nonzero binary digits.
+19. Each distinct descending power exceeds the sum of
+    all smaller powers, so at every binary selector stage,
+    conditional probability of continuing is <1/2.
+    Residual survival S_j<=2^(1-j), and the exact
+    entropy chain formula H(w)=sum_j S_j h_2(w_j/S_j)
+    gives the **sharp** bound H(w)<2log2.
+    The extremal limit k=2^s-1 has entropy ->2log2.
 20. The all-mass squared hazard Lipschitz bound yields
     at most 2H(w) additional loss. Small powers below
     Q0=2^r0 have total size <Q0, and their omitted
     contribution is at most 2Q0 log(k)/k; this is <=1
-    for k>=Q0^2. The dyadic proof already yields 88/q relative to the separate halfspace envelope; thus 88+8log2+1<95, for
-    all sufficiently large integer k.
+    for k>=Q0^2. The dyadic proof already yields
+    88/q relative to the separate halfspace envelope;
+    hence 88+4log2+1<92 for all sufficiently large k.
 21. Combining the all-k upper construction with the
-    independent spherical-cap converse at C=95 gives
+    independent spherical-cap converse at C=92 gives
     the optimal Theta(log^2 k) dimension order for all k.
     No finite-k Standard Simplex global optimizer is inferred.
 
@@ -114,7 +118,7 @@ It also certifies **exactly rational** numerical inequalities
 used in the error budget and the logarithm threshold.
 A separate check over 19 binary-expansion examples verifies
 all-integer selector combinatorics, the geometric small-block
-sum, and H(w)<4log2 with outward-rational logarithm intervals.
+sum, and H(w)<2log2 with outward-rational logarithm intervals.
 No floating point or optimizer is used.
 
 These finite checks are *not* the proof of the conditional
@@ -125,5 +129,5 @@ a bibliographic locator in LITERATURE.md.
 
 The result establishes the optimal *order* of dimension
 complexity for all sufficiently large integers k, with
-a fixed additive 95/k error tolerance. Exact leading
+a fixed additive 92/k error tolerance. Exact leading
 constants and finite-k optimizers remain outside its scope.
