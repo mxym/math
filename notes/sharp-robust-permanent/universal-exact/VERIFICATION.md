@@ -60,3 +60,19 @@ This is a **real kernel-checked, sorry-free lemma**, but covers only a small com
 The main result supplies a **uniform finite exact rational expression** for every parameter pair, with explicit deterministic instructions and bounded support. It is not an elementary piecewise-rational formula without a finite maximum. Selecting the maximizing circuit types at all parameter pairs remains an additional structural classification problem. The formula is polynomial in \(n\) for fixed \(m=\min(k,n-k)\), but may be infeasible for large growing \(m\).
 
 Classical inputs include determinant expansions, signed circuits of vector configurations, basic convexity, and conjugation averaging. Prior project results supply the orbital LP and exact cycle-index recurrence. A comprehensive literature novelty search and independent human referee evaluation remain **incomplete**. Do not claim a world-first theorem, external refereeing, or Lean formal completion.
+
+
+## 7. Preferred polynomial proof, typeset release and final hosted replay
+
+Section 11 of [paper.md](paper.md) gives the preferred **finite polynomial, all-parameter** proof of the exact rank determinant, eliminating dependence on the formal algebraic root. It starts from the exact two-state integer recurrence and proves
+
+\[
+\nabla^rG_j(t)
+=(t-1)^r[u^{m-r}](1+ut)^jZ_{n-j-2r}(u,t)
+\]
+
+for the stated index range; setting \(t=1\) yields the binomial diagonal entries. The independent pure-integer [check_finite_difference_rank.py](../code/check_finite_difference_rank.py) verifies the polynomial identity and diagonal coefficient for 30 pairs \(1\le m\le10\). It does **not** replace the proof for arbitrary \(m\).
+
+The manuscript was compiled and visually inspected as a **10-page A4 PDF** [paper.pdf](typeset/paper.pdf) with [editable typeset Markdown](typeset/paper.md) and [rebuild/hash instructions](typeset/README.md). Published PDF Git blob SHA: aa48d74dbe52de45a559f806c7c377d616bae8aa, SHA-256: d349387be3c0f5f2cdb731a14e4a3882484c49758c92a2b343b7af8417192b82. The canonical full proof in [paper.md](paper.md) remains authoritative, including the later elementary proof and finite-group extension.
+
+The workflow containing the new universal exact integer formula checker, six-contact sharpness checker, 214-matrix independent generic circuit audit and independent finite-difference polynomial checker completed **successfully** on a GitHub-hosted runner: [run 37733321450](https://github.com/mxym/math/actions/runs/37733321450), head commit 0e005cee24ac8a4e84d91a21a81bb4dd18ff2358. The hosted CI demonstrates public executable replay; the full arbitrary-\((n,k)\) argument remains a mathematical proof, and full Lean formalization and external referee review are **not yet completed**.
