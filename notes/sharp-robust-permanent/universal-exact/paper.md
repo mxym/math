@@ -249,3 +249,43 @@ It checks the exact rank-product identity (10) for \(m\le9\) and multiple degree
 This theorem completely answers arbitrary finite-parameter **exact evaluability** in a prescribed determinant/minor sense. It does **not** produce a single short algebraic rational function or a finite number of parameter branches valid for all \((n,k)\); the finite maximization may be very large. A uniform classification of which circuit maximizes at every parameter pair remains a stronger open structural problem.
 
 The argument uses classical ideas—LP/extreme points, signed circuits of vector configurations, determinants, cycle-index recurrences—and extends the orbital primal-dual and all-rank cycle-compression theorems previously documented in this public repository. It makes no unverified priority claim. This is an AI-assisted proof draft, not a proof-assistant kernel formalization or external human referee report. Such independent audits remain important.
+
+
+## 9. The \(m+2\) support bound is genuinely sharp
+
+**Proposition D (minimal support at \((n,k)=(11,4)\)).** For the \(S_{11}\) action on four-element subsets, the exact optimal coefficient is \(C_{11,4}=1629/4549\). Every signed marginal-preserving perturbation **attaining that optimum** has nonzero mass in at least six distinct short-cycle types. Since \(m=4\), this shows the universal support bound \(m+2\) in Theorem A **cannot be reduced to \(m+1\) uniformly**.
+
+**Proof.** The independently certified \(n=11,k=4\) dual in the repository has coefficient vector
+\[
+\lambda=(-1511/955290,\,-624/159215,\,-169/191058,\,-365/95529)
+\]
+for the four nontrivial orbital counts. The dual function
+\[
+h(g)=\mathbf1_{\{g=e\}}-\sum_{j=0}^3\lambda_jF_j^{(4)}(g)
+\]
+has exact range \([2920/4549,\,1]\). An exhaustive integer check over **all 54 feasible short-cycle types** finds that the *only* types attaining its upper value \(1\) are
+\[
+(11,0,0,0),\quad(7,0,0,1),\quad(0,1,3,0),
+\]
+and the *only* types attaining its lower value \(2920/4549\) are
+\[
+(9,1,0,0),\quad(4,0,1,1),\quad(0,4,1,0).
+\]
+For an optimal signed perturbation, the difference between these two dual values must equal the \(\ell^1\) objective. Equality in the elementary range bound for a zero-mass signed measure forces its positive part to live **entirely on the upper contact set**, and its negative part **entirely on the lower contact set**, after orienting the identity atom positively.
+
+Consider the resulting \(5\times6\) orbital matrix, with identity first and the five other contact types lexicographically ordered. Its exact alternating maximal-minor vector is
+\[
+(-344826720,\,-23708160,\,11430720,\,121927680,\,
+-594397440,\,829573920).
+\]
+Every coordinate is **nonzero**, so the matrix has rank five and a one-dimensional kernel, with every nonzero kernel vector supported on **all six columns**. Its exact \(\ell^1\) ratio is
+\[
+\frac{2(344826720)}
+{344826720+23708160+11430720+121927680+
+ 594397440+829573920}
+=\frac{1629}{4549}.
+\]
+Conjugation averaging cannot increase total variation or change the identity atom, so an arbitrary (not necessarily central) attaining perturbation would yield a central attaining perturbation with no new short-cycle types. It, too, must therefore involve at least six types. This proves sharpness.
+
+Every stated dual contact inequality, complete contact set and integer maximal minor is independently replayed by the published pure-integer/Fraction checker
+check_sparse_support_sharpness.py. The proof is an exact finite certificate, not a numerical LP conclusion. QED.
