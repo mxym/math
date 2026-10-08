@@ -15,6 +15,13 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 各项成果分别说明证明和验证范围。
 重大成果优先推进[完整 Lean 形式化](formalizations/MAJOR_RESULT_VERIFICATION_PLAN.md)；
 局部形式化验证与完整主定理验证分别标明。
+[Wakhare 熵多项式四实根反例的完整 Lean 证明](formalizations/wakhare-entropy-four-roots-lean/README.md)
+现已严格形式化发表在 *Journal of Approximation Theory*（2025）的 Conjecture 2 的反例：
+从原始双重二项式求和出发，针对互素参数 (11,10) 证明唯一正参数 α 的有理夹逼，
+精确核验五个交错符号，并通过四次实数介值定理在 (0,1) 内构造**四个严格不同的实根**。
+真实 `ℝ[X]` 多项式及其求值对应关系均由 Lean 验证；五个证明模块和入口通过
+Lean 4.34.1 内核审查，12 个关键定理仅依赖标准公理，坏证明对照和 CI 配置齐备。
+此任务形式化既有公开数学反例，不将其发现或历史首证归属于本轮 Lean 工作。
 [全部周期图染色多项式的无限对数凹性完整 Lean 分类](formalizations/chromatic-cycles-all-n-lean/README.md)
 已将先前单个 C17 反例的真实着色计数、染色多项式和对数凹变换升级为**每个 n≥3 的完整定理**：
 当且仅当 3≤n≤11 时，系数绝对值列的所有对数凹迭代均非负；12–16 的反例有精确有限证书，

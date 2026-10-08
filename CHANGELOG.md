@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — Lean-formalize the complete four-root Wakhare entropy-polynomial counterexample
+
+- Completed a **full Lean proof** of the previously published \((k,r)=(11,10)\) counterexample to Wakhare's 2025 Journal of Approximation Theory Conjecture 2: the original nested binomial sums, unique positive algebraic parameter, strict rational enclosure \(117/125<lpha<937/1000\), five exact alternating sample signs, four distinct interior roots by the real intermediate value theorem, and a genuine \(\mathbb R[X]\) polynomial with its exact evaluation identity. The theorem is not limited to hand-listed polynomial coefficients or numerical root estimates.
+- Replayed five original Lean 4.34.1 mathematical modules and the root library; 12 root axiom inventories list only `propext`, `Classical.choice` and `Quot.sound`. A deliberately invalid `False` proof is rejected; source SHA-256 and frozen package dependencies, exact replay scripts and read-only GitHub Actions CI are included.
+- Preserved the provenance of the earlier arithmetic and mathematical discovery at `notes/entropy-polynomial-counterexample/`; no claim about arbitrary parameters, exactly four roots, the separate binary-entropy inequality, external peer review or worldwide priority is made.
+
 ## 2026-10-08 — complete Lean classification of all cycle chromatic-polynomial infinite log-concavity
 
 - Closed the full **all-cycle graph-to-coefficients Lean proof chain** beyond the independently published C17 case. For **every n≥3**, proved the actual Mathlib `SimpleGraph.cycleGraph n` proper-q-coloring count equals evaluation of \((X-1)^n+(-1)^n(X-1)\) for every q, including q=0,1,2. The proof uses a complete-graph walk encoding, injectivity/cardinality equivalence and exact matrix-trace recurrence.
