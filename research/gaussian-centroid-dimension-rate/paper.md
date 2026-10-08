@@ -73,6 +73,24 @@ In particular, logarithmic dimension with a fixed
 constant cannot recover the sharp two-log-term
 asymptotic of the high-dimensional optimum.
 
+We also prove an explicit **additive-accuracy
+upper construction** using cyclic Gaussian
+score orbits. For every \(k\ge100\), a
+\(k\)-cell partition with exactly equal masses
+in dimension \(d\le8(\log k)^3+2\) attains
+\(F_\infty(k)-14/k\). Together with the
+rate–distortion converse, the necessary
+and sufficient dimension scales for bounded
+additive error satisfy
+\[
+ (2-o(1))rac{(\log k)^2}{\log\log k}
+        \le d_{
+m additive}(k)
+        \le8(\log k)^3+2.
+\]
+The remaining gap is polylogarithmic,
+not linear in \(k\).
+
 We give exact first moments for two constructive
 families and show that the simple one-pass
 staircase construction has an asymptotically
@@ -885,7 +903,360 @@ already improves the uniform asymptotic
 loss, but its finite-\(k\) global
 optimality is not established here.
 
-## 10. Current research boundary and attribution
+
+## 10. Polylogarithmic dimension for bounded additive error
+
+The previous section established a necessary dimension
+of order at least \((\log k)^2/\log\log k\)
+for additive \(O(1/k)\) accuracy. We now construct
+equal-mass partitions in only
+\(O((\log k)^3)\) dimensions that **do attain
+bounded additive accuracy**. This significantly
+narrows the formerly \(k-1\)-dimensional
+sufficiency requirement.
+
+The key device is a finite cyclic orthogonal
+orbit, not a random Voronoi partition with
+uncontrolled cell masses. Group symmetry
+makes every Gaussian cell mass **exactly \(1/k\)**.
+
+**Lemma 11 (cyclic almost-orthogonal orbit).**
+Let \(k\ge3\), write \(L=\log k\), set
+\[
+    \delta=L^{-1}<1,\qquad
+    m=\lceil4L^3\rceil,\quad d=2m.            \tag{36}
+\]
+There exist integers \(a_1,\ldots,a_m\in
+\{0,1,\ldots,k-1\}\) such that the \(k\) unit
+vectors \(v_0,\ldots,v_{k-1}\in\mathbb R^{2m}\)
+given by
+\[
+ v_j=\frac1{\sqrt m}
+   \big(\cos(2\pi a_rj/k),\,
+        \sin(2\pi a_rj/k)\big)_{r=1}^m
+                                                       \tag{37}
+\]
+are pairwise distinct and satisfy
+\[
+ \boxed{\displaystyle
+ \langle v_i,v_j\rangle\le\delta
+                    \qquad(i\ne j).}         \tag{38}
+\]
+Moreover a single orthogonal transformation
+\(U\in O(2m)\) cycles the vectors:
+\(Uv_j=v_{j+1\bmod k}\).
+
+*Proof.* Choose the frequencies \(a_r\)
+independently and uniformly from
+\(\{0,\dots,k-1\}\).
+For each \(s\not\equiv0\pmod{k}\),
+root-of-unity orthogonality gives
+\[
+ \mathbb E_a\cos(2\pi as/k)=0.
+\]
+The elementary convexity bound
+\(e^{t x}\le\cosh t+x\sinh t\) for
+\(-1\le x\le1\), together with
+\(\cosh t\le e^{t^2/2}\), implies
+\[
+ \mathbb E e^{t\cos(2\pi as/k)}
+                       \le e^{t^2/2}.
+\]
+Consequently the exponential Markov
+inequality at \(t=\delta\) yields
+\[
+ \Pr\left\{\frac1m\sum_{r=1}^m
+      \cos(2\pi a_r s/k)\ge\delta\right\}
+          \le e^{-m\delta^2/2}.
+\]
+The union bound over the \(k-1\)
+nonzero residues gives failure
+probability at most
+\[
+ (k-1)e^{-m\delta^2/2}
+ \le ke^{-2L}=\frac1k<1.
+\]
+Thus a valid *deterministic list of integer
+frequencies exists*. It can be specified
+by taking the lexicographically first
+list satisfying the **strict** inequalities
+\(\langle v_i,v_jangle<\delta\).
+Indeed the preceding union bound, applied
+to the event \(\ge\delta\), proves that
+such lists exist. A terminating, albeit
+possibly extremely slow, deterministic
+algorithm can dovetail outward-rational
+trigonometric/logarithmic interval checks
+over the finite candidate lists: an
+eventually certified strict witness must
+be found. No random choice is left in
+the final specification.
+
+By the trigonometric subtraction identity,
+\[
+ \langle v_i,v_j\rangle
+ =\frac1m\sum_{r=1}^m
+             \cos(2\pi a_r(i-j)/k),
+\]
+so (38) follows. Since \(\delta<1\),
+the vectors must be distinct.
+The blockwise rotation by
+\(2\pi a_r/k\) in the \(r\)-th
+coordinate plane takes \(v_j\)
+to \(v_{j+1}\), proving the cyclic
+symmetry. \(\square\)
+
+**Lemma 12 (Gaussian maximum comparison).**
+Suppose \(X_1,\ldots,X_k\) are centered
+jointly Gaussian, each of variance \(1\),
+with pairwise covariances at most
+\(\delta\in[0,1)\). Let
+\(m_k=\mathbb E\max_{1\le i\le k}Z_i\)
+for independent standard normals.
+Then
+\[
+ \boxed{\displaystyle
+      \mathbb E\max_iX_i
+                   \ge\sqrt{1-\delta}\,m_k.}
+ \tag{39}
+\]
+
+*Proof.* Let
+\(Y_i=\sqrt{1-\delta}\,Z_i+\sqrt\delta\,Z_0\),
+with all \(Z_i,Z_0\) independent standard
+normals. Then \(\operatorname{Var}(Y_i)=1\)
+and \(\operatorname{Cov}(Y_i,Y_j)=\delta\)
+for \(i\ne j\).
+
+For \(a>0\), write
+\(F_a(x)=a^{-1}\log\sum_i e^{a x_i}\).
+Interpolate covariance matrices by
+taking \(W_t=\sqrt t\,X+\sqrt{1-t}\,Y\),
+with independent \(X,Y\), \(0\le t\le1\).
+Gaussian integration by parts gives
+\[
+ \frac d{dt}\mathbb E F_a(W_t)
+  =\frac12\sum_{i,j}
+  (C_X-C_Y)_{ij}
+       \mathbb E[\partial_{ij}F_a(W_t)].
+\]
+Diagonal covariance differences vanish.
+For \(i\ne j\),
+\[
+ \partial_{ij}F_a
+  =-a\,p_i(x)p_j(x)\le0,\qquad
+ p_i(x)=\frac{e^{a x_i}}{\sum_re^{a x_r}},
+\]
+while \((C_X-C_Y)_{ij}\le0\).
+Each off-diagonal summand is
+nonnegative, so the interpolation
+expectation increases with \(t\).
+Now
+\[
+ \max_i x_i\le F_a(x)
+         \le\max_i x_i+\frac{\log k}{a}.
+\]
+Let \(a\to\infty\) to obtain
+\(\mathbb E\max X_i\ge\mathbb E\max Y_i\).
+Finally
+\(\mathbb E\max_iY_i=
+\sqrt{1-\delta}\,m_k\),
+since the common \(Z_0\) has mean
+zero. \(\square\)
+
+**Lemma 13 (explicit independent-normal maximum bounds).**
+For \(k\ge100\), let \(t=t_{1/k}\)
+and \(L=\log k\). Then \(t>2\) and
+\[
+ t-\frac3t\le m_k\le t+\frac1t,
+ \qquad
+ h(1/k)^2\le t^2+3,\qquad
+ m_k^2\ge t^2-6,\qquad
+ m_k^2\le2L+3.                                \tag{40}
+\]
+
+*Proof.* The Mills lower bound gives
+\[
+ \overline\Phi(2)
+ \ge\frac25\varphi(2)
+ >\frac25\cdot\frac1{27}
+  >\frac1{100},
+\]
+using \(e<3\) and \(\sqrt{2\pi}<3\).
+Thus \(t_{1/k}>2\) for \(k\ge100\).
+
+Mills' inequalities give
+\(t\le k\varphi(t)\le t+1/t\).
+For \(M_k=\max_iZ_i\), integrating the
+upper tail yields
+\[
+ \begin{aligned}
+ m_k
+ &\le t+k\int_t^\infty\overline\Phi(s)\,ds\\
+ &=k\varphi(t)\le t+1/t,
+ \end{aligned}
+\]
+because
+\(\int_t^\infty\overline\Phi(s)\,ds
+=\varphi(t)-t\overline\Phi(t)\).
+
+For the lower bound, integrate the
+lower tail:
+\[
+ m_k\ge t-\int_{-\infty}^t\Phi(s)^k\,ds.
+\]
+For \(0\le s\le t\), the Gaussian
+hazard satisfies
+\(\varphi(s)/\overline\Phi(s)\ge s\).
+It follows that
+\(k\overline\Phi(s)\ge
+ \exp((t^2-s^2)/2)\), whence
+\[
+ \Phi(s)^k\le
+    \exp[-\exp(t(t-s)/2)]
+ \le e^{-1}e^{-t(t-s)/2}.
+\]
+Thus the integral on \([0,t]\)
+is at most \(2/(e t)\).
+For \(s<0\),
+\(\Phi(s)^k\le2^{-(k-1)}\Phi(s)\);
+therefore the remaining integral
+is at most
+\(2^{-(k-1)}/\sqrt{2\pi}\).
+For \(k\ge100\), the last expression
+is at most \(1/t\), using
+\(t^2\le2\log k\) and the
+elementary inequality
+\(2^{k-1}>\sqrt{2\log k}\).
+Hence \(m_k\ge t-3/t\).
+
+Now \(t>2\) implies \(t-3/t>0\),
+so squaring gives \(m_k^2\ge t^2-6\).
+Mills and \(t>2\) also imply
+\(h(1/k)^2\le(t+1/t)^2\le t^2+3\).
+The preceding upper bound on \(m_k\),
+together with \(t^2\le2L\),
+gives \(m_k^2\le2L+3\).
+\(\square\)
+
+**Theorem 14 (additive \(14/k\) approximation
+in cubic-logarithmic dimension).**
+For every integer \(k\ge100\), put
+\[
+       L=\log k,\quad
+       d_k=2\lceil4L^3\rceil .
+\]
+There exists a measurable partition
+of standard Gaussian space
+\(\mathbb R^{d_k}\) into exactly \(k\)
+cells of equal mass \(1/k\) such that
+\[
+ \boxed{\displaystyle
+      F_\infty(k)-\frac{14}{k}
+       \le P(\mathcal A)
+       \le F_\infty(k),
+       \qquad d_k\le8(\log k)^3+2.}           \tag{41}
+\]
+In particular,
+\[
+ \boxed{\displaystyle
+ d_{\rm additive}(k)
+       =O((\log k)^3)}
+ \tag{42}
+\]
+for the dimension needed to achieve
+bounded \(O(1/k)\) additive accuracy.
+Together with Theorem 8,
+\[
+ (2-o(1))\frac{(\log k)^2}{\log\log k}
+ \le d_{\rm additive}(k)
+ \le8(\log k)^3+2
+\]
+for the explicit additive tolerance \(14/k\)
+(on the left, interpreted for every fixed
+bounded additive tolerance).
+
+*Proof.* Take the cyclic orbit
+\(v_0,\ldots,v_{k-1}\) of Lemma 11.
+For \(G\sim N(0,I_{d_k})\), define
+the cell \(A_i\) by the largest
+linear score
+\(\langle v_i,G\rangle\), breaking
+ties arbitrarily. Pairwise distinct
+vectors give Gaussian-null score ties.
+The orthogonal cyclic group generated
+by \(U\) permutes the cells
+transitively and preserves \(\gamma_{d_k}\).
+Therefore all \(k\) cells have
+**exactly** Gaussian mass \(1/k\).
+
+Put \(b_i=\int_{A_i}x\,d\gamma_{d_k}(x)\).
+Cauchy–Schwarz gives
+\[
+ \begin{aligned}
+ \mathbb E\max_i\langle v_i,G\rangle
+ &=\sum_i\langle v_i,b_i\rangle\\
+ &\le\left(\sum_i\|v_i\|^2\right)^{1/2}
+       \left(\sum_i\|b_i\|^2\right)^{1/2}
+ =\sqrt{kP(\mathcal A)}.
+ \end{aligned}
+\]
+Lemma 12 and (38) therefore give
+\[
+ P(\mathcal A)\ge
+          \frac{(1-\delta)m_k^2}{k},
+       \qquad \delta=\frac1L.                \tag{43}
+\]
+On the other hand, the one-cell
+Gaussian halfspace rearrangement
+gives \(F_\infty(k)\le
+  U_k=h(1/k)^2/k\).
+Combining these facts with Lemma 13,
+\[
+ \begin{aligned}
+ k[U_k-P(\mathcal A)]
+ &\le h(1/k)^2-(1-\delta)m_k^2\\
+ &=[h(1/k)^2-m_k^2]+\delta m_k^2\\
+ &\le9+\frac{2L+3}{L}
+ \le14
+ \qquad(k\ge100).
+ \end{aligned}
+\]
+Thus \(P(\mathcal A)\ge U_k-14/k
+ \ge F_\infty(k)-14/k\).
+Since \(F_\infty(k)\) is the saturated
+high-dimensional optimum and
+\(d_k\ll k-1\) for sufficiently large \(k\),
+the final upper inequality is automatic
+by dimension monotonicity. For the
+finite initial range \(k\ge100\) where
+\(d_k\) might exceed \(k-1\), exact
+dimension saturation in the cited
+fixed-mass Gaussian dual theorem
+gives the same upper inequality.
+Finally \(2\lceil4L^3\rceil
+ \le8L^3+2\), proving (41). \(\square\)
+
+**Constructivity and verification.**
+The orbit frequencies can be defined
+without randomness as the
+lexicographically first integer list
+meeting the explicitly displayed
+finite trigonometric inequalities.
+Lemma 11 proves such a list exists
+for every \(k\ge100\). This is a
+well-defined finite deterministic
+construction, although no polynomial-time
+frequency-selection algorithm is claimed.
+The exact checker verifies independently
+a number of explicit frequency lists
+using rational interval enclosures of
+\(\pi\), cosine and \(\log k\).
+The universal theorem is proved by
+the union bound and Gaussian interpolation,
+not by those finite checks.
+
+## 11. Current research boundary and attribution
 
 Theorems 5 and 7 give matching
 \(\Theta_\varepsilon(\log k)\) upper and
@@ -894,9 +1265,11 @@ relative approximation. Theorem 8
 gives the strictly larger
 \(\Omega((\log k)^2/\log\log k)\)
 necessary dimension for bounded
-additive approximation. No matching
-constructive upper bound at this
-second scale is provided.
+additive approximation. A separate cyclic-orbit argument in
+Section 10 gives the first explicit
+cubic-logarithmic constructive upper
+bound here, but it does **not** match
+the converse scale.
 
 This is a statement about the **Gaussian
 first-moment energy** (the first Hermite
