@@ -1,0 +1,33 @@
+# Oct 8 2026: fully exact *polynomial admissibility only* replay
+$ python3 code/check_polynomials.py
+PATTERN: 197 independently pinned distinct lattice coordinates
+FAMILY: 197 distinct monic integral quadratics with strictly negative discriminants
+SMALL-PRIME LOCAL DATA: all 77 primes <=394 covered by one CRT shift at n=0
+GLOBAL CRT MODULUS: digits 159 horizontal/vertical shift digits 159 159
+LARGE-PRIME REASON: product monic degree 394, so no fixed divisor prime p>394
+SCHINZEL INPUTS EXACTLY VERIFIED; NO PRIMALITY EXISTENCE ASSERTED
+$ python3 -O code/check_polynomials.py
+PATTERN: 197 independently pinned distinct lattice coordinates
+FAMILY: 197 distinct monic integral quadratics with strictly negative discriminants
+SMALL-PRIME LOCAL DATA: all 77 primes <=394 covered by one CRT shift at n=0
+GLOBAL CRT MODULUS: digits 159 horizontal/vertical shift digits 159 159
+LARGE-PRIME REASON: product monic degree 394, so no fixed divisor prime p>394
+SCHINZEL INPUTS EXACTLY VERIFIED; NO PRIMALITY EXISTENCE ASSERTED
+$ python3 code/self_test.py
+REJECTED: missing small prime
+REJECTED: wrong prime index
+REJECTED: inconsistent CRT horizontal coordinate
+REJECTED: inconsistent CRT vertical coordinate
+REJECTED: incorrect full modulus
+REJECTED: potentially reducible quadratic specialization
+REJECTED: wrong form count
+ALL CONDITIONAL-CERTIFICATE MUTATION TESTS PASSED
+$ python3 -O code/self_test.py
+REJECTED: missing small prime
+REJECTED: wrong prime index
+REJECTED: inconsistent CRT horizontal coordinate
+REJECTED: inconsistent CRT vertical coordinate
+REJECTED: incorrect full modulus
+REJECTED: potentially reducible quadratic specialization
+REJECTED: wrong form count
+ALL CONDITIONAL-CERTIFICATE MUTATION TESTS PASSED

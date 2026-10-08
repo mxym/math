@@ -1,0 +1,29 @@
+# Exact full six-stage integer replay, 2026-10-08
+$ python3 code/check_exact.py
+EXCEPTIONS: all 22 added prime associates over 5,19,41,43,59,67 lie in the certified 90-prime component
+PARTITION: 1/1; examined 206 parent components >197
+SHIFT CONFIGURATIONS: [74366, 3500, 20172, 66564, 69620, 53868]
+LARGE COMPONENTS: [140, 12, 36, 20, 12, 0]
+LAYER MAXIMA: [298, 241, 217, 205, 201, 197] attainment (2228, ((15, 0), (1, 0), (9, 0), (32, 0), (5, 0), (41, 0)))
+SHARP SIEVE: complete infinite allowed lattice has no component larger than 197
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check_exact.py
+EXCEPTIONS: all 22 added prime associates over 5,19,41,43,59,67 lie in the certified 90-prime component
+PARTITION: 1/1; examined 206 parent components >197
+SHIFT CONFIGURATIONS: [74366, 3500, 20172, 66564, 69620, 53868]
+LARGE COMPONENTS: [140, 12, 36, 20, 12, 0]
+LAYER MAXIMA: [298, 241, 217, 205, 201, 197] attainment (2228, ((15, 0), (1, 0), (9, 0), (32, 0), (5, 0), (41, 0)))
+SHARP SIEVE: complete infinite allowed lattice has no component larger than 197
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: wrong complete-parent hash
+REJECTED: missing new exceptional prime
+REJECTED: duplicate component vertex
+REJECTED: oversized last-stage component
+ALL NEGATIVE AND CONNECTIVITY CONTROLS PASSED
+$ python3 -O code/self_test.py
+REJECTED: wrong complete-parent hash
+REJECTED: missing new exceptional prime
+REJECTED: duplicate component vertex
+REJECTED: oversized last-stage component
+ALL NEGATIVE AND CONNECTIVITY CONTROLS PASSED

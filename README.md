@@ -568,7 +568,22 @@ positive-definite perturbation B with 0 < q0 < 1 and P_q0(B) > P_1(B).
 This disproves the original [-1,1] conjecture for complex Hermitian positive
 definite matrices. It includes a separate non-computational existence proof,
 three exact standard-library verifiers, full independent model-conducted
-mathematical reviews, and a file-integrity manifest. The real-symmetric
-restriction remains unsettled here. No complete Lean certification, external
+mathematical reviews, and a file-integrity manifest. The separate [real-symmetric finite-existence proof](notes/bapat-real-symmetric-existence-counterexample/README.md)
+below establishes the real restriction as well. No complete Lean certification, external
 journal peer review, or historical priority is claimed. Earlier work on the
 extension beyond q=1 is preserved as a separate historical result.
+
+## Real symmetric positive-definite counterexamples to Bapat's q-permanent conjecture
+
+The [complete nine-page existence proof](notes/bapat-real-symmetric-existence-counterexample/paper.pdf)
+establishes that some finite order admits a non-diagonal real symmetric
+positive-definite integer matrix B and rational 0 < q0 < q1 < 1 with
+P_q0(B) > P_q1(B). The intermediate Gram matrix has rank at most four;
+the final positive-definite matrix is full rank. This is a finite-existence
+argument, with no explicit dimension bound or numerical real witness.
+The [source, complete Markdown copy, proof-dependency map, and exact algebra checks](notes/bapat-real-symmetric-existence-counterexample/README.md)
+include two independent model-conducted mathematical reviews and a final-copy
+review tied to the manuscript hashes. The result is separate from the explicit
+complex order-200 witness above. No complete Lean formalization of this real
+existence theorem, external human peer-review acceptance, or historical
+priority is claimed.
