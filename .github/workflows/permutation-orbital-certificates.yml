@@ -1,0 +1,58 @@
+name: Permutation orbital exact certificates
+
+on:
+  push:
+    paths:
+      - "notes/sharp-robust-permanent/**"
+      - ".github/workflows/permutation-orbital-certificates.yml"
+  pull_request:
+    paths:
+      - "notes/sharp-robust-permanent/**"
+      - ".github/workflows/permutation-orbital-certificates.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out public files
+        uses: actions/checkout@v4
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned exact symbolic dependency
+        run: python -m pip install --disable-pip-version-check "sympy==1.14.0"
+      - name: All-arity permanent and finite-group witnesses
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_examples.py
+          python notes/sharp-robust-permanent/code/check_atom_modulus.py
+          python notes/sharp-robust-permanent/code/check_doubly_transitive.py
+      - name: Exact three-row analytical identities and rational counterexamples
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_s3_exact.py
+          python notes/sharp-robust-permanent/code/check_s3_phase.py
+          python notes/sharp-robust-permanent/code/check_local_gaps.py
+      - name: Exact two-subset and three-subset finite certificates
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_edge_action_s5.py
+          python notes/sharp-robust-permanent/code/check_all_two_subset_actions.py
+          python notes/sharp-robust-permanent/code/check_three_subset_certificates.py
+          python notes/sharp-robust-permanent/code/check_three_subset_compressed_24_120.py
+      - name: All-rank transfer-matrix and k=4 finite certificates
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_all_k_orbital_compression.py
+          python notes/sharp-robust-permanent/code/check_four_subset_n8_64.py
+      - name: Analytic asymptotic identities and k=4 Chebyshev algebra
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_three_subset_asymptotic_algebra.py
+          python notes/sharp-robust-permanent/code/check_k4_chebyshev_dual.py
