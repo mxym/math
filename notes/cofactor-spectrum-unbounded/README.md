@@ -31,6 +31,9 @@ Run with standard Python 3, without installing packages:
     python verify_witness.py
     python verify_witness_independently.py
 
+Run with Python optimization disabled. Both programs refuse to run under
+-O, -OO, or PYTHONOPTIMIZE=1/2, because their verification requires assertions.
+
 The first program rebuilds all omitted-factor products. The second uses a
 single-pass marked-product recurrence and does not call the first algorithm.
 Both verify using exact integers that the supplied Gaussian-integer rows and

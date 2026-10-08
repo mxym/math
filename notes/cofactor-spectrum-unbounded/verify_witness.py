@@ -5,6 +5,10 @@ For the linear-first Gram convention, w* C(A) w is the squared norm of
 sum_i conjugate(w_i) v_i tensor product_(j!=i) ell_j.
 This finite certificate illustrates the theorem; it does not prove unboundedness.
 """
+
+if not __debug__:
+    raise SystemExit('Run without -O, -OO, or PYTHONOPTIMIZE: assertions are required for verification.')
+
 import csv,json,math,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent

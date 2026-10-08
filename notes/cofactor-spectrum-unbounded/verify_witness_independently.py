@@ -5,6 +5,10 @@ This never forms any omitted-factor polynomial separately.  For each component
 alpha it tracks the coefficient of a formal marker s in
 prod_i (ell_i + s * conjugate(w_i) * v_i[alpha]).
 """
+
+if not __debug__:
+    raise SystemExit('Run without -O, -OO, or PYTHONOPTIMIZE: assertions are required for verification.')
+
 import csv
 import hashlib
 import json
