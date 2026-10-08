@@ -6,6 +6,12 @@
 - Retained the independent final-copy review and selected evidence: 125 fresh modules, 850 public proof declarations, 1,849 safe owned roots, and a 55,163-declaration actual empty trust-zero kernel replay. Integration reran normal/optimized integrity, deterministic archive construction, and both 83-case/666-entrypoint packaging suites. Reused dependency caches remain part of the stated trust boundary.
 - Added the [release manifest](releases/2026-10-08-simplex-truncation-sharpness-v2.json), preserved all earlier releases and unrelated files, and added only navigation to existing files. The sharpMainGoal upper theorem is not part of this historical lower-bound checkpoint. No new blanket license, authorship assignment, CI workflow, novelty certificate or external human peer-review claim is introduced.
 
+## 2026-10-08 — complete complex permanent–determinant coefficient lens and endpoint
+
+- Classified the exact complex coefficient lens `|lambda|^2+2|Re lambda|<=1/3` for the all-matrix sharp pencil `|per A+lambda det A|<=2/sqrt(3) product_i ||row_i(A)||_2`. Its largest centered disk gives the sharp `|per A| + (2/sqrt(3)-1)|det A| <= (2/sqrt(3)) product_i ||row_i(A)||_2` for every **complex** 3x3 matrix, with joint sharpness and all equality cases (zero row, monomial, equimodular-column rank one). This is a strict complex strengthening of the existing real three-row result, not a duplicate claim to the known real radius.
+- Derived the exact iff radius `1/sqrt(3)-1/2` for **complex-valued** L2 permutation products with uniform one-point marginals, endpoint equality types, and independent/nonidentical-column tensorization.
+- Added the full Hermitian principal-minor proof, exact rational 1024-node full lens certificate, independent Q(sqrt3) 256-node disk certificate, 60 exact Q(i,sqrt3) matrix-entry regressions, negative controls, ordinary/optimized output comparisons, audit, hashes and read-only CI. No earlier numbered manuscript was changed; no priority, external referee or complete Lean claim is made.
+
 ## 2026-10-07 — Eisenstein graph maxima and sharp principal-sieve periods
 
 - Proved exact unique largest irreducible-element component sizes 48

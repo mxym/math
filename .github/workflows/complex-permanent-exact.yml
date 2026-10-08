@@ -1,0 +1,49 @@
+name: Exact complex three-row permanent certificate
+
+on:
+  push:
+    paths:
+      - 'notes/complex-permanent-determinant/**'
+      - '.github/workflows/complex-permanent-exact.yml'
+  pull_request:
+    paths:
+      - 'notes/complex-permanent-determinant/**'
+      - '.github/workflows/complex-permanent-exact.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  proof-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Full sharp complex coefficient lens, exact rational replay
+        shell: bash
+        run: |
+          python3 notes/complex-permanent-determinant/check_lens.py > /tmp/lens-normal.txt
+          python3 -O notes/complex-permanent-determinant/check_lens.py > /tmp/lens-optimized.txt
+          cmp /tmp/lens-normal.txt /tmp/lens-optimized.txt
+          cmp /tmp/lens-normal.txt notes/complex-permanent-determinant/results/lens-replay.txt
+      - name: Exact Q(sqrt3) polynomial identities in both Python modes
+        shell: bash
+        run: |
+          python3 notes/complex-permanent-determinant/check.py > /tmp/complex-normal.txt
+          python3 -O notes/complex-permanent-determinant/check.py > /tmp/complex-optimized.txt
+          cmp /tmp/complex-normal.txt /tmp/complex-optimized.txt
+          cmp /tmp/complex-normal.txt notes/complex-permanent-determinant/results/replay.txt
+      - name: Independent Q(i,sqrt3) Hermitian entrywise regression
+        shell: bash
+        run: |
+          python3 notes/complex-permanent-determinant/check_matrix.py > /tmp/complex-matrix-normal.txt
+          python3 -O notes/complex-permanent-determinant/check_matrix.py > /tmp/complex-matrix-optimized.txt
+          cmp /tmp/complex-matrix-normal.txt /tmp/complex-matrix-optimized.txt
+          cmp /tmp/complex-matrix-normal.txt notes/complex-permanent-determinant/results/matrix-replay.txt
+      - name: Frozen package hashes
+        shell: bash
+        run: |
+          cd notes/complex-permanent-determinant
+          sha256sum -c SHA256SUMS
