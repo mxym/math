@@ -240,6 +240,153 @@ of Theorem A. Its upper bound and the construction of the
 admissible polynomials are **unconditional**; only the
 simultaneous *primality of their values* is conditional.
 
+## 4. Under H, every component size 1 through 197 occurs infinitely often
+
+The preceding theorem gives 197-prime *components* because the
+unconditional upper bound is also 197. A stronger conclusion is
+possible: conditional on **full** classical Hypothesis H, every
+smaller admissible connected pattern can be forced to be an
+**entire** component by making all of its immediate outside
+neighbors demonstrably composite.
+
+**Theorem B (conditional complete component-size spectrum).** Under
+the classical Schinzel–Sierpiński Hypothesis H, for each integer
+\(1\le k\le197\), the true irreducible-element graph of
+\(\mathbb Z[\sqrt{-2}]\) has **infinitely many distinct connected
+components of exactly \(k\) vertices** for every real
+\(\sqrt6\le D<\sqrt8\). Combined with the unconditional bound
+\(B_D\le197\), the complete positive component-size spectrum
+under Hypothesis H is exactly
+\[
+                          \boxed{\{1,2,\ldots,197\}}.       \tag{4.1}
+\]
+This theorem invokes **full Hypothesis H** (or H separately for the
+197 explicitly constructible finite polynomial families below),
+not merely the single family in Theorem A. Its conclusion is **not
+unconditionally established**.
+
+We prove a more general exact-component principle before verifying
+its finite inputs.
+
+**Lemma 4.1 (inert-prime boundary blocking).** Let \(S'\subset
+\mathbb Z^2\) be finite, nonempty and connected under \(F_{14}\).
+Assume that for every rational prime \(p\), some translation of
+\(S'\) modulo \(p\) avoids the norm-zero set of
+\(N(a,b)=a^2+2b^2\). Let its **external boundary** be
+\[
+ \partial_F S'=\{w\notin S':w-z\in F_{14}\text{ for some }z\in S'\}.
+\]
+For each \(w\in\partial_F S'\), suppose one is given a
+**distinct rational prime** \(q_w>2|S'|\) such that \(-2\) is
+a nonsquare modulo \(q_w\), and that
+\[
+                    q_w\nmid N(z-w)\qquad(z\in S').        \tag{4.2}
+\]
+Then, under classical Hypothesis H, infinitely many translates
+of \(S'\) are **full connected components** of the irreducible
+graph with steps \(F_{14}\).
+
+*Proof.* Put \(k=|S'|\) and \(B=\partial_F S'\).
+Choose a norm-avoiding local translation modulo every rational
+prime \(p\le2k\); these exist by the hypothesis on \(S'\).
+The \(q_w\) are pairwise distinct and all exceed \(2k\), so
+coordinatewise CRT yields integers \(X,Y\) such that:
+\[
+\begin{aligned}
+ &(X,Y)\text{ is norm-avoiding on }S'\text{ modulo every }p\le2k,\\
+ &(X,Y)\equiv-w\pmod{q_w}\qquad(w\in B).
+\end{aligned}                                                \tag{4.3}
+\]
+Increase \(Y\) by a sufficiently large multiple of the total CRT
+modulus, preserving all congruences, so that
+\(Y+b>0\) for every \((a,b)\in S'\), and also
+\(Y+w_2>\max_{w\in B}q_w\) for every \(w=(w_1,w_2)\in B\).
+Let \(L=\prod_{w\in B}q_w\) (interpreting an empty product as 1)
+and define
+\[
+                f_z(T)=N((X+LT,Y)+z),\qquad z\in S'.       \tag{4.4}
+\]
+These are positive quadratics with leading coefficient \(L^2\),
+negative discriminant \(-8L^2(Y+b)^2\) and pairwise distinct
+coefficients. Hence they are irreducible over \(\mathbb Q[T]\).
+
+Their product has no fixed rational prime divisor. For every
+\(p\le2k\), the value at \(T=0\) is nonzero modulo \(p\)
+by (4.3). For \(p>2k\) **not** dividing \(L\), the product has
+nonzero leading coefficient \(L^{2k}\bmod p\) and degree
+\(2k<p\); consequently it cannot vanish for every
+\(T\in\mathbb F_p\). Finally, if \(p\mid L\), then
+\(p=q_w\) for some boundary point \(w\). Modulo \(q_w\),
+\(L\equiv0\) and \((X,Y)\equiv-w\), so for all
+\(z\in S'\) and all \(T\),
+\[
+                     f_z(T)\equiv N(z-w)\not\equiv0
+                                    \pmod{q_w},              \tag{4.5}
+\]
+by the explicit assumption (4.2). These cases exhaust
+**every** rational prime. Thus classical Hypothesis H applies to
+the fixed finite family (4.4) and, if assumed, provides infinitely
+many positive integers \(T\) for which all \(f_z(T)\) are
+rational primes. As in Theorem A, all corresponding ring elements
+\((X+LT,Y)+z\), \(z\in S'\), are irreducible and connected.
+
+Crucially, *none* of their external neighbors is irreducible.
+For every \(w\in B\), the element
+\(\beta_w(T)=(X+LT,Y)+w\) has both integer coordinates
+divisible by \(q_w\), by (4.3) and \(q_w\mid L\). Thus
+\(\beta_w(T)=q_w\eta_w(T)\) for a ring integer
+\(\eta_w(T)\in R\). The chosen large second coordinate gives
+\[
+               N(\beta_w(T))\ge2(Y+w_2)^2>q_w^2=N(q_w),
+\]
+so \(N(\eta_w(T))>1\), and \(\eta_w(T)\) is a nonunit.
+Hence \(\beta_w(T)\) is **reducible**, not just of composite
+rational norm. Since every possible prime neighbor of the
+translated connected \(S'\) is such a boundary element, it is
+**exactly an entire connected component**. The infinitely many
+unbounded positive specializations may be spaced farther apart
+than the width of \(S'\), yielding pairwise disjoint exact
+components. \(\square\)
+
+**Lemma 4.2 (certified boundary blockers for all 197 prefixes).**
+There exist explicit connected sets
+\(S_1\subset S_2\subset\cdots\subset S_{197}=S\), with
+\(|S_k|=k\), such that for each \(k\), the boundary
+\(\partial_F S_k\) admits the distinct inert-prime blockers
+required by Lemma 4.1.
+
+*Proof by independently replayable finite data.* Traverse the
+frozen 197-point \(S\) by a deterministic breadth-first
+spanning-tree exploration under the fourteen moves (1.1), and
+take the first \(k\) vertices as \(S_k\). Every prefix is
+connected by construction, and every subset is universally
+norm-admissible because \(S\) is. Directly forming the external
+neighbor sets shows they have at most **1186** points, with the
+maximum occurring at \(k=197\). Assign to the lexicographically
+ordered boundary points the first \(|\partial_F S_k|\) entries
+of the frozen `code/inert_boundary_primes.json`. This file lists
+1186 **distinct, exact rational primes**, the first being 397
+and the last 46237, all congruent to 5 modulo 8, hence inert in
+\(\mathbb Q(\sqrt{-2})\), and all exceeding
+\(2\cdot197=394\).
+
+The independent `code/check_boundary_spectrum.py` reconstructs all
+197 connected prefixes, tests the exact primality and quadratic
+nonresiduosity of every frozen boundary blocker, and verifies
+(4.2) for **every** internal–boundary point pair, a total of
+**15,563,538 exact integer norm nonvanishing checks**. This is
+finite evidence for every explicitly bounded hypothesis of
+Lemma 4.1, without assuming any simultaneous prime values.
+The source and complete frozen blocker list are public. \(\square\)
+
+*Proof of Theorem B.* For each \(k\), the set \(S_k\) is
+universally norm-admissible by heredity from the published
+197-point certificate, and satisfies Lemma 4.1 by
+Lemma 4.2. Assuming classical Hypothesis H, infinitely many
+full prime components of size \(k\) therefore exist. The
+unconditional upper bound 197 rules out larger components.
+\(\square\)
+
 ## 4. Why existing constellation theorems do not supply the missing step
 
 A theorem of Tao, [*The Gaussian primes contain arbitrarily
@@ -268,7 +415,7 @@ have its maximum realized by a different connected shape.
 The precise proven implication is the **sufficient conditional
 result** stated in Theorem A.
 
-## 5. Exact reproduction, trust boundary and further research
+## 6. Exact reproduction, trust boundary and further research
 
 The verification of the polynomial family is independent of
 any unproved prime-value input:
@@ -276,6 +423,8 @@ any unproved prime-value input:
 ```sh
 python3 code/check_polynomials.py
 python3 -O code/check_polynomials.py
+python3 code/check_boundary_spectrum.py
+python3 -O code/check_boundary_spectrum.py
 python3 code/self_test.py
 python3 -O code/self_test.py
 sha256sum -c SHA256SUMS

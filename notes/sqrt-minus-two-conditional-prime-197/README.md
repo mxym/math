@@ -28,17 +28,21 @@ and in fact the graph has **infinitely many** distinct components of exactly 197
 
 This identifies precisely the missing prime-value existence problem. The classical Hypothesis H is **unproved**, including broad classes of quadratic-polynomial special cases. The unconditional results remain `90 <= B_D <= 197`; the conditional statement must never be cited without its hypothesis.
 
+**Further conditional classification:** Assuming **full** classical Hypothesis H (not just this single 197-form instance), **every size from 1 through 197** occurs as an entire prime connected component **infinitely often**. A new inert-prime boundary-blocking lemma makes all exterior neighbors composite without harming local admissibility of the interior. The public exact checker verifies all 197 connected prefixes, 1,186 distinct inert-prime boundary blockers, and **15,563,538** interior–boundary modular nonvanishing predicates. This is a conditional *complete component-size spectrum*, not an unconditional existence claim.
+
 ## Independent replay
 
 ```sh
 python3 code/check_polynomials.py
 python3 -O code/check_polynomials.py
+python3 code/check_boundary_spectrum.py
+python3 -O code/check_boundary_spectrum.py
 python3 code/self_test.py
 python3 -O code/self_test.py
 sha256sum -c SHA256SUMS
 ```
 
-The checker validates the exact previously certified 197-point pattern hash, all 77 local primes, CRT coordinates, all 15,169 nonzero small-prime evaluations, negative quadratic discriminants and polynomial distinctness. A separate elementary written lemma handles **every** prime `p > 394`. The producer `code/build_polynomials.py` can rebuild the certificate but is not trusted by or imported into the checker. Mutation tests reject altered CRT data, missing primes or invalid polynomial counts.
+The checker validates the exact previously certified 197-point pattern hash, all 77 local primes, CRT coordinates, all 15,169 nonzero small-prime evaluations, negative quadratic discriminants and polynomial distinctness. A separate elementary written lemma handles **every** prime `p > 394`. The producer `code/build_polynomials.py` can rebuild the certificate but is not trusted by or imported into the checker. Mutation tests reject altered CRT data, missing primes or invalid polynomial counts. The additional checker independently validates all finite inert-prime exterior-boundary conditions needed for the conditional full spectrum.
 
 ## Scope and literature distinction
 
