@@ -56,8 +56,8 @@ The key lemmas are:
 The manuscript also proves:
 
 - A universal two-log-scale formula with **explicit constants**
-  19 and 17:
-  B(p)-19 Q(p) <= M_d(p) <= B(p)+17 Q(p),
+  6 and 3:
+  B(p)-6 Q(p) <= M_d(p) <= B(p)+3 Q(p),
   B(p)=sum_i p_i^2 [2 log(1/p_i) - log^+ log(1/p_i)].
 - If max_i p_i -> 0, the global optimum is asymptotic to
   2 sum_i p_i^2 log(1/p_i), **without any constraint on
@@ -65,6 +65,11 @@ The manuscript also proves:
   weighted log-log term is controlled to O(Q(p)).
 - For p_i between a/k and b/k, the exact leading coefficients
   are (2 log k - log log k - log(4pi)) Q(p) + O_{a,b}(1/k).
+- The squared Gaussian upper-tail hazard also obeys the globally
+  sharpened scalar bound B(q)-4 <= h(q)^2 <= B(q)+3,
+  proved from elementary Mills inequalities and a Gaussian
+  exponential-moment bound. This replaces the older 17/17
+  scalar estimates.
 - The constructive threshold partition is globally
   asymptotically optimal as p_max->0, and near-optimal
   partitions satisfy a quantitative collision-weighted
@@ -112,7 +117,13 @@ paper.md.
 
 We do not prove exact finite-k global simplex optimality
 for k>=4. The universal additive constant 2 is valid,
-but not established as the best possible. The bibliography
+but not established as the best possible. A separate
+[dimension-rate continuation](../gaussian-centroid-dimension-rate/README.md)
+shows that one-pass stairs use the full 2/k
+budget asymptotically for equal masses, while
+new hierarchical Gaussian partitions achieve
+optimal-order O_epsilon(log k) dimension at
+every fixed relative accuracy. The bibliography
 has not undergone comprehensive specialist review, and
 historical mathematical priority is not asserted.
 
