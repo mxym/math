@@ -8,6 +8,9 @@ Run: python3 notes/johnson-short-cycle-spectrum/check_k4_asymptotic_algebra.py
 """
 import sympy as S
 
+if not __debug__:
+    raise RuntimeError('Run without -O: optimized Python disables assert checks')
+
 s,t,n,x,y,z,w,a,b,c,d=S.symbols('s t n x y z w a b c d')
 U=s+(t-1)*s**2+(t-1)*(t-2)*s**3+(t-1)*(t*t-5*t+5)*s**4
 Lplus=1+U
