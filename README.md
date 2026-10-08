@@ -15,6 +15,13 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
 各项成果分别说明证明和验证范围。
 重大成果优先推进[完整 Lean 形式化](formalizations/MAJOR_RESULT_VERIFICATION_PLAN.md)；
 局部形式化验证与完整主定理验证分别标明。
+[全部周期图染色多项式的无限对数凹性完整 Lean 分类](formalizations/chromatic-cycles-all-n-lean/README.md)
+已将先前单个 C17 反例的真实着色计数、染色多项式和对数凹变换升级为**每个 n≥3 的完整定理**：
+当且仅当 3≤n≤11 时，系数绝对值列的所有对数凹迭代均非负；12–16 的反例有精确有限证书，
+所有 n≥17 的反例在第三次迭代的指标 2 处统一严格为负。11 个 Lean 证明模块
+和总入口已经在 Lean 4.34.1 上通过内核复核，13 个核心定理只使用标准公理；
+独立 Lake/GitHub Actions 再现配置、坏证明拒绝测试和 SHA-256 清单一并公开。
+保留并明确致谢其他任务此前已完成的 C17 单例 Lean 包，不将其作为本轮的新成果。
 [有限群轨道原始—对偶定理的完整 Lean 证明](formalizations/orbital-primal-dual/README.md)
 已覆盖原定理 18 的真实边缘条件、有理最优证书、尖锐常数与等号构造；117 个定理通过空内核重放。
 [Bapat 原猜想的指定有理反例完整 Lean 证明](formalizations/bapat-q-permanent-explicit-rational/README.md)

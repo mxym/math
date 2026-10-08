@@ -1,5 +1,9 @@
 # Manuscript catalogue
 
+## Complete Lean theorem for the chromatic polynomial of every cycle
+
+The [all-\(n\) Lean formalization](formalizations/chromatic-cycles-all-n-lean/README.md) proves the **actual Mathlib `SimpleGraph.cycleGraph n` chromatic polynomial** equals \((X-1)^n+(-1)^n(X-1)\) for every \(n\ge3\), directly via proper-coloring counts for every integer color count, modular successor adjacency, closed complete-graph walks and an exact adjacency-matrix trace formula. It then fully classifies infinite log-concavity of the **absolute chromatic coefficients** with zero extension: **positive exactly at \(3\le n\le11\)**, finite negative witnesses at \(12\le n\le16\), and an exact uniform third-iterate negative result for **every \(n\ge17\)**. Eleven Mathlib-backed source modules and a root library were recompiled on Lean 4.34.1, Mathlib commit `d13f23b723b8a846827a245b89c10fc7d3f11612`, with 13 source-root axiom audits (only `propext`, `Classical.choice`, `Quot.sound`) and a negative kernel control. [Proof sources](formalizations/chromatic-cycles-all-n-lean/ChromaticCyclesAllN/) · [complete audit](formalizations/chromatic-cycles-all-n-lean/audit/AUDIT.md) · [CI](.github/workflows/chromatic-cycles-all-n-lean.yml). This extends, without duplicating or claiming credit for, the previously completed [single-C17 Lean proof](formalizations/chromatic-infinite-logconcavity-counterexample/README.md).
+
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
 
 [Complete six-page paper and verification](research/gaussian-fixed-mass-propeller-counterexample/README.md)

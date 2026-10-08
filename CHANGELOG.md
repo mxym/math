@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — complete Lean classification of all cycle chromatic-polynomial infinite log-concavity
+
+- Closed the full **all-cycle graph-to-coefficients Lean proof chain** beyond the independently published C17 case. For **every n≥3**, proved the actual Mathlib `SimpleGraph.cycleGraph n` proper-q-coloring count equals evaluation of \((X-1)^n+(-1)^n(X-1)\) for every q, including q=0,1,2. The proof uses a complete-graph walk encoding, injectivity/cardinality equivalence and exact matrix-trace recurrence.
+- Proved the **complete infinite log-concavity iff classification** for the absolute coefficients under zero extension: **3≤n≤11 iff all iterates stay nonnegative**, with a Lean-verified invariant-preservation argument for arbitrarily many iterates; five independent finite failures at n=12..16; and a **single symbolic factorization and positivity proof for every n≥17** detecting a negative third iterate at index 2. No finite scan is generalized without proof.
+- Published eleven kernel-replayed mathematical modules, a root Lean library with fixed toolchain and Mathlib versions, per-source SHA-256, thirteen exact kernel axiom inventories restricted to the three standard axioms, a failing invalid-proof regression, a reproducible Lake replay script and a read-only GitHub Actions workflow. The earlier single-C17 formalization belongs to a parallel task and is preserved, not relabeled as newly authored. No Lean proof of an unrelated graph family or external human peer-review claim is made.
+
 ## 2026-10-08 — refute the arbitrary-mass Gaussian regular-simplex conjecture
 
 - Gave a complete counterexample to Heilman 2019 v1 Conjecture 1.16:
