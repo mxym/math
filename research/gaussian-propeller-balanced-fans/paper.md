@@ -1796,7 +1796,210 @@ tetrahedral candidate is the
 global maximizer.
 
 
-## 17. Provenance, audit and limitations
+
+## 17. Sharp two-term asymptotics for unrestricted equal-mass partitions
+
+The regular-simplex construction is not known here
+to be exactly optimal for every fixed \(k\ge4\).
+Nevertheless, its objective is **asymptotically
+optimal among all measurable equal-mass Gaussian
+partitions**, with the first two logarithmic
+terms of the optimum determined exactly.
+
+Let \(\varphi,\Phi\) be the standard normal density
+and CDF and put
+\[
+ b_k=\Phi^{-1}(1-1/k),\qquad
+ m_k=\mathbb E\max_{1\le i\le k}Z_i
+ \quad(Z_i\ {\rm iid\ standard\ normal}).
+\]
+
+**Theorem 21 (unrestricted equal-mass
+Gaussian asymptotics).**
+For every \(k\ge2\) and
+every \(d\ge k-1\),
+\[
+ \boxed{\displaystyle
+   \frac{m_k^2}{k-1}
+   \ \le\
+   \mathcal M_d(1/k,\dots,1/k)
+   \ \le\
+   k\varphi(b_k)^2.}
+ \tag{55}
+\]
+The upper bound holds in **every** dimension
+\(d\ge1\), with no restriction on the shapes
+of the cells.
+
+As \(k\to\infty\) (with any \(d\ge k-1\)),
+the two bounds satisfy
+\[
+ \boxed{\displaystyle
+ \mathcal M_d(1/k,\dots,1/k)
+   =\frac{2\log k-\log\log k-\log(4\pi)+O(1)}{k}.
+ }
+ \tag{56}
+\]
+Moreover their ratio is
+\[
+ \frac{k\varphi(b_k)^2}{m_k^2/(k-1)}
+       =1+O(1/\log k).
+ \tag{57}
+\]
+Thus the regular-simplex partition attains
+the unknown unrestricted optimum up to
+a multiplicative factor \(1+O(1/\log k)\),
+uniformly over all ambient dimensions
+\(d\ge k-1\).
+
+*Proof of the finite sandwich.* The lower
+bound is precisely the regular-simplex
+construction of Theorem 13, lifted
+cylindrically if \(d>k-1\).
+
+For the upper bound, let \((A_i)\)
+be **any** measurable partition with
+\(\gamma_d(A_i)=1/k\).
+Apply the two-cell halfspace comparison
+from Corollary 19 to \(A_i\), or to the
+pair \(A_i,A_i^c\). It gives
+\[
+ \left\|\int_{A_i}x\,d\gamma_d(x)\right\|
+     \le\varphi(b_k)
+\]
+for every \(i\). Squaring and summing
+gives the bound \(k\varphi(b_k)^2\).
+No geometric structure of \((A_i)\)
+is assumed.
+
+*Proof of quantitative Gaussian-maximum
+asymptotics.* We establish
+\[
+ m_k=b_k+O(1/b_k),\qquad
+ \frac{\varphi(b_k)}{1-\Phi(b_k)}
+       =b_k+O(1/b_k).
+ \tag{58}
+\]
+The standard Mills inequalities, proved
+by one integration by parts, are
+\[
+ \frac{t}{1+t^2}\varphi(t)
+        \le1-\Phi(t)
+        \le\frac{\varphi(t)}t
+               \qquad(t>0).
+ \tag{59}
+\]
+For \(t=b_k\), \(k(1-\Phi(t))=1\).
+Therefore
+\[
+ t\le k\varphi(t)\le t+\frac1t.
+ \tag{60}
+\]
+
+Let \(M_k=\max_iZ_i\).
+Integrating its upper tail and using
+the Gaussian excess identity
+\(\int_t^\infty(1-\Phi(s))\,ds
+       =\varphi(t)-t(1-\Phi(t))\),
+we obtain
+\[
+ \begin{aligned}
+ m_k&\le t+\mathbb E(M_k-t)_+\\
+ &\le t+k\int_t^\infty(1-\Phi(s))\,ds\\
+ &=k\varphi(t)\le t+\frac1t.
+ \end{aligned}\tag{61}
+\]
+For the complementary lower bound,
+the integrated-CDF identity gives
+\[
+ m_k\ge t-\int_{-\infty}^t\Phi(s)^k\,ds.
+ \tag{62}
+\]
+For \(0\le s\le t\), the upper Mills
+inequality in (59) implies that
+the Gaussian hazard function satisfies
+\(\varphi(s)/(1-\Phi(s))\ge s\).
+Integrating its logarithmic derivative
+from \(s\) to \(t\),
+\[
+ k(1-\Phi(s))
+ \ge\exp\left(\frac{t^2-s^2}{2}\right)
+ \ge\exp\left(\frac{t(t-s)}2\right).
+\]
+Hence
+\[
+ \Phi(s)^k
+ \le\exp\left[-\exp\left(\frac{t(t-s)}2\right)\right].
+\]
+Because \(e^y\ge1+y\) for \(y\ge0\),
+\[
+ \int_0^t\Phi(s)^k\,ds
+ \le\frac2t\int_0^\infty e^{-e^y}\,dy
+ \le\frac2{e\,t}.
+ \tag{63}
+\]
+For the negative half-line, use
+\(\Phi(s)\le1/2\) and
+\(\int_{-\infty}^0\Phi(s)\,ds
+       =1/\sqrt{2\pi}\):
+\[
+ \int_{-\infty}^0\Phi(s)^k\,ds
+       \le\frac{2^{-(k-1)}}{\sqrt{2\pi}}.
+ \tag{64}
+\]
+Combining (61)--(64),
+\[
+ t-\frac2{e\,t}
+     -\frac{2^{-(k-1)}}{\sqrt{2\pi}}
+ \le m_k\le t+\frac1t
+ \qquad(k\ge3,\ t=b_k>0).
+ \tag{65}
+\]
+In particular \(b_k\to\infty\)
+and \(m_k=b_k+O(1/b_k)\),
+proving (58).
+
+The second part of (58) is immediate
+from (60); since \(1-\Phi(b_k)=1/k\),
+\[
+ \frac{m_k^2}{k-1}
+       =\frac{b_k^2+O(1)}{k},
+ \qquad
+ k\varphi(b_k)^2
+       =\frac{b_k^2+O(1)}{k}.
+ \tag{66}
+\]
+The Mills inequalities also imply
+\(b_k^2\sim2\log k\).
+Taking logarithms of
+\(1/k=\varphi(b_k)/b_k
+       \cdot(1+O(1/b_k^2))\)
+and substituting
+\(\log b_k^2=\log(2\log k)+o(1)\)
+gives the sharper standard expansion
+\[
+ b_k^2=
+ 2\log k-\log\log k-\log(4\pi)+o(1).
+ \tag{67}
+\]
+Substitution into the finite sandwich
+proves (56); dividing the upper
+and lower estimates in (66) gives
+(57). \(\square\)
+
+**What is, and is not, determined.**
+Equation (56) determines the exact
+coefficients of both \(\log k/k\)
+and \(\log\log k/k\) in the **global**
+equal-mass problem. The additive
+\(O(1/k)\) term, the exact finite-\(k\)
+global optimum, and a universal
+rigidity/classification theorem
+for \(k\ge4\) remain unresolved
+by this argument.
+
+
+## 18. Provenance, audit and limitations
 
 - **Comparator [OAI-096]:** OpenAI, *The Gaussian propeller bound
   in every dimension*, September 24, 2026; public source in the
