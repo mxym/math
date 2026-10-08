@@ -557,3 +557,16 @@ The [six-page bounded-packing spectrum](notes/fractional-matching-spectrum/READM
 ## Diffuse optimum certificates and integer recovery with small triple intersections
 
 The [six-page diffuse-cover continuation](notes/diffuse-fractional-cover-rounding/README.md) proves a finite coordinate bound for a selected optimal fractional cover: with maximum vertex degree D>=3 and Delta=(D-1)m-D(D-2)r-D>0, an optimum of value m/D exists whose weights are at most 1/ceil(Delta/[D(D-2)]). A three-complement repair and minimax argument prove this without an intersection-size assumption. Combining the diffuse certificate with a proved local matching-polytope condition, Edmonds's theorem and Kayll's attributed rounding theorem gives tau=m/D+o(r) when maximum triple intersection is o(r) and m/r tends to c in (D-1-2/[3D(D-2)+2(D-1)],D-1]. For D=3 this is (24/13,2]; for D=4 it is (44/15,3]. Pair intersections may be of order r. The same conclusion applies after o(r)-edge extraction to fractional extremizers in those intervals. Six partial Lean exports, exact repairs across ten degrees, rational primal/dual and local matching certificates, negative controls and a frozen inventory are supplied. The minimax existence, imported theorems and asymptotic deductions are complete written proofs rather than a full Lean formalization. The entire strict ramp and general Kahn 5.5 question are not resolved, and no historical priority is claimed.
+
+## Counterexample to Bapat's original-interval q-permanent conjecture
+
+The [complete counterexample package](notes/bapat-q-permanent-counterexample/README.md)
+gives an ordered 200-row Gaussian-integer Gram witness and an explicit rational
+positive-definite perturbation B with 0 < q0 < 1 and P_q0(B) > P_1(B).
+This disproves the original [-1,1] conjecture for complex Hermitian positive
+definite matrices. It includes a separate non-computational existence proof,
+three exact standard-library verifiers, full independent model-conducted
+mathematical reviews, and a file-integrity manifest. The real-symmetric
+restriction remains unsettled here. No complete Lean certification, external
+journal peer review, or historical priority is claimed. Earlier work on the
+extension beyond q=1 is preserved as a separate historical result.
