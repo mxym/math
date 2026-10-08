@@ -142,3 +142,11 @@ No sharp universal optimum for arbitrary nonconical fixed-mass Gaussian
 partitions is asserted. Systematic historical literature checking
 and external peer review remain outstanding. We do not claim
 the world-first proof of any result.
+
+## General unequal-mass extension (independent companion)
+
+The [arbitrary-mass Gaussian centroid envelope](../gaussian-centroid-mass-envelope/README.md) establishes a global, nonasymptotic comparison between every prescribed-mass Gaussian partition optimum and the sum of its individual halfspace bounds:
+
+    0 <= U(p) - M_d(p) <= 2 * sum_i p_i^2,  for d >= k-1.
+
+It also provides an exact-mass threshold partition, weighted two-log asymptotics for arbitrarily heterogeneous mass vectors, and an additive noise-stability approximation. The complete analytic proof and pure rational checker are in that separate directory. The finite-k Standard Simplex global optimality question remains open in this program.
