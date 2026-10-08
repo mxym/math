@@ -55,6 +55,7 @@ jobs:
         run: |
           set -e
           python notes/sharp-robust-permanent/code/check_universal_max_minors.py
+          python notes/sharp-robust-permanent/code/check_finite_difference_rank.py
           python notes/sharp-robust-permanent/code/check_sparse_support_sharpness.py
           python notes/sharp-robust-permanent/code/check_generic_circuit_audit.py
       - name: Analytic asymptotic identities and k=4 Chebyshev algebra
