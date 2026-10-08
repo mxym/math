@@ -175,3 +175,49 @@ Only Python standard-library integer arithmetic and Fraction arithmetic are used
 A numerical LP was used only in the discovery stage to identify compact supports; the published programs do not require or trust those solutions. Theorems A--C are mathematical proofs, not conclusions drawn from the finite test runs. Theorem D is a finite exact, independently replayable certificate argument conditional only on standard Python integer/Fraction semantics and the proven reduction. The full higher-k explicit classification and all-degree formulas remain open.
 
 **Internal antecedent:** the [general orbital duality theorem](../sharp-robust-permanent/paper.md) and its separate exact three-subset \(n\le120\) certificates. That line of work was initially inspired by the OpenAI [four-row permanent and permutation moments](https://github.com/openai/math/tree/main/preprints/A-strict-four-row-permanent-inequality-and-permutation-moments-September-26-2026) manuscript; the fixed-k transfer calculation and rank-five certificates here are separate deductions.
+
+
+## 6. A universal hierarchy under increasing subset rank
+
+**Theorem E (monotone atom moduli).** For every integer \(n\ge2\) and every \(1\le \ell\le k\le n-\ell\),
+
+\[
+\boxed{\mathcal C_{n,k}\le \mathcal C_{n,\ell}.}\tag{9}
+\]
+
+Furthermore \(\mathcal C_{n,k}=\mathcal C_{n,n-k}\), so in every fixed degree \(n\), the sequence of sharp moduli is nonincreasing as the subset size approaches \(\lfloor n/2\rfloor\):
+
+\[
+\mathcal C_{n,1}\ge\mathcal C_{n,2}\ge\cdots
+\ge\mathcal C_{n,\lfloor n/2\rfloor}.
+\tag{10}
+\]
+
+*Proof.* First establish an exact full-column-rank lemma for inclusion matrices over \(\mathbb R\). If \(0\le\ell\le k\le n-\ell\), let \(W_{\ell,k}\) send a function \(f\) on the \(\ell\)-subsets of \([n]\) to the function on \(k\)-subsets
+
+\[
+(W_{\ell,k}f)(E)=\sum_{\substack{S\subseteq E\\|S|=\ell}} f(S).
+\]
+
+We claim \(W_{\ell,k}\) is injective. Induct on \(\ell\). For \(\ell=0\), the statement is immediate. For \(\ell\ge1\), suppose \(W_{\ell,k}f=0\), and choose distinct vertices \(a,b\). Subtract the vanishing inclusion sums on \(T\cup\{a\}\) and \(T\cup\{b\}\), for each \((k-1)\)-subset \(T\subseteq[n]\setminus\{a,b\}\). The result is
+
+\[
+\sum_{\substack{U\subseteq T\\|U|=\ell-1}}
+\bigl(f(U\cup\{a\})-f(U\cup\{b\})\bigr)=0.
+\]
+
+The induction hypothesis applies on \(n-2\) vertices with parameters \(\ell-1,k-1\), since \(\ell-1\le k-1\le(n-2)-(\ell-1)\). Hence \(f(U\cup\{a\})=f(U\cup\{b\})\) for every \((\ell-1)\)-subset \(U\) disjoint from \(a,b\). Every pair of adjacent vertices in the Johnson graph of \(\ell\)-sets therefore has equal \(f\)-value. That graph is connected, so \(f\) is constant. Because \(W_{\ell,k}f=0\) and \(\binom{k}{\ell}>0\), this constant is zero. The injectivity claim follows.
+
+Now let \(V_j\) be the real permutation representation on \(j\)-subsets and \(\rho_j(g)\) its permutation matrix. By construction, inclusion intertwines the two actions:
+
+\[
+\rho_k(g)W_{\ell,k}=W_{\ell,k}\rho_\ell(g)\qquad(g\in S_n).
+\]
+
+If a law \(\nu\) has uniform \(k\)-subset image marginals, then the averaged action matrices satisfy
+\(\sum_g\nu(g)\rho_k(g)=\sum_gu(g)\rho_k(g)\).
+Right-multiply by \(W_{\ell,k}\), use intertwining, and invoke injectivity to get the analogous equality on \(V_\ell\). Hence every law with uniform \(k\)-set marginals also has uniform \(\ell\)-set marginals. The former class of probability laws is contained in the latter, and the definition of the sharp atom/TV coefficient gives (9).
+
+Finally, complementation \(E\mapsto[n]\setminus E\) is an equivariant bijection between \(k\)-subsets and \((n-k)\)-subsets, so the corresponding marginal constraints and sharp constants are identical. This proves (10). QED.
+
+The finite certified tables in the present note and the predecessor's three-subset note furnish strict instances of this inequality. Theorem E does **not** claim strictness for every degree or rank, and (10) is a structural comparison rather than a closed formula for the moduli.
