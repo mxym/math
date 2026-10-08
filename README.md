@@ -1,5 +1,11 @@
 # math
 
+## Universal orbital duality and exact symmetric-group two-subset law
+
+The [permutation stability manuscript](notes/sharp-robust-permanent/paper.md) now proves, for **every n ≥ 4**, the exact optimal marginal-preserving atom/TV constant for the natural action of S_n on its 2-element subsets: (n²−2n+8)/[(n+2)(n+4)] for even n and (n²−n+4)/[(n+3)(n+4)] for odd n. The result gives an explicit matching primal probability construction and a direct all-n parity-dependent quadratic dual proof. It strictly improves the crude minimal-degree constant for every n ≥ 5. Its [exact checker](notes/sharp-robust-permanent/code/check_all_two_subset_actions.py) has passed for every conjugacy type of n = 4,...,40, but the mathematical proof is general, not a finite extrapolation.
+
+The same manuscript proves a [universal orbital primal-dual theorem](notes/sharp-robust-permanent/paper.md#18-universal-orbital-primal-dual-theorem-for-finite-permutation-actions): for any finite permutation group action, the sharp local atom/TV coefficient is the optimum of a rational LP over conjugacy classes, dual to the oscillation of an orbital-count function. Earlier exact results for doubly transitive actions and the S5 edge action arise as rank-two/rank-three specializations. The [verification record](notes/sharp-robust-permanent/VERIFICATION.md) distinguishes analytical proofs, exact executable checks, and outstanding external review/novelty work.
+
 ## Exact radius-two jump in the Z[sqrt(-2)] prime graph
 
 The [radius-two research continuation](notes/sqrt-minus-two-radius-two/README.md)
