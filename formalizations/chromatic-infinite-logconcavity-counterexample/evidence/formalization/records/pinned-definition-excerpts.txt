@@ -1,0 +1,126 @@
+Mathlib/Combinatorics/SimpleGraph/CycleGraph.lean:25-64
+SHA256(full file)=e27eae54e744fce3023b38a003fe292111954fe492416a4d1d600cb8ff3fd524
+25: 
+26: open Walk
+27: 
+28: /-- Cycle graph over `Fin n` -/
+29: def cycleGraph : (n : ℕ) → SimpleGraph (Fin n)
+30:   | 0 | 1 => ⊥
+31:   | _ + 2 => {
+32:     Adj a b := a - b = 1 ∨ b - a = 1
+33:   }
+34: 
+35: instance : (n : ℕ) → DecidableRel (cycleGraph n).Adj
+36:   | 0 | 1 => fun _ _ => inferInstanceAs (Decidable False)
+37:   | _ + 2 => by unfold cycleGraph; infer_instance
+38: 
+39: theorem cycleGraph_zero_adj {u v : Fin 0} : ¬(cycleGraph 0).Adj u v := id
+40: 
+41: theorem cycleGraph_zero_eq_bot : cycleGraph 0 = ⊥ := Subsingleton.elim _ _
+42: theorem cycleGraph_one_eq_bot : cycleGraph 1 = ⊥ := Subsingleton.elim _ _
+43: theorem cycleGraph_zero_eq_top : cycleGraph 0 = ⊤ := Subsingleton.elim _ _
+44: theorem cycleGraph_one_eq_top : cycleGraph 1 = ⊤ := Subsingleton.elim _ _
+45: 
+46: theorem cycleGraph_two_eq_top : cycleGraph 2 = ⊤ := by
+47:   simp only [SimpleGraph.ext_iff, funext_iff]
+48:   decide
+49: 
+50: theorem cycleGraph_three_eq_top : cycleGraph 3 = ⊤ := by
+51:   simp only [SimpleGraph.ext_iff, funext_iff]
+52:   decide
+53: 
+54: theorem cycleGraph_one_adj {u v : Fin 1} : ¬(cycleGraph 1).Adj u v := by
+55:   simp [cycleGraph_one_eq_bot]
+56: 
+57: theorem cycleGraph_adj {n : ℕ} {u v : Fin (n + 2)} :
+58:     (cycleGraph (n + 2)).Adj u v ↔ u - v = 1 ∨ v - u = 1 := Iff.rfl
+59: 
+60: theorem cycleGraph_adj' {n : ℕ} {u v : Fin n} :
+61:     (cycleGraph n).Adj u v ↔ (u - v).val = 1 ∨ (v - u).val = 1 := by
+62:   match n with
+63:   | 0 => exact u.elim0
+64:   | 1 => simp [cycleGraph_one_adj]
+
+Mathlib/Combinatorics/SimpleGraph/Coloring/Vertex.lean:70-96
+SHA256(full file)=b5af17a82b610f3e7659ffbf745e54946b328d2e74273ce1328f4f5ec24860bc
+70: variable {V : Type u} (G : SimpleGraph V) {n : ℕ}
+71: /-- An `α`-coloring of a simple graph `G` is a homomorphism of `G` into the complete graph on `α`.
+72: This is also known as a proper coloring.
+73: -/
+74: abbrev Coloring (α : Type v) := G →g completeGraph α
+75: 
+76: variable {G}
+77: variable {ι α β : Type*} (C : G.Coloring α)
+78: 
+79: theorem Coloring.valid {v w : V} (h : G.Adj v w) : C v ≠ C w :=
+80:   C.map_rel h
+81: 
+82: lemma Coloring.injective_comp_of_pairwise_adj (C : G.Coloring α) (f : ι → V)
+83:     (hf : Pairwise fun i j ↦ G.Adj (f i) (f j)) : (C ∘ f).Injective :=
+84:   Function.injective_iff_pairwise_ne.2 <| hf.mono fun _ _ ↦ C.valid
+85: 
+86: /-- Construct a term of `SimpleGraph.Coloring` using a function that
+87: assigns vertices to colors and a proof that it is as proper coloring.
+88: 
+89: (Note: this is a definitionally the constructor for `SimpleGraph.Hom`,
+90: but with a syntactically better proper coloring hypothesis.)
+91: -/
+92: @[match_pattern]
+93: def Coloring.mk (color : V → α) (valid : ∀ {v w : V}, G.Adj v w → color v ≠ color w) :
+94:     G.Coloring α :=
+95:   ⟨color, @valid⟩
+96: 
+
+Mathlib/Combinatorics/SimpleGraph/Coloring/Vertex.lean:129-136
+SHA256(full file)=b5af17a82b610f3e7659ffbf745e54946b328d2e74273ce1328f4f5ec24860bc
+129:   C.comp f
+130: 
+131: -- TODO make this computable
+132: noncomputable instance [Fintype V] [Fintype α] : Fintype (Coloring G α) := by
+133:   classical
+134:   change Fintype (RelHom G.Adj (completeGraph α).Adj)
+135:   apply Fintype.ofInjective _ RelHom.coe_fn_injective
+136: 
+
+Mathlib/Combinatorics/SimpleGraph/AdjMatrix.lean:403-422
+SHA256(full file)=bf5d329f8ed74f4018d60419268afba6b0b001583b30f8439205ead3ec87d224
+403: theorem adjMatrix_pow_apply_eq_card_walk [DecidableEq V] [Semiring α] (n : ℕ) (u v : V) :
+404:     (G.adjMatrix α ^ n) u v = Fintype.card { p : G.Walk u v | p.length = n } := by
+405:   rw [card_set_walk_length_eq]
+406:   induction n generalizing u v with
+407:   | zero => obtain rfl | h := eq_or_ne u v <;> simp [finsetWalkLength, *]
+408:   | succ n ih =>
+409:     simp only [pow_succ', finsetWalkLength, ih, adjMatrix_mul_apply]
+410:     rw [Finset.card_biUnion]
+411:     · norm_cast
+412:       simp only [Nat.cast_sum, card_map, neighborFinset_def]
+413:       apply Finset.sum_toFinset_eq_subtype
+414:     -- Disjointness for card_bUnion
+415:     · rintro ⟨x, hx⟩ - ⟨y, hy⟩ - hxy
+416:       rw [Function.onFun, disjoint_iff_inf_le]
+417:       intro p hp
+418:       simp only [inf_eq_inter, mem_inter, mem_map] at hp
+419:       obtain ⟨⟨px, _, rfl⟩, ⟨py, hpy, hp⟩⟩ := hp
+420:       cases hp
+421:       simp at hxy
+422: 
+
+Mathlib/Algebra/Polynomial/Roots.lean:155-171
+SHA256(full file)=e5815d23fc2708bb154206034e61070854fddcb3708cedbd1ce3e7e2821c4116
+155:   eventually_cofinite_not_isRoot hp
+156: 
+157: theorem eq_zero_of_infinite_isRoot (p : R[X]) (h : Set.Infinite { x | IsRoot p x }) : p = 0 :=
+158:   not_imp_comm.mp finite_setOfPred_isRoot h
+159: 
+160: theorem exists_max_root [LinearOrder R] (p : R[X]) (hp : p ≠ 0) : ∃ x₀, ∀ x, p.IsRoot x → x ≤ x₀ :=
+161:   Set.exists_upper_bound_image _ _ <| finite_setOfPred_isRoot hp
+162: 
+163: theorem exists_min_root [LinearOrder R] (p : R[X]) (hp : p ≠ 0) : ∃ x₀, ∀ x, p.IsRoot x → x₀ ≤ x :=
+164:   Set.exists_lower_bound_image _ _ <| finite_setOfPred_isRoot hp
+165: 
+166: theorem eq_of_infinite_eval_eq (p q : R[X]) (h : Set.Infinite { x | eval x p = eval x q }) :
+167:     p = q := by
+168:   rw [← sub_eq_zero]
+169:   apply eq_zero_of_infinite_isRoot
+170:   simpa only [IsRoot, eval_sub, sub_eq_zero]
+171: 

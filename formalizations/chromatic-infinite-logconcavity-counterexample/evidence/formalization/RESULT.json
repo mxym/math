@@ -1,0 +1,75 @@
+{
+  "status": "PASS_MECHANICAL_AND_SEMANTIC_CORRESPONDENCE",
+  "scope": "C17 full graph-coloring to chromatic polynomial to absolute coefficients to third-iterate negativity to universal conjecture false",
+  "math_source_commit": "2b73cde3ae77ab1227c7386e9e82d0e815f21e88",
+  "run": "<VERIFIER_ROOT>/tasks/chromatic-c17-2b73cde3/20261008T112728Z-31290fd6",
+  "started_utc": "2026-10-08T11:27:28.887002+00:00",
+  "ended_utc": "2026-10-08T11:29:00.981110+00:00",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_modules": {
+    "CycleColoring": {
+      "path": "CycleColoring.lean",
+      "sha256": "20eefbdea41e2536b880e4fa95c2a1b11f90b219c2290d48a23d242ebc8f55b0"
+    },
+    "ChromaticPolynomial": {
+      "path": "ChromaticPolynomial.lean",
+      "sha256": "ae0f2368f777b627b58a50dfa82a7e83c7b91689cc79abb38051708b530f781b"
+    },
+    "LogConcavityCounterexample": {
+      "path": "LogConcavityCounterexample.lean",
+      "sha256": "ca54e13b77d45246025af94da022e8455368a27f3c869ab59e9f83e911fee6d3"
+    }
+  },
+  "explicit_declarations": 41,
+  "generated_or_auxiliary_declarations": 57,
+  "all_owned_declarations": 98,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "replay": {
+    "trust_level": 0,
+    "status": "PASS",
+    "roots": [
+      {
+        "name": "ChromaticC17.explicit_counterexample",
+        "closure_count": 8828
+      },
+      {
+        "name": "ChromaticC17.chromatic_infinite_logconcavity_conjecture_false",
+        "closure_count": 8355
+      },
+      {
+        "name": "ChromaticC17.cyclePolynomial_isChromatic",
+        "closure_count": 7831
+      },
+      {
+        "name": "ChromaticC17.every_C17_chromatic_polynomial_fails",
+        "closure_count": 10601
+      },
+      {
+        "name": "ChromaticC17.third_iterate_value",
+        "closure_count": 6947
+      }
+    ],
+    "requested_root_union_count": 10929,
+    "owned_count": 98,
+    "empty_base": true,
+    "all_owned_closure_count": 10964
+  },
+  "negative_control": "INVALID_PROOF_REJECTED_BY_EMPTY_TRUST_ZERO_KERNEL",
+  "shared_cache_unchanged": true,
+  "original_evidence_files_hash_checked": 33,
+  "semantic_review": "SEMANTIC_REVIEW.txt",
+  "not_formalized": [
+    "C12",
+    "all cycles n>=17",
+    "cycle classification",
+    "endpoint-deleting variant",
+    "novelty or priority"
+  ],
+  "github_writes": 0,
+  "remaining_blockers": []
+}
