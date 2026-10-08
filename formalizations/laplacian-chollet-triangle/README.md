@@ -37,3 +37,12 @@ The shared [strong Chollet all-graph written proof](../../notes/laplacian-cholle
 A full Lean theorem over **all** finite simple graphs remains unproved, notably the imported Lieb and Edmonds theorems, odd cycles of unbounded length, noncycle 2-connected block estimates, and block assembly. The written all-graph theorem's mathematical scope must not be attributed to this Lean package.
 
 This is a formal component of the existing project's all-graph proof, not a priority assertion, independent human peer review, or a formalization of the unrestricted Hermitian-PSD Chollet conjecture.
+
+
+## Additional original-graph correspondence theorem
+
+The supplementary [K3.lean](K3.lean) closes the actual finite graph instance, rather than leaving the triangle as only a weighted matrix model:
+
+**Chollet.complete_three_graph_full_laplacian_strong** proves the strong Chollet inequality for the full matrix \`(⊤ : SimpleGraph (Fin 3)).lapMatrix ℝ\`, with exactly the Mathlib graph degree product \`∏ i : Fin 3, ((⊤ : SimpleGraph (Fin 3)).degree i : ℝ)\`. Its preparatory kernel-checked theorem \`top3_laplacian_eq\` establishes equality with \`triangleL 1 1 1\`, including all three diagonal degrees and all three undirected edges.
+
+This module was freshly compiled with pinned Lean 4.34.1 and exact Mathlib version, exit code zero. Both the public main theorem and the actual-graph matrix-identity proof depend only on \`[propext, Classical.choice, Quot.sound]\`. This is a **genuine nonbipartite graph case**, but it currently covers the full three-vertex matrix only; the full all-graph quantifier over arbitrary graphs and all principal subsets is not claimed. The separate [induced-bipartite principal-submatrix theorem](../laplacian-chollet-bipartite/src/Induced.lean) handles every principal subset with bipartite induced support, including proper subsets of the triangle.
