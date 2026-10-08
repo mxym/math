@@ -39,6 +39,19 @@ The complete paper.md also proves the following.
   tetrahedron beats all four-sector fans whenever their
   minimum mass exceeds an explicit q_tet in (1/100,1/80),
   with an exact trigonometric formula for q_tet.
+- **Exact fixed-mass all-partitions dual:** for every positive
+  mass vector p, the square root of the optimum equals a
+  finite-dimensional max-min over Gaussian linear scores
+  and cell-price offsets. Every genuine maximizing partition
+  has distinct Gaussian centroids and is a Laguerre
+  (weighted power-diagram) partition. The paper gives a
+  complete elementary duality proof, including duplicate-score
+  and exact-mass issues.
+- **Global calibration:** all two-cell prescribed-mass
+  Gaussian partitions have exact halfspace optimum
+  2*phi(Phi^{-1}(1-p))^2. The equal-three-cell global
+  value 9/(8pi) is inherited from OpenAI-096, while
+  four-or-more-cell global optimality remains unresolved.
 - **Gaussian noise-stability consequence:** the tetrahedral
   four-cell partition strictly exceeds four equal-mass planar
   quadrants for every Gaussian correlation 0 < rho <= rho_*,
