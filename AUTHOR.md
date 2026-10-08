@@ -14,7 +14,7 @@
 | 主要通讯邮箱 | [mxymmxym1@gmail.com](mailto:mxymmxym1@gmail.com) |
 | 备用邮箱 | [3645500659@qq.com](mailto:3645500659@qq.com) |
 | ORCID iD | [0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) |
-| 研究方式 | 个人独立开展研究；本仓库使用 AI 助手进行研究与审查 |
+| 研究方式 | 个人独立开展研究；使用AI进行辅助研究 |
 | 经费 | 无外部研究经费 / No external funding |
 
 ORCID 的格式和校验位已检查通过。当前年级是上述确认日期的状态，
