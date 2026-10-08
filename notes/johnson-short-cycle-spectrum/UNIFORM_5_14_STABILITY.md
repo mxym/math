@@ -292,3 +292,61 @@ python3 notes/johnson-short-cycle-spectrum/check_allrank_stability_scalars.py
 The first script accepts only literal integer inputs and checks every partition through 43 moved vertices, its unique contact shapes, and the exact rational tail for all moved counts at least 44. The second script independently verifies the moment matrix, determinant, and row-sum constants. Both have been independently fetched from immutable public Git commits and replayed successfully on the authorized VPS even when its default scratch filesystem was full, using read-only streaming execution.
 
 The **mathematical deductions** (12)--(19) are displayed in full and do not depend on floating-point optimization. Source hashes and recorded outputs are in [VERIFICATION.md](VERIFICATION.md). No assertion is made that \(1/250\) or the stated Lipschitz constants are optimal; improving them, obtaining a conceptual no-enumeration proof of the strict dual separation, and classifying all noncentral exact extremizers remain separate problems. There is no external referee or priority claim.
+
+
+## 7. The exact best noncontact gap of the published five-point dual
+
+The conservative \(1/250\) in Lemma 2 can be replaced by the **sharp, explicitly determined noncontact gap for the particular rational dual (6)**:
+
+\[
+\boxed{\kappa=\frac{1877633}{378000000}>\frac1{250}.}
+\tag{20}
+\]
+
+**Theorem 3 (sharp dual-gap stability).** For the dual \(h\) fixed by (6), the largest constant \(\kappa\) for which both implications
+
+\[
+g\notin H\Longrightarrow h(g)\le1-\kappa,\qquad
+g\notin L\Longrightarrow h(g)\ge\frac9{14}+\kappa
+\tag{21}
+\]
+
+hold for all \(n\ge6\) and all \(g\in S_n\) is **exactly** the rational value in (20).
+
+Moreover, *every assertion* of Theorem 1 strengthens by replacing the factor \(250\) with the exact reciprocal \(\kappa^{-1}=378000000/1877633\). In particular,
+
+\[
+\boxed{
+\begin{aligned}
+R&\le\frac{378000000}{1877633}\,\eta,\\[2pt]
+\left|\frac{v_+(I)}{\delta}-\frac5{14}\right|
+&\le\frac{531}{70}\,\frac{378000000}{1877633}\,\eta,\\[2pt]
+\left|\frac{v_-(T)}{\delta}-\frac67\right|
+&\le\frac{451}{35}\,\frac{378000000}{1877633}\,\eta,\\[2pt]
+\left\|\mathcal A v-\delta(P-Q)\right\|_{\rm TV}
+&\le\frac{1503}{70}\,\frac{378000000}{1877633}\,
+\eta\,\delta.
+\end{aligned}}
+\tag{22}
+\]
+
+*Proof.* The separate [exact sharp-gap checker](check_sharp_stability_gap.py) starts from the same literal rational dual (6) but, rather than testing an arbitrarily chosen \(1/250\) threshold, **computes and compares the exact rational minima** of the two noncontact slacks over all 63,260 nonincreasing partitions with \(2\le M\le43\) moved points. The results, including their attaining nontrivial cycle shapes, are
+
+\[
+\begin{aligned}
+\min_{\lambda\notin\{(2),(3,3)\}}
+\bigl(\Phi(\lambda)-9/14\bigr)
+&=\frac{1877633}{378000000},
+&&\lambda=(4,3),\\
+\min_{\lambda\ne(4)}(1-\Phi(\lambda))
+&=\frac{11251048535763583}{2116316160000000000},
+&&\lambda=(5,5,4).
+\end{aligned}
+\tag{23}
+\]
+
+The latter fraction is **strictly larger** than the former, checked exactly by integer cross multiplication; the checker also certifies the listed witnesses are the true finite global minima. In the unbounded part \(M\ge44\), the already certified tail satisfies \(33/50<\Phi<47/50\). Its lower-contact separation is \(3/175>\kappa\) and upper-contact separation is \(3/50>\kappa\); these rational comparisons are also independently checked by the new script. Hence \(\kappa\) in (20) is valid for *all* permutations and all degrees. It cannot be improved **for this particular dual**, because a permutation with one 4-cycle and one disjoint 3-cycle (and arbitrary fixed points) attains exactly the lower gap in (23), already in degree seven.
+
+Now repeat the exact defect identity (12) with \(\kappa\) replacing \(1/250\). It gives \(\eta\delta\ge\kappa R\delta\). The two-moment matrix and inverse bounds (15)--(16) and the centralization estimate (19) are unchanged; substituting \(R\le\eta/\kappa\) proves all four bounds (22). QED.
+
+The numerical size of \(\kappa\) is not asserted optimal among **all possible** valid dual functions. It is the exact and sharp separation of the **explicitly published rational dual**, sufficient for a dimension-independent near-extremizer theorem. The [pinned VPS verification record](VERIFICATION.md) distinguishes this full finite enumeration from the mathematical unbounded-tail proof.
