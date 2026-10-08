@@ -16,6 +16,7 @@ does **not** settle the unrestricted complex six-row tradeoff.
 | Flat-row Johnson lift and full spectrum | Section 5 incidence-matrix Gram count and rank | Exact incidence identities and direct minor comparisons for n=3..9 |
 | Two-flat arbitrary-third collision (8/3) and equality | Section 8 diagonal-plus-rank-one Schur complement and Jensen | 177 all-complex rational cases, varied third-row magnitudes/zeros and first-row scalings |
 | Critical 7/3 on the two-flat locus | Section 8 collision plus Gram AM–GM | Direct permanent-minor/determinant-minor inequalities |
+| Sharp six-by-six mixed norm on certified partitions | Section 9 balanced-Laplace Cauchy at 7/3, Hadamard for larger c | Direct 720-permutation permanents/determinants and exact complex norm comparisons for three certified subclasses |
 | Rank-one scalar factorization (36) | Clearing denominators and multiplying three factors | Exact bivariate integer-polynomial coefficient equality |
 | Stronger Gram shortcut is false | Literal rational witness in Section 6 | Direct exact 22/5 violation |
 
@@ -33,6 +34,15 @@ does **not** settle the unrestricted complex six-row tradeoff.
 - Jensen is applied only with m<1 and denominators
   1+m Re(r_j)>0. It establishes A>=1/(1+m^2), independent of
   sampling, symbolic algebra, or external optimization.
+- Section 9 relies only on exact minor expansions, positivity of
+  the rectangular bounds, and Hadamard at c >= 7/3; its two explicit
+  extremizer families satisfy the certified partition condition.
+  The proof does not assert that all matrices are in this class.
+- For complex 6-by-6 matrices, the exact checker uses the rational
+  criterion R >= 0 and R^2 >= 4c^2|per A|^2|det A|^2,
+  where R = M(c)^2 times the product of squared row norms
+  less |per A|^2 and less c^2|det A|^2. This is equivalent to the
+  claimed unsquared norm bound and avoids all floating square roots.
 - The polynomial identity (36) is checked coefficientwise
   in the polynomial ring Z[m,A] by a standalone plain-dictionary
   implementation; the checker does not rely on floating point.
@@ -56,7 +66,7 @@ Both interpreter modes must match results/check_exact.txt.
 The included negative control must report the explicitly
 positive stronger-Gram-shortcut failure gap 22/5.
 
-**Remaining core gap:** the inequality
+**Remaining core gap:** despite Section 9, the unrestricted rectangular inequality
 S_6(U)+(7/3)det(UU*) <= 10/3 for every complex unit-row
 3-by-6 matrix when at most one row is equimodular and no
 row is a coordinate vector. The present methods do not close

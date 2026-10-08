@@ -549,3 +549,98 @@ nonflat third rows. It does not establish the collision bound (21)
 or critical tradeoff (19) when **none or only one** of the
 three rows has constant coordinate moduli. Numerical eigenvalue
 experiments outside the proved locus are discovery-only.
+
+## 9. Sharp six-row permanent–determinant norm on a broad structural class
+
+The two-flat rectangular theorem is strong enough to settle the
+original **six-by-six matrix inequality**, with exactly the conjectured
+global best coefficient, on a class with a large number of otherwise
+unconstrained complex entries. The class includes *both* anticipated
+global extremizer types.
+
+Call a nonzero row of length six **flat** if its six coordinate
+moduli are all equal, and **coordinate** if it is supported on one
+column. A triple of rows is **certified** if it contains either
+(a) at least two flat rows, or (b) at least one coordinate row.
+No restriction is placed on the other rows in that triple.
+
+**Theorem 10 (sharp six-row structured partition theorem).**
+Let \(A\in\mathbb C^{6\times6}\). Suppose its six rows admit a
+partition into two certified triples. Then for **every real \(c\ge0\)**,
+\[
+\boxed{\quad
+|\operatorname{per}A|+c|\det A|
+\le\max\left\{\frac{10}{3},1+c\right\}
+\prod_{i=1}^6\|A_{i,*}\|_2.\quad}
+\tag{39}
+\]
+The constant is **best possible even inside this structured class**:
+for \(c\le7/3\) take the matrix all of whose entries are \(1/\sqrt6\);
+for \(c\ge7/3\) take any complex monomial matrix with unit-modulus
+nonzero entries. The theorem applies in particular to each of the
+following cases:
+1. at least **four flat rows**, with the other two rows arbitrary;
+2. at least **two coordinate rows**, with the other four rows arbitrary;
+3. at least **one coordinate row and two other flat rows**, with the
+   remaining three rows arbitrary.
+
+The assumption is **sufficient, not necessary**. No claim of the
+unrestricted six-row inequality or a global classification of
+non-extremizing matrices is made.
+
+**Proof.** A zero row gives the zero-equals-zero case. Normalize
+all nonzero rows separately. Choose the certified row partition
+\(R\sqcup R^c=[6]\) with \(|R|=|R^c|=3\), and set \(U=A_R\),
+\(V=A_{R^c}\). By Theorem 7 / Corollary 8 and Proposition 5,
+each certified triple obeys
+\[
+S_6(U)+\frac73 W_6(U)\le\frac{10}{3},
+\qquad
+S_6(V)+\frac73 W_6(V)\le\frac{10}{3}.
+\tag{40}
+\]
+The balanced Laplace permanent and determinant expansions, together
+with Cauchy--Schwarz on complementary three-column subsets, yield
+\[
+\begin{aligned}
+|\operatorname{per}A|+\frac73|\det A|
+&\le\sqrt{S_6(U)S_6(V)}
+       +\frac73\sqrt{W_6(U)W_6(V)}\\
+&\le\sqrt{\left(S_6(U)+\frac73W_6(U)\right)
+          \left(S_6(V)+\frac73W_6(V)\right)}\\
+&\le\frac{10}{3}.
+\end{aligned}
+\tag{41}
+\]
+The middle inequality is Cauchy--Schwarz in \(\mathbb R^2\).
+The first is precisely the column-complement matching in the
+balanced-Laplace lemma; all signs in the determinant are immaterial
+inside the absolute values.
+
+For \(0\le c\le7/3\), discard the nonnegative term
+\((7/3-c)|\det A|\) from the left side of (41).
+For \(c\ge7/3\), apply Hadamard's determinant inequality
+\(|\det A|\le1\) to obtain
+\[
+|\operatorname{per}A|+c|\det A|
+\le\frac{10}{3}+\left(c-\frac73\right)=1+c.
+\]
+This proves the piecewise right side of (39), and row homogeneity
+restores the product of norms.
+
+To verify the three advertised sufficient patterns, place two of
+four flat rows into each triple; or put one of two coordinate rows
+in each triple; or place the one coordinate row into one triple
+and the two flat rows into the other. Fill the unused slots
+arbitrarily. The explicit normalized constant matrix has
+permanent \(6!/6^3=10/3\) and determinant zero. A permutation
+matrix has absolute permanent and determinant equal to one.
+Both admit certified partitions, proving **the exact sharpness of
+(39) within its stated class** at every weight. QED.
+
+**Scope for the full six-row problem.** Theorem 10 is a completed
+**sharp six-row inequality on a substantial structural subclass**,
+not merely a numerical special-case verification. To extend it
+to all complex six-by-six matrices it remains necessary to
+prove the unrestricted rectangular critical estimate (19),
+or to find a different global inequality circumventing that step.

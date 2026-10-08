@@ -199,6 +199,16 @@ is claimed by the present paper. Numerical optimization
 cannot substitute for either. The n=6 global
 tradeoff is also not claimed.
 
+**Subsequent partial closure.** The
+[three-row collision tradeoff paper](../../research/three-row-collision-tradeoff/PAPER.md)
+proves the sharp rectangular critical estimate in (9) when
+**any two rows are equimodular** or **one row is a coordinate vector**.
+Its Theorem 10 uses the balanced Laplace transfer above to prove the
+exact sharp six-row mixed permanent--determinant bound, for all
+nonnegative weights, on the class admitting a partition into two
+triples each containing two equimodular rows or one coordinate row.
+The global unrestricted six-row inequality remains open.
+
 The proof does not imply any sharp bounds for
 nonreal determinant weights in four rows, or a
 general optimal mixing time for the Thorp shuffle.

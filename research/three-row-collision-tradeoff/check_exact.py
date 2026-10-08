@@ -363,6 +363,83 @@ def check_rank_one_factorization():
     equal(left,right,"exact bivariate polynomial factorization (36)")
     return len(left)
 
+
+
+PERMS6 = tuple(permutations(range(6)))
+
+
+def six_by_six_per_det(A):
+    """Direct 720-term exact permanent and determinant, no Laplace reuse."""
+    check(len(A)==6 and all(len(v)==6 for v in A), "six-by-six shape")
+    p, d = ZERO, ZERO
+    for perm in PERMS6:
+        term = ONE
+        for i in range(6):
+            term = term * A[i][perm[i]]
+        p = p+term
+        d = d+term if sign(perm)>0 else d-term
+    return p, d
+
+
+def structured_six_row_checks():
+    """Independently compare direct full square-matrix minors with theorem."""
+    count=0
+    for kind in range(3):
+        for seed in range(17):
+            flat=phase_sample(6,seed)
+            flat.append(phase_sample(6,seed+11)[0])
+            arb=[[z(Q((i*5+j*7+seed*2)%13-6,7),
+                     Q((i*3+j*j+seed)%11-5,9))
+                  for j in range(6)] for i in range(6)]
+            coord0=[ONE if j==0 else ZERO for j in range(6)]
+            coord1=[ONE if j==1 else ZERO for j in range(6)]
+            if kind==0:
+                A=flat+arb[4:6]
+                R=(0,1,4)
+            elif kind==1:
+                A=[coord0,coord1]+arb[2:6]
+                R=(0,2,3)
+            else:
+                A=[coord0,flat[1],flat[2]]+arb[3:6]
+                R=(0,3,4)
+            Rc=tuple(i for i in range(6) if i not in R)
+            p,d=six_by_six_per_det(A)
+            prod=Q(1)
+            for row in A:
+                prod*=squared(row)
+            for c in (Q(0),Q(1),Q(7,3),Q(3),Q(5)):
+                maxval=max(Q(10,3),1+c)
+                rem=maxval*maxval*prod-p.norm2()-c*c*d.norm2()
+                check(rem>=0 and rem*rem>=4*c*c*p.norm2()*d.norm2(),
+                      "exact norm-square six-row theorem kind=%s seed=%s c=%s" % (kind,seed,c))
+                count+=1
+            if seed<3:
+                # Independent Laplace check using original direct per/det.
+                perlap,detlap=ZERO,ZERO
+                for J in combinations(range(6),3):
+                    Jc=tuple(j for j in range(6) if j not in J)
+                    X=[[A[i][j] for j in J] for i in R]
+                    Y=[[A[i][j] for j in Jc] for i in Rc]
+                    perterm=perm3(X)*perm3(Y)
+                    detterm=det3(X)*det3(Y)
+                    perlap=perlap+perterm
+                    eps=(-1)**sum(J[i]-i for i in range(3))
+                    detlap=detlap+detterm if eps==1 else detlap-detterm
+                if sign(R+Rc)<0:detlap=ZERO-detlap
+                equal(perlap,p,"independent six-row permanent Laplace")
+                equal(detlap,d,"independent six-row determinant Laplace signs")
+                count+=1
+    constant=[[ONE]*6 for _ in range(6)]
+    p,d=six_by_six_per_det(constant)
+    equal(p,z(720),"six-row rank-one sharp permanent")
+    equal(d,ZERO,"six-row rank-one determinant")
+    monomial=[[ONE if i==j else ZERO for j in range(6)] for i in range(6)]
+    p,d=six_by_six_per_det(monomial)
+    equal(p,ONE,"monomial six-row sharp permanent")
+    equal(d,ONE,"monomial six-row sharp determinant")
+    return count+2
+
+
 def main():
     print("Gaussian-rational independent replay; integers/Fraction only")
     print("flat-formula/objective checks:",flat_bound_checks())
@@ -372,8 +449,9 @@ def main():
     print("general three-row collision formula checks:",check_two_flat_general_formula())
     print("sharp two-flat critical checks:",two_flat_critical_checks())
     print("rank-one inversion factor identity monomials:",check_rank_one_factorization())
+    print("structured six-row exact bound/Laplace checks:",structured_six_row_checks())
     print("stronger Gram shortcut is false, exact gap:",shortcut_negative_control())
-    print("PASS: exact all-n formula checks and two-flat six-column tests; unrestricted six-row case OPEN")
+    print("PASS: all-width formulas, sharp two-flat critical case and structured six-row class; unrestricted case OPEN")
 
 
 if __name__=="__main__":

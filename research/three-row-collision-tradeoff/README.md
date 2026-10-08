@@ -4,6 +4,22 @@
 [Frozen replay](results/check_exact.txt) · [Hashes](SHA256SUMS) ·
 [Proof audit](AUDIT.md)
 
+**Sharp six-row square-matrix theorem on a structured class.**
+If the six rows can be divided into two triples, each containing
+either a coordinate row or two flat-modulus rows, then for **every**
+\(c\ge0\)
+\[
+|\operatorname{per}A|+c|\det A|
+\le\max\{10/3,1+c\}\prod_{i=1}^6\|A_{i,*}\|_2.
+\]
+The constant is **sharp inside the stated class**, because the
+parallel constant matrix and a permutation matrix both qualify.
+Consequently the complete conjectured six-row inequality is proved
+when there are four flat rows with two arbitrary rows, two coordinate
+rows with four arbitrary rows, or one coordinate and two other
+flat rows with the remaining three arbitrary. See PAPER.md,
+Theorem 10. The unrestricted six-row conjecture remains open.
+
 **New sharp six-column result:** If **any two** of the three
 nonzero rows have constant coordinate moduli (with arbitrary complex
 phases and independent row normalizations), **the third row can be
