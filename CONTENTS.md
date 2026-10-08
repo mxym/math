@@ -1,5 +1,15 @@
 # Manuscript catalogue
 
+## Sharp all-rank Chebyshev theorem and exact k=4 classification
+
+The [standalone 22-page research paper](notes/sharp-robust-permanent/focused-paper/README.md), available as a [compiled PDF](notes/sharp-robust-permanent/focused-paper/paper.pdf) with [editable manuscript](notes/sharp-robust-permanent/focused-paper/paper.md), establishes the **sharp first-order atom-vs-TV law for every fixed subset rank**:
+\[
+C_n^{(k)}=1-\frac{2k^2}{n}+O_k(n^{-2}).
+\]
+The proof uses a uniformly valid corrected Chebyshev orbital dual and **exactly marginal-matched positive probability measures** at Chebyshev-Lobatto interpolation nodes. It also gives the [exact all-rank transfer-matrix identity](notes/sharp-robust-permanent/paper.md#25-an-exact-cycle-index-and-transfer-matrix-compression-theorem-for-every-rank): every k-subset orbital count depends only on the numbers of permutation cycles of lengths ≤k, reducing finite verification to \(O_k(n^k)\) types.
+
+The [complete rank-4 subset spectrum](notes/sharp-robust-permanent/paper.md#26-complete-exact-four-subset-atom-modulus-classification-for-4-le-n-le64) now covers **every 4≤n≤64**. Its 57 nontrivial degrees 8–64 use [fixed exact rational primal-dual certificates](notes/sharp-robust-permanent/certificates/four_subset_n8_64.json) and an [optimizer-independent checker](notes/sharp-robust-permanent/code/check_four_subset_n8_64.py) freshly replayed from public main over **440,670 exhaustive compressed cycle types**. This finite classification and the analytic all-k asymptotic result are distinct, and neither is represented as a complete exact formula for every individual (n,k). The [verification record](notes/sharp-robust-permanent/VERIFICATION.md) details precise trust boundaries. Human peer review and novelty certification remain pending.
+
 ## Five complete integrated research manuscripts
 
 The [manuscript collection](manuscripts/README.md) brings four near-complete
