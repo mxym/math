@@ -969,3 +969,103 @@ Take \(h=1/100\). Since \(c_p\le c_2=1/(3\sqrt3)<1/5\) and \(q>1\), the off-diag
 The deficit is thus at least \(S(1/300-1/400)=S/1200\), proving (49). QED.
 
 The exact integer comparisons (50) are independently replayed by the small checker in code/check_local_gaps.py. **Limit of effectiveness:** although these neighborhoods and margins are explicit, the strict bound on the complement of their union in the normalized matrix compactum is still qualitative. A verified global complement margin would make the interval endpoint \(p_0\) effective.
+
+
+## 15. A sharp atom-modulus theorem for all doubly transitive groups
+
+The fixed-point argument in Section 8 extends beyond the symmetric groups. The correct invariant is the **minimal degree** of the permutation action, and the sharpness mechanism works for every finite doubly transitive group. This is a separate infinite-family structural statement, independent of the uniform permanent bound and the special three-row analysis.
+
+Let a finite group \(G\le S_\Omega\) act faithfully and doubly transitively on a set \(\Omega\) of \(n\ge3\) points. Write \(u_G\) for its uniform measure and let
+
+\[
+m(G)=\min_{g\in G\setminus\{1\}}
+\big|\{i\in\Omega:g(i)\ne i\}\big|,
+\qquad \beta_G=\frac{n-m(G)}n. \tag{54}
+\]
+
+Because the point stabilizer in a doubly transitive action has at least \(n-1\ge2\) elements, some nonidentity element fixes a point; thus \(2\le m(G)\le n-1\) and \(\beta_G>0\).
+
+**Theorem 15 (optimal atom-TV modulus for doubly transitive permutation groups).** Let \(\nu\) be any probability measure on \(G\) with the same one-point marginals as \(u_G\), namely
+
+\[
+\nu\{g:g(i)=j\}=\frac1n \qquad(i,j\in\Omega).
+\]
+
+Then, for every \(\sigma\in G\),
+
+\[
+\boxed{\left|\nu(\sigma)-\frac1{|G|}\right|
+\le\beta_G\,\|\nu-u_G\|_{\mathrm{TV}}.} \tag{55}
+\]
+
+The coefficient \(\beta_G\) is the **smallest possible universal coefficient**. More precisely, let \(M=\{g\in G:|\operatorname{supp}(g)|=m(G)\}\). For every \(\sigma\in G\) and every
+
+\[
+0\le\delta\le \frac{|M|}{|G|}, \tag{56}
+\]
+
+there exists a probability measure \(\nu_{\sigma,\delta}\) with uniform one-point marginals for which
+
+\[
+\|\nu_{\sigma,\delta}-u_G\|_{\mathrm{TV}}=\delta,\qquad
+\nu_{\sigma,\delta}(\sigma)=\frac1{|G|}+\beta_G\delta. \tag{57}
+\]
+
+The proof is elementary and makes no assumption of conjugacy-invariance on an arbitrary \(\nu\).
+
+**Proof.** For a fixed \(\sigma\in G\), define the agreement count
+
+\[
+F_\sigma(g)=|\{i:g(i)=\sigma(i)\}|=\operatorname{Fix}(\sigma^{-1}g).
+\]
+
+This equals \(n\) for \(g=\sigma\), and at most \(n-m(G)\) for every \(g\ne\sigma\). Set \(v=\nu-u_G=v_+-v_-\) with positive and negative parts of equal total mass \(\delta=\|\nu-u_G\|_{\mathrm{TV}}\). Uniform one-point marginals imply
+
+\[
+\sum_{g\in G}v(g)F_\sigma(g)
+=\sum_{i\in\Omega}
+\left(\nu\{g:g(i)=\sigma(i)\}-\frac1n\right)=0.
+\]
+
+If \(v(\sigma)>0\), the positive \(F_\sigma\)-weighted mass is at least \(nv(\sigma)\), while the negative contribution is at most \((n-m(G))\delta\), because its support excludes \(\sigma\). This gives \(nv(\sigma)\le(n-m(G))\delta\). If \(v(\sigma)<0\), exchange the positive and negative parts. This proves (55).
+
+For sharpness, let \(D\subseteq G\) be the derangements (elements fixing no point). It is nonempty: Burnside's orbit-counting identity for a transitive action says \(\sum_{g\in G}\operatorname{Fix}(g)=|G|\); if every element fixed a point, the identity with \(n\) fixed points and all other elements with at least one fixed point would make the sum strictly exceed \(|G|\). Define
+
+\[
+P=\left(1-\frac{m(G)}n\right)\delta_1+
+\frac{m(G)}n\,U_D,\qquad Q=U_M, \tag{58}
+\]
+
+where \(U_D,U_M\) are uniform measures on the indicated sets. Both \(D\) and \(M\) are invariant under conjugation in \(G\). Since \(G\) is **doubly transitive**, any conjugacy-invariant probability law has constant probability for all diagonal pairs \(g(i)=i\), and constant probability for all ordered off-diagonal pairs \(g(i)=j\) with \(i\ne j\). Every element of \(M\) fixes exactly \(n-m(G)\) points, so under \(Q\),
+
+\[
+Q\{g:g(i)=i\}=1-\frac{m(G)}n,\qquad
+Q\{g:g(i)=j\}=\frac{m(G)}{n(n-1)}\quad(i\ne j).
+\]
+
+Under \(U_D\), these probabilities are \(0\) and \(1/(n-1)\), respectively. Hence \(P\) has **exactly the same** one-point marginals as \(Q\).
+
+Because \(m(G)<n\), every \(g\in M\) is nonidentity and has a fixed point, while \(P\) is supported on the identity and derangements. Thus \(P,Q\) have disjoint supports. For \(0\le\delta\le |M|/|G|\), define
+
+\[
+\nu_\delta=u_G+\delta(P-Q). \tag{59}
+\]
+
+It is a nonnegative probability law: at every \(g\in M\), its mass is \(|G|^{-1}-\delta|M|^{-1}\ge0\), and at all other elements no mass is subtracted. Its one-point marginals agree with \(u_G\), since \(P\) and \(Q\) have identical marginals. Disjointness gives \(\|\nu_\delta-u_G\|_{\mathrm{TV}}=\delta\), and
+
+\[
+\nu_\delta(1)=\frac1{|G|}+
+\left(1-\frac{m(G)}n\right)\delta.
+\]
+
+Left translation by \(\sigma\) sends the identity atom to \(\sigma\), preserves the uniform law and total variation, and preserves uniform one-point marginals. This establishes (57) and proves sharpness. QED.
+
+**Concrete infinite families.**
+
+* **Symmetric groups.** For \(G=S_n\), \(m(G)=2\); (55) is precisely the optimal constant \((n-2)/n\) proved in Section 8. Here \(M\) is the set of transpositions.
+* **Alternating groups.** For \(G=A_n\) in its natural action with \(n\ge4\), double transitivity holds and \(m(G)=3\), attained by three-cycles. The exact optimal constant is \((n-3)/n\). In particular, the constants for \(A_4,A_5,A_6\) are \(1/4,2/5,1/2\). The sharp construction mixes identity/derangements against the three-cycle class.
+* **Affine groups.** For \(G=\operatorname{AGL}(1,\mathbb F_q)\), \(q\) any prime power at least three, the natural action is doubly transitive and \(m(G)=q-1\). The exact coefficient is therefore \(1/q\), attained by contrasting nontrivial translations with affine maps having exactly one fixed point.
+
+The finite independent checker code/check_doubly_transitive.py exhaustively verifies the signed-measure construction, one-point marginals, TV values, and optimal atom excess in several small symmetric, alternating and affine examples. The **theorem for all finite doubly transitive groups is proved above** and does not rest on those finite enumerations.
+
+**Publication and novelty scope.** Minimal degree and derangements are classical objects; this paper claims only the stated exact distributional inequality with its displayed proof, not that the minimal-degree invariant or derangement existence is new. No generalization of Bristiel--Caputo's permanent bound to arbitrary group-uniform permutation laws is asserted.
