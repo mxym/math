@@ -398,7 +398,7 @@ Z_L(u,1)=(1+u)^L\qquad(L\ge1).
 \]
 Because \(n-2r\ge2\), the **first nonzero Taylor coefficient** of (32) at \(t=1\) is therefore
 \[
-[(t-1)^r]\nabla^rG_0(t)\big|_{t=1}
+\frac1{r!}\left.\frac{d^r}{dt^r}\nabla^rG_0(t)\right|_{t=1}
 =[u^{m-r}]Z_{n-2r}(u,1)
 =\binom{n-2r}{m-r}>0.
 \tag{34}
