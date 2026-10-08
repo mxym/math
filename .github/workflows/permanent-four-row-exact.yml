@@ -1,0 +1,42 @@
+name: Exact four-row permanent/determinant tradeoff
+
+on:
+  push:
+    paths:
+      - 'notes/four-row-permanent-tradeoff/**'
+      - '.github/workflows/permanent-four-row-exact.yml'
+  pull_request:
+    paths:
+      - 'notes/four-row-permanent-tradeoff/**'
+      - '.github/workflows/permanent-four-row-exact.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Symbolic integer-polynomial checker (ordinary and optimized)
+        shell: bash
+        run: |
+          python3 -B notes/four-row-permanent-tradeoff/check.py > /tmp/permanent-normal.txt
+          python3 -B -O notes/four-row-permanent-tradeoff/check.py > /tmp/permanent-optimized.txt
+          cmp /tmp/permanent-normal.txt /tmp/permanent-optimized.txt
+          cmp /tmp/permanent-normal.txt notes/four-row-permanent-tradeoff/results/replay.txt
+      - name: Parity-law tensor extremizers (ordinary and optimized)
+        shell: bash
+        run: |
+          python3 -B notes/four-row-permanent-tradeoff/check_tensor.py > /tmp/permanent-tensor-normal.txt
+          python3 -B -O notes/four-row-permanent-tradeoff/check_tensor.py > /tmp/permanent-tensor-optimized.txt
+          cmp /tmp/permanent-tensor-normal.txt /tmp/permanent-tensor-optimized.txt
+          cmp /tmp/permanent-tensor-normal.txt notes/four-row-permanent-tradeoff/results/tensor-replay.txt
+      - name: Frozen source package integrity
+        shell: bash
+        run: |
+          cd notes/four-row-permanent-tradeoff
+          sha256sum -c SHA256SUMS

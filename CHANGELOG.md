@@ -37,6 +37,14 @@
 - Proved both sharp dimension-55 rational values and explicit maximizers. The all-tree winner is `B(4,4) * B(5,5)^(*2) * [T7 x (B(4,4) * B(4,4))]`; the two-layer winner is `B(5,6) * B(5,5)^(*4)`. Their exact difference is strictly positive. Consequently **55 is the first dimension where nested product/join operations are necessary to attain a class optimum**. The earlier dimension-85 strict witness remains true; no assertion about geometric uniqueness, unrestricted convex bodies or asymptotic optimality is made.
 - Added complete manuscript, production/checker separation, negative controls, ordinary/optimized exact replay logs, pinned hashes, dependency audit and read-only CI. Kept the historical version-2, version-5, dimension-48 and dimension-85 packages unmodified.
 
+## 2026-10-08 — sharp four-row permanent/determinant tradeoff and parity tensor norms
+
+- Proved the **exact** four-row complex-matrix inequality |per A|+c|det A|<=max(3/2,1+c) times the product of row Euclidean norms for every real c>=0, including all equality matrices and an averaged six-pair deficit controlling near-extremizers.
+- Extracted the all-width two-row symmetric/alternating minor-energy theorem with sharp constant max(2-2/n,1+c) and complete three-regime equality classification, rather than only enumerating small sizes. An exact diagonal-to-flat interpolation certifies a quadratic critical deficit.
+- Determined the exact complex-valued L2 norm max(1,(2/3)(1+24|t|)) for the S4 even/odd parity-mixture family, its sharp **within-family** TV threshold 1/4, and exact nonidentical-column tensor norm product. Broader uniform-marginal S4 laws and the nonreal coefficient pencil remain unresolved.
+- Published a self-contained proof, integer-polynomial identity checker, independent Fraction tensor replay covering 43,896 permutation tuples, frozen ordinary/optimized reports, audit, hashes and read-only CI. The classical permanent-only result is attributed; older numbered entries remain unchanged. No external peer review, full Lean proof or priority claim.
+
+
 ## 2026-10-08 — exact small-radius Z[sqrt(-2)] prime graph and sieve classification
 
 - Proved the complete graph structure at every real radius D<2,

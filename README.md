@@ -99,6 +99,10 @@ Mathematical research manuscripts and supporting verification material maintaine
 
 The [exact norm theorem for every complex 3x3 permanent–determinant pencil](notes/complex-permanent-determinant/README.md) determines the least norm constant as the maximum of five explicit templates, which classifies precisely the complex determinant coefficients permitted by the sharp Euclidean permanent bound, yields a positive sharp absolute determinant term, classifies its complex equality cases and extends the exact three-row uniform-marginal robustness radius to arbitrary complex-valued L2 functions, and determines the **sharp amplification factor** for all such laws and their independent nonidentical-column tensor products. Its [Hermitian proof](notes/complex-permanent-determinant/PAPER.md) has a [replayable exact rational full-norm certificate](notes/complex-permanent-determinant/check_full_norm.py), a separate quadratic-field disk replay and complex matrix regression and a read-only CI workflow. This does not claim full n-row radius classification or external review.
 
+## Sharp complex four-row permanent and determinant tradeoff
+
+The [complete four-row theorem](notes/four-row-permanent-tradeoff/README.md) proves |per A|+c|det A| <= max(3/2,1+c) times the row Euclidean norm product for **all complex 4x4 matrices** and every real c>=0, including all equality cases and a quantitative pairwise stability deficit. Its algebraic method also proves an infinite family of sharp rectangular two-row inequalities. The [paper](notes/four-row-permanent-tradeoff/PAPER.md) further computes the exact complex-valued L2 norm and tensorization for the **parity-biased** S4 permutation subfamily, with sharp TV cutoff 1/4 within that subfamily only. [Exact polynomial identities](notes/four-row-permanent-tradeoff/check.py) and [tensor witness replay](notes/four-row-permanent-tradeoff/check_tensor.py) are supplied with read-only CI.
+
 ## Collection
 
 | ID | Manuscript | Latest | Status |
