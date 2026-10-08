@@ -14,21 +14,25 @@ are public. This addresses the arbitrary-mass conjecture; the equal-mass
 case is settled in the separate global proof below. No worldwide priority
 is claimed.
 
-The [complete eleven-page global proof](research/gaussian-balanced-four-global/paper.pdf)
-now establishes the sharp **four equal-mass Gaussian first-moment theorem**
-in every dimension d ≥ 3, including arbitrary measurable and fractional
-partitions: the value is **12(arctan √2)²/π³**, with equality precisely
-for central regular tetrahedral cones extended cylindrically. This resolves
-Heilman's 2014 Conjecture 3 in dimension three and the equal-mass four-cell
-case of his broader 2019 statement. The standalone proof combines
-Milman–Neeman's established multi-bubble theorem with covariance
-regularization, a constrained deformation argument, and boundary rank
-obstructions. [Source comparisons, internal reviews, exact algebra controls
-and eight partial Lean exports](research/gaussian-balanced-four-global/README.md)
-are public; the analytic endpoint is not claimed fully Lean-formalized
-or externally peer-reviewed. The earlier
-[rank-rigidity note](research/gaussian-balanced-four-rigidity/README.md)
-remains a historical partial checkpoint.
+The [complete six-page proof](research/gaussian-balanced-simplex-all-k/paper.pdf)
+now establishes the sharp **equal-mass Gaussian first-moment theorem for
+every integer k ≥ 2**: its value is **(E max_{i≤k} Z_i)²/(k−1)** for
+independent standard normals. In every dimension d ≥ k−1, equality holds
+precisely for central regular simplex cones extended cylindrically.
+Measurable and fractional partitions are included; below dimension k−1
+the bound holds strictly, without a claim of the sharp value there.
+This proves the equal-mass subcase of Heilman's 2019 first-moment
+conjecture and his full four-cell dimension-three Conjecture 3 from 2014.
+The proof combines the established Milman–Neeman perimeter theorem with
+Gaussian flux and a radial differential comparison, and gives an exact
+nonnegative deficit integral.
+[Source comparisons, two internal reviews and eight partial Lean exports](research/gaussian-balanced-simplex-all-k/README.md)
+are public. Lean checks the algebra and abstract real differential
+comparison; the complete Gaussian endpoint is not claimed fully
+formalized or externally peer-reviewed. The
+[earlier eleven-page four-cell proof](research/gaussian-balanced-four-global/README.md)
+is preserved, along with the historical partial
+[rank-rigidity note](research/gaussian-balanced-four-rigidity/README.md).
 
 Future major, fully proved results will follow the owner's
 [immutable-release publication workflow](releases/README.md).
