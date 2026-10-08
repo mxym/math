@@ -90,3 +90,28 @@ modules and its five sharp witnesses. Theorem 2 (complete equality
 classification for the absolute-value endpoint) and finite-dimensional
 tensorization remain **outside the formalization scope**. They must not
 be represented as Lean-proven until separately completed.
+
+## Canonical Mathlib semantic bridge
+
+`MatrixBridge.det_row_expansion` uses Mathlib
+`Matrix.det_fin_three` to identify the row-wise signed
+six-term expression with `A.det`.
+
+`MatrixBridge.permanent_row_expansion` expands
+Mathlib's `Matrix.permanent` over exactly all six
+permutations of `Fin 3`. It checks the enumerated
+permutation set by Lean's kernel-evaluated `decide`
+on a closed finite statement, then proves the
+universal polynomial identity with `ring`.
+No original matrix entries are fixed or enumerated.
+
+`MatrixTheorem.matrix_squared_norm_iff`
+quantifies directly over all values of
+`A : Matrix (Fin 3) (Fin 3) ℂ`
+and all real `B`. It uses the actual Mathlib norm-square
+`Complex.normSq` and row sums, not manually
+defined substitutes. Its axiom check reports only
+standard Lean foundational axioms and no `sorryAx`.
+
+This completes semantic verification of Theorem 1B
+for the native Mathlib matrix interface.
