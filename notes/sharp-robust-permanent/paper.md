@@ -1069,3 +1069,93 @@ Left translation by \(\sigma\) sends the identity atom to \(\sigma\), preserves 
 The finite independent checker code/check_doubly_transitive.py exhaustively verifies the signed-measure construction, one-point marginals, TV values, and optimal atom excess in several small symmetric, alternating and affine examples. The **theorem for all finite doubly transitive groups is proved above** and does not rest on those finite enumerations.
 
 **Publication and novelty scope.** Minimal degree and derangements are classical objects; this paper claims only the stated exact distributional inequality with its displayed proof, not that the minimal-degree invariant or derangement existence is new. No generalization of Bristiel--Caputo's permanent bound to arbitrary group-uniform permutation laws is asserted.
+
+
+## 16. Exact non-doubly-transitive obstruction: the edge action of \(S_5\)
+
+Double transitivity in Theorem 15 is not merely a convenience for its extremizing construction. In a natural **transitive but not doubly transitive** action, the fixed-point/minimal-degree coefficient is **strictly non-sharp**. Moreover, the true optimal constant can still be determined exactly by a short primal-dual certificate.
+
+Let \(G=S_5\) act on the \(n=10\) edges \(\Omega=\binom{[5]}2\) of the complete graph \(K_5\). This action is transitive but not doubly transitive: ordered pairs of edges fall into the equal, adjacent and disjoint orbitals. A vertex transposition moves six of the ten edges, so \(m(G)=6\), giving the general fixed-point upper coefficient \((10-6)/10=2/5\).
+
+**Theorem 16 (sharp non-doubly-transitive atom modulus).** Let \(u_G\) be uniform on the 120 permutations of \(S_5\), viewed in their action on \(\Omega\). If a law \(\nu\) on \(S_5\) satisfies
+
+\[
+\nu\{g:g(E)=F\}=\frac1{10}\qquad(E,F\in\Omega),
+\]
+
+then for every \(\sigma\in S_5\),
+
+\[
+\boxed{\left|\nu(\sigma)-\frac1{120}\right|
+\le\frac13\,\|\nu-u_G\|_{\mathrm{TV}}.} \tag{60}
+\]
+
+The coefficient \(1/3\) is optimal. For every \(\sigma\in S_5\) and every \(0\le\delta\le1/12\), there exists such a law with TV distance exactly \(\delta\) and atom excess exactly \(\delta/3\). Consequently, the minimal-degree bound \(2/5\) is **not sharp** for this transitive action.
+
+**Proof (exact dual certificate).** For \(g\in S_5\), let \(F(g)\) be the number of edges \(E\in\Omega\) fixed setwise by \(g\), and let \(A(g)\) be the number of edges \(E\) whose image \(g(E)\) is **adjacent** to \(E\) (shares exactly one vertex).
+
+Both counts depend only on the vertex-cycle type of \(g\). Directly applying a representative of each of the seven cycle types to the ten unordered pairs gives the following complete table. Every row can also be checked using the independent integer enumerator in code/check_edge_action_s5.py.
+
+| Cycle type in \(S_5\) | Number of elements | \(F(g)\) | \(A(g)\) | \(h(g)\) |
+| --- | ---: | ---: | ---: | ---: |
+| \(1^5\) | 1 | 10 | 0 | \(4/9\) |
+| \(2\,1^3\) | 10 | 4 | 6 | \(1/9\) |
+| \(2^2\,1\) | 15 | 2 | 4 | \(1/9\) |
+| \(3\,1^2\) | 20 | 1 | 9 | \(4/9\) |
+| \(3\,2\) | 20 | 1 | 3 | \(1/9\) |
+| \(4\,1\) | 30 | 0 | 8 | \(4/9\) |
+| \(5\) | 24 | 0 | 5 | \(5/18\) |
+
+Here the certificate function is
+
+\[
+h(g)=\mathbf1_{\{g=1\}}-\frac{F(g)-A(g)}{18}. \tag{61}
+\]
+
+The table proves, **for all 120 group elements**, the exact pointwise interval
+
+\[
+\frac19\le h(g)\le\frac49. \tag{62}
+\]
+
+Set \(v=\nu-u_G\). Uniform one-point marginals imply \(\sum_g v(g)F(g)=0\), because \(F(g)\) is a sum of diagonal marginal indicators. They also imply \(\sum_g v(g)A(g)=0\), because \(A(g)\) is a sum of indicators of specified **adjacent** image edges. Hence
+
+\[
+\nu(1)-\frac1{120}=\sum_{g\in G}v(g)h(g).
+\]
+
+Since \(v\) has total mass zero and its positive and negative parts each have mass \(\delta=\|\nu-u_G\|_{\mathrm{TV}}\), any function whose range is contained in an interval of length \(L\) has \(|\sum_g v(g)h(g)|\le L\delta\). Here \(L=4/9-1/9=1/3\), proving (60) at the identity. Left translation by \(\sigma^{-1}\) reduces any other atom to the identity while preserving the uniform edge-marginal condition.
+
+**Proof (matching sharp construction).** Let \(T\) denote the set of the ten vertex transpositions, and \(C\) the class of twenty vertex 3-cycles. Define probability laws
+
+\[
+P=\frac13\delta_1+\frac23 U_C,\qquad Q=U_T, \tag{63}
+\]
+
+where \(U_C\) and \(U_T\) are uniform on their respective conjugacy classes. Both laws are conjugation-invariant. Because the action on ordered edge pairs has exactly the three orbitals (equal, adjacent, disjoint), their complete one-point marginal matrices are determined by the average counts of \(F\) and \(A\). From the table,
+
+\[
+\mathbb E_P F=\frac13(10)+\frac23(1)=4=\mathbb E_Q F,
+\qquad
+\mathbb E_P A=\frac23(9)=6=\mathbb E_Q A.
+\]
+
+The disjoint-image count is the complement to ten, so it also agrees. It follows that \(P\) and \(Q\) have **exactly the same** one-point marginals for each ordered pair of edges.
+
+The supports of \(P\) and \(Q\) are disjoint. For \(0\le\delta\le |T|/|G|=10/120=1/12\), the signed perturbation
+
+\[
+\nu_\delta=u_G+\delta(P-Q) \tag{64}
+\]
+
+is nonnegative because every transposition retains mass \(1/120-\delta/10\ge0\). All edge-marginals remain uniform, \(\|\nu_\delta-u_G\|_{\mathrm{TV}}=\delta\), and
+
+\[
+\nu_\delta(1)=\frac1{120}+\frac{\delta}{3}.
+\]
+
+The construction attains (60) at every stated \(\delta\), and left translation again handles any \(\sigma\). This completes the exact optimality proof. QED.
+
+**Structural interpretation.** The fixed-point argument alone sees the maximum of \(F(g)\) among nonidentity elements (four fixed edges) and gives \(2/5\). The additional adjacent-edge orbital supplies a new linear constraint. The dual function \(h\) in (61) gives the better coefficient \(1/3\), while (63)--(64) attain that coefficient. The result illustrates why extending Theorem 15 to arbitrary transitive actions requires the full *orbital-marginal geometry*, rather than minimal degree alone.
+
+The table, explicit dual range, equal marginal matrices, nonnegative perturbation, exact TV value and atom excess are replayed with Python integer/Fraction arithmetic in code/check_edge_action_s5.py. No linear-programming solver output is used as final evidence. A floating-point LP was used only to discover the certificate, and the proof above replaces it entirely.
