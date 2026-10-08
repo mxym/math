@@ -34,6 +34,8 @@ Mathematical research manuscripts and supporting verification material maintaine
 | 008 | [Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability](preprints/008-density-overlap-phase/README.md) | v1 | Complete written proof draft; critical logarithm and exact multiscale checks |
 | 009 | [Functional hard-sphere fluctuations on regular kinetic intervals](preprints/009-functional-hard-sphere-fluctuations/README.md) | v1 | Research draft; strong-dual functional limit with explicit imported inputs |
 
+A [complete independent-arity continuation of 005](notes/independent-arity-simplex-recursions/README.md) now proves the unique asymptotic optimum among every homogeneous recursion \(K_{j+1}=(K_j^m)^{*k}\) from simplex seeds for all positive integer \(m,k,p\), beyond the balanced \(m=k\) family. Its exact rational certificate and full proof are separately replayable; arbitrary product/join trees remain open.
+
 A separate [nine-piece balanced-projector cover](notes/balanced_borsuk_slice.md) excludes one proposed Borsuk construction; it is not a solution of the eight-dimensional problem.
 
 ## Reading and verification

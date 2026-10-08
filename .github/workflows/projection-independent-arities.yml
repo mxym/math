@@ -1,0 +1,36 @@
+name: Exact independent-arity projection recursion theorem
+on:
+  push:
+    paths:
+      - 'notes/independent-arity-simplex-recursions/**'
+      - 'preprints/005-simplex-product-optimum/v5/code/check_balanced.py'
+      - '.github/workflows/projection-independent-arities.yml'
+  pull_request:
+    paths:
+      - 'notes/independent-arity-simplex-recursions/**'
+      - 'preprints/005-simplex-product-optimum/v5/code/check_balanced.py'
+      - '.github/workflows/projection-independent-arities.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Independent arities, ordinary and optimized
+        shell: bash
+        run: |
+          python3 notes/independent-arity-simplex-recursions/check.py > /tmp/independent-normal.txt
+          python3 -O notes/independent-arity-simplex-recursions/check.py > /tmp/independent-optimized.txt
+          cmp /tmp/independent-normal.txt /tmp/independent-optimized.txt
+          cmp /tmp/independent-normal.txt notes/independent-arity-simplex-recursions/results/replay.txt
+      - name: Inherited 005 v5 lower witness
+        shell: bash
+        run: |
+          python3 preprints/005-simplex-product-optimum/v5/code/check_balanced.py > /tmp/v5-normal.txt
+          python3 -O preprints/005-simplex-product-optimum/v5/code/check_balanced.py > /tmp/v5-optimized.txt
+          cmp /tmp/v5-normal.txt /tmp/v5-optimized.txt
+          cmp /tmp/v5-normal.txt notes/independent-arity-simplex-recursions/results/inherited-replay.txt
