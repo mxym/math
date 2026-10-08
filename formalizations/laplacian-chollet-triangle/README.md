@@ -81,3 +81,31 @@ This is an **unconditional theorem for every labeled simple graph on three verti
 AllFinThree.lean was compiled by the pinned Lean 4.34.1 toolchain **with exit code 0**, and the included axiom audit printed only \`[propext, Classical.choice, Quot.sound]\` for \`Chollet.strongChollet_fin_three\`. The source uses neither custom axioms nor admitted proofs. For reproducibility, also compile the bipartite package's \`GraphMain.lean\` and this package's \`K3AllSubsets.lean\` before AllFinThree.lean.
 
 This finite three-vertex classification does **not** close the unrestricted arbitrary-order graph theorem, whose noncycle block/matching and cycle/block-gluing arguments still lack full Lean formalization.
+
+## New uniform local theorem for arbitrary large graphs (Lean proved)
+
+The additional source modules [TriangleDiagonal.lean](TriangleDiagonal.lean), [TriangleStieltjes.lean](TriangleStieltjes.lean), [DegreePair.lean](DegreePair.lean), [GraphTriple.lean](GraphTriple.lean) and [GraphTripleSubset.lean](GraphTripleSubset.lean) establish two new universal statements.
+
+**Every real symmetric 3x3 diagonally dominant Z-matrix** of the form
+
+    [a -x -y; -x b -z; -y -z c]
+
+with nonnegative edge weights x,y,z and diagonal dominance a>=x+y, b>=x+z, c>=y+z satisfies
+
+    permanent(A hadamard A) <= permanent(A) * a*b*c.
+
+The proof uses a general diagonal-increment identity: increasing any one diagonal entry by an arbitrary nonnegative real preserves the strength inequality under the other two entries' elementary degree bounds. It does not enumerate graph parameters or approximate reals.
+
+More substantially, **the actual Laplacian of EVERY finite simple graph**, regardless of ambient size and containing any number of odd cycles elsewhere, satisfies the strong Chollet inequality on **every principal subset S of size at most three**, with the degrees taken from the ORIGINAL ambient graph. The public theorem is:
+
+    Chollet.strong_chollet_principal_card_le_three
+
+Its cardinality-three core is:
+
+    Chollet.strong_chollet_principal_card_three
+
+GraphTriple.lean checks that the genuine Mathlib graph Laplacian on three distinct vertices is exactly the Stieltjes matrix, and DegreePair.lean proves, inside Lean, that adjacency indicators of two distinct candidate neighbors never exceed the original graph degree. GraphTripleSubset.lean transports this result through an explicitly constructed type equivalence from Fin 3 to the three-element subset; it combines it with the previous induced-bipartite theorem for subsets of size zero through two.
+
+**Verification:** both TriangleDiagonal.lean and TriangleStieltjes.lean were compiled using pinned Lean 4.34.1 and Mathlib revision d13f23b723b8a846827a245b89c10fc7d3f11612, exit code zero. Both GraphTriple.lean and GraphTripleSubset.lean were likewise compiled successfully from source. Lean axiom audits for strong_chollet_stieltjes_three, strong_chollet_principal_card_three and strong_chollet_principal_card_le_three list only propext, Classical.choice and Quot.sound. No sorry, admitted lemma, or custom axiom is used.
+
+This is an infinite ambient-graph theorem but a uniformly bounded principal-rank result. It **does not prove** the unrestricted all-graph theorem for principal subsets of four or more vertices; the missing noncycle-block/matching and block-gluing arguments remain explicit.
