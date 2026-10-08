@@ -62,3 +62,14 @@ It compiled using Lean 4.34.1 and pinned Mathlib d13f23b723b8a846827a245b89c10fc
 Reproduce it after compiling Nonnegative.lean and Signed.lean and extending LEAN_PATH by their compiled objects: compile src/Induced.lean with the same pinned Lean/Mathlib environment.
 
 The **full all-graph theorem remains open in Lean**. In particular this proof does not treat principal submatrices whose induced support itself contains odd cycles, except for separate explicitly verified cases such as the [weighted 3-cycle identity](../laplacian-chollet-triangle/README.md).
+
+## Two new all-orders algebraic steps toward block gluing
+
+The addition [BlockClosureAlgebra.lean](src/BlockClosureAlgebra.lean) formalizes two universal quantified polynomial inequalities used in Section 5 of the written full-graph proof.
+
+**diagonal_increment_algebra**: if Q <= a*h*P, T <= h*R and a*R <= P, with a,h,t nonnegative, then
+`Q+(2*a*t+t^2)*T <= h*(a+t)*(P+t*R)`. This is the exact algebraic statement required when a diagonal is increased by t, provided that the separate permanent-update formulas and Lieb singleton pivot inequality have been proved.
+
+**one_point_sum_algebra**: under the corresponding two-block strong-minor and singleton-pivot inequalities and explicit nonnegativity conditions, the exact one-point-sum squared-permanent upper expression `Q1*T2 + T1*Q2 + 2*a1*a2*T1*T2` is dominated by `h1*h2*(a1+a2)*(P1*R2+R1*P2)`. This handles arbitrary real parameters and includes zero diagonals.
+
+Both statements compile using pinned Lean 4.34.1 and Mathlib. Their `#print axioms` listings contain only `propext`, `Classical.choice`, and `Quot.sound`; there are no admitted proofs. **The statements are algebraic lemmas with precisely stated premises, not purported proofs that the full matrix permanent satisfies those premises.** In particular the permanent gluing identities and Lieb's PSD singleton inequality remain unformalized, so the arbitrary-graph strong Chollet theorem remains out of reach in the current Lean package.
