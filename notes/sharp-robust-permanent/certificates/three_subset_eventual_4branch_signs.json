@@ -1,0 +1,2374 @@
+{
+  "residues": [
+    {
+      "class_profiles": {
+        "P": [
+          [
+            "4*m",
+            "0",
+            "0"
+          ],
+          [
+            "3*m - 2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2*m",
+            "0"
+          ]
+        ],
+        "Q": [
+          [
+            "4*m - 2",
+            "1",
+            "0"
+          ],
+          [
+            "m - 3",
+            "0",
+            "m + 1"
+          ]
+        ]
+      },
+      "dual_parameters": [
+        "-3*(18*m**6 + 15*m**5 - 27*m**4 - 88*m**3 + 51*m**2 + 37*m + 6)/(4*m*(m - 1)*(m + 2)*(2*m - 1)*(4*m - 3)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "3*(36*m**6 - 270*m**5 + 542*m**4 - 403*m**3 + 140*m**2 - 43*m - 6)/(4*m*(m - 1)*(m + 2)*(2*m - 1)*(4*m - 3)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "-27*(m + 1)*(6*m**3 - 7*m**2 + m - 2)/(4*(m + 2)*(2*m - 1)*(4*m - 3)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "1",
+        "27*(m + 1)*(6*m**3 - 7*m**2 + m - 2)/(2*(m + 2)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))"
+      ],
+      "optimal_value": "(2*m - 1)*(18*m**4 - 3*m**3 + 30*m**2 - 19*m - 38)/(2*(m + 2)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+      "positive_primal_weights": [
+        "(2*m - 1)*(18*m**4 - 3*m**3 + 30*m**2 - 19*m - 38)/(2*(m + 2)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "36*m*(m - 1)*(m + 1)*(2*m - 1)/((m + 2)*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "9*(m + 1)**2*(2*m - 3)/(2*(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4))",
+        "3*(m + 1)*(6*m**3 - 3*m**2 - m - 4)/(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4)",
+        "4*(2*m - 1)*(3*m**2 - 3*m - 2)/(18*m**4 + 33*m**3 - 48*m**2 - 19*m - 4)"
+      ],
+      "r": 0,
+      "sign_conditions": [
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "positive D",
+          "numerator_q_coefficients": [
+            "5493120",
+            "5158192",
+            "2002944",
+            "411668",
+            "47232",
+            "2868",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "z decreasing",
+          "numerator_q_coefficients": [
+            "19344",
+            "10242",
+            "1818",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "both y slopes decreasing",
+          "numerator_q_coefficients": [
+            "19344",
+            "10242",
+            "1818",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y positive",
+          "numerator_q_coefficients": [
+            "15936",
+            "7764",
+            "1284",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y negative",
+          "numerator_q_coefficients": [
+            "3408",
+            "2478",
+            "534",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y positive",
+          "numerator_q_coefficients": [
+            "28464",
+            "13050",
+            "2034",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y negative",
+          "numerator_q_coefficients": [
+            "29568",
+            "17676",
+            "3420",
+            "216"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early A positive",
+          "numerator_q_coefficients": [
+            "3224",
+            "1707",
+            "303",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early derivative nonpos",
+          "numerator_q_coefficients": [
+            "53104",
+            "34228",
+            "8298",
+            "894",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early Q+U0 positive",
+          "numerator_q_coefficients": [
+            "253200",
+            "187306",
+            "55505",
+            "8226",
+            "609",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late A",
+          "numerator_q_coefficients": [
+            "3224",
+            "1707",
+            "303",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late B",
+          "numerator_q_coefficients": [
+            "59736",
+            "41637",
+            "10842",
+            "1251",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(1) positive",
+          "numerator_q_coefficients": [
+            "65376",
+            "48624",
+            "13344",
+            "1608",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(-1) negative",
+          "numerator_q_coefficients": [
+            "54096",
+            "34650",
+            "8340",
+            "894",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(left) negative",
+          "numerator_q_coefficients": [
+            "257760",
+            "217136",
+            "73363",
+            "12429",
+            "1056",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early -A",
+          "numerator_q_coefficients": [
+            "3224",
+            "1707",
+            "303",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early B",
+          "numerator_q_coefficients": [
+            "66000",
+            "44280",
+            "11217",
+            "1269",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early C sign",
+          "numerator_q_coefficients": [
+            "77400",
+            "48753",
+            "11754",
+            "1287",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early L(-1)",
+          "numerator_q_coefficients": [
+            "146624",
+            "94740",
+            "23274",
+            "2574",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(2)",
+          "numerator_q_coefficients": [
+            "83408",
+            "65958",
+            "18936",
+            "2358",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(Tmax)",
+          "numerator_q_coefficients": [
+            "405072",
+            "365574",
+            "130424",
+            "23106",
+            "2040",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y>=1",
+          "numerator_q_coefficients": [
+            "376656",
+            "255438",
+            "65484",
+            "7506",
+            "324"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y=0",
+          "numerator_q_coefficients": [
+            "0"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y>=1",
+          "numerator_q_coefficients": [
+            "274752",
+            "206172",
+            "57510",
+            "7074",
+            "324"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y=0",
+          "numerator_q_coefficients": [
+            "52848",
+            "32670",
+            "6570",
+            "432"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late A positive",
+          "numerator_q_coefficients": [
+            "3224",
+            "1707",
+            "303",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late derivative nonpos",
+          "numerator_q_coefficients": [
+            "30720",
+            "23050",
+            "6408",
+            "786",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late Q(Tmax) positive",
+          "numerator_q_coefficients": [
+            "126448",
+            "109302",
+            "37457",
+            "6366",
+            "537",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component0 defined denominator",
+          "numerator_q_coefficients": [
+            "6344553600",
+            "9588664080",
+            "6415098352",
+            "2493299676",
+            "620301988",
+            "102426612",
+            "11223484",
+            "786816",
+            "32016",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component1 defined denominator",
+          "numerator_q_coefficients": [
+            "6344553600",
+            "9588664080",
+            "6415098352",
+            "2493299676",
+            "620301988",
+            "102426612",
+            "11223484",
+            "786816",
+            "32016",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component2 defined denominator",
+          "numerator_q_coefficients": [
+            "211485120",
+            "242077592",
+            "118025324",
+            "31764784",
+            "5095468",
+            "487056",
+            "25680",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component3 defined denominator",
+          "numerator_q_coefficients": [
+            "1"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component4 defined denominator",
+          "numerator_q_coefficients": [
+            "457760",
+            "353556",
+            "107986",
+            "16308",
+            "1218",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "457760",
+            "353556",
+            "107986",
+            "16308",
+            "1218",
+            "36"
+          ],
+          "name": "primal weight0 positive",
+          "numerator_q_coefficients": [
+            "259688",
+            "218475",
+            "73642",
+            "12447",
+            "1056",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "228880",
+            "176778",
+            "53993",
+            "8154",
+            "609",
+            "18"
+          ],
+          "name": "primal weight1 positive",
+          "numerator_q_coefficients": [
+            "83160",
+            "57492",
+            "14832",
+            "1692",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "57220",
+            "37042",
+            "8868",
+            "930",
+            "36"
+          ],
+          "name": "primal weight2 positive",
+          "numerator_q_coefficients": [
+            "3969",
+            "2016",
+            "333",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "28610",
+            "18521",
+            "4434",
+            "465",
+            "18"
+          ],
+          "name": "primal weight3 positive",
+          "numerator_q_coefficients": [
+            "24738",
+            "16365",
+            "4038",
+            "441",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "28610",
+            "18521",
+            "4434",
+            "465",
+            "18"
+          ],
+          "name": "primal weight4 positive",
+          "numerator_q_coefficients": [
+            "3872",
+            "2156",
+            "396",
+            "24"
+          ]
+        }
+      ],
+      "threshold_m": 6
+    },
+    {
+      "class_profiles": {
+        "P": [
+          [
+            "4*m + 1",
+            "0",
+            "0"
+          ],
+          [
+            "3*m - 1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2*m - 1",
+            "1"
+          ]
+        ],
+        "Q": [
+          [
+            "4*m - 1",
+            "1",
+            "0"
+          ],
+          [
+            "m - 2",
+            "0",
+            "m + 1"
+          ]
+        ]
+      },
+      "dual_parameters": [
+        "-3*(72*m**6 + 174*m**5 + 245*m**4 - 1196*m**3 + 889*m**2 - 64*m - 12)/(m*(m + 2)*(2*m - 1)*(4*m - 3)*(4*m - 1)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+        "6*(72*m**6 - 426*m**5 + 483*m**4 + 111*m**3 - 253*m**2 + 21*m + 4)/(m*(m + 2)*(2*m - 1)*(4*m - 3)*(4*m - 1)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+        "-27*(m + 1)*(6*m**3 + m**2 - 11*m + 2)/((m + 2)*(2*m - 1)*(4*m - 1)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+        "1",
+        "54*(m + 1)*(6*m**3 + m**2 - 11*m + 2)/((m + 2)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))"
+      ],
+      "optimal_value": "(72*m**5 + 66*m**4 + 11*m**3 - 2*m**2 - 149*m - 34)/((m + 2)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+      "positive_primal_weights": [
+        "(72*m**5 + 66*m**4 + 11*m**3 - 2*m**2 - 149*m - 34)/((m + 2)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+        "72*(m - 1)*(m + 1)*(2*m - 1)*(2*m + 3)/((m + 2)*(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37))",
+        "18*(m + 1)**2*(2*m - 3)/(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37)",
+        "3*(m + 1)*(24*m**3 + 26*m**2 - 39*m - 17)/(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37)",
+        "8*(2*m - 1)*(6*m**2 - m - 11)/(72*m**4 + 246*m**3 - 103*m**2 - 336*m + 37)"
+      ],
+      "r": 1,
+      "sign_conditions": [
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "positive D",
+          "numerator_q_coefficients": [
+            "319074504",
+            "150370082",
+            "29450029",
+            "3068050",
+            "179309",
+            "5574",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "z decreasing",
+          "numerator_q_coefficients": [
+            "181572",
+            "45804",
+            "3852",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "both y slopes decreasing",
+          "numerator_q_coefficients": [
+            "181572",
+            "45804",
+            "3852",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y positive",
+          "numerator_q_coefficients": [
+            "55632",
+            "11838",
+            "816",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y negative",
+          "numerator_q_coefficients": [
+            "125940",
+            "33966",
+            "3036",
+            "90"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y positive",
+          "numerator_q_coefficients": [
+            "530040",
+            "127122",
+            "10152",
+            "270"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y negative",
+          "numerator_q_coefficients": [
+            "14676",
+            "10290",
+            "1404",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early A positive",
+          "numerator_q_coefficients": [
+            "30262",
+            "7634",
+            "642",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early derivative nonpos",
+          "numerator_q_coefficients": [
+            "844890",
+            "272561",
+            "33010",
+            "1779",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early Q+U0 positive",
+          "numerator_q_coefficients": [
+            "580832",
+            "465082",
+            "122875",
+            "14726",
+            "831",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper odd continuous x0 is below upper",
+          "numerator_q_coefficients": [
+            "5984538",
+            "2051103",
+            "263826",
+            "15093",
+            "324"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper odd x0 feasible bound",
+          "numerator_q_coefficients": [
+            "3687072",
+            "1291062",
+            "169464",
+            "9882",
+            "216"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late A",
+          "numerator_q_coefficients": [
+            "30262",
+            "7634",
+            "642",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late B",
+          "numerator_q_coefficients": [
+            "1152402",
+            "382593",
+            "47532",
+            "2619",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(1) positive",
+          "numerator_q_coefficients": [
+            "1908720",
+            "650712",
+            "82947",
+            "4686",
+            "99"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(-1) negative",
+          "numerator_q_coefficients": [
+            "396084",
+            "114474",
+            "12117",
+            "552",
+            "9"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(left) negative",
+          "numerator_q_coefficients": [
+            "9140892",
+            "3788668",
+            "628492",
+            "52162",
+            "2166",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early -A",
+          "numerator_q_coefficients": [
+            "30262",
+            "7634",
+            "642",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early B",
+          "numerator_q_coefficients": [
+            "1117248",
+            "371529",
+            "46422",
+            "2583",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early C sign",
+          "numerator_q_coefficients": [
+            "213318",
+            "101691",
+            "16389",
+            "1107",
+            "27"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early L(-1)",
+          "numerator_q_coefficients": [
+            "934192",
+            "277472",
+            "30675",
+            "1494",
+            "27"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(2)",
+          "numerator_q_coefficients": [
+            "4653532",
+            "1628426",
+            "213330",
+            "12402",
+            "270"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(Tmax)",
+          "numerator_q_coefficients": [
+            "17682688",
+            "7432560",
+            "1245336",
+            "104012",
+            "4332",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y>=1",
+          "numerator_q_coefficients": [
+            "6521916",
+            "2183370",
+            "274680",
+            "15390",
+            "324"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y=0",
+          "numerator_q_coefficients": [
+            "0"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y>=1",
+          "numerator_q_coefficients": [
+            "9878112",
+            "3442716",
+            "449631",
+            "26082",
+            "567"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y=0",
+          "numerator_q_coefficients": [
+            "4808772",
+            "1625778",
+            "205767",
+            "11556",
+            "243"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late A positive",
+          "numerator_q_coefficients": [
+            "30262",
+            "7634",
+            "642",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late derivative nonpos",
+          "numerator_q_coefficients": [
+            "637948",
+            "222553",
+            "28984",
+            "1671",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late Q(Tmax) positive",
+          "numerator_q_coefficients": [
+            "4443390",
+            "1861801",
+            "311481",
+            "26003",
+            "1083",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component0 defined denominator",
+          "numerator_q_coefficients": [
+            "15521379247080",
+            "11365084392666",
+            "3693652734029",
+            "699302915032",
+            "84992987645",
+            "6876823804",
+            "370393532",
+            "12805552",
+            "257856",
+            "2304"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component1 defined denominator",
+          "numerator_q_coefficients": [
+            "15521379247080",
+            "11365084392666",
+            "3693652734029",
+            "699302915032",
+            "84992987645",
+            "6876823804",
+            "370393532",
+            "12805552",
+            "257856",
+            "2304"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component2 defined denominator",
+          "numerator_q_coefficients": [
+            "28743294902",
+            "16096218457",
+            "3855057848",
+            "511847521",
+            "40686920",
+            "1936204",
+            "51072",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component3 defined denominator",
+          "numerator_q_coefficients": [
+            "1"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component4 defined denominator",
+          "numerator_q_coefficients": [
+            "26589542",
+            "10315045",
+            "1594582",
+            "122789",
+            "4710",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "26589542",
+            "10315045",
+            "1594582",
+            "122789",
+            "4710",
+            "72"
+          ],
+          "name": "primal weight0 positive",
+          "numerator_q_coefficients": [
+            "19301378",
+            "7925707",
+            "1301578",
+            "106859",
+            "4386",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "26589542",
+            "10315045",
+            "1594582",
+            "122789",
+            "4710",
+            "72"
+          ],
+          "name": "primal weight1 positive",
+          "numerator_q_coefficients": [
+            "6393816",
+            "2102688",
+            "258696",
+            "14112",
+            "288"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1899253",
+            "601128",
+            "70961",
+            "3702",
+            "72"
+          ],
+          "name": "primal weight2 positive",
+          "numerator_q_coefficients": [
+            "63882",
+            "15912",
+            "1314",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1899253",
+            "601128",
+            "70961",
+            "3702",
+            "72"
+          ],
+          "name": "primal weight3 positive",
+          "numerator_q_coefficients": [
+            "1744509",
+            "561360",
+            "67569",
+            "3606",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1899253",
+            "601128",
+            "70961",
+            "3702",
+            "72"
+          ],
+          "name": "primal weight4 positive",
+          "numerator_q_coefficients": [
+            "154744",
+            "39768",
+            "3392",
+            "96"
+          ]
+        }
+      ],
+      "threshold_m": 12
+    },
+    {
+      "class_profiles": {
+        "P": [
+          [
+            "4*m + 2",
+            "0",
+            "0"
+          ],
+          [
+            "3*m - 1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2*m + 1",
+            "0"
+          ]
+        ],
+        "Q": [
+          [
+            "4*m",
+            "1",
+            "0"
+          ],
+          [
+            "m - 2",
+            "0",
+            "m"
+          ]
+        ]
+      },
+      "dual_parameters": [
+        "-3*(36*m**6 + 144*m**5 + 191*m**4 - 112*m**3 - 209*m**2 + 70*m + 24)/(4*m*(m + 3)*(2*m - 1)*(2*m + 1)*(4*m - 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "3*(36*m**6 - 156*m**5 - 21*m**4 + 78*m**3 + 53*m**2 - 22*m - 8)/(2*m*(m + 3)*(2*m - 1)*(2*m + 1)*(4*m - 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "-3*(3*m + 1)*(18*m**4 + 39*m**3 + 21*m**2 - 18*m - 8)/(4*m*(m + 3)*(2*m + 1)*(4*m - 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "1",
+        "3*(3*m + 1)*(18*m**4 + 39*m**3 + 21*m**2 - 18*m - 8)/((m + 3)*(2*m + 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))"
+      ],
+      "optimal_value": "2*m*(18*m**5 + 45*m**4 + 82*m**3 + 37*m**2 - 22*m - 16)/((m + 3)*(2*m + 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+      "positive_primal_weights": [
+        "2*m*(18*m**5 + 45*m**4 + 82*m**3 + 37*m**2 - 22*m - 16)/((m + 3)*(2*m + 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "8*m*(9*m**3 + 15*m**2 + 4*m - 8)/((m + 3)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "(18*m**4 + 39*m**3 + 5*m**2 - 18*m - 8)/((2*m + 1)*(3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "(3*m + 1)*(6*m**3 + 11*m**2 + 6*m - 8)/((3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))",
+        "8*m*(m + 1)*(3*m - 2)/((3*m**2 + 5*m - 4)*(6*m**2 + 11*m + 2))"
+      ],
+      "r": 2,
+      "sign_conditions": [
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "positive D",
+          "numerator_q_coefficients": [
+            "8905104",
+            "7686716",
+            "2747522",
+            "520552",
+            "55138",
+            "3096",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "z decreasing",
+          "numerator_q_coefficients": [
+            "25764",
+            "12390",
+            "1998",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "both y slopes decreasing",
+          "numerator_q_coefficients": [
+            "25764",
+            "12390",
+            "1998",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y positive",
+          "numerator_q_coefficients": [
+            "20676",
+            "9234",
+            "1398",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y negative",
+          "numerator_q_coefficients": [
+            "5088",
+            "3156",
+            "600",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y positive",
+          "numerator_q_coefficients": [
+            "36264",
+            "15312",
+            "2196",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y negative",
+          "numerator_q_coefficients": [
+            "41028",
+            "21858",
+            "3798",
+            "216"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early A positive",
+          "numerator_q_coefficients": [
+            "4294",
+            "2065",
+            "333",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early derivative nonpos",
+          "numerator_q_coefficients": [
+            "74748",
+            "44180",
+            "9824",
+            "972",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early Q+U0 positive",
+          "numerator_q_coefficients": [
+            "372254",
+            "254729",
+            "69832",
+            "9580",
+            "657",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late A",
+          "numerator_q_coefficients": [
+            "4294",
+            "2065",
+            "333",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late B",
+          "numerator_q_coefficients": [
+            "79836",
+            "51630",
+            "12489",
+            "1341",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(1) positive",
+          "numerator_q_coefficients": [
+            "7248",
+            "8772",
+            "2952",
+            "390",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(-1) negative",
+          "numerator_q_coefficients": [
+            "152424",
+            "94488",
+            "22026",
+            "2292",
+            "90"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(left) negative",
+          "numerator_q_coefficients": [
+            "425328",
+            "324868",
+            "99402",
+            "15236",
+            "1170",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early exceptional constant negative",
+          "numerator_q_coefficients": [
+            "34352",
+            "16520",
+            "2664",
+            "144"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early -A",
+          "numerator_q_coefficients": [
+            "4294",
+            "2065",
+            "333",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early B",
+          "numerator_q_coefficients": [
+            "87630",
+            "54669",
+            "12888",
+            "1359",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early C sign",
+          "numerator_q_coefficients": [
+            "15852",
+            "6042",
+            "729",
+            "27"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early L(-1)",
+          "numerator_q_coefficients": [
+            "73424",
+            "46256",
+            "11286",
+            "1260",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(2)",
+          "numerator_q_coefficients": [
+            "250112",
+            "173552",
+            "44766",
+            "5094",
+            "216"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(Tmax)",
+          "numerator_q_coefficients": [
+            "676336",
+            "550948",
+            "177748",
+            "28468",
+            "2268",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y>=1",
+          "numerator_q_coefficients": [
+            "396960",
+            "266064",
+            "67338",
+            "7614",
+            "324"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y=0",
+          "numerator_q_coefficients": [
+            "0"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y>=1",
+          "numerator_q_coefficients": [
+            "522120",
+            "368580",
+            "96822",
+            "11232",
+            "486"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y=0",
+          "numerator_q_coefficients": [
+            "99396",
+            "90126",
+            "27486",
+            "3510",
+            "162"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late A positive",
+          "numerator_q_coefficients": [
+            "4294",
+            "2065",
+            "333",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late derivative nonpos",
+          "numerator_q_coefficients": [
+            "45484",
+            "30816",
+            "7760",
+            "864",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late Q(Tmax) positive",
+          "numerator_q_coefficients": [
+            "197934",
+            "155941",
+            "48776",
+            "7576",
+            "585",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component0 defined denominator",
+          "numerator_q_coefficients": [
+            "27035895744",
+            "37460364720",
+            "22990417072",
+            "8201981044",
+            "1874297968",
+            "284481028",
+            "28675768",
+            "1850896",
+            "69408",
+            "1152"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component1 defined denominator",
+          "numerator_q_coefficients": [
+            "13517947872",
+            "18730182360",
+            "11495208536",
+            "4100990522",
+            "937148984",
+            "142240514",
+            "14337884",
+            "925448",
+            "34704",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component2 defined denominator",
+          "numerator_q_coefficients": [
+            "2457808704",
+            "2958613392",
+            "1552108208",
+            "463433148",
+            "86130152",
+            "10201884",
+            "752000",
+            "31536",
+            "576"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component3 defined denominator",
+          "numerator_q_coefficients": [
+            "1"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component4 defined denominator",
+          "numerator_q_coefficients": [
+            "4452552",
+            "3843358",
+            "1373761",
+            "260276",
+            "27569",
+            "1548",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "4452552",
+            "3843358",
+            "1373761",
+            "260276",
+            "27569",
+            "1548",
+            "36"
+          ],
+          "name": "primal weight0 positive",
+          "numerator_q_coefficients": [
+            "2606208",
+            "2411944",
+            "930952",
+            "191930",
+            "22304",
+            "1386",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "342504",
+            "242950",
+            "68297",
+            "9514",
+            "657",
+            "18"
+          ],
+          "name": "primal weight1 positive",
+          "numerator_q_coefficients": [
+            "120000",
+            "75488",
+            "17744",
+            "1848",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "494728",
+            "372070",
+            "111299",
+            "16553",
+            "1224",
+            "36"
+          ],
+          "name": "primal weight2 positive",
+          "numerator_q_coefficients": [
+            "31816",
+            "19806",
+            "4595",
+            "471",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "38056",
+            "22766",
+            "5059",
+            "495",
+            "18"
+          ],
+          "name": "primal weight3 positive",
+          "numerator_q_coefficients": [
+            "32680",
+            "20094",
+            "4619",
+            "471",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "38056",
+            "22766",
+            "5059",
+            "495",
+            "18"
+          ],
+          "name": "primal weight4 positive",
+          "numerator_q_coefficients": [
+            "5376",
+            "2672",
+            "440",
+            "24"
+          ]
+        }
+      ],
+      "threshold_m": 6
+    },
+    {
+      "class_profiles": {
+        "P": [
+          [
+            "4*m + 3",
+            "0",
+            "0"
+          ],
+          [
+            "3*m",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2*m",
+            "1"
+          ]
+        ],
+        "Q": [
+          [
+            "4*m + 1",
+            "1",
+            "0"
+          ],
+          [
+            "m - 2",
+            "0",
+            "m"
+          ]
+        ]
+      },
+      "dual_parameters": [
+        "-3*(12*m**6 + 65*m**5 + 159*m**4 - 54*m**3 - 120*m**2 + 48*m + 10)/(2*m*(m + 3)*(4*m - 1)*(4*m + 1)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "(36*m**6 - 105*m**5 - 156*m**4 + 190*m**3 + 177*m**2 - 42*m - 10)/(m*(m + 3)*(4*m - 1)*(4*m + 1)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "-(27*m**5 + 99*m**4 + 84*m**3 - 64*m**2 - 76*m - 10)/(2*m*(m + 3)*(4*m + 1)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "1",
+        "2*(27*m**5 + 99*m**4 + 84*m**3 - 64*m**2 - 76*m - 10)/((m + 3)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))"
+      ],
+      "optimal_value": "(12*m**6 + 47*m**5 + 75*m**4 + 24*m**3 - 68*m**2 - 68*m - 10)/((m + 3)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+      "positive_primal_weights": [
+        "(12*m**6 + 47*m**5 + 75*m**4 + 24*m**3 - 68*m**2 - 68*m - 10)/((m + 3)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "8*m*(m - 1)*(18*m**3 + 78*m**2 + 113*m + 50)/(3*(m + 3)*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "2*(9*m**4 + 30*m**3 + 22*m**2 - 6*m - 10)/(3*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "(36*m**5 + 147*m**4 + 154*m**3 - 102*m**2 - 178*m - 30)/(3*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))",
+        "8*m*(6*m**3 + 10*m**2 - 3*m - 4)/(3*(12*m**5 + 65*m**4 + 78*m**3 - 42*m**2 - 70*m - 10))"
+      ],
+      "r": 3,
+      "sign_conditions": [
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "positive D",
+          "numerator_q_coefficients": [
+            "133851300",
+            "60705160",
+            "11440696",
+            "1146912",
+            "64506",
+            "1930",
+            "24"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "z decreasing",
+          "numerator_q_coefficients": [
+            "68472",
+            "16578",
+            "1338",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "both y slopes decreasing",
+          "numerator_q_coefficients": [
+            "68472",
+            "16578",
+            "1338",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y positive",
+          "numerator_q_coefficients": [
+            "21036",
+            "4272",
+            "282",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper y negative",
+          "numerator_q_coefficients": [
+            "47436",
+            "12306",
+            "1056",
+            "30"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y positive",
+          "numerator_q_coefficients": [
+            "200052",
+            "45972",
+            "3522",
+            "90"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower y negative",
+          "numerator_q_coefficients": [
+            "5364",
+            "3762",
+            "492",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early A positive",
+          "numerator_q_coefficients": [
+            "11412",
+            "2763",
+            "223",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early derivative nonpos",
+          "numerator_q_coefficients": [
+            "330054",
+            "102324",
+            "11911",
+            "617",
+            "12"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper early Q+U0 positive",
+          "numerator_q_coefficients": [
+            "285274",
+            "200581",
+            "48802",
+            "5479",
+            "292",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper odd continuous x0 is below upper",
+          "numerator_q_coefficients": [
+            "2359602",
+            "775476",
+            "95649",
+            "5247",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper odd x0 feasible bound",
+          "numerator_q_coefficients": [
+            "1458948",
+            "489354",
+            "61536",
+            "3438",
+            "72"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late A",
+          "numerator_q_coefficients": [
+            "11412",
+            "2763",
+            "223",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late B",
+          "numerator_q_coefficients": [
+            "434550",
+            "139857",
+            "16845",
+            "900",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(1) positive",
+          "numerator_q_coefficients": [
+            "283432",
+            "98296",
+            "12631",
+            "714",
+            "15"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(-1) negative",
+          "numerator_q_coefficients": [
+            "585668",
+            "181418",
+            "21059",
+            "1086",
+            "21"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "upper late Q(left) negative",
+          "numerator_q_coefficients": [
+            "3883052",
+            "1533356",
+            "242342",
+            "19162",
+            "758",
+            "12"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early exceptional constant negative",
+          "numerator_q_coefficients": [
+            "114120",
+            "27630",
+            "2230",
+            "60"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early -A",
+          "numerator_q_coefficients": [
+            "11412",
+            "2763",
+            "223",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early B",
+          "numerator_q_coefficients": [
+            "455586",
+            "144129",
+            "17127",
+            "906",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early C sign",
+          "numerator_q_coefficients": [
+            "361582",
+            "103294",
+            "10993",
+            "516",
+            "9"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early L(-1)",
+          "numerator_q_coefficients": [
+            "714460",
+            "222556",
+            "26113",
+            "1368",
+            "27"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(2)",
+          "numerator_q_coefficients": [
+            "893764",
+            "320194",
+            "42508",
+            "2484",
+            "54"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower early D0+2Q(Tmax)",
+          "numerator_q_coefficients": [
+            "6810124",
+            "2792530",
+            "455418",
+            "36948",
+            "1492",
+            "24"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y>=1",
+          "numerator_q_coefficients": [
+            "2322684",
+            "765306",
+            "94734",
+            "5220",
+            "108"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t0 y=0",
+          "numerator_q_coefficients": [
+            "0"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y>=1",
+          "numerator_q_coefficients": [
+            "2365044",
+            "829788",
+            "108453",
+            "6264",
+            "135"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower exceptional t1 y=0",
+          "numerator_q_coefficients": [
+            "179304",
+            "97638",
+            "16395",
+            "1116",
+            "27"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late A positive",
+          "numerator_q_coefficients": [
+            "11412",
+            "2763",
+            "223",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late derivative nonpos",
+          "numerator_q_coefficients": [
+            "251958",
+            "84237",
+            "10514",
+            "581",
+            "12"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "lower late Q(Tmax) positive",
+          "numerator_q_coefficients": [
+            "1810852",
+            "729760",
+            "117310",
+            "9404",
+            "376",
+            "6"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component0 defined denominator",
+          "numerator_q_coefficients": [
+            "3699114526800",
+            "2602694136060",
+            "812806784216",
+            "147870503048",
+            "17270120104",
+            "1342810894",
+            "69507542",
+            "2309640",
+            "44704",
+            "384"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component1 defined denominator",
+          "numerator_q_coefficients": [
+            "1849557263400",
+            "1301347068030",
+            "406403392108",
+            "73935251524",
+            "8635060052",
+            "671405447",
+            "34753771",
+            "1154820",
+            "22352",
+            "192"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component2 defined denominator",
+          "numerator_q_coefficients": [
+            "78704564400",
+            "48678210180",
+            "13150934968",
+            "2026952408",
+            "194942776",
+            "11979570",
+            "459346",
+            "10048",
+            "96"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component3 defined denominator",
+          "numerator_q_coefficients": [
+            "1"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "1"
+          ],
+          "name": "dual component4 defined denominator",
+          "numerator_q_coefficients": [
+            "66925650",
+            "30352580",
+            "5720348",
+            "573456",
+            "32253",
+            "965",
+            "12"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "66925650",
+            "30352580",
+            "5720348",
+            "573456",
+            "32253",
+            "965",
+            "12"
+          ],
+          "name": "primal weight0 positive",
+          "numerator_q_coefficients": [
+            "49112966",
+            "23315932",
+            "4610236",
+            "486024",
+            "28815",
+            "911",
+            "12"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "200776950",
+            "91057740",
+            "17161044",
+            "1720368",
+            "96759",
+            "2895",
+            "36"
+          ],
+          "name": "primal weight1 positive",
+          "numerator_q_coefficients": [
+            "46191552",
+            "18356144",
+            "2912616",
+            "230680",
+            "9120",
+            "144"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "13385130",
+            "5178174",
+            "798858",
+            "61434",
+            "2355",
+            "36"
+          ],
+          "name": "primal weight2 positive",
+          "numerator_q_coefficients": [
+            "483100",
+            "151380",
+            "17756",
+            "924",
+            "18"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "13385130",
+            "5178174",
+            "798858",
+            "61434",
+            "2355",
+            "36"
+          ],
+          "name": "primal weight3 positive",
+          "numerator_q_coefficients": [
+            "12255402",
+            "4812446",
+            "754530",
+            "59050",
+            "2307",
+            "36"
+          ]
+        },
+        {
+          "denominator_q_coefficients": [
+            "13385130",
+            "5178174",
+            "798858",
+            "61434",
+            "2355",
+            "36"
+          ],
+          "name": "primal weight4 positive",
+          "numerator_q_coefficients": [
+            "1129728",
+            "365728",
+            "44328",
+            "2384",
+            "48"
+          ]
+        }
+      ],
+      "threshold_m": 12
+    }
+  ],
+  "scope": "Four exact rational branches for k=3; positivity of all reduced integer-polynomial expressions after q=m-M shift",
+  "sympy_version": "1.14.0"
+}
