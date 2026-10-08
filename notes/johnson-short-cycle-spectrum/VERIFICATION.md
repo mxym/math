@@ -270,3 +270,41 @@ ALL SMALL-DENOMINATOR NEGATIVE CONTROLS PASS; ORDINARY AND -O BOTH EXPLICITLY CH
 ~~~
 
 The checker uses exact integer comparisons with a common parameter denominator \(60\) and weight denominator \(30,625\). The independently authored Fraction-check path **reconstructs** the missing three weights from fixed integers \(-354,-289\) and the exact cycle-contact equations, and checks every possible short moved cycle list. The analytic power-mean proof from Section 3 of the main paper covers all unbounded cases; no finite-LP extrapolation or heuristic inequality enters the result. Both literal-source replays and all four negative-control mutations passed; Python optimized mode does not disable any verification step.
+
+
+## Dimension-uniform near-extremizer stability audit
+
+The subsequent [complete stability proof](UNIFORM_5_14_STABILITY.md) strengthens sharp all-rank optimality to a **dimension-independent quantitative** statement for every \(n\ge6\). Using the independent reciprocal-node rational dual, it establishes an exact **1/250** lower/upper noncontact separation and deduces off-contact Jordan leakage \(R\le250\eta\), explicit near-identity and transposition class-mass bounds, and a total-variation estimate for conjugation-averaged signed perturbations. The finite gap and its inverse-matrix scalar constants were verified on the VPS from **fresh, immutable GitHub sources**, streamed read-only because the VPS root working volume was full.
+
+**Immutable source pin and replay hash:**
+
+| Proof input | Git commit | SHA-256 |
+|---|---|---|
+| [Exact 1/250 noncontact checker](check_allrank_stability_gap.py) | [6694005](https://github.com/mxym/math/commit/669400550204f67f54f0c36f5d6f8d305387a7cb) | d47049817a1fa59fefab0f52c3592b9688fcfdfcde72a9d3cf6342ec90c5f2d0 |
+| [Exact moment/inverse scalar checker](check_allrank_stability_scalars.py) | [b756762](https://github.com/mxym/math/commit/b7567629aed111a2f9c5dc7c855503a5b4e6e97e) | bf82946e25895f63d5eb3d1a2c0640e5e821857a99cea7af9ccf234d57a90960 |
+
+**Replay with ordinary Python 3, no third-party packages or solver:**
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_allrank_stability_gap.py
+python3 notes/johnson-short-cycle-spectrum/check_allrank_stability_scalars.py
+~~~
+
+**Observed results:**
+
+~~~text
+FINITE PARTITIONS (all cycle lengths >=2, moved<=43): 63260
+EXACT GLOBAL FINITE MINIMUM: 9/14 at (2,)
+EXACT GLOBAL FINITE MAXIMUM: 1 at (4,)
+UNBOUNDED TAIL: sum |weight| rho^22 < 7/50: True
+ALL NONCONTACT GAPS ARE >= 1/250 FOR EVERY DEGREE.
+
+EXACT TWO-MOMENT MATRIX:
+[(Fraction(7,8), Fraction(-7,16)),
+ (Fraction(335,648), Fraction(-55,144))]
+EXACT DETERMINANT: -35/324
+EXACT CLASS-MASS ERROR FACTORS: 531/70 451/35
+ALL-RANK STABILITY SCALAR CERTIFICATE PASS
+~~~
+
+The finite program checks every stronger gap as an exact **integer** comparison and covers every nonidentity cycle shape with at most 43 moved points. The previously proved and freshly replayed rational tail handles *all* remaining moved counts: its interval \((33/50,47/50)\) lies strictly more than 1/250 from both dual endpoints. The scalar checker reconstructs the exact nonzero determinant and the absolute row sums of the inverse. The actual near-extremizer estimates are the **displayed analytic defect and moment decompositions** in the paper, not results inferred from small-degree experiments. This proof has not been independently refereed or Lean-formalized and is not a priority claim.
