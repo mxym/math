@@ -1770,3 +1770,228 @@ All dual denominators are cleared first, so (107) is verified by **integer compa
 uses **only Python 3 standard-library integers and fractions**. Its loops cover the 97 degrees and all \(\mathcal T_n\), amounting to exactly **1,489,083 compressed type evaluations** in the fixed range. It uses no optimizer, floating-point comparison, Sage, SciPy, SymPy or solver oracle. The original support discovery *did* use floating-point linear programming, followed by exact rational reconstruction; that discovery history is not used by the checker or as a logical premise of Theorem 21.
 
 This is a **large but finite** exact classification. Neither the observed apparent support periodicity nor the numerical trend of \(C_n^{(3)}\) justifies claiming an all-degree formula or asymptotic expansion. The next frontier is to prove an infinite parameterized primal-dual family, ideally by factorization of the cubic polynomial (106) in the constrained cycle-count region (102).
+
+
+## 22. Sharp universal first-order asymptotics for all three-subset actions
+
+The exact finite classification through \(n=120\) does **not** by itself imply a uniform formula. Nevertheless, the orbital compression theorem permits a genuine **infinite-parameter asymptotic theorem** with a sharp leading constant.
+
+**Theorem 22 (universal sharp first-order asymptotic).** For the sharp marginal-preserving single-atom total-variation coefficient \(C_n^{(3)}\) of the \(S_n\) action on three-element subsets,
+
+\[
+\boxed{\displaystyle
+C_n^{(3)}=1-\frac{18}{n}+O(n^{-2}),
+\qquad
+\lim_{n\to\infty}n\bigl(1-C_n^{(3)}\bigr)=18.} \tag{108}
+\]
+
+The upper bound has the following **explicit** universal version: for every integer \(n\ge2048\),
+
+\[
+C_n^{(3)}\le
+1-\frac{18}{n}+\frac{406304}{n^2}. \tag{109}
+\]
+
+The lower bound in (108) is supplied by explicit, exactly moment-matched positive rational probability measures for **every sufficiently large** \(n\), not by extrapolation from finite optimization.
+
+### 22.1. A uniform analytic dual bound
+
+For every \(n\ge3\), set
+
+\[
+\lambda_0=-\frac6{n^3}+\frac{18}{n^4},\qquad
+\lambda_1=\frac{12}{n^3}-\frac{436}{n^4},\qquad
+\lambda_2=-\frac{18}{n^3}+\frac{198}{n^4}
+\tag{110}
+\]
+
+and define the central dual function
+
+\[
+h_n(g)=\mathbf1_{\{g=e\}}-\sum_{j=0}^2\lambda_jF_j(g),
+\tag{111}
+\]
+
+where \(F_j\) are the exact triple-action orbital counts of Theorem 20. Evidently \(h_n(e)=1\), because \(F_0(e)=F_1(e)=F_2(e)=0\).
+
+For nonidentity \(g\), let \(x,y,z\) count its 1-, 2- and 3-cycles, and introduce
+
+\[
+a=x/n,\qquad b=y/n,\qquad c=z/n.
+\]
+
+Then \(0\le a\le1-2/n\), \(0\le b\le(1-a)/2\), and \(0\le c\le1/3\). Substituting the **polynomial identities (99)–(100)** into (111), and collecting exact powers of \(1/n\), gives
+
+\[
+h_n(g)=H(a)+\frac{J(a,b)}n+\frac{R_2(a,b,c)}{n^2}
+                   +\frac{R_3(a,b,c)}{n^3}, \tag{112}
+\]
+
+where
+
+\[
+\begin{aligned}
+H(a)&=(1-a)(4a-1)^2
+     =1-a(4a-3)^2,\\
+J(a,b)&=320a^3-592a^2+296a-24+48b(1-2a),\\
+R_2(a,b,c)&=1216a^2+1920ab-1765a-1280b-96c+549,\\
+R_3(a,b,c)&=2(1001a+2176b+960c-1001).
+\end{aligned} \tag{113}
+\]
+
+These are exact identities, not asymptotic fits. The sum of the absolute integer coefficients in \(R_2,R_3\) is \(6826+10276=17102\). Since \(0\le a,b,c\le1\),
+
+\[
+\left|\frac{R_2}{n^2}+\frac{R_3}{n^3}\right|
+\le\frac{17102}{n^2}
+\qquad(n\ge1). \tag{114}
+\]
+
+Put \(J_0(a)=J(a,0)\). Its derivative satisfies \(|J_0'(a)|\le2440\) on \([0,1]\), and
+
+\[
+J_0(1/4)=18,\qquad J_0(3/4)=0.
+\tag{115}
+\]
+
+For any fixed \(a\), the coefficient of \(b\) in \(J\) is \(48(1-2a)\). Thus, using \(0\le b\le(1-a)/2\),
+
+\[
+\begin{array}{ll}
+a\le1/2:&
+J_0(a)\le J(a,b)\le J_0(a)+24(1-a)(1-2a)
+=32a(1-a)(7-10a),\\[2pt]
+a\ge1/2:&
+32a(1-a)(7-10a)\le J(a,b)\le J_0(a).
+\end{array} \tag{116}
+\]
+
+We now establish the fully uniform bounds
+
+\[
+\frac{18}{n}-\frac{203152}{n^2}
+\le h_n(g)\le
+1+\frac{203152}{n^2}
+\quad\text{for every }g\ne e,\quad n\ge2048. \tag{117}
+\]
+
+**Upper bound.** When \(a\le1/2\), (116) gives \(J(a,b)\le224a\), while
+\(1-H(a)=a(4a-3)^2\ge a\). Hence \(H+J/n\le1\) for \(n\ge224\).
+
+When \(a\ge1/2\), (115)–(116) give
+\(J(a,b)\le2440|a-3/4|\), while
+\(1-H(a)=16a(a-3/4)^2\ge8(a-3/4)^2\). Completing the square,
+
+\[
+H(a)+J(a,b)/n\le
+1+\frac{2440^2}{32n^2}
+=1+\frac{186050}{n^2}.
+\]
+
+Combine with (114) to get the upper half of (117), with
+\(186050+17102=203152\).
+
+**Lower bound, \(a\le1/2\).** By (115)–(116),
+\(J(a,b)\ge18-2440|a-1/4|\).
+Also \(H(a)=16(1-a)(a-1/4)^2\ge8(a-1/4)^2\).
+Another completion of the square yields
+\(H+J/n\ge18/n-186050/n^2\); use (114).
+
+**Lower bound, \(1/2\le a\le15/16\).**
+Put \(s=1-a\in[1/16,1/2]\).
+From (116), \(J(a,b)\ge-96s\).
+Since \(H=s(3-4s)^2\ge s\),
+
+\[
+H+J/n\ge s(1-96/n)\ge\frac1{16}(1-96/n)
+\ge\frac{18}{n}\quad(n\ge384).
+\]
+
+Again (114) suffices.
+
+**Lower bound, \(15/16\le a<1\).**
+Now \(2/n\le s=1-a\le1/16\), because a nonidentity permutation moves at least two vertices. Equations (113), (116) yield
+
+\[
+H+J/n\ge
+(9-96/n)s-24s^2.
+\]
+
+The right side is a concave quadratic on \([2/n,1/16]\), so its minimum lies at an endpoint. At \(s=2/n\) it equals \(18/n-288/n^2\). At \(s=1/16\) it equals \(15/32-6/n\), which is at least \(18/n-288/n^2\) for \(n\ge2048\). Use (114) to complete (117).
+
+Theorem 18 now bounds the sharp coefficient by the **oscillation** of any central orbital dual function. Since \(h_n(e)=1\), (117) gives the explicit upper bound (109).
+
+### 22.2. Matching rational probability constructions in all four congruence classes
+
+For the reverse bound, write \(n=4m+r\) with \(0\le r\le3\), and let \(m\) be sufficiently large. Consider the following **five concrete conjugacy classes** of \(S_n\):
+
+| \(r\) | \(K\) | \(H\) | \(E\) |
+|:---:|:---|:---|:---|
+|0| \((m+2)1^{3m-2}\) | \(2^{2m}\) | \(3^{m+1}1^{m-3}\) |
+|1| \((m+2)1^{3m-1}\) | \(3\,2^{2m-1}\) | \(3^{m+1}1^{m-2}\) |
+|2| \((m+3)1^{3m-1}\) | \(2^{2m+1}\) | \(4\,3^m1^{m-2}\) |
+|3| \((m+3)1^{3m}\) | \(3\,2^{2m}\) | \(5\,3^m1^{m-2}\) |
+
+Together with \(I=1^n\) (identity) and \(T=2\,1^{n-2}\), define *unknown rational probability weights*
+\(p_I,p_K,p_H,q_T,q_E\) uniquely by the five linear equations
+
+\[
+\begin{aligned}
+p_I+p_K+p_H&=1,\qquad q_T+q_E=1,\\
+p_I F_j(I)+p_KF_j(K)+p_HF_j(H)
+&=q_TF_j(T)+q_EF_j(E),\quad j=0,1,2.
+\tag{118}
+\end{aligned}
+\]
+
+The entries \(F_j\) are the explicit integer polynomials (99)–(100), so (118) is a **completely specified \(5\times5\) rational linear system**. It requires no optimization and determines exact rational numbers for every sufficiently large integer \(m\).
+
+Elementary determinant expansion of (118), for *each* of the four residues \(r\), yields the same leading term
+
+\[
+\det A_r(m)=-192m^9+O(m^8), \tag{119}
+\]
+
+so the system is invertible for all sufficiently large \(m\). Cramer's rule, again applied to the displayed five columns, gives the uniform leading expansions
+
+\[
+\begin{aligned}
+p_I&=1-\frac{9}{2m}+O(m^{-2}),\\
+p_K&=\frac4m+O(m^{-2}),&
+p_H&=\frac1{2m}+O(m^{-2}),\\
+q_E&=\frac4{3m}+O(m^{-2}),&
+q_T&=1-\frac4{3m}+O(m^{-2}).
+\tag{120}
+\end{aligned}
+\]
+
+The determinant identities and every limit in (119)–(120) can be replayed by *exact symbolic arithmetic*; an independent script is given in
+\(\texttt{code/check_three_subset_asymptotic_algebra.py}\).
+The leading coefficients in (120) ensure **all five weights are strictly positive for all sufficiently large \(m\)**, and their exact normalizations and orbital moments are already built into (118).
+
+Define conjugation-invariant probability measures
+
+\[
+P_n=p_I U_I+p_KU_K+p_HU_H,\qquad
+Q_n=q_TU_T+q_EU_E, \tag{121}
+\]
+
+where \(U_\mathcal C\) denotes the uniform distribution on a conjugacy class. Their supports are disjoint for sufficiently large \(m\). Because the action on ordered triples has exactly the four orbitals determined by their intersection sizes, (118) implies that \(P_n,Q_n\) have the same **complete triple-image marginals**. Thus the exact signed perturbation
+\(u_{S_n}+\delta(P_n-Q_n)\) is a probability law for every sufficiently small rational \(\delta>0\), with TV distance \(\delta\) and atom increase \(p_I\delta\).
+
+The general orbital theorem therefore gives
+
+\[
+C_n^{(3)}\ge p_I
+=1-\frac{9}{2m}+O(m^{-2})
+=1-\frac{18}{n}+O(n^{-2}),
+\tag{122}
+\]
+
+uniformly over all four residues modulo four.
+
+### 22.3. Sharp asymptotic completion
+
+Combine (122) with (109), valid for all \(n\ge2048\). The two bounds match at order \(1/n\), giving (108) with an error \(O(n^{-2})\) and the **exact first-order constant \(18\)**.
+
+The asymptotic theorem is logically independent of the fixed \(n\le120\) table. Its proof consists of a universal orbital dual, an exact polynomial expansion and global real-variable inequalities, and four rational primal families with directly checkable full moment equations. It does **not** prove that those particular families are exactly optimal at every sufficiently large finite degree; proving eventual exact support stabilization and explicit parity-wise formulas remains open.
