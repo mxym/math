@@ -62,6 +62,10 @@ The product identity, simplex value, and dimension-twenty example are credited t
 
 Public disclosure does not certify first discovery. Historical manifests should be checked at their fixed publication commit, because navigation files can subsequently evolve.
 
+## Sharp two-layer spectrum and a certified depth gap
+
+The [two-layer spectral/depth supplement](../../notes/two-layer-projection-depth-separation/README.md) gives a new **infinite-parameter classification** for all `T_p x T_q` building blocks, identifies sharp rates at `(5,5)` and `(4,4)` for two distinct invariants, and proves a strict **85-dimensional and asymptotic** advantage of nested products over every join of simplex products. It does not claim to solve the full arbitrary-tree spectral optimum. [Full proof](../../notes/two-layer-projection-depth-separation/paper.md) · [exact certificate](../../notes/two-layer-projection-depth-separation/code/check.py).
+
 ## Arbitrary-tree exact finite optimization
 
 The [exact Pareto algorithm and sharp-value certificate through dimension 48](../../notes/exact-product-join-finite-optima/README.md) determine the maximum of the projection-body volume ratio **over all point-generated product/join expressions**, not just homogeneous recursions, for each dimension 1–48. The dimension-48 sharp ratio is `105488578125/34359738368` times the simplex, attained by joining three `T4 x T4` and two `T5 x T5` blocks. The [complete proof](../../notes/exact-product-join-finite-optima/paper.md) establishes the all-dimensional correctness of a rational Pareto dynamic program; the evaluated sharp-value certificate stops at dimension 48. Prior v2/v5 source files remain unchanged.

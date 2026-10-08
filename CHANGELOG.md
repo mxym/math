@@ -12,6 +12,11 @@
   12 finite exact witnesses, independent checker, and mutation tests;
   independently enumerated all 2,048 subfamilies of the 11 divisor ideals.
   AI-assisted, not priority-certified, Lean-formalized or human-refereed.
+## 2026-10-08 — classify two-layer simplex-product spectra and prove an 85D nesting-depth gap
+
+- Determined the unique global two-simplex-product spectral block optimum `(p,q)=(5,5)` with `log Q/D = log(189/128)/11`, and the distinct affine-defect optimum `(4,4)` with `log Q/(D-H)=log(175/128)/4`, valid for all positive integer pairs. Both infinite parameter tails are closed analytically, with 56 and 380 exact rational finite comparisons.
+- Proved the exact two-layer join-of-products asymptotic growth constant `e*(189/128)^(1/11)` and a **strict dimension-85 separation**: a product of earlier joins, followed by a join, exceeds all 85-dimensional two-layer bodies. The strict asymptotic depth gap follows from an exact rational single-witness spectral comparison. No unrestricted-class sharp dimension-85 value, first crossover, or full optimum is claimed.
+- Added complete proof, portable exact checker, normal/optimized replay, hostile parameter controls, dependency audit and source hashes, leaving historical 005 versions and the previous 48D all-tree certificate untouched.
 
 ## 2026-10-08 — sharp all-tree projection-body extrema through dimension 48
 

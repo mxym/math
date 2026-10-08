@@ -1,0 +1,38 @@
+name: Projection two-layer depth separation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-two-layer-depth.yml'
+      - 'notes/two-layer-projection-depth-separation/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-two-layer-depth.yml'
+      - 'notes/two-layer-projection-depth-separation/**'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate pinned source hashes
+        run: cd notes/two-layer-projection-depth-separation && sha256sum -c SHA256SUMS
+      - name: Replay exact proof certificates in two Python modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/two-layer-projection-depth-separation/code/check.py > /tmp/two-layer-normal.txt
+          python3 -O notes/two-layer-projection-depth-separation/code/check.py > /tmp/two-layer-opt.txt
+          cmp /tmp/two-layer-normal.txt /tmp/two-layer-opt.txt
+          cmp /tmp/two-layer-normal.txt notes/two-layer-projection-depth-separation/results/check.txt
+      - name: Reject corrupted proof inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/two-layer-projection-depth-separation/code/negative_controls.py > /tmp/two-layer-negative.txt
+          cmp /tmp/two-layer-negative.txt notes/two-layer-projection-depth-separation/results/negative.txt
