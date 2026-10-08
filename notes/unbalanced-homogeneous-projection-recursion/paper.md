@@ -113,7 +113,7 @@ Use \(d_j<(p+c)T^j\); the coefficient of \(j\) becomes \(\frac{k-1}{2}(\log T-2\
 The first-envelope numerator has a useful exact simplification. Set
 \[
 \begin{aligned}
- J_{m,k,p}={}&\log c_p-p+rac c2
+ J_{m,k,p}={}&\log c_p-p+\frac c2
  \log\frac{2\pi m(p+c)}{(p+1)^2}
  +\frac{\log k}{2(T-1)}\\
  &+\frac{c}{2(T-1)}\log(m/k)+\frac{k}{12mp(T-1)}.

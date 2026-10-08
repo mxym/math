@@ -34,3 +34,19 @@ jobs:
           python3 -O preprints/005-simplex-product-optimum/v5/code/check_balanced.py > /tmp/v5-optimized.txt
           cmp /tmp/v5-normal.txt /tmp/v5-optimized.txt
           cmp /tmp/v5-normal.txt notes/independent-arity-simplex-recursions/results/inherited-replay.txt
+      - name: Unique runner-up theorem, ordinary and optimized
+        shell: bash
+        run: |
+          python3 notes/independent-arity-simplex-recursions/check_second.py > /tmp/second-normal.txt
+          python3 -O notes/independent-arity-simplex-recursions/check_second.py > /tmp/second-optimized.txt
+          cmp /tmp/second-normal.txt /tmp/second-optimized.txt
+          cmp /tmp/second-normal.txt notes/independent-arity-simplex-recursions/results/second-replay.txt
+      - name: Companion independent proof and negative controls
+        shell: bash
+        run: |
+          python3 notes/unbalanced-homogeneous-projection-recursion/checker.py > /tmp/companion-normal.txt
+          python3 -O notes/unbalanced-homogeneous-projection-recursion/checker.py > /tmp/companion-optimized.txt
+          cmp /tmp/companion-normal.txt /tmp/companion-optimized.txt
+          cmp /tmp/companion-normal.txt notes/unbalanced-homogeneous-projection-recursion/replay.txt
+          python3 notes/unbalanced-homogeneous-projection-recursion/negative_controls.py > /tmp/companion-negative.txt
+          cmp /tmp/companion-negative.txt notes/unbalanced-homogeneous-projection-recursion/negative_controls.txt

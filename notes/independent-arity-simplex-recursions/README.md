@@ -73,3 +73,9 @@ priority/novelty certification. Author attribution is the mxym repository
 account with AI-assisted preparation.
 
 **Parallel verification:** [another full proof/certificate package](../unbalanced-homogeneous-projection-recursion/README.md) was published for the *same* independent-arity theorem, with smaller finite core and different tail reductions. The [cross-audit](../../reviews/2026-10-07-independent-arity-parallel-audit.md) records shared inputs, actual overlap and replay results; neither package is a different theorem.
+
+## Sharper second-place result and independent cross-check
+
+The [unique runner-up theorem](SECOND_BEST.md) proves that `(m,k,p)=(2,2,6)` is the only second-best homogeneous simplex recursion. Its [separate exact checker](check_second.py) certifies the strict universal third-place upper threshold `log Λ < 10479/10000` and an exact level-five lower witness for the runner-up. All positive integer triples are covered, including unbounded seed dimension and arities; the original leading orbit remains the unique best.
+
+A [parallel 005 supplement](../unbalanced-homogeneous-projection-recursion/README.md) independently proves the **same first-place theorem** using smaller parameter cutoffs and a different rational interval engine. These two first-place proofs are cross-verification, not separate claimed discoveries. The newly isolated **second-place classification** is additional mathematics.
