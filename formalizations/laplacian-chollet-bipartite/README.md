@@ -42,3 +42,23 @@ The source compiler completed all five mathematical units. The GraphMain.lean fi
 The complete ALL-graph theorem requires separate Lean proofs of Lieb's PSD block permanent inequality, Edmonds' matching-polytope characterization, the logarithmic directed-cycle upper bound, the 2-connected noncycle matching feasibility, odd cycle cases and closure under graph blocks and one-point sums. The written mathematical proof provides these steps but they are not silently converted into formal premises. The unrestricted Hermitian positive-semidefinite Chollet conjecture is a still broader problem and is not asserted.
 
 **Publication boundary:** This is a formally compiled graph subclass of the repository's existing result, not a full formalization of the all-graph statement, a historical novelty certificate or human peer review.
+
+
+## Additional Lean-checked theorem: arbitrary ambient graph with bipartite induced subset
+
+The new [Induced.lean](src/Induced.lean) strengthens the scope beyond globally bipartite graphs:
+
+For **every** finite simple graph G, whether or not G is bipartite, and every vertex subset S such that the actual induced graph G.induce S is bipartite, the original-degree principal Laplacian satisfies
+
+\[
+\operatorname{per}(L_G[S]\circ L_G[S])
+\le \operatorname{per}(L_G[S])\prod_{v\in S}\deg_G(v).
+\]
+
+This is the exact theorem **Chollet.strong_chollet_principal_of_induced_bipartite**. The original diagonal entries are not changed to the induced graph's degrees. The source builds the required local ±1 sign switch on the subtype of S directly from Mathlib's induced-graph bipartition and checks every diagonal/offdiagonal inequality for the genuine G.lapMatrix. It proves the theorem from the previously published sign-switch permanent lemma, with no assumed external inequality.
+
+It compiled using Lean 4.34.1 and pinned Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612. The #print axioms result is exactly [propext, Classical.choice, Quot.sound], with compiler exit 0 (three deprecation warnings only). This is source compilation and a standard axiom report, not an independent empty-kernel replay. This extension applies in particular to all proper principal submatrices of a triangle and more generally to all S inducing forests, even when the original G contains odd cycles elsewhere.
+
+Reproduce it after compiling Nonnegative.lean and Signed.lean and extending LEAN_PATH by their compiled objects: compile src/Induced.lean with the same pinned Lean/Mathlib environment.
+
+The **full all-graph theorem remains open in Lean**. In particular this proof does not treat principal submatrices whose induced support itself contains odd cycles, except for separate explicitly verified cases such as the [weighted 3-cycle identity](../laplacian-chollet-triangle/README.md).
