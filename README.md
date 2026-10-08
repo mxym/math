@@ -1,5 +1,10 @@
 # math
 
+# All-rank Johnson-action short-cycle reduction and exact four-subset certificates
+
+The [fixed-k Johnson-action note](notes/johnson-short-cycle-spectrum/README.md) proves for every subset size k that the intersection-orbital statistics of S_n depend only on the counts of cycles of lengths at most k. It reduces the sharp marginal-preserving atom/TV optimization to an exact rational LP with O_k(n^k) types, proves the monotone subset-rank hierarchy, and certifies exact sharp four-subset constants for every n=11,...,25. A [SHA-pinned independent VPS replay](notes/johnson-short-cycle-spectrum/VERIFICATION.md) validates all 15 exact rational primal-dual certificates and 1,329 literal subset-image regressions, including negative controls. This is a rigorous model-assisted research note without an all-n four-subset closed formula, peer review, or novelty-priority assertion.
+
+
 ## Sharp period-1122 sieve jump at the norm-six prime step threshold
 
 The [complete norm-six research note](notes/sqrt-minus-two-sqrt6-period/README.md)
