@@ -128,6 +128,7 @@ def check_finite():
 
     require(global_min == Fraction(9, 14), "minimum contact not attained")
     require(global_max == Fraction(1), "maximum contact not attained")
+    require(count == 44582, "partition enumeration incomplete")
     return count, global_min, min_witness, global_max, max_witness
 
 
@@ -144,6 +145,8 @@ def check_tail(params, weights):
         abs(w) * (q * q + (1 - q) * (1 - q)) ** TAIL_HALF_EXPONENT
         for w, q in zip(weights, params)
     ), Fraction(0))
+    require(bound < Fraction(7, 50),
+            "strong rational tail bound must be below 7/50")
     require(bound < Fraction(11, 70),
             "tail bound does not reach lower margin")
     require(bound < Fraction(1, 5),
@@ -152,6 +155,8 @@ def check_tail(params, weights):
 
 
 def main():
+    require(MAX_MOVED + 1 == 2 * TAIL_HALF_EXPONENT,
+            "finite-tail split is not logically exhaustive")
     params, weights = check_contacts()
     count, small, amin, large, amax = check_finite()
     tail = check_tail(params, weights)
@@ -160,8 +165,8 @@ def main():
     print("FINITE PARTITIONS (all cycle lengths >=2, moved<=41):", count)
     print("EXACT GLOBAL FINITE MINIMUM:", str(small), "at", amin)
     print("EXACT GLOBAL FINITE MAXIMUM:", str(large), "at", amax)
-    print("UNBOUNDED TAIL: sum |weight| rho^21 < 11/70:",
-          tail < Fraction(11, 70))
+    print("UNBOUNDED TAIL: sum |weight| rho^21 < 7/50:",
+          tail < Fraction(7, 50))
     print("TAIL VALUE (exact rational):", tail)
     print("ALL-RANK 5/14 UNIVERSAL DUAL CERTIFICATE PASS.")
 
