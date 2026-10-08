@@ -52,3 +52,29 @@ The 1,329 transfer regressions enumerate literal subset images in symmetric-grou
 ## Trust boundaries
 
 This validates the public arithmetic and the exact finite primal/dual certificates at the pinned hashes. The all-degree short-cycle sufficiency theorem and the compression equivalence have complete mathematical proofs in the note; finite tests do not replace those proofs. No Lean proof, external human referee review, all-degree closed formula for the k=4 coefficients, or historical priority assertion is claimed.
+
+
+## Extension: all degrees 26--50 (second public-source audit)
+
+Following the first 15-degree release, another 25 fixed support bases and an optimizer-free rational checker were published. Both files were downloaded anew from their exact public snapshot [commit bddf3ac](https://github.com/mxym/math/commit/bddf3ac39f90fe828c85be269e984ffe050a4136), together with the transfer evaluator pinned above:
+
+- check_k4_26_50.py SHA-256: **753144b18af8926cba84fd94c62c85a03d0fb9b505bdf4bbcbca779d68a54638**
+- certificates/k4_n26_50.json SHA-256: **68917e56c211687411574f97710b3479fe9ec13cb2deeadeebf0198b0e51a5db**
+
+Run after downloading both files at the noted locations:
+
+~~~sh
+python3 check_k4_26_50.py
+~~~
+
+The ordinary Python replay exited successfully after printing one exact rational optimum for **each n=26,...,50**, followed by:
+
+~~~text
+ALL 25 EXACT RANK-FIVE CERTIFICATES n=26..50 PASSED; types=129523
+~~~
+
+The checks covered exactly **129,523** feasible short-cycle types and reconstructed both primal and dual rational witnesses without SciPy, SymPy, or any floating-point call. All tests use only Python standard-library integers and Fraction semantics. The running time of the clean-source replay on the VPS was approximately 36 seconds; this is informational, not a complexity-theoretic bound.
+
+**Second set of negative controls:** running the new checker with -O exited nonzero and rejected optimized mode. Replacing the literal n=26 certificate target 31178983/66734529 by 31178983/66734530 caused a nonzero AssertionError. The original file was restored; its SHA-256 was rechecked and matched the pinned value above.
+
+**Current mathematical scope:** Complete four-subset sharp constants for each integer 11<=n<=50, together with the all-n fixed-k compression and subset-rank monotonicity theorems. There is no asserted exact formula beyond n=50, historical priority, or external referee verification.
