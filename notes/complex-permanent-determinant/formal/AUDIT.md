@@ -115,3 +115,40 @@ standard Lean foundational axioms and no `sorryAx`.
 
 This completes semantic verification of Theorem 1B
 for the native Mathlib matrix interface.
+
+## Complete tensor sharpness audit — no remaining tensor norm gap
+
+The theorem \`ComplexPencilTensor.tensorNormBound_iff\` now
+proves exactly the smallest constant in the **unsquared usual
+complex absolute-value inequality**, for arbitrary finite
+numbers of nonidentical columns. The auxiliary
+\`tensorSquaredBound_iff\` is also a complete equivalence.
+
+Independence is represented by a recursively defined finite
+sum over the six S3 permutations at each column. The
+\`weight_nonneg\`, \`weight_total_one\`, and three
+\`*_marginal_uniform\` theorems verify these weights really
+define the asserted uniform-marginal laws. The energy
+recursion computes the product uniform input measure's
+exact normalized squared \(L^2\) norms.
+
+The upper bound is the previously compiled
+\`tensorized_complex_norm_bound\`.
+For lower-bound sharpness, the new proof defines
+\`extremalF/G/H\` by the two exact local regimes:
+all-ones functions or three distinct permutation
+indicators of the heavier parity. The
+\`extremal_square_saturation\` theorem proves
+the local objective identity without numerical tests.
+\`tensor_productEntries\`, \`energy_productEntries\`,
+and \`tensor_extremal_normSq\` prove the full product
+identities. All witness energies are **strictly
+positive**. The final iff proves no smaller
+universal constant can work, including zero-column
+and boundary-law cases.
+
+The six newly uploaded module logs record actual
+successful Lean 4.34.1 compilation and unchanged
+standard axioms (no \`sorryAx\`, \`axiom\`, or \`admit\`).
+The complete original paper's equality classification
+(Theorem 2) remains outside this checkpoint.
