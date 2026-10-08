@@ -1,0 +1,379 @@
+\paragraph{Notation.} \(A\asymp B\) denotes two-sided comparison by fixed positive constants, not an exact leading coefficient. Constants may depend on the fixed source and moment function, but not on the displayed varying masses or small distance \(w\). The notation \(A\sim B\) is reserved for asymptotic equivalence, meaning \(A/B\to1\).
+
+\section{Source and target response functions}\label{sec:gm-source}
+
+Fix the single product source from the binary mass-phase paper \cite{binary}: \(d\ge2\), with the same first marginal whose actual formula on a fixed initial interval is
+\[
+ f(t)=c\,t^{\alpha-1}L(t)\exp(-t^2/2),\qquad \alpha>1,
+\]
+where \(L\) is positive \(C^2\) and satisfies \(t(\log L)'\to0\) and \(t^2(\log L)''\to0\), extended with a \(C^2\) strongly convex potential and quadratic far tail. The source is
+\[
+ \rho(\dd x)=f(x_1)\prod_{j=2}^d g(x_j)\dd x,
+ \qquad g(z)=c_g\exp[-1/(1-z^2)]\ind_{\{|z|<1\}}.
+\]
+ Let \(F\) be the first-marginal CDF, \(q=F^{-1}\) on \((0,1/2]\), and \(T=q(1/2)\). This source remains fixed for every target budget and distance parameter in a given theorem.
+
+Let \(\Phi:[0,\infty)\to[0,\infty)\) be continuous, convex, strictly increasing, with
+\begin{equation}
+ \begin{gathered}
+ \Phi(0)=0,\qquad \Phi(1)=1,\\
+ r\longmapsto\frac{\Phi(r)}{r^2}\ \text{nondecreasing on }(0,\infty).
+ \end{gathered}
+ \tag{M}\label{eq:gm-M}
+\end{equation}
+The normalization at one is inessential. Define the rare-atom radius and its \(L^2\) energy scale by
+\begin{equation}
+ \begin{aligned}
+ R(u)&=\Phi^{-1}(1/u), &&0<u\le1,\\
+ E(m)&=\sqrt m\,R(m), &&0<m\le1/2.
+ \end{aligned}
+ \tag{1.1}\label{eq:gm-response}
+\end{equation}
+\(R\) is decreasing on \((0,1]\), so \(R(1-m)\) in Section~\ref{sec:gm-upper} is within its defined domain. The assumptions \eqref{eq:gm-M} give \(\Phi(r)\ge r^2\) for \(r\ge1\), making \(\Phi\) unbounded and its inverse well-defined. \(E\) is nondecreasing and continuous on \((0,1/2]\), and \(0<E(m)\le1\). Indeed
+\[
+ E(m)=\left[\frac{\Phi(R(m))}{R(m)^2}\right]^{-1/2}.
+\]
+Allow either a finite or infinite limit of \(\Phi(r)/r^2\) as \(r\to\infty\). Thus this theorem includes a purely quadratic budget, as well as genuine uniform-integrability budgets.
+
+The target class is
+\[
+ \mathcal C_{\Phi,2}
+ =\left\{\mu:\ \#\operatorname{supp}(\mu)\le2,\quad
+       \int\Phi(|y|)\,d\mu(y)\le1\right\}.
+\]
+For any of the target classes below, its modulus is the supremum of
+\(\|T_\mu-T_\nu\|_{L^2(\rho)}\) over pairs from that class with \(W_2(\mu,\nu)\le w\).
+The modulus \(\Omega_{\Phi,2}\) uses \(\mathcal C_{\Phi,2}\).
+Its variant \(\Omega_{\Phi,2,\eta}\), for \(0<\eta\le1/2\), requires every positive atom of both targets to have mass at least \(\eta\), and permits Dirac masses.
+The variant \(\Omega_{\Phi,[m]}\), for \(0<m\le1/2\), requires each target to have the form \((1-m)\delta_a+m\delta_b\), with arbitrary \(a,b\) and the same moment budget. For the latter, both targets have mass vector \((1-m,m)\). Dirac and coincident-label degeneracies are permitted and merged; zero labels do not count. There is no separate support-radius bound.
+
+Put
+\begin{equation}
+ \begin{aligned}
+ J(t)&=E(F(t)),\qquad 0<t\le T,\\
+ B(t)&=tJ(t),\qquad H(r)=\max_{r\le t\le T}\frac{J(t)}t.
+ \end{aligned}
+ \tag{1.2}\label{eq:gm-envelope-functions}
+\end{equation}
+\(B\) is continuous strictly increasing, since \(t\) is strictly increasing and \(J\) is positive and nondecreasing. Also \(B(t)\to0\) at zero. Let \(h_w=B^{-1}(w)\) for \(0<w<B(T)\).
+
+\subsection*{Theorem A: one sharp envelope for the source and arbitrary moment growth}
+
+There are constants \(c,C,w_0>0\), depending only on the fixed source and \(\Phi\), such that, simultaneously for \(0<w\le w_0\),
+\begin{align}
+ \Omega_{\Phi,[m]}(w)
+ &\asymp w+\min\left\{E(m),\left[\frac{wE(m)}{q(m)}\right]^{1/2}\right\},
+ &&0<m\le1/2;
+ \tag{1.3}\label{eq:gm-fixed-mass}\\
+ \Omega_{\Phi,2,\eta}(w)
+ &\asymp\left[wH\!\left(\max\{h_w,q(\eta)\}\right)\right]^{1/2},
+ &&0<\eta\le1/2;
+ \tag{1.4}\label{eq:gm-mass-floor}\\
+ \Omega_{\Phi,2}(w)&\asymp[wH(h_w)]^{1/2}.
+ &&\tag{1.5}\label{eq:gm-main}
+\end{align}
+The constants are independent of \(m,\eta,w\). The source and \(\Phi\) are fixed. The radius \(R(m)\), including its possible divergence at small \(m\), is paid for by the actual moment budget.
+
+These statements use no centered-potential estimate \((\mathrm P)\). Their sole geometric input is the all-orientations halfspace estimate \eqref{eq:gm-H} in Section~\ref{sec:gm-inputs}, whose complete written proof is in Section~2 of the preceding binary-mass manuscript; specifically, fixed-mass halfspace motion is treated in its Section~2.3, equation~(2.5). Its argument is recalled here. The additional moment optimization is given here explicitly. The repaired endpoint proofs in Section~\ref{sec:gm-endpoints} passed the subsequent limited analytic recheck.
+
+\section{Geometric and coupling inputs, with dependency boundary}\label{sec:gm-inputs}
+
+For \(H_{m,u}\), the upper halfspace of \(\rho\)-mass \(m\) with unit normal \(u\), the needed bound is
+\begin{equation}
+ \begin{gathered}
+ \rho(H_{m,u}\mathbin{\triangle}H_{m,v})
+ \le C\min\left\{m,\angle(u,v)\frac{m}{q(m)}\right\},\\
+ 0<m\le1/2.
+ \end{gathered}
+ \tag{H}\label{eq:gm-H}
+\end{equation}
+Why this applies: the zero-extended source density is continuous and \(W^{1,1}\), and \(|x|r\) is \(W^{1,1}\). For the weighted score \(A=1+|x|\,|\nabla\log r|\), the boundary power \(\alpha>1\) and the fast transverse/tail decay give
+\[
+ A^*(u)\le\frac C{q(u)},\qquad
+ \int_0^m A^*(u)\,du\le C\frac{m}{q(m)}.
+\]
+The last step uses the inverse-CDF power \(1/\alpha<1\). The divergence theorem on an arbitrary halfspace yields
+\[
+ \int_{\partial H}|x|r\,d\mathcal H^{d-1}
+ \le\int_H A\,d\rho\le C\frac{m}{q(m)}.
+\]
+Along a moving normal with the mass kept fixed, the derivative of the threshold is the boundary average of the normal's derivative dotted with \(x\). Its weighted absolute normal velocity is therefore at most twice the weighted \(|x|\) trace. Integrating along a shortest spherical path proves \eqref{eq:gm-H}, combined with the trivial \(2m\) bound. This is the same complete argument and regularity justification in the preceding binary-mass manuscript, Section~2, with the fixed-mass motion step in Section~2.3, equation~(2.5); the complete proof is supplied in the second paper of this series. No new premise about arbitrary sources is being inferred.
+
+The coupling input is purely finite-dimensional and is the binary coupling calculation in Section~3 of the preceding binary-mass manuscript. Write two centered binary targets as the laws of
+\[
+ v(I-m),\qquad z(J-n),
+\]
+where \(I,J\) are Bernoulli of means \(m,n\le1/2\). A coupling is described by \(\tau=\mathbb P(I=J=1)\), and its cost is
+\begin{equation}
+ m(1-m)|v|^2+n(1-n)|z|^2-2(\tau-mn)\,v\cdot z.
+ \tag{2.1}\label{eq:gm-coupling-cost}
+\end{equation}
+For acute vectors and \(m\le n\), the optimal endpoint \(\tau=m\) gives exactly
+\begin{equation}
+ W_c^2=m(1-n)|v-z|^2
+       +(n-m)\bigl[m|v|^2+(1-n)|z|^2\bigr].
+ \tag{2.2}\label{eq:gm-acute-cost}
+\end{equation}
+This identity is independent of any target moment assumption.
+
+For obtuse vectors, \(\tau=0\). If \(m+n\le3/4\), the centered Wasserstein cost controls \(m|v|^2+n|z|^2\) from below by a factor \(1/4\), so the source-map distance is at most \(CW_2\). If \(m+n>3/4\), both masses exceed \(1/4\); reversing the labels of one target makes the vectors acute and all relevant masses lie in \([1/4,3/4]\). These two cases handle labels, collisions and opposite vectors without assuming a minimum support separation. A Dirac target gives map distance exactly \(W_2\).
+
+\section{The upper bound with the general moment response}\label{sec:gm-upper}
+
+If \(\mu=(1-m)\delta_a+m\delta_b\) is in \(\mathcal C_{\Phi,2}\), convexity and \eqref{eq:gm-M} give
+\begin{equation}
+ |\bar\mu|\le1,\qquad
+ |b-a|\le R(1-m)+R(m)\le2R(m),\qquad 0<m\le1/2.
+ \tag{3.1}\label{eq:gm-gap}
+\end{equation}
+For acute target gaps \(v,z\) and \(m\le n\), the same algebra as \eqref{eq:gm-acute-cost}, together with nesting of halfspaces of the same normal, bounds the squared map discrepancy by
+\[
+ CW_2^2+C|z|^2\rho\bigl(H_{m,v/|v|}\mathbin{\triangle}H_{m,z/|z|}\bigr).
+\]
+The angle is at most \(C|v-z|/\max\{|v|,|z|\}\). Formula~\eqref{eq:gm-acute-cost} gives \(|v-z|\le CW_2/\sqrt m\), while \(|z|\le2R(n)\le2R(m)\). Thus \eqref{eq:gm-H} yields
+\begin{equation}
+ \begin{aligned}
+ \|T_\mu-T_\nu\|_2^2
+ &\le C\left[w^2+\min\left\{mR(m)^2,
+                 \frac{w\sqrt m\,R(m)}{q(m)}\right\}\right]\\
+ &=C\bigl[w^2+\Psi_\Phi(w,m)\bigr],
+ \end{aligned}
+ \tag{3.2}\label{eq:gm-upper-bound}
+\end{equation}
+\[
+ \Psi_\Phi(w,m)=\min\left\{E(m)^2,\frac{wE(m)}{q(m)}\right\}.
+\]
+If the gaps are obtuse and \(m+n\le3/4\), the preceding \(Cw\) estimate suffices. In the remaining obtuse case, the masses are at least \(1/4\), so \eqref{eq:gm-gap} bounds both gaps by the fixed constant \(2R(1/4)\). Reversing labels and using \eqref{eq:gm-H} yields squared map distance \(\le C(w^2+w)\).
+
+For the fixed-mass class, that last case only occurs at \(m>3/8\). By decreasing \(w_0\) below \(q(3/8)E(3/8)\), the quantity \(\Psi_\Phi(w,m)=wE(m)/q(m)\) is bounded below by \(cw\) throughout that compact mass interval. For minimum-mass and unrestricted classes, the supremum over admissible masses includes \(m=1/2\), which similarly absorbs \(w\) and \(w^2\). This proves all required upper estimates in terms of \(\Psi_\Phi\), uniformly in the mass parameters.
+
+Only convexity was used to bound the mean. Monotonicity of \(R\) and \(E\), rather than a power law, supplies the rest.
+
+\section{Exact-mass lower realization and mass optimization}\label{sec:gm-lower}
+
+Given \(m\) and \(t=q(m)\), use the source's first coordinate \(X\) and symmetric transverse coordinate \(Z\). For \(0<b\le\varepsilon t\) choose \(\ell_b\) so
+\[
+ \mathbb E F(\ell_b+bZ)=F(t)=m.
+\]
+The derivative hypotheses on \(f\), and compact-range regularity up to \(T\), give uniformly
+\begin{equation}
+ \begin{aligned}
+ \ell_b&=t+O(b^2/t),\\
+ \rho\bigl(\{X<t\}\mathbin{\triangle}\{X<\ell_b+bZ\}\bigr)
+ &\asymp bf(t)\asymp b\frac mt.
+ \end{aligned}
+ \tag{4.1}\label{eq:gm-mass-match}
+\end{equation}
+This is an exact mass match, not an asymptotic one: only the displacement and disagreement estimates are asymptotic comparisons.
+
+Let \(R=R(m)\), and take
+\begin{equation}
+ \begin{aligned}
+ \mu&=(1-m)\delta_0+m\delta_{-Re_1},\\
+ \nu&=(1-m)\delta_0+
+       m\delta_{R(-e_1+be_2)/\sqrt{1+b^2}}.
+ \end{aligned}
+ \tag{4.2}\label{eq:gm-hinge-targets}
+\end{equation}
+Their \(\Phi\) moments equal \(m\Phi(R)=1\) exactly. Their maps are gradients of the global convex hinges
+\[
+ R(t-x_1)_+,\qquad
+ \frac R{\sqrt{1+b^2}}(\ell_b-x_1+bx_2)_+.
+\]
+The same-label target coupling costs at most \(E(m)b\), and the map discrepancy squared is at least
+\[
+ cR(m)^2\frac{bm}{t}=c\frac{bE(m)^2}{t}.
+\]
+Choose \(b=\varepsilon\min\{t,w/E(m)\}\), with one fixed \(\varepsilon\le1\). This gives \(W_2\le w\) and squared map discrepancy \(\ge c\Psi_\Phi(w,m)\). It uses two distinct positive-mass atoms, at exactly the prescribed masses, throughout.
+
+The \(w\) term in \eqref{eq:gm-fixed-mass} follows from translating two short distinct atoms by \(we_2\). For \(w\le1/4\) all atom norms can remain \(\le1/2\), so their \(\Phi\) moments are below one; the map and Wasserstein distances both equal \(w\). Combining this example with the hinge example proves \eqref{eq:gm-fixed-mass}.
+
+For the variable-mass classes, optimize over \(m\) in \([\eta,1/2]\), or \((0,1/2]\). Under \(m=F(t)\), equality of the two terms of \(\Psi_\Phi\) is exactly \(w=tJ(t)=B(t)\). On \(t\le h_w\), the smaller term is \(J(t)^2\), nondecreasing in \(t\). On \(t\ge h_w\), it is \(wJ(t)/t\). Hence the following is an \emph{exact} scalar identity:
+\begin{equation}
+ \sup_{\eta\le m\le1/2}\Psi_\Phi(w,m)
+ =w\max_{\max\{h_w,q(\eta)\}\le t\le T}\frac{J(t)}t.
+ \tag{4.3}\label{eq:gm-scalar-identity}
+\end{equation}
+The unrestricted identity omits \(q(\eta)\). Compactness makes the displayed maximum attainable. Using that maximizing mass in \eqref{eq:gm-hinge-targets} respects the minimum-weight condition: \(m\ge\eta\) and \(1-m\ge1/2\ge\eta\). Equations~\eqref{eq:gm-upper-bound}--\eqref{eq:gm-scalar-identity} prove \eqref{eq:gm-mass-floor}--\eqref{eq:gm-main}.
+
+Thus every value contributing to the scalar maximum has a genuine two-atom convex-gradient realization. No arbitrary energy step profile is declared transport-realizable.
+
+\section{Exact uniform-continuity threshold on binary targets}\label{sec:gm-continuity}
+
+Under \eqref{eq:gm-M},
+\begin{equation}
+ \Omega_{\Phi,2}(w)\longrightarrow0\quad\text{as }w\to0
+ \quad\Longleftrightarrow\quad
+ \frac{\Phi(r)}{r^2}\longrightarrow\infty\quad\text{as }r\to\infty.
+ \tag{5.1}\label{eq:gm-continuity}
+\end{equation}
+\paragraph{Proof.}
+This growth condition is equivalent to \(E(m)\to0\) as \(m\to0\). If it holds, for any \(\delta>0\) split the supremum of \(\Psi_\Phi\) into \(m\le\delta\), bounded by \(E(\delta)^2\), and \(m\ge\delta\), bounded by \(w\) times a fixed compact maximum. First let \(w\to0\) and then \(\delta\to0\). The upper bound tends to zero.
+
+If instead \(E(m)\to e_0>0\), then for each small \(w\) choose \(m\) with \(q(m)E(m)\le w\). The fixed-mass lower construction saturates and has map distance \(\ge cE(m)\ge ce_0\). Thus even two atoms prevent uniform continuity, although each individual pair still has the usual qualitative Brenier continuity when targets converge in \(W_2\) with their second moments. The offending family has no uniform integrability of second-moment tails.
+
+This is the standard moment-growth / uniform-integrability threshold expressed as a sharp binary transport statement. No novelty is claimed for the general de la Vall\'ee Poussin principle itself. The new quantitative content is the complete source-CDF / response-function envelope and its matching realizations.
+
+\section{A general asymptotic-index phase principle}\label{sec:gm-index}
+
+Suppose additionally that \(E\) is \(C^1\) for small \(m\) and
+\[
+ \frac{mE'(m)}{E(m)}\longrightarrow\kappa\in[0,1/2].
+\]
+Then logarithmic differentiation and \(tf(t)/F(t)\to\alpha\) give
+\[
+ \frac{tJ'(t)}{J(t)}\longrightarrow r=\alpha\kappa.
+\]
+Integrating these derivative bounds proves all fixed-ratio and Potter comparisons needed below directly. In particular \(J\) is regularly varying with index \(r\). If \(\Phi\) is \(C^1\) for large radii and \(r\Phi'(r)/\Phi(r)\to p\in[2,\infty]\), inverse differentiation gives \(\kappa=1/2-1/p\), with \(1/\infty=0\). Thus the product \(\alpha\kappa\) compares a source boundary index with a target-moment growth index.
+
+\begin{itemize}
+\item If \(r<1\), \(J(t)/t\) has negative index. Fixed-exponent Potter bounds show its running maximum over \([h,T]\) is comparable to \(J(h)/h\). Thus
+\[
+ \Omega_{\Phi,2}(w)\asymp J(h_w)=\frac w{h_w}.
+\]
+This includes \(r=0\) and may give a non-H\"older modulus.
+\item If \(r>1\), \(J(t)/t\) tends to zero and has a finite positive global maximum, so \(\Omega_{\Phi,2}(w)\asymp w^{1/2}\).
+\item If \(r=1\), the quotient is slowly varying and the running maximum in \eqref{eq:gm-main} is the sharp correction. Its endpoint value alone need not suffice.
+\end{itemize}
+
+For \(\Phi(r)=r^p\), \(p>2\), \(E(m)=m^{1/2-1/p}\); hence \(\kappa=(p-2)/(2p)=1/(2s)\), recovering exactly the \(\alpha=2s\) binary phase theorem. The power law is one specialization of this source--target index product.
+
+\section{Two substantive endpoint applications}\label{sec:gm-endpoints}
+
+\subsection{Barely superquadratic budgets}\label{sec:gm-barely}
+
+Let \(\Phi(r)\) be comparable for large \(r\) to
+\[
+ r^2[\log(e+r)]^\gamma,\qquad \gamma>0,
+\]
+with an innocuous convex normalized extension satisfying \eqref{eq:gm-M}. Then
+\[
+ R(m)\asymp m^{-1/2}[\log(e/m)]^{-\gamma/2},\qquad
+ E(m)\asymp[\log(e/m)]^{-\gamma/2}.
+\]
+For \emph{any} of the fixed sources above with \(\alpha>1\) and any admissible source factor \(L\), \(\log(1/F(t))\sim\alpha\log(1/t)\). Therefore
+\begin{equation}
+ \Omega_{\Phi,2}(w)\asymp[\log(e/w)]^{-\gamma/2}.
+ \tag{7.1}\label{eq:gm-barely}
+\end{equation}
+\paragraph{Proof.}
+Write \(a=\gamma/2>0\) and \(\tau(t)=\log(e/t)\). The assumed two-sided comparison for \(\Phi\), followed by inversion, gives \(E(m)\asymp[\log(e/m)]^{-a}\). Since the fixed source has positive boundary index \(\alpha\), \(\log(e/F(t))/\log(e/t)\) tends to \(\alpha\). Therefore
+\[
+ J(t)\asymp\tau(t)^{-a}
+\]
+for all sufficiently small \(t\). This uses comparison only; it asserts neither differentiability of \(\Phi\) or \(E\) nor the logarithmic-derivative limit required in Section~\ref{sec:gm-index}.
+
+Choose \(0<t_0<T\) small enough that the explicit comparison function \(k(t)=t^{-1}\tau(t)^{-a}\) is decreasing on \((0,t_0]\). Indeed
+\[
+ \frac{d\log k(t)}{d\log t}=-1+\frac a{\tau(t)}<0.
+\]
+For \(h\le t_0\), the comparison with \(k\) and its divergence at zero absorb the finite maximum over the compact remainder \([t_0,T]\). Hence
+\[
+ H(h)\asymp h^{-1}\tau(h)^{-a}\asymp\frac{J(h)}h.
+\]
+Use the main envelope \eqref{eq:gm-main} and the \emph{exact} identity \(w=h_wJ(h_w)\), not the extra index hypotheses of Section~\ref{sec:gm-index}. They give \(\Omega_{\Phi,2}(w)\asymp J(h_w)\). Also \(w\asymp h_w\tau(h_w)^{-a}\), so taking logarithms yields
+\[
+ \log(e/w)=\log(e/h_w)+a\log\log(e/h_w)+O(1).
+\]
+Consequently \(\log(e/h_w)/\log(e/w)\) tends to one, and \(\Omega_{\Phi,2}(w)\asymp[\log(e/w)]^{-\gamma/2}\). This proves \eqref{eq:gm-barely} under the original comparison hypotheses, without adding regularity assumptions on \(\Phi\).
+
+Thus the optimal modulus can be non-H\"older even on a two-atom class for a single fixed strongly log-concave source. Every positive mass floor restores a one-half small-\(w\) law, with its sharp vanishing-floor crossover still given by \eqref{eq:gm-mass-floor}. This is a target-tail obstruction, separate from source irregularity or infinite target cardinality.
+
+\subsection{Stretched-exponential budgets}\label{sec:gm-stretched}
+
+Let \(\Phi(r)\) be comparable for large \(r\) to \(\exp(r^q)\), \(q>0\), with a convex normalized extension satisfying \eqref{eq:gm-M}. Then
+\[
+ E(m)\asymp\sqrt m\,[\log(e/m)]^{1/q}.
+\]
+If the source has \(L(t)=[\log(e/t)]^\gamma\), then
+\[
+ J(t)\asymp t^{\alpha/2}[\log(e/t)]^{\gamma/2+1/q}.
+\]
+The sharp binary law is therefore
+\begin{equation}
+ \Omega_{\Phi,2}(w)\asymp
+ \begin{cases}
+ w^{\alpha/(\alpha+2)}
+ [\log(e/w)]^{(\gamma+2/q)/(\alpha+2)},&1<\alpha<2,\\[3pt]
+ w^{1/2}[\log(e/w)]^{\max(\gamma+2/q,0)/4},&\alpha=2,\\[3pt]
+ w^{1/2},&\alpha>2.
+ \end{cases}
+ \tag{7.2}\label{eq:gm-stretched}
+\end{equation}
+\paragraph{Proof.}
+In this proof write \(\theta>0\) for the stretched-exponential exponent, to distinguish it from the source quantile function \(q(\cdot)\); \(\theta\) is the exponent denoted \(q\) in statement~\eqref{eq:gm-stretched}. Comparison of \(\Phi(r)\) with \(\exp(r^\theta)\), followed by inversion, gives
+\[
+ R(m)\asymp[\log(e/m)]^{1/\theta},\qquad
+ E(m)\asymp\sqrt m\,[\log(e/m)]^{1/\theta}.
+\]
+Set \(A=\alpha/2\), \(b=\gamma/2+1/\theta\), and \(\tau(t)=\log(e/t)\). The source CDF estimate then yields
+\[
+ J(t)\asymp t^A\tau(t)^b.
+\]
+Apply the main envelope \eqref{eq:gm-main} directly to these comparison functions. No differentiability or logarithmic-derivative limit for \(\Phi\) or \(E\) is inferred, and Section~\ref{sec:gm-index} is not invoked.
+
+If \(A<1\), the explicit function \(t^{A-1}\tau(t)^b\) is eventually decreasing as \(t\) increases and diverges at zero: its logarithmic derivative is \(A-1-b/\tau(t)\), which is eventually negative. The compact-range contribution is absorbed, so
+\[
+ H(h)\asymp h^{A-1}\tau(h)^b\asymp\frac{J(h)}h,
+ \qquad \Omega_{\Phi,2}(w)\asymp J(h_w).
+\]
+The exact equation \(w=h_wJ(h_w)\) gives \(w\asymp h_w^{A+1}\tau(h_w)^b\). Taking logarithms first shows \(\tau(h_w)\asymp\log(e/w)\); substituting this comparison back gives the two-sided inverse estimate
+\[
+ h_w\asymp w^{1/(A+1)}[\log(e/w)]^{-b/(A+1)}.
+\]
+Therefore
+\[
+ \Omega_{\Phi,2}(w)\asymp
+ w^{A/(A+1)}[\log(e/w)]^{b/(A+1)}.
+\]
+If \(A>1\), the comparison implies \(J(t)/t\) tends to zero at the boundary. This quotient is bounded on \((0,T]\) and is positive somewhere. Thus \(H(h)\) is bounded above and below by positive constants for all sufficiently small \(h\), giving \(\Omega_{\Phi,2}(w)\asymp\sqrt w\).
+
+If \(A=1\), comparison with \(\tau(t)^b\) and the positive compact-range contribution gives
+\[
+ H(h)\asymp\tau(h)^{\max(b,0)}.
+\]
+Here \(w=h_wJ(h_w)\asymp h_w^2\tau(h_w)^b\), so \(\tau(h_w)\asymp\log(e/w)\). The main envelope consequently gives
+\[
+ \Omega_{\Phi,2}(w)\asymp\sqrt w\,[\log(e/w)]^{\max(b,0)/2}.
+\]
+Substitute \(A=\alpha/2\) and \(b=\gamma/2+1/\theta\), then write \(\theta\) as \(q\) to recover exactly \eqref{eq:gm-stretched}, including every real \(\gamma\) and the boundary \(A=1\). The binary critical source exponent is \(\alpha=2\), independent of the stretched-exponential exponent. All conclusions hold for the originally stated comparison class of \(\Phi\), with no additional \(C^1\) or logarithmic-derivative assumption.
+
+These endpoint applications illustrate qualitatively different continuity and threshold behavior; they are not asserted to be historically novel independently of the general envelope.
+
+\section{Fixed support-radius variant}\label{sec:gm-bounded}
+
+For binary targets supported in the unit ball, repeat the same proof with
+\[
+ R(m)=1,\qquad E(m)=\sqrt m.
+\]
+Every upper step only needs the corresponding gap bound, and the hinge lower targets have norm exactly one. The moment-function assumptions are unnecessary for this variant. The conclusions \eqref{eq:gm-fixed-mass}--\eqref{eq:gm-main} remain valid with this response.
+
+For the pure power source \(f(t)\asymp t^{\alpha-1}\), \(\alpha>1\), this yields
+\begin{equation}
+ \Omega_{\mathrm{bounded},2}(w)
+ \asymp w^{\min\{\alpha/(\alpha+2),1/2\}}.
+ \tag{8.1}\label{eq:gm-bounded}
+\end{equation}
+At \(\alpha=2\) a nontrivial source factor is again treated by the running maximum. In contrast, the completed three-atom interior-strip construction supplies a one-third lower obstruction even with all locations bounded. The distinction between source-tail degeneration, moment tails, and a third atom is thus visible within one source family.
+
+\section{Scope, assumptions, and literature}\label{sec:gm-scope}
+
+\begin{itemize}
+\item The all-directions halfspace estimate \eqref{eq:gm-H} is the only analytic interface reused from the preceding binary manuscript. 
+\item The upper/lower transport realization, general moment replacement, exact mass maximization, and endpoint evaluations are fully given here. There is no use of \((\mathrm P)\).
+\item No general \(N\ge3\) minimum-weight theorem is claimed. Moving/colliding supports require a further argument not supplied by fixed-support semi-discrete stability alone.
+\item The condition \(\Phi(r)/r^2\) nondecreasing ensures a monotone \(L^2\) rare-atom response. Removing it would require an appropriate scalar envelope; it is not dropped by inference.
+\item The source requires \(\alpha>1\) so the weighted-score trace proof has no boundary jump and its quantile integral is finite.
+\end{itemize}
+
+Primary context: \href{https://arxiv.org/html/2002.02022}{Bansil--Kitagawa}; \href{https://arxiv.org/html/2103.05934}{Delalande--M\'erigot}; \href{https://arxiv.org/html/2510.13265v1}{Letrouit}. Letrouit already uses rotating equal-weight binary targets for sources with density blow-up. The present candidate concerns matching source--moment laws on the displayed fixed vanishing-boundary sources; neither the rotation mechanism nor generic Lorentz / uniform-integrability principles are claimed new.
+
+The accompanying source map identifies the exact proof snapshots and the original review with its final repair recheck. Section~7 uses the comparison-based repair and does not invoke the extra derivative assumptions of Section~6. Historical priority remains a separate question.
+
+\begin{thebibliography}{9}
+\small
+\bibitem{binary} \emph{Binary Brenier stability with sharp mass crossover and boundary phases}, second paper of this transport stability series (8 October 2026), Section~2.3, equation~(2.5), and Section~3. Supplied alongside this paper as \nolinkurl{binary-mass/main.pdf}.
+\bibitem{bansil} M. Bansil and J. Kitagawa, \emph{Quantitative stability in the geometry of semi-discrete optimal transport}, arXiv:2002.02022v2. \url{https://arxiv.org/abs/2002.02022}.
+\bibitem{delalande} A. Delalande and Q. M\'erigot, \emph{Quantitative stability of optimal transport maps under variations of the target measure}, arXiv:2103.05934. \url{https://arxiv.org/abs/2103.05934}.
+\bibitem{letrouit} C. Letrouit, \emph{Unstable optimal transport maps}, arXiv:2510.13265 (2025). \url{https://arxiv.org/abs/2510.13265}.
+\end{thebibliography}

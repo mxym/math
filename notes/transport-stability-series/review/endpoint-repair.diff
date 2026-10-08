@@ -1,0 +1,153 @@
+--- original_reviewed_snapshot/PROOF.md
++++ PROOF.md
+@@ -1,12 +1,14 @@
+ # The sharp binary source–moment envelope
+ 
+-Research continuation, 8 October 2026. Candidate theorem for later unified review; no independent audit or publication. This extends the binary geometry to a general moment budget rather than adding only a special source example. All source and target hypotheses and the dependence on the preceding candidate are stated below.
++Research continuation, 8 October 2026; endpoint-proof revision following the batch analytic review. That review accepted the main envelope and identified a local inference gap in the two endpoint proofs. The comparison-based replacements below await a limited recheck. No formal verification or publication is claimed. This extends the binary geometry to a general moment budget rather than adding only a special source example. All source and target hypotheses and the dependence on the preceding candidate are stated below.
++
++Throughout, the symbol ~ in response and modulus formulas denotes two-sided comparison by fixed positive constants, not an exact leading coefficient. Constants may depend on the fixed source and moment function, but not on the displayed varying masses or small distance w.
+ 
+ ## 1. Source and target response functions
+ 
+-Fix the single product source from the binary mass-phase candidate: d>=2, first marginal
+-
+-    f(t)~c t^(alpha-1)L(t) near zero,   alpha>1,
++Fix the single product source from the binary mass-phase candidate: d>=2, with the same first marginal whose actual formula on a fixed initial interval is
++
++    f(t)=c t^(alpha-1)L(t) exp(-t^2/2),   alpha>1,
+ 
+ where L is positive C^2 and satisfies t(log L)'->0 and t^2(log L)''->0, extended with a C^2 strongly convex potential and quadratic far tail. The other marginals are the symmetric compact bump g. Let F be the first-marginal CDF, q=F^(-1) on (0,1/2], and T=q(1/2). This source remains fixed for every target budget and distance parameter in a given theorem.
+ 
+@@ -17,10 +19,10 @@
+ 
+ The normalization at one is inessential. Define the rare-atom radius and its L^2 energy scale by
+ 
+-    R(m)=Phi^(-1)(1/m),
++    R(u)=Phi^(-1)(1/u),            0<u<=1,
+     E(m)=sqrt(m) R(m),             0<m<=1/2.             (1.1)
+ 
+-R is decreasing, E is nondecreasing and continuous, and 0<E(m)<=C_Phi. Indeed
++R is decreasing on (0,1], so R(1-m) in Section 3 is within its defined domain. The assumptions (M) give Phi(r)>=r^2 for r>=1, making Phi unbounded and its inverse well-defined. E is nondecreasing and continuous on (0,1/2], and 0<E(m)<=1. Indeed
+ 
+     E(m)=[Phi(R(m))/R(m)^2]^(-1/2).
+ 
+@@ -54,7 +56,7 @@
+ 
+ The constants are independent of m,eta,w. The source and Phi are fixed. The radius R(m), including its possible divergence at small m, is paid for by the actual moment budget.
+ 
+-These statements use no centered-potential estimate (P). Their sole geometric input is the all-orientations halfspace estimate (H) in Section 2, whose complete written proof is in Section 2 of the preceding binary candidate; its argument is recalled here. That candidate is NOT represented as independently reviewed. The additional moment optimization and every new conclusion below are proved here explicitly.
++These statements use no centered-potential estimate (P). Their sole geometric input is the all-orientations halfspace estimate (H) in Section 2, whose complete written proof is in Section 2 of the preceding binary manuscript; its argument is recalled here. The batch analytic review accepted that geometric input, the binary mass theorem, and the present main envelope. The additional moment optimization is given here explicitly. The repaired endpoint proofs in Section 7 remain subject to the limited recheck; no full formalization or historical-priority claim follows from the review.
+ 
+ ## 2. Geometric and coupling inputs, with dependency boundary
+ 
+@@ -207,7 +209,25 @@
+ 
+     Omega_(Phi,2)(w) ~ [log(e/w)]^(-gamma/2).              (7.1)
+ 
+-Proof. J(t) is a negative logarithmic power, so r=0 in Section 6. The equation w=tJ(t) implies log(1/t)~log(1/w); substitute in Omega~J(h_w).
++Proof. Write a=gamma/2>0 and tau(t)=log(e/t). The assumed two-sided comparison for Phi, followed by inversion, gives E(m)~[log(e/m)]^(-a). Since the fixed source has positive boundary index alpha, log(e/F(t))/log(e/t) tends to alpha. Therefore
++
++    J(t)~tau(t)^(-a)
++
++for all sufficiently small t. This uses comparison only; it asserts neither differentiability of Phi or E nor the logarithmic-derivative limit required in Section 6.
++
++Choose 0<t_0<T small enough that the explicit comparison function k(t)=t^(-1)tau(t)^(-a) is decreasing on (0,t_0]. Indeed
++
++    d log k(t)/d log t=-1+a/tau(t)<0.
++
++For h<=t_0, the comparison with k and its divergence at zero absorb the finite maximum over the compact remainder [t_0,T]. Hence
++
++    H(h)~h^(-1)tau(h)^(-a)~J(h)/h.
++
++Use the main envelope (1.5) and the EXACT identity w=h_w J(h_w), not the extra index hypotheses of Section 6. They give Omega_(Phi,2)(w)~J(h_w). Also w~h_w tau(h_w)^(-a), so taking logarithms yields
++
++    log(e/w)=log(e/h_w)+a log log(e/h_w)+O(1).
++
++Consequently log(e/h_w)/log(e/w) tends to one, and Omega_(Phi,2)(w)~[log(e/w)]^(-gamma/2). This proves (7.1) under the original comparison hypotheses, without adding regularity assumptions on Phi.
+ 
+ Thus the optimal modulus can be non-Hölder even on a two-atom class for a single fixed strongly log-concave source. Every positive mass floor restores a one-half small-w law, with its sharp vanishing-floor crossover still given by (1.4). This is a target-tail obstruction, separate from source irregularity or infinite target cardinality.
+ 
+@@ -229,7 +249,41 @@
+        w^(1/2)[log(e/w)]^(max(gamma+2/q,0)/4),       alpha=2;
+        w^(1/2),                                    alpha>2.   (7.2)
+ 
+-The binary critical source exponent is now alpha=2, independent of q; the stretched-exponential parameter enters the slowly-varying correction. The proof is direct substitution into Section 6 and the exact scalar inversion, retaining all source and target factors.
++Proof. In this proof write theta>0 for the stretched-exponential exponent, to distinguish it from the source quantile function q(·); theta is the exponent denoted q in statement (7.2). Comparison of Phi(r) with exp(r^theta), followed by inversion, gives
++
++    R(m)~[log(e/m)]^(1/theta),
++    E(m)~sqrt(m)[log(e/m)]^(1/theta).
++
++Set A=alpha/2, b=gamma/2+1/theta, and tau(t)=log(e/t). The source CDF estimate then yields
++
++    J(t)~t^A tau(t)^b.
++
++Apply the main envelope (1.5) directly to these comparison functions. No differentiability or logarithmic-derivative limit for Phi or E is inferred, and Section 6 is not invoked.
++
++If A<1, the explicit function t^(A-1)tau(t)^b is eventually decreasing as t increases and diverges at zero: its logarithmic derivative is A-1-b/tau(t), which is eventually negative. The compact-range contribution is absorbed, so
++
++    H(h)~h^(A-1)tau(h)^b~J(h)/h,
++    Omega_(Phi,2)(w)~J(h_w).
++
++The exact equation w=h_w J(h_w) gives w~h_w^(A+1)tau(h_w)^b. Taking logarithms first shows tau(h_w)~log(e/w); substituting this comparison back gives the two-sided inverse estimate
++
++    h_w~w^(1/(A+1))[log(e/w)]^(-b/(A+1)).
++
++Therefore
++
++    Omega_(Phi,2)(w)~w^(A/(A+1))[log(e/w)]^(b/(A+1)).
++
++If A>1, the comparison implies J(t)/t tends to zero at the boundary. This quotient is bounded on (0,T] and is positive somewhere. Thus H(h) is bounded above and below by positive constants for all sufficiently small h, giving Omega_(Phi,2)(w)~sqrt(w).
++
++If A=1, comparison with tau(t)^b and the positive compact-range contribution gives
++
++    H(h)~tau(h)^(max(b,0)).
++
++Here w=h_w J(h_w)~h_w^2 tau(h_w)^b, so tau(h_w)~log(e/w). The main envelope consequently gives
++
++    Omega_(Phi,2)(w)~sqrt(w)[log(e/w)]^(max(b,0)/2).
++
++Substitute A=alpha/2 and b=gamma/2+1/theta, then write theta as q to recover exactly (7.2), including every real gamma and the boundary A=1. The binary critical source exponent is alpha=2, independent of the stretched-exponential exponent. All conclusions hold for the originally stated comparison class of Phi, with no additional C^1 or logarithmic-derivative assumption.
+ 
+ These endpoint applications illustrate qualitatively different continuity and threshold behavior; they are not asserted to be historically novel independently of the general envelope.
+ 
+@@ -249,7 +303,7 @@
+ 
+ ## 9. Scope, assumptions, and literature
+ 
+-- The all-directions halfspace estimate (H) is the only analytic interface reused from the preceding binary candidate. Its review status is explicitly inherited; no earlier candidate is silently treated as certified.
++- The all-directions halfspace estimate (H) is the only analytic interface reused from the preceding binary manuscript. It and the main envelopes were accepted in the batch analytic review. The replacement endpoint proofs in this revision await a limited recheck; that status does not imply formal verification or an audit of any upstream theorem (P).
+ - The upper/lower transport realization, general moment replacement, exact mass maximization, and endpoint evaluations are fully given here. There is no use of (P).
+ - No general N>=3 minimum-weight theorem is claimed. Moving/colliding supports require a further argument not supplied by fixed-support semi-discrete stability alone.
+ - The condition Phi(r)/r^2 nondecreasing ensures a monotone L^2 rare-atom response. Removing it would require an appropriate scalar envelope; it is not dropped by inference.
+@@ -257,4 +311,4 @@
+ 
+ Primary context: Bansil--Kitagawa, https://arxiv.org/html/2002.02022 ; Delalande--Merigot, https://arxiv.org/html/2103.05934 ; Letrouit, https://arxiv.org/html/2510.13265v1 . Letrouit already uses rotating equal-weight binary targets for sources with density blow-up. The present candidate concerns matching source–moment laws on the displayed fixed vanishing-boundary sources; neither the rotation mechanism nor generic Lorentz / uniform-integrability principles are claimed new.
+ 
+-The two earlier candidates are preserved separately. Historical priority and publication suitability remain for later comparison and unified review.
++The two earlier manuscripts are preserved byte-for-byte. The original reviewed version of this manuscript and its README are retained in original_reviewed_snapshot/. The review and its counterexample to inferring derivative limits from comparability are recorded in ../transport_batch_independent_review_20261008/REVIEW.md, Sections 5-6. Historical priority and publication suitability remain separate from the present mathematical repair.
+--- original_reviewed_snapshot/README.md
++++ README.md
+@@ -1,6 +1,6 @@
+ # General binary source–moment envelope
+ 
+-Third linked research candidate, 8 October 2026. Full proof: `PROOF.md`. Kept separate from the first two candidates, without new audit, compilation, or publication.
++Third linked research manuscript, 8 October 2026. Full proof: `PROOF.md`. Revised after the batch analytic review accepted the main envelope and identified a local proof gap in the endpoint applications. The comparison-based replacement proofs await a limited recheck. No compilation, publication, or separate new audit was performed in this repair.
+ 
+ Replace a pth-moment budget by integral Phi(|y|)<=1, where Phi is convex, normalized at one, and Phi(r)/r^2 is nondecreasing. The exact rare-atom L^2 response is
+ 
+@@ -12,7 +12,7 @@
+     Omega_(2,eta)(w) ~ sqrt(w H(max(h,q(eta)))),
+     Omega_[m](w) ~ w+min(E(m), sqrt(w E(m)/q(m))).
+ 
+-Every lower contribution has a genuine two-atom convex-hinge realization at exactly the chosen mass. The upper bound uses the earlier candidate's all-orientations halfspace estimate, explicitly marked as an unreviewed analytic dependency, plus a complete general-moment adaptation of the 2x2 coupling argument. It does not use (P).
++Every lower contribution has a genuine two-atom convex-hinge realization at exactly the chosen mass. The upper bound uses the earlier binary manuscript's all-orientations halfspace estimate, accepted in the batch analytic review, plus a complete general-moment adaptation of the 2x2 coupling argument. It does not use (P).
+ 
+ Consequences beyond another logarithmic example:
+ 
+@@ -23,3 +23,5 @@
+ - A unit-support-radius version follows with E(m)=sqrt(m), exposing a sharp bounded-target distinction between two and three atoms.
+ 
+ No claim is made for N>=3 with a positive minimum atom weight; collisions and changing support groups remain the unresolved interface. Historical priority is not established.
++
++Revision details: Sections 7.1 and 7.2 now use explicit comparison functions and the exact scalar envelope, without inferring derivative limits from comparable growth. No endpoint hypothesis or formula changed. R is defined on (0,1] so R(1-m) is valid; E remains restricted to (0,1/2]. The old PROOF.md and README.md are retained under original_reviewed_snapshot/. The first two manuscripts remain byte-identical.
