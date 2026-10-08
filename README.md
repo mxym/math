@@ -1,5 +1,7 @@
 # math
 
+**Preferred standalone research paper:** the [21-page v2 PDF](notes/sharp-robust-permanent/focused-paper/v2/paper.pdf), [editable v2 source](notes/sharp-robust-permanent/focused-paper/v2/paper.md), [reading guide](notes/sharp-robust-permanent/focused-paper/README.md), and [frozen v2 manifest](releases/2026-10-08-chebyshev-fixed-rank-v2.json). This is a typesetting revision of the fully proved sharp fixed-k asymptotic and exact all-rank cycle-compression manuscript; the first 22-page version is preserved.
+
 ## Sharp all-rank Chebyshev theorem and exact k=4 classification
 
 The [standalone 22-page research paper](notes/sharp-robust-permanent/focused-paper/README.md), available as a [compiled PDF](notes/sharp-robust-permanent/focused-paper/paper.pdf) with [editable manuscript](notes/sharp-robust-permanent/focused-paper/paper.md), establishes the **sharp first-order atom-vs-TV law for every fixed subset rank**:
