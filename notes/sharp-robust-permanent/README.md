@@ -36,3 +36,16 @@ The program uses exact integers and fractions to verify algebraic identities, fo
 for any uniform-one-point-marginal law, with exact attainment for every sufficiently small TV distance. A disjoint-support construction combining the identity, uniform derangements, and uniform transpositions establishes sharpness. It improves the upper critical-window radius coefficient by a factor `n-2` over the initial cyclic-subgroup witness, without changing the already proved optimal linear order.
 
 The additional [rational witness checker](code/check_atom_modulus.py) enumerates `S_n` for `n=3,4,5,6` and verifies the constructed probability distributions, matching marginals, TV values, and atom excesses exactly. Run `python notes/sharp-robust-permanent/code/check_atom_modulus.py` from the repository root. This only certifies finite witnesses; the proposition for every `n>=3` is proved mathematically in the manuscript.
+
+## Exact three-row critical radius at exponent two
+
+The [new Section 9](paper.md#9-a-complete-sharp-radius-at-three-rows-and-exponent-two) determines **exactly** the previously unspecified optimal radius in the first nontrivial arity:
+`R_3(2) = 1/sqrt(3) - 1/2` (inclusive boundary). In fact, an `S_3` law with all one-point marginals uniform satisfies the three-row normalized `L^2` permanent inequality **if and only if** its TV distance from uniform does not exceed that number.
+
+The proof is self-contained and uses an exact sharp trilinear `3x3` permanent--determinant inequality. All three principal `2x2` minors of an explicit `3x3` Gram matrix factor with nonnegative coefficients; its determinant is a nonnegative symmetric polynomial by AM--GM. The [SymPy exact checker](code/check_s3_exact.py) verifies the polynomial identities in `Q(sqrt(3))[a,b,c]`, independent of numerical optimization. Run:
+
+```bash
+python notes/sharp-robust-permanent/code/check_s3_exact.py
+```
+
+This exact `n=3,p=2` result is additional to the earlier all-arity sharp-order analysis; a complete formula for `R_3(p)` at other exponents is not yet claimed.
