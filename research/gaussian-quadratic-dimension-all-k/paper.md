@@ -22,12 +22,12 @@ probabilistic estimates are derived directly.
 
 **All-integer conclusion (Theorem 11).** For every sufficiently
 large integer \(k\), without arithmetic restrictions on \(k\),
-the least Gaussian dimension needed for additive \(95/k\)
+the least Gaussian dimension needed for additive \(92/k\)
 accuracy satisfies
 \[
  \boxed{\displaystyle
- \frac{(\log k)^2}{111}
-      \le D_{95}(k)
+ \frac{(\log k)^2}{108}
+      \le D_{92}(k)
       \le\lceil(\log k)^2\rceil+1.}
 \]
 Thus the central dimension-order problem has the
@@ -249,7 +249,14 @@ with total variance \(V>0\), the inequality
  \tag{11}
 \]
 holds (the deliberately nonoptimal constant \(1\)
-is sufficient). We apply (11) only to bounded
+is sufficient). For a published strictly stronger
+**non-identically distributed** version with constant
+\(0.5591<1\), see I. S. Tyurin,
+*A Refinement of the Remainder in the Lyapunov Theorem*,
+*Theory of Probability & Its Applications* **56** (2012),
+693–696, DOI
+[10.1137/S0040585X9798572X](https://doi.org/10.1137/S0040585X9798572X).
+We apply (11) only to bounded
 independent centered tilted signs and explicitly
 bound the numerator and denominator below.
 This standard result is the sole non-elementary
@@ -640,7 +647,7 @@ binary expansion. This section removes the dyadic restriction.
 Let \(r_0\) be the fixed exponent threshold in Theorem 1,
 and set \(Q_0=2^{r_0}\).
 
-**Lemma 9 (bounded entropy of binary expansion).**
+**Lemma 9 (sharp binary-expansion entropy).**
 Write any positive integer as a sum of distinct powers of two,
 ordered strictly decreasing:
 \[
@@ -651,33 +658,57 @@ and put \(w_j=q_j/k\). Then
 \[
  \boxed{\displaystyle
      H(w):=\sum_{j=1}^s w_j\log(1/w_j)
-                     \le4\log2,}             \tag{22}
+                     <2\log2\quad(s<\infty),} \tag{22}
 \]
-and
+with equality approached as \(k=2^s-1\to\infty\),
+so **the coefficient \(2\log2\) is best possible**.
+Furthermore,
 \[
         \sum_{j:q_j<Q_0}q_j<Q_0.              \tag{23}
 \]
 
-*Proof.* Since \(q_1\le k\) and the
-exponents strictly decrease,
-\(w_j\le2^{-(j-1)}\).
-In particular,
+*Proof.* Since \(q_j\) is a power of two and
+every subsequent \(q_\ell\) is a distinct smaller power,
 \[
- \sum_j j w_j
-      \le\sum_{j\ge1}j2^{1-j}=4.
+ \sum_{\ell>j}q_\ell\le q_j-1<q_j.
 \]
-Compare \(w=(w_j)\), padded with zeros,
-to the geometric probability law
-\(\pi_j=2^{-j}\) on positive integers.
-Nonnegativity of relative entropy,
-which follows from \(\log x\le x-1\),
-gives
+Put \(S_j=\sum_{\ell\ge j}w_\ell\), \(S_{s+1}=0\).
+Then \(S_{j+1}<w_j\), hence
 \[
- H(w)\le-\sum_jw_j\log\pi_j
-       =(\log2)\sum_j j w_j
-       \le4\log2.
+       \frac{S_{j+1}}{S_j}<\frac12,\qquad
+       S_j\le2^{1-j}.
 \]
-The powers of two smaller than
+Define \(\alpha_j=w_j/S_j\) and the
+binary entropy function
+\[
+ h_2(t)=-t\log t-(1-t)\log(1-t),
+          \quad 0\log0:=0.
+\]
+The exact entropy chain identity is
+\[
+ \boxed{\displaystyle
+ H(w)=\sum_{j=1}^s S_j h_2(\alpha_j).}
+\]
+Indeed expansion of \(S_j h_2(\alpha_j)\) gives
+\(-w_j\log w_j-S_{j+1}\log S_{j+1}
+  +S_j\log S_j\), and the last two
+terms telescope. Because \(h_2(t)\le\log2\)
+for every \(t\in[0,1]\),
+\[
+ H(w)\le(\log2)\sum_{j=1}^s S_j
+       \le(\log2)\sum_{j=1}^s2^{1-j}
+       <2\log2.
+\]
+To see optimality, put \(k=2^s-1\),
+so \(w_j=2^{s-j}/(2^s-1)\). For each
+fixed \(j\), \(w_j\to2^{-j}\), and
+the geometric bound above permits dominated
+convergence in the entropy series. The
+limiting geometric distribution has entropy
+\(\sum_{j\ge1}2^{-j}j\log2=2\log2\).
+Thus the coefficient cannot be improved.
+
+Finally, the powers of two smaller than
 \(Q_0=2^{r_0}\) have total sum at most
 \(1+2+\cdots+2^{r_0-1}=Q_0-1\),
 proving (23). \(\square\)
@@ -753,27 +784,27 @@ More precisely, its objective meets
 the universal one-cell halfspace envelope:
 \[
  \boxed{\displaystyle
-     U_k-P(\mathcal A)\le95/k.}              \tag{26}
+     U_k-P(\mathcal A)\le92/k.}              \tag{26}
 \]
 
-Let \(D_{95}(k)\) be the smallest
+Let \(D_{92}(k)\) be the smallest
 Gaussian ambient dimension allowing
 an exactly equiprobable \(k\)-cell
 partition with objective at least
-\(F_\infty(k)-95/k\).
+\(F_\infty(k)-92/k\).
 Combining (25) with the spherical-cap
 dimension converse gives, for all
 sufficiently large integers \(k\),
 \[
  \boxed{\displaystyle
-    \frac{(\log k)^2}{111}
-    \ \le D_{95}(k)
+    \frac{(\log k)^2}{108}
+    \ \le D_{92}(k)
     \ \le\lceil(\log k)^2\rceil+1.}          \tag{27}
 \]
 Consequently,
 \[
  \boxed{\displaystyle
-       D_{95}(k)=\Theta((\log k)^2)
+       D_{92}(k)=\Theta((\log k)^2)
        \quad(k\to\infty)
        \ \text{for all integers }k.}        \tag{28}
 \]
@@ -842,7 +873,7 @@ for \(q_j\le k\),
 \]
 By Lemma 9, the total difference
 term is at most
-\(2H(w)\le8\log2\).
+\(2H(w)<4\log2\).
 Also \(W_{\rm sm}<Q_0/k\)
 and the elementary Gaussian
 exponential-moment bound gives
@@ -850,7 +881,7 @@ exponential-moment bound gives
 Hence
 \[
  h(1/k)^2-kP_{\rm glue}
-       \le88+8\log2+\frac{2Q_0 L}{k}.
+       \le88+4\log2+\frac{2Q_0 L}{k}.
                                                         \tag{30}
 \]
 For \(k\ge K_0=Q_0^2\),
@@ -865,9 +896,9 @@ The last inequality holds for
 since \(4\log(2^{10})/2^{10}
 <40/1024<1\). Our \(r_0\) is
 much larger than ten.
-Since \(8\log2<6\), the right
+Since \(4\log2<3\) (as \(e^{3/4}>1+3/4+(3/4)^2/2>2\)), the right
 side of (30) is strictly below
-\(88+6+1=95\).
+\(88+3+1=92\).
 This proves (26). Because
 \(F_\infty(k)\le U_k\),
 (25) follows.
@@ -879,7 +910,7 @@ additive tolerance \(C\), every
 sufficiently accurate partition
 must have dimension at least
 \(L^2/(C+16)\).
-Put \(C=95\) to obtain (27).
+Put \(C=92\) to obtain (27).
 The sandwich proves (28). \(\square\)
 
 ### What is now resolved, and what remains
@@ -906,8 +937,8 @@ Theorems 1 and 11 establish a **matching-order
 quadratic-logarithmic dimensional law** for all
 sufficiently large cell counts, not only dyadic
 subsequences. The lower and upper constants
-\(1/111\) and \(1\), and the additive error
-\(95/k\), are not claimed sharp.
+\(1/108\) and \(1\), and the additive error
+\(92/k\), are not claimed sharp.
 
 The only substantial external probabilistic
 input is the classical Berry–Esseen inequality
