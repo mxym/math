@@ -2715,3 +2715,150 @@ code/check_all_k_orbital_compression.py
 implements both recurrences using sparse integer dictionaries. It crosschecks the coefficients against an unrelated, direct \(k\)-subset enumeration on one representative of **every integer partition** for \(3\le n\le12\) and every \(1\le k\le\min(n,6)\). This finite check is supplementary; the transfer-matrix argument proves (165) for **all** \(n,k\).
 
 **Next finite classification frontier.** Theorem 30 gives a rigorous compression layer for the exact \(k=4\) primal-dual problem, while Theorem 25 has already resolved its sharp asymptotic coefficient \(32\). It does not itself give the complete exact finite-\(n\) optimum at \(k=4\), which remains a separate classification problem.
+
+
+## 26. Complete exact four-subset atom-modulus classification for \(4\le n\le64\)
+
+The fixed-rank asymptotic theorem has a substantial finite counterpart in the first previously unresolved rank \(k=4\). Here the exact optimal coefficient can be determined for **every \(4\le n\le64\)**, without using numerical optimization as proof.
+
+**Theorem 31 (complete degree-64 four-subset spectrum).** Let \(C_n^{(4)}\) be the sharp marginal-preserving atom/TV coefficient for \(S_n\) acting on \(\binom{[n]}4\). The exact values for all degrees \(4\le n\le64\) are determined by the following disjoint exhaustive cases:
+
+- \(n=4\): \(C_4^{(4)}=1\), because the action is trivial.
+- \(n=5\): \(C_5^{(4)}=3/5\), by complementation and Theorem 15 for singleton actions.
+- \(n=6\): \(C_6^{(4)}=2/5\), by complementation and the exact two-subset law of Theorem 17.
+- \(n=7\): \(C_7^{(4)}=5/14\), by complementation and the exact three-subset certificate in Theorem 19.
+- Every \(8\le n\le64\): the exact rational optimum is the value labelled \(C\) for that degree in the **fixed public certificate file**
+  \[
+  \texttt{certificates/four\_subset\_n8\_64.json}. \tag{171}
+  \]
+
+This includes full exact **attainment**: for each listed degree there is a genuine nonnegative probability measure with all four-subset image marginals uniform and a singleton atom defect exactly \(C_n^{(4)}\) times its total variation. Illustrative coefficients are:
+
+| \(n\) | Exact \(C_n^{(4)}\) | \(n\) | Exact \(C_n^{(4)}\) |
+|---:|:---|---:|:---|
+|8|5/14|16|3591/9187|
+|9|5/14|20|4147/9871|
+|10|5/14|30|17347/34965|
+|11|1629/4549|40|25257571/45082011|
+|12|131/357|50|297240803/486850773|
+|14|3106/8153|60|261072773/400563233|
+|15|1345/3493|64|6491170033/9749353873|
+
+No all-degree exact formula is implied by this bounded, albeit complete, classification.
+
+### 26.1. Independent exact orbital formulas and full finite search space
+
+For \(g\in S_n\), let \(x,y,z,w\) be its numbers of cycles of sizes \(1,2,3,4\), respectively. Put \(N=\binom n4\), and define binomial orbital moments
+
+\[
+M_j(g)=\sum_{E\in\binom{[n]}4}
+\binom{|E\cap g(E)|}{j},\qquad0\le j\le4.
+\]
+
+One may compute these without transfer matrices:
+
+\[
+\begin{aligned}
+M_0&=N,\\
+M_1&=x\binom{n-1}{3}+(n-x)\binom{n-2}{2}.
+\end{aligned}
+\tag{172}
+\]
+
+Introduce the exact pair-pattern counts
+
+\[
+\begin{aligned}
+c_{22}&=\binom x2+y,\\
+c_{21}&=x(n-x)+(n-x-2y),\\
+c_{20}&=\binom n2-c_{21}-c_{22}.
+\end{aligned}
+\]
+
+For a pair of image-intersection witnesses, the union of the two vertices and their preimages has size \(4,3,2\) according as there are \(0,1,2\) internal directed predecessor edges. Therefore
+
+\[
+M_2=c_{20}+(n-3)c_{21}+\binom{n-2}{2}c_{22}. \tag{173}
+\]
+
+For a triple witness, three internal predecessor edges mean a union of invariant cycles of total length three; two edges mean exactly one path-component or two fixed vertices plus one moved vertex. Directly classifying these cases gives
+
+\[
+\begin{aligned}
+c_{33}&=\binom x3+xy+z,\\
+c_{32}&=\binom x2(n-x)+x(n-x-2y)
++y(n-2-x)+(n-x-2y-3z),\\
+M_3&=c_{32}+(n-3)c_{33}.
+\end{aligned}
+\tag{174}
+\]
+
+Finally, an invariant four-subset is a union of cycles with total length four, hence
+
+\[
+M_4=\binom x4+\binom x2y+\binom y2+xz+w. \tag{175}
+\]
+
+Binomial inversion gives all five desired orbital counts:
+
+\[
+\boxed{\displaystyle
+F_j^{(4)}(g)=\sum_{i=j}^4(-1)^{i-j}\binom ij M_i(g),
+\qquad0\le j\le4.} \tag{176}
+\]
+
+Equations (172)–(176) are **integer identities for every permutation** and provide a second derivation independent of the transfer matrix (165). By Theorem 30, the entire class type relevant to these orbitals is represented by
+
+\[
+(x,y,z,w,r),\quad
+r=n-x-2y-3z-4w\in\{0\}\cup\{5,6,\ldots\}. \tag{177}
+\]
+
+Every such type is realized by the permutation with cycles \(1^x2^y3^z4^w\) and, if \(r>0\), one additional \(r\)-cycle. Conversely every permutation maps to one of these types. Thus verifying (176) and a dual inequality over every tuple (177) is **exhaustive over all \(S_n\)**.
+
+### 26.2. Fixed rational primal-dual certificate proof
+
+For each \(8\le n\le64\), (171) contains two positive rational probability measures \(P_n,Q_n\) specified by central conjugacy-class weights and a four-component rational dual vector \(\lambda_n\), together with two exact rational dual extrema \(\ell_n,u_n\) and the claimed optimum \(C_n\).
+
+The **separate independent verifier**
+\[
+\texttt{code/check\_four\_subset\_n8\_64.py} \tag{178}
+\]
+establishes all of the following as exact integer/rational equalities and inequalities:
+
+1. Both central measures are nonnegative, normalized and **disjointly supported**, with the identity in \(P_n\) and not in \(Q_n\).
+2. All five orbital moments agree:
+   \[
+   \mathbb E_{P_n}F_j^{(4)}
+   =\mathbb E_{Q_n}F_j^{(4)}\quad(0\le j\le4).
+   \tag{179}
+   \]
+   Since the orbital relations are exactly the five possible subset-intersection sizes, this implies equality of every individual image marginal.
+3. The exact central dual function
+   \[
+   h_n(g)=\mathbf1_{\{g=e\}}-
+          \sum_{j=0}^3\lambda_{n,j}F_j^{(4)}(g)
+   \]
+   obeys \(\ell_n\le h_n(g)\le u_n\) for **every** feasible type (177); no class is omitted. All denominators are cleared before the exhaustive integer comparisons.
+4. Every \(P_n\)-support class attains \(u_n\), every \(Q_n\)-support class attains \(\ell_n\), and
+   \[
+   u_n-\ell_n=P_n(e)-Q_n(e)=C_n. \tag{180}
+   \]
+5. The size of each canonical conjugacy class is computed exactly and used to exhibit \(\delta>0\) such that \(u_{S_n}+\delta(P_n-Q_n)\) remains a nonnegative probability measure. Because the supports are disjoint, this measure has total variation \(\delta\), and its identity atom increases by exactly \(\delta C_n\).
+
+Theorem 18 gives the universal upper bound \(C_n^{(4)}\le u_n-\ell_n\), while this attaining perturbation proves the reverse inequality. Thus the checker gives a **complete finite exact proof** for each of its 57 degrees, conditional only on the mathematical orbital reduction and on replaying the publicly displayed finite integer procedure.
+
+The independent checker calls **no optimizer, floating-point routine, SymPy package or certificate generator**. Its complete published replay checks every feasible compressed conjugacy type for every \(8\le n\le64\), totaling **440,670 types**, and returned:
+
+\[
+\texttt{EXACT k4 FRACTIONAL OPTIMALITY CERTIFIED: 57 DEGREES,
+440670 TYPES}.
+\]
+
+The finite class supports were discovered with numerical linear programming and **reconstructed using exact rational arithmetic before freezing**; that discovery process is not a proof premise. The checker reads only the fixed JSON, recomputes all mathematical constraints independently, and never calls the discovery program. Together with the complement cases \(4\le n\le7\), this establishes Theorem 31. QED.
+
+**Scope.** This classification is exact but finite. Theorem 25 separately establishes the **all-degree sharp first-order asymptotic**
+\(
+C_n^{(4)}=1-32/n+O(n^{-2})
+\).
+No exact closed formula for every \(n\ge65\), no globally optimal finite-degree structural classification, and no external human peer review is claimed.
