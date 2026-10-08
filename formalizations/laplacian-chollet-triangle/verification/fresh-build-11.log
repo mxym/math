@@ -1,0 +1,41 @@
+BEGIN Nonnegative
+PASS Nonnegative
+BEGIN Signed
+PASS Signed
+BEGIN Target
+PASS Target
+BEGIN Bipartite
+Bipartite.lean:19:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Bipartite.lean:67:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Bipartite.lean:69:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+PASS Bipartite
+BEGIN GraphMain
+'Chollet.strongChollet_of_isBipartite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Chollet.strong_chollet_of_bipartite' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS GraphMain
+BEGIN Induced
+Induced.lean:19:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Induced.lean:97:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Induced.lean:99:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+'Chollet.strong_chollet_principal_of_induced_bipartite' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS Induced
+BEGIN Triangle
+'Chollet.permanent_three_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Chollet.triangle_laplacian_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Chollet.triangle_laplacian_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS Triangle
+BEGIN Reindex
+'Chollet.permanent_reindex_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS Reindex
+BEGIN K3
+'Chollet.complete_three_graph_full_laplacian_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.K3.0.Chollet.top3_laplacian_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS K3
+BEGIN K3AllSubsets
+'Chollet.proper_induced_bipartite_fin_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Chollet.complete_three_graph_strongChollet' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS K3AllSubsets
+BEGIN AllFinThree
+'Chollet.strongChollet_fin_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS AllFinThree
+PASS ALL 11 OWNED SOURCES
