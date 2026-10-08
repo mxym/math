@@ -1,0 +1,160 @@
+{
+  "status": "PASS",
+  "normal_runs": [
+    {
+      "args": [
+        "verify_dyadic_cofactor_family.py",
+        "--K",
+        "8",
+        "--C",
+        "7"
+      ],
+      "exit_code": 0,
+      "seconds": 0.056,
+      "result": {
+        "K": 8,
+        "C": 7,
+        "n": 512,
+        "complex_rayleigh_millibounds": [
+          1137,
+          1138
+        ],
+        "real_rayleigh_millibounds": [
+          639,
+          640
+        ],
+        "scaled_exact_values_sha256": "50e9496db7b33781f128e5650744ccb87f3672e4205136e10412c8e93cae5f80",
+        "coefficient_bound_verified": true,
+        "fock_norm_bound_verified": true,
+        "finite_lower_bounds_verified": true,
+        "arithmetic": "Python integers only"
+      }
+    },
+    {
+      "args": [
+        "verify_dyadic_cofactor_family.py",
+        "--K",
+        "10",
+        "--C",
+        "5"
+      ],
+      "exit_code": 0,
+      "seconds": 0.897,
+      "result": {
+        "K": 10,
+        "C": 5,
+        "n": 2048,
+        "complex_rayleigh_millibounds": [
+          1991,
+          1992
+        ],
+        "real_rayleigh_millibounds": [
+          1094,
+          1095
+        ],
+        "scaled_exact_values_sha256": "8148292bdf8b86b554bfc3f53ac5027bd3bac20283f7baf3f4ddbe0aa4920396",
+        "coefficient_bound_verified": true,
+        "fock_norm_bound_verified": true,
+        "finite_lower_bounds_verified": true,
+        "arithmetic": "Python integers only"
+      }
+    },
+    {
+      "args": [
+        "verify_dyadic_independently.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.784,
+      "result": {
+        "status": "PASS",
+        "method": "marked-product recurrence; recursive Fock weights; independent Gaussian-integer order-eight Gram calculation",
+        "cases": [
+          {
+            "K": 8,
+            "C": 7,
+            "n": 512,
+            "all_five_exact_values_match": true,
+            "scaled_exact_values_sha256": "50e9496db7b33781f128e5650744ccb87f3672e4205136e10412c8e93cae5f80"
+          },
+          {
+            "K": 10,
+            "C": 5,
+            "n": 2048,
+            "all_five_exact_values_match": true,
+            "scaled_exact_values_sha256": "8148292bdf8b86b554bfc3f53ac5027bd3bac20283f7baf3f4ddbe0aa4920396"
+          }
+        ],
+        "direct_small": {
+          "n": 8,
+          "c": 5,
+          "rank_two_integer_gram_formula": "20 J+3 t t*",
+          "cofactor_row_sums_verified": true,
+          "two_full_Rayleigh_formulas_cross_checked": true
+        },
+        "arithmetic": "Python integers only"
+      }
+    },
+    {
+      "args": [
+        "verify_stage_bounds.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.034,
+      "result": {
+        "e_upper": "87/32",
+        "series_plus_geometric_tail_bound": "31967/11760",
+        "all_thresholds_pass": true,
+        "thresholds": [
+          {
+            "m": 7,
+            "k": 2,
+            "integer_positive_gap": "625687003405303911285115353016320"
+          },
+          {
+            "m": 4,
+            "k": 3,
+            "integer_positive_gap": "1330728746758748332856309376"
+          },
+          {
+            "m": 3,
+            "k": 7,
+            "integer_positive_gap": "4352179132822008342174920340093201806615435645952000"
+          }
+        ],
+        "arithmetic": "Python integers and fractions only"
+      }
+    }
+  ],
+  "all_six_generated_json_files_byte_identical_to_frozen_author_results": true,
+  "selected_optimization_negatives": [
+    {
+      "script": "verify_dyadic_cofactor_family.py",
+      "mode": "-O",
+      "exit_code": 1,
+      "expected_rejection": true
+    },
+    {
+      "script": "verify_dyadic_independently.py",
+      "mode": "-OO",
+      "exit_code": 1,
+      "expected_rejection": true
+    },
+    {
+      "script": "verify_stage_bounds.py",
+      "mode": "PYTHONOPTIMIZE=2",
+      "exit_code": 1,
+      "expected_rejection": true
+    }
+  ],
+  "negative_runs_preserved_all_json": true,
+  "fresh_copy_used": true,
+  "original_payload_modified": false,
+  "generated_output_sha256": {
+    "DYADIC_EXACT_K8_C7.json": "efc691cccb51ec27356404a0c6118e10c3a2afb572b1bb3a1ae2995bd66c93f4",
+    "DYADIC_EXACT_K10_C5.json": "adf26540a5807b19b05fb06af004ab5da8737d3ed8c24bbf80a9c1f9b4e16fc6",
+    "DYADIC_EXACT_VALUES_K8_C7.json": "2a297b6935f22e589e8003cefa4461e755f8c633798c3e41ce187fbe6adea685",
+    "DYADIC_EXACT_VALUES_K10_C5.json": "b73e516fd9586f46c7196d746c841f151d38e2bf60c933391543f92072585169",
+    "INDEPENDENT_EXACT_RESULT.json": "4678d493ae9d3e4d838db95c1e3a4020077ae6f6ef37cf388d90f52dc086653f",
+    "STAGE_BOUNDS_EXACT_RESULT.json": "04a969cbf7f89055de206f95768cccb9488f66b5c908233a4ab47e89c2294684"
+  }
+}
