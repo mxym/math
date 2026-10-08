@@ -50,12 +50,7 @@ def poly_relation(n):
 
 def moment_relation(n,k):
     I=(n,)+(0,)*(k-1)
-    A=(n-4,)+(0,)*(k-4)+(1,)+(0,)*0 if False else \
-      tuple((n-4 if i==0 else 1 if i==3 else 0)
-            for i in range(k))
     T=tuple((n-2 if i==0 else 1 if i==1 else 0)
-            for i in range(k))
-    E=tuple((n-6 if i==0 else 2 if i==2 else 0)
             for i in range(k))
     # For k<4 or k<3 the unrecorded larger cycles are correctly
     # absorbed by the short-cycle transfer evaluator.
