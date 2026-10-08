@@ -1,0 +1,23 @@
+# Full standard-library integer replay on pinned parent certificate
+$ python3 code/check_exact.py
+EXCEPTIONS: six new norm-19/inert-5 prime elements lie inside the certified 90-prime component
+REFINEMENT: first-stage groups 190 mod19 shifts 68590 large mod19 pieces 8 max mod19 298
+REFINEMENT: second-stage checks 200 maximum component 241 witness (2228, 15, 0, 1, 0)
+EXACT BOUND: every nonexceptional irreducible component has <=241 vertices
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check_exact.py
+EXCEPTIONS: six new norm-19/inert-5 prime elements lie inside the certified 90-prime component
+REFINEMENT: first-stage groups 190 mod19 shifts 68590 large mod19 pieces 8 max mod19 298
+REFINEMENT: second-stage checks 200 maximum component 241 witness (2228, 15, 0, 1, 0)
+EXACT BOUND: every nonexceptional irreducible component has <=241 vertices
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: wrong pinned positive partition
+REJECTED: missing exceptional 19-prime factor
+REJECTED: duplicate local lattice vertex
+ALL NEGATIVE AND GRAPH CONTROLS PASSED
+$ python3 -O code/self_test.py
+REJECTED: wrong pinned positive partition
+REJECTED: missing exceptional 19-prime factor
+REJECTED: duplicate local lattice vertex
+ALL NEGATIVE AND GRAPH CONTROLS PASSED
