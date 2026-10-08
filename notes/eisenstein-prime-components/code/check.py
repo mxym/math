@@ -178,6 +178,58 @@ def check_modular_ideal_equivalence():
     print('IDEAL REDUCTION: all 298116 residues, six exact divisibility tests')
 
 
+
+def check_composite_rigidity():
+    """Nonzero-voltage witnesses for all 36 single composite replacements.
+
+    Every membership test uses exact Eisenstein divisibility by literal
+    composite generators, independently of the generator's CRT flags.
+    """
+    proofs=filedata('composite_replacement_cycles.json.gz')
+    demand(len(proofs)==36,'incorrect number of replacement cases')
+    expected=set()
+    for p7 in (2,3):
+        for p13 in (4,5):
+            selected=(0,1,p7,p13)
+            unused=set(range(6))-set(selected)
+            for j in selected:
+                for extra in unused | ({1} if j==1 else set()):
+                    expected.add((selected,j,extra))
+    seen=set()
+    max_length=0
+    for item in proofs:
+        selected=tuple(item['selected'])
+        j=item['slot']
+        extra=item['extra']
+        key=(selected,j,extra)
+        demand(key in expected and key not in seen, 'missing/repeated replacement case')
+        seen.add(key)
+        other=tuple(k for k in selected if k!=j)
+        composite=mul(GENS[j],GENS[extra])
+        def allowed(point):
+            return (not any(divides(GENS[k],point) for k in other)
+                    and not divides(composite,point))
+        start=tuple(item['base'])
+        demand(len(start)==2 and
+               all(type(z) is int and 0<=z<546 for z in start)
+               and allowed(start),'bad replacement walk start')
+        coords=start
+        steps=item['steps']
+        demand(0<len(steps)<=4*546*546,'bad replacement walk length')
+        for idx in steps:
+            demand(type(idx) is int and 0<=idx<len(KING_STEPS),
+                   'bad composite path index')
+            da,db=KING_STEPS[idx]
+            coords=coords[0]+da,coords[1]+db
+            demand(allowed(coords),'replacement walk crosses a deleted ideal')
+        demand(coords!=start and all((coords[i]-start[i])%546==0 for i in (0,1)),
+               'zero-voltage or nonclosing replacement walk')
+        max_length=max(max_length,len(steps))
+    demand(seen==expected,'unproved composite replacement')
+    print('COMPOSITE RIGIDITY: 36 valid nonzero-voltage walks, maximum length',
+          max_length)
+
+
 def check_f6_hexagons():
     centers = ((0, 0), (2, 4), (4, 2))
     groups = []
@@ -235,6 +287,7 @@ def check_closure(size, q, steps, count, prime_count):
 if __name__ == '__main__':
     check_negative()
     check_modular_ideal_equivalence()
+    check_composite_rigidity()
     check_f6_hexagons()
     check_endpoint(63, 93312, 16536, 74)
     check_endpoint(23, 117936, 4368, 94)

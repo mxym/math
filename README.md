@@ -6,9 +6,9 @@ The [Eisenstein quadratic-order continuation](notes/eisenstein-prime-components/
 proves that the six-unit and eight-neighbor irreducible-element graphs
 in Z[omega] have unique largest components of **48 and 132** vertices.
 Sharp principal-ideal scalar sieve periods are **6 and 546**, with
-a four-generator lower bound even for composite generators and
-prime-generator endpoint classification for the eight-neighbor graph.
-An explicit full proof, 333 nonzero-voltage cycles, complete quotient
+a complete four-generator classification even with composite
+generators for the eight-neighbor graph.
+An explicit full proof, 333 lower-period and 36 composite-rigidity cycles, complete quotient
 partitions, prime-closure witnesses and an independent exact checker
 are included. This is model-assisted, not external human review.
 

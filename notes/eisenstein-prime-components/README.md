@@ -14,22 +14,28 @@ unit steps and the eight nearest coefficient-lattice steps.
 | Six Eisenstein units | 48, uniquely attained | at most 6 | 6 |
 | All eight nonzero \(\{-1,0,1\}^2\) coefficient steps | 132, uniquely attained | at most 74 | 546 |
 
-The optimal six-step sieve uses \(2\) and \(1-\omega\); two generators
-are also minimal even when composite generators are allowed.
-Its allowed lattice is a disjoint union of six-cycles, also
-proved analytically.
+The optimal six-step sieve uses \(2\) and \(1-\omega\). At
+the sharp period 6, this is the **unique successful two-generator
+list**, even when composite generators are allowed. Its allowed lattice
+is a disjoint union of six-cycles, also proved analytically.
+
 The eight-step full sieve uses the six generators
 \(2,1-\omega,3+\omega,2-\omega,4+\omega,3-\omega\).
-At period \(546\), **at least four generators are necessary even when
-composite generators are allowed**, and four suffice. A general
-prime-factor replacement lemma proves this stronger lower bound.
-When the generators are irreducible, all four minimal lists are
-classified in Section 5. We do not classify the composite-generator
-four-element lists.
+At period \(546\), **four generators are necessary and sufficient,
+even when composites are permitted**. More strongly, every successful
+four-generator list is, up to associates and ordering,
+\[
+ \{2,1-\omega,u,v\},\quad
+ u\in\{3+\omega,2-\omega\},\quad
+ v\in\{4+\omega,3-\omega\}.
+\]
+The proof excludes all composite alternatives via a prime-factor
+reduction and **36 explicitly certified nonzero-voltage obstructions**.
 
 The infinite results follow from explicit finite proofs:
 333 checked nonzero-displacement walks exclude every squarefree period
-below 546; complete partition/closure certificates cover all 298,116
+below 546, and 36 more exclude every elementary composite
+replacement of an optimal four-prime sieve; complete partition/closure certificates cover all 298,116
 residue pairs modulo 546, with exact quotient-component connectivity
 and neighbor closure checks. The exceptional components are closed
 finite sets of 54 and 138 lattice points, with 48 and 132 verified
@@ -53,7 +59,8 @@ package is required. The committed compressed JSON witness files
 contain the actual finite data; the checker never invokes the generator
 and does not rely on a Boolean result stored in them.
 
-The nontrusted producer is [code/generate.py](code/generate.py); its
+The nontrusted producers are [code/generate.py](code/generate.py)
+and [code/generate_composite.py](code/generate_composite.py); their
 exact options and the checkpoint hashes are in [AUDIT.md](AUDIT.md).
 Do **not** infer that rerunning a generator verifies a theorem: the
 published mathematical proof and separate checker establish the

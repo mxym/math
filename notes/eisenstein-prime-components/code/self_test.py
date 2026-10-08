@@ -56,6 +56,12 @@ if __name__ == '__main__':
         lambda data: data['points'].pop(),
         lambda: check.check_closure(6, 6, check.UNIT_STEPS, 54, 48),
     )
+    expect_failure(
+        'invalid composite replacement walk',
+        'composite_replacement_cycles.json.gz',
+        lambda data: data[0]['steps'].append(6),
+        check.check_composite_rigidity,
+    )
     for prime, yes in [((2,0), True), ((3,1), True),
                        ((4,1), True), ((3,0), False), ((0,0), False)]:
         got = check.irreducible_by_divisors(prime)

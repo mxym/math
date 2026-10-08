@@ -1,7 +1,8 @@
-# Exact replay, Python standard library, Oct 7 2026
+# Oct 7 2026 exact arithmetic replay
 $ python3 code/check.py
 LOWER: 333 nonzero-voltage cycles; max length 594
 IDEAL REDUCTION: all 298116 residues, six exact divisibility tests
+COMPOSITE RIGIDITY: 36 valid nonzero-voltage walks, maximum length 702
 HEXAGONS: 3 quotient components of size 6
 ENDPOINT: 63 residues 93312 components 16536 largest 74
 ENDPOINT: 23 residues 117936 components 4368 largest 94
@@ -14,6 +15,7 @@ ALL EXACT CERTIFICATES VERIFIED
 $ python3 -O code/check.py
 LOWER: 333 nonzero-voltage cycles; max length 594
 IDEAL REDUCTION: all 298116 residues, six exact divisibility tests
+COMPOSITE RIGIDITY: 36 valid nonzero-voltage walks, maximum length 702
 HEXAGONS: 3 quotient components of size 6
 ENDPOINT: 63 residues 93312 components 16536 largest 74
 ENDPOINT: 23 residues 117936 components 4368 largest 94
@@ -28,10 +30,12 @@ TAMPER REJECTED: empty negative walk
 TAMPER REJECTED: negative walk modified displacement
 TAMPER REJECTED: missing endpoint vertex
 TAMPER REJECTED: missing exceptional-closure vertex
+TAMPER REJECTED: invalid composite replacement walk
 ALL TAMPER AND IRREDUCIBILITY TESTS PASSED
 $ python3 -O code/self_test.py
 TAMPER REJECTED: empty negative walk
 TAMPER REJECTED: negative walk modified displacement
 TAMPER REJECTED: missing endpoint vertex
 TAMPER REJECTED: missing exceptional-closure vertex
+TAMPER REJECTED: invalid composite replacement walk
 ALL TAMPER AND IRREDUCIBILITY TESTS PASSED

@@ -5,7 +5,9 @@
 The [Eisenstein continuation of entry 002](notes/eisenstein-prime-components/README.md)
 provides a complete written proof of the six-unit and eight-neighbor
 largest irreducible-component sizes (48 and 132) and the minimum
-principal-sieve scalar periods (6 and 546), supported by 333 negative
+principal-sieve scalar periods (6 and 546), including complete
+optimal two- and four-generator classifications even for composites.
+Includes 333 lower-period and 36 composite negative
 voltage witnesses, five full positive partitions and an independent
 integer checker.
 

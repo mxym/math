@@ -6,10 +6,11 @@
   (six-unit steps) and 132 (eight-neighbor steps); remaining components
   are bounded by 6/74, respectively.
 - Proved optimal scalar periods 6 and 546 for finite principal-ideal
-  sieves, and proved a four-generator minimum even with composite generators;
-  all irreducible four-generator endpoint lists are classified.
-- Added 333 lower-period voltage witnesses, five quotient partitions,
-  two exceptional closures, independent exact checker and tamper tests.
+  sieves, and completed the unique optimal two-generator and four-list
+  optimal four-generator classifications, even allowing composites.
+- Added 333 lower-period and 36 composite-rigidity voltage witnesses,
+  five quotient partitions, two exceptional closures, an independent
+  exact checker and tamper tests.
   See [the research note](notes/eisenstein-prime-components/README.md).
   No external referee or priority claim.
 

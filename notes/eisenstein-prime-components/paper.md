@@ -59,11 +59,11 @@ the six-generator sieve has \(93,312\) allowed residues modulo \(546\),
 partitioning into \(16,536\) lifted components, the largest of size
 \(74\).
 
-**Theorem C (four generators are necessary and sufficient).** At
+**Theorem C (complete four-generator classification).** At
 \(Q=546\), **every** successful principal-ideal sieve, even with
-composite nonzero nonunit generators, has at least four generators.
-Exactly four suffice. If the four generators are all irreducible,
-then, up to associates and ordering, the four possible lists are
+arbitrary composite nonzero nonunit generators, has at least
+four generators. Exactly four suffice, and **every** successful
+four-generator list, up to associates and ordering, is one of
 \[
  \{2,1-\omega,u,v\},\quad
  u\in\{3+\omega,2-\omega\},\quad
@@ -72,9 +72,9 @@ then, up to associates and ordering, the four possible lists are
 Their allowed quotient component maxima, in the order
 \((u,v)=(3+\omega,4+\omega),(2-\omega,4+\omega),
 (3+\omega,3-\omega),(2-\omega,3-\omega)\), are respectively
-\(94,125,125,94\). We do **not** classify minimal lists allowing
-composite generator elements, nor claim an optimal prime-component bound
-for methods other than the stated step graphs.
+\(94,125,125,94\). In particular, **no composite-generator lists
+provide additional minimizers**. We do not claim optimality among
+methods other than the stated finite principal-ideal sieves.
 
 ## 2. Elementary arithmetic
 
@@ -224,18 +224,19 @@ divides \(Q\). If \(z\in(g)\), then \(N(g)\mid N(z)\), and therefore
 \(\gcd(N(z),Q)\ge p>1\). Hence no member of \(V_Q\) is removed by any
 \((g)\). The radical assertion is elementary arithmetic. \(\square\)
 
-We use the following elementary *voltage certificate* lemma. Here
-\(V_q\) is \(q\mathbb Z^2\)-periodic because the norm is an integral
-polynomial.
+We use the following elementary *voltage certificate* lemma. The
+norm sieve \(V_q\), and any sieve by generators dividing a scalar
+integer \(q\), are both \(q\mathbb Z^2\)-periodic.
 
-**Lemma 4.2 (nonzero-voltage obstruction).** Let \(q\ge1\). Suppose a
-finite \(F\)-walk starts at \(z\in V_q\), all its vertices lie in
-\(V_q\), and its endpoint is \(z+qv\) with
-\(v\in\mathbb Z^2\setminus\{0\}\). Then the \(F\)-graph on \(V_q\)
+**Lemma 4.2 (nonzero-voltage obstruction).** Let \(q\ge1\), and
+let \(A\subseteq\mathbb Z^2\) be any \(q\mathbb Z^2\)-periodic set.
+Suppose a finite \(F\)-walk starts at \(z\in A\), all its vertices
+lie in \(A\), and its endpoint is \(z+qv\) with
+\(v\in\mathbb Z^2\setminus\{0\}\). Then the \(F\)-graph on \(A\)
 has an infinite component.
 
 *Proof.* Translate the given walk by \(qv,2qv,\ldots\). All translated
-vertices remain in \(V_q\), and the concatenated walk contains the
+vertices remain in \(A\), and the concatenated walk contains the
 distinct vertices \(z+nqv\) for every \(n\ge0\). \(\square\)
 
 **Lemma 4.3 (sharp eight-step lower period, certified).** For every
@@ -390,21 +391,103 @@ of \(g_2,g_3\), and at least one of \(g_4,g_5\). It uses at least
 four prime generators, and a four-generator list must be one of the
 four displayed in Theorem C. Their masks are respectively
 \(23,27,39,43\); each is successful by Lemma 5.2.
-Lemma 5.3 extends the four-generator lower bound from prime lists
-to arbitrary composite lists. This proves Theorem C. \(\square\)
+By Lemma 5.3, the four-generator lower bound applies to
+arbitrary composite lists as well. This proves the lower bound
+and the stated classification **within irreducible lists**.
+It remains to exclude a strict composite replacement.
 
-**Corollary 5.4 (two generators are optimal for the six-unit sieve).**
-Among all successful principal sieves of optimal scalar period \(6\),
-at least two generators are necessary, even if composites are
-allowed. The pair \(\{2,1-\omega\}\) attains the bound.
+**Lemma 5.4 (36 composite-replacement obstructions).** For
+each of the four prime lists \(P=\{g_0,g_1,g_u,g_v\}\) with
+\(u\in\{2,3\}\), \(v\in\{4,5\}\), choose a position
+\(j\in\{0,1,u,v\}\). Then take an additional factor index \(k\)
+from the two unused indices of \(\{0,\ldots,5\}\), or take
+\(j=k=1\). In **each of these 36 cases**, replacing \(g_j\)
+with the composite \(g_jg_k\) produces a sieve with an infinite
+\(F_8\)-component.
 
-*Proof.* By Lemma 5.3, any one-generator successful sieve at the
-optimal period \(6\) could be replaced by a one-generator
-irreducible sieve of period \(6\). But an irreducible divisor
-of \(6\) is associate to either \(2\), of scalar period \(2\),
-or \(1-\omega\), of scalar period \(3\). No such generator has
-period \(6\). The two-generator example was proved successful
-in Section 3. \(\square\)
+*Proof.* The 36 literal walks are recorded in
+code/composite_replacement_cycles.json.gz. Each lists the four
+prime indices, the replaced position \(j\), factor \(k\),
+a residue start in \([0,545]^2\), and ordered eight-step indices.
+The independent checker constructs the literal Eisenstein
+products \(g_jg_k\), and uses the exact criterion (2.1) to
+test **every path vertex** against the three unchanged prime
+ideals and the one composite ideal. It checks that the 36
+index triples exactly enumerate the specified cases, without
+omissions or duplicates. Every final vertex differs from its
+start by a **nonzero** element of \(546\mathbb Z^2\).
+The maximum certified walk length is \(702\).
+All participating generators divide \(546\): the integer
+\(546\), up to a unit, factors as
+\[
+                   546\sim g_0g_1^2g_2g_3g_4g_5.
+\]
+The double \(g_1\) is the unique repeated prime factor.
+Thus each of the displayed composite sieves is
+\(546\mathbb Z^2\)-periodic. Lemma 4.2 gives an
+infinite connected component in every case. \(\square\)
+
+*Completion of Theorem C.* Suppose
+\(\mathcal G=(h_1,h_2,h_3,h_4)\) is a successful
+principal sieve of scalar period \(546\), permitting composites.
+Use Lemma 5.3 to choose a prime factor \(\pi_i\mid h_i\)
+for each generator such that the resulting successful
+prime sieve is one of the four lists \(P\) above.
+Each \(h_i\) divides \(546\) and hence factors into
+the six indexed primes with the multiplicities just stated.
+After permutation and multiplication by units, write the chosen
+four prime factors as \(P\).
+
+Suppose that one original generator \(h_j\) is **not**
+associate to its selected prime factor \(g_j\).
+Then \(h_j/g_j\) has a prime factor \(g_k\).
+If \(k\) is one of the other three selected prime indices,
+then the ideal \((h_j)\) is contained in \((g_k)\).
+All other \((h_i)\) are contained in their selected
+\((g_i)\), so the allowed graph of \(\mathcal G\)
+contains that of the **three** selected prime ideals excluding
+\((g_j)\). That three-generator list has common scalar
+period strictly smaller than \(546\), hence an infinite
+allowed component by Theorem B, a contradiction.
+
+Otherwise \(k\) is an unused index, or \(j=k=1\)
+(the only allowed repeated prime factor of \(546\)).
+In this case the allowed graph of \(\mathcal G\)
+contains the graph for the **single replacement**
+\(P\setminus\{g_j\}\cup\{g_jg_k\}\):
+all other original ideals lie inside the corresponding
+selected prime ideals and \((h_j)\subseteq(g_jg_k)\).
+Lemma 5.4 supplies an infinite component in this smaller
+allowed graph, a contradiction. Therefore each \(h_j\)
+is associate to its selected prime factor, and the four
+prime lists are the **complete classification**, even among
+composite candidates. \(\square\)
+
+**Corollary 5.5 (complete two-generator six-step classification).**
+Among all successful principal sieves of optimal scalar period
+\(6\), at least two generators are necessary, and the only
+two-generator list, up to associates and ordering, is
+\(\{2,1-\omega\}\), even when composites are permitted.
+
+*Proof.* Lemma 5.3 reduces any optimal two-generator list to
+an irreducible list of the same scalar period. The only
+irreducible divisors of \(6\) are \(2\) and
+\(\pi=1-\omega\), with periods \(2\) and \(3\).
+Both are necessary to obtain period \(6\).
+Any original generator strictly divisible by one of
+these primes is either divisible by the *other*
+selected prime, making it redundant (and thereby yielding a
+sieve of period smaller than \(6\)), or is a
+multiple of \(\pi^2\) rather than \(\pi\).
+The latter case reduces to the two ideals
+\((2)\) and \((\pi^2)=(3)\); their allowed graph
+contains the full horizontal lattice line
+\(\{(n,1):n\in\mathbb Z\}\), because neither \(2\)
+nor \(3\) divides any \(n+\omega\).
+This line has unit steps and is infinite, contradicting
+success. Thus both original generators are prime,
+and Section 3 proves the displayed pair succeeds.
+\(\square\)
 
 ## 6. Exact largest components of irreducibles
 
@@ -478,8 +561,8 @@ The finite claims above have a human-readable reduction to local
 integral predicates: membership, adjacency, norm, residues,
 divisibility, and connectedness. Their raw finite witnesses are
 included, not merely hashes or the output of a search solver.
-The file `code/generate.py` is a nontrusted deterministic producer;
-`code/check.py` is a separate verifier that **does not import the
+The two producer programs are nontrusted deterministic generators;
+`code/check.py` is a separate verifier that **does not import either
 producer**. It uses only the Python standard library and integers.
 Run from this note's directory:
 
