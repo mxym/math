@@ -51,6 +51,10 @@ jobs:
           set -e
           python notes/sharp-robust-permanent/code/check_all_k_orbital_compression.py
           python notes/sharp-robust-permanent/code/check_four_subset_n8_64.py
+      - name: Universal exact maximum-minor formula and full-rank determinant
+        run: |
+          set -e
+          python notes/sharp-robust-permanent/code/check_universal_max_minors.py
       - name: Analytic asymptotic identities and k=4 Chebyshev algebra
         run: |
           set -e
