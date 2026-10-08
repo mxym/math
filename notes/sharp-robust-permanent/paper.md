@@ -2217,3 +2217,141 @@ and
 \]
 
 The asserted expression (135) follows directly, retaining the uniform coefficientwise error. QED.
+
+
+### 24.2. An explicitly corrected Chebyshev dual for every rank
+
+For each integer \(k\ge2\), let
+
+\[
+H(a)=\frac{1-T_k(2a-1)}2,\qquad
+a_j=\frac{1+\cos(j\pi/k)}2\quad(j=0,\ldots,k), \tag{136}
+\]
+
+where \(T_k\) is the first Chebyshev polynomial. Then
+
+\[
+1=a_0>a_1>\cdots>a_k=0,\qquad
+H(a_j)=\begin{cases}0,&j\text{ even},\\1,&j\text{ odd},\end{cases}
+\qquad H'(1)=-k^2. \tag{137}
+\]
+
+All interior nodes \(a_1,\ldots,a_{k-1}\) are nondegenerate extrema: \(H''(a_j)<0\) at odd \(j\) and \(H''(a_j)>0\) at even \(j\). At the left endpoint,
+
+\[
+H'(0)=(-1)^k k^2,\qquad
+\operatorname{sgn}H''(0)=(-1)^{k+1} \quad(k\ge2). \tag{138}
+\]
+
+Put \(\rho=2k^2\). Let \(J_H\) be the correction (135) with \(P=H\). Prescribe
+
+\[
+b_j=0\quad(1\le j<k),\qquad
+b_k=\tfrac12,\qquad
+\tau_j=\begin{cases}0,&j\text{ odd},\\\rho,&j\text{ even}.\end{cases} \tag{139}
+\]
+
+There is a **unique polynomial \(R\) of degree at most \(k\)** satisfying
+
+\[
+R(1)=0,\qquad
+R(a_j)=\tau_j-J_H(a_j,b_j)
+\quad(1\le j\le k), \tag{140}
+\]
+
+because these specify its values at \(k+1\) distinct nodes. Define
+
+\[
+J(a,b)=J_H(a,b)+R(a).
+\tag{141}
+\]
+
+The first-correction contacts are therefore
+
+\[
+J(a_j,0)=\tau_j\ (1\le j<k),\quad
+J(0,\tfrac12)=\tau_k,\quad
+J(1,0)=0,\quad
+\partial_bJ(a,b)=H''(a). \tag{142}
+\]
+
+Write the degree-\(k\) Bernstein coefficients of \(H,R\) as \(\beta_0,\ldots,\beta_k\) and \(\gamma_0,\ldots,\gamma_k\). Since \(H(1)=R(1)=0\), one has \(\beta_k=\gamma_k=0\). Define the **finite, explicit orbital dual function**
+
+\[
+h_{n,k}(g)=\mathbf1_{\{g=e\}}
++\sum_{j=0}^{k-1}
+\left(\beta_j+\frac{\gamma_j}{n}\right)
+\frac{F_j^{(k)}(g)}{\binom nk}. \tag{143}
+\]
+
+At the identity \(h_{n,k}(e)=1\) **exactly**. By Corollary 27, for every nonidentity permutation, with \(a=x(g)/n\), \(b=y(g)/n\),
+
+\[
+h_{n,k}(g)=H(a)+\frac{J(a,b)}n+O_k(n^{-2})
+\tag{144}
+\]
+
+uniformly over the entire feasible region \(0\le a\le1-2/n\), \(0\le b\le(1-a)/2\).
+
+**Lemma 28 (uniform corrected-dual bound).** For each fixed \(k\ge2\), there is \(D_k<\infty\) such that for all sufficiently large \(n\) and all nonidentity \(g\in S_n\),
+
+\[
+\boxed{
+\frac{\rho}{n}-\frac{D_k}{n^2}
+\le h_{n,k}(g)\le
+1+\frac{D_k}{n^2}.} \tag{145}
+\]
+
+**Proof.** By (144), it suffices to prove the claim for \(H(a)+J(a,b)/n\); the uniform remainder can be absorbed into \(D_k\). We cover the compact feasible parameter region by neighborhoods of the finitely many extrema of \(H\) and their complement. Every constant below may depend on fixed \(k\), but not on \(n,a,b\).
+
+**Interior maxima.** For odd \(1\le j<k\), choose a neighborhood of \(a_j\) on which \(H''<0\) and \(H(a)\le1-c(a-a_j)^2\) for some \(c>0\). By (142), \(J(a,b)\le J(a,0)\) for \(b\ge0\). Since \(J(a_j,0)=0\), smoothness gives \(J(a,0)\le M|a-a_j|\). Completing the square,
+
+\[
+H(a)+J(a,b)/n
+\le1-c(a-a_j)^2+\frac{M|a-a_j|}{n}
+\le1+\frac{M^2}{4cn^2}.
+\]
+
+The lower bound is automatic nearby because \(H\) stays bounded above zero.
+
+**Interior minima.** For even \(1\le j<k\), choose a neighborhood on which \(H''>0\) and \(H(a)\ge c(a-a_j)^2\). Then \(J(a,b)\ge J(a,0)\ge\rho-M|a-a_j|\), by (142) and the contact \(J(a_j,0)=\rho\). Thus
+
+\[
+H(a)+J(a,b)/n
+\ge c(a-a_j)^2+\frac{\rho-M|a-a_j|}{n}
+\ge\frac{\rho}{n}-\frac{M^2}{4cn^2}.
+\]
+
+The upper bound is automatic because \(H\) stays away from one.
+
+**Endpoint \(a=0\).** If \(k\) is odd, \(H(0)=1\), \(H'(0)=-k^2\), \(H''(0)>0\). Near zero, \(J(a,b)\le J(a,(1-a)/2)\), because \(b\le(1-a)/2\) and the slope in \(b\) is positive. The latter function vanishes at \(a=0\) by (142), so is at most \(Ma\); meanwhile \(H(a)\le1-ca\). Hence the upper bound holds for large \(n\), with the lower bound automatic.
+
+If \(k\) is even, \(H(0)=0\), \(H'(0)=k^2\), \(H''(0)<0\). Then \(J(a,b)\ge J(a,(1-a)/2)\ge\rho-Ma\) near zero. Since \(H(a)\ge ca\), the lower bound holds for large \(n\), while the upper bound is automatic.
+
+**Endpoint \(a=1\).** Here \(H(1)=0\), \(H'(1)=-k^2\), and \(J(1,0)=0\). Put \(s=1-a\), so \(b\le s/2\), and choose \(M\) large enough that for all sufficiently small \(s\ge0\),
+
+\[
+H(1-s)\ge k^2s-Ms^2,\qquad
+J(1-s,b)\ge-Ms.
+\]
+
+For nonidentity permutations \(s\ge2/n\). Choose a fixed small neighborhood and then \(n\) large enough that \(f_n(s)=k^2s-Ms^2-Ms/n\) is **increasing** there. Thus
+
+\[
+H(a)+J(a,b)/n\ge f_n(2/n)
+=\frac{2k^2}{n}+O_k(n^{-2}).
+\]
+
+The upper bound is automatic near this zero of \(H\).
+
+**Compact complement.** Away from all these finitely many nodes, continuity gives a constant \(\eta>0\) with \(\eta\le H(a)\le1-\eta\). The polynomial \(J\) is bounded uniformly on the compact feasible triangle. Both desired inequalities hold with fixed slack for all large \(n\).
+
+Together these neighborhoods cover all \(g\ne e\), proving (145). QED.
+
+By Theorem 18, the sharp coefficient is no greater than the **oscillation** of any dual function consisting of the identity indicator plus a linear combination of orbital statistics. Since \(h_{n,k}(e)=1\), (145) implies
+
+\[
+\boxed{C_n^{(k)}\le1-\frac{2k^2}{n}+O_k(n^{-2}).} \tag{146}
+\]
+
+The case \(k=1\) is already given exactly by Theorem 15: \(C_n^{(1)}=(n-2)/n\).
