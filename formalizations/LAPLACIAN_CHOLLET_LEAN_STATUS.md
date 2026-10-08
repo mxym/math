@@ -48,3 +48,20 @@ A separate empty directory for freshly rebuilt *owned* Lean sources was created 
 The actual compiler stdout/stderr is published as [fresh-build-11.log](laplacian-chollet-triangle/verification/fresh-build-11.log); the SHA256 identities of all 11 new source files, with machine-local path prefixes removed, are published as [fresh-build-sources.sha256](laplacian-chollet-triangle/verification/fresh-build-sources.sha256). Each theorem-root axiom report lists only propext, Classical.choice and Quot.sound. Benign old-simp-lemma deprecation warnings were present, no errors.
 
 Scope remains narrowly stated: fresh compilation of owned sources against pinned reused Mathlib artifacts, NOT a full Mathlib rebuild, NOT an independent empty-environment trust-zero kernel replay and NOT a proof of the still-uncompleted arbitrary-simple-graph target.
+
+## Additional all-ambient-graph and graph-gluing results (2026-10-08)
+
+The [triangle extension](laplacian-chollet-triangle/README.md) now also proves:
+
+- `strong_chollet_stieltjes_three`: for every symmetric 3x3 real Z-matrix with nonnegative off-diagonal magnitudes and weak diagonal dominance, the full strong permanent inequality holds.
+- `adjacency_pair_le_degree`: in any finite simple graph, adjacency indicators of any two distinct candidate neighbors sum to at most the original degree.
+- `orderedTripleMatrix_strong`: any ordered three distinct vertices inside an **arbitrarily large** finite graph induce an original-degree principal matrix satisfying strong Chollet.
+- `strong_chollet_principal_card_three` and `strong_chollet_principal_card_le_three`: for every finite graph G (no bipartiteness assumption) and every S with S.card<=3, its genuine Mathlib principal Laplacian satisfies the required strong inequality.
+
+These statements were proved in Lean from genuine graph and matrix objects. The proofs use explicit rational-free exact real identities and arbitrary finite-index set equivalences, not numerical graph enumeration.
+
+The new [BlockClosureAlgebra.lean](laplacian-chollet-bipartite/src/BlockClosureAlgebra.lean) additionally formalizes the two generic scalar estimates needed for diagonal increments and one-point graph block coalescence, with all permanent and singleton-pivot input assumptions explicitly quantified. It is **not** a proof of the missing corresponding matrix permanent identity or Lieb's singleton PSD inequality.
+
+A completely new directory, containing no prior owned .olean files, was used to recompile all 16 graph/matrix modules. The scalar closure file was then copied into the same isolated workspace and compiled as the 17th module. Every compile exited successfully, with only benign deprecation/unused-simp warnings. Results and authored source SHA256 digests are published in [fresh-build-v2-17.log](laplacian-chollet-triangle/verification/fresh-build-v2-17.log) and [fresh-build-v2-17.sha256](laplacian-chollet-triangle/verification/fresh-build-v2-17.sha256). The source-level axiom audits report only the standard axioms.
+
+The **unrestricted all-graph strong Chollet theorem is still not Lean-complete.** The principal-set size limit remains three unless its induced graph is bipartite; nonbipartite principal blocks of unbounded size need a complete formal treatment of permanent positivity/block bounds and weighted matching polytope arguments.
