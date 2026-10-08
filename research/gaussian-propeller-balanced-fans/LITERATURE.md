@@ -56,6 +56,16 @@ identified published source).
   rotation-invariant radial-law extensions. The active-face
   trigonometric proofs are self-contained. A targeted scan
   has not settled their historical novelty.
+- **Global equal-mass asymptotic:** we obtain
+  [2 log k - log log k - log(4pi) + O(1)]/k
+  for all dimensions d>=k-1 via a halfspace
+  centroid upper bound and an iid-Gaussian maximum
+  lower construction. Gaussian maxima asymptotics
+  and halfspace rearrangement are classical;
+  we do not claim historic originality of their
+  combination without a comprehensive literature
+  review. Exact finite-k standard-simplex optimality
+  remains outside the proof.
 - **Regular-simplex equal-mass lower constructions:** exact
   first-moment values and strict inequalities versus the
   *planar fan comparator*. This does not establish
