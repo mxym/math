@@ -46,7 +46,7 @@ To regenerate the full Markdown copy, run `python3 export_markdown.py` after the
 
 ## Verification and limits
 
-Two independent AI-assisted mathematical reviews of the underlying proof are included under `review/`, together with the final-copy PASS in `review/FINAL_COPY_REVIEW.md` for the exact TeX, PDF, and Markdown hashes it records. This is conventional written mathematical checking by independent model runs, not external human peer-review acceptance or a complete Lean formalization. The analytic proof, not finite numerical tests, establishes existence.
+Two independent AI-assisted mathematical reviews of the underlying proof are included under `review/`, together with the final-copy PASS in `review/FINAL_COPY_REVIEW.md` for the exact TeX, PDF, and Markdown hashes it records. These reports record conventional written mathematical checking by independent model runs, without external human peer-review acceptance. Version 1.1 adds a complete Lean formalization of the integer real symmetric existence theorem; see [the exact Lean coverage and verification scope](LEAN_COVERAGE_V1_1.md). The analytic proof and its formalization establish existence.
 
 The distinct published complex order-200 witness is cited at a fixed commit. It is not a real matrix and is not used to prove the result here. No exhaustive historical-priority claim is made. No third-party paper PDF is redistributed in this package.
 

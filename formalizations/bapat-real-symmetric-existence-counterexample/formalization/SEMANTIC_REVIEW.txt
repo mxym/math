@@ -1,0 +1,163 @@
+Real symmetric integer Bapat counterexample — semantic correspondence review
+
+Mathematical source: mxym/math commit
+2509263c1028d6814658174b2830a3d658e76c1c,
+notes/bapat-real-symmetric-existence-counterexample.
+Frozen reference/paper.tex SHA256:
+ac6983f69f78175ce119b253f22ae11336ba1e23af9e4c8b13b51d9b30e86411.
+
+This review describes the current complete Lean statement and its proof interfaces.
+Mechanical verification is recorded separately in the fresh run's manifests.
+It is not an external human peer-review or a novelty determination.
+
+1. Quantified conclusion and actual q-permanent
+
+BapatRealExistence.exists_integer_real_symmetric_counterexample asserts:
+there exist a natural N>4 and B : Matrix (Fin N) (Fin N) Int such that
+B.IsSymm, its entrywise real cast is Matrix.PosDef, and not B.IsDiag;
+the real qPolynomial has strictly negative derivative evaluated at 1;
+and there exist q0 q1 : Rat with 0<q0<q1<1 and
+qPermanent(realOfIntMatrix B, q1) < qPermanent(realOfIntMatrix B, q0).
+All these properties concern the same N and B.
+
+BapatRankTwo.qPermanent sums over every permutation of Fin N. The weight
+is q raised to the cardinality of pairs i<j for which sigma(j)<sigma(i),
+multiplied by the full product of entries B(i,sigma(i)). There is no
+restricted permutation class, surrogate coefficient list or free inversion
+weight. BapatFiniteRank.qPolynomial_eval identifies the actual polynomial
+with this q-permanent at every real q. Its polynomial derivative therefore
+has the ordinary mathematical meaning required by the source.
+
+The integer entries are embedded in R before positivity, differentiation
+and evaluation. Matrix.PosDef is mathlib's positive-definiteness predicate;
+over this finite real index set it includes symmetry and strict positivity
+of the quadratic form on every nonzero vector. Integer symmetry is also
+stated explicitly. q0 and q1 are positive rational interior points, not
+merely real points or points in (-1,1).
+
+2. Finite endpoint identity and row repetition
+
+BapatMarkedInversions and BapatTwoRowCofactor use the actual ordered
+inversion statistic. Finite color transport proves the multivariate Fischer
+pairing identity, and BapatFiniteRankEndpoint combines it with the finite
+wedge-coordinate Cauchy–Binet identity. BapatRealPolynomial supplies the
+real Gram endpoint identity.
+
+BapatOrderedRepetition enumerates contiguous blocks with their original
+row order. BapatRepetition proves the product and wedge formulas, including
+vanishing same-block wedges. The norm factor from BapatSphereFischer is
+derived from actual Gaussian monomial integrals and normalized complex
+sphere measure, rather than assumed as a sphere/Fischer correspondence.
+BapatRankFourSphereEndpoint and BapatPeakToEndpoint give the exact
+rank-four integral endpoint formula and a conditional repetition reduction.
+That reduction's existence hypotheses are all discharged in the final chain.
+
+3. Real cloud, canonical coordinates and balanced maxima
+
+BapatEmpiricalCloud constructs an actual deterministic equidistributed
+real unit-sphere sequence using a countable dense family of continuous
+tests and the strong law. BapatOrthogonalSphere proves orthogonal Haar
+orbit invariance, transitivity and preservation of equidistribution under
+moving rotations.
+
+The logarithmic potential is integrable, including the endpoint t=1;
+BapatGaussianBalance proves its strict maximum at t=1/2, and
+BapatSphereBalance transfers the comparison to normalized sphere measure.
+Canonical complex coordinates are constructed by an actual unit phase and
+real isometries. Nonvanishing holds almost everywhere; logarithmic cutoffs
+are continuous and their integrals converge by dominated convergence.
+The Haar lower bound and compact positive maxima then prove maximizer
+balance. BapatCanonicalCloud supplies a triangular cloud with genuine
+positive canonical maxima and parameters tending to 1/2. No measurable
+or continuous choice of maximizing points or canonical rotations is assumed.
+
+4. Exact ratio gap and passage to finite clouds
+
+The balanced ratio is the real part of (x2+i*x3)/(x0+i*x1), with Lean's
+usual total division at zero. BapatRatioCoordinates proves its relation
+to the actual row forms and its degree-zero homogeneity. Singular
+coordinate hyperplanes have normalized sphere measure zero.
+
+The formalization obtains the needed Gini value directly, without taking
+the paper's full Cauchy density/CDF as an additional premise.
+BapatGaussianLinear evaluates the absolute Gaussian covector integral.
+BapatRatioDenominator proves integrability of its singular denominator
+coefficient and computes its radial integral. BapatGaussianRatioIntegral
+computes the full unnormalized eight-dimensional integral pi^5/2.
+BapatRatioRegroup supplies measure-preserving block regrouping and
+Gaussian-to-sphere normalization, yielding exactly E|X-Y| = pi/2.
+BapatRatioIntegrability establishes genuine integrability for the sphere
+pair, so this is not an artefact of a default nonintegrable Bochner integral.
+
+BapatRatioLowerApprox uses continuous nonnegative lower approximations
+whose denominator is cut off away from zero. Their integrals converge to
+pi/2 by dominated convergence. BapatEmpiricalPairs proves uniformity over
+compact continuous test families, pair-average convergence and moving
+parameter convergence for triangular clouds. Consequently the actual
+finite cloud's average ratio difference eventually exceeds 3/2. No
+unbounded empirical-moment convergence or uniform integrability of
+empirical ratio laws is assumed.
+
+5. Selector, actual row ordering, and strict energy gap
+
+BapatSelectorRows gives four actual real linear forms. The maximum/equality
+analysis in BapatSelectorProfile, Quartic and Peaks proves exactly the two
+conjugate phase orbits. BapatSelectedPeak proves equality of the real
+homogeneous wedge observable at every selected maximum.
+
+BapatOrderedRatioScore uses an actual permutation that sorts all augmented
+rows by the real ratio. Pair score is permutation invariant and cannot
+decrease upon appending rows. The product polynomial and its peak set are
+preserved by permutation. No invariance of the inversion-weighted
+q-permanent under arbitrary simultaneous row/column permutation is used.
+
+BapatWedgeContraction proves the polynomial contraction identity by finite
+expansion. BapatExteriorUnit proves that the two orthonormal directions
+have unit exterior coefficient norm. Cauchy–Schwarz bounds the squared
+sorted ratio score times |F|^2 by the actual wedge energy.
+BapatFiniteBase chooses one finite cloud and absorbs the four appended
+rows with a strict numerical margin. BapatRealEndpoint then applies
+contiguous repetition to that fixed ordered base. Its theorem
+exists_real_gram_negative_endpoint is unconditional: a finite N>4 and
+real four-coordinate rows with negative derivative actually exist.
+
+6. Rational, positive-definite and integer conclusion
+
+BapatRationalPerturbation proves continuity of the finite endpoint
+polynomial in row entries and uses density of rational rows. The rational
+Gram matrix is positive semidefinite. A sufficiently small positive
+rational diagonal perturbation makes it positive definite and preserves
+the strict negative derivative.
+
+BapatRationalInterior constructs a strict decrease inside (0,1), then uses
+density and continuity to obtain rational q0<q1 there. It also proves that
+a diagonal matrix has zero endpoint derivative. Thus the negative
+endpoint inequality itself establishes non-diagonality; preservation of
+nonzero rows and a separate rank-versus-diagonal argument are unnecessary.
+
+BapatIntegerCounterexample uses mathlib Matrix.num/Matrix.den to clear all
+rational denominators with one positive natural multiplier. Positive
+scaling preserves strict positive definiteness and the endpoint sign by
+the proved qPolynomial scaling identity. The final rational interior
+parameters are obtained for this same integer matrix.
+
+7. Scope and trust boundary
+
+This is a finite existence proof. No explicit upper bound on N, numerical
+real matrix, or extraction of witnesses from classical choice is claimed.
+The Gaussian Gini calculation and non-diagonality argument are the two
+proof-route changes from the reference text; they preserve the conclusion.
+The development does not assume the Cauchy law, the selector equality locus,
+maximizer balance, or the existence of a finite strict-gap base as axioms.
+
+The final verifier snapshots all supplied module bytes and rebuilds every
+owned module in a fresh output directory with no inherited owned oleans.
+It audits all declarations owned by those modules, including generated
+ones, and gathers their complete transitive dependency closure. It rejects
+unexpected axioms, sorry/native/unsafe/partial dependencies. It checks the
+full pinned signatures of propext, Classical.choice and Quot.sound, then
+replays the entire owned closure into a genuinely empty kernel at trust
+level zero and runs an invalid-proof rejection control. Source/cache
+stability guards and all invocation logs are retained. Only the final
+run's successful manifests can certify this current source snapshot;
+older foundational verification is not evidence for these rebuilt bytes.

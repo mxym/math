@@ -1,0 +1,1703 @@
+{
+  "schema": "bapat-real-integer-full-lean-publication-v1.1",
+  "scope": "Complete finite real symmetric positive-definite non-diagonal integer Bapat counterexample, N>4 and rational interior strict decrease.",
+  "root": "BapatRealExistence.exists_integer_real_symmetric_counterexample",
+  "math_commit": "2509263c1028d6814658174b2830a3d658e76c1c",
+  "original_archive_sha256": "95cc1d7c0b24a07b4a12b61ea20ce14b0dd3f614fa8895d1e4b3b868f8db9cd2",
+  "publisher_reran_lean": false,
+  "self_exclusions": [
+    "PUBLICATION_MANIFEST.json",
+    "PUBLICATION_SHA256SUMS"
+  ],
+  "files": [
+    {
+      "path": "FILES.json",
+      "bytes": 38807,
+      "sha256": "9fc07839318986e98b00dc40cb005b235e6fb40414613f0aeb2814d0f44747e1",
+      "git_blob_sha1": "9a28dfb1397863f05cdb1be74d8ea1abe6e3d9e5",
+      "mode": "100644"
+    },
+    {
+      "path": "ORIGINAL_FILES.json",
+      "bytes": 38812,
+      "sha256": "a464387c718d0dda4c89dc5cecab9581c5e558a4a65927f97fc467ad63def543",
+      "git_blob_sha1": "615fc158ebdba1b41a8723778afb8ffba4be2764",
+      "mode": "100644"
+    },
+    {
+      "path": "ORIGINAL_SHA256SUMS",
+      "bytes": 28305,
+      "sha256": "30a1648ebf7546922f82a14ab2ee02c8b9d04ba0e1202f24dacb831f9b280768",
+      "git_blob_sha1": "083166e7a310f85ebb04f56a25bcbad46b51870e",
+      "mode": "100644"
+    },
+    {
+      "path": "PUBLICATION_PROJECTION.json",
+      "bytes": 48146,
+      "sha256": "000bdcc8d85e0b84f23f6f49cb7e753bb3cc16ecb8f805270ad69bf8c832538e",
+      "git_blob_sha1": "82f764f0f9d69a001ed2b02bf811dc13fdbf95c2",
+      "mode": "100644"
+    },
+    {
+      "path": "PUBLICATION_REPORT.md",
+      "bytes": 6585,
+      "sha256": "51e751e11d35ca6e92e44e953bbff5ec6706f20b8bce5e02e459bfa7cf9861a2",
+      "git_blob_sha1": "7123a6ae8dde76b14e2cc6d9c4980708fb309ddb",
+      "mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2605,
+      "sha256": "90c4cc22f5c14e4cbedc547723f547e0193ffd40bebc3a05519ea17db7417c18",
+      "git_blob_sha1": "f30b567bafec954efb9d880993f3753011f66485",
+      "mode": "100644"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 2838,
+      "sha256": "287e8a67e8d13e8cef2c589c4e124bca5bab16a297d64b4750c91b886ea313c3",
+      "git_blob_sha1": "3a0b13427c1176770cc4469420b0e24d3787ecca",
+      "mode": "100644"
+    },
+    {
+      "path": "SHA256SUMS",
+      "bytes": 28305,
+      "sha256": "b5fb8857767fbe133b5b166b4ea56e3e07a13fe04c7c62707d7fc3f366685584",
+      "git_blob_sha1": "b4e9433bb0794fe5a3430414dd9d52781cf4af42",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/RESULT.json",
+      "bytes": 2089,
+      "sha256": "76884de40db2722323b5301ae13b903de8cbfeca9d35dfb8505641ad3bc4fc37",
+      "git_blob_sha1": "eea5d87413f847cfa08873f2bd5ba599d6b6bb69",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/SEMANTIC_REVIEW.txt",
+      "bytes": 9189,
+      "sha256": "52d0a1d9d6c18983175b5cb1464c0f45f566cc510f063f74d527607e12d86b58",
+      "git_blob_sha1": "f73312971e9f822aff3d86b798c1ebe946032d63",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatAsymptotic.lean",
+      "bytes": 1578,
+      "sha256": "65c8968699f7e1b8b938d231055aa6d7a3f4c73837d0dfa30a813e37fb3a76e8",
+      "git_blob_sha1": "dd9e04a98b33e06dd4f104e6a17a1e399df20b1b",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatCanonicalCloud.lean",
+      "bytes": 3684,
+      "sha256": "e4457f952fa6473e5bae71673aa538a657e08fca335a9cc6257b3b33d2ac77ec",
+      "git_blob_sha1": "8c1adca1d83cf75fdad19507eae22998b1fca53c",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatCanonicalCoordinates.lean",
+      "bytes": 4507,
+      "sha256": "e480e4061c233034727d433a099cf806bb82663805f4d1dd1ec32b2d2b6e6467",
+      "git_blob_sha1": "557df90c53ab1b0cd931afd22a451b4656eea8c7",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatComplexBalanceCoordinates.lean",
+      "bytes": 4715,
+      "sha256": "f289294105e38d513b3f3afcca69411a1b8aa35674709572b6ffd54c06eca1f2",
+      "git_blob_sha1": "628f19a2e1a858d45663fed7f7f39b2ab50a63ff",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatComplexGaussian.lean",
+      "bytes": 4933,
+      "sha256": "7727a41ed0178ad97417a74bd6587defef274250062f83f542291035e6a68a06",
+      "git_blob_sha1": "4c65e6797525ad0511ec77923833ea6e3833258f",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatComplexProductMeasure.lean",
+      "bytes": 3643,
+      "sha256": "430626d9d0513a69e5e8a60ebb70956f5ba7538575adf7e7291cd4023420c6a8",
+      "git_blob_sha1": "a25dcb1d67d2169bba8569debbf86fae30c571d5",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatContinuity.lean",
+      "bytes": 4902,
+      "sha256": "5667aefbe06a3e0c98d6037ec334514eca9545a7ca9ed5b10c0e31fe849ad1a3",
+      "git_blob_sha1": "5adefa042e47de1ca13fd0839bdae14d438a6512",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatDefs.lean",
+      "bytes": 3701,
+      "sha256": "2ceaea73bef6822627d80b3157af5698732c3182d658474730348a7b6ee39dcc",
+      "git_blob_sha1": "a4077ef9432e0beb8db2ccdadeebb779ff304321",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatEmpiricalCloud.lean",
+      "bytes": 5342,
+      "sha256": "9bab0be57e4cb70fef7e3e2c6c140093b4e89cc0fde1c8270b1741c652b80fd1",
+      "git_blob_sha1": "96b5b01747b432a58a905f78795af315df195b7f",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatEmpiricalPairs.lean",
+      "bytes": 7177,
+      "sha256": "db0fb33eb3e4ab55958d93d52a0733b46a7d456e199ce8adafed3f0784078550",
+      "git_blob_sha1": "5511a462ba455107a246823f93b1dc70ee177162",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatEmpiricalRatioGap.lean",
+      "bytes": 2906,
+      "sha256": "e578819109c1406b8b84ab6204ea66495e859a9ac0ab958d9e39559960bfa7c2",
+      "git_blob_sha1": "527b8fab43135ca1fcfc5672da95bf96bc90ab74",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatExteriorUnit.lean",
+      "bytes": 2831,
+      "sha256": "0ef224af95012506b934e88c6b144c77e2d4caf7e230d5e3b5d6e18a754b28f0",
+      "git_blob_sha1": "6fc4c151caa620d92676a43e5fb1b6b98023e7ea",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatFiniteBase.lean",
+      "bytes": 3136,
+      "sha256": "518a695732b35b828ea889650bde1d0689d7d0a8b3831677a3a1b114621ad951",
+      "git_blob_sha1": "19dadae04757dbe40b5bb56bb08e4082ec78c543",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatFiniteRankEndpoint.lean",
+      "bytes": 5087,
+      "sha256": "7321538913b05febe7d513c817b82f6b91355de0d50034d26af210d3950c8e15",
+      "git_blob_sha1": "b74ddbc70f4b005628df4c97e5a6c6f3dfbd7184",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatFiniteWedge.lean",
+      "bytes": 1631,
+      "sha256": "5cf5625049298dafead6f1a5de6ca9b48a7874c67eee471f1fcf2f762c6ff3e7",
+      "git_blob_sha1": "eb960b5c900cf080952d7d465a23cc3ce1096871",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianAngular.lean",
+      "bytes": 5210,
+      "sha256": "a67761d7e0e527874b06965158cbdefef98b8335328a5eff1a72e9a17ebe5299",
+      "git_blob_sha1": "4bc7dd5577f5067e7589adbf938b957d506a8ea8",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianBalance.lean",
+      "bytes": 6553,
+      "sha256": "90a0ae6edb10f3d59faf6092200b995a1e5ce61e1ab97bcbf5ab9aca3cff9605",
+      "git_blob_sha1": "a256fc7d6436604f69482987c18272b9bda30e7e",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianLinear.lean",
+      "bytes": 4080,
+      "sha256": "1cab4f966c960a9ecc47c7a47655511dae1d9564816cf90aff6f6a9eaf8e21fd",
+      "git_blob_sha1": "16a292e0473a9021936a47485d792cc70a06f335",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianLog.lean",
+      "bytes": 2621,
+      "sha256": "a794719cefc1a94c3d59b57032f8a463a9ea2fff99b7f6fde99da375b08a40e7",
+      "git_blob_sha1": "33901a9fc44865fc720fa4b28a288bd24816144e",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianRatioIntegral.lean",
+      "bytes": 2841,
+      "sha256": "0d307de756c3a8ef9452569045f23c1a2f8bb0b0a411814ec15787ee8c955709",
+      "git_blob_sha1": "0b88c7358c8921d08ef0e0eea3e1ba57c8eb83c1",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianSphereAverage.lean",
+      "bytes": 3142,
+      "sha256": "e4d232d4665b286f16dd9afe7d8a4e284c7b2dc8a68742540e79305699f7e215",
+      "git_blob_sha1": "e911165ca4fada0daf4b3f2452c7009a8289e8fa",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatGaussianSphereTransfer.lean",
+      "bytes": 3994,
+      "sha256": "789988f2db51127b695aec5134a200f7a9ffe638791d143a370a8894154e429b",
+      "git_blob_sha1": "c45e91a27e1706f7c9ae0ea8cb28e3b2a8319766",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatHaarLowerBound.lean",
+      "bytes": 6174,
+      "sha256": "9126536926d7a0e27a82dc7c3d3c984c9847b0f1a0feada2c4f83d09ff7b9311",
+      "git_blob_sha1": "46de21745e2501f319ca221c09c2735833cfa093",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatHomogeneous.lean",
+      "bytes": 2030,
+      "sha256": "1c542bdb26b722ad5eeef5a9cac1a985c15620e7a9c7c4906ff99d023c96e151",
+      "git_blob_sha1": "d7901c2a6e04cc441f1592e3c100b0a114a4f110",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatIntegerCounterexample.lean",
+      "bytes": 2669,
+      "sha256": "3debb2852735d7250132a2429eef147d20d0dc7f67c27a66b4c86a102610dce0",
+      "git_blob_sha1": "84248b609e2610455193576b0259503e7c72b7e7",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatLaplace.lean",
+      "bytes": 5192,
+      "sha256": "169951ec7d536046bc93c2377e4b0a8f24da0df607a29f6e8d2a2e752ddbb872",
+      "git_blob_sha1": "15753d11f2f99e7547ca98acb38b6244cdfb6ee7",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatMarkedInversions.lean",
+      "bytes": 10363,
+      "sha256": "fd060f9a5c1b11c4a2bf9f257248b6671955e4c033593c804c4420474fe7b235",
+      "git_blob_sha1": "cd0d8e78fdb491f12c8937384cb90cc11959d059",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatMaximizerBalance.lean",
+      "bytes": 5433,
+      "sha256": "ec474fe737d1d83db03cc326b492bf10602d20a4a398a65d03989588bc2cdad2",
+      "git_blob_sha1": "4479cd1d5b29c84d5264f5e6b8c9fc7a5802db1c",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatMovingCloud.lean",
+      "bytes": 3534,
+      "sha256": "2a0615a7562fe636bfc7b0ad04085a8be66fd68105792e47f2708f2d2040a9a9",
+      "git_blob_sha1": "08a5742ca8bee20dee916f8155508a9b9473bb9b",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatMultiColor.lean",
+      "bytes": 2309,
+      "sha256": "41a74a859c2c7989785384ae62d76dffb347948ef7ed9e22c660231a44deaf61",
+      "git_blob_sha1": "78dbc7482ccb64823dc4ad81f4221b8a5d5bc916",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatMvFischer.lean",
+      "bytes": 8187,
+      "sha256": "de163f3d024668ad7c9ec5f87bbe7e934abd03574436ec2127d415b5386ca276",
+      "git_blob_sha1": "d2d7ceb482508b55bd8d2c08b8fcb5d65286eabd",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatOrderedRatioScore.lean",
+      "bytes": 3266,
+      "sha256": "542b30aad9aab80882f0d9ce358a65b0fe0487e55da1d1d19763c16757776357",
+      "git_blob_sha1": "3ff7447c81ab7b4a5aa5aeb1af1342cebed62627",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatOrderedRepetition.lean",
+      "bytes": 3252,
+      "sha256": "3f15237d9894d2df635f7282f5f9b86839e29e59fea50410289ca722eb52f78b",
+      "git_blob_sha1": "e52b9cc10395f6d66b589856018a6f5ee364808d",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatOriginalStatement.lean",
+      "bytes": 1479,
+      "sha256": "c972b02b7e3a1f53b656ba8b90842b4ac299bc3635c20572dbc7bf1bbdee227c",
+      "git_blob_sha1": "1e32ecad3110ec22a97da9351b41031b45aaf1ef",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatOrthogonalSphere.lean",
+      "bytes": 6316,
+      "sha256": "6459cadf5f420ff0bb204ea7235381b42962ff3b1ca90d463d7eae1415a688fe",
+      "git_blob_sha1": "57ad958277e99e32bae622ab0956631fd58e8382",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatPeakToEndpoint.lean",
+      "bytes": 3835,
+      "sha256": "b96f2225a02d101defe505993f5e885899bbe73d17566daef0f37be85b30e945",
+      "git_blob_sha1": "734f669d3391b5de7c89ad0e7728aadd93e0f68e",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRadialGaussian.lean",
+      "bytes": 3757,
+      "sha256": "5861f2d060a8a00a2e50337165ee238f2e75af11119fac21de457351e1bf83e7",
+      "git_blob_sha1": "92b89de8b019e643697ecd0a2433b29418ff53f9",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRankFourSphereEndpoint.lean",
+      "bytes": 3796,
+      "sha256": "1b9f1ec0113042f8b0e16bc61b49e1755552e1ccbb6de6f6036520c927bb9c49",
+      "git_blob_sha1": "30bec511f7ca4f97b53c8f451c00eb1b41283209",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRatioCoordinates.lean",
+      "bytes": 5605,
+      "sha256": "806b3ff35194d76829bd87756f786373d6658c41e8d9efe30cf9fca13d5fc32d",
+      "git_blob_sha1": "8856d66f1cbcd7767231f04bfd8dd4d091bb8ad1",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRatioDenominator.lean",
+      "bytes": 3568,
+      "sha256": "9a0c6676b9c14cce684021792be53b3805f0bd6dcd35238b412d731c42ba9788",
+      "git_blob_sha1": "0c42653c1921fec6fc8ef57eafe4e953f29ea8d6",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRatioIntegrability.lean",
+      "bytes": 2652,
+      "sha256": "7d7a401b831ee324dba6fede687db5f8bc865597a4597bed04d4baabefbfb053",
+      "git_blob_sha1": "a93c03ec5acffb61f5b178abaf014cece0b2b30a",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRatioLowerApprox.lean",
+      "bytes": 5489,
+      "sha256": "0ba75c408c337802296c34234ac3fa499eed9b210fcc03981ba973bdd25eaefa",
+      "git_blob_sha1": "6acf42f00a58e58b8b4bc384ab5c1f38d1792751",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRatioRegroup.lean",
+      "bytes": 5808,
+      "sha256": "12815a26470428fb3df48b27e10b2a4a2a8f94471e8d4d5aa83105a0f13771c6",
+      "git_blob_sha1": "efc2e26bf6445fbe11e40b1aac279ec0e54a9166",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRationalInterior.lean",
+      "bytes": 3594,
+      "sha256": "9e0f856763f380cd8abf6b9e03cc6de17b2a632c9fcf39178f722ea978329a91",
+      "git_blob_sha1": "a8872ab64a1be4fd18d3b7937371cc4905566441",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRationalPerturbation.lean",
+      "bytes": 3695,
+      "sha256": "116d78b66076ab90db2120d4c2d5e86048a46bcca169e5343c3e0277b439f67b",
+      "git_blob_sha1": "70b3172b363058c9d9a97da30f98c1324643e770",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRealComplexLinear.lean",
+      "bytes": 2966,
+      "sha256": "f24e3db4ebe31b8faf389230c172af15893c7b834a9cfa9dfb381bd3ef98b35c",
+      "git_blob_sha1": "d583c953385541318b6a41d45e0d5b0b919aab74",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRealEndpoint.lean",
+      "bytes": 2118,
+      "sha256": "9bf2845dcba919595659e06002de394f670388c31ca624638b26538026e8bb80",
+      "git_blob_sha1": "934cb6f583ed6976a7879de6834e2227f4cfb69c",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRealGaussianPotential.lean",
+      "bytes": 5254,
+      "sha256": "0afa53ab45765a928c5063375e1fc3ea57850c08c5ee5fc950d6b0d91d819e13",
+      "git_blob_sha1": "cb7c6433cb1650131db0606565d899c51cebdc4d",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRealGaussianTensor.lean",
+      "bytes": 2665,
+      "sha256": "3c4aed06259878c51194f0ad58033bc6fd6613c3ec517f033ae6c371c8945c2c",
+      "git_blob_sha1": "e3e408932083ad2965eb93f95a60da0377373dfd",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRealPolynomial.lean",
+      "bytes": 2973,
+      "sha256": "164b5d4e2a7e2e65a48c85a85f10d4cb4614af8b2023b7a9ec9d6c3b8171d7cc",
+      "git_blob_sha1": "b748d2500b00bdc340fb83d6239f71435fe4eb14",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatReality.lean",
+      "bytes": 2316,
+      "sha256": "58287330a230ac12a0ad7dc4d9f398d8b2efcd1bb22974a7c64edd17dbe69c51",
+      "git_blob_sha1": "56ec783a8620c2ea7b06f92446ff02a1d8f8510b",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatRepetition.lean",
+      "bytes": 7356,
+      "sha256": "b832750b5facbecd1c31581f27a6b02f4fd41fd338045017a900d4625b789df7",
+      "git_blob_sha1": "0faec5d38c60f2dd3d1b8d48ce665547a4f37254",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSelectedPeak.lean",
+      "bytes": 5407,
+      "sha256": "3342455a8a2598823108e7384f16f0f3ea98276fb45437521ecd9234e4095c54",
+      "git_blob_sha1": "73c02a811220abde8f8c4d302e029ab527c710d0",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSelectorPeaks.lean",
+      "bytes": 7620,
+      "sha256": "53deb1b5ac4aefaf32c44eed9a537b1abbea5c19e95519c0a18c9206b41e1103",
+      "git_blob_sha1": "5b1a55ac0e8acb281fb96b84bcab3de7c8107c7d",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSelectorProfile.lean",
+      "bytes": 3941,
+      "sha256": "42039bb6b4728c9fdbeb83a7deb0768a3b2ceaaebfd046672200b291fee76027",
+      "git_blob_sha1": "fd8c2f206894029f45a9de8e78e769b7603ce8c7",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSelectorQuartic.lean",
+      "bytes": 5120,
+      "sha256": "2c7ab8bfe8e9815ad82f8135c9874d709a12415f6de02740025d7e6cbfce4d3b",
+      "git_blob_sha1": "868c02c201e1c931c7ee39320844ef070c5b4025",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSelectorRows.lean",
+      "bytes": 3395,
+      "sha256": "74b2fe9a87199003381d59e313418d1bc0fd8f8d1a1d2c007052c48046ed2582",
+      "git_blob_sha1": "febbb91655f2634aef8f1d2e5b28b8ee8edcdca3",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSortedWedgeBound.lean",
+      "bytes": 2995,
+      "sha256": "f4580438a96c1b3ce84276c07324bd2568914317fa6547894e8c17e74da7e86e",
+      "git_blob_sha1": "a6310546ef7648f5a57169b990219569eb56369b",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSphereBalance.lean",
+      "bytes": 2990,
+      "sha256": "ac74f244aa18522a23e02a010d764d3249a6e97ff7b4cdac147a19030abccfcd",
+      "git_blob_sha1": "dea04f057f04002d3891863ed32dd6036a6db5d5",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSphereFischer.lean",
+      "bytes": 5727,
+      "sha256": "54cdfd48af77abebfcb86eab7a417f1b548101dcfd5516196c63e679a847c675",
+      "git_blob_sha1": "cff8a5553017603b40a99bd860c27528aa268449",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSphereInvariance.lean",
+      "bytes": 3723,
+      "sha256": "324c404186d1c558b021f3030de489d7bee558852a1a2407f85c89797fd98551",
+      "git_blob_sha1": "150f73b7102ccd680ea78087952d2bf7a8d91443",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSphereMeasure.lean",
+      "bytes": 2264,
+      "sha256": "f1be7b3d7ceb3165209a98ddf8b228b79b44291cedc130309d1b6ea485fc3cac",
+      "git_blob_sha1": "1d943bcc50508672924a0d72be4a6ed586729f20",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSphereMoments.lean",
+      "bytes": 2650,
+      "sha256": "243352399b44b22e842226f30249a59fc084f8c8185cf68b8cb4dbc3cab19ce5",
+      "git_blob_sha1": "3d20953564366c49ae5783eae497b43f02414479",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatSpherePotential.lean",
+      "bytes": 5653,
+      "sha256": "cca929b5dcbfa4f50fee806d1e13c8516be4ef365e61a5d90410e2a6f3a29b48",
+      "git_blob_sha1": "1c31b408022ea07a7d95523a5ca428760a7c5319",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatTruncatedPotential.lean",
+      "bytes": 3597,
+      "sha256": "bd73dc1d5acf0ada35c4e27abb930ffc469fb6a5a4dff7b7d64ad7202f33a77f",
+      "git_blob_sha1": "c2fbacd873282b9c3550d2d0ca58b42bc3ea22eb",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatTwoRowCofactor.lean",
+      "bytes": 6058,
+      "sha256": "f1a08b653544094bbceecc2c4eb75274df8a7f3699a6ccfdc1a466a234501917",
+      "git_blob_sha1": "dbf15727ffa6d1565db851eb53c10ded2ffbb60a",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/sources/BapatWedgeContraction.lean",
+      "bytes": 4368,
+      "sha256": "1040f020d782c41fbba64f9ed63d6fd56b7374cd35b2c8fdc6f1069b34203e59",
+      "git_blob_sha1": "a38b5f4b0b05088c51d929cc43ae728b69cffb75",
+      "mode": "100644"
+    },
+    {
+      "path": "formalization/verify.json",
+      "bytes": 15534,
+      "sha256": "d24cd8ab1ccd131f443ebf0477879954564da304af56715609d2e47846af4877",
+      "git_blob_sha1": "a8bd05d0763f1c76c8d90af634225d4cc2a4a3f7",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/checks/OwnedAudit.lean",
+      "bytes": 14601,
+      "sha256": "edd92e80f77509ed36a34c802f2d36a6ef63121db21c89ad4b5dfa62b723ae3b",
+      "git_blob_sha1": "a548538c2aba3294074a72fb8f3de240972e59da",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/checks/RejectInvalidProof.lean",
+      "bytes": 1107,
+      "sha256": "a65cb0e8e11c81664690c24aca0d3952aa4753a7bf0b418a382dad811a613d55",
+      "git_blob_sha1": "a3ae560a3dc22531b0366bfed1fcf73780432d39",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/000-BapatLaplace.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/000-BapatLaplace.dependencies.log",
+      "bytes": 225,
+      "sha256": "aecef0b050ce831e3cfcfc3707a788af06a8326ddc9394bdabb459464d6521c9",
+      "git_blob_sha1": "5c6d03a2ab33d0434bc0cd9c931d7059be9a54e0",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/001-BapatMarkedInversions.compile.log",
+      "bytes": 856,
+      "sha256": "a7f543afc05e38c93b7962a0fb41bdcfa9142bebcf065ad0fa7fd4c5e26d5811",
+      "git_blob_sha1": "d1fd25e7874fc89be48e35710de7917bebadfa87",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/001-BapatMarkedInversions.dependencies.log",
+      "bytes": 382,
+      "sha256": "43335aec6905620fad2f5a256e71fa0bfbc9bcc15a67351b3eefcc316b95080e",
+      "git_blob_sha1": "4e98b320c67dc7baa0c589acc78bbd3ded438182",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/002-BapatMultiColor.compile.log",
+      "bytes": 774,
+      "sha256": "b8e5917505e12a6e83c2189446470575637b47367f6c2f093a6644dc04f33152",
+      "git_blob_sha1": "a18f49c24fe04ce3fc16bd76a8ffd93453fb6043",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/002-BapatMultiColor.dependencies.log",
+      "bytes": 365,
+      "sha256": "a2b54a4c9b3edf76b7732653aac0871a4163ef61d58c227397db058378ff07dd",
+      "git_blob_sha1": "05866a35017b2ec5a63b8bc3c393e7f3acafc8ea",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/003-BapatAsymptotic.compile.log",
+      "bytes": 757,
+      "sha256": "2f7625f90bb095376df64903dd2451378b9a680b02fa4f4af5e5db4d1de75f30",
+      "git_blob_sha1": "ab50c2b43b224ade5a53867edafe2085783e30a2",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/003-BapatAsymptotic.dependencies.log",
+      "bytes": 273,
+      "sha256": "95cb381713f5e180037ba0cf507fd73bb2a369791054b93696413b7c666f0ed7",
+      "git_blob_sha1": "40685ff8473013f039e79909559a668aca994ff6",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/004-BapatSphereMeasure.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/004-BapatSphereMeasure.dependencies.log",
+      "bytes": 204,
+      "sha256": "7861eb59e34a21f36c01becc38c7040ff2a80ff969ff178f08a874e55b686d41",
+      "git_blob_sha1": "79a1de692778d0cff539bf65824f24a631eb768e",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/005-BapatDefs.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/005-BapatDefs.dependencies.log",
+      "bytes": 542,
+      "sha256": "d7f14789ba87ecc4e0ff79d7a73441be6247f52abd9d33cc3b219dddb3f3fa5b",
+      "git_blob_sha1": "199e6c4f89ebcbcf4c92eb73928e3733c4cfccbe",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/006-BapatFiniteWedge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/006-BapatFiniteWedge.dependencies.log",
+      "bytes": 113,
+      "sha256": "f8c0e40c3c8f581225bc378189a0f488c4c88a047b4cac0f7f489e9f889687b3",
+      "git_blob_sha1": "3413b21406c429c34b692a701473201491b6feb1",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/007-BapatTwoRowCofactor.compile.log",
+      "bytes": 1422,
+      "sha256": "c50e72304488cc14bcc23e930e854b08179be27c21e81ce5e6770d85f8b5820f",
+      "git_blob_sha1": "b10f7e9f539270380d4159d4d58c36aa2925475c",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/007-BapatTwoRowCofactor.dependencies.log",
+      "bytes": 113,
+      "sha256": "f8c0e40c3c8f581225bc378189a0f488c4c88a047b4cac0f7f489e9f889687b3",
+      "git_blob_sha1": "3413b21406c429c34b692a701473201491b6feb1",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/008-BapatMvFischer.compile.log",
+      "bytes": 3163,
+      "sha256": "9e3190697df40933430fbe0d77ad5c4f3352d9cce0822ff116219e4ee4784182",
+      "git_blob_sha1": "6f28e8dc4c5084249a646476ef6f77d77c6541f6",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/008-BapatMvFischer.dependencies.log",
+      "bytes": 368,
+      "sha256": "d5a4bc2908e900c70712ece925e3a48d643ba5f92f162ffaaa0051363a123557",
+      "git_blob_sha1": "a8021795b3f03067bd1bc9277cfe11723de5ab0b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/009-BapatSphereInvariance.compile.log",
+      "bytes": 999,
+      "sha256": "01d2c36ee00d379ce70d63a677923117b866d306e16040f7a98e6801deb51192",
+      "git_blob_sha1": "63001dc54a7f97fef26cb9cc2075fb6b28118fbe",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/009-BapatSphereInvariance.dependencies.log",
+      "bytes": 214,
+      "sha256": "982e0b055e5dfd4215215e23ca3b95e8570f63a55d5885e37a394b48bcd30c5f",
+      "git_blob_sha1": "a85390b2278462565b546db49d51b3f3806adb6f",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/010-BapatContinuity.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/010-BapatContinuity.dependencies.log",
+      "bytes": 378,
+      "sha256": "e32a79bb935c9d152750b47389d53bbdfdb4ee32b3a225a112b94eb7e9e3d0b6",
+      "git_blob_sha1": "ba71a0dd21c590c72b60c02ec05697704b91d0ef",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/011-BapatReality.compile.log",
+      "bytes": 361,
+      "sha256": "d04647f52decc6ab4046677176a61a0d9777c8243f720855c272f42a12c129fe",
+      "git_blob_sha1": "ab4500efee1569bcd695b11fe40639f638ff7562",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/011-BapatReality.dependencies.log",
+      "bytes": 101,
+      "sha256": "445ea8245d282321f515f22a55fdb313d6548f883a9e65ddef18dc16fe9a60ec",
+      "git_blob_sha1": "e236a7dea1d5d72fac13bcd51efc6b8ee1b02d35",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/012-BapatFiniteRankEndpoint.compile.log",
+      "bytes": 875,
+      "sha256": "3d45a3be941b67bf284e82d34517a49d8bf5f5ce09eb1ca36b4101e60d7089e3",
+      "git_blob_sha1": "afcdc0dd0240bca118056fbe1e57cbd3ce88d033",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/012-BapatFiniteRankEndpoint.dependencies.log",
+      "bytes": 234,
+      "sha256": "f567cd82d4dba682ef89cd1dd22dcc58480a1b404d8377dbc572b5b446cde479",
+      "git_blob_sha1": "3cc812dbc774454f39cf3067c839e07460ce1c39",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/013-BapatComplexGaussian.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/013-BapatComplexGaussian.dependencies.log",
+      "bytes": 371,
+      "sha256": "44cb3a7afbb99a1982e0fc01d07b0de3b306b5aa2253be26a8db50f061100630",
+      "git_blob_sha1": "2a75693574a24f7ec17121f36a9c918dc0877789",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/014-BapatOriginalStatement.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/014-BapatOriginalStatement.dependencies.log",
+      "bytes": 234,
+      "sha256": "4c662968df55aaf27938f7db1efb657cd1b7842ba7997027c7ae373d157ad440",
+      "git_blob_sha1": "285507a10faedec126aab1d0a9afaa8702b69355",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/015-BapatRealPolynomial.compile.log",
+      "bytes": 519,
+      "sha256": "d201dc9363757fa273c563549446e0af4f0f6000868d7962c868695e500cd278",
+      "git_blob_sha1": "3f5b0a20685ef35bf435075073ba72d9f3a3892b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/015-BapatRealPolynomial.dependencies.log",
+      "bytes": 115,
+      "sha256": "12af9f83c59ce7e7bcaf5b1e3732de057fcf7efbbe1ce6111aa821e142bdb3ae",
+      "git_blob_sha1": "4e24109e8358f95e47bcd91d0769e9f6936c9aef",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/016-BapatRepetition.compile.log",
+      "bytes": 1956,
+      "sha256": "24d0a77cab3e91047b6e7295b1d4b2937e60bdcb9b9f56d23ba377c70804e2c0",
+      "git_blob_sha1": "c46c8cba5cf31efcf687fb4f54a010d10bb54ea3",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/016-BapatRepetition.dependencies.log",
+      "bytes": 188,
+      "sha256": "b5f33d80875473bd79ea80d165fa0a6665ce1272a0dfdd4ae8e2b8707d329bf3",
+      "git_blob_sha1": "a5aa7abc07de931251a79e98872d7cbe09a446e3",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/017-BapatComplexProductMeasure.compile.log",
+      "bytes": 786,
+      "sha256": "8ff3c01035a8e647bc39f00accf45a9c611fc8e47e584d8f5b27536b481a145d",
+      "git_blob_sha1": "0653f41cb7d8a5526a3461b20d563738c78a3029",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/017-BapatComplexProductMeasure.dependencies.log",
+      "bytes": 211,
+      "sha256": "550b7c693f236f8e056310459c94c1d3a710a05f2044c333eeea93cda0274076",
+      "git_blob_sha1": "538c9fe6c74b6934c198b72c62cd06edb8b0b928",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/018-BapatGaussianAngular.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/018-BapatGaussianAngular.dependencies.log",
+      "bytes": 112,
+      "sha256": "9686f2dfadb4831912107150380b3fc1faaf9eb9a072713527e527939d97254c",
+      "git_blob_sha1": "e59ac06b5e441c56153c01112c5ebc93ffbe4d82",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/019-BapatOrderedRepetition.compile.log",
+      "bytes": 492,
+      "sha256": "09d08ca1acfcecbe677546f1919ab346aa0395ae912f7576944d0ba4db267bca",
+      "git_blob_sha1": "cb4f7696b315a2bf533cbf3a571338f8b87e8a92",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/019-BapatOrderedRepetition.dependencies.log",
+      "bytes": 231,
+      "sha256": "b9b108bed4fdf1b696417ccb8f963055c36353d06811d50f9176b5d1321bc07c",
+      "git_blob_sha1": "1ddb1cbb1d4a21079c48781677ccffe8cc9a43de",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/020-BapatSphereMoments.compile.log",
+      "bytes": 237,
+      "sha256": "75c4353316593f2f8a86877c7a0b196cdbaa6b0a55fc054fced467bcf12d1d75",
+      "git_blob_sha1": "92a9843a11c98e7dd9c69709837cc25bf1dd1ef5",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/020-BapatSphereMoments.dependencies.log",
+      "bytes": 166,
+      "sha256": "9971cc50bccf67c9f8bc2e58ab6bca692fa5f2619262c9fde899449e8ee51e32",
+      "git_blob_sha1": "b277a7009718a4518da83d13dba738d78d39ce30",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/021-BapatHomogeneous.compile.log",
+      "bytes": 846,
+      "sha256": "9ee7bec975652cdc74833447386c823affc9f444f19cdb2a1ecfef0d05da48e7",
+      "git_blob_sha1": "c40d8faf3fbea0b5c74435145fc78465664c351e",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/021-BapatHomogeneous.dependencies.log",
+      "bytes": 209,
+      "sha256": "cca6b7f22f67b0f8682a78dca2d45a02d51cbd034a737cdce52dff710aff1a94",
+      "git_blob_sha1": "a48dda7dfc4747d509e67b3fe7f5d4d9fea0bf80",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/022-BapatSphereFischer.compile.log",
+      "bytes": 2336,
+      "sha256": "6596e3c1774c50942710c2ad9ac29f32863ba55a50c5135b5385c593bba42787",
+      "git_blob_sha1": "d1e9ee24c752beb8c1f2c4e2d5dcb199153377cc",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/022-BapatSphereFischer.dependencies.log",
+      "bytes": 154,
+      "sha256": "47a0cddb0899a0c6475ad80d11fe96a66d02373e74b414d1e1f5e80764d092bf",
+      "git_blob_sha1": "ab8f0b46ffab5b67f6d56bf84d5dd003239e90ea",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/023-BapatRankFourSphereEndpoint.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/023-BapatRankFourSphereEndpoint.dependencies.log",
+      "bytes": 153,
+      "sha256": "3852e9abbaf82691250721ab7d5a2f099dfcfa9eacf6b50895cd8b992f599fdf",
+      "git_blob_sha1": "012a2ea7f380bbf101662e4d214416888f31ef33",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/024-BapatPeakToEndpoint.compile.log",
+      "bytes": 412,
+      "sha256": "457553692657fb87d0ece5e7fd6edad3c63f0a1c69bc2321dba683549f53da14",
+      "git_blob_sha1": "30606e0382ec8ddf7d54730a57fe8d3c6279eb17",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/024-BapatPeakToEndpoint.dependencies.log",
+      "bytes": 119,
+      "sha256": "5dcd8067b14d4022eec0fb143bfc710b962cdcd6db9d39e71e5f571ee514899a",
+      "git_blob_sha1": "a247ef06a8d661518fa3c61293348406265b4ec2",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/025-BapatEmpiricalCloud.compile.log",
+      "bytes": 1595,
+      "sha256": "2e970886f2962ce3c5cebc6bac1082d458079291dfcf8c78501b1e109b6dc7e9",
+      "git_blob_sha1": "cc9b2a457e5bf7c7f64a989f50999635791049dd",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/025-BapatEmpiricalCloud.dependencies.log",
+      "bytes": 390,
+      "sha256": "f9fc5a176fba753f6213302bd3f0085b75d20e19b60813f970f6fc2b7d9a2a0c",
+      "git_blob_sha1": "ea410a647eceb720cbae78cdf4af6dfcac54f71c",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/026-BapatSelectorProfile.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/026-BapatSelectorProfile.dependencies.log",
+      "bytes": 204,
+      "sha256": "2710ab5402ddd263eb01d0e93ca68f80677d3ed414c62f3991a9d2d73ed15252",
+      "git_blob_sha1": "556fd4b3d02425e13a6c0fca6021eec230112524",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/027-BapatMovingCloud.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/027-BapatMovingCloud.dependencies.log",
+      "bytes": 111,
+      "sha256": "13e173a6d01fb98045f38b064a77477758d414ab5d362a2e9cd5b78f583981c4",
+      "git_blob_sha1": "1a1d5891c45252ad2d7bbe523934a4a3c1cebd6a",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/028-BapatSelectorQuartic.compile.log",
+      "bytes": 562,
+      "sha256": "43046c4229f0045f55d24fb0e3edd7910cb5a2f75a3d43f08ba0a49996f6e244",
+      "git_blob_sha1": "e52424efd0fc0e8a4648efec77d42ad62cf86ffb",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/028-BapatSelectorQuartic.dependencies.log",
+      "bytes": 112,
+      "sha256": "888ddcfc3597932e67e8ff9dd865d6fe5f0de31078f45a46c58e568b51a0d9cf",
+      "git_blob_sha1": "2c8fda7699ab440b993a739aec7a3c4f8fd0aa92",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/029-BapatEmpiricalPairs.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/029-BapatEmpiricalPairs.dependencies.log",
+      "bytes": 108,
+      "sha256": "6cda2a29c7f580ae3d596584388cc8c4004cd78d20de239d302097b3397a0d0b",
+      "git_blob_sha1": "881e46ca8b1a471232e92960f6589aef2bdb5e15",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/030-BapatOrthogonalSphere.compile.log",
+      "bytes": 179,
+      "sha256": "efcf20ec8dcab5131281b63ce4602f7391f588e84a2cf230265c0aa31bced352",
+      "git_blob_sha1": "924d516566014f19b61582b4ecfc72a6c424f4cb",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/030-BapatOrthogonalSphere.dependencies.log",
+      "bytes": 501,
+      "sha256": "30102fbe612f4fb9a8b2c4e83cadbaeb396ea9fdb9222b0159abe1dc41ef1c99",
+      "git_blob_sha1": "72dc6763bc96a47f8ed3df1cff2df6901dc2ae85",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/031-BapatSelectorPeaks.compile.log",
+      "bytes": 1194,
+      "sha256": "9d0110e2fae2c981511c96b29ff20299680fb8836cc003de88f0b2be5927db38",
+      "git_blob_sha1": "0bf37afde5758e5399e8d37b9bb517a00b729bf4",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/031-BapatSelectorPeaks.dependencies.log",
+      "bytes": 112,
+      "sha256": "ddc631e546b9f7ba2ecd7749f4a73daf75b88a417186825fcc229dead72908a5",
+      "git_blob_sha1": "d20779d042963f6fe14240de9ce11a98c0ecb2be",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/032-BapatGaussianLog.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/032-BapatGaussianLog.dependencies.log",
+      "bytes": 329,
+      "sha256": "51df4f27e0923f14ff45fc8bd9c419bb6b68a067f7568845ff2debd4e61f4780",
+      "git_blob_sha1": "a71c75fa9c90517b4ce9168533094c369e361131",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/033-BapatSelectorRows.compile.log",
+      "bytes": 556,
+      "sha256": "cde6103f53bcb427689c99cfcd0b8ce2a32c25521bb34909afb9ceefa72f4b75",
+      "git_blob_sha1": "dc1ea3179d1135938eac3f018c658451c776ee97",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/033-BapatSelectorRows.dependencies.log",
+      "bytes": 110,
+      "sha256": "156ec13b200c28a230d11a34352aa7b658f43849360a5673b3044bf0b8ff1d70",
+      "git_blob_sha1": "753feae7fb10bdd01cba77135251de75bf2b5aee",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/034-BapatRealGaussianTensor.compile.log",
+      "bytes": 1641,
+      "sha256": "0c0e32e905668e6d77fcd905495ed64a3e66aee96bed209409bacff2cb7dcd04",
+      "git_blob_sha1": "72d8b79527ebf1a012017c7c204f014be0b3af38",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/034-BapatRealGaussianTensor.dependencies.log",
+      "bytes": 108,
+      "sha256": "98b24144991523e87577b5d2a4a77234de395d0ec21f14ffc1a9dfcc43b8af3b",
+      "git_blob_sha1": "552d2cb87ce9e205a52dc2dfc6d95a5bcc0f4856",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/035-BapatSelectedPeak.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/035-BapatSelectedPeak.dependencies.log",
+      "bytes": 109,
+      "sha256": "a97a04160d0e37f98a443f3eb651a7cab65d131e2ac9b1fc8c75775b92f2b6b8",
+      "git_blob_sha1": "1141036e42b5de744d856d6f20c4a1e588e8e7d4",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/036-BapatRealGaussianPotential.compile.log",
+      "bytes": 438,
+      "sha256": "4f01646de88528962af8f5da8987af8bedc13f2af9dd9d068506da57266af0e0",
+      "git_blob_sha1": "86ca9650c07f7f259506cb94cc4f3d405d398646",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/036-BapatRealGaussianPotential.dependencies.log",
+      "bytes": 115,
+      "sha256": "7f447232cbf12cc81f94e75e8bbfd52a036f767dd76a8596295da6e611febc7e",
+      "git_blob_sha1": "882a1c67269e95c3d099c6171486e01f16a2eb0c",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/037-BapatGaussianSphereTransfer.compile.log",
+      "bytes": 561,
+      "sha256": "5b4d94827f7b716477b7439298268c49c1e6a4b4f04e46924393eea0ca6c636a",
+      "git_blob_sha1": "46243711c7f3d4db65e4b1e3c3b138d8eb0b0fa2",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/037-BapatGaussianSphereTransfer.dependencies.log",
+      "bytes": 118,
+      "sha256": "5a9e9b8735d80478427b27491941f4bc92fceaa1111441ffc54ece86b1e10c64",
+      "git_blob_sha1": "09115fd183e347fd28f1e996d65664176fea0875",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/038-BapatGaussianBalance.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/038-BapatGaussianBalance.dependencies.log",
+      "bytes": 119,
+      "sha256": "0b1d66dd615dc1de644d08d6ee30b55e5ce8da59632bc75dc1641ed249e49dfe",
+      "git_blob_sha1": "8cdcfe8252fa8f03242b32e08ef3776847b18162",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/039-BapatSphereBalance.compile.log",
+      "bytes": 615,
+      "sha256": "0dc3a622dac877f045e47e884b55858e974129852ed01359f5f236791b7f37a6",
+      "git_blob_sha1": "efdabe10a08e54e803ba5d2792336370d1c02ae4",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/039-BapatSphereBalance.dependencies.log",
+      "bytes": 112,
+      "sha256": "9ca4168acc70eae4b53e699e20ff6c9a1bbee8517b28ee3e51f9af1ee43527d4",
+      "git_blob_sha1": "eb4d41ce4c640124b607ac288f71ed478f0b60f0",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/040-BapatComplexBalanceCoordinates.compile.log",
+      "bytes": 1748,
+      "sha256": "98051342f674760ea966e3036a2bc2e584b822a0da651f3ffb5b8fcdac672c81",
+      "git_blob_sha1": "9b2b5e0e5ec8741cbc220c0c79e522c9955bd055",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/040-BapatComplexBalanceCoordinates.dependencies.log",
+      "bytes": 252,
+      "sha256": "c62fafb5deadcc87ef2c715323d7e09d2ac69b54597f88539ccdb21083612666",
+      "git_blob_sha1": "42bb29fa5a8a52503f692847e3ff8544c8528562",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/041-BapatCanonicalCoordinates.compile.log",
+      "bytes": 303,
+      "sha256": "f4459b04af44bac07c7a422b8774b9f7e10683569e758084b71992acd5b17979",
+      "git_blob_sha1": "eda07a1b2eebcb4c39239e7d6534726997c9a799",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/041-BapatCanonicalCoordinates.dependencies.log",
+      "bytes": 122,
+      "sha256": "25df0012c2d502a1073722f42b28ee2ab84830f06fa8f8f4c81d14cf94ae5270",
+      "git_blob_sha1": "1ded296ba440189cab16c8999287b28acb56287b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/042-BapatRealComplexLinear.compile.log",
+      "bytes": 1416,
+      "sha256": "168563a50bf3db94cfc38b3f1a02b7f451b80be67cdb01851a491cf1a6ea050c",
+      "git_blob_sha1": "70f3593d4c697d0cbb2fd6798218d2c04e0e26fc",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/042-BapatRealComplexLinear.dependencies.log",
+      "bytes": 117,
+      "sha256": "e04f99b57cb94fcfd903a30fbc5c3cacdc542483a652e1b72919a994ee09db01",
+      "git_blob_sha1": "bf26d42465a014ac47916dd904e47186203d3776",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/043-BapatSpherePotential.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/043-BapatSpherePotential.dependencies.log",
+      "bytes": 114,
+      "sha256": "2636641217cf593172add70024c19a948b256452ac6f24c942eeacb45b3db7f3",
+      "git_blob_sha1": "70f189a2d8bf812527ca3ebc409a9918168baff6",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/044-BapatTruncatedPotential.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/044-BapatTruncatedPotential.dependencies.log",
+      "bytes": 112,
+      "sha256": "62f6ce43256f0ee3c0a98a59366ebcbad54a03c2d3a9e9788ccb5b28eb702662",
+      "git_blob_sha1": "0f8135c9c4f5473675a2c9a3f664e2a2c3b6c122",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/045-BapatHaarLowerBound.compile.log",
+      "bytes": 368,
+      "sha256": "59e4794a16ee685dfc75235a64d7814e1835ad3305283c0e570d4ee5fb1f805f",
+      "git_blob_sha1": "ae4f79fb3b52b9f6a4fc5b2abb6e3ff94a77e56e",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/045-BapatHaarLowerBound.dependencies.log",
+      "bytes": 115,
+      "sha256": "9b1c183e5cadce2e633087ec62d9b9950da68d6603a06a90d3c59a9f0d240f91",
+      "git_blob_sha1": "e8bfca4e667c067fb3a6196786416d8a71ea6142",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/046-BapatMaximizerBalance.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/046-BapatMaximizerBalance.dependencies.log",
+      "bytes": 111,
+      "sha256": "767bcffa254aca0387192d296aa967e6f99d5cb66dc4a2a65ed253a1496d31c2",
+      "git_blob_sha1": "8714abd55efc9d70157ccac20b1b9a90b1a32e24",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/047-BapatCanonicalCloud.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/047-BapatCanonicalCloud.dependencies.log",
+      "bytes": 113,
+      "sha256": "1b10fa1ad7a4f5a6c5ae26c15033360e79d1c63e275e87e8e5b8553734f5e330",
+      "git_blob_sha1": "9bb3f9bdc8ed865631d7012183b8018f955cae81",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/048-BapatGaussianLinear.compile.log",
+      "bytes": 361,
+      "sha256": "b62f54861498fe8858270e50aa36d4b01a926a1e7c21a016dd2640af093e2290",
+      "git_blob_sha1": "b232b73dc018afed10dcac9fd7f656ebcd052523",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/048-BapatGaussianLinear.dependencies.log",
+      "bytes": 111,
+      "sha256": "aff093fa883574b2658dba349729e25f57e0b35356f7da03370f266c935e76ab",
+      "git_blob_sha1": "d72c240c079b7f6a026e3f95616eee0cd76a8410",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/049-BapatRatioCoordinates.compile.log",
+      "bytes": 1243,
+      "sha256": "8071cbeb1825e21dbb21e56913de02c6f5f7d3ed8d03e8a750ca03a00531425e",
+      "git_blob_sha1": "de9e100c191c6273dbebb74d2d68e3bc17abded2",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/049-BapatRatioCoordinates.dependencies.log",
+      "bytes": 204,
+      "sha256": "63ce91af65137a7ecf7e997ea2e07e008f5322c40c98435f9331195011317cd0",
+      "git_blob_sha1": "4d33a9c93a73663212be65022276858993cabb97",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/050-BapatGaussianSphereAverage.compile.log",
+      "bytes": 426,
+      "sha256": "835672ace9a68a991f4fbbaa06b2e14176bf9b38d2862f45ddd018a790d12adb",
+      "git_blob_sha1": "c99600dc225f6a68472136609d8f671c59b8b9e0",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/050-BapatGaussianSphereAverage.dependencies.log",
+      "bytes": 111,
+      "sha256": "6cf09a274bae321d6070c1e2e8c4237ab249ed37efd1c37ff3af974dec57b280",
+      "git_blob_sha1": "9d83a9ac4729dd86425a8d4dd358971e15f97788",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/051-BapatRadialGaussian.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/051-BapatRadialGaussian.dependencies.log",
+      "bytes": 111,
+      "sha256": "6cf09a274bae321d6070c1e2e8c4237ab249ed37efd1c37ff3af974dec57b280",
+      "git_blob_sha1": "9d83a9ac4729dd86425a8d4dd358971e15f97788",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/052-BapatWedgeContraction.compile.log",
+      "bytes": 367,
+      "sha256": "4870415a10aa6ebbf004157c145330502c4db1cdc5fe5c25735f792160086d93",
+      "git_blob_sha1": "d518d290b1772d021124eb3c2cb59500edd4e929",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/052-BapatWedgeContraction.dependencies.log",
+      "bytes": 158,
+      "sha256": "c54c4d26a465c327895a5e3a860258dde41018f411ae216e20207559642cfb8e",
+      "git_blob_sha1": "521e66b1ee42272bba8b18e7131137058a3d4c12",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/053-BapatRatioDenominator.compile.log",
+      "bytes": 207,
+      "sha256": "c035c31fd12edd44467dfba58f0dc5ea166f8db80b4d74af25f598ca2d29cf9f",
+      "git_blob_sha1": "b5fa624775bfbae171791463ba5c08d848b0d355",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/053-BapatRatioDenominator.dependencies.log",
+      "bytes": 160,
+      "sha256": "485acc48813a44fd4f17c8659ba4aeac4a17d5baf7f8a0f633d3e4cc0869fec8",
+      "git_blob_sha1": "abfee7f7e6d3c79c351d42c32a2b56e4508eb89b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/054-BapatExteriorUnit.compile.log",
+      "bytes": 1020,
+      "sha256": "ffaa19b01fbb4b2931f46d0a9fceef8a73ee04e5da475763944301f96ae31df8",
+      "git_blob_sha1": "8007d6610fa51507646a2c71468df3ec917b135a",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/054-BapatExteriorUnit.dependencies.log",
+      "bytes": 113,
+      "sha256": "f5cbb1c90c09d0d0d00d281004376f83357ce6554dd0e5d16d1b487c3715dcc9",
+      "git_blob_sha1": "f60a0512055a26b576534a9a2ca3b6da2ded3cc7",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/055-BapatGaussianRatioIntegral.compile.log",
+      "bytes": 639,
+      "sha256": "bcc602730ccb40af463ceae6f4ce53c2ae44928538ec090ef534c15bfa1c9111",
+      "git_blob_sha1": "76047d70fe2ad700c2fc53c5b0218aa2bb8480fb",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/055-BapatGaussianRatioIntegral.dependencies.log",
+      "bytes": 113,
+      "sha256": "7f59735daf667f68c295b291e4460c06673d896aeb28201e42e29cc76f1e81bb",
+      "git_blob_sha1": "407cab6f5d1d7d6b9696048a2b8f258df3957ba0",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/056-BapatRatioRegroup.compile.log",
+      "bytes": 406,
+      "sha256": "3e97826bff17e729157bdcd78a16238ec1a4ec4d1a1cc4b6fa55fc1792616515",
+      "git_blob_sha1": "87dc3bb57df574012eb8b10606c56f007d6ef043",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/056-BapatRatioRegroup.dependencies.log",
+      "bytes": 172,
+      "sha256": "a5b0a0019d4f6b7ef5258d0191d63f80fc76f85bf3fc9e9fc4c259b6429bcadc",
+      "git_blob_sha1": "b993bcb49ea258d89971be4313f67e806ac29d82",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/057-BapatRatioIntegrability.compile.log",
+      "bytes": 305,
+      "sha256": "564500ae0670d55e104dc95149e17af57b2b9c46a5cf33cf8a0acbfef684e7b9",
+      "git_blob_sha1": "aa9bce127d3d55f89be383efb98567985ad6065b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/057-BapatRatioIntegrability.dependencies.log",
+      "bytes": 109,
+      "sha256": "ac5fcd11c10c01e0ac50fdb06048012aa764615883553caa9111872e68153588",
+      "git_blob_sha1": "8ef631389c66cd2ca977344fc19f31101e972717",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/058-BapatRatioLowerApprox.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/058-BapatRatioLowerApprox.dependencies.log",
+      "bytes": 162,
+      "sha256": "4162686169bfd864082f542af88b97e4eff0da8994b15ceb9013080efead0e11",
+      "git_blob_sha1": "d345324d589ff6bfeb366fda0e8b7e84fffa0b89",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/059-BapatEmpiricalRatioGap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/059-BapatEmpiricalRatioGap.dependencies.log",
+      "bytes": 196,
+      "sha256": "89f240473b880b3a772b194ff9c09298f9569628c9bb2a3c9eb220a0aeeab67a",
+      "git_blob_sha1": "6876718eb58855864551ca005f62d4e3a6f1476f",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/060-BapatOrderedRatioScore.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/060-BapatOrderedRatioScore.dependencies.log",
+      "bytes": 193,
+      "sha256": "08c5bae119c0e7233b3a07c4daf14e6af51030f19be015a59f6ee420aa26a640",
+      "git_blob_sha1": "2af6795ce71f24f1b8de5d9d271dab87e873c900",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/061-BapatSortedWedgeBound.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/061-BapatSortedWedgeBound.dependencies.log",
+      "bytes": 159,
+      "sha256": "c978247f0052cf7791f08033dc4f1d87f096dbc113d23687bb06ba1b3b9f0b16",
+      "git_blob_sha1": "ad860fd0698b854a7724187282244174205961e5",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/062-BapatFiniteBase.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/062-BapatFiniteBase.dependencies.log",
+      "bytes": 113,
+      "sha256": "51c524df85cee15f9eb718003bc350957380a2caaeb078542eddf00c6a120195",
+      "git_blob_sha1": "dcbd05d4962d446ec2684e7741d5cacdb8d28fd8",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/063-BapatRealEndpoint.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/063-BapatRealEndpoint.dependencies.log",
+      "bytes": 107,
+      "sha256": "bc13c4e77e1364904ae5126956c11c596435d93bffed2608f0fec0c57b40ccd3",
+      "git_blob_sha1": "7004f6779ef21bd14b11bd183b519a659e773747",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/064-BapatRationalPerturbation.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/064-BapatRationalPerturbation.dependencies.log",
+      "bytes": 109,
+      "sha256": "30d34fe0e99e69761eb56cb67417625af20b7ffbc2f24499c8ca3aaea8765951",
+      "git_blob_sha1": "efa801036727863bd1c3a7f93251329fe2740931",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/065-BapatRationalInterior.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/065-BapatRationalInterior.dependencies.log",
+      "bytes": 247,
+      "sha256": "9197a622beb7cc0aee3baa500dec7587cb1f520185df150ba33705bdf6742d89",
+      "git_blob_sha1": "b74e0b3e3888b15284b4692824ef94e86a132689",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/066-BapatIntegerCounterexample.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/066-BapatIntegerCounterexample.dependencies.log",
+      "bytes": 201,
+      "sha256": "fc0c78cbb96851f1aef0e08ca5d2bb795ac5b73c9c0c8cf18810c15097b6d960",
+      "git_blob_sha1": "009d1e6b41ab8e540ad30889ed7c063127e6f8f7",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/negative-kernel.log",
+      "bytes": 255,
+      "sha256": "b2ec34b22d164c1ed3a7aa3bb555becb69063a960385007879264fd9e467b6fc",
+      "git_blob_sha1": "9c7d8f00d7b46d61ba8ae9c8abb0f28746994b00",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/logs/owned-audit-replay.log",
+      "bytes": 104,
+      "sha256": "1b0ab20865b7fe9b4a66fe9c88ea440a228f3d78be16e2e2912e259151d836a6",
+      "git_blob_sha1": "384df1819ff77f9382a11375c33e1875193561be",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/SHA256SUMS",
+      "bytes": 36507,
+      "sha256": "b63ba57edd75311672ed9dfd78bab1a3af8cdc2c1c41ff5b0b43a9e5460e18ad",
+      "git_blob_sha1": "095837ee602a74b7b45a534f1817a9a943db6adc",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/all-owned-closure.json",
+      "bytes": 49357280,
+      "sha256": "59385fcacb9959c81c7328e2cf00b45e020b9daf7d82b348dfa441faa0cdd14e",
+      "git_blob_sha1": "4d724c8d91ea3222ef3679b0506c375a76e8fcd5",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/commands.json",
+      "bytes": 55579,
+      "sha256": "a110f480b6931aa9844c4bc77dba4b5d2c50610886b4b78939d62872b84d002b",
+      "git_blob_sha1": "1157c9000f6338d77a2acf36019f1bc5713d5c67",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/control-source-sha256.json",
+      "bytes": 333,
+      "sha256": "53049c745117b23e6aa90dd1a05069aa6af8981593606c6e5a5b8c511846b38a",
+      "git_blob_sha1": "65676030d5b0720b0ae84b2f868c5de8ca3de975",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/environment-config.json",
+      "bytes": 4034,
+      "sha256": "c930acb48ce18cf21d8bda34bd6d737e52d62a30a3eb827f18ba06001a00201f",
+      "git_blob_sha1": "65384549e11f6e7ffd752fa24260c2aa5bee3cc5",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/environment.json",
+      "bytes": 1999,
+      "sha256": "857237a0f96d0b792b566e4647cfd598c1acd78930543f99b311ad2290aea300",
+      "git_blob_sha1": "75604de1d56f3898f2752b78caca89dae4127d1d",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/input.json",
+      "bytes": 15546,
+      "sha256": "396c775a1a3df23d7bfb7be158d798add0143a261d5d313c4131123ab5989d0a",
+      "git_blob_sha1": "0510a24b5beffd989d425bdbdfd470b09e1948fe",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/owned-inventory.json",
+      "bytes": 11553578,
+      "sha256": "9cba8ea5ce85dcc3a29a737c02c6a5cda83083d309c38dc98266546668efb8d8",
+      "git_blob_sha1": "008ef998b7fd02a770020235bede7ee80452812b",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/replay-summary.json",
+      "bytes": 723,
+      "sha256": "2721c7bcc81ba435c31d9fb624079ebb504f86bfab306652b57b0e696a598f7a",
+      "git_blob_sha1": "eed5fd9141771275af1ce05edfd1f8040a1dd6e8",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/requested-root-closure.json",
+      "bytes": 2110732,
+      "sha256": "114954e9d382d00d69a6b48703b039342f0760536d8e4b5958b6de2445f7ab17",
+      "git_blob_sha1": "567711f317476ff8aeed76ad9cd6d4e56ca3b24c",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/search-path.json",
+      "bytes": 516,
+      "sha256": "3a11d3b3ff88bb113e57f2efa54bd4734564260234f2be7effe994d6bac5c6de",
+      "git_blob_sha1": "65f0bd60e8dae19465bb6ecd80eb09bdb76441e9",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/shared-cache-check.json",
+      "bytes": 183,
+      "sha256": "df1655cbaf04e7e17f36ea37bf8ca9fe8f727c6b44ae200605c587dc71ada59f",
+      "git_blob_sha1": "cde3f6f3cc4728be75b344ea8c302ce6b81e8fca",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/source-token-scan.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "git_blob_sha1": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/standard-axioms.json",
+      "bytes": 11799,
+      "sha256": "add78b96c0542c9f2c2361cdd296b892b037a7ff1ea495c4a30a45e89790fe2e",
+      "git_blob_sha1": "efb9301f46ca749dbf3051a89813ee6ce2fe72c0",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/status.json",
+      "bytes": 426,
+      "sha256": "fec7d338b103ed3db686aca0f97a4afdeb0c9b6e98fd25aa08d8274896925f30",
+      "git_blob_sha1": "4a5ff3137803e8ff3a3a5f1e118eb6300818feba",
+      "mode": "100644"
+    },
+    {
+      "path": "fresh-verification/manifest/violations.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "git_blob_sha1": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+      "mode": "100644"
+    },
+    {
+      "path": "mathematical-reference/paper.tex",
+      "bytes": 24648,
+      "sha256": "ac6983f69f78175ce119b253f22ae11336ba1e23af9e4c8b13b51d9b30e86411",
+      "git_blob_sha1": "38e01a286b55121b38f1d28e517d5c6e0317b56d",
+      "mode": "100644"
+    },
+    {
+      "path": "mathematical-reference/source-tree-selection.json",
+      "bytes": 9672,
+      "sha256": "70a3b8b0fcd0d369ec3e4115473d40e37b9a6aeea600745cc9cbde8667292194",
+      "git_blob_sha1": "191675504198ae8a9907c848d1c785024b61442b",
+      "mode": "100644"
+    },
+    {
+      "path": "publisher-review/INDEPENDENT_RECORD_AUDIT.json",
+      "bytes": 20378,
+      "sha256": "173be6153fa1a0a420e04fd08fd609cc7c0690459e1f5896e84bc0cd9929b44c",
+      "git_blob_sha1": "7e1000e7e527a9ae36c6bed40abef652b32732cb",
+      "mode": "100644"
+    },
+    {
+      "path": "publisher-review/ROOT_TYPE.txt",
+      "bytes": 7693,
+      "sha256": "e8e8e0e8706c28de2ee0dea440e2056d42494dc6818380b13da4c61b411ff548",
+      "git_blob_sha1": "bfe02e129e8b441bf884166d629cc8ae3b63c5d6",
+      "mode": "100644"
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 1355,
+      "sha256": "2ea5d7548ba6598a589afa493007e610978fb3ba5b1341684b1ed2268b96c2fd",
+      "git_blob_sha1": "cd110cd782f6599d6589916fdf4b636d67f5b76c",
+      "mode": "100644"
+    },
+    {
+      "path": "verifier/bin/leanctl_signatures_v1.py",
+      "bytes": 12105,
+      "sha256": "743273fd3485334dc40182fcc980e65ab4d58e9ce8c2bc4fadab8d90540f60e7",
+      "git_blob_sha1": "1466fb1d16edec61032bf66bdfc2d6b729bd19b8",
+      "mode": "100644"
+    },
+    {
+      "path": "verifier/checks/OwnedAudit.standard-axioms-v1.template.lean",
+      "bytes": 10837,
+      "sha256": "db13cc8d8688f2382ca2b6529f3f69f93e4b896dff4ad3371563f024fb89af26",
+      "git_blob_sha1": "91d15d02c2cdfba0922ea7cb9dcdfce39d2d03eb",
+      "mode": "100644"
+    },
+    {
+      "path": "verifier/checks/RejectInvalidProof.lean",
+      "bytes": 1107,
+      "sha256": "a65cb0e8e11c81664690c24aca0d3952aa4753a7bf0b418a382dad811a613d55",
+      "git_blob_sha1": "a3ae560a3dc22531b0366bfed1fcf73780432d39",
+      "mode": "100644"
+    },
+    {
+      "path": "verifier/config/environment.json",
+      "bytes": 4034,
+      "sha256": "c930acb48ce18cf21d8bda34bd6d737e52d62a30a3eb827f18ba06001a00201f",
+      "git_blob_sha1": "65384549e11f6e7ffd752fa24260c2aa5bee3cc5",
+      "mode": "100644"
+    }
+  ],
+  "public_projection": "PUBLICATION_PROJECTION.json",
+  "original_delivery_archive_published": false
+}

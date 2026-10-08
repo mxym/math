@@ -2,12 +2,18 @@
   "title": "Real symmetric counterexamples to Bapat's q-permanent conjecture",
   "date_utc": "2026-10-08",
   "scope": "Finite existence; integer real symmetric positive-definite counterexample; no explicit numerical real witness or dimension bound.",
-  "proof_assistant_certification": false,
+  "proof_assistant_certification": true,
   "external_human_peer_review_claimed": false,
   "third_party_paper_pdf_included": false,
   "pdf_pages": 9,
   "review_note": "See SOURCES_AND_REVIEW.md and the reports for exact inspected source versions.",
   "files": [
+    {
+      "path": "LEAN_COVERAGE_V1_1.md",
+      "bytes": 2593,
+      "sha256": "1b8aaae9dd5537e826a4ff9ee501e167b53c0fde691f76e074d1e492e7742077",
+      "git_blob_sha1": "6cba0b179da3b0d4c7025101c529300a0c7b24d5"
+    },
     {
       "path": "PROOF_DEPENDENCIES.md",
       "bytes": 2420,
@@ -16,9 +22,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 5901,
-      "sha256": "91f903f6d3676aac69e644ebb61b35e9df402ca2dcbd28118eb4d997ed8164e2",
-      "git_blob_sha1": "74f055b8427c751c03cecd7c3c2a2b463480a48b"
+      "bytes": 6049,
+      "sha256": "3c5e42e58e927923fc17096b7ce140c4b58caf38c495270eb75f35ece0a3f67b",
+      "git_blob_sha1": "fc2172352286c520ca996989290d38710097d3e1"
     },
     {
       "path": "SOURCES_AND_REVIEW.md",
@@ -185,5 +191,17 @@
     "first-pass TeX log",
     "checksum run log"
   ],
-  "self_hash_policy": "The manifest excludes itself and SHA256SUMS. SHA256SUMS includes the manifest, excludes itself."
+  "self_hash_policy": "The manifest excludes itself and SHA256SUMS. SHA256SUMS includes the manifest, excludes itself.",
+  "formalization": {
+    "root": "BapatRealExistence.exists_integer_real_symmetric_counterexample",
+    "path": "formalizations/bapat-real-symmetric-existence-counterexample",
+    "coverage": "LEAN_COVERAGE_V1_1.md",
+    "status": "COMPLETE_VERIFIED",
+    "recorded_original_lean_replay": {
+      "owned": 776,
+      "closure": 54739,
+      "trust_level": 0
+    },
+    "publisher_reran_lean": false
+  }
 }
