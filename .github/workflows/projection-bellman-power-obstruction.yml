@@ -1,0 +1,52 @@
+name: Projection Bellman infinite-power method obstruction
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-bellman-power-obstruction.yml'
+      - 'notes/projection-bellman-power-obstruction/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-bellman-power-obstruction.yml'
+      - 'notes/projection-bellman-power-obstruction/**'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-rational-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all pinned source and proof logs
+        run: cd notes/projection-bellman-power-obstruction && sha256sum -c SHA256SUMS
+      - name: Prove infinite power obstruction and exact three-state optimum
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/check.py > /tmp/power-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check.py > /tmp/power-optimized.txt
+          cmp /tmp/power-normal.txt /tmp/power-optimized.txt
+          cmp /tmp/power-normal.txt notes/projection-bellman-power-obstruction/results/replay.txt
+          python3 notes/projection-bellman-power-obstruction/code/check_sharp_dual.py > /tmp/dual-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check_sharp_dual.py > /tmp/dual-optimized.txt
+          cmp /tmp/dual-normal.txt /tmp/dual-optimized.txt
+          cmp /tmp/dual-normal.txt notes/projection-bellman-power-obstruction/results/sharp-dual-replay.txt
+      - name: Prove exact binary-tail series and negative join defect
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/check_binary_tail.py > /tmp/tail-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check_binary_tail.py > /tmp/tail-optimized.txt
+          cmp /tmp/tail-normal.txt /tmp/tail-optimized.txt
+          cmp /tmp/tail-normal.txt notes/projection-bellman-power-obstruction/results/binary-tail-replay.txt
+      - name: Reject corrupted coefficients, geometry and logarithm bounds
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/negative_controls.py > /tmp/negative-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/negative_controls.py > /tmp/negative-optimized.txt
+          cmp /tmp/negative-normal.txt /tmp/negative-optimized.txt
+          cmp /tmp/negative-normal.txt notes/projection-bellman-power-obstruction/results/negative.txt
