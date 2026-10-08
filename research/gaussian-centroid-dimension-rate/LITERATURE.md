@@ -46,6 +46,23 @@ the exact balanced-threshold claims proved here.
    viewed under this correspondence, has not yet
    been determined.
 
+## Additional cyclic-orbit construction
+
+The present note also uses deterministic orbits of cyclic
+orthogonal group actions, epsilon-biased trigonometric
+frequencies and Gaussian comparison via log-sum-exp
+covariance interpolation. All are established methods
+in harmonic analysis, pseudorandomness and Gaussian
+process theory (Slepian and Sudakov–Fernique inequalities).
+
+Their synthesis here constructs **exactly equal-mass**
+Gaussian score cells in O((log k)^3) dimensions and
+proves an explicit additive 14/k approximation to
+the unrestricted high-dimensional centroid optimum.
+It should be compared with spherical coding,
+small-bias sets, and Gaussian vector quantization
+before any independent originality claim.
+
 ## Distinct mathematical statements proved in this note
 
 - A *deterministic, all-k* balanced Gaussian threshold
@@ -62,6 +79,9 @@ the exact balanced-threshold claims proved here.
 - The necessary dimension scale
   (2-o(1))(logk)^2/loglogk for preserving the
   high-dimensional **second logarithmic term**.
+- A cyclic almost-orthogonal score orbit yielding
+  an exact equal-mass additive 14/k approximation
+  in at most 8(log k)^3+2 Gaussian dimensions.
 - An exact b-ary regular-simplex product identity
   for k=b^t.
 - A mathematically exact method-level asymptotic
@@ -81,8 +101,8 @@ in information theory.
 
 Our upper and lower dimension orders match for
 fixed relative epsilon, but the minimal dimension
-for **additive O(1/k)** precision has only the
-proved necessary bound
-Omega((logk)^2/loglogk). Finding a matching
-construction or a strictly higher converse
-is an important separate direction.
+for **additive O(1/k)** precision now lies
+between the proved necessary scale
+(2-o(1))(logk)^2/loglogk and the explicit
+sufficient 8(logk)^3+2. Closing this
+polylogarithmic gap is the next high-value problem.
