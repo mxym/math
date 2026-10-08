@@ -83,6 +83,39 @@
     a dominated logarithmic Riemann sum and a
     negligible O((logk)^2/k) tail.
 
+## Cyclic-orbit additive approximation audit
+
+- The k unit orbit vectors lie in 2m coordinates and form
+  the orbit of a fixed orthogonal block rotation of order
+  dividing k; pairwise strict coherence <1 rules out
+  repetitions and score ties.
+- Frequencies are sampled uniformly only in the **existence
+  proof**. Each nonzero Fourier frequency has zero cosine
+  expectation by exact root-of-unity orthogonality.
+- Convex interpolation on [-1,1] gives the elementary
+  exponential-moment bound cosh(t)<=exp(t^2/2).
+  A union bound with m=ceil(4(log k)^3) proves that
+  at least one deterministic integer frequency list
+  satisfies all k-1 coherence inequalities.
+- Cyclic symmetry permutes all argmax Gaussian cells and
+  preserves the standard Gaussian measure, so their
+  probabilities are exactly 1/k, not approximate.
+- The Gaussian maxima comparison is derived by covariance
+  interpolation and log-sum-exp smoothing: off-diagonal
+  Hessian entries and covariance differences have the
+  same nonpositive sign.
+- Cauchy–Schwarz converts the expected maximal score
+  into the squared centroid objective without assuming
+  that any centroid is aligned with its score vector.
+- Independent normal maximum bounds use upper and lower
+  Mills tails and integrated CDF estimates. The proof
+  establishes an explicit absolute error <=14/k for
+  every k>=100; it never treats a numerical approximation
+  to E max as a proof.
+- The resulting additive dimension upper O(log^3 k)
+  is not a matching bound for the sharp necessary
+  Omega(log^2 k / loglog k) dimensional scale.
+
 ## Exact arithmetic controls
 
 The checker verifies several **nontrivial proof interfaces**:
@@ -104,8 +137,19 @@ The checker verifies several **nontrivial proof interfaces**:
 - The root-bracket controls on the Gaussian
   rate-distortion curve use rational exponential
   series with rigorously signed remainders.
+- The companion check_orbit.py uses a fully rational,
+  outward-rounded cosine Taylor expansion and Machin
+  pi interval, plus exact log bounds and a fixed
+  integer frequency list. It certifies all cyclic
+  covariance inequalities for k=17,101,257.
+  These are supplementary finite examples; the
+  all-k theorem uses an analytic union bound.
+- A seeded generator may have discovered the finite
+  frequency lists, but the **checker independently
+  validates each frozen list**, and the universal
+  proof does not rely on the generator.
 - No floating point or stochastic optimizer is
-  used in any certified comparison.
+  used in any final certified comparison.
 
 The universal Gaussian calculus, maximal differential
 entropy, and limit theorems are proved *in the
