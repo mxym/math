@@ -1,0 +1,1430 @@
+import Entry005.PyramidFormalization
+
+#check Entry005.unit_ball_actual_witness_assignment
+#print axioms Entry005.unit_ball_actual_witness_assignment
+#check Entry005.unit_ball_determinant_law_defect_nonneg
+#print axioms Entry005.unit_ball_determinant_law_defect_nonneg
+#check Entry005.unit_ball_round_actual_assignment
+#print axioms Entry005.unit_ball_round_actual_assignment
+#check Entry005.original_Q_assignment
+#print axioms Entry005.original_Q_assignment
+#check Entry005.actual_body_compact_cone_law_exists
+#print axioms Entry005.actual_body_compact_cone_law_exists
+#check Entry005.actual_body_brightness_law_affine_first_moment_pos
+#print axioms Entry005.actual_body_brightness_law_affine_first_moment_pos
+#check Entry005.actual_body_cone_first_moment_assignment
+#print axioms Entry005.actual_body_cone_first_moment_assignment
+#check Entry005.halfspace_approximation_horizontal_first_moment
+#print axioms Entry005.halfspace_approximation_horizontal_first_moment
+#check Entry005.actual_body_horizontal_first_moment_of_compact_limit
+#print axioms Entry005.actual_body_horizontal_first_moment_of_compact_limit
+#check Entry005.actual_body_cone_law_with_horizontal_first_moment
+#print axioms Entry005.actual_body_cone_law_with_horizontal_first_moment
+#check Entry005.actual_body_joint_polar_horizontal_assignment
+#print axioms Entry005.actual_body_joint_polar_horizontal_assignment
+#check Entry005.compact_support_height_direction_nonnegative_smul
+#print axioms Entry005.compact_support_height_direction_nonnegative_smul
+#check Entry005.continuous_compact_support_height
+#print axioms Entry005.continuous_compact_support_height
+#check Entry005.normalized_support_height_eq_one
+#print axioms Entry005.normalized_support_height_eq_one
+#check Entry005.actual_polar_boundary_raw_isClosed
+#print axioms Entry005.actual_polar_boundary_raw_isClosed
+#check Entry005.actual_polar_boundary_compact_isClosed
+#print axioms Entry005.actual_polar_boundary_compact_isClosed
+#check Entry005.halfspace_approximation_atom_polar_boundary
+#print axioms Entry005.halfspace_approximation_atom_polar_boundary
+#check Entry005.halfspace_approximation_law_ae_polar_boundary
+#print axioms Entry005.halfspace_approximation_law_ae_polar_boundary
+#check Entry005.probability_closed_carried_of_tendsto
+#print axioms Entry005.probability_closed_carried_of_tendsto
+#check Entry005.halfspace_approximation_compact_law_ae_polar_boundary
+#print axioms Entry005.halfspace_approximation_compact_law_ae_polar_boundary
+#check Entry005.actual_body_compact_limit_ae_polar_boundary
+#print axioms Entry005.actual_body_compact_limit_ae_polar_boundary
+#check Entry005.actual_body_compact_limit_raw_ae_polar_boundary
+#print axioms Entry005.actual_body_compact_limit_raw_ae_polar_boundary
+#check Entry005.actual_body_compact_limit_support_polar_boundary
+#print axioms Entry005.actual_body_compact_limit_support_polar_boundary
+#check Entry005.actual_body_compact_limit_compact_support_polar_boundary
+#print axioms Entry005.actual_body_compact_limit_compact_support_polar_boundary
+#check Entry005.actual_body_compact_cone_law_exists_with_polar_boundary
+#print axioms Entry005.actual_body_compact_cone_law_exists_with_polar_boundary
+#check Entry005.actual_body_geometric_first_moment_assignment
+#print axioms Entry005.actual_body_geometric_first_moment_assignment
+#check Entry005.determinantLawDefect_iid_eq
+#print axioms Entry005.determinantLawDefect_iid_eq
+#check Entry005.entryDefect_iid_moment_identity
+#print axioms Entry005.entryDefect_iid_moment_identity
+#check Entry005.entryDefect_iid_nonnegative
+#print axioms Entry005.entryDefect_iid_nonnegative
+#check Entry005.entryDefect_iid_defect_ratio
+#print axioms Entry005.entryDefect_iid_defect_ratio
+#check Entry005.actual_body_cone_law_with_pyramid_defect
+#print axioms Entry005.actual_body_cone_law_with_pyramid_defect
+#check Entry005.actual_body_entryDefect_nonnegative
+#print axioms Entry005.actual_body_entryDefect_nonnegative
+#check Entry005.actual_body_joint_polar_pyramid_assignment
+#print axioms Entry005.actual_body_joint_polar_pyramid_assignment
+#check Entry005.compact_normalized_projection_ratio_pos
+#print axioms Entry005.compact_normalized_projection_ratio_pos
+#check Entry005.halfspace_approximation_entryA_tendsto
+#print axioms Entry005.halfspace_approximation_entryA_tendsto
+#check Entry005.halfspace_approximation_iid_moments_tendsto
+#print axioms Entry005.halfspace_approximation_iid_moments_tendsto
+#check Entry005.actual_body_horizontal_moment_pos_of_compact_limit
+#print axioms Entry005.actual_body_horizontal_moment_pos_of_compact_limit
+#check Entry005.actual_body_lifted_first_moment_of_compact_limit
+#print axioms Entry005.actual_body_lifted_first_moment_of_compact_limit
+#check Entry005.actual_body_entryA_of_compact_limit
+#print axioms Entry005.actual_body_entryA_of_compact_limit
+#check Entry005.actual_body_cone_law_with_pyramid_first_moment
+#print axioms Entry005.actual_body_cone_law_with_pyramid_first_moment
+#check Entry005.simplexAffineEquiv_points
+#print axioms Entry005.simplexAffineEquiv_points
+#check Entry005.simplexSet_affine_map
+#print axioms Entry005.simplexSet_affine_map
+#check Entry005.volume_affine_image
+#print axioms Entry005.volume_affine_image
+#check Entry005.maximumInscribed_affine_iff
+#print axioms Entry005.maximumInscribed_affine_iff
+#check Entry005.centeredDilation_affine_map
+#print axioms Entry005.centeredDilation_affine_map
+#check Entry005.excess_affine_image
+#print axioms Entry005.excess_affine_image
+#check Entry005.simplex_centroid_interior
+#print axioms Entry005.simplex_centroid_interior
+#check Entry005.simplex_centroid_ball
+#print axioms Entry005.simplex_centroid_ball
+#check Entry005.exists_centered_unit_normalization
+#print axioms Entry005.exists_centered_unit_normalization
+#check Entry005.excess_of_projection_deficit_after_affine
+#print axioms Entry005.excess_of_projection_deficit_after_affine
+#check Entry005.maximum_simplex_normalized_geometric_endpoint
+#print axioms Entry005.maximum_simplex_normalized_geometric_endpoint
+#check Entry005.volume_affine_image_general
+#print axioms Entry005.volume_affine_image_general
+#check Entry005.liftedAffineEquiv_apply
+#print axioms Entry005.liftedAffineEquiv_apply
+#check Entry005.liftedAffineEquiv_symm_apply
+#print axioms Entry005.liftedAffineEquiv_symm_apply
+#check Entry005.liftedAffineEquiv_base
+#print axioms Entry005.liftedAffineEquiv_base
+#check Entry005.liftedAffineEquiv_apex
+#print axioms Entry005.liftedAffineEquiv_apex
+#check Entry005.pyramidSet_affine_image
+#print axioms Entry005.pyramidSet_affine_image
+#check Entry005.finrank_lifted_space
+#print axioms Entry005.finrank_lifted_space
+#check Entry005.pyramidLinearEquiv_det
+#print axioms Entry005.pyramidLinearEquiv_det
+#check Entry005.liftedAffineEquiv_det
+#print axioms Entry005.liftedAffineEquiv_det
+#check Entry005.volume_pyramidSet_affine_image
+#print axioms Entry005.volume_pyramidSet_affine_image
+#check Entry005.anchor_matrix_entry
+#print axioms Entry005.anchor_matrix_entry
+#check Entry005.anchor_matrix_mul_coordinates
+#print axioms Entry005.anchor_matrix_mul_coordinates
+#check Entry005.anchor_coordinates_sum
+#print axioms Entry005.anchor_coordinates_sum
+#check Entry005.anchor_coordinates_reconstruct
+#print axioms Entry005.anchor_coordinates_reconstruct
+#check Entry005.replacement_determinant_coordinates
+#print axioms Entry005.replacement_determinant_coordinates
+#check Entry005.measurable_anchor_coordinates
+#print axioms Entry005.measurable_anchor_coordinates
+#check Entry005.opposite_witness_neg_neg
+#print axioms Entry005.opposite_witness_neg_neg
+#check Entry005.opposite_witness_mul_nonneg
+#print axioms Entry005.opposite_witness_mul_nonneg
+#check Entry005.opposite_witness_mul
+#print axioms Entry005.opposite_witness_mul
+#check Entry005.first_replacement_witness
+#print axioms Entry005.first_replacement_witness
+#check Entry005.pair_replacement_witness_lower
+#print axioms Entry005.pair_replacement_witness_lower
+#check Entry005.actual_determinant_assignment_cost
+#print axioms Entry005.actual_determinant_assignment_cost
+#check Entry005.integrable_anchor_coordinates
+#print axioms Entry005.integrable_anchor_coordinates
+#check Entry005.assignment_cost_integrable
+#print axioms Entry005.assignment_cost_integrable
+#check Entry005.opposite_witness_integrable_same
+#print axioms Entry005.opposite_witness_integrable_same
+#check Entry005.determinant_assignment_witness_integrable
+#print axioms Entry005.determinant_assignment_witness_integrable
+#check Entry005.integrated_actual_determinant_assignment_cost
+#print axioms Entry005.integrated_actual_determinant_assignment_cost
+#check Entry005.second_moment_event_lower
+#print axioms Entry005.second_moment_event_lower
+#check Entry005.exists_well_conditioned_low_witness
+#print axioms Entry005.exists_well_conditioned_low_witness
+#check Entry005.exists_well_conditioned_low_witness_ae_good
+#print axioms Entry005.exists_well_conditioned_low_witness_ae_good
+#check Entry005.exists_well_conditioned_low_witness_in_support
+#print axioms Entry005.exists_well_conditioned_low_witness_in_support
+#check Entry005.truncated_nonneg_le
+#print axioms Entry005.truncated_nonneg_le
+#check Entry005.positive_off_max_le_pair_cost
+#print axioms Entry005.positive_off_max_le_pair_cost
+#check Entry005.off_max_l1_le_cost
+#print axioms Entry005.off_max_l1_le_cost
+#check Entry005.largest_coordinate_assignment_error
+#print axioms Entry005.largest_coordinate_assignment_error
+#check Entry005.assignment_cost_nonneg
+#print axioms Entry005.assignment_cost_nonneg
+#check Entry005.integrated_largest_assignment_error
+#print axioms Entry005.integrated_largest_assignment_error
+#check Entry005.euclidean_unit_ball_cube
+#print axioms Entry005.euclidean_unit_ball_cube
+#check Entry005.unit_ball_cube
+#print axioms Entry005.unit_ball_cube
+#check Entry005.closest_support
+#print axioms Entry005.closest_support
+#check Entry005.cap_ball
+#print axioms Entry005.cap_ball
+#check Entry005.cap_measure_gain
+#print axioms Entry005.cap_measure_gain
+#check Entry005.nested_body_cap_gain
+#print axioms Entry005.nested_body_cap_gain
+#check Entry005.simplexCoord_centroid
+#print axioms Entry005.simplexCoord_centroid
+#check Entry005.simplexCoord_centroid_contraction
+#print axioms Entry005.simplexCoord_centroid_contraction
+#check Entry005.maximumInscribed_centered_bound
+#print axioms Entry005.maximumInscribed_centered_bound
+#check Entry005.maximumInscribed_excess_le_dim_add_one
+#print axioms Entry005.maximumInscribed_excess_le_dim_add_one
+#check Entry005.off_max_l1_le_cost_of_no_clipping
+#print axioms Entry005.off_max_l1_le_cost_of_no_clipping
+#check Entry005.largest_coordinate_clipped_assignment_error
+#print axioms Entry005.largest_coordinate_clipped_assignment_error
+#check Entry005.unit_ball_clipped_assignment_error
+#print axioms Entry005.unit_ball_clipped_assignment_error
+#check Entry005.integrated_clipped_largest_assignment_error
+#print axioms Entry005.integrated_clipped_largest_assignment_error
+#check Entry005.continuous_compactBallRaw
+#print axioms Entry005.continuous_compactBallRaw
+#check Entry005.measurable_compactBallRaw
+#print axioms Entry005.measurable_compactBallRaw
+#check Entry005.measurable_rawToCompactBall
+#print axioms Entry005.measurable_rawToCompactBall
+#check Entry005.compactBallRaw_retraction_of_norm_le
+#print axioms Entry005.compactBallRaw_retraction_of_norm_le
+#check Entry005.compactBallLaw_raw_pushforward
+#print axioms Entry005.compactBallLaw_raw_pushforward
+#check Entry005.compactBallLaw_raw_probability_pushforward
+#print axioms Entry005.compactBallLaw_raw_probability_pushforward
+#check Entry005.compactBallLaw_integral_raw
+#print axioms Entry005.compactBallLaw_integral_raw
+#check Entry005.compactBallLaw_integral_tendsto
+#print axioms Entry005.compactBallLaw_integral_tendsto
+#check Entry005.compactBallRawLaw_ae_unit_ball
+#print axioms Entry005.compactBallRawLaw_ae_unit_ball
+#check Entry005.compactBallLaw_raw_tendsto
+#print axioms Entry005.compactBallLaw_raw_tendsto
+#check Entry005.compactBallRawLaw_integral
+#print axioms Entry005.compactBallRawLaw_integral
+#check Entry005.compactBallLaw_raw_integral_tendsto
+#print axioms Entry005.compactBallLaw_raw_integral_tendsto
+#check Entry005.compactBallLaw_coordinate_integral_tendsto
+#print axioms Entry005.compactBallLaw_coordinate_integral_tendsto
+#check Entry005.compactBallLaw_negative_direction_integral_tendsto
+#print axioms Entry005.compactBallLaw_negative_direction_integral_tendsto
+#check Entry005.compactBallLaw_exists_subsequence
+#print axioms Entry005.compactBallLaw_exists_subsequence
+#check Entry005.unit_ball_measure_exists_subsequence
+#print axioms Entry005.unit_ball_measure_exists_subsequence
+#check Entry005.finite_halfspace_compact_cone_raw_pushforward
+#print axioms Entry005.finite_halfspace_compact_cone_raw_pushforward
+#check Entry005.finite_halfspace_cone_law_exists_subsequence
+#print axioms Entry005.finite_halfspace_cone_law_exists_subsequence
+#check Entry005.iidProbabilityMeasure_toMeasure
+#print axioms Entry005.iidProbabilityMeasure_toMeasure
+#check Entry005.iidProbabilityMeasure_cons
+#print axioms Entry005.iidProbabilityMeasure_cons
+#check Entry005.iidProbabilityMeasure_map
+#print axioms Entry005.iidProbabilityMeasure_map
+#check Entry005.iid_integral_map
+#print axioms Entry005.iid_integral_map
+#check Entry005.continuous_fin_cons
+#print axioms Entry005.continuous_fin_cons
+#check Entry005.continuous_iidProbabilityMeasure
+#print axioms Entry005.continuous_iidProbabilityMeasure
+#check Entry005.tendsto_iidProbabilityMeasure
+#print axioms Entry005.tendsto_iidProbabilityMeasure
+#check Entry005.continuous_iid_integral
+#print axioms Entry005.continuous_iid_integral
+#check Entry005.tendsto_iid_integral
+#print axioms Entry005.tendsto_iid_integral
+#check Entry005.continuous_horizontal_iid_first_moment
+#print axioms Entry005.continuous_horizontal_iid_first_moment
+#check Entry005.continuous_lifted_iid_first_moment
+#print axioms Entry005.continuous_lifted_iid_first_moment
+#check Entry005.horizontal_iid_first_moment_map
+#print axioms Entry005.horizontal_iid_first_moment_map
+#check Entry005.lifted_iid_first_moment_map
+#print axioms Entry005.lifted_iid_first_moment_map
+#check Entry005.continuous_horizontal_mapped_iid_first_moment
+#print axioms Entry005.continuous_horizontal_mapped_iid_first_moment
+#check Entry005.continuous_lifted_mapped_iid_first_moment
+#print axioms Entry005.continuous_lifted_mapped_iid_first_moment
+#check Entry005.tendsto_horizontal_mapped_iid_first_moment
+#print axioms Entry005.tendsto_horizontal_mapped_iid_first_moment
+#check Entry005.tendsto_lifted_mapped_iid_first_moment
+#print axioms Entry005.tendsto_lifted_mapped_iid_first_moment
+#check Entry005.compact_probability_tendsto_subseq
+#print axioms Entry005.compact_probability_tendsto_subseq
+#check Entry005.compact_probability_subsequence_integrals
+#print axioms Entry005.compact_probability_subsequence_integrals
+#check Entry005.finite_cone_integrable
+#print axioms Entry005.finite_cone_integrable
+#check Entry005.finite_cone_integral
+#print axioms Entry005.finite_cone_integral
+#check Entry005.finite_cone_probability
+#print axioms Entry005.finite_cone_probability
+#check Entry005.finite_cone_coordinate_mean
+#print axioms Entry005.finite_cone_coordinate_mean
+#check Entry005.finite_cone_centered
+#print axioms Entry005.finite_cone_centered
+#check Entry005.finite_cone_point_norm
+#print axioms Entry005.finite_cone_point_norm
+#check Entry005.finite_cone_ae_unit_ball
+#print axioms Entry005.finite_cone_ae_unit_ball
+#check Entry005.finite_cone_support_unit_ball
+#print axioms Entry005.finite_cone_support_unit_ball
+#check Entry005.finite_cone_absolute_direction
+#print axioms Entry005.finite_cone_absolute_direction
+#check Entry005.finite_cone_direction_mean_zero
+#print axioms Entry005.finite_cone_direction_mean_zero
+#check Entry005.finite_cone_negative_direction
+#print axioms Entry005.finite_cone_negative_direction
+#check Entry005.finite_cone_index_probability
+#print axioms Entry005.finite_cone_index_probability
+#check Entry005.finite_cone_index_map
+#print axioms Entry005.finite_cone_index_map
+#check Entry005.finite_cone_index_singleton
+#print axioms Entry005.finite_cone_index_singleton
+#check Entry005.finite_cone_iid_integral
+#print axioms Entry005.finite_cone_iid_integral
+#check Entry005.finite_cone_weighted_sample_determinant
+#print axioms Entry005.finite_cone_weighted_sample_determinant
+#check Entry005.finite_cone_horizontal_determinant_expectation
+#print axioms Entry005.finite_cone_horizontal_determinant_expectation
+#check Entry005.finite_cone_lifted_determinant_expectation
+#print axioms Entry005.finite_cone_lifted_determinant_expectation
+#check Entry005.finite_zonotope_convex
+#print axioms Entry005.finite_zonotope_convex
+#check Entry005.finite_zonotope_compact
+#print axioms Entry005.finite_zonotope_compact
+#check Entry005.finite_zonotope_nonempty
+#print axioms Entry005.finite_zonotope_nonempty
+#check Entry005.finite_zonotope_support_bound
+#print axioms Entry005.finite_zonotope_support_bound
+#check Entry005.finite_zonotope_support_attained
+#print axioms Entry005.finite_zonotope_support_attained
+#check Entry005.finite_zonotope_eq_support_halfspaces
+#print axioms Entry005.finite_zonotope_eq_support_halfspaces
+#check Entry005.projection_body_eq_finite_zonotope_of_projection_volume
+#print axioms Entry005.projection_body_eq_finite_zonotope_of_projection_volume
+#check Entry005.vertical_extrusion_closed_band
+#print axioms Entry005.vertical_extrusion_closed_band
+#check Entry005.closed_vertical_band_measure
+#print axioms Entry005.closed_vertical_band_measure
+#check Entry005.vertical_extrusion_volume
+#print axioms Entry005.vertical_extrusion_volume
+#check Entry005.R0_pos
+#print axioms Entry005.R0_pos
+#check Entry005.b_pos
+#print axioms Entry005.b_pos
+#check Entry005.M_pos
+#print axioms Entry005.M_pos
+#check Entry005.Q_pos
+#print axioms Entry005.Q_pos
+#check Entry005.L_pos
+#print axioms Entry005.L_pos
+#check Entry005.J_pos
+#print axioms Entry005.J_pos
+#check Entry005.rSharp_pos
+#print axioms Entry005.rSharp_pos
+#check Entry005.eSharp_pos
+#print axioms Entry005.eSharp_pos
+#check Entry005.aSharp_pos
+#print axioms Entry005.aSharp_pos
+#check Entry005.gSharp_pos
+#print axioms Entry005.gSharp_pos
+#check Entry005.centered_dot_integral
+#print axioms Entry005.centered_dot_integral
+#check Entry005.covariance_direction_lower
+#print axioms Entry005.covariance_direction_lower
+#check Entry005.second_moment_hermitian
+#print axioms Entry005.second_moment_hermitian
+#check Entry005.covariance_determinant_lower
+#print axioms Entry005.covariance_determinant_lower
+#check Entry005.round_lifted_second_moment_lower
+#print axioms Entry005.round_lifted_second_moment_lower
+#check Entry005.sampled_determinant_integrable
+#print axioms Entry005.sampled_determinant_integrable
+#check Entry005.determinant_square_expansion
+#print axioms Entry005.determinant_square_expansion
+#check Entry005.determinant_moment_integral_expansion
+#print axioms Entry005.determinant_moment_integral_expansion
+#check Entry005.determinant_permutation_second_moment
+#print axioms Entry005.determinant_permutation_second_moment
+#check Entry005.iid_determinant_second_moment
+#print axioms Entry005.iid_determinant_second_moment
+#check Entry005.probability_integral_square_le
+#print axioms Entry005.probability_integral_square_le
+#check Entry005.dot_square_expansion
+#print axioms Entry005.dot_square_expansion
+#check Entry005.dot_square_integrable
+#print axioms Entry005.dot_square_integrable
+#check Entry005.integral_dot_square
+#print axioms Entry005.integral_dot_square
+#check Entry005.centered_lifted_moment_det
+#print axioms Entry005.centered_lifted_moment_det
+#check Entry005.centered_lifted_determinant_second_moment
+#print axioms Entry005.centered_lifted_determinant_second_moment
+#check Entry005.lifted_determinant_expansion
+#print axioms Entry005.lifted_determinant_expansion
+#check Entry005.measurable_lifted_determinant
+#print axioms Entry005.measurable_lifted_determinant
+#check Entry005.lifted_determinant_integrable
+#print axioms Entry005.lifted_determinant_integrable
+#check Entry005.integral_lifted_determinant
+#print axioms Entry005.integral_lifted_determinant
+#check Entry005.centered_determinant_cancellation
+#print axioms Entry005.centered_determinant_cancellation
+#check Entry005.centered_determinant_witness_le
+#print axioms Entry005.centered_determinant_witness_le
+#check Entry005.projectionRatio_pyramid_affine_image
+#print axioms Entry005.projectionRatio_pyramid_affine_image
+#check Entry005.entryA_affine_image
+#print axioms Entry005.entryA_affine_image
+#check Entry005.entryDefect_affine_image
+#print axioms Entry005.entryDefect_affine_image
+#check Entry005.entryA_affineBody
+#print axioms Entry005.entryA_affineBody
+#check Entry005.entryDefect_affineBody
+#print axioms Entry005.entryDefect_affineBody
+#check Entry005.maximum_simplex_strong_normalization_invariants
+#print axioms Entry005.maximum_simplex_strong_normalization_invariants
+#check Entry005.finite_halfspace_facet_cone_compact
+#print axioms Entry005.finite_halfspace_facet_cone_compact
+#check Entry005.finite_halfspace_facet_cone_subset
+#print axioms Entry005.finite_halfspace_facet_cone_subset
+#check Entry005.finite_halfspace_nonzero_radial_cover
+#print axioms Entry005.finite_halfspace_nonzero_radial_cover
+#check Entry005.finite_halfspace_radial_cover_ae
+#print axioms Entry005.finite_halfspace_radial_cover_ae
+#check Entry005.unit_normal_coordinates_orthogonal
+#print axioms Entry005.unit_normal_coordinates_orthogonal
+#check Entry005.unit_normal_coordinates_affine
+#print axioms Entry005.unit_normal_coordinates_affine
+#check Entry005.unit_normal_hyperplane_finrank_add_one
+#print axioms Entry005.unit_normal_hyperplane_finrank_add_one
+#check Entry005.finite_halfspace_facet_cone_coordinates
+#print axioms Entry005.finite_halfspace_facet_cone_coordinates
+#check Entry005.finite_halfspace_facet_cone_volume
+#print axioms Entry005.finite_halfspace_facet_cone_volume
+#check Entry005.finite_halfspace_facet_cones_inter_volume_zero
+#print axioms Entry005.finite_halfspace_facet_cones_inter_volume_zero
+#check Entry005.finite_halfspace_volume_eq_sum_cone_volumes
+#print axioms Entry005.finite_halfspace_volume_eq_sum_cone_volumes
+#check Entry005.finite_halfspace_facet_mass
+#print axioms Entry005.finite_halfspace_facet_mass
+#check Entry005.finite_halfspace_interior_nonempty_of_positive_heights
+#print axioms Entry005.finite_halfspace_interior_nonempty_of_positive_heights
+#check Entry005.finite_halfspace_volume_pos
+#print axioms Entry005.finite_halfspace_volume_pos
+#check Entry005.finite_halfspace_normalization_pos
+#print axioms Entry005.finite_halfspace_normalization_pos
+#check Entry005.integrable_family_defect
+#print axioms Entry005.integrable_family_defect
+#check Entry005.family_cancellation_identity
+#print axioms Entry005.family_cancellation_identity
+#check Entry005.family_defect_nonneg
+#print axioms Entry005.family_defect_nonneg
+#check Entry005.integrated_family_witness_le
+#print axioms Entry005.integrated_family_witness_le
+#check Entry005.family_witness_integrable
+#print axioms Entry005.family_witness_integrable
+#check Entry005.centered_determinant_family_budget
+#print axioms Entry005.centered_determinant_family_budget
+#check Entry005.unit_ball_round_affine_first_moment_pos
+#print axioms Entry005.unit_ball_round_affine_first_moment_pos
+#check Entry005.finite_body_cone_affine_first_moment_pos
+#print axioms Entry005.finite_body_cone_affine_first_moment_pos
+#check Entry005.finite_body_cone_first_moment_assignment
+#print axioms Entry005.finite_body_cone_first_moment_assignment
+#check Entry005.tuple_determinant_eq_zero_of_not_injective
+#print axioms Entry005.tuple_determinant_eq_zero_of_not_injective
+#check Entry005.fintype_weighted_determinant_tuple_sum_eq_injection_sum
+#print axioms Entry005.fintype_weighted_determinant_tuple_sum_eq_injection_sum
+#check Entry005.fintype_determinant_tuple_sum_eq_injection_sum
+#print axioms Entry005.fintype_determinant_tuple_sum_eq_injection_sum
+#check Entry005.finite_tuple_determinant_eq_zero_of_not_injective
+#print axioms Entry005.finite_tuple_determinant_eq_zero_of_not_injective
+#check Entry005.finite_weighted_determinant_tuple_sum_eq_injection_sum
+#print axioms Entry005.finite_weighted_determinant_tuple_sum_eq_injection_sum
+#check Entry005.finite_determinant_tuple_sum_eq_injection_sum
+#print axioms Entry005.finite_determinant_tuple_sum_eq_injection_sum
+#check Entry005.finite_abs_area_split
+#print axioms Entry005.finite_abs_area_split
+#check Entry005.finite_signed_area_split
+#print axioms Entry005.finite_signed_area_split
+#check Entry005.finite_halfspace_facet_projection_volume
+#print axioms Entry005.finite_halfspace_facet_projection_volume
+#check Entry005.finite_halfspace_facet_projection_volume_real
+#print axioms Entry005.finite_halfspace_facet_projection_volume_real
+#check Entry005.finite_halfspace_upper_area_sum
+#print axioms Entry005.finite_halfspace_upper_area_sum
+#check Entry005.finite_halfspace_lower_area_sum
+#print axioms Entry005.finite_halfspace_lower_area_sum
+#check Entry005.finite_halfspace_cauchy
+#print axioms Entry005.finite_halfspace_cauchy
+#check Entry005.finite_halfspace_directional_balance
+#print axioms Entry005.finite_halfspace_directional_balance
+#check Entry005.finite_halfspace_normal_balance
+#print axioms Entry005.finite_halfspace_normal_balance
+#check Entry005.finite_halfspace_facet_area_nonneg
+#print axioms Entry005.finite_halfspace_facet_area_nonneg
+#check Entry005.finite_halfspace_projection_body_eq_zonotope
+#print axioms Entry005.finite_halfspace_projection_body_eq_zonotope
+#check Entry005.finite_halfspace_unit_ball_heights
+#print axioms Entry005.finite_halfspace_unit_ball_heights
+#check Entry005.space_inner_eq_raw_dot
+#print axioms Entry005.space_inner_eq_raw_dot
+#check Entry005.finite_halfspace_normal_balance_coordinates
+#print axioms Entry005.finite_halfspace_normal_balance_coordinates
+#check Entry005.finite_halfspace_cone_probability
+#print axioms Entry005.finite_halfspace_cone_probability
+#check Entry005.finite_halfspace_cone_centered
+#print axioms Entry005.finite_halfspace_cone_centered
+#check Entry005.finite_halfspace_cone_ae_unit_ball
+#print axioms Entry005.finite_halfspace_cone_ae_unit_ball
+#check Entry005.finite_halfspace_cone_support_unit_ball
+#print axioms Entry005.finite_halfspace_cone_support_unit_ball
+#check Entry005.finite_halfspace_brightness_normal_sum
+#print axioms Entry005.finite_halfspace_brightness_normal_sum
+#check Entry005.finite_halfspace_cone_absolute_brightness
+#print axioms Entry005.finite_halfspace_cone_absolute_brightness
+#check Entry005.finite_halfspace_cone_negative_brightness
+#print axioms Entry005.finite_halfspace_cone_negative_brightness
+#check Entry005.unit_hyperplane_ball_volume
+#print axioms Entry005.unit_hyperplane_ball_volume
+#check Entry005.finite_halfspace_brightness_lower_of_unit_ball
+#print axioms Entry005.finite_halfspace_brightness_lower_of_unit_ball
+#check Entry005.finite_halfspace_cone_round_lower
+#print axioms Entry005.finite_halfspace_cone_round_lower
+#check Entry005.finite_halfspace_cone_round_coefficient_pos
+#print axioms Entry005.finite_halfspace_cone_round_coefficient_pos
+#check Entry005.finite_uniform_positive
+#print axioms Entry005.finite_uniform_positive
+#check Entry005.finite_halfspace_upper_active
+#print axioms Entry005.finite_halfspace_upper_active
+#check Entry005.finite_halfspace_upper_projection_cover
+#print axioms Entry005.finite_halfspace_upper_projection_cover
+#check Entry005.unit_normal_projection_decomposition
+#print axioms Entry005.unit_normal_projection_decomposition
+#check Entry005.finite_halfspace_lower_projection_cover
+#print axioms Entry005.finite_halfspace_lower_projection_cover
+#check Entry005.finite_halfspace_facet_chart_image
+#print axioms Entry005.finite_halfspace_facet_chart_image
+#check Entry005.finite_halfspace_facet_compact
+#print axioms Entry005.finite_halfspace_facet_compact
+#check Entry005.same_unit_projection_sub
+#print axioms Entry005.same_unit_projection_sub
+#check Entry005.upper_facets_same_fiber_eq
+#print axioms Entry005.upper_facets_same_fiber_eq
+#check Entry005.same_sign_facets_same_fiber_eq
+#print axioms Entry005.same_sign_facets_same_fiber_eq
+#check Entry005.finite_halfspace_facet_chart_projection_image
+#print axioms Entry005.finite_halfspace_facet_chart_projection_image
+#check Entry005.finite_halfspace_facet_chart_compact
+#print axioms Entry005.finite_halfspace_facet_chart_compact
+#check Entry005.inner_level_volume_zero
+#print axioms Entry005.inner_level_volume_zero
+#check Entry005.same_sign_projected_facets_inter_volume_zero
+#print axioms Entry005.same_sign_projected_facets_inter_volume_zero
+#check Entry005.upper_projected_facets_inter_volume_zero
+#print axioms Entry005.upper_projected_facets_inter_volume_zero
+#check Entry005.lower_projected_facets_inter_volume_zero
+#print axioms Entry005.lower_projected_facets_inter_volume_zero
+#check Entry005.finite_zonotope_scaled_generators
+#print axioms Entry005.finite_zonotope_scaled_generators
+#check Entry005.finite_cone_weighted_zonotope_eq_normalized_generators
+#print axioms Entry005.finite_cone_weighted_zonotope_eq_normalized_generators
+#check Entry005.finite_halfspace_cone_zonotope_eq_scaled_projection_body
+#print axioms Entry005.finite_halfspace_cone_zonotope_eq_scaled_projection_body
+#check Entry005.finite_halfspace_horizontal_first_moment
+#print axioms Entry005.finite_halfspace_horizontal_first_moment
+#check Entry005.finite_zonotope_reindex
+#print axioms Entry005.finite_zonotope_reindex
+#check Entry005.finite_zonotope_volume_matrix_fintype
+#print axioms Entry005.finite_zonotope_volume_matrix_fintype
+#check Entry005.finite_zonotope_volume_horizontal_tuple_sum
+#print axioms Entry005.finite_zonotope_volume_horizontal_tuple_sum
+#check Entry005.finite_weighted_horizontal_determinant
+#print axioms Entry005.finite_weighted_horizontal_determinant
+#check Entry005.finite_law_zonotope_volume_weighted_tuple_sum
+#print axioms Entry005.finite_law_zonotope_volume_weighted_tuple_sum
+#check Entry005.finite_cone_zonotope_volume_first_moment
+#print axioms Entry005.finite_cone_zonotope_volume_first_moment
+#check Entry005.finite_cone_point_height_one
+#print axioms Entry005.finite_cone_point_height_one
+#check Entry005.finite_atom_law_eq_cone
+#print axioms Entry005.finite_atom_law_eq_cone
+#check Entry005.finite_atom_probability
+#print axioms Entry005.finite_atom_probability
+#check Entry005.finite_atom_mem_support_of_pos
+#print axioms Entry005.finite_atom_mem_support_of_pos
+#check Entry005.finite_atom_zonotope_volume_first_moment
+#print axioms Entry005.finite_atom_zonotope_volume_first_moment
+#check Entry005.finite_cone_lifted_zonotope_volume_first_moment
+#print axioms Entry005.finite_cone_lifted_zonotope_volume_first_moment
+#check Entry005.finite_atom_lifted_zonotope_volume_first_moment
+#print axioms Entry005.finite_atom_lifted_zonotope_volume_first_moment
+#check Entry005.unit_ball_clipped_actual_witness_assignment
+#print axioms Entry005.unit_ball_clipped_actual_witness_assignment
+#check Entry005.unit_ball_first_moment_assignment
+#print axioms Entry005.unit_ball_first_moment_assignment
+#check Entry005.unit_ball_spanning_first_moment_assignment
+#print axioms Entry005.unit_ball_spanning_first_moment_assignment
+#check Entry005.excess_le_outer_radius_sub_one
+#print axioms Entry005.excess_le_outer_radius_sub_one
+#check Entry005.maximum_simplex_excess_le_R0_sub_one
+#print axioms Entry005.maximum_simplex_excess_le_R0_sub_one
+#check Entry005.maximum_simplex_regular_geometric_endpoint
+#print axioms Entry005.maximum_simplex_regular_geometric_endpoint
+#check Entry005.compact_support_height_attained
+#print axioms Entry005.compact_support_height_attained
+#check Entry005.compact_support_height_bound
+#print axioms Entry005.compact_support_height_bound
+#check Entry005.compact_support_height_radius
+#print axioms Entry005.compact_support_height_radius
+#check Entry005.compact_support_height_lipschitz
+#print axioms Entry005.compact_support_height_lipschitz
+#check Entry005.compact_support_height_unit_ball
+#print axioms Entry005.compact_support_height_unit_ball
+#check Entry005.compact_convex_eq_support_halfspaces
+#print axioms Entry005.compact_convex_eq_support_halfspaces
+#check Entry005.compact_support_height_nonnegative_smul
+#print axioms Entry005.compact_support_height_nonnegative_smul
+#check Entry005.finite_halfspace_sphere_net_norm_bound
+#print axioms Entry005.finite_halfspace_sphere_net_norm_bound
+#check Entry005.finite_support_net_direction_bound
+#print axioms Entry005.finite_support_net_direction_bound
+#check Entry005.finite_support_net_subset_dilation
+#print axioms Entry005.finite_support_net_subset_dilation
+#check Entry005.finite_halfspace_closed
+#print axioms Entry005.finite_halfspace_closed
+#check Entry005.convex_nonnegative_dilation_mono
+#print axioms Entry005.convex_nonnegative_dilation_mono
+#check Entry005.exists_finite_support_halfspace_approximation
+#print axioms Entry005.exists_finite_support_halfspace_approximation
+#check Entry005.halfspace_approximation_tolerance_pos
+#print axioms Entry005.halfspace_approximation_tolerance_pos
+#check Entry005.halfspace_approximation_tolerance_tendsto
+#print axioms Entry005.halfspace_approximation_tolerance_tendsto
+#check Entry005.halfspace_approximation_spec
+#print axioms Entry005.halfspace_approximation_spec
+#check Entry005.halfspace_approximation_normals_unit
+#print axioms Entry005.halfspace_approximation_normals_unit
+#check Entry005.halfspace_approximation_heights_pos
+#print axioms Entry005.halfspace_approximation_heights_pos
+#check Entry005.halfspace_approximation_normals_injective
+#print axioms Entry005.halfspace_approximation_normals_injective
+#check Entry005.halfspace_approximation_body_compact
+#print axioms Entry005.halfspace_approximation_body_compact
+#check Entry005.subset_halfspace_approximation_body
+#print axioms Entry005.subset_halfspace_approximation_body
+#check Entry005.halfspace_approximation_body_subset_dilation
+#print axioms Entry005.halfspace_approximation_body_subset_dilation
+#check Entry005.halfspace_approximation_body_contains_unit_ball
+#print axioms Entry005.halfspace_approximation_body_contains_unit_ball
+#check Entry005.halfspace_approximation_volume_tendsto
+#print axioms Entry005.halfspace_approximation_volume_tendsto
+#check Entry005.halfspace_approximation_projection_volume_tendsto
+#print axioms Entry005.halfspace_approximation_projection_volume_tendsto
+#check Entry005.compact_projection_body_of_compact_body
+#print axioms Entry005.compact_projection_body_of_compact_body
+#check Entry005.halfspace_approximation_projection_body_volume_tendsto
+#print axioms Entry005.halfspace_approximation_projection_body_volume_tendsto
+#check Entry005.halfspace_approximation_projection_ratio_tendsto
+#print axioms Entry005.halfspace_approximation_projection_ratio_tendsto
+#check Entry005.halfspace_approximation_law_probability
+#print axioms Entry005.halfspace_approximation_law_probability
+#check Entry005.halfspace_approximation_law_centered
+#print axioms Entry005.halfspace_approximation_law_centered
+#check Entry005.halfspace_approximation_law_ae_unit_ball
+#print axioms Entry005.halfspace_approximation_law_ae_unit_ball
+#check Entry005.halfspace_approximation_law_support_unit_ball
+#print axioms Entry005.halfspace_approximation_law_support_unit_ball
+#check Entry005.halfspace_approximation_law_negative_brightness
+#print axioms Entry005.halfspace_approximation_law_negative_brightness
+#check Entry005.halfspace_approximation_law_negative_tendsto
+#print axioms Entry005.halfspace_approximation_law_negative_tendsto
+#check Entry005.geometricSupport_le_iff
+#print axioms Entry005.geometricSupport_le_iff
+#check Entry005.mem_iff_geometricSupport
+#print axioms Entry005.mem_iff_geometricSupport
+#check Entry005.geometricSupport_le_of_hausdorff
+#print axioms Entry005.geometricSupport_le_of_hausdorff
+#check Entry005.shrink_subset_of_hausdorff
+#print axioms Entry005.shrink_subset_of_hausdorff
+#check Entry005.shrink_subset_of_hausdorff_about
+#print axioms Entry005.shrink_subset_of_hausdorff_about
+#check Entry005.retain_maximum_simplex_of_hausdorff
+#print axioms Entry005.retain_maximum_simplex_of_hausdorff
+#check Entry005.maximum_simplex_zero_hausdorff
+#print axioms Entry005.maximum_simplex_zero_hausdorff
+#check Entry005.excess_of_hausdorff_at_centroid
+#print axioms Entry005.excess_of_hausdorff_at_centroid
+#check Entry005.retain_maximum_simplex_of_projection_deficit
+#print axioms Entry005.retain_maximum_simplex_of_projection_deficit
+#check Entry005.orthogonal_hyperplane_projection_formula
+#print axioms Entry005.orthogonal_hyperplane_projection_formula
+#check Entry005.alternating_cons_projection_congr
+#print axioms Entry005.alternating_cons_projection_congr
+#check Entry005.normal_contraction_factor
+#print axioms Entry005.normal_contraction_factor
+#check Entry005.hyperplane_projection_basis_determinant
+#print axioms Entry005.hyperplane_projection_basis_determinant
+#check Entry005.isometry_volume_image
+#print axioms Entry005.isometry_volume_image
+#check Entry005.translation_volume_image
+#print axioms Entry005.translation_volume_image
+#check Entry005.orthonormal_linear_image_volume
+#print axioms Entry005.orthonormal_linear_image_volume
+#check Entry005.hyperplane_projection_volume
+#print axioms Entry005.hyperplane_projection_volume
+#check Entry005.affine_hyperplane_projection_volume
+#print axioms Entry005.affine_hyperplane_projection_volume
+#check Entry005.affine_hyperplane_projection_volume_zero
+#print axioms Entry005.affine_hyperplane_projection_volume_zero
+#check Entry005.selected_anchor_det_ne_zero_of_raw_affineIndependent
+#print axioms Entry005.selected_anchor_det_ne_zero_of_raw_affineIndependent
+#check Entry005.selected_anchor_det_ne_zero_of_affineIndependent
+#print axioms Entry005.selected_anchor_det_ne_zero_of_affineIndependent
+#check Entry005.selected_anchor_affineIndependent_iff_det_ne_zero
+#print axioms Entry005.selected_anchor_affineIndependent_iff_det_ne_zero
+#check Entry005.continuous_iid_anchor_determinant
+#print axioms Entry005.continuous_iid_anchor_determinant
+#check Entry005.continuous_iid_anchor_volume
+#print axioms Entry005.continuous_iid_anchor_volume
+#check Entry005.iid_support_tuple_mem_support
+#print axioms Entry005.iid_support_tuple_mem_support
+#check Entry005.iid_anchor_volume_integral_pos_of_support_det_ne_zero
+#print axioms Entry005.iid_anchor_volume_integral_pos_of_support_det_ne_zero
+#check Entry005.iid_anchor_volume_integral_pos_of_support_affineIndependent
+#print axioms Entry005.iid_anchor_volume_integral_pos_of_support_affineIndependent
+#check Entry005.iid_anchor_volume_integral_pos_of_support_raw_affineIndependent
+#print axioms Entry005.iid_anchor_volume_integral_pos_of_support_raw_affineIndependent
+#check Entry005.exists_affineIndependent_anchor_tuple_of_affineSpan_top
+#print axioms Entry005.exists_affineIndependent_anchor_tuple_of_affineSpan_top
+#check Entry005.exists_nonsingular_support_anchor_tuple_of_affineSpan_top
+#print axioms Entry005.exists_nonsingular_support_anchor_tuple_of_affineSpan_top
+#check Entry005.iid_anchor_volume_integral_pos_of_support_affineSpan_top
+#print axioms Entry005.iid_anchor_volume_integral_pos_of_support_affineSpan_top
+#check Entry005.iid_anchor_volume_integral_pos_of_euclidean_support_affineSpan_top
+#print axioms Entry005.iid_anchor_volume_integral_pos_of_euclidean_support_affineSpan_top
+#check Entry005.iid_split_preserving
+#print axioms Entry005.iid_split_preserving
+#check Entry005.iid_anchor_test_preserving
+#print axioms Entry005.iid_anchor_test_preserving
+#check Entry005.iid_base_pair_preserving
+#print axioms Entry005.iid_base_pair_preserving
+#check Entry005.iid_witness_transport_preserving
+#print axioms Entry005.iid_witness_transport_preserving
+#check Entry005.iid_determinant_witness_anchor
+#print axioms Entry005.iid_determinant_witness_anchor
+#check Entry005.measurable_iid_anchor_volume
+#print axioms Entry005.measurable_iid_anchor_volume
+#check Entry005.iid_anchor_volume_integrable
+#print axioms Entry005.iid_anchor_volume_integrable
+#check Entry005.iid_anchor_volume_weighted_law_probability
+#print axioms Entry005.iid_anchor_volume_weighted_law_probability
+#check Entry005.iid_anchor_support_ae
+#print axioms Entry005.iid_anchor_support_ae
+#check Entry005.iid_anchor_volume_weighted_law_ae_support_pos
+#print axioms Entry005.iid_anchor_volume_weighted_law_ae_support_pos
+#check Entry005.iid_anchor_volume_integral_eq
+#print axioms Entry005.iid_anchor_volume_integral_eq
+#check Entry005.iid_paper_assignment_witness_budget
+#print axioms Entry005.iid_paper_assignment_witness_budget
+#check Entry005.iid_anchor_volume_weighted_witness_ratio_budget
+#print axioms Entry005.iid_anchor_volume_weighted_witness_ratio_budget
+#check Entry005.iid_volume_weighted_paper_witness_anchor
+#print axioms Entry005.iid_volume_weighted_paper_witness_anchor
+#check Entry005.unit_ball_volume_weighted_paper_witness_anchor
+#print axioms Entry005.unit_ball_volume_weighted_paper_witness_anchor
+#check Entry005.integral_mean_decomposition
+#print axioms Entry005.integral_mean_decomposition
+#check Entry005.integral_absolute_decomposition
+#print axioms Entry005.integral_absolute_decomposition
+#check Entry005.integral_cancellation_identity
+#print axioms Entry005.integral_cancellation_identity
+#check Entry005.cancellation_defect_nonneg
+#print axioms Entry005.cancellation_defect_nonneg
+#check Entry005.opposite_witness_nonneg
+#print axioms Entry005.opposite_witness_nonneg
+#check Entry005.opposite_witness_integrable
+#print axioms Entry005.opposite_witness_integrable
+#check Entry005.integrated_opposite_witness_le
+#print axioms Entry005.integrated_opposite_witness_le
+#check Entry005.exists_conditioned_low_witness
+#print axioms Entry005.exists_conditioned_low_witness
+#check Entry005.exists_conditioned_low_witness_ae_good
+#print axioms Entry005.exists_conditioned_low_witness_ae_good
+#check Entry005.IntrinsicLinearImageReuse.isometry_volume_image
+#print axioms Entry005.IntrinsicLinearImageReuse.isometry_volume_image
+#check Entry005.IntrinsicLinearImageReuse.translation_volume_image
+#print axioms Entry005.IntrinsicLinearImageReuse.translation_volume_image
+#check Entry005.IntrinsicLinearImageReuse.orthonormal_linear_image_volume
+#print axioms Entry005.IntrinsicLinearImageReuse.orthonormal_linear_image_volume
+#check Entry005.coordinate_maximizers_nonempty
+#print axioms Entry005.coordinate_maximizers_nonempty
+#check Entry005.largest_coordinate_max
+#print axioms Entry005.largest_coordinate_max
+#check Entry005.largest_coordinate_fiber
+#print axioms Entry005.largest_coordinate_fiber
+#check Entry005.measurable_largest_coordinate
+#print axioms Entry005.measurable_largest_coordinate
+#check Entry005.largest_coordinate_positive
+#print axioms Entry005.largest_coordinate_positive
+#check Entry005.vertex_replacement_volume
+#print axioms Entry005.vertex_replacement_volume
+#check Entry005.maximumInscribed_coord_abs_le_one
+#print axioms Entry005.maximumInscribed_coord_abs_le_one
+#check Entry005.maximumInscribed_outer_ball
+#print axioms Entry005.maximumInscribed_outer_ball
+#check Entry005.maximumInscribed_R0_ball
+#print axioms Entry005.maximumInscribed_R0_ball
+#check Entry005.official_normal_hyperplane_eq
+#print axioms Entry005.official_normal_hyperplane_eq
+#check Entry005.official_projection_volume_eq
+#print axioms Entry005.official_projection_volume_eq
+#check Entry005.official_projection_volume_real_eq
+#print axioms Entry005.official_projection_volume_real_eq
+#check Entry005.official_brightness_eq_norm_mul
+#print axioms Entry005.official_brightness_eq_norm_mul
+#check Entry005.official_unit_brightness_eq
+#print axioms Entry005.official_unit_brightness_eq
+#check Entry005.official_projection_body_eq
+#print axioms Entry005.official_projection_body_eq
+#check Entry005.official_normalized_projection_volume_eq
+#print axioms Entry005.official_normalized_projection_volume_eq
+#check Entry005.actual_projection_body_compact_via_official
+#print axioms Entry005.actual_projection_body_compact_via_official
+#check Entry005.paper_witness_index_card_nat
+#print axioms Entry005.paper_witness_index_card_nat
+#check Entry005.paper_witness_index_card_real
+#print axioms Entry005.paper_witness_index_card_real
+#check Entry005.strict_pair_sum
+#print axioms Entry005.strict_pair_sum
+#check Entry005.symmetric_half_off_diagonal_sum
+#print axioms Entry005.symmetric_half_off_diagonal_sum
+#check Entry005.paper_iid_anchor_split_symm
+#print axioms Entry005.paper_iid_anchor_split_symm
+#check Entry005.paper_iid_base_pair_split
+#print axioms Entry005.paper_iid_base_pair_split
+#check Entry005.paper_iid_transport
+#print axioms Entry005.paper_iid_transport
+#check Entry005.paper_swap_succ
+#print axioms Entry005.paper_swap_succ
+#check Entry005.paper_first_transport
+#print axioms Entry005.paper_first_transport
+#check Entry005.paper_first_matrices
+#print axioms Entry005.paper_first_matrices
+#check Entry005.paper_sign_abs
+#print axioms Entry005.paper_sign_abs
+#check Entry005.paper_opposite_symm
+#print axioms Entry005.paper_opposite_symm
+#check Entry005.paper_first_witness
+#print axioms Entry005.paper_first_witness
+#check Entry005.paper_cases_swap_zero
+#print axioms Entry005.paper_cases_swap_zero
+#check Entry005.paper_pair_transport
+#print axioms Entry005.paper_pair_transport
+#check Entry005.paper_anchor_update
+#print axioms Entry005.paper_anchor_update
+#check Entry005.paper_pair_second_matrix
+#print axioms Entry005.paper_pair_second_matrix
+#check Entry005.paper_pair_first_matrix
+#print axioms Entry005.paper_pair_first_matrix
+#check Entry005.paper_pair_sign
+#print axioms Entry005.paper_pair_sign
+#check Entry005.paper_pair_witness
+#print axioms Entry005.paper_pair_witness
+#check Entry005.paper_witness_index_nonempty
+#print axioms Entry005.paper_witness_index_nonempty
+#check Entry005.paper_witness_transport_preserving
+#print axioms Entry005.paper_witness_transport_preserving
+#check Entry005.paper_pair_replacement_symm
+#print axioms Entry005.paper_pair_replacement_symm
+#check Entry005.determinant_assignment_witness_eq_paper_sum
+#print axioms Entry005.determinant_assignment_witness_eq_paper_sum
+#check Entry005.integral_determinant_assignment_witness_eq_transportedWitnessSum
+#print axioms Entry005.integral_determinant_assignment_witness_eq_transportedWitnessSum
+#check Entry005.simplex_vertex_matching
+#print axioms Entry005.simplex_vertex_matching
+#check Entry005.simplex_equal_volume_permutation
+#print axioms Entry005.simplex_equal_volume_permutation
+#check Entry005.simplex_hull_matching
+#print axioms Entry005.simplex_hull_matching
+#check Entry005.simplex_hull_dilation
+#print axioms Entry005.simplex_hull_dilation
+#check Entry005.maximum_simplex_volume_ratio
+#print axioms Entry005.maximum_simplex_volume_ratio
+#check Entry005.retain_maximum_simplex_about
+#print axioms Entry005.retain_maximum_simplex_about
+#check Entry005.retain_maximum_simplex_centroid
+#print axioms Entry005.retain_maximum_simplex_centroid
+#check Entry005.retain_maximum_simplex_excess
+#print axioms Entry005.retain_maximum_simplex_excess
+#check Entry005.retain_maximum_simplex
+#print axioms Entry005.retain_maximum_simplex
+#check Entry005.normalHyperplane_finrank
+#print axioms Entry005.normalHyperplane_finrank
+#check Entry005.projectionTransport_normDet
+#print axioms Entry005.projectionTransport_normDet
+#check Entry005.projectionTransport_project
+#print axioms Entry005.projectionTransport_project
+#check Entry005.projection_image_linearEquiv
+#print axioms Entry005.projection_image_linearEquiv
+#check Entry005.projectionVolume_linear_image
+#print axioms Entry005.projectionVolume_linear_image
+#check Entry005.projectionVolumeSet_linear_image
+#print axioms Entry005.projectionVolumeSet_linear_image
+#check Entry005.projectionBrightness_linear_image
+#print axioms Entry005.projectionBrightness_linear_image
+#check Entry005.det_adjoint_general
+#print axioms Entry005.det_adjoint_general
+#check Entry005.projectionBodySet_linear_image
+#print axioms Entry005.projectionBodySet_linear_image
+#check Entry005.det_projectionBody_transform_general
+#print axioms Entry005.det_projectionBody_transform_general
+#check Entry005.projectionRatio_linear_image
+#print axioms Entry005.projectionRatio_linear_image
+#check Entry005.projectionBodySet_affine_image
+#print axioms Entry005.projectionBodySet_affine_image
+#check Entry005.projectionRatio_affine_image
+#print axioms Entry005.projectionRatio_affine_image
+#check Entry005.projectionVolumeSet_smul_normal
+#print axioms Entry005.projectionVolumeSet_smul_normal
+#check Entry005.mem_projectionBodySet_iff_brightness
+#print axioms Entry005.mem_projectionBodySet_iff_brightness
+#check Entry005.projectionVolumeSet_translate
+#print axioms Entry005.projectionVolumeSet_translate
+#check Entry005.projectionBodySet_translate
+#print axioms Entry005.projectionBodySet_translate
+#check Entry005.projectionRatio_translate
+#print axioms Entry005.projectionRatio_translate
+#check Entry005.project_body_mono
+#print axioms Entry005.project_body_mono
+#check Entry005.project_body_unit_ball
+#print axioms Entry005.project_body_unit_ball
+#check Entry005.project_body_outer_ball
+#print axioms Entry005.project_body_outer_ball
+#check Entry005.inner_project
+#print axioms Entry005.inner_project
+#check Entry005.exists_perpendicular_unit
+#print axioms Entry005.exists_perpendicular_unit
+#check Entry005.hyperplane_dimension
+#print axioms Entry005.hyperplane_dimension
+#check Entry005.projection_cap_gain
+#print axioms Entry005.projection_cap_gain
+#check Entry005.projection_cap_cube_gain
+#print axioms Entry005.projection_cap_cube_gain
+#check Entry005.exists_projection_cap
+#print axioms Entry005.exists_projection_cap
+#check Entry005.hausdorff_from_projection_deficit
+#print axioms Entry005.hausdorff_from_projection_deficit
+#check Entry005.real_volume_nonnegative_smul
+#print axioms Entry005.real_volume_nonnegative_smul
+#check Entry005.compact_real_volume_mono
+#print axioms Entry005.compact_real_volume_mono
+#check Entry005.orthogonal_projection_smul_image
+#print axioms Entry005.orthogonal_projection_smul_image
+#check Entry005.projection_volume_nonnegative_smul
+#print axioms Entry005.projection_volume_nonnegative_smul
+#check Entry005.projection_volume_mono
+#print axioms Entry005.projection_volume_mono
+#check Entry005.projection_body_mono
+#print axioms Entry005.projection_body_mono
+#check Entry005.projection_body_positive_smul
+#print axioms Entry005.projection_body_positive_smul
+#check Entry005.projection_body_closed
+#print axioms Entry005.projection_body_closed
+#check Entry005.projection_body_convex
+#print axioms Entry005.projection_body_convex
+#check Entry005.projection_body_zero_mem
+#print axioms Entry005.projection_body_zero_mem
+#check Entry005.compact_body_volume_pos_of_unit_ball
+#print axioms Entry005.compact_body_volume_pos_of_unit_ball
+#check Entry005.compact_body_normalization_pos_of_unit_ball
+#print axioms Entry005.compact_body_normalization_pos_of_unit_ball
+#check Entry005.orthogonal_projection_closed_ball
+#print axioms Entry005.orthogonal_projection_closed_ball
+#check Entry005.unit_projection_ball_volume_pos
+#print axioms Entry005.unit_projection_ball_volume_pos
+#check Entry005.projection_volume_closed_ball
+#print axioms Entry005.projection_volume_closed_ball
+#check Entry005.normalized_body_brightness_lower
+#print axioms Entry005.normalized_body_brightness_lower
+#check Entry005.bounded_body_brightness_upper
+#print axioms Entry005.bounded_body_brightness_upper
+#check Entry005.normalized_projection_body_contains_ball
+#print axioms Entry005.normalized_projection_body_contains_ball
+#check Entry005.bounded_projection_body_subset_ball
+#print axioms Entry005.bounded_projection_body_subset_ball
+#check Entry005.bounded_projection_body_compact
+#print axioms Entry005.bounded_projection_body_compact
+#check Entry005.normalized_projection_body_volume_pos
+#print axioms Entry005.normalized_projection_body_volume_pos
+#check Entry005.normalized_projection_ratio_pos
+#print axioms Entry005.normalized_projection_ratio_pos
+#check Entry005.compact_real_volume_dilation_sandwich
+#print axioms Entry005.compact_real_volume_dilation_sandwich
+#check Entry005.compact_projection_volume_dilation_sandwich
+#print axioms Entry005.compact_projection_volume_dilation_sandwich
+#check Entry005.compact_projection_body_dilation_sandwich
+#print axioms Entry005.compact_projection_body_dilation_sandwich
+#check Entry005.compact_projection_body_of_dilation_sandwich
+#print axioms Entry005.compact_projection_body_of_dilation_sandwich
+#check Entry005.compact_projection_body_volume_dilation_sandwich
+#print axioms Entry005.compact_projection_body_volume_dilation_sandwich
+#check Entry005.tendsto_real_volume_of_dilation_sandwich
+#print axioms Entry005.tendsto_real_volume_of_dilation_sandwich
+#check Entry005.tendsto_projection_volume_of_dilation_sandwich
+#print axioms Entry005.tendsto_projection_volume_of_dilation_sandwich
+#check Entry005.tendsto_projection_body_volume_of_dilation_sandwich
+#print axioms Entry005.tendsto_projection_body_volume_of_dilation_sandwich
+#check Entry005.tendsto_projection_ratio_of_dilation_sandwich
+#print axioms Entry005.tendsto_projection_ratio_of_dilation_sandwich
+#check Entry005.tendsto_brightness_normalization_of_dilation_sandwich
+#print axioms Entry005.tendsto_brightness_normalization_of_dilation_sandwich
+#check Entry005.pyramidSet_mono
+#print axioms Entry005.pyramidSet_mono
+#check Entry005.pyramidSet_zero_mem
+#print axioms Entry005.pyramidSet_zero_mem
+#check Entry005.pyramidSet_apex_mem
+#print axioms Entry005.pyramidSet_apex_mem
+#check Entry005.pyramidSet_subset_dilation
+#print axioms Entry005.pyramidSet_subset_dilation
+#check Entry005.projectionVolumeSet_neg_normal
+#print axioms Entry005.projectionVolumeSet_neg_normal
+#check Entry005.actual_projection_body_compact_general
+#print axioms Entry005.actual_projection_body_compact_general
+#check Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
+#print axioms Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
+#check Entry005.tendsto_entryA_of_dilation_sandwich
+#print axioms Entry005.tendsto_entryA_of_dilation_sandwich
+#check Entry005.finite_halfspace_projection_body_volume_pos
+#print axioms Entry005.finite_halfspace_projection_body_volume_pos
+#check Entry005.finite_halfspace_entryA_lifted_moment
+#print axioms Entry005.finite_halfspace_entryA_lifted_moment
+#check Entry005.pyramidBaseIsometry_val
+#print axioms Entry005.pyramidBaseIsometry_val
+#check Entry005.pyramid_base_facet_chart
+#print axioms Entry005.pyramid_base_facet_chart
+#check Entry005.pyramid_base_facet_area
+#print axioms Entry005.pyramid_base_facet_area
+#check Entry005.pyramidSlope_pos
+#print axioms Entry005.pyramidSlope_pos
+#check Entry005.pyramidSlope_sq
+#print axioms Entry005.pyramidSlope_sq
+#check Entry005.pyramidBaseNormal_unit
+#print axioms Entry005.pyramidBaseNormal_unit
+#check Entry005.pyramidSideNormal_unit
+#print axioms Entry005.pyramidSideNormal_unit
+#check Entry005.inner_pyramidBaseNormal
+#print axioms Entry005.inner_pyramidBaseNormal
+#check Entry005.inner_pyramidSideNormal
+#print axioms Entry005.inner_pyramidSideNormal
+#check Entry005.mem_pyramidHalfspace_iff
+#print axioms Entry005.mem_pyramidHalfspace_iff
+#check Entry005.finite_halfspace_convex
+#print axioms Entry005.finite_halfspace_convex
+#check Entry005.finite_halfspace_homogeneous_eq_zero
+#print axioms Entry005.finite_halfspace_homogeneous_eq_zero
+#check Entry005.pyramidHalfspaceNormal_unit
+#print axioms Entry005.pyramidHalfspaceNormal_unit
+#check Entry005.pyramidHalfspaceNormal_injective
+#print axioms Entry005.pyramidHalfspaceNormal_injective
+#check Entry005.finite_halfspace_index_nonempty
+#print axioms Entry005.finite_halfspace_index_nonempty
+#check Entry005.pyramidSet_finite_halfspace
+#print axioms Entry005.pyramidSet_finite_halfspace
+#check Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
+#print axioms Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
+#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
+#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
+#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
+#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
+#check Entry005.pyramidLiftCoordinates_apply
+#print axioms Entry005.pyramidLiftCoordinates_apply
+#check Entry005.pyramid_lifted_law_generator
+#print axioms Entry005.pyramid_lifted_law_generator
+#check Entry005.pyramid_lifted_law_image
+#print axioms Entry005.pyramid_lifted_law_image
+#check Entry005.pyramid_side_zonotope_eq_scaled_lifted
+#print axioms Entry005.pyramid_side_zonotope_eq_scaled_lifted
+#check Entry005.pyramid_side_zonotope_volume_lifted_moment
+#print axioms Entry005.pyramid_side_zonotope_volume_lifted_moment
+#check Entry005.centered_iid_lifted_moment_ge_horizontal
+#print axioms Entry005.centered_iid_lifted_moment_ge_horizontal
+#check Entry005.finite_halfspace_horizontal_moment_pos
+#print axioms Entry005.finite_halfspace_horizontal_moment_pos
+#check Entry005.finite_halfspace_lifted_moment_pos
+#print axioms Entry005.finite_halfspace_lifted_moment_pos
+#check Entry005.finite_halfspace_entryDefect_moment
+#print axioms Entry005.finite_halfspace_entryDefect_moment
+#check Entry005.finite_halfspace_defect_over_first_moment
+#print axioms Entry005.finite_halfspace_defect_over_first_moment
+#check Entry005.pyramid_projection_generator_eq
+#print axioms Entry005.pyramid_projection_generator_eq
+#check Entry005.pyramid_projection_body_eq_zonotope
+#print axioms Entry005.pyramid_projection_body_eq_zonotope
+#check Entry005.pyramid_finite_halfspace_volume
+#print axioms Entry005.pyramid_finite_halfspace_volume
+#check Entry005.finite_halfspace_facet_area_of_empty
+#print axioms Entry005.finite_halfspace_facet_area_of_empty
+#check Entry005.pyramid_side_facet_area_of_empty
+#print axioms Entry005.pyramid_side_facet_area_of_empty
+#check Entry005.pyramid_horizontal_projection
+#print axioms Entry005.pyramid_horizontal_projection
+#check Entry005.pyramid_side_horizontal_image
+#print axioms Entry005.pyramid_side_horizontal_image
+#check Entry005.pyramid_side_horizontal_volume
+#print axioms Entry005.pyramid_side_horizontal_volume
+#check Entry005.pyramid_projection_body_volume_decomposition
+#print axioms Entry005.pyramid_projection_body_volume_decomposition
+#check Entry005.pyramid_side_chart_offset
+#print axioms Entry005.pyramid_side_chart_offset
+#check Entry005.pyramid_side_radial_coordinates
+#print axioms Entry005.pyramid_side_radial_coordinates
+#check Entry005.pyramid_side_facet_chart
+#print axioms Entry005.pyramid_side_facet_chart
+#check Entry005.pyramid_side_facet_of_empty
+#print axioms Entry005.pyramid_side_facet_of_empty
+#check Entry005.pyramid_side_facet_area
+#print axioms Entry005.pyramid_side_facet_area
+#check Entry005.pyramidSideFrameLinear_val
+#print axioms Entry005.pyramidSideFrameLinear_val
+#check Entry005.pyramidSideFrameLinear_norm
+#print axioms Entry005.pyramidSideFrameLinear_norm
+#check Entry005.pyramidSideFrameLinear_surjective
+#print axioms Entry005.pyramidSideFrameLinear_surjective
+#check Entry005.pyramidSideFrame_val
+#print axioms Entry005.pyramidSideFrame_val
+#check Entry005.pyramidBaseMap_apply
+#print axioms Entry005.pyramidBaseMap_apply
+#check Entry005.pyramidFlip_apply
+#print axioms Entry005.pyramidFlip_apply
+#check Entry005.pyramidSet_eq_flip_radial
+#print axioms Entry005.pyramidSet_eq_flip_radial
+#check Entry005.mem_pyramidSet_iff
+#print axioms Entry005.mem_pyramidSet_iff
+#check Entry005.pyramidSet_compact
+#print axioms Entry005.pyramidSet_compact
+#check Entry005.pyramidFlip_volume
+#print axioms Entry005.pyramidFlip_volume
+#check Entry005.pyramidSet_volume
+#print axioms Entry005.pyramidSet_volume
+#check Entry005.finite_zonotope_option
+#print axioms Entry005.finite_zonotope_option
+#check Entry005.finite_zonotope_scalar_image
+#print axioms Entry005.finite_zonotope_scalar_image
+#check Entry005.finite_zonotope_option_volume
+#print axioms Entry005.finite_zonotope_option_volume
+#check Entry005.radial_cone_compact
+#print axioms Entry005.radial_cone_compact
+#check Entry005.radial_cone_horizontal_slice
+#print axioms Entry005.radial_cone_horizontal_slice
+#check Entry005.radial_cone_horizontal_slice_empty
+#print axioms Entry005.radial_cone_horizontal_slice_empty
+#check Entry005.radial_cone_horizontal_slice_volume
+#print axioms Entry005.radial_cone_horizontal_slice_volume
+#check Entry005.radial_cone_horizontal_slice_volume_toReal
+#print axioms Entry005.radial_cone_horizontal_slice_volume_toReal
+#check Entry005.radial_cone_product_volume
+#print axioms Entry005.radial_cone_product_volume
+#check Entry005.radial_cone_lp_volume
+#print axioms Entry005.radial_cone_lp_volume
+#check Entry005.radial_power_integrableOn
+#print axioms Entry005.radial_power_integrableOn
+#check Entry005.radial_power_integral
+#print axioms Entry005.radial_power_integral
+#check Entry005.regularSimplex_vertex_norm
+#print axioms Entry005.regularSimplex_vertex_norm
+#check Entry005.regularSimplex_centroid
+#print axioms Entry005.regularSimplex_centroid
+#check Entry005.regularSimplex_unit_ball
+#print axioms Entry005.regularSimplex_unit_ball
+#check Entry005.regularSimplex_edge_length
+#print axioms Entry005.regularSimplex_edge_length
+#check Entry005.regularSimplex_vertex_inner
+#print axioms Entry005.regularSimplex_vertex_inner
+#check Entry005.regularSimplex_facet_bound
+#print axioms Entry005.regularSimplex_facet_bound
+#check Entry005.regularSimplex_centered_ball_iff
+#print axioms Entry005.regularSimplex_centered_ball_iff
+#check Entry005.exists_regular_unit_normalization
+#print axioms Entry005.exists_regular_unit_normalization
+#check Entry005.maximum_simplex_regular_normalization
+#print axioms Entry005.maximum_simplex_regular_normalization
+#check Entry005.iid_lifted_determinant_integrable
+#print axioms Entry005.iid_lifted_determinant_integrable
+#check Entry005.round_iid_witness_anchor
+#print axioms Entry005.round_iid_witness_anchor
+#check Entry005.selected_anchor_raw_affineIndependent
+#print axioms Entry005.selected_anchor_raw_affineIndependent
+#check Entry005.selected_anchor_affineIndependent
+#print axioms Entry005.selected_anchor_affineIndependent
+#check Entry005.selectedAnchorSimplex_points
+#print axioms Entry005.selectedAnchorSimplex_points
+#check Entry005.regularSimplex_weighted_norm_sq
+#print axioms Entry005.regularSimplex_weighted_norm_sq
+#check Entry005.regularSimplex_norm_sq_coord
+#print axioms Entry005.regularSimplex_norm_sq_coord
+#check Entry005.regularSimplex_norm_sq_le_of_coord_abs
+#print axioms Entry005.regularSimplex_norm_sq_le_of_coord_abs
+#check Entry005.maximumInscribed_regular_norm_sq
+#print axioms Entry005.maximumInscribed_regular_norm_sq
+#check Entry005.maximumInscribed_regular_sharp_ball
+#print axioms Entry005.maximumInscribed_regular_sharp_ball
+#check Entry005.maximum_simplex_sharp_radius_normalization
+#print axioms Entry005.maximum_simplex_sharp_radius_normalization
+#check Entry005.simplexMatrixVolumeInterface
+#print axioms Entry005.simplexMatrixVolumeInterface
+#check Entry005.euclidean_unit_ball_sqrt_cube
+#print axioms Entry005.euclidean_unit_ball_sqrt_cube
+#check Entry005.unit_ball_sqrt_cube
+#print axioms Entry005.unit_ball_sqrt_cube
+#check Entry005.excess_nonnegative_of_maximum
+#print axioms Entry005.excess_nonnegative_of_maximum
+#check Entry005.excess_of_inner_radius_projection_deficit
+#print axioms Entry005.excess_of_inner_radius_projection_deficit
+#check Entry005.maximum_simplex_strong_geometric_endpoint
+#print axioms Entry005.maximum_simplex_strong_geometric_endpoint
+#check Entry005.excess_eq_zero_of_zero_projection_deficit
+#print axioms Entry005.excess_eq_zero_of_zero_projection_deficit
+#check Entry005.projection_cap_sqrt_cube_gain
+#print axioms Entry005.projection_cap_sqrt_cube_gain
+#check Entry005.exists_projection_sqrt_cap
+#print axioms Entry005.exists_projection_sqrt_cap
+#check Entry005.hausdorff_from_projection_deficit_sqrt
+#print axioms Entry005.hausdorff_from_projection_deficit_sqrt
+#check Entry005.body_outer_ball_from_hausdorff
+#print axioms Entry005.body_outer_ball_from_hausdorff
+#check Entry005.hausdorff_from_inner_radius_projection_deficit
+#print axioms Entry005.hausdorff_from_inner_radius_projection_deficit
+#check Entry005.outer_ball_after_small_hausdorff
+#print axioms Entry005.outer_ball_after_small_hausdorff
+#check Entry005.bodies_eq_of_zero_projection_deficit
+#print axioms Entry005.bodies_eq_of_zero_projection_deficit
+#check Entry005.root_bound_of_reciprocal_power
+#print axioms Entry005.root_bound_of_reciprocal_power
+#check Entry005.rSharp_root_bound
+#print axioms Entry005.rSharp_root_bound
+#check Entry005.aSharp_mul_eSharp_root_le_half
+#print axioms Entry005.aSharp_mul_eSharp_root_le_half
+#check Entry005.thresholdGate
+#print axioms Entry005.thresholdGate
+#check Entry005.scaled_defect_le_rSharp
+#print axioms Entry005.scaled_defect_le_rSharp
+#check Entry005.scaled_defect_le_b
+#print axioms Entry005.scaled_defect_le_b
+#check Entry005.scaled_defect_root_bound
+#print axioms Entry005.scaled_defect_root_bound
+#check Entry005.small_defect_gate
+#print axioms Entry005.small_defect_gate
+#check Entry005.unit_ball_coordinate_integrable
+#print axioms Entry005.unit_ball_coordinate_integrable
+#check Entry005.unit_ball_coordinate_product_integrable
+#print axioms Entry005.unit_ball_coordinate_product_integrable
+#check Entry005.unit_ball_iid_determinant_bound
+#print axioms Entry005.unit_ball_iid_determinant_bound
+#check Entry005.unit_ball_support_bound
+#print axioms Entry005.unit_ball_support_bound
+#check Entry005.unit_ball_round_witness_anchor
+#print axioms Entry005.unit_ball_round_witness_anchor
+#check Entry005.euclidean_matrix_hadamard
+#print axioms Entry005.euclidean_matrix_hadamard
+#check Entry005.lifted_unit_column_norm
+#print axioms Entry005.lifted_unit_column_norm
+#check Entry005.unit_ball_anchor_determinant
+#print axioms Entry005.unit_ball_anchor_determinant
+#check Entry005.unit_ball_replacement_determinant
+#print axioms Entry005.unit_ball_replacement_determinant
+#check Entry005.unit_ball_anchor_coordinate_bound
+#print axioms Entry005.unit_ball_anchor_coordinate_bound
+#check Entry005.volume_weighted_law_probability
+#print axioms Entry005.volume_weighted_law_probability
+#check Entry005.volume_weighted_law_ae_good
+#print axioms Entry005.volume_weighted_law_ae_good
+#check Entry005.volume_weighted_density_mul_ratio
+#print axioms Entry005.volume_weighted_density_mul_ratio
+#check Entry005.volume_weighted_ratio_integrable
+#print axioms Entry005.volume_weighted_ratio_integrable
+#check Entry005.volume_weighted_ratio_integral_eq
+#print axioms Entry005.volume_weighted_ratio_integral_eq
+#check Entry005.volume_weighted_ratio_integral_le
+#print axioms Entry005.volume_weighted_ratio_integral_le
+#check Entry005.volume_weighted_selection
+#print axioms Entry005.volume_weighted_selection
+#check Entry005.transported_witness_budget
+#print axioms Entry005.transported_witness_budget
+#check Entry005.exists_determinant_witness_anchor
+#print axioms Entry005.exists_determinant_witness_anchor
+#check Entry005.exists_determinant_witness_anchor_ae_good
+#print axioms Entry005.exists_determinant_witness_anchor_ae_good
+#check Entry005.finite_zonotope_volume_isometry
+#print axioms Entry005.finite_zonotope_volume_isometry
+#check Entry005.finite_zonotope_subset_generator_span
+#print axioms Entry005.finite_zonotope_subset_generator_span
+#check Entry005.finite_zonotope_volume_zero_of_card_lt
+#print axioms Entry005.finite_zonotope_volume_zero_of_card_lt
+#check Entry005.zonotope_orthogonal_finrank
+#print axioms Entry005.zonotope_orthogonal_finrank
+#check Entry005.finite_zonotope_projection_volume_coordinates
+#print axioms Entry005.finite_zonotope_projection_volume_coordinates
+#check Entry005.finite_zonotope_euclidean_zero_volume
+#print axioms Entry005.finite_zonotope_euclidean_zero_volume
+#check Entry005.euclidean_one_coordinates_apply
+#print axioms Entry005.euclidean_one_coordinates_apply
+#check Entry005.finite_zonotope_euclidean_one_volume
+#print axioms Entry005.finite_zonotope_euclidean_one_volume
+#check Entry005.zonotope_orthogonal_projection_formula
+#print axioms Entry005.zonotope_orthogonal_projection_formula
+#check Entry005.zonotope_alternating_projection_congr
+#print axioms Entry005.zonotope_alternating_projection_congr
+#check Entry005.contractFirst_apply
+#print axioms Entry005.contractFirst_apply
+#check Entry005.volumeForm_height_orthogonal
+#print axioms Entry005.volumeForm_height_orthogonal
+#check Entry005.orthonormal_determinant_height
+#print axioms Entry005.orthonormal_determinant_height
+#check Entry005.orthonormal_basis_det_coordinates
+#print axioms Entry005.orthonormal_basis_det_coordinates
+#check Entry005.zonotope_coefficient_mul_succ
+#print axioms Entry005.zonotope_coefficient_mul_succ
+#check Entry005.finite_zonotope_volume_zero_dimensional
+#print axioms Entry005.finite_zonotope_volume_zero_dimensional
+#check Entry005.finite_zonotope_volume_no_generators
+#print axioms Entry005.finite_zonotope_volume_no_generators
+#check Entry005.zonotope_determinant_sum_height
+#print axioms Entry005.zonotope_determinant_sum_height
+#check Entry005.finite_zonotope_volume_determinant_sum
+#print axioms Entry005.finite_zonotope_volume_determinant_sum
+#check Entry005.finite_zonotope_volume_matrix
+#print axioms Entry005.finite_zonotope_volume_matrix
+#check Entry005.zonotope_embedding_sum_partition_zero
+#print axioms Entry005.zonotope_embedding_sum_partition_zero
+#check Entry005.zonotope_alternating_abs_swap
+#print axioms Entry005.zonotope_alternating_abs_swap
+#check Entry005.alternating_injection_sum_cons
+#print axioms Entry005.alternating_injection_sum_cons
+#check Entry005.compact_vertical_fiber
+#print axioms Entry005.compact_vertical_fiber
+#check Entry005.compact_convex_vertical_fiber
+#print axioms Entry005.compact_convex_vertical_fiber
+#check Entry005.compact_vertical_extrusion
+#print axioms Entry005.compact_vertical_extrusion
+#check Entry005.compact_convex_extrusion_fiber_volume
+#print axioms Entry005.compact_convex_extrusion_fiber_volume
+#check Entry005.compact_convex_vertical_extrusion_volume
+#print axioms Entry005.compact_convex_vertical_extrusion_volume
+#check Entry005.unit_normal_coordinates_fst
+#print axioms Entry005.unit_normal_coordinates_fst
+#check Entry005.unit_normal_coordinates_self
+#print axioms Entry005.unit_normal_coordinates_self
+#check Entry005.unit_normal_coordinates_measurePreserving
+#print axioms Entry005.unit_normal_coordinates_measurePreserving
+#check Entry005.compact_segment_extrusion
+#print axioms Entry005.compact_segment_extrusion
+#check Entry005.unit_normal_coordinates_extrusion
+#print axioms Entry005.unit_normal_coordinates_extrusion
+#check Entry005.unit_normal_coordinates_volume
+#print axioms Entry005.unit_normal_coordinates_volume
+#check Entry005.compact_convex_unit_extrusion_volume
+#print axioms Entry005.compact_convex_unit_extrusion_volume
+#check Entry005.segment_extrusion_rescale
+#print axioms Entry005.segment_extrusion_rescale
+#check Entry005.compact_convex_extrusion_volume
+#print axioms Entry005.compact_convex_extrusion_volume
+#check Entry005.finite_zonotope_linear_image
+#print axioms Entry005.finite_zonotope_linear_image
+#check Entry005.finite_zonotope_cons
+#print axioms Entry005.finite_zonotope_cons
+#check Entry005.symmetric_segment_extrusion_eq_preimage
+#print axioms Entry005.symmetric_segment_extrusion_eq_preimage
+#check Entry005.finite_zonotope_volume_cons
+#print axioms Entry005.finite_zonotope_volume_cons
+#check Entry005.finite_zonotope_volume_cons_toReal
+#print axioms Entry005.finite_zonotope_volume_cons_toReal
+#check Entry005.finite_zonotope_volume_cons_projected
+#print axioms Entry005.finite_zonotope_volume_cons_projected
+#check Entry005.finite_zonotope_real_eq_interval
+#print axioms Entry005.finite_zonotope_real_eq_interval
+#check Entry005.finite_zonotope_real_volume
+#print axioms Entry005.finite_zonotope_real_volume
+#check Mxym.StochasticRigidity.abs_det_le_column_l1_product
+#print axioms Mxym.StochasticRigidity.abs_det_le_column_l1_product
+#check Mxym.StochasticRigidity.abs_det_le_column_max
+#print axioms Mxym.StochasticRigidity.abs_det_le_column_max
+#check Mxym.StochasticRigidity.column_l1_distance
+#print axioms Mxym.StochasticRigidity.column_l1_distance
+#check Mxym.StochasticRigidity.abs_det_le_of_shared_row
+#print axioms Mxym.StochasticRigidity.abs_det_le_of_shared_row
+#check Mxym.StochasticRigidity.near_permutation_sharp
+#print axioms Mxym.StochasticRigidity.near_permutation_sharp
+#check Mxym.StochasticRigidity.near_permutation
+#print axioms Mxym.StochasticRigidity.near_permutation
+#check Mxym.StochasticRigidity.exact_permutation
+#print axioms Mxym.StochasticRigidity.exact_permutation
+#check OAI.Paper092.normalHyperplane_volume_is_canonical
+#print axioms OAI.Paper092.normalHyperplane_volume_is_canonical
+#check OAI.Paper092.normalHyperplane_finrank
+#print axioms OAI.Paper092.normalHyperplane_finrank
+#check OAI.Paper092.normalHyperplane_smul
+#print axioms OAI.Paper092.normalHyperplane_smul
+#check OAI.Paper092.projectionVolume_smul
+#print axioms OAI.Paper092.projectionVolume_smul
+#check OAI.Paper092.brightness_smul
+#print axioms OAI.Paper092.brightness_smul
+#check OAI.Paper092.brightness_neg
+#print axioms OAI.Paper092.brightness_neg
+#check OAI.Paper092.brightness_nonneg
+#print axioms OAI.Paper092.brightness_nonneg
+#check OAI.Paper092.zero_mem_projectionBody
+#print axioms OAI.Paper092.zero_mem_projectionBody
+#check OAI.Paper092.neg_mem_projectionBody_iff
+#print axioms OAI.Paper092.neg_mem_projectionBody_iff
+#check OAI.Paper092.projectionBody_neg_eq
+#print axioms OAI.Paper092.projectionBody_neg_eq
+#check OAI.Paper092.projectionVolume_lt_top
+#print axioms OAI.Paper092.projectionVolume_lt_top
+#check OAI.Paper092.projectionVolume_mono
+#print axioms OAI.Paper092.projectionVolume_mono
+#check OAI.Paper092.brightness_mono
+#print axioms OAI.Paper092.brightness_mono
+#check OAI.Paper092.projectionBody_mono
+#print axioms OAI.Paper092.projectionBody_mono
+#check OAI.Paper092.projectionBody_isClosed
+#print axioms OAI.Paper092.projectionBody_isClosed
+#check OAI.Paper092.projectionBody_convex
+#print axioms OAI.Paper092.projectionBody_convex
+#check OAI.Paper092.projectionBody_norm_le
+#print axioms OAI.Paper092.projectionBody_norm_le
+#check OAI.Paper092.projectionBody_isCompact
+#print axioms OAI.Paper092.projectionBody_isCompact
+#check OAI.Paper092.projectionVolume_body_smul
+#print axioms OAI.Paper092.projectionVolume_body_smul
+#check OAI.Paper092.brightness_body_smul
+#print axioms OAI.Paper092.brightness_body_smul
+#check OAI.Paper092.projectionBody_body_smul
+#print axioms OAI.Paper092.projectionBody_body_smul

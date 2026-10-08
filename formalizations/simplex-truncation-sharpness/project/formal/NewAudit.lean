@@ -1,0 +1,10 @@
+import Entry005.PrescribedSimplex
+#print axioms Entry005.simplex_vertex_matching
+#print axioms Entry005.simplex_equal_volume_permutation
+#print axioms Entry005.simplex_hull_matching
+#print axioms Entry005.simplex_hull_dilation
+#print axioms Entry005.maximum_simplex_volume_ratio
+#print axioms Entry005.retain_maximum_simplex_about
+#print axioms Entry005.retain_maximum_simplex_centroid
+#print axioms Entry005.retain_maximum_simplex_excess
+#print axioms Entry005.retain_maximum_simplex

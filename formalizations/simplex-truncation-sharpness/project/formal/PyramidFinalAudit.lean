@@ -1,0 +1,166 @@
+import Entry005.ActualPyramidJointCone
+
+#check Entry005.pyramidSet_mono
+#print axioms Entry005.pyramidSet_mono
+#check Entry005.pyramidSet_zero_mem
+#print axioms Entry005.pyramidSet_zero_mem
+#check Entry005.pyramidSet_apex_mem
+#print axioms Entry005.pyramidSet_apex_mem
+#check Entry005.pyramidSet_subset_dilation
+#print axioms Entry005.pyramidSet_subset_dilation
+#check Entry005.projectionVolumeSet_neg_normal
+#print axioms Entry005.projectionVolumeSet_neg_normal
+#check Entry005.actual_projection_body_compact_general
+#print axioms Entry005.actual_projection_body_compact_general
+#check Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
+#print axioms Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
+#check Entry005.tendsto_entryA_of_dilation_sandwich
+#print axioms Entry005.tendsto_entryA_of_dilation_sandwich
+#check Entry005.finite_halfspace_projection_body_volume_pos
+#print axioms Entry005.finite_halfspace_projection_body_volume_pos
+#check Entry005.finite_halfspace_entryA_lifted_moment
+#print axioms Entry005.finite_halfspace_entryA_lifted_moment
+#check Entry005.pyramidBaseIsometry_val
+#print axioms Entry005.pyramidBaseIsometry_val
+#check Entry005.pyramid_base_facet_chart
+#print axioms Entry005.pyramid_base_facet_chart
+#check Entry005.pyramid_base_facet_area
+#print axioms Entry005.pyramid_base_facet_area
+#check Entry005.pyramidSlope_pos
+#print axioms Entry005.pyramidSlope_pos
+#check Entry005.pyramidSlope_sq
+#print axioms Entry005.pyramidSlope_sq
+#check Entry005.pyramidBaseNormal_unit
+#print axioms Entry005.pyramidBaseNormal_unit
+#check Entry005.pyramidSideNormal_unit
+#print axioms Entry005.pyramidSideNormal_unit
+#check Entry005.inner_pyramidBaseNormal
+#print axioms Entry005.inner_pyramidBaseNormal
+#check Entry005.inner_pyramidSideNormal
+#print axioms Entry005.inner_pyramidSideNormal
+#check Entry005.mem_pyramidHalfspace_iff
+#print axioms Entry005.mem_pyramidHalfspace_iff
+#check Entry005.finite_halfspace_convex
+#print axioms Entry005.finite_halfspace_convex
+#check Entry005.finite_halfspace_homogeneous_eq_zero
+#print axioms Entry005.finite_halfspace_homogeneous_eq_zero
+#check Entry005.pyramidHalfspaceNormal_unit
+#print axioms Entry005.pyramidHalfspaceNormal_unit
+#check Entry005.pyramidHalfspaceNormal_injective
+#print axioms Entry005.pyramidHalfspaceNormal_injective
+#check Entry005.finite_halfspace_index_nonempty
+#print axioms Entry005.finite_halfspace_index_nonempty
+#check Entry005.pyramidSet_finite_halfspace
+#print axioms Entry005.pyramidSet_finite_halfspace
+#check Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
+#print axioms Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
+#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
+#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
+#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
+#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
+#check Entry005.pyramidLiftCoordinates_apply
+#print axioms Entry005.pyramidLiftCoordinates_apply
+#check Entry005.pyramid_lifted_law_generator
+#print axioms Entry005.pyramid_lifted_law_generator
+#check Entry005.pyramid_lifted_law_image
+#print axioms Entry005.pyramid_lifted_law_image
+#check Entry005.pyramid_side_zonotope_eq_scaled_lifted
+#print axioms Entry005.pyramid_side_zonotope_eq_scaled_lifted
+#check Entry005.pyramid_side_zonotope_volume_lifted_moment
+#print axioms Entry005.pyramid_side_zonotope_volume_lifted_moment
+#check Entry005.centered_iid_lifted_moment_ge_horizontal
+#print axioms Entry005.centered_iid_lifted_moment_ge_horizontal
+#check Entry005.finite_halfspace_horizontal_moment_pos
+#print axioms Entry005.finite_halfspace_horizontal_moment_pos
+#check Entry005.finite_halfspace_lifted_moment_pos
+#print axioms Entry005.finite_halfspace_lifted_moment_pos
+#check Entry005.finite_halfspace_entryDefect_moment
+#print axioms Entry005.finite_halfspace_entryDefect_moment
+#check Entry005.finite_halfspace_defect_over_first_moment
+#print axioms Entry005.finite_halfspace_defect_over_first_moment
+#check Entry005.pyramid_projection_generator_eq
+#print axioms Entry005.pyramid_projection_generator_eq
+#check Entry005.pyramid_projection_body_eq_zonotope
+#print axioms Entry005.pyramid_projection_body_eq_zonotope
+#check Entry005.pyramid_finite_halfspace_volume
+#print axioms Entry005.pyramid_finite_halfspace_volume
+#check Entry005.finite_halfspace_facet_area_of_empty
+#print axioms Entry005.finite_halfspace_facet_area_of_empty
+#check Entry005.pyramid_side_facet_area_of_empty
+#print axioms Entry005.pyramid_side_facet_area_of_empty
+#check Entry005.pyramid_horizontal_projection
+#print axioms Entry005.pyramid_horizontal_projection
+#check Entry005.pyramid_side_horizontal_image
+#print axioms Entry005.pyramid_side_horizontal_image
+#check Entry005.pyramid_side_horizontal_volume
+#print axioms Entry005.pyramid_side_horizontal_volume
+#check Entry005.pyramid_projection_body_volume_decomposition
+#print axioms Entry005.pyramid_projection_body_volume_decomposition
+#check Entry005.pyramid_side_chart_offset
+#print axioms Entry005.pyramid_side_chart_offset
+#check Entry005.pyramid_side_radial_coordinates
+#print axioms Entry005.pyramid_side_radial_coordinates
+#check Entry005.pyramid_side_facet_chart
+#print axioms Entry005.pyramid_side_facet_chart
+#check Entry005.pyramid_side_facet_of_empty
+#print axioms Entry005.pyramid_side_facet_of_empty
+#check Entry005.pyramid_side_facet_area
+#print axioms Entry005.pyramid_side_facet_area
+#check Entry005.pyramidSideFrameLinear_val
+#print axioms Entry005.pyramidSideFrameLinear_val
+#check Entry005.pyramidSideFrameLinear_norm
+#print axioms Entry005.pyramidSideFrameLinear_norm
+#check Entry005.pyramidSideFrameLinear_surjective
+#print axioms Entry005.pyramidSideFrameLinear_surjective
+#check Entry005.pyramidSideFrame_val
+#print axioms Entry005.pyramidSideFrame_val
+#check Entry005.pyramidBaseMap_apply
+#print axioms Entry005.pyramidBaseMap_apply
+#check Entry005.pyramidFlip_apply
+#print axioms Entry005.pyramidFlip_apply
+#check Entry005.pyramidSet_eq_flip_radial
+#print axioms Entry005.pyramidSet_eq_flip_radial
+#check Entry005.mem_pyramidSet_iff
+#print axioms Entry005.mem_pyramidSet_iff
+#check Entry005.pyramidSet_compact
+#print axioms Entry005.pyramidSet_compact
+#check Entry005.pyramidFlip_volume
+#print axioms Entry005.pyramidFlip_volume
+#check Entry005.pyramidSet_volume
+#print axioms Entry005.pyramidSet_volume
+#check Entry005.finite_zonotope_option
+#print axioms Entry005.finite_zonotope_option
+#check Entry005.finite_zonotope_scalar_image
+#print axioms Entry005.finite_zonotope_scalar_image
+#check Entry005.finite_zonotope_option_volume
+#print axioms Entry005.finite_zonotope_option_volume
+#check Entry005.actual_body_geometric_first_moment_assignment
+#print axioms Entry005.actual_body_geometric_first_moment_assignment
+#check Entry005.determinantLawDefect_iid_eq
+#print axioms Entry005.determinantLawDefect_iid_eq
+#check Entry005.entryDefect_iid_moment_identity
+#print axioms Entry005.entryDefect_iid_moment_identity
+#check Entry005.entryDefect_iid_nonnegative
+#print axioms Entry005.entryDefect_iid_nonnegative
+#check Entry005.entryDefect_iid_defect_ratio
+#print axioms Entry005.entryDefect_iid_defect_ratio
+#check Entry005.actual_body_cone_law_with_pyramid_defect
+#print axioms Entry005.actual_body_cone_law_with_pyramid_defect
+#check Entry005.actual_body_entryDefect_nonnegative
+#print axioms Entry005.actual_body_entryDefect_nonnegative
+#check Entry005.actual_body_joint_polar_pyramid_assignment
+#print axioms Entry005.actual_body_joint_polar_pyramid_assignment
+#check Entry005.compact_normalized_projection_ratio_pos
+#print axioms Entry005.compact_normalized_projection_ratio_pos
+#check Entry005.halfspace_approximation_entryA_tendsto
+#print axioms Entry005.halfspace_approximation_entryA_tendsto
+#check Entry005.halfspace_approximation_iid_moments_tendsto
+#print axioms Entry005.halfspace_approximation_iid_moments_tendsto
+#check Entry005.actual_body_horizontal_moment_pos_of_compact_limit
+#print axioms Entry005.actual_body_horizontal_moment_pos_of_compact_limit
+#check Entry005.actual_body_lifted_first_moment_of_compact_limit
+#print axioms Entry005.actual_body_lifted_first_moment_of_compact_limit
+#check Entry005.actual_body_entryA_of_compact_limit
+#print axioms Entry005.actual_body_entryA_of_compact_limit
+#check Entry005.actual_body_cone_law_with_pyramid_first_moment
+#print axioms Entry005.actual_body_cone_law_with_pyramid_first_moment

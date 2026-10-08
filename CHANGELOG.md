@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — literal simplex-truncation sharpness in Lean
+
+- Published the exact 365-file v2 sharpness formalization and deterministic archive, preserving all 125 mathematical modules. The literal truncationSharpnessGoal uses the actual geometric defect, a global maximum inscribed simplex, its original centroid, and exponent 1/(d−1), with no assumed formula for these objects. It existentially selects a maximizing simplex and does not assert the same excess for all maximizers.
+- Retained the independent final-copy review and selected evidence: 125 fresh modules, 850 public proof declarations, 1,849 safe owned roots, and a 55,163-declaration actual empty trust-zero kernel replay. Integration reran normal/optimized integrity, deterministic archive construction, and both 83-case/666-entrypoint packaging suites. Reused dependency caches remain part of the stated trust boundary.
+- Added the [release manifest](releases/2026-10-08-simplex-truncation-sharpness-v2.json), preserved all earlier releases and unrelated files, and added only navigation to existing files. The sharpMainGoal upper theorem is not part of this historical lower-bound checkpoint. No new blanket license, authorship assignment, CI workflow, novelty certificate or external human peer-review claim is introduced.
+
 ## 2026-10-07 — Eisenstein graph maxima and sharp principal-sieve periods
 
 - Proved exact unique largest irreducible-element component sizes 48

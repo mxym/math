@@ -1,0 +1,56 @@
+import Entry005.TruncationFacetGeometry
+
+#check OAI.ProjectionCounterexample.coordinateSimplex_measurableSet
+#print axioms OAI.ProjectionCounterexample.coordinateSimplex_measurableSet
+#check OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg
+#print axioms OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg
+#check OAI.ProjectionCounterexample.integral_simplex_slice
+#print axioms OAI.ProjectionCounterexample.integral_simplex_slice
+#check OAI.ProjectionCounterexample.volume_coordinateSimplex
+#print axioms OAI.ProjectionCounterexample.volume_coordinateSimplex
+#check OAI.ProjectionCounterexample.volume_unit_coordinateSimplex
+#print axioms OAI.ProjectionCounterexample.volume_unit_coordinateSimplex
+#check OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex
+#print axioms OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex
+#check OAI.ProjectionCounterexample.volume_unit_euclideanSimplex
+#print axioms OAI.ProjectionCounterexample.volume_unit_euclideanSimplex
+#check OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex
+#print axioms OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex
+#check Entry005.truncation_ambient_simplex_measurable
+#print axioms Entry005.truncation_ambient_simplex_measurable
+#check Entry005.truncation_ambient_simplex_volume
+#print axioms Entry005.truncation_ambient_simplex_volume
+#check Entry005.truncation_ambient_simplex_real_volume
+#print axioms Entry005.truncation_ambient_simplex_real_volume
+#check Entry005.truncation_sum_level_volume_zero
+#print axioms Entry005.truncation_sum_level_volume_zero
+#check Entry005.truncation_union_removed_simplex
+#print axioms Entry005.truncation_union_removed_simplex
+#check Entry005.truncation_removed_overlap_volume_zero
+#print axioms Entry005.truncation_removed_overlap_volume_zero
+#check Entry005.truncation_actual_volume
+#print axioms Entry005.truncation_actual_volume
+#check Entry005.truncation_diagonal_inner
+#print axioms Entry005.truncation_diagonal_inner
+#check Entry005.truncation_unit_diagonal_inner
+#print axioms Entry005.truncation_unit_diagonal_inner
+#check Entry005.truncation_unit_diagonal_norm
+#print axioms Entry005.truncation_unit_diagonal_norm
+#check Entry005.truncation_facet_norm
+#print axioms Entry005.truncation_facet_norm
+#check Entry005.truncation_halfspace_representation
+#print axioms Entry005.truncation_halfspace_representation
+#check Entry005.truncation_top_facet
+#print axioms Entry005.truncation_top_facet
+#check Entry005.truncation_bottom_facet
+#print axioms Entry005.truncation_bottom_facet
+#check Entry005.truncation_top_facet_cone
+#print axioms Entry005.truncation_top_facet_cone
+#check Entry005.truncation_top_facet_area
+#print axioms Entry005.truncation_top_facet_area
+#check Entry005.truncation_bottom_facet_homothety
+#print axioms Entry005.truncation_bottom_facet_homothety
+#check Entry005.truncation_facet_area_projection
+#print axioms Entry005.truncation_facet_area_projection
+#check Entry005.truncation_bottom_facet_area
+#print axioms Entry005.truncation_bottom_facet_area

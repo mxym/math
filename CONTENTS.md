@@ -1,5 +1,9 @@
 # Manuscript catalogue
 
+## Simplex-truncation sharpness formalization
+
+[Complete literal lower-bound target](formalizations/simplex-truncation-sharpness/README.md), with the actual entryDefect, an exhibited globally maximizing inscribed affine simplex, its own centroid, and exponent 1/(d−1). Includes [precise quantifiers and non-claims](formalizations/simplex-truncation-sharpness/THEOREM.md), [Lean endpoint](formalizations/simplex-truncation-sharpness/project/formal/Entry005/TruncationSharpness.lean), [fresh-copy review](verification/2026-10-08-simplex-truncation-sharpness/FINAL_AUDIT_REPORT.md), [selected evidence and checkpoint scope](verification/2026-10-08-simplex-truncation-sharpness/README.md), [frozen source archive](releases/2026-10-08-simplex-truncation-sharpness-source-v2.tar.gz), and [release manifest](releases/2026-10-08-simplex-truncation-sharpness-v2.json). All 125 mathematical modules are preserved unchanged. The separate upper theorem is outside this historical sharpness package.
+
 ## Exact Eisenstein graph certificates
 
 The [Eisenstein continuation of entry 002](notes/eisenstein-prime-components/README.md)

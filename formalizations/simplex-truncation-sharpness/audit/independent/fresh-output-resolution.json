@@ -1,0 +1,963 @@
+{
+  "owned_modules": 125,
+  "all_owned_predecessors_fresh_before_use": true,
+  "all_outputs_local_and_hashed": true,
+  "modules": [
+    {
+      "module": "Entry005.Cap",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.BallVolume",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ProjectionCap",
+      "owned_imports_compiled_before_module": [
+        "Entry005.BallVolume",
+        "Entry005.Cap"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.Constants",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.Targets",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Constants",
+        "Entry005.ProjectionCap"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.Handoff",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Mxym.StochasticRigidity",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.SimplexVolumeInterface",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Handoff"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PrescribedSimplex",
+      "owned_imports_compiled_before_module": [
+        "Entry005.SimplexVolumeInterface",
+        "Mxym.StochasticRigidity"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.HausdorffRetention",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PrescribedSimplex",
+        "Entry005.ProjectionCap"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.AffineNormalization",
+      "owned_imports_compiled_before_module": [
+        "Entry005.HausdorffRetention"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.RegularSimplex",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AffineNormalization"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ThresholdGate",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.MaximumOuterBall",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AffineNormalization"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.GeometricEndpoint",
+      "owned_imports_compiled_before_module": [
+        "Entry005.MaximumOuterBall",
+        "Entry005.RegularSimplex"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.CentroidMaximumBound",
+      "owned_imports_compiled_before_module": [
+        "Entry005.MaximumOuterBall"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.SharpNormalizationRadius",
+      "owned_imports_compiled_before_module": [
+        "Entry005.MaximumOuterBall",
+        "Entry005.RegularSimplex"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.StrongBallVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.BallVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.StrongProjectionCap",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ProjectionCap",
+        "Entry005.StrongBallVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.StrongGeometricEndpoint",
+      "owned_imports_compiled_before_module": [
+        "Entry005.CentroidMaximumBound",
+        "Entry005.GeometricEndpoint",
+        "Entry005.SharpNormalizationRadius",
+        "Entry005.StrongProjectionCap"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ProjectionBodyDirections",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IntrinsicLinearImageReuse",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ProjectionAffineTransport",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IntrinsicLinearImageReuse",
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.AffinePyramid",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ProjectionBodyCovariance",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ProjectionAffineTransport",
+        "Entry005.ProjectionBodyDirections"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.EntryAffineInvariance",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AffinePyramid",
+        "Entry005.ProjectionBodyCovariance",
+        "Entry005.StrongGeometricEndpoint"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AffineNormalization",
+        "Entry005.AffinePyramid",
+        "Entry005.CentroidMaximumBound",
+        "Entry005.EntryAffineInvariance",
+        "Entry005.GeometricEndpoint",
+        "Entry005.Handoff",
+        "Entry005.HausdorffRetention",
+        "Entry005.IntrinsicLinearImageReuse",
+        "Entry005.MaximumOuterBall",
+        "Entry005.PrescribedSimplex",
+        "Entry005.ProjectionAffineTransport",
+        "Entry005.ProjectionBodyCovariance",
+        "Entry005.ProjectionBodyDirections",
+        "Entry005.ProjectionCap",
+        "Entry005.RegularSimplex",
+        "Entry005.SharpNormalizationRadius",
+        "Entry005.SimplexVolumeInterface",
+        "Entry005.StrongBallVolume",
+        "Entry005.StrongGeometricEndpoint",
+        "Entry005.StrongProjectionCap",
+        "Entry005.Targets",
+        "Entry005.ThresholdGate",
+        "Mxym.StochasticRigidity"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IntegratedWitness",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.DeterminantWitness",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IntegratedWitness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FamilyWitness",
+      "owned_imports_compiled_before_module": [
+        "Entry005.DeterminantWitness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.AnchorSelection",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IntegratedWitness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.WitnessAnchorChain",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AnchorSelection",
+        "Entry005.FamilyWitness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IidTransport",
+      "owned_imports_compiled_before_module": [
+        "Entry005.WitnessAnchorChain"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.DeterminantMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IidTransport"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.LargestCoordinate",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IntegratedWitness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.AssignmentKernel",
+      "owned_imports_compiled_before_module": [
+        "Entry005.LargestCoordinate"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.AnchorCoordinates",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AssignmentKernel",
+        "Entry005.DeterminantMoment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.UnitBallDeterminant",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AnchorCoordinates"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.CovarianceConditioning",
+      "owned_imports_compiled_before_module": [
+        "Entry005.DeterminantMoment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.RoundAnchorChain",
+      "owned_imports_compiled_before_module": [
+        "Entry005.CovarianceConditioning"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.UnitBallAnchorChain",
+      "owned_imports_compiled_before_module": [
+        "Entry005.RoundAnchorChain",
+        "Entry005.UnitBallDeterminant"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PaperWitnessCombinatorics",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AnchorCoordinates"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PaperWitnessTransport",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PaperWitnessCombinatorics"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualAssignmentAssembly",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Constants",
+        "Entry005.PaperWitnessTransport",
+        "Entry005.UnitBallAnchorChain"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ConeLawFinite",
+      "owned_imports_compiled_before_module": [
+        "Entry005.UnitBallAnchorChain"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ConeLawGeometry",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ConeLawFinite",
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ZonotopeVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ConeLawGeometry"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ZonotopeDeterminant",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ZonotopeVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.HyperplaneProjectionJacobian",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ZonotopeDeterminant"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteHalfspaceFacets",
+      "owned_imports_compiled_before_module": [
+        "Entry005.HyperplaneProjectionJacobian"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteHalfspaceCauchy",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceFacets",
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.RadialPowerIntegral",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.RadialConeVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.RadialPowerIntegral"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FacetRadialMass",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceCauchy",
+        "Entry005.RadialConeVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteHalfspaceConeLaw",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ConeLawFinite",
+        "Entry005.FacetRadialMass"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.HalfspaceApproximation",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceConeLaw"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ProjectionVolumeSqueeze",
+      "owned_imports_compiled_before_module": [
+        "Entry005.HalfspaceApproximation"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.HalfspaceApproximationSequence",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ProjectionVolumeSqueeze"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.CompactProbabilitySubsequence",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.CompactBallConeLaw",
+      "owned_imports_compiled_before_module": [
+        "Entry005.CompactProbabilitySubsequence",
+        "Entry005.FiniteHalfspaceConeLaw"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ClippedAssignmentKernel",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AssignmentKernel"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.WeightedAnchorSelection",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AnchorSelection"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IidWeightedAnchorSelection",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PaperWitnessTransport",
+        "Entry005.RoundAnchorChain",
+        "Entry005.UnitBallAnchorChain",
+        "Entry005.WeightedAnchorSelection"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.SelectedAnchorSimplex",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AnchorCoordinates"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IidAnchorAffineDeterminant",
+      "owned_imports_compiled_before_module": [
+        "Entry005.SelectedAnchorSimplex"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IidAnchorFirstMomentPositive",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IidAnchorAffineDeterminant",
+        "Entry005.IidWeightedAnchorSelection"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.IidAnchorSpanningSupport",
+      "owned_imports_compiled_before_module": [
+        "Entry005.IidAnchorAffineDeterminant",
+        "Entry005.IidAnchorFirstMomentPositive"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FirstMomentAssignment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ClippedAssignmentKernel",
+        "Entry005.IidAnchorSpanningSupport",
+        "Entry005.IidWeightedAnchorSelection",
+        "Entry005.SelectedAnchorSimplex",
+        "Entry005.UnitBallAnchorChain"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteBodyWeightedAssignment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualAssignmentAssembly",
+        "Entry005.FiniteHalfspaceConeLaw",
+        "Entry005.FirstMomentAssignment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualBodyConeLaw",
+      "owned_imports_compiled_before_module": [
+        "Entry005.CompactBallConeLaw",
+        "Entry005.FiniteBodyWeightedAssignment",
+        "Entry005.HalfspaceApproximationSequence"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.CompactIidMomentContinuity",
+      "owned_imports_compiled_before_module": [
+        "Entry005.DeterminantWitness",
+        "Entry005.IidTransport"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ZonotopeInjectionCombinatorics",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ZonotopeFormula",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ZonotopeDeterminant",
+        "Entry005.ZonotopeInjectionCombinatorics"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteDeterminantTupleInjection",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteLawZonotopeMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteDeterminantTupleInjection",
+        "Entry005.ZonotopeFormula"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.FiniteHalfspaceHorizontalMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteLawZonotopeMoment",
+        "Entry005.ProjectionVolumeSqueeze"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "OAI.Geometry.ProjectionVolume.Model",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "OAI.Geometry.ProjectionVolume.Basic",
+      "owned_imports_compiled_before_module": [
+        "OAI.Geometry.ProjectionVolume.Model"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "OAI.Geometry.ProjectionVolume.Brightness",
+      "owned_imports_compiled_before_module": [
+        "OAI.Geometry.ProjectionVolume.Basic"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.OfficialProjectionDefinitions",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Targets",
+        "OAI.Geometry.ProjectionVolume.Brightness"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualBodyHorizontalMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualBodyConeLaw",
+        "Entry005.CompactIidMomentContinuity",
+        "Entry005.FiniteHalfspaceHorizontalMoment",
+        "Entry005.OfficialProjectionDefinitions"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualBodyPolarBoundary",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualBodyHorizontalMoment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualBodyJointConeInterface",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualBodyPolarBoundary",
+        "Entry005.FirstMomentAssignment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.AffinePyramid",
+        "Entry005.IntrinsicLinearImageReuse",
+        "Entry005.RadialConeVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidHalfspaces",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceCauchy",
+        "Entry005.PyramidVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidFacetAreas",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidHalfspaces"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidSideFrame",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidHalfspaces"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidSideArea",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidFacetAreas",
+        "Entry005.PyramidSideFrame"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidProjectionBody",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidSideArea"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidLiftCoordinates",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceConeLaw",
+        "Entry005.FiniteLawZonotopeMoment",
+        "Entry005.PyramidProjectionBody"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidZonotopeAlgebra",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidLiftCoordinates"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidProjectionVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidZonotopeAlgebra"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidLiftedMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceHorizontalMoment",
+        "Entry005.PyramidProjectionVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidEntryDefect",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidLiftedMoment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidIidMomentReuse",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidEntryDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidMomentDefect",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidIidMomentReuse"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidContinuity",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidMomentDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualPyramidMoment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualBodyHorizontalMoment",
+        "Entry005.PyramidContinuity"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualPyramidDefect",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualPyramidMoment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualPyramidAssignment",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualPyramidDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.ActualPyramidJointCone",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ActualBodyJointConeInterface",
+        "Entry005.ActualPyramidAssignment"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.PyramidFormalization",
+      "owned_imports_compiled_before_module": [
+        "Entry005",
+        "Entry005.ActualPyramidJointCone"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFacetFormula",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidEntryDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationDefinitions",
+      "owned_imports_compiled_before_module": [
+        "Entry005.EntryAffineInvariance",
+        "Entry005.Targets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationSimplexVolume",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceFacets",
+        "Entry005.TruncationDefinitions",
+        "Entry005.TruncationSimplexVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationGeometry",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationDefinitions"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFacetGeometry",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FacetRadialMass",
+        "Entry005.ProjectionVolumeSqueeze",
+        "Entry005.PyramidContinuity",
+        "Entry005.TruncationGeometry",
+        "Entry005.TruncationVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFacetTranslation",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceConeLaw"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationCenteredHalfspaces",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationDefinitions",
+        "Entry005.TruncationFacetGeometry",
+        "Entry005.TruncationFacetTranslation"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationCoordinateFacets",
+      "owned_imports_compiled_before_module": [
+        "Entry005.FiniteHalfspaceCauchy",
+        "Entry005.IntrinsicLinearImageReuse",
+        "Entry005.TruncationFacetGeometry"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFacetVectors",
+      "owned_imports_compiled_before_module": [
+        "Entry005.ConeLawFinite",
+        "Entry005.TruncationCoordinateFacets"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationRationalDefect",
+      "owned_imports_compiled_before_module": [],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFacetDeterminants",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationFacetFormula"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationScalarCancellation",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationFacetDeterminants",
+        "Entry005.TruncationRationalDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationActualDefect",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationCenteredHalfspaces",
+        "Entry005.TruncationFacetDeterminants",
+        "Entry005.TruncationFacetFormula",
+        "Entry005.TruncationFacetVectors",
+        "Entry005.TruncationRationalDefect",
+        "Entry005.TruncationScalarCancellation"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationCentroid",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationDefinitions"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationConvexDeterminant",
+      "owned_imports_compiled_before_module": [
+        "Entry005.Handoff"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationMaximum",
+      "owned_imports_compiled_before_module": [
+        "Entry005.SimplexVolumeInterface",
+        "Entry005.TruncationConvexDeterminant",
+        "Entry005.TruncationGeometry",
+        "Mxym.StochasticRigidity"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationPower",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationRationalDefect"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationSharpnessAssembly",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationCentroid",
+        "Entry005.TruncationMaximum",
+        "Entry005.TruncationPower"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationSharpness",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationActualDefect",
+        "Entry005.TruncationSharpnessAssembly"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationProjection",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationCenteredHalfspaces",
+        "Entry005.TruncationFacetVectors"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationSimplexActualVolume",
+      "owned_imports_compiled_before_module": [
+        "Entry005.TruncationMaximum",
+        "Entry005.TruncationVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    },
+    {
+      "module": "Entry005.TruncationFormalization",
+      "owned_imports_compiled_before_module": [
+        "Entry005.PyramidFormalization",
+        "Entry005.TruncationProjection",
+        "Entry005.TruncationSharpness",
+        "Entry005.TruncationSimplexActualVolume"
+      ],
+      "fresh_output_local_regular_file": true
+    }
+  ]
+}

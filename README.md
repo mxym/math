@@ -1,5 +1,9 @@
 # math
 
+## Literal simplex-truncation sharpness in Lean
+
+The separate [complete sharpness package](formalizations/simplex-truncation-sharpness/README.md) proves Entry005.truncationSharpnessGoal for the actual truncated body, geometric entryDefect, a simplex globally maximum among all inscribed affine simplices, and that simplex's original centroid. For every d ≥ 3 and α > 1/(d−1), arbitrarily small positive defects obstruct every proposed constant-C bound with exponent α for an exhibited maximizing simplex. The result establishes the exponent obstruction, not a claim about every maximizing simplex or a best-maximum choice. [Exact statement](formalizations/simplex-truncation-sharpness/THEOREM.md) · [Proof roadmap](formalizations/simplex-truncation-sharpness/PROOF_ROADMAP.md) · [Independent final-copy audit](verification/2026-10-08-simplex-truncation-sharpness/FINAL_AUDIT_REPORT.md) · [Release manifest](releases/2026-10-08-simplex-truncation-sharpness-v2.json). The exact 365-file source archive passed a fresh independent public-wrapper run: 125 rebuilt modules, 850 public declarations, and 1,849 owned roots replayed through a 55,163-declaration empty-kernel closure. This historical lower-bound checkpoint does not include the separate sharpMainGoal upper bound. No novelty or external human peer-review claim is made.
+
 ## Eisenstein irreducible graph: exact component maxima and sharp sieves
 
 The [Eisenstein quadratic-order continuation](notes/eisenstein-prime-components/README.md)
