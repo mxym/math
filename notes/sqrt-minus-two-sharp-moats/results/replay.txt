@@ -1,0 +1,31 @@
+# Exact arithmetic replay; 8 Oct 2026
+$ python3 code/check_exact.py
+POSITIVE: 3 finite exact quotient decompositions: [(12, [2, 2, 2, 2, 2, 2]), (12, [2, 2, 2, 2, 2, 2]), (12, [4, 8])]
+NEGATIVE: 4 complete maximal failure voltage witnesses: [6, 8, 8, 6]
+LOWER: all scalar periods 1..5 excluded: [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+IRREDUCIBLES: exactly two exceptional 3-vertex components; sizes [3, 3]
+EXHAUSTIVE: all 2048 ideal subfamilies agree; successful: 896
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check_exact.py
+POSITIVE: 3 finite exact quotient decompositions: [(12, [2, 2, 2, 2, 2, 2]), (12, [2, 2, 2, 2, 2, 2]), (12, [4, 8])]
+NEGATIVE: 4 complete maximal failure voltage witnesses: [6, 8, 8, 6]
+LOWER: all scalar periods 1..5 excluded: [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+IRREDUCIBLES: exactly two exceptional 3-vertex components; sizes [3, 3]
+EXHAUSTIVE: all 2048 ideal subfamilies agree; successful: 896
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: missing positive vertex
+REJECTED: altered positive membership
+REJECTED: shortened negative voltage
+REJECTED: wrong maximal omitted pair
+REJECTED: missing lower-period proof
+REJECTED: forbidden intermediate negative step
+ALL TAMPER TESTS PASSED
+$ python3 -O code/self_test.py
+REJECTED: missing positive vertex
+REJECTED: altered positive membership
+REJECTED: shortened negative voltage
+REJECTED: wrong maximal omitted pair
+REJECTED: missing lower-period proof
+REJECTED: forbidden intermediate negative step
+ALL TAMPER TESTS PASSED
