@@ -117,4 +117,7 @@ def main():
     print('ALL FIFTEEN EXACT RANK-FIVE CERTIFICATES PASSED.',flush=True)
 
 
+if not __debug__:
+    raise RuntimeError('Run without -O: optimized Python disables assert checks')
+
 if __name__=='__main__':main()
