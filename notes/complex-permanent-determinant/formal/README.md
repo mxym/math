@@ -203,3 +203,68 @@ The actual `RealLawNorm.log` reports only standard Lean axioms.
 
 **Still pending:** the finite-product tensorization theorem for
 nonidentical columns and the complete equality classification.
+
+## Corollary 7: exact tensor amplification, now completely Lean-verified
+
+The further modules
+\`TensorWitnessLocal.lean\`,
+\`TensorProduct.lean\`,
+\`TensorFactor.lean\`,
+\`TensorWitnessExact.lean\`,
+\`TensorSharp.lean\`, and
+\`TensorNormSharp.lean\`
+complete both the **upper bound and matching lower bound**
+for every finite list of possibly nonidentical permutation laws
+\(\nu_{t_\ell}(\pi)=1/6+t_\ell\operatorname{sgn}(\pi)\),
+with \(|t_\ell|\le1/6\).
+
+The final actual Lean theorem is
+
+\`ComplexPencilTensor.tensorNormBound_iff\`:
+
+For any \`ts : List ℝ\` satisfying
+\(\forall t\in ts,\ |t|\le1/6\), and any \`K : ℝ\` with
+\(K\ge0\), the full complex-valued trilinear tensor bound
+
+\[
+ \forall F_1,F_2,F_3:\{0,1,2\}^{|ts|}\longrightarrow\mathbb C,\qquad
+ \left|\mathbb E\prod_{i=1}^{3}F_i(\pi_1(i),\ldots,\pi_N(i))\right|
+ \le K\prod_i\|F_i\|_{2,u_3^{\otimes N}}
+\]
+
+holds **if and only if**
+
+\[
+ K\ge\prod_{\ell=1}^{N}\kappa(t_\ell),
+ \quad \kappa(t)=\max\{1,(\sqrt3/2)(1+6|t|)\}.
+\]
+
+The module uses an explicit list-recursive definition of the
+independent-column expectation and normalized \(L^2\) energy.
+Both are exact finite sums, not probability approximations.
+
+* The previous \`TensorMain.lean\` proved the universal upper bound.
+* \`TensorWitnessLocal.lean\` constructs genuine **nonnegative**
+  constant/indicator extremizers for each \(t\), including
+  the transition boundary, and proves exact squared saturation.
+* \`TensorProduct.lean\` and \`TensorFactor.lean\` formalize
+  full tensor-product scaling and expectation/energy factorization.
+* \`TensorWitnessExact.lean\` proves exact squared saturation and
+  strict positive input energies **for every finite list**.
+* \`TensorSharp.lean\` proves the squared universal norm
+  **if-and-only-if**, with the precise product coefficient.
+* \`TensorNormSharp.lean\` proves the corresponding usual
+  unsquared complex norm **if-and-only-if**.
+
+Each of these six files has passed actual Lean compilation.
+Their \`#print axioms\` reports contain only
+\`propext\`, \`Classical.choice\` and \`Quot.sound\`,
+and no \`sorryAx\`. Rebuild them after the earlier tensor
+modules in the dependency order above.
+
+**Remaining for full manuscript coverage:**
+the **complete equality-case classification** (Theorem 2)
+and its strict-below-TV-threshold refinement have *not*
+been fully formalized. Theorem 1A, Theorem 1B, the sharp
+absolute-value theorem, the one-column exact norm and
+the all-column **exact tensor norm** are now kernel-verified.
