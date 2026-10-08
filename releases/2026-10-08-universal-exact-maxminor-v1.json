@@ -1,0 +1,60 @@
+{
+  "release_date": "2026-10-08",
+  "title": "Universal exact rational maximal-minor formula for every finite subset-action (n,k)",
+  "version": "1",
+  "repository": "mxym/math",
+  "status": "Traditional mathematical proof completed; exhaustive integer checks and initial Lean kernel lemma available. Whole theorem NOT Lean-formalized or externally peer-reviewed.",
+  "theorems": [
+    "All n>=1 and 0<=k<=n: exact finite maximum of rational alternating maximal-minor ratios; complement symmetry and trivial-action boundaries included.",
+    "Full orbital matrix rank m+1 with determinant (-1)^m product_{r=0}^{m-1} binom(n-2r,m-r), m=min(k,n-k)>=1.",
+    "Any positive optimum attained by at most m+2 signed conjugacy-class profiles; this uniform support bound is sharp at n=11,k=4.",
+    "Generalization to any finite permutation group action through conjugacy-class/orbital integer matrices and row rank rho.",
+    "Rational denominator upper bound (m+2)(m+1)! binom(n,m)^m."
+  ],
+  "files": [
+    {
+      "path": "notes/sharp-robust-permanent/universal-exact/paper.md",
+      "git_blob_sha": "d263f931bd71c4a830f96d04c044d52a7dc8fe43"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/universal-exact/README.md",
+      "git_blob_sha": "7d15976c6895068becb89f0bed456ccf0d6b69b3"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/universal-exact/VERIFICATION.md",
+      "git_blob_sha": "de75f2eb5256c8d88014c3103ca377647096665f"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/universal-exact/LEAN_ROADMAP.md",
+      "git_blob_sha": "310c324d6b33df360efa13726d8e16464df1df79"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_universal_max_minors.py",
+      "git_blob_sha": "6df9f6dee501cc63e63195d9f58290c14b51c250"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_sparse_support_sharpness.py",
+      "git_blob_sha": "4d39c4f4c88f2c395605a47f39a49c5e492f28b8"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/code/check_generic_circuit_audit.py",
+      "git_blob_sha": "dc3c68ed92cae784db767dbda6c22e4413117411"
+    },
+    {
+      "path": "notes/sharp-robust-permanent/formal/KernelMass.lean",
+      "git_blob_sha": "fd703384073e96134ef68a9d518f5bcf224d211e"
+    }
+  ],
+  "independent_replays": {
+    "integer": "15 exact historical value comparisons and m=1..9 nonzero rank determinant; n=9 k=4 tested all 118755 candidate matrices",
+    "generic": "214 full-row-rank rational matrix kernel-circuit comparisons against independent SymPy nullspace enumeration",
+    "sharp_sparse": "S11 four-subset action: exactly 6 dual contacts and nonzero cofactor on all 6",
+    "public_ci": "https://github.com/mxym/math/actions/runs/37732496636",
+    "lean": "Published generic mass-zero kernel lemma compiled with Lean 4.34.1 and compatible Mathlib.Data.Matrix.Basic"
+  },
+  "limitations": [
+    "The exact finite formula still maximizes over explicitly enumerable integer determinants; no small bounded-branch elementary formula is claimed.",
+    "For fixed m it is polynomial in n but not necessarily efficient for growing m.",
+    "Full theorem not formalized in Lean, no external human peer review or systematic novelty/priority check."
+  ]
+}
