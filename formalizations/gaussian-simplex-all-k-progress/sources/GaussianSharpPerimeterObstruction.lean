@@ -214,7 +214,6 @@ theorem finite_weighted_cauchy_defect_eq_variance
   have hm : A * m = B := by
     dsimp only [m]
     field_simp
-    ring
   have hexpand :
       (∑ i, w i * (ell i - m)^2) = C - 2*m*B + m^2*A := by
     calc
