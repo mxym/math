@@ -1,6 +1,7 @@
 import GaussianTwoCellBVBridge
 import GaussianTailCalculus
 import GaussianRegularPerimeter
+import GaussianRegularFanClassification
 
 /-! Unconditional two-label instance of the sharp simplicial Gaussian
 perimeter comparison. No unproved isoperimetric hypothesis is introduced.
@@ -51,6 +52,21 @@ theorem two_winning_cell_inner_perimeter_eq_of_mass
   rw [hVu, hWz, gaussianInnerPerimeter_unit_halfspace u hu a,
     gaussianInnerPerimeter_unit_halfspace z hz t, hat]
 
+
+/-- The same equal-mass rigidity holds for the genuine variational Gaussian
+BV perimeter, not only for the erosion/inner-perimeter functional. -/
+theorem two_winning_cell_BV_perimeter_eq_of_mass
+    {d : ℕ} (v w : Fin 2 → Space (d+1)) (b c : Fin 2 → ℝ)
+    (hv : Function.Injective v) (hw : Function.Injective w)
+    (hmass : ∀ i, (gaussian (d+1)).real (winningCell v b i) =
+        (gaussian (d+1)).real (winningCell w c i))
+    (i : Fin 2) :
+    gaussianBVPerimeter (winningCell v b i) =
+        gaussianBVPerimeter (winningCell w c i) := by
+  rw [two_winning_cell_perimeter_bridge v b hv i,
+      two_winning_cell_perimeter_bridge w c hw i,
+      two_winning_cell_inner_perimeter_eq_of_mass v w b c hv hw hmass i]
+
 /-- The sharp simplicial Gaussian perimeter comparison is unconditional for
 d=0 (two cells in the one-dimensional minimal realization). This discharges
 the exact EqualMassSimplicialPerimeterBound 0, not a weaker proxy. -/
@@ -85,7 +101,23 @@ theorem equal_mass_simplicial_perimeter_bound_zero :
   exact le_of_eq
     (regular_intrinsic_cluster_perimeter_squared (d := 0) r hr hz hg).symm
 
+
+/-- Full unconditional equality classification of the sharp balanced two-label
+Gaussian first-moment problem in every ambient dimension. The upper bound is
+already unconditional in GaussianBoundaryCases; the newly proved sharp
+perimeter base case discharges the remaining hypothesis of the general
+almost-everywhere equality classification. -/
+theorem two_cell_energy_equality_iff_regular_fan
+    {e : ℕ} (F : FractionalPartition e 2)
+    (hF : ∀ i, F.mass i = uniformMass 2 i) :
+    F.momentEnergy = simplexConstant 2 ^ 2 ↔
+      IsRegularGaussianFan (d := 0) F := by
+  exact equality_iff_regular_fan_of_perimeter
+    (d := 0) equal_mass_simplicial_perimeter_bound_zero F hF
+
 #print axioms standardTail_strictAnti
+#print axioms two_winning_cell_BV_perimeter_eq_of_mass
+#print axioms two_cell_energy_equality_iff_regular_fan
 #print axioms two_winning_cell_inner_perimeter_eq_of_mass
 #print axioms equal_mass_simplicial_perimeter_bound_zero
 
