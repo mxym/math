@@ -49,3 +49,11 @@ python notes/sharp-robust-permanent/code/check_s3_exact.py
 ```
 
 This exact `n=3,p=2` result is additional to the earlier all-arity sharp-order analysis; a complete formula for `R_3(p)` at other exponents is not yet claimed.
+
+## Equality rigidity, quadratic phase transition, and entropy criterion
+
+[Section 10 of the manuscript](paper.md#10-equality-classification-and-the-quadratic-saturation-barrier) classifies **every** equality case at the sharp `S_3,p=2` radius: aside from a zero row, they are the constant rows and, exactly at the boundary, singleton rows supported on an even or odd permutation as dictated by the sign of the perturbation. It proves a general **quadratic saturation barrier**: for `p>2`, a law assigning the singleton-critical mass to a permutation and positive mass to a neighboring transposition necessarily violates the `L^p` inequality. For every `2<p<3`, this yields a strict improvement over the singleton upper radius, with an explicit quantitative bound.
+
+A fully rational `p=5/2` counterexample demonstrates that *passing every singleton test does not imply the permanent inequality* above exponent two. The [exact checker](code/check_s3_phase.py) verifies the strict rational inequalities, `S_3` parity incidence, and equality kernels. This counterexample is a **mathematical theorem** proved in the manuscript, not an inference from numerical search.
+
+[Section 11](paper.md#11-an-exact-six-variable-entropy-criterion-for-the-remaining-exponent-problem) gives an exact necessary-and-sufficient `K_{3,3}` entropy variational criterion for the entire `S_3` problem. It proves that parity-pure entropy tests reduce precisely to singleton tests, and that each parity block has at most two distinct positive values at any interior stationary obstruction. This variational criterion does **not** by itself settle the exact best radius for `q_3<p<2`. The conjectured singleton sufficiency in that interval remains explicitly open.
