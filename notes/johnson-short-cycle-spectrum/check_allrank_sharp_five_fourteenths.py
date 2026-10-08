@@ -90,6 +90,8 @@ def check_finite():
     global_max = None
     min_witness = None
     max_witness = None
+    lower_contacts = []
+    upper_contacts = []
 
     def check(cycles, m, products):
         nonlocal count, global_min, global_max, min_witness, max_witness
@@ -105,6 +107,10 @@ def check_finite():
                 f"lower bound failed on {cycles}")
         require(numerator <= denominator,
                 f"upper bound failed on {cycles}")
+        if 14 * numerator == 9 * denominator:
+            lower_contacts.append(tuple(cycles))
+        if numerator == denominator:
+            upper_contacts.append(tuple(cycles))
         value = Fraction(numerator, denominator)
         if global_min is None or value < global_min:
             global_min, min_witness = value, tuple(cycles)
@@ -129,6 +135,9 @@ def check_finite():
     require(global_min == Fraction(9, 14), "minimum contact not attained")
     require(global_max == Fraction(1), "maximum contact not attained")
     require(count == 44582, "partition enumeration incomplete")
+    require(set(lower_contacts) == {(2,), (3, 3)}
+            and len(lower_contacts) == 2, "wrong lower-contact classification")
+    require(upper_contacts == [(4,)], "wrong upper-contact classification")
     return count, global_min, min_witness, global_max, max_witness
 
 
