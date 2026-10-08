@@ -126,7 +126,7 @@ def main():
     assert cvals[0]==Q(1,3) and cvals[1]==Q(1,3)
     assert cvals[2]==Q(2,5) and cvals[3]==Q(23,55)
     assert cvals[4]==Q(7,15) and cvals[5]==Q(19,39)
-    assert cvals[-1]==Q(23,33) if False else True
+    assert cvals[-1] == Q(191,231)
     print("PASS: all 37 degrees, full conjugacy partitions, exact"
           " dual extremes, primal moments, and rational positivity")
 
