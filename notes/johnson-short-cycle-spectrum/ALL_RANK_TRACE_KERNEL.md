@@ -163,9 +163,63 @@ Q=\frac67U_T+\frac17U_E.
 
 They are disjointly supported, conjugation-invariant, positive, rational probability measures with \(P(e)=5/14\), \(Q(e)=0\). By (9) and centrality, their image marginal matrices agree on **every** subset family, not merely at some fixed \(k\). For any sufficiently small rational \(\delta>0\), the law \(u_n+\delta(P-Q)\) is nonnegative, has uniform image marginals for all subset ranks, and has TV distance \(\delta\) and identity-atom excess \(5\delta/14\). Therefore \(C_n^{\rm all}\ge5/14\). QED.
 
-The sharpness of (13) for **every** \(n\) is a *separate question*: the lower bound is proved here, but an all-degree matching upper bound is **not** claimed. Numerical LP exploration through degree 22 suggests equality, and is explicitly classified as *computational evidence*, not proof.
+The sharpness of (13) for **every** \(n\) is a *separate question*: the lower bound is proved here, but an all-degree matching upper bound is **not** claimed. Numerical LP exploration through degree 30 suggests equality, and is explicitly classified as *computational evidence*, not proof.
 
-## 3. Reproduction, scope and follow-up
+## 3. A single middle-rank action controls *all* subset ranks
+
+**Theorem 4 (exact equivalence of uniform-marginal constraints; no centrality assumption).** Let \(n\ge2\) and \(d=\lfloor n/2\rfloor\). For an **arbitrary** probability measure \(\nu\) on \(S_n\), not necessarily central,
+
+\[
+\boxed{\displaystyle
+\text{\(\nu\) has uniform image marginals on **every** \(k\)-set family}
+\quad\Longleftrightarrow\quad
+\text{\(\nu\) has uniform image marginals on the single \(d\)-set family}.}
+\tag{15}
+\]
+
+Consequently, the sharp coefficient defined in Corollary 3 is **exactly**
+
+\[
+\boxed{C_n^{\rm all}=C_{n,\lfloor n/2\rfloor}.}
+\tag{16}
+\]
+
+*Proof.* For \(0\le\ell\le d\), let \(V_\ell\) and \(V_d\) be the real permutation representations on \(\ell\)- and \(d\)-subsets. The inclusion matrix
+
+\[
+W_{\ell,d}:V_\ell\to V_d,\qquad
+(W_{\ell,d}f)(E)=\sum_{\substack{S\subseteq E\\|S|=\ell}}f(S)
+\]
+
+is an \(S_n\)-intertwiner. It is **injective** whenever \(\ell\le d\le n-\ell\). Here is a complete elementary induction on \(\ell\). The assertion for \(\ell=0\) is clear. Suppose \(W_{\ell,d}f=0\); for any two vertices \(a\ne b\), subtract the vanishing inclusion sums on \(T\cup\{a\}\) and \(T\cup\{b\}\), where \(T\) is any \((d-1)\)-subset excluding \(a,b\). The difference equals
+
+\[
+\sum_{\substack{U\subseteq T\\|U|=\ell-1}}
+\bigl(f(U\cup\{a\})-f(U\cup\{b\})\bigr)=0.
+\]
+
+The induction hypothesis applies on the remaining \(n-2\) vertices with ranks \(\ell-1,d-1\), since \(\ell-1\le d-1\le(n-2)-(\ell-1)\). Therefore \(f(U\cup\{a\})=f(U\cup\{b\})\) for every eligible \(U\). The Johnson graph of \(\ell\)-subsets is connected, hence \(f\) is constant; the vanishing inclusion sums force that constant to be zero. This proves injectivity.
+
+Write \(\rho_r(g)\) for the permutation matrix in \(V_r\). Inclusion intertwines the actions:
+
+\[
+\rho_d(g)W_{\ell,d}=W_{\ell,d}\rho_\ell(g)
+\quad\text{for every }g\in S_n.
+\]
+
+If the averaged action matrix in \(V_d\) under \(\nu\) equals its value under \(u_n\), then multiplying by \(W_{\ell,d}\) and using the injectivity just proved shows that the averaged action matrices agree also in \(V_\ell\), for every \(\ell\le d\). These matrix equalities are *exactly* the uniform image marginal conditions. For \(k>d\), the complement map identifies the \(k\)-subset representation with the \((n-k)\)-subset representation, and \(n-k\le d\). Thus uniform \(d\)-set marginals force uniform marginals for every rank. The converse is immediate. Since the admissible classes of probability measures in the two sharp-constant definitions coincide, so do the best constants, proving (16). QED.
+
+Together with Corollary 3, this proves the **concrete single-rank inequality**
+
+\[
+C_{n,\lfloor n/2\rfloor}\ge5/14
+\quad\text{for all }n\ge6.
+\tag{17}
+\]
+
+The exact-value question \(C_{n,\lfloor n/2\rfloor}=5/14\) for all \(n\ge6\) remains a **conjecture**, supported by non-certifying finite LP exploration through degree 30. Neither equality nor an all-degree optimal dual is asserted.
+
+## 4. Reproduction, scope and follow-up
 
 The [exact integer-only checker](check_all_rank_trace_kernel.py) uses no optimization, floating point, or third-party libraries. From the repository root run:
 
