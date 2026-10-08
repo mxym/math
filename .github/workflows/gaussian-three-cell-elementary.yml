@@ -1,0 +1,42 @@
+name: Verify elementary three-cell Gaussian sharp comparison
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/gaussian-three-cell-elementary-20261008
+    paths:
+      - '.github/workflows/gaussian-three-cell-elementary.yml'
+      - 'formalizations/gaussian-simplex-all-k-progress/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and Mathlib
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/gaussian-simplex-all-k-progress
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Check direct three-cell proof source
+        working-directory: formalizations/gaussian-simplex-all-k-progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '^[[:space:]]*(sorry|admit|axiom)[[:space:]]' sources/GaussianThreeCellElementary.lean; then
+            echo 'Forbidden proof placeholder/declaration'
+            exit 1
+          fi
+          lake build +GaussianMinimalCovarianceRows +GaussianScoreSymmetry +GaussianHalfspaceFlux
+          lake env lean sources/GaussianThreeCellElementary.lean
+      - name: Scope notice
+        run: |
+          echo 'This workflow only verifies the owned three-label module.'
+          echo 'It does not certify the general k>=4 Gaussian theorem.'
