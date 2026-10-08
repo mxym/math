@@ -1423,3 +1423,115 @@ Left translation again treats arbitrary \(\sigma\). This concludes the universal
 strictly positive for every \(n\ge5\). The improvement is of order \(4/n\).
 
 **Reproducibility.** The checker code/check_all_two_subset_actions.py exhausts all conjugacy types (integer partitions) for \(4\le n\le40\), checks the exact rational dual range and all four moment/positivity conditions for the primal construction, and matches the closed formula \(C_n\). This finite replay is **not** the proof for arbitrary \(n\); the symbolic quadratic estimates (77)–(86) and the explicit measures (73)–(75) supply that proof. In particular, the original floating-point LP exploration is discovery-only and no solver result is used as a theorem premise.
+
+
+## 18. Universal orbital primal-dual theorem for finite permutation actions
+
+Theorems 15–17 are instances of a general exact principle: **the sharp single-atom response to marginal-preserving perturbations is determined by a finite rational linear program on the conjugacy classes and the orbitals of the permutation representation**. In a doubly transitive action there are only two orbitals; in the two-subset action there are three. This explains the difference between the minimal-degree formula and the exact edge-action law.
+
+Let \(G\) be a finite group acting (not necessarily transitively or faithfully) on a finite nonempty set \(\Omega\), with \(e\in G\) its identity. Write \(u_G\) for the uniform law on \(G\), and let \(\mathcal V\) be the real vector space of signed functions \(v:G\to\mathbb R\) satisfying
+
+\[
+\sum_{g\in G}v(g)=0,\qquad
+\sum_{\substack{g\in G\\g(x)=y}}v(g)=0
+\quad\text{for all }x,y\in\Omega. \tag{87}
+\]
+
+Let \(\mathcal O_1,\ldots,\mathcal O_r\) be the orbitals of the action, i.e. the orbits of \(G\) on \(\Omega\times\Omega\) under simultaneous relabeling. Define their *orbital displacement counts*
+
+\[
+F_j(g)=\#\{x\in\Omega:(x,g(x))\in\mathcal O_j\}. \tag{88}
+\]
+
+Each \(F_j\) is constant on conjugacy classes of \(G\). Let \(C_1,\ldots,C_s\) be those conjugacy classes, with \(C_1=\{e\}\), and put
+
+\[
+M_{ji}=\frac1{|C_i|}\sum_{g\in C_i}F_j(g),\qquad
+M\in\mathbb Q^{r\times s}. \tag{89}
+\]
+
+For \(\mathcal V\ne\{0\}\), define
+
+\[
+\mathcal C(G,\Omega)=\sup_{\substack{v\in\mathcal V\\v\ne0}}
+\frac{|v(e)|}{\tfrac12\sum_g|v(g)|}. \tag{90}
+\]
+
+For \(\mathcal V=\{0\}\), set \(\mathcal C(G,\Omega)=0\). The supremum is finite and \(0\le\mathcal C(G,\Omega)\le1\).
+
+**Theorem 18 (exact orbital primal-dual characterization).** The following four quantities are all equal:
+
+\[
+\begin{aligned}
+\mathcal C(G,\Omega)
+&=\max_{\substack{P,Q\text{ probability laws on }G\\
+P\{g:gx=y\}=Q\{g:gx=y\}\ \forall x,y}}
+\big(P(e)-Q(e)\big)\\
+&=\max_{\substack{p,q\in\mathbb R_{\ge0}^{s}\\
+\mathbf1^Tp=\mathbf1^Tq=1,\ Mp=Mq}}
+(p_1-q_1)\\
+&=\min_{\lambda\in\mathbb R^r}
+\left[
+\max_{1\le i\le s}\big(\mathbf1_{\{i=1\}}-\lambda^TM_{\cdot i}\big)
+-\min_{1\le i\le s}\big(\mathbf1_{\{i=1\}}-\lambda^TM_{\cdot i}\big)
+\right]\\
+&=\min_{\varphi\in\mathrm{span}_{\mathbb R}\{F_1,\ldots,F_r\}}
+\operatorname{osc}_{g\in G}\big(\mathbf1_{\{g=e\}}-\varphi(g)\big).
+\tag{91}
+\end{aligned}
+\]
+
+Both finite LPs in the middle have **rational optimal solutions**, so \(\mathcal C(G,\Omega)\in\mathbb Q\). If \(\mathcal C(G,\Omega)>0\), there exist two **conjugation-invariant, disjointly supported** probability laws \(P,Q\) with identical one-point marginals and \(P(e)-Q(e)=\mathcal C(G,\Omega)\). Hence for all sufficiently small \(\delta\ge0\),
+
+\[
+\nu_\delta=u_G+\delta(P-Q) \tag{92}
+\]
+
+is a probability law with exactly the same one-point marginals as \(u_G\) and
+
+\[
+\|\nu_\delta-u_G\|_{\mathrm{TV}}=\delta,\qquad
+\nu_\delta(e)-u_G(e)=\mathcal C(G,\Omega)\delta. \tag{93}
+\]
+
+For an arbitrary probability law \(\nu\) whose marginals match \(u_G\), and any \(\sigma\in G\),
+
+\[
+\left|\nu(\sigma)-\frac1{|G|}\right|
+\le\mathcal C(G,\Omega)\|\nu-u_G\|_{\mathrm{TV}}, \tag{94}
+\]
+
+with this constant optimal whenever it is positive. Left translation moves the sharp construction from \(e\) to any prescribed \(\sigma\).
+
+**Proof.** First formulate a finite **unreduced** LP. Choose \(P,Q\) as nonnegative probability vectors indexed by \(G\), impose their equality of all one-point marginals, and maximize \(P(e)-Q(e)\). Call its optimum \(\gamma\).
+
+For any feasible pair, \(v=P-Q\in\mathcal V\), \(\|v\|_{\mathrm{TV}}\le1\), so \(P(e)-Q(e)\le\mathcal C(G,\Omega)\). Conversely, for any nonzero \(v\in\mathcal V\), its Jordan parts \(v_+,v_-\) each have mass \(d=\|v\|_{\mathrm{TV}}>0\), and the probability measures \(P=v_+/d,\ Q=v_-/d\) have identical marginals. Exchanging them if necessary, they give objective \(|v(e)|/d\). Hence \(\gamma=\mathcal C(G,\Omega)\). If \(\mathcal V=\{0\}\), the two quantities are both zero.
+
+The unreduced primal is a rational finite LP. Its dual has one unrestricted multiplier \(\lambda_{xy}\) for each marginal equality and two normalization multipliers \(a,b\). Write
+
+\[
+\phi(g)=\sum_{x,y\in\Omega}\lambda_{xy}\,\mathbf1_{\{g(x)=y\}}.
+\]
+
+Dual feasibility is exactly
+
+\[
+a\ge\mathbf1_{\{g=e\}}-\phi(g),\qquad
+b\ge-\mathbf1_{\{g=e\}}+\phi(g)
+\quad\text{for all }g\in G.
+\]
+
+Minimizing \(a+b\) for fixed \(\phi\) gives
+\(\max_g(\mathbf1_{\{g=e\}}-\phi(g))-
+\min_g(\mathbf1_{\{g=e\}}-\phi(g))\), its oscillation. The primal is feasible (take \(P=Q=u_G\)) and bounded, so **finite-dimensional LP strong duality** gives equality with the minimum oscillation. The LP has rational coefficients and a finite attained optimum; standard rational Gaussian elimination at a basic feasible optimum gives rational primal and dual certificates.
+
+Next average an optimal primal pair under simultaneous conjugation by \(h\in G\): replace \(P,Q\) by the averages of their pushforwards under \(g\mapsto hgh^{-1}\). Equal one-point marginals remain equal because conjugating both pairs of image coordinates by \(h\) permutes the constraints. The identity atom and the objective are unchanged. Thus a conjugation-invariant optimal pair exists. Such pairs assign a constant probability density to each conjugacy class, and their equality of one-point marginals is equivalent to the reduced moment equation \(Mp=Mq\): for a central law, each entry \(\Pr(gx=y)\) is constant on the orbital containing \((x,y)\), and its orbital average is \(\mathbb EF_j/|\mathcal O_j|\). This proves the second line of (91).
+
+Similarly, average any dual function \(\phi\) over conjugations. The indicator \(\mathbf1_{\{g=e\}}\) is conjugacy invariant, while oscillation is convex and invariant under conjugation; the average cannot increase oscillation. A conjugation-averaged linear combination of the image indicators has coefficients constant on their simultaneous \(G\)-orbits in \(\Omega\times\Omega\). Therefore it lies in \(\mathrm{span}\{F_j\}\). This proves the fourth line of (91). Evaluating the same oscillation on conjugacy classes gives the third line, whose entries are precisely (89).
+
+When the optimum \(\gamma>0\), an optimal reduced pair \(P,Q\) must be **mutually singular**. Otherwise \(d=\|P-Q\|_{\mathrm{TV}}<1\), and its Jordan parts normalized by \(d\) would form an admissible pair with strictly larger objective \(\gamma/d>\gamma\), contradiction. Thus the supports of an optimal central \(P,Q\) are disjoint and (92) is a probability measure for every
+\(0\le\delta\le(|G|\max_gQ(g))^{-1}\), with all the stated identities.
+
+Finally, for any law \(\nu\) with the uniform law's one-point marginals, \(v=\nu-u_G\in\mathcal V\) and the defining norm bound gives (94) at the identity. Replacing \(\nu\) by its left translate by \(\sigma^{-1}\) preserves marginal equality with \(u_G\), total variation and atom excess, proving (94) for every \(\sigma\). The same translation transports the attained equality. QED.
+
+**Consequences and scope.** Theorem 18 gives a fully finite **exact certificate interface** for *every* finite permutation group action: exhibit a central primal pair of matching orbital moments and a dual orbital linear combination whose oscillation equals the primal atom excess. It also explains Theorem 15 (rank-two orbital geometry and a single fixed-point statistic), Theorem 16 (rank-three geometry in degree ten), and Theorem 17 (a full parity-dependent family of exact rank-three optima). The theorem does **not** assert a similarly explicit symbolic formula for arbitrary higher-rank actions. Determining a closed analytic optimum for \(S_n\) acting on \(k\)-subsets with \(k\ge3\) is a natural next target; numerical LP output there must be converted to rational primal-dual certificates before any theorem claim.
