@@ -1,0 +1,23 @@
+import ContinuumGeometric.RoutingStableGeometry
+import ContinuumGeometric.RoutingSeparation
+import ContinuumGeometric.RoutingFactorization
+import ContinuumGeometric.CandidateBounds
+
+open ContinuumGeometric
+#print axioms RoutingTemplate.span_affine
+#print axioms RoutingTemplate.edge_span_bound
+#print axioms preorderActualWindows_eq_schedule
+#print axioms RoutingTemplate.earlier_edgeEnd_le_predecessorBoundary
+#print axioms leafEnd_eq_incoming_edge
+#print axioms periodicGridKey_refinement
+#print axioms periodicGridKey_ne_of_scaled_gap
+#print axioms center_atom_routeLeaf_eq
+#print axioms active_original_local_address_separation
+#print axioms actual_routing_local_representatives
+#print axioms actual_stable_earlier_address_agreement
+#print axioms actual_stable_local_success_mem_routedSet
+#print axioms unitDensity_actualStable_compl_le
+
+#check actual_stable_local_success_mem_routedSet
+#check active_original_local_address_separation
+#check actual_routing_local_representatives

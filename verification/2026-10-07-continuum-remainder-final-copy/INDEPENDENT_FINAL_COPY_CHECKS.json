@@ -1,0 +1,522 @@
+{
+  "status": "PASS",
+  "archive_sha256": "f41b75d9ff67884e6fa84a35b952364df9348d0742b4f3a8e8ffba52b4a61e40",
+  "archive_bytes": 4347676,
+  "archive_members_safe_and_final_copy_equal": 278,
+  "submitted_project_lean_files_identical": 110,
+  "pinned_project_configuration_files_identical": 4,
+  "independent_audit_origin_and_derivative_hashes_verified": 36,
+  "root_document_links_checked": 115,
+  "release_scripts_assertion_free": true,
+  "independent_hostile_entrypoint_checks": 72,
+  "hostile_controls": [
+    {
+      "case": "changed_readme",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "changed_readme",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "changed_readme",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "changed_readme",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "changed_readme",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "changed_readme",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_proof",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_audit",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "forged_outer_seal_license",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "duplicate_json_key",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unsafe_manifest_path",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "unexpected_directory",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "extra_payload_file",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_symlink",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "runtime_root_symlink",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "payload_fifo",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": false,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": false,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": false,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": true,
+      "entrypoint": "verify_integrity.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": true,
+      "entrypoint": "make_archive.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    },
+    {
+      "case": "missing_replayer",
+      "python_optimized": true,
+      "entrypoint": "verify.py",
+      "returncode": 1,
+      "rejected_before_Lean_or_output": true
+    }
+  ],
+  "normal_and_optimized_archive_identity": true,
+  "existing_seal_reinitialization_rejected_both_modes": true,
+  "unpinned_lean_rejected_before_execution_both_modes": true,
+  "runtime_directory_excluded_both_modes": true
+}

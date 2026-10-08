@@ -1,0 +1,666 @@
+{
+  "base_source_unchanged": {
+    "Activation.lean": true,
+    "BoundedGrid.lean": true,
+    "CandidateBounds.lean": true,
+    "ClosedProjection.lean": true,
+    "ClosedRepair.lean": true,
+    "CoefficientCover.lean": true,
+    "CountableExhaustion.lean": true,
+    "EntropySchedule.lean": true,
+    "FiniteRoutingProbability.lean": true,
+    "GeometricParameters.lean": true,
+    "GeometryChain.lean": true,
+    "GridCutBridge.lean": true,
+    "Interfaces.lean": true,
+    "LineSignBound.lean": true,
+    "LocalSignatures.lean": true,
+    "MainProof.lean": true,
+    "NoDefaultProbability.lean": true,
+    "PeriodicRepair.lean": true,
+    "Planar.lean": true,
+    "RoutingActiveGeometry.lean": true,
+    "RoutingAssembly.lean": true,
+    "RoutingCenterAtoms.lean": true,
+    "RoutingChoices.lean": true,
+    "RoutingEntropy.lean": true,
+    "RoutingFactorization.lean": true,
+    "RoutingGeometry.lean": true,
+    "RoutingGlobalGrid.lean": true,
+    "RoutingInterfaces.lean": true,
+    "RoutingLocalHit.lean": true,
+    "RoutingLocalProbability.lean": true,
+    "RoutingMeasure.lean": true,
+    "RoutingModel.lean": true,
+    "RoutingPreorder.lean": true,
+    "RoutingProbability.lean": true,
+    "RoutingSchedule.lean": true,
+    "RoutingSeparation.lean": true,
+    "RoutingStableGeometry.lean": true,
+    "RoutingStableMeasure.lean": true,
+    "RoutingStableProbability.lean": true,
+    "RoutingTemplate.lean": true,
+    "RoutingTreeBounds.lean": true,
+    "ShiftedActivation.lean": true,
+    "SignFiberCount.lean": true,
+    "Target.lean": true,
+    "ZeroErrorBuffer.lean": true
+  },
+  "clean_own_build_initially_absent": true,
+  "expanded_quantifiers_pass": true,
+  "false_controls_rejected": {
+    "ClosedActivationLowerEndpoint.lean": true,
+    "ClosedActivationUpperEndpoint.lean": true,
+    "DroppedExponentUpperBound.lean": true,
+    "DroppedNonnegativeOutputShift.lean": true,
+    "SingleBufferErrorEndpoint.lean": true,
+    "ZeroRemainderRate.lean": true
+  },
+  "lean": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "module_axioms": {
+    "ContinuumRemainder.LogSyndetic.exists_sampledLogConfiguration": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.LogSyndetic.exists_spaced_bins": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.a_eq_logInput": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.a_eq_rpow": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.a_strictAnti": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.a_tendsto": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.activeLabels_count_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.activePairs_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.activePairs_count_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.activePairs_eq_potential_filter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.active_label_lt_budget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.active_z_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.mem_activeLabels_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.mem_activeLabels_iff_logActivation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.mem_activePairs_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.mem_potentialPairs_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.mem_potentialPairs_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.output_gap_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.output_gap_of_lt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.output_linear_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.output_strictMono": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.output_tendsto": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.potentialPairs_active_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.potentialPairs_card_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.power_eq_rpow": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.SampledLogConfiguration.z_strictMono": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.active_error_in_outer_buffer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.active_log_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.active_power_error_le_radius": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.active_power_error_lt_radius": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.actual_buffer_cost_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.actual_sampled_routing_blocker_of_stable_miss": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.affine_powerRemainderOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.compact_power_avoidance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.compact_power_avoidance_of_robustCompactBlockerSpec": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.continuous_logPoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.continuumPowerTarget_of_robustCompactBlockerSpec": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.continuum_power_target": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.dyadic_eq_rpow_neg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.errorRadius_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.exists_dyadic_tail": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.exists_late_robust_schedule": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.exists_sample_routing_schedule": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.exists_sample_routing_schedule_late": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.infinite_of_arbitrarily_close_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.infinite_tailValuesOutside_of_hits": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.interior_compl_eq_empty_of_affine_hits": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.isClosed_sampledMissedCenters": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.isOpen_logActivation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.isOpen_sampledActivation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.isOpen_sampledWindowActivations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logActiveLocalIndex_active": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logActiveLocalIndex_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logInput_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logLocalAllMiss_iff_active_tests": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logLocalAllMiss_iff_of_logGridVector_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logParameterCuts_card_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logParameterCuts_card_le_span": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logParameterCuts_card_le_window_budget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_activation_cut_signs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_continuum_joint_miss_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_fixed_parameter_joint_miss": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_gridAddress_ne_center": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_gridAddress_ne_of_output_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_grid_boundary_sign": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_grid_key_eq_of_log_signs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_local_address_separation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_local_grid_representatives": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_local_grid_representatives_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_offset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_offset_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_offset_ratio": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_point_range": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_point_short": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_preceding_gridAddress_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_representatives_entropy_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_routing_local_representatives": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_stable_earlier_address_agreement": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.log_stable_local_success_mem_routedSet": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.logarithm_bin_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.measure_periodic_interval_split": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.onePeriodic_mem_add_int": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.onePeriodic_sampledMissedCenters": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.open_window_count_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.periodic_sampled_robust_outcome_repair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.perturbed_power_tail_hits_open": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.perturbed_power_tendsto": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.positive_power_small": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.powerRemainderOn_totalTailExtension": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.powerRemainder_two_sided": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.power_controlled_error_tendsto": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.robustCompactBlockerSpec_open_exhaustion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.robustCompactBlockerSpec_proved": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampleActivationRate_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampleSchedule_node_entropy_lt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampleVertexPairs_card_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sample_vertex_active_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sample_vertex_continuum_joint_miss_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sample_vertex_output_separation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampledRoutingOuterBuffer_density_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampled_missed_center_forces_vertex_miss": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampled_robust_repair_all_centers": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampled_scheduled_vertex_continuum_joint_miss_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampled_stable_bad_density_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sampled_stable_missed_center_probability_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.scheduledSpan_div_tendsto_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.scheduledSpan_isBigO_log": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.scheduledSpan_real_upper": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.scheduled_buffer_cost_tendsto_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sequence_span_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.sublinear_buffer_cost_tendsto_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.tailValuesOutside_totalTailExtension": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.totalTailExtension_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ContinuumRemainder.volume_onePeriodic_inter_Icc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "partial_tail_function_probe_pass": true,
+  "positive_checks": {
+    "remainder_evidence/ExhaustionAudit.lean": true,
+    "remainder_evidence/SampleStableAudit.lean": true,
+    "repair_evidence/RobustErrorCountercontrols.lean": true,
+    "repair_evidence/RobustErrorEvidence.lean": true,
+    "sampling_evidence/FinalTargetAudit.lean": true,
+    "sampling_evidence/SamplingAudit.lean": true
+  },
+  "robust_blocker_unconditional": true,
+  "source_freeze": {
+    "project/ContinuumRemainder/Counting.lean": "b5fcc35d32cecd9318bad1cb4029bdf9572400aecd446998520386d1e290d83a",
+    "project/ContinuumRemainder/DistinctMisses.lean": "008a7784505ca91390668a443eb931441f4b15139f709b401f2d732e04f0a090",
+    "project/ContinuumRemainder/ErrorDomination.lean": "13d0e8c3816a5c40aa1862490986ac05ff80b2f79d7e7c50b9fca095b01e1e94",
+    "project/ContinuumRemainder/ErrorSchedule.lean": "e46f059b4c5a67613f39ea22de1677f31b3db90f623ec0b9a51a4c4872a67224",
+    "project/ContinuumRemainder/Exhaustion.lean": "a3cc0bba82583bef5f9a79532cbd342fbbec554d8b5d841973df4377d3971f9c",
+    "project/ContinuumRemainder/FinalProof.lean": "f54bc7886852aaf0a36a537556bbe92d193eb49944863f36f87bcd05c122f912",
+    "project/ContinuumRemainder/LogGeometry.lean": "6aa56bac33c49b78789a3df4ef67abbcd7b2cb31aa712e1214644814e4f4b376",
+    "project/ContinuumRemainder/LogRouting.lean": "c01bba8fcf66f362ea6e7a92f5626a7cf0bf1721d207ef28ef8474ab0bd1fd61",
+    "project/ContinuumRemainder/LogRoutingProbability.lean": "c0e01a1d735c0d8c454ae89d015c16f7e5816f2bd6830f6fb0b04dbf61cf5579",
+    "project/ContinuumRemainder/LogSignatures.lean": "c745a4da97850910825cbb9e8c6b465c2069db2dca46fd6d5f16efe566e11b66",
+    "project/ContinuumRemainder/RobustAssembly.lean": "d933faf8d71dd662eda3f9470cfdd6c119dff57a5dbc9e31dbe2c166071cf0dd",
+    "project/ContinuumRemainder/RobustRepair.lean": "845d6c2555972928b9d2c3aa5022a4c8d7775923bd48923b6437e9d6f70e4cc0",
+    "project/ContinuumRemainder/SampleLocalProbability.lean": "1915e9daf2766ed8a966284ce25a1129f316427507f1888e869bea23c7c8afae",
+    "project/ContinuumRemainder/SampleSchedule.lean": "0ccdc4138f2bc29ea85d3d6d378be4c5d431d619af7027a7302a10f82ea25cd7",
+    "project/ContinuumRemainder/SampleStableProbability.lean": "c3a1191e6808824cc50095132153f3abd5658d49349acabde8108f01008ff882",
+    "project/ContinuumRemainder/Sampling.lean": "f2c37c5966a32fef6cd6c658ab309a2638fbaf5f58e96a98b600c60685ba7e62",
+    "project/ContinuumRemainder/Specification.lean": "0a98b8858428b1cd7c34263358c67a769121d049ae964008bd91abcd1382102e",
+    "project/ContinuumRemainder/TopologyConclusion.lean": "3990f7aa3df3aa0ccdea31582c41d601e08045344aba0a16f304dc1cc718e3b9"
+  },
+  "status": "PASS",
+  "stronger_external_review": "PENDING; original MainTarget independent PASS is separate",
+  "target": "ContinuumRemainder.continuum_power_target : ContinuumPowerTarget"
+}

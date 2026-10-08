@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 — continuum-power remainder avoidance in Lean
+
+- Added the frozen 278-file stronger source package, retaining all 110 project Lean files without changes. Its closed endpoint proves prescribed-family continuum-power avoidance with eventual power-controlled remainders and infinitely many distinct escaping outputs in every positive tail, together with the compact corollary.
+- Published the exact deterministic source archive, six adjacent final-copy review files, and a [release manifest](releases/2026-10-07-continuum-remainder-avoidance.json). The fresh-copy wrapper rebuilt 65 owned modules, checked 568 public theorems, and replayed 34,923 endpoint-union and 35,620 all-safe closure declarations into empty trust-level-zero kernels. The final-copy reviewer independently cross-checked its artifacts/logs and ran 72 hostile entrypoint checks; it did not repeat the full build/replay. The historical independent mathematical audit retains its own attribution.
+- Corrected public attribution of the retained import-only KernelReplay test: the genuine empty-environment replays belong to the independent replay programs. Preserved all prior releases and unrelated files. No new blanket license, installed CI workflow, novelty certification, or external human peer-review claim accompanies this release. The family is fixed before E; arbitrary slow remainders and a universal-family avoiding set are outside scope.
+
 ## 2026-10-07 — Fock-profile variational ceiling for binary tensor rigidity
 
 - Completed the natural square-summable finite-first-moment closure of the reflected boundary-profile variational problem and proved that its supremum is attained.

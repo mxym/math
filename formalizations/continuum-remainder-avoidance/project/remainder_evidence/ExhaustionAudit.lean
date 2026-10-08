@@ -1,0 +1,11 @@
+import ContinuumRemainder.TopologyConclusion
+
+#print axioms ContinuumRemainder.positive_power_small
+#print axioms ContinuumRemainder.powerRemainder_two_sided
+#print axioms ContinuumRemainder.infinite_tailValuesOutside_of_hits
+#print axioms ContinuumRemainder.powerRemainderOn_totalTailExtension
+#print axioms ContinuumRemainder.tailValuesOutside_totalTailExtension
+#print axioms ContinuumRemainder.robustCompactBlockerSpec_open_exhaustion
+#print axioms ContinuumRemainder.volume_onePeriodic_inter_Icc
+#print axioms ContinuumRemainder.continuumPowerTarget_of_robustCompactBlockerSpec
+#print axioms ContinuumRemainder.compact_power_avoidance_of_robustCompactBlockerSpec
