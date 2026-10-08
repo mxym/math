@@ -2601,3 +2601,117 @@ Hence
 which, with (155), yields the second formula in (162). QED.
 
 The weights in (161) are the *leading asymptotics* of strictly positive, **exactly rational** solutions of (149). They are not claimed to be the exact finite-\(n\) weights at all \(n\), and not every leading coefficient is rational.
+
+
+## 25. An exact cycle-index and transfer-matrix compression theorem for every rank
+
+The earlier rank-three compression theorem (Theorem 20) is a special case of a general exact identity. For **every** fixed subset size \(k\), the full orbital vector of a permutation depends only on its cycle counts of lengths **at most \(k\)**. This observation is stronger than the first-order Bernstein approximation: it is an identity over integers for **every finite \(n\)** and provides an exact proof/certificate interface for higher-rank finite classifications.
+
+Write \(c_\ell(g)\) for the number of length-\(\ell\) cycles of \(g\in S_n\). Let \(u,t\) be commuting formal variables and define the \(2\times2\) transfer matrix
+
+\[
+M(u,t)=\begin{pmatrix}1&u\\1&ut\end{pmatrix}. \tag{163}
+\]
+
+Let \(\lambda_+(u,t)\in\mathbb Q[t][[u]]\) be the unique formal-power-series root with constant coefficient \(1\) of
+
+\[
+\lambda^2-(1+ut)\lambda+u(t-1)=0.
+\tag{164}
+\]
+
+Thus \(\lambda_+=1+u+(t-1)u^2+\cdots\). Define the **complete rank-\(k\) orbital polynomial**
+
+\[
+\mathcal F_{n,k,g}(t)
+=\sum_{j=0}^k F_j^{(k)}(g)t^j.
+\]
+
+**Theorem 30 (exact all-rank cycle compression).** For every integer \(1\le k\le n\),
+
+\[
+\boxed{\displaystyle
+\mathcal F_{n,k,g}(t)
+=[u^k]\left\{
+\lambda_+(u,t)^{\,n-\sum_{\ell=1}^k\ell c_\ell(g)}
+\prod_{\ell=1}^k
+\big(\operatorname{tr}M(u,t)^\ell\big)^{c_\ell(g)}
+\right\}.} \tag{165}
+\]
+
+Only the coefficients through \(u^k\) of the formal power series are required. In particular, **if two permutations have the same \(c_1,\ldots,c_k\), then all their \(k\)-subset orbital statistics agree exactly**:
+
+\[
+c_\ell(g)=c_\ell(h)\ (1\le\ell\le k)
+\quad\Longrightarrow\quad
+F_j^{(k)}(g)=F_j^{(k)}(h)\ (0\le j\le k). \tag{166}
+\]
+
+Furthermore, nonnegative integers \(c_1,\ldots,c_k\) arise from a permutation of \(n\) points if and only if
+
+\[
+r=n-\sum_{\ell=1}^k\ell c_\ell\in\{0\}\cup\{k+1,k+2,\ldots\}. \tag{167}
+\]
+
+Consequently the general orbital primal-dual program of Theorem 18 can be compressed **without any loss in optimality** to at most \(O_k(n^k)\) short-cycle-count vectors, instead of enumerating every integer partition of \(n\). Every feasible vector has a canonical representative of cycle type \(1^{c_1}\cdots k^{c_k}r\) when \(r\ge k+1\), or \(1^{c_1}\cdots k^{c_k}\) when \(r=0\).
+
+**Proof.** Restrict \(g\) to a cycle of length \(\ell\), written as the cyclic vertex list \(v_1,\ldots,v_\ell\). Choosing a subset of its vertices is equivalent to choosing a cyclic binary word \(\epsilon=(\epsilon_1,\ldots,\epsilon_\ell)\), where \(\epsilon_i=1\) means \(v_i\) is selected. Its contribution to the size of the selected set is \(\sum_i\epsilon_i\); its contribution to \(|E\cap g(E)|\) is \(\sum_i\epsilon_i\epsilon_{i+1}\), indices taken cyclically.
+
+For a transition from current binary state \(r\in\{0,1\}\) to next state \(s\in\{0,1\}\), the matrix entry \(M_{rs}=u^s t^{rs}\) is exactly the weight for the next selected vertex and an adjacent selected pair. Consequently the partition function of the cycle is
+
+\[
+Z_\ell(u,t)
+=\sum_{\epsilon\in\{0,1\}^\ell}
+u^{\sum_i\epsilon_i}t^{\sum_i\epsilon_i\epsilon_{i+1}}
+=\operatorname{tr}M(u,t)^\ell.
+\]
+
+Different permutation cycles contribute independently to the combinatorial subset generating function. Therefore the following identity is **exact** before truncation:
+
+\[
+\sum_{E\subseteq[n]}u^{|E|}t^{|E\cap g(E)|}
+=\prod_{\ell=1}^nZ_\ell(u,t)^{c_\ell(g)}.
+\tag{168}
+\]
+
+The determinant and trace of \(M\) are \(u(t-1)\) and \(1+ut\). Thus its characteristic roots are precisely \(\lambda_+\) from (164) and a second formal root \(\lambda_-=u(t-1)/\lambda_+\), satisfying \(\lambda_-\in u\mathbb Q[t][[u]]\). Cayley–Hamilton, or the standard two-root trace recurrence, gives
+
+\[
+Z_\ell=\lambda_+^\ell+\lambda_-^\ell.
+\]
+
+If \(\ell>k\), the polynomial/series \(\lambda_-^\ell\) is divisible by \(u^{\ell}\) and hence by \(u^{k+1}\). Therefore in the quotient ring modulo \(u^{k+1}\),
+
+\[
+Z_\ell\equiv\lambda_+^\ell\quad(\ell>k).
+\]
+
+Replace every factor corresponding to a long cycle in (168) by \(\lambda_+^\ell\) modulo \(u^{k+1}\), multiply, and extract the coefficient of \(u^k\). This proves (165).
+
+The dependence on \(c_1,\ldots,c_k\) and their total contribution to \(n\) is now explicit, proving (166). All remaining cycles have lengths at least \(k+1\), so their sum is either zero or at least \(k+1\). Conversely any such remainder \(r\) is realized by one \(r\)-cycle, proving (167).
+
+For the LP compression, Theorem 18 permits primal measures invariant under conjugation and dual functions in the orbital-count span. By (166), both their marginal constraints and their dual objective values are constant on any aggregate of conjugacy classes with the same short-cycle counts; all such types are realized by the canonical representatives. Aggregating class masses preserves feasibility and the identity atom, so the sharp LP optimum does not change. The number of nonnegative integer short-cycle vectors is at most \(\prod_{\ell=1}^k(1+\lfloor n/\ell\rfloor)=O_k(n^k)\). QED.
+
+**Effective exact arithmetic.** This theorem is directly implementable without symbolic eigensolvers. The trace polynomials satisfy
+
+\[
+Z_0=2,\quad Z_1=1+ut,\quad
+Z_\ell=(1+ut)Z_{\ell-1}-u(t-1)Z_{\ell-2}, \tag{169}
+\]
+
+while coefficients \(\lambda_+=\sum_{m\ge0}A_m(t)u^m\), \(A_0=1\), satisfy the integer-polynomial recurrence
+
+\[
+A_m=tA_{m-1}
+-\sum_{i=1}^{m-1}A_iA_{m-i}
+-\mathbf1_{\{m=1\}}(t-1)\quad(m\ge1).
+\tag{170}
+\]
+
+Truncating every polynomial multiplication at \(u^{k+1}\) yields (165) using **integer arithmetic only**.
+
+The independent public checker
+code/check_all_k_orbital_compression.py
+implements both recurrences using sparse integer dictionaries. It crosschecks the coefficients against an unrelated, direct \(k\)-subset enumeration on one representative of **every integer partition** for \(3\le n\le12\) and every \(1\le k\le\min(n,6)\). This finite check is supplementary; the transfer-matrix argument proves (165) for **all** \(n,k\).
+
+**Next finite classification frontier.** Theorem 30 gives a rigorous compression layer for the exact \(k=4\) primal-dual problem, while Theorem 25 has already resolved its sharp asymptotic coefficient \(32\). It does not itself give the complete exact finite-\(n\) optimum at \(k=4\), which remains a separate classification problem.
