@@ -319,3 +319,154 @@ Condition (15) holds automatically for all `p>q_n` sufficiently close to `q_n` (
 ```
 
 The exact value of the limiting critical-window coefficient, and whether it is always controlled solely by the permutation-singleton test, are **not** claimed. This stronger upper bound is a purely combinatorial result: it does not require Bristiel--Caputo or any numerical computation.
+
+
+## 9. A complete sharp radius at three rows and exponent two
+
+The all-arity estimate of Theorem 1 supplies a positive explicit radius but does not generally determine its exact value. For three rows, the endpoint `p=2` admits a complete exact solution.
+
+**Theorem 4 (exact three-row robustness radius).** Let `u` be uniform on `S_3`. For a probability law `nu` with all one-point marginals uniform, the inequality
+
+```math
+\mathbb E_{\pi\sim\nu}\prod_{i=1}^3 f_i(\pi(i))
+\leq\prod_{i=1}^3
+\left(\frac13\sum_{j=1}^3 f_i(j)^2\right)^{1/2}
+\quad(f_1,f_2,f_3\ge0) \tag{18}
+```
+
+holds **if and only if**
+
+```math
+\|\nu-u\|_{TV}\le \frac1{\sqrt3}-\frac12. \tag{19}
+```
+
+The endpoint is **included**, and consequently
+
+```math
+R_3(2)=\frac1{\sqrt3}-\frac12.
+```
+
+The matrix inequality below is a separate sharp `3\times3` permanent--determinant inequality and does not use the Bristiel--Caputo input.
+
+### 9.1. Uniform one-point marginals parameterize the whole family
+
+Every law with uniform one-point marginals on `S_3` is of the form
+
+```math
+\nu_t(\pi)=\frac16+t\,\operatorname{sgn}(\pi),
+\qquad -\frac16\le t\le\frac16. \tag{20}
+```
+
+Indeed, for each `i,j` there are exactly two permutations with `pi(i)=j`, one even and the other odd. The marginal equation says their masses sum to `1/3`. Every even--odd pair of permutations on three letters agrees at exactly one location, so these equations apply to every such pair. All even permutations therefore have the same mass, and all odd permutations have the same mass, establishing (20). Conversely (20) has uniform marginals. Since three permutations have each parity,
+
+```math
+\|\nu_t-u\|_{TV}=3|t|. \tag{21}
+```
+
+For a `3\times3` matrix `A` with rows `f_1,f_2,f_3`,
+
+```math
+6\,\mathbb E_{\nu_t}\prod_i f_i(\pi(i))
+=\operatorname{perm}(A)+6t\det(A). \tag{22}
+```
+
+### 9.2. Sharp permanent--determinant inequality
+
+**Lemma 5 (an exact trilinear inequality).** Put
+
+```math
+\beta=\frac2{\sqrt3},\qquad
+\lambda=\beta-1.
+```
+
+For every real `3\times3` matrix `A` with row vectors `a,b,c\in\mathbb R^3`,
+
+```math
+\operatorname{perm}(A)+\lambda|\det(A)|
+\le \beta\,\|a\|_2\|b\|_2\|c\|_2. \tag{23}
+```
+
+The constant is sharp both for the identity matrix and for the all-ones matrix.
+
+**Proof.** Swapping two columns preserves the permanent and row norms, while changing the determinant sign. Thus it suffices to prove the bound with `+lambda det(A)`. Expanding along the last row, the resulting trilinear form is `c^T M(a)b`, where, writing `a=(a_1,a_2,a_3)`,
+
+```math
+M(a)=
+\begin{pmatrix}
+0&(2-\beta)a_3&\beta a_2\\
+\beta a_3&0&(2-\beta)a_1\\
+(2-\beta)a_2&\beta a_1&0
+\end{pmatrix}. \tag{24}
+```
+
+It therefore suffices to establish `\|M(a)\|_{2\to2}\le\beta\|a\|_2`, for all real `a`. Define
+
+```math
+k=2\sqrt3-3>0,\qquad h=\sqrt3-1>0
+```
+
+and
+
+```math
+H(a)=\frac34\Big(\beta^2\|a\|_2^2 I_3-M(a)^TM(a)\Big).
+```
+
+A direct multiplication gives
+
+```math
+H(a)=\begin{pmatrix}
+a_1^2+k a_2^2 & -h a_1a_2 & -h a_1a_3\\
+-h a_1a_2 & a_2^2+k a_3^2 & -h a_2a_3\\
+-h a_1a_3 & -h a_2a_3 & a_3^2+k a_1^2
+\end{pmatrix}. \tag{25}
+```
+
+All its diagonal entries are nonnegative. The principal `2\times2` minor on indices `1,2` is, exactly,
+
+```math
+\det H_{\{1,2\}}=
+k\big(a_1^2a_2^2+a_1^2a_3^2+a_2^4+
+k a_2^2a_3^2\big)\ge0. \tag{26}
+```
+
+The other two principal minors are obtained by cyclic permutation of `a_1,a_2,a_3`, hence are also nonnegative. Finally, direct expansion and factorization gives
+
+```math
+\begin{aligned}
+\det H(a)&=k^2\,\Big(
+\sum_{i\ne j}a_i^4a_j^2-
+6a_1^2a_2^2a_3^2\Big)\\
+&=k^2\Big[
+(X+Y+Z)(XY+YZ+ZX)-9XYZ
+\Big]\ge0, \tag{27}
+\end{aligned}
+```
+
+where `X=a_1^2,Y=a_2^2,Z=a_3^2`. The last inequality follows from two instances of AM--GM:
+`X+Y+Z>=3(XYZ)^(1/3)` and `XY+YZ+ZX>=3(XYZ)^(2/3)` (and is immediate when any variable is zero).
+
+Thus **all principal minors of the real symmetric matrix `H(a)` are nonnegative**. The principal-minor criterion gives `H(a)\succeq0`, equivalently `M(a)^TM(a)\preceq\beta^2\|a\|_2^2 I`. By Cauchy--Schwarz in the last row, (23) follows.
+
+The identity matrix gives `perm(A)=det(A)=1` and `1+lambda=beta`; the all-ones matrix gives `perm(A)=6`, `det(A)=0`, and `beta (sqrt3)^3=6`. Both are equality cases. QED.
+
+### 9.3. Endpoint radius and its necessity
+
+Suppose `3|t|<=1/sqrt3-1/2`. Then `|6t|<=lambda`. By (22), Lemma 5, and convexity in the coefficient of `det A`,
+
+```math
+6\,\mathbb E_{\nu_t}\prod_i f_i(\pi(i))
+\le \beta\prod_i\|f_i\|_{\ell^2}
+=\frac2{\sqrt3}\prod_i\|f_i\|_{\ell^2}.
+```
+
+Dividing by six and using `\beta/6=3^{-3/2}` yields (18), including the endpoint.
+
+Conversely, if `3|t|>1/sqrt3-1/2`, choose the indicator rows `f_i=1_{\{i\}}` for `t>0`; their product is supported only on the identity and (18) requires
+
+```math
+\frac16+t\le 3^{-3/2},
+```
+
+which is false. For `t<0`, choose indicator rows realizing any odd permutation instead; its mass is `1/6+|t|` and gives the same contradiction. This proves both implications of Theorem 4 and the exact value of `R_3(2)`. QED.
+
+The identities (24)--(27) are elementary equalities in the real quadratic field `Q(sqrt3)`. An independent symbolic replay of these displayed identities is provided in `code/check_s3_exact.py`. The proof is the positive-semidefiniteness argument above; no numerical optimization is invoked. This endpoint solution does **not** assert a formula for `R_3(p)` when `q_3<p<2`.
