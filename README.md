@@ -1,5 +1,9 @@
 # math
 
+## Exact three-subset optimality spectrum with rational proof certificates
+
+The [permutation action manuscript](notes/sharp-robust-permanent/paper.md#19-a-complete-certified-three-subset-spectrum-through-degree-23) also determines the exact marginal-preserving atom-vs-total-variation coefficient for **every S_n action on 3-element subsets through n=23**. The nontrivial rank-four degrees n=6,...,23 are independently certified by [18 fixed rational primal-dual witnesses](notes/sharp-robust-permanent/certificates/three_subset_n6_23.json) and an [optimizer-free exhaustive checker](notes/sharp-robust-permanent/code/check_three_subset_certificates.py). The checker and published JSON passed a fresh isolated Windows replay from public GitHub main; see the [verification record](notes/sharp-robust-permanent/VERIFICATION.md). This is a complete exact **finite classification** only; no all-degree k=3 closed formula or priority certification is claimed.
+
 ## Universal orbital duality and exact symmetric-group two-subset law
 
 The [permutation stability manuscript](notes/sharp-robust-permanent/paper.md) now proves, for **every n ≥ 4**, the exact optimal marginal-preserving atom/TV constant for the natural action of S_n on its 2-element subsets: (n²−2n+8)/[(n+2)(n+4)] for even n and (n²−n+4)/[(n+3)(n+4)] for odd n. The result gives an explicit matching primal probability construction and a direct all-n parity-dependent quadratic dual proof. It strictly improves the crude minimal-degree constant for every n ≥ 5. Its [exact checker](notes/sharp-robust-permanent/code/check_all_two_subset_actions.py) has passed for every conjugacy type of n = 4,...,40, but the mathematical proof is general, not a finite extrapolation.
