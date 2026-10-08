@@ -84,6 +84,25 @@
   nonconvex. No claim is made to have proved the full
   Standard Simplex Conjecture.
 
+## Unrestricted equal-mass asymptotic audit
+
+- For each cell of Gaussian mass 1/k, the sharp
+  one-cell Gaussian centroid bound is phi(b_k), where
+  b_k=Phi^{-1}(1-1/k). Summing squares gives an
+  all-partitions upper bound, with no assumed cell shape.
+- The regular-simplex lower construction is feasible in
+  dimension k-1 and lifts cylindrically to every d>=k-1.
+- The proof of Gaussian maximal order-statistic asymptotics
+  uses upper/lower Mills inequalities, integration by parts,
+  the Gaussian hazard bound and explicit integrated-CDF
+  estimates. No appeal to a heuristic extreme-value fit.
+- The two bounds have matching
+  [2 log k - log log k - log(4pi)]/k terms; their
+  ratio differs from 1 by O(1/log k).
+- An O(1/k) absolute remainder remains unresolved:
+  the proof does not establish exact finite-k
+  simplex optimality or a universal equality classifier.
+
 ## High-dimensional counterexample audit
 
 - The score covariance equals the projected iid-Gaussian
