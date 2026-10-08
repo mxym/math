@@ -5,7 +5,7 @@
   "scope": "For every affinely independent Fin(d+2) score family in Gaussian Space(d+1), the canonical equal-mass winning cluster has squared intrinsic total inner perimeter at least (d+1)*simplexConstant(d+2)^2/2.",
   "normalization": "Total perimeter = one half the sum of each cell perimeter. Each cell functional is minus the right derivative of its actual closed-ball erosion mass at zero.",
   "proved_bridge": "Every actual full simplicial cell has an erosion derivative equal to the constructed Gaussian density facet-flux sum.",
-  "conventional_BV_bridge_proved": false,
+  "conventional_BV_bridge_proved": true,
   "model_value_proved": "sources/GaussianRegularPerimeter.lean",
   "exact_model_square": "(d+1)*simplexConstant(d+2)^2/2",
   "no_axiom_registered": true,
@@ -23,8 +23,10 @@
     "criterion": "sources/GaussianBVApproximation.lean",
     "actual_approximants": "sources/GaussianSmoothWinningApproximation.lean",
     "smoothness_bounds_and_pointwise_convergence_proved": true,
-    "gradient_integral_estimate_proved": false,
-    "natural_cluster_interface": "sources/GaussianBVComparisonInterface.lean"
+    "gradient_integral_estimate_proved": true,
+    "natural_cluster_interface": "sources/GaussianBVComparisonInterface.lean",
+    "completion": "sources/GaussianSimplicialBVUpperBridge.lean"
   },
-  "updated_utc": "2026-10-08T22:26:34.424578+00:00"
+  "updated_utc": "2026-10-08T22:53:11.466016+00:00",
+  "conventional_BV_bridge_scope": "Unconditional actual_simplicial_cell_BV_upper for every affinely independent full simplicial score family, every price and every cell; this is the needed BV <= erosion direction, not an exact-equality assertion."
 }
