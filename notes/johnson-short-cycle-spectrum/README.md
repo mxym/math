@@ -1,6 +1,6 @@
 # Fixed-k Johnson orbital compression and exact four-subset moduli
 
-Research note, 8 October 2026. This note extends the [orbital primal-dual method](../sharp-robust-permanent/paper.md) from particular permutation actions to all symmetric-group actions on fixed-size subsets, and certifies 15 exact sharp constants for the four-subset action. The parent work already contains the independent three-subset classification through degree 120; the present four-subset computation is distinct. No novelty priority, outside peer review, or Lean formalization is asserted.
+Research note, 8 October 2026. This note extends the [orbital primal-dual method](../sharp-robust-permanent/paper.md) from particular permutation actions to all symmetric-group actions on fixed-size subsets, and certifies 40 exact sharp constants for the four-subset action through degree 50. The parent work already contains the independent three-subset classification through degree 120; the present four-subset computation is distinct. No novelty priority, outside peer review, or Lean formalization is asserted.
 
 ## 1. Definitions
 
@@ -221,3 +221,40 @@ Right-multiply by \(W_{\ell,k}\), use intertwining, and invoke injectivity to ge
 Finally, complementation \(E\mapsto[n]\setminus E\) is an equivariant bijection between \(k\)-subsets and \((n-k)\)-subsets, so the corresponding marginal constraints and sharp constants are identical. This proves (10). QED.
 
 The finite certified tables in the present note and the predecessor's three-subset note furnish strict instances of this inequality. Theorem E does **not** claim strictness for every degree or rank, and (10) is a structural comparison rather than a closed formula for the moduli.
+
+
+## 7. Complete exact four-subset continuation through degree 50
+
+**Theorem F (25 additional exact sharp coefficients).** The finite classification in Theorem D extends without gaps: for each \(26\le n\le50\), the exact sharp four-subset coefficient \(\mathcal C_{n,4}\) is as follows.
+
+| \(n\) | \(\mathcal C_{n,4}\) | \(n\) | \(\mathcal C_{n,4}\) |
+|---:|---:|---:|---:|
+|26|31178983/66734529|39|1994479855/3611361227|
+|27|26088187/55219671|40|25257571/45082011|
+|28|9453205/19608553|41|85610/151749|
+|29|322763823/664532107|42|5675965/9942766|
+|30|17347/34965|43|206491499/359673689|
+|31|1357637/2711805|44|484007989/831880833|
+|32|13419459/26302163|45|66083917/112885639|
+|33|63151229/122751769|46|35548943/60064597|
+|34|103729849/197908557|47|12483647731/20967181867|
+|35|322089109/610631637|48|4261003/7081915|
+|36|518431/968035|49|2304798951/3811510114|
+|37|63992175/118545464|50|297240803/486850773|
+|38|12069/22006|||
+
+Combined with Theorem D, this proves the **complete exact classification for \(11\le n\le50\)**, with rational attainment at every degree. The all-degree transfer and hierarchy theorems are independent of this finite cutoff.
+
+*Exact proof and certificate contract.* The immutable support data are published in [certificates/k4_n26_50.json](certificates/k4_n26_50.json). Each degree specifies **exactly five nonidentity cycle-type vectors**: two positive and three negative support classes, encoded by the numbers of 1-, 2-, 3-, and 4-cycles, supplemented by a residual long cycle as in Lemma B. The identity provides the sixth basis column.
+
+The separate [optimizer-free exact checker](check_k4_26_50.py) constructs the six-by-six integer basis matrix from orbital statistics independently computed by [transfer.py](transfer.py), as in equation (8). It solves both the normalized primal and supporting dual systems using rational Gaussian elimination and verifies strict positivity, normalizations, all five matching moment equations, contact equality at all six support classes, and equality of the rational primal identity weight, dual oscillation and printed target value. Crucially, it verifies the dual bound **on every feasible vector in \(A_{n,4}\)**, not only those selected by a solver. Each support vector is realized by an actual conjugacy class; the checker validates the positive rational scale for perturbing the uniform law, establishing sharpness.
+
+The 25 checks collectively cover **129,523 feasible short-cycle vectors** using integer and rational comparisons; in a fresh pinned-source replay, every degree passed. No optimizer or floating-point comparison is involved in this proof. The numerical linear program used to *discover* supports is excluded from the checker and from the logical proof premises. The existing Theorem C then transforms these exact primal-dual equalities into rigorous sharp constants for all laws, not just central laws.
+
+To reproduce from the repository root:
+
+~~~sh
+python3 notes/johnson-short-cycle-spectrum/check_k4_26_50.py
+~~~
+
+The checker rejects Python -O optimized mode, and an independent mutation test confirmed that modifying the n=26 target fraction is detected. The replay hash, logs and trust boundary are in [VERIFICATION.md](VERIFICATION.md). No formula valid for all \(n>50\), all-degree \(k=4\) asymptotic constant, priority or external review is claimed.
