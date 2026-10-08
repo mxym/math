@@ -470,3 +470,211 @@ Conversely, if `3|t|>1/sqrt3-1/2`, choose the indicator rows `f_i=1_{\{i\}}` for
 which is false. For `t<0`, choose indicator rows realizing any odd permutation instead; its mass is `1/6+|t|` and gives the same contradiction. This proves both implications of Theorem 4 and the exact value of `R_3(2)`. QED.
 
 The identities (24)--(27) are elementary equalities in the real quadratic field `Q(sqrt3)`. An independent symbolic replay of these displayed identities is provided in `code/check_s3_exact.py`. The proof is the positive-semidefiniteness argument above; no numerical optimization is invoked. This endpoint solution does **not** assert a formula for `R_3(p)` when `q_3<p<2`.
+
+
+## 10. Equality classification and the quadratic saturation barrier
+
+The exact `S_3,p=2` result has a sharp equality classification. Moreover, exponent two is a genuine transition for the singleton obstruction: when `p>2`, an atom that saturates the necessary singleton bound is unstable under a two-row perturbation.
+
+**Theorem 6 (all equality cases at the sharp three-row radius).** Retain the notation `nu_t` of (20), and let `t_2=1/(3 sqrt(3))-1/6`. If `|t|<=t_2`, equality in (18) with nonnegative functions `f_1,f_2,f_3` holds precisely in these cases:
+
+1. At least one row is identically zero.
+2. Every row is a nonzero constant function.
+3. `|t|=t_2`, and all three rows are positive multiples of singleton indicators supported at distinct columns, corresponding to an **even** permutation when `t=t_2` and an **odd** permutation when `t=-t_2`.
+
+There are no other nonzero equality cases. In particular, for `|t|<t_2` every nontrivial equality case is constant.
+
+**Proof.** Work first with `t=t_2` and nonzero rows. The positive-semidefinite proof of Lemma 5 shows that equality requires `b` to belong to the kernel of `H(a)`, and `c` to be a positive multiple of `M(a)b`. In terms of `X=a_1^2,Y=a_2^2,Z=a_3^2`, (27) gives
+
+```math
+0=\det H(a)/k^2=(X+Y+Z)(XY+YZ+ZX)-9XYZ. \tag{28}
+```
+
+If `XYZ>0`, equality in both AM--GM inequalities forces `X=Y=Z`, hence (because the row is nonnegative) `a_1=a_2=a_3>0`. Here `H(a)` is a positive multiple of the Laplacian of the triangle graph; its kernel is spanned by `(1,1,1)`. Thus `b` is constant, and `M(a)b` is also constant; `c` is constant.
+
+If `XYZ=0`, equation (28) requires `XY+YZ+ZX=0`, so exactly one component of the nonzero row `a` is positive. For example, if `a=(A,0,0)`, (25) becomes `H(a)=\mathrm{diag}(A^2,0,kA^2)`, so `b` is supported in the second coordinate. Equation (24) then forces `c` to be supported in the third coordinate. The cyclic variants give exactly the three even-permutation singleton configurations. They are genuine equality cases by (22)--(23).
+
+For `t=-t_2`, swapping two columns changes the determinant sign without altering any row norm, and converts the even configurations into the odd ones. For `|t|<t_2`, the comparison
+
+```math
+\operatorname{perm}(A)+6t\det(A)
+\le\operatorname{perm}(A)+6|t|\,|\det(A)|
+\le\operatorname{perm}(A)+6t_2|\det(A)|
+\le\frac2{\sqrt3}\prod_i\|f_i\|_{\ell^2}
+```
+
+is strict when `det(A) != 0`. Of the endpoint equality cases just classified, only the constant configurations have zero determinant. A zero row makes both sides of (18) zero. This completes the classification. QED.
+
+**Theorem 7 (general quadratic saturation obstruction).** Let `n>=2`, `p>2`, and let `nu` be **any** probability law on `S_n` (no marginal condition is needed). Suppose `sigma,tau\in S_n` differ by transposing the images of precisely two rows and that
+
+```math
+\nu(\sigma)=n^{-n/p},\qquad \nu(\tau)>0. \tag{29}
+```
+
+Then the normalized `L^p` permanent inequality **fails** for some nonnegative rows.
+
+**Proof.** Relabel the columns so `sigma=id`, and suppose `tau` swaps rows 1 and 2. Set
+
+```math
+f_1=(1,\varepsilon,0,\ldots,0),\quad
+f_2=(\varepsilon,1,0,\ldots,0),\quad
+f_i=\mathbf 1_{\{i\}}\ (3\le i\le n).
+```
+
+Only `sigma` and `tau` contribute. Their products are `1` and `epsilon^2`; the right side equals `n^{-n/p}(1+epsilon^p)^{2/p}`. At (29), the desired inequality would require
+
+```math
+\nu(\tau)\varepsilon^2
+\le n^{-n/p}\big((1+\varepsilon^p)^{2/p}-1\big)
+\le (2/p)n^{-n/p}\varepsilon^p.
+```
+
+The last step uses concavity of `x^(2/p)` for `p>2`. The inequality is impossible for all sufficiently small `epsilon>0`, since `p-2>0`. QED.
+
+**Corollary 8 (a strict upper bound for `S_3` when `2<p<3`).** Write
+
+```math
+c_p=3^{-3/p},\quad t_p=c_p-\frac16,\quad
+b_p=\frac13-c_p,\quad
+e_p=\min\left\{\frac12,
+ \left(\frac{p b_p}{4c_p}\right)^{1/(p-2)}\right\}. \tag{30}
+```
+
+Then `t_p>0`, `b_p>0`, `0<e_p<=1/2`, and
+
+```math
+\begin{aligned}
+3t_2\ \le\ R_3(p)
+&\le 3\,\frac{
+ c_p(1+e_p^p)^{2/p}-(1+e_p^2)/6
+}{1-e_p^2}\\
+&\le 3\left(t_p-\frac{b_pe_p^2}{2(1-e_p^2)}\right)
+\ <\ 3t_p. \tag{31}
+\end{aligned}
+```
+
+Thus the singleton upper bound `R_3(p)<=3(3^{-3/p}-1/6)`, which is **attained at `p=2`**, becomes **strictly non-sharp at every `2<p<3`**.
+
+**Proof.** Every law with uniform one-point marginals on `S_3` is `nu_t), and its TV distance is `3|t|`. Increasing `p` enlarges normalized `L^p` norms, so Theorem 4 implies `R_3(p)>=3t_2`. In the two-row test of Theorem 7, for `nu_t` the left side equals `(1/6+t)+(1/6-t)e^2` and the right side equals `c_p(1+e^p)^{2/p}`. For fixed `0<e<1`, the inequality therefore forces
+
+```math
+t\le U_p(e):=\frac{c_p(1+e^p)^{2/p}-(1+e^2)/6}{1-e^2}. \tag{32}
+```
+
+Consequently `R_3(p)<=3U_p(e)`: every slightly larger admissible `t` gives a concrete violation. Subtracting `t_p` yields
+
+```math
+U_p(e)-t_p
+=\frac{c_p((1+e^p)^{2/p}-1)-b_pe^2}{1-e^2}
+\le\frac{(2c_p/p)e^p-b_pe^2}{1-e^2}. \tag{33}
+```
+
+The definition of `e_p` gives `(2c_p/p)e_p^{p-2}<=b_p/2`, proving (31). The threshold values are valid probability laws because `0<t_p<1/6` for `2<p<3`. QED.
+
+**Exact rational counterexample to singleton sufficiency.** Take `p=5/2`, `t=1009/10000`, and `e=1/16`. The law `nu_t` has uniform one-point marginals and `TV(nu_t,u)=3027/10000`. Its even singleton masses are `a=8027/30000`. The singleton test is **satisfied** because
+
+```math
+\left(\frac{8027}{30000}\right)^5<\frac1{729}
+=c_p^5. \tag{34}
+```
+
+Nevertheless the two-row perturbation violates the `L^{5/2}` permanent inequality, as certified by the strict **integer-rational** comparison
+
+```math
+\left(\frac{411377}{1536000}\right)^5
+>\frac1{729}\left(\frac{1025}{1024}\right)^4. \tag{35}
+```
+
+Indeed the left base is `a+(1/6-t)/256`, while the right is the fifth power of the normalized row-norm product. Both strict signs are checked using fractions only by `code/check_s3_phase.py`.
+
+## 11. An exact six-variable entropy criterion for the remaining exponent problem
+
+The unresolved interval `q_3<p<2` can be translated, without approximation, into a finite-dimensional entropy inequality with a complete bipartite sum. This exact reduction identifies the role of mixed-parity distributions and limits the number of distinct coordinates at interior stationary obstructions.
+
+**Theorem 9 (entropy duality and the `K_{3,3}` reduction).** Fix `|t|<1/6`, let `a=1/6+t`, `b=1/6-t`, and let `p>=1`. The three-row normalized `L^p` permanent inequality for `nu_t` holds for **all** nonnegative row functions if and only if, for **every** six nonnegative numbers `e_1,e_2,e_3,o_1,o_2,o_3` with total sum one,
+
+```math
+3\log3+\sum_{i=1}^3\sum_{j=1}^3
+ (e_i+o_j)\log(e_i+o_j)
+\le
+p\left[
+\sum_i e_i\log\frac{e_i}{a}
++\sum_j o_j\log\frac{o_j}{b}
+\right]. \tag{36}
+```
+
+Here `0 log 0=0`. Equivalently, the critical row exponent is the **exact** finite variational quantity
+
+```math
+p_*(t)=
+\sup_{\substack{e_i,o_j\ge0,\ \sum_i e_i+\sum_j o_j=1\\
+ (e,o)\ne(a,a,a,b,b,b)}}
+\frac{3\log3+\sum_{i,j}(e_i+o_j)\log(e_i+o_j)}
+{\sum_i e_i\log(e_i/a)+\sum_j o_j\log(o_j/b)}. \tag{37}
+```
+
+The quotient is evaluated only where its denominator is positive.
+
+**Proof.** For any full-support probability law `nu` on a finite space `Omega` and maps `X_i:Omega->[n]`, the usual finite Gibbs variational formula says
+
+```math
+\log\mathbb E_\nu\exp\Big(\sum_i g_i(X_i)\Big)
+=\sup_\mu\Big(\sum_i\mathbb E_{\mu_i}g_i
+ -D(\mu\|\nu)\Big).
+```
+
+Consequently the normalized product-norm inequality
+
+```math
+\mathbb E_\nu\exp\big(\sum_i g_i(X_i)\big)
+\le\prod_i\big(\mathbb E_u e^{pg_i}\big)^{1/p}
+```
+
+for all real `g_i` is equivalent to entropy subadditivity
+
+```math
+\sum_iD(\mu_i\|u)\le pD(\mu\|\nu)
+\quad\text{for every probability }\mu. \tag{38}
+```
+
+For clarity, in one direction insert (38) into the Gibbs formula, then apply the scalar variational formula separately to each marginal. In the reverse direction, the full relative entropy bounds the restricted Gibbs supremum:
+`D(mu||nu)>=sum_i E_mu_i g_i-log E_nu exp(sum g_i)`.
+Apply the product-norm inequality and take the supremum over all `g_i`; the independent scalar suprema give `(1/p)sum_i D(mu_i||u)`. Zero-valued functions follow by nonnegative approximation.
+
+Enumerate the three even permutations of `S_3` with masses `e_i` under `mu`, and the three odd permutations with masses `o_j`. Any even and any odd permutation agree at **exactly one** row, because their relative permutation is a transposition. Hence, across the three single-coordinate marginals, the nine probabilities `e_i+o_j` each appear exactly once. Therefore
+
+```math
+\sum_{r=1}^3D(\mu_r\|u_3)
+=3\log3+\sum_{i,j}(e_i+o_j)\log(e_i+o_j).
+```
+
+Since `nu_t` assigns mass `a` to each even permutation and `b` to each odd one, `D(mu||nu_t)` is exactly the right bracket of (36). Formula (38) proves (36), and taking the supremum of the quotient proves (37). QED.
+
+**Proposition 10 (parity-pure obstructions are precisely singleton obstructions).** Suppose `1<=p<3` and `|t|<1/6`. Inequality (36) holds for every probability measure supported entirely on the **even** permutations if and only if `a<=3^{-3/p}`. It holds for every measure supported entirely on the **odd** permutations if and only if `b<=3^{-3/p}`.
+
+**Proof.** If `mu` is supported on even permutations, let `z=(e_1,e_2,e_3)` be its probability vector and put `d=D(z||u_3)\in[0,\log3]`. Each coordinate marginal is a permutation of `z`, giving `sum_r D(mu_r||u_3)=3d`, while
+
+```math
+D(\mu\|\nu_t)=d+\log\frac1{3a}.
+```
+
+For `p<3`, the inequality `3d<=p(d+log(1/(3a)))` for **all** `d\in[0,log3]` is equivalent to its endpoint `d=log3`, which rearranges to `a<=3^{-3/p}`. The odd case is identical with `b`. QED.
+
+**Proposition 11 (two positive levels per parity at interior stationary points).** Fix `0<p<3` and `|t|<1/6`. At every interior stationary point of the difference between the left and right sides of (36), subject to the total-mass constraint, the triple `(e_1,e_2,e_3)` has at most **two distinct values**, and likewise `(o_1,o_2,o_3)`.
+
+**Proof.** With `o_j>0` fixed, the stationarity equations for the `e_i`, after cancellation of constants, have the form
+
+```math
+\phi(e_i)=C,\qquad
+\phi(x)=\sum_{j=1}^3\log(x+o_j)-p\log x.
+```
+
+For `x>0`,
+
+```math
+x\phi'(x)=\sum_{j=1}^3\frac{x}{x+o_j}-p.
+```
+
+The right side increases strictly from `-p` to `3-p`. Thus `phi` first strictly decreases and then strictly increases: each horizontal level has at most two positive preimages. The same argument interchanges the `e` and `o` roles. QED.
+
+**Research boundary.** Theorem 9 is an **exact reformulation**, not a closed-form solution for `p_*(t)`. Proposition 11 applies only to strictly positive stationary points; boundary extrema must still be checked. The conjecture that the singleton threshold is sufficient throughout `q_3<p<2` is supported by numerical discovery but **not established** by the results in this section. Section 10 rigorously disproves its extension to `2<p<3`.
