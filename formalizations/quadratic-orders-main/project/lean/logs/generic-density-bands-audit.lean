@@ -1,0 +1,13 @@
+import Entry002.GenericDensityBands
+#print axioms Entry002.actual_batchMeanLog_bounds
+#print axioms Entry002.dense_actual_batch_cap
+#print axioms Entry002.bandSize_le_start
+#print axioms Entry002.eventually_dense_dyadic_top_band_ready
+#print axioms Entry002.ArithmeticInterface.uniform_multiscale_top_band_batches
+#print axioms Entry002.ArithmeticInterface.uniform_multiscale_top_band_entropy
+#print axioms Entry002.eventually_accurate_actual_batch_guards
+#print axioms Entry002.dyadicPrimePool_mem_primes
+#print axioms Entry002.dyadicPrimeBatch_subset_pool
+#print axioms Entry002.ArithmeticInterface.uniform_multiscale_accurate_band_batches
+#print axioms Entry002.actual_batchMeanLog_nonempty
+#print axioms Entry002.ArithmeticInterface.uniform_multiscale_accurate_band_entropy

@@ -1,0 +1,12 @@
+import ArithmeticSupplyRayBridge
+#print axioms ClassFieldTheory.rayClassField_reciprocity
+#print axioms ClassFieldTheory.rayClassSubgroup_existence
+#print axioms ClassFieldTheory.GlobalClassFieldComparison.rayClassSubgroup_existence
+#print ClassFieldTheory.RayClassFieldRealization
+#print ClassFieldTheory.FiniteAbelianExtension
+#print axioms ClassFieldTheory.finitePrime_splitsCompletelyInRayClassField_iff
+#print axioms ClassFieldTheory.mem_rayPrincipalIdealSubgroup_iff
+#print axioms Entry002.arithmeticSupply_integral_principal_generator
+#print axioms Entry002.arithmeticSupply_ray_split_generator_iff
+#print axioms Entry002.arithmeticSupply_ray_split_integral_generator_iff
+#print axioms Entry002.arithmeticSupply_exists_ray_extension_generator_criterion

@@ -1,0 +1,239 @@
+[
+  {
+    "name": "compile-tool.StockAxiomSnapshot",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "-o",
+      "${OUTPUT}/checks/StockAxiomSnapshot.olean",
+      "${RELEASE}/audit/checks/StockAxiomSnapshot.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 3.087,
+    "log": "logs/compile-tool.StockAxiomSnapshot.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "module": "StockAxiomSnapshot",
+    "source_sha256": "8f1841f3211104e633651cf6b0cea3a09db6941ebbb80549538a7cc0704be484",
+    "output": "checks/StockAxiomSnapshot.olean",
+    "output_sha256": "8826fdc5a49a1839a60d0d51bd8bc6dd730ab0e952b7ceace7868d0fef3f30b7",
+    "artifacts": {
+      ".olean": "8826fdc5a49a1839a60d0d51bd8bc6dd730ab0e952b7ceace7868d0fef3f30b7"
+    }
+  },
+  {
+    "name": "compile-tool.AuditCore",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "-o",
+      "${OUTPUT}/checks/AuditCore.olean",
+      "${RELEASE}/audit/checks/AuditCore.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 2.323,
+    "log": "logs/compile-tool.AuditCore.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "module": "AuditCore",
+    "source_sha256": "c5e077b96021d57dfc0e2db270857fae1fd31b9f9e88b73502fe749868607c92",
+    "output": "checks/AuditCore.olean",
+    "output_sha256": "4b127f08555e4a844ceb1db88911b89b9060b62bd0bc240ba8c136c65cfbac14",
+    "artifacts": {
+      ".olean": "4b127f08555e4a844ceb1db88911b89b9060b62bd0bc240ba8c136c65cfbac14"
+    }
+  },
+  {
+    "name": "compile-tool.EmptyKernelReplay",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "-o",
+      "${OUTPUT}/checks/EmptyKernelReplay.olean",
+      "${RELEASE}/audit/checks/EmptyKernelReplay.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 2.206,
+    "log": "logs/compile-tool.EmptyKernelReplay.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "module": "EmptyKernelReplay",
+    "source_sha256": "1a1b22e624c690ac7ebe7c9fd3a2c613f838c938e4d6ad88a1f57316884eb993",
+    "output": "checks/EmptyKernelReplay.olean",
+    "output_sha256": "cb3a396535c75a24577245d781210af1d190f4bbfe4328cb5f2f5bc53c34e1f0",
+    "artifacts": {
+      ".olean": "cb3a396535c75a24577245d781210af1d190f4bbfe4328cb5f2f5bc53c34e1f0"
+    }
+  },
+  {
+    "name": "StockStandardAxioms",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/StockStandardAxioms.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 2.093,
+    "log": "logs/StockStandardAxioms.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "CheckLiteralStandardAxioms",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/CheckLiteralStandardAxioms.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 4.596,
+    "log": "logs/CheckLiteralStandardAxioms.log",
+    "log_sha256": "41bceeaf999ec04f84860a990acfd24cadc6961e2f206522de4290b1cd79c5e5"
+  },
+  {
+    "name": "ClosedWeakSmoke",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/ClosedWeakSmoke.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 3.428,
+    "log": "logs/ClosedWeakSmoke.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "NonvacuitySmoke",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/NonvacuitySmoke.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 3.121,
+    "log": "logs/NonvacuitySmoke.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "CheckCombinedOwned",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/CheckCombinedOwned.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 153.043,
+    "log": "logs/CheckCombinedOwned.log",
+    "log_sha256": "da1c33692e228ed4a8d2c31fe6c721d8cd708df66b015543258f241b84d246e7"
+  },
+  {
+    "name": "EmptyKernelMini",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/EmptyKernelMini.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 2.113,
+    "log": "logs/EmptyKernelMini.log",
+    "log_sha256": "b94da5032b230bb68421906d367b79e09dbe0e97fbf4032833a002a2679593e6"
+  },
+  {
+    "name": "NegativePromoteWeakSupply",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/NegativePromoteWeakSupply.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 1,
+    "seconds": 3.612,
+    "log": "logs/NegativePromoteWeakSupply.log",
+    "log_sha256": "a10961e695f76a714d511f7ef1b80c57d4bc923c515578fdd14712a97e4f3770"
+  },
+  {
+    "name": "NegativeOnlyMaximalOrders",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/NegativeOnlyMaximalOrders.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 1,
+    "seconds": 4.029,
+    "log": "logs/NegativeOnlyMaximalOrders.log",
+    "log_sha256": "8e2c58d597a3f0819332c63851cf6d230b7dac19d376264569d0d4c981990a8a"
+  },
+  {
+    "name": "NegativeOnlyNcard",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/NegativeOnlyNcard.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 1,
+    "seconds": 4.242,
+    "log": "logs/NegativeOnlyNcard.log",
+    "log_sha256": "685716205eb92462e3b44b2938640c26c5abb3f6b984a229314c09765e98d38e"
+  },
+  {
+    "name": "NegativeMissingSupply",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/NegativeMissingSupply.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 1,
+    "seconds": 3.654,
+    "log": "logs/NegativeMissingSupply.log",
+    "log_sha256": "541c4096fae9199995c881767a37bd225ce5d5891f53da8ecbb793fdc0751f89"
+  },
+  {
+    "name": "EmptyKernelMiniCorrupt",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/EmptyKernelMiniCorrupt.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 1,
+    "seconds": 2.189,
+    "log": "logs/EmptyKernelMiniCorrupt.log",
+    "log_sha256": "3d5461eb27ac83ba8c1cb90e1ece36c98bb74e904b1f67166cf9da39c9d6126d"
+  },
+  {
+    "name": "ReplayLiteralMain",
+    "command": [
+      "${TOOLCHAIN}/bin/lean",
+      "-R",
+      "${RELEASE}/audit/checks",
+      "${RELEASE}/audit/checks/ReplayLiteralMain.lean"
+    ],
+    "cwd": "${OUTPUT}/checks",
+    "exit_code": 0,
+    "seconds": 1005.683,
+    "log": "logs/ReplayLiteralMain.log",
+    "log_sha256": "4d66c3b280c3b4877ac6217ebdbfac8cea4d515925e9b3f285b8ecd3d18b465e"
+  }
+]

@@ -1,0 +1,5 @@
+import Entry002.GenericGeometricBands
+#print axioms Entry002.uniform_band_geometric_entropy
+#print axioms Entry002.uniform_band_common_geometric_entropy
+#print axioms Entry002.explicit_band_geometric_entropy
+#print axioms Entry002.explicit_band_common_geometric_entropy

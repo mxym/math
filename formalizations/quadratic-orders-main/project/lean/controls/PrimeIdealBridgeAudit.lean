@@ -1,0 +1,7 @@
+import Entry002.PrimeIdealNaturalPNTBridge
+#print axioms Entry002.primeIdeal_count_le_cutoff
+#print axioms Entry002.primeIdeal_count_normalized_le_rpow_cutoff
+#print axioms Entry002.primeIdealNaturalPNT_of_theta
+#check Entry002.primeIdealNaturalPNT_of_theta
+#print axioms Entry002.primeIdealNaturalPNT_of_psi
+#check Entry002.primeIdealNaturalPNT_of_psi

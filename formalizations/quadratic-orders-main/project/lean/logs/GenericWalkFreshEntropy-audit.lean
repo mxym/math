@@ -1,0 +1,11 @@
+import Entry002.GenericWalkFreshEntropy
+#print axioms Entry002.WalkFreshEntropy.differenceLaw_fresh
+#print axioms Entry002.WalkFreshEntropy.frame_difference_differences
+#print axioms Entry002.WalkFreshEntropy.fresh_error_bounds
+#print axioms Entry002.WalkFreshEntropy.differenceLaw_fresh_lower
+#print axioms Entry002.WalkFreshEntropy.frame_log_packing
+#print axioms Entry002.WalkFreshEntropy.frame_log_difference_size
+#print axioms Entry002.WalkFreshEntropy.frame_log_difference_support
+#print axioms Entry002.WalkFreshEntropy.frame_fresh_lower
+#print axioms Entry002.WalkFreshEntropy.walkFrameConstants_spec
+#print axioms Entry002.WalkFreshEntropy.walk_fresh_lower

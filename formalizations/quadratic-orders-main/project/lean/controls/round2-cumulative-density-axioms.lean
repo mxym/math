@@ -1,0 +1,20 @@
+import Entry002.GenericCumulativeDyadicDensity
+#print axioms Entry002.cumulativePrimeSet
+#print axioms Entry002.cumulativePrimeCount
+#print axioms Entry002.mem_cumulativePrimeSet
+#print axioms Entry002.cumulativePrimeCount_mono
+#print axioms Entry002.inclusiveDyadicPrimes
+#print axioms Entry002.inclusiveDyadicPrimes_card
+#print axioms Entry002.mem_inclusiveDyadicPrimes
+#print axioms Entry002.cumulativeEndpointSet
+#print axioms Entry002.cumulativeEndpointCount
+#print axioms Entry002.mem_cumulativeEndpointSet
+#print axioms Entry002.cumulativeEndpointCount_le_one
+#print axioms Entry002.dyadicPrimeCount_cumulative_identity
+#print axioms Entry002.dyadicPrimeCount_cumulative_error
+#print axioms Entry002.dyadicPrimeCount_cumulative_real_identity
+#print axioms Entry002.dyadicPrimeCount_cumulative_real_error
+#print axioms Entry002.cumulative_dyadic_normalizer_ratio
+#print axioms Entry002.cumulative_dyadic_difference_ratio
+#print axioms Entry002.cumulativeEndpointCount_ratio_tendsto_zero
+#print axioms Entry002.dyadicPrimeCount_tendsto_of_cumulative

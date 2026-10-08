@@ -1,0 +1,8 @@
+import Entry002.GenericFreshEntropy
+#print axioms Entry002.FreshEntropy.uniform_entropy_event_bound
+#print axioms Entry002.FreshEntropy.prefix_injective_of_no_bad
+#print axioms Entry002.FreshEntropy.prefix_entropy_rectangle
+#print axioms Entry002.FreshEntropy.prefix_product_tail
+#print axioms Entry002.FreshEntropy.signed_prefix_entropy
+#print axioms Entry002.FreshEntropy.actual_fresh_entropy
+#print axioms Entry002.FreshEntropy.actual_fresh_coordinate_entropy

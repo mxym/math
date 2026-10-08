@@ -1,0 +1,245 @@
+--- a/git_provenance.py
++++ b/git_provenance.py
+@@ -8,12 +8,35 @@
+ import re
+ import subprocess
+ import tempfile
++from source_scan import code_only
+ 
+ COMMITS = {
+     "ClassFieldTheory": "2eb22d6485af45f29c5219de6c49f196a61c4f49",
+     "PrimeNumberTheoremAnd": "c39a751132c88b6e8080b74c74023fd95b3d8be0",
+     "OpenAI/math": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+ }
++
++# These are the actual dependency scopes of the delivered bridges.  Never take
++# the traversal roots or its membership from the editable source-audit ledger.
++DEPENDENCY_SCOPES = {
++    "ClassFieldTheory": {
++        "endpoints": (
++            "ClassFieldTheory.Theorems.ConductorsAndRayClassFields.RayClassFieldReciprocity",
++            "ClassFieldTheory.Theorems.ConductorsAndRayClassFields.RayClassFieldPrimeSplitting",
++            "ClassFieldTheory.Theorems.ConductorsAndRayClassFields.RayPrincipalIdealMembership",
++        ),
++        "module_roots": ("ClassFieldTheory", "ValuedFieldTheory", "GaloisCohomology", "ProCGroups"),
++        "prefix": "Lean4/",
++        "count": 995,
++    },
++    "PrimeNumberTheoremAnd": {
++        "endpoints": ("PrimeNumberTheoremAnd.Wiener",),
++        "module_roots": ("PrimeNumberTheoremAnd",),
++        "prefix": "",
++        "count": 4,
++    },
++}
++MODULE_NAME = re.compile(r"[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*")
+ 
+ 
+ def git_id(kind, data):
+@@ -78,7 +101,101 @@
+     return chunks
+ 
+ 
+-def verify_git_provenance(upstream):
++def external_source_path(package, module):
++    """Return one canonical package-relative physical path for a module."""
++    assert package in DEPENDENCY_SCOPES, (package, "Unexpected external package")
++    assert isinstance(module, str) and MODULE_NAME.fullmatch(module), (package, module)
++    scope = DEPENDENCY_SCOPES[package]
++    assert module.split(".", 1)[0] in scope["module_roots"], (package, module)
++    return scope["prefix"] + module.replace(".", "/") + ".lean"
++
++
++def validate_external_manifest(source_audit, authenticated_sources):
++    """Require unique physical paths and the independently authenticated set."""
++    packages = [package["package"] for package in source_audit]
++    assert len(packages) == len(set(packages)), "Duplicate external package ledger"
++    assert set(packages) == set(DEPENDENCY_SCOPES), "Exact external package set differs"
++    paths = []
++    for package in source_audit:
++        name = package["package"]
++        scope = DEPENDENCY_SCOPES[name]
++        assert package["endpoint"] == scope["endpoints"][0], (name, "Changed external endpoint")
++        assert tuple(package.get("endpoints", [package["endpoint"]])) == scope["endpoints"], \
++            (name, "Changed external dependency scope")
++        assert not package["missing"], (name, package["missing"])
++        for row in package["files"]:
++            paths.append(name + "/" + external_source_path(name, row["module"]))
++    assert len(paths) == len(set(paths)), "Duplicate external physical source path"
++    expected = set(authenticated_sources)
++    actual = set(paths)
++    assert actual == expected, (
++        "Exact external physical source set differs",
++        "missing", sorted(expected - actual), "extra", sorted(actual - expected))
++    for package in source_audit:
++        name = package["package"]
++        for row in package["files"]:
++            path = name + "/" + external_source_path(name, row["module"])
++            expected_row = authenticated_sources[path]
++            assert row["sha256"] == expected_row["sha256"], (path, "Source ledger byte hash differs")
++            assert row["imports"] == expected_row["imports"], (path, "Source ledger import graph differs")
++    return len(paths)
++
++
++def authenticated_source(upstream, name, module, repo, chunks):
++    """Authenticate bytes before they can contribute edges to the closure."""
++    path = external_source_path(name, module)
++    post = (upstream / name / path).read_bytes()
++    expected = authenticated_lookup(repo, path)
++    created = False
++    if path in chunks:
++        # Isolated temporary source, never mutate delivered source.  Reversing
++        # the authenticated exact patch must recover the committed blob (or
++        # committed absence), and reapplying must recover all delivered bytes.
++        with tempfile.TemporaryDirectory(prefix="entry002-patch-replay-") as directory:
++            tmp = Path(directory)
++            target = tmp / path
++            target.parent.mkdir(parents=True)
++            target.write_bytes(post)
++            apply_exact_patch(tmp, path, chunks[path], reverse=True)
++            if target.exists():
++                assert expected is not None, path
++                assert git_id("blob", target.read_bytes()) == expected, \
++                    (path, "External source differs from pinned original Git blob")
++            else:
++                created = True
++                assert expected is None, path
++            apply_exact_patch(tmp, path, chunks[path])
++            assert target.read_bytes() == post, (path, "Exact patch replay differs")
++    else:
++        assert expected is not None and git_id("blob", post) == expected, \
++            (path, "External source differs from pinned original Git blob")
++    imports = []
++    for line in code_only(post.decode("utf-8")).splitlines():
++        match = re.match(r"\s*(?:public\s+)?import\s+(.+)$", line)
++        if match:
++            imports.extend(match.group(1).split())
++    return path, {"module": module, "sha256": hashlib.sha256(post).hexdigest(),
++                  "imports": imports}, path in chunks, created
++
++
++def apply_exact_patch(directory, path, chunk, reverse=False):
++    command = ["git", "apply"] + (["--reverse"] if reverse else []) + ["--binary", "-"]
++    try:
++        subprocess.run(command, cwd=directory, input=chunk, capture_output=True, check=True)
++    except subprocess.CalledProcessError as error:
++        raise AssertionError(path, "Authenticated compatibility patch does not apply exactly",
++                             error.stderr.decode("utf-8", errors="replace").strip()) from error
++
++
++def authenticate_external_closure(upstream):
++    """Derive membership from fixed roots and authenticated source imports.
++
++    The editable arithmetic-recursive-source-audit.json is deliberately not
++    read here.  Git trees authenticate original path existence and blob IDs;
++    OpenAI/math's pinned tree authenticates the exact compatibility patches.
++    """
++    if not __debug__:
++        raise RuntimeError("Run Git provenance checks without Python optimization.")
+     evidence = json.loads((upstream / "arithmetic-original-git-provenance.json").read_text())
+     repos = evidence["repositories"]
+     assert set(repos) == set(COMMITS)
+@@ -96,44 +213,47 @@
+     for name in ("ClassFieldTheory", "PrimeNumberTheoremAnd"):
+         package = next(p for p in manifest["packages"] if p["name"] == name)
+         assert package["rev"] == COMMITS[name]
+-    source_audit = json.loads((upstream / "arithmetic-recursive-source-audit.json").read_text())
+-    total = modified = created = 0
+-    for package in source_audit:
+-        name = package["package"]
++    authenticated_sources = {}
++    modified = created = 0
++    package_counts = {}
++    for name, scope in DEPENDENCY_SCOPES.items():
+         patch_name = name + "-lean4341.patch"
+         patch = (upstream / "patches" / patch_name).read_bytes()
+         assert git_id("blob", patch) == authenticated_lookup(oai, "lean/patches/" + patch_name)
+         chunks = patch_chunks(patch)
+-        prefix = "Lean4/" if name == "ClassFieldTheory" else ""
+-        base = upstream / name
+-        for row in package["files"]:
+-            path = prefix + row["module"].replace(".", "/") + ".lean"
+-            post = (base / path).read_bytes()
+-            assert hashlib.sha256(post).hexdigest() == row["sha256"]
+-            expected = authenticated_lookup(repos[name], path)
+-            if path in chunks:
+-                modified += 1
+-                # Isolated temporary source, never mutate delivered source.
+-                with tempfile.TemporaryDirectory(prefix="entry002-patch-replay-") as directory:
+-                    tmp = Path(directory)
+-                    target = tmp / path
+-                    target.parent.mkdir(parents=True)
+-                    target.write_bytes(post)
+-                    cmd = ["git", "apply", "--reverse", "--binary", "-"]
+-                    subprocess.run(cmd, cwd=tmp, input=chunks[path], capture_output=True, check=True)
+-                    if target.exists():
+-                        assert expected is not None, path
+-                        assert git_id("blob", target.read_bytes()) == expected, path
+-                    else:
+-                        created += 1
+-                        assert expected is None, path
+-                    subprocess.run(["git", "apply", "--binary", "-"], cwd=tmp,
+-                                   input=chunks[path], capture_output=True, check=True)
+-                    assert target.read_bytes() == post, path
+-            else:
+-                assert expected is not None and git_id("blob", post) == expected, path
+-            total += 1
+-    assert total == 999
+-    return {"authenticated_sources": total, "patched_sources": modified,
++        pending = list(scope["endpoints"])
++        seen = set()
++        while pending:
++            module = pending.pop()
++            if module in seen:
++                continue
++            path, row, patched, new = authenticated_source(upstream, name, module, repos[name], chunks)
++            authenticated_sources[name + "/" + path] = row
++            seen.add(module)
++            modified += patched
++            created += new
++            for dependency in row["imports"]:
++                if dependency.split(".", 1)[0] in scope["module_roots"]:
++                    pending.append(dependency)
++                else:
++                    assert dependency.split(".", 1)[0] not in {
++                        root for other in DEPENDENCY_SCOPES.values() for root in other["module_roots"]
++                    }, (module, "Unexpected cross-package external dependency", dependency)
++        package_counts[name] = len(seen)
++        assert len(seen) == scope["count"], (name, "Authenticated dependency scope changed", len(seen))
++    path_bytes = ("\n".join(sorted(authenticated_sources)) + "\n").encode("utf-8")
++    summary = {"authenticated_sources": len(authenticated_sources),
++            "unique_external_paths": len(authenticated_sources),
++            "dependency_scope_counts": package_counts,
++            "external_path_set_sha256": hashlib.sha256(path_bytes).hexdigest(),
++            "patched_sources": modified,
+             "new_sources_in_exact_patch": created,
+             "stored_git_objects": sum(len(repo["objects"]) for repo in repos.values())}
++    return authenticated_sources, summary
++
++
++def verify_git_provenance(upstream):
++    authenticated_sources, summary = authenticate_external_closure(upstream)
++    source_audit = json.loads((upstream / "arithmetic-recursive-source-audit.json").read_text())
++    validate_external_manifest(source_audit, authenticated_sources)
++    return summary
+--- a/verify.py
++++ b/verify.py
+@@ -70,6 +70,10 @@
+ 
+ 
+ def verify_sources():
++    if not __debug__:
++        raise RuntimeError("Run source checks without Python optimization.")
++    # Authenticate the fixed external closure before any editable ledger rows select checks.
++    verify_git_provenance(UPSTREAM)
+     provenance = json.loads((UPSTREAM / "arithmetic-provenance.json").read_text())
+     assert provenance["mathlib"] == "d13f23b723b8a846827a245b89c10fc7d3f11612"
+     assert (PROJECT / "lean-toolchain").read_text().strip() == "leanprover/lean4:v4.34.1"
+@@ -115,7 +119,6 @@
+                 assert module in modules, (row["module"], module)
+     scan_closure(UPSTREAM)
+     expected_root_sets()
+-    verify_git_provenance(UPSTREAM)
+ 
+ 
+ def run(args, log_name):

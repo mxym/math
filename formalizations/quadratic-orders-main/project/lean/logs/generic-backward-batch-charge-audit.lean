@@ -1,0 +1,6 @@
+import Entry002.GenericBackwardBatchCharge
+#print axioms Entry002.exists_pooled_residueFamily_batch_extension
+#print axioms Entry002.exists_pooled_walk_residue_batch_extension
+#print axioms Entry002.commonSchedule_passingGood_bad_mean_of_entropy
+#print axioms Entry002.exists_backward_commonSchedule_batch_charge
+#print axioms Entry002.exists_positive_dyadic_backward_batch_charge

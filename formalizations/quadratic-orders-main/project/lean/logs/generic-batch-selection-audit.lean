@@ -1,0 +1,21 @@
+import Entry002.GenericBatchSelection
+
+#print axioms Entry002.batch_cIf_congr_fibers
+#print axioms Entry002.perm_expect_uniform
+#print axioms Entry002.selected_prefix_fibers
+#print axioms Entry002.greedy_finite_selection
+#print axioms Entry002.batch_selected_sum_average
+#print axioms Entry002.batch_selected_entropy_average
+#print axioms Entry002.batch_selected_log_average
+#print axioms Entry002.selected_batch_posterior_information
+#print axioms Entry002.averaged_signed_batch_information
+#print axioms Entry002.exists_signed_batch_information
+#print axioms Entry002.selectedBatchLabels_card_le
+#print axioms Entry002.selectedBatchLabels_prime_mem
+#print axioms Entry002.selectedBatchLabels_union_information
+#print axioms Entry002.batch_additive_observation_shift
+#print axioms Entry002.residueFamily_package_information_transport
+#print axioms Entry002.selectedBatchLabels_log_weight_le
+#print axioms Entry002.residueLabels_union_log_weight_le
+#print axioms Entry002.exists_residueFamily_batch_extension
+#print axioms Entry002.exists_walk_residue_batch_extension

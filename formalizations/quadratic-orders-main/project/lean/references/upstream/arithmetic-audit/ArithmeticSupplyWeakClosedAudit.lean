@@ -1,0 +1,5 @@
+import ArithmeticSupplyWeakMain
+
+#print axioms Entry002.arithmeticSupply_mainTarget_proved
+#check Entry002.arithmeticSupply_mainTarget_proved
+#print Entry002.MainTarget

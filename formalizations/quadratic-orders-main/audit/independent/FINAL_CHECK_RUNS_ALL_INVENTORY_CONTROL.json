@@ -1,0 +1,29 @@
+{
+  "status": "final_context_and_source_checks",
+  "started": "2026-10-07T23:19:27.867369+00:00",
+  "driver_sha256": "cdb7026ce0773fce98e701a97eeae23d5b3ec833a74e261bb8ad19efa433a7bb",
+  "runs": [
+    {
+      "command": [
+        "${TOOLCHAIN}/bin/lean",
+        "CheckLiteralStandardAxioms.lean"
+      ],
+      "cwd": "${ROUND5_AUDIT}/replay/audit",
+      "exit_code": 0,
+      "seconds": 7.74121618270874,
+      "log": "${ROUND5_AUDIT}/replay/audit/literal-standard-axioms.log",
+      "log_sha256": "41bceeaf999ec04f84860a990acfd24cadc6961e2f206522de4290b1cd79c5e5"
+    },
+    {
+      "command": [
+        "${TOOLCHAIN}/bin/lean",
+        "CheckCombinedOwned.lean"
+      ],
+      "cwd": "${ROUND5_AUDIT}/replay/audit",
+      "exit_code": 1,
+      "seconds": 153.12832283973694,
+      "log": "${ROUND5_AUDIT}/replay/audit/combined-owned-check.log",
+      "log_sha256": "c536277b0fcb00dec1b799cbe52e013f57ca44362ef523e7d4bbab8239ca7c22"
+    }
+  ]
+}

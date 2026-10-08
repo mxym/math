@@ -1,0 +1,8 @@
+import Entry002.GenericFiniteSieveEngine
+set_option autoImplicit false
+#check Entry002.ArithmeticInterface.large_step_prime_pool_no_walk
+#check Entry002.finiteSieveTarget_proved
+#check Entry002.eventually_common_window_batch_charge
+#check Entry002.common_window_factor_law
+#print axioms Entry002.ArithmeticInterface.large_step_prime_pool_no_walk
+#print axioms Entry002.finiteSieveTarget_proved

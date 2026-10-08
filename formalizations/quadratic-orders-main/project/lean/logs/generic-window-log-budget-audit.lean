@@ -1,0 +1,24 @@
+import Entry002.GenericWindowLogBudget
+#print axioms Entry002.dyadicBatchLabels_mem_primes
+#print axioms Entry002.dyadicPoolLabels_mem_primes
+#print axioms Entry002.primeLabelWeight_mono
+#print axioms Entry002.primeLabelWeight_product
+#print axioms Entry002.dyadicBatchLabels_weight_le
+#print axioms Entry002.primeLabelWeight_biUnion_le
+#print axioms Entry002.separated_dyadic_labels_cost
+#print axioms Entry002.precedingDyadicLabels_enum_subset
+#print axioms Entry002.precedingDyadicLabels_enum_cost
+#print axioms Entry002.predecessor_selected_family_budget
+#print axioms Entry002.allBins_scale_bound
+#print axioms Entry002.dyadicPoolLabels_log_weight_cap
+#print axioms Entry002.eventually_dyadicPoolLabels_weight
+#print axioms Entry002.eventually_actual_window_telescope_errors
+#print axioms Entry002.precedingDyadicLabels_zero
+#print axioms Entry002.precedingDyadicLabels_succ
+#print axioms Entry002.precedingDyadicLabels_mono
+#print axioms Entry002.precedingDyadicLabels_mem_primes
+#print axioms Entry002.dyadicBatchLabels_subset_pool
+#print axioms Entry002.precedingDyadicLabels_subset_pool
+#print axioms Entry002.precedingDyadicLabels_all
+#print axioms Entry002.separated_dyadic_batches_of_uniform_density
+#print axioms Entry002.ArithmeticInterface.common_window_parameters

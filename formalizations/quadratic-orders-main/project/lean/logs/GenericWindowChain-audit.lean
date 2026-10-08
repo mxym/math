@@ -1,0 +1,15 @@
+import Entry002.GenericWindowTopEntropy
+import Entry002.GenericWindowBandSizes
+#print axioms Entry002.eventually_suffix_cost_constant
+#print axioms Entry002.eventually_actual_suffix_cost
+#print axioms Entry002.eventually_window_tail_bounds
+#print axioms Entry002.wordStepBall_log_card_mono
+#print axioms Entry002.actual_schedule_cost_le
+#print axioms Entry002.eventually_accurate_suffix_cost
+#print axioms Entry002.actual_schedule_zero_cost_le
+#print axioms Entry002.commonSchedule_subband_geometric_entropy
+#print axioms Entry002.commonSchedule_subband_geometric_entropy_at
+#print axioms Entry002.eventually_accurate_common_subband_entropy
+#print axioms Entry002.eventually_window_band_entropy
+#print axioms Entry002.eventually_window_top_entropy
+#print axioms Entry002.eventually_window_band_sizes

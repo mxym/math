@@ -1,0 +1,18 @@
+import ArithmeticSupplyPrimeIdealWiener
+
+set_option pp.funBinderTypes true
+
+#print Entry002.PrimeIdealNaturalPNT
+#print Entry002.NumberFieldPrimeIdealPNTTarget
+#print axioms Entry002.primeIdeal_wiener_chebyshev
+#check Entry002.primeIdeal_wiener_chebyshev
+#print axioms Entry002.primeIdeal_wiener_norm_summable
+#check Entry002.primeIdeal_wiener_norm_summable
+#print axioms Entry002.primeIdealPsi_nat_eq_cumsum_add
+#check Entry002.primeIdealPsi_nat_eq_cumsum_add
+#print axioms Entry002.primeIdeal_coefficient_div_nat_tendsto_zero
+#check Entry002.primeIdeal_coefficient_div_nat_tendsto_zero
+#print axioms Entry002.primeIdeal_psi_asymptotic_of_wiener_boundary
+#check Entry002.primeIdeal_psi_asymptotic_of_wiener_boundary
+#print axioms Entry002.primeIdealNaturalPNT_of_wiener_boundary
+#check Entry002.primeIdealNaturalPNT_of_wiener_boundary

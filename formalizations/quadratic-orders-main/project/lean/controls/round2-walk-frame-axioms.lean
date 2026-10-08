@@ -1,0 +1,8 @@
+import Entry002.GenericWalkFrame
+#print axioms Entry002.walk_diameter_pair
+#print axioms Entry002.exists_diameter_orientation
+#print axioms Entry002.oriented_diameter_rectangle
+#print axioms Entry002.lattice_differences_rectangle
+#print axioms Entry002.actual_walk_frame_package
+#print axioms Entry002.ActualWalkFrame.length_step_of_one_le
+#print axioms Entry002.ActualWalkFrame.area_upper_of_one_le
