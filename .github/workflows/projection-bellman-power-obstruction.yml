@@ -42,6 +42,30 @@ jobs:
           python3 -O notes/projection-bellman-power-obstruction/code/check_binary_tail.py > /tmp/tail-optimized.txt
           cmp /tmp/tail-normal.txt /tmp/tail-optimized.txt
           cmp /tmp/tail-normal.txt notes/projection-bellman-power-obstruction/results/binary-tail-replay.txt
+      - name: Replay uniquely forced smooth sharp-profile Taylor jet
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/check_formal_germ.py > /tmp/germ-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check_formal_germ.py > /tmp/germ-optimized.txt
+          cmp /tmp/germ-normal.txt /tmp/germ-optimized.txt
+          cmp /tmp/germ-normal.txt notes/projection-bellman-power-obstruction/results/formal-germ-replay.txt
+      - name: Replay Stirling-Bernoulli analytic-germ input certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/check_stirling_germ.py > /tmp/stirling-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check_stirling_germ.py > /tmp/stirling-optimized.txt
+          cmp /tmp/stirling-normal.txt /tmp/stirling-optimized.txt
+          cmp /tmp/stirling-normal.txt notes/projection-bellman-power-obstruction/results/stirling-germ-replay.txt
+      - name: Replay unbounded prime-rank theorem finite integer witnesses
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-power-obstruction/code/check_prime_independence.py > /tmp/primes-normal.txt
+          python3 -O notes/projection-bellman-power-obstruction/code/check_prime_independence.py > /tmp/primes-optimized.txt
+          cmp /tmp/primes-normal.txt /tmp/primes-optimized.txt
+          cmp /tmp/primes-normal.txt notes/projection-bellman-power-obstruction/results/prime-independence-replay.txt
       - name: Reject corrupted coefficients, geometry and logarithm bounds
         shell: bash
         run: |

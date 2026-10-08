@@ -4,7 +4,9 @@
 
 ## Abstract
 
-The unrestricted projection-body growth problem for the point-generated Cartesian-product/affine-join class remains open. A leading method is to certify a dimension-homogeneous convex Bellman potential by **separate closure under every possible join and product**, with nonnegative even-power coefficients. We prove a **strict, all-degree obstruction** to this proof architecture: for *any* finite or countably summable sequence of nonnegative coefficients, the nominal logarithmic rate must be **strictly larger than \(486139/10^7=0.0486139\)** if the potential is product-closed even merely at self-products of three explicit, actually attainable polytopes. This barrier is strictly above the previously certified binary \(T_5\) orbit rate. The proof uses three rational self-product constraints and positive rational dual weights; six even-degree columns are checked individually, **all infinitely many remaining powers** are controlled by elementary rational geometric tails, and the decisive weighted logarithms are enclosed by a separate exact atanh checker. Stronger still, we determine the **exact minimum for the infinite linear programme defined by these three necessary inequalities**: it has a uniquely supported primal solution in degrees **2, 4, 8** and an exact rational dual, yielding the stronger certified floor. No finite extrapolation is involved.
+The unrestricted projection-body growth problem for the point-generated Cartesian-product/affine-join class remains open. A leading method is to certify a dimension-homogeneous convex Bellman potential by **separate closure under every possible join and product**, with nonnegative even-power coefficients. We prove a **strict, all-degree obstruction** to this proof architecture: for *any* finite or countably summable sequence of nonnegative coefficients, the nominal logarithmic rate must be **strictly larger than \(486139/10^7=0.0486139\)** if the potential is product-closed even merely at self-products of three explicit, actually attainable polytopes. This barrier is strictly above the previously certified binary \(T_5\) orbit rate. The proof uses three rational self-product constraints and positive rational dual weights; six even-degree columns are checked individually, **all infinitely many remaining powers** are controlled by elementary rational geometric tails, and the decisive weighted logarithms are enclosed by a separate exact atanh checker. Stronger still, we determine the **exact minimum for the infinite linear programme defined by these three necessary inequalities**: it has a uniquely supported primal solution in degrees **2, 4, 8** and an exact rational dual, yielding the stronger certified floor. No finite extrapolation is involved. Furthermore, a Bertrand-prime argument proves that **no finite polynomial or finite-knot polynomial spline**, with **arbitrary signed real coefficients**, can satisfy a sharp independent join/product Bellman induction. An all-orders Stirling–Bernoulli argument strengthens this to **every real-analytic germ**, including infinite convergent power series: the orbit multipliers have infinitely many rationally linearly independent logarithms, forcing infinitely many independent profile parameters.
+
+Moreover we prove a **Stirling–Bernoulli nonanalyticity theorem**: no real-analytic homogeneous scalar profile at zero, even with infinitely many convergent signed coefficients, can be an exactly sharp separately inductive Bellman potential. For a smooth hypothetical profile we uniquely determine its **entire divergent formal even Taylor jet**, with exact rational recurrences and the first six nonzero coefficients certified.
 
 We also derive the **exact scalar binary-orbit continuation functional**. Its naturally associated upper-potential candidate, which would be sharp at every point of the \(T_5\) orbit, is **not** superadditive under joins: a join of two copies of the attainable polytope \(T_1\times T_2\) yields a rigorously certified defect below \(-3/10\). This is a failure of two particular **inductive proof mechanisms**, not a counterexample to global optimality of the \(T_5\) orbit. The observations identify why simply adding many positive higher-power terms or reusing the exact binary continuation value cannot close the unrestricted problem without additional state information or a different convex potential.
 
@@ -290,6 +292,200 @@ By (4.7), \(F_j=D_j\psi(t_j)\). If \(\psi(t)\sim\alpha t^2\), then
 
 This theorem does **not** assert that a convex sharp potential exists. Instead it converts that existence problem into a constrained **convex interpolation / product-closure problem** with infinitely many exact orbit anchors and a pinned quadratic germ. It explains why a finite perturbation of arbitrary polynomial coefficients can easily disrupt sharpness: along an extremal infinite orbit, *every intermediate induction slack must vanish*.
 
+### Theorem 4 (prime-rank rigidity: no finite polynomial or finite-knot sharp Bellman profile)
+
+The interpolation equations in Theorem 3 impose a stronger **infinite-rank** constraint, independent of any positivity, even-power or convexity assumption. Let
+\[
+ d_j=\frac{16\cdot4^j-1}{3},\qquad H_j=6\cdot2^j,
+ \qquad D_j=d_j+1,\quad t_j=\frac{H_j}{D_j},
+\]
+and define the exact positive **rational multipliers**
+\[
+ \boxed{M_j=H_j\frac{g(d_j)^2}{g(2d_j)}
+ =6\cdot2^j\frac{\binom{2d_j}{d_j}}{4^{d_j}}\in\mathbb Q_{>0}.}
+ \tag{4.11}
+\]
+
+**Lemma 4.1 (infinite rational linear independence).** The sequence
+\[
+ \boxed{\{\log M_j:j=0,1,2,\ldots\}}
+\]
+is **linearly independent over \(\mathbb Q\)**. Equivalently, the countably infinite set of rational numbers \(M_j\) is multiplicatively independent: every finitely supported integer product \(\prod_jM_j^{n_j}=1\) has all \(n_j=0\).
+
+**Proof.** By the classical **Bertrand postulate**, for every \(j\ge0\) there exists a prime \(p_j\) satisfying
+\[
+ d_j<p_j<2d_j.
+\]
+Since \(d_j=4d_{j-1}+1\), for every \(i<j\) we have \(2d_i<d_j<p_j\). Also \(p_j\ge7\), so \(p_j\) divides neither \(H_i=6\cdot2^i\) nor any denominator \(4^{d_i}\). Consequently \(v_{p_j}(M_i)=0\) whenever \(i<j\). On the other hand \(d_j<p_j<2d_j<2p_j\) implies
+\[
+ v_{p_j}\binom{2d_j}{d_j}=1,
+ \qquad\boxed{v_{p_j}(M_j)=1.}
+\]
+In a nontrivial finite multiplicative relation let \(J\) be the *largest* index with nonzero exponent. Applying \(v_{p_J}\) gives \(n_J=0\), a contradiction. Taking logarithms gives the asserted \(\mathbb Q\)-linear independence. \(\square\)
+
+**Theorem 4.2 (sharp profile requires infinitely many independent parameters).** Suppose \(\psi:[0,1]\to\mathbb R\) satisfies only the following hypotheses:
+
+1. \(\psi\) is continuous at zero, with \(\psi(0)=0\) and \(\psi(1)=c_*\);
+2. the homogeneous potential \(\Phi_\psi(D,H)=D(c_*-\psi(H/D))\) satisfies the **separate join and product closure inequalities** from (1.2)–(1.5), at least along the actual \(T_5\) orbit and its intermediate Cartesian squares.
+
+Then **there is no** \(\varepsilon>0\) and no finite-degree polynomial \(P\in\mathbb R[t]\) such that \(\psi(t)=P(t)\) for all \(0<t<\varepsilon\). This excludes **all finite-degree homogeneous polynomial profiles, even with signed coefficients**, and **all convex (or nonconvex) splines with only finitely many polynomial pieces**, from being sharp using that ordinary independent join/product induction. Neither convexity nor differentiability of \(\psi\) is needed for this obstruction.
+
+More generally, for any finite list of functions \(f_1,\ldots,f_m\) defined near zero with \(f_\ell(t_j)\in\mathbb Q\) for all sufficiently large \(j\), no such sharp \(\psi\) can satisfy \(\psi(t)=\sum_{\ell=1}^m a_\ell f_\ell(t)\) for real coefficients \(a_\ell\) near zero.
+
+**Proof.** By the proof of Theorem 3, the nonnegative induction slack \(E_j=\Phi_\psi(D_j,H_j)-\log Q_j\) obeys \(E_{j+1}\ge4E_j\) and \(E_j/D_j\to0\). Hence \(E_j=0\) **for every** \(j\), so the exact interpolation identities (4.7) hold:
+\[
+ \log Q_j=D_j(c_*-\psi(t_j)).
+\]
+The exact binary operation is the join of two equal Cartesian squares; its \(Q\)-recurrence is
+\[
+ \log Q_{j+1}=4\log Q_j+2\log M_j.
+\]
+Substitute the interpolation identities and use \(D_{j+1}=4D_j-2\), obtaining
+\[
+ \boxed{\log M_j=-c_*+2D_j\psi(t_j)
+ -\frac{D_{j+1}}2\psi(t_{j+1}).}
+ \tag{4.12}
+\]
+All \(D_j\) and \(t_j\) are rational. If \(\psi=P\) is a real polynomial of degree at most \(m\) on an interval near zero, then for every sufficiently large \(j\), the right side of (4.12) lies in the fixed finite-dimensional \(\mathbb Q\)-vector space spanned by \(c_*\) and the \(m+1\) real coefficients of \(P\). This contradicts Lemma 4.1, since infinitely many \(\log M_j\) cannot all lie in a fixed finite-dimensional \(\mathbb Q\)-space. The identical argument applies to any finite list of functions with rational values on the eventual orbit points \(t_j\). Every function with finitely many polynomial spline pieces agrees with **one** polynomial on some interval immediately to the right of zero, so the stated spline exclusion follows. \(\square\)
+
+**Significance and exact scope.** This is an *unconditional analytical no-go* for **all finite-degree polynomial and finite-knot piecewise-polynomial potentials**, not merely for the nonnegative even-power cone in Theorem 1. It does **not** exclude a genuinely infinite series, a non-polynomial germ or infinitely many knots accumulating at zero; nor does it exclude global proofs that retain attainable-state slack instead of demanding separate Bellman closure. The theorem also says nothing about the actual value of \(\lambda_*\): it proves that if the binary \(T_5\) orbit is globally optimal, its sharp induction cannot be realized by any finite polynomial/spline architecture of the stated kind.
+
+The independent companion [`check_prime_independence.py`](code/check_prime_independence.py) replays exact \(p\)-adic valuation witnesses for thirteen consecutive orbit levels, using only integer trial-division primality and Legendre valuations. **The infinite theorem uses Bertrand's postulate**, not a finite computation; all other ingredients are the inherited exact product/join identities and the interpolation argument above.
+
+**Corollary 4.3 (a strictly positive gap at each bounded polynomial degree).** Fix a finite integer \(m\ge1\). Among all **nondecreasing** real polynomial functions \(\psi:[0,1]\to\mathbb R\) of degree at most \(m\), normalized by \(\psi(0)=0\), \(\psi(1)=c\ge0\), whose homogeneous Bellman potential \(D(c-\psi(H/D))\) obeys ordinary separate join/product closure for every point-generated construction, there exists a constant \(\varepsilon_m>0\) such that
+\[
+ \boxed{c\ge c_*+\varepsilon_m.}
+ \tag{4.13}
+\]
+This holds **without assuming the coefficients of the polynomial are nonnegative** and gives a *uniform obstruction at each fixed degree*, not merely an impossibility of equality.
+
+**Proof.** Assume otherwise. By the inherited binary lower construction every such upper coefficient satisfies \(c\ge c_*\), so there would be admissible degree-\(m\) polynomial profiles \(\psi_n\) with endpoint values \(c_n=\psi_n(1)\downarrow c_*\). Nondecreasingness and \(\psi_n(0)=0\) imply
+\(0\le\psi_n(t)\le c_n\) for every \(t\in[0,1]\). Choose \(m\) fixed distinct positive rational interpolation nodes \(t_i\in(0,1]\). The coefficient vector of \(\psi_n\), whose constant term is zero, is the inverse of a fixed, nonsingular Vandermonde-type matrix applied to the bounded vector \((\psi_n(t_i))_{i=1}^m\). Hence the coefficients are uniformly bounded. Passing to a subsequence, they converge to those of another degree-\(m\) polynomial \(\psi\), uniformly on \([0,1]\), with \(\psi(0)=0\), \(\psi(1)=c_*\).
+
+Every individual join/product closure comparison is a continuous linear inequality in the coefficients of \(\psi_n\) and \(c_n\), with a fixed real logarithmic multiplier on the right. Therefore it survives coefficientwise limits, and \(\psi\) is a sharp separately closed polynomial Bellman potential. This contradicts Theorem 4.2. Thus the infimum of all admissible \(c\) at fixed degree is strictly greater than \(c_*\), proving (4.13). \(\square\)
+
+No numerical value of \(\varepsilon_m\) is asserted: the corollary is a compactness theorem. It does **not** supply a uniform gap independent of degree \(m\), which would require substantially stronger control and is not claimed.
+
+### Theorem 5 (no real-analytic sharp homogeneous Bellman germ)
+
+The polynomial restriction in Theorem 4 can be dropped **entirely** at the cost of one additional classical analytic input: the full Euler–Maclaurin Stirling asymptotic expansion and the exact Euler formula for Bernoulli numbers. The resulting obstruction applies to **every convergent power series near the origin**, even of infinite degree.
+
+**Theorem 5.1 (nonanalyticity is necessary for exact sharp induction).** Under the hypotheses of Theorem 4.2—namely, the exact binary \(T_5\) candidate rate \(c_*\), continuity \(\psi(0)=0\), normalization \(\psi(1)=c_*\), and ordinary separate product/join Bellman closure on the actual orbit—there is **no** \(\varepsilon>0\) for which \(\psi\) is **real analytic** on \((-\varepsilon,\varepsilon)\) about zero.
+
+Thus a sharp one-state homogeneous Bellman potential, *if it exists*, must possess a **nonanalytic germ at \(H/D=0\)**. This excludes finite polynomials, real-analytic nonpolynomial profiles, and infinite power series with positive radius of convergence. It does **not** exclude a smooth but nonanalytic function, a divergent asymptotic series with exponentially small corrections, a function with infinitely many knots accumulating at zero, or a dimension-dependent/reachability-sensitive potential.
+
+**Proof.** Let \(C(x)=\Gamma(2x+1)/(4^x\Gamma(x+1)^2)\), defined for positive real \(x\). For integer \(d\), \(C(d)=\binom{2d}{d}/4^d=g(d)^2/g(2d)\). The all-orders Stirling expansion (obtained by Euler–Maclaurin summation of \(\log\Gamma\)) gives as real \(v\downarrow0\):
+\[
+ \boxed{F(v):=\log C(1/v)+\frac12\log\frac{\pi}{v}
+ \sim\sum_{k=1}^\infty \beta_k v^{2k-1},\qquad
+ \beta_k=-\left(2-2^{1-2k}\right)\frac{B_{2k}}{2k(2k-1)}.}
+ \tag{4.14}
+\]
+Here \(B_{2k}\) are the classical Bernoulli numbers. This is an **asymptotic** series, with a valid remainder estimate at each fixed truncation order; it is not asserted to converge. Euler's identity
+\[
+ |B_{2k}|=\frac{2(2k)!}{(2\pi)^{2k}}\zeta(2k)
+\]
+shows \(\lvert\beta_k\rvert>2(2k-2)!/(2\pi)^{2k}\). Consequently the formal series in (4.14) has **radius of convergence zero**. Its first four coefficients, independently replayed with rational Bernoulli arithmetic, are
+\[
+ \beta_1=-\frac18,\quad\beta_2=\frac1{192},\quad
+ \beta_3=-\frac1{640},\quad\beta_4=\frac{17}{14336}.
+\]
+
+Put \(u_j=2^{-j}\), \(w_j=u_j^2=4^{-j}\), and recall the exact binary orbit identities
+\[
+ d_j=\frac{16-w_j}{3w_j},\qquad
+ H_j=\frac6{u_j},\qquad
+ D_j=\frac{16+2u_j^2}{3u_j^2},\qquad
+ t_j=\frac{H_j}{D_j}=\frac{9u_j}{8+u_j^2}.
+ \tag{4.15}
+\]
+Define for real \(w>0\) near zero
+\[
+ f(w)=\log\left[\frac6{\sqrt w}
+ C\left(\frac{16-w}{3w}\right)\right].
+\]
+Then exactly \(f(w_j)=\log M_j\). Let \(v(w)=3w/(16-w)\), an analytic local change of variable with analytic inverse \(w(v)=16v/(3+v)\). Formula (4.14) yields the all-orders positive-axis asymptotic expansion
+\[
+ \boxed{f(w)\sim\log\frac{3\sqrt3}{2\sqrt\pi}
+ -\frac12\log(1-w/16)
+ +\sum_{k\ge1}\beta_k\left(\frac{3w}{16-w}\right)^{2k-1}.}
+ \tag{4.16}
+\]
+The formal power series on the right has **zero radius of convergence**. Indeed its first two terms form an analytic germ, while the remaining formal composition cannot converge: otherwise composing with the analytic inverse \(w(v)\) would make the factorially divergent series \(\sum_k\beta_kv^{2k-1}\) convergent, a contradiction.
+
+Now assume, toward a contradiction, that \(\psi\) is real analytic about zero. The orbit interpolation relation (4.12) gives, for all sufficiently large \(j\),
+\[
+ f(u_j^2)=\mathcal R(u_j),
+\]
+where
+\[
+ \boxed{\mathcal R(u)=-c_*+2\,\frac{16+2u^2}{3u^2}
+ \psi\left(\frac{9u}{8+u^2}\right)
+ -\frac12\frac{16+2(u/2)^2}{3(u/2)^2}
+ \psi\left(\frac{9(u/2)}{8+(u/2)^2}\right).}
+ \tag{4.17}
+\]
+Because \(\psi\) is real analytic at zero, \(\mathcal R(u)\) has a **convergent Laurent expansion with at most a second-order pole** at \(u=0\). But \(f(u_j^2)\) tends to the finite constant \(\log(3\sqrt3/(2\sqrt\pi))\); since \(u_j\to0\), equality on the sequence forces the Laurent principal part to vanish. Hence \(\mathcal R\) is actually **analytic** at \(u=0\).
+
+The all-orders expansion (4.16) contains **integer powers of \(w=u^2\) only**, whereas the Taylor series of the analytic function \(\mathcal R(u)\) a priori contains arbitrary integer powers of \(u\). Equality \(\mathcal R(u_j)=f(u_j^2)\) on the sequence \(u_j\downarrow0\), combined with uniqueness of asymptotic coefficients, forces all the **odd** Taylor coefficients of \(\mathcal R\) to vanish. (Inductively subtract the first \(n-1\) terms and divide by \(u_j^n\), using the Poincaré remainder estimate at every order.) Thus \(\mathcal R(u)=G(u^2)\) for some **convergent analytic** power series \(G(w)\) near \(w=0\). The same uniqueness argument then forces the Taylor coefficients of \(G(w)\) to coincide, term for term, with the formal asymptotic coefficients in (4.16). This is impossible because the latter series diverges with radius zero. The contradiction proves the theorem. \(\square\)
+
+**Corollary 5.2 (a uniquely forced, divergent all-orders Taylor jet).** Suppose instead that a sharp separately inductive profile \(\psi\) is merely **smooth to every order at zero**, without assuming analyticity. Then **every odd Taylor coefficient of \(\psi\) vanishes**, and the even Taylor coefficients are uniquely determined by \(c_*\), the classical Bernoulli numbers, and rational arithmetic. More precisely, write
+\[
+ L=c_*+\log\frac{3\sqrt3}{2\sqrt\pi},
+ \qquad f_0=\log\frac{3\sqrt3}{2\sqrt\pi},
+\]
+and for every \(m\ge1\) define the rational coefficient
+\[
+ \boxed{f_m=\frac1{16^m}\left[\frac1{2m}+
+ \sum_{k=1}^{\lfloor(m+1)/2\rfloor}
+ \beta_k3^{2k-1}\binom{m-1}{2k-2}\right].}
+ \tag{4.18}
+\]
+Define a *formal* power series \(A(w)=\sum_{m\ge0}A_mw^m\) by
+\[
+ \boxed{A_0=\frac23L,\qquad
+ A_m=\frac{f_m}{2-\tfrac12\,4^{-m}}\quad(m\ge1).}
+ \tag{4.19}
+\]
+Let \(w(x)\) denote the **unique formal rational power series**, vanishing at \(x=0\), solving
+\[
+ \boxed{w(x)=\frac{x}{81}(8+w(x))^2,\qquad x=t^2.}
+ \tag{4.20}
+\]
+Then the complete Taylor jet of any smooth sharp \(\psi\) is exactly
+\[
+ \boxed{\psi(t)\ \widehat{=}\
+ \frac{x(8+w(x))}{54}\,A(w(x)),\qquad x=t^2,}
+ \tag{4.21}
+\]
+where \(\widehat{=}\) denotes **equality of formal Taylor series** (not equality of functions, and not convergence). The first three forced terms are
+\[
+ \boxed{\begin{aligned}
+ \psi(t)\ \widehat{=}\;&\frac{8L}{81}t^2
+ +\left(\frac{64L}{6561}+\frac{16}{32805}\right)t^4\\
+ &+\left(\frac{1024L}{531441}
+       +\frac{6784}{55801305}\right)t^6+\cdots.
+ \end{aligned}}
+ \tag{4.22}
+\]
+This uniquely forced formal Taylor series has **radius of convergence zero**, so smoothness of a hypothetical sharp profile could only occur through a genuinely **nonanalytic**, all-orders asymptotic germ.
+
+**Proof.** Let \(F_j=c_*D_j-\log Q_j=D_j\psi(t_j)\), as established by exact orbit interpolation. The binary recurrence is
+\[
+ F_{j+1}=4F_j-2c_*-2\log M_j.
+\]
+The function \(f(w)\) from the proof of Theorem 5.1 has the complete Poincaré expansion \(f(w)\sim f_0+\sum_{m\ge1}f_mw^m\); the coefficient formula (4.18) follows directly by expanding \(-\tfrac12\log(1-w/16)\) and \(\beta_k(3w/(16-w))^{2k-1}\). If \(\psi\) is smooth at zero, its Taylor expansion to every fixed order exists. Set \(u=\sqrt w\), so \(D(u)\psi(t(u))\) has at worst a finite-order Laurent asymptotic series in \(u\). The recurrence along the geometric sequence \(u_j=2^{-j}\) forces, successively, its leading negative and every odd power coefficient to vanish, since \(c_*+f(u^2)\) has only even nonnegative powers. Thus it has a formal expansion \(A(w)=\sum A_mw^m\), obeying
+\[
+ 2A(w)-\tfrac12A(w/4)\ \widehat{=}\ c_*+f(w).
+\]
+Matching coefficients gives (4.19), because every multiplier \(2-\tfrac12 4^{-m}\) is nonzero. The state identity \(t=9\sqrt w/(8+w)\) implies \(w=x(8+w)^2/81\); also \(D=(16+2w)/(3w)\), so \(\psi(t)=A(w)/D=x(8+w)A(w)/54\). This proves the formal identity (4.21), its uniqueness, and the initial coefficients (4.22). The exact coefficient prefix through \(t^{12}\) is independently replayed by `check_formal_germ.py`.
+
+Finally the formal series \(f(w)\) has radius zero by Theorem 5.1. If \(A(w)\) converged, the linear combination \(2A(w)-\tfrac12A(w/4)\) would converge, contradicting the divergent \(f(w)\). The substitutions \(w=w(x)\) and \(x=t^2\) are invertible analytic local changes of variables (in \(w,x\)), and the prefactor \(x(8+w(x))/54\) has a simple nonzero leading term; hence convergence of the Taylor series of \(\psi(t)\) would imply convergence of \(A(w)\). This is impossible, proving the stated divergence. \(\square\)
+
+The independent [`check_stirling_germ.py`](code/check_stirling_germ.py) verifies the initial rational Bernoulli coefficients, sign alternation, sixteen strict rational factorial lower bounds, the exact invertible coordinate transformation and thirteen orbit substitutions. The **infinite** divergence and asymptotic-series existence are analytical consequences of the classical Euler identities displayed above, not statements inferred from sixteen checked coefficients.
+
+**Combined meaning of Theorems 3–5.** Any sharp, scalar, separately inductive homogeneous potential must interpolate **infinitely many exact orbit values**, must have the uniquely determined **quadratic asymptotic coefficient** from Theorem 3 when such an expansion exists, and must be **nonanalytic at zero**. This narrows the realistic sharp candidates to genuinely non-polynomial, nonanalytic or dimension/reachability-sensitive constructions. It does not establish that any such construction exists.
+
 ### A rigorously certified escape from the three-test power barrier
 
 The rational dual obstruction of Theorem 1 is **specific to the positive-even-power cone**, not an obstruction to *every* convex homogeneous Bellman profile. To make this limitation precise, define the convex nondecreasing piecewise-linear function
@@ -322,6 +518,9 @@ The proof code is self-contained except for Python 3.10+ standard-library arbitr
 ```sh
 python3 notes/projection-bellman-power-obstruction/code/check.py
 python3 -O notes/projection-bellman-power-obstruction/code/check.py
+python3 notes/projection-bellman-power-obstruction/code/check_formal_germ.py
+python3 notes/projection-bellman-power-obstruction/code/check_stirling_germ.py
+python3 notes/projection-bellman-power-obstruction/code/check_prime_independence.py
 python3 notes/projection-bellman-power-obstruction/code/check_sharp_dual.py
 python3 -O notes/projection-bellman-power-obstruction/code/check_sharp_dual.py
 python3 notes/projection-bellman-power-obstruction/code/check_binary_tail.py
