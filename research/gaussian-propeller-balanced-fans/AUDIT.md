@@ -30,9 +30,69 @@
 6. The first phase transition is unique by a strictly
    decreasing trigonometric phase angle, with derivative
    at most 1-5k/18<0 for all k>=4.
-7. The limiting phase constant comes from the exact
+7. The heterogeneous-floor extension uses the same active-face
+   stationarity and Hessian directions, with an exceptional
+   flat two-angle family pushed to an individual cell's own floor.
+   All at-most-three candidate sets are explicitly feasible;
+   the result does not assume identical lower masses.
+8. The limiting phase constant comes from the exact
    algebraic equation 4c^2+c-2=0 with a simple root,
    giving an O(k^-2) angle error.
+
+## High-dimensional counterexample audit
+
+- The score covariance equals the projected iid-Gaussian
+  simplex covariance, so E max scores is a scaled normal
+  order-statistic expectation.
+- Cell symmetry gives equal mass 1/k and collinear first
+  moments; this is an identity for the *specific*
+  regular-simplex partition, not global optimality.
+- Gaussian sign-correlation identity gives the exact
+  four-cell tetrahedral objective with arcsin(1/3).
+- Uniform all-k strict inequality is split into k=4,
+  k=5,6 and k>=7. Each range is supported by one of
+  three positive *exact rational* inequalities.
+- The log(k) advantage follows from explicit elementary
+  upper/lower Gaussian tail bounds; it does not depend
+  on heuristic simulations.
+- For k=4, the exact floor threshold follows from the
+  previously proved planar four-sector closed form.
+  Both endpoints of its rational interval bracket
+  are independently checked.
+- The Gaussian equal-mass *global* simplex optimality
+  problem is expressly not claimed to be solved.
+
+## Noise stability and Hermite audit
+
+- Mehler's identity is deduced directly from the standard
+  Gaussian exponential generating function, then Parseval
+  gives a nonnegative Hermite-level expansion with total
+  coefficient mass one for partition indicators.
+- The first-degree coefficient is the squared Gaussian
+  centroid objective; the zeroth coefficient is 1/k
+  for equal-cell partitions.
+- The exact four-quadrant full noise stability equals
+  [1/2+arcsin(rho)/pi]^2 by independent Gaussian sign
+  correlations, not by a truncated numerical model.
+- Nonnegative Maclaurin coefficients of arcsine make the
+  quotient defining rho_* strictly increasing.
+- The tetrahedral high-degree Hermite mass is strictly
+  positive because a nonconstant cell indicator cannot
+  be a Gaussian-a.e. affine function.
+- Rational interval certificates prove both root brackets
+  rho_*>29/100 and rho_*<3/10.
+- The result compares two explicit partitions, and is
+  **not** an all-partition Gaussian simplex theorem.
+
+## Radial universality audit
+
+- Conditional on projected radius, the planar angle is
+  uniform; independent radius and direction supply
+  exactly the sin(angle/2) moment formula.
+- The absence of an atom at zero is needed to interpret
+  angle floor as cell-probability floor.
+- All transferred comparisons use the same positive
+  radial scaling coefficient; equality cases are unchanged.
 
 ## Exact-rational code verification
 
@@ -46,7 +106,9 @@ The final finite-grid sums use exact integer fixed point,
 with a rigorously quantified tolerance of 10^-35.
 Code checks are independent sanity tests; they are not
 used as justification for a universal mathematical claim.
-See results/exact-check.txt for passed test list.
+Rational grid cases additionally include unequal cell floors,
+and the fully forced boundary sum ell_i=2pi.
+The exact tetrahedron-vs-planar score and transition bracket,\nand the positive-noise stability root bracket, are certified\nby outward-rounded arcsine/π intervals.\nSee results/exact-check.txt for passed test list.
 
 ## Publication qualifications
 
