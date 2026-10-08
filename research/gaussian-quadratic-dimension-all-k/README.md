@@ -158,3 +158,29 @@ No exact fixed-k Standard Simplex optimum is claimed.
 - [Spherical-cap converse](../gaussian-spherical-cap-converse/README.md).
 - [Cubic-logarithmic all-k dimension theorem](../gaussian-centroid-dimension-rate/README.md).
 - [Arbitrary-mass Gaussian envelope](../gaussian-centroid-mass-envelope/README.md).
+
+## Sharp-constant dimension–accuracy continuation
+
+The newer [sharp Gaussian dimension-rate research
+note](../gaussian-sharp-dimension-rate/README.md)
+strengthens the asymptotic spherical-cap converse from
+\(D_C(k)\gtrsim(\log k)^2/(C+16)\) to
+\[
+ \liminf_{k\to\infty}\frac{D_C(k)}{(\log k)^2}
+    \ge\frac1{C+2(1-\gamma)},
+\]
+where \(\gamma\) is Euler's constant.
+It also refines the binary-code tilt and tracks arbitrary
+dimensional coefficient \(A\ge1\), obtaining the explicit
+all-\(k\) bound
+\[
+ U_k-F_d(k)\le
+ \frac{4+4\log2+2\sqrt2(5+10/\sqrt A+8/A)}k,\quad
+ d\le\lceil A(\log k)^2\rceil+1.
+\]
+Certified points include \(A=1,C=72\) and
+\(A=1024,C=22\), improving the original \(92/k\)
+constant while preserving exact cell masses.
+The former \(D_{92}(k)=\Theta(\log^2 k)\)
+theorem remains correct; the new note refines
+rather than contradicts it.
