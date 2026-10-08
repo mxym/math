@@ -1,5 +1,20 @@
 # math
 
+## 作者 / Author
+
+**张永贤（Yongxian Zhang）**
+
+华南理工大学 · 计算机科学与工程学院，大二本科生（2026 年 10 月）。
+School of Computer Science and Engineering, South China University of Technology, Guangzhou, China.
+
+主要通讯邮箱：[mxymmxym1@gmail.com](mailto:mxymmxym1@gmail.com) · 备用邮箱：[3645500659@qq.com](mailto:3645500659@qq.com)
+
+ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)
+
+个人独立开展研究，无外部研究经费。本仓库使用 AI 助手进行研究、
+文稿准备、代码与内部审查；各项成果分别说明证明和验证范围。
+[完整作者资料与论文署名模板](AUTHOR.md) · [结构化作者资料](authors/zhang-yongxian.json)
+
 ## Counterexample to an arbitrary-mass Gaussian regular-simplex conjecture
 
 The [complete six-page proof](research/gaussian-fixed-mass-propeller-counterexample/paper.pdf)
