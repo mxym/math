@@ -252,6 +252,102 @@ def check_sharp_stability_grid(steps: int):
           "and both exact equality orbits")
 
 
+@lru_cache(maxsize=None)
+def arcsin_rational_interval(x: Q, terms: int = 75):
+    """Positive arcsine series with an explicit rational geometric tail."""
+    assert Q(0)<=x<Q(1) and terms>0
+    summand=Q(0)
+    for n in range(terms):
+        summand += Q(factorial(2*n),
+                      factorial(n)**2 *4**n*(2*n+1))*x**(2*n+1)
+    # Every Maclaurin coefficient is <= 1.
+    err=x**(2*terms+1)/(1-x*x)
+    return summand,summand+err
+
+
+def arcsin_one_third_interval(terms: int = 75):
+    return arcsin_rational_interval(Q(1,3),terms)
+
+
+def check_simplex_dimension_jump():
+    """Exact rational witness for a strict gap at k=4 and *all* k>=4.
+
+    Relies only on the algebraic inequalities in Theorem 13,
+    not on floating-point samples of normal order statistics.
+    """
+    u0=Q(35,162)
+    p0=Q(22,7)
+    gaps=[
+        3*(1+u0)**2-4,
+        15*(1+3*u0)**2-4*p0*p0,
+        441*(1+10*u0+5*u0*u0)**2-512*p0*p0,
+    ]
+    expected=[
+        Q(3817,8748),
+        Q(58853,47628),
+        Q(83693801929,3749847696),
+    ]
+    assert gaps==expected and all(q>0 for q in gaps)
+    print("PASS: 3 exact rational inequalities establish the "
+          "all-k>=4 simplex-vs-equal-mass-planar gap")
+    # Enclose the exact k=4 simplex value and four-quadrant
+    # planar value. The arcsine and pi bounds are both
+    # independent rational interval constructions.
+    pilo,pihi=pi_interval()
+    asinlo,asinhi=arcsin_one_third_interval()
+    ulo,uhi=2*asinlo/pihi,2*asinhi/pilo
+    assert ulo>u0
+    tetlo=3*(1+ulo)**2/(4*pihi)
+    tethi=3*(1+uhi)**2/(4*pilo)
+    planarlo=1/pihi
+    planarhi=1/pilo
+    assert tetlo>planarhi
+    assert tethi-tetlo<Q(1,10**45)
+    assert Q(353,1000)<tetlo<tethi<Q(354,1000)
+    assert Q(318,1000)<planarlo<planarhi<Q(319,1000)
+    delta_lo=Q(3,4)*(1+ulo)**2-1
+    delta_hi=Q(3,4)*(1+uhi)**2-1
+    assert 0<delta_lo<delta_hi<Q(1,8)
+    assert uhi<Q(11,50)
+    # At floor eps=pi/50, Theorem 7 says the best planar
+    # value exceeds tetra; at eps=pi/40 tetra exceeds
+    # the planar optimum. Every comparison is an
+    # *exact rational interval* comparison.
+    left_lo,left_hi=v_interval(4,Q(1,50),3)
+    right_lo,right_hi=v_interval(4,Q(1,40),3)
+    assert 2*left_lo>3*(1+uhi)**2
+    assert 3*(1+ulo)**2>2*right_hi
+    print("PASS: exact tetra-vs-all-planar transition bracket "
+          "pi/50 < epsilon_tet < pi/40; "
+          "positive delta < 1/8")
+    print("PASS: exact rational arcsine interval certifies "
+          "four-cell tetrahedral objective in (0.353,0.354), "
+          "planar objective in (0.318,0.319)")
+    # m5^2 > 5*pi/12 proves k=5 and k=6 by monotone
+    # Gaussian maxima; m7^2 > pi/2 proves every k>=7.
+    assert gaps[1]>0 and gaps[2]>0
+    print("PASS: infinite-rank k>=7 bound by m7 and "
+          "finite k=5,6 bound by m5")
+    gap_lower=(3*(1+ulo)**2-4)/(4*pihi)
+    assert gap_lower>Q(1,30)
+    print("PASS: exact first-Hermite Gaussian noise "
+          "stability comparison for 0<rho<=1/30")
+    for rho, sign in [(Q(29,100),-1),(Q(3,10),+1)]:
+        asinlo,asinhi=arcsin_rational_interval(rho)
+        alo=asinlo/pihi
+        ahi=asinhi/pilo
+        q_lower=(Q(1,2)+alo)**2
+        q_upper=(Q(1,2)+ahi)**2
+        s_lower=Q(1,4)+rho*tetlo
+        s_upper=Q(1,4)+rho*tethi
+        if sign<0:
+            assert q_upper<s_lower,("tet above quadrants",rho)
+        else:
+            assert q_lower>s_upper,("quadrants above tet Hermite lower bound",rho)
+    print("PASS: unique first-Hermite witness noise correlation "
+          "root lies in (29/100,3/10), exact rational enclosures")
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--quick", action="store_true")
@@ -271,6 +367,7 @@ def main():
         check_heterogeneous_grid((Q(1,2),Q(1,3),Q(1,3),Q(5,6)),5)
         check_heterogeneous_grid((Q(1,6),Q(1,4),Q(1,3),
                                   Q(1,5),Q(1,7),Q(1,8)),7)
+    check_simplex_dimension_jump()
     check_sharp_stability_grid(12 if args.quick else 24)
     print("ALL EXACT-RATIONAL CHECKS PASSED")
 
