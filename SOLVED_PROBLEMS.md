@@ -29,7 +29,7 @@
 
 ### 信息论与互信息连续性
 
-- [The pure-state ECQC conjecture: counterexamples and a prime-dimensional classification](research/ecqc-pure-state-counterexamples/README.md)：完整解决纯态素数维数的普遍有效性（当且仅当 p=2）；三维与五维最优比值为 3/2、5/2；所有奇素数满 Schmidt 秩反例。完整书面证明与精确 checker，未完整 Lean 化；此前一般混合态反例不归于本项。
+- [The pure-state ECQC conjecture: counterexamples and a prime-dimensional classification](research/ecqc-pure-state-counterexamples/README.md)：完整解决纯态素数维数的普遍有效性（当且仅当 p=2）；三维与五维最优比值为 3/2、5/2；所有奇素数满 Schmidt 秩反例。完整书面证明与精确 checker；三维纯态量子反例现有[完整 Lean 与空内核重放](formalizations/ecqc-pure-qutrit-counterexample/README.md)，全分类、最优性与满 Schmidt 秩结论尚未整体 Lean 化；此前一般混合态反例不归于本项。
 - [A ternary counterexample to a proposed mutual-information continuity bound](preprints/mutual-information-continuity-2026-10/README.md)：反驳 Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106) 的一般拟议界。对每个 0 < ε ≤ 1/16，互信息差为 2 h(ε) − ε log 2，严格超过 h(ε) + ε log 8；因此任意小正距离下都有反例。
 - [完整经典 Lean 及独立复核材料](formalizations/mutual-information-continuity-counterexample/README.md)，[不可变发布及源码核对](verification/mutual-information-index-2026-10-08/README.md)。量子对角嵌入与必要主导系数至少 2 为书面证明；固定一侧边缘问题及有限距离的完整最优模量未解决。
 
