@@ -47,6 +47,7 @@ The proof uses the published Holevo theorem and its necessary equality condition
 - [check_exact.py](check_exact.py): integer cyclotomic construction of actual stabilizer density matrices and every Born table for six states; Hermiticity, purity, both partial traces, exact supports, and five rejected corrupted inputs. It also checks all **69,840** determinant-`-1` matrices over the nine listed prime fields.
 - [check_affine_gauss.py](check_affine_gauss.py): a separate integer-autocorrelation implementation, checking **2,825** quadratic root sums and **252** affine Bell states. Actual full phase sums are used for every outcome at `p=3,5,7`; at the larger listed primes all quadratic root sums are checked once and then applied to the separately reconstructed affine coefficients. This is not an independent proof of the classification's reverse direction.
 - [exact-replay.json](exact-replay.json) and [affine-replay.json](affine-replay.json): replay records, not substitutes for rerunning the programs.
+- [REMOTE_REPLAY.json](REMOTE_REPLAY.json): second-environment replay with identical source/checker-output hashes, a fresh PDF build, and matching normalized extracted text on all eight pages.
 - [AUDIT.md](AUDIT.md): theorem-to-lemma map, self-review, and precise verification boundaries.
 - [SCREENING.md](SCREENING.md): checked alternative problems, a recorded unsuccessful route, and why the present stronger target was selected.
 
