@@ -1,131 +1,132 @@
-import APPT.CoefficientMerge
+import APPT.Core
 
-/-! Exact sparse polynomial arithmetic. All evaluation laws are proved in Lean;
-closed coefficient equalities are checked by the kernel, not native evaluation. -/
+set_option maxRecDepth 100000
+set_option maxHeartbeats 2000000
 namespace APPT.SparsePolynomial
 
 abbrev Monomial := List Nat
 abbrev Poly := List (Monomial × Int)
 
-def monomial (g : Nat → ℝ) : Monomial → ℝ
+noncomputable def mon (x : Nat → ℝ) : Monomial → ℝ
   | [] => 1
-  | i :: m => g i * monomial g m
+  | i :: is => x i * mon x is
 
-def eval (g : Nat → ℝ) : Poly → ℝ
+noncomputable def eval (x : Nat → ℝ) : Poly → ℝ
   | [] => 0
-  | (m,c) :: p => (c : ℝ) * monomial g m + eval g p
+  | (m,c) :: ps => (c : ℝ) * mon x m + eval x ps
 
 def insertVar (i : Nat) : Monomial → Monomial
   | [] => [i]
-  | j :: m => if i ≤ j then i :: j :: m else j :: insertVar i m
+  | j :: js => if i ≤ j then i :: j :: js else j :: insertVar i js
 
-theorem monomial_insertVar (g : Nat → ℝ) (i : Nat) (m : Monomial) :
-    monomial g (insertVar i m) = g i * monomial g m := by
+def mulMon : Monomial → Monomial → Monomial
+  | [], ns => ns
+  | i :: is, ns => insertVar i (mulMon is ns)
+
+theorem mon_insertVar (x : Nat → ℝ) (i : Nat) (m : Monomial) :
+    mon x (insertVar i m) = x i * mon x m := by
   induction m with
-  | nil => simp [insertVar, monomial]
-  | cons j m ih =>
-    simp only [insertVar]
-    split <;> simp [monomial, ih] <;> ring
+  | nil => simp [insertVar, mon]
+  | cons j js ih =>
+    by_cases h : i ≤ j <;> simp [insertVar, h, mon, ih] <;> ring
 
-def mulMonomial : Monomial → Monomial → Monomial
-  | [], n => n
-  | i :: m, n => insertVar i (mulMonomial m n)
-
-theorem monomial_mulMonomial (g : Nat → ℝ) (m n : Monomial) :
-    monomial g (mulMonomial m n) = monomial g m * monomial g n := by
+theorem mon_mulMon (x : Nat → ℝ) (m n : Monomial) :
+    mon x (mulMon m n) = mon x m * mon x n := by
   induction m with
-  | nil => simp [mulMonomial, monomial]
-  | cons i m ih => simp [mulMonomial, monomial_insertVar, monomial, ih, mul_assoc]
+  | nil => simp [mulMon, mon]
+  | cons i is ih => simp [mulMon, mon_insertVar, ih, mon, mul_assoc]
 
-def before : Monomial → Monomial → Bool
-  | [], [] => false
-  | [], _ :: _ => true
-  | _ :: _, [] => false
-  | i :: m, j :: n => if i < j then true else if j < i then false else before m n
-
-theorem eval_append (g : Nat → ℝ) (p q : Poly) :
-    eval g (p ++ q) = eval g p + eval g q := by
+theorem eval_append (x : Nat → ℝ) (p q : Poly) :
+    eval x (p ++ q) = eval x p + eval x q := by
   induction p with
   | nil => simp [eval]
-  | cons x p ih => rcases x with ⟨m,c⟩; simp [eval, ih, add_assoc]
+  | cons t ts ih => rcases t with ⟨m,c⟩; simp [eval, ih, add_assoc]
 
+/-- The fallback preserves evaluation even without the expected sorting invariant. -/
 def mergeAux : Nat → Poly → Poly → Poly
   | 0, p, q => p ++ q
   | _+1, [], q => q
   | _+1, p, [] => p
-  | k+1, (m,c) :: p, (n,d) :: q =>
-    if m = n then (m,c+d) :: mergeAux k p q
-    else if before m n then (m,c) :: mergeAux k p ((n,d) :: q)
-    else (n,d) :: mergeAux k ((m,c) :: p) q
+  | k+1, (m,c)::p, (n,d)::q =>
+    if m = n then (m,c+d)::mergeAux k p q
+    else if compare m n == Ordering.lt then
+      (m,c)::mergeAux k p ((n,d)::q)
+    else (n,d)::mergeAux k ((m,c)::p) q
 
-theorem eval_mergeAux (g : Nat → ℝ) (k : Nat) (p q : Poly) :
-    eval g (mergeAux k p q) = eval g p + eval g q := by
+def merge (p q : Poly) : Poly := mergeAux (p.length+q.length) p q
+
+theorem eval_mergeAux (x : Nat → ℝ) (k : Nat) (p q : Poly) :
+    eval x (mergeAux k p q) = eval x p + eval x q := by
   induction k generalizing p q with
-  | zero => exact eval_append g p q
+  | zero => exact eval_append x p q
   | succ k ih =>
     cases p with
     | nil => simp [mergeAux, eval]
-    | cons x p =>
+    | cons t p =>
       cases q with
       | nil => simp [mergeAux, eval]
-      | cons y q =>
-        rcases x with ⟨m,c⟩
-        rcases y with ⟨n,d⟩
-        by_cases he : m = n
+      | cons u q =>
+        rcases t with ⟨m,c⟩
+        rcases u with ⟨n,d⟩
+        by_cases h : m = n
         · subst n
           simp [mergeAux, eval, ih, Int.cast_add]; ring
-        · by_cases hb : before m n = true
-          · simp [mergeAux, he, hb, eval, ih]; ring
-          · simp [mergeAux, he, hb, eval, ih]; ring
+        · by_cases hlt : (compare m n == Ordering.lt) = true
+          · simp [mergeAux, h, hlt, eval, ih]; ring
+          · simp [mergeAux, h, hlt, eval, ih]; ring
 
-def merge (p q : Poly) : Poly := mergeAux (p.length + q.length) p q
+theorem eval_merge (x : Nat → ℝ) (p q : Poly) :
+    eval x (merge p q) = eval x p + eval x q := eval_mergeAux ..
 
-theorem eval_merge (g : Nat → ℝ) (p q : Poly) :
-    eval g (merge p q) = eval g p + eval g q := eval_mergeAux ..
+def scale (c : Int) : Poly → Poly
+  | [] => []
+  | (m,d)::p => (m,c*d)::scale c p
 
-def scale (c : Int) (p : Poly) : Poly := p.map (fun t => (t.1, c*t.2))
-
-theorem eval_scale (g : Nat → ℝ) (c : Int) (p : Poly) :
-    eval g (scale c p) = (c : ℝ)*eval g p := by
+theorem eval_scale (x : Nat → ℝ) (c : Int) (p : Poly) :
+    eval x (scale c p) = (c : ℝ)*eval x p := by
   induction p with
   | nil => simp [scale, eval]
-  | cons t p ih =>
-    rcases t with ⟨m,d⟩
-    simp only [scale, List.map_cons, eval, Int.cast_mul] at *
-    rw [ih]; ring
+  | cons t p ih => rcases t with ⟨m,d⟩; simp [scale, eval, ih, Int.cast_mul]; ring
 
-def times (m : Monomial) (c : Int) (p : Poly) : Poly :=
-  p.map (fun t => (mulMonomial m t.1, c*t.2))
+def monoTimes (m : Monomial) (c : Int) : Poly → Poly
+  | [] => []
+  | (n,d)::p => (mulMon m n,c*d)::monoTimes m c p
 
-theorem eval_times (g : Nat → ℝ) (m : Monomial) (c : Int) (p : Poly) :
-    eval g (times m c p) = (c : ℝ)*monomial g m*eval g p := by
+theorem eval_monoTimes (x : Nat → ℝ) (m : Monomial) (c : Int) (p : Poly) :
+    eval x (monoTimes m c p) = (c : ℝ)*mon x m*eval x p := by
   induction p with
-  | nil => simp [times, eval]
+  | nil => simp [monoTimes, eval]
   | cons t p ih =>
     rcases t with ⟨n,d⟩
-    simp only [times, List.map_cons, eval, Int.cast_mul, monomial_mulMonomial] at *
-    rw [ih]; ring
+    simp [monoTimes, eval, ih, mon_mulMon, Int.cast_mul]; ring
 
 def mul : Poly → Poly → Poly
   | [], _ => []
-  | (m,c) :: p, q => merge (times m c q) (mul p q)
+  | (m,c)::p, q => merge (monoTimes m c q) (mul p q)
 
-theorem eval_mul (g : Nat → ℝ) (p q : Poly) :
-    eval g (mul p q) = eval g p*eval g q := by
+theorem eval_mul (x : Nat → ℝ) (p q : Poly) :
+    eval x (mul p q) = eval x p * eval x q := by
   induction p with
   | nil => simp [mul, eval]
   | cons t p ih =>
     rcases t with ⟨m,c⟩
-    simp only [mul, eval_merge, eval_times, ih, eval]
-    ring
+    simp [mul, eval_merge, eval_monoTimes, ih, eval]; ring
 
-def clean (p : Poly) : Poly := p.filter (fun t => t.2 != 0)
+/-- Remove explicit zero coefficients; no orderedness hypothesis is needed. -/
+def trim : Poly → Poly
+  | [] => []
+  | (m,c)::p => if c=0 then trim p else (m,c)::trim p
 
-theorem eval_clean (g : Nat → ℝ) (p : Poly) : eval g (clean p) = eval g p := by
+theorem eval_trim (x : Nat → ℝ) (p : Poly) : eval x (trim p) = eval x p := by
   induction p with
   | nil => rfl
   | cons t p ih =>
     rcases t with ⟨m,c⟩
-    by_cases hc : c = 0 <;> simp [clean, eval, hc] at * <;> exact ih
+    by_cases h : c=0 <;> simp [trim, h, eval, ih]
+
+/-- Cubic multiplication is checked by the kernel, not native evaluation. -/
+theorem cubic_control : trim (mul [([0],1),([1],1)]
+    (mul [([0],1),([1],1)] [([0],1),([1],1)])) =
+    [([0,0,0],1),([0,0,1],3),([0,1,1],3),([1,1,1],1)] := by decide +kernel
 
 end APPT.SparsePolynomial
