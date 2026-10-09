@@ -50,8 +50,13 @@ theorem gaussian_integral_abs_inner {d : ℕ} (w : Space d) :
           ∫ x : Space d, ‖w‖ * |⟪u,x⟫| ∂gaussian d := by
         apply integral_congr_ae
         exact ae_of_all _ fun x => by
-          rw [hwu, real_inner_smul_left, abs_mul,
-            abs_of_nonneg (norm_nonneg w)]
+          change |⟪w, x⟫| = ‖w‖ * |⟪u, x⟫|
+          calc
+            |⟪w, x⟫| = |⟪‖w‖ • u, x⟫| :=
+              congrArg (fun z => |⟪z, x⟫|) hwu
+            _ = ‖w‖ * |⟪u, x⟫| := by
+              rw [real_inner_smul_left, abs_mul,
+                abs_of_nonneg (norm_nonneg w)]
       _ = ‖w‖ * (∫ x : Space d, |⟪u,x⟫| ∂gaussian d) :=
         integral_const_mul _ _
       _ = _ := by rw [hlaw]
@@ -62,7 +67,7 @@ theorem scoreMax_three_pair_abs {d : ℕ}
       (|⟪v 0-v 1,x⟫| + |⟪v 0-v 2,x⟫| +
           |⟪v 1-v 2,x⟫|)/2 := by
   rw [scoreMax_three_zero v x, scoreMax_three_zero (fun i => -v i) x]
-  simp only [real_inner_neg_left]
+  simp only [inner_neg_left]
   simpa only [inner_sub_left] using
     max_three_plus_negative (⟪v 0,x⟫) (⟪v 1,x⟫) (⟪v 2,x⟫)
 
@@ -84,8 +89,15 @@ theorem expectedScore_three_abs_pair_sum {d : ℕ}
   have hsum : (∫ x, (f x + g x + h x)/2 ∂gaussian d) =
       ((∫ x,f x ∂gaussian d)+(∫ x,g x ∂gaussian d)+
         (∫ x,h x ∂gaussian d))/2 := by
+    have hfg : (∫ x, f x + g x ∂gaussian d) =
+        (∫ x, f x ∂gaussian d) + (∫ x, g x ∂gaussian d) := by
+      simpa only [Pi.add_apply] using integral_add hf hg
+    have hfgh : (∫ x, f x + g x + h x ∂gaussian d) =
+        (∫ x, f x ∂gaussian d) + (∫ x, g x ∂gaussian d) +
+          (∫ x, h x ∂gaussian d) := by
+      simpa only [Pi.add_apply, hfg] using integral_add (hf.add hg) hh
     simp only [div_eq_mul_inv]
-    rw [integral_mul_const, integral_add (hf.add hg) hh, integral_add hf hg]
+    rw [integral_mul_const, hfgh]
   have hpoint : (∫ x,scoreMax v 0 x+scoreMax (fun i => -v i) 0 x ∂gaussian d) =
       ∫ x,(f x+g x+h x)/2 ∂gaussian d := by
     apply integral_congr_ae
@@ -96,9 +108,8 @@ theorem expectedScore_three_abs_pair_sum {d : ℕ}
   change (∫ x, scoreMax (fun i => -v i) 0 x ∂gaussian d) =
     (∫ x,scoreMax v 0 x ∂gaussian d) at hneg
   rw [hneg,hsum] at hpoint
-  change (∫ x,scoreMax v 0 x ∂gaussian d) = _
+  change (∫ x,scoreMax v 0 x ∂gaussian d) = _ 
   dsimp only [f,g,h] at hpoint
-  unfold expectedScore
   linarith
 
 /-- Exact three-score Gaussian width formula, with universal coefficient

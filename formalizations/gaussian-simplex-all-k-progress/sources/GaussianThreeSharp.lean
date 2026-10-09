@@ -31,7 +31,7 @@ theorem three_point_squared_distance_identity {e : ℕ}
 theorem scoreGram_three_trace {e : ℕ} (v : Fin 3 → Space e) :
     (scoreGram v).trace = ‖v 0‖^2+‖v 1‖^2+‖v 2‖^2 := by
   simp [scoreGram, Matrix.trace, Matrix.diag, real_inner_self_eq_norm_sq,
-    Fin.sum_univ_succ, Fin.sum_univ_two]
+    Fin.sum_univ_succ, Fin.sum_univ_two, add_assoc]
 
 /-- A trace-one three-score family has triangle edge-square sum at most 3.
 There is no rank or centering hypothesis here. -/
@@ -75,7 +75,10 @@ theorem simplexConstant_three_abs :
     have hh := regular_gram_edge_squared
       (d := 1) (regularRows 3) (by rfl) i j hij
     norm_num at hh
-    nlinarith [norm_nonneg (regularRows 3 i-regularRows 3 j)]
+    rcases hh with hh | hh
+    · exact hh
+    · have hn := norm_nonneg (regularRows 3 i-regularRows 3 j)
+      linarith
   calc
     simplexConstant 3 = expectedScore (regularRows 3) 0 := (hp.trans hv).symm
     _ = gaussianAbsOne/4*

@@ -21,15 +21,20 @@ theorem max_three_plus_negative (a b c : ℝ) :
     max a (max b c) + max (-a) (max (-b) (-c)) =
       (|a-b|+|a-c|+|b-c|)/2 := by
   simp only [abs_eq_max_neg, max_def]
-  split_ifs <;> push_neg at * <;> linarith
+  split_ifs <;> linarith
 
 theorem scoreMax_three_zero {d : ℕ}
     (v : Fin 3 → Space d) (x : Space d) :
     scoreMax v 0 x = max (⟪v 0,x⟫) (max (⟪v 1,x⟫) (⟪v 2,x⟫)) := by
-  unfold scoreMax
-  have huniv : (Finset.univ : Finset (Fin 3)) = {0,1,2} := by decide
-  rw [huniv]
-  simp [Finset.sup'_insert,Finset.sup'_singleton,sup_eq_max]
+  apply le_antisymm
+  · unfold scoreMax
+    refine Finset.sup'_le _ _ (fun i _ => ?_)
+    fin_cases i <;> simp
+  · apply max_le
+    · simpa only [Pi.zero_apply,sub_zero] using le_scoreMax v 0 x 0
+    · apply max_le
+      · simpa only [Pi.zero_apply,sub_zero] using le_scoreMax v 0 x 1
+      · simpa only [Pi.zero_apply,sub_zero] using le_scoreMax v 0 x 2
 
 theorem expectedScore_three_neg_invariant {d : ℕ} (v : Fin 3 → Space d) :
     expectedScore (fun i => -v i) 0 = expectedScore v 0 := by

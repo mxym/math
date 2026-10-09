@@ -62,10 +62,14 @@ theorem covarianceValue_three_equality_regular
     _ _ _ (norm_nonneg _) (norm_nonneg _) (norm_nonneg _) hsquare hedgesum
   have heedges (i j : Fin 3) (hij : i ≠ j) :
       ‖v i-v j‖^2=‖v 0-v 1‖^2 := by
-    fin_cases i <;> fin_cases j <;> simp_all [norm_sub_rev]
+    have hr01 : ‖v 1-v 0‖ = ‖v 0-v 1‖ := norm_sub_rev _ _
+    have hr02 : ‖v 2-v 0‖ = ‖v 0-v 2‖ := norm_sub_rev _ _
+    have hr12 : ‖v 2-v 1‖ = ‖v 1-v 2‖ := norm_sub_rev _ _
+    fin_cases i <;> fin_cases j <;> simp_all [hr01, hr02, hr12]
+
   have hregular : scoreGram v = regularCovariance 3 :=
     equidistant_centered_gram_regular (by norm_num : 2 ≤ 3) v hz
-      (by simpa only [Fin.sum_univ_succ, Fin.sum_univ_two] using htr)
+      (by simpa [Fin.sum_univ_succ, add_assoc] using htr)
       (‖v 0-v 1‖^2) heedges
   exact hg.symm.trans hregular
 
