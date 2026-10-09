@@ -77,6 +77,15 @@ See `evidence/large-state-20261009/`. This replay is separate from the earlier
 attainment Lake evidence; the enlarged fresh Lake build is still being
 completed, so no full-formalization Release is created.
 
+## Standalone physical necessity interface
+
+`Quantum/SpectralNecessity.lean: density_appt_has_sorted_spectrum` exports
+the complete state-to-sorted-spectrum necessary conditions for every n >= 3,
+including normalization and the actual purity identity. It can be built
+without the large uniform certificate modules. See [NECESSITY.md](NECESSITY.md)
+for the dedicated clean-target build, positive/negative controls, trust-zero
+replay, exact source hashes, and independent verification workflow.
+
 ## Remaining mathematical work
 
 The state-level upper bounds for `3≤n≤8` are not yet exported in this package.

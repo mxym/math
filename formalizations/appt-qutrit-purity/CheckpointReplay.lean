@@ -1,3 +1,4 @@
+import APPT.Quantum.SpectralNecessity
 import APPT.Quantum.LargeMaximum
 import Lean.Replay
 import Lean
@@ -27,6 +28,7 @@ partial def collect (env : Environment) (todo : List Name)
 run_cmd do
   let env := (← getEnv).setExporting false
   let roots := [
+    ``APPT.Quantum.density_appt_has_sorted_spectrum,
     ``APPT.Uniform.certificate_nonneg,
     ``APPT.Uniform.normalized_bound,
     ``APPT.ordered_spectrum_large,
