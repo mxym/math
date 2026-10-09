@@ -6,6 +6,10 @@ on:
         description: 'Space-separated Lean module targets'
         default: 'APPT.SparsePolynomial'
         required: true
+      cases:
+        description: 'Optional space-separated bounded DAG cases'
+        required: false
+        default: ''
   push:
     branches: ['research/appt-completion-D']
     paths: ['formalizations/appt-qutrit-purity/APPT/SparsePolynomial.lean']
@@ -27,12 +31,22 @@ jobs:
         working-directory: formalizations/appt-qutrit-purity
         env:
           TARGETS: ${{ inputs.targets || 'APPT.SparsePolynomial' }}
+          CASES: ${{ inputs.cases }}
         run: |
           set -euo pipefail
-          read -r -a modules <<< "$TARGETS"
-          timeout 1800 lake build "${modules[@]}" 2>&1 | tee development.log
+          if [[ -n "$CASES" ]]; then
+            read -r -a cases <<< "$CASES"
+            args=()
+            for c in "${cases[@]}"; do args+=(--case "$c"); done
+            lake env python3 scripts/build_blocks.py "${args[@]}" --engine lake --jobs 2 --timeout 300 2>&1 | tee development.log
+          else
+            read -r -a modules <<< "$TARGETS"
+            timeout 1800 lake build "${modules[@]}" 2>&1 | tee development.log
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: development-${{ github.sha }}
-          path: formalizations/appt-qutrit-purity/development.log
+          path: |
+            formalizations/appt-qutrit-purity/development.log
+            formalizations/appt-qutrit-purity/logs/blocks/

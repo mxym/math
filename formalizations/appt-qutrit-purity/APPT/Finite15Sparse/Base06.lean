@@ -8,10 +8,10 @@ namespace APPT.Finite15
 open SparsePolynomial
 
 def base06 : SparsePolynomial.Poly := [([0], -2), ([1], -2), ([2], -2), ([3], -2), ([4], -2), ([5], -2), ([6], -2), ([7], -2), ([8], -2), ([9], -2), ([10], -2), ([13], 2), ([14], 4)]
-theorem eval_base06 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) base06 = quadB (outer g) ![1,1,0] := by
-  norm_num [base06, SparsePolynomial.eval, SparsePolynomial.mon, variables, spectrum, quadB, matB, outer, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
+theorem eval_base06 (g : Fin 15 → ℝ) : SparsePolynomial.eval (gapValues g) base06 = quadB (outer g) ![1,1,0] := by
+  norm_num [base06, SparsePolynomial.eval, SparsePolynomial.mon, gapValues, spectrum, quadB, matB, outer, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
   <;> ring
-theorem base06_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) base06 := by
+theorem base06_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (gapValues g) base06 := by
   rw [eval_base06]
   exact quadB_nonneg (outer g) hB ![1,1,0]
 

@@ -35,7 +35,7 @@ def generate_dimension(root,inputs,D):
     ns=f'APPT.Finite{D}'
     directory=root/f'APPT/Finite{D}Sparse';directory.mkdir(parents=True,exist_ok=True)
     modules={}; generated=[]
-    args=f'(g : Fin {D} → ℝ)'; app='(variables g)'
+    args=f'(g : Fin {D} → ℝ)'; app='(gapValues g)'
     hyp='(hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef)'
     def header(imports):
         return '\n'.join('import '+i for i in imports)+f'\nset_option maxRecDepth 100000\nset_option maxHeartbeats 8000000\nset_option linter.unusedVariables false\nset_option linter.unusedSimpArgs false\nopen scoped BigOperators\nnamespace {ns}\nopen SparsePolynomial\n\n'
@@ -47,8 +47,8 @@ def generate_dimension(root,inputs,D):
     y=[{(j,):1 for j in range(i,D)} for i in range(D)]
     matrices={c:[[encode(p) for p in row] for row in ctx[c]] for c in ['A','B']}
     data=(HERE/f'templates/Finite{D}Definitions.lean.txt').read_text()
-    data+=f'\nnoncomputable def variables {args} (i : Nat) : ℝ :=\n  if h : i < {D} then g ⟨i,h⟩ else 0\n\n'
-    simp_base='SparsePolynomial.eval, SparsePolynomial.mon, variables, spectrum'
+    data+=f'\nnoncomputable def gapValues {args} (i : Nat) : ℝ :=\n  if h : i < {D} then g ⟨i,h⟩ else 0\n\n'
+    simp_base='SparsePolynomial.eval, SparsePolynomial.mon, gapValues, spectrum'
     for i,p in enumerate(y):
         data+=f'def polyY{i} : SparsePolynomial.Poly := {lit(p)}\n'
         data+=f'theorem eval_polyY{i} {args} : SparsePolynomial.eval {app} polyY{i} = spectrum g {i} := by\n  norm_num [polyY{i}, {simp_base}]\n  <;> ring\n'
@@ -131,10 +131,10 @@ def generate_dimension(root,inputs,D):
                 factors=[int(k)-1 for k in re.findall(r'g(\d+)',term.split('*',1)[1])] if '*' in term else []
             body+=f'def {pname} : SparsePolynomial.Poly := {lit(unweighted)}\n'
             if base is None:
-                body+=f'theorem eval_{pname} {args} : SparsePolynomial.eval {app} {pname} = {raw} := by\n  norm_num [{pname}, SparsePolynomial.eval, SparsePolynomial.mon, variables]\n  <;> ring\n'
+                body+=f'theorem eval_{pname} {args} : SparsePolynomial.eval {app} {pname} = {raw} := by\n  norm_num [{pname}, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]\n  <;> ring\n'
             else:
                 body+=f'theorem {pname}_data : {pname} = SparsePolynomial.monoTimes {mlit(sorted(factors))} 1 {base} := by decide +kernel\n'
-                body+=f'theorem eval_{pname} {args} : SparsePolynomial.eval {app} {pname} = {raw} := by\n  rw [{pname}_data, SparsePolynomial.eval_monoTimes, eval_{base}]\n  norm_num [SparsePolynomial.mon, variables]\n  <;> ring\n'
+                body+=f'theorem eval_{pname} {args} : SparsePolynomial.eval {app} {pname} = {raw} := by\n  rw [{pname}_data, SparsePolynomial.eval_monoTimes, eval_{base}]\n  norm_num [SparsePolynomial.mon, gapValues]\n  <;> ring\n'
             body+=f'theorem {pname}_nonneg {args} {hyp} : 0 ≤ SparsePolynomial.eval {app} (SparsePolynomial.scale ({w} : Int) {pname}) := by\n  rw [SparsePolynomial.eval_scale, eval_{pname}]\n'
             for k in sorted(set(factors)):body+=f'  have hg{k} : 0 ≤ g {k} := hg {k}\n'
             if base:
