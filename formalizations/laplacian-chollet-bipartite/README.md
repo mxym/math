@@ -94,3 +94,16 @@ Three additional source modules extend the original graph proof to a fully gener
 All four source files were actually compiled with pinned Lean 4.34.1 and Mathlib commit \`d13f23b723b8a846827a245b89c10fc7d3f11612\`. The final statements \`permanent_diagonalBump_principal\` and \`strongChollet_diagonalBump_of_pivot\` passed \`#print axioms\` with only \`propext\`, \`Classical.choice\`, and \`Quot.sound\`; no source uses \`sorry\`, admitted proofs, or custom axioms.
 
 **Important open dependency:** the singleton pivot bound is not asserted for all PSD matrices here. It is an explicit theorem hypothesis. Likewise, the universal one-point graph block permanent identities are NOT claimed completed. The overall all-finite-graphs strong Chollet theorem remains unformalized.
+
+## New: general real PSD matrix permanent nonnegativity
+
+The following four Lean modules establish the entire unrestricted ALL-ORDER REAL PSD permanent-positivity theorem (NOT the stronger Lieb PSD block-permanent bound):
+
+- [OrbitGramPositivity.lean](src/OrbitGramPositivity.lean): a positive sum-of-squares identity for correlations along arbitrary finite group actions on finite sets.
+- [GramPermanentNonnegative.lean](src/GramPermanentNonnegative.lean): nonnegativity of the genuine Matrix.permanent of the Gram matrix of any finite real rectangular array, using official permutation sums and the orbit lemma.
+- [PSDRealGramFactor.lean](src/PSDRealGramFactor.lean): every finite real PSD matrix, INCLUDING SINGULAR matrices, has an actual real Gram factorization, proved using the real Hermitian spectral theorem and nonnegative eigenvalue square roots in Mathlib.
+- [PSDRealPermanentNonnegative.lean](src/PSDRealPermanentNonnegative.lean): combines the previous two sources to prove Chollet.posSemidef_permanent_nonneg for every finite-dimensional real PSD matrix, without an entrywise sign restriction.
+
+All four sources successfully compiled on Lean 4.34.1 with Mathlib SHA d13f23b723b8a846827a245b89c10fc7d3f11612. The main source theorem axiom audit lists ONLY propext, Classical.choice and Quot.sound. No sorry, admit, native_decide or custom axioms.
+
+This proves general PSD permanent NONNEGATIVITY, not Lieb's stronger PSD BLOCK comparison. Lieb's block bound, the graph noncycle matching inequalities and the odd-cycle identification remain essential missing Lean dependencies for unrestricted graph strong Chollet.
