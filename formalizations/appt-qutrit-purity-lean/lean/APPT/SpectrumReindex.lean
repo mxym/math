@@ -21,7 +21,7 @@ theorem split_outer_middle {M : ℕ} (f : Fin (3+(M+6)) → ℝ) :
       ∑ i : Fin M, f (middleIndex i) := by
   rw [Fin.sum_univ_add, Fin.sum_univ_add]
   simp only [Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
-  simp [outerIndex, middleIndex, Fin.castAdd, Fin.natAdd]
-  <;> ring
+  simp [outerIndex, middleIndex, Fin.castAdd, Fin.natAdd, Fin.castLE]
+  <;> abel
 
 end APPT
