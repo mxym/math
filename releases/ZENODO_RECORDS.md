@@ -4,11 +4,29 @@ Bapat 合并修订稿：**[10.5281/zenodo.23248431](https://doi.org/10.5281/zeno
 
 [14 页 PDF](https://zenodo.org/records/23248431/files/paper.pdf?download=1) · [完整公开记录](https://zenodo.org/records/23248431) · [文件、DOI 与复现核验](zenodo-2026-10-08/README.md)。
 
-本轮归档 24 个研究 Release 版本及 1 篇合并预印本，共 25 条公开版本记录。相同研究主题的不同版本共享概念 DOI；精确引用证明文件时，应使用表中的版本 DOI。两个临时缓存或重复 Release 未另建学术记录。
+首轮归档 24 个研究 Release 版本及 1 篇合并预印本，共 25 条公开版本记录。相同研究主题的不同版本共享概念 DOI；精确引用证明文件时，应使用表中的版本 DOI。两个临时缓存或重复 Release 未另建学术记录。
 
 归档保留原 GitHub 公开记录、固定源提交和附件字节。全部公开文件已匿名下载并核对 SHA-256；全部版本 DOI 已在 DataCite 中确认可检索。各研究原有的证明状态与 Lean 覆盖范围按原版本保留，本轮不构成对全部研究的新数学审核。
 
-DOI 提供持久引用与第三方公开档案，不自动证明数学正确性、原创性或世界首次优先权。Bapat 的 arXiv 投稿仍等待 math.CO endorsement。
+DOI 提供持久引用与第三方公开档案，不自动证明数学正确性、原创性或世界首次优先权。
+
+## 后续预印本与版本补齐
+
+全部现行预印本的版本 DOI 见[主页预印本表](../README.md#预印本)。后续批次的详细记录：
+
+- [九篇 Lean 主定理预印本](lean-preprints-20261008/README.md)。
+- [高斯等质量预印本修订版](gaussian-preprint-20261008/README.md)，版本 DOI [10.5281/zenodo.23250730](https://doi.org/10.5281/zenodo.23250730)。
+- [Chollet 完整 Lean 版及余子式谱无界性归档](doi-completion-20261009/README.md)，含公开下载、哈希及 DataCite 核验记录。
+
+| 本次补齐的研究版本 | 版本 DOI |
+| --- | --- |
+| 全图强 Chollet，完整 Lean 版本 2.0 | [10.5281/zenodo.23252138](https://doi.org/10.5281/zenodo.23252138) |
+| 恒等补齐与永久量不等式，已有版本 1 | [10.5281/zenodo.23248369](https://doi.org/10.5281/zenodo.23248369) |
+| 归一化永久量余子式谱无界性，版本 1.0 | [10.5281/zenodo.23252140](https://doi.org/10.5281/zenodo.23252140) |
+
+Chollet 的早期书面版本 [10.5281/zenodo.23248359](https://doi.org/10.5281/zenodo.23248359) 保留于同一版本系列；引用完整 Lean 工程时使用上表的新版本。余子式谱无界性和余子式谱锐渐近是独立稿件，分别归档。
+
+## 首轮归档的历史版本
 
 | 研究版本 | 版本 DOI |
 | --- | --- |

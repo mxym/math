@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Optional n=200 certificate; rerun two distinct exact integer algorithms on extracted published-source archive, not proof of infinite unboundedness.",
+  "source_commit": "d850a08d7f3a2fa6534c85d84d3d976d6e502a64",
+  "result_files_unchanged": true,
+  "results": [
+    {
+      "program": "verify_witness.py",
+      "exit_code": 0,
+      "output": {
+        "n": 200,
+        "rank": 2,
+        "input_sha256": "2bbd97fcab8cad8f493d7c4c4a0a5bb8c9e0b7cd6e2e89c44009a4bcb9a8d8b4",
+        "w_norm_squared": "99999084",
+        "certified_rayleigh_interval": "269/100 < w* C(A) w / (per(A) ||w||^2) < 27/10",
+        "all_ones_identity_verified": true,
+        "arithmetic": "Python integers only"
+      }
+    },
+    {
+      "program": "verify_witness_independently.py",
+      "exit_code": 0,
+      "output": {
+        "PASS": true,
+        "method": "single-pass dual-number product derivative; no individual omitted products",
+        "arithmetic": "Python integer pairs",
+        "n": 200,
+        "input_sha256": "2bbd97fcab8cad8f493d7c4c4a0a5bb8c9e0b7cd6e2e89c44009a4bcb9a8d8b4",
+        "frozen_gram_rows_hash_matches": true,
+        "gram_rows_sha256": "3750bd80cb3284d579db0d32b0cdd2de101e6ee2766ec0e5e6983a26fec40462",
+        "same_exact_permanent": true,
+        "same_exact_rayleigh_numerator": true,
+        "same_exact_vector_norm_squared": true,
+        "all_ones_identity_verified": true,
+        "lower_and_upper_rational_bounds_verified": true,
+        "rayleigh_decimal_for_orientation_only": 2.6976482817354444
+      }
+    }
+  ]
+}
