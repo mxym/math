@@ -14,6 +14,10 @@ DOI 提供持久引用与第三方公开档案，不自动证明数学正确性�
 
 该论文系列的修订版 1.2 已归档为 [10.5281/zenodo.23255145](https://doi.org/10.5281/zenodo.23255145)，[下载与 DOI 核验](cofactor-spectral-asymptotics-20261009/README.md)。版本 1.1 的 DOI `10.5281/zenodo.23252986` 保留不变。
 
+## APPT qutrit–qudit 预印本
+
+APPT qutrit–qudit 精确最大纯度预印本的元数据修订版：[10.5281/zenodo.23269470](https://doi.org/10.5281/zenodo.23269470)，概念 DOI [10.5281/zenodo.23248304](https://doi.org/10.5281/zenodo.23248304)。该版本包含 PDF、源代码、绑定清单和哈希清单；主 APPT 定理对应不可变 GitHub 证明 Release `appt-qutrit-purity-complete-v1`。绝对可分态最大纯度推论保留为书面证明，未纳入该 Lean 证明 Release。
+
 ## 后续预印本与版本补齐
 
 一般互信息连续性拟议界反例的独立署名论文版本 1.0：[10.5281/zenodo.23253944](https://doi.org/10.5281/zenodo.23253944)，[附件与 DOI 核验](mutual-information-preprint-20261008/README.md)。已有自动整仓库软件快照 [10.5281/zenodo.23253152](https://doi.org/10.5281/zenodo.23253152) 保留，和该论文的独立版本系列分别列出。

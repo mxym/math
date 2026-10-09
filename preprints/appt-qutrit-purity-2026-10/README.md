@@ -1,7 +1,10 @@
 # Exact qutrit-qudit APPT purity: preprint
 
-**Public preprint. Not peer reviewed.** This manuscript proves the exact maximum
-for every n >= 3, including real quantum-state semantics and actual attainment.
+**Public preprint. Not peer reviewed.** Version DOI: [10.5281/zenodo.23269470](https://doi.org/10.5281/zenodo.23269470); concept DOI: [10.5281/zenodo.23248304](https://doi.org/10.5281/zenodo.23248304).
+The DOI version is a metadata-corrected Zenodo version of the immutable GitHub preprint package; its paper and source bytes are hash-bound in `PREPRINT_BINDING-v1.2.json`.
+
+This manuscript proves the exact maximum
+for every n >= 3, including actual complex quantum-state semantics and actual attainment.
 Its main APPT theorem is completely Lean-certified in the separate immutable
 [`appt-qutrit-purity-complete-v1`](https://github.com/mxym/math/releases/tag/appt-qutrit-purity-complete-v1)
 proof release at commit `2fc3f25179cf1128c4bccbde65fd3a07c093ad6d`.
@@ -36,7 +39,7 @@ The fixed Lean proof remains separately reproducible with Lean 4.34.1 and Mathli
 `d13f23b723b8a846827a245b89c10fc7d3f11612`; its source and verification archives
 are linked above. It passed 879 local modules, 18 verification stages, and a
 155,787-declaration / 58-root initially empty kernel replay at trust level zero.
-Only `propext`, `Classical.choice`, and `Quot.sound` occur as axioms.
+Only `propext`, `Classical.choice`, and `Quot.sound` occur as axioms. See the [complete formalization README](../../formalizations/appt-qutrit-purity/README.md) and the [full verification record](../../formalizations/appt-qutrit-purity/verification/complete-v1/README.md).
 
 ## Build the manuscript
 

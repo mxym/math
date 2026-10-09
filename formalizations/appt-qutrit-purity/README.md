@@ -10,7 +10,7 @@ See [complete verification evidence](verification/complete-v1/README.md).
 The final-theorem rejection test preserves the original name, type and universe
 parameters and replaces only its proof by `True.intro`. A fresh trust-zero kernel
 rejected that exact forged theorem for a declaration type mismatch.
-The completion version is `appt-qutrit-purity-complete-v1`.
+The completion version is `appt-qutrit-purity-complete-v1`. The accompanying public preprint is archived as [Zenodo version DOI 10.5281/zenodo.23269470](https://doi.org/10.5281/zenodo.23269470), concept DOI [10.5281/zenodo.23248304](https://doi.org/10.5281/zenodo.23248304).
 The immutable interim release and its files are unchanged.
 
 ## Mathematical statement and physical semantics
