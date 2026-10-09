@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Generic sparse polynomial evaluation laws and cubic coefficient control; NOT the full APPT maximum",
+  "source_commit": "b00c7a4360b3504cf63ffc63442f4564b779b08c",
+  "ci_run": 37948196219,
+  "ci_url": "https://github.com/mxym/math/actions/runs/37948196219",
+  "replayed_declarations": 5166,
+  "roots": 7,
+  "trust_level": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "negative_controls": {
+    "forged_theorem": "rejected by kernel declaration type mismatch",
+    "altered_cubic_coefficient": "proved false by decide +kernel; Lean exit 1"
+  },
+  "source_sha256": {
+    "APPT/SparsePolynomial.lean": "87e6e1402a613343de39160d05f99d31d44b902494c1184cf52a5efca6fef735",
+    "Verification/ReplaySupport.lean": "1909fef1cf72e2c9f42773e21511f5d7b18cd4a7f3fd4c5971bc566842a25017",
+    "SparseArithmeticAudit.lean": "b0dbbe89922100f4721d543ffc76d877486aa1adcc58d90f38325adb8201f3fa",
+    "RejectSparseCoefficient.lean": "f301d14207c132f5f125a102ed0e9f531cb0fc425fb80f1975c2dc5fec25cd58",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lake-manifest.json": "262a9805db549ce3bf7ce6d848cab7aafca942a9cebec14c988591e6311f192d"
+  }
+}
