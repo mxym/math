@@ -22,6 +22,14 @@ theorem split_outer_middle {M : ℕ} (f : Fin (3+(M+6)) → ℝ) :
   rw [Fin.sum_univ_add, Fin.sum_univ_add]
   simp only [Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
   simp [outerIndex, middleIndex, Fin.castAdd, Fin.natAdd, Fin.castLE]
+  -- Numerically identical `Fin` indices remain syntactically distinct until
+  -- their natural-number representatives are normalized explicitly.
+  <;> simp only [
+    show 3 + (M + 1) = M + 4 by omega,
+    show 3 + (M + 2) = M + 5 by omega,
+    show 2 • (3 : ℕ) + M = M + 6 by omega,
+    show 3 + (M + 4) = M + 7 by omega,
+    show 3 + (M + 5) = M + 8 by omega]
   <;> abel
 
 end APPT
