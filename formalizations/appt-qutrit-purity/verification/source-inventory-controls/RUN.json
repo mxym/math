@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "scope": "Source-inventory CLI controls only",
+  "program_sha256": "e19685dbebc6c0bf80aa2d0be19be23cfc63a1dfa0bb91a64bb2e6637b95c5a5",
+  "checks": [
+    {
+      "name": "unchanged pinned source tree",
+      "expected_acceptance": true,
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "COMPLETE_SOURCE_MANIFEST_PASS 7 files\n",
+      "stderr": ""
+    },
+    {
+      "name": "changed mathematical source",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "changed independent replay support",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "missing mathematical source",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "extra unlisted mathematical source",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "changed toolchain pin",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "altered recorded checksum",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/appt-audit-tmp/appt-manifest-control-jw5v1nxi/scripts/source_manifest.py\", line 25, in <module>\n    if json.loads(path.read_text())!=data:raise RuntimeError('Manifest does not cover the exact current proof package')\nRuntimeError: Manifest does not cover the exact current proof package\n"
+    },
+    {
+      "name": "restored pinned source tree",
+      "expected_acceptance": true,
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "COMPLETE_SOURCE_MANIFEST_PASS 7 files\n",
+      "stderr": ""
+    }
+  ]
+}
