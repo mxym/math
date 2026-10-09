@@ -1,0 +1,41 @@
+name: APPT genuine-quantum semantic regression
+on:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/SemanticRegression.lean'
+      - 'formalizations/appt-qutrit-purity/SemanticRegressionAudit.lean'
+      - '.github/workflows/appt-semantic-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  semantic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build genuine PPT-versus-APPT counterexamples and audit them
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p semantic-regression-logs .lake/build/lib/lean/Verification
+          timeout 600 lake build +APPT.Quantum.SemanticRegression 2>&1 | tee semantic-regression-logs/build.log
+          timeout 120 lake env lean -j1 -M12288 -o .lake/build/lib/lean/Verification/ReplaySupport.olean Verification/ReplaySupport.lean 2>&1 | tee semantic-regression-logs/support.log
+          timeout 600 lake env lean -j1 -M12288 SemanticRegressionAudit.lean 2>&1 | tee semantic-regression-logs/replay.log
+          grep -F 'EMPTY_KERNEL_REPLAY_PASS' semantic-regression-logs/replay.log
+          grep -F 'CORRUPTED_PROOF_REJECTED' semantic-regression-logs/replay.log
+          cp semantic-regression-*.txt semantic-regression-logs/
+          find APPT -name '*.lean' -print0 | sort -z | xargs -0 sha256sum > semantic-regression-logs/SOURCE_SHA256SUMS
+          sha256sum Verification/ReplaySupport.lean SemanticRegressionAudit.lean lean-toolchain lake-manifest.json >> semantic-regression-logs/SOURCE_SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: semantic-regression-${{ github.sha }}
+          path: formalizations/appt-qutrit-purity/semantic-regression-logs/
