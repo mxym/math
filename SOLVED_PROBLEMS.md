@@ -8,6 +8,8 @@
 
 ## 完整 Lean 的主要入口
 
+- [复四行永久量—行列式锐界与全实参数精确范数](formalizations/four-row-permanent-tradeoff/README.md)：实际复 4×4 矩阵，最优常数、取到及真实归一化上确界；全等号分类和整篇论文的其他扩展不包含在 v1 证书内。
+
 - [一般互信息连续性拟议界的经典反例](formalizations/mutual-information-continuity-counterexample/README.md)：实际 3×3 概率表、熵、总变差及任意小正距离反例；两侧边缘变化。量子嵌入及必要系数下界仍为书面证明。
 - [Bapat 指定复数有理反例](formalizations/bapat-q-permanent-explicit-rational/README.md)与[实对称整数反例存在定理](formalizations/bapat-real-symmetric-existence-counterexample/README.md)。
 - [全图强 Chollet 固定工程](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress)：任意有限简单无权图、所有主子矩阵、原图度数；[源码与复核记录核对](verification/chollet-all-graphs-index-2026-10-08.json)。

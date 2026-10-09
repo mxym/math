@@ -67,6 +67,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 ## 证明与复现
 
+[复四行永久量—行列式锐界及全实参数范数](formalizations/four-row-permanent-tradeoff/README.md)新增完整主结论 Lean：实际复矩阵的普遍不等式、最优常数和上确界均已证明。本轮重新编译 6 个模块，空内核 trust level 0 重放 67 个自有声明及 14,151 个依赖声明；全等号分类等未覆盖内容单独披露。
+
 “完整 Lean”只适用于所列具体定理；部分引理、有限证书和成功构建不自动覆盖整篇论文。完整书面证明可使用明确引用的已证明定理，完整 Lean 不是公开该证明的前提。
 
 全图强 Chollet 的固定源码记录了 83 模块 fresh 编译、985 个自有声明与 44,173 个传递依赖的空内核 trust level 0 重放。本次索引更新核对了全部源码哈希及复核记录，未重跑该 Lean 工程：[核对记录](verification/chollet-all-graphs-index-2026-10-08.json)。高斯三胞独立分支的[完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)不代表全部 k 已形式化。
