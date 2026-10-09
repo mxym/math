@@ -1,5 +1,6 @@
 import GaussianFluxCalibration
 import GaussianJunctionBalanceGlobal
+import GaussianRegularPerimeter
 
 /-!
 # Rigidity of a saturated Gaussian simplex flux calibration
@@ -109,9 +110,49 @@ theorem regular_gram_of_saturated_simplicial_calibration
     exact all_triple_balances_regular_gram v hv hz ht
       (actual_simplicial_saturated_triple_normal_balance v hv q hq heq)
 
+/-- In dimensions with at least three labels, a centered trace-one full
+Gaussian simplicial winning cluster admits an exactly saturated
+unit-diameter flux calibration **if and only if** its score Gram matrix is
+the regular-simplex covariance. This is a characterization of calibration
+saturation, not an assertion that an arbitrary winning cluster saturates. -/
+theorem saturated_simplicial_calibration_iff_regular_gram
+    (d : ℕ) (hd : 1 ≤ d)
+    (v : Fin (d+2) → Space (d+1)) (hv : AffineIndependent ℝ v)
+    (hz : ∑ i,v i = 0) (ht : ∑ i,‖v i‖^2 = 1) :
+    (∃ q : Fin (d+2) → Space (d+1),
+      (∀ i j, ‖q i-q j‖ ≤ 1) ∧
+      (∑ i,⟪q i,balancedMoment v i⟫) =
+        (∑ i,gaussianInnerPerimeter (winningCell v (canonicalPrices v) i))/2)
+      ↔ scoreGram v = regularCovariance (d+2) := by
+  constructor
+  · rintro ⟨q,hq,heq⟩
+    exact regular_gram_of_saturated_simplicial_calibration d hd v hv hz ht q hq heq
+  · intro hg
+    have h01 : (0 : Fin (d+2)) ≠ 1 := by simp
+    let a : ℝ := ‖v 0-v 1‖
+    have ha : 0 < a := by
+      apply norm_pos_iff.mpr
+      exact sub_ne_zero.mpr (fun h => h01 (hv.injective h))
+    have hedge (i j : Fin (d+2)) (hij : i ≠ j) :
+        ‖v i-v j‖ = a := by
+      apply (sq_eq_sq₀ (norm_nonneg _) (norm_nonneg _)).mp
+      exact (regular_gram_edge_squared v hg i j hij).trans
+        (regular_gram_edge_squared v hg 0 1 h01).symm
+    refine ⟨fun i => a⁻¹ • v i, ?_, ?_⟩
+    · intro i j
+      by_cases hij : i=j
+      · subst j
+        simp
+      · change ‖a⁻¹ • v i - a⁻¹ • v j‖ ≤ 1
+        rw [← smul_sub,norm_smul,Real.norm_eq_abs,
+          abs_of_pos (inv_pos.mpr ha),hedge i j hij]
+        exact le_of_eq (inv_mul_cancel₀ ha.ne')
+    · exact actual_equal_edges_flux_calibration_equality v hv a ha hedge
+
 #print axioms unit_normal_of_inner_saturation
 #print axioms actual_simplicial_saturated_flux_unit_edges
 #print axioms actual_simplicial_saturated_triple_normal_balance
 #print axioms regular_gram_of_saturated_simplicial_calibration
+#print axioms saturated_simplicial_calibration_iff_regular_gram
 
 end GaussianMeasureBridge
