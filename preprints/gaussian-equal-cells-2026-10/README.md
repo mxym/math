@@ -1,5 +1,7 @@
 # Equal Gaussian cells: the sharp simplex first-moment theorem
 
+**Published revised preprint, version 2.0: https://doi.org/10.5281/zenodo.23250730.** Previous version: https://doi.org/10.5281/zenodo.23248377. All three public attachments were anonymously downloaded and SHA256-checked; DataCite registration is findable. This has not been submitted to arXiv. [Public archive audit](../../releases/gaussian-preprint-20261008/README.md).
+
 Author: Yongxian Zhang (张永贤). School of Computer Science and Engineering, South China University of Technology. ORCID: https://orcid.org/0009-0000-3864-3536. Correspondence: mxymmxym1@gmail.com.
 
 [Seven-page paper](paper.pdf) · [Standalone LaTeX upload ZIP](paper-source.zip) · [TeX](paper.tex) · [Audit](AUDIT.md).

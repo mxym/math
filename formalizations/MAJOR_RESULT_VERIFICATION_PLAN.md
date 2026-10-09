@@ -35,6 +35,13 @@ ellipsoid extension currently have complete written proofs and **partial**
 Lean checks. Their public status must continue to say that the full
 Gaussian endpoints are not formalized.
 
+The expanded [seven-page equal-mass preprint](../preprints/gaussian-equal-cells-2026-10/README.md)
+is now published as DOI `10.5281/zenodo.23250730`, using the proved
+Milman–Neeman geometric theorem as an ordinary mathematical dependency.
+Incomplete Lean coverage is not a mathematical gap in that written proof
+or a prerequisite for its publication. Completing the geometric chain
+inside Lean remains a separate verification objective.
+
 The full all-k target must use actual standard Gaussian measure, measurable
 or fractional partitions of mass 1/k, Bochner first moments, and the
 coefficient (E max of k independent standard normals)^2/(k-1). It must

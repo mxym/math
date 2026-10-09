@@ -44,7 +44,10 @@ Bapat 的指定复数有理反例与实对称整数反例存在定理，已合�
 [可上传的 TeX ZIP](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/bapat-arxiv-source.zip) ·
 [审计记录与验证范围](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/AUDIT.md)。
 当前状态为完成投稿准备，尚未向 arXiv 提交。
-高斯论文的 arXiv 投稿延后，先继续研究并完善主证明链的 Lean 覆盖。
+高斯等质量全部 k 论文已完成补写与出版审查，按基于已发表定理的书面证明公开：
+[七页署名预印本与投稿 TeX ZIP](preprints/gaussian-equal-cells-2026-10/README.md) ·
+[DOI 10.5281/zenodo.23250730](https://doi.org/10.5281/zenodo.23250730)。
+Lean 覆盖仍为部分形式化，不作为推迟这份书面证明公开的条件；尚未向 arXiv 提交。
 
 ## 完整 Lean 主定理预印本
 
@@ -76,7 +79,8 @@ are public. This addresses the arbitrary-mass conjecture; the equal-mass
 case is settled in the separate global proof below. No worldwide priority
 is claimed.
 
-The [complete six-page proof](research/gaussian-balanced-simplex-all-k/paper.pdf)
+The [expanded seven-page signed preprint](preprints/gaussian-equal-cells-2026-10/paper.pdf),
+[DOI 10.5281/zenodo.23250730](https://doi.org/10.5281/zenodo.23250730),
 now establishes the sharp **equal-mass Gaussian first-moment theorem for
 every integer k ≥ 2**: its value is **(E max_{i≤k} Z_i)²/(k−1)** for
 independent standard normals. In every dimension d ≥ k−1, equality holds
@@ -88,7 +92,7 @@ conjecture and his full four-cell dimension-three Conjecture 3 from 2014.
 The proof combines the established Milman–Neeman perimeter theorem with
 Gaussian flux and a radial differential comparison, and gives an exact
 nonnegative deficit integral.
-[Source comparisons, two internal reviews and eight partial Lean exports](research/gaussian-balanced-simplex-all-k/README.md)
+[Source comparisons, expanded internal derivation review and eight partial Lean exports](research/gaussian-balanced-simplex-all-k/README.md)
 are public. Lean checks the algebra and abstract real differential
 comparison; the complete Gaussian endpoint is not claimed fully
 formalized or externally peer-reviewed. The separate
