@@ -1,3 +1,4 @@
+import APPT.OrderedSpectrum
 import APPT.CoefficientMerge
 import APPT.Quantum.Attainment
 import Lean.Replay
@@ -27,7 +28,8 @@ partial def collect (env : Environment) (todo : List Name)
 
 run_cmd do
   let env := (← getEnv).setExporting false
-  let roots := [``APPT.Quantum.targetPurity_attained,
+  let roots := [``APPT.Uniform.certificate_nonneg, ``APPT.Uniform.normalized_bound,
+    ``APPT.ordered_spectrum_large,``APPT.Quantum.targetPurity_attained,
     ``APPT.detA_nonneg,
     ``APPT.detB_nonneg,
     ``APPT.minorA_nonneg,

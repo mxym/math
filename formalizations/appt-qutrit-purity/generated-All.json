@@ -1,0 +1,874 @@
+{
+  "modules": {
+    "APPT.CoefficientMerge": [
+      "APPT.Core"
+    ],
+    "APPT.CoefficientMergeFast": [
+      "APPT.CoefficientMerge"
+    ],
+    "APPT.Compression": [
+      "APPT.Core"
+    ],
+    "APPT.Core": [],
+    "APPT.OrderedSpectrum": [
+      "APPT.UniformBridge",
+      "APPT.SpectrumReindex"
+    ],
+    "APPT.SpectrumReindex": [
+      "APPT.Core"
+    ],
+    "APPT.Uniform": [
+      "APPT.UniformSparse.Join112"
+    ],
+    "APPT.UniformBridge": [
+      "APPT.Uniform",
+      "APPT.Compression"
+    ],
+    "APPT.Quantum.Attainment": [
+      "APPT.Quantum.ShortAttainment",
+      "APPT.Quantum.LongAttainment"
+    ],
+    "APPT.Quantum.Basic": [
+      "APPT.Core"
+    ],
+    "APPT.Quantum.BlockMaps": [
+      "APPT.Quantum.Basic"
+    ],
+    "APPT.Quantum.Contractions": [
+      "APPT.Quantum.BlockMaps"
+    ],
+    "APPT.Quantum.LongAttainment": [
+      "APPT.Quantum.Contractions",
+      "APPT.Quantum.Orbit"
+    ],
+    "APPT.Quantum.Orbit": [
+      "APPT.Quantum.Basic"
+    ],
+    "APPT.Quantum.PureGram": [
+      "APPT.Quantum.RectangularContraction",
+      "APPT.Quantum.Contractions"
+    ],
+    "APPT.Quantum.PureOrbit": [
+      "APPT.Quantum.PureProjector"
+    ],
+    "APPT.Quantum.PureProjector": [
+      "APPT.Quantum.PureGram",
+      "APPT.Quantum.Orbit"
+    ],
+    "APPT.Quantum.RectangularContraction": [
+      "APPT.Quantum.Basic"
+    ],
+    "APPT.Quantum.ShortAttainment": [
+      "APPT.Quantum.PureOrbit"
+    ],
+    "APPT.UniformSparse.Data": [
+      "APPT.CoefficientMerge"
+    ],
+    "APPT.UniformSparse.Join000": [
+      "APPT.UniformSparse.Leaf000",
+      "APPT.UniformSparse.Leaf001"
+    ],
+    "APPT.UniformSparse.Join001": [
+      "APPT.UniformSparse.Leaf002",
+      "APPT.UniformSparse.Leaf003"
+    ],
+    "APPT.UniformSparse.Join002": [
+      "APPT.UniformSparse.Leaf004",
+      "APPT.UniformSparse.Leaf005"
+    ],
+    "APPT.UniformSparse.Join003": [
+      "APPT.UniformSparse.Leaf006",
+      "APPT.UniformSparse.Leaf007"
+    ],
+    "APPT.UniformSparse.Join004": [
+      "APPT.UniformSparse.Leaf008",
+      "APPT.UniformSparse.Leaf009"
+    ],
+    "APPT.UniformSparse.Join005": [
+      "APPT.UniformSparse.Leaf010",
+      "APPT.UniformSparse.Leaf011"
+    ],
+    "APPT.UniformSparse.Join006": [
+      "APPT.UniformSparse.Leaf012",
+      "APPT.UniformSparse.Leaf013"
+    ],
+    "APPT.UniformSparse.Join007": [
+      "APPT.UniformSparse.Leaf014",
+      "APPT.UniformSparse.Leaf015"
+    ],
+    "APPT.UniformSparse.Join008": [
+      "APPT.UniformSparse.Leaf016",
+      "APPT.UniformSparse.Leaf017"
+    ],
+    "APPT.UniformSparse.Join009": [
+      "APPT.UniformSparse.Leaf018",
+      "APPT.UniformSparse.Leaf019"
+    ],
+    "APPT.UniformSparse.Join010": [
+      "APPT.UniformSparse.Leaf020",
+      "APPT.UniformSparse.Leaf021"
+    ],
+    "APPT.UniformSparse.Join011": [
+      "APPT.UniformSparse.Leaf022",
+      "APPT.UniformSparse.Leaf023"
+    ],
+    "APPT.UniformSparse.Join012": [
+      "APPT.UniformSparse.Leaf024",
+      "APPT.UniformSparse.Leaf025"
+    ],
+    "APPT.UniformSparse.Join013": [
+      "APPT.UniformSparse.Leaf026",
+      "APPT.UniformSparse.Leaf027"
+    ],
+    "APPT.UniformSparse.Join014": [
+      "APPT.UniformSparse.Leaf028",
+      "APPT.UniformSparse.Leaf029"
+    ],
+    "APPT.UniformSparse.Join015": [
+      "APPT.UniformSparse.Leaf030",
+      "APPT.UniformSparse.Leaf031"
+    ],
+    "APPT.UniformSparse.Join016": [
+      "APPT.UniformSparse.Leaf032",
+      "APPT.UniformSparse.Leaf033"
+    ],
+    "APPT.UniformSparse.Join017": [
+      "APPT.UniformSparse.Leaf034",
+      "APPT.UniformSparse.Leaf035"
+    ],
+    "APPT.UniformSparse.Join018": [
+      "APPT.UniformSparse.Leaf036",
+      "APPT.UniformSparse.Leaf037"
+    ],
+    "APPT.UniformSparse.Join019": [
+      "APPT.UniformSparse.Leaf038",
+      "APPT.UniformSparse.Leaf039"
+    ],
+    "APPT.UniformSparse.Join020": [
+      "APPT.UniformSparse.Leaf040",
+      "APPT.UniformSparse.Leaf041"
+    ],
+    "APPT.UniformSparse.Join021": [
+      "APPT.UniformSparse.Leaf042",
+      "APPT.UniformSparse.Leaf043"
+    ],
+    "APPT.UniformSparse.Join022": [
+      "APPT.UniformSparse.Leaf044",
+      "APPT.UniformSparse.Leaf045"
+    ],
+    "APPT.UniformSparse.Join023": [
+      "APPT.UniformSparse.Leaf046",
+      "APPT.UniformSparse.Leaf047"
+    ],
+    "APPT.UniformSparse.Join024": [
+      "APPT.UniformSparse.Leaf048",
+      "APPT.UniformSparse.Leaf049"
+    ],
+    "APPT.UniformSparse.Join025": [
+      "APPT.UniformSparse.Leaf050",
+      "APPT.UniformSparse.Leaf051"
+    ],
+    "APPT.UniformSparse.Join026": [
+      "APPT.UniformSparse.Leaf052",
+      "APPT.UniformSparse.Leaf053"
+    ],
+    "APPT.UniformSparse.Join027": [
+      "APPT.UniformSparse.Leaf054",
+      "APPT.UniformSparse.Leaf055"
+    ],
+    "APPT.UniformSparse.Join028": [
+      "APPT.UniformSparse.Leaf056",
+      "APPT.UniformSparse.Leaf057"
+    ],
+    "APPT.UniformSparse.Join029": [
+      "APPT.UniformSparse.Leaf058",
+      "APPT.UniformSparse.Leaf059"
+    ],
+    "APPT.UniformSparse.Join030": [
+      "APPT.UniformSparse.Leaf060",
+      "APPT.UniformSparse.Leaf061"
+    ],
+    "APPT.UniformSparse.Join031": [
+      "APPT.UniformSparse.Leaf062",
+      "APPT.UniformSparse.Leaf063"
+    ],
+    "APPT.UniformSparse.Join032": [
+      "APPT.UniformSparse.Leaf064",
+      "APPT.UniformSparse.Leaf065"
+    ],
+    "APPT.UniformSparse.Join033": [
+      "APPT.UniformSparse.Leaf066",
+      "APPT.UniformSparse.Leaf067"
+    ],
+    "APPT.UniformSparse.Join034": [
+      "APPT.UniformSparse.Leaf068",
+      "APPT.UniformSparse.Leaf069"
+    ],
+    "APPT.UniformSparse.Join035": [
+      "APPT.UniformSparse.Leaf070",
+      "APPT.UniformSparse.Leaf071"
+    ],
+    "APPT.UniformSparse.Join036": [
+      "APPT.UniformSparse.Leaf072",
+      "APPT.UniformSparse.Leaf073"
+    ],
+    "APPT.UniformSparse.Join037": [
+      "APPT.UniformSparse.Leaf074",
+      "APPT.UniformSparse.Leaf075"
+    ],
+    "APPT.UniformSparse.Join038": [
+      "APPT.UniformSparse.Leaf076",
+      "APPT.UniformSparse.Leaf077"
+    ],
+    "APPT.UniformSparse.Join039": [
+      "APPT.UniformSparse.Leaf078",
+      "APPT.UniformSparse.Leaf079"
+    ],
+    "APPT.UniformSparse.Join040": [
+      "APPT.UniformSparse.Leaf080",
+      "APPT.UniformSparse.Leaf081"
+    ],
+    "APPT.UniformSparse.Join041": [
+      "APPT.UniformSparse.Leaf082",
+      "APPT.UniformSparse.Leaf083"
+    ],
+    "APPT.UniformSparse.Join042": [
+      "APPT.UniformSparse.Leaf084",
+      "APPT.UniformSparse.Leaf085"
+    ],
+    "APPT.UniformSparse.Join043": [
+      "APPT.UniformSparse.Leaf086",
+      "APPT.UniformSparse.Leaf087"
+    ],
+    "APPT.UniformSparse.Join044": [
+      "APPT.UniformSparse.Leaf088",
+      "APPT.UniformSparse.Leaf089"
+    ],
+    "APPT.UniformSparse.Join045": [
+      "APPT.UniformSparse.Leaf090",
+      "APPT.UniformSparse.Leaf091"
+    ],
+    "APPT.UniformSparse.Join046": [
+      "APPT.UniformSparse.Leaf092",
+      "APPT.UniformSparse.Leaf093"
+    ],
+    "APPT.UniformSparse.Join047": [
+      "APPT.UniformSparse.Leaf094",
+      "APPT.UniformSparse.Leaf095"
+    ],
+    "APPT.UniformSparse.Join048": [
+      "APPT.UniformSparse.Leaf096",
+      "APPT.UniformSparse.Leaf097"
+    ],
+    "APPT.UniformSparse.Join049": [
+      "APPT.UniformSparse.Leaf098",
+      "APPT.UniformSparse.Leaf099"
+    ],
+    "APPT.UniformSparse.Join050": [
+      "APPT.UniformSparse.Leaf100",
+      "APPT.UniformSparse.Leaf101"
+    ],
+    "APPT.UniformSparse.Join051": [
+      "APPT.UniformSparse.Leaf102",
+      "APPT.UniformSparse.Leaf103"
+    ],
+    "APPT.UniformSparse.Join052": [
+      "APPT.UniformSparse.Leaf104",
+      "APPT.UniformSparse.Leaf105"
+    ],
+    "APPT.UniformSparse.Join053": [
+      "APPT.UniformSparse.Leaf106",
+      "APPT.UniformSparse.Leaf107"
+    ],
+    "APPT.UniformSparse.Join054": [
+      "APPT.UniformSparse.Leaf108",
+      "APPT.UniformSparse.Leaf109"
+    ],
+    "APPT.UniformSparse.Join055": [
+      "APPT.UniformSparse.Leaf110",
+      "APPT.UniformSparse.Leaf111"
+    ],
+    "APPT.UniformSparse.Join056": [
+      "APPT.UniformSparse.Leaf112",
+      "APPT.UniformSparse.Leaf113"
+    ],
+    "APPT.UniformSparse.Join057": [
+      "APPT.UniformSparse.Join000",
+      "APPT.UniformSparse.Join001"
+    ],
+    "APPT.UniformSparse.Join058": [
+      "APPT.UniformSparse.Join002",
+      "APPT.UniformSparse.Join003"
+    ],
+    "APPT.UniformSparse.Join059": [
+      "APPT.UniformSparse.Join004",
+      "APPT.UniformSparse.Join005"
+    ],
+    "APPT.UniformSparse.Join060": [
+      "APPT.UniformSparse.Join006",
+      "APPT.UniformSparse.Join007"
+    ],
+    "APPT.UniformSparse.Join061": [
+      "APPT.UniformSparse.Join008",
+      "APPT.UniformSparse.Join009"
+    ],
+    "APPT.UniformSparse.Join062": [
+      "APPT.UniformSparse.Join010",
+      "APPT.UniformSparse.Join011"
+    ],
+    "APPT.UniformSparse.Join063": [
+      "APPT.UniformSparse.Join012",
+      "APPT.UniformSparse.Join013"
+    ],
+    "APPT.UniformSparse.Join064": [
+      "APPT.UniformSparse.Join014",
+      "APPT.UniformSparse.Join015"
+    ],
+    "APPT.UniformSparse.Join065": [
+      "APPT.UniformSparse.Join016",
+      "APPT.UniformSparse.Join017"
+    ],
+    "APPT.UniformSparse.Join066": [
+      "APPT.UniformSparse.Join018",
+      "APPT.UniformSparse.Join019"
+    ],
+    "APPT.UniformSparse.Join067": [
+      "APPT.UniformSparse.Join020",
+      "APPT.UniformSparse.Join021"
+    ],
+    "APPT.UniformSparse.Join068": [
+      "APPT.UniformSparse.Join022",
+      "APPT.UniformSparse.Join023"
+    ],
+    "APPT.UniformSparse.Join069": [
+      "APPT.UniformSparse.Join024",
+      "APPT.UniformSparse.Join025"
+    ],
+    "APPT.UniformSparse.Join070": [
+      "APPT.UniformSparse.Join026",
+      "APPT.UniformSparse.Join027"
+    ],
+    "APPT.UniformSparse.Join071": [
+      "APPT.UniformSparse.Join028",
+      "APPT.UniformSparse.Join029"
+    ],
+    "APPT.UniformSparse.Join072": [
+      "APPT.UniformSparse.Join030",
+      "APPT.UniformSparse.Join031"
+    ],
+    "APPT.UniformSparse.Join073": [
+      "APPT.UniformSparse.Join032",
+      "APPT.UniformSparse.Join033"
+    ],
+    "APPT.UniformSparse.Join074": [
+      "APPT.UniformSparse.Join034",
+      "APPT.UniformSparse.Join035"
+    ],
+    "APPT.UniformSparse.Join075": [
+      "APPT.UniformSparse.Join036",
+      "APPT.UniformSparse.Join037"
+    ],
+    "APPT.UniformSparse.Join076": [
+      "APPT.UniformSparse.Join038",
+      "APPT.UniformSparse.Join039"
+    ],
+    "APPT.UniformSparse.Join077": [
+      "APPT.UniformSparse.Join040",
+      "APPT.UniformSparse.Join041"
+    ],
+    "APPT.UniformSparse.Join078": [
+      "APPT.UniformSparse.Join042",
+      "APPT.UniformSparse.Join043"
+    ],
+    "APPT.UniformSparse.Join079": [
+      "APPT.UniformSparse.Join044",
+      "APPT.UniformSparse.Join045"
+    ],
+    "APPT.UniformSparse.Join080": [
+      "APPT.UniformSparse.Join046",
+      "APPT.UniformSparse.Join047"
+    ],
+    "APPT.UniformSparse.Join081": [
+      "APPT.UniformSparse.Join048",
+      "APPT.UniformSparse.Join049"
+    ],
+    "APPT.UniformSparse.Join082": [
+      "APPT.UniformSparse.Join050",
+      "APPT.UniformSparse.Join051"
+    ],
+    "APPT.UniformSparse.Join083": [
+      "APPT.UniformSparse.Join052",
+      "APPT.UniformSparse.Join053"
+    ],
+    "APPT.UniformSparse.Join084": [
+      "APPT.UniformSparse.Join054",
+      "APPT.UniformSparse.Join055"
+    ],
+    "APPT.UniformSparse.Join085": [
+      "APPT.UniformSparse.Join057",
+      "APPT.UniformSparse.Join058"
+    ],
+    "APPT.UniformSparse.Join086": [
+      "APPT.UniformSparse.Join059",
+      "APPT.UniformSparse.Join060"
+    ],
+    "APPT.UniformSparse.Join087": [
+      "APPT.UniformSparse.Join061",
+      "APPT.UniformSparse.Join062"
+    ],
+    "APPT.UniformSparse.Join088": [
+      "APPT.UniformSparse.Join063",
+      "APPT.UniformSparse.Join064"
+    ],
+    "APPT.UniformSparse.Join089": [
+      "APPT.UniformSparse.Join065",
+      "APPT.UniformSparse.Join066"
+    ],
+    "APPT.UniformSparse.Join090": [
+      "APPT.UniformSparse.Join067",
+      "APPT.UniformSparse.Join068"
+    ],
+    "APPT.UniformSparse.Join091": [
+      "APPT.UniformSparse.Join069",
+      "APPT.UniformSparse.Join070"
+    ],
+    "APPT.UniformSparse.Join092": [
+      "APPT.UniformSparse.Join071",
+      "APPT.UniformSparse.Join072"
+    ],
+    "APPT.UniformSparse.Join093": [
+      "APPT.UniformSparse.Join073",
+      "APPT.UniformSparse.Join074"
+    ],
+    "APPT.UniformSparse.Join094": [
+      "APPT.UniformSparse.Join075",
+      "APPT.UniformSparse.Join076"
+    ],
+    "APPT.UniformSparse.Join095": [
+      "APPT.UniformSparse.Join077",
+      "APPT.UniformSparse.Join078"
+    ],
+    "APPT.UniformSparse.Join096": [
+      "APPT.UniformSparse.Join079",
+      "APPT.UniformSparse.Join080"
+    ],
+    "APPT.UniformSparse.Join097": [
+      "APPT.UniformSparse.Join081",
+      "APPT.UniformSparse.Join082"
+    ],
+    "APPT.UniformSparse.Join098": [
+      "APPT.UniformSparse.Join083",
+      "APPT.UniformSparse.Join084"
+    ],
+    "APPT.UniformSparse.Join099": [
+      "APPT.UniformSparse.Join085",
+      "APPT.UniformSparse.Join086"
+    ],
+    "APPT.UniformSparse.Join100": [
+      "APPT.UniformSparse.Join087",
+      "APPT.UniformSparse.Join088"
+    ],
+    "APPT.UniformSparse.Join101": [
+      "APPT.UniformSparse.Join089",
+      "APPT.UniformSparse.Join090"
+    ],
+    "APPT.UniformSparse.Join102": [
+      "APPT.UniformSparse.Join091",
+      "APPT.UniformSparse.Join092"
+    ],
+    "APPT.UniformSparse.Join103": [
+      "APPT.UniformSparse.Join093",
+      "APPT.UniformSparse.Join094"
+    ],
+    "APPT.UniformSparse.Join104": [
+      "APPT.UniformSparse.Join095",
+      "APPT.UniformSparse.Join096"
+    ],
+    "APPT.UniformSparse.Join105": [
+      "APPT.UniformSparse.Join097",
+      "APPT.UniformSparse.Join098"
+    ],
+    "APPT.UniformSparse.Join106": [
+      "APPT.UniformSparse.Join099",
+      "APPT.UniformSparse.Join100",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join107": [
+      "APPT.UniformSparse.Join101",
+      "APPT.UniformSparse.Join102",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join108": [
+      "APPT.UniformSparse.Join103",
+      "APPT.UniformSparse.Join104",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join109": [
+      "APPT.UniformSparse.Join105",
+      "APPT.UniformSparse.Join056",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join110": [
+      "APPT.UniformSparse.Join106",
+      "APPT.UniformSparse.Join107",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join111": [
+      "APPT.UniformSparse.Join108",
+      "APPT.UniformSparse.Join109",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Join112": [
+      "APPT.UniformSparse.Join110",
+      "APPT.UniformSparse.Join111",
+      "APPT.CoefficientMergeFast"
+    ],
+    "APPT.UniformSparse.Leaf000": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf001": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf002": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf003": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf004": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf005": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf006": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf007": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf008": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf009": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf010": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf011": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf012": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf013": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf014": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf015": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf016": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf017": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf018": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf019": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf020": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf021": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf022": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf023": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf024": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf025": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf026": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf027": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf028": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf029": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf030": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf031": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf032": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf033": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf034": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf035": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf036": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf037": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf038": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf039": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf040": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf041": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf042": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf043": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf044": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf045": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf046": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf047": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf048": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf049": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf050": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf051": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf052": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf053": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf054": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf055": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf056": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf057": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf058": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf059": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf060": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf061": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf062": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf063": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf064": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf065": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf066": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf067": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf068": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf069": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf070": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf071": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf072": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf073": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf074": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf075": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf076": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf077": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf078": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf079": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf080": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf081": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf082": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf083": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf084": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf085": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf086": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf087": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf088": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf089": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf090": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf091": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf092": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf093": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf094": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf095": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf096": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf097": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf098": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf099": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf100": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf101": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf102": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf103": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf104": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf105": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf106": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf107": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf108": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf109": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf110": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf111": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf112": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT.UniformSparse.Leaf113": [
+      "APPT.UniformSparse.Data"
+    ],
+    "APPT": [
+      "APPT.CoefficientMergeFast",
+      "APPT.OrderedSpectrum",
+      "APPT.Quantum.Attainment"
+    ]
+  }
+}

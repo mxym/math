@@ -20,14 +20,29 @@ identity without an unproved Hildebrand criterion or Schmidt decomposition.
 `Quantum/Orbit.lean` proves preservation under unitary conjugation and
 nonnegative scaling, and invariance of actual trace-square purity.
 
-## Uniform certificate infrastructure
+## Completed uniform certificate and ordered-spectrum upper bound
 
-`CoefficientMerge.lean` proves that merging sparse integer coefficient
-lists preserves evaluation over the real numbers. This separates small
-polynomial expansions from large integer arithmetic. Concrete coefficient
-identities use `decide +kernel`, not native evaluation. The full 1,635-term
-certificate is being checked in a separate bounded-module build and is
-**not yet an exported theorem of this checkpoint**.
+`Uniform.normalized_bound`, `UniformBridge.arbitrary_middle_bound`, and
+`ordered_spectrum_large` now compile. They cover every real endpoint
+population `t,z≥0`, `t+z≥18`, and every sorted normalized nonnegative
+spectrum of total dimension at least 27, under the displayed A/B PSD
+conditions. This is an infinite-dimensional family, not a table of tests.
+
+The original 1,635 positive rational terms are retained exactly. Each
+small generator expansion is proved with `ring`; large integer coefficient
+merges are checked with `decide +kernel`, using the proved evaluation
+lemmas in `CoefficientMerge` and `CoefficientMergeFast`. No native proof
+evaluation is used. The checked module dependency graph has 232 modules,
+all passing a 180-second per-module bound in the recorded direct Lean run.
+The roots including the ordered-spectrum bound passed trust-zero empty
+kernel replay of 45,051 declarations. Portable regeneration reproduces
+all 230 generated files byte for byte.
+
+The full default Lake build was previously recorded for attainment.
+A fresh bounded Lake build including the uniform extension is now part
+of `reproduce.py`; the earlier attainment Lake evidence is not presented
+as evidence for that larger build. Updated Lake evidence will be retained
+when the larger run completes.
 
 ## Complete attainment direction
 
@@ -46,15 +61,21 @@ inside Lean, not supplied as witness hypotheses.
 
 ## Remaining mathematical work
 
-The all-dimension certificate, its complete ordered-spectrum application,
-APPT-to-A/B necessity and the final state-level upper bound remain
-unassembled here. **Attainment is complete; optimality is not yet proved
-by this exported package.** No full formalization Release is created.
+**The actual-state upper bound and final maximum theorem are not yet
+exported here.** The uniform ordered-spectrum upper bound and both actual
+APPT attaining branches are complete in the exported sources. Necessary
+A/B matrices have additionally been obtained from physical unitary corner
+conjugations in the development tree; the matrix diagonalization/sorted
+spectrum assembly remains to be integrated and audited. No full
+formalization Release is created.
 
 A parallel continuation in `../appt-qutrit-purity-lean/` maintains the
 outer/middle reindexing and gap modules. This package uses a distinct path
 and namespace submodules to avoid overwriting that work. The original
 finite-certificate sources are in `../appt-qutrit-purity-interim/`.
+
+The spectrum sum reindexing module is reused from the parallel package at
+commit `39764a6`; its source is retained and freshly compiled here.
 
 ## Reproduce
 

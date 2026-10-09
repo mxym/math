@@ -23,7 +23,9 @@ def main():
     for p in (ROOT/'APPT').rglob('*.lean'):
         if re.search(r'\b(sorry|admit|axiom|native_decide)\b',p.read_text()):
             raise RuntimeError('Forbidden token in proof source: '+str(p))
-    jobs=[('lake-build',['lake','build'],0,600),
+    jobs=[('regenerate',['python3','scripts/generate_uniform.py','--check'],0,180),
+          ('bounded-lake',['lake','env','python3','scripts/build_blocks.py','--case','All','--engine','lake','--jobs','2','--timeout','300'],0,21600),
+          ('lake-build',['lake','build'],0,600),
           ('positive-coefficient',['lake','env','lean','-j1','-M12288','PositiveCoefficient.lean'],0,180),
           ('negative-coefficient',['lake','env','lean','-j1','-M12288','RejectCoefficient.lean'],1,180),
           ('empty-kernel',['lake','env','lean','-j1','-M12288','CheckpointReplay.lean'],0,600)]
@@ -46,7 +48,7 @@ def main():
     for p in ROOT.glob('replayed-*.txt'): (OUT/p.name).write_bytes(p.read_bytes())
     for path,expected in pins.items():
         if digest(ROOT/path)!=expected: raise RuntimeError('Source changed during verification: '+path)
-    report={'status':'PASS','scope':'quantum positive-contraction orbit and sparse-merge checkpoint; NOT full purity theorem',
+    report={'status':'PASS','scope':'uniform ordered-spectrum upper bound under A/B PSD and actual APPT attainment; final state-level upper bound pending',
             'lean':version,'mathlib':mp['rev'],'sources':pins,'checks':results,'axioms':sorted(axioms)}
     (OUT/'RUN.json').write_text(json.dumps(report,indent=2)+'\n')
     print('CHECKPOINT_VERIFICATION_PASS',flush=True)
