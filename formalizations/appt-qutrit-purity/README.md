@@ -1,141 +1,133 @@
-# APPT qutrit–qudit: quantum and uniform-certificate continuation
+# Qutrit-qudit APPT purity: all-dimension Lean proof
 
-**IN PROGRESS. This is not yet the complete maximal-purity theorem.**
-This additive working package does not modify the immutable
-`appt-qutrit-purity-interim-v1` Release or its files.
+**The actual all-n maximal-purity theorem has compiled and passed independent
+trust-zero kernel replay. Final release validation is in progress.**
+Run `37956727424` passed all 879 local modules, the default Lake build, and a
+155,787-declaration / 58-root replay. A later auxiliary endpoint test failed
+arithmetic simplification; that test is corrected and the final forged-proof
+control is being rerun. See
+[the exact checkpoint boundary](verification/all-n-kernel-checkpoint-20261009/README.md).
+No full-formalization Release is claimed at this checkpoint.
 
-## Proved quantum theorem
+## Mathematical statement and physical semantics
 
-For every finite second-factor index type and every complex matrix `P` on
-`Fin 3 × b`, if `P` and `1-P` are positive semidefinite, then
-`partialTranspose P + 1` is positive semidefinite. Moreover `1+P` is
-**absolutely PPT**: partial transposition is positive after every global
-unitary conjugation. The definition quantifies over the actual complex
-unitary group; it does not replace APPT with a spectral condition.
+For every natural number `n >= 3`, the maximum of `Tr(rho*rho)` over the
+absolutely-PPT density matrices on `C^3 tensor C^n` is
 
-`Quantum/Contractions.lean` gives an explicit identity expressing
-`partialTranspose P + 1` as a sum of nine PSD congruences of `P` and
-`1-P`. The symmetric/antisymmetric local two-plane matrices give the
-identity without an unproved Hildebrand criterion or Schmidt decomposition.
-`Quantum/Orbit.lean` proves preservation under unitary conjugation and
-nonnegative scaling, and invariance of actual trace-square purity.
+```text
+(3*n + 8)/(3*n + 2)^2,  if 3 <= n <= 8;
+3/(8*n),               if n >= 9.
+```
 
-## Completed uniform certificate and ordered-spectrum upper bound
+`APPT.Quantum.appt_purity_maximum_formula` states this as
+`IsGreatest (attainablePurities n) (...)`. Consequently the result contains both
+a universal upper bound and an actual attaining state, not just a supremum.
 
-`Uniform.normalized_bound`, `UniformBridge.arbitrary_middle_bound`, and
-`ordered_spectrum_large` now compile. They cover every real endpoint
-population `t,z≥0`, `t+z≥18`, and every sorted normalized nonnegative
-spectrum of total dimension at least 27, under the displayed A/B PSD
-conditions. This is an infinite-dimensional family, not a table of tests.
+The definitions in `APPT/Quantum/Basic.lean` use the genuine objects:
+`IsDensity A` means `A.PosSemidef` and `A.trace = 1`;
+`AbsolutelyPPT A` requires positivity of the partial transpose after conjugation
+by **every global complex unitary**; and `purity A` is `(A*A).trace.re`.
+There are no unproved A/B-matrix, spectral, or Schmidt-decomposition hypotheses
+in the final theorem.
 
-The original 1,635 positive rational terms are retained exactly. Each
-small generator expansion is proved with `ring`; large integer coefficient
-merges are checked with `decide +kernel`, using the proved evaluation
-lemmas in `CoefficientMerge` and `CoefficientMergeFast`. No native proof
-evaluation is used. The checked module dependency graph has 232 modules,
-all passing a 180-second per-module bound in the recorded direct Lean run.
-The roots including the ordered-spectrum bound passed trust-zero empty
-kernel replay of 45,051 declarations. Portable regeneration reproduces
-all 230 generated files byte for byte.
+## Paper-to-Lean proof map
 
-The full default Lake build was previously recorded for attainment.
-A fresh bounded Lake build including the uniform extension is now part
-of `reproduce.py`; the earlier attainment Lake evidence is not presented
-as evidence for that larger build. Updated Lake evidence will be retained
-when the larger run completes.
+| Mathematical obligation | Lean declarations/modules |
+| --- | --- |
+| Actual unitary orbits and partial transpose | `Quantum.Basic`, `Quantum.Orbit`, `Quantum.Reindex` |
+| APPT implies the required corner PSD conditions | `Quantum.CornerNecessity.diagonal_appt_necessary_matrices`, `Quantum.SpectralNecessity.density_appt_has_sorted_spectrum` |
+| Sorted nonnegative eigenvalues and actual diagonalization | `Quantum.SpectralData` |
+| Trace normalization and trace-square spectral identity | `Quantum.SpectralMoments` |
+| Six finite spectral upper bounds | `Finite9Bound` through `Finite24Bound`, `SpectrumBound9` through `SpectrumBound24` |
+| Uniform certificate for the whole large-dimension family | `Uniform.normalized_bound`, `UniformBridge.arbitrary_middle_bound`, `ordered_spectrum_large` |
+| Small actual-state upper bound | `Quantum.SmallMaximum.appt_purity_upper_small`, for every 3 <= n <= 8 |
+| Large actual-state upper bound | `Quantum.LargeMaximum.appt_purity_upper_large`, for every n >= 9 |
+| Actual APPT attaining states in both branches | `Quantum.Attainment.targetPurity_attained` |
+| Final attained maximum for every n >= 3 | `Quantum.Maximum.appt_purity_maximum_formula` |
 
-## Complete attainment direction
+The corner-necessity bridge is proved with explicit physical unitaries. A full
+classification of APPT spectra by a Hildebrand if-and-only-if criterion is not
+needed: necessity supplies the upper bound, while direct quantum constructions
+prove the required attaining states are APPT. No missing equivalence is assumed.
 
-`Quantum/Attainment.lean:targetPurity_attained` proves for every integer
-`n≥3` that an actual trace-one PSD complex matrix is absolutely PPT and
-has purity `(3n+8)/(3n+2)^2` for `n≤8`, or `3/(8n)` for `n≥9`.
-The first branch uses `(I+2vv*)/(3n+2)` with a normalized vector; the
-second uses `(I+P)/(4n)` with a rank-n coordinate projection.
-Both proofs quantify over every global unitary.
+The small-branch witness is `(I+2vv*)/(3*n+2)` for a unit vector. The large-branch
+witness is `(I+P)/(4*n)` for a rank-n coordinate projection. Normalization,
+positivity, all-unitary APPT, and the trace-square values are proved in Lean.
+These witnesses establish attainment, not a classification of all equality cases.
 
-The pure-projector bound `I+2*partialTranspose(vv*)≥0` is proved using an
-explicit three-column skew Gram identity and a rectangular-contraction
-lemma. It does not use an assumed Schmidt decomposition or Hildebrand
-criterion. Normalization, matrix squaring, trace, and purity are proved
-inside Lean, not supplied as witness hypotheses.
+## Bounded exact certificates
 
-## Completed actual-state maximum for n ≥ 9
+The original 1,635-term uniform rational certificate and all six finite
+certificates are retained. Python generates exact integer coefficient data;
+Lean proves every identity and every sign. `ring` handles small symbolic
+identities, and `decide +kernel` checks exact finite coefficient operations.
+No `native_decide`, `sorry`, `admit`, or custom axiom is used in the proof closure.
 
-`Quantum/LargeMaximum.lean:appt_purity_maximum_large` now proves both the
-universal upper bound and attainment of `3/(8*n)` for every integer `n≥9`.
-The upper bound quantifies over actual complex trace-one PSD matrices and
-the genuine global-unitary APPT definition. There are no A/B, eigenvalue,
-Schmidt-decomposition, or Hildebrand-equivalence assumptions in its statement.
+The finite generator now inserts independently proved literal coefficient
+barriers and explicit `nat_lit` / integer constructors. This avoids expensive
+repeated overloaded-numeral elaboration without changing coefficient values
+or theorem statements. Deterministic regeneration reproduces 601 finite Lean
+files and 230 uniform generated files. The complete import graph has 879 local
+modules, and the proof/tool inventory pins 942 files.
 
-`CornerNecessity` derives both necessary real PSD matrices by explicit
-physical corner unitaries. `SpectralData` and `SpectralMoments` use Mathlib's
-actual Hermitian diagonalization, prove sorted nonnegative eigenvalues,
-trace normalization, and equality between trace-square purity and the sum
-of squared eigenvalues. The new closure passed trust-zero empty-kernel
-replay: 45,204 declarations, 51 roots; only the three standard Lean axioms.
-See `evidence/large-state-20261009/`. This replay is separate from the earlier
-attainment Lake evidence; the enlarged fresh Lake build is still being
-completed, so no full-formalization Release is created.
+The completed component build recorded every module under a 300-second limit;
+the largest recorded module took 239.703 seconds. In the independent dense-D24
+probe, two formerly timed-out modules took 22.044 and 20.168 seconds and passed
+trust-zero replay. See [the bounded coefficient audit](BOUNDED_COEFFICIENT_AUDIT.md).
 
-## Standalone physical necessity interface
+## Verification, negative controls, and trust boundary
 
-`Quantum/SpectralNecessity.lean: density_appt_has_sorted_spectrum` exports
-the complete state-to-sorted-spectrum necessary conditions for every n >= 3,
-including normalization and the actual purity identity. It can be built
-without the large uniform certificate modules. See [NECESSITY.md](NECESSITY.md)
-for the dedicated clean-target build, positive/negative controls, trust-zero
-replay, exact source hashes, and independent verification workflow. The
-independent CI run `37930537368` passed all checks; its literal records are
-retained in `verification/necessity-ci-20261009/` (34,435 replayed declarations,
-eleven roots, only the three standard Lean axioms).
+`CheckpointReplay.lean` collects the explicit theorem roots and their transitive
+closure, rejects unsafe/partial declarations and unapproved axioms, and replays
+them in an initially empty Lean kernel at trust level zero. It also compares
+replayed root types and universe parameters with the originals. The only allowed
+axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 
-## Verified sparse-arithmetic foundation
+`CompletionAudit.lean` additionally replaces the proof of the **same final
+maximum theorem** by `True.intro` and requires a second fresh kernel to reject
+it for a declaration type mismatch. The auxiliary sparse, corner, and endpoint
+controls pair a valid statement with deliberately invalid data; timeouts or
+unrelated compiler errors do not count as successful rejection.
 
-The bounded finite-certificate continuation now has an independently checked
-sparse-polynomial foundation. Its seven roots passed a trust-zero replay of
-5,166 declarations, a deliberately corrupted theorem-proof control, and a
-wrong-coefficient control in CI run `37948196219`. The literal logs, checked
-source hashes, and precise scope are in [SPARSE_ARITHMETIC_AUDIT.md](SPARSE_ARITHMETIC_AUDIT.md).
-This verified foundation alone does not close the remaining state-level maximum.
+[The all-dimension physical semantic regression](SEMANTIC_REGRESSION.md) proves
+that a genuine PPT density state can have purity one and fail APPT for every
+n >= 3. Thus ordinary PPT cannot silently replace the final theorem's APPT
+hypothesis. It passed a separate 35,589-declaration trust-zero replay.
 
-## Bounded dense-coefficient continuation
-
-The two D=24 coefficient modules that exceeded 300 seconds now compile in 22.044
-and 20.168 seconds and pass an independent 35,850-declaration trust-zero replay.
-The [bounded coefficient audit](BOUNDED_COEFFICIENT_AUDIT.md) retains exact source
-hashes, literal logs, the forged-proof rejection, and the remaining scope.
-This checkpoint does not by itself certify the all-n maximum.
-
-## Remaining mathematical work
-
-The state-level upper bounds for `3≤n≤8` are not yet exported in this package.
-The `n=3,...,7` assemblies compile in the development tree. The remaining
-24-dimensional certificate is being decomposed into bounded modules because
-the large determinant expansion exceeded the per-module compilation limit.
-Both small-branch and large-branch actual APPT attaining states are already
-proved. The final all-`n≥3` maximum and its full build/audit remain pending.
-
-A parallel continuation in `../appt-qutrit-purity-lean/` maintains the
-outer/middle reindexing and gap modules. This package uses a distinct path
-and namespace submodules to avoid overwriting that work. The original
-finite-certificate sources are in `../appt-qutrit-purity-interim/`.
-
-The spectrum sum reindexing module is reused from the parallel package at
-commit `39764a6`; its source is retained and freshly compiled here.
+External dependency caches and hash-bound component objects accelerate builds;
+they are not proof oracles. Reports distinguish fresh project builds from
+component reuse. The final mathematical closure is independently rechecked at
+trust zero even when object caches are used.
 
 ## Reproduce
 
-Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+Pinned toolchain: Lean **4.34.1**. Pinned Mathlib:
+`d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+From this directory:
 
 ```sh
 lake exe cache get
-python3 reproduce.py
+python3 scripts/source_manifest.py --check
+python3 reproduce.py --fresh --jobs 2
 ```
 
-The runner builds the complete default Lake target, replays the explicit
-root closure from an empty kernel environment at trust level zero, checks
-the allowed axiom names, and executes both a correct and an incorrect
-coefficient control. The failed control alone is not evidence of a
-working checker: its neighboring positive control must pass too.
-The runner writes literal logs and source hashes to `local-verification/`.
-Recorded evidence identifies the exact checked source hashes.
+`--fresh` removes only this package's `.lake/build`, retaining external dependency
+caches. Omitting it permits source/object-hash-bound resumption, which is recorded
+as such. The script enforces individual module limits, runs the complete default
+Lake target, checks regeneration, tests correct and incorrect certificates,
+and performs both kernel audits. Literal results go to `local-verification/complete/`.
+A source manifest is checked, not regenerated as part of verification.
+
+## Scope and provenance
+
+This proof covers the exact APPT purity maximum for all qutrit-qudit systems with
+n >= 3. It does not assert a classification of all maximizers, the corresponding
+separability optimum, arbitrary first-factor dimension, or cases n < 3.
+It makes no new novelty, priority, or external peer-review claim.
+
+The parallel `appt-qutrit-purity-lean` work supplied modular reindexing; the actual
+source is retained here. Finite data originated in the interim package. The
+immutable `appt-qutrit-purity-interim-v1` Release and its files are not modified.
+Historical audit reports remain historical; they do not replace the full-theorem
+verification records.
