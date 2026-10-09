@@ -1,0 +1,68 @@
+name: APPT complete maximum source-bound replay
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  complete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Verify the seven successful source component jobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p component-provenance
+          gh api repos/mxym/math/actions/runs/37956727424 > component-provenance/run.json
+          gh api repos/mxym/math/actions/runs/37956727424/jobs > component-provenance/jobs.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('component-provenance')
+          run=json.loads((p/'run.json').read_text())
+          assert run['head_sha']=='b30faa14239c85ea61447c055d37731c9e987939'
+          expected={f'components ({c})' for c in ['Dimension9','Dimension12','Dimension15','Dimension18','Dimension21','Dimension24','UniformBuild']}
+          jobs=json.loads((p/'jobs.json').read_text())['jobs']
+          matched=[j for j in jobs if j['name'] in expected]
+          assert len(matched)==7 and {j['name'] for j in matched}==expected
+          assert all(j['status']=='completed' and j['conclusion']=='success' for j in matched)
+          print('SEVEN_COMPONENT_JOB_PROVENANCE_PASS')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          repository: mxym/math
+          github-token: ${{ github.token }}
+          run-id: 37956727424
+          pattern: component-*-b30faa14239c85ea61447c055d37731c9e987939
+          path: component-artifacts
+      - name: Complete Lake build, all controls, and both trust-zero replays
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/source_manifest.py --check
+          python3 scripts/component_cache.py merge ../../component-artifacts
+          find ../../component-artifacts -name UNIFORM_CACHE_PROVENANCE.json -exec cp {} local-verification/complete/ \;
+          cp ../../component-provenance/*.json local-verification/complete/
+          python3 reproduce.py 2>&1 | tee full-verification.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: complete-maximum-${{ github.sha }}
+          path: |
+            formalizations/appt-qutrit-purity/logs/blocks/
+            formalizations/appt-qutrit-purity/replayed-*.txt
+            formalizations/appt-qutrit-purity/completion-replayed-*.txt
+            formalizations/appt-qutrit-purity/local-verification/complete/
+            formalizations/appt-qutrit-purity/full-verification.log
+            component-provenance/

@@ -61,9 +61,9 @@ def main() -> None:
         ('negative-corner',['lake','env','lean','-j1','-M12288','NecessityReject.lean'],'decide',180),
         ('positive-purity',['lake','env','lean','-j1','-M12288','PositivePurity.lean'],'pass',300),
         ('negative-purity',['lake','env','lean','-j1','-M12288','RejectPurity.lean'],'false',300),
+        ('completion-formula-controls',['lake','env','lean','-j1','-M12288','CompletionFormulaControls.lean'],'pass',300),
         ('empty-kernel',['lake','env','lean','-j1','-M12288','CheckpointReplay.lean'],'pass',1200),
         ('replay-support',['lake','env','lean','-j1','-M12288','-o','.lake/build/lib/lean/Verification/ReplaySupport.olean','Verification/ReplaySupport.lean'],'pass',180),
-        ('completion-formula-controls',['lake','env','lean','-j1','-M12288','CompletionFormulaControls.lean'],'pass',300),
         ('corrupt-final-theorem',['lake','env','lean','-j1','-M12288','CompletionAudit.lean'],'pass',1200),
     ]
     report={'status':'RUNNING','scope':'Complete actual-state qutrit-qudit APPT maximal purity for every integer n >= 3; universal upper bound and physical APPT attainment',

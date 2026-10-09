@@ -11,7 +11,7 @@ example : targetPurity 8 = (8 : ℝ)/169 := by norm_num [targetPurity]
 example : targetPurity 9 = (1 : ℝ)/24 := by norm_num [targetPurity]
 
 example : IsGreatest (attainablePurities 3) ((17 : ℝ)/121) := by
-  simpa [targetPurity] using targetPurity_isGreatest 3 (by norm_num)
+  convert targetPurity_isGreatest 3 (by norm_num) using 1 <;> norm_num [targetPurity]
 
 example : IsGreatest (attainablePurities 8) ((8 : ℝ)/169) := by
   convert targetPurity_isGreatest 8 (by norm_num) using 1 <;> norm_num [targetPurity]
