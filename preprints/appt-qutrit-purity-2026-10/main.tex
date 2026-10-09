@@ -1,0 +1,449 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,array,longtable,microtype}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage{xurl}
+\hypersetup{pdftitle={Exact maximum purity of absolutely PPT qutrit-qudit states},pdfauthor={Yongxian Zhang},pdfsubject={Computer-assisted mathematical preprint; APPT theorem with complete Lean verification},pdfkeywords={absolute PPT, purity, separability, exact certificates, Lean}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\APPT}{\operatorname{APPT}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\psd}{\succeq0}
+\newcommand{\hs}{\mathrm{HS}}
+\newcommand{\proofcommit}{\texttt{2fc3f25179cf1128c4bccbde65fd3a07c093ad6d}}
+\title{The exact maximum purity of absolutely PPT\protect\\qutrit--qudit states:\protect\\a computer-assisted proof with complete Lean verification}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Correspondence: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}. ORCID: \url{https://orcid.org/0009-0000-3864-3536}.}}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We determine the maximum of $\Tr(\rho^2)$ over absolutely positive partial transpose (APPT) density matrices on $\C^3\otimes\C^n$, for every integer $n\geq3$. The value is $(3n+8)/(3n+2)^2$ for $3\leq n\leq8$, and $3/(8n)$ for $n\geq9$. Thus we prove the maximal-value and attainment part of the inscribed-polytope purity conjecture of Ahiable, Kothakonda and Winter in local dimension three. The upper bound uses two necessary spectral positive-semidefiniteness conditions, six exact finite cubic certificates, and an endpoint-compression argument coupled to one uniform rational certificate. Attainment is established for the actual global-unitary APPT condition by explicit density matrices. The entire maximal-purity theorem, including spectral ordering, trace and purity identities, physical necessity and attainment, has been formalized in Lean 4.34.1. A source-bound build of 879 local modules and an independent trust-zero replay of 155,787 declarations covering 58 roots passed, together with paired positive and negative controls. The exact certificate data and a standard-library rational checker accompany this preprint; the complete formalization is frozen in an immutable public release. Combining the APPT theorem with a published spectral-ratio separability criterion, we also derive the same maximum for absolutely separable states as an analytic corollary outside the Lean certificate. We do not classify all maximizers or resolve equality of the APPT and absolutely separable sets.
+\end{abstract}
+\noindent\textbf{Keywords.} Absolute PPT; purity; spectra; quantum states; exact certificates; Lean formalization.
+
+\section{Introduction and main result}
+Fix a tensor product $\C^3\otimes\C^n$ and let $\Gamma=T\otimes\id$ denote partial transposition on its first factor. A density matrix $\rho$ is \emph{absolutely PPT} if
+\begin{equation}\label{eq:appt}
+ (U\rho U^*)^\Gamma\succeq0\qquad\text{for every }U\in\mathcal U(3n).
+\end{equation}
+Unlike the PPT property in a fixed basis, this condition depends only on the eigenvalues. Purity, $\Tr(\rho^2)$, measures the squared Hilbert--Schmidt norm. Determining its maximum is equivalent to determining the smallest ball centered at the maximally mixed state that contains the APPT set.
+
+Hildebrand characterized the APPT property by spectral linear matrix inequalities \cite{Hildebrand}. Dung and Khoi investigated maximum purity and proposed numerical formulas for qubit--qudit and qutrit--qudit systems \cite{DungKhoi}. Their qutrit formula is not the formula proved here. Tran's later outer-polytope analysis gives a strict qutrit upper bound that disproves that earlier qutrit conjecture \cite{Tran}; we make no claim to the first disproof. Ahiable, Kothakonda and Winter computed the exact maximum over an inscribed APPT polytope and conjectured that it is also the maximum over the full APPT spectral set \cite[Theorem 6.3, Corollary 6.4 and Conjecture 6.7]{AKW}. Its specialization to local dimension three is the following theorem.
+
+\begin{theorem}[Exact qutrit--qudit APPT purity]\label{thm:main}
+For every integer $n\geq3$,
+\begin{equation}\label{eq:maximum}
+ \max_{\rho\in\APPT_{3,n}}\Tr(\rho^2)
+ =p_n:={\begin{cases}
+ \displaystyle\frac{3n+8}{(3n+2)^2},&3\leq n\leq8,\\[6pt]
+ \displaystyle\frac{3}{8n},&n\geq9.
+ \end{cases}}
+\end{equation}
+The first value is attained by $(I+2vv^*)/(3n+2)$ for any unit vector $v$. The second value is attained by $(I+P)/(4n)$ for any rank-$n$ orthogonal projection $P$.
+\end{theorem}
+
+Here $\APPT_{3,n}$ denotes the trace-one positive-semidefinite matrices satisfying \eqref{eq:appt}. The result includes both an upper bound for every such matrix and an actual attaining state. It confirms the value and provides attaining spectra from the conjecture of \cite{AKW}; it does not classify all states attaining equality. The two displayed witnesses have spectra
+\begin{equation}\label{eq:witness-spectra}
+ \frac{1}{3n+2}(3,1,\ldots,1),\qquad
+ \frac{1}{4n}(\underbrace{2,\ldots,2}_{n},
+                  \underbrace{1,\ldots,1}_{2n}),
+\end{equation}
+respectively. In particular, the asserted extremal values were predicted by previous work; the contribution here is their proof for the entire qutrit--qudit family and a complete physical-state formalization.
+
+The proof is computer-assisted in a precise sense. Two polynomial nonnegativity lemmas are established by rational certificates supplied as finite data. One covers the six dimensions $9,12,\ldots,24$; the other covers arbitrary real endpoint populations with sum at least $18$. All remaining steps are analytic, linear-algebraic, or elementary algebraic. Sections~\ref{sec:finite} and~\ref{sec:uniform} state the exact identities and explain how to reconstruct and check every term. The Lean proof independently verifies these identities and the bridges to the physical theorem. Neither a numerical optimization result nor a solver success flag is a premise.
+
+\section{Physical necessity and the nine selected eigenvalues}\label{sec:necessity}
+Write $D=3n$ and order the eigenvalues of a density matrix as
+\begin{equation}\label{eq:spectrum}
+ \lambda_1\geq\lambda_2\geq\cdots\geq\lambda_D\geq0,
+ \qquad \sum_{i=1}^D\lambda_i=1.
+\end{equation}
+For $n\geq3$, select the nine distinct positions
+\begin{equation}\label{eq:outer}
+ y=(\lambda_1,\lambda_2,\lambda_3,
+       \lambda_{D-5},\lambda_{D-4},\lambda_{D-3},
+       \lambda_{D-2},\lambda_{D-1},\lambda_D).
+\end{equation}
+Define the real symmetric matrices
+\begin{equation}\label{eq:A}
+ A(y)=\begin{pmatrix}
+ 2y_9&y_8-y_1&y_6-y_2\\
+ y_8-y_1&2y_7&y_5-y_3\\
+ y_6-y_2&y_5-y_3&2y_4
+ \end{pmatrix},
+\end{equation}
+\begin{equation}\label{eq:B}
+ B(y)=\begin{pmatrix}
+ 2y_9&y_8-y_1&y_7-y_2\\
+ y_8-y_1&2y_6&y_5-y_3\\
+ y_7-y_2&y_5-y_3&2y_4
+ \end{pmatrix}.
+\end{equation}
+These are the familiar qutrit spectral tests, with the two matrices possibly interchanged relative to another labeling convention.
+
+\begin{lemma}[Physical necessity]\label{lem:necessity}
+If $\rho$ is APPT, then $A(y)\succeq0$ and $B(y)\succeq0$ for $y$ in \eqref{eq:outer}. More generally, the conclusion holds for any nine distinct eigenvalue positions assigned to the coordinates of $y$.
+\end{lemma}
+\begin{proof}
+By a global unitary, first diagonalize $\rho$ and move the selected eigenvalues into a $3\times3$ product-basis corner. For $A$, assign those eigenvalues to the corner coordinates according to the array
+\[
+ \begin{pmatrix}9&8&6\\1&7&5\\2&3&4\end{pmatrix};
+ \quad\text{for }B\text{ use }
+ \begin{pmatrix}9&8&7\\1&6&5\\2&3&4\end{pmatrix}.
+\]
+An entry $j$ in an array means that the corresponding diagonal entry is $y_j$. The other eigenvalues occupy the complementary coordinates. On each of the three planes spanned by $e_i\otimes e_j,e_j\otimes e_i$ with $i<j$, apply the real unitary
+\[
+ \frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},
+\]
+and leave the diagonal corner coordinates and the orthogonal complement fixed. A diagonal pair with upper-coordinate value $s$ and lower-coordinate value $a$ acquires off-diagonal entries $(s-a)/2$. Partial transposition carries these entries to the matrix elements between $e_i\otimes e_i$ and $e_j\otimes e_j$. Thus the principal submatrix on the three diagonal corner vectors is exactly $A(y)/2$ or $B(y)/2$. Condition~\eqref{eq:appt} makes the whole partial transpose positive semidefinite; its principal submatrices are positive semidefinite as well.
+\end{proof}
+
+This argument only uses necessity. It does not assume that these matrices characterize APPT, and it does not need the converse direction of Hildebrand's criterion. In Lean, arbitrary injections of nine eigenvalue slots are extended to permutations of the full index type, the corner unitary is extended by the identity, and its entries are verified explicitly. Hermitian diagonalization then supplies the actual ordered spectrum, together with
+\begin{equation}\label{eq:moments}
+ \Tr(\rho)=\sum_i\lambda_i,\qquad
+ \Tr(\rho^2)=\sum_i\lambda_i^2.
+\end{equation}
+These equations are proved from diagonalization, not supplied as spectral-interface hypotheses.
+
+We shall use the following immediate PSD consequences. For $C=A(y)$ or $B(y)$, its determinant, every principal $2\times2$ minor and every real quadratic form $v^TCv$ are nonnegative. Also,
+\begin{lemma}\label{lem:ratio}
+If $y_1\geq\cdots\geq y_9\geq0$ and $A(y)\succeq0$, then $2y_4-y_3\geq0$.
+\end{lemma}
+\begin{proof}
+Writing $\boldsymbol1=(1,1,1)^T$, we have
+\[
+ \tfrac12\boldsymbol1^TA(y)\boldsymbol1
+ =\sum_{j=4}^9y_j-\sum_{j=1}^3y_j\geq0.
+\]
+Ordering gives $3y_3\leq\sum_{j=1}^3y_j\leq\sum_{j=4}^9y_j\leq6y_4$.
+\end{proof}
+
+\section{Six finite cubic certificates}\label{sec:finite}
+For $D\in\{9,12,15,18,21,24\}$ introduce gaps
+\[
+ g_i=\lambda_i-\lambda_{i+1}\ (i<D),\qquad g_D=\lambda_D.
+\]
+Then $g_i\geq0$ and $\lambda_i=\sum_{j=i}^Dg_j$. Conversely every nonnegative gap vector defines an ordered nonnegative spectrum in this way. Set
+\[
+ T=\sum_{i=1}^D\lambda_i,\qquad S=\sum_{i=1}^D\lambda_i^2,
+\]
+and form $y$ using~\eqref{eq:outer}.
+
+\begin{lemma}[Finite certificate identities]\label{lem:finite}
+For each of the six dimensions above, the ancillary certificate specifies positive rational numbers $c_{D,\alpha}$ and explicitly named homogeneous cubic polynomials $F_{D,\alpha}$ such that the polynomial identity
+\begin{equation}\label{eq:finite-cert}
+ \bigl((D+8)T^2-(D+2)^2S\bigr)T
+ =\sum_{\alpha}c_{D,\alpha}F_{D,\alpha}(g)
+\end{equation}
+holds over $\Q[g_1,\ldots,g_D]$. Every polynomial on the right is nonnegative whenever $g\geq0$, $A(y)\succeq0$ and $B(y)\succeq0$.
+\end{lemma}
+\begin{proof}[Certificate proof]
+The allowable terms are products of nonnegative gaps with PSD determinants, principal minors or quadratic forms, and plain gap monomials. Explicitly, the data use terms of the forms
+\begin{equation}\label{eq:finite-generators}
+ \det C,\quad
+ (C_{ii}C_{jj}-C_{ij}C_{ji})g_k,\quad
+ (v^TCv)g_kg_\ell,\quad g_ig_jg_k,
+ \qquad C\in\{A(y),B(y)\},
+\end{equation}
+with the rational vector $v$ specified in the term name. Each term is nonnegative under the hypotheses. The six rational coefficient lists are included as exact decimal-free strings in the ancillary JSON files. Table~\ref{tab:finite} specifies their sizes and the resulting bounds.
+
+For verification, substitute the linear tail sums for $\lambda$, expand both sides of~\eqref{eq:finite-cert} over the rational numbers, and compare the coefficient of every monomial. The supplied checker performs precisely this operation using Python integers and \texttt{Fraction}; it also verifies strict positivity of every certificate weight. All six coefficient differences vanish. Equivalently, one may clear denominators by the least common multiple of the denominators and compare integer coefficient dictionaries. The Lean finite modules separately prove the same identities through small symbolic expansions and kernel-checked integer coefficient merges, and derive their nonnegativity from the PSD consequences described above. The data, not a numerical search procedure, constitute the finite part of the proof.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrl}
+\toprule
+$n$&$D$&Certificate terms&$(D+8)/(D+2)^2$&Data filename suffix\\
+\midrule
+3&9&166&$17/121$&\texttt{cubic\_certificate\_search.json}\\
+4&12&363&$5/49$&\texttt{D12\_cubic\_certificate.json}\\
+5&15&679&$23/289$&\texttt{D15\_fast\_certificate.json}\\
+6&18&1139&$13/200$&\texttt{D18\_fast\_certificate.json}\\
+7&21&1769&$29/529$&\texttt{D21\_fast\_certificate.json}\\
+8&24&2596&$8/169$&\texttt{D24\_fast\_certificate.json}\\
+\bottomrule
+\end{tabular}
+\caption{Finite exact certificates. Each filename has the prefix \texttt{qutrit\_}. Counts refer to positive weighted terms, not expanded monomials.}\label{tab:finite}
+\end{table}
+
+\begin{corollary}\label{cor:finite}
+Every APPT density matrix on $\C^3\otimes\C^n$ with $3\leq n\leq8$ satisfies $\Tr(\rho^2)\leq(3n+8)/(3n+2)^2$.
+\end{corollary}
+\begin{proof}
+Lemma~\ref{lem:necessity} supplies the two PSD hypotheses. Ordering supplies nonnegative gaps, and trace one gives $T=1$. Hence~\eqref{eq:finite-cert} yields $(D+8)-(D+2)^2S\geq0$. Apply~\eqref{eq:moments}.
+\end{proof}
+
+\section{A uniform bound by endpoint compression}\label{sec:uniform}
+The number of middle eigenvalues grows with $n$, but their positions do not enter the two PSD matrices. The following elementary fact removes their individual values.
+\begin{lemma}[Endpoint compression]\label{lem:compression}
+Let $b\leq x_i\leq a$ for $1\leq i\leq M$, where $b\leq a$. There exist real $t,z\geq0$ such that
+\begin{equation}\label{eq:compression}
+ t+z=M,\quad \sum_i x_i=ta+zb,\quad
+ \sum_i x_i^2\leq ta^2+zb^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $a>b$, choose
+\[
+ t=\frac{\sum_i x_i-Mb}{a-b},\qquad z=M-t.
+\]
+The interval constraints imply $0\leq t\leq M$. Since $(a-x_i)(x_i-b)\geq0$, we have $x_i^2\leq(a+b)x_i-ab$; sum this inequality to obtain~\eqref{eq:compression}. If $a=b$, take $t=M$ and $z=0$.
+\end{proof}
+The populations $t,z$ are real rather than necessarily integral. This is important: rounding them would not preserve the trace exactly.
+
+For an arbitrary ordered $y\in\R^9_{\geq0}$ and $t,z\geq0$, write
+\begin{align}
+ T(y,t,z)&=\sum_{i=1}^9y_i+t y_3+z y_4,\label{eq:uniform-T}\\
+ S(y,t,z)&=\sum_{i=1}^9y_i^2+t y_3^2+z y_4^2.\label{eq:uniform-S}
+\end{align}
+Take $g_i=y_i-y_{i+1}$ for $i<9$ and $g_9=y_9$, and abbreviate
+\begin{equation}\label{eq:mixed}
+ w=t+z-18,\quad h=t y_3-z y_4,\quad
+ q=9T-4(9+t+z)(y_3+y_4).
+\end{equation}
+
+\begin{lemma}[Uniform rational certificate]\label{lem:uniform}
+For every ordered nonnegative $y$, every $t,z\geq0$ with $t+z\geq18$, and $A(y),B(y)\succeq0$,
+\begin{equation}\label{eq:uniform-nonneg}
+ \bigl(9T(y,t,z)^2-8(9+t+z)S(y,t,z)\bigr)T(y,t,z)\geq0.
+\end{equation}
+In particular, if $T(y,t,z)=1$, then
+\begin{equation}\label{eq:uniform-bound}
+ S(y,t,z)\leq\frac{9}{8(9+t+z)}.
+\end{equation}
+\end{lemma}
+\begin{proof}[Certificate proof]
+The file \texttt{qutrit\_uniform\_parameter\_search.json} gives 1,635 positive rational weights $c_\alpha$ and explicitly named polynomials $F_\alpha$ satisfying
+\begin{equation}\label{eq:uniform-cert}
+ \bigl(9T^2-8(9+t+z)S\bigr)T
+ =\sum_{\alpha=1}^{1635}c_\alpha F_\alpha(g,t,z).
+\end{equation}
+This is a polynomial identity in the nine gaps and the two real parameters. Its nonnegative generators consist of the PSD-based and gap terms in~\eqref{eq:finite-generators}, the additional terms $(2y_4-y_3)g_i g_j$, nonnegative monomials in the gaps and $t,z$, and terms of the form
+\begin{equation}\label{eq:square-generators}
+ h^2g_i\xi\quad\hbox{or}\quad (a q+b h)^2g_i\xi,
+ \qquad \xi\in\{1,t,z,w\},\quad a,b\in\mathbb Z.
+\end{equation}
+The data also multiply PSD-based or ratio terms by explicitly specified products of $t,z,w$. The exact term names determine which products and integers are used; all are evaluated with $w=t+z-18$. Every factor is nonnegative under the hypotheses: for the ratio factor use Lemma~\ref{lem:ratio}, and for the squared factors no sign assumption on $h$ or $q$ is necessary.
+
+The ancillary checker reconstructs the identity exactly, including the substitutions~\eqref{eq:mixed}, and confirms equality of every rational coefficient. The fixed Lean module \texttt{APPT.Uniform} proves~\eqref{eq:uniform-nonneg} using the same exact data; its dependencies supply evaluation-preserving integer coefficient operations and sign proofs. With $T=1$, divide by the positive number $8(9+t+z)$ to obtain~\eqref{eq:uniform-bound}.
+\end{proof}
+
+\begin{proposition}[All large dimensions]\label{prop:large}
+For every integer $n\geq9$, every APPT density matrix on $\C^3\otimes\C^n$ has purity at most $3/(8n)$.
+\end{proposition}
+\begin{proof}
+Let $D=3n$, choose $y$ as in~\eqref{eq:outer}, and let $x$ contain the $M=D-9$ middle entries $\lambda_4,\ldots,\lambda_{D-6}$. Then $y_4\leq x_i\leq y_3$ and $M\geq18$. By Lemma~\ref{lem:compression}, there are $t,z\geq0$ with $t+z=M$ for which
+\[
+ T(y,t,z)=\sum_{i=1}^D\lambda_i=1,\qquad
+ \sum_{i=1}^D\lambda_i^2\leq S(y,t,z).
+\]
+Lemma~\ref{lem:necessity} supplies $A(y),B(y)\succeq0$. The uniform certificate therefore gives
+\[
+ \Tr(\rho^2)=\sum_{i=1}^D\lambda_i^2
+ \leq\frac9{8(9+t+z)}=\frac9{8D}=\frac3{8n}.
+\]
+The argument treats every integer $n\geq9$ through one real-parameter identity; it is not an extrapolation from finitely many dimensions.
+\end{proof}
+
+\section{Actual APPT attaining states}\label{sec:attainment}
+We provide physical witnesses without relying on the sufficiency direction of a spectral APPT criterion.
+
+\begin{lemma}[A rank-one perturbation]\label{lem:rankone}
+For every unit vector $v\in\C^3\otimes\C^n$, the matrix $I+2vv^*$ is APPT before trace normalization.
+\end{lemma}
+\begin{proof}
+A unit vector has Schmidt coefficients $s_1,s_2,s_3\geq0$ with $\sum_i s_i^2=1$, allowing zero coefficients. The nonzero eigenvalues of $(vv^*)^\Gamma$ are $s_i^2$ and $\pm s_i s_j$ for $i<j$. Since $2s_i s_j\leq s_i^2+s_j^2\leq1$, we have $I+2(vv^*)^\Gamma\succeq0$. For every global unitary $U$, the vector $Uv$ is again a unit vector, so the same argument applies to $U(I+2vv^*)U^*=I+2(Uv)(Uv)^*$. The formalization proves the same rank-one bound by an explicit skew-Gram identity and a rectangular-contraction argument instead of assuming a Schmidt-decomposition interface.
+\end{proof}
+
+\begin{lemma}[A positive contraction]\label{lem:contraction}
+If $0\preceq P\preceq I$ on $\C^3\otimes\C^n$, then $P^\Gamma+I\succeq0$, and $I+P$ is APPT before normalization.
+\end{lemma}
+\begin{proof}
+Let $E_{ij}$ be the matrix units on $\C^3$, let $D_i=E_{ii}$, and for $i<j$ put $S_{ij}=E_{ij}+E_{ji}$ and $K_{ij}=E_{ji}-E_{ij}$. Tensor these matrices with $I_n$ when they act on the full space. Direct block multiplication gives the exact identity
+\begin{equation}\label{eq:contraction-identity}
+ P^\Gamma+I=\sum_{i=1}^3D_iPD_i^*
+ +\frac12\sum_{i<j}\bigl(S_{ij}PS_{ij}^*+K_{ij}(I-P)K_{ij}^*\bigr).
+\end{equation}
+Every summand is PSD. For a global unitary $U$, the conjugate $Q=UPU^*$ is another positive contraction, so $I+Q^\Gamma\succeq0$. This is exactly the APPT condition for $I+P$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The upper bounds are Corollary~\ref{cor:finite} and Proposition~\ref{prop:large}. For the first witness, $R=vv^*$ satisfies $R^2=R$ and $\Tr R=1$. Hence $I+2R\succeq0$, $\Tr(I+2R)=D+2$, and
+\[
+ \Tr\left(\left(\frac{I+2R}{D+2}\right)^2\right)
+ =\frac{\Tr(I+8R)}{(D+2)^2}=\frac{D+8}{(D+2)^2}.
+\]
+Lemma~\ref{lem:rankone} gives APPT. For the second witness choose a rank-$n$ orthogonal projection $P$, for example the coordinate projection onto $e_1\otimes\C^n$. Then $P^2=P$, $\Tr P=n$, and Lemma~\ref{lem:contraction} gives APPT. Its trace normalization is $D+n=4n$, and
+\[
+ \Tr\left(\left(\frac{I+P}{4n}\right)^2\right)
+ =\frac{\Tr(I+3P)}{16n^2}=\frac{6n}{16n^2}=\frac3{8n}.
+\]
+Positive scalar normalization preserves APPT. Thus each upper bound is attained by a genuine density matrix.
+\end{proof}
+
+\begin{corollary}[Circumradius]\label{cor:radius}
+The squared radius of the smallest Hilbert--Schmidt ball centered at $I/(3n)$ containing the APPT density matrices is
+\[
+ R_n^2=\begin{cases}
+ \displaystyle\frac{4(3n-1)}{3n(3n+2)^2},&3\leq n\leq8,\\[5pt]
+ \displaystyle\frac1{24n},&n\geq9.
+ \end{cases}
+\]
+\end{corollary}
+\begin{proof}
+For a Hermitian trace-one matrix, $\|\rho-I/D\|_\hs^2=\Tr(\rho^2)-1/D$. Substitute Theorem~\ref{thm:main}. This is an algebraic corollary of the formalized purity result; the release does not export a separately named Hilbert--Schmidt circumradius theorem.
+\end{proof}
+
+\section{Certificate data and complete formal verification}\label{sec:verification}
+\subsection{Data specification and independent checking}
+The ancillary directory contains all seven JSON files listed in Appendix~\ref{app:data}, copied byte for byte from the fixed formalization. Each contains a \texttt{terms} list. Its entries have a \texttt{coefficient} field holding a rational string and a \texttt{name} field specifying the polynomial. The checker reconstructs the tail sums, matrices~\eqref{eq:A}--\eqref{eq:B}, their determinants, principal minors and quadratic forms. It then expands~\eqref{eq:finite-cert} or~\eqref{eq:uniform-cert} and verifies coefficient equality. The reconstruction code uses only exact integers and rational numbers; no optimizer is imported. The included input marker \texttt{exact\_certificate} is checked but is not accepted as proof: coefficient equality is recomputed.
+
+The JSON term language uses zero-based indices in explicit exponent lists and \texttt{gprod} tuples, and one-based subscripts in names such as \texttt{Aminor02*g23}; the latter means the principal minor on matrix indices $0,2$ multiplied by the twenty-third gap. The supplied reconstruction code is the unambiguous machine-readable specification of these conventions. In the uniform file, \texttt{param} entries use $0,1,2$ to denote $t,z,t+z-18$. All term signs are justified as in the two certificate lemmas; there is no search over or sampling of real parameter values in the verification.
+
+From the preprint source root, the independent rational check is
+\begin{verbatim}
+python3 ancillary/check_certificates.py
+\end{verbatim}
+The complete formalization is available separately in the immutable release \cite{ProofRelease}. Its source manifest fixes both the coefficient data and the Lean proofs. This separation keeps the preprint source archive small while preserving a precise reference to every formal dependency.
+
+\subsection{Formal statement and dependency map}
+The final Lean theorem in namespace \texttt{APPT.Quantum} has the form
+\begin{verbatim}
+theorem appt_purity_maximum_formula (n : Nat) (hn : 3 <= n) :
+  IsGreatest (attainablePurities n)
+    (if n <= 8 then (3*(n : Real)+8)/(3*(n : Real)+2)^2
+     else 3/(8*(n : Real)))
+\end{verbatim}
+Here \texttt{attainablePurities} quantifies over actual matrices indexed by \texttt{Fin 3 $\times$ Fin n}; \texttt{IsDensity} means PSD and complex trace one; \texttt{AbsolutelyPPT} quantifies over the actual complex unitary group; and \texttt{purity A} is the real part of the actual trace of \texttt{A*A}. For a density matrix the spectral-moment theorem identifies this real quantity with the usual real purity.
+
+\begin{center}\small
+\begin{tabular}{p{0.38\textwidth}p{0.53\textwidth}}
+\toprule
+Proof obligation&Principal Lean modules or declarations\\
+\midrule
+Global-unitary corner necessity&\texttt{Quantum.CornerNecessity}, \texttt{Quantum.SpectralNecessity}\\
+Ordered eigenvalues and moments&\texttt{Quantum.SpectralData}, \texttt{Quantum.SpectralMoments}\\
+Six finite certificate bounds&\texttt{Finite9Bound} through \texttt{Finite24Bound}, and \texttt{SpectrumBound*}\\
+Uniform and middle-spectrum bound&\texttt{Uniform}, \texttt{Compression}, \texttt{UniformBridge}, \texttt{OrderedSpectrum}\\
+Physical APPT witnesses&\texttt{Quantum.ShortAttainment}, \texttt{Quantum.LongAttainment}, \texttt{Quantum.Attainment}\\
+All-$n$ maximum&\texttt{Quantum.Maximum}: \texttt{appt\_purity\_maximum\_formula}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Build, replay, and rejection controls}
+The proof uses Lean 4.34.1 and Mathlib commit
+\begin{center}\small\texttt{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+\end{center}
+The published proof commit is \proofcommit. The final successful verification run is \texttt{37968137659}, at verified source commit
+\begin{center}\small\texttt{f372047c63ba501b13301b4b3ba089c261e3722e}.
+\end{center}
+All 942 pinned proof, tool and data files agree between the verified and published sources. The mathematical theorem files are unchanged from the first successful full proof replay; later corrections concerned auxiliary tests and verification orchestration.
+
+All 879 local modules and the default Lake target passed. The final audit replayed the transitive closure of 58 roots, including the exact maximum theorem: 155,787 declarations were checked in an initially empty Lean kernel at trust level zero. The only axioms in the audited closure are \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}. The checker rejects unsafe or partial mathematical dependencies and unapproved axioms, and compares each replayed root's type and universe parameters with the original. No \texttt{sorry}, \texttt{admit}, custom axiom or untrusted \texttt{native\_decide} is used in the mathematical closure.
+
+The paired failure controls are part of the record. They alter a coefficient, a PSD-corner example, or an endpoint value, and require the expected rejection rather than an arbitrary process failure. A further test replaces only the proof of the same final maximum theorem by \texttt{True.intro}, preserving its name, type and universe parameters. The changed declaration's 8,581 actual dependencies are positively checked first; a fresh trust-zero kernel then rejects the forged theorem for a declaration type mismatch. The large original proof has already passed the full positive replay. Dependencies belonging only to the discarded original proof are not unnecessarily repeated in the negative test.
+
+The final workflow reused independently compiled components bound to exact source, object and log hashes. It does \emph{not} claim a fresh build of all 879 modules on a single runner. This does not change the independent empty-kernel replay of the full mathematical closure. Each recorded local-module build had a 300-second limit; the largest recorded time was 239.703 seconds. Small coefficient lemmas, literal intermediate coefficient lists and explicit integer constructors avoid an unbounded monolithic elaboration.
+
+The fresh reproduction command, from the formalization's package root, is
+\begin{verbatim}
+lake exe cache get
+python3 scripts/source_manifest.py --check
+python3 reproduce.py --fresh --jobs 2
+\end{verbatim}
+The fresh option removes the project's own build directory, not the external Mathlib caches. Literal outputs, source hashes, component provenance, dependency inventories and the earlier failed audit attempts are retained. A failed historical workflow is never relabeled as a successful one.
+
+\section{An analytic corollary for absolute separability}\label{sec:asep}
+A state is \emph{absolutely separable} if every global-unitary conjugate is separable across the fixed bipartition. Since separable states are PPT, the absolutely separable set is contained in the APPT set. The following consequence concerns its extremal purity, not equality of the two sets.
+
+\begin{corollary}[Absolute-separability purity]\label{cor:asep}
+For every $n\geq3$, the maximum purity of absolutely separable states on $\C^3\otimes\C^n$ equals $p_n$ in~\eqref{eq:maximum}.
+\end{corollary}
+\begin{proof}
+The APPT theorem supplies the upper bound. For the large branch, use the sufficient condition of Kondra, Barrios Hita, Neumann, Kampermann and Bru{\ss} \cite[Supplemental Material, Lemma 2]{Kondra}: in local dimensions $m\leq n$, a full-rank state with
+\[
+ \lambda_{\max}/\lambda_{\min}\leq(m+1)/(m-1)
+\]
+is separable. As the criterion is spectral, it also certifies absolute separability. The state $(I+P)/(4n)$ has eigenvalue ratio $2$, exactly this threshold for $m=3$.
+
+For the small branch, we give a direct decomposition valid for every unit vector $v$. Use local unitaries to write $v=\sum_{i=1}^r s_i|ii\rangle$, with $s_i\geq0$ and $\sum_i s_i^2=1$. Let the independent phases $\theta_i$ be uniform on $\{0,2\pi/3,4\pi/3\}$ and set
+\[
+ x_\theta=\sum_i\sqrt{s_i}e^{\mathrm{i}\theta_i}|i\rangle,
+ \qquad z_\theta=\sum_i\sqrt{s_i}e^{-\mathrm{i}\theta_i}|i\rangle.
+\]
+A finite phase average of product projectors gives
+\[
+ \Omega=\mathbb E_\theta\bigl[|x_\theta\otimes z_\theta\rangle
+        \langle x_\theta\otimes z_\theta|\bigr]
+ =vv^*+\sum_{i\ne j}s_i s_j|ij\rangle\langle ij|.
+\]
+Indeed, the only nonzero averaged phase factors correspond to identical ordered pairs or to two diagonal pairs. Consequently
+\[
+ I+2vv^*=2\Omega+\sum_i|ii\rangle\langle ii|
+       +\sum_{i\ne j}(1-2s_i s_j)|ij\rangle\langle ij|+I_{\mathrm{out}},
+\]
+where the displayed sums range over the Schmidt-support product subspace and $I_{\mathrm{out}}$ is the identity on its complementary product-basis coordinates. Every term is separable and every coefficient is nonnegative because $2s_i s_j\leq s_i^2+s_j^2\leq1$. Thus $(I+2vv^*)/(3n+2)$ is separable for every unit $v$. Any global-unitary conjugate has the same form with a new unit vector, proving absolute separability and the required attainment.
+\end{proof}
+
+\begin{remark}[Formalization boundary]
+Corollary~\ref{cor:asep} is an analytic consequence using the explicitly cited separability criterion and the decomposition above. It is \emph{not} included in the immutable Lean proof of the APPT theorem. No claim is made that the separability cone, the cited criterion, or this corollary has been formalized in that release. In particular, equal maximal purities do not imply equal convex sets.
+\end{remark}
+
+\section{Scope and further questions}
+The main theorem closes the maximal-purity problem for $3\otimes n$ with $n\geq3$. The $3\otimes2$ system is, after swapping factors, a qubit--qutrit problem and is not covered by the present formal theorem. Neither the proof nor the release claims all-maximizer classification or the general-$m$ purity conjecture. Corollary~\ref{cor:asep} gives the analogous absolute-separability maximum analytically; the immutable Lean release covers only the APPT theorem.
+
+The general inscribed-polytope purity conjecture of \cite{AKW} remains a natural subsequent target: a dimension-uniform treatment would require replacing the qutrit-specific two-matrix certificate by a method controlling the larger family of spectral tests. A separate, more structural question is whether absolute PPT and absolute separability coincide beyond qubit--qudit systems. The additional witness analysis in Section~\ref{sec:asep} establishes a common maximum, but proves no reverse inclusion between the two sets. Proving their purity maxima equal must not be mistaken for proving equality of those convex sets.
+
+\paragraph{Author, funding and AI assistance.}
+This research was conducted independently and received no external funding. The institutional affiliation identifies the author's place of study and does not assert institutional sponsorship or endorsement. AI assistance was used in mathematical exploration, certificate and program development, Lean proof development, verification orchestration and manuscript drafting. Formal acceptance refers to the stated Lean declarations and audited dependency closure; it is not a claim of external peer review or independent human certification of every narrative statement. No separate claim of historical priority is made beyond the dated public artifacts and the explicit comparison with prior work above.
+
+\paragraph{Data and code availability.}
+The exact data and independent checker accompany this preprint. The complete proof, reproduction scripts and verification evidence are frozen in \cite{ProofRelease}; the earlier immutable interim release is left unchanged. This manuscript is a preprint, not a journal-accepted article.
+
+\appendix
+\section{Certificate file identifiers}\label{app:data}
+The following SHA-256 digests identify the exact certificate data. The ancillary manifest also records the checker and this preprint's other source files.
+\begingroup\footnotesize
+\begin{longtable}{p{0.96\textwidth}}
+\toprule
+\textbf{Filename and SHA-256}\\\midrule
+\endhead
+\texttt{qutrit\_cubic\_certificate\_search.json}\\
+\nolinkurl{0e5fb10986416ab1a8a5420d92a7a689b5a55d063c9a417d6ce53c2960f1ad77}\\[2pt]
+\texttt{qutrit\_D12\_cubic\_certificate.json}\\
+\nolinkurl{8ebdf6d6b3712018f91818c6d2bf6336d6a7c6befb34245bf12d719fd3dd31cb}\\[2pt]
+\texttt{qutrit\_D15\_fast\_certificate.json}\\
+\nolinkurl{c5f688e354e3d2aeabbde72ea343316df64867d60dd095c6f8ee201b466d3df8}\\[2pt]
+\texttt{qutrit\_D18\_fast\_certificate.json}\\
+\nolinkurl{1312bfc0488d8f7ca8afff43007d93d62d81dc9a0cd664f57196b4622d328811}\\[2pt]
+\texttt{qutrit\_D21\_fast\_certificate.json}\\
+\nolinkurl{34931c9638725825a0efe8bd80d4a1cb15e53de6d1b433b8b77809f09597ea46}\\[2pt]
+\texttt{qutrit\_D24\_fast\_certificate.json}\\
+\nolinkurl{b19f93c12f369530ff436f095700efa631b029a8964a29e32fb3ea125d22d65e}\\[2pt]
+\texttt{qutrit\_uniform\_parameter\_search.json}\\
+\nolinkurl{d381b47b3bcb67ddc457f7c866b5a6e97757e81cb9d7a84fb832a7b397a826a3}\\
+\bottomrule
+\end{longtable}\endgroup
+
+\begin{thebibliography}{9}\small
+\bibitem{Hildebrand} R. Hildebrand, Positive partial transpose from spectra, \emph{Physical Review A} \textbf{76} (2007), 052325. \href{https://doi.org/10.1103/PhysRevA.76.052325}{doi:10.1103/PhysRevA.76.052325}. Preprint: \href{https://arxiv.org/abs/quant-ph/0502170}{arXiv:quant-ph/0502170}.
+\bibitem{DungKhoi} H. P. Dung and V. T. Khoi, On the maximum purity of absolutely separable bipartite states, preprint (2025), \href{https://arxiv.org/abs/2510.19508v1}{arXiv:2510.19508v1}.
+\bibitem{AKW} J. Ahiable, N. B. T. Kothakonda and A. Winter, The geometry of absolute separability and other convex matrix properties from spectrum, preprint (2026), \href{https://arxiv.org/abs/2608.03390v1}{arXiv:2608.03390v1}. In particular, Theorem 6.3, Corollary 6.4 and Conjecture 6.7.
+\bibitem{Tran} A. T. Tran, Spectral optimization for absolutely PPT states: purity, entropy, and volume decay, preprint (2026), \href{https://arxiv.org/abs/2609.18568}{arXiv:2609.18568}.
+\bibitem{Kondra} T. V. Kondra, P. Barrios Hita, J. Neumann, H. Kampermann and D. Bru{\ss}, Fundamental limitations on entanglement extraction from purity, preprint (2026), \href{https://arxiv.org/abs/2605.29197v1}{arXiv:2605.29197v1}. Supplemental Material, Lemmas 1--2.
+\bibitem{ProofRelease} Y. Zhang, Qutrit--qudit APPT purity: complete all-$n$ Lean proof v1, immutable software and proof-data release (2026), \texttt{appt-qutrit-purity-complete-v1}. \href{https://github.com/mxym/math/releases/tag/appt-qutrit-purity-complete-v1}{GitHub immutable proof release}; publication commit \proofcommit; \href{https://github.com/mxym/math/actions/runs/37968137659}{successful audit 37968137659}.
+\end{thebibliography}
+\end{document}
