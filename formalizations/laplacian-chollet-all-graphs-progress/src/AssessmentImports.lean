@@ -1,0 +1,9 @@
+import Mathlib.Tactic
+import Mathlib.Geometry.Convex.ConvexSpace.CompactSpaceStdSimplex
+import Mathlib.Analysis.Convex.Combination
+import Mathlib.Analysis.Convex.Extreme
+import Mathlib.Topology.Algebra.Module.FiniteDimension
+import Mathlib.LinearAlgebra.Dimension.RankNullity
+import Mathlib.Analysis.Convex.KreinMilman
+import Mathlib.Combinatorics.SimpleGraph.Tutte
+import Mathlib.Data.Nat.Bits
