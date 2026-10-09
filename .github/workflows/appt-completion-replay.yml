@@ -1,5 +1,8 @@
 name: APPT complete maximum source-bound replay
 on:
+  push:
+    branches: ['work/appt-full-bounded-20261009']
+    paths: ['.github/workflows/appt-completion-replay.yml']
   workflow_dispatch:
 permissions:
   contents: read
