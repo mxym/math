@@ -25,13 +25,22 @@ theorem split_outer_middle {M : ℕ} (f : Fin (3+(M+6)) → ℝ) :
   -- Numerically identical `Fin` indices remain syntactically distinct until
   -- their natural-number representatives are normalized explicitly.
   have htwo : (2 • (3 : Nat)) = 6 := by decide
+  have hlt : 2 • (3 : Nat) + M < 3 + (M + 6) := by
+    rw [htwo]
+    omega
+  have hidx6 :
+      (⟨2 • (3 : Nat) + M, hlt⟩ : Fin (3 + (M + 6))) =
+        ⟨M + 6, by omega⟩ := by
+    apply Fin.ext
+    change 2 • (3 : Nat) + M = M + 6
+    rw [htwo]
+    omega
   simp only [
     show 3 + (M + 1) = M + 4 by omega,
     show 3 + (M + 2) = M + 5 by omega,
-    htwo,
-    show 6 + M = M + 6 by omega,
     show 3 + (M + 4) = M + 7 by omega,
     show 3 + (M + 5) = M + 8 by omega]
+  rw [hidx6]
   all_goals abel
 
 end APPT
