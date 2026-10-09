@@ -1,6 +1,6 @@
 # 分类研究目录
 
-[返回首页](README.md) · [已公开预印本](preprints/lean-certified-2026-10/README.md) · [历史进展原文](RESEARCH_HISTORY.md)
+[返回首页](README.md) · [预印本](README.md#预印本) · [已证明专题清单](SOLVED_PROBLEMS.md) · [历史进展原文](RESEARCH_HISTORY.md)
 
 本页按数学领域提供当前阅读入口。同一研究的加强、整合稿和形式化作为一条研究线列出，不把不同版本重复计为独立突破。表中状态只适用于列出的结论；详细量词、外部输入、证书与 Lean 覆盖范围以链接文件为准。
 
@@ -9,6 +9,9 @@
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
 | Bapat 原区间 q-永久量猜想 | 指定复数有理反例；实对称整数正定反例存在，无显式实维数上界 | [合并论文](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md)；两项主结论完整 Lean |
+| 全图强 Chollet | 任意有限简单无权图及全部主子矩阵；原图度数；包括空集、孤立点与奇异矩阵 | [书面证明](notes/laplacian-chollet-general/README.md)；[完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress)；[源码及复核记录核对](verification/chollet-all-graphs-index-2026-10-08.json) |
+| 恒等补齐永久量不等式 | Pan–Skandera–Wang Conjecture 9.3，由其既有 Theorem 8.18 推出 | [完整书面推导](notes/permanent-inequality-padding/README.md) |
+| 永久量余子式谱 | 维数无关比值界不存在；锐大阶对数渐近与秩二端点 limsup | [无界性证明](notes/cofactor-spectrum-unbounded/README.md)；[锐渐近证明](notes/sharp-cofactor-spectral-asymptotics/README.md)，非 Lieb／Marcus 一般猜想的解答 |
 | q-永久量半轴问题 | 指定 4 × 4 实有理矩阵在 q=49、50 之间下降；与原区间问题分开 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) |
 | 复三行永久量—行列式 | 所有复参数的精确范数主定理 | [预印本与完整 Lean](preprints/lean-certified-2026-10/complex-pencil-norm/README.md)；[完整书面研究](notes/complex-permanent-determinant/README.md)另含等号与张量化 |
 | 复四行永久量—行列式 | 锐 tradeoff、等号分类与稳定性；一般行数结论另有范围限制 | [书面证明与精确验证](notes/four-row-permanent-tradeoff/README.md) |
