@@ -1,0 +1,189 @@
+               A ternary counterexample to a proposed
+                    mutual-information continuity bound
+                                            Yongxian Zhang∗
+
+                                             8 October 2026
+
+
+
+                                                  Abstract
+           We give explicit classical 3 × 3 probability tables at total variation distance ε whose
+        mutual-information difference violates the general proposed bound in arXiv:2408.15226v2,
+        Eq. (106), for every 0 < ε ≤ 1/16. The same construction defines commuting quantum states.
+        Both marginals change: the version requiring one equal marginal is unresolved by this note.
+        The complete classical counterexample has an independently verified Lean proof; the quantum
+        diagonal embedding and the necessary-leading-coefficient corollary are established by written
+        arguments.
+
+
+1       Exact target and scope
+Mario Berta, Ludovico Lami and Marco Tomamichel, Continuity of entropies via integral
+representations, propose the general mutual-information continuity inequality
+                                                                                     
+                        |I(A : B)ρ − I(A : B)σ | ≤ h(ε) + ε log min{d2A , d2B } − 1                     (1)
+
+for nearby bipartite states whose trace distance is at most a sufficiently small ε. This is Eq. (106)
+of arXiv:2408.15226v2 and Eq. (54) of v1. The surrounding discussion first considers applications
+with one equal marginal, then proposes this more general inequality without that restriction.
+    The construction below refutes the general version with different marginals at arbitrarily
+small distances. Both marginals change. It does not resolve the version in which one marginal
+must remain equal.
+    All logarithms are natural. Changing the logarithm base rescales both sides and does not
+alter the strict violation. Write
+
+                          h(ε) = −ε log ε − (1 − ε) log(1 − ε),       0 log 0 = 0.                      (2)
+
+For a probability vector p, let H(p) = − i pi log pi . For a joint probability table R, let RA and
+                                              P
+
+RB be its row and column marginals and set I(R) = H(RA ) + H(RB ) − H(R).
+
+
+2       Construction on a ternary product alphabet
+For every 0 < ε ≤ 1/16, define probability tables on {0, 1, 2} × {0, 1, 2} by
+                                                                                        
+                     (1 − ε)/2     0     0                     (1 − ε)/2    ε/2    0
+              Pε =      0     (1 − ε)/2 0 ,            Qε =  ε/2      (1 − ε)/2 0 .                 (3)
+                                                                                  
+                         0         0     ε                         0         0     0
+    ∗
+   School of Computer Science and Engineering, South China University of Technology, Guangzhou, China.
+Email: mxymmxym1@gmail.com. ORCID: 0009-0000-3864-3536.
+
+
+                                                     1
+Every entry is nonnegative, and each table sums to one. The entries at (0, 0) and (1, 1) agree.
+The only nonzero entries of Pε − Qε are +ε at (2, 2) and −ε/2 at each of (0, 1) and (1, 0). Hence
+                                   1X                             1
+                TV(Pε , Qε ) =           |Pε (i, j) − Qε (i, j)| = (ε + ε/2 + ε/2) = ε.        (4)
+                                   2 i,j                          2
+
+The tables also define diagonal density matrices
+                             X                                      X
+                      ρε =         Pε (i, j)|ij⟩⟨ij|,        σε =         Qε (i, j)|ij⟩⟨ij|    (5)
+                             i,j                                    i,j
+
+on C3 ⊗ C3 . Their quantum trace distance equals this total variation distance, and their von
+Neumann entropies equal the Shannon entropies of the corresponding diagonal probabilities.
+Thus the classical commuting construction is also a quantum counterexample.
+
+
+3    Exact entropies and mutual information
+Both marginals of Pε are
+                                                                                   
+                             (Pε )A = (Pε )B = (1 − ε)/2, (1 − ε)/2, ε .                       (6)
+
+Its joint distribution is supported on the diagonal. Direct expansion gives
+                                                                           1−ε
+                 H((Pε )A ) = H((Pε )B ) = H(Pε ) = −(1 − ε) log                  − ε log ε
+                                                                              2
+                                                            = h(ε) + (1 − ε) log 2,            (7)
+
+so
+                                      I(Pε ) = h(ε) + (1 − ε) log 2.                           (8)
+Both marginals of Qε are (1/2, 1/2, 0), so each has entropy log 2. Its four nonzero joint entries
+describe a fair binary input followed by binary crossover probability ε. Equivalently, direct
+expansion gives
+                                            1−ε           ε
+                      H(Qε ) = −(1 − ε) log        − ε log = log 2 + h(ε).                    (9)
+                                              2           2
+Consequently,
+                   I(Qε ) = log 2 − h(ε),    I(Pε ) − I(Qε ) = 2h(ε) − ε log 2.              (10)
+
+
+4    Strict violation at arbitrarily small distances
+Here dA = dB = 3, so the proposed right-hand side is h(ε)+ε log 8. The signed mutual-information
+difference minus this bound is
+                                                                
+                       I(Pε ) − I(Qε ) − h(ε) + ε log 8 = h(ε) − ε log 16.                    (11)
+
+For 0 < ε ≤ 1/16, monotonicity of the logarithm gives
+
+                                            −ε log ε ≥ ε log 16.                              (12)
+
+Since 0 < 1 − ε < 1, also
+                                         −(1 − ε) log(1 − ε) > 0.                             (13)
+Adding these proves h(ε) − ε log 16 > 0. The signed difference is positive and equals its absolute
+value. Thus, for every 0 < ε ≤ 1/16,
+
+                     |I(Pε ) − I(Qε )| > h(ε) + ε log 8 ,                 TV(Pε , Qε ) = ε.   (14)
+
+                                                        2
+There is no positive uniform small-distance neighborhood on which the proposed general inequality
+holds. Given any δ > 0, take ε = min{δ/2, 1/32}; then 0 < ε < δ, and the construction still
+violates the bound.
+    The exact rational choice ε = 1/32 gives the strictly positive gap
+
+                                     log 2 31      31
+                                          −    log    > 0.                                   (15)
+                                      32    32     32
+This positivity is symbolic and does not require numerical certification.
+
+
+5    Necessary leading coefficient
+The exact loss 2h(ε) − ε log 2 implies that no modulus of the form c h(ε) + Cε, with finite fixed
+C and c < 2, can bound arbitrary ternary mutual-information differences near zero. Indeed,
+
+                               h(ε)
+                                    ≥ − log ε −→ +∞        (ε ↓ 0),                          (16)
+                                ε
+so (2 − c)h(ε) − ε(log 2 + C) > 0 for sufficiently small positive ε. This is a lower bound on the
+necessary leading coefficient; it does not establish an exact optimal finite-distance modulus.
+
+
+6    Formal verification, reproduction and scope
+The complete classical probability-table counterexample is formalized in Lean 4.34.1. Its
+public package is fixed to commit 363224e0f7cf1d7ea7b4ed2546f8ed372da7b04c, directory
+formalizations/mutual-information-continuity-counterexample. The definitions are ac-
+tual finite probability tables, Shannon entropy, row and column sums, mutual information and
+half-L1 total variation. No entropy formula is supplied as an assumed hypothesis.
+    The two main endpoints in namespace MutualInformationCounterexample are
+     counterexample_family
+     counterexamples_arbitrarily_close.
+
+The first proves strict violation for every 0 < ε ≤ 1/16; the second proves valid witnesses in
+every positive-distance neighborhood. The independently compiled LiteralSemantics.lean
+also checks that both marginals change. The fixed verification records report fresh compilation,
+all 38 owned declarations and their complete 16,161-declaration dependency closure replayed in an
+initially empty kernel at trust level zero. The only logical axioms are propext, Classical.choice
+and Quot.sound; an invalid-proof control was rejected. These are prior execution records, not a
+claim that this editorial preparation reran Lean.
+     For reproduction, read the fixed package’s README.md, case.json, lake-manifest.json
+and reproduce.py. The driver requires the matching compiler and nine pinned dependencies
+with their build caches; its explicit command builds a new owned module and performs the
+kernel audit. It does not automatically install those prerequisites. The immutable v2 Release
+contains source, full replay records, the compressed dependency graph, source binding and asset
+checksums. The earlier written v1 Release is preserved unchanged.
+     The quantum diagonal embedding in Section 2 and the necessary coefficient bound in Section 5
+remain written arguments, rather than formalized quantum spectral-function or asymptotic
+theorems. The equal-one-marginal question remains unresolved by this paper. No exhaustive
+novelty or historical priority conclusion or external human peer-review certificate is asserted.
+
+
+
+
+                                                3
+Funding and AI-assisted research methods
+This research was conducted independently and received no external funding. OpenAI AI
+assistants assisted mathematical research, proof development, formalization and internal review.
+Mathematical claims are supported by the written proof and the specified formal-verification
+evidence; AI output alone is not proof evidence.
+
+
+Declaration of generative AI and AI-assisted technologies in the
+writing process
+OpenAI AI assistants assisted drafting, organization and LaTeX editing. The author takes
+responsibility for the manuscript and its account of the verification evidence.
+
+
+References
+[1] Mario Berta, Ludovico Lami and Marco Tomamichel. Continuity of entropies via integral
+    representations. arXiv:2408.15226. Version 2, Eq. (106), concluding discussion: https://
+    arxiv.org/html/2408.15226v2. Version 1, Eq. (54), Section III.3: https://arxiv.org/
+    html/2408.15226v1.
+
+
+
+
+                                               4
+
