@@ -30,7 +30,7 @@ the papers and checker algorithms themselves are unchanged.
 - `LOCAL_REPLAY.json`: pre-repair mismatches, six replay exit codes, and PDF checks.
 - `FAILED_HASH_STEP.log`: relevant lines from the original GitHub failure.
 - `*-*.py.log`: literal replay output.
-- [Maintenance release](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1).
+- [Maintenance release](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1.1).
 
 The original DOI attachment-level hashes remain valid: the stale manifests
 inside the source bundles are a separate defect. A patch archival version

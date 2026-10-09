@@ -69,7 +69,7 @@ The sharp pure-state ratio for `p=3 mod 4`, `p>=7`, the general rank-deficient e
 
 ## Replay integrity correction
 
-The immutable v1 source snapshots retain an outdated `SHA256SUMS` after the Lean-scope documentation update. The exact checker sources and their results were unchanged. The current manifest is repaired, and [the CI repair audit](../../verification/ecqc-replay-ci-2026-10-09/README.md) records the original discrepancies and fresh replay. A maintenance supplement is published at [ecqc-exact-replay-integrity-v1.1](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1); frozen v1 files are not modified.
+The immutable v1 source snapshots retain an outdated `SHA256SUMS` after the Lean-scope documentation update. The exact checker sources and their results were unchanged. The current manifest is repaired, and [the CI repair audit](../../verification/ecqc-replay-ci-2026-10-09/README.md) records the original discrepancies and fresh replay. A maintenance supplement is published at [ecqc-exact-replay-integrity-v1.1.1](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1.1); frozen v1 files are not modified.
 
 ## Provenance and rights
 
