@@ -32,7 +32,7 @@ jobs:
         working-directory: formalizations/appt-qutrit-purity-lean/lean
         run: |
           set -euo pipefail
-          lake build APPT.Core APPT.Compression APPT.UniformDefs APPT.UniformSpectrumGaps APPT.SpectrumReindex
+          lake build APPT.Core APPT.Compression APPT.UniformDefs APPT.UniformSpectrumGaps APPT.SpectrumReindex APPT.UniformPolyEngine
       - name: Forbid untrusted shortcuts in new modules
         shell: bash
         run: |
