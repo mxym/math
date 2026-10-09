@@ -47,6 +47,7 @@ def main() -> None:
         if build.is_symlink():raise RuntimeError('Refusing to remove linked build directory')
         if build.exists():shutil.rmtree(build)
     steps=[
+        ('source-inventory',['python3','scripts/source_manifest.py','--check'],'pass',180),
         ('regenerate-uniform',['python3','scripts/generate_uniform.py','--check'],'pass',180),
         ('regenerate-finite',['python3','scripts/generate_finite_sparse.py','--check'],'pass',180),
         ('certificate-controls',['python3','scripts/certificate_controls.py'],'pass',180),

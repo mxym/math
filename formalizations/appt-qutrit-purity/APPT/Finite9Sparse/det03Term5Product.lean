@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace APPT.Finite9
 open SparsePolynomial
 
-def det03Term5Coeffs : CoefficientMerge.Poly := [(188, 2), (197, 4), (278, 2)]
+def det03Term5Coeffs : CoefficientMerge.Poly := [(nat_lit 188, Int.ofNat (nat_lit 2)), (nat_lit 197, Int.ofNat (nat_lit 4)), (nat_lit 278, Int.ofNat (nat_lit 2))]
 theorem det03Term5Coeffs_data : det03Term5Coeffs = CoefficientMerge.trim det03Term5Row00 := by decide +kernel
 theorem eval_det03Term5Coeffs (g : Fin 9 → ℝ) : CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 9) det03Term5Coeffs = SparsePolynomial.eval (gapValues g) entryB00 * SparsePolynomial.eval (gapValues g) det03Pair5 := by
   rw [det03Term5Coeffs_data, CoefficientMerge.eval_trim]

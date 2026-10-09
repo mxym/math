@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace APPT.Finite12
 open SparsePolynomial
 
-def base01 : SparsePolynomial.Poly := [([0], -4), ([1], -12), ([2], -16), ([3], -16), ([4], -16), ([5], -16), ([6], -8), ([7], -4), ([8], 4), ([9], 6), ([10], 10), ([11], 18)]
+def base01 : SparsePolynomial.Poly := [([nat_lit 0], Int.negSucc (nat_lit 3)), ([nat_lit 1], Int.negSucc (nat_lit 11)), ([nat_lit 2], Int.negSucc (nat_lit 15)), ([nat_lit 3], Int.negSucc (nat_lit 15)), ([nat_lit 4], Int.negSucc (nat_lit 15)), ([nat_lit 5], Int.negSucc (nat_lit 15)), ([nat_lit 6], Int.negSucc (nat_lit 7)), ([nat_lit 7], Int.negSucc (nat_lit 3)), ([nat_lit 8], Int.ofNat (nat_lit 4)), ([nat_lit 9], Int.ofNat (nat_lit 6)), ([nat_lit 10], Int.ofNat (nat_lit 10)), ([nat_lit 11], Int.ofNat (nat_lit 18))]
 theorem eval_base01 (g : Fin 12 → ℝ) : SparsePolynomial.eval (gapValues g) base01 = quadA (outer g) ![2,1,2] := by
   norm_num [base01, SparsePolynomial.eval, SparsePolynomial.mon, gapValues, spectrum, quadA, matA, outer, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
   <;> ring

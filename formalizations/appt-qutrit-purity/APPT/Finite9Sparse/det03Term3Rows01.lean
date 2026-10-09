@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace APPT.Finite9
 open SparsePolynomial
 
-def det03Term3Row04 : CoefficientMerge.Poly := [(131, 2), (132, 2), (133, 2), (134, 2), (212, 2), (213, 2), (214, 2), (215, 2), (293, 2), (294, 2), (295, 2), (296, 2), (374, 2), (375, 2), (376, 2), (377, 2), (455, 2), (456, 2), (457, 2), (458, 2)]
+def det03Term3Row04 : CoefficientMerge.Poly := [(nat_lit 131, Int.ofNat (nat_lit 2)), (nat_lit 132, Int.ofNat (nat_lit 2)), (nat_lit 133, Int.ofNat (nat_lit 2)), (nat_lit 134, Int.ofNat (nat_lit 2)), (nat_lit 212, Int.ofNat (nat_lit 2)), (nat_lit 213, Int.ofNat (nat_lit 2)), (nat_lit 214, Int.ofNat (nat_lit 2)), (nat_lit 215, Int.ofNat (nat_lit 2)), (nat_lit 293, Int.ofNat (nat_lit 2)), (nat_lit 294, Int.ofNat (nat_lit 2)), (nat_lit 295, Int.ofNat (nat_lit 2)), (nat_lit 296, Int.ofNat (nat_lit 2)), (nat_lit 374, Int.ofNat (nat_lit 2)), (nat_lit 375, Int.ofNat (nat_lit 2)), (nat_lit 376, Int.ofNat (nat_lit 2)), (nat_lit 377, Int.ofNat (nat_lit 2)), (nat_lit 455, Int.ofNat (nat_lit 2)), (nat_lit 456, Int.ofNat (nat_lit 2)), (nat_lit 457, Int.ofNat (nat_lit 2)), (nat_lit 458, Int.ofNat (nat_lit 2))]
 theorem det03Term3Row04_decode : SparsePolynomial.decodeCubic 9 det03Term3Row04 = SparsePolynomial.monoTimes [5] (-1 : Int) det03Pair3 := by decide +kernel
 theorem eval_det03Term3Row04 (g : Fin 9 → ℝ) : CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 9) det03Term3Row04 = (-1 : ℝ)*SparsePolynomial.mon (gapValues g) [5]*SparsePolynomial.eval (gapValues g) det03Pair3 := by
   rw [← SparsePolynomial.eval_decodeCubic, det03Term3Row04_decode, SparsePolynomial.eval_monoTimes]

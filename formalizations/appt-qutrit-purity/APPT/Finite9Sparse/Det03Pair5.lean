@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace APPT.Finite9
 open SparsePolynomial
 
-def det03Pair5 : SparsePolynomial.Poly := [([2,2], 1), ([2,3], 2), ([3,3], 1)]
+def det03Pair5 : SparsePolynomial.Poly := [([nat_lit 2, nat_lit 2], Int.ofNat (nat_lit 1)), ([nat_lit 2, nat_lit 3], Int.ofNat (nat_lit 2)), ([nat_lit 3, nat_lit 3], Int.ofNat (nat_lit 1))]
 theorem det03Pair5_data : det03Pair5 = SparsePolynomial.trim (SparsePolynomial.mul entryB12 entryB21) := by decide +kernel
 theorem eval_det03Pair5 (g : Fin 9 → ℝ) : SparsePolynomial.eval (gapValues g) det03Pair5 = matB (outer g) 1 2 * matB (outer g) 2 1 := by
   rw [det03Pair5_data, SparsePolynomial.eval_trim, SparsePolynomial.eval_mul, eval_entryB12, eval_entryB21]

@@ -1,8 +1,14 @@
 name: APPT full bounded Lean completion
 on:
   workflow_dispatch:
+    inputs:
+      reuse_verified_uniform:
+        description: 'Reuse the source-identical 260-module uniform component; final trust-zero replay remains mandatory'
+        type: boolean
+        default: false
 permissions:
   contents: read
+  actions: read
 jobs:
   components:
     strategy:
@@ -19,7 +25,21 @@ jobs:
           use-mathlib-cache: 'true'
           build: 'false'
           test: 'false'
+      - name: Check exact proof-source inventory
+        working-directory: formalizations/appt-qutrit-purity
+        run: python3 scripts/source_manifest.py --check
+      - name: Validate the previously completed uniform component
+        if: matrix.case == 'UniformBuild' && inputs.reuse_verified_uniform
+        working-directory: formalizations/appt-qutrit-purity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/mxym/math/actions/jobs/113877048106 --jq .conclusion)" = success
+          gh run download 37947374801 --repo mxym/math --name component-UniformBuild-247e98e8bf13aae2924e980e4680c6f6466552ed --dir uniform-legacy-artifact
+          python3 scripts/import_verified_uniform.py uniform-legacy-artifact/component-build.tar.gz 2>&1 | tee component.log
       - name: Compile each module within its explicit bound
+        if: matrix.case != 'UniformBuild' || !inputs.reuse_verified_uniform
         working-directory: formalizations/appt-qutrit-purity
         env:
           BUILD_CASE: ${{ matrix.case }}
@@ -40,6 +60,7 @@ jobs:
             formalizations/appt-qutrit-purity/component.log
             formalizations/appt-qutrit-purity/component-build.tar.gz
             formalizations/appt-qutrit-purity/logs/blocks/
+            formalizations/appt-qutrit-purity/local-verification/complete/UNIFORM_CACHE_PROVENANCE.json
   final:
     needs: components
     runs-on: ubuntu-latest
@@ -61,6 +82,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 scripts/component_cache.py merge ../../component-artifacts
+          find ../../component-artifacts -name UNIFORM_CACHE_PROVENANCE.json -exec cp {} local-verification/complete/ \;
           python3 reproduce.py 2>&1 | tee full-verification.log
       - uses: actions/upload-artifact@v4
         if: always()

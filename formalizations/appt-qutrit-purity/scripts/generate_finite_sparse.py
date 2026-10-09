@@ -207,6 +207,11 @@ def generate_dimension(root,inputs,D):
     rootbody+=f'theorem certificate_nonneg {args} {hyp} : 0 ≤ ({D+8}*(total g)^2-{(D+2)**2}*squareTotal g)*total g := by\n  have h := {rd}_nonneg g hg hA hB\n  rw [target_coefficients, CoefficientMerge.eval_scale, eval_targetCoeffs] at h\n  have hq : (0 : ℝ) < ({Q} : Int) := by norm_num\n  exact (mul_nonneg_iff_of_pos_left hq).mp h\n'
     rootbody+=f'theorem normalized_bound {args} {hyp} (hT : total g = 1) :\n    squareTotal g ≤ ({D+8} : ℝ)/{(D+2)**2} := by\n  have h := certificate_nonneg g hg hA hB\n  rw [hT] at h\n  nlinarith\n'
     p=root/f'APPT/Finite{D}.lean';p.write_text(header([rm,targetmod])+rootbody+f'\nend {ns}\n');generated.append(p);modules[ns]=[rm,targetmod]
+    # Separate exact coefficient computations, then emit typed literal constructors.
+    from flatten_numeric_merges import transform_dimension as flatten_merges
+    from explicit_coefficient_literals import transform_dimension as explicit_literals
+    flatten_merges(root,D)
+    explicit_literals(root,D)
     return {'dimension':D,'terms':len(terms),'leaves':len(groups),'joins':joins,'input_sha256':hashlib.sha256(ctx['source'].read_bytes()).hexdigest(),'modules':modules}
 
 def generate(root,inputs,dimensions):
