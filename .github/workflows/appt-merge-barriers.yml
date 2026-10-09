@@ -1,0 +1,45 @@
+name: APPT flat numeric merge proof barriers
+on:
+  push:
+    branches: ['work/appt-full-bounded-20261009']
+    paths:
+      - 'formalizations/appt-qutrit-purity/scripts/flatten_numeric_merges.py'
+      - 'formalizations/appt-qutrit-purity/APPT/Finite24Sparse/Leaf002.lean'
+      - 'formalizations/appt-qutrit-purity/APPT/Finite24Sparse/det04Term1Product.lean'
+      - '.github/workflows/appt-merge-barriers.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bounded:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Kernel-check flattened dense merges with bounded module builds
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p merge-barrier-logs .lake/build/lib/lean/Verification
+          lake env python3 scripts/build_blocks.py --case MergeBarrierProbe --engine lake --fresh --jobs 2 --timeout 300 2>&1 | tee merge-barrier-logs/build.log
+          timeout 120 lake env lean -j1 -M12288 -o .lake/build/lib/lean/Verification/ReplaySupport.olean Verification/ReplaySupport.lean 2>&1 | tee merge-barrier-logs/support.log
+          timeout 600 lake env lean -j1 -M12288 MergeBarrierAudit.lean 2>&1 | tee merge-barrier-logs/replay.log
+          grep -F 'EMPTY_KERNEL_REPLAY_PASS' merge-barrier-logs/replay.log
+          grep -F 'CORRUPTED_PROOF_REJECTED' merge-barrier-logs/replay.log
+          cp merge-barrier-replayed-*.txt merge-barrier-logs/
+          python3 scripts/component_cache.py pack MergeBarrierProbe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: merge-barrier-probe-${{ github.sha }}
+          path: |
+            formalizations/appt-qutrit-purity/merge-barrier-logs/
+            formalizations/appt-qutrit-purity/logs/blocks/
+            formalizations/appt-qutrit-purity/component-build.tar.gz
