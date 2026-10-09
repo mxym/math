@@ -1,0 +1,94 @@
+# 分类研究目录
+
+[返回首页](README.md) · [已公开预印本](preprints/lean-certified-2026-10/README.md) · [历史进展原文](RESEARCH_HISTORY.md)
+
+本页按数学领域提供当前阅读入口。同一研究的加强、整合稿和形式化作为一条研究线列出，不把不同版本重复计为独立突破。表中状态只适用于列出的结论；详细量词、外部输入、证书与 Lean 覆盖范围以链接文件为准。
+
+## 矩阵永久量与多项式猜想
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| Bapat 原区间 q-永久量猜想 | 指定复数有理反例；实对称整数正定反例存在，无显式实维数上界 | [合并论文](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md)；两项主结论完整 Lean |
+| q-永久量半轴问题 | 指定 4 × 4 实有理矩阵在 q=49、50 之间下降；与原区间问题分开 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) |
+| 复三行永久量—行列式 | 所有复参数的精确范数主定理 | [预印本与完整 Lean](preprints/lean-certified-2026-10/complex-pencil-norm/README.md)；[完整书面研究](notes/complex-permanent-determinant/README.md)另含等号与张量化 |
+| 复四行永久量—行列式 | 锐 tradeoff、等号分类与稳定性；一般行数结论另有范围限制 | [书面证明与精确验证](notes/four-row-permanent-tradeoff/README.md) |
+| Wakhare 熵多项式 | (k,r)=(11,10) 至少四个内部不同实根，反驳“恰有两个根” | [预印本](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md)；[新增完整 Lean 工程](formalizations/wakhare-entropy-four-roots-lean/README.md) |
+| 单峰 CGF 因子猜想 | 指定严格单峰 216 次多项式，无素数阶圆分因子 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) |
+| Ehrhart 实根性 | 指定 (132,213)-避免置换多面体族的全部维数实根性；使用已发表有限范围定理 | [完整书面证明与有理证书](notes/ehrhart-uniform-real-rootedness/README.md)；非完整 Lean |
+
+## 高斯几何与分区极值
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 等质量全部 k | 精确一阶矩上界、足够维数下的最优值和全部等号情形；低维严格性 | [署名预印本](preprints/gaussian-equal-cells-2026-10/README.md)；基于已发表多泡定理的完整书面证明，全部 k 的 Lean 尚未完成 |
+| 三胞独立形式化 | 实际等质量高斯分数分区的锐界、等号分类及低维严格不等式 | [完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)；源码在记录中的固定研究分支提交 |
+| 任意正质量向量 | 质量依赖矩阵度量下的锐重心椭球不等式；不是普通平方重心和的任意质量猜想 | [完整书面证明、部分 Lean](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md) |
+| 任意质量原猜想反例 | 指定四胞质量族中，平移或旋转的正四面体分区严格非最优 | [完整书面反例、精确算术与部分 Lean](research/gaussian-fixed-mass-propeller-counterexample/README.md) |
+| 高斯优化原始—对偶 | 真实高斯测度上的平衡价格、唯一性与原始—对偶取到 | [完整 Lean 工程](formalizations/gaussian-measure-primal-dual/README.md)；几何锐比较单独处理 |
+
+## 单纯形稳定性与投影体几何
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 单纯形稳定性与锐指数 | 所有 d ≥ 3 的上界，指数 1/(d−1) 不可改进；显式常数不声称最优 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/sharp-simplex-stability/README.md)；[上界工程](formalizations/sharp-simplex-upper-bound/README.md)与[截角锐性工程](formalizations/simplex-truncation-sharpness/README.md) |
+| 改进稳定性常数 | 完整书面改进与整合；较早常数的完整 Lean 不自动覆盖新常数 | [整合论文与证明范围](manuscripts/sharp-simplex-stability/README.md) |
+| 直积／join 递归优化 | 同质独立元数分类、谱增长和等号结构，限定在所述递归类 | [005 编号稿](preprints/005-simplex-product-optimum/README.md)；[独立证明与次优分类](notes/independent-arity-simplex-recursions/README.md) |
+| 嵌套层级与首次必要维数 | 构造深度的严格层级；递归类中首次需要嵌套的维数为 55 | [55 维精确证书](notes/projection-first-nesting-d55/README.md)；[深度分离](notes/two-layer-projection-depth-separation/README.md)；非所有凸体的全局优化 |
+
+## 有限群、置换作用与染色多项式
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 周期图无限对数凹性 | 全部 n ≥ 3；当且仅当 3 ≤ n ≤ 11，所有负例也已形式化 | [预印本](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md)；[完整 Lean 工程](formalizations/chromatic-cycles-all-n-lean/README.md) |
+| 通用轨道原始—对偶 | 任意有限群作用的有理最优证书与锐性 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) |
+| 每个有限 (n,k) 的精确公式 | 有限枚举的有理行列式最大值公式；不是无需取最大值的简单闭式 | [完整书面证明与整数实现](notes/sharp-robust-permanent/universal-exact/README.md)；全公式 Lean 未完成 |
+| 固定秩渐近与有限分类 | 全固定 k 的锐一阶渐近，及指定有限范围的精确分类 | [独立论文阅读入口](notes/sharp-robust-permanent/focused-paper/README.md)；[证书与验证范围](notes/sharp-robust-permanent/VERIFICATION.md) |
+| 所有子集秩同时约束 | n ≥ 6 的通用精确值 5/14，中间秩条件与全部秩条件等价 | [完整书面证明](notes/johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md)；[两个精确 checker](notes/johnson-short-cycle-spectrum/VERIFICATION.md) |
+
+## 二次整环、素元步长图与筛法
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 全二次整环有界步长 | 每个固定步长界下分量一致有界；不声称形式化有效数值界 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/quadratic-order-moats/README.md)；[002 稿件](preprints/002-quadratic-order-moats/README.md) |
+| Z[√−2] 小步长精确图 | D < 2 时最大分量为 3；2 ≤ D < √6 时为 7 | [小半径证明](notes/sqrt-minus-two-sharp-moats/README.md)；[半径 2 跳跃证明](notes/sqrt-minus-two-radius-two/README.md)与精确 checker |
+| 范数 6 步长的筛法最优 | 所有有限主理想筛的精确最优界为 197；真实素元图仅知 90 ≤ B_D ≤ 197 | [完整筛法证明与证书](notes/sqrt-minus-two-exact-sieve-optimum/README.md)；[B_D=197 的条件定理](notes/sqrt-minus-two-conditional-prime-197/README.md)依赖未证明的 Schinzel H |
+| 一般 CRT minimax | 任意维格点的有限筛最优值等于最大局部容许连通形状大小，并证明有限取到 | [完整书面证明](notes/periodic-sieve-admissibility-minimax/README.md) |
+| Eisenstein 素元图 | 指定六步／八邻域图的最大分量 48、132 及锐筛周期分类 | [完整书面证明与精确证书](notes/eisenstein-prime-components/README.md) |
+
+## 相似性、非线性避让与不可嵌入紧集
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 连续幂与可控余项避让 | 给定可数有界对数间隙族后构造大测度集合，统一避让允许的幂渐近 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/continuum-power-avoidance/README.md)；[完整书面整合稿](notes/continuum-power-avoidance-unified/README.md) |
+| 全实比值仿射几何序列 | 单个紧集同时处理所有实 a ≠ 0、b 和 0 < q < 1 | [完整 Lean 工程](formalizations/geometric-avoidance/README.md) |
+| 对数密度与非线性扩展 | 所述密度／轮廓条件下的避让；不是完整 Erdős 相似性猜想 | [004 稿件](preprints/004-log-density-similarity/README.md)；[006 稿件](preprints/006-modulus-nonlinear-similarity/README.md) |
+| 增长对数间隙 | 覆盖部分相邻比值趋零的序列类 | [书面类扩展](research/erdos-similarity-growing-gaps/README.md)，非完整猜想解答 |
+| 精确维数紧集不可嵌入 | Assouad 维数为 2 的 Banach 空间障碍构造 | [003 研究稿](preprints/003-assouad-two-zero-box/README.md) |
+
+## 最优传输与动力学
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| Brenier 稳定性 | 源正则性、目标矩条件及尾部敏感插值；保持各稿件独立假设 | [001](preprints/001-strongly-log-concave-brenier/README.md)、[007](preprints/007-tail-brenier-stability/README.md)、[008](preprints/008-density-overlap-phase/README.md) |
+| 源重叠与边界相变 | 密度根 Sobolev 刻画与传输方法的适用范围 | [研究纲领](notes/transport-source-tail-programme/README.md)；[书面综合证明](notes/transport-source-tail-synthesis/README.md)，应用保留独立势估计假设 |
+| 硬球气体随机场极限 | 正则动力学区间上的函数型涨落，列明输入定理 | [009 研究稿](preprints/009-functional-hard-sphere-fluctuations/README.md) |
+
+## 张量刚性与分数覆盖
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 二元张量刚性 | 最优增长阶 p^(1/4)、四次锐常数与等号；一般阶最优常数仍开放 | [完整书面证明与部分 Lean](notes/sharp-binary-tensor-rigidity/README.md)；[边界轮廓](notes/boundary-profile-binary-tensor-rigidity/README.md)与[Fock 机制上界](notes/fock-profile-ceiling-binary-tensor-rigidity/README.md) |
+| 分数覆盖／匹配谱 | 所述有限比值极限前沿与设计等号结构，引用经典设计输入 | [整合论文](manuscripts/fractional-cover-spectrum/README.md)；完整书面证明、部分 Lean |
+| 小三重交的整数恢复 | 在明确区间和三重交假设下由分数最优恢复整数渐近 | [完整书面证明与部分 Lean](notes/diffuse-fractional-cover-rounding/README.md)；一般问题仍未解决 |
+
+## 探索项目与文献比较
+
+- [Ryser rank-six 探索](research/ryser-rank-six/README.md)：搜索模型、独立 witness checker 与受限模板排除；未证明一般反例或一般非存在性。
+- [Borsuk 平衡切片记录](notes/balanced_borsuk_slice.md)：排除一个提出的构造，不解决八维问题。
+- [文献比较](comparisons/)与[原创性初步筛查](research/novelty-assessment/)：区分已有输入、独立推导、加强及待确认的历史关系。
+
+## 历史版本与审查材料
+
+[001–009 及扩展原索引](CONTENTS.md) · [五篇整合稿](manuscripts/README.md) · [验证记录](verification/) · [Release 档案](releases/README.md) · [变更记录](CHANGELOG.md)
+
+[RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)保留整理前的全部首页文字，包括旧范围、旧验证计数和修订轨迹。冻结证明和已公开版本不因本次目录整理而改写。
