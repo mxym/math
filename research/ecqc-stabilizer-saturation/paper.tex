@@ -1,0 +1,314 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Extremal same-basis correlations: full-rank rigidity and a stabilizer classification},pdfauthor={Yongxian Zhang},pdfsubject={Quantum mutual information, ECQC, stabilizer states, mutually unbiased bases}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\C}{\mathbb C}
+\newcommand{\M}{\mathcal M}
+\newcommand{\E}{\mathcal E}
+\newcommand{\ket}[1]{\lvert#1\rangle}
+\newcommand{\bra}[1]{\langle#1\rvert}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\spanof}{span}
+\DeclareMathOperator{\diag}{diag}
+\title{Extremal same-basis correlations:\protect\\ full-rank rigidity and a stabilizer classification}
+\author{Yongxian Zhang\thanks{Email: \href{mailto:mxymmxym1@gmail.com}{\texttt{mxymmxym1@gmail.com}}. ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}\\[3pt]
+\small School of Computer Science and Engineering\\
+\small South China University of Technology}
+\date{October 8, 2026 \quad (version 1)}
+\begin{document}
+\maketitle
+\begin{abstract}
+For identical canonical mutually unbiased measurements in odd prime dimension $p$, the extended complementary-quantum correlation score of a pure bipartite state is at most $p/2$ times its quantum mutual information. We classify every full-Schmidt-rank equality state, without a stabilizer assumption: up to phase it is $p^{-1/2}\sum_x\zeta^{b x}\ket{x,sx+t}$ with $s^2=-1$. Such states exist exactly when $p\equiv1\pmod4$, and there are exactly $2p^2$ distinct rays. Thus the optimal pure-state ratio is $p/2$ in every such prime dimension. We also classify the score of every two-qudit pure stabilizer state: for an entangled state whose stabilizer is the graph of a matrix $K$ of determinant $-1$, the score is $(m(K)-1)_+\log p$, where $m(K)$ is the number of invariant projective lines. Its only ECQC violations are precisely the full-rank equality states above. Finally, for any complete MUB family in dimension $d$, saturation forces a flat nonzero Schmidt spectrum, of rank either $d$ or at most $(d+1)/2$. Complete written proofs and exact density-matrix/Born-rule replays are provided. The general rank-deficient equality classification is not claimed, nor is a complete Lean formalization.
+\end{abstract}
+
+\section{Problem, conventions, and main classification}
+\subsection{The same-basis score}
+For a density operator $\rho$ on $\C^d\otimes\C^d$, let
+\[
+ S(\rho)=-\Tr(\rho\log\rho),\qquad
+ Q(\rho)=S(\rho_A)+S(\rho_B)-S(\rho).
+\]
+Natural logarithms are used throughout and $0\log0=0$. An orthonormal basis $M=\{\ket{m_j}\}_{j=0}^{d-1}$, used \emph{identically} on the two parties, gives the actual Born table
+\[
+ P^M_{jk}=\bra{m_j}\bra{m_k}\rho\ket{m_j}\ket{m_k},\qquad
+ I_M=H(P^M_A)+H(P^M_B)-H(P^M).
+\]
+Bob's basis is not conjugated or independently optimized. For a complete family $\M$ of $d+1$ mutually unbiased bases (MUBs), set
+\begin{equation}\label{eq:score}
+ \E_\M(\rho)=\sum_{M\in\M}I_M-\max_{M\in\M}I_M.
+\end{equation}
+This is the sum of the $d$ smallest measured mutual informations. The ECQC proposal is $\E_\M\le Q$ \cite{iqbal}; it must not be confused with the original two-basis CQC statement \cite{schneeloch}.
+
+For an odd prime $p$, write $\zeta=e^{2\pi i/p}$. We fix
+\begin{align}
+ M_\infty&=\{\ket{x}:x\in\F_p\},\nonumber\\
+ M_a&=\{\ket{b_{a,j}}:j\in\F_p\},\qquad
+ \ket{b_{a,j}}=\frac1{\sqrt p}\sum_{x\in\F_p}\zeta^{a x^2+jx}\ket{x},
+ \quad a\in\F_p,\label{eq:mub}
+\end{align}
+and put $\M_p=\{M_\infty,M_0,\ldots,M_{p-1}\}$. Arithmetic in exponents is in $\F_p$.
+The geometric-sum identity proves orthonormality. For $A\ne0$,
+\begin{equation}\label{eq:gauss}
+ \left|\sum_x\zeta^{Ax^2+Bx}\right|^2
+ =\sum_u\zeta^{Au^2+Bu}\sum_y\zeta^{2Auy}=p,
+\end{equation}
+so the bases are mutually unbiased. This establishes the particular family used below directly.
+
+\subsection{What is and is not new here}
+Wang, Wang, and Chen already refuted unrestricted CQC and ECQC using mixed classical--classical states \cite{wang}. A previous paper in this project resolved the pure-state prime-dimensional validity question: universal ECQC holds only at $p=2$, and every odd prime has pure counterexamples, including full-Schmidt-rank examples \cite{previous}. That paper found sharp ratios $3/2$ and $5/2$ at $p=3,5$, but did not determine full-rank equality states, all pure stabilizer scores, or sharp ratios at larger primes.
+
+The present paper resolves those first two classification problems and determines the sharp ratio for the entire congruence class $p\equiv1\pmod4$. Our stabilizer computations use the standard finite-Weyl framework (see, for example, \cite{fattal}), with all specific identities proved below. The analytic input in the rigidity argument is the established Holevo theorem, including its necessary equality condition \cite{holevo,ruskai}. We do not claim a new proof of that theorem, or the first disproof of unrestricted ECQC. The checked literature versions and search limitations are recorded with the source package; absence of a search result is not a priority certificate.
+
+\begin{theorem}[Full-rank equality classification]\label{thm:full}
+Let $p$ be an odd prime. For every pure state on $\C^p\otimes\C^p$,
+\begin{equation}\label{eq:bound}
+ \E_{\M_p}(\rho)\le\frac p2 Q(\rho).
+\end{equation}
+Among states of full Schmidt rank, equality holds if and only if, up to an overall phase, the state vector is
+\begin{equation}\label{eq:states}
+ \ket{\Psi_{s,t,b}}=\frac1{\sqrt p}\sum_{x\in\F_p}\zeta^{b x}\ket{x,sx+t},
+ \qquad s^2=-1,\quad t,b\in\F_p.
+\end{equation}
+In particular, full-rank equality states exist if and only if $p\equiv1\pmod4$. There are exactly $2p^2$ such rays when they exist. Every one satisfies
+\[
+ I_M=\log p\quad(M\in\M_p),\qquad Q=2\log p,\qquad \E_{\M_p}=p\log p.
+\]
+Consequently $\sup_{\rho\ \mathrm{pure},\ Q(\rho)>0}\E_{\M_p}(\rho)/Q(\rho)=p/2$ for every prime $p\equiv1\pmod4$.
+\end{theorem}
+
+\begin{theorem}[Every pure stabilizer score]\label{thm:stabilizer}
+Let $p$ be an odd prime and let $\rho$ be any two-qudit pure stabilizer state in the finite-Weyl sense defined in Section~\ref{sec:stabilizer}. A product state has $Q=\E_{\M_p}=0$. Every other such state has a uniquely determined stabilizer graph matrix $K\in\operatorname{GL}_2(\F_p)$ with $\det K=-1$. If $m(K)$ denotes its number of invariant one-dimensional subspaces, then
+\begin{equation}\label{eq:stabilizer-score}
+ Q(\rho)=2\log p,\qquad \E_{\M_p}(\rho)=(m(K)-1)_+\log p.
+\end{equation}
+If $K$ is nonscalar, its score is either $0$ or $\log p$. If $K=sI$, necessarily $s^2=-1$, and its score is $p\log p$. Thus the stabilizer states violating ECQC are \emph{exactly} the states in \eqref{eq:states}. At $p\equiv3\pmod4$, every pure stabilizer state obeys the stronger inequality $\E_{\M_p}\le Q/2$.
+\end{theorem}
+
+\begin{remark}[The distinction between attainment and supremum]
+At $p\equiv3\pmod4$ Theorem~\ref{thm:full} rules out full-rank \emph{attainment}, not a supremum equal to $p/2$. For example, the rank-two qutrit extremizer in \cite{previous} can be approximated by full-rank states; continuity gives full-rank ratios tending to $3/2$. The sharp ratio for $p\equiv3\pmod4$, $p\ge7$, remains undetermined here. Likewise, Theorem~\ref{thm:stabilizer} does not classify mixed stabilizer states or arbitrary nonstabilizer states.
+\end{remark}
+
+\section{Holevo equality and full-rank rigidity}
+\subsection{The precise external entropy input}
+We use the following established finite-dimensional result \cite{holevo,ruskai}. For an ensemble $(q_j,\tau_j)$ and any measurement producing $Y$ from its classical label $X$,
+\begin{equation}\label{eq:holevo}
+ I(X:Y)\le S\left(\sum_jq_j\tau_j\right)-\sum_jq_jS(\tau_j).
+\end{equation}
+If equality is attained, the states $\tau_j$ with $q_j>0$ commute pairwise. The necessary condition is discussed in Sections 7.2--7.3 of \cite{ruskai}; zero-probability labels are discarded and the ensemble may be restricted to its support. We only use this commutativity consequence, not a proposed equality condition for a different entropy inequality.
+
+For a pure bipartite state, a rank-one measurement on Alice gives an ensemble of pure conditional states on Bob, with average $\rho_B$. If $h=S(\rho_A)=S(\rho_B)$, \eqref{eq:holevo} gives $I_M\le h$, whereas $Q=2h$. Thus \eqref{eq:bound} follows immediately. Moreover,
+\begin{equation}\label{eq:all-equal}
+ \E_\M=d h\quad\Longleftrightarrow\quad I_M=h\text{ for every }M\in\M.
+\end{equation}
+Indeed, the sum of the $d$ smallest terms, each at most $h$, can equal $dh$ only if those terms, and hence the largest term, all equal $h$. Product states have $h=0$ and all scores zero.
+
+\begin{lemma}[Monomial measurement matrices]\label{lem:monomial}
+Let a pure state have full Schmidt rank $d$. In a pair of local orthonormal measurement bases, suppose the measured mutual information equals $h$. Then its amplitude matrix in those bases is monomial: each row and each column has exactly one nonzero entry.
+\end{lemma}
+\begin{proof}
+Full Schmidt rank means the amplitude matrix is invertible. Its $d$ rows give $d$ nonzero linearly independent conditional vectors on Bob. Equality in \eqref{eq:holevo} makes their normalized rank-one projectors commute. Two rank-one projectors commute only when their rays coincide or are orthogonal. Linear independence excludes coincidence, so these conditional vectors are mutually orthogonal. If $q_j$ are their probabilities, $\rho_B$ has eigenvalues $q_j$, hence $h=H(X)$. The assumed equality gives $H(X\mid Y)=0$. Thus each Bob outcome with positive probability is supported by only one Alice label: different rows of the amplitude matrix have disjoint supports. There are $d$ nonempty rows and $d$ columns; invertibility also excludes an empty column. Each row and column therefore contains exactly one nonzero entry.
+\end{proof}
+
+\begin{proposition}[Three settings suffice]\label{prop:three}
+For full-Schmidt-rank pure states in odd prime dimension, the equalities $I_{M_\infty}=I_{M_0}=I_{M_1}=h$ already imply the form \eqref{eq:states}.
+\end{proposition}
+\begin{proof}
+Write $C$ for the amplitude matrix in computational coordinates. Lemma~\ref{lem:monomial} makes $C$ monomial, so $\rho_A=CC^*$ is diagonal. It also makes the Fourier-basis amplitude matrix monomial, so $F^*\rho_A F$ is diagonal, where $F_{xj}=p^{-1/2}\zeta^{jx}$. For any diagonal trace-one matrix, every diagonal entry of its Fourier conjugate is $1/p$. Therefore $F^*\rho_A F=I/p$, so $\rho_A=I/p$. There are a permutation $f$ of $\F_p$ and phases $\theta_x$ such that
+\[
+ C_{xy}=p^{-1/2}e^{i\theta_x}\mathbf1_{y=f(x)}.
+\]
+Its Fourier measurement amplitude is
+\[
+ (F^*C\overline F)_{jk}=\frac1{p\sqrt p}
+ \sum_xe^{i\theta_x}\zeta^{-jx-kf(x)}.
+\]
+Each column has exactly one nonzero entry. The inverse discrete Fourier transform says that $v_k(x)=e^{i\theta_x}\zeta^{-kf(x)}$ must consequently be a scalar multiple of a character of $\F_p$. The case $k=0$ gives $e^{i\theta_x}=e^{i\theta}\zeta^{bx}$. Dividing the case $k=1$ by $k=0$ gives $f(x)=sx+t$, with $s\ne0$ because $f$ is a permutation. (Evaluating at $x=0$ fixes the otherwise arbitrary scalar phase.) After removing the overall phase, the vector is the expression in \eqref{eq:states}, so far with arbitrary nonzero $s$.
+
+The $M_1$ amplitude in column $k$ is the Fourier transform of a scalar times
+\[
+ x\longmapsto\zeta^{-(1+s^2)x^2+(b-2st-ks)x-t^2-kt}.
+\]
+It again has singleton Fourier support, so the displayed exponent agrees with an affine polynomial as a function on $\F_p$. Taking the second difference at $-1,0,1$ gives $-2(1+s^2)=0$. Since $p$ is odd, $s^2=-1$, as required.
+\end{proof}
+
+\subsection{Actual Born laws and the converse}
+For arbitrary $s\ne0$, define $\Psi_{s,t,b}$ by the vector expression in \eqref{eq:states}. Its computational Born law is $p^{-1}\mathbf1_{y=sx+t}$, and both partial traces are $I/p$. In basis $M_a$, its amplitude is
+\begin{equation}\label{eq:amplitude}
+ \frac1{p\sqrt p}\sum_x
+ \zeta^{-a(1+s^2)x^2+(b-j-sk-2ast)x-at^2-kt}.
+\end{equation}
+If $s^2=-1$, the geometric sum gives exactly
+\begin{equation}\label{eq:born-line}
+ P^{M_a}_{jk}=\frac1p\mathbf1_{j+sk=b-2ast}.
+\end{equation}
+There are $p$ nonzero outcomes and both marginals are uniform. Hence $I_{M_a}=\log p$; the same holds for $M_\infty$. This proves the converse and the asserted entropies.
+
+For completeness, if $s^2\ne-1$, the setting $a=0$ is still perfectly correlated, but \eqref{eq:gauss} shows $P^{M_a}_{jk}=p^{-2}$ for every $a\ne0$. Such an affine Bell state has $\E=\log p$, not $p\log p$. This is a useful check that conjugating Bob's bases would change the problem.
+
+The group $\F_p^\times$ is cyclic. An element whose square is $-1$ has order four, and conversely a generator raised to $(p-1)/4$ is a square root of $-1$ when $4\mid p-1$. There are exactly two roots in that case, as $X^2+1$ has degree two. The support of \eqref{eq:states} determines $s,t$, and its relative phases determine $b$. The $2p^2$ parameter choices therefore give distinct rays. Proposition~\ref{prop:three}, \eqref{eq:all-equal}, and the universal bound complete the proof of Theorem~\ref{thm:full}.
+
+\section{A complete finite-Weyl classification}\label{sec:stabilizer}
+\subsection{Definitions and purity, without a state oracle}
+Let $V=\F_p^2$ and define
+\[
+ X\ket{x}=\ket{x+1},\quad Z\ket{x}=\zeta^x\ket{x},\quad
+ W(a,b)=\zeta^{ab/2}X^a Z^b,
+ \qquad [(a,b),(c,d)]=bc-ad.
+\]
+The symbol $1/2$ denotes the inverse of two in $\F_p$. Direct multiplication gives
+\begin{equation}\label{eq:weyl}
+ W(u)W(v)=\zeta^{[u,v]/2}W(u+v),\quad
+ W(u)^*=W(-u),\quad \Tr W(u)=p\,\mathbf1_{u=0}.
+\end{equation}
+On $V\oplus V$ use the sum of the two alternating forms. A Lagrangian subspace is a two-dimensional subspace $L$ on which that form vanishes. For a linear functional $\chi:L\to\F_p$, put
+\begin{equation}\label{eq:projector}
+ \rho_{L,\chi}=\frac1{p^2}\sum_{(u,v)\in L}\zeta^{-\chi(u,v)}W(u)\otimes W(v).
+\end{equation}
+These are precisely the pure stabilizer states considered here, namely common eigenstates of a maximal commuting group of prime-dimensional Pauli operators.
+
+To verify the definition directly, on $L$ the tensor Weyl operators multiply without a phase. Equation~\eqref{eq:weyl}, linearity of $\chi$, and $|L|=p^2$ therefore give $\rho_{L,\chi}^*=\rho_{L,\chi}$, $\rho_{L,\chi}^2=\rho_{L,\chi}$, and $\Tr\rho_{L,\chi}=1$. Thus it is a positive rank-one density operator. Conversely, a common eigenvector of such a maximal commuting group has a linear eigenvalue character and is projected onto by \eqref{eq:projector}. Also,
+\begin{equation}\label{eq:expect}
+ \Tr\bigl(\rho_{L,\chi}(W(u)\otimes W(v))\bigr)
+ =\begin{cases}\zeta^{\chi(u,v)},&(u,v)\in L,\\0,&(u,v)\notin L.\end{cases}
+\end{equation}
+In particular the state determines $L$ and $\chi$ uniquely.
+
+\subsection{Product states versus anti-symplectic graphs}
+If $L$ contains a nonzero vector $(u,0)$, its intersection with $V\oplus0$ is a line: it cannot be a plane because the alternating form on $V$ is nondegenerate. Taking the partial trace in \eqref{eq:projector} gives a rank-one single-qudit stabilizer projector on Alice. The global state is pure, so it is a product state. Its Born tables factor in every setting, and $Q=\E=0$. The same argument applies to a nonzero vector $(0,v)$.
+
+Suppose instead that there is no local vector on either side. Both coordinate projections of the two-dimensional space $L$ are isomorphisms. Hence
+\begin{equation}\label{eq:graph}
+ L=\{(u,Ku):u\in V\}
+\end{equation}
+for a unique invertible matrix $K$. For any $u,v\in V$, a direct $2\times2$ determinant identity gives $[Ku,Kv]=(\det K)[u,v]$. Isotropy of \eqref{eq:graph} is therefore equivalent to $\det K=-1$. Both partial traces of \eqref{eq:projector} are $I/p$, and $Q=2\log p$. This accounts for every pure stabilizer state: if a local vector exists the first case applies, and otherwise the graph case applies.
+
+\subsection{Born probabilities from intersections of lines}
+The basis $M_\infty$ is the eigenbasis of $W(0,1)$, and $M_a$ is the eigenbasis of $W(1,2a)$, with eigenvalue $\zeta^{-j}$ on $\ket{b_{a,j}}$. Thus the settings correspond to all projective lines
+\[
+ \ell_\infty=\spanof(0,1),\qquad \ell_a=\spanof(1,2a).
+\]
+Fix a nonzero generator $e$ of a line $\ell$. If $\lambda_j$ labels the eigenvalue exponent, its projector is
+\[
+ \Pi_j=\frac1p\sum_{t\in\F_p}\zeta^{-t\lambda_j}W(te),
+\]
+where $j\mapsto\lambda_j$ is a bijection of $\F_p$. Substituting this and \eqref{eq:expect} into the Born rule gives
+\begin{equation}\label{eq:intersection}
+ P_{jk}=\frac1{p^2}\sum_{(te,re)\in L}
+ \zeta^{-t\lambda_j-r\lambda_k+\chi(te,re)}.
+\end{equation}
+For a graph $L$, if $K\ell\ne\ell$ the only contributing pair is zero. Thus $P_{jk}=p^{-2}$ and $I_\ell=0$. If $K\ell=\ell$, write $Ke=\kappa e$ with $\kappa\ne0$ and $\eta=\chi(e,\kappa e)$. Then \eqref{eq:intersection} reduces to
+\[
+ P_{jk}=\frac1p\mathbf1_{\lambda_j+\kappa\lambda_k=\eta}.
+\]
+This table has $p$ equiprobable entries, uniform marginals, and $I_\ell=\log p$. There are exactly $m(K)$ such settings. Deleting a largest term proves \eqref{eq:stabilizer-score}, including the case $m(K)=0$.
+
+\subsection{Which matrices violate ECQC?}
+A nonscalar $2\times2$ matrix has at most two invariant lines. Indeed, two invariant lines give an eigenbasis; if the eigenvalues are distinct those are the only invariant lines, while if they are equal the matrix is scalar. A matrix with fewer than two invariant lines already has the claimed bound. A scalar matrix $K=sI$ fixes all $p+1$ lines and has determinant $-1$ exactly when $s^2=-1$.
+
+It remains to identify the states, not merely the stabilizers. For $s^2=-1$, the vector \eqref{eq:states} satisfies
+\[
+ (X\otimes X^s)\ket{\Psi_{s,t,b}}=\zeta^{-b}\ket{\Psi_{s,t,b}},\qquad
+ (Z\otimes Z^s)\ket{\Psi_{s,t,b}}=\zeta^{st}\ket{\Psi_{s,t,b}}.
+\]
+These commuting generators span the graph of $sI$. As $b,t$ vary, their eigenvalue characters run over all $p^2$ possibilities. Therefore these vectors give exactly all states with scalar graph. Since $p\equiv1\pmod4$ and $p$ odd imply $p\ge5$, their score $p\log p$ is strictly larger than $Q=2\log p$. Every nonscalar graph has $\E\le\log p=Q/2$. This proves all of Theorem~\ref{thm:stabilizer}.
+
+\begin{corollary}[Exact counts]\label{cor:counts}
+There are $p^3(p^2-1)$ entangled two-qudit pure stabilizer rays and $p^2(p+1)^2$ product ones, hence $p^2(p+1)(p^2+1)$ in total. Exactly $2p^2$ violate ECQC if $p\equiv1\pmod4$, and none do otherwise.
+\end{corollary}
+\begin{proof}
+There are $p(p^2-1)$ matrices of determinant $-1$: choose a nonzero first column in $p^2-1$ ways and then choose the second column in the affine line of $p$ solutions of the determinant equation. Each graph has $p^2$ characters, all giving distinct rays by \eqref{eq:expect}. There are $p(p+1)$ single-qudit stabilizer rays, one for each of the $p$ eigenvalues on each of $p+1$ lines. Rays from distinct lines cannot coincide, since their noncommuting Weyl operators have a nontrivial scalar commutator. Taking products gives the second count, and the preceding theorem gives the violation count.
+\end{proof}
+
+\section{Rigidity beyond the stabilizer and full-rank classes}
+The next result is valid for any dimension in which a complete MUB family is supplied. It does not assert the existence of complete MUBs in arbitrary dimensions.
+
+\begin{theorem}[Flat spectrum and a rank gap]\label{thm:rank}
+Let $\M$ be any complete family of $d+1$ MUBs on $\C^d$, and let $\rho$ be a pure nonproduct state on $\C^d\otimes\C^d$. If $\E_\M(\rho)=(d/2)Q(\rho)$, then its nonzero Schmidt eigenvalues are all $1/r$, where $r$ is its Schmidt rank. Moreover,
+\begin{equation}\label{eq:rankgap}
+ r=d\quad\text{or}\quad r\le\frac{d+1}{2}.
+\end{equation}
+\end{theorem}
+
+\begin{lemma}[Complete-MUB identity]\label{lem:design}
+For Hermitian $A,B$ on $\C^d$, with $E_{M,j}=\ket{m_j}\bra{m_j}$,
+\begin{equation}\label{eq:design}
+ \sum_{M,j}\Tr(AE_{M,j})\Tr(BE_{M,j})=\Tr(AB)+\Tr(A)\Tr(B).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Use the real Hilbert space of Hermitian matrices with inner product $\Tr(AB)$. For each basis, its diagonal trace-zero subspace has dimension $d-1$. The MUB condition makes these $d+1$ subspaces mutually orthogonal: the products of basis projectors from distinct bases have trace $1/d$. Their dimensions sum to $d^2-1$, so they decompose the entire trace-zero space. For trace-zero $A$, its orthogonal projection onto the diagonal subspace for $M$ is $\sum_j\Tr(AE_{M,j})E_{M,j}$. Applying Parseval and polarization proves \eqref{eq:design} for trace-zero $A,B$. Write arbitrary $A=A_0+(\Tr A/d)I$ and likewise for $B$; the scalar contribution on the left is $(d+1)\Tr A\Tr B/d$, which gives the displayed formula after combining it with $\Tr(A_0B_0)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:rank}]
+By \eqref{eq:all-equal}, every setting attains the Holevo bound. Its pure conditional states commute, so each nonzero conditional vector is an eigenvector of their average $\rho_B$.
+To translate this statement to Alice, write a Schmidt decomposition
+\[
+ \ket\psi=\sum_{i=1}^r\sqrt{\lambda_i}\ket{e_i}\ket{f_i}.
+\]
+The conditional vector associated with a basis vector $m$ is
+$\sum_i\sqrt{\lambda_i}\langle m,e_i\rangle\ket{f_i}$.
+It is an eigenvector of $\rho_B$ only if the projection of $m$ onto the support of $\rho_A$ lies in a single positive-eigenvalue eigenspace. If $P_\lambda,P_\mu$ are spectral projectors for two distinct positive eigenvalues, it follows that
+\[
+ \Tr(P_\lambda E_{M,j})\Tr(P_\mu E_{M,j})=0
+ \quad\text{for all }M,j.
+\]
+But \eqref{eq:design} makes the sum of these products equal to
+$\Tr P_\lambda\Tr P_\mu>0$, because $P_\lambda P_\mu=0$. This contradiction proves $\rho_A=P/r$ for a rank-$r$ orthogonal projector $P$. The same nonzero spectrum occurs on Bob.
+
+If $r=d$ there is nothing further to prove. Suppose $q=d-r>0$ and put $T=I-P$. In each measurement basis, the vectors $P m_j$ are pairwise parallel or orthogonal: the Schmidt conditional map is, up to its common factor $1/\sqrt r$, an antiunitary isometry on the support, and the conditional rank-one projectors commute. Partition the nonzero vectors $P m_j$ into parallel classes. Their Gram matrix is the matrix of $P$ in this basis; after a permutation it consists of rank-one projection blocks, together with zero rows and columns. Each nonzero block is itself a projection because $P^2=P$, so its trace is one.
+
+Let $n_0$ be the number of zero rows, and let the nontrivial block sizes be $m_1,\ldots,m_k\ge2$. Singleton nonzero blocks have diagonal entry one. Every diagonal entry within a nontrivial block is strictly between zero and one. Consequently
+\[
+ q=n_0+\sum_{i=1}^k(m_i-1),\qquad
+ t:=\#\{j:\langle m_j,Tm_j\rangle>0\}
+ =n_0+\sum_{i=1}^km_i\le2q.
+\]
+Cauchy--Schwarz and $\Tr T=q$ give in every basis
+\[
+ \sum_j\langle m_j,Tm_j\rangle^2\ge\frac{q^2}{t}\ge\frac q2.
+\]
+Summing over the $d+1$ bases and applying \eqref{eq:design} with $A=B=T$, where $T^2=T$, yields
+$q^2+q\ge(d+1)q/2$. Dividing by $q>0$ gives $q\ge(d-1)/2$, or $r\le(d+1)/2$.
+\end{proof}
+
+\section{Verification, limitations, and provenance}
+The proof of the stabilizer classification is an all-prime finite-field argument, not a finite search. The full-rank converse and the rank-gap theorem use the published Holevo equality theorem as an explicit mathematical dependency; their other steps are proved here. No claim of complete Lean verification is made.
+
+The accompanying exact checker (\texttt{check\_exact.py}) constructs actual density matrices from \eqref{eq:projector} in integer cyclotomic arithmetic. It checks Hermiticity, trace one, idempotence, both partial traces, and every Born probability in all settings for six test states in dimensions three and five. These include scalar, two-eigenline, one-eigenline, and zero-eigenline cases with nontrivial characters. Five corrupted inputs must be rejected. A separate enumeration checks all determinant-$-1$ matrices at nine explicitly listed primes; this is a regression test of the uniform proof, not its replacement.
+
+An independently implemented checker, \texttt{check\_affine\_gauss.py}, uses integer circular autocorrelation of root-of-unity exponent histograms. It replays exact quadratic Gauss norms and affine Bell Born laws, without the cyclotomic arithmetic implementation of the first checker. Neither checker approximates an entropy: the certified laws are uniform on a permutation graph or uniform on all outcomes, so their entropy identities are exact. Stored JSON results are records to be regenerated, not trusted certificates by themselves. Both programs reject optimized Python execution. The source package describes every tested range and which steps remain analytic.
+
+These results concern finite-dimensional quantum states and ideal projective measurements, not new experimental observations. Pure rank-deficient equality states remain unclassified in general; the sharp pure ratio at $p\equiv3\pmod4$, $p\ge7$, is not settled. For a different pairing of Alice's and Bob's bases, the same-line condition in \eqref{eq:intersection} changes, so the classifications must not be transferred without a new proof.
+
+\paragraph{Author contributions and disclosures.}
+This research was conducted by Yongxian Zhang with AI assistance in derivation, exploratory computation, programming, literature checking, writing, and self-audit. There was no external funding and no external professional mathematical peer review. The two checker implementations are separate code paths within the same project, not independent human reviews. Previously published results and this project's earlier paper are credited explicitly. Copyright \copyright\ 2026 Yongxian Zhang; all rights reserved for the separately authored original material. Inherited licenses and source notices remain unchanged. Version timestamps and any archival DOI are not evidence of historical priority.
+
+\begin{thebibliography}{9}
+\bibitem{iqbal}
+H.~Iqbal, \emph{On the CQC conjecture: a sufficient condition and an extension}, Quantum Information Processing \textbf{25}, 250 (2026), doi:~\href{https://doi.org/10.1007/s11128-026-05258-2}{10.1007/s11128-026-05258-2}; \href{https://arxiv.org/abs/2509.08286v2}{arXiv:2509.08286v2}, Conjecture 3.1 and Section 5.
+\bibitem{schneeloch}
+J.~Schneeloch, C.~J.~Broadbent, and J.~C.~Howell, \emph{Uncertainty relation for mutual information}, Physical Review A \textbf{90}, 062119 (2014), doi:~\href{https://doi.org/10.1103/PhysRevA.90.062119}{10.1103/PhysRevA.90.062119}.
+\bibitem{wang}
+J.~Wang, Q.~Wang, and K.~Chen, \emph{When complementary measurements count the same classical bit twice: counterexamples to CQC, ECQC, and complementarity-based certification}, \href{https://arxiv.org/abs/2608.03828v2}{arXiv:2608.03828v2} (2026).
+\bibitem{previous}
+Y.~Zhang, \emph{The pure-state ECQC conjecture: counterexamples and a prime-dimensional classification}, public research manuscript (2026), frozen source commit \href{https://github.com/mxym/math/tree/2d67375906d729862d4eb085186a5fd5670ef390/research/ecqc-pure-state-counterexamples}{\texttt{2d67375906}}, repository \texttt{mxym/math}; the linked directory contains the paper and proof artifacts.
+\bibitem{holevo}
+A.~S.~Holevo, \emph{Bounds for the quantity of information transmitted by a quantum communication channel}, Problems of Information Transmission \textbf{9}(3), 177--183 (1973).
+\bibitem{ruskai}
+M.~B.~Ruskai, \emph{Inequalities for quantum entropy: a review with conditions for equality}, Journal of Mathematical Physics \textbf{43}, 4358--4375 (2002), doi:~\href{https://doi.org/10.1063/1.1497701}{10.1063/1.1497701}; erratum \textbf{46}, 019901 (2005); \href{https://arxiv.org/abs/quant-ph/0205064v2}{arXiv:quant-ph/0205064v2}, Sections 7.2--7.3.
+\bibitem{fattal}
+D.~Fattal, T.~S.~Cubitt, Y.~Yamamoto, S.~Bravyi, and I.~L.~Chuang, \emph{Entanglement in the stabilizer formalism}, \href{https://arxiv.org/abs/quant-ph/0406168}{arXiv:quant-ph/0406168} (2004).
+\end{thebibliography}
+\end{document}

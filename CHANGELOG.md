@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-08 — full-rank ECQC rigidity and complete pure stabilizer classification
+
+- Classify all full-Schmidt-rank saturators without a stabilizer hypothesis: exactly the affine Bell states with s²=-1, giving 2p² rays at p≡1 mod 4.
+- Obtain the exact global pure-state ratio p/2 for every such prime, and classify the exact ECQC score of every two-qudit pure stabilizer state at all odd primes.
+- Prove a flat nonzero Schmidt spectrum and rank gap for general saturation, without claiming the remaining rank-deficient classification.
+- Supply eight-page written proofs, cited entropy dependencies, two exact checker implementations, rejected negative controls, and a second-environment replay; no complete Lean or external human peer review claim.
+
 ## 2026-10-08 — complete pure-state ECQC prime-dimensional classification
 
 - Prove universal pure-state ECQC holds in prime local dimension exactly at p=2; every odd prime has counterexamples even with full Schmidt rank and identical canonical local MUBs.

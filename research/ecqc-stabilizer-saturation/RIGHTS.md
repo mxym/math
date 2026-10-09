@@ -1,0 +1,3 @@
+Copyright (c) 2026 Yongxian Zhang. All rights reserved for the original manuscript, proofs, programs, and documentation in this directory, except where an existing source notice expressly states otherwise. No blanket license is applied to pre-existing repository material, external papers, standard libraries, or other cited sources. Their existing licenses and provenance remain in force.
+
+The work is publicly readable and includes reproduction instructions; publication is not a claim of an open-source license. No external funding. AI-assisted research and writing. No external professional mathematical peer review. An archival DOI or immutable timestamp, when assigned, does not establish mathematical correctness or historical priority.

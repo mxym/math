@@ -18,6 +18,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
+| [ECQC 满秩极值刚性与纯稳定子完整分类](research/ecqc-stabilizer-saturation/README.md) · [PDF](research/ecqc-stabilizer-saturation/paper.pdf) | 所有奇素数满秩等号态；全部双 qudit 纯稳定子分数；p≡1 mod 4 时全纯态最优比值 p/2 | 完整书面证明、两套精确重放；非完整 Lean | 未分配 |
 | [纯态 ECQC：素数维数完整分类](research/ecqc-pure-state-counterexamples/README.md) · [PDF](research/ecqc-pure-state-counterexamples/paper.pdf) | 普遍成立当且仅当 p=2；每个奇素数维数有满 Schmidt 秩纯态反例；三维、五维比值最优 | 完整书面证明、精确证书；未完整 Lean 化 | 未分配 |
 | [一般互信息连续性拟议界的三元反例](preprints/mutual-information-continuity-2026-10/README.md) · [PDF](preprints/mutual-information-continuity-2026-10/paper.pdf) | 实际 3×3 概率表；任意小正距离下反驳拟议界，两侧边缘均变化 | 经典反例完整 Lean；量子嵌入及必要系数下界为书面证明 | [23253944](https://doi.org/10.5281/zenodo.23253944) |
 | [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
