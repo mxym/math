@@ -1,0 +1,17 @@
+sources/GaussianThreeSharp.lean:33:46: warning: This simp argument is unused:
+  real_inner_self_eq_norm_sq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scoreGram, Matrix.trace, Matrix.diag, Fin.sum_univ_succ, Fin.sum_univ_two, add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+sources/GaussianThreeSharp.lean:34:23: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scoreGram, Matrix.trace, Matrix.diag, real_inner_self_eq_norm_sq, Fin.sum_univ_succ, add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'GaussianMeasureBridge.simplexConstant_three_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GaussianMeasureBridge.covarianceValue_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GaussianMeasureBridge.three_cell_momentEnergy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
