@@ -1,6 +1,10 @@
 import GaussianMinimalCovarianceRows
 import GaussianScoreSymmetry
 import GaussianHalfspaceFlux
+import GaussianRegularPerimeter
+import GaussianRegularStationarity
+import GaussianEquidistantRigidity
+import GaussianMomentCovariance
 import Mathlib.Tactic
 
 /-!
@@ -166,4 +170,124 @@ theorem expectedScore_three_edges (v : Fin 3 → Space d) :
 #print axioms expectedScore_three_abs_edges
 #print axioms gaussian_abs_inner
 #print axioms expectedScore_three_edges
+end GaussianMeasureBridge
+
+
+namespace GaussianMeasureBridge
+
+/-- In a trace-one centered triple, all three squared edge lengths sum to
+three. This is a purely Euclidean identity, with no nonsingularity premise. -/
+theorem centered_three_squared_edges {d : ℕ} (v : Fin 3 → Space d)
+    (hz : ∑ i, v i = 0) (ht : ∑ i, ‖v i‖ ^ 2 = 1) :
+    ‖v 0-v 1‖ ^ 2 + ‖v 0-v 2‖ ^ 2 + ‖v 1-v 2‖ ^ 2 = 3 := by
+  have hz3 : v 0 + v 1 + v 2 = 0 := by
+    simpa [Fin.sum_univ_succ, Fin.sum_univ_two, add_assoc] using hz
+  have ht3 : ‖v 0‖ ^ 2 + ‖v 1‖ ^ 2 + ‖v 2‖ ^ 2 = 1 := by
+    simpa [Fin.sum_univ_succ, Fin.sum_univ_two, add_assoc] using ht
+  have hzero : ⟪v 0+v 1+v 2, v 0+v 1+v 2⟫ = 0 := by
+    rw [hz3]
+    simp
+  simp only [inner_add_left, inner_add_right, real_inner_self_eq_norm_sq] at hzero
+  have hs01 : ⟪v 1,v 0⟫ = ⟪v 0,v 1⟫ := real_inner_comm _ _
+  have hs02 : ⟪v 2,v 0⟫ = ⟪v 0,v 2⟫ := real_inner_comm _ _
+  have hs12 : ⟪v 2,v 1⟫ = ⟪v 1,v 2⟫ := real_inner_comm _ _
+  rw [norm_sub_sq_real, norm_sub_sq_real, norm_sub_sq_real]
+  nlinarith [hzero, ht3, hs01, hs02, hs12]
+
+/-- Exactly the three-term Cauchy bound for trace-one centered Gaussian score
+vectors. Equality can hold only for an equilateral score triangle. -/
+theorem centered_three_edge_sum_le_three {d : ℕ} (v : Fin 3 → Space d)
+    (hz : ∑ i, v i = 0) (ht : ∑ i, ‖v i‖ ^ 2 = 1) :
+    ‖v 0-v 1‖ + ‖v 0-v 2‖ + ‖v 1-v 2‖ ≤ 3 := by
+  have hs := centered_three_squared_edges v hz ht
+  let a : ℝ := ‖v 0-v 1‖
+  let b : ℝ := ‖v 0-v 2‖
+  let c : ℝ := ‖v 1-v 2‖
+  have hab : 0 ≤ a := norm_nonneg _
+  have hbb : 0 ≤ b := norm_nonneg _
+  have hcb : 0 ≤ c := norm_nonneg _
+  have hs' : a^2+b^2+c^2=3 := hs
+  have hcauchy : (a+b+c)^2 ≤ 3*(a^2+b^2+c^2) := by
+    nlinarith [sq_nonneg (a-b), sq_nonneg (a-c), sq_nonneg (b-c)]
+  change a+b+c ≤ 3
+  nlinarith [hcauchy]
+
+/-- At the regular trace-one three-score model, the zero-price objective
+equals the exact balanced-value sharp constant. -/
+theorem expectedScore_regular_three :
+    expectedScore (regularRows 3) 0 = simplexConstant 3 := by
+  have hp : canonicalPrices (regularRows 3) = 0 :=
+    canonicalPrices_regular (k := 3) (by norm_num : 2 ≤ 3)
+  calc
+    expectedScore (regularRows 3) 0 =
+      priceObjective (regularRows 3) (uniformMass 3) 0 := by
+        simp [priceObjective]
+    _ = equalMassValue (regularRows 3) := by
+      rw [← hp, canonicalPrices_value]
+    _ = simplexConstant 3 := by
+      rw [← covarianceValue_scoreGram]
+      change covarianceValue (regularCovariance 3) = simplexConstant 3
+      exact covarianceValue_regular
+
+/-- Model calibration by actual standard Gaussian integrals. No use of any
+numerical evaluation of sqrt(pi), Gaussian perimeter, or multibubble theorem. -/
+theorem exact_three_gaussian_model :
+    4 * simplexConstant 3 = 3 * gaussianAbsOne := by
+  have hedge (i j : Fin 3) (hij : i ≠ j) :
+      ‖regularRows 3 i - regularRows 3 j‖ = 1 := by
+    have hh := regular_gram_edge_squared (d := 1) (e := 3)
+      (regularRows 3) (show scoreGram (regularRows 3) = regularCovariance 3 by rfl)
+      i j hij
+    norm_num at hh
+    nlinarith [norm_nonneg (regularRows 3 i - regularRows 3 j)]
+  have he := expectedScore_three_edges (regularRows 3)
+  rw [expectedScore_regular_three,
+      hedge 0 1 (by decide), hedge 0 2 (by decide),
+      hedge 1 2 (by decide)] at he
+  norm_num at he
+  nlinarith
+
+/-- **Unconditional sharp three-cell covariance comparison.**
+The proof uses only actual Gaussian score expectations, three Euclidean
+pairwise distances and finite Cauchy: it needs no geometric perimeter input. -/
+theorem covarianceValue_three_le_sharp
+    (Q : Matrix (Fin 3) (Fin 3) ℝ) (hQ : NormalizedCovariance Q) :
+    covarianceValue Q ≤ simplexConstant 3 := by
+  let v : Fin 3 → Space 2 := minimalCovarianceRows Q
+  have hz : ∑ i, v i = 0 := minimalCovarianceRows_sum Q
+  have hg : scoreGram v = Q := scoreGram_minimalCovarianceRows Q hQ.1 hQ.2.1
+  have ht : ∑ i, ‖v i‖ ^ 2 = 1 := by
+    rw [← hQ.2.2, ← hg]
+    simp only [Matrix.trace, Matrix.diag, scoreGram, real_inner_self_eq_norm_sq]
+  have hl := centered_three_edge_sum_le_three v hz ht
+  have he := expectedScore_three_edges v
+  have hm := exact_three_gaussian_model
+  have hmul : gaussianAbsOne *
+      (‖v 0-v 1‖ + ‖v 0-v 2‖ + ‖v 1-v 2‖) ≤ gaussianAbsOne*3 :=
+    mul_le_mul_of_nonneg_left hl gaussianAbsOne_nonneg
+  have hbound : expectedScore v 0 ≤ simplexConstant 3 := by
+    nlinarith [he, hm, hmul]
+  calc
+    covarianceValue Q = equalMassValue v :=
+      covarianceValue_minimal_rows Q hQ.1 hQ.2.1
+    _ ≤ priceObjective v (uniformMass 3) 0 :=
+      balancedValue_le_objective v (uniformMass 3) 0 uniformMass_pos sum_uniformMass
+    _ = expectedScore v 0 := by simp [priceObjective]
+    _ ≤ simplexConstant 3 := hbound
+
+/-- Unconditional sharp squared first-moment inequality for **every actual
+equal-mass Gaussian fractional 3-partition in every ambient dimension**.
+This is the original Gaussian three-label problem, not a proxy objective. -/
+theorem three_cell_sharp_first_moment {d : ℕ} (F : FractionalPartition d 3)
+    (hF : ∀ i, F.mass i = uniformMass 3 i) :
+    F.momentEnergy ≤ simplexConstant 3 ^ 2 := by
+  exact F.momentEnergy_bound_of_normalized_covariance_bound hF (simplexConstant 3)
+    simplexConstant_nonneg (fun Q hQ => covarianceValue_three_le_sharp Q hQ)
+
+#print axioms centered_three_squared_edges
+#print axioms centered_three_edge_sum_le_three
+#print axioms expectedScore_regular_three
+#print axioms exact_three_gaussian_model
+#print axioms covarianceValue_three_le_sharp
+#print axioms three_cell_sharp_first_moment
 end GaussianMeasureBridge
