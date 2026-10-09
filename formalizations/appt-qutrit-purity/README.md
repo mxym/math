@@ -89,6 +89,15 @@ independent CI run `37930537368` passed all checks; its literal records are
 retained in `verification/necessity-ci-20261009/` (34,435 replayed declarations,
 eleven roots, only the three standard Lean axioms).
 
+## Verified sparse-arithmetic foundation
+
+The bounded finite-certificate continuation now has an independently checked
+sparse-polynomial foundation. Its seven roots passed a trust-zero replay of
+5,166 declarations, a deliberately corrupted theorem-proof control, and a
+wrong-coefficient control in CI run `37948196219`. The literal logs, checked
+source hashes, and precise scope are in [SPARSE_ARITHMETIC_AUDIT.md](SPARSE_ARITHMETIC_AUDIT.md).
+This verified foundation alone does not close the remaining state-level maximum.
+
 ## Remaining mathematical work
 
 The state-level upper bounds for `3≤n≤8` are not yet exported in this package.
