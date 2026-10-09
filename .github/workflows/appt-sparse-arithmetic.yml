@@ -1,0 +1,24 @@
+name: APPT exact sparse polynomial arithmetic
+on:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/SparsePolynomial.lean'
+      - '.github/workflows/appt-sparse-arithmetic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Kernel-check sparse arithmetic laws
+        working-directory: formalizations/appt-qutrit-purity
+        run: timeout 300 lake build +APPT.SparsePolynomial
