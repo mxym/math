@@ -66,4 +66,45 @@ def replayAndCorrupt (roots : List Name) (stem : String) : CommandElabM Unit := 
   logInfo m!"EMPTY_KERNEL_REPLAY_PASS {cs.size} declarations; {roots.length} roots; trust level zero"
   logInfo m!"CORRUPTED_PROOF_REJECTED {corruptRoot}"
 
+/-- Paired with a preceding full positive theorem replay. After changing a
+proof to True.intro, replay only the dependencies actually used by the changed
+declaration (its original type plus True.intro), not the discarded proof's
+unused certificate dependencies. The expected theorem type is not altered. -/
+def rejectCorruptTheorem (root : Name) (stem : String) : CommandElabM Unit := do
+  let env := (← getEnv).setExporting false
+  let some ci := env.find? root | throwError "Original theorem missing {root}"
+  let bad := match ci with
+    | .thmInfo v => ConstantInfo.thmInfo {v with value := mkConst ``True.intro}
+    | _ => ci
+  unless ci.isTheorem do throwError "Corruption control must select a theorem"
+  let deps ← match collect env bad.getUsedConstantsAsSet.toList {} with
+    | .ok cs => pure cs
+    | .error msg => throwError msg
+  if deps.contains root then throwError "Unexpected self-dependency in theorem type"
+  unless deps.contains ``True.intro do throwError "Missing corrupt proof constructor"
+  for (n, info) in deps.toList do
+    if info.isUnsafe || info.isPartial then throwError "Unsafe/partial dependency {n}"
+    if info.isAxiom then
+      unless [``propext, ``Classical.choice, ``Quot.sound].contains n do
+        throwError "Unexpected axiom {n}"
+  -- First verify these dependencies positively, so a missing or malformed
+  -- dependency cannot masquerade as rejection of the forged theorem.
+  let positiveBase ← mkEmptyEnvironment 0
+  let _ ← positiveBase.toKernelEnv.replay deps
+  let rejected ← try
+    let negativeBase ← mkEmptyEnvironment 0
+    let _ ← negativeBase.toKernelEnv.replay (deps.insert root bad)
+    pure false
+  catch e =>
+    logInfo m!"EXPECTED_KERNEL_REJECTION: {e.toMessageData}"
+    pure true
+  unless rejected do throwError "Corrupted final theorem was accepted"
+  let names := (deps.toList.map (fun p => p.1.toString)).mergeSort (fun a b => decide (a < b))
+  let axioms := (deps.toList.filterMap (fun p => if p.2.isAxiom then some p.1.toString else none)).mergeSort (fun a b => decide (a < b))
+  IO.FS.writeFile s!"{stem}-roots.txt" (root.toString ++ "\n")
+  IO.FS.writeFile s!"{stem}-type-dependencies.txt" (String.intercalate "\n" names ++ "\n")
+  IO.FS.writeFile s!"{stem}-axioms.txt" (String.intercalate "\n" axioms ++ "\n")
+  logInfo m!"TYPE_CLOSURE_REPLAY_PASS {deps.size} declarations; trust level zero"
+  logInfo m!"CORRUPTED_PROOF_REJECTED {root}"
+
 end APPTVerification

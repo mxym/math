@@ -95,7 +95,7 @@ def main() -> None:
         if 'REPLAY_POSITIVE_CONTROL_PASS' not in control or 'REPLAY_NEGATIVE_CONTROL_REJECTED' not in control:
             raise RuntimeError('Missing paired kernel control markers')
         corruption=(OUT/'corrupt-final-theorem.log').read_text()
-        if 'EMPTY_KERNEL_REPLAY_PASS' not in corruption or 'CORRUPTED_PROOF_REJECTED APPT.Quantum.appt_purity_maximum_formula' not in corruption or 'declaration type mismatch' not in corruption:
+        if 'TYPE_CLOSURE_REPLAY_PASS' not in corruption or 'CORRUPTED_PROOF_REJECTED APPT.Quantum.appt_purity_maximum_formula' not in corruption or "declaration type mismatch, 'APPT.Quantum.appt_purity_maximum_formula'" not in corruption:
             raise RuntimeError('Final theorem proof-corruption control missing')
         for p in ROOT.glob('completion-replayed-*.txt'):shutil.copy2(p,OUT/p.name)
         replay=(OUT/'empty-kernel.log').read_text()

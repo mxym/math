@@ -1,14 +1,9 @@
 import APPT.Quantum.Maximum
-import APPT.SparsePolynomial
 import Verification.ReplaySupport
 
--- The maximum theorem is deliberately first: the negative kernel control
--- corrupts this exact final theorem, not an unrelated arithmetic lemma.
-run_cmd APPTVerification.replayAndCorrupt [
-  ``APPT.Quantum.appt_purity_maximum_formula,
-  ``APPT.Quantum.appt_purity_maximum,
-  ``APPT.Quantum.targetPurity_isGreatest,
-  ``APPT.Quantum.appt_purity_upper,
-  ``APPT.Quantum.targetPurity_attained,
-  ``APPT.Quantum.density_appt_has_sorted_spectrum,
-  ``APPT.SparsePolynomial.cubic_control] "completion-replayed"
+-- The full positive maximum proof is independently replayed first by
+-- CheckpointReplay.lean in reproduce.py. This paired negative control keeps
+-- exactly the same theorem name, type and universe parameters and replaces
+-- only its proof. It uses the changed declaration's exact dependency closure.
+run_cmd APPTVerification.rejectCorruptTheorem
+  ``APPT.Quantum.appt_purity_maximum_formula "completion-replayed"
