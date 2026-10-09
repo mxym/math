@@ -98,13 +98,21 @@ theorem expectedScore_three_abs_edges (v : Fin 3 → Space d) :
       (∫ x, |⟪v 0-v 1,x⟫| ∂gaussian d) +
       (∫ x, |⟪v 0-v 2,x⟫| ∂gaussian d) +
       (∫ x, |⟪v 1-v 2,x⟫| ∂gaussian d) := by
-    calc
-      _ = ∫ x, ((fun z : Space d => |⟪v 0-v 1,z⟫| +
-          |⟪v 0-v 2,z⟫|) + (fun z => |⟪v 1-v 2,z⟫|)) x ∂gaussian d := rfl
-      _ = _ := by
-        rw [integral_add ((hi (v 0-v 1)).add (hi (v 0-v 2)))
-          (hi (v 1-v 2))]
-        rw [integral_add (hi (v 0-v 1)) (hi (v 0-v 2))]
+    have hAB :
+        (∫ x, |⟪v 0-v 1,x⟫| + |⟪v 0-v 2,x⟫| ∂gaussian d) =
+          (∫ x, |⟪v 0-v 1,x⟫| ∂gaussian d) +
+          (∫ x, |⟪v 0-v 2,x⟫| ∂gaussian d) := by
+      simpa only [Pi.add_apply] using
+        (integral_add (hi (v 0-v 1)) (hi (v 0-v 2)))
+    have hABC :
+        (∫ x, |⟪v 0-v 1,x⟫| + |⟪v 0-v 2,x⟫| +
+          |⟪v 1-v 2,x⟫| ∂gaussian d) =
+        (∫ x, |⟪v 0-v 1,x⟫| + |⟪v 0-v 2,x⟫| ∂gaussian d) +
+          (∫ x, |⟪v 1-v 2,x⟫| ∂gaussian d) := by
+      simpa only [Pi.add_apply] using
+        (integral_add ((hi (v 0-v 1)).add (hi (v 0-v 2)))
+          (hi (v 1-v 2)))
+    rw [hABC, hAB]
   rw [hR] at hpoint
   change 2*(expectedScore v 0 + expectedScore (fun i => -v i) 0) = _ at hpoint
   rw [← expectedScore_three_neg v] at hpoint
