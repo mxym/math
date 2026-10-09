@@ -96,7 +96,7 @@ theorem expectedScore_three_abs_pair_sum {d : ℕ}
   change (∫ x, scoreMax (fun i => -v i) 0 x ∂gaussian d) =
     (∫ x,scoreMax v 0 x ∂gaussian d) at hneg
   rw [hneg,hsum] at hpoint
-  change (∫ x,scoreMax v 0 x ∂gaussian d) = _ 
+  change (∫ x,scoreMax v 0 x ∂gaussian d) = _
   dsimp only [f,g,h] at hpoint
   unfold expectedScore
   linarith
