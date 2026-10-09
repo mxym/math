@@ -34,7 +34,7 @@ jobs:
             echo 'Forbidden proof placeholder/declaration'
             exit 1
           fi
-          lake build +GaussianMinimalCovarianceRows +GaussianScoreSymmetry +GaussianHalfspaceFlux
+          lake build +GaussianMinimalCovarianceRows +GaussianScoreSymmetry +GaussianHalfspaceFlux +GaussianRegularPerimeter +GaussianRegularStationarity +GaussianEquidistantRigidity +GaussianMomentCovariance
           lake env lean sources/GaussianThreeCellElementary.lean
       - name: Scope notice
         run: |
