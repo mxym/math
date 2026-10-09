@@ -1,127 +1,110 @@
-# Semantic review of the complete spectral upper half
+# Source-to-statement review: complete cofactor spectral Theorem 1
 
-This is a source-to-statement review by the implementing agent. The separate fresh compiler,
-declaration auditor and empty-kernel checker provide mechanical verification. No external human
-review is claimed. The exact mathematical reference is `mxym/math` commit
+Mathematical source: `mxym/math` commit
 `df6d94763c852c3cf69f29c5fa95c51f88378160`,
-`notes/sharp-cofactor-spectral-asymptotics/PROOF.md` and its typeset TeX source.
+`notes/sharp-cofactor-spectral-asymptotics/PROOF.md` and `sharp_cofactor_extrema.tex`.
+This review is by the implementing agent. Fresh compilation, all-owned dependency audit and
+empty-kernel replay are separate mechanical checks. No independent human review is claimed.
 
-## Actual mathematical objects
+## Statement and actual objects
 
-`firstCofactor A i j` is a permanent over row and column complements. The theorem
-`firstCofactor_eq_deletedMinor` identifies it with the standard first deleted submatrix on
-`Fin (n+1)`, using `i.succAbove` and `j.succAbove`. There is no transposition of the minor.
-`compound A i j = A i j * firstCofactor A i j`. The permutation-fiber identity and row Laplace
-identity are proved for these actual definitions.
+`firstCofactor A i j` is the permanent on the row and column complements. Its equality to
+`A.submatrix i.succAbove j.succAbove` is proved. The minor is not transposed.
+`compound A i j = A i j * firstCofactor A i j`. The permutation-fiber and row-sum identities
+are proved for this actual definition and mathlib's official permanent convention.
 
-The official permanent uses its own permutation convention. Its bridge to the row-to-column
-mixed permanent is proved, rather than silently changing conventions. `fockPair` is linear in
-the first polynomial and conjugate-linear in the second. `complexGram v i j` is
-`sum_c v i c * star (v j c)`. For ordinary Euclidean inner products, which are linear in the
-second argument, the feature vector is `star (v i)`. This explicit conjugation makes its inner
-product equal to the same Gram entry and the norm square equal to the standard `w* M w` form.
+`complexGram v i j = sum_c v i c * star (v j c)` and the polynomial Fock pairing are linear
+in their first argument. Official Euclidean inner products are linear in their second;
+the feature vectors are explicitly conjugated to preserve the same matrix entries.
 
-## Complete indicator proof
+The matrix classes are (i) arbitrary complex Hermitian PSD matrices with positive permanent,
+(ii) correlation matrices of **exact rank two**, and (iii) positive-definite correlation
+matrices with positive permanent. The real direction class permits complex Hermitian matrices.
+It is not the class of real symmetric input matrices.
 
-`compound_psd` proves positivity for every complex Hermitian PSD input, with no rank,
-invertibility, or positive-permanent hypothesis. Singular inputs are included through the
-official PSD square root and an actual Gram factorization.
+`largestHermitianEigenvalue` is the first entry of mathlib's antitone sorted Hermitian spectrum.
+`largestCompoundRatio` divides this eigenvalue of the actual compound by the actual permanent.
+`largestRealCompoundRatio` uses the entrywise real part of the actual compound. Hermitian
+diagonalization proves that every Rayleigh value is bounded by this largest eigenvalue. The
+official orthonormal eigenvector basis supplies a unit direction attaining it, over both
+complex and real scalars. Cofinality then proves equality of the spectral and variational
+suprema for every dimension and every admissible matrix class. Empty dimension-zero sets
+are handled; no conditional-completeness hypothesis is silently dropped.
 
-`compound_indicator_sum` proves
-`sum_{i in S,j in S} compound A i j <= card(S) * permanent A` in the standard real order
-on Hermitian scalar values embedded in `ComplexOrder`. Empty subsets and the full subset are
-included. The proof first identifies the complementary cross sum as a weighted permutation
-sum. It averages actual finite coordinate arrays over within-block permutations. Cross-slot
-cardinality conservation constructs a genuine partial-swap normal form. Its matrix coefficient
-is an explicit sum of squared contractions and is nonnegative. The weighted average equality,
-cross-weight invariance and Laplace identities then prove the displayed inequality.
+`sharp_cofactor_spectral_asymptotics` asserts all six limits in Theorem 1: the complex-direction
+spectral extrema divided by `log N` tend to 1 and the real-direction extrema tend to 1/2,
+for each of the three matrix classes. There is no construction oracle or desired estimate
+in the hypotheses of this endpoint theorem.
 
-No desired indicator estimate, double-coset positivity, or cardinality formula is supplied as a
-hypothesis. A weighted-average proof is used in place of the paper's numerical double-coset
-cardinality calculation; it proves exactly the positivity needed for the indicator estimate.
+## Upper bound
 
-## Complete vector and spectral upper proof
+Actual Fock products and coordinate contractions prove the permanent Gram identity and
+positivity of the actual compound in every rank, including singular PSD inputs. The indicator
+inequality follows from complementary cross sums, finite weighted permutation averaging,
+partial-swap normal forms and sums of squared contractions. No indicator inequality or
+double-coset positivity is assumed. Weighted averaging replaces the paper's explicit
+double-coset cardinality formula and proves exactly the required positivity.
 
-`binaryNormConstant n` equals `sum_{j=1}^n (sqrt(j)-sqrt(j-1))^2`. Abel summation, a
-zero terminal coordinate and finite Cauchy--Schwarz prove the sorted nonnegative vector bound.
-A lexicographic key preserves all coordinate ties while constructing an actual sorting
-permutation. Prefix cardinalities and sums are transported exactly. Positive/negative splitting
-proves the signed real factor `2*S_n`; real/imaginary splitting proves the complex factor
-`4*S_n`. These are genuine bounds for every finite vector, not assumptions about a spectral norm.
+Abel summation, finite Cauchy--Schwarz and an actual sorting permutation, preserving ties,
+give the binary norm estimate. Positive/negative splitting gives the real factor `2*S_N`;
+the four real/imaginary positive parts give the complex factor `4*S_N`. The square-root
+increment bound gives `S_N <= 1+H_(N-1)/4`. The actual Rayleigh and spectral bounds are
+`4+H_(N-1)` and `2+H_(N-1)/2`. Official harmonic/log estimates and logarithm divergence give
+the sharp leading upper coefficients for all six classes.
 
-The square-root increment identity proves `S_n <= 1 + H_(n-1)/4`, including `n=0` and `n=1`.
-Applying the vector bounds to Euclidean features of the actual PSD compound proves, for every
-PSD input with positive permanent and every nonzero direction, the normalized Rayleigh bounds
-`4+H_(n-1)` and `2+H_(n-1)/2`. Standard official orthonormal eigenvectors connect these bounds
-to every Hermitian eigenvalue. The sorted official spectrum's first entry gives the largest
-eigenvalue of `compound A`, and separately the largest eigenvalue of its entrywise real part.
+## Actual finite lower construction
 
-Real test vectors still permit complex Hermitian `A`. The result does not restrict the matrix
-to real symmetric inputs. Positive definiteness is used only when selecting that target class.
+Finite Gibbs entropy, a geometrically separated mean-index bound and real exponentiation
+prove `E(b)=b^(b/(b-1))/(b-1)` for every nonempty positive geometrically separated sequence.
+Every selected subset is genuinely enumerated and inherits the entropy bound.
 
-## Supremum and asymptotic scope
+Primitive roots of unity and actual complex roots of nonzero coefficients build the signed
+root rings. Their homogeneous products, root sums, squared root sums, squared norms and
+imaginary second moments are proved exactly. Disjoint finite indices and a proved bijection
+transport the reserve zeros and rings to `Fin N`. A zero and a nonzero slope give a nonzero
+two-by-two row minor, and the official Gram rank theorem gives exact matrix rank two.
+Unit normalization gives unit diagonal, PSD and positive permanent.
 
-The six variational classes are unrestricted PSD, exact-rank-two correlation, and positive-definite
-correlation, each with complex or real directions. All are bounded above by the corresponding
-proved Rayleigh bound. Empty admissible direction sets have real supremum zero; the proof handles
-this explicitly and does not use a conditional-completeness theorem without its hypotheses.
+The actual two-color polynomial coefficient identity gives the permanent as
+`N! * gamma^2 * sum_j normSq(coeff_j)/choose(N,j)`. Boolean sign characters are orthogonal
+over all actual sign choices; the square average remains valid when subset degrees collide.
+The finite average supplies an actual sign assignment with permanent bounded by the explicit
+binomial-weighted subset sum. The actual marked pure coefficient gives complex slope and
+real imaginary-part Rayleigh lower bounds.
 
-The official harmonic/log bound gives `5+log(n)` and `5/2+log(n)/2`. The divergence of `log(n)`
-proves the eventual inequalities, for every positive epsilon, with leading coefficients `1`
-and `1/2` respectively. The rank-two and positive-definite classes inherit those upper bounds;
-no existence of an exact-rank-two positive-definite matrix in dimensions greater than two is
-asserted.
+## Tail, all dimensions and parameter quantifiers
 
-## Verified lower-bound lemmas in this expanded checkpoint
+Log-factorial integral comparison proves the required factorial bound. Descending-factorial
+products prove the binomial lower bound. Combined with each subset's entropy bound, these
+give the actual subset weight at most `2*e*J*theta^(2*J)`, with `theta<1` proved from the
+chosen fixed parameters. Weighted powerset generating products bound the sum by geometric
+and weighted geometric tails. These actual infinite sums are proved summable and their
+tails tend to zero. Thus the conditional permanent estimate is discharged as `1+eta`.
 
-The expanded frozen source set adds eight modules. `finite_gibbs_inequality` proves the finite
-relative entropy inequality directly from `log t <= t-1`, for strictly positive finite p,g,
-sum(p)=1 and sum(g)<=1. `geometrically_separated_mean_bound` proves the mean-index bound by
-shifted sums and the actual adjacent separation inequality. It does not assume the paper's
-tail bound. The resulting entropy bound is converted to the exact E(b)=b^(b/(b-1))/(b-1).
-`geometric_separation_product_bound` proves the paper's Lemma 4 for every nonempty finite
-positive geometrically separated real sequence. Its cardinality is n+1 and the hypotheses
-are the actual positivity and adjacent geometric separation conditions.
+The degree sequence is the actual recurrence `d_(k+1)=ceil(b*d_k)`. Its positivity,
+strict monotonicity, geometric separation and prefix budget are proved, including the
+ceiling error. Instead of selecting the paper's maximal number of rings, the formal proof
+chooses an explicit floor of `log N/log b` minus a fixed budget offset. This proves the same
+sharp leading count and provides a positive reserve in **every sufficiently large dimension**.
+It is not merely a subsequence construction.
 
-`signCharacter_orthogonality` proves exact orthogonality over all finite Bool-valued sign
-assignments. The square expansion and `groupedSignCombination_square_average` prove the
-weighted squared-coefficient average after grouping subsets by an arbitrary finite degree
-map. Equal degree sums are allowed. `groupedSignCombination_has_small_choice` proves actual
-existence of a sign assignment at or below the finite average. These statements concern
-genuine finite sums; no independence or averaging identity is supplied as an assumption.
+All parameters are fixed before dimension goes to infinity. The floor error divided by
+`log N` vanishes. The actual derivative of log at 1 proves `E(1+t)*log(1+t) -> e` as `t` tends
+to zero from above. Choosing `b=1+t`, `delta=eta=t` and
+`C=(1+t)*E(1+t)/(e*(1-t))` gives `theta=1/(1+t)<1`. Its leading lower coefficient tends to 1.
+Combining these lower bounds with the upper bounds proves all four unrestricted/rank-two limits.
 
-`marked_coefficient_quadratic_lower` proves that a single factorial-weighted coefficient of
-the actual marked polynomial is at most the quadratic form of the actual permanental compound
-Gram matrix, in every rank. The polynomial coefficient and the Fock norm are actual definitions.
-The proof uses the proved full Gram identity and nonnegativity of all the other terms.
+## Positive definite extension and scope
 
+`(A+t*I)/(1+t)` is proved positive definite and unit diagonal for each `t>0` when A is PSD
+and unit diagonal. The actual permanent and compound are finite polynomials in matrix entries.
+Continuity of their Rayleigh quotient at a matrix with positive permanent and nonzero direction
+retains any strictly smaller finite-dimensional bound, with positive permanent retained too.
+This proves the two positive-definite limits. The perturbation may increase rank; no exact-rank-two
+positive-definite assertion is made for dimension greater than two.
 
-## Actual finite ring construction and its precise limits
-
-The sixteen added modules use the same actual first compound and Gram convention. Root rings
-are built from complex roots of a nonzero target and a proved primitive root of unity.
-The homogeneous product, first and squared root sums, squared norms and imaginary second moments
-are proved exactly. Finite families use a disjoint sum of reserve zeros and a dependent ring
-index. Cardinality is `r+2*sum(d)`. A zero and a nonzero slope give a nonzero two-by-two minor,
-which proves exact row rank two; the official Gram rank theorem gives matrix rank two.
-Normalization proves unit diagonal and positive permanent without a nonsingularity assumption.
-
-The actual binary permanent is derived from the proved two-color permanent coefficient identity.
-Factorial weights are converted exactly to `N!/choose(N,j)`. Ring products are dehomogenized
-by the actual polynomial evaluation homomorphism. Their coefficients are actual grouped sign
-sums. Orthogonality cancels off-diagonal subset pairs even when degrees collide. The finite
-small-choice theorem yields a concrete existential sign assignment. These facts combine in
-`exists_rankTwoCorrelation_ring_bound`, on the standard `Fin N` matrix index. Its bound is
-the explicit finite subset sum, not an assumed statement that the sum is at most `1+eta`.
-
-The actual marked pure-x coefficient yields complex and real test-vector lower interfaces.
-The real direction is the imaginary part of the complex slope and uses its proved squared
-root-sum cancellation. The conditional permanent upper hypothesis in these two interfaces is
-explicit and still must be discharged by the analytic subset-tail estimate for the main theorem.
-No completed matching logarithmic lower theorem or sharp limit equality is claimed.
-
-Still required: factorial/binomial and weighted subset tails, the all-large-dimension geometric
-recurrence, parameter limits, and positive-definite lower perturbation. This source-to-statement
-review is by the implementing agent. It does not claim independent human mathematical review.
-The certificate covers exactly the frozen 54-module bytes, all owned declarations and their full
-closure, with no audit exclusions.
+This package completely formalizes **Theorem 1**, including its positive-definite extension.
+The later sharp ramp constant and rank-two endpoint/immanant statements in the same manuscript
+are separate results and are not claimed by this certificate. The final certificate covers all
+78 frozen modules and every owned declaration, with no audit exclusions. Only its exact final
+source hashes, not prior checkpoint verification records, support the final replay claim.

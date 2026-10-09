@@ -1,102 +1,78 @@
-# Permanental cofactor spectra: upper bounds and actual finite ring construction
+# Complete Lean proof of sharp cofactor spectral asymptotics
 
-This package completely proves the actual first-compound indicator inequality and the
-spectral/logarithmic upper half of the sharp asymptotic theorem. **The matching lower bounds
-and the four sharp limit equalities are not yet Lean formalized.** This is a progress checkpoint
-for coordination, not a claim that Theorem 1 is fully formalized.
+This package proves **Theorem 1**, including the positive-definite correlation extension,
+at fixed mathematical source `mxym/math` commit
+`df6d94763c852c3cf69f29c5fa95c51f88378160`,
+`notes/sharp-cofactor-spectral-asymptotics`.
 
-The reference is [the fixed mathematical source](https://github.com/mxym/math/tree/df6d94763c852c3cf69f29c5fa95c51f88378160/notes/sharp-cofactor-spectral-asymptotics).
-For complex Hermitian PSD A, the actual matrix is
-`C(A)[i,j] = A[i,j] * permanent(A with row i and column j deleted)`.
-The minor is not transposed. Real directions allow complex Hermitian matrices.
+## Main theorem
 
-## Completed theorems
+`CofactorSpectral.sharp_cofactor_spectral_asymptotics` in
+[`src/CofactorFullMain.lean`](src/CofactorFullMain.lean) proves all six limits below.
+Each extremum is a supremum of the **actual largest Hermitian eigenvalue divided by the
+actual permanent**. Real directions use the entrywise real part of the actual compound;
+they continue to permit complex Hermitian input matrices.
 
-- `compound_psd`: the actual compound is PSD in every rank, including singular inputs.
-- `compound_indicator_sum`: every subset S satisfies `1_S* C(A) 1_S <= |S| permanent(A)`.
-- `compound_largest_eigenvalue_upper`: for positive permanent,
-  `lambda_max(C(A))/permanent(A) <= 4+H_(N-1)`.
-- `realCompound_largest_eigenvalue_upper`: for the entrywise real part,
-  `lambda_max(Re C(A))/permanent(A) <= 2+H_(N-1)/2`.
-- Six `*_eventual_log_upper` theorems: for every epsilon>0, all sufficiently large N
-  satisfy the normalized upper bounds `1+epsilon` or `1/2+epsilon` for unrestricted PSD,
-  exact-rank-two correlation, and positive-definite correlation classes.
+| Input matrix class | Complex-direction extremum / log N | Real-direction extremum / log N |
+| --- | --- | --- |
+| Arbitrary PSD, positive permanent | tends to 1 | tends to 1/2 |
+| Correlation, exact rank two | tends to 1 | tends to 1/2 |
+| Positive-definite correlation, positive permanent | tends to 1 | tends to 1/2 |
 
-The full route is actual permanent/cofactor identities, complex polynomial Fock Gram
-factorization, finite weighted symmetrization, explicit contraction squares, indicator
-positivity, Abel summation and exact sorting, signed and complex vector decomposition,
-harmonic estimates, standard Hermitian eigenvectors, and conditional suprema with the
-empty-set cases handled explicitly. See [the semantic review](SEMANTIC_REVIEW.md).
+The six spectral/variational equivalences are proved in
+[`src/CofactorSpectralExtrema.lean`](src/CofactorSpectralExtrema.lean).
+The minor in `compound A i j = A i j * permanent(A(i|j))` is not transposed.
+No desired asymptotic bound, construction oracle, or external mathematical theorem is a
+hypothesis of the final endpoint. The positive-definite perturbation may increase rank;
+there is no exact-rank-two positive-definite assertion in dimensions greater than two.
 
-## Verification of these exact bytes
+## Complete proof route
 
-All **54** owned modules were fresh compiled into a new isolated output directory. All
-**553** owned declarations, including compiler-generated declarations, were
-audited; their complete **55068**-declaration transitive closure was
-replayed from an **empty kernel at trust level 0**. Requested endpoints had a union closure
-of 54915 declarations. The checker confirms only the three
-standard Lean axioms `propext`, `Classical.choice`, and `Quot.sound`, with their signatures
-checked. There are no custom axioms, `sorryAx`, unsafe or partial owned declarations, or audit
-exclusions. An intentionally invalid proof was rejected by the empty trust-zero kernel.
-The official shared cache fingerprint was unchanged throughout the verifier run.
+The proof includes the all-rank indicator inequality via actual coordinate contractions,
+the sorted-vector and harmonic upper bounds, finite entropy estimates, actual signed root
+rings and all their moments, exact rank-two correlation normalization, permanent coefficient
+identities, sign orthogonality with degree collisions, factorial/binomial and weighted subset
+tail estimates, actual ceiling degree recurrence and floor budget in every sufficiently large
+dimension, the sharp parameter limit from the derivative of log, and the actual continuous
+positive-definite perturbation. All parameters are fixed before dimension tends to infinity.
 
-`verification/` contains the exact declaration inventory and closures (compressed), endpoint
-types, all compilation logs, replay results, axiom signature checks, negative control, and cache
-check. This certificate covers the frozen 54-module source set only. Later lower-bound work
-requires its own fresh certificate. The source-to-statement review is by the implementing
-agent; no external human review is claimed.
+See [`SEMANTIC_REVIEW.md`](SEMANTIC_REVIEW.md) for definition correspondence, proof choices
+and scope. The later sharp ramp constant and rank-two endpoint statements in the manuscript
+are separate results and are not claimed by this package.
 
-Pinned Lean: **4.34.1**, commit `5045d0056413266e57c625dcd7c365b10e377c52`.
-Pinned mathlib: `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+## Fresh independent mechanical verification
 
-## Reproduce
+All **78** frozen owned modules were compiled into a new output directory. The checker audited
+all **745** owned declarations, without exclusions, and replayed their full
+**55731**-declaration transitive closure into an **empty kernel at trust level 0**.
+The requested-root union contains **55515** declarations.
+The invalid-proof negative control was rejected. Source hashes remained stable and the shared
+official dependency cache was unchanged. No custom axiom, `sorryAx`, unsafe or partial owned
+declaration was found. Only Lean's three standard axioms `propext`, `Classical.choice`, and
+`Quot.sound` occur; their declarations were separately validated by the checker.
 
-Ordinary compilation uses the pinned Lake project: `lake build`.
-For independent fresh compilation, all-owned dependency audit and empty-kernel replay, use
-already installed official dependencies with the supplied verifier:
+The published verification evidence covers these exact frozen bytes, rather than extending
+the earlier 54-module checkpoint certificate. Full inventories and dependency closures are
+compressed under `verification`; fresh compiler logs, root types and the checker are included.
+Source-to-statement review is by the implementing agent, with no independent human review claim.
+
+## Pinned official environment and reproduction
+
+- Lean **4.34.1**, commit `5045d0056413266e57c625dcd7c365b10e377c52`.
+- mathlib commit `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+- Sources and provenance hashes: `SHA256SUMS`, `case.json`, and `provenance/`.
+- Byte-identical reuse and attribution: [`THIRD_PARTY.md`](THIRD_PARTY.md).
+
+With those official dependencies and their caches already installed, run:
 
 ```sh
-python3 reproduce.py --output /new/verification-output \
-  --toolchain /path/to/lean-4.34.1 \
-  --packages-root /path/to/pinned-packages \
-  --cache-root /path/to/existing-cache
+python3 reproduce.py --output /fresh/output \
+  --toolchain /official/lean-4.34.1 \
+  --packages-root /official/dependencies \
+  --cache-root /official/cache
 ```
 
-The output path must not already exist. The reproduction script installs nothing, downloads
-nothing, and does not use any prebuilt owned module. `SHA256SUMS` covers all packaged files.
-
-## Verified lower-bound lemmas
-
-- `geometric_separation_product_bound`: the complete exact entropy/product estimate with
-  E(b)=b^(b/(b-1))/(b-1), derived using a finite Gibbs inequality and shifted-sum mean bound.
-- `groupedSignCombination_square_average`: exact weighted finite sign averaging, including
-  collisions of degree sums, and `groupedSignCombination_has_small_choice`: an actual finite choice.
-- `marked_coefficient_quadratic_lower`: keeping one actual Fock coefficient bounds the actual
-  compound quadratic form from below in every rank.
-
-## Actual finite ring construction
-
-- `exists_signed_root_ring`: actual complex roots with prescribed positive squared radius,
-  either coefficient sign, exact homogeneous product, zero root sum and squared root sum,
-  and the exact imaginary second moment. Root existence is proved using official algebraic closure.
-- `normalizedBinaryGram_rankTwoCorrelationAdmissible`: unit-diagonal PSD Gram matrices,
-  strictly positive permanent, and exact rank two from a zero and a nonzero slope.
-- `normalizedBinaryGram_permanent_ratio`: the actual permanent equals
-  `N! * gamma^2 * sum_j normSq(coeff_j)/choose(N,j)`.
-- `signedRingPolynomial_has_small_choice`: an actual sign assignment bounds this coefficient
-  ratio by the diagonal subset sum, even when different subsets have equal degree.
-- `exists_rankTwoCorrelation_ring_bound`: combines actual root rings and zero reserve,
-  transports them to the standard `Fin N` matrix index, proves all moments and exact rank-two
-  correlation admissibility, and bounds the permanent by the explicit binomial-weighted subset sum.
-- `normalizedBinaryGram_complex_test_lower` and `normalizedBinaryGram_real_test_lower`:
-  the actual marked coefficients prove the complex-slope and real-imaginary test-vector
-  Rayleigh lower estimates under an explicit permanent denominator estimate. This denominator
-  interface is not counted as a proved analytic small-tail bound.
-
-## Remaining work
-
-The explicit subset sum still needs the factorial/binomial and geometric tail estimates
-that make it at most `1+eta`. The geometric dimension recurrence, every-large-dimension
-lower bounds, sharp parameter limits and positive-definite lower perturbation remain unfinished.
-The main sharp logarithmic limit theorem is not yet complete. Later development bytes require
-their own fresh compilation, all-owned audit and empty-kernel replay.
+The reproducer creates new owned outputs, verifies dependency pins, compiles all frozen source
+modules, audits every owned declaration and performs empty-kernel replay. It does not use old
+owned `.olean` files, download packages, install tools or mutate dependency sources.
+Ordinary pinned Lake configuration is also included; a Lake build alone is not the replay certificate.

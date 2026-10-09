@@ -33,14 +33,22 @@ import CofactorScaledBinaryNorm
 import CofactorRayleighUpper
 import CofactorExtremaUpper
 import CofactorEigenvalueUpper
+import CofactorPositiveDefinitePerturbation
 import CofactorLogarithmicUpper
+import CofactorSpectralVariational
 import CofactorFiniteEntropy
+import CofactorLargestEigenvalue
 import CofactorUpperMain
 import CofactorGeometricMean
+import CofactorSpectralExtrema
 import CofactorGeometricEntropy
 import CofactorEntropyProduct
+import CofactorFactorialEstimate
 import CofactorRootRingProduct
+import CofactorSharpParameters
 import CofactorSignOrthogonality
+import CofactorSubsetEntropy
+import CofactorBinomialEstimate
 import CofactorRootRingMoments
 import CofactorSignSquareAverage
 import CofactorBinaryRayleighLower
@@ -49,9 +57,25 @@ import CofactorSignedRootRing
 import CofactorRingFamily
 import CofactorRingPolynomial
 import CofactorSignedRingCoefficients
+import CofactorRingAmplitudeBound
 import CofactorRingSignChoice
 import CofactorFiniteRingConstruction
+import CofactorSubsetWeight
 import CofactorRingConstructionFin
+import CofactorSubsetGenerating
+import CofactorGeometricTail
+import CofactorRingSubsetTail
+import CofactorFiniteLowerThreshold
+import CofactorDegreeSequence
+import CofactorDegreeCount
+import CofactorWitnessExtrema
+import CofactorDegreeFits
+import CofactorLargeDimensionWitness
+import CofactorFixedParameterLower
+import CofactorSharpLower
+import CofactorSharpMain
+import CofactorPositiveDefiniteLower
+import CofactorFullMain
 import Lean
 import Lean.Replay
 
@@ -163,8 +187,8 @@ set_option pp.all true
 
 namespace IndependentAudit
 
-def ownedModules : Array String := #[ "BapatColorExpansion", "BapatColorTransport", "BapatMultiColor", "BapatMvFischer", "BapatPermanentFischer", "BapatMixedFischer", "CofactorDefinitions", "CofactorComplexFock", "CofactorGramPSD", "CofactorEuclideanGram", "CofactorMarkedCoefficientLower", "CofactorTensorArrays", "CofactorContractionSquare", "CofactorCrossCardinality", "CofactorPureCoefficient", "CofactorBinaryMarkedLower", "CofactorCrossNormalForm", "CofactorWeightedAverage", "CofactorCrossPositive", "CofactorIndicator", "CofactorBinaryNorm", "CofactorTargets", "CofactorHarmonicBound", "CofactorNormalizedRows", "CofactorSortCoordinates", "CofactorBinaryPermanent", "CofactorFiniteBinaryNorm", "CofactorNormalizedRankTwo", "CofactorCoefficientRatio", "CofactorSignedBinaryNorm", "CofactorComplexBinaryNorm", "CofactorScaledBinaryNorm", "CofactorRayleighUpper", "CofactorExtremaUpper", "CofactorEigenvalueUpper", "CofactorLogarithmicUpper", "CofactorFiniteEntropy", "CofactorUpperMain", "CofactorGeometricMean", "CofactorGeometricEntropy", "CofactorEntropyProduct", "CofactorRootRingProduct", "CofactorSignOrthogonality", "CofactorRootRingMoments", "CofactorSignSquareAverage", "CofactorBinaryRayleighLower", "CofactorGroupedSignAverage", "CofactorSignedRootRing", "CofactorRingFamily", "CofactorRingPolynomial", "CofactorSignedRingCoefficients", "CofactorRingSignChoice", "CofactorFiniteRingConstruction", "CofactorRingConstructionFin" ]
-def requestedRoots : Array Name := #[ ``CofactorSpectral.compound_indicator_sum, ``CofactorSpectral.compound_psd, ``CofactorSpectral.firstCofactor_eq_deletedMinor, ``CofactorSpectral.complex_binary_norm_bound, ``CofactorSpectral.real_binary_norm_bound, ``CofactorSpectral.compound_largest_eigenvalue_upper, ``CofactorSpectral.realCompound_largest_eigenvalue_upper, ``CofactorSpectral.complexExtremum_upper, ``CofactorSpectral.realExtremum_upper, ``CofactorSpectral.complexExtremum_eventual_log_upper, ``CofactorSpectral.realExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoComplexExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoRealExtremum_eventual_log_upper, ``CofactorSpectral.pdComplexExtremum_eventual_log_upper, ``CofactorSpectral.pdRealExtremum_eventual_log_upper, ``CofactorSpectral.finite_gibbs_inequality, ``CofactorSpectral.geometrically_separated_mean_bound, ``CofactorSpectral.geometric_separation_product_bound, ``CofactorSpectral.signCharacter_orthogonality, ``CofactorSpectral.groupedSignCombination_square_average, ``CofactorSpectral.groupedSignCombination_has_small_choice, ``CofactorSpectral.marked_coefficient_quadratic_lower, ``CofactorSpectral.exists_signed_root_ring, ``CofactorSpectral.normalizedBinaryGram_rankTwoCorrelationAdmissible, ``CofactorSpectral.normalizedBinaryGram_complex_test_lower, ``CofactorSpectral.normalizedBinaryGram_real_test_lower, ``CofactorSpectral.normalizedBinaryGram_permanent_ratio, ``CofactorSpectral.signedRingPolynomial_has_small_choice, ``CofactorSpectral.exists_rankTwoCorrelation_ring_bound ]
+def ownedModules : Array String := #[ "BapatColorExpansion", "BapatColorTransport", "BapatMultiColor", "BapatMvFischer", "BapatPermanentFischer", "BapatMixedFischer", "CofactorDefinitions", "CofactorComplexFock", "CofactorGramPSD", "CofactorEuclideanGram", "CofactorMarkedCoefficientLower", "CofactorTensorArrays", "CofactorContractionSquare", "CofactorCrossCardinality", "CofactorPureCoefficient", "CofactorBinaryMarkedLower", "CofactorCrossNormalForm", "CofactorWeightedAverage", "CofactorCrossPositive", "CofactorIndicator", "CofactorBinaryNorm", "CofactorTargets", "CofactorHarmonicBound", "CofactorNormalizedRows", "CofactorSortCoordinates", "CofactorBinaryPermanent", "CofactorFiniteBinaryNorm", "CofactorNormalizedRankTwo", "CofactorCoefficientRatio", "CofactorSignedBinaryNorm", "CofactorComplexBinaryNorm", "CofactorScaledBinaryNorm", "CofactorRayleighUpper", "CofactorExtremaUpper", "CofactorEigenvalueUpper", "CofactorPositiveDefinitePerturbation", "CofactorLogarithmicUpper", "CofactorSpectralVariational", "CofactorFiniteEntropy", "CofactorLargestEigenvalue", "CofactorUpperMain", "CofactorGeometricMean", "CofactorSpectralExtrema", "CofactorGeometricEntropy", "CofactorEntropyProduct", "CofactorFactorialEstimate", "CofactorRootRingProduct", "CofactorSharpParameters", "CofactorSignOrthogonality", "CofactorSubsetEntropy", "CofactorBinomialEstimate", "CofactorRootRingMoments", "CofactorSignSquareAverage", "CofactorBinaryRayleighLower", "CofactorGroupedSignAverage", "CofactorSignedRootRing", "CofactorRingFamily", "CofactorRingPolynomial", "CofactorSignedRingCoefficients", "CofactorRingAmplitudeBound", "CofactorRingSignChoice", "CofactorFiniteRingConstruction", "CofactorSubsetWeight", "CofactorRingConstructionFin", "CofactorSubsetGenerating", "CofactorGeometricTail", "CofactorRingSubsetTail", "CofactorFiniteLowerThreshold", "CofactorDegreeSequence", "CofactorDegreeCount", "CofactorWitnessExtrema", "CofactorDegreeFits", "CofactorLargeDimensionWitness", "CofactorFixedParameterLower", "CofactorSharpLower", "CofactorSharpMain", "CofactorPositiveDefiniteLower", "CofactorFullMain" ]
+def requestedRoots : Array Name := #[ ``CofactorSpectral.compound_indicator_sum, ``CofactorSpectral.compound_psd, ``CofactorSpectral.firstCofactor_eq_deletedMinor, ``CofactorSpectral.complex_binary_norm_bound, ``CofactorSpectral.real_binary_norm_bound, ``CofactorSpectral.compound_largest_eigenvalue_upper, ``CofactorSpectral.realCompound_largest_eigenvalue_upper, ``CofactorSpectral.complexExtremum_upper, ``CofactorSpectral.realExtremum_upper, ``CofactorSpectral.complexExtremum_eventual_log_upper, ``CofactorSpectral.realExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoComplexExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoRealExtremum_eventual_log_upper, ``CofactorSpectral.pdComplexExtremum_eventual_log_upper, ``CofactorSpectral.pdRealExtremum_eventual_log_upper, ``CofactorSpectral.finite_gibbs_inequality, ``CofactorSpectral.geometrically_separated_mean_bound, ``CofactorSpectral.geometric_separation_product_bound, ``CofactorSpectral.signCharacter_orthogonality, ``CofactorSpectral.groupedSignCombination_square_average, ``CofactorSpectral.groupedSignCombination_has_small_choice, ``CofactorSpectral.marked_coefficient_quadratic_lower, ``CofactorSpectral.exists_signed_root_ring, ``CofactorSpectral.normalizedBinaryGram_rankTwoCorrelationAdmissible, ``CofactorSpectral.normalizedBinaryGram_complex_test_lower, ``CofactorSpectral.normalizedBinaryGram_real_test_lower, ``CofactorSpectral.normalizedBinaryGram_permanent_ratio, ``CofactorSpectral.signedRingPolynomial_has_small_choice, ``CofactorSpectral.exists_rankTwoCorrelation_ring_bound, ``CofactorSpectral.ring_subset_sum_le_one_add_tail, ``CofactorSpectral.exists_ring_lower_threshold, ``CofactorSpectral.eventually_actual_ring_lower_witness, ``CofactorSpectral.entropyConstant_log_tendsto, ``CofactorSpectral.exists_sharp_lower_parameters, ``CofactorSpectral.four_extrema_eventual_sharp_log_lower, ``CofactorSpectral.complexExtremum_log_tendsto, ``CofactorSpectral.realExtremum_log_tendsto, ``CofactorSpectral.rankTwoComplexExtremum_log_tendsto, ``CofactorSpectral.rankTwoRealExtremum_log_tendsto, ``CofactorSpectral.exists_pd_correlation_above_ratio, ``CofactorSpectral.pdComplexExtremum_log_tendsto, ``CofactorSpectral.pdRealExtremum_log_tendsto, ``CofactorSpectral.complex_spectral_extremum_eq_variational, ``CofactorSpectral.real_spectral_extremum_eq_variational, ``CofactorSpectral.complexSpectralExtremum_log_tendsto, ``CofactorSpectral.realSpectralExtremum_log_tendsto, ``CofactorSpectral.rankTwoComplexSpectralExtremum_log_tendsto, ``CofactorSpectral.rankTwoRealSpectralExtremum_log_tendsto, ``CofactorSpectral.pdComplexSpectralExtremum_log_tendsto, ``CofactorSpectral.pdRealSpectralExtremum_log_tendsto, ``CofactorSpectral.sharp_cofactor_spectral_asymptotics ]
 
 def moduleOf (env : Environment) (n : Name) : String :=
   match env.getModuleIdxFor? n with

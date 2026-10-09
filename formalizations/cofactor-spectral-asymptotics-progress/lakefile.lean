@@ -1,8 +1,8 @@
 import Lake
 open Lake DSL
-package cofactor_spectral_asymptotics_progress
+package cofactor_spectral_asymptotics
 require mathlib from git "https://github.com/leanprover-community/mathlib4.git" @ "d13f23b723b8a846827a245b89c10fc7d3f11612"
-lean_lib CofactorSpectralProgress where
+lean_lib CofactorSpectral where
   srcDir := "src"
   roots := #[
     `BapatColorExpansion,
@@ -40,14 +40,22 @@ lean_lib CofactorSpectralProgress where
     `CofactorRayleighUpper,
     `CofactorExtremaUpper,
     `CofactorEigenvalueUpper,
+    `CofactorPositiveDefinitePerturbation,
     `CofactorLogarithmicUpper,
+    `CofactorSpectralVariational,
     `CofactorFiniteEntropy,
+    `CofactorLargestEigenvalue,
     `CofactorUpperMain,
     `CofactorGeometricMean,
+    `CofactorSpectralExtrema,
     `CofactorGeometricEntropy,
     `CofactorEntropyProduct,
+    `CofactorFactorialEstimate,
     `CofactorRootRingProduct,
+    `CofactorSharpParameters,
     `CofactorSignOrthogonality,
+    `CofactorSubsetEntropy,
+    `CofactorBinomialEstimate,
     `CofactorRootRingMoments,
     `CofactorSignSquareAverage,
     `CofactorBinaryRayleighLower,
@@ -56,7 +64,23 @@ lean_lib CofactorSpectralProgress where
     `CofactorRingFamily,
     `CofactorRingPolynomial,
     `CofactorSignedRingCoefficients,
+    `CofactorRingAmplitudeBound,
     `CofactorRingSignChoice,
     `CofactorFiniteRingConstruction,
-    `CofactorRingConstructionFin
+    `CofactorSubsetWeight,
+    `CofactorRingConstructionFin,
+    `CofactorSubsetGenerating,
+    `CofactorGeometricTail,
+    `CofactorRingSubsetTail,
+    `CofactorFiniteLowerThreshold,
+    `CofactorDegreeSequence,
+    `CofactorDegreeCount,
+    `CofactorWitnessExtrema,
+    `CofactorDegreeFits,
+    `CofactorLargeDimensionWitness,
+    `CofactorFixedParameterLower,
+    `CofactorSharpLower,
+    `CofactorSharpMain,
+    `CofactorPositiveDefiniteLower,
+    `CofactorFullMain
   ]
