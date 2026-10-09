@@ -41,6 +41,9 @@ The preceding [pure-state paper](../ecqc-pure-state-counterexamples/README.md), 
 
 The proof uses the published Holevo theorem and its necessary equality condition (commuting ensemble states), explicitly stated and cited in the paper. All other specialized steps, including the finite-Weyl projector, actual Born laws, invariant-line classification, and complete-MUB identity, are proved. See [LITERATURE.md](LITERATURE.md) for checked sources and search limitations; no historical-priority claim follows from a finite search.
 
+
+**Frozen publication record:** DOI [10.5281/zenodo.23256934](https://doi.org/10.5281/zenodo.23256934); immutable GitHub Release: https://github.com/mxym/math/releases/tag/ecqc-extremal-classification-v1. The archive is version 1.0 and is bound to commit `c0a1085e360604a1f8f274290eb1556202a315ab`.
+
 ## Paper and independent replay
 
 - [paper.pdf](paper.pdf) / [paper.tex](paper.tex): complete eight-page written proof, definitions, boundary cases, references, and disclosures.

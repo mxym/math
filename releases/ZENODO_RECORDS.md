@@ -63,3 +63,12 @@ Chollet 的早期书面版本 [10.5281/zenodo.23248359](https://doi.org/10.5281/
 | ehrhart-uniform-real-rootedness-v1 | [10.5281/zenodo.23248529](https://doi.org/10.5281/zenodo.23248529) |
 
 作者：Yongxian Zhang（张永贤），华南理工大学计算机科学与工程学院；ORCID [0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536)。无外部研究经费，使用 AI 进行辅助研究。许可遵循已授权选择：保留已有许可；未授权原创材料使用自定义保留权利声明。
+
+## 2026-10-09 parallel ECQC results
+
+Two recent ECQC manuscripts have now been archived as public, findable version-1 records. Their immutable GitHub releases and exact scope statements remain the primary code and proof disclosures:
+
+- Full-rank rigidity and pure stabilizer classification: [10.5281/zenodo.23256934](https://doi.org/10.5281/zenodo.23256934), [immutable release](https://github.com/mxym/math/releases/tag/ecqc-extremal-classification-v1).
+- Pure-state prime-dimensional classification: [10.5281/zenodo.23256948](https://doi.org/10.5281/zenodo.23256948), [immutable release](https://github.com/mxym/math/releases/tag/ecqc-pure-state-classification-v1).
+
+The qutrit Lean supplement and the four-row permanent--determinant Lean theorem have separate immutable GitHub releases. The four-row theorem is not assigned a DOI here because its standalone manuscript has not yet been frozen. Download and DataCite verification for the two new DOI records is preserved in [ecqc-dois-20261009](ecqc-dois-20261009/README.md).

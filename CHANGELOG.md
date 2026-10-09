@@ -479,3 +479,9 @@ Disclosure time is the timestamp of the Git commit that first adds this release,
 ## 2026-10-08 — universal finite-sieve CRT minimax duality
 
 - Established the [abstract exact minimax theorem](notes/periodic-sieve-admissibility-minimax/README.md) for arbitrary integer-lattice dimensions, finite symmetric graph steps and any local prime residue predicates, including finite attainment. The general theorem uses only CRT and finite rooted connected shapes, with no numerical solver. Proved the exact equivalence between finite norm-residue and finite principal-ideal sieves in Z[sqrt(-2)], so the previous **197** matching certificates are a sharp instance. The actual prime-only maximum remains only in **[90,197]** and is not claimed solved.
+
+## 2026-10-09 — archive recent ECQC parallel results
+
+- Published version-1 DOI records for the full-rank ECQC rigidity/stabilizer classification ([10.5281/zenodo.23256934](https://doi.org/10.5281/zenodo.23256934)) and the pure-state prime-dimensional classification ([10.5281/zenodo.23256948](https://doi.org/10.5281/zenodo.23256948)).
+- Preserved the exact proof scopes: both papers have complete written proofs and exact replay checkers; the qutrit witness additionally has a complete Lean certificate, while neither paper claims a complete Lean formalization of every theorem or external human peer review.
+- Added public source inventories, API publication state, anonymous-download SHA-256 checks, and DataCite findability verification in `releases/ecqc-dois-20261009/`.

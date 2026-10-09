@@ -41,6 +41,9 @@ The original ECQC statement and the separately posed pure-state question are in 
 
 Wang, Wang, and Chen, [arXiv:2608.03828v2](https://arxiv.org/abs/2608.03828), already refuted **unrestricted** ECQC with a mixed classical–classical state at dimension seven and proved unbounded mixed-state overrun. This package does **not** claim the first disproof of unrestricted ECQC. It resolves the **pure-state** question and its prime-dimensional validity classification, with sharp low-dimensional ratios and explicit full-Schmidt-rank witnesses. Literature-search limitations are recorded in [LITERATURE.md](LITERATURE.md).
 
+
+**Frozen publication record:** DOI [10.5281/zenodo.23256948](https://doi.org/10.5281/zenodo.23256948); immutable GitHub Release: https://github.com/mxym/math/releases/tag/ecqc-pure-state-classification-v1. The archive is version 1.0 and is bound to commit `c0a1085e360604a1f8f274290eb1556202a315ab`.
+
 ## Files and verification
 
 - [paper.pdf](paper.pdf) / [paper.tex](paper.tex): complete written proofs, definitions, boundaries, cited dependencies, and scope.
