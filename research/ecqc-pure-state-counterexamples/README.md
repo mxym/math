@@ -64,7 +64,7 @@ Python 3.10+ and the standard library suffice for all proof checkers. Run withou
 
 ## Formalization and remaining questions
 
-This version has complete written proofs and exact replayable checkers. **It is not labeled as a complete Lean formalization.** The analytic all-prime quantifiers, spectral interpretation, and Holevo upper bound are explicitly accounted for in the written proof rather than hidden behind assumed formal interfaces.
+This version has complete written proofs and exact replayable checkers. The explicit pure qutrit counterexample now has a [complete Lean proof of the actual quantum statement](../../formalizations/ecqc-pure-qutrit-counterexample/README.md): density validity, both actual partial traces, complete MUBs, Born expectations, actual spectral and Shannon entropies, the original attained minimum, and strict violation. The fresh verification rebuilds eight own modules and replays the 35,401-declaration closure of 73 roots from an empty kernel at trust level zero, with only propext, Classical.choice, and Quot.sound. **The whole prime-dimensional classification is still not labeled Lean-complete.** Holevo, the qubit positive theorem, sharp-ratio optimality, five-dimensional constructions, full-Schmidt-rank strengthening, and all-prime analytic estimates remain outside this certificate. See the updated manuscript Section 5.2 and the package proof supplement for exact scope.
 
 The sharp ratio for every prime `p >= 7`, a classification of all equality states, an optimal repaired ECQC inequality, and a classification of mixed states are not settled here. The pure-state prime-dimensional validity question itself is settled. No new experiment or experimental confirmation is claimed.
 

@@ -92,3 +92,8 @@ In dimension two, the ECQC score retains only two terms, so the same bound gives
 - H. Iqbal, arXiv:2509.08286v2, https://arxiv.org/html/2509.08286v2 , Conjecture 3.1 and Section 5.
 - J. Wang, Q. Wang, K. Chen, arXiv:2608.03828v2, https://arxiv.org/html/2608.03828v2 , Section IV and Appendix B (prior mixed-state ECQC counterexamples).
 - J. Schneeloch, C. J. Broadbent, J. C. Howell, *Uncertainty relation for mutual information*, Physical Review A 90, 062119 (2014), https://doi.org/10.1103/PhysRevA.90.062119 (the original CQC statement and its pure-state case).
+
+
+## Complete Lean certificate of the rank-two witness
+
+The rank-two qutrit counterexample above is now fully kernel-checked in [the dedicated Lean package](../../formalizations/ecqc-pure-qutrit-counterexample/README.md), including actual density matrices, partial traces, complete MUBs, all Born probabilities, actual spectral entropies, and the original minimum. Eight modules and the 35,401-declaration closure of 73 roots pass fresh compilation and empty-kernel replay. This scope does not certify the full-Schmidt-rank witness, Holevo optimality, or the entire prime-dimensional classification; see the package correspondence table and manuscript Section 5.2.
