@@ -1,0 +1,3 @@
+import EqualityClassification
+
+#print axioms FourRowTradeoff.sharp_four_row_complete
