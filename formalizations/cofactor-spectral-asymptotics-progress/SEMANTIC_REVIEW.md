@@ -72,19 +72,6 @@ and `1/2` respectively. The rank-two and positive-definite classes inherit those
 no existence of an exact-rank-two positive-definite matrix in dimensions greater than two is
 asserted.
 
-## Remaining target
-
-This checkpoint completely proves Lemmas 2 and 3 and the spectral/logarithmic upper half of
-Theorem 1. It does not prove the signed root-ring construction or every-large-dimension
-lower bound, exact rank-two normalization of that construction, the positive-definite lower
-perturbation, or equality of the four sharp limits. None of these remaining conclusions is
-introduced as a custom axiom or hidden hypothesis. `CofactorTargets` defines the target classes;
-definitions alone are not counted as proofs of the missing lower half.
-
-The mechanically verified closure and declaration count must refer to the frozen 38-module
-checkpoint. Later development is outside this certificate until separately frozen and checked.
-
-
 ## Verified lower-bound lemmas in this expanded checkpoint
 
 The expanded frozen source set adds eight modules. `finite_gibbs_inequality` proves the finite
@@ -108,9 +95,33 @@ the actual marked polynomial is at most the quadratic form of the actual permane
 Gram matrix, in every rank. The polynomial coefficient and the Fock norm are actual definitions.
 The proof uses the proved full Gram identity and nonnegativity of all the other terms.
 
-These lemmas have not yet been connected to actual finite root rings. The ring polynomial
-factorization, root sums and norms, exact rank-two correlation matrix, factorial/binomial and
-subset-tail bounds, every-large-dimension lower estimate, sharp parameter limits and positive-
-definite lower perturbation remain unfinished. The finite sign orthogonality theorem alone
-does not certify the analytic bound E[R]<=1+eta. The checkpoint does not claim a completed
-matching lower bound or equality of the sharp limits.
+
+## Actual finite ring construction and its precise limits
+
+The sixteen added modules use the same actual first compound and Gram convention. Root rings
+are built from complex roots of a nonzero target and a proved primitive root of unity.
+The homogeneous product, first and squared root sums, squared norms and imaginary second moments
+are proved exactly. Finite families use a disjoint sum of reserve zeros and a dependent ring
+index. Cardinality is `r+2*sum(d)`. A zero and a nonzero slope give a nonzero two-by-two minor,
+which proves exact row rank two; the official Gram rank theorem gives matrix rank two.
+Normalization proves unit diagonal and positive permanent without a nonsingularity assumption.
+
+The actual binary permanent is derived from the proved two-color permanent coefficient identity.
+Factorial weights are converted exactly to `N!/choose(N,j)`. Ring products are dehomogenized
+by the actual polynomial evaluation homomorphism. Their coefficients are actual grouped sign
+sums. Orthogonality cancels off-diagonal subset pairs even when degrees collide. The finite
+small-choice theorem yields a concrete existential sign assignment. These facts combine in
+`exists_rankTwoCorrelation_ring_bound`, on the standard `Fin N` matrix index. Its bound is
+the explicit finite subset sum, not an assumed statement that the sum is at most `1+eta`.
+
+The actual marked pure-x coefficient yields complex and real test-vector lower interfaces.
+The real direction is the imaginary part of the complex slope and uses its proved squared
+root-sum cancellation. The conditional permanent upper hypothesis in these two interfaces is
+explicit and still must be discharged by the analytic subset-tail estimate for the main theorem.
+No completed matching logarithmic lower theorem or sharp limit equality is claimed.
+
+Still required: factorial/binomial and weighted subset tails, the all-large-dimension geometric
+recurrence, parameter limits, and positive-definite lower perturbation. This source-to-statement
+review is by the implementing agent. It does not claim independent human mathematical review.
+The certificate covers exactly the frozen 54-module bytes, all owned declarations and their full
+closure, with no audit exclusions.

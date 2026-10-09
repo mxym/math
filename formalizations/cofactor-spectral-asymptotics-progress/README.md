@@ -1,4 +1,4 @@
-# Permanental cofactor spectra: complete upper bounds and lower-bound lemmas
+# Permanental cofactor spectra: upper bounds and actual finite ring construction
 
 This package completely proves the actual first-compound indicator inequality and the
 spectral/logarithmic upper half of the sharp asymptotic theorem. **The matching lower bounds
@@ -30,11 +30,11 @@ empty-set cases handled explicitly. See [the semantic review](SEMANTIC_REVIEW.md
 
 ## Verification of these exact bytes
 
-All **38** owned modules were fresh compiled into a new isolated output directory. All
-**447** owned declarations, including compiler-generated declarations, were
-audited; their complete **49015**-declaration transitive closure was
+All **54** owned modules were fresh compiled into a new isolated output directory. All
+**553** owned declarations, including compiler-generated declarations, were
+audited; their complete **55068**-declaration transitive closure was
 replayed from an **empty kernel at trust level 0**. Requested endpoints had a union closure
-of 48827 declarations. The checker confirms only the three
+of 54915 declarations. The checker confirms only the three
 standard Lean axioms `propext`, `Classical.choice`, and `Quot.sound`, with their signatures
 checked. There are no custom axioms, `sorryAx`, unsafe or partial owned declarations, or audit
 exclusions. An intentionally invalid proof was rejected by the empty trust-zero kernel.
@@ -42,7 +42,7 @@ The official shared cache fingerprint was unchanged throughout the verifier run.
 
 `verification/` contains the exact declaration inventory and closures (compressed), endpoint
 types, all compilation logs, replay results, axiom signature checks, negative control, and cache
-check. This certificate covers the frozen 38-module source set only. Later lower-bound work
+check. This certificate covers the frozen 54-module source set only. Later lower-bound work
 requires its own fresh certificate. The source-to-statement review is by the implementing
 agent; no external human review is claimed.
 
@@ -74,10 +74,29 @@ nothing, and does not use any prebuilt owned module. `SHA256SUMS` covers all pac
 - `marked_coefficient_quadratic_lower`: keeping one actual Fock coefficient bounds the actual
   compound quadratic form from below in every rank.
 
+## Actual finite ring construction
+
+- `exists_signed_root_ring`: actual complex roots with prescribed positive squared radius,
+  either coefficient sign, exact homogeneous product, zero root sum and squared root sum,
+  and the exact imaginary second moment. Root existence is proved using official algebraic closure.
+- `normalizedBinaryGram_rankTwoCorrelationAdmissible`: unit-diagonal PSD Gram matrices,
+  strictly positive permanent, and exact rank two from a zero and a nonzero slope.
+- `normalizedBinaryGram_permanent_ratio`: the actual permanent equals
+  `N! * gamma^2 * sum_j normSq(coeff_j)/choose(N,j)`.
+- `signedRingPolynomial_has_small_choice`: an actual sign assignment bounds this coefficient
+  ratio by the diagonal subset sum, even when different subsets have equal degree.
+- `exists_rankTwoCorrelation_ring_bound`: combines actual root rings and zero reserve,
+  transports them to the standard `Fin N` matrix index, proves all moments and exact rank-two
+  correlation admissibility, and bounds the permanent by the explicit binomial-weighted subset sum.
+- `normalizedBinaryGram_complex_test_lower` and `normalizedBinaryGram_real_test_lower`:
+  the actual marked coefficients prove the complex-slope and real-imaginary test-vector
+  Rayleigh lower estimates under an explicit permanent denominator estimate. This denominator
+  interface is not counted as a proved analytic small-tail bound.
+
 ## Remaining work
 
-Actual signed root rings and their polynomial/root-sum identities, exact rank-two correlation
-matrices, factorial/binomial and subset-tail estimates, every-large-dimension lower bounds,
-sharp parameter limits, and positive-definite lower perturbation remain to be formalized.
-The finite sign averaging identity does not yet prove the analytic bound E[R]<=1+eta.
-No unproved lower input has been added to the theorem assumptions.
+The explicit subset sum still needs the factorial/binomial and geometric tail estimates
+that make it at most `1+eta`. The geometric dimension recurrence, every-large-dimension
+lower bounds, sharp parameter limits and positive-definite lower perturbation remain unfinished.
+The main sharp logarithmic limit theorem is not yet complete. Later development bytes require
+their own fresh compilation, all-owned audit and empty-kernel replay.
