@@ -1,6 +1,6 @@
 # 余子式谱 Theorem 1：公开形式化范围核对
 
-PR #11 已合并到 `main`，合并提交为 `21e1f769e9ac90f161f0be575b4f19adc642ffd3`；形式化工程固定在该提交中的 `formalizations/cofactor-spectral-asymptotics-progress/`。
+PR #11 已合并到 `main`，合并提交为 `21e1f769e9ac90f161f0be575b4f19adc642ffd3`；形式化工程固定在该提交中的 `formalizations/cofactor-spectral-asymptotics-progress/`。随后以索引提交 `f8343f8e0b6b3638896bd092b9b476e406660a05` 创建了[不可变 GitHub Release `cofactor-spectral-theorem1-lean-v1`](https://github.com/mxym/math/releases/tag/cofactor-spectral-theorem1-lean-v1)，其平台状态为 `immutable=true`。
 
 ## 已覆盖命题
 
@@ -24,4 +24,4 @@ PR #11 已合并到 `main`，合并提交为 `21e1f769e9ac90f161f0be575b4f19adc6
 
 同一书面论文后续的 ramp 常数、rank-two endpoint 和 immanant 命题不属于本次 Theorem 1 证书。该工程的完成状态不自动证明整篇论文的所有后续结论，也不构成外部同行评审或历史优先权认定。
 
-[工程 README](../../formalizations/cofactor-spectral-asymptotics-progress/README.md) · [来源对应审查](../../formalizations/cofactor-spectral-asymptotics-progress/SEMANTIC_REVIEW.md) · [主分支合并提交](https://github.com/mxym/math/commit/21e1f769e9ac90f161f0be575b4f19adc642ffd3)
+[工程 README](../../formalizations/cofactor-spectral-asymptotics-progress/README.md) · [来源对应审查](../../formalizations/cofactor-spectral-asymptotics-progress/SEMANTIC_REVIEW.md) · [主分支合并提交](https://github.com/mxym/math/commit/21e1f769e9ac90f161f0be575b4f19adc642ffd3) · [不可变 Release](https://github.com/mxym/math/releases/tag/cofactor-spectral-theorem1-lean-v1)
