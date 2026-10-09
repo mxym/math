@@ -1,0 +1,11 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPT.SparsePolynomial.eval_mul':
+(kernel) declaration type mismatch, 'APPT.SparsePolynomial.eval_mul' has type
+  True
+but it is expected to have type
+  (x : Nat → Real) →
+    (p q : APPT.SparsePolynomial.Poly) →
+      @Eq Real (APPT.SparsePolynomial.eval x (APPT.SparsePolynomial.mul p q))
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (APPT.SparsePolynomial.eval x p)
+          (APPT.SparsePolynomial.eval x q))
+EMPTY_KERNEL_REPLAY_PASS 5166 declarations; 7 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPT.SparsePolynomial.eval_mul
