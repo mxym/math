@@ -19,7 +19,8 @@
 \vspace{-1.8em}
 \begin{abstract}
 Wakhare's entropy polynomial root conjecture asserts that an explicit polynomial
-$p_{k,r}$ has exactly two roots in $(0,1)$ for every pair of integers $k>r\geq1$.
+$p_{k,r}$ has exactly two roots in $(0,1)$ for admissible coprime
+integers $k>r\geq1$.
 We give a counterexample with the coprime pair $(k,r)=(11,10)$.
 Five exact rational sign evaluations yield at least four distinct roots.
 \end{abstract}
@@ -39,15 +40,15 @@ p_{k,r}(x)=\alpha_{k/r}k(1-x^r)^k h_{k,k}(x)
 where $\alpha_s>0$ is the unique solution of
 $\alpha_s(1+\alpha_s)^{s-1}=1$.
 The conjecture states that $p_{k,r}$ has exactly two real roots in $(0,1)$,
-counting multiplicity.
+counting multiplicity, for the admissible coprime pairs $k>r\ge1$.
 
 \begin{theorem}\label{thm:counter}
 The polynomial $p_{11,10}$ has a root in each of
 \[
 (1/5,2/5),\quad (2/5,3/5),\quad (3/5,2/3),\quad (2/3,4/5).
 \]
-In particular, Conjecture 2 of \cite{Wakhare} is false, even when $k$ and $r$
-are required to be coprime.
+In particular, this admissible coprime pair refutes Conjecture 2
+of \cite{Wakhare}.
 \end{theorem}
 
 Write $\alpha=\alpha_{11/10}$, so $\alpha^{10}(1+\alpha)=1$.
@@ -194,6 +195,21 @@ The archived audits state their actual compilation and replay scopes;
 publication of this typeset version does not imply a new execution of every
 previous empty-kernel replay. The companion README maps each printed
 principal result to its formal theorem and explains how to repeat verification.
+
+An additional independent five-module project is fixed at commit
+\nolinkurl{93a7512b3606581fcbbca310c7d2d587a8c1a903} in
+\nolinkurl{formalizations/wakhare-entropy-four-roots-lean}.
+Its declaration
+\nolinkurl{EntropyRoot.actual_polynomial_has_four_distinct_roots}
+constructs an actual real polynomial directly from the original binomial
+sums and proves four strictly ordered interior roots. The algebraic
+parameter's uniqueness and all five strict rational sign certificates
+are included. The earlier package separately provides the original
+real-power parameter bridge. The new package's README and replay script
+identify the complete build and axiom audit; its recorded clean CI run
+is \url{https://github.com/mxym/math/actions/runs/37853632676}.
+This article revision archives both implementations and does not claim
+that the later project was present in the earlier version's DOI.
 
 \section*{Research and preparation disclosures}
 This research, formalization and manuscript preparation used AI assistance.

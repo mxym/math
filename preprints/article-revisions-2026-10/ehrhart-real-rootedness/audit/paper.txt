@@ -1,0 +1,901 @@
+              Uniform real-rootedness of the (132, 213)-avoiding
+                        permutation-polytope family
+                                             Yongxian Zhang∗
+
+                                             8 October 2026
+
+
+
+                                                 Abstract
+          We prove that the Ehrhart h∗ -polynomial of the convex hull of the (132, 213)-avoiding
+      permutations in Sd has only negative real zeros for every d ≥ 3. A uniform analytic argument
+      proves positivity of the repaired Eulerian tails for every d ≥ 1001. Combining this with de
+      Castro’s finite Theorem 1.3 for d ≤ 1000 resolves Conjecture 10.1 of arXiv:2609.06096v1. The
+      new argument uses centered Bernoulli-sum comparison, finite centered moments of an infinite
+      correction series, and degree smoothing for its large components. Exact rational certificates
+      establish scalar envelopes on 33 closed intervals and the finite bases of infinite inductions. The
+      original finite dataset is an explicitly cited prior input, not an independently reconstructed
+      computation. A short corollary applies Zhang’s known Veronese preservation theorem to all
+      positive integral dilates of this particular family.
+
+
+Contents
+1 Statement, dependencies, and notation                                                                     2
+
+2 The forward repaired tails                                                                                3
+
+3 Centered local comparison                                                                                 4
+  3.1 Fourier profiles and a modal lower bound . . . . . . . . . . . . . . . . . . . . . . . .              4
+  3.2 Sharp constants for variance at least twenty . . . . . . . . . . . . . . . . . . . . . . .            5
+  3.3 The primitive arrays and endpoint error . . . . . . . . . . . . . . . . . . . . . . . . .             6
+
+4 The positive majorant and its centered moments                                                            6
+
+5 Degree smoothing and coefficient-tail induction                                                           7
+
+6 A common marked-identity decomposition                                                                    8
+
+7 Small saddles                                                                                    9
+  7.1 Scalar bounds and their infinite tails . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+  7.2 Centered losses for small components . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+  7.3 Middle terms, large terms, and periodic terms . . . . . . . . . . . . . . . . . . . . . . 10
+  ∗
+    School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Email:
+mxymmxym1@gmail.com. ORCID: 0009-0000-3864-3536.
+
+
+
+
+                                                      1
+8 Larger saddles and interval certificates                                                             10
+  8.1 Variance and uniform local comparison . . . . . . . . . . . . . . . . . . . . . . . . . .        10
+  8.2 Whole-interval envelopes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     11
+  8.3 Tail bases and the remaining marked terms . . . . . . . . . . . . . . . . . . . . . . .          12
+
+9 Exact endpoint arithmetic and reproducibility                                                        14
+
+10 Completion of the proof                                                                            15
+   10.1 The imported finite certificate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+11 A corollary for integral dilates                                                                    15
+
+
+1    Statement, dependencies, and notation
+Let Pd be the convex hull of the permutations in Sd avoiding both 132 and 213, in its induced affine
+lattice, and write Hd (t) = h∗ (Pd ; t). The subscripted polynomials Pn (z) below denote primitive
+auxiliary products, not the polytope Pd .
+
+Theorem 1.1. For every integer d ≥ 3, all zeros of Hd are real and strictly negative. For d = 1, 2,
+Hd = 1.
+
+    The new analytic result in this paper covers every d ≥ 1001. The remaining dimensions use the
+prior finite Theorem 1.3 of de Castro [1]. We do not claim a new general preservation theorem for
+other pattern classes, poset permutahedra, or arbitrary lattice polytopes.
+    We use the following precise prior inputs from the fixed version [1]. Its refined Eulerian coordinates
+ad,j satisfy the exact transform in its equation (25). Its Corollary 6.2 says that nonnegative endpoint
+coordinates together with
+                                 d−2
+                                 X                                                         √
+                    Sd,r (c) =         cj−r ad,j ≥ 0     (1 ≤ r ≤ d − 2),     c=2−          3,         (1)
+                                 j=r
+
+imply real-rootedness for d ≥ 4. The endpoint coordinates are nonnegative, with ad,0 = 1 and
+positive terminal coordinate for d ≥ 3. Its Theorem 1.3 supplies d ≤ 1000. The criterion is sometimes
+called Proposition 6.2 elsewhere in that source; we refer to its displayed Corollary 6.2.
+    The primitive and divisor polynomials, and the signed correction series, are
+                                           n−1
+                                    1      Y
+                    Pn (z) =                   (2n − q + qz),                                          (2)
+                               n2 (n − 1)! q=1
+                               X φ(h)
+                    Jn (z) =                (z − 1)n−n/h Pn/h (z),                                     (3)
+                               h|n
+                                       h2
+                               X                                                  X
+                  J(u, z) =          Jn (z)un ,        H(u, z) = e(z−1)J(u,z) =         Hs (z)us .     (4)
+                               n≥1                                                s≥0
+
+Their exact marked identity is
+                                        d−1                    d−1
+                                        X                      X   d−s
+                         Rd (z) :=            ad,d−1−m z m =           Jd−s (z)Hs (z).                 (5)
+                                       m=0                     s=0
+                                                                    d
+
+
+
+                                                           2
+These identities are equations (34)–(37) of [1]. For x > 0 let
+                                                                                                   Z 1
+                        xt                                             x
+          fx (t) =              ,                                  p=     ,                   ν=         fx (t) dt,    (6)
+                   2 + (x − 1)t                                       1+x                           0
+                   n−1
+                   X
+          Xn,x =            Bernoulli(fx (q/n)),                  µn = EXn,x ,               Vn = Var Xn,x .           (7)
+                      q=1
+
+All Bernoulli summands are independent. In particular,
+                                                                                µn
+                            [z j ]Pn (z)xj = Pn (x)P(Xn,x = j),                    ≤ Vn ≤ µn .                         (8)
+                                                                               1+x
+The mean µd (x) increases continuously and strictly from 0 to d − 1; hence 1 ≤ m ≤ d − 2 determines
+a unique saddle µd (x) = m.
+   Set
+                           Z 1                          
+        λ = exp 1 +               log(2 + (x − 1)t) dt ,       R = λ−1 ,        q = (1 + x)R,      E = H(R, x).        (9)
+                             0
+
+We also use the following product and norm bounds from Lemma 9.1 of [1], uniformly for 0 ≤ x ≤ 15:
+
+                                           e δn
+                Pn (x)Rn = p                          ,        −1/n < δn < 0         (n ≥ 2),                         (10)
+                                       4π(1 + x) n5/2
+                             λ ≥ 4,        q ≤ 4/5,          ∥Jn − Pn ∥x Rn ≤ (4/5)n/2          (n ≥ 1).              (11)
+
+Here ∥F ∥x = j |[z j ]F |xj . Darroch’s theorem [2], in the form reviewed in [3, p. 284], identifies an
+              P
+
+integer mean of a finite Bernoulli sum with its largest atom. No prior eventual-dimension conclusion
+is needed below.
+
+
+2    The forward repaired tails
+We sharpen only the mass constant in the forward estimate of [1, Lemmas 8.1–8.3 and Proposition
+8.4]. Write
+                                       n−1
+                                1      Y                         (1 + x)1+x
+                    Ln (x) = 2             (xn + q),    E(x) =              .
+                            n (n − 1)! q=1                           xx
+
+For 5/54 ≤ x ≤ 2, the Robbins and Riemann bounds give
+
+                                                    n−5/2 9
+                                      Ln (x)E(x)−n ≤ √ < n−5/2                   (n ≥ 2).
+                                                    x 2π  2
+
+At n = 1 the normalized term is qF = E(x)−1 < 49/64. Since                                −5/2 < 3/8 and φ(h)/h2 ≤ 1/2
+                                                                                P
+                                                                                  n≥2 n
+for h ≥ 2, the normalized connected mass satisfies
+                                     49 9 3                qF                157 79   12403  13
+                                                                  
+                       A<              +           1+                    <          =       < .
+                                     64 2 8             2(1 − qF )           64 30    1920   2
+
+The connected series is K(u, x) = n kn (x)un , with kn (x) = h|n φ(h)h−2 Ln/h (x), and Fd (x) =
+                                              P                                  P
+
+[ud ]eK(u,x) . Its coefficients are nonnegative. The prior connected coefficient bound 5000n−5/2
+remains valid. For nonnegative logarithmic coefficients bounded by Cn−5/2 and mass A, a k-part
+
+                                                              3
+composition has a part at least n/k; freely summing the others yields Ck 7/2 Ak−1 n−5/2 . Summing
+its exponential weights, using k 7/2 ≤ k 4 , gives
+                                    X        
+                        [un ] exp        bj uj ≤ CeA (A3 + 6A2 + 7A + 1)n−5/2 .
+
+Consequently the prior exp(140) envelope can be replaced by exp(30):
+
+                  5000eA (A3 + 6A2 + 7A + 1) < 5000 · 687e13/2 < 222 e13/2 < e30 .
+                                                                                               √
+Here is the explicit tail comparison to which the improved envelope applies. Let y =               3 − 1,
+qC = 5/113, and xC = 5/54. The refined transform gives
+                                       X
+                           Ad (z) =          ad,j z j = (1 − z)d−1 Fd (2z/(1 − z)).
+                                         j
+
+Its alternative polynomial expansion in the nonnegative coefficients of Fd bounds it on |z| = qC
+by (1 + qC )d−1 Fd (xC ). Put M = c−r y d−1 Fd (y) > 0. Subtracting the initial coordinates and the
+terminal coordinate gives
+
+                             Sd,r (c) = M − c−r
+                                                     X
+                                                           cj ad,j − cd−1−r ad,d−1 .
+                                                     j<r
+
+Cauchy’s coefficient bound and the geometric sum show that the relative absolute initial-coordinate
+loss is at most
+                                  qC                             Fd (xC )
+                           R=          (c/qC )r ((1 + qC )/y)d−1          .
+                                c − qC                           Fd (y)
+The terminal loss is at most U = (c/y)d−1 Fd (2)/Fd (y), since 0 < ad,d−1 ≤ Fd (2). The prior primitive
+lower bound is Fd (y) ≥ d−5/2 E(y)d /36. The exact inequalities of [1, Lemma 8.3] are
+
+                                    1 + qC E(xC )                     c E(2)
+                       (c/qC )1/4                 < 19/20,                   < 77/100.
+                                       y    E(y)                      y E(y)
+
+For r ≤ d/4, insert the improved upper envelope and use qC (c − qC )−1 y/(1 + qC ) < 1 and y/c < 3.
+The two relative losses are therefore bounded by 36e30 (19/20)d and 108e30 (77/100)d . All intermediate
+bounds in that argument hold already for d ≥ 2; its old dimension threshold arose only from these
+final errors. For d ≥ 1001, e < 4, (19/20)14 < 1/2, and (77/100)3 < 1/2 give respective bounds 2−5
+and 2−266 . Their sum is below one.
+                                                                 √
+Proposition 2.1. For d ≥ 1001 and 1 ≤ r ≤ ⌊d/4⌋, Sd,r (2 − 3) > 0.
+
+
+3     Centered local comparison
+3.1   Fourier profiles and a modal lower bound
+For a finite Bernoulli parameter vector r, of mean µ and variance V , define its centered characteristic
+function and real profile
+                                                                     Z π
+                                                                 1
+                         ψ(t) = Eeit(X−µ) ,           F (y) =              ψ(t)e−iyt dt.
+                                                                2π    −π
+
+The profile is real by conjugate symmetry. It equals a point probability only when y + µ is an
+integer; no probability interpretation at other arguments is needed.
+
+                                                        4
+   For one parameter put gr (t) = e−irt (1 − r + reit ). Taylor’s integral remainder gives
+                            |∂r gr (t)| ≤ |eit − 1 − it| + r|t||eit − 1| ≤ 32 t2 .
+If the other summands in each replacement have variance at least W ≥ 0, their characteristic product
+                       2
+is bounded by e−2W sin (t/2) . Pad the shorter vector by zero parameters and let D = i |pi − qi |.
+                                                                                        P
+
+Telescoping proves
+                                                                      Z π
+                                                                  1                    2
+                |Fp (y) − Fq (y)| ≤ 32 DC2 (W ),     C2 (W ) =              t2 e−2W sin (t/2) dt.   (12)
+                                                                 2π    −π
+
+Apply replacements with nonnegative variance increments first, then negative ones. Every intermedi-
+ate total variance is at least the smaller endpoint variance. Removing one coordinate costs at most
+1/4, so one may take W = max(0, min(Vp , Vq ) − 1/4). For W > 0, using sin(t/2) ≥ |t|/π yields
+                                                                            !
+                                                    π 2 π 5/2
+                                C2 (W ) ≤ min          ,       W −3/2 .                             (13)
+                                                    3 4 · 23/2
+
+   Linear sine terms in Im gr cancel, giving | Im gr (t)| ≤ r(1 − r)|t|3 /6. Telescoping a product
+                                                                   2
+against its conjugate gives | Im ψ(t)| ≤ (V /6)|t|3 e−2(V −1/4) sin (t/2) when V > 1/4. Differentiating
+the finite integral therefore proves
+                        |F (∆) − F (0)| ≤ A1 (V )|∆| + 12 C2 (V )∆2 ,                               (14)
+                                                4
+                                A1 (V ) ≤ V π /30         (V ≥ 0),                                  (15)
+                                              π 9/2        V
+                                A1 (V ) ≤                                   (V > 1/4).              (16)
+                                            16 · 25/2 (V − 1/4)5/2
+In particular A1 (V ) < 4 for all V > 0, and A1 (V ) < 4V −3/2 for V ≥ 1.
+Lemma 3.1. Every integer-valued distribution with finite variance V and largest atom M satisfies
+M ≥ (12V + 1)−1/2 . If a Bernoulli sum has integer mean m, this bounds P(X = m) from below.
+Proof. Adding an independent uniform variable on [−1/2, 1/2] gives a density bounded by M , with
+variance V + 1/12. Among mass-one densities bounded by M , the density equal to M on the interval
+of length 1/M centered at the mean minimizes the second moment. Indeed, subtract that density
+and integrate against (t − µ)2 − 1/(4M 2 ): both the inside and outside products are nonnegative,
+and the constant term integrates to zero. Its variance is 1/(12M 2 ). Darroch’s integer-mean mode
+theorem gives the last assertion.
+
+3.2   Sharp constants for variance at least twenty
+Lemma 3.2. If V ≥ 20, then C2 (V ) < (3/5)V −3/2 and A1 (V ) < (1/3)V −3/2 .
+Proof. For |t| ≤ 1, sin(t/2) ≥ t/2 − t3 /48 and hence 2 sin2 (t/2) ≥ 11t2 /24. For 1 √  ≤ |t| ≤ π it
+is at least 529/1152. The Gaussian second moment is below (12/25)V         −3/2 , using 2π > 12/5;
+squaring verifies the remaining rational comparison. The other portion is at most π 2 e−529V /1152 .
+After multiplication by V 3/2 this decreases for V ≥ 20 and is below 900/8000 = 9/80 at twenty.
+Thus 12/25 + 9/80 < 3/5.
+    Put W = V − 1/4 ≥ 79V /80. The imaginary-part bound makes A1 at most V /6 times a
+normalized fourth-moment integral. Split at 1 and π/2. The first portion, enlarged to the full
+Gaussian line, is below (8/5)W −5/2 . On [1, π/2], sin t ≥ sin 1 > 5/6, so
+                               2 sin2 (t/2) ≥ 529/1152 + (5/6)(t − 1).
+
+                                                      5
+Since t4 < 7 and π > 3, this portion is below (14/(5W ))e−529W/1152 . The last portion is below
+100e−W . It follows that
+                                   4             7 V −529W/1152 50 −W
+                       A1 (V ) <      V W −5/2 +      e        + Ve .
+                                   15            15 W            3
+After multiplication by V 3/2 these are bounded by
+                                   4 26   7 80 90     50 1800  1
+                                        +           +         < .
+                                   15 25 15 79 8000   3 108    3
+Here (80/79)3 < 26/25, the normalized exponential terms decrease, 529(79/4)/1152 > 9, and
+79/4 > 19. The positive sums 40
+                              P     k                 P60     k        8
+                               k=0 9 /k! > 8000 and     k=0 19 /k! > 10 are exact rational
+witnesses.
+
+3.3   The primitive arrays and endpoint error
+For n = d − s, retained parameters satisfy fx (q/n) ≥ fx (q/d). The means increase in the dimension:
+shifting q to q + 1 embeds the old array beneath the new one. Thus the padded parameter distance
+is
+                                                        d−1
+                                                        X
+                                   D = µn − µd + 2            fx (q/d) ≤ 2sp.                                      (17)
+                                                        q=n
+
+Put ej = jν − µj . The increasing Riemann bounds give 0 ≤ ej ≤ p. At µd = m the shift needed by
+the n-law is
+                  ∆ = m − k − µn = sν − k + η,     η = en − ed = µd − µn − sν.
+The trapezoid formula writes ej = p/2 − ϵj with
+
+                                                   |fx′ (1) − fx′ (0)|
+                                         |ϵj | ≤                       .
+                                                            8j
+The errors ϵj have the same sign for all j, because fx is convex for x < 1, concave for x > 1, and
+linear for x = 1. Consequently |η| ≤ |fx′ (1) − fx′ (0)|/(8n), without adding two endpoint bounds. For
+x ≤ 1/10 this is at most 3x/(16n); for x ≤ 15 it is at most 15/(16n). Concavity also gives ej ≥ p/2
+when x ≥ 1.
+
+
+4     The positive majorant and its centered moments
+Define the nonnegative series
+                                           X          X φ(h)
+                       B(u, z) = (1 + z)         un              (1 + z)n−n/h Pn/h (z).
+                                           n≥1        h|n
+                                                            h2
+
+Its exponential majorizes the absolute coefficients of H. At z = x, write
+
+                                                φ(h) (h−1)a                X                     X
+         va = (1 + x)Pa (x)Ra ,     wa,h = va       q       ,       β=           wa,h ,   β1 =         ha wa,h .
+                                                 h2                        a,h                   a,h
+
+A logarithmic component has dimension n = ha and degree law
+
+                                K = Xa,x + Binomial((h − 1)a + 1, p).                                              (18)
+
+                                                        6
+Set ℓ = (h − 1)a, ta = p − ea , r = p − ν, and Tj =                 wa,h ℓj . Then 0 ≤ ta ≤ p, r ≥ 0, and
+                                                                P
+
+
+                                                E(K − nν) = ta + ℓr.
+
+After including the first extra Bernoulli, there are a parameters of total mean aν + ta . Cauchy’s
+inequality bounds their variance by aν(1 − ν) + ta (1 − 2ν) − t2a /a. Therefore
+
+                       Var K ≤ nν(1 − ν) + p max(1 − 2ν, 0) + ℓ{p(1 − p) − ν(1 − ν)}.                          (19)
+
+               w E(K − nν) and M2 =                w E(K − nν)2 . If ta ≤ t0 and r ≤ r0 , then
+           P                                   P
+Let M1 =
+
+                 M1 ≤ t0 β + r0 T1 ,                                                                           (20)
+                 M2 ≤ ν(1 − ν)β1 + p max(1 − 2ν, 0)β + max(0, p(1 − p) − ν(1 − ν))T1
+                           + t20 β + 2t0 r0 T1 + r02 T2 .                                                      (21)
+
+    Write cs,k = Rs xk [us z k ] exp B(u, z) ≥ 0 and hs =
+                                                                    P
+                                                                      k cs,k . The exponential formula gives
+                            X                                                            X
+                                  hs = eβ ,                                                   shs = eβ β1 ,    (22)
+                             s                                                            s
+               X
+                     cs,k (k − sν)2 = eβ (M2 + M12 ),                                                          (23)
+               s,k
+                                              q                            
+            −β
+                 X
+           e           cs,k |k − sν| ≤ min       M2 + M12 , 2νβ1 + M1           .                              (24)
+                 s,k
+
+These are infinite-series statements. First restrict to finite sets of components, for which the
+independent compound-Poisson calculation is exact. All coefficients and the squared weights are
+nonnegative; increasing component sets increases their sums. The component means are nonnegative,
+and the finite bounds below give finite M1 , M2 , β, β1 . Monotone convergence proves (23). The last
+bound follows both from Cauchy and |k − sν| ≤ k + sν. The divergent uncentered second dimension
+moment is never used.
+   Both q and va increase with x, since
+                                  d log q   p−ν                 d log va   p − ea
+                                          =     ≥ 0,                     =        ≥ 0.
+                                    dx       x                     dx        x
+Thus β, β1 , Tj , bn , hs increase too, where bn = [un ]B(Ru, x). Finally,
+
+                                                    β1
+                                                                E = e(x−1)J(R,x) > e−β .
+                             X
+                                  n ∥Jn ∥x Rn ≤        ,                                                       (25)
+                              n                    1+x
+
+5    Degree smoothing and coefficient-tail induction
+Lemma 5.1. Let v∗ = p(1 − p) and c(x) = min(2/3, (1 + x)2 /6). Each degree law of a fixed
+composition of components of total dimension s has variance at least c(x)sv∗ . Every coefficient
+of the normalized positive majorant of dimension s ≥ 1, even after convolution with a normalized
+nonnegative polynomial, is at most             √
+                                                 π
+                                         hs p          .
+                                           2 2c(x)sv∗
+
+
+
+                                                            7
+Proof. The Bernoulli variance integrand is precisely
+                                                                  xt(2 − t)
+                               gx (t) = fx (t)(1 − fx (t)) =                   .
+                                                               [2 + (x − 1)t]2
+
+For x ≥ 1 it is at least v∗ t(2 − t); for x ≤ 1 it is at least (1 + x)2 v∗ t(2 − t)/4. Include the first extra
+Bernoulli as the endpoint t = 1, and use
+                               a
+                               X                        (a + 1)(4a − 1)   2a
+                                   (q/a)(2 − q/a) =                     ≥    .
+                               q=1
+                                                              6a           3
+
+The remaining (h − 1)a Bernoulli variables each have variance v∗ , and c(x) ≤ 1. Variances add in
+fixed compositions. Fourier inversion
+                             √        and sin(|t|/2) ≥ |t|/π bound the largest atom of a Bernoulli
+                      √
+sum of variance V by π/(2 2V ). A positive mixture has the same bound, and convolution is a
+weighted average of translates.
+
+Lemma 5.2. If bn ≤ Bn−5/2 for the needed large indices and hj ≤ Cj −5/2 is proved for the needed
+smaller indices, then
+                                 −5/2 6β1                 9β1
+                                                            
+                                                   β
+                          hs ≤ s           C + Be 1 +            .                          (26)
+                                        s                  s
+Proof. Use shs = sn=1 nbn hs−n . For n ≤ s/2, the ratio (1 − n/s)−5/2 is at most 25/2 < 6. For
+                    P
+
+n > s/2, put j = s−n and use (1−j/s)−3/2 ≤ 1+9j/s on [0, 1/2]. Sum hj = eβ and jhj = eβ β1 .
+                                                                      P              P
+
+In particular bases 64 ≤ j ≤ 127 suffice for induction from s = 128; no bound for j < 64 is needed
+in the first part.
+
+    If va ≤ Aa−5/2 and q ≤ q0 < 1, the proper divisor contributions give
+                                                                   n/2
+                                           n5/2 bn ≤ A + 3An3/2 q0 .                                     (27)
+
+Indeed φ(h)/h2 ≤ 1/h = a/n, a ≤ n/2 for h ≥ 2, and
+                                                             P    −3/2 < 3. The right side decreases in the
+                                                                aa
+ranges used below.
+
+
+6    A common marked-identity decomposition
+Fix d ≥ 1001, an integer 1 ≤ m ≤ d − 2, and its saddle x ≤ 15. Write κ = [z m ]Pd > 0 and S = ⌊d/8⌋.
+For n = d − s, the primitive multiplier is
+                                             n s Pn (x)
+                                     As =     λ         = (d/n)3/2 eδn −δd .                             (28)
+                                             d Pd (x)
+For s ≤ S, (10) gives
+
+                      As < 5/4,      |As − 1| < {(9/4)s + 3}/d (s ≥ 1),            A0 = 1.               (29)
+
+The derivative of (1 − t)−3/2 is below 9/4 for t ≤ 1/8. Also |δn − δd | < 1/n and e1/n ≤ (1 − 1/n)−1 ;
+their multiplier contributes less than 3/d. For n ≥ d/2, the coarser bound is As < 4.
+    For each signed coefficient of Hs , first compare the profiles at zero by (12), then shift the n-profile
+by ∆ = m − k − µn using (14). Divide by the integer-mean d-mode using Lemma 3.1. Thus the
+probability error is bounded by
+                                       n                                             o
+                                                                                 2
+                         p
+                                           3                          1
+                            12Vd + 1       2 DC2 (W ) + A1 (Vn )|∆| + 2 C2 (Vn )∆        .               (30)
+
+                                                        8
+The intermediate n-profile at zero need not itself be a probability.
+   To compare (5) with E, use the small-s primitive terms, the middle primitive terms S < s ≤ d/2,
+and the full Jn terms s > d/2. Handle Jn − Pn for every n ≥ d/2 separately. Finally bound
+                                       P
+the infinite tail of E after s = S by s>S hs . These pieces exhaust the marked identity and its
+comparison series; integer cutoffs use s ≤ ⌊d/2⌋ where appropriate.
+
+
+7     Small saddles
+Proposition 7.1. If d ≥ 1001, µd (x) = m ∈ {1, . . . , d − 2}, and 0 < x ≤ 1/10, then [z m ]Rd > 0.
+
+7.1   Scalar bounds and their infinite tails
+At x = 1/10, q = (11/20)20/9 < 53/200 < 4/15, certified by ninth powers. For all smaller x, (10)
+and π > 55/18 imply va < (3/10)a−5/2 for a ≥ 2, while v1 = q < 3/10. The exact small-saddle
+script certifies
+                        β < 2/5, β1 < 4/5, T1 < 3/25, T2 < 1/5.                             (31)
+For completeness its finite mass sums use a ≤ 64, h ≤ 16. For t = q a , the h tails in the mass and
+dimension moment are respectively t16 /(17(1 − t)) and at16 /(1 − t). For a > 64 their total tails are
+bounded by 1/2560 times 1 + q 65 /(2(1 − q 65 )), and (3/40)/(1 − q 65 ). The direct periodic-moment
+envelopes are
+                       q2   9       q2                        q2     9        q2
+              T1 ≤        +                     ,   T2 ≤           +                      .
+                     1 − q 80 (1 − q)(1 − q 2 )            (1 − q)2 40 (1 − q)(1 − q 2 )2
+
+The first terms handle a = 1; the others use a−3/2 < 3/8 and a−1/2 < 3/4 for a ≥ 2.
+   Equation (27) with A = 3/10, q0 = 4/15 is below 2/5 at n = 16 and decreases thereafter. The
+exact bases n < 16 verify this same bn bound. Exact h2s s5 < 1 for 1 ≤ s ≤ 23 and (26) at s = 24,
+with B = 2/5, C = 1, eβ < 3/2, give
+
+                          hs < s−5/2 (s ≥ 1),       E > 2/3,       eβ /E < 9/4.
+
+Integral bounds yield (9/25)x ≤ ν < (2/5)x. For the lower bound, ν/x decreases in x and at 1/10 it
+equals −10/9 + (200/81) log(20/11); the positive nine-term log series with t = 9/31 proves the claim.
+For the upper bound its limit at zero is 2 log 2 − 1 < 2/5. The integer mean forces y = dx > 5/2,
+and Vd < (2/5)y.
+
+7.2   Centered losses for small components
+Equations (20)–(21) give M1 ≤ (13/25)x and M2 +M12 < (24/25)x. One explicit loose bound is M2 ≤
+(21/25)x + (21/25)x2 : its variance’s linear coefficient is at most (2/5)(4/5) + 2/5 + (16/25)(3/25) =
+0.7968; the component squared-mean coefficient is at most 2/5 + 2(16/25)(3/25) + (16/25)2 (1/5) =
+0.63552. Together with M12 ≤ (169/625)x2 , these are below the stated bound at x ≤ 1/10.
+Equation (24) also bounds the absolute first moment by eβ (29/25)x.
+    For s ≤ S, n ≥ 7d/8, so |η| < x/(4d). Thus the weighted absolute and squared shift moments
+are respectively below eβ (117/100)x and eβ (97/100)x. The weighted D bound is 2peβ β1 < eβ (8/5)x.
+The prefactor error from (29), divided by E, is below 27/(4d).
+    The elementary bound Vj ≥ (jν − p)/(1 + x) gives, for both needed arrays,
+                                    63    1                 63     15
+                             Vn ≥       y− ,         W ≥        y−    > 0.
+                                    220   11                220    44
+
+                                                    9
+The bounds of Section 3 imply
+                                    q
+                                   y (24/5)y + 1 C2 (W ) < 50,                                 (32)
+                                    q
+                                   y (24/5)y + 1 C2 (Vn ) < 50,                                (33)
+                                    q
+                                   y (24/5)y + 1 A1 (Vn ) < 100.                               (34)
+
+For C2 , split at y = 7/2. Below it use C2 < 10/3 and the square-root bound 17/4; above it use
+                                       √
+W ≥ 3y/16, square root below (23/10) y, Gaussian constant below 8/5, and (16/3)3/2 < 25/2. For
+A1 , when y < 5 the global bound A1 < 4 gives a normalized bound below 100. When y ≥ 5, Vn ≥ y/4
+                    −3/2
+and the bound 4Vn        gives a bound below 72, hence below 100. Using (30), the probability error
+divided by E is below
+                               1 5 9 12      117       97        735
+                                                            
+                                        50 +     100 +     50 <      .
+                               d44 5         100       200        d
+Including the prefactor error gives 742/d.
+
+7.3   Middle terms, large terms, and periodic terms
+Since S ≥ d/9, the omitted E tail divided by E is below 27d−3/2 . For S < s ≤ d/2, Vn ≥
+(9/55)y − 1/11 and the primitive largest-atom/d-mode ratio is below 5, by squaring the Gaussian
+bound and using y > 5/2, π < 4. With As < 4, the middle contribution is below 540d−3/2
+                                                                                     p.
+    For s > d/2, Lemma 5.1 has c ≥ 1/6 and v∗ > (4/5)x. Its atom bound is below 15/(4sx).
+                                                                                √
+Also (10) gives Pd (x)Rd > (5/19)d−5/2 , and the inverse d-mode is below (23/10) y. The full Jn
+contribution is consequently bounded by
+                                  35 2 X
+                                    d      n ∥Jn ∥x Rn (d − n)−3 .
+                                   2 n<d/2
+
+Use (25), β1 < 4/5, E > 2/3, and (d − n)−3 < 8d−3 to obtain 169/d after division by E.
+   All periodic terms with n ≥ d/2, using (11), the same product and mode bounds, and eβ /E < 9/4,
+total less than 35d3 e−d/20 < 1/1000. The function decreases for d > 60. At 1001, e > 8/3 and
+35000 · 10013 (3/8)50 < 1 are an exact witness. The overall relative error is therefore
+                          912   567    1     912    567       1
+                              + 3/2 +      ≤     +         +     < 1.
+                           d   d      1000   1001 1001 · 31 1000
+Thus |[z m ]Rd /κ − E| < E, proving Proposition 7.1.
+
+
+8     Larger saddles and interval certificates
+Proposition 8.1. If d ≥ 1001, µd (x) = m is an integer, and 1/10 ≤ x ≤ 15, then [z m ]Rd > 0.
+
+8.1   Variance and uniform local comparison
+The variance density is                      Z 1
+                                                      xt(2 − t)
+                                   v(x) =                          dt.
+                                              0    [2 + (x − 1)t]2
+
+
+
+
+                                                     10
+For x ̸= 1, direct integration gives
+                                  x     2x log((1 + x)/2)
+                         ν(x) =      −                    ,                                                (35)
+                                x−1          (x − 1)2
+                                2x(x + 1) log((1 + x)/2)       x(3x + 1)
+                         v(x) =                3
+                                                         −                  ,                              (36)
+                                       (x − 1)              (x + 1)(x − 1)2
+with ν(1) = 1/4, v(1) = 1/6. Both ν/x and v/x decrease in x, while ν increases. The integrand gx
+is nonnegative, unimodal and at most 1/4. Its total variation is at most 1/2 − gx (1), with gx (0) = 0.
+Comparing the right Riemann sum and then subtracting the endpoint proves
+
+                                         jv − 1/2 ≤ Vj ≤ jv + 1/2.
+
+Every certified interval has v ≥ 3/100, so dv ≥ 30.03. For s ≤ S, this implies
+                                                       p                  √
+                    W ≥ (17/20)dv, Vn ≥ (6/7)dv,         12Vd + 1 < (7/2) dv.
+
+In particular W, Vn > 20. Lemma 3.2 yields
+            p                      p                          27       p                            3
+              12Vd + 1 C2 (W ),        12Vd + 1 C2 (Vn ) <        ,      12Vd + 1 A1 (Vn ) <           .
+                                                             10dv                                  2dv
+The numerical comparisons follow by squaring positive rational quantities. Section 3.3 gives
+|η| < 1/500, since 15/(16n) ≤ 15/(16 · 7 · 1001/8) < 1/500.
+
+8.2   Whole-interval envelopes
+Fix a closed interval [a, b] ⊂ [1/10, 15] from Table 1. The endpoint helper gives rational lower and
+upper bounds on ν and v, and upper bounds β, B1 , T1 , T2 at b. Set
+
+                        vlow = a v(b)low /b,       vhigh = min(1/4, b v(a)high /a).
+
+Let Nhi , Nlo be the maximum and minimum of t(1 − t) over the enclosed ν range, and Phi , Plo the
+analogous bounds over the exact endpoint p range. These extrema include a possible crossing of
+1/2. Put pa = a/(1 + a), pb = b/(1 + b) and
+                                                                                 (
+                                        pb (pa − ν(a)low )                           pb /2,   a ≥ 1,
+                                                               
+                r0 = min pb − ν(a)low ,                    ,             t0 =
+                                                pa                                   pb ,     a < 1.
+
+The second r bound follows because (p − ν)/p = 01 2(1 − t)/[2 + (x − 1)t] dt decreases in x. The
+                                                        R
+
+improved t0 follows from concavity when a ≥ 1. Define
+
+                   M = t0 β + r0 T1 ,                                                                      (37)
+                    Q = Nhi B1 + pb max(1 − 2ν(a)low , 0)β + max(0, Phi − Nlo )T1
+                         + t20 β + 2t0 r0 T1 + r02 T2 + M 2 ,                                              (38)
+                               p
+                    U = min( Q, 2ν(b)high B1 + M ),                 ϵ = 1/500.                             (39)
+
+Equations (23)–(24) bound the required shifted moments by eβ (U + ϵ) and eβ (Q + 2ϵU + ϵ2 ).
+   For a lower bound L on log E, use L = −β when a < 1. For a ≥ 1, set ρ = (x − 1)/(x + 1) and
+note
+                                          X φ(h)
+                                log E = ρ     vj 2 (ρq)(h−1)j .
+                                          j,h
+                                                 h
+
+                                                      11
+All factors are nonnegative and increasing in x. A positive finite sum at a is therefore a valid lower
+bound throughout the interval. Take certified Rexp ≥ eβ−L and Iexp ≥ e−L . The small-component
+probability and prefactor errors, divided by E, are bounded by Ksmall /d and Kpref /d, where
+                                5 Rexp        81        3         27
+                                                                                                
+                    Ksmall =                     pb B1 + (U + ϵ) + (Q + 2ϵU + ϵ2 ) ,                    (40)
+                                4 vlow        10        2         20
+                                          9
+                                                     
+                     Kpref = Rexp           B1 + 3β .                                                   (41)
+                                          4
+In the first term, (3/2) · (2pb B1 ) · (27/10) = (81/10)pb B1 ; thus the full weighted parameter loss is
+included.
+
+8.3   Tail bases and the remaining marked terms
+The exact tail script uses the following caps at four endpoints. By monotonicity each cap applies to
+every smaller positive x. Here A bounds va a5/2 , q0 bounds q, B bounds bn n5/2 for n ≥ 64, and e0
+bounds eβ .
+                         x        A            q0     B            β          β1    e0    C
+                        1      41/100          3/8    1/2         7/12    6/5       9/5   3/2
+                        3        4/7           1/2    3/5        81/100   7/4       9/4    2
+                        7      81/100         16/25   5/6          9/8    8/3      25/8    4
+                        15       8/7           3/4    4/3          3/2     4        9/2   10
+
+The script checks A2 > (1 + x)5/62 using π > 31/10, and q0 < A for a = 1. It checks (27) at 64
+and its decreasing continuation, the exact h bases 64..127, and 6β1 C/128 + Be0 (1 + 9β1 /128) < C.
+Lemma 5.2 gives hs < Cs−5/2 for every s ≥ 64.
+    For S < s ≤ d/2, Vn ≥ dv/2 − 1/2; the squared Gaussian atom ratio to the d-mode is below
+four squared, since dv ≥ 30. Using As < 4 and S ≥ d/9, the middle contribution and omitted E tail
+together are below 306CIexp d−3/2 .
+    For s > d/2, use Lemma 5.1 and (25). Set
+                                                                          q                    1001
+                   clow = min(2/3, (1 + a)2 /6),                 UP =         4(22/7)(1 + b)        .
+                                                                                               1000
+                   1/d ≤ 1001/1000 give the inverse primitive scale bound U d5/2 . Since
+√     √ (10) and e
+Equation                                                                            P
+  π/(2 2) < 16/25 and s−3 < 8/d3 , the full large-s contribution, divided by E, is below Klarge /d,
+where
+                                         7 16      vhigh CB1
+                                               r
+                           Klarge = UP        8                  Iexp .
+                                         2 25     clow Plo 1 + a
+The square root uses the corrected smoothing variance factor.
+   The remaining
+             √    periodic terms with n ≥ d/2 are bounded using Pd (x)Rd > d−5/2 /32, inverse
+mode below 2 d, eβ < 9/2, and E −1 < 9/2. Equation (11) gives
+
+                                  1296d3 e−d/20 < 1/1000               (d ≥ 1001).
+
+This decreases for d > 60; at 1001 its exact endpoint certificate is 1296000 · 10013 (3/8)50 < 1, using
+e > 8/3.
+   The large-saddle verifier certifies, on each whole closed interval,
+                             Ksmall + Kpref + Klarge 306CIexp       1
+                                                    +           +      < 1.                             (42)
+                                      1001            1001 · 31   1000
+
+                                                            12
+Every term bounds all d ≥ 1001, because the algebraic errors decrease in d and the periodic term
+has the monotonicity just proved. Thus this is a uniform dimension proof, not finite dimension
+sampling. Together with the split of Section 6, it proves |[z m ]Rd /κ − E| < E and Proposition 8.1.
+
+                   Table 1: The 33 closed intervals and upward-rounded total
+                   relative error bounds from (42).
+
+                    Left endpoint   Right endpoint    Certified upper envelope
+                        1/10               1/5                        0.415204
+                         1/5              3/10                        0.354745
+                        3/10               2/5                        0.337833
+                         2/5               1/2                        0.333091
+                         1/2               3/5                        0.333805
+                         3/5              7/10                        0.337634
+                        7/10               4/5                        0.343535
+                         4/5              9/10                        0.349782
+                        9/10                 1                        0.356797
+                          1                5/4                        0.273062
+                         5/4               3/2                        0.269584
+                         3/2               7/4                        0.268158
+                         7/4                 2                        0.268035
+                          2                9/4                        0.268862
+                         9/4               5/2                        0.270358
+                         5/2              11/4                        0.272354
+                        11/4                3                         0.274745
+                          3                7/2                        0.453021
+                         7/2                 4                        0.450379
+                          4                9/2                        0.450842
+                         9/2                 5                        0.453294
+                          5               11/2                        0.457061
+                        11/2                6                         0.461875
+                          6               13/2                        0.467545
+                        13/2                7                         0.473930
+                           7                 8                        0.911391
+                           8                 9                        0.904558
+                           9                10                        0.903392
+                          10                11                        0.906514
+                          11                12                        0.912996
+                          12                13                        0.922190
+                          13                14                        0.933627
+                          14                15                        0.946958
+
+
+
+
+                                                 13
+9    Exact endpoint arithmetic and reproducibility
+This section specifies the analytic tails and enclosure rules used by the certificates. None of the
+scalar tests replaces a preceding analytic proof. For a rational endpoint x,
+                                            −2/(x−1)
+                                      1+x
+                                  
+                             q=                         (x ̸= 1),      q(1) = e−1 .
+                                       2
+Exact rational-power bisection encloses q in 48 steps. The logarithm of a positive rational a is
+enclosed using t = (a − 1)/(a + 1), 128 terms, and remainder 2|t|257 /(257(1 − t2 )). For exponentials
+use 97 positive terms (indices 0..96) and the upper remainder a97 /(97!(1 − a/98)) for 0 ≤ a < 20;
+negative arguments use reciprocals. Signed linear combinations in (36) use the correct endpoint
+order. Upward and downward rounding use the dyadic lattice of denominator 272 . An upward
+square-root bound is                            p
+                                              ⌊ ⌊a2100 ⌋⌋ + 1
+                                                               .
+                                                      250
+No floating-point value controls a logical decision.
+    For the large endpoint sums take a ≤ 64 and h ≤ Ha = max(2, ⌊128/a⌋). With t = q a , the four
+omitted h tails for β, β1 , T1 , T2 , before multiplication by va , are
+                          tHa             atHa        atHa                  Ha      t
+                                                                                         
+                                                                2 Ha
+                                     ,         ,           ,   a t              +         .
+                     (Ha + 1)(1 − t)      1−t         1−t                  1 − t (1 − t)2
+           (1 + x)/(4π) also bound v1 and put t = q 65 . The omitted a tails are at most
+          p
+Let A >
+               A         t                  A            A        t             A        t
+                                 
+                  1+          ,                   ,                        ,                      .
+              768    2(1 − t)            4(1 − t)       512 (1 − q)(1 − t)      8 (1 − q)(1 − t)2
+The first two follow from integral sums after 64; the others use a−3/2 ≤ 1/512, a−1/2 ≤ 1/8 and
+geometric sums. For the positive lower log-E sum take a ≤ 32 and h ≤ max(1, ⌊32/a⌋), discarding
+only nonnegative terms.
+   The three scalar programs use only Python’s standard library:
+                                  verify_small_x_majorant.py
+                                  verify_majorant_tail_constants.py
+                                  verify_large_x_intervals.py
+They are preserved byte for byte from the reviewed candidate. The second imports the third’s
+enclosure helpers. All checks raise explicit exceptions; they do not use Python assert. The
+certificates give respectively the small-saddle scalar/base checks, four finite-base/induction residuals,
+and 33 whole-interval rational bounds. Their exact rational entries and SHA256 digests accompany
+this paper. The 6-decimal numbers in Table 1 are rounded upwards from already-certified rational
+bounds. The largest exact bound, on [14, 15], is
+                                  2235941074644793697351
+                                                            < 0.947.
+                                  2361183241434822606848
+The reproducibility entry point also runs the independent scalar residual checks, verifies file integrity,
+and compares the generated witnesses. Floating-point displays are diagnostics only.
+    The new proof was internally reviewed with AI assistance and its three exact programs reproduced
+independently as part of the accompanying audit. This record is not Lean verification or external
+human peer review. The source audit maps every necessary candidate argument to the final sections;
+historical incomplete labels and a corrected scratch variance expression occur only in the separately
+identified historical review record.
+
+                                                        14
+10     Completion of the proof
+Proof of Theorem 1.1. For d ≥ 1001, Proposition 2.1 covers r ≤ ⌊d/4⌋. For the remaining needed
+coordinates put m = d − 1 − j, so
+
+                                      1 ≤ m ≤ d − 2 − ⌊d/4⌋ < 3d/4.
+
+The last strict inequality holds for every residue class of d modulo four. The elementary estimate
+µd (15) ≥ dν(15) − 15/16 > 3d/4 for d > 1000 follows from log 8 < 209/100 and ν(15) = 15/14 −
+(15/98) log 8 > 751/1000. Thus each required unique saddle lies below 15. Propositions 7.1
+and 8.1 cover all these saddles, including their common endpoint 1/10. Hence ad,j > 0 for
+⌊d/4⌋ + 1 ≤ j ≤ d − 2. Every remaining tail (1) is a positive sum of these coordinates. The prior
+endpoint facts and repair criterion give real zeros. Since the Ehrhart coefficients are nonnegative
+and Hd (0) = 1, Hd (t) > 0 for t ≥ 0, so all its zeros are strictly negative.
+    For d ≤ 1000, apply de Castro’s finite Theorem 1.3. Its base cases include H1 = H2 = 1 and
+H3 = (1 + t)2 . This covers all dimensions.
+
+10.1    The imported finite certificate
+The finite theorem uses the author’s official release tashimir/ehrhart-132-213-polytopes, release
+v1.0.0, published on 5 September 2026. The file is refined_coordinates_d1_d1000.csv, of size
+996682200 bytes. The official release asset digest is
+                                   8dbb43cad35659199cd23b5fddc23dd50
+                                    f76d35adff5b636ac366d460069b5ce
+
+A complete streamed download independently confirmed this byte length and SHA256 digest, and
+counted 500501 lines including the header. The accompanying provenance record distinguishes byte-
+integrity verification from mathematical reconstruction. We have not independently reconstructed
+the CSV or rerun the source’s 498500 finite tail inequalities. Theorem 1.1 depends transparently on
+that prior finite theorem.
+
+
+11     A corollary for integral dilates
+Corollary 11.1. For every pair of positive integers d,r, the polynomial h∗ (rPd ; t) is constant or
+has only strictly negative real zeros.
+
+Proof. For d ≥ 3, Pd has dimension d − 1 in its affine lattice, so the Ehrhart series has denominator
+(1 − t)d . The Veronese construction gives
+                                                                                       ⟨r,k⟩
+                 h∗ (rPd ; t) = Ur,0
+                                 d
+                                     Hd (t),    d
+                                               Ur,k h = (1 + t + · · · + tr−1 )d h(t)            .
+
+Here f (t) = r−1    k ⟨r,k⟩ (tr ) defines the sections. By Theorem 1.1, H has nonnegative coefficients
+             P
+               k=0 t f                                                   d
+and only negative real zeros. Zhang’s Corollary 3.4 [4, p. 7] applies for every positive integer
+r, with no degree threshold on r, and makes the sequence (Ur,r−1   d                 d H ) interlacing. In
+                                                                       Hd , . . . , Ur,0 d
+particular the zeroth member is real-rooted. Its nonnegative coefficients and constant term one
+exclude nonnegative roots. For d = 1 the numerator is 1; for d = 2 the primitive lattice segment
+gives 1 + (r − 1)t directly. This is an application of the established Veronese theorem to this family,
+not a new preservation theorem.
+
+
+                                                    15
+Source edition and reproduction
+This signed article edition retains the mathematical argument of the previously archived source:
+https://doi.org/10.5281/zenodo.23248529. The original source, exact inputs, checking pro-
+grams and prior review records remain available there. The companion README identifies the
+frozen Git version and the scope of each auxiliary computation. In a writable copy of that archived
+source directory, run:
+
+python3 reproduce.py --negative-controls
+
+The computational checks do not replace the analytic proof.
+
+
+Funding and research methods
+This research was conducted independently and received no external funding. OpenAI AI assistants
+assisted mathematical research, verification code and internal review. Mathematical claims are
+supported by the written proof and the specified public evidence; AI output is not itself proof
+evidence. Internal AI-assisted review is not external human peer review.
+
+
+Declaration of generative AI and AI-assisted technologies in the
+writing process
+OpenAI AI assistants assisted drafting, organization and LaTeX editing. The author takes responsi-
+bility for the manuscript and its descriptions of the proof and verification evidence.
+
+
+References
+[1] P. M. M. de Castro, Ehrhart h∗ -polynomials of (132, 213)-avoiding permutation polytopes:
+    A repair cone and eventual real-rootedness, arXiv:2609.06096v1, 5 September 2026. https:
+    //arxiv.org/abs/2609.06096v1.
+
+[2] J. N. Darroch, On the distribution of the number of successes in independent trials, Ann. Math.
+    Statist. 35 (1964), 1317–1321, Theorem 4.
+
+[3] J. Pitman, Probabilistic bounds on the coefficients of polynomials with only real zeros, J. Combin.
+    Theory Ser. A 77 (1997), 279–303. https://www.stat.berkeley.edu/~pitman/453.pdf.
+
+[4] P. B. Zhang, Interlacing polynomials and the Veronese construction for rational formal power
+    series, author PDF, Corollary 3.4 and equation (1). https://zhangbiaomath.github.io/
+    papers/2020-prm-ipvc.pdf.
+
+
+
+
+                                                  16
+

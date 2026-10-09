@@ -1,4 +1,6 @@
 \documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,xurl,hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,
@@ -23,21 +25,30 @@ pdfauthor={Yongxian Zhang}}
 \begin{document}
 \maketitle
 
-\noindent\textbf{Result.}
-For every fixed $d\ge3$ and every maximum-volume inscribed simplex $S$,
-\[
- E(K,S)\le G_d^\sharp
- \left(a(K)-\frac1{d+1}\right)^{1/(d-1)}.
-\]
-All constants below are explicit. The exponent matches the exact truncation
-obstruction. The additional geometric step uses centering to compare normalized
-projection volumes, controls scale by first variation, and then puts a cap
-in a $(d-1)$-dimensional projection. No inverse-Minkowski stability theorem
-is an input. The supplied explicit $1/d$ theorem is preserved as a separate
-source, with its constants unchanged. An independent analytic model audit
-passed, with independently implemented finite checks. The main bound and its exponent obstruction now have complete Lean proofs;
-see the formal-verification section. No external human peer review is claimed.
-No priority or best-known-result claim is made.
+\begin{abstract}
+We prove quantitative simplex stability for a projection-body pyramid
+invariant in every dimension $d\ge3$. The invariant's lower-end deficit
+controls containment of a convex body in a homothetic enlargement of
+every maximum-volume inscribed simplex, with exponent $1/(d-1)$.
+Explicit truncations show that this exponent cannot be increased.
+The proof combines an integrated determinant assignment with centering,
+first-variation scale control and a cap in a $(d-1)$-dimensional
+projection. All constants are explicit, although not asserted optimal.
+The upper bound and the geometric exponent obstruction have complete
+Lean proofs for the actual convex bodies and chosen simplices.
+\end{abstract}
+
+\section*{Introduction}
+Projection bodies record the volumes of hyperplane projections, making
+their associated deficits sensitive to thin protrusions that volume
+alone need not control. The cone-rigidity and explicit stability
+statements in~\cite{entry,released} provide the starting point for the
+present sharp-exponent comparison. Our result keeps every initially
+chosen maximum-volume simplex, rather than replacing it by a favorable
+one during the proof. The obstruction in~\cite{truncation} supplies
+matching geometric sharpness. We give the complete argument below,
+using the classical convex-geometric identities specified
+in~\cite{classical}; no inverse-Minkowski stability theorem is an input.
 
 \section{Definitions and explicit constants}
 

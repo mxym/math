@@ -32,21 +32,20 @@ the real certificate has 776 owned declarations and a 54,739-declaration
 union replay closure. Historical input-run timeouts and subsequent successful
 continuations remain distinguished. See [the audit](AUDIT.md) for exact scope.
 
-To submit after obtaining the requested endorsement, upload **`bapat-arxiv-source.zip`** as the TeX
-source, use `main.tex` as the compilation entry point, and copy the prepared
-title, author, and abstract from [the metadata](SUBMISSION_METADATA.json).
-The primary category suggestion is `math.CO`, with `math.RA` as a possible
-cross-list; these are recommendations, not arXiv moderation decisions.
-Choose the distribution license in the arXiv interface and check the PDF
-compiled by arXiv before completing submission. Do not upload `paper.pdf`
-alongside the TeX ZIP as an extra source document.
+To prepare a TeX submission, upload **`bapat-arxiv-source.zip`**, use
+`main.tex` as the compilation entry point, and use the metadata title,
+author and abstract. The suggested categories are `math.CO` and optionally
+`math.RA`; classification remains subject to moderation. Check the platform's
+compiled PDF before submission. Do not upload the preview PDF as a second
+source document. AI assistance and absence of external funding are disclosed
+in the manuscript.
 
-The author has registered and is awaiting the requested math.CO endorsement;
-no arXiv identifier, submission date,
-acceptance, human peer-review approval, or guaranteed historical priority
-is claimed. AI assistance and absence of external funding are disclosed
-in the manuscript. Source provenance and verification inventories are
-provided alongside it.
+The revised introduction explains that 200 is the certified witness size,
+not a minimality claim. The real argument selects a finite base size and then
+a finite repetition count by proved convergence; it supplies no effective
+threshold. An elementary written corollary extends the complex counterexample
+to every order N >= 200 and to Gaussian-integer entries. That corollary is
+not claimed as a newly executed Lean theorem.
 
 Check the distributed files and their source correspondence with
 `python3 -B check_package.py` from this directory. This verifies the file

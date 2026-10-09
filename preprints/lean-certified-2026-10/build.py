@@ -29,7 +29,7 @@ def build(spec):
         for p in inputs:
             shutil.copy2(p, work / p.name)
         for _ in range(3):
-            run = subprocess.run(['pdflatex', '-interaction=nonstopmode',
+            run = subprocess.run(['pdflatex', '-no-shell-escape', '-interaction=nonstopmode',
                                   '-halt-on-error', 'paper.tex'], cwd=work,
                                  text=True, capture_output=True)
             if run.returncode:
@@ -42,6 +42,8 @@ def build(spec):
             raise RuntimeError(spec['slug'] + ': ' + repr(errors))
         fonts = subprocess.run(['pdffonts', 'paper.pdf'], cwd=work,
                                check=True, text=True, capture_output=True).stdout
+        if 'Type 3' in fonts:
+            raise RuntimeError('Bitmap font: ' + spec['slug'])
         if re.search(r'\bno\s+(?:yes|no)\s+(?:yes|no)\s+\d+\s+\d+\s*$', fonts, re.M):
             raise RuntimeError('Unembedded font: ' + spec['slug'])
         pdf = (work / 'paper.pdf').read_bytes()

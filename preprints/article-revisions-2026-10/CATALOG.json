@@ -1,0 +1,71 @@
+{
+  "source_commit": "4c60eb3bf0c65430fd5da500d25fb892ababfab6",
+  "papers": [
+    {
+      "slug": "ehrhart-real-rootedness",
+      "source_root": "notes/ehrhart-uniform-real-rootedness",
+      "previous_doi": "10.5281/zenodo.23248529",
+      "title": "Uniform real-rootedness of the (132,213)-avoiding permutation-polytope family",
+      "scope": "The result concerns only the specified pattern-avoiding family. Dimensions at most 1000 use de Castro's cited finite theorem. The new all-large-dimension argument is written mathematics with exact scalar certificates, and is not Lean formalization.",
+      "commands": [
+        "python3 reproduce.py --negative-controls"
+      ],
+      "inputs": [
+        "paper.tex",
+        "interval-table.tex"
+      ]
+    },
+    {
+      "slug": "permanent-padding",
+      "source_root": "notes/permanent-inequality-padding",
+      "previous_doi": "10.5281/zenodo.23248369",
+      "title": "A padding proof of a conjectured permanent inequality",
+      "scope": "This is a short deduction from the cited balanced theorem, not an independent proof of that theorem or a claimed new general permanent inequality. The proof uses no computation and has no Lean formalization.",
+      "commands": [],
+      "inputs": [
+        "paper.tex"
+      ]
+    },
+    {
+      "slug": "cofactor-spectrum-unbounded",
+      "source_root": "notes/cofactor-spectrum-unbounded",
+      "previous_doi": "10.5281/zenodo.23252140",
+      "title": "Unbounded normalized cofactor spectra for rank-two Gram matrices",
+      "scope": "The theorem excludes dimension-independent cofactor-ratio bounds. It does not assert a growth rate or solve Lieb's permanental-dominance conjecture. Positive-definite examples need not remain rank two. No Lean formalization is claimed.",
+      "commands": [
+        "python3 verify_witness.py",
+        "python3 verify_witness_independently.py"
+      ],
+      "inputs": [
+        "paper.tex"
+      ]
+    },
+    {
+      "slug": "sharp-cofactor-asymptotics",
+      "source_root": "notes/sharp-cofactor-spectral-asymptotics",
+      "previous_doi": "10.5281/zenodo.23248496",
+      "title": "Sharp logarithmic growth of permanental cofactor spectra and an optimal rank-two endpoint constant",
+      "scope": "The real Rayleigh optimum still ranges over complex Hermitian matrices; it is not an optimum restricted to real matrices. These are cofactor spectral statements, not Lieb character dominance or Marcus permanent-of-permanents. The proof is written mathematics with exact auxiliary certificates, not Lean formalization.",
+      "commands": [
+        "python3 verify_dyadic_cofactor_family.py --K 8 --C 7",
+        "python3 verify_dyadic_cofactor_family.py --K 10 --C 5",
+        "python3 verify_dyadic_independently.py",
+        "python3 verify_stage_bounds.py"
+      ],
+      "inputs": [
+        "paper.tex"
+      ]
+    },
+    {
+      "slug": "gaussian-prescribed-mass",
+      "source_root": "research/gaussian-prescribed-mass-centroid-ellipsoid",
+      "previous_doi": "10.5281/zenodo.23248386",
+      "title": "A sharp Gaussian first-moment inequality for every prescribed mass vector",
+      "scope": "The inequality uses the mass-dependent label metric from the established perimeter-profile Hessian. It does not assert the false unweighted prescribed-mass simplex conjecture, and does not give the sharp value in fixed lower dimensions. Its full analytic endpoint is a written proof using the published multi-bubble theorem; Lean coverage is partial.",
+      "commands": [],
+      "inputs": [
+        "paper.tex"
+      ]
+    }
+  ]
+}

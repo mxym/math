@@ -1,6 +1,6 @@
 # An orbital primal-dual theorem for finite permutation actions
 
-**Zenodo 预印本：[10.5281/zenodo.23249749](https://doi.org/10.5281/zenodo.23249749)**，版本 1.0。PDF、TeX 和固定提交证明归档已公开；arXiv 尚未提交。
+**Zenodo 预印本：[10.5281/zenodo.23249749](https://doi.org/10.5281/zenodo.23249749)**，版本 1.0。PDF、TeX 和固定提交证明归档已公开。
 
 Author: Yongxian Zhang (张永贤). ORCID: https://orcid.org/0009-0000-3864-3536.
 School of Computer Science and Engineering, South China University of Technology.

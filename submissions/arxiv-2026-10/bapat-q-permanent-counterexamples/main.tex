@@ -126,6 +126,30 @@ are independent: the real proof does not use the finite complex data.
 We consolidate the previously archived proof packages~\cite{ComplexLean,RealLean}
 into a single paper, without making an exhaustive historical priority claim.
 
+\subsection{What the dimension and existence assertions mean}
+The number $200$ is the order of the supplied, exactly certified complex
+row list. It is not a proposed threshold for failure of the conjecture,
+and we do not prove that a smaller counterexample is impossible.
+Numerical search helped find these rows; the proof starts from the
+displayed integers and recomputes their strict endpoint gap exactly.
+Only after this finite witness is fixed do we choose the explicit
+perturbation and parameter constants in \eqref{eq:explicitconstants}.
+Those constants are deliberately conservative continuity bounds, not
+optimized numerical estimates. The construction can be reproduced
+without repeating the search or enumerating $200!$ permutations.
+
+The real result has a different role. It rules out the possibility that
+the original conjecture might nevertheless hold for real symmetric
+matrices. Its finite base size and repetition number are selected from
+convergence statements; those statements are proved, but no effective
+thresholds are supplied. The subsequent rational approximation and
+diagonal perturbation preserve a strict polynomial inequality.
+Consequently the final integer matrix exists in a finite dimension,
+even though the proof does not print that dimension or its entries.
+The $200$-row complex certificate does not supply a numerical bound for
+the real theorem. The logical order of these choices and the remaining
+effective-construction problem are explained in Section~\ref{sec:integer}.
+
 \section{The explicit complex construction}\label{sec:explicit}
 Write $A=VV^*$. The data have $|\Rea a_i|,|\Im a_i|,
 |\Rea b_i|,|\Im b_i|\le20$, so $\|v_i\|^2\le1600$ and
@@ -220,6 +244,28 @@ $P'_q(B_{\C})\le-1/4+Kh=-1/8$. The constants in
 $P_{1-h}(B_{\C})-P_1(B_{\C})\ge h/8>0$.
 This proves Theorem~\ref{thm:complex}. In particular this proof
 contradicts monotonicity on the original interval $[-1,1]$.
+
+\begin{corollary}\label{cor:padding}
+For every integer $N\ge200$, there is a specified rational complex
+Hermitian positive-definite counterexample of order $N$, with the same
+parameter $q_0$ and the same positive gap as in
+Theorem~\ref{thm:complex}.
+There is also a specified counterexample of that order with
+Gaussian-integer entries and the same parameter $q_0$.
+\end{corollary}
+\begin{proof}
+Append an identity block in the indicated order:
+$\widetilde B=B_{\C}\oplus I_{N-200}$. Any nonzero permutation term
+fixes each appended index and preserves the first block. It therefore
+has exactly the inversion count of its restriction to the first $200$
+indices. Thus $P_q(\widetilde B)=P_q(B_{\C})$ identically in $q$.
+Positive definiteness, rational entries and non-diagonality are
+preserved. For the integer assertion multiply the entire padded matrix
+by the positive integer $4\Gamma$. Since $\varepsilon=1/(4\Gamma)$,
+every resulting entry is a Gaussian integer. The defining polynomial
+is multiplied by $(4\Gamma)^N$, preserving the strict gap at the same
+$q_0$. This padding argument does not address smaller orders.
+\end{proof}
 
 \section{Real Gram matrices: the endpoint identity and repetition}
 Let $n\geq2$ and let $v_1,\ldots,v_n$ be arbitrary real coefficient rows in $\R^r$. Put $A_{ij}=v_i\cdot v_j$ and, using the bilinear complex extension of the real dot product, define
@@ -490,7 +536,7 @@ Choose and fix one sufficiently large finite integer $L$ for which $R_L>1$. The 
 \end{equation}
 In particular a finite real endpoint witness exists before any rational or positive-definite perturbation.
 
-\section{Rational and integer positive-definite matrices}
+\section{Rational and integer positive-definite matrices}\label{sec:integer}
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 The repeated row list now has a fixed finite size $N=nL>4$. The quantity $P'_1$ of its Gram matrix is a polynomial in its finitely many real row entries. Approximate those entries by rational numbers closely enough to preserve the strict inequality \eqref{eq:negative} and to keep every row nonzero. The resulting rational Gram matrix $A$ has positive diagonal and rank at most four. It cannot be diagonal, since a diagonal $N\times N$ matrix with positive diagonal has rank $N>4$.
 
@@ -515,6 +561,12 @@ The choices have a strict order: first choose and fix a sufficiently large equid
 
 The nonconstructive steps select a finite cloud and a finite repetition
 number from convergence statements, without quantitative thresholds.
+Specifically, the base has $n=m+4$ rows: $m$ equidistributed rows and
+four selector rows. The final pre-perturbation order is $N=(m+4)L$.
+One first fixes a sufficiently large finite $m$ for the strict peak
+inequality, and only then chooses a finite $L$ from concentration for
+that fixed base. Neither existence statement allows replacing its
+threshold by an unverified numerical guess.
 Once these choices are fixed, openness of a strict polynomial inequality
 permits rational approximation and diagonal perturbation; clearing
 denominators then gives a finite integer matrix. Thus the conclusion
@@ -575,6 +627,9 @@ semantic reviews, and reproduction instructions are preserved in
 the immutable archives~\cite{ComplexLean,RealLean}.
 The present combined manuscript changes presentation and author
 metadata; it does not replace those archived proof bytes.
+The elementary identity-padding Corollary~\ref{cor:padding} is a
+written consequence of the explicit theorem; this revision does not
+claim a new Lean certificate for its all-$N$ formulation.
 
 To replay the integer certificate distributed with this submission,
 run the following commands:
@@ -598,7 +653,8 @@ Each package's README supplies the pinned environment and full commands
 for the named theorem above. Checking stored record hashes alone is
 not a fresh Lean replay.
 
-\section*{Acknowledgments}
+\begingroup\small
+\section*{Funding}
 This research was conducted independently and received no external funding.
 
 \section*{AI-assisted research methods}
@@ -606,9 +662,8 @@ OpenAI AI assistants were used in mathematical research, proof development,
 Lean formalization, verification code, and internal reviews. Mathematical
 claims are supported by the written proofs, exact certificates, and public
 formal-verification records described above; AI output by itself is not
-proof evidence. Internal AI-assisted reviews are not external human peer
-review. No journal acceptance or exhaustive historical priority
-certification is asserted.
+proof evidence. The author is responsible for reviewing mathematical
+claims and for the reported verification scope.
 
 \section*{Declaration of generative AI and AI-assisted technologies
 in the writing process}
@@ -617,7 +672,7 @@ manuscript and its LaTeX presentation. The author takes responsibility
 for the manuscript's contents, including its mathematical claims and
 its descriptions of the verification evidence.
 
-\clearpage
+\endgroup
 \appendix
 \section{The ordered complex witness}\label{app:data}
 Each tuple below is $(\Rea a_i,\Im a_i,\Rea b_i,\Im b_i)$, with
@@ -630,11 +685,15 @@ parameters are exactly \eqref{eq:explicitconstants}.
 \input{witness.tex}
 
 \begin{thebibliography}{9}
+\small
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
 \raggedright
 \bibitem{Bapat1992}
-R. B. Bapat, \emph{Interpolating the determinantal and permanental
-Hadamard inequality}, Linear and Multilinear Algebra \textbf{32}
+R. B. Bapat, \emph{Research problem} (interpolating the determinantal
+and permanental Hadamard inequality), Linear and Multilinear Algebra \textbf{32}
 (1992), 335--337.
+\href{https://doi.org/10.1080/03081089208818174}{doi:10.1080/03081089208818174}.
 \bibitem{BapatLal1994}
 R. B. Bapat and A. K. Lal, \emph{Inequalities for the $q$-permanent},
 Linear Algebra and its Applications \textbf{197--198} (1994), 397--409.

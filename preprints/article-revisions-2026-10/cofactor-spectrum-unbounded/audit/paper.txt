@@ -1,0 +1,259 @@
+                        Unbounded normalized cofactor spectra
+                            for rank two Gram matrices
+                                              Yongxian Zhang∗
+
+                                               8 October 2026
+
+
+
+                                                   Abstract
+           For a positive-semidefinite Hermitian matrix A, let C(A)ij = aij per A(i | j), where the minor
+        deletes row i and column j. We prove that λmax (C(A))/ per A has no dimension-independent
+        upper bound, already for complex rank-two correlation matrices. The same construction makes
+        λmax (Re C(A))/ per A arbitrarily large. The proof computes a spectral limit under repeated
+        Gram vectors and combines it with projective equidistribution. It also gives positive-definite
+        examples and unbounded local second-order relative coefficients for entrywise-positive real
+        correlation perturbations.
+
+
+1       Statement and scope
+Our convention is that A(i | j) deletes row i and column j, without transposing this minor. All
+Hermitian inner products below are linear in their first argument. The matrix C(A) is positive
+semidefinite and C(A)1 = (per A)1. Drury disproved the assertion that this prescribed eigenvalue
+is always the largest one [1]. Here we consider all constant multiples of the permanent.
+
+Theorem 1. For every R > 0 there are an integer N and a complex Hermitian correlation matrix
+A of rank exactly two such that
+
+                          λmax (C(A)) > R per A,           λmax (Re C(A)) > R per A.
+
+There are also positive-definite correlation matrices with both inequalities. The positive-definite
+assertion does not retain rank two.
+
+    The real part is entrywise, so its largest eigenvalue is the maximum Rayleigh quotient over
+real unit vectors. The theorem is an unboundedness assertion as the order varies; no rate in
+N is asserted. It is distinct from unbounded Hadamard-product bunching ratios [3], and from
+bounds for the full Schur-power matrix. It does not resolve Lieb’s normalized character or subgroup
+permanental-dominance conjecture [4]. A separate source audit records the finite literature search;
+no claim of exhaustive priority verification is made.
+    ∗
+   School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Email:
+mxymmxym1@gmail.com. ORCID: 0009-0000-3864-3536.
+
+
+
+
+                                                       1
+2    A repetition limit
+Let vi = (ai , bi ) be nonzero unit rows, 1 ≤ i ≤ n, put ℓi (x, y) = ai x + bi y, and set P =
+                                                                                                              Q
+                                                                                                                  i ℓi and
+Aij = vi vj∗ . For binary forms of degree d define
+                        * d                       d
+                                                                          +           d
+                         X                        X                                   X
+                                       d−k k                     d−k k
+                                pk x        y ,         qk x         y            =       (d − k)!k!pk qk .
+                          k=0                     k=0                         B       k=0
+
+Leibniz expansion gives                 *                        +
+                                                           ℓ′j       = per[⟨ℓi , ℓ′j ⟩B ].
+                                            Y          Y
+                                                ℓi ,                                                                   (1)
+                                            i
+                                            B          j
+                          2
+In particular per A = ∥P ∥B > 0, and C(A) is the Gram matrix of vi ⊗ (P/ℓi ).      This proves its
+                                                                       1
+positivity with the stated conventions. For Haar probability measure µ on CP , represented by unit
+vectors,                                              Z
+                                             ⟨p, q⟩B = (d + 1)!                   pq dµ.                               (2)
+
+Indeed, phase integration makes distinct monomials orthogonal and |x|2a |y|2b dµ = a!b!/(a + b + 1)!.
+                                                                                                R
+
+   Repeat each row L times, write N = nL, and let AL be the resulting Gram matrix. Then
+PL = P L and, with cluster indices (i, a),
+
+                                  C(AL )(i,a),(j,b) = Aij ⟨P L /ℓi , P L /ℓj ⟩B .                                      (3)
+
+Let UL : Cn → CnL map ei to the vector equal to L−1/2 on cluster i and zero elsewhere. All
+clusters in (3) are constant, so C(AL ) vanishes on ran(UL )⊥ . Its nonzero normalized Rspectrum,
+including multiplicities, is that of KL = UL∗ C(AL )UL / per AL . Writing dµL = |P |2L dµ/ |P |2L dµ,
+the factorials in (2) give the exact formula
+                                                               L                      dµL
+                                                                                  Z
+                                            (KL )ij =               Aij                     .                          (4)
+                                                             nL + 1                   ℓi ℓj
+
+The expression against the density at a zero is interpreted through the polynomial (P L /ℓi )(P L /ℓj ).
+Lemma 2. Suppose |P | has a unique projective maximum. Rotate it to (1, 0) and put zi = bi /ai .
+Then every ai ̸= 0, i zi = 0, and
+                   P
+
+                                                  Jn + zz ∗
+                                  KL −→                                  in operator norm.
+                                                     n
+Consequently
+                                                                                                 !
+                                        λmax (C(AL ))          ∥z∥2
+                                    lim               = max 1,                                       ,                 (5)
+                                   L→∞    per AL                n
+                                                                                                 !
+                                     λmax (Re C(AL ))          ∥z∥2
+                                 lim                  ≥ max 1,                                       .                 (6)
+                                L→∞       per AL                2n
+
+Proof. The maximum of the nonzero polynomial is positive, so no factor vanishes there. The
+integrand in (4) is continuous near the maximum u. Outside any neighborhood of u, |P | ≤ a < |P (u)|.
+On a smaller neighborhood of positive measure, |P | ≥ b > a. The absolute unnormalized tail is
+bounded by
+                                       a2L−2 sup |(P/ℓi )(P/ℓj )| ,
+
+                                                                     2
+whereas the denominator is bounded below by a positive constant times b2L . Thus the apparent
+poles cause no problem and the integral tends to (ai aj )−1 . Since n is fixed, entrywise convergence
+implies operator-norm convergence p and gives the stated matrix limit.
+   In the local coordinate (1, t)/ 1 + |t|2 ,
+                                                X
+                       log |P |2 = constant +        log |1 + zi t|2 − n log(1 + |t|2 ).
+                                                 i
+                                                           P
+The two real first derivatives at zero vanish, hence i zi = 0. The limiting matrix therefore has
+eigenvalues 1, ∥z∥2 /n, and zeros, which proves (5). For z = x + iy its real part is (Jn + xxT + yy T )/n,
+with x, y ⊥ 1. The last two terms have rank at most two and trace ∥z∥2 /n, proving (6). Compression
+commutes with real part because UL is real.
+
+
+3    Equidistribution and selection of one maximum
+Choose collections of m unit rows whose empirical projective measures converge weakly to Haar
+measure on CP1 . Such a sequence is obtained from midpoint grids in p = |a|2 ∈ (0, 1) and the
+relative phase, with both grid sizes tending to infinity. Let um be any maximum of the corresponding
+product, and rotate variables so that um = (1, 0).
+    These moving rotations preserve weak convergence to Haar. Indeed, every subsequence of
+rotations has a convergent subsubsequence by compactness of U (2). For each continuous test
+function, the rotated functions then converge uniformly; weak convergence and Haar invariance give
+the same limiting integral. This subsequence argument proves the claim for the full sequence.
+    For T > 0 the function
+
+                           fT ([a : b]) = min(|b/a|2 , T ),       fT ([0 : 1]) = T,
+
+is continuous. Since |a|2 is uniform on [0, 1] under Haar measure,
+                                        Z 1
+                                             1−p
+                           Z                                 
+                               fT dµ =   min     , T dp = log(1 + T ).                                (7)
+                                       0      p
+Every ai in the rotated configuration is nonzero. It follows that
+                                m
+                             1 X
+                         lim inf   |bi /ai |2 ≥ log(1 + T )        for every T > 0.
+                         m→∞ m
+                               i=1
+
+Hence these averages tend to infinity. Only bounded continuous test functions have been used; there
+is no assumption of convergence of an unbounded moment.
+    To make the maximum unique, append one unit linear form ℓu (z) = ⟨z, um ⟩, linear in z. On the
+unit sphere its modulus is at most one, with equality only at the projective point um . Multiplication
+by this factor leaves the old maximum value unchanged and makes its location unique. In the
+rotated coordinates the added row is (1, 0), contributing z = 0. For the augmented base n = m + 1
+we still have                     n                 m
+                               1X         2    1 X
+                                     |zi | =           |bi /ai |2 −→ ∞.                             (8)
+                               n i=1         m + 1 i=1
+
+Proof of Theorem 1. Given R, first choose one finite base in (8) with average exceeding 2R + 2.
+Equidistribution ensures that a sufficiently large base spans C2 . Freeze it and then take a sufficiently
+large integer L in Lemma 2. Both ratios exceed R, all rows are unit, and the Gram matrix has rank
+exactly two.
+
+                                                      3
+    For a strict witness A, polynomial dependence of C(A) and per A, continuity of Hermitian
+eigenvalues, and per A > 0 show that the strict inequalities persist for A + εI with sufficiently
+small ε > 0. The matrix (A + εI)/(1 + ε) is a positive-definite correlation matrix. Both ratios are
+unchanged by this final scalar rescaling, since C(cA) = cN C(A) and per(cA) = cN per A.
+
+
+4    A local consequence and an exact finite certificate
+The following is the real-direction specialization of the perturbation formula of Pioge and coauthors
+[2, Lemma 1]; we include the calculation to fix the Gram and conjugation conventions. For a real
+unit vector w, let
+                                                   1 + ε2 w i w j
+                                  B(ε)ij = q                              .
+                                               (1 + ε2 wi2 )(1 + ε2 wj2 )
+This is a real correlation matrix of rank at most two, with strictly positive entries for sufficiently
+small ε. Expanding the entries and then the permanent gives
+                                                                      !
+                         per(A ◦ B(ε))                wT Re C(A)w
+                                       = 1 + ε2                   − 1 + O(ε4 ).                    (9)
+                             per A                       per A
+
+In fact the quadratic coefficient before division by per A is
+                                 wi2 + wj2
+                                             !
+           X
+                C(A)ij   wi wj −                 = wT C(A)w − per A = wT Re C(A)w − per A,
+           ij
+                                     2
+
+using both row and column sums. Theorem 1 therefore makes the relative coefficient in (9) arbitrarily
+large. This is a local statement; it gives no uniform finite-ε gain or perturbative interval. For
+complex w, the column-Gram convention in [2] has numerator 1 + ε2 wi wj ; replacing it by the
+opposite convention would conjugate the Rayleigh direction.
+    For an optional finite check, the companion file witness_n200.csv specifies 200 Gaussian-integer
+rows vi ∈ Z[i]2 and a vector w ∈ Z[i]200 . The standard-library integer verifier proves
+                                     269    w∗ C(V V ∗ )w    27
+                                         <        ∗       2
+                                                            < .
+                                     100   per(V V )∥w∥      10
+
+It independently forms each omitted-factor polynomial and evaluates 2a=1 ∥ i wi via (P/ℓi )∥2B . This
+                                                                          P   P
+
+certificate illustrates a finite violation and checks the conventions; unboundedness follows from the
+analytic proof, not from numerical extrapolation.
+
+
+Source edition and reproduction
+This signed article edition retains the mathematical argument of the previously archived source:
+https://doi.org/10.5281/zenodo.23252140. The original source, exact inputs, checking pro-
+grams and prior review records remain available there. The companion README identifies the
+frozen Git version and the scope of each auxiliary computation. In a writable copy of that archived
+source directory, run:
+python3 verify_witness.py
+python3 verify_witness_independently.py
+The computational checks do not replace the analytic proof.
+
+                                                       4
+Funding and research methods
+This research was conducted independently and received no external funding. OpenAI AI assistants
+assisted mathematical research, verification code and internal review. Mathematical claims are
+supported by the written proof and the specified public evidence; AI output is not itself proof
+evidence. Internal AI-assisted review is not external human peer review.
+
+
+Declaration of generative AI and AI-assisted technologies in the
+writing process
+OpenAI AI assistants assisted drafting, organization and LaTeX editing. The author takes responsi-
+bility for the manuscript and its descriptions of the proof and verification evidence.
+
+
+References
+[1] S. Drury, A counterexample to a question of Bapat & Sunder, Math. Inequal. Appl. 21 (2018),
+    517–520. doi:10.7153/mia-2018-21-37.
+
+[2] L. Pioge, K. K. Pietrasz, B. Seron, L. Novo and N. J. Cerf, A logical implication be-
+    tween two conjectures on matrix permanents, Linear Algebra Appl. 725 (2025), 309–318.
+    doi:10.1016/j.laa.2025.07.011; arXiv:2508.00111.
+
+[3] B. Seron, L. Novo and N. J. Cerf, Boson bunching is not maximized by indistinguishable particles,
+    Nature Photonics 17 (2023), 702–709. doi:10.1038/s41566-023-01213-0.
+
+[4] I. M. Wanless, Lieb’s permanental dominance conjecture, In The Physics and Mathematics of
+    Elliott Lieb, vol. II, EMS Press (2022), 501–516. doi:10.4171/90-2/48; arXiv:2202.01867.
+
+
+
+
+                                                 5
+

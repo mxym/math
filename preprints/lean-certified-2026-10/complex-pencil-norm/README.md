@@ -1,6 +1,6 @@
 # The exact norm of the complex three-row permanent-determinant pencil
 
-**Zenodo 预印本：[10.5281/zenodo.23249773](https://doi.org/10.5281/zenodo.23249773)**，版本 1.0。PDF、TeX 和固定提交证明归档已公开；arXiv 尚未提交。
+**Zenodo 预印本：[10.5281/zenodo.23249773](https://doi.org/10.5281/zenodo.23249773)**，版本 1.0。PDF、TeX 和固定提交证明归档已公开。
 
 [Paper](paper.pdf) · [LaTeX](paper.tex) · [Upload source ZIP](paper-source.zip)
 

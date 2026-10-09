@@ -1,0 +1,381 @@
+A sharp Gaussian first-moment inequality for every prescribed mass
+                             vector
+
+                                            Yongxian Zhang∗
+
+                                             8 October 2026
+
+
+
+Abstract
+We establish a sharp first-moment inequality for every measurable simplex-valued function on
+Gaussian space with prescribed positive mean. The label metric is the negative Hessian of the
+Gaussian multi-bubble perimeter profile. The equality functions are exactly the indicators of the
+translated regular simplex partition with those probabilities, extended cylindrically. The result holds
+for every number of labels and every ambient dimension. Its proof derives a global tangent bound
+for the squared optimal Gaussian assignment value from the established multi-bubble perimeter
+theorem and a radial differential inequality. An exact nonnegative integral measures its deficit. At
+equal masses this recovers the sharp ordinary squared-centroid sum; at unequal masses the metric is
+generally anisotropic. We do not assert the false unequal-mass Euclidean simplex conjecture or the
+full functional multi-bubble isoperimetric inequality. The profile Hessian identity is prior work; our
+statement is a bound for all functions, not only perimeter minimizers.
+
+
+1. Model profile and the sharp functional theorem
+Let k ≥ 2, n = k − 1, 1 = (1, . . . , 1)T , P = I − 11T /k, and Q∗ = P/n.
+                                                                      p Fix centered rows vi of a
+                                                                                           ∗
+
+k × n matrix V∗ with V∗ V∗ = Q∗ . Their pairwise distances are ℓ∗ = 2/n.
+                          T
+
+
+Fix a probability vector p = (p1 , . . . , pk ) with every pi > 0. There are unique prices λp in the gauge
+  i λp,i = 0 such that
+P
+
+
+
+                              Ωi (p) = {x : vi∗ · x − λp,i ≥ vj∗ · x − λp,j ∀j}                          (1)
+
+has standard Gaussian probability pi in Rn . Their existence, uniqueness and smooth dependence
+are proved in Section 2. The score matrix maps Rn onto 1⊥ , so λp = V∗ wp for a unique wp . Thus
+(1) is a central regular simplex fan translated by wp .
+Write Apij for the ordinary Gaussian interface areas of this model. Define two label Laplacians,
+annihilating 1:
+  ∗
+   School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Email:
+mxymmxym1@gmail.com. ORCID: 0009-0000-3864-3536.
+
+
+
+
+                                                     1
+                            (Hp u)i =             Apij (ui − uj ),       Lp = Hp /ℓ∗ .
+                                           X
+
+                                           j̸=i
+
+
+All model facets have positive area, so both matrices are positive on 1⊥ . The notation Hp+ , L+
+                                                                                               p
+means inversion on this subspace and zero on the constant line. Put
+
+                                                                   tr Lp
+                            I(p) =         Apij ,           cp =         = ℓ∗ I(p) > 0.           (2)
+                                     X
+
+                                     i<j
+                                                                     n
+
+By Milman–Neeman [MN22, Theorem 1.1], I is the Gaussian k-cell perimeter profile in dimension
+n = k − 1. Perimeter is normalized as half the sum of individual cell perimeters, or equivalently the
+sum of ordinary pairwise interfaces. Its Hessian on the tangent space 1⊥ satisfies the established
+identity
+
+
+                                                  ∇2 I(p) = −Hp+ .                                (3)
+
+This identity is [MN22, Proposition 2.4]; Section 2 also derives its normalization from the price
+calculus.
+          1. Let d ≥ 1 and let fi : Rd → [0, 1] be measurable, with i fi = 1 almost everywhere
+                                                                                     P
+Theorem
+and fi dγd = pi . Let the k × d moment matrix B have rows bi = xfi (x) dγd (x). Then
+   R                                                             R
+
+
+
+                                             tr(B T Hp+ B) ≤ I(p),                                (4)
+
+or equivalently
+
+                                           d
+                                                                                                  (5)
+                                           X
+                                                   T
+                                     −            B·,a ∇2 I(p)B·,a ≤ I(p).
+                                          a=1
+
+If d ≥ k − 1, equality holds exactly when the fi are the ordinary winning indicators (1) in an
+orthogonally embedded (k − 1)-dimensional subspace, with its orthogonal complement unrestricted,
+up to null sets and label symmetries preserving the fixed mass vector. If d < k − 1, the inequality is
+strict for every such function; no sharp fixed-lower-dimensional bound is claimed.
+This is a universal functional first-moment bound. It applies to all measurable partitions and
+fractional labels of mean p, rather than only to variations of perimeter minimizers. The profile
+identity (3) and the perimeter theorem are explicitly imported prior results. The finite literature
+check [LS] found no equivalent all-function statement in the checked sources; it does not establish
+worldwide novelty.
+
+
+2. Prescribed-mass Gaussian score calculus
+For every symmetric positive-semidefinite covariance Q with Q1 = 0, define
+                                                                       
+                     Cp (Q) = inf        p · λ + E max(Yi − λi ) ,              Y ∼ N (0, Q).     (6)
+                              λ∈Rk                      i
+
+
+                                                             2
+Adding a common price has no effect. In the gauge min λi = 0, the expression is at least pmin max λi :
+a zero-priced mean-zero score makes the expected maximum nonnegative. Hence the infimum is
+attained. Pointwise comparison with the p-weighted average of scores also shows Cp (Q) ≥ 0.
+For distinct score rows vi , Gaussian pairwise ties are null. The price gradient is pi − γn (Ci ), where
+Ci = {x : vi · x − λi ≥ vj · x − λj ∀j}. Minimizing prices therefore give precisely the masses pi . Their
+winning assignment attains the score maximum pointwise. For any feasible ordinary or fractional
+labels f with mean p, and any centered score matrix M , the same pointwise comparison at every
+price gives
+
+
+                                             ⟨M, B⟩ ≤ Cp (M M T ).                                       (7)
+
+No assignment interpretation at duplicated scores is needed.
+On the entire closed covariance cone,
+
+                                      √
+                          Cp (sQ) =       s Cp (Q)    (s ≥ 0),          Cp is continuous.                (8)
+
+Scale scores and prices to prove homogeneity, and note Cp (0) = 0. For continuity couple Q1/2 G and
+Qe 1/2 G. The difference of their maxima at any price is at most |(Q1/2 − Qe 1/2 )G|. Its expectation
+bounds the two infima uniformly in prices. Continuity of the matrix square root therefore covers
+singular endpoints as well.
+Suppose Q is positive on 1⊥ , and write Q = M M T with centered rows in Rn . They are affinely
+independent. The n score differences against one label give nonsingular affine coordinates. They
+realize a top tie between any chosen pair with all remaining scores strictly lower. Consequently every
+pair facet has positive Gaussian area. Define its length ℓij = |vi − vj |, area Aij , weight wij = Aij /ℓij ,
+and weighted Laplacian L.
+Gaussian integration by parts, with inward facet normal (vi − vj )/ℓij , gives the winning-cell moments
+B(M ) = LM . The additional boundary terms after truncation with balls tend to zero exponentially.
+Since the winning masses are p, price terms cancel, so
+
+
+                           Cp (Q) = tr(LQ) =                            tr L = 2                         (9)
+                                                     X                             X
+                                                           wij ℓ2ij ,                    wij .
+                                                     i<j                           i<j
+
+
+Lemma 2. On this positive cone Cp is smooth and
+
+
+                                            dCp (Q)[D] = 12 tr(LD)                                      (10)
+
+for every symmetric centered covariance direction D.
+Proof. In the affine score-difference coordinates, winning regions are fixed polyhedral cones. Gaussian
+density and linear-integrand derivatives are locally dominated by a polynomial times a Gaussian, so
+these integrals are smooth. The price Hessian is L: a price gap moves the pair facet by that gap
+divided by ℓij . All pair weights are positive, making L positive on the zero-sum gauge at every
+price. Thus balancing prices are unique in that gauge, and the implicit function theorem makes
+them smooth.
+
+
+
+                                                             3
+Write D = M AM T with A symmetric; this representation exists because M maps onto 1⊥ . Realize its
+covariance path by M (t) = M (I +tA)1/2 . The envelope score derivative is B(M ) and M ′ (0) = M A/2.
+Formula (9) then gives dCp (Q)[D] = tr(B(M )T M A)/2 = tr(LD)/2. □
+This proves the assertions about model prices in Section 1. In the model ℓij = ℓ∗ ; (9) gives
+Cp (Q∗ ) = ℓ∗ I(p) = tr Lp /n = cp , including all factors in (2). For completeness the derivative of the
+mass vector with respect to model prices is −Lp on the tangent gauge. The envelope derivative of cp
+with respect to p is λp . Therefore ∇2 cp = −L+   p , and ∇ I = −Lp /ℓ∗ = −Hp , as in the prior identity
+                                                            2       +          +
+
+(3).
+
+
+3. Perimeter and a global covariance tangent bound
+Let Q be positive on 1⊥ and of trace one. Its balanced winning cells have masses p in dimension
+n = k − 1, precisely the range k ≤ n + 1 of the imported multi-bubble theorem. Write their perimeter
+S = i<j Aij . Thus S ≥ I(p). Weighted Cauchy–Schwarz and (9) give
+    P
+
+
+                                         2                           
+
+                    S2 =                                  wij   wij ℓ2  = 1 Cp (Q) tr L.
+                              X                      X            X
+                                    wij ℓij  ≤                          ij    2
+                              i<j                    i<j          i<j
+
+
+Using I(p) = cp n/2, we obtain
+                p
+
+
+                                                           tr L
+                                                 Cp (Q)         ≥ c2p .                             (11)
+                                                            n
+Every weight is positive, so equality in weighted Cauchy requires all pair lengths equal. A centered
+trace-one score Gram with this property is Q∗ : double-centering its squared-distance matrix gives
+Q = (ℓ2 /2)P , and trace one gives ℓ2 = 2/n.
+Theorem 3. For every centered positive-semidefinite covariance Q,
+
+
+                                               Cp (Q)2 ≤ cp tr(Lp Q).                               (12)
+
+Equality holds exactly when Q = sQ∗ for some s ≥ 0.
+Proof. First normalize tr Q = 1, and put Qt = Q∗ + t(Q − Q∗ ) for 0 ≤ t < 1. This is positive on 1⊥
+even when Q is singular. Write C(t) = Cp (Qt ) and Lt for its facet matrix. Formulas (9)–(10) imply
+
+
+                                          tC ′ (t) = 12 (C(t) − tr Lt /n) .                         (13)
+
+Let h(t) = C(t)2 − c2p and Dp (t) = C(t) tr Lt /n − c2p ≥ 0. Then exactly
+
+
+                                          (h(t)/t)′ = −Dp (t)/t2 ≤ 0.                               (14)
+
+The initial derivative need not vanish. By (10) its value is
+
+
+                                    lim h(t)/t = h′ (0) = cp tr(Lp (Q − Q∗ )).                      (15)
+                                    t↓0
+
+
+                                                             4
+At one the quotient tends to Cp (Q)2 − c2p by (8). Integrating (14) on compact subintervals and taking
+both endpoint limits therefore gives the exact identity
+
+                                                                  Dp (t)
+                                                            Z 1
+                                   cp tr(Lp Q) − Cp (Q) =
+                                                       2
+                                                                         dt ≥ 0.                    (16)
+                                                             0     t2
+This nonnegative improper integral is finite because both quotient limits are finite. Smoothness near
+zero also gives Dp (t) = O(t2 ). Here cp tr(Lp Q∗ ) = c2p was used to simplify the endpoint difference.
+This proves (12) at trace one.
+If equality holds, continuity and nonnegativity make Dp (t) = 0 for every 0 < t < 1. The perime-
+ter/Cauchy chain consists of equalities, and all pair lengths are equal, forcing Qt = Q∗ . Any such
+t > 0 implies Q = Q∗ . Conversely the model has equality. For nonzero Q of trace s > 0, apply the
+result to Q/s and use homogeneity (8). At Q = 0 both sides vanish. This gives all stated equality
+rays, including singular endpoints. □
+Writing W (t) =       i<j wij (t), the integrand has the decomposition
+                  P
+
+                                                                                     
+                                  2
+                       Dp (t) =     W (t)     wij (t)ℓij (t)2 − S(t)2 + S(t)2 − I(p)2  .           (17)
+                                           X
+                                  n       i<j
+
+Both terms are nonnegative: weighted edge-length variance and squared-perimeter deficit. No metric
+stability rate or full covariance concavity is asserted.
+
+
+4. Moment duality, sharpness and all equality cases
+For the functions in Theorem 1 the rows of B sum to zero. Put E = tr(B T L+
+                                                                          p B) ≥ 0 and M = Lp B.
+                                                                                            +
+
+The feasible score inequality (7) and Theorem 3 imply
+
+
+                E = ⟨M, B⟩ ≤ Cp (M M T ),            Cp (M M T )2 ≤ cp tr(Lp M M T ) = cp E.        (18)
+
+The last equality uses L+   p Lp Lp = Lp . Thus E ≤ cp E, giving E ≤ cp . Since Hp = ℓ∗ Lp and
+                                  +      +          2
+
+cp = ℓ∗ I(p), this is exactly (4), and the tangent-space identity (3) gives (5).
+If E = cp > 0, all comparisons in (18) are equalities and Cp (M M T ) = cp . Theorem 3 gives
+                                           √
+M M T = sQ∗ ; homogeneity then gives scp = cp , so s = 1. Thus M is a trace-one regular simplex
+score list. Equality in the feasible assignment means its nonnegative pointwise maximum deficit has
+zero integral. Its scores have null ties, so the fractional labels must be the unique winning indicators.
+Uniqueness of the prescribed-mass prices identifies exactly (1) after an orthogonal embedding. This
+requires d ≥ n; below that dimension equality is impossible. If E = 0 the inequality is strict.
+Conversely model flux gives B∗ = Lp V∗ , whence
+
+
+                              tr(B∗T L+
+                                      p B∗ ) = tr(V∗ Lp V∗ ) = tr(Lp Q∗ ) = cp .
+                                                    T
+
+
+Orthogonal and cylindrical extensions preserve moments and masses. This proves Theorem 1, its
+sharpness and every equality assertion. The proof includes k = 2, where the normalized covariance
+space is a singleton. The omitted k = 1 case has one cell and zero moments. No statement at a zero
+prescribed probability is needed.
+
+                                                        5
+5. Equal masses and the scope of the result
+                                                                √
+At pi = 1/k, symmetry gives Lp = ck P , where ck = E maxi≤k Zi / k − 1 for independent standard
+normals. Theorem 1 then reduces to
+
+                                     X               (E maxi≤k Zi )2
+                                          |bi |2 ≤                   .
+                                      i
+                                                         k−1
+
+This recovers [EQ], which proves the equal-mass subcase of [H19, Conjecture 1.16] and the full
+four-cell dimension-three question [H14, Conjecture 3]. At unequal masses, Lp is generally not scalar
+on label space; the nonzero initial slope (15) supplies new metric information that the uniform
+statement does not contain. The universal bound (4) cannot follow merely by calibrating its quadratic
+form on the model moments; (11)–(18) prove it for all feasible functions.
+The ordinary unweighted prescribed-mass squared-moment conjecture is false [EX]. The present
+theorem uses the explicitly defined label metric Hp+ and makes no contrary Euclidean assertion. It
+is a first-moment functional inequality, not the full simplex-valued Gaussian Bobkov or positive-
+correlation noise-stability statement. The profile Hessian identity is prior work; its application here
+bounds all functions, beyond variations of perimeter minimizers.
+
+
+6. Proof and verification dependencies
+The non-elementary geometric input is [MN22, Theorem 1.1], used only with k = n + 1, its positive-
+mass hypotheses and its interface-perimeter normalization. The established profile Hessian identity is
+stated with its tangent-space convention and independently normalized in Section 2. The remaining
+tools are Gaussian integration by parts, dominated convergence, the implicit function theorem,
+matrix square roots, pseudoinverses and one-variable calculus. There is no numerical or solver
+premise, no differentiation at a singular endpoint, no assumption of covariance concavity and no
+rank classification.
+The package includes internal model reviews, finite exact diagnostics and partial Lean proofs with
+explicit scope. They do not certify Gaussian measure, the imported geometric theorem or the
+entire analytic endpoint. Internal model reviews are not external human peer review. The earlier
+equal-mass result is preserved as its own immutable record; this theorem is a generalization of the
+same proof mechanism, not an independent counting of the equal-mass case.
+
+
+Source edition and reproduction
+This signed article edition retains the mathematical argument of the previously archived source:
+https://doi.org/10.5281/zenodo.23248386. The original source, exact inputs, checking programs
+and prior review records remain available there. The companion README identifies the frozen Git
+version and the scope of each auxiliary computation. No computational certificate is needed for the
+written reduction.
+
+
+Funding and research methods
+This research was conducted independently and received no external funding. OpenAI AI assistants
+assisted mathematical research, verification code and internal review. Mathematical claims are
+
+                                                       6
+supported by the written proof and the specified public evidence; AI output is not itself proof
+evidence. Internal AI-assisted review is not external human peer review.
+
+
+Declaration of generative AI and AI-assisted technologies in the
+writing process
+OpenAI AI assistants assisted drafting, organization and LaTeX editing. The author takes responsi-
+bility for the manuscript and its descriptions of the proof and verification evidence.
+
+
+References
+  • [MN22] E. Milman and J. Neeman, The Gaussian Double-Bubble and Multi-Bubble Conjec-
+    tures, Annals of Mathematics 195 (2022), no. 1, 89–206; DOI 10.4007/annals.2022.195.1.2;
+    arXiv:1805.10961v3, Theorem 1.1 and Proposition 2.4.
+  • [H14] S. Heilman, Euclidean Partitions Optimizing Noise Stability, Electronic Journal of
+    Probability 19 (2014), no. 71, 1–37; arXiv:1211.7138v2, Conjecture 3.
+  • [H19] S. Heilman, Stable Gaussian Minimal Bubbles, arXiv:1901.03934v1, Problem 1.15 and
+    Conjecture 1.16.
+  • [EQ] mxym/math research project, Equal Gaussian cells: the sharp simplex first-moment
+    theorem, immutable release gaussian-balanced-simplex-all-k-v1, commit ebfd90558439afca21
+    babeb7b77c8d8837ea745f, 2026.
+  • [EX] mxym/math research project, A counterexample to the prescribed-mass Gaussian regular-
+    simplex conjecture, repository companion research/gaussian-fixed-mass-propeller-counterexa
+    mple, 2026.
+  • [LS] The source/version and equivalence screen in this package’s LITERATURE_STATUS.md;
+    limited source check of 8 October 2026, not a priority assessment.
+
+
+
+
+                                                7
+
