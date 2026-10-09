@@ -35,15 +35,15 @@ in the final theorem.
 | Mathematical obligation | Lean declarations/modules |
 | --- | --- |
 | Actual unitary orbits and partial transpose | `Quantum.Basic`, `Quantum.Orbit`, `Quantum.Reindex` |
-| APPT implies the required corner PSD conditions | `Quantum.CornerNecessity.diagonal_appt_necessary_matrices`, `Quantum.SpectralNecessity.density_appt_has_sorted_spectrum` |
+| APPT implies the required corner PSD conditions | `Quantum.CornerNecessity`: `diagonal_appt_necessary_matrices`; `Quantum.SpectralNecessity`: `density_appt_has_sorted_spectrum` |
 | Sorted nonnegative eigenvalues and actual diagonalization | `Quantum.SpectralData` |
 | Trace normalization and trace-square spectral identity | `Quantum.SpectralMoments` |
 | Six finite spectral upper bounds | `Finite9Bound` through `Finite24Bound`, `SpectrumBound9` through `SpectrumBound24` |
 | Uniform certificate for the whole large-dimension family | `Uniform.normalized_bound`, `UniformBridge.arbitrary_middle_bound`, `ordered_spectrum_large` |
-| Small actual-state upper bound | `Quantum.SmallMaximum.appt_purity_upper_small`, for every 3 <= n <= 8 |
-| Large actual-state upper bound | `Quantum.LargeMaximum.appt_purity_upper_large`, for every n >= 9 |
-| Actual APPT attaining states in both branches | `Quantum.Attainment.targetPurity_attained` |
-| Final attained maximum for every n >= 3 | `Quantum.Maximum.appt_purity_maximum_formula` |
+| Small actual-state upper bound | `Quantum.SmallMaximum`: `appt_purity_upper_small`, for every 3 <= n <= 8 |
+| Large actual-state upper bound | `Quantum.LargeMaximum`: `appt_purity_upper_large`, for every n >= 9 |
+| Actual APPT attaining states in both branches | `Quantum.Attainment`: `targetPurity_attained` |
+| Final attained maximum for every n >= 3 | `Quantum.Maximum`: `appt_purity_maximum_formula` |
 
 The corner-necessity bridge is proved with explicit physical unitaries. A full
 classification of APPT spectra by a Hildebrand if-and-only-if criterion is not
@@ -66,8 +66,8 @@ No `native_decide`, `sorry`, `admit`, or custom axiom is used in the proof closu
 The finite generator now inserts independently proved literal coefficient
 barriers and explicit `nat_lit` / integer constructors. This avoids expensive
 repeated overloaded-numeral elaboration without changing coefficient values
-or theorem statements. Deterministic regeneration reproduces 601 finite Lean
-files and 230 uniform generated files. The complete import graph has 879 local
+or theorem statements. Deterministic regeneration reproduces 600 finite Lean
+files plus their manifest, and 229 uniform Lean files plus their manifest. The complete import graph has 879 local
 modules, and the proof/tool inventory pins 942 files.
 
 The completed component build recorded every module under a 300-second limit;
