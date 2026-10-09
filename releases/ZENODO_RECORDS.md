@@ -1,8 +1,8 @@
 # Zenodo DOI 归档索引
 
-Bapat 合并修订稿：**[10.5281/zenodo.23248431](https://doi.org/10.5281/zenodo.23248431)**。
+Bapat 当前修订稿：**[10.5281/zenodo.23252928](https://doi.org/10.5281/zenodo.23252928)**；全图 Chollet 正式论文版：**[10.5281/zenodo.23252964](https://doi.org/10.5281/zenodo.23252964)**。
 
-[14 页 PDF](https://zenodo.org/records/23248431/files/paper.pdf?download=1) · [完整公开记录](https://zenodo.org/records/23248431) · [文件、DOI 与复现核验](zenodo-2026-10-08/README.md)。
+[本轮 9 篇修订版及全部下载核验](manuscript-revisions-20261008/README.md) · [原始首轮归档](zenodo-2026-10-08/README.md)。
 
 首轮归档 24 个研究 Release 版本及 1 篇合并预印本，共 25 条公开版本记录。相同研究主题的不同版本共享概念 DOI；精确引用证明文件时，应使用表中的版本 DOI。两个临时缓存或重复 Release 未另建学术记录。
 

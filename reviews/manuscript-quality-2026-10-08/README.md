@@ -48,10 +48,11 @@
 
 ## 复现
 
-需 Python 3、TeX Live、`pdflatex` 和 Poppler。从仓库根目录执行：
+需 Python 3、TeX Live、`pdflatex` 和 Poppler；页面渲染工具另需 Pillow（`python3 -m pip install Pillow`）。从仓库根目录执行：
 
 ```sh
 python3 -B reviews/manuscript-quality-2026-10-08/audit_articles.py --output /tmp/manuscript-quality-fresh
+python3 -B reviews/manuscript-quality-2026-10-08/render_articles.py --output /tmp/manuscript-quality-fresh
 python3 -B submissions/arxiv-2026-10/build_bapat.py --output /tmp/bapat-fresh
 python3 -B preprints/article-revisions-2026-10/build.py
 ```

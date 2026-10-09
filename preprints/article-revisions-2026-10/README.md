@@ -15,3 +15,5 @@
 从仓库根目录运行 `python3 preprints/article-revisions-2026-10/build.py`，在临时目录重编五份修订版和 Chollet 正式稿，生成 PDF、可独立编译的 TeX ZIP 和各稿的排版核验记录。原公开版本保留；新版本 DOI 按发表记录补齐。
 
 作者：Yongxian Zhang（张永贤），华南理工大学计算机科学与工程学院，ORCID https://orcid.org/0009-0000-3864-3536。无外部研究经费，使用AI进行辅助研究。
+
+[All five revised version DOIs and public-download audits](../../releases/manuscript-revisions-20261008/README.md).

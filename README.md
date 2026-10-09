@@ -18,25 +18,27 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
-| [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23248431](https://doi.org/10.5281/zenodo.23248431) |
+| [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
 | [高斯等质量单纯形一阶矩：全部 k](preprints/gaussian-equal-cells-2026-10/README.md) · [PDF](preprints/gaussian-equal-cells-2026-10/paper.pdf) | 所有 k ≥ 2 的上界、足够维数下的最优值与等号分类 | 完整书面证明；全部 k 的 Lean 为部分覆盖 | [23250730](https://doi.org/10.5281/zenodo.23250730) |
-| [全图强 Chollet 不等式](notes/laplacian-chollet-general/README.md) | 任意有限简单无权图、全部主子矩阵，保留原图度数 | [完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) | [23252138](https://doi.org/10.5281/zenodo.23252138) |
+| [全图强 Chollet 不等式](preprints/all-graph-chollet-2026-10/README.md) · [PDF](preprints/all-graph-chollet-2026-10/paper.pdf) | 任意有限简单无权图、全部主子矩阵，保留原图度数 | [完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) | [23252964](https://doi.org/10.5281/zenodo.23252964) |
 | [周期图染色系数的无限对数凹性分类](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md) | 全部 C_n，n ≥ 3；当且仅当 3 ≤ n ≤ 11 | 完整 Lean | [23249722](https://doi.org/10.5281/zenodo.23249722) |
-| [单纯形稳定性与锐指数](preprints/lean-certified-2026-10/sharp-simplex-stability/README.md) | 所有 d ≥ 3；上界与指数不可改进 | 完整 Lean，常数不声称最优 | [23249732](https://doi.org/10.5281/zenodo.23249732) |
+| [单纯形稳定性与锐指数](preprints/lean-certified-2026-10/sharp-simplex-stability/README.md) | 所有 d ≥ 3；上界与指数不可改进 | 完整 Lean，常数不声称最优 | [23253001](https://doi.org/10.5281/zenodo.23253001) |
 | [二次整环中的有界步长图](preprints/lean-certified-2026-10/quadratic-order-moats/README.md) | 所有二次整环、固定步长界下的分量一致有界 | 完整 Lean；不声称有效数值界 | [23249743](https://doi.org/10.5281/zenodo.23249743) |
 | [连续幂渐近的稳健避让](preprints/lean-certified-2026-10/continuum-power-avoidance/README.md) | 给定可数有界对数间隙族的避让定理 | 主定理完整 Lean | [23249747](https://doi.org/10.5281/zenodo.23249747) |
 | [有限群轨道原始—对偶定理](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) | 通用有限作用定理、有理最优证书与锐性 | 主定理完整 Lean | [23249749](https://doi.org/10.5281/zenodo.23249749) |
-| [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | 参数 (11,10) 在 (0,1) 内至少四个不同实根 | 完整 Lean | [23249754](https://doi.org/10.5281/zenodo.23249754) |
+| [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | 参数 (11,10) 在 (0,1) 内至少四个不同实根 | 完整 Lean | [23253028](https://doi.org/10.5281/zenodo.23253028) |
 | [单峰 CGF 素数阶因子猜想反例](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) | 指定 216 次多项式反例 | 完整 Lean；不声称次数最小 | [23249757](https://doi.org/10.5281/zenodo.23249757) |
 | [q-永久量半轴单调性反例](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) | 指定实有理 4 × 4 矩阵在 q=49、50 间下降 | 指定反例完整 Lean | [23249758](https://doi.org/10.5281/zenodo.23249758) |
 | [复三行永久量—行列式全参数精确范数](preprints/lean-certified-2026-10/complex-pencil-norm/README.md) | 实际复 3 × 3 矩阵的全参数最优常数 | 范数主定理完整 Lean | [23249773](https://doi.org/10.5281/zenodo.23249773) |
-| [指定置换多面体族的 Ehrhart 实根性](notes/ehrhart-uniform-real-rootedness/README.md) | (132,213)-避免族全部 d ≥ 3 的结论 | 书面证明与有理证书，引用既有有限范围定理 | [23248529](https://doi.org/10.5281/zenodo.23248529) |
-| [指定质量高斯重心椭球不等式](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md) | 所有正质量向量的质量依赖矩阵度量锐界 | 完整书面证明；部分 Lean | [23248386](https://doi.org/10.5281/zenodo.23248386) |
-| [恒等补齐与永久量不等式](notes/permanent-inequality-padding/README.md) | Pan–Skandera–Wang Conjecture 9.3 | 既有 Theorem 8.18 的书面推论 | [23248369](https://doi.org/10.5281/zenodo.23248369) |
-| [归一化永久量余子式谱无界性](notes/cofactor-spectrum-unbounded/README.md) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252140](https://doi.org/10.5281/zenodo.23252140) |
-| [永久量余子式谱的锐渐近](notes/sharp-cofactor-spectral-asymptotics/README.md) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | 完整书面证明与精确证书 | [23248496](https://doi.org/10.5281/zenodo.23248496) |
+| [指定置换多面体族的 Ehrhart 实根性](preprints/article-revisions-2026-10/ehrhart-real-rootedness/README.md) · [PDF](preprints/article-revisions-2026-10/ehrhart-real-rootedness/paper.pdf) | (132,213)-避免族全部 d ≥ 3 的结论 | 书面证明与有理证书，引用既有有限范围定理 | [23252971](https://doi.org/10.5281/zenodo.23252971) |
+| [指定质量高斯重心椭球不等式](preprints/article-revisions-2026-10/gaussian-prescribed-mass/README.md) · [PDF](preprints/article-revisions-2026-10/gaussian-prescribed-mass/paper.pdf) | 所有正质量向量的质量依赖矩阵度量锐界 | 完整书面证明；部分 Lean | [23252992](https://doi.org/10.5281/zenodo.23252992) |
+| [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3 | 既有 Theorem 8.18 的书面推论 | [23252976](https://doi.org/10.5281/zenodo.23252976) |
+| [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
+| [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | 完整书面证明与精确证书 | [23252986](https://doi.org/10.5281/zenodo.23252986) |
 
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
+
+[17 篇稿件的文章与范围审计](reviews/manuscript-quality-2026-10-08/README.md) · [9 篇修订版 DOI 与公开附件核验](releases/manuscript-revisions-20261008/README.md)
 
 ## 已宣称解决的问题
 
@@ -53,7 +55,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | Heilman 2019 Conjecture 1.16 的等质量子情形 | 证明；覆盖所有 k，达到等号要求 d ≥ k−1，低维仅得严格上界 | [书面证明与部分 Lean 范围](preprints/gaussian-equal-cells-2026-10/README.md) |
 | Heilman 2019 Conjecture 1.16 的任意质量原表述 | 反例；指定四胞非均匀质量族的正四面体模型严格非最优 | [完整书面反例](research/gaussian-fixed-mass-propeller-counterexample/README.md) |
 | de Castro Conjecture 10.1，arXiv:2609.06096v1 | 证明；指定避免置换多面体族全部 d ≥ 3 的实根性，结合既有 d ≤ 1000 定理 | [书面证明与精确证书](notes/ehrhart-uniform-real-rootedness/README.md) |
-| Pant–Singh Section 6 的全图强／self-Chollet 问题 | 证明并加强到全部主子矩阵；仅限有限简单无权图 Laplacian | [书面证明](notes/laplacian-chollet-general/README.md)；[完整 Lean](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) |
+| Pant–Singh Section 6 的全图强／self-Chollet 问题 | 证明并加强到全部主子矩阵；仅限有限简单无权图 Laplacian | [完整论文](preprints/all-graph-chollet-2026-10/README.md)；[完整 Lean](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) |
 | Pan–Skandera–Wang Conjecture 9.3 | 证明；由原作者 Theorem 8.18 经恒等补齐直接推出 | [完整书面推导](notes/permanent-inequality-padding/README.md) |
 | Burgin–Goldberg–Keleti–MacMahon–Wang Question 1，arXiv:2210.09284v1 | 对该版本的全比值仿射几何序列问题给出否定回答；不声称其在本工作前仍未解决 | [来源说明](notes/continuum-power-avoidance/README.md)；[完整 Lean 几何避让](formalizations/geometric-avoidance/README.md) |
 

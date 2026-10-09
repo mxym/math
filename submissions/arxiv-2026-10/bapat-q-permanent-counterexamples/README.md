@@ -53,3 +53,7 @@ inventory, hashes, ZIP/source byte equality, bibliography keys and all 200
 witness rows. It is an integrity check, not a new mathematical proof check.
 To rebuild and rerun the exact arithmetic, use the parent build script
 documented in [the submission guide](../README.md).
+
+Current version 1.1: https://doi.org/10.5281/zenodo.23252928. Previous version: https://doi.org/10.5281/zenodo.23248431.
+
+[Article audit and exact publication scope](../../../reviews/manuscript-quality-2026-10-08/README.md).

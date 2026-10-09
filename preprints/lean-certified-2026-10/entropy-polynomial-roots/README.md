@@ -1,6 +1,6 @@
 # A counterexample to the entropy polynomial root conjecture
 
-**Zenodo 预印本：[10.5281/zenodo.23249754](https://doi.org/10.5281/zenodo.23249754)**，版本 2.0。PDF、TeX 和固定提交证明归档已公开。
+**Zenodo 预印本：[10.5281/zenodo.23253028](https://doi.org/10.5281/zenodo.23253028)**，版本 2.1。PDF、TeX 和固定提交证明归档已公开。
 
 Author: Yongxian Zhang (张永贤). ORCID: https://orcid.org/0009-0000-3864-3536.
 School of Computer Science and Engineering, South China University of Technology.
@@ -43,8 +43,10 @@ A second self-contained [five-module Lake project](../../../formalizations/wakha
 
 [GitHub CI 37853632676](https://github.com/mxym/math/actions/runs/37853632676) **completed successfully** on that exact commit: 1,643 Lake build tasks, all source hashes, 12 theorem-root axiom audits and rejection of an intentionally invalid proof. The permitted logical axioms are `propext`, `Classical.choice` and `Quot.sound`.
 
-This is an additional proof implementation of the already public counterexample. The DOI 2.0 source archive remains frozen at the older snapshot above and does **not** contain this later package. The older proof separately supplies the original real-power parameter bridge; neither historical proof record is replaced. [Current status and CI evidence](../audit/WAKHARE_ADDITIONAL_STATUS.json).
+This is an additional proof implementation of the already public counterexample. Version 2.1 includes both proof implementations. The earlier version 2.0 archive (https://doi.org/10.5281/zenodo.23249754) remains frozen and does not contain the later project. The older proof separately supplies the original real-power parameter bridge; neither historical proof record is replaced. [Current status and CI evidence](../audit/WAKHARE_ADDITIONAL_STATUS.json).
 
 ## Rights and provenance
 
 Existing file licenses and third-party notices remain in force. Previously unlicensed original material remains all rights reserved; public access grants no new blanket license. Mathematical facts and classical cited results are not claimed as owned. The manuscript is a newly typeset version of the public research; frozen formal source bytes are unchanged. No external human peer review, journal acceptance or worldwide priority is asserted.
+
+[Article audit and exact publication scope](../../../reviews/manuscript-quality-2026-10-08/README.md).
