@@ -8,6 +8,7 @@ import CofactorDefinitions
 import CofactorComplexFock
 import CofactorGramPSD
 import CofactorEuclideanGram
+import CofactorMarkedCoefficientLower
 import CofactorTensorArrays
 import CofactorContractionSquare
 import CofactorCrossCardinality
@@ -27,7 +28,14 @@ import CofactorRayleighUpper
 import CofactorExtremaUpper
 import CofactorEigenvalueUpper
 import CofactorLogarithmicUpper
+import CofactorFiniteEntropy
 import CofactorUpperMain
+import CofactorGeometricMean
+import CofactorGeometricEntropy
+import CofactorEntropyProduct
+import CofactorSignOrthogonality
+import CofactorSignSquareAverage
+import CofactorGroupedSignAverage
 import Lean
 import Lean.Replay
 
@@ -139,8 +147,8 @@ set_option pp.all true
 
 namespace IndependentAudit
 
-def ownedModules : Array String := #[ "BapatColorExpansion", "BapatColorTransport", "BapatMultiColor", "BapatMvFischer", "BapatPermanentFischer", "BapatMixedFischer", "CofactorDefinitions", "CofactorComplexFock", "CofactorGramPSD", "CofactorEuclideanGram", "CofactorTensorArrays", "CofactorContractionSquare", "CofactorCrossCardinality", "CofactorCrossNormalForm", "CofactorWeightedAverage", "CofactorCrossPositive", "CofactorIndicator", "CofactorBinaryNorm", "CofactorTargets", "CofactorHarmonicBound", "CofactorSortCoordinates", "CofactorFiniteBinaryNorm", "CofactorSignedBinaryNorm", "CofactorComplexBinaryNorm", "CofactorScaledBinaryNorm", "CofactorRayleighUpper", "CofactorExtremaUpper", "CofactorEigenvalueUpper", "CofactorLogarithmicUpper", "CofactorUpperMain" ]
-def requestedRoots : Array Name := #[ ``CofactorSpectral.compound_indicator_sum, ``CofactorSpectral.compound_psd, ``CofactorSpectral.firstCofactor_eq_deletedMinor, ``CofactorSpectral.complex_binary_norm_bound, ``CofactorSpectral.real_binary_norm_bound, ``CofactorSpectral.compound_largest_eigenvalue_upper, ``CofactorSpectral.realCompound_largest_eigenvalue_upper, ``CofactorSpectral.complexExtremum_upper, ``CofactorSpectral.realExtremum_upper, ``CofactorSpectral.complexExtremum_eventual_log_upper, ``CofactorSpectral.realExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoComplexExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoRealExtremum_eventual_log_upper, ``CofactorSpectral.pdComplexExtremum_eventual_log_upper, ``CofactorSpectral.pdRealExtremum_eventual_log_upper ]
+def ownedModules : Array String := #[ "BapatColorExpansion", "BapatColorTransport", "BapatMultiColor", "BapatMvFischer", "BapatPermanentFischer", "BapatMixedFischer", "CofactorDefinitions", "CofactorComplexFock", "CofactorGramPSD", "CofactorEuclideanGram", "CofactorMarkedCoefficientLower", "CofactorTensorArrays", "CofactorContractionSquare", "CofactorCrossCardinality", "CofactorCrossNormalForm", "CofactorWeightedAverage", "CofactorCrossPositive", "CofactorIndicator", "CofactorBinaryNorm", "CofactorTargets", "CofactorHarmonicBound", "CofactorSortCoordinates", "CofactorFiniteBinaryNorm", "CofactorSignedBinaryNorm", "CofactorComplexBinaryNorm", "CofactorScaledBinaryNorm", "CofactorRayleighUpper", "CofactorExtremaUpper", "CofactorEigenvalueUpper", "CofactorLogarithmicUpper", "CofactorFiniteEntropy", "CofactorUpperMain", "CofactorGeometricMean", "CofactorGeometricEntropy", "CofactorEntropyProduct", "CofactorSignOrthogonality", "CofactorSignSquareAverage", "CofactorGroupedSignAverage" ]
+def requestedRoots : Array Name := #[ ``CofactorSpectral.compound_indicator_sum, ``CofactorSpectral.compound_psd, ``CofactorSpectral.firstCofactor_eq_deletedMinor, ``CofactorSpectral.complex_binary_norm_bound, ``CofactorSpectral.real_binary_norm_bound, ``CofactorSpectral.compound_largest_eigenvalue_upper, ``CofactorSpectral.realCompound_largest_eigenvalue_upper, ``CofactorSpectral.complexExtremum_upper, ``CofactorSpectral.realExtremum_upper, ``CofactorSpectral.complexExtremum_eventual_log_upper, ``CofactorSpectral.realExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoComplexExtremum_eventual_log_upper, ``CofactorSpectral.rankTwoRealExtremum_eventual_log_upper, ``CofactorSpectral.pdComplexExtremum_eventual_log_upper, ``CofactorSpectral.pdRealExtremum_eventual_log_upper, ``CofactorSpectral.finite_gibbs_inequality, ``CofactorSpectral.geometrically_separated_mean_bound, ``CofactorSpectral.geometric_separation_product_bound, ``CofactorSpectral.signCharacter_orthogonality, ``CofactorSpectral.groupedSignCombination_square_average, ``CofactorSpectral.groupedSignCombination_has_small_choice, ``CofactorSpectral.marked_coefficient_quadratic_lower ]
 
 def moduleOf (env : Environment) (n : Name) : String :=
   match env.getModuleIdxFor? n with

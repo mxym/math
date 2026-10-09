@@ -1,5 +1,5 @@
 {
-  "task": "cofactor-sharp-upper-complete-20261009",
+  "task": "cofactor-upper-and-lower-lemmas-20261009",
   "source_dir": "src",
   "modules": {
     "BapatColorExpansion": {
@@ -41,6 +41,10 @@
     "CofactorEuclideanGram": {
       "path": "CofactorEuclideanGram.lean",
       "sha256": "facc929ffe72a3400cc16205b6bf7bcd167232bce41184cf9884130e3854a607"
+    },
+    "CofactorMarkedCoefficientLower": {
+      "path": "CofactorMarkedCoefficientLower.lean",
+      "sha256": "1f90eac0993e7bef2b741012dee4973b989cc8995b2ccf69121c9cd97724afa5"
     },
     "CofactorTensorArrays": {
       "path": "CofactorTensorArrays.lean",
@@ -118,9 +122,37 @@
       "path": "CofactorLogarithmicUpper.lean",
       "sha256": "08b89fd3ebd3522f08e977f57133ba681d5e3cb041741e5beadfe16d954adb0c"
     },
+    "CofactorFiniteEntropy": {
+      "path": "CofactorFiniteEntropy.lean",
+      "sha256": "308f6721869b054e36b8a1bfad66a9a1762ac7e46834ebc39f4af90bd9238b09"
+    },
     "CofactorUpperMain": {
       "path": "CofactorUpperMain.lean",
       "sha256": "44f90a6b2c9e8335eb9e9276f0971ed4bcb0bb5095414c92ff47563d7a60cd06"
+    },
+    "CofactorGeometricMean": {
+      "path": "CofactorGeometricMean.lean",
+      "sha256": "e155ef20db4f65f606ff0ac416f1c19dcae81ece5285fed572a18fd03fbf0431"
+    },
+    "CofactorGeometricEntropy": {
+      "path": "CofactorGeometricEntropy.lean",
+      "sha256": "e295b0569cc68a1fbb50518a3b4f1f48bad8c18fbccf977f5bc3a4e57813bfa2"
+    },
+    "CofactorEntropyProduct": {
+      "path": "CofactorEntropyProduct.lean",
+      "sha256": "055b1f5e6960412342265dda4ca693d45efa712797bc8b9388de6b121625f4df"
+    },
+    "CofactorSignOrthogonality": {
+      "path": "CofactorSignOrthogonality.lean",
+      "sha256": "225c98a9f7a6403b379278105d9727d42c6c68c92b16efabe278004e7247013c"
+    },
+    "CofactorSignSquareAverage": {
+      "path": "CofactorSignSquareAverage.lean",
+      "sha256": "a5a3bec9ba86a17dcc5c41fc76fa9083197100dc7142ee035f2f4b1247e1a3ad"
+    },
+    "CofactorGroupedSignAverage": {
+      "path": "CofactorGroupedSignAverage.lean",
+      "sha256": "a57d43ab8f39b4ed00cf4b2ca2bba4e5886cf7f272bc71d6c3b55029d1f07180"
     }
   },
   "module_order": [
@@ -134,6 +166,7 @@
     "CofactorComplexFock",
     "CofactorGramPSD",
     "CofactorEuclideanGram",
+    "CofactorMarkedCoefficientLower",
     "CofactorTensorArrays",
     "CofactorContractionSquare",
     "CofactorCrossCardinality",
@@ -153,7 +186,14 @@
     "CofactorExtremaUpper",
     "CofactorEigenvalueUpper",
     "CofactorLogarithmicUpper",
-    "CofactorUpperMain"
+    "CofactorFiniteEntropy",
+    "CofactorUpperMain",
+    "CofactorGeometricMean",
+    "CofactorGeometricEntropy",
+    "CofactorEntropyProduct",
+    "CofactorSignOrthogonality",
+    "CofactorSignSquareAverage",
+    "CofactorGroupedSignAverage"
   ],
   "audit_modules": [
     "BapatColorExpansion",
@@ -166,6 +206,7 @@
     "CofactorComplexFock",
     "CofactorGramPSD",
     "CofactorEuclideanGram",
+    "CofactorMarkedCoefficientLower",
     "CofactorTensorArrays",
     "CofactorContractionSquare",
     "CofactorCrossCardinality",
@@ -185,7 +226,14 @@
     "CofactorExtremaUpper",
     "CofactorEigenvalueUpper",
     "CofactorLogarithmicUpper",
-    "CofactorUpperMain"
+    "CofactorFiniteEntropy",
+    "CofactorUpperMain",
+    "CofactorGeometricMean",
+    "CofactorGeometricEntropy",
+    "CofactorEntropyProduct",
+    "CofactorSignOrthogonality",
+    "CofactorSignSquareAverage",
+    "CofactorGroupedSignAverage"
   ],
   "roots": [
     "CofactorSpectral.compound_indicator_sum",
@@ -202,10 +250,21 @@
     "CofactorSpectral.rankTwoComplexExtremum_eventual_log_upper",
     "CofactorSpectral.rankTwoRealExtremum_eventual_log_upper",
     "CofactorSpectral.pdComplexExtremum_eventual_log_upper",
-    "CofactorSpectral.pdRealExtremum_eventual_log_upper"
+    "CofactorSpectral.pdRealExtremum_eventual_log_upper",
+    "CofactorSpectral.finite_gibbs_inequality",
+    "CofactorSpectral.geometrically_separated_mean_bound",
+    "CofactorSpectral.geometric_separation_product_bound",
+    "CofactorSpectral.signCharacter_orthogonality",
+    "CofactorSpectral.groupedSignCombination_square_average",
+    "CofactorSpectral.groupedSignCombination_has_small_choice",
+    "CofactorSpectral.marked_coefficient_quadratic_lower"
   ],
   "complete_indicator_lemma": true,
   "complete_spectral_and_logarithmic_upper_half": true,
   "complete_sharp_logarithmic_main_theorem": false,
-  "source_math_commit": "df6d94763c852c3cf69f29c5fa95c51f88378160"
+  "source_math_commit": "df6d94763c852c3cf69f29c5fa95c51f88378160",
+  "complete_entropy_product_estimate": true,
+  "complete_finite_grouped_sign_average": true,
+  "complete_marked_coefficient_lower": true,
+  "complete_ring_lower_construction": false
 }

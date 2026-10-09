@@ -1,4 +1,4 @@
-# Permanental cofactor spectra: complete upper-half formalization
+# Permanental cofactor spectra: complete upper bounds and lower-bound lemmas
 
 This package completely proves the actual first-compound indicator inequality and the
 spectral/logarithmic upper half of the sharp asymptotic theorem. **The matching lower bounds
@@ -30,11 +30,11 @@ empty-set cases handled explicitly. See [the semantic review](SEMANTIC_REVIEW.md
 
 ## Verification of these exact bytes
 
-All **30** owned modules were fresh compiled into a new isolated output directory. All
-**386** owned declarations, including compiler-generated declarations, were
-audited; their complete **48920**-declaration transitive closure was
+All **38** owned modules were fresh compiled into a new isolated output directory. All
+**447** owned declarations, including compiler-generated declarations, were
+audited; their complete **49015**-declaration transitive closure was
 replayed from an **empty kernel at trust level 0**. Requested endpoints had a union closure
-of 48763 declarations. The checker confirms only the three
+of 48827 declarations. The checker confirms only the three
 standard Lean axioms `propext`, `Classical.choice`, and `Quot.sound`, with their signatures
 checked. There are no custom axioms, `sorryAx`, unsafe or partial owned declarations, or audit
 exclusions. An intentionally invalid proof was rejected by the empty trust-zero kernel.
@@ -42,7 +42,7 @@ The official shared cache fingerprint was unchanged throughout the verifier run.
 
 `verification/` contains the exact declaration inventory and closures (compressed), endpoint
 types, all compilation logs, replay results, axiom signature checks, negative control, and cache
-check. This certificate covers the frozen 30-module source set only. Later lower-bound work
+check. This certificate covers the frozen 38-module source set only. Later lower-bound work
 requires its own fresh certificate. The source-to-statement review is by the implementing
 agent; no external human review is claimed.
 
@@ -65,9 +65,19 @@ python3 reproduce.py --output /new/verification-output \
 The output path must not already exist. The reproduction script installs nothing, downloads
 nothing, and does not use any prebuilt owned module. `SHA256SUMS` covers all packaged files.
 
+## Verified lower-bound lemmas
+
+- `geometric_separation_product_bound`: the complete exact entropy/product estimate with
+  E(b)=b^(b/(b-1))/(b-1), derived using a finite Gibbs inequality and shifted-sum mean bound.
+- `groupedSignCombination_square_average`: exact weighted finite sign averaging, including
+  collisions of degree sums, and `groupedSignCombination_has_small_choice`: an actual finite choice.
+- `marked_coefficient_quadratic_lower`: keeping one actual Fock coefficient bounds the actual
+  compound quadratic form from below in every rank.
+
 ## Remaining work
 
-The finite geometric entropy estimate, signed root-ring construction, exact finite sign
-averaging bound, every-large-dimension lower estimate, exact rank-two correlation construction,
+Actual signed root rings and their polynomial/root-sum identities, exact rank-two correlation
+matrices, factorial/binomial and subset-tail estimates, every-large-dimension lower bounds,
 sharp parameter limits, and positive-definite lower perturbation remain to be formalized.
+The finite sign averaging identity does not yet prove the analytic bound E[R]<=1+eta.
 No unproved lower input has been added to the theorem assumptions.

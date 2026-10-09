@@ -75,11 +75,42 @@ asserted.
 ## Remaining target
 
 This checkpoint completely proves Lemmas 2 and 3 and the spectral/logarithmic upper half of
-Theorem 1. It does not prove the entropy bound, signed root-ring construction, every-large-dimension
+Theorem 1. It does not prove the signed root-ring construction or every-large-dimension
 lower bound, exact rank-two normalization of that construction, the positive-definite lower
 perturbation, or equality of the four sharp limits. None of these remaining conclusions is
 introduced as a custom axiom or hidden hypothesis. `CofactorTargets` defines the target classes;
 definitions alone are not counted as proofs of the missing lower half.
 
-The mechanically verified closure and declaration count must refer to the frozen 30-module
+The mechanically verified closure and declaration count must refer to the frozen 38-module
 checkpoint. Later development is outside this certificate until separately frozen and checked.
+
+
+## Verified lower-bound lemmas in this expanded checkpoint
+
+The expanded frozen source set adds eight modules. `finite_gibbs_inequality` proves the finite
+relative entropy inequality directly from `log t <= t-1`, for strictly positive finite p,g,
+sum(p)=1 and sum(g)<=1. `geometrically_separated_mean_bound` proves the mean-index bound by
+shifted sums and the actual adjacent separation inequality. It does not assume the paper's
+tail bound. The resulting entropy bound is converted to the exact E(b)=b^(b/(b-1))/(b-1).
+`geometric_separation_product_bound` proves the paper's Lemma 4 for every nonempty finite
+positive geometrically separated real sequence. Its cardinality is n+1 and the hypotheses
+are the actual positivity and adjacent geometric separation conditions.
+
+`signCharacter_orthogonality` proves exact orthogonality over all finite Bool-valued sign
+assignments. The square expansion and `groupedSignCombination_square_average` prove the
+weighted squared-coefficient average after grouping subsets by an arbitrary finite degree
+map. Equal degree sums are allowed. `groupedSignCombination_has_small_choice` proves actual
+existence of a sign assignment at or below the finite average. These statements concern
+genuine finite sums; no independence or averaging identity is supplied as an assumption.
+
+`marked_coefficient_quadratic_lower` proves that a single factorial-weighted coefficient of
+the actual marked polynomial is at most the quadratic form of the actual permanental compound
+Gram matrix, in every rank. The polynomial coefficient and the Fock norm are actual definitions.
+The proof uses the proved full Gram identity and nonnegativity of all the other terms.
+
+These lemmas have not yet been connected to actual finite root rings. The ring polynomial
+factorization, root sums and norms, exact rank-two correlation matrix, factorial/binomial and
+subset-tail bounds, every-large-dimension lower estimate, sharp parameter limits and positive-
+definite lower perturbation remain unfinished. The finite sign orthogonality theorem alone
+does not certify the analytic bound E[R]<=1+eta. The checkpoint does not claim a completed
+matching lower bound or equality of the sharp limits.

@@ -29,7 +29,7 @@ def main():
     environment.update(toolchain_path=str(args.toolchain.resolve()),
                        packages_root=str(args.packages_root.resolve()),
                        cache_root=str(args.cache_root.resolve()),
-                       owner_thread='independent cofactor upper-half reproduction')
+                       owner_thread='independent cofactor upper and lower lemmas reproduction')
     (output / 'config/environment.json').write_text(json.dumps(environment, indent=2) + '\n')
     case = json.loads((ROOT / 'case.json').read_text())
     case['source_dir'] = str(ROOT / 'src')
