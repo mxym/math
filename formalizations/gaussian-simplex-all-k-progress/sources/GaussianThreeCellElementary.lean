@@ -239,7 +239,10 @@ theorem exact_three_gaussian_model :
       (regularRows 3) (show scoreGram (regularRows 3) = regularCovariance 3 by rfl)
       i j hij
     norm_num at hh
-    nlinarith [norm_nonneg (regularRows 3 i - regularRows 3 j)]
+    rcases hh with hpos | hneg
+    · exact hpos
+    · exfalso
+      linarith [norm_nonneg (regularRows 3 i - regularRows 3 j)]
   have he := expectedScore_three_edges (regularRows 3)
   rw [expectedScore_regular_three,
       hedge 0 1 (by decide), hedge 0 2 (by decide),
