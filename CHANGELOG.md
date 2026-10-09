@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 — complete Lean formalization of cofactor spectral Theorem 1
+
+- Merged PR #11 as commit `21e1f769e9ac90f161f0be575b4f19adc642ffd3`. The fixed package formalizes all six logarithmic leading-term limits of Theorem 1: complex-direction limits equal 1 and real-direction limits equal 1/2 for unrestricted PSD, exact-rank-two correlation, and positive-definite correlation classes.
+- The public replay record covers 78 fresh-compiled modules, 745 owned declarations, and a 55,731-declaration empty-kernel trust-level-0 closure; only `propext`, `Classical.choice`, and `Quot.sound` occur. The recursion audit repair replaced compiler-generated partial recursion with explicit `Nat.rec`.
+- The index records the precise scope: real directions still allow complex Hermitian inputs, and later ramp constant and endpoint/immanant claims are not included in this Lean certificate. This turn read and checked the published records but did not rerun Lean.
+
 ## 2026-10-08 — index the verified mutual-information counterexample and publish its signed preprint
 
 - Added the result already merged in PR #12 and its complete classical Lean v2 to the preprint, named-problem and subject indices. Precisely identified the general proposed inequality in Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106); retained the unresolved fixed-one-marginal variant.

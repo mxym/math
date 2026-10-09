@@ -1,5 +1,9 @@
 # Manuscript catalogue
 
+## Complete Lean formalization of cofactor spectral Theorem 1
+
+[Formalization package](formalizations/cofactor-spectral-asymptotics-progress/README.md) · [source-to-statement review](formalizations/cofactor-spectral-asymptotics-progress/SEMANTIC_REVIEW.md) · [index audit](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md). The package proves all six logarithmic leading-term limits in Theorem 1 for arbitrary PSD matrices with positive permanent, exact-rank-two correlation matrices, and positive-definite correlation matrices: complex directions tend to 1 and real directions to 1/2. Real directions continue to allow complex Hermitian inputs. The 78-module replay reports 745 owned declarations and 55,731 declarations in the transitive closure, with only `propext`, `Classical.choice`, and `Quot.sound`. The later ramp constant and endpoint/immanant statements remain outside this certificate.
+
 ## Ternary counterexample to a proposed mutual-information continuity bound
 
 [Signed preprint and PDF](preprints/mutual-information-continuity-2026-10/README.md) · [version DOI 10.5281/zenodo.23253944](https://doi.org/10.5281/zenodo.23253944) · [complete classical Lean proof](formalizations/mutual-information-continuity-counterexample/README.md). Actual 3×3 joint probability tables refute Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106) at arbitrarily small positive total-variation distance, with both marginals changing. The classical construction, entropy and distance computations, and arbitrary-neighborhood theorem are formalized; the diagonal quantum embedding and necessary leading coefficient c ≥ 2 remain written proofs. The fixed-one-marginal variant remains unresolved. [Source, immutable-release and prior independent-replay record checks](verification/mutual-information-index-2026-10-08/README.md) do not constitute a new Lean replay.

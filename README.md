@@ -35,11 +35,13 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | [指定质量高斯重心椭球不等式](preprints/article-revisions-2026-10/gaussian-prescribed-mass/README.md) · [PDF](preprints/article-revisions-2026-10/gaussian-prescribed-mass/paper.pdf) | 所有正质量向量的质量依赖矩阵度量锐界 | 完整书面证明；部分 Lean | [23252992](https://doi.org/10.5281/zenodo.23252992) |
 | [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3 | 既有 Theorem 8.18 的书面推论 | [23252976](https://doi.org/10.5281/zenodo.23252976) |
 | [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
-| [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | 完整书面证明与精确证书 | [23252986](https://doi.org/10.5281/zenodo.23252986) |
+| [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23252986](https://doi.org/10.5281/zenodo.23252986) |
 
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
 
 [17 篇稿件的文章与范围审计](reviews/manuscript-quality-2026-10-08/README.md) · [9 篇修订版 DOI 与公开附件核验](releases/manuscript-revisions-20261008/README.md)
+
+余子式谱 Theorem 1 的[完整 Lean 形式化与范围核对](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)单独列出；后续 ramp／endpoint 结论不计入该形式化证书。
 
 新增互信息预印本的[版面、来源与冻结证明核对](verification/mutual-information-index-2026-10-08/README.md)及[独立论文 DOI 归档核验](releases/mutual-information-preprint-20261008/README.md)另列，不混入此前 17 篇审计。
 
@@ -70,6 +72,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 “完整 Lean”只适用于所列具体定理；部分引理、有限证书和成功构建不自动覆盖整篇论文。完整书面证明可使用明确引用的已证明定理，完整 Lean 不是公开该证明的前提。
 
 全图强 Chollet 的固定源码记录了 83 模块 fresh 编译、985 个自有声明与 44,173 个传递依赖的空内核 trust level 0 重放。本次索引更新核对了全部源码哈希及复核记录，未重跑该 Lean 工程：[核对记录](verification/chollet-all-graphs-index-2026-10-08.json)。高斯三胞独立分支的[完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)不代表全部 k 已形式化。
+
+余子式谱 Theorem 1 的公开记录报告 78 个模块、745 个自有声明及 55,731 个传递依赖的空内核 trust level 0 重放，仅出现 `propext`、`Classical.choice`、`Quot.sound`；本轮索引核对公开记录，未重新执行 Lean：[核对记录](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)。
 
 互信息经典反例的既有独立复核覆盖 38 个自有声明与 16,161 个依赖，包含真实概率表的独立语义核对；本次核对源码和复核记录，并下载核验两个不可变 Release 的 13 个附件，未重新执行 Lean 重放。量子对角嵌入与必要主导系数至少 2 仍为书面证明。
 
