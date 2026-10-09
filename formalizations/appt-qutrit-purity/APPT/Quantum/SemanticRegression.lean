@@ -32,7 +32,7 @@ theorem basisPureState_partialTranspose (e : a × b) :
   rcases e with ⟨k,z⟩
   ext ⟨i,x⟩ ⟨j,y⟩
   by_cases hij : i=j <;> by_cases hxy : x=y <;>
-    simp_all [partialTranspose, basisPureState, Matrix.diagonal_apply, Pi.single_apply]
+    simp_all [partialTranspose, basisPureState, Matrix.diagonal_apply, Pi.single_apply, eq_comm]
 
 theorem basisPureState_purity (e : a × b) : purity (basisPureState e) = 1 := by
   unfold purity
@@ -60,12 +60,18 @@ theorem exists_PPT_density_not_APPT (n : ℕ) (hn : 3 ≤ n) :
     have ha : Function.Injective a := by
       intro i j hij
       apply Fin.ext
-      exact congrArg Fin.val hij
+      exact congrArg (fun k : Fin n => k.val) hij
     have hx : Function.Injective x := by
       intro i j hij
       fin_cases i <;> fin_cases j <;> simp_all [x, a, Fin.ext_iff]
     have hd : AbsolutelyPPT (Matrix.diagonal (fun i => (mu i : ℂ))) := by
-      simpa [basisPureState, mu, Pi.single_apply] using hP
+      have he : Matrix.diagonal (fun i => (mu i : ℂ)) = basisPureState e := by
+        unfold basisPureState
+        congr 1
+        funext i
+        by_cases hi : i = e <;> simp [mu, Pi.single_apply, hi, eq_comm]
+      rw [he]
+      exact hP
     have hc := diagonal_appt_necessary_matrices a ha mu x hx hd
     have hy : mu ∘ x = (![1,0,0,0,0,0,0,0,0] : Fin 9 → ℝ) := by
       funext i
