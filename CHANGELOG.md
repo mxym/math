@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 — revise the cofactor paper with the complete Lean Theorem 1 certificate
+
+- Revised the 10-page paper to document the exact Lean correspondence for Theorem 1, its positive-definite extension, the six limits, fixed source entry point, replay counts, standard axioms, and immutable Release. The later ramp, rank-two endpoint, and immanant statements remain explicitly outside the Lean certificate.
+- Rebuilt the PDF and self-contained TeX source in three fresh LaTeX passes. Final diagnostics contain no overfull boxes or unresolved references; all fonts are embedded and the visual review passed.
+- Published version 1.2 in the existing Zenodo series as [10.5281/zenodo.23255145](https://doi.org/10.5281/zenodo.23255145). All three public attachments were anonymously downloaded and SHA-256 checked; version 1.1 remains frozen at `10.5281/zenodo.23252986`.
+
 ## 2026-10-09 — complete Lean formalization of cofactor spectral Theorem 1
 
 - Merged PR #11 as commit `21e1f769e9ac90f161f0be575b4f19adc642ffd3`. The fixed package formalizes all six logarithmic leading-term limits of Theorem 1: complex-direction limits equal 1 and real-direction limits equal 1/2 for unrestricted PSD, exact-rank-two correlation, and positive-definite correlation classes.

@@ -12,6 +12,8 @@ DOI 提供持久引用与第三方公开档案，不自动证明数学正确性�
 
 余子式谱 Theorem 1 的完整 Lean 工程已在 GitHub 以[不可变 Release `cofactor-spectral-theorem1-lean-v1`](https://github.com/mxym/math/releases/tag/cofactor-spectral-theorem1-lean-v1)公开；该 Release 与既有论文 DOI `10.5281/zenodo.23252986` 分开，后者的冻结论文附件不被改写。
 
+该论文系列的修订版 1.2 已归档为 [10.5281/zenodo.23255145](https://doi.org/10.5281/zenodo.23255145)，[下载与 DOI 核验](cofactor-spectral-asymptotics-20261009/README.md)。版本 1.1 的 DOI `10.5281/zenodo.23252986` 保留不变。
+
 ## 后续预印本与版本补齐
 
 一般互信息连续性拟议界反例的独立署名论文版本 1.0：[10.5281/zenodo.23253944](https://doi.org/10.5281/zenodo.23253944)，[附件与 DOI 核验](mutual-information-preprint-20261008/README.md)。已有自动整仓库软件快照 [10.5281/zenodo.23253152](https://doi.org/10.5281/zenodo.23253152) 保留，和该论文的独立版本系列分别列出。

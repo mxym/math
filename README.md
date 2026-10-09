@@ -35,7 +35,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | [指定质量高斯重心椭球不等式](preprints/article-revisions-2026-10/gaussian-prescribed-mass/README.md) · [PDF](preprints/article-revisions-2026-10/gaussian-prescribed-mass/paper.pdf) | 所有正质量向量的质量依赖矩阵度量锐界 | 完整书面证明；部分 Lean | [23252992](https://doi.org/10.5281/zenodo.23252992) |
 | [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3 | 既有 Theorem 8.18 的书面推论 | [23252976](https://doi.org/10.5281/zenodo.23252976) |
 | [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
-| [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23252986](https://doi.org/10.5281/zenodo.23252986) |
+| [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23255145](https://doi.org/10.5281/zenodo.23255145) |
 
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
 

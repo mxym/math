@@ -7,7 +7,7 @@ Yongxian Zhang (张永贤), South China University of Technology.
 The real Rayleigh optimum still ranges over complex Hermitian matrices; it is not an optimum restricted to real matrices. These are cofactor spectral statements, not Lieb character dominance or Marcus permanent-of-permanents. Theorem 1, including its positive-definite extension, is now completely formalized in Lean; the later ramp constant and endpoint/immanant statements remain written mathematics with exact auxiliary certificates.
 
 This signed article edition retains the earlier proof. Original archive: https://doi.org/10.5281/zenodo.23248496.
-Current article edition: https://doi.org/10.5281/zenodo.23252986 (version 1.1). This repository revision prepares version 1.2, which records the complete Lean verification of Theorem 1; the new version DOI will be linked after archive verification.
+Current article edition: https://doi.org/10.5281/zenodo.23255145 (version 1.2). Previous edition: https://doi.org/10.5281/zenodo.23252986. The 1.2 archive records the complete Lean verification of Theorem 1.
 
 [Source identity and editorial changes](PROVENANCE.json). No external funding; AI-assisted research and writing are disclosed in the paper. Existing licenses remain in force; otherwise original material remains all rights reserved.
 
