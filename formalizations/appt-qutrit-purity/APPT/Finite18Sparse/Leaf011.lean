@@ -18,6 +18,12 @@ theorem atom0815_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 5) * (g 12) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0815Coded : CoefficientMerge.Poly := [(1851, 1)]
+theorem atom0815Coded_decode : atom0815 = SparsePolynomial.decodeCubic 18 atom0815Coded := by decide +kernel
+theorem atom0815Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (13013137800 : Int) atom0815Coded) := by
+  have h := atom0815_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0815Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0816 : SparsePolynomial.Poly := [([5,12,16], 1)]
 theorem eval_atom0816 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0816 = ((g 5) * (g 12) * (g 16)) := by
   norm_num [atom0816, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -29,6 +35,12 @@ theorem atom0816_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 5) * (g 12) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0816Coded : CoefficientMerge.Poly := [(1852, 1)]
+theorem atom0816Coded_decode : atom0816 = SparsePolynomial.decodeCubic 18 atom0816Coded := by decide +kernel
+theorem atom0816Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9515050920 : Int) atom0816Coded) := by
+  have h := atom0816_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0816Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0817 : SparsePolynomial.Poly := [([5,12,17], 1)]
 theorem eval_atom0817 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0817 = ((g 5) * (g 12) * (g 17)) := by
   norm_num [atom0817, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -40,6 +52,12 @@ theorem atom0817_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 12) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0817Coded : CoefficientMerge.Poly := [(1853, 1)]
+theorem atom0817Coded_decode : atom0817 = SparsePolynomial.decodeCubic 18 atom0817Coded := by decide +kernel
+theorem atom0817Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (14900266440 : Int) atom0817Coded) := by
+  have h := atom0817_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0817Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0818 : SparsePolynomial.Poly := [([5,13,13], 1)]
 theorem eval_atom0818 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0818 = ((g 5) * (g 13) * (g 13)) := by
   norm_num [atom0818, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -50,6 +68,12 @@ theorem atom0818_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 5) * (g 13) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0818Coded : CoefficientMerge.Poly := [(1867, 1)]
+theorem atom0818Coded_decode : atom0818 = SparsePolynomial.decodeCubic 18 atom0818Coded := by decide +kernel
+theorem atom0818Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3202633728 : Int) atom0818Coded) := by
+  have h := atom0818_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0818Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0819 : SparsePolynomial.Poly := [([5,13,14], 1)]
 theorem eval_atom0819 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0819 = ((g 5) * (g 13) * (g 14)) := by
   norm_num [atom0819, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -61,6 +85,12 @@ theorem atom0819_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 5) * (g 13) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0819Coded : CoefficientMerge.Poly := [(1868, 1)]
+theorem atom0819Coded_decode : atom0819 = SparsePolynomial.decodeCubic 18 atom0819Coded := by decide +kernel
+theorem atom0819Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (10330996320 : Int) atom0819Coded) := by
+  have h := atom0819_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0819Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0820 : SparsePolynomial.Poly := [([5,13,15], 1)]
 theorem eval_atom0820 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0820 = ((g 5) * (g 13) * (g 15)) := by
   norm_num [atom0820, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -72,6 +102,12 @@ theorem atom0820_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 5) * (g 13) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0820Coded : CoefficientMerge.Poly := [(1869, 1)]
+theorem atom0820Coded_decode : atom0820 = SparsePolynomial.decodeCubic 18 atom0820Coded := by decide +kernel
+theorem atom0820Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (11120842620 : Int) atom0820Coded) := by
+  have h := atom0820_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0820Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0821 : SparsePolynomial.Poly := [([5,13,16], 1)]
 theorem eval_atom0821 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0821 = ((g 5) * (g 13) * (g 16)) := by
   norm_num [atom0821, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -83,6 +119,12 @@ theorem atom0821_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 5) * (g 13) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0821Coded : CoefficientMerge.Poly := [(1870, 1)]
+theorem atom0821Coded_decode : atom0821 = SparsePolynomial.decodeCubic 18 atom0821Coded := by decide +kernel
+theorem atom0821Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (8447358000 : Int) atom0821Coded) := by
+  have h := atom0821_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0821Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0822 : SparsePolynomial.Poly := [([5,13,17], 1)]
 theorem eval_atom0822 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0822 = ((g 5) * (g 13) * (g 17)) := by
   norm_num [atom0822, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -94,6 +136,12 @@ theorem atom0822_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 13) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0822Coded : CoefficientMerge.Poly := [(1871, 1)]
+theorem atom0822Coded_decode : atom0822 = SparsePolynomial.decodeCubic 18 atom0822Coded := by decide +kernel
+theorem atom0822Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (10737773370 : Int) atom0822Coded) := by
+  have h := atom0822_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0822Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0823 : SparsePolynomial.Poly := [([5,14,14], 1)]
 theorem eval_atom0823 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0823 = ((g 5) * (g 14) * (g 14)) := by
   norm_num [atom0823, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -104,6 +152,12 @@ theorem atom0823_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 5) * (g 14) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0823Coded : CoefficientMerge.Poly := [(1886, 1)]
+theorem atom0823Coded_decode : atom0823 = SparsePolynomial.decodeCubic 18 atom0823Coded := by decide +kernel
+theorem atom0823Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (7850979000 : Int) atom0823Coded) := by
+  have h := atom0823_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0823Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0824 : SparsePolynomial.Poly := [([5,14,15], 1)]
 theorem eval_atom0824 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0824 = ((g 5) * (g 14) * (g 15)) := by
   norm_num [atom0824, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -115,6 +169,12 @@ theorem atom0824_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 5) * (g 14) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0824Coded : CoefficientMerge.Poly := [(1887, 1)]
+theorem atom0824Coded_decode : atom0824 = SparsePolynomial.decodeCubic 18 atom0824Coded := by decide +kernel
+theorem atom0824Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12484453680 : Int) atom0824Coded) := by
+  have h := atom0824_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0824Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0825 : SparsePolynomial.Poly := [([5,14,16], 1)]
 theorem eval_atom0825 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0825 = ((g 5) * (g 14) * (g 16)) := by
   norm_num [atom0825, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -126,6 +186,12 @@ theorem atom0825_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 5) * (g 14) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0825Coded : CoefficientMerge.Poly := [(1888, 1)]
+theorem atom0825Coded_decode : atom0825 = SparsePolynomial.decodeCubic 18 atom0825Coded := by decide +kernel
+theorem atom0825Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9208198920 : Int) atom0825Coded) := by
+  have h := atom0825_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0825Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0826 : SparsePolynomial.Poly := [([5,14,17], 1)]
 theorem eval_atom0826 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0826 = ((g 5) * (g 14) * (g 17)) := by
   norm_num [atom0826, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -137,6 +203,12 @@ theorem atom0826_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 14) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0826Coded : CoefficientMerge.Poly := [(1889, 1)]
+theorem atom0826Coded_decode : atom0826 = SparsePolynomial.decodeCubic 18 atom0826Coded := by decide +kernel
+theorem atom0826Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12481979400 : Int) atom0826Coded) := by
+  have h := atom0826_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0826Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0827 : SparsePolynomial.Poly := [([5,15,15], 1)]
 theorem eval_atom0827 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0827 = ((g 5) * (g 15) * (g 15)) := by
   norm_num [atom0827, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -147,6 +219,12 @@ theorem atom0827_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 5) * (g 15) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0827Coded : CoefficientMerge.Poly := [(1905, 1)]
+theorem atom0827Coded_decode : atom0827 = SparsePolynomial.decodeCubic 18 atom0827Coded := by decide +kernel
+theorem atom0827Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3495594420 : Int) atom0827Coded) := by
+  have h := atom0827_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0827Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0828 : SparsePolynomial.Poly := [([5,15,16], 1)]
 theorem eval_atom0828 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0828 = ((g 5) * (g 15) * (g 16)) := by
   norm_num [atom0828, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -158,6 +236,12 @@ theorem atom0828_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 5) * (g 15) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0828Coded : CoefficientMerge.Poly := [(1906, 1)]
+theorem atom0828Coded_decode : atom0828 = SparsePolynomial.decodeCubic 18 atom0828Coded := by decide +kernel
+theorem atom0828Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (4734746820 : Int) atom0828Coded) := by
+  have h := atom0828_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0828Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0829 : SparsePolynomial.Poly := [([5,15,17], 1)]
 theorem eval_atom0829 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0829 = ((g 5) * (g 15) * (g 17)) := by
   norm_num [atom0829, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -169,6 +253,12 @@ theorem atom0829_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 15) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0829Coded : CoefficientMerge.Poly := [(1907, 1)]
+theorem atom0829Coded_decode : atom0829 = SparsePolynomial.decodeCubic 18 atom0829Coded := by decide +kernel
+theorem atom0829Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (8199759330 : Int) atom0829Coded) := by
+  have h := atom0829_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0829Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0830 : SparsePolynomial.Poly := [([5,16,17], 1)]
 theorem eval_atom0830 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0830 = ((g 5) * (g 16) * (g 17)) := by
   norm_num [atom0830, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -180,6 +270,12 @@ theorem atom0830_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 16) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0830Coded : CoefficientMerge.Poly := [(1925, 1)]
+theorem atom0830Coded_decode : atom0830 = SparsePolynomial.decodeCubic 18 atom0830Coded := by decide +kernel
+theorem atom0830Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3354207030 : Int) atom0830Coded) := by
+  have h := atom0830_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0830Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0831 : SparsePolynomial.Poly := [([5,17,17], 1)]
 theorem eval_atom0831 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0831 = ((g 5) * (g 17) * (g 17)) := by
   norm_num [atom0831, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -190,6 +286,12 @@ theorem atom0831_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 5) * (g 17) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0831Coded : CoefficientMerge.Poly := [(1943, 1)]
+theorem atom0831Coded_decode : atom0831 = SparsePolynomial.decodeCubic 18 atom0831Coded := by decide +kernel
+theorem atom0831Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3244305150 : Int) atom0831Coded) := by
+  have h := atom0831_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0831Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0832 : SparsePolynomial.Poly := [([6,6,6], 1)]
 theorem eval_atom0832 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0832 = ((g 6) * (g 6) * (g 6)) := by
   norm_num [atom0832, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -199,6 +301,12 @@ theorem atom0832_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg6 : 0 ≤ g 6 := hg 6
   have ht : 0 ≤ ((g 6) * (g 6) * (g 6)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0832Coded : CoefficientMerge.Poly := [(2058, 1)]
+theorem atom0832Coded_decode : atom0832 = SparsePolynomial.decodeCubic 18 atom0832Coded := by decide +kernel
+theorem atom0832Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (199002240 : Int) atom0832Coded) := by
+  have h := atom0832_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0832Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0833 : SparsePolynomial.Poly := [([6,6,7], 1)]
 theorem eval_atom0833 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0833 = ((g 6) * (g 6) * (g 7)) := by
   norm_num [atom0833, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -209,6 +317,12 @@ theorem atom0833_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg7 : 0 ≤ g 7 := hg 7
   have ht : 0 ≤ ((g 6) * (g 6) * (g 7)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0833Coded : CoefficientMerge.Poly := [(2059, 1)]
+theorem atom0833Coded_decode : atom0833 = SparsePolynomial.decodeCubic 18 atom0833Coded := by decide +kernel
+theorem atom0833Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (103864320 : Int) atom0833Coded) := by
+  have h := atom0833_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0833Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0834 : SparsePolynomial.Poly := [([6,6,8], 1)]
 theorem eval_atom0834 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0834 = ((g 6) * (g 6) * (g 8)) := by
   norm_num [atom0834, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -219,6 +333,12 @@ theorem atom0834_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg8 : 0 ≤ g 8 := hg 8
   have ht : 0 ≤ ((g 6) * (g 6) * (g 8)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0834Coded : CoefficientMerge.Poly := [(2060, 1)]
+theorem atom0834Coded_decode : atom0834 = SparsePolynomial.decodeCubic 18 atom0834Coded := by decide +kernel
+theorem atom0834Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (25159680 : Int) atom0834Coded) := by
+  have h := atom0834_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0834Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0835 : SparsePolynomial.Poly := [([6,6,12], 1)]
 theorem eval_atom0835 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0835 = ((g 6) * (g 6) * (g 12)) := by
   norm_num [atom0835, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -229,6 +349,12 @@ theorem atom0835_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 6) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0835Coded : CoefficientMerge.Poly := [(2064, 1)]
+theorem atom0835Coded_decode : atom0835 = SparsePolynomial.decodeCubic 18 atom0835Coded := by decide +kernel
+theorem atom0835Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (382258800 : Int) atom0835Coded) := by
+  have h := atom0835_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0835Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0836 : SparsePolynomial.Poly := [([6,7,7], 1)]
 theorem eval_atom0836 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0836 = ((g 6) * (g 7) * (g 7)) := by
   norm_num [atom0836, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -239,6 +365,12 @@ theorem atom0836_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg7 : 0 ≤ g 7 := hg 7
   have ht : 0 ≤ ((g 6) * (g 7) * (g 7)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0836Coded : CoefficientMerge.Poly := [(2077, 1)]
+theorem atom0836Coded_decode : atom0836 = SparsePolynomial.decodeCubic 18 atom0836Coded := by decide +kernel
+theorem atom0836Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (180362880 : Int) atom0836Coded) := by
+  have h := atom0836_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0836Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0837 : SparsePolynomial.Poly := [([6,7,10], 1)]
 theorem eval_atom0837 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0837 = ((g 6) * (g 7) * (g 10)) := by
   norm_num [atom0837, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -250,6 +382,12 @@ theorem atom0837_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg10 : 0 ≤ g 10 := hg 10
   have ht : 0 ≤ ((g 6) * (g 7) * (g 10)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0837Coded : CoefficientMerge.Poly := [(2080, 1)]
+theorem atom0837Coded_decode : atom0837 = SparsePolynomial.decodeCubic 18 atom0837Coded := by decide +kernel
+theorem atom0837Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (103864320 : Int) atom0837Coded) := by
+  have h := atom0837_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0837Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0838 : SparsePolynomial.Poly := [([6,7,11], 1)]
 theorem eval_atom0838 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0838 = ((g 6) * (g 7) * (g 11)) := by
   norm_num [atom0838, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -261,6 +399,12 @@ theorem atom0838_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg11 : 0 ≤ g 11 := hg 11
   have ht : 0 ≤ ((g 6) * (g 7) * (g 11)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0838Coded : CoefficientMerge.Poly := [(2081, 1)]
+theorem atom0838Coded_decode : atom0838 = SparsePolynomial.decodeCubic 18 atom0838Coded := by decide +kernel
+theorem atom0838Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (207728640 : Int) atom0838Coded) := by
+  have h := atom0838_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0838Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0839 : SparsePolynomial.Poly := [([6,7,12], 1)]
 theorem eval_atom0839 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0839 = ((g 6) * (g 7) * (g 12)) := by
   norm_num [atom0839, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -272,6 +416,12 @@ theorem atom0839_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 7) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0839Coded : CoefficientMerge.Poly := [(2082, 1)]
+theorem atom0839Coded_decode : atom0839 = SparsePolynomial.decodeCubic 18 atom0839Coded := by decide +kernel
+theorem atom0839Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (469928592 : Int) atom0839Coded) := by
+  have h := atom0839_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0839Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0840 : SparsePolynomial.Poly := [([6,7,15], 1)]
 theorem eval_atom0840 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0840 = ((g 6) * (g 7) * (g 15)) := by
   norm_num [atom0840, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -283,6 +433,12 @@ theorem atom0840_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 7) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0840Coded : CoefficientMerge.Poly := [(2085, 1)]
+theorem atom0840Coded_decode : atom0840 = SparsePolynomial.decodeCubic 18 atom0840Coded := by decide +kernel
+theorem atom0840Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1180247040 : Int) atom0840Coded) := by
+  have h := atom0840_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0840Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0841 : SparsePolynomial.Poly := [([6,7,16], 1)]
 theorem eval_atom0841 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0841 = ((g 6) * (g 7) * (g 16)) := by
   norm_num [atom0841, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -294,6 +450,12 @@ theorem atom0841_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 7) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0841Coded : CoefficientMerge.Poly := [(2086, 1)]
+theorem atom0841Coded_decode : atom0841 = SparsePolynomial.decodeCubic 18 atom0841Coded := by decide +kernel
+theorem atom0841Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2293143552 : Int) atom0841Coded) := by
+  have h := atom0841_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0841Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0842 : SparsePolynomial.Poly := [([6,7,17], 1)]
 theorem eval_atom0842 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0842 = ((g 6) * (g 7) * (g 17)) := by
   norm_num [atom0842, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -305,6 +467,12 @@ theorem atom0842_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 7) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0842Coded : CoefficientMerge.Poly := [(2087, 1)]
+theorem atom0842Coded_decode : atom0842 = SparsePolynomial.decodeCubic 18 atom0842Coded := by decide +kernel
+theorem atom0842Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3586383360 : Int) atom0842Coded) := by
+  have h := atom0842_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0842Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0843 : SparsePolynomial.Poly := [([6,8,8], 1)]
 theorem eval_atom0843 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0843 = ((g 6) * (g 8) * (g 8)) := by
   norm_num [atom0843, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -315,6 +483,12 @@ theorem atom0843_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg8 : 0 ≤ g 8 := hg 8
   have ht : 0 ≤ ((g 6) * (g 8) * (g 8)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0843Coded : CoefficientMerge.Poly := [(2096, 1)]
+theorem atom0843Coded_decode : atom0843 = SparsePolynomial.decodeCubic 18 atom0843Coded := by decide +kernel
+theorem atom0843Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (389278080 : Int) atom0843Coded) := by
+  have h := atom0843_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0843Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0844 : SparsePolynomial.Poly := [([6,8,9], 1)]
 theorem eval_atom0844 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0844 = ((g 6) * (g 8) * (g 9)) := by
   norm_num [atom0844, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -326,6 +500,12 @@ theorem atom0844_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg9 : 0 ≤ g 9 := hg 9
   have ht : 0 ≤ ((g 6) * (g 8) * (g 9)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0844Coded : CoefficientMerge.Poly := [(2097, 1)]
+theorem atom0844Coded_decode : atom0844 = SparsePolynomial.decodeCubic 18 atom0844Coded := by decide +kernel
+theorem atom0844Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (568454400 : Int) atom0844Coded) := by
+  have h := atom0844_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0844Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0845 : SparsePolynomial.Poly := [([6,8,10], 1)]
 theorem eval_atom0845 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0845 = ((g 6) * (g 8) * (g 10)) := by
   norm_num [atom0845, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -337,6 +517,12 @@ theorem atom0845_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg10 : 0 ≤ g 10 := hg 10
   have ht : 0 ≤ ((g 6) * (g 8) * (g 10)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0845Coded : CoefficientMerge.Poly := [(2098, 1)]
+theorem atom0845Coded_decode : atom0845 = SparsePolynomial.decodeCubic 18 atom0845Coded := by decide +kernel
+theorem atom0845Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (725863680 : Int) atom0845Coded) := by
+  have h := atom0845_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0845Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0846 : SparsePolynomial.Poly := [([6,8,11], 1)]
 theorem eval_atom0846 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0846 = ((g 6) * (g 8) * (g 11)) := by
   norm_num [atom0846, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -348,6 +534,12 @@ theorem atom0846_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg11 : 0 ≤ g 11 := hg 11
   have ht : 0 ≤ ((g 6) * (g 8) * (g 11)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0846Coded : CoefficientMerge.Poly := [(2099, 1)]
+theorem atom0846Coded_decode : atom0846 = SparsePolynomial.decodeCubic 18 atom0846Coded := by decide +kernel
+theorem atom0846Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (883272960 : Int) atom0846Coded) := by
+  have h := atom0846_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0846Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0847 : SparsePolynomial.Poly := [([6,8,12], 1)]
 theorem eval_atom0847 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0847 = ((g 6) * (g 8) * (g 12)) := by
   norm_num [atom0847, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -359,6 +551,12 @@ theorem atom0847_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 8) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0847Coded : CoefficientMerge.Poly := [(2100, 1)]
+theorem atom0847Coded_decode : atom0847 = SparsePolynomial.decodeCubic 18 atom0847Coded := by decide +kernel
+theorem atom0847Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (757621440 : Int) atom0847Coded) := by
+  have h := atom0847_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0847Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0848 : SparsePolynomial.Poly := [([6,8,13], 1)]
 theorem eval_atom0848 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0848 = ((g 6) * (g 8) * (g 13)) := by
   norm_num [atom0848, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -370,6 +568,12 @@ theorem atom0848_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 8) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0848Coded : CoefficientMerge.Poly := [(2101, 1)]
+theorem atom0848Coded_decode : atom0848 = SparsePolynomial.decodeCubic 18 atom0848Coded := by decide +kernel
+theorem atom0848Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (428863920 : Int) atom0848Coded) := by
+  have h := atom0848_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0848Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0849 : SparsePolynomial.Poly := [([6,8,14], 1)]
 theorem eval_atom0849 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0849 = ((g 6) * (g 8) * (g 14)) := by
   norm_num [atom0849, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -381,6 +585,12 @@ theorem atom0849_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 8) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0849Coded : CoefficientMerge.Poly := [(2102, 1)]
+theorem atom0849Coded_decode : atom0849 = SparsePolynomial.decodeCubic 18 atom0849Coded := by decide +kernel
+theorem atom0849Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (816511200 : Int) atom0849Coded) := by
+  have h := atom0849_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0849Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0850 : SparsePolynomial.Poly := [([6,8,15], 1)]
 theorem eval_atom0850 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0850 = ((g 6) * (g 8) * (g 15)) := by
   norm_num [atom0850, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -392,6 +602,12 @@ theorem atom0850_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 8) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0850Coded : CoefficientMerge.Poly := [(2103, 1)]
+theorem atom0850Coded_decode : atom0850 = SparsePolynomial.decodeCubic 18 atom0850Coded := by decide +kernel
+theorem atom0850Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2272055280 : Int) atom0850Coded) := by
+  have h := atom0850_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0850Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0851 : SparsePolynomial.Poly := [([6,8,16], 1)]
 theorem eval_atom0851 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0851 = ((g 6) * (g 8) * (g 16)) := by
   norm_num [atom0851, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -403,6 +619,12 @@ theorem atom0851_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 8) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0851Coded : CoefficientMerge.Poly := [(2104, 1)]
+theorem atom0851Coded_decode : atom0851 = SparsePolynomial.decodeCubic 18 atom0851Coded := by decide +kernel
+theorem atom0851Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (4061745360 : Int) atom0851Coded) := by
+  have h := atom0851_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0851Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0852 : SparsePolynomial.Poly := [([6,8,17], 1)]
 theorem eval_atom0852 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0852 = ((g 6) * (g 8) * (g 17)) := by
   norm_num [atom0852, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -414,6 +636,12 @@ theorem atom0852_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 8) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0852Coded : CoefficientMerge.Poly := [(2105, 1)]
+theorem atom0852Coded_decode : atom0852 = SparsePolynomial.decodeCubic 18 atom0852Coded := by decide +kernel
+theorem atom0852Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (6158118240 : Int) atom0852Coded) := by
+  have h := atom0852_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0852Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0853 : SparsePolynomial.Poly := [([6,9,9], 1)]
 theorem eval_atom0853 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0853 = ((g 6) * (g 9) * (g 9)) := by
   norm_num [atom0853, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -424,6 +652,12 @@ theorem atom0853_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg9 : 0 ≤ g 9 := hg 9
   have ht : 0 ≤ ((g 6) * (g 9) * (g 9)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0853Coded : CoefficientMerge.Poly := [(2115, 1)]
+theorem atom0853Coded_decode : atom0853 = SparsePolynomial.decodeCubic 18 atom0853Coded := by decide +kernel
+theorem atom0853Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (852681600 : Int) atom0853Coded) := by
+  have h := atom0853_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0853Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0854 : SparsePolynomial.Poly := [([6,9,10], 1)]
 theorem eval_atom0854 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0854 = ((g 6) * (g 9) * (g 10)) := by
   norm_num [atom0854, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -435,6 +669,12 @@ theorem atom0854_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg10 : 0 ≤ g 10 := hg 10
   have ht : 0 ≤ ((g 6) * (g 9) * (g 10)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0854Coded : CoefficientMerge.Poly := [(2116, 1)]
+theorem atom0854Coded_decode : atom0854 = SparsePolynomial.decodeCubic 18 atom0854Coded := by decide +kernel
+theorem atom0854Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1515283200 : Int) atom0854Coded) := by
+  have h := atom0854_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0854Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0855 : SparsePolynomial.Poly := [([6,9,11], 1)]
 theorem eval_atom0855 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0855 = ((g 6) * (g 9) * (g 11)) := by
   norm_num [atom0855, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -446,6 +686,12 @@ theorem atom0855_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg11 : 0 ≤ g 11 := hg 11
   have ht : 0 ≤ ((g 6) * (g 9) * (g 11)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0855Coded : CoefficientMerge.Poly := [(2117, 1)]
+theorem atom0855Coded_decode : atom0855 = SparsePolynomial.decodeCubic 18 atom0855Coded := by decide +kernel
+theorem atom0855Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1675918080 : Int) atom0855Coded) := by
+  have h := atom0855_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0855Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0856 : SparsePolynomial.Poly := [([6,9,12], 1)]
 theorem eval_atom0856 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0856 = ((g 6) * (g 9) * (g 12)) := by
   norm_num [atom0856, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -457,6 +703,12 @@ theorem atom0856_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 9) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0856Coded : CoefficientMerge.Poly := [(2118, 1)]
+theorem atom0856Coded_decode : atom0856 = SparsePolynomial.decodeCubic 18 atom0856Coded := by decide +kernel
+theorem atom0856Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1750199040 : Int) atom0856Coded) := by
+  have h := atom0856_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0856Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0857 : SparsePolynomial.Poly := [([6,9,13], 1)]
 theorem eval_atom0857 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0857 = ((g 6) * (g 9) * (g 13)) := by
   norm_num [atom0857, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -468,6 +720,12 @@ theorem atom0857_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 9) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0857Coded : CoefficientMerge.Poly := [(2119, 1)]
+theorem atom0857Coded_decode : atom0857 = SparsePolynomial.decodeCubic 18 atom0857Coded := by decide +kernel
+theorem atom0857Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1645188720 : Int) atom0857Coded) := by
+  have h := atom0857_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0857Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0858 : SparsePolynomial.Poly := [([6,9,14], 1)]
 theorem eval_atom0858 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0858 = ((g 6) * (g 9) * (g 14)) := by
   norm_num [atom0858, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -479,6 +737,12 @@ theorem atom0858_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 9) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0858Coded : CoefficientMerge.Poly := [(2120, 1)]
+theorem atom0858Coded_decode : atom0858 = SparsePolynomial.decodeCubic 18 atom0858Coded := by decide +kernel
+theorem atom0858Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2642200800 : Int) atom0858Coded) := by
+  have h := atom0858_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0858Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0859 : SparsePolynomial.Poly := [([6,9,15], 1)]
 theorem eval_atom0859 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0859 = ((g 6) * (g 9) * (g 15)) := by
   norm_num [atom0859, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -490,6 +754,12 @@ theorem atom0859_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 9) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0859Coded : CoefficientMerge.Poly := [(2121, 1)]
+theorem atom0859Coded_decode : atom0859 = SparsePolynomial.decodeCubic 18 atom0859Coded := by decide +kernel
+theorem atom0859Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3897057840 : Int) atom0859Coded) := by
+  have h := atom0859_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0859Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0860 : SparsePolynomial.Poly := [([6,9,16], 1)]
 theorem eval_atom0860 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0860 = ((g 6) * (g 9) * (g 16)) := by
   norm_num [atom0860, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -501,6 +771,12 @@ theorem atom0860_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 9) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0860Coded : CoefficientMerge.Poly := [(2122, 1)]
+theorem atom0860Coded_decode : atom0860 = SparsePolynomial.decodeCubic 18 atom0860Coded := by decide +kernel
+theorem atom0860Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (5871678480 : Int) atom0860Coded) := by
+  have h := atom0860_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0860Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0861 : SparsePolynomial.Poly := [([6,9,17], 1)]
 theorem eval_atom0861 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0861 = ((g 6) * (g 9) * (g 17)) := by
   norm_num [atom0861, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -512,6 +788,12 @@ theorem atom0861_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 9) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0861Coded : CoefficientMerge.Poly := [(2123, 1)]
+theorem atom0861Coded_decode : atom0861 = SparsePolynomial.decodeCubic 18 atom0861Coded := by decide +kernel
+theorem atom0861Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (8109758880 : Int) atom0861Coded) := by
+  have h := atom0861_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0861Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0862 : SparsePolynomial.Poly := [([6,10,10], 1)]
 theorem eval_atom0862 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0862 = ((g 6) * (g 10) * (g 10)) := by
   norm_num [atom0862, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -522,6 +804,12 @@ theorem atom0862_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg10 : 0 ≤ g 10 := hg 10
   have ht : 0 ≤ ((g 6) * (g 10) * (g 10)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0862Coded : CoefficientMerge.Poly := [(2134, 1)]
+theorem atom0862Coded_decode : atom0862 = SparsePolynomial.decodeCubic 18 atom0862Coded := by decide +kernel
+theorem atom0862Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (1439971200 : Int) atom0862Coded) := by
+  have h := atom0862_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0862Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0863 : SparsePolynomial.Poly := [([6,10,11], 1)]
 theorem eval_atom0863 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0863 = ((g 6) * (g 10) * (g 11)) := by
   norm_num [atom0863, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -533,6 +821,12 @@ theorem atom0863_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg11 : 0 ≤ g 11 := hg 11
   have ht : 0 ≤ ((g 6) * (g 10) * (g 11)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0863Coded : CoefficientMerge.Poly := [(2135, 1)]
+theorem atom0863Coded_decode : atom0863 = SparsePolynomial.decodeCubic 18 atom0863Coded := by decide +kernel
+theorem atom0863Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2659495680 : Int) atom0863Coded) := by
+  have h := atom0863_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0863Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0864 : SparsePolynomial.Poly := [([6,10,12], 1)]
 theorem eval_atom0864 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0864 = ((g 6) * (g 10) * (g 12)) := by
   norm_num [atom0864, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -544,6 +838,12 @@ theorem atom0864_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 10) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0864Coded : CoefficientMerge.Poly := [(2136, 1)]
+theorem atom0864Coded_decode : atom0864 = SparsePolynomial.decodeCubic 18 atom0864Coded := by decide +kernel
+theorem atom0864Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2848556160 : Int) atom0864Coded) := by
+  have h := atom0864_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0864Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0865 : SparsePolynomial.Poly := [([6,10,13], 1)]
 theorem eval_atom0865 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0865 = ((g 6) * (g 10) * (g 13)) := by
   norm_num [atom0865, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -555,6 +855,12 @@ theorem atom0865_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 10) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0865Coded : CoefficientMerge.Poly := [(2137, 1)]
+theorem atom0865Coded_decode : atom0865 = SparsePolynomial.decodeCubic 18 atom0865Coded := by decide +kernel
+theorem atom0865Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2847306480 : Int) atom0865Coded) := by
+  have h := atom0865_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0865Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0866 : SparsePolynomial.Poly := [([6,10,14], 1)]
 theorem eval_atom0866 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0866 = ((g 6) * (g 10) * (g 14)) := by
   norm_num [atom0866, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -566,6 +872,12 @@ theorem atom0866_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 10) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0866Coded : CoefficientMerge.Poly := [(2138, 1)]
+theorem atom0866Coded_decode : atom0866 = SparsePolynomial.decodeCubic 18 atom0866Coded := by decide +kernel
+theorem atom0866Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (4518209760 : Int) atom0866Coded) := by
+  have h := atom0866_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0866Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0867 : SparsePolynomial.Poly := [([6,10,15], 1)]
 theorem eval_atom0867 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0867 = ((g 6) * (g 10) * (g 15)) := by
   norm_num [atom0867, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -577,6 +889,12 @@ theorem atom0867_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 10) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0867Coded : CoefficientMerge.Poly := [(2139, 1)]
+theorem atom0867Coded_decode : atom0867 = SparsePolynomial.decodeCubic 18 atom0867Coded := by decide +kernel
+theorem atom0867Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (5198213040 : Int) atom0867Coded) := by
+  have h := atom0867_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0867Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0868 : SparsePolynomial.Poly := [([6,10,16], 1)]
 theorem eval_atom0868 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0868 = ((g 6) * (g 10) * (g 16)) := by
   norm_num [atom0868, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -588,6 +906,12 @@ theorem atom0868_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 10) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0868Coded : CoefficientMerge.Poly := [(2140, 1)]
+theorem atom0868Coded_decode : atom0868 = SparsePolynomial.decodeCubic 18 atom0868Coded := by decide +kernel
+theorem atom0868Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (7168110480 : Int) atom0868Coded) := by
+  have h := atom0868_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0868Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0869 : SparsePolynomial.Poly := [([6,10,17], 1)]
 theorem eval_atom0869 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0869 = ((g 6) * (g 10) * (g 17)) := by
   norm_num [atom0869, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -599,6 +923,12 @@ theorem atom0869_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 10) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0869Coded : CoefficientMerge.Poly := [(2141, 1)]
+theorem atom0869Coded_decode : atom0869 = SparsePolynomial.decodeCubic 18 atom0869Coded := by decide +kernel
+theorem atom0869Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9649000800 : Int) atom0869Coded) := by
+  have h := atom0869_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0869Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0870 : SparsePolynomial.Poly := [([6,11,11], 1)]
 theorem eval_atom0870 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0870 = ((g 6) * (g 11) * (g 11)) := by
   norm_num [atom0870, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -609,6 +939,12 @@ theorem atom0870_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg11 : 0 ≤ g 11 := hg 11
   have ht : 0 ≤ ((g 6) * (g 11) * (g 11)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0870Coded : CoefficientMerge.Poly := [(2153, 1)]
+theorem atom0870Coded_decode : atom0870 = SparsePolynomial.decodeCubic 18 atom0870Coded := by decide +kernel
+theorem atom0870Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2330513280 : Int) atom0870Coded) := by
+  have h := atom0870_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0870Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0871 : SparsePolynomial.Poly := [([6,11,12], 1)]
 theorem eval_atom0871 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0871 = ((g 6) * (g 11) * (g 12)) := by
   norm_num [atom0871, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -620,6 +956,12 @@ theorem atom0871_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 11) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0871Coded : CoefficientMerge.Poly := [(2154, 1)]
+theorem atom0871Coded_decode : atom0871 = SparsePolynomial.decodeCubic 18 atom0871Coded := by decide +kernel
+theorem atom0871Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3823796160 : Int) atom0871Coded) := by
+  have h := atom0871_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0871Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0872 : SparsePolynomial.Poly := [([6,11,13], 1)]
 theorem eval_atom0872 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0872 = ((g 6) * (g 11) * (g 13)) := by
   norm_num [atom0872, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -631,6 +973,12 @@ theorem atom0872_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 11) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0872Coded : CoefficientMerge.Poly := [(2155, 1)]
+theorem atom0872Coded_decode : atom0872 = SparsePolynomial.decodeCubic 18 atom0872Coded := by decide +kernel
+theorem atom0872Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3845127600 : Int) atom0872Coded) := by
+  have h := atom0872_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0872Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0873 : SparsePolynomial.Poly := [([6,11,14], 1)]
 theorem eval_atom0873 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0873 = ((g 6) * (g 11) * (g 14)) := by
   norm_num [atom0873, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -642,6 +990,12 @@ theorem atom0873_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 11) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0873Coded : CoefficientMerge.Poly := [(2156, 1)]
+theorem atom0873Coded_decode : atom0873 = SparsePolynomial.decodeCubic 18 atom0873Coded := by decide +kernel
+theorem atom0873Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (6208074720 : Int) atom0873Coded) := by
+  have h := atom0873_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0873Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0874 : SparsePolynomial.Poly := [([6,11,15], 1)]
 theorem eval_atom0874 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0874 = ((g 6) * (g 11) * (g 15)) := by
   norm_num [atom0874, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -653,6 +1007,12 @@ theorem atom0874_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 11) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0874Coded : CoefficientMerge.Poly := [(2157, 1)]
+theorem atom0874Coded_decode : atom0874 = SparsePolynomial.decodeCubic 18 atom0874Coded := by decide +kernel
+theorem atom0874Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (7191177840 : Int) atom0874Coded) := by
+  have h := atom0874_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0874Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0875 : SparsePolynomial.Poly := [([6,11,16], 1)]
 theorem eval_atom0875 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0875 = ((g 6) * (g 11) * (g 16)) := by
   norm_num [atom0875, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -664,6 +1024,12 @@ theorem atom0875_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 11) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0875Coded : CoefficientMerge.Poly := [(2158, 1)]
+theorem atom0875Coded_decode : atom0875 = SparsePolynomial.decodeCubic 18 atom0875Coded := by decide +kernel
+theorem atom0875Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (8066673360 : Int) atom0875Coded) := by
+  have h := atom0875_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0875Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0876 : SparsePolynomial.Poly := [([6,11,17], 1)]
 theorem eval_atom0876 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0876 = ((g 6) * (g 11) * (g 17)) := by
   norm_num [atom0876, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -675,6 +1041,12 @@ theorem atom0876_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 11) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0876Coded : CoefficientMerge.Poly := [(2159, 1)]
+theorem atom0876Coded_decode : atom0876 = SparsePolynomial.decodeCubic 18 atom0876Coded := by decide +kernel
+theorem atom0876Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12681810720 : Int) atom0876Coded) := by
+  have h := atom0876_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0876Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0877 : SparsePolynomial.Poly := [([6,12,12], 1)]
 theorem eval_atom0877 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0877 = ((g 6) * (g 12) * (g 12)) := by
   norm_num [atom0877, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -685,6 +1057,12 @@ theorem atom0877_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg12 : 0 ≤ g 12 := hg 12
   have ht : 0 ≤ ((g 6) * (g 12) * (g 12)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0877Coded : CoefficientMerge.Poly := [(2172, 1)]
+theorem atom0877Coded_decode : atom0877 = SparsePolynomial.decodeCubic 18 atom0877Coded := by decide +kernel
+theorem atom0877Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3423651840 : Int) atom0877Coded) := by
+  have h := atom0877_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0877Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0878 : SparsePolynomial.Poly := [([6,12,13], 1)]
 theorem eval_atom0878 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0878 = ((g 6) * (g 12) * (g 13)) := by
   norm_num [atom0878, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -696,6 +1074,12 @@ theorem atom0878_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 12) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0878Coded : CoefficientMerge.Poly := [(2173, 1)]
+theorem atom0878Coded_decode : atom0878 = SparsePolynomial.decodeCubic 18 atom0878Coded := by decide +kernel
+theorem atom0878Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (6832572120 : Int) atom0878Coded) := by
+  have h := atom0878_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0878Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0879 : SparsePolynomial.Poly := [([6,12,14], 1)]
 theorem eval_atom0879 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0879 = ((g 6) * (g 12) * (g 14)) := by
   norm_num [atom0879, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -707,6 +1091,12 @@ theorem atom0879_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 12) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0879Coded : CoefficientMerge.Poly := [(2174, 1)]
+theorem atom0879Coded_decode : atom0879 = SparsePolynomial.decodeCubic 18 atom0879Coded := by decide +kernel
+theorem atom0879Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12177540000 : Int) atom0879Coded) := by
+  have h := atom0879_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0879Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0880 : SparsePolynomial.Poly := [([6,12,15], 1)]
 theorem eval_atom0880 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0880 = ((g 6) * (g 12) * (g 15)) := by
   norm_num [atom0880, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -718,6 +1108,12 @@ theorem atom0880_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 12) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0880Coded : CoefficientMerge.Poly := [(2175, 1)]
+theorem atom0880Coded_decode : atom0880 = SparsePolynomial.decodeCubic 18 atom0880Coded := by decide +kernel
+theorem atom0880Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12748840200 : Int) atom0880Coded) := by
+  have h := atom0880_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0880Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0881 : SparsePolynomial.Poly := [([6,12,16], 1)]
 theorem eval_atom0881 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0881 = ((g 6) * (g 12) * (g 16)) := by
   norm_num [atom0881, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -729,6 +1125,12 @@ theorem atom0881_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 12) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0881Coded : CoefficientMerge.Poly := [(2176, 1)]
+theorem atom0881Coded_decode : atom0881 = SparsePolynomial.decodeCubic 18 atom0881Coded := by decide +kernel
+theorem atom0881Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9605408040 : Int) atom0881Coded) := by
+  have h := atom0881_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0881Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0882 : SparsePolynomial.Poly := [([6,12,17], 1)]
 theorem eval_atom0882 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0882 = ((g 6) * (g 12) * (g 17)) := by
   norm_num [atom0882, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -740,6 +1142,12 @@ theorem atom0882_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 12) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0882Coded : CoefficientMerge.Poly := [(2177, 1)]
+theorem atom0882Coded_decode : atom0882 = SparsePolynomial.decodeCubic 18 atom0882Coded := by decide +kernel
+theorem atom0882Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (15345278280 : Int) atom0882Coded) := by
+  have h := atom0882_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0882Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0883 : SparsePolynomial.Poly := [([6,13,13], 1)]
 theorem eval_atom0883 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0883 = ((g 6) * (g 13) * (g 13)) := by
   norm_num [atom0883, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -750,6 +1158,12 @@ theorem atom0883_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg13 : 0 ≤ g 13 := hg 13
   have ht : 0 ≤ ((g 6) * (g 13) * (g 13)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0883Coded : CoefficientMerge.Poly := [(2191, 1)]
+theorem atom0883Coded_decode : atom0883 = SparsePolynomial.decodeCubic 18 atom0883Coded := by decide +kernel
+theorem atom0883Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (2714923008 : Int) atom0883Coded) := by
+  have h := atom0883_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0883Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0884 : SparsePolynomial.Poly := [([6,13,14], 1)]
 theorem eval_atom0884 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0884 = ((g 6) * (g 13) * (g 14)) := by
   norm_num [atom0884, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -761,6 +1175,12 @@ theorem atom0884_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 13) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0884Coded : CoefficientMerge.Poly := [(2192, 1)]
+theorem atom0884Coded_decode : atom0884 = SparsePolynomial.decodeCubic 18 atom0884Coded := by decide +kernel
+theorem atom0884Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9583020000 : Int) atom0884Coded) := by
+  have h := atom0884_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0884Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0885 : SparsePolynomial.Poly := [([6,13,15], 1)]
 theorem eval_atom0885 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0885 = ((g 6) * (g 13) * (g 15)) := by
   norm_num [atom0885, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -772,6 +1192,12 @@ theorem atom0885_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 13) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0885Coded : CoefficientMerge.Poly := [(2193, 1)]
+theorem atom0885Coded_decode : atom0885 = SparsePolynomial.decodeCubic 18 atom0885Coded := by decide +kernel
+theorem atom0885Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (10709800380 : Int) atom0885Coded) := by
+  have h := atom0885_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0885Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0886 : SparsePolynomial.Poly := [([6,13,16], 1)]
 theorem eval_atom0886 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0886 = ((g 6) * (g 13) * (g 16)) := by
   norm_num [atom0886, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -783,6 +1209,12 @@ theorem atom0886_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 13) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0886Coded : CoefficientMerge.Poly := [(2194, 1)]
+theorem atom0886Coded_decode : atom0886 = SparsePolynomial.decodeCubic 18 atom0886Coded := by decide +kernel
+theorem atom0886Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (8121848400 : Int) atom0886Coded) := by
+  have h := atom0886_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0886Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0887 : SparsePolynomial.Poly := [([6,13,17], 1)]
 theorem eval_atom0887 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0887 = ((g 6) * (g 13) * (g 17)) := by
   norm_num [atom0887, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -794,6 +1226,12 @@ theorem atom0887_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 13) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0887Coded : CoefficientMerge.Poly := [(2195, 1)]
+theorem atom0887Coded_decode : atom0887 = SparsePolynomial.decodeCubic 18 atom0887Coded := by decide +kernel
+theorem atom0887Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (11055343770 : Int) atom0887Coded) := by
+  have h := atom0887_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0887Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0888 : SparsePolynomial.Poly := [([6,14,14], 1)]
 theorem eval_atom0888 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0888 = ((g 6) * (g 14) * (g 14)) := by
   norm_num [atom0888, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -804,6 +1242,12 @@ theorem atom0888_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg14 : 0 ≤ g 14 := hg 14
   have ht : 0 ≤ ((g 6) * (g 14) * (g 14)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0888Coded : CoefficientMerge.Poly := [(2210, 1)]
+theorem atom0888Coded_decode : atom0888 = SparsePolynomial.decodeCubic 18 atom0888Coded := by decide +kernel
+theorem atom0888Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (7705827000 : Int) atom0888Coded) := by
+  have h := atom0888_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0888Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0889 : SparsePolynomial.Poly := [([6,14,15], 1)]
 theorem eval_atom0889 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0889 = ((g 6) * (g 14) * (g 15)) := by
   norm_num [atom0889, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -815,6 +1259,12 @@ theorem atom0889_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 14) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0889Coded : CoefficientMerge.Poly := [(2211, 1)]
+theorem atom0889Coded_decode : atom0889 = SparsePolynomial.decodeCubic 18 atom0889Coded := by decide +kernel
+theorem atom0889Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (12583600560 : Int) atom0889Coded) := by
+  have h := atom0889_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0889Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0890 : SparsePolynomial.Poly := [([6,14,16], 1)]
 theorem eval_atom0890 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0890 = ((g 6) * (g 14) * (g 16)) := by
   norm_num [atom0890, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -826,6 +1276,12 @@ theorem atom0890_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 14) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0890Coded : CoefficientMerge.Poly := [(2212, 1)]
+theorem atom0890Coded_decode : atom0890 = SparsePolynomial.decodeCubic 18 atom0890Coded := by decide +kernel
+theorem atom0890Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9594135720 : Int) atom0890Coded) := by
+  have h := atom0890_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0890Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0891 : SparsePolynomial.Poly := [([6,14,17], 1)]
 theorem eval_atom0891 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0891 = ((g 6) * (g 14) * (g 17)) := by
   norm_num [atom0891, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -837,6 +1293,12 @@ theorem atom0891_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 14) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0891Coded : CoefficientMerge.Poly := [(2213, 1)]
+theorem atom0891Coded_decode : atom0891 = SparsePolynomial.decodeCubic 18 atom0891Coded := by decide +kernel
+theorem atom0891Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (13657509000 : Int) atom0891Coded) := by
+  have h := atom0891_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0891Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0892 : SparsePolynomial.Poly := [([6,15,15], 1)]
 theorem eval_atom0892 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0892 = ((g 6) * (g 15) * (g 15)) := by
   norm_num [atom0892, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -847,6 +1309,12 @@ theorem atom0892_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg15 : 0 ≤ g 15 := hg 15
   have ht : 0 ≤ ((g 6) * (g 15) * (g 15)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0892Coded : CoefficientMerge.Poly := [(2229, 1)]
+theorem atom0892Coded_decode : atom0892 = SparsePolynomial.decodeCubic 18 atom0892Coded := by decide +kernel
+theorem atom0892Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (3582383220 : Int) atom0892Coded) := by
+  have h := atom0892_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0892Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0893 : SparsePolynomial.Poly := [([6,15,16], 1)]
 theorem eval_atom0893 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0893 = ((g 6) * (g 15) * (g 16)) := by
   norm_num [atom0893, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -858,6 +1326,12 @@ theorem atom0893_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg16 : 0 ≤ g 16 := hg 16
   have ht : 0 ≤ ((g 6) * (g 15) * (g 16)) := by positivity
   exact mul_nonneg (by norm_num) ht
+def atom0893Coded : CoefficientMerge.Poly := [(2230, 1)]
+theorem atom0893Coded_decode : atom0893 = SparsePolynomial.decodeCubic 18 atom0893Coded := by decide +kernel
+theorem atom0893Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (5086811700 : Int) atom0893Coded) := by
+  have h := atom0893_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0893Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
 def atom0894 : SparsePolynomial.Poly := [([6,15,17], 1)]
 theorem eval_atom0894 (g : Fin 18 → ℝ) : SparsePolynomial.eval (gapValues g) atom0894 = ((g 6) * (g 15) * (g 17)) := by
   norm_num [atom0894, SparsePolynomial.eval, SparsePolynomial.mon, gapValues]
@@ -869,11 +1343,17 @@ theorem atom0894_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA
   have hg17 : 0 ≤ g 17 := hg 17
   have ht : 0 ≤ ((g 6) * (g 15) * (g 17)) := by positivity
   exact mul_nonneg (by norm_num) ht
-def block011 : SparsePolynomial.Poly := [([5,12,15], 13013137800), ([5,12,16], 9515050920), ([5,12,17], 14900266440), ([5,13,13], 3202633728), ([5,13,14], 10330996320), ([5,13,15], 11120842620), ([5,13,16], 8447358000), ([5,13,17], 10737773370), ([5,14,14], 7850979000), ([5,14,15], 12484453680), ([5,14,16], 9208198920), ([5,14,17], 12481979400), ([5,15,15], 3495594420), ([5,15,16], 4734746820), ([5,15,17], 8199759330), ([5,16,17], 3354207030), ([5,17,17], 3244305150), ([6,6,6], 199002240), ([6,6,7], 103864320), ([6,6,8], 25159680), ([6,6,12], 382258800), ([6,7,7], 180362880), ([6,7,10], 103864320), ([6,7,11], 207728640), ([6,7,12], 469928592), ([6,7,15], 1180247040), ([6,7,16], 2293143552), ([6,7,17], 3586383360), ([6,8,8], 389278080), ([6,8,9], 568454400), ([6,8,10], 725863680), ([6,8,11], 883272960), ([6,8,12], 757621440), ([6,8,13], 428863920), ([6,8,14], 816511200), ([6,8,15], 2272055280), ([6,8,16], 4061745360), ([6,8,17], 6158118240), ([6,9,9], 852681600), ([6,9,10], 1515283200), ([6,9,11], 1675918080), ([6,9,12], 1750199040), ([6,9,13], 1645188720), ([6,9,14], 2642200800), ([6,9,15], 3897057840), ([6,9,16], 5871678480), ([6,9,17], 8109758880), ([6,10,10], 1439971200), ([6,10,11], 2659495680), ([6,10,12], 2848556160), ([6,10,13], 2847306480), ([6,10,14], 4518209760), ([6,10,15], 5198213040), ([6,10,16], 7168110480), ([6,10,17], 9649000800), ([6,11,11], 2330513280), ([6,11,12], 3823796160), ([6,11,13], 3845127600), ([6,11,14], 6208074720), ([6,11,15], 7191177840), ([6,11,16], 8066673360), ([6,11,17], 12681810720), ([6,12,12], 3423651840), ([6,12,13], 6832572120), ([6,12,14], 12177540000), ([6,12,15], 12748840200), ([6,12,16], 9605408040), ([6,12,17], 15345278280), ([6,13,13], 2714923008), ([6,13,14], 9583020000), ([6,13,15], 10709800380), ([6,13,16], 8121848400), ([6,13,17], 11055343770), ([6,14,14], 7705827000), ([6,14,15], 12583600560), ([6,14,16], 9594135720), ([6,14,17], 13657509000), ([6,15,15], 3582383220), ([6,15,16], 5086811700), ([6,15,17], 9511338690)]
-theorem block011_data : block011 = SparsePolynomial.trim (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (13013137800 : Int) atom0815) (SparsePolynomial.scale (9515050920 : Int) atom0816)) (SparsePolynomial.merge (SparsePolynomial.scale (14900266440 : Int) atom0817) (SparsePolynomial.merge (SparsePolynomial.scale (3202633728 : Int) atom0818) (SparsePolynomial.scale (10330996320 : Int) atom0819)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (11120842620 : Int) atom0820) (SparsePolynomial.scale (8447358000 : Int) atom0821)) (SparsePolynomial.merge (SparsePolynomial.scale (10737773370 : Int) atom0822) (SparsePolynomial.merge (SparsePolynomial.scale (7850979000 : Int) atom0823) (SparsePolynomial.scale (12484453680 : Int) atom0824))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (9208198920 : Int) atom0825) (SparsePolynomial.scale (12481979400 : Int) atom0826)) (SparsePolynomial.merge (SparsePolynomial.scale (3495594420 : Int) atom0827) (SparsePolynomial.merge (SparsePolynomial.scale (4734746820 : Int) atom0828) (SparsePolynomial.scale (8199759330 : Int) atom0829)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (3354207030 : Int) atom0830) (SparsePolynomial.scale (3244305150 : Int) atom0831)) (SparsePolynomial.merge (SparsePolynomial.scale (199002240 : Int) atom0832) (SparsePolynomial.merge (SparsePolynomial.scale (103864320 : Int) atom0833) (SparsePolynomial.scale (25159680 : Int) atom0834)))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (382258800 : Int) atom0835) (SparsePolynomial.scale (180362880 : Int) atom0836)) (SparsePolynomial.merge (SparsePolynomial.scale (103864320 : Int) atom0837) (SparsePolynomial.merge (SparsePolynomial.scale (207728640 : Int) atom0838) (SparsePolynomial.scale (469928592 : Int) atom0839)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (1180247040 : Int) atom0840) (SparsePolynomial.scale (2293143552 : Int) atom0841)) (SparsePolynomial.merge (SparsePolynomial.scale (3586383360 : Int) atom0842) (SparsePolynomial.merge (SparsePolynomial.scale (389278080 : Int) atom0843) (SparsePolynomial.scale (568454400 : Int) atom0844))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (725863680 : Int) atom0845) (SparsePolynomial.scale (883272960 : Int) atom0846)) (SparsePolynomial.merge (SparsePolynomial.scale (757621440 : Int) atom0847) (SparsePolynomial.merge (SparsePolynomial.scale (428863920 : Int) atom0848) (SparsePolynomial.scale (816511200 : Int) atom0849)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (2272055280 : Int) atom0850) (SparsePolynomial.scale (4061745360 : Int) atom0851)) (SparsePolynomial.merge (SparsePolynomial.scale (6158118240 : Int) atom0852) (SparsePolynomial.merge (SparsePolynomial.scale (852681600 : Int) atom0853) (SparsePolynomial.scale (1515283200 : Int) atom0854))))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (1675918080 : Int) atom0855) (SparsePolynomial.scale (1750199040 : Int) atom0856)) (SparsePolynomial.merge (SparsePolynomial.scale (1645188720 : Int) atom0857) (SparsePolynomial.merge (SparsePolynomial.scale (2642200800 : Int) atom0858) (SparsePolynomial.scale (3897057840 : Int) atom0859)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (5871678480 : Int) atom0860) (SparsePolynomial.scale (8109758880 : Int) atom0861)) (SparsePolynomial.merge (SparsePolynomial.scale (1439971200 : Int) atom0862) (SparsePolynomial.merge (SparsePolynomial.scale (2659495680 : Int) atom0863) (SparsePolynomial.scale (2848556160 : Int) atom0864))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (2847306480 : Int) atom0865) (SparsePolynomial.scale (4518209760 : Int) atom0866)) (SparsePolynomial.merge (SparsePolynomial.scale (5198213040 : Int) atom0867) (SparsePolynomial.merge (SparsePolynomial.scale (7168110480 : Int) atom0868) (SparsePolynomial.scale (9649000800 : Int) atom0869)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (2330513280 : Int) atom0870) (SparsePolynomial.scale (3823796160 : Int) atom0871)) (SparsePolynomial.merge (SparsePolynomial.scale (3845127600 : Int) atom0872) (SparsePolynomial.merge (SparsePolynomial.scale (6208074720 : Int) atom0873) (SparsePolynomial.scale (7191177840 : Int) atom0874)))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (8066673360 : Int) atom0875) (SparsePolynomial.scale (12681810720 : Int) atom0876)) (SparsePolynomial.merge (SparsePolynomial.scale (3423651840 : Int) atom0877) (SparsePolynomial.merge (SparsePolynomial.scale (6832572120 : Int) atom0878) (SparsePolynomial.scale (12177540000 : Int) atom0879)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (12748840200 : Int) atom0880) (SparsePolynomial.scale (9605408040 : Int) atom0881)) (SparsePolynomial.merge (SparsePolynomial.scale (15345278280 : Int) atom0882) (SparsePolynomial.merge (SparsePolynomial.scale (2714923008 : Int) atom0883) (SparsePolynomial.scale (9583020000 : Int) atom0884))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (10709800380 : Int) atom0885) (SparsePolynomial.scale (8121848400 : Int) atom0886)) (SparsePolynomial.merge (SparsePolynomial.scale (11055343770 : Int) atom0887) (SparsePolynomial.merge (SparsePolynomial.scale (7705827000 : Int) atom0888) (SparsePolynomial.scale (12583600560 : Int) atom0889)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (9594135720 : Int) atom0890) (SparsePolynomial.scale (13657509000 : Int) atom0891)) (SparsePolynomial.merge (SparsePolynomial.scale (3582383220 : Int) atom0892) (SparsePolynomial.merge (SparsePolynomial.scale (5086811700 : Int) atom0893) (SparsePolynomial.scale (9511338690 : Int) atom0894)))))))) := by decide +kernel
-theorem block011_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (gapValues g) block011 := by
-  rw [block011_data, SparsePolynomial.eval_trim]
-  try simp only [SparsePolynomial.eval_merge]
-  exact (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0815_nonneg g hg hA hB) (atom0816_nonneg g hg hA hB)) (add_nonneg (atom0817_nonneg g hg hA hB) (add_nonneg (atom0818_nonneg g hg hA hB) (atom0819_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0820_nonneg g hg hA hB) (atom0821_nonneg g hg hA hB)) (add_nonneg (atom0822_nonneg g hg hA hB) (add_nonneg (atom0823_nonneg g hg hA hB) (atom0824_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0825_nonneg g hg hA hB) (atom0826_nonneg g hg hA hB)) (add_nonneg (atom0827_nonneg g hg hA hB) (add_nonneg (atom0828_nonneg g hg hA hB) (atom0829_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0830_nonneg g hg hA hB) (atom0831_nonneg g hg hA hB)) (add_nonneg (atom0832_nonneg g hg hA hB) (add_nonneg (atom0833_nonneg g hg hA hB) (atom0834_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0835_nonneg g hg hA hB) (atom0836_nonneg g hg hA hB)) (add_nonneg (atom0837_nonneg g hg hA hB) (add_nonneg (atom0838_nonneg g hg hA hB) (atom0839_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0840_nonneg g hg hA hB) (atom0841_nonneg g hg hA hB)) (add_nonneg (atom0842_nonneg g hg hA hB) (add_nonneg (atom0843_nonneg g hg hA hB) (atom0844_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0845_nonneg g hg hA hB) (atom0846_nonneg g hg hA hB)) (add_nonneg (atom0847_nonneg g hg hA hB) (add_nonneg (atom0848_nonneg g hg hA hB) (atom0849_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0850_nonneg g hg hA hB) (atom0851_nonneg g hg hA hB)) (add_nonneg (atom0852_nonneg g hg hA hB) (add_nonneg (atom0853_nonneg g hg hA hB) (atom0854_nonneg g hg hA hB))))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0855_nonneg g hg hA hB) (atom0856_nonneg g hg hA hB)) (add_nonneg (atom0857_nonneg g hg hA hB) (add_nonneg (atom0858_nonneg g hg hA hB) (atom0859_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0860_nonneg g hg hA hB) (atom0861_nonneg g hg hA hB)) (add_nonneg (atom0862_nonneg g hg hA hB) (add_nonneg (atom0863_nonneg g hg hA hB) (atom0864_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0865_nonneg g hg hA hB) (atom0866_nonneg g hg hA hB)) (add_nonneg (atom0867_nonneg g hg hA hB) (add_nonneg (atom0868_nonneg g hg hA hB) (atom0869_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0870_nonneg g hg hA hB) (atom0871_nonneg g hg hA hB)) (add_nonneg (atom0872_nonneg g hg hA hB) (add_nonneg (atom0873_nonneg g hg hA hB) (atom0874_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0875_nonneg g hg hA hB) (atom0876_nonneg g hg hA hB)) (add_nonneg (atom0877_nonneg g hg hA hB) (add_nonneg (atom0878_nonneg g hg hA hB) (atom0879_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0880_nonneg g hg hA hB) (atom0881_nonneg g hg hA hB)) (add_nonneg (atom0882_nonneg g hg hA hB) (add_nonneg (atom0883_nonneg g hg hA hB) (atom0884_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0885_nonneg g hg hA hB) (atom0886_nonneg g hg hA hB)) (add_nonneg (atom0887_nonneg g hg hA hB) (add_nonneg (atom0888_nonneg g hg hA hB) (atom0889_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0890_nonneg g hg hA hB) (atom0891_nonneg g hg hA hB)) (add_nonneg (atom0892_nonneg g hg hA hB) (add_nonneg (atom0893_nonneg g hg hA hB) (atom0894_nonneg g hg hA hB))))))))
+def atom0894Coded : CoefficientMerge.Poly := [(2231, 1)]
+theorem atom0894Coded_decode : atom0894 = SparsePolynomial.decodeCubic 18 atom0894Coded := by decide +kernel
+theorem atom0894Coded_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) (CoefficientMerge.scale (9511338690 : Int) atom0894Coded) := by
+  have h := atom0894_nonneg g hg hA hB
+  rw [SparsePolynomial.eval_scale, atom0894Coded_decode, SparsePolynomial.eval_decodeCubic] at h
+  simpa only [CoefficientMerge.eval_scale] using h
+def block011 : CoefficientMerge.Poly := [(1851, 13013137800), (1852, 9515050920), (1853, 14900266440), (1867, 3202633728), (1868, 10330996320), (1869, 11120842620), (1870, 8447358000), (1871, 10737773370), (1886, 7850979000), (1887, 12484453680), (1888, 9208198920), (1889, 12481979400), (1905, 3495594420), (1906, 4734746820), (1907, 8199759330), (1925, 3354207030), (1943, 3244305150), (2058, 199002240), (2059, 103864320), (2060, 25159680), (2064, 382258800), (2077, 180362880), (2080, 103864320), (2081, 207728640), (2082, 469928592), (2085, 1180247040), (2086, 2293143552), (2087, 3586383360), (2096, 389278080), (2097, 568454400), (2098, 725863680), (2099, 883272960), (2100, 757621440), (2101, 428863920), (2102, 816511200), (2103, 2272055280), (2104, 4061745360), (2105, 6158118240), (2115, 852681600), (2116, 1515283200), (2117, 1675918080), (2118, 1750199040), (2119, 1645188720), (2120, 2642200800), (2121, 3897057840), (2122, 5871678480), (2123, 8109758880), (2134, 1439971200), (2135, 2659495680), (2136, 2848556160), (2137, 2847306480), (2138, 4518209760), (2139, 5198213040), (2140, 7168110480), (2141, 9649000800), (2153, 2330513280), (2154, 3823796160), (2155, 3845127600), (2156, 6208074720), (2157, 7191177840), (2158, 8066673360), (2159, 12681810720), (2172, 3423651840), (2173, 6832572120), (2174, 12177540000), (2175, 12748840200), (2176, 9605408040), (2177, 15345278280), (2191, 2714923008), (2192, 9583020000), (2193, 10709800380), (2194, 8121848400), (2195, 11055343770), (2210, 7705827000), (2211, 12583600560), (2212, 9594135720), (2213, 13657509000), (2229, 3582383220), (2230, 5086811700), (2231, 9511338690)]
+theorem block011_data : block011 = CoefficientMerge.trim (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (13013137800 : Int) atom0815Coded) (CoefficientMerge.scale (9515050920 : Int) atom0816Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (14900266440 : Int) atom0817Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3202633728 : Int) atom0818Coded) (CoefficientMerge.scale (10330996320 : Int) atom0819Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (11120842620 : Int) atom0820Coded) (CoefficientMerge.scale (8447358000 : Int) atom0821Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (10737773370 : Int) atom0822Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (7850979000 : Int) atom0823Coded) (CoefficientMerge.scale (12484453680 : Int) atom0824Coded))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (9208198920 : Int) atom0825Coded) (CoefficientMerge.scale (12481979400 : Int) atom0826Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3495594420 : Int) atom0827Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (4734746820 : Int) atom0828Coded) (CoefficientMerge.scale (8199759330 : Int) atom0829Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (3354207030 : Int) atom0830Coded) (CoefficientMerge.scale (3244305150 : Int) atom0831Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (199002240 : Int) atom0832Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (103864320 : Int) atom0833Coded) (CoefficientMerge.scale (25159680 : Int) atom0834Coded)))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (382258800 : Int) atom0835Coded) (CoefficientMerge.scale (180362880 : Int) atom0836Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (103864320 : Int) atom0837Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (207728640 : Int) atom0838Coded) (CoefficientMerge.scale (469928592 : Int) atom0839Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (1180247040 : Int) atom0840Coded) (CoefficientMerge.scale (2293143552 : Int) atom0841Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3586383360 : Int) atom0842Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (389278080 : Int) atom0843Coded) (CoefficientMerge.scale (568454400 : Int) atom0844Coded))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (725863680 : Int) atom0845Coded) (CoefficientMerge.scale (883272960 : Int) atom0846Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (757621440 : Int) atom0847Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (428863920 : Int) atom0848Coded) (CoefficientMerge.scale (816511200 : Int) atom0849Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (2272055280 : Int) atom0850Coded) (CoefficientMerge.scale (4061745360 : Int) atom0851Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (6158118240 : Int) atom0852Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (852681600 : Int) atom0853Coded) (CoefficientMerge.scale (1515283200 : Int) atom0854Coded))))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (1675918080 : Int) atom0855Coded) (CoefficientMerge.scale (1750199040 : Int) atom0856Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (1645188720 : Int) atom0857Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (2642200800 : Int) atom0858Coded) (CoefficientMerge.scale (3897057840 : Int) atom0859Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (5871678480 : Int) atom0860Coded) (CoefficientMerge.scale (8109758880 : Int) atom0861Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (1439971200 : Int) atom0862Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (2659495680 : Int) atom0863Coded) (CoefficientMerge.scale (2848556160 : Int) atom0864Coded))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (2847306480 : Int) atom0865Coded) (CoefficientMerge.scale (4518209760 : Int) atom0866Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (5198213040 : Int) atom0867Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (7168110480 : Int) atom0868Coded) (CoefficientMerge.scale (9649000800 : Int) atom0869Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (2330513280 : Int) atom0870Coded) (CoefficientMerge.scale (3823796160 : Int) atom0871Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3845127600 : Int) atom0872Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (6208074720 : Int) atom0873Coded) (CoefficientMerge.scale (7191177840 : Int) atom0874Coded)))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (8066673360 : Int) atom0875Coded) (CoefficientMerge.scale (12681810720 : Int) atom0876Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3423651840 : Int) atom0877Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (6832572120 : Int) atom0878Coded) (CoefficientMerge.scale (12177540000 : Int) atom0879Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (12748840200 : Int) atom0880Coded) (CoefficientMerge.scale (9605408040 : Int) atom0881Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (15345278280 : Int) atom0882Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (2714923008 : Int) atom0883Coded) (CoefficientMerge.scale (9583020000 : Int) atom0884Coded))))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (10709800380 : Int) atom0885Coded) (CoefficientMerge.scale (8121848400 : Int) atom0886Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (11055343770 : Int) atom0887Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (7705827000 : Int) atom0888Coded) (CoefficientMerge.scale (12583600560 : Int) atom0889Coded)))) (CoefficientMerge.fastMerge (CoefficientMerge.fastMerge (CoefficientMerge.scale (9594135720 : Int) atom0890Coded) (CoefficientMerge.scale (13657509000 : Int) atom0891Coded)) (CoefficientMerge.fastMerge (CoefficientMerge.scale (3582383220 : Int) atom0892Coded) (CoefficientMerge.fastMerge (CoefficientMerge.scale (5086811700 : Int) atom0893Coded) (CoefficientMerge.scale (9511338690 : Int) atom0894Coded)))))))) := by decide +kernel
+theorem block011_nonneg (g : Fin 18 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ CoefficientMerge.eval (SparsePolynomial.cubeValue (gapValues g) 18) block011 := by
+  rw [block011_data, CoefficientMerge.eval_trim]
+  try simp only [CoefficientMerge.eval_fastMerge]
+  exact (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0815Coded_nonneg g hg hA hB) (atom0816Coded_nonneg g hg hA hB)) (add_nonneg (atom0817Coded_nonneg g hg hA hB) (add_nonneg (atom0818Coded_nonneg g hg hA hB) (atom0819Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0820Coded_nonneg g hg hA hB) (atom0821Coded_nonneg g hg hA hB)) (add_nonneg (atom0822Coded_nonneg g hg hA hB) (add_nonneg (atom0823Coded_nonneg g hg hA hB) (atom0824Coded_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0825Coded_nonneg g hg hA hB) (atom0826Coded_nonneg g hg hA hB)) (add_nonneg (atom0827Coded_nonneg g hg hA hB) (add_nonneg (atom0828Coded_nonneg g hg hA hB) (atom0829Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0830Coded_nonneg g hg hA hB) (atom0831Coded_nonneg g hg hA hB)) (add_nonneg (atom0832Coded_nonneg g hg hA hB) (add_nonneg (atom0833Coded_nonneg g hg hA hB) (atom0834Coded_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0835Coded_nonneg g hg hA hB) (atom0836Coded_nonneg g hg hA hB)) (add_nonneg (atom0837Coded_nonneg g hg hA hB) (add_nonneg (atom0838Coded_nonneg g hg hA hB) (atom0839Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0840Coded_nonneg g hg hA hB) (atom0841Coded_nonneg g hg hA hB)) (add_nonneg (atom0842Coded_nonneg g hg hA hB) (add_nonneg (atom0843Coded_nonneg g hg hA hB) (atom0844Coded_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0845Coded_nonneg g hg hA hB) (atom0846Coded_nonneg g hg hA hB)) (add_nonneg (atom0847Coded_nonneg g hg hA hB) (add_nonneg (atom0848Coded_nonneg g hg hA hB) (atom0849Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0850Coded_nonneg g hg hA hB) (atom0851Coded_nonneg g hg hA hB)) (add_nonneg (atom0852Coded_nonneg g hg hA hB) (add_nonneg (atom0853Coded_nonneg g hg hA hB) (atom0854Coded_nonneg g hg hA hB))))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0855Coded_nonneg g hg hA hB) (atom0856Coded_nonneg g hg hA hB)) (add_nonneg (atom0857Coded_nonneg g hg hA hB) (add_nonneg (atom0858Coded_nonneg g hg hA hB) (atom0859Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0860Coded_nonneg g hg hA hB) (atom0861Coded_nonneg g hg hA hB)) (add_nonneg (atom0862Coded_nonneg g hg hA hB) (add_nonneg (atom0863Coded_nonneg g hg hA hB) (atom0864Coded_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0865Coded_nonneg g hg hA hB) (atom0866Coded_nonneg g hg hA hB)) (add_nonneg (atom0867Coded_nonneg g hg hA hB) (add_nonneg (atom0868Coded_nonneg g hg hA hB) (atom0869Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0870Coded_nonneg g hg hA hB) (atom0871Coded_nonneg g hg hA hB)) (add_nonneg (atom0872Coded_nonneg g hg hA hB) (add_nonneg (atom0873Coded_nonneg g hg hA hB) (atom0874Coded_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0875Coded_nonneg g hg hA hB) (atom0876Coded_nonneg g hg hA hB)) (add_nonneg (atom0877Coded_nonneg g hg hA hB) (add_nonneg (atom0878Coded_nonneg g hg hA hB) (atom0879Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0880Coded_nonneg g hg hA hB) (atom0881Coded_nonneg g hg hA hB)) (add_nonneg (atom0882Coded_nonneg g hg hA hB) (add_nonneg (atom0883Coded_nonneg g hg hA hB) (atom0884Coded_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0885Coded_nonneg g hg hA hB) (atom0886Coded_nonneg g hg hA hB)) (add_nonneg (atom0887Coded_nonneg g hg hA hB) (add_nonneg (atom0888Coded_nonneg g hg hA hB) (atom0889Coded_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0890Coded_nonneg g hg hA hB) (atom0891Coded_nonneg g hg hA hB)) (add_nonneg (atom0892Coded_nonneg g hg hA hB) (add_nonneg (atom0893Coded_nonneg g hg hA hB) (atom0894Coded_nonneg g hg hA hB))))))))
 
 end APPT.Finite18

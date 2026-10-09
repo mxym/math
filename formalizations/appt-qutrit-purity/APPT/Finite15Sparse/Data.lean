@@ -1,4 +1,4 @@
-import APPT.SparsePolynomial
+import APPT.SparsePolynomialCubic
 set_option maxRecDepth 100000
 set_option maxHeartbeats 8000000
 set_option linter.unusedVariables false

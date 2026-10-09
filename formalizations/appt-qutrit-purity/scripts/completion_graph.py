@@ -33,5 +33,6 @@ for D in [9,12,15,18,21,24]:
     result={'modules':closure([f'APPT.Finite{D}Bound'])}
     emit(f'generated-Dimension{D}.json',result)
 emit('generated-UniformBuild.json',{'modules':closure(['APPT.Quantum.LargeMaximum','APPT.Quantum.SpectralNecessity','APPT.Quantum.SpectralMoment'])})
+emit('generated-Probe24.json',{'modules':closure(['APPT.Finite24Sparse.Base04','APPT.Finite24Sparse.Leaf002','APPT.Finite24Sparse.Target'])})
 emit('generated-All.json',{'modules':closure(sorted(graph))})
 print('Checked',len(graph),'local modules')

@@ -1,5 +1,11 @@
 {
   "modules": {
+    "APPT.CoefficientMerge": [
+      "APPT.Core"
+    ],
+    "APPT.CoefficientMergeFast": [
+      "APPT.CoefficientMerge"
+    ],
     "APPT.Core": [],
     "APPT.Finite21": [
       "APPT.Finite21Sparse.Join022",
@@ -10,7 +16,12 @@
       "APPT.FiniteSpectrumGaps"
     ],
     "APPT.Finite21Sparse.Base00": [
-      "APPT.Finite21Sparse.Data"
+      "APPT.Finite21Sparse.det00Term0Product",
+      "APPT.Finite21Sparse.det00Term1Product",
+      "APPT.Finite21Sparse.det00Term2Product",
+      "APPT.Finite21Sparse.det00Term3Product",
+      "APPT.Finite21Sparse.det00Term4Product",
+      "APPT.Finite21Sparse.det00Term5Product"
     ],
     "APPT.Finite21Sparse.Base01": [
       "APPT.Finite21Sparse.Data"
@@ -19,7 +30,12 @@
       "APPT.Finite21Sparse.Data"
     ],
     "APPT.Finite21Sparse.Base03": [
-      "APPT.Finite21Sparse.Data"
+      "APPT.Finite21Sparse.det03Term0Product",
+      "APPT.Finite21Sparse.det03Term1Product",
+      "APPT.Finite21Sparse.det03Term2Product",
+      "APPT.Finite21Sparse.det03Term3Product",
+      "APPT.Finite21Sparse.det03Term4Product",
+      "APPT.Finite21Sparse.det03Term5Product"
     ],
     "APPT.Finite21Sparse.Base04": [
       "APPT.Finite21Sparse.Data"
@@ -34,7 +50,43 @@
       "APPT.Finite21Sparse.Data"
     ],
     "APPT.Finite21Sparse.Data": [
-      "APPT.SparsePolynomial"
+      "APPT.SparsePolynomialCubic"
+    ],
+    "APPT.Finite21Sparse.Det00Pair0": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det00Pair1": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det00Pair2": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det00Pair3": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det00Pair4": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det00Pair5": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair0": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair1": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair2": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair3": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair4": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Det03Pair5": [
+      "APPT.Finite21Sparse.Data"
     ],
     "APPT.Finite21Sparse.Join000": [
       "APPT.Finite21Sparse.Leaf000",
@@ -214,11 +266,236 @@
       "APPT.Finite21Sparse.Data"
     ],
     "APPT.Finite21Sparse.Target": [
+      "APPT.Finite21Sparse.targetProductProduct"
+    ],
+    "APPT.Finite21Sparse.TargetQuadratic": [
       "APPT.Finite21Sparse.Moments"
+    ],
+    "APPT.Finite21Sparse.det00Term0Product": [
+      "APPT.Finite21Sparse.det00Term0Rows00"
+    ],
+    "APPT.Finite21Sparse.det00Term0Rows00": [
+      "APPT.Finite21Sparse.Det00Pair0"
+    ],
+    "APPT.Finite21Sparse.det00Term1Product": [
+      "APPT.Finite21Sparse.det00Term1Rows00",
+      "APPT.Finite21Sparse.det00Term1Rows01",
+      "APPT.Finite21Sparse.det00Term1Rows02",
+      "APPT.Finite21Sparse.det00Term1Rows03",
+      "APPT.Finite21Sparse.det00Term1Rows04"
+    ],
+    "APPT.Finite21Sparse.det00Term1Rows00": [
+      "APPT.Finite21Sparse.Det00Pair1"
+    ],
+    "APPT.Finite21Sparse.det00Term1Rows01": [
+      "APPT.Finite21Sparse.Det00Pair1"
+    ],
+    "APPT.Finite21Sparse.det00Term1Rows02": [
+      "APPT.Finite21Sparse.Det00Pair1"
+    ],
+    "APPT.Finite21Sparse.det00Term1Rows03": [
+      "APPT.Finite21Sparse.Det00Pair1"
+    ],
+    "APPT.Finite21Sparse.det00Term1Rows04": [
+      "APPT.Finite21Sparse.Det00Pair1"
+    ],
+    "APPT.Finite21Sparse.det00Term2Product": [
+      "APPT.Finite21Sparse.det00Term2Rows00",
+      "APPT.Finite21Sparse.det00Term2Rows01",
+      "APPT.Finite21Sparse.det00Term2Rows02",
+      "APPT.Finite21Sparse.det00Term2Rows03"
+    ],
+    "APPT.Finite21Sparse.det00Term2Rows00": [
+      "APPT.Finite21Sparse.Det00Pair2"
+    ],
+    "APPT.Finite21Sparse.det00Term2Rows01": [
+      "APPT.Finite21Sparse.Det00Pair2"
+    ],
+    "APPT.Finite21Sparse.det00Term2Rows02": [
+      "APPT.Finite21Sparse.Det00Pair2"
+    ],
+    "APPT.Finite21Sparse.det00Term2Rows03": [
+      "APPT.Finite21Sparse.Det00Pair2"
+    ],
+    "APPT.Finite21Sparse.det00Term3Product": [
+      "APPT.Finite21Sparse.det00Term3Rows00",
+      "APPT.Finite21Sparse.det00Term3Rows01",
+      "APPT.Finite21Sparse.det00Term3Rows02",
+      "APPT.Finite21Sparse.det00Term3Rows03"
+    ],
+    "APPT.Finite21Sparse.det00Term3Rows00": [
+      "APPT.Finite21Sparse.Det00Pair3"
+    ],
+    "APPT.Finite21Sparse.det00Term3Rows01": [
+      "APPT.Finite21Sparse.Det00Pair3"
+    ],
+    "APPT.Finite21Sparse.det00Term3Rows02": [
+      "APPT.Finite21Sparse.Det00Pair3"
+    ],
+    "APPT.Finite21Sparse.det00Term3Rows03": [
+      "APPT.Finite21Sparse.Det00Pair3"
+    ],
+    "APPT.Finite21Sparse.det00Term4Product": [
+      "APPT.Finite21Sparse.det00Term4Rows00",
+      "APPT.Finite21Sparse.det00Term4Rows01",
+      "APPT.Finite21Sparse.det00Term4Rows02",
+      "APPT.Finite21Sparse.det00Term4Rows03",
+      "APPT.Finite21Sparse.det00Term4Rows04"
+    ],
+    "APPT.Finite21Sparse.det00Term4Rows00": [
+      "APPT.Finite21Sparse.Det00Pair4"
+    ],
+    "APPT.Finite21Sparse.det00Term4Rows01": [
+      "APPT.Finite21Sparse.Det00Pair4"
+    ],
+    "APPT.Finite21Sparse.det00Term4Rows02": [
+      "APPT.Finite21Sparse.Det00Pair4"
+    ],
+    "APPT.Finite21Sparse.det00Term4Rows03": [
+      "APPT.Finite21Sparse.Det00Pair4"
+    ],
+    "APPT.Finite21Sparse.det00Term4Rows04": [
+      "APPT.Finite21Sparse.Det00Pair4"
+    ],
+    "APPT.Finite21Sparse.det00Term5Product": [
+      "APPT.Finite21Sparse.det00Term5Rows00"
+    ],
+    "APPT.Finite21Sparse.det00Term5Rows00": [
+      "APPT.Finite21Sparse.Det00Pair5"
+    ],
+    "APPT.Finite21Sparse.det03Term0Product": [
+      "APPT.Finite21Sparse.det03Term0Rows00"
+    ],
+    "APPT.Finite21Sparse.det03Term0Rows00": [
+      "APPT.Finite21Sparse.Det03Pair0"
+    ],
+    "APPT.Finite21Sparse.det03Term1Product": [
+      "APPT.Finite21Sparse.det03Term1Rows00",
+      "APPT.Finite21Sparse.det03Term1Rows01",
+      "APPT.Finite21Sparse.det03Term1Rows02",
+      "APPT.Finite21Sparse.det03Term1Rows03",
+      "APPT.Finite21Sparse.det03Term1Rows04"
+    ],
+    "APPT.Finite21Sparse.det03Term1Rows00": [
+      "APPT.Finite21Sparse.Det03Pair1"
+    ],
+    "APPT.Finite21Sparse.det03Term1Rows01": [
+      "APPT.Finite21Sparse.Det03Pair1"
+    ],
+    "APPT.Finite21Sparse.det03Term1Rows02": [
+      "APPT.Finite21Sparse.Det03Pair1"
+    ],
+    "APPT.Finite21Sparse.det03Term1Rows03": [
+      "APPT.Finite21Sparse.Det03Pair1"
+    ],
+    "APPT.Finite21Sparse.det03Term1Rows04": [
+      "APPT.Finite21Sparse.Det03Pair1"
+    ],
+    "APPT.Finite21Sparse.det03Term2Product": [
+      "APPT.Finite21Sparse.det03Term2Rows00",
+      "APPT.Finite21Sparse.det03Term2Rows01",
+      "APPT.Finite21Sparse.det03Term2Rows02",
+      "APPT.Finite21Sparse.det03Term2Rows03",
+      "APPT.Finite21Sparse.det03Term2Rows04"
+    ],
+    "APPT.Finite21Sparse.det03Term2Rows00": [
+      "APPT.Finite21Sparse.Det03Pair2"
+    ],
+    "APPT.Finite21Sparse.det03Term2Rows01": [
+      "APPT.Finite21Sparse.Det03Pair2"
+    ],
+    "APPT.Finite21Sparse.det03Term2Rows02": [
+      "APPT.Finite21Sparse.Det03Pair2"
+    ],
+    "APPT.Finite21Sparse.det03Term2Rows03": [
+      "APPT.Finite21Sparse.Det03Pair2"
+    ],
+    "APPT.Finite21Sparse.det03Term2Rows04": [
+      "APPT.Finite21Sparse.Det03Pair2"
+    ],
+    "APPT.Finite21Sparse.det03Term3Product": [
+      "APPT.Finite21Sparse.det03Term3Rows00",
+      "APPT.Finite21Sparse.det03Term3Rows01",
+      "APPT.Finite21Sparse.det03Term3Rows02",
+      "APPT.Finite21Sparse.det03Term3Rows03",
+      "APPT.Finite21Sparse.det03Term3Rows04"
+    ],
+    "APPT.Finite21Sparse.det03Term3Rows00": [
+      "APPT.Finite21Sparse.Det03Pair3"
+    ],
+    "APPT.Finite21Sparse.det03Term3Rows01": [
+      "APPT.Finite21Sparse.Det03Pair3"
+    ],
+    "APPT.Finite21Sparse.det03Term3Rows02": [
+      "APPT.Finite21Sparse.Det03Pair3"
+    ],
+    "APPT.Finite21Sparse.det03Term3Rows03": [
+      "APPT.Finite21Sparse.Det03Pair3"
+    ],
+    "APPT.Finite21Sparse.det03Term3Rows04": [
+      "APPT.Finite21Sparse.Det03Pair3"
+    ],
+    "APPT.Finite21Sparse.det03Term4Product": [
+      "APPT.Finite21Sparse.det03Term4Rows00",
+      "APPT.Finite21Sparse.det03Term4Rows01",
+      "APPT.Finite21Sparse.det03Term4Rows02",
+      "APPT.Finite21Sparse.det03Term4Rows03",
+      "APPT.Finite21Sparse.det03Term4Rows04"
+    ],
+    "APPT.Finite21Sparse.det03Term4Rows00": [
+      "APPT.Finite21Sparse.Det03Pair4"
+    ],
+    "APPT.Finite21Sparse.det03Term4Rows01": [
+      "APPT.Finite21Sparse.Det03Pair4"
+    ],
+    "APPT.Finite21Sparse.det03Term4Rows02": [
+      "APPT.Finite21Sparse.Det03Pair4"
+    ],
+    "APPT.Finite21Sparse.det03Term4Rows03": [
+      "APPT.Finite21Sparse.Det03Pair4"
+    ],
+    "APPT.Finite21Sparse.det03Term4Rows04": [
+      "APPT.Finite21Sparse.Det03Pair4"
+    ],
+    "APPT.Finite21Sparse.det03Term5Product": [
+      "APPT.Finite21Sparse.det03Term5Rows00"
+    ],
+    "APPT.Finite21Sparse.det03Term5Rows00": [
+      "APPT.Finite21Sparse.Det03Pair5"
+    ],
+    "APPT.Finite21Sparse.targetProductProduct": [
+      "APPT.Finite21Sparse.targetProductRows00",
+      "APPT.Finite21Sparse.targetProductRows01",
+      "APPT.Finite21Sparse.targetProductRows02",
+      "APPT.Finite21Sparse.targetProductRows03",
+      "APPT.Finite21Sparse.targetProductRows04",
+      "APPT.Finite21Sparse.targetProductRows05"
+    ],
+    "APPT.Finite21Sparse.targetProductRows00": [
+      "APPT.Finite21Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite21Sparse.targetProductRows01": [
+      "APPT.Finite21Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite21Sparse.targetProductRows02": [
+      "APPT.Finite21Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite21Sparse.targetProductRows03": [
+      "APPT.Finite21Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite21Sparse.targetProductRows04": [
+      "APPT.Finite21Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite21Sparse.targetProductRows05": [
+      "APPT.Finite21Sparse.TargetQuadratic"
     ],
     "APPT.FiniteSpectrumGaps": [],
     "APPT.SparsePolynomial": [
       "APPT.Core"
+    ],
+    "APPT.SparsePolynomialCubic": [
+      "APPT.CoefficientMergeFast",
+      "APPT.SparsePolynomial"
     ]
   }
 }
