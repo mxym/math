@@ -77,6 +77,7 @@ theorem ordered_large_of_uniform (hUniform : UniformCertificateBound)
       omega
     · apply hlam
       simp [Function.comp_def, outerIndex, middleIndex, Fin.le_iff_val_le_val]
+      omega
   have hs := split_outer_middle lam
   have hss := split_outer_middle (fun i => (lam i)^2)
   have hp := arbitrary_middle_of_uniform hUniform hM
