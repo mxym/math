@@ -1,0 +1,40 @@
+name: APPT qutrit purity - modular Lean proof checks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity-lean/**'
+      - '.github/workflows/appt-qutrit-lean-progress.yml'
+  pull_request:
+    paths:
+      - 'formalizations/appt-qutrit-purity-lean/**'
+      - '.github/workflows/appt-qutrit-lean-progress.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  core-modules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and Mathlib cache
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity-lean/lean
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Compile independently closed base and bridge-free modules
+        shell: bash
+        working-directory: formalizations/appt-qutrit-purity-lean/lean
+        run: |
+          set -euo pipefail
+          lake build APPT.Core APPT.Compression APPT.UniformDefs APPT.UniformSpectrumGaps APPT.SpectrumReindex
+      - name: Forbid untrusted shortcuts in new modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '\b(sorry|admit|native_decide|axiom)\b' formalizations/appt-qutrit-purity-lean/lean/APPT/{UniformDefs,UniformSpectrumGaps,SpectrumReindex}.lean
