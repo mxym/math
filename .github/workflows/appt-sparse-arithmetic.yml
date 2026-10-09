@@ -39,7 +39,8 @@ jobs:
           set -e
           echo "$code" > sparse-audit-logs/negative-coefficient.exit
           test "$code" -eq 1
-          grep -F 'Tactic `decide` failed' sparse-audit-logs/negative-coefficient.log
+          grep -F 'Tactic `decide` proved that the proposition' sparse-audit-logs/negative-coefficient.log
+          grep -F 'is false' sparse-audit-logs/negative-coefficient.log
           cp sparse-replayed-*.txt sparse-audit-logs/
           sha256sum APPT/SparsePolynomial.lean Verification/ReplaySupport.lean SparseArithmeticAudit.lean RejectSparseCoefficient.lean lean-toolchain lake-manifest.json > sparse-audit-logs/SHA256SUMS
           echo SPARSE_ARITHMETIC_AUDIT_PASS
