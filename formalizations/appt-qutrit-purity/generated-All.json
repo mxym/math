@@ -1,9 +1,7 @@
 {
-  "name": "All",
-  "scope": "actual-state maximum n >= 9, all-n attainment; small-state upper bounds not yet exported",
   "modules": {
     "APPT": [
-      "APPT.Quantum.LargeMaximum"
+      "APPT.Quantum.Maximum"
     ],
     "APPT.CoefficientMerge": [
       "APPT.Core"
@@ -15,13 +13,946 @@
       "APPT.Core"
     ],
     "APPT.Core": [],
+    "APPT.Finite12": [
+      "APPT.Finite12Sparse.Join003",
+      "APPT.Finite12Sparse.Target"
+    ],
+    "APPT.Finite12Bound": [
+      "APPT.Finite12",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite12Sparse.Base00": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base01": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base02": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base03": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base04": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base05": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base06": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Base07": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite12Sparse.Join000": [
+      "APPT.Finite12Sparse.Leaf000",
+      "APPT.Finite12Sparse.Leaf001"
+    ],
+    "APPT.Finite12Sparse.Join001": [
+      "APPT.Finite12Sparse.Leaf002",
+      "APPT.Finite12Sparse.Leaf003"
+    ],
+    "APPT.Finite12Sparse.Join002": [
+      "APPT.Finite12Sparse.Join000",
+      "APPT.Finite12Sparse.Join001"
+    ],
+    "APPT.Finite12Sparse.Join003": [
+      "APPT.Finite12Sparse.Join002",
+      "APPT.Finite12Sparse.Leaf004"
+    ],
+    "APPT.Finite12Sparse.Leaf000": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Leaf001": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Leaf002": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Leaf003": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Leaf004": [
+      "APPT.Finite12Sparse.Base00",
+      "APPT.Finite12Sparse.Base01",
+      "APPT.Finite12Sparse.Base02",
+      "APPT.Finite12Sparse.Base03",
+      "APPT.Finite12Sparse.Base04",
+      "APPT.Finite12Sparse.Base05",
+      "APPT.Finite12Sparse.Base06",
+      "APPT.Finite12Sparse.Base07",
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Moments": [
+      "APPT.Finite12Sparse.Data"
+    ],
+    "APPT.Finite12Sparse.Target": [
+      "APPT.Finite12Sparse.Moments"
+    ],
+    "APPT.Finite15": [
+      "APPT.Finite15Sparse.Join007",
+      "APPT.Finite15Sparse.Target"
+    ],
+    "APPT.Finite15Bound": [
+      "APPT.Finite15",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite15Sparse.Base00": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base01": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base02": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base03": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base04": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base05": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base06": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base07": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Base08": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite15Sparse.Join000": [
+      "APPT.Finite15Sparse.Leaf000",
+      "APPT.Finite15Sparse.Leaf001"
+    ],
+    "APPT.Finite15Sparse.Join001": [
+      "APPT.Finite15Sparse.Leaf002",
+      "APPT.Finite15Sparse.Leaf003"
+    ],
+    "APPT.Finite15Sparse.Join002": [
+      "APPT.Finite15Sparse.Leaf004",
+      "APPT.Finite15Sparse.Leaf005"
+    ],
+    "APPT.Finite15Sparse.Join003": [
+      "APPT.Finite15Sparse.Leaf006",
+      "APPT.Finite15Sparse.Leaf007"
+    ],
+    "APPT.Finite15Sparse.Join004": [
+      "APPT.Finite15Sparse.Join000",
+      "APPT.Finite15Sparse.Join001"
+    ],
+    "APPT.Finite15Sparse.Join005": [
+      "APPT.Finite15Sparse.Join002",
+      "APPT.Finite15Sparse.Join003"
+    ],
+    "APPT.Finite15Sparse.Join006": [
+      "APPT.Finite15Sparse.Join004",
+      "APPT.Finite15Sparse.Join005"
+    ],
+    "APPT.Finite15Sparse.Join007": [
+      "APPT.Finite15Sparse.Join006",
+      "APPT.Finite15Sparse.Leaf008"
+    ],
+    "APPT.Finite15Sparse.Leaf000": [
+      "APPT.Finite15Sparse.Base00",
+      "APPT.Finite15Sparse.Base01",
+      "APPT.Finite15Sparse.Base02",
+      "APPT.Finite15Sparse.Base03",
+      "APPT.Finite15Sparse.Base04",
+      "APPT.Finite15Sparse.Base05",
+      "APPT.Finite15Sparse.Base06",
+      "APPT.Finite15Sparse.Base07",
+      "APPT.Finite15Sparse.Base08",
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf001": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf002": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf003": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf004": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf005": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf006": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf007": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Leaf008": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Moments": [
+      "APPT.Finite15Sparse.Data"
+    ],
+    "APPT.Finite15Sparse.Target": [
+      "APPT.Finite15Sparse.Moments"
+    ],
+    "APPT.Finite18": [
+      "APPT.Finite18Sparse.Join014",
+      "APPT.Finite18Sparse.Target"
+    ],
+    "APPT.Finite18Bound": [
+      "APPT.Finite18",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite18Sparse.Base00": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base01": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base02": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base03": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base04": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base05": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base06": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base07": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Base08": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite18Sparse.Join000": [
+      "APPT.Finite18Sparse.Leaf000",
+      "APPT.Finite18Sparse.Leaf001"
+    ],
+    "APPT.Finite18Sparse.Join001": [
+      "APPT.Finite18Sparse.Leaf002",
+      "APPT.Finite18Sparse.Leaf003"
+    ],
+    "APPT.Finite18Sparse.Join002": [
+      "APPT.Finite18Sparse.Leaf004",
+      "APPT.Finite18Sparse.Leaf005"
+    ],
+    "APPT.Finite18Sparse.Join003": [
+      "APPT.Finite18Sparse.Leaf006",
+      "APPT.Finite18Sparse.Leaf007"
+    ],
+    "APPT.Finite18Sparse.Join004": [
+      "APPT.Finite18Sparse.Leaf008",
+      "APPT.Finite18Sparse.Leaf009"
+    ],
+    "APPT.Finite18Sparse.Join005": [
+      "APPT.Finite18Sparse.Leaf010",
+      "APPT.Finite18Sparse.Leaf011"
+    ],
+    "APPT.Finite18Sparse.Join006": [
+      "APPT.Finite18Sparse.Leaf012",
+      "APPT.Finite18Sparse.Leaf013"
+    ],
+    "APPT.Finite18Sparse.Join007": [
+      "APPT.Finite18Sparse.Leaf014",
+      "APPT.Finite18Sparse.Leaf015"
+    ],
+    "APPT.Finite18Sparse.Join008": [
+      "APPT.Finite18Sparse.Join000",
+      "APPT.Finite18Sparse.Join001"
+    ],
+    "APPT.Finite18Sparse.Join009": [
+      "APPT.Finite18Sparse.Join002",
+      "APPT.Finite18Sparse.Join003"
+    ],
+    "APPT.Finite18Sparse.Join010": [
+      "APPT.Finite18Sparse.Join004",
+      "APPT.Finite18Sparse.Join005"
+    ],
+    "APPT.Finite18Sparse.Join011": [
+      "APPT.Finite18Sparse.Join006",
+      "APPT.Finite18Sparse.Join007"
+    ],
+    "APPT.Finite18Sparse.Join012": [
+      "APPT.Finite18Sparse.Join008",
+      "APPT.Finite18Sparse.Join009"
+    ],
+    "APPT.Finite18Sparse.Join013": [
+      "APPT.Finite18Sparse.Join010",
+      "APPT.Finite18Sparse.Join011"
+    ],
+    "APPT.Finite18Sparse.Join014": [
+      "APPT.Finite18Sparse.Join012",
+      "APPT.Finite18Sparse.Join013"
+    ],
+    "APPT.Finite18Sparse.Leaf000": [
+      "APPT.Finite18Sparse.Base00",
+      "APPT.Finite18Sparse.Base01",
+      "APPT.Finite18Sparse.Base02",
+      "APPT.Finite18Sparse.Base03",
+      "APPT.Finite18Sparse.Base04",
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf001": [
+      "APPT.Finite18Sparse.Base05",
+      "APPT.Finite18Sparse.Base06",
+      "APPT.Finite18Sparse.Base07",
+      "APPT.Finite18Sparse.Base08",
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf002": [
+      "APPT.Finite18Sparse.Base08",
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf003": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf004": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf005": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf006": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf007": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf008": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf009": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf010": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf011": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf012": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf013": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf014": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Leaf015": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Moments": [
+      "APPT.Finite18Sparse.Data"
+    ],
+    "APPT.Finite18Sparse.Target": [
+      "APPT.Finite18Sparse.Moments"
+    ],
+    "APPT.Finite21": [
+      "APPT.Finite21Sparse.Join022",
+      "APPT.Finite21Sparse.Target"
+    ],
+    "APPT.Finite21Bound": [
+      "APPT.Finite21",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite21Sparse.Base00": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base01": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base02": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base03": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base04": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base05": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base06": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Base07": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite21Sparse.Join000": [
+      "APPT.Finite21Sparse.Leaf000",
+      "APPT.Finite21Sparse.Leaf001"
+    ],
+    "APPT.Finite21Sparse.Join001": [
+      "APPT.Finite21Sparse.Leaf002",
+      "APPT.Finite21Sparse.Leaf003"
+    ],
+    "APPT.Finite21Sparse.Join002": [
+      "APPT.Finite21Sparse.Leaf004",
+      "APPT.Finite21Sparse.Leaf005"
+    ],
+    "APPT.Finite21Sparse.Join003": [
+      "APPT.Finite21Sparse.Leaf006",
+      "APPT.Finite21Sparse.Leaf007"
+    ],
+    "APPT.Finite21Sparse.Join004": [
+      "APPT.Finite21Sparse.Leaf008",
+      "APPT.Finite21Sparse.Leaf009"
+    ],
+    "APPT.Finite21Sparse.Join005": [
+      "APPT.Finite21Sparse.Leaf010",
+      "APPT.Finite21Sparse.Leaf011"
+    ],
+    "APPT.Finite21Sparse.Join006": [
+      "APPT.Finite21Sparse.Leaf012",
+      "APPT.Finite21Sparse.Leaf013"
+    ],
+    "APPT.Finite21Sparse.Join007": [
+      "APPT.Finite21Sparse.Leaf014",
+      "APPT.Finite21Sparse.Leaf015"
+    ],
+    "APPT.Finite21Sparse.Join008": [
+      "APPT.Finite21Sparse.Leaf016",
+      "APPT.Finite21Sparse.Leaf017"
+    ],
+    "APPT.Finite21Sparse.Join009": [
+      "APPT.Finite21Sparse.Leaf018",
+      "APPT.Finite21Sparse.Leaf019"
+    ],
+    "APPT.Finite21Sparse.Join010": [
+      "APPT.Finite21Sparse.Leaf020",
+      "APPT.Finite21Sparse.Leaf021"
+    ],
+    "APPT.Finite21Sparse.Join011": [
+      "APPT.Finite21Sparse.Leaf022",
+      "APPT.Finite21Sparse.Leaf023"
+    ],
+    "APPT.Finite21Sparse.Join012": [
+      "APPT.Finite21Sparse.Join000",
+      "APPT.Finite21Sparse.Join001"
+    ],
+    "APPT.Finite21Sparse.Join013": [
+      "APPT.Finite21Sparse.Join002",
+      "APPT.Finite21Sparse.Join003"
+    ],
+    "APPT.Finite21Sparse.Join014": [
+      "APPT.Finite21Sparse.Join004",
+      "APPT.Finite21Sparse.Join005"
+    ],
+    "APPT.Finite21Sparse.Join015": [
+      "APPT.Finite21Sparse.Join006",
+      "APPT.Finite21Sparse.Join007"
+    ],
+    "APPT.Finite21Sparse.Join016": [
+      "APPT.Finite21Sparse.Join008",
+      "APPT.Finite21Sparse.Join009"
+    ],
+    "APPT.Finite21Sparse.Join017": [
+      "APPT.Finite21Sparse.Join010",
+      "APPT.Finite21Sparse.Join011"
+    ],
+    "APPT.Finite21Sparse.Join018": [
+      "APPT.Finite21Sparse.Join012",
+      "APPT.Finite21Sparse.Join013"
+    ],
+    "APPT.Finite21Sparse.Join019": [
+      "APPT.Finite21Sparse.Join014",
+      "APPT.Finite21Sparse.Join015"
+    ],
+    "APPT.Finite21Sparse.Join020": [
+      "APPT.Finite21Sparse.Join016",
+      "APPT.Finite21Sparse.Join017"
+    ],
+    "APPT.Finite21Sparse.Join021": [
+      "APPT.Finite21Sparse.Join018",
+      "APPT.Finite21Sparse.Join019"
+    ],
+    "APPT.Finite21Sparse.Join022": [
+      "APPT.Finite21Sparse.Join020",
+      "APPT.Finite21Sparse.Join021"
+    ],
+    "APPT.Finite21Sparse.Leaf000": [
+      "APPT.Finite21Sparse.Base00",
+      "APPT.Finite21Sparse.Base01",
+      "APPT.Finite21Sparse.Base02",
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf001": [
+      "APPT.Finite21Sparse.Base03",
+      "APPT.Finite21Sparse.Base04",
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf002": [
+      "APPT.Finite21Sparse.Base04",
+      "APPT.Finite21Sparse.Base05",
+      "APPT.Finite21Sparse.Base06",
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf003": [
+      "APPT.Finite21Sparse.Base06",
+      "APPT.Finite21Sparse.Base07",
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf004": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf005": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf006": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf007": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf008": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf009": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf010": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf011": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf012": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf013": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf014": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf015": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf016": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf017": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf018": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf019": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf020": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf021": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf022": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Leaf023": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Moments": [
+      "APPT.Finite21Sparse.Data"
+    ],
+    "APPT.Finite21Sparse.Target": [
+      "APPT.Finite21Sparse.Moments"
+    ],
+    "APPT.Finite24": [
+      "APPT.Finite24Sparse.Join033",
+      "APPT.Finite24Sparse.Target"
+    ],
+    "APPT.Finite24Bound": [
+      "APPT.Finite24",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite24Sparse.Base00": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base01": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base02": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base03": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base04": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base05": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base06": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base07": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Base08": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite24Sparse.Join000": [
+      "APPT.Finite24Sparse.Leaf000",
+      "APPT.Finite24Sparse.Leaf001"
+    ],
+    "APPT.Finite24Sparse.Join001": [
+      "APPT.Finite24Sparse.Leaf002",
+      "APPT.Finite24Sparse.Leaf003"
+    ],
+    "APPT.Finite24Sparse.Join002": [
+      "APPT.Finite24Sparse.Leaf004",
+      "APPT.Finite24Sparse.Leaf005"
+    ],
+    "APPT.Finite24Sparse.Join003": [
+      "APPT.Finite24Sparse.Leaf006",
+      "APPT.Finite24Sparse.Leaf007"
+    ],
+    "APPT.Finite24Sparse.Join004": [
+      "APPT.Finite24Sparse.Leaf008",
+      "APPT.Finite24Sparse.Leaf009"
+    ],
+    "APPT.Finite24Sparse.Join005": [
+      "APPT.Finite24Sparse.Leaf010",
+      "APPT.Finite24Sparse.Leaf011"
+    ],
+    "APPT.Finite24Sparse.Join006": [
+      "APPT.Finite24Sparse.Leaf012",
+      "APPT.Finite24Sparse.Leaf013"
+    ],
+    "APPT.Finite24Sparse.Join007": [
+      "APPT.Finite24Sparse.Leaf014",
+      "APPT.Finite24Sparse.Leaf015"
+    ],
+    "APPT.Finite24Sparse.Join008": [
+      "APPT.Finite24Sparse.Leaf016",
+      "APPT.Finite24Sparse.Leaf017"
+    ],
+    "APPT.Finite24Sparse.Join009": [
+      "APPT.Finite24Sparse.Leaf018",
+      "APPT.Finite24Sparse.Leaf019"
+    ],
+    "APPT.Finite24Sparse.Join010": [
+      "APPT.Finite24Sparse.Leaf020",
+      "APPT.Finite24Sparse.Leaf021"
+    ],
+    "APPT.Finite24Sparse.Join011": [
+      "APPT.Finite24Sparse.Leaf022",
+      "APPT.Finite24Sparse.Leaf023"
+    ],
+    "APPT.Finite24Sparse.Join012": [
+      "APPT.Finite24Sparse.Leaf024",
+      "APPT.Finite24Sparse.Leaf025"
+    ],
+    "APPT.Finite24Sparse.Join013": [
+      "APPT.Finite24Sparse.Leaf026",
+      "APPT.Finite24Sparse.Leaf027"
+    ],
+    "APPT.Finite24Sparse.Join014": [
+      "APPT.Finite24Sparse.Leaf028",
+      "APPT.Finite24Sparse.Leaf029"
+    ],
+    "APPT.Finite24Sparse.Join015": [
+      "APPT.Finite24Sparse.Leaf030",
+      "APPT.Finite24Sparse.Leaf031"
+    ],
+    "APPT.Finite24Sparse.Join016": [
+      "APPT.Finite24Sparse.Leaf032",
+      "APPT.Finite24Sparse.Leaf033"
+    ],
+    "APPT.Finite24Sparse.Join017": [
+      "APPT.Finite24Sparse.Join000",
+      "APPT.Finite24Sparse.Join001"
+    ],
+    "APPT.Finite24Sparse.Join018": [
+      "APPT.Finite24Sparse.Join002",
+      "APPT.Finite24Sparse.Join003"
+    ],
+    "APPT.Finite24Sparse.Join019": [
+      "APPT.Finite24Sparse.Join004",
+      "APPT.Finite24Sparse.Join005"
+    ],
+    "APPT.Finite24Sparse.Join020": [
+      "APPT.Finite24Sparse.Join006",
+      "APPT.Finite24Sparse.Join007"
+    ],
+    "APPT.Finite24Sparse.Join021": [
+      "APPT.Finite24Sparse.Join008",
+      "APPT.Finite24Sparse.Join009"
+    ],
+    "APPT.Finite24Sparse.Join022": [
+      "APPT.Finite24Sparse.Join010",
+      "APPT.Finite24Sparse.Join011"
+    ],
+    "APPT.Finite24Sparse.Join023": [
+      "APPT.Finite24Sparse.Join012",
+      "APPT.Finite24Sparse.Join013"
+    ],
+    "APPT.Finite24Sparse.Join024": [
+      "APPT.Finite24Sparse.Join014",
+      "APPT.Finite24Sparse.Join015"
+    ],
+    "APPT.Finite24Sparse.Join025": [
+      "APPT.Finite24Sparse.Join016",
+      "APPT.Finite24Sparse.Leaf034"
+    ],
+    "APPT.Finite24Sparse.Join026": [
+      "APPT.Finite24Sparse.Join017",
+      "APPT.Finite24Sparse.Join018"
+    ],
+    "APPT.Finite24Sparse.Join027": [
+      "APPT.Finite24Sparse.Join019",
+      "APPT.Finite24Sparse.Join020"
+    ],
+    "APPT.Finite24Sparse.Join028": [
+      "APPT.Finite24Sparse.Join021",
+      "APPT.Finite24Sparse.Join022"
+    ],
+    "APPT.Finite24Sparse.Join029": [
+      "APPT.Finite24Sparse.Join023",
+      "APPT.Finite24Sparse.Join024"
+    ],
+    "APPT.Finite24Sparse.Join030": [
+      "APPT.Finite24Sparse.Join026",
+      "APPT.Finite24Sparse.Join027"
+    ],
+    "APPT.Finite24Sparse.Join031": [
+      "APPT.Finite24Sparse.Join028",
+      "APPT.Finite24Sparse.Join029"
+    ],
+    "APPT.Finite24Sparse.Join032": [
+      "APPT.Finite24Sparse.Join030",
+      "APPT.Finite24Sparse.Join031"
+    ],
+    "APPT.Finite24Sparse.Join033": [
+      "APPT.Finite24Sparse.Join025",
+      "APPT.Finite24Sparse.Join032"
+    ],
+    "APPT.Finite24Sparse.Leaf000": [
+      "APPT.Finite24Sparse.Base00",
+      "APPT.Finite24Sparse.Base01",
+      "APPT.Finite24Sparse.Base02",
+      "APPT.Finite24Sparse.Base03",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf001": [
+      "APPT.Finite24Sparse.Base04",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf002": [
+      "APPT.Finite24Sparse.Base05",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf003": [
+      "APPT.Finite24Sparse.Base05",
+      "APPT.Finite24Sparse.Base06",
+      "APPT.Finite24Sparse.Base07",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf004": [
+      "APPT.Finite24Sparse.Base07",
+      "APPT.Finite24Sparse.Base08",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf005": [
+      "APPT.Finite24Sparse.Base08",
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf006": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf007": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf008": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf009": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf010": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf011": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf012": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf013": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf014": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf015": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf016": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf017": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf018": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf019": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf020": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf021": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf022": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf023": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf024": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf025": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf026": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf027": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf028": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf029": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf030": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf031": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf032": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf033": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Leaf034": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Moments": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Target": [
+      "APPT.Finite24Sparse.Moments"
+    ],
+    "APPT.Finite9": [
+      "APPT.Finite9Sparse.Join001",
+      "APPT.Finite9Sparse.Target"
+    ],
+    "APPT.Finite9Bound": [
+      "APPT.Finite9",
+      "APPT.FiniteSpectrumGaps"
+    ],
+    "APPT.Finite9Sparse.Base00": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base01": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base02": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base03": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base04": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base05": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base06": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Base07": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Data": [
+      "APPT.SparsePolynomial"
+    ],
+    "APPT.Finite9Sparse.Join000": [
+      "APPT.Finite9Sparse.Leaf000",
+      "APPT.Finite9Sparse.Leaf001"
+    ],
+    "APPT.Finite9Sparse.Join001": [
+      "APPT.Finite9Sparse.Join000",
+      "APPT.Finite9Sparse.Leaf002"
+    ],
+    "APPT.Finite9Sparse.Leaf000": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Leaf001": [
+      "APPT.Finite9Sparse.Base00",
+      "APPT.Finite9Sparse.Base01",
+      "APPT.Finite9Sparse.Base02",
+      "APPT.Finite9Sparse.Base03",
+      "APPT.Finite9Sparse.Base04",
+      "APPT.Finite9Sparse.Base05",
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Leaf002": [
+      "APPT.Finite9Sparse.Base06",
+      "APPT.Finite9Sparse.Base07",
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Moments": [
+      "APPT.Finite9Sparse.Data"
+    ],
+    "APPT.Finite9Sparse.Target": [
+      "APPT.Finite9Sparse.Moments"
+    ],
+    "APPT.FiniteSpectrumGaps": [],
     "APPT.OrderedSpectrum": [
-      "APPT.UniformBridge",
-      "APPT.SpectrumReindex"
+      "APPT.SpectrumReindex",
+      "APPT.UniformBridge"
     ],
     "APPT.Quantum.Attainment": [
-      "APPT.Quantum.ShortAttainment",
-      "APPT.Quantum.LongAttainment"
+      "APPT.Quantum.LongAttainment",
+      "APPT.Quantum.ShortAttainment"
     ],
     "APPT.Quantum.Basic": [
       "APPT.Core"
@@ -36,20 +967,25 @@
       "APPT.Quantum.Permutation"
     ],
     "APPT.Quantum.CornerNecessity": [
-      "APPT.Quantum.ExtendedConjugate",
       "APPT.Quantum.CornerHadamard",
+      "APPT.Quantum.ExtendedConjugate",
       "APPT.Quantum.RealPSD"
     ],
     "APPT.Quantum.ExtendedConjugate": [
       "APPT.Quantum.UnitaryExtension"
     ],
     "APPT.Quantum.LargeMaximum": [
-      "APPT.Quantum.SpectralMoments",
-      "APPT.Quantum.Attainment"
+      "APPT.Quantum.Attainment",
+      "APPT.Quantum.SpectralMoments"
     ],
     "APPT.Quantum.LongAttainment": [
       "APPT.Quantum.Contractions",
       "APPT.Quantum.Orbit"
+    ],
+    "APPT.Quantum.Maximum": [
+      "APPT.Quantum.LargeMaximum",
+      "APPT.Quantum.SmallMaximum",
+      "APPT.Quantum.SpectralNecessity"
     ],
     "APPT.Quantum.Orbit": [
       "APPT.Quantum.Basic"
@@ -58,15 +994,15 @@
       "APPT.Quantum.Orbit"
     ],
     "APPT.Quantum.PureGram": [
-      "APPT.Quantum.RectangularContraction",
-      "APPT.Quantum.Contractions"
+      "APPT.Quantum.Contractions",
+      "APPT.Quantum.RectangularContraction"
     ],
     "APPT.Quantum.PureOrbit": [
       "APPT.Quantum.PureProjector"
     ],
     "APPT.Quantum.PureProjector": [
-      "APPT.Quantum.PureGram",
-      "APPT.Quantum.Orbit"
+      "APPT.Quantum.Orbit",
+      "APPT.Quantum.PureGram"
     ],
     "APPT.Quantum.RealPSD": [
       "APPT.Quantum.Basic"
@@ -80,18 +1016,61 @@
     "APPT.Quantum.ShortAttainment": [
       "APPT.Quantum.PureOrbit"
     ],
+    "APPT.Quantum.SmallMaximum": [
+      "APPT.Quantum.Attainment",
+      "APPT.Quantum.SpectralMoments",
+      "APPT.SpectrumBound12",
+      "APPT.SpectrumBound15",
+      "APPT.SpectrumBound18",
+      "APPT.SpectrumBound21",
+      "APPT.SpectrumBound24",
+      "APPT.SpectrumBound9"
+    ],
     "APPT.Quantum.SpectralData": [
       "APPT.Quantum.CornerNecessity"
+    ],
+    "APPT.Quantum.SpectralMoment": [
+      "APPT.Quantum.Basic"
     ],
     "APPT.Quantum.SpectralMoments": [
       "APPT.Quantum.SpectralData",
       "APPT.SpectralConditions"
     ],
+    "APPT.Quantum.SpectralNecessity": [
+      "APPT.Quantum.SpectralData"
+    ],
     "APPT.Quantum.UnitaryExtension": [
       "APPT.Quantum.Reindex"
     ],
+    "APPT.SparsePolynomial": [
+      "APPT.Core"
+    ],
     "APPT.SpectralConditions": [
       "APPT.OrderedSpectrum"
+    ],
+    "APPT.SpectrumBound12": [
+      "APPT.Finite12Bound",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.SpectrumBound15": [
+      "APPT.Finite15Bound",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.SpectrumBound18": [
+      "APPT.Finite18Bound",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.SpectrumBound21": [
+      "APPT.Finite21Bound",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.SpectrumBound24": [
+      "APPT.Finite24Bound",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.SpectrumBound9": [
+      "APPT.Finite9Bound",
+      "APPT.SpectralConditions"
     ],
     "APPT.SpectrumReindex": [
       "APPT.Core"
@@ -100,8 +1079,8 @@
       "APPT.UniformSparse.Join112"
     ],
     "APPT.UniformBridge": [
-      "APPT.Uniform",
-      "APPT.Compression"
+      "APPT.Compression",
+      "APPT.Uniform"
     ],
     "APPT.UniformSparse.Data": [
       "APPT.CoefficientMerge"
@@ -531,39 +1510,39 @@
       "APPT.UniformSparse.Join098"
     ],
     "APPT.UniformSparse.Join106": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join099",
-      "APPT.UniformSparse.Join100",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join100"
     ],
     "APPT.UniformSparse.Join107": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join101",
-      "APPT.UniformSparse.Join102",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join102"
     ],
     "APPT.UniformSparse.Join108": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join103",
-      "APPT.UniformSparse.Join104",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join104"
     ],
     "APPT.UniformSparse.Join109": [
-      "APPT.UniformSparse.Join105",
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join056",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join105"
     ],
     "APPT.UniformSparse.Join110": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join106",
-      "APPT.UniformSparse.Join107",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join107"
     ],
     "APPT.UniformSparse.Join111": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join108",
-      "APPT.UniformSparse.Join109",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join109"
     ],
     "APPT.UniformSparse.Join112": [
+      "APPT.CoefficientMergeFast",
       "APPT.UniformSparse.Join110",
-      "APPT.UniformSparse.Join111",
-      "APPT.CoefficientMergeFast"
+      "APPT.UniformSparse.Join111"
     ],
     "APPT.UniformSparse.Leaf000": [
       "APPT.UniformSparse.Data"

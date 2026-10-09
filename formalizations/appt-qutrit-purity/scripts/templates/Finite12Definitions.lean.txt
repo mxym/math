@@ -1,0 +1,6 @@
+noncomputable def spectrum (g : Fin 12 → ℝ) : Fin 12 → ℝ :=
+  ![(((g 0 + (g 1 + g 2)) + (g 3 + (g 4 + g 5))) + ((g 6 + (g 7 + g 8)) + (g 9 + (g 10 + g 11)))), (((g 1 + g 2) + (g 3 + (g 4 + g 5))) + ((g 6 + (g 7 + g 8)) + (g 9 + (g 10 + g 11)))), (((g 2 + g 3) + (g 4 + (g 5 + g 6))) + ((g 7 + g 8) + (g 9 + (g 10 + g 11)))), (((g 3 + g 4) + (g 5 + g 6)) + ((g 7 + g 8) + (g 9 + (g 10 + g 11)))), (((g 4 + g 5) + (g 6 + g 7)) + ((g 8 + g 9) + (g 10 + g 11))), ((g 5 + (g 6 + g 7)) + ((g 8 + g 9) + (g 10 + g 11))), ((g 6 + (g 7 + g 8)) + (g 9 + (g 10 + g 11))), ((g 7 + g 8) + (g 9 + (g 10 + g 11))), ((g 8 + g 9) + (g 10 + g 11)), (g 9 + (g 10 + g 11)), (g 10 + g 11), g 11]
+noncomputable def outer (g : Fin 12 → ℝ) : Fin 9 → ℝ :=
+  ![spectrum g 0, spectrum g 1, spectrum g 2, spectrum g 6, spectrum g 7, spectrum g 8, spectrum g 9, spectrum g 10, spectrum g 11]
+noncomputable def total (g : Fin 12 → ℝ) : ℝ := (∑ i, spectrum g i)
+noncomputable def squareTotal (g : Fin 12 → ℝ) : ℝ := (∑ i, (spectrum g i)^2)

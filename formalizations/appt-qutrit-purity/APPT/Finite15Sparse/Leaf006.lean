@@ -1,0 +1,876 @@
+import APPT.Finite15Sparse.Data
+set_option maxRecDepth 100000
+set_option maxHeartbeats 8000000
+set_option linter.unusedVariables false
+set_option linter.unusedSimpArgs false
+open scoped BigOperators
+namespace APPT.Finite15
+open SparsePolynomial
+
+def atom0473 : SparsePolynomial.Poly := [([4,9,11], 1)]
+theorem eval_atom0473 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0473 = ((g 4) * (g 9) * (g 11)) := by
+  norm_num [atom0473, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0473_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (159550560 : Int) atom0473) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0473]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 4) * (g 9) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0474 : SparsePolynomial.Poly := [([4,9,12], 1)]
+theorem eval_atom0474 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0474 = ((g 4) * (g 9) * (g 12)) := by
+  norm_num [atom0474, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0474_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (175445640 : Int) atom0474) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0474]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 4) * (g 9) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0475 : SparsePolynomial.Poly := [([4,9,13], 1)]
+theorem eval_atom0475 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0475 = ((g 4) * (g 9) * (g 13)) := by
+  norm_num [atom0475, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0475_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (116951400 : Int) atom0475) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0475]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 4) * (g 9) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0476 : SparsePolynomial.Poly := [([4,9,14], 1)]
+theorem eval_atom0476 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0476 = ((g 4) * (g 9) * (g 14)) := by
+  norm_num [atom0476, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0476_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (194537160 : Int) atom0476) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0476]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 9) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0477 : SparsePolynomial.Poly := [([4,10,10], 1)]
+theorem eval_atom0477 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0477 = ((g 4) * (g 10) * (g 10)) := by
+  norm_num [atom0477, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0477_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (46998144 : Int) atom0477) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0477]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 4) * (g 10) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0478 : SparsePolynomial.Poly := [([4,10,11], 1)]
+theorem eval_atom0478 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0478 = ((g 4) * (g 10) * (g 11)) := by
+  norm_num [atom0478, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0478_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (129823920 : Int) atom0478) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0478]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 4) * (g 10) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0479 : SparsePolynomial.Poly := [([4,10,12], 1)]
+theorem eval_atom0479 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0479 = ((g 4) * (g 10) * (g 12)) := by
+  norm_num [atom0479, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0479_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (162877500 : Int) atom0479) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0479]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 4) * (g 10) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0480 : SparsePolynomial.Poly := [([4,10,13], 1)]
+theorem eval_atom0480 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0480 = ((g 4) * (g 10) * (g 13)) := by
+  norm_num [atom0480, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0480_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (119768400 : Int) atom0480) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0480]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 4) * (g 10) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0481 : SparsePolynomial.Poly := [([4,10,14], 1)]
+theorem eval_atom0481 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0481 = ((g 4) * (g 10) * (g 14)) := by
+  norm_num [atom0481, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0481_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (159341850 : Int) atom0481) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0481]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 10) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0482 : SparsePolynomial.Poly := [([4,11,11], 1)]
+theorem eval_atom0482 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0482 = ((g 4) * (g 11) * (g 11)) := by
+  norm_num [atom0482, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0482_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (94131720 : Int) atom0482) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0482]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 4) * (g 11) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0483 : SparsePolynomial.Poly := [([4,11,12], 1)]
+theorem eval_atom0483 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0483 = ((g 4) * (g 11) * (g 12)) := by
+  norm_num [atom0483, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0483_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (168209280 : Int) atom0483) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0483]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 4) * (g 11) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0484 : SparsePolynomial.Poly := [([4,11,13], 1)]
+theorem eval_atom0484 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0484 = ((g 4) * (g 11) * (g 13)) := by
+  norm_num [atom0484, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0484_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (124651080 : Int) atom0484) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0484]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 4) * (g 11) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0485 : SparsePolynomial.Poly := [([4,11,14], 1)]
+theorem eval_atom0485 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0485 = ((g 4) * (g 11) * (g 14)) := by
+  norm_num [atom0485, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0485_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (182713320 : Int) atom0485) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0485]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 11) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0486 : SparsePolynomial.Poly := [([4,12,12], 1)]
+theorem eval_atom0486 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0486 = ((g 4) * (g 12) * (g 12)) := by
+  norm_num [atom0486, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0486_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (61220340 : Int) atom0486) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0486]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 4) * (g 12) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0487 : SparsePolynomial.Poly := [([4,12,13], 1)]
+theorem eval_atom0487 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0487 = ((g 4) * (g 12) * (g 13)) := by
+  norm_num [atom0487, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0487_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (93601620 : Int) atom0487) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0487]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg12 : 0 ≤ g 12 := hg 12
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 4) * (g 12) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0488 : SparsePolynomial.Poly := [([4,12,14], 1)]
+theorem eval_atom0488 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0488 = ((g 4) * (g 12) * (g 14)) := by
+  norm_num [atom0488, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0488_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (161695170 : Int) atom0488) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0488]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg12 : 0 ≤ g 12 := hg 12
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 12) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0489 : SparsePolynomial.Poly := [([4,13,13], 1)]
+theorem eval_atom0489 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0489 = ((g 4) * (g 13) * (g 13)) := by
+  norm_num [atom0489, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0489_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (15015600 : Int) atom0489) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0489]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 4) * (g 13) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0490 : SparsePolynomial.Poly := [([4,13,14], 1)]
+theorem eval_atom0490 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0490 = ((g 4) * (g 13) * (g 14)) := by
+  norm_num [atom0490, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0490_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (105901830 : Int) atom0490) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0490]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg13 : 0 ≤ g 13 := hg 13
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 13) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0491 : SparsePolynomial.Poly := [([4,14,14], 1)]
+theorem eval_atom0491 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0491 = ((g 4) * (g 14) * (g 14)) := by
+  norm_num [atom0491, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0491_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (84255390 : Int) atom0491) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0491]
+  have hg4 : 0 ≤ g 4 := hg 4
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 4) * (g 14) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0492 : SparsePolynomial.Poly := [([5,5,5], 1)]
+theorem eval_atom0492 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0492 = ((g 5) * (g 5) * (g 5)) := by
+  norm_num [atom0492, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0492_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (633600 : Int) atom0492) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0492]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have ht : 0 ≤ ((g 5) * (g 5) * (g 5)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0493 : SparsePolynomial.Poly := [([5,5,9], 1)]
+theorem eval_atom0493 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0493 = ((g 5) * (g 5) * (g 9)) := by
+  norm_num [atom0493, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0493_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (11719440 : Int) atom0493) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0493]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 5) * (g 5) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0494 : SparsePolynomial.Poly := [([5,6,6], 1)]
+theorem eval_atom0494 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0494 = ((g 5) * (g 6) * (g 6)) := by
+  norm_num [atom0494, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0494_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (1664640 : Int) atom0494) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0494]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 6)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0495 : SparsePolynomial.Poly := [([5,6,7], 1)]
+theorem eval_atom0495 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0495 = ((g 5) * (g 6) * (g 7)) := by
+  norm_num [atom0495, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0495_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (5230080 : Int) atom0495) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0495]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 7)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0496 : SparsePolynomial.Poly := [([5,6,8], 1)]
+theorem eval_atom0496 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0496 = ((g 5) * (g 6) * (g 8)) := by
+  norm_num [atom0496, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0496_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (7130880 : Int) atom0496) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0496]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 8)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0497 : SparsePolynomial.Poly := [([5,6,9], 1)]
+theorem eval_atom0497 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0497 = ((g 5) * (g 6) * (g 9)) := by
+  norm_num [atom0497, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0497_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (17790048 : Int) atom0497) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0497]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0498 : SparsePolynomial.Poly := [([5,6,12], 1)]
+theorem eval_atom0498 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0498 = ((g 5) * (g 6) * (g 12)) := by
+  norm_num [atom0498, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0498_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (15029280 : Int) atom0498) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0498]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0499 : SparsePolynomial.Poly := [([5,6,13], 1)]
+theorem eval_atom0499 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0499 = ((g 5) * (g 6) * (g 13)) := by
+  norm_num [atom0499, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0499_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (31033728 : Int) atom0499) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0499]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0500 : SparsePolynomial.Poly := [([5,6,14], 1)]
+theorem eval_atom0500 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0500 = ((g 5) * (g 6) * (g 14)) := by
+  norm_num [atom0500, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0500_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (50347440 : Int) atom0500) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0500]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 6) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0501 : SparsePolynomial.Poly := [([5,7,7], 1)]
+theorem eval_atom0501 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0501 = ((g 5) * (g 7) * (g 7)) := by
+  norm_num [atom0501, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0501_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (7777920 : Int) atom0501) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0501]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 7)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0502 : SparsePolynomial.Poly := [([5,7,8], 1)]
+theorem eval_atom0502 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0502 = ((g 5) * (g 7) * (g 8)) := by
+  norm_num [atom0502, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0502_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (18124800 : Int) atom0502) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0502]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg8 : 0 ≤ g 8 := hg 8
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 8)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0503 : SparsePolynomial.Poly := [([5,7,9], 1)]
+theorem eval_atom0503 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0503 = ((g 5) * (g 7) * (g 9)) := by
+  norm_num [atom0503, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0503_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (25904640 : Int) atom0503) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0503]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0504 : SparsePolynomial.Poly := [([5,7,10], 1)]
+theorem eval_atom0504 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0504 = ((g 5) * (g 7) * (g 10)) := by
+  norm_num [atom0504, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0504_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (16650960 : Int) atom0504) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0504]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0505 : SparsePolynomial.Poly := [([5,7,11], 1)]
+theorem eval_atom0505 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0505 = ((g 5) * (g 7) * (g 11)) := by
+  norm_num [atom0505, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0505_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (23597280 : Int) atom0505) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0505]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0506 : SparsePolynomial.Poly := [([5,7,12], 1)]
+theorem eval_atom0506 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0506 = ((g 5) * (g 7) * (g 12)) := by
+  norm_num [atom0506, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0506_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (40870320 : Int) atom0506) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0506]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0507 : SparsePolynomial.Poly := [([5,7,13], 1)]
+theorem eval_atom0507 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0507 = ((g 5) * (g 7) * (g 13)) := by
+  norm_num [atom0507, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0507_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (62623920 : Int) atom0507) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0507]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0508 : SparsePolynomial.Poly := [([5,7,14], 1)]
+theorem eval_atom0508 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0508 = ((g 5) * (g 7) * (g 14)) := by
+  norm_num [atom0508, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0508_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (87616080 : Int) atom0508) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0508]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 7) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0509 : SparsePolynomial.Poly := [([5,8,8], 1)]
+theorem eval_atom0509 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0509 = ((g 5) * (g 8) * (g 8)) := by
+  norm_num [atom0509, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0509_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (16473600 : Int) atom0509) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0509]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 8)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0510 : SparsePolynomial.Poly := [([5,8,9], 1)]
+theorem eval_atom0510 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0510 = ((g 5) * (g 8) * (g 9)) := by
+  norm_num [atom0510, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0510_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (43397280 : Int) atom0510) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0510]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0511 : SparsePolynomial.Poly := [([5,8,10], 1)]
+theorem eval_atom0511 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0511 = ((g 5) * (g 8) * (g 10)) := by
+  norm_num [atom0511, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0511_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (36727920 : Int) atom0511) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0511]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0512 : SparsePolynomial.Poly := [([5,8,11], 1)]
+theorem eval_atom0512 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0512 = ((g 5) * (g 8) * (g 11)) := by
+  norm_num [atom0512, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0512_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (52757280 : Int) atom0512) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0512]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0513 : SparsePolynomial.Poly := [([5,8,12], 1)]
+theorem eval_atom0513 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0513 = ((g 5) * (g 8) * (g 12)) := by
+  norm_num [atom0513, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0513_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (73305360 : Int) atom0513) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0513]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0514 : SparsePolynomial.Poly := [([5,8,13], 1)]
+theorem eval_atom0514 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0514 = ((g 5) * (g 8) * (g 13)) := by
+  norm_num [atom0514, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0514_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (86870160 : Int) atom0514) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0514]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0515 : SparsePolynomial.Poly := [([5,8,14], 1)]
+theorem eval_atom0515 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0515 = ((g 5) * (g 8) * (g 14)) := by
+  norm_num [atom0515, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0515_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (142287840 : Int) atom0515) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0515]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 8) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0516 : SparsePolynomial.Poly := [([5,9,9], 1)]
+theorem eval_atom0516 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0516 = ((g 5) * (g 9) * (g 9)) := by
+  norm_num [atom0516, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0516_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (44323200 : Int) atom0516) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0516]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0517 : SparsePolynomial.Poly := [([5,9,10], 1)]
+theorem eval_atom0517 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0517 = ((g 5) * (g 9) * (g 10)) := by
+  norm_num [atom0517, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0517_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (82846440 : Int) atom0517) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0517]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0518 : SparsePolynomial.Poly := [([5,9,11], 1)]
+theorem eval_atom0518 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0518 = ((g 5) * (g 9) * (g 11)) := by
+  norm_num [atom0518, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0518_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (142823520 : Int) atom0518) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0518]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0519 : SparsePolynomial.Poly := [([5,9,12], 1)]
+theorem eval_atom0519 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0519 = ((g 5) * (g 9) * (g 12)) := by
+  norm_num [atom0519, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0519_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (167162040 : Int) atom0519) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0519]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0520 : SparsePolynomial.Poly := [([5,9,13], 1)]
+theorem eval_atom0520 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0520 = ((g 5) * (g 9) * (g 13)) := by
+  norm_num [atom0520, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0520_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (115337880 : Int) atom0520) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0520]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0521 : SparsePolynomial.Poly := [([5,9,14], 1)]
+theorem eval_atom0521 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0521 = ((g 5) * (g 9) * (g 14)) := by
+  norm_num [atom0521, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0521_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (199593720 : Int) atom0521) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0521]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg9 : 0 ≤ g 9 := hg 9
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 9) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0522 : SparsePolynomial.Poly := [([5,10,10], 1)]
+theorem eval_atom0522 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0522 = ((g 5) * (g 10) * (g 10)) := by
+  norm_num [atom0522, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0522_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (36733824 : Int) atom0522) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0522]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 5) * (g 10) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0523 : SparsePolynomial.Poly := [([5,10,11], 1)]
+theorem eval_atom0523 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0523 = ((g 5) * (g 10) * (g 11)) := by
+  norm_num [atom0523, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0523_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (114498720 : Int) atom0523) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0523]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 5) * (g 10) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0524 : SparsePolynomial.Poly := [([5,10,12], 1)]
+theorem eval_atom0524 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0524 = ((g 5) * (g 10) * (g 12)) := by
+  norm_num [atom0524, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0524_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (154214820 : Int) atom0524) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0524]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 10) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0525 : SparsePolynomial.Poly := [([5,10,13], 1)]
+theorem eval_atom0525 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0525 = ((g 5) * (g 10) * (g 13)) := by
+  norm_num [atom0525, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0525_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (117768240 : Int) atom0525) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0525]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 10) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0526 : SparsePolynomial.Poly := [([5,10,14], 1)]
+theorem eval_atom0526 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0526 = ((g 5) * (g 10) * (g 14)) := by
+  norm_num [atom0526, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0526_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (164733750 : Int) atom0526) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0526]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg10 : 0 ≤ g 10 := hg 10
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 10) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0527 : SparsePolynomial.Poly := [([5,11,11], 1)]
+theorem eval_atom0527 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0527 = ((g 5) * (g 11) * (g 11)) := by
+  norm_num [atom0527, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0527_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (90088200 : Int) atom0527) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0527]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 5) * (g 11) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0528 : SparsePolynomial.Poly := [([5,11,12], 1)]
+theorem eval_atom0528 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0528 = ((g 5) * (g 11) * (g 12)) := by
+  norm_num [atom0528, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0528_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (167922000 : Int) atom0528) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0528]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 11) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0529 : SparsePolynomial.Poly := [([5,11,13], 1)]
+theorem eval_atom0529 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0529 = ((g 5) * (g 11) * (g 13)) := by
+  norm_num [atom0529, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0529_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (133936920 : Int) atom0529) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0529]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 11) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0530 : SparsePolynomial.Poly := [([5,11,14], 1)]
+theorem eval_atom0530 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0530 = ((g 5) * (g 11) * (g 14)) := by
+  norm_num [atom0530, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0530_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (201572280 : Int) atom0530) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0530]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg11 : 0 ≤ g 11 := hg 11
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 11) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0531 : SparsePolynomial.Poly := [([5,12,12], 1)]
+theorem eval_atom0531 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0531 = ((g 5) * (g 12) * (g 12)) := by
+  norm_num [atom0531, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0531_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (62318700 : Int) atom0531) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0531]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 5) * (g 12) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0532 : SparsePolynomial.Poly := [([5,12,13], 1)]
+theorem eval_atom0532 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0532 = ((g 5) * (g 12) * (g 13)) := by
+  norm_num [atom0532, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0532_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (105936300 : Int) atom0532) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0532]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg12 : 0 ≤ g 12 := hg 12
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 12) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0533 : SparsePolynomial.Poly := [([5,12,14], 1)]
+theorem eval_atom0533 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0533 = ((g 5) * (g 12) * (g 14)) := by
+  norm_num [atom0533, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0533_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (184546350 : Int) atom0533) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0533]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg12 : 0 ≤ g 12 := hg 12
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 12) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0534 : SparsePolynomial.Poly := [([5,13,13], 1)]
+theorem eval_atom0534 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0534 = ((g 5) * (g 13) * (g 13)) := by
+  norm_num [atom0534, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0534_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (24480720 : Int) atom0534) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0534]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 5) * (g 13) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0535 : SparsePolynomial.Poly := [([5,13,14], 1)]
+theorem eval_atom0535 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0535 = ((g 5) * (g 13) * (g 14)) := by
+  norm_num [atom0535, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0535_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (136735290 : Int) atom0535) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0535]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg13 : 0 ≤ g 13 := hg 13
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 13) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0536 : SparsePolynomial.Poly := [([5,14,14], 1)]
+theorem eval_atom0536 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0536 = ((g 5) * (g 14) * (g 14)) := by
+  norm_num [atom0536, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0536_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (103787730 : Int) atom0536) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0536]
+  have hg5 : 0 ≤ g 5 := hg 5
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 5) * (g 14) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0537 : SparsePolynomial.Poly := [([6,6,9], 1)]
+theorem eval_atom0537 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0537 = ((g 6) * (g 6) * (g 9)) := by
+  norm_num [atom0537, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0537_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (5095440 : Int) atom0537) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0537]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 6) * (g 6) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0538 : SparsePolynomial.Poly := [([6,7,7], 1)]
+theorem eval_atom0538 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0538 = ((g 6) * (g 7) * (g 7)) := by
+  norm_num [atom0538, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0538_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (2311680 : Int) atom0538) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0538]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 7)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0539 : SparsePolynomial.Poly := [([6,7,8], 1)]
+theorem eval_atom0539 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0539 = ((g 6) * (g 7) * (g 8)) := by
+  norm_num [atom0539, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0539_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (6483840 : Int) atom0539) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0539]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg8 : 0 ≤ g 8 := hg 8
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 8)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0540 : SparsePolynomial.Poly := [([6,7,9], 1)]
+theorem eval_atom0540 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0540 = ((g 6) * (g 7) * (g 9)) := by
+  norm_num [atom0540, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0540_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (5747088 : Int) atom0540) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0540]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0541 : SparsePolynomial.Poly := [([6,7,11], 1)]
+theorem eval_atom0541 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0541 = ((g 6) * (g 7) * (g 11)) := by
+  norm_num [atom0541, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0541_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (319440 : Int) atom0541) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0541]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0542 : SparsePolynomial.Poly := [([6,7,12], 1)]
+theorem eval_atom0542 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0542 = ((g 6) * (g 7) * (g 12)) := by
+  norm_num [atom0542, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0542_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (15514560 : Int) atom0542) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0542]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0543 : SparsePolynomial.Poly := [([6,7,13], 1)]
+theorem eval_atom0543 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0543 = ((g 6) * (g 7) * (g 13)) := by
+  norm_num [atom0543, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0543_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (31680768 : Int) atom0543) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0543]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0544 : SparsePolynomial.Poly := [([6,7,14], 1)]
+theorem eval_atom0544 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0544 = ((g 6) * (g 7) * (g 14)) := by
+  norm_num [atom0544, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0544_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (51075360 : Int) atom0544) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0544]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg7 : 0 ≤ g 7 := hg 7
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 6) * (g 7) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0545 : SparsePolynomial.Poly := [([6,8,8], 1)]
+theorem eval_atom0545 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0545 = ((g 6) * (g 8) * (g 8)) := by
+  norm_num [atom0545, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0545_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (8398080 : Int) atom0545) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0545]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 8)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0546 : SparsePolynomial.Poly := [([6,8,9], 1)]
+theorem eval_atom0546 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0546 = ((g 6) * (g 8) * (g 9)) := by
+  norm_num [atom0546, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0546_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (16403040 : Int) atom0546) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0546]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0547 : SparsePolynomial.Poly := [([6,8,10], 1)]
+theorem eval_atom0547 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0547 = ((g 6) * (g 8) * (g 10)) := by
+  norm_num [atom0547, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0547_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (12962160 : Int) atom0547) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0547]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg10 : 0 ≤ g 10 := hg 10
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 10)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0548 : SparsePolynomial.Poly := [([6,8,11], 1)]
+theorem eval_atom0548 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0548 = ((g 6) * (g 8) * (g 11)) := by
+  norm_num [atom0548, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0548_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (26183520 : Int) atom0548) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0548]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg11 : 0 ≤ g 11 := hg 11
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 11)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0549 : SparsePolynomial.Poly := [([6,8,12], 1)]
+theorem eval_atom0549 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0549 = ((g 6) * (g 8) * (g 12)) := by
+  norm_num [atom0549, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0549_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (47159280 : Int) atom0549) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0549]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg12 : 0 ≤ g 12 := hg 12
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 12)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0550 : SparsePolynomial.Poly := [([6,8,13], 1)]
+theorem eval_atom0550 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0550 = ((g 6) * (g 8) * (g 13)) := by
+  norm_num [atom0550, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0550_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (61739280 : Int) atom0550) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0550]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg13 : 0 ≤ g 13 := hg 13
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 13)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0551 : SparsePolynomial.Poly := [([6,8,14], 1)]
+theorem eval_atom0551 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0551 = ((g 6) * (g 8) * (g 14)) := by
+  norm_num [atom0551, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0551_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (119553840 : Int) atom0551) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0551]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg8 : 0 ≤ g 8 := hg 8
+  have hg14 : 0 ≤ g 14 := hg 14
+  have ht : 0 ≤ ((g 6) * (g 8) * (g 14)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def atom0552 : SparsePolynomial.Poly := [([6,9,9], 1)]
+theorem eval_atom0552 (g : Fin 15 → ℝ) : SparsePolynomial.eval (variables g) atom0552 = ((g 6) * (g 9) * (g 9)) := by
+  norm_num [atom0552, SparsePolynomial.eval, SparsePolynomial.mon, variables]
+  <;> ring
+theorem atom0552_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) (SparsePolynomial.scale (29030400 : Int) atom0552) := by
+  rw [SparsePolynomial.eval_scale, eval_atom0552]
+  have hg6 : 0 ≤ g 6 := hg 6
+  have hg9 : 0 ≤ g 9 := hg 9
+  have ht : 0 ≤ ((g 6) * (g 9) * (g 9)) := by positivity
+  exact mul_nonneg (by norm_num) ht
+def block006 : SparsePolynomial.Poly := [([4,9,11], 159550560), ([4,9,12], 175445640), ([4,9,13], 116951400), ([4,9,14], 194537160), ([4,10,10], 46998144), ([4,10,11], 129823920), ([4,10,12], 162877500), ([4,10,13], 119768400), ([4,10,14], 159341850), ([4,11,11], 94131720), ([4,11,12], 168209280), ([4,11,13], 124651080), ([4,11,14], 182713320), ([4,12,12], 61220340), ([4,12,13], 93601620), ([4,12,14], 161695170), ([4,13,13], 15015600), ([4,13,14], 105901830), ([4,14,14], 84255390), ([5,5,5], 633600), ([5,5,9], 11719440), ([5,6,6], 1664640), ([5,6,7], 5230080), ([5,6,8], 7130880), ([5,6,9], 17790048), ([5,6,12], 15029280), ([5,6,13], 31033728), ([5,6,14], 50347440), ([5,7,7], 7777920), ([5,7,8], 18124800), ([5,7,9], 25904640), ([5,7,10], 16650960), ([5,7,11], 23597280), ([5,7,12], 40870320), ([5,7,13], 62623920), ([5,7,14], 87616080), ([5,8,8], 16473600), ([5,8,9], 43397280), ([5,8,10], 36727920), ([5,8,11], 52757280), ([5,8,12], 73305360), ([5,8,13], 86870160), ([5,8,14], 142287840), ([5,9,9], 44323200), ([5,9,10], 82846440), ([5,9,11], 142823520), ([5,9,12], 167162040), ([5,9,13], 115337880), ([5,9,14], 199593720), ([5,10,10], 36733824), ([5,10,11], 114498720), ([5,10,12], 154214820), ([5,10,13], 117768240), ([5,10,14], 164733750), ([5,11,11], 90088200), ([5,11,12], 167922000), ([5,11,13], 133936920), ([5,11,14], 201572280), ([5,12,12], 62318700), ([5,12,13], 105936300), ([5,12,14], 184546350), ([5,13,13], 24480720), ([5,13,14], 136735290), ([5,14,14], 103787730), ([6,6,9], 5095440), ([6,7,7], 2311680), ([6,7,8], 6483840), ([6,7,9], 5747088), ([6,7,11], 319440), ([6,7,12], 15514560), ([6,7,13], 31680768), ([6,7,14], 51075360), ([6,8,8], 8398080), ([6,8,9], 16403040), ([6,8,10], 12962160), ([6,8,11], 26183520), ([6,8,12], 47159280), ([6,8,13], 61739280), ([6,8,14], 119553840), ([6,9,9], 29030400)]
+theorem block006_data : block006 = SparsePolynomial.trim (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (159550560 : Int) atom0473) (SparsePolynomial.scale (175445640 : Int) atom0474)) (SparsePolynomial.merge (SparsePolynomial.scale (116951400 : Int) atom0475) (SparsePolynomial.merge (SparsePolynomial.scale (194537160 : Int) atom0476) (SparsePolynomial.scale (46998144 : Int) atom0477)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (129823920 : Int) atom0478) (SparsePolynomial.scale (162877500 : Int) atom0479)) (SparsePolynomial.merge (SparsePolynomial.scale (119768400 : Int) atom0480) (SparsePolynomial.merge (SparsePolynomial.scale (159341850 : Int) atom0481) (SparsePolynomial.scale (94131720 : Int) atom0482))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (168209280 : Int) atom0483) (SparsePolynomial.scale (124651080 : Int) atom0484)) (SparsePolynomial.merge (SparsePolynomial.scale (182713320 : Int) atom0485) (SparsePolynomial.merge (SparsePolynomial.scale (61220340 : Int) atom0486) (SparsePolynomial.scale (93601620 : Int) atom0487)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (161695170 : Int) atom0488) (SparsePolynomial.scale (15015600 : Int) atom0489)) (SparsePolynomial.merge (SparsePolynomial.scale (105901830 : Int) atom0490) (SparsePolynomial.merge (SparsePolynomial.scale (84255390 : Int) atom0491) (SparsePolynomial.scale (633600 : Int) atom0492)))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (11719440 : Int) atom0493) (SparsePolynomial.scale (1664640 : Int) atom0494)) (SparsePolynomial.merge (SparsePolynomial.scale (5230080 : Int) atom0495) (SparsePolynomial.merge (SparsePolynomial.scale (7130880 : Int) atom0496) (SparsePolynomial.scale (17790048 : Int) atom0497)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (15029280 : Int) atom0498) (SparsePolynomial.scale (31033728 : Int) atom0499)) (SparsePolynomial.merge (SparsePolynomial.scale (50347440 : Int) atom0500) (SparsePolynomial.merge (SparsePolynomial.scale (7777920 : Int) atom0501) (SparsePolynomial.scale (18124800 : Int) atom0502))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (25904640 : Int) atom0503) (SparsePolynomial.scale (16650960 : Int) atom0504)) (SparsePolynomial.merge (SparsePolynomial.scale (23597280 : Int) atom0505) (SparsePolynomial.merge (SparsePolynomial.scale (40870320 : Int) atom0506) (SparsePolynomial.scale (62623920 : Int) atom0507)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (87616080 : Int) atom0508) (SparsePolynomial.scale (16473600 : Int) atom0509)) (SparsePolynomial.merge (SparsePolynomial.scale (43397280 : Int) atom0510) (SparsePolynomial.merge (SparsePolynomial.scale (36727920 : Int) atom0511) (SparsePolynomial.scale (52757280 : Int) atom0512))))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (73305360 : Int) atom0513) (SparsePolynomial.scale (86870160 : Int) atom0514)) (SparsePolynomial.merge (SparsePolynomial.scale (142287840 : Int) atom0515) (SparsePolynomial.merge (SparsePolynomial.scale (44323200 : Int) atom0516) (SparsePolynomial.scale (82846440 : Int) atom0517)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (142823520 : Int) atom0518) (SparsePolynomial.scale (167162040 : Int) atom0519)) (SparsePolynomial.merge (SparsePolynomial.scale (115337880 : Int) atom0520) (SparsePolynomial.merge (SparsePolynomial.scale (199593720 : Int) atom0521) (SparsePolynomial.scale (36733824 : Int) atom0522))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (114498720 : Int) atom0523) (SparsePolynomial.scale (154214820 : Int) atom0524)) (SparsePolynomial.merge (SparsePolynomial.scale (117768240 : Int) atom0525) (SparsePolynomial.merge (SparsePolynomial.scale (164733750 : Int) atom0526) (SparsePolynomial.scale (90088200 : Int) atom0527)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (167922000 : Int) atom0528) (SparsePolynomial.scale (133936920 : Int) atom0529)) (SparsePolynomial.merge (SparsePolynomial.scale (201572280 : Int) atom0530) (SparsePolynomial.merge (SparsePolynomial.scale (62318700 : Int) atom0531) (SparsePolynomial.scale (105936300 : Int) atom0532)))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (184546350 : Int) atom0533) (SparsePolynomial.scale (24480720 : Int) atom0534)) (SparsePolynomial.merge (SparsePolynomial.scale (136735290 : Int) atom0535) (SparsePolynomial.merge (SparsePolynomial.scale (103787730 : Int) atom0536) (SparsePolynomial.scale (5095440 : Int) atom0537)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (2311680 : Int) atom0538) (SparsePolynomial.scale (6483840 : Int) atom0539)) (SparsePolynomial.merge (SparsePolynomial.scale (5747088 : Int) atom0540) (SparsePolynomial.merge (SparsePolynomial.scale (319440 : Int) atom0541) (SparsePolynomial.scale (15514560 : Int) atom0542))))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (31680768 : Int) atom0543) (SparsePolynomial.scale (51075360 : Int) atom0544)) (SparsePolynomial.merge (SparsePolynomial.scale (8398080 : Int) atom0545) (SparsePolynomial.merge (SparsePolynomial.scale (16403040 : Int) atom0546) (SparsePolynomial.scale (12962160 : Int) atom0547)))) (SparsePolynomial.merge (SparsePolynomial.merge (SparsePolynomial.scale (26183520 : Int) atom0548) (SparsePolynomial.scale (47159280 : Int) atom0549)) (SparsePolynomial.merge (SparsePolynomial.scale (61739280 : Int) atom0550) (SparsePolynomial.merge (SparsePolynomial.scale (119553840 : Int) atom0551) (SparsePolynomial.scale (29030400 : Int) atom0552)))))))) := by decide +kernel
+theorem block006_nonneg (g : Fin 15 → ℝ) (hg : ∀ i, 0 ≤ g i) (hA : (matA (outer g)).PosSemidef) (hB : (matB (outer g)).PosSemidef) : 0 ≤ SparsePolynomial.eval (variables g) block006 := by
+  rw [block006_data, SparsePolynomial.eval_trim]
+  try simp only [SparsePolynomial.eval_merge]
+  exact (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0473_nonneg g hg hA hB) (atom0474_nonneg g hg hA hB)) (add_nonneg (atom0475_nonneg g hg hA hB) (add_nonneg (atom0476_nonneg g hg hA hB) (atom0477_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0478_nonneg g hg hA hB) (atom0479_nonneg g hg hA hB)) (add_nonneg (atom0480_nonneg g hg hA hB) (add_nonneg (atom0481_nonneg g hg hA hB) (atom0482_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0483_nonneg g hg hA hB) (atom0484_nonneg g hg hA hB)) (add_nonneg (atom0485_nonneg g hg hA hB) (add_nonneg (atom0486_nonneg g hg hA hB) (atom0487_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0488_nonneg g hg hA hB) (atom0489_nonneg g hg hA hB)) (add_nonneg (atom0490_nonneg g hg hA hB) (add_nonneg (atom0491_nonneg g hg hA hB) (atom0492_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0493_nonneg g hg hA hB) (atom0494_nonneg g hg hA hB)) (add_nonneg (atom0495_nonneg g hg hA hB) (add_nonneg (atom0496_nonneg g hg hA hB) (atom0497_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0498_nonneg g hg hA hB) (atom0499_nonneg g hg hA hB)) (add_nonneg (atom0500_nonneg g hg hA hB) (add_nonneg (atom0501_nonneg g hg hA hB) (atom0502_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0503_nonneg g hg hA hB) (atom0504_nonneg g hg hA hB)) (add_nonneg (atom0505_nonneg g hg hA hB) (add_nonneg (atom0506_nonneg g hg hA hB) (atom0507_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0508_nonneg g hg hA hB) (atom0509_nonneg g hg hA hB)) (add_nonneg (atom0510_nonneg g hg hA hB) (add_nonneg (atom0511_nonneg g hg hA hB) (atom0512_nonneg g hg hA hB))))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0513_nonneg g hg hA hB) (atom0514_nonneg g hg hA hB)) (add_nonneg (atom0515_nonneg g hg hA hB) (add_nonneg (atom0516_nonneg g hg hA hB) (atom0517_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0518_nonneg g hg hA hB) (atom0519_nonneg g hg hA hB)) (add_nonneg (atom0520_nonneg g hg hA hB) (add_nonneg (atom0521_nonneg g hg hA hB) (atom0522_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0523_nonneg g hg hA hB) (atom0524_nonneg g hg hA hB)) (add_nonneg (atom0525_nonneg g hg hA hB) (add_nonneg (atom0526_nonneg g hg hA hB) (atom0527_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0528_nonneg g hg hA hB) (atom0529_nonneg g hg hA hB)) (add_nonneg (atom0530_nonneg g hg hA hB) (add_nonneg (atom0531_nonneg g hg hA hB) (atom0532_nonneg g hg hA hB)))))) (add_nonneg (add_nonneg (add_nonneg (add_nonneg (atom0533_nonneg g hg hA hB) (atom0534_nonneg g hg hA hB)) (add_nonneg (atom0535_nonneg g hg hA hB) (add_nonneg (atom0536_nonneg g hg hA hB) (atom0537_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0538_nonneg g hg hA hB) (atom0539_nonneg g hg hA hB)) (add_nonneg (atom0540_nonneg g hg hA hB) (add_nonneg (atom0541_nonneg g hg hA hB) (atom0542_nonneg g hg hA hB))))) (add_nonneg (add_nonneg (add_nonneg (atom0543_nonneg g hg hA hB) (atom0544_nonneg g hg hA hB)) (add_nonneg (atom0545_nonneg g hg hA hB) (add_nonneg (atom0546_nonneg g hg hA hB) (atom0547_nonneg g hg hA hB)))) (add_nonneg (add_nonneg (atom0548_nonneg g hg hA hB) (atom0549_nonneg g hg hA hB)) (add_nonneg (atom0550_nonneg g hg hA hB) (add_nonneg (atom0551_nonneg g hg hA hB) (atom0552_nonneg g hg hA hB))))))))
+
+end APPT.Finite15

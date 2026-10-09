@@ -1,0 +1,77 @@
+name: APPT full bounded Lean completion
+on:
+  workflow_dispatch:
+  push:
+    branches: ['research/appt-completion-D']
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Finite**'
+      - '.github/workflows/appt-completion-bounded.yml'
+permissions:
+  contents: read
+jobs:
+  components:
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [Dimension9, Dimension12, Dimension15, Dimension18, Dimension21, Dimension24, UniformBuild]
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Compile each module within its explicit bound
+        working-directory: formalizations/appt-qutrit-purity
+        env:
+          BUILD_CASE: ${{ matrix.case }}
+        run: |
+          set -euo pipefail
+          lake env python3 scripts/build_blocks.py --case "$BUILD_CASE" --engine lake --jobs 2 --timeout 300 --fresh 2>&1 | tee component.log
+      - name: Pack source-bound component build
+        if: success()
+        working-directory: formalizations/appt-qutrit-purity
+        run: |
+          tar -czf component-build.tar.gz .lake/build logs/blocks
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: component-${{ matrix.case }}-${{ github.sha }}
+          path: |
+            formalizations/appt-qutrit-purity/component.log
+            formalizations/appt-qutrit-purity/component-build.tar.gz
+            formalizations/appt-qutrit-purity/logs/blocks/
+  final:
+    needs: components
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: component-*
+          path: component-artifacts
+      - name: Assemble component caches and build all final roots
+        working-directory: formalizations/appt-qutrit-purity
+        run: |
+          set -euo pipefail
+          find ../../component-artifacts -name component-build.tar.gz -print0 | while IFS= read -r -d '' archive; do tar -xzf "$archive"; done
+          lake env python3 scripts/build_blocks.py --case All --engine lake --jobs 2 --timeout 300
+          timeout 600 lake build
+          timeout 900 lake env lean -j1 -M12288 CheckpointReplay.lean
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-${{ github.sha }}
+          path: |
+            formalizations/appt-qutrit-purity/logs/blocks/
+            formalizations/appt-qutrit-purity/replayed-*.txt
