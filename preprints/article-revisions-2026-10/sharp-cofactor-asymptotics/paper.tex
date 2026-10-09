@@ -20,7 +20,7 @@
 South China University of Technology, Guangzhou, China.
 Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}.
 ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
-\date{8 October 2026}
+\date{9 October 2026}
 \hypersetup{pdfauthor={Yongxian Zhang}}
 \setlength{\emergencystretch}{3em}
 \begin{document}
@@ -36,8 +36,12 @@ matrices at every sufficiently large order. We give an explicit dyadic family,
 exact finite Rayleigh certificates, and a finite random-sign construction
 attaining the leading constants. We also determine the sharp asymptotic ramp
 Rayleigh constant $3\pi^2/16$ and its rank-two $q$-permanent endpoint counterpart
-$\pi^2/8$. These are cofactor extremal results; Lieb's character-dominance and
-Marcus's permanent-of-permanents conjectures remain unresolved here.
+$\pi^2/8$; those later statements remain supported by the written proof and
+exact certificates, but are outside the Lean certificate. The four limits in
+Theorem~\ref{thm:main}, together with the two positive-definite limits stated
+there, now have a complete Lean formalization. These are cofactor extremal
+results; Lieb's character-dominance and Marcus's permanent-of-permanents
+conjectures remain unresolved here.
 \end{abstract}
 
 \section{Definitions, statements, and attribution}
@@ -65,6 +69,34 @@ As $N\to\infty$,
 The first two limits are unchanged if the suprema are restricted to
 positive-definite correlation matrices.
 \end{theorem}
+
+\section{Formal verification of Theorem 1}
+The complete statement of Theorem~\ref{thm:main}, including the two
+positive-definite extensions, is formalized in Lean 4.34.1 in the companion
+package \href{https://github.com/mxym/math/tree/f8343f8e0b6b3638896bd092b9b476e406660a05/formalizations/cofactor-spectral-asymptotics-progress}{Lean source and replay record}. Its main entry point is
+\texttt{CofactorSpectral.\allowbreak sharp\_cofactor\_spectral\_asymptotics}.
+The package is fixed at commit
+\href{https://github.com/mxym/math/tree/f8343f8e0b6b3638896bd092b9b476e406660a05/formalizations/cofactor-spectral-asymptotics-progress}{
+\texttt{f8343f8}}; the immutable release is linked below.
+The formal definitions use the actual permanent, the actual undeformed
+row-and-column minor, the largest Hermitian eigenvalue, and the corresponding
+Rayleigh suprema. In particular, the real-direction formalization still
+allows complex Hermitian input matrices, exactly as in this paper.
+
+The fixed package contains 78 freshly compiled source modules and audits 745
+owned declarations. Its published empty-kernel trust-level-0 replay covers
+55,731 declarations in the full transitive closure (55,515 in the requested
+root union), with only Lean's standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The invalid-proof control is rejected, and the recursion audit uses explicit
+\texttt{Nat.rec}. The source-to-statement review and reproducible command are
+included in the package. The package does not claim the later ramp constant,
+rank-two endpoint, or immanant statements in this manuscript.
+
+The frozen proof package is also published as the
+\href{https://github.com/mxym/math/releases/tag/cofactor-spectral-theorem1-lean-v1}{immutable GitHub Release}. This is a verification and
+reproducibility record, not a claim of external human peer review or of
+historical priority.
 
 Drury's order-eight example already disproved the cofactor eigenvalue
 conjecture with constant one \cite{drury}; that disproof is not new here.
@@ -512,11 +544,14 @@ false, and do not use that unverified statement anywhere in this paper.
 \clearpage
 
 \section*{Source edition and reproduction}
-This signed article edition retains the mathematical argument of the
-previously archived source: \url{https://doi.org/10.5281/zenodo.23248496}.
-The original source, exact inputs, checking programs and prior review
-records remain available there. The companion README identifies the
-frozen Git version and the scope of each auxiliary computation.
+This version retains the written mathematical argument of the previously
+archived source: \url{https://doi.org/10.5281/zenodo.23248496}. It adds the
+formal-verification section above and records the complete Lean certificate
+for Theorem~\ref{thm:main}; it does not silently promote the later ramp or
+endpoint results to formalized status. The original source, exact inputs,
+checking programs and prior review records remain available there. The
+companion README identifies the frozen Git version and the scope of each
+auxiliary computation.
 In a writable copy of that archived source directory, run:
 \begin{verbatim}
 python3 verify_dyadic_cofactor_family.py --K 8 --C 7
