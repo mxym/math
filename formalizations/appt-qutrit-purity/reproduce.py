@@ -61,6 +61,9 @@ def main() -> None:
         ('positive-purity',['lake','env','lean','-j1','-M12288','PositivePurity.lean'],'pass',300),
         ('negative-purity',['lake','env','lean','-j1','-M12288','RejectPurity.lean'],'false',300),
         ('empty-kernel',['lake','env','lean','-j1','-M12288','CheckpointReplay.lean'],'pass',1200),
+        ('replay-support',['lake','env','lean','-j1','-M12288','-o','.lake/build/lib/lean/Verification/ReplaySupport.olean','Verification/ReplaySupport.lean'],'pass',180),
+        ('completion-formula-controls',['lake','env','lean','-j1','-M12288','CompletionFormulaControls.lean'],'pass',300),
+        ('corrupt-final-theorem',['lake','env','lean','-j1','-M12288','CompletionAudit.lean'],'pass',1200),
     ]
     report={'status':'RUNNING','scope':'Complete actual-state qutrit-qudit APPT maximal purity for every integer n >= 3; universal upper bound and physical APPT attainment',
             'utc_started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'fresh_package_build':args.fresh,
@@ -69,6 +72,7 @@ def main() -> None:
     def save():
         (OUT/'RUN.json').write_text(json.dumps(report,indent=2)+'\n')
     save()
+    (ROOT/'.lake/build/lib/lean/Verification').mkdir(parents=True,exist_ok=True)
     try:
         for name,cmd,expected,limit in steps:
             log=OUT/(name+'.log');started=time.monotonic();timed_out=False
@@ -89,6 +93,10 @@ def main() -> None:
         control=(OUT/'replay-controls.log').read_text()
         if 'REPLAY_POSITIVE_CONTROL_PASS' not in control or 'REPLAY_NEGATIVE_CONTROL_REJECTED' not in control:
             raise RuntimeError('Missing paired kernel control markers')
+        corruption=(OUT/'corrupt-final-theorem.log').read_text()
+        if 'EMPTY_KERNEL_REPLAY_PASS' not in corruption or 'CORRUPTED_PROOF_REJECTED APPT.Quantum.appt_purity_maximum_formula' not in corruption or 'declaration type mismatch' not in corruption:
+            raise RuntimeError('Final theorem proof-corruption control missing')
+        for p in ROOT.glob('completion-replayed-*.txt'):shutil.copy2(p,OUT/p.name)
         replay=(OUT/'empty-kernel.log').read_text()
         match=re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations; (\d+) roots; trust level zero',replay)
         if not match:raise RuntimeError('Missing trust-zero replay completion marker')
