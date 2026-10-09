@@ -92,8 +92,20 @@ theorem expectedScore_three_abs_edges (v : Fin 3 → Space d) :
   rw [integral_const_mul,
     integral_add (integrable_scoreMax v 0)
       (integrable_scoreMax (fun i => -v i) 0)] at hpoint
-  rw [integral_add ((hi (v 0-v 1)).add (hi (v 0-v 2)))
-    (hi (v 1-v 2)), integral_add (hi (v 0-v 1)) (hi (v 0-v 2))] at hpoint
+  have hR :
+      (∫ x, |⟪v 0-v 1,x⟫| + |⟪v 0-v 2,x⟫| +
+        |⟪v 1-v 2,x⟫| ∂gaussian d) =
+      (∫ x, |⟪v 0-v 1,x⟫| ∂gaussian d) +
+      (∫ x, |⟪v 0-v 2,x⟫| ∂gaussian d) +
+      (∫ x, |⟪v 1-v 2,x⟫| ∂gaussian d) := by
+    calc
+      _ = ∫ x, ((fun z : Space d => |⟪v 0-v 1,z⟫| +
+          |⟪v 0-v 2,z⟫|) + (fun z => |⟪v 1-v 2,z⟫|)) x ∂gaussian d := rfl
+      _ = _ := by
+        rw [integral_add ((hi (v 0-v 1)).add (hi (v 0-v 2)))
+          (hi (v 1-v 2))]
+        rw [integral_add (hi (v 0-v 1)) (hi (v 0-v 2))]
+  rw [hR] at hpoint
   change 2*(expectedScore v 0 + expectedScore (fun i => -v i) 0) = _ at hpoint
   rw [← expectedScore_three_neg v] at hpoint
   linarith
@@ -125,7 +137,9 @@ theorem gaussian_abs_inner (u : Space d) :
     dsimp only [e]
     rw [smul_smul, mul_inv_cancel₀ hu0, one_smul]
   have hlin (x : Space d) : |⟪u,x⟫| = ‖u‖ * |⟪e,x⟫| := by
-    rw [← he, real_inner_smul_left, abs_mul, abs_of_nonneg hu1]
+    calc
+      _ = |⟪‖u‖ • e,x⟫| := congrArg (fun z => |⟪z,x⟫|) he.symm
+      _ = _ := by rw [real_inner_smul_left, abs_mul, abs_of_nonneg hu1]
   simp_rw [hlin]
   rw [integral_const_mul]
   congr 1
