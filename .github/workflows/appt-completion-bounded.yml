@@ -29,8 +29,9 @@ jobs:
       - name: Pack source-bound component build
         if: success()
         working-directory: formalizations/appt-qutrit-purity
-        run: |
-          tar -czf component-build.tar.gz .lake/build logs/blocks
+        env:
+          BUILD_CASE: ${{ matrix.case }}
+        run: python3 scripts/component_cache.py pack "$BUILD_CASE"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -59,10 +60,8 @@ jobs:
         working-directory: formalizations/appt-qutrit-purity
         run: |
           set -euo pipefail
-          find ../../component-artifacts -name component-build.tar.gz -print0 | while IFS= read -r -d '' archive; do tar -xzf "$archive"; done
-          lake env python3 scripts/build_blocks.py --case All --engine lake --jobs 2 --timeout 300
-          timeout 600 lake build
-          timeout 900 lake env lean -j1 -M12288 CheckpointReplay.lean
+          python3 scripts/component_cache.py merge ../../component-artifacts
+          python3 reproduce.py 2>&1 | tee full-verification.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -70,3 +69,5 @@ jobs:
           path: |
             formalizations/appt-qutrit-purity/logs/blocks/
             formalizations/appt-qutrit-purity/replayed-*.txt
+            formalizations/appt-qutrit-purity/local-verification/complete/
+            formalizations/appt-qutrit-purity/full-verification.log

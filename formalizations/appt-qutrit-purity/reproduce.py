@@ -1,56 +1,112 @@
 #!/usr/bin/env python3
-"""Replay the exported checkpoint. External dependency caches are not proof oracles."""
+"""Reproduce the complete physical qutrit-qudit APPT maximum, for every n >= 3."""
+from __future__ import annotations
+import argparse, datetime, hashlib, json, re, shutil, subprocess, time
 from pathlib import Path
-import hashlib, json, re, subprocess, time
-
 ROOT=Path(__file__).resolve().parent
-OUT=ROOT/'local-verification'
+OUT=ROOT/'local-verification'/'complete'
 ALLOWED={'propext','Classical.choice','Quot.sound'}
+MATHLIB='d13f23b723b8a846827a245b89c10fc7d3f11612'
 
-def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def main():
-    OUT.mkdir(exist_ok=True)
-    pins=json.loads((ROOT/'PROOF_SOURCES.json').read_text())
-    for path,expected in pins.items():
-        if digest(ROOT/path)!=expected: raise RuntimeError('Source hash mismatch: '+path)
-    version=subprocess.check_output(['lake','env','lean','--version'],cwd=ROOT,text=True).strip()
-    if 'version 4.34.1,' not in version: raise RuntimeError('Wrong Lean version: '+version)
+def command_text(command: list[str]) -> str:
+    return subprocess.check_output(command,cwd=ROOT,text=True,timeout=120).strip()
+
+def validate_sources(pins: dict[str,str]) -> None:
+    for name,expected in pins.items():
+        path=ROOT/name
+        if not path.is_file() or digest(path)!=expected:
+            raise RuntimeError('Source hash mismatch: '+name)
+    actual={p.relative_to(ROOT).as_posix() for p in (ROOT/'APPT').rglob('*.lean')}
+    if not actual<=pins.keys():raise RuntimeError('Unpinned proof source: '+repr(actual-pins.keys()))
+    for name in actual:
+        if re.search(r'\b(sorry|admit|axiom|native_decide)\b',(ROOT/name).read_text()):
+            raise RuntimeError('Forbidden proof token: '+name)
+
+def main() -> None:
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--fresh',action='store_true',help='Remove only this package build directory; preserve external dependencies.')
+    ap.add_argument('--jobs',type=int,choices=[1,2],default=2)
+    args=ap.parse_args();OUT.mkdir(parents=True,exist_ok=True)
+    pins=json.loads((ROOT/'PROOF_SOURCES.json').read_text());validate_sources(pins)
+    manifest_hash=digest(ROOT/'PROOF_SOURCES.json')
+    version=command_text(['lake','env','lean','--version'])
+    if 'version 4.34.1,' not in version:raise RuntimeError('Wrong Lean toolchain: '+version)
     manifest=json.loads((ROOT/'lake-manifest.json').read_text())
     mp=next(p for p in manifest['packages'] if p['name']=='mathlib')
-    if mp['rev']!='d13f23b723b8a846827a245b89c10fc7d3f11612': raise RuntimeError('Wrong Mathlib pin')
-    # Lean's parser/kernel and the closure audit remain authoritative; this scan is additional.
-    for p in (ROOT/'APPT').rglob('*.lean'):
-        if re.search(r'\b(sorry|admit|axiom|native_decide)\b',p.read_text()):
-            raise RuntimeError('Forbidden token in proof source: '+str(p))
-    jobs=[('regenerate',['python3','scripts/generate_uniform.py','--check'],0,180),
-          ('bounded-lake',['lake','env','python3','scripts/build_blocks.py','--case','All','--engine','lake','--jobs','2','--timeout','300'],0,21600),
-          ('lake-build',['lake','build'],0,600),
-          ('positive-coefficient',['lake','env','lean','-j1','-M12288','PositiveCoefficient.lean'],0,180),
-          ('negative-coefficient',['lake','env','lean','-j1','-M12288','RejectCoefficient.lean'],1,180),
-          ('empty-kernel',['lake','env','lean','-j1','-M12288','CheckpointReplay.lean'],0,600)]
-    results=[]
-    for name,cmd,expected,limit in jobs:
-        start=time.time();file=OUT/(name+'.log')
-        with file.open('w') as f:
-            run=subprocess.run(cmd,cwd=ROOT,stdout=f,stderr=subprocess.STDOUT,timeout=limit)
-        text=file.read_text()
-        good=(run.returncode==0) if expected==0 else (run.returncode!=0 and 'error:' in text and 'Tactic `decide` failed' in text)
-        result={'name':name,'command':cmd,'exit_code':run.returncode,'expected_rejection':bool(expected),
-                'passed':good,'seconds':round(time.time()-start,3),'log_sha256':digest(file)}
-        results.append(result);print(result,flush=True)
-        (OUT/'RUN.json').write_text(json.dumps({'status':'RUNNING','lean':version,'sources':pins,'checks':results},indent=2)+'\n')
-        if not good: raise RuntimeError('Verification check failed: '+name)
-    text=(OUT/'empty-kernel.log').read_text()
-    if 'EMPTY_KERNEL_REPLAY_PASS' not in text: raise RuntimeError('Missing replay completion marker')
-    axioms=set((ROOT/'replayed-axioms.txt').read_text().splitlines())
-    if not axioms<=ALLOWED: raise RuntimeError('Unapproved axioms: '+repr(axioms))
-    for p in ROOT.glob('replayed-*.txt'): (OUT/p.name).write_bytes(p.read_bytes())
-    for path,expected in pins.items():
-        if digest(ROOT/path)!=expected: raise RuntimeError('Source changed during verification: '+path)
-    report={'status':'PASS','scope':'actual APPT maximum for every n >= 9 and all-n attainment; small-state upper bounds pending',
-            'lean':version,'mathlib':mp['rev'],'sources':pins,'checks':results,'axioms':sorted(axioms)}
-    (OUT/'RUN.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('CHECKPOINT_VERIFICATION_PASS',flush=True)
+    if mp['rev']!=MATHLIB:raise RuntimeError('Wrong pinned Mathlib revision')
+    checkout=ROOT/'.lake/packages/mathlib'
+    actual=command_text(['git','-C',str(checkout),'rev-parse','HEAD'])
+    if actual!=MATHLIB:raise RuntimeError('Mathlib checkout revision mismatch')
+    if command_text(['git','-C',str(checkout),'status','--porcelain','--untracked-files=no']):
+        raise RuntimeError('Tracked Mathlib sources are modified')
+    if args.fresh:
+        build=ROOT/'.lake/build'
+        if build.is_symlink():raise RuntimeError('Refusing to remove linked build directory')
+        if build.exists():shutil.rmtree(build)
+    steps=[
+        ('regenerate-uniform',['python3','scripts/generate_uniform.py','--check'],'pass',180),
+        ('regenerate-finite',['python3','scripts/generate_finite_sparse.py','--check'],'pass',180),
+        ('certificate-controls',['python3','scripts/certificate_controls.py'],'pass',180),
+        ('replay-controls',['lake','env','lean','-j1','ReplayControls.lean'],'pass',180),
+        ('module-graph',['python3','scripts/completion_graph.py','--check'],'pass',180),
+        ('bounded-lake',['lake','env','python3','scripts/build_blocks.py','--case','All','--engine','lake','--jobs',str(args.jobs),'--timeout','300']+(['--fresh'] if args.fresh else []),'pass',21600),
+        ('lake-build',['lake','build'],'pass',600),
+        ('positive-sparse',['lake','env','lean','-j1','-M12288','PositiveSparse.lean'],'pass',180),
+        ('negative-sparse',['lake','env','lean','-j1','-M12288','RejectSparse.lean'],'decide',180),
+        ('positive-corner',['lake','env','lean','-j1','-M12288','NecessityPositive.lean'],'pass',180),
+        ('negative-corner',['lake','env','lean','-j1','-M12288','NecessityReject.lean'],'decide',180),
+        ('positive-purity',['lake','env','lean','-j1','-M12288','PositivePurity.lean'],'pass',300),
+        ('negative-purity',['lake','env','lean','-j1','-M12288','RejectPurity.lean'],'false',300),
+        ('empty-kernel',['lake','env','lean','-j1','-M12288','CheckpointReplay.lean'],'pass',1200),
+    ]
+    report={'status':'RUNNING','scope':'Complete actual-state qutrit-qudit APPT maximal purity for every integer n >= 3; universal upper bound and physical APPT attainment',
+            'utc_started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'fresh_package_build':args.fresh,
+            'lean':version,'mathlib':actual,'jobs':args.jobs,'per_module_timeout_seconds':300,
+            'source_manifest_sha256':manifest_hash,'sources':pins,'checks':[]}
+    def save():
+        (OUT/'RUN.json').write_text(json.dumps(report,indent=2)+'\n')
+    save()
+    try:
+        for name,cmd,expected,limit in steps:
+            log=OUT/(name+'.log');started=time.monotonic();timed_out=False
+            with log.open('w') as stream:
+                try:
+                    proc=subprocess.run(cmd,cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,timeout=limit)
+                    code=proc.returncode
+                except subprocess.TimeoutExpired:
+                    code=124;timed_out=True
+            text=log.read_text();passed=code==0 and not timed_out
+            if expected!='pass':
+                diagnostic=('Tactic `decide` proved that the proposition' in text and 'is false' in text) if expected=='decide' else ('unsolved goals' in text and 'False' in text)
+                passed=(code!=0 and not timed_out and text.count('error:')==1 and diagnostic)
+            item={'name':name,'command':cmd,'exit_code':code,'expected_rejection':expected!='pass',
+                  'timed_out':timed_out,'passed':passed,'seconds':round(time.monotonic()-started,3),'log_sha256':digest(log)}
+            report['checks'].append(item);save();print(json.dumps(item),flush=True)
+            if not passed:raise RuntimeError('Verification failed: '+name)
+        control=(OUT/'replay-controls.log').read_text()
+        if 'REPLAY_POSITIVE_CONTROL_PASS' not in control or 'REPLAY_NEGATIVE_CONTROL_REJECTED' not in control:
+            raise RuntimeError('Missing paired kernel control markers')
+        replay=(OUT/'empty-kernel.log').read_text()
+        match=re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations; (\d+) roots; trust level zero',replay)
+        if not match:raise RuntimeError('Missing trust-zero replay completion marker')
+        axioms=set((ROOT/'replayed-axioms.txt').read_text().splitlines())
+        if not axioms<=ALLOWED:raise RuntimeError('Unapproved axioms: '+repr(axioms))
+        roots=(ROOT/'replayed-roots.txt').read_text().splitlines()
+        if 'APPT.Quantum.appt_purity_maximum_formula' not in roots:raise RuntimeError('Final maximum not among replay roots')
+        for p in ROOT.glob('replayed-*.txt'):shutil.copy2(p,OUT/p.name)
+        summary=json.loads((ROOT/'logs/blocks/SUMMARY.json').read_text())
+        if summary['status']!='PASS' or summary['completed']!=summary['total']:raise RuntimeError('Incomplete local module build')
+        shutil.copy2(ROOT/'logs/blocks/SUMMARY.json',OUT/'BUILD_SUMMARY.json')
+        validate_sources(pins)
+        if digest(ROOT/'PROOF_SOURCES.json')!=manifest_hash:raise RuntimeError('Source manifest changed during verification')
+        report.update(status='PASS',axioms=sorted(axioms),replayed_declarations=int(match[1]),
+                      replayed_roots=int(match[2]),build_summary=summary,
+                      utc_finished=datetime.datetime.now(datetime.timezone.utc).isoformat())
+        save();print('COMPLETE_APPT_MAXIMUM_VERIFIED',flush=True)
+    except Exception as exc:
+        report.update(status='FAIL',failure=str(exc));save();raise
 
-if __name__=='__main__': main()
+if __name__=='__main__':main()

@@ -43,10 +43,17 @@ jobs:
             read -r -a modules <<< "$TARGETS"
             timeout 1800 lake build "${modules[@]}" 2>&1 | tee development.log
           fi
+      - name: Paired trust-zero replay controls
+        working-directory: formalizations/appt-qutrit-purity
+        run: |
+          if [[ -f ReplayControls.lean ]]; then
+            lake env lean -j1 ReplayControls.lean 2>&1 | tee replay-controls.log
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: development-${{ github.sha }}
           path: |
             formalizations/appt-qutrit-purity/development.log
+            formalizations/appt-qutrit-purity/replay-controls.log
             formalizations/appt-qutrit-purity/logs/blocks/
