@@ -20,8 +20,8 @@ absolute differences; the second maximum is the negative minimum. -/
 theorem max_three_plus_negative (a b c : ℝ) :
     max a (max b c) + max (-a) (max (-b) (-c)) =
       (|a-b|+|a-c|+|b-c|)/2 := by
-  simp only [max_def]
-  split_ifs <;> abs_cases <;> linarith
+  simp only [max_def, abs_def]
+  split_ifs <;> linarith
 
 theorem scoreMax_three_zero {d : ℕ}
     (v : Fin 3 → Space d) (x : Space d) :
@@ -31,9 +31,14 @@ theorem scoreMax_three_zero {d : ℕ}
     refine Finset.sup'_le _ _ ?_
     intro i _
     fin_cases i
-    · exact le_max_left _ _
-    · exact (le_max_left _ _).trans (le_max_right _ _)
-    · exact (le_max_right _ _).trans (le_max_right _ _)
+    · simpa only [Pi.zero_apply,sub_zero] using
+        (le_max_left (⟪v 0,x⟫) (max (⟪v 1,x⟫) (⟪v 2,x⟫)))
+    · simpa only [Pi.zero_apply,sub_zero] using
+        ((le_max_left (⟪v 1,x⟫) (⟪v 2,x⟫)).trans
+          (le_max_right (⟪v 0,x⟫) (max (⟪v 1,x⟫) (⟪v 2,x⟫))))
+    · simpa only [Pi.zero_apply,sub_zero] using
+        ((le_max_right (⟪v 1,x⟫) (⟪v 2,x⟫)).trans
+          (le_max_right (⟪v 0,x⟫) (max (⟪v 1,x⟫) (⟪v 2,x⟫))))
   · apply max_le
     · simpa only [Pi.zero_apply,sub_zero] using le_scoreMax v 0 x 0
     · apply max_le
@@ -62,9 +67,9 @@ theorem three_nonneg_sqrt_sum_eq_three
     (htrace : a^2+b^2+c^2 = 3)
     (he : a+b+c = 3) : a = b ∧ b = c := by
   have h1 : (a-b)^2 + (a-c)^2 + (b-c)^2 = 0 := by
-    nlinarith [sq_nonneg (a-b),sq_nonneg(a-c),sq_nonneg(b-c)]
-  have hab : (a-b)^2=0 := by nlinarith [sq_nonneg (a-c),sq_nonneg(b-c)]
-  have hbc : (b-c)^2=0 := by nlinarith [sq_nonneg (a-b),sq_nonneg(a-c)]
+    nlinarith [sq_nonneg (a-b),sq_nonneg (a-c),sq_nonneg (b-c)]
+  have hab : (a-b)^2=0 := by nlinarith [sq_nonneg (a-c),sq_nonneg (b-c)]
+  have hbc : (b-c)^2=0 := by nlinarith [sq_nonneg (a-b),sq_nonneg (a-c)]
   constructor <;> nlinarith
 
 end GaussianMeasureBridge
