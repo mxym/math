@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 — index the verified mutual-information counterexample and publish its signed preprint
+
+- Added the result already merged in PR #12 and its complete classical Lean v2 to the preprint, named-problem and subject indices. Precisely identified the general proposed inequality in Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106); retained the unresolved fixed-one-marginal variant.
+- Verified both immutable release tags and all 13 downloaded assets, local source inventories and prior independent-replay records (38 owned declarations, 16,161 dependencies). This update did not rerun Lean or alter frozen mathematical source.
+- Prepared a signed four-page current article with accurate classical-versus-quantum formalization scope, checked its typesetting, and archived version 1.0 separately as DOI 10.5281/zenodo.23253944. Corrected creator metadata in the existing automatic software snapshot, preserving its files and CC BY 4.0 license.
+
 ## 2026-10-08 — Lean-formalize the complete four-root Wakhare entropy-polynomial counterexample
 
 - Completed a **full Lean proof** of the previously published \((k,r)=(11,10)\) counterexample to Wakhare's 2025 Journal of Approximation Theory Conjecture 2: the original nested binomial sums, unique positive algebraic parameter, strict rational enclosure \(117/125<lpha<937/1000\), five exact alternating sample signs, four distinct interior roots by the real intermediate value theorem, and a genuine \(\mathbb R[X]\) polynomial with its exact evaluation identity. The theorem is not limited to hand-listed polynomial coefficients or numerical root estimates.

@@ -4,6 +4,13 @@
 
 本页按数学领域提供当前阅读入口。同一研究的加强、整合稿和形式化作为一条研究线列出，不把不同版本重复计为独立突破。表中状态只适用于列出的结论；详细量词、外部输入、证书与 Lean 覆盖范围以链接文件为准。
 
+## 信息论与互信息连续性
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| 一般互信息连续性拟议界 | 实际 3×3 概率表在任意小正距离下反驳 Berta–Lami–Tomamichel Eq. (106)；两侧边缘均变化 | [署名预印本](preprints/mutual-information-continuity-2026-10/README.md)；[完整经典 Lean](formalizations/mutual-information-continuity-counterexample/README.md)；[冻结证明与附件核对](verification/mutual-information-index-2026-10-08/README.md) |
+| 量子嵌入及必要系数 | 对角量子态反例；任何 c h(ε)+C ε 型一般界必须 c ≥ 2，C 为固定有限常数 | 同稿完整书面证明，未 Lean 化；固定一侧边缘版本与完整最优模量未解决 |
+
 ## 矩阵永久量与多项式猜想
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |

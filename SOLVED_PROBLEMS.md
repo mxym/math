@@ -8,6 +8,7 @@
 
 ## 完整 Lean 的主要入口
 
+- [一般互信息连续性拟议界的经典反例](formalizations/mutual-information-continuity-counterexample/README.md)：实际 3×3 概率表、熵、总变差及任意小正距离反例；两侧边缘变化。量子嵌入及必要系数下界仍为书面证明。
 - [Bapat 指定复数有理反例](formalizations/bapat-q-permanent-explicit-rational/README.md)与[实对称整数反例存在定理](formalizations/bapat-real-symmetric-existence-counterexample/README.md)。
 - [全图强 Chollet 固定工程](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress)：任意有限简单无权图、所有主子矩阵、原图度数；[源码与复核记录核对](verification/chollet-all-graphs-index-2026-10-08.json)。
 - [所有周期图染色多项式的完整分类](formalizations/chromatic-cycles-all-n-lean/README.md)，以及[原 C17 一般猜想反例](formalizations/chromatic-infinite-logconcavity-counterexample/README.md)。
@@ -22,6 +23,11 @@
 ## 主要专题结果目录
 
 以下保留原稿标题，覆盖仓库顶层 `notes/` 与已完成的 `research/` 专题说明；历史加强和独立交叉证明也保留阅读入口。
+
+### 信息论与互信息连续性
+
+- [A ternary counterexample to a proposed mutual-information continuity bound](preprints/mutual-information-continuity-2026-10/README.md)：反驳 Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106) 的一般拟议界。对每个 0 < ε ≤ 1/16，互信息差为 2 h(ε) − ε log 2，严格超过 h(ε) + ε log 8；因此任意小正距离下都有反例。
+- [完整经典 Lean 及独立复核材料](formalizations/mutual-information-continuity-counterexample/README.md)，[不可变发布及源码核对](verification/mutual-information-index-2026-10-08/README.md)。量子对角嵌入与必要主导系数至少 2 为书面证明；固定一侧边缘问题及有限距离的完整最优模量未解决。
 
 ### 矩阵永久量、余子式谱与多项式
 
