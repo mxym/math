@@ -48,7 +48,7 @@ def main():
     for p in ROOT.glob('replayed-*.txt'): (OUT/p.name).write_bytes(p.read_bytes())
     for path,expected in pins.items():
         if digest(ROOT/path)!=expected: raise RuntimeError('Source changed during verification: '+path)
-    report={'status':'PASS','scope':'uniform ordered-spectrum upper bound under A/B PSD and actual APPT attainment; final state-level upper bound pending',
+    report={'status':'PASS','scope':'actual APPT maximum for every n >= 9 and all-n attainment; small-state upper bounds pending',
             'lean':version,'mathlib':mp['rev'],'sources':pins,'checks':results,'axioms':sorted(axioms)}
     (OUT/'RUN.json').write_text(json.dumps(report,indent=2)+'\n')
     print('CHECKPOINT_VERIFICATION_PASS',flush=True)

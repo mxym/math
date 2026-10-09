@@ -1,5 +1,10 @@
 {
+  "name": "All",
+  "scope": "actual-state maximum n >= 9, all-n attainment; small-state upper bounds not yet exported",
   "modules": {
+    "APPT": [
+      "APPT.Quantum.LargeMaximum"
+    ],
     "APPT.CoefficientMerge": [
       "APPT.Core"
     ],
@@ -14,16 +19,6 @@
       "APPT.UniformBridge",
       "APPT.SpectrumReindex"
     ],
-    "APPT.SpectrumReindex": [
-      "APPT.Core"
-    ],
-    "APPT.Uniform": [
-      "APPT.UniformSparse.Join112"
-    ],
-    "APPT.UniformBridge": [
-      "APPT.Uniform",
-      "APPT.Compression"
-    ],
     "APPT.Quantum.Attainment": [
       "APPT.Quantum.ShortAttainment",
       "APPT.Quantum.LongAttainment"
@@ -37,12 +32,30 @@
     "APPT.Quantum.Contractions": [
       "APPT.Quantum.BlockMaps"
     ],
+    "APPT.Quantum.CornerHadamard": [
+      "APPT.Quantum.Permutation"
+    ],
+    "APPT.Quantum.CornerNecessity": [
+      "APPT.Quantum.ExtendedConjugate",
+      "APPT.Quantum.CornerHadamard",
+      "APPT.Quantum.RealPSD"
+    ],
+    "APPT.Quantum.ExtendedConjugate": [
+      "APPT.Quantum.UnitaryExtension"
+    ],
+    "APPT.Quantum.LargeMaximum": [
+      "APPT.Quantum.SpectralMoments",
+      "APPT.Quantum.Attainment"
+    ],
     "APPT.Quantum.LongAttainment": [
       "APPT.Quantum.Contractions",
       "APPT.Quantum.Orbit"
     ],
     "APPT.Quantum.Orbit": [
       "APPT.Quantum.Basic"
+    ],
+    "APPT.Quantum.Permutation": [
+      "APPT.Quantum.Orbit"
     ],
     "APPT.Quantum.PureGram": [
       "APPT.Quantum.RectangularContraction",
@@ -55,11 +68,40 @@
       "APPT.Quantum.PureGram",
       "APPT.Quantum.Orbit"
     ],
+    "APPT.Quantum.RealPSD": [
+      "APPT.Quantum.Basic"
+    ],
     "APPT.Quantum.RectangularContraction": [
       "APPT.Quantum.Basic"
     ],
+    "APPT.Quantum.Reindex": [
+      "APPT.Quantum.Permutation"
+    ],
     "APPT.Quantum.ShortAttainment": [
       "APPT.Quantum.PureOrbit"
+    ],
+    "APPT.Quantum.SpectralData": [
+      "APPT.Quantum.CornerNecessity"
+    ],
+    "APPT.Quantum.SpectralMoments": [
+      "APPT.Quantum.SpectralData",
+      "APPT.SpectralConditions"
+    ],
+    "APPT.Quantum.UnitaryExtension": [
+      "APPT.Quantum.Reindex"
+    ],
+    "APPT.SpectralConditions": [
+      "APPT.OrderedSpectrum"
+    ],
+    "APPT.SpectrumReindex": [
+      "APPT.Core"
+    ],
+    "APPT.Uniform": [
+      "APPT.UniformSparse.Join112"
+    ],
+    "APPT.UniformBridge": [
+      "APPT.Uniform",
+      "APPT.Compression"
     ],
     "APPT.UniformSparse.Data": [
       "APPT.CoefficientMerge"
@@ -864,11 +906,6 @@
     ],
     "APPT.UniformSparse.Leaf113": [
       "APPT.UniformSparse.Data"
-    ],
-    "APPT": [
-      "APPT.CoefficientMergeFast",
-      "APPT.OrderedSpectrum",
-      "APPT.Quantum.Attainment"
     ]
   }
 }

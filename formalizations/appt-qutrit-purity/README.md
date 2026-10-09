@@ -59,15 +59,32 @@ lemma. It does not use an assumed Schmidt decomposition or Hildebrand
 criterion. Normalization, matrix squaring, trace, and purity are proved
 inside Lean, not supplied as witness hypotheses.
 
+## Completed actual-state maximum for n ≥ 9
+
+`Quantum/LargeMaximum.lean:appt_purity_maximum_large` now proves both the
+universal upper bound and attainment of `3/(8*n)` for every integer `n≥9`.
+The upper bound quantifies over actual complex trace-one PSD matrices and
+the genuine global-unitary APPT definition. There are no A/B, eigenvalue,
+Schmidt-decomposition, or Hildebrand-equivalence assumptions in its statement.
+
+`CornerNecessity` derives both necessary real PSD matrices by explicit
+physical corner unitaries. `SpectralData` and `SpectralMoments` use Mathlib's
+actual Hermitian diagonalization, prove sorted nonnegative eigenvalues,
+trace normalization, and equality between trace-square purity and the sum
+of squared eigenvalues. The new closure passed trust-zero empty-kernel
+replay: 45,204 declarations, 51 roots; only the three standard Lean axioms.
+See `evidence/large-state-20261009/`. This replay is separate from the earlier
+attainment Lake evidence; the enlarged fresh Lake build is still being
+completed, so no full-formalization Release is created.
+
 ## Remaining mathematical work
 
-**The actual-state upper bound and final maximum theorem are not yet
-exported here.** The uniform ordered-spectrum upper bound and both actual
-APPT attaining branches are complete in the exported sources. Necessary
-A/B matrices have additionally been obtained from physical unitary corner
-conjugations in the development tree; the matrix diagonalization/sorted
-spectrum assembly remains to be integrated and audited. No full
-formalization Release is created.
+The state-level upper bounds for `3≤n≤8` are not yet exported in this package.
+The `n=3,...,7` assemblies compile in the development tree. The remaining
+24-dimensional certificate is being decomposed into bounded modules because
+the large determinant expansion exceeded the per-module compilation limit.
+Both small-branch and large-branch actual APPT attaining states are already
+proved. The final all-`n≥3` maximum and its full build/audit remain pending.
 
 A parallel continuation in `../appt-qutrit-purity-lean/` maintains the
 outer/middle reindexing and gap modules. This package uses a distinct path
