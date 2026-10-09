@@ -1,5 +1,11 @@
 {
   "modules": {
+    "APPT.CoefficientMerge": [
+      "APPT.Core"
+    ],
+    "APPT.CoefficientMergeFast": [
+      "APPT.CoefficientMerge"
+    ],
     "APPT.Core": [],
     "APPT.Finite24": [
       "APPT.Finite24Sparse.Join033",
@@ -22,7 +28,12 @@
       "APPT.Finite24Sparse.Data"
     ],
     "APPT.Finite24Sparse.Base04": [
-      "APPT.Finite24Sparse.Data"
+      "APPT.Finite24Sparse.det04Term0Product",
+      "APPT.Finite24Sparse.det04Term1Product",
+      "APPT.Finite24Sparse.det04Term2Product",
+      "APPT.Finite24Sparse.det04Term3Product",
+      "APPT.Finite24Sparse.det04Term4Product",
+      "APPT.Finite24Sparse.det04Term5Product"
     ],
     "APPT.Finite24Sparse.Base05": [
       "APPT.Finite24Sparse.Data"
@@ -37,7 +48,25 @@
       "APPT.Finite24Sparse.Data"
     ],
     "APPT.Finite24Sparse.Data": [
-      "APPT.SparsePolynomial"
+      "APPT.SparsePolynomialCubic"
+    ],
+    "APPT.Finite24Sparse.Det04Pair0": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Det04Pair1": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Det04Pair2": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Det04Pair3": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Det04Pair4": [
+      "APPT.Finite24Sparse.Data"
+    ],
+    "APPT.Finite24Sparse.Det04Pair5": [
+      "APPT.Finite24Sparse.Data"
     ],
     "APPT.Finite24Sparse.Join000": [
       "APPT.Finite24Sparse.Leaf000",
@@ -296,11 +325,152 @@
       "APPT.Finite24Sparse.Data"
     ],
     "APPT.Finite24Sparse.Target": [
+      "APPT.Finite24Sparse.targetProductProduct"
+    ],
+    "APPT.Finite24Sparse.TargetQuadratic": [
       "APPT.Finite24Sparse.Moments"
+    ],
+    "APPT.Finite24Sparse.det04Term0Product": [
+      "APPT.Finite24Sparse.det04Term0Rows00"
+    ],
+    "APPT.Finite24Sparse.det04Term0Rows00": [
+      "APPT.Finite24Sparse.Det04Pair0"
+    ],
+    "APPT.Finite24Sparse.det04Term1Product": [
+      "APPT.Finite24Sparse.det04Term1Rows00",
+      "APPT.Finite24Sparse.det04Term1Rows01",
+      "APPT.Finite24Sparse.det04Term1Rows02",
+      "APPT.Finite24Sparse.det04Term1Rows03",
+      "APPT.Finite24Sparse.det04Term1Rows04",
+      "APPT.Finite24Sparse.det04Term1Rows05"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows00": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows01": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows02": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows03": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows04": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term1Rows05": [
+      "APPT.Finite24Sparse.Det04Pair1"
+    ],
+    "APPT.Finite24Sparse.det04Term2Product": [
+      "APPT.Finite24Sparse.det04Term2Rows00",
+      "APPT.Finite24Sparse.det04Term2Rows01",
+      "APPT.Finite24Sparse.det04Term2Rows02",
+      "APPT.Finite24Sparse.det04Term2Rows03",
+      "APPT.Finite24Sparse.det04Term2Rows04"
+    ],
+    "APPT.Finite24Sparse.det04Term2Rows00": [
+      "APPT.Finite24Sparse.Det04Pair2"
+    ],
+    "APPT.Finite24Sparse.det04Term2Rows01": [
+      "APPT.Finite24Sparse.Det04Pair2"
+    ],
+    "APPT.Finite24Sparse.det04Term2Rows02": [
+      "APPT.Finite24Sparse.Det04Pair2"
+    ],
+    "APPT.Finite24Sparse.det04Term2Rows03": [
+      "APPT.Finite24Sparse.Det04Pair2"
+    ],
+    "APPT.Finite24Sparse.det04Term2Rows04": [
+      "APPT.Finite24Sparse.Det04Pair2"
+    ],
+    "APPT.Finite24Sparse.det04Term3Product": [
+      "APPT.Finite24Sparse.det04Term3Rows00",
+      "APPT.Finite24Sparse.det04Term3Rows01",
+      "APPT.Finite24Sparse.det04Term3Rows02",
+      "APPT.Finite24Sparse.det04Term3Rows03",
+      "APPT.Finite24Sparse.det04Term3Rows04"
+    ],
+    "APPT.Finite24Sparse.det04Term3Rows00": [
+      "APPT.Finite24Sparse.Det04Pair3"
+    ],
+    "APPT.Finite24Sparse.det04Term3Rows01": [
+      "APPT.Finite24Sparse.Det04Pair3"
+    ],
+    "APPT.Finite24Sparse.det04Term3Rows02": [
+      "APPT.Finite24Sparse.Det04Pair3"
+    ],
+    "APPT.Finite24Sparse.det04Term3Rows03": [
+      "APPT.Finite24Sparse.Det04Pair3"
+    ],
+    "APPT.Finite24Sparse.det04Term3Rows04": [
+      "APPT.Finite24Sparse.Det04Pair3"
+    ],
+    "APPT.Finite24Sparse.det04Term4Product": [
+      "APPT.Finite24Sparse.det04Term4Rows00",
+      "APPT.Finite24Sparse.det04Term4Rows01",
+      "APPT.Finite24Sparse.det04Term4Rows02",
+      "APPT.Finite24Sparse.det04Term4Rows03",
+      "APPT.Finite24Sparse.det04Term4Rows04",
+      "APPT.Finite24Sparse.det04Term4Rows05"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows00": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows01": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows02": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows03": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows04": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term4Rows05": [
+      "APPT.Finite24Sparse.Det04Pair4"
+    ],
+    "APPT.Finite24Sparse.det04Term5Product": [
+      "APPT.Finite24Sparse.det04Term5Rows00"
+    ],
+    "APPT.Finite24Sparse.det04Term5Rows00": [
+      "APPT.Finite24Sparse.Det04Pair5"
+    ],
+    "APPT.Finite24Sparse.targetProductProduct": [
+      "APPT.Finite24Sparse.targetProductRows00",
+      "APPT.Finite24Sparse.targetProductRows01",
+      "APPT.Finite24Sparse.targetProductRows02",
+      "APPT.Finite24Sparse.targetProductRows03",
+      "APPT.Finite24Sparse.targetProductRows04",
+      "APPT.Finite24Sparse.targetProductRows05"
+    ],
+    "APPT.Finite24Sparse.targetProductRows00": [
+      "APPT.Finite24Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite24Sparse.targetProductRows01": [
+      "APPT.Finite24Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite24Sparse.targetProductRows02": [
+      "APPT.Finite24Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite24Sparse.targetProductRows03": [
+      "APPT.Finite24Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite24Sparse.targetProductRows04": [
+      "APPT.Finite24Sparse.TargetQuadratic"
+    ],
+    "APPT.Finite24Sparse.targetProductRows05": [
+      "APPT.Finite24Sparse.TargetQuadratic"
     ],
     "APPT.FiniteSpectrumGaps": [],
     "APPT.SparsePolynomial": [
       "APPT.Core"
+    ],
+    "APPT.SparsePolynomialCubic": [
+      "APPT.CoefficientMergeFast",
+      "APPT.SparsePolynomial"
     ]
   }
 }
