@@ -1,0 +1,38 @@
+name: APPT bounded completion development
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: 'Space-separated Lean module targets'
+        default: 'APPT.SparsePolynomial'
+        required: true
+  push:
+    branches: ['research/appt-completion-D']
+    paths: ['formalizations/appt-qutrit-purity/APPT/SparsePolynomial.lean']
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Compile checked development targets
+        working-directory: formalizations/appt-qutrit-purity
+        env:
+          TARGETS: ${{ inputs.targets || 'APPT.SparsePolynomial' }}
+        run: |
+          set -euo pipefail
+          read -r -a modules <<< "$TARGETS"
+          timeout 1800 lake build "${modules[@]}" 2>&1 | tee development.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: development-${{ github.sha }}
+          path: formalizations/appt-qutrit-purity/development.log
