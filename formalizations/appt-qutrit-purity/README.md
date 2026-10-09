@@ -98,6 +98,14 @@ wrong-coefficient control in CI run `37948196219`. The literal logs, checked
 source hashes, and precise scope are in [SPARSE_ARITHMETIC_AUDIT.md](SPARSE_ARITHMETIC_AUDIT.md).
 This verified foundation alone does not close the remaining state-level maximum.
 
+## Bounded dense-coefficient continuation
+
+The two D=24 coefficient modules that exceeded 300 seconds now compile in 22.044
+and 20.168 seconds and pass an independent 35,850-declaration trust-zero replay.
+The [bounded coefficient audit](BOUNDED_COEFFICIENT_AUDIT.md) retains exact source
+hashes, literal logs, the forged-proof rejection, and the remaining scope.
+This checkpoint does not by itself certify the all-n maximum.
+
 ## Remaining mathematical work
 
 The state-level upper bounds for `3≤n≤8` are not yet exported in this package.
