@@ -1,0 +1,27 @@
+# Copyright 2026 Yongxian Zhang. All rights reserved.
+name: ECQC exact counterexample replay
+on:
+  push:
+    paths:
+      - 'research/ecqc-pure-state-counterexamples/**'
+      - '.github/workflows/ecqc-pure-state-checks.yml'
+  pull_request:
+    paths:
+      - 'research/ecqc-pure-state-counterexamples/**'
+      - '.github/workflows/ecqc-pure-state-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replay exact states, bases, entropies, and negative controls
+        working-directory: research/ecqc-pure-state-counterexamples
+        run: |
+          python3 check_low_dimensions.py
+          python3 check_exact.py
+          python3 check_intervals.py
+          python3 test_negative_controls.py
+          sha256sum --check SHA256SUMS

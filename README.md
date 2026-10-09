@@ -18,6 +18,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
+| [纯态 ECQC：素数维数完整分类](research/ecqc-pure-state-counterexamples/README.md) · [PDF](research/ecqc-pure-state-counterexamples/paper.pdf) | 普遍成立当且仅当 p=2；每个奇素数维数有满 Schmidt 秩纯态反例；三维、五维比值最优 | 完整书面证明、精确证书；未完整 Lean 化 | 未分配 |
 | [一般互信息连续性拟议界的三元反例](preprints/mutual-information-continuity-2026-10/README.md) · [PDF](preprints/mutual-information-continuity-2026-10/paper.pdf) | 实际 3×3 概率表；任意小正距离下反驳拟议界，两侧边缘均变化 | 经典反例完整 Lean；量子嵌入及必要系数下界为书面证明 | [23253944](https://doi.org/10.5281/zenodo.23253944) |
 | [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
 | [高斯等质量单纯形一阶矩：全部 k](preprints/gaussian-equal-cells-2026-10/README.md) · [PDF](preprints/gaussian-equal-cells-2026-10/paper.pdf) | 所有 k ≥ 2 的上界、足够维数下的最优值与等号分类 | 完整书面证明；全部 k 的 Lean 为部分覆盖 | [23250730](https://doi.org/10.5281/zenodo.23250730) |
@@ -51,6 +52,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 问题／来源 | 仓库结论及范围 | 证明入口 |
 | --- | --- | --- |
+| Iqbal ECQC Conjecture 3.1 的纯态问题（arXiv:2509.08286v2 Section 5） | 素数维数中仅 p=2 普遍成立；p=3 即有精确一比特超出，奇素数反例完整覆盖；此前一般混合态反例另行致谢 | [完整证明、定义、文献范围与重放](research/ecqc-pure-state-counterexamples/README.md) |
 | Berta–Lami–Tomamichel，arXiv:2408.15226v2 Eq. (106) 的一般互信息连续性拟议界 | 反例；任意小正距离均存在，两侧边缘均变化；固定一侧边缘版本未解决 | [署名论文与完整经典 Lean 范围](preprints/mutual-information-continuity-2026-10/README.md) |
 | Bapat 原区间 q-永久量单调性猜想 | 反例；复 Hermitian 版本及实对称限制均不成立，实反例为有限存在性结论 | [合并证明与完整 Lean](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) |
 | da Fonseca 半轴 q-永久量单调性扩展 | 反例；4 阶最小，书面证明另给出每个 t > 1 的负导数族 | [书面证明](notes/q-permanent-halfline-counterexample/README.md)；指定矩阵完整 Lean |

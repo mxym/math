@@ -1,0 +1,453 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\E}{\mathcal E}
+\newcommand{\M}{\mathcal M}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+\title{The pure-state ECQC conjecture:\protect\\ counterexamples and a prime-dimensional classification}
+\author{Yongxian Zhang\thanks{Email: \href{mailto:mxymmxym1@gmail.com}{\texttt{mxymmxym1@gmail.com}}. ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}\\[3pt]
+\small School of Computer Science and Engineering\\
+\small South China University of Technology}
+\date{October 8, 2026 \quad (written proof, version 1)}
+\begin{document}
+\maketitle
+\begin{abstract}
+The extended complementary-quantum correlation (ECQC) conjecture compares quantum mutual information with the sum of the $p$ smallest classical mutual informations from a complete set of $p+1$ mutually unbiased bases in prime local dimension $p$. The unrestricted conjecture already has mixed-state counterexamples; its separately posed pure-state question is answered here. We prove that universal pure-state ECQC holds in prime dimension $p$ if and only if $p=2$. Real-coefficient pure states in dimensions three and five produce exactly one bit in every basis and attain the universal pure-state ratio bound $p/2$. An embedded Bell family violates ECQC at every prime $p\geq5$, with an elementary rational lower certificate and unbounded overrun at fixed entanglement. An explicit pure qutrit state with full Schmidt rank also violates ECQC; its entropy comparison reduces to a single exact integer inequality. The proofs use actual density matrices, identical local measurement bases, and exact Born laws. Complete written proofs and independently replayable exact checkers are supplied; no complete Lean formalization or external peer review is claimed.
+\end{abstract}
+
+\section{Question, definitions, and main results}
+For a probability table $P=(P_{jk})$, write
+\[
+ H(P)=-\sum_{j,k}P_{jk}\log P_{jk},\qquad
+ I(P)=H(P_A)+H(P_B)-H(P),
+\]
+with $0\log0=0$. For a density operator $\rho$ on $\C^p\otimes\C^p$, set
+\[
+ S(\rho)=-\Tr(\rho\log\rho),\qquad
+ Q(\rho)=S(\rho_A)+S(\rho_B)-S(\rho).
+\]
+All logarithms are natural; division by $\log2$ converts to bits.
+An orthonormal basis $M=\{\ket{m_j}\}_{j=0}^{p-1}$ used identically on both parties gives
+\begin{equation}\label{eq:born}
+ P^M_{jk}=\bra{m_j}\bra{m_k}\rho\ket{m_j}\ket{m_k},
+ \qquad I_M(\rho)=I(P^M).
+\end{equation}
+We do not separately conjugate or optimize Bob's bases. Two bases are mutually unbiased if every cross-basis squared overlap is $1/p$.
+For a complete family $\M$ of $p+1$ such bases, define
+\begin{equation}\label{eq:score}
+ \E_\M(\rho)=\min_{\substack{\mathcal S\subset\M\\|\mathcal S|=p}}
+ \sum_{M\in\mathcal S}I_M(\rho)
+ =\sum_{M\in\M}I_M(\rho)-\max_{M\in\M}I_M(\rho).
+\end{equation}
+Iqbal's Conjecture 3.1, equation (6), proposes $\E_\M(\rho)\leq Q(\rho)$ \cite{iqbal}. Its closing section separately asks for a pure-state proof, motivated by simulations in local dimensions three and five. This differs from the original \emph{two-basis} CQC statement \cite{schneeloch}.
+
+The unrestricted conjectures are already false. Wang, Wang, and Chen give a rank-two classical--classical mixed ECQC counterexample at local dimension seven and prove unbounded mixed-state overrun \cite{wang}. We do not claim to be the first to disprove unrestricted ECQC. Our contribution is the pure-state prime-dimensional classification, exact sharp ratios in dimensions three and five, and a full-Schmidt-rank pure counterexample in the smallest possible local dimension. The literature check concerns the specified accessible versions; a finite search cannot establish historical priority.
+
+For an odd prime $p$, put $\zeta=e^{2\pi i/p}$ and use the canonical family
+\begin{align}
+ M_\infty&=\{\ket{x}:x\in\F_p\},\nonumber\\
+ M_a&=\{\ket{b_{a,j}}:j\in\F_p\},\qquad
+ \ket{b_{a,j}}=\frac1{\sqrt p}\sum_{x\in\F_p}\zeta^{a x^2+jx}\ket{x}
+ \quad(a\in\F_p).\label{eq:bases}
+\end{align}
+Write $\M_p=\{M_\infty,M_0,\ldots,M_{p-1}\}$.
+
+\begin{theorem}[Prime-dimensional classification]\label{thm:classification}
+For a prime $p$, the inequality $\E_\M(\rho)\leq Q(\rho)$ holds for every pure state $\rho$ on $\C^p\otimes\C^p$ and every complete MUB family $\M$ if and only if $p=2$. For every odd prime, a counterexample exists for the fixed family $\M_p$ in \eqref{eq:bases}, even with full Schmidt rank.
+\end{theorem}
+
+\begin{theorem}[Exact sharp low-dimensional ratios]\label{thm:sharp}
+Every pure state and every family in \eqref{eq:score} satisfy
+\begin{equation}\label{eq:universalratio}
+ \E_\M(\rho)\leq\frac p2 Q(\rho).
+\end{equation}
+For $p=3$ and $p=5$, equality with $Q(\rho)>0$ is attained by the real-coefficient pure states
+\begin{align}
+ \ket{\sigma_3}&=\frac{\ket{01}+\ket{02}-\ket{10}-\ket{20}}2,\label{eq:sigma3}\\
+ \ket{\sigma_5}&=\frac{1}{2\sqrt2}
+ (\ket{12}-\ket{13}-\ket{42}+\ket{43}
+ -\ket{21}+\ket{24}+\ket{31}-\ket{34}).\label{eq:sigma5}
+\end{align}
+Each state has $Q=2\log2$ and $I_M=\log2$ for every $M\in\M_p$. Thus the sharp pure-state ratio $\sup \E_\M(\rho)/Q(\rho)$ is $3/2$ at $p=3$ and $5/2$ at $p=5$, already with the canonical bases fixed.
+\end{theorem}
+
+\section{Exact low-dimensional constructions}
+\begin{lemma}\label{lem:mub}
+For each odd prime $p$, the bases in \eqref{eq:bases} are pairwise mutually unbiased.
+\end{lemma}
+\begin{proof}
+The identity $\sum_{x\in\F_p}\zeta^{c x}=p\,\mathbf1_{c=0}$ proves orthonormality within each $M_a$. Every computational overlap has squared modulus $1/p$. Between two quadratic bases the unnormalized inner product is a Gauss sum
+$G(A,B)=\sum_x\zeta^{A x^2+B x}$ with $A\ne0$. Writing $x=y+u$ gives
+\[
+ |G(A,B)|^2
+ =\sum_{u\in\F_p}\zeta^{A u^2+B u}
+   \sum_{y\in\F_p}\zeta^{2Auy}=p.
+\]
+Here $2A\ne0$ in $\F_p$, so only $u=0$ survives. Dividing by $p^2$ proves the claimed squared overlap.
+\end{proof}
+
+
+\subsection{The universal pure-state bound and the qubit boundary}
+Let $\rho$ be pure and put $h=S(\rho_A)=S(\rho_B)$, so $Q(\rho)=2h$. A rank-one measurement on Alice prepares an ensemble of pure conditional states on Bob with average $\rho_B$. Holevo's established accessible-information bound \cite{holevo} states
+\[
+ I(X:Y)\leq S\!\left(\sum_xp_x\tau_x\right)-\sum_xp_x S(\tau_x).
+\]
+Here $\tau_x$ are those conditional states, so the right side is $h$. Therefore $I_M(\rho)\leq h$ for each setting. Summing any $p$ retained settings proves \eqref{eq:universalratio}. This step invokes the published Holevo theorem, not an assumed form of ECQC. If $h=0$ the state is a product state and all scores vanish. For $p=2$, \eqref{eq:universalratio} is exactly ECQC for every pure state. A Bell state in the Pauli bases attains equality.
+
+\subsection{Three dimensions: an identical rational table in all four bases}
+The state \eqref{eq:sigma3} is normalized and its two partial traces are
+\begin{equation}\label{eq:R3}
+ R_3=\frac14\begin{pmatrix}2&0&0\\0&1&1\\0&1&1\end{pmatrix},
+ \qquad \operatorname{spec}(R_3)=(1/2,1/2,0).
+\end{equation}
+Thus its quantum mutual information is $2\log2$.
+In the computational basis its Born table is
+\begin{equation}\label{eq:P3}
+ P_3=\frac14\begin{pmatrix}0&1&1\\1&0&0\\1&0&0\end{pmatrix}.
+\end{equation}
+The same literal table occurs in all three quadratic bases. Indeed, for $\omega=e^{2\pi i/3}$, set
+$r_j=\omega^{-j}+\omega^{-2j}$, so $(r_0,r_1,r_2)=(2,-1,-1)$. Every supported pair $(x,y)$ of \eqref{eq:sigma3} has $x^2+y^2=1$ in $\F_3$. Therefore
+\[
+ (\bra{b_{a,j}}\otimes\bra{b_{a,k}})\ket{\sigma_3}
+   =\frac{\omega^{-a}}6(r_k-r_j).
+\]
+Its squared modulus is $1/4$ when exactly one of $j,k$ is zero and is otherwise zero, proving \eqref{eq:P3}. Both marginals are $(1/2,1/4,1/4)$, of entropy $(3/2)\log2$, and the joint entropy is $2\log2$. Hence all four measured mutual informations equal $\log2$. Deleting any one leaves $3\log2>2\log2$, with excess exactly one bit.
+
+\subsection{Five dimensions: the sharp ratio is also attained}
+Let
+\[
+ u=\frac{\ket1-\ket4}{\sqrt2},\qquad
+ v=\frac{\ket2-\ket3}{\sqrt2}.
+\]
+Then $u,v$ are orthonormal and \eqref{eq:sigma5} is the singlet
+$(u\otimes v-v\otimes u)/\sqrt2$. It is normalized, has two marginal eigenvalues $1/2$, and has $Q=2\log2$.
+In the computational basis its table has probability $1/8$ precisely on
+\[
+ \{1,4\}\times\{2,3\}\ \cup\ \{2,3\}\times\{1,4\},
+\]
+and zero elsewhere. We show that this table is unchanged in every quadratic basis.
+
+For $\zeta=e^{2\pi i/5}$ put $f_j=\zeta^{-j}-\zeta^j$ and
+$g_j=\zeta^{-2j}-\zeta^{2j}=f_{2j}$. Every supported pair $(x,y)$ has $x^2+y^2=0$ in $\F_5$, so the measurement amplitude is independent of $a$ and equals
+\[
+ \frac{f_jg_k-g_jf_k}{5\sqrt8}.
+\]
+We have $f_0=0$, $f_{-j}=-f_j$, $g_1=f_2$, $g_2=-f_1$, and
+\[
+ f_1^2+f_2^2=(\zeta+\zeta^2+\zeta^3+\zeta^4)-4=-5.
+\]
+Thus the numerator is zero for $j=0$, $k=0$, or $j=\pm k$, and is $5$ or $-5$ on exactly the eight displayed pairs. This proves the table assertion.
+Each marginal is uniform on four outcomes and has entropy $2\log2$; the joint entropy is $3\log2$. All six mutual informations are therefore $\log2$, and the retained score is $5\log2$. Together with \eqref{eq:universalratio}, this completes the proof of Theorem~\ref{thm:sharp}.
+
+\begin{remark}[Why the construction is not a numerical accident]
+Parity $R\ket{x}=\ket{-x}$ preserves every basis in \eqref{eq:bases} by sending $j$ to $-j$. Its even eigenspace at $p=3$ and odd eigenspace at $p=5$ have dimension two. The displayed states are singlets in these two-dimensional subspaces. Each measurement restricted to the relevant subspace is a sharp binary measurement with some outcomes split into duplicate labels. The exact formulas above verify this mechanism without relying on the interpretation.
+\end{remark}
+
+\section{An unbounded family in every larger prime dimension}
+The preceding small-dimensional states maximize the pure-state ratio, but a different elementary family suffices uniformly in all large prime dimensions. No claim of global optimality is made for the following family.
+
+\begin{theorem}\label{thm:main}
+For every prime $p\geq5$, the state
+\begin{equation}\label{eq:psi}
+ \ket{\psi_p}=\frac{\ket{00}+\ket{11}}{\sqrt2},\qquad
+ \rho_p=\ket{\psi_p}\bra{\psi_p},
+\end{equation}
+has $Q(\rho_p)=2\log2$ and
+\begin{equation}\label{eq:main}
+ \E_{\M_p}(\rho_p)=pJ_p>2\log2,
+ \qquad pJ_p-2\log2\geq\frac1{576},
+\end{equation}
+where
+\begin{equation}\label{eq:J}
+ J_p=\frac1p\sum_{t=0}^{p-1}
+ \left(1+\cos\frac{2\pi t}{p}\right)
+ \log\left(1+\cos\frac{2\pi t}{p}\right).
+\end{equation}
+Moreover, as $p\to\infty$ through primes,
+\begin{equation}\label{eq:limit}
+ J_p\longrightarrow1-\log2,\qquad
+ \frac{\E_{\M_p}(\rho_p)}{Q(\rho_p)}
+ \sim\frac{1-\log2}{2\log2}\,p.
+\end{equation}
+Every state in this family has one ebit of entanglement and Schmidt rank two.
+\end{theorem}
+\begin{lemma}\label{lem:laws}
+For $\rho_p$ in \eqref{eq:psi}, the complete list of measured mutual informations is
+\[
+ I_{M_\infty}(\rho_p)=\log2,\qquad
+ I_{M_a}(\rho_p)=J_p\quad(a\in\F_p),
+ \qquad J_p\leq\log2.
+\]
+Consequently $\E_{\M_p}(\rho_p)=pJ_p$.
+\end{lemma}
+\begin{proof}
+The vector in \eqref{eq:psi} is normalized. Its density matrix is positive semidefinite of trace one and rank one, and each partial trace is
+$\operatorname{diag}(1/2,1/2,0,\ldots,0)$. Thus $S(\rho_p)=0$, $S((\rho_p)_A)=S((\rho_p)_B)=\log2$, and $Q(\rho_p)=2\log2$.
+
+The computational table places probability $1/2$ at each of $(0,0)$ and $(1,1)$; its mutual information is $\log2$. For a quadratic basis,
+\[
+ (\bra{b_{a,j}}\otimes\bra{b_{a,k}})\ket{\psi_p}
+ =\frac{1+\zeta^{-(2a+j+k)}}{\sqrt2\,p}.
+\]
+The Born probabilities are therefore
+\begin{equation}\label{eq:belltable}
+ P^{(a)}_{jk}=\frac{1+\cos(2\pi(2a+j+k)/p)}{p^2}.
+\end{equation}
+They are nonnegative and have uniform marginals $1/p$, by the geometric-sum identity. As $(j,k)$ ranges over $\F_p^2$, each value of $2a+j+k$ occurs $p$ times. Substitution into
+$I(P)=\sum_{jk}P_{jk}\log(P_{jk}/(P_{A,j}P_{B,k}))$
+gives \eqref{eq:J}, independently of $a$.
+
+Finally put $s_t=1+\cos(2\pi t/p)$. Since $0\leq s_t\leq2$ and $p^{-1}\sum_t s_t=1$, we have
+$J_p=p^{-1}\sum_t s_t\log s_t\leq\log2$.
+Thus deleting a largest term in \eqref{eq:score} can delete the computational term, leaving exactly $pJ_p$.
+\end{proof}
+
+\subsection{A uniform, non-numerical violation certificate}
+\begin{lemma}\label{lem:minorant}
+For every $-1\leq x\leq1$, with the continuous convention at $x=-1$,
+\begin{equation}\label{eq:minorant}
+ (1+x)\log(1+x)\geq
+ P_5(x):=x+\frac{x^2}{2}-\frac{x^3}{6}+\frac{x^4}{12}-\frac{x^5}{20}.
+\end{equation}
+Also $\log2\leq25/36$.
+\end{lemma}
+\begin{proof}
+For $x>-1$ let $g(x)=(1+x)\log(1+x)-P_5(x)$. Direct differentiation gives
+\[
+ g(0)=g'(0)=0,\qquad
+ g''(x)=\frac1{1+x}-(1-x+x^2-x^3)=\frac{x^4}{1+x}\geq0.
+\]
+The derivative is nondecreasing, so $g$ has its global minimum at zero. This proves \eqref{eq:minorant} for $x>-1$. At $x=-1$ the left side is zero and $P_5(-1)=-1/5$.
+
+For the logarithmic bound, integrate the derivative of $\log((1+t)/(1-t))$:
+\begin{align*}
+ \log2
+ &=2\int_0^{1/3}\frac{dt}{1-t^2}
+ =\frac23+2\int_0^{1/3}\frac{t^2}{1-t^2}\,dt\\
+ &\leq\frac23+\frac94\int_0^{1/3}t^2\,dt
+ =\frac{25}{36}.
+\end{align*}
+The inequality uses $1/(1-t^2)\leq9/8$ on the interval of integration.
+\end{proof}
+
+\begin{lemma}\label{lem:moments}
+For every odd prime $p\geq5$, define $m_r=p^{-1}\sum_{t=0}^{p-1}\cos^r(2\pi t/p)$. Then
+\[
+ (m_1,m_2,m_3,m_4)=(0,1/2,0,3/8),\qquad
+ m_5=\begin{cases}1/16,&p=5,\\0,&p\geq7.\end{cases}
+\]
+In particular,
+\begin{equation}\label{eq:Jlower}
+ J_5\geq\frac{89}{320},\qquad J_p\geq\frac9{32}\quad(p\geq7).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Expanding $\cos\theta=(e^{i\theta}+e^{-i\theta})/2$ and summing roots of unity gives the exact formula
+\[
+ m_r=2^{-r}\sum_{\substack{0\leq j\leq r\\p\mid(r-2j)}}\binom rj.
+\]
+For $r\leq4$ and $p\geq5$, only frequency zero can contribute. At $r=5$ the frequencies $5$ and $-5$ contribute precisely when $p=5$, giving $2/32=1/16$. Averaging \eqref{eq:minorant} now yields
+\[
+ J_p\geq\frac14+\frac1{32}-\frac{m_5}{20}
+ =\frac9{32}-\frac{m_5}{20},
+\]
+which is \eqref{eq:Jlower}.
+\end{proof}
+
+\begin{proof}[Proof of the inequality in Theorem~\ref{thm:main}]
+Lemma~\ref{lem:mub} verifies the required measurement geometry; Lemma~\ref{lem:laws} verifies the quantum object, Born laws, entropies, and the minimization over subsets. Lemmas~\ref{lem:minorant} and \ref{lem:moments} give $J_p\geq89/320$ for every prime $p\geq5$. Hence
+\[
+ \E_{\M_p}(\rho_p)-Q(\rho_p)
+ =pJ_p-2\log2
+ \geq5\cdot\frac{89}{320}-2\cdot\frac{25}{36}
+ =\frac1{576}>0.
+\]
+This is a statement for all such primes, not a bound conditioned on a computational search or an unproved bridge.
+\end{proof}
+
+\subsection{Unbounded overrun at fixed entanglement}
+\begin{proof}[Proof of the asymptotic assertion in Theorem~\ref{thm:main}]
+The function
+$F(\theta)=(1+\cos\theta)\log(1+\cos\theta)$
+is continuous on the circle when its value at $\theta=\pi$ is defined as zero. Thus the Riemann sums in \eqref{eq:J} converge, through all integers and hence through primes, to
+\[
+ \frac1{2\pi}\int_0^{2\pi}F(\theta)\,d\theta
+ =\log2+\frac8\pi\int_0^{\pi/2}\cos^2u\log(\cos u)\,du.
+\]
+For completeness, set $A=\int_0^{\pi/2}\log\cos u\,du$. Reflection and the double-angle identity give
+$2A=-(\pi/2)\log2+A$, so $A=-(\pi/2)\log2$.
+Integration by parts gives
+\[
+ B:=\int_0^{\pi/2}\cos(2u)\log\cos u\,du
+ =\int_0^{\pi/2}\sin^2u\,du=\frac\pi4.
+\]
+All these improper integrals exist, and the endpoint term
+$\sin(2u)\log(\cos u)$ tends to zero. Consequently
+\[
+ \int_0^{\pi/2}\cos^2u\log(\cos u)\,du
+ =\frac{A+B}{2}=\frac\pi8-\frac\pi4\log2.
+\]
+The limit is $1-\log2>0$. Combining this with $Q(\rho_p)=2\log2$ proves \eqref{eq:limit}. The partial-trace spectrum established in Lemma~\ref{lem:laws} proves the fixed-entanglement assertion.
+\end{proof}
+
+\begin{remark}
+The linear growth is not an optimality claim over all pure states or all MUB sets. It gives an explicit obstruction to any dimension-independent multiplicative repair of ECQC, already for states of Schmidt rank two. It does not violate data processing: each individual measurement mutual information is at most $\log2$, and the proposed inequality sums results obtained in different settings on separate copies.
+\end{remark}
+
+
+\section{A full-Schmidt-rank pure qutrit counterexample}\label{sec:full}
+The low-dimensional maximizing states have singular marginals. This is not necessary for strict violation.
+
+\begin{theorem}\label{thm:fullqutrit}
+Let $W$ be the real integer matrix
+\begin{equation}\label{eq:Wfull}
+ W=\begin{pmatrix}0&5&5\\-5&1&-1\\-5&-1&1\end{pmatrix},\qquad
+ \ket\chi=\frac1{\sqrt{104}}\sum_{x,y=0}^2W_{xy}\ket{xy}.
+\end{equation}
+The state $\ket\chi\bra\chi$ is pure with full Schmidt rank three and violates ECQC for $\M_3$. Its exact excess is
+\begin{equation}\label{eq:fullgap}
+ \E_{\M_3}(\ket\chi\bra\chi)-Q(\ket\chi\bra\chi)
+ =\frac1{26}\log\!\left(\frac{2^{57}5^{100}13^{26}}{3^{243}}\right)>0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put $w_-=(\ket1-\ket2)/\sqrt2$. This vector is orthogonal to the local support of $\sigma_3$, and
+\[
+ \ket\chi=\frac{\ket{\sigma_3}+(1/5)w_-\otimes w_-}{\sqrt{1+1/25}}.
+\]
+The two orthogonal Schmidt sectors show that both marginal spectra are
+$(25/52,25/52,1/26)$. This also follows by direct multiplication:
+\[
+ \chi_A=\chi_B=\frac1{104}
+ \begin{pmatrix}50&0&0\\0&27&23\\0&23&27\end{pmatrix}.
+\]
+The matrix $W$ has squared Frobenius norm $104$, so the state is normalized. Every marginal eigenvalue is positive.
+
+In every basis in $\M_3$ the exact Born table is
+\begin{equation}\label{eq:Pfull}
+ P_\chi=\frac1{104}\begin{pmatrix}0&25&25\\25&1&1\\25&1&1\end{pmatrix}.
+\end{equation}
+For the computational basis this is immediate. For a quadratic basis, the $\sigma_3$ contribution is supported precisely where exactly one outcome is zero, by \eqref{eq:P3}. The additional product vector has amplitudes
+\[
+ \langle b_{a,j}\mid w_-\rangle
+ =\frac{\omega^{-a}}{\sqrt6}(\omega^{-j}-\omega^{-2j}),
+\]
+whose squared moduli are $(0,1/2,1/2)$. Its joint support is therefore disjoint from that of $\sigma_3$, and no interference term occurs. The normalization above gives exactly \eqref{eq:Pfull}.
+
+Let $h(t)=-t\log t-(1-t)\log(1-t)$, $e=1/26$, and $a=25/52=(1-e)/2$. The marginal von Neumann entropy is
+\[
+ H=h(e)+(1-e)\log2.
+\]
+The row and column entropies of \eqref{eq:Pfull} are $h(a)+(1-a)\log2$, and its joint entropy is $h(e)+2\log2$. Hence every setting has the same information
+\[
+ K=2h(a)-H,
+\]
+and the ECQC excess is $3K-2H=6h(a)-5H$. Expanding the logarithms of these positive rational numbers yields exactly \eqref{eq:fullgap}. Finally, the following positive integer is an independently replayable certificate for its sign:
+\begin{align*}
+ &2^{57}5^{100}13^{26}-3^{243}\\
+ &\quad=\texttt{17099079747494534278059353791485945240644944490562439367}\\[-2pt]
+ &\qquad\phantom{=}\texttt{599780562009032906276560056524450093168316883208944774334373}>0.
+\end{align*}
+The two digit strings are concatenated, not added. Equivalently, checking the short integer expression on the left suffices. Since the logarithm is strictly increasing on positive reals, the entropy excess is strictly positive.
+\end{proof}
+
+\begin{corollary}\label{cor:robust}
+For each odd prime $p$, full-Schmidt-rank pure counterexamples exist for the fixed canonical MUB family $\M_p$.
+\end{corollary}
+\begin{proof}
+At $p=3$ use Theorem~\ref{thm:fullqutrit}. For every prime $p\geq5$, start with the strict counterexample of Theorem~\ref{thm:main} and consider
+\[
+ \ket{\psi_{p,t}}=
+ \frac{\ket{00}+\ket{11}+t\sum_{x=2}^{p-1}\ket{xx}}
+ {\sqrt{2+(p-2)t^2}},\qquad t>0.
+\]
+These are full-Schmidt-rank pure states converging to $\psi_p$. In fixed finite dimension, Shannon and von Neumann entropies are continuous, including at zero eigenvalues, since $-x\log x$ extends continuously to zero and Hermitian eigenvalues are continuous. Born tables, finite sums, and finite maxima are continuous. The strict ECQC excess therefore persists for all sufficiently small positive $t$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:classification}]
+The pure-state Holevo bound proves the positive assertion at $p=2$. Theorem~\ref{thm:sharp} supplies a counterexample at $p=3$; Theorem~\ref{thm:main} supplies one at every prime $p\geq5$. Corollary~\ref{cor:robust} gives the full-Schmidt-rank strengthening. These cases exhaust the primes.
+\end{proof}
+
+\section{Verification, comparison, and limits}\label{sec:verification}
+\subsection{Proof dependencies and exact replay}
+The low-dimensional counterexamples require only the explicitly displayed density matrices, roots of unity, Born tables, and entropy identities. Their strict violations do not use Holevo's theorem. That established theorem is used solely for the universal upper bound, its sharpness interpretation, and the qubit side of the classification. The unbounded-prime construction uses the proved scalar minorant and Fourier identities, not a finite-prime extrapolation. Full-Schmidt-rank existence uses ordinary finite-dimensional continuity; the explicit qutrit example has a separate integer certificate.
+
+The package contains the following reproducible checks. The primary program \texttt{check\_low\_dimensions.py} reconstructs the actual low-dimensional bases, literal density matrices, partial traces, spectral annihilating identities, and every Born probability, with rational cyclotomic arithmetic. It computes entropies symbolically as rational combinations of logarithms of primes, verifying both the one-bit scores and the exact integer comparison in \eqref{eq:fullgap}. No floating-point eigensolver or optimizer appears in this proof checker.
+
+The separate program \texttt{check\_exact.py} reconstructs the embedded Bell construction at $p=5$ in $\mathbb Q(\zeta_5)$, checks all 900 ordered vector-pair overlaps and all 150 Born probabilities, and verifies the polynomial and rational identities in the all-prime proof. The analytic logarithm lemmas and unbounded quantifiers are proved in the text rather than assumed by the checker.
+
+A third program, \texttt{check\_intervals.py}, independently encloses the Bell family's five-dimensional entropy values and an additional full-Schmidt-rank five-dimensional witness detailed in the supplementary note. It uses integer square-root brackets and the expansion
+\[
+ 2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ \leq\log\frac{1+z}{1-z}
+ \leq2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+       +\frac{2z^{2n+1}}{(2n+1)(1-z^2)},\quad 0\leq z\leq1/3.
+\]
+The remainder follows by bounding every omitted denominator below by $2n+1$ and summing a geometric series. Range reduction by powers of two covers arbitrary positive rational inputs. All interval endpoints and outward rounding are rational; these computations do not supply assumptions to the analytic prime-dimensional classification.
+
+Negative controls corrupt selected states, Born phases, and moments, and require rejection. They detect those faults, not all conceivable implementation errors. Separate implementations here are within one AI-assisted project; they are not reviews by independent mathematicians. This version does not claim a complete Lean kernel proof of any quantum main theorem.
+
+\subsection{What is and is not settled}
+The pure-state ECQC question is false, with a complete classification of the prime dimensions in which it holds universally. Its smallest counterexample dimension is three, and the sharp multiplicative pure-state ratios are determined at dimensions two, three, and five. The unrestricted ECQC conjecture was already refuted by prior mixed-state work, which this paper explicitly credits. The fixed-entanglement unbounded family strengthens that prior phenomenon to pure states, not to a previously unclaimed disproof of the general conjecture.
+
+We do not determine the optimal ratio for every prime $p\geq7$, classify all equality states, or give an optimal replacement of ECQC. The theorem about pure states does not purport to classify mixed states. It does not contradict pure-state two-basis CQC: each individual score is bounded by half the quantum mutual information, whereas ECQC can retain more than two settings. The statements concern finite-dimensional quantum states and ideal projective measurements; no new experimental evidence is assumed or claimed.
+
+\paragraph{Author, assistance, funding, and review.}
+This work is attributed to Yongxian Zhang, School of Computer Science and Engineering, South China University of Technology. AI was used for research assistance, derivation, discovery computations, coding, literature checking, manuscript preparation, and self-audit. Numerical searches guided discovery but are absent from the proof dependencies. No external funding supported the work and no external professional mathematical peer review is claimed. Original material is copyright \textcopyright\ 2026 Yongxian Zhang, all rights reserved; cited works retain their rights and licenses.
+
+\paragraph{Reproduction.}
+With Python 3.10 or later, run the following from the source directory:
+\begin{verbatim}
+python3 check_low_dimensions.py
+python3 check_exact.py
+python3 check_intervals.py
+python3 test_negative_controls.py
+latexmk -pdf -halt-on-error paper.tex
+\end{verbatim}
+Assertions must be enabled; the programs reject optimized Python execution.
+The source package is available in the
+\href{https://github.com/mxym/math/tree/main/research/ecqc-pure-state-counterexamples}{\texttt{mxym/math} ECQC research directory}.
+Release metadata, when available, identifies a frozen source version; a timestamp or DOI is not evidence of mathematical priority.
+
+\begin{thebibliography}{9}
+\bibitem{iqbal}
+H. Iqbal,
+\emph{On the CQC Conjecture: A sufficient condition and an extension},
+arXiv:2509.08286v2 (2026), Conjecture 3.1, equation (6), and Section 5.
+\href{https://arxiv.org/abs/2509.08286}{arXiv:2509.08286};
+\href{https://doi.org/10.1007/s11128-026-05258-2}{doi:10.1007/s11128-026-05258-2}.
+\bibitem{wang}
+J. Wang, Q. Wang, and K. Chen,
+\emph{When Complementary Measurements Count the Same Classical Bit Twice: Counterexamples to CQC, ECQC, and Complementarity-Based Certification},
+arXiv:2608.03828v2 (2026), Section IV and Appendix B.
+\href{https://arxiv.org/abs/2608.03828}{arXiv:2608.03828}.
+\bibitem{schneeloch}
+J. Schneeloch, C. J. Broadbent, and J. C. Howell,
+\emph{Uncertainty relation for mutual information},
+Phys. Rev. A \textbf{90}, 062119 (2014).
+\href{https://doi.org/10.1103/PhysRevA.90.062119}{doi:10.1103/PhysRevA.90.062119}.
+\bibitem{holevo}
+A. S. Holevo,
+\emph{Bounds for the Quantity of Information Transmitted by a Quantum Communication Channel},
+Problems of Information Transmission \textbf{9}(3), 177--183 (1973).
+\href{https://www.mathnet.ru/eng/ppi903}{Original publication record}.
+\end{thebibliography}
+\end{document}

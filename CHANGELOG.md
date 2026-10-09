@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-08 — complete pure-state ECQC prime-dimensional classification
+
+- Prove universal pure-state ECQC holds in prime local dimension exactly at p=2; every odd prime has counterexamples even with full Schmidt rank and identical canonical local MUBs.
+- Give exact real pure-state witnesses attaining the sharp ratios 3/2 and 5/2 at dimensions three and five, and an all-prime embedded Bell family with an analytic rational violation certificate and unbounded overrun at one ebit.
+- Supply a nine-page audited paper, explicit density matrices and Born laws, cyclotomic and rational interval checkers, and eleven negative controls. Two Linux environments agree on all recorded checker outputs. Complete Lean and external professional peer review are not claimed.
+- Explicitly credit the previously published mixed-state ECQC disproof; no claim of first unrestricted disproof or historical priority is made.
+
 ## 2026-10-09 — revise the cofactor paper with the complete Lean Theorem 1 certificate
 
 - Revised the 10-page paper to document the exact Lean correspondence for Theorem 1, its positive-definite extension, the six limits, fixed source entry point, replay counts, standard axioms, and immutable Release. The later ramp, rank-two endpoint, and immanant statements remain explicitly outside the Lean certificate.
