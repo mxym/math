@@ -1,0 +1,33 @@
+name: Gaussian three-cell sharp theorem - independent Lean development
+
+on:
+  push:
+    branches:
+      - research/gaussian-three-cell-20261008
+    paths:
+      - '.github/workflows/gaussian-three-cell-lean.yml'
+      - 'formalizations/gaussian-simplex-all-k-progress/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gaussian-three:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build exact pinned Gaussian formalization
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/gaussian-simplex-all-k-progress
+          use-mathlib-cache: 'true'
+          build: 'true'
+          test: 'false'
+      - name: Audit new three-score lemmas
+        shell: bash
+        working-directory: formalizations/gaussian-simplex-all-k-progress
+        run: |
+          set -euo pipefail
+          lake env lean sources/GaussianThreeScoreAlgebra.lean
