@@ -41,12 +41,26 @@ unsafe/partial proof dependencies, and axioms other than `propext`,
 universe parameters are compared after replay. Runtime and memory limits
 are explicit in the runner; native proof evaluation is not used.
 
-An initial WSL clean target build and paired controls passed, followed by
-trust-zero replay of 34,435 declarations and eleven roots. The independent
-GitHub workflow `appt-physical-necessity-lean.yml` runs the same proof target
-and publishes literal source-bound records from `local-verification/necessity/`
-as an artifact. A report certifies only the exact source hashes it lists;
-the original WSL result is not presented as a later CI result.
+The initial WSL check was independently reproduced by GitHub Actions run
+`37930537368`, at source commit
+`945fc23fc119296497853e88292497a533afdfc6`. Every verification step passed:
+a fresh 2,700-job Lake target build (28.216 seconds), the correct control,
+the specifically rejected incorrect control, and trust-zero empty-kernel
+replay (32.502 seconds) of 34,435 declarations and eleven roots. The only
+axioms in the replayed closure are the three standard axioms listed above.
+
+The downloaded CI artifact is retained byte-for-byte in
+[`verification/necessity-ci-20261009/`](verification/necessity-ci-20261009/).
+`RUN.json` binds every checked source and literal log to its SHA-256 digest;
+`CI.json` records the successful run, verified commit, artifact identity,
+and downloaded file hashes. All source and log hashes were checked against
+the published files before retaining this record. The workflow also keeps
+an Actions artifact named after the exact verified commit.
+
+This evidence certifies the whole necessity target and its transitive
+proof closure, not a clean build of the final all-dimension maximum package.
+The proof and runner sources have not been changed by this evidence-only
+follow-up. A report applies only to the exact source hashes it records.
 
 ## Scope and integration
 

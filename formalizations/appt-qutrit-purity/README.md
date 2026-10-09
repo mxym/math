@@ -84,7 +84,10 @@ the complete state-to-sorted-spectrum necessary conditions for every n >= 3,
 including normalization and the actual purity identity. It can be built
 without the large uniform certificate modules. See [NECESSITY.md](NECESSITY.md)
 for the dedicated clean-target build, positive/negative controls, trust-zero
-replay, exact source hashes, and independent verification workflow.
+replay, exact source hashes, and independent verification workflow. The
+independent CI run `37930537368` passed all checks; its literal records are
+retained in `verification/necessity-ci-20261009/` (34,435 replayed declarations,
+eleven roots, only the three standard Lean axioms).
 
 ## Remaining mathematical work
 
