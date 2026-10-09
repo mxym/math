@@ -21,7 +21,7 @@
 | 永久量余子式谱 | 维数无关比值界不存在；Theorem 1 六个对数主项极限已完整 Lean（复 1、实 1/2）；后续 ramp／endpoint 仍为书面结果 | [无界性证明](notes/cofactor-spectrum-unbounded/README.md)；[锐渐近证明](notes/sharp-cofactor-spectral-asymptotics/README.md)；[完整 Lean 工程](formalizations/cofactor-spectral-asymptotics-progress/README.md) |
 | q-永久量半轴问题 | 指定 4 × 4 实有理矩阵在 q=49、50 之间下降；与原区间问题分开 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) |
 | 复三行永久量—行列式 | 所有复参数的精确范数主定理 | [预印本与完整 Lean](preprints/lean-certified-2026-10/complex-pencil-norm/README.md)；[完整书面研究](notes/complex-permanent-determinant/README.md)另含等号与张量化 |
-| 复四行永久量—行列式 | 锐 tradeoff、等号分类与稳定性；一般行数结论另有范围限制 | [书面证明与精确验证](notes/four-row-permanent-tradeoff/README.md) |
+| 复四行永久量—行列式 | 锐不等式、最优常数及全实参数精确范数完整 Lean；全等号分类、稳定性等另列范围 | [完整主结论 Lean 与本轮空内核复核](formalizations/four-row-permanent-tradeoff/README.md)；[书面研究](notes/four-row-permanent-tradeoff/README.md) |
 | Wakhare 熵多项式 | (k,r)=(11,10) 至少四个内部不同实根，反驳“恰有两个根” | [预印本](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md)；[新增完整 Lean 工程](formalizations/wakhare-entropy-four-roots-lean/README.md) |
 | 单峰 CGF 因子猜想 | 指定严格单峰 216 次多项式，无素数阶圆分因子 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) |
 | Ehrhart 实根性 | 指定 (132,213)-避免置换多面体族的全部维数实根性；使用已发表有限范围定理 | [完整书面证明与有理证书](notes/ehrhart-uniform-real-rootedness/README.md)；非完整 Lean |
