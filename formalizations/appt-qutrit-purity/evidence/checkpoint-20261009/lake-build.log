@@ -1,0 +1,57 @@
+✔ [2689/2696] Built APPT.Core (7.0s)
+⚠ [2690/2696] Built APPT.Quantum.Basic (8.9s)
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2691/2696] Built APPT.CoefficientMerge (9.1s)
+warning: APPT/CoefficientMerge.lean:23:42: This simp argument is unused:
+  merge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eval, Int.cast_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2692/2696] Built APPT.Quantum.BlockMaps (8.8s)
+warning: APPT/Quantum/BlockMaps.lean:14:32: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:20:32: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:21:31: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Matrix.kronecker_apply, Fintype.sum_prod_type, Matrix.one_apply, mul_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:23:8: automatically included section variable(s) unused in theorem `APPT.Quantum.lift_conjTranspose`:
+  [Fintype b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2693/2696] Built APPT.Quantum.Orbit (8.8s)
+⚠ [2694/2696] Built APPT.Quantum.Contractions (12s)
+warning: APPT/Quantum/Contractions.lean:31:30: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Matrix.smul_apply, sandwich_apply, partialTranspose, d0, d1, d2, s01, s02, s12, a01,
+    a02, a12, Fin.sum_univ_three, Matrix.sub_apply, Matrix.one_apply, hxy, Complex.real_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2695/2696] Built APPT (8.1s)
+Build completed successfully (2696 jobs).
