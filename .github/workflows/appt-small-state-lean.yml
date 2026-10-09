@@ -1,0 +1,54 @@
+name: APPT qutrit n=3..7 actual-state purity verification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Finite*'
+      - 'formalizations/appt-qutrit-purity/APPT/SpectrumBound*'
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/SmallMaximum.lean'
+      - 'formalizations/appt-qutrit-purity/SmallMaximumAudit.lean'
+      - '.github/workflows/appt-small-state-lean.yml'
+  pull_request:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Finite*'
+      - 'formalizations/appt-qutrit-purity/APPT/SpectrumBound*'
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/SmallMaximum.lean'
+      - 'formalizations/appt-qutrit-purity/SmallMaximumAudit.lean'
+      - '.github/workflows/appt-small-state-lean.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  small-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Compile all five finite certificates and upper bounds, serially
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          for d in 9 12 15 18 21; do
+            lake build APPT.SpectrumBound${d}
+          done
+          lake build APPT.Quantum.SmallMaximum
+          lake env lean SmallMaximumAudit.lean > SmallMaximumAudit.log 2>&1
+          cat SmallMaximumAudit.log
+          if grep -E 'sorryAx|unexpected axiom' SmallMaximumAudit.log; then exit 1; fi
+      - name: Forbid untrusted proof shortcuts in continuation modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -RnE '(^|[[:space:]])(sorry|admit|axiom|native_decide)([[:space:]]|$)' \
+            formalizations/appt-qutrit-purity/APPT/Finite*lean \
+            formalizations/appt-qutrit-purity/APPT/SpectrumBound*lean \
+            formalizations/appt-qutrit-purity/APPT/Quantum/SmallMaximum.lean
