@@ -24,13 +24,13 @@ execution, reruns the exact programs, and checks hashes again afterward.
 Assertions and negative tests are retained. Tag pushes no longer run the
 moving branch workflow; branch pushes, pull requests, and manual dispatch
 remain covered. Historical failed runs and immutable v1 snapshots remain
-visible. The maintenance release supplies corrected reproducible archives;
+visible. The corrected manifests and workflow are in the bound repository commit;
 the papers and checker algorithms themselves are unchanged.
 
 - `LOCAL_REPLAY.json`: pre-repair mismatches, six replay exit codes, and PDF checks.
 - `FAILED_HASH_STEP.log`: relevant lines from the original GitHub failure.
 - `*-*.py.log`: literal replay output.
-- [Maintenance release](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1.1).
+- Bound correction commit: `c6a02bb6647355e865a439d20116e8c841a01c16`.
 
 The original DOI attachment-level hashes remain valid: the stale manifests
 inside the source bundles are a separate defect. A patch archival version
