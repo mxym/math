@@ -2,7 +2,7 @@ import Lake
 open Lake DSL
 package laplacian_chollet_all_graphs_progress
 require mathlib from git "https://github.com/leanprover-community/mathlib4.git" @ "d13f23b723b8a846827a245b89c10fc7d3f11612"
-lean_lib CholletProgress where
+lean_lib CholletAllGraphs where
   srcDir := "src"
   roots := #[
     `AssessmentImports,
@@ -12,7 +12,6 @@ lean_lib CholletProgress where
     `Signed,
     `Bipartite,
     `BlockClosureAlgebra,
-    `CholletCycleExpansion,
     `CholletFischer,
     `CholletFischerPairs,
     `CholletPSD,
@@ -34,6 +33,7 @@ lean_lib CholletProgress where
     `RootStrongClosure,
     `PermanentDiagonalStability,
     `CholletPSDClosures,
+    `CholletDiagonalExtension,
     `CholletDiagonalScaling,
     `CholletSmallBlocks,
     `OAI.Combinatorics.PerfectMatching.Model,
@@ -51,17 +51,41 @@ lean_lib CholletProgress where
     `CholletMatchingPermanent,
     `CholletSimpleGraphModel,
     `CholletGraphDegreeBounds,
+    `Target,
+    `CholletGraphNormalization,
     `CholletGraphBoundary,
     `CholletGraphDeficit,
     `CholletGraphFeasible,
     `CholletGraphHighDegree,
-    `Target,
-    `CholletGraphNormalization,
     `CholletNoncycleMatching,
     `CholletMatchingRestriction,
-    `CholletPrincipalMatching,
+    `CholletGraphDiagonalBridge,
+    `CholletGraphSumMatrices,
+    `CholletCycleExpansion,
     `CholletTraceContraction,
     `CholletTraceSeries,
-    `GraphMain,
-    `Induced
+    `CholletClosedWalkTrace,
+    `CholletRootedCycleEncoding,
+    `CholletCycleOrbitWeight,
+    `CholletCycleTraceBound,
+    `CholletPermanentTraceUpper,
+    `CholletPrincipalMatching,
+    `CholletNormalizedEdgeSquare,
+    `CholletNoncycleBlock,
+    `CholletTriangleFreeTrace,
+    `CholletRegularTriangleFree,
+    `CholletRegularMatching,
+    `CholletRegularBlock,
+    `Triangle,
+    `TriangleDiagonal,
+    `TriangleStieltjes,
+    `DegreePair,
+    `GraphTriple,
+    `Induced,
+    `GraphTripleSubset,
+    `CholletRobustBlock,
+    `CholletGraphInductionInterfaces,
+    `CholletGraphSplit,
+    `CholletAllGraphs,
+    `GraphMain
   ]

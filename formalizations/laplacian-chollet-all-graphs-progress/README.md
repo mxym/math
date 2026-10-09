@@ -1,29 +1,32 @@
-# All-graph Laplacian strong Chollet — partial Lean progress
+# All-graph Laplacian strong Chollet — complete Lean proof
 
-The complete theorem for every finite simple unweighted graph and every principal index set is **not yet proved in Lean**. The exact target is `Chollet.StrongChollet` in `src/Target.lean`, using the actual Mathlib Laplacian and permanent, and degrees from the original graph. Empty and singular cases are retained.
+`Chollet.strongChollet_all_graphs` in [CholletAllGraphs.lean](src/CholletAllGraphs.lean) proves the exact shared `Chollet.StrongChollet` target for **every finite simple unweighted graph and every principal vertex subset**. It uses the actual mathlib graph Laplacian and `Matrix.permanent`, and the diagonal product contains degrees in the original graph. Empty principal subsets, isolated vertices, disconnected graphs, and singular Laplacians are included. There are no connectivity or minimum-degree assumptions in the main theorem.
 
-This checkpoint contains 59 modules. They were compiled fresh into a new build directory with Lean 4.34.1, commit `5045d0056413266e57c625dcd7c365b10e377c52`, and mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. All 769 owned declarations and their 43,704-declaration transitive closure passed replay from an empty kernel at trust level 0. Dependencies use only `propext`, `Classical.choice`, and `Quot.sound`, whose pinned signatures were checked. No owned declaration is an axiom, unsafe or partial; no `sorry`, `admit`, or `native_decide` is used. The deliberately invalid proof was rejected by the empty kernel.
+For a principal matrix `L[S]`, the conclusion is
 
-The original driver lost its stdout pipe after successful replay when the execution environment reconnected. `verification/status.json` preserves that failure. `verification/TAIL_COMPLETION.json` records the subsequent negative-control test and source/environment rechecks. An unchanged shared-cache fingerprint is not claimed for that interrupted driver run. The earlier 54-module run completed normally and is retained locally; its record is not used as proof of the later source bytes.
+```text
+per(L[S] ∘ L[S]) ≤ per(L[S]) · ∏_{v∈S} degree_G(v).
+```
 
-## Proved scope
+The stronger theorem `laplacianDiagonalStrong_all` proves the whole-matrix strong inequality for the Laplacian plus any nonnegative real diagonal addition. This supplies all original-degree principal cases through a proved degree correction.
 
-- Ordinary matching polytope and weighted matching selection, derived from the imported perfect-matching theorem by a doubled graph construction.
-- Actual real PSD permanent nonnegativity, singleton/pair lower bounds, matching lower bounds, and diagonal-product lower bound, including singular matrices. The block sizes needed here are proved directly; no general Lieb theorem is assumed.
-- Actual permutation cycle expansion and the simple-cycle product upper bound.
-- Row-sum contraction, `tr(C^(n+2)) <= r^n tr(C^2)`, and the exact finite `19/24` trace-series coefficient.
-- All odd-set constraints for actual vertex-robust minimum-degree-two graphs with a vertex of degree at least three. Additional theorems cover every even-order or order-at-least-ten vertex-robust graph. Vertex robustness is stated as connectivity of every literal vertex-deleted induced graph, rather than a hidden combinatorial assumption.
-- Injection-based restriction of ordinary fractional matchings, and the required normalized logarithmic permanent lower bound for **every actual principal submatrix** of a noncycle block. Both oriented edges are retained at half weight; the `4/5` coefficient over oriented edges equals `8/5` over unordered edges.
-- Exact diagonal scaling and normalization using ambient degrees; PSD pivot assumptions discharged in the diagonal-addition and rooted one-point-sum interfaces.
-- Reused public all-bipartite and induced-bipartite cases, and exact matrix permanent coalescence identities.
+## Independent verification
 
-## Remaining whole-theorem work
+The 83 source modules are frozen in `case.json` with SHA-256 hashes and a complete import order. Lean is pinned to 4.34.1, commit `5045d0056413266e57c625dcd7c365b10e377c52`; mathlib is pinned to `d13f23b723b8a846827a245b89c10fc7d3f11612`.
 
-1. Inject rooted simple cycles into weighted closed walks and connect the cycle sum to the trace upper bound. The weighted closed-walk trace identity is already compiled in the ongoing local development, but is outside these 59 audited modules.
-2. Close the small odd-cycle endpoint, or a uniform all-cycle endpoint.
-3. Assemble arbitrary graph splits/blocks and all hereditary principal cases into `StrongChollet`, with isolated vertices and disconnected components.
+Final independent verification completed on 2026-10-09: **MECHANICAL_PASS**. All 83 modules compiled fresh into a new isolated build directory. All **985 owned declarations** and their **44,173-declaration transitive closure** replayed successfully from an empty kernel at **trust level 0**. The full main theorem itself has 42,988 declarations in its dependency closure. The deliberately invalid proof was rejected, and the shared dependency-cache fingerprint was unchanged. See `verification/final-review.json`, `replay-summary.json`, `status.json`, and `negative-kernel.log`.
 
-These gaps are not replaced by axioms or hypotheses disguised as a completed endpoint. Historical assessment propositions in `CholletInterfaces.lean` are definitions, not asserted theorems.
+The audit includes every declaration owned by every bundled source module, including copied upstream matching and matrix proofs. It checks theorem dependencies and the pinned signatures of `propext`, `Classical.choice`, and `Quot.sound`. No additional mathematical axiom, omitted proof, unsafe or partial declaration, or `native_decide` is permitted. An invalid-proof control is required to fail in the empty trust-zero kernel. The source-token scan is supplementary; the kernel/dependency check is authoritative.
+
+The first full audit rejected a compiler-generated partial runtime helper for the recursive walk weight. The definition was made explicitly noncomputable, its generated declarations were checked, and the full fresh audit was restarted on the changed bytes. `verification/previous-attempt-fix.json` preserves the failed attempt and exact source change.
+
+The final record concerns these exact 83 modules. Earlier partial checkpoints have separate scopes and are not used as evidence for rebuilt or later source bytes. This directory retains the historical `all-graphs-progress` name so existing coordination links remain usable.
+
+## Proof and source review
+
+[SEMANTIC_REVIEW.md](SEMANTIC_REVIEW.md) gives the complete mathematical chain and checks the endpoint against the target definition. The degree-two block argument uses a vanishing third trace and uniformly scaled matching weights. General graph assembly uses vertex-count induction strengthened by arbitrary nonnegative diagonal additions. These arguments avoid cycle enumeration and a full block-tree formalization.
+
+The theorem concerns simple unweighted graphs over the real Laplacian. It makes no claim about arbitrary PSD matrices or arbitrary weighted graphs. The source review is an internal independent rederivation, not an external human peer-review certificate. [THIRD_PARTY.md](THIRD_PARTY.md) records copied proofs, exact commits, import adaptations, licenses, and source hashes.
 
 ## Reproduction
 
@@ -36,6 +39,4 @@ python3 reproduce.py --output /path/to/new-verifier-output \
   --cache-root /path/to/existing-mathlib-cache > replay.log 2>&1
 ```
 
-The output directory must be new. The verifier checks toolchain/package commits, source hashes, every owned declaration and its dependencies, the three standard axiom signatures, empty-kernel replay, and invalid-proof rejection. It installs nothing and does not reuse owned build files. Source hashes and import order are in `case.json`; full dependency records are compressed under `verification/`.
-
-See `THIRD_PARTY.md` for copied source attribution, licenses, commits, and hashes. This checkpoint is for coordination and independent checking, not a completed proof announcement.
+The output directory must be new. The verifier checks toolchain/package commits, every source hash, all owned declarations and their transitive dependencies, empty-kernel replay, invalid-proof rejection, and an unchanged shared dependency-cache fingerprint. It installs nothing and uses no old owned `.olean` files. `verification/` contains the final logs, inventory, closure, axiom signatures, and replay summary.

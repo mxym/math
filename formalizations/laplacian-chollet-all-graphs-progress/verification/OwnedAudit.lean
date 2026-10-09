@@ -5,7 +5,6 @@ import Nonnegative
 import Signed
 import Bipartite
 import BlockClosureAlgebra
-import CholletCycleExpansion
 import CholletFischer
 import CholletFischerPairs
 import CholletPSD
@@ -27,6 +26,7 @@ import PermanentDirectSumStability
 import RootStrongClosure
 import PermanentDiagonalStability
 import CholletPSDClosures
+import CholletDiagonalExtension
 import CholletDiagonalScaling
 import CholletSmallBlocks
 import OAI.Combinatorics.PerfectMatching.Model
@@ -44,19 +44,43 @@ import CholletOrdinaryEdmonds
 import CholletMatchingPermanent
 import CholletSimpleGraphModel
 import CholletGraphDegreeBounds
+import Target
+import CholletGraphNormalization
 import CholletGraphBoundary
 import CholletGraphDeficit
 import CholletGraphFeasible
 import CholletGraphHighDegree
-import Target
-import CholletGraphNormalization
 import CholletNoncycleMatching
 import CholletMatchingRestriction
-import CholletPrincipalMatching
+import CholletGraphDiagonalBridge
+import CholletGraphSumMatrices
+import CholletCycleExpansion
 import CholletTraceContraction
 import CholletTraceSeries
-import GraphMain
+import CholletClosedWalkTrace
+import CholletRootedCycleEncoding
+import CholletCycleOrbitWeight
+import CholletCycleTraceBound
+import CholletPermanentTraceUpper
+import CholletPrincipalMatching
+import CholletNormalizedEdgeSquare
+import CholletNoncycleBlock
+import CholletTriangleFreeTrace
+import CholletRegularTriangleFree
+import CholletRegularMatching
+import CholletRegularBlock
+import Triangle
+import TriangleDiagonal
+import TriangleStieltjes
+import DegreePair
+import GraphTriple
 import Induced
+import GraphTripleSubset
+import CholletRobustBlock
+import CholletGraphInductionInterfaces
+import CholletGraphSplit
+import CholletAllGraphs
+import GraphMain
 import Lean
 import Lean.Replay
 
@@ -168,8 +192,8 @@ set_option pp.all true
 
 namespace IndependentAudit
 
-def ownedModules : Array String := #[ "AssessmentImports", "BapatMultiColor", "BapatMvFischer", "Nonnegative", "Signed", "Bipartite", "BlockClosureAlgebra", "CholletCycleExpansion", "CholletFischer", "CholletFischerPairs", "CholletPSD", "PermanentDirectSum", "PermanentBlockPreserve", "OnePointSupport", "OnePointPermClass", "Reindex", "PermanentDiagonal", "CofactorOption", "PermanentDiagonalMinor", "OnePointRightEquiv", "OnePointLeftEquiv", "OnePointRoot", "PermanentOnePoint", "PermanentOnePointSquare", "PermanentOnePointStrong", "PermanentDirectSumStability", "RootStrongClosure", "PermanentDiagonalStability", "CholletPSDClosures", "CholletDiagonalScaling", "CholletSmallBlocks", "OAI.Combinatorics.PerfectMatching.Model", "OAI.Combinatorics.PerfectMatching.Simplex", "OAI.Combinatorics.PerfectMatching.Basic", "OAI.Combinatorics.PerfectMatching.OddCuts", "OAI.Combinatorics.PerfectMatching.Coupling", "OAI.Combinatorics.PerfectMatching.Contraction", "OAI.Combinatorics.PerfectMatching.Polyhedron", "OAI.Combinatorics.PerfectMatching.Polytope", "CholletInterfaces", "CholletMatchingWeights", "CholletMatchingDouble", "CholletOrdinaryEdmonds", "CholletMatchingPermanent", "CholletSimpleGraphModel", "CholletGraphDegreeBounds", "CholletGraphBoundary", "CholletGraphDeficit", "CholletGraphFeasible", "CholletGraphHighDegree", "Target", "CholletGraphNormalization", "CholletNoncycleMatching", "CholletMatchingRestriction", "CholletPrincipalMatching", "CholletTraceContraction", "CholletTraceSeries", "GraphMain", "Induced" ]
-def requestedRoots : Array Name := #[ ``Chollet.permanent_psd_singleton, ``Chollet.Matching.ordinary_matching_law, ``Chollet.trace_pow_le_row_sum, ``Chollet.finite_trace_series_upper, ``Chollet.Matching.fractional_proper_odd_set_bound, ``Chollet.rootStrong_onePointSum_psd, ``Chollet.strongChollet_scaleMatrix, ``Chollet.strongChollet_principal_of_normalized, ``Chollet.strongChollet_of_isBipartite, ``Chollet.Matching.fractional_ordinary_feasible_noncycle, ``Chollet.Matching.fractional_ordinary_feasible_even, ``Chollet.Matching.fractional_ordinary_feasible_large, ``Chollet.Matching.ordinaryFeasible_pullback, ``Chollet.Matching.normalized_principal_log_lower_noncycle ]
+def ownedModules : Array String := #[ "AssessmentImports", "BapatMultiColor", "BapatMvFischer", "Nonnegative", "Signed", "Bipartite", "BlockClosureAlgebra", "CholletFischer", "CholletFischerPairs", "CholletPSD", "PermanentDirectSum", "PermanentBlockPreserve", "OnePointSupport", "OnePointPermClass", "Reindex", "PermanentDiagonal", "CofactorOption", "PermanentDiagonalMinor", "OnePointRightEquiv", "OnePointLeftEquiv", "OnePointRoot", "PermanentOnePoint", "PermanentOnePointSquare", "PermanentOnePointStrong", "PermanentDirectSumStability", "RootStrongClosure", "PermanentDiagonalStability", "CholletPSDClosures", "CholletDiagonalExtension", "CholletDiagonalScaling", "CholletSmallBlocks", "OAI.Combinatorics.PerfectMatching.Model", "OAI.Combinatorics.PerfectMatching.Simplex", "OAI.Combinatorics.PerfectMatching.Basic", "OAI.Combinatorics.PerfectMatching.OddCuts", "OAI.Combinatorics.PerfectMatching.Coupling", "OAI.Combinatorics.PerfectMatching.Contraction", "OAI.Combinatorics.PerfectMatching.Polyhedron", "OAI.Combinatorics.PerfectMatching.Polytope", "CholletInterfaces", "CholletMatchingWeights", "CholletMatchingDouble", "CholletOrdinaryEdmonds", "CholletMatchingPermanent", "CholletSimpleGraphModel", "CholletGraphDegreeBounds", "Target", "CholletGraphNormalization", "CholletGraphBoundary", "CholletGraphDeficit", "CholletGraphFeasible", "CholletGraphHighDegree", "CholletNoncycleMatching", "CholletMatchingRestriction", "CholletGraphDiagonalBridge", "CholletGraphSumMatrices", "CholletCycleExpansion", "CholletTraceContraction", "CholletTraceSeries", "CholletClosedWalkTrace", "CholletRootedCycleEncoding", "CholletCycleOrbitWeight", "CholletCycleTraceBound", "CholletPermanentTraceUpper", "CholletPrincipalMatching", "CholletNormalizedEdgeSquare", "CholletNoncycleBlock", "CholletTriangleFreeTrace", "CholletRegularTriangleFree", "CholletRegularMatching", "CholletRegularBlock", "Triangle", "TriangleDiagonal", "TriangleStieltjes", "DegreePair", "GraphTriple", "Induced", "GraphTripleSubset", "CholletRobustBlock", "CholletGraphInductionInterfaces", "CholletGraphSplit", "CholletAllGraphs", "GraphMain" ]
+def requestedRoots : Array Name := #[ ``Chollet.strongChollet_all_graphs, ``Chollet.laplacianDiagonalStrong_all, ``Chollet.strongChollet_vertex_robust, ``Chollet.strongChollet_regular_two_robust, ``Chollet.log_permanent_one_add_upper, ``Chollet.cycle_weight_sum_le_trace_series, ``Chollet.Matching.ordinary_matching_law, ``Chollet.permanent_psd_singleton ]
 
 def moduleOf (env : Environment) (n : Name) : String :=
   match env.getModuleIdxFor? n with

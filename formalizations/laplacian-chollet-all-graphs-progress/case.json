@@ -1,5 +1,5 @@
 {
-  "task": "chollet-allgraph-progress-20261009-0030",
+  "task": "chollet-allgraph-complete-v2-20261009",
   "source_dir": "src",
   "modules": {
     "AssessmentImports": {
@@ -29,10 +29,6 @@
     "BlockClosureAlgebra": {
       "path": "BlockClosureAlgebra.lean",
       "sha256": "1709ad9d97d536de05b909a9e74860934c391d4d64406c43a49c96e9ebc054ef"
-    },
-    "CholletCycleExpansion": {
-      "path": "CholletCycleExpansion.lean",
-      "sha256": "0ee5988ea57c4d1e5a354742da699f3f7fc947004d0945c49a89f07c61c3f1bf"
     },
     "CholletFischer": {
       "path": "CholletFischer.lean",
@@ -118,6 +114,10 @@
       "path": "CholletPSDClosures.lean",
       "sha256": "36a1dd89c207245a22555490783ccc6622b738599602fb53aa13f4ce3dd59778"
     },
+    "CholletDiagonalExtension": {
+      "path": "CholletDiagonalExtension.lean",
+      "sha256": "f3d99de33a03f0f92696d86579a15a6775b634d898f1a1d21482a87589db8ae0"
+    },
     "CholletDiagonalScaling": {
       "path": "CholletDiagonalScaling.lean",
       "sha256": "bbeeda04eca1d9a973867321d895855e81bbe82a5aeee3686ee4d1f961e273c6"
@@ -186,6 +186,14 @@
       "path": "CholletGraphDegreeBounds.lean",
       "sha256": "105aa480b7e385fa1e86531c8fc83f24c3440f03bb7fd010c8ab0e13a42d8c21"
     },
+    "Target": {
+      "path": "Target.lean",
+      "sha256": "097c10bdc47ec5da12b0f7123d491e559587410e7576845312a2e44623511202"
+    },
+    "CholletGraphNormalization": {
+      "path": "CholletGraphNormalization.lean",
+      "sha256": "0f12a4e90e9bc87747b36b79276169f19760d5563c99310defcff12eb668a69c"
+    },
     "CholletGraphBoundary": {
       "path": "CholletGraphBoundary.lean",
       "sha256": "1af4bd915c68365f432449bbcf3f768eafc8203a5505244140af5afccbc81816"
@@ -202,14 +210,6 @@
       "path": "CholletGraphHighDegree.lean",
       "sha256": "587ece443fd15e5dde8f7fcea103a8ea8e5c9a606106fc289c70835a18ed72e7"
     },
-    "Target": {
-      "path": "Target.lean",
-      "sha256": "097c10bdc47ec5da12b0f7123d491e559587410e7576845312a2e44623511202"
-    },
-    "CholletGraphNormalization": {
-      "path": "CholletGraphNormalization.lean",
-      "sha256": "0f12a4e90e9bc87747b36b79276169f19760d5563c99310defcff12eb668a69c"
-    },
     "CholletNoncycleMatching": {
       "path": "CholletNoncycleMatching.lean",
       "sha256": "893c7100dccc62a56a47c9350163322c00f7301432486463120025127d5b19c3"
@@ -218,9 +218,17 @@
       "path": "CholletMatchingRestriction.lean",
       "sha256": "0da219685d2ee630eafaf1cd6467f218c84696e65a4db17aaf69cda9ab5462e4"
     },
-    "CholletPrincipalMatching": {
-      "path": "CholletPrincipalMatching.lean",
-      "sha256": "be6898bbb9bb807db376703be5aab0cf5e5ffc594b44045a729346880728d7af"
+    "CholletGraphDiagonalBridge": {
+      "path": "CholletGraphDiagonalBridge.lean",
+      "sha256": "c9a83dc463e0aa012fb90dd5ffea85c76747efcfa70dea0ad9bb4bc0339d576e"
+    },
+    "CholletGraphSumMatrices": {
+      "path": "CholletGraphSumMatrices.lean",
+      "sha256": "e5aeaf8009599ab2b23d392b92f443b19004d05c3d970d8cbc1feb3970a582cc"
+    },
+    "CholletCycleExpansion": {
+      "path": "CholletCycleExpansion.lean",
+      "sha256": "0ee5988ea57c4d1e5a354742da699f3f7fc947004d0945c49a89f07c61c3f1bf"
     },
     "CholletTraceContraction": {
       "path": "CholletTraceContraction.lean",
@@ -230,13 +238,101 @@
       "path": "CholletTraceSeries.lean",
       "sha256": "bdee3a089f542a1baf1b49820b74d32b3f78f38d79ac0e2294e92efc5269a6c3"
     },
-    "GraphMain": {
-      "path": "GraphMain.lean",
-      "sha256": "5d3d029e02a2b163cc3fe803c4a24b807aa6711095dbbcae2e3a36df9717e9f3"
+    "CholletClosedWalkTrace": {
+      "path": "CholletClosedWalkTrace.lean",
+      "sha256": "8fe5bb6075cead9f55d6340d292fbbffc838e63f07cb81d301910daa3a56ea77"
+    },
+    "CholletRootedCycleEncoding": {
+      "path": "CholletRootedCycleEncoding.lean",
+      "sha256": "d92436b1e582becb0334ab4e2a8c60483e6e02382ce9c59f202f5b96f0e383ee"
+    },
+    "CholletCycleOrbitWeight": {
+      "path": "CholletCycleOrbitWeight.lean",
+      "sha256": "498a9dea9c9daed08b95b025d9f8414f27a7035609a3505425a0e1c05c80f273"
+    },
+    "CholletCycleTraceBound": {
+      "path": "CholletCycleTraceBound.lean",
+      "sha256": "891ccdb08b4d113da05d032be44bc1e737b73f627bad06012eaeed729428af62"
+    },
+    "CholletPermanentTraceUpper": {
+      "path": "CholletPermanentTraceUpper.lean",
+      "sha256": "2824d7ff2e3c530fe193435a964cb80fb13b696bb8e21a52449d7d340cea2f8b"
+    },
+    "CholletPrincipalMatching": {
+      "path": "CholletPrincipalMatching.lean",
+      "sha256": "be6898bbb9bb807db376703be5aab0cf5e5ffc594b44045a729346880728d7af"
+    },
+    "CholletNormalizedEdgeSquare": {
+      "path": "CholletNormalizedEdgeSquare.lean",
+      "sha256": "e4e0edcda3b140cd4abbd40b6d703fa7d4bded4a919dad70ce52bc03d4704544"
+    },
+    "CholletNoncycleBlock": {
+      "path": "CholletNoncycleBlock.lean",
+      "sha256": "9bab3a8b41c5658d7aee913b74ae4306201b8b4ff27cee12d5dae88a76c68440"
+    },
+    "CholletTriangleFreeTrace": {
+      "path": "CholletTriangleFreeTrace.lean",
+      "sha256": "96e0759403e7ac3f638727170a50a75c3d241835beb212c9c4ac4c5ef116f09a"
+    },
+    "CholletRegularTriangleFree": {
+      "path": "CholletRegularTriangleFree.lean",
+      "sha256": "2dfa7aa09206bd62bdbec8daddab7407ae69989515b68d125bbacfe6e46c55e3"
+    },
+    "CholletRegularMatching": {
+      "path": "CholletRegularMatching.lean",
+      "sha256": "712802678a8a0f1d95c46d2ea1f5e12afca0e0e90edade633ad8bcff76f87847"
+    },
+    "CholletRegularBlock": {
+      "path": "CholletRegularBlock.lean",
+      "sha256": "81e392488d634006040d0bab15e421a11ddb19f3e9a27fd301c39b0b003239de"
+    },
+    "Triangle": {
+      "path": "Triangle.lean",
+      "sha256": "859cd1b0a477b957d72acc941f3fdf491f8fdc1df09510906daf9bfbab12f10a"
+    },
+    "TriangleDiagonal": {
+      "path": "TriangleDiagonal.lean",
+      "sha256": "afbf2fb8cdfda04304256dbe68b81f79e64e186f19a88adb5448bf8b721049cc"
+    },
+    "TriangleStieltjes": {
+      "path": "TriangleStieltjes.lean",
+      "sha256": "6b978f1d442766b6a4e0192492607e44e872f5e94ece365aa8acdf8546af56d0"
+    },
+    "DegreePair": {
+      "path": "DegreePair.lean",
+      "sha256": "df8744ee84b1aeba18aa0c6bb20bb3511ffd9b39f400797c195e569b2b4aeb77"
+    },
+    "GraphTriple": {
+      "path": "GraphTriple.lean",
+      "sha256": "d4d0dd4abde24e255054f8f63054b421cbd1e4ddd41fe1156b1601e1fae89070"
     },
     "Induced": {
       "path": "Induced.lean",
       "sha256": "bb05b3846e43c0d7152ae95c7ecd4f4b8d93810b2df8d3f44a58db2d79a9b707"
+    },
+    "GraphTripleSubset": {
+      "path": "GraphTripleSubset.lean",
+      "sha256": "21e03af97f4381e2d0203d1f32a5a218e06c4b6fb25d6341cbbd501596b5a4c0"
+    },
+    "CholletRobustBlock": {
+      "path": "CholletRobustBlock.lean",
+      "sha256": "2c8956e9f0ab69cbc78726812fd10355d7af8a883842ee18885659782fa85d00"
+    },
+    "CholletGraphInductionInterfaces": {
+      "path": "CholletGraphInductionInterfaces.lean",
+      "sha256": "60f17e9078467fcd785ab0a4f87bb25fba906d5e5f3bfa687ffe48eb7867e656"
+    },
+    "CholletGraphSplit": {
+      "path": "CholletGraphSplit.lean",
+      "sha256": "a0b699c9e3620ef6f7c7d6184fe7104ea28946d6c066ad24c7f31cda9057b74d"
+    },
+    "CholletAllGraphs": {
+      "path": "CholletAllGraphs.lean",
+      "sha256": "cae5ef2a34c688e48ee35d5cfdc850014e0a1a0788032b92859a28d8de72b0d9"
+    },
+    "GraphMain": {
+      "path": "GraphMain.lean",
+      "sha256": "5d3d029e02a2b163cc3fe803c4a24b807aa6711095dbbcae2e3a36df9717e9f3"
     }
   },
   "module_order": [
@@ -247,7 +343,6 @@
     "Signed",
     "Bipartite",
     "BlockClosureAlgebra",
-    "CholletCycleExpansion",
     "CholletFischer",
     "CholletFischerPairs",
     "CholletPSD",
@@ -269,6 +364,7 @@
     "RootStrongClosure",
     "PermanentDiagonalStability",
     "CholletPSDClosures",
+    "CholletDiagonalExtension",
     "CholletDiagonalScaling",
     "CholletSmallBlocks",
     "OAI.Combinatorics.PerfectMatching.Model",
@@ -286,19 +382,43 @@
     "CholletMatchingPermanent",
     "CholletSimpleGraphModel",
     "CholletGraphDegreeBounds",
+    "Target",
+    "CholletGraphNormalization",
     "CholletGraphBoundary",
     "CholletGraphDeficit",
     "CholletGraphFeasible",
     "CholletGraphHighDegree",
-    "Target",
-    "CholletGraphNormalization",
     "CholletNoncycleMatching",
     "CholletMatchingRestriction",
-    "CholletPrincipalMatching",
+    "CholletGraphDiagonalBridge",
+    "CholletGraphSumMatrices",
+    "CholletCycleExpansion",
     "CholletTraceContraction",
     "CholletTraceSeries",
-    "GraphMain",
-    "Induced"
+    "CholletClosedWalkTrace",
+    "CholletRootedCycleEncoding",
+    "CholletCycleOrbitWeight",
+    "CholletCycleTraceBound",
+    "CholletPermanentTraceUpper",
+    "CholletPrincipalMatching",
+    "CholletNormalizedEdgeSquare",
+    "CholletNoncycleBlock",
+    "CholletTriangleFreeTrace",
+    "CholletRegularTriangleFree",
+    "CholletRegularMatching",
+    "CholletRegularBlock",
+    "Triangle",
+    "TriangleDiagonal",
+    "TriangleStieltjes",
+    "DegreePair",
+    "GraphTriple",
+    "Induced",
+    "GraphTripleSubset",
+    "CholletRobustBlock",
+    "CholletGraphInductionInterfaces",
+    "CholletGraphSplit",
+    "CholletAllGraphs",
+    "GraphMain"
   ],
   "audit_modules": [
     "AssessmentImports",
@@ -308,7 +428,6 @@
     "Signed",
     "Bipartite",
     "BlockClosureAlgebra",
-    "CholletCycleExpansion",
     "CholletFischer",
     "CholletFischerPairs",
     "CholletPSD",
@@ -330,6 +449,7 @@
     "RootStrongClosure",
     "PermanentDiagonalStability",
     "CholletPSDClosures",
+    "CholletDiagonalExtension",
     "CholletDiagonalScaling",
     "CholletSmallBlocks",
     "OAI.Combinatorics.PerfectMatching.Model",
@@ -347,37 +467,55 @@
     "CholletMatchingPermanent",
     "CholletSimpleGraphModel",
     "CholletGraphDegreeBounds",
+    "Target",
+    "CholletGraphNormalization",
     "CholletGraphBoundary",
     "CholletGraphDeficit",
     "CholletGraphFeasible",
     "CholletGraphHighDegree",
-    "Target",
-    "CholletGraphNormalization",
     "CholletNoncycleMatching",
     "CholletMatchingRestriction",
-    "CholletPrincipalMatching",
+    "CholletGraphDiagonalBridge",
+    "CholletGraphSumMatrices",
+    "CholletCycleExpansion",
     "CholletTraceContraction",
     "CholletTraceSeries",
-    "GraphMain",
-    "Induced"
+    "CholletClosedWalkTrace",
+    "CholletRootedCycleEncoding",
+    "CholletCycleOrbitWeight",
+    "CholletCycleTraceBound",
+    "CholletPermanentTraceUpper",
+    "CholletPrincipalMatching",
+    "CholletNormalizedEdgeSquare",
+    "CholletNoncycleBlock",
+    "CholletTriangleFreeTrace",
+    "CholletRegularTriangleFree",
+    "CholletRegularMatching",
+    "CholletRegularBlock",
+    "Triangle",
+    "TriangleDiagonal",
+    "TriangleStieltjes",
+    "DegreePair",
+    "GraphTriple",
+    "Induced",
+    "GraphTripleSubset",
+    "CholletRobustBlock",
+    "CholletGraphInductionInterfaces",
+    "CholletGraphSplit",
+    "CholletAllGraphs",
+    "GraphMain"
   ],
   "roots": [
-    "Chollet.permanent_psd_singleton",
+    "Chollet.strongChollet_all_graphs",
+    "Chollet.laplacianDiagonalStrong_all",
+    "Chollet.strongChollet_vertex_robust",
+    "Chollet.strongChollet_regular_two_robust",
+    "Chollet.log_permanent_one_add_upper",
+    "Chollet.cycle_weight_sum_le_trace_series",
     "Chollet.Matching.ordinary_matching_law",
-    "Chollet.trace_pow_le_row_sum",
-    "Chollet.finite_trace_series_upper",
-    "Chollet.Matching.fractional_proper_odd_set_bound",
-    "Chollet.rootStrong_onePointSum_psd",
-    "Chollet.strongChollet_scaleMatrix",
-    "Chollet.strongChollet_principal_of_normalized",
-    "Chollet.strongChollet_of_isBipartite",
-    "Chollet.Matching.fractional_ordinary_feasible_noncycle",
-    "Chollet.Matching.fractional_ordinary_feasible_even",
-    "Chollet.Matching.fractional_ordinary_feasible_large",
-    "Chollet.Matching.ordinaryFeasible_pullback",
-    "Chollet.Matching.normalized_principal_log_lower_noncycle"
+    "Chollet.permanent_psd_singleton"
   ],
-  "complete_all_graph_main_theorem": false,
+  "complete_all_graph_main_theorem": true,
   "source_math_commit": "1336b63d5c6ffc49794c547bb8b3f4b7fa189139",
   "public_matrix_source_commit": "0c117440b88ec82122476df013a3e315118990aa"
 }
