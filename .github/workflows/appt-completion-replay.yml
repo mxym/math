@@ -57,6 +57,13 @@ jobs:
           python3 scripts/component_cache.py merge ../../component-artifacts
           find ../../component-artifacts -name UNIFORM_CACHE_PROVENANCE.json -exec cp {} local-verification/complete/ \;
           cp ../../component-provenance/*.json local-verification/complete/
+          # Fail fast on the audit invocation before replaying the large proof.
+          lake env python3 scripts/build_blocks.py --case All --engine lake --jobs 2 --timeout 300
+          lake build
+          mkdir -p .lake/build/lib/lean/Verification
+          timeout 120 lake env lean -j1 -M12288 -o .lake/build/lib/lean/Verification/ReplaySupport.olean Verification/ReplaySupport.lean
+          timeout 180 lake env lean -j1 -M12288 CompletionAudit.lean 2>&1 | tee audit-preflight.log
+          grep -F 'CORRUPTED_PROOF_REJECTED APPT.Quantum.appt_purity_maximum_formula' audit-preflight.log
           python3 reproduce.py 2>&1 | tee full-verification.log
       - uses: actions/upload-artifact@v4
         if: always()
@@ -68,4 +75,5 @@ jobs:
             formalizations/appt-qutrit-purity/completion-replayed-*.txt
             formalizations/appt-qutrit-purity/local-verification/complete/
             formalizations/appt-qutrit-purity/full-verification.log
+            formalizations/appt-qutrit-purity/audit-preflight.log
             component-provenance/
