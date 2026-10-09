@@ -1,6 +1,5 @@
 import APPT.CoefficientMerge
-import APPT.Quantum.Contractions
-import APPT.Quantum.Orbit
+import APPT.Quantum.Attainment
 import Lean.Replay
 import Lean
 
@@ -28,7 +27,8 @@ partial def collect (env : Environment) (todo : List Name)
 
 run_cmd do
   let env := (← getEnv).setExporting false
-  let roots := [``APPT.detA_nonneg,
+  let roots := [``APPT.Quantum.targetPurity_attained,
+    ``APPT.detA_nonneg,
     ``APPT.detB_nonneg,
     ``APPT.minorA_nonneg,
     ``APPT.minorB_nonneg,

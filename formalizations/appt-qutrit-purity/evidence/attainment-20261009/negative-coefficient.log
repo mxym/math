@@ -1,0 +1,22 @@
+RejectCoefficient.lean:3:2: error: Tactic `decide` failed for proposition
+  APPT.CoefficientMerge.merge [(0, 2)] [(0, 3)] = [(0, 6)]
+because its `Decidable` instance
+  instDecidableEqList (APPT.CoefficientMerge.merge [(0, 2)] [(0, 3)]) [(0, 6)]
+did not reduce to `isTrue` or `isFalse`.
+
+Reduction got stuck at the `Decidable` instance
+  match APPT.CoefficientMerge.merge [(0, 2)] [(0, 3)] with
+  | [] =>
+    match [(0, 6)] with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match [(0, 6)] with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | isTrue hab =>
+        match as.hasDecEq bs with
+        | isTrue habs => isTrue ⋯
+        | isFalse nabs => isFalse ⋯
+      | isFalse nab => isFalse ⋯

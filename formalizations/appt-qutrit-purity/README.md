@@ -29,14 +29,27 @@ identities use `decide +kernel`, not native evaluation. The full 1,635-term
 certificate is being checked in a separate bounded-module build and is
 **not yet an exported theorem of this checkpoint**.
 
+## Complete attainment direction
+
+`Quantum/Attainment.lean:targetPurity_attained` proves for every integer
+`n≥3` that an actual trace-one PSD complex matrix is absolutely PPT and
+has purity `(3n+8)/(3n+2)^2` for `n≤8`, or `3/(8n)` for `n≥9`.
+The first branch uses `(I+2vv*)/(3n+2)` with a normalized vector; the
+second uses `(I+P)/(4n)` with a rank-n coordinate projection.
+Both proofs quantify over every global unitary.
+
+The pure-projector bound `I+2*partialTranspose(vv*)≥0` is proved using an
+explicit three-column skew Gram identity and a rectangular-contraction
+lemma. It does not use an assumed Schmidt decomposition or Hildebrand
+criterion. Normalization, matrix squaring, trace, and purity are proved
+inside Lean, not supplied as witness hypotheses.
+
 ## Remaining mathematical work
 
 The all-dimension certificate, its complete ordered-spectrum application,
-APPT-to-A/B necessity, the rank-one attaining orbit for the small-dimension
-branch, the normalized attaining states and final state-level maximum
-remain unassembled here. The positive-contraction orbit theorem supplies
-one substantive part of the long-dimension attainment argument, not the
-entire optimality result. No full formalization Release is created.
+APPT-to-A/B necessity and the final state-level upper bound remain
+unassembled here. **Attainment is complete; optimality is not yet proved
+by this exported package.** No full formalization Release is created.
 
 A parallel continuation in `../appt-qutrit-purity-lean/` maintains the
 outer/middle reindexing and gap modules. This package uses a distinct path
