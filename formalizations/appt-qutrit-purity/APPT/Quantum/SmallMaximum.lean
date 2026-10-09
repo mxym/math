@@ -5,15 +5,16 @@ import APPT.SpectrumBound12
 import APPT.SpectrumBound15
 import APPT.SpectrumBound18
 import APPT.SpectrumBound21
+import APPT.SpectrumBound24
 
 open scoped BigOperators ComplexOrder
 open Matrix
 namespace APPT.Quantum
 
 /-- An *unconditional* actual-state upper bound for all qutrit-qudit
-systems with 3 ≤ n ≤ 7, using the five exact finite spectral certificates
+systems with 3 ≤ n ≤ 8, using the six exact finite spectral certificates
 and the genuine APPT-to-corner PSD implication. No quantum bridge is assumed. -/
-theorem appt_purity_upper_small (n : ℕ) (hn : 3 ≤ n) (h7 : n ≤ 7)
+theorem appt_purity_upper_small (n : ℕ) (hn : 3 ≤ n) (h8 : n ≤ 8)
     (A : Matrix (Fin 3 × Fin n) (Fin 3 × Fin n) ℂ)
     (hA : IsDensity A) (hP : AbsolutelyPPT A) :
     purity A ≤ (3*(n : ℝ)+8)/(3*(n : ℝ)+2)^2 := by
@@ -58,9 +59,17 @@ theorem appt_purity_upper_small (n : ℕ) (hn : 3 ≤ n) (h7 : n ≤ 7)
       (sortedSpectrum_cornerConditions 7 (by norm_num) A hA.1.1 hP)
     rw [purity_eq_sortedSpectrum 7 A hA.1.1]
     convert h using 1 <;> norm_num
+  · have h := APPT.spectrum_bound_24
+      (sortedSpectrum 8 A hA.1.1)
+      (sortedSpectrum_antitone 8 A hA.1.1)
+      (sortedSpectrum_nonneg 8 A hA.1)
+      (sortedSpectrum_sum_one 8 A hA)
+      (sortedSpectrum_cornerConditions 8 (by norm_num) A hA.1.1 hP)
+    rw [purity_eq_sortedSpectrum 8 A hA.1.1]
+    convert h using 1 <;> norm_num
 
-/-- Both inequality and APPT attainment for every 3 ≤ n ≤ 7. -/
-theorem appt_purity_maximum_small (n : ℕ) (hn : 3 ≤ n) (h7 : n ≤ 7) :
+/-- Both inequality and APPT attainment for every 3 ≤ n ≤ 8. -/
+theorem appt_purity_maximum_small (n : ℕ) (hn : 3 ≤ n) (h8 : n ≤ 8) :
     (∀ A : Matrix (Fin 3 × Fin n) (Fin 3 × Fin n) ℂ,
        IsDensity A → AbsolutelyPPT A →
        purity A ≤ (3*(n : ℝ)+8)/(3*(n : ℝ)+2)^2) ∧
@@ -68,7 +77,7 @@ theorem appt_purity_maximum_small (n : ℕ) (hn : 3 ≤ n) (h7 : n ≤ 7) :
       IsDensity A ∧ AbsolutelyPPT A ∧
       purity A = (3*(n : ℝ)+8)/(3*(n : ℝ)+2)^2 := by
   constructor
-  · exact fun A hA hP => appt_purity_upper_small n hn h7 A hA hP
+  · exact fun A hA hP => appt_purity_upper_small n hn h8 A hA hP
   · exact exists_shortState n (by omega)
 
 end APPT.Quantum

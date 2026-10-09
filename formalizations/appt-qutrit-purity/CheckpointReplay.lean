@@ -1,3 +1,4 @@
+import APPT.Quantum.Maximum
 import APPT.Quantum.SpectralNecessity
 import APPT.Quantum.LargeMaximum
 import Lean.Replay
@@ -28,6 +29,12 @@ partial def collect (env : Environment) (todo : List Name)
 run_cmd do
   let env := (← getEnv).setExporting false
   let roots := [
+    ``APPT.Quantum.appt_purity_upper,
+    ``APPT.Quantum.appt_purity_maximum,
+    ``APPT.Quantum.targetPurity_isGreatest,
+    ``APPT.Quantum.appt_purity_maximum_formula,
+    ``APPT.Quantum.appt_purity_upper_small,
+    ``APPT.Quantum.appt_purity_maximum_small,
     ``APPT.Quantum.density_appt_has_sorted_spectrum,
     ``APPT.Uniform.certificate_nonneg,
     ``APPT.Uniform.normalized_bound,
