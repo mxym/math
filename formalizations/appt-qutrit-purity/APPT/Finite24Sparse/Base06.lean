@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace APPT.Finite24
 open SparsePolynomial
 
-def base06 : SparsePolynomial.Poly := [([0], -2), ([1], -2), ([2], -2), ([3], -2), ([4], -2), ([5], -2), ([6], -2), ([7], -2), ([8], -2), ([9], -2), ([10], -2), ([11], -2), ([12], -2), ([13], -2), ([14], -2), ([15], -2), ([16], -2), ([17], -2), ([18], -2), ([19], -2), ([22], 2), ([23], 4)]
+def base06 : SparsePolynomial.Poly := [([nat_lit 0], Int.negSucc (nat_lit 1)), ([nat_lit 1], Int.negSucc (nat_lit 1)), ([nat_lit 2], Int.negSucc (nat_lit 1)), ([nat_lit 3], Int.negSucc (nat_lit 1)), ([nat_lit 4], Int.negSucc (nat_lit 1)), ([nat_lit 5], Int.negSucc (nat_lit 1)), ([nat_lit 6], Int.negSucc (nat_lit 1)), ([nat_lit 7], Int.negSucc (nat_lit 1)), ([nat_lit 8], Int.negSucc (nat_lit 1)), ([nat_lit 9], Int.negSucc (nat_lit 1)), ([nat_lit 10], Int.negSucc (nat_lit 1)), ([nat_lit 11], Int.negSucc (nat_lit 1)), ([nat_lit 12], Int.negSucc (nat_lit 1)), ([nat_lit 13], Int.negSucc (nat_lit 1)), ([nat_lit 14], Int.negSucc (nat_lit 1)), ([nat_lit 15], Int.negSucc (nat_lit 1)), ([nat_lit 16], Int.negSucc (nat_lit 1)), ([nat_lit 17], Int.negSucc (nat_lit 1)), ([nat_lit 18], Int.negSucc (nat_lit 1)), ([nat_lit 19], Int.negSucc (nat_lit 1)), ([nat_lit 22], Int.ofNat (nat_lit 2)), ([nat_lit 23], Int.ofNat (nat_lit 4))]
 theorem eval_base06 (g : Fin 24 → ℝ) : SparsePolynomial.eval (gapValues g) base06 = quadB (outer g) ![1,1,0] := by
   norm_num [base06, SparsePolynomial.eval, SparsePolynomial.mon, gapValues, spectrum, quadB, matB, outer, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
   <;> ring
