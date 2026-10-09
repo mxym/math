@@ -8,7 +8,7 @@
 
 ## 完整 Lean 的主要入口
 
-- [复四行永久量—行列式锐界与全实参数精确范数](formalizations/four-row-permanent-tradeoff/README.md)：实际复 4×4 矩阵，最优常数、取到及真实归一化上确界；全等号分类和整篇论文的其他扩展不包含在 v1 证书内。
+- [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。
 
 - [余子式谱 Theorem 1 的完整 Lean 形式化](formalizations/cofactor-spectral-asymptotics-progress/README.md)：三类输入矩阵的六个对数主项极限，复方向为 1、实方向为 1/2；后续 ramp／endpoint 命题不在证书范围内。
 - [一般互信息连续性拟议界的经典反例](formalizations/mutual-information-continuity-counterexample/README.md)：实际 3×3 概率表、熵、总变差及任意小正距离反例；两侧边缘变化。量子嵌入及必要系数下界仍为书面证明。

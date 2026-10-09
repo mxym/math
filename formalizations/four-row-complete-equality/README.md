@@ -70,10 +70,26 @@ Three positive examples and two deliberately invalid proof controls are
 included. The invalid controls must fail at a proof goal, not because of
 missing imports. They are not registered as Lake library roots.
 
-## Verification status of this checkpoint
+## Current verification evidence
 
-The five new mathematical modules and the actual final theorem have passed
-development compilation with only the three standard axioms listed above.
-The final fresh-build and empty-kernel-replay run is not yet recorded in this
-checkpoint. No earlier v1 log is claimed to verify the new classification.
-A subsequent evidence commit records the completed current run and its hashes.
+[evidence/v2/VERIFICATION.json](evidence/v2/VERIFICATION.json) records the newly
+performed run, completed at **2026-10-09T09:09:14.503384+00:00**: all **12 modules**
+were freshly compiled, and **112 named roots / 15,593 dependency declarations**
+were replayed in an empty kernel at trust level zero. Its axiom list is exactly
+`Classical.choice`, `Quot.sound`, and `propext`. All three positive controls passed;
+both omitted-zero-row and wrong-weight controls were rejected at proof goals.
+
+A second, separate fresh `lake build` completed at
+**2026-10-09T09:15:05.856729+00:00**; see
+[evidence/v2/LAKE_BUILD.json](evidence/v2/LAKE_BUILD.json).
+Both runs used a newly created own-build directory and the fixed source bytes.
+They are distinct executions in the same WSL environment, not a claim of an
+independent physical machine or external human review. No old v1 logs are
+relabelled as verification of the new classification.
+
+The evidence includes every build/control log, printed definitions and final
+theorem, the complete replayed root and dependency lists, and SHA256 bindings
+for source files, logs, toolchain binary and produced objects. Source hashes
+were checked before and after the run. Compiled objects themselves are not
+published, and cross-machine byte equality of object serialization is not
+required for the theorem. The copied v1 sources are separately identified.
