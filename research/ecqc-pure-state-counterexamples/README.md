@@ -71,6 +71,10 @@ This version has complete written proofs and exact replayable checkers. The expl
 
 The sharp ratio for every prime `p >= 7`, a classification of all equality states, an optimal repaired ECQC inequality, and a classification of mixed states are not settled here. The pure-state prime-dimensional validity question itself is settled. No new experiment or experimental confirmation is claimed.
 
+## Replay integrity correction
+
+The immutable v1 source snapshots retain an outdated `SHA256SUMS` after the Lean-scope documentation update. The exact checker sources and their results were unchanged. The current manifest is repaired, and [the CI repair audit](../../verification/ecqc-replay-ci-2026-10-09/README.md) records the original discrepancies and fresh replay. A maintenance supplement is published at [ecqc-exact-replay-integrity-v1.1](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1); frozen v1 files are not modified.
+
 ## Provenance and rights
 
 AI assisted research, discovery computation, derivation, coding, literature checking, writing, and self-audit. Numerical optimization was discovery-only and is not a proof dependency. There was no external funding and no external professional mathematical peer review. Independent implementations mean separate code paths within this project, not independent human review.

@@ -67,6 +67,10 @@ Only Python 3.10+ and its standard library are required for the two checkers. Bo
 
 The sharp pure-state ratio for `p=3 mod 4`, `p>=7`, the general rank-deficient equality classification, mixed-state classifications, and different pairings of Alice's and Bob's bases are not solved here. Nonattainment at full rank does **not** imply a smaller supremum: the rank-two qutrit extremizer can be approximated by full-rank states. No experiment or experimental confirmation is claimed.
 
+## Replay integrity correction
+
+The immutable v1 source snapshots retain an outdated `SHA256SUMS` after the Lean-scope documentation update. The exact checker sources and their results were unchanged. The current manifest is repaired, and [the CI repair audit](../../verification/ecqc-replay-ci-2026-10-09/README.md) records the original discrepancies and fresh replay. A maintenance supplement is published at [ecqc-exact-replay-integrity-v1.1](https://github.com/mxym/math/releases/tag/ecqc-exact-replay-integrity-v1.1); frozen v1 files are not modified.
+
 ## Provenance and rights
 
 AI assisted derivation, exploratory computation, coding, literature checking, writing, and self-audit. No external funding and no external professional mathematical peer review. Separate checker implementations mean separate code paths in this project, not independent human review. Copyright (c) 2026 Yongxian Zhang; all rights reserved for separately authored original material. Existing repository and source licenses remain unchanged. DOI and release timestamps, when assigned, do not certify priority. See [RIGHTS.md](RIGHTS.md).

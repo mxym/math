@@ -2,26 +2,49 @@
 name: ECQC exact counterexample replay
 on:
   push:
+    branches: ['**']
     paths:
       - 'research/ecqc-pure-state-counterexamples/**'
+      - 'research/ecqc-stabilizer-saturation/**'
       - '.github/workflows/ecqc-pure-state-checks.yml'
   pull_request:
     paths:
       - 'research/ecqc-pure-state-counterexamples/**'
+      - 'research/ecqc-stabilizer-saturation/**'
       - '.github/workflows/ecqc-pure-state-checks.yml'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   exact-replay:
+    name: Exact replay (${{ matrix.package }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - ecqc-pure-state-counterexamples
+          - ecqc-stabilizer-saturation
     steps:
       - uses: actions/checkout@v4
+      - name: Verify frozen source and manuscript checksums
+        working-directory: research/${{ matrix.package }}
+        run: sha256sum --check SHA256SUMS
       - name: Replay exact states, bases, entropies, and negative controls
+        if: matrix.package == 'ecqc-pure-state-counterexamples'
         working-directory: research/ecqc-pure-state-counterexamples
         run: |
           python3 check_low_dimensions.py
           python3 check_exact.py
           python3 check_intervals.py
           python3 test_negative_controls.py
+      - name: Replay stabilizer density matrices and independent Gauss sums
+        if: matrix.package == 'ecqc-stabilizer-saturation'
+        working-directory: research/ecqc-stabilizer-saturation
+        run: |
+          python3 check_exact.py
+          python3 check_affine_gauss.py
+      - name: Verify replay left the frozen files unchanged
+        working-directory: research/${{ matrix.package }}
+        run: |
           sha256sum --check SHA256SUMS

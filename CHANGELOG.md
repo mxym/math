@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 — repair ECQC replay manifests and cover both manuscripts in CI
+
+- Traced the failed main CI to stale documentary/manuscript hashes after the qutrit Lean-scope update and DOI indexing; the four counterexample replay programs had already passed.
+- Independently reran all six ECQC replay programs, checked unchanged frozen checker sources, and rebuilt both PDFs with matching extracted text. Updated both checksum inventories without suppressing checks.
+- Expanded the workflow to both ECQC packages, with pre- and post-replay checksum validation. Retained assertions, negative controls, immutable historical snapshots, and the precise Lean scope.
+
 ## 2026-10-08 — full-rank ECQC rigidity and complete pure stabilizer classification
 
 - Classify all full-Schmidt-rank saturators without a stabilizer hypothesis: exactly the affine Bell states with s²=-1, giving 2p² rays at p≡1 mod 4.

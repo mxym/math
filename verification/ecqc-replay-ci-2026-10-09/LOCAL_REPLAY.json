@@ -1,0 +1,96 @@
+{
+  "source_commit": "6b60bef0416ba79dda8bc64fdd06938899c8c231",
+  "checks": [
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "script": "check_low_dimensions.py",
+      "exit_code": 0,
+      "stdout_sha256": "cf2e740872a28aa08576a1374f856b0e24d1362ba89c72a4c979faed7be19ef6",
+      "stderr": ""
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "script": "check_exact.py",
+      "exit_code": 0,
+      "stdout_sha256": "2dbca9ed3b1ede4ecdaacce78483a2b408cf00eeb4e34f2792288a601a080071",
+      "stderr": ""
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "script": "check_intervals.py",
+      "exit_code": 0,
+      "stdout_sha256": "8ed7763eb815fd1cf7574d6398bfaf0c287615a011d575ce09c8cce77f99de6f",
+      "stderr": ""
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "script": "test_negative_controls.py",
+      "exit_code": 0,
+      "stdout_sha256": "f0d47ba1248f2ad0e3c712027f043db30b2c36910b36792afabbda370cecb8cd",
+      "stderr": ""
+    },
+    {
+      "package": "ecqc-stabilizer-saturation",
+      "script": "check_exact.py",
+      "exit_code": 0,
+      "stdout_sha256": "2ac8c7babea0a70011e0b7ece7b1b1d52998213552e1ab6e81ffdb925bd04b22",
+      "stderr": ""
+    },
+    {
+      "package": "ecqc-stabilizer-saturation",
+      "script": "check_affine_gauss.py",
+      "exit_code": 0,
+      "stdout_sha256": "079a2b885649bbf4de904b3a345cf6ca399c46eeaace65ab1f8614609948a5ce",
+      "stderr": ""
+    }
+  ],
+  "manifest_differences": [
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "file": "QUTRIT_EXACT.md",
+      "expected_stale": "bded7c01db0531be7abfb32c304777308ab5d8f6f7ea40b13e02403654fed772",
+      "actual": "73bf799409c9d37ed2a3738163e6cf054ffc4174fd170cd5eedb2e9ef70d2658"
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "file": "README.md",
+      "expected_stale": "bc93dcc1322cfc90a5ccff93537715b197ae439e39b748f12ce54b0250ec463d",
+      "actual": "94e42ad1706d7a71dfee6ed7ff0851b7b6624bfb0e84b6673fa286e19f9974e7"
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "file": "paper.pdf",
+      "expected_stale": "8363ae57f24ce86fef3118518b5626d5b9fb81d23dc31a9446f6bc77fc6596a9",
+      "actual": "98d45d1dc97b88848bb1f03a165d8143bf25f9e0abf86ee47b23457c86754273"
+    },
+    {
+      "package": "ecqc-pure-state-counterexamples",
+      "file": "paper.tex",
+      "expected_stale": "fb7ebb71f48abc99dc49170429d7e8c14423783798d09c477652951ad08c416d",
+      "actual": "f1fb82b105fce7aa2d0e47cd9e4842ab495627d45b5a3451a9996e140d22ade4"
+    },
+    {
+      "package": "ecqc-stabilizer-saturation",
+      "file": "README.md",
+      "expected_stale": "7243d9bd30f6380f22b27981c0c313f0afd26561dc944d9081726830751affdb",
+      "actual": "0b042f73deba9ac8807ae4530f54d4121cf09a4cfeeed73b6e05182133350519"
+    }
+  ],
+  "scope": "Six exact checker/negative-control programs rerun. Stale hashes are traced to documented Lean-scope and DOI edits. No Lean kernel replay was repeated in this CI repair.",
+  "pdf_rebuild": {
+    "pure_state": {
+      "normalized_extracted_text_equal": true,
+      "passes": 3,
+      "final_unresolved_references": false,
+      "overfull_boxes": false,
+      "existing_underfull_hbox": "badness 2401 in bibliography paragraph"
+    },
+    "stabilizer": {
+      "normalized_extracted_text_equal": true,
+      "passes": 2,
+      "warnings": []
+    }
+  },
+  "status": "PASS",
+  "checker_sources_unchanged_from_frozen_v1": true
+}
