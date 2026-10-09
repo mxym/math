@@ -8,6 +8,8 @@
 
 ## 完整 Lean 的主要入口
 
+- [qutrit–qudit APPT 最大纯度：全部 n≥3](formalizations/appt-qutrit-purity/README.md)：真实复密度矩阵及任意全局酉变换下的部分转置正性；n≤8 时为 (3n+8)/(3n+2)^2，n≥9 时为 3/(8n)，含上界与实际取到。879 模块构建和 155,787 声明空内核重放通过，保留失败对照、源码哈希及完整复现脚本。
+
 - [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。
 
 - [余子式谱 Theorem 1 的完整 Lean 形式化](formalizations/cofactor-spectral-asymptotics-progress/README.md)：三类输入矩阵的六个对数主项极限，复方向为 1、实方向为 1/2；后续 ramp／endpoint 命题不在证书范围内。

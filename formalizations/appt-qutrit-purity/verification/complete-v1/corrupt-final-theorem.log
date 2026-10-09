@@ -1,0 +1,19 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPT.Quantum.appt_purity_maximum_formula':
+(kernel) declaration type mismatch, 'APPT.Quantum.appt_purity_maximum_formula' has type
+  True
+but it is expected to have type
+  (n : Nat) →
+    @LE.le Nat instLENat 3 n →
+      @IsGreatest Real Real.instLE (APPT.Quantum.attainablePurities n)
+        (@ite Real (@LE.le Nat instLENat n 8) (Nat.decLe n 8)
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 3 (@Nat.cast Real Real.instNatCast n)) 8)
+            (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+              (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 3 (@Nat.cast Real Real.instNatCast n)) 2)
+              2))
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 3
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 8 (@Nat.cast Real Real.instNatCast n))))
+TYPE_CLOSURE_REPLAY_PASS 8581 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPT.Quantum.appt_purity_maximum_formula

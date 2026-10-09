@@ -72,6 +72,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 ## 证明与复现
 
+[qutrit–qudit APPT 最大纯度](formalizations/appt-qutrit-purity/README.md)现已完成全部 n≥3 的真实量子态 Lean 形式化，包含全局酉轨道 APPT 必要性、排序谱、统一与六个有限证书、上界及实际取到。879 模块和默认 Lake 构建通过；155,787 个声明、58 个根定理完成 trust level 0 空内核重放，最终最大值定理的伪造证明被独立内核拒绝。[完整验证记录](formalizations/appt-qutrit-purity/verification/complete-v1/README.md)明确区分分块编译缓存与内核复核；不声称所有极值态分类或新颖性优先权。
+
 [复四行永久量—行列式主定理及完整等号分类](formalizations/four-row-complete-equality/README.md)现已完整 Lean 化：实际复矩阵的锐不等式、全部权重下的等号充要条件及零行边界均已证明；保留旧版最优常数及全实参数范数证明。本次新建目录重编译 12 个模块，空内核 trust level 0 重放 112 个声明及 15,593 个依赖声明；独立的干净 Lake 构建也通过。任意列数、稳定性、凸目标与张量化扩展仍另列范围。
 
 “完整 Lean”只适用于所列具体定理；部分引理、有限证书和成功构建不自动覆盖整篇论文。完整书面证明可使用明确引用的已证明定理，完整 Lean 不是公开该证明的前提。

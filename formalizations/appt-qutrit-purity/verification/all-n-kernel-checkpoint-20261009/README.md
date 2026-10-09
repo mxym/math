@@ -24,3 +24,8 @@ The build combines independently compiled source-bound components, rather than
 claiming that every module was freshly compiled on one runner. The uniform
 component provenance is explicit in `UNIFORM_CACHE_PROVENANCE.json`; its proof
 closure is nonetheless included in the new trust-zero replay.
+
+## Subsequent completion
+
+Run `37968137659` passed the corrected controls and final forged-theorem rejection.
+See `../complete-v1/`. The earlier failed runner report remains unchanged.

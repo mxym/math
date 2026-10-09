@@ -1,5 +1,11 @@
 # Qutrit–qudit APPT: Lean formalization continuation
 
+> Historical modular continuation. The completed all-n actual-state APPT purity
+> proof and final verification are in
+> [`../appt-qutrit-purity/`](../appt-qutrit-purity/README.md). The earlier status
+> below describes this historical package, not the completed proof.
+
+
 **Status: IN PROGRESS; NOT a complete APPT purity formalization.** This
 working copy is separate from the immutable
 [`appt-qutrit-purity-interim-v1`](https://github.com/mxym/math/releases/tag/appt-qutrit-purity-interim-v1)

@@ -1,13 +1,17 @@
 # Qutrit-qudit APPT purity: all-dimension Lean proof
 
-**The actual all-n maximal-purity theorem has compiled and passed independent
-trust-zero kernel replay. Final release validation is in progress.**
-Run `37956727424` passed all 879 local modules, the default Lake build, and a
-155,787-declaration / 58-root replay. A later auxiliary endpoint test failed
-arithmetic simplification; that test is corrected and the final forged-proof
-control is being rerun. See
-[the exact checkpoint boundary](verification/all-n-kernel-checkpoint-20261009/README.md).
-No full-formalization Release is claimed at this checkpoint.
+**COMPLETE for the stated actual-state maximal-purity theorem, for every n >= 3.**
+Verification run `37968137659`, source `f372047c63ba501b13301b4b3ba089c261e3722e`, passed all 18 build, regeneration,
+positive/negative-control, and kernel-audit stages. The default Lake target and
+all 879 local modules passed; 155,787 declarations across 58 explicit roots
+were replayed in an initially empty kernel at trust level zero.
+See [complete verification evidence](verification/complete-v1/README.md).
+
+The final-theorem rejection test preserves the original name, type and universe
+parameters and replaces only its proof by `True.intro`. A fresh trust-zero kernel
+rejected that exact forged theorem for a declaration type mismatch.
+The completion version is `appt-qutrit-purity-complete-v1`.
+The immutable interim release and its files are unchanged.
 
 ## Mathematical statement and physical semantics
 
@@ -83,9 +87,13 @@ them in an initially empty Lean kernel at trust level zero. It also compares
 replayed root types and universe parameters with the originals. The only allowed
 axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 
-`CompletionAudit.lean` additionally replaces the proof of the **same final
-maximum theorem** by `True.intro` and requires a second fresh kernel to reject
-it for a declaration type mismatch. The auxiliary sparse, corner, and endpoint
+`CompletionAudit.lean` is paired with the full positive theorem replay. It
+replaces only the proof of the **same final maximum theorem** by `True.intro`,
+positively verifies the dependencies actually used by that modified declaration,
+and requires another fresh trust-zero kernel to reject the forged theorem for
+a declaration type mismatch. The original theorem type and universe parameters
+are unchanged. The discarded proof's unused certificate dependencies are not
+replayed again; the full original proof has already been independently checked. The auxiliary sparse, corner, and endpoint
 controls pair a valid statement with deliberately invalid data; timeouts or
 unrelated compiler errors do not count as successful rejection.
 
@@ -116,7 +124,7 @@ python3 reproduce.py --fresh --jobs 2
 caches. Omitting it permits source/object-hash-bound resumption, which is recorded
 as such. The script enforces individual module limits, runs the complete default
 Lake target, checks regeneration, tests correct and incorrect certificates,
-and performs both kernel audits. Literal results go to `local-verification/complete/`.
+and performs the full positive kernel replay and paired forged-theorem audit. Literal results go to `local-verification/complete/`.
 A source manifest is checked, not regenerated as part of verification.
 
 ## Scope and provenance
