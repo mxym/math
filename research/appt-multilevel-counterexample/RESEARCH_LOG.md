@@ -58,3 +58,23 @@ The full Schmidt-rank-m necessary inequality defines an outer polytope whose ent
 This finite-dimensional argument is independent of the multiscale compactness lower bound. Exact ancillary checks enumerate 101,956 vertices in 70 sample dimension pairs, verify seven symbolic identities and 1,184 cutoff comparisons, and check six rational physical boundary orbits. Normal and assertion-disabled outputs match. These finite checks do not replace the analytic proof, and no Lean or independent CI verification is claimed.
 
 Primary abstract retrieval confirmed Ahiable--Kothakonda--Winter v2 and Tran v1. The known candidate spectrum is credited; no exhaustive priority certification or first prediction of that value is claimed. No preprint or Release was prepared.
+
+
+## Universal near-maximizer structure and the critical obstruction
+
+Retaining four separate nonnegative defects in the unrestricted upper proof gives paired-gap energy limits for every near-maximizer, not just explicit candidates. A weighted refinement of the decreasing triangular row inequality forces the residual energy below every positive fraction of m^2 and its first moment to be o(m). Clipping actual eigenvalues to the final paired interval converts these identities into W1 laws for m(mn*lambda-1). The empirical second moments are larger than the moments of the limiting measures; the proof explicitly retains the escaping outlier contribution.
+
+At aspect ratio four the scalar defect bound alone falsely permits intermediate bulk amplitudes. Applying Cauchy--Schwarz to the PSD form 2I-(G+wA_complete), with vectors e and Ge, supplies a further matrix inequality. It excludes every normalized background limit strictly between zero and two. Thus the only critical empirical limits are a point at zero and the symmetric two-point law; both are attained by actual near-maximizers. This is structural rigidity, not an inferred visual pattern.
+
+## Exact finite-hierarchy optimization
+
+The amplitude-limit forest argument was sharpened by proving that a component has at most one loop; if that loop has label j, all off-diagonal labels in the component precede j. Its exact extremal norm is a star-with-one-loop value involving the preceding energy sum. Nested flags realizing the matching lower graph are constructed with the earlier rank subtracted from the new clique budget. That detail is necessary for translating a graph obstruction back to one global unitary on nested spectral projectors.
+
+The resulting exact prefix constraints are E_{j-1}+2 sqrt(2 e_j)<=4. Their complete optimization gives e_j=d_{j-1}^2/8 with d_j=d_{j-1}-d_{j-1}^2/8, and sharp coefficient 8-d_J. The first coefficients are 6,13/2,217/32. This proves a depth deficit asymptotic to 8/J and unique energy allocation within the explicitly lacunary intermediate-rank model, not a level-count theorem for every APPT state. A positive safety margin is still fixed before the dimension limit.
+
+Exact supporting tests include rational PSD graph matrices, all four defects and clipping identities, one-loop component restrictions, optimal rational arrowhead kernels, alternative feasible energy allocations, and large-integer nested graph counts. These checks passed normally and with assertions disabled. They do not certify the compactness theorem, and no independent CI, Lean proof, external peer review, preprint, or Release is claimed for this research cycle.
+
+
+## Expanded manuscript integration, 10 October 2026
+
+The explicit counterexample, all-regime first excess-purity equivalent and exact rectangular maximum/equality theorem have been integrated with the earlier qutrit result in `preprints/appt-purity-unified-2026-10/`. Complete high-dimensional analytic details are now typeset in manuscript appendices. The qutrit-only immutable release and DOI are unchanged. The phase-rigidity and optimal-fixed-hierarchy results remain separate research notes. The expanded manuscript has no new version DOI at this checkpoint.

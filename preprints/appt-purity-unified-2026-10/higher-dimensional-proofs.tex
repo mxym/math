@@ -1,0 +1,432 @@
+\section{The unrestricted upper estimate}\label{app:sharp-upper}
+This appendix supplies the details used in Theorem~\ref{thm:asymptotic}.
+Throughout, $m\geq3$, $n\geq m$, $D=mn$, and the eigenvalues
+$\lambda_1\geq\cdots\geq\lambda_D\geq0$ sum to one. Set
+\[
+ R=\frac{m(m-1)}2,\quad S=\frac{m(m+1)}2,\quad j=D-S+1,\quad
+ b=\lambda_j,\quad \delta_i=\lambda_i-\lambda_{D+1-i}\quad(1\leq i\leq R).
+\]
+The gaps $\delta_i$ are nonnegative and decreasing.
+
+\subsection{Every edge rearrangement is a physical test}
+For $x_i\geq0$ with $\sum_i x_i^2=1$, the partial transpose $W$ of the
+projector onto $\sum_i x_i|ii\rangle$ has eigenvalues $x_i^2$ on diagonal
+vectors, $+x_ix_k$ and $-x_ix_k$ on symmetric and antisymmetric pair
+vectors, and zero on the remaining $D-m^2$ dimensions. For any assignment
+of the $R$ gaps to the edges of $K_m$, assign $\lambda_i$ to the negative
+pair vector of its edge and $\lambda_{D+1-i}$ to the positive pair vector.
+Assign the next $m$ smallest eigenvalues to the diagonal vectors. These
+are all at most $b$, and all slots are distinct since $R+S=m^2\leq D$.
+A global unitary realizes the assignment. If $A_\delta$ is the
+zero-diagonal symmetric matrix of edge weights, the APPT condition gives
+\[
+ 0\leq\sum_i\beta_i x_i^2-\tfrac12x^TA_\delta x
+ \leq b-\tfrac12x^TA_\delta x.
+\]
+A symmetric nonnegative matrix has a nonnegative maximizing Rayleigh
+vector: replacing each coordinate by its absolute value can only
+increase the quadratic form. Moreover
+$|z^TA_\delta z|\leq |z|^TA_\delta|z|$. Thus
+\begin{equation}\label{eq:all-edge-norm}
+ \|A_\delta\|_{\rm op}\leq2b
+\end{equation}
+for every rearrangement. The all-ones vector also gives
+$\sum_i\delta_i\leq mb$.
+
+\subsection{A triangular degree estimate}
+For any decreasing list $\eta_1,\ldots,\eta_R\geq0$, place the entries in
+the upper triangle row by row and let $A_\eta$ be the symmetric
+adjacency matrix. With $e=m^{-1/2}{\bf1}$,
+\begin{equation}\label{eq:triangular}
+ \sum_{i=m}^{R}\eta_i^2\leq\|A_\eta e\|^2.
+\end{equation}
+Indeed, let $a_t$ be the smallest weight in upper-triangular row $t$,
+for $1\leq t\leq m-2$. Every incoming edge at vertex $t$ and every
+outgoing edge of that row has weight at least $a_t$, so the degree
+at that vertex is at least $(m-1)a_t$. Row $t+1$ has $m-t-1$ weights,
+all at most $a_t$. Since $(m-1)^2/m\geq m-2\geq m-t-1$, that row's
+square sum is bounded by the squared degree of vertex $t$ divided
+by $m$. Summing over $t$ proves~\eqref{eq:triangular}.
+
+\subsection{Variance, background and normalization}
+Put $w=\delta_R$, $\eta_i=\delta_i-w$, and $A=\sum_i\eta_i$.
+Place the largest $m-1$ original gaps on a star and fill all other
+edges with the remaining weights. The star's norm is the square root
+of their square sum, and its nonnegative Rayleigh vector is also a
+test for the full graph. Hence
+\[
+ \sum_{i=1}^{m-1}\eta_i^2\leq4b^2.
+\]
+For a different rearrangement, use the triangular placement of
+$\eta$ and add $w$ to every edge. Expanding its squared norm at $e$
+in~\eqref{eq:all-edge-norm} gives
+\[
+ \|A_\eta e\|^2+\frac{4(m-1)}m wA+(m-1)^2w^2\leq4b^2,
+\]
+because the sum of the residual degrees is $2A$. It follows that
+\begin{equation}\label{eq:residual-square}
+ \sum_i\eta_i^2\leq8b^2-\frac{4(m-1)}m wA-(m-1)^2w^2.
+\end{equation}
+Let $z=(\lambda_R+\lambda_{D-R+1})/2$. In the $i$th top/bottom pair,
+$u=\lambda_i-z$ and $v=z-\lambda_{D+1-i}$ are at least $w/2$ and sum
+to $\delta_i$. Expanding $(u-w/2)(v-w/2)\geq0$ yields
+$u^2+v^2\leq\delta_i^2-w\delta_i+w^2/2$.
+The other $D-2R$ eigenvalues lie within $w/2$ of $z$.
+Centering at the mean can only reduce the squared distance, so
+\[
+ V=\sum_i\lambda_i^2-\frac1D
+ \leq\sum_i\eta_i^2+wA+\frac D4w^2.
+\]
+Insert~\eqref{eq:residual-square}. The coefficient of $wA$ is
+$1-4(m-1)/m\leq0$, and the all-ones test gives
+$(m-1)w\leq2b$. Maximizing the remaining quadratic over that interval
+proves the finite inequality
+\begin{equation}\label{eq:finite-sharp-upper}
+ V\leq Cb^2,\qquad C=\max\{8,4+D/(m-1)^2\}.
+\end{equation}
+There is no assumption on the number of spectral levels.
+Also $jb\leq1$ and $b\leq1/D+\sqrt{V/j}$: when $b>1/D$ the first
+$j$ eigenvalues contribute at least $j(b-1/D)^2$ to $V$.
+If $C<j$, solving~\eqref{eq:finite-sharp-upper} for $\sqrt V$ gives
+\[
+ D^2V\leq\frac{C}{(1-\sqrt{C/j})^2}.
+\]
+For all $n\geq m\geq3$, $j\geq D/3$ and
+$C/j\leq24/m^2+3/(m-1)^2$. Writing $K=\max\{8,4+n/m\}$,
+we have $C\leq[m/(m-1)]^2K$. These estimates prove the uniform
+upper bound in Theorem~\ref{thm:asymptotic}.
+
+\section{Lacunary plateaus and the all-unitary lower bound}\label{app:multiscale}
+The following compactness argument supplies the lower coefficient
+eight. Its quantifier order is essential: the number of scales and
+the positive slack are fixed before the dimension limit.
+
+\subsection{A uniform graph bound}
+Fix a finite integer $J$ and numbers
+$1>\delta_1>\cdots>\delta_J>0$ with
+$\delta_{i+1}<\delta_i/2$. Put $\beta_i=2-\delta_i$.
+Let $r_i(M)/M^{\beta_i}\to1$ and $r_i c_i^2\to e_i\geq0$.
+For arbitrary simple graphs $G_i$ on $M$ vertices with at most $r_i$
+edges, put $H_M=\sum_i c_i A(G_i)$, $E=\sum_i e_i$, and
+$e_*=\max_i e_i$. Then
+\begin{equation}\label{eq:lacunary-graph-bound}
+ \limsup_{M\to\infty}\max_{G_1,\ldots,G_J}\lambda_{\max}(H_M)
+ \leq\sqrt E+\sqrt{2e_*}.
+\end{equation}
+We prove uniformity by starting with an arbitrary sequence of graphs
+and nonnegative unit maximizing vectors $x$.
+Write $p_v=x_v^2$ and $t_v=1+\log_M p_v\leq1$ when $p_v>0$.
+Fix $\eta>0$. At level $i$, products $x_vx_w$ below
+$M^{-\beta_i/2-\eta}$ contribute at most
+$c_i r_i M^{-\beta_i/2-\eta}=O(M^{-\eta})$.
+Products above $M^{-\beta_i/2+\eta}$ occur in at most
+$M^{\beta_i-2\eta}/2$ unordered pairs, since
+$\sum_{v<w}p_vp_w\leq1/2$; Cauchy--Schwarz bounds their weighted
+contribution by $O(M^{-\eta})$.
+Thus only pairs with $|t_v+t_w-\delta_i|\leq2\eta$ remain.
+Coordinates with $t_v<-\eta$ carry total mass at most $M^{-\eta}$.
+For edges touching them, Cauchy--Schwarz and
+$c_i\sqrt{r_i}=O(1)$ give error $O(M^{-\eta/2})$.
+
+Replace the remaining negative $t_v$ by zero and form the probability
+measure $\mu_M=\sum_v p_v\delta_{\max(t_v,0)}$ on $[0,1]$.
+Along a subsequence these measures converge weakly to $\mu$, as do
+their products. The closed-strip upper bound and Cauchy--Schwarz,
+followed by $\eta\downarrow0$, yield
+\begin{equation}\label{eq:measure-bound}
+ \limsup\tfrac12x^TH_Mx\leq\sum_i\sqrt{e_iQ_i},
+ \qquad Q_i=\tfrac12(\mu\times\mu)\{(t,s):t+s=\delta_i\}.
+\end{equation}
+The same subsequence and measure apply to every level because $J$
+is finite. Continuity from above justifies the shrinking strips.
+Only atoms contribute to an exact-sum line: its product measure is
+the integral of $\mu(\{\delta_i-t\})$, which vanishes away from the
+countable set of atoms.
+
+Write $p_t=\mu(\{t\})$. Join distinct atoms when their sum is
+$\delta_i$, and allow a loop at $\delta_i/2$. The off-diagonal graph
+is a forest. In a finite simple cycle choose an edge of largest
+label. Each neighboring edge has a different, smaller label,
+hence less than half that label; the two endpoints of the largest
+edge would then sum to less than its label, a contradiction.
+Consequently
+\[
+ Q_i=\sum_{t<s,\ t+s=\delta_i}p_tp_s+\tfrac12p_{\delta_i/2}^2.
+\]
+For $Q_i>0$, set weights proportional to
+$\sqrt{p_tp_s}$ on its edges and $p_{\delta_i/2}/\sqrt2$ on its loop,
+scaled so their squared sum is $e_i$. These weights express
+$\sqrt{e_iQ_i}$ exactly; use zero weights if $Q_i=0$.
+The forest is bipartite. Its weighted adjacency operator has norm
+at most the square root of the sum of squared edge weights:
+after bipartition, its off-diagonal block has operator norm at most
+its Hilbert--Schmidt norm. With $z_t=\sqrt{p_t}$ and $\sum_tz_t^2\leq1$,
+the total off-diagonal contribution is at most $\sqrt E/2$.
+Each loop weight is at most $\sqrt{e_*}$, so all loops contribute
+at most $\sqrt{e_*/2}\sum_t p_t\leq\sqrt{e_*/2}$.
+The countable case follows by finite truncation; the edge weights
+are square-summable. Equation~\eqref{eq:measure-bound} proves
+\eqref{eq:lacunary-graph-bound}.
+
+If $a_M\to a$ and $E_f$ is the adjacency matrix of one distinguished
+edge, the same argument gives
+\begin{equation}\label{eq:isolated-spike}
+ \limsup\max_{G_i,f}\lambda_{\max}(H_M+a_ME_f)
+ \leq\max\{a,\sqrt E+\sqrt{2e_*}\}.
+\end{equation}
+Indeed, split off the two endpoints. Their block tends to the
+single-edge block of norm $a$, and the cross block has norm at most
+$\sqrt{2M}\sum_i c_i\to0$ because every $\beta_i>1$.
+The remaining block satisfies the preceding graph bound.
+
+\subsection{Actual rational APPT states}
+Fix $h\geq1$, $J=2h^2$, $\delta_i=3^{-i}$, and rational
+$0<\varepsilon<1$. Set
+\[
+ r_i=\lfloor m^{\,2-3^{-i}}\rfloor,\quad
+ L_i=\lceil\sqrt{2r_i}\rceil,\quad
+ c_i=\frac{2(1-\varepsilon)}{(h+1)L_i},\quad a=2(1-\varepsilon).
+\]
+The ranks are strictly increasing and below $m(m-1)/2$ eventually.
+They have an exact integer definition: $r_i$ is the floor of the
+$3^i$th root of $m^{2\cdot3^i-1}$.
+Choose nested coordinate projections $P_1\leq\cdots\leq P_J$ of
+ranks $r_i$ and a coordinate unit vector $v$ in their first range.
+Normalize
+\[
+ B=I+\sum_i c_iP_i+a|v\rangle\langle v|,\qquad \rho=B/\Tr B.
+\]
+Here $r_i c_i^2\to e=2(1-\varepsilon)^2/(h+1)^2$,
+$E=4h^2(1-\varepsilon)^2/(h+1)^2$, and
+$\sqrt E+\sqrt{2e}=2(1-\varepsilon)$.
+
+For every global unitary $U$ and unit Schmidt test vector $x$, a
+rank-$r_i$ projection has trace against its partially transposed
+projector at least minus the sum of the $r_i$ largest pair products
+$x_vx_w$. This follows by evaluating in the witness eigenbasis:
+diagonal weights of a rank-$r_i$ projection are in $[0,1]$, with
+sum $r_i$. The spike term is bounded below by minus $a$ times the
+largest pair product. Thus
+\[
+ \langle x,(UBU^*)^\Gamma x\rangle
+ \geq1-\tfrac12x^T\left(\sum_i c_iA(G_i)+aE_f\right)x
+\]
+for suitable graphs with at most $r_i$ edges.
+Equation~\eqref{eq:isolated-spike}, uniformly over all graphs and
+tests, has limit strictly below two. Therefore $\rho$ is APPT for
+every sufficiently large $m$ and every $n\geq m$.
+No boundary inference is made from a limit equal to two.
+
+Writing $B=I+X$, let $T=\Tr X$ and $Q=\Tr X^2$. Nestedness gives
+\[
+ T=a+\sum_i c_ir_i,\qquad
+ Q=a^2+\sum_i c_i^2r_i+2\sum_{i<k}c_ic_kr_i+2a\sum_i c_i.
+\]
+As $m\to\infty$, $r_i/r_k\to0$ for $i<k$, so all cross terms vanish;
+also $T^2/m^2\to0$ and $T/m^2\to0$. Exactly,
+\[
+ D^2\bigl(\Tr(\rho^2)-1/D\bigr)
+ =\frac{Q-T^2/D}{(1+T/D)^2}.
+\]
+For $D\geq m^2$ this is at least its value with $D=m^2$,
+because $X\geq0$ makes the numerator nonnegative and increasing
+and the denominator decreasing as $D$ increases. Its limit there is
+$(1-\varepsilon)^2[4+4h^2/(h+1)^2]$.
+First choose $h$ and $\varepsilon$ to approach eight, then take $m$
+large. The threshold is independent of $n$. This proves the uniform
+lower bound eight without interchanging a growing hierarchy and the
+dimension limit.
+
+\section{The other lower construction and fixed smaller dimension}\label{app:uniform-lower}
+\subsection{A broad plateau with a spike}
+For $m\geq4$, set $h=\lceil\sqrt m\rceil$,
+\[
+ k=\left\lceil\frac{(m-1)n}{2}\right\rceil,\quad
+ c=\frac2{m+h},\quad
+ a=2-\frac{4(m-2)}{(m+h)(h+3)},\quad q=2-(m-3)c.
+\]
+Normalize $B=I+cP+(a-c)|v\rangle\langle v|$, with
+$\operatorname{rank}P=k$ and $v$ in its range.
+The projection and Rayleigh bounds used above reduce every
+Schmidt test to the symmetric matrix with diagonal two, off-diagonal
+$-a$ on one designated edge and $-c$ on all other edges.
+Its endpoint-difference eigenvalue is $2+a$ and its tail-sum-zero
+eigenvalue is $2+c$. On the remaining two-dimensional space, positivity
+is equivalent to
+\[
+ 2-a\geq0,\qquad q\geq0,\qquad (2-a)q\geq2(m-2)c^2.
+\]
+The parameters satisfy $q=2(h+3)/(m+h)>0$,
+$(2-a)q=2(m-2)c^2$, and
+$(a-c)q=[2-(m-1)c](2+c)\geq0$.
+Thus $B$ is APPT at every finite pair of dimensions in this range.
+
+Put $y=k-1$, $\theta=y/D$, and $\gamma=n/m$. Its exact centered
+purity is $N/Q_0$, where
+\[
+ N=a^2(1-1/D)+Dc^2\theta(1-\theta)-2a\theta c,\qquad
+ Q_0=(1+a/D+\theta c)^2.
+\]
+Uniformly in $n\geq m$,
+$1/2-1/(2m)-1/m^2\leq\theta\leq1/2$. Consequently
+\[
+ N/Q_0\geq (A_m+B_m\gamma)/Q_m,
+\]
+for all sufficiently large $m$, where
+\begin{align*}
+ A_m&=a^2(1-1/m^2)-ac\to4,\\
+ B_m&=m^2c^2\left[\tfrac14-(1/(2m)+1/m^2)^2\right]\to1,\\
+ Q_m&=(1+a/m^2+c/2)^2\to1.
+\end{align*}
+Together with Appendix~\ref{app:multiscale}, this supplies the lower
+bound in Theorem~\ref{thm:asymptotic}.
+
+\subsection{\texorpdfstring{Fixed $m$ and the all-regime conclusion}{Fixed m and the all-regime conclusion}}
+For fixed $m\geq2$ the maximally entangled test gives
+$\sum_{i\leq R}\lambda_i\leq\sum_{i\geq D-S+1}\lambda_i$.
+Hence $\lambda_R\leq rb$, $r=(m+1)/(m-1)$.
+A single-edge arrangement gives $\lambda_1-\lambda_D\leq2b$,
+so $\lambda_1\leq3b$. One has $b>0$: if $b=0$, this last
+inequality forces every eigenvalue to vanish.
+There are $N_0=D-m^2+2$ eigenvalues from index $R$ to index $D-S+1$,
+all in $[b,rb]$. Let their sum be $T>0$. The inequality
+$x^2\leq(r+1)bx-rb^2$ gives
+\[
+ \frac{N_0\sum x_i^2}{T^2}
+ \leq(r+1)z-rz^2\leq\frac{(r+1)^2}{4r}
+ =\frac{m^2}{m^2-1},\qquad z=N_0b/T.
+\]
+Since $T\leq1$ and the other $m^2-2$ entries are at most $3b\leq3/j$,
+\[
+ P_{\max}(m,n)\leq\frac{m^2/(m^2-1)}{D-m^2+2}
+ +\frac{9(m^2-2)}{(D-S+1)^2}.
+\]
+For attainment of the limiting coefficient, set $c=2/(m-1)$,
+$k=\lceil D/(c+2)\rceil$, and normalize $I+cP$ for a rank-$k$
+projection. The negative Schmidt mass is at most $(m-1)/2$,
+so this is genuinely APPT. With $\theta=k/D$ its scaled purity
+$[1+(2c+c^2)\theta]/(1+c\theta)^2$ has exact deficit
+\[
+ \frac{(c+2)^2}{4(c+1)}
+ -\frac{1+(2c+c^2)\theta}{(1+c\theta)^2}
+ =\frac{c^2[1-(c+2)\theta]^2}{4(c+1)(1+c\theta)^2}.
+\]
+This proves the fixed-$m$ limit and, with the upper bound,
+$P_{\max}=m^2/[(m^2-1)D]+O_m(D^{-2})$.
+For the single all-regime equivalent, any allegedly failing sequence
+has either a fixed-$m$ subsequence or a subsequence with $m\to\infty$.
+The first uses this calculation; the second uses
+Theorem~\ref{thm:asymptotic} and
+\[
+ 1\leq
+ \frac{\max\{8,4+D/(m^2-1)\}}{\max\{8,4+D/m^2\}}
+ \leq\frac{m^2}{m^2-1}.
+\]
+Both contradict a positive limiting error. This proves
+Theorem~\ref{thm:allregime}.
+
+\section{The outer-polytope optimization and rectangular equality cases}\label{app:rectangular}
+Let $m\geq3$, $n\geq m$, $L=D-m$, and
+$u_i=(1/i\ [i\text{ copies}],0\ [D-i\text{ copies}])$.
+The ordered simplex has unique gap expansion
+$\lambda=\sum_i x_i u_i$, where
+$x_i=i(\lambda_i-\lambda_{i+1})$, $\lambda_{D+1}=0$.
+The left side minus the right side of~\eqref{eq:outer-single-test}
+at $u_i$ is $h_i/i$, with
+\[
+ h_i=\min(i,R)-\max\{0,i-(D-S)\}.
+\]
+It is positive for $i<L$, zero at $L$, and negative for $i>L$.
+The surviving vertices are $u_j$ for $j\geq L$ and intersections
+of the cutting plane with edges $[u_i,u_j]$, $i<L<j$.
+For completeness, an on-plane point with three positive gap
+coordinates admits a nonzero perturbation preserving the two
+affine equations; an off-plane point with two positive coordinates
+admits a small perturbation preserving the simplex sum.
+Thus there are no other vertices. Every point of this compact
+polytope is a convex combination of vertices.
+
+Write $j=L+s$, $1\leq s\leq m$, and $h=h_i>0$.
+An edge intersection has spectrum
+\[
+ \alpha=\frac{h+s}{hj+si}\quad(i\text{ copies}),\qquad
+ \beta=\frac h{hj+si}\quad(j-i\text{ copies}),\qquad
+ 0\quad(D-j\text{ copies}).
+\]
+These formulas follow by solving trace one and the zero cut value;
+the increment has cut value $h(\alpha-\beta)$ and the baseline
+has cut value $-s\beta$. Surviving $u_j$ have purity at most $1/L$.
+
+\subsection{The three edge ranges}
+For $i\leq R$, $h=i$ and the purity is
+\[
+ \frac{j+2s+s^2/i}{(j+s)^2}
+ \leq f(s):=\frac{L+3s+s^2}{(L+2s)^2}.
+\]
+It is strict for $i>1$. The derivative
+$f'(s)=[(2L-6)s-L]/(L+2s)^3$ changes sign at most once,
+from negative to positive. Hence the maximum on $[0,m]$
+is $\max\{1/L,Q_{\rm sp}\}$.
+
+For $R\leq i\leq D-S$, $h=R$ and the purity is
+\[
+ F_i(s)=\frac{R^2L+(R^2+2Ri)s+is^2}{[RL+(R+i)s]^2}.
+\]
+Its derivative has the sign of
+$(2Li-R^2-3Ri-2i^2)s-LR^2$, so no interior maximum is possible.
+The endpoints are $1/L$ and
+\[
+ F_i(m)=\frac{D(m-1)^2+4mi}{[D(m-1)+2i]^2}.
+\]
+Its derivative in $i$ is
+$4m[(m-1)n-2i]/[D(m-1)+2i]^3$.
+The real maximum $i_*=(m-1)n/2$ lies in the valid middle interval.
+For half-integer $i_*$, with $H=(m^2-1)n$,
+\[
+ F_{\lceil i_*\rceil}(m)-F_{\lfloor i_*\rfloor}(m)
+ =\frac{4m}{(H^2-1)^2}>0.
+\]
+Thus the unique integer optimum is $t=\lceil i_*\rceil$.
+For $D-S<i<L$, $h=L-i$, $\alpha=1/L$, and the purity is
+$[i+h^2/(h+s)]/L^2<1/L$.
+Finally,
+\[
+ Q_{\rm sp}-1/L=
+ \frac{m[(m-1)D-m(m+3)]}{(D-m)(D+m)^2}\geq0
+\]
+for $D\geq m^2$ and $m\geq3$.
+This proves the full outer maximum $\max\{Q_{\rm sp},Q_t\}$.
+
+\subsection{Threshold and strict equality}
+Set $B=m^4-m^2-2m=mn_0(m)$, $u=m^2-1$, and
+$C=m^2/(uD)$, the continuous middle maximum. Exact subtraction gives
+\[
+ C-Q_{\rm sp}=\frac{D^2-BD+m^4}{uD(D+m)^2}.
+\]
+If $m\leq n<n_0(m)$, the numerator is negative throughout
+$m^2\leq D\leq B-m$: it is convex and its endpoint values are
+$-m^3(m-2)(m+1)^2$ and $-m^2(m^3-m^2-m-3)$.
+The latter bracket is positive for $m=3+y$, $y\geq0$,
+since it becomes $y^3+8y^2+20y+12$.
+Thus $Q_t\leq C<Q_{\rm sp}$ there.
+If $n\geq n_0(m)$, the numerator is at least $m^4$.
+When $(m-1)n$ is even there is no rounding loss; otherwise,
+with $H=uD/m$,
+\[
+ Q_t=\frac{m(H+2)}{(H+1)^2},\qquad
+ 0<C-Q_t=\frac{m}{H(H+1)^2}\leq\frac{m^4}{u^3D^3}.
+\]
+It follows that
+\[
+ Q_t-Q_{\rm sp}\geq
+ \frac{m^4}{uD(D+m)^2}-\frac{m^4}{u^3D^3}>0,
+\]
+because $uD>D+m$.
+All other vertex ranges are then strictly suboptimal, and the middle
+integer optimum is unique. The squared norm is strictly convex:
+for distinct $v,w$ and $0<\theta<1$, its Jensen gap equals
+$\theta(1-\theta)\|v-w\|^2>0$.
+Thus no mixture of distinct vertices can be another maximizer.
+The physical projection construction in Theorem~\ref{thm:rectangular}
+attains the unique outer vertex. This proves the stated maximum and
+the complete unitary-orbit classification in that range.

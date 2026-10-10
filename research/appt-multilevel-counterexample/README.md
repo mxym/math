@@ -1,6 +1,20 @@
 # APPT purity: counterexamples and the sharp unrestricted asymptotic
 
-The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. No new preprint or Release is being prepared.
+The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. The counterexample, unrestricted asymptotic law and exact rectangular theorem are now incorporated in the [expanded APPT preprint](../../preprints/appt-purity-unified-2026-10/README.md). The earlier immutable qutrit proof release remains unchanged.
+
+## New exact and structural results
+
+[EXACT_RECTANGULAR.md](EXACT_RECTANGULAR.md) proves the EXACT unrestricted maximum for every m>=3 and n>=m^3-m-2:
+
+    Pmax=[mn(m-1)^2+4mt]/[mn(m-1)+2t]^2, t=ceil((m-1)n/2).
+
+All maximizing spectra are classified: t entries m+1 and mn-t entries m-1, divided by their trace. The cutoff is sufficient for APPT and sharp for the one-Schmidt-test outer-polytope argument, not claimed to be the smallest actual onset. This is independent of the asymptotic compactness proof.
+
+[PHASE_RIGIDITY.md](PHASE_RIGIDITY.md) determines necessary structure of EVERY near-maximizing sequence at a fixed aspect ratio gamma. The empirical rescaled eigenvalues m(mn*lambda_i-1) converge in W1 to zero when gamma<4, and to equal masses at -1 and +1 when gamma>4. At gamma=4 exactly these two subsequential limits are possible and both occur. A new positive-semidefinite matrix inequality excludes intermediate critical profiles. The theorem also fixes the allocation of paired-gap square mass and explains the second moment carried by rare outliers.
+
+[OPTIMAL_HIERARCHY.md](OPTIMAL_HIERARCHY.md) gives an EXACT multiscale graph limit and solves the leading optimization for each fixed J of lacunary intermediate-rank plateaus plus a spike. Its sharp centered-purity coefficient is 8-d_J, where d_0=4 and d_j=d_{j-1}-d_{j-1}^2/8; the optimal limiting scale energies are unique. The deficit is asymptotic to 8/J. This model-specific depth law is not a claim about all conceivable finite-level spectra.
+
+Run `python3 check_rectangular.py` and `python3 check_structure.py`, also with `python3 -O`, for exact supporting calculations. The analytic proofs are not Lean-formalized or externally peer reviewed. Phase rigidity and fixed-hierarchy optimization remain research notes and are not claimed as theorems of the expanded preprint.
 
 ## Current result: sharp unrestricted excess purity in all large-dimensional regimes
 
@@ -20,9 +34,9 @@ The main working proofs are [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md), which gi
 
 The earlier intermediate-rank construction, one-scale graph limit, quartile bound and aspect-ratio-three bound are retained as intermediate research steps. Their previously unresolved leading-constant gaps are closed by the final triangular argument. They are not separate preprints.
 
-Run `python3 check_mesoscopic.py` and `python3 check_triangular.py`, also with `python3 -O`, for exact finite supporting identities. These checks do not certify the infinite-dimensional compactness argument or replace the analytic all-unitary proof. This work is not Lean-formalized or externally peer reviewed. No preprint or Release has been prepared for this continuation.
+Run `python3 check_mesoscopic.py` and `python3 check_triangular.py`, also with `python3 -O`, for exact finite supporting identities. These checks do not certify the infinite-dimensional compactness argument or replace the analytic all-unitary proof. The higher-dimensional work is not Lean-formalized or externally peer reviewed. Its final unrestricted law, fixed-dimension limit and rectangular theorem are included in the expanded preprint; the earlier working notes are retained as dated research history.
 
-Still unresolved: the exact finite-dimensional maximum, its higher-order expansion and extremizing spectra, effective convergence thresholds for the hierarchy, and whether the constructed APPT states are absolutely separable.
+Still unresolved: the finite-dimensional maximum outside the proved rectangular region, the smallest true rectangular onset, higher-order expansions and the complete outlier/level classification, effective convergence thresholds for the hierarchy, and absolute separability of the new families.
 
 ## Explicit state
 
@@ -56,4 +70,4 @@ python3 -O check.py
 
 Only the Python standard library is used. The checker verifies six dimension-uniform polynomial identities, both exact purity gaps, a rational physical boundary orbit, a strictly interior perturbation, and deliberate failures. The quantum all-unitary statement is the analytic argument; finite tests are not its substitute. This is not a new Lean result and has not undergone external peer review.
 
-Resolved: the proposed general maximum formula is refuted. Unresolved: the true global maximum and maximizers, the smallest possible counterexample dimensions, and whether the constructed spectra are absolutely separable. The qutrit theorem and existing two-level results are not contradicted. Earlier immutable artifacts are unchanged.
+The proposed general formula is refuted. Its broad-plateau value is now proved exactly, with all maximizing spectra, in the rectangular region stated above. The remaining finite dimensions, minimal counterexample dimensions, and absolute separability remain unresolved. The qutrit theorem and existing two-level results are not contradicted. Earlier immutable artifacts are unchanged.

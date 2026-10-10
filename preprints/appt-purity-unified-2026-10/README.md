@@ -20,7 +20,7 @@ This is a new expanded manuscript combining the exact qutrit--qudit APPT purity 
 
 The qutrit theorem is completely formalized in Lean 4.34.1 and independently replayed at trust level zero in the immutable release above. The higher-dimensional counterexample and asymptotic law are written analytic proofs supported by exact rational/integer checkers. They are not included in the qutrit Lean certificate and have not undergone external peer review. The checkers validate algebraic identities, finite regressions, and deliberate negative controls; they are not substitutes for the all-unitary and asymptotic arguments.
 
-The paper does not claim exact finite-dimensional maxima in general dimensions, classification of maximizers, or equality of APPT and absolute separability. The asymptotic theorem includes fixed `m` as `n -> infinity`, but does not give an effective convergence threshold.
+The paper does not claim exact finite-dimensional maxima outside the stated rectangular range, nor equality of APPT and absolute separability. Within the rectangular range, the theorem does classify all maximizing spectra. The asymptotic theorem includes fixed `m` as `n -> infinity`, but does not give an effective convergence threshold.
 
 ## Reproduction
 
@@ -29,10 +29,13 @@ From this directory:
 ```sh
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
+python3 ancillary/check_certificates.py --report verification/qutrit-certificate-replay.json
 cd supplementary
 python3 check.py --report ../verification/higher-dimensional-exact-checks.json
 python3 check_asymptotic.py
 python3 check_mesoscopic.py --report ../verification/higher-dimensional-mesoscopic-checks.json
+python3 check_triangular.py
+python3 check_rectangular.py
 ```
 
 The exact qutrit formalization is reproduced from its separate package and release. The `supplementary/` directory contains the detailed analytic proof files and standard-library checkers for the higher-dimensional part. `SOURCE_HASHES.json` binds the manuscript and supplementary sources for this version.

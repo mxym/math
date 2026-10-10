@@ -69,7 +69,7 @@ The same conjecture was stated for arbitrary local dimensions. The higher-dimens
 \end{equation}
 The second part of this paper proves that $P_{\max}(m,n)>M_{m,n}$ for explicit dimensions and gives the asymptotic replacement for $M_{m,n}$ when $m$ grows. It also proves an exact finite-dimensional formula, including equality cases, in the sufficiently rectangular range $n\geq m^3-m-2$.
 
-The proof is computer-assisted in a precise sense. Two polynomial nonnegativity lemmas are established by rational certificates supplied as finite data. One covers the six dimensions $9,12,\ldots,24$; the other covers arbitrary real endpoint populations with sum at least $18$. All remaining steps are analytic, linear-algebraic, or elementary algebraic. Sections~\ref{sec:finite} and~\ref{sec:uniform} state the exact identities and explain how to reconstruct and check every term. The Lean proof independently verifies these identities and the bridges to the physical theorem. Neither a numerical optimization result nor a solver success flag is a premise.
+The qutrit proof is computer-assisted in a precise sense. Two polynomial nonnegativity lemmas are established by rational certificates supplied as finite data. One covers the six dimensions $9,12,\ldots,24$; the other covers arbitrary real endpoint populations with sum at least $18$. All remaining steps are analytic, linear-algebraic, or elementary algebraic. Sections~\ref{sec:finite} and~\ref{sec:uniform} state the exact identities and explain how to reconstruct and check every term. The Lean proof independently verifies these identities and the bridges to the physical theorem. Neither a numerical optimization result nor a solver success flag is a premise.
 
 \section{Physical necessity and the nine selected eigenvalues}\label{sec:necessity}
 Write $D=3n$ and order the eigenvalues of a density matrix as
@@ -414,7 +414,7 @@ For the matching lower bound, two explicit APPT constructions are used. A one-sp
 \[
  D^2(P_{\max}-1/D)\geq(1-\varepsilon)\max\{8,4+n/m\}
 \]
-uniformly in $n\geq m$. Combining the upper and lower estimates proves~\eqref{eq:asymptotic-law}. The complete graph-limit and forest argument for the lacunary construction is written in the supplementary proof files, with exact rational regression checks; no finite numerical test is used as a premise.
+uniformly in $n\geq m$. Combining the upper and lower estimates proves~\eqref{eq:asymptotic-law}. The complete graph-limit and forest argument for the lacunary construction is written in Appendices~\ref{app:sharp-upper}--\ref{app:rectangular}, with exact rational regression checks; no finite numerical test is used as a premise.
 \end{proof}
 
 \begin{remark}[Status of the higher-dimensional argument]
@@ -458,10 +458,10 @@ This gives the fixed-$m$ upper limit after multiplication by $D$. For the matchi
 \[
  D\,\Tr(\rho^2)\longrightarrow\frac{(c+2)^2}{4(c+1)}=\frac{m^2}{m^2-1}.
 \]
-Thus the fixed-$m$ limit follows. Finally, if~\eqref{eq:allregime} failed, a sequence with $D\to\infty$ and a fixed error would have either a bounded subsequence of $m$ (handled by the fixed-$m$ argument) or $m\to\infty$ (handled by Theorem~\ref{thm:asymptotic}). In the latter case $D/(m^2-1)$ and $n/m$ differ by a factor tending to one. This sequential criterion proves~\eqref{eq:allregime}. The detailed fixed-$m$ derivation and exact deficit identity are recorded in the supplementary proof file.
+Thus the fixed-$m$ limit follows. Finally, if~\eqref{eq:allregime} failed, a sequence with $D\to\infty$ and a fixed error would have either a bounded subsequence of $m$ (handled by the fixed-$m$ argument) or $m\to\infty$ (handled by Theorem~\ref{thm:asymptotic}). In the latter case $D/(m^2-1)$ and $n/m$ differ by a factor tending to one. This sequential criterion proves~\eqref{eq:allregime}. The detailed fixed-$m$ derivation and exact deficit identity are recorded in Appendix~\ref{app:uniform-lower}.
 \end{proof}
 
-section{An exact rectangular regime}
+\section{An exact rectangular regime}
 \label{sec:rectangular}
 The asymptotic theorem has a finite-dimensional companion in sufficiently rectangular systems. The cutoff below is a proved sufficient threshold; it is not asserted to be the smallest threshold for the actual APPT problem.
 
@@ -494,7 +494,7 @@ We use one necessary physical test and optimize its outer polytope exactly. Put 
 \end{equation}
 Let $\mathcal O_{m,n}$ be the ordered probability simplex cut out by~\eqref{eq:outer-single-test}. Its gap coordinates give the decomposition into prefix-uniform vectors $u_i=(1/i,\ldots,1/i,0,\ldots,0)$. The cut has one sign change at $L=D-m$, so every vertex of $\mathcal O_{m,n}$ is either a surviving $u_j$ with $j\geq L$ or a boundary point on an edge joining $u_i$ with $i<L<j$. This follows directly from the two affine constraints: any point with three positive gap coordinates admits a nontrivial perturbation preserving them and hence is not a vertex.
 
-Writing $j=L+s$ with $0\leq s\leq m$ and using the exact boundary interpolation, the edge vertices have purity given by the formula in the supplementary proof. The early, middle, and late index ranges reduce to
+Writing $j=L+s$ with $0\leq s\leq m$ and using the exact boundary interpolation, the edge vertices have the explicit spectrum in Appendix~\ref{app:rectangular}. The early, middle, and late index ranges reduce to
 \[
  \max_{\lambda\in\mathcal O_{m,n}}\sum_i\lambda_i^2
  =\max\left\{Q_{\rm sp},Q_t\right\},
@@ -504,7 +504,7 @@ where
  Q_{\rm sp}=\frac{D+m(m+2)}{(D+m)^2},\qquad
  Q_t=\frac{D(m-1)^2+4mt}{[D(m-1)+2t]^2}.
 \]
-In the middle range, differentiating the full-support endpoint in the integer index shows its unique maximum at $t=\lceil(m-1)n/2\rceil$, including the odd-parity case. Exact subtraction shows $Q_t>Q_{\rm sp}$ whenever $n\geq m^3-m-2$. The complete vertex calculation, including the three index ranges and all rounding cases, is given in the supplementary proof and checked by exact rational arithmetic.
+In the middle range, differentiating the full-support endpoint in the integer index shows its unique maximum at $t=\lceil(m-1)n/2\rceil$, including the odd-parity case. Exact subtraction shows $Q_t>Q_{\rm sp}$ whenever $n\geq m^3-m-2$. The complete vertex calculation, including the three index ranges and all rounding cases, is proved in Appendix~\ref{app:rectangular}; the checker additionally verifies its algebra in exact rational arithmetic.
 
 It remains to show that the winning outer vertex is genuinely APPT. For a unit Schmidt vector with coefficients $s_i$, the sum of the absolute values of the negative eigenvalues of its partial transpose is $\sum_{i<j}s_i s_j\leq(m-1)/2$. Thus, for every conjugated rank-$t$ projection $P'$, $\operatorname{Tr}(P'W)\geq-(m-1)/2$, where $W$ is the partial transpose of the Schmidt projector. Hence $((m-1)I+2P')^\Gamma\succeq0$ for every global unitary, proving attainment of $Q_t$.
 
@@ -612,7 +612,7 @@ Corollary~\ref{cor:asep} is an analytic consequence using the explicitly cited s
 \end{remark}
 
 \section{Scope and further questions}
-The main theorem closes the maximal-purity problem for $3\otimes n$ with $n\geq3$. The $3\otimes2$ system is, after swapping factors, a qubit--qutrit problem and is not covered by the present formal theorem. Neither the proof nor the release claims all-maximizer classification or the general-$m$ purity conjecture. Corollary~\ref{cor:asep} gives the analogous absolute-separability maximum analytically; the immutable Lean release covers only the APPT theorem.
+The main theorem closes the maximal-purity problem for $3\otimes n$ with $n\geq3$. The $3\otimes2$ system is, after swapping factors, a qubit--qutrit problem and is not covered by the present formal theorem. The immutable qutrit proof does not classify its maximizers. The new analytic rectangular theorem separately classifies all maximizers in its stated range, and the higher-dimensional counterexample refutes the general formula. Corollary~\ref{cor:asep} gives the analogous absolute-separability maximum analytically; the immutable Lean release covers only the APPT theorem.
 
 The arbitrary-dimensional inscribed-polytope purity conjecture of \cite{AKW} is false by Theorem~\ref{thm:counterexample}. Theorems~\ref{thm:asymptotic} and~\ref{thm:allregime} give the corrected first excess-purity term whenever the total dimension grows, and Theorem~\ref{thm:rectangular} gives the exact finite maximum and all maximizers beyond a proved rectangular threshold. The remaining finite-dimensional regimes and a separate, more structural question---whether absolute PPT and absolute separability coincide beyond qubit--qudit systems---remain open. The additional witness analysis in Section~\ref{sec:asep} establishes a common qutrit maximum, but proves no reverse inclusion between the two sets. Equal purity maxima must not be mistaken for equality of the convex sets.
 
@@ -623,6 +623,7 @@ This research was conducted independently and received no external funding. The 
 The exact qutrit data and independent checker accompany this preprint. The complete qutrit proof, reproduction scripts and verification evidence are frozen in \cite{ProofRelease}; the earlier immutable interim release is left unchanged. The higher-dimensional analytic proof and its standard-library exact checkers are included in the supplementary directory, with the source files and hashes recorded in the repository. This manuscript is a preprint, not a journal-accepted article.
 
 \appendix
+\input{higher-dimensional-proofs.tex}
 \section{Certificate file identifiers}\label{app:data}
 The following SHA-256 digests identify the exact certificate data. The ancillary manifest also records the checker and this preprint's other source files.
 \begingroup\footnotesize
