@@ -25,7 +25,7 @@ theorem simplicial_mass_flux_derivative
   obtain ⟨B,hB⟩ := simplicial_normal_basis (v ∘ e) hu
   have hsum : (∑ j : Fin (d+1), w i (e j.succ) •
       ((v ∘ e) 0-(v ∘ e) j.succ)) = ∑ j, w i j • (v i-v j) := by
-    have h := e.sum_comp (fun j => w i j • (v i-v j))
+    have h := Equiv.sum_comp e (fun j => w i j • (v i-v j))
     rw [Fin.sum_univ_succ] at h
     simpa only [Function.comp_apply, he0, sub_self, smul_zero, zero_add] using h
   have hbase : rawWinningMoment (v ∘ e) (b ∘ e) 0 =
@@ -39,9 +39,10 @@ theorem simplicial_mass_flux_derivative
     funext t
     change (gaussian (d+1)).real (winningCell (v ∘ e) ((affinePrices b q t) ∘ e) 0) = _
     rw [winningCell_reindex, he0]
+    rfl
   have hcoeff : (∑ j : Fin (d+1), w i (e j.succ) *
       ((q ∘ e) j.succ-(q ∘ e) 0)) = -(facetLaplacian w *ᵥ q) i := by
-    have h := e.sum_comp (fun j => w i j * (q j-q i))
+    have h := Equiv.sum_comp e (fun j => w i j * (q j-q i))
     rw [Fin.sum_univ_succ] at h
     have hs : (∑ j : Fin (d+1), w i (e j.succ) * (q (e j.succ)-q i)) =
         ∑ j, w i j * (q j-q i) := by
