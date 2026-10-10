@@ -60,6 +60,8 @@ An equivalent high-rate consequence is
 \]
 The equality in (7) is established below without assuming that logarithmic negativity is an achievable LOCC yield.
 
+**Relation to a recent converse.** Lami's quadratic converse [L, Corollary 13 and equations (100)--(102)] already implies the entropy-deficit upper bound for fixed-state cPPT distillation: choosing the auxiliary state $\tau=I/N$ makes the quadratic form $N^{-1}\mathrm{id}$ and its logarithmic potential is $\tfrac12\operatorname{Tr}(\rho\log(N\rho))=\tfrac12(\log N-H(\rho))$, with the same logarithm convention. We do not claim this converse principle as new. Below we derive the finite-block inequalities directly from the Rains constraints, uniformly over the varying collective unitaries, and match them by local capacity achievability and an exact all-rate cPPT fidelity exponent. The cited fixed-input distillation problem has no free global-unitary preprocessing and is not claimed to be solved here.
+
 These are spectrum-optimized extraction statements. The initial global unitary is an entangling resource, so (3) is **not** a formula for the ordinary distillable entanglement of the unrotated state. No claim is made about the exact finite-copy APPT purity conjecture, APPT=AS, or an efficient circuit implementation.
 
 ## 2. The fidelity effect: exact necessity and sufficiency
@@ -334,6 +336,8 @@ The proof supplies a finite one-shot approximation (17), a local capacity constr
 
 [R] Eric M. Rains, *A semidefinite program for distillable entanglement*, IEEE Transactions on Information Theory **47** (2001), 2921--2933, arXiv:quant-ph/0008047. The fidelity-effect constraints and isotropic-output construction are credited to this work, not claimed as new.
 
+[L] Ludovico Lami, *On PPT entanglement distillation*, arXiv:2610.12454v1, submitted 8 October 2026. Corollary 13 and equations (100)--(102) give the quadratic converse whose maximally mixed auxiliary state yields the entropy-deficit expression. Credited for that prior converse; not needed as an external premise for the direct finite-block proof here.
+
 [T] Joel A. Tropp, *User-friendly tail bounds for sums of random matrices*, Foundations of Computational Mathematics **12** (2012), 389--434, arXiv:1004.4389v7, Theorem 1.4. This proved concentration theorem is an explicit external input.
 
 [Z] Yongxian Zhang, *The collective-unitary logarithmic-negativity rate of every bipartite spectrum*, repository preprint, immutable [version 1](https://github.com/mxym/math/releases/tag/collective-unitary-negativity-rate-preprint-v1), source `3fac265d142cbc5ce48700abce5cced59a1a4b8f`. Sections 3--4 give the Bell-projection mechanism reused and restated here. This companion is a written analytic result, not a Lean theorem.
@@ -344,4 +348,4 @@ The proof supplies a finite one-shot approximation (17), a local capacity constr
 
 [K] Tulja Varun Kondra, Pedro Barrios Hita, Justus Neumann, Hermann Kampermann and Dagmar Bruß, *Fundamental limitations on entanglement extraction from purity*, arXiv:2605.29197v1, Supplemental Lemma 6. Qualitative finite-copy activation was known and is not claimed as a new contribution here.
 
-The elementary pure-subspace packing and typicality argument are standard information-theoretic methods. The contribution claimed here is their matching converse for this operation class and the exact, single-letter, all-spectrum cPPT fidelity exponent using the spectral projection estimate. Literature screening is not an exhaustive novelty or priority certification. Independent mathematical review remains necessary; finite ancillary calculations and successful document compilation do not certify the whole analytic proof.
+The elementary pure-subspace packing and typicality argument are standard information-theoretic methods. The contribution claimed here is the local achievability matching the entropy converse under collective global-unitary preprocessing, and the exact, single-letter, all-spectrum cPPT fidelity exponent using the spectral projection estimate. Literature screening is not an exhaustive novelty or priority certification. Independent mathematical review remains necessary; finite ancillary calculations and successful document compilation do not certify the whole analytic proof.

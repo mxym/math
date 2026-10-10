@@ -35,3 +35,9 @@ The proof was checked stepwise for: fidelity versus root-fidelity convention; ne
 The current checks verify explicit algebra and small quantum matrices. They are not Lean verification or independent peer review of the unbounded analytic result. The exact LOCC strong-converse exponent is not closed; the cPPT bound is a valid converse for LOCC but its achieving channel need not be local. No simple bound is presented as a full solution to ordinary mixed-state distillation.
 
 The direction is retained because it produced matching analytic bounds for the complete stated task. Future changes should target the remaining operation-class gap or another comparably substantial structural problem, not merely enlarge the regression table. Research and writing used AI assistance.
+
+## Final current-literature check
+
+A final search surfaced Lami, *On PPT entanglement distillation*, arXiv:2610.12454v1 (submitted 8 October 2026). The primary arXiv abstract and PDF were retrieved through the authorized shell after web-tool cache misses; the source PDF and parsed text were read, including Corollary 13 and equations (100)--(102). This is the same completely-PPT channel definition as ours, not just PPT-state preservation. Its quadratic converse with auxiliary state I/N already yields one half of log N minus state entropy. The manuscript now explicitly credits this prior converse and shows the substitution. It does not attribute that bound's first discovery to this work. The mathematical addition is local achievability after spectrum-optimizing global preprocessing and the matching all-rate fidelity exponent; the fixed-input problem addressed by Lami is not solved here. No theorem or certificate was altered by this attribution correction.
+
+Primary source: https://arxiv.org/abs/2610.12454
