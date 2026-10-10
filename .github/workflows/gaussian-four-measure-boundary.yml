@@ -1,0 +1,61 @@
+name: Gaussian four-cell partial analytic core
+
+on:
+  push:
+    branches: [main, research/gaussian-four-measure-boundary-20261010]
+    paths:
+      - 'formalizations/gaussian-four-global-progress/**/*.lean'
+      - 'formalizations/gaussian-four-global-progress/*.lean'
+      - 'formalizations/gaussian-four-global-progress/*.json'
+      - 'formalizations/gaussian-four-global-progress/audit/*.json'
+      - 'formalizations/gaussian-four-global-progress/*.py'
+      - 'formalizations/gaussian-four-global-progress/*.sh'
+      - 'formalizations/gaussian-four-global-progress/lean-toolchain'
+      - 'formalizations/gaussian-measure-primal-dual/*.lean'
+      - '.github/workflows/gaussian-four-measure-boundary.yml'
+  pull_request:
+    paths:
+      - 'formalizations/gaussian-four-global-progress/**'
+      - 'formalizations/gaussian-measure-primal-dual/*.lean'
+      - '.github/workflows/gaussian-four-measure-boundary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-kernel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install the exact Lean 4.34.1 release
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst \
+            --output "$RUNNER_TEMP/lean.tar.zst"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/lean-4.34.1-linux/bin" >> "$GITHUB_PATH"
+      - name: Fetch fixed external dependency caches
+        working-directory: formalizations/gaussian-four-global-progress
+        run: |
+          set -euo pipefail
+          lean --version
+          bash fetch_cache.sh
+      - name: Fresh Lake, fresh modules, trust-zero replay and false-claim controls
+        working-directory: formalizations/gaussian-four-global-progress
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --output-dir "$RUNNER_TEMP/four-core-verification"
+      - name: Retain actual independent verification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: gaussian-four-partial-verification-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/four-core-verification/*.log
+            ${{ runner.temp }}/four-core-verification/*.json
+            ${{ runner.temp }}/four-core-verification/*.txt
+            ${{ runner.temp }}/four-core-verification/negative/**/*.lean
+          if-no-files-found: warn

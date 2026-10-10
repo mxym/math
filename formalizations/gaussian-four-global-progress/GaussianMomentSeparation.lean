@@ -74,7 +74,7 @@ theorem fractional_pair_separation {d k : ℕ} [NeZero k]
       filter_upwards [F.nonneg i, F.nonneg j, pair_label_sum_le_one F i j hij, hi, hj]
         with x hni hnj hs hwi hwj
       exact two_label_tent a t ⟪u, x⟫ (F.labels i x) (F.labels j x) hni hnj hs hwi hwj)
-  simp only [Pi.add_apply, Pi.sub_apply] at hineq
+  simp only [Pi.add_apply] at hineq
   rw [integral_const_mul, integral_add (F.integrable_label i) (F.integrable_label j),
     integral_add hd (integrable_inner_tent u a t ha), heval] at hineq
   change a * q ≤ ⟪u, F.moment i - F.moment j⟫ - t * (F.mass i - F.mass j) +
