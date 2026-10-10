@@ -104,7 +104,7 @@ def main() -> int:
     output = args.output_dir.resolve()
     output.mkdir(parents=True, exist_ok=False)
     report = {"status": "RUNNING", "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: separation, quartile profile, collinear obstruction, actual price compactness, upper normal cones and regularization residuals; NOT the global sharp theorem"}
+              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: actual Gaussian covariance law, flux, Gram transport, fixed directional differential, and earlier four-cell core; NOT the global sharp theorem"}
     try:
         before = source_snapshot()
         report["source_sha256"] = before
@@ -216,6 +216,7 @@ def main() -> int:
             ("GaussianFour.PriceBounds", "|b i - b j| ≤ quarterQuantile * ‖v i - v j‖", "|b i - b j| ≤ 0 * ‖v i - v j‖"),
             ("GaussianFour.NormalCone", "(A * (Y - Q)).trace ≤ 0", "(A * (Y - Q)).trace ≥ 0"),
             ("GaussianFour.RegularizedResidual", "ε * (L * Q).trace ^ 2 := by", "0 * (L * Q).trace ^ 2 := by")]
+        controls += [("GaussianFour.FixedCovarianceDifferential", "((facetLaplacian w*D).trace / 2) 0 := by", "((facetLaplacian w*D).trace) 0 := by")]
         report["negative_controls"] = []
         for index, (module, old, new) in enumerate(controls, 1):
             text = (ROOT / MODULES[module]).read_text()

@@ -10,6 +10,53 @@ lean_lib GaussianFourProfileSupport where
   roots := #[`GaussianHalflineFlux, `GaussianHalfspaceFlux, `GaussianTail,
     `GaussianHazard, `GaussianQuantile, `GaussianOneCell]
 
+lean_lib GaussianFourAnalyticSupport where
+  srcDir := "analytic"
+  roots := #[
+    `GaussianCoordinateSplit,
+    `GaussianBalancedValue,
+    `GaussianScoreDerivative,
+    `GaussianValueScaling,
+    `GaussianCovarianceValue,
+    `GaussianScoreSymmetry,
+    `GaussianRotationalMomentIdentity,
+    `GaussianSliceFlux,
+    `GaussianPolyhedralGraphFlux,
+    `GaussianGraphLift,
+    `GaussianMaskedSliceFlux,
+    `GaussianGraphVectorFlux,
+    `GaussianPriceContinuity,
+    `GaussianWinningContinuity,
+    `GaussianCovarianceContinuity,
+    `GaussianMomentCovariance,
+    `GaussianRegularValue,
+    `GaussianMomentSymmetry,
+    `GaussianWinningGraphFlux,
+    `GaussianNormalCoordinates,
+    `GaussianFacetDensityPositive,
+    `GaussianSimplicialFlux,
+    `GaussianAllCellsFlux,
+    `GaussianCenteredRowIndependence,
+    `GaussianMinimalCovarianceRows,
+    `GaussianPrincipalNondegeneracy,
+    `GaussianAffineMatrixFactorization,
+    `GaussianActualEnvelope,
+    `GaussianDiagonalCovarianceDerivative,
+    `GaussianPositiveAffineLift,
+    `GaussianCenteredCovarianceBlock,
+    `GaussianCenteredAffineLift,
+    `GaussianFluxCoefficientSymmetry,
+    `GaussianSymmetricFlux,
+    `GaussianSimplexAlgebra,
+    `GaussianFluxEnergy,
+    `GaussianCovarianceFluxDerivative,
+    `GaussianFacetLaplacian,
+    `GaussianAffineLiftDerivative,
+    `GaussianCovarianceDifferential,
+    `GaussianGramIsometry,
+    `GaussianWinningMomentSpan,
+    `GaussianGramMomentTransport]
+
 @[default_target]
 lean_lib GaussianFour where
   roots := #[`GaussianFour]

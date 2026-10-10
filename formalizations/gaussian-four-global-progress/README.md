@@ -1,5 +1,7 @@
 # Four balanced Gaussian cells: partial formalization / 部分形式化
 
+**Development checkpoint: the covariance import closure and fixed-flux derivative are under compiler verification. Historical 31-module receipts do not verify these new sources. The global theorem remains unproved.**
+
 **Status: unconditional partial results, NOT the global sharp theorem.**
 The bound `12 * (arctan (sqrt 2))^2 / pi^3` and its complete equality
 classification have not been proved by this package. There is no conditional
