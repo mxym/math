@@ -45,4 +45,6 @@ python3 -O test_checker.py --report verification/source-mutations.json
 
 Only Python's standard library is needed. The independent combinatorial routes include hook dimensions versus tableau recursion, Weyl dimensions versus Schur characters, full probability normalization, rank-deficient Schur weights, noncommuting input orientations, coherent multiplicity-factor selection, and every dyad of several Bell-code subspaces. All checks use exact integers or rationals. The tests include corrupted-source rejection and assertion-disabled positive controls. Their scope is ancillary, not a replacement for the analytic proof.
 
+Read the [signed preprint](main.pdf) or its [standalone LaTeX](main.tex). Rebuild it with `python3 build_manuscript.py` (Pandoc and pdfLaTeX), or compile `main.tex` directly twice with pdfLaTeX. Run `python3 verify_sources.py` for the pinned proof/manuscript/tool inventory.
+
 The full derivation is in `PROOF.md`; `RESEARCH_LOG.md` records current-literature checks, design obstacles and the explicit verification boundary. The earlier immutable qutrit, negativity and extraction releases are unchanged.
