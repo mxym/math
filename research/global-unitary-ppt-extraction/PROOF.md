@@ -17,7 +17,7 @@ Let $\Phi_K$ be the normalized rank-one maximally entangled projector. For an op
  \operatorname{Tr}\!\left[\Phi_K\Lambda(U_k\rho^{\otimes k}U_k^*)\right].
  \tag{2}
 \]
-We consider local product channels (LO), LOCC, and **completely PPT channels**: both $\Lambda$ and $\Gamma_{\mathrm{out}}\Lambda\Gamma_{\mathrm{in}}$ must be completely positive and trace preserving. Here the partial transposes are taken on the second party. The latter class is denoted $\mathrm{cPPT}$ to avoid confusion with channels that merely send PPT states to PPT states. LOCC is contained in cPPT. The supremum in the cPPT case is a maximum by the finite-dimensional semidefinite formulation below.
+We consider local product channels (LO), LOCC, and **completely PPT channels**: both $\Lambda$ and $\Gamma_{\mathrm{out}}\Lambda\Gamma_{\mathrm{in}}$ must be completely positive and trace preserving. Here the partial transposes are taken on the second party. The latter class is denoted $\mathrm{cPPT}$ to avoid confusion with channels that merely send PPT states to PPT states. LOCC is contained in cPPT: partial-transpose conjugation replaces a product Kraus operator $A_j\otimes B_j$ by $A_j\otimes\overline{B_j}$, preserving complete positivity; trace preservation is invariant under the conjugation. The same holds for limits of such channels. The supremum in the cPPT case is a maximum by the finite-dimensional semidefinite formulation below.
 
 For a rate $R\ge0$ use $K_k=\lceil e^{kR}\rceil$, with $K_k=1$ when $R=0$. Write $H(p)=-\sum p_i\log p_i$ and $S_\alpha(p)=(1-\alpha)^{-1}\log\sum p_i^\alpha$ for $\alpha>1$, extended by $S_1=H$.
 
@@ -197,7 +197,7 @@ $\prod_i[(kq_i)!/h_i!](kq_i)^{h_i-kq_i}$ after cancellation of the powers of $k$
 
 The mass of type $q$ under $p^{\otimes k}$ is at least $(k+1)^{-s}e^{-kD(q\|p)}$. The largest $r_q$ eigenvalues have at least this mass. Applying (17) in dimensions $a=m^k,b=n^k$ gives, up to factors whose logarithms are $o(k)$,
 \[
- f_k^{\mathrm{cPPT}}(K_k)\ \ge\
+ f_k^{\mathrm{cPPT}}(K_k) \ge
  \exp\{-k\,[D(q\|p)+\max\{0,R-A,R-L/2+H(q)/2\}]\}.
  \tag{25}
 \]
@@ -336,7 +336,7 @@ The proof supplies a finite one-shot approximation (17), a local capacity constr
 
 [T] Joel A. Tropp, *User-friendly tail bounds for sums of random matrices*, Foundations of Computational Mathematics **12** (2012), 389--434, arXiv:1004.4389v7, Theorem 1.4. This proved concentration theorem is an explicit external input.
 
-[Z] Yongxian Zhang, *The collective-unitary logarithmic-negativity rate of every bipartite spectrum*, repository preprint, immutable GitHub version `collective-unitary-negativity-rate-preprint-v1`, source `3fac265d142cbc5ce48700abce5cced59a1a4b8f`. Sections 3--4 give the Bell-projection mechanism reused and restated here. This companion is a written analytic result, not a Lean theorem.
+[Z] Yongxian Zhang, *The collective-unitary logarithmic-negativity rate of every bipartite spectrum*, repository preprint, immutable [version 1](https://github.com/mxym/math/releases/tag/collective-unitary-negativity-rate-preprint-v1), source `3fac265d142cbc5ce48700abce5cced59a1a4b8f`. Sections 3--4 give the Bell-projection mechanism reused and restated here. This companion is a written analytic result, not a Lean theorem.
 
 [FWTD] Kun Fang, Xin Wang, Marco Tomamichel and Runyao Duan, *Non-asymptotic entanglement distillation*, IEEE Transactions on Information Theory **65** (2019), 6454--6465, arXiv:1706.06221v3. Related finite-blocklength PPT optimization; it does not supply the spectrum-optimized exponent asserted here.
 

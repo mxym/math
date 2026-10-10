@@ -26,6 +26,8 @@ In balanced dimensions the faithful extraction capacity is `log d - H(p)/2`, whi
 
 The work extends the companion Bell-projection mechanism, and explicitly credits the older Rains SDP and Tropp concentration inequality. The finite one-shot fidelity is approximated within logarithmic factors by a weighted spectral-prefix envelope. Exact type and escort arguments determine the asymptotic exponent; pure-subspace packing proves capacity achievability by local product channels after the global unitary.
 
+Read the [signed analytic manuscript](main.pdf) or its [standalone LaTeX source](main.tex). The proof and external-input boundary are also readable in `PROOF.md`.
+
 ## Checks and reproduction
 
 ```sh
@@ -33,7 +35,9 @@ python3 check.py --report verification/exact-checks.json
 python3 -O test_checker.py --report verification/source-mutations.json
 ```
 
-Only Python's standard library is required. The checks include full rational Choi matrices of six channels and their partial-transpose conjugates, local Kraus completeness with nondivisible dimensions, deterministic extraction of eleven Bell-coded states across five systems, symbolic escort identities, and the inherited exact cyclotomic Bell/type checks. Five mutated source programs are rejected with specific mathematical diagnostics, and positive checks also run with assertions disabled.
+Source integrity is checked by `python3 verify_sources.py`. The manuscript can be rebuilt with `python3 build_manuscript.py` using Pandoc and pdfLaTeX; `main.tex` also compiles directly with two pdfLaTeX passes.
+
+Only Python's standard library is required for the checks. The checks include full rational Choi matrices of six channels and their partial-transpose conjugates, local Kraus completeness with nondivisible dimensions, deterministic extraction of eleven Bell-coded states across five systems, symbolic escort identities, and the inherited exact cyclotomic Bell/type checks. Five mutated source programs are rejected with specific mathematical diagnostics, and positive checks also run with assertions disabled.
 
 These calculations are finite ancillary checks, **not proof of the unrestricted analytic theorem**. No new Lean certification is claimed. External inputs and novelty limits are detailed in `RESEARCH_LOG.md`; all mathematical steps for the new task are written in `PROOF.md`.
 
