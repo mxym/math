@@ -108,3 +108,10 @@
 [001–009 及扩展原索引](CONTENTS.md) · [五篇整合稿](manuscripts/README.md) · [验证记录](verification/) · [Release 档案](releases/README.md) · [变更记录](CHANGELOG.md)
 
 [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)保留整理前的全部首页文字，包括旧范围、旧验证计数和修订轨迹。冻结证明和已公开版本不因本次目录整理而改写。
+
+## 2026-10 archived complete Gaussian notes
+
+- [任意质量高斯质心包络](preprints/gaussian-centroid-mass-envelope-2026-10/README.md) · [DOI](https://doi.org/10.5281/zenodo.23273177)
+- [高斯球冠维数下界](preprints/gaussian-spherical-cap-converse-2026-10/README.md) · [DOI](https://doi.org/10.5281/zenodo.23273187)
+- [全整数高斯维数阶](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md) · [DOI](https://doi.org/10.5281/zenodo.23273190)
+- [高斯维数—精度常数精化](preprints/gaussian-sharp-dimension-rate-2026-10/README.md) · [DOI](https://doi.org/10.5281/zenodo.23273198)

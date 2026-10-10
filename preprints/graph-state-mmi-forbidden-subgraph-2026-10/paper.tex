@@ -1,0 +1,544 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable,microtype,xurl}
+\emergencystretch=6em\sloppy
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={A forbidden-subgraph theorem for graph-state monogamy},
+  pdfauthor={Yongxian Zhang},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A forbidden-subgraph theorem for graph-state monogamy}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering,
+South China University of Technology, Guangzhou, China.
+Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}.
+ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
+\date{9 October 2026}
+
+\begin{document}
+\maketitle
+
+\subsection{Abstract}\label{abstract}
+
+We prove that positive tripartite information for a finite qubit graph
+state forces a claw in some locally equivalent graph, establishing
+Fuentes--Keeler--Munizzi--Pollack Conjecture 1. We classify all
+claw-vertex-minor-free graphs: each connected component is locally
+equivalent to one of six fixed graphs. A complete certificate for all
+120 one-vertex extensions closes an induction over arbitrary graph
+order. The graph-state entropy identity and exact cut profiles then give
+the monogamy implication. Every connected graph on at least seven
+vertices has a claw vertex-minor, and six is insufficient. Two
+independently implemented exact checkers verify the finite proof data;
+no complete Lean formalization is claimed.
+
+\subsection{1. Exact statements}\label{exact-statements}
+
+All graphs below are finite, simple, and undirected. A \textbf{claw} is
+the four-vertex star \texttt{K\_\{1,3\}}. Local complementation at
+\texttt{v}, denoted \texttt{G*v}, toggles edges between distinct
+neighbors of \texttt{v} and changes no other edges. A vertex-minor is an
+induced subgraph of a graph obtained by a finite sequence of local
+complementations. This agrees with allowing local complementations and
+vertex deletions in any order.
+
+Write \texttt{R\_1=K\_1}, \texttt{R\_2=K\_2}, \texttt{R\_3=P\_3},
+\texttt{R\_4=P\_4}, \texttt{R\_5=C\_5}, and \texttt{R\_6=W\_5}, where
+\textbf{\texttt{W\_5} here has six vertices}, a five-cycle and its
+universal hub. Equivalence to a representative permits graph isomorphism
+as well as local complementation.
+
+\textbf{Theorem 1 (complete component classification).} A graph has no
+claw vertex-minor if and only if each nonempty connected component is
+locally equivalent, up to isomorphism, to one of \texttt{R\_1,...,R\_6}.
+
+\textbf{Theorem 2 (forbidden-subgraph implication).} For every qubit
+graph state and every three pairwise disjoint subsystems \texttt{A,B,C},
+if
+
+{[}I\_3(A:B:C)=S(A)+S(B)+S(C)-S(AB)-S(AC)-S(BC)+S(ABC)\textgreater0.{]}
+
+then the graph has a locally equivalent representative containing an
+\textbf{induced} claw. Here \texttt{S} is von Neumann entropy in bits.
+This proves the implication in Fuentes--Keeler--Munizzi--Pollack,
+arXiv:2511.19585v1, Conjecture 1, without a bound on graph order.
+
+\textbf{Corollary 3 (sharp connected-size threshold).} Every connected
+graph on at least seven vertices has a claw vertex-minor. Six does not
+suffice, because \texttt{W\_5} has no claw vertex-minor. For the
+positive direction one can use at most eight local complementations,
+whose pivot vertices lie in a connected set of at most seven vertices,
+and then delete unwanted vertices. In the graph-state interpretation,
+local Clifford gates followed by local computational-basis measurements
+and Pauli corrections extract a four-qubit GHZ state on some four
+vertices. This is not a claim about four prescribed vertices or about
+general non-Clifford local operations.
+
+The proof has a small finite certificate, \textbf{not} a finite-size
+extrapolation. The sole structural finite step checks all 120 nonempty
+one-vertex extensions of the six representatives. A connected-graph
+induction proves that these cases cover arbitrary order.
+
+\subsection{2. Local-complementation
+lemmas}\label{local-complementation-lemmas}
+
+\textbf{Restriction.} If \texttt{v} belongs to a vertex subset
+\texttt{U}, then \texttt{(G*v){[}U{]}\ =\ (G{[}U{]})*v}. For two
+vertices in \texttt{U}, whether their edge is toggled depends only on
+their adjacencies to \texttt{v}, all of which are in \texttt{G{[}U{]}}.
+Repeating this identity lifts any local-complementation sequence on an
+induced subgraph to the full graph, with precisely the same restricted
+result.
+
+Consequently, vertex deletions can be postponed until the end of a
+sequence: continue applying all later local complementations on the
+original vertex set, and finally restrict to the vertices that were not
+deleted. At each step the restriction agrees. In particular, having a
+claw vertex-minor is inherited upward from induced subgraphs and is
+invariant under local equivalence and isomorphism.
+
+\textbf{Connectedness.} Local complementation preserves each connected
+component, including its vertex set. It creates no edge between distinct
+components. Any deleted edge \texttt{xy} had both ends adjacent to the
+pivot \texttt{v}, so it is replaced, as a connectivity witness, by the
+path \texttt{x-v-y}; these incident edges are unchanged. The inverse
+operation is the same local complementation.
+
+\textbf{Removable vertex.} A finite connected graph with at least two
+vertices has a vertex whose deletion leaves a connected graph. Take a
+spanning tree and delete any leaf of that tree; the remaining tree spans
+all remaining vertices.
+
+\textbf{Relabeling.} Relabeling a graph transports a local
+complementation at \texttt{v} to local complementation at the relabeled
+vertex. Therefore no relabeling is an extra physical or graph operation
+in a lifted witness: it only changes how the next witness's vertex names
+are interpreted.
+
+\subsection{3. The finite extension
+certificate}\label{the-finite-extension-certificate}
+
+Represent a labeled graph on \texttt{0,...,m-1} by the integer adjacency
+rows \texttt{a\_i}, whose \texttt{j}-th bit is one exactly when
+\texttt{i} is adjacent to \texttt{j}. The six fixed representatives are:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+m & Representative & Adjacency rows \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & K\_1 & 0 \\
+2 & K\_2 & 2, 1 \\
+3 & P\_3 & 2, 5, 2 \\
+4 & P\_4 & 2, 5, 10, 4 \\
+5 & C\_5 & 18, 5, 10, 20, 9 \\
+6 & W\_5 & 50, 37, 42, 52, 41, 31 \\
+\end{longtable}
+
+For every \texttt{m=1,...,6} and
+\texttt{1\ \textless{}=\ b\ \textless{}\ 2\^{}m}, add vertex \texttt{m}
+with adjacency set given by the binary digits of \texttt{b}. These are
+\textbf{all} nonempty attachment sets. The corresponding entry of
+\texttt{certificate.json} supplies either:
+
+\begin{itemize}
+\tightlist
+\item
+  a list of local-complementation vertices and an ordered tuple
+  \texttt{(center,leaf\_1,leaf\_2,leaf\_3)} inducing a claw afterward;
+  or
+\item
+  a list of local-complementation vertices and an explicit bijection
+  from \texttt{R\_\{m+1\}} to the entire resulting graph.
+\end{itemize}
+
+There is no latter outcome at \texttt{m=6}. All lists have length at
+most three.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1739}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1739}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1739}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1739}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1739}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Base order
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+All attachments
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Claw endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+R\_(m+1) endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Maximum LC length to a claw
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Maximum LC length to R\_(m+1)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 1 & 0 & 1 & --- & 0 \\
+2 & 3 & 0 & 3 & --- & 1 \\
+3 & 7 & 1 & 6 & 0 & 3 \\
+4 & 15 & 11 & 4 & 2 & 2 \\
+5 & 31 & 30 & 1 & 1 & 0 \\
+6 & 63 & 63 & 0 & 2 & --- \\
+Total & 120 & 105 & 15 & 2 & 3 \\
+\end{longtable}
+
+This table's role is fully specified by the following verifier,
+expressed mathematically. For each pair \texttt{(m,b)} in the indicated
+range, start with the fixed extension. For each pivot \texttt{v}, and
+each row \texttt{i}, replace \texttt{a\_i} by
+\texttt{a\_i\ XOR\ (a\_v\ XOR\ 2\^{}i)} if the \texttt{i}-th bit of
+\texttt{a\_v} is one; otherwise retain \texttt{a\_i}. Use the old pivot
+row throughout a step. At a claw endpoint verify all three center--leaf
+adjacencies and all three leaf--leaf nonadjacencies. At a representative
+endpoint verify that the supplied list is a permutation and compare
+every matrix entry under that permutation. Finally require each pair
+\texttt{(m,b)} exactly once. The scripts use explicit exceptions rather
+than assertions; optimized Python does not remove checks.
+
+\texttt{check\_certificate.py} implements this rule with binary rows.
+\texttt{verify\_independent.py} implements local complementation using
+symmetric differences of edge sets, generates attachments as subsets
+rather than integer intervals, and compares endpoint edge sets. Neither
+imports the generator or the other verifier. The witness generator is
+optional and is not a trusted proof input.
+
+\subsection{4. Proof of the classification: the unbounded
+step}\label{proof-of-the-classification-the-unbounded-step}
+
+Suppose a connected nonempty graph \texttt{G} has no claw vertex-minor.
+Induct on its number \texttt{n} of vertices. The case \texttt{n=1} is
+\texttt{R\_1}. For \texttt{n\textgreater{}=2}, choose a removable vertex
+\texttt{w}, and put \texttt{H=G-w}. The graph \texttt{H} is connected
+and has no claw vertex-minor. By induction it is locally equivalent, up
+to isomorphism, to \texttt{R\_m} for some
+\texttt{1\textless{}=m\textless{}=6}; necessarily \texttt{m=n-1}.
+
+Lift the sequence for \texttt{H} to \texttt{G} and relabel the remaining
+vertices as \texttt{0,...,m-1}, with \texttt{w} labeled \texttt{m}. The
+resulting full graph is connected, so the attachment set of \texttt{w}
+to \texttt{R\_m} is nonempty. It is exactly one of the 120 certified
+extensions. A claw endpoint would contradict the hypothesis. Hence the
+endpoint is \texttt{R\_\{m+1\}}, proving the induction. In particular
+\texttt{m=6} is impossible, and no connected graph of order at least
+seven avoids a claw vertex-minor.
+
+The converse requires showing that none of the six representatives has a
+claw in its LC orbit. We give a short spectral proof in Section 6. An
+independent finite negative certificate is also supplied:
+\texttt{certificate.json} contains LC-closed claw-free sets of sizes
+\texttt{1,1,4,11,132,132}, each containing its representative. Closure
+entails that every graph in the entire LC orbit is in the certified set.
+The independent verifier regenerates the full orbits without using their
+supplied contents and obtains exactly the same sets. There are 281
+states and 1511 one-step closure checks in total.
+
+Local complementation acts separately on components. An induced claw is
+connected, so it cannot use different components. The connected
+classification therefore gives Theorem 1 for arbitrary graphs, including
+the empty graph, for which the assertion is vacuous.
+
+For Corollary 3, take a connected induced subgraph on seven vertices,
+obtained by growing a connected set one vertex at a time. Apply the
+extension normalization to this graph. The maximum costs for successful
+normalizations through orders two to six are \texttt{0,1,3,2,0}, and the
+final claw witness costs at most two. The total is at most eight. An
+earlier claw outcome costs no more. Lift the sequence to the original
+graph before deleting the unwanted vertices. The negative six-vertex
+example follows from the converse just proved.
+
+\subsection{5. The graph-state entropy identity, with
+proof}\label{the-graph-state-entropy-identity-with-proof}
+
+For a graph \texttt{G=(V,E)} on \texttt{n} vertices define
+
+\texttt{\textbar{}G\textgreater{}\ =\ 2\^{}(-n/2)\ sum\_(x\ in\ F\_2\^{}V)\ (-1)\^{}(sum\_\{uv\ in\ E\}\ x\_u\ x\_v)\ \textbar{}x\textgreater{}}.
+
+For \texttt{X\ subset\ V}, let
+\texttt{B\ =\ Gamma{[}X,V\textbackslash{}X{]}}, and write
+\texttt{r\_G(X)=rank\_(F\_2)(B)}. Then
+
+\texttt{S(X)\ =\ r\_G(X)}.
+
+To see this, write the exponent as
+\texttt{q\_X(x)+q\_Y(y)+x\^{}T\ B\ y}. The partial trace has entries
+
+\texttt{rho\_X(x,x\textquotesingle{})\ =\ 2\^{}(-\textbar{}X\textbar{})\ (-1)\^{}(q\_X(x)+q\_X(x\textquotesingle{}))\ 1\_\{B\^{}T(x+x\textquotesingle{})=0\}}.
+
+Indeed, the sum of a binary additive character over \texttt{F\_2\^{}Y}
+is zero unless that character is trivial. Conjugating by the diagonal
+matrix with entries \texttt{(-1)\^{}\{q\_X(x)\}} removes the signs. If
+\texttt{K=ker(B\^{}T)}, the remaining matrix has one all-ones block for
+each coset of \texttt{K}, each multiplied by
+\texttt{2\^{}(-\textbar{}X\textbar{})}. Every block has size
+\texttt{2\^{}(\textbar{}X\textbar{}-r)}. Thus the nonzero eigenvalues
+are \texttt{2\^{}(-r)} with multiplicity \texttt{2\^{}r}, proving the
+identity, also for empty subsystems and zero rank.
+
+Cut rank is invariant under local complementation. If the pivot
+\texttt{v} lies in \texttt{X}, its row in \texttt{B} stays fixed, and
+every row indexed by a neighbor of \texttt{v} in \texttt{X} acquires
+that fixed row. These elementary binary row additions preserve rank. If
+the pivot is outside \texttt{X}, apply the analogous column operations.
+Symmetry of the adjacency matrix gives
+\texttt{r\_G(X)=r\_G(V\textbackslash{}X)}.
+
+For completeness, the graph operation really is a local Clifford
+operation. Let \texttt{K\_u=X\_u\ product\_\{w\ in\ N(u)\}\ Z\_w} be the
+graph stabilizers and put
+
+\texttt{U\_v\ =\ exp(-i\ pi\ X\_v/4)\ product\_\{u\ in\ N(v)\}\ exp(i\ pi\ Z\_u/4)}.
+
+Conjugation preserves \texttt{K\_v}; it maps \texttt{K\_u} for a
+neighbor \texttt{u} to
+\texttt{K\textquotesingle{}\_u\ K\textquotesingle{}\_v}, where primes
+denote the stabilizers of \texttt{G*v}, and fixes the generators of
+nonneighbors. These identities follow from \texttt{X\ Z=-iY},
+\texttt{Z\ X=iY} and quarter-turn Pauli conjugation. Both sets generate
+the same stabilizer group after the change of generators. The
+independent graph stabilizers have a unique joint +1 state, so
+\texttt{U\_v\textbar{}G\textgreater{}} and
+\texttt{\textbar{}G*v\textgreater{}} differ only by a global phase. This
+is the standard local-complementation rule; see Van den
+Nest--Dehaene--De Moor (2004).
+
+\subsection{6. Exact cut profiles and exclusion of the
+claw}\label{exact-cut-profiles-and-exclusion-of-the-claw}
+
+For \texttt{P\_4}, every one-vertex cut has rank one. The three
+unordered two-versus-two cuts have ranks \texttt{1,2,2}: representatives
+are \texttt{\{0,1\}}, \texttt{\{0,2\}}, \texttt{\{0,3\}}. The
+corresponding matrices, with complement columns in increasing order, are
+respectively
+
+\texttt{{[}{[}0,0{]},{[}1,0{]}{]},\ {[}{[}1,0{]},{[}1,1{]}{]},\ {[}{[}1,0{]},{[}0,1{]}{]}}.
+
+For \texttt{C\_5}, every pair has cut rank two. By the cycle symmetries
+it suffices to check an adjacent pair and a nonadjacent pair, for
+example \texttt{\{0,1\}} and \texttt{\{0,2\}}. Their matrices are
+
+\texttt{{[}{[}0,0,1{]},{[}1,0,0{]}{]}} and
+\texttt{{[}{[}1,0,1{]},{[}1,1,0{]}{]}}.
+
+Together with nonzero single-vertex cuts and complementation, this
+proves
+
+\texttt{r\_(C\_5)(X)=min(\textbar{}X\textbar{},5-\textbar{}X\textbar{})}.
+
+For \texttt{W\_5}, every three-vertex cut has rank three. Every such cut
+has one side consisting of the hub and two cycle vertices. Up to the
+cycle symmetries, choose \texttt{\{5,0,1\}} or \texttt{\{5,0,2\}}; with
+hub row first, the matrices are
+
+\texttt{{[}{[}1,1,1{]},{[}0,0,1{]},{[}1,0,0{]}{]}} and
+\texttt{{[}{[}1,1,1{]},{[}1,0,1{]},{[}1,1,0{]}{]}}.
+
+Both have odd determinant. Full row rank of these three-vertex cuts
+implies full row rank for smaller subsets: extend the subset to three
+vertices and restrict the independent rows of that three-vertex cut.
+Complementation gives
+
+\texttt{r\_(W\_5)(X)=min(\textbar{}X\textbar{},6-\textbar{}X\textbar{})}.
+
+The first three representatives cannot contain a four-vertex induced
+subgraph. A graph locally equivalent to \texttt{P\_4} cannot be a claw
+because a claw has rank one at every two-versus-two cut, whereas
+\texttt{P\_4} does not.
+
+Now consider any graph locally equivalent to \texttt{C\_5}. All its
+two-vertex cut ranks are two. It consequently has minimum degree at
+least two: if a vertex had degree zero or one, place it with its
+possible neighbor in a two-vertex subset; its cut row is zero. If an
+induced claw existed, each of its three leaves would have to be adjacent
+to the sole vertex outside the claw. Any two leaves would then have
+identical cut rows, contradicting rank two.
+
+Similarly, every graph locally equivalent to \texttt{W\_5} has minimum
+degree at least three: a vertex of degree at most two, together with its
+neighbors and any needed padding, forms a three-vertex subset with a
+zero cut row. In an induced claw, every leaf would therefore have to be
+adjacent to both outside vertices. Again two leaves have identical cut
+rows, contradicting the rank-two profile. This proves the converse in
+Theorem 1 without relying on an orbit enumeration.
+
+\subsection{7. All partitions and the monogamy
+theorem}\label{all-partitions-and-the-monogamy-theorem}
+
+Let \texttt{D=V\textbackslash{}(A\ union\ B\ union\ C)}, and use purity
+to write
+
+\texttt{I\_3\ =\ r(A)+r(B)+r(C)+r(D)-r(AB)-r(AC)-r(AD)}.
+
+This expression is symmetric in the four blocks, because complementary
+cuts have equal rank. If any block is empty, the expression is zero.
+Thus components on at most three vertices always contribute zero.
+
+For \texttt{P\_4}, a four-nonempty-block partition has four singleton
+blocks. The value is \texttt{4-(1+2+2)=-1}. For \texttt{C\_5}, the only
+possible positive block-size profile is \texttt{(2,1,1,1)}, giving
+\texttt{5-(2+2+2)=-1}. For \texttt{W\_5}, the positive profiles are
+\texttt{(3,1,1,1)} and \texttt{(2,2,1,1)}, giving respectively
+\texttt{6-(2+2+2)=0} and \texttt{6-(2+3+3)=-2}.
+
+For a disjoint union, every cut matrix is block diagonal after row and
+column permutations, so ranks, and hence \texttt{I\_3}, add over
+components. Therefore a graph with no claw vertex-minor satisfies every
+MMI inequality. Taking the contrapositive proves Theorem 2.
+
+More precisely, for any claw-vertex-minor-free graph and any four-block
+partition,
+
+\texttt{I\_3\ =\ -N\_4\ -\ N\_5\ -\ 2\ N\_6},
+
+where \texttt{N\_4} counts four-vertex components meeting all four
+blocks, \texttt{N\_5} counts five-vertex components meeting all four
+blocks, and \texttt{N\_6} counts six-vertex components whose block-size
+profile is \texttt{(2,2,1,1)}. This also completely describes all
+equality cases \textbf{within the classified claw-vertex-minor-free
+class}. It is not an equality classification of all graph-state MMI
+instances.
+
+\subsection{8. Scope, provenance, and independent
+verification}\label{scope-provenance-and-independent-verification}
+
+The original conjecture is from Fuentes, Keeler, Munizzi and Pollack,
+\emph{Monogamy of Mutual Information in Graph States},
+arXiv:2511.19585v1, Conjecture 1 (printed p.30). The source discusses a
+necessary induced four-star somewhere in the local-Clifford orbit, not
+an induced star in every representative. We prove exactly this
+implication. Its additional generalized-star partition statement follows
+explicitly: take I, J and K to be the three singleton leaves of the
+induced claw and take C to be every other vertex, including the center.
+The three leaf blocks have no edges between them and each is attached to
+C, as required by the source definition.
+
+The converse is not claimed. Claw vertex-minors concern what can be
+obtained after deletions/measurements; those operations do not preserve
+the original entropy vector. Nor do these results characterize all
+MMI-satisfying graph states, handle arbitrary mixed or non-stabilizer
+states, extend to odd-prime qudit graphs, or solve other holographic
+entropy inequalities.
+
+The finite LC and cut-rank tables for small graph states overlap the
+established graph-state classification literature; those small states
+themselves are not new. Our proof uses a complete extension induction
+and explicit small witnesses rather than assuming an unrestricted
+conclusion from a finite catalog. A bounded literature search did not
+locate this exact implication's resolution, but this is \textbf{not}
+evidence sufficient to assert historical priority. The separate 2026
+paper on edgeless vertex-minor Ramsey numbers concerns a different
+target graph and is not an input to this proof.
+
+Both exact checkers pass all 120 extensions. They also check all 5460
+assignments of representative vertices to four labeled blocks, including
+empty blocks. The independent checker recomputes every orbit and
+independently constructs the graph-state amplitudes: for all 126
+representative cuts it verifies, by integer matrix multiplication, the
+reduced-density numerator identity \texttt{M\^{}2=2\^{}(n-r)\ M} and
+\texttt{tr(M)=2\^{}n}. These finite quantum checks supplement, rather
+than replace, the all-order entropy proof in Section 5.
+
+This is AI-assisted research. No external funding was received. No
+external human peer review is claimed. Lean coverage, if supplied in a
+later companion, must be stated separately; the present theorem is a
+complete written proof with exact independently replayable finite
+certificates, not a claim of complete Lean verification.
+
+\small\subsection{References}\label{references}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  J. Fuentes, C. Keeler, W. Munizzi and J. Pollack, \emph{Monogamy of
+  Mutual Information in Graph States}, arXiv:2511.19585v1 (2025),
+  especially Conjecture 1.
+\item
+  M. Van den Nest, J. Dehaene and B. De Moor, \emph{Graphical
+  description of the action of local Clifford transformations on graph
+  states}, Physical Review A \textbf{69}, 022316 (2004), DOI
+  10.1103/PhysRevA.69.022316.
+\item
+  M. Hein, J. Eisert and H. J. Briegel, \emph{Multiparty entanglement in
+  graph states}, Physical Review A \textbf{69}, 062311 (2004), DOI
+  10.1103/PhysRevA.69.062311.
+\item
+  J. de Jong, F. Hahn, N. Tcholtchev, M. Hauswirth and A. Pappa,
+  \emph{Extracting GHZ states from linear cluster states}, Physical
+  Review Research \textbf{6}, 013330 (2024), DOI
+  10.1103/PhysRevResearch.6.013330. This is prior work on the path
+  family, not an input to our arbitrary-connected-graph classification.
+\item
+  J. H. Bae, \emph{Vertex-minor Ramsey numbers: exact values and
+  extremal structure}, arXiv:2604.13434v1 (2026). Its edgeless target is
+  distinct from our connected claw target; none of its computational
+  claims is assumed here.
+\end{enumerate}
+
+\end{document}
