@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "Auxiliary exact algebra and finite regressions; not a Lean proof of the quantum theorems or the full conjecture",
+  "certificate_sha256": "edc40f2361d8debe10d6ace35c1c20c7c295dd50c2612e036724bb9d92b19ac3",
+  "script_sha256": "f53fb5d7bd4bd9f925f042600f92d98a8642c83768670816367aa30342e0c96b",
+  "checks": [
+    "two-level positive contrast: centered moment",
+    "two-level negative contrast: centered moment",
+    "positive contrast derivative numerator",
+    "negative contrast derivative numerator",
+    "middle-rank derivative numerator",
+    "ceiling strictly beats floor at a half-integer optimum",
+    "clique padding inequality",
+    "few-high-eigenvalues comparison with rank-one spike",
+    "lower tail-rank subinterval monotonicity numerator",
+    "tail bound below spike: cleared denominators",
+    "shifted tail positivity certificate (equation 17)",
+    "l=1 comparison",
+    "l=2 comparison for D>=12",
+    "l=3 comparison",
+    "polytope high-rank vertices lie in the separable ball",
+    "flat-minimum multi-level monotonicity numerator",
+    "relaxation spectrum purity gap",
+    "D=9, l=2 exact exceptional calculation",
+    "exact non-APPT relaxation witness arithmetic",
+    "phase-character finite regressions, ranks 1 through 8"
+  ],
+  "counts": {
+    "symbolic_identities_and_exact_controls": 20,
+    "phase_quadruples": 8772,
+    "dimension_pairs": 583,
+    "middle_integer_ranks": 129932,
+    "graph_rank_regressions": 2277,
+    "tail_rank_regressions": 80608
+  },
+  "negative_control": {
+    "constant_changed_from": 7,
+    "to": 8,
+    "expected_rejection": "Polynomial identity mismatch: shifted tail positivity certificate (equation 17)"
+  },
+  "seconds": 1.612
+}
