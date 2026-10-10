@@ -106,6 +106,8 @@ def main() -> int:
     report = {"status": "RUNNING", "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
               "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: actual Gaussian covariance law, flux, Gram transport, fixed directional differential, and earlier four-cell core; NOT the global sharp theorem"}
     try:
+        from preflight import check_inventory
+        report["source_inventory"] = check_inventory(ROOT, strip_comments)
         before = source_snapshot()
         report["source_sha256"] = before
         report["source_manifest_sha256"] = sha256(ROOT / "SOURCE_BLOBS.json")
@@ -215,8 +217,11 @@ def main() -> int:
         controls += [
             ("GaussianFour.PriceBounds", "|b i - b j| ≤ quarterQuantile * ‖v i - v j‖", "|b i - b j| ≤ 0 * ‖v i - v j‖"),
             ("GaussianFour.NormalCone", "(A * (Y - Q)).trace ≤ 0", "(A * (Y - Q)).trace ≥ 0"),
-            ("GaussianFour.RegularizedResidual", "ε * (L * Q).trace ^ 2 := by", "0 * (L * Q).trace ^ 2 := by")]
-        controls += [("GaussianFour.FixedCovarianceDifferential", "((facetLaplacian w*D).trace / 2) 0 := by", "((facetLaplacian w*D).trace) 0 := by")]
+            ("GaussianFour.RegularizedResidual", "ε * (L * Q).trace ^ 2 := by", "0 * (L * Q).trace ^ 2 := by"),
+            ("GaussianFour.FixedCovarianceDifferential", "((facetLaplacian w*D).trace / 2) 0 := by", "((facetLaplacian w*D).trace) 0 := by"),
+            ("GaussianFour.PriceHessian", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = q j := by", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = -q j := by")]
+        if len(controls) != len(set(controls)):
+            raise RuntimeError("Duplicate negative-control mutations")
         report["negative_controls"] = []
         for index, (module, old, new) in enumerate(controls, 1):
             text = (ROOT / MODULES[module]).read_text()

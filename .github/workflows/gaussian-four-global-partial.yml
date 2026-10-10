@@ -15,6 +15,11 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Check pinned sources, complete module inventory and audit roots
+        working-directory: formalizations/gaussian-four-global-progress
+        run: |
+          python3 preflight.py
+          python3 test_preflight.py
       - name: Install fixed Lean 4.34.1
         shell: bash
         run: |
@@ -40,12 +45,14 @@ jobs:
           set -euo pipefail
           evidence="$RUNNER_TEMP/gaussian-four-kernel-verification"
           if [ -d "$evidence" ]; then
-            cp "$RUNNER_TEMP/gaussian-four-source-commit.txt" "$evidence/source-commit.txt"
+            if [ -f "$RUNNER_TEMP/gaussian-four-source-commit.txt" ]; then
+              cp "$RUNNER_TEMP/gaussian-four-source-commit.txt" "$evidence/source-commit.txt"
+            fi
             if [ -f "$evidence/lake-build.log" ]; then
               grep -E '^error:|^Some required targets|^- Gaussian' "$evidence/lake-build.log" | head -60 >> "$GITHUB_STEP_SUMMARY" || true
             fi
             tree="$evidence/lake-source"
-            if [ -d "$tree" ]; then
+            if [ -d "$tree" ] && [ '${{ job.status }}' != 'success' ]; then
               (cd "$tree" && find formalizations -type f -name '*.olean' -print0 | tar --null -T - -czf "$evidence/development-objects.tar.gz")
             fi
           fi
