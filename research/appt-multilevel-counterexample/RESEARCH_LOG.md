@@ -73,3 +73,16 @@ The amplitude-limit forest argument was sharpened by proving that a component ha
 The resulting exact prefix constraints are E_{j-1}+2 sqrt(2 e_j)<=4. Their complete optimization gives e_j=d_{j-1}^2/8 with d_j=d_{j-1}-d_{j-1}^2/8, and sharp coefficient 8-d_J. The first coefficients are 6,13/2,217/32. This proves a depth deficit asymptotic to 8/J and unique energy allocation within the explicitly lacunary intermediate-rank model, not a level-count theorem for every APPT state. A positive safety margin is still fixed before the dimension limit.
 
 Exact supporting tests include rational PSD graph matrices, all four defects and clipping identities, one-loop component restrictions, optimal rational arrowhead kernels, alternative feasible energy allocations, and large-integer nested graph counts. These checks passed normally and with assertions disabled. They do not certify the compactness theorem, and no independent CI, Lean proof, external peer review, preprint, or Release is claimed for this research cycle.
+
+
+## Two-ended hierarchies and flat reflected near-maximizers
+
+Started from live main 8803903a after reading the current indexes, exact rectangular result, phase rigidity, and fixed-hierarchy graph theorem. No applicable AGENTS.md was found. A separate worktree is used and no preprint or Release is prepared.
+
+The first question was whether the paired-gap energy four in the first m-1 slots forces an order-one eigenvalue spike. It does not. A second hierarchy with ranks m^alpha, 0<alpha<1/2, has its amplitude interactions at the opposite end of the exponent interval from the existing ranks m^(2-delta). The low hierarchy has reverse (suffix) energy constraints. A shared amplitude-measure argument gives an exact combined graph norm, including the non-independent coupling of the broad complete-graph background to the high-rank hierarchy. Nested lower graphs are constructed, so quantum necessity does not rely on incompatible flags.
+
+The resulting families approach the unrestricted maximum excess purity while every normalized eigenvalue D lambda_i tends to one, uniformly in n>=m as m grows. Centering their positive projection sum also gives reflected states about I/D with exactly equal purity, both APPT. This reflection is NOT valid for an arbitrary APPT state: a rank-one-spike APPT state gives an immediate negative eigenvalue after reflection. The new finite positivity lemma explicitly controls the positive diagonal Schmidt-witness terms and requires a small coefficient sum compared with the fixed graph margin.
+
+The full finite-depth objective is derived analytically. Exact checks cover low/high loop components, reversed energy constraints, background coupling, rational reflection states and partial transposes, integer nested graph sizes, moment formulas and an exact rational enclosure for the entropy difference. They are supporting checks, not a finite proof of the graph limit. No Lean, independent CI, or external review is claimed.
+
+The flat and original spike constructions attain the same leading purity but different von Neumann entropy deficits. This comparison motivates the next target: the unrestricted minimum-entropy law rather than treating the Taylor expansion in the flat subclass as a global upper bound.
