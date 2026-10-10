@@ -1,0 +1,27 @@
+$ /home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake exe cache get
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8908 file(s)
+$ /home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake build ErdosSimilarityGrowingGaps
+ℹ [3101/3104] Replayed ErdosSimilarityGrowingGaps.VariableTree
+info: ErdosSimilarityGrowingGaps/VariableTree.lean:69:0: 'GrowingGap.uniform_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/VariableTree.lean:70:0: 'GrowingGap.span_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/VariableTree.lean:71:0: 'GrowingGap.edges_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/VariableTree.lean:72:0: 'GrowingGap.edges_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3102/3104] Replayed ErdosSimilarityGrowingGaps.Replay
+info: ErdosSimilarityGrowingGaps/Replay.lean:36:0: 'ErdosSimilarityGrowingGaps.replay_window_filling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:37:0: 'ErdosSimilarityGrowingGaps.replay_input_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:38:0: 'ErdosSimilarityGrowingGaps.replay_first_sample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:39:0: 'ErdosSimilarityGrowingGaps.replay_annular_sampling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:40:0: 'ErdosSimilarityGrowingGaps.replay_variable_tree_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3104 jobs).
+$ /home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake env lean -t 0 ErdosSimilarityGrowingGaps/Replay.lean
+'ErdosSimilarityGrowingGaps.replay_window_filling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_input_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_first_sample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_annular_sampling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_variable_tree_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+$ python3 checks/negative.py
+negative control rejected as expected
+reproduction passed
