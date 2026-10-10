@@ -2,6 +2,8 @@
 
 **Complete written analytic argument; not Lean-formalized or externally peer reviewed.** The proof uses Tropp's published matrix Bernstein inequality. Exact ancillary checks are supplied separately and are not presented as a certificate of the full analytic theorem.
 
+Read the [eight-page signed manuscript](main.pdf) or its [standalone LaTeX source](main.tex). The complete mathematical argument is also available as [PROOF.md](PROOF.md).
+
 Let $\rho$ be any density matrix on $\mathbb C^m\otimes\mathbb C^n$, with $2\le m\le n$ and spectrum $p$, including zero eigenvalues. Set
 
 \[
@@ -35,6 +37,8 @@ The preceding qutrit purity proof and preprint are already public: immutable `ap
 python3 check.py --report verification/exact-checks.json
 python3 -O check.py --self-test
 ```
+
+To check source integrity and the mutated-program controls, also run `python3 verify_sources.py` and `python3 test_checker.py`. The manuscript can be rebuilt with `python3 build_manuscript.py` (Pandoc and pdfLaTeX), or directly from `main.tex` with two pdfLaTeX passes. Independent ancillary CI records are retained under `verification/`.
 
 Only Python's standard library is needed. The checker works in exact cyclotomic fields for Bell matrices of local sizes 2, 3, 4, and 5, checks variance identities, rational Bernstein constants, multinomial type counts, and escort algebra. It rejects changed Bell phases, an incorrect transpose, a wrong covariance factor, and an altered Bernstein coefficient. Those finite checks support, but do not replace, the arbitrary-dimension argument.
 

@@ -18,6 +18,7 @@ HEADER=r'''\documentclass[11pt]{article}
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage{bookmark}
+\hypersetup{pdftitle={The collective-unitary logarithmic-negativity rate of every bipartite spectrum},pdfauthor={Yongxian Zhang},pdfsubject={Written analytic proof, not Lean-formalized},pdfkeywords={logarithmic negativity, global unitary orbit, Renyi entropy, spectral types}}
 \usepackage{longtable,booktabs,array}
 \setlength{\emergencystretch}{2em}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -49,7 +50,8 @@ def main():
     source=(ROOT/'PROOF.md').read_text()
     body=source[source.index('## 1.'):]
     result=subprocess.run(['pandoc','--from','markdown+tex_math_dollars+tex_math_single_backslash','--to','latex','--wrap=none'],input=body,text=True,capture_output=True,check=True,timeout=60)
-    tex=HEADER+'\n'+result.stdout+'\n'+FOOTER
+    rendered=result.stdout.replace(r'\subsection{References}',r'\clearpage\subsection{References}').replace(r'\section{References}',r'\clearpage\section{References}')
+    tex=HEADER+'\n'+rendered+'\n'+FOOTER
     (ROOT/'main.tex').write_text(tex)
     if args.tex_only:return
     env=os.environ.copy();env['SOURCE_DATE_EPOCH']='1791504000';env['FORCE_SOURCE_DATE']='1'
