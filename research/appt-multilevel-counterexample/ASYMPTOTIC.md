@@ -107,3 +107,7 @@ This identifies the failure mechanism quantitatively: a concentrated spike contr
 The original formula is refuted, but the unrestricted sharp maximum is not determined. The immediate structural question is whether every APPT spectrum satisfies a matching upper bound with scaled leading constant 4+gamma in proportional growth, or whether additional levels yield an even larger constant. Equation (A8) proves such a bound only in C(m,n). It cannot be extended to arbitrary spectra by asserting that all maximizers have one spike or two plateau values.
 
 This is a concrete revised target on the original problem, not an assumption used to prove the counterexamples. The scalar computations in (A4), (A8) are elementary identities; the all-unitary physical implication remains the analytic proof in PROOF.md. No new global-maximality, minimum-dimension, absolute-separability, or Lean claim is made.
+
+## Subsequent progress: the unrestricted balanced constant is 8
+
+The proposed comparison with 4+gamma cannot be promoted to a global bound. MESOSCOPIC.md gives coefficient 6 outside this note's rank regime; GRAPH_LIMIT.md analyzes a four-level sector; MULTISCALE.md matches the unrestricted balanced upper bound at 8 with many separated plateaus. The exact subclass statement (A9) is unchanged. The current remaining leading-constant question concerns gamma>1, not gamma=1. No new preprint or Release is created.

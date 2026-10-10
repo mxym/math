@@ -87,13 +87,13 @@ and let v0 be a unit vector in the range of Q. Normalize
 
     B=I+dP+cQ+a|v0><v0|,    a,c,d>=0.                            (G4)
 
-The exact physical reduction (M4) in MESOSCOPIC.md says that this is APPT exactly when the graph maximum in (G3) is at most 2. Consequently, along parameter sequences a->a0, mc->not prescribed, m*d->u, r*c^2->v, the necessary limiting inequalities are
+The exact physical reduction (M4) in MESOSCOPIC.md says that this is APPT exactly when the graph maximum in (G3) is at most 2. Consequently, along parameter sequences a->a0, m*d->u, r*c^2->v, the necessary limiting inequalities are
 
     0<=a0<=2,  0<=v<=2,  0<=u<=2,  v<=4-2u.                    (G5)
 
 Conversely, if all three quantities in the maximum in (G3) are strictly below 2, the states in (G4) are APPT for every sufficiently large m. This is an eventual all-unitary statement proved by the uniform graph bound; it is not a numerical feasibility assertion at a particular finite dimension.
 
-The apparently odd phrase mc->not prescribed only emphasizes that the intermediate jump c is of order r^(-1/2), not m^(-1). The scaling assumptions are simply a->a0, md->u, rc^2->v.
+The intermediate jump c is of order r^(-1/2), whereas the broad plateau jump d is of order m^(-1). These are distinct scales.
 
 Write k/D->theta along a subsequence. Let
 
@@ -150,3 +150,7 @@ For square systems this is
 This proves the exact order, a stronger lower constant, and an unrestricted upper constant. It does NOT prove that the limiting constant exists or equals 25/4, and does not classify unrestricted maximizers. Additional spectral levels and multiple intermediate scales remain a genuine mathematical obstruction. The graph lemma itself is a complete proved limit for the specified one-intermediate-scale input; it is not automatically applicable to a sum of several such graphs with shared vertex space.
 
 The proof uses elementary finite-dimensional spectral theory, compactness of probability measures on a compact interval and polynomial approximation to identify a symmetric measure. It uses no random-graph law. Supporting exact checks are ancillary; no numerical optimizer, finite enumeration, or Lean certificate proves the unbounded result.
+
+## Subsequent sharp balanced result
+
+MULTISCALE.md proves a stronger unrestricted lower bound max(8,4+gamma) by using a lacunary hierarchy. Together with UNRESTRICTED_BOUND.md this settles the balanced constant at 8. The four-level sector value (G7) remains sharp for that sector; its earlier unrestricted interval is historical progress, not the current best lower bound.

@@ -2,6 +2,28 @@
 
 The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. No new preprint or Release is being prepared.
 
+## Current result: the sharp balanced maximum asymptotic
+
+The unrestricted APPT maximum now satisfies
+
+    Pmax(m,m) = 1/m^2 + 8/m^4 + o(m^-4).
+
+More generally, `(mn)^2[Pmax(m,n)-1/(mn)] -> 8` whenever m tends to infinity and n/m tends to one. The upper bound applies to **every APPT spectrum**; the lower bound uses a hierarchy of rational spectral plateaus with an eventual all-unitary positivity proof. The number of scales is fixed before the dimension limit and is only increased afterward. This is a proved analytic asymptotic, not an exact finite-dimensional maximum or a new Lean result.
+
+The working proofs are:
+
+- [Unrestricted variance bound](UNRESTRICTED_BOUND.md): physical paired-eigenvalue tests, star and rectangular rearrangements, and a bound for arbitrary spectra.
+- [The multiscale construction and matching constant](MULTISCALE.md): a uniform graph estimate whose limiting additive-label graph is a forest; this closes the balanced coefficient at 8.
+- [Intermediate-rank plateau](MESOSCOPIC.md) and [sharp four-level sector](GRAPH_LIMIT.md): the steps showing why the earlier coefficient 4+gamma is not an unrestricted upper bound.
+
+For a fixed aspect ratio gamma>=1 the current bounds are
+
+    max(8,4+gamma) <= liminf D^2[Pmax-1/D]
+                     <= limsup D^2[Pmax-1/D]
+                     <= min(4+4gamma,8+max(1,gamma-1)),  D=mn.
+
+They agree at gamma=1. The exact constant for gamma>1 and the exact finite-dimensional maximum are still unresolved here. Run `python3 check_mesoscopic.py` and `python3 -O check_mesoscopic.py` for supporting exact finite calculations. Those checks do not certify the compactness and all-unitary arguments by themselves. No further preprint or Release is prepared.
+
 ## Explicit state
 
 On C^10 tensor C^38 take the diagonal density matrix
@@ -23,7 +45,7 @@ The central construction is `(2m-5)I + 2P + 4(m-4)|v><v|`, where P is any projec
 
     (mn)^2 [purity - 1/(mn)] -> 4+gamma,
 
-whereas the conjectured formula gives max(4,gamma). The difference has strictly positive limiting coefficient min(4,gamma). The value 4+gamma is proved optimal within the classified one-spike/plateau subclass. A matching upper bound for unrestricted APPT spectra is NOT proved and is the next core mathematical question. Run `python3 check_asymptotic.py` for supporting exact parameter identities; the limits are analytic arguments, not finite tests.
+whereas the conjectured formula gives max(4,gamma). The difference has strictly positive limiting coefficient min(4,gamma). The value 4+gamma is proved optimal within the classified one-spike/plateau subclass. That earlier subsection records the previous state of the work. The subsequent unrestricted bounds and the sharp balanced constant 8 are linked above; the subclass theorem remains valid. Run `python3 check_asymptotic.py` for supporting exact parameter identities; the limits are analytic arguments, not finite tests.
 
 ## Verification and scope
 
