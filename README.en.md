@@ -60,3 +60,7 @@ Public preprints and DOIs do not imply journal peer review, mathematical correct
 ## Collective-unitary logarithmic-negativity rate
 
 [The analytic preprint](research/collective-unitary-negativity-rate/README.md) determines the exact per-copy maximum logarithmic-negativity rate for every bipartite spectrum in every fixed pair of local dimensions. A fixed blockwise Bell output basis suffices. The proof uses the published matrix Bernstein theorem and includes exact ancillary checks with corrupted-source controls; it is not Lean-formalized or externally peer reviewed. This does not resolve the separate finite-copy APPT purity conjecture or APPT=AS.
+
+## Global-unitary extraction capacity and exact exponents
+
+[The analytic preprint](research/global-unitary-ppt-extraction/README.md) gives a common capacity and exact all-rate target-fidelity exponent for local product channels, LOCC and completely PPT channels, after collective global-unitary preprocessing on the original system. The matching construction is deterministic variable-dimension Bell packing. The prior entropy converse is credited; the paper proves spectral achievability and the common exponent. Exact ancillary CI and source-mutation tests passed. This is not Lean-formalized, externally peer reviewed, or a solution of ordinary fixed-input LOCC distillation.

@@ -50,3 +50,19 @@ The full Erdős similarity conjecture remains unproved by this package.
 In particular neither $2^{-n^2}$ nor $2^{-2^n}$ meets the hypotheses.
 `RESEARCH_LOG.md` identifies the exponential-depth obstruction for that
 next regime. A finite literature comparison does not establish priority.
+
+## Deterministic Lean sampling update (10 October 2026)
+
+The package `formalizations/erdos-similarity-growing-gaps/` now contains a
+separate trust-level-zero replay for the deterministic part of the paper.  Its
+main root is
+`ErdosSimilarityGrowingGaps.consecutiveGap_implies_annularFilling`: under the
+explicit epsilon definition of consecutive logarithmic gaps it constructs an
+annulus scale `D >= 1`, proves the endpoint anchor, and proves the local gap
+propagation needed to fill every closed interval of length `D`.  The four
+variable-tree algebra identities are replayed in the same package.
+
+This update does not formalize the random routing, continuum sign-strata,
+measure, countable exhaustion, or nowhere-dense avoidance endpoint.  Those
+parts remain a written proof and are not treated as Lean-verified by this
+update.

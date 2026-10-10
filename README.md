@@ -20,6 +20,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
+| [全局酉预处理后的纠缠提取容量与强逆指数](research/global-unitary-ppt-extraction/README.md) · [PDF](research/global-unitary-ppt-extraction/main.pdf) | 任意固定 m≤n 与任意谱；LO、LOCC、完全 PPT 的容量和全速率指数一致 | 完整书面论证与精确附属检查；非 Lean、未外部同行评审；不声称解决普通固定态蒸馏 | — |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
 | [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整书面证明；有限精确诊断与部分 Lean，解析端点未形式化 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
 | [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子 | 完整书面证明；有限精确诊断与部分 Lean，完整 Erdős 猜想仍开放 | [23272807](https://doi.org/10.5281/zenodo.23272807) |

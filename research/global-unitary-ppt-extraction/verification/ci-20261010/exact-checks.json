@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite ancillary identities and intentional rejection controls only; not full analytic verification",
+  "rains_channels": [
+    {
+      "input": [
+        2,
+        2
+      ],
+      "output_K": 2,
+      "kind": "bell",
+      "choi_dimension": 16,
+      "status": "PASS"
+    },
+    {
+      "input": [
+        2,
+        2
+      ],
+      "output_K": 3,
+      "kind": "bell",
+      "choi_dimension": 36,
+      "status": "PASS"
+    },
+    {
+      "input": [
+        2,
+        3
+      ],
+      "output_K": 2,
+      "kind": "mixture",
+      "choi_dimension": 24,
+      "status": "PASS"
+    },
+    {
+      "input": [
+        2,
+        3
+      ],
+      "output_K": 3,
+      "kind": "identity",
+      "choi_dimension": 54,
+      "status": "PASS"
+    },
+    {
+      "input": [
+        3,
+        3
+      ],
+      "output_K": 2,
+      "kind": "bell",
+      "choi_dimension": 36,
+      "status": "PASS"
+    },
+    {
+      "input": [
+        2,
+        2
+      ],
+      "output_K": 4,
+      "kind": "mixture",
+      "choi_dimension": 64,
+      "status": "PASS"
+    }
+  ],
+  "local_extraction": [
+    {
+      "a": 2,
+      "b": 3,
+      "embedded_d": 2,
+      "target_K": 2,
+      "good_states_checked": 1,
+      "unused_A": 0,
+      "unused_B": 1
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "embedded_d": 2,
+      "target_K": 2,
+      "good_states_checked": 2,
+      "unused_A": 1,
+      "unused_B": 1
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "embedded_d": 3,
+      "target_K": 3,
+      "good_states_checked": 1,
+      "unused_A": 1,
+      "unused_B": 2
+    },
+    {
+      "a": 5,
+      "b": 7,
+      "embedded_d": 2,
+      "target_K": 2,
+      "good_states_checked": 6,
+      "unused_A": 1,
+      "unused_B": 1
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "embedded_d": 3,
+      "target_K": 3,
+      "good_states_checked": 1,
+      "unused_A": 0,
+      "unused_B": 1
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "embedded_d": 1,
+      "target_K": 4,
+      "good_states_checked": 6,
+      "unused_A": 0,
+      "unused_B": 0
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "embedded_d": 2,
+      "target_K": 3,
+      "good_states_checked": 2,
+      "unused_A": 1,
+      "unused_B": 1
+    },
+    {
+      "a": 5,
+      "b": 7,
+      "embedded_d": 2,
+      "target_K": 4,
+      "good_states_checked": 6,
+      "unused_A": 1,
+      "unused_B": 1
+    }
+  ],
+  "packing": {
+    "exact_integer_cases": 110640,
+    "d_equals_one": 105586,
+    "d_larger_than_one": 5054
+  },
+  "algebra": {
+    "symbolic_identities": 3,
+    "exact_hinge_regressions": 3750
+  },
+  "negative_controls": [
+    "unscaled Bell effect rejected by PPT order",
+    "omitted leftover Kraus branch rejected",
+    "wrong target-dimension square rejected at sharp effect"
+  ],
+  "inherited_type_checks": {
+    "exact_type_bounds": 710,
+    "enumerated_types": 154,
+    "mode_comparisons": 1296
+  },
+  "source_sha256": "ee71ed683624f24433d4ef884b1bfd9ae1bfa8ef7e7f8773a4b6e8d738f9292c",
+  "bell_checker_sha256": "008d4e21d4528bd4a653db8892ffab0d4a1aab509e4d242fe35679883034fe35"
+}

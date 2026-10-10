@@ -51,10 +51,14 @@ python3 -B research/erdos-similarity-growing-gaps/verify.py
 The checker compares actual preorder placement with a closed-form span
 and checks exact entropy coefficients and a rational upper bound for
 $\log2$. These are finite controls, not a proof of the infinite analytic
-theorem. Four universal algebraic lemmas are in
-[VariableTree.lean](formal/VariableTree.lean); a new empty-kernel replay
-checks their stored proof closure. The analytic schedule and avoidance
-endpoint currently have written proofs, not full Lean formalizations.
+theorem. The new package
+[`formalizations/erdos-similarity-growing-gaps/`](../../formalizations/erdos-similarity-growing-gaps/)
+formally closes the deterministic annular sampling layer: the first-sample
+lemma, local gap propagation, the implication
+$z_{n+1}-z_n=o(\log\log z_n)\Rightarrow W$, and the variable-tree algebra
+all replay at trust level zero. The random routing, continuum parameter
+stratification, measure construction, countable exhaustion, and avoidance
+endpoint are explicitly still outside the Lean package.
 
 The Lean replay needs Lean 4.34.1 and Mathlib at
 `d13f23b723b8a846827a245b89c10fc7d3f11612` with its pinned transitive
