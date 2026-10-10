@@ -21,7 +21,7 @@ theorem limit_winning_moments_separated
       atTop (𝓝 (m i)))
     (i j : Fin 4) (hij : i ≠ j) :
     Real.sqrt (2*Real.pi)/16 ≤ ‖m i-m j‖ := by
-  exact le_of_tendsto ((hlim i).sub (hlim j)).norm
+  exact ge_of_tendsto ((hlim i).sub (hlim j)).norm
     (Eventually.of_forall fun q =>
       balanced_four_winning_moment_norm_separation (v q) (b q) (hv q) (hmass q) i j hij)
 
@@ -84,7 +84,9 @@ theorem winning_score_separation_of_residual
   have he : ‖e i-e j‖ ≤ μ*Real.sqrt (2*ε) := by
     apply (sq_le_sq₀ (norm_nonneg _) (mul_nonneg hμ (Real.sqrt_nonneg _))).mp
     have hupper : ‖e i-e j‖^2 ≤ 2*(ε*μ^2) := hpair.trans (mul_le_mul_of_nonneg_left hres (by norm_num))
-    nlinarith [sq_nonneg μ]
+    calc
+      ‖e i-e j‖^2 ≤ 2*(ε*μ^2) := hupper
+      _ = (μ*Real.sqrt (2*ε))^2 := by rw [mul_pow,hsqr]; ring
   have heq : m i-m j = μ • (v i-v j)+(e i-e j) := by
     dsimp [e]
     rw [smul_sub]

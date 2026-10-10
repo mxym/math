@@ -18,10 +18,7 @@ under a limiting self-moment relation, and the residual estimate in equation
 (22). The positive-mass collinear-score argument excludes the degenerate price
 relation producing a triple tie.
 
-**Initial source checkpoint:** the new Lean scripts are under active compiler
-verification; the presence of a source file is not a passed check. Only later
-source-hash-bound build/replay receipts establish verification of those bytes.
-Do not treat old Gaussian-package logs as new verification.
+**Development compiler checkpoint:** all five new proof modules, the entry point, and all nine actual-Gaussian prerequisite modules have passed Lean 4.34.1 compilation. Per-source hash-bound development logs are under `evidence/development-wsl/`. Fresh Lake reconstruction, empty-kernel replay and independent CI are separate verification stages; they are not implied by this development checkpoint.
 
 `GaussianFour.lean` is the entry point for the partial project.
 `DEPENDENCY_MAP.md` records manuscript statements, reusable theorem types and

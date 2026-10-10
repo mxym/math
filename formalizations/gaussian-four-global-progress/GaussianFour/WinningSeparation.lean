@@ -61,6 +61,7 @@ theorem balanced_four_winning_moment_separation
   have h := winning_moment_separation v b hv i j hij (1/4) (hmass i) (hmass j)
   have hc : (1/4:ℝ)^2/densityBound = Real.sqrt (2*Real.pi)/16 := by
     unfold densityBound
+    simp only [div_eq_mul_inv, inv_inv]
     ring
   rwa [hc] at h
 

@@ -19,12 +19,18 @@ variable {d k : ℕ}
 lemma unit_projection_gaussian_law (n : Space d) (hn : ‖n‖ = 1) :
     (gaussian d).map (fun x => ⟪n,x⟫) = gaussianReal 0 1 := by
   have h := IsGaussian.map_eq_gaussianReal (μ := gaussian d) (innerSL ℝ n)
-  simpa only [gaussian, integral_strongDual_stdGaussian, variance_dual_stdGaussian,
+  have hm : (∫ x, (innerSL ℝ n) x ∂gaussian d) = 0 := integral_strongDual_stdGaussian _
+  rw [hm] at h
+  have he : (fun x : Space d => ⟪n,x⟫) = ⇑(innerSL ℝ n) := by
+    funext x
+    simp
+  rw [he]
+  simpa only [gaussian, variance_dual_stdGaussian,
     innerSL_apply_norm, hn, one_pow, Real.toNNReal_one, innerSL_apply_apply] using h
 
 lemma integrable_projection_tent (n : Space d) {r : ℝ} (hr : 0 ≤ r) (t : ℝ) :
     Integrable (fun x => tent r t ⟪n,x⟫) (gaussian d) := by
-  apply (integrable_const r).mono' (by fun_prop)
+  apply (integrable_const r).mono' (by unfold tent; fun_prop)
   exact ae_of_all _ fun x => by
     rw [Real.norm_eq_abs, abs_of_nonneg (tent_nonneg _ _ _)]
     exact tent_le_radius hr _ _
@@ -45,11 +51,11 @@ lemma separated_label_tent_bound {a b z t r : ℝ}
     (ha : 0 ≤ a) (hb : 0 ≤ b) (hs : a+b ≤ 1)
     (ha_side : 0 < a → t ≤ z) (hb_side : 0 < b → z ≤ t) :
     r*(a+b) - tent r t z ≤ a*(z-t) - b*(z-t) := by
-  have hza : |z-t|*a = (z-t)*a := by
+  have hza : |z-t| * a = (z-t)*a := by
     by_cases he : a=0
     · simp [he]
     · rw [abs_of_nonneg (sub_nonneg.mpr (ha_side (lt_of_le_of_ne ha (Ne.symm he))))]
-  have hzb : |z-t|*b = -(z-t)*b := by
+  have hzb : |z-t| * b = -(z-t)*b := by
     by_cases he : b=0
     · simp [he]
     · rw [abs_of_nonpos (sub_nonpos.mpr (hb_side (lt_of_le_of_ne hb (Ne.symm he))))]
@@ -92,6 +98,7 @@ theorem separated_moments_quadratic (F : FractionalPartition d k)
   have hri := F.integrable_weighted_score i n t
   have hrj := F.integrable_weighted_score j n t
   have hle := integral_mono_ae (hl.sub ht) (hri.sub hrj) hpw
+  simp only [Pi.sub_apply, Pi.add_apply] at hle hl
   rw [integral_sub hl ht, integral_const_mul,
     integral_add (F.integrable_label i) (F.integrable_label j),
     integral_sub hri hrj, F.integral_weighted_score, F.integral_weighted_score] at hle

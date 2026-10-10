@@ -57,7 +57,7 @@ lemma integrable_tent {r : ℝ} (hr : 0 ≤ r) (t : ℝ) : Integrable (tent r t)
     (show Continuous (fun y : ℝ => r+(y-t)) by fun_prop).integrableOn_Icc.mono_set Ioc_subset_Icc_self
   have hu : IntegrableOn (fun y : ℝ => r-(y-t)) (Ioc t (t+r)) :=
     (show Continuous (fun y : ℝ => r-(y-t)) by fun_prop).integrableOn_Icc.mono_set Ioc_subset_Icc_self
-  have h := (hl.indicator measurableSet_Ioc).add (hu.indicator measurableSet_Ioc)
+  have h := ((integrable_indicator_iff measurableSet_Ioc).mpr hl).add ((integrable_indicator_iff measurableSet_Ioc).mpr hu)
   exact h.congr (ae_of_all _ fun x => (tent_eq_ramps hr t x).symm)
 
 /-- The Lebesgue integral of a triangular cap is exactly the square of its radius. -/
@@ -68,19 +68,17 @@ theorem integral_tent {r : ℝ} (hr : 0 ≤ r) (t : ℝ) : ∫ x, tent r t x = r
     (show Continuous (fun y : ℝ => r-(y-t)) by fun_prop).intervalIntegrable _ _
   have hlo : t-r ≤ t := sub_le_self _ hr
   have hhi : t ≤ t+r := le_add_of_nonneg_right hr
-  have hli := hl.1.indicator measurableSet_Ioc
-  have hui := hu.1.indicator measurableSet_Ioc
+  have hli := (integrable_indicator_iff measurableSet_Ioc).mpr hl.1
+  have hui := (integrable_indicator_iff measurableSet_Ioc).mpr hu.1
   simp_rw [tent_eq_ramps hr t]
   rw [integral_add hli hui, integral_indicator measurableSet_Ioc,
     integral_indicator measurableSet_Ioc, ← intervalIntegral.integral_of_le hlo,
     ← intervalIntegral.integral_of_le hhi]
-  rw [intervalIntegral.integral_add intervalIntegrable_const
-        (intervalIntegrable_id.sub intervalIntegrable_const),
-    intervalIntegral.integral_sub intervalIntegrable_id intervalIntegrable_const,
-    intervalIntegral.integral_sub intervalIntegrable_const
-        (intervalIntegrable_id.sub intervalIntegrable_const),
-    intervalIntegral.integral_sub intervalIntegrable_id intervalIntegrable_const]
-  simp only [intervalIntegral.integral_const, intervalIntegral.integral_id, smul_eq_mul]
+  rw [intervalIntegral.integral_add (f := fun _ : ℝ => r) (g := fun y : ℝ => y-t) (by apply Continuous.intervalIntegrable; fun_prop) (by apply Continuous.intervalIntegrable; fun_prop),
+    intervalIntegral.integral_sub (f := fun y : ℝ => y) (g := fun _ : ℝ => t) (by apply Continuous.intervalIntegrable; fun_prop) (by apply Continuous.intervalIntegrable; fun_prop),
+    intervalIntegral.integral_sub (f := fun _ : ℝ => r) (g := fun y : ℝ => y-t) (by apply Continuous.intervalIntegrable; fun_prop) (by apply Continuous.intervalIntegrable; fun_prop),
+    intervalIntegral.integral_sub (f := fun y : ℝ => y) (g := fun _ : ℝ => t) (by apply Continuous.intervalIntegrable; fun_prop) (by apply Continuous.intervalIntegrable; fun_prop)]
+  simp only [intervalIntegral.integral_const, integral_id, smul_eq_mul]
   ring
 
 /-- The exact supremum of the standard real Gaussian density. -/
@@ -91,14 +89,14 @@ lemma densityBound_pos : 0 < densityBound := by
   positivity
 
 lemma gaussianPDF_le_densityBound (x : ℝ) : gaussianPDFReal 0 1 x ≤ densityBound := by
-  have he : Real.exp (-x^2 / 2) ≤ 1 := Real.exp_le_one_iff.mpr (by positivity)
+  have he : Real.exp (-x^2 / 2) ≤ 1 := Real.exp_le_one_iff.mpr (by linarith [sq_nonneg x])
   simpa [gaussianPDFReal, densityBound] using
     mul_le_mul_of_nonneg_left he densityBound_pos.le
 
 /-- A Gaussian cap has integral at most density supremum times its exact area. -/
 theorem gaussian_integral_tent_le {r : ℝ} (hr : 0 ≤ r) (t : ℝ) :
     (∫ x, tent r t x ∂gaussianReal 0 1) ≤ densityBound * r^2 := by
-  rw [integral_gaussianReal_eq_integral_smul (by norm_num : (1:ℝ≥0) ≠ 0)]
+  rw [integral_gaussianReal_eq_integral_smul (by norm_num : (1:NNReal) ≠ 0)]
   simp only [smul_eq_mul]
   have ht := integrable_tent hr t
   have hprod : Integrable (fun x : ℝ => gaussianPDFReal 0 1 x * tent r t x) := by
