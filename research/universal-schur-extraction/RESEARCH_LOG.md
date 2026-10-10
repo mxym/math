@@ -25,3 +25,5 @@ No exhaustive historical-priority certification is asserted. Standard representa
 ## Remaining questions
 
 The exact zero-error transition can have exact-packing exceptions and is not assigned a finite reliability value by continuity. The Gaussian statement excludes the dimension-limited cap and zero varentropy. Efficient state-independent implementation, standard fixed-input distillation, finite-copy APPT purity and APPT=AS remain open in this work. The direction was retained because it produced a common protocol and matching converse laws, not because additional regressions happened to pass.
+
+The full primary HTML of Lin--Li--Fang v3 was also read for its task definitions, free operations and reliability sections. The source hashes, without copies of third-party articles, are retained in `verification/literature-check.json`. A mutated multiplicity truncation was first expected to fail the coarse retained-fraction bound; it instead failed the stricter exact-good-block condition, and the test was corrected to require that actual mathematical diagnostic.
