@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite supporting calculations; not independent CI, Lean verification, or a finite proof of the analytic graph/APPT limit",
+  "components": {
+    "rational_atom_locations": 1975,
+    "components": 1191,
+    "one_loop_components": 125
+  },
+  "finite_depth_optimization": {
+    "energy_and_aspect_choices": 392,
+    "background_objective_checks": 16464,
+    "transition_identities": 42
+  },
+  "nested_counts": {
+    "exact_large_integer_count_cases": 46,
+    "scope": "Counts, not materialized huge graphs or finite-dimensional positivity certification"
+  },
+  "physical_reflection": {
+    "rank_projection_tests": 840,
+    "strict_rational_density_and_PT_checks": 12
+  },
+  "moments": {
+    "nested_moment_cases": 34,
+    "entropy_gap_rational_lower": "48067770715120392762950504526686238571261/68262265367922406988513096908282213171200",
+    "entropy_gap_rational_upper": "1575992482462963697273213160248345985377/2238107061243357606180757275681384038400"
+  },
+  "negative_controls": [
+    {
+      "name": "use forward energies for low ranks",
+      "rejected": true,
+      "diagnostic": "low suffix budget violated"
+    },
+    {
+      "name": "ignore broad/high interaction",
+      "rejected": true,
+      "diagnostic": "E+2u exceeds four"
+    },
+    {
+      "name": "drop separation of the two rank ends",
+      "rejected": true,
+      "diagnostic": "rational congruent PSD minor is negative"
+    },
+    {
+      "name": "reflect an arbitrary APPT state without small contrast",
+      "rejected": true,
+      "diagnostic": "reflected largest-spike eigenvalue is negative"
+    },
+    {
+      "name": "discard finite nested cross terms",
+      "rejected": true,
+      "diagnostic": "second moment changes"
+    }
+  ],
+  "source_hashes": {
+    "TWO_ENDED_GRAPH_LIMIT.md": "212e37e88ec410ddca3d4ed32cb78ee64eaca3c4207710c82fed57c2c3eba5a7",
+    "FLAT_EXTREMIZERS.md": "72198ad7b66852f16f824089ad364c83052dca1bc3053c384a6a5205cb0a85b8",
+    "check_two_ended.py": "1a0a5c3e1fb7124c670163823a69c9a89e5ed30a03fde80639bcf60579d1d8c3"
+  }
+}

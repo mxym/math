@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "scope": "Exact rational and outward-interval ancillary calculations; not independent CI, Lean, external review, or a finite proof of the unbounded result",
+  "nonlinear_entropy": {
+    "positive_cubic_cases": 61,
+    "exact_SOS_comparisons": 21,
+    "feasible_nonlinear_heads": 48
+  },
+  "physical_stars": {
+    "SOS_projection_and_hole_states": 315,
+    "physical_slot_assignments": 315,
+    "normalizations": 315,
+    "tail_budget_tests": 315,
+    "finite_entropy_upper_tests": 135
+  },
+  "fixed_m_and_renyi": {
+    "fixed_m_projection_checks": 21,
+    "bulk_interval_tests": 63,
+    "exact_three_halves_kernel_checks": 9
+  },
+  "higher_renyi": {
+    "negative_kernel_cases": 105,
+    "positive_ratio_comparisons": 295,
+    "fixed_m_integer_order_optimizations": 90
+  },
+  "explicit_entropy_counterexample": {
+    "m": 50,
+    "n": 200,
+    "numerators": [
+      861,
+      330,
+      319
+    ],
+    "multiplicities": [
+      1,
+      4899,
+      5100
+    ],
+    "normalizer": 3244431,
+    "certified_cases": [
+      {
+        "mixture_weight": "0",
+        "uniform_PT_floor": "0",
+        "gaps": {
+          "all_two_level_ratio_candidates": {
+            "D_times_gap_lower": "372043/1000000",
+            "D_times_gap_upper": "93011/250000"
+          },
+          "single_spike": {
+            "D_times_gap_lower": "215431/200000",
+            "D_times_gap_upper": "269289/250000"
+          },
+          "one_hole": {
+            "D_times_gap_lower": "1372483/1000000",
+            "D_times_gap_upper": "343121/250000"
+          }
+        }
+      },
+      {
+        "mixture_weight": "1/1000",
+        "uniform_PT_floor": "1/10000000",
+        "gaps": {
+          "all_two_level_ratio_candidates": {
+            "D_times_gap_lower": "367559/1000000",
+            "D_times_gap_upper": "9189/25000"
+          },
+          "single_spike": {
+            "D_times_gap_lower": "107267/100000",
+            "D_times_gap_upper": "1072671/1000000"
+          },
+          "one_hole": {
+            "D_times_gap_lower": "683999/500000",
+            "D_times_gap_upper": "1367999/1000000"
+          }
+        }
+      }
+    ],
+    "comparison_scope": "Continuous spectral-ratio maximum, spike and rank-(D-1) candidates; Theorem 6.10 identifies their discrete maximum as the inner-polytope entropy deficit"
+  },
+  "negative_controls": [
+    {
+      "name": "Taylor upper bound used at a negative outlier",
+      "rejected": true,
+      "diagnostic": "f(-1/2) exceeds one eighth"
+    },
+    {
+      "name": "drop the modified physical star",
+      "rejected": true,
+      "diagnostic": "sixteen half-height holes would exceed the entropy head bound and violate the new star"
+    },
+    {
+      "name": "alter the nonlinear entropy polynomial",
+      "rejected": true,
+      "diagnostic": "exact SOS identity fails"
+    },
+    {
+      "name": "extend the flat Renyi formula past order two",
+      "rejected": true,
+      "diagnostic": "existing APPT spike family has an extra four in its order-three deficit coefficient"
+    },
+    {
+      "name": "replace the fixed-m constant by one over two m squared",
+      "rejected": true,
+      "diagnostic": "exact qubit interval constant is strictly larger"
+    }
+  ],
+  "source_hashes": {
+    "ENTROPY_ASYMPTOTIC.md": "80c2363988e83a31a7e4bc0a76d1dfcc600bedf3e2915a47ca5898e49d23fe79",
+    "check_entropy.py": "03c289e05e815afca9636a8f60f05b202a7adb5c611988350b669bd9fd3987cd",
+    "TWO_ENDED_GRAPH_LIMIT.md": "212e37e88ec410ddca3d4ed32cb78ee64eaca3c4207710c82fed57c2c3eba5a7",
+    "FLAT_EXTREMIZERS.md": "72198ad7b66852f16f824089ad364c83052dca1bc3053c384a6a5205cb0a85b8",
+    "SHARP_ASYMPTOTIC.md": "49b71670f33283f1018c915d07b11c509266395f3a201dc19bb627cd932bc2f9"
+  }
+}
