@@ -28,7 +28,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We give two results on the purity of absolutely positive partial transpose (APPT) states. First, for every integer $n\geq3$, the exact maximum on $\C^3\otimes\C^n$ is $(3n+8)/(3n+2)^2$ for $3\leq n\leq8$ and $3/(8n)$ for $n\geq9$. This proves the qutrit specialization of the maximal-value and attainment conjecture of Ahiable, Kothakonda and Winter. The entire qutrit theorem, including the physical global-unitary quantifier and actual attainment, is formalized in Lean 4.34.1 and frozen in an immutable proof release. Second, the proposed general-dimensional formula is false: an explicit APPT state on $\C^{10}\otimes\C^{38}$ has purity strictly larger than both conjectured candidates, and an infinite family gives further violations. We then prove a single corrected leading law whenever $D=mn\to\infty$, uniformly over all $2\leq m\leq n$:\[ P_{\max}(m,n)-\frac1D\sim\frac{\max\{8,4+D/(m^2-1)\}}{D^2}.\] For $m\to\infty$ this becomes $D^2(P_{\max}-1/D)\sim\max\{8,4+n/m\}$, while fixed $m$ gives $D(P_{\max}-1/D)\to1/(m^2-1)$. The higher-dimensional arguments are written analytic proofs supported by exact rational checkers; they are not included in the qutrit Lean certificate. Exact finite-dimensional maximizers, their classification, and the absolute-separability maximum in general dimensions remain open.
+We give a unified set of results on the purity of absolutely positive partial transpose (APPT) states. First, for every integer $n\geq3$, the exact maximum on $\C^3\otimes\C^n$ is $(3n+8)/(3n+2)^2$ for $3\leq n\leq8$ and $3/(8n)$ for $n\geq9$. This proves the qutrit specialization of the maximal-value and attainment conjecture of Ahiable, Kothakonda and Winter. The entire qutrit theorem, including the physical global-unitary quantifier and actual attainment, is formalized in Lean 4.34.1 and frozen in an immutable proof release. Second, the proposed general-dimensional formula is false: an explicit APPT state on $\C^{10}\otimes\C^{38}$ has purity strictly larger than both conjectured candidates, and an infinite family gives further violations. We then prove a single corrected leading law whenever $D=mn\to\infty$, uniformly over all $2\leq m\leq n$:\[ P_{\max}(m,n)-\frac1D\sim\frac{\max\{8,4+D/(m^2-1)\}}{D^2}.\] For $m\to\infty$ this becomes $D^2(P_{\max}-1/D)\sim\max\{8,4+n/m\}$, while fixed $m$ gives $D(P_{\max}-1/D)\to1/(m^2-1)$. The higher-dimensional arguments are written analytic proofs supported by exact rational checkers; they are not included in the qutrit Lean certificate. For every $m\geq3$ and $n\geq m^3-m-2$, we also determine the exact finite-dimensional maximum and all maximizing spectra. Exact finite-dimensional maximizers outside that rectangular range and the absolute-separability maximum in general dimensions remain open.
 \end{abstract}
 \noindent\textbf{Keywords.} Absolute PPT; purity; spectra; quantum states; exact certificates; Lean formalization.
 
@@ -67,7 +67,7 @@ The same conjecture was stated for arbitrary local dimensions. The higher-dimens
  M_{m,n}=\max\left\{\frac{D+8}{(D+2)^2},
  \frac{D(m-1)^2+4mt}{[D(m-1)+2t]^2}\right\}.
 \end{equation}
-The second part of this paper proves that $P_{\max}(m,n)>M_{m,n}$ for explicit dimensions and gives the asymptotic replacement for $M_{m,n}$ when $m$ grows.
+The second part of this paper proves that $P_{\max}(m,n)>M_{m,n}$ for explicit dimensions and gives the asymptotic replacement for $M_{m,n}$ when $m$ grows. It also proves an exact finite-dimensional formula, including equality cases, in the sufficiently rectangular range $n\geq m^3-m-2$.
 
 The proof is computer-assisted in a precise sense. Two polynomial nonnegativity lemmas are established by rational certificates supplied as finite data. One covers the six dimensions $9,12,\ldots,24$; the other covers arbitrary real endpoint populations with sum at least $18$. All remaining steps are analytic, linear-algebraic, or elementary algebraic. Sections~\ref{sec:finite} and~\ref{sec:uniform} state the exact identities and explain how to reconstruct and check every term. The Lean proof independently verifies these identities and the bridges to the physical theorem. Neither a numerical optimization result nor a solver success flag is a premise.
 
@@ -461,6 +461,60 @@ This gives the fixed-$m$ upper limit after multiplication by $D$. For the matchi
 Thus the fixed-$m$ limit follows. Finally, if~\eqref{eq:allregime} failed, a sequence with $D\to\infty$ and a fixed error would have either a bounded subsequence of $m$ (handled by the fixed-$m$ argument) or $m\to\infty$ (handled by Theorem~\ref{thm:asymptotic}). In the latter case $D/(m^2-1)$ and $n/m$ differ by a factor tending to one. This sequential criterion proves~\eqref{eq:allregime}. The detailed fixed-$m$ derivation and exact deficit identity are recorded in the supplementary proof file.
 \end{proof}
 
+section{An exact rectangular regime}
+\label{sec:rectangular}
+The asymptotic theorem has a finite-dimensional companion in sufficiently rectangular systems. The cutoff below is a proved sufficient threshold; it is not asserted to be the smallest threshold for the actual APPT problem.
+
+\begin{theorem}[Exact maximum and all maximizers in a rectangular regime]\label{thm:rectangular}
+Let $3\leq m\leq n$ and $D=mn$. If
+\[
+ n\geq n_0(m):=m^3-m-2,
+ \qquad t=\left\lceil\frac{(m-1)n}{2}\right\rceil,
+\]
+then
+\begin{equation}\label{eq:rectangular-max}
+ P_{\max}(m,n)=\frac{D(m-1)^2+4mt}{[D(m-1)+2t]^2}.
+\end{equation}
+Every maximizing density matrix has spectrum
+\begin{equation}\label{eq:rectangular-spectrum}
+ \frac{(\underbrace{m+1,\ldots,m+1}_{t},
+ \underbrace{m-1,\ldots,m-1}_{D-t})}{D(m-1)+2t},
+\end{equation}
+so all maximizers form the global unitary orbit of
+\[
+ \frac{(m-1)I+2P}{D(m-1)+2t},
+ \qquad \operatorname{rank}P=t.
+\]
+\end{theorem}
+
+\begin{proof}
+We use one necessary physical test and optimize its outer polytope exactly. Put $R=m(m-1)/2$ and $S=m(m+1)/2$. Applying the maximally entangled Schmidt-rank-$m$ test after a global unitary gives, for every decreasing APPT spectrum,
+\begin{equation}\label{eq:outer-single-test}
+ \sum_{i=1}^{R}\lambda_i\leq\sum_{i=D-S+1}^{D}\lambda_i.
+\end{equation}
+Let $\mathcal O_{m,n}$ be the ordered probability simplex cut out by~\eqref{eq:outer-single-test}. Its gap coordinates give the decomposition into prefix-uniform vectors $u_i=(1/i,\ldots,1/i,0,\ldots,0)$. The cut has one sign change at $L=D-m$, so every vertex of $\mathcal O_{m,n}$ is either a surviving $u_j$ with $j\geq L$ or a boundary point on an edge joining $u_i$ with $i<L<j$. This follows directly from the two affine constraints: any point with three positive gap coordinates admits a nontrivial perturbation preserving them and hence is not a vertex.
+
+Writing $j=L+s$ with $0\leq s\leq m$ and using the exact boundary interpolation, the edge vertices have purity given by the formula in the supplementary proof. The early, middle, and late index ranges reduce to
+\[
+ \max_{\lambda\in\mathcal O_{m,n}}\sum_i\lambda_i^2
+ =\max\left\{Q_{\rm sp},Q_t\right\},
+\]
+where
+\[
+ Q_{\rm sp}=\frac{D+m(m+2)}{(D+m)^2},\qquad
+ Q_t=\frac{D(m-1)^2+4mt}{[D(m-1)+2t]^2}.
+\]
+In the middle range, differentiating the full-support endpoint in the integer index shows its unique maximum at $t=\lceil(m-1)n/2\rceil$, including the odd-parity case. Exact subtraction shows $Q_t>Q_{\rm sp}$ whenever $n\geq m^3-m-2$. The complete vertex calculation, including the three index ranges and all rounding cases, is given in the supplementary proof and checked by exact rational arithmetic.
+
+It remains to show that the winning outer vertex is genuinely APPT. For a unit Schmidt vector with coefficients $s_i$, the sum of the absolute values of the negative eigenvalues of its partial transpose is $\sum_{i<j}s_i s_j\leq(m-1)/2$. Thus, for every conjugated rank-$t$ projection $P'$, $\operatorname{Tr}(P'W)\geq-(m-1)/2$, where $W$ is the partial transpose of the Schmidt projector. Hence $((m-1)I+2P')^\Gamma\succeq0$ for every global unitary, proving attainment of $Q_t$.
+
+Finally, the squared Euclidean norm is strictly convex on the ordered simplex. Since the winning vertex is unique, no nontrivial convex combination of other vertices can attain the same value. Every APPT spectrum lies in $\mathcal O_{m,n}$, so its equality spectrum is exactly~\eqref{eq:rectangular-spectrum}; Hermitian matrices with that spectrum are precisely its global unitary orbit. This proves both the maximum and the equality classification.
+\end{proof}
+
+\begin{remark}[Scope of the rectangular theorem]
+The cutoff $n_0(m)$ is a sufficient threshold for the actual APPT maximum and is the exact transition for the single-test outer-polytope argument used here. It is not claimed to be the smallest dimension at which the two-level spectrum is globally optimal. The explicit $10\times38$ counterexample lies below its cutoff and therefore does not conflict with this theorem. The proof is analytic and its finite vertex calculations are supported by exact rational checks, not Lean formalization.
+\end{remark}
+
 \section{Qutrit certificate data and complete formal verification}\label{sec:verification}
 \subsection{Data specification and independent checking}
 The ancillary directory contains all seven JSON files listed in Appendix~\ref{app:data}, copied byte for byte from the fixed formalization. Each contains a \texttt{terms} list. Its entries have a \texttt{coefficient} field holding a rational string and a \texttt{name} field specifying the polynomial. The checker reconstructs the tail sums, matrices~\eqref{eq:A}--\eqref{eq:B}, their determinants, principal minors and quadratic forms. It then expands~\eqref{eq:finite-cert} or~\eqref{eq:uniform-cert} and verifies coefficient equality. The reconstruction code uses only exact integers and rational numbers; no optimizer is imported. The included input marker \texttt{exact\_certificate} is checked but is not accepted as proof: coefficient equality is recomputed.
@@ -560,7 +614,7 @@ Corollary~\ref{cor:asep} is an analytic consequence using the explicitly cited s
 \section{Scope and further questions}
 The main theorem closes the maximal-purity problem for $3\otimes n$ with $n\geq3$. The $3\otimes2$ system is, after swapping factors, a qubit--qutrit problem and is not covered by the present formal theorem. Neither the proof nor the release claims all-maximizer classification or the general-$m$ purity conjecture. Corollary~\ref{cor:asep} gives the analogous absolute-separability maximum analytically; the immutable Lean release covers only the APPT theorem.
 
-The arbitrary-dimensional inscribed-polytope purity conjecture of \cite{AKW} is false by Theorem~\ref{thm:counterexample}. Theorems~\ref{thm:asymptotic} and~\ref{thm:allregime} give the corrected first excess-purity term whenever the total dimension grows, while the exact finite-dimensional maximum and its equality cases remain open. A separate, more structural question is whether absolute PPT and absolute separability coincide beyond qubit--qudit systems. The additional witness analysis in Section~\ref{sec:asep} establishes a common qutrit maximum, but proves no reverse inclusion between the two sets. Equal purity maxima must not be mistaken for equality of the convex sets.
+The arbitrary-dimensional inscribed-polytope purity conjecture of \cite{AKW} is false by Theorem~\ref{thm:counterexample}. Theorems~\ref{thm:asymptotic} and~\ref{thm:allregime} give the corrected first excess-purity term whenever the total dimension grows, and Theorem~\ref{thm:rectangular} gives the exact finite maximum and all maximizers beyond a proved rectangular threshold. The remaining finite-dimensional regimes and a separate, more structural question---whether absolute PPT and absolute separability coincide beyond qubit--qudit systems---remain open. The additional witness analysis in Section~\ref{sec:asep} establishes a common qutrit maximum, but proves no reverse inclusion between the two sets. Equal purity maxima must not be mistaken for equality of the convex sets.
 
 \paragraph{Author, funding and AI assistance.}
 This research was conducted independently and received no external funding. The institutional affiliation identifies the author's place of study and does not assert institutional sponsorship or endorsement. AI assistance was used in mathematical exploration, certificate and program development, Lean proof development, verification orchestration and manuscript drafting. Formal acceptance refers to the stated Lean declarations and audited dependency closure; it is not a claim of external peer review or independent human certification of every narrative statement. No separate claim of historical priority is made beyond the dated public artifacts and the explicit comparison with prior work above.

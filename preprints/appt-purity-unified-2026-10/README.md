@@ -14,6 +14,7 @@ This is a new expanded manuscript combining the exact qutrit--qudit APPT purity 
 3. If `Pmax(m,n)` is the unrestricted APPT maximum and `D=mn`, then whenever `D -> infinity`,
    `Pmax(m,n)-1/D ~ D^(-2) max(8, 4+D/(m^2-1))`, uniformly over `2 <= m <= n`.
    For `m -> infinity` this becomes `D^2 (Pmax(m,n)-1/D) ~ max(8,4+n/m)`; for fixed `m`, `D(Pmax-1/D) -> 1/(m^2-1)`. In particular, `Pmax(m,m)=m^(-2)+8m^(-4)+o(m^(-4))`.
+4. For every `m >= 3` and `n >= m^3-m-2`, the exact finite APPT maximum is the full-support two-level value from the conjecture, and every maximizing spectrum is the corresponding rank-`ceil((m-1)n/2)` projection spectrum. The proof is analytic and the vertex arithmetic has an exact checker.
 
 ## Proof status
 
