@@ -24,11 +24,13 @@ theorem hadamard_conjugate_entry (d : a × a → ℝ) (i j : a) :
       push_cast
       ring_nf
       norm_num
+      ring
     · have hj : j < i := lt_of_le_of_ne (le_of_not_gt hi) hji
       simp [hadamard, witnessMatrix, Matrix.diagonal_mul, hij, hji, hi, hj]
       push_cast
       ring_nf
       norm_num
+      ring
 
 /-- A genuinely rectangular physical bridge. Every labelled corner gives a PSD
 real witness matrix; no Hildebrand equivalence or assumed spectral inequalities are used. -/
