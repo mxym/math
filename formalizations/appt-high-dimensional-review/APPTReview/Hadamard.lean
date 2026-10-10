@@ -46,7 +46,7 @@ theorem hadamard_conjTranspose : (hadamard (a := a))ᴴ = hadamard := by
     · by_cases hik : i=k <;> by_cases hjl : j=l <;>
         by_cases hil : i=l <;> by_cases hjk : j=k <;>
         simp_all [hadamard, Matrix.conjTranspose_apply, eq_comm]
-  all_goals split_ifs <;> simp only [map_neg, halfRoot_conj]
+        <;> split_ifs <;> simp only [map_neg, halfRoot_conj]
 
 theorem hadamard_sq : (hadamard (a := a)) * hadamard = 1 := by
   classical
@@ -64,13 +64,13 @@ theorem hadamard_sq : (hadamard (a := a)) * hadamard = 1 := by
       · exact (hboth ⟨h1,h2⟩).elim
       all_goals
         simp [hadamard, hij, hji, hlt, hn, h1, h2, Matrix.one_apply]
-        <;> ring_nf <;> norm_num
+        <;> ring_nf <;> norm_num <;> aesop
     · have hjlt : j < i := lt_of_le_of_ne (le_of_not_gt hlt) hji
       by_cases h1 : (i,j) = (k,l) <;> by_cases h2 : (j,i) = (k,l)
       · exact (hboth ⟨h1,h2⟩).elim
       all_goals
         simp [hadamard, hij, hji, hlt, hjlt, h1, h2, Matrix.one_apply]
-        <;> ring_nf <;> norm_num
+        <;> ring_nf <;> norm_num <;> aesop
 
 noncomputable def hadamardUnitary : Matrix.unitaryGroup (a × a) ℂ :=
   ⟨hadamard, by

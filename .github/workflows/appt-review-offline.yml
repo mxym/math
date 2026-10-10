@@ -1,4 +1,4 @@
-name: APPT review offline environment
+name: APPT review dependency environment
 on:
   push:
     branches: ['review/appt-mathematics-lean-20261010']
@@ -46,13 +46,8 @@ jobs:
               if arc not in entries:
                   archive.add(path,arcname=arc,recursive=False);entries.add(arc)
           with tarfile.open(out,'w:gz',compresslevel=1) as tf:
-              for p in (tool/'lib').rglob('*'):
-                  if p.is_file() and ('.so' in p.name or p.name.endswith(('.olean','.olean.private','.olean.server','.ir'))):
-                      add(tf,p,'toolchain/'+p.relative_to(tool).as_posix())
-              for name in ['lean','lake','leanc']:
-                  if (tool/'bin'/name).exists():add(tf,tool/'bin'/name,'toolchain/bin/'+name)
               for name,p in seen.items():
-                  base=next(b for b in bases if p.is_relative_to(b))
+                  base=next(b for b in bases if p == b/(name.replace('.','/')+'.lean'))
                   prefix='review' if base==root else ('original' if base==old else 'packages/'+base.name)
                   add(tf,p,prefix+'/'+p.relative_to(base).as_posix())
                   for ext in ['.olean','.olean.private','.olean.server','.ir']:
@@ -67,9 +62,28 @@ jobs:
           print('IMPORT_SOURCES',len(seen),'FILES',len(entries),'BYTES',out.stat().st_size)
           print('SHA256',hashlib.sha256(out.read_bytes()).hexdigest())
           PYCODE
+      - run: split -b 400000000 -d /tmp/appt-review-offline.tar.gz /tmp/appt-dep-part-
       - uses: actions/upload-artifact@v4
         with:
-          name: appt-review-offline-environment
-          path: /tmp/appt-review-offline.tar.gz
+          name: appt-dependencies-part-00
+          path: /tmp/appt-dep-part-00
+          compression-level: 0
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-dependencies-part-01
+          path: /tmp/appt-dep-part-01
+          compression-level: 0
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-dependencies-part-02
+          path: /tmp/appt-dep-part-02
+          compression-level: 0
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-dependencies-part-03
+          path: /tmp/appt-dep-part-03
           compression-level: 0
           retention-days: 3
