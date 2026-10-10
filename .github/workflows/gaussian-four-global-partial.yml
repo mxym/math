@@ -31,8 +31,24 @@ jobs:
         working-directory: formalizations/gaussian-four-global-progress
         run: |
           set -euo pipefail
+          git rev-parse HEAD > "$RUNNER_TEMP/gaussian-four-source-commit.txt"
           python3 reproduce.py --output-dir "$RUNNER_TEMP/gaussian-four-kernel-verification"
-          git rev-parse HEAD > "$RUNNER_TEMP/gaussian-four-kernel-verification/source-commit.txt"
+      - name: Surface the first Lean errors and preserve development objects
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/gaussian-four-kernel-verification"
+          if [ -d "$evidence" ]; then
+            cp "$RUNNER_TEMP/gaussian-four-source-commit.txt" "$evidence/source-commit.txt"
+            if [ -f "$evidence/lake-build.log" ]; then
+              grep -E '^error:|^Some required targets|^- Gaussian' "$evidence/lake-build.log" | head -60 >> "$GITHUB_STEP_SUMMARY" || true
+            fi
+            tree="$evidence/lake-source"
+            if [ -d "$tree" ]; then
+              (cd "$tree" && find formalizations -type f -name '*.olean' -print0 | tar --null -T - -czf "$evidence/development-objects.tar.gz")
+            fi
+          fi
       - name: Preserve literal verification evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -42,4 +58,6 @@ jobs:
             ${{ runner.temp }}/gaussian-four-kernel-verification/*.log
             ${{ runner.temp }}/gaussian-four-kernel-verification/*.json
             ${{ runner.temp }}/gaussian-four-kernel-verification/*.txt
+            ${{ runner.temp }}/gaussian-four-kernel-verification/development-objects.tar.gz
+            ${{ runner.temp }}/gaussian-four-kernel-verification/negative-*/**/*.lean
           if-no-files-found: warn

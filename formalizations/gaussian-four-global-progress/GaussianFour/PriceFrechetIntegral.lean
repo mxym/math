@@ -13,19 +13,20 @@ lemma scoreMax_price_lipschitz (v : Fin k → Space d) (x : Space d) :
     LipschitzWith 1 (fun b : Fin k → ℝ => scoreMax v b x) := by
   apply LipschitzWith.of_dist_le_mul
   intro b c
-  simpa only [NNReal.coe_one, one_mul, Real.dist_eq, dist_eq_norm] using
+  simpa only [NNReal.coe_one, one_mul, dist_eq_norm, Real.norm_eq_abs] using
     scoreMax_abs_sub_le v b c x
 
 lemma scoreMax_price_hasFDerivAt_of_winning (v : Fin k → Space d)
     (b : Fin k → ℝ) (x : Space d) (i : Fin k) (hi : x ∈ winningCell v b i) :
     HasFDerivAt (fun c : Fin k → ℝ => scoreMax v c x)
       (-(ContinuousLinearMap.proj i : (Fin k → ℝ) →L[ℝ] ℝ)) b := by
-  have ht : Tendsto (fun c : Fin k → ℝ => (v,c)) (𝓝 b) (𝓝 (v,b)) := by fun_prop
+  have ht : Tendsto (fun c : Fin k → ℝ => (v,c)) (𝓝 b) (𝓝 (v,b)) :=
+    (show ContinuousAt (fun c : Fin k → ℝ => (v,c)) b by fun_prop).tendsto
   have he := ht.eventually (eventually_winning_parameters v b x i hi)
   have heq : (fun c : Fin k → ℝ => scoreMax v c x) =ᶠ[𝓝 b]
       (fun c : Fin k → ℝ => ⟪v i,x⟫-c i) := by
     filter_upwards [he] with c hc
-    exact scoreMax_eq_winning_score v c i x hc
+    exact scoreMax_eq_winning_score v c x i hc
   exact ((ContinuousLinearMap.proj i : (Fin k → ℝ) →L[ℝ] ℝ).hasFDerivAt.const_sub
     ⟪v i,x⟫).congr_of_eventuallyEq heq
 
