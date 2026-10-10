@@ -1,6 +1,6 @@
 # Formalization handover (2026-10-10)
 
-The new kernel-checked material is concentrated in two modules.
+The new kernel-checked material is concentrated in three modules.
 
 * `FiniteRouting.lean` proves Bernoulli weight normalization, nonnegativity,
   coordinate factorization at distinct addresses, and the exact terminal
@@ -12,18 +12,25 @@ The new kernel-checked material is concentrated in two modules.
   unit interval, proves empty interior, and transfers infinite blocker hits
   to infinite outside values.  The compact `[0,1]` restriction and the
   `WindowBlockerSpec` bridge are also closed.
+* `TailAnalysis.lean` proves convergence of every power-controlled tail,
+  eventual exclusion of the leading center, and the key fact that one hit in
+  every input tail yields infinitely many distinct hit values.  It also proves
+  the countable grid reduction from `α = 1/(j+1)` and integer error budgets to
+  arbitrary real `α` and `M`.
+* `WindowFilling.exists_late_annulus` turns the sequential late-window
+  hypothesis into the exact finite annulus witness used by a routing block.
 
-`Replay.lean` replays nine public roots at trust level zero.  The recorded
+`Replay.lean` replays eleven public roots at trust level zero.  The recorded
 axioms are only `propext`, `Classical.choice`, and `Quot.sound`; the source
 contains no `sorry`, `admit`, custom axiom, `unsafe`, `partial`, or
 `native_decide`.  `checks/negative.py` rejects both a false tree inequality
 and a false finite probability equality.
 
 The exact remaining proof obligation is the construction of a
-`BlockerFamily` (equivalently `WindowBlockerSpec`) from `WindowFilling`.  This
-is the continuum routing/projection argument: finite parameter rectangles,
-stable-center exceptional sets, the error buffer, and the late-window
-schedule must still be connected to the new finite and topological layers.
+`BlockerFamily` (equivalently `WindowBlockerSpec`) from `WindowFilling`.  The tail and countable-grid bookkeeping is now closed; the remaining
+continuum routing/projection argument is the actual random finite-table
+construction, stable-center exceptional sets, parameter-sign strata, error
+buffer, and late-window schedule connected to one measurable open blocker.
 The repository deliberately leaves this as a typed proposition rather than
 introducing an axiom or an unproved theorem.  The unconditional Theorem 2
 and the explicit `n(log log(n+20))^β` example therefore remain written

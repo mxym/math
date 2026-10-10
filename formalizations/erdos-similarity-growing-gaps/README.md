@@ -45,6 +45,13 @@ empty interior, and transfers infinitely many blocker hits to infinitely many
 values outside the complement.  `replay_blocker_assembly` is the public
 trust-level-zero replay root.
 
+`TailAnalysis.lean` closes the tail-analysis part of the interface: power
+controlled remainders converge to their center, a hit in every input tail
+forces infinitely many distinct hit values without assuming injectivity, and
+an error-exponent/constant grid reduces to arbitrary real `α` and `M`.
+`WindowFilling.exists_late_annulus` extracts the exact late finite annulus
+needed by each routing block.
+
 ## Scope boundary
 
 The finite blocker witness `BlockerFamily` is now an explicit, fully typed

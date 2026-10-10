@@ -56,8 +56,7 @@ theorem. The new package
 formally closes the deterministic annular sampling layer: the first-sample
 lemma, local gap propagation, the implication
 $z_{n+1}-z_n=o(\log\log z_n)\Rightarrow W$, and the variable-tree algebra
-all replay at trust level zero. The package also contains the finite Bernoulli
-routing identity and a complete conditional countable blocker assembly: from
+all replay at trust level zero. The package also contains late-window extraction, tail convergence/distinctness, the countable exponent-budget reduction, the finite Bernoulli routing identity, and a complete conditional countable blocker assembly: from
 an explicit `BlockerFamily` it constructs the closed periodic complement,
 proves the unit-interval measure estimate and empty interior, and transfers
 infinite blocker hits to infinite outside values. The connection from

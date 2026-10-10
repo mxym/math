@@ -6,6 +6,7 @@ import ErdosSimilarityGrowingGaps.AnnulusSequence
 import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
+import ErdosSimilarityGrowingGaps.TailAnalysis
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -22,6 +23,13 @@ theorem replay_annular_sampling :
     ∀ (Z : LogScale), ConsecutiveLogGapLittleO Z → AnnularFilling Z := by
   intro Z h
   exact consecutiveGap_implies_annularFilling h
+
+theorem replay_late_window {Z : LogScale} (hW : WindowFilling Z)
+    (R : ℕ) (hR : 2 ≤ R) (U₀ η : ℝ) (hU₀ : 0 < U₀) (hη : 0 < η) :
+    ∃ U : ℕ, ∃ D : ℝ, U₀ ≤ (U : ℝ) ∧ 1 < Real.log (U : ℝ) ∧
+      FillsAnnulus Z (U : ℝ) R D ∧
+      D / Real.log (Real.log (U : ℝ)) < η :=
+  hW.exists_late_annulus R hR U₀ η hU₀ hη
 
 theorem replay_variable_tree_span (b g L : ℝ) (hb : 2 ≤ b) (hg : 0 ≤ g)
     (n : ℕ) : span b g L (n + 1) + 2 * g ≤ b * (2 * b) ^ n * (L + 2 * g) :=
@@ -63,6 +71,10 @@ theorem replay_theorem2_assembly
   obtain ⟨E, hEc, hEp, hEi, _⟩ := theorem2_of_windowBlockerSpec hB ε hε hε1
   exact ⟨E, hEc, hEp, hEi⟩
 
+theorem replay_tail_grid_reduction {Z : LogScale} {H : Set ℝ}
+    (hH : GridWeakRobustBlocker Z H) : RobustBlocker Z H :=
+  weakRobustBlocker_implies_robust (gridWeakRobustBlocker_implies_weak hH)
+
 theorem replay_window_filling (Z : LogScale) (h : ConsecutiveLogGapLittleO Z) :
     WindowFilling Z := consecutiveGap_implies_windowFilling h
 
@@ -76,10 +88,12 @@ theorem replay_input_sequence (Z : LogScale) :
 #print axioms replay_input_sequence
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
+#print axioms replay_late_window
 #print axioms replay_variable_tree_span
 #print axioms replay_distinct_terminal_all_miss
 #print axioms replay_blocker_assembly
 #print axioms replay_compact_blocker_assembly
 #print axioms replay_theorem2_assembly
+#print axioms replay_tail_grid_reduction
 
 end ErdosSimilarityGrowingGaps

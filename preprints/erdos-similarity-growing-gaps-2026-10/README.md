@@ -13,7 +13,7 @@ z_{n+1} - z_n = o(log log z_n)
 
 and for the stated intermittent-window extension. It includes sequences whose adjacent ratios tend to zero and whose occupied logarithmic bins have zero upper Banach density. The full Erdős similarity conjecture, including `2^(-n^2)` and `2^(-2^n)`, remains open.
 
-The [canonical package](../../research/erdos-similarity-growing-gaps/README.md) contains the complete written proof, scope limits, prior-work comparison, exact finite checker, and Lean replay. The formalization now includes the finite Bernoulli routing calculation and the complete conditional countable blocker assembly (closed periodic complement, measure estimate, empty interior, and infinite-tail transfer). The existence of those blockers from `WindowFilling`, and hence the unconditional infinite analytic theorem, remains explicitly written proof rather than a Lean theorem. No external human peer review or worldwide priority claim is made.
+The [canonical package](../../research/erdos-similarity-growing-gaps/README.md) contains the complete written proof, scope limits, prior-work comparison, exact finite checker, and Lean replay. The formalization now includes the finite Bernoulli routing calculation, late-window extraction, tail convergence/distinctness, the countable exponent-budget reduction, and the complete conditional countable blocker assembly (closed periodic complement, measure estimate, empty interior, and infinite-tail transfer). The existence of those blockers from `WindowFilling`, and hence the unconditional infinite analytic theorem, remains explicitly written proof rather than a Lean theorem. No external human peer review or worldwide priority claim is made.
 
 Reproduction from the canonical package:
 
