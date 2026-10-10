@@ -522,3 +522,11 @@ import GaussianFour
 #print axioms GaussianFour.facetLaplacian_quadratic_pos_of_nonconstant
 #print axioms GaussianFour.priceObjective_directional_gradient
 #print axioms GaussianFour.actual_simplicial_price_second_variation
+#print axioms GaussianFour.scoreMax_price_lipschitz
+#print axioms GaussianFour.scoreMax_price_hasFDerivAt_of_winning
+#print axioms GaussianFour.winning_indicator_sum_eq
+#print axioms GaussianFour.scorePriceDifferential
+#print axioms GaussianFour.aestronglyMeasurable_scorePriceDifferential
+#print axioms GaussianFour.ae_scoreMax_price_hasFDerivAt
+#print axioms GaussianFour.expectedScore_price_differentiableAt
+#print axioms GaussianFour.graphMass_price_differentiableAt

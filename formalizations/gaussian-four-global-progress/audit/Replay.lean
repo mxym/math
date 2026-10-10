@@ -548,7 +548,15 @@ run_cmd do
     ``GaussianFour.facetLaplacian_quadratic_zero_iff_constant,
     ``GaussianFour.facetLaplacian_quadratic_pos_of_nonconstant,
     ``GaussianFour.priceObjective_directional_gradient,
-    ``GaussianFour.actual_simplicial_price_second_variation]
+    ``GaussianFour.actual_simplicial_price_second_variation,
+    ``GaussianFour.scoreMax_price_lipschitz,
+    ``GaussianFour.scoreMax_price_hasFDerivAt_of_winning,
+    ``GaussianFour.winning_indicator_sum_eq,
+    ``GaussianFour.scorePriceDifferential,
+    ``GaussianFour.aestronglyMeasurable_scorePriceDifferential,
+    ``GaussianFour.ae_scoreMax_price_hasFDerivAt,
+    ``GaussianFour.expectedScore_price_differentiableAt,
+    ``GaussianFour.graphMass_price_differentiableAt]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
