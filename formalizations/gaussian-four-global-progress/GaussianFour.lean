@@ -1,3 +1,4 @@
+import GaussianFour.CenteredSpectral
 import GaussianFour.FixedCovarianceDifferential
 import GaussianFour.RegularizedResidual
 import GaussianFour.NormalCone

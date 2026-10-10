@@ -508,7 +508,14 @@ run_cmd do
     ``GaussianFour.symmetric_flux_unique,
     ``GaussianFour.sum_scores_zero_of_centered_gram,
     ``GaussianFour.balanced_flux_eq_of_gram_eq,
-    ``GaussianFour.actual_centered_covariance_fixed_differential]
+    ``GaussianFour.actual_centered_covariance_fixed_differential,
+    ``GaussianFour.fourCentering,
+    ``GaussianFour.fourCentering_hermitian,
+    ``GaussianFour.fourCentering_row_sum,
+    ``GaussianFour.fourCentering_trace,
+    ``GaussianFour.centered_mul_fourCentering,
+    ``GaussianFour.fourCentering_mulVec,
+    ``GaussianFour.centered_trace_stationary_eq_scalar]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

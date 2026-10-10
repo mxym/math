@@ -482,3 +482,10 @@ import GaussianFour
 #print axioms GaussianFour.sum_scores_zero_of_centered_gram
 #print axioms GaussianFour.balanced_flux_eq_of_gram_eq
 #print axioms GaussianFour.actual_centered_covariance_fixed_differential
+#print axioms GaussianFour.fourCentering
+#print axioms GaussianFour.fourCentering_hermitian
+#print axioms GaussianFour.fourCentering_row_sum
+#print axioms GaussianFour.fourCentering_trace
+#print axioms GaussianFour.centered_mul_fourCentering
+#print axioms GaussianFour.fourCentering_mulVec
+#print axioms GaussianFour.centered_trace_stationary_eq_scalar
