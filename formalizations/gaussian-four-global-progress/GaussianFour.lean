@@ -1,3 +1,4 @@
+import GaussianFour.PriceSecondVariation
 import GaussianFour.PriceMassDifferential
 import GaussianFour.SelfMomentCriticality
 import GaussianFour.CovarianceCriticality

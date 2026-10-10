@@ -515,3 +515,10 @@ import GaussianFour
 #print axioms GaussianFour.simplicial_mass_flux_derivative
 #print axioms GaussianFour.priceGradient
 #print axioms GaussianFour.actual_simplicial_price_gradient_directional
+#print axioms GaussianFour.facetLaplacian_quadratic_identity
+#print axioms GaussianFour.facetLaplacian_quadratic_nonneg
+#print axioms GaussianFour.facetLaplacian_posSemidef
+#print axioms GaussianFour.facetLaplacian_quadratic_zero_iff_constant
+#print axioms GaussianFour.facetLaplacian_quadratic_pos_of_nonconstant
+#print axioms GaussianFour.priceObjective_directional_gradient
+#print axioms GaussianFour.actual_simplicial_price_second_variation

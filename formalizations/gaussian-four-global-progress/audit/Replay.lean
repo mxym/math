@@ -541,7 +541,14 @@ run_cmd do
     ``GaussianMeasureBridge.simplicial_mass_flux_base_derivative,
     ``GaussianFour.simplicial_mass_flux_derivative,
     ``GaussianFour.priceGradient,
-    ``GaussianFour.actual_simplicial_price_gradient_directional]
+    ``GaussianFour.actual_simplicial_price_gradient_directional,
+    ``GaussianFour.facetLaplacian_quadratic_identity,
+    ``GaussianFour.facetLaplacian_quadratic_nonneg,
+    ``GaussianFour.facetLaplacian_posSemidef,
+    ``GaussianFour.facetLaplacian_quadratic_zero_iff_constant,
+    ``GaussianFour.facetLaplacian_quadratic_pos_of_nonconstant,
+    ``GaussianFour.priceObjective_directional_gradient,
+    ``GaussianFour.actual_simplicial_price_second_variation]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
