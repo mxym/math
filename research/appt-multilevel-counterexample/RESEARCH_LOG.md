@@ -26,3 +26,24 @@ The lower constant initially failed to match. Simply declaring many plateau cont
 Checks run in the local analysis environment and on the authorized VPS use exact rational/integer arithmetic. The VPS outputs with and without Python assertions are identical. They test physical partial-transpose pairings, both variance estimates, all small-graph odd-moment bounds, lacunary forests, nested-flag trace identities and the finite coefficient-6 example. Deliberate mathematical failures include a nonlacunary triangle and a too-large spike. No independent CI, Lean verification, or external peer review is claimed for this cycle; none of these finite checks replaces the compactness proof.
 
 Current core target: the exact leading constant for fixed gamma>1, the exact finite-dimensional maximum and its extremizers, or the absolute-separability question for these APPT families. The balanced leading coefficient is 8; neither an arbitrary rectangular equality nor an extremizer classification is assumed. No manuscript or Release work was performed.
+
+
+## Final triangular improvement and a uniform all-regime equivalent
+
+The rectangular argument initially closed only the balanced coefficient. Retaining the within-part weights sharpened the result through aspect ratio three. The final upper argument no longer needs a balanced cut: assign the residual paired eigenvalue gaps in decreasing order to successive rows of the upper triangle. Every vertex degree includes earlier larger weights, so its square controls the entire next row. This bounds all gaps except a single star, and retaining the complete-graph baseline before squaring yields
+
+    purity-1/D <= b^2 max{8,4+D/(m-1)^2}.
+
+Its normalization error is uniformly O(1/m), even when n/m is unbounded. It exactly matches the maximum of the multiscale-eight construction and the broad-plateau/spike construction. Thus the true fixed-aspect coefficient is max(8,4+gamma), with transition at gamma=4; the earlier leading-constant gaps are now closed.
+
+A separate fixed-m argument uses the uniform Schmidt witness to bound all but m^2-2 eigenvalues in an interval of ratio (m+1)/(m-1). The elementary interval second-moment inequality gives D*Pmax -> m^2/(m^2-1), matched by an actual projection state I+2P/(m-1). A sequential argument combines the fixed-m and growing-m results into the uniform equivalent
+
+    Pmax(m,n)-1/(mn) ~ max{8,4+mn/(m^2-1)}/(mn)^2
+
+as total dimension grows over all pairs 2<=m<=n. This is not an exact finite interpolation formula. The fixed-m first-order bound is recorded as a derived consequence, not claimed as a historically new principle.
+
+The new checker separately tests the triangular degree bound, the exact complete-background cross term, SOS-certified finite APPT states, the fixed-m interval/projection identities, and uniform parameter comparisons. Deliberate failures show that ordering and the cross term cannot be dropped. These programs passed normally and with assertions disabled on the authorized VPS; no independent CI or Lean run is claimed.
+
+A final primary-source search retrieved Tran's arXiv:2609.18568 abstract and the older arXiv:2510.19508 problem description. Their general spectral-purity context is acknowledged; the new proof is self-contained apart from standard spectral/Schmidt decomposition and compactness facts. The search is not an exhaustive historical-priority certification.
+
+Remaining substantive optimization targets: exact finite-dimensional maxima, higher-order terms, rigidity or classification of extremizers, effective quantitative convergence of the hierarchy, and the absolute-separability status of the new states. The leading APPT excess-purity asymptotic is now closed in the stated uniform sense. Work remained on mathematical notes and exact checks; no new preprint or Release was made.

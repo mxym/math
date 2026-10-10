@@ -1,5 +1,8 @@
 # Further mathematical progress: the proportional-dimension obstruction
 
+> Subsequent sharp result: [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md) closes the remaining leading-constant gaps for every aspect ratio, and gives an equivalent uniform over all dimension pairs as total dimension grows. The proofs below remain valid; descriptions of then-open asymptotic gaps record intermediate progress. Exact finite maxima and absolute separability remain unresolved.
+
+
 This continues the working proof in PROOF.md. No new manuscript or Release is prepared. The result here is a lower bound on the unrestricted maximum, and a matching upper bound only on a precisely specified three-level subclass.
 
 ## 1. A rational APPT construction in every fixed aspect ratio

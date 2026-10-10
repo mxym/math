@@ -240,15 +240,60 @@ def negatives() -> list[dict]:
         ("apply forest estimate to a triangle",false_forest_bound),
         ("increase the spike past its physical bound",too_high_spike)]]
 
+def strengthened_aspect_bound() -> dict:
+    rng=random.Random(861292); scalar=0; certified=0
+    for m in range(3,15):
+        h=m//2; ell=m-h; q=h*ell; R=m*(m-1)//2; S=m*(m+1)//2; T=R-q
+        alpha=F(2*(ell-1),T)
+        require(T-q==-h and T+h==q, "parity identities for stronger bound")
+        require(alpha>=F(m,q), "positive residual-tail coefficient")
+        for n in (m,2*m,3*m,4*m):
+            D=m*n
+            Csharp=max(F(8),8-F(2*m*(ell-1),R)+(F(D,4)-q)*F(m*m,R*R))
+            for trial in range(8):
+                raw=sorted([rng.randrange(1,40) for _ in range(D)],reverse=True)
+                lam=[F(x,sum(raw)) for x in raw]
+                ds=[lam[i]-lam[-1-i] for i in range(R)]
+                Hq=sum((d*d for d in ds[:q]),F(0)); Bq=sum(ds[:q],F(0)); Bt=sum(ds[q:],F(0))
+                t=ds[q-1];w=ds[-1];bmock=(Bq+Bt)/m
+                Bbig=sum(ds[q:q+ell*(ell-1)//2],F(0)); beta=2*Bbig/ell
+                require(beta>=F(ell-1,T)*Bt,"larger-part leftover Rayleigh bound")
+                require(alpha*bmock-t>=0,"nonnegative coefficient before tail substitution")
+                budget=Hq+alpha*bmock*Bt
+                V=sum((x*x for x in lam),F(0))-F(1,D)
+                stronger=budget-2*(ell-1)*bmock*w+(F(D,4)-q)*w*w
+                require(V<=stronger,"stronger centered variance algebra")
+                for ix in range(21):
+                    v=F(m*ix,20*R)
+                    quadratic=8-2*(ell-1)*v+(F(D,4)-q)*v*v
+                    require(quadratic<=Csharp,"finite convex endpoint bound")
+                scalar+=1
+            if m>=4:
+                for k in (1,D//2,D-1):
+                    raw=[6*m-19]+[2*m-3]*(k-1)+[2*m-5]*(D-k)
+                    z=sum(raw);lam=[F(x,z) for x in raw]
+                    ds=[lam[i]-lam[-1-i] for i in range(R)]
+                    b=lam[D-S];w=ds[-1]
+                    Hq=sum((d*d for d in ds[:q]),F(0));Bt=sum(ds[q:],F(0))
+                    V=sum((x*x for x in lam),F(0))-F(1,D)
+                    require(Hq<=8*b*b-alpha*b*Bt,"strong rearrangement on SOS-certified states")
+                    require(sum((d*d for d in ds),F(0))<=8*b*b,"all paired gaps on SOS-certified states")
+                    require(V<=8*b*b-2*(ell-1)*b*w+(F(D,4)-q)*w*w,
+                            "strong finite variance on SOS-certified states")
+                    require(V<=Csharp*b*b,"finite APPT aspect-ratio bound")
+                    certified+=1
+    return {"arbitrary_rational_spectra":scalar,"SOS_certified_APPT_states":certified,
+            "convex_endpoint_evaluations":21*scalar}
+
 def main()->None:
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--report',type=Path);args=ap.parse_args()
     report={"status":"PASS","scope":"Exact ancillary finite identities only; not Lean, independent peer review, or a finite proof of the analytic limits",
             "variance":variance_and_rearrangements(),"physical_pairing":physical_pairing(),
             "graph_moments":walks(),"lacunary_forests":forests(),"nested_moments":moment_identities(),
-            "finite_family":finite_family(),"negative_controls":negatives()}
+            "finite_family":finite_family(),"stronger_aspect_bound":strengthened_aspect_bound(),"negative_controls":negatives()}
     root=Path(__file__).resolve().parent
     report['sources']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in
-                      [Path(__file__)]+[root/n for n in ('UNRESTRICTED_BOUND.md','MESOSCOPIC.md','GRAPH_LIMIT.md','MULTISCALE.md')]
+                      [Path(__file__)]+[root/n for n in ('UNRESTRICTED_BOUND.md','MESOSCOPIC.md','GRAPH_LIMIT.md','MULTISCALE.md','SHARP_ASPECT_RATIO.md')]
                       if p.is_file()}
     text=json.dumps(report,indent=2)+'\n'
     if args.report:

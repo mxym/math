@@ -1,28 +1,28 @@
-# APPT multilevel counterexample: research checkpoint
+# APPT purity: counterexamples and the sharp unrestricted asymptotic
 
 The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. No new preprint or Release is being prepared.
 
-## Current result: the sharp balanced maximum asymptotic
+## Current result: sharp unrestricted excess purity in all large-dimensional regimes
 
-The unrestricted APPT maximum now satisfies
+Let D=mn. The new analytic working proof establishes
 
-    Pmax(m,m) = 1/m^2 + 8/m^4 + o(m^-4).
+    Pmax(m,n)-1/D ~ max{8, 4+D/(m^2-1)} / D^2,
 
-More generally, `(mn)^2[Pmax(m,n)-1/(mn)] -> 8` whenever m tends to infinity and n/m tends to one. The upper bound applies to **every APPT spectrum**; the lower bound uses a hierarchy of rational spectral plateaus with an eventual all-unitary positivity proof. The number of scales is fixed before the dimension limit and is only increased afterward. This is a proved analytic asymptotic, not an exact finite-dimensional maximum or a new Lean result.
+uniformly over all integer pairs 2<=m<=n as D tends to infinity. This is the first nonzero excess-purity term of the **unrestricted** APPT maximum, not a bound restricted to candidate spectral shapes or an exact finite-dimensional interpolation formula.
 
-The working proofs are:
+In particular, whenever m tends to infinity and n/m tends to a finite gamma>=1,
 
-- [Unrestricted variance bound](UNRESTRICTED_BOUND.md): physical paired-eigenvalue tests, star and rectangular rearrangements, and a bound for arbitrary spectra.
-- [The multiscale construction and matching constant](MULTISCALE.md): a uniform graph estimate whose limiting additive-label graph is a forest; this closes the balanced coefficient at 8.
-- [Intermediate-rank plateau](MESOSCOPIC.md) and [sharp four-level sector](GRAPH_LIMIT.md): the steps showing why the earlier coefficient 4+gamma is not an unrestricted upper bound.
+    D^2[Pmax(m,n)-1/D] -> max{8,4+gamma}.
 
-For a fixed aspect ratio gamma>=1 the current bounds are
+The coefficient is 8 for 1<=gamma<=4 and 4+gamma for gamma>=4. Square systems obey `Pmax(m,m)=m^-2+8m^-4+o(m^-4)`. For fixed m and n tending to infinity, `D*Pmax(m,n) -> m^2/(m^2-1)`.
 
-    max(8,4+gamma) <= liminf D^2[Pmax-1/D]
-                     <= limsup D^2[Pmax-1/D]
-                     <= min(4+4gamma,8+max(1,gamma-1)),  D=mn.
+The main working proofs are [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md), which gives the unrestricted triangular-rearrangement upper bound, normalization and fixed-m argument, and [MULTISCALE.md](MULTISCALE.md), which constructs the separated plateau hierarchy attaining the coefficient eight. [ASYMPTOTIC.md](ASYMPTOTIC.md) supplies the broad-plateau lower family for the other branch. The upper bound applies to every APPT spectrum. The hierarchy is fixed before the dimension limit, and is only enlarged afterward; no finite-state positivity is inferred from a zero-margin limiting test.
 
-They agree at gamma=1. The exact constant for gamma>1 and the exact finite-dimensional maximum are still unresolved here. Run `python3 check_mesoscopic.py` and `python3 -O check_mesoscopic.py` for supporting exact finite calculations. Those checks do not certify the compactness and all-unitary arguments by themselves. No further preprint or Release is prepared.
+The earlier intermediate-rank construction, one-scale graph limit, quartile bound and aspect-ratio-three bound are retained as intermediate research steps. Their previously unresolved leading-constant gaps are closed by the final triangular argument. They are not separate preprints.
+
+Run `python3 check_mesoscopic.py` and `python3 check_triangular.py`, also with `python3 -O`, for exact finite supporting identities. These checks do not certify the infinite-dimensional compactness argument or replace the analytic all-unitary proof. This work is not Lean-formalized or externally peer reviewed. No preprint or Release has been prepared for this continuation.
+
+Still unresolved: the exact finite-dimensional maximum, its higher-order expansion and extremizing spectra, effective convergence thresholds for the hierarchy, and whether the constructed APPT states are absolutely separable.
 
 ## Explicit state
 
@@ -45,7 +45,7 @@ The central construction is `(2m-5)I + 2P + 4(m-4)|v><v|`, where P is any projec
 
     (mn)^2 [purity - 1/(mn)] -> 4+gamma,
 
-whereas the conjectured formula gives max(4,gamma). The difference has strictly positive limiting coefficient min(4,gamma). The value 4+gamma is proved optimal within the classified one-spike/plateau subclass. That earlier subsection records the previous state of the work. The subsequent unrestricted bounds and the sharp balanced constant 8 are linked above; the subclass theorem remains valid. Run `python3 check_asymptotic.py` for supporting exact parameter identities; the limits are analytic arguments, not finite tests.
+whereas the conjectured formula gives max(4,gamma). The difference has strictly positive limiting coefficient min(4,gamma). The value 4+gamma is proved optimal within the classified one-spike/plateau subclass. That earlier subsection records the previous state of the work. The subsequent sharp unrestricted all-regime result is linked above; the earlier subclass theorem remains valid. Run `python3 check_asymptotic.py` for supporting exact parameter identities; the limits are analytic arguments, not finite tests.
 
 ## Verification and scope
 

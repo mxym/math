@@ -20,7 +20,7 @@ Thus the coefficient is 8 for 1<=gamma<=4 and 4+gamma for gamma>=4. The balanced
 
 This is an unrestricted maximum theorem at its leading excess-purity scale: no number of levels, flat-tail condition or eigenvalue-multiplicity constraint is imposed on the upper bound. It does not determine exact finite-dimensional maxima or classify their maximizers. It does not prove absolute separability of the lower constructions.
 
-The stronger uniform form also applies when n/m diverges while m tends to infinity. It does NOT apply with the smaller dimension m fixed. Previous files record intermediate bounds; this file gives the current sharp all-aspect-ratio conclusion.
+The stronger uniform form also applies when n/m diverges while m tends to infinity. Statement (F1) does not itself apply with m fixed. Sections 8-9 supply that complementary argument and a single uniform equivalent valid whenever total dimension grows. Previous files record intermediate bounds; this file gives the current sharp conclusion.
 
 ## 2. A necessary quantum test that permits arbitrary edge rearrangements
 
@@ -187,6 +187,73 @@ Combining (F13) and (F14) proves the uniform lower estimate (1-epsilon)K(m,n). T
 
 The incorrect inner-polytope formula had fixed-aspect centered coefficient max(4,gamma). The actual unrestricted coefficient is max(8,4+gamma). In balanced systems the leading excess purity is therefore twice that predicted by the old formula. The one-spike/broad-plateau lower bound 4+gamma is sharp at this scale for gamma>=4; for gamma<4 it is overtaken by the multiscale hierarchy.
 
-The result resolves the leading excess-purity maximum for every regime in which the smaller local dimension grows, including arbitrarily fast growth of the larger one, in the uniform sense (F1). It does not determine the exact finite maximum, the full asymptotic expansion, limiting extremizer classification, or the absolute-separability maximum. Fixed-m limits are not covered by (F1), and require a separate argument. The qutrit Lean theorem remains a separate completed result.
+The result resolves the leading excess-purity maximum for every regime in which the smaller local dimension grows, including arbitrarily fast growth of the larger one, in the uniform sense (F1). It does not determine the exact finite maximum, the full asymptotic expansion, limiting extremizer classification, or the absolute-separability maximum. Fixed-m limits are not covered by (F1); the separate argument below closes that regime as well. The qutrit Lean theorem remains a separate completed result.
 
 The new unrestricted upper bound is elementary finite-dimensional matrix analysis derived from physical all-unitary APPT tests. The lower bound eight uses the proved compactness/forest argument in MULTISCALE.md. Exact rational and integer checks test the finite identities and failed alternatives; no finite test, native calculation or pre-existing Lean result is presented as certification of the unbounded theorem.
+
+
+## 8. The complementary fixed-local-dimension limit
+
+For each FIXED m>=2, as n tends to infinity,
+
+    D Pmax(m,n) -> m^2/(m^2-1),
+    Pmax(m,n)-1/D ~ 1/[(m^2-1)D].                               (F15)
+
+This derivation uses two physical necessary tests, not a conjecture that the finite optimum is two-level.
+
+Use the notation of Section 2, which is also meaningful for m=2. Testing the maximally entangled Schmidt-rank-m vector and placing the largest R eigenvalues on its negative witness subspace gives
+
+    sum_{i=1}^R lambda_i <= sum_{i=D-S+1}^D lambda_i.
+
+Hence lambda_R <= (S/R)b = [(m+1)/(m-1)]b. The single-edge test in Section 2 also gives lambda_1-lambda_D<=2b, so lambda_1<=3b. One has b>0, since otherwise these inequalities force every eigenvalue to vanish.
+
+All N=D-m^2+2 eigenvalues at indices R,...,D-S+1 lie between b and r*b, where r=(m+1)/(m-1). Their sum T is at most one. For any N nonnegative numbers x_i in that interval, the pointwise inequality
+
+    x_i^2 <= (r+1)b*x_i-r*b^2
+
+gives
+
+    N*sum_i x_i^2/T^2 <= (r+1)z-r*z^2
+                       <= (r+1)^2/(4r)=m^2/(m^2-1),
+    z=N*b/T.
+
+The last step is the exact square identity
+
+    (r+1)^2/(4r)-[(r+1)z-r*z^2]
+       =r*(z-(r+1)/(2r))^2.
+
+The remaining m^2-2 eigenvalues are at most 3b<=3/j. Therefore the unrestricted finite bound is
+
+    Pmax(m,n) <= [m^2/(m^2-1)]/(D-m^2+2)
+                   +9(m^2-2)/(D-S+1)^2.                       (F16)
+
+For fixed m, multiplying by D and letting n grow proves the required upper limit.
+
+For the matching lower bound take c=2/(m-1), a rank-k projection P with k=ceil(D/(c+2)), and normalize I+cP. It is APPT for every rank: for any Schmidt witness, the total magnitude of the negative eigenvalues of its partial transpose is at most (m-1)/2, so every conjugated projection has witness trace at least minus that number. Thus I+cP has nonnegative partial transpose under every global unitary.
+
+Writing theta=k/D, its purity satisfies
+
+    D*Tr(rho^2) = [1+(2c+c^2)theta]/(1+c theta)^2
+      ->(c+2)^2/[4(c+1)]=m^2/(m^2-1).                           (F17)
+
+In fact, for k chosen as above the exact deficit identity is
+
+    (c+2)^2/[4(c+1)]-[1+(2c+c^2)theta]/(1+c theta)^2
+      =c^2[1-(c+2)theta]^2/[4(c+1)(1+c theta)^2].
+
+This and (F16) also give Pmax=m^2/[(m^2-1)D]+O_m(D^-2). Subtracting 1/D proves the excess-purity equivalent in (F15). The fixed-m argument is elementary and is recorded as a derived result, without a claim that its first-order converse is historically new.
+
+## 9. One equivalent covering every large-dimensional regime
+
+Define, for all integers 2<=m<=n,
+
+    A(m,n)=D^-2 max{8,4+D/(m^2-1)},    D=mn.
+
+Then the unrestricted maximal excess purity has the uniform equivalent
+
+    lim_{N->infinity} sup_{2<=m<=n, mn>=N}
+       | [Pmax(m,n)-1/(mn)]/A(m,n) -1 | =0.                      (F18)
+
+Proof by the sequential criterion for uniform convergence. If (F18) failed, choose dimension pairs with D tending to infinity and an error bounded below by a fixed positive number. Either the smaller dimensions have a bounded subsequence, in which case a further subsequence has m equal to one fixed integer; or there is a subsequence with m tending to infinity. In the fixed-m case, (F15) applies and A(m,n) is asymptotic to 1/[(m^2-1)D]. In the m->infinity case, (F1) applies uniformly over all n>=m, and the ratio between max{8,4+D/(m^2-1)} and max{8,4+D/m^2} lies between 1 and m^2/(m^2-1), which tends to one. Both cases contradict the fixed positive error. This proves (F18).
+
+This is an asymptotic equivalent of the first nonzero excess-purity term, not an exact interpolation formula for finite dimensions. The factor m^2-1 retains the fixed-m limit while reducing to the sharp joint-growth law. No effective convergence threshold is supplied by the compactness-based lower construction. The exact finite maximum, its higher-order expansion, and its attaining spectra remain separate problems.
