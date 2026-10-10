@@ -55,7 +55,11 @@ lean_lib GaussianFourAnalyticSupport where
     `GaussianCovarianceDifferential,
     `GaussianGramIsometry,
     `GaussianWinningMomentSpan,
-    `GaussianGramMomentTransport]
+    `GaussianGramMomentTransport,
+    `GaussianTailCalculus,
+    `GaussianGraphMassDerivative,
+    `GaussianWinningMassDerivative,
+    `GaussianSimplicialMassFlux]
 
 @[default_target]
 lean_lib GaussianFour where

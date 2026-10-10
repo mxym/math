@@ -522,7 +522,26 @@ run_cmd do
     ``GaussianFour.offdiagonal_flux_of_scalar_laplacian,
     ``GaussianFour.centered_scalar_flux_self_moment,
     ``GaussianFour.balancedMoment_eq_setIntegral,
-    ``GaussianFour.actual_four_local_extremum_self_moments]
+    ``GaussianFour.actual_four_local_extremum_self_moments,
+    ``GaussianMeasureBridge.standardTail,
+    ``GaussianMeasureBridge.standardTail_eq_integral,
+    ``GaussianMeasureBridge.standardTail_eq_primitive,
+    ``GaussianMeasureBridge.standardTail_hasDerivAt,
+    ``GaussianMeasureBridge.standardTail_lipschitz,
+    ``GaussianMeasureBridge.graphMass,
+    ``GaussianMeasureBridge.graphMass_eq_tail,
+    ``GaussianMeasureBridge.integrable_tail_score,
+    ``GaussianMeasureBridge.graphMass_price_derivative,
+    ``GaussianMeasureBridge.winningMass,
+    ``GaussianMeasureBridge.winningMass_as_graph,
+    ``GaussianMeasureBridge.winningGraphPrices_affine,
+    ``GaussianMeasureBridge.winningMass_graph_price_derivative,
+    ``GaussianMeasureBridge.winningMass_isometry,
+    ``GaussianMeasureBridge.basis_flux_weights_unique,
+    ``GaussianMeasureBridge.simplicial_mass_flux_base_derivative,
+    ``GaussianFour.simplicial_mass_flux_derivative,
+    ``GaussianFour.priceGradient,
+    ``GaussianFour.actual_simplicial_price_gradient_directional]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
