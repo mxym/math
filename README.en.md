@@ -56,3 +56,7 @@ Each project page contains its theorem statement, proof scope, external inputs, 
 Use the current version DOI and the frozen source commit when citing a paper. Older immutable versions remain in [releases/ZENODO_RECORDS.md](releases/ZENODO_RECORDS.md) and in the project provenance files.
 
 Public preprints and DOIs do not imply journal peer review, mathematical correctness certification, originality, or historical priority. Third-party material retains its stated license; original material without another license is reserved.
+
+## Collective-unitary logarithmic-negativity rate
+
+[The analytic preprint](research/collective-unitary-negativity-rate/README.md) determines the exact per-copy maximum logarithmic-negativity rate for every bipartite spectrum in every fixed pair of local dimensions. A fixed blockwise Bell output basis suffices. The proof uses the published matrix Bernstein theorem and includes exact ancillary checks with corrupted-source controls; it is not Lean-formalized or externally peer reviewed. This does not resolve the separate finite-copy APPT purity conjecture or APPT=AS.

@@ -8,6 +8,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
 | APPT 任意局域维数：后续主目标 | 全部双特征值谱的精确纯度最大值；高重数最小特征值子类的锐界；指定内多面体绝对可分性 | [完整书面子类证明与精确代数检查](research/appt-all-dimensions/README.md)；非 Lean；一般多层谱猜想仍未解决 |
 | 图态 MMI 禁止子图 | 证明 Conjecture 1；无爪 vertex-minor 六类分量分类与七顶点连通阈值 | [独立预印本与完整书面证明](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；双独立 checker，未完整 Lean 化 |
