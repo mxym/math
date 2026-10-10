@@ -35,6 +35,8 @@ The value at $\alpha=1$ is $\log m$. In terms of the Renyi entropy $S_\alpha(p)=
 \]
 For every $2\le m\le n$, the rate in (2) is zero exactly for the maximally mixed state; every other state has a positive rate.
 
+**Further conclusion (fixed-basis sufficiency).** For each $k$, fix the blockwise Bell basis from (11), completed by product-coordinate vectors on the unused second-factor coordinates. Permuting the eigenvalues of $\rho^{\otimes k}$ among this fixed basis already attains the same rate (2). In the balanced case the entire output basis can be the standard generalized Bell basis. The proof below establishes this restricted lower bound directly; it does not assert exact finite-copy optimality of Bell-diagonal states.
+
 This determines a regularized unitary-orbit entanglement measure, not a distillable-entanglement rate and not a local-operation protocol. It also does not give an exact one-copy maximum. Recent work [AMRS, v2] studies finite-dimensional negativity-from-spectrum bounds. Kondra et al. [K, Supplemental Lemma 6] already show finite-copy failure of absolute separability away from the maximally mixed state. Thus qualitative activation is not claimed as new here. The claim established below is the exact collective logarithmic-negativity exponent, including unequal local dimensions and every spectrum. Literature screening is not an exhaustive priority certification. No resolution of APPT=AS or of the unrestricted finite-copy APPT purity conjecture is asserted.
 
 ## 2. A finite-dimensional spectral envelope
@@ -46,12 +48,12 @@ For this section fix $2\le a\le b$, write $N=ab$, and let $\lambda_1\ge\cdots\ge
  T_{a,b}(\lambda)=\max_{1\le r\le N}w_rL_r.
  \tag{4}
 \]
-Let $F_{a,b}(\lambda)$ be the maximum trace norm of the partial transpose along the corresponding global unitary orbit. Also let $H_N=\sum_{r=1}^N1/r$.
+Let $F_{a,b}(\lambda)$ be the maximum trace norm of the partial transpose along the corresponding global unitary orbit. Let $F^{\mathrm{Bell}}_{a,b}(\lambda)$ restrict the output eigenbasis to the fixed basis just described, allowing only permutations of the eigenvalues. Also let $H_N=\sum_{r=1}^N1/r$.
 
 **Theorem 3 (one-shot bounds).** Every spectrum satisfies
 \[
  \frac{T_{a,b}(\lambda)}{12\log(8N)}
- \le F_{a,b}(\lambda)\le H_NT_{a,b}(\lambda).
+ \le F^{\mathrm{Bell}}_{a,b}(\lambda)\le F_{a,b}(\lambda)\le H_NT_{a,b}(\lambda).
  \tag{5}
 \]
 In particular, the envelope approximates the logarithm of the orbit optimum up to $O(\log\log N)$, uniformly over spectra and aspect ratios. This does not assert a constant-factor approximation for the unlogged negativity.
@@ -168,7 +170,7 @@ For clarity, $\sqrt{p_0}=2\sqrt{r/N_0}\le2\sqrt2\sqrt{r/N}$, and $6\sqrt2+2<12$.
 
 ## 4. Completing the finite-dimensional lower bound
 
-For a rank-$K$ projection supplied by Section 3, choose a global unitary so that $\sigma=U\operatorname{diag}(\lambda)U^*$ has its $K$ largest eigenvalues on the range of $P$. This is possible by extending orthonormal bases; it neither modifies the spectrum nor appends or discards a system. Let $c=\|P^\Gamma\|_\infty>0$. The matrix $H=P^\Gamma/c$ is a Hermitian contraction, so (6) and the trace-pairing identity give
+For a rank-$K$ projection supplied by Section 3, choose a global unitary so that $\sigma=U\operatorname{diag}(\lambda)U^*$ has its $K$ largest eigenvalues on the range of $P$. Choose the individual output eigenvectors to be the selected Bell vectors, the unselected Bell vectors, and the remaining product-coordinate vectors. Thus the output is diagonal in the same fixed basis for every input spectrum; only the permutation depends on the spectrum. This neither modifies the spectrum nor appends or discards a system. Let $c=\|P^\Gamma\|_\infty>0$. The matrix $H=P^\Gamma/c$ is a Hermitian contraction, so (6) and the trace-pairing identity give
 \[
  \|\sigma^\Gamma\|_1
  \ge\operatorname{Tr}(\sigma^\Gamma P^\Gamma)/c
@@ -179,7 +181,7 @@ For a rank-$K$ projection supplied by Section 3, choose a global unitary so that
 \]
 This proves the required lower bound for $r\le N_0/8$.
 
-If $r>N_0/8$, then (10) gives $w_r\le\sqrt{N/r}<4$, hence $w_rL_r\le4$. Every partial transpose of a density matrix has trace one, and therefore trace norm at least one. Thus (18), with its last lower bound, follows trivially in this range as well, since $12\log(8N)>4$. This also handles the cases where $N_0<8$ and no positive integer belongs to the small-$r$ range. Taking the maximum over all $r$ proves (5).
+If $r>N_0/8$, then (10) gives $w_r\le\sqrt{N/r}<4$, hence $w_rL_r\le4$. Every partial transpose of a density matrix has trace one, and therefore trace norm at least one. Thus (18), with its last lower bound, follows trivially in this range as well, since $12\log(8N)>4$. This also handles the cases where $N_0<8$ and no positive integer belongs to the small-$r$ range. Taking the maximum over all $r$ proves (5), including its fixed-basis restriction.
 
 ## 5. Tensor powers and spectral types
 
@@ -267,7 +269,7 @@ substitution at $H(q_{\alpha_*})=\delta$ yields
  g(q_{\alpha_*})=A-D(q_{\alpha_*}\|p)=h(\alpha_*).
  \tag{28}
 \]
-Boundary equalities are covered by either endpoint case. Equations (23)--(28) match the lower and upper bounds, prove existence of the limit, and prove Theorem 1. They also show directly that
+Boundary equalities are covered by either endpoint case. Equations (23)--(28) match the lower and upper bounds, prove existence of the limit, and prove Theorem 1. The lower bound in (22) already uses only fixed-basis eigenvalue permutations, so the same limit holds under that restriction. They also show directly that
 \[
  \max_q g(q)=\min_{1\le\alpha\le2}h(\alpha).
  \tag{29}

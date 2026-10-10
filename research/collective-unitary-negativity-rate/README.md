@@ -19,6 +19,8 @@ The [proof](PROOF.md) establishes
 For equal local dimensions $m=n=d$, this is exactly
 $\frac12\log(d^2\operatorname{Tr}\rho^2)$. Every state other than the maximally mixed state has positive rate. In unequal dimensions there can be a strictly interior optimizer: the proof gives an exact $2\times8$ example with $\alpha_*=3/2$.
 
+The same rate is attainable by permuting the tensor-power eigenvalues into a fixed blockwise Bell basis (a complete generalized Bell basis in the balanced case); no continuous optimization of the output eigenvectors is needed for the exponent. This is an existence result, not an efficient search algorithm for the permutation.
+
 A finite-dimensional theorem supports the lower bound. If $L_r$ is the sum of the $r$ largest eigenvalues and $N=ab$, define $T=\max_r\min\{a,\sqrt{N/r}\}L_r$. The unitary-orbit maximum of the partial-transpose trace norm lies between $T/[12\log(8N)]$ and $H_NT$, where $H_N$ is the harmonic number. The proof constructs a Bell-basis projection with controlled partial-transpose norm and uses spectral types to match a Schatten-norm upper bound.
 
 ## Research boundary
