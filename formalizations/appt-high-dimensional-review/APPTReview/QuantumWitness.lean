@@ -12,7 +12,7 @@ def witnessMatrix (d : a × a → ℝ) : Matrix a a ℝ := fun i j =>
   else if i<j then d (i,j)-d (j,i) else d (j,i)-d (i,j)
 
 theorem hadamard_conjugate_entry (d : a × a → ℝ) (i j : a) :
-    (2 : ℂ) * (hadamard * Matrix.diagonal (fun p => (d p : ℂ)) * hadamardᴴ)
+    (2 : ℂ) * (hadamard (a := a) * Matrix.diagonal (fun p => (d p : ℂ)) * (hadamard (a := a))ᴴ)
       (j,i) (i,j) = (witnessMatrix d i j : ℂ) := by
   rw [hadamard_conjTranspose, Matrix.mul_assoc, hadamard_mul_apply]
   by_cases hij : i=j
@@ -40,7 +40,8 @@ theorem diagonal_appt_witness_posSemidef (d : a × b → ℝ)
   let emb : a × a → a × b := fun p => (p.1,e p.2)
   have hinj : Function.Injective emb := by
     intro p q hpq
-    exact Prod.ext (congrArg Prod.fst hpq) (he (congrArg Prod.snd hpq))
+    exact Prod.ext (congrArg (fun z : a × b => z.1) hpq)
+      (he (congrArg (fun z : a × b => z.2) hpq))
   let U := APPT.Quantum.extendedUnitary emb hinj (hadamardUnitary (a := a))
   have hp := ((h U).submatrix (fun i : a => (i,e i))).smul (show (0 : ℝ) ≤ 2 by norm_num)
   apply APPT.Quantum.real_posSemidef_of_complex
