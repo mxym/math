@@ -1,3 +1,4 @@
+import GaussianFour.SelfMomentCriticality
 import GaussianFour.CovarianceCriticality
 import GaussianFour.CenteredSpectral
 import GaussianFour.FixedCovarianceDifferential

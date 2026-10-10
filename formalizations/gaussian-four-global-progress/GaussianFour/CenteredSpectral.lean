@@ -53,7 +53,8 @@ theorem centered_trace_stationary_eq_scalar
       Finset.sum_sub_distrib, ← Finset.mul_sum, hz, fourCentering_row_sum,
       mul_zero, sub_zero]
   have htD : D.trace = 0 := by
-    rw [D, Matrix.trace_sub, Matrix.trace_smul, fourCentering_trace]
+    change (L - μ • fourCentering).trace = 0
+    rw [Matrix.trace_sub, Matrix.trace_smul, fourCentering_trace]
     dsimp [μ]
     ring
   have hLD : (L*D).trace = 0 := horth D hD hzD htD

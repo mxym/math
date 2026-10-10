@@ -518,7 +518,11 @@ run_cmd do
     ``GaussianFour.centered_trace_stationary_eq_scalar,
     ``GaussianFour.centered_trace_direction_eventually_feasible,
     ``GaussianFour.covariance_local_extremum_direction_zero,
-    ``GaussianFour.actual_four_covariance_local_extremum_flux]
+    ``GaussianFour.actual_four_covariance_local_extremum_flux,
+    ``GaussianFour.offdiagonal_flux_of_scalar_laplacian,
+    ``GaussianFour.centered_scalar_flux_self_moment,
+    ``GaussianFour.balancedMoment_eq_setIntegral,
+    ``GaussianFour.actual_four_local_extremum_self_moments]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

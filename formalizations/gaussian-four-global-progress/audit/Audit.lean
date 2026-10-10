@@ -492,3 +492,7 @@ import GaussianFour
 #print axioms GaussianFour.centered_trace_direction_eventually_feasible
 #print axioms GaussianFour.covariance_local_extremum_direction_zero
 #print axioms GaussianFour.actual_four_covariance_local_extremum_flux
+#print axioms GaussianFour.offdiagonal_flux_of_scalar_laplacian
+#print axioms GaussianFour.centered_scalar_flux_self_moment
+#print axioms GaussianFour.balancedMoment_eq_setIntegral
+#print axioms GaussianFour.actual_four_local_extremum_self_moments
