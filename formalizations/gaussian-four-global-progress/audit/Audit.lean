@@ -530,3 +530,13 @@ import GaussianFour
 #print axioms GaussianFour.ae_scoreMax_price_hasFDerivAt
 #print axioms GaussianFour.expectedScore_price_differentiableAt
 #print axioms GaussianFour.graphMass_price_differentiableAt
+#print axioms GaussianFour.winningMass_base_price_differentiableAt
+#print axioms GaussianFour.winningMass_price_differentiableAt
+#print axioms GaussianFour.priceGradient_differentiableAt
+#print axioms GaussianFour.priceMatrixMap
+#print axioms GaussianFour.priceMatrixMap_apply
+#print axioms GaussianFour.priceCovectorMap
+#print axioms GaussianFour.priceCovectorMap_apply
+#print axioms GaussianFour.priceObjective_hasFDerivAt_mass_gradient
+#print axioms GaussianFour.priceGradient_hasFDerivAt_flux
+#print axioms GaussianFour.actual_simplicial_price_hessian
