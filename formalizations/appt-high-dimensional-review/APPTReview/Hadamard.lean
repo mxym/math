@@ -22,7 +22,7 @@ noncomputable def hadamard : Matrix (a × a) (a × a) ℂ := fun p q =>
 
 theorem hadamard_mul_apply {κ : Type*} (B : Matrix (a × a) κ ℂ)
     (i j : a) (q : κ) :
-    (hadamard * B) (i,j) q =
+    (hadamard (a := a) * B) (i,j) q =
       if i=j then B (i,j) q
       else (if i<j then halfRoot else -halfRoot) * B (i,j) q +
         halfRoot * B (j,i) q := by
@@ -45,7 +45,7 @@ theorem hadamard_conjTranspose : (hadamard (a := a))ᴴ = hadamard := by
       by_cases hik : i=k <;> simp_all [hadamard, Matrix.conjTranspose_apply, eq_comm]
     · by_cases hik : i=k <;> by_cases hjl : j=l <;>
         by_cases hil : i=l <;> by_cases hjk : j=k <;>
-        simp_all [hadamard, Matrix.conjTranspose_apply, eq_comm]
+        by_cases horder : k < l <;> simp_all [hadamard, Matrix.conjTranspose_apply, eq_comm]
 
 theorem hadamard_sq : (hadamard (a := a)) * hadamard = 1 := by
   classical
@@ -54,11 +54,11 @@ theorem hadamard_sq : (hadamard (a := a)) * hadamard = 1 := by
   by_cases hij : i=j
   · subst j; simp [hadamard, Matrix.one_apply]
   · have hji : j≠i := Ne.symm hij
-    by_cases hijlt : i<j
-    · have hn : ¬ j<i := not_lt_of_gt hijlt
+    by_cases hijlt : i < j
+    · have hn : ¬ (j < i) := not_lt_of_gt hijlt
       simp only [hij, if_false, hijlt, if_true, hadamard, hji, hn, Prod.swap_prod_mk]
       split_ifs <;> simp_all [Matrix.one_apply] <;> ring_nf <;> norm_num
-    · have hjilt : j<i := lt_of_le_of_ne (le_of_not_gt hijlt) hji
+    · have hjilt : j < i := lt_of_le_of_ne (le_of_not_gt hijlt) hji
       simp only [hij, if_false, hijlt, hadamard, hji, hjilt, if_true, Prod.swap_prod_mk]
       split_ifs <;> simp_all [Matrix.one_apply] <;> ring_nf <;> norm_num
 

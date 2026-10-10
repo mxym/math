@@ -106,4 +106,22 @@ theorem diagonal_appt_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq 
     · simpa [M, witnessMatrix, hij, Fin.succ_inj, hlt] using sub_nonpos.mpr (ho i.succ j.succ (Fin.succ_lt_succ_iff.mpr hlt))
     · have hjlt : j<i := lt_of_le_of_ne (le_of_not_gt hlt) (Ne.symm hij)
       simpa [M, witnessMatrix, hij, Fin.succ_inj, hlt] using sub_nonpos.mpr (ho j.succ i.succ (Fin.succ_lt_succ_iff.mpr hjlt))
+/-- Necessary star inequality for actual eigenvalues of an actual Hermitian APPT matrix.
+The permutation may be chosen arbitrarily; no spectral surrogate replaces APPT. -/
+theorem appt_eigenvalue_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq b]
+    {A : Matrix (Fin (n+1) × b) (Fin (n+1) × b) ℂ}
+    (hA : A.IsHermitian) (h : APPT.Quantum.AbsolutelyPPT A)
+    (σ : Equiv.Perm (Fin (n+1) × b))
+    (e : Fin (n+1) → b) (he : Function.Injective e)
+    (c t : ℝ) (ht : 0 < t)
+    (hc : hA.eigenvalues (σ (0,e 0)) ≤ c)
+    (hd : ∀ i : Fin n, hA.eigenvalues (σ (i.succ,e i.succ)) ≤ t)
+    (ho : ∀ i j : Fin (n+1), i < j →
+      hA.eigenvalues (σ (i,e j)) ≤ hA.eigenvalues (σ (j,e i))) :
+    (∑ i : Fin n, (hA.eigenvalues (σ (i.succ,e 0)) -
+      hA.eigenvalues (σ (0,e i.succ)))^2) ≤ 4*c*t := by
+  exact diagonal_appt_star_bound (fun p => hA.eigenvalues (σ p))
+    (diagonal_appt_permute _ (eigenvalue_diagonal_appt hA h) σ)
+    e he c t ht hc hd ho
+
 end APPTReview

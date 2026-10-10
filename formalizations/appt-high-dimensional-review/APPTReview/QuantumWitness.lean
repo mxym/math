@@ -19,12 +19,12 @@ theorem hadamard_conjugate_entry (d : a × a → ℝ) (i j : a) :
   · subst j; simp [hadamard, witnessMatrix, Matrix.diagonal_mul]
   · have hji : j≠i := Ne.symm hij
     by_cases hi : i<j
-    · have hj : ¬ j<i := not_lt_of_gt hi
+    · have hj : ¬ (j < i) := not_lt_of_gt hi
       simp [hadamard, witnessMatrix, Matrix.diagonal_mul, hij, hji, hi, hj]
       push_cast
       ring_nf
       norm_num
-    · have hj : j<i := lt_of_le_of_ne (le_of_not_gt hi) hji
+    · have hj : j < i := lt_of_le_of_ne (le_of_not_gt hi) hji
       simp [hadamard, witnessMatrix, Matrix.diagonal_mul, hij, hji, hi, hj]
       push_cast
       ring_nf
