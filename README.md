@@ -1,5 +1,7 @@
 # 数学研究 · mxym/math
 
+[English README](README.en.md)
+
 数学研究论文、完整证明、Lean 形式化与可复现的计算证书。
 
 **张永贤（Yongxian Zhang）** · 华南理工大学计算机科学与工程学院，大二本科生（2026 年 10 月）。
@@ -18,11 +20,11 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
-| [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470)（概念 DOI [23248304](https://doi.org/10.5281/zenodo.23248304)） |
-| [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | 证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1；无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272728](https://doi.org/10.5281/zenodo.23272728)（旧版 [23272367](https://doi.org/10.5281/zenodo.23272367)） |
-| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整书面证明；有限精确诊断与部分 Lean，解析端点未形式化 | [23272806](https://doi.org/10.5281/zenodo.23272806)（前版 [23272758](https://doi.org/10.5281/zenodo.23272758)，更早版 [23272595](https://doi.org/10.5281/zenodo.23272595)，原版 [23272362](https://doi.org/10.5281/zenodo.23272362)） |
-| [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) · [PDF](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/paper.pdf) | 对每个 0<p<1/4 的四胞质量族严格否定正四面体最优性；等质量情形不受影响 | 完整书面反例；精确 Q(√2) 诊断与部分 Lean，几何端点未完整形式化 | [23272917](https://doi.org/10.5281/zenodo.23272917)（前版 [23272760](https://doi.org/10.5281/zenodo.23272760)，更早版 [23272597](https://doi.org/10.5281/zenodo.23272597)，原版 [23272491](https://doi.org/10.5281/zenodo.23272491)） |
-| [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子 | 完整书面证明；有限精确诊断与部分 Lean，完整 Erdős 猜想仍开放 | [23272807](https://doi.org/10.5281/zenodo.23272807)（前版 [23272759](https://doi.org/10.5281/zenodo.23272759)，更早版 [23272596](https://doi.org/10.5281/zenodo.23272596)，原版 [23272460](https://doi.org/10.5281/zenodo.23272460)） |
+| [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
+| [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | 证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1；无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272728](https://doi.org/10.5281/zenodo.23272728) |
+| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整书面证明；有限精确诊断与部分 Lean，解析端点未形式化 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
+| [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) · [PDF](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/paper.pdf) | 对每个 0<p<1/4 的四胞质量族严格否定正四面体最优性；等质量情形不受影响 | 完整书面反例；精确 Q(√2) 诊断与部分 Lean，几何端点未完整形式化 | [23272917](https://doi.org/10.5281/zenodo.23272917) |
+| [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子 | 完整书面证明；有限精确诊断与部分 Lean，完整 Erdős 猜想仍开放 | [23272807](https://doi.org/10.5281/zenodo.23272807) |
 | [任意质量高斯质心包络](preprints/gaussian-centroid-mass-envelope-2026-10/README.md) · [PDF](preprints/gaussian-centroid-mass-envelope-2026-10/paper.pdf) | 对所有正质量向量给出 U(p)-2Q(p) ≤ M_d(p) ≤ U(p) 及两对数尺度推论 | 完整书面证明与精确区间复核；非 Lean 完整化 | [23273177](https://doi.org/10.5281/zenodo.23273177) |
 | [高斯球冠维数下界](preprints/gaussian-spherical-cap-converse-2026-10/README.md) · [PDF](preprints/gaussian-spherical-cap-converse-2026-10/paper.pdf) | 证明加性 O(1/k) 逼近必须满足 Ω((log k)^2) 维数 | 完整书面证明与有理区间复核；非 Lean 完整化 | [23273187](https://doi.org/10.5281/zenodo.23273187) |
 | [全整数高斯维数阶](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md) · [PDF](preprints/gaussian-quadratic-dimension-all-k-2026-10/paper.pdf) | 对所有充分大的整数 k 建立匹配的 Θ((log k)^2) 维数阶 | 完整书面证明、Berry–Esseen 外部定理和精确复核；非 Lean 完整化 | [23273190](https://doi.org/10.5281/zenodo.23273190) |
@@ -83,21 +85,11 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 ## 证明与复现
 
-[qutrit–qudit APPT 最大纯度](formalizations/appt-qutrit-purity/README.md)现已完成全部 n≥3 的真实量子态 Lean 形式化，包含全局酉轨道 APPT 必要性、排序谱、统一与六个有限证书、上界及实际取到。879 模块和默认 Lake 构建通过；155,787 个声明、58 个根定理完成 trust level 0 空内核重放，最终最大值定理的伪造证明被独立内核拒绝。[完整验证记录](formalizations/appt-qutrit-purity/verification/complete-v1/README.md)明确区分分块编译缓存与内核复核；不声称所有极值态分类或新颖性优先权。
+各项目的定理、证明范围、外部输入和复现命令均放在对应项目页面。完整 Lean 工程、形式化标准和机器审计记录集中在以下入口：
 
-[复四行永久量—行列式主定理及完整等号分类](formalizations/four-row-complete-equality/README.md)现已完整 Lean 化：实际复矩阵的锐不等式、全部权重下的等号充要条件及零行边界均已证明；保留旧版最优常数及全实参数范数证明。本次新建目录重编译 12 个模块，空内核 trust level 0 重放 112 个声明及 15,593 个依赖声明；独立的干净 Lake 构建也通过。任意列数、稳定性、凸目标与张量化扩展仍另列范围。
+[形式化与验证记录](formalizations/) · [全部验证材料](verification/) · [分类研究目录](RESEARCH.md) · [五篇整合稿](manuscripts/README.md)
 
-“完整 Lean”只适用于所列具体定理；部分引理、有限证书和成功构建不自动覆盖整篇论文。完整书面证明可使用明确引用的已证明定理，完整 Lean 不是公开该证明的前提。
-
-全图强 Chollet 的固定源码记录了 83 模块 fresh 编译、985 个自有声明与 44,173 个传递依赖的空内核 trust level 0 重放。本次索引更新核对了全部源码哈希及复核记录，未重跑该 Lean 工程：[核对记录](verification/chollet-all-graphs-index-2026-10-08.json)。高斯三胞独立分支的[完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)不代表全部 k 已形式化。
-
-余子式谱 Theorem 1 的公开记录报告 78 个模块、745 个自有声明及 55,731 个传递依赖的空内核 trust level 0 重放，仅出现 `propext`、`Classical.choice`、`Quot.sound`；本轮索引核对公开记录，未重新执行 Lean：[核对记录](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)。
-
-互信息经典反例的既有独立复核覆盖 38 个自有声明与 16,161 个依赖，包含真实概率表的独立语义核对；本次核对源码和复核记录，并下载核验两个不可变 Release 的 13 个附件，未重新执行 Lean 重放。量子对角嵌入与必要主导系数至少 2 仍为书面证明。
-
-[形式化标准](formalizations/MAJOR_RESULT_VERIFICATION_PLAN.md) · [验证记录](verification/) · [分类研究目录](RESEARCH.md) · [五篇整合稿](manuscripts/README.md)
-
-各项目使用自己的固定源码、工具链和复现命令。有限计算与一般证明的作用分别说明；条件结论明确列出未证明假设。
+“完整 Lean”只适用于项目明确列出的具体定理；有限证书或成功构建不自动覆盖整篇论文。公开预印本的数学范围和未解决部分以各自 README 为准。
 
 ## 引用、版本与许可
 
