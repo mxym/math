@@ -10,7 +10,8 @@ lean = root / ".." / ".." / ".." / "home" / "agent" / ".elan" / "toolchains" / "
 # In normal use Lake supplies the toolchain; this fallback keeps the check
 # useful when LEAN_BIN is explicitly provided.
 import os
-lake = os.environ.get("LAKE_BIN") or shutil.which("lake") or "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake"
+workspace_lake = "/workspace/tools/elan/bin/lake"
+lake = os.environ.get("LAKE_BIN") or (workspace_lake if Path(workspace_lake).exists() else None) or shutil.which("lake") or "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake"
 sources = ["""
 import ErdosSimilarityGrowingGaps.VariableTree
 open GrowingGap
