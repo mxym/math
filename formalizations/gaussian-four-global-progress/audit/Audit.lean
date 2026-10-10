@@ -540,3 +540,10 @@ import GaussianFour
 #print axioms GaussianFour.priceObjective_hasFDerivAt_mass_gradient
 #print axioms GaussianFour.priceGradient_hasFDerivAt_flux
 #print axioms GaussianFour.actual_simplicial_price_hessian
+#print axioms GaussianFour.centeredPriceSubspace
+#print axioms GaussianFour.centered_constant_prices_eq_zero
+#print axioms GaussianFour.sum_facetLaplacian_mulVec
+#print axioms GaussianFour.facetLaplacian_centered_positive
+#print axioms GaussianFour.centeredPriceHessianMap
+#print axioms GaussianFour.centeredPriceHessianMap_bijective
+#print axioms GaussianFour.actual_simplicial_price_hessian_nondegenerate

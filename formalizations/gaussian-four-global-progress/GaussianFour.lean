@@ -1,3 +1,4 @@
+import GaussianFour.CenteredPriceHessian
 import GaussianFour.PriceHessian
 import GaussianFour.PriceFrechetIntegral
 import GaussianFour.PriceSecondVariation
@@ -23,3 +24,4 @@ import GaussianFour.CollinearTransport
 
 /-! Partial formalization only. This module does not prove the global
 four-cell energy bound or its complete equality classification. -/
+

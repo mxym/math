@@ -220,6 +220,7 @@ def main() -> int:
             ("GaussianFour.RegularizedResidual", "ε * (L * Q).trace ^ 2 := by", "0 * (L * Q).trace ^ 2 := by"),
             ("GaussianFour.FixedCovarianceDifferential", "((facetLaplacian w*D).trace / 2) 0 := by", "((facetLaplacian w*D).trace) 0 := by"),
             ("GaussianFour.PriceHessian", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = q j := by", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = -q j := by")]
+        controls += [("GaussianFour.CenteredPriceHessian", "0 < q ⬝ᵥ (facetLaplacian w *ᵥ q) := by", "q ⬝ᵥ (facetLaplacian w *ᵥ q) < 0 := by")]
         if len(controls) != len(set(controls)):
             raise RuntimeError("Duplicate negative-control mutations")
         report["negative_controls"] = []

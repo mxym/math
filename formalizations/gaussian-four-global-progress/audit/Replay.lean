@@ -566,7 +566,14 @@ run_cmd do
     ``GaussianFour.priceCovectorMap_apply,
     ``GaussianFour.priceObjective_hasFDerivAt_mass_gradient,
     ``GaussianFour.priceGradient_hasFDerivAt_flux,
-    ``GaussianFour.actual_simplicial_price_hessian]
+    ``GaussianFour.actual_simplicial_price_hessian,
+    ``GaussianFour.centeredPriceSubspace,
+    ``GaussianFour.centered_constant_prices_eq_zero,
+    ``GaussianFour.sum_facetLaplacian_mulVec,
+    ``GaussianFour.facetLaplacian_centered_positive,
+    ``GaussianFour.centeredPriceHessianMap,
+    ``GaussianFour.centeredPriceHessianMap_bijective,
+    ``GaussianFour.actual_simplicial_price_hessian_nondegenerate]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
