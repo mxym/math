@@ -47,3 +47,14 @@ The new checker separately tests the triangular degree bound, the exact complete
 A final primary-source search retrieved Tran's arXiv:2609.18568 abstract and the older arXiv:2510.19508 problem description. Their general spectral-purity context is acknowledged; the new proof is self-contained apart from standard spectral/Schmidt decomposition and compactness facts. The search is not an exhaustive historical-priority certification.
 
 Remaining substantive optimization targets: exact finite-dimensional maxima, higher-order terms, rigidity or classification of extremizers, effective quantitative convergence of the hierarchy, and the absolute-separability status of the new states. The leading APPT excess-purity asymptotic is now closed in the stated uniform sense. Work remained on mathematical notes and exact checks; no new preprint or Release was made.
+
+
+## Exact rectangular theorem: current continuation
+
+Started from live main 757f9b12 after inspecting current proofs, indexes and actual instructions. A separate worktree was used. The new target is exact finite-dimensional optimization, not publication or additional numerical examples.
+
+The full Schmidt-rank-m necessary inequality defines an outer polytope whose entire vertex set is optimized analytically in EXACT_RECTANGULAR.md. The exact outer maximum is the larger of a spurious single-spike value and the full-support two-level plateau value. The plateau wins strictly exactly when n>=m^3-m-2, including integer-rounding parity. In that range its physical APPT attainment closes the unrestricted maximum and all maximizing spectra. The cutoff is exact for this single-test method, not claimed minimal for APPT; the existing qutrit result has a smaller cutoff.
+
+This finite-dimensional argument is independent of the multiscale compactness lower bound. Exact ancillary checks enumerate 101,956 vertices in 70 sample dimension pairs, verify seven symbolic identities and 1,184 cutoff comparisons, and check six rational physical boundary orbits. Normal and assertion-disabled outputs match. These finite checks do not replace the analytic proof, and no Lean or independent CI verification is claimed.
+
+Primary abstract retrieval confirmed Ahiable--Kothakonda--Winter v2 and Tran v1. The known candidate spectrum is credited; no exhaustive priority certification or first prediction of that value is claimed. No preprint or Release was prepared.
