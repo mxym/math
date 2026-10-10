@@ -5,6 +5,8 @@ The matrix Bernstein inequality [T, Theorem 1.4] is the principal external proba
 
 ## 1. Statement, operation class, and relation to prior work
 
+All logarithms are natural; rates in bits are obtained by dividing by $\log2$.
+
 Let $2\le m\le n$ be fixed integers and let $\rho$ be any density matrix on $\mathbb C^m\otimes\mathbb C^n$. Write $p=(p_1,\ldots,p_{mn})$ for its eigenvalues, allowing zeros. For $k\ge1$, put
 \[
  F_k(\rho)=\max_{U\in\mathcal U((mn)^k)}
