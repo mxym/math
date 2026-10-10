@@ -232,7 +232,23 @@ run_cmd do
     ``GaussianFour.collinear_winning_preimage,
     ``GaussianFour.collinear_winning_mass,
     ``GaussianFour.collinear_winning_moment,
-    ``GaussianFour.no_ordered_collinear_selfMoment_spectral_bound]
+    ``GaussianFour.no_ordered_collinear_selfMoment_spectral_bound,
+    ``GaussianFour.injective_scores_of_positive_winning_masses,
+    ``GaussianFour.winning_mass_le_pair_tail,
+    ``GaussianFour.balanced_four_price_difference_bound,
+    ``GaussianFour.centered_balanced_four_price_coordinate_bound,
+    ``GaussianFour.centered_balanced_four_price_norm_bound,
+    ``GaussianFour.centered_balanced_four_prices_tendsto_subseq,
+    ``GaussianFour.trace_psd_mul_nonneg,
+    ``GaussianFour.trace_psd_mul_zero_iff,
+    ``GaussianFour.IsTraceOneUpperNormal,
+    ``GaussianFour.upperNormal_quadratic_bound,
+    ``GaussianFour.upperNormal_slack_posSemidef,
+    ``GaussianFour.upperNormal_iff_slack_and_product,
+    ``GaussianFour.upperNormal_iff_exists_multiplier,
+    ``GaussianFour.regularized_residual_trace_identity,
+    ``GaussianFour.three_dimensional_slack_trace_bound,
+    ``GaussianFour.upperNormal_regularized_residual_bound]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

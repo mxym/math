@@ -5,6 +5,18 @@ The bound `12 * (arctan (sqrt 2))^2 / pi^3` and its complete equality
 classification have not been proved by this package. There is no conditional
 wrapper presented as that theorem and no axiom for a geometric input.
 
+## Additional core proof modules
+
+`PriceBounds.lean` proves the exact Gaussian pair-price bound from actual
+winning-cell masses. `PriceCompactness.lean` proves a normalized-price bound
+and a convergent subsequence theorem. `TraceSupport.lean`, `NormalCone.lean`,
+and `RegularizedResidual.lean` prove the all-matrix upper-normal equivalence,
+complementary slackness, and the intrinsic three-dimensional residual bound.
+
+See [CORE_PROGRESS.md](CORE_PROGRESS.md) for exact statements, dependency
+graphs, and the still-missing link to the actual Gaussian covariance gradient.
+None is presented as a replacement for the global partition theorem.
+
 ## New proved analytic chain
 
 `GaussianFour/Profile.lean` constructs the actual upper Gaussian quartile
@@ -59,6 +71,11 @@ or shadowed. No research-branch theorem is silently imported.
 
 ## Verification and reproduction
 
+The new core modules have passed individual compilation and a fresh Lake
+build. At this source checkpoint, the retained `kernel-r2` evidence covers
+the earlier 26-module/206-root closure only. A separate current source-bound
+replay receipt is required before treating the expanded closure as replayed.
+
 Toolchain: Lean 4.34.1, commit
 `5045d0056413266e57c625dcd7c365b10e377c52`.
 Mathlib: `d13f23b723b8a846827a245b89c10fc7d3f11612`.
@@ -74,18 +91,20 @@ python3 reproduce.py --output-dir /tmp/gaussian-four-independent-check
 The output directory must not exist. The script constructs a clean Lake
 source tree with no owned objects, runs `lake build`, then separately
 recompiles every module into a second clean object directory. It checks
-source hashes before and after, audits 206 declared roots, and replays
-53,415 declarations into `mkEmptyEnvironment 0`, checking original and
+source hashes before and after, audits 222 declared roots, and replays
+the entire used declaration closure into `mkEmptyEnvironment 0`, checking original and
 replayed root types and universes. The only axioms are `propext`,
 `Classical.choice`, and `Quot.sound`. The recursive collection routine is
 verification metaprogramming, not an assumption of a mathematical theorem.
 
-Three source mutations must be rejected: a false quartile upper bound of
+Six source mutations must be rejected, including: a false quartile upper bound of
 zero, the wrong sign of the left quartile boundary, and the wrong sign of
 the first interval's moment. These are actual failed Lean compilations,
-not a Python comparison of expected answers.
+not a Python comparison of expected answers. The new controls also set the
+price bound to zero, reverse the upper-normal sign, and incorrectly set the
+regularized residual bound to zero.
 
-`MODULES.json` gives the 26-module build order; `ROOTS.txt` lists all 206
+`MODULES.json` gives the 31-module build order; `ROOTS.txt` lists all 222
 audit roots; `SOURCE_BLOBS.json` binds the reproduction inputs. Literal logs,
 SHA-256 source/object hashes, dependency checks, negative-control output,
 and the closure list are retained under `evidence/kernel-r2/`. The closure

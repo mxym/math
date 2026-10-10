@@ -8,9 +8,9 @@ On H={z in R^4: sum z_i=0}, let C be the PSD trace-one symmetric operators. Cons
 
 ## Singular convergence and normal cones
 
-Prove the quantitative balanced price bound (10) and convergence of moving-hyperplane Gaussian facet integrals. Proven moment separation and triple-tie exclusion do not alone imply facet-integral convergence.
+The exact balanced price bound (10), the centered-price norm bound, and subsequential price compactness are now proved in `PriceBounds` and `PriceCompactness`. Convergence of moving-hyperplane Gaussian facet integrals remains unproved. Proven moment separation and triple-tie exclusion do not alone imply facet-integral convergence.
 
-For Q in C and symmetric A on H, prove A in N_C^+(Q) iff there exists lambda with A<=lambda I_H and AQ=lambda Q, where membership means tr(A(Y-Q))<=0 for all Y in C. Derive self-moment rescalings and their spectral inequality from actual covariance derivatives and limiting residuals.
+The upper-normal equivalence for arbitrary finite real PSD trace-one matrices, including the sign tr(A(Y-Q))<=0 and full off-diagonal complementarity, is now proved in `NormalCone`. The exact intrinsic three-dimensional regularization residual identity and bound are proved in `RegularizedResidual`. Still required: construct and identify the actual Gaussian covariance derivative on H, transport the centered four-score formulation to these intrinsic matrices, and derive the self-moment rescaling from that analytic construction. An arbitrary matrix satisfying the proved hypotheses is not itself a constructed Gaussian critical point.
 
 ## Exact rank-one scope
 

@@ -16,13 +16,13 @@ misrepresented as already imported by this package or as freshly reverified.
 | Lemma 2: actual covariance law, continuity, scaling | Research branch `GaussianCovarianceValue`, `GaussianCovarianceContinuity` | Reviewed types cover singular PSD matrices and changes of ambient dimension. Not newly proved here. |
 | Lemma 3: flux and covariance derivative | Research branch `GaussianAllCellsFlux`, `GaussianCovarianceDifferential`, `GaussianFacetLaplacian` and dependencies | Need exact integration into the four-cell positive cone; smoothness of higher derivatives/local Hessian is separate. |
 | Lemma 4: uniform separation | `GaussianFour.ScalarTent`, `SeparatedMoments`, `WinningSeparation` | Prove actual Gaussian two-label separation with original constant, not a sampled or assumed density model. |
-| Equation (10): price bound | Positive-mass halfspace constraints available | Exact Gaussian quantile price-difference bound still required for this route. |
+| Equation (10): price bound | `PriceBounds.balanced_four_price_difference_bound` (namespace `GaussianFour`); `PriceCompactness` | Exact quantile bound and centered-price subsequence now proved from actual winning masses; facet-integral convergence is separate. |
 | Lemma 5: boundary convergence | Research branch `GaussianWinningContinuity.continuousAt_rawWinningMoment` | Moment continuity alone does not prove facet-area continuity. Triple-tie exclusion and moving-hyperplane integral limit remain. |
 | Lemma 6: singular self-moment obstruction | Research branch three-score width and three-cell bound; main scalar algebra diagnostics | Rank-two affine dependence/hull cases, single-cell isoperimetry with actual perimeter, and the covariance-to-facet bridge remain. The quantile margin and ordered collinear facet computation are now proved in `Profile`, `RankOne`, and `CollinearTransport`. A three-cell equal-mass endpoint alone is insufficient for merged cells. |
 | Lemma 7: tetrahedral value and strict local maximum | Research branch regular-simplex attainment in terms of `simplexConstant` | Exact arctangent evaluation and actual second variation yielding formula (16) remain. |
 | Lemma 8: full-rank critical lower bound | Research branch covariance/perimeter algebra and conditional comparison | Four-cell Gaussian perimeter minimum is NOT proved merely by this reduction. |
 | Lemma 9: constrained mountain pass | No matching completed module found in the research source inventory | Actual compact-convex deformation with upper-normal sign; no postulated ODE or deformation map. |
-| Theorem 10: covariance global maximum | Scalar residual diagnostics in old four-cell package | Matrix normal-cone/top-eigenspace equivalence, residual estimate, subsequence compactness, boundary exclusions, and global contradiction must be assembled. |
+| Theorem 10: covariance global maximum | Scalar residual diagnostics in old four-cell package | The all-matrix normal-cone equivalence and intrinsic three-dimensional residual bound are now proved in `NormalCone` and `RegularizedResidual`. Their connection to the actual Gaussian covariance derivative, centered-coordinate transport, boundary exclusions, and global contradiction remain. |
 | Theorem 1: all measurable/fractional partitions | Main price dual; research branch moment covariance/equality transport | Still depends on the unproved sharp covariance comparison; cannot export a conditional wrapper as the target theorem. |
 | Complete equality classification | Research branch Gram isometry and fractional winning-label equality | Must prove the sharp equality covariance and exact tetrahedral constant, then AE/orthogonal/relabeling/cylindrical equivalence without extra geometric assumptions. |
 
@@ -49,3 +49,10 @@ actual partition inequality and all equality directions are unconditional.
 ## Current additions
 
 The new analytic chain is `Profile -> QuartileIntervals -> OrderedWinning -> RankOne -> CollinearTransport`. All use actual Gaussian measures and moments. See `PROOF.md` and `GAPS.md` for exact scope and remaining statements. All 26 modules and 206 declared audit roots are included in fresh compilation and trust-zero replay.
+
+## Current core extension
+
+See `CORE_PROGRESS.md` for exact new types and a dependency graph. This checked
+extension includes 31 modules and 222 explicit audit roots. Compilation and
+replay receipts must be read from the source-hash-bound verification report,
+not inferred from this inventory or from historical logs.

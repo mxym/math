@@ -104,7 +104,7 @@ def main() -> int:
     output = args.output_dir.resolve()
     output.mkdir(parents=True, exist_ok=False)
     report = {"status": "RUNNING", "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: separation, actual quartile profile, ordered collinear spectral obstruction; NOT the global sharp theorem"}
+              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: separation, quartile profile, collinear obstruction, actual price compactness, upper normal cones and regularization residuals; NOT the global sharp theorem"}
     try:
         before = source_snapshot()
         report["source_sha256"] = before
@@ -212,6 +212,10 @@ def main() -> int:
             ("GaussianFour.Profile", "quarterQuantile < 7 / 10 := by", "quarterQuantile < 0 := by"),
             ("GaussianFour.QuartileIntervals", "a = -quarterQuantile ∧ b = 0 ∧ c = quarterQuantile", "a = quarterQuantile ∧ b = 0 ∧ c = quarterQuantile"),
             ("GaussianFour.QuartileIntervals", "![-quarterDensity, quarterDensity - standardDensity 0,", "![quarterDensity, quarterDensity - standardDensity 0,")]
+        controls += [
+            ("GaussianFour.PriceBounds", "|b i - b j| ≤ quarterQuantile * ‖v i - v j‖", "|b i - b j| ≤ 0 * ‖v i - v j‖"),
+            ("GaussianFour.NormalCone", "(A * (Y - Q)).trace ≤ 0", "(A * (Y - Q)).trace ≥ 0"),
+            ("GaussianFour.RegularizedResidual", "ε * (L * Q).trace ^ 2 := by", "0 * (L * Q).trace ^ 2 := by")]
         report["negative_controls"] = []
         for index, (module, old, new) in enumerate(controls, 1):
             text = (ROOT / MODULES[module]).read_text()

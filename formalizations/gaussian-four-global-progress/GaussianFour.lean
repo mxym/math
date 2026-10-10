@@ -1,3 +1,8 @@
+import GaussianFour.RegularizedResidual
+import GaussianFour.NormalCone
+import GaussianFour.TraceSupport
+import GaussianFour.PriceCompactness
+import GaussianFour.PriceBounds
 import GaussianPrimalDual
 import GaussianFractionalEquality
 import GaussianFour.ScalarTent
