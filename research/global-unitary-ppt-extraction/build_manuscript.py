@@ -52,7 +52,7 @@ def main():
     source=(ROOT/'PROOF.md').read_text()
     body=source[source.index('## 1.'):]
     result=subprocess.run(['pandoc','--from','markdown+tex_math_dollars+tex_math_single_backslash','--to','latex','--wrap=none'],input=body,text=True,capture_output=True,check=True,timeout=60)
-    rendered=result.stdout.replace(r'\subsection{References and attribution}',r'\clearpage\subsection{References and attribution}').replace(r'\section{References and attribution}',r'\clearpage\section{References and attribution}')
+    rendered=result.stdout
     tex=HEADER+'\n'+rendered+'\n'+FOOTER
     (ROOT/'main.tex').write_text(tex)
     if args.tex_only:return
