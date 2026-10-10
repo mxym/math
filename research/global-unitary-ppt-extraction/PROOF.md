@@ -1,6 +1,6 @@
-# Global-unitary entanglement extraction: capacity and the exact PPT fidelity exponent
+# Global-unitary entanglement extraction: capacity and exact strong-converse exponents
 
-**Written analytic proof, not Lean-formalized or externally peer reviewed.** All logarithms are natural. The principal external concentration theorem is Tropp's matrix Bernstein inequality [T, Theorem 1.4]. The semidefinite characterization used below is due to Rains [R]; we include its elementary proof for the precise operation class needed here. The spectral-projection construction develops the preceding negativity-rate argument [Z], and is also proved here rather than treated as an assumed bridge.
+**Written analytic proof, not Lean-formalized or externally peer reviewed.** All logarithms are natural. The semidefinite characterization used below is due to Rains [R]; we include its elementary proof for the precise operation class needed here. A deterministic local subspace-packing construction supplies the matching bound for all three operation classes. Unlike the preceding negativity-rate argument [Z], this proof needs no matrix concentration theorem or random projector.
 
 ## 1. Task and results
 
@@ -29,10 +29,10 @@ For a rate $R\ge0$ use $K_k=\lceil e^{kR}\rceil$, with $K_k=1$ when $R=0$. Write
 \]
 Capacity means the supremum of rates for which the fidelity in (2) tends to one. Every $R<C$ is achievable by a single global unitary followed by local product channels; classical communication is unnecessary. For every $R>C$, even cPPT fidelity tends to zero exponentially. No assertion that fidelity tends to one at $R=C$ is needed.
 
-**Theorem 2 (exact cPPT fidelity exponent).** For every $R\ge0$, the following limit exists:
+**Theorem 2 (exact common fidelity exponent).** For every $R\ge0$ and each $\mathcal C\in\{\mathrm{LO},\mathrm{LOCC},\mathrm{cPPT}\}$, the following limit exists, with the same value for all three classes:
 \[
  \boxed{\begin{aligned}
- \mathcal E(R)&=\lim_{k\to\infty}-\frac1k\log f_k^{\mathrm{cPPT}}(K_k)\\
+ \mathcal E(R)&=\lim_{k\to\infty}-\frac1k\log f_k^{\mathcal C}(K_k)\\
  &=(R-A)_++\max_{1\le\alpha\le2}
  \frac{\alpha-1}{\alpha}\bigl(S_\alpha(p)-c_R\bigr),\\
  c_R&=L-2\min\{R,A\}.
@@ -45,7 +45,7 @@ The maximand at $\alpha=1$ is defined to be zero. For $0\le R\le A$ this is
  \frac{\alpha-1}{\alpha}\bigl(2R-\log(mn)+S_\alpha(p)\bigr).
  \tag{5}
 \]
-It is zero for $R\le C$ and strictly positive for $R>C$. The exact exponent in (4) is for cPPT; the same expression is a converse bound, not a claimed matching exponent, for LO or LOCC.
+It is zero for $R\le C$ and strictly positive for $R>C$. The converse holds for the largest class cPPT, while deterministic local product channels after the global unitary attain the exponent. Thus (4) is exact even for LO; classical communication or nonlocal cPPT postprocessing gives no improvement at the exponential scale.
 
 Define the preceding logarithmic-negativity rate [Z] by
 \[
@@ -60,7 +60,7 @@ An equivalent high-rate consequence is
 \]
 The equality in (7) is established below without assuming that logarithmic negativity is an achievable LOCC yield.
 
-**Relation to a recent converse.** Lami's quadratic converse [L, Corollary 13 and equations (100)--(102)] already implies the entropy-deficit upper bound for fixed-state cPPT distillation: choosing the auxiliary state $\tau=I/N$ makes the quadratic form $N^{-1}\mathrm{id}$ and its logarithmic potential is $\tfrac12\operatorname{Tr}(\rho\log(N\rho))=\tfrac12(\log N-H(\rho))$, with the same logarithm convention. We do not claim this converse principle as new. Below we derive the finite-block inequalities directly from the Rains constraints, uniformly over the varying collective unitaries, and match them by local capacity achievability and an exact all-rate cPPT fidelity exponent. The cited fixed-input distillation problem has no free global-unitary preprocessing and is not claimed to be solved here.
+**Relation to a recent converse.** Lami's quadratic converse [L, Corollary 13 and equations (100)--(102)] already implies the entropy-deficit upper bound for fixed-state cPPT distillation: choosing the auxiliary state $\tau=I/N$ makes the quadratic form $N^{-1}\mathrm{id}$ and its logarithmic potential is $\tfrac12\operatorname{Tr}(\rho\log(N\rho))=\tfrac12(\log N-H(\rho))$, with the same logarithm convention. We do not claim this converse principle as new. Below we derive the finite-block inequalities directly from the Rains constraints, uniformly over the varying collective unitaries, and match them by local achievability of the capacity and the exact all-rate fidelity exponent. The cited fixed-input distillation problem has no free global-unitary preprocessing and is not claimed to be solved here.
 
 These are spectrum-optimized extraction statements. The initial global unitary is an entangling resource, so (3) is **not** a formula for the ordinary distillable entanglement of the unrotated state. No claim is made about the exact finite-copy APPT purity conjecture, APPT=AS, or an efficient circuit implementation.
 
@@ -92,7 +92,7 @@ Both coefficient effects are positive by (8), so this map is completely positive
  =\max_{U,M\text{ satisfying }(8)}\operatorname{Tr}(U\operatorname{diag}(\lambda)U^*M).
  \tag{11}
 \]
-The channel in (9) is not in general LOCC. We will not substitute it for the local achievability construction in Section 6.
+The channel in (9) is not in general LOCC. It is not used for achievability: Section 3 constructs deterministic local product channels instead. Its role here is to establish the exact cPPT optimization and to make the converse operation class unambiguous.
 
 ## 3. Converse inequalities and a one-shot spectral envelope
 
@@ -134,58 +134,58 @@ The following matching estimate will supply exact asymptotic exponents.
 
 **Lemma 3 (one-shot approximation).** For every input spectrum, every $2\le a\le b$, and every integer $K\ge2$,
 \[
- \frac{T_K}{12\log(8N)}\le f_{a,b}^{\mathrm{cPPT}}(\lambda,K)\le H_NT_K.
+ \frac{T_K}{4}\le f_{a,b}^{\mathrm{LO}}(\lambda,K)\le f_{a,b}^{\mathrm{LOCC}}(\lambda,K)\le f_{a,b}^{\mathrm{cPPT}}(\lambda,K)\le H_NT_K.
  \tag{17}
 \]
-The lower bound may restrict the output eigenbasis of the global unitary to a fixed blockwise Bell basis, with only its eigenvalue assignment varying. It is not an assertion that the subsequent cPPT channel is local.
+The lower bound is achieved by an explicit global change of eigenbasis followed by local product channels. The Bell-block size is chosen from the target dimension and a spectral-prefix rank; it need not be the full smaller input dimension. The remaining factor $H_N$ is subexponential in tensor-power dimension. In particular cPPT can improve the one-shot optimum over LO by at most a factor $4H_N$ after this global preprocessing.
 
-### 3.1 Projection construction
+### 3.1 Deterministic packing at a variable Bell dimension
 
-We give the construction from [Z] explicitly. Put $J=\lfloor b/a\rfloor$, $N_0=a^2J$, so $N/2\le N_0\le N$. Partition the first $aJ$ second-party coordinates into blocks of size $a$. On each $a\times a$ block use the generalized Bell basis
+Fix a prefix rank $1\le r\le N$ and put
 \[
- \phi_{juv}=\frac1{\sqrt a}\sum_{t=0}^{a-1}e^{2\pi iut/a}
- |t\rangle\,|ja+(t+v\bmod a)\rangle
- \quad(0\le j<J,\ 0\le u,v<a).
+ w=\min\{a,K,\sqrt{N/r}\},\qquad
+ d=\max\{1,\lfloor w/2\rfloor\},\qquad
+ u=\lfloor a/d\rfloor,\quad v=\lfloor b/d\rfloor.
  \tag{18}
 \]
-Orthogonality follows from the geometric sum of phases. If $P_i=\phi_i\phi_i^*$, $W_i=P_i^\Gamma$, and $I_0$ is the projection onto these blocks, then
+These integers satisfy
 \[
- \|W_i\|_\infty=1/a,\quad W_i^2=I_j/a^2,
- \quad \sum_i W_i=I_0,\quad \sum_iW_i^2=I_0.
+ 1\le d\le\min(a,K),\qquad uv\ge r,\qquad d\ge w/4.
  \tag{19}
 \]
-Here $I_j$ is the product-block identity containing $P_i$. The first two identities follow by local-unitary conjugation from the swap divided by $a$; each block has $a^2$ Bell vectors. The third uses $I_0^\Gamma=I_0$. This is valid for composite $a$ and does not require $a$ to divide $b$.
+If $w<2$, take $d=1$ and $uv=N\ge r$. Otherwise $d\le w/2$ and $d\ge w/4$, since $\lfloor x\rfloor\ge x/2$ for $x\ge1$. Also $a/d,b/d\ge1$, so
+$uv\ge N/(4d^2)\ge N/w^2\ge r$. Thus (19) holds without divisibility assumptions.
 
-For an integer $1\le r\le N_0/8$, select each $P_i$ independently with probability $p_0=4r/N_0\le1/2$. Their sum $P$ is a projection. Its rank has mean $4r$ and variance at most $4r$, whence Chebyshev gives
-$\Pr\{\operatorname{rank}P<r\}\le4/(9r)\le4/9$.
-The centered matrices $X_i=(\xi_i-p_0)W_i$ have norm at most $1/a$ and variance sum $p_0(1-p_0)I_0$. Apply the two-sided form of [T, Theorem 1.4] on the $N_0$-dimensional range:
+Identify good local coordinate subspaces with $\mathbb C^d\otimes\mathbb C^u$ and $\mathbb C^d\otimes\mathbb C^v$. There are $uv$ orthonormal vectors
 \[
- \Pr\{\|P^\Gamma-p_0I_0\|_\infty\ge t\}
- \le2N_0\exp\left(-\frac{t^2}{2(p_0+t/(3a))}\right).
+ \psi_{jl}=d^{-1/2}\sum_{x=0}^{d-1}|x,j\rangle_A|x,l\rangle_B,
+ \qquad 1\le j\le u,\ 1\le l\le v.
  \tag{20}
 \]
-Let $\ell=\log(8N_0)>1$ and $t=2\sqrt{p_0\ell}+2\ell/a$. For $x=\sqrt{p_0\ell}$ and $y=\ell/a$,
+Assign the largest $r$ eigenvalues to any $r$ of these vectors, and complete both input and output orthonormal bases to obtain a global unitary. The spectrum is unchanged. The unused good vectors and all other output eigenvectors receive the remaining eigenvalues in any order.
+
+### 3.2 Local channel and fidelity
+
+Alice's output has dimension $K\ge d$. Her local Kraus operators are
 \[
- t^2-2\ell(p_0+t/(3a))=2x^2+\frac{20}3xy+\frac83y^2\ge0.
+ A_j=\sum_{x=0}^{d-1}|x\rangle\langle x,j|\quad(1\le j\le u),
+ \qquad A_z=|0\rangle\langle z|\quad\text{for every unused input coordinate }z.
  \tag{21}
 \]
-The probability in (20) is at most $1/4$. Since $4/9+1/4<1$, some projection simultaneously has rank at least $r$ and
+The Kraus adjoint products sum to $I_a$. Bob uses the corresponding operators, whose adjoint products sum to $I_b$. Hence these are deterministic local channels, with no postselection or classical communication. Each selected projector $\psi_{jl}\psi_{jl}^*$ maps to the same embedded maximally entangled projector of dimension $d$ inside the $K\times K$ output. Its overlap with $\Phi_K$ is $d/K$: the overlap of the normalized vectors is $\sqrt{d/K}$.
+
+The other input eigenprojectors are mapped to positive states and therefore contribute nonnegatively to the target overlap. It follows that
 \[
- \|P^\Gamma\|_\infty\le p_0+t
- \le12\log(8N)\max\{1/a,\sqrt{r/N}\}.
+ f_{a,b}^{\mathrm{LO}}(\lambda,K)\ge(d/K)L_r.
  \tag{22}
 \]
-For the last estimate use $p_0\le\sqrt{p_0}$, $\sqrt\ell\le\ell$, $N_0\ge N/2$, and $6\sqrt2+2<12$.
-
-### 3.2 Feasible channel and spectral prefix
-
-For $P$ as above, put $c=\|P^\Gamma\|_\infty>0$, $t_0=\min\{1,(Kc)^{-1}\}$, and $M=t_0P$. This effect satisfies (8). Place the largest $\operatorname{rank}P$ eigenvalues of the input on its range, assigning eigenvectors to the selected Bell vectors. Equation (9) then gives fidelity at least $t_0L_r$. Set $C_N=12\log(8N)>1$. From (22),
+Finally, by (19),
 \[
- t_0\ge\min\left\{1,\frac{\min(a,\sqrt{N/r})}{KC_N}\right\}
- \ge C_N^{-1}v_r.
+ \frac dK\ge\frac{w}{4K}=\frac14\min\{1,a/K,\sqrt{N/r}/K\}
+ =\frac{v_r}{4}.
  \tag{23}
 \]
-For $r>N_0/8$, $v_rL_r<4/K$. A constant product-output channel is LO and has fidelity $1/K$, which already dominates $C_N^{-1}v_rL_r$. This also covers small dimensions with no integer in the first range. Maximizing over $r$ proves (17). The basis used for the unitary can be completed with product vectors on unused coordinates; no spectrum is changed or system discarded before the subsequent channel.
+Maximizing over $r$ and combining with (16) proves (17). The same reasoning works at $d=1$: every branch outputs the product vector $|0,0\rangle$, of fidelity $1/K$. There is no probabilistic existence argument or unproved projector lemma.
 
 ## 4. Tensor powers and the exact variational exponent
 
@@ -197,16 +197,15 @@ Let $s$ be the number of positive eigenvalues, and let $q$ range over probabilit
 For completeness the probability of that type under law $q$ is $r_q e^{-kH(q)}$. It is at most one and is a mode. To check the latter, the likelihood ratio of any competing counts $h_i$ equals
 $\prod_i[(kq_i)!/h_i!](kq_i)^{h_i-kq_i}$ after cancellation of the powers of $k$. Each factor is at most one by comparing its factorial factors with $kq_i$; a competing positive count at a zero coordinate has probability zero. There are at most $(k+1)^s$ types, proving (24).
 
-The mass of type $q$ under $p^{\otimes k}$ is at least $(k+1)^{-s}e^{-kD(q\|p)}$. The largest $r_q$ eigenvalues have at least this mass. Applying (17) in dimensions $a=m^k,b=n^k$ gives, up to factors whose logarithms are $o(k)$,
+The mass of type $q$ under $p^{\otimes k}$ is at least $(k+1)^{-s}e^{-kD(q\|p)}$. The largest $r_q$ eigenvalues have at least this mass. Applying (17) in dimensions $a=m^k,b=n^k$ gives the explicit bound
 \[
- f_k^{\mathrm{cPPT}}(K_k) \ge
- \exp\{-k\,[D(q\|p)+\max\{0,R-A,R-L/2+H(q)/2\}]\}.
+ f_k^{\mathrm{LO}}(K_k) \ge
+ \frac{\exp\{-k\,[D(q\|p)+\max\{0,R-A,R-L/2+H(q)/2\}]\}}{8(k+1)^s}.
  \tag{25}
 \]
-More explicitly one may divide the right side by
-$24\log(8(mn)^k)(k+1)^s$: $e^{kR}\le K_k\le2e^{kR}$, and (24) gives the stated weight bound. Approximate an arbitrary $q$ by types of denominator $k$; entropy and relative entropy are continuous on the positive support. Therefore
+The factor 8 combines the factor 4 in (17) with $e^{kR}\le K_k\le2e^{kR}$; (24) gives the type-size and mass bounds. Approximate an arbitrary $q$ by types of denominator $k$; entropy and relative entropy are continuous on the positive support. Therefore
 \[
- \limsup_k-\frac1k\log f_k^{\mathrm{cPPT}}(K_k)
+ \limsup_k-\frac1k\log f_k^{\mathrm{LO}}(K_k)
  \le \min_q\left[D(q\|p)+\max\{0,R-A,R-L/2+H(q)/2\}\right].
  \tag{26}
 \]
@@ -249,7 +248,7 @@ Substituting $H(q_{\alpha_*})=c$ yields
  D(q_{\alpha_*}\|p)=J_c(\alpha_*).
  \tag{31}
 \]
-The boundary cases agree. Thus the lower construction (26) matches the converse (28), proving (4) and existence of the limit. In particular we have the fully proved identity
+The boundary cases agree. Thus the LO lower construction (26) matches the cPPT converse (28). Since $f_k^{\mathrm{LO}}\le f_k^{\mathrm{LOCC}}\le f_k^{\mathrm{cPPT}}$ at every blocklength, the same limit exists for all three classes, proving (4). In particular we have the fully proved identity
 \[
  \min_q\{D(q\|p)+\tfrac12(H(q)-c)_+\}
  =\max_{1\le\alpha\le2}J_c(\alpha)\quad(c\ge0).
@@ -261,24 +260,21 @@ Here $c_R\ge B-A\ge0$. No unproved exchange of extrema, finite grid, or optimize
 
 For $R\le A$, (29) shows that $\mathcal E(R)=0$ precisely when $L-2R\ge H(p)$. If this inequality fails, $J_c'(1)>0$, so some $\alpha>1$ gives a strictly positive exponent. For $R>A$, $d>0$ and the maximum in (4) is nonnegative. It follows that every rate above (3) has exponentially vanishing cPPT fidelity, and hence exponentially vanishing LOCC fidelity as well.
 
-This proof of the converse uses the complete-PPT order constraints, not an assumed Shannon formula for mixed-state entanglement. A weaker bound derived only by testing a maximally mixed separable input would control $\operatorname{Tr}M$ by $N/K$, which would lose the factor of two and would not prove (3).
+This proof of the converse uses the complete-PPT order constraints, not an assumed Shannon formula for ordinary mixed-state entanglement. A weaker bound derived only by testing a maximally mixed separable input would control $\operatorname{Tr}M$ by $N/K$, which would lose the factor of two and would not prove (3).
 
 ## 6. Achievability by local extraction after the global unitary
 
-For finite dimensions and $1\le K\le a$, put $u=\lfloor a/K\rfloor$, $v=\lfloor b/K\rfloor$, and $r=uv$. Identify good local coordinate subspaces with $\mathbb C^K\otimes\mathbb C^u$ and $\mathbb C^K\otimes\mathbb C^v$. The vectors
+The packing construction in Section 3 can be used with $d=K$ rather than the constant-factor choice in (18), whenever $1\le K\le a$. In that case it supplies
 \[
- \psi_{jl}=K^{-1/2}\sum_{x=0}^{K-1}|x,j\rangle_A|x,l\rangle_B
- \quad(1\le j\le u,\ 1\le l\le v)
+ r=\lfloor a/K\rfloor\lfloor b/K\rfloor
  \tag{33}
 \]
-are orthonormal. A global unitary puts the largest $r$ eigenvalues on these vectors, and completes an orthonormal basis for the other eigenvalues.
-
-Alice's local channel has Kraus operators $A_j=\sum_x|x\rangle\langle x,j|$ on the good subspace, together with $|0\rangle\langle z|$ for each unused coordinate $z$; Bob uses the analogous channel. Their Kraus adjoint products sum to the respective identities, so both channels are trace preserving. Each projector $\psi_{jl}\psi_{jl}^*$ is mapped exactly to $\Phi_K$. Contributions from the remaining input eigenvectors are positive, so
+exactly extractable good eigenvectors, with the same complete local Kraus maps. Since the target overlap of each good output is now one, (22) strengthens to
 \[
  f_{a,b}^{\mathrm{LO}}(\lambda,K)\ge L_{\lfloor a/K\rfloor\lfloor b/K\rfloor}.
  \tag{34}
 \]
-There is no postselection, division by a success probability, or hidden availability of pure ancillas before $U$. The unused coordinates are treated by deterministic local channels.
+The unused coordinates are still included in the trace-preserving local channels. No postselected branch or renormalized success probability is used.
 
 Fix $0<R<C$. Then $R<A\le B$, and
 \[
@@ -328,9 +324,9 @@ The positivity also follows from $H(p)>H(q_{3/2})$ and (29). It is not legitimat
 
 ### 7.4 What is and is not resolved
 
-The fixed-dimension, arbitrary-spectrum capacity and the entire cPPT fidelity exponent are resolved for the stated two-stage operation class. The exact ordinary LOCC strong-converse exponent, the below-capacity optimal error exponent, standard distillation without global preprocessing, finite-copy APPT purity, and APPT=AS are different questions and are not claimed here. In particular the word PPT always means the explicitly defined **complete** partial-transpose-conjugation condition when applied to channels in the theorem.
+The fixed-dimension, arbitrary-spectrum capacity and the entire fidelity exponent are resolved for all three stated two-stage operation classes. The below-capacity optimal error exponent, standard fixed-input LOCC or PPT distillation without global preprocessing, finite-copy APPT purity, and APPT=AS are different questions and are not claimed here. In particular the word PPT always means the explicitly defined **complete** partial-transpose-conjugation condition when applied to channels in the theorem.
 
-The proof supplies a finite one-shot approximation (17), a local capacity construction, and a matching exponent argument, not merely numerical evidence. It does not supply polynomial-size global circuits or a search algorithm for the Bell permutation. The old immutable qutrit and negativity publications are not modified.
+The proof supplies a finite one-shot approximation (17), a deterministic local extraction construction, and a matching exponent argument, not merely numerical evidence. Given an input eigenbasis, it selects a spectral-prefix rank and a Bell-block dimension explicitly; it does not assert polynomial-size global circuits as a function of the number of copies. The old immutable qutrit and negativity publications are not modified.
 
 ## References and attribution
 
@@ -338,9 +334,7 @@ The proof supplies a finite one-shot approximation (17), a local capacity constr
 
 [L] Ludovico Lami, *On PPT entanglement distillation*, arXiv:2610.12454v1, submitted 8 October 2026. Corollary 13 and equations (100)--(102) give the quadratic converse whose maximally mixed auxiliary state yields the entropy-deficit expression. Credited for that prior converse; not needed as an external premise for the direct finite-block proof here.
 
-[T] Joel A. Tropp, *User-friendly tail bounds for sums of random matrices*, Foundations of Computational Mathematics **12** (2012), 389--434, arXiv:1004.4389v7, Theorem 1.4. This proved concentration theorem is an explicit external input.
-
-[Z] Yongxian Zhang, *The collective-unitary logarithmic-negativity rate of every bipartite spectrum*, repository preprint, immutable [version 1](https://github.com/mxym/math/releases/tag/collective-unitary-negativity-rate-preprint-v1), source `3fac265d142cbc5ce48700abce5cced59a1a4b8f`. Sections 3--4 give the Bell-projection mechanism reused and restated here. This companion is a written analytic result, not a Lean theorem.
+[Z] Yongxian Zhang, *The collective-unitary logarithmic-negativity rate of every bipartite spectrum*, repository preprint, immutable [version 1](https://github.com/mxym/math/releases/tag/collective-unitary-negativity-rate-preprint-v1), source `3fac265d142cbc5ce48700abce5cced59a1a4b8f`. That companion establishes the negativity rate (6) with a stronger fixed-full-Bell-basis restriction. The present variable-block packing avoids its random-projector method; neither result is represented as Lean-formalized. The rate comparison in (7) follows algebraically from the displayed formulas.
 
 [FWTD] Kun Fang, Xin Wang, Marco Tomamichel and Runyao Duan, *Non-asymptotic entanglement distillation*, IEEE Transactions on Information Theory **65** (2019), 6454--6465, arXiv:1706.06221v3. Related finite-blocklength PPT optimization; it does not supply the spectrum-optimized exponent asserted here.
 
@@ -348,4 +342,4 @@ The proof supplies a finite one-shot approximation (17), a local capacity constr
 
 [K] Tulja Varun Kondra, Pedro Barrios Hita, Justus Neumann, Hermann Kampermann and Dagmar Bruß, *Fundamental limitations on entanglement extraction from purity*, arXiv:2605.29197v1, Supplemental Lemma 6. Qualitative finite-copy activation was known and is not claimed as a new contribution here.
 
-The elementary pure-subspace packing and typicality argument are standard information-theoretic methods. The contribution claimed here is the local achievability matching the entropy converse under collective global-unitary preprocessing, and the exact, single-letter, all-spectrum cPPT fidelity exponent using the spectral projection estimate. Literature screening is not an exhaustive novelty or priority certification. Independent mathematical review remains necessary; finite ancillary calculations and successful document compilation do not certify the whole analytic proof.
+The elementary pure-subspace packing and typicality argument are standard information-theoretic methods. The contribution claimed here is the local achievability matching the entropy converse under collective global-unitary preprocessing, and the exact, single-letter, all-spectrum common fidelity exponent using deterministic variable-block packing. Literature screening is not an exhaustive novelty or priority certification. Independent mathematical review remains necessary; finite ancillary calculations and successful document compilation do not certify the whole analytic proof.

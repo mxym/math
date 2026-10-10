@@ -18,31 +18,31 @@ HEADER=r'''\documentclass[11pt]{article}
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage{bookmark}
-\hypersetup{pdftitle={Global-unitary entanglement extraction: capacity and the exact PPT fidelity exponent},pdfauthor={Yongxian Zhang},pdfsubject={Written analytic proof, not Lean-formalized},pdfkeywords={entanglement extraction, global unitary, complete PPT, fidelity exponent}}
+\hypersetup{pdftitle={Global-unitary entanglement extraction: capacity and exact strong-converse exponents},pdfauthor={Yongxian Zhang},pdfsubject={Written analytic proof, not Lean-formalized},pdfkeywords={entanglement extraction, global unitary, complete PPT, fidelity exponent}}
 \usepackage{longtable,booktabs,array}
 \setlength{\emergencystretch}{2em}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
-\title{Global-unitary entanglement extraction:\\capacity and the exact PPT fidelity exponent}
+\title{Global-unitary entanglement extraction:\\capacity and exact strong-converse exponents}
 \author{Yongxian Zhang\thanks{School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}. ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
 \date{October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-We determine the faithful entanglement-extraction capacity when arbitrary collective global-unitary preprocessing on an existing bipartite system is followed by local channels, LOCC, or a completely PPT channel. For every fixed $2\le m\le n$ and every input spectrum $p$, including zero eigenvalues, these three capacities equal
-$\min\{\log m,[\log(mn)-H(p)]/2\}$.
-We also determine the exact completely-PPT target-fidelity exponent at every rate. For $0\le R\le\log m$ it is
+We determine the faithful entanglement-extraction capacity and the exact target-fidelity exponent when collective global-unitary preprocessing on an existing bipartite system is followed by local product channels, LOCC, or completely PPT channels. For every fixed $2\le m\le n$ and every spectrum $p$, including zeros, all three capacities equal
+$\min\{\log m,[\log(mn)-H(p)]/2\}$, and all three classes have the same fidelity exponent at every rate.
+For $0\le R\le\log m$ this exponent is
 $\max_{1\le\alpha\le2}(\alpha-1)[2R-\log(mn)+S_\alpha(p)]/\alpha$;
-above $\log m$ it is linear with intercept determined by the optimal logarithmic-negativity rate. The proof combines the Rains fidelity-effect SDP with a spectral-prefix approximation, a random Bell-projection construction using the matrix Bernstein inequality, and exact matching by spectral types and escort distributions. A separate deterministic local Kraus construction proves faithful achievability. The global preprocessing is part of the operation class: this is not a formula for ordinary mixed-state LOCC distillation. The exact exponent is claimed for completely PPT channels, not for LOCC. Exact ancillary checks are supplied; the analytic theorem is not Lean-formalized or externally peer reviewed.
+beyond $\log m$ it is linear with intercept determined by the optimal logarithmic-negativity rate. A deterministic variable-dimension Bell packing gives a one-shot lower bound with constant loss for local channels, while the Rains fidelity-effect constraints give matching spectral upper bounds. Types and escort distributions identify the common exponent. No random-projector or concentration theorem is needed. A recent quadratic entropy converse is explicitly credited; the result matches that bound by spectral achievability and determines the full fidelity law. The global unitary is a resource in the task, so this is not a formula for ordinary fixed-input LOCC distillation. Exact ancillary checks accompany the written proof; no Lean certification or external peer review is claimed.
 \end{abstract}
 '''
 FOOTER=r'''
 \section*{Verification scope and disclosures}
-The mathematical argument uses the stated external matrix Bernstein theorem, together with finite-dimensional matrix analysis. The ancillary program independently checks full rational Choi and partially transposed Choi matrices, deterministic local Kraus maps, small cyclotomic Bell-projector identities, exact constants, type cardinalities, and escort algebra; it also rejects deliberately corrupted inputs and source programs. These checks do not by themselves certify the unbounded analytic theorem. The present work is not Lean-formalized and has not been externally peer reviewed.
+The mathematical argument uses the credited Rains characterization, with its elementary proof supplied here, together with finite-dimensional matrix inequalities, deterministic local packing, and spectral-type estimates. The ancillary program independently checks full rational Choi and partially transposed Choi matrices, deterministic local Kraus maps, integer packing inequalities, exact type cardinalities, and escort algebra; it also rejects deliberately corrupted inputs and source programs. These checks do not by themselves certify the unbounded analytic theorem. The present work is not Lean-formalized and has not been externally peer reviewed.
 
 This research was conducted independently and received no external funding. AI assistance was used in research exploration, proof development, ancillary programming, and manuscript preparation. The affiliation identifies the author's institution of study and does not imply institutional commissioning or endorsement.
 
-The complete proof, source, and ancillary checks are available in the repository \url{https://github.com/mxym/math}, directory \texttt{research/global-unitary-ppt-extraction}. The preceding qutrit APPT purity theorem and its immutable Lean release are separate results and do not formally certify this paper.
+The complete proof, source, and ancillary checks are available in the repository \url{https://github.com/mxym/math}, directory \texttt{research/global-unitary-ppt-extraction}. The preceding qutrit APPT purity theorem and its immutable Lean release are separate results and do not formally certify this paper. The entropy-deficit converse is also identified as a consequence of Lami's recent quadratic converse; no first-discovery or exhaustive priority claim is made for that bound.
 \end{document}
 '''
 

@@ -2,14 +2,16 @@
 """Exact ancillary calculations only; not an analytic proof or Lean certificate.
 
 Standard library only. Rains maps are checked as full rational Choi matrices,
-including complete positivity after partial-transpose conjugation. The inherited
-Bell/type checker is copied byte-for-byte from the frozen companion preprint.
+including complete positivity after partial-transpose conjugation. Deterministic
+variable-dimension local packing is checked separately. The inherited type
+checker is copied byte-for-byte from the companion; only its type routine is used.
 """
 from __future__ import annotations
 import argparse
 from fractions import Fraction as Q
 import hashlib
 import json
+from math import isqrt
 from pathlib import Path
 import bell_checks
 
@@ -112,37 +114,62 @@ def check_rains_case(a,b,K,kind):
     if kind=='identity': need(tr(mul(M,M))==Q(N,K*K),'sharp identity effect budget')
     return {'input':[a,b],'output_K':K,'kind':kind,'choi_dimension':N*K*K,'status':'PASS'}
 
-def kraus(a,K):
+def kraus(a,K,target=None):
+    T=K if target is None else target
+    need(T>=K,'target includes embedded dimension')
     u=a//K
     out=[]
     for j in range(u):
-        A=[[Q(0) for _ in range(a)] for _ in range(K)]
+        A=[[Q(0) for _ in range(a)] for _ in range(T)]
         for x in range(K): A[x][j*K+x]=Q(1)
         out.append(A)
     for z in range(u*K,a):
-        A=[[Q(0) for _ in range(a)] for _ in range(K)];A[0][z]=Q(1);out.append(A)
+        A=[[Q(0) for _ in range(a)] for _ in range(T)];A[0][z]=Q(1);out.append(A)
     return out
 
-def check_local(a,b,K):
-    As=kraus(a,K);Bs=kraus(b,K)
+def check_local(a,b,d,target=None):
+    T=d if target is None else target
+    As=kraus(a,d,T);Bs=kraus(b,d,T)
     for dim,ops in [(a,As),(b,Bs)]:
         complete=[[Q(0) for _ in range(dim)] for _ in range(dim)]
         for op in ops: complete=add(complete,mul(transpose(op),op))
         need(complete==eye(dim),'local Kraus completeness')
+    expected=[[Q(0) for _ in range(T*T)] for _ in range(T*T)]
+    for x in range(d):
+        for y in range(d):expected[x*T+x][y*T+y]=Q(1,d)
     count=0
-    for j in range(a//K):
-      for l in range(b//K):
-        coords=[(j*K+x)*b+(l*K+x) for x in range(K)]
-        out=[[Q(0) for _ in range(K*K)] for _ in range(K*K)]
-        # Compute the output from all Kraus branches, retaining no postselection.
+    for j in range(a//d):
+      for l in range(b//d):
+        coords=[(j*d+x)*b+(l*d+x) for x in range(d)]
+        out=[[Q(0) for _ in range(T*T)] for _ in range(T*T)]
+        # All local Kraus branches are retained, with no conditioning.
         for A in As:
           for B in Bs:
-            amplitude=[sum((A[u][idx//b]*B[v][idx%b] for idx in coords),Q(0)) for u in range(K) for v in range(K)]
-            out=add(out,[[x*y/K for y in amplitude] for x in amplitude])
-        need(out==phi(K),'deterministic local Bell extraction')
+            amplitude=[sum((A[u][idx//b]*B[v][idx%b] for idx in coords),Q(0)) for u in range(T) for v in range(T)]
+            out=add(out,[[x*y/d for y in amplitude] for x in amplitude])
+        need(out==expected,'deterministic local Bell extraction')
+        need(tr(mul(out,phi(T)))==Q(d,T),'embedded target overlap')
         count+=1
-    need(count==(a//K)*(b//K),'local packing rank')
-    return {'a':a,'b':b,'K':K,'good_states_checked':count,'unused_A':a%K,'unused_B':b%K}
+    need(count==(a//d)*(b//d),'local packing rank')
+    return {'a':a,'b':b,'embedded_d':d,'target_K':T,'good_states_checked':count,'unused_A':a%d,'unused_B':b%d}
+
+def check_packing():
+    count=0;small=0;large=0
+    for a in range(2,12):
+      for b in range(a,17):
+        N=a*b
+        for K in range(2,18):
+          for r in range(1,N+1):
+            # floor(min{a,K,sqrt(N/r)}/2), with exact integer arithmetic.
+            d=max(1,min(a//2,K//2,isqrt(N//(4*r))))
+            need(d<=min(a,K),'embedded dimension admissible')
+            need((a//d)*(b//d)>=r,'deterministic packing capacity')
+            # w<=4d iff at least one of its three defining terms is <=4d.
+            need(a<=4*d or K<=4*d or N<=16*d*d*r,'quarter envelope bound')
+            count+=1
+            if d==1:small+=1
+            else:large+=1
+    return {'exact_integer_cases':count,'d_equals_one':small,'d_larger_than_one':large}
 
 # Exact sparse polynomials in five indeterminates: alpha, ell, z, c, R.
 D=5
@@ -174,10 +201,6 @@ def check_polynomials():
     need(derivative==pa(H,ps(-1,c)),'escort derivative')
     H2=pa(ps(-2,ell),z);D2=pa(ell,ps(-1,z))
     need(pa(ps(2,D2),H2,z)=={},'collision branch identity')
-    # Bernstein numerator with x=alpha, y=ell.
-    lhs=pa(pm(ps(2,pa(alpha,ell)),ps(2,pa(alpha,ell))),ps(-2,pm(alpha,alpha)),ps(Q(-4,3),pm(ell,pa(alpha,ell))))
-    rhs=pa(ps(2,pm(alpha,alpha)),ps(Q(20,3),pm(alpha,ell)),ps(Q(8,3),pm(ell,ell)))
-    need(lhs==rhs,'Bernstein polynomial identity')
     # Direct two-case scalar hinge identity, exact on a grid crossing all faces.
     checks=0
     for A in [Q(1),Q(2)]:
@@ -187,7 +210,7 @@ def check_polynomials():
           left=max(Q(0),R0-A,R0-(A+B)/2+h/2)
           right=max(Q(0),R0-A)+max(Q(0),h-(A+B-2*min(R0,A)))/2
           need(left==right,'hinge identity');checks+=1
-    return {'symbolic_identities':4,'exact_hinge_regressions':checks}
+    return {'symbolic_identities':3,'exact_hinge_regressions':checks}
 
 def data_controls():
     out=[]
@@ -205,12 +228,12 @@ def data_controls():
     return out
 
 def run():
-    bell=bell_checks.run_checks()
+    types=bell_checks.verify_types()
     rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]
-    local=[check_local(*case) for case in [(2,3,2),(3,5,2),(4,5,3),(5,7,2),(3,4,3)]]
+    local=[check_local(*case) for case in [(2,3,2),(3,5,2),(4,5,3),(5,7,2),(3,4,3),(2,3,1,4),(3,5,2,3),(5,7,2,4)]]
     return {'status':'PASS','scope':'Exact finite ancillary identities and intentional rejection controls only; not full analytic verification',
-            'rains_channels':rain,'local_extraction':local,'algebra':check_polynomials(),
-            'negative_controls':data_controls(),'inherited_bell_and_type_checks':bell,
+            'rains_channels':rain,'local_extraction':local,'packing':check_packing(),'algebra':check_polynomials(),
+            'negative_controls':data_controls(),'inherited_type_checks':types,
             'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             'bell_checker_sha256':hashlib.sha256(Path(bell_checks.__file__).read_bytes()).hexdigest()}
 

@@ -1,5 +1,7 @@
 # Research selection, audit and attribution
 
+**Current result:** both capacity and the exact fidelity exponent are now proved for LO, LOCC and cPPT, using deterministic variable-dimension Bell packing. The cPPT-only derivation and random-projection approach below describe the earlier draft, not an unresolved gap in the final manuscript.
+
 ## Starting state
 
 Started from live main `201c4235`, after reading the current README, SOLVED_PROBLEMS, RESEARCH, recent commits and the entire companion negativity proof. No tracked or applicable parent AGENTS.md was found. The old qutrit proof and preprint and the negativity preprint are already published; this continuation does not recreate or edit those immutable versions. No parallel work on this operational extraction problem was present in the inspected index.
@@ -41,3 +43,14 @@ The direction is retained because it produced matching analytic bounds for the c
 A final search surfaced Lami, *On PPT entanglement distillation*, arXiv:2610.12454v1 (submitted 8 October 2026). The primary arXiv abstract and PDF were retrieved through the authorized shell after web-tool cache misses; the source PDF and parsed text were read, including Corollary 13 and equations (100)--(102). This is the same completely-PPT channel definition as ours, not just PPT-state preservation. Its quadratic converse with auxiliary state I/N already yields one half of log N minus state entropy. The manuscript now explicitly credits this prior converse and shows the substitution. It does not attribute that bound's first discovery to this work. The mathematical addition is local achievability after spectrum-optimizing global preprocessing and the matching all-rate fidelity exponent; the fixed-input problem addressed by Lami is not solved here. No theorem or certificate was altered by this attribution correction.
 
 Primary source: https://arxiv.org/abs/2610.12454
+
+
+## Deterministic strengthening before publication
+
+A final audit recognized that the local capacity construction can also attain the *entire* spectral-prefix exponent if the embedded Bell dimension is allowed to vary below the target dimension. For prefix rank r, take w=min(a,K,sqrt(N/r)) and d=max(1,floor(w/2)). Then floor(a/d)floor(b/d)>=r and d>=w/4. Map the r largest eigenvalues to orthogonal Phi_d-coded product-label states, then locally discard the labels. Each produces target overlap d/K, including the case K>d. This proves the one-shot lower bound T_K/4 with deterministic local product channels, rather than the earlier cPPT lower bound T_K/[12 log(8N)].
+
+Consequently all three operation classes have the same full fidelity exponent. The supposed LOCC exponent gap in the early draft is closed for this *globally preprocessed* task. It remains incorrect to call this a solution of ordinary fixed-input LOCC distillation. Rains is used for the converse class, but his generally nonlocal achieving channel is not needed. Tropp's concentration theorem and the companion random-Bell lemma have been removed from the proof dependency list; the older companion's stronger fixed-full-Bell-basis statement remains distinct and its immutable release is unchanged.
+
+The checker now verifies 110,640 exact integer packing cases, eight full local-channel systems with 25 exact embedded Bell outputs, and the squared overlap d/K rather than the root fidelity. Two additional corrupted programs (wrong minimum Bell dimension and wrong fidelity square) are rejected. Earlier exact-type routines are still inherited byte-for-byte, but irrelevant random-projection regressions are no longer invoked by the new checker. The finite tests are supporting diagnostics; the unbounded packing proof is the three-line floor inequality and full Kraus construction in Sections 3 and 6.
+
+No immutable preprint was published before this strengthening. Both early and strengthened draft commits remain visible for provenance. The final publication must use the strengthened theorem, not the early cPPT-only scope.

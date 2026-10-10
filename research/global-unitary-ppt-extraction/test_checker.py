@@ -32,6 +32,8 @@ def main():
           ('omitted input transpose','ii=(i//b)*b+j%b; jj=(j//b)*b+i%b','ii=i; jj=j','Rains Choi partial-transpose identity'),
           ('missing target square','Q(N,K*K)','Q(N,K)','sharp identity effect budget'),
           ('missing leftover Kraus weight','A[0][z]=Q(1);out.append(A)','A[0][z]=Q(0);out.append(A)','local Kraus completeness'),
+          ('wrong minimum Bell dimension','d=max(1,min(a//2,K//2,isqrt(N//(4*r))))','d=max(2,min(a//2,K//2,isqrt(N//(4*r))))','deterministic packing capacity'),
+          ('wrong root-fidelity convention','==Q(d,T)','==Q(d*d,T*T)','embedded target overlap'),
           ('wrong escort sign','rel=pa(pm(pa(alpha,ps(-1,one)),ell),ps(-1,z))','rel=pa(pm(pa(alpha,ps(-1,one)),ell),ps(1,z))','interior escort matching'),
         ]
         for name,old,new,diagnostic in changes:

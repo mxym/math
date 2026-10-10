@@ -67,7 +67,8 @@
     {
       "a": 2,
       "b": 3,
-      "K": 2,
+      "embedded_d": 2,
+      "target_K": 2,
       "good_states_checked": 1,
       "unused_A": 0,
       "unused_B": 1
@@ -75,7 +76,8 @@
     {
       "a": 3,
       "b": 5,
-      "K": 2,
+      "embedded_d": 2,
+      "target_K": 2,
       "good_states_checked": 2,
       "unused_A": 1,
       "unused_B": 1
@@ -83,7 +85,8 @@
     {
       "a": 4,
       "b": 5,
-      "K": 3,
+      "embedded_d": 3,
+      "target_K": 3,
       "good_states_checked": 1,
       "unused_A": 1,
       "unused_B": 2
@@ -91,7 +94,8 @@
     {
       "a": 5,
       "b": 7,
-      "K": 2,
+      "embedded_d": 2,
+      "target_K": 2,
       "good_states_checked": 6,
       "unused_A": 1,
       "unused_B": 1
@@ -99,14 +103,47 @@
     {
       "a": 3,
       "b": 4,
-      "K": 3,
+      "embedded_d": 3,
+      "target_K": 3,
       "good_states_checked": 1,
       "unused_A": 0,
       "unused_B": 1
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "embedded_d": 1,
+      "target_K": 4,
+      "good_states_checked": 6,
+      "unused_A": 0,
+      "unused_B": 0
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "embedded_d": 2,
+      "target_K": 3,
+      "good_states_checked": 2,
+      "unused_A": 1,
+      "unused_B": 1
+    },
+    {
+      "a": 5,
+      "b": 7,
+      "embedded_d": 2,
+      "target_K": 4,
+      "good_states_checked": 6,
+      "unused_A": 1,
+      "unused_B": 1
     }
   ],
+  "packing": {
+    "exact_integer_cases": 110640,
+    "d_equals_one": 105586,
+    "d_larger_than_one": 5054
+  },
   "algebra": {
-    "symbolic_identities": 4,
+    "symbolic_identities": 3,
     "exact_hinge_regressions": 3750
   },
   "negative_controls": [
@@ -114,133 +151,11 @@
     "omitted leftover Kraus branch rejected",
     "wrong target-dimension square rejected at sharp effect"
   ],
-  "inherited_bell_and_type_checks": {
-    "status": "PASS",
-    "scope": "Exact finite Bell/covariance identities, rational inequalities, type cardinalities, and escort algebra only; not a Lean or full analytic-proof certificate",
-    "bell_cases": [
-      {
-        "a": 2,
-        "b": 2,
-        "ambient_dimension": 4,
-        "block_dimension": 4,
-        "bell_vectors": 4,
-        "orthogonality_pairs": 16
-      },
-      {
-        "a": 2,
-        "b": 3,
-        "ambient_dimension": 6,
-        "block_dimension": 4,
-        "bell_vectors": 4,
-        "orthogonality_pairs": 16
-      },
-      {
-        "a": 2,
-        "b": 5,
-        "ambient_dimension": 10,
-        "block_dimension": 8,
-        "bell_vectors": 8,
-        "orthogonality_pairs": 64
-      },
-      {
-        "a": 3,
-        "b": 3,
-        "ambient_dimension": 9,
-        "block_dimension": 9,
-        "bell_vectors": 9,
-        "orthogonality_pairs": 81
-      },
-      {
-        "a": 3,
-        "b": 4,
-        "ambient_dimension": 12,
-        "block_dimension": 9,
-        "bell_vectors": 9,
-        "orthogonality_pairs": 81
-      },
-      {
-        "a": 3,
-        "b": 7,
-        "ambient_dimension": 21,
-        "block_dimension": 18,
-        "bell_vectors": 18,
-        "orthogonality_pairs": 324
-      },
-      {
-        "a": 4,
-        "b": 4,
-        "ambient_dimension": 16,
-        "block_dimension": 16,
-        "bell_vectors": 16,
-        "orthogonality_pairs": 256
-      },
-      {
-        "a": 4,
-        "b": 5,
-        "ambient_dimension": 20,
-        "block_dimension": 16,
-        "bell_vectors": 16,
-        "orthogonality_pairs": 256
-      },
-      {
-        "a": 4,
-        "b": 9,
-        "ambient_dimension": 36,
-        "block_dimension": 32,
-        "bell_vectors": 32,
-        "orthogonality_pairs": 1024
-      },
-      {
-        "a": 5,
-        "b": 5,
-        "ambient_dimension": 25,
-        "block_dimension": 25,
-        "bell_vectors": 25,
-        "orthogonality_pairs": 625
-      }
-    ],
-    "scalar_checks": {
-      "bernstein_coefficients": {
-        "(2, 0)": "2",
-        "(1, 1)": "20/3",
-        "(0, 2)": "8/3"
-      },
-      "dimension_pairs": 966,
-      "union_failure_bound": "25/36",
-      "balanced_qutrit_factor": "153/121"
-    },
-    "type_checks": {
-      "exact_type_bounds": 710,
-      "enumerated_types": 154,
-      "mode_comparisons": 1296
-    },
-    "escort_algebra": {
-      "exact_identities": 4
-    },
-    "negative_controls": [
-      {
-        "name": "constant Bell phase",
-        "rejected": true,
-        "reason": "Bell orthogonality"
-      },
-      {
-        "name": "identity instead of partial transpose",
-        "rejected": true,
-        "reason": "partial-transpose involution"
-      },
-      {
-        "name": "wrong matrix variance factor",
-        "rejected": true,
-        "reason": "sum-of-squares covariance identity"
-      },
-      {
-        "name": "altered Bernstein coefficient",
-        "rejected": true,
-        "reason": "Bernstein exponent certificate"
-      }
-    ],
-    "script_sha256": "008d4e21d4528bd4a653db8892ffab0d4a1aab509e4d242fe35679883034fe35"
+  "inherited_type_checks": {
+    "exact_type_bounds": 710,
+    "enumerated_types": 154,
+    "mode_comparisons": 1296
   },
-  "source_sha256": "9888005a5e15000c9fe57dcffec926bdc62768347decdc43230599525b20f264",
+  "source_sha256": "ee71ed683624f24433d4ef884b1bfd9ae1bfa8ef7e7f8773a4b6e8d738f9292c",
   "bell_checker_sha256": "008d4e21d4528bd4a653db8892ffab0d4a1aab509e4d242fe35679883034fe35"
 }
