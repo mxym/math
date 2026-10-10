@@ -37,4 +37,22 @@ theorem input_logb (Z : LogScale) (n : ℕ) :
   rw [Real.logb_rpow (by norm_num) (by norm_num)]
   ring
 
+theorem input_ratio_eq (Z : LogScale) (n : ℕ) :
+    input Z (n + 1) / input Z n =
+      (2 : ℝ) ^ (-(Z.z (n + 1) - Z.z n)) := by
+  unfold input
+  rw [← Real.rpow_sub (by norm_num)]
+  congr 1
+  ring
+
+theorem input_ratio_tendsto_zero {Z : LogScale}
+    (hgap : Tendsto (fun n : ℕ => Z.z (n + 1) - Z.z n) atTop atTop) :
+    Tendsto (fun n => input Z (n + 1) / input Z n) atTop (𝓝 0) := by
+  rw [show (fun n => input Z (n + 1) / input Z n) =
+      (fun n => (2 : ℝ) ^ (-(Z.z (n + 1) - Z.z n))) by
+    funext n; exact input_ratio_eq Z n]
+  have hneg : Tendsto (fun n : ℕ => -(Z.z (n + 1) - Z.z n)) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp hgap
+  exact (tendsto_rpow_atBot_of_base_gt_one (2 : ℝ) (by norm_num)).comp hneg
+
 end ErdosSimilarityGrowingGaps

@@ -61,6 +61,10 @@ arrangement bound used in the paper remains a separate optimization.
 countable budget split explicit: any countable collection of already-built
 open periodic blockers can be assembled under an arbitrary positive budget.
 
+`Input.input_ratio_tendsto_zero` records the exact analytic implication that
+logarithmic gaps tending to infinity force adjacent input ratios to tend to
+zero; it is replayed independently of the blocker construction.
+
 ## Scope boundary
 
 The finite blocker witness `BlockerFamily` is now an explicit, fully typed

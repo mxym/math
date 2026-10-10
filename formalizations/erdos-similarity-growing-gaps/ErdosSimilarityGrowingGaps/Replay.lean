@@ -100,8 +100,16 @@ theorem replay_input_sequence (Z : LogScale) :
       ∀ n, -Real.logb 2 (input Z n) = Z.z n := by
   exact ⟨input_pos Z, input_strictAnti Z, input_tendsto_zero Z, input_logb Z⟩
 
+theorem replay_input_ratio_zero {Z : LogScale}
+    (hgap : Filter.Tendsto (fun n : ℕ => Z.z (n + 1) - Z.z n)
+      Filter.atTop Filter.atTop) :
+    Filter.Tendsto (fun n => input Z (n + 1) / input Z n)
+      Filter.atTop (nhds 0) :=
+  input_ratio_tendsto_zero hgap
+
 #print axioms replay_window_filling
 #print axioms replay_input_sequence
+#print axioms replay_input_ratio_zero
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
 #print axioms replay_late_window

@@ -25,8 +25,10 @@ The new kernel-checked material is concentrated in three modules.
   sharper quadratic refinement is still needed for the final entropy budget.
 * `exists_budget_allocation` and `blockerFamily_of_budgeted_blockers` close
   the countable budget bookkeeping once the individual open blockers exist.
+* `Input.input_ratio_tendsto_zero` proves the ratio conclusion from a
+  logarithmic-gap divergence hypothesis.
 
-`Replay.lean` replays thirteen public roots at trust level zero.  The recorded
+`Replay.lean` replays fourteen public roots at trust level zero.  The recorded
 axioms are only `propext`, `Classical.choice`, and `Quot.sound`; the source
 contains no `sorry`, `admit`, custom axiom, `unsafe`, `partial`, or
 `native_decide`.  `checks/negative.py` rejects both a false tree inequality
