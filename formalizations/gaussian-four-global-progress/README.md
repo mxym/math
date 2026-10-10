@@ -44,7 +44,7 @@ and Bochner-moment bridge for `v_i = a_i u`, with `norm u=1`, in every ambient
 dimension. Thus the ordered-collinear obstruction is not restricted to a
 surrogate one-dimensional Gaussian model.
 
-Main new entry point:
+Ordered-collinear entry point:
 
 ```lean
 GaussianFour.no_ordered_collinear_selfMoment_spectral_bound
@@ -116,13 +116,12 @@ price bound to zero, reverse the upper-normal sign, and incorrectly set the
 regularized residual bound to zero.
 
 `MODULES.json` gives the 31-module build order; `ROOTS.txt` lists all 222
-audit roots; `SOURCE_BLOBS.json` binds the reproduction inputs. Literal logs,
-SHA-256 source/object hashes, dependency checks, negative-control output,
-and the closure list are retained under `evidence/kernel-r2/`. The closure
-list is gzip-compressed solely for repository size; its decompressed bytes
-are the literal replay output. See `evidence/README.md` for additional runs
-and exact CI status. Historical development logs are not represented as
-this round's fresh verification.
+audit roots; `SOURCE_BLOBS.json` binds the reproduction inputs. Current
+literal logs, SHA-256 source/object hashes, dependency checks, negative-control
+output, and the closure list are retained under `evidence/core-r1/` and
+`evidence/core-ci/`. Their compressed archives preserve the original bytes.
+The earlier `evidence/kernel-r2/` receipt covers the historical, smaller closure
+only. See `evidence/README.md` for exact run provenance and CI status.
 
 ## Remaining scope
 
