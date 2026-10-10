@@ -1,0 +1,38 @@
+name: Gaussian four-cell partial proof verification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'formalizations/gaussian-four-global-progress/**'
+      - 'formalizations/gaussian-measure-primal-dual/**'
+      - '.github/workflows/gaussian-four-global-partial.yml'
+permissions:
+  contents: read
+jobs:
+  partial-proof-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formalizations/gaussian-four-global-progress
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build every partial proof module from source
+        working-directory: formalizations/gaussian-four-global-progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/ci-run
+          git rev-parse HEAD > evidence/ci-run/source-commit.txt
+          lake env lean --version | tee evidence/ci-run/toolchain.txt
+          lake build 2>&1 | tee evidence/ci-run/lake-build.log
+      - name: Preserve literal partial-project compiler logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: gaussian-four-partial-${{ github.sha }}
+          path: formalizations/gaussian-four-global-progress/evidence/ci-run/
+          if-no-files-found: warn
