@@ -9,6 +9,7 @@
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
+| 图态 MMI 禁止子图 | 证明 Conjecture 1；无爪 vertex-minor 六类分量分类与七顶点连通阈值 | [独立预印本与完整书面证明](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；双独立 checker，未完整 Lean 化 |
 | ECQC 极值结构与纯稳定子分类 | 全部满秩等号态；所有双 qudit 纯稳定子精确分数；p≡1 mod 4 的全纯态最优比值 p/2；一般等号的平坦谱与秩缺口 | [八页完整证明、来源与精确重放](research/ecqc-stabilizer-saturation/README.md)；不是一般秩亏等号分类，未完整 Lean 化 |
 | 纯态 ECQC 素数维数分类 | p=2 普遍成立，每个奇素数存在满 Schmidt 秩纯态反例；p=3、5 达到通用比值上界 p/2；一 ebit 下维数无界超出 | [论文、完整书面证明与精确重放](research/ecqc-pure-state-counterexamples/README.md)；[三维真实量子反例完整 Lean](formalizations/ecqc-pure-qutrit-counterexample/README.md)，全分类未整体 Lean 化；不重称已有混合态反例为首次 |
 | 一般互信息连续性拟议界 | 实际 3×3 概率表在任意小正距离下反驳 Berta–Lami–Tomamichel Eq. (106)；两侧边缘均变化 | [署名预印本](preprints/mutual-information-continuity-2026-10/README.md)；[完整经典 Lean](formalizations/mutual-information-continuity-counterexample/README.md)；[冻结证明与附件核对](verification/mutual-information-index-2026-10-08/README.md) |
@@ -34,6 +35,7 @@
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
 | 等质量全部 k | 精确一阶矩上界、足够维数下的最优值和全部等号情形；低维严格性 | [署名预印本](preprints/gaussian-equal-cells-2026-10/README.md)；基于已发表多泡定理的完整书面证明，全部 k 的 Lean 尚未完成 |
+| 等质量四胞全局定理 | 所有 d≥3 的协方差变形锐界与正四面体等号分类；独立解决四胞全局端点 | [独立预印本与审计](preprints/gaussian-four-cell-global-2026-10/README.md)；解析端点未完整 Lean 化 |
 | 三胞独立形式化 | 实际等质量高斯分数分区的锐界、等号分类及低维严格不等式 | [完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)；源码在记录中的固定研究分支提交 |
 | 任意正质量向量 | 质量依赖矩阵度量下的锐重心椭球不等式；不是普通平方重心和的任意质量猜想 | [完整书面证明、部分 Lean](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md) |
 | 任意质量原猜想反例 | 指定四胞质量族中，平移或旋转的正四面体分区严格非最优 | [完整书面反例、精确算术与部分 Lean](research/gaussian-fixed-mass-propeller-counterexample/README.md) |

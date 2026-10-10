@@ -19,6 +19,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470)（概念 DOI [23248304](https://doi.org/10.5281/zenodo.23248304)） |
+| [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | 证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1；无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272367](https://doi.org/10.5281/zenodo.23272367) |
+| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整书面证明；有限精确诊断与部分 Lean，解析端点未形式化 | [23272362](https://doi.org/10.5281/zenodo.23272362) |
 | [ECQC 满秩极值刚性与纯稳定子完整分类](research/ecqc-stabilizer-saturation/README.md) · [PDF](research/ecqc-stabilizer-saturation/paper.pdf) | 所有奇素数满秩等号态；全部双 qudit 纯稳定子分数；p≡1 mod 4 时全纯态最优比值 p/2 | 完整书面证明、两套精确重放；非完整 Lean | [23256934](https://doi.org/10.5281/zenodo.23256934) |
 | [纯态 ECQC：素数维数完整分类](research/ecqc-pure-state-counterexamples/README.md) · [PDF](research/ecqc-pure-state-counterexamples/paper.pdf) | 普遍成立当且仅当 p=2；每个奇素数维数有满 Schmidt 秩纯态反例；三维、五维比值最优 | 三维真实量子反例[完整 Lean 与空内核重放](formalizations/ecqc-pure-qutrit-counterexample/README.md)；全分类未整体 Lean 化 | [23256948](https://doi.org/10.5281/zenodo.23256948) |
 | [一般互信息连续性拟议界的三元反例](preprints/mutual-information-continuity-2026-10/README.md) · [PDF](preprints/mutual-information-continuity-2026-10/paper.pdf) | 实际 3×3 概率表；任意小正距离下反驳拟议界，两侧边缘均变化 | 经典反例完整 Lean；量子嵌入及必要系数下界为书面证明 | [23253944](https://doi.org/10.5281/zenodo.23253944) |
@@ -61,7 +63,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | Wakhare Conjecture 2 的“两内部根”断言 | 反例；(11,10) 至少四个不同内部根，不涉及另一熵不等式 | [完整 Lean](formalizations/wakhare-entropy-four-roots-lean/README.md) |
 | Billey–Swanson Conjecture 48 | 反例；非恒定基本单峰 CGF 可没有任何素数阶圆分因子 | [完整 Lean](formalizations/cyclotomic-prime-factor-counterexample/README.md) |
 | Amdeberhan–Moll Conjecture 21／早期 Conjecture 13.1 | 一般染色系数无限对数凹性断言被 C17 反驳；周期图族另有完整分类 | [反例](notes/chromatic-infinite-logconcavity-counterexample/README.md)；[全周期图 Lean 分类](formalizations/chromatic-cycles-all-n-lean/README.md) |
-| Heilman 2014 Conjecture 3 | 证明；四个等质量高斯单元在三维的正四面体极值及等号分类 | [全部 k 的书面证明](preprints/gaussian-equal-cells-2026-10/README.md) |
+| Heilman 2014 Conjecture 3 | 证明；四个等质量高斯单元在三维的正四面体极值及等号分类 | [独立四胞预印本](preprints/gaussian-four-cell-global-2026-10/README.md)；[全部 k 扩展](preprints/gaussian-equal-cells-2026-10/README.md) |
+| Fuentes–Keeler–Munizzi–Pollack Conjecture 1 | 证明；正三重信息蕴含局部等价图含诱导四星（claw） | [图态 MMI 预印本](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) |
 | Heilman 2019 Conjecture 1.16 的等质量子情形 | 证明；覆盖所有 k，达到等号要求 d ≥ k−1，低维仅得严格上界 | [书面证明与部分 Lean 范围](preprints/gaussian-equal-cells-2026-10/README.md) |
 | Heilman 2019 Conjecture 1.16 的任意质量原表述 | 反例；指定四胞非均匀质量族的正四面体模型严格非最优 | [完整书面反例](research/gaussian-fixed-mass-propeller-counterexample/README.md) |
 | de Castro Conjecture 10.1，arXiv:2609.06096v1 | 证明；指定避免置换多面体族全部 d ≥ 3 的实根性，结合既有 d ≤ 1000 定理 | [书面证明与精确证书](notes/ehrhart-uniform-real-rootedness/README.md) |
