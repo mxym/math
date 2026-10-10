@@ -20,11 +20,14 @@ theorem priceObjective_directional_gradient
       (∑ i, p i * q i) 0 := by
     apply HasDerivAt.fun_sum
     intro i _
-    simpa only [affinePrices, zero_add, one_mul] using
+    simpa only [affinePrices, id_eq, zero_add, one_mul] using
       (((hasDerivAt_id (0 : ℝ)).mul_const (q i)).const_add (b i)).const_mul (p i)
+  have hs0 (t : ℝ) : affineScores v 0 t = v := by
+    funext i
+    simp [affineScores]
+  simp only [hs0, Pi.zero_apply, inner_zero_left,
+    Finset.sum_const_zero, zero_sub, winningPartition_mass] at hs
   have h := hs.add hl
-  simp only [affineScores, Pi.zero_apply, smul_zero, add_zero, inner_zero_left,
-    Finset.sum_const_zero, zero_sub, winningPartition_mass] at h
   change HasDerivAt (fun t : ℝ => priceObjective v p (affinePrices b q t))
     (-(∑ i, winningMass v b i * q i) + ∑ i, p i * q i) 0 at h
   convert h using 1
@@ -51,7 +54,7 @@ theorem actual_simplicial_price_second_variation
   obtain ⟨w,hwd,hwp,hws,hf,hd⟩ := actual_simplicial_price_gradient_directional v p b hv
   have hnonneg (i j : Fin (d+2)) : 0 ≤ w i j := by
     by_cases hij : i = j
-    · subst j; rw [hwd]; exact le_rfl
+    · subst j; simp [hwd]
     · exact (hwp i j hij).le
   refine ⟨w,hwd,hwp,hws,hf,facetLaplacian_posSemidef w hws hnonneg,?_⟩
   intro q

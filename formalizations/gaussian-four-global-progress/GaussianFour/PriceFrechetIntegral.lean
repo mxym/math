@@ -74,7 +74,9 @@ theorem expectedScore_price_differentiableAt (v : Fin k → Space d) (b : Fin k 
     (bound := fun _ : Space d => (1 : ℝ)) (by simp)
     (Eventually.of_forall fun c => (continuous_scoreMax v c).aestronglyMeasurable)
     (integrable_scoreMax v b) (aestronglyMeasurable_scorePriceDifferential v b)
-    (ae_of_all _ fun x => by simpa using (scoreMax_price_lipschitz v x).lipschitzOnWith)
+    (ae_of_all _ fun x => by
+      change LipschitzOnWith 1 (fun c : Fin k → ℝ => scoreMax v c x) Set.univ
+      exact (scoreMax_price_lipschitz v x).lipschitzOnWith)
     (integrable_const 1) (ae_scoreMax_price_hasFDerivAt v b hv)
   exact h.2.differentiableAt
 
@@ -105,8 +107,12 @@ theorem graphMass_price_differentiableAt (v : Fin k → Space d) (b : Fin k → 
         change |standardDensity 0| = standardDensity 0
         exact abs_of_pos (standardDensity_pos 0)
       rw [hb]
-      simpa only [mul_one] using
-        (standardTail_lipschitz.comp (scoreMax_price_lipschitz v x)).lipschitzOnWith)
+      have hl : LipschitzWith
+          (⟨standardDensity 0, (standardDensity_pos 0).le⟩ : NNReal)
+          (fun c : Fin k → ℝ => standardTail (scoreMax v c x)) := by
+        simpa only [mul_one, Function.comp_def] using
+          standardTail_lipschitz.comp (scoreMax_price_lipschitz v x)
+      exact hl.lipschitzOnWith)
     (integrable_const _) hd
   have he : graphMass v = fun c => ∫ x, standardTail (scoreMax v c x) ∂gaussian d :=
     funext (graphMass_eq_tail v)
