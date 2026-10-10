@@ -1,5 +1,8 @@
 # Unrestricted purity confinement from rearrangeable Schmidt tests
 
+> Subsequent sharp result: [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md) closes the remaining leading-constant gaps for every aspect ratio, and gives an equivalent uniform over all dimension pairs as total dimension grows. The proofs below remain valid; descriptions of then-open asymptotic gaps record intermediate progress. Exact finite maxima and absolute separability remain unresolved.
+
+
 Research working proof, 10 October 2026. No manuscript or Release is prepared. This is an analytic proof for arbitrary actual APPT states, not a restriction to a candidate spectral family. It is not Lean-formalized or externally reviewed.
 
 ## 1. The physical necessary condition

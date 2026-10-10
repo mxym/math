@@ -28,7 +28,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We give two results on the purity of absolutely positive partial transpose (APPT) states. First, for every integer $n\geq3$, the exact maximum on $\C^3\otimes\C^n$ is $(3n+8)/(3n+2)^2$ for $3\leq n\leq8$ and $3/(8n)$ for $n\geq9$. This proves the qutrit specialization of the maximal-value and attainment conjecture of Ahiable, Kothakonda and Winter. The entire qutrit theorem, including the physical global-unitary quantifier and actual attainment, is formalized in Lean 4.34.1 and frozen in an immutable proof release. Second, the proposed general-dimensional formula is false: an explicit APPT state on $\C^{10}\otimes\C^{38}$ has purity strictly larger than both conjectured candidates, and an infinite family gives further violations. We then prove the corrected leading law for the unrestricted maximum $P_{\max}(m,n)$ when the smaller local dimension tends to infinity: uniformly over integers $n\geq m$, with $D=mn$,\[ D^2\left(P_{\max}(m,n)-\frac1D\right)\sim\max\left\{8,4+\frac nm\right\}.\] The higher-dimensional arguments are written analytic proofs supported by exact rational checkers; they are not included in the qutrit Lean certificate. Exact finite-dimensional maximizers, their classification, and the absolute-separability maximum in general dimensions remain open.
+We give two results on the purity of absolutely positive partial transpose (APPT) states. First, for every integer $n\geq3$, the exact maximum on $\C^3\otimes\C^n$ is $(3n+8)/(3n+2)^2$ for $3\leq n\leq8$ and $3/(8n)$ for $n\geq9$. This proves the qutrit specialization of the maximal-value and attainment conjecture of Ahiable, Kothakonda and Winter. The entire qutrit theorem, including the physical global-unitary quantifier and actual attainment, is formalized in Lean 4.34.1 and frozen in an immutable proof release. Second, the proposed general-dimensional formula is false: an explicit APPT state on $\C^{10}\otimes\C^{38}$ has purity strictly larger than both conjectured candidates, and an infinite family gives further violations. We then prove a single corrected leading law whenever $D=mn\to\infty$, uniformly over all $2\leq m\leq n$:\[ P_{\max}(m,n)-\frac1D\sim\frac{\max\{8,4+D/(m^2-1)\}}{D^2}.\] For $m\to\infty$ this becomes $D^2(P_{\max}-1/D)\sim\max\{8,4+n/m\}$, while fixed $m$ gives $D(P_{\max}-1/D)\to1/(m^2-1)$. The higher-dimensional arguments are written analytic proofs supported by exact rational checkers; they are not included in the qutrit Lean certificate. Exact finite-dimensional maximizers, their classification, and the absolute-separability maximum in general dimensions remain open.
 \end{abstract}
 \noindent\textbf{Keywords.} Absolute PPT; purity; spectra; quantum states; exact certificates; Lean formalization.
 
@@ -418,8 +418,48 @@ uniformly in $n\geq m$. Combining the upper and lower estimates proves~\eqref{eq
 \end{proof}
 
 \begin{remark}[Status of the higher-dimensional argument]
-Theorem~\ref{thm:asymptotic} is a written analytic proof supported by exact rational and integer checkers. It is not part of the qutrit Lean release. It does not determine exact finite-dimensional maxima, classify maximizing spectra, cover fixed $m$ with $n\to\infty$, or prove equality between APPT and absolutely separable states.
+Theorem~\ref{thm:asymptotic} is a written analytic proof supported by exact rational and integer checkers. It is not part of the qutrit Lean release. It does not determine exact finite-dimensional maxima, classify maximizing spectra, or prove equality between APPT and absolutely separable states.
 \end{remark}
+
+\begin{theorem}[All-regime equivalent]\label{thm:allregime}
+Let $P_{\max}(m,n)$ be as above and define
+\[
+ A(m,n)=\frac{\max\{8,4+D/(m^2-1)\}}{D^2},\qquad D=mn.
+\]
+Then
+\begin{equation}\label{eq:allregime}
+ \lim_{N\to\infty}\ \sup_{2\leq m\leq n,\,mn\geq N}
+ \left|\frac{P_{\max}(m,n)-1/(mn)}{A(m,n)}-1\right|=0.
+\end{equation}
+For each fixed $m\geq2$, this implies
+\[
+ D\,P_{\max}(m,n)\longrightarrow\frac{m^2}{m^2-1},
+ \qquad
+ P_{\max}(m,n)-\frac1D\sim\frac1{(m^2-1)D}
+ \quad(n\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:asymptotic} proves the uniform statement when the smaller dimension tends to infinity. It remains to treat a bounded subsequence of $m$. Fix $m\geq2$ and use the notation $R=m(m-1)/2$, $S=m(m+1)/2$, $j=D-S+1$, and $b=\lambda_j$ for an ordered APPT spectrum. The maximally entangled Schmidt-rank-$m$ test, with the largest $R$ eigenvalues placed on its negative witness space, gives
+\[
+ \sum_{i=1}^R\lambda_i\leq\sum_{i=D-S+1}^{D}\lambda_i,
+\]
+so $\lambda_R\leq[(m+1)/(m-1)]b$. A single-edge test gives $\lambda_1-\lambda_D\leq2b$, hence $\lambda_1\leq3b$. The $N_0=D-m^2+2$ eigenvalues from indices $R$ through $D-S+1$ therefore lie in $[b,rb]$, where $r=(m+1)/(m-1)$. For numbers in this interval,
+\[
+ x^2\leq(r+1)bx-rb^2.
+\]
+After summing and optimizing the resulting quadratic in $z=N_0b/T$, one obtains
+\[
+ \sum_i\lambda_i^2\leq\frac{m^2/(m^2-1)}{D-m^2+2}
+ +\frac{9(m^2-2)}{(D-S+1)^2}.
+\]
+This gives the fixed-$m$ upper limit after multiplication by $D$. For the matching lower bound, let $c=2/(m-1)$, choose a rank-$k$ projection with $k=\lceil D/(c+2)\rceil$, and normalize $I+cP$. The sum of the negative Schmidt eigenvalues is at most $(m-1)/2$, so this state is APPT for every global unitary. Its exact purity calculation gives
+\[
+ D\,\Tr(\rho^2)\longrightarrow\frac{(c+2)^2}{4(c+1)}=\frac{m^2}{m^2-1}.
+\]
+Thus the fixed-$m$ limit follows. Finally, if~\eqref{eq:allregime} failed, a sequence with $D\to\infty$ and a fixed error would have either a bounded subsequence of $m$ (handled by the fixed-$m$ argument) or $m\to\infty$ (handled by Theorem~\ref{thm:asymptotic}). In the latter case $D/(m^2-1)$ and $n/m$ differ by a factor tending to one. This sequential criterion proves~\eqref{eq:allregime}. The detailed fixed-$m$ derivation and exact deficit identity are recorded in the supplementary proof file.
+\end{proof}
 
 \section{Qutrit certificate data and complete formal verification}\label{sec:verification}
 \subsection{Data specification and independent checking}
@@ -520,7 +560,7 @@ Corollary~\ref{cor:asep} is an analytic consequence using the explicitly cited s
 \section{Scope and further questions}
 The main theorem closes the maximal-purity problem for $3\otimes n$ with $n\geq3$. The $3\otimes2$ system is, after swapping factors, a qubit--qutrit problem and is not covered by the present formal theorem. Neither the proof nor the release claims all-maximizer classification or the general-$m$ purity conjecture. Corollary~\ref{cor:asep} gives the analogous absolute-separability maximum analytically; the immutable Lean release covers only the APPT theorem.
 
-The arbitrary-dimensional inscribed-polytope purity conjecture of \cite{AKW} is false by Theorem~\ref{thm:counterexample}. Theorem~\ref{thm:asymptotic} gives its corrected leading law when the smaller local dimension grows, while the exact finite-dimensional maximum and its equality cases remain open. Fixed smaller dimension, including a complete general treatment of $m=4$, is also not settled here. A separate, more structural question is whether absolute PPT and absolute separability coincide beyond qubit--qudit systems. The additional witness analysis in Section~\ref{sec:asep} establishes a common qutrit maximum, but proves no reverse inclusion between the two sets. Equal purity maxima must not be mistaken for equality of the convex sets.
+The arbitrary-dimensional inscribed-polytope purity conjecture of \cite{AKW} is false by Theorem~\ref{thm:counterexample}. Theorems~\ref{thm:asymptotic} and~\ref{thm:allregime} give the corrected first excess-purity term whenever the total dimension grows, while the exact finite-dimensional maximum and its equality cases remain open. A separate, more structural question is whether absolute PPT and absolute separability coincide beyond qubit--qudit systems. The additional witness analysis in Section~\ref{sec:asep} establishes a common qutrit maximum, but proves no reverse inclusion between the two sets. Equal purity maxima must not be mistaken for equality of the convex sets.
 
 \paragraph{Author, funding and AI assistance.}
 This research was conducted independently and received no external funding. The institutional affiliation identifies the author's place of study and does not assert institutional sponsorship or endorsement. AI assistance was used in mathematical exploration, certificate and program development, Lean proof development, verification orchestration and manuscript drafting. Formal acceptance refers to the stated Lean declarations and audited dependency closure; it is not a claim of external peer review or independent human certification of every narrative statement. No separate claim of historical priority is made beyond the dated public artifacts and the explicit comparison with prior work above.

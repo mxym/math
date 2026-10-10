@@ -11,15 +11,15 @@ This is a new expanded manuscript combining the exact qutrit--qudit APPT purity 
 2. The arbitrary-dimensional Ahiable--Kothakonda--Winter purity formula (Conjecture 6.7) is false. The state
    `diag(41, 17 [146 copies], 15 [233 copies]) / 6018`
    on `C^10 tensor C^38` is APPT for every global unitary and has purity strictly above both proposed values.
-3. If `Pmax(m,n)` is the unrestricted APPT maximum and `D=mn`, then the analytic proof establishes, uniformly for integers `n >= m` as `m -> infinity`,
-   `D^2 (Pmax(m,n)-1/D) ~ max(8, 4+n/m)`.
-   In particular, `Pmax(m,m)=m^(-2)+8m^(-4)+o(m^(-4))`.
+3. If `Pmax(m,n)` is the unrestricted APPT maximum and `D=mn`, then whenever `D -> infinity`,
+   `Pmax(m,n)-1/D ~ D^(-2) max(8, 4+D/(m^2-1))`, uniformly over `2 <= m <= n`.
+   For `m -> infinity` this becomes `D^2 (Pmax(m,n)-1/D) ~ max(8,4+n/m)`; for fixed `m`, `D(Pmax-1/D) -> 1/(m^2-1)`. In particular, `Pmax(m,m)=m^(-2)+8m^(-4)+o(m^(-4))`.
 
 ## Proof status
 
 The qutrit theorem is completely formalized in Lean 4.34.1 and independently replayed at trust level zero in the immutable release above. The higher-dimensional counterexample and asymptotic law are written analytic proofs supported by exact rational/integer checkers. They are not included in the qutrit Lean certificate and have not undergone external peer review. The checkers validate algebraic identities, finite regressions, and deliberate negative controls; they are not substitutes for the all-unitary and asymptotic arguments.
 
-The paper does not claim exact finite-dimensional maxima in general dimensions, classification of maximizers, a result for fixed smaller dimension `m`, or equality of APPT and absolute separability.
+The paper does not claim exact finite-dimensional maxima in general dimensions, classification of maximizers, or equality of APPT and absolute separability. The asymptotic theorem includes fixed `m` as `n -> infinity`, but does not give an effective convergence threshold.
 
 ## Reproduction
 
