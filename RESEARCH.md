@@ -8,6 +8,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 未知态的全局酉预处理纠缠提取 | 一个不依赖谱或本征基的协议族，同时达到最优容量、全速率保真度指数、严格低于容量区间的可靠性函数与非退化高斯阈值 | [Schur 同时分块的完整解析论证](research/universal-schur-extraction/README.md)；标准表示论为外部输入、精确附属检查通过，非 Lean；不解决普通固定输入态 LOCC 蒸馏 |
 | 全局酉预处理后的纠缠提取 | 任意固定局域维数与任意谱的精确容量及全速率保真度指数；LO、LOCC、完全 PPT 三类操作一致 | [确定性分块构造与完整解析预印本](research/global-unitary-ppt-extraction/README.md)；熵上界来源明确、精确附属检查通过，非 Lean；不是普通固定输入态蒸馏问题 |
 | 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
