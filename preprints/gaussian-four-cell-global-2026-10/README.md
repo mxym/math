@@ -1,6 +1,6 @@
 # Four equal Gaussian cells: covariance deformation and tetrahedral rigidity
 
-**Public preprint; not peer reviewed.** Version DOI: [10.5281/zenodo.23272362](https://doi.org/10.5281/zenodo.23272362).
+**Public preprint; not peer reviewed.** Version DOI: [10.5281/zenodo.23272595](https://doi.org/10.5281/zenodo.23272595).
 
 For every measurable or fractional partition of standard Gaussian space into four equal-mass cells, the sum of squared first moments is at most
 
@@ -22,3 +22,6 @@ python3 verify.py
 ```
 
 No external human peer review or historical-priority claim is made. Research and manuscript preparation used AI assistance; no external funding. Original material is reserved unless a file states another license.
+
+
+This directory uses the signed author edition. Only author/affiliation/ORCID and PDF metadata changed from the earlier immutable version; [ARTICLE_PROVENANCE.json](ARTICLE_PROVENANCE.json) records the canonical source hash.
