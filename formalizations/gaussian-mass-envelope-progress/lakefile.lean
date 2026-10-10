@@ -18,4 +18,5 @@ lean_lib GaussianMassEnvelopeProgress where
     `GaussianQuantile,
     `GaussianOneCell,
     `GaussianSets,
-    `GaussianEntropy]
+    `GaussianEntropy,
+    `OrderedResidualEntropy]

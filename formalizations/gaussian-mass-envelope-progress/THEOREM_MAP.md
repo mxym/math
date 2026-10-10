@@ -10,7 +10,7 @@ Target paper: `research/gaussian-centroid-mass-envelope/paper.md`.
 | One-cell upper bound, equation (14) | Actual unit projection law, threshold rearrangement, Bochner moment, exact indicator bridge | `GaussianMeasureBridge.measurable_set_moment_bound` | PASS: clean build and empty-kernel replay |
 | Global upper inequality for every admissible partition | Sum of the single-cell bounds on the original measurable sets | `GaussianMeasureBridge.prescribed_mass_measurable_sets_bound` | PASS: clean build and empty-kernel replay |
 | Terminal-cell inequality (16b) | Actual Gaussian exponential moment and integrated tangent inequality | `GaussianMeasureBridge.gaussian_profile_entropy_bound` | PASS: clean build and empty-kernel replay |
-| Lemma 3, equation (10) | Ordered weighted covariance and residual entropy | Not yet supplied | Open formalization gap |
+| Lemma 3, equation (10) | Ordered weighted covariance and residual entropy | `GaussianMeasureBridge.ordered_residual_entropy_bound` | New candidate source; additional CI/replay pending |
 | Lemma 1 and equation (7a) | Independent coordinate thresholds, exact cell masses and all moments | Not yet supplied | Open formalization gap |
 | Full Theorem 4, equation (13) | Staircase construction, preceding lemmas, lower estimate, dimension extension, exact supremum definition/assembly | Not yet supplied | NOT a complete Lean theorem |
 | Two-log-scale refinements | Mills bounds and scalar estimates | Not selected | Outside present coverage |

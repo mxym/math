@@ -1,3 +1,4 @@
+import OrderedResidualEntropy
 import GaussianSets
 import GaussianEntropy
 
@@ -48,3 +49,15 @@ import GaussianEntropy
 #print axioms GaussianMeasureBridge.gaussian_profile_entropy_bound
 #print axioms GaussianMeasureBridge.gaussianReal_halfline_firstMoment
 #print axioms GaussianMeasureBridge.gaussian_unit_halfspace_flux
+#print axioms GaussianMeasureBridge.residualMass_nonneg
+#print axioms GaussianMeasureBridge.residualMass_pos
+#print axioms GaussianMeasureBridge.residualMass_antitone
+#print axioms GaussianMeasureBridge.residualMass_zero
+#print axioms GaussianMeasureBridge.residualMass_length
+#print axioms GaussianMeasureBridge.residualMass_sub_succ
+#print axioms GaussianMeasureBridge.entropyArea_step
+#print axioms GaussianMeasureBridge.sum_fin_differences
+#print axioms GaussianMeasureBridge.residual_entropy_riemann_bound
+#print axioms GaussianMeasureBridge.weighted_covariance_identity
+#print axioms GaussianMeasureBridge.opposite_order_weighted_sum
+#print axioms GaussianMeasureBridge.ordered_residual_entropy_bound

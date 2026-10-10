@@ -86,3 +86,9 @@ formalization. This work makes no claim of priority for a new mathematical
 solution and is not a substitute for external peer review. Original materials
 retain all rights unless separately licensed. See `THIRD_PARTY.md` for unchanged
 inherited sources and the existing third-party licenses.
+
+## Next checked increment under development
+
+`OrderedResidualEntropy.lean` supplies the complete proposed proof of Lemma 3,
+including its telescoping and covariance arguments. This increment is not counted
+in the earlier 9-module / 47-root evidence; its additional CI/replay is pending.

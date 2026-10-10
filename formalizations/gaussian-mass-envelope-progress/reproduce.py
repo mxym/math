@@ -15,7 +15,7 @@ import time
 
 ROOT = Path(__file__).resolve().parent
 MODULES = ["GaussianPartition", "GaussianHalflineFlux", "GaussianHalfspaceFlux",
-           "GaussianTail", "GaussianHazard", "GaussianQuantile", "GaussianOneCell", "GaussianSets", "GaussianEntropy"]
+           "GaussianTail", "GaussianHazard", "GaussianQuantile", "GaussianOneCell", "GaussianSets", "GaussianEntropy", "OrderedResidualEntropy"]
 LEAN_COMMIT = "5045d0056413266e57c625dcd7c365b10e377c52"
 ALLOWED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 

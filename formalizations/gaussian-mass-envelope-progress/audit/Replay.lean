@@ -1,3 +1,4 @@
+import OrderedResidualEntropy
 import GaussianSets
 import GaussianEntropy
 import Lean.Replay
@@ -74,7 +75,19 @@ run_cmd do
     ``GaussianMeasureBridge.gaussianTail_hazard_entropy_bound,
     ``GaussianMeasureBridge.gaussian_profile_entropy_bound,
     ``GaussianMeasureBridge.gaussianReal_halfline_firstMoment,
-    ``GaussianMeasureBridge.gaussian_unit_halfspace_flux]
+    ``GaussianMeasureBridge.gaussian_unit_halfspace_flux,
+    ``GaussianMeasureBridge.residualMass_nonneg,
+    ``GaussianMeasureBridge.residualMass_pos,
+    ``GaussianMeasureBridge.residualMass_antitone,
+    ``GaussianMeasureBridge.residualMass_zero,
+    ``GaussianMeasureBridge.residualMass_length,
+    ``GaussianMeasureBridge.residualMass_sub_succ,
+    ``GaussianMeasureBridge.entropyArea_step,
+    ``GaussianMeasureBridge.sum_fin_differences,
+    ``GaussianMeasureBridge.residual_entropy_riemann_bound,
+    ``GaussianMeasureBridge.weighted_covariance_identity,
+    ``GaussianMeasureBridge.opposite_order_weighted_sum,
+    ``GaussianMeasureBridge.ordered_residual_entropy_bound]
   let cs ← match collectProofClosure env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
