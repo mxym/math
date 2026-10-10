@@ -9,6 +9,8 @@ The table outcome and the center are absent from these choices.
 -/
 namespace ErdosSimilarityGrowingGaps
 
+open Filter Topology Asymptotics
+
 noncomputable def routingActivationRate (K : ℕ) : ℝ :=
   1 / (2 * (candidateStride (1 / (K : ℝ)) : ℝ) * (K : ℝ))
 
@@ -90,6 +92,74 @@ theorem exists_routing_schedule (K : ℕ) (hK : 2 ≤ K) (k : ℤ) (N : ℕ)
   }⟩
   · simpa only [c, RoutingTemplate.span_affine] using hspan
   · simpa only [c, mul_assoc] using hentropy
+
+/-!  The finite template can be translated to every sufficiently late prescribed
+origin.  This is the scheduling interface needed by the sequential annulus
+property: the annulus is supplied first, and the routing tree is then placed
+inside that annulus. -/
+theorem routing_schedule_eventually_at_origin (K : ℕ) (hK : 2 ≤ K) (k : ℤ)
+    (N : ℕ) (p : ℝ) (hp : 0 < p) :
+    ∀ᶠ U : ℕ in atTop, ∃ s : RoutingSchedule K k N p,
+      s.template.origin = U := by
+  have hη := routingActivationRate_pos K hK
+  obtain ⟨M, hM, _, hκ⟩ := exists_branching_decay p (routingActivationRate K) hp hη
+  obtain ⟨d, hd, hdefault⟩ := exists_default_depth_budget M hM p hp
+  obtain ⟨g, _, hboundary⟩ := exists_stable_gap_budget
+    (Fintype.card (RoutingEdge M d)) p hp 4
+  let Lmin := Nat.ceil (2 * (candidateStride (1 / (K : ℝ)) : ℝ) * (K : ℝ)) + 1
+  let Umin := max (candidateTailStart K N k) (max (g + 1) k.natAbs)
+  let κ₀ : ℝ := p * routingActivationRate K * ((M : ℝ) - 1) / 2 - 4 * Real.log 2
+  let C₀ : ℝ := Real.log ((46080 * (M : ℝ) ^ 2) / p) + 1
+  have hMr : (0 : ℝ) < M := by exact_mod_cast (by omega : 0 < M)
+  have hCpos : 0 < 46080 * (M : ℝ) ^ 2 := by positivity
+  have hspan := scheduledWindow_affine_span_eventually κ₀ C₀ hκ
+    (RoutingTemplate.lengthCoefficient M d)
+    (RoutingTemplate.gapCoefficient M d * g) Lmin
+  have hlate : ∀ᶠ U : ℕ in atTop, Umin ≤ U := eventually_ge_atTop Umin
+  filter_upwards [hspan, hlate] with U hspan hlate
+  let L := scheduledWindow κ₀ C₀ Lmin U
+  let c : RoutingTemplate M d := ⟨g, L, U⟩
+  have hLL : 0 < L := by
+    dsimp [L]
+    exact lt_of_lt_of_le (by dsimp [Lmin]; omega)
+      (scheduledWindow_ge κ₀ C₀ Lmin U)
+  have hactive : 2 * (candidateStride (1 / (K : ℝ)) : ℝ) * (K : ℝ) ≤ (L : ℝ) := by
+    have hceil := Nat.le_ceil (2 * (candidateStride (1 / (K : ℝ)) : ℝ) * (K : ℝ))
+    have hLr : (Lmin : ℝ) ≤ L := by
+      exact_mod_cast (scheduledWindow_ge κ₀ C₀ Lmin U)
+    dsimp [Lmin] at hLr
+    push_cast at hLr
+    linarith
+  have htail : candidateTailStart K N k ≤ U :=
+    (le_max_left _ _).trans hlate
+  have hgap : g + 1 ≤ U :=
+    (le_max_left _ _).trans ((le_max_right _ _).trans hlate)
+  have hcoeff : k.natAbs ≤ U :=
+    (le_max_right _ _).trans ((le_max_right _ _).trans hlate)
+  have hentropy := entropy_budget_of_log_lower
+    (46080 * (M : ℝ) ^ 2) p κ₀ (L : ℝ) hCpos hp U
+    (by
+      have hlog := scheduledWindow_log_lower κ₀ C₀ hκ Lmin U
+      simpa [C₀, κ₀, add_assoc] using hlog)
+  refine ⟨{
+    branching := M
+    depth := d
+    template := c
+    branching_ge_two := hM
+    depth_pos := hd
+    length_pos := hLL
+    active_count_guard := hactive
+    tail_guard := htail
+    gap_guard := hgap
+    coefficient_guard := hcoeff
+    span_fits := ?_
+    decay_pos := hκ
+    no_default_small := hdefault
+    stable_boundary_small := hboundary
+    continuum_entropy_small := ?_
+  }, rfl⟩
+  · simpa only [c, RoutingTemplate.span_affine] using hspan
+  · simpa only [c, κ₀, mul_assoc] using hentropy
 
 /-- Every actual node's finite candidate budget fits the chosen strict entropy
 budget; its edge length may exceed the base length. -/

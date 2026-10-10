@@ -17,6 +17,8 @@ import ErdosSimilarityGrowingGaps.RoutingMain
 import ErdosSimilarityGrowingGaps.GeometricMain
 import ErdosSimilarityGrowingGaps.ExplicitExample
 import ErdosSimilarityGrowingGaps.WindowRepair
+import ErdosSimilarityGrowingGaps.ScheduledAnnulus
+import ErdosSimilarityGrowingGaps.SequenceTransfer
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -61,6 +63,93 @@ theorem replay_window_power_error
       |c * (input Z n) ^ s - c * (2 : ℝ) ^ (-v * s)| ≤
         |c| * ((2 : ℝ) ^ (-v * s) - (2 : ℝ) ^ (-(v + D) * s)) :=
   h.sample_power_error hv hvD hs
+
+theorem replay_sample_powerPoint_error
+    {Z : LogScale} {K : ℕ} {x : ℝ} {p : PowerParams (1 / (K : ℝ)) K}
+    {U R D v C : ℝ} (hK : 2 ≤ K)
+    (h : FillsAnnulus Z U R D)
+    (hv : U / R ≤ v) (hvD : v + D ≤ R * U) (hC : 0 ≤ C) :
+    ∃ n : ℕ,
+      |powerPoint (input Z n) C (x, p) -
+        powerPoint ((2 : ℝ) ^ (-v)) C (x, p)| ≤
+        |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+          (2 : ℝ) ^ (-(v + D) * p.1.1)) :=
+  h.sample_powerPoint_error hK hv hvD hC
+
+theorem replay_sample_powerPoint_stable_key
+    {Z : LogScale} {K : ℕ} {x : ℝ} {p : PowerParams (1 / (K : ℝ)) K}
+    {U R D v C : ℝ} {b : ℕ} (hK : 2 ≤ K)
+    (h : FillsAnnulus Z U R D)
+    (hv : U / R ≤ v) (hvD : v + D ≤ R * U) (hC : 0 ≤ C)
+    (hstable : NoGridBoundary (2 ^ (b + 3)) x R)
+    (hideal : x ≤ powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ∧
+      powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ≤ x + R) :
+    ∃ n : ℕ,
+      gridAddress b (powerPoint (input Z n) C (x, p)) =
+        gridAddress b (powerPoint ((2 : ℝ) ^ (-v)) C (x, p)) :=
+  h.sample_powerPoint_stable_key hK hv hvD hC hstable hideal
+
+theorem replay_sample_powerPoint_mem_thickening
+    {Z : LogScale} {K : ℕ} {x : ℝ} {p : PowerParams (1 / (K : ℝ)) K}
+    {U R D v C r : ℝ} (hK : 2 ≤ K)
+    (h : FillsAnnulus Z U R D)
+    (hv : U / R ≤ v) (hvD : v + D ≤ R * U) (hC : 0 ≤ C)
+    {G : Set ℝ}
+    (hideal : powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ∈ G)
+    (hwidth : |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+      (2 : ℝ) ^ (-(v + D) * p.1.1)) < r) :
+    ∃ n : ℕ,
+      powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G :=
+  h.sample_powerPoint_mem_thickening hK hv hvD hC hideal hwidth
+
+theorem replay_sequence_missedCenters_transfer
+    {Z : LogScale} {K : ℕ} (tests : Finset ℕ) (k : ℤ)
+    {W : ℕ} (windows : Fin W → ℝ × ℝ) (G : Set ℝ) (r : ℝ)
+    (sample : ℕ → ℕ)
+    (hactivate : ∀ n : ℕ, n ∈ tests →
+      ∀ p : PowerParams (1 / (K : ℝ)) K,
+        p ∈ windowActivations n k windows →
+        p ∈ sequenceWindowActivations Z (sample n) k windows)
+    (hpoint : ∀ (n : ℕ), n ∈ tests → ∀ (x : ℝ)
+      (p : PowerParams (1 / (K : ℝ)) K),
+      powerPoint (dyadic n) ((2 : ℝ) ^ k) (x, p) ∈ G →
+      powerPoint (input Z (sample n)) ((2 : ℝ) ^ k) (x, p) ∈
+        Metric.thickening r G) :
+    sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      Z (tests.image sample) k windows (Metric.thickening r G) ⊆
+    powerMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      tests k windows G :=
+  sequence_missedCenters_subset_power_missedCenters tests k windows G r sample
+    hactivate hpoint
+
+theorem replay_sequence_activation_of_sample_interval
+    {Z : LogScale} {K : ℕ} {n m : ℕ} {k : ℤ}
+    {W : ℕ} (windows : Fin W → ℝ × ℝ) (e : Fin W) (D : ℝ)
+    (p : PowerParams (1 / (K : ℝ)) K) (hK : 2 ≤ K)
+    (hideal : p ∈ powerActivation n k (windows e).1 (windows e).2)
+    (hlo : (n : ℝ) ≤ Z.z m) (hhi : Z.z m ≤ (n : ℝ) + D)
+    (hmargin : p.1.1 * D < (windows e).2 -
+      (p.1.1 * (n : ℝ) - (k : ℝ))) :
+    p ∈ sequenceWindowActivations Z m k windows :=
+  sequence_activation_of_sample_interval windows e D p hK hideal hlo hhi hmargin
+
+theorem replay_sequence_outcome_density
+    {Z : LogScale} {K : ℕ} (tests : Finset ℕ) (k : ℤ)
+    {W : ℕ} (windows : Fin W → ℝ × ℝ) (G : Set ℝ) (r p : ℝ)
+    (sample : ℕ → ℕ)
+    (hsubset : sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      Z (tests.image sample) k windows (Metric.thickening r G) ⊆
+      powerMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+        tests k windows G)
+    (houtcome : unitDensity (Metric.thickening (2 * r) G) +
+      unitDensity (powerMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+        tests k windows G) ≤ ENNReal.ofReal (5 * p)) :
+    unitDensity (Metric.thickening (2 * r) G) +
+      unitDensity (sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+        Z (tests.image sample) k windows (Metric.thickening r G)) ≤
+      ENNReal.ofReal (5 * p) :=
+  sequence_outcome_density_of_power_outcome tests k windows G r p sample
+    hsubset houtcome
 
 theorem replay_late_window {Z : LogScale} (hW : WindowFilling Z)
     (R : ℕ) (hR : 2 ≤ R) (U₀ η : ℝ) (hU₀ : 0 < U₀) (hη : 0 < η) :
@@ -195,6 +284,23 @@ theorem replay_sequence_repair_all_centers {Z : LogScale} {K : ℕ} (hK : 2 ≤ 
     CompactRobustHits Z (Metric.thickening (2 * r) G ∪ V) K k N α q :=
   sequence_repair_all_centers hK tests k windows G V r hr hV hcover N htail α q hα hq herror
 
+theorem replay_routing_schedule_eventual (K : ℕ) (hK : 2 ≤ K) (k : ℤ)
+    (N : ℕ) (p : ℝ) (hp : 0 < p) :
+    ∀ᶠ U : ℕ in atTop, ∃ s : RoutingSchedule K k N p,
+      s.template.origin = U :=
+  routing_schedule_eventually_at_origin K hK k N p hp
+
+theorem replay_scheduled_annulus
+    {Z : LogScale} (hW : WindowFilling Z)
+    (K : ℕ) (hK : 2 ≤ K) (k : ℤ) (N : ℕ) (p : ℝ) (hp : 0 < p)
+    (R : ℕ) (hR : 2 ≤ R) (η : ℝ) (hη : 0 < η) :
+    ∃ U : ℕ → ℕ, ∃ D : ℕ → ℝ, ∃ j : ℕ, ∃ s : RoutingSchedule K k N p,
+      s.template.origin = U j ∧
+      1 < Real.log (U j : ℝ) ∧
+      FillsAnnulus Z (U j) R (D j) ∧
+      D j / Real.log (Real.log (U j : ℝ)) < η :=
+  hW.exists_scheduled_annulus K hK k N p hp R hR η hη
+
 theorem replay_explicit_example_gap {β : ℝ} (hβ : 0 < β) (hβ₁ : β < 1) :
     ConsecutiveLogGapLittleO (explicitLogScale β hβ) :=
   explicitLogScale_consecutiveGapLittleO hβ hβ₁
@@ -222,6 +328,12 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_late_window
 #print axioms replay_grid_boundary_budget
 #print axioms replay_window_power_error
+#print axioms replay_sample_powerPoint_error
+#print axioms replay_sample_powerPoint_stable_key
+#print axioms replay_sample_powerPoint_mem_thickening
+#print axioms replay_sequence_missedCenters_transfer
+#print axioms replay_sequence_activation_of_sample_interval
+#print axioms replay_sequence_outcome_density
 #print axioms replay_sampled_output_buffer
 #print axioms replay_variable_tree_span
 #print axioms replay_distinct_terminal_all_miss
@@ -233,5 +345,7 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_quadratic_parameter_representatives
 #print axioms replay_budget_allocation
 #print axioms replay_grid_blocker_assembly
+#print axioms replay_routing_schedule_eventual
+#print axioms replay_scheduled_annulus
 
 end ErdosSimilarityGrowingGaps
