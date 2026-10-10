@@ -32,13 +32,30 @@ positive, strictly decreasing, tends to zero, and satisfies
 The package also replays the four variable-tree span/edge identities from the
 research note in the `GrowingGap` namespace.
 
+`FiniteRouting.lean` adds the finite Bernoulli-table normalization and the
+exact all-miss identity for pairwise distinct terminal addresses.  These are
+kernel-checked finite statements and do not use a numerical probability
+checker.
+
+`Avoidance.lean` adds the complete countable-exhaustion and topology layer.
+Given a countable family of open periodic blockers with summable density
+budgets, `closed_periodic_avoidance_of_blockers` constructs the closed periodic
+complement, proves the strict measure estimate on every unit interval, proves
+empty interior, and transfers infinitely many blocker hits to infinitely many
+values outside the complement.  `replay_blocker_assembly` is the public
+trust-level-zero replay root.
+
 ## Scope boundary
 
-This package does **not** claim a Lean proof of the full positive-measure
-avoidance theorem.  The random routing, continuum parameter stratification,
-measure construction, countable exhaustion, and nowhere-dense endpoint remain
-to be formalized.  The existing written proof and the earlier globally bounded
-log-gap formalization are not silently substituted for those missing modules.
+The finite blocker witness `BlockerFamily` is now an explicit, fully typed
+interface.  Its existence from `WindowFilling` (the annular sampling to
+continuum routing/projection argument) is still the remaining analytic
+connection.  The package therefore does not silently claim an unconditional
+Lean proof of Theorem 2 or of the displayed logarithmic-power example.  No
+placeholder theorem is used for that connection: every declaration present is
+kernel checked and the earlier deterministic theorems remain unchanged.
+The exact interface and next obligations are recorded in
+[`HANDOVER.md`](HANDOVER.md).
 
 ## Reproduction
 

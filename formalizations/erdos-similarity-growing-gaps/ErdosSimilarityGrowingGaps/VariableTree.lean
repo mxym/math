@@ -1,4 +1,7 @@
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Lean.Elab.Tactic.Omega
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 /-! Uniform algebra used in Lemmas 6–7 of the accompanying paper.
 This file does NOT formalize the new analytic avoidance theorem.

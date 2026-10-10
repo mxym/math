@@ -4,9 +4,12 @@ import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
 import ErdosSimilarityGrowingGaps.AnnulusSequence
 import ErdosSimilarityGrowingGaps.VariableTree
+import ErdosSimilarityGrowingGaps.FiniteRouting
+import ErdosSimilarityGrowingGaps.Avoidance
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
+open Set MeasureTheory
 
 /-- Public replay roots for the formally closed sampling layer. -/
 theorem replay_first_sample :
@@ -24,6 +27,42 @@ theorem replay_variable_tree_span (b g L : ℝ) (hb : 2 ≤ b) (hg : 0 ≤ g)
     (n : ℕ) : span b g L (n + 1) + 2 * g ≤ b * (2 * b) ^ n * (L + 2 * g) :=
   uniform_span b g L hb hg n
 
+theorem replay_distinct_terminal_all_miss
+    {I T : Type*} [Fintype I] [Fintype T] [DecidableEq T]
+    (p : ℝ) (address : I → T) (hinj : Function.Injective address) :
+    (∑ τ : T → Bool, bitTableWeight p τ *
+      ∏ i, if τ (address i) = true then 0 else 1) =
+      (1 - p) ^ Fintype.card I :=
+  distinct_terminal_all_miss p address hinj
+
+theorem replay_blocker_assembly
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (B : BlockerFamily F)
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1)
+    (hsum : ∑' i, B.budget i < ENNReal.ofReal ε) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ := by
+  obtain ⟨E, hEc, hEp, hEi, _, _⟩ :=
+    closed_periodic_avoidance_of_blockers B ε hε hε1 hsum
+  exact ⟨E, hEc, hEp, hEi⟩
+
+theorem replay_compact_blocker_assembly
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (B : BlockerFamily F)
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1)
+    (hsum : ∑' i, B.budget i < ENNReal.ofReal ε) :
+    ∃ K : Set ℝ, IsCompact K ∧ K ⊆ Set.Icc (0 : ℝ) 1 ∧ interior K = ∅ := by
+  obtain ⟨K, hKc, hKsub, hKi, _, _⟩ :=
+    compact_restriction_of_blockers B ε hε hε1 hsum
+  exact ⟨K, hKc, hKsub, hKi⟩
+
+theorem replay_theorem2_assembly
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hB : WindowBlockerSpec F)
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ := by
+  obtain ⟨E, hEc, hEp, hEi, _⟩ := theorem2_of_windowBlockerSpec hB ε hε hε1
+  exact ⟨E, hEc, hEp, hEi⟩
+
 theorem replay_window_filling (Z : LogScale) (h : ConsecutiveLogGapLittleO Z) :
     WindowFilling Z := consecutiveGap_implies_windowFilling h
 
@@ -38,5 +77,9 @@ theorem replay_input_sequence (Z : LogScale) :
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
 #print axioms replay_variable_tree_span
+#print axioms replay_distinct_terminal_all_miss
+#print axioms replay_blocker_assembly
+#print axioms replay_compact_blocker_assembly
+#print axioms replay_theorem2_assembly
 
 end ErdosSimilarityGrowingGaps
