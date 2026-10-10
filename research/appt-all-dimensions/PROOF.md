@@ -276,7 +276,7 @@ p(\rho)\leq\frac1D+\frac{2D-r^2}{D(D-r)^2}.
 \]
 
 Here `D-r>0`, since `r>=3` and `D>=r^2`. This upper bound is strictly below
-`P_1`. Indeed its difference from `P_1` is
+`P_1`. Indeed `P_1` minus the right-hand side of (15) is
 
 \[
 \frac{B(D,r)}{(D-r)^2(D+2)^2},\quad
