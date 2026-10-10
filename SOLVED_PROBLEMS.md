@@ -10,6 +10,7 @@
 
 - [qutrit–qudit APPT 最大纯度：全部 n≥3](formalizations/appt-qutrit-purity/README.md)：真实复密度矩阵及任意全局酉变换下的部分转置正性；n≤8 时为 (3n+8)/(3n+2)^2，n≥9 时为 3/(8n)，含上界与实际取到。879 模块构建和 155,787 声明空内核重放通过，保留失败对照、源码哈希及完整复现脚本。
 - [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)：证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1，并给出无爪 vertex-minor 的六类分量分类与七顶点连通阈值；完整书面证明与双独立精确 checker，未完整 Lean 化。
+- [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；有限精确诊断与部分 Lean，完整猜想及二次对数间隙序列仍开放。
 - [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
 
 - [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。

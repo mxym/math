@@ -77,7 +77,7 @@
 | 连续幂与可控余项避让 | 给定可数有界对数间隙族后构造大测度集合，统一避让允许的幂渐近 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/continuum-power-avoidance/README.md)；[完整书面整合稿](notes/continuum-power-avoidance-unified/README.md) |
 | 全实比值仿射几何序列 | 单个紧集同时处理所有实 a ≠ 0、b 和 0 < q < 1 | [完整 Lean 工程](formalizations/geometric-avoidance/README.md) |
 | 对数密度与非线性扩展 | 所述密度／轮廓条件下的避让；不是完整 Erdős 相似性猜想 | [004 稿件](preprints/004-log-density-similarity/README.md)；[006 稿件](preprints/006-modulus-nonlinear-similarity/README.md) |
-| 增长对数间隙 | 覆盖部分相邻比值趋零的序列类 | [书面类扩展](research/erdos-similarity-growing-gaps/README.md)，非完整猜想解答 |
+| 增长对数间隙 | 覆盖部分相邻比值趋零的序列类；已冻结为独立预印本 | [预印本与 DOI](preprints/erdos-similarity-growing-gaps-2026-10/README.md)；完整猜想仍未解决 |
 | 精确维数紧集不可嵌入 | Assouad 维数为 2 的 Banach 空间障碍构造 | [003 研究稿](preprints/003-assouad-two-zero-box/README.md) |
 
 ## 最优传输与动力学
