@@ -4,5 +4,6 @@ import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Sampling
 import ErdosSimilarityGrowingGaps.LogBounds
 import ErdosSimilarityGrowingGaps.Corollary
+import ErdosSimilarityGrowingGaps.Input
 import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.Replay

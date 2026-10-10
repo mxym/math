@@ -20,6 +20,10 @@ interval of length `D` contains a sample, with `D >= 1` and
 `D <= eta * log (log U)`.  The proof includes the first-sample endpoint case,
 local gap propagation, and all positivity and logarithm estimates.
 
+`Input.lean` closes the exact sequence interface: `a_n = 2^(-z_n)` is
+positive, strictly decreasing, tends to zero, and satisfies
+`-logb 2 a_n = z_n` in Lean.  These facts are not additional hypotheses.
+
 `fillsAnnulus_of_anchor_gap` is the finite local lemma used by that theorem.
 The package also replays the four variable-tree span/edge identities from the
 research note in the `GrowingGap` namespace.

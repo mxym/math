@@ -1,6 +1,7 @@
 import ErdosSimilarityGrowingGaps.Basic
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
+import ErdosSimilarityGrowingGaps.Input
 import ErdosSimilarityGrowingGaps.VariableTree
 
 namespace ErdosSimilarityGrowingGaps
@@ -22,6 +23,13 @@ theorem replay_variable_tree_span (b g L : ℝ) (hb : 2 ≤ b) (hg : 0 ≤ g)
     (n : ℕ) : span b g L (n + 1) + 2 * g ≤ b * (2 * b) ^ n * (L + 2 * g) :=
   uniform_span b g L hb hg n
 
+theorem replay_input_sequence (Z : LogScale) :
+    (∀ n, 0 < input Z n) ∧ StrictAnti (input Z) ∧
+      Filter.Tendsto (input Z) Filter.atTop (nhds 0) ∧
+      ∀ n, -Real.logb 2 (input Z n) = Z.z n := by
+  exact ⟨input_pos Z, input_strictAnti Z, input_tendsto_zero Z, input_logb Z⟩
+
+#print axioms replay_input_sequence
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
 #print axioms replay_variable_tree_span
