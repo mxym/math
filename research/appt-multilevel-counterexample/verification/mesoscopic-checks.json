@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "scope": "Exact ancillary finite identities only; not Lean, independent peer review, or a finite proof of the analytic limits",
+  "variance": {
+    "ordered_spectra": 360,
+    "scalar_parameter_cases": 15129
+  },
+  "physical_pairing": {
+    "rational_orbit_pairings": 40
+  },
+  "graph_moments": {
+    "all_graphs_orders_2_to_5": 1098,
+    "odd_moment_inequalities": 4392
+  },
+  "lacunary_forests": {
+    "lacunary_grid_systems": 6,
+    "forest_edges": 543,
+    "loops": 21,
+    "rational_quadratic_checks": 30,
+    "hierarchy_budgets": 99
+  },
+  "nested_moments": {
+    "full_diagonal_nested_moment_cases": 36
+  },
+  "finite_family": {
+    "exact_finite_parameter_certificates": 192,
+    "witness": {
+      "m": 16384,
+      "n": 16384,
+      "rank": 2097152,
+      "a": "2048/1115",
+      "c": "1/1115",
+      "centered_scaled_purity": "452164212835264520781824/89585058955962578104321",
+      "gap_above_old_subclass": "1134801570907058645479805042684/24044870718003888546572278919169"
+    }
+  },
+  "negative_controls": [
+    {
+      "name": "changed variance coefficient",
+      "rejected": true,
+      "diagnostic": "wrong quarter coefficient rejected"
+    },
+    {
+      "name": "changed walk coefficient",
+      "rejected": true,
+      "diagnostic": "triangle violates false degree-sum bound r"
+    },
+    {
+      "name": "nonlacunary cycle",
+      "rejected": true,
+      "diagnostic": "additive label graph contains a cycle"
+    },
+    {
+      "name": "apply forest estimate to a triangle",
+      "rejected": true,
+      "diagnostic": "triangle cannot use forest norm inequality"
+    },
+    {
+      "name": "increase the spike past its physical bound",
+      "rejected": true,
+      "diagnostic": "rank-two physical witness rejects spike contrast 3"
+    }
+  ],
+  "sources": {
+    "check_mesoscopic.py": "15642eb189a9866fe8da4d1e6e16deca08a1fb94c3f2971dd91ad46c992aa56b",
+    "UNRESTRICTED_BOUND.md": "719cddb061709031a0d67dc3e030baaf104a0db939e57cea0f69c8d4888e8b7b",
+    "MESOSCOPIC.md": "169ca2407a02c07f32946202c57bd5a721eafa184cf57a494c7819e81cdeb1ab",
+    "GRAPH_LIMIT.md": "615b1179921752e510b78825fdf1292152355f87ab5b1f8387838a1d661209d8",
+    "MULTISCALE.md": "03c1b9a2251b43885b0f6f9174f8fa010ddf961ab7e3602cba748c3de55f6864"
+  }
+}

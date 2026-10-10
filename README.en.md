@@ -64,3 +64,7 @@ Public preprints and DOIs do not imply journal peer review, mathematical correct
 ## Global-unitary extraction capacity and exact exponents
 
 [The analytic preprint](research/global-unitary-ppt-extraction/README.md) gives a common capacity and exact all-rate target-fidelity exponent for local product channels, LOCC and completely PPT channels, after collective global-unitary preprocessing on the original system. The matching construction is deterministic variable-dimension Bell packing. The prior entropy converse is credited; the paper proves spectral achievability and the common exponent. Exact ancillary CI and source-mutation tests passed. This is not Lean-formalized, externally peer reviewed, or a solution of ordinary fixed-input LOCC distillation.
+
+## State-independent extraction, reliability and Gaussian threshold
+
+[The universal Schur extraction preprint](research/universal-schur-extraction/README.md) constructs a single family of global unitaries and local product channels, independent of the unknown spectrum and eigenbasis. It matches the state-aware all-rate fidelity exponent, the exact strict-direct reliability function, eventual-exact capacity, and a nondegenerate Gaussian threshold. Standard representation theory and probability are credited inputs. Exact ancillary checks passed, but the analytic theorem is not Lean-formalized or externally peer reviewed. The global entangling preprocessing is essential; this is not ordinary fixed-input LOCC distillation or a solution of its universal error-exponent problem.
