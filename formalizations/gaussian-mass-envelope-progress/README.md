@@ -8,7 +8,7 @@ formalization of the paper's two-sided mass-envelope theorem**.
 
 Write `q(a)` for the actual standard-Gaussian upper-tail probability,
 `phi(a)` for its actual density, and `a_p` for the unique threshold with `q(a_p)=p`.
-The intended checked entry points in this stage are:
+The checked entry points in this stage are:
 
 * `GaussianMeasureBridge.squared_hazard_log_lipschitz`: for every `0 < p ≤ q < 1`,
   `0 ≤ (phi(a_p)/p)^2 - (phi(a_q)/q)^2 ≤ 2 log(q/p)`.
@@ -29,11 +29,16 @@ unproved fractional-model interface.
 
 ## Verification status of this development revision
 
-The initial WSL development build passed the complete tail, threshold-hazard and
-probability-quantile modules. The exact committed package, measurable-set bridge,
-upper bound, entropy estimate, clean-build hashes and trust-zero replay are being
-checked by the accompanying CI. **A CI/replay pass is not asserted in this
-revision until a concrete successful run and its report are recorded.**
+The exact source at commit `46f8894ac0c2e36544a8db91c8434a560f1bd868` passed
+[CI run 38025117038](https://github.com/mxym/math/actions/runs/38025117038).
+All **9 project modules** were rebuilt in a new empty build directory; all
+**47 named roots** and their **53,046-declaration transitive closure** passed
+empty-kernel replay at trust level zero. Only `propext`, `Classical.choice`, and
+`Quot.sound` occurred. Both deliberately corrupted analytic statements were
+rejected. Source and pinned-dependency hashes were checked before/after the run.
+This is a fresh run, completed at `2026-10-10T04:48:17Z`, not a historical log
+relabeled as a new verification. The detailed [evidence](evidence/ci-38025117038/README.md)
+is committed beside the sources.
 
 ## Reproduce
 

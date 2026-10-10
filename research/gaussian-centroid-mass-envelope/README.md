@@ -129,3 +129,13 @@ historical mathematical priority is not asserted.
 
 [oai096]: https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Gaussian-Propeller-Bound-in-Every-Dimension-September-24-2026/main.pdf
 [companion]: https://github.com/mxym/math/tree/4efb271ef56070bd5b3e300d33dfafb547fceacf/research/gaussian-propeller-balanced-fans
+
+
+## Lean coverage update
+
+The [analytic-core Lean project](../../formalizations/gaussian-mass-envelope-progress/README.md)
+has a fresh successful clean build and empty-kernel replay: Lemma 2, actual-set
+global upper bound, and (16b); 9 modules, 47 roots, 53,046 declarations.
+The full lower-envelope theorem is **not** yet formalized. See paper section 8
+and the explicit theorem map; this does not turn finite arithmetic checks into
+a proof of the unformalized universal statements.
