@@ -1,0 +1,11 @@
+# Independent exact ancillary verification
+
+CI run **38034511091**, source **45c677c89cef268033b6d6c68c3e44eeb20a0b1e**, passed. The actual uploaded proof, LaTeX, nine-page PDF and manifest were compared byte-for-byte with the publication tree. All eleven pinned root source/manuscript/tool files matched. Original reports and logs are retained without rewriting their result.
+
+This is **not Lean certification or external peer review**. The full analytic proof depends on the stated representation-theoretic inputs and, for its Gaussian statement, the ordinary central limit theorem. Those theorems and the full dimension-uniform protocol are not proved by finite regression counts.
+
+The ancillary checks include 306 Young shapes, 1,224 rational Schur probability checks (432 zero-probability blocks), hook dimensions versus independent tableau recursion, and Weyl dimensions versus an independent Jacobi--Trudi character calculation. Four noncommuting test states on a 16-dimensional tensor-power space check the central universal operator. Forty-five coherent multiplicity selections and 632 code dyads check the distinction between unknown coherences and diagonal examples. There are 60,517 integer packing cases, 23,160 truncated cases, 11,589 fully extracted cases, 1,356 scalar fidelity-effect cases, and two symbolic polynomial identities.
+
+The unchanged checker passes both normally and with assertions disabled. Nine actually modified checker programs are rejected under Python -O with specified mathematical diagnostics: incorrect hook and character formulas, missing universal-state normalization, truncation of the unknown representation factor, incomplete extraction of a good block, missing leftover Kraus branches, false surviving cross-code coherences, incorrect target-fidelity power, and an incorrect escort sign. Timeouts or arbitrary errors do not count as successful rejection.
+
+The original local multiplicity mutant first failed a stricter good-block condition rather than the expected coarse retained-fraction check. Its diagnostic matcher was corrected to require that actual mathematical failure; no positive test was weakened. The original ten-page layout had an orphan final line; only the repeated disclosure text was shortened, and the final nine-page source received the successful run recorded here.
