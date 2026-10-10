@@ -47,6 +47,8 @@ theorem winningMass_price_differentiableAt
     funext c
     unfold winningMass
     rw [winningCell_reindex, he0]
+  change DifferentiableAt ℝ
+    (fun c : Fin (d+2) → ℝ => winningMass (v ∘ e) (c ∘ e) 0) b at h
   rwa [he] at h
 
 lemma priceGradient_differentiableAt
