@@ -80,7 +80,7 @@ theorem psd_shifted_star_bound {n : ℕ}
     (hs : ∀ i : Fin n, M 0 i.succ = -u i)
     (ho : ∀ i j : Fin n, i≠j → M i.succ j.succ ≤ 0) :
     (∑ i, (u i)^2) ≤ 4*(1-y) := by
-  simpa using psd_star_bound M hM u hu (1-y) 1 (by norm_num) hc hd hs ho
+  simpa using psd_star_bound M hM u hu (1-y) 1 (by norm_num) hc (by simpa using hd) hs ho
 
 /-- Physical APPT star inequality in every finite rectangular dimension. -/
 theorem diagonal_appt_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq b]
@@ -92,8 +92,8 @@ theorem diagonal_appt_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq 
     (ho : ∀ i j : Fin (n+1), i<j → d (i,e j) ≤ d (j,e i)) :
     (∑ i : Fin n, (d (i.succ,e 0)-d (0,e i.succ))^2) ≤ 4*c*t := by
   let M := witnessMatrix (fun p : Fin (n+1) × Fin (n+1) => d (p.1,e p.2))
-  apply psd_star_bound M (diagonal_appt_witness_posSemidef d h e he)
-    (fun i => d (i.succ,e 0)-d (0,e i.succ)) _ c t ht
+  refine psd_star_bound M (diagonal_appt_witness_posSemidef d h e he)
+    (fun i => d (i.succ,e 0)-d (0,e i.succ)) ?_ c t ht ?_ ?_ ?_ ?_
   · intro i
     exact sub_nonneg.mpr (ho 0 i.succ (Fin.succ_pos i))
   · simpa [M, witnessMatrix] using mul_le_mul_of_nonneg_left hc (show (0:ℝ)≤2 by norm_num)
@@ -104,7 +104,7 @@ theorem diagonal_appt_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq 
   · intro i j hij
     by_cases hlt : i<j
     · simpa [M, witnessMatrix, hij, Fin.succ_inj, hlt] using sub_nonpos.mpr (ho i.succ j.succ (Fin.succ_lt_succ_iff.mpr hlt))
-    · have hjlt : j<i := lt_of_le_of_ne (le_of_not_gt hlt) (Ne.symm hij)
+    · have hjlt : j < i := lt_of_le_of_ne (le_of_not_gt hlt) (Ne.symm hij)
       simpa [M, witnessMatrix, hij, Fin.succ_inj, hlt] using sub_nonpos.mpr (ho j.succ i.succ (Fin.succ_lt_succ_iff.mpr hjlt))
 /-- Necessary star inequality for actual eigenvalues of an actual Hermitian APPT matrix.
 The permutation may be chosen arbitrarily; no spectral surrogate replaces APPT. -/

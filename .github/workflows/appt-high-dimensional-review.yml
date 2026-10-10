@@ -27,7 +27,8 @@ jobs:
           set -euo pipefail
           mkdir -p verification/ci-current
           timeout 900 lake build APPTReview 2>&1 | tee verification/ci-current/build.log
-          timeout 180 lake build +Verification.ReplaySupport 2>&1 | tee verification/ci-current/support.log
+          mkdir -p .lake/build/lib/lean/Verification
+          timeout 180 lake env lean -o .lake/build/lib/lean/Verification/ReplaySupport.olean ../appt-qutrit-purity/Verification/ReplaySupport.lean 2>&1 | tee verification/ci-current/support.log
       - name: Replay reviewed declarations from an empty kernel
         working-directory: formalizations/appt-high-dimensional-review
         shell: bash
