@@ -1,5 +1,12 @@
 # APPT purity in arbitrary local dimensions: rigorous spectral reductions
 
+## Research update: the proposed general formula is false
+
+The subsequent [multilevel working proof](../appt-multilevel-counterexample/PROOF.md) gives an all-unitary APPT counterexample on C^10 tensor C^38, an infinite family, and strict-interior violations. The scalar comparisons are exact. [Further analysis](../appt-multilevel-counterexample/ASYMPTOTIC.md) proves violations in every fixed proportional-growth regime. These are research notes, not a new preprint or Lean certificate.
+
+The two-eigenvalue, flat-minimum, and containment theorems below retain their stated scope. The old formula is no longer a valid candidate for the unrestricted maximum. The remaining optimization target is the true multilevel maximum and its sharp upper bound. Historical descriptions below record the original target and preceding partial progress.
+
+
 **Research continuation; not a solution of the full arbitrary-dimension purity
 conjecture, and not a new Lean release.** The previous qutrit theorem is complete
 and published separately. This directory records new analytic proofs and exact

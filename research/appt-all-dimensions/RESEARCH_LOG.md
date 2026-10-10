@@ -128,3 +128,7 @@ All new theorems in this directory are written analytic proofs, not Lean
 formalizations. The symbolic checks and regression counts are explicitly
 auxiliary. No partial result here is labeled as a complete higher-dimensional
 APPT purity solution or issued as a complete-proof Release.
+
+## Subsequent multilevel refutation
+
+The working proof in `../appt-multilevel-counterexample/` now disproves the original arbitrary-dimensional formula by an actual APPT density matrix with unnormalized spectrum `(41,17[146],15[233])` on 10x38. Its positivity is an all-unitary sum-of-squares argument. Infinite and strictly interior families are also proved. The earlier two-level results remain valid. The correct continuing target is the unrestricted true maximum, not an attempted proof of Conjecture 6.7. No preprint or Release was created for this research checkpoint.
