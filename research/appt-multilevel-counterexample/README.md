@@ -1,6 +1,6 @@
 # APPT purity: counterexamples and the sharp unrestricted asymptotic
 
-The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. No new preprint or Release is being prepared.
+The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. The counterexample, unrestricted asymptotic law and exact rectangular theorem are now incorporated in the [expanded APPT preprint](../../preprints/appt-purity-unified-2026-10/README.md). The earlier immutable qutrit proof release remains unchanged.
 
 ## New exact and structural results
 
@@ -14,7 +14,7 @@ All maximizing spectra are classified: t entries m+1 and mn-t entries m-1, divid
 
 [OPTIMAL_HIERARCHY.md](OPTIMAL_HIERARCHY.md) gives an EXACT multiscale graph limit and solves the leading optimization for each fixed J of lacunary intermediate-rank plateaus plus a spike. Its sharp centered-purity coefficient is 8-d_J, where d_0=4 and d_j=d_{j-1}-d_{j-1}^2/8; the optimal limiting scale energies are unique. The deficit is asymptotic to 8/J. This model-specific depth law is not a claim about all conceivable finite-level spectra.
 
-Run `python3 check_rectangular.py` and `python3 check_structure.py`, also with `python3 -O`, for exact supporting calculations. The analytic proofs are not Lean-formalized or externally peer reviewed. No preprint or Release is being prepared.
+Run `python3 check_rectangular.py` and `python3 check_structure.py`, also with `python3 -O`, for exact supporting calculations. The analytic proofs are not Lean-formalized or externally peer reviewed. Phase rigidity and fixed-hierarchy optimization remain research notes and are not claimed as theorems of the expanded preprint.
 
 ## Current result: sharp unrestricted excess purity in all large-dimensional regimes
 
@@ -34,7 +34,7 @@ The main working proofs are [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md), which gi
 
 The earlier intermediate-rank construction, one-scale graph limit, quartile bound and aspect-ratio-three bound are retained as intermediate research steps. Their previously unresolved leading-constant gaps are closed by the final triangular argument. They are not separate preprints.
 
-Run `python3 check_mesoscopic.py` and `python3 check_triangular.py`, also with `python3 -O`, for exact finite supporting identities. These checks do not certify the infinite-dimensional compactness argument or replace the analytic all-unitary proof. This work is not Lean-formalized or externally peer reviewed. No preprint or Release has been prepared for this continuation.
+Run `python3 check_mesoscopic.py` and `python3 check_triangular.py`, also with `python3 -O`, for exact finite supporting identities. These checks do not certify the infinite-dimensional compactness argument or replace the analytic all-unitary proof. The higher-dimensional work is not Lean-formalized or externally peer reviewed. Its final unrestricted law, fixed-dimension limit and rectangular theorem are included in the expanded preprint; the earlier working notes are retained as dated research history.
 
 Still unresolved: the finite-dimensional maximum outside the proved rectangular region, the smallest true rectangular onset, higher-order expansions and the complete outlier/level classification, effective convergence thresholds for the hierarchy, and absolute separability of the new families.
 

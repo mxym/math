@@ -75,6 +75,11 @@ The resulting exact prefix constraints are E_{j-1}+2 sqrt(2 e_j)<=4. Their compl
 Exact supporting tests include rational PSD graph matrices, all four defects and clipping identities, one-loop component restrictions, optimal rational arrowhead kernels, alternative feasible energy allocations, and large-integer nested graph counts. These checks passed normally and with assertions disabled. They do not certify the compactness theorem, and no independent CI, Lean proof, external peer review, preprint, or Release is claimed for this research cycle.
 
 
+## Expanded manuscript integration, 10 October 2026
+
+The explicit counterexample, all-regime first excess-purity equivalent and exact rectangular maximum/equality theorem have been integrated with the earlier qutrit result in `preprints/appt-purity-unified-2026-10/`. Complete high-dimensional analytic details are now typeset in manuscript appendices. The qutrit-only immutable release and DOI are unchanged. The phase-rigidity and optimal-fixed-hierarchy results remain separate research notes. The expanded manuscript has no new version DOI at this checkpoint.
+
+
 ## Two-ended hierarchies and flat reflected near-maximizers
 
 Started from live main 8803903a after reading the current indexes, exact rectangular result, phase rigidity, and fixed-hierarchy graph theorem. No applicable AGENTS.md was found. A separate worktree is used and no preprint or Release is prepared.
