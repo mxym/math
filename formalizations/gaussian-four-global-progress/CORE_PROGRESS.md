@@ -91,8 +91,11 @@ main-theorem wrapper has been added. See GAPS.md for the full list.
 
 The baseline quartile/collinear development is commit addcab8a; this work
 preserves its sources and prior verification evidence. New material is by
-Yongxian Zhang (Zhang Yongxian), School of Computer Science and Engineering,
+Yongxian Zhang (张永贤), School of Computer Science and Engineering,
 South China University of Technology; mxymmxym1@gmail.com;
 ORCID 0009-0000-3864-3536. No external funding; AI-assisted research.
 Existing licenses and third-party attribution remain in force. No external
 human peer review or priority claim is made.
+
+New original material retains all rights not otherwise granted; existing
+repository licenses and third-party permissions are preserved.

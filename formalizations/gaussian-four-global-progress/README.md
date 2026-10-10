@@ -71,10 +71,21 @@ or shadowed. No research-branch theorem is silently imported.
 
 ## Verification and reproduction
 
-The new core modules have passed individual compilation and a fresh Lake
-build. At this source checkpoint, the retained `kernel-r2` evidence covers
-the earlier 26-module/206-root closure only. A separate current source-bound
-replay receipt is required before treating the expanded closure as replayed.
+Current source-bound verification: `evidence/core-r1/verification.json` is
+PASS. A fresh Lake tree started with zero owned objects; every one of the
+31 modules was then independently rebuilt from source. The trust-zero replay
+checked 57,811 declarations for 222 roots. Only `propext`, `Classical.choice`,
+and `Quot.sound` occurred. All six deliberate source mutations were rejected.
+Full literal logs and mutated test sources are in
+`evidence/core-r1/complete-logs.tar.gz`, with SHA-256 and source provenance.
+Older `kernel-r2` receipts remain historical; they are not the new core run.
+
+An independent clean GitHub-hosted Ubuntu 24.04 run also passed:
+[run 38044016825](https://github.com/mxym/math/actions/runs/38044016825).
+Its original full log artifact is archived under `evidence/core-ci/`.
+A programmatic comparison confirmed identical source hashes, all 31 compiled
+object hashes, replay summaries, and all six negative-control outcomes between
+the two hosts. See `evidence/core-ci/COMPARISON.json`.
 
 Toolchain: Lean 4.34.1, commit
 `5045d0056413266e57c625dcd7c365b10e377c52`.

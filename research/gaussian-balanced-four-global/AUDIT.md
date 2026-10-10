@@ -73,3 +73,20 @@ It does not silently perform a fresh Lean build. The separate replay command
 in `formal/README.md` does. The PDF has eleven pages and editable sources.
 PDF metadata is fixed by `build.py`; disclosure timestamps come from the
 public commit and verified immutable release, not the PDF's date string.
+
+## Lean core extension (development, 2026-10-10)
+
+The checked partial package now proves equation (10) from actual Gaussian
+winning masses and gives centered-price subsequential compactness. It also
+proves the universal PSD trace-one upper-normal equivalence and the intrinsic
+three-dimensional regularization residual identity and estimate behind
+(20)-(21). See `formalizations/gaussian-four-global-progress/CORE_PROGRESS.md`
+for exact Lean types and the explicit remaining coordinate/analytic bridges.
+The used closure has 31 modules and 222 audit roots; the new source-bound
+local report is `evidence/core-r1/verification.json` in that package.
+
+These results do not formalize the actual Gaussian facet convergence,
+mountain-pass construction, geometric perimeter inputs, or sharp equality
+classification. The global theorem is still only partially formalized.
+No complete-formalization or external-peer-review claim is justified by this
+core extension, and no immutable manuscript release has been modified.

@@ -1,6 +1,6 @@
 digraph GaussianFourPartial {
   rankdir=LR;
-  label="Partial proof dependency graph; global theorem absent";
+  label="Partial proof dependency graph; sharp global theorem absent";
   "GaussianPartition" -> "GaussianPrices";
   "GaussianPartition" -> "GaussianNoTies";
   "GaussianPrices" -> "GaussianBalancedPrices";
@@ -30,6 +30,17 @@ digraph GaussianFourPartial {
   "GaussianFour.OrderedWinning" -> "GaussianFour.RankOne";
   "GaussianFour.RankOne" -> "GaussianFour.CollinearTransport";
   "GaussianNoTies" -> "GaussianFour.CollinearTransport";
+  "GaussianFour.Profile" -> "GaussianFour.PriceBounds";
+  "GaussianFour.TripleTie" -> "GaussianFour.PriceBounds";
+  "GaussianOneCell" -> "GaussianFour.PriceBounds";
+  "GaussianFour.PriceBounds" -> "GaussianFour.PriceCompactness";
+  "GaussianFour.TraceSupport" -> "GaussianFour.NormalCone";
+  "GaussianFour.NormalCone" -> "GaussianFour.RegularizedResidual";
+  "GaussianFour.RegularizedResidual" -> "GaussianFour";
+  "GaussianFour.NormalCone" -> "GaussianFour";
+  "GaussianFour.TraceSupport" -> "GaussianFour";
+  "GaussianFour.PriceCompactness" -> "GaussianFour";
+  "GaussianFour.PriceBounds" -> "GaussianFour";
   "GaussianPrimalDual" -> "GaussianFour";
   "GaussianFractionalEquality" -> "GaussianFour";
   "GaussianFour.ScalarTent" -> "GaussianFour";
