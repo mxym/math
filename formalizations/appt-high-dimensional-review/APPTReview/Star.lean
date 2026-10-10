@@ -100,7 +100,7 @@ theorem diagonal_appt_star_bound {n : ℕ} {b : Type*} [Fintype b] [DecidableEq 
   · intro i
     simpa [M, witnessMatrix] using mul_le_mul_of_nonneg_left (hd i) (show (0:ℝ)≤2 by norm_num)
   · intro i
-    simp [M, witnessMatrix, Fin.succ_ne_zero, Fin.succ_pos, sub_eq_add_neg, add_comm]
+    simp [M, witnessMatrix, Fin.succ_ne_zero, ne_of_lt (Fin.succ_pos i), Fin.succ_pos, sub_eq_add_neg, add_comm]
   · intro i j hij
     by_cases hlt : i<j
     · simpa [M, witnessMatrix, hij, Fin.succ_inj, hlt] using sub_nonpos.mpr (ho i.succ j.succ (Fin.succ_lt_succ_iff.mpr hlt))
