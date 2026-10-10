@@ -52,6 +52,15 @@ an error-exponent/constant grid reduces to arbitrary real `α` and `M`.
 `WindowFilling.exists_late_annulus` extracts the exact late finite annulus
 needed by each routing block.
 
+`ParameterStrata.lean` gives a finite, boundary-complete representative set
+for every affine-cut parameter rectangle, including exact zero strata.  Its
+fully checked bound is the finite sign budget `3^m`; the sharper quadratic
+arrangement bound used in the paper remains a separate optimization.
+
+`exists_budget_allocation` and `blockerFamily_of_budgeted_blockers` make the
+countable budget split explicit: any countable collection of already-built
+open periodic blockers can be assembled under an arbitrary positive budget.
+
 ## Scope boundary
 
 The finite blocker witness `BlockerFamily` is now an explicit, fully typed

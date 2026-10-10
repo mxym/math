@@ -10,4 +10,5 @@ import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
 import ErdosSimilarityGrowingGaps.TailAnalysis
+import ErdosSimilarityGrowingGaps.ParameterStrata
 import ErdosSimilarityGrowingGaps.Replay

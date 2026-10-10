@@ -16,7 +16,7 @@ def WindowFilling (Z : LogScale) : Prop :=
 
 theorem WindowFilling.exists_late_annulus {Z : LogScale}
     (hW : WindowFilling Z) (R : ℕ) (hR : 2 ≤ R)
-    (U₀ η : ℝ) (hU₀ : 0 < U₀) (hη : 0 < η) :
+    (U₀ η : ℝ) (_hU₀ : 0 < U₀) (hη : 0 < η) :
     ∃ U : ℕ, ∃ D : ℝ, U₀ ≤ (U : ℝ) ∧ 1 < Real.log (U : ℝ) ∧
       FillsAnnulus Z (U : ℝ) R D ∧
       D / Real.log (Real.log (U : ℝ)) < η := by

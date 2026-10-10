@@ -58,6 +58,29 @@ def WindowBlockerSpec {ι : Type*} [Countable ι] [Nonempty ι]
   ∀ ε : ℝ, 0 < ε → ε < 1 →
     ∃ B : BlockerFamily F, ∑' i, B.budget i < ENNReal.ofReal ε
 
+theorem exists_budget_allocation {ι : Type*} [Countable ι] [Nonempty ι]
+    {ε : ℝ} (hε : 0 < ε) :
+    ∃ b : ι → ℝ≥0∞, (∀ i, 0 < b i) ∧ ∑' i, b i < ENNReal.ofReal ε := by
+  exact ENNReal.exists_pos_sum_of_countable'
+    (ENNReal.ofReal_pos.mpr hε).ne' ι
+
+theorem blockerFamily_of_budgeted_blockers
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} {ε : ℝ} (_hε : 0 < ε)
+    (b : ι → ℝ≥0∞) (hb : ∑' i, b i < ENNReal.ofReal ε)
+    (hblock : ∀ i, ∃ S : Set ℝ, IsOpen S ∧ OnePeriodic S ∧
+      unitDensity S ≤ b i ∧ RobustBlocker (F i) S) :
+    ∃ B : BlockerFamily F, ∑' i, B.budget i < ENNReal.ofReal ε := by
+  choose S hSo hSp hSd hSh using hblock
+  let B : BlockerFamily F :=
+    { set := S
+      budget := b
+      open_set := hSo
+      periodic := hSp
+      density_le := hSd
+      hits := hSh }
+  exact ⟨B, hb⟩
+
 theorem onePeriodic_mem_add_int {S : Set ℝ} (hS : OnePeriodic S)
     (x : ℝ) (n : ℤ) : x + (n : ℝ) ∈ S ↔ x ∈ S := by
   have hp : Function.Periodic (fun z : ℝ => z ∈ S) 1 :=

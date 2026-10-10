@@ -7,10 +7,13 @@ import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
 import ErdosSimilarityGrowingGaps.TailAnalysis
+import ErdosSimilarityGrowingGaps.ParameterStrata
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
 open Set MeasureTheory
+open scoped BigOperators
+open scoped ENNReal
 
 /-- Public replay roots for the formally closed sampling layer. -/
 theorem replay_first_sample :
@@ -75,6 +78,19 @@ theorem replay_tail_grid_reduction {Z : LogScale} {H : Set ℝ}
     (hH : GridWeakRobustBlocker Z H) : RobustBlocker Z H :=
   weakRobustBlocker_implies_robust (gridWeakRobustBlocker_implies_weak hH)
 
+theorem replay_parameter_representatives (m : ℕ)
+    (cuts : Fin m → AffineCut) (lo hi : ℝ × ℝ) :
+    ∃ reps : Finset (ℝ × ℝ),
+      (∀ r ∈ reps, inRectangle lo hi r) ∧ reps.card ≤ 3 ^ m := by
+  obtain ⟨reps, hrep, hcard, _⟩ :=
+    finite_parameter_representatives m cuts lo hi
+  exact ⟨reps, hrep, hcard⟩
+
+theorem replay_budget_allocation {ι : Type*} [Countable ι] [Nonempty ι]
+    {ε : ℝ} (hε : 0 < ε) :
+    ∃ b : ι → ℝ≥0∞, (∀ i, 0 < b i) ∧ ∑' i, b i < ENNReal.ofReal ε :=
+  exists_budget_allocation hε
+
 theorem replay_window_filling (Z : LogScale) (h : ConsecutiveLogGapLittleO Z) :
     WindowFilling Z := consecutiveGap_implies_windowFilling h
 
@@ -95,5 +111,7 @@ theorem replay_input_sequence (Z : LogScale) :
 #print axioms replay_compact_blocker_assembly
 #print axioms replay_theorem2_assembly
 #print axioms replay_tail_grid_reduction
+#print axioms replay_parameter_representatives
+#print axioms replay_budget_allocation
 
 end ErdosSimilarityGrowingGaps
