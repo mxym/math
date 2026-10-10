@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "Tests of exact ancillary checker source; not proof validation of the full analytic theorem",
+  "checks": [
+    {
+      "name": "positive checker normal",
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "dd7eda7d8f1f1cda018a22157b84be1050bb2c93b38ef436844233ecb1ee88a9"
+    },
+    {
+      "name": "positive checker optimized",
+      "exit_code": 0,
+      "passed": true,
+      "stdout_sha256": "dd7eda7d8f1f1cda018a22157b84be1050bb2c93b38ef436844233ecb1ee88a9"
+    },
+    {
+      "name": "wrong Fourier conjugation",
+      "exit_code": 1,
+      "passed": true,
+      "expected_failure": "CheckFailed: idempotent Bell projector",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 268, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 262, in main\n    args=ap.parse_args();report=run_checks()\n                                ^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 249, in run_checks\n    for b in (a,a+1,2*a+1):bell.append(verify_bell_case(a,b))\n                                       ^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 118, in verify_bell_case\n    require(matrix_mul(F,P,P)==P,'idempotent Bell projector')\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 24, in require\n    raise CheckFailed(description)\nCheckFailed: idempotent Bell projector\n"
+    },
+    {
+      "name": "wrong partial-transpose square factor",
+      "exit_code": 1,
+      "passed": true,
+      "expected_failure": "CheckFailed: Bell partial-transpose square identity",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 268, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 262, in main\n    args=ap.parse_args();report=run_checks()\n                                ^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 249, in run_checks\n    for b in (a,a+1,2*a+1):bell.append(verify_bell_case(a,b))\n                                       ^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 122, in verify_bell_case\n    require(matrix_mul(F,W,W)==block,'Bell partial-transpose square identity')\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 24, in require\n    raise CheckFailed(description)\nCheckFailed: Bell partial-transpose square identity\n"
+    },
+    {
+      "name": "altered Bernstein cross coefficient",
+      "exit_code": 1,
+      "passed": true,
+      "expected_failure": "CheckFailed: Bernstein exponent certificate",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 268, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 262, in main\n    args=ap.parse_args();report=run_checks()\n                                ^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 251, in run_checks\n    scalar=verify_scalar();types=verify_types();escort=verify_escort_algebra()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 159, in verify_scalar\n    require(actual==expected,'Bernstein exponent certificate')\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 24, in require\n    raise CheckFailed(description)\nCheckFailed: Bernstein exponent certificate\n"
+    },
+    {
+      "name": "wrong multinomial numerator",
+      "exit_code": 1,
+      "passed": true,
+      "expected_failure": "CheckFailed: exact type size bounds",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 268, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 262, in main\n    args=ap.parse_args();report=run_checks()\n                                ^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 251, in run_checks\n    scalar=verify_scalar();types=verify_types();escort=verify_escort_algebra()\n                                 ^^^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 198, in verify_types\n    require(size<=entropy_power<=size*(k+1)**s,'exact type size bounds')\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 24, in require\n    raise CheckFailed(description)\nCheckFailed: exact type size bounds\n"
+    },
+    {
+      "name": "wrong collision-entropy coefficient",
+      "exit_code": 1,
+      "passed": true,
+      "expected_failure": "CheckFailed: collision endpoint matching",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 268, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 262, in main\n    args=ap.parse_args();report=run_checks()\n                                ^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 251, in run_checks\n    scalar=verify_scalar();types=verify_types();escort=verify_escort_algebra()\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 238, in verify_escort_algebra\n    require(g2==pscale(Q(1,2),padd(A,B,z)),'collision endpoint matching')\n  File \"/tmp/collective-negativity-mutations-0xixza8c/check.py\", line 24, in require\n    raise CheckFailed(description)\nCheckFailed: collision endpoint matching\n"
+    }
+  ],
+  "checker_sha256": "008d4e21d4528bd4a653db8892ffab0d4a1aab509e4d242fe35679883034fe35"
+}

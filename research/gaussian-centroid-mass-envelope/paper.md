@@ -785,3 +785,28 @@ The companion exact checker certifies finite rational
 mass identities and entropy inequalities for a battery
 of highly nonuniform and boundary-sensitive examples;
 it must not be mistaken for proof of the universal claims.
+
+
+## 8. Exact Lean coverage (analytic-core revision)
+
+The companion pinned project `formalizations/gaussian-mass-envelope-progress`
+now proves Lemma 2 for the actual Gaussian density, tail probability and unique
+quantiles, the one-cell inequality (14), its global sum for arbitrary measurable
+sets of the prescribed masses, and the terminal-cell inequality (16b).
+The proof supplement in that project expands the truncated second-moment and
+variance argument, threshold rearrangement, exact indicator/Bochner bridge,
+and exponential-tangent integration used for (16b). No Gaussian moment or
+rearrangement conclusion is assumed as an external input.
+
+The exact source revision `46f8894ac0c2e36544a8db91c8434a560f1bd868` was checked by
+CI run `38025117038`: 9 modules freshly rebuilt, 47 theorem/lemma roots and
+53,046 transitive declarations replayed in an empty Lean kernel at trust level
+zero, using only the foundational axioms `propext`, `Classical.choice`, and
+`Quot.sound`. Two intentional analytic mutations were rejected. Source hashes,
+commands, dependency pins and actual logs are retained in the companion project.
+
+**The full paper is not yet Lean-formalized.** Lemma 3, the arbitrary-mass
+staircase construction with exact Gaussian masses and moments, the lower bound
+and supremum assembly, and the later asymptotic/noise-stability refinements are
+not covered by this analytic-core revision. The written proofs remain distinct
+from these explicitly delimited kernel-checked results.

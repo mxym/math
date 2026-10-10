@@ -8,6 +8,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
 | APPT 任意局域维数：后续主目标 | 全部双特征值谱的精确纯度最大值；高重数最小特征值子类的锐界；指定内多面体绝对可分性 | [完整书面子类证明与精确代数检查](research/appt-all-dimensions/README.md)；非 Lean；一般多层谱猜想仍未解决 |
 | 图态 MMI 禁止子图 | 证明 Conjecture 1；无爪 vertex-minor 六类分量分类与七顶点连通阈值 | [独立预印本与完整书面证明](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；双独立 checker，未完整 Lean 化 |
@@ -41,6 +42,7 @@
 | 任意正质量向量 | 质量依赖矩阵度量下的锐重心椭球不等式；不是普通平方重心和的任意质量猜想 | [完整书面证明、部分 Lean](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md) |
 | 任意质量原猜想反例 | 对每个 0<p<1/4 的四胞质量族，平移或旋转的正四面体分区严格非最优；已冻结为独立预印本 | [预印本与 DOI](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)；精确算术与部分 Lean |
 | 高斯优化原始—对偶 | 真实高斯测度上的平衡价格、唯一性与原始—对偶取到 | [完整 Lean 工程](formalizations/gaussian-measure-primal-dual/README.md)；几何锐比较单独处理 |
+| 任意质量双碰撞包络 | 自包含书面界 U−2Q≤M≤U；hazard 核心引理、真实可测集全局上界及末单元熵界已 Lean 化 | [解析核心与本轮空内核重放](formalizations/gaussian-mass-envelope-progress/README.md)：9 模块、47 入口、53,046 声明；阶梯下界及完整主定理仍未 Lean 化 |
 
 ## 单纯形稳定性与投影体几何
 
