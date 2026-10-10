@@ -91,6 +91,21 @@ theorem replay_budget_allocation {ι : Type*} [Countable ι] [Nonempty ι]
     ∃ b : ι → ℝ≥0∞, (∀ i, 0 < b i) ∧ ∑' i, b i < ENNReal.ofReal ε :=
   exists_budget_allocation hε
 
+theorem replay_grid_blocker_assembly
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} {ε : ℝ}
+    (w : ι × (ℕ × ℕ) → ℝ≥0∞)
+    (hw : ∑' p, w p < ENNReal.ofReal ε)
+    (hgrid : ∀ (i : ι) (j q : ℕ), ∃ H : Set ℝ,
+      IsOpen H ∧ OnePeriodic H ∧ unitDensity H ≤ w (i, (j, q)) ∧
+      ∀ s y c : ℝ, 0 < s → c ≠ 0 →
+        ∀ f : ℝ → ℝ,
+          TailApproximation (F i) f s (1 / (j + 1 : ℝ)) y c q →
+          ∀ ρ : ℝ, 0 < ρ →
+            ∃ n : ℕ, input (F i) n < ρ ∧ f (input (F i) n) ∈ H) :
+    ∃ B : BlockerFamily F, ∑' i, B.budget i < ENNReal.ofReal ε :=
+  blockerFamily_of_grid_blockers w hw hgrid
+
 theorem replay_window_filling (Z : LogScale) (h : ConsecutiveLogGapLittleO Z) :
     WindowFilling Z := consecutiveGap_implies_windowFilling h
 
@@ -121,5 +136,6 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_tail_grid_reduction
 #print axioms replay_parameter_representatives
 #print axioms replay_budget_allocation
+#print axioms replay_grid_blocker_assembly
 
 end ErdosSimilarityGrowingGaps

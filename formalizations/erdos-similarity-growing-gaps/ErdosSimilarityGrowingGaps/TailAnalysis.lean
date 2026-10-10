@@ -4,6 +4,7 @@ import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
 namespace ErdosSimilarityGrowingGaps
 
 open Filter Set Topology
+open scoped BigOperators ENNReal
 
 theorem input_lt_one (Z : LogScale) (n : ℕ) : input Z n < 1 := by
   unfold input
@@ -122,5 +123,58 @@ theorem weakRobustBlocker_implies_robust {Z : LogScale} {H : Set ℝ}
   exact infinite_tailValuesIn_of_hits hs hα hc hM hf (by
     intro ρ' hρ'
     exact hH s α y c M hs hα hc hM f hf ρ' hρ') ρ hρ
+
+theorem blockerFamily_of_grid_blockers
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} {ε : ℝ}
+    (w : ι × (ℕ × ℕ) → ℝ≥0∞)
+    (hw : ∑' p, w p < ENNReal.ofReal ε)
+    (hgrid : ∀ (i : ι) (j q : ℕ), ∃ H : Set ℝ,
+      IsOpen H ∧ OnePeriodic H ∧ unitDensity H ≤ w (i, (j, q)) ∧
+      ∀ s y c : ℝ, 0 < s → c ≠ 0 →
+        ∀ f : ℝ → ℝ,
+          TailApproximation (F i) f s (1 / (j + 1 : ℝ)) y c q →
+          ∀ ρ : ℝ, 0 < ρ →
+            ∃ n : ℕ, input (F i) n < ρ ∧ f (input (F i) n) ∈ H) :
+    ∃ B : BlockerFamily F, ∑' i, B.budget i < ENNReal.ofReal ε := by
+  choose H hHo hHp hHd hHhit using hgrid
+  let S : ι → Set ℝ := fun i => ⋃ j, ⋃ q, H i j q
+  let b : ι → ℝ≥0∞ := fun i => ∑' k : ℕ × ℕ, w (i, k)
+  have hSo : ∀ i, IsOpen (S i) := by
+    intro i
+    exact isOpen_iUnion fun j => isOpen_iUnion fun q => hHo i j q
+  have hSp : ∀ i, OnePeriodic (S i) := by
+    intro i x
+    simp only [S, mem_iUnion]
+    exact exists_congr fun j => exists_congr fun q => hHp i j q x
+  have hSd : ∀ i, unitDensity (S i) ≤ b i := by
+    intro i
+    calc
+      unitDensity (S i) ≤ ∑' j, unitDensity (⋃ q, H i j q) :=
+        unitDensity_iUnion_le (fun j => ⋃ q, H i j q)
+      _ ≤ ∑' j, ∑' q, unitDensity (H i j q) :=
+        ENNReal.tsum_le_tsum (fun j => unitDensity_iUnion_le (fun q => H i j q))
+      _ ≤ ∑' j, ∑' q, w (i, (j, q)) := by
+        refine ENNReal.tsum_le_tsum (fun j => ?_)
+        exact ENNReal.tsum_le_tsum (fun q => hHd i j q)
+      _ = b i := by
+        exact (ENNReal.tsum_prod' (f := fun k : ℕ × ℕ => w (i, k))).symm
+  have hSh : ∀ i, RobustBlocker (F i) (S i) := by
+    intro i
+    apply weakRobustBlocker_implies_robust
+    apply gridWeakRobustBlocker_implies_weak
+    intro j q s y c hs hc f hf ρ hρ
+    obtain ⟨n, hnρ, hval⟩ := hHhit i j q s y c hs hc f hf ρ hρ
+    exact ⟨n, hnρ, mem_iUnion.2 ⟨j, mem_iUnion.2 ⟨q, hval⟩⟩⟩
+  let B : BlockerFamily F :=
+    { set := S
+      budget := b
+      open_set := hSo
+      periodic := hSp
+      density_le := hSd
+      hits := hSh }
+  refine ⟨B, ?_⟩
+  change (∑' i, ∑' k : ℕ × ℕ, w (i, k)) < ENNReal.ofReal ε
+  exact (ENNReal.tsum_prod' (f := w)).symm ▸ hw
 
 end ErdosSimilarityGrowingGaps

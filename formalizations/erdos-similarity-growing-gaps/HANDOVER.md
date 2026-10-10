@@ -27,18 +27,22 @@ The new kernel-checked material is concentrated in three modules.
   the countable budget bookkeeping once the individual open blockers exist.
 * `Input.input_ratio_tendsto_zero` proves the ratio conclusion from a
   logarithmic-gap divergence hypothesis.
+* `blockerFamily_of_grid_blockers` assembles the entire countable family from
+  one open periodic blocker per grid cell, including the double tsum budget
+  and the arbitrary-`α`, arbitrary-`M` transfer.
 
-`Replay.lean` replays fourteen public roots at trust level zero.  The recorded
+`Replay.lean` replays fifteen public roots at trust level zero.  The recorded
 axioms are only `propext`, `Classical.choice`, and `Quot.sound`; the source
 contains no `sorry`, `admit`, custom axiom, `unsafe`, `partial`, or
 `native_decide`.  `checks/negative.py` rejects both a false tree inequality
 and a false finite probability equality.
 
-The exact remaining proof obligation is the construction of a
-`BlockerFamily` (equivalently `WindowBlockerSpec`) from `WindowFilling`.  The tail and countable-grid bookkeeping is now closed; the remaining
-continuum routing/projection argument is the actual random finite-table
-construction, stable-center exceptional sets, parameter-sign strata, error
-buffer, and late-window schedule connected to one measurable open blocker.
+The exact remaining proof obligation is the construction of the individual
+grid-cell blockers from `WindowFilling`.  The tail, finite parameter cover,
+double tsum budget, and countable-grid bookkeeping are now closed.  What
+remains is the actual random finite-table construction, stable-center
+exceptional sets, the sharper polynomial sign-strata bound, error buffer, and
+late-window schedule connected to one measurable open periodic blocker.
 The repository deliberately leaves this as a typed proposition rather than
 introducing an axiom or an unproved theorem.  The unconditional Theorem 2
 and the explicit `n(log log(n+20))^β` example therefore remain written

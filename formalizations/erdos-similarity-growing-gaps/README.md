@@ -65,6 +65,12 @@ open periodic blockers can be assembled under an arbitrary positive budget.
 logarithmic gaps tending to infinity force adjacent input ratios to tend to
 zero; it is replayed independently of the blocker construction.
 
+`blockerFamily_of_grid_blockers` is the global assembly theorem: given one
+open periodic blocker for each countable exponent/constant grid cell, with a
+summable budget, it forms the per-sequence unions and invokes the tail-grid
+reduction.  The remaining construction is therefore isolated to the single
+finite-window blocker for one grid cell.
+
 ## Scope boundary
 
 The finite blocker witness `BlockerFamily` is now an explicit, fully typed
