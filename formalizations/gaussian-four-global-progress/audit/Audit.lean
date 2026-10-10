@@ -489,3 +489,6 @@ import GaussianFour
 #print axioms GaussianFour.centered_mul_fourCentering
 #print axioms GaussianFour.fourCentering_mulVec
 #print axioms GaussianFour.centered_trace_stationary_eq_scalar
+#print axioms GaussianFour.centered_trace_direction_eventually_feasible
+#print axioms GaussianFour.covariance_local_extremum_direction_zero
+#print axioms GaussianFour.actual_four_covariance_local_extremum_flux
