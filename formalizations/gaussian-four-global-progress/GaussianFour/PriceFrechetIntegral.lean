@@ -112,9 +112,16 @@ theorem graphMass_price_differentiableAt (v : Fin k → Space d) (b : Fin k → 
         change |standardDensity 0| = standardDensity 0
         exact abs_of_pos (standardDensity_pos 0)
       rw [hb]
-      have hl := standardTail_lipschitz.comp (scoreMax_price_lipschitz v x)
-      rw [_root_.mul_one] at hl
-      exact hl.lipschitzOnWith)
+      apply LipschitzOnWith.of_dist_le_mul
+      intro c _ e _
+      have ht := standardTail_lipschitz.dist_le_mul (scoreMax v c x) (scoreMax v e x)
+      change dist (standardTail (scoreMax v c x)) (standardTail (scoreMax v e x)) ≤
+        standardDensity 0 * dist (scoreMax v c x) (scoreMax v e x) at ht
+      change dist (standardTail (scoreMax v c x)) (standardTail (scoreMax v e x)) ≤
+        standardDensity 0 * dist c e
+      apply ht.trans
+      apply mul_le_mul_of_nonneg_left _ (standardDensity_pos 0).le
+      simpa only [dist_eq_norm, Real.norm_eq_abs] using scoreMax_abs_sub_le v c e x)
     (integrable_const _) hd
   have he : graphMass v = fun c => ∫ x, standardTail (scoreMax v c x) ∂gaussian d :=
     funext (graphMass_eq_tail v)
