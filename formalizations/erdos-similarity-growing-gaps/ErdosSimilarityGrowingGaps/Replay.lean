@@ -3,11 +3,15 @@ import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
 import ErdosSimilarityGrowingGaps.AnnulusSequence
+import ErdosSimilarityGrowingGaps.WindowBridge
 import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
 import ErdosSimilarityGrowingGaps.TailAnalysis
 import ErdosSimilarityGrowingGaps.ParameterStrata
+import ErdosSimilarityGrowingGaps.SignFiberQuadratic
+import ErdosSimilarityGrowingGaps.LineSignQuadratic
+import ErdosSimilarityGrowingGaps.ParameterStrataQuadratic
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -26,6 +30,28 @@ theorem replay_annular_sampling :
     ∀ (Z : LogScale), ConsecutiveLogGapLittleO Z → AnnularFilling Z := by
   intro Z h
   exact consecutiveGap_implies_annularFilling h
+
+theorem replay_sampled_output_buffer
+    {Z : LogScale} {f : ℝ → ℝ} {B : Set ℝ} {n : ℕ}
+    {s α y c M v D r : ℝ} (hs : 0 < s) (hα : 0 < α) (hM : 0 ≤ M)
+    (happrox : |f (input Z n) - y - c * (input Z n) ^ s| ≤
+      M * (input Z n) ^ (s + α))
+    (hideal : y + c * (2 : ℝ) ^ (-v * s) ∈ B)
+    (hpower : |c * (input Z n) ^ s - c * (2 : ℝ) ^ (-v * s)| ≤
+      |c| * ((2 : ℝ) ^ (-v * s) - (2 : ℝ) ^ (-(v + D) * s)))
+    (hwidth : |c| * ((2 : ℝ) ^ (-v * s) - (2 : ℝ) ^ (-(v + D) * s)) +
+        M * (input Z n) ^ (s + α) < r) :
+    f (input Z n) ∈ Metric.thickening r B :=
+  sampled_output_mem_thickening hs hα hM happrox hideal hpower hwidth
+
+theorem replay_window_power_error
+    {Z : LogScale} {U R D v s c : ℝ}
+    (h : FillsAnnulus Z U R D)
+    (hv : U / R ≤ v) (hvD : v + D ≤ R * U) (hs : 0 < s) :
+    ∃ n : ℕ,
+      |c * (input Z n) ^ s - c * (2 : ℝ) ^ (-v * s)| ≤
+        |c| * ((2 : ℝ) ^ (-v * s) - (2 : ℝ) ^ (-(v + D) * s)) :=
+  h.sample_power_error hv hvD hs
 
 theorem replay_late_window {Z : LogScale} (hW : WindowFilling Z)
     (R : ℕ) (hR : 2 ≤ R) (U₀ η : ℝ) (hU₀ : 0 < U₀) (hη : 0 < η) :
@@ -86,6 +112,15 @@ theorem replay_parameter_representatives (m : ℕ)
     finite_parameter_representatives m cuts lo hi
   exact ⟨reps, hrep, hcard⟩
 
+theorem replay_quadratic_parameter_representatives (m : ℕ)
+    (cuts : Fin m → AffineCut) (lo hi : ℝ × ℝ)
+    (hlo : lo.1 ≤ hi.1) (hhi : lo.2 ≤ hi.2) :
+    ∃ reps : Finset (ℝ × ℝ),
+      (∀ r ∈ reps, inRectangle lo hi r) ∧ reps.card ≤ 20 * (m + 5) ^ 2 := by
+  obtain ⟨reps, hrep, hcard, _⟩ :=
+    quadratic_arrangement_representative_bound m cuts lo hi hlo hhi
+  exact ⟨reps, hrep, hcard⟩
+
 theorem replay_budget_allocation {ι : Type*} [Countable ι] [Nonempty ι]
     {ε : ℝ} (hε : 0 < ε) :
     ∃ b : ι → ℝ≥0∞, (∀ i, 0 < b i) ∧ ∑' i, b i < ENNReal.ofReal ε :=
@@ -128,6 +163,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
 #print axioms replay_late_window
+#print axioms replay_window_power_error
+#print axioms replay_sampled_output_buffer
 #print axioms replay_variable_tree_span
 #print axioms replay_distinct_terminal_all_miss
 #print axioms replay_blocker_assembly
@@ -135,6 +172,7 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_theorem2_assembly
 #print axioms replay_tail_grid_reduction
 #print axioms replay_parameter_representatives
+#print axioms replay_quadratic_parameter_representatives
 #print axioms replay_budget_allocation
 #print axioms replay_grid_blocker_assembly
 

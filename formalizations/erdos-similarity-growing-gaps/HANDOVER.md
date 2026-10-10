@@ -21,8 +21,13 @@ The new kernel-checked material is concentrated in three modules.
   hypothesis into the exact finite annulus witness used by a routing block.
 * `ParameterStrata.lean` constructs representatives for every finite affine
   cut rectangle, retaining negative, zero, and positive boundary strata with
-  a checked `3^m` bound.  This is the finite parameter cover; the paper's
-  sharper quadratic refinement is still needed for the final entropy budget.
+  a checked `3^m` bound.
+* `SignFiberQuadratic.lean`, `LineSignQuadratic.lean`, and
+  `ParameterStrataQuadratic.lean` prove the sharper `20*(m+5)^2` arrangement
+  bound, including degenerate, coincident, parallel, and exact-zero cuts.
+* `WindowBridge.lean` proves the two-sided sampled-input and sampled-power
+  estimates, the exact sign-robust power error, and the metric buffer lemma
+  combining that error with a tail remainder.
 * `exists_budget_allocation` and `blockerFamily_of_budgeted_blockers` close
   the countable budget bookkeeping once the individual open blockers exist.
 * `Input.input_ratio_tendsto_zero` proves the ratio conclusion from a
@@ -41,8 +46,9 @@ The exact remaining proof obligation is the construction of the individual
 grid-cell blockers from `WindowFilling`.  The tail, finite parameter cover,
 double tsum budget, and countable-grid bookkeeping are now closed.  What
 remains is the actual random finite-table construction, stable-center
-exceptional sets, the sharper polynomial sign-strata bound, error buffer, and
-late-window schedule connected to one measurable open periodic blocker.
+exceptional sets, and the late-window schedule connected to one measurable
+open periodic blocker.  The polynomial sign-strata count and local error
+buffer are now closed in the two modules above.
 The repository deliberately leaves this as a typed proposition rather than
 introducing an axiom or an unproved theorem.  The unconditional Theorem 2
 and the explicit `n(log log(n+20))^β` example therefore remain written

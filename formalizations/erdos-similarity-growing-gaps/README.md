@@ -54,8 +54,16 @@ needed by each routing block.
 
 `ParameterStrata.lean` gives a finite, boundary-complete representative set
 for every affine-cut parameter rectangle, including exact zero strata.  Its
-fully checked bound is the finite sign budget `3^m`; the sharper quadratic
-arrangement bound used in the paper remains a separate optimization.
+fully checked bound is the finite sign budget `3^m`.  The companion
+`SignFiberQuadratic.lean`, `LineSignQuadratic.lean`, and
+`ParameterStrataQuadratic.lean` close the sharper quadratic arrangement bound
+`20*(m+5)^2`, including degenerate, coincident, parallel, and exact-zero
+strata.
+
+`WindowBridge.lean` closes the quantitative sampler interface: a filled
+annulus yields two-sided input and power bounds, the sign-robust power error,
+and the metric thickening estimate that absorbs both annular sampling error
+and a tail remainder around an ideal power hit.
 
 `exists_budget_allocation` and `blockerFamily_of_budgeted_blockers` make the
 countable budget split explicit: any countable collection of already-built
@@ -74,14 +82,12 @@ finite-window blocker for one grid cell.
 ## Scope boundary
 
 The finite blocker witness `BlockerFamily` is now an explicit, fully typed
-interface.  Its existence from `WindowFilling` (the annular sampling to
-continuum routing/projection argument) is still the remaining analytic
-connection.  The package therefore does not silently claim an unconditional
-Lean proof of Theorem 2 or of the displayed logarithmic-power example.  No
-placeholder theorem is used for that connection: every declaration present is
-kernel checked and the earlier deterministic theorems remain unchanged.
-The exact interface and next obligations are recorded in
-[`HANDOVER.md`](HANDOVER.md).
+interface.  Its existence from `WindowFilling` (the finite selector/terminal
+table geometry and continuum miss estimate) is still the remaining analytic
+connection.  The sampler-to-buffer estimate and quadratic parameter cover
+needed by that construction are kernel checked; no placeholder theorem is
+used for the remaining connection.  The exact interface and next obligations
+are recorded in [`HANDOVER.md`](HANDOVER.md).
 
 ## Reproduction
 
