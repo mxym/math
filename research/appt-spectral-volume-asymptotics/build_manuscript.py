@@ -8,11 +8,12 @@ from pathlib import Path
 import hashlib
 import json
 import subprocess
+from format_inline import render
 
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'manuscript-build'
 OUT.mkdir(exist_ok=True)
-proof=(ROOT/'PROOF.md').read_text()
+proof=render((ROOT/'PROOF.md').read_text())
 metadata='''---
 title: "Sharp flat-spectral volume asymptotics and typical spectra of absolutely PPT states"
 author: "Yongxian Zhang"
@@ -38,7 +39,6 @@ header=r'''\usepackage{amsmath,amssymb}
 \usepackage{microtype}
 \providecommand{\down}{\downarrow}
 \setlength{\emergencystretch}{3em}
-\hypersetup{pdftitle={Sharp flat-spectral volume asymptotics and typical spectra of absolutely PPT states},pdfauthor={Yongxian Zhang}}
 '''
 (OUT/'header.tex').write_text(header)
 commands=[['pandoc','manuscript.md','--from=markdown+tex_math_single_backslash','--standalone','--to=latex','--include-in-header=header.tex','-o','main.tex'],
