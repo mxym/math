@@ -61,41 +61,35 @@ jobs:
               for name,p in seen.items():
                   base=next(b for b in bases if p == b/(name.replace('.','/')+'.lean'))
                   prefix='review' if base==root else ('original' if base==old else 'packages/'+base.name)
-                  add(tf,p,prefix+'/'+p.relative_to(base).as_posix())
-                  for ext in ['.olean','.olean.private','.olean.server','.ir']:
-                      obj=base/'.lake/build/lib/lean'/(name.replace('.','/')+ext)
-                      if obj.exists():add(tf,obj,prefix+'/.lake/build/lib/lean/'+name.replace('.','/')+ext)
-              for base in packages:
-                  for p in (base/'.lake/build/lib').glob('*.so'):
-                      add(tf,p,'packages/'+base.name+'/.lake/build/lib/'+p.name)
-              for base,prefix in [(root,'review'),(old,'original')]:
-                  for name in ['lakefile.toml','lake-manifest.json','lean-toolchain','ReviewAudit.lean']:
-                      if (base/name).exists():add(tf,base/name,prefix+'/'+name)
+                  obj=base/'.lake/build/lib/lean'/(name.replace('.','/')+'.ir.sig')
+                  if obj.exists():add(tf,obj,prefix+'/.lake/build/lib/lean/'+name.replace('.','/')+'.ir.sig')
+              for p in (tool/'lib/lean').rglob('*.ir.sig'):
+                  add(tf,p,'toolchain/'+p.relative_to(tool).as_posix())
           print('IMPORT_SOURCES',len(seen),'FILES',len(entries),'BYTES',out.stat().st_size)
           print('SHA256',hashlib.sha256(out.read_bytes()).hexdigest())
           PYCODE
       - run: split -b 400000000 -d /tmp/appt-review-offline.tar.gz /tmp/appt-dep-part-
       - uses: actions/upload-artifact@v4
         with:
-          name: appt-dependencies-part-00
+          name: appt-ir-signatures-part-00
           path: /tmp/appt-dep-part-00
           compression-level: 0
           retention-days: 3
       - uses: actions/upload-artifact@v4
         with:
-          name: appt-dependencies-part-01
+          name: appt-ir-signatures-part-01
           path: /tmp/appt-dep-part-01
           compression-level: 0
           retention-days: 3
       - uses: actions/upload-artifact@v4
         with:
-          name: appt-dependencies-part-02
+          name: appt-ir-signatures-part-02
           path: /tmp/appt-dep-part-02
           compression-level: 0
           retention-days: 3
       - uses: actions/upload-artifact@v4
         with:
-          name: appt-dependencies-part-03
+          name: appt-ir-signatures-part-03
           path: /tmp/appt-dep-part-03
           compression-level: 0
           retention-days: 3
