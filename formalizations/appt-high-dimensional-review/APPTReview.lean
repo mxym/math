@@ -1,2 +1,1 @@
-import APPTReview.Star
-import APPTReview.SOS
+import APPTReview.EntropyHead

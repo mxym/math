@@ -9,4 +9,9 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReview.absolutelyPPT_right_iff,
   ``APPTReview.multilevel_sos_nonneg,
   ``APPTReview.entropy_quartic_positive,
-  ``APPTReview.explicit_purity_gaps] "review-kernel"
+  ``APPTReview.explicit_purity_gaps,
+  ``APPTReview.entropy_negative_bound,
+  ``APPTReview.entropy_positive_gap_bound,
+  ``APPTReview.entropy_head_outlier_margin,
+  ``APPTReview.entropyHead_le_two,
+  ``APPTReview.appt_eigenvalue_entropyHead_bound] "review-kernel"
