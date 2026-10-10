@@ -1,0 +1,24 @@
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/QuantumWitness.lean:22:4: error: unsolved goals
+case pos
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+d : a × a → ℝ
+i j : a
+hij : ¬i = j
+hji : j ≠ i
+hi : i < j
+hj : ¬j < i
+⊢ -(1 / 2 * ↑(d (j, i)) * 2) + 1 / 2 * ↑(d (i, j)) * 2 = -↑(d (j, i)) + ↑(d (i, j))
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/QuantumWitness.lean:25:4: error: unsolved goals
+case neg
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+d : a × a → ℝ
+i j : a
+hij : ¬i = j
+hji : j ≠ i
+hi : ¬i < j
+hj : j < i
+⊢ 1 / 2 * ↑(d (j, i)) * 2 - 1 / 2 * ↑(d (i, j)) * 2 = ↑(d (j, i)) - ↑(d (i, j))

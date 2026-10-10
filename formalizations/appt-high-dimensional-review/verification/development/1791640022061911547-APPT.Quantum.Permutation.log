@@ -1,0 +1,15 @@
+/root/appt-independent-review-20261010/formalizations/appt-qutrit-purity/APPT/Quantum/Permutation.lean:14:31: warning: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [permMatrix, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, mul_ite, e.injective.eq_iff,
+    eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-qutrit-purity/APPT/Quantum/Permutation.lean:16:0: warning: automatically included section variable(s) unused in theorem `APPT.Quantum.permMatrix_conjTranspose`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/root/appt-independent-review-20261010/formalizations/appt-qutrit-purity/APPT/Quantum/Permutation.lean:47:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead

@@ -1,0 +1,82 @@
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:25:4: error: Function expected at
+  hadamard * B
+but this term has type
+  ?m.37
+
+Note: Expected a function because this term is being applied to the argument
+  (i, j)
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:31:2: error: unsolved goals
+case pos
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+κ : Type u_2
+B : Matrix (a × a) κ ℂ
+i j : a
+q : κ
+h : i = j
+⊢ sorry () = B (j, j) q
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:32:2: error: unsolved goals
+case neg
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+κ : Type u_2
+B : Matrix (a × a) κ ℂ
+i j : a
+q : κ
+h : ¬i = j
+⊢ sorry () = (if i < j then halfRoot * B (i, j) q else -(halfRoot * B (i, j) q)) + halfRoot * B (j, i) q
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:31:10: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hadamard, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:31:28: warning: This simp argument is unused:
+  hadamard
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:32:10: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hadamard, h, add_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:32:28: warning: This simp argument is unused:
+  hadamard
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, h, add_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:32:41: warning: This simp argument is unused:
+  add_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, hadamard, h, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:32:50: warning: This simp argument is unused:
+  Finset.sum_add_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, hadamard, h, add_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:46:4: error: unsolved goals
+case neg
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+i j k l : a
+hkl : ¬k = l
+hik : i = k
+hjl : j = l
+⊢ (if k < l then halfRoot else -halfRoot) = (starRingEnd ℂ) (if k < l then halfRoot else -halfRoot)
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:58:21: error: unexpected token ':='; expected term

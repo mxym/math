@@ -1,0 +1,77 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:37:37: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.sum_mul, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:37:55: warning: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.mul_sum, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:83:64: error: Application type mismatch: The argument
+  hd
+has type
+  ∀ (i : Fin n), M i.succ i.succ ≤ 2
+but is expected to have type
+  ∀ (i : Fin n), M i.succ i.succ ≤ 2 * 1
+in the application
+  psd_star_bound M hM u hu (1 - y) 1 ?m.109 hc hd
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:107:21: error: unexpected token ':='; expected term
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:102:2: error: unsolved goals
+case ho
+n : ℕ
+b : Type u_1
+inst✝¹ : Fintype b
+inst✝ : DecidableEq b
+d : Fin (n + 1) × b → ℝ
+h : APPT.Quantum.AbsolutelyPPT (diagonal fun p => ↑(d p))
+e : Fin (n + 1) → b
+he : Function.Injective e
+c t : ℝ
+ht : 0 < t
+hc : d (0, e 0) ≤ c
+hd : ∀ (i : Fin n), d (i.succ, e i.succ) ≤ t
+ho : ∀ (i j : Fin (n + 1)), i < j → d (i, e j) ≤ d (j, e i)
+M : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ := witnessMatrix fun p => d (p.1, e p.2)
+i : Fin n
+⊢ ∀ (j : Fin n),
+    ¬i = j →
+      (if i = j then 2 * d (i.succ, e i.succ)
+        else
+          if i < j then d (i.succ, e j.succ) + -d (j.succ, e i.succ)
+          else -d (i.succ, e j.succ) + d (j.succ, e i.succ)) ≤
+        0
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Star.lean:104:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+n : ℕ
+b : Type u_1
+inst✝¹ : Fintype b
+inst✝ : DecidableEq b
+d : Fin (n + 1) × b → ℝ
+h : APPT.Quantum.AbsolutelyPPT (diagonal fun p => ↑(d p))
+e : Fin (n + 1) → b
+he : Function.Injective e
+c t : ℝ
+ht : 0 < t
+hc : d (0, e 0) ≤ c
+hd : ∀ (i : Fin n), d (i.succ, e i.succ) ≤ t
+ho : ∀ (i j : Fin (n + 1)), i < j → d (i, e j) ≤ d (j, e i)
+M : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ := witnessMatrix fun p => d (p.1, e p.2)
+i : Fin n
+⊢ 0 ≤ d (i.succ, e 0) - d (0, e i.succ)
