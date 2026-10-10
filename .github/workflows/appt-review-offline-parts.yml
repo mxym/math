@@ -1,0 +1,40 @@
+name: APPT offline environment transfer
+on:
+  push:
+    branches: ['review/appt-mathematics-lean-20261010']
+    paths: ['.github/workflows/appt-review-offline-parts.yml']
+permissions:
+  actions: read
+  contents: read
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: appt-review-offline-environment
+          path: /tmp/appt-env
+          github-token: ${{ github.token }}
+          run-id: 38063328937
+      - run: |
+          sha256sum /tmp/appt-env/appt-review-offline.tar.gz
+          split -b 400000000 -d /tmp/appt-env/appt-review-offline.tar.gz /tmp/appt-part-
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-offline-part-00
+          path: /tmp/appt-part-00
+          compression-level: 0
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-offline-part-01
+          path: /tmp/appt-part-01
+          compression-level: 0
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-offline-part-02
+          path: /tmp/appt-part-02
+          compression-level: 0
+          retention-days: 3
