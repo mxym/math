@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "scope": "Ancillary source-mutation tests, not analytic proof checking",
+  "checks": [
+    {
+      "name": "unaltered checker",
+      "exit_code": 0,
+      "expected_rejection": null,
+      "passed": true,
+      "stdout": "Positive JSON report parsed successfully",
+      "stderr": ""
+    },
+    {
+      "name": "unaltered checker with assertions disabled",
+      "exit_code": 0,
+      "expected_rejection": null,
+      "passed": true,
+      "stdout": "Positive JSON report parsed successfully",
+      "stderr": ""
+    },
+    {
+      "name": "wrong antisymmetric denominator",
+      "exit_code": 1,
+      "expected_rejection": "Rains Choi partial-transpose identity",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 223, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 219, in main\n    report=run();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in run\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in <listcomp>\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 106, in check_rains_case\n    need(JG==predicted,'Rains Choi partial-transpose identity')\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 21, in need\n    raise CheckFailed(label)\n__main__.CheckFailed: Rains Choi partial-transpose identity\n"
+    },
+    {
+      "name": "omitted input transpose",
+      "exit_code": 1,
+      "expected_rejection": "Rains Choi partial-transpose identity",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 223, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 219, in main\n    report=run();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in run\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in <listcomp>\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 106, in check_rains_case\n    need(JG==predicted,'Rains Choi partial-transpose identity')\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 21, in need\n    raise CheckFailed(label)\n__main__.CheckFailed: Rains Choi partial-transpose identity\n"
+    },
+    {
+      "name": "missing target square",
+      "exit_code": 1,
+      "expected_rejection": "sharp identity effect budget",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 223, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 219, in main\n    report=run();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in run\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 209, in <listcomp>\n    rain=[check_rains_case(*case) for case in [(2,2,2,'bell'),(2,2,3,'bell'),(2,3,2,'mixture'),(2,3,3,'identity'),(3,3,2,'bell'),(2,2,4,'mixture')]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 112, in check_rains_case\n    if kind=='identity': need(tr(mul(M,M))==Q(N,K),'sharp identity effect budget')\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 21, in need\n    raise CheckFailed(label)\n__main__.CheckFailed: sharp identity effect budget\n"
+    },
+    {
+      "name": "missing leftover Kraus weight",
+      "exit_code": 1,
+      "expected_rejection": "local Kraus completeness",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 223, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 219, in main\n    report=run();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 210, in run\n    local=[check_local(*case) for case in [(2,3,2),(3,5,2),(4,5,3),(5,7,2),(3,4,3)]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 210, in <listcomp>\n    local=[check_local(*case) for case in [(2,3,2),(3,5,2),(4,5,3),(5,7,2),(3,4,3)]]\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 131, in check_local\n    need(complete==eye(dim),'local Kraus completeness')\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 21, in need\n    raise CheckFailed(label)\n__main__.CheckFailed: local Kraus completeness\n"
+    },
+    {
+      "name": "wrong escort sign",
+      "exit_code": 1,
+      "expected_rejection": "interior escort matching",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 223, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 219, in main\n    report=run();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 212, in run\n    'rains_channels':rain,'local_extraction':local,'algebra':check_polynomials(),\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 171, in check_polynomials\n    need(pa(pm(alpha,rel),z,pm(pa(alpha,ps(-1,one)),H))=={},'interior escort matching')\n  File \"/srv/mcp-workspace/.tmp/ppt-extraction-mutations-ez63rys1/check.py\", line 21, in need\n    raise CheckFailed(label)\n__main__.CheckFailed: interior escort matching\n"
+    }
+  ],
+  "checker_sha256": "9888005a5e15000c9fe57dcffec926bdc62768347decdc43230599525b20f264"
+}
