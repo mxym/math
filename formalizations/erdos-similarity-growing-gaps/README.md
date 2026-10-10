@@ -20,6 +20,10 @@ interval of length `D` contains a sample, with `D >= 1` and
 `D <= eta * log (log U)`.  The proof includes the first-sample endpoint case,
 local gap propagation, and all positivity and logarithm estimates.
 
+`AnnulusSequence.lean` upgrades the real annulus statement to the integer-origin
+window sequence used in Definition 1, including the full `D / log(log U) → 0`
+limit.  Thus the Lean bridge now reaches the paper's exact property `W`.
+
 `Input.lean` closes the exact sequence interface: `a_n = 2^(-z_n)` is
 positive, strictly decreasing, tends to zero, and satisfies
 `-logb 2 a_n = z_n` in Lean.  These facts are not additional hypotheses.
