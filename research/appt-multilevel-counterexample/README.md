@@ -2,6 +2,24 @@
 
 The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. The counterexample, unrestricted asymptotic law and exact rectangular theorem are now incorporated in the [expanded APPT preprint](../../preprints/appt-purity-unified-2026-10/README.md). The earlier immutable qutrit proof release remains unchanged.
 
+## New entropy law and an outlier transition at Renyi order two
+
+[ENTROPY_ASYMPTOTIC.md](ENTROPY_ASYMPTOTIC.md) determines the leading UNRESTRICTED minimum-entropy deficit for every fixed finite Renyi order alpha>=1. With D=mn and n/m->gamma>=1 as m grows,
+
+    D[log D-min_APPT S_alpha] -> A_alpha+(alpha/2)max{4,gamma},
+    A_alpha=2alpha                    for 1<=alpha<=2,
+    A_alpha=(3^alpha-1-2alpha)/(alpha-1) for alpha>=2.
+
+The joint-growth equivalent is uniform in n>=m. A separate explicit fixed-m limit combines with it to give an equivalent uniform over all dimension pairs as total dimension grows. At alpha=1 this says `D[log D-min S] -> max(4,2+gamma/2)`; at alpha=2 it agrees with the established purity theorem. These are first nonzero asymptotic deficits, not exact finite-dimensional interpolation formulas.
+
+The same proof classifies the fixed-height outlier structure of EVERY entropy near-minimizer at fixed finite gamma. For 1<=alpha<2 it is equivalent to purity near-maximality AND `||D rho-I||_op->0`. For alpha>2 it is equivalent to purity near-maximality, `D lambda_1->3`, and `max_{i>=2}|D lambda_i-1|->0`. At alpha=2 purity alone is required. Neither conclusion assumes a spectral-shape ansatz, and the result is for fixed alpha rather than alpha varying with dimension.
+
+The upper entropy bound uses a new physical Schmidt-star assignment centered at the LEAST eigenvalue and a nonlinear head inequality; a quadratic Taylor expansion at arbitrary negative outliers would be false. [FLAT_EXTREMIZERS.md](FLAT_EXTREMIZERS.md) supplies actual APPT near-maximizers whose ENTIRE normalized spectrum tends to one, and reflected pairs about I/D with equal purity. [TWO_ENDED_GRAPH_LIMIT.md](TWO_ENDED_GRAPH_LIMIT.md) proves the underlying exact graph limit and finite-depth optimization for simultaneous low-rank and high-rank hierarchies, including their different energy-order constraints.
+
+A separate finite rational example on 50x200, `diag(861,330[4899],319[5100])/3244431`, has an all-unitary SOS positivity proof and entropy strictly below all candidates for the original inscribed-polytope minimum. The logarithm gaps are enclosed by exact rational intervals. Its 1/1000 maximally mixed perturbation preserves the entropy violation and has uniformly positive orbit partial transposes.
+
+These new results are research notes, not additional preprints and not retroactively certified by the earlier Lean proof or concurrent manuscript. Run `python3 check_two_ended.py` and `python3 check_entropy.py`, also with `python3 -O`, for exact supporting calculations. Finite checks do not replace the graph compactness proof, all-unitary argument, or entropy optimization. The range 0<alpha<1, exact finite entropy minima, effective hierarchy thresholds, and absolute separability remain separate research questions.
+
 ## New exact and structural results
 
 [EXACT_RECTANGULAR.md](EXACT_RECTANGULAR.md) proves the EXACT unrestricted maximum for every m>=3 and n>=m^3-m-2:

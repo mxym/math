@@ -1,5 +1,7 @@
 # Asymptotically optimal APPT spectra need no fixed-height outlier
 
+> Subsequent theorem: ENTROPY_ASYMPTOTIC.md proves matching unrestricted entropy upper bounds for these flat families at all fixed Renyi orders 1<=alpha<2, and characterizes all leading-order entropy minimizers there. At alpha>2 it gives a different sharp law and proves a single normalized eigenvalue tends to three. The construction and comparison below remain the lower-bound argument; no global entropy claim is inferred from Taylor expansion alone.
+
 Analytic research working proof, 10 October 2026. No preprint or Release preparation. This note uses the new, proved graph limit in TWO_ENDED_GRAPH_LIMIT.md and the existing unrestricted upper bound in SHARP_ASYMPTOTIC.md. No Lean certification, external peer review, or finite verification of an asymptotic positivity condition is claimed.
 
 ## 1. Statement: the entire spectrum can approach uniformity
@@ -139,6 +141,6 @@ This is a comparison of rigorously attained families, not an asserted formula fo
 
 Resolved here: existence of uniformly spectrally flat APPT near-maximizers in all regimes with m->infinity; actual reflection-symmetric pairs with exactly equal purity; a complete limiting graph/energy optimization for two-ended finite hierarchies; and different leading entropy deficits among near-maximal-purity states.
 
-The result does not say every near-maximizer is flat, does not extend vanishing relative contrast to fixed m, and does not determine arbitrary finite-dimensional maximizers, absolute separability, global entropy minima, efficient hierarchy thresholds, or minimal numbers of levels outside the specified model. For fixed m the existing nonzero excess coefficient is incompatible with contrast tending to zero, so that exclusion is substantive.
+The result does not say every near-maximizer is flat, does not extend vanishing relative contrast to fixed m, and does not determine arbitrary finite-dimensional maximizers, absolute separability, exact finite-dimensional entropy minima, efficient hierarchy thresholds, or minimal numbers of levels outside the specified model. The subsequent leading entropy laws and rigidity for alpha>=1 are in ENTROPY_ASYMPTOTIC.md. For fixed m the existing nonzero excess coefficient is incompatible with contrast tending to zero, so that exclusion is substantive.
 
 The prior physical projection-test framework, paired-gap upper bound, and high-rank amplitude method are explicitly inherited from the research notes. The new low-rank endpoint, the background interaction, and the two-sided centering lemma are derived above rather than assumed. No previous immutable proof or manuscript is modified.
