@@ -23,7 +23,7 @@ def source(name: str) -> tuple[Path, Path]:
 
 def imports(path: Path) -> list[str]:
     return [x for match in re.finditer(r'^import\s+([^\n]+)', path.read_text(), re.M)
-            for x in match[1].split() if x == 'APPTReview' or x.startswith(('APPT.', 'APPTReview.', 'Verification.'))]
+            for x in match[1].split() if x.startswith(('APPT.', 'APPTReview.', 'Verification.'))]
 
 def main() -> None:
     ap=argparse.ArgumentParser(description=__doc__)
@@ -31,7 +31,6 @@ def main() -> None:
     ap.add_argument('--fresh',action='store_true')
     ap.add_argument('--only',action='store_true')
     ap.add_argument('--timeout',type=int,default=240)
-    ap.add_argument('--memory',type=int,default=4096)
     args=ap.parse_args()
     OUT.mkdir(parents=True,exist_ok=True);LOGS.mkdir(parents=True,exist_ok=True)
     env=os.environ.copy()
@@ -58,10 +57,10 @@ def main() -> None:
             print('REUSE_SOURCE_BOUND',n,flush=True);continue
         o.parent.mkdir(parents=True,exist_ok=True)
         for old in o.parent.glob(o.name+'*'):old.unlink()
-        cmd=[lean,'-j1','-M'+str(args.memory),'--root='+str(base),str(p),'-o',str(o)]
+        cmd=[lean,'-j1','-M1200','--root='+str(base),str(p),'-o',str(o)]
         start=time.monotonic();stamp=time.time_ns();log=LOGS/f'{stamp}-{n}.log'
         try:
-            proc=subprocess.run(cmd,cwd=ROOT,env=env,text=True,capture_output=True,timeout=args.timeout)
+            proc=subprocess.run(cmd,env=env,text=True,capture_output=True,timeout=args.timeout)
             code=proc.returncode;text=proc.stdout+proc.stderr
         except subprocess.TimeoutExpired as e:
             code=124;text='TIMEOUT\n'+str(e.stdout or '')+'\n'+str(e.stderr or '')

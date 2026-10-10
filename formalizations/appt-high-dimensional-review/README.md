@@ -1,35 +1,40 @@
-# High-dimensional APPT: independent Lean review checkpoint
+# High-dimensional APPT: independent proof review
 
-The package uses the actual complex density-matrix and all-global-unitary APPT definitions of the completed qutrit project. It does not replace them by an assumed spectral feasibility condition.
+**Partial formal verification. The full high-dimensional asymptotic purity and entropy theorems are not yet Lean-certified.** This package uses the original complex density-matrix and all-global-unitary APPT definitions, not a substitute spectral model.
 
-## Verified scope
+## Verified checkpoint recovered from the review branch
 
-The bounded fresh build passed for all local imported sources and the review modules. The original Lean declarations were then replayed into an empty kernel at trust level zero: **38,507 declarations and nine explicit roots**. Only `propext`, `Classical.choice`, and `Quot.sound` occur in their axiom closure. A deliberately forged proof of `density_appt_witness_posSemidef`, with its original type retained and proof replaced by `True.intro`, was rejected by that kernel.
+Independent GitHub Actions run **38066697404**, source **991d47393773140d36e1e6ee92b34bf87b07a715**, passed a Lake build of the imported closure (2,738 build tasks), followed by trust-zero replay of **38,529 declarations and 13 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing the proof of the exact physical witness root by `True.intro`, without changing its type, was rejected. The uploaded proof modules and audit were byte-compared with the recovered source. Original logs, roots and workflow responses are in `verification/ci-991d4739/`.
 
-- `Basic.lean`: left-factor/right-factor partial-transpose conventions are equivalent for PSD and APPT.
-- `Hadamard.lean` and `QuantumWitness.lean`: a genuine unitary construction in every finite rectangular dimension; every permutation of the actual eigenvalues of an APPT density matrix yields the indicated PSD Schmidt-witness matrix.
-- `Star.lean`: PSD star and least-diagonal star budgets, and a physical rectangular APPT star bound for specified labels.
-- `SOS.lean`: the dimension-uniform scalar sum-of-squares inequality, exact counterexample purity comparisons, and the positive quartic certificate.
-- `EntropyKernel.lean`: the actual logarithmic correction inequality, independently proved using two derivative/monotonicity arguments, and its strict exceptional-head barrier.
+The older main checkpoint b9056460 is retained separately. Its 38,507-declaration replay must not be confused with this later 38,529-declaration replay. The replaced source/audit entrypoints are preserved under `verification/checkpoint-b9056460/`, and the original historical logs remain available.
 
-## What this does not certify
+## Theorems checked
 
-This is a PARTIAL formal review. It does not yet prove the unrestricted purity or entropy asymptotic theorem, the compactness/forest graph limits, their orders of limits and uniformity, the full exceptional-head entropy sum inequality, or the full arbitrary-dimension APPT membership of the new counterexample. The formal quantum bridge is a necessity theorem; it must not be presented as the missing sufficiency proof. No conclusion is assumed through a custom axiom, sorry, admit, or native_decide.
+`Basic`, `Hadamard`, and `QuantumWitness` prove the transpose-convention bridge, the actual rectangular unitary construction, and positivity of every arbitrarily permuted eigenvalue witness for an actual Hermitian APPT matrix.
 
-The analytic claims and statements need a separate proof-to-code coverage map as formalization grows. The existing frozen qutrit proof is a dependency, not certification of these later higher-dimensional results.
+`Star` proves the arbitrary finite-dimensional PSD star inequality, retaining the central diagonal. Its physical wrappers derive the star budget from actual APPT matrices for specified eigenvalue labels.
 
-## Reproduction
+`LogBounds` and `EntropyHead` prove inequalities for the actual real logarithm, including the singular endpoint, and the complete nonlinear exceptional-head sum bound. `appt_eigenvalue_entropyHead_bound` derives the required quadratic star budget from APPT, rather than assuming that budget as its conclusion. It still accepts a permutation and entrywise inequalities specifying the intended placement. Construction of the sorted-index placement from only dimension and sorting assumptions remains a separate obligation.
 
-Lean 4.34.1 and Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612 are pinned. From this directory, install/fetch the pinned dependencies with Lake and its Mathlib cache, then run:
+`SOS` checks the dimension-uniform scalar SOS, the positive quartic, and the exact rational purity gaps. It does **not** prove APPT membership of the 10x38 state; the generic quantum sufficiency bridge remains missing.
+
+See `COVERAGE.md` for the current proof-to-code map. No forest/compactness theorem, unrestricted upper asymptotic, matching family, uniform limit, exact rectangular maximum or final entropy rigidity theorem is being relabeled as formally complete.
+
+## Reproduce the checked checkpoint
+
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** are pinned. From this directory with the pinned dependencies cached:
 
 ```sh
-python3 scripts/build_local.py Audit --fresh --timeout 240 --memory 8000
+lake build APPTReview
+mkdir -p .lake/build/lib/lean/Verification
+lake env lean --root=../appt-qutrit-purity -o .lake/build/lib/lean/Verification/ReplaySupport.olean ../appt-qutrit-purity/Verification/ReplaySupport.lean
+lake env lean -j1 -M6000 ReviewAudit.lean
 ```
 
-`LEAN_BIN` may name an explicit Lean binary. This runner recompiles the actual local import closure sequentially, bounds each invocation, and records literal logs and source/import-object hashes. It is not a substitute for the trust-zero replay executed in `Audit.lean`. A full `lake build` of this new package has not yet been recorded at this checkpoint; the completed bounded direct-Lean build and replay are the validation claimed here.
+The source root flag on the support invocation is essential. It is independent of the working directory and does not alter the theorem being checked. A bounded reproduction runner and additional regression tests are being reviewed separately; their mere presence is not a claim that they passed.
 
-## Recovery and failure record
+## Failure diagnosis
 
-Unpushed files from the interrupted review were recovered, not silently treated as new verified work. The earlier audit command failed to parse because a multiline tactic call lacked `do`. This was repaired and the entire local dependency closure was freshly recompiled. The literal old failure logs and subsequent successful logs are retained in `verification/development/`; a failed attempt is not relabeled as a pass.
+Early failed CI runs contained real elaboration errors in Hadamard coordinates, complex half-root normalization and star hypotheses. The passing source fixes those errors without adding assumptions or untrusted evaluators. Run **38065695262** is different: its 2,704-target Lake build succeeded, but compiling `Verification/ReplaySupport.lean` failed because the source file lay outside Lean's default root. The corrected explicit `--root` invocation passed in run **38066697404**. Warnings and a tactic diagnostic from an attempted branch are not being mistaken for the actual terminal failure.
 
-The checked proof logs and roots are in `verification/kernel/` and `verification/fresh-build.log`. `CHECKPOINT.json` records the successful source binding. The recovery was checked against public main 4248c2b2: every imported local Lean dependency source is byte-identical to that public source. No preprint, Release or prior manuscript was modified by this review.
+The local VPS has insufficient available memory for efficient further compilation; a stopped bounded import test is not a mathematical failure. No source-theorem completion is inferred from elapsed time, finite regression counts or a green job unrelated to the exact source.
