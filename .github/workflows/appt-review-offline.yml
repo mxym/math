@@ -1,0 +1,75 @@
+name: APPT review offline environment
+on:
+  push:
+    branches: ['review/appt-mathematics-lean-20261010']
+    paths: ['.github/workflows/appt-review-offline.yml']
+permissions:
+  contents: read
+jobs:
+  environment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Archive only the pinned compiler and mathematical import closure
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import re,subprocess,tarfile,hashlib,json
+          root=Path.cwd();old=root.parent/'appt-qutrit-purity'
+          tool=Path(subprocess.check_output(['elan','which','lean'],text=True).strip()).parent.parent
+          packages=[p for p in (root/'.lake/packages').iterdir() if p.is_dir()]
+          bases=[root,old]+packages
+          pattern=re.compile(r'^(?:(?:public|private|meta)\s+)*import\s+([^\n]+)',re.M)
+          seen={}
+          def visit(name):
+              if name in seen:return
+              p=next((b/(name.replace('.','/')+'.lean') for b in bases if (b/(name.replace('.','/')+'.lean')).is_file()),None)
+              if p is None:return
+              seen[name]=p
+              for m in pattern.finditer(p.read_text()):
+                  for mod in m[1].split():visit(mod)
+          for name in ['APPTReview','Verification.ReplaySupport','Mathlib.Analysis.SpecialFunctions.Log.Deriv','Mathlib.Tactic']:
+              visit(name)
+          out=Path('/tmp/appt-review-offline.tar.gz')
+          entries=set()
+          def add(archive,path,arc):
+              if arc not in entries:
+                  archive.add(path,arcname=arc,recursive=False);entries.add(arc)
+          with tarfile.open(out,'w:gz',compresslevel=1) as tf:
+              for p in (tool/'lib').rglob('*'):
+                  if p.is_file() and ('.so' in p.name or p.name.endswith(('.olean','.olean.private','.olean.server','.ir'))):
+                      add(tf,p,'toolchain/'+p.relative_to(tool).as_posix())
+              for name in ['lean','lake','leanc']:
+                  if (tool/'bin'/name).exists():add(tf,tool/'bin'/name,'toolchain/bin/'+name)
+              for name,p in seen.items():
+                  base=next(b for b in bases if p.is_relative_to(b))
+                  prefix='review' if base==root else ('original' if base==old else 'packages/'+base.name)
+                  add(tf,p,prefix+'/'+p.relative_to(base).as_posix())
+                  for ext in ['.olean','.olean.private','.olean.server','.ir']:
+                      obj=base/'.lake/build/lib/lean'/(name.replace('.','/')+ext)
+                      if obj.exists():add(tf,obj,prefix+'/.lake/build/lib/lean/'+name.replace('.','/')+ext)
+              for base in packages:
+                  for p in (base/'.lake/build/lib').glob('*.so'):
+                      add(tf,p,'packages/'+base.name+'/.lake/build/lib/'+p.name)
+              for base,prefix in [(root,'review'),(old,'original')]:
+                  for name in ['lakefile.toml','lake-manifest.json','lean-toolchain','ReviewAudit.lean']:
+                      if (base/name).exists():add(tf,base/name,prefix+'/'+name)
+          print('IMPORT_SOURCES',len(seen),'FILES',len(entries),'BYTES',out.stat().st_size)
+          print('SHA256',hashlib.sha256(out.read_bytes()).hexdigest())
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-review-offline-environment
+          path: /tmp/appt-review-offline.tar.gz
+          compression-level: 0
+          retention-days: 3
