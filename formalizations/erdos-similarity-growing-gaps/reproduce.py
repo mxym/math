@@ -7,7 +7,8 @@ import shutil
 
 root = Path(__file__).resolve().parent
 
-lake = os.environ.get("LAKE_BIN") or shutil.which("lake") or "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake"
+workspace_lake = "/workspace/tools/elan/bin/lake"
+lake = os.environ.get("LAKE_BIN") or (workspace_lake if Path(workspace_lake).exists() else None) or shutil.which("lake") or "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake"
 
 def run(args):
     print("$", " ".join(args), flush=True)

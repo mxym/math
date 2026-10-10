@@ -56,13 +56,10 @@ theorem. The new package
 formally closes the deterministic annular sampling layer: the first-sample
 lemma, local gap propagation, the implication
 $z_{n+1}-z_n=o(\log\log z_n)\Rightarrow W$, and the variable-tree algebra
-all replay at trust level zero. The package also contains late-window extraction, tail convergence/distinctness, the countable exponent-budget reduction, the finite Bernoulli routing identity, and a complete conditional countable blocker assembly: from
+all replay at trust level zero. The package also contains late-window extraction, quadratic affine-sign arrangements, the sampler-to-buffer error bridge, tail convergence/distinctness, the countable exponent-budget reduction, the finite Bernoulli routing identity, and a complete conditional countable blocker assembly: from
 an explicit `BlockerFamily` it constructs the closed periodic complement,
 proves the unit-interval measure estimate and empty interior, and transfers
-infinite blocker hits to infinite outside values. The connection from
-`WindowFilling` to that blocker witness (the random routing, continuum
-parameter stratification, and projection argument) remains explicitly
-written proof rather than an unconditional Lean theorem.
+infinite blocker hits to infinite outside values. The finite random routing, continuum parameter stratification, stable-center repair, and dyadic blocker are now kernel-checked. The remaining written-only step is placing that schedule on a supplied `WindowFilling` annulus and carrying the sampling/error buffers uniformly through the schedule; the geometric-tail specialization is already kernel-checked.
 
 The Lean replay needs Lean 4.34.1 and Mathlib at
 `d13f23b723b8a846827a245b89c10fc7d3f11612` with its pinned transitive

@@ -1,105 +1,27 @@
 # Lean formalization: Erdős similarity and growing logarithmic gaps
 
-This package formalizes the deterministic sampling layer of the growing-gap
-research note.  It is deliberately separate from the older globally bounded
-log-gap formalization.
+This package contains the kernel-checked deterministic and finite-routing layers for the growing-logarithmic-gap preprint. It keeps the unconditional statements separate from the remaining transfer from the paper's late-window hypothesis to a finite routing schedule.
 
-## Closed theorems
+## Closed Lean results
 
-For a positive strictly increasing logarithmic scale `Z.z` tending to infinity,
-`ConsecutiveLogGapLittleO Z` is the explicit epsilon formulation of
+- `consecutiveGap_implies_annularFilling` and `consecutiveGap_implies_windowFilling` prove the exact late-window property from the stated epsilon formulation of (z_{n+1}-z_n=o(\log\log z_n)), including endpoint sampling.
+- `Input.lean` proves positivity, strict decrease, convergence to zero, the base-2 logarithm identity, and the ratio limit from diverging gaps.
+- `FiniteRouting.lean`, `RoutingLaw.lean`, `RoutingProbabilityFinite.lean`, and the routing geometry modules prove the finite Bernoulli law, distinct-address factorization, boundary-complete parameter arrangements, stable-center measure budget, and the finite schedule bounds.
+- `PeriodicRepair.lean` and `RoutingMain.lean` construct an open one-periodic compact dyadic power blocker with the stated density bound and repair all centers using the infinite tail.
+- `CoefficientCover.lean`, `CountableExhaustion.lean`, and `GeometricMain.lean` close the signed dyadic/geometric countable exhaustion and its compact positive-measure target. This is a genuine unconditional theorem for geometric tails.
+- `Avoidance.lean` and `TailAnalysis.lean` prove the countable budget union, closed periodic complement, unit-interval measure estimate, empty interior, and infinitely many distinct outside values once the per-grid blockers are supplied. `WindowRepair.lean` adds the actual `LogScale` missed-center relation, its closedness/periodicity, a uniform tail error budget, and the arbitrary-remainder center repair theorem.
+- `ExplicitExample.lean` proves, for (0<\beta<1), the shifted positive representative (z_n=(n+1)(\log\log(n+20))^\beta), the strict increase, divergence, (z_{n+1}-z_n=o(\log\log z_n)), and the adjacent input ratio limit. The shift only removes the zero value at index zero and is a finite-prefix reindexing of the displayed example.
 
-\[
-z_{n+1}-z_n=o(\log\log z_n).
-\]
+All these results compile with Lean 4.34.1 and the pinned Mathlib revision. `Replay.lean` exposes 26 trust-level-zero roots; their only axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 
-The theorem
-`ErdosSimilarityGrowingGaps.consecutiveGap_implies_annularFilling` proves
-that this condition supplies arbitrarily late annuli in which every closed
-interval of length `D` contains a sample, with `D >= 1` and
-`D <= eta * log (log U)`.  The proof includes the first-sample endpoint case,
-local gap propagation, and all positivity and logarithm estimates.
+## Current theorem boundary
 
-`AnnulusSequence.lean` upgrades the real annulus statement to the integer-origin
-window sequence used in Definition 1, including the full `D / log(log U) → 0`
-limit.  Thus the Lean bridge now reaches the paper's exact property `W`.
-
-`Input.lean` closes the exact sequence interface: `a_n = 2^(-z_n)` is
-positive, strictly decreasing, tends to zero, and satisfies
-`-logb 2 a_n = z_n` in Lean.  These facts are not additional hypotheses.
-
-`fillsAnnulus_of_anchor_gap` is the finite local lemma used by that theorem.
-The package also replays the four variable-tree span/edge identities from the
-research note in the `GrowingGap` namespace.
-
-`FiniteRouting.lean` adds the finite Bernoulli-table normalization and the
-exact all-miss identity for pairwise distinct terminal addresses.  These are
-kernel-checked finite statements and do not use a numerical probability
-checker.
-
-`Avoidance.lean` adds the complete countable-exhaustion and topology layer.
-Given a countable family of open periodic blockers with summable density
-budgets, `closed_periodic_avoidance_of_blockers` constructs the closed periodic
-complement, proves the strict measure estimate on every unit interval, proves
-empty interior, and transfers infinitely many blocker hits to infinitely many
-values outside the complement.  `replay_blocker_assembly` is the public
-trust-level-zero replay root.
-
-`TailAnalysis.lean` closes the tail-analysis part of the interface: power
-controlled remainders converge to their center, a hit in every input tail
-forces infinitely many distinct hit values without assuming injectivity, and
-an error-exponent/constant grid reduces to arbitrary real `α` and `M`.
-`WindowFilling.exists_late_annulus` extracts the exact late finite annulus
-needed by each routing block.
-
-`ParameterStrata.lean` gives a finite, boundary-complete representative set
-for every affine-cut parameter rectangle, including exact zero strata.  Its
-fully checked bound is the finite sign budget `3^m`.  The companion
-`SignFiberQuadratic.lean`, `LineSignQuadratic.lean`, and
-`ParameterStrataQuadratic.lean` close the sharper quadratic arrangement bound
-`20*(m+5)^2`, including degenerate, coincident, parallel, and exact-zero
-strata.
-
-`WindowBridge.lean` closes the quantitative sampler interface: a filled
-annulus yields two-sided input and power bounds, the sign-robust power error,
-and the metric thickening estimate that absorbs both annular sampling error
-and a tail remainder around an ideal power hit.
-
-`exists_budget_allocation` and `blockerFamily_of_budgeted_blockers` make the
-countable budget split explicit: any countable collection of already-built
-open periodic blockers can be assembled under an arbitrary positive budget.
-
-`Input.input_ratio_tendsto_zero` records the exact analytic implication that
-logarithmic gaps tending to infinity force adjacent input ratios to tend to
-zero; it is replayed independently of the blocker construction.
-
-`blockerFamily_of_grid_blockers` is the global assembly theorem: given one
-open periodic blocker for each countable exponent/constant grid cell, with a
-summable budget, it forms the per-sequence unions and invokes the tail-grid
-reduction.  The remaining construction is therefore isolated to the single
-finite-window blocker for one grid cell.
-
-## Scope boundary
-
-The finite blocker witness `BlockerFamily` is now an explicit, fully typed
-interface.  Its existence from `WindowFilling` (the finite selector/terminal
-table geometry and continuum miss estimate) is still the remaining analytic
-connection.  The sampler-to-buffer estimate and quadratic parameter cover
-needed by that construction are kernel checked; no placeholder theorem is
-used for the remaining connection.  The exact interface and next obligations
-are recorded in [`HANDOVER.md`](HANDOVER.md).
+The finite routing/blocker construction is now closed for the exact dyadic power rectangle, and the complete geometric-tail target is closed. The remaining connection for the full preprint theorem is the uniform late-window transfer: choose a routing template on an annulus supplied by `WindowFilling`, absorb the sampled exponent and tail remainder into the open buffers, and then instantiate the countable (s,\alpha,M,c\) grid. This interface is represented by `WindowBlockerSpec`; it is not replaced by an axiom or a placeholder theorem. Consequently the unrestricted `WindowFilling` version of Theorem 2 remains a written theorem until that transfer is added.
 
 ## Reproduction
 
-Use Lean 4.34.1 and the pinned Mathlib revision in `lake-manifest.json`:
-
 ```sh
-lake exe cache get
-lake build ErdosSimilarityGrowingGaps
-lake env lean -t 0 ErdosSimilarityGrowingGaps/Replay.lean
-python3 checks/negative.py
+LAKE_BIN=/workspace/tools/elan/bin/lake python3 reproduce.py
 ```
 
-The trust-level-zero replay reports only the standard Lean axioms
-`propext`, `Classical.choice`, and `Quot.sound`.  The negative check compiles a
- deliberately false stronger span bound and requires Lean to reject it.
+The script builds `ErdosSimilarityGrowingGaps`, runs `Replay.lean` with `-t 0`, and executes `checks/negative.py`. No source uses `sorry`, `admit`, a custom axiom, `native_decide`, `unsafe`, or `partial`.

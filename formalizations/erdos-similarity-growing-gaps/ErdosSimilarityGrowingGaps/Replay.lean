@@ -4,6 +4,7 @@ import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
 import ErdosSimilarityGrowingGaps.AnnulusSequence
 import ErdosSimilarityGrowingGaps.WindowBridge
+import ErdosSimilarityGrowingGaps.GridBoundary
 import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
@@ -12,10 +13,14 @@ import ErdosSimilarityGrowingGaps.ParameterStrata
 import ErdosSimilarityGrowingGaps.SignFiberQuadratic
 import ErdosSimilarityGrowingGaps.LineSignQuadratic
 import ErdosSimilarityGrowingGaps.ParameterStrataQuadratic
+import ErdosSimilarityGrowingGaps.RoutingMain
+import ErdosSimilarityGrowingGaps.GeometricMain
+import ErdosSimilarityGrowingGaps.ExplicitExample
+import ErdosSimilarityGrowingGaps.WindowRepair
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
-open Set MeasureTheory
+open Set MeasureTheory Filter Topology
 open scoped BigOperators
 open scoped ENNReal
 
@@ -44,6 +49,10 @@ theorem replay_sampled_output_buffer
     f (input Z n) ∈ Metric.thickening r B :=
   sampled_output_mem_thickening hs hα hM happrox hideal hpower hwidth
 
+theorem replay_grid_boundary_budget (N : ℕ) (hN : 0 < N) (R : ℝ) :
+    unitDensity (gridBoundaryBad N R) ≤ ENNReal.ofReal ((N : ℝ) * R) :=
+  unitDensity_gridBoundaryBad_le N hN R
+
 theorem replay_window_power_error
     {Z : LogScale} {U R D v s c : ℝ}
     (h : FillsAnnulus Z U R D)
@@ -71,6 +80,22 @@ theorem replay_distinct_terminal_all_miss
       ∏ i, if τ (address i) = true then 0 else 1) =
       (1 - p) ^ Fintype.card I :=
   distinct_terminal_all_miss p address hinj
+
+theorem replay_uniform_power_tail
+    {s₀ s₁ C : ℝ} (hs₀ : 0 < s₀) (hs₀₁ : s₀ ≤ s₁) (ε : ℝ) (hε : 0 < ε) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      ∀ x : ℝ, ∀ p : PowerParams s₀ s₁,
+        |powerPoint (dyadic n) C (x, p) - x| < ε :=
+  powerPoint_uniform_tail hs₀ hs₀₁ ε hε
+
+theorem replay_compact_power_blocker {K : ℕ} (hK : 2 ≤ K)
+    {k : ℤ} {N : ℕ} {δ : ℝ} (hδ : 0 < δ) (hδ₁ : δ < 1) :
+    ∃ H : Set ℝ, IsOpen H ∧ OnePeriodic H ∧
+      unitDensity H < ENNReal.ofReal δ ∧ CompactPowerHits H K k N :=
+  exists_compact_power_blocker hK hδ hδ₁
+
+theorem replay_geometric_main_target : MainTarget :=
+  geometric_main_target
 
 theorem replay_blocker_assembly
     {ι : Type*} [Countable ι] [Nonempty ι]
@@ -150,6 +175,35 @@ theorem replay_input_sequence (Z : LogScale) :
       ∀ n, -Real.logb 2 (input Z n) = Z.z n := by
   exact ⟨input_pos Z, input_strictAnti Z, input_tendsto_zero Z, input_logb Z⟩
 
+theorem replay_uniform_tail_error_budget {Z : LogScale} {K : ℕ} (hK : 2 ≤ K)
+    {α q r : ℝ} (hα : 0 < α) (hq : 0 ≤ q) (hr : 0 < r) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      ∀ p : PowerParams (1 / (K : ℝ)) K,
+        q * (input Z n) ^ (p.1.1 + α) < r :=
+  uniform_tail_error_budget hK hα hq hr
+
+theorem replay_sequence_repair_all_centers {Z : LogScale} {K : ℕ} (hK : 2 ≤ K)
+    (tests : Finset ℕ) (k : ℤ) {W : ℕ} (windows : Fin W → ℝ × ℝ)
+    (G V : Set ℝ) (r : ℝ) (hr : 0 < r) (hV : IsOpen V)
+    (hcover : sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      Z tests k windows (Metric.thickening r G) ⊆ V)
+    (N : ℕ) (htail : ∀ n ∈ tests, N ≤ n)
+    (α q : ℝ) (hα : 0 < α) (hq : 0 ≤ q)
+    (herror : ∀ (p : PowerParams (1 / (K : ℝ)) K) (n : ℕ), n ∈ tests →
+      p ∈ sequenceWindowActivations Z n k windows →
+        q * (input Z n) ^ (p.1.1 + α) < r) :
+    CompactRobustHits Z (Metric.thickening (2 * r) G ∪ V) K k N α q :=
+  sequence_repair_all_centers hK tests k windows G V r hr hV hcover N htail α q hα hq herror
+
+theorem replay_explicit_example_gap {β : ℝ} (hβ : 0 < β) (hβ₁ : β < 1) :
+    ConsecutiveLogGapLittleO (explicitLogScale β hβ) :=
+  explicitLogScale_consecutiveGapLittleO hβ hβ₁
+
+theorem replay_explicit_example_ratio {β : ℝ} (hβ : 0 < β) :
+    Tendsto (fun n : ℕ => input (explicitLogScale β hβ) (n + 1) /
+      input (explicitLogScale β hβ) n) atTop (𝓝 0) :=
+  explicitLogScale_input_ratio_tendsto_zero hβ
+
 theorem replay_input_ratio_zero {Z : LogScale}
     (hgap : Filter.Tendsto (fun n : ℕ => Z.z (n + 1) - Z.z n)
       Filter.atTop Filter.atTop) :
@@ -157,12 +211,16 @@ theorem replay_input_ratio_zero {Z : LogScale}
       Filter.atTop (nhds 0) :=
   input_ratio_tendsto_zero hgap
 
+#print axioms replay_uniform_power_tail
+#print axioms replay_compact_power_blocker
+#print axioms replay_geometric_main_target
 #print axioms replay_window_filling
 #print axioms replay_input_sequence
 #print axioms replay_input_ratio_zero
 #print axioms replay_first_sample
 #print axioms replay_annular_sampling
 #print axioms replay_late_window
+#print axioms replay_grid_boundary_budget
 #print axioms replay_window_power_error
 #print axioms replay_sampled_output_buffer
 #print axioms replay_variable_tree_span
