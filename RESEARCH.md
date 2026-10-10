@@ -38,7 +38,7 @@
 | 等质量四胞全局定理 | 所有 d≥3 的协方差变形锐界与正四面体等号分类；独立解决四胞全局端点 | [独立预印本与审计](preprints/gaussian-four-cell-global-2026-10/README.md)；解析端点未完整 Lean 化 |
 | 三胞独立形式化 | 实际等质量高斯分数分区的锐界、等号分类及低维严格不等式 | [完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)；源码在记录中的固定研究分支提交 |
 | 任意正质量向量 | 质量依赖矩阵度量下的锐重心椭球不等式；不是普通平方重心和的任意质量猜想 | [完整书面证明、部分 Lean](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md) |
-| 任意质量原猜想反例 | 指定四胞质量族中，平移或旋转的正四面体分区严格非最优 | [完整书面反例、精确算术与部分 Lean](research/gaussian-fixed-mass-propeller-counterexample/README.md) |
+| 任意质量原猜想反例 | 对每个 0<p<1/4 的四胞质量族，平移或旋转的正四面体分区严格非最优；已冻结为独立预印本 | [预印本与 DOI](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)；精确算术与部分 Lean |
 | 高斯优化原始—对偶 | 真实高斯测度上的平衡价格、唯一性与原始—对偶取到 | [完整 Lean 工程](formalizations/gaussian-measure-primal-dual/README.md)；几何锐比较单独处理 |
 
 ## 单纯形稳定性与投影体几何

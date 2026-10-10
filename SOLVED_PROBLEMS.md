@@ -12,6 +12,7 @@
 - [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)：证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1，并给出无爪 vertex-minor 的六类分量分类与七顶点连通阈值；完整书面证明与双独立精确 checker，未完整 Lean 化。
 - [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；有限精确诊断与部分 Lean，完整猜想及二次对数间隙序列仍开放。
 - [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
+- [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)：对每个 `0<p<1/4` 的四胞质量族给出严格非正四面体改进；等质量情形不在结论内。完整书面反例、精确诊断与部分 Lean。
 
 - [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。
 
