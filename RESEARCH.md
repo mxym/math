@@ -12,7 +12,7 @@
 | 全局酉预处理后的纠缠提取 | 任意固定局域维数与任意谱的精确容量及全速率保真度指数；LO、LOCC、完全 PPT 三类操作一致 | [确定性分块构造与完整解析预印本](research/global-unitary-ppt-extraction/README.md)；熵上界来源明确、精确附属检查通过，非 Lean；不是普通固定输入态蒸馏问题 |
 | 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
-| APPT 任意局域维数：后续主目标 | 全部双特征值谱的精确纯度最大值；高重数最小特征值子类的锐界；指定内多面体绝对可分性 | [完整书面子类证明与精确代数检查](research/appt-all-dimensions/README.md)；非 Lean；一般多层谱猜想仍未解决 |
+| APPT 任意局域维数：一般纯度公式的反例 | 10×38 真实 APPT 三层谱严格超过原猜想；所有 m≥11,n=4m 的反例族；任意固定比例增长时的多层谱下界 | [全局酉量词的平方和证明与精确检查](research/appt-multilevel-counterexample/README.md)；研究笔记、非 Lean；真实全局最大值与绝对可分性仍待确定 |
 | 图态 MMI 禁止子图 | 证明 Conjecture 1；无爪 vertex-minor 六类分量分类与七顶点连通阈值 | [独立预印本与完整书面证明](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；双独立 checker，未完整 Lean 化 |
 | ECQC 极值结构与纯稳定子分类 | 全部满秩等号态；所有双 qudit 纯稳定子精确分数；p≡1 mod 4 的全纯态最优比值 p/2；一般等号的平坦谱与秩缺口 | [八页完整证明、来源与精确重放](research/ecqc-stabilizer-saturation/README.md)；不是一般秩亏等号分类，未完整 Lean 化 |
 | 纯态 ECQC 素数维数分类 | p=2 普遍成立，每个奇素数存在满 Schmidt 秩纯态反例；p=3、5 达到通用比值上界 p/2；一 ebit 下维数无界超出 | [论文、完整书面证明与精确重放](research/ecqc-pure-state-counterexamples/README.md)；[三维真实量子反例完整 Lean](formalizations/ecqc-pure-qutrit-counterexample/README.md)，全分类未整体 Lean 化；不重称已有混合态反例为首次 |

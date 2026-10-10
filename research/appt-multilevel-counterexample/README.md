@@ -17,6 +17,14 @@ APPT is proved for every global unitary by the sum-of-squares identity in [PROOF
 
 The central construction is `(2m-5)I + 2P + 4(m-4)|v><v|`, where P is any projection and v is a unit vector in its range. It combines one high spike with a distinct plateau; neither of the two previously conjectured families includes this configuration. An exact membership test is also proved for the wider one-spike/plateau class in the specified projection-rank interval.
 
+## Further structural result
+
+[ASYMPTOTIC.md](ASYMPTOTIC.md) extends the counterexample to every proportional-growth regime: if m tends to infinity and n/m tends to any finite gamma>=1, explicit rational APPT spectra satisfy
+
+    (mn)^2 [purity - 1/(mn)] -> 4+gamma,
+
+whereas the conjectured formula gives max(4,gamma). The difference has strictly positive limiting coefficient min(4,gamma). The value 4+gamma is proved optimal within the classified one-spike/plateau subclass. A matching upper bound for unrestricted APPT spectra is NOT proved and is the next core mathematical question. Run `python3 check_asymptotic.py` for supporting exact parameter identities; the limits are analytic arguments, not finite tests.
+
 ## Verification and scope
 
 ```sh
