@@ -1,5 +1,8 @@
 # A uniform graph limit and the four-level APPT mechanism
 
+> Subsequent sharp result: [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md) closes the remaining leading-constant gaps for every aspect ratio, and gives an equivalent uniform over all dimension pairs as total dimension grows. The proofs below remain valid; descriptions of then-open asymptotic gaps record intermediate progress. Exact finite maxima and absolute separability remain unresolved.
+
+
 Research working proof, 10 October 2026. This note strengthens the lower bound on the unrestricted maximum, and determines a sharp asymptotic only within the stated nested four-level sector. No new preprint, Release, Lean certificate or external-review claim.
 
 ## 1. A deterministic extremal graph lemma

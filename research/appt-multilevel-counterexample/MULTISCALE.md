@@ -1,5 +1,8 @@
 # Sharp balanced APPT purity: a multiscale construction matches the unrestricted bound
 
+> Subsequent sharp result: [SHARP_ASYMPTOTIC.md](SHARP_ASYMPTOTIC.md) closes the remaining leading-constant gaps for every aspect ratio, and gives an equivalent uniform over all dimension pairs as total dimension grows. The proofs below remain valid; descriptions of then-open asymptotic gaps record intermediate progress. Exact finite maxima and absolute separability remain unresolved.
+
+
 Research working proof, 10 October 2026. No manuscript or Release is being prepared. The result is analytic, not Lean-formalized or externally peer reviewed. Exact finite checks accompany the identities and obstruction examples, not the unbounded compactness argument.
 
 ## 1. The result and its precise scope
