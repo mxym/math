@@ -1,147 +1,160 @@
-# Four balanced Gaussian cells: partial formalization / 部分形式化
+# Four balanced Gaussian cells — partial Lean formalization / 部分形式化
 
-**Development checkpoint: the covariance import closure and fixed-flux derivative are under compiler verification. Historical 31-module receipts do not verify these new sources. The global theorem remains unproved.**
+**Unconditional partial results, not the global sharp theorem.** The inequality
+with constant `12 * (arctan (sqrt 2))^2 / pi^3` and its complete equality
+classification are not proved or exported by this package. No missing
+geometric theorem is assumed as a custom axiom. No completion Release or DOI
+is created for this checkpoint.
 
-**Status: unconditional partial results, NOT the global sharp theorem.**
-The bound `12 * (arctan (sqrt 2))^2 / pi^3` and its complete equality
-classification have not been proved by this package. There is no conditional
-wrapper presented as that theorem and no axiom for a geometric input.
+## Current verified checkpoint
 
-## Additional core proof modules
+The 90-module source set at `dce885e1e91f6b647cf5327dad6bb1b25ebee2f6`
+passed fresh local verification and independent GitHub-hosted verification:
+[run 38065291099](https://github.com/mxym/math/actions/runs/38065291099).
+The earlier repaired 89-module source set passed
+[run 38064502958](https://github.com/mxym/math/actions/runs/38064502958).
 
-`PriceBounds.lean` proves the exact Gaussian pair-price bound from actual
-winning-cell masses. `PriceCompactness.lean` proves a normalized-price bound
-and a convergent subsequence theorem. `TraceSupport.lean`, `NormalCone.lean`,
-and `RegularizedResidual.lean` prove the all-matrix upper-normal equivalence,
-complementary slackness, and the intrinsic three-dimensional residual bound.
+| Check | Current 90-module result |
+| --- | --- |
+| New Lake source tree, initially zero owned objects | PASS |
+| Separate source compilation into a second empty object directory | All 90 modules PASS |
+| Declared audit roots | 547 |
+| Empty-kernel replay | 60,487 declarations, trust level 0 |
+| Axioms | Only `propext`, `Classical.choice`, `Quot.sound` |
+| Deliberately false Lean source mutations | All 9 REJECTED |
+| Module/import/audit inventory regression tests | All 5 PASS |
+| Local versus independent CI | All source hashes and 90 object hashes identical; replay and mutation results identical |
 
-See [CORE_PROGRESS.md](CORE_PROGRESS.md) for exact statements, dependency
-graphs, and the still-missing link to the actual Gaussian covariance gradient.
-None is presented as a replacement for the global partition theorem.
+These are counts of a partial proof's audited dependency closure, not a claim
+that 60,487 separate Gaussian theorems have been proved. Historical 31-module
+receipts and failed development checkpoints do not verify the current source.
 
-## New proved analytic chain
+Literal local logs, failed mutation sources, dependency checks, source/object
+SHA-256 values and replay closure are in
+`evidence/ci-repair/local-90/complete-logs.tar.gz`. The original unmodified
+Actions artifact is `evidence/ci-repair/ci-90/original-actions-artifact.zip`.
+`evidence/ci-repair/COMPARISON.json` records cross-host equality checks.
+The historical failures and their successful successors are documented in
+[CI_REPAIR.md](CI_REPAIR.md), with original-artifact hashes and retained literal
+diagnostic logs. Proof failures have not been suppressed or ignored.
 
-`GaussianFour/Profile.lean` constructs the actual upper Gaussian quartile
-`q = upperQuantile (1/4)` and proves, by integration and exact real arithmetic,
-`0 < q < 7/10`, `phi(q) > (3/4) phi(0)`, and
-`phi(q)^2 > 9/(32*pi)`. No sampled Gaussian CDF, floating-point certificate,
-external Taylor bound, or quantitative profile hypothesis is used.
+## Newly verified mathematical coverage
 
-`GaussianFour/QuartileIntervals.lean` identifies equal-mass ordered interval
-thresholds as `(-q,0,q)` and computes their **actual Gaussian Bochner moments**
-as `(-h, h-phi(0), phi(0)-h, h)`, where `h=phi(q)`. Endpoints are handled by
-null-singleton arguments, not by ignoring their measure without proof.
+### Actual price Frechet Hessian and centered invertibility
 
-`GaussianFour/OrderedWinning.lean` proves that positive balanced masses of
-four strictly ordered affine scores force their consecutive crossings to be
-strictly ordered. The actual winning sets are exactly the resulting open
-intervals. Gaussian masses then force the quartile thresholds.
+For affine-independent k inducing scores in R^(k-1), the development uses
+actual Gaussian winning sets and the original integral price objective. It
+proves the genuine second Frechet derivative, not just a directional formula.
+One constructed positive symmetric Gaussian flux family supplies the actual
+Bochner flux, cell-mass derivative and price Hessian. Its quadratic form is
 
-`GaussianFour/RankOne.lean` proves that a balanced self-moment diagram has
-middle facet weight greater than two and violates the centered spectral
-quadratic-form bound, using the explicit vector `(0,1,-1,0)`.
+    q^T L q = (1/2) sum_(i,j) w_ij (q_i-q_j)^2.
 
-`GaussianFour/CollinearTransport.lean` proves the actual Gaussian pushforward
-and Bochner-moment bridge for `v_i = a_i u`, with `norm u=1`, in every ambient
-dimension. Thus the ordered-collinear obstruction is not restricted to a
-surrogate one-dimensional Gaussian model.
+Its exact kernel is the constant-price shifts. `CenteredPriceHessian.lean`
+constructs the submodule H={q : sum_i q_i=0}, proves that L maps H into H,
+proves strict positivity on nonzero H, and proves the restricted linear map
+is bijective. In the four-cell case the score space here is the intrinsic
+R^3. Degenerate diagrams are not silently included.
 
-Ordered-collinear entry point:
+Main new entry points:
 
 ```lean
-GaussianFour.no_ordered_collinear_selfMoment_spectral_bound
+GaussianFour.actual_simplicial_price_hessian
+GaussianFour.actual_simplicial_price_hessian_nondegenerate
+GaussianFour.centeredPriceHessianMap_bijective
 ```
 
-Its hypotheses are unit `u`, strictly increasing scalar coefficients `a`,
-actual winning-cell masses `1/4`, and actual vector self-moment identities.
-Its conclusion rejects the explicit adjacent-facet quadratic-form bound.
-It does **not** assert the covariance Hessian/normal-cone bridge that would
-supply that bound for every putative global boundary maximizer.
+See [HESSIAN_PROGRESS.md](HESSIAN_PROGRESS.md). Price-Hessian invertibility
+does not by itself prove its joint-parameter continuity, the smooth implicit
+price map, or the separate covariance Hessian needed by the global argument.
 
-## Retained earlier unconditional results
+### Actual covariance differential and full-rank local criticality
 
-The five existing separation/triple-tie modules are retained unchanged.
-They prove triangular-cap integration, actual fractional pair-moment
-separation, four-cell winning-moment separation, limiting non-coalescence,
-and the affine middle-score triple-tie obstruction. This round recompiles
-and replays their proofs along with the new chain.
+The integrated `analytic/` sources construct the actual covariance value,
+its Gaussian interpretation, factorization invariance, PSD-cone continuity
+and scaling. `FixedCovarianceDifferential.lean` constructs a fixed actual
+Gaussian flux family before quantifying over centered covariance directions:
 
-The nine actual-measure/price modules in `../gaussian-measure-primal-dual`
-and six analytic modules in `../gaussian-mass-envelope-progress` are reused
-by source path. The duplicate `GaussianPartition` in the latter is not built
-or shadowed. No research-branch theorem is silently imported.
+    derivative at zero of t -> C(Q+tD) = trace(L D)/2.
 
-## Verification and reproduction
+This is a directional statement, not a claimed full covariance regularity
+result. `CovarianceCriticality` and `SelfMomentCriticality` use it at a
+full-rank constrained local extremum to prove C(Q)>0, actual winning masses
+1/4, actual Bochner moments m_i=C(Q)r_i, and L=C(Q)P.
 
-Current source-bound verification: `evidence/core-r1/verification.json` is
-PASS. A fresh Lake tree started with zero owned objects; every one of the
-31 modules was then independently rebuilt from source. The trust-zero replay
-checked 57,811 declarations for 222 roots. Only `propext`, `Classical.choice`,
-and `Quot.sound` occurred. All six deliberate source mutations were rejected.
-Full literal logs and mutated test sources are in
-`evidence/core-r1/complete-logs.tar.gz`, with SHA-256 and source provenance.
-Older `kernel-r2` receipts remain historical; they are not the new core run.
+```lean
+GaussianFour.actual_centered_covariance_fixed_differential
+GaussianFour.actual_four_local_extremum_self_moments
+```
 
-An independent clean GitHub-hosted Ubuntu 24.04 run also passed:
-[run 38044016825](https://github.com/mxym/math/actions/runs/38044016825).
-Its original full log artifact is archived under `evidence/core-ci/`.
-A programmatic comparison confirmed identical source hashes, all 31 compiled
-object hashes, replay summaries, and all six negative-control outcomes between
-the two hosts. See `evidence/core-ci/COMPARISON.json`.
+These theorems do not classify the local extrema or prove the missing sharp
+global comparison. The exact remaining statements are in [GAPS.md](GAPS.md).
 
-Toolchain: Lean 4.34.1, commit
-`5045d0056413266e57c625dcd7c365b10e377c52`.
-Mathlib: `d13f23b723b8a846827a245b89c10fc7d3f11612`.
-Transitive dependencies are fixed by `lake-manifest.json` and checked against
-their Git revisions and LF-normalized source blobs by `reproduce.py`.
+### Retained analytic and spectral core
+
+The earlier checked modules prove actual fractional pair-moment separation,
+four-cell non-coalescence, a positive-mass triple-tie obstruction, exact
+quarter-quantile margins and quartile moments, and the ordered collinear
+self-moment spectral obstruction with actual Gaussian projection/Bochner
+transport. They also prove actual balanced price bounds and compactness,
+all-matrix upper-normal equivalence with complementary slackness, and the
+intrinsic three-dimensional regularization residual identity and estimate.
+
+The sibling actual-measure/price sources and six mass-envelope analytic
+sources are reused by source path. Integrated research-branch source provenance
+is recorded in `UPSTREAM_PROVENANCE.json`; no branch-local theorem counts
+merely because an old log or manuscript says it is proved.
+
+## Reproduction
+
+Lean **4.34.1**, commit `5045d0056413266e57c625dcd7c365b10e377c52`.
+Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** and all transitive
+dependencies are locked by `lake-manifest.json`. The verifier checks dependency
+Git revisions and LF-normalized source blobs, as well as owned source hashes.
+
+With the pinned Lean toolchain on PATH:
 
 ```bash
 cd formalizations/gaussian-four-global-progress
+python3 preflight.py
+python3 test_preflight.py
 bash fetch_cache.sh
 python3 reproduce.py --output-dir /tmp/gaussian-four-independent-check
 ```
 
-The output directory must not exist. The script constructs a clean Lake
-source tree with no owned objects, runs `lake build`, then separately
-recompiles every module into a second clean object directory. It checks
-source hashes before and after, audits 222 declared roots, and replays
-the entire used declaration closure into `mkEmptyEnvironment 0`, checking original and
-replayed root types and universes. The only axioms are `propext`,
-`Classical.choice`, and `Quot.sound`. The recursive collection routine is
-verification metaprogramming, not an assumption of a mathematical theorem.
+The output directory must not already exist. An existing checked dependency
+cache may be supplied explicitly with `--mathlib-dir`; no existing owned
+object is reused by the fresh proof verification. `GaussianFour.lean` is the
+aggregate entry of this **partial** package, not a main theorem asserting the
+sharp four-cell inequality.
 
-Six source mutations must be rejected, including: a false quartile upper bound of
-zero, the wrong sign of the left quartile boundary, and the wrong sign of
-the first interval's moment. These are actual failed Lean compilations,
-not a Python comparison of expected answers. The new controls also set the
-price bound to zero, reverse the upper-normal sign, and incorrectly set the
-regularized residual bound to zero.
+`MODULES.json`, `ROOTS.txt`, `SOURCE_BLOBS.json`, `audit/Audit.lean` and
+`audit/Replay.lean` specify the exact checked inputs and declarations.
+`DEPENDENCY_GRAPH.dot` is generated from their owned imports;
+`DEPENDENCY_MAP.md` maps manuscript obligations to the checked Lean statements.
+The replay rejects unexpected axioms, unsafe/partial mathematical dependencies,
+and mismatching original/replayed theorem types or universe parameters.
 
-`MODULES.json` gives the 31-module build order; `ROOTS.txt` lists all 222
-audit roots; `SOURCE_BLOBS.json` binds the reproduction inputs. Current
-literal logs, SHA-256 source/object hashes, dependency checks, negative-control
-output, and the closure list are retained under `evidence/core-r1/` and
-`evidence/core-ci/`. Their compressed archives preserve the original bytes.
-The earlier `evidence/kernel-r2/` receipt covers the historical, smaller closure
-only. See `evidence/README.md` for exact run provenance and CI status.
+Nine mutation controls cover the quartile bound, boundary and moment signs,
+price bound, normal-cone sign, residual bound, covariance factor 1/2, price
+Hessian kernel, and centered Hessian curvature sign. They must fail actual
+Lean compilation for a proof reason. They are not numerical tests of the
+Gaussian theorem and are not a replacement for any missing analytic proof.
 
-## Remaining scope
+## Remaining global scope
 
-See `DEPENDENCY_MAP.md`, `GAPS.md`, and `PROOF.md`. In particular, rank-two
-exclusion, the covariance/price Hessian, higher regularity, the constrained
-deformation/mountain-pass argument, actual Gaussian perimeter lower bounds,
-the exact tetrahedral arctangent evaluation, and final sharp equality
-classification remain. The final arbitrary-partition inequality is not
-exported. This is substantial analytic progress, not the last packaging
-step of a completed global theorem.
-
-Publication stays on a dedicated partial-progress branch. No completion
-Release or DOI is created. Existing immutable editions and third-party
-notices are unchanged.
+The missing blocks include higher covariance regularity, the actual
+covariance Hessian and tetrahedral local maximum, singular facet convergence,
+the constrained deformation/mountain-pass argument, complete rank-two and
+arbitrary rank-one boundary reductions, actual Gaussian perimeter lower
+bounds, the exact tetrahedral arctangent evaluation, and the final arbitrary
+measurable/fractional inequality with both directions of the AE geometric
+equality classification. These are substantive mathematical gaps, not a
+final packaging step. See GAPS.md for the precise obligations.
 
 Author: Yongxian Zhang (张永贤), School of Computer Science and Engineering,
 South China University of Technology. Email: mxymmxym1@gmail.com.
 ORCID: 0009-0000-3864-3536. No external funding; AI-assisted research.
-Repository notices and third-party licenses remain in force. Original
-additions retain all rights except where an existing applicable license
-expressly grants otherwise.
+Existing licenses and third-party notices are preserved. Original additions
+retain all rights not otherwise granted. No external peer-review or priority
+claim is made. Existing immutable editions remain unchanged.

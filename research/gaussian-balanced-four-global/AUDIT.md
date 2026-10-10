@@ -90,3 +90,23 @@ mountain-pass construction, geometric perimeter inputs, or sharp equality
 classification. The global theorem is still only partially formalized.
 No complete-formalization or external-peer-review claim is justified by this
 core extension, and no immutable manuscript release has been modified.
+
+## Partial Lean derivative/Hessian checkpoint — 10 October 2026 (UTC)
+
+The partial package at `formalizations/gaussian-four-global-progress` now has
+a verified 90-module source set: a fixed actual Gaussian covariance
+directional derivative, full-rank local-extremum self-moment consequences,
+the actual price Frechet Hessian, and its centered-price invertibility are
+included. Fresh local and independent GitHub Actions run 38065291099 both
+pass, with 547 audit roots, 60,487 trust-zero replayed declarations and nine
+rejected source mutations. Logs, source hashes and cross-host comparison are
+preserved in that package's `evidence/ci-repair/` directory.
+
+This is not a formal proof of the manuscript's global endpoint. In particular,
+the price Hessian must not be confused with the covariance Hessian; higher
+regularity, boundary surface-integral limits, the deformation argument,
+geometric perimeter inputs, exact tetrahedral analytic evaluation and full
+sharp equality classification remain. The revised GAPS.md and
+DEPENDENCY_MAP.md distinguish these obligations explicitly. Historical
+compilation failures were actual source errors; CI_REPAIR.md records their
+causes and verified successful successors. No immutable edition is altered.

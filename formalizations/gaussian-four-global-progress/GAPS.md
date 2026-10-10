@@ -1,41 +1,128 @@
-# Remaining proof obligations (not axioms)
+# Remaining mathematical obligations — partial formalization
 
-This report describes the checked GaussianFour import closure. None of these statements is supplied as an axiom or hidden premise of the sharp theorem. Research-branch infrastructure must be audited and integrated before it counts here.
+The global sharp four-cell inequality and complete equality classification are
+not exported. No item below is supplied as an axiom or hidden assumption of a
+purported main theorem. This report distinguishes actual checked constructions
+from the still-missing global analysis.
 
-## Covariance and facets
+## What is now constructed
 
-On H={z in R^4: sum z_i=0}, let C be the PSD trace-one symmetric operators. Construct F(Q) from the actual balanced Gaussian price objective for centered inducing scores with Gram Q. Prove factorization-independence, continuity at singular Q, and required positive-cone smoothness. Identify actual Bochner flux, DF(Q)[K]=(1/2)tr(L(Q)K), the price Hessian, and higher constrained derivatives with manuscript equations (2)-(7) and (16). Facets must be actual Gaussian surface integrals, not arbitrary supplied matrix weights.
+The owned import closure includes the actual standard Gaussian measure,
+measurable fractional labels, Bochner first moments, balancing prices, price
+duality and its fractional equality condition. The `analytic/` sources listed
+in `UPSTREAM_PROVENANCE.json` are integrated by source, not by assuming their
+conclusions. Covariance value is factorization-independent, has the proved
+scaling law, and is continuous on the PSD cone, including singular points.
 
-## Singular convergence and normal cones
+`actual_centered_covariance_fixed_differential` constructs one positive
+symmetric Gaussian flux family **before** quantifying over all centered
+symmetric directions D. Its exact statement is the one-dimensional derivative
+of t -> covarianceValue(Q+tD) at zero, equal to trace(L D)/2. It is not yet a
+Frechet-smoothness theorem for the covariance value on its positive cone.
 
-The exact balanced price bound (10), the centered-price norm bound, and subsequential price compactness are now proved in `PriceBounds` and `PriceCompactness`. Convergence of moving-hyperplane Gaussian facet integrals remains unproved. Proven moment separation and triple-tie exclusion do not alone imply facet-integral convergence.
+`actual_four_local_extremum_self_moments` constructs actual balanced cells and
+Bochner moments at a full-rank constrained local extremum. It proves C(Q)>0,
+m_i=C(Q)r_i, and L=C(Q)P with actual canonical prices. It does not prove that
+such an extremum is tetrahedral, nor bound its value by the sharp constant.
 
-The upper-normal equivalence for arbitrary finite real PSD trace-one matrices, including the sign tr(A(Y-Q))<=0 and full off-diagonal complementarity, is now proved in `NormalCone`. The exact intrinsic three-dimensional regularization residual identity and bound are proved in `RegularizedResidual`. Still required: construct and identify the actual Gaussian covariance derivative on H, transport the centered four-score formulation to these intrinsic matrices, and derive the self-moment rescaling from that analytic construction. An arbitrary matrix satisfying the proved hypotheses is not itself a constructed Gaussian critical point.
+`actual_simplicial_price_hessian` gives the actual second Frechet derivative
+of the original price objective, with a positive Gaussian flux matrix and
+exact constant-shift kernel. `actual_simplicial_price_hessian_nondegenerate`
+additionally proves that its restriction to sum-zero prices is bijective.
+These hold for affine-independent d+2 scores in R^(d+1); the four-cell case is
+the intrinsic R^3 case. They do not silently extend to degenerate diagrams.
 
-## Exact rank-one scope
+## 1. Higher regularity and the two different Hessians
 
-Newly proved for every d: unit u, strictly increasing a, arbitrary prices p, actual winning masses 1/4, and actual vector self-moment identities imply failure of the explicit adjacent-facet spectral quadratic-form bound. Actual Gaussian projection and Bochner transport are proved.
+Prove the covariance value has the regularity needed by the manuscript's
+regularized deformation and local second-variation arguments on the positive
+centered cone. A fixed directional derivative formula does not supply this
+regularity. The price Hessian is now proved, but its continuity in joint
+score/price parameters and the resulting smooth implicit dependence of
+normalized prices still require proof. Centered invertibility alone does not
+establish an implicit-function theorem's other hypotheses.
 
-Missing: extraction of an ordered representation from arbitrary rank-one covariance limits, including sorting/relabeling, and identification of the facet form with the covariance normal-cone matrix. Full singular covariance exclusion is not claimed.
+Derive the **covariance** Hessian at the regular tetrahedral covariance and
+formula (16), including all derivatives of the balancing prices. Then prove
+strict local maximality. This is distinct from positivity of the price
+Hessian; the two must not be conflated.
 
-## Rank two and the geometric inputs
+## 2. Singular convergence and actual facet geometry
 
-For every four distinct centered self-moment inducing vectors of rank two, with actual winning masses 1/4, prove failure of the actual facet inequality L<=P_H. All affine-dependence/hull cases in Lemma 6, including collinear triples and absent interfaces, are required. The strict profile margins (12) are proved, not the planar case analysis.
+The exact pair-price bound, centered-price compactness, moment separation,
+non-coalescence and positive-mass collinear triple-tie obstruction are proved.
+Continuity of Bochner winning moments is proved at distinct score families;
+price differentiability of actual cell masses is proved for affine-independent
+simplicial scores. The missing boundary work includes limiting mass constraints
+and convergence of moving-hyperplane Gaussian
+facet integrals, including disappearing facets, collinear triples and
+rank-deficient limiting configurations.
 
-Required inputs are the actual one-cell Gaussian perimeter bound Per_gamma(A)>=phi(q) at mass 1/4, and the unrestricted three-cell moment bound sum norm(m_i)^2<=9/(8*pi), allowing unequal masses after a merge. An equal-mass three-cell result is not sufficient. This package does not import a conditional perimeter proposition as its proof.
+Identify the flux coefficients with the exact geometric surface quantities
+used by the Gaussian perimeter inputs. Construct the required local frames,
+prove their continuous dependence, justify all dominated-convergence limits,
+and preserve the flux identity and spectral bounds in the singular limit.
 
-For every four-cell equal-mass finite-perimeter Gaussian partition in dimension d>=3, establish P_gamma(C)>=P_gamma(T), with P_gamma=(1/2)sum_i Per_gamma(C_i) and T the centered tetrahedral cylindrical partition. Include the equality classification. This is the Milman-Neeman geometric input. Its published mathematical proof has not been formalized in this checked closure. No custom axiom is introduced for it or for one-cell isoperimetry.
+## 3. Spectral transport, regularized limits, rank-one and rank-two exclusion
 
-## Tetrahedron and constrained mountain pass
+Upper-normal equivalence and full complementary slackness are proved for
+arbitrary finite real PSD trace-one matrices. The exact residual identity and
+bound are proved in intrinsic three-dimensional coordinates. Complete their
+application to the constructed regularized covariance objectives, including
+coordinate transport, limiting critical sequences, and self-moment rescaling.
+A full-rank local-extremum theorem is not a theorem about every such singular
+limit.
 
-Prove the exact tetrahedral Gaussian first moments and their squared-norm sum 12*(arctan(sqrt(2)))^2/pi^3, including the analytic angle integral. Prove the actual local Hessian formula (16) and strict local maximality; an algebraic Hessian with prescribed coefficients does not suffice.
+For rank one, an ordered collinear self-moment diagram already contradicts the
+explicit adjacent-facet quadratic-form bound, in every ambient dimension by
+actual Gaussian projection and Bochner transport. Still derive that ordered
+representation from an arbitrary rank-one covariance limit, with relabeling,
+and identify its actual facet form with the limiting normal-cone matrix.
 
-Construct the regularized covariance objectives and constrained deformation on the compact positive trace slice. On a compact level band with residual dist(grad F,N_C^+)>0, prove a constraint-preserving continuous deformation that increases F and moves the designated lower superlevel set strictly upward. Existence of its flow, uniform quantitative estimates, and passage to the singular boundary must be proved, not postulated. Assemble Lemma 9's minimax contradiction using the full-rank critical-value lower bound from the actual perimeter theorem.
+For rank two, prove the complete affine-dependence and planar hull case
+analysis of Lemma 6 for four distinct centered actual self-moment scores,
+including absent interfaces and collinear triples. Establish violation of
+the actual inequality L<=P in every case.
 
-## Final arbitrary objects and equality
+## 4. Genuine geometric lower bounds
 
-Derive the sharp covariance comparison, then the bound for every measurable four-cell partition of actual mass 1/4 and every measurable fractional partition with labels in [0,1], label sum one almost everywhere, and masses 1/4.
+The proved one-cell **moment** bound and strict quarter-quantile margins are
+not Gaussian **perimeter** isoperimetry. Prove the latter for the actual
+perimeter and all sets required by the planar argument. Also establish the
+unrestricted three-cell first-moment bound 9/(8*pi) in the merged-cell setting;
+an equal-mass three-cell theorem alone does not cover unequal merged masses.
 
-Prove both directions of equality: the labels are almost everywhere indicators of a centered regular tetrahedral winning partition after a permutation and a linear isometric embedding R^3 into R^d, with unrestricted orthogonal-complement coordinates; conversely every such cylindrical partition attains the exact constant. Existing fractional dual equality is not the missing sharp covariance rigidity theorem.
+Prove the four-cell equal-mass Gaussian perimeter minimum in d>=3 with the
+normalization P_gamma=(1/2)sum_i Per_gamma(C_i), plus its required rigidity.
+This is the manuscript's Milman-Neeman input. Its published proof has not
+been formalized in this import closure. Neither it nor single-cell
+isoperimetry is introduced as a custom axiom.
 
-These are mathematical proof obligations, not merely remaining build or publication tasks. The only theorem entry points currently exported are the unconditional partial results listed in ROOTS.txt.
+## 5. Tetrahedral analytic constant and constrained mountain pass
+
+Compute the actual centered tetrahedral Gaussian Bochner moments and evaluate
+the analytic angle integral, obtaining exactly
+12*(arctan(sqrt(2)))^2/pi^3. Generic regular-simplex values or finite algebraic
+identities do not replace this evaluation.
+
+Construct the constraint-preserving continuous deformation/flow with the
+upper-normal sign on compact positive trace slices. Prove existence,
+quantitative ascent, the minimax argument, regularization control and passage
+to the singular boundary. Assemble the global exclusion with the actual
+critical-value perimeter lower bound. No flow or deformation is postulated.
+
+## 6. Final arbitrary objects and full equality classification
+
+Prove the sharp global covariance comparison, then transfer it to every
+measurable four-cell partition and every measurable fractional partition
+with actual masses 1/4. Establish all dimension and almost-everywhere details.
+
+Prove both directions of equality: after a permutation and an orthogonal
+transformation/isometric embedding of R^3 into R^d, the labels are a.e. the
+centered regular tetrahedral winning-cone indicators with unrestricted
+orthogonal-complement coordinates; conversely every such cylindrical
+partition attains the exact constant. Existing fractional dual equality does
+not prove the missing tetrahedral covariance rigidity.
+
+These are mathematical gaps, not remaining packaging tasks. The exact
+verified declarations are enumerated in ROOTS.txt and source-bound receipts.

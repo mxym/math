@@ -47,3 +47,20 @@ comparison: all source hashes, all 31 compiled-object hashes, the entire replay
 summary, and all six negative-control results equal the local core-r1 run.
 The current proof/configuration bytes also match those recorded source hashes.
 This verifies the stated partial closure only, not the absent sharp theorem.
+
+## CI repair and price-Hessian checkpoint (90 modules)
+
+Current source set `dce885e1e91f6b647cf5327dad6bb1b25ebee2f6`:
+`ci-repair/local-90/` contains fresh local verification and a full literal log
+archive; `ci-repair/ci-90/` contains the original independent Actions artifact
+from run 38065291099. Both pass all 90 module compilations, 547-root audit,
+60,487-declaration trust-zero replay and nine failed-source controls.
+`ci-repair/COMPARISON.json` confirms identical source/object hashes, dependency
+checks, replay summaries, module inventories and negative-control outcomes.
+
+`ci-repair/first-green/` retains the first successful repaired 89-module run
+38064502958 (540 roots, 60,472 declarations, eight controls). It is historical
+relative to the centered-Hessian addition, not a substitute for the 90-module
+receipts. Historical failing artifacts are indexed by
+`ci-repair/HISTORICAL_RUNS.json`; their retained diagnostics are byte-identical
+members of the original archives. No failed run is relabeled as a pass.

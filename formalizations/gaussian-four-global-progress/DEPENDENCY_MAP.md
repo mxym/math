@@ -1,58 +1,31 @@
-# Four-cell global theorem: proof-to-Lean correspondence
+# Manuscript-to-Lean correspondence — partial formalization
 
-Status: partial formalization. This is not a proof of Theorem 1 or Theorem 10.
+Reference: `research/gaussian-balanced-four-global/paper.md`. Source import
+provenance: `UPSTREAM_PROVENANCE.json`; exact owned compilation order:
+`MODULES.json`; audited declarations: `ROOTS.txt`. Historical 31-module logs
+are not evidence for the subsequent covariance and Hessian additions.
 
-Baseline main: `0071871`. Manuscript: `research/gaussian-balanced-four-global/paper.md`.
-The all-k source directory is absent from this main baseline. Its actual reusable
-source is on `research/gaussian-three-cell-20261008`, fixed at
-`da16f54190bb53651a78640bd94a30a5c2cc9e08`. A branch-local proof must not be
-misrepresented as already imported by this package or as freshly reverified.
+| Manuscript obligation | Owned Lean coverage | Remaining mathematical obligation |
+| --- | --- | --- |
+| Actual Gaussian definitions and first moments | `GaussianPartition`: integrability, zero mean, fractional moments | Complete final measurable-set/AE adapters in the sharp theorem |
+| Balanced prices and actual masses | `GaussianBalancedPrices`, `GaussianUniquePrices` | Handle all limiting configurations required by the global argument |
+| Price primal-dual equality | `GaussianPrimalDual`, `GaussianFractionalEquality` | Derive tetrahedral optimality rather than merely assignment optimality |
+| Covariance law, continuity, scaling (Lemma 2) | Integrated `GaussianCovarianceValue`, `GaussianCovarianceContinuity`, `GaussianValueScaling` | Higher positive-cone regularity |
+| Actual flux and differential (Lemma 3) | Integrated flux modules and `FixedCovarianceDifferential` construct one fixed flux family for every centered direction | Upgrade the directional formula to required covariance smoothness; identify full geometric facet perimeter inputs |
+| Uniform moment separation (Lemma 4) | `ScalarTent`, `SeparatedMoments`, `WinningSeparation` | No gap in the stated separation theorem |
+| Price estimate (10) | `PriceBounds`, `PriceCompactness` | Moving-facet convergence is separate |
+| Boundary continuity (Lemma 5) | `GaussianWinningContinuity`, `BoundarySeparation`, `TripleTie` | Gaussian surface-integral limits at singular diagrams |
+| Rank-one/rank-two obstruction (Lemma 6) | `Profile`, `QuartileIntervals`, `OrderedWinning`, `RankOne`, `CollinearTransport` | Arbitrary rank-one extraction; all rank-two hull cases; geometric isoperimetry and merged-cell bound |
+| Actual price Hessian | `PriceMassDifferential`, `PriceSecondVariation`, `PriceFrechetIntegral`, `PriceFrechetTransport`, `PriceHessian` | Joint parameter continuity and the smooth implicit price map |
+| Gauge-fixed price nondegeneracy | `CenteredPriceHessian` constructs the centered operator and proves bijectivity | Uniform quantitative control required along deformations |
+| Tetrahedral value and covariance Hessian (Lemma 7) | Generic simplex-value and algebra infrastructure | Exact arctangent evaluation; actual covariance second variation and strict local maximum |
+| Full-rank criticality (Lemma 8) | `CovarianceCriticality`, `SelfMomentCriticality`: actual masses, positive multiplier, m_i=C(Q)r_i, L=C(Q)P | Actual four-cell perimeter lower bound and critical-value comparison |
+| Constrained mountain pass (Lemma 9) | No complete owned deformation theorem | Construct the flow/deformation and minimax argument |
+| Upper normals (20), residual (21) | `TraceSupport`, `NormalCone`, `RegularizedResidual` | Apply intrinsic matrices to regularized Gaussian critical sequences and singular limits |
+| Global covariance comparison (Theorem 10) | Not exported | Assemble regularity, deformation, boundary exclusions and geometric inputs |
+| Arbitrary partitions and full equality (Theorem 1) | Only actual moment/price and fractional-assignment infrastructure | Sharp comparison, full AE tetrahedral rigidity, relabeling, orthogonal and cylindrical equivalence |
 
-| Paper obligation | Actual existing Lean | Exact remaining obligation |
-|---|---|---|
-| Definitions; integrability; zero mean | Main `GaussianPartition`: `integrable_weighted_id`, `sum_moment`, `inner_moment` | No Gaussian-property assumptions are needed. Measurable-set adaptation must retain AE partition constraints. |
-| Balanced prices, actual masses | Main `GaussianBalancedPrices.exists_balancing_prices`; `GaussianUniquePrices.balancing_prices_unique_mod_const` | These cover arbitrary positive masses and distinct scores. Tied scores need only the dual minimizer in this manuscript. |
-| Assignment dual and fractional equality | Main `GaussianPrimalDual.actual_gaussian_primal_dual`; `GaussianFractionalEquality.fractional_dual_equality_ae_winning` | Geometric optimality and regularity do not follow from these alone. |
-| Lemma 2: actual covariance law, continuity, scaling | Research branch `GaussianCovarianceValue`, `GaussianCovarianceContinuity` | Reviewed types cover singular PSD matrices and changes of ambient dimension. Not newly proved here. |
-| Lemma 3: flux and covariance derivative | Research branch `GaussianAllCellsFlux`, `GaussianCovarianceDifferential`, `GaussianFacetLaplacian` and dependencies | Need exact integration into the four-cell positive cone; smoothness of higher derivatives/local Hessian is separate. |
-| Lemma 4: uniform separation | `GaussianFour.ScalarTent`, `SeparatedMoments`, `WinningSeparation` | Prove actual Gaussian two-label separation with original constant, not a sampled or assumed density model. |
-| Equation (10): price bound | `GaussianFour.balanced_four_price_difference_bound` in `PriceBounds.lean`; `PriceCompactness` | Exact quantile bound and centered-price subsequence now proved from actual winning masses; facet-integral convergence is separate. |
-| Lemma 5: boundary convergence | Research branch `GaussianWinningContinuity.continuousAt_rawWinningMoment` | Moment continuity alone does not prove facet-area continuity. Triple-tie exclusion and moving-hyperplane integral limit remain. |
-| Lemma 6: singular self-moment obstruction | Research branch three-score width and three-cell bound; main scalar algebra diagnostics | Rank-two affine dependence/hull cases, single-cell isoperimetry with actual perimeter, and the covariance-to-facet bridge remain. The quantile margin and ordered collinear facet computation are now proved in `Profile`, `RankOne`, and `CollinearTransport`. A three-cell equal-mass endpoint alone is insufficient for merged cells. |
-| Lemma 7: tetrahedral value and strict local maximum | Research branch regular-simplex attainment in terms of `simplexConstant` | Exact arctangent evaluation and actual second variation yielding formula (16) remain. |
-| Lemma 8: full-rank critical lower bound | Research branch covariance/perimeter algebra and conditional comparison | Four-cell Gaussian perimeter minimum is NOT proved merely by this reduction. |
-| Lemma 9: constrained mountain pass | No matching completed module found in the research source inventory | Actual compact-convex deformation with upper-normal sign; no postulated ODE or deformation map. |
-| Theorem 10: covariance global maximum | Scalar residual diagnostics in old four-cell package | The all-matrix normal-cone equivalence and intrinsic three-dimensional residual bound are now proved in `NormalCone` and `RegularizedResidual`. Their connection to the actual Gaussian covariance derivative, centered-coordinate transport, boundary exclusions, and global contradiction remain. |
-| Theorem 1: all measurable/fractional partitions | Main price dual; research branch moment covariance/equality transport | Still depends on the unproved sharp covariance comparison; cannot export a conditional wrapper as the target theorem. |
-| Complete equality classification | Research branch Gram isometry and fractional winning-label equality | Must prove the sharp equality covariance and exact tetrahedral constant, then AE/orthogonal/relabeling/cylindrical equivalence without extra geometric assumptions. |
-
-## External geometric obligations
-
-The manuscript imports Milman–Neeman's Gaussian multi-bubble theorem and the
-single-cell Gaussian isoperimetric theorem. No custom axiom is introduced for
-either. Neither is established by this package. A manuscript citation is not a
-Lean proof. The research branch's `EqualMassSimplicialPerimeterBound` and BV
-compactness interfaces are explicitly supplied propositions, not unconditional
-solutions of these obligations.
-
-The full all-k radial route is an alternative to the four-cell mountain-pass
-route, but it also requires a sharp perimeter lower bound. Unconditionally
-proving an upper BV/erosion bridge or constructing a bounded minimizing sequence
-does not prove that lower bound, compactness, or minimizer geometry.
-
-## Publication discipline
-
-Existing immutable manuscript editions are untouched. Development takes place
-on a separate branch. No complete-formalization release is justified until the
-actual partition inequality and all equality directions are unconditional.
-
-## Current additions
-
-The new analytic chain is `Profile -> QuartileIntervals -> OrderedWinning -> RankOne -> CollinearTransport`. All use actual Gaussian measures and moments. See `PROOF.md` and `GAPS.md` for exact scope and remaining statements. The baseline receipt covered 26 modules and 206 roots; the current core extension is accounted for below.
-
-## Current core extension
-
-See `CORE_PROGRESS.md` for exact new types and a dependency graph. This checked
-extension includes 31 modules and 222 explicit audit roots. Compilation and
-replay receipts must be read from the source-hash-bound verification report,
-not inferred from this inventory or from historical logs.
+The price Hessian and covariance Hessian are different mathematical objects.
+Proving the former, including its centered inverse, does not prove the latter
+or the global energy inequality. See `GAPS.md` for exact remaining statements.
+No unavailable analytic or geometric theorem is an axiom of this project.
