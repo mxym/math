@@ -15,10 +15,10 @@ misrepresented as already imported by this package or as freshly reverified.
 | Assignment dual and fractional equality | Main `GaussianPrimalDual.actual_gaussian_primal_dual`; `GaussianFractionalEquality.fractional_dual_equality_ae_winning` | Geometric optimality and regularity do not follow from these alone. |
 | Lemma 2: actual covariance law, continuity, scaling | Research branch `GaussianCovarianceValue`, `GaussianCovarianceContinuity` | Reviewed types cover singular PSD matrices and changes of ambient dimension. Not newly proved here. |
 | Lemma 3: flux and covariance derivative | Research branch `GaussianAllCellsFlux`, `GaussianCovarianceDifferential`, `GaussianFacetLaplacian` and dependencies | Need exact integration into the four-cell positive cone; smoothness of higher derivatives/local Hessian is separate. |
-| Lemma 4: uniform separation | New `GaussianFour.ScalarTent`, subsequent pair-moment module | Prove actual Gaussian two-label separation with original constant, not a sampled or assumed density model. |
+| Lemma 4: uniform separation | `GaussianFour.ScalarTent`, `SeparatedMoments`, `WinningSeparation` | Prove actual Gaussian two-label separation with original constant, not a sampled or assumed density model. |
 | Equation (10): price bound | Positive-mass halfspace constraints available | Exact Gaussian quantile price-difference bound still required for this route. |
 | Lemma 5: boundary convergence | Research branch `GaussianWinningContinuity.continuousAt_rawWinningMoment` | Moment continuity alone does not prove facet-area continuity. Triple-tie exclusion and moving-hyperplane integral limit remain. |
-| Lemma 6: singular self-moment obstruction | Research branch three-score width and three-cell bound; main scalar algebra diagnostics | Rank-two affine dependence/hull cases, single-cell isoperimetry with actual perimeter, quantile margin, and rank-one facet computation remain. A three-cell equal-mass endpoint alone is insufficient for merged cells. |
+| Lemma 6: singular self-moment obstruction | Research branch three-score width and three-cell bound; main scalar algebra diagnostics | Rank-two affine dependence/hull cases, single-cell isoperimetry with actual perimeter, and the covariance-to-facet bridge remain. The quantile margin and ordered collinear facet computation are now proved in `Profile`, `RankOne`, and `CollinearTransport`. A three-cell equal-mass endpoint alone is insufficient for merged cells. |
 | Lemma 7: tetrahedral value and strict local maximum | Research branch regular-simplex attainment in terms of `simplexConstant` | Exact arctangent evaluation and actual second variation yielding formula (16) remain. |
 | Lemma 8: full-rank critical lower bound | Research branch covariance/perimeter algebra and conditional comparison | Four-cell Gaussian perimeter minimum is NOT proved merely by this reduction. |
 | Lemma 9: constrained mountain pass | No matching completed module found in the research source inventory | Actual compact-convex deformation with upper-normal sign; no postulated ODE or deformation map. |
@@ -45,3 +45,7 @@ does not prove that lower bound, compactness, or minimizer geometry.
 Existing immutable manuscript editions are untouched. Development takes place
 on a separate branch. No complete-formalization release is justified until the
 actual partition inequality and all equality directions are unconditional.
+
+## Current additions
+
+The new analytic chain is `Profile -> QuartileIntervals -> OrderedWinning -> RankOne -> CollinearTransport`. All use actual Gaussian measures and moments. See `PROOF.md` and `GAPS.md` for exact scope and remaining statements. All 26 modules and 206 declared audit roots are included in fresh compilation and trust-zero replay.

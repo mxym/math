@@ -1,0 +1,255 @@
+import GaussianFour
+import Lean.Replay
+import Lean
+
+open Lean Elab Command
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+-- Adapted from the repository's continuum proof-closure replay.
+-- Missing constants fail closed. Inductive companions are included.
+partial def collect (env : Environment) (todo : List Name)
+    (seen : Std.HashMap Name ConstantInfo) : Except String (Std.HashMap Name ConstantInfo) :=
+  match todo with
+  | [] => .ok seen
+  | n :: rest =>
+    if seen.contains n then collect env rest seen
+    else match env.find? n with
+    | none => .error s!"Missing dependency {n}"
+    | some ci =>
+      let extra := match ci with
+        | .inductInfo v => v.all ++ v.ctors
+        | .ctorInfo v => [v.induct]
+        | .recInfo v => v.all
+        | _ => []
+      collect env (extra ++ ci.getUsedConstantsAsSet.toList ++ rest) (seen.insert n ci)
+
+run_cmd do
+  let env := (← getEnv).setExporting false
+  let roots := [
+    ``GaussianMeasureBridge.gaussian,
+    ``GaussianMeasureBridge.FractionalPartition.mass,
+    ``GaussianMeasureBridge.FractionalPartition.moment,
+    ``GaussianMeasureBridge.FractionalPartition.norm_label_le_one,
+    ``GaussianMeasureBridge.FractionalPartition.integrable_label,
+    ``GaussianMeasureBridge.FractionalPartition.integrable_weighted_id,
+    ``GaussianMeasureBridge.FractionalPartition.mass_nonneg,
+    ``GaussianMeasureBridge.FractionalPartition.sum_mass,
+    ``GaussianMeasureBridge.FractionalPartition.sum_moment,
+    ``GaussianMeasureBridge.FractionalPartition.inner_moment,
+    ``GaussianMeasureBridge.scoreMax,
+    ``GaussianMeasureBridge.le_scoreMax,
+    ``GaussianMeasureBridge.integrable_score,
+    ``GaussianMeasureBridge.integrable_scoreMax,
+    ``GaussianMeasureBridge.continuous_scoreMax,
+    ``GaussianMeasureBridge.FractionalPartition.integrable_weighted_score,
+    ``GaussianMeasureBridge.FractionalPartition.integral_weighted_score,
+    ``GaussianMeasureBridge.FractionalPartition.price_dual,
+    ``GaussianMeasureBridge.expectedScore,
+    ``GaussianMeasureBridge.priceObjective,
+    ``GaussianMeasureBridge.integral_score,
+    ``GaussianMeasureBridge.scoreMax_le_add_norm,
+    ``GaussianMeasureBridge.scoreMax_abs_sub_le,
+    ``GaussianMeasureBridge.expectedScore_lipschitz,
+    ``GaussianMeasureBridge.continuous_priceObjective,
+    ``GaussianMeasureBridge.scoreMax_sub_const,
+    ``GaussianMeasureBridge.priceObjective_sub_const,
+    ``GaussianMeasureBridge.expectedScore_nonneg_of_zero,
+    ``GaussianMeasureBridge.weighted_price_le_objective,
+    ``GaussianMeasureBridge.exists_price_minimizer,
+    ``GaussianMeasureBridge.gaussian_hyperplane_null,
+    ``GaussianMeasureBridge.ae_scores_pairwise_ne,
+    ``GaussianMeasureBridge.winningCell,
+    ``GaussianMeasureBridge.measurableSet_winningCell,
+    ``GaussianMeasureBridge.ae_unique_winner,
+    ``GaussianMeasureBridge.coordinateShift,
+    ``GaussianMeasureBridge.coordinateShift_zero,
+    ``GaussianMeasureBridge.coordinateShift_dist_le,
+    ``GaussianMeasureBridge.coordinateScore_lipschitz,
+    ``GaussianMeasureBridge.scoreMax_eq_winning_score,
+    ``GaussianMeasureBridge.winningCell_disjoint,
+    ``GaussianMeasureBridge.coordinateScore_hasDerivAt,
+    ``GaussianMeasureBridge.winnerDerivative,
+    ``GaussianMeasureBridge.expectedScore_coordinate_derivative,
+    ``GaussianMeasureBridge.weighted_price_coordinate,
+    ``GaussianMeasureBridge.priceObjective_coordinate_derivative,
+    ``GaussianMeasureBridge.exists_balancing_prices,
+    ``GaussianMeasureBridge.winningPartition,
+    ``GaussianMeasureBridge.winningPartition_mass,
+    ``GaussianMeasureBridge.winningPartition_dual_attainment,
+    ``GaussianMeasureBridge.balanced_price_is_minimizer,
+    ``GaussianMeasureBridge.gaussian_open_pos,
+    ``GaussianMeasureBridge.priceMid,
+    ``GaussianMeasureBridge.scoreMid_le,
+    ``GaussianMeasureBridge.weighted_priceMid,
+    ``GaussianMeasureBridge.minimizers_jensen_gap_zero,
+    ``GaussianMeasureBridge.common_maximizer_of_jensen_zero,
+    ``GaussianMeasureBridge.minimizers_score_difference_constant,
+    ``GaussianMeasureBridge.balancing_prices_unique_mod_const,
+    ``GaussianMeasureBridge.partitionValue,
+    ``GaussianMeasureBridge.actual_gaussian_primal_dual,
+    ``GaussianMeasureBridge.fractional_dual_equality_ae_winning,
+    ``GaussianMeasureBridge.standardDensity,
+    ``GaussianMeasureBridge.standardDensity_eq,
+    ``GaussianMeasureBridge.standardDensity_pos,
+    ``GaussianMeasureBridge.standardDensity_hasDerivAt,
+    ``GaussianMeasureBridge.standardDensity_tendsto_zero,
+    ``GaussianMeasureBridge.integrable_mul_standardDensity,
+    ``GaussianMeasureBridge.integral_Ioi_mul_standardDensity,
+    ``GaussianMeasureBridge.gaussianReal_halfline_firstMoment,
+    ``GaussianMeasureBridge.gaussian_inner_covariance,
+    ``GaussianMeasureBridge.gaussian_orthogonal_indep,
+    ``GaussianMeasureBridge.gaussian_unit_inner_law,
+    ``GaussianMeasureBridge.integrable_gaussian_inner,
+    ``GaussianMeasureBridge.integral_gaussian_inner,
+    ``GaussianMeasureBridge.gaussian_halfspace_orthogonal_integral,
+    ``GaussianMeasureBridge.gaussian_unit_halfspace_scalar_flux,
+    ``GaussianMeasureBridge.gaussian_unit_halfspace_flux,
+    ``GaussianMeasureBridge.integrable_standardDensity,
+    ``GaussianMeasureBridge.continuous_standardDensity,
+    ``GaussianMeasureBridge.gaussianTail,
+    ``GaussianMeasureBridge.gaussianTail_nonneg,
+    ``GaussianMeasureBridge.gaussianTail_pos,
+    ``GaussianMeasureBridge.gaussianTail_eq_probability,
+    ``GaussianMeasureBridge.gaussianTail_lt_one,
+    ``GaussianMeasureBridge.gaussianTail_sub_eq_interval,
+    ``GaussianMeasureBridge.gaussianTail_hasDerivAt,
+    ``GaussianMeasureBridge.gaussianTail_tendsto_zero,
+    ``GaussianMeasureBridge.integrable_sq_mul_standardDensity,
+    ``GaussianMeasureBridge.mul_standardDensity_hasDerivAt,
+    ``GaussianMeasureBridge.mul_standardDensity_tendsto_zero,
+    ``GaussianMeasureBridge.gaussianTail_secondMoment,
+    ``GaussianMeasureBridge.gaussianTail_threshold_le_firstMoment,
+    ``GaussianMeasureBridge.gaussianTail_centered_secondMoment_nonneg,
+    ``GaussianMeasureBridge.thresholdHazard,
+    ``GaussianMeasureBridge.thresholdHazard_pos,
+    ``GaussianMeasureBridge.thresholdHazard_mul_tail,
+    ``GaussianMeasureBridge.threshold_le_hazard,
+    ``GaussianMeasureBridge.thresholdHazard_variance_bound,
+    ``GaussianMeasureBridge.thresholdHazard_hasDerivAt,
+    ``GaussianMeasureBridge.thresholdHazard_monotone,
+    ``GaussianMeasureBridge.squaredHazard_logTail_hasDerivAt,
+    ``GaussianMeasureBridge.squaredHazard_logTail_antitone,
+    ``GaussianMeasureBridge.squared_hazard_log_lipschitz_threshold,
+    ``GaussianMeasureBridge.gaussianTail_continuous,
+    ``GaussianMeasureBridge.gaussianTail_strictAnti,
+    ``GaussianMeasureBridge.gaussianTail_tendsto_one,
+    ``GaussianMeasureBridge.exists_unique_gaussianTail_eq,
+    ``GaussianMeasureBridge.upperQuantile,
+    ``GaussianMeasureBridge.gaussianTail_upperQuantile,
+    ``GaussianMeasureBridge.upperQuantile_antitone,
+    ``GaussianMeasureBridge.massHazard,
+    ``GaussianMeasureBridge.massHazard_eq_thresholdHazard,
+    ``GaussianMeasureBridge.squared_hazard_log_lipschitz,
+    ``GaussianMeasureBridge.gaussian_unit_halfspace_mass,
+    ``GaussianMeasureBridge.FractionalPartition.one_cell_threshold_bound,
+    ``GaussianMeasureBridge.FractionalPartition.one_cell_norm_bound,
+    ``GaussianMeasureBridge.FractionalPartition.one_cell_profile_bound,
+    ``GaussianMeasureBridge.FractionalPartition.sum_moment_sq_le_profile,
+    ``GaussianFour.tent,
+    ``GaussianFour.tent_nonneg,
+    ``GaussianFour.tent_le_radius,
+    ``GaussianFour.continuous_tent,
+    ``GaussianFour.tent_eq_ramps,
+    ``GaussianFour.integrable_tent,
+    ``GaussianFour.integral_tent,
+    ``GaussianFour.densityBound,
+    ``GaussianFour.densityBound_pos,
+    ``GaussianFour.gaussianPDF_le_densityBound,
+    ``GaussianFour.gaussian_integral_tent_le,
+    ``GaussianFour.unit_projection_gaussian_law,
+    ``GaussianFour.integrable_projection_tent,
+    ``GaussianFour.integral_projection_tent_le,
+    ``GaussianFour.separated_label_tent_bound,
+    ``GaussianFour.fractional_pair_sum_le_one,
+    ``GaussianFour.separated_moments_quadratic,
+    ``GaussianFour.separated_moments,
+    ``GaussianFour.winning_moment_separation,
+    ``GaussianFour.balanced_four_winning_moment_separation,
+    ``GaussianFour.balanced_four_winning_moment_norm_separation,
+    ``GaussianFour.four_separation_constant_pos,
+    ``GaussianFour.limit_winning_moments_separated,
+    ``GaussianFour.limit_winning_moments_injective,
+    ``GaussianFour.limit_self_moment_scores_injective,
+    ``GaussianFour.residual_pair_sq_le,
+    ``GaussianFour.winning_score_separation_of_residual,
+    ``GaussianFour.interpolated_price_strict_of_winning_nonempty,
+    ``GaussianFour.winning_nonempty_of_mass_pos,
+    ``GaussianFour.interpolated_price_strict_of_gaussian_mass_pos,
+    ``GaussianFour.middle_score_strict_on_endpoint_tie,
+    ``GaussianFour.quarterQuantile,
+    ``GaussianFour.quarterDensity,
+    ``GaussianFour.standardDensity_neg,
+    ``GaussianFour.gaussianTail_neg,
+    ``GaussianFour.gaussianTail_zero,
+    ``GaussianFour.quarterQuantile_tail,
+    ``GaussianFour.quarterQuantile_pos,
+    ``GaussianFour.standardDensity_zero_gt,
+    ``GaussianFour.standardDensity_quadratic_lower,
+    ``GaussianFour.integral_quadratic_lower,
+    ``GaussianFour.quarterQuantile_lt_seven_tenths,
+    ``GaussianFour.quarterDensity_gt_three_quarters,
+    ``GaussianFour.quarterDensity_pos,
+    ``GaussianFour.quarterDensity_lt_center,
+    ``GaussianFour.standardDensity_zero_sq,
+    ``GaussianFour.quarterDensity_sq_gt_three_cell_quarter,
+    ``GaussianFour.scalarMass,
+    ``GaussianFour.scalarMoment,
+    ``GaussianFour.intervalCells,
+    ``GaussianFour.scalarMass_density,
+    ``GaussianFour.scalarMass_Ioi,
+    ``GaussianFour.scalarMass_Iic,
+    ``GaussianFour.scalarMass_Ioc,
+    ``GaussianFour.equal_mass_interval_thresholds,
+    ``GaussianFour.scalarMoment_Ioi,
+    ``GaussianFour.scalarMoment_Iic,
+    ``GaussianFour.scalarMoment_Ioc,
+    ``GaussianFour.scalarMass_Iio,
+    ``GaussianFour.scalarMass_Ioo,
+    ``GaussianFour.scalarMoment_Iio,
+    ``GaussianFour.scalarMoment_Ioo,
+    ``GaussianFour.quartile_interval_moments,
+    ``GaussianFour.quartile_interval_masses,
+    ``GaussianFour.scalarScore,
+    ``GaussianFour.scalarWinning,
+    ``GaussianFour.adjacentCut,
+    ``GaussianFour.openIntervalCells,
+    ``GaussianFour.openIntervalCells_mass,
+    ``GaussianFour.openIntervalCells_moment,
+    ``GaussianFour.adjacentCut_lt_iff,
+    ``GaussianFour.lt_adjacentCut_iff,
+    ``GaussianFour.scalarWinning_nonempty,
+    ``GaussianFour.balanced_adjacentCuts_strict,
+    ``GaussianFour.scalarWinning_eq_intervals,
+    ``GaussianFour.balanced_scalar_cut_quartiles,
+    ``GaussianFour.balanced_scalar_moments,
+    ``GaussianFour.scalarFacetWeight,
+    ``GaussianFour.scalarFacetForm,
+    ``GaussianFour.scalarFacetWeight_pos,
+    ``GaussianFour.balanced_selfMoment_middle_weight_gt_two,
+    ``GaussianFour.no_ordered_scalar_selfMoment_spectral_bound,
+    ``GaussianFour.measurableSet_scalarWinning,
+    ``GaussianFour.collinear_winning_preimage,
+    ``GaussianFour.collinear_winning_mass,
+    ``GaussianFour.collinear_winning_moment,
+    ``GaussianFour.no_ordered_collinear_selfMoment_spectral_bound]
+  let cs ← match collect env roots {} with
+    | .ok cs => pure cs
+    | .error msg => throwError msg
+  for (n, ci) in cs.toList do
+    if ci.isUnsafe || ci.isPartial then throwError "Unsafe/partial dependency {n}"
+    if ci.isAxiom then
+      unless [``propext, ``Classical.choice, ``Quot.sound].contains n do
+        throwError "Unexpected axiom {n}"
+  let base ← mkEmptyEnvironment 0
+  let verified ← base.toKernelEnv.replay cs
+  for root in roots do
+    let some original := env.find? root | throwError "Original root missing {root}"
+    let some checked := verified.find? root | throwError "Replayed root missing {root}"
+    unless original.type == checked.type && original.levelParams == checked.levelParams do
+      throwError "Changed type/levels {root}"
+  let names := (cs.toList.map (fun p => p.1.toString)).mergeSort (fun a b => decide (a < b))
+  IO.FS.writeFile "replayed-closure.txt" (String.intercalate "\n" names ++ "\n")
+  let axioms := (cs.toList.filterMap (fun p => if p.2.isAxiom then some p.1.toString else none)).mergeSort (fun a b => decide (a < b))
+  IO.FS.writeFile "replayed-axioms.txt" (String.intercalate "\n" axioms ++ "\n")
+  logInfo m!"EMPTY_KERNEL_REPLAY_PASS {cs.size} declarations; {roots.length} roots; trust level zero"
