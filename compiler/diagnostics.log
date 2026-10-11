@@ -74,36 +74,3 @@ consider restructuring your `variable` declarations so that the variables are no
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 
 MODULE HydrologyTree.BranchAssembly
-HydrologyTree/BranchAssembly.lean:68:8: error: unsolved goals
-case nil
-d : ℝ
-⊢ (of fun x x_1 => -d).charmatrix.adjugate () () = 1
-HydrologyTree/BranchAssembly.lean:70:4: error: 'change' tactic failed, pattern
-  @diagonalCofactor (BranchNodes bs ⊕ Fin (b.size + 1)) (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))
-      (fun a b_1 => instDecidableEqSum a b_1)
-      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) (Sum.inl (branchRoot bs)) =
-    branchProduct (b :: bs)
-is not definitionally equal to target
-  @diagonalCofactor (BranchNodes (b :: bs)) (branchNodesFintype (b :: bs)) (branchNodesDecidableEq (b :: bs))
-      (assembledMatrix d (b :: bs)) (branchRoot (b :: bs)) =
-    branchProduct (b :: bs)
-HydrologyTree/BranchAssembly.lean:82:8: error: unsolved goals
-case nil
-d : ℝ
-⊢ ((diagonal fun x => X) - (of fun x x_1 => -d).map ⇑C).det = X + C d
-HydrologyTree/BranchAssembly.lean:85:4: error: 'change' tactic failed, pattern
-  @charpoly ℝ Real.commRing (BranchNodes bs ⊕ Fin (b.size + 1)) (fun a b_1 => instDecidableEqSum a b_1)
-      (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))
-      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) =
-    ?m.52
-is not definitionally equal to target
-  @charpoly ℝ Real.commRing (BranchNodes (b :: bs)) (branchNodesDecidableEq (b :: bs)) (branchNodesFintype (b :: bs))
-      (assembledMatrix d (b :: bs)) =
-    (X + C d) * branchProduct (b :: bs) - branchNumerator (b :: bs)
-HydrologyTree/BranchAssembly.lean:83:38: warning: This simp argument is unused:
-  Matrix.det_unique
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [assembledMatrix, Matrix.charpoly, Matrix.charmatrix, branchProduct, branchNumerator]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
