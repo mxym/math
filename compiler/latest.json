@@ -1,6 +1,6 @@
 {
   "serial": 43,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "b3c1f4bad22a3e9e1cfa2e7938ff67db6d4fb36f",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -24,7 +24,49 @@
     "HydrologyTree/FamilyProduct.lean": "ad0e3af4e4a36faddb0916bc64ea8a5d483ae861298b77bdfc17bb27697b13ac",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.121
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.133
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.523
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.032
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.079
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.142
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.739
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 1,
+      "seconds": 1.866
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/FamilySmoothness.lean:11:17: error(lean.invalidField): Invalid field `add`: The environment does not contain `ContDiffWithinAt.match_1.add`, so it is not possible to project the field `add` from an expression\n  contDiff_const\nof type\n  match ?m.18 with\n  | none => \u2203 p, HasFTaylorSeriesUpTo \u22a4 (fun x => ?m.19) p \u2227 \u2200 (i : \u2115), AnalyticOnNhd ?m.10 (fun x => p x i) Set.univ\n  | some n => \u2203 p, HasFTaylorSeriesUpTo (\u2191n) (fun x => ?m.19) p\nHydrologyTree/FamilySmoothness.lean:28:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  NormedSpace \u211d \u21a5(Coeff (List.foldr (fun x1 x2 => x1 + x2) 0 ms))\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n"
 }
