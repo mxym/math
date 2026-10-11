@@ -47,3 +47,5 @@ Recovered interrupted source work was recompiled before use. Its remaining entro
 ## Ordered paired-gap upper bound
 
 `density_appt_pair_gap_square_sum` now proves the actual sorted APPT bound `sum_(i=1)^R (lambda_i-lambda_(D+1-i))^2 <= 8*b^2`, with the exact paper pivot and no supplied graph or eigenvalue-placement hypothesis. General pair arrangements, squared matrix-action bounds and the dimension-uniform triangular row estimate are formalized. The local fresh replay passed with 41,929 declarations and 45 roots. See `REVIEW_TRIANGULAR_20261011.md`; independent CI evidence is recorded only after checking the matching remote run. The full centered finite purity inequality and all asymptotic extrema remain separate unclosed obligations.
+
+Independent CI **38136186474** on **7e74ae8e** has now passed: 2,829 build tasks, 41,929 trust-zero declarations, 45 roots, and rejection of a corrupted proof of the actual paired-gap theorem. All 42 pinned inputs and uploaded proof/tool files matched. Literal evidence is retained in `verification/ci-7e74ae8e/`.
