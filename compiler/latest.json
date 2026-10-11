@@ -1,7 +1,7 @@
 {
-  "serial": 5,
-  "status": "COMPILER_ERROR",
-  "request_blob": "ec2a06dac93c9eb63a863abfb0a3da0c673d5cd9",
+  "serial": 6,
+  "status": "COMPILING",
+  "request_blob": "6d6cc14fdd6b1e2810fdffbde807e8b29508077d",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.LeadingCoefficients",
@@ -9,34 +9,12 @@
     "HydrologyTree.Scaling"
   ],
   "source_sha256": {
-    "HydrologyTree/Scaling.lean": "e0af5a2e6f90c9249e96c2789231b3ed968deda57a98699e54a191d9b4ac1909",
+    "HydrologyTree/Scaling.lean": "48053ef065681b6641f234ef952019a8e067c94397eef9960d9ff1a142837cbd",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/LeadingCoefficients.lean": "ad1b12815bbc9a183b82ba36be55642d41d725826f48e466c1fe98fa16fc62b8",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.844
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.414
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.57
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 1,
-      "seconds": 3.183
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "HydrologyTree/Scaling.lean:31:62: error: unsolved goals\ncase inl.inl\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 val\u271d : Unit\n\u22a2 1 = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1) (Sum.inl val\u271d\u00b9) (Sum.inl val\u271d)\n\ncase inl.inr\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 : Unit\nval\u271d : \u03b9\n\u22a2 0 = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1) (Sum.inl val\u271d\u00b9) (Sum.inr val\u271d)\n\ncase inr.inl\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 : \u03b9\nval\u271d : Unit\n\u22a2 (b.repr x.2) val\u271d\u00b9 = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1) (Sum.inr val\u271d\u00b9) (Sum.inl val\u271d)\n\ncase inr.inr\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 val\u271d : \u03b9\n\u22a2 (Finsupp.single val\u271d x.1) val\u271d\u00b9 =\n    Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1) (Sum.inr val\u271d\u00b9) (Sum.inr val\u271d)\nHydrologyTree/Scaling.lean:34:58: warning: This simp argument is unused:\n  Matrix.one_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [LinearMap.toMatrix_apply, scaleChartDerivative]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/Scaling.lean:42:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (Matrix.fromBlocks ?A 0 ?C ?D).det\nin the target expression\n  (Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1)).det = x.1 ^ Fintype.card \u03b9\n\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\n\u22a2 (Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 \u2022 1)).det = x.1 ^ Fintype.card \u03b9\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    fun i x_1 => (b.repr x.2) i\n  has type\n    \u03b9 \u2192 Unit \u2192 \u211d\n  but is expected to have type\n    Matrix \u03b9 Unit \u211d\n  in the application\n    Matrix.fromBlocks 1 0 fun i x_1 => (b.repr x.2) i\n"
+  "run_id": "38143487813"
 }
