@@ -189,4 +189,6 @@ conceptual-model calibration,” [Water Resources Research 21 (1985), DOI
 10.1016/j.jhydrol.2014.11.040](https://doi.org/10.1016/j.jhydrol.2014.11.040);
 and Kirchner, “Catchments as simple dynamical systems,” [Water Resources
 Research (2009), DOI 10.1029/2009WR008777](https://doi.org/10.1029/2009WR008777).
+Two-parallel-reservoir approximations of power-law recession are treated by
+Tashie et al., [DOI 10.1061/(ASCE)HE.1943-5584.0001518](https://doi.org/10.1061/%28ASCE%29HE.1943-5584.0001518).
 This note makes no historical priority claim.

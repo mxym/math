@@ -98,8 +98,10 @@ Relevant prior work includes Sorooshian–Gupta on conceptual-model calibration
 ([DOI](https://doi.org/10.1029/WR021i004p00487)), Shin et al. on structural
 identifiability in hydrology ([DOI](https://doi.org/10.1016/j.jhydrol.2014.11.040)),
 and Kirchner on catchment response functions
-([DOI](https://doi.org/10.1029/2009WR008777)). This repository does not make a
-priority claim.
+([DOI](https://doi.org/10.1029/2009WR008777)); related two-parallel-reservoir
+approximations of power-law recession are discussed by Tashie et al.
+([DOI](https://doi.org/10.1061/(ASCE)HE.1943-5584.0001518)). This repository
+does not make a priority claim.
 
 ## Reproduce
 
