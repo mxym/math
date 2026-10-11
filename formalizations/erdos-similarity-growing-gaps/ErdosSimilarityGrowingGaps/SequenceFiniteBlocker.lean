@@ -1,0 +1,333 @@
+import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
+import ErdosSimilarityGrowingGaps.SequenceSignatures
+import ErdosSimilarityGrowingGaps.GlobalGreedyTests
+
+namespace ErdosSimilarityGrowingGaps
+
+open Set MeasureTheory
+open scoped BigOperators
+attribute [local instance] Classical.propDecidable Classical.decEq
+
+/-- The finite hypotheses of the sequence blocker lemma.  The branching,
+depth, activation rate, and candidate lists are arbitrary finite data.  In
+particular they can vary together with the width of the supplied annulus. -/
+structure FiniteSequenceRoutingCertificate
+    (Z : LogScale) (K : ℕ) (k : ℤ) (p : ℝ) where
+  branching : ℕ
+  depth : ℕ
+  template : RoutingTemplate branching depth
+  branching_ge_two : 2 ≤ branching
+  depth_pos : 0 < depth
+  length_pos : 0 < template.baseLength
+  origin_guard : 4 ≤ template.origin
+  gap_guard : template.gap + 1 ≤ template.origin
+  span_fits : RoutingTemplate.span branching template.gap template.baseLength depth ≤
+    template.origin
+  coefficient_guard : |(k : ℝ)| ≤ template.origin
+  rate : ℝ
+  decay_pos : 0 < p * rate * ((branching : ℝ) - 1) / 2 - 4 * Real.log 2
+  no_default_small : (1 - (2 : ℝ) ^ (1 - (branching : ℝ))) ^ depth ≤ p
+  stable_boundary_small : (Fintype.card (RoutingEdge branching depth) : ℝ) *
+    (2 : ℝ) ^ (3 - (template.gap : ℝ)) ≤ p
+  continuum_entropy_small :
+    46080 * (branching : ℝ) ^ 2 * ((template.origin : ℝ) + 1) ^ 2 *
+      Real.exp (-(p * rate * ((branching : ℝ) - 1) / 2 -
+        4 * Real.log 2) * (template.baseLength : ℝ)) ≤ p
+  count : InternalNode branching depth → ℕ
+  children : ∀ v, Fin (count v) → Fin (branching - 1)
+  indices : ∀ v, Fin (count v) → ℕ
+  index_injective : ∀ v, Function.Injective (fun i => (children v i, indices v i))
+  logarithmic_gap : ∀ v i j, i ≠ j → children v i = children v j →
+    3 ≤ (1 / (K : ℝ)) * |Z.z (indices v j) - Z.z (indices v i)|
+  active_count : ∀ v (r : PowerParams (1 / (K : ℝ)) K),
+    rate * ((branching : ℝ) - 1) * (vertexWindowLength template v : ℝ) ≤
+      (sequenceActiveLocalCandidates Z template v (children v) (indices v) k r).card
+  candidate_count : ∀ v, (count v : ℝ) ≤ (branching : ℝ) *
+    ((template.origin : ℝ) + RoutingTemplate.span branching template.gap
+      template.baseLength depth + |(k : ℝ)| + 2)
+
+/-- The one common finite test set contains each vertex's own finite list. -/
+noncomputable def finiteSequenceRoutingTests
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p) : Finset ℕ :=
+  Finset.univ.biUnion (fun v : InternalNode s.branching s.depth =>
+    (Finset.univ : Finset (Fin (s.count v))).image (s.indices v))
+
+theorem mem_finiteSequenceRoutingTests
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p)
+    (v : InternalNode s.branching s.depth) (i : Fin (s.count v)) :
+    s.indices v i ∈ finiteSequenceRoutingTests s := by
+  apply Finset.mem_biUnion.mpr
+  refine ⟨v, Finset.mem_univ _, ?_⟩
+  exact Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩
+
+theorem finiteSequenceRoutingTests_card_le
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p) :
+    (finiteSequenceRoutingTests s).card ≤ ∑ v, s.count v := by
+  apply Finset.card_biUnion_le.trans
+  apply Finset.sum_le_sum
+  intro v hv
+  exact Finset.card_image_le.trans_eq (by simp)
+
+/-- A missed center forces the actual finite sequence miss event at the
+default vertex, using that vertex's own candidate list. -/
+theorem sequence_certificate_missed_center_forces_vertex_miss
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p) (hp : 0 < p)
+    (x : ℝ) (hx : x ∈ actualStableCenters s.template)
+    (bits : SelectorEdge s.branching s.depth → Bool)
+    (ω : FiniteRoutingTables (SelectorAddress s.template)
+      (TerminalAddress s.template s.depth_pos))
+    (hσ : centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors)
+    (v : InternalNode s.branching s.depth)
+    (hprefix : (List.ofFn v.2).IsPrefix (List.ofFn
+      (routeLeaf s.template (by have := s.branching_ge_two; omega) ω.selectors x)))
+    (hdefault : ∀ i : Fin (s.branching - 1), bits ⟨v, i⟩ = false)
+    (hmiss : x ∈ sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      Z (finiteSequenceRoutingTests s) k (globalRoutingWindows s.template)
+      (routingInnerBuffer s.template (by have := s.branching_ge_two; omega)
+        s.depth_pos p ω)) :
+    ∃ r : PowerParams (1 / (K : ℝ)) K,
+      sequenceLocalAllMiss Z s.template
+        (by have := s.branching_ge_two; omega) s.depth_pos
+        (1 / (K : ℝ)) K x k (fun i => ⟨v, s.children v i⟩) (s.indices v) r ω := by
+  obtain ⟨r, hr⟩ := (mem_missedCenters_iff _ _ _ x).1 hmiss
+  refine ⟨r, ?_⟩
+  intro i hi hsuccess
+  let e : RoutingEdge s.branching s.depth :=
+    RoutingTemplate.selectorRoutingEdge ⟨v, s.children v i⟩
+  have hactive : r ∈ sequenceWindowActivations Z (s.indices v i) k
+      (globalRoutingWindows s.template) := by
+    apply Set.mem_iUnion.2
+    refine ⟨(globalRoutingEdgeEnumeration s.branching s.depth).symm e, ?_⟩
+    dsimp [e]
+    simp only [globalRoutingWindows, Equiv.apply_symm_apply]
+    exact hi
+  apply hr ⟨s.indices v i, mem_finiteSequenceRoutingTests s v i⟩ hactive
+  apply Metric.self_subset_thickening (routingBufferRadius_pos s.template p hp)
+  exact sequence_stable_local_success_mem_routedSet Z s.template
+    (by have := s.branching_ge_two; omega) s.depth_pos s.length_pos s.gap_guard
+    (1 / (K : ℝ)) K x (s.indices v i) k r ω bits hσ v (s.children v i)
+    hprefix hdefault hx hi hsuccess
+
+/-- The numerical guards in the certificate discharge the full continuum
+union bound for each vertex, including all parameter boundary strata. -/
+theorem sequence_certificate_vertex_probability_le
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p)
+    (hK : 2 ≤ K) (hp₀ : 0 ≤ p) (hp₁ : p ≤ 1)
+    (x : ℝ) (bits : SelectorEdge s.branching s.depth → Bool)
+    (v : InternalNode s.branching s.depth) :
+    tableProbability p (fun ω =>
+      centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors ∧
+      ∃ r : PowerParams (1 / (K : ℝ)) K,
+        sequenceLocalAllMiss Z s.template
+          (by have := s.branching_ge_two; omega) s.depth_pos
+          (1 / (K : ℝ)) K x k (fun i => ⟨v, s.children v i⟩) (s.indices v) r ω) ≤
+      tableProbability (T := TerminalAddress s.template s.depth_pos) p
+        (fun ω => centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors) * p := by
+  have hK₀ : (0 : ℝ) < K := by exact_mod_cast (show 0 < K by omega)
+  have hs : 1 / (K : ℝ) ≤ (K : ℝ) := by
+    have hK₁ : (1 : ℝ) ≤ K := by exact_mod_cast (show 1 ≤ K by omega)
+    apply (div_le_iff₀ hK₀).2
+    nlinarith
+  have hb := sequence_continuum_joint_miss_bound_of_lower_gap Z s.template
+    (by have := s.branching_ge_two; omega) s.depth_pos s.length_pos s.origin_guard
+    p (1 / (K : ℝ)) K x s.rate hp₀ hp₁ hs k bits v
+    (s.children v) (s.indices v) (vertexWindowLength s.template v)
+    (fun _ => rfl) (s.index_injective v) (s.logarithmic_gap v) (s.active_count v)
+  have hbase : s.template.baseLength ≤ vertexWindowLength s.template v :=
+    RoutingTemplate.base_le_length _ _ _ _ (by have := s.branching_ge_two; omega)
+  have he := (signature_entropy_position_bound s.branching (s.count v)
+    s.template.origin
+    (RoutingTemplate.span s.branching s.template.gap s.template.baseLength s.depth)
+    (vertexWindowLength s.template v) s.template.baseLength (k : ℝ)
+    (p * s.rate * ((s.branching : ℝ) - 1) / 2)
+    (by have := s.branching_ge_two; omega) s.span_fits s.coefficient_guard
+    (s.candidate_count v) hbase s.decay_pos).trans s.continuum_entropy_small
+  have ha := tableProbability_nonneg (T := TerminalAddress s.template s.depth_pos)
+    p hp₀ hp₁
+    (fun ω => centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors)
+  apply hb.trans
+  simpa only [Nat.cast_mul, Nat.cast_add, Nat.cast_pow, Nat.cast_ofNat, mul_assoc] using
+    mul_le_mul_of_nonneg_left he ha
+
+/-- Summing center exposure atoms and the no-default event gives the global
+missed-center bound.  Candidate lengths may depend on the default vertex. -/
+theorem sequence_certificate_stable_probability_le
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p)
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (x : ℝ) (hx : x ∈ actualStableCenters s.template) :
+    tableProbability p (fun ω => x ∈ sequenceMissedCenters
+      (s₀ := 1 / (K : ℝ)) (s₁ := K) Z (finiteSequenceRoutingTests s) k
+      (globalRoutingWindows s.template)
+      (routingInnerBuffer s.template (by have := s.branching_ge_two; omega)
+        s.depth_pos p ω)) ≤ 2 * p := by
+  let hM : 0 < s.branching := by have := s.branching_ge_two; omega
+  let E := fun ω : FiniteRoutingTables (SelectorAddress s.template)
+      (TerminalAddress s.template s.depth_pos) =>
+    x ∈ sequenceMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+      Z (finiteSequenceRoutingTests s) k (globalRoutingWindows s.template)
+      (routingInnerBuffer s.template hM s.depth_pos p ω)
+  let D := fun ω : FiniteRoutingTables (SelectorAddress s.template)
+      (TerminalAddress s.template s.depth_pos) =>
+    routeHasNoDefault s.template hM ω.selectors x
+  have hD : tableProbability p D ≤ p := by
+    rw [actual_routeHasNoDefault_probability_rpow s.template hM s.depth_pos p x]
+    exact s.no_default_small
+  have hdefault : tableProbability p (fun ω => E ω ∧ ¬ D ω) ≤ p := by
+    rw [actual_center_atom_partition s.template s.depth_pos p x]
+    have hbits (bits : SelectorEdge s.branching s.depth → Bool) :
+        tableProbability p (fun ω =>
+          centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors ∧
+          (E ω ∧ ¬D ω)) ≤
+        tableProbability (T := TerminalAddress s.template s.depth_pos) p
+          (fun ω => centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors) * p := by
+      by_cases hd : routeHasNoDefault s.template hM
+          (centerTableAssignment s.template bits) x
+      · have heq : tableProbability p (fun ω =>
+            centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors ∧
+            (E ω ∧ ¬D ω)) = 0 := by
+          apply (tableProbability_congr p _ (fun _ => False) ?_).trans
+            (tableProbability_false p)
+          intro ω
+          constructor
+          · rintro ⟨ha, _, hn⟩
+            apply hn
+            exact (center_atom_noDefault_iff s.template hM x bits ω.selectors
+              (centerTableAssignment s.template bits)
+              ha (centerTableAssignment_satisfies_atom s.template x bits)).2 hd
+          · exact False.elim
+        rw [heq]
+        exact mul_nonneg (tableProbability_nonneg p hp.le hp₁ _) hp.le
+      · obtain ⟨v, hv, hprefix⟩ := center_atom_default_vertex_exists
+          s.template hM x bits hd
+        have hmono := tableProbability_mono p hp.le hp₁
+          (fun ω => centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors ∧
+            (E ω ∧ ¬D ω)) (fun ω =>
+            centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors ∧
+            ∃ r : PowerParams (1 / (K : ℝ)) K,
+              sequenceLocalAllMiss Z s.template hM s.depth_pos
+                (1 / (K : ℝ)) K x k (fun i => ⟨v, s.children v i⟩) (s.indices v) r ω) (by
+              intro ω hω
+              exact ⟨hω.1, sequence_certificate_missed_center_forces_vertex_miss
+                s hp x hx bits ω hω.1 v
+                (hprefix ω.selectors hω.1) hv hω.2.1⟩)
+        exact hmono.trans (sequence_certificate_vertex_probability_le
+          s hK hp.le hp₁ x bits v)
+    calc
+      _ ≤ ∑ bits : SelectorEdge s.branching s.depth → Bool,
+          tableProbability (T := TerminalAddress s.template s.depth_pos) p
+            (fun ω => centerExposureAtom (actualCenterExposure s.template x bits) ω.selectors) * p :=
+        Finset.sum_le_sum fun bits _ => hbits bits
+      _ = p := by
+        rw [← Finset.sum_mul, actual_center_atoms_sum_one s.template s.depth_pos p x,
+          one_mul]
+  have hcover := tableProbability_two_event_cover p hp.le hp₁ E D
+    (fun ω => E ω ∧ ¬ D ω) (by
+      intro ω hω
+      by_cases hd : D ω
+      · exact Or.inl hd
+      · exact Or.inr ⟨hω, hd⟩)
+  exact hcover.trans (by linarith)
+
+/-- The complete finite sequence blocker: actual routing, continuum parameters,
+Lebesgue integration, an open periodic repair, and arbitrary bounded remainder
+errors.  Every assumption is finite candidate or numerical data; no local
+probability or measurability assumption remains. -/
+theorem finite_sequence_routing_blocker
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p)
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (N : ℕ) (htail : ∀ n ∈ finiteSequenceRoutingTests s, N ≤ n)
+    (α q : ℝ) (hα : 0 < α) (hq : 0 ≤ q)
+    (herror : ∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+      n ∈ finiteSequenceRoutingTests s →
+      r ∈ sequenceWindowActivations Z n k (globalRoutingWindows s.template) →
+        q * (input Z n) ^ (r.1.1 + α) < routingBufferRadius s.template p) :
+    ∃ H : Set ℝ, IsOpen H ∧ OnePeriodic H ∧
+      unitDensity H < ENNReal.ofReal (6 * p) ∧
+      CompactRobustHits Z H K k N α q := by
+  have hM : 0 < s.branching := by have := s.branching_ge_two; omega
+  let c := s.template
+  let B₁ := routingInnerBuffer c hM s.depth_pos p
+  let B₂ := routingOuterBuffer c hM s.depth_pos p
+  let w := finiteRoutingWeight (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p
+  have hw := finiteRoutingWeight_nonneg (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p hp.le hp₁
+  have hnorm := finiteRoutingWeight_sum (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p
+  have hB₂ : expectedUnitDensity w B₂ ≤ ENNReal.ofReal (2 * p) := by
+    have he := expectedUnitDensity_enlargement_le w hw hnorm
+      (routedSet c hM s.depth_pos) B₂ (ENNReal.ofReal p)
+      (routingOuterBuffer_density_le c hM s.depth_pos s.length_pos p hp)
+    apply he.trans
+    rw [actual_routedSet_expected_density c hM s.depth_pos p hp.le hp₁
+      (measurableSet_actual_routedSet_of_template c hM s.depth_pos s.length_pos)]
+    rw [← ENNReal.ofReal_add hp.le hp.le]
+    rw [show p + p = 2 * p by ring]
+  have hbad : unitDensity (actualStableCenters c)ᶜ ≤ ENNReal.ofReal p := by
+    apply (unitDensity_actualStable_compl_le c).trans
+    apply ENNReal.ofReal_le_ofReal
+    rw [dyadic_integer_gap_rpow]
+    exact s.stable_boundary_small
+  obtain ⟨ω, houtcome⟩ := exists_sequenceRouting_outcome_density_add_le_of_stable
+    Z w hw hnorm (1 / (K : ℝ)) K (finiteSequenceRoutingTests s) k
+    (globalRoutingWindows c) B₁ B₂ (fun _ => Metric.isOpen_thickening) p hp.le hB₂
+    (actualStableCenters c)ᶜ (measurableSet_actualStableCenters c).compl hbad (by
+      intro x hx hxbad
+      rw [← tableProbability_eq_finiteOutcomeProbability]
+      exact sequence_certificate_stable_probability_le s hK hp hp₁ x
+        (by simpa only [Set.mem_compl_iff, not_not] using hxbad))
+  have hperiod := onePeriodic_actual_routedSet_of_template c hM s.depth_pos
+    s.length_pos ω
+  apply periodic_sequence_outcome_repair hK (finiteSequenceRoutingTests s) k
+    (globalRoutingWindows c) (routedSet c hM s.depth_pos ω) hperiod
+    (routingBufferRadius c p) (routingBufferRadius_pos c p hp)
+    N htail α q hα hq herror p hp
+  simpa [B₁, B₂, routingInnerBuffer, routingOuterBuffer] using houtcome
+
+/-! The remaining global quantifiers are now a single explicit finite-data
+interface.  This is useful both for the completion proof and for auditing:
+the interface contains no probability or measure axiom, only a certificate
+whose fields are checked by the preceding theorem. -/
+
+structure FiniteSequenceBlockerSpec (Z : LogScale) : Prop where
+  data : ∀ (K : ℕ), 2 ≤ K → ∀ (k : ℤ) (N : ℕ) (α q δ : ℝ),
+    0 < α → 0 ≤ q → 0 < δ → δ < 1 →
+    ∃ p : ℝ, 0 < p ∧ 6 * p < δ ∧
+      ∃ s : FiniteSequenceRoutingCertificate Z K k p,
+        ∃ hK : 2 ≤ K, ∀ n ∈ finiteSequenceRoutingTests s, N ≤ n ∧
+          (∀ r : PowerParams (1 / (K : ℝ)) K,
+            n ∈ finiteSequenceRoutingTests s →
+            r ∈ sequenceWindowActivations Z n k (globalRoutingWindows s.template) →
+              q * (input Z n) ^ (r.1.1 + α) <
+                routingBufferRadius s.template p)
+
+theorem compactRobustSpec_of_finiteSequenceBlockerSpec
+    {Z : LogScale} (hB : FiniteSequenceBlockerSpec Z) :
+    CompactRobustSpec Z := by
+  intro K hK k N α q hα hq δ hδ hδ₁
+  obtain ⟨p, hp, hpδ, s, hsK, hdata⟩ :=
+    hB.data K hK k N α q δ hα hq hδ hδ₁
+  have htail : ∀ n ∈ finiteSequenceRoutingTests s, N ≤ n := by
+    intro n hn
+    exact (hdata n hn).1
+  have herror : ∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+      n ∈ finiteSequenceRoutingTests s →
+      r ∈ sequenceWindowActivations Z n k (globalRoutingWindows s.template) →
+        q * (input Z n) ^ (r.1.1 + α) < routingBufferRadius s.template p := by
+    intro r n hn hr
+    exact (hdata n hn).2 r hn hr
+  have hp₁ : p ≤ 1 := by
+    nlinarith [hpδ, hδ₁]
+  obtain ⟨H, hHo, hHp, hHμ, hHhit⟩ :=
+    finite_sequence_routing_blocker s hsK hp hp₁ N htail α q hα hq herror
+  exact ⟨H, hHo, hHp,
+    hHμ.trans ((ENNReal.ofReal_lt_ofReal_iff (by linarith [hpδ])).2 hpδ), hHhit⟩
+
+end ErdosSimilarityGrowingGaps

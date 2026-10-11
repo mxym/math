@@ -37,6 +37,8 @@ import ErdosSimilarityGrowingGaps.SequenceTransferFill
 import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 import ErdosSimilarityGrowingGaps.SequenceStableGeometry
 import ErdosSimilarityGrowingGaps.SequenceStableProbability
+import ErdosSimilarityGrowingGaps.GlobalGreedyTests
+import ErdosSimilarityGrowingGaps.SequenceFiniteBlocker
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -557,6 +559,26 @@ theorem replay_periodic_sequence_blocker_of_power_transfer
   periodic_sequence_blocker_of_power_transfer hK tests k windows G hGp r p hr hp sample
     hactivate hpoint N htail α q hα hq herror houtcome
 
+theorem replay_finite_sequence_routing_blocker
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ}
+    (s : FiniteSequenceRoutingCertificate Z K k p)
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (N : ℕ) (htail : ∀ n ∈ finiteSequenceRoutingTests s, N ≤ n)
+    (α q : ℝ) (hα : 0 < α) (hq : 0 ≤ q)
+    (herror : ∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+      n ∈ finiteSequenceRoutingTests s →
+      r ∈ sequenceWindowActivations Z n k (globalRoutingWindows s.template) →
+        q * (input Z n) ^ (r.1.1 + α) < routingBufferRadius s.template p) :
+    ∃ H : Set ℝ, IsOpen H ∧ OnePeriodic H ∧
+      unitDensity H < ENNReal.ofReal (6 * p) ∧
+      CompactRobustHits Z H K k N α q :=
+  finite_sequence_routing_blocker s hK hp hp₁ N htail α q hα hq herror
+
+theorem replay_compactRobustSpec_of_finiteSequenceBlockerSpec
+    {Z : LogScale} (hB : FiniteSequenceBlockerSpec Z) :
+    CompactRobustSpec Z :=
+  compactRobustSpec_of_finiteSequenceBlockerSpec hB
+
 theorem replay_routing_sample_index_all_edges_injective
     {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)
     (hM : 1 ≤ M) (hL : 0 < c.baseLength)
@@ -638,6 +660,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_routing_sample_index_all_edges_injective
 #print axioms replay_routing_sample_index_filling_activation
 #print axioms replay_periodic_sequence_blocker_of_power_transfer
+#print axioms finite_sequence_routing_blocker
+#print axioms compactRobustSpec_of_finiteSequenceBlockerSpec
 #print axioms greedyIndex_log_upper_of_filling_prefix
 #print axioms greedyIndex_log_lower
 #print axioms exists_greedyIndex_crossing

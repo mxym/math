@@ -201,6 +201,7 @@ theorem exists_common_greedy_family
       (∀ p : PowerParams s₀ s₁,
         η * ((M : ℝ) - 1) * ell ≤
           (sequenceActiveLocalCandidates Z c v children indices k p).card) ∧
+      Function.Injective (fun i => (children i, indices i)) ∧
       (∀ i j, i ≠ j → children i = children j →
         3 ≤ s₀ * |Z.z (indices j) - Z.z (indices i)|) := by
   classical
@@ -230,7 +231,7 @@ theorem exists_common_greedy_family
     fun i => (e.symm i).1
   let indices : Fin ((M - 1) * (B + 1)) → ℕ := fun i =>
     greedyIndex Z ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ (e.symm i).2.1
-  refine ⟨B, children, indices, ?_, ?_⟩
+  refine ⟨B, children, indices, ?_, ?_, ?_⟩
   · intro p
     refine sequenceActiveLocalCandidates_hmany_of_childwise Z c v children indices k p
       hM1 (slot := fun child q => e (child, q))
@@ -270,6 +271,21 @@ theorem exists_common_greedy_family
       have hlocal := hη.trans (hfrac.trans (hlow.trans hmono'))
       convert hlocal using 1 <;>
         simp [children, indices, e, sequenceActiveLocalCandidates]
+  · intro i j hij
+    change (children i, indices i) = (children j, indices j) at hij
+    have hchild : children i = children j :=
+      congrArg (fun z : Fin (M - 1) × ℕ => z.1) hij
+    have hindex : indices i = indices j :=
+      congrArg (fun z : Fin (M - 1) × ℕ => z.2) hij
+    have hchild' : (e.symm i).1 = (e.symm j).1 := by
+      simpa [children] using hchild
+    apply e.symm.injective
+    apply Prod.ext hchild'
+    have hindex' := hindex
+    dsimp [indices] at hindex'
+    rw [hchild'] at hindex'
+    exact Fin.ext ((greedyIndex_injective Z
+      ((u (e.symm j).1 + (k : ℝ)) / s₁ - D) δ hδ) hindex')
   · intro i j hij hchild
     have hpair : (e.symm i).1 = (e.symm j).1 := hchild
     have hq : (e.symm i).2 ≠ (e.symm j).2 := by
