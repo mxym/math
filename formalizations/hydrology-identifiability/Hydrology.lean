@@ -7,3 +7,4 @@ import Hydrology.Generic
 import Hydrology.Diagnostics
 import Hydrology.FiniteBound
 import Hydrology.Variance
+import Hydrology.WeightIdentifiability

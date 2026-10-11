@@ -28,6 +28,9 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
   as a half weighted sum of squared pairwise rate gaps, its nonnegativity for
   nonnegative weights, and strict positivity when two positive-weight rates differ.
+* `Hydrology/WeightIdentifiability.lean` uses the exact Vandermonde theorem to
+  prove uniqueness of all weights from the first `k` moments when the `k` rates
+  are known and pairwise distinct.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

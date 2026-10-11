@@ -193,6 +193,13 @@ positivity when two positive-weight rates differ. It generalizes the explicit
 two-mode certificate and separates rate heterogeneity from a collapsed single-rate
 spectrum without numerical fitting.
 
+For a known collection of pairwise distinct rates, the weights are also exactly
+identifiable: equality of the first (k) moments forces equality of all (k)
+weights. `Hydrology/WeightIdentifiability.lean` proves this by applying the
+Vandermonde determinant theorem to the difference of the two weight vectors.
+This is a fixed-rate result; it does not claim that the rates themselves are
+identified without the additional Prony/Vandermonde step.
+
 The finite-dimensional obstruction also suggests a physically conservative model extension.
 For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear
 reservoirs indexed by their decay rate \(\lambda>0\). Let
