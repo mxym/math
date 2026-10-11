@@ -2,6 +2,16 @@
 
 **Partial formal verification. The full high-dimensional asymptotic purity, Renyi entropy, graph-limit, and rigidity theorems are not yet Lean-certified.** This package uses actual complex density matrices and the original all-global-unitary APPT definition.
 
+## New arbitrary-dimensional sufficiency and attainment
+
+The new finite theorem `absolutelyPPT_dimension_contraction` proves that `(m-1)I+2P` is APPT whenever the actual complex bipartite matrix P and its complement I-P are positive semidefinite. The first-factor index is an arbitrary finite type; the theorem does not assume a Schmidt decomposition, a spectral criterion, or positivity of the partial transpose as a hypothesis. Its proof is a dimension-uniform identity expressing `2 partialTranspose(P)+(m-1)I` as a sum of positive congruences of P and I-P.
+
+`exists_projectionPlateau` constructs an actual density/APPT matrix for every rank k between zero and mn, with purity `[mn(m-1)^2+4mk]/[mn(m-1)+2k]^2`. `exists_broad_plateau` specializes this to k=ceil((m-1)n/2), including its dimension and rank bounds. These are physical ATTAINMENT statements, not the unrestricted upper bound or equality classification of the rectangular maximum theorem.
+
+The antisymmetric projection proves the dimension constant is sharp in square systems. An additional audited regression is the actual 4x4 density matrix `(I+P_antisymmetric)/22`, which is not APPT: the dimension-three formula I+P cannot simply be reused in dimension four. The positive regression constructs a 4x58 APPT density matrix with purity exactly 2/435.
+
+The new source passed a fresh WSL Lake build of 2,749 tasks and trust-zero replay of 40,214 declarations with 34 roots. Only the standard three axioms were present. Replacing the proof of `exists_broad_plateau` by `True.intro` was rejected. All 34 pinned inputs transferred to this revision match the audited WSL bytes, including the imported physical definitions. Independent CI **38131356027**, source **adcf334861438cf0ffc83b39ee5fedfe7e086447**, has now passed the same fresh build and replay. Literal logs, the 34-input committed-source binding, 40,214-declaration closure and all physical regressions are retained in `verification/ci-adcf3348/`. The older independent record below is separate historical evidence.
+
 ## Newly closed physical-to-entropy bridge
 
 `density_appt_paper_entropyHead` proves the nonlinear exceptional-head inequality for the actual canonically sorted eigenvalues, using exactly the paper pivot `b=lambda_(D-m(m+1)/2+1)` in one-based notation. Its hypotheses are only `m>=2`, `m<=n`, density, and APPT. The code constructs every eigenvalue permutation and rectangular corner embedding, proves pivot positivity from trace one, establishes all signs and ordering, derives the shifted-star budget, and invokes the previously checked logarithmic head theorem. No graph or head inequality is assumed in the physical statement.

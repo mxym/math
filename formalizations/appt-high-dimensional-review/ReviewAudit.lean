@@ -3,6 +3,18 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.exists_broad_plateau,
+  ``APPTReview.exists_projectionPlateau,
+  ``APPTReview.projectionPlateau_isDensity,
+  ``APPTReview.projectionPlateau_absolutelyPPT,
+  ``APPTReview.projectionPlateau_purity,
+  ``APPTReview.absolutelyPPT_dimension_contraction,
+  ``APPTReview.contraction_partialTranspose_lower,
+  ``APPTReview.contraction_partialTranspose_identity,
+  ``APPTReview.antisymmetric_not_ppt,
+  ``APPTReview.wrongDimensionState_density,
+  ``APPTReview.wrongDimensionState_not_appt,
+
   ``APPTReview.density_appt_paper_entropyHead,
   ``APPTReview.density_appt_entropyHead_at_pivot,
   ``APPTReview.density_appt_singular_spectrum,
@@ -22,6 +34,7 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReview.entropy_head_outlier_margin,
   ``APPTReview.entropyHead_le_two,
   ``APPTReview.appt_eigenvalue_entropyHead_bound,
+  ``APPTReviewRegression.plateau_four_fiftyeight,
   ``APPTReviewRegression.productState_density,
   ``APPTReviewRegression.productState_ppt,
   ``APPTReviewRegression.productState_not_appt] "review-kernel"

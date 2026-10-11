@@ -1,4 +1,4 @@
-import APPTReview.BoundarySpectrum
+import APPTReview
 
 open scoped BigOperators ComplexOrder
 open Matrix
@@ -45,5 +45,15 @@ theorem productState_not_appt : ¬ APPT.Quantum.AbsolutelyPPT productState := by
   have hq := hM.dotProduct_mulVec_nonneg (fun _ : Fin 2 => (1 : ℝ))
   norm_num [APPTReview.witnessMatrix, dotProduct, Matrix.mulVec, Fin.sum_univ_two,
     productWeight, σ, Equiv.swap_apply_def] at hq
+
+/-- Concrete physical existence at a rectangular parameter pair, from the generic proof. -/
+theorem plateau_four_fiftyeight :
+    ∃ A : Matrix (Fin 4 × Fin 58) (Fin 4 × Fin 58) ℂ,
+      APPT.Quantum.IsDensity A ∧ APPT.Quantum.AbsolutelyPPT A ∧
+      APPT.Quantum.purity A = 2/435 := by
+  have hh := APPTReview.exists_projectionPlateau (m:=4) (n:=58)
+    (by norm_num) (by norm_num) 87 (by norm_num)
+  norm_num [APPTReview.plateauDenominator] at hh
+  exact hh
 
 end APPTReviewRegression
