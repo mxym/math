@@ -250,4 +250,40 @@ theorem variable_edge_coefficient_littleO
     simpa [one_mul] using he
   exact he'.congr' heq.symm (Filter.Eventually.of_forall (fun _ => rfl))
 
+/-! The explicit linear gap choice preserves sublinearity whenever the edge
+count itself is sublinear. -/
+theorem linearStableGap_littleO_of_edge_littleO
+    {ι : Type*} {l : Filter ι} (p : ℝ) (hp : 0 < p)
+    (E : ι → ℕ) (U : ι → ℝ) (hU : Tendsto U l atTop)
+    (hE : (fun i => (E i : ℝ)) =o[l] U) :
+    (fun i => (linearStableGap (E i) p : ℝ)) =o[l] U := by
+  have hone : (fun _ : ι => (1 : ℝ)) =o[l] U := by
+    have h := (isLittleO_const_id_atTop (1 : ℝ)).comp_tendsto hU
+    simpa [Function.comp_def] using h
+  have hsum : (fun i => (8 / p) * (E i : ℝ) + 1) =o[l] U := by
+    have hmul := hE.const_mul_left (8 / p)
+    have hadd := hmul.add hone
+    convert hadd using 1 <;> ext i <;> ring
+  have hU₀ : ∀ᶠ i in l, 0 ≤ U i :=
+    hU.eventually (eventually_ge_atTop (0 : ℝ))
+  apply IsLittleO.of_bound
+  intro c hc
+  have hbound := hsum.bound hc
+  filter_upwards [hbound, hU₀] with i hi hUi
+  have hgap := linearStableGap_upper (E i) p hp
+  have hgap' : (linearStableGap (E i) p : ℝ) ≤
+      (8 / p) * (E i : ℝ) + 1 := by
+    calc
+      (linearStableGap (E i) p : ℝ) ≤ 8 * (E i : ℝ) / p + 1 := hgap
+      _ = (8 / p) * (E i : ℝ) + 1 := by ring
+  have hsum_nonneg : 0 ≤ (8 / p) * (E i : ℝ) + 1 := by positivity
+  have hUi' : ‖U i‖ = U i := by
+    rw [Real.norm_eq_abs, abs_of_nonneg hUi]
+  have hi' : (8 / p) * (E i : ℝ) + 1 ≤ c * U i := by
+    rw [hUi'] at hi
+    simpa only [Real.norm_eq_abs, abs_of_nonneg hsum_nonneg, mul_one] using hi
+  rw [Real.norm_eq_abs, abs_of_nonneg (Nat.cast_nonneg _),
+    Real.norm_eq_abs, abs_of_nonneg hUi]
+  exact hgap'.trans hi'
+
 end ErdosSimilarityGrowingGaps
