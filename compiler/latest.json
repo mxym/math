@@ -1,7 +1,7 @@
 {
-  "serial": 1791736090117,
-  "status": "COMPILER_ERROR",
-  "request_blob": "686e03a72e1f1ba5960bb1aabdf7ceca93cf3381",
+  "serial": 1791736258978,
+  "status": "COMPILING",
+  "request_blob": "5f54188828a0c938089514cd96e007615b605f23",
   "modules": [
     "StateTopology",
     "PurityGeometry",
@@ -12,38 +12,11 @@
   "source_sha256": {
     "MaximumExistence.lean": "8d336a4dba15383dc8b55c0f806fe2132db13416f6545bc1bc59be914617a1d4",
     "ConvexExtrema.lean": "b18969a76ce3b802e82c39e2ee583144c78f9315a690ac66a643cebc5c5f44bc",
-    "MaximizerLimits.lean": "3df1ee9c43a336369e37cf9dbb2d107f66965583b02cf1dadef25289fee12db5",
+    "MaximizerLimits.lean": "1a5d707bbef66e51ea2873d1ad021655fd1ba45246b30d45255c75800a5b7842",
     "StateTopology.lean": "ec8f1a47034feefcd22da44c00ad364064fb527ad96370ffbc2c3d8cdafc2e7b",
     "PurityGeometry.lean": "644fc3af06501ffb7454abca17588d8db42cd8a1350a492bbfef05ddb9396d9f"
   },
-  "commands": [
-    {
-      "module": "StateTopology",
-      "returncode": 0,
-      "seconds": 2.245
-    },
-    {
-      "module": "PurityGeometry",
-      "returncode": 0,
-      "seconds": 2.413
-    },
-    {
-      "module": "MaximumExistence",
-      "returncode": 0,
-      "seconds": 2.253
-    },
-    {
-      "module": "ConvexExtrema",
-      "returncode": 0,
-      "seconds": 2.357
-    },
-    {
-      "module": "MaximizerLimits",
-      "returncode": 1,
-      "seconds": 1.963
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38155098703",
-  "diagnostics": "MaximizerLimits.lean:28:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  FirstCountableTopology (Matrix (Fin m \u00d7 Fin n) (Fin m \u00d7 Fin n) \u2102)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nMaximizerLimits.lean:28:9: error: Tactic `rcases` failed: `x\u271d : ?m.43` is not an inductive datatype\n"
+  "run_id": "38155098703"
 }
