@@ -7,3 +7,5 @@ import APPTReview.SpectralGap
 
 import APPTReview.BaselineGraph
 import APPTReview.CenteredVariance
+
+import APPTReview.FinitePurity

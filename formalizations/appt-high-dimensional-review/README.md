@@ -1,5 +1,12 @@
 # High-dimensional APPT: independent mathematical review and Lean verification
 
+## Assembled finite purity bound
+
+`density_appt_finite_purity_bound` proves the unrestricted actual-state inequality `purity(A)-1/(mn) <= max{8,4+mn/(m-1)^2} * b^2`, where `b=lambda_(mn-m(m+1)/2+1)` is exactly the paper pivot. Only density, all-global-unitary APPT and 2<=m<=n are assumed. The sorted graph placement, nonnegative residual baseline, cross term, centered variance and actual quantum moment bridge are proved.
+
+A fresh local build and trust-zero replay checked **41,998 declarations and 56 roots**, allowing only the three standard axioms. The kernel rejected a forged proof of this exact physical theorem. All 47 source/configuration inputs are pinned. Literal evidence is in `verification/finite-purity-local-20261011/`. Independent CI is not yet claimed for this new checkpoint. Pivot elimination, uniform extrema and graph-limit lower constructions remain separate obligations.
+
+
 **Partial formal verification. The full high-dimensional asymptotic purity, Renyi entropy, graph-limit, and rigidity theorems are not yet Lean-certified.** This package uses actual complex density matrices and the original all-global-unitary APPT definition.
 
 ## New arbitrary-dimensional sufficiency and attainment

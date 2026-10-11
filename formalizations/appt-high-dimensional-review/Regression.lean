@@ -1,3 +1,4 @@
+import APPTReview.FinitePurity
 import APPTReview.RowArrangement
 import APPTReview
 
@@ -87,3 +88,11 @@ theorem unordered_triangle_failure :
 
 
 end APPTReviewGraphRegression
+
+namespace APPTReviewFiniteRegression
+open scoped BigOperators
+theorem sum_baseline_multiplicity_control :
+    (∑ _i : Fin 3, ((2 : ℝ)-1)) ≠ (∑ _i : Fin 3, (2 : ℝ))-1 := by norm_num
+theorem aspect_term_cannot_be_omitted :
+    (3 : ℝ)/(8*300)-1/(3*300) > 8*(1/(4*300))^2 := by norm_num
+end APPTReviewFiniteRegression

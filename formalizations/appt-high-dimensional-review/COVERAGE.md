@@ -23,7 +23,7 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Actual sorted gap square budget | `density_appt_pair_gap_square_sum` | Complete necessary bound from density and APPT, including exact paper pivot and edge count. |
 | Baseline-sensitive graph budget | `baseline_graph_refined_budget` | Complete generic finite inequality, including the exact cross term; the spectral baseline instantiation remains. |
 | Sorted centered variance | `sorted_centered_variance` | Complete for arbitrary decreasing real vectors of sum one and 2R<=D; not yet the assembled physical purity bound. |
-| Centered finite purity upper bound | No final endpoint | Combine the verified graph and variance dependencies at the actual paired baseline, connect quantum moments, and normalize. |
+| Actual finite purity bound | `density_appt_finite_purity_bound` | COMPLETE finite physical inequality with the exact spectral pivot, graph and moment dependencies discharged; local fresh build and trust-zero replay passed. Dimension-only normalization not yet included. |
 | Exact rectangular maximum and all maximizers | No final endpoint | Physical broad-plateau attainment is now proved; outer-polytope construction, vertex optimization and maximizing-spectrum classification remain. |
 | Multiscale and two-ended graph limits | No final endpoint | Compactness, simultaneous levels, nested witnesses and order of limits missing. |
 | Uniform purity and Renyi entropy extrema | No final endpoint | The finite entropy-head theorem alone does not prove the global minima/maxima or their limits. |
