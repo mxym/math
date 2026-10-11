@@ -1,0 +1,80 @@
+name: APPT fixed-local verification environment
+on:
+  push:
+    branches: ['review/appt-fixed-local-20261011']
+    paths: ['.github/workflows/appt-fixed-local-environment.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-environment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Check pinned source and build the existing verified closure
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --check-only
+          timeout 900 lake build APPTReview
+      - name: Export only public tools, dependencies and pinned proof inputs
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess,tarfile
+          root=pathlib.Path.cwd()
+          tool=pathlib.Path(subprocess.check_output(['elan','which','lean'],text=True).strip()).parent.parent
+          pins=json.loads((root/'SOURCE_HASHES.json').read_text())
+          def include(info):
+              parts=pathlib.PurePosixPath(info.name).parts
+              if '.git' in parts or '.cache' in parts:return None
+              if '/.lake/packages/' in info.name:return None
+              if '/.lake/build/ir/' in info.name:return None
+              return info
+          record={'scope':'Reproducible dependency environment, not a new mathematical verification claim',
+                  'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                  'lean_version':subprocess.check_output([str(tool/'bin/lean'),'--version'],text=True).strip(),
+                  'mathlib_commit':subprocess.check_output(['git','-C',str(root/'.lake/packages/mathlib'),'rev-parse','HEAD'],text=True).strip(),
+                  'source_manifest_sha256':hashlib.sha256((root/'SOURCE_HASHES.json').read_bytes()).hexdigest()}
+          assert record['mathlib_commit']=='d13f23b723b8a846827a245b89c10fc7d3f11612'
+          with tarfile.open('/tmp/appt-pinned-environment.tar.gz','w:gz',compresslevel=1,dereference=True) as out:
+              out.add(tool,arcname='toolchain',filter=include)
+              for package in sorted((root/'.lake/packages').iterdir()):
+                  if package.is_dir():out.add(package.resolve(),arcname='packages/'+package.name,filter=include)
+              out.add(root/'.lake/build',arcname='review-build',filter=include)
+              old=root.parent/'appt-qutrit-purity'
+              out.add(old/'.lake/build',arcname='qutrit-build',filter=include)
+              for name,digest in pins.items():
+                  source=(root/name).resolve()
+                  if hashlib.sha256(source.read_bytes()).hexdigest()!=digest:raise RuntimeError('Source mismatch '+name)
+                  out.add(source,arcname='repo/'+source.relative_to(root.parent.parent).as_posix())
+              for package in (root,old):
+                  for name in ('lakefile.toml','lake-manifest.json','lean-toolchain'):
+                      out.add(package/name,arcname='repo/'+(package/name).relative_to(root.parent.parent).as_posix())
+              out.add(root/'SOURCE_HASHES.json',arcname='repo/formalizations/appt-high-dimensional-review/SOURCE_HASHES.json')
+          p=pathlib.Path('/tmp/appt-pinned-environment.tar.gz')
+          h=hashlib.sha256()
+          with p.open('rb') as stream:
+              for block in iter(lambda:stream.read(1<<20),b''):h.update(block)
+          record['archive_sha256']=h.hexdigest();record['archive_bytes']=p.stat().st_size
+          pathlib.Path('/tmp/appt-environment-binding.json').write_text(json.dumps(record,indent=2)+'\n')
+          print(json.dumps(record,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-pinned-environment-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: |
+            /tmp/appt-pinned-environment.tar.gz
+            /tmp/appt-environment-binding.json
