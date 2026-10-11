@@ -2,6 +2,7 @@ import ErdosSimilarityGrowingGaps.RoutingAssembly
 import ErdosSimilarityGrowingGaps.RoutingStableProbability
 import ErdosSimilarityGrowingGaps.SequenceTransfer
 import ErdosSimilarityGrowingGaps.UniformPowerTransfer
+import ErdosSimilarityGrowingGaps.SequenceStableProbability
 
 namespace ErdosSimilarityGrowingGaps
 
@@ -72,6 +73,97 @@ theorem exists_power_routing_data {K : ℕ} (hK : 2 ≤ K)
       unfold unitDensity
       exact measure_mono (inter_subset_inter_left _ hsubset)
     exact (add_le_add hden le_rfl).trans (by simpa [B₁, B₂] using houtcome)
+
+/-- The finite outcome selection for actual sequence missed centers.  This
+uses their proved closedness, so the measure-theoretic assembly contains no
+measurability premise beyond openness of the finite buffers. -/
+theorem exists_sequenceRouting_outcome_density_add_le_of_stable
+    {Ω : Type*} [Fintype Ω]
+    (Z : LogScale) (w : Ω → ℝ) (hw : ∀ ω, 0 ≤ w ω)
+    (hnorm : ∑ ω, w ω = 1) (s₀ s₁ : ℝ)
+    (tests : Finset ℕ) (k : ℤ) {W : ℕ}
+    (windows : Fin W → ℝ × ℝ) (B₁ B₂ : Ω → Set ℝ)
+    (hB₁ : ∀ ω, IsOpen (B₁ ω)) (p : ℝ) (hp : 0 ≤ p)
+    (hB₂ : expectedUnitDensity w B₂ ≤ ENNReal.ofReal (2 * p))
+    (bad : Set ℝ) (hbad : MeasurableSet bad)
+    (hbad_density : unitDensity bad ≤ ENNReal.ofReal p)
+    (hstable : ∀ x ∈ Ico (0 : ℝ) 1, x ∉ bad →
+      finiteOutcomeProbability w (fun ω =>
+        x ∈ sequenceMissedCenters (s₀ := s₀) (s₁ := s₁)
+          Z tests k windows (B₁ ω)) ≤ 2 * p) :
+    ∃ ω, unitDensity (B₂ ω) +
+      unitDensity (sequenceMissedCenters (s₀ := s₀) (s₁ := s₁)
+        Z tests k windows (B₁ ω)) ≤ ENNReal.ofReal (5 * p) := by
+  apply exists_outcome_density_add_le w hw hnorm B₂ _ p hp hB₂
+  have hR := expectedUnitDensity_le_stable_probability w hw hnorm _
+    (fun ω => (isClosed_sequenceMissedCenters s₀ s₁ Z tests k windows
+      (B₁ ω) (hB₁ ω)).measurableSet)
+    bad hbad (2 * p) (by positivity) hstable
+  apply hR.trans
+  calc
+    _ ≤ ENNReal.ofReal (2 * p) + ENNReal.ofReal p :=
+      add_le_add le_rfl hbad_density
+    _ = ENNReal.ofReal (3 * p) := by
+      rw [← ENNReal.ofReal_add (by positivity) hp]
+      congr 1
+      ring
+
+/-- A finite actual-sequence routing estimate produces an open periodic
+blocker with the robust remainder guarantee at the requested input tail. -/
+theorem sequence_routing_blocker_of_stable_estimate
+    {Z : LogScale} {K : ℕ} (hK : 2 ≤ K)
+    {k : ℤ} {Nₛ : ℕ} {p : ℝ} (hp : 0 < p) (hp₁ : p ≤ 1)
+    (s : RoutingSchedule K k Nₛ p) (tests : Finset ℕ)
+    (N : ℕ) (htail : ∀ n ∈ tests, N ≤ n)
+    (α q : ℝ) (hα : 0 < α) (hq : 0 ≤ q)
+    (herror : ∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ), n ∈ tests →
+      r ∈ sequenceWindowActivations Z n k (globalRoutingWindows s.template) →
+        q * (input Z n) ^ (r.1.1 + α) < routingBufferRadius s.template p)
+    (hmiss : ∀ x ∈ Ico (0 : ℝ) 1, x ∈ actualStableCenters s.template →
+      tableProbability p (fun ω => x ∈ sequenceMissedCenters
+        (s₀ := 1 / (K : ℝ)) (s₁ := K)
+        Z tests k (globalRoutingWindows s.template)
+        (routingInnerBuffer s.template (by have := s.branching_ge_two; omega)
+          s.depth_pos p ω)) ≤ 2 * p) :
+    ∃ H : Set ℝ, IsOpen H ∧ OnePeriodic H ∧
+      unitDensity H < ENNReal.ofReal (6 * p) ∧
+      CompactRobustHits Z H K k N α q := by
+  have hM : 0 < s.branching := by have := s.branching_ge_two; omega
+  let c := s.template
+  let B₁ := routingInnerBuffer c hM s.depth_pos p
+  let B₂ := routingOuterBuffer c hM s.depth_pos p
+  let w := finiteRoutingWeight (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p
+  have hw := finiteRoutingWeight_nonneg (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p hp.le hp₁
+  have hnorm := finiteRoutingWeight_sum (S := SelectorAddress c)
+    (T := TerminalAddress c s.depth_pos) p
+  have hB₂ : expectedUnitDensity w B₂ ≤ ENNReal.ofReal (2 * p) := by
+    have he := expectedUnitDensity_enlargement_le w hw hnorm
+      (routedSet c hM s.depth_pos) B₂ (ENNReal.ofReal p)
+      (routingOuterBuffer_density_le c hM s.depth_pos s.length_pos p hp)
+    apply he.trans
+    rw [actual_routedSet_expected_density c hM s.depth_pos p hp.le hp₁
+      (measurableSet_actual_routedSet_of_template c hM s.depth_pos s.length_pos)]
+    rw [← ENNReal.ofReal_add hp.le hp.le]
+    apply le_of_eq
+    congr 1
+    ring
+  obtain ⟨ω, houtcome⟩ := exists_sequenceRouting_outcome_density_add_le_of_stable
+    Z w hw hnorm (1 / (K : ℝ)) K tests k (globalRoutingWindows c)
+    B₁ B₂ (fun _ => Metric.isOpen_thickening) p hp.le hB₂
+    (actualStableCenters c)ᶜ (measurableSet_actualStableCenters c).compl
+    (actual_stable_bad_density_le s) (by
+      intro x hx hxbad
+      rw [← tableProbability_eq_finiteOutcomeProbability]
+      exact hmiss x hx (by simpa only [Set.mem_compl_iff, not_not] using hxbad))
+  have hperiod := onePeriodic_actual_routedSet_of_template c hM s.depth_pos
+    s.length_pos ω
+  apply periodic_sequence_outcome_repair hK tests k (globalRoutingWindows c)
+    (routedSet c hM s.depth_pos ω) hperiod
+    (routingBufferRadius c p) (routingBufferRadius_pos c p hp)
+    N htail α q hα hq herror p hp
+  simpa [B₁, B₂, routingInnerBuffer, routingOuterBuffer] using houtcome
 
 end ErdosSimilarityGrowingGaps
 

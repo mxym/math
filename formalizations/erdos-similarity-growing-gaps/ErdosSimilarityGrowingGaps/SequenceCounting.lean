@@ -48,6 +48,15 @@ theorem greedyIndex_log_lower (Z : LogScale) (v δ : ℝ) (hδ : 0 < δ) :
       push_cast
       nlinarith
 
+theorem exists_greedyIndex_crossing (Z : LogScale) (v T δ : ℝ) (hδ : 0 < δ) :
+    ∃ B : ℕ, T ≤ Z.z (greedyIndex Z v δ B) := by
+  obtain ⟨B, hB⟩ := exists_nat_gt ((T - v) / δ)
+  refine ⟨B, ?_⟩
+  have hlow := greedyIndex_log_lower Z v δ hδ B
+  have hBr : (T - v) / δ < (B : ℝ) := by exact_mod_cast hB
+  have hmul : T - v < (B : ℝ) * δ := (div_lt_iff₀ hδ).1 hBr
+  nlinarith
+
 /-- Telescoping bounded consecutive gaps over a finite index interval. -/
 theorem sequence_span_le_of_gap_le (w : ℕ → ℝ) (D : ℝ) (a n : ℕ)
     (hgap : ∀ i : ℕ, a ≤ i → i < a + n → w (i + 1) ≤ w i + D) :
@@ -232,5 +241,97 @@ theorem sequenceActiveLocalCandidates_hmany_of_injective_active
     η * ((M : ℝ) - 1) * ell = (η * ell) * ((M : ℝ) - 1) := by ring
     _ ≤ (Q : ℝ) * ((M : ℝ) - 1) := hmul
     _ ≤ (sequenceActiveLocalCandidates Z c v children indices k p).card := hcard''
+
+/-! The greedy count can be read directly as the active-candidate count used
+by the actual-log routing law. -/
+
+theorem sequenceActiveLocalCandidates_card_ge_of_greedy_filter
+    {M d B : ℕ} {s₀ s₁ : ℝ}
+    (Z : LogScale) (c : RoutingTemplate M d)
+    (v : InternalNode M d) (child : Fin (M - 1))
+    (k : ℤ) (p : PowerParams s₀ s₁)
+    {U R : ℝ} (u ell D δ : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hs₀ : 0 < s₀) (hδ : 0 < δ) (hlo : U / R ≤ u)
+    (hwindow : c.edgeStart (RoutingTemplate.selectorRoutingEdge
+      ⟨v, child⟩) = u ∧
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ) +
+        c.edgeLength (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) = u + ell)
+    (hell : 2 * (p.1.1 * (δ + D)) ≤ ell)
+    (hstart : p.1.1 * Z.z (greedyIndex Z u δ 0) - (k : ℝ) ≤ u)
+    (hannulus : (u + ell + (k : ℝ)) / p.1.1 + δ + D ≤ R * U)
+    (Bcross : ℕ) (hcross : u + ell ≤
+      p.1.1 * Z.z (greedyIndex Z u δ Bcross) - (k : ℝ)) :
+    ell / (2 * (p.1.1 * (δ + D))) ≤
+      (sequenceActiveLocalCandidates Z c v
+        (fun _ : Fin (Bcross + 1) => child)
+        (fun i => greedyIndex Z u δ i.1) k p).card := by
+  have hs : 0 < p.1.1 := by
+    exact hs₀.trans_le p.1.2.1
+  have hcount := greedy_open_window_card_lower hfill hδ hlo
+    (s := p.1.1) u ell k hs hell hstart hannulus Bcross hcross
+  let e : Fin (Bcross + 1) ↪ ℕ :=
+    ⟨fun i => i.1, Fin.val_injective⟩
+  have hcard :
+      (((Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+        u < p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) ∧
+          p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) < u + ell)).card : ℕ) : ℝ) =
+        (((Finset.range (Bcross + 1)).filter (fun i =>
+          u < p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) ∧
+            p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) < u + ell)).card : ℝ) := by
+    let A := Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+      u < p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) ∧
+        p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) < u + ell)
+    let T := Finset.range (Bcross + 1)
+    have heq : A.map e = T.filter (fun i =>
+        u < p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) ∧
+          p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) < u + ell) := by
+      ext n
+      constructor
+      · intro hn
+        rcases Finset.mem_map.1 hn with ⟨i, hi, rfl⟩
+        exact Finset.mem_filter.2 ⟨Finset.mem_range.2 i.isLt,
+          (Finset.mem_filter.1 hi).2⟩
+      · intro hn
+        have hnlt := (Finset.mem_filter.1 hn).1
+        let i : Fin (Bcross + 1) := ⟨n, Finset.mem_range.1 hnlt⟩
+        refine Finset.mem_map.2 ⟨i, Finset.mem_filter.2
+          ⟨Finset.mem_univ _, ?_⟩, ?_⟩
+        · exact (Finset.mem_filter.1 hn).2
+        · rfl
+    dsimp [A, T] at heq ⊢
+    rw [← heq, Finset.card_map]
+  calc
+    _ ≤ (((Finset.range (Bcross + 1)).filter (fun i =>
+      u < p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) ∧
+        p.1.1 * Z.z (greedyIndex Z u δ i) - (k : ℝ) < u + ell)).card : ℝ) := hcount
+    _ = (((Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+      u < p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) ∧
+        p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) < u + ell)).card : ℕ) : ℝ) := hcard.symm
+    _ = (sequenceActiveLocalCandidates Z c v
+      (fun _ : Fin (Bcross + 1) => child)
+      (fun i => greedyIndex Z u δ i.1) k p).card := by
+      have hA : (Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+          u < p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) ∧
+            p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) < u + ell)) =
+          sequenceActiveLocalCandidates Z c v
+            (fun _ : Fin (Bcross + 1) => child)
+            (fun i => greedyIndex Z u δ i.1) k p := by
+        change (Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+          u < p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) ∧
+            p.1.1 * Z.z (greedyIndex Z u δ i.1) - (k : ℝ) < u + ell)) =
+          Finset.univ.filter (fun i : Fin (Bcross + 1) =>
+            sequencePowerActivation Z (greedyIndex Z u δ i.1) k
+              (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩))
+              ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ) +
+                c.edgeLength (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩)) p)
+        ext i
+        simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+        rw [sequencePowerActivation]
+        constructor <;> intro hi
+        · exact ⟨by linarith [hwindow.1, hi.1], by
+            linarith [hwindow.1, hwindow.2, hi.2]⟩
+        · exact ⟨by linarith [hwindow.1, hi.1], by
+            linarith [hwindow.1, hwindow.2, hi.2]⟩
+      rw [← hA]
 
 end ErdosSimilarityGrowingGaps

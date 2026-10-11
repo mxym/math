@@ -637,13 +637,17 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_periodic_sequence_blocker_of_power_transfer
 #print axioms greedyIndex_log_upper_of_filling_prefix
 #print axioms greedyIndex_log_lower
+#print axioms exists_greedyIndex_crossing
 #print axioms open_window_card_lower_of_gap_le
 #print axioms greedy_open_window_card_lower
+#print axioms sequenceActiveLocalCandidates_card_ge_of_greedy_filter
 #print axioms sequenceActiveLocalCandidates_hmany_of_injective_active
 #print axioms variableDepth_log_littleO
 #print axioms variableDepth_default_budget
 #print axioms filled_firstGe_transfer_subfields
 #print axioms exists_power_routing_data
+#print axioms exists_sequenceRouting_outcome_density_add_le_of_stable
+#print axioms sequence_routing_blocker_of_stable_estimate
 #print axioms sequence_missedCenters_subset_power_missedCenters_buffer
 #print axioms sequence_active_preceding_gridAddress_eq
 #print axioms sequence_stable_earlier_address_agreement
