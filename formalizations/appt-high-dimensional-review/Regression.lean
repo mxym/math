@@ -1,3 +1,4 @@
+import APPTReview.AsymptoticUpper
 import APPTReview.FinitePurity
 import APPTReview.RowArrangement
 import APPTReview
@@ -95,4 +96,9 @@ theorem sum_baseline_multiplicity_control :
     (∑ _i : Fin 3, ((2 : ℝ)-1)) ≠ (∑ _i : Fin 3, (2 : ℝ))-1 := by norm_num
 theorem aspect_term_cannot_be_omitted :
     (3 : ℝ)/(8*300)-1/(3*300) > 8*(1/(4*300))^2 := by norm_num
+end APPTReviewFiniteRegression
+
+namespace APPTReviewFiniteRegression
+theorem normalization_requires_strict_budget :
+    ¬ ((4:ℝ)^2*(1-1/4) ≤ 1/(1-Real.sqrt (1/1))^2) := by norm_num
 end APPTReviewFiniteRegression
