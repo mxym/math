@@ -1,7 +1,7 @@
 {
-  "serial": 21,
-  "status": "COMPILER_ERROR",
-  "request_blob": "023e05537d319b2d643b3232d0109d9031ccdd84",
+  "serial": 22,
+  "status": "COMPILING",
+  "request_blob": "b4986f8d7a0e3deb44eb99f6c1fc5845c304424d",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -14,47 +14,15 @@
   ],
   "source_sha256": {
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
-    "HydrologyTree/Resolvent.lean": "5ff8cce55173213f0534a15785eb50b4dd90fea5b85d83f69ccf1bc4c4908080",
+    "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
-    "HydrologyTree/PhysicalBridge.lean": "24964c4f93057f45bac23def64b7fc095dd74e837df74d27aa523255a17ae66b",
+    "HydrologyTree/PhysicalBridge.lean": "54b6cbd39d7717bde62272659991fc865596af948da116486e1c07749677f628",
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.986
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.623
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.877
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 3.071
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 2.337
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 1,
-      "seconds": 2.126
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "HydrologyTree/PhysicalBridge.lean:40:66: error: Application type mismatch: The argument\n  h\nhas type\n  j.succ = i.succ\nof sort `Prop` but is expected to have type\n  \u2115\nof sort `Type` in the application\n  Fin.succ_injective h\nHydrologyTree/PhysicalBridge.lean:51:66: error: Application type mismatch: The argument\n  h\nhas type\n  j.succ = i.succ\nof sort `Prop` but is expected to have type\n  \u2115\nof sort `Type` in the application\n  Fin.succ_injective h\n"
+  "run_id": "38143487813"
 }
