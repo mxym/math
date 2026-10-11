@@ -191,6 +191,14 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
+For two competing active two-mode spectra, the Lean theorem
+`two_parallel_rate_coefficients_identifiable` applies the same determinant
+certificate to the two recurrence equations. Equality of the first four
+moments therefore forces equality of \(\ell_1+\ell_2\) and
+\(\ell_1\ell_2\), so the unordered rate pair is identified as the root set of
+one quadratic. The theorem intentionally stops before choosing a labeling of
+the two roots; that labeling is physically unobservable.
+
 ## 7. The general finite-mode recurrence
 
 The finite-mode mechanism does not depend on having two or three modes. Let
@@ -315,14 +323,6 @@ coincident rates are exactly the algebraic degeneracies detected by (12). The
 independent exact example uses
 \((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
 for which the determinant is \(216\).
-
-For two competing active two-mode spectra, the Lean theorem
-`two_parallel_rate_coefficients_identifiable` applies the same determinant
-certificate to the two recurrence equations. Equality of the first four
-moments therefore forces equality of \(\ell_1+\ell_2\) and
-\(\ell_1\ell_2\), so the unordered rate pair is identified as the root set of
-one quadratic. The theorem intentionally stops before choosing a labeling of
-the two roots; that labeling is physically unobservable.
 
 ## 8. Exact continuum construction of a power-law tail
 
