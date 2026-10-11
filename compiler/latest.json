@@ -1,7 +1,7 @@
 {
-  "serial": 7,
-  "status": "COMPILER_ERROR",
-  "request_blob": "5d4557aac73e1aaff18d212b6e3963645271f39d",
+  "serial": 8,
+  "status": "COMPILING",
+  "request_blob": "ccc2776501702f36130b9e72a9dfbe53bfe22600",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.LeadingCoefficients",
@@ -11,36 +11,14 @@
     "HydrologyTree.RootUpdate"
   ],
   "source_sha256": {
-    "HydrologyTree/Scaling.lean": "48053ef065681b6641f234ef952019a8e067c94397eef9960d9ff1a142837cbd",
+    "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/LeadingCoefficients.lean": "ad1b12815bbc9a183b82ba36be55642d41d725826f48e466c1fe98fa16fc62b8",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
-    "HydrologyTree/RootUpdate.lean": "be9173def5dc5251f205ccb01d1b6759a2fb26a7aa5a0f07821be70b8615d3c3",
+    "HydrologyTree/RootUpdate.lean": "048730fde060d72998c8cd143b902c298d02b569a56a13003b27df2d604fa2b2",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.972
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.442
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.656
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 1,
-      "seconds": 3.387
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "HydrologyTree/Scaling.lean:31:81: error: unsolved goals\ncase inr.inr\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 val\u271d : \u03b9\n\u22a2 (Finsupp.single val\u271d x.1) val\u271d\u00b9 = if val\u271d\u00b9 = val\u271d then x.1 else 0\nHydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:\n  Matrix.det_smul\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38143487813"
 }
