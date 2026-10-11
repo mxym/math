@@ -14,7 +14,7 @@ A kernel-audited regression constructs a genuine density matrix that is PPT but 
 
 The fresh WSL Lake build completed **2,745 build tasks**. Trust-zero replay checked **40,088 transitive declarations and 22 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of `density_appt_paper_entropyHead` by `True.intro`, preserving its exact type, was rejected by the empty kernel. Thirty source/configuration files, including imported quantum definitions and the replay support, are SHA-256 bound. Literal logs and closure lists are in `verification/sorted-physical-20261011/`.
 
-This checkpoint is a local fresh build and full empty-kernel replay, not yet an independent CI claim. A source-bound CI record, when available, is retained separately. The earlier independent run 38066697404 (991d4739) replayed 38,529 declarations and 13 roots with positional hypotheses; its evidence remains in `verification/ci-991d4739/` and is not relabeled as the newer result.
+Independent GitHub Actions run **38127581602**, source **a3201c675616a8caf330786933171e424659a7eb**, has now passed the same fresh build, regressions and trust-zero replay: 2,745 build tasks, 40,088 declarations and 22 roots. The uploaded sources and all thirty committed input files were checked against their pins. Literal source-bound CI evidence is retained separately in `verification/ci-a3201c67/`. The earlier independent run 38066697404 (991d4739) replayed 38,529 declarations and 13 roots with positional hypotheses; its evidence remains in `verification/ci-991d4739/` and is not relabeled as the newer result.
 
 ## Reproduction
 
