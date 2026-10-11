@@ -220,6 +220,17 @@ Vandermonde determinant is nonzero, so the difference vanishes. The theorem
 this step. It is deliberately a fixed-rate statement; identifying unknown rates
 requires the additional Prony reconstruction argument.
 
+The same nondegeneracy controls the linear Prony step. Let \(H_{ij}=M_{i+j}\)
+for \(0\le i,j<k\). The finite moment Hankel matrix factors as a transposed
+Vandermonde matrix, a diagonal weight matrix, and a Vandermonde matrix. Its
+determinant is therefore the squared Vandermonde determinant multiplied by the
+product of the weights. For nonzero weights and pairwise distinct rates this is
+nonzero. The theorem `momentHankel_det_ne_zero` in `Hydrology/Prony.lean`
+formalizes this factorization and `finite_spectrum_recurrence_unique` proves
+that the first \(k\) recurrence equations have a unique coefficient vector.
+This closes the linear coefficient-recovery part of Prony identification; matching
+the roots of two unknown characteristic polynomials remains a separate step.
+
 ### Finite-spectrum growth obstruction
 
 The finite-mode recurrence has a second consequence under the physical positivity

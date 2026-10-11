@@ -31,6 +31,10 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/WeightIdentifiability.lean` uses the exact Vandermonde theorem to
   prove uniqueness of all weights from the first `k` moments when the `k` rates
   are known and pairwise distinct.
+* `Hydrology/Prony.lean` factors the finite moment Hankel matrix through a
+  weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
+  weights and distinct rates, and proves uniqueness of the associated recurrence
+  coefficients.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every
