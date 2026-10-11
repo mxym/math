@@ -67,6 +67,87 @@ noncomputable def finiteSequenceRoutingCertificate_of_rate_data
       exact hcandidate v
   }
 
+/-! The bounded form is convenient when the separated-`σ` endpoint estimate
+supplies one common natural budget `Q`. -/
+noncomputable def finiteSequenceRoutingCertificate_of_rate_bounded_data
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hbranch : 2 ≤ M) (hdepth : 0 < d)
+    (c : RoutingTemplate M d) (η : ℝ)
+    (horigin : 4 ≤ c.origin) (hlength : 0 < c.baseLength)
+    (hgap_guard : c.gap + 1 ≤ c.origin)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin)
+    (hdecay : 0 < p * η * ((M : ℝ) - 1) / 2 - 4 * Real.log 2)
+    (hdefault : (1 - (2 : ℝ) ^ (1 - (M : ℝ))) ^ d ≤ p)
+    (hstable : (Fintype.card (RoutingEdge M d) : ℝ) *
+      (2 : ℝ) ^ (3 - (c.gap : ℝ)) ≤ p)
+    (hentropy :
+      46080 * (M : ℝ) ^ 2 * ((c.origin : ℝ) + 1) ^ 2 *
+        Real.exp (-(p * η * ((M : ℝ) - 1) / 2 - 4 * Real.log 2) *
+          (c.baseLength : ℝ)) ≤ p)
+    (Q : ℕ)
+    (witness : ∀ v : InternalNode M d,
+      VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
+        c v η (vertexWindowLength c v) Q)
+    (hcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
+      (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
+        c.baseLength d + |(k : ℝ)| + 2)) :
+    FiniteSequenceRoutingCertificate Z K k p := by
+  let witness' : ∀ v : InternalNode M d,
+      VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
+        c v η (vertexWindowLength c v) := fun v => {
+    B := (witness v).B
+    children := (witness v).children
+    indices := (witness v).indices
+    active_count := (witness v).active_count
+    index_injective := (witness v).index_injective
+    logarithmic_gap := (witness v).logarithmic_gap
+  }
+  apply finiteSequenceRoutingCertificate_of_rate_data hbranch hdepth c η
+    horigin hlength hgap_guard hspan hcoeff hdecay hdefault hstable hentropy
+    witness'
+  intro v
+  have hB := (witness v).B_le
+  have hadd : (witness v).B + 1 ≤ Q + 1 := Nat.add_le_add_right hB 1
+  have hmul : (M - 1) * ((witness v).B + 1) ≤ (M - 1) * (Q + 1) :=
+    Nat.mul_le_mul_left _ hadd
+  have hmul' : (((M - 1) * ((witness v).B + 1) : ℕ) : ℝ) ≤
+      (((M - 1) * (Q + 1) : ℕ) : ℝ) := by
+    exact_mod_cast hmul
+  exact hmul'.trans hcandidate
+
+/-! Assemble the local bounded greedy witnesses from per-node inputs.  This
+is the direct all-node bridge; callers still provide the explicit geometric
+guards recorded by `VariableRateNodeInput`. -/
+noncomputable def variableRateBoundedWitness_of_local_inputs
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (c : RoutingTemplate M d) (U R D σ η : ℝ)
+    (hfill : FillsAnnulus Z U R D) (hM : 2 ≤ M)
+    (hσ : 0 < σ) (hD : 0 ≤ D)
+    (hη : ∀ v : InternalNode M d,
+      η * (vertexWindowLength c v : ℝ) ≤
+        (vertexWindowLength c v : ℝ) /
+          (2 * ((K : ℝ) * (σ + D))))
+    (hinput : ∀ v : InternalNode M d,
+      VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D σ)
+    (Q : ℕ)
+    (hQ : ∀ v : InternalNode M d, ∀ child,
+      max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
+        (1 / (K : ℝ)) -
+        (((hinput v).u child + (k : ℝ)) / (K : ℝ) - D)) / σ) 0 + 1 ≤
+          (Q : ℝ)) :
+    ∀ v : InternalNode M d,
+      VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
+        c v η (vertexWindowLength c v) Q := by
+  intro v
+  let hv := variableRateNodeWitness_of_local_input_bounded
+    (p := p) hK c v U R D σ η hfill hM hσ hD (hη v)
+    (hinput v) Q (hQ v)
+  have hv' : Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K)
+      (k := k) (p := p) c v η (vertexWindowLength c v) Q) := by
+    simpa only [(hinput v).ell_eq] using hv
+  exact Classical.choice hv'
+
 /-! A provider whose routing template is scheduled from the local spacing
 `σ`.  The final density `δ` remains available for the outer blocker budget,
 while all schedule fields (`M,d,g,rate`) are synchronized with `σ`. -/
