@@ -5,10 +5,10 @@ namespace ErdosSimilarityGrowingGaps
 open Filter Topology Asymptotics
 
 /-! A generic joint choice for the finite template length.  The natural lower
-bound `P` covers the geometric/base budget, while the logarithmic summand is
-the entropy budget.  The hypotheses expose exactly the four sublinear terms
-that are needed by the affine span estimate; no fixed-tree coefficient is
-silently introduced. -/
+bound `P` covers the geometric/base budget, while the `4*log(U+2)` summand
+provides the standard quadratic entropy margin.  The hypotheses expose
+exactly the four sublinear terms needed by the affine span estimate; no
+fixed-tree coefficient is silently introduced. -/
 theorem eventually_exists_joint_template_length
     {ι : Type*} {l : Filter ι}
     (A : ι → ℝ) (P : ι → ℕ) (B U : ι → ℝ)
@@ -16,7 +16,7 @@ theorem eventually_exists_joint_template_length
     (hA_nonneg : ∀ᶠ i in l, 0 ≤ A i)
     (hB_nonneg : ∀ᶠ i in l, 0 ≤ B i)
     (hAP : (fun i => A i * (P i : ℝ)) =o[l] U)
-    (hALog : (fun i => A i * Real.log (U i + 2)) =o[l] U)
+    (hALog : (fun i => A i * (4 * Real.log (U i + 2))) =o[l] U)
     (hA : A =o[l] U)
     (hB : B =o[l] U) :
     ∀ᶠ i in l, ∃ L : ℕ,
@@ -40,9 +40,10 @@ theorem eventually_exists_joint_template_length
     rw [Real.norm_eq_abs, abs_of_nonneg hnonneg,
       Real.norm_eq_abs, abs_of_nonneg hUi] at hAPi
     exact hAPi
-  have hALogi' : A i * Real.log (U i + 2) ≤ (1 / 4 : ℝ) * U i := by
-    have hnonneg : 0 ≤ A i * Real.log (U i + 2) :=
-      mul_nonneg hAi hlog
+  have h4log : 0 ≤ 4 * Real.log (U i + 2) := by positivity
+  have hALogi' : A i * (4 * Real.log (U i + 2)) ≤ (1 / 4 : ℝ) * U i := by
+    have hnonneg : 0 ≤ A i * (4 * Real.log (U i + 2)) :=
+      mul_nonneg hAi h4log
     rw [Real.norm_eq_abs, abs_of_nonneg hnonneg,
       Real.norm_eq_abs, abs_of_nonneg hUi] at hALogi
     exact hALogi
@@ -54,22 +55,22 @@ theorem eventually_exists_joint_template_length
     rw [Real.norm_eq_abs, abs_of_nonneg hBi,
       Real.norm_eq_abs, abs_of_nonneg hUi] at hBi'
     exact hBi'
-  let L : ℕ := P i + Nat.ceil (max (Real.log (U i + 2)) 0)
+  let L : ℕ := P i + Nat.ceil (max (4 * Real.log (U i + 2)) 0)
   have hP : P i ≤ L := by
     dsimp [L]
     exact Nat.le_add_right _ _
-  have hmax : max (Real.log (U i + 2)) 0 = Real.log (U i + 2) :=
-    max_eq_left hlog
-  have hceil : (Nat.ceil (max (Real.log (U i + 2)) 0) : ℝ) ≤
-      Real.log (U i + 2) + 1 := by
+  have hmax : max (4 * Real.log (U i + 2)) 0 = 4 * Real.log (U i + 2) :=
+    max_eq_left h4log
+  have hceil : (Nat.ceil (max (4 * Real.log (U i + 2)) 0) : ℝ) ≤
+      4 * Real.log (U i + 2) + 1 := by
     rw [hmax]
-    exact (Nat.ceil_lt_add_one hlog).le
-  have hL : (L : ℝ) ≤ (P i : ℝ) + Real.log (U i + 2) + 1 := by
+    exact (Nat.ceil_lt_add_one h4log).le
+  have hL : (L : ℝ) ≤ (P i : ℝ) + 4 * Real.log (U i + 2) + 1 := by
     dsimp [L]
     push_cast
     linarith
   have hscale : A i * (L : ℝ) ≤
-      A i * (P i : ℝ) + A i * Real.log (U i + 2) + A i := by
+      A i * (P i : ℝ) + A i * (4 * Real.log (U i + 2)) + A i := by
     have hs := mul_le_mul_of_nonneg_left hL hAi
     nlinarith [hs]
   refine ⟨L, hP, ?_⟩
