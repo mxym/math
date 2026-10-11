@@ -75,11 +75,11 @@ parallel-reservoir moment identities. It deliberately does not hide an ODE
 existence assumption: trajectories are represented by explicit pointwise
 derivative jets, so every hypothesis used by the algebraic proof is visible.
 
-The current result is intentionally limited to this model. It does not claim a
-general identifiability theorem for all conceptual hydrology models. The next
-research target is a rigorous equivalence classification for threshold or
-power-law outflows with unknown initial storage and finite-time integral
-observations.
+The current result is intentionally limited to these finite linear models. It
+does not claim a general identifiability theorem for all conceptual hydrology
+models. A next target beyond the finite-mode certificates is a rigorous
+equivalence classification for threshold or power-law outflows with unknown
+initial storage and finite-time integral observations.
 
 The package now also contains a finite-storage recession obstruction. If
 \(S>0\) and \(P>0\), no nonzero exact power-law curve
