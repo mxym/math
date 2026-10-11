@@ -9,3 +9,5 @@ import APPTReview.BaselineGraph
 import APPTReview.CenteredVariance
 
 import APPTReview.FinitePurity
+
+import APPTReview.AsymptoticUpper

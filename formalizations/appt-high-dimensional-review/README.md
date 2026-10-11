@@ -1,10 +1,28 @@
 # High-dimensional APPT: independent mathematical review and Lean verification
 
+## Verified uniform upper half of the purity law
+
+The finite inequality is now normalized with no spectral side hypothesis. For every actual complex APPT density matrix with 8<=m<=n,
+
+    (mn)^2 [purity(A)-1/(mn)]
+      <= [m/(m-7)]^2 max{8,4+n/m}.
+
+`appt_uniform_asymptotic_upper` proves the quantified consequence: for every real epsilon>0 there is ONE integer M such that the scaled excess purity is at most `(1+epsilon)*max{8,4+n/m}` for every m>=M, every n>=m, and every density matrix that is APPT under all global unitaries. No eigenvalue ansatz, graph condition, compactness assumption, fixed aspect ratio or proposed asymptotic conclusion is supplied. The scalar comparison has an explicit modulus: real m>=max{8,7+63/epsilon} suffices.
+
+The proof is in `PurityNormalization.lean`, `UniformPurityUpper.lean`, and `AsymptoticUpper.lean`, using the finite physical bound in `FinitePurity.lean`. The pivot prefix contributes a rigorously bounded centered variance; square-root normalization and dimension arithmetic remove that pivot. The original quantum purity is connected to the actual ordered eigenvalues.
+
+The strengthened source passed a fresh local Lake build (2,837 tasks), physical regressions and an empty-kernel replay of 42,044 transitive declarations with 68 explicit roots. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. The kernel rejected a proof of the final uniform theorem replaced by `True.intro`, without changing its type or universe parameters. All 50 input files, including imported quantum definitions and replay support, were bound to their hashes. After a Windows network failure, the source transfer to the VPS was verified against its payload hash and all 50 input hashes. Independent CI for this stronger source is not yet asserted here.
+
+The earlier finite-pivot checkpoint already passed independent run **38140515745** at source **dcab372f26a250a529112afde26d8cba942d3b32**; its evidence is in `verification/ci-dcab372f/`. It is not relabeled as the stronger upper-limit audit.
+
+**This closes the growing-small-dimension uniform UPPER half, not the equality theorem for the maximum.** Matching lower constructions, graph compactness limits, fixed-m limits, exact rectangular upper optimization, complete entropy bounds and rigidity remain separate unclosed formal obligations. No new preprint or Release is created.
+
+
 ## Assembled finite purity bound
 
 `density_appt_finite_purity_bound` proves the unrestricted actual-state inequality `purity(A)-1/(mn) <= max{8,4+mn/(m-1)^2} * b^2`, where `b=lambda_(mn-m(m+1)/2+1)` is exactly the paper pivot. Only density, all-global-unitary APPT and 2<=m<=n are assumed. The sorted graph placement, nonnegative residual baseline, cross term, centered variance and actual quantum moment bridge are proved.
 
-A fresh local build and trust-zero replay checked **41,998 declarations and 56 roots**, allowing only the three standard axioms. The kernel rejected a forged proof of this exact physical theorem. All 47 source/configuration inputs are pinned. Literal evidence is in `verification/finite-purity-local-20261011/`. Independent CI is not yet claimed for this new checkpoint. Pivot elimination, uniform extrema and graph-limit lower constructions remain separate obligations.
+A fresh local build and trust-zero replay checked **41,998 declarations and 56 roots**, allowing only the three standard axioms. The kernel rejected a forged proof of this exact physical theorem. All 47 source/configuration inputs are pinned. Literal evidence is in `verification/finite-purity-local-20261011/`. Independent CI for this finite-pivot checkpoint passed in run 38140515745. The subsequent normalized upper half is documented above; full extrema and graph-limit lower constructions remain separate obligations.
 
 
 **Partial formal verification. The full high-dimensional asymptotic purity, Renyi entropy, graph-limit, and rigidity theorems are not yet Lean-certified.** This package uses actual complex density matrices and the original all-global-unitary APPT definition.
