@@ -11,3 +11,5 @@ import APPTReview.CenteredVariance
 import APPTReview.FinitePurity
 
 import APPTReview.AsymptoticUpper
+
+import APPTReview.FixedLocalChecks

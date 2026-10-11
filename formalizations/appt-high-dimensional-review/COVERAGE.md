@@ -28,8 +28,9 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Uniform growing-small-dimension purity upper half | `appt_uniform_asymptotic_upper` | COMPLETE quantified epsilon theorem: one threshold works for every n>=m and all actual APPT density matrices. Local and independent CI fresh builds and trust-zero replays passed (run 38141972563); matching lower/equality is not proved. |
 | Exact rectangular maximum and all maximizers | No final endpoint | Physical broad-plateau attainment is now proved; outer-polytope construction, vertex optimization and maximizing-spectrum classification remain. |
 | Multiscale and two-ended graph limits | No final endpoint | Compactness, simultaneous levels, nested witnesses and order of limits missing. |
-| Complementary fixed-m asymptotic | No final endpoint | The new upper theorem requires m to grow; the fixed-m interval argument and its matching limit remain. |
-| Uniform purity and Renyi entropy extrema | No final endpoint | The purity upper half is verified above. Matching lower constructions, equality of extrema limits and unrestricted entropy extrema remain unclosed. |
+| Complementary fixed-m asymptotic | `appt_fixed_local_purity_sup_tendsto` | COMPLETE for the physical supremum: nonempty bounded state set, both finite bounds, actual projection-state rounding, positive scaling and filter limit. Independent build and trust-zero replay passed (run 38153054623). Finite optimizer/classification not claimed. |
+| Upper half over every dimensional regime | `appt_total_dimension_uniform_upper` | COMPLETE quantified physical upper bound: one total-dimension threshold covers every 2<=m<=n and actual APPT state. Independent build and trust-zero replay passed (run 38153054623); growing-m matching lower remains. |
+| Uniform purity and Renyi entropy extrema | No final endpoint | The all-total-dimension purity upper half and fixed-m purity supremum limit are verified above. Matching growing-m lower constructions, full extremal equivalence, and unrestricted entropy extrema remain unclosed. |
 | Rigidity and equality classifications | No final endpoint | Saturation, empirical/outlier limits and attaining constructions still missing. |
 
 No `sorry`, custom axiom, untrusted `native_decide`, assumed main conclusion, or finite enumeration is used to turn an unclosed row into a verified theorem.
