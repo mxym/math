@@ -14,6 +14,9 @@ It proves both sides of a useful model-design statement:
 * two active parallel exponential reservoirs satisfy an exact order-two moment
   recurrence, and a nonzero Hankel determinant makes its sum/product
   coefficients unique from the first four moments.
+* three active parallel exponential reservoirs satisfy the corresponding
+  order-three recurrence, with a weighted Vandermonde-square Hankel
+  determinant and cubic rate equations.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every
@@ -39,4 +42,6 @@ The Python checker in `checks/exact.py` independently checks the same rational
 identities, the parallel-reservoir regression example, and deliberate failure
 controls. The parallel result is in `Hydrology/Parallel.lean`; it recovers the
 unordered rate pair as the roots of the resulting quadratic, but does not claim
-identifiability for arbitrary distributed or nonlinear catchments.
+identifiability for arbitrary distributed or nonlinear catchments. The
+three-mode extension is in `Hydrology/Parallel3.lean` and is likewise an exact
+finite-mode theorem rather than a claim about arbitrary catchments.

@@ -117,6 +117,29 @@ two rates are then the roots of (z^2-sz+p), up to order. This is a finite
 model-order diagnostic, not a general identifiability theorem for distributed
 or nonlinear catchments.
 
+The same certificate is now proved for three parallel modes. For
+(n_j=sum_{i=1}^3 w_iell_i^j), (0leq jleq5), the first three elementary
+symmetric coefficients
+
+[
+e_1=ell_1+ell_2+ell_3,quad
+e_2=ell_1ell_2+ell_1ell_3+ell_2ell_3,quad
+e_3=ell_1ell_2ell_3
+]
+
+give (n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j) for (j=0,1,2). The exact
+three-by-three Hankel determinant is
+
+[
+w_1w_2w_3(ell_1-ell_2)^2(ell_1-ell_3)^2(ell_2-ell_3)^2.
+]
+
+Thus three positive-weight, pairwise-distinct modes have a strict order-three
+certificate. The Lean module `Hydrology/Parallel3.lean` proves these identities
+and the associated cubic root equations; the checker includes an exact example
+whose determinant is (216). This is a finite parallel-reservoir result and
+does not assert a universal theorem for spatially distributed catchments.
+
 ## Context
 
 Relevant prior work includes Sorooshian–Gupta on conceptual-model calibration

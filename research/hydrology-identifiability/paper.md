@@ -189,7 +189,36 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
-## 7. Implications and limits
+The same argument extends one step further without a numerical approximation.
+For three parallel modes define
+
+\[
+n_j=\sum_{i=1}^3 w_i\ell_i^j,\qquad 0\le j\le5,
+\]
+
+and let \(e_1,e_2,e_3\) be the elementary symmetric functions of the three
+rates. The formalized identities are
+
+\[
+n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{10}
+\]
+
+and
+
+\[
+\det(n_{i+j})_{0\le i,j\le2}
+=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{11}
+\]
+
+The module `Hydrology/Parallel3.lean` also proves that each rate is a root of
+the characteristic cubic. Consequently, positive weights and pairwise
+distinct rates give a strict order-three Hankel certificate; zero weights or
+coincident rates are exactly the algebraic degeneracies detected by (11). The
+independent exact example uses
+\((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
+for which the determinant is \(216\).
+
+## 8. Implications and limits
 
 The two statements answer complementary model-design questions. With unknown
 initial storage, the output equation has a genuine parameter symmetry and a
@@ -204,7 +233,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 8. Reproducibility and prior context
+## 9. Reproducibility and prior context
 
 Run the exact rational checker with
 
