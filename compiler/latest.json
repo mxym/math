@@ -1,6 +1,6 @@
 {
   "serial": 7,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "5d4557aac73e1aaff18d212b6e3963645271f39d",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -18,7 +18,29 @@
     "HydrologyTree/RootUpdate.lean": "be9173def5dc5251f205ccb01d1b6759a2fb26a7aa5a0f07821be70b8615d3c3",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.972
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.442
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.656
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 1,
+      "seconds": 3.387
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813"
+  "run_id": "38143487813",
+  "diagnostics": "HydrologyTree/Scaling.lean:31:81: error: unsolved goals\ncase inr.inr\nE : Type u_1\ninst\u271d\u00b3 : NormedAddCommGroup E\ninst\u271d\u00b2 : NormedSpace \u211d E\n\u03b9 : Type u_2\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nb : Basis \u03b9 \u211d E\nx : \u211d \u00d7 E\nval\u271d\u00b9 val\u271d : \u03b9\n\u22a2 (Finsupp.single val\u271d x.1) val\u271d\u00b9 = if val\u271d\u00b9 = val\u271d then x.1 else 0\nHydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:\n  Matrix.det_smul\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
 }
