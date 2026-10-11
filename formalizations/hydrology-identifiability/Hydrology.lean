@@ -9,3 +9,4 @@ import Hydrology.FiniteBound
 import Hydrology.Variance
 import Hydrology.WeightIdentifiability
 import Hydrology.Prony
+import Hydrology.PowerLawNoGo

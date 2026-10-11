@@ -24,7 +24,12 @@ It proves both sides of a useful model-design statement:
   exponent from the curvature invariant and of the time shift from the local
   slope identity.
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
-  (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
+  (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates, together
+  with strict positivity of the zeroth moment when one weight is active.
+* `Hydrology/PowerLawNoGo.lean` closes the discrete analytic step: a positive
+  sequence with power-law derivative ratios cannot satisfy any finite uniform
+  ratio bound, and therefore no finite positive-rate spectrum can realize those
+  ratios at every order.
 * `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
   as a half weighted sum of squared pairwise rate gaps, its nonnegativity for
   nonnegative weights, and strict positivity when two positive-weight rates differ.
@@ -34,7 +39,13 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/Prony.lean` factors the finite moment Hankel matrix through a
   weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
   weights and distinct rates, and proves uniqueness of the associated recurrence
-  coefficients.
+  coefficients. It also transfers those coefficients between any two
+  nondegenerate `k`-mode representations with the same first `2*k` moments;
+  the remaining root-matching/permutation step is stated explicitly as outside
+  this package.
+* `Hydrology/Parallel.lean` compares two active two-mode spectra directly:
+  equality of the first four moments forces equality of the sum and product of
+  their rates, hence equality of the unordered recovered quadratic.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

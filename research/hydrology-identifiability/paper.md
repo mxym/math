@@ -11,7 +11,9 @@ exactly the same discharge for all time. We then prove that a controlled
 constant-rainfall experiment with known zero initial storage recovers all three
 rates from the first three output derivatives. The result separates structural
 non-identifiability from numerical estimation and gives a concrete intervention
-design principle.
+design principle. We also formalize the finite-spectrum obstruction behind
+power-law recession: positive finite-rate exponential mixtures have a uniformly
+bounded moment ratio, whereas the shifted-power-law ratio grows without bound.
 
 ## 1. Model and balance law
 
@@ -189,6 +191,14 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
+For two competing active two-mode spectra, the Lean theorem
+`two_parallel_rate_coefficients_identifiable` applies the same determinant
+certificate to the two recurrence equations. Equality of the first four
+moments therefore forces equality of \(\ell_1+\ell_2\) and
+\(\ell_1\ell_2\), so the unordered rate pair is identified as the root set of
+one quadratic. The theorem intentionally stops before choosing a labeling of
+the two roots; that labeling is physically unobservable.
+
 ## 7. The general finite-mode recurrence
 
 The finite-mode mechanism does not depend on having two or three modes. Let
@@ -230,6 +240,13 @@ formalizes this factorization and `finite_spectrum_recurrence_unique` proves
 that the first \(k\) recurrence equations have a unique coefficient vector.
 This closes the linear coefficient-recovery part of Prony identification; matching
 the roots of two unknown characteristic polynomials remains a separate step.
+More precisely, `two_spectrum_recurrence_coefficients_equal` proves the transfer
+statement needed to compare two competing nondegenerate \(k\)-mode models: if
+their first \(2k\) moments agree and each model supplies an order-\(k\)
+recurrence, the coefficient vectors are identical. Thus the remaining nonlinear
+step is exactly root matching (including the permutation of distinct rates), not
+another hidden linear-algebra assumption. This is the strongest fully
+formalized unknown-rate statement in the current package.
 
 ### Finite-spectrum growth obstruction
 
@@ -257,8 +274,14 @@ law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation gives
 \]
 which is unbounded as \(j\to\infty\). Thus no finite positive parallel
 reservoir mixture can equal a shifted power law on an interval. The derivative
-formula and the unboundedness argument are elementary written analysis; the
-finite-spectrum inequality is the part kernel-checked in this repository.
+formula and the unboundedness argument are now combined in the kernel-checked
+discrete theorem `finite_spectrum_powerlaw_ratio_impossible` in
+`Hydrology/PowerLawNoGo.lean`; the theorem assumes exactly the derivative-ratio
+recurrence and derives a contradiction from the finite-spectrum bound. Connecting
+that recurrence to the classical Gamma integral remains written calculus, while
+the finite-dimensional no-go implication itself is fully formalized. The
+zeroth-moment positivity premise is discharged for every nonnegative spectrum
+with at least one active weight by `finiteMoment_zero_pos_of_exists_weight_pos`.
 This statement does not cover signed modal coefficients, complex modes, or
 nonlinear and spatially distributed models.
 The same moments have a universal order-two Hankel identity. A finite double-sum

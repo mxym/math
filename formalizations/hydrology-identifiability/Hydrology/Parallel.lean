@@ -90,4 +90,31 @@ theorem recurrence_coefficients_unique
       exact (mul_eq_zero.mp hmul).resolve_right hμ₀
   constructor <;> linarith
 
+/-- Two genuinely active two-mode spectra with the same first four moments
+have the same recovered sum and product of rates.  Thus the unordered rate
+quadratic is identifiable before choosing an ordering of its roots. -/
+theorem two_parallel_rate_coefficients_identifiable
+    {w₁ w₂ v₁ v₂ l₁ l₂ m₁ m₂ : ℝ}
+    (hw₁ : 0 < w₁) (hw₂ : 0 < w₂) (hv₁ : 0 < v₁) (hv₂ : 0 < v₂)
+    (hl : l₁ ≠ l₂) (hm : m₁ ≠ m₂)
+    (h₀ : m0 w₁ w₂ l₁ l₂ = m0 v₁ v₂ m₁ m₂)
+    (h₁ : m1 w₁ w₂ l₁ l₂ = m1 v₁ v₂ m₁ m₂)
+    (h₂ : m2 w₁ w₂ l₁ l₂ = m2 v₁ v₂ m₁ m₂)
+    (h₃ : m3 w₁ w₂ l₁ l₂ = m3 v₁ v₂ m₁ m₂) :
+    l₁ + l₂ = m₁ + m₂ ∧ l₁ * l₂ = m₁ * m₂ := by
+  have hD : m0 w₁ w₂ l₁ l₂ * m2 w₁ w₂ l₁ l₂ -
+      (m1 w₁ w₂ l₁ l₂)^2 ≠ 0 := by
+    rw [parallel_hankel_determinant]
+    exact mul_ne_zero (mul_ne_zero (ne_of_gt hw₁) (ne_of_gt hw₂))
+      (pow_ne_zero 2 (sub_ne_zero.mpr hl))
+  have hrec := parallel_recurrence w₁ w₂ l₁ l₂
+  have hrec' := parallel_recurrence v₁ v₂ m₁ m₂
+  have hs := recurrence_coefficients_unique
+    (m0 w₁ w₂ l₁ l₂) (m1 w₁ w₂ l₁ l₂) (m2 w₁ w₂ l₁ l₂)
+    (m3 w₁ w₂ l₁ l₂) (l₁ + l₂) (l₁ * l₂) (m₁ + m₂) (m₁ * m₂)
+    hrec.1 hrec.2
+    (by simpa [h₀, h₁, h₂, h₃] using hrec'.1)
+    (by simpa [h₀, h₁, h₂, h₃] using hrec'.2) hD
+  exact hs
+
 end HydrologyIdentifiability

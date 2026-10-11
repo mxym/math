@@ -18,6 +18,20 @@ theorem finiteMoment_nonneg {k : ℕ} (w l : Fin k → ℝ)
   intro i hi
   exact mul_nonneg (hw i) (pow_nonneg (hl i) j)
 
+/-- A nonnegative finite spectrum with at least one positive output weight has
+strictly positive zeroth moment. -/
+theorem finiteMoment_zero_pos_of_exists_weight_pos {k : ℕ} (w l : Fin k → ℝ)
+    (hw : ∀ i, 0 ≤ w i) (hi : ∃ i, 0 < w i) :
+    0 < finiteMoment w l 0 := by
+  classical
+  unfold finiteMoment
+  apply Finset.sum_pos' (s := (Finset.univ : Finset (Fin k)))
+  · intro i hmem
+    simpa using hw i
+  · obtain ⟨i, hi⟩ := hi
+    refine ⟨i, Finset.mem_univ i, ?_⟩
+    simpa using hi
+
 /-- If every rate is at most `L`, consecutive finite moments obey the exact
 ratio bound `M_(j+1) ≤ L M_j`. This is the finite-spectrum growth invariant
 used to distinguish finite exponential mixtures from power-law derivatives. -/
