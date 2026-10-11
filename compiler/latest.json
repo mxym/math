@@ -1,6 +1,6 @@
 {
   "serial": 36,
-  "status": "COMPILING",
+  "status": "COMPILED",
   "request_blob": "15849cc371f62e6c1d2b11325dcd746d68b5decd",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -18,7 +18,38 @@
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.036
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.076
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.477
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 1.991
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.05
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.1
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
   "run_id": "38149404100"
 }
