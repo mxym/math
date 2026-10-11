@@ -209,6 +209,41 @@ theorem routingGapCoefficient_le_pow (M d : ℕ) (hM : 1 ≤ M) :
         rw [show d + 1 + 1 = (d + 1) + 1 by omega, pow_succ]
         nlinarith
 
+theorem routingNat_le_pow_two (d : ℕ) : d ≤ 2 ^ d := by
+  induction d with
+  | zero => simp
+  | succ d ih =>
+    rw [pow_succ]
+    have hp : 1 ≤ 2 ^ d := Nat.one_le_pow _ _ (by omega)
+    omega
+
+theorem routingEdge_card_le_pow (M d : ℕ) (hM : 2 ≤ M) :
+    Fintype.card (RoutingEdge M d) ≤ (2 * M) ^ (d + 1) := by
+  change Fintype.card (Sigma (fun v : InternalNode M d => Fin M)) ≤ _
+  rw [Fintype.card_sigma]
+  simp only [Fintype.card_fin]
+  rw [Fintype.sum_sigma]
+  simp
+  rw [← Finset.sum_mul]
+  have hMpos : 0 < M := by omega
+  have hsum : (∑ x : Fin d, M ^ (x : ℕ)) ≤ d * M ^ d := by
+    have hs := Finset.sum_le_card_nsmul (Finset.univ : Finset (Fin d))
+      (fun x : Fin d => M ^ (x : ℕ)) (M ^ d) (by
+        intro x hx
+        exact Nat.pow_le_pow_right hMpos x.isLt.le)
+    simpa [nsmul_eq_mul] using hs
+  have hpow : d ≤ 2 ^ d := routingNat_le_pow_two d
+  calc
+    (∑ x : Fin d, M ^ (x : ℕ)) * M ≤ (d * M ^ d) * M :=
+      Nat.mul_le_mul_right _ hsum
+    _ ≤ (2 ^ d * M ^ d) * M := by
+      exact Nat.mul_le_mul_right _ (Nat.mul_le_mul_right _ hpow)
+    _ = (2 * M) ^ d * M := by rw [Nat.mul_pow]
+    _ ≤ (2 * M) ^ d * (2 * M) := by
+      gcongr
+      omega
+    _ = (2 * M) ^ (d + 1) := by rw [pow_succ]
+
 /-- The depth and stable gap are selected only after the annular width is known.
 The gap witness is exposed separately so a later span lemma can impose its
 required upper envelope without changing the activation or depth choices. -/
