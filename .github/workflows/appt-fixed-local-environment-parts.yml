@@ -1,0 +1,85 @@
+name: APPT bounded dependency transport
+on:
+  push:
+    branches: ['review/appt-fixed-local-20261011']
+    paths: ['.github/workflows/appt-fixed-local-environment-parts.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  split-verified-environment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Retrieve and verify the existing public dependency snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/apptenv
+          gh run download 38144674639 --repo mxym/math --name appt-pinned-environment-4841d3ffbbae7f225f308b728b6fdf95a295e8bc --dir /tmp/apptenv
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          p=pathlib.Path('/tmp/apptenv')
+          b=json.loads((p/'appt-environment-binding.json').read_text())
+          h=hashlib.sha256()
+          with (p/'appt-pinned-environment.tar.gz').open('rb') as stream:
+              for block in iter(lambda:stream.read(1<<20),b''):h.update(block)
+          if h.hexdigest()!=b['archive_sha256']:raise RuntimeError('Source archive changed')
+          print('VERIFIED_EXISTING_ARCHIVE',b['source_commit'],b['archive_bytes'],h.hexdigest())
+          PY
+          split --bytes=400M --numeric-suffixes --suffix-length=2 --additional-suffix=.bin /tmp/apptenv/appt-pinned-environment.tar.gz /tmp/apptenv/part-
+          cd /tmp/apptenv
+          sha256sum part-*.bin > PART_SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-00-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: |
+            /tmp/apptenv/part-00.bin
+            /tmp/apptenv/PART_SHA256SUMS
+            /tmp/apptenv/appt-environment-binding.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-01-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-01.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-02-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-02.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-03-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-03.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-04-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-04.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-05-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-05.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-06-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-06.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appt-env-part-07-${{ github.sha }}
+          compression-level: 0
+          retention-days: 3
+          path: /tmp/apptenv/part-07.bin
