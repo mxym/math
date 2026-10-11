@@ -40,3 +40,239 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 HydrologyTree/RateChart.lean:128:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
+
+MODULE HydrologyTree.CompartmentMatrix
+HydrologyTree/CompartmentMatrix.lean:17:8: error(lean.unknownIdentifier): Unknown identifier `e`
+HydrologyTree/CompartmentMatrix.lean:17:27: error(lean.unknownIdentifier): Unknown identifier `e.succ`
+HydrologyTree/CompartmentMatrix.lean:17:44: error(lean.unknownIdentifier): Unknown identifier `e`
+HydrologyTree/CompartmentMatrix.lean:17:75: error(lean.unknownIdentifier): Unknown identifier `e`
+HydrologyTree/CompartmentMatrix.lean:17:88: error(lean.unknownIdentifier): Unknown identifier `e`
+HydrologyTree/CompartmentMatrix.lean:21:77: error: unsolved goals
+n : ℕ
+i j w : Fin (n + 1)
+r : ℝ
+⊢ (if j = w then r else 0) = ∑ v, if i = v ∧ j = w then r else 0
+HydrologyTree/CompartmentMatrix.lean:28:13: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:25:8: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:30:2: warning: Unused tactic linter: `rw [Finset.sum_comm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:31:2: warning: Unused tactic linter: `simp only [Finset.sum_add_distrib, Finset.sum_mul, Finset.mul_sum, mul_sub,
+  Finset.sum_sub_distrib, sum_single_column]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:33:2: warning: Unused tactic linter: `simp [eq_comm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:31:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:33:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:47:4: error: Function expected at
+  x.1 e.succ • (single (t.parent e) e.succ 1 - single e.succ e.succ 1) +
+    x.2 e • (single e.succ (t.parent e) 1 - single (t.parent e) (t.parent e) 1)
+but this term has type
+  ?m.98
+
+Note: Expected a function because this term is being applied to the argument
+  v
+HydrologyTree/CompartmentMatrix.lean:47:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSMul ℝ (Matrix (Fin (n + 1)) (Fin (n + 1)) ℕ) ?m.96
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/CompartmentMatrix.lean:48:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSMul ℝ (Matrix (Fin (n + 1)) (Fin (n + 1)) ℕ) ?m.97
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/CompartmentMatrix.lean:50:49: error: unsolved goals
+case neg
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+e : Fin n
+v : Fin (n + 1)
+hp : t.parent e ≠ e.succ
+h1 : e.succ = v
+h2 : ¬t.parent e = v
+⊢ -x.1 v = sorry ()
+
+case pos
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+e : Fin n
+v : Fin (n + 1)
+hp : t.parent e ≠ e.succ
+h1 : ¬e.succ = v
+h2 : t.parent e = v
+⊢ -x.2 e = sorry ()
+
+case neg
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+e : Fin n
+v : Fin (n + 1)
+hp : t.parent e ≠ e.succ
+h1 : ¬e.succ = v
+h2 : ¬t.parent e = v
+⊢ 0 = sorry ()
+HydrologyTree/CompartmentMatrix.lean:54:18: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h1, h2, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:60:13: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:57:8: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:60:50: warning: This simp argument is unused:
+  Matrix.sum_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [compartmentMatrix, Matrix.sub_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:61:2: warning: Unused tactic linter: `simp_rw [compartment_diagonal_edge]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:62:2: warning: Unused tactic linter: `simp only [Finset.sum_sub_distrib, Finset.sum_neg_distrib]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:63:2: warning: Unused tactic linter: `rw [rateChart]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:64:2: warning: Unused tactic linter: `change
+  -(∑ e : Fin n, if e.succ = v then x.1 e.succ else 0) - (∑ e : Fin n, if t.parent e = v then x.2 e else 0) -
+      (x.1 0 • Matrix.single 0 0 1) v v =
+    -(x.1 v + parentCLM t x.2 v)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:67:2: warning: Unused tactic linter: `rw [parentCLM_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:68:2: warning: Unused tactic linter: `refine Fin.cases ?_ (fun i => ?_) v` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:69:2: warning: Unused tactic linter: `· simp [Matrix.single_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:70:2: warning: Unused tactic linter: `· simp [Matrix.single_apply, Fin.succ_ne_zero] <;> ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:62:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:63:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:64:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:67:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:68:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:69:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:70:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:83:13: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:74:8: warning: declaration uses `sorry`
+HydrologyTree/CompartmentMatrix.lean:75:5: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/CompartmentMatrix.lean:75:27: warning: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/CompartmentMatrix.lean:81:12: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hvw, Ne.symm hvw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:81:38: warning: This simp argument is unused:
+  Ne.symm hvw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.single_apply, hvw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:82:12: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:82:37: warning: This simp argument is unused:
+  Ne.symm hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.single_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:86:2: warning: Unused tactic linter: `apply Finset.sum_nonneg` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:87:2: warning: Unused tactic linter: `intro e _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:88:2: warning: Unused tactic linter: `apply add_nonneg` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:89:2: warning: Unused tactic linter: `·
+  apply mul_nonneg (ha _)
+  simp [Matrix.single_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:91:2: warning: Unused tactic linter: `·
+  apply mul_nonneg (hf _)
+  simp [Matrix.single_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/CompartmentMatrix.lean:87:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:88:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:89:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:91:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/CompartmentMatrix.lean:95:75: error: failed to prove index is valid, possible solutions:
+  - Use `have`-expressions to prove the index is valid
+  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
+  - Use `a[i]?` notation instead, result is an `Option` type
+  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
+X : ?m.1
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+⊢ ?m.5 ℝ X
+HydrologyTree/CompartmentMatrix.lean:99:73: error: failed to prove index is valid, possible solutions:
+  - Use `have`-expressions to prove the index is valid
+  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
+  - Use `a[i]?` notation instead, result is an `Option` type
+  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
+X : ?m.1
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+⊢ ?m.5 ℝ X
