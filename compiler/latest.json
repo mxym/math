@@ -1,6 +1,6 @@
 {
   "serial": 42,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "47e399867a4b79ff35e258a82f69e7180f42f0f5",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -26,7 +26,54 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.11
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.094
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.494
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 1.994
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.061
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.117
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.705
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.657
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 1,
+      "seconds": 1.788
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/FamilySmoothness.lean:11:23: error(lean.invalidField): Invalid field `const_add`: The environment does not contain `ContDiffWithinAt.match_1.const_add`, so it is not possible to project the field `const_add` from an expression\n  ContinuousLinearMap.contDiff (liftCLM n)\nof type\n  match ?m.18 with\n  | none => \u2203 p, HasFTaylorSeriesUpTo \u22a4 (\u21d1(liftCLM n)) p \u2227 \u2200 (i : \u2115), AnalyticOnNhd \u211d (fun x => p x i) Set.univ\n  | some n_1 => \u2203 p, HasFTaylorSeriesUpTo (\u2191n_1) (\u21d1(liftCLM n)) p\nHydrologyTree/FamilySmoothness.lean:25:15: error: don't know how to synthesize implicit argument `n`\n  @ContinuousLinearMap.contDiff \u211d (\u21a5(Coeff m) \u00d7 ProductInput ms) (\u21a5(Coeff m))\n    DenselyNormedField.toNontriviallyNormedField Prod.normedAddCommGroup Prod.normedSpace (coeffNormedAddCommGroup m)\n    (coeffNormedSpace m) ?m.49 (ContinuousLinearMap.fst \u211d (\u21a5(Coeff m)) (ProductInput ms))\ncontext:\nm : \u2115\nms : List \u2115\nih : ContDiff \u211d 2 (familyProduct ms)\n\u22a2 WithTop \u2115\u221e\nHydrologyTree/FamilySmoothness.lean:25:9: error: failed to infer `have` declaration type\n"
 }
