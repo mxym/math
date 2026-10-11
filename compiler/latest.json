@@ -1,7 +1,7 @@
 {
-  "serial": 46,
-  "status": "COMPILED",
-  "request_blob": "1e2eee412570cf2e7bf3e38b3652974e673dcc9b",
+  "serial": 47,
+  "status": "COMPILING",
+  "request_blob": "c8ec3dc6fc9d671dd1191803b19f1795765b10a5",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -9,9 +9,11 @@
     "HydrologyTree.RateChart",
     "HydrologyTree.CompartmentMatrix",
     "HydrologyTree.PhysicalBridge",
-    "HydrologyTree.RootBranches"
+    "HydrologyTree.RootBranches",
+    "HydrologyTree.BranchMatrixSupport"
   ],
   "source_sha256": {
+    "HydrologyTree/BranchMatrixSupport.lean": "76c98a1551860f86ab532ecce8392b8cd4cc1f34ee37acb369ef67b4ebd43d6a",
     "HydrologyTree/RootBranches.lean": "7fcf10deb851d042b7815a9910dc67fe9a8300d16e474651ea5c76805bf2d004",
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
@@ -20,43 +22,7 @@
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.049
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.064
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.192
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 2.376
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.799
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.716
-    },
-    {
-      "module": "HydrologyTree.RootBranches",
-      "returncode": 0,
-      "seconds": 1.582
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
   "run_id": "38149404100"
 }
