@@ -1,7 +1,7 @@
 $ /workspace/tools/elan/bin/lake exe cache get
 cache downloader skipped: pinned compiler has no leantar
 $ /workspace/tools/elan/bin/lake build ErdosSimilarityGrowingGaps
-⚠ [3094/3213] Replayed ErdosSimilarityGrowingGaps.GreedySampling
+⚠ [3094/3238] Replayed ErdosSimilarityGrowingGaps.GreedySampling
 warning: ErdosSimilarityGrowingGaps/GreedySampling.lean:46:30: Variable name `hδ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -14,14 +14,76 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hδ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3159/3213] Replayed ErdosSimilarityGrowingGaps.PowerCore
+⚠ [3273/3422] Replayed ErdosSimilarityGrowingGaps.RoutingLaw
+warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:70:49: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Fintype.sum_prod_type, ← Finset.mul_sum, bitTableWeight_sum]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:126:49: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bernoulliWeight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:161:45: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [exposureMass, exposureLaw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3274/3422] Replayed ErdosSimilarityGrowingGaps.RoutingTemplate
+warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:15:34: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:16:35: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:51: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:62: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:73: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3278/3422] Replayed ErdosSimilarityGrowingGaps.PowerCore
 warning: ErdosSimilarityGrowingGaps/PowerCore.lean:230:34: Variable name `hs₀₁` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hs₀₁
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3276/3420] Replayed ErdosSimilarityGrowingGaps.WindowBridge
+ℹ [3282/3422] Replayed ErdosSimilarityGrowingGaps.SignFiberQuadratic
+info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:119:0: 'ErdosSimilarityGrowingGaps.card_le_oldPatterns_add_two_zeroPatterns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:120:0: 'ErdosSimilarityGrowingGaps.card_le_image_add_two_zero_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:121:0: 'ErdosSimilarityGrowingGaps.card_le_of_old_and_zero_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3283/3422] Replayed ErdosSimilarityGrowingGaps.LineSignQuadratic
+warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:33:6: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:34:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:36:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:150:23: This simp argument is unused:
+  lineRoots
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:159:26: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+ℹ [3284/3422] Replayed ErdosSimilarityGrowingGaps.ParameterStrataQuadratic
+info: ErdosSimilarityGrowingGaps/ParameterStrataQuadratic.lean:345:0: 'ErdosSimilarityGrowingGaps.realizedPlanePatterns_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3296/3422] Replayed ErdosSimilarityGrowingGaps.WindowBridge
 warning: ErdosSimilarityGrowingGaps/WindowBridge.lean:86:5: Variable name `hs` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -56,7 +118,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [powerPoint]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3277/3420] Replayed ErdosSimilarityGrowingGaps.GridBoundary
+⚠ [3297/3422] Replayed ErdosSimilarityGrowingGaps.GridBoundary
 warning: ErdosSimilarityGrowingGaps/GridBoundary.lean:25:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -74,78 +136,16 @@ warning: ErdosSimilarityGrowingGaps/GridBoundary.lean:93:4: Unused tactic linter
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: ErdosSimilarityGrowingGaps/GridBoundary.lean:149:66: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-ℹ [3278/3420] Replayed ErdosSimilarityGrowingGaps.VariableTree
+ℹ [3298/3422] Replayed ErdosSimilarityGrowingGaps.VariableTree
 info: ErdosSimilarityGrowingGaps/VariableTree.lean:72:0: 'GrowingGap.uniform_span' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: ErdosSimilarityGrowingGaps/VariableTree.lean:73:0: 'GrowingGap.span_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: ErdosSimilarityGrowingGaps/VariableTree.lean:74:0: 'GrowingGap.edges_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: ErdosSimilarityGrowingGaps/VariableTree.lean:75:0: 'GrowingGap.edges_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3282/3420] Replayed ErdosSimilarityGrowingGaps.SignFiberQuadratic
-info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:119:0: 'ErdosSimilarityGrowingGaps.card_le_oldPatterns_add_two_zeroPatterns' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:120:0: 'ErdosSimilarityGrowingGaps.card_le_image_add_two_zero_image' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/SignFiberQuadratic.lean:121:0: 'ErdosSimilarityGrowingGaps.card_le_of_old_and_zero_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3283/3420] Replayed ErdosSimilarityGrowingGaps.LineSignQuadratic
-warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:33:6: Try `simp at this` instead of `simpa using this`
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:34:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
-warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:36:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
-warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:150:23: This simp argument is unused:
-  lineRoots
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [ha]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: ErdosSimilarityGrowingGaps/LineSignQuadratic.lean:159:26: `dif_pos` has been deprecated: Use `dite_eq_left` instead
-ℹ [3284/3420] Replayed ErdosSimilarityGrowingGaps.ParameterStrataQuadratic
-info: ErdosSimilarityGrowingGaps/ParameterStrataQuadratic.lean:345:0: 'ErdosSimilarityGrowingGaps.realizedPlanePatterns_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3292/3420] Replayed ErdosSimilarityGrowingGaps.RoutingLaw
-warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:70:49: This simp argument is unused:
-  ← Finset.sum_mul
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Fintype.sum_prod_type, ← Finset.mul_sum, bitTableWeight_sum]
-
-Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:126:49: This simp argument is unused:
-  h
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [bernoulliWeight]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: ErdosSimilarityGrowingGaps/RoutingLaw.lean:161:45: This simp argument is unused:
-  h
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [exposureMass, exposureLaw]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3293/3420] Replayed ErdosSimilarityGrowingGaps.RoutingTemplate
-warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:15:34: Variable name `v` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _v
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:16:35: Variable name `v` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _v
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:51: `if_neg` has been deprecated: Use `ite_eq_right` instead
-warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:62: `if_neg` has been deprecated: Use `ite_eq_right` instead
-warning: ErdosSimilarityGrowingGaps/RoutingTemplate.lean:173:73: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [3298/3420] Replayed ErdosSimilarityGrowingGaps.RoutingProbability
+⚠ [3302/3422] Replayed ErdosSimilarityGrowingGaps.RoutingProbability
 warning: ErdosSimilarityGrowingGaps/RoutingProbability.lean:105:56: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [3302/3420] Replayed ErdosSimilarityGrowingGaps.RoutingMeasure
+⚠ [3306/3422] Replayed ErdosSimilarityGrowingGaps.RoutingMeasure
 warning: ErdosSimilarityGrowingGaps/RoutingMeasure.lean:141:54: Variable name `hc` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -159,18 +159,18 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [Set.indicator_of_mem hb]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3307/3420] Replayed ErdosSimilarityGrowingGaps.RoutingChoices
+⚠ [3309/3422] Replayed ErdosSimilarityGrowingGaps.RoutingChoices
 warning: ErdosSimilarityGrowingGaps/RoutingChoices.lean:25:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3308/3420] Replayed ErdosSimilarityGrowingGaps.RoutingEntropy
+⚠ [3310/3422] Replayed ErdosSimilarityGrowingGaps.RoutingEntropy
 warning: ErdosSimilarityGrowingGaps/RoutingEntropy.lean:12:55: Variable name `hp` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hp
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3310/3420] Replayed ErdosSimilarityGrowingGaps.PeriodicRepair
+⚠ [3312/3422] Replayed ErdosSimilarityGrowingGaps.PeriodicRepair
 warning: ErdosSimilarityGrowingGaps/PeriodicRepair.lean:50:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -201,7 +201,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: ErdosSimilarityGrowingGaps/PeriodicRepair.lean:302:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3311/3420] Replayed ErdosSimilarityGrowingGaps.WindowRepair
+⚠ [3313/3422] Replayed ErdosSimilarityGrowingGaps.WindowRepair
 warning: ErdosSimilarityGrowingGaps/WindowRepair.lean:54:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -220,7 +220,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3313/3420] Replayed ErdosSimilarityGrowingGaps.SequenceTransfer
+⚠ [3315/3422] Replayed ErdosSimilarityGrowingGaps.SequenceTransfer
 warning: ErdosSimilarityGrowingGaps/SequenceTransfer.lean:20:50: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
 warning: ErdosSimilarityGrowingGaps/SequenceTransfer.lean:62:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
 If you'd rather continue using `push_neg` in your project, you can implement it as follows:
@@ -229,16 +229,16 @@ open Lean.Parser.Tactic in
 macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
   `(tactic| push $cfg:optConfig Not $[$loc]?)
 ```
-⚠ [3314/3420] Replayed ErdosSimilarityGrowingGaps.RoutingGlobalGrid
+⚠ [3316/3422] Replayed ErdosSimilarityGrowingGaps.RoutingGlobalGrid
 warning: ErdosSimilarityGrowingGaps/RoutingGlobalGrid.lean:72:30: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [3320/3420] Replayed ErdosSimilarityGrowingGaps.RoutingStableProbability
+⚠ [3322/3422] Replayed ErdosSimilarityGrowingGaps.RoutingStableProbability
 warning: ErdosSimilarityGrowingGaps/RoutingStableProbability.lean:16:35: Variable name `hK` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hK
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3417/3420] Replayed ErdosSimilarityGrowingGaps.ExplicitExample
+⚠ [3419/3422] Replayed ErdosSimilarityGrowingGaps.ExplicitExample
 warning: ErdosSimilarityGrowingGaps/ExplicitExample.lean:105:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -254,55 +254,64 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: ErdosSimilarityGrowingGaps/ExplicitExample.lean:195:83: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-ℹ [3418/3420] Replayed ErdosSimilarityGrowingGaps.Replay
-info: ErdosSimilarityGrowingGaps/Replay.lean:337:0: 'ErdosSimilarityGrowingGaps.replay_uniform_power_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:338:0: 'ErdosSimilarityGrowingGaps.replay_compact_power_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:339:0: 'ErdosSimilarityGrowingGaps.replay_geometric_main_target' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:340:0: 'ErdosSimilarityGrowingGaps.replay_window_filling' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:341:0: 'ErdosSimilarityGrowingGaps.replay_input_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:342:0: 'ErdosSimilarityGrowingGaps.replay_input_ratio_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:343:0: 'ErdosSimilarityGrowingGaps.replay_first_sample' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:344:0: 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:345:0: 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_separation' depends on axioms: [propext,
+ℹ [3420/3422] Replayed ErdosSimilarityGrowingGaps.Replay
+info: ErdosSimilarityGrowingGaps/Replay.lean:394:0: 'ErdosSimilarityGrowingGaps.replay_uniform_power_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:395:0: 'ErdosSimilarityGrowingGaps.replay_compact_power_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:396:0: 'ErdosSimilarityGrowingGaps.replay_geometric_main_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:397:0: 'ErdosSimilarityGrowingGaps.replay_window_filling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:398:0: 'ErdosSimilarityGrowingGaps.replay_input_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:399:0: 'ErdosSimilarityGrowingGaps.replay_input_ratio_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:400:0: 'ErdosSimilarityGrowingGaps.replay_first_sample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:401:0: 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:402:0: 'ErdosSimilarityGrowingGaps.replay_sequence_offset_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:403:0: 'ErdosSimilarityGrowingGaps.replay_sequence_active_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:404:0: 'ErdosSimilarityGrowingGaps.replay_sequence_local_address_separation' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:346:0: 'ErdosSimilarityGrowingGaps.replay_annular_sampling' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:347:0: 'ErdosSimilarityGrowingGaps.replay_late_window' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:348:0: 'ErdosSimilarityGrowingGaps.replay_grid_boundary_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:349:0: 'ErdosSimilarityGrowingGaps.replay_window_power_error' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:350:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_error' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:351:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_stable_key' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:405:0: 'ErdosSimilarityGrowingGaps.replay_sequence_center_separation' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:352:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_mem_thickening' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:406:0: 'ErdosSimilarityGrowingGaps.replay_sequence_grid_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:407:0: 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_separation' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:353:0: 'ErdosSimilarityGrowingGaps.replay_sequence_missedCenters_transfer' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:408:0: 'ErdosSimilarityGrowingGaps.replay_annular_sampling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:409:0: 'ErdosSimilarityGrowingGaps.replay_late_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:410:0: 'ErdosSimilarityGrowingGaps.replay_grid_boundary_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:411:0: 'ErdosSimilarityGrowingGaps.replay_window_power_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:412:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:413:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_stable_key' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:354:0: 'ErdosSimilarityGrowingGaps.replay_sequence_activation_of_sample_interval' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:414:0: 'ErdosSimilarityGrowingGaps.replay_sample_powerPoint_mem_thickening' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:355:0: 'ErdosSimilarityGrowingGaps.replay_sequence_outcome_density' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:356:0: 'ErdosSimilarityGrowingGaps.replay_sampled_output_buffer' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:357:0: 'ErdosSimilarityGrowingGaps.replay_variable_tree_span' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:358:0: 'ErdosSimilarityGrowingGaps.replay_distinct_terminal_all_miss' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:415:0: 'ErdosSimilarityGrowingGaps.replay_sequence_missedCenters_transfer' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:359:0: 'ErdosSimilarityGrowingGaps.replay_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:360:0: 'ErdosSimilarityGrowingGaps.replay_compact_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:361:0: 'ErdosSimilarityGrowingGaps.replay_theorem2_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:362:0: 'ErdosSimilarityGrowingGaps.replay_tail_grid_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:363:0: 'ErdosSimilarityGrowingGaps.replay_parameter_representatives' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:364:0: 'ErdosSimilarityGrowingGaps.replay_quadratic_parameter_representatives' depends on axioms: [propext,
+info: ErdosSimilarityGrowingGaps/Replay.lean:416:0: 'ErdosSimilarityGrowingGaps.replay_sequence_activation_of_sample_interval' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:365:0: 'ErdosSimilarityGrowingGaps.replay_budget_allocation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:366:0: 'ErdosSimilarityGrowingGaps.replay_grid_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:367:0: 'ErdosSimilarityGrowingGaps.replay_routing_schedule_eventual' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ErdosSimilarityGrowingGaps/Replay.lean:368:0: 'ErdosSimilarityGrowingGaps.replay_scheduled_annulus' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3419/3420] Built ErdosSimilarityGrowingGaps (1.0s)
-Build completed successfully (3420 jobs).
+info: ErdosSimilarityGrowingGaps/Replay.lean:417:0: 'ErdosSimilarityGrowingGaps.replay_sequence_outcome_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:418:0: 'ErdosSimilarityGrowingGaps.replay_sampled_output_buffer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:419:0: 'ErdosSimilarityGrowingGaps.replay_variable_tree_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:420:0: 'ErdosSimilarityGrowingGaps.replay_distinct_terminal_all_miss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:421:0: 'ErdosSimilarityGrowingGaps.replay_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:422:0: 'ErdosSimilarityGrowingGaps.replay_compact_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:423:0: 'ErdosSimilarityGrowingGaps.replay_theorem2_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:424:0: 'ErdosSimilarityGrowingGaps.replay_tail_grid_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:425:0: 'ErdosSimilarityGrowingGaps.replay_parameter_representatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:426:0: 'ErdosSimilarityGrowingGaps.replay_quadratic_parameter_representatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:427:0: 'ErdosSimilarityGrowingGaps.replay_budget_allocation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:428:0: 'ErdosSimilarityGrowingGaps.replay_grid_blocker_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:429:0: 'ErdosSimilarityGrowingGaps.replay_routing_schedule_eventual' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ErdosSimilarityGrowingGaps/Replay.lean:430:0: 'ErdosSimilarityGrowingGaps.replay_scheduled_annulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3421/3422] Built ErdosSimilarityGrowingGaps (1.9s)
+Build completed successfully (3422 jobs).
 $ /workspace/tools/elan/bin/lake env lean -t 0 ErdosSimilarityGrowingGaps/Replay.lean
 'ErdosSimilarityGrowingGaps.replay_uniform_power_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosSimilarityGrowingGaps.replay_compact_power_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -312,6 +321,15 @@ $ /workspace/tools/elan/bin/lake env lean -t 0 ErdosSimilarityGrowingGaps/Replay
 'ErdosSimilarityGrowingGaps.replay_input_ratio_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosSimilarityGrowingGaps.replay_first_sample' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_sequence_offset_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_sequence_active_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_sequence_local_address_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_sequence_center_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ErdosSimilarityGrowingGaps.replay_sequence_grid_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosSimilarityGrowingGaps.replay_greedy_sampling_separation' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

@@ -12,7 +12,7 @@ This package contains the kernel-checked deterministic and finite-routing layers
 - `Avoidance.lean` and `TailAnalysis.lean` prove the countable budget union, closed periodic complement, unit-interval measure estimate, empty interior, and infinitely many distinct outside values once the per-grid blockers are supplied. `WindowRepair.lean` adds the actual `LogScale` missed-center relation, its closedness/periodicity, a uniform tail error budget, and the arbitrary-remainder center repair theorem. `RoutingSchedule.lean` now proves that one finite template can be placed at every sufficiently late prescribed origin; `ScheduledAnnulus.lean` synchronizes that origin with a supplied `WindowFilling` sequence. `WindowBridge.lean` proves the sampled `powerPoint` error and stable-grid-key transfer, while `SequenceTransfer.lean` proves the exact missed-center inclusion and density transfer once the finite sample map satisfies the explicit activation and buffer inequalities.
 - `ExplicitExample.lean` proves, for `0 < β < 1`, the shifted positive representative `z_n = (n+1)(log log(n+20))^β`, the strict increase, divergence, and `z_{n+1}-z_n=o(log log z_n)`, together with the adjacent input ratio limit. The shift only removes the zero value at index zero and is a finite-prefix reindexing of the displayed example.
 
-All these results compile with Lean 4.34.1 and the pinned Mathlib revision. `Replay.lean` exposes 32 trust-level-zero roots; their only axioms are `propext`, `Classical.choice`, and `Quot.sound`.
+All these results compile with Lean 4.34.1 and the pinned Mathlib revision. `Replay.lean` exposes 35 trust-level-zero roots; their only axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 
 ## Current theorem boundary
 

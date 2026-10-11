@@ -1,5 +1,7 @@
 import ErdosSimilarityGrowingGaps.Basic
 import ErdosSimilarityGrowingGaps.GreedySampling
+import ErdosSimilarityGrowingGaps.SequenceGeometry
+import ErdosSimilarityGrowingGaps.SequenceRouting
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
@@ -54,6 +56,61 @@ theorem replay_greedy_sampling_separation
     (Z : LogScale) (v δ : ℝ) (hδ : 0 < δ) :
     Function.Injective (greedyIndex Z v δ) :=
   greedyIndex_injective Z v δ hδ
+
+theorem replay_sequence_offset_identity
+    (Z : LogScale) (m : ℕ) (s t : ℝ) (k : ℤ) :
+    t * (2 : ℝ) ^ k * (input Z m) ^ s =
+      t * (2 : ℝ) ^ ((k : ℝ) - s * Z.z m) :=
+  sequence_shifted_offset Z m s t k
+
+theorem replay_sequence_active_range
+    (Z : LogScale) (s₀ s₁ x u v : ℝ) (m : ℕ) (k : ℤ)
+    (p : PowerParams s₀ s₁)
+    (hp : sequencePowerActivation Z m k u v p) :
+    x < sequencePoint Z m ((2 : ℝ) ^ k) x p ∧
+      sequencePoint Z m ((2 : ℝ) ^ k) x p < x + (2 : ℝ) ^ (1 - u) :=
+  sequence_active_point_range Z s₀ s₁ x u v m k p hp
+
+theorem replay_sequence_local_address_separation
+    {M d t : ℕ} (Z : LogScale) (c : RoutingTemplate M d)
+    (hM : 0 < M) (hd : 0 < d) (hL : 0 < c.baseLength)
+    (hU : 4 ≤ c.origin) (x : ℝ) (bits : SelectorEdge M d → Bool)
+    (v : InternalNode M d) (child : Fin t → Fin (M - 1))
+    (indices : Fin t → ℕ) (k : ℤ) (p : PowerParams s₀ s₁)
+    (hindex : Function.Injective indices)
+    (hactive : ∀ i, sequencePowerActivation Z (indices i) k
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩))
+      ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩) : ℝ) +
+        c.edgeLength (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩)) p)
+    (hgap : ∀ i j, i ≠ j → child i = child j →
+      3 ≤ p.1.1 * |Z.z (indices j) - Z.z (indices i)|) :
+    LocalAddressSeparation (actualCenterExposure c x bits)
+      (localOwnAddresses c v child
+        (fun i => sequencePoint Z (indices i) ((2 : ℝ) ^ k) x p))
+      (localTerminalAddresses c hM hd v child
+        (fun i => sequencePoint Z (indices i) ((2 : ℝ) ^ k) x p)) :=
+  sequence_local_address_separation Z c hM hd hL hU x bits v child indices k p
+    hindex hactive hgap
+
+theorem replay_sequence_center_separation
+    (Z : LogScale) (s₀ s₁ x : ℝ) (u ell : ℕ) (m : ℕ) (k : ℤ)
+    (hu : 4 ≤ u) (hell : 0 < ell) (p : PowerParams s₀ s₁)
+    (hp : sequencePowerActivation Z m k (u : ℝ) ((u : ℝ) + ell) p) :
+    gridAddress (u + ell - 1)
+        (sequencePoint Z m ((2 : ℝ) ^ k) x p) ≠ gridAddress (u + ell - 1) x :=
+  sequence_active_gridAddress_ne_center Z s₀ s₁ x u ell m k hu hell p hp
+
+theorem replay_sequence_grid_separation
+    (Z : LogScale) (s₀ s₁ x : ℝ) (u ell : ℕ) (m m' : ℕ) (k : ℤ)
+    (hu : 4 ≤ u) (hell : 0 < ell) (p : PowerParams s₀ s₁)
+    (hgap : 3 ≤ p.1.1 * (Z.z m' - Z.z m))
+    (hp : sequencePowerActivation Z m k (u : ℝ) ((u : ℝ) + ell) p)
+    (hp' : sequencePowerActivation Z m' k (u : ℝ) ((u : ℝ) + ell) p) :
+    gridAddress (u + ell - 1)
+        (sequencePoint Z m ((2 : ℝ) ^ k) x p) ≠
+      gridAddress (u + ell - 1)
+        (sequencePoint Z m' ((2 : ℝ) ^ k) x p) :=
+  sequence_gridAddress_ne_of_log_gap Z s₀ s₁ x u ell m m' k hu hell p hgap hp hp'
 
 theorem replay_sampled_output_buffer
     {Z : LogScale} {f : ℝ → ℝ} {B : Set ℝ} {n : ℕ}
@@ -342,6 +399,11 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_input_ratio_zero
 #print axioms replay_first_sample
 #print axioms replay_greedy_sampling_gap
+#print axioms replay_sequence_offset_identity
+#print axioms replay_sequence_active_range
+#print axioms replay_sequence_local_address_separation
+#print axioms replay_sequence_center_separation
+#print axioms replay_sequence_grid_separation
 #print axioms replay_greedy_sampling_separation
 #print axioms replay_annular_sampling
 #print axioms replay_late_window
