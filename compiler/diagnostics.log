@@ -1,11 +1,7 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 5 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 1 file(s) [attempted 1/5 = 20%, 646 KB/s], Decompressed: 0
-Downloaded: 5 file(s) [attempted 5/5 = 100%, 646 KB/s], Decompressed: 1
-Decompressed 5 file(s)
+No files to download
 Already decompressed 2479 file(s)
 
 MODULE HydrologyTree.Coefficients
@@ -55,17 +51,21 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
 
 MODULE HydrologyTree.FamilyResultants
-HydrologyTree/FamilyResultants.lean:17:17: error: unsolved goals
-case cons
+
+MODULE HydrologyTree.FamilySmoothness
+HydrologyTree/FamilySmoothness.lean:11:23: error(lean.invalidField): Invalid field `const_add`: The environment does not contain `ContDiffWithinAt.match_1.const_add`, so it is not possible to project the field `const_add` from an expression
+  ContinuousLinearMap.contDiff (liftCLM n)
+of type
+  match ?m.18 with
+  | none => ∃ p, HasFTaylorSeriesUpTo ⊤ (⇑(liftCLM n)) p ∧ ∀ (i : ℕ), AnalyticOnNhd ℝ (fun x => p x i) Set.univ
+  | some n_1 => ∃ p, HasFTaylorSeriesUpTo (↑n_1) (⇑(liftCLM n)) p
+HydrologyTree/FamilySmoothness.lean:25:15: error: don't know how to synthesize implicit argument `n`
+  @ContinuousLinearMap.contDiff ℝ (↥(Coeff m) × ProductInput ms) (↥(Coeff m))
+    DenselyNormedField.toNontriviallyNormedField Prod.normedAddCommGroup Prod.normedSpace (coeffNormedAddCommGroup m)
+    (coeffNormedSpace m) ?m.49 (ContinuousLinearMap.fst ℝ (↥(Coeff m)) (ProductInput ms))
+context:
 m : ℕ
 ms : List ℕ
-ih : ∀ (x : ProductInput ms), (List.map natDegree (familyPolynomials ms x)).sum = ms.sum
-x : ProductInput (m :: ms)
-⊢ (X ^ m + ↑x.1).natDegree = m
-HydrologyTree/FamilyResultants.lean:17:45: warning: This simp argument is unused:
-  natDegree_monicPoly
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [familyPolynomials, ih]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ih : ContDiff ℝ 2 (familyProduct ms)
+⊢ WithTop ℕ∞
+HydrologyTree/FamilySmoothness.lean:25:9: error: failed to infer `have` declaration type
