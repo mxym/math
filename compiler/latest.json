@@ -1,6 +1,6 @@
 {
   "serial": 23,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "1953495066d7d1da0d3bbdad53e3ef73c81cecf9",
   "modules": [
     "HydrologyTree.EdgeDeterminant"
@@ -8,7 +8,14 @@
   "source_sha256": {
     "HydrologyTree/EdgeDeterminant.lean": "65a7edcd4e863d670acd894bf9543a77055ada8b452a4ddf5bf69dc880ef7794"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 1,
+      "seconds": 1.344
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/EdgeDeterminant.lean:13:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.add_single_eq_updateRow`:\n  [Fintype \u03b9]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype \u03b9] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/EdgeDeterminant.lean:19:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [h, Ne.symm h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/EdgeDeterminant.lean:33:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  single ?i ?j (-?b)\nin the target expression\n  (A + -single i j c).det = A.det - c * A.adjugate j i\n\nR : Type u_1\n\u03b9 : Type u_2\ninst\u271d\u00b2 : CommRing R\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nA : Matrix \u03b9 \u03b9 R\ni j : \u03b9\nc : R\n\u22a2 (A + -single i j c).det = A.det - c * A.adjugate j i\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  function expected\n    A.adjugate j\nHydrologyTree/EdgeDeterminant.lean:54:2: warning: Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\nHydrologyTree/EdgeDeterminant.lean:60:6: warning: Unused tactic linter: `ring` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nHydrologyTree/EdgeDeterminant.lean:60:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n"
 }
