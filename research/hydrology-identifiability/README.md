@@ -187,10 +187,26 @@ The same finite-spectrum moments also have a universal order-two Hankel identity
 M_0M_2-M_1^2
 =\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2.
 \]
-`Hydrology/Variance.lean` proves this identity for every finite index type and
-proves nonnegativity whenever the weights are nonnegative. It generalizes the
-explicit two-mode certificate and separates rate heterogeneity from a collapsed
-single-rate spectrum without numerical fitting.
+`Hydrology/Variance.lean` proves this identity for every finite index type,
+proves nonnegativity whenever the weights are nonnegative, and proves strict
+positivity when two positive-weight rates differ. It generalizes the explicit
+two-mode certificate and separates rate heterogeneity from a collapsed single-rate
+spectrum without numerical fitting.
+
+For a known collection of pairwise distinct rates, the weights are also exactly
+identifiable: equality of the first \(k\) moments forces equality of all \(k\)
+weights. `Hydrology/WeightIdentifiability.lean` proves this by applying the
+Vandermonde determinant theorem to the difference of the two weight vectors.
+This is a fixed-rate result; it does not claim that the rates themselves are
+identified without the additional Prony/Vandermonde step.
+
+The same nondegeneracy controls the linear Prony step. The finite moment Hankel
+matrix factors as a transposed Vandermonde matrix, a diagonal weight matrix, and a
+Vandermonde matrix. Therefore its determinant is nonzero for nonzero weights and
+pairwise distinct rates. `Hydrology/Prony.lean` then proves that the first \(k\)
+recurrence equations have a unique coefficient vector. This closes the linear
+coefficient-recovery part of finite-spectrum identification; matching the roots
+of two unknown characteristic polynomials is deliberately left as the next step.
 
 The finite-dimensional obstruction also suggests a physically conservative model extension.
 For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear

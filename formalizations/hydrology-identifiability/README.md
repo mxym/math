@@ -26,8 +26,15 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
   (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
 * `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
-  as a half weighted sum of squared pairwise rate gaps, and its nonnegativity
-  for nonnegative weights.
+  as a half weighted sum of squared pairwise rate gaps, its nonnegativity for
+  nonnegative weights, and strict positivity when two positive-weight rates differ.
+* `Hydrology/WeightIdentifiability.lean` uses the exact Vandermonde theorem to
+  prove uniqueness of all weights from the first `k` moments when the `k` rates
+  are known and pairwise distinct.
+* `Hydrology/Prony.lean` factors the finite moment Hankel matrix through a
+  weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
+  weights and distinct rates, and proves uniqueness of the associated recurrence
+  coefficients.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

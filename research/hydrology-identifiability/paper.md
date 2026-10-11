@@ -212,6 +212,25 @@ arbitrary finite mode count and polynomial degree. It establishes the exact
 finite-dimensional recurrence backbone, while uniqueness of rates still needs
 nondegenerate Hankel/Vandermonde assumptions.
 
+For a known collection of pairwise distinct rates, the weights are also exactly
+identifiable. If two weight vectors give the same first \(k\) moments, their
+difference lies in the kernel of the \(k\times k\) Vandermonde matrix. Its
+Vandermonde determinant is nonzero, so the difference vanishes. The theorem
+`finiteMoment_weights_unique` in `Hydrology/WeightIdentifiability.lean` formalizes
+this step. It is deliberately a fixed-rate statement; identifying unknown rates
+requires the additional Prony reconstruction argument.
+
+The same nondegeneracy controls the linear Prony step. Let \(H_{ij}=M_{i+j}\)
+for \(0\le i,j<k\). The finite moment Hankel matrix factors as a transposed
+Vandermonde matrix, a diagonal weight matrix, and a Vandermonde matrix. Its
+determinant is therefore the squared Vandermonde determinant multiplied by the
+product of the weights. For nonzero weights and pairwise distinct rates this is
+nonzero. The theorem `momentHankel_det_ne_zero` in `Hydrology/Prony.lean`
+formalizes this factorization and `finite_spectrum_recurrence_unique` proves
+that the first \(k\) recurrence equations have a unique coefficient vector.
+This closes the linear coefficient-recovery part of Prony identification; matching
+the roots of two unknown characteristic polynomials remains a separate step.
+
 ### Finite-spectrum growth obstruction
 
 The finite-mode recurrence has a second consequence under the physical positivity
@@ -248,11 +267,12 @@ expansion gives
 M_0M_2-M_1^2
 =\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2. \tag{12}
 \]
-`Hydrology/Variance.lean` proves this identity for every finite index type and
-proves nonnegativity for nonnegative weights. Thus the order-two Hankel determinant
-is exactly a weighted measure of rate heterogeneity; the two-mode formula (9) is
-its first nontrivial special case. This is an algebraic certificate and does not
-use numerical fitting or a presumed model order.
+`Hydrology/Variance.lean` proves this identity for every finite index type,
+proves nonnegativity for nonnegative weights, and proves strict positivity when
+two positive-weight rates differ. Thus the order-two Hankel determinant is exactly
+a weighted measure of rate heterogeneity; the two-mode formula (9) is its first
+nontrivial special case. This is an algebraic certificate and does not use
+numerical fitting or a presumed model order.
 
 The same argument extends one step further without a numerical approximation.
 For three parallel modes define
