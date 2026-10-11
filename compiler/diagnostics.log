@@ -1,3 +1,39 @@
+CACHE
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 1116 file(s)
+
+MODULE FixedLocalRatio
+
+MODULE IntervalMoment
+IntervalMoment.lean:36:39: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+IntervalMoment.lean:62:27: warning: Variable name `hCL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE FixedLocalUpper
+FixedLocalUpper.lean:92:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FixedLocalUpper.lean:79:15: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FixedLocalUpper.lean:84:28: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FixedLocalUpper.lean:92:19: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
 MODULE PlateauApproximation
 PlateauApproximation.lean:66:33: warning: this tactic is never executed
 
@@ -5,3 +41,20 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 PlateauApproximation.lean:66:33: warning: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
+MODULE FixedLocalLimit
+FixedLocalLimit.lean:87:4: error: Type mismatch: After simplification, term
+  density_appt_fixed_local_upper hm hn hB hp
+ has type
+  ↑m * ↑n * APPT.Quantum.purity B ≤ ↑m ^ 2 / (↑m ^ 2 - 1) + ↑m * 13 / ↑n
+but is expected to have type
+  ↑m * ↑n * APPT.Quantum.purity B ≤ U
+FixedLocalLimit.lean:100:6: error: Type mismatch: After simplification, term
+  le_csSup hsbdd
+    (have this := Exists.intro B ⟨hB, ⟨hp, rfl⟩⟩;
+    this)
+ has type
+  @LE.le ℝ Real.instConditionallyCompleteLinearOrder.toSemilatticeInf.toLE (↑m * ↑n * APPT.Quantum.purity B)
+    (sSup (scaledAPPTPurities m n))
+but is expected to have type
+  @LE.le ℝ Real.partialOrder.toLE (↑m * ↑n * APPT.Quantum.purity B) (scaledAPPTPuritySup m n)
