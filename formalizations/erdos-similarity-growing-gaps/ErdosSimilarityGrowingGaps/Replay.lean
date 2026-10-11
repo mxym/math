@@ -43,6 +43,7 @@ import ErdosSimilarityGrowingGaps.SequenceStableProbability
 import ErdosSimilarityGrowingGaps.GlobalGreedyTests
 import ErdosSimilarityGrowingGaps.SequenceFiniteBlocker
 import ErdosSimilarityGrowingGaps.SelectorEndpointBounds
+import ErdosSimilarityGrowingGaps.UnconditionalLocalSigmaProvider
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -588,6 +589,22 @@ theorem replay_finiteSequenceBlockerSpec_of_windowFilling_provider
     (hP : WindowFillingFiniteSequenceProvider Z) :
     FiniteSequenceBlockerSpec Z :=
   finiteSequenceBlockerSpec_of_windowFilling_provider hW hP
+
+/-! The unconditional late-window provider assembled from the filled-annulus
+sequence closes the finite blocker interface without any auxiliary provider
+hypothesis.  This is the public theorem-level entry point for the completed
+Erdős growing-gaps construction. -/
+theorem replay_finiteSequenceBlockerSpec_of_windowFilling_unconditional
+    {Z : LogScale} (hW : WindowFilling Z) :
+    FiniteSequenceBlockerSpec Z := by
+  exact finiteSequenceBlockerSpec_of_windowFilling_sequence_local_sigma_provider
+    hW (windowFilling_sequence_local_sigma_provider_of_windowFilling hW)
+
+theorem replay_compactRobustSpec_of_windowFilling_unconditional
+    {Z : LogScale} (hW : WindowFilling Z) :
+    CompactRobustSpec Z := by
+  exact compactRobustSpec_of_finiteSequenceBlockerSpec
+    (replay_finiteSequenceBlockerSpec_of_windowFilling_unconditional hW)
 
 theorem replay_routing_sample_index_all_edges_injective
     {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)

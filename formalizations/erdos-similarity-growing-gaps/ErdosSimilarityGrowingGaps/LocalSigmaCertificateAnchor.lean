@@ -31,6 +31,12 @@ theorem finiteSequenceRoutingCertificate_of_local_sigma_uniform_budget_with_anch
     (hDorigin : D ≤ (tpl.origin : ℝ))
     (hσK : 3 * (K : ℝ) ≤ σ) :
     ∃ c : FiniteSequenceRoutingCertificate Z K k p,
+      c.template.origin = U ∧
+      c.template.baseLength = tpl.baseLength ∧
+      c.branching = lateBranching K p σ D ∧
+      c.depth = lateDepth K p σ D ∧
+      c.template.gap = lateStableGapExplicit K p σ D ∧
+      c.rate = lateActivationRate K σ D ∧
       (∀ v : InternalNode c.branching c.depth, ∀ i,
         ((c.template.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
           Z.z (c.indices v i)) := by
@@ -86,26 +92,37 @@ theorem finiteSequenceRoutingCertificate_of_local_sigma_uniform_budget_with_anch
   let cert := finiteSequenceRoutingCertificate_of_variable_rate_bounded_data
     hK hp hp₁ tpl σ D hσ hD hM hd hgap horigin hlength hgap_guard hspan hcoeff
     hentropy (variableNodeUniformBudget K T D σ) witness hQcandidate
-  refine ⟨cert, ?_⟩
-  intro v i
-  change ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
-      Z.z ((witness v).indices i)
-  have hlow := (witness v).index_lower i
-  have hstart_nat := tpl.edgeStart_ge_origin
-    (RoutingTemplate.selectorRoutingEdge ⟨v, (witness v).children i⟩)
-  have hstart : (tpl.origin : ℝ) ≤
-      (tpl.edgeStart (RoutingTemplate.selectorRoutingEdge
-        ⟨v, (witness v).children i⟩) : ℝ) := by
-    exact_mod_cast hstart_nat
-  have hdiv : ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) ≤
-      ((tpl.edgeStart (RoutingTemplate.selectorRoutingEdge
-        ⟨v, (witness v).children i⟩) : ℝ) + (k : ℝ)) / (K : ℝ) := by
-    apply (div_le_div_iff_of_pos_right (by exact_mod_cast
-      (show 0 < K by omega))).2
-    linarith
-  have hanchor : ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
-      Z.z ((witness v).indices i) := (sub_le_sub_right hdiv D).trans hlow
-  exact hanchor
+  refine ⟨cert, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · change (tpl.origin : ℝ) = U
+    exact horigin_real
+  · change tpl.baseLength = tpl.baseLength
+    rfl
+  · change M = lateBranching K p σ D
+    exact hM
+  · change d = lateDepth K p σ D
+    exact hd
+  · change tpl.gap = lateStableGapExplicit K p σ D
+    exact hgap
+  · rfl
+  · intro v i
+    change ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
+        Z.z ((witness v).indices i)
+    have hlow := (witness v).index_lower i
+    have hstart_nat := tpl.edgeStart_ge_origin
+      (RoutingTemplate.selectorRoutingEdge ⟨v, (witness v).children i⟩)
+    have hstart : (tpl.origin : ℝ) ≤
+        (tpl.edgeStart (RoutingTemplate.selectorRoutingEdge
+          ⟨v, (witness v).children i⟩) : ℝ) := by
+      exact_mod_cast hstart_nat
+    have hdiv : ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) ≤
+        ((tpl.edgeStart (RoutingTemplate.selectorRoutingEdge
+          ⟨v, (witness v).children i⟩) : ℝ) + (k : ℝ)) / (K : ℝ) := by
+      apply (div_le_div_iff_of_pos_right (by exact_mod_cast
+        (show 0 < K by omega))).2
+      linarith
+    have hanchor : ((tpl.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
+        Z.z ((witness v).indices i) := (sub_le_sub_right hdiv D).trans hlow
+    exact hanchor
 
 /-! The origin anchor becomes the fixed `U/(4K)` tail once the coefficient and
 width guards used by the local input bridge hold. -/
