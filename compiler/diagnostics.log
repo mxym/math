@@ -178,82 +178,24 @@ consider restructuring your `variable` declarations so that the variables are no
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 
 MODULE HydrologyTree.LeafRecursion
-HydrologyTree/LeafRecursion.lean:19:4: error: unsolved goals
-case inl
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-l : ι
-v : DeletedVertex l
-⊢ (if h : Sum.elim Subtype.val (fun x => l) (Sum.inl v) = l then Sum.inr ()
-    else Sum.inl ⟨Sum.elim Subtype.val (fun x => l) (Sum.inl v), ⋯⟩) =
-    Sum.inl v
-HydrologyTree/LeafRecursion.lean:20:4: error: unsolved goals
-case inr.unit
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-l : ι
-⊢ Sum.elim Subtype.val (fun x => l) (Sum.inr PUnit.unit) = l
-HydrologyTree/LeafRecursion.lean:22:17: error: unsolved goals
-case pos
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-l v : ι
-h : v = l
-⊢ Sum.elim Subtype.val (fun x => l) (Sum.inr ()) = l
+HydrologyTree/LeafRecursion.lean:47:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leaf_matrix_decomposition`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
 
-case neg
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-l v : ι
-h : ¬v = l
-⊢ Sum.elim Subtype.val (fun x => l) (Sum.inl ⟨v, ⋯⟩) = v
-HydrologyTree/LeafRecursion.lean:19:12: warning: This simp argument is unused:
-  v.property
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 
-Hint: Omit it from the simp argument list.
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/LeafRecursion.lean:51:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  DecidableEq (DeletedVertex l)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/LeafRecursion.lean:56:21: warning: declaration uses `sorry`
-HydrologyTree/LeafRecursion.lean:69:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  DecidableEq (DeletedVertex l)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/LeafRecursion.lean:70:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Fintype (DeletedVertex l)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/LeafRecursion.lean:71:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Fintype (DeletedVertex l ⊕ Unit)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/LeafRecursion.lean:70:73: error: unsolved goals
-ι : Type u_1
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-A : Matrix ι ι ℝ
-l p : ι
-hp : p ≠ l
-hrow : ∀ (v : ι), v ≠ l → A l v = if v = p then A l p else 0
-hcol : ∀ (v : ι), v ≠ l → A v l = if v = p then A p l else 0
-⊢ A.charpoly = (X - C (A l l)) * sorry - C (A p l * A l p) * sorry
+MODULE HydrologyTree.PhysicalLeaf
+HydrologyTree/PhysicalLeaf.lean:91:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (compartmentMatrix t x).charpoly =
+    (X - C (compartmentMatrix t x (Fin.last n).succ (Fin.last n).succ)) *
+        (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ).charpoly -
+      C (x.1 (Fin.last n).succ * x.2 (Fin.last n)) *
+        diagonalCofactor (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ) ⟨t.parent (Fin.last n), ⋯⟩
+but is expected to have type
+  (compartmentMatrix t x).charpoly =
+    (X + C (x.1 (Fin.last n).succ)) * (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ).charpoly -
+      C (x.1 (Fin.last n).succ * x.2 (Fin.last n)) *
+        diagonalCofactor (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ) ⟨t.parent (Fin.last n), ⋯⟩
