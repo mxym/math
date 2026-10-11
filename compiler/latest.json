@@ -1,6 +1,6 @@
 {
   "serial": 1791736400228,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "3657066cf2bb74261cfbdd21c573c14c6dd7e8c7",
   "modules": [
     "StateTopology",
@@ -18,7 +18,39 @@
     "PurityGeometry.lean": "644fc3af06501ffb7454abca17588d8db42cd8a1350a492bbfef05ddb9396d9f",
     "CompactnessChecks.lean": "48921eeb3b96244bf4b47e75aacf4f8882ab3456166ecdab32536d4e8757c320"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "StateTopology",
+      "returncode": 0,
+      "seconds": 2.217
+    },
+    {
+      "module": "PurityGeometry",
+      "returncode": 0,
+      "seconds": 2.414
+    },
+    {
+      "module": "MaximumExistence",
+      "returncode": 0,
+      "seconds": 2.245
+    },
+    {
+      "module": "ConvexExtrema",
+      "returncode": 0,
+      "seconds": 2.354
+    },
+    {
+      "module": "MaximizerLimits",
+      "returncode": 0,
+      "seconds": 2.003
+    },
+    {
+      "module": "CompactnessChecks",
+      "returncode": 1,
+      "seconds": 2.367
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38155098703"
+  "run_id": "38155098703",
+  "diagnostics": "CompactnessChecks.lean:60:2: error: Type mismatch: After simplification, term\n  APPTReview.purity_proper_mixture_lt (PosSemidef.isHermitian (toyState_feasible (0, 0)).left.left)\n    (PosSemidef.isHermitian (toyState_feasible (0, 1)).left.left) toyState_distinct\n    (Mathlib.Meta.NormNum.isNNRat_lt_true\n      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))\n      (Mathlib.Meta.NormNum.isNNRat_div\n        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)\n          (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_one))\n          (Mathlib.Meta.NormNum.isNNRat_inv_pos\n            (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d (Eq.refl 2))))\n          (Eq.refl (Nat.mul 1 1)) (Eq.refl 2)))\n      (Eq.refl true))\n    (Mathlib.Meta.NormNum.isNNRat_lt_true\n      (Mathlib.Meta.NormNum.isNNRat_div\n        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)\n          (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_one))\n          (Mathlib.Meta.NormNum.isNNRat_inv_pos\n            (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d (Eq.refl 2))))\n          (Eq.refl (Nat.mul 1 1)) (Eq.refl 2)))\n      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_one)) (Eq.refl true))\n has type\n  APPT.Quantum.purity (2\u207b\u00b9 \u2022 toyState (0, 0) + (1 - 2\u207b\u00b9) \u2022 toyState (0, 1)) <\n    2\u207b\u00b9 * APPT.Quantum.purity (toyState (0, 0)) + (1 - 2\u207b\u00b9) * APPT.Quantum.purity (toyState (0, 1))\nbut is expected to have type\n  APPT.Quantum.purity (2\u207b\u00b9 \u2022 toyState (0, 0) + 2\u207b\u00b9 \u2022 toyState (0, 1)) <\n    2\u207b\u00b9 * APPT.Quantum.purity (toyState (0, 0)) + 2\u207b\u00b9 * APPT.Quantum.purity (toyState (0, 1))\n"
 }
