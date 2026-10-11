@@ -49,48 +49,19 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _m
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/FamilyProduct.lean:46:17: error: don't know how to synthesize implicit argument `x`
-  @ContinuousLinearMap.hasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (↥(Coeff m) × ProductInput ms)
-    Prod.instAddCommGroup Prod.instModule instTopologicalSpaceProd (↥(Coeff m)) (Coeff m).addCommGroup (Coeff m).module
-    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (ContinuousLinearMap.fst ℝ (↥(Coeff m)) (ProductInput ms)) ?m.62
-context:
-m : ℕ
-ms : List ℕ
-ih : ∀ (x : ProductInput ms), HasFDerivAt (familyProduct ms) (familyProductDerivative ms x) x
-x : ProductInput (m :: ms)
-⊢ ↥(Coeff m) × ProductInput ms
-HydrologyTree/FamilyProduct.lean:46:9: error: failed to infer `have` declaration type
-HydrologyTree/FamilyProduct.lean:95:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (?M * ?N).det
-in the target expression
-  ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis ℝ (m + ms.sum))) ↑(monoSylv (x.1, familyProduct ms x.2)) *
-        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))
-          ↑(keepLeft (familyProductDerivative ms x.2))).det =
-    (↑(monicPoly x.1)).resultant (↑(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2
 
+MODULE HydrologyTree.FamilyResultants
+HydrologyTree/FamilyResultants.lean:17:17: error: unsolved goals
 case cons
 m : ℕ
 ms : List ℕ
-ih :
-  ∀ (x : ProductInput ms),
-    ((LinearMap.toMatrix (familyBasis ms) (degreeLT.basis ℝ ms.sum)) ↑(familyProductDerivative ms x)).det =
-      familyResultant ms x
+ih : ∀ (x : ProductInput ms), (List.map natDegree (familyPolynomials ms x)).sum = ms.sum
 x : ProductInput (m :: ms)
-⊢ ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis ℝ (m + ms.sum))) ↑(monoSylv (x.1, familyProduct ms x.2)) *
-        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))
-          ↑(keepLeft (familyProductDerivative ms x.2))).det =
-    (↑(monicPoly x.1)).resultant (↑(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2
+⊢ (X ^ m + ↑x.1).natDegree = m
+HydrologyTree/FamilyResultants.lean:17:45: warning: This simp argument is unused:
+  natDegree_monicPoly
 
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  Application type mismatch: The argument
-    (LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis ℝ (m + ms.sum))) ↑(monoSylv (x.1, familyProduct ms x.2)) *
-      (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum)) ↑(keepLeft (familyProductDerivative ms x.2))
-  has type
-    Matrix (Fin (m + ms.sum)) (Fin (m :: ms).sum) ℝ
-  but is expected to have type
-    Matrix (Fin (m + ms.sum)) (Fin (m + ms.sum)) ℝ
-  in the application
-    ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis ℝ (m + ms.sum))) ↑(monoSylv (x.1, familyProduct ms x.2)) *
-        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))
-          ↑(keepLeft (familyProductDerivative ms x.2))).det
+Hint: Omit it from the simp argument list.
+  [apply] simp [familyPolynomials, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
