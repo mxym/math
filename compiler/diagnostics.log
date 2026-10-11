@@ -24,45 +24,7 @@ MODULE FixedLocalUpper
 FixedLocalUpper.lean:46:4: error: Type mismatch: After simplification, term
   h
  has type
-  s.card ≤ m * n
+  s.card ≤ Fintype.card (Fin (Fintype.card (Fin m × Fin n)))
 but is expected to have type
   s.card ≤ D
-FixedLocalUpper.lean:58:30: error: Application type mismatch: The argument
-  hrank
-has type
-  (↑m - 1) * ⋯.eigenvalues₀ (finalTop hR ⋯) ≤ (↑m + 1) * ⋯.eigenvalues₀ (pairedPivot ⋯ hmn)
-but is expected to have type
-  f t * (↑m - 1) ≤ (↑m + 1) * b
-in the application
-  (le_div_iff₀ hmp).mpr hrank
-FixedLocalUpper.lean:66:65: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  OfNat (Type ?u.405) 0
-numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
-  Type ?u.405
-due to the absence of the instance above
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-FixedLocalUpper.lean:66:68: error(lean.invalidDottedIdent): Invalid dotted identifier notation: Not supported on type universe
-  Type ?u.404
-FixedLocalUpper.lean:82:57: error: Function expected at
-  2
-but this term has type
-  ?m.1128
-
-Note: Expected a function because this term is being applied to the argument
-  (∑ i, (f i) ^ 2)
-FixedLocalUpper.lean:82:13: error: Application type mismatch: The argument
-  bulk_rescale_bound (↑D) (↑s.card) C ↑m
-has type
-  ∀ (p : ℝ),
-    0 < ↑D →
-      0 < ↑s.card →
-        0 ≤ C →
-          C ≤ 2 →
-            ↑s.card ≤ ↑D →
-              ↑D ≤ 2 * ↑s.card →
-                ↑D - ↑s.card ≤ ↑m → p ≤ C / ↑s.card + 9 * (↑D - ↑s.card) / ↑D ^ 2 → ↑D * p ≤ C + 13 * ↑m / ↑D
-of sort `Prop` but is expected to have type
-  ?m.1121
-of sort `Type ?u.569` in the application
-  HPow.hPow ⋯
+FixedLocalUpper.lean:94:4: error: No goals to be solved
