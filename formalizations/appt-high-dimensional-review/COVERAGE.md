@@ -18,7 +18,10 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Actual projection-state attainment at every rank | `exists_projectionPlateau`, `exists_broad_plateau` | COMPLETE density, all-unitary APPT and exact purity. Not the upper bound or maximizing-spectrum classification. |
 | Sharpness of the dimension-dependent constant | `antisymmetric_not_ppt` | Actual antisymmetric projection and exact maximally entangled test. Includes a trace-one 4x4 non-APPT regression. |
 | Three-level 10x38 counterexample | Scalar SOS and rational gaps | Generic quantum sufficiency bridge not yet formalized. |
-| Unrestricted triangular finite purity bound | No final endpoint | General sorted edge assignment, row inequality, variance and normalization still needed. |
+| All ordered gap arrangements | `appt_all_ordered_pair_witnesses`, `appt_ordered_gap_square_bound` | Complete physical finite statements; placements constructed for every edge bijection. |
+| Triangular row inequality | `triangular_degree_square` | Complete in arbitrary dimension with explicit entrywise sign, symmetry and row-order hypotheses. |
+| Actual sorted gap square budget | `density_appt_pair_gap_square_sum` | Complete necessary bound from density and APPT, including exact paper pivot and edge count. |
+| Centered finite purity upper bound | No final endpoint | Baseline-sensitive refinement, centered variance assembly and normalization remain. The paired-gap budget alone is not the complete sharp purity bound. |
 | Exact rectangular maximum and all maximizers | No final endpoint | Physical broad-plateau attainment is now proved; outer-polytope construction, vertex optimization and maximizing-spectrum classification remain. |
 | Multiscale and two-ended graph limits | No final endpoint | Compactness, simultaneous levels, nested witnesses and order of limits missing. |
 | Uniform purity and Renyi entropy extrema | No final endpoint | The finite entropy-head theorem alone does not prove the global minima/maxima or their limits. |

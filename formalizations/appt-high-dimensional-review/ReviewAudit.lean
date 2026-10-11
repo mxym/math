@@ -3,6 +3,17 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.density_appt_pair_gap_square_sum,
+  ``APPTReview.pairedPivot_paper_index,
+  ``APPTReview.upperPair_card_formula,
+  ``APPTReview.appt_ordered_gap_square_bound,
+  ``APPTReview.appt_all_ordered_pair_witnesses,
+  ``APPTReview.triangular_degree_square,
+  ``APPTReview.rowRank_monotone,
+  ``APPTReview.upperPair_card,
+  ``APPTReviewGraphRegression.signedGraph_upper_cap,
+  ``APPTReviewGraphRegression.signedGraph_square_failure,
+  ``APPTReviewGraphRegression.unordered_triangle_failure,
   ``APPTReview.exists_broad_plateau,
   ``APPTReview.exists_projectionPlateau,
   ``APPTReview.projectionPlateau_isDensity,
