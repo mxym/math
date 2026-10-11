@@ -312,6 +312,58 @@ theorem routingSampleIndex_image_card
     (T.image (routingSampleIndex Z c D)).card = T.card := by
   exact Finset.card_image_of_injective T hinj
 
+/-- Distinct finite edge families have disjoint first-ge sample images.  This
+is the finite no-overlap interface used when candidate windows are assembled
+from several routing blocks. -/
+theorem routingSampleIndex_image_disjoint
+    {Z : LogScale} {M d : ℕ} {ι : Type*}
+    (c : RoutingTemplate M d) (D : ℝ)
+    (S T : Finset ι) (edges : ι → RoutingEdge M d)
+    (hsample : Function.Injective
+      (fun i => routingSampleIndex Z c D (edges i)))
+    (hdisj : Disjoint S T) :
+    Disjoint
+      (S.image (fun i => routingSampleIndex Z c D (edges i)))
+      (T.image (fun i => routingSampleIndex Z c D (edges i))) := by
+  refine Finset.disjoint_left.2 ?_
+  intro n hnS hnT
+  obtain ⟨i, hi, hni⟩ := Finset.mem_image.1 hnS
+  obtain ⟨j, hj, hnj⟩ := Finset.mem_image.1 hnT
+  have hij : i = j := hsample (hni.trans hnj.symm)
+  exact Finset.disjoint_left.1 hdisj hi (hij ▸ hj)
+
+/-! A cross-window candidate carries both its sampled sequence index and its
+local label.  The product map is injective as soon as the edge sample map is;
+this is the finite interface used when candidate pairs are enumerated before
+activation filtering. -/
+
+theorem routingSamplePair_injective
+    {Z : LogScale} {M d : ℕ} {ι β : Type*}
+    (c : RoutingTemplate M d) (D : ℝ)
+    (edges : ι → RoutingEdge M d)
+    (hsample : Function.Injective
+      (fun i => routingSampleIndex Z c D (edges i))) :
+    Function.Injective
+      (fun q : ι × β =>
+        (routingSampleIndex Z c D (edges q.1), q.2)) := by
+  intro q r hqr
+  have hfirst : q.1 = r.1 := hsample (Prod.mk.inj hqr).1
+  have hsecond : q.2 = r.2 := (Prod.mk.inj hqr).2
+  exact Prod.ext hfirst hsecond
+
+theorem routingSamplePair_image_card
+    {Z : LogScale} {M d : ℕ} {ι β : Type*} [DecidableEq β]
+    (c : RoutingTemplate M d) (D : ℝ)
+    (edges : ι → RoutingEdge M d)
+    (T : Finset (ι × β))
+    (hsample : Function.Injective
+      (fun i => routingSampleIndex Z c D (edges i))) :
+    (T.image (fun q : ι × β =>
+      (routingSampleIndex Z c D (edges q.1), q.2))).card = T.card := by
+  classical
+  exact Finset.card_image_of_injective T
+    (routingSamplePair_injective c D edges hsample)
+
 end ErdosSimilarityGrowingGaps
 
 namespace ErdosSimilarityGrowingGaps
@@ -388,5 +440,23 @@ theorem routingSampleIndex_all_edges_injective
         have hs := c.earlier_edgeEnd_add_gap_le hM hL e f hlt
         omega)
   simpa only [id_eq] using h
+
+/-! The complete routing tree discharges the preceding generic hypothesis from
+the strict edge ordering and its gap separation. -/
+
+theorem routingSamplePair_all_edges_injective
+    {Z : LogScale} {M d : ℕ} {β : Type*} [DecidableEq β]
+    (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D < c.baseLength)
+    (T : Finset (RoutingEdge M d × β)) :
+    (T.image (fun q : RoutingEdge M d × β =>
+      (routingSampleIndex Z c D q.1, q.2))).card = T.card := by
+  classical
+  apply routingSamplePair_image_card c D (fun e : RoutingEdge M d => e) T
+  exact routingSampleIndex_all_edges_injective c hM hL hspan hR hfill hD
 
 end ErdosSimilarityGrowingGaps
