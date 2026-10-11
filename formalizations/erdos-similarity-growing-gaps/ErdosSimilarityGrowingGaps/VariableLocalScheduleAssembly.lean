@@ -2,6 +2,8 @@ import ErdosSimilarityGrowingGaps.VariableLocalSigmaBridge
 
 namespace ErdosSimilarityGrowingGaps
 
+open Filter Topology
+
 /-! A certificate constructor with the rate and schedule obligations exposed as
 arguments.  The older constructor specializes these fields to
 `lateActivationRate K δ D`; a separated local spacing needs the same data with
@@ -206,6 +208,68 @@ theorem finiteSequenceBlockerSpec_of_windowFilling_local_sigma_provider
   obtain ⟨c, horigin, hbranch, hdepth, hgap, hrate, htail, herror⟩ :=
     hP.build K hK k N p α q δ σ hp hα hq hδ hδ₁ hpδ hσ hσsep
       U (4 * (K : ℝ)) D hfill'
+  refine ⟨p, hp, hpδ, c, hK, ?_⟩
+  intro n hn
+  exact ⟨htail n hn, fun r => herror r n⟩
+
+/-! Sequential version.  Unlike the pointwise provider above, this interface
+matches `WindowFilling` exactly: all span/entropy guards may be discharged
+eventually along its supplied annular sequence. -/
+structure WindowFillingSequenceLocalSigmaProvider (Z : LogScale) : Prop where
+  build : ∀ (K : ℕ), 2 ≤ K → ∀ (k : ℤ) (N : ℕ)
+    (p α q δ σ : ℝ),
+    0 < p → 0 < α → 0 ≤ q → 0 < δ → δ < 1 → 6 * p < δ →
+    0 < σ → 3 ≤ (1 / (K : ℝ)) * σ →
+    ∀ (Ufun : ℕ → ℕ) (Dfun : ℕ → ℝ),
+      Tendsto (fun j => (Ufun j : ℝ)) atTop atTop →
+      (∀ j, 1 < Real.log (Ufun j : ℝ)) →
+      (∀ j, FillsAnnulus Z (Ufun j) (4 * K) (Dfun j)) →
+      Tendsto (fun j => Dfun j / Real.log (Real.log (Ufun j : ℝ))) atTop (𝓝 0) →
+      ∀ᶠ j : ℕ in atTop,
+        ∃ c : FiniteSequenceRoutingCertificate Z K k p,
+          c.template.origin = Ufun j ∧
+          c.branching = lateBranching K p σ (Dfun j) ∧
+          c.depth = lateDepth K p σ (Dfun j) ∧
+          c.template.gap = lateStableGapExplicit K p σ (Dfun j) ∧
+          c.rate = lateActivationRate K σ (Dfun j) ∧
+          (∀ n ∈ finiteSequenceRoutingTests c, N ≤ n) ∧
+          (∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+            n ∈ finiteSequenceRoutingTests c →
+            r ∈ sequenceWindowActivations Z n k
+              (globalRoutingWindows c.template) →
+            q * (input Z n) ^ (r.1.1 + α) <
+              routingBufferRadius c.template p)
+
+theorem finiteSequenceBlockerSpec_of_windowFilling_sequence_local_sigma_provider
+    {Z : LogScale} (hW : WindowFilling Z)
+    (hP : WindowFillingSequenceLocalSigmaProvider Z) :
+    FiniteSequenceBlockerSpec Z := by
+  refine ⟨?_⟩
+  intro K hK k N α q δ hα hq hδ hδ₁
+  let p : ℝ := δ / 12
+  have hp : 0 < p := by
+    dsimp [p]
+    positivity
+  have hpδ : 6 * p < δ := by
+    dsimp [p]
+    nlinarith
+  let σ : ℝ := 3 * (K : ℝ)
+  have hσ : 0 < σ := by
+    dsimp [σ]
+    positivity
+  have hσsep : 3 ≤ (1 / (K : ℝ)) * σ := by
+    dsimp [σ]
+    have hKne : (K : ℝ) ≠ 0 := by
+      exact_mod_cast (show K ≠ 0 by omega)
+    field_simp [hKne]
+    norm_num
+  obtain ⟨Ufun, Dfun, hUtend, hUlog, hUfill, hUratio⟩ :=
+    hW (4 * K) (by omega)
+  have hev := hP.build K hK k N p α q δ σ hp hα hq hδ hδ₁ hpδ hσ hσsep
+    Ufun Dfun hUtend hUlog (by simpa [Nat.cast_mul] using hUfill) hUratio
+  obtain ⟨j, hj⟩ := eventually_atTop.1 hev
+  have hj' := hj j (le_refl j)
+  obtain ⟨c, horigin, hbranch, hdepth, hgap, hrate, htail, herror⟩ := hj'
   refine ⟨p, hp, hpδ, c, hK, ?_⟩
   intro n hn
   exact ⟨htail n hn, fun r => herror r n⟩
