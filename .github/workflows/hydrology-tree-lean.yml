@@ -49,13 +49,59 @@ jobs:
             -C "$RUNNER_TEMP" lean-4.34.1-linux \
             -C "$GITHUB_WORKSPACE/formalizations/hydrology-tree-core" .lake/packages
           sha256sum "$RUNNER_TEMP/tree-build-environment.tar.zst" > "$RUNNER_TEMP/tree-build-environment.sha256"
-      - name: Temporary build-resource artifact
+          split -b 400M "$RUNNER_TEMP/tree-build-environment.tar.zst" "$RUNNER_TEMP/tree-env-part-"
+          tar -czf "$RUNNER_TEMP/tree-owned-source.tar.gz" --exclude=.lake --exclude=.dev --exclude=__pycache__ -C "$GITHUB_WORKSPACE/formalizations" hydrology-tree-core
+      - name: Temporary build resource aa
         if: contains(github.event.head_commit.message, '[export-lean-environment]')
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: tree-build-environment-${{ github.sha }}
+          name: tree-env-aa-${{ github.sha }}
           retention-days: 1
           compression-level: 0
+          path: ${{ runner.temp }}/tree-env-part-aa
+          if-no-files-found: error
+      - name: Temporary build resource ab
+        if: contains(github.event.head_commit.message, '[export-lean-environment]')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-env-ab-${{ github.sha }}
+          retention-days: 1
+          compression-level: 0
+          path: ${{ runner.temp }}/tree-env-part-ab
+          if-no-files-found: error
+      - name: Temporary build resource ac
+        if: contains(github.event.head_commit.message, '[export-lean-environment]')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-env-ac-${{ github.sha }}
+          retention-days: 1
+          compression-level: 0
+          path: ${{ runner.temp }}/tree-env-part-ac
+          if-no-files-found: error
+      - name: Temporary build resource ad
+        if: contains(github.event.head_commit.message, '[export-lean-environment]')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-env-ad-${{ github.sha }}
+          retention-days: 1
+          compression-level: 0
+          path: ${{ runner.temp }}/tree-env-part-ad
+          if-no-files-found: error
+      - name: Temporary build resource ae
+        if: contains(github.event.head_commit.message, '[export-lean-environment]')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-env-ae-${{ github.sha }}
+          retention-days: 1
+          compression-level: 0
+          path: ${{ runner.temp }}/tree-env-part-ae
+          if-no-files-found: error
+      - name: Build metadata and owned source
+        if: contains(github.event.head_commit.message, '[export-lean-environment]')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-env-metadata-${{ github.sha }}
+          retention-days: 1
           path: |
-            ${{ runner.temp }}/tree-build-environment.tar.zst
             ${{ runner.temp }}/tree-build-environment.sha256
+            ${{ runner.temp }}/tree-owned-source.tar.gz
