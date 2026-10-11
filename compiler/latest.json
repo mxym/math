@@ -1,6 +1,6 @@
 {
   "serial": 26,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "14f0b99d5386a9b1a092c01e3d2eb6cecaa84fc6",
   "modules": [
     "HydrologyTree.EdgeDeterminant",
@@ -10,7 +10,19 @@
     "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
     "HydrologyTree/EdgeCharacteristic.lean": "0672c5603c9c8e6da7bf48925412502882aa9f8d564615ee55597a9b391ac0f8"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.375
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 1,
+      "seconds": 1.306
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/EdgeCharacteristic.lean:2:0: warning: \n'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by\n\nimport Mathlib.Basic.Real.Basic\nHydrologyTree/EdgeCharacteristic.lean:32:2: error: Type mismatch: After simplification, term\n  h\n has type\n  eval s (A.charmatrix.adjugate i i) = (A.charmatrix.map (eval s)).adjugate i i\nbut is expected to have type\n  eval s (A.charmatrix.adjugate i i) = ((scalar \u03b9) s - A).adjugate i i\nHydrologyTree/EdgeCharacteristic.lean:38:80: error: unsolved goals\ncase inl.inr\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nA : Matrix \u03b9 \u03b9 \u211d\nB : Matrix \u03ba \u03ba \u211d\ni : \u03b9\nj : \u03ba\na f s : \u211d\nval\u271d\u00b9 : \u03b9\nval\u271d : \u03ba\n\u22a2 (-if i = val\u271d\u00b9 \u2227 j = val\u271d then a else 0) = if i = val\u271d\u00b9 \u2227 j = val\u271d then -a else 0\n\ncase inr.inl\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nA : Matrix \u03b9 \u03b9 \u211d\nB : Matrix \u03ba \u03ba \u211d\ni : \u03b9\nj : \u03ba\na f s : \u211d\nval\u271d\u00b9 : \u03ba\nval\u271d : \u03b9\n\u22a2 (-if j = val\u271d\u00b9 \u2227 i = val\u271d then f else 0) = if j = val\u271d\u00b9 \u2227 i = val\u271d then -f else 0\nHydrologyTree/EdgeCharacteristic.lean:46:14: warning: `Set.compl_setOf` has been deprecated: Use `Set.compl_ofPred` instead\nHydrologyTree/EdgeCharacteristic.lean:62:2: error: Type mismatch: After simplification, term\n  h\n has type\n  (edgeJoin ((scalar \u03b9) s - A) ((scalar \u03ba) s - B) i j (-a) (-f)).det =\n    ((scalar \u03b9) s - A).det * ((scalar \u03ba) s - B).det -\n      a * f * ((scalar \u03b9) s - A).adjugate i i * ((scalar \u03ba) s - B).adjugate j j\nbut is expected to have type\n  s \u2208\n    {x |\n      (edgeJoin ((scalar \u03b9) x - A) ((scalar \u03ba) x - B) i j (-a) (-f)).det =\n        ((scalar \u03b9) x - A).det * ((scalar \u03ba) x - B).det -\n          a * f * ((scalar \u03b9) x - A).adjugate i i * ((scalar \u03ba) x - B).adjugate j j}\n"
 }
