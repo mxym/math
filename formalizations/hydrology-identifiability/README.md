@@ -8,6 +8,9 @@ It proves both sides of a useful model-design statement:
   `S = a+b+c` and `P = ac`; and
 * under constant rainfall and zero initial storage, the first three output
   derivatives recover `a`, `b`, and `c` exactly.
+* the positive second-order coefficients rule out an exact power-law recession
+  in the finite two-storage linear model; this is proved by a three-point
+  polynomial residual check.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

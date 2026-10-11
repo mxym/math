@@ -122,7 +122,36 @@ numerical fitting.
 The word “recover” here means structural and exact identifiability. It does not
 assert that noisy measurements permit stable numerical differentiation.
 
-## 5. Implications and limits
+## 5. A finite-storage obstruction to exact power-law recession
+
+The eliminated equation also gives a model-diagnostic theorem. Set rainfall to
+zero and suppose, for contradiction, that a nonzero recession has the exact
+form
+\[
+Q(t)=C(\tau+t)^{-\alpha},\qquad C\ne0.
+\]
+Direct differentiation gives
+\[
+Q'(t)=-\alpha C(\tau+t)^{-\alpha-1},\qquad
+Q''(t)=\alpha(\alpha+1)C(\tau+t)^{-\alpha-2}.
+\]
+Substitution into \(Q''+S Q'+P Q=0\), followed by multiplication by the
+nonzero factor \((\tau+t)^{\alpha+2}/C\), yields
+\[
+R(t)=\alpha(\alpha+1)-S\alpha(\tau+t)+P(\tau+t)^2=0. \tag{7}
+\]
+This is a quadratic polynomial with positive leading coefficient \(P\). It
+cannot vanish at the three distinct times \(t=0,1,2\): subtracting the three
+equations forces \(P=0\), a contradiction. The Lean theorem
+`powerLawResidual_not_all_zero` is exactly this three-point argument, and
+`nonzero_amplitude_powerLawResidual_not_all_zero` includes the amplitude.
+
+Therefore a finite two-storage linear model cannot produce an exact power-law
+recession over a full time interval. This is a structural model-selection
+statement, not a fit to observational data. It does not rule out approximate
+power laws, heterogeneous distributed linear systems, or nonlinear reservoirs.
+
+## 6. Implications and limits
 
 The two statements answer complementary model-design questions. With unknown
 initial storage, the output equation has a genuine parameter symmetry and a
@@ -137,7 +166,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 6. Reproducibility and prior context
+## 7. Reproducibility and prior context
 
 Run the exact rational checker with
 

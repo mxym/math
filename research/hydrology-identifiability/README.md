@@ -80,6 +80,18 @@ research target is a rigorous equivalence classification for threshold or
 power-law outflows with unknown initial storage and finite-time integral
 observations.
 
+The package now also contains a finite-storage recession obstruction. If
+\(S>0\) and \(P>0\), no nonzero exact power-law curve
+\(Q(t)=C(\tau+t)^{-\alpha}\) can satisfy the homogeneous output equation for
+all times. Substitution gives the quadratic residual
+\[
+\alpha(\alpha+1)-S\alpha(\tau+t)+P(\tau+t)^2.
+\]
+The Lean proof evaluates this residual at the three exact times \(0,1,2\), so
+the obstruction is a finite algebraic certificate. It separates this finite
+two-storage linear model from exact power-law recession tails without claiming
+that empirical tails are exact or ruling out distributed or nonlinear models.
+
 ## Context
 
 Relevant prior work includes Sorooshian–Gupta on conceptual-model calibration
