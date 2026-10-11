@@ -49,159 +49,127 @@ Hint: Omit it from the simp argument list.
   [apply] simp [h]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:30:82: error: unsolved goals
+HydrologyTree/CompartmentMatrix.lean:42:42: error: Application type mismatch: The argument
+  h
+has type
+  w = 0
+but is expected to have type
+  ?m.59 ≠ ?m.60
+in the application
+  Ne.symm h
+HydrologyTree/CompartmentMatrix.lean:36:82: error: unsolved goals
+case pos
 n : ℕ
 t : OrderedTree n
 x : TreeRates n
 w : Fin (n + 1)
-⊢ (if w = 0 then -x.1 0 else 0) =
-    ∑ x_1, ∑ x_2, x.1 x_1.succ * single (t.parent x_1) x_1.succ 1 x_2 w -
-          ∑ x_1, ∑ x_2, x.1 x_1.succ * single x_1.succ x_1.succ 1 x_2 w +
-        (∑ x_1, ∑ x_2, x.2 x_1 * single x_1.succ (t.parent x_1) 1 x_2 w -
-          ∑ x_1, ∑ x_2, x.2 x_1 * single (t.parent x_1) (t.parent x_1) 1 x_2 w) -
-      ∑ x_1, x.1 0 * single 0 0 1 x_1 w
-HydrologyTree/CompartmentMatrix.lean:34:37: warning: This simp argument is unused:
-  Finset.sum_mul
+h : w = 0
+⊢ ∑ x_1, x.2 x_1 * (∑ x, single x_1.succ (t.parent x_1) 1 x 0 - ∑ x, single (t.parent x_1) (t.parent x_1) 1 x 0) = 0
+
+case neg
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+w : Fin (n + 1)
+h : ¬w = 0
+⊢ ∑ x_1, x.1 x_1.succ * (∑ x, single (t.parent x_1) x_1.succ 1 x w - ∑ x, single x_1.succ x_1.succ 1 x w) +
+      ∑ x_1, x.2 x_1 * (∑ x, single x_1.succ (t.parent x_1) 1 x w - ∑ x, single (t.parent x_1) (t.parent x_1) 1 x w) =
+    0
+HydrologyTree/CompartmentMatrix.lean:39:55: warning: This simp argument is unused:
+  directed_transfer_column_sum
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Finset.sum_add_distrib, Finset.mul_sum, mul_sub, Finset.sum_sub_distrib, sum_single_column]
+  [apply] simp only [Matrix.add_apply, Finset.sum_add_distrib, zero_add, Finset.sum_const_zero, zero_sub,
+    Matrix.smul_apply, smul_eq_mul, ← Finset.mul_sum, sum_single_column]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:34:53: warning: This simp argument is unused:
-  Finset.mul_sum
+HydrologyTree/CompartmentMatrix.lean:40:4: warning: This simp argument is unused:
+  zero_add
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Finset.sum_add_distrib, Finset.sum_mul, mul_sub, Finset.sum_sub_distrib, sum_single_column]
+  [apply] simp only [Matrix.add_apply, Finset.sum_add_distrib, directed_transfer_column_sum, Finset.sum_const_zero,
+    zero_sub, Matrix.smul_apply, smul_eq_mul, ← Finset.mul_sum, sum_single_column]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:35:37: warning: This simp argument is unused:
-  sum_single_column
+HydrologyTree/CompartmentMatrix.lean:40:14: warning: This simp argument is unused:
+  Finset.sum_const_zero
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Finset.sum_add_distrib, Finset.sum_mul, Finset.mul_sum, mul_sub, Finset.sum_sub_distrib]
+  [apply] simp only [Matrix.add_apply, Finset.sum_add_distrib, directed_transfer_column_sum, zero_add, zero_sub,
+    Matrix.smul_apply, smul_eq_mul, ← Finset.mul_sum, sum_single_column]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:57:18: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:40:37: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_apply, Finset.sum_add_distrib, directed_transfer_column_sum, zero_add,
+    Finset.sum_const_zero, Matrix.smul_apply, smul_eq_mul, ← Finset.mul_sum, sum_single_column]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:63:18: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
   [apply] simp [h1, h2, eq_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:57:47: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:63:47: warning: This simp argument is unused:
   eq_comm
 
 Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.single_apply, h1, h2]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:72:2: error: unsolved goals
-case refine_1
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-v : Fin (n + 1)
-⊢ (-∑ e, if t.parent e = 0 then x.2 e else 0) - x.1 0 = (-∑ e, if t.parent e = 0 then x.2 e else 0) + -x.1 0
-Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-HydrologyTree/CompartmentMatrix.lean:73:2: error: unsolved goals
+HydrologyTree/CompartmentMatrix.lean:79:2: error: unsolved goals
 case refine_2
 n : ℕ
 t : OrderedTree n
 x : TreeRates n
 v : Fin (n + 1)
 i : Fin n
-⊢ ((-x.1 i.succ - ∑ x_1, if t.parent x_1 = i.succ then x.2 x_1 else 0) - if 0 = i.succ then x.1 0 else 0) =
-    -x.1 i.succ - ∑ x_1, if t.parent x_1 = i.succ then x.2 x_1 else 0
-HydrologyTree/CompartmentMatrix.lean:72:10: warning: This simp argument is unused:
+hi : 0 ≠ i.succ
+⊢ (-x.1 i.succ + -∑ e, if t.parent e = i.succ then x.2 e else 0) =
+    (-∑ e, if t.parent e = i.succ then x.2 e else 0) + -x.1 i.succ
+HydrologyTree/CompartmentMatrix.lean:78:10: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp
+  [apply] simp [sub_eq_add_neg]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:73:31: warning: This simp argument is unused:
-  Fin.succ_ne_zero
+HydrologyTree/CompartmentMatrix.lean:80:10: warning: This simp argument is unused:
+  Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.single_apply]
+  [apply] simp [hi, sub_eq_add_neg]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:92:2: error: unsolved goals
-case ha
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-ha : ∀ (v : Fin (n + 1)), 0 ≤ x.1 v
-hf : ∀ (e : Fin n), 0 ≤ x.2 e
-v w : Fin (n + 1)
-hvw : v ≠ w
-hz : ∀ (i : Fin (n + 1)), single i i 1 v w = 0
-e : Fin n
-a✝ : e ∈ Finset.univ
-⊢ 0 ≤ if t.parent e = v ∧ e.succ = w then 1 else 0
-HydrologyTree/CompartmentMatrix.lean:94:2: error: unsolved goals
-case hb
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-ha : ∀ (v : Fin (n + 1)), 0 ≤ x.1 v
-hf : ∀ (e : Fin n), 0 ≤ x.2 e
-v w : Fin (n + 1)
-hvw : v ≠ w
-hz : ∀ (i : Fin (n + 1)), single i i 1 v w = 0
-e : Fin n
-a✝ : e ∈ Finset.univ
-⊢ 0 ≤ if e.succ = v ∧ t.parent e = w then 1 else 0
-HydrologyTree/CompartmentMatrix.lean:84:12: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:90:12: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
   [apply] simp [hvw, Ne.symm hvw]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:84:38: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:90:38: warning: This simp argument is unused:
   Ne.symm hvw
 
 Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.single_apply, hvw]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:85:12: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:91:12: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
   [apply] simp [hi, Ne.symm hi]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:85:37: warning: This simp argument is unused:
+HydrologyTree/CompartmentMatrix.lean:91:37: warning: This simp argument is unused:
   Ne.symm hi
 
 Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.single_apply, hi]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:98:75: error: failed to prove index is valid, possible solutions:
-  - Use `have`-expressions to prove the index is valid
-  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
-  - Use `a[i]?` notation instead, result is an `Option` type
-  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
-X : ?m.1
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-⊢ ?m.5 ℝ X
-HydrologyTree/CompartmentMatrix.lean:102:73: error: failed to prove index is valid, possible solutions:
-  - Use `have`-expressions to prove the index is valid
-  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
-  - Use `a[i]?` notation instead, result is an `Option` type
-  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
-X : ?m.1
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-⊢ ?m.5 ℝ X
