@@ -1,6 +1,6 @@
 {
   "serial": 1791732352916,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "3bd2b2e86c5760eb03be8995fc5653d5461b4d66",
   "modules": [
     "FixedLocalRatio",
@@ -14,7 +14,24 @@
     "IntervalMoment.lean": "e9a045c9c310dd3c814027dda5fcfb2f3eab888f512623619fb5ef69da49729b",
     "PlateauApproximation.lean": "4002083a3ec64b08ddbf02ac5d52ba4efa9442e5ead31aee4c14b2616997f08e"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "FixedLocalRatio",
+      "returncode": 0,
+      "seconds": 4.411
+    },
+    {
+      "module": "IntervalMoment",
+      "returncode": 0,
+      "seconds": 2.994
+    },
+    {
+      "module": "FixedLocalUpper",
+      "returncode": 1,
+      "seconds": 18.266
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311"
+  "run_id": "38150520311",
+  "diagnostics": "FixedLocalUpper.lean:46:4: error: Type mismatch: After simplification, term\n  h\n has type\n  s.card \u2264 Fintype.card (Fin (Fintype.card (Fin m \u00d7 Fin n)))\nbut is expected to have type\n  s.card \u2264 D\nFixedLocalUpper.lean:94:4: error: No goals to be solved\n"
 }
