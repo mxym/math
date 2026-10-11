@@ -62,22 +62,30 @@ Hint: Omit it from the simp argument list.
     add_zero, zero_add]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RootUpdate.lean:146:4: error: Type mismatch
-  ((X + C x.2.1) * ↑(monicPoly x.1)).degree
-has type
-  WithBot ℕ
-but is expected to have type
-  ℕ
-HydrologyTree/RootUpdate.lean:147:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (?m.40 * ?m.41).degree
-in the target expression
-  ?m.2 = n + 1
 
-n : ℕ
-x : ↥(Coeff n) × ℝ × ↥(Coeff n)
-⊢ ?m.2 = n + 1
-HydrologyTree/RootUpdate.lean:145:6: error: (kernel) declaration has metavariables 'HydrologyTree.degree_rootProduct'
-HydrologyTree/RootUpdate.lean:154:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.38 ?x`) in this equality
-  @?_mvar.72240 ?m.38 ?x = ?m.38 + 1
-HydrologyTree/RootUpdate.lean:167:4: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.26 ?x`) in this equality
-  @?_mvar.72240 ?m.26 ?x = ?m.26 + 1
+MODULE ProbeTree
+ContinuousLinearMap.proj.{u_1, u_4, u_5} {R : Type u_1} [Semiring R] {ι : Type u_4} {φ : ι → Type u_5}
+  [(i : ι) → TopologicalSpace (φ i)] [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (i : ι) :
+  ((i : ι) → φ i) →L[R] φ i
+ContinuousLinearMap.pi.{u_1, u_2, u_4, u_5} {R : Type u_1} [Semiring R] {M : Type u_2} [TopologicalSpace M]
+  [AddCommMonoid M] [Module R M] {ι : Type u_4} {φ : ι → Type u_5} [(i : ι) → TopologicalSpace (φ i)]
+  [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (f : (i : ι) → M →L[R] φ i) : M →L[R] (i : ι) → φ i
+Matrix.det_of_upperTriangular.{v, u_2} {m : Type u_2} {R : Type v} {M : Matrix m m R} [CommRing R] [DecidableEq m]
+  [Fintype m] [LinearOrder m] (h : M.IsUpperTriangular) : M.det = ∏ i, M i i
+Matrix.BlockTriangular.det.{v, u_1, u_2} {α : Type u_1} {m : Type u_2} {R : Type v} {M : Matrix m m R} {b : m → α}
+  [CommRing R] [DecidableEq m] [Fintype m] [DecidableEq α] [LinearOrder α] (hM : M.BlockTriangular b) :
+  M.det = ∏ a ∈ Finset.image b Finset.univ, (M.toSquareBlock b a).det
+Matrix.det_fromBlocks_one₁₁.{u_2, u_3, u_4} {m : Type u_2} {n : Type u_3} {α : Type u_4} [Fintype m] [Fintype n]
+  [DecidableEq m] [DecidableEq n] [CommRing α] (B : Matrix m n α) (C : Matrix n m α) (D : Matrix n n α) :
+  (Matrix.fromBlocks 1 B C D).det = (D - C * B).det
+Pi.basisFun.{u_2, u_4} (R : Type u_2) (η : Type u_4) [Semiring R] [Finite η] : Module.Basis η R (η → R)
+Pi.basisFun_apply.{u_2, u_4} (R : Type u_2) (η : Type u_4) [Semiring R] [Finite η] [DecidableEq η] (i : η) :
+  (Pi.basisFun R η) i = Pi.single i 1
+Matrix.toLin'.{u_1, u_4, u_5} {R : Type u_1} [CommSemiring R] {m : Type u_4} {n : Type u_5} [DecidableEq n]
+  [Fintype n] : Matrix m n R ≃ₗ[R] (n → R) →ₗ[R] m → R
+hasFDerivAt_pi.{u_1, u_2, u_6, u_7} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {x : E} {ι : Type u_6} {F' : ι → Type u_7} [(i : ι) → NormedAddCommGroup (F' i)]
+  [(i : ι) → NormedSpace 𝕜 (F' i)] {φ : (i : ι) → E → F' i} {φ' : (i : ι) → E →L[𝕜] F' i} :
+  HasFDerivAt (fun x i => φ i x) (ContinuousLinearMap.pi φ') x ↔ ∀ (i : ι), HasFDerivAt (φ i) (φ' i) x
+Matrix.diagonal_apply.{v, u_3} {n : Type u_3} {α : Type v} [DecidableEq n] [Zero α] (d : n → α) (i j : n) :
+  Matrix.diagonal d i j = if i = j then d i else 0
