@@ -1,72 +1,99 @@
-# Exact identifiability frontier for a two-storage rainfall--runoff model
+# Exact identifiability and equifinality in a two-storage rainfall–runoff model
 
-This is a new hydrology research direction. It studies a minimal two-storage
-model exactly, rather than fitting a numerical predictor:
-
-\[
- \dot x_1=p-(a+b)x_1+cx_2,\qquad
- \dot x_2=bx_1-cx_2,\qquad Q=ax_1,
-\]
-where (a,b,c>0), (p) is known rainfall input, (x_1,x_2) are storage
-states, and (Q) is observed runoff.
-
-## Results established in this research note
-
-Writing (S=a+b+c) and (P=ac), eliminating the hidden states gives the
-exact output equation
+This note develops an exact, model-specific result for the positive two-storage
+linear rainfall–runoff system
 
 \[
- Q''+S Q'+P Q=a p'+Pp.
+\dot x_1=p-(a+b)x_1+cx_2,\qquad
+\dot x_2=bx_1-cx_2,\qquad Q=ax_1,
 \]
+with \(a,b,c>0\). Here \(p\) is a known rainfall input, \(x_1,x_2\) are
+hidden storage states, and \(Q\) is the observed discharge.
 
-For constant rainfall this becomes (Q''+SQ'+PQ=Pp). Therefore an unknown
-initial storage experiment can see (S) and (P), but cannot in general
-separate (a,b,c).
+## Established results
 
-This is witnessed by the two physically admissible equilibrium models
+Adding the storage equations gives the exact balance law
 \[
- (a,b,c)=(2,2,2),\qquad (a,b,c)=(1,1,4),\qquad p=Q=1.
+(x_1+x_2)'=p-Q.
 \]
-They have the same (S=6), (P=4), and produce the identical runoff curve
-(Q(t)=1) with nonnegative constant storage states, although their parameters
-and hidden storage are different.
-
-Conversely, for a constant (p>0) and known zero initial storage, the first
-three output derivatives recover all parameters:
+Eliminating the hidden states gives, pointwise for every sufficiently smooth
+trajectory,
 \[
- a=Q'(0)/p,\quad B=a+b=-Q''(0)/Q'(0),\quad
- bc=Q'''(0)/Q'(0)-B^2,\quad b=B-a,\quad c=bc/b.
+Q''+(a+b+c)Q'+ac\,Q = a p' + ac\,p.
 \]
-The total storage satisfies the exact water-balance identity
+Thus the scalar output equation sees the rates through
+\(S=a+b+c\) and \(P=ac\), unless additional state information or forcing
+experiments are supplied.
+
+The rates \((2,2,2)\) and \((1,1,4)\) have the same \((S,P)=(6,4)\). For
+constant rainfall \(p=1\), the nonnegative stationary states
 \[
- (x_1+x_2)'=p-Q.
+(1/2,1/2)\quad\text{and}\quad(1,1/4)
 \]
+respectively produce the identical discharge curve \(Q(t)=1\) for all time.
+This is an exact physical equifinality certificate: the parameters and hidden
+storage partition differ, while perfect continuous discharge observations agree.
 
-The point is a model-design theorem: initial-state assumptions and input
-experiments are part of identifiability. A single hydrograph cannot be used to
-claim three separately identified physical rates without such assumptions.
+The Lean development also proves the exact coefficient fibre
+\[
+b=S-a-P/a,\qquad c=P/a,
+\]
+and its converse: every positive choice of \(a\) for which the reconstructed
+\(b,c\) remain positive gives the prescribed \((S,P)\). Thus the obstruction
+is an explicit one-parameter family, not only the displayed pair.
 
-## Status and next target
+Under the controlled intervention \(p(t)=p_0>0\) and known zero initial
+storage, the first three output derivatives satisfy
+\[
+Q'(0)=ap_0,\quad Q''(0)=-a(a+b)p_0,\quad
+Q'''(0)=a((a+b)^2+bc)p_0.
+\]
+Consequently
+\[
+a=\frac{Q'(0)}{p_0},\quad B=-\frac{Q''(0)}{Q'(0)},\quad
+b=B-a,\quad c=\frac{Q'''(0)/Q'(0)-B^2}{b}.
+\]
+The three positive rates are therefore exactly recoverable in this controlled
+zero-storage experiment. This is a structural theorem, not a claim about
+statistical accuracy under noisy measurements.
 
-The identities and rational counterexample are checked by
-`checks/exact.py`. The ODE/identifiability statements are currently written
-mathematical proofs and are not yet Lean-certified. The high-value continuation
-is to classify the equivalence group for threshold/ power-law outflows with
-unknown initial state and finite-time integral observations, and to formalize
-the linear theorem before making any stronger claim.
+The formalization also proves a stronger intervention statement: if two
+constant-rainfall experiments begin from the same unknown storage state, and
+the higher rainfall exceeds the lower one, subtracting their hydrograph jets
+cancels the common initial state. The same three recovery formulas applied to
+the difference hydrograph identify all rates. This makes the cancellation
+mechanism explicit rather than assuming an empty catchment.
 
-Relevant prior context includes the structural-identifiability literature for
-conceptual rainfall--runoff models (e.g. DOI
-`10.1029/WR021i004p00487`, DOI `10.1016/j.jhydrol.2014.11.040`) and recent
-work on equifinality and hydrograph separation (DOI
-`10.1016/j.jhydrol.2022.127816`). This note does not claim historical priority.
+## Verification
 
-## Reproduction
+The exact rational regression checker is `checks/exact.py` and passes both
+normal and optimized Python execution. The Lean package in
+`formalizations/hydrology-identifiability/` formalizes the pointwise jet
+elimination identity, the stationary equifinality certificate, and the exact
+parameter-recovery formulas. It deliberately does not hide an ODE existence
+assumption: trajectories are represented by explicit pointwise derivative jets,
+so every hypothesis used by the algebraic proof is visible.
+
+The current result is intentionally limited to this model. It does not claim a
+general identifiability theorem for all conceptual hydrology models. The next
+research target is a rigorous equivalence classification for threshold or
+power-law outflows with unknown initial storage and finite-time integral
+observations.
+
+## Context
+
+Relevant prior work includes Sorooshian–Gupta on conceptual-model calibration
+([DOI](https://doi.org/10.1029/WR021i004p00487)), Shin et al. on structural
+identifiability in hydrology ([DOI](https://doi.org/10.1016/j.jhydrol.2014.11.040)),
+and Kirchner on catchment response functions
+([DOI](https://doi.org/10.1029/2009WR008777)). This repository does not make a
+priority claim.
+
+## Reproduce
 
 ```sh
 python3 -B checks/exact.py
 python3 -B -O checks/exact.py
+cd formalizations/hydrology-identifiability
+lake build Hydrology
 ```
-
-The checker uses exact rational algebra only. It corroborates the displayed
-identities and counterexample; it is not a substitute for the analytic proof.
