@@ -148,10 +148,17 @@ theorem littleO_of_eventually_nonneg_le
   have hfgc := hfg.bound hc
   filter_upwards [hfgc, hU, hh, hbound] with i hi hUi hhi hbi
   have hsum : 0 ≤ f i + g i := hhi.trans hbi
-  simp only [Real.norm_eq_abs, abs_of_nonneg hUi] at hi
-  simp only [Real.norm_eq_abs, abs_of_nonneg hhi, abs_of_nonneg hUi]
-  rw [abs_of_nonneg hsum] at hi
-  exact hbi.trans hi
+  have hUi' : ‖U i‖ = U i := by
+    rw [Real.norm_eq_abs, abs_of_nonneg hUi]
+  have hhi' : ‖h i‖ = h i := by
+    rw [Real.norm_eq_abs, abs_of_nonneg hhi]
+  have hi' : f i + g i ≤ c * U i := by
+    have hsum' : ‖f i + g i‖ = f i + g i := by
+      rw [Real.norm_eq_abs, abs_of_nonneg hsum]
+    rw [hsum', hUi'] at hi
+    exact hi
+  rw [hhi', hUi']
+  exact hbi.trans hi'
 
 /-! The common greedy-family construction now feeds the dependent witness
   directly.  This is the first concrete bridge from an annulus to certificate
