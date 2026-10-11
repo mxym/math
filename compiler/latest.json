@@ -1,7 +1,7 @@
 {
-  "serial": 19,
-  "status": "COMPILER_ERROR",
-  "request_blob": "3dc135692228595388eb3549ca3de39f6c9777c3",
+  "serial": 20,
+  "status": "COMPILING",
+  "request_blob": "0fbfdd6ae01539af0c803980a7a5675e419f1574",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -12,40 +12,13 @@
   ],
   "source_sha256": {
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
-    "HydrologyTree/CompartmentMatrix.lean": "355444c6b598470e2547c9358566ca3627e634a2d739f4b2b30518149817ef18",
+    "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/PhysicalBridge.lean": "24964c4f93057f45bac23def64b7fc095dd74e837df74d27aa523255a17ae66b",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.939
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.586
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.803
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 3.057
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 1,
-      "seconds": 2.27
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "HydrologyTree/CompartmentMatrix.lean:27:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:40:108: error(lean.unknownIdentifier): Unknown identifier `v`\nHydrologyTree/CompartmentMatrix.lean:72:30: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [edgeMatrix, h1, h2, eq_comm]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:72:59: warning: This simp argument is unused:\n  eq_comm\n\nHint: Omit it from the simp argument list.\n  [apply] simp [edgeMatrix, Matrix.single_apply, h1, h2]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:87:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [sub_eq_add_neg]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:89:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hi, sub_eq_add_neg, add_comm]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:99:12: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hvw, Ne.symm hvw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:99:38: warning: This simp argument is unused:\n  Ne.symm hvw\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.single_apply, hvw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:100:12: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hi, Ne.symm hi]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CompartmentMatrix.lean:100:37: warning: This simp argument is unused:\n  Ne.symm hi\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.single_apply, hi]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38143487813"
 }
