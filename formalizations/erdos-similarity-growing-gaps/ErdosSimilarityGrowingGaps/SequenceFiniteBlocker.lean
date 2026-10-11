@@ -123,6 +123,19 @@ theorem eventually_real_span_le_origin
   rw [hnormS, hnormO] at hi
   exact (le_abs_self (span i)).trans (by simpa using hi)
 
+theorem eventually_nat_span_le_origin
+    {ι : Type*} {l : Filter ι} {span origin : ι → ℕ}
+    (hspan : (fun i => (span i : ℝ)) =o[l]
+      (fun i => (origin i : ℝ)))
+    (horigin : ∀ᶠ i in l, 0 < origin i) :
+    ∀ᶠ i in l, span i ≤ origin i := by
+  have hpos : ∀ᶠ i in l, 0 < (origin i : ℝ) := by
+    filter_upwards [horigin] with i hi
+    exact_mod_cast hi
+  have hreal := eventually_real_span_le_origin hspan hpos
+  filter_upwards [hreal] with i hi
+  exact_mod_cast hi
+
 /-! The common greedy-family construction now feeds the dependent witness
   directly.  This is the first concrete bridge from an annulus to certificate
   lists: all choices are made by the existing finite supremum construction,
