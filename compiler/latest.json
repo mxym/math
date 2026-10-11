@@ -1,6 +1,6 @@
 {
   "serial": 34,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "8d48845dd2d1252f23aa39b54f91faf3bfe5bf50",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -16,7 +16,34 @@
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.159
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.122
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.517
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.009
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 1,
+      "seconds": 2.15
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/ProductDerivative.lean:17:48: error: unsolved goals\ncase hr\nm n : \u2115\nx : PolyPair m n\nins : PolyPair m n \u2192L[\u211d] GlueInput m n := (ContinuousLinearMap.id \u211d (PolyPair m n)).prod 0\nh :\n  HasFDerivAt (fun x => ((glue \u2218 \u21d1ins) x).1)\n    (ContinuousLinearMap.fst \u211d \u21a5(Coeff (m + n)) \u21a5(Coeff (m + n)) \u2218SL glueDerivative (ins x) \u2218SL ins) x\nz : \u21a5(Coeff n)\nn\u271d : \u2115\n\u22a2 (\u2191(((ContinuousLinearMap.fst \u211d \u21a5(Coeff (m + n)) \u21a5(Coeff (m + n)) \u2218SL glueDerivative (ins x) \u2218SL ins) \u2218SL\n              ContinuousLinearMap.inr \u211d \u21a5(Coeff m) \u21a5(Coeff n))\n            z)).coeff\n      n\u271d =\n    (\u2191((monoSylv x \u2218SL ContinuousLinearMap.inr \u211d \u21a5(Coeff m) \u21a5(Coeff n)) z)).coeff n\u271d\n"
 }
