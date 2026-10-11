@@ -1,6 +1,7 @@
 import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 import ErdosSimilarityGrowingGaps.SequenceSignatures
 import ErdosSimilarityGrowingGaps.GlobalGreedyTests
+import ErdosSimilarityGrowingGaps.SequenceTransferFill
 
 namespace ErdosSimilarityGrowingGaps
 
@@ -329,5 +330,57 @@ theorem compactRobustSpec_of_finiteSequenceBlockerSpec
     finite_sequence_routing_blocker s hsK hp hp₁ N htail α q hα hq herror
   exact ⟨H, hHo, hHp,
     hHμ.trans ((ENNReal.ofReal_lt_ofReal_iff (by linarith [hpδ])).2 hpδ), hHhit⟩
+
+/-!  The finite certificate is the only remaining interface between the
+abstract late-window property and the actual-sequence blocker.  The provider
+below makes that interface explicit while allowing the annulus and routing
+schedule to be selected by `WindowFilling`.  In particular, the provider is
+not an existence axiom for the blocker: it must construct all finite lists,
+their numerical guards, and the tail error bound. -/
+
+structure WindowFillingFiniteSequenceProvider (Z : LogScale) : Prop where
+  build : ∀ (K : ℕ), 2 ≤ K → ∀ (k : ℤ) (N : ℕ) (p α q : ℝ),
+    0 < p → 0 < α → 0 ≤ q →
+    ∀ (U : ℕ) (R D : ℝ),
+      FillsAnnulus Z (U : ℝ) R D →
+      ∀ s : RoutingSchedule K k N p, s.template.origin = U →
+      ∃ c : FiniteSequenceRoutingCertificate Z K k p,
+        c.branching = s.branching ∧
+        c.depth = s.depth ∧
+        c.template = s.template ∧
+        (∀ n ∈ finiteSequenceRoutingTests c, N ≤ n) ∧
+        (∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+          n ∈ finiteSequenceRoutingTests c →
+          r ∈ sequenceWindowActivations Z n k
+            (globalRoutingWindows c.template) →
+          q * (input Z n) ^ (r.1.1 + α) <
+            routingBufferRadius c.template p)
+
+/-- A `WindowFillingFiniteSequenceProvider` closes the global finite-data
+quantifier.  The choice `p = δ/12` is deliberately explicit, so the strict
+budget `6*p < δ` is discharged in the kernel.  All geometric work is confined
+to the provider; this theorem only synchronizes its annulus with the schedule
+selected by `WindowFilling` and assembles the already-proved blocker lemma. -/
+theorem finiteSequenceBlockerSpec_of_windowFilling_provider
+    {Z : LogScale} (hW : WindowFilling Z)
+    (hP : WindowFillingFiniteSequenceProvider Z) :
+    FiniteSequenceBlockerSpec Z := by
+  refine ⟨?_⟩
+  intro K hK k N α q δ hα hq hδ hδ₁
+  let p : ℝ := δ / 12
+  have hp : 0 < p := by
+    dsimp [p]
+    positivity
+  have hpδ : 6 * p < δ := by
+    dsimp [p]
+    nlinarith
+  obtain ⟨U, D, j, sched, hsched, hlog, hfill, hratio, hk, hupper⟩ :=
+    WindowFilling.exists_scheduled_annulus_with_active_guards hW K hK k N p hp
+  obtain ⟨c, hbranch, hdepth, htemplate, htail, herror⟩ :=
+    hP.build K hK k N p α q hp hα hq (U j) (4 * (K : ℝ)) (D j)
+      hfill sched hsched
+  refine ⟨p, hp, hpδ, c, hK, ?_⟩
+  intro n hn
+  exact ⟨htail n hn, herror · n hn⟩
 
 end ErdosSimilarityGrowingGaps

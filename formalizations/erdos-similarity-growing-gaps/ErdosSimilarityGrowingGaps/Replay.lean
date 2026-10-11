@@ -579,6 +579,12 @@ theorem replay_compactRobustSpec_of_finiteSequenceBlockerSpec
     CompactRobustSpec Z :=
   compactRobustSpec_of_finiteSequenceBlockerSpec hB
 
+theorem replay_finiteSequenceBlockerSpec_of_windowFilling_provider
+    {Z : LogScale} (hW : WindowFilling Z)
+    (hP : WindowFillingFiniteSequenceProvider Z) :
+    FiniteSequenceBlockerSpec Z :=
+  finiteSequenceBlockerSpec_of_windowFilling_provider hW hP
+
 theorem replay_routing_sample_index_all_edges_injective
     {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)
     (hM : 1 ≤ M) (hL : 0 < c.baseLength)
@@ -662,6 +668,7 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_periodic_sequence_blocker_of_power_transfer
 #print axioms finite_sequence_routing_blocker
 #print axioms compactRobustSpec_of_finiteSequenceBlockerSpec
+#print axioms replay_finiteSequenceBlockerSpec_of_windowFilling_provider
 #print axioms greedyIndex_log_upper_of_filling_prefix
 #print axioms greedyIndex_log_lower
 #print axioms exists_greedyIndex_crossing
