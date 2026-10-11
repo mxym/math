@@ -33,6 +33,7 @@ import ErdosSimilarityGrowingGaps.VariableSchedule
 import ErdosSimilarityGrowingGaps.SequenceTransferFill
 import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 import ErdosSimilarityGrowingGaps.SequenceStableGeometry
+import ErdosSimilarityGrowingGaps.SequenceStableProbability
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -647,5 +648,11 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms sequence_active_preceding_gridAddress_eq
 #print axioms sequence_stable_earlier_address_agreement
 #print axioms sequence_stable_local_success_mem_routedSet
+#print axioms sequence_missed_center_forces_vertex_miss
+#print axioms sequence_missed_center_forces_vertex_miss_sampled
+#print axioms sequence_stable_missed_center_probability_le_of_vertex_bound
+#print axioms scheduled_vertex_sequence_continuum_joint_miss_bound
+#print axioms globalRoutingWindow_active_bounds
+#print axioms globalRoutingTests_firstGe_activation
 
 end ErdosSimilarityGrowingGaps
