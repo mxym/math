@@ -1,6 +1,6 @@
 {
   "serial": 41,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "2408e103cceb63f566dc25f866f72058c1fc862d",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -24,7 +24,49 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "65aeedf38f42f19545a18e90819e41d7bc82115178d79f19e492501ab3352e8b"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.082
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.108
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.476
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.012
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.048
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.098
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.719
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 1,
+      "seconds": 1.583
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/FamilyResultants.lean:17:17: error: unsolved goals\ncase cons\nm : \u2115\nms : List \u2115\nih : \u2200 (x : ProductInput ms), (List.map natDegree (familyPolynomials ms x)).sum = ms.sum\nx : ProductInput (m :: ms)\n\u22a2 (X ^ m + \u2191x.1).natDegree = m\nHydrologyTree/FamilyResultants.lean:17:45: warning: This simp argument is unused:\n  natDegree_monicPoly\n\nHint: Omit it from the simp argument list.\n  [apply] simp [familyPolynomials, ih]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
 }
