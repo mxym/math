@@ -20,72 +20,45 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
-MODULE HydrologyTree.LeadingCoefficients
-HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-
 MODULE HydrologyTree.BlockJacobian
-
-MODULE HydrologyTree.Scaling
-HydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:
-  Matrix.det_smul
-
-Hint: Omit it from the simp argument list.
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.Triangular
 
-MODULE HydrologyTree.RootUpdate
-HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:
-  if_pos rfl
+MODULE HydrologyTree.RateChart
+HydrologyTree/RateChart.lean:82:57: error: unsolved goals
+case inl.inr
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+val✝¹ : Fin (n + 1)
+val✝ : Fin n
+⊢ (if val✝¹ = t.parent val✝ then 1 else 0) = ∑ x, if val✝¹ = t.parent x then if val✝ = x then 1 else 0 else 0
+HydrologyTree/RateChart.lean:91:90: error: unsolved goals
+n : ℕ
+t : OrderedTree n
+f : EdgeValues n
+i j : Fin n
+⊢ (if i.succ = t.parent j then f i else 0) = if t.parent j = i.succ then f i else 0
+HydrologyTree/RateChart.lean:92:58: warning: This simp argument is unused:
+  ite_mul
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
-    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n ≠ n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,
-    zero_add]
+  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:
-  mul_one
+HydrologyTree/RateChart.lean:96:66: error: unsolved goals
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+i j : Fin n
+hij : id j < id i
+hne : t.parent j ≠ i.succ
+⊢ i = j → x.1 i.succ = 0
+HydrologyTree/RateChart.lean:106:9: warning: This simp argument is unused:
+  ne_of_gt hij
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
-    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n ≠ n + 1 from by omega), mul_zero, sub_zero,
-    add_zero, zero_add]
+  [apply] simp [Matrix.sub_apply, Matrix.diagonal_apply, childWeighted_mul_parent, hne]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-
-MODULE ProbeTree
-ContinuousLinearMap.proj.{u_1, u_4, u_5} {R : Type u_1} [Semiring R] {ι : Type u_4} {φ : ι → Type u_5}
-  [(i : ι) → TopologicalSpace (φ i)] [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (i : ι) :
-  ((i : ι) → φ i) →L[R] φ i
-ContinuousLinearMap.pi.{u_1, u_2, u_4, u_5} {R : Type u_1} [Semiring R] {M : Type u_2} [TopologicalSpace M]
-  [AddCommMonoid M] [Module R M] {ι : Type u_4} {φ : ι → Type u_5} [(i : ι) → TopologicalSpace (φ i)]
-  [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (f : (i : ι) → M →L[R] φ i) : M →L[R] (i : ι) → φ i
-Matrix.det_of_upperTriangular.{v, u_2} {m : Type u_2} {R : Type v} {M : Matrix m m R} [CommRing R] [DecidableEq m]
-  [Fintype m] [LinearOrder m] (h : M.IsUpperTriangular) : M.det = ∏ i, M i i
-Matrix.BlockTriangular.det.{v, u_1, u_2} {α : Type u_1} {m : Type u_2} {R : Type v} {M : Matrix m m R} {b : m → α}
-  [CommRing R] [DecidableEq m] [Fintype m] [DecidableEq α] [LinearOrder α] (hM : M.BlockTriangular b) :
-  M.det = ∏ a ∈ Finset.image b Finset.univ, (M.toSquareBlock b a).det
-Matrix.det_fromBlocks_one₁₁.{u_2, u_3, u_4} {m : Type u_2} {n : Type u_3} {α : Type u_4} [Fintype m] [Fintype n]
-  [DecidableEq m] [DecidableEq n] [CommRing α] (B : Matrix m n α) (C : Matrix n m α) (D : Matrix n n α) :
-  (Matrix.fromBlocks 1 B C D).det = (D - C * B).det
-Pi.basisFun.{u_2, u_4} (R : Type u_2) (η : Type u_4) [Semiring R] [Finite η] : Module.Basis η R (η → R)
-Pi.basisFun_apply.{u_2, u_4} (R : Type u_2) (η : Type u_4) [Semiring R] [Finite η] [DecidableEq η] (i : η) :
-  (Pi.basisFun R η) i = Pi.single i 1
-Matrix.toLin'.{u_1, u_4, u_5} {R : Type u_1} [CommSemiring R] {m : Type u_4} {n : Type u_5} [DecidableEq n]
-  [Fintype n] : Matrix m n R ≃ₗ[R] (n → R) →ₗ[R] m → R
-hasFDerivAt_pi.{u_1, u_2, u_6, u_7} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
-  [NormedSpace 𝕜 E] {x : E} {ι : Type u_6} {F' : ι → Type u_7} [(i : ι) → NormedAddCommGroup (F' i)]
-  [(i : ι) → NormedSpace 𝕜 (F' i)] {φ : (i : ι) → E → F' i} {φ' : (i : ι) → E →L[𝕜] F' i} :
-  HasFDerivAt (fun x i => φ i x) (ContinuousLinearMap.pi φ') x ↔ ∀ (i : ι), HasFDerivAt (φ i) (φ' i) x
-Matrix.diagonal_apply.{v, u_3} {n : Type u_3} {α : Type v} [DecidableEq n] [Zero α] (d : n → α) (i j : n) :
-  Matrix.diagonal d i j = if i = j then d i else 0
+HydrologyTree/RateChart.lean:120:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
