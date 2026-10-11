@@ -25,6 +25,10 @@ It proves both sides of a useful model-design statement:
   slope identity.
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
   (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
+* `Hydrology/PowerLawNoGo.lean` closes the discrete analytic step: a positive
+  sequence with power-law derivative ratios cannot satisfy any finite uniform
+  ratio bound, and therefore no finite positive-rate spectrum can realize those
+  ratios at every order.
 * `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
   as a half weighted sum of squared pairwise rate gaps, its nonnegativity for
   nonnegative weights, and strict positivity when two positive-weight rates differ.

@@ -264,8 +264,12 @@ law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation gives
 \]
 which is unbounded as \(j\to\infty\). Thus no finite positive parallel
 reservoir mixture can equal a shifted power law on an interval. The derivative
-formula and the unboundedness argument are elementary written analysis; the
-finite-spectrum inequality is the part kernel-checked in this repository.
+formula and the unboundedness argument are now combined in the kernel-checked
+discrete theorem `finite_spectrum_powerlaw_ratio_impossible` in
+`Hydrology/PowerLawNoGo.lean`; the theorem assumes exactly the derivative-ratio
+recurrence and derives a contradiction from the finite-spectrum bound. Connecting
+that recurrence to the classical Gamma integral remains written calculus, while
+the finite-dimensional no-go implication itself is fully formalized.
 This statement does not cover signed modal coefficients, complex modes, or
 nonlinear and spatially distributed models.
 The same moments have a universal order-two Hankel identity. A finite double-sum
