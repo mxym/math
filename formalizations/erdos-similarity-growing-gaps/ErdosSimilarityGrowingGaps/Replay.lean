@@ -623,6 +623,19 @@ theorem replay_theorem2_of_windowFilling_family
   exact theorem2_of_windowBlockerSpec
     (replay_windowBlockerSpec_of_windowFilling_family hW) ε hε hε1
 
+theorem replay_full_theorem2_of_windowFilling_family
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hW : ∀ i, WindowFilling (F i))
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ ∧
+      (∀ x : ℝ, ENNReal.ofReal (1 - ε) < volume (E ∩ Icc x (x + 1))) ∧
+      (∀ i : ι, ∀ s α y c M : ℝ, 0 < s → 0 < α → c ≠ 0 → 0 ≤ M →
+        ∀ f : ℝ → ℝ, TailApproximation (F i) f s α y c M →
+        ∀ ρ : ℝ, 0 < ρ → (TailValuesOutside (F i) f E ρ).Infinite) := by
+  obtain ⟨B, hsum⟩ :=
+    (replay_windowBlockerSpec_of_windowFilling_family hW) ε hε hε1
+  exact closed_periodic_avoidance_of_blockers B ε hε hε1 hsum
+
 theorem replay_theorem2_of_consecutive_gap_family
     {ι : Type*} [Countable ι] [Nonempty ι]
     {F : ι → LogScale} (hgap : ∀ i, ConsecutiveLogGapLittleO (F i))
@@ -630,6 +643,18 @@ theorem replay_theorem2_of_consecutive_gap_family
     ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ ∧
       (∀ x : ℝ, ENNReal.ofReal (1 - ε) < volume (E ∩ Icc x (x + 1))) := by
   apply replay_theorem2_of_windowFilling_family
+    (fun i => consecutiveGap_implies_windowFilling (hgap i)) ε hε hε1
+
+theorem replay_full_theorem2_of_consecutive_gap_family
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hgap : ∀ i, ConsecutiveLogGapLittleO (F i))
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ ∧
+      (∀ x : ℝ, ENNReal.ofReal (1 - ε) < volume (E ∩ Icc x (x + 1))) ∧
+      (∀ i : ι, ∀ s α y c M : ℝ, 0 < s → 0 < α → c ≠ 0 → 0 ≤ M →
+        ∀ f : ℝ → ℝ, TailApproximation (F i) f s α y c M →
+        ∀ ρ : ℝ, 0 < ρ → (TailValuesOutside (F i) f E ρ).Infinite) := by
+  apply replay_full_theorem2_of_windowFilling_family
     (fun i => consecutiveGap_implies_windowFilling (hgap i)) ε hε hε1
 
 theorem replay_routing_sample_index_all_edges_injective
@@ -721,6 +746,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_windowBlockerSpec_of_windowFilling_family
 #print axioms replay_theorem2_of_windowFilling_family
 #print axioms replay_theorem2_of_consecutive_gap_family
+#print axioms replay_full_theorem2_of_windowFilling_family
+#print axioms replay_full_theorem2_of_consecutive_gap_family
 #print axioms greedyIndex_log_upper_of_filling_prefix
 #print axioms greedyIndex_log_lower
 #print axioms exists_greedyIndex_crossing
