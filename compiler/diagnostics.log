@@ -45,23 +45,65 @@ Hint: Omit it from the simp argument list.
   [apply] simp [h, Ne.symm h]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RootAttachment.lean:38:14: error: simp_all made no progress
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/RootAttachment.lean:42:40: warning: This simp argument is unused:
+  Matrix.single_apply
 
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  function expected
-    A k
-HydrologyTree/RootAttachment.lean:42:41: warning: This simp argument is unused:
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.charmatrix_apply_eq, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootAttachment.lean:46:41: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.charmatrix_apply_ne, h, hz]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RootAttachment.lean:54:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeJoin_left_diagonal_add`:
+HydrologyTree/RootAttachment.lean:58:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeJoin_left_diagonal_add`:
   [Fintype ι]
   [Fintype κ]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [Fintype ι] [Fintype κ] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.BranchAssembly
+HydrologyTree/BranchAssembly.lean:68:8: error: unsolved goals
+case nil
+d : ℝ
+⊢ (of fun x x_1 => -d).charmatrix.adjugate () () = 1
+HydrologyTree/BranchAssembly.lean:70:4: error: 'change' tactic failed, pattern
+  @diagonalCofactor (BranchNodes bs ⊕ Fin (b.size + 1)) (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))
+      (fun a b_1 => instDecidableEqSum a b_1)
+      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) (Sum.inl (branchRoot bs)) =
+    branchProduct (b :: bs)
+is not definitionally equal to target
+  @diagonalCofactor (BranchNodes (b :: bs)) (branchNodesFintype (b :: bs)) (branchNodesDecidableEq (b :: bs))
+      (assembledMatrix d (b :: bs)) (branchRoot (b :: bs)) =
+    branchProduct (b :: bs)
+HydrologyTree/BranchAssembly.lean:82:8: error: unsolved goals
+case nil
+d : ℝ
+⊢ ((diagonal fun x => X) - (of fun x x_1 => -d).map ⇑C).det = X + C d
+HydrologyTree/BranchAssembly.lean:85:4: error: 'change' tactic failed, pattern
+  @charpoly ℝ Real.commRing (BranchNodes bs ⊕ Fin (b.size + 1)) (fun a b_1 => instDecidableEqSum a b_1)
+      (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))
+      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) =
+    ?m.52
+is not definitionally equal to target
+  @charpoly ℝ Real.commRing (BranchNodes (b :: bs)) (branchNodesDecidableEq (b :: bs)) (branchNodesFintype (b :: bs))
+      (assembledMatrix d (b :: bs)) =
+    (X + C d) * branchProduct (b :: bs) - branchNumerator (b :: bs)
+HydrologyTree/BranchAssembly.lean:83:38: warning: This simp argument is unused:
+  Matrix.det_unique
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [assembledMatrix, Matrix.charpoly, Matrix.charmatrix, branchProduct, branchNumerator]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
