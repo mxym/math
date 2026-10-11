@@ -13,3 +13,5 @@ import APPTReview.FinitePurity
 import APPTReview.AsymptoticUpper
 
 import APPTReview.FixedLocalChecks
+
+import APPTReview.CompactControls
