@@ -3,6 +3,10 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.baseline_graph_refined_budget,
+  ``APPTReview.degree_background_identity,
+  ``APPTReview.sorted_centered_variance,
+  ``APPTReview.trace_one_variance_center,
   ``APPTReview.density_appt_pair_gap_square_sum,
   ``APPTReview.pairedPivot_paper_index,
   ``APPTReview.upperPair_card_formula,
