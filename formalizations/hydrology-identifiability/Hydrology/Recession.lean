@@ -14,11 +14,11 @@ The proof uses only the three exact rational times `0,1,2`; no floating-point
 argument or asymptotic approximation is involved. -/
 theorem powerLawResidual_not_all_zero
     {S P α τ : ℝ} (hP : 0 < P) :
-    ¬ (∀ t : ℝ, powerLawResidual S P α τ t = 0) := by
+    ¬ (∀ t : ℝ, 0 ≤ t → powerLawResidual S P α τ t = 0) := by
   intro h
-  have h0 := h 0
-  have h1 := h 1
-  have h2 := h 2
+  have h0 := h 0 (by norm_num)
+  have h1 := h 1 (by norm_num)
+  have h2 := h 2 (by norm_num)
   dsimp [powerLawResidual] at h0 h1 h2
   nlinarith
 
@@ -26,11 +26,12 @@ theorem powerLawResidual_not_all_zero
 the amplitude cannot make it vanish identically. -/
 theorem nonzero_amplitude_powerLawResidual_not_all_zero
     {S P α τ C : ℝ} (hP : 0 < P) (hC : C ≠ 0) :
-    ¬ (∀ t : ℝ, C * powerLawResidual S P α τ t = 0) := by
+    ¬ (∀ t : ℝ, 0 ≤ t → C * powerLawResidual S P α τ t = 0) := by
   intro h
   apply powerLawResidual_not_all_zero hP
   intro t
-  have ht := h t
+  intro hnonneg
+  have ht := h t hnonneg
   rcases mul_eq_zero.mp ht with ht | ht
   · exact (hC ht).elim
   · exact ht
