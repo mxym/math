@@ -20,7 +20,7 @@ noncomputable def variableRateNodeWitness_of_local_input_bounded
       (1 / (K : ℝ)) -
       ((hnode.u child + (k : ℝ)) / (K : ℝ) - D)) / σ) 0 + 1 ≤ (Q : ℝ)) :
     Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
-      (p := p) c v η hnode.ell Q) := by
+      (p := p) c v η hnode.ell D Q) := by
   have hKpos : (0 : ℝ) < K := by
     exact_mod_cast (show 0 < K by omega)
   have hs₀ : 0 < (1 / (K : ℝ)) := by positivity
@@ -31,7 +31,7 @@ noncomputable def variableRateNodeWitness_of_local_input_bounded
   have hη' : η * hnode.ell ≤ hnode.ell /
       (2 * ((K : ℝ) * (σ + D))) := by
     simpa [hnode.ell_eq] using hη
-  obtain ⟨B, children, indices, hactive, hinj, hlog, hBQ⟩ :=
+  obtain ⟨B, children, indices, hactive, hinj, hlog, hBQpair⟩ :=
     exists_common_greedy_family_bounded (s₀ := 1 / (K : ℝ))
       (s₁ := (K : ℝ)) Z c v k hnode.u hnode.ell D σ η
       (U := U) (R := R) hfill hM hs₀ hs₁ hσ
@@ -39,6 +39,7 @@ noncomputable def variableRateNodeWitness_of_local_input_bounded
       hnode.hannulus hη' hnode.hsep Q (by
         intro child
         simpa using hQ child)
+  have hBQ : B ≤ Q := hBQpair.1
   exact ⟨{
     B := B
     children := children
@@ -46,6 +47,12 @@ noncomputable def variableRateNodeWitness_of_local_input_bounded
     active_count := hactive
     index_injective := hinj
     logarithmic_gap := hlog
+    index_lower := by
+      intro i
+      have hlow := hBQpair.2 i
+      have heq := (hnode.hwindow (children i)).1
+      rw [← heq] at hlow
+      simpa [div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc] using hlow
     B_le := hBQ
   }⟩
 

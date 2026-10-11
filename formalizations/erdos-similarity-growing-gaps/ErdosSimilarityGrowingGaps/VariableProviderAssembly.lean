@@ -338,13 +338,13 @@ noncomputable def variableRateBoundedWitness_of_inputs
     ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
         (p := p) c v (lateActivationRate K δ D)
-        (vertexWindowLength c v) Q := by
+        (vertexWindowLength c v) D Q := by
   intro v
   let hv := variableRateNodeWitness_of_input_bounded (p := p) hK c v U R D δ hfill hM hδ hD
     (hinput v) Q (hQ v)
   have hv' : Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K)
       (k := k) (p := p) c v (lateActivationRate K δ D)
-      (vertexWindowLength c v) Q) := by
+      (vertexWindowLength c v) D Q) := by
     simpa only [(hinput v).ell_eq] using hv
   exact Classical.choice hv'
 
@@ -381,7 +381,7 @@ noncomputable def finiteSequenceRoutingCertificate_of_template_inputs
     (by rw [hM]; exact lateBranching_ge_two K p δ D) hδ hD hinput Q hQ
   have hwitness : ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
-        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q := by
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) D Q := by
     intro v
     exact witness v
   exact finiteSequenceRoutingCertificate_of_variable_rate_bounded_data

@@ -203,7 +203,8 @@ theorem exists_common_greedy_family
           (sequenceActiveLocalCandidates Z c v children indices k p).card) ∧
       Function.Injective (fun i => (children i, indices i)) ∧
       (∀ i j, i ≠ j → children i = children j →
-        3 ≤ s₀ * |Z.z (indices j) - Z.z (indices i)|) := by
+        3 ≤ s₀ * |Z.z (indices j) - Z.z (indices i)|) ∧
+      (∀ i, (u (children i) + (k : ℝ)) / s₁ - D ≤ Z.z (indices i)) := by
   classical
   have hne : (Finset.univ : Finset (Fin (M - 1))).Nonempty := by
     exact ⟨⟨0, by omega⟩, Finset.mem_univ _⟩
@@ -231,7 +232,7 @@ theorem exists_common_greedy_family
     fun i => (e.symm i).1
   let indices : Fin ((M - 1) * (B + 1)) → ℕ := fun i =>
     greedyIndex Z ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ (e.symm i).2.1
-  refine ⟨B, children, indices, ?_, ?_, ?_⟩
+  refine ⟨B, children, indices, ?_, ?_, ?_, ?_⟩
   · intro p
     refine sequenceActiveLocalCandidates_hmany_of_childwise Z c v children indices k p
       hM1 (slot := fun child q => e (child, q))
@@ -296,6 +297,10 @@ theorem exists_common_greedy_family
       (greedyWindowSamples_gap Z
         ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ hδ hs₀ hsep
         (e.symm i).2 (e.symm j).2 hq)
+  · intro i
+    dsimp [indices]
+    exact greedyIndex_first_log_ge Z
+      ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ hδ (e.symm i).2.1
 
 theorem exists_common_greedy_family_bounded
     {M d : ℕ} {s₀ s₁ : ℝ}
@@ -329,7 +334,8 @@ theorem exists_common_greedy_family_bounded
       Function.Injective (fun i => (children i, indices i)) ∧
       (∀ i j, i ≠ j → children i = children j →
         3 ≤ s₀ * |Z.z (indices j) - Z.z (indices i)|) ∧
-      B ≤ Q := by
+      B ≤ Q ∧
+      (∀ i, (u (children i) + (k : ℝ)) / s₁ - D ≤ Z.z (indices i)) := by
   classical
   have hne : (Finset.univ : Finset (Fin (M - 1))).Nonempty := by
     exact ⟨⟨0, by omega⟩, Finset.mem_univ _⟩
@@ -430,7 +436,12 @@ theorem exists_common_greedy_family_bounded
       (greedyWindowSamples_gap Z
         ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ hδ hs₀ hsep
         (e.symm i).2 (e.symm j).2 hq)
-  · exact Finset.sup'_le hne B₀ (fun child _ => hB₀Q child)
+  · constructor
+    · exact Finset.sup'_le hne B₀ (fun child _ => hB₀Q child)
+    · intro i
+      dsimp [indices]
+      exact greedyIndex_first_log_ge Z
+        ((u (e.symm i).1 + (k : ℝ)) / s₁ - D) δ hδ (e.symm i).2.1
 
 
 end ErdosSimilarityGrowingGaps

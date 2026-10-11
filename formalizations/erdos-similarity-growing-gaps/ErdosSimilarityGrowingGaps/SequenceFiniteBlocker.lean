@@ -81,7 +81,7 @@ structure VariableRateNodeInput
 structure VariableRateNodeWitness
     {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
     (c : RoutingTemplate M d) (v : InternalNode M d)
-    (η ell : ℝ) where
+    (η ell D : ℝ) where
   B : ℕ
   children : Fin ((M - 1) * (B + 1)) → Fin (M - 1)
   indices : Fin ((M - 1) * (B + 1)) → ℕ
@@ -91,11 +91,14 @@ structure VariableRateNodeWitness
   index_injective : Function.Injective (fun i => (children i, indices i))
   logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
     3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
+  index_lower : ∀ i,
+    ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, children i⟩) : ℝ) +
+      (k : ℝ)) / (K : ℝ) - D ≤ Z.z (indices i)
 
 structure VariableRateNodeWitnessBounded
     {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
     (c : RoutingTemplate M d) (v : InternalNode M d)
-    (η ell : ℝ) (Q : ℕ) where
+    (η ell D : ℝ) (Q : ℕ) where
   B : ℕ
   children : Fin ((M - 1) * (B + 1)) → Fin (M - 1)
   indices : Fin ((M - 1) * (B + 1)) → ℕ
@@ -105,6 +108,9 @@ structure VariableRateNodeWitnessBounded
   index_injective : Function.Injective (fun i => (children i, indices i))
   logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
     3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
+  index_lower : ∀ i,
+    ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, children i⟩) : ℝ) +
+      (k : ℝ)) / (K : ℝ) - D ≤ Z.z (indices i)
   B_le : B ≤ Q
 
 /-! Any eventual little-o span estimate yields the exact integer-origin guard
@@ -171,7 +177,7 @@ theorem variableRateNodeWitness_of_input
     (hM : 2 ≤ M) (hδ : 0 < δ) (hD : 0 ≤ D)
     (hnode : VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ) :
     Nonempty (VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p) c v
-      (lateActivationRate K δ D) hnode.ell) := by
+      (lateActivationRate K δ D) hnode.ell D) := by
   have hKpos : (0 : ℝ) < K := by
     exact_mod_cast (show 0 < K by omega)
   have hs₀ : 0 < (1 / (K : ℝ)) := by positivity
@@ -181,7 +187,7 @@ theorem variableRateNodeWitness_of_input
     nlinarith [hnode.hell]
   have hη := lateActivationRate_fill_bound K hK δ D hnode.ell
     hδ hD hell_nonneg
-  obtain ⟨B, children, indices, hactive, hinj, hlog⟩ :=
+  obtain ⟨B, children, indices, ⟨hactive, ⟨hinj, ⟨hlog, hindex_lower⟩⟩⟩⟩ :=
     exists_common_greedy_family (s₀ := 1 / (K : ℝ)) (s₁ := (K : ℝ))
       Z c v k hnode.u hnode.ell D δ (lateActivationRate K δ D)
       (U := U) (R := R) hfill hM hs₀ hs₁ hδ
@@ -194,6 +200,11 @@ theorem variableRateNodeWitness_of_input
     active_count := hactive
     index_injective := hinj
     logarithmic_gap := hlog
+    index_lower := by
+      intro i
+      have hlow := hindex_lower i
+      rw [← (hnode.hwindow (children i)).1] at hlow
+      simpa [div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc] using hlow
   }⟩
 
 theorem variableRateNodeWitness_of_input_bounded
@@ -207,7 +218,7 @@ theorem variableRateNodeWitness_of_input_bounded
       (1 / (K : ℝ)) -
       ((hnode.u child + (k : ℝ)) / (K : ℝ) - D)) / δ) 0 + 1 ≤ (Q : ℝ)) :
     Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
-      (p := p) c v (lateActivationRate K δ D) hnode.ell Q) := by
+      (p := p) c v (lateActivationRate K δ D) hnode.ell D Q) := by
   have hKpos : (0 : ℝ) < K := by
     exact_mod_cast (show 0 < K by omega)
   have hs₀ : 0 < (1 / (K : ℝ)) := by positivity
@@ -217,7 +228,7 @@ theorem variableRateNodeWitness_of_input_bounded
     nlinarith [hnode.hell]
   have hη := lateActivationRate_fill_bound K hK δ D hnode.ell
     hδ hD hell_nonneg
-  obtain ⟨B, children, indices, hactive, hinj, hlog, hBQ⟩ :=
+  obtain ⟨B, children, indices, hactive, hinj, hlog, hBQpair⟩ :=
     exists_common_greedy_family_bounded (s₀ := 1 / (K : ℝ))
       (s₁ := (K : ℝ)) Z c v k hnode.u hnode.ell D δ
       (lateActivationRate K δ D) (U := U) (R := R) hfill hM hs₀ hs₁ hδ
@@ -225,6 +236,7 @@ theorem variableRateNodeWitness_of_input_bounded
       hnode.hannulus (by simpa using hη) hnode.hsep Q (by
         intro child
         simpa using hQ child)
+  have hBQ : B ≤ Q := hBQpair.1
   exact ⟨{
     B := B
     children := children
@@ -232,6 +244,11 @@ theorem variableRateNodeWitness_of_input_bounded
     active_count := hactive
     index_injective := hinj
     logarithmic_gap := hlog
+    index_lower := by
+      intro i
+      have hlow := hBQpair.2 i
+      rw [← (hnode.hwindow (children i)).1] at hlow
+      simpa [div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc] using hlow
     B_le := hBQ
   }⟩
 
@@ -258,7 +275,7 @@ noncomputable def finiteSequenceRoutingCertificate_of_variable_rate_data
           4 * Real.log 2) * (c.baseLength : ℝ)) ≤ p)
     (witness : ∀ v : InternalNode M d,
       VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
-        c v (lateActivationRate K δ D) (vertexWindowLength c v))
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) D)
     (hcandidate : ∀ v : InternalNode M d,
       (((M - 1) * ((witness v).B + 1) : ℕ) : ℝ) ≤
         (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
@@ -335,20 +352,21 @@ noncomputable def finiteSequenceRoutingCertificate_of_variable_rate_bounded_data
     (Q : ℕ)
     (witness : ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
-        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) D Q)
     (hQcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
       (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
         c.baseLength d + |(k : ℝ)| + 2)) :
     FiniteSequenceRoutingCertificate Z K k p := by
   let witness' : ∀ v : InternalNode M d,
       VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
-        c v (lateActivationRate K δ D) (vertexWindowLength c v) := fun v => {
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) D := fun v => {
     B := (witness v).B
     children := (witness v).children
     indices := (witness v).indices
     active_count := (witness v).active_count
     index_injective := (witness v).index_injective
     logarithmic_gap := (witness v).logarithmic_gap
+    index_lower := (witness v).index_lower
   }
   apply finiteSequenceRoutingCertificate_of_variable_rate_data hK hp hp₁ c δ D
     hδ hD hM hd hgap horigin hlength hgap_guard hspan hcoeff hentropy witness'

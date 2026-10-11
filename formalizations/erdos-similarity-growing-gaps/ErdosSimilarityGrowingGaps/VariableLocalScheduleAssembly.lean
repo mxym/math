@@ -11,7 +11,7 @@ arguments.  The older constructor specializes these fields to
 noncomputable def finiteSequenceRoutingCertificate_of_rate_data
     {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
     (hbranch : 2 ≤ M) (hdepth : 0 < d)
-    (c : RoutingTemplate M d) (η : ℝ)
+    (c : RoutingTemplate M d) (η D : ℝ)
     (horigin : 4 ≤ c.origin) (hlength : 0 < c.baseLength)
     (hgap_guard : c.gap + 1 ≤ c.origin)
     (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
@@ -26,7 +26,7 @@ noncomputable def finiteSequenceRoutingCertificate_of_rate_data
           (c.baseLength : ℝ)) ≤ p)
     (witness : ∀ v : InternalNode M d,
       VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
-        c v η (vertexWindowLength c v))
+        c v η (vertexWindowLength c v) D)
     (hcandidate : ∀ v : InternalNode M d,
       (((M - 1) * ((witness v).B + 1) : ℕ) : ℝ) ≤
         (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
@@ -74,7 +74,7 @@ supplies one common natural budget `Q`. -/
 noncomputable def finiteSequenceRoutingCertificate_of_rate_bounded_data
     {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
     (hbranch : 2 ≤ M) (hdepth : 0 < d)
-    (c : RoutingTemplate M d) (η : ℝ)
+    (c : RoutingTemplate M d) (η D : ℝ)
     (horigin : 4 ≤ c.origin) (hlength : 0 < c.baseLength)
     (hgap_guard : c.gap + 1 ≤ c.origin)
     (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
@@ -90,22 +90,23 @@ noncomputable def finiteSequenceRoutingCertificate_of_rate_bounded_data
     (Q : ℕ)
     (witness : ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
-        c v η (vertexWindowLength c v) Q)
+        c v η (vertexWindowLength c v) D Q)
     (hcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
       (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
         c.baseLength d + |(k : ℝ)| + 2)) :
     FiniteSequenceRoutingCertificate Z K k p := by
   let witness' : ∀ v : InternalNode M d,
       VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
-        c v η (vertexWindowLength c v) := fun v => {
+        c v η (vertexWindowLength c v) D := fun v => {
     B := (witness v).B
     children := (witness v).children
     indices := (witness v).indices
     active_count := (witness v).active_count
     index_injective := (witness v).index_injective
     logarithmic_gap := (witness v).logarithmic_gap
+    index_lower := (witness v).index_lower
   }
-  apply finiteSequenceRoutingCertificate_of_rate_data hbranch hdepth c η
+  apply finiteSequenceRoutingCertificate_of_rate_data hbranch hdepth c η D
     horigin hlength hgap_guard hspan hcoeff hdecay hdefault hstable hentropy
     witness'
   intro v
@@ -140,13 +141,13 @@ noncomputable def variableRateBoundedWitness_of_local_inputs
           (Q : ℝ)) :
     ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
-        c v η (vertexWindowLength c v) Q := by
+        c v η (vertexWindowLength c v) D Q := by
   intro v
   let hv := variableRateNodeWitness_of_local_input_bounded
     (p := p) hK c v U R D σ η hfill hM hσ hD (hη v)
     (hinput v) Q (hQ v)
   have hv' : Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K)
-      (k := k) (p := p) c v η (vertexWindowLength c v) Q) := by
+      (k := k) (p := p) c v η (vertexWindowLength c v) D Q) := by
     simpa only [(hinput v).ell_eq] using hv
   exact Classical.choice hv'
 
