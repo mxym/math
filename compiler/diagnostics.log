@@ -1,8 +1,12 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 2479 file(s)
+Attempting to download 6 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 3 file(s) [attempted 3/6 = 50%, 293 KB/s], Decompressed: 2
+Downloaded: 6 file(s) [attempted 6/6 = 100%, 293 KB/s], Decompressed: 3
+Decompressed 6 file(s)
+Already decompressed 2485 file(s)
 
 MODULE HydrologyTree.Coefficients
 HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
@@ -53,13 +57,7 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 MODULE HydrologyTree.FamilyResultants
 
 MODULE HydrologyTree.FamilySmoothness
-HydrologyTree/FamilySmoothness.lean:11:17: error(lean.invalidField): Invalid field `add`: The environment does not contain `ContDiffWithinAt.match_1.add`, so it is not possible to project the field `add` from an expression
-  contDiff_const
-of type
-  match ?m.18 with
-  | none => ∃ p, HasFTaylorSeriesUpTo ⊤ (fun x => ?m.19) p ∧ ∀ (i : ℕ), AnalyticOnNhd ?m.10 (fun x => p x i) Set.univ
-  | some n => ∃ p, HasFTaylorSeriesUpTo (↑n) (fun x => ?m.19) p
-HydrologyTree/FamilySmoothness.lean:28:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  NormedSpace ℝ ↥(Coeff (List.foldr (fun x1 x2 => x1 + x2) 0 ms))
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MODULE HydrologyTree.TangentJacobian
+
+MODULE HydrologyTree.FamilyGluing
