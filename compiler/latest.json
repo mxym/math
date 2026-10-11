@@ -1,70 +1,20 @@
 {
-  "serial": 1791736551808,
-  "status": "COMPILER_ERROR",
-  "request_blob": "ff50719e05677e0c194b625bb0aefc48b9324064",
+  "serial": 1791736665996,
+  "status": "COMPILING",
+  "request_blob": "62128e1dcf191f90603abd6f69effbcad4029c1b",
   "modules": [
     "StateTopology",
-    "PurityGeometry",
-    "MaximumExistence",
-    "ConvexExtrema",
-    "MaximizerLimits",
-    "CompactnessChecks",
     "TransposePurity",
-    "DensityComplement"
+    "DensityComplement",
+    "SingularClassification"
   ],
   "source_sha256": {
-    "MaximumExistence.lean": "8d336a4dba15383dc8b55c0f806fe2132db13416f6545bc1bc59be914617a1d4",
+    "SingularClassification.lean": "ca7c9a257a66a681b8187ba6b64c0d0a66b05517204f379c7805ce12f64825f1",
     "TransposePurity.lean": "5759fbda0c626c9da7d1f666a30809c78637d148aec81f9773b35f4c53d87f33",
-    "ConvexExtrema.lean": "b18969a76ce3b802e82c39e2ee583144c78f9315a690ac66a643cebc5c5f44bc",
-    "DensityComplement.lean": "c52a7b4ac9b243ce936b6b92009b27430eb8940a1ab9c9d56b2b196ce35aa48a",
-    "MaximizerLimits.lean": "1a5d707bbef66e51ea2873d1ad021655fd1ba45246b30d45255c75800a5b7842",
-    "StateTopology.lean": "ec8f1a47034feefcd22da44c00ad364064fb527ad96370ffbc2c3d8cdafc2e7b",
-    "PurityGeometry.lean": "644fc3af06501ffb7454abca17588d8db42cd8a1350a492bbfef05ddb9396d9f",
-    "CompactnessChecks.lean": "74dddf0b134851c4ebe0c8e5060891aaae5607979eb13a7df9ad91debfb26cdb"
+    "DensityComplement.lean": "1516a1bf31510989e18a5cdf8bc9495168121119b20f02b813a926a276d86461",
+    "StateTopology.lean": "ec8f1a47034feefcd22da44c00ad364064fb527ad96370ffbc2c3d8cdafc2e7b"
   },
-  "commands": [
-    {
-      "module": "StateTopology",
-      "returncode": 0,
-      "seconds": 2.229
-    },
-    {
-      "module": "PurityGeometry",
-      "returncode": 0,
-      "seconds": 2.439
-    },
-    {
-      "module": "MaximumExistence",
-      "returncode": 0,
-      "seconds": 2.255
-    },
-    {
-      "module": "ConvexExtrema",
-      "returncode": 0,
-      "seconds": 2.31
-    },
-    {
-      "module": "MaximizerLimits",
-      "returncode": 0,
-      "seconds": 1.994
-    },
-    {
-      "module": "CompactnessChecks",
-      "returncode": 0,
-      "seconds": 2.277
-    },
-    {
-      "module": "TransposePurity",
-      "returncode": 0,
-      "seconds": 4.459
-    },
-    {
-      "module": "DensityComplement",
-      "returncode": 1,
-      "seconds": 2.599
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38155098703",
-  "diagnostics": "DensityComplement.lean:21:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u2191?r * \u2191?s\nin the target expression\n  \u2191(1 / (\u2191(Fintype.card (a \u00d7 b)) - 1)) * (\u2191\u2191(Fintype.card (a \u00d7 b)) - 1) = 1\n\ncase right\na : Type u_1\nb : Type u_2\ninst\u271d\u00b3 : Fintype a\ninst\u271d\u00b2 : Fintype b\ninst\u271d\u00b9 : DecidableEq a\ninst\u271d : DecidableEq b\nhD : 1 < Fintype.card (a \u00d7 b)\nA : Matrix (a \u00d7 b) (a \u00d7 b) \u2102\nh\u03c1 : APPT.Quantum.IsDensity A\nhc : 0 < \u2191(Fintype.card (a \u00d7 b)) - 1\nht : (1 - A).trace = \u2191\u2191(Fintype.card (a \u00d7 b)) - 1\n\u22a2 \u2191(1 / (\u2191(Fintype.card (a \u00d7 b)) - 1)) * (\u2191\u2191(Fintype.card (a \u00d7 b)) - 1) = 1\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nDensityComplement.lean:34:91: error: unsolved goals\na : Type u_1\nb : Type u_2\ninst\u271d\u00b3 : Fintype a\ninst\u271d\u00b2 : Fintype b\ninst\u271d\u00b9 : DecidableEq a\ninst\u271d : DecidableEq b\nA : Matrix (a \u00d7 b) (a \u00d7 b) \u2102\nh\u03c1 : APPT.Quantum.IsDensity A\nhe : (1 - A) * (1 - A) = 1 - 2 \u2022 A + A * A\n\u22a2 \u2191(Fintype.card (a \u00d7 b)) * (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 - (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 * 2 +\n      (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 * (A * A).trace.re =\n    \u2191(Fintype.card (a \u00d7 b)) * (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 +\n        (A * A).trace.re * (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 -\n      (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 * 2\n"
+  "run_id": "38155098703"
 }
