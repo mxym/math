@@ -62,16 +62,16 @@ separates structural non-identifiability from numerical conditioning.
 
 ## Reproduce
 
-With Lean 4.34.1 and the pinned Mathlib revision:
+With Lean 4.34.1 and the pinned Mathlib revision, run:
 
 ```bash
 lake exe cache get
 lake build
 ```
 
-The Python checker in `checks/exact.py` independently checks the same rational
-identities, the parallel-reservoir regression example, and deliberate failure
-controls. The parallel result is in `Hydrology/Parallel.lean`; it recovers the
+The package currently has no separate Python checker; the authoritative
+verification is the Lean kernel build above. The parallel result is in
+`Hydrology/Parallel.lean`; it recovers the
 unordered rate pair as the roots of the resulting quadratic, but does not claim
 identifiability for arbitrary distributed or nonlinear catchments. The
 three-mode extension is in `Hydrology/Parallel3.lean` and is likewise an exact
