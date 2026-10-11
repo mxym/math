@@ -1,7 +1,7 @@
 {
-  "serial": 9,
-  "status": "COMPILER_ERROR",
-  "request_blob": "5e073a1d77522232172874943cb4840ec7477754",
+  "serial": 10,
+  "status": "COMPILING",
+  "request_blob": "e23e322981acbd009908e6cc7e91e80c4fb96fe7",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.LeadingCoefficients",
@@ -15,42 +15,10 @@
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/LeadingCoefficients.lean": "ad1b12815bbc9a183b82ba36be55642d41d725826f48e466c1fe98fa16fc62b8",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
-    "HydrologyTree/RootUpdate.lean": "7514157117e865437ab1f47054c7ca2c03faf355cefa7b517006ad0253ad0cbd",
+    "HydrologyTree/RootUpdate.lean": "b6a82a5f1dd7baf9e933e31b49a9f124d03e8d570dba3f892c85fc4db8048c86",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.962
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.468
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.588
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 3.329
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.776
-    },
-    {
-      "module": "HydrologyTree.RootUpdate",
-      "returncode": 1,
-      "seconds": 3.766
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nHydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nHydrologyTree/RootUpdate.lean:113:2: error: 'change' tactic failed, pattern\n  (shiftTop n) x.1 + x.2.1 = x.2.1 + (shiftTop n) x.1\nis not definitionally equal to target\n  (x.2.1 * if True then 1 else 0) + (X * \u2191x.1).coeff n = x.2.1 + (shiftTop n) x.1\nHydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:\n  if_pos rfl\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,\n    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n \u2260 n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,\n    zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,\n    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n \u2260 n + 1 from by omega), mul_zero, sub_zero,\n    add_zero, zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38143487813"
 }
