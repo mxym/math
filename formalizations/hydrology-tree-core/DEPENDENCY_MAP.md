@@ -23,3 +23,25 @@ The isolated compiler session is development infrastructure. Its status is not a
 proof certificate. Only the separate source-bound Lake/replay/negative-control
 workflow can certify a completed source checkpoint. No main theorem is exported
 with its conclusion or a missing geometric/algebraic bridge as a hypothesis.
+
+## Updated end-to-end coverage
+
+- Child renumbering and all matrix/characteristic/cofactor transport:
+  `physicalBranch_eq_childTree`, `physicalBranch_charpoly_eq`,
+  `physicalBranch_cofactor_eq`, `childEdgeCount_lt`.
+- Full independent rate input chart: `ratePartitionEquiv`,
+  `ratePartition_child`, `ratePartition_unique_original` (see actual ROOTS.txt
+  for the exported uniqueness declaration's precise name).
+- Nonlinear root coupling: `rootCoupling_jacobian`,
+  `rootCoupling_physical_coordinates`, `actualCoupling_jacobian`.
+- Actual original-tree recursions: `physicalRootCofactor_child_product`,
+  `physicalCharacteristic_child_recursion`.
+- Full common-root classification under nonzero internal edges, all tree sizes
+  and arbitrary real field extensions: `physicalCommonRoot_iff_siblingCollision`.
+  This has no assumed block determinant, child matrix transport or cancellation
+  statement. Its proof uses the proved local algebra and well-founded child
+  recursion. It does not assert the unfinished global Jacobian equivalence.
+
+The global coefficient-Jacobian chain and its basis/orientation assembly,
+exact multiplicities, positive spectral consequences and complete positive
+inverse/fiber classification remain the explicit missing mathematical work.

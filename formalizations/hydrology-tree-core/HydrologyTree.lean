@@ -7,3 +7,5 @@ import HydrologyTree.PhysicalLeaf
 import HydrologyTree.FamilyGluing
 import HydrologyTree.PhysicalRootDecomposition
 import HydrologyTree.ChildMatrix
+import HydrologyTree.CouplingSemantics
+import HydrologyTree.TreeCancellation

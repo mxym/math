@@ -1,58 +1,68 @@
-# Remaining mathematical obligations — not assumptions
+# Remaining proof obligations — partial formalization
 
-The target remains the Jacobian of the actual characteristic/cofactor
-coefficient map of a finite bidirected tree with one leak:
+The principal unfinished target is the Jacobian of the actual characteristic /
+root-cofactor coefficient map, for every finite physical tree:
 
     det DC_T = ± product_v f_v^(n_v-1) a_v^n_v
       * product_(sibling pairs at every node) Res(P_v,P_w)^2.
 
-## Completed proof-critical components
+## Completed connections
 
-Actual matrix and rate-coordinate semantics; physical rate-coordinate Jacobian
-at all real rates; exact actual characteristic/cofactor encoding and resolvent;
-all-finite-block characteristic and cofactor attachment; arbitrary-branch matrix
-assembly; actual physical last-leaf recurrence; all-arity coefficient gluing,
-including its second-order regularity; monic numerator scaling and root-update
-Jacobians; canonical root-branch partition and exact original matrix block
-transport. None of these is supplied as an assumption in place of its proof.
+Actual physical matrices, characteristic/cofactor encoding, conservation,
+resolvent identities and the physical rate-coordinate Jacobian are proved.
+Actual root-branch partition and complete block decomposition, increasing child
+renumbering as a strictly smaller tree, retained exit-to-parent leak, all child
+matrix entries and characteristic/cofactor equalities are proved. The exact
+input-rate partition is a proved linear equivalence onto independent child data.
+The nonlinear root coupling has an actual Frechet Jacobian equal to the product
+of child leak parameters, including when those parameters are zero.
 
-## Full coefficient Jacobian induction
+The end-to-end characteristic and root-cofactor recursions now apply directly
+to the original OrderedTree, not merely to a separately assembled arrow model.
+All-arity polynomial gluing, numerator equality, required second-order
+regularity, monic scaling and root-update Jacobians are also proved.
 
-The actual child principal blocks are now identified with smaller OrderedTrees,
-with rate-independent increasing enumeration, parent transport, conservation,
-all matrix entries, and characteristic/root-cofactor polynomial equality proved.
-The original exit-to-parent rate is retained as each child's single leak.
+## Full coefficient-Jacobian induction
 
-Still prove the complete input rate-coordinate permutation and finish the
-induction with all child Jacobians, scaling, root update, chain rule and
-orientation bookkeeping. Arbitrary external graph numberings and the
-observation-root/leak-root distinction need their own reindexing statements.
-A matrix-coordinate Jacobian is not the target coefficient Jacobian.
+Still assemble the determinant chain rule in compatible finite-dimensional
+bases for the independent family of child rate data, their coefficient maps,
+root coupling, numerator scaling, all-arity gluing and root update. Prove the
+complete induction and its conversion to the displayed edge-exponent and
+sibling-resultant formula. This assembly is not supplied as a hypothesis, nor
+is the separately proved rate-coordinate Jacobian called the target Jacobian.
+Basis orientations and arbitrary external graph relabelings need explicit
+bookkeeping; the observation-root / nonroot-leak version also needs transport.
 
-## Multiplicities and conjecture corollaries
+## Common-root classification versus remaining spectral/Jacobian claims
 
-After the full factorization, prove that sibling resultants have no additional
-individual-rate factors. A displayed factorization alone does not prove the
-exact coordinate multiplicities. Catenary and general-tree conjecture statements
-must be derived with their actual published parameter conventions, not merely
-matched by a finite example or name.
+`physicalCommonRoot_iff_siblingCollision` now proves the entire all-size
+classification of actual characteristic/cofactor common zeros: they occur iff
+actual sibling principal-block polynomials share that value somewhere in the
+tree. The result holds in every field extension of the reals, for nonzero
+internal directed rates of either sign, and arbitrary root leak. The rate
+inheritance, local cancellation algebra and full tree induction are proved.
 
-## Cancellation and positive singularities
+Not yet proved: the global resultant identity with the coefficient Jacobian,
+stability / diagonal symmetrization, the equivalence to Jacobian singularity,
+or a controllability/observability theorem about the underlying ODE system.
+The common-root result must not be described as those unproved equivalences.
+Zero internal rates are excluded in this classification; the full Jacobian
+target is supposed to include them. Unreduced coefficient data are not silently
+replaced by the cancelled response at a zero-rate boundary.
 
-Prove the complete resultant identity between the characteristic polynomial
-and actual root cofactor, plus stability/symmetrization and the required spectral
-and minimality statements. Do not conflate the original unreduced coefficient
-map with a reduced transfer function: zero-rate response cancellation need not
-make the unreduced coefficient Jacobian singular.
+## Exact multiplicities and published conjectures
+
+After the complete Jacobian factorization, prove that sibling resultants have
+no extra individual-rate factors, and derive both conjecture statements with
+their original rate conventions. The factorization alone is not exact
+multiplicity, and finite examples are not all-size conjecture proofs.
 
 ## Global positive realizations and fiber count
 
-Prove rational Stieltjes pole/zero interlacing and residue signs, every step of
-the constructive inverse, physical positivity and conservation, uniqueness for
-a fixed recursive pole assignment, completeness of all positive realizations,
-the factorial count and any claimed global continuity or analytic branch
-classification. These do not follow from a nonzero local Jacobian or finite
-rational realization fixtures.
+Still prove rational Stieltjes interlacing and residue signs, the constructive
+inverse, positivity / conservation, uniqueness for fixed recursive pole
+assignments, completeness of every positive realization and the factorial
+count. Any global analytic inverse-branch classification requires its own
+proof. None follows from the local Jacobian or from the common-root theorem.
 
-No main theorem is exported with one of these missing conclusions as its own
-hypothesis. No complete-formalization Release is justified yet.
+No complete-formalization Release or DOI is justified by this checkpoint.

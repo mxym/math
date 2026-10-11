@@ -150,3 +150,33 @@ induction, exact multiplicities and global classification still remain.
 
 These five modules compiled in the local isolated Lean 4.34.1 environment.
 Independent CI for this new source checkpoint is separate from older receipts.
+
+## Global common-root theorem and complete physical recursion
+
+The new main entry `physicalCommonRoot_iff_siblingCollision` is an **all-size
+classification** for the actual physical tree polynomials, not a finite fixture:
+
+    P_T(z) = F_T(z) = 0  iff  some actual sibling subtrees share the root z.
+
+The field containing z can be any field extension of the reals. Every internal
+directed rate must be nonzero, but its sign and the original root leak are
+unrestricted. Each recursively visited block is proved to be the genuine
+principal child matrix with its original boundary-exit diagonal retained.
+`FiniteCancellation`, `PhysicalCancellation` and `TreeCancellation` prove the
+local algebra, inheritance of nonzero internal rates and full tree induction.
+This proves common-root cancellation, NOT its still-unproved equivalence to
+coefficient-Jacobian singularity or the full positive-realization classification.
+
+`ChildIndex` and `RateCoordinates` prove the exact rate-independent linear
+isomorphism between original rate parameters and arbitrary independent child
+data plus root/connector parameters. `RootCoupling` and `CouplingSemantics`
+prove its nonlinear follow-up's actual Frechet derivative and determinant,
+including zero child leaks. `DependentBlocks`, `ArrowDeterminant`,
+`ArrowCharacteristic`, and `PhysicalRecursion` prove the end-to-end characteristic
+and cofactor recursions of the original physical tree. No block recursion is
+left as a premise at the common-root theorem's entry point.
+
+The full coefficient-Jacobian determinant induction still needs to assemble
+these actual maps in compatible bases. Exact factor multiplicities,
+Jacobian/spectral equivalences and the complete Stieltjes realization/fiber
+count remain explicitly unproved. See the updated GAPS.md.
