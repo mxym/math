@@ -1,6 +1,6 @@
 {
   "serial": 38,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "e4a3aeeb908279438b7a0fa29c229a442f7feca2",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -38,7 +38,89 @@
     "HydrologyTree/PhysicalLeaf.lean": "ef714d3cf4e0d0b83c9b078448a5b0d420f1bcff51bea5e25a060269b67b0675",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.001
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.021
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.188
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.385
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.781
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.715
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.376
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.362
+    },
+    {
+      "module": "HydrologyTree.RootAttachment",
+      "returncode": 0,
+      "seconds": 1.459
+    },
+    {
+      "module": "HydrologyTree.LeafRecursion",
+      "returncode": 0,
+      "seconds": 1.355
+    },
+    {
+      "module": "HydrologyTree.PhysicalLeaf",
+      "returncode": 0,
+      "seconds": 1.653
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.406
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 1.95
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 1.997
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.067
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 1,
+      "seconds": 2.352
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/FamilyProduct.lean:32:4: warning: Variable name `m` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _m\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nHydrologyTree/FamilyProduct.lean:46:17: error: don't know how to synthesize implicit argument `x`\n  @ContinuousLinearMap.hasFDerivAt \u211d DenselyNormedField.toNontriviallyNormedField (\u21a5(Coeff m) \u00d7 ProductInput ms)\n    Prod.instAddCommGroup Prod.instModule instTopologicalSpaceProd (\u21a5(Coeff m)) (Coeff m).addCommGroup (Coeff m).module\n    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (ContinuousLinearMap.fst \u211d (\u21a5(Coeff m)) (ProductInput ms)) ?m.62\ncontext:\nm : \u2115\nms : List \u2115\nih : \u2200 (x : ProductInput ms), HasFDerivAt (familyProduct ms) (familyProductDerivative ms x) x\nx : ProductInput (m :: ms)\n\u22a2 \u21a5(Coeff m) \u00d7 ProductInput ms\nHydrologyTree/FamilyProduct.lean:46:9: error: failed to infer `have` declaration type\nHydrologyTree/FamilyProduct.lean:95:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?M * ?N).det\nin the target expression\n  ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis \u211d (m + ms.sum))) \u2191(monoSylv (x.1, familyProduct ms x.2)) *\n        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))\n          \u2191(keepLeft (familyProductDerivative ms x.2))).det =\n    (\u2191(monicPoly x.1)).resultant (\u2191(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2\n\ncase cons\nm : \u2115\nms : List \u2115\nih :\n  \u2200 (x : ProductInput ms),\n    ((LinearMap.toMatrix (familyBasis ms) (degreeLT.basis \u211d ms.sum)) \u2191(familyProductDerivative ms x)).det =\n      familyResultant ms x\nx : ProductInput (m :: ms)\n\u22a2 ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis \u211d (m + ms.sum))) \u2191(monoSylv (x.1, familyProduct ms x.2)) *\n        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))\n          \u2191(keepLeft (familyProductDerivative ms x.2))).det =\n    (\u2191(monicPoly x.1)).resultant (\u2191(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    (LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis \u211d (m + ms.sum))) \u2191(monoSylv (x.1, familyProduct ms x.2)) *\n      (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum)) \u2191(keepLeft (familyProductDerivative ms x.2))\n  has type\n    Matrix (Fin (m + ms.sum)) (Fin (m :: ms).sum) \u211d\n  but is expected to have type\n    Matrix (Fin (m + ms.sum)) (Fin (m + ms.sum)) \u211d\n  in the application\n    ((LinearMap.toMatrix (pairBasis m ms.sum) (degreeLT.basis \u211d (m + ms.sum))) \u2191(monoSylv (x.1, familyProduct ms x.2)) *\n        (LinearMap.toMatrix (familyBasis (m :: ms)) (pairBasis m ms.sum))\n          \u2191(keepLeft (familyProductDerivative ms x.2))).det\n"
 }
