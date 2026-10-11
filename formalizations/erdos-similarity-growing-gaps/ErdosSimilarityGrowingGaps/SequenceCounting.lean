@@ -502,4 +502,57 @@ theorem exists_uniform_greedy_active_count
     hell'
     hstart hhan B hcross
 
+/-! The same uniform prefix can be selected with an explicit slot-count
+envelope.  The bound is independent of the power parameter and is the input
+needed by the finite candidate-count guard. -/
+theorem exists_uniform_greedy_active_count_bounded
+    {M d : ℕ} {s₀ s₁ : ℝ} (Z : LogScale) (c : RoutingTemplate M d)
+    (v : InternalNode M d) (child : Fin (M - 1)) (k : ℤ)
+    {U R : ℝ} (u ell D δ : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hs₀ : 0 < s₀) (hs₁ : 0 < s₁) (hδ : 0 < δ)
+    (ha : U / R ≤ (u + (k : ℝ)) / s₁ - D)
+    (ha_hi : (u + (k : ℝ)) / s₁ ≤ R * U)
+    (hnum : 0 ≤ u + ell + (k : ℝ)) (huk : 0 ≤ u + (k : ℝ))
+    (hwindow : c.edgeStart (RoutingTemplate.selectorRoutingEdge
+      ⟨v, child⟩) = u ∧
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge
+        ⟨v, child⟩) : ℝ) + c.edgeLength (RoutingTemplate.selectorRoutingEdge
+          ⟨v, child⟩) = u + ell)
+    (hell : 2 * (s₁ * (δ + D)) ≤ ell)
+    (hannulus : (u + ell + (k : ℝ)) / s₀ + δ + D ≤ R * U) :
+    ∃ B : ℕ, (∀ p : PowerParams s₀ s₁,
+      ell / (2 * (p.1.1 * (δ + D))) ≤
+        (sequenceActiveLocalCandidates Z c v
+          (fun _ : Fin (B + 1) => child)
+          (fun i => greedyIndex Z ((u + (k : ℝ)) / s₁ - D) δ i.1) k p).card) ∧
+      (B : ℝ) ≤ max (((u + ell + (k : ℝ)) / s₀ -
+        ((u + (k : ℝ)) / s₁ - D)) / δ) 0 + 1 := by
+  obtain ⟨B, hB, hBbound⟩ := exists_greedyIndex_crossing_bounded Z
+    ((u + (k : ℝ)) / s₁ - D) ((u + ell + (k : ℝ)) / s₀) δ hδ
+  refine ⟨B, ?_, hBbound⟩
+  intro p
+  have hs : 0 < p.1.1 := hs₀.trans_le p.1.2.1
+  have hsp : s₀ ≤ p.1.1 := p.1.2.1
+  have hzpos : 0 < Z.z (greedyIndex Z ((u + (k : ℝ)) / s₁ - D) δ B) :=
+    Z.positive _
+  have hcross : u + ell ≤ p.1.1 *
+      Z.z (greedyIndex Z ((u + (k : ℝ)) / s₁ - D) δ B) - (k : ℝ) := by
+    have hB' := (div_le_iff₀ hs₀).1 hB
+    have hmul := mul_le_mul_of_nonneg_right hsp hzpos.le
+    nlinarith
+  have hstart := greedy_uniform_anchor_hstart Z hfill hs₀ hs₁ hδ ha ha_hi huk p
+  have hhan : (u + ell + (k : ℝ)) / p.1.1 + δ + D ≤ R * U := by
+    have hdiv : (u + ell + (k : ℝ)) / p.1.1 ≤
+        (u + ell + (k : ℝ)) / s₀ := by
+      exact div_le_div_of_nonneg_left hnum (by positivity) hsp
+    linarith
+  have hD : 0 ≤ D := by linarith [hfill.2.2.1]
+  have hmulD : p.1.1 * (δ + D) ≤ s₁ * (δ + D) :=
+    mul_le_mul_of_nonneg_right p.1.2.2 (by linarith)
+  have hell' : 2 * (p.1.1 * (δ + D)) ≤ ell :=
+    (mul_le_mul_of_nonneg_left hmulD (by norm_num)).trans hell
+  exact sequenceActiveLocalCandidates_card_ge_of_greedy_filter Z c v child k p
+    ((u + (k : ℝ)) / s₁ - D) u ell D δ hfill hs₀ hδ ha hwindow
+    hell' hstart hhan B hcross
+
 end ErdosSimilarityGrowingGaps
