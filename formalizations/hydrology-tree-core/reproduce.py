@@ -91,7 +91,7 @@ def main():
   if not axioms.issubset(ALLOWED):raise RuntimeError('Unexpected axioms')
   report['kernel_replay']={'declarations':int(match[1]),'roots':int(match[2]),'trust_level':0,'axioms':sorted(axioms)}
   for name in ['replayed-axioms.txt','replayed-closure.txt']:shutil.copyfile(fresh/name,out/name)
-  controls=[('HydrologyTree/Gluing.lean','m n ^ 2 := by','m n ^ 3 := by'),('HydrologyTree/Gluing.lean','repeatedBlock (monoSylv x.1) (lowSylv x.2)','repeatedBlock (monoSylv x.1) 0'),('HydrologyTree/BlockJacobian.lean',').det ^ 2 := by',').det ^ 3 := by'),('HydrologyTree/Coefficients.lean','⟨X^n, Polynomial.mem_degreeLT.mpr','⟨X^(n+1), Polynomial.mem_degreeLT.mpr')]
+  controls=[('HydrologyTree/Scaling.lean','monicScalingJacobian x = x.1 ^ n := by','monicScalingJacobian x = x.1 ^ (n+1) := by'),('HydrologyTree/RootUpdate.lean','rootCoefficientJacobian x = (-1 : ℝ)^n := by','rootCoefficientJacobian x = 1 := by'),('HydrologyTree/Gluing.lean','m n ^ 2 := by','m n ^ 3 := by'),('HydrologyTree/Gluing.lean','repeatedBlock (monoSylv x.1) (lowSylv x.2)','repeatedBlock (monoSylv x.1) 0'),('HydrologyTree/BlockJacobian.lean',').det ^ 2 := by',').det ^ 3 := by'),('HydrologyTree/Coefficients.lean','⟨X^n, Polynomial.mem_degreeLT.mpr','⟨X^(n+1), Polynomial.mem_degreeLT.mpr')]
   report['negative_controls']=[]
   for i,(rel,old,new) in enumerate(controls):
    text=(ROOT/rel).read_text()
