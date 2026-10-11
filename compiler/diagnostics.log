@@ -1,0 +1,71 @@
+CACHE
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 2474 file(s)
+
+MODULE HydrologyTree.Coefficients
+HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
+  smul_mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/Coefficients.lean:44:22: warning: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.BlockJacobian
+
+MODULE HydrologyTree.Gluing
+HydrologyTree/Gluing.lean:72:38: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+HydrologyTree/Gluing.lean:72:38: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+
+MODULE ProbeScaling
+Module.Basis.singleton.{u_6, u_7} (ι : Type u_6) (R : Type u_7) [Unique ι] [Semiring R] : Module.Basis ι R R
+LinearEquiv.toContinuousLinearEquiv.{u, v, w} {𝕜 : Type u} [hnorm : NontriviallyNormedField 𝕜] {E : Type v}
+  [AddCommGroup E] [Module 𝕜 E] [TopologicalSpace E] [IsTopologicalAddGroup E] [ContinuousSMul 𝕜 E] {F : Type w}
+  [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] [IsTopologicalAddGroup F] [ContinuousSMul 𝕜 F] [CompleteSpace 𝕜]
+  [T2Space E] [T2Space F] [FiniteDimensional 𝕜 E] (e : E ≃ₗ[𝕜] F) : E ≃L[𝕜] F
+ProbeScaling.lean:4:7: error(lean.unknownIdentifier): Unknown constant `LinearEquiv.toContinuousLinearMap`
+HasFDerivAt.smul.{u_1, u_2, u_3, u_4} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {F : Type u_3} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F} {f' : E →L[𝕜] F} {x : E}
+  {𝕜' : Type u_4} [NormedRing 𝕜'] [NormedAlgebra 𝕜 𝕜'] [Module 𝕜' F] [IsBoundedSMul 𝕜' F] [IsScalarTower 𝕜 𝕜' F]
+  {c : E → 𝕜'} {c' : E →L[𝕜] 𝕜'} (hc : HasFDerivAt c c' x) (hf : HasFDerivAt f f' x) :
+  HasFDerivAt (c • f) (c x • f' + c'.smulRight (f x)) x
+ContinuousLinearMap.smulRight.{u_4, u_6, u_9, u_10} {M₁ : Type u_4} [TopologicalSpace M₁] [AddCommMonoid M₁]
+  {M₂ : Type u_6} [TopologicalSpace M₂] [AddCommMonoid M₂] {R : Type u_9} {S : Type u_10} [Semiring R] [Semiring S]
+  [Module R M₁] [Module R M₂] [Module R S] [Module S M₂] [IsScalarTower R S M₂] [TopologicalSpace S]
+  [ContinuousSMul S M₂] (c : M₁ →L[R] S) (f : M₂) : M₁ →L[R] M₂
+Matrix.det_smul.{v, u_2} {n : Type u_2} [DecidableEq n] [Fintype n] {R : Type v} [CommRing R] (A : Matrix n n R)
+  (c : R) : (c • A).det = c ^ Fintype.card n * A.det
+LinearMap.toMatrix_id.{u_1, u_4, u_5} {R : Type u_1} [CommSemiring R] {n : Type u_4} [Fintype n] [DecidableEq n]
+  {M₁ : Type u_5} [AddCommMonoid M₁] [Module R M₁] (v₁ : Module.Basis n R M₁) :
+  (LinearMap.toMatrix v₁ v₁) LinearMap.id = 1
+Module.Basis.map_repr.{u_1, u_3, u_4, u_5} {ι : Type u_1} {R : Type u_3} {M : Type u_4} {M' : Type u_5} [Semiring R]
+  [AddCommMonoid M] [Module R M] [AddCommMonoid M'] [Module R M'] (b : Module.Basis ι R M) (f : M ≃ₗ[R] M') :
+  (b.map f).repr = f.symm ≪≫ₗ b.repr
+ContinuousLinearMap.coe_fst.{u_1, u_2, u_3} {R : Type u_1} [Semiring R] {M₁ : Type u_2} [TopologicalSpace M₁]
+  [AddCommMonoid M₁] [Module R M₁] {M₂ : Type u_3} [TopologicalSpace M₂] [AddCommMonoid M₂] [Module R M₂] :
+  ↑(ContinuousLinearMap.fst R M₁ M₂) = LinearMap.fst R M₁ M₂
+ContinuousLinearMap.coe_snd.{u_1, u_2, u_3} {R : Type u_1} [Semiring R] {M₁ : Type u_2} [TopologicalSpace M₁]
+  [AddCommMonoid M₁] [Module R M₁] {M₂ : Type u_3} [TopologicalSpace M₂] [AddCommMonoid M₂] [Module R M₂] :
+  ↑(ContinuousLinearMap.snd R M₁ M₂) = LinearMap.snd R M₁ M₂
+Polynomial.coeff_X_mul.{u} {R : Type u} [Semiring R] (p : Polynomial R) (n : ℕ) :
+  (Polynomial.X * p).coeff (n + 1) = p.coeff n
+Polynomial.coeff_mul_X.{u} {R : Type u} [Semiring R] (p : Polynomial R) (n : ℕ) :
+  (p * Polynomial.X).coeff (n + 1) = p.coeff n
+Polynomial.coeff_C_mul.{u} {R : Type u} {a : R} {n : ℕ} [Semiring R] (p : Polynomial R) :
+  (Polynomial.C a * p).coeff n = a * p.coeff n
+Polynomial.monic_X_pow_add.{u} {R : Type u} [Semiring R] {p : Polynomial R} {n : ℕ} (H : p.degree < ↑n) :
+  (Polynomial.X ^ n + p).Monic
+Polynomial.degreeLTEquiv.{u} (R : Type u) [Semiring R] (n : ℕ) : ↥(Polynomial.degreeLT R n) ≃ₗ[R] Fin n → R
