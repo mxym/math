@@ -8,6 +8,7 @@ import ErdosSimilarityGrowingGaps.VariableRateSchedule
 namespace ErdosSimilarityGrowingGaps
 
 open Set MeasureTheory
+open Filter Topology Asymptotics
 open scoped BigOperators
 attribute [local instance] Classical.propDecidable Classical.decEq
 
@@ -105,6 +106,22 @@ structure VariableRateNodeWitnessBounded
   logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
     3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
   B_le : B ≤ Q
+
+/-! Any eventual little-o span estimate yields the exact integer-origin guard
+  needed by the certificate.  This isolates the remaining asymptotic task from
+  the finite tree construction. -/
+theorem eventually_real_span_le_origin
+    {ι : Type*} {l : Filter ι} {span origin : ι → ℝ}
+    (hspan : span =o[l] origin)
+    (horigin : ∀ᶠ i in l, 0 < origin i) :
+    ∀ᶠ i in l, span i ≤ origin i := by
+  have hbound := hspan.bound (by norm_num : (0 : ℝ) < 1)
+  filter_upwards [hbound, horigin] with i hi hOi
+  have hnormO : ‖origin i‖ = origin i := by
+    rw [Real.norm_eq_abs, abs_of_pos hOi]
+  have hnormS : ‖span i‖ = |span i| := Real.norm_eq_abs _
+  rw [hnormS, hnormO] at hi
+  exact (le_abs_self (span i)).trans (by simpa using hi)
 
 /-! The common greedy-family construction now feeds the dependent witness
   directly.  This is the first concrete bridge from an annulus to certificate
