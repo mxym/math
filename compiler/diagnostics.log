@@ -24,6 +24,9 @@ MODULE HydrologyTree.LeadingCoefficients
 HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 MODULE HydrologyTree.BlockJacobian
 
@@ -59,3 +62,22 @@ Hint: Omit it from the simp argument list.
     add_zero, zero_add]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootUpdate.lean:146:4: error: Type mismatch
+  ((X + C x.2.1) * ↑(monicPoly x.1)).degree
+has type
+  WithBot ℕ
+but is expected to have type
+  ℕ
+HydrologyTree/RootUpdate.lean:147:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?m.40 * ?m.41).degree
+in the target expression
+  ?m.2 = n + 1
+
+n : ℕ
+x : ↥(Coeff n) × ℝ × ↥(Coeff n)
+⊢ ?m.2 = n + 1
+HydrologyTree/RootUpdate.lean:145:6: error: (kernel) declaration has metavariables 'HydrologyTree.degree_rootProduct'
+HydrologyTree/RootUpdate.lean:154:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.38 ?x`) in this equality
+  @?_mvar.72240 ?m.38 ?x = ?m.38 + 1
+HydrologyTree/RootUpdate.lean:167:4: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.26 ?x`) in this equality
+  @?_mvar.72240 ?m.26 ?x = ?m.26 + 1
