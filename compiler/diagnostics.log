@@ -2,118 +2,52 @@ CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 2474 file(s)
+Already decompressed 1699 file(s)
 
-MODULE HydrologyTree.Coefficients
-HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
-  smul_mul_assoc
+MODULE HydrologyTree.EdgeDeterminant
+HydrologyTree/EdgeDeterminant.lean:13:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.add_single_eq_updateRow`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
 
-Hint: Omit it from the simp argument list.
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/Coefficients.lean:44:22: warning: This simp argument is unused:
-  mul_smul_comm
-
-Hint: Omit it from the simp argument list.
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-
-MODULE HydrologyTree.BlockJacobian
-
-MODULE HydrologyTree.Triangular
-
-MODULE HydrologyTree.RateChart
-HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
-  ite_mul
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence, eq_comm]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:113:26: warning: This simp argument is unused:
-  Matrix.diagonal_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.sub_apply, childWeighted_mul_parent, hne, hneq]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:128:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
-
-MODULE HydrologyTree.CompartmentMatrix
-HydrologyTree/CompartmentMatrix.lean:27:10: warning: This simp argument is unused:
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/EdgeDeterminant.lean:19:10: warning: This simp argument is unused:
   Matrix.single_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [h]
+  [apply] simp [h, Ne.symm h]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:70:30: warning: This simp argument is unused:
-  Matrix.single_apply
+HydrologyTree/EdgeDeterminant.lean:33:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  single ?i ?j (-?b)
+in the target expression
+  (A + -single i j c).det = A.det - c * A.adjugate j i
 
-Hint: Omit it from the simp argument list.
-  [apply] simp [edgeMatrix, h1, h2, eq_comm]
+R : Type u_1
+ι : Type u_2
+inst✝² : CommRing R
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+A : Matrix ι ι R
+i j : ι
+c : R
+⊢ (A + -single i j c).det = A.det - c * A.adjugate j i
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:70:59: warning: This simp argument is unused:
-  eq_comm
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    A.adjugate j
+HydrologyTree/EdgeDeterminant.lean:54:2: warning: Try this: 
+  letI̵
 
-Hint: Omit it from the simp argument list.
-  [apply] simp [edgeMatrix, Matrix.single_apply, h1, h2]
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:85:10: warning: This simp argument is unused:
-  Matrix.single_apply
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/EdgeDeterminant.lean:60:6: warning: Unused tactic linter: `ring` does nothing
 
-Hint: Omit it from the simp argument list.
-  [apply] simp [sub_eq_add_neg]
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/EdgeDeterminant.lean:60:6: warning: this tactic is never executed
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:87:10: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hi, sub_eq_add_neg, add_comm]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:97:12: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hvw, Ne.symm hvw]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:97:38: warning: This simp argument is unused:
-  Ne.symm hvw
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.single_apply, hvw]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:98:12: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hi, Ne.symm hi]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:98:37: warning: This simp argument is unused:
-  Ne.symm hi
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.single_apply, hi]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-
-MODULE HydrologyTree.PhysicalBridge
-
-MODULE HydrologyTree.LeadingCoefficients
-HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-
-MODULE HydrologyTree.Resolvent
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
