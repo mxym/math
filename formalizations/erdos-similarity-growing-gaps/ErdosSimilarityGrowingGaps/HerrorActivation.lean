@@ -123,4 +123,34 @@ theorem exists_buffer_shift
   obtain ⟨C, hC⟩ := eventually_atTop.1 hev
   exact ⟨C, hC C (le_refl C)⟩
 
+theorem eventually_exponential_herror
+    {ι : Type*} {l : Filter ι}
+    (origin span edge z b : ι → ℝ) (r α k q C : ℝ)
+    (hr : 0 < r) (hα : 0 < α) (hq : 0 ≤ q)
+    (horigin : Tendsto origin l atTop)
+    (hspan : span =o[l] origin)
+    (hedge : ∀ᶠ i in l, origin i ≤ edge i)
+    (hact : ∀ᶠ i in l, edge i < r * z i - k)
+    (hbuffer : ∀ᶠ i in l,
+      q * (2 : ℝ) ^ (-(origin i + span i + C)) < b i) :
+    ∀ᶠ i in l, q * (2 : ℝ) ^ (-(r + α) * z i) < b i := by
+  have hconst : (fun _ : ι => C) =o[l] origin := by
+    have h := (isLittleO_const_id_atTop C).comp_tendsto horigin
+    simpa [Function.comp_def] using h
+  have hshift : (fun i => span i + C) =o[l] origin := by
+    simpa [Function.comp_def] using hspan.add hconst
+  have hmargin := eventually_activation_span_margin origin
+    (fun i => span i + C) edge z r α k hr hα horigin hshift hedge hact
+  filter_upwards [hmargin, hbuffer, hact] with i hi hb hAi
+  have hexp : origin i + span i + C < (r + α) * z i := by
+    linarith
+  have hneg : -(r + α) * z i < -(origin i + span i + C) := by
+    linarith
+  have hpow : (2 : ℝ) ^ (-(r + α) * z i) <
+      (2 : ℝ) ^ (-(origin i + span i + C)) := by
+    exact Real.rpow_lt_rpow_of_exponent_lt (by norm_num) hneg
+  rcases hq.eq_or_lt with rfl | hq
+  · simpa using hb
+  · exact (mul_lt_mul_of_pos_left hpow hq).trans hb
+
 end ErdosSimilarityGrowingGaps
