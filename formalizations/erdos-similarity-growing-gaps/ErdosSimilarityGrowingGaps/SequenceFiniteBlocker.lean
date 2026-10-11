@@ -2,6 +2,7 @@ import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 import ErdosSimilarityGrowingGaps.SequenceSignatures
 import ErdosSimilarityGrowingGaps.GlobalGreedyTests
 import ErdosSimilarityGrowingGaps.SequenceTransferFill
+import ErdosSimilarityGrowingGaps.VariableRateSchedule
 
 namespace ErdosSimilarityGrowingGaps
 
@@ -46,6 +47,33 @@ structure FiniteSequenceRoutingCertificate
   candidate_count : ∀ v, (count v : ℝ) ≤ (branching : ℝ) *
     ((template.origin : ℝ) + RoutingTemplate.span branching template.gap
       template.baseLength depth + |(k : ℝ)| + 2)
+
+/-! The next two structures isolate the genuinely combinatorial part of a
+variable-rate schedule.  A node input records the hypotheses needed by the
+common greedy-family lemma; its output has exactly the dependent finite types
+used by the certificate.  Keeping these as data makes the remaining bridge
+from a filled annulus auditable: no existential choice is hidden in a
+probability or asymptotic theorem. -/
+
+structure VariableRateNodeInput
+    {Z : LogScale} {K : ℕ} {k : ℤ} {M d : ℕ}
+    (c : RoutingTemplate M d) (v : InternalNode M d)
+    (U R D δ : ℝ) where
+  u : Fin (M - 1) → ℝ
+  ell : ℝ
+  ha : ∀ child, U / R ≤ (u child + (k : ℝ)) / (K : ℝ) - D
+  ha_hi : ∀ child, (u child + (k : ℝ)) / (K : ℝ) ≤ R * U
+  hnum : ∀ child, 0 ≤ u child + ell + (k : ℝ)
+  huk : ∀ child, 0 ≤ u child + (k : ℝ)
+  hwindow : ∀ child,
+    c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) = u child ∧
+    (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ) +
+      c.edgeLength (RoutingTemplate.selectorRoutingEdge
+        ⟨v, child⟩) = u child + ell
+  hell : 2 * ((K : ℝ) * (δ + D)) ≤ ell
+  hannulus : ∀ child,
+    (u child + ell + (k : ℝ)) / (1 / (K : ℝ)) + δ + D ≤ R * U
+  hsep : 3 ≤ (1 / (K : ℝ)) * δ
 
 /-- The one common finite test set contains each vertex's own finite list. -/
 noncomputable def finiteSequenceRoutingTests
