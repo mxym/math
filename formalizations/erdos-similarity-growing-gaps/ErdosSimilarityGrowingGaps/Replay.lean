@@ -42,6 +42,7 @@ import ErdosSimilarityGrowingGaps.SequenceStableGeometry
 import ErdosSimilarityGrowingGaps.SequenceStableProbability
 import ErdosSimilarityGrowingGaps.GlobalGreedyTests
 import ErdosSimilarityGrowingGaps.SequenceFiniteBlocker
+import ErdosSimilarityGrowingGaps.SelectorEndpointBounds
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
