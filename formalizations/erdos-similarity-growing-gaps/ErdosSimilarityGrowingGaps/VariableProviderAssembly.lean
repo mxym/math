@@ -1,5 +1,6 @@
 import ErdosSimilarityGrowingGaps.SequenceFiniteBlocker
 import ErdosSimilarityGrowingGaps.AnnulusSequence
+import ErdosSimilarityGrowingGaps.VariableQBounds
 
 namespace ErdosSimilarityGrowingGaps
 
@@ -89,6 +90,40 @@ noncomputable def variableRateNodeInput_of_canonical
     · rfl
   · intro child
     exact hannulus child
+
+/-! The selector-window endpoint has a uniform envelope once the routing
+template stays inside its total span.  This is the geometric input used by
+`variableNodeUniformBudget` to turn all dependent child quotients into one
+finite budget. -/
+theorem canonical_selector_window_upper
+    {M d : ℕ} (c : RoutingTemplate M d) (v : InternalNode M d)
+    (U : ℝ) (k : ℤ) (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (horigin : (c.origin : ℝ) = U)
+    (hspan : (RoutingTemplate.span M c.gap c.baseLength d : ℝ) ≤ U)
+    (hk : |(k : ℝ)| ≤ U / 2) :
+    ∀ child : Fin (M - 1),
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ) +
+        (vertexWindowLength c v : ℝ) + (k : ℝ) ≤ (5 / 2 : ℝ) * U := by
+  intro child
+  let e : RoutingEdge M d :=
+    RoutingTemplate.selectorRoutingEdge ⟨v, child⟩
+  have hend_nat : c.edgeStart e + c.edgeLength e ≤
+      c.origin + RoutingTemplate.span M c.gap c.baseLength d := by
+    have hh := (c.edgeEnd_within_total hM hL e).2
+    unfold RoutingTemplate.edgeEnd at hh
+    omega
+  have hh : (c.edgeStart e : ℝ) + (c.edgeLength e : ℝ) ≤
+      (c.origin : ℝ) + (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by
+    exact_mod_cast hend_nat
+  have hlen_eq : (c.edgeLength e : ℝ) = vertexWindowLength c v := rfl
+  have hend : (c.edgeStart e : ℝ) + (vertexWindowLength c v : ℝ) ≤
+      U + (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by
+    have hh' : (c.edgeStart e : ℝ) + (vertexWindowLength c v : ℝ) ≤
+        (c.origin : ℝ) + (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by
+      simpa [hlen_eq] using hh
+    simpa [horigin] using hh'
+  have hkhi : (k : ℝ) ≤ U / 2 := (abs_le.mp hk).2
+  linarith [hend, hspan, hkhi]
 
 /-! A geometric wrapper for the canonical constructor.  The assumptions are
 the exact late-annulus guards used by the proof (origin/span, coefficient
@@ -352,6 +387,53 @@ noncomputable def finiteSequenceRoutingCertificate_of_template_inputs
   exact finiteSequenceRoutingCertificate_of_variable_rate_bounded_data
     hK hp hp₁ c δ D hδ hD hM hd hgap horigin hlength hgap_guard hspan hcoeff
     hentropy Q hwitness hQcandidate
+
+/-! The quotient budget can be chosen uniformly from a common upper envelope
+for all selector windows.  This wrapper discharges the dependent `hQ` field
+using `variableNodeUniformBudget_child_bound`; callers only retain the genuine
+geometric envelope and the candidate-count inequality. -/
+noncomputable def finiteSequenceRoutingCertificate_of_template_uniform_budget
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (c : RoutingTemplate M d) (δ D : ℝ)
+    (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hM : M = lateBranching K p δ D)
+    (hd : d = lateDepth K p δ D)
+    (hgap : c.gap = lateStableGapExplicit K p δ D)
+    (horigin : 4 ≤ c.origin) (hlength : 0 < c.baseLength)
+    (hgap_guard : c.gap + 1 ≤ c.origin)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin)
+    (hentropy :
+      46080 * (M : ℝ) ^ 2 * ((c.origin : ℝ) + 1) ^ 2 *
+        Real.exp (-(p * lateActivationRate K δ D * ((M : ℝ) - 1) / 2 -
+          4 * Real.log 2) * (c.baseLength : ℝ)) ≤ p)
+    (U R : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hinput : ∀ v : InternalNode M d,
+      VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ)
+    (V : ℝ)
+    (hupper : ∀ v : InternalNode M d, ∀ child,
+      (hinput v).u child + (hinput v).ell + (k : ℝ) ≤ V)
+    (hQcandidate : (((M - 1) *
+        (variableNodeUniformBudget K V D δ + 1) : ℕ) : ℝ) ≤
+      (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
+        c.baseLength d + |(k : ℝ)| + 2)) :
+    FiniteSequenceRoutingCertificate Z K k p := by
+  have hKpos : 0 < K := by omega
+  have hQ : ∀ v : InternalNode M d, ∀ child,
+      max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
+        (1 / (K : ℝ)) -
+        (((hinput v).u child + (k : ℝ)) / (K : ℝ) - D)) / δ) 0 + 1 ≤
+          (variableNodeUniformBudget K V D δ : ℝ) := by
+    intro v child
+    exact variableNodeUniformBudget_child_bound hKpos
+      (fun child => (hinput v).u child) (hinput v).ell D δ V k hδ
+      (fun child => (hinput v).huk child)
+      (fun child => hupper v child) child
+  exact finiteSequenceRoutingCertificate_of_template_inputs
+    hK hp hp₁ c δ D hδ hD hM hd hgap horigin hlength hgap_guard hspan
+    hcoeff hentropy U R hfill hinput (variableNodeUniformBudget K V D δ)
+    hQ hQcandidate
 
 /-! The assembly theorem is fully kernel-checked.  The only pending work is
 the construction of the direct provider above; once supplied, the theorem
