@@ -27,6 +27,12 @@ def parallel_moments(w1, w2, l1, l2):
     )
 
 
+def three_parallel_moments(w1, w2, w3, l1, l2, l3):
+    return tuple(
+        w1 * l1**j + w2 * l2**j + w3 * l3**j for j in range(6)
+    )
+
+
 def main():
     a, b, c, p = map(F, (2, 2, 2, 3))
     q1, q2, q3 = jet_zero_state(a, b, c, p)
@@ -70,6 +76,26 @@ def main():
     need(m0 * m2 - m1**2 == w1 * w2 * (l1 - l2) ** 2,
          "parallel Hankel determinant")
     need(m0 * m2 - m1**2 == F(54), "parallel exact regression value")
+
+    # The same certificate for three parallel modes, including the cubic
+    # recurrence and the 3-by-3 Hankel determinant.
+    w1, w2, w3, l1, l2, l3 = map(F, (1, 2, 3, 1, 2, 4))
+    n0, n1, n2, n3, n4, n5 = three_parallel_moments(
+        w1, w2, w3, l1, l2, l3
+    )
+    e1 = l1 + l2 + l3
+    e2 = l1 * l2 + l1 * l3 + l2 * l3
+    e3 = l1 * l2 * l3
+    need(n3 == e1 * n2 - e2 * n1 + e3 * n0,
+         "three-mode third moment recurrence")
+    need(n4 == e1 * n3 - e2 * n2 + e3 * n1,
+         "three-mode fourth moment recurrence")
+    need(n5 == e1 * n4 - e2 * n3 + e3 * n2,
+         "three-mode fifth moment recurrence")
+    det3 = n0 * n2 * n4 + 2 * n1 * n2 * n3 - n0 * n3**2 - n1**2 * n4 - n2**3
+    need(det3 == w1 * w2 * w3 * (l1 - l2) ** 2 * (l1 - l3) ** 2 *
+         (l2 - l3) ** 2, "three-mode Hankel determinant")
+    need(det3 == F(216), "three-mode exact regression value")
 
     print("PASS: exact two-storage identifiability and non-identifiability checks")
 

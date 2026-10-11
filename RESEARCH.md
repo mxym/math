@@ -103,7 +103,7 @@
 
 ## 探索项目与文献比较
 
-- [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例，以及单次受控或双实验恢复三参数；非线性扩展仍在研究。
+- [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例、受控或双实验恢复三参数，以及二/三并联衰减模式的 Hankel 阶数证书；非线性扩展仍在研究。
 - [Ryser rank-six 探索](research/ryser-rank-six/README.md)：搜索模型、独立 witness checker 与受限模板排除；未证明一般反例或一般非存在性。
 - [Borsuk 平衡切片记录](notes/balanced_borsuk_slice.md)：排除一个提出的构造，不解决八维问题。
 - [文献比较](comparisons/)与[原创性初步筛查](research/novelty-assessment/)：区分已有输入、独立推导、加强及待确认的历史关系。
