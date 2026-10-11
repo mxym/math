@@ -1,40 +1,35 @@
-# High-dimensional APPT: independent proof review
+# High-dimensional APPT: independent mathematical review and Lean verification
 
-**Partial formal verification. The full high-dimensional asymptotic purity and entropy theorems are not yet Lean-certified.** This package uses the original complex density-matrix and all-global-unitary APPT definitions, not a substitute spectral model.
+**Partial formal verification. The full high-dimensional asymptotic purity, Renyi entropy, graph-limit, and rigidity theorems are not yet Lean-certified.** This package uses actual complex density matrices and the original all-global-unitary APPT definition.
 
-## Verified checkpoint recovered from the review branch
+## Newly closed physical-to-entropy bridge
 
-Independent GitHub Actions run **38066697404**, source **991d47393773140d36e1e6ee92b34bf87b07a715**, passed a Lake build of the imported closure (2,738 build tasks), followed by trust-zero replay of **38,529 declarations and 13 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing the proof of the exact physical witness root by `True.intro`, without changing its type, was rejected. The uploaded proof modules and audit were byte-compared with the recovered source. Original logs, roots and workflow responses are in `verification/ci-991d4739/`.
+`density_appt_paper_entropyHead` proves the nonlinear exceptional-head inequality for the actual canonically sorted eigenvalues, using exactly the paper pivot `b=lambda_(D-m(m+1)/2+1)` in one-based notation. Its hypotheses are only `m>=2`, `m<=n`, density, and APPT. The code constructs every eigenvalue permutation and rectangular corner embedding, proves pivot positivity from trace one, establishes all signs and ordering, derives the shifted-star budget, and invokes the previously checked logarithmic head theorem. No graph or head inequality is assumed in the physical statement.
 
-The older main checkpoint b9056460 is retained separately. Its 38,507-declaration replay must not be confused with this later 38,529-declaration replay. The replaced source/audit entrypoints are preserved under `verification/checkpoint-b9056460/`, and the original historical logs remain available.
+`density_appt_entropyHead_at_pivot` proves the stronger admissible-pivot version. `appt_sorted_rankTwo_determinant` and `appt_largest_eigenvalue_bound` establish genuine ordered spectral consequences. `density_appt_singular_spectrum` starts from matrix determinant zero and proves that the eigenvalues are one zero and D-1 copies of 1/(D-1). The converse APPT attainment statement for that singular spectrum is not included in this new endpoint.
 
-## Theorems checked
+A kernel-audited regression constructs a genuine density matrix that is PPT but not APPT, so ordinary PPT is not silently substituted for the all-unitary hypothesis.
 
-`Basic`, `Hadamard`, and `QuantumWitness` prove the transpose-convention bridge, the actual rectangular unitary construction, and positivity of every arbitrarily permuted eigenvalue witness for an actual Hermitian APPT matrix.
+## Verification checkpoint
 
-`Star` proves the arbitrary finite-dimensional PSD star inequality, retaining the central diagonal. Its physical wrappers derive the star budget from actual APPT matrices for specified eigenvalue labels.
+The fresh WSL Lake build completed **2,745 build tasks**. Trust-zero replay checked **40,088 transitive declarations and 22 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of `density_appt_paper_entropyHead` by `True.intro`, preserving its exact type, was rejected by the empty kernel. Thirty source/configuration files, including imported quantum definitions and the replay support, are SHA-256 bound. Literal logs and closure lists are in `verification/sorted-physical-20261011/`.
 
-`LogBounds` and `EntropyHead` prove inequalities for the actual real logarithm, including the singular endpoint, and the complete nonlinear exceptional-head sum bound. `appt_eigenvalue_entropyHead_bound` derives the required quadratic star budget from APPT, rather than assuming that budget as its conclusion. It still accepts a permutation and entrywise inequalities specifying the intended placement. Construction of the sorted-index placement from only dimension and sorting assumptions remains a separate obligation.
+This checkpoint is a local fresh build and full empty-kernel replay, not yet an independent CI claim. A source-bound CI record, when available, is retained separately. The earlier independent run 38066697404 (991d4739) replayed 38,529 declarations and 13 roots with positional hypotheses; its evidence remains in `verification/ci-991d4739/` and is not relabeled as the newer result.
 
-`SOS` checks the dimension-uniform scalar SOS, the positive quartic, and the exact rational purity gaps. It does **not** prove APPT membership of the 10x38 state; the generic quantum sufficiency bridge remains missing.
+## Reproduction
 
-See `COVERAGE.md` for the current proof-to-code map. No forest/compactness theorem, unrestricted upper asymptotic, matching family, uniform limit, exact rectangular maximum or final entropy rigidity theorem is being relabeled as formally complete.
-
-## Reproduce the checked checkpoint
-
-Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** are pinned. From this directory with the pinned dependencies cached:
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL, with pinned dependencies cached:
 
 ```sh
-lake build APPTReview
-mkdir -p .lake/build/lib/lean/Verification
-lake env lean --root=../appt-qutrit-purity -o .lake/build/lib/lean/Verification/ReplaySupport.olean ../appt-qutrit-purity/Verification/ReplaySupport.lean
-lake env lean -j1 -M6000 ReviewAudit.lean
+lake exe cache get
+python3 reproduce.py --check-only
+python3 reproduce.py --fresh
 ```
 
-The source root flag on the support invocation is essential. It is independent of the working directory and does not alter the theorem being checked. A bounded reproduction runner and additional regression tests are being reviewed separately; their mere presence is not a claim that they passed.
+The runner checks both the source manifest and actual Mathlib checkout, builds only the review's imported closure rather than the full old 879-module package, compiles replay support with an explicit source root, runs physical regressions, and replays all audited roots. Every stage has a finite timeout; on timeout its entire process group is terminated and the literal failure output is retained. `--write-manifest` records intentional source changes and does not verify them.
 
-## Failure diagnosis
+## Review scope and failures
 
-Early failed CI runs contained real elaboration errors in Hadamard coordinates, complex half-root normalization and star hypotheses. The passing source fixes those errors without adding assumptions or untrusted evaluators. Run **38065695262** is different: its 2,704-target Lake build succeeded, but compiling `Verification/ReplaySupport.lean` failed because the source file lay outside Lean's default root. The corrected explicit `--root` invocation passed in run **38066697404**. Warnings and a tactic diagnostic from an attempted branch are not being mistaken for the actual terminal failure.
+See `COVERAGE.md` and `REVIEW_20261011.md`. The previous named-permutation gap is closed for the sorted shifted-star and nonlinear-head theorem. General triangular placement, global graph asymptotics, counterexample sufficiency, final extrema and rigidity remain distinct unclosed formal obligations.
 
-The local VPS has insufficient available memory for efficient further compilation; a stopped bounded import test is not a mathematical failure. No source-theorem completion is inferred from elapsed time, finite regression counts or a green job unrelated to the exact source.
+Recovered interrupted source work was recompiled before use. Its remaining entropy-wrapper tactic and inequality goals were repaired without new axioms or weakened hypotheses. An informational `ring_nf` suggestion in the successful build is not a failed theorem; success is determined by the compiler status and kernel replay. The earlier source-root audit failure is prevented by the explicit `--root` invocation. The memory-starved VPS was not used for these compilation jobs. No new preprint, Release, or high-dimensional completeness label is issued.

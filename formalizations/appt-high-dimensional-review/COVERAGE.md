@@ -1,21 +1,24 @@
-# Paper claim -> mathematical obligation -> Lean coverage
+# Research claims -> exact Lean endpoints
 
-This is a semantic coverage map, not a list of tasks all marked complete.
+Formal coverage is relative to the actual source statements, not green CI labels alone.
 
-| Working-proof obligation | Lean endpoint | Status and remaining quantifiers |
+| Mathematical obligation | Lean endpoint | Current status |
 |---|---|---|
-| Either partial-transpose convention has the same PSD test | `absolutelyPPT_right_iff` | Kernel-checked for actual complex matrices. |
-| Actual global-unitary eigenvalue witness in arbitrary rectangular dimensions | `appt_eigenvalue_witness_posSemidef` | Kernel-checked for every supplied permutation and injective corner map. |
-| Positive central-diagonal star budget | `psd_star_bound`, `appt_eigenvalue_star_bound` | Kernel-checked. Physical endpoint still requires the label inequalities to be established. |
-| Entropy proof E8, least-eigenvalue-centered sorted star | Physical star wrapper | Exact sorted-label permutation and dimension-based existence still not constructed. |
-| Actual logarithm estimates and quartic strict barrier | `entropy_negative_bound`, `entropy_positive_gap_bound`, `entropy_head_outlier_margin` | Kernel-checked, including the negative endpoint. |
-| Entropy proof E9, full exceptional-head bound | `entropyHead_le_two` | Kernel-checked for arbitrary finite length from the stated sign, order and star budget assumptions. |
-| APPT -> nonlinear head with specified placements | `appt_eigenvalue_entropyHead_bound` | Kernel-checked. Does not assume the star inequality, but still needs canonical sorted placement. |
-| Three-level counterexample physical membership | Scalar `multilevel_sos_nonneg` plus rational gaps only | All-unitary quantum sufficiency not yet formalized. |
-| Unrestricted finite triangular purity inequality | No endpoint yet | Ordered placement, graph norm, variance and normalization must be linked. |
-| Exact rectangular optimum and all equality cases | No endpoint yet | Outer-polytope vertex theorem, optimization, physical attainment and equality classification missing. |
-| Lacunary graph limits and two-ended hierarchy | No endpoint yet | Compactness, simultaneous levels, nested lower witnesses and limit order missing. |
-| Uniform asymptotic purity and entropy theorems | No endpoint yet | No complete filter-limit theorem for these genuine maxima/minima. |
-| Phase and entropy-order rigidity | No endpoint yet | Defect saturation, outlier/empirical limits and constructions missing. |
+| Partial-transpose convention bridge | `absolutelyPPT_right_iff` | Kernel checked for actual complex matrices. |
+| Arbitrarily labeled eigenvalue witnesses | `appt_eigenvalue_witness_posSemidef` | Kernel checked with supplied permutation and injective corner. |
+| Canonical ordered rank-two witness | `appt_sorted_rankTwo_witness`, `appt_sorted_rankTwo_determinant` | Complete necessary physical bridge; permutations constructed internally. |
+| Largest eigenvalue bound | `appt_largest_eigenvalue_bound` | Complete necessary bound from actual density and APPT, not its equality/attainment classification. |
+| Matrix singularity -> exact ordered spectrum | `density_appt_singular_spectrum` | Complete necessary statement from `A.det=0`; converse attainment not included. |
+| Canonical least-diagonal star | `appt_sorted_shifted_star` | Physical placement and all leaf orientations constructed. No star budget supplied. |
+| Positive sorted normalization pivot | `ordered_pivot_positive`, `paper_pivot_rank_bounds` | Trace, ordering and dimension obligations discharged in physical wrapper. |
+| True logarithm inequalities and scalar nonlinear head | `entropyHead_le_two` and LogBounds | Previously checked scalar theorem, still explicitly retains scalar hypotheses. |
+| Paper E9 from actual sorted APPT eigenvalues | `density_appt_paper_entropyHead` | COMPLETE for this finite theorem, including exact paper pivot. Only dimension, density and all-unitary APPT assumptions. |
+| Ordinary PPT differs from APPT | Regression product-state declarations | Actual density/PPT and failure of APPT kernel checked. |
+| Three-level 10x38 counterexample | Scalar SOS and rational gaps | Generic quantum sufficiency bridge not yet formalized. |
+| Unrestricted triangular finite purity bound | No final endpoint | General sorted edge assignment, row inequality, variance and normalization still needed. |
+| Exact rectangular maximum and all maximizers | No final endpoint | Physical outer-polytope construction and vertex optimization still needed. |
+| Multiscale and two-ended graph limits | No final endpoint | Compactness, simultaneous levels, nested witnesses and order of limits missing. |
+| Uniform purity and Renyi entropy extrema | No final endpoint | The finite entropy-head theorem alone does not prove the global minima/maxima or their limits. |
+| Rigidity and equality classifications | No final endpoint | Saturation, empirical/outlier limits and attaining constructions still missing. |
 
-No `sorry`, custom axiom or native-decide shortcut closes these gaps. Independent review means rechecking the argument and its representation; it does not mean external peer review by another researcher.
+No `sorry`, custom axiom, untrusted `native_decide`, assumed main conclusion, or finite enumeration is used to turn an unclosed row into a verified theorem.
