@@ -1,6 +1,6 @@
 {
   "serial": 1791736551808,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "ff50719e05677e0c194b625bb0aefc48b9324064",
   "modules": [
     "StateTopology",
@@ -22,7 +22,49 @@
     "PurityGeometry.lean": "644fc3af06501ffb7454abca17588d8db42cd8a1350a492bbfef05ddb9396d9f",
     "CompactnessChecks.lean": "74dddf0b134851c4ebe0c8e5060891aaae5607979eb13a7df9ad91debfb26cdb"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "StateTopology",
+      "returncode": 0,
+      "seconds": 2.229
+    },
+    {
+      "module": "PurityGeometry",
+      "returncode": 0,
+      "seconds": 2.439
+    },
+    {
+      "module": "MaximumExistence",
+      "returncode": 0,
+      "seconds": 2.255
+    },
+    {
+      "module": "ConvexExtrema",
+      "returncode": 0,
+      "seconds": 2.31
+    },
+    {
+      "module": "MaximizerLimits",
+      "returncode": 0,
+      "seconds": 1.994
+    },
+    {
+      "module": "CompactnessChecks",
+      "returncode": 0,
+      "seconds": 2.277
+    },
+    {
+      "module": "TransposePurity",
+      "returncode": 0,
+      "seconds": 4.459
+    },
+    {
+      "module": "DensityComplement",
+      "returncode": 1,
+      "seconds": 2.599
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38155098703"
+  "run_id": "38155098703",
+  "diagnostics": "DensityComplement.lean:21:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u2191?r * \u2191?s\nin the target expression\n  \u2191(1 / (\u2191(Fintype.card (a \u00d7 b)) - 1)) * (\u2191\u2191(Fintype.card (a \u00d7 b)) - 1) = 1\n\ncase right\na : Type u_1\nb : Type u_2\ninst\u271d\u00b3 : Fintype a\ninst\u271d\u00b2 : Fintype b\ninst\u271d\u00b9 : DecidableEq a\ninst\u271d : DecidableEq b\nhD : 1 < Fintype.card (a \u00d7 b)\nA : Matrix (a \u00d7 b) (a \u00d7 b) \u2102\nh\u03c1 : APPT.Quantum.IsDensity A\nhc : 0 < \u2191(Fintype.card (a \u00d7 b)) - 1\nht : (1 - A).trace = \u2191\u2191(Fintype.card (a \u00d7 b)) - 1\n\u22a2 \u2191(1 / (\u2191(Fintype.card (a \u00d7 b)) - 1)) * (\u2191\u2191(Fintype.card (a \u00d7 b)) - 1) = 1\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nDensityComplement.lean:34:91: error: unsolved goals\na : Type u_1\nb : Type u_2\ninst\u271d\u00b3 : Fintype a\ninst\u271d\u00b2 : Fintype b\ninst\u271d\u00b9 : DecidableEq a\ninst\u271d : DecidableEq b\nA : Matrix (a \u00d7 b) (a \u00d7 b) \u2102\nh\u03c1 : APPT.Quantum.IsDensity A\nhe : (1 - A) * (1 - A) = 1 - 2 \u2022 A + A * A\n\u22a2 \u2191(Fintype.card (a \u00d7 b)) * (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 - (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 * 2 +\n      (-1 + \u2191(Fintype.card (a \u00d7 b)))\u207b\u00b9 ^ 2 * (A * A).trace.re =\n    \u2191(Fintype.card (a \u00d7 b)) * (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 +\n        (A * A).trace.re * (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 -\n      (1 - \u2191(Fintype.card (a \u00d7 b)) * 2 + \u2191(Fintype.card (a \u00d7 b)) ^ 2)\u207b\u00b9 * 2\n"
 }
