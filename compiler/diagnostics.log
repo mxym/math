@@ -41,10 +41,6 @@ MODULE HydrologyTree.Triangular
 MODULE HydrologyTree.RootUpdate
 HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 HydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/RootUpdate.lean:113:2: error: 'change' tactic failed, pattern
-  (shiftTop n) x.1 + x.2.1 = x.2.1 + (shiftTop n) x.1
-is not definitionally equal to target
-  (x.2.1 * if True then 1 else 0) + (X * ↑x.1).coeff n = x.2.1 + (shiftTop n) x.1
 HydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:
   if_pos rfl
 
