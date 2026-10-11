@@ -28,32 +28,30 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq a] [DecidableEq b] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-StateTopology.lean:42:51: error: unsolved goals
-a : Type u_1
-b : Type u_2
-inst✝³ : Fintype a
-inst✝² : Fintype b
-inst✝¹ : DecidableEq a
-inst✝ : DecidableEq b
-A : Matrix (a × b) (a × b) ℂ
-hA : A.IsHermitian
-i : a × b
-a✝¹ : i ∈ Finset.univ
-j : a × b
-a✝ : j ∈ Finset.univ
-hs : A j i = star (A i j)
-⊢ (A i j).re * (A i j).re + (A i j).im * (A i j).im = ‖A i j‖ * ‖A i j‖
-StateTopology.lean:53:24: warning: This simp argument is unused:
-  Complex.sq_norm
+StateTopology.lean:40:0: warning: automatically included section variable(s) unused in theorem `APPTReview.hermitian_purity_entry_squares`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
 
-Hint: Omit it from the simp argument list.
-  [apply] simp [Complex.mul_re, Complex.normSq_apply, pow_two]
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-StateTopology.lean:53:41: warning: This simp argument is unused:
-  Complex.normSq_apply
+MODULE PurityGeometry
 
-Hint: Omit it from the simp argument list.
-  [apply] simp [Complex.mul_re, Complex.sq_norm, pow_two]
+MODULE MaximumExistence
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MODULE ConvexExtrema
+ConvexExtrema.lean:10:0: warning: automatically included section variable(s) unused in theorem `APPTReview.density_convex_combination`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE MaximizerLimits
+MaximizerLimits.lean:28:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FirstCountableTopology (Matrix (Fin m × Fin n) (Fin m × Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MaximizerLimits.lean:28:9: error: Tactic `rcases` failed: `x✝ : ?m.43` is not an inductive datatype
