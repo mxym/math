@@ -1,6 +1,6 @@
 {
   "serial": 35,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "24263a65be4af2b35dbb7781a3e5412d5edebddd",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -34,7 +34,64 @@
     "HydrologyTree/PhysicalLeaf.lean": "2edb43b51262e67231b3e767b8b0a73f68018882a9ee507231ae31c3e4da81b1",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.112
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.134
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.308
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.45
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.856
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.76
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.398
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.4
+    },
+    {
+      "module": "HydrologyTree.RootAttachment",
+      "returncode": 0,
+      "seconds": 1.519
+    },
+    {
+      "module": "HydrologyTree.LeafRecursion",
+      "returncode": 0,
+      "seconds": 1.419
+    },
+    {
+      "module": "HydrologyTree.PhysicalLeaf",
+      "returncode": 1,
+      "seconds": 16.895
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/PhysicalLeaf.lean:91:2: error: Type mismatch: After simplification, term\n  h\n has type\n  (compartmentMatrix t x).charpoly =\n    (X - C (compartmentMatrix t x (Fin.last n).succ (Fin.last n).succ)) *\n        (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ).charpoly -\n      C (x.1 (Fin.last n).succ * x.2 (Fin.last n)) *\n        diagonalCofactor (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ) \u27e8t.parent (Fin.last n), \u22ef\u27e9\nbut is expected to have type\n  (compartmentMatrix t x).charpoly =\n    (X + C (x.1 (Fin.last n).succ)) * (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ).charpoly -\n      C (x.1 (Fin.last n).succ * x.2 (Fin.last n)) *\n        diagonalCofactor (deletedMatrix (compartmentMatrix t x) (Fin.last n).succ) \u27e8t.parent (Fin.last n), \u22ef\u27e9\n"
 }
