@@ -3,6 +3,13 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.density_appt_finite_purity_bound,
+  ``APPTReview.density_appt_ordered_variance_bound,
+  ``APPTReview.purity_eq_ordered_eigenvalues,
+  ``APPTReview.residual_graph_properties,
+  ``APPTReview.baseline_all_ones_bound,
+  ``APPTReview.scalar_baseline_variance_bound,
+  ``APPTReview.residual_pair_sum,
   ``APPTReview.baseline_graph_refined_budget,
   ``APPTReview.degree_background_identity,
   ``APPTReview.sorted_centered_variance,
