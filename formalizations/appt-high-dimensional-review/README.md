@@ -20,6 +20,18 @@ where the eigenvalues are canonically ordered and the index is one-based. The ge
 
 Six modules assemble and normalize the earlier checked dependencies: `ResidualGraph`, `SpectralBaseline`, `FinitePurity`, `PurityNormalization`, `UniformPurityUpper`, and `AsymptoticUpper`. See `REVIEW_UPPER_ASYMPTOTIC_20261011.md` for the exact proof chain and the three added error controls.
 
+## 1.1 Formalization status at a glance
+
+| Research component | Lean status |
+|---|---|
+| Actual APPT condition to the finite-dimensional purity upper bound | Verified |
+| Connection between physical density-matrix purity and canonically ordered eigenvalues | Verified |
+| Explicit dimension-only normalization and upper bound | Verified |
+| Uniform asymptotic upper bound for all n >= m as m -> infinity | Verified |
+| Matching lower construction for the unrestricted asymptotic maximum | Not yet formalized |
+| Joint sufficiency of the three-level counterexample in the Lean development | Not yet formalized |
+| Full unrestricted purity maximum, entropy extrema, and rigidity/equality classification | Not yet complete |
+
 ## 2. Independent verification
 
 GitHub Actions run **38141972563**, source **87d456235a25114a192c549158723b4f925b416a**, passed every stage. Its fresh review-package Lake build completed **2,837 tasks**, retaining external dependency caches. Physical regressions passed. A trust-zero empty kernel replayed **42,044 transitive declarations and 68 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of **`APPTReview.appt_uniform_asymptotic_upper`** by `True.intro`, preserving its type and universe parameters, was rejected.
@@ -50,6 +62,9 @@ The runner checks source pins and the actual Mathlib checkout, builds the import
 
 See `COVERAGE.md`. The newly verified theorem proves only the growing-small-dimension upper half directly for every physical state. It does not yet formalize matching lower graph limits, equality or attainment of a limiting maximum, the complementary fixed-m asymptotic, or exact rectangular optimization and its equality classification. The joint projection-plus-spike sufficiency needed for the three-level counterexample is also still missing. Full entropy minima, rigidity and limiting outlier classifications remain unclosed.
 
-Development caught a real summation-scope mistake, omitted aspect dependence and zero-denominator normalization as potential errors; corresponding exact regression statements are now in the kernel audit. Compilation errors were resolved before the successful CI submissions. A temporary Windows GitHub connection failure was handled by byte-checked transfer to the authorized VPS, and concurrent main updates were merged without overwriting them. No workflow was weakened, failed proof ignored, preprint prepared or Release changed.
+Development caught a real summation-scope mistake, omitted aspect dependence and zero-denominator normalization as potential errors; corresponding exact regression statements are now in the kernel audit. Compilation errors were resolved before the successful CI submissions. A temporary Windows GitHub connection failure was handled by byte-checked transfer to the authorized VPS, and concurrent main updates were merged without overwriting them. No workflow was weakened and no failed proof was counted as verification.
 
-These are independent CI and Lean-kernel checks, not external mathematical peer review. The old qutrit proof, research notes and publication trees remain unchanged.
+These are independent CI and Lean-kernel checks, not external mathematical peer
+review. The old qutrit proof and its immutable release remain unchanged; this
+review package does not by itself certify the higher-dimensional analytic
+claims in the expanded preprint.
