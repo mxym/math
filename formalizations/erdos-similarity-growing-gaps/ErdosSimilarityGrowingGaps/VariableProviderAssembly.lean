@@ -298,17 +298,22 @@ noncomputable def variableRateBoundedWitness_of_inputs
     (hQ : ∀ v : InternalNode M d, ∀ child,
       max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
         (1 / (K : ℝ)) -
-        ((hinput v).u child + (k : ℝ)) / (K : ℝ) - D) / δ) 0 + 1 ≤
+        (((hinput v).u child + (k : ℝ)) / (K : ℝ) - D)) / δ) 0 + 1 ≤
           (Q : ℝ)) :
     ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
-        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q := by
+        (p := p) c v (lateActivationRate K δ D)
+        (vertexWindowLength c v) Q := by
   intro v
-  let hv := variableRateNodeWitness_of_input_bounded hK c v U R D δ hfill hM hδ hD
+  let hv := variableRateNodeWitness_of_input_bounded (p := p) hK c v U R D δ hfill hM hδ hD
     (hinput v) Q (hQ v)
-  exact Classical.choice hv
+  have hv' : Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K)
+      (k := k) (p := p) c v (lateActivationRate K δ D)
+      (vertexWindowLength c v) Q) := by
+    simpa only [(hinput v).ell_eq] using hv
+  exact Classical.choice hv'
 
-theorem finiteSequenceRoutingCertificate_of_template_inputs
+noncomputable def finiteSequenceRoutingCertificate_of_template_inputs
     {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
     (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
     (c : RoutingTemplate M d) (δ D : ℝ)
@@ -331,13 +336,13 @@ theorem finiteSequenceRoutingCertificate_of_template_inputs
     (hQ : ∀ v : InternalNode M d, ∀ child,
       max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
         (1 / (K : ℝ)) -
-        ((hinput v).u child + (k : ℝ)) / (K : ℝ) - D) / δ) 0 + 1 ≤
+        (((hinput v).u child + (k : ℝ)) / (K : ℝ) - D)) / δ) 0 + 1 ≤
           (Q : ℝ))
     (hQcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
       (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
         c.baseLength d + |(k : ℝ)| + 2)) :
     FiniteSequenceRoutingCertificate Z K k p := by
-  let witness := variableRateBoundedWitness_of_inputs hK c U R D δ hfill
+  let witness := variableRateBoundedWitness_of_inputs (p := p) hK c U R D δ hfill
     (by rw [hM]; exact lateBranching_ge_two K p δ D) hδ hD hinput Q hQ
   have hwitness : ∀ v : InternalNode M d,
       VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
