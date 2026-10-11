@@ -1,0 +1,40 @@
+name: APPT high-dimensional proof review
+on:
+  workflow_dispatch:
+  push:
+    branches: ['review/appt-mathematics-lean-20261010', 'review/appt-sorted-audit-20261011', 'review/appt-compact-attainment-20261011']
+    paths:
+      - 'formalizations/appt-high-dimensional-review/**'
+      - '.github/workflows/appt-high-dimensional-review.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Fresh bounded build, physical controls, and trust-zero replay
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --fresh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-sorted-review-${{ github.sha }}
+          path: |
+            formalizations/appt-high-dimensional-review/verification/reproduction/
+            formalizations/appt-high-dimensional-review/SOURCE_HASHES.json
+            formalizations/appt-high-dimensional-review/APPTReview/
+            formalizations/appt-high-dimensional-review/APPTReview.lean
+            formalizations/appt-high-dimensional-review/ReviewAudit.lean
+            formalizations/appt-high-dimensional-review/Regression.lean
+            formalizations/appt-high-dimensional-review/reproduce.py

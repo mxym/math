@@ -1,0 +1,167 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.baseline_graph_refined_budget':
+(kernel) declaration type mismatch, 'APPTReview.baseline_graph_refined_budget' has type
+  True
+but it is expected to have type
+  {h : Nat} →
+    (G :
+        @Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+          (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real) →
+      (w c : Real) →
+        @LE.le Real Real.instLE 0 w →
+          @LT.lt Real Real.instLT 0 c →
+            ((i j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) → @LE.le Real Real.instLE 0 (@G i j)) →
+              @Matrix.IsHermitian Real (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                  (@InvolutiveStar.toStar Real
+                    (@StarAddMonoid.toInvolutiveStar Real
+                      (@AddCommMonoid.toAddMonoid Real
+                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Real
+                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Real
+                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Real
+                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Real
+                                (@CommRing.toNonUnitalCommRing Real Real.commRing))))))
+                      (@StarRing.toStarAddMonoid Real
+                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Real
+                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Real
+                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Real
+                              (@CommRing.toNonUnitalCommRing Real Real.commRing))))
+                        instStarRingReal)))
+                  G →
+                ((i : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) → @Eq Real (@G i i) 0) →
+                  APPTReview.RowMajorAntitone (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1) G →
+                    @Matrix.PosSemidef (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real Real.instRing
+                        Real.partialOrder instStarRingReal
+                        (@HSub.hSub
+                          (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                          (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                          (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                          (@instHSub
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@Matrix.sub (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real Real.instSub))
+                          (@HSMul.hSMul Real
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@instHSMul Real
+                              (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                              (@Matrix.smul (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real Real
+                                (@instSMulOfMul Real Real.instMul)))
+                            c 1)
+                          (@HAdd.hAdd
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                            (@instHAdd
+                              (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                              (@Matrix.add (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real Real.instAdd))
+                            G
+                            (@HSMul.hSMul Real
+                              (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                              (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                              (@instHSMul Real
+                                (@Matrix (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                  (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real)
+                                (@Matrix.smul (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                  (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real Real
+                                  (@instSMulOfMul Real Real.instMul)))
+                              w
+                              (APPTReview.completeAdjacency
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))))) →
+                      @LE.le Real Real.instLE
+                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                              (@Nat.cast Real Real.instNatCast (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (@Finset.sum (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real
+                                Real.instAddCommMonoid
+                                (@Finset.univ (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                  (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))
+                                fun i =>
+                                APPTReview.rowEnergy (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1) G i))
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 4
+                                  (@Nat.cast Real Real.instNatCast h))
+                                w)
+                              (@Finset.sum
+                                (APPTReview.UpperPair (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) Real
+                                Real.instAddCommMonoid
+                                (@Finset.univ
+                                  (APPTReview.UpperPair (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                  (@Subtype.fintype
+                                    (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                      (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))
+                                    (fun p =>
+                                      @LT.lt (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                        (instLTFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                        (@Prod.fst (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p)
+                                        (@Prod.snd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p))
+                                    (fun a =>
+                                      Fin.decLt (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)
+                                        (@Prod.fst (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) a)
+                                        (@Prod.snd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) a))
+                                    (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                      (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                      (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                      (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))))
+                                fun p =>
+                                @G
+                                  (@Prod.fst (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                    (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                    (@Subtype.val
+                                      (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                        (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))
+                                      (fun p =>
+                                        @LT.lt (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (instLTFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (@Prod.fst (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p)
+                                          (@Prod.snd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p))
+                                      p))
+                                  (@Prod.snd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                    (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                    (@Subtype.val
+                                      (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                        (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))
+                                      (fun p =>
+                                        @LT.lt (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (instLTFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                          (@Prod.fst (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p)
+                                          (@Prod.snd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                                            (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)) p))
+                                      p)))))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                              (@Nat.cast Real Real.instNatCast (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1))
+                              (@HPow.hPow Real Nat Real
+                                (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                (@Nat.cast Real Real.instNatCast h) 2))
+                            (@HPow.hPow Real Nat Real
+                              (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) w 2)))
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 2
+                            (@Nat.cast Real Real.instNatCast (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) h 1)))
+                          (@HPow.hPow Real Nat Real
+                            (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c 2))
+EMPTY_KERNEL_REPLAY_PASS 41969 declarations; 49 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.baseline_graph_refined_budget

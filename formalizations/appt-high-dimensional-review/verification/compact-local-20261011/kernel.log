@@ -1,0 +1,98 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.apptPurityValues_eq_Icc':
+(kernel) declaration type mismatch, 'APPTReview.apptPurityValues_eq_Icc' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        @Eq (@Set Real) (APPTReview.apptPurityValues m n)
+          (@Set.Icc Real Real.instPreorder
+            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 1
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                (@Nat.cast Real Real.instNatCast n)))
+            (APPTReview.apptPuritySup m n))
+EMPTY_KERNEL_REPLAY_PASS 42246 declarations; 122 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.apptPurityValues_eq_Icc
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_total_dimension_uniform_upper':
+(kernel) declaration type mismatch, 'APPTReview.appt_total_dimension_uniform_upper' has type
+  True
+but it is expected to have type
+  (ε : Real) →
+    @LT.lt Real Real.instLT 0 ε →
+      @Exists Nat fun N =>
+        (m n : Nat) →
+          @LE.le Nat instLENat 2 m →
+            @LE.le Nat instLENat m n →
+              @LE.le Nat instLENat N (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) m n) →
+                (A : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) →
+                  @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+                    @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                        (instDecidableEqFin n) A →
+                      @LE.le Real Real.instLE
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@HPow.hPow Real Nat Real
+                            (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                              (@Nat.cast Real Real.instNatCast n))
+                            2)
+                          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                            (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                              1
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@Nat.cast Real Real.instNatCast m) (@Nat.cast Real Real.instNatCast n)))))
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 1 ε)
+                          (@Max.max Real Real.instMax 8
+                            (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 4
+                              (@HDiv.hDiv Real Real Real
+                                (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                  (@Nat.cast Real Real.instNatCast m) (@Nat.cast Real Real.instNatCast n))
+                                (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                  (@HPow.hPow Real Nat Real
+                                    (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                    (@Nat.cast Real Real.instNatCast m) 2)
+                                  1)))))
+TYPE_CLOSURE_REPLAY_PASS 8578 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_total_dimension_uniform_upper
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.exists_appt_purity_isGreatest':
+(kernel) declaration type mismatch, 'APPTReview.exists_appt_purity_isGreatest' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        @Exists (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) fun A =>
+          And (@APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+            (And
+              (@APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                (instDecidableEqFin n) A)
+              (@IsGreatest Real Real.instLE (APPTReview.apptPurityValues m n)
+                (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)))
+TYPE_CLOSURE_REPLAY_PASS 8570 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.exists_appt_purity_isGreatest
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_maximizing_mixture_rigid':
+(kernel) declaration type mismatch, 'APPTReview.appt_maximizing_mixture_rigid' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        {t : Real} →
+          @LT.lt Real Real.instLT 0 t →
+            @LT.lt Real Real.instLT t 1 →
+              {A B : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex} →
+                @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+                  @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                      (instDecidableEqFin n) A →
+                    @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) B →
+                      @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                          (instDecidableEqFin n) B →
+                        @Eq Real
+                            (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)
+                              (@APPTReview.stateMix (Fin m) (Fin n) t A B))
+                            (APPTReview.apptPuritySup m n) →
+                          @Eq (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) A B
+TYPE_CLOSURE_REPLAY_PASS 14720 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_maximizing_mixture_rigid

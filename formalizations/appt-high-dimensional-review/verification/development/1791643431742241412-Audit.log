@@ -1,0 +1,16 @@
+'APPTReview.density_appt_witness_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.diagonal_appt_star_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.entropyCorrection_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.entropyCorrection_head_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.multilevel_sos_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/Audit.lean:10:8: error: Type mismatch
+  APPTVerification.replayAndCorrupt
+    [`APPTReview.density_appt_witness_posSemidef, `APPTReview.appt_eigenvalue_witness_posSemidef,
+      `APPTReview.diagonal_appt_star_bound, `APPTReview.psd_shifted_star_bound, `APPTReview.multilevel_sos_nonneg,
+      `APPTReview.explicit_purity_gaps, `APPTReview.entropyCorrection_lower, `APPTReview.entropyCorrection_head_strict,
+      `APPTReview.absolutelyPPT_right_iff]
+has type
+  String → Lean.Elab.Command.CommandElabM Unit
+but is expected to have type
+  Lean.Elab.Command.CommandElabM ?m.2
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/Audit.lean:20:2: error: unexpected token; expected command

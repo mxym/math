@@ -22,6 +22,25 @@ The qutrit theorem is completely formalized in Lean 4.34.1 and independently rep
 
 The paper does not claim exact finite-dimensional maxima outside the stated rectangular range, nor equality of APPT and absolute separability. Within the rectangular range, the theorem does classify all maximizing spectra. The asymptotic theorem includes fixed `m` as `n -> infinity`, but does not give an effective convergence threshold.
 
+## Formalization status
+
+The separate high-dimensional Lean review currently certifies the following
+parts of the expanded manuscript:
+
+| Component | Status |
+|---|---|
+| Physical APPT hypotheses to the finite-dimensional purity upper bound | Verified |
+| Purity of an actual density matrix versus its ordered eigenvalues | Verified |
+| Dimension-only explicit upper bound | Verified |
+| Uniform growing-m asymptotic upper bound, uniformly for n >= m | Verified |
+| Matching lower construction for the unrestricted asymptotic maximum | Not yet formalized |
+| Joint Lean sufficiency proof for the three-level counterexample | Not yet formalized |
+| Full unrestricted purity/entropy extrema and rigidity classification | Not yet complete |
+
+The higher-dimensional analytic arguments and exact checkers remain part of the
+preprint, but a checker is not being presented as a substitute for a Lean
+formalization or for the analytic proof itself.
+
 ## Reproduction
 
 From this directory:
