@@ -3,6 +3,7 @@ import ErdosSimilarityGrowingGaps.GreedySampling
 import ErdosSimilarityGrowingGaps.SequenceGeometry
 import ErdosSimilarityGrowingGaps.SequenceRouting
 import ErdosSimilarityGrowingGaps.SequenceRoutingProbability
+import ErdosSimilarityGrowingGaps.SequenceSignatures
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
@@ -13,6 +14,7 @@ import ErdosSimilarityGrowingGaps.VariableTree
 import ErdosSimilarityGrowingGaps.FiniteRouting
 import ErdosSimilarityGrowingGaps.Avoidance
 import ErdosSimilarityGrowingGaps.TailAnalysis
+import ErdosSimilarityGrowingGaps.RobustExhaustion
 import ErdosSimilarityGrowingGaps.ParameterStrata
 import ErdosSimilarityGrowingGaps.SignFiberQuadratic
 import ErdosSimilarityGrowingGaps.LineSignQuadratic
@@ -23,6 +25,9 @@ import ErdosSimilarityGrowingGaps.ExplicitExample
 import ErdosSimilarityGrowingGaps.WindowRepair
 import ErdosSimilarityGrowingGaps.ScheduledAnnulus
 import ErdosSimilarityGrowingGaps.SequenceTransfer
+import ErdosSimilarityGrowingGaps.RoutingSampleMap
+import ErdosSimilarityGrowingGaps.RoutingSequenceBridge
+import ErdosSimilarityGrowingGaps.UniformPowerTransfer
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -113,6 +118,49 @@ theorem replay_sequence_fixed_parameter_joint_miss
           (sequenceActiveLocalCandidates Z c v children indices k r).card :=
   sequence_fixed_parameter_joint_miss Z c hM hd hL hU s₀ s₁ x k p bits v children indices r
     hindex hgap
+
+theorem replay_sequence_continuum_joint_miss_bound_of_lower_gap
+    {M d P : ℕ} (Z : LogScale) (c : RoutingTemplate M d)
+    (hM : 0 < M) (hd : 0 < d) (hL : 0 < c.baseLength)
+    (hU : 4 ≤ c.origin) (p s₀ s₁ x η : ℝ) (hp₀ : 0 ≤ p) (hp₁ : p ≤ 1)
+    (hs : s₀ ≤ s₁) (k : ℤ) (bits : SelectorEdge M d → Bool)
+    (v : InternalNode M d) (children : Fin P → Fin (M - 1))
+    (indices : Fin P → ℕ) (ell : ℕ)
+    (hell : ∀ i, c.edgeLength (RoutingTemplate.selectorRoutingEdge
+      ⟨v, children i⟩) = ell)
+    (hindex : Function.Injective (fun i => (children i, indices i)))
+    (hgap₀ : ∀ i j, i ≠ j → children i = children j →
+      3 ≤ s₀ * |Z.z (indices j) - Z.z (indices i)|)
+    (hmany : ∀ r : PowerParams s₀ s₁, η * ((M : ℝ) - 1) * ell ≤
+      (sequenceActiveLocalCandidates Z c v children indices k r).card) :
+    tableProbability p (fun ω =>
+      centerExposureAtom (actualCenterExposure c x bits) ω.selectors ∧
+      ∃ r : PowerParams s₀ s₁,
+        sequenceLocalAllMiss Z c hM hd s₀ s₁ x k
+          (fun i => ⟨v, children i⟩) indices r ω) ≤
+    tableProbability (T := TerminalAddress c hd) p
+      (fun ω => centerExposureAtom (actualCenterExposure c x bits) ω.selectors) *
+      (20 * (P * (3 + 2 ^ (2 * ell + 3)) + 5) ^ 2 : ℕ) *
+      Real.exp (-(p * η * ((M : ℝ) - 1) / 2) * ell) :=
+  sequence_continuum_joint_miss_bound_of_lower_gap Z c hM hd hL hU p s₀ s₁ x η hp₀ hp₁ hs k bits v children indices ell hell hindex hgap₀ hmany
+
+theorem replay_sequence_local_miss_representatives
+    {M d P : ℕ} (Z : LogScale) (c : RoutingTemplate M d)
+    (hM : 0 < M) (hd : 0 < d) (hL : 0 < c.baseLength)
+    (s₀ s₁ x : ℝ) (hs : s₀ ≤ s₁) (k : ℤ)
+    (v : InternalNode M d) (children : Fin P → Fin (M - 1))
+    (indices : Fin P → ℕ) (ell : ℕ)
+    (hell : ∀ i, c.edgeLength (RoutingTemplate.selectorRoutingEdge
+      ⟨v, children i⟩) = ell) :
+    ∃ reps : Finset (PowerParams s₀ s₁),
+      reps.card ≤ 20 * (P * (3 + 2 ^ (2 * ell + 3)) + 5) ^ 2 ∧
+      ∀ p : PowerParams s₀ s₁, ∃ r ∈ reps,
+        ∀ ω : FiniteRoutingTables (SelectorAddress c) (TerminalAddress c hd),
+          sequenceLocalAllMiss Z c hM hd s₀ s₁ x k
+            (fun i => ⟨v, children i⟩) indices r ω ↔
+          sequenceLocalAllMiss Z c hM hd s₀ s₁ x k
+            (fun i => ⟨v, children i⟩) indices p ω :=
+  sequence_local_miss_representatives Z c hM hd hL s₀ s₁ x hs k v children indices ell hell
 
 theorem replay_sequence_center_separation
     (Z : LogScale) (s₀ s₁ x : ℝ) (u ell : ℕ) (m : ℕ) (k : ℤ)
@@ -314,6 +362,17 @@ theorem replay_tail_grid_reduction {Z : LogScale} {H : Set ℝ}
     (hH : GridWeakRobustBlocker Z H) : RobustBlocker Z H :=
   weakRobustBlocker_implies_robust (gridWeakRobustBlocker_implies_weak hH)
 
+theorem replay_robust_exhaustion_of_compactRobustSpec
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hC : CompactRobustFamilySpec F) :
+    WindowBlockerSpec F :=
+  robustExhaustion_of_compactRobustSpec hC
+
+theorem replay_compactRobustSpec_of_uniformPowerTransfer
+    {Z : LogScale} (hT : UniformPowerTransferSpec Z) :
+    CompactRobustSpec Z :=
+  compactRobustSpec_of_uniformPowerTransfer hT
+
 theorem replay_parameter_representatives (m : ℕ)
     (cuts : Fin m → AffineCut) (lo hi : ℝ × ℝ) :
     ∃ reps : Finset (ℝ × ℝ),
@@ -397,6 +456,115 @@ theorem replay_scheduled_annulus
       D j / Real.log (Real.log (U j : ℝ)) < η :=
   hW.exists_scheduled_annulus K hK k N p hp R hR η hη
 
+theorem replay_routing_sample_index_bounds
+    {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D ≤ c.baseLength) (e : RoutingEdge M d) :
+    (c.edgeStart e : ℝ) ≤ Z.z (routingSampleIndex Z c D e) ∧
+      Z.z (routingSampleIndex Z c D e) ≤ (c.edgeStart e : ℝ) + D :=
+  routingSampleIndex_bounds c hM hL hspan hR hfill hD e
+
+theorem replay_routing_sample_index_injective
+    {Z : LogScale} {M d t : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D < c.baseLength) (edges : Fin t → RoutingEdge M d)
+    (hstart : Function.Injective (fun i => c.edgeStart (edges i)))
+    (hsep : ∀ i j, c.edgeStart (edges i) < c.edgeStart (edges j) →
+      c.edgeEnd (edges i) + 1 ≤ c.edgeStart (edges j)) :
+    Function.Injective (fun i => routingSampleIndex Z c D (edges i)) :=
+  routingSampleIndex_injective c hM hL hspan hR hfill hD edges hstart hsep
+
+theorem replay_routing_sample_index_activation
+    {Z : LogScale} {M d K : ℕ} (c : RoutingTemplate M d)
+    {D : ℝ} (hD : 0 ≤ D) (e : RoutingEdge M d)
+    {k : ℤ} (p : PowerParams (1 / (K : ℝ)) K) (hK : 2 ≤ K)
+    (hp : p ∈ powerActivation (c.edgeStart e) k
+      (c.edgeStart e) ((c.edgeStart e : ℝ) + c.edgeLength e))
+    (hsample : (c.edgeStart e : ℝ) ≤ Z.z (routingSampleIndex Z c D e))
+    (hsample' : Z.z (routingSampleIndex Z c D e) ≤
+      (c.edgeStart e : ℝ) + D)
+    (hmargin : p.1.1 * D <
+      (c.edgeStart e : ℝ) + c.edgeLength e -
+        (p.1.1 * (c.edgeStart e : ℝ) - (k : ℝ))) :
+    p ∈ sequenceWindowActivations Z (routingSampleIndex Z c D e) k
+      (fun _ : Fin 1 => ((c.edgeStart e : ℝ),
+        (c.edgeStart e : ℝ) + c.edgeLength e)) :=
+  routingSampleIndex_activation_of_margin c hD e p hK hp hsample hsample' hmargin
+
+
+
+
+theorem replay_routing_sample_index_filling_activation
+    {Z : LogScale} {M d K : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D ≤ c.baseLength) (e : RoutingEdge M d)
+    {k : ℤ} (p : PowerParams (1 / (K : ℝ)) K) (hK : 2 ≤ K)
+    (hp : p ∈ powerActivation (c.edgeStart e) k
+      (c.edgeStart e) ((c.edgeStart e : ℝ) + c.edgeLength e))
+    (hmargin : p.1.1 * D <
+      (c.edgeStart e : ℝ) + c.edgeLength e -
+        (p.1.1 * (c.edgeStart e : ℝ) - (k : ℝ))) :
+    p ∈ sequenceWindowActivations Z (routingSampleIndex Z c D e) k
+      (fun _ : Fin 1 => ((c.edgeStart e : ℝ),
+        (c.edgeStart e : ℝ) + c.edgeLength e)) :=
+  routingSampleIndex_activation_of_filling_margin c hM hL hspan hR hfill hD e p hK hp hmargin
+
+
+theorem replay_periodic_sequence_blocker_of_power_transfer
+    {Z : LogScale} {K : ℕ} (hK : 2 ≤ K)
+    (tests : Finset ℕ) (k : ℤ) {W : ℕ}
+    (windows : Fin W → ℝ × ℝ) (G : Set ℝ) (hGp : OnePeriodic G)
+    (r p : ℝ) (hr : 0 < r) (hp : 0 < p)
+    (sample : ℕ → ℕ)
+    (hactivate : ∀ n : ℕ, n ∈ tests →
+      ∀ q : PowerParams (1 / (K : ℝ)) K,
+        q ∈ windowActivations n k windows →
+        q ∈ sequenceWindowActivations Z (sample n) k windows)
+    (hpoint : ∀ (n : ℕ), n ∈ tests → ∀ (x : ℝ)
+      (q : PowerParams (1 / (K : ℝ)) K),
+      powerPoint (dyadic n) ((2 : ℝ) ^ k) (x, q) ∈ G →
+      powerPoint (input Z (sample n)) ((2 : ℝ) ^ k) (x, q) ∈
+        Metric.thickening r G)
+    (N : ℕ) (htail : ∀ n ∈ tests.image sample, N ≤ n)
+    (α q : ℝ) (hα : 0 < α) (hq : 0 ≤ q)
+    (herror : ∀ (q₀ : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
+      n ∈ tests.image sample →
+      q₀ ∈ sequenceWindowActivations Z n k windows →
+        q * (input Z n) ^ (q₀.1.1 + α) < r)
+    (houtcome : unitDensity (Metric.thickening (2 * r) G) +
+      unitDensity (powerMissedCenters (s₀ := 1 / (K : ℝ)) (s₁ := K)
+        tests k windows G) ≤ ENNReal.ofReal (5 * p)) :
+    ∃ H : Set ℝ, IsOpen H ∧ OnePeriodic H ∧
+      unitDensity H < ENNReal.ofReal (6 * p) ∧
+      CompactRobustHits Z H K k N α q :=
+  periodic_sequence_blocker_of_power_transfer hK tests k windows G hGp r p hr hp sample
+    hactivate hpoint N htail α q hα hq herror houtcome
+
+theorem replay_routing_sample_index_all_edges_injective
+    {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D < c.baseLength) :
+    Function.Injective (routingSampleIndex Z c D) :=
+  routingSampleIndex_all_edges_injective c hM hL hspan hR hfill hD
+
+theorem replay_routing_edge_start_injective
+    {M d : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength) :
+    Function.Injective c.edgeStart :=
+  routingEdge_edgeStart_injective c hM hL
+
 theorem replay_explicit_example_gap {β : ℝ} (hβ : 0 < β) (hβ₁ : β < 1) :
     ConsecutiveLogGapLittleO (explicitLogScale β hβ) :=
   explicitLogScale_consecutiveGapLittleO hβ hβ₁
@@ -424,6 +592,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_sequence_offset_identity
 #print axioms replay_sequence_active_range
 #print axioms replay_sequence_fixed_parameter_joint_miss
+#print axioms replay_sequence_continuum_joint_miss_bound_of_lower_gap
+#print axioms replay_sequence_local_miss_representatives
 #print axioms replay_sequence_local_address_separation
 #print axioms replay_sequence_center_separation
 #print axioms replay_sequence_grid_separation
@@ -445,11 +615,20 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_compact_blocker_assembly
 #print axioms replay_theorem2_assembly
 #print axioms replay_tail_grid_reduction
+#print axioms replay_robust_exhaustion_of_compactRobustSpec
+#print axioms replay_compactRobustSpec_of_uniformPowerTransfer
 #print axioms replay_parameter_representatives
 #print axioms replay_quadratic_parameter_representatives
 #print axioms replay_budget_allocation
 #print axioms replay_grid_blocker_assembly
 #print axioms replay_routing_schedule_eventual
 #print axioms replay_scheduled_annulus
+#print axioms replay_routing_sample_index_bounds
+#print axioms replay_routing_sample_index_injective
+#print axioms replay_routing_sample_index_activation
+#print axioms replay_routing_edge_start_injective
+#print axioms replay_routing_sample_index_all_edges_injective
+#print axioms replay_routing_sample_index_filling_activation
+#print axioms replay_periodic_sequence_blocker_of_power_transfer
 
 end ErdosSimilarityGrowingGaps

@@ -31,6 +31,12 @@ if cache.returncode:
         raise SystemExit(cache.returncode)
 else:
     print(cache.stdout, end="", flush=True)
+# Rebuild the new actual-sequence and exhaustion roots explicitly before the aggregate target.
+run([lake, "build",
+     "ErdosSimilarityGrowingGaps.SequenceSignatures",
+     "ErdosSimilarityGrowingGaps.RoutingSampleMap",
+     "ErdosSimilarityGrowingGaps.RoutingSequenceBridge",
+     "ErdosSimilarityGrowingGaps.RobustExhaustion"])
 run([lake, "build", "ErdosSimilarityGrowingGaps"])
 run([lake, "env", "lean", "-t", "0", "ErdosSimilarityGrowingGaps/Replay.lean"])
 run(["python3", "checks/negative.py"])
