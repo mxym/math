@@ -35,22 +35,82 @@ FixedLocalUpper.lean:92:19: warning: Unused tactic linter: `ring` does nothing
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
 
 MODULE PlateauApproximation
-PlateauApproximation.lean:17:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - m * n * (m * n * (m - 1) ^ 2 + 4 * m * k) * (m ^ 2 - 1)
-in the target expression
-  (m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k))) /
-      ((m ^ 2 - 1) * (m * n * (m - 1) + 2 * k) ^ 2) =
-    m ^ 2 / (m ^ 2 - 1) * (2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2
-
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+PlateauApproximation.lean:12:57: error: unsolved goals
 m n k : ℝ
 hm : m ^ 2 - 1 ≠ 0
 hZ : m * n * (m - 1) + 2 * k ≠ 0
 he :
-  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - m * n * (m * n * (m - 1) ^ 2 + 4 * m * k) * (m ^ 2 - 1) =
+  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k)) =
     m ^ 2 * (2 * k - (m - 1) * n) ^ 2
-⊢ (m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k))) /
-      ((m ^ 2 - 1) * (m * n * (m - 1) + 2 * k) ^ 2) =
-    m ^ 2 / (m ^ 2 - 1) * (2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2
+⊢ m ^ 2 * k * n *
+                  (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +
+                              m ^ 3 * n ^ 2 * 2 +
+                            m ^ 4 * k * n * 4 -
+                          m ^ 5 * n ^ 2 * 2 +
+                        m ^ 6 * n ^ 2 -
+                      k ^ 2 * 4)⁻¹ *
+                4 +
+              m ^ 2 * k ^ 2 *
+                  (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +
+                              m ^ 3 * n ^ 2 * 2 +
+                            m ^ 4 * k * n * 4 -
+                          m ^ 5 * n ^ 2 * 2 +
+                        m ^ 6 * n ^ 2 -
+                      k ^ 2 * 4)⁻¹ *
+                4 +
+            m ^ 2 * n ^ 2 *
+              (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +
+                          m ^ 3 * n ^ 2 * 2 +
+                        m ^ 4 * k * n * 4 -
+                      m ^ 5 * n ^ 2 * 2 +
+                    m ^ 6 * n ^ 2 -
+                  k ^ 2 * 4)⁻¹ -
+          m ^ 3 * k * n *
+              (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +
+                          m ^ 3 * n ^ 2 * 2 +
+                        m ^ 4 * k * n * 4 -
+                      m ^ 5 * n ^ 2 * 2 +
+                    m ^ 6 * n ^ 2 -
+                  k ^ 2 * 4)⁻¹ *
+            4 -
+        m ^ 3 * n ^ 2 *
+            (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +
+                        m ^ 3 * n ^ 2 * 2 +
+                      m ^ 4 * k * n * 4 -
+                    m ^ 5 * n ^ 2 * 2 +
+                  m ^ 6 * n ^ 2 -
+                k ^ 2 * 4)⁻¹ *
+          2 +
+      m ^ 4 * n ^ 2 *
+        (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 + m ^ 3 * n ^ 2 * 2 +
+                  m ^ 4 * k * n * 4 -
+                m ^ 5 * n ^ 2 * 2 +
+              m ^ 6 * n ^ 2 -
+            k ^ 2 * 4)⁻¹ =
+    m ^ 2 * k * n * (-1 + m ^ 2)⁻¹ *
+                  (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +
+                      k ^ 2 * 4)⁻¹ *
+                4 +
+              m ^ 2 * k ^ 2 * (-1 + m ^ 2)⁻¹ *
+                  (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +
+                      k ^ 2 * 4)⁻¹ *
+                4 +
+            m ^ 2 * n ^ 2 * (-1 + m ^ 2)⁻¹ *
+              (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)⁻¹ -
+          m ^ 3 * k * n * (-1 + m ^ 2)⁻¹ *
+              (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)⁻¹ *
+            4 -
+        m ^ 3 * n ^ 2 * (-1 + m ^ 2)⁻¹ *
+            (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)⁻¹ *
+          2 +
+      m ^ 4 * n ^ 2 * (-1 + m ^ 2)⁻¹ *
+        (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)⁻¹
 PlateauApproximation.lean:66:33: warning: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
