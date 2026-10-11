@@ -53,7 +53,7 @@ def publish(report,log=''):
  print(json.dumps({k:v for k,v in report.items() if k not in ('diagnostics','source_sha256')}),flush=True)
 
 for ref in (INPUT_REF,OUTPUT_REF):ensure_branch(ref)
-lean=Path(shutil.which('lean')).resolve()
+lean=Path(subprocess.check_output(['elan','which','lean'],cwd=BASE,text=True).strip())
 packages=BASE/'.lake/packages'
 paths=[str(BASE/'.lake/build/lib/lean'),str(BASE.parent/'appt-qutrit-purity/.lake/build/lib/lean')]+[str(p/'.lake/build/lib/lean') for p in packages.iterdir() if p.is_dir()]
 publish({'status':'READY','base_commit':os.environ['GITHUB_SHA']})
