@@ -1,6 +1,6 @@
 digraph GaussianFourPartial {
   rankdir=LR;
-  label="Partial proof dependency graph; sharp global theorem absent";
+  label="Partial Gaussian four-cell proof; global endpoint absent";
   "GaussianPartition" -> "GaussianPrices";
   "GaussianPartition" -> "GaussianNoTies";
   "GaussianPrices" -> "GaussianBalancedPrices";
@@ -128,6 +128,18 @@ digraph GaussianFourPartial {
   "GaussianFour.PriceSecondVariation" -> "GaussianFour.PriceFrechetTransport";
   "GaussianFour.PriceFrechetTransport" -> "GaussianFour.PriceHessian";
   "GaussianFour.PriceHessian" -> "GaussianFour.CenteredPriceHessian";
+  "GaussianPolyhedralGraphFlux" -> "GaussianFour.AffineBoundary";
+  "GaussianTail" -> "GaussianFour.AffineBoundary";
+  "GaussianFour.TripleTie" -> "GaussianFour.TripleAffineExclusion";
+  "GaussianFour.AffineBoundary" -> "GaussianFour.FacetChart";
+  "GaussianFour.TripleAffineExclusion" -> "GaussianFour.FacetChart";
+  "GaussianWinningGraphFlux" -> "GaussianFour.FacetChart";
+  "GaussianFour.FacetChart" -> "GaussianFour.FacetContinuity";
+  "GaussianFour.FacetContinuity" -> "GaussianFour.FacetGraphBridge";
+  "GaussianFour.FacetGraphBridge" -> "GaussianFour.FacetCoordinates";
+  "GaussianFour.PriceBounds" -> "GaussianFour.FacetCoordinates";
+  "GaussianSimplicialMassFlux" -> "GaussianFour.FacetCoordinates";
+  "GaussianFour.FacetCoordinates" -> "GaussianFour";
   "GaussianFour.CenteredPriceHessian" -> "GaussianFour";
   "GaussianFour.PriceHessian" -> "GaussianFour";
   "GaussianFour.PriceFrechetIntegral" -> "GaussianFour";

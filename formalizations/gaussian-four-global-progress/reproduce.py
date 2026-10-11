@@ -104,7 +104,7 @@ def main() -> int:
     output = args.output_dir.resolve()
     output.mkdir(parents=True, exist_ok=False)
     report = {"status": "RUNNING", "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: actual Gaussian covariance law, flux, Gram transport, fixed directional differential, and earlier four-cell core; NOT the global sharp theorem"}
+              "module_order": MODULES, "commands": [], "scope": "PARTIAL four-cell formalization: actual Gaussian covariance/price analysis and singular facet-chart continuity with exact graph flux identification; NOT the global sharp theorem"}
     try:
         from preflight import check_inventory
         report["source_inventory"] = check_inventory(ROOT, strip_comments)
@@ -221,6 +221,7 @@ def main() -> int:
             ("GaussianFour.FixedCovarianceDifferential", "((facetLaplacian w*D).trace / 2) 0 := by", "((facetLaplacian w*D).trace) 0 := by"),
             ("GaussianFour.PriceHessian", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = q j := by", "q ⬝ᵥ (facetLaplacian w *ᵥ q) = 0 ↔ ∀ i j, q i = -q j := by")]
         controls += [("GaussianFour.CenteredPriceHessian", "0 < q ⬝ᵥ (facetLaplacian w *ᵥ q) := by", "q ⬝ᵥ (facetLaplacian w *ᵥ q) < 0 := by")]
+        controls += [('GaussianFour.FacetChart', '⟪v j, joinCoordinate (pairHeight v b i j y) y⟫ - b j := by', '⟪v j, joinCoordinate (pairHeight v b i j y) y⟫ - b j + 1 := by'), ('GaussianFour.FacetGraphBridge', 'inwardCoordinate v i := by', '(-inwardCoordinate v i) := by')]
         if len(controls) != len(set(controls)):
             raise RuntimeError("Duplicate negative-control mutations")
         report["negative_controls"] = []

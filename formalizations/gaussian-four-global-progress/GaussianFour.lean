@@ -1,3 +1,4 @@
+import GaussianFour.FacetCoordinates
 import GaussianFour.CenteredPriceHessian
 import GaussianFour.PriceHessian
 import GaussianFour.PriceFrechetIntegral

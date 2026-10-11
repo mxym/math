@@ -6,7 +6,16 @@ classification are not proved or exported by this package. No missing
 geometric theorem is assumed as a custom axiom. No completion Release or DOI
 is created for this checkpoint.
 
-## Current verified checkpoint
+## Facet-continuity extension (96 modules)
+
+The recovered six-module extension has now passed a fresh local 96-module
+build, separate compilation, and trust-zero replay: 583 roots and 60,530
+declarations; all 11 mutations rejected. See [FACET_PROGRESS.md](FACET_PROGRESS.md)
+and `evidence/facet-continuity/local-r2/` for the exact scope and new receipts.
+Independent CI for this extension is pending at this checkpoint. The
+90-module receipts below verify its baseline, not the additional sources.
+
+## Independently verified baseline (90 modules)
 
 The 90-module source set at `dce885e1e91f6b647cf5327dad6bb1b25ebee2f6`
 passed fresh local verification and independent GitHub-hosted verification:

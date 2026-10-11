@@ -49,6 +49,15 @@ Hessian; the two must not be conflated.
 
 ## 2. Singular convergence and actual facet geometry
 
+The six-module facet-chart extension now proves joint continuity of actual
+Gaussian chart integrals at positive-mass diagrams, including singular limits,
+and identifies their weights with the existing epigraph flux coefficients.
+Fixed orthogonal charts are constructed rather than assumed to vary smoothly.
+See FACET_PROGRESS.md. Coordinate-independent surface/perimeter identification,
+chart compatibility and the complete arbitrary-cell limiting flux argument
+remain; the following global obligations are not discharged by local chart
+continuity alone.
+
 The exact pair-price bound, centered-price compactness, moment separation,
 non-coalescence and positive-mass collinear triple-tie obstruction are proved.
 Continuity of Bochner winning moments is proved at distinct score families;
