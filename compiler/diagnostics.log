@@ -28,18 +28,6 @@ HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecat
 MODULE HydrologyTree.BlockJacobian
 
 MODULE HydrologyTree.Scaling
-HydrologyTree/Scaling.lean:31:81: error: unsolved goals
-case inr.inr
-E : Type u_1
-inst✝³ : NormedAddCommGroup E
-inst✝² : NormedSpace ℝ E
-ι : Type u_2
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-b : Basis ι ℝ E
-x : ℝ × E
-val✝¹ val✝ : ι
-⊢ (Finsupp.single val✝ x.1) val✝¹ = if val✝¹ = val✝ then x.1 else 0
 HydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:
   Matrix.det_smul
 
@@ -47,3 +35,11 @@ Hint: Omit it from the simp argument list.
   [apply] simp
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.Triangular
+
+MODULE HydrologyTree.RootUpdate
+HydrologyTree/RootUpdate.lean:101:2: error: 'change' tactic failed, pattern
+  0 + (shiftLow n) x.1 + (0 + x.2.1 • x.1) - x.2.2 = ?m.149
+is not definitionally equal to target
+  0 + 0 + ((cut n) (X * ↑x.1) + x.2.1 • x.1) - x.2.2 = (shiftLow n) x.1 + x.2.1 • x.1 - x.2.2
