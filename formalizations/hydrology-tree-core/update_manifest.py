@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib, json, re
 ROOT=Path(__file__).resolve().parent
-modules=['HydrologyTree.Coefficients','HydrologyTree.BlockJacobian','HydrologyTree']
+modules=['HydrologyTree.Coefficients','HydrologyTree.BlockJacobian','HydrologyTree.Gluing','HydrologyTree']
 (ROOT/'MODULES.json').write_text(json.dumps(modules,indent=2)+'\n')
 roots=[]
 for module in modules:

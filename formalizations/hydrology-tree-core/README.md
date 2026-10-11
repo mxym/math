@@ -5,14 +5,17 @@ corollaries, cancellation classification, or positive-fiber enumeration.**
 
 This initial development checkpoint establishes actual finite-dimensional
 polynomial coefficient spaces and their affine Frechet derivatives, and the
-repeated-block determinant identity used by the proposed gluing proof. The
-polynomial-gluing derivative and the connection to the actual tree compartment
+actual two-polynomial gluing derivative and resultant-squared Jacobian identity.
+All degrees and all coefficient vectors, including common roots, are quantified.
+The multi-child induction and the connection to the actual tree compartment
 matrix still have to be proved. No finite checker or assumed Jacobian is used
 as a substitute for those missing bridges.
 
 Lean 4.34.1 and Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612 are pinned.
-The first two source modules compiled on the initial WSL development host;
-independent CI and hash-bound replay evidence are being established separately.
+The initial three-module entry closure passed GitHub run 38140690781:
+24,604 declarations, 23 roots, trust level zero, and both rejected mutations.
+The new actual gluing module compiled on the WSL development host; its expanded
+independent CI and hash-bound replay are checked separately.
 Only completed run receipts certify their own exact source bytes.
 
 No completion Release, DOI, external peer review, or priority claim is made.

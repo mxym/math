@@ -48,7 +48,20 @@ run_cmd do
     ``HydrologyTree.repeatedBlock,
     ``HydrologyTree.repeatedBlock_apply,
     ``HydrologyTree.toMatrix_repeatedBlock,
-    ``HydrologyTree.det_repeatedBlock]
+    ``HydrologyTree.det_repeatedBlock,
+    ``HydrologyTree.PolyPair,
+    ``HydrologyTree.GlueInput,
+    ``HydrologyTree.pairBasis,
+    ``HydrologyTree.coeff_natDegree_le,
+    ``HydrologyTree.sylvCLM,
+    ``HydrologyTree.sylvCLM_cut,
+    ``HydrologyTree.monoSylv,
+    ``HydrologyTree.lowSylv,
+    ``HydrologyTree.glue,
+    ``HydrologyTree.glueDerivative,
+    ``HydrologyTree.hasFDerivAt_glue,
+    ``HydrologyTree.gluingJacobian,
+    ``HydrologyTree.gluingJacobian_eq_resultant_sq]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

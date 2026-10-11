@@ -23,3 +23,16 @@ import HydrologyTree
 #print axioms HydrologyTree.repeatedBlock_apply
 #print axioms HydrologyTree.toMatrix_repeatedBlock
 #print axioms HydrologyTree.det_repeatedBlock
+#print axioms HydrologyTree.PolyPair
+#print axioms HydrologyTree.GlueInput
+#print axioms HydrologyTree.pairBasis
+#print axioms HydrologyTree.coeff_natDegree_le
+#print axioms HydrologyTree.sylvCLM
+#print axioms HydrologyTree.sylvCLM_cut
+#print axioms HydrologyTree.monoSylv
+#print axioms HydrologyTree.lowSylv
+#print axioms HydrologyTree.glue
+#print axioms HydrologyTree.glueDerivative
+#print axioms HydrologyTree.hasFDerivAt_glue
+#print axioms HydrologyTree.gluingJacobian
+#print axioms HydrologyTree.gluingJacobian_eq_resultant_sq
