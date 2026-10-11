@@ -1,32 +1,57 @@
-# Hydrology research direction (2026-10-11)
+# Hydrology storage-invariance research (2026-10-11)
 
-## Candidate main problem
-Can a low-dimensional storage state, constrained by exact water balance and monotone runoff response, remain calibrated under forcing distributions outside training support?
+Status: exploratory mathematical note. No real-catchment experiment, new hydrological law, novelty claim, or release. The correction below supersedes the earlier stability formulas.
 
-## Model class
-For basin b and time t, let
-\[
-S_{t+1}=S_t+P_t-ET_t-Q_t,
-\qquad Q_t=f_\theta(S_t,P_t,A_b),
-\]
-where S is latent effective storage, P precipitation, ET evapotranspiration, Q discharge, and A_b static basin attributes. Enforce nonnegativity, mass closure, and monotonicity in S and P. A cross-basin encoder maps A_b to parameters but the state transition is shared.
+## Research question and model scope
 
-## Testable hypothesis
-Compared with an unconstrained LSTM and a standard differentiable HBV baseline, the shared transition should retain better tail calibration and physical-state consistency under leave-one-climate-regime-out testing, especially for return periods beyond the training range.
+Can physically constrained state models identify transferable rainfall-runoff mechanisms, rather than merely fit discharge? Extreme-event calibration is a hypothesis to test, not a consequence of water balance.
 
-## Potential mathematical result
-Assume the learned transition F is L-Lipschitz in state and forcing, and the forcing perturbation at time t is δu_t. Then the state error satisfies
-\[
-|δS_T| \le L^T|δS_0|+\sum_{k=0}^{T-1}L^{T-1-k}|δu_k|.
-\]
-If Q=f(S,u) is K-Lipschitz, then
-\[
-|δQ_T|\le K\left(L^T|δS_0|+\sum_{k=0}^{T-1}L^{T-1-k}|δu_k|\right).
-\]
-This gives a falsifiable robustness certificate: estimate L,K on held-out trajectories and compare the certified bound with observed extreme-event error. The result is not a theorem about all hydrological systems; it is a conditional stability theorem for the proposed model class.
+For a closed, snow-free lumped basin in consistent water-depth units per time step, use
+S_{t+1}=S_t+P_t-E_t-Q_t.
+Require S,P,E,Q >= 0 and E_t+Q_t <= S_t+P_t.
+This omits abstraction, groundwater exchange, snow and routing; those require explicit additional states/fluxes. Monotonicity is a model assumption, not a universal hydrological law.
 
-## Novelty target
-The contribution must be mechanism-level: identify whether the learned state is an effective storage variable whose response is invariant across basins/climate regimes, not merely improve NSE. Required evidence: ablations of each physical constraint, tail-calibrated uncertainty, unseen-extreme stress tests, and independent checks against SWE/ET where available.
+## Correction: standard perturbation lemma
 
-## Immediate audit finding
-A naive Lipschitz estimate with L>1 makes the finite-horizon bound numerically vacuous. A useful certificate therefore needs either (i) a contractive storage transition on the relevant invariant set (L<1), enforced by parameterization, or (ii) a tighter input-to-state stability/small-gain argument that separates storage persistence from runoff feedback. This is an explicit design constraint, not a detail to hide in evaluation.
+Let two trajectories follow the same transition F and observation map h. Suppose on a common forward-invariant domain, uniformly in admissible inputs,
+||F(s,u)-F(s',u')|| <= a||s-s'|| + b||u-u'||,
+||h(s,u)-h(s',u')|| <= c||s-s'|| + d||u-u'||,
+with nonnegative constants a,b,c,d. Write e_t=||s_t-s'_t|| and v_t=||u_t-u'_t||. Then
+e_T <= a^T e_0 + b sum_{k=0}^{T-1} a^{T-1-k} v_k,
+||Q_T-Q'_T|| <= c e_T + d v_T.
+Proof: apply the first assumption at each step and induct on T; apply the second assumption at T. Empty sums are zero.
+
+The original note omitted the forcing sensitivity coefficient b and the instantaneous output term d v_T. A joint L-Lipschitz assumption under the sum norm permits a=b=L, not b=1 in general. With bounded model discrepancy r_t, add sum a^{T-1-k} r_k. This compares model trajectories; it does not bound error against nature unless discrepancy is also bounded.
+
+Finite sampled slopes on held-out trajectories do not certify global Lipschitz constants, nor should test data determine constraints. Constants need an analytic architecture-level proof or a rigorous domain enclosure. If a<1 and v_t<=epsilon, then e_T <= a^T e_0 + b epsilon (1-a^T)/(1-a). For a=1 the bound is e_0+bT epsilon. Contractivity is sufficient for a uniform bounded-input bound, not necessary for every useful finite-horizon bound.
+
+This elementary induction is background mathematics, not a research contribution. It proves neither identifiability nor distribution-shift tail calibration.
+
+## Exact counterexample: conservation and contraction do not identify extrapolation
+
+Take E=0, available water x=S+P>=0, and two release functions:
+q_A(x)=x/2,
+q_B(x)=x/2 for x<=1, and 3x/4-1/4 for x>1.
+Set S_next=x-q(x).
+
+Both have nonnegative discharge and storage, exact mass balance, continuous monotone discharge and monotone storage maps. The storage map is globally 1/2-Lipschitz: its slopes are 1/2 for A, and 1/2 or 1/4 for B. Hence both are contractive in storage under identical forcing.
+
+For identical initial states and any forcing trajectory with all available-water values at most 1, the states and discharges agree exactly by induction. Starting at S=0 with P=3, however, A releases 3/2 whereas B releases 2. Any prediction based solely on the identical low-range observations must have absolute error at least 1/4 in one of these two admissible worlds, by the triangle inequality. No claim of historical novelty is made for this elementary counterexample.
+
+Thus conservation, monotonicity and even global contraction do not by themselves determine unseen-event discharge. Adding shared cross-basin parameterization does not remove this example if all observed basins remain within the same low-range domain. A deterministic stability estimate cannot supply a probabilistic tail-calibration guarantee.
+
+## Revised experimental direction
+
+Target identifiable, externally testable mechanisms and report an admissible prediction range where extrapolation is not identifiable. Compare physical-model, differentiable-HBV and data-driven baselines using identical forcing, training periods and budgets. Separate:
+- simulation with observed meteorological inputs from operational forecasting;
+- sensitivity to forcing perturbations from structural/model discrepancy;
+- time-held-out, basin-held-out and climate-regime-held-out evaluations;
+- flood peaks, volume and timing from average NSE, and empirical coverage from certified guarantees.
+
+Freeze preprocessing, splits and hyperparameters before final tests; retain extreme events intact across split boundaries and account for temporal dependence. Independent ET/storage/snow observations may constrain mechanisms, but uncertainty in these observations must be included. A real-data benchmark has not yet been downloaded or run.
+
+## Literature anchor
+
+Song et al., Physics-Informed, Differentiable Hydrologic Models for Capturing Unseen Extreme Events (2026):
+https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025WR040414
+This motivates unseen-event evaluation; it does not establish novelty or guarantees for this proposal.
