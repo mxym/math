@@ -230,6 +230,13 @@ formalizes this factorization and `finite_spectrum_recurrence_unique` proves
 that the first \(k\) recurrence equations have a unique coefficient vector.
 This closes the linear coefficient-recovery part of Prony identification; matching
 the roots of two unknown characteristic polynomials remains a separate step.
+More precisely, `two_spectrum_recurrence_coefficients_equal` proves the transfer
+statement needed to compare two competing nondegenerate \(k\)-mode models: if
+their first \(2k\) moments agree and each model supplies an order-\(k\)
+recurrence, the coefficient vectors are identical. Thus the remaining nonlinear
+step is exactly root matching (including the permutation of distinct rates), not
+another hidden linear-algebra assumption. This is the strongest fully
+formalized unknown-rate statement in the current package.
 
 ### Finite-spectrum growth obstruction
 

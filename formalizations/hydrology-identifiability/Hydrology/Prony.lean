@@ -47,6 +47,7 @@ theorem momentHankel_det_ne_zero {k : ℕ} (w l : Fin k → ℝ)
 end
 end HydrologyIdentifiability
 
+
 namespace HydrologyIdentifiability
 
 /-- A nonsingular Hankel matrix makes a finite-order recurrence coefficient
@@ -86,5 +87,42 @@ theorem finite_spectrum_recurrence_unique
   · change (momentHankel w l).det ≠ 0
     exact momentHankel_det_ne_zero w l hw hinj
   · exact hrec
+
+end HydrologyIdentifiability
+
+namespace HydrologyIdentifiability
+
+/-- The linear Prony step is invariant under a second finite-spectrum
+representation. If two nondegenerate `k`-mode spectra have the same first
+`2*k` moments, then any order-`k` recurrence coefficients valid for the two
+representations agree. Matching the resulting roots is a separate
+permutation statement. -/
+theorem two_spectrum_recurrence_coefficients_equal
+    {k : ℕ} (w l v m c d : Fin k → ℝ)
+    (hw : ∀ i, w i ≠ 0) (hinj : Function.Injective l)
+    (_hv : ∀ i, v i ≠ 0) (_hinj_m : Function.Injective m)
+    (hmom : ∀ q : ℕ, q ≤ 2 * k - 1 →
+      finiteMoment w l q = finiteMoment v m q)
+    (hrec_l : ∀ j : Fin k,
+      finiteMoment w l ((j : ℕ) + k) =
+        ∑ r : Fin k, finiteMoment w l ((j : ℕ) + (r : ℕ)) * c r)
+    (hrec_m : ∀ j : Fin k,
+      finiteMoment v m ((j : ℕ) + k) =
+        ∑ r : Fin k, finiteMoment v m ((j : ℕ) + (r : ℕ)) * d r) :
+    c = d := by
+  apply finite_spectrum_recurrence_unique w l c d hw hinj
+  intro j
+  calc
+    (∑ r : Fin k, finiteMoment w l ((j : ℕ) + (r : ℕ)) * c r) =
+        finiteMoment w l ((j : ℕ) + k) := (hrec_l j).symm
+    _ = finiteMoment v m ((j : ℕ) + k) := by
+      apply hmom
+      omega
+    _ = ∑ r : Fin k, finiteMoment v m ((j : ℕ) + (r : ℕ)) * d r := hrec_m j
+    _ = ∑ r : Fin k, finiteMoment w l ((j : ℕ) + (r : ℕ)) * d r := by
+      apply Finset.sum_congr rfl
+      intro r hr
+      rw [hmom]
+      omega
 
 end HydrologyIdentifiability

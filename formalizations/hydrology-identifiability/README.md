@@ -34,7 +34,10 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/Prony.lean` factors the finite moment Hankel matrix through a
   weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
   weights and distinct rates, and proves uniqueness of the associated recurrence
-  coefficients.
+  coefficients. It also transfers those coefficients between any two
+  nondegenerate `k`-mode representations with the same first `2*k` moments;
+  the remaining root-matching/permutation step is stated explicitly as outside
+  this package.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every
