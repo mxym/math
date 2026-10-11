@@ -35,17 +35,22 @@ FixedLocalUpper.lean:92:19: warning: Unused tactic linter: `ring` does nothing
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
 
 MODULE PlateauApproximation
-PlateauApproximation.lean:13:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ?m.286 / (m ^ 2 - 1) - ?m.288 / (m * n * (m - 1) + 2 * k) ^ 2
+PlateauApproximation.lean:17:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - m * n * (m * n * (m - 1) ^ 2 + 4 * m * k) * (m ^ 2 - 1)
 in the target expression
-  m ^ 2 / (m ^ 2 - 1) - m * n * ((m * n * (m - 1) ^ 2 + 4 * m * k) / (m * n * (m - 1) + 2 * k) ^ 2) =
-    m ^ 2 / (m ^ 2 - 1) * ((2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2)
+  (m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k))) /
+      ((m ^ 2 - 1) * (m * n * (m - 1) + 2 * k) ^ 2) =
+    m ^ 2 / (m ^ 2 - 1) * (2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2
 
 m n k : ℝ
 hm : m ^ 2 - 1 ≠ 0
 hZ : m * n * (m - 1) + 2 * k ≠ 0
-⊢ m ^ 2 / (m ^ 2 - 1) - m * n * ((m * n * (m - 1) ^ 2 + 4 * m * k) / (m * n * (m - 1) + 2 * k) ^ 2) =
-    m ^ 2 / (m ^ 2 - 1) * ((2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2)
+he :
+  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - m * n * (m * n * (m - 1) ^ 2 + 4 * m * k) * (m ^ 2 - 1) =
+    m ^ 2 * (2 * k - (m - 1) * n) ^ 2
+⊢ (m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k))) /
+      ((m ^ 2 - 1) * (m * n * (m - 1) + 2 * k) ^ 2) =
+    m ^ 2 / (m ^ 2 - 1) * (2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2
 PlateauApproximation.lean:66:33: warning: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
