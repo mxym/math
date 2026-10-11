@@ -17,17 +17,18 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Dimension-uniform physical contraction sufficiency | `absolutelyPPT_dimension_contraction` | COMPLETE finite theorem from actual P and I-P positivity; no spectral surrogate. Local and independent CI full builds and trust-zero replays passed (run 38131356027). |
 | Actual projection-state attainment at every rank | `exists_projectionPlateau`, `exists_broad_plateau` | COMPLETE density, all-unitary APPT and exact purity. Not the upper bound or maximizing-spectrum classification. |
 | Sharpness of the dimension-dependent constant | `antisymmetric_not_ppt` | Actual antisymmetric projection and exact maximally entangled test. Includes a trace-one 4x4 non-APPT regression. |
-| Three-level 10x38 counterexample | Scalar SOS and rational gaps | Generic quantum sufficiency bridge not yet formalized. |
+| Three-level 10x38 counterexample | Scalar SOS and rational gaps | Joint projection-plus-spike quantum sufficiency still missing; contraction sufficiency alone does not prove this membership. |
 | All ordered gap arrangements | `appt_all_ordered_pair_witnesses`, `appt_ordered_gap_square_bound` | Complete physical finite statements; placements constructed for every edge bijection. |
 | Triangular row inequality | `triangular_degree_square` | Complete in arbitrary dimension with explicit entrywise sign, symmetry and row-order hypotheses. |
 | Actual sorted gap square budget | `density_appt_pair_gap_square_sum` | Complete necessary bound from density and APPT, including exact paper pivot and edge count. |
-| Baseline-sensitive graph budget | `baseline_graph_refined_budget` | Complete generic finite inequality, including the exact cross term; the spectral baseline instantiation remains. |
-| Sorted centered variance | `sorted_centered_variance` | Complete for arbitrary decreasing real vectors of sum one and 2R<=D; not yet the assembled physical purity bound. |
+| Baseline-sensitive graph budget | `baseline_graph_refined_budget` | Complete generic finite inequality including the exact cross term; actual spectral baseline instantiation is now proved in `SpectralBaseline`. |
+| Sorted centered variance | `sorted_centered_variance` | Complete for arbitrary decreasing real vectors of sum one and 2R<=D; now connected to actual quantum purity by `FinitePurity`. |
 | Actual finite purity bound | `density_appt_finite_purity_bound` | COMPLETE finite physical inequality with the exact spectral pivot, graph and moment dependencies discharged; local and independent CI build and trust-zero replay passed; dimension-only normalization is now proved separately below. |
 | Dimension-only normalization | `density_appt_normalized_purity_bound`, `density_appt_dimension_only_upper` | COMPLETE actual-state inequalities; the latter assumes only 8<=m<=n, density and APPT. |
-| Uniform growing-small-dimension purity upper half | `appt_uniform_asymptotic_upper` | COMPLETE quantified epsilon theorem: one threshold works for every n>=m and all actual APPT density matrices. Local fresh build and trust-zero replay passed; matching lower/equality is not proved. |
+| Uniform growing-small-dimension purity upper half | `appt_uniform_asymptotic_upper` | COMPLETE quantified epsilon theorem: one threshold works for every n>=m and all actual APPT density matrices. Local and independent CI fresh builds and trust-zero replays passed (run 38141972563); matching lower/equality is not proved. |
 | Exact rectangular maximum and all maximizers | No final endpoint | Physical broad-plateau attainment is now proved; outer-polytope construction, vertex optimization and maximizing-spectrum classification remain. |
 | Multiscale and two-ended graph limits | No final endpoint | Compactness, simultaneous levels, nested witnesses and order of limits missing. |
+| Complementary fixed-m asymptotic | No final endpoint | The new upper theorem requires m to grow; the fixed-m interval argument and its matching limit remain. |
 | Uniform purity and Renyi entropy extrema | No final endpoint | The purity upper half is verified above. Matching lower constructions, equality of extrema limits and unrestricted entropy extrema remain unclosed. |
 | Rigidity and equality classifications | No final endpoint | Saturation, empirical/outlier limits and attaining constructions still missing. |
 

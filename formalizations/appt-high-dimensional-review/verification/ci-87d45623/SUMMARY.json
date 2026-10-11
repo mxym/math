@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Finite purity and quantified uniform upper-half; physical spectral-gap upper bounds, sufficiency, projection attainment, sorted witnesses and nonlinear-head declarations; NOT the full high-dimensional purity/entropy research theorems",
+  "source_manifest_sha256": "b6363b57818d46410e75724cff06da9221bec9d10b736bca9045638c46745f31",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 1.216,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 74.522,
+      "log": "build.log",
+      "sha256": "b94de1a8438be58dc3222b08879d0e2624be6378df12496dcf1f0a6baae7ebba"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.169,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.472,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 70.984,
+      "log": "kernel.log",
+      "sha256": "a5ef2abed2a13e1985e9787c454686b75b616415467cea88c0c8c6f53f9b41de"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 50
+}

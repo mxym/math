@@ -1,59 +1,42 @@
-# High-dimensional APPT: independent mathematical review and Lean verification
+# High-dimensional APPT: mathematical review and Lean verification
 
-## Verified uniform upper half of the purity law
+**Partial formal verification of the overall research. The uniform purity UPPER half is complete; matching lower limits, full extrema, entropy and rigidity theorems are not yet fully Lean-certified.** All physical endpoints use actual complex matrices and the original all-global-unitary APPT definition.
 
-The finite inequality is now normalized with no spectral side hypothesis. For every actual complex APPT density matrix with 8<=m<=n,
+## 1. Completed uniform upper half
+
+For every actual APPT density matrix A on C^m tensor C^n, with 8<=m<=n, Lean proves
 
     (mn)^2 [purity(A)-1/(mn)]
       <= [m/(m-7)]^2 max{8,4+n/m}.
 
-`appt_uniform_asymptotic_upper` proves the quantified consequence: for every real epsilon>0 there is ONE integer M such that the scaled excess purity is at most `(1+epsilon)*max{8,4+n/m}` for every m>=M, every n>=m, and every density matrix that is APPT under all global unitaries. No eigenvalue ansatz, graph condition, compactness assumption, fixed aspect ratio or proposed asymptotic conclusion is supplied. The scalar comparison has an explicit modulus: real m>=max{8,7+63/epsilon} suffices.
+The final declaration `appt_uniform_asymptotic_upper` proves the quantified consequence: for every real epsilon>0 there is ONE natural M such that the right coefficient can be replaced by `(1+epsilon)*max{8,4+n/m}` for EVERY m>=M, EVERY n>=m, and EVERY APPT density matrix at those dimensions. No fixed aspect ratio is assumed, and states can vary arbitrarily with dimension. A sufficient real threshold for the error comparison is m>=max{8,7+63/epsilon}.
 
-The proof is in `PurityNormalization.lean`, `UniformPurityUpper.lean`, and `AsymptoticUpper.lean`, using the finite physical bound in `FinitePurity.lean`. The pivot prefix contributes a rigorously bounded centered variance; square-root normalization and dimension arithmetic remove that pivot. The original quantum purity is connected to the actual ordered eigenvalues.
+The final physical theorem assumes only dimensions, density and all-unitary APPT. It does not assume a spectral ansatz, graph cap, variance inequality, pivot bound, compactness input or the claimed conclusion. The exact finite predecessor, valid for all 2<=m<=n, is
 
-The strengthened source passed a fresh local Lake build (2,837 tasks), physical regressions and an empty-kernel replay of 42,044 transitive declarations with 68 explicit roots. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. The kernel rejected a proof of the final uniform theorem replaced by `True.intro`, without changing its type or universe parameters. All 50 input files, including imported quantum definitions and replay support, were bound to their hashes. After a Windows network failure, the source transfer to the VPS was verified against its payload hash and all 50 input hashes. Independent CI for this stronger source is not yet asserted here.
+    purity(A)-1/(mn) <= max{8,4+mn/(m-1)^2} * b^2,
+    b=lambda_(mn-m(m+1)/2+1),
 
-The earlier finite-pivot checkpoint already passed independent run **38140515745** at source **dcab372f26a250a529112afde26d8cba942d3b32**; its evidence is in `verification/ci-dcab372f/`. It is not relabeled as the stronger upper-limit audit.
+where the eigenvalues are canonically ordered and the index is one-based. The generic quantum identity `purity_eq_ordered_eigenvalues` connects the original trace(A*A).re definition to their squared sum.
 
-**This closes the growing-small-dimension uniform UPPER half, not the equality theorem for the maximum.** Matching lower constructions, graph compactness limits, fixed-m limits, exact rectangular upper optimization, complete entropy bounds and rigidity remain separate unclosed formal obligations. No new preprint or Release is created.
+Six modules assemble and normalize the earlier checked dependencies: `ResidualGraph`, `SpectralBaseline`, `FinitePurity`, `PurityNormalization`, `UniformPurityUpper`, and `AsymptoticUpper`. See `REVIEW_UPPER_ASYMPTOTIC_20261011.md` for the exact proof chain and the three added error controls.
 
+## 2. Independent verification
 
-## Assembled finite purity bound
+GitHub Actions run **38141972563**, source **87d456235a25114a192c549158723b4f925b416a**, passed every stage. Its fresh review-package Lake build completed **2,837 tasks**, retaining external dependency caches. Physical regressions passed. A trust-zero empty kernel replayed **42,044 transitive declarations and 68 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of **`APPTReview.appt_uniform_asymptotic_upper`** by `True.intro`, preserving its type and universe parameters, was rejected.
 
-`density_appt_finite_purity_bound` proves the unrestricted actual-state inequality `purity(A)-1/(mn) <= max{8,4+mn/(m-1)^2} * b^2`, where `b=lambda_(mn-m(m+1)/2+1)` is exactly the paper pivot. Only density, all-global-unitary APPT and 2<=m<=n are assumed. The sorted graph placement, nonnegative residual baseline, cross term, centered variance and actual quantum moment bridge are proved.
+All **50 pinned local inputs**, including imported quantum definitions and replay support, matched the exact tested commit. Every uploaded proof module, audit, regression, runner and manifest was compared byte-for-byte. The independent kernel log also matches the earlier local WSL kernel log's SHA-256. Source-bound evidence, original logs, roots, complete closure, axioms and artifact metadata are retained in **`verification/ci-87d45623/`**.
 
-A fresh local build and trust-zero replay checked **41,998 declarations and 56 roots**, allowing only the three standard axioms. The kernel rejected a forged proof of this exact physical theorem. All 47 source/configuration inputs are pinned. Literal evidence is in `verification/finite-purity-local-20261011/`. Independent CI for this finite-pivot checkpoint passed in run 38140515745. The subsequent normalized upper half is documented above; full extrema and graph-limit lower constructions remain separate obligations.
+The earlier finite-pivot checkpoint independently passed run **38140515745**, source **dcab372f26a250a529112afde26d8cba942d3b32**: 2,834 Lake tasks, 41,998 declarations and 56 roots. Its distinct source-bound evidence is in `verification/ci-dcab372f/`; original local logs remain in `verification/finite-purity-local-20261011/`. No earlier record is relabeled as a later proof.
 
+## 3. Other finite results retained in the audited closure
 
-**Partial formal verification. The full high-dimensional asymptotic purity, Renyi entropy, graph-limit, and rigidity theorems are not yet Lean-certified.** This package uses actual complex density matrices and the original all-global-unitary APPT definition.
+The package also checks actual arbitrary-eigenvalue witnesses and canonical rank-two consequences, the largest-eigenvalue bound, the necessity of the uniform rank-(mn-1) spectrum for matrix singularity, and the exact sorted nonlinear entropy-head inequality with the paper's pivot. The physical contraction theorem proves that 0<=P<=I implies all-unitary PPT for (m-1)I+2P; projection states of every allowed rank have verified density, APPT and exact purity. Sharp antisymmetric witnesses and real PPT-but-not-APPT density matrices are included as error controls.
 
-## New arbitrary-dimensional sufficiency and attainment
+The generic triangular graph bounds retain their sign, symmetry and ordering assumptions; the final physical purity theorem proves those conditions rather than supplying them as a surrogate for APPT. The nonlinear entropy-head theorem is still only one dependency of the full entropy law. Earlier independent records remain available under `verification/ci-a3201c67/`, `verification/ci-adcf3348/`, and the other dated checkpoint directories.
 
-The new finite theorem `absolutelyPPT_dimension_contraction` proves that `(m-1)I+2P` is APPT whenever the actual complex bipartite matrix P and its complement I-P are positive semidefinite. The first-factor index is an arbitrary finite type; the theorem does not assume a Schmidt decomposition, a spectral criterion, or positivity of the partial transpose as a hypothesis. Its proof is a dimension-uniform identity expressing `2 partialTranspose(P)+(m-1)I` as a sum of positive congruences of P and I-P.
+## 4. Reproduce
 
-`exists_projectionPlateau` constructs an actual density/APPT matrix for every rank k between zero and mn, with purity `[mn(m-1)^2+4mk]/[mn(m-1)+2k]^2`. `exists_broad_plateau` specializes this to k=ceil((m-1)n/2), including its dimension and rank bounds. These are physical ATTAINMENT statements, not the unrestricted upper bound or equality classification of the rectangular maximum theorem.
-
-The antisymmetric projection proves the dimension constant is sharp in square systems. An additional audited regression is the actual 4x4 density matrix `(I+P_antisymmetric)/22`, which is not APPT: the dimension-three formula I+P cannot simply be reused in dimension four. The positive regression constructs a 4x58 APPT density matrix with purity exactly 2/435.
-
-The new source passed a fresh WSL Lake build of 2,749 tasks and trust-zero replay of 40,214 declarations with 34 roots. Only the standard three axioms were present. Replacing the proof of `exists_broad_plateau` by `True.intro` was rejected. All 34 pinned inputs transferred to this revision match the audited WSL bytes, including the imported physical definitions. Independent CI **38131356027**, source **adcf334861438cf0ffc83b39ee5fedfe7e086447**, has now passed the same fresh build and replay. Literal logs, the 34-input committed-source binding, 40,214-declaration closure and all physical regressions are retained in `verification/ci-adcf3348/`. The older independent record below is separate historical evidence.
-
-## Newly closed physical-to-entropy bridge
-
-`density_appt_paper_entropyHead` proves the nonlinear exceptional-head inequality for the actual canonically sorted eigenvalues, using exactly the paper pivot `b=lambda_(D-m(m+1)/2+1)` in one-based notation. Its hypotheses are only `m>=2`, `m<=n`, density, and APPT. The code constructs every eigenvalue permutation and rectangular corner embedding, proves pivot positivity from trace one, establishes all signs and ordering, derives the shifted-star budget, and invokes the previously checked logarithmic head theorem. No graph or head inequality is assumed in the physical statement.
-
-`density_appt_entropyHead_at_pivot` proves the stronger admissible-pivot version. `appt_sorted_rankTwo_determinant` and `appt_largest_eigenvalue_bound` establish genuine ordered spectral consequences. `density_appt_singular_spectrum` starts from matrix determinant zero and proves that the eigenvalues are one zero and D-1 copies of 1/(D-1). The converse APPT attainment statement for that singular spectrum is not included in this new endpoint.
-
-A kernel-audited regression constructs a genuine density matrix that is PPT but not APPT, so ordinary PPT is not silently substituted for the all-unitary hypothesis.
-
-## Verification checkpoint
-
-The fresh WSL Lake build completed **2,745 build tasks**. Trust-zero replay checked **40,088 transitive declarations and 22 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of `density_appt_paper_entropyHead` by `True.intro`, preserving its exact type, was rejected by the empty kernel. Thirty source/configuration files, including imported quantum definitions and the replay support, are SHA-256 bound. Literal logs and closure lists are in `verification/sorted-physical-20261011/`.
-
-Independent GitHub Actions run **38127581602**, source **a3201c675616a8caf330786933171e424659a7eb**, has now passed the same fresh build, regressions and trust-zero replay: 2,745 build tasks, 40,088 declarations and 22 roots. The uploaded sources and all thirty committed input files were checked against their pins. Literal source-bound CI evidence is retained separately in `verification/ci-a3201c67/`. The earlier independent run 38066697404 (991d4739) replayed 38,529 declarations and 13 roots with positional hypotheses; its evidence remains in `verification/ci-991d4739/` and is not relabeled as the newer result.
-
-## Reproduction
-
-Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL, with pinned dependencies cached:
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL:
 
 ```sh
 lake exe cache get
@@ -61,22 +44,12 @@ python3 reproduce.py --check-only
 python3 reproduce.py --fresh
 ```
 
-The runner checks both the source manifest and actual Mathlib checkout, builds only the review's imported closure rather than the full old 879-module package, compiles replay support with an explicit source root, runs physical regressions, and replays all audited roots. Every stage has a finite timeout; on timeout its entire process group is terminated and the literal failure output is retained. `--write-manifest` records intentional source changes and does not verify them.
+The runner checks source pins and the actual Mathlib checkout, builds the imported review closure rather than the original 879-module qutrit target, compiles replay support with its explicit source root, runs mathematical positive/negative controls and replays all audit roots. Each stage has a finite timeout; on timeout its process group is terminated and literal failure output is retained. `--write-manifest` records an intended source set and does not verify it.
 
-## Review scope and failures
+## 5. Remaining obligations and review limits
 
-See `COVERAGE.md` and `REVIEW_20261011.md`. The previous named-permutation gap is closed for the sorted shifted-star and nonlinear-head theorem. General triangular placement, global graph asymptotics, counterexample sufficiency, final extrema and rigidity remain distinct unclosed formal obligations.
+See `COVERAGE.md`. The newly verified theorem proves only the growing-small-dimension upper half directly for every physical state. It does not yet formalize matching lower graph limits, equality or attainment of a limiting maximum, the complementary fixed-m asymptotic, or exact rectangular optimization and its equality classification. The joint projection-plus-spike sufficiency needed for the three-level counterexample is also still missing. Full entropy minima, rigidity and limiting outlier classifications remain unclosed.
 
-Recovered interrupted source work was recompiled before use. Its remaining entropy-wrapper tactic and inequality goals were repaired without new axioms or weakened hypotheses. An informational `ring_nf` suggestion in the successful build is not a failed theorem; success is determined by the compiler status and kernel replay. The earlier source-root audit failure is prevented by the explicit `--root` invocation. The memory-starved VPS was not used for these compilation jobs. No new preprint, Release, or high-dimensional completeness label is issued.
+Development caught a real summation-scope mistake, omitted aspect dependence and zero-denominator normalization as potential errors; corresponding exact regression statements are now in the kernel audit. Compilation errors were resolved before the successful CI submissions. A temporary Windows GitHub connection failure was handled by byte-checked transfer to the authorized VPS, and concurrent main updates were merged without overwriting them. No workflow was weakened, failed proof ignored, preprint prepared or Release changed.
 
-## Ordered paired-gap upper bound
-
-`density_appt_pair_gap_square_sum` now proves the actual sorted APPT bound `sum_(i=1)^R (lambda_i-lambda_(D+1-i))^2 <= 8*b^2`, with the exact paper pivot and no supplied graph or eigenvalue-placement hypothesis. General pair arrangements, squared matrix-action bounds and the dimension-uniform triangular row estimate are formalized. The local fresh replay passed with 41,929 declarations and 45 roots. See `REVIEW_TRIANGULAR_20261011.md`; independent CI evidence is recorded only after checking the matching remote run. The full centered finite purity inequality and all asymptotic extrema remain separate unclosed obligations.
-
-Independent CI **38136186474** on **7e74ae8e** has now passed: 2,829 build tasks, 41,929 trust-zero declarations, 45 roots, and rejection of a corrupted proof of the actual paired-gap theorem. All 42 pinned inputs and uploaded proof/tool files matched. Literal evidence is retained in `verification/ci-7e74ae8e/`.
-
-## Baseline and centered-variance dependencies
-
-`BaselineGraph` now retains the exact complete-background cross term in the graph square budget. `CenteredVariance` proves the complete sorted three-band variance inequality for arbitrary D and R. Both compiled and passed a local empty-kernel replay together with the physical roots; the assembled sharp purity theorem remains unclosed. See `REVIEW_REFINEMENT_20261011.md` for the exact assumptions and remaining bridge.
-
-The refinement checkpoint also passed independent CI **38137375933** at **c6885d06**: 2,831 build tasks, 41,969 trust-zero declarations and 49 roots, including all earlier physical roots. Forty-four pinned inputs and uploaded proof/tool files matched. Evidence is in `verification/ci-c6885d06/`; these finite dependencies are not a completeness claim for the remaining high-dimensional extrema.
+These are independent CI and Lean-kernel checks, not external mathematical peer review. The old qutrit proof, research notes and publication trees remain unchanged.
