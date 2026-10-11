@@ -136,6 +136,23 @@ theorem eventually_nat_span_le_origin
   filter_upwards [hreal] with i hi
   exact_mod_cast hi
 
+theorem littleO_of_eventually_nonneg_le
+    {ι : Type*} {l : Filter ι} {f g h U : ι → ℝ}
+    (hfg : (fun i => f i + g i) =o[l] U)
+    (hU : ∀ᶠ i in l, 0 ≤ U i)
+    (hh : ∀ᶠ i in l, 0 ≤ h i)
+    (hbound : ∀ᶠ i in l, h i ≤ f i + g i) :
+    h =o[l] U := by
+  apply IsLittleO.of_bound
+  intro c hc
+  have hfgc := hfg.bound hc
+  filter_upwards [hfgc, hU, hh, hbound] with i hi hUi hhi hbi
+  have hsum : 0 ≤ f i + g i := hhi.trans hbi
+  simp only [Real.norm_eq_abs, abs_of_nonneg hUi] at hi
+  simp only [Real.norm_eq_abs, abs_of_nonneg hhi, abs_of_nonneg hUi]
+  rw [abs_of_nonneg hsum] at hi
+  exact hbi.trans hi
+
 /-! The common greedy-family construction now feeds the dependent witness
   directly.  This is the first concrete bridge from an annulus to certificate
   lists: all choices are made by the existing finite supremum construction,
