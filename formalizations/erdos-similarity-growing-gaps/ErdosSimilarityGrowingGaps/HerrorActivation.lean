@@ -109,4 +109,18 @@ theorem herror_buffer_comparison
     _ = 32 * (q * (2 : ℝ) ^ (-C)) := by rw [hcancel]; ring
     _ < p := hscaled
 
+theorem exists_buffer_shift
+    (p q : ℝ) (hp : 0 < p) (_hq : 0 ≤ q) :
+    ∃ C : ℝ, q * (2 : ℝ) ^ (-C) < p / 64 := by
+  have hneg : Tendsto (fun C : ℝ => -C) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp tendsto_id
+  have hpow : Tendsto (fun C : ℝ => (2 : ℝ) ^ (-C)) atTop (𝓝 0) := by
+    exact (tendsto_rpow_atBot_of_base_gt_one (2 : ℝ) (by norm_num)).comp hneg
+  have hmul : Tendsto (fun C : ℝ => q * (2 : ℝ) ^ (-C)) atTop (𝓝 0) := by
+    simpa using hpow.const_mul q
+  have hev : ∀ᶠ C : ℝ in atTop, q * (2 : ℝ) ^ (-C) < p / 64 :=
+    hmul.eventually (Iio_mem_nhds (by positivity))
+  obtain ⟨C, hC⟩ := eventually_atTop.1 hev
+  exact ⟨C, hC C (le_refl C)⟩
+
 end ErdosSimilarityGrowingGaps
