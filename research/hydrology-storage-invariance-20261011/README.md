@@ -55,3 +55,27 @@ Freeze preprocessing, splits and hyperparameters before final tests; retain extr
 Song et al., Physics-Informed, Differentiable Hydrologic Models for Capturing Unseen Extreme Events (2026):
 https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025WR040414
 This motivates unseen-event evaluation; it does not establish novelty or guarantees for this proposal.
+
+
+## Prior-art screen and next falsifiable target
+
+Identifiability is established hydrological research, not a newly discovered problem. Relevant primary studies include:
+- Sorooshian and Gupta (1985), The Analysis of Structural Identifiability: Theory and Application to Conceptual Rainfall-Runoff Models: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/WR021i004p00487
+- Schoups et al. (2008), Model complexity control for hydrologic prediction: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008WR006836
+- Khatami et al. (2019), Equifinality and Flux Mapping: https://doi.org/10.1029/2018WR023750
+- Spieler et al. (2020), Automatic Model Structure Identification for Conceptual Hydrologic Models: https://doi.org/10.1029/2019WR027009
+
+These records were screened for positioning; a full-text novelty review remains required before a publishable contribution claim.
+
+### Sharp one-step envelope in a restricted scalar class
+
+Suppose available water x is known, q(0)=0, and for x>y,
+ell(x-y) <= q(x)-q(y) <= u(x-y), with 0<=ell<=u<=1.
+An exact anchor q(b)=r, with b>=0 and ell b<=r<=u b, implies for x>=b:
+r+ell(x-b) <= q(x) <= r+u(x-b).
+
+Proof: substitute y=b in the increment constraint. Both endpoints are attainable by retaining any admissible law below b and extending it linearly above b with slope ell or u. The extension preserves the increment constraint across b by addition. Since q(0)=0 and slopes lie in [0,1], positivity and q(x)<=x hold. The interval width is (u-ell)(x-b), and any deterministic estimator from the anchor has worst-case absolute error at least half that width; the midpoint attains that minimax error.
+
+This is an elementary shape-constrained interpolation observation, not claimed novel. It exhibits exactly what new high-storage observations can reduce: the unobserved distance beyond the last anchor. It cannot be applied directly to latent storage without bounding the storage uncertainty, and marginal envelopes propagated over multiple steps need not be jointly attainable by a single static release law.
+
+A more substantive target is joint multi-step identification with shared release laws, uncertain storage and noisy independent flux measurements. A credible result would require sharp attainable bounds, an efficient reproducible algorithm, and out-of-sample catchment evidence showing which measurements actually tighten those bounds. If existing shape-constrained identification methods already cover this scope, narrow or replace the target rather than relabel them.
