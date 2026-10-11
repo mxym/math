@@ -27,3 +27,6 @@ This gives a falsifiable robustness certificate: estimate L,K on held-out trajec
 
 ## Novelty target
 The contribution must be mechanism-level: identify whether the learned state is an effective storage variable whose response is invariant across basins/climate regimes, not merely improve NSE. Required evidence: ablations of each physical constraint, tail-calibrated uncertainty, unseen-extreme stress tests, and independent checks against SWE/ET where available.
+
+## Immediate audit finding
+A naive Lipschitz estimate with L>1 makes the finite-horizon bound numerically vacuous. A useful certificate therefore needs either (i) a contractive storage transition on the relevant invariant set (L<1), enforced by parameterization, or (ii) a tighter input-to-state stability/small-gain argument that separates storage persistence from runoff feedback. This is an explicit design constraint, not a detail to hide in evaluation.
