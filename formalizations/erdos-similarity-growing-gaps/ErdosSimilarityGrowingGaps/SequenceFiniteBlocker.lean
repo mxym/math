@@ -65,6 +65,7 @@ structure VariableRateNodeInput
   ha_hi : ∀ child, (u child + (k : ℝ)) / (K : ℝ) ≤ R * U
   hnum : ∀ child, 0 ≤ u child + ell + (k : ℝ)
   huk : ∀ child, 0 ≤ u child + (k : ℝ)
+  ell_eq : ell = vertexWindowLength c v
   hwindow : ∀ child,
     c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) = u child ∧
     (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ) +
@@ -74,6 +75,20 @@ structure VariableRateNodeInput
   hannulus : ∀ child,
     (u child + ell + (k : ℝ)) / (1 / (K : ℝ)) + δ + D ≤ R * U
   hsep : 3 ≤ (1 / (K : ℝ)) * δ
+
+structure VariableRateNodeWitness
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (c : RoutingTemplate M d) (v : InternalNode M d)
+    (η ell : ℝ) where
+  B : ℕ
+  children : Fin ((M - 1) * (B + 1)) → Fin (M - 1)
+  indices : Fin ((M - 1) * (B + 1)) → ℕ
+  active_count : ∀ r : PowerParams (1 / (K : ℝ)) K,
+    η * ((M : ℝ) - 1) * ell ≤
+      (sequenceActiveLocalCandidates Z c v children indices k r).card
+  index_injective : Function.Injective (fun i => (children i, indices i))
+  logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
+    3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
 
 /-- The one common finite test set contains each vertex's own finite list. -/
 noncomputable def finiteSequenceRoutingTests

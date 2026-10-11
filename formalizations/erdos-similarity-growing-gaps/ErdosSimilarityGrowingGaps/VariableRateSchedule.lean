@@ -244,6 +244,14 @@ theorem routingEdge_card_le_pow (M d : ℕ) (hM : 2 ≤ M) :
       omega
     _ = (2 * M) ^ (d + 1) := by rw [pow_succ]
 
+theorem routingTemplate_span_le_pow (M d g L : ℕ) (hM : 1 ≤ M) :
+    RoutingTemplate.span M g L d ≤
+      (4 * M) ^ d * L + (8 * M) ^ (d + 1) * g := by
+  rw [RoutingTemplate.span_affine]
+  exact Nat.add_le_add
+    (Nat.mul_le_mul_right _ (routingLengthCoefficient_le_pow M d hM))
+    (Nat.mul_le_mul_right _ (routingGapCoefficient_le_pow M d hM))
+
 /-- The depth and stable gap are selected only after the annular width is known.
 The gap witness is exposed separately so a later span lemma can impose its
 required upper envelope without changing the activation or depth choices. -/
