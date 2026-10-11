@@ -50,7 +50,7 @@ theorem selector_grid_exponent_le_origin_add_span_add_two
 theorem variable_uniform_candidate_count_le_endpoint
     {M K : ℕ} (hK : 2 ≤ K) (σ D V T : ℝ)
     (hσ : 3 * (K : ℝ) ≤ σ) (hD : 0 ≤ D) (hDle : D ≤ V)
-    (hV : 9 ≤ V) (hVle : V ≤ T) :
+    (hV : 6 ≤ V) (hVle : V ≤ T) :
     (((M - 1) * (variableNodeUniformBudget K V D σ + 1) : ℕ) : ℝ) ≤
       (M : ℝ) * T := by
   have hKpos : (0 : ℝ) < K := by
@@ -74,9 +74,9 @@ theorem variable_uniform_candidate_count_le_endpoint
         simpa [mul_assoc] using this
       have hKreal : (2 : ℝ) ≤ K := by exact_mod_cast hK
       have hcore : (K : ℝ) * V + V ≤ 3 * (K : ℝ) * (V - 3) := by
-        have hprod : 0 ≤ (2 * (K : ℝ) - 1) * (V - 9) := by
+        have hprod : 0 ≤ (2 * (K : ℝ) - 1) * (V - 6) := by
           have hfactor : 0 ≤ 2 * (K : ℝ) - 1 := by linarith
-          have hVfactor : 0 ≤ V - 9 := by linarith
+          have hVfactor : 0 ≤ V - 6 := by linarith
           exact mul_nonneg hfactor hVfactor
         nlinarith
       have hKV : (K : ℝ) * V + D ≤ (K : ℝ) * V + V := by linarith
