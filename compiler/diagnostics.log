@@ -28,45 +28,7 @@ HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecat
 MODULE HydrologyTree.BlockJacobian
 
 MODULE HydrologyTree.Scaling
-HydrologyTree/Scaling.lean:31:62: error: unsolved goals
-case inl.inl
-E : Type u_1
-inst✝³ : NormedAddCommGroup E
-inst✝² : NormedSpace ℝ E
-ι : Type u_2
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-b : Basis ι ℝ E
-x : ℝ × E
-val✝¹ val✝ : Unit
-⊢ 1 = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1) (Sum.inl val✝¹) (Sum.inl val✝)
-
-case inl.inr
-E : Type u_1
-inst✝³ : NormedAddCommGroup E
-inst✝² : NormedSpace ℝ E
-ι : Type u_2
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-b : Basis ι ℝ E
-x : ℝ × E
-val✝¹ : Unit
-val✝ : ι
-⊢ 0 = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1) (Sum.inl val✝¹) (Sum.inr val✝)
-
-case inr.inl
-E : Type u_1
-inst✝³ : NormedAddCommGroup E
-inst✝² : NormedSpace ℝ E
-ι : Type u_2
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-b : Basis ι ℝ E
-x : ℝ × E
-val✝¹ : ι
-val✝ : Unit
-⊢ (b.repr x.2) val✝¹ = Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1) (Sum.inr val✝¹) (Sum.inl val✝)
-
+HydrologyTree/Scaling.lean:31:81: error: unsolved goals
 case inr.inr
 E : Type u_1
 inst✝³ : NormedAddCommGroup E
@@ -77,37 +39,11 @@ inst✝ : DecidableEq ι
 b : Basis ι ℝ E
 x : ℝ × E
 val✝¹ val✝ : ι
-⊢ (Finsupp.single val✝ x.1) val✝¹ =
-    Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1) (Sum.inr val✝¹) (Sum.inr val✝)
-HydrologyTree/Scaling.lean:34:58: warning: This simp argument is unused:
-  Matrix.one_apply
+⊢ (Finsupp.single val✝ x.1) val✝¹ = if val✝¹ = val✝ then x.1 else 0
+HydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:
+  Matrix.det_smul
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [LinearMap.toMatrix_apply, scaleChartDerivative]
+  [apply] simp
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/Scaling.lean:42:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (Matrix.fromBlocks ?A 0 ?C ?D).det
-in the target expression
-  (Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1)).det = x.1 ^ Fintype.card ι
-
-E : Type u_1
-inst✝³ : NormedAddCommGroup E
-inst✝² : NormedSpace ℝ E
-ι : Type u_2
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-b : Basis ι ℝ E
-x : ℝ × E
-⊢ (Matrix.fromBlocks 1 0 (fun i x_1 => (b.repr x.2) i) (x.1 • 1)).det = x.1 ^ Fintype.card ι
-
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  Application type mismatch: The argument
-    fun i x_1 => (b.repr x.2) i
-  has type
-    ι → Unit → ℝ
-  but is expected to have type
-    Matrix ι Unit ℝ
-  in the application
-    Matrix.fromBlocks 1 0 fun i x_1 => (b.repr x.2) i
