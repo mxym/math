@@ -3,6 +3,26 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_fixed_local_purity_sup_tendsto,
+  ``APPTReview.appt_total_dimension_uniform_upper,
+  ``APPTReview.appt_fixed_local_scaled_sup_tendsto,
+  ``APPTReview.fixed_local_sup_bounds,
+  ``APPTReview.scaled_sup_eq_dimension_mul_purity_sup,
+  ``APPTReview.density_appt_fixed_local_upper,
+  ``APPTReview.density_appt_fixed_excess_upper,
+  ``APPTReview.density_appt_bulk_ratio,
+  ``APPTReview.gap_mass_cap,
+  ``APPTReview.interval_square_sum,
+  ``APPTReview.interval_moment_bound,
+  ``APPTReview.bulk_exception_moment,
+  ``APPTReview.plateau_rounding_identity,
+  ``APPTReview.exists_appt_fixed_local_lower,
+  ``APPTReview.density_purity_unit_interval,
+  ``APPTReview.appt_purity_values_nonempty_bounded,
+  ``APPTReviewFixedLocalChecks.qubit_plateau_rejects_wrong_coefficient,
+  ``APPTReviewFixedLocalChecks.odd_rank_rounding_gap,
+  ``APPTReviewFixedLocalChecks.interval_constant_rejects_one,
+
   ``APPTReview.appt_uniform_asymptotic_upper,
   ``APPTReview.density_appt_dimension_only_upper,
   ``APPTReview.dimension_error_factor,
@@ -72,3 +92,6 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReviewRegression.productState_density,
   ``APPTReviewRegression.productState_ppt,
   ``APPTReviewRegression.productState_not_appt] "review-kernel"
+
+run_cmd APPTVerification.rejectCorruptTheorem
+  ``APPTReview.appt_total_dimension_uniform_upper "review-kernel-total-dimension-control"

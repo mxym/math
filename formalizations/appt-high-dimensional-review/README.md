@@ -1,3 +1,9 @@
+## New fixed-local result: independent audit pending
+
+The new source proves the fixed-m limit of the supremum over actual APPT density matrices, including matching physical projection states and explicit errors. It also closes the upper half uniformly over all dimension pairs as total dimension grows. Individual development compilations passed; no independent verification of this newly extended source is claimed until its fresh build and kernel audit finish. The older verified checkpoints below retain their original scopes.
+
+See `REVIEW_FIXED_LOCAL_20261011.md` for the exact normalization, supremum definition, finite bounds, quantifiers and remaining obligations. No finite-dimensional `IsGreatest` or matching growing-m lower theorem is inferred from this source.
+
 # High-dimensional APPT: mathematical review and Lean verification
 
 **Partial formal verification of the overall research. The uniform purity UPPER half is complete; matching lower limits, full extrema, entropy and rigidity theorems are not yet fully Lean-certified.** All physical endpoints use actual complex matrices and the original all-global-unitary APPT definition.
