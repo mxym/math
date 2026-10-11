@@ -93,5 +93,4 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReviewRegression.productState_ppt,
   ``APPTReviewRegression.productState_not_appt] "review-kernel"
 
-run_cmd APPTVerification.rejectCorruptTheorem
-  ``APPTReview.appt_total_dimension_uniform_upper "review-kernel-total-dimension-control"
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_uniform_upper "review-kernel-total-dimension-control"
