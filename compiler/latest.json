@@ -1,7 +1,7 @@
 {
-  "serial": 41,
-  "status": "COMPILER_ERROR",
-  "request_blob": "2408e103cceb63f566dc25f866f72058c1fc862d",
+  "serial": 42,
+  "status": "COMPILING",
+  "request_blob": "47e399867a4b79ff35e258a82f69e7180f42f0f5",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -11,62 +11,22 @@
     "HydrologyTree.JacobianComposition",
     "HydrologyTree.FamilyProduct",
     "HydrologyTree.FamilyResultants",
-    "HydrologyTree.FamilySmoothness"
+    "HydrologyTree.FamilySmoothness",
+    "HydrologyTree.TangentJacobian"
   ],
   "source_sha256": {
     "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
     "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
+    "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
     "HydrologyTree/FamilySmoothness.lean": "aca3b570e4564c536d222294661a3e47c9b90e928d79b2799ebc74d2bd83e1ec",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/FamilyProduct.lean": "ad0e3af4e4a36faddb0916bc64ea8a5d483ae861298b77bdfc17bb27697b13ac",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
-    "HydrologyTree/FamilyResultants.lean": "65aeedf38f42f19545a18e90819e41d7bc82115178d79f19e492501ab3352e8b"
+    "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.082
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.108
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 3.476
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.012
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 2.048
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 2.098
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 2.719
-    },
-    {
-      "module": "HydrologyTree.FamilyResultants",
-      "returncode": 1,
-      "seconds": 1.583
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100",
-  "diagnostics": "HydrologyTree/FamilyResultants.lean:17:17: error: unsolved goals\ncase cons\nm : \u2115\nms : List \u2115\nih : \u2200 (x : ProductInput ms), (List.map natDegree (familyPolynomials ms x)).sum = ms.sum\nx : ProductInput (m :: ms)\n\u22a2 (X ^ m + \u2191x.1).natDegree = m\nHydrologyTree/FamilyResultants.lean:17:45: warning: This simp argument is unused:\n  natDegree_monicPoly\n\nHint: Omit it from the simp argument list.\n  [apply] simp [familyPolynomials, ih]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38149404100"
 }
