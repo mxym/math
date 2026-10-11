@@ -1,6 +1,6 @@
 {
   "serial": 1791732224918,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "59cf5d462d4ac963bf8856569b3bc2ff912bc55d",
   "modules": [
     "FixedLocalRatio",
@@ -12,7 +12,24 @@
     "FixedLocalRatio.lean": "5197b681cc254ec1d486987a44fb42c07913287b4c814135c00c78b493e79742",
     "IntervalMoment.lean": "e9a045c9c310dd3c814027dda5fcfb2f3eab888f512623619fb5ef69da49729b"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "FixedLocalRatio",
+      "returncode": 0,
+      "seconds": 4.33
+    },
+    {
+      "module": "IntervalMoment",
+      "returncode": 0,
+      "seconds": 2.958
+    },
+    {
+      "module": "FixedLocalUpper",
+      "returncode": 1,
+      "seconds": 13.652
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311"
+  "run_id": "38150520311",
+  "diagnostics": "FixedLocalUpper.lean:46:4: error: Type mismatch: After simplification, term\n  h\n has type\n  s.card \u2264 m * n\nbut is expected to have type\n  s.card \u2264 D\nFixedLocalUpper.lean:58:30: error: Application type mismatch: The argument\n  hrank\nhas type\n  (\u2191m - 1) * \u22ef.eigenvalues\u2080 (finalTop hR \u22ef) \u2264 (\u2191m + 1) * \u22ef.eigenvalues\u2080 (pairedPivot \u22ef hmn)\nbut is expected to have type\n  f t * (\u2191m - 1) \u2264 (\u2191m + 1) * b\nin the application\n  (le_div_iff\u2080 hmp).mpr hrank\nFixedLocalUpper.lean:66:65: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  OfNat (Type ?u.405) 0\nnumerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is\n  Type ?u.405\ndue to the absence of the instance above\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nFixedLocalUpper.lean:66:68: error(lean.invalidDottedIdent): Invalid dotted identifier notation: Not supported on type universe\n  Type ?u.404\nFixedLocalUpper.lean:82:57: error: Function expected at\n  2\nbut this term has type\n  ?m.1128\n\nNote: Expected a function because this term is being applied to the argument\n  (\u2211 i, (f i) ^ 2)\nFixedLocalUpper.lean:82:13: error: Application type mismatch: The argument\n  bulk_rescale_bound (\u2191D) (\u2191s.card) C \u2191m\nhas type\n  \u2200 (p : \u211d),\n    0 < \u2191D \u2192\n      0 < \u2191s.card \u2192\n        0 \u2264 C \u2192\n          C \u2264 2 \u2192\n            \u2191s.card \u2264 \u2191D \u2192\n              \u2191D \u2264 2 * \u2191s.card \u2192\n                \u2191D - \u2191s.card \u2264 \u2191m \u2192 p \u2264 C / \u2191s.card + 9 * (\u2191D - \u2191s.card) / \u2191D ^ 2 \u2192 \u2191D * p \u2264 C + 13 * \u2191m / \u2191D\nof sort `Prop` but is expected to have type\n  ?m.1121\nof sort `Type ?u.569` in the application\n  HPow.hPow \u22ef\n"
 }
