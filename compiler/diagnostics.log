@@ -39,7 +39,27 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 MODULE HydrologyTree.Triangular
 
 MODULE HydrologyTree.RootUpdate
-HydrologyTree/RootUpdate.lean:101:2: error: 'change' tactic failed, pattern
-  0 + (shiftLow n) x.1 + (0 + x.2.1 • x.1) - x.2.2 = ?m.149
+HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/RootUpdate.lean:113:2: error: 'change' tactic failed, pattern
+  (shiftTop n) x.1 + x.2.1 = x.2.1 + (shiftTop n) x.1
 is not definitionally equal to target
-  0 + 0 + ((cut n) (X * ↑x.1) + x.2.1 • x.1) - x.2.2 = (shiftLow n) x.1 + x.2.1 • x.1 - x.2.2
+  (x.2.1 * if True then 1 else 0) + (X * ↑x.1).coeff n = x.2.1 + (shiftTop n) x.1
+HydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n ≠ n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,
+    zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n ≠ n + 1 from by omega), mul_zero, sub_zero,
+    add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
