@@ -279,7 +279,9 @@ discrete theorem `finite_spectrum_powerlaw_ratio_impossible` in
 `Hydrology/PowerLawNoGo.lean`; the theorem assumes exactly the derivative-ratio
 recurrence and derives a contradiction from the finite-spectrum bound. Connecting
 that recurrence to the classical Gamma integral remains written calculus, while
-the finite-dimensional no-go implication itself is fully formalized.
+the finite-dimensional no-go implication itself is fully formalized. The
+zeroth-moment positivity premise is discharged for every nonnegative spectrum
+with at least one active weight by `finiteMoment_zero_pos_of_exists_weight_pos`.
 This statement does not cover signed modal coefficients, complex modes, or
 nonlinear and spatially distributed models.
 The same moments have a universal order-two Hankel identity. A finite double-sum
