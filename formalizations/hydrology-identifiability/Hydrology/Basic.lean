@@ -100,6 +100,39 @@ theorem thetaA_thetaB_distinct : thetaA.a ≠ thetaB.a := by norm_num [thetaA, t
 theorem thetaA_thetaB_same_total : totalRate thetaA = totalRate thetaB := by norm_num [totalRate, thetaA, thetaB]
 theorem thetaA_thetaB_same_product : productRate thetaA = productRate thetaB := by norm_num [productRate, thetaA, thetaB]
 
+/-- Every positive rate triple lies on an explicit one-parameter fibre of the
+same eliminated coefficients.  The second and third rates are recovered from
+the chosen first rate and the invariants `S,P`. -/
+theorem parameter_fibre_identity (θ : Params) :
+    θ.b = totalRate θ - θ.a - productRate θ / θ.a ∧
+    θ.c = productRate θ / θ.a := by
+  have ha0 : θ.a ≠ 0 := ne_of_gt θ.ha
+  constructor
+  · dsimp [totalRate, productRate]
+    field_simp [ha0]
+    ring
+  · dsimp [productRate]
+    field_simp [ha0]
+
+/-- Conversely, any positive choice of `a` for which the reconstructed `b,c`
+are positive gives a positive parameter triple with prescribed invariants. -/
+def fibreParams (S P a : ℝ) (ha : 0 < a) (hb : 0 < S - a - P / a)
+    (hc : 0 < P / a) : Params :=
+  { a := a, b := S - a - P / a, c := P / a, ha := ha, hb := hb, hc := hc }
+
+theorem fibreParams_totalRate (S P a : ℝ) (ha : 0 < a)
+    (hb : 0 < S - a - P / a) (hc : 0 < P / a) :
+    totalRate (fibreParams S P a ha hb hc) = S := by
+  dsimp [totalRate, fibreParams]
+  ring
+
+theorem fibreParams_productRate (S P a : ℝ) (ha : 0 < a)
+    (hb : 0 < S - a - P / a) (hc : 0 < P / a) :
+    productRate (fibreParams S P a ha hb hc) = P := by
+  have ha0 : a ≠ 0 := ne_of_gt ha
+  dsimp [productRate, fibreParams]
+  field_simp [ha0]
+
 /-- Exact physical equifinality under constant rainfall: both systems have the
 same equilibrium discharge, although their parameters and storage partition differ. -/
 theorem thetaA_thetaB_equifinal (p : ℝ) :

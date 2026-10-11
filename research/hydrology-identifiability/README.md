@@ -34,6 +34,14 @@ respectively produce the identical discharge curve \(Q(t)=1\) for all time.
 This is an exact physical equifinality certificate: the parameters and hidden
 storage partition differ, while perfect continuous discharge observations agree.
 
+The Lean development also proves the exact coefficient fibre
+\[
+b=S-a-P/a,\qquad c=P/a,
+\]
+and its converse: every positive choice of \(a\) for which the reconstructed
+\(b,c\) remain positive gives the prescribed \((S,P)\). Thus the obstruction
+is an explicit one-parameter family, not only the displayed pair.
+
 Under the controlled intervention \(p(t)=p_0>0\) and known zero initial
 storage, the first three output derivatives satisfy
 \[

@@ -79,6 +79,16 @@ the algebraic equivalence fibre. A claim about a particular physical trajectory
 still requires a nonnegative state reconstruction; the displayed stationary
 example supplies that reconstruction explicitly.
 
+The algebraic fibre is complete at the coefficient level. For every positive
+triple, the Lean theorem `parameter_fibre_identity` proves
+\[
+b=S-a-P/a,\qquad c=P/a.
+\]
+Conversely, `fibreParams_totalRate` and `fibreParams_productRate` prove that
+every positive choice of \(a\) for which these reconstructed rates are positive
+has exactly the prescribed \((S,P)\). The two numerical triples are therefore
+instances of a fully explicit one-parameter coefficient-equivalence family.
+
 ## 4. Exact recovery under a controlled initial state
 
 Now assume \(p(t)=p_0>0\) is constant and \(x_1(0)=x_2(0)=0\). Directly from
