@@ -606,6 +606,32 @@ theorem replay_compactRobustSpec_of_windowFilling_unconditional
   exact compactRobustSpec_of_finiteSequenceBlockerSpec
     (replay_finiteSequenceBlockerSpec_of_windowFilling_unconditional hW)
 
+theorem replay_windowBlockerSpec_of_windowFilling_family
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hW : ∀ i, WindowFilling (F i)) :
+    WindowBlockerSpec F := by
+  apply robustExhaustion_of_compactRobustSpec
+  intro i
+  exact replay_compactRobustSpec_of_windowFilling_unconditional (hW i)
+
+theorem replay_theorem2_of_windowFilling_family
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hW : ∀ i, WindowFilling (F i))
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ ∧
+      (∀ x : ℝ, ENNReal.ofReal (1 - ε) < volume (E ∩ Icc x (x + 1))) := by
+  exact theorem2_of_windowBlockerSpec
+    (replay_windowBlockerSpec_of_windowFilling_family hW) ε hε hε1
+
+theorem replay_theorem2_of_consecutive_gap_family
+    {ι : Type*} [Countable ι] [Nonempty ι]
+    {F : ι → LogScale} (hgap : ∀ i, ConsecutiveLogGapLittleO (F i))
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ E : Set ℝ, IsClosed E ∧ OnePeriodic E ∧ interior E = ∅ ∧
+      (∀ x : ℝ, ENNReal.ofReal (1 - ε) < volume (E ∩ Icc x (x + 1))) := by
+  apply replay_theorem2_of_windowFilling_family
+    (fun i => consecutiveGap_implies_windowFilling (hgap i)) ε hε hε1
+
 theorem replay_routing_sample_index_all_edges_injective
     {Z : LogScale} {M d : ℕ} (c : RoutingTemplate M d)
     (hM : 1 ≤ M) (hL : 0 < c.baseLength)
@@ -690,6 +716,11 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms finite_sequence_routing_blocker
 #print axioms compactRobustSpec_of_finiteSequenceBlockerSpec
 #print axioms replay_finiteSequenceBlockerSpec_of_windowFilling_provider
+#print axioms replay_finiteSequenceBlockerSpec_of_windowFilling_unconditional
+#print axioms replay_compactRobustSpec_of_windowFilling_unconditional
+#print axioms replay_windowBlockerSpec_of_windowFilling_family
+#print axioms replay_theorem2_of_windowFilling_family
+#print axioms replay_theorem2_of_consecutive_gap_family
 #print axioms greedyIndex_log_upper_of_filling_prefix
 #print axioms greedyIndex_log_lower
 #print axioms exists_greedyIndex_crossing
