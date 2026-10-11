@@ -107,19 +107,13 @@ Hint: Omit it from the simp argument list.
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.PhysicalBridge
-HydrologyTree/PhysicalBridge.lean:40:66: error: Application type mismatch: The argument
-  h
-has type
-  j.succ = i.succ
-of sort `Prop` but is expected to have type
-  ℕ
-of sort `Type` in the application
-  Fin.succ_injective h
-HydrologyTree/PhysicalBridge.lean:51:66: error: Application type mismatch: The argument
-  h
-has type
-  j.succ = i.succ
-of sort `Prop` but is expected to have type
-  ℕ
-of sort `Type` in the application
-  Fin.succ_injective h
+
+MODULE HydrologyTree.LeadingCoefficients
+HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.Resolvent
