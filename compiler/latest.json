@@ -1,42 +1,16 @@
 {
-  "serial": 2,
-  "status": "COMPILER_ERROR",
-  "request_blob": "5946fd03893285013ba0aa4dc5f54c96c2d27581",
+  "serial": 3,
+  "status": "COMPILING",
+  "request_blob": "d342f0182cc4ad59dcdf0a14c7e11fdf2b1e9b60",
   "modules": [
     "HydrologyTree.Coefficients",
-    "HydrologyTree.BlockJacobian",
-    "HydrologyTree.Gluing",
-    "ProbeScaling"
+    "HydrologyTree.LeadingCoefficients"
   ],
   "source_sha256": {
-    "ProbeScaling.lean": "3101d5e99a1095ac2fd552ae6d1c82429d5b643e987da9f5b15796f2e0228959",
-    "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
-    "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
+    "HydrologyTree/LeadingCoefficients.lean": "6048d32bd3b21edd11ac71a62f6c3257a00cf5a1c4c32d36941708ec2415e295",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.987
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.587
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 4.229
-    },
-    {
-      "module": "ProbeScaling",
-      "returncode": 1,
-      "seconds": 1.766
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813",
-  "diagnostics": "Module.Basis.singleton.{u_6, u_7} (\u03b9 : Type u_6) (R : Type u_7) [Unique \u03b9] [Semiring R] : Module.Basis \u03b9 R R\nLinearEquiv.toContinuousLinearEquiv.{u, v, w} {\ud835\udd5c : Type u} [hnorm : NontriviallyNormedField \ud835\udd5c] {E : Type v}\n  [AddCommGroup E] [Module \ud835\udd5c E] [TopologicalSpace E] [IsTopologicalAddGroup E] [ContinuousSMul \ud835\udd5c E] {F : Type w}\n  [AddCommGroup F] [Module \ud835\udd5c F] [TopologicalSpace F] [IsTopologicalAddGroup F] [ContinuousSMul \ud835\udd5c F] [CompleteSpace \ud835\udd5c]\n  [T2Space E] [T2Space F] [FiniteDimensional \ud835\udd5c E] (e : E \u2243\u2097[\ud835\udd5c] F) : E \u2243L[\ud835\udd5c] F\nProbeScaling.lean:4:7: error(lean.unknownIdentifier): Unknown constant `LinearEquiv.toContinuousLinearMap`\nHasFDerivAt.smul.{u_1, u_2, u_3, u_4} {\ud835\udd5c : Type u_1} [NontriviallyNormedField \ud835\udd5c] {E : Type u_2} [NormedAddCommGroup E]\n  [NormedSpace \ud835\udd5c E] {F : Type u_3} [NormedAddCommGroup F] [NormedSpace \ud835\udd5c F] {f : E \u2192 F} {f' : E \u2192L[\ud835\udd5c] F} {x : E}\n  {\ud835\udd5c' : Type u_4} [NormedRing \ud835\udd5c'] [NormedAlgebra \ud835\udd5c \ud835\udd5c'] [Module \ud835\udd5c' F] [IsBoundedSMul \ud835\udd5c' F] [IsScalarTower \ud835\udd5c \ud835\udd5c' F]\n  {c : E \u2192 \ud835\udd5c'} {c' : E \u2192L[\ud835\udd5c] \ud835\udd5c'} (hc : HasFDerivAt c c' x) (hf : HasFDerivAt f f' x) :\n  HasFDerivAt (c \u2022 f) (c x \u2022 f' + c'.smulRight (f x)) x\nContinuousLinearMap.smulRight.{u_4, u_6, u_9, u_10} {M\u2081 : Type u_4} [TopologicalSpace M\u2081] [AddCommMonoid M\u2081]\n  {M\u2082 : Type u_6} [TopologicalSpace M\u2082] [AddCommMonoid M\u2082] {R : Type u_9} {S : Type u_10} [Semiring R] [Semiring S]\n  [Module R M\u2081] [Module R M\u2082] [Module R S] [Module S M\u2082] [IsScalarTower R S M\u2082] [TopologicalSpace S]\n  [ContinuousSMul S M\u2082] (c : M\u2081 \u2192L[R] S) (f : M\u2082) : M\u2081 \u2192L[R] M\u2082\nMatrix.det_smul.{v, u_2} {n : Type u_2} [DecidableEq n] [Fintype n] {R : Type v} [CommRing R] (A : Matrix n n R)\n  (c : R) : (c \u2022 A).det = c ^ Fintype.card n * A.det\nLinearMap.toMatrix_id.{u_1, u_4, u_5} {R : Type u_1} [CommSemiring R] {n : Type u_4} [Fintype n] [DecidableEq n]\n  {M\u2081 : Type u_5} [AddCommMonoid M\u2081] [Module R M\u2081] (v\u2081 : Module.Basis n R M\u2081) :\n  (LinearMap.toMatrix v\u2081 v\u2081) LinearMap.id = 1\nModule.Basis.map_repr.{u_1, u_3, u_4, u_5} {\u03b9 : Type u_1} {R : Type u_3} {M : Type u_4} {M' : Type u_5} [Semiring R]\n  [AddCommMonoid M] [Module R M] [AddCommMonoid M'] [Module R M'] (b : Module.Basis \u03b9 R M) (f : M \u2243\u2097[R] M') :\n  (b.map f).repr = f.symm \u226a\u226b\u2097 b.repr\nContinuousLinearMap.coe_fst.{u_1, u_2, u_3} {R : Type u_1} [Semiring R] {M\u2081 : Type u_2} [TopologicalSpace M\u2081]\n  [AddCommMonoid M\u2081] [Module R M\u2081] {M\u2082 : Type u_3} [TopologicalSpace M\u2082] [AddCommMonoid M\u2082] [Module R M\u2082] :\n  \u2191(ContinuousLinearMap.fst R M\u2081 M\u2082) = LinearMap.fst R M\u2081 M\u2082\nContinuousLinearMap.coe_snd.{u_1, u_2, u_3} {R : Type u_1} [Semiring R] {M\u2081 : Type u_2} [TopologicalSpace M\u2081]\n  [AddCommMonoid M\u2081] [Module R M\u2081] {M\u2082 : Type u_3} [TopologicalSpace M\u2082] [AddCommMonoid M\u2082] [Module R M\u2082] :\n  \u2191(ContinuousLinearMap.snd R M\u2081 M\u2082) = LinearMap.snd R M\u2081 M\u2082\nPolynomial.coeff_X_mul.{u} {R : Type u} [Semiring R] (p : Polynomial R) (n : \u2115) :\n  (Polynomial.X * p).coeff (n + 1) = p.coeff n\nPolynomial.coeff_mul_X.{u} {R : Type u} [Semiring R] (p : Polynomial R) (n : \u2115) :\n  (p * Polynomial.X).coeff (n + 1) = p.coeff n\nPolynomial.coeff_C_mul.{u} {R : Type u} {a : R} {n : \u2115} [Semiring R] (p : Polynomial R) :\n  (Polynomial.C a * p).coeff n = a * p.coeff n\nPolynomial.monic_X_pow_add.{u} {R : Type u} [Semiring R] {p : Polynomial R} {n : \u2115} (H : p.degree < \u2191n) :\n  (Polynomial.X ^ n + p).Monic\nPolynomial.degreeLTEquiv.{u} (R : Type u) [Semiring R] (n : \u2115) : \u21a5(Polynomial.degreeLT R n) \u2243\u2097[R] Fin n \u2192 R\n"
+  "run_id": "38143487813"
 }
