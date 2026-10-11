@@ -113,6 +113,31 @@ structure VariableRateNodeWitnessBounded
       (k : ℝ)) / (K : ℝ) - D ≤ Z.z (indices i)
   B_le : B ≤ Q
 
+/-! Every retained sample is also above the common origin anchor.  This is
+  the form needed by the global tail argument: the selector edge starts at or
+  after `c.origin`, and division by the positive scale `K` preserves that
+  order. -/
+theorem VariableRateNodeWitnessBounded.origin_index_lower
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    {c : RoutingTemplate M d} {v : InternalNode M d}
+    {η ell D : ℝ} {Q : ℕ} (w : VariableRateNodeWitnessBounded
+      (Z := Z) (K := K) (k := k) (p := p) c v η ell D Q)
+    (hK : 0 < (K : ℝ)) :
+    ∀ i, ((c.origin : ℝ) + (k : ℝ)) / (K : ℝ) - D ≤
+      Z.z (w.indices i) := by
+  intro i
+  have hstart_nat := c.edgeStart_ge_origin
+    (RoutingTemplate.selectorRoutingEdge ⟨v, w.children i⟩)
+  have hstart : (c.origin : ℝ) ≤
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, w.children i⟩) : ℝ) := by
+    exact_mod_cast hstart_nat
+  have hdiv : ((c.origin : ℝ) + (k : ℝ)) / (K : ℝ) ≤
+      ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, w.children i⟩) : ℝ) +
+        (k : ℝ)) / (K : ℝ) := by
+    apply (div_le_div_iff_of_pos_right hK).2
+    linarith
+  exact (sub_le_sub_right hdiv D).trans (w.index_lower i)
+
 /-! Any eventual little-o span estimate yields the exact integer-origin guard
   needed by the certificate.  This isolates the remaining asymptotic task from
   the finite tree construction. -/
