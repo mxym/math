@@ -151,7 +151,45 @@ recession over a full time interval. This is a structural model-selection
 statement, not a fit to observational data. It does not rule out approximate
 power laws, heterogeneous distributed linear systems, or nonlinear reservoirs.
 
-## 6. Implications and limits
+## 6. A finite-order diagnostic for two parallel reservoirs
+
+The previous obstruction concerns one finite two-storage realization. A useful
+adjacent calculation concerns a pair of parallel recession modes. Let
+
+\[
+m_j=w_1\ell_1^j+w_2\ell_2^j,\qquad j=0,1,2,3,
+\]
+
+where the weights and rates are real. Since each rate satisfies
+\(z^2-(\ell_1+\ell_2)z+\ell_1\ell_2=0\), the moments obey
+
+\[
+m_2=s m_1-pm_0,\qquad m_3=s m_2-pm_1,
+\quad s=\ell_1+\ell_2,\quad p=\ell_1\ell_2. \tag{8}
+\]
+
+Direct expansion gives the Hankel identity
+
+\[
+m_0m_2-m_1^2=w_1w_2(\ell_1-\ell_2)^2. \tag{9}
+\]
+
+Thus, when both modes have nonzero weights and distinct rates, the determinant
+in (9) is nonzero. More generally, the Lean theorem
+`recurrence_coefficients_unique` proves that any two coefficient pairs
+\((s,p)\) and \((s',p')\) satisfying the two recurrence equations for the same
+four moments must coincide whenever this determinant is nonzero. The rates are
+then recovered as the unordered roots of \(z^2-sz+p\). This supplies an exact
+finite-order diagnostic for a two-mode approximation and identifies precisely
+the degenerate cases: a zero weight or coincident rates collapse the Hankel
+determinant.
+
+The statement is algebraic and does not assume noisy observations, numerical
+differentiation, or a general distributed-reservoir model. The independent
+checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
+the determinant is exactly \(54\).
+
+## 7. Implications and limits
 
 The two statements answer complementary model-design questions. With unknown
 initial storage, the output equation has a genuine parameter symmetry and a
@@ -166,7 +204,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 7. Reproducibility and prior context
+## 8. Reproducibility and prior context
 
 Run the exact rational checker with
 

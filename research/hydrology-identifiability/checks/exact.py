@@ -18,6 +18,15 @@ def jet_zero_state(a, b, c, p):
     return a * p, -a * B * p, a * p * (B * B + b * c)
 
 
+def parallel_moments(w1, w2, l1, l2):
+    return (
+        w1 + w2,
+        w1 * l1 + w2 * l2,
+        w1 * l1**2 + w2 * l2**2,
+        w1 * l1**3 + w2 * l2**3,
+    )
+
+
 def main():
     a, b, c, p = map(F, (2, 2, 2, 3))
     q1, q2, q3 = jet_zero_state(a, b, c, p)
@@ -50,6 +59,18 @@ def main():
          "changed c must change observable coefficients")
     need(jet_zero_state(F(2), F(2), F(3), p)[2] != q3,
          "changed c must change the third jet")
+
+    # Two active parallel reservoirs obey a second-order recurrence.  The
+    # Hankel determinant is the exact non-degeneracy certificate.
+    w1, w2, l1, l2 = map(F, (2, 3, 1, 4))
+    m0, m1, m2, m3 = parallel_moments(w1, w2, l1, l2)
+    S, P = l1 + l2, l1 * l2
+    need(m2 == S * m1 - P * m0, "parallel second moment recurrence")
+    need(m3 == S * m2 - P * m1, "parallel third moment recurrence")
+    need(m0 * m2 - m1**2 == w1 * w2 * (l1 - l2) ** 2,
+         "parallel Hankel determinant")
+    need(m0 * m2 - m1**2 == F(54), "parallel exact regression value")
+
     print("PASS: exact two-storage identifiability and non-identifiability checks")
 
 
