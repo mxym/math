@@ -1,6 +1,6 @@
 {
   "serial": 1791732114719,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "18422ccb162e83b982576fc9d2ba7a1b8a8b61ad",
   "modules": [
     "FixedLocalRatio",
@@ -10,7 +10,19 @@
     "FixedLocalRatio.lean": "5197b681cc254ec1d486987a44fb42c07913287b4c814135c00c78b493e79742",
     "IntervalMoment.lean": "cfddf2fd53819bb6425c5aa72fff7125fd950110009510d77c049708928343cc"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "FixedLocalRatio",
+      "returncode": 0,
+      "seconds": 4.33
+    },
+    {
+      "module": "IntervalMoment",
+      "returncode": 1,
+      "seconds": 2.962
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311"
+  "run_id": "38150520311",
+  "diagnostics": "IntervalMoment.lean:51:6: error: mod_cast has type\n  s\u1d9c.card = Fintype.card (Fin D) - s.card\nbut is expected to have type\n  \u2191s\u1d9c.card = Int.subNatNat D s.card\nIntervalMoment.lean:77:2: error: linarith failed to find a contradiction\nD L C K p : \u211d\nhD : 0 < D\nhL : 0 < L\nhCL : 0 \u2264 C\nhC : C \u2264 2\nhLD : L \u2264 D\nhDL : D \u2264 2 * L\nhK : D - L \u2264 K\nhp : p \u2264 C / L + 9 * (D - L) / D ^ 2\nhq : 0 \u2264 D - L\nhfrac : C / L \u2264 4 / D\nhprod : C / L * (D - L) \u2264 4 / D * (D - L)\nhe : D * (C / L + 9 * (D - L) / D ^ 2) = C + C / L * (D - L) + 9 * (D - L) / D\nhu : D * p \u2264 C + C / L * (D - L) + 9 * (D - L) / D\nherr : 13 * (D - L) / D \u2264 13 * K / D\na\u271d : C + 13 * K / D < D * p\n\u22a2 False\nfailed\n"
 }
