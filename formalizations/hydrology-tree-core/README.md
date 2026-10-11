@@ -99,3 +99,25 @@ run 38145415740 on 37cc417b: 8 modules, 92 roots, 26,477 declarations in an empt
 trust-zero kernel, six rejected source mutations. The physical-matrix extension
 is a new source checkpoint and is independently checked by its own subsequent
 CI receipt; that older result is not presented as its verification.
+
+## Matrix determinant recursion extension
+
+`EdgeDeterminant`, `EdgeCharacteristic`, and `RootAttachment` prove exact
+single-edge characteristic and root-cofactor identities for arbitrary finite
+real matrix blocks. Original diagonals are retained; no positivity, eigenvalue
+simplicity, nonzero edge rate, or nonvanishing resultant is assumed. The proof
+uses a Schur complement away from finitely many characteristic roots and then
+proves the polynomial identity, so no spectral exceptional point is omitted.
+
+`BranchAssembly` proves the actual characteristic and root-cofactor recursion
+for every finite list of attached matrix branches, including the empty list.
+The actual cofactor is the product of child characteristic polynomials. The
+actual characteristic polynomial is (X+d) times that product minus the sum of
+child edge-product/cofactor terms. This is no longer an assumed determinant
+bridge. Transport of an arbitrary `OrderedTree` into its child decomposition,
+and the full Fréchet coefficient-Jacobian induction, remain to be assembled.
+
+The previous physical extension passed independent run 38149404025 at
+`d74acc4c6e289150b442893a598972f2ccca6769`: 12 modules, 149 roots,
+27,668 declarations replayed at trust zero, and eight rejected mutations.
+The new determinant extension is verified by its own subsequent CI receipt.

@@ -13,9 +13,11 @@ Actual finite topologically numbered rooted trees, their edge-conservative
 rate matrices, characteristic polynomials, root cofactors, complete coefficient
 encoding, and root inverse-entry identity are now constructed and proved. The
 actual physical rate-coordinate Jacobian is also proved at every rate vector.
-Still required are the arbitrary-tree Schur/determinant recursion, all-child
-polynomial assembly, determinant chain rule across the tree, and transport
-from arbitrary graph numberings. None of these follows merely from defining
+Exact matrix Schur/determinant/cofactor recursion and arbitrary-child matrix
+assembly are now proved in EdgeCharacteristic, RootAttachment, and BranchAssembly.
+Still required are constructive transport of the original OrderedTree matrix to
+its child-block decomposition, all-child polynomial-Jacobian assembly, the
+determinant chain rule across the tree, and arbitrary graph reindexing. None of these follows merely from defining
 the characteristic polynomial or proving the separate local coefficient maps.
 A recursive polynomial definition alone is not that matrix identification.
 

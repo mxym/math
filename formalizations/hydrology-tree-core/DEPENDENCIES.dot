@@ -1,21 +1,24 @@
-digraph HydrologyTreePartial {
-  rankdir=LR;
-  label="Partial formalization: full coefficient Jacobian and fiber classification absent";
-  "HydrologyTree.Coefficients" -> "HydrologyTree.LeadingCoefficients";
-  "HydrologyTree.Coefficients" -> "HydrologyTree.BlockJacobian";
-  "HydrologyTree.LeadingCoefficients" -> "HydrologyTree.Scaling";
-  "HydrologyTree.BlockJacobian" -> "HydrologyTree.Scaling";
-  "HydrologyTree.BlockJacobian" -> "HydrologyTree.Triangular";
-  "HydrologyTree.BlockJacobian" -> "HydrologyTree.Gluing";
-  "HydrologyTree.Scaling" -> "HydrologyTree.RootUpdate";
-  "HydrologyTree.Triangular" -> "HydrologyTree.RootUpdate";
-  "HydrologyTree.Triangular" -> "HydrologyTree.RateChart";
-  "HydrologyTree.RateChart" -> "HydrologyTree.CompartmentMatrix";
-  "HydrologyTree.CompartmentMatrix" -> "HydrologyTree.PhysicalBridge";
-  "HydrologyTree.CompartmentMatrix" -> "HydrologyTree.Resolvent";
-  "HydrologyTree.LeadingCoefficients" -> "HydrologyTree.Resolvent";
-  "HydrologyTree.Gluing" -> "HydrologyTree";
-  "HydrologyTree.RootUpdate" -> "HydrologyTree";
-  "HydrologyTree.PhysicalBridge" -> "HydrologyTree";
-  "HydrologyTree.Resolvent" -> "HydrologyTree";
+digraph PartialTreeProof {
+rankdir=LR;
+"HydrologyTree.Coefficients" -> "HydrologyTree.LeadingCoefficients";
+"HydrologyTree.Coefficients" -> "HydrologyTree.BlockJacobian";
+"HydrologyTree.LeadingCoefficients" -> "HydrologyTree.Scaling";
+"HydrologyTree.BlockJacobian" -> "HydrologyTree.Scaling";
+"HydrologyTree.BlockJacobian" -> "HydrologyTree.Triangular";
+"HydrologyTree.BlockJacobian" -> "HydrologyTree.Gluing";
+"HydrologyTree.Scaling" -> "HydrologyTree.RootUpdate";
+"HydrologyTree.Triangular" -> "HydrologyTree.RootUpdate";
+"HydrologyTree.Triangular" -> "HydrologyTree.RateChart";
+"HydrologyTree.RateChart" -> "HydrologyTree.CompartmentMatrix";
+"HydrologyTree.CompartmentMatrix" -> "HydrologyTree.PhysicalBridge";
+"HydrologyTree.CompartmentMatrix" -> "HydrologyTree.Resolvent";
+"HydrologyTree.LeadingCoefficients" -> "HydrologyTree.Resolvent";
+"HydrologyTree.EdgeDeterminant" -> "HydrologyTree.EdgeCharacteristic";
+"HydrologyTree.EdgeCharacteristic" -> "HydrologyTree.RootAttachment";
+"HydrologyTree.RootAttachment" -> "HydrologyTree.BranchAssembly";
+"HydrologyTree.Gluing" -> "HydrologyTree";
+"HydrologyTree.RootUpdate" -> "HydrologyTree";
+"HydrologyTree.PhysicalBridge" -> "HydrologyTree";
+"HydrologyTree.Resolvent" -> "HydrologyTree";
+"HydrologyTree.BranchAssembly" -> "HydrologyTree";
 }
