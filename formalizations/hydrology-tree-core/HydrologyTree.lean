@@ -3,3 +3,5 @@ import HydrologyTree.RootUpdate
 import HydrologyTree.PhysicalBridge
 import HydrologyTree.Resolvent
 import HydrologyTree.BranchAssembly
+import HydrologyTree.PhysicalLeaf
+import HydrologyTree.FamilyGluing

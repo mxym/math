@@ -16,8 +16,12 @@ actual physical rate-coordinate Jacobian is also proved at every rate vector.
 Exact matrix Schur/determinant/cofactor recursion and arbitrary-child matrix
 assembly are now proved in EdgeCharacteristic, RootAttachment, and BranchAssembly.
 Still required are constructive transport of the original OrderedTree matrix to
-its child-block decomposition, all-child polynomial-Jacobian assembly, the
-determinant chain rule across the tree, and arbitrary graph reindexing. None of these follows merely from defining
+its child-block decomposition, the determinant chain rule across the tree, and arbitrary graph reindexing.
+The all-child polynomial-Jacobian formula is now proved, including every
+repeated-root and zero-degree case. PhysicalLeaf also proves the actual
+last-leaf characteristic recurrence in the existing OrderedTree encoding.
+Neither theorem by itself completes the global characteristic/cofactor
+coefficient-Jacobian induction. None of these follows merely from defining
 the characteristic polynomial or proving the separate local coefficient maps.
 A recursive polynomial definition alone is not that matrix identification.
 

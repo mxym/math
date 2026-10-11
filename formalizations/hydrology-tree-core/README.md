@@ -121,3 +121,29 @@ The previous physical extension passed independent run 38149404025 at
 `d74acc4c6e289150b442893a598972f2ccca6769`: 12 modules, 149 roots,
 27,668 declarations replayed at trust zero, and eight rejected mutations.
 The new determinant extension is verified by its own subsequent CI receipt.
+
+## Arbitrary-family Jacobian and actual physical leaf recurrence
+
+`FamilyGluing.lean` proves the actual Frechet Jacobian of
+
+    (P_1,...,P_k; R_1,...,R_k)
+      -> (product_i P_i; sum_i R_i product_(j != i) P_j)
+
+for every finite list of monic factor degrees and all strict-degree numerator
+coefficients. The answer is the square of the pairwise resultant product.
+There is no coprimality or positive-degree premise: empty families, degree-zero
+factors, repeated roots, and zero resultants are all included. The actual
+polynomial numerator is proved to equal the derivative-applied numerator data;
+second-order regularity is proved from the actual product map before applying
+the tangent-lift determinant theorem. Nothing is supplied as a Hessian axiom.
+
+`PhysicalLeaf.lean` proves the exact characteristic recurrence for every actual
+OrderedTree with at least one edge, deleting its last numbered leaf. Row and
+column sparsity are derived from the parent inequalities and the constructed
+compartment matrix. The principal minor keeps the original boundary-exit
+diagonals. The recurrence is valid for all real rates, including zero rates.
+
+The full arbitrary-tree coefficient-Jacobian induction still has to join the
+actual tree decomposition, child coefficient maps, numerator scaling, root
+update and physical coordinate map. These proved components do NOT yet
+constitute the all-tree main theorem or its global positive-fiber classification.
