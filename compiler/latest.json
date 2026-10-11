@@ -1,42 +1,22 @@
 {
-  "serial": 1791732452927,
-  "status": "COMPILER_ERROR",
-  "request_blob": "4b1ccfb790528f871f2d1e8f31feeeb3c05023c0",
+  "serial": 1791732558799,
+  "status": "COMPILING",
+  "request_blob": "6d652e4c7300d56c2f96a0d8492b6c938a3288c9",
   "modules": [
     "FixedLocalRatio",
     "IntervalMoment",
     "FixedLocalUpper",
-    "PlateauApproximation"
+    "PlateauApproximation",
+    "FixedLocalLimit"
   ],
   "source_sha256": {
     "FixedLocalUpper.lean": "99a950e4c987b38914598979ade0982737efbfa8cb15616b44063fb74f3717a0",
     "FixedLocalRatio.lean": "5197b681cc254ec1d486987a44fb42c07913287b4c814135c00c78b493e79742",
     "IntervalMoment.lean": "e9a045c9c310dd3c814027dda5fcfb2f3eab888f512623619fb5ef69da49729b",
-    "PlateauApproximation.lean": "4002083a3ec64b08ddbf02ac5d52ba4efa9442e5ead31aee4c14b2616997f08e"
+    "PlateauApproximation.lean": "84e12865de9f5f7d3570f3240fd48fa7b81ec7b7125bfd74c2ebcf508cf4be27",
+    "FixedLocalLimit.lean": "6f8768ede96830e39a4f14b564739a32a2258acdcb31153f4e2da0ea56d72ab2"
   },
-  "commands": [
-    {
-      "module": "FixedLocalRatio",
-      "returncode": 0,
-      "seconds": 4.46
-    },
-    {
-      "module": "IntervalMoment",
-      "returncode": 0,
-      "seconds": 3.059
-    },
-    {
-      "module": "FixedLocalUpper",
-      "returncode": 0,
-      "seconds": 19.368
-    },
-    {
-      "module": "PlateauApproximation",
-      "returncode": 1,
-      "seconds": 2.431
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311",
-  "diagnostics": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nPlateauApproximation.lean:11:57: error: unsolved goals\nm n k : \u211d\nhm : m ^ 2 - 1 \u2260 0\nhZ : m * n * (m - 1) + 2 * k \u2260 0\n\u22a2 m ^ 2 +\n                m ^ 2 * n * k *\n                    (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                        k ^ 2 * 4)\u207b\u00b9 *\n                  4 +\n              m ^ 2 * n ^ 2 *\n                (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                    k ^ 2 * 4)\u207b\u00b9 -\n            m ^ 3 * n ^ 2 *\n                (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                    k ^ 2 * 4)\u207b\u00b9 *\n              2 -\n          m ^ 4 * n * k *\n              (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n            4 +\n        m ^ 5 * n ^ 2 *\n            (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n          2 -\n      m ^ 6 * n ^ 2 *\n        (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 =\n    m ^ 2 * n * k *\n                  (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                      k ^ 2 * 4)\u207b\u00b9 *\n                4 +\n              m ^ 2 * n ^ 2 *\n                (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                    k ^ 2 * 4)\u207b\u00b9 +\n            m ^ 2 * k ^ 2 *\n                (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                    k ^ 2 * 4)\u207b\u00b9 *\n              4 -\n          m ^ 3 * n * k *\n              (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n            4 -\n        m ^ 3 * n ^ 2 *\n            (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n          2 +\n      m ^ 4 * n ^ 2 *\n        (-(m * n * k * 4) + m ^ 2 * n * k * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9\nPlateauApproximation.lean:33:11: error(lean.unknownIdentifier): Unknown identifier `plateauDenominator`\nPlateauApproximation.lean:21:63: error: unsolved goals\nm n : \u2115\nhm : 2 \u2264 m\nhmn : m \u2264 n\nk : \u2115 := ((m - 1) * n + 1) / 2\nhkN : (m - 1) * n \u2264 2 * k \u2227 2 * k \u2264 (m - 1) * n + 1\nhcast : \u2191((m - 1) * n) = (\u2191m - 1) * \u2191n\nhk0 : (\u2191m - 1) * \u2191n \u2264 2 * \u2191k\nhk1 : 2 * \u2191k \u2264 (\u2191m - 1) * \u2191n + 1\ns : \u211d := 2 * \u2191k - (\u2191m - 1) * \u2191n\n\u22a2 \u2203 A,\n    APPT.Quantum.IsDensity A \u2227\n      APPT.Quantum.AbsolutelyPPT A \u2227\n        \u2191m ^ 2 / (\u2191m ^ 2 - 1) - 1 / \u2191n ^ 2 \u2264 \u2191m * \u2191n * APPT.Quantum.purity A \u2227\n          \u2191m * \u2191n * APPT.Quantum.purity A \u2264 \u2191m ^ 2 / (\u2191m ^ 2 - 1)\n"
+  "run_id": "38150520311"
 }
