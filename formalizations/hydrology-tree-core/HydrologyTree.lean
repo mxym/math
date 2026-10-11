@@ -6,3 +6,4 @@ import HydrologyTree.BranchAssembly
 import HydrologyTree.PhysicalLeaf
 import HydrologyTree.FamilyGluing
 import HydrologyTree.PhysicalRootDecomposition
+import HydrologyTree.ChildMatrix

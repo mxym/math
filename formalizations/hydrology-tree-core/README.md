@@ -132,3 +132,21 @@ Existing repository and third-party notices remain in force. Original additions
 retain all rights not otherwise granted by an applicable existing license.
 No completion Release, DOI, external peer review, or historical-priority claim
 is made for this partial package.
+
+## Child principal blocks: completed identification
+
+`ChildTree` constructs the increasing enumeration of each real root branch as a
+strictly smaller OrderedTree and proves parent transport. `ChildRates` extracts
+the actual rates, retaining the inward edge to the original root as the child's
+sole leak. `BranchConservation` proves conservation of the actual principal
+block and all reindexed column sums. `ChildMatrix` proves full matrix equality
+(including diagonal entries), then equality of the actual characteristic and
+root-cofactor polynomials. All rates are unrestricted reals, including zero.
+
+Main new entries: `physicalBranch_eq_childTree`, `physicalBranch_charpoly_eq`,
+`physicalBranch_cofactor_eq`, `childEdgeCount_lt`. The former child-renumbering
+gap is closed. The full parameter permutation, global coefficient-Jacobian
+induction, exact multiplicities and global classification still remain.
+
+These five modules compiled in the local isolated Lean 4.34.1 environment.
+Independent CI for this new source checkpoint is separate from older receipts.

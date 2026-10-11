@@ -18,12 +18,16 @@ transport. None of these is supplied as an assumption in place of its proof.
 
 ## Full coefficient Jacobian induction
 
-Still connect each actual principal child block to a smaller OrderedTree with
-its original exit-to-parent rate as the child's leak, prove the exact input
-rate-coordinate permutation and complete the induction with all child Jacobians,
-scaling, root update, chain rule and orientation bookkeeping. Arbitrary external
-graph numberings and the observation-root/leak-root distinction need their own
-reindexing statements. A matrix-coordinate Jacobian is not the target Jacobian.
+The actual child principal blocks are now identified with smaller OrderedTrees,
+with rate-independent increasing enumeration, parent transport, conservation,
+all matrix entries, and characteristic/root-cofactor polynomial equality proved.
+The original exit-to-parent rate is retained as each child's single leak.
+
+Still prove the complete input rate-coordinate permutation and finish the
+induction with all child Jacobians, scaling, root update, chain rule and
+orientation bookkeeping. Arbitrary external graph numberings and the
+observation-root/leak-root distinction need their own reindexing statements.
+A matrix-coordinate Jacobian is not the target coefficient Jacobian.
 
 ## Multiplicities and conjecture corollaries
 
