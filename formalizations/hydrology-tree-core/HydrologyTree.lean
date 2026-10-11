@@ -5,3 +5,4 @@ import HydrologyTree.Resolvent
 import HydrologyTree.BranchAssembly
 import HydrologyTree.PhysicalLeaf
 import HydrologyTree.FamilyGluing
+import HydrologyTree.PhysicalRootDecomposition

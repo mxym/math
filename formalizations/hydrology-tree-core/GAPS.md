@@ -1,47 +1,54 @@
-# Unresolved mathematical obligations
+# Remaining mathematical obligations — not assumptions
 
-This package currently closes the two-polynomial gluing Jacobian, monic-scaling
-Jacobian, and root polynomial coefficient-update Jacobian in actual real
-coefficient spaces. Every derivative is a `HasFDerivAt`/`fderiv` statement.
-
-The full target remains:
+The target remains the Jacobian of the actual characteristic/cofactor
+coefficient map of a finite bidirected tree with one leak:
 
     det DC_T = ± product_v f_v^(n_v-1) a_v^n_v
-      * product_(sibling pairs v,w at every node) Res(P_v,P_w)^2.
+      * product_(sibling pairs at every node) Res(P_v,P_w)^2.
 
-Actual finite topologically numbered rooted trees, their edge-conservative
-rate matrices, characteristic polynomials, root cofactors, complete coefficient
-encoding, and root inverse-entry identity are now constructed and proved. The
-actual physical rate-coordinate Jacobian is also proved at every rate vector.
-Exact matrix Schur/determinant/cofactor recursion and arbitrary-child matrix
-assembly are now proved in EdgeCharacteristic, RootAttachment, and BranchAssembly.
-Still required are constructive transport of the original OrderedTree matrix to
-its child-block decomposition, the determinant chain rule across the tree, and arbitrary graph reindexing.
-The all-child polynomial-Jacobian formula is now proved, including every
-repeated-root and zero-degree case. PhysicalLeaf also proves the actual
-last-leaf characteristic recurrence in the existing OrderedTree encoding.
-Neither theorem by itself completes the global characteristic/cofactor
-coefficient-Jacobian induction. None of these follows merely from defining
-the characteristic polynomial or proving the separate local coefficient maps.
-A recursive polynomial definition alone is not that matrix identification.
+## Completed proof-critical components
 
-The nonroot-leak version needs its orientation/reindexing and conservation
-chart proof. Exact coordinate multiplicities require nondivisibility of every
-sibling resultant by each individual rate coordinate, not just the displayed
-product formula. The conjecture corollaries remain unexported until these
-connections close.
+Actual matrix and rate-coordinate semantics; physical rate-coordinate Jacobian
+at all real rates; exact actual characteristic/cofactor encoding and resolvent;
+all-finite-block characteristic and cofactor attachment; arbitrary-branch matrix
+assembly; actual physical last-leaf recurrence; all-arity coefficient gluing,
+including its second-order regularity; monic numerator scaling and root-update
+Jacobians; canonical root-branch partition and exact original matrix block
+transport. None of these is supplied as an assumption in place of its proof.
 
-The positive singular-locus theorem also requires the actual stability and
-symmetrization theory, cancellation identity, and precise handling of reduced
-versus unreduced transfer functions. A two-store zero-rate boundary can have
-response cancellation while the unreduced coefficient Jacobian is nonsingular;
-no theorem may erase this distinction.
+## Full coefficient Jacobian induction
 
-The global positive-fiber classification additionally needs the rational
-Stieltjes decomposition and sign/interlacing theorem, reconstruction of every
-positive realization, uniqueness for a fixed recursive pole assignment, the
-combinatorial count, and any claimed continuity/analyticity of inverse branches.
-These are not proved by finite rational examples, nor by the local Jacobian.
+Still connect each actual principal child block to a smaller OrderedTree with
+its original exit-to-parent rate as the child's leak, prove the exact input
+rate-coordinate permutation and complete the induction with all child Jacobians,
+scaling, root update, chain rule and orientation bookkeeping. Arbitrary external
+graph numberings and the observation-root/leak-root distinction need their own
+reindexing statements. A matrix-coordinate Jacobian is not the target Jacobian.
 
-No custom axiom, missing-theorem assumption or conditional wrapper presented as
-the final theorem has been added. No full-formalization Release is justified.
+## Multiplicities and conjecture corollaries
+
+After the full factorization, prove that sibling resultants have no additional
+individual-rate factors. A displayed factorization alone does not prove the
+exact coordinate multiplicities. Catenary and general-tree conjecture statements
+must be derived with their actual published parameter conventions, not merely
+matched by a finite example or name.
+
+## Cancellation and positive singularities
+
+Prove the complete resultant identity between the characteristic polynomial
+and actual root cofactor, plus stability/symmetrization and the required spectral
+and minimality statements. Do not conflate the original unreduced coefficient
+map with a reduced transfer function: zero-rate response cancellation need not
+make the unreduced coefficient Jacobian singular.
+
+## Global positive realizations and fiber count
+
+Prove rational Stieltjes pole/zero interlacing and residue signs, every step of
+the constructive inverse, physical positivity and conservation, uniqueness for
+a fixed recursive pole assignment, completeness of all positive realizations,
+the factorial count and any claimed global continuity or analytic branch
+classification. These do not follow from a nonzero local Jacobian or finite
+rational realization fixtures.
+
+No main theorem is exported with one of these missing conclusions as its own
+hypothesis. No complete-formalization Release is justified yet.

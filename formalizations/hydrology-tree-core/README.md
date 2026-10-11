@@ -1,149 +1,134 @@
 # Hydrological tree identifiability — partial Lean formalization
 
-**Partial formalization. The all-tree Jacobian theorem, the conjecture
-corollaries, the positive singular-locus classification, and complete positive
-realization/fiber count are NOT yet proved by this Lean package.**
+**PARTIAL FORMALIZATION.** The full all-tree characteristic/cofactor coefficient
+Jacobian, exact rate-factor multiplicities, conjecture corollaries, positive
+singular-locus classification and global realization/fiber enumeration are
+not yet theorems of this package. No missing result is supplied as an axiom or
+hidden main-theorem premise.
 
-## Actual proved core
+## Actual objects and completed proof components
 
-`Gluing.lean` proves the actual Frechet derivative of the map
+The development uses actual finite parent-encoded rooted trees, edge-conservative
+compartment matrices, characteristic polynomials and root cofactors, bounded real
+polynomial coefficient spaces, and actual `HasFDerivAt` / `fderiv` derivatives.
+No finite sample checker substitutes for the universally quantified proofs.
 
-    (U,V,R,S) -> (UV, R V + U S)
+### Physical rates, matrix semantics and root decomposition
 
-in finite-dimensional real polynomial coefficient spaces, where U and V are
-monic and R,S have the corresponding strict degree bounds. Its actual Jacobian
-is `resultant U V m n ^ 2`. The off-diagonal derivative terms are derived, not
-assumed. All degrees and all coefficient values are quantified, including zero
-degrees, common roots, and zero resultants.
+`RateChart`, `CompartmentMatrix`, `PhysicalBridge`, and `Resolvent` construct the
+physical model and prove its water conservation, actual rate entries, diagonal
+formula, coefficient encoding and root inverse-entry semantics. The true matrix
+coordinate Jacobian is
 
-`Scaling.lean` proves that the actual map `(c,F) -> c F` for monic degree-n F
-has coefficient Jacobian `c^n`, including c=0. `RootUpdate.lean` proves that the
-actual coefficient operation `P=(X+d)F-N` has Jacobian `(-1)^n` in the specified
-coefficient order. It also proves monicity, exact degree, and full polynomial
-reconstruction. `LeadingCoefficients.lean` establishes the exact coefficient
-isomorphisms, rather than postulating a coefficient-model identification.
+    det D(rates -> (-A_vv, A_parent,child A_child,parent)) = product_e a_e.
 
-The entry module is `HydrologyTree.lean`. These are proof-critical algebraic
-steps of the manuscript, not the final tree-compartment theorem. The connection
-to the actual tree characteristic/cofactor determinant and arbitrary-arity tree
-induction remains explicit in `DEPENDENCY_MAP.md` and `GAPS.md`.
+It holds for every topologically numbered finite rooted tree and all real rates,
+including zero rates. The genuine inverse identities require a nonzero
+characteristic evaluation; the totalized inverse at a pole is not interpreted
+as a physical response.
 
-## Reproduction and verification scope
+`RootBranches` constructs a rate-independent bijection from the original vertex
+set to the root and its actual descendant branches. `BranchMatrixSupport`
+proves that distinct branches have zero cross-transfers and meet the root only
+at their branch roots. `PhysicalRootDecomposition` proves equality of the
+reindexed actual compartment matrix with its root/branch block matrix, without
+assuming any block decomposition. Original boundary-exit diagonals are retained.
 
-Lean 4.34.1, commit `5045d0056413266e57c625dcd7c365b10e377c52`;
-Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, with transitive Git revisions
-and source blobs checked against `lake-manifest.json`.
+`PhysicalLeaf` independently proves the exact last-leaf characteristic recurrence
+for every original OrderedTree with an edge. Both structural sparsity and the
+matrix-coordinate substitutions are proved, including zero-rate cases.
+
+### Actual determinant and cofactor recursions
+
+`EdgeDeterminant`, `EdgeCharacteristic`, and `RootAttachment` prove
+
+    charpoly(edgeJoin A B) = charpoly(A) charpoly(B)
+      - a*f * rootCofactor(A) rootCofactor(B),
+    rootCofactor(edgeJoin A B) = rootCofactor(A) charpoly(B).
+
+These are identities of actual matrix characteristic polynomials and adjugates,
+with arbitrary finite block sizes and all real entries. The Schur calculation
+away from finitely many roots is extended by a proved polynomial identity; no
+spectral exception, positive-rate or coprimality assumption remains.
+
+`BranchAssembly` proves the full characteristic and root-cofactor formulas for
+every finite list of attached matrix branches, including the empty family.
+
+### Actual all-arity polynomial Jacobians
+
+`FamilyGluing` proves that the coefficient map
+
+    (P_i; R_i) -> (product_i P_i; sum_i R_i product_(j != i) P_j)
+
+has Jacobian equal to the square of the pairwise resultant product, for every
+finite list of monic factor degrees and arbitrary strict-degree numerators.
+Zero-degree factors, repeated roots, zero resultants and the empty family are
+included. The numerator is an actual polynomial and its agreement with the
+product derivative is proved. Second-order regularity is proved from the product
+map, rather than introduced as a Hessian assumption.
+
+The supporting `ProductDerivative`, `JacobianComposition`, `FamilyProduct`,
+`FamilyResultants`, `FamilySmoothness` and `TangentJacobian` modules record the
+complete derivative, basis-reindexing, determinant and regularity chain.
+`Gluing` retains the separate two-factor proof. `Scaling` proves the exact
+monic-scaling factor c^n including c=0. `RootUpdate` proves the actual root
+coefficient-map Jacobian (-1)^n, monicity, exact degree and reconstruction.
+
+Main aggregate entry: `HydrologyTree.lean`.
+
+## Precise remaining connection
+
+Root/branch matrix decomposition and arbitrary-family polynomial gluing are now
+proved. The complete induction still needs the branch's rate-preserving
+renumbering as a smaller OrderedTree, assembly of the child coefficient
+Jacobians with scaling and root update, and all determinant chain-rule and
+orientation bookkeeping. A matrix-coordinate Jacobian is not the full
+characteristic/cofactor coefficient-map Jacobian.
+
+The exact multiplicity, cancellation, positive spectral and global Stieltjes
+realization/fiber proofs remain separately required. `GAPS.md` and
+`DEPENDENCY_MAP.md` give the theorem-by-theorem obligations.
+
+## Reproduction and verification
+
+Lean 4.34.1, commit `5045d0056413266e57c625dcd7c365b10e377c52`.
+Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, with every transitive Git
+revision and relevant source blob checked against `lake-manifest.json`.
 
     bash fetch_cache.sh
     python3 reproduce.py --output-dir /tmp/tree-proof-independent-check
 
-The output directory must not exist. The script checks the source manifest,
-constructs a new Lake source tree with zero owned objects, performs a Lake
-build, separately recompiles every owned module, audits all declared roots,
-and replays their full used declaration closure into `mkEmptyEnvironment 0`.
-Only `propext`, `Classical.choice`, and `Quot.sound` are permitted. It then
-compiles deliberately false source mutations and requires rejection.
+The output directory must not exist. The script constructs a fresh Lake source
+tree with zero owned objects, builds it, separately recompiles every owned
+module, audits all declared roots and replays the entire used declaration
+closure into `mkEmptyEnvironment 0`. Root types and universes are compared.
+Only `propext`, `Classical.choice`, and `Quot.sound` are permitted. Deliberately
+false source mutations must be rejected by actual Lean compilation. Source
+hashes are checked before and after; complete literal logs and a deterministic
+verified-source archive are produced.
 
-Historical completed checkpoints: run 38140690781 passed for the initial
-coefficient/block core (24,604 declarations; 23 roots; two mutations).
-Run 38143311408 passed for the actual gluing extension (four modules and
-four mutations). The new scaling/root-update modules have compiled in the
-source-isolated development compiler; their expanded source-bound independent
-verification is a new run, not either historical receipt. Exact completed
-receipts, not this prose alone, establish verification of their own bytes.
+Completed independent checkpoints are source-specific:
 
-Development compiler requests are editor diagnostics, explicitly NOT formal
-verification certificates. Main proof CI is a separate clean build and replay.
+- `37cc417b`, run 38145415740: 8 modules, 92 roots, 26,477 replayed declarations;
+  six rejected mutations. Original artifact under `evidence/scaling-root-ci`.
+- `d74acc4c`, run 38149404025: 12 modules, 149 roots, 27,668 declarations;
+  eight rejected mutations. Original artifact under `evidence/physical-ci`.
+- `a7e82785`, run 38150289891: 16 modules, 183 roots, 28,338 declarations;
+  ten rejected mutations. Source-specific receipt in
+  `../../verification/hydrology-tree-core-a7e82785/README.md`.
+- `8de83755`, run 38152132585: 25 modules, 252 roots, 36,434 declarations;
+  twelve rejected mutations. Original artifact under `evidence/family-ci`.
+
+The root-partition extension is checked by its own subsequent independent
+source-bound report; the 25-module receipt is not presented as its verification.
+Development compiler diagnostics are not independent kernel certificates.
 
 ## Provenance
 
 Yongxian Zhang (张永贤), School of Computer Science and Engineering,
-South China University of Technology. mxymmxym1@gmail.com.
+South China University of Technology; mxymmxym1@gmail.com;
 ORCID 0009-0000-3864-3536. No external funding; AI-assisted development.
 Existing repository and third-party notices remain in force. Original additions
 retain all rights not otherwise granted by an applicable existing license.
-No completion Release, DOI, external peer review, or priority claim is made.
-
-## Actual physical tree bridge
-
-`RateChart.lean` proves the physical coordinate change for every finite
-**topologically numbered rooted tree**, with no restriction on its size and no
-nonzero-rate hypothesis. `CompartmentMatrix.lean` constructs the actual
-edge-conservative bidirected matrix and proves its column sums, total-storage
-flux identity, diagonal formula, and nonnegative off-diagonal entries for
-nonnegative rates. `PhysicalBridge.lean` proves that its actual entries give
-exactly those coordinates:
-
-    d_v = -A_vv,       c_e = A_(parent,child) A_(child,parent).
-    det D(rate -> (d,c)) = product_e a_e.
-
-The Frechet derivative is proved and used. Parent iteration is proved to reach
-the root, so disconnected/cyclic parent structures are not silently admitted.
-The current tree encoding includes an explicit topological numbering; transport
-from independently presented unnumbered graph objects remains a separate task.
-
-`Resolvent.lean` constructs the actual characteristic polynomial, actual root
-principal cofactor (with original boundary-exit diagonals), and their full
-non-leading coefficient map. It proves exact degree/monicity/reconstruction
-and the actual matrix inverse entry F(s)/P(s). The true inverse identities are
-asserted only off the characteristic roots; totalized matrix inverse at a pole
-is not interpreted as a physical response there.
-
-**Do not confuse the proved rate-coordinate Jacobian with the unproved full
-characteristic/cofactor coefficient-map Jacobian.** The all-tree determinant
-recursion and assembly, exact coordinate multiplicities, positive singular-locus
-classification, and complete global realization/fiber theorem still remain.
-
-The archived independent checkpoint `evidence/scaling-root-ci/` is
-run 38145415740 on 37cc417b: 8 modules, 92 roots, 26,477 declarations in an empty
-trust-zero kernel, six rejected source mutations. The physical-matrix extension
-is a new source checkpoint and is independently checked by its own subsequent
-CI receipt; that older result is not presented as its verification.
-
-## Matrix determinant recursion extension
-
-`EdgeDeterminant`, `EdgeCharacteristic`, and `RootAttachment` prove exact
-single-edge characteristic and root-cofactor identities for arbitrary finite
-real matrix blocks. Original diagonals are retained; no positivity, eigenvalue
-simplicity, nonzero edge rate, or nonvanishing resultant is assumed. The proof
-uses a Schur complement away from finitely many characteristic roots and then
-proves the polynomial identity, so no spectral exceptional point is omitted.
-
-`BranchAssembly` proves the actual characteristic and root-cofactor recursion
-for every finite list of attached matrix branches, including the empty list.
-The actual cofactor is the product of child characteristic polynomials. The
-actual characteristic polynomial is (X+d) times that product minus the sum of
-child edge-product/cofactor terms. This is no longer an assumed determinant
-bridge. Transport of an arbitrary `OrderedTree` into its child decomposition,
-and the full Fréchet coefficient-Jacobian induction, remain to be assembled.
-
-The previous physical extension passed independent run 38149404025 at
-`d74acc4c6e289150b442893a598972f2ccca6769`: 12 modules, 149 roots,
-27,668 declarations replayed at trust zero, and eight rejected mutations.
-The new determinant extension is verified by its own subsequent CI receipt.
-
-## Arbitrary-family Jacobian and actual physical leaf recurrence
-
-`FamilyGluing.lean` proves the actual Frechet Jacobian of
-
-    (P_1,...,P_k; R_1,...,R_k)
-      -> (product_i P_i; sum_i R_i product_(j != i) P_j)
-
-for every finite list of monic factor degrees and all strict-degree numerator
-coefficients. The answer is the square of the pairwise resultant product.
-There is no coprimality or positive-degree premise: empty families, degree-zero
-factors, repeated roots, and zero resultants are all included. The actual
-polynomial numerator is proved to equal the derivative-applied numerator data;
-second-order regularity is proved from the actual product map before applying
-the tangent-lift determinant theorem. Nothing is supplied as a Hessian axiom.
-
-`PhysicalLeaf.lean` proves the exact characteristic recurrence for every actual
-OrderedTree with at least one edge, deleting its last numbered leaf. Row and
-column sparsity are derived from the parent inequalities and the constructed
-compartment matrix. The principal minor keeps the original boundary-exit
-diagonals. The recurrence is valid for all real rates, including zero rates.
-
-The full arbitrary-tree coefficient-Jacobian induction still has to join the
-actual tree decomposition, child coefficient maps, numerator scaling, root
-update and physical coordinate map. These proved components do NOT yet
-constitute the all-tree main theorem or its global positive-fiber classification.
+No completion Release, DOI, external peer review, or historical-priority claim
+is made for this partial package.
