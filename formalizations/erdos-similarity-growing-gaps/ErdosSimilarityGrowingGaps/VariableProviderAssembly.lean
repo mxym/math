@@ -174,8 +174,7 @@ noncomputable def variableRateNodeInput_of_template_guards
       have hlen_eq : (c.edgeLength e : ℝ) = vertexWindowLength c v := rfl
       have hh' : (c.edgeStart e : ℝ) + (vertexWindowLength c v : ℝ) ≤
           (c.origin : ℝ) + (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by
-        rw [← hlen_eq]
-        exact hh
+        simpa [hlen_eq] using hh
       simpa [horigin] using hh'
     have hupper : (c.edgeStart e : ℝ) + (k : ℝ) ≤ (5 / 2 : ℝ) * U := by
       have hlen_eq : (c.edgeLength e : ℝ) = vertexWindowLength c v := rfl
@@ -233,8 +232,7 @@ noncomputable def variableRateNodeInput_of_template_guards
       have hlen_eq : (c.edgeLength e : ℝ) = vertexWindowLength c v := rfl
       have hh' : (c.edgeStart e : ℝ) + (vertexWindowLength c v : ℝ) ≤
           (c.origin : ℝ) + (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by
-        rw [← hlen_eq]
-        exact hh
+        simpa [hlen_eq] using hh
       simpa [horigin] using hh'
     have hupper : (c.edgeStart e : ℝ) + vertexWindowLength c v + (k : ℝ) ≤
         (5 / 2 : ℝ) * U := by
@@ -284,6 +282,71 @@ noncomputable def variableRateNodeInput_of_template_guards
           _ = _ := by ring
       _ ≤ R * U := hRbound
   · exact hsep
+
+/-! All node choices can now be made uniformly from canonical inputs.  The
+bounded greedy-family theorem supplies a finite witness at each dependent
+vertex; `Classical.choice` is used only to assemble those already-proved
+nonempty finite outputs into the certificate's single dependent function. -/
+noncomputable def variableRateBoundedWitness_of_inputs
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (c : RoutingTemplate M d) (U R D δ : ℝ)
+    (hfill : FillsAnnulus Z U R D) (hM : 2 ≤ M)
+    (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hinput : ∀ v : InternalNode M d,
+      VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ)
+    (Q : ℕ)
+    (hQ : ∀ v : InternalNode M d, ∀ child,
+      max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
+        (1 / (K : ℝ)) -
+        ((hinput v).u child + (k : ℝ)) / (K : ℝ) - D) / δ) 0 + 1 ≤
+          (Q : ℝ)) :
+    ∀ v : InternalNode M d,
+      VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q := by
+  intro v
+  let hv := variableRateNodeWitness_of_input_bounded hK c v U R D δ hfill hM hδ hD
+    (hinput v) Q (hQ v)
+  exact Classical.choice hv
+
+theorem finiteSequenceRoutingCertificate_of_template_inputs
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (c : RoutingTemplate M d) (δ D : ℝ)
+    (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hM : M = lateBranching K p δ D)
+    (hd : d = lateDepth K p δ D)
+    (hgap : c.gap = lateStableGapExplicit K p δ D)
+    (horigin : 4 ≤ c.origin) (hlength : 0 < c.baseLength)
+    (hgap_guard : c.gap + 1 ≤ c.origin)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin)
+    (hentropy :
+      46080 * (M : ℝ) ^ 2 * ((c.origin : ℝ) + 1) ^ 2 *
+        Real.exp (-(p * lateActivationRate K δ D * ((M : ℝ) - 1) / 2 -
+          4 * Real.log 2) * (c.baseLength : ℝ)) ≤ p)
+    (U R : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hinput : ∀ v : InternalNode M d,
+      VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ)
+    (Q : ℕ)
+    (hQ : ∀ v : InternalNode M d, ∀ child,
+      max ((((hinput v).u child + (hinput v).ell + (k : ℝ)) /
+        (1 / (K : ℝ)) -
+        ((hinput v).u child + (k : ℝ)) / (K : ℝ) - D) / δ) 0 + 1 ≤
+          (Q : ℝ))
+    (hQcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
+      (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
+        c.baseLength d + |(k : ℝ)| + 2)) :
+    FiniteSequenceRoutingCertificate Z K k p := by
+  let witness := variableRateBoundedWitness_of_inputs hK c U R D δ hfill
+    (by rw [hM]; exact lateBranching_ge_two K p δ D) hδ hD hinput Q hQ
+  have hwitness : ∀ v : InternalNode M d,
+      VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q := by
+    intro v
+    exact witness v
+  exact finiteSequenceRoutingCertificate_of_variable_rate_bounded_data
+    hK hp hp₁ c δ D hδ hD hM hd hgap horigin hlength hgap_guard hspan hcoeff
+    hentropy Q hwitness hQcandidate
 
 /-! The assembly theorem is fully kernel-checked.  The only pending work is
 the construction of the direct provider above; once supplied, the theorem
