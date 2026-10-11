@@ -42,6 +42,9 @@ It proves both sides of a useful model-design statement:
   nondegenerate `k`-mode representations with the same first `2*k` moments;
   the remaining root-matching/permutation step is stated explicitly as outside
   this package.
+* `Hydrology/Parallel.lean` compares two active two-mode spectra directly:
+  equality of the first four moments forces equality of the sum and product of
+  their rates, hence equality of the unordered recovered quadratic.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

@@ -316,6 +316,14 @@ independent exact example uses
 \((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
 for which the determinant is \(216\).
 
+For two competing active two-mode spectra, the Lean theorem
+`two_parallel_rate_coefficients_identifiable` applies the same determinant
+certificate to the two recurrence equations. Equality of the first four
+moments therefore forces equality of \(\ell_1+\ell_2\) and
+\(\ell_1\ell_2\), so the unordered rate pair is identified as the root set of
+one quadratic. The theorem intentionally stops before choosing a labeling of
+the two roots; that labeling is physically unobservable.
+
 ## 8. Exact continuum construction of a power-law tail
 
 The finite-dimensional no-go theorem has a physically conservative extension after
