@@ -1,0 +1,37 @@
+name: APPT compiler diagnostics (not a proof certificate)
+on:
+  workflow_dispatch:
+  push:
+    branches: ['review/appt-fixed-verified-20261011']
+    paths: ['.github/workflows/appt-compiler-session.yml', 'tools/appt-compiler-session/**']
+permissions:
+  contents: write
+jobs:
+  development-compiler:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build the unchanged verified base
+        working-directory: formalizations/appt-high-dimensional-review
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --check-only
+          timeout 900 lake build APPTReview
+      - name: Development diagnostics; receipt status is not proof certification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/appt-compiler-session/worker.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-development-diagnostics-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/appt-compiler-session/**/report.json
+            ${{ runner.temp }}/appt-compiler-session/**/diagnostics.log
