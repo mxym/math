@@ -213,8 +213,8 @@ finite-dimensional recurrence backbone, while uniqueness of rates still needs
 nondegenerate Hankel/Vandermonde assumptions.
 
 For a known collection of pairwise distinct rates, the weights are also exactly
-identifiable. If two weight vectors give the same first (k) moments, their
-difference lies in the kernel of the (k	imes k) Vandermonde matrix. Its
+identifiable. If two weight vectors give the same first \(k\) moments, their
+difference lies in the kernel of the \(k\times k\) Vandermonde matrix. Its
 Vandermonde determinant is nonzero, so the difference vanishes. The theorem
 `finiteMoment_weights_unique` in `Hydrology/WeightIdentifiability.lean` formalizes
 this step. It is deliberately a fixed-rate statement; identifying unknown rates
