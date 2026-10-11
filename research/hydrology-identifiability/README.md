@@ -160,6 +160,28 @@ above; rate uniqueness and positivity require the additional Hankel or
 Vandermonde hypotheses stated separately.
 
 
+### Finite-spectrum growth obstruction
+
+The finite-mode recurrence has a second consequence under physical positivity. For
+nonnegative weights and rates, let
+\[
+M_j=\sum_i w_i\lambda_i^j,
+\]
+and choose \(L\) with \(\lambda_i\le L\) for every mode. Then
+\[
+0\le M_j,\qquad M_{j+1}\le L M_j.
+\]
+`Hydrology/FiniteBound.lean` proves this inequality exactly for every finite index
+type and every \(j\). If a finite positive parallel reservoir mixture had
+\(Q(t)=\sum_i w_i e^{-\lambda_i t}\), its alternating derivative moments would
+therefore have bounded consecutive ratios. A positive shifted power law instead
+has ratio \((\alpha+j)/\tau\), which is unbounded. Hence no finite positive
+parallel reservoir mixture can equal a shifted power law on an interval. The
+calculus derivative formula and the final unboundedness argument are written
+analysis; only the finite-spectrum inequality is currently kernel checked.
+Signed modal coefficients, complex modes, nonlinear models, and spatially
+distributed systems are outside this statement.
+
 The finite-dimensional obstruction also suggests a physically conservative model extension.
 For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear
 reservoirs indexed by their decay rate \(\lambda>0\). Let

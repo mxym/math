@@ -23,6 +23,8 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/Diagnostics.lean` proves exact algebraic recovery of the power-law
   exponent from the curvature invariant and of the time shift from the local
   slope identity.
+* `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
+  (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

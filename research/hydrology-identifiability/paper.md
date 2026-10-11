@@ -212,6 +212,36 @@ arbitrary finite mode count and polynomial degree. It establishes the exact
 finite-dimensional recurrence backbone, while uniqueness of rates still needs
 nondegenerate Hankel/Vandermonde assumptions.
 
+### Finite-spectrum growth obstruction
+
+The finite-mode recurrence has a second consequence under the physical positivity
+assumptions. For nonnegative weights and nonnegative rates, write
+\[
+M_j=\sum_i w_i\lambda_i^j,
+\]
+and choose \(L\) with \(\lambda_i\le L\) for every active mode. Then
+\[
+0\le M_j,qquad M_{j+1}\le L M_j. \tag{11}
+\]
+The Lean theorem `finiteMoment_rate_bound` proves the second inequality exactly
+for every finite index type and every \(j\); no numerical approximation is used.
+
+This yields a general analytic no-go statement for **finite positive parallel
+reservoirs**. If
+\(Q(t)=\sum_i w_i e^{-\lambda_i t}\) with \(w_i>0\) and \(\lambda_i\ge0\),
+then its alternating derivative moments are \(M_j=(-1)^jQ^{(j)}(0)\), and the
+preceding bound gives \(M_{j+1}/M_j\le L\). For an exact positive shifted power
+law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation gives
+\[
+\frac{(-1)^{j+1}Q^{(j+1)}(0)}{(-1)^jQ^{(j)}(0)}
+=\frac{\alpha+j}{\tau},
+\]
+which is unbounded as \(j\to\infty\). Thus no finite positive parallel
+reservoir mixture can equal a shifted power law on an interval. The derivative
+formula and the unboundedness argument are elementary written analysis; the
+finite-spectrum inequality is the part kernel-checked in this repository.
+This statement does not cover signed modal coefficients, complex modes, or
+nonlinear and spatially distributed models.
 The same argument extends one step further without a numerical approximation.
 For three parallel modes define
 
@@ -223,14 +253,14 @@ and let \(e_1,e_2,e_3\) be the elementary symmetric functions of the three
 rates. The formalized identities are
 
 \[
-n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{11}
+n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{12}
 \]
 
 and
 
 \[
 \det(n_{i+j})_{0\le i,j\le2}
-=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{12}
+=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{13}
 \]
 
 The module `Hydrology/Parallel3.lean` also proves that each rate is a root of
@@ -259,10 +289,10 @@ Therefore the aggregate discharge is
 \[
 Q(t)=\int_0^\infty \lambda s_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
 =\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
-=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{13}
+=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{14}
 \]
 
-Equation (13) is the standard Gamma-integral identity. The initial aggregate storage
+Equation (14) is the standard Gamma-integral identity. The initial aggregate storage
 is finite because
 \[
 \int_0^\infty s_{\alpha,\tau}(\lambda)\,d\lambda
@@ -284,13 +314,13 @@ power law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation yields
 I(t):=\frac{Q(t)Q''(t)}{Q'(t)^2}
 =\frac{\alpha+1}{\alpha}=1+\frac1{\alpha},
 \qquad
-\alpha=\frac1{I(t)-1}. \tag{14}
+\alpha=\frac1{I(t)-1}. \tag{15}
 \]
 
 The local slope then gives
 
 \[
-\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{15}
+\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{16}
 \]
 
 The Lean theorem `powerLaw_alpha_recovery` proves the first inversion from the
@@ -305,7 +335,7 @@ For two positive parallel exponential modes, put
 
 \[
 Q(t)Q''(t)-Q'(t)^2
-=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{16}
+=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{17}
 \]
 
 It is strict for distinct active rates, but after division by \(Q(t)^2\) it
