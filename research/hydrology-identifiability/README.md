@@ -160,31 +160,72 @@ above; rate uniqueness and positivity require the additional Hankel or
 Vandermonde hypotheses stated separately.
 
 
-The finite-dimensional obstruction also suggests a constructive model extension.
-For \(\alpha>0\) and \(\tau>0\), take a continuum of independent linear
-reservoirs indexed by their decay rate \(\lambda>0\), with initial density
+The finite-dimensional obstruction also suggests a physically conservative model extension.
+For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear
+reservoirs indexed by their decay rate \(\lambda>0\). Let
+\(s_{\alpha,\tau}(\lambda)\) denote **initial storage density**:
 
 \[
-\rho_{\alpha,\tau}(\lambda)=\lambda^{\alpha-1}e^{-\tau\lambda}.
+s_{\alpha,\tau}(\lambda)=\lambda^{\alpha-2}e^{-\tau\lambda}.
 \]
 
-The standard Gamma-integral identity gives, for \(t\ge0\),
+A reservoir with rate \(\lambda\) satisfies \(\dot x_\lambda=-\lambda x_\lambda\),
+so its discharge is \(\lambda x_\lambda\). Consequently the aggregate discharge
+is
 
 \[
-Q(t)=\int_0^\infty \rho_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
+Q(t)=\int_0^\infty \lambda s_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
+=\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
 =\Gamma(\alpha)(\tau+t)^{-\alpha}.
 \]
 
-The initial aggregate storage is finite,
-\(\int_0^\infty\rho_{\alpha,\tau}(\lambda)d\lambda
-=\Gamma(\alpha)\tau^{-\alpha}\). Thus the exact power-law tail excluded for
-every finite positive reservoir network is realized by a continuous rate
-spectrum with finite initial mass. This is a model-construction consequence,
-not a novelty or priority claim; the Gamma-integral step is written mathematics
-and is not part of the current Lean package.
-
+The initial aggregate storage is finite for \(\alpha>1\):
+\[
+\int_0^\infty s_{\alpha,\tau}(\lambda)d\lambda
+=\Gamma(\alpha-1)\tau^{1-\alpha}<\infty.
+\]
+Thus the exact power-law tail excluded for every finite positive reservoir network is
+realized by a continuous rate spectrum without confusing storage density with output
+weight. This is a model-construction consequence, not a novelty or priority claim;
+the Gamma-integral step is written mathematics and is not part of the current Lean
+package.
 For the analytic identity used here, see the standard Gamma-integral formula in
 [NIST DLMF 5.9.1](https://dlmf.nist.gov/5.9.E1).
+
+
+The continuum construction also yields a local identification protocol. For a
+shifted power law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation gives
+
+\[
+I(t):=\frac{Q(t)Q''(t)}{Q'(t)^2}=\frac{\alpha+1}{\alpha}=1+\frac1\alpha,
+\qquad
+\alpha=\frac1{I(t)-1},
+\]
+
+and
+
+\[
+\tau=\frac{-\alpha Q(t)}{Q'(t)}-t.
+\]
+
+`Hydrology/Diagnostics.lean` formally proves the exact algebraic recovery from
+these jet identities, including the nonzero-denominator conditions. The
+calculus substitution of the continuum model supplies the identities; the Lean
+module checks their inverse without floating-point arithmetic.
+
+For two positive parallel exponential modes, write
+\(u_i(t)=w_i e^{-\lambda_i t}\). The existing Hankel identity becomes
+
+\[
+Q(t)Q''(t)-Q'(t)^2
+=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2.
+\]
+
+It is strictly positive for distinct active rates, but divided by \(Q(t)^2\)
+it tends to zero as the slower mode dominates. An exact power law instead has
+a constant invariant \(I(t)>1\). Therefore a persistent non-unit curvature
+invariant separates a continuum/power-law tail from every finite two-rate model;
+this is a structural diagnostic, not a statistical fitting claim.
 
 ## Context
 

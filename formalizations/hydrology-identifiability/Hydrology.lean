@@ -4,3 +4,4 @@ import Hydrology.Recession
 import Hydrology.Parallel
 import Hydrology.Parallel3
 import Hydrology.Generic
+import Hydrology.Diagnostics

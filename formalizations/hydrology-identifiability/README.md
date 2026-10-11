@@ -20,6 +20,9 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/Generic.lean` proves the finite-mode theorem for arbitrary mode
   count: every polynomial annihilating all decay rates induces the same linear
   recurrence on every weighted moment sequence.
+* `Hydrology/Diagnostics.lean` proves exact algebraic recovery of the power-law
+  exponent from the curvature invariant and of the time shift from the local
+  slope identity.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

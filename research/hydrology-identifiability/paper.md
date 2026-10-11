@@ -189,6 +189,8 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
+## 7. The general finite-mode recurrence
+
 The finite-mode mechanism does not depend on having two or three modes. Let
 
 \[
@@ -241,37 +243,79 @@ for which the determinant is \(216\).
 
 ## 8. Exact continuum construction of a power-law tail
 
-The finite-dimensional no-go theorem has a constructive converse after replacing
-finitely many reservoirs by a continuum of rates. For \(\alpha>0\) and
-\(\tau>0\), let independent reservoirs with decay rate \(\lambda>0\) have
-initial density
+The finite-dimensional no-go theorem has a physically conservative extension after
+replacing finitely many reservoirs by a continuum of rates. For \(\alpha>1\) and
+\(\tau>0\), let independent reservoirs with decay rate \(\lambda>0\) have initial
+**storage density**
 
 \[
-\rho_{\alpha,\tau}(\lambda)=\lambda^{\alpha-1}e^{-\tau\lambda}.
+s_{\alpha,\tau}(\lambda)=\lambda^{\alpha-2}e^{-\tau\lambda}.
 \]
 
-Each component contributes \(e^{-\lambda t}\rho_{\alpha,\tau}(\lambda)\), so the
-aggregate recession is
+A linear reservoir with rate \(\lambda\) satisfies
+\(\dot x_\lambda=-\lambda x_\lambda\), and its discharge is \(\lambda x_\lambda\).
+Therefore the aggregate discharge is
 
 \[
-Q(t)=\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
+Q(t)=\int_0^\infty \lambda s_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
+=\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
 =\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{13}
 \]
 
-Equation (13) is the standard Gamma-integral identity. The initial aggregate
-storage is finite because
+Equation (13) is the standard Gamma-integral identity. The initial aggregate storage
+is finite because
 \[
-\int_0^\infty\rho_{\alpha,\tau}(\lambda)\,d\lambda
-=\Gamma(\alpha)\tau^{-\alpha}<\infty.
+\int_0^\infty s_{\alpha,\tau}(\lambda)\,d\lambda
+=\Gamma(\alpha-1)\tau^{1-\alpha}<\infty.
 \]
-Thus a continuous rate spectrum gives an exact shifted power law with finite
-initial mass, while every finite positive reservoir network is excluded by the
+Thus a continuous rate spectrum gives an exact shifted power law with finite initial
+storage, while every finite positive reservoir network is excluded by the
 finite-dimensional obstruction above. This provides a concrete model-building
-interpretation of the observed distinction between exponential mixtures and
-power-law recession. The integral identity is written mathematics here; it is
-not claimed as part of the current Lean package.
+interpretation of the distinction between exponential mixtures and power-law
+recession. The integral identity is written mathematics here; it is not claimed as
+part of the current Lean package.
 
-## 9. Implications and limits
+## 9. A local curvature diagnostic
+
+The continuum construction gives an observable local protocol. For a shifted
+power law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation yields
+
+\[
+I(t):=\frac{Q(t)Q''(t)}{Q'(t)^2}
+=\frac{\alpha+1}{\alpha}=1+\frac1{\alpha},
+\qquad
+\alpha=\frac1{I(t)-1}. \tag{14}
+\]
+
+The local slope then gives
+
+\[
+\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{15}
+\]
+
+The Lean theorem `powerLaw_alpha_recovery` proves the first inversion from the
+algebraic identity \(I=(\alpha+1)/\alpha\), and
+`powerLaw_shift_recovery` proves the second from
+\(Q'(\tau+t)=-\alpha Q\), with the required nonzero denominators explicit.
+The calculus substitution establishing these jet identities is written in the
+paper; the inverse algebra is kernel checked.
+
+For two positive parallel exponential modes, put
+\(u_i(t)=w_i e^{-\lambda_i t}\). The Hankel identity becomes
+
+\[
+Q(t)Q''(t)-Q'(t)^2
+=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{16}
+\]
+
+It is strict for distinct active rates, but after division by \(Q(t)^2\) it
+vanishes asymptotically as the slower mode dominates. An exact power law has the
+constant invariant \(I(t)>1\). This gives a structural diagnostic separating a
+persistent power-law curvature from every finite two-rate recession; it is not a
+statistical fitting claim.
+
+## 10. Implications and limits
+
 
 
 The two statements answer complementary model-design questions. With unknown
@@ -287,7 +331,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 10. Reproducibility and prior context
+## 11. Reproducibility and prior context
 
 Run the exact rational checker with
 
