@@ -1,0 +1,38 @@
+name: Lean compiler diagnostics (not a proof certificate)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/hydrology-tree-compiler-session.yml'
+      - 'tools/lean-compiler-session/**'
+permissions:
+  contents: write
+jobs:
+  development-compiler:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[compiler-session]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install pinned Lean
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst -o "$RUNNER_TEMP/lean.tar.zst"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/lean-4.34.1-linux/bin" >> "$GITHUB_PATH"
+      - name: Pinned external dependencies
+        working-directory: formalizations/hydrology-tree-core
+        run: bash fetch_cache.sh
+      - name: Development source diagnostics; formal proof CI remains separate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/lean-compiler-session/worker.py
+      - name: Preserve session reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tree-development-diagnostics-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/tree-compiler-session/**/report.json
+            ${{ runner.temp }}/tree-compiler-session/**/diagnostics.log
+          if-no-files-found: warn
