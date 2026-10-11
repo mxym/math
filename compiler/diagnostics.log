@@ -7,26 +7,62 @@ Already decompressed 752 file(s)
 MODULE FixedLocalRatio
 
 MODULE IntervalMoment
-IntervalMoment.lean:51:6: error: mod_cast has type
-  sᶜ.card = Fintype.card (Fin D) - s.card
+IntervalMoment.lean:36:39: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+IntervalMoment.lean:62:27: warning: Variable name `hCL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE FixedLocalUpper
+FixedLocalUpper.lean:46:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  s.card ≤ m * n
 but is expected to have type
-  ↑sᶜ.card = Int.subNatNat D s.card
-IntervalMoment.lean:77:2: error: linarith failed to find a contradiction
-D L C K p : ℝ
-hD : 0 < D
-hL : 0 < L
-hCL : 0 ≤ C
-hC : C ≤ 2
-hLD : L ≤ D
-hDL : D ≤ 2 * L
-hK : D - L ≤ K
-hp : p ≤ C / L + 9 * (D - L) / D ^ 2
-hq : 0 ≤ D - L
-hfrac : C / L ≤ 4 / D
-hprod : C / L * (D - L) ≤ 4 / D * (D - L)
-he : D * (C / L + 9 * (D - L) / D ^ 2) = C + C / L * (D - L) + 9 * (D - L) / D
-hu : D * p ≤ C + C / L * (D - L) + 9 * (D - L) / D
-herr : 13 * (D - L) / D ≤ 13 * K / D
-a✝ : C + 13 * K / D < D * p
-⊢ False
-failed
+  s.card ≤ D
+FixedLocalUpper.lean:58:30: error: Application type mismatch: The argument
+  hrank
+has type
+  (↑m - 1) * ⋯.eigenvalues₀ (finalTop hR ⋯) ≤ (↑m + 1) * ⋯.eigenvalues₀ (pairedPivot ⋯ hmn)
+but is expected to have type
+  f t * (↑m - 1) ≤ (↑m + 1) * b
+in the application
+  (le_div_iff₀ hmp).mpr hrank
+FixedLocalUpper.lean:66:65: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.405) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.405
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+FixedLocalUpper.lean:66:68: error(lean.invalidDottedIdent): Invalid dotted identifier notation: Not supported on type universe
+  Type ?u.404
+FixedLocalUpper.lean:82:57: error: Function expected at
+  2
+but this term has type
+  ?m.1128
+
+Note: Expected a function because this term is being applied to the argument
+  (∑ i, (f i) ^ 2)
+FixedLocalUpper.lean:82:13: error: Application type mismatch: The argument
+  bulk_rescale_bound (↑D) (↑s.card) C ↑m
+has type
+  ∀ (p : ℝ),
+    0 < ↑D →
+      0 < ↑s.card →
+        0 ≤ C →
+          C ≤ 2 →
+            ↑s.card ≤ ↑D →
+              ↑D ≤ 2 * ↑s.card →
+                ↑D - ↑s.card ≤ ↑m → p ≤ C / ↑s.card + 9 * (↑D - ↑s.card) / ↑D ^ 2 → ↑D * p ≤ C + 13 * ↑m / ↑D
+of sort `Prop` but is expected to have type
+  ?m.1121
+of sort `Type ?u.569` in the application
+  HPow.hPow ⋯
