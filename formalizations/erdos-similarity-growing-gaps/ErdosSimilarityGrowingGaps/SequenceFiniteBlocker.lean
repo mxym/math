@@ -91,6 +91,21 @@ structure VariableRateNodeWitness
   logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
     3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
 
+structure VariableRateNodeWitnessBounded
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (c : RoutingTemplate M d) (v : InternalNode M d)
+    (η ell : ℝ) (Q : ℕ) where
+  B : ℕ
+  children : Fin ((M - 1) * (B + 1)) → Fin (M - 1)
+  indices : Fin ((M - 1) * (B + 1)) → ℕ
+  active_count : ∀ r : PowerParams (1 / (K : ℝ)) K,
+    η * ((M : ℝ) - 1) * ell ≤
+      (sequenceActiveLocalCandidates Z c v children indices k r).card
+  index_injective : Function.Injective (fun i => (children i, indices i))
+  logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
+    3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
+  B_le : B ≤ Q
+
 /-! The common greedy-family construction now feeds the dependent witness
   directly.  This is the first concrete bridge from an annulus to certificate
   lists: all choices are made by the existing finite supremum construction,
@@ -125,6 +140,45 @@ theorem variableRateNodeWitness_of_input
     active_count := hactive
     index_injective := hinj
     logarithmic_gap := hlog
+  }⟩
+
+theorem variableRateNodeWitness_of_input_bounded
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (c : RoutingTemplate M d) (v : InternalNode M d)
+    (U R D δ : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hM : 2 ≤ M) (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hnode : VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ)
+    (Q : ℕ)
+    (hQ : ∀ child, max (((hnode.u child + hnode.ell + (k : ℝ)) /
+      (1 / (K : ℝ)) -
+      ((hnode.u child + (k : ℝ)) / (K : ℝ) - D)) / δ) 0 + 1 ≤ (Q : ℝ)) :
+    Nonempty (VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k)
+      (p := p) c v (lateActivationRate K δ D) hnode.ell Q) := by
+  have hKpos : (0 : ℝ) < K := by
+    exact_mod_cast (show 0 < K by omega)
+  have hs₀ : 0 < (1 / (K : ℝ)) := by positivity
+  have hs₁ : 0 < (K : ℝ) := hKpos
+  have hell_nonneg : 0 ≤ hnode.ell := by
+    have hKD : 0 < (K : ℝ) * (δ + D) := by positivity
+    nlinarith [hnode.hell]
+  have hη := lateActivationRate_fill_bound K hK δ D hnode.ell
+    hδ hD hell_nonneg
+  obtain ⟨B, children, indices, hactive, hinj, hlog, hBQ⟩ :=
+    exists_common_greedy_family_bounded (s₀ := 1 / (K : ℝ))
+      (s₁ := (K : ℝ)) Z c v k hnode.u hnode.ell D δ
+      (lateActivationRate K δ D) (U := U) (R := R) hfill hM hs₀ hs₁ hδ
+      hnode.ha hnode.ha_hi hnode.hnum hnode.huk hnode.hwindow hnode.hell
+      hnode.hannulus (by simpa using hη) hnode.hsep Q (by
+        intro child
+        simpa using hQ child)
+  exact ⟨{
+    B := B
+    children := children
+    indices := indices
+    active_count := hactive
+    index_injective := hinj
+    logarithmic_gap := hlog
+    B_le := hBQ
   }⟩
 
 /-! Assemble all node witnesses into the finite certificate.  The hypotheses
@@ -206,6 +260,53 @@ noncomputable def finiteSequenceRoutingCertificate_of_variable_rate_data
       intro v
       exact hcandidate v
   }
+
+noncomputable def finiteSequenceRoutingCertificate_of_variable_rate_bounded_data
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (c : RoutingTemplate M d) (δ D : ℝ)
+    (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hM : M = lateBranching K p δ D)
+    (hd : d = lateDepth K p δ D)
+    (hgap : c.gap = lateStableGapExplicit K p δ D)
+    (horigin : 4 ≤ c.origin)
+    (hlength : 0 < c.baseLength)
+    (hgap_guard : c.gap + 1 ≤ c.origin)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin)
+    (hentropy :
+      46080 * (M : ℝ) ^ 2 * ((c.origin : ℝ) + 1) ^ 2 *
+        Real.exp (-(p * lateActivationRate K δ D * ((M : ℝ) - 1) / 2 -
+          4 * Real.log 2) * (c.baseLength : ℝ)) ≤ p)
+    (Q : ℕ)
+    (witness : ∀ v : InternalNode M d,
+      VariableRateNodeWitnessBounded (Z := Z) (K := K) (k := k) (p := p)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) Q)
+    (hQcandidate : (((M - 1) * (Q + 1) : ℕ) : ℝ) ≤
+      (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
+        c.baseLength d + |(k : ℝ)| + 2)) :
+    FiniteSequenceRoutingCertificate Z K k p := by
+  let witness' : ∀ v : InternalNode M d,
+      VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v) := fun v => {
+    B := (witness v).B
+    children := (witness v).children
+    indices := (witness v).indices
+    active_count := (witness v).active_count
+    index_injective := (witness v).index_injective
+    logarithmic_gap := (witness v).logarithmic_gap
+  }
+  apply finiteSequenceRoutingCertificate_of_variable_rate_data hK hp hp₁ c δ D
+    hδ hD hM hd hgap horigin hlength hgap_guard hspan hcoeff hentropy witness'
+  intro v
+  have hB := (witness v).B_le
+  have hadd : (witness v).B + 1 ≤ Q + 1 := Nat.add_le_add_right hB 1
+  have hmul : (M - 1) * ((witness v).B + 1) ≤ (M - 1) * (Q + 1) :=
+    Nat.mul_le_mul_left _ hadd
+  have hmul' : (((M - 1) * ((witness v).B + 1) : ℕ) : ℝ) ≤
+      (((M - 1) * (Q + 1) : ℕ) : ℝ) := by
+    exact_mod_cast hmul
+  exact hmul'.trans hQcandidate
 
 /-- The one common finite test set contains each vertex's own finite list. -/
 noncomputable def finiteSequenceRoutingTests
