@@ -24,7 +24,8 @@ It proves both sides of a useful model-design statement:
   exponent from the curvature invariant and of the time shift from the local
   slope identity.
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
-  (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
+  (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates, together
+  with strict positivity of the zeroth moment when one weight is active.
 * `Hydrology/PowerLawNoGo.lean` closes the discrete analytic step: a positive
   sequence with power-law derivative ratios cannot satisfy any finite uniform
   ratio bound, and therefore no finite positive-rate spectrum can realize those
