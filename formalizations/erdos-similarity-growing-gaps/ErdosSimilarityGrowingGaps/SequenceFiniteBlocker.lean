@@ -100,8 +100,8 @@ theorem variableRateNodeWitness_of_input
     (hK : 2 ≤ K) (c : RoutingTemplate M d) (v : InternalNode M d)
     (U R D δ : ℝ) (hfill : FillsAnnulus Z U R D)
     (hM : 2 ≤ M) (hδ : 0 < δ) (hD : 0 ≤ D)
-    (hnode : VariableRateNodeInput (Z := Z) c v U R D δ) :
-    Nonempty (VariableRateNodeWitness c v
+    (hnode : VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ) :
+    Nonempty (VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p) c v
       (lateActivationRate K δ D) hnode.ell) := by
   have hKpos : (0 : ℝ) < K := by
     exact_mod_cast (show 0 < K by omega)
@@ -126,6 +126,86 @@ theorem variableRateNodeWitness_of_input
     index_injective := hinj
     logarithmic_gap := hlog
   }⟩
+
+/-! Assemble all node witnesses into the finite certificate.  The hypotheses
+  named `hspan`, `hentropy`, and `hcandidate` are the remaining geometric
+  envelopes; the scalar late schedule obligations are discharged here from
+  `VariableRateSchedule`. -/
+noncomputable def finiteSequenceRoutingCertificate_of_variable_rate_data
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (hp : 0 < p) (hp₁ : p ≤ 1)
+    (c : RoutingTemplate M d) (δ D : ℝ)
+    (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hM : M = lateBranching K p δ D)
+    (hd : d = lateDepth K p δ D)
+    (hgap : c.gap = lateStableGapExplicit K p δ D)
+    (horigin : 4 ≤ c.origin)
+    (hlength : 0 < c.baseLength)
+    (hgap_guard : c.gap + 1 ≤ c.origin)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin)
+    (hentropy :
+      46080 * (M : ℝ) ^ 2 * ((c.origin : ℝ) + 1) ^ 2 *
+        Real.exp (-(p * lateActivationRate K δ D * ((M : ℝ) - 1) / 2 -
+          4 * Real.log 2) * (c.baseLength : ℝ)) ≤ p)
+    (witness : ∀ v : InternalNode M d,
+      VariableRateNodeWitness (Z := Z) (K := K) (k := k) (p := p)
+        c v (lateActivationRate K δ D) (vertexWindowLength c v))
+    (hcandidate : ∀ v : InternalNode M d,
+      (((M - 1) * ((witness v).B + 1) : ℕ) : ℝ) ≤
+        (M : ℝ) * ((c.origin : ℝ) + RoutingTemplate.span M c.gap
+          c.baseLength d + |(k : ℝ)| + 2)) :
+    FiniteSequenceRoutingCertificate Z K k p := by
+  let η : ℝ := lateActivationRate K δ D
+  have hbranch : 2 ≤ M := by
+    rw [hM]
+    exact lateBranching_ge_two K p δ D
+  have hdepth : 0 < d := by
+    rw [hd]
+    exact lateDepth_pos K hK p δ D hp hp₁ hδ hD
+  let count : ∀ v : InternalNode M d, ℕ :=
+    fun v => (M - 1) * ((witness v).B + 1)
+  have hactive : ∀ (v : InternalNode M d)
+      (r : PowerParams (1 / (K : ℝ)) K),
+      η * ((M : ℝ) - 1) * (vertexWindowLength c v : ℝ) ≤
+        (sequenceActiveLocalCandidates Z c v
+          (fun i => (witness v).children i)
+          (fun i => (witness v).indices i) k r).card := by
+    intro v r
+    exact (witness v).active_count r
+  have hstable :
+      (Fintype.card (RoutingEdge M d) : ℝ) *
+        (2 : ℝ) ^ (3 - (c.gap : ℝ)) ≤ p := by
+    have hg := lateStableGapExplicit_spec K p δ D hp
+    simpa [hM, hd, hgap] using hg.le
+  have hdefault := lateDepth_default_budget K hK p δ D hp hp₁ hδ hD
+  have hdecay := lateBranching_decay_pos K hK p δ D hp hδ hD
+  refine {
+    branching := M
+    depth := d
+    template := c
+    branching_ge_two := hbranch
+    depth_pos := hdepth
+    length_pos := hlength
+    origin_guard := horigin
+    gap_guard := hgap_guard
+    span_fits := hspan
+    coefficient_guard := hcoeff
+    rate := η
+    decay_pos := by simpa [η, hM] using hdecay
+    no_default_small := by simpa [hM, hd] using hdefault
+    stable_boundary_small := hstable
+    continuum_entropy_small := by simpa [η] using hentropy
+    count := count
+    children := fun v => (witness v).children
+    indices := fun v => (witness v).indices
+    index_injective := fun v => (witness v).index_injective
+    logarithmic_gap := fun v => (witness v).logarithmic_gap
+    active_count := by simpa [η] using hactive
+    candidate_count := by
+      intro v
+      exact hcandidate v
+  }
 
 /-- The one common finite test set contains each vertex's own finite list. -/
 noncomputable def finiteSequenceRoutingTests
