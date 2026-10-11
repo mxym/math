@@ -1,7 +1,7 @@
 {
-  "serial": 29,
-  "status": "COMPILER_ERROR",
-  "request_blob": "0e4fd31e27eb2cc36a69a03a3b52a1c3b5a0a9d8",
+  "serial": 30,
+  "status": "COMPILING",
+  "request_blob": "b762b3917e29004cb79d9f4c0f3fe17ac5e7ebc9",
   "modules": [
     "HydrologyTree.EdgeDeterminant",
     "HydrologyTree.EdgeCharacteristic",
@@ -11,32 +11,10 @@
   "source_sha256": {
     "HydrologyTree/RootAttachment.lean": "a6376191302dfbb1199db7b7a40a9a163ea2ef05fdd36d784c6c7f5af0d4d9de",
     "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
-    "HydrologyTree/BranchAssembly.lean": "4fee2cd4cee7d060331297aae802db7965e854bb4df0f25c28ca45657086dfe5",
+    "HydrologyTree/BranchAssembly.lean": "59740e62c4946c1698f3c41ef66087893d415732ff9b8dc921e96df6d805395b",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.EdgeDeterminant",
-      "returncode": 0,
-      "seconds": 1.436
-    },
-    {
-      "module": "HydrologyTree.EdgeCharacteristic",
-      "returncode": 0,
-      "seconds": 1.408
-    },
-    {
-      "module": "HydrologyTree.RootAttachment",
-      "returncode": 0,
-      "seconds": 1.5
-    },
-    {
-      "module": "HydrologyTree.BranchAssembly",
-      "returncode": 1,
-      "seconds": 22.065
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100",
-  "diagnostics": "HydrologyTree/BranchAssembly.lean:68:8: error: unsolved goals\ncase nil\nd : \u211d\n\u22a2 (of fun x x_1 => -d).charmatrix.adjugate () () = 1\nHydrologyTree/BranchAssembly.lean:70:4: error: 'change' tactic failed, pattern\n  @diagonalCofactor (BranchNodes bs \u2295 Fin (b.size + 1)) (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))\n      (fun a b_1 => instDecidableEqSum a b_1)\n      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) (Sum.inl (branchRoot bs)) =\n    branchProduct (b :: bs)\nis not definitionally equal to target\n  @diagonalCofactor (BranchNodes (b :: bs)) (branchNodesFintype (b :: bs)) (branchNodesDecidableEq (b :: bs))\n      (assembledMatrix d (b :: bs)) (branchRoot (b :: bs)) =\n    branchProduct (b :: bs)\nHydrologyTree/BranchAssembly.lean:82:8: error: unsolved goals\ncase nil\nd : \u211d\n\u22a2 ((diagonal fun x => X) - (of fun x x_1 => -d).map \u21d1C).det = X + C d\nHydrologyTree/BranchAssembly.lean:85:4: error: 'change' tactic failed, pattern\n  @charpoly \u211d Real.commRing (BranchNodes bs \u2295 Fin (b.size + 1)) (fun a b_1 => instDecidableEqSum a b_1)\n      (instFintypeSum (BranchNodes bs) (Fin (b.size + 1)))\n      (edgeJoin (assembledMatrix d bs) b.matrix (branchRoot bs) b.root b.inward b.outward) =\n    ?m.52\nis not definitionally equal to target\n  @charpoly \u211d Real.commRing (BranchNodes (b :: bs)) (branchNodesDecidableEq (b :: bs)) (branchNodesFintype (b :: bs))\n      (assembledMatrix d (b :: bs)) =\n    (X + C d) * branchProduct (b :: bs) - branchNumerator (b :: bs)\nHydrologyTree/BranchAssembly.lean:83:38: warning: This simp argument is unused:\n  Matrix.det_unique\n\nHint: Omit it from the simp argument list.\n  [apply] simp [assembledMatrix, Matrix.charpoly, Matrix.charmatrix, branchProduct, branchNumerator]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38149404100"
 }
