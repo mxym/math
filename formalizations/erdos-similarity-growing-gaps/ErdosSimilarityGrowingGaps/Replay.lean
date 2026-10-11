@@ -1,5 +1,6 @@
 import ErdosSimilarityGrowingGaps.Basic
 import ErdosSimilarityGrowingGaps.GreedySampling
+import ErdosSimilarityGrowingGaps.GreedyTailBounds
 import ErdosSimilarityGrowingGaps.SequenceGeometry
 import ErdosSimilarityGrowingGaps.SequenceRouting
 import ErdosSimilarityGrowingGaps.SequenceRoutingProbability
