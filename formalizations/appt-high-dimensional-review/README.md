@@ -4,6 +4,14 @@
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
+## Finite-dimensional attainment checkpoint
+
+The physical APPT set is now proved compact. `exists_appt_purity_isGreatest` and `exists_appt_purity_eq_sup` prove that the original supremum is attained by a genuine complex density matrix for every 2<=m<=n. `apptPurityValues_eq_Icc` gives the exact attainable interval [1/(mn), P_sup(m,n)], without evaluating its upper endpoint. The maximally mixed density uniquely minimizes purity. `appt_maximizing_mixture_rigid` proves that a strict mixture attaining maximal purity has identical endpoints; this is not a maximizing-spectrum classification. The subsequence result concerns fixed dimensions, not the unproved dimension-varying graph limit.
+
+Independent run **38162415802**, source **0d7760e7d33eb38cc72778e4d7ac872216b9d11a**, passed: 2,849 Lake tasks, 42,246 transitive declarations, 122 explicit roots, trust level zero. The only axioms are propext, Classical.choice and Quot.sound. The interval, actual IsGreatest, and mixture-rigidity theorem statements rejected deliberately forged proofs. All 62 pinned inputs and uploaded sources matched the tested commit; literal evidence is in `verification/ci-0d7760e7/`. Existing historical checkpoints retain their original scopes and hashes.
+
+Five modules add this chain: StateTopology, CompactMaximum, PurityMixing, PurityInterval and CompactControls. No numerical unrestricted maximum, multiscale lower limit, full entropy theorem or dimensional rigidity is inferred. These are standard compactness and convex-quadratic arguments formally connected to the actual quantum definitions, not a claim of new mathematical priority. No preprint or Release is changed.
+
 ## 1. Fixed-local purity: both bounds and a genuine limit
 
 Let D=mn, C_m=m^2/(m^2-1), and let P_sup(m,n) be the supremum of trace(A*A).re over actual APPT density matrices on C^m tensor C^n. `apptPurityValues` defines this physical objective set, and `appt_purity_values_nonempty_bounded` proves it nonempty and bounded for 2<=m<=n. Positive scaling of its supremum is also proved; totalized empty/unbounded-supremum conventions do not supply the result.
@@ -67,4 +75,4 @@ Seven modules close the new chain: `FixedLocalRatio`, `IntervalMoment`, `FixedLo
 
 See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
 
-The joint projection-plus-spike sufficiency for the three-level counterexample, exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment of the purity supremum is not asserted by the new fixed-local theorem. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
+The joint projection-plus-spike sufficiency for the three-level counterexample, exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
