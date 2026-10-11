@@ -242,6 +242,18 @@ formula and the unboundedness argument are elementary written analysis; the
 finite-spectrum inequality is the part kernel-checked in this repository.
 This statement does not cover signed modal coefficients, complex modes, or
 nonlinear and spatially distributed models.
+The same moments have a universal order-two Hankel identity. A finite double-sum
+expansion gives
+\[
+M_0M_2-M_1^2
+=\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2. \tag{12}
+\]
+`Hydrology/Variance.lean` proves this identity for every finite index type and
+proves nonnegativity for nonnegative weights. Thus the order-two Hankel determinant
+is exactly a weighted measure of rate heterogeneity; the two-mode formula (9) is
+its first nontrivial special case. This is an algebraic certificate and does not
+use numerical fitting or a presumed model order.
+
 The same argument extends one step further without a numerical approximation.
 For three parallel modes define
 
@@ -253,14 +265,14 @@ and let \(e_1,e_2,e_3\) be the elementary symmetric functions of the three
 rates. The formalized identities are
 
 \[
-n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{12}
+n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{13}
 \]
 
 and
 
 \[
 \det(n_{i+j})_{0\le i,j\le2}
-=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{13}
+=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{14}
 \]
 
 The module `Hydrology/Parallel3.lean` also proves that each rate is a root of
@@ -289,10 +301,10 @@ Therefore the aggregate discharge is
 \[
 Q(t)=\int_0^\infty \lambda s_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
 =\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
-=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{14}
+=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{15}
 \]
 
-Equation (14) is the standard Gamma-integral identity. The initial aggregate storage
+Equation (15) is the standard Gamma-integral identity. The initial aggregate storage
 is finite because
 \[
 \int_0^\infty s_{\alpha,\tau}(\lambda)\,d\lambda
@@ -314,13 +326,13 @@ power law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation yields
 I(t):=\frac{Q(t)Q''(t)}{Q'(t)^2}
 =\frac{\alpha+1}{\alpha}=1+\frac1{\alpha},
 \qquad
-\alpha=\frac1{I(t)-1}. \tag{15}
+\alpha=\frac1{I(t)-1}. \tag{16}
 \]
 
 The local slope then gives
 
 \[
-\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{16}
+\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{17}
 \]
 
 The Lean theorem `powerLaw_alpha_recovery` proves the first inversion from the
@@ -335,7 +347,7 @@ For two positive parallel exponential modes, put
 
 \[
 Q(t)Q''(t)-Q'(t)^2
-=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{17}
+=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{18}
 \]
 
 It is strict for distinct active rates, but after division by \(Q(t)^2\) it

@@ -182,6 +182,16 @@ analysis; only the finite-spectrum inequality is currently kernel checked.
 Signed modal coefficients, complex modes, nonlinear models, and spatially
 distributed systems are outside this statement.
 
+The same finite-spectrum moments also have a universal order-two Hankel identity:
+\[
+M_0M_2-M_1^2
+=\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2.
+\]
+`Hydrology/Variance.lean` proves this identity for every finite index type and
+proves nonnegativity whenever the weights are nonnegative. It generalizes the
+explicit two-mode certificate and separates rate heterogeneity from a collapsed
+single-rate spectrum without numerical fitting.
+
 The finite-dimensional obstruction also suggests a physically conservative model extension.
 For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear
 reservoirs indexed by their decay rate \(\lambda>0\). Let

@@ -25,6 +25,9 @@ It proves both sides of a useful model-design statement:
   slope identity.
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
   (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
+* `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
+  as a half weighted sum of squared pairwise rate gaps, and its nonnegativity
+  for nonnegative weights.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every
