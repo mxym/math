@@ -2,7 +2,7 @@ CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 1803 file(s)
+Already decompressed 1802 file(s)
 
 MODULE HydrologyTree.EdgeDeterminant
 HydrologyTree/EdgeDeterminant.lean:13:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.add_single_eq_updateRow`:
@@ -34,58 +34,34 @@ HydrologyTree/EdgeDeterminant.lean:60:6: warning: this tactic is never executed
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 
 MODULE HydrologyTree.EdgeCharacteristic
-HydrologyTree/EdgeCharacteristic.lean:2:0: warning: 
-'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
-
-import Mathlib.Basic.Real.Basic
-HydrologyTree/EdgeCharacteristic.lean:32:2: error: Type mismatch: After simplification, term
-  h
- has type
-  eval s (A.charmatrix.adjugate i i) = (A.charmatrix.map (eval s)).adjugate i i
-but is expected to have type
-  eval s (A.charmatrix.adjugate i i) = ((scalar ι) s - A).adjugate i i
-HydrologyTree/EdgeCharacteristic.lean:38:80: error: unsolved goals
-case inl.inr
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-A : Matrix ι ι ℝ
-B : Matrix κ κ ℝ
-i : ι
-j : κ
-a f s : ℝ
-val✝¹ : ι
-val✝ : κ
-⊢ (-if i = val✝¹ ∧ j = val✝ then a else 0) = if i = val✝¹ ∧ j = val✝ then -a else 0
-
-case inr.inl
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-A : Matrix ι ι ℝ
-B : Matrix κ κ ℝ
-i : ι
-j : κ
-a f s : ℝ
-val✝¹ : κ
-val✝ : ι
-⊢ (-if j = val✝¹ ∧ i = val✝ then f else 0) = if j = val✝¹ ∧ i = val✝ then -f else 0
 HydrologyTree/EdgeCharacteristic.lean:46:14: warning: `Set.compl_setOf` has been deprecated: Use `Set.compl_ofPred` instead
-HydrologyTree/EdgeCharacteristic.lean:62:2: error: Type mismatch: After simplification, term
-  h
- has type
-  (edgeJoin ((scalar ι) s - A) ((scalar κ) s - B) i j (-a) (-f)).det =
-    ((scalar ι) s - A).det * ((scalar κ) s - B).det -
-      a * f * ((scalar ι) s - A).adjugate i i * ((scalar κ) s - B).adjugate j j
-but is expected to have type
-  s ∈
-    {x |
-      (edgeJoin ((scalar ι) x - A) ((scalar κ) x - B) i j (-a) (-f)).det =
-        ((scalar ι) x - A).det * ((scalar κ) x - B).det -
-          a * f * ((scalar ι) x - A).adjugate i i * ((scalar κ) x - B).adjugate j j}
+HydrologyTree/EdgeCharacteristic.lean:62:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.RootAttachment
+HydrologyTree/RootAttachment.lean:21:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootAttachment.lean:38:14: error: simp_all made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    A k
+HydrologyTree/RootAttachment.lean:42:41: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.charmatrix_apply_ne, h, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootAttachment.lean:54:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeJoin_left_diagonal_add`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
