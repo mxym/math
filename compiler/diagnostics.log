@@ -28,14 +28,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq a] [DecidableEq b] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-StateTopology.lean:47:2: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
-  Finset.sum ?m.71 ?m.68 = Finset.sum ?m.71 ?m.69
-with the goal
-  ((A * A).diag i).re = ∑ j, ‖A i j‖ ^ 2
-
-Note: The full type of `Finset.sum_congr rfl` is
-  (∀ x ∈ ?m.71, ?m.68 x = ?m.69 x) → Finset.sum ?m.71 ?m.68 = Finset.sum ?m.71 ?m.69
-
+StateTopology.lean:42:51: error: unsolved goals
 a : Type u_1
 b : Type u_2
 inst✝³ : Fintype a
@@ -45,18 +38,22 @@ inst✝ : DecidableEq b
 A : Matrix (a × b) (a × b) ℂ
 hA : A.IsHermitian
 i : a × b
-a✝ : i ∈ Finset.univ
-⊢ ((A * A).diag i).re = ∑ j, ‖A i j‖ ^ 2
-StateTopology.lean:44:27: warning: This simp argument is unused:
-  Matrix.mul_apply
+a✝¹ : i ∈ Finset.univ
+j : a × b
+a✝ : j ∈ Finset.univ
+hs : A j i = star (A i j)
+⊢ (A i j).re * (A i j).re + (A i j).im * (A i j).im = ‖A i j‖ * ‖A i j‖
+StateTopology.lean:53:24: warning: This simp argument is unused:
+  Complex.sq_norm
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Matrix.trace, Complex.re_sum]
+  [apply] simp [Complex.mul_re, Complex.normSq_apply, pow_two]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-StateTopology.lean:60:4: error: Type mismatch
-  Finset.single_le_sum (fun x x_1 => sq_nonneg (?m.91 x)) (Finset.mem_univ j)
-has type
-  ?m.91 j ^ 2 ≤ ∑ x, ?m.91 x ^ 2
-but is expected to have type
-  ‖A i j‖ ^ 2 ≤ ∑ k, ‖A i k‖ ^ 2
+StateTopology.lean:53:41: warning: This simp argument is unused:
+  Complex.normSq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.mul_re, Complex.sq_norm, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
