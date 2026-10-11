@@ -1,7 +1,7 @@
 {
-  "serial": 1791732688683,
-  "status": "COMPILER_ERROR",
-  "request_blob": "6abe40743e1d3f67e0cb4b26deebd99900acfa4c",
+  "serial": 1791732828778,
+  "status": "COMPILING",
+  "request_blob": "eb1ef25bb56fd362a0cb7a595f14db2a1817eac5",
   "modules": [
     "FixedLocalRatio",
     "IntervalMoment",
@@ -13,32 +13,10 @@
     "FixedLocalUpper.lean": "99a950e4c987b38914598979ade0982737efbfa8cb15616b44063fb74f3717a0",
     "FixedLocalRatio.lean": "5197b681cc254ec1d486987a44fb42c07913287b4c814135c00c78b493e79742",
     "IntervalMoment.lean": "e9a045c9c310dd3c814027dda5fcfb2f3eab888f512623619fb5ef69da49729b",
-    "PlateauApproximation.lean": "2bbf33f40459885704759624d237a50fdeac3c510702bff395ea5a48f523f848",
-    "FixedLocalLimit.lean": "6f8768ede96830e39a4f14b564739a32a2258acdcb31153f4e2da0ea56d72ab2"
+    "PlateauApproximation.lean": "4ad2b1d78e28a2868c6eb13c71813c70dcc0637a91a96e5985d45c6da2ca4717",
+    "FixedLocalLimit.lean": "30237a0e5941f2fb02a4e7c609e6aa111eb260f87f60e2a3275b933eff8abb3f"
   },
-  "commands": [
-    {
-      "module": "FixedLocalRatio",
-      "returncode": 0,
-      "seconds": 4.299
-    },
-    {
-      "module": "IntervalMoment",
-      "returncode": 0,
-      "seconds": 2.877
-    },
-    {
-      "module": "FixedLocalUpper",
-      "returncode": 0,
-      "seconds": 18.695
-    },
-    {
-      "module": "PlateauApproximation",
-      "returncode": 1,
-      "seconds": 6.611
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311",
-  "diagnostics": "PlateauApproximation.lean:13:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?m.286 / (m ^ 2 - 1) - ?m.288 / (m * n * (m - 1) + 2 * k) ^ 2\nin the target expression\n  m ^ 2 / (m ^ 2 - 1) - m * n * ((m * n * (m - 1) ^ 2 + 4 * m * k) / (m * n * (m - 1) + 2 * k) ^ 2) =\n    m ^ 2 / (m ^ 2 - 1) * ((2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2)\n\nm n k : \u211d\nhm : m ^ 2 - 1 \u2260 0\nhZ : m * n * (m - 1) + 2 * k \u2260 0\n\u22a2 m ^ 2 / (m ^ 2 - 1) - m * n * ((m * n * (m - 1) ^ 2 + 4 * m * k) / (m * n * (m - 1) + 2 * k) ^ 2) =\n    m ^ 2 / (m ^ 2 - 1) * ((2 * k - (m - 1) * n) ^ 2 / (m * n * (m - 1) + 2 * k) ^ 2)\nPlateauApproximation.lean:66:33: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nPlateauApproximation.lean:66:33: warning: Unused tactic linter: `ring` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n"
+  "run_id": "38150520311"
 }
