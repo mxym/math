@@ -100,6 +100,34 @@ theorem exists_greedyIndex_crossing (Z : LogScale) (v T δ : ℝ) (hδ : 0 < δ)
   have hmul : T - v < (B : ℝ) * δ := (div_lt_iff₀ hδ).1 hBr
   nlinarith
 
+/-- The greedy crossing can use a prefix whose slot count has an explicit
+bound.  This controls the candidate budget without relating an actual
+sequence index to its logarithmic value. -/
+theorem exists_greedyIndex_crossing_bounded
+    (Z : LogScale) (v T δ : ℝ) (hδ : 0 < δ) :
+    ∃ B : ℕ, T ≤ Z.z (greedyIndex Z v δ B) ∧
+      (B : ℝ) ≤ max ((T - v) / δ) 0 + 1 := by
+  let B := Nat.ceil ((T - v) / δ)
+  have hB : (T - v) / δ ≤ (B : ℝ) := by
+    dsimp [B]
+    exact Nat.le_ceil _
+  have hcross : T ≤ Z.z (greedyIndex Z v δ B) := by
+    have hlow := greedyIndex_log_lower Z v δ hδ B
+    have hmul := (div_le_iff₀ hδ).1 hB
+    nlinarith
+  refine ⟨B, hcross, ?_⟩
+  by_cases hpos : 0 ≤ (T - v) / δ
+  · have hceil := Nat.ceil_lt_add_one hpos
+    simpa [B, max_eq_left hpos] using hceil.le
+  · have hneg : (T - v) / δ ≤ 0 := le_of_not_ge hpos
+    have hzero : B = 0 := by
+      dsimp [B]
+      exact Nat.ceil_eq_zero.mpr hneg
+    rw [hzero]
+    have hm : 0 ≤ max ((T - v) / δ) 0 := le_max_right _ _
+    push_cast
+    linarith
+
 /-- Telescoping bounded consecutive gaps over a finite index interval. -/
 theorem sequence_span_le_of_gap_le (w : ℕ → ℝ) (D : ℝ) (a n : ℕ)
     (hgap : ∀ i : ℕ, a ≤ i → i < a + n → w (i + 1) ≤ w i + D) :
