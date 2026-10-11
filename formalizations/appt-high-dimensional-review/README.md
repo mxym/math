@@ -10,7 +10,7 @@ The new finite theorem `absolutelyPPT_dimension_contraction` proves that `(m-1)I
 
 The antisymmetric projection proves the dimension constant is sharp in square systems. An additional audited regression is the actual 4x4 density matrix `(I+P_antisymmetric)/22`, which is not APPT: the dimension-three formula I+P cannot simply be reused in dimension four. The positive regression constructs a 4x58 APPT density matrix with purity exactly 2/435.
 
-The new source passed a fresh WSL Lake build of 2,749 tasks and trust-zero replay of 40,214 declarations with 34 roots. Only the standard three axioms were present. Replacing the proof of `exists_broad_plateau` by `True.intro` was rejected. All 34 pinned inputs transferred to this revision match the audited WSL bytes, including the imported physical definitions. A new independent CI record is being obtained; the older independent record below does not certify these new modules by itself.
+The new source passed a fresh WSL Lake build of 2,749 tasks and trust-zero replay of 40,214 declarations with 34 roots. Only the standard three axioms were present. Replacing the proof of `exists_broad_plateau` by `True.intro` was rejected. All 34 pinned inputs transferred to this revision match the audited WSL bytes, including the imported physical definitions. Independent CI **38131356027**, source **adcf334861438cf0ffc83b39ee5fedfe7e086447**, has now passed the same fresh build and replay. Literal logs, the 34-input committed-source binding, 40,214-declaration closure and all physical regressions are retained in `verification/ci-adcf3348/`. The older independent record below is separate historical evidence.
 
 ## Newly closed physical-to-entropy bridge
 
