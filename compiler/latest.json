@@ -1,6 +1,6 @@
 {
   "serial": 1791732971742,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "2c929e641b4b572c997087ad3479b39edb5d2c3f",
   "modules": [
     "FixedLocalRatio",
@@ -18,7 +18,29 @@
     "PlateauApproximation.lean": "d47376e78b151f0ddf5f6f16ff7a0b08212fb771b877a9a6a1652fa5e437d67f",
     "FixedLocalLimit.lean": "30237a0e5941f2fb02a4e7c609e6aa111eb260f87f60e2a3275b933eff8abb3f"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "FixedLocalRatio",
+      "returncode": 0,
+      "seconds": 4.27
+    },
+    {
+      "module": "IntervalMoment",
+      "returncode": 0,
+      "seconds": 2.927
+    },
+    {
+      "module": "FixedLocalUpper",
+      "returncode": 0,
+      "seconds": 18.604
+    },
+    {
+      "module": "PlateauApproximation",
+      "returncode": 1,
+      "seconds": 6.547
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311"
+  "run_id": "38150520311",
+  "diagnostics": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nPlateauApproximation.lean:12:57: error: unsolved goals\nm n k : \u211d\nhm : m ^ 2 - 1 \u2260 0\nhZ : m * n * (m - 1) + 2 * k \u2260 0\nhe :\n  m ^ 2 * (m * n * (m - 1) + 2 * k) ^ 2 - (m ^ 2 - 1) * (m * n * (m * n * (m - 1) ^ 2 + 4 * m * k)) =\n    m ^ 2 * (2 * k - (m - 1) * n) ^ 2\n\u22a2 m ^ 2 * k * n *\n                  (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +\n                              m ^ 3 * n ^ 2 * 2 +\n                            m ^ 4 * k * n * 4 -\n                          m ^ 5 * n ^ 2 * 2 +\n                        m ^ 6 * n ^ 2 -\n                      k ^ 2 * 4)\u207b\u00b9 *\n                4 +\n              m ^ 2 * k ^ 2 *\n                  (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +\n                              m ^ 3 * n ^ 2 * 2 +\n                            m ^ 4 * k * n * 4 -\n                          m ^ 5 * n ^ 2 * 2 +\n                        m ^ 6 * n ^ 2 -\n                      k ^ 2 * 4)\u207b\u00b9 *\n                4 +\n            m ^ 2 * n ^ 2 *\n              (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +\n                          m ^ 3 * n ^ 2 * 2 +\n                        m ^ 4 * k * n * 4 -\n                      m ^ 5 * n ^ 2 * 2 +\n                    m ^ 6 * n ^ 2 -\n                  k ^ 2 * 4)\u207b\u00b9 -\n          m ^ 3 * k * n *\n              (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +\n                          m ^ 3 * n ^ 2 * 2 +\n                        m ^ 4 * k * n * 4 -\n                      m ^ 5 * n ^ 2 * 2 +\n                    m ^ 6 * n ^ 2 -\n                  k ^ 2 * 4)\u207b\u00b9 *\n            4 -\n        m ^ 3 * n ^ 2 *\n            (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 +\n                        m ^ 3 * n ^ 2 * 2 +\n                      m ^ 4 * k * n * 4 -\n                    m ^ 5 * n ^ 2 * 2 +\n                  m ^ 6 * n ^ 2 -\n                k ^ 2 * 4)\u207b\u00b9 *\n          2 +\n      m ^ 4 * n ^ 2 *\n        (m * k * n * 4 - m ^ 2 * k * n * 4 + m ^ 2 * k ^ 2 * 4 - m ^ 2 * n ^ 2 - m ^ 3 * k * n * 4 + m ^ 3 * n ^ 2 * 2 +\n                  m ^ 4 * k * n * 4 -\n                m ^ 5 * n ^ 2 * 2 +\n              m ^ 6 * n ^ 2 -\n            k ^ 2 * 4)\u207b\u00b9 =\n    m ^ 2 * k * n * (-1 + m ^ 2)\u207b\u00b9 *\n                  (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                      k ^ 2 * 4)\u207b\u00b9 *\n                4 +\n              m ^ 2 * k ^ 2 * (-1 + m ^ 2)\u207b\u00b9 *\n                  (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 +\n                      k ^ 2 * 4)\u207b\u00b9 *\n                4 +\n            m ^ 2 * n ^ 2 * (-1 + m ^ 2)\u207b\u00b9 *\n              (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 -\n          m ^ 3 * k * n * (-1 + m ^ 2)\u207b\u00b9 *\n              (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n            4 -\n        m ^ 3 * n ^ 2 * (-1 + m ^ 2)\u207b\u00b9 *\n            (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9 *\n          2 +\n      m ^ 4 * n ^ 2 * (-1 + m ^ 2)\u207b\u00b9 *\n        (-(m * k * n * 4) + m ^ 2 * k * n * 4 + m ^ 2 * n ^ 2 - m ^ 3 * n ^ 2 * 2 + m ^ 4 * n ^ 2 + k ^ 2 * 4)\u207b\u00b9\nPlateauApproximation.lean:66:33: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nPlateauApproximation.lean:66:33: warning: Unused tactic linter: `ring` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n"
 }
