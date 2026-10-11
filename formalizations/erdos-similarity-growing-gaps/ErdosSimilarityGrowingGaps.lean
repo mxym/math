@@ -1,6 +1,7 @@
 import ErdosSimilarityGrowingGaps.Basic
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Sampling
+import ErdosSimilarityGrowingGaps.GreedySampling
 import ErdosSimilarityGrowingGaps.LogBounds
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input

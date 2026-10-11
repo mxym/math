@@ -1,4 +1,5 @@
 import ErdosSimilarityGrowingGaps.Basic
+import ErdosSimilarityGrowingGaps.GreedySampling
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
@@ -37,6 +38,22 @@ theorem replay_annular_sampling :
     ∀ (Z : LogScale), ConsecutiveLogGapLittleO Z → AnnularFilling Z := by
   intro Z h
   exact consecutiveGap_implies_annularFilling h
+
+theorem replay_greedy_sampling_gap
+    {Z : LogScale} {U R D v δ : ℝ} (hfill : FillsAnnulus Z U R D)
+    (hδ : 0 < δ) (i : ℕ)
+    (hlo : U / R ≤ Z.z (greedyIndex Z v δ i))
+    (hhi : Z.z (greedyIndex Z v δ i) + δ + D ≤ R * U) :
+    δ ≤ Z.z (greedyIndex Z v δ (i + 1)) -
+      Z.z (greedyIndex Z v δ i) ∧
+    Z.z (greedyIndex Z v δ (i + 1)) -
+      Z.z (greedyIndex Z v δ i) ≤ δ + D :=
+  greedyIndex_log_gap_lt_of_filling hfill hδ i hlo hhi
+
+theorem replay_greedy_sampling_separation
+    (Z : LogScale) (v δ : ℝ) (hδ : 0 < δ) :
+    Function.Injective (greedyIndex Z v δ) :=
+  greedyIndex_injective Z v δ hδ
 
 theorem replay_sampled_output_buffer
     {Z : LogScale} {f : ℝ → ℝ} {B : Set ℝ} {n : ℕ}
@@ -324,6 +341,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_input_sequence
 #print axioms replay_input_ratio_zero
 #print axioms replay_first_sample
+#print axioms replay_greedy_sampling_gap
+#print axioms replay_greedy_sampling_separation
 #print axioms replay_annular_sampling
 #print axioms replay_late_window
 #print axioms replay_grid_boundary_budget
