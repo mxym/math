@@ -2,6 +2,7 @@ import ErdosSimilarityGrowingGaps.Basic
 import ErdosSimilarityGrowingGaps.GreedySampling
 import ErdosSimilarityGrowingGaps.SequenceGeometry
 import ErdosSimilarityGrowingGaps.SequenceRouting
+import ErdosSimilarityGrowingGaps.SequenceRoutingProbability
 import ErdosSimilarityGrowingGaps.First
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
@@ -77,7 +78,7 @@ theorem replay_sequence_local_address_separation
     (hU : 4 ≤ c.origin) (x : ℝ) (bits : SelectorEdge M d → Bool)
     (v : InternalNode M d) (child : Fin t → Fin (M - 1))
     (indices : Fin t → ℕ) (k : ℤ) (p : PowerParams s₀ s₁)
-    (hindex : Function.Injective indices)
+    (hindex : Function.Injective (fun i => (child i, indices i)))
     (hactive : ∀ i, sequencePowerActivation Z (indices i) k
       (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩))
       ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩) : ℝ) +
@@ -91,6 +92,27 @@ theorem replay_sequence_local_address_separation
         (fun i => sequencePoint Z (indices i) ((2 : ℝ) ^ k) x p)) :=
   sequence_local_address_separation Z c hM hd hL hU x bits v child indices k p
     hindex hactive hgap
+
+theorem replay_sequence_fixed_parameter_joint_miss
+    {M d P : ℕ} (Z : LogScale) (c : RoutingTemplate M d)
+    (hM : 0 < M) (hd : 0 < d) (hL : 0 < c.baseLength)
+    (hU : 4 ≤ c.origin) (s₀ s₁ x : ℝ) (k : ℤ) (p : ℝ)
+    (bits : SelectorEdge M d → Bool) (v : InternalNode M d)
+    (children : Fin P → Fin (M - 1)) (indices : Fin P → ℕ)
+    (r : PowerParams s₀ s₁)
+    (hindex : Function.Injective (fun i => (children i, indices i)))
+    (hgap : ∀ i j, i ≠ j → children i = children j →
+      3 ≤ r.1.1 * |Z.z (indices j) - Z.z (indices i)|) :
+    tableProbability p (fun ω =>
+      centerExposureAtom (actualCenterExposure c x bits) ω.selectors ∧
+      sequenceLocalAllMiss Z c hM hd s₀ s₁ x k
+        (fun i => ⟨v, children i⟩) indices r ω) =
+      tableProbability (T := TerminalAddress c hd) p
+        (fun ω => centerExposureAtom (actualCenterExposure c x bits) ω.selectors) *
+        (1 - p / 2) ^
+          (sequenceActiveLocalCandidates Z c v children indices k r).card :=
+  sequence_fixed_parameter_joint_miss Z c hM hd hL hU s₀ s₁ x k p bits v children indices r
+    hindex hgap
 
 theorem replay_sequence_center_separation
     (Z : LogScale) (s₀ s₁ x : ℝ) (u ell : ℕ) (m : ℕ) (k : ℤ)
@@ -401,6 +423,7 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_greedy_sampling_gap
 #print axioms replay_sequence_offset_identity
 #print axioms replay_sequence_active_range
+#print axioms replay_sequence_fixed_parameter_joint_miss
 #print axioms replay_sequence_local_address_separation
 #print axioms replay_sequence_center_separation
 #print axioms replay_sequence_grid_separation

@@ -13,7 +13,7 @@ theorem sequence_local_address_separation
     (hU : 4 ≤ c.origin) (x : ℝ) (bits : SelectorEdge M d → Bool)
     (v : InternalNode M d) (child : Fin t → Fin (M - 1))
     (indices : Fin t → ℕ) (k : ℤ) (p : PowerParams s₀ s₁)
-    (hindex : Function.Injective indices)
+    (hindex : Function.Injective (fun i => (child i, indices i)))
     (hactive : ∀ i, sequencePowerActivation Z (indices i) k
       (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩))
       ((c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child i⟩) : ℝ) +
@@ -44,7 +44,7 @@ theorem sequence_local_address_separation
   · intro i j hij hchild
     have hidx : indices i ≠ indices j := by
       intro heq
-      exact hij (hindex heq)
+      exact hij (hindex (Prod.ext hchild heq))
     have hz : Z.z (indices i) ≠ Z.z (indices j) := by
       intro heq
       apply hidx

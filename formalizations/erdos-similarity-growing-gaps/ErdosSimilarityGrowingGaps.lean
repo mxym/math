@@ -4,6 +4,7 @@ import ErdosSimilarityGrowingGaps.Sampling
 import ErdosSimilarityGrowingGaps.GreedySampling
 import ErdosSimilarityGrowingGaps.SequenceGeometry
 import ErdosSimilarityGrowingGaps.SequenceRouting
+import ErdosSimilarityGrowingGaps.SequenceRoutingProbability
 import ErdosSimilarityGrowingGaps.LogBounds
 import ErdosSimilarityGrowingGaps.Corollary
 import ErdosSimilarityGrowingGaps.Input
