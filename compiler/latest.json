@@ -1,6 +1,6 @@
 {
   "serial": 28,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "31a391a7d39a2c796ac4a818d7b863f38057139c",
   "modules": [
     "HydrologyTree.EdgeDeterminant",
@@ -12,7 +12,24 @@
     "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.36
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.369
+    },
+    {
+      "module": "HydrologyTree.RootAttachment",
+      "returncode": 1,
+      "seconds": 1.427
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/RootAttachment.lean:21:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [h, Ne.symm h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/RootAttachment.lean:38:14: error: simp_all made no progress\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  function expected\n    A k\nHydrologyTree/RootAttachment.lean:42:41: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.charmatrix_apply_ne, h, hz]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/RootAttachment.lean:54:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeJoin_left_diagonal_add`:\n  [Fintype \u03b9]\n  [Fintype \u03ba]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype \u03b9] [Fintype \u03ba] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
 }
