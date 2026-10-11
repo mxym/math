@@ -1,6 +1,6 @@
 {
   "serial": 8,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "ccc2776501702f36130b9e72a9dfbe53bfe22600",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -18,7 +18,39 @@
     "HydrologyTree/RootUpdate.lean": "048730fde060d72998c8cd143b902c298d02b569a56a13003b27df2d604fa2b2",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.855
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.386
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.573
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 3.284
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.743
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 1,
+      "seconds": 4.817
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813"
+  "run_id": "38143487813",
+  "diagnostics": "HydrologyTree/RootUpdate.lean:101:2: error: 'change' tactic failed, pattern\n  0 + (shiftLow n) x.1 + (0 + x.2.1 \u2022 x.1) - x.2.2 = ?m.149\nis not definitionally equal to target\n  0 + 0 + ((cut n) (X * \u2191x.1) + x.2.1 \u2022 x.1) - x.2.2 = (shiftLow n) x.1 + x.2.1 \u2022 x.1 - x.2.2\n"
 }
