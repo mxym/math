@@ -189,6 +189,27 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
+The finite-mode mechanism does not depend on having two or three modes. Let
+
+\[
+h_j=\sum_{i=1}^k w_i\lambda_i^j
+\]
+
+and let (A(z)=\sum_{r=0}^d a_rz^r) satisfy (A(\lambda_i)=0) for every
+mode. Then, for every (j\ge0),
+
+\[
+\sum_{r=0}^d a_r h_{j+r}=0. \tag{10}
+\]
+
+Indeed, expand the left side as a finite double sum, use
+\(\lambda_i^{j+r}=\lambda_i^j\lambda_i^r\), interchange the finite sums, and
+factor (w_i\lambda_i^j). The remaining inner sum is (A(\lambda_i)=0) for
+each (i). This proof is fully formalized in `Hydrology/Generic.lean` for
+arbitrary finite mode count and polynomial degree. It establishes the exact
+finite-dimensional recurrence backbone, while uniqueness of rates still needs
+nondegenerate Hankel/Vandermonde assumptions.
+
 The same argument extends one step further without a numerical approximation.
 For three parallel modes define
 
@@ -200,20 +221,20 @@ and let \(e_1,e_2,e_3\) be the elementary symmetric functions of the three
 rates. The formalized identities are
 
 \[
-n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{10}
+n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{11}
 \]
 
 and
 
 \[
 \det(n_{i+j})_{0\le i,j\le2}
-=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{11}
+=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{12}
 \]
 
 The module `Hydrology/Parallel3.lean` also proves that each rate is a root of
 the characteristic cubic. Consequently, positive weights and pairwise
 distinct rates give a strict order-three Hankel certificate; zero weights or
-coincident rates are exactly the algebraic degeneracies detected by (11). The
+coincident rates are exactly the algebraic degeneracies detected by (12). The
 independent exact example uses
 \((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
 for which the determinant is \(216\).

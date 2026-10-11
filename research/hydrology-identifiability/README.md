@@ -140,6 +140,25 @@ and the associated cubic root equations; the checker includes an exact example
 whose determinant is (216). This is a finite parallel-reservoir result and
 does not assert a universal theorem for spatially distributed catchments.
 
+The finite-mode statement itself is now uniform. If
+
+[
+h_j=sum_{i=1}^k w_ilambda_i^j
+]
+
+and (A(z)=sum_{r=0}^d a_rz^r) vanishes at every (lambda_i), then
+
+[
+sum_{r=0}^d a_r h_{j+r}=0qquad	ext{for every }jge0.
+]
+
+`Hydrology/Generic.lean` proves this theorem for arbitrary finite (k,d) in
+Lean. Its proof explicitly interchanges the two finite sums, factors
+(lambda_i^j), and applies the annihilating equation term by term. This is
+the exact finite-dimensional backbone behind all of the explicit recurrences
+above; rate uniqueness and positivity require the additional Hankel or
+Vandermonde hypotheses stated separately.
+
 ## Context
 
 Relevant prior work includes Sorooshian–Gupta on conceptual-model calibration
