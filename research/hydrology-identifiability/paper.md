@@ -195,8 +195,8 @@ The finite-mode mechanism does not depend on having two or three modes. Let
 h_j=\sum_{i=1}^k w_i\lambda_i^j
 \]
 
-and let (A(z)=\sum_{r=0}^d a_rz^r) satisfy (A(\lambda_i)=0) for every
-mode. Then, for every (j\ge0),
+and let \(A(z)=\sum_{r=0}^d a_rz^r\) satisfy \(A(\lambda_i)=0\) for every
+mode. Then, for every \(j\ge0\),
 
 \[
 \sum_{r=0}^d a_r h_{j+r}=0. \tag{10}
@@ -204,8 +204,8 @@ mode. Then, for every (j\ge0),
 
 Indeed, expand the left side as a finite double sum, use
 \(\lambda_i^{j+r}=\lambda_i^j\lambda_i^r\), interchange the finite sums, and
-factor (w_i\lambda_i^j). The remaining inner sum is (A(\lambda_i)=0) for
-each (i). This proof is fully formalized in `Hydrology/Generic.lean` for
+factor \(w_i\lambda_i^j\). The remaining inner sum is \(A(\lambda_i)=0\) for
+each \(i\). This proof is fully formalized in `Hydrology/Generic.lean` for
 arbitrary finite mode count and polynomial degree. It establishes the exact
 finite-dimensional recurrence backbone, while uniqueness of rates still needs
 nondegenerate Hankel/Vandermonde assumptions.
@@ -239,7 +239,40 @@ independent exact example uses
 \((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
 for which the determinant is \(216\).
 
-## 8. Implications and limits
+## 8. Exact continuum construction of a power-law tail
+
+The finite-dimensional no-go theorem has a constructive converse after replacing
+finitely many reservoirs by a continuum of rates. For \(\alpha>0\) and
+\(\tau>0\), let independent reservoirs with decay rate \(\lambda>0\) have
+initial density
+
+\[
+\rho_{\alpha,\tau}(\lambda)=\lambda^{\alpha-1}e^{-\tau\lambda}.
+\]
+
+Each component contributes \(e^{-\lambda t}\rho_{\alpha,\tau}(\lambda)\), so the
+aggregate recession is
+
+\[
+Q(t)=\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
+=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{13}
+\]
+
+Equation (13) is the standard Gamma-integral identity. The initial aggregate
+storage is finite because
+\[
+\int_0^\infty\rho_{\alpha,\tau}(\lambda)\,d\lambda
+=\Gamma(\alpha)\tau^{-\alpha}<\infty.
+\]
+Thus a continuous rate spectrum gives an exact shifted power law with finite
+initial mass, while every finite positive reservoir network is excluded by the
+finite-dimensional obstruction above. This provides a concrete model-building
+interpretation of the observed distinction between exponential mixtures and
+power-law recession. The integral identity is written mathematics here; it is
+not claimed as part of the current Lean package.
+
+## 9. Implications and limits
+
 
 The two statements answer complementary model-design questions. With unknown
 initial storage, the output equation has a genuine parameter symmetry and a
@@ -254,7 +287,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 9. Reproducibility and prior context
+## 10. Reproducibility and prior context
 
 Run the exact rational checker with
 

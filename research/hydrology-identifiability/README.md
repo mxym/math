@@ -95,69 +95,96 @@ that empirical tails are exact or ruling out distributed or nonlinear models.
 
 For two active parallel exponential reservoirs, let
 
-[
-m_j=w_1ell_1^j+w_2ell_2^jquad (j=0,1,2,3).
-]
+\[
+m_j=w_1\ell_1^j+w_2\ell_2^j\quad (j=0,1,2,3).
+\]
 
 `Hydrology/Parallel.lean` proves the order-two recurrence
 
-[
-m_{j+2}=(ell_1+ell_2)m_{j+1}-ell_1ell_2m_jquad(j=0,1)
-]
+\[
+m_{j+2}=(\ell_1+\ell_2)m_{j+1}-\ell_1\ell_2m_j\quad(j=0,1)
+\]
 
 and the exact Hankel identity
 
-[
-m_0m_2-m_1^2=w_1w_2(ell_1-ell_2)^2.
-]
+\[
+m_0m_2-m_1^2=w_1w_2(\ell_1-\ell_2)^2.
+\]
 
 Its uniqueness theorem says that a nonzero Hankel determinant makes the first
-four moments determine (s=ell_1+ell_2) and (p=ell_1ell_2) uniquely; the
-two rates are then the roots of (z^2-sz+p), up to order. This is a finite
+four moments determine \(s=\ell_1+\ell_2\) and \(p=\ell_1\ell_2\) uniquely; the
+two rates are then the roots of \(z^2-sz+p\), up to order. This is a finite
 model-order diagnostic, not a general identifiability theorem for distributed
 or nonlinear catchments.
 
 The same certificate is now proved for three parallel modes. For
-(n_j=sum_{i=1}^3 w_iell_i^j), (0leq jleq5), the first three elementary
-symmetric coefficients
+\(n_j=\sum_{i=1}^3 w_i\ell_i^j\), \(0\leq j\leq5\), the first three elementary
+symmetric coefficients are
 
-[
-e_1=ell_1+ell_2+ell_3,quad
-e_2=ell_1ell_2+ell_1ell_3+ell_2ell_3,quad
-e_3=ell_1ell_2ell_3
-]
+\[
+e_1=\ell_1+\ell_2+\ell_3,\quad
+e_2=\ell_1\ell_2+\ell_1\ell_3+\ell_2\ell_3,\quad
+e_3=\ell_1\ell_2\ell_3.
+\]
 
-give (n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j) for (j=0,1,2). The exact
+They give \(n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\) for \(j=0,1,2\). The exact
 three-by-three Hankel determinant is
 
-[
-w_1w_2w_3(ell_1-ell_2)^2(ell_1-ell_3)^2(ell_2-ell_3)^2.
-]
+\[
+w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2.
+\]
 
 Thus three positive-weight, pairwise-distinct modes have a strict order-three
 certificate. The Lean module `Hydrology/Parallel3.lean` proves these identities
 and the associated cubic root equations; the checker includes an exact example
-whose determinant is (216). This is a finite parallel-reservoir result and
+whose determinant is \(216\). This is a finite parallel-reservoir result and
 does not assert a universal theorem for spatially distributed catchments.
 
 The finite-mode statement itself is now uniform. If
 
-[
-h_j=sum_{i=1}^k w_ilambda_i^j
-]
+\[
+h_j=\sum_{i=1}^k w_i\lambda_i^j
+\]
 
-and (A(z)=sum_{r=0}^d a_rz^r) vanishes at every (lambda_i), then
+and \(A(z)=\sum_{r=0}^d a_rz^r\) vanishes at every \(\lambda_i\), then
 
-[
-sum_{r=0}^d a_r h_{j+r}=0qquad	ext{for every }jge0.
-]
+\[
+\sum_{r=0}^d a_r h_{j+r}=0\qquad\text{for every }j\geq0.
+\]
 
-`Hydrology/Generic.lean` proves this theorem for arbitrary finite (k,d) in
+`Hydrology/Generic.lean` proves this theorem for arbitrary finite \(k,d\) in
 Lean. Its proof explicitly interchanges the two finite sums, factors
-(lambda_i^j), and applies the annihilating equation term by term. This is
+\(\lambda_i^j\), and applies the annihilating equation term by term. This is
 the exact finite-dimensional backbone behind all of the explicit recurrences
 above; rate uniqueness and positivity require the additional Hankel or
 Vandermonde hypotheses stated separately.
+
+
+The finite-dimensional obstruction also suggests a constructive model extension.
+For \(\alpha>0\) and \(\tau>0\), take a continuum of independent linear
+reservoirs indexed by their decay rate \(\lambda>0\), with initial density
+
+\[
+\rho_{\alpha,\tau}(\lambda)=\lambda^{\alpha-1}e^{-\tau\lambda}.
+\]
+
+The standard Gamma-integral identity gives, for \(t\ge0\),
+
+\[
+Q(t)=\int_0^\infty \rho_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
+=\Gamma(\alpha)(\tau+t)^{-\alpha}.
+\]
+
+The initial aggregate storage is finite,
+\(\int_0^\infty\rho_{\alpha,\tau}(\lambda)d\lambda
+=\Gamma(\alpha)\tau^{-\alpha}\). Thus the exact power-law tail excluded for
+every finite positive reservoir network is realized by a continuous rate
+spectrum with finite initial mass. This is a model-construction consequence,
+not a novelty or priority claim; the Gamma-integral step is written mathematics
+and is not part of the current Lean package.
+
+For the analytic identity used here, see the standard Gamma-integral formula in
+[NIST DLMF 5.9.1](https://dlmf.nist.gov/5.9.E1).
 
 ## Context
 
