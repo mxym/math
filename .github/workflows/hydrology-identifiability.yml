@@ -1,0 +1,30 @@
+name: Hydrology transport identifiability exact checks
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/hydrology-transport-identifiability/**'
+      - '.github/workflows/hydrology-identifiability.yml'
+permissions:
+  contents: read
+jobs:
+  exact-rational-certificates:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Source-isolated dual exact verification and negative controls
+        working-directory: research/hydrology-transport-identifiability
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --output-dir "$RUNNER_TEMP/hydrology-exact-check"
+          git rev-parse HEAD > "$RUNNER_TEMP/hydrology-exact-check/source-commit.txt"
+      - name: Preserve literal evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: hydrology-exact-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/hydrology-exact-check/*.json
+            ${{ runner.temp }}/hydrology-exact-check/*.txt
+          if-no-files-found: warn
