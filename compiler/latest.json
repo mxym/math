@@ -1,6 +1,6 @@
 {
   "serial": 3,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "d342f0182cc4ad59dcdf0a14c7e11fdf2b1e9b60",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -10,7 +10,19 @@
     "HydrologyTree/LeadingCoefficients.lean": "6048d32bd3b21edd11ac71a62f6c3257a00cf5a1c4c32d36941708ec2415e295",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.923
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 1,
+      "seconds": 2.328
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813"
+  "run_id": "38143487813",
+  "diagnostics": "HydrologyTree/LeadingCoefficients.lean:19:44: error: unsolved goals\nn : \u2115\np : \u21a5(Coeff n)\n\u22a2 \u00ac1 + (\u2191p).coeff n = 0\nHydrologyTree/LeadingCoefficients.lean:21:67: error: unsolved goals\nn k : \u2115\nhnk : n \u2264 k\ni : Fin n\n\u22a2 \u00ac\u2191i = k\nHydrologyTree/LeadingCoefficients.lean:26:32: warning: This simp argument is unused:\n  show k \u2260 (i : \u2115) from by omega\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Polynomial.coeff_X_pow]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/LeadingCoefficients.lean:60:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nHydrologyTree/LeadingCoefficients.lean:60:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  if n = k then ?m.62 else ?m.63\nin the target expression\n  ((\u2191p).coeff n * if k = n then 1 else 0) + (\u2191((cut n) \u2191p)).coeff k = (\u2191p).coeff k\n\ncase inl\nn : \u2115\np : \u21a5(Coeff (n + 1))\nk : \u2115\nh : k < n\n\u22a2 ((\u2191p).coeff n * if k = n then 1 else 0) + (\u2191((cut n) \u2191p)).coeff k = (\u2191p).coeff k\nHydrologyTree/LeadingCoefficients.lean:63:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nHydrologyTree/LeadingCoefficients.lean:64:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nHydrologyTree/LeadingCoefficients.lean:64:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  if n = k then ?m.100 else ?m.101\nin the target expression\n  ((\u2191p).coeff n * if k = n then 1 else 0) + (\u2191((cut n) \u2191p)).coeff k = (\u2191p).coeff k\n\ncase inr.inr\nn : \u2115\np : \u21a5(Coeff (n + 1))\nk : \u2115\nh : n < k\n\u22a2 ((\u2191p).coeff n * if k = n then 1 else 0) + (\u2191((cut n) \u2191p)).coeff k = (\u2191p).coeff k\n"
 }
