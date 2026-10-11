@@ -53,3 +53,5 @@ Independent CI **38136186474** on **7e74ae8e** has now passed: 2,829 build tasks
 ## Baseline and centered-variance dependencies
 
 `BaselineGraph` now retains the exact complete-background cross term in the graph square budget. `CenteredVariance` proves the complete sorted three-band variance inequality for arbitrary D and R. Both compiled and passed a local empty-kernel replay together with the physical roots; the assembled sharp purity theorem remains unclosed. See `REVIEW_REFINEMENT_20261011.md` for the exact assumptions and remaining bridge.
+
+The refinement checkpoint also passed independent CI **38137375933** at **c6885d06**: 2,831 build tasks, 41,969 trust-zero declarations and 49 roots, including all earlier physical roots. Forty-four pinned inputs and uploaded proof/tool files matched. Evidence is in `verification/ci-c6885d06/`; these finite dependencies are not a completeness claim for the remaining high-dimensional extrema.

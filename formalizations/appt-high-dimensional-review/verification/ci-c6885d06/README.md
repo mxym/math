@@ -1,0 +1,11 @@
+# Independent CI: baseline-sensitive graph and centered variance dependencies
+
+Run **38137375933**, job **114463905017**, source **c6885d06394bf605b5d8dc67ba668e179a54047d**, passed all stages. Artifact **11701707102** was downloaded and source-bound before this record was retained.
+
+A fresh review-package Lake build completed **2,831 tasks**, with external dependency caches retained. Regression proofs passed. Trust-zero empty-kernel replay checked **41,969 transitive declarations and 49 explicit roots**. The only axioms were propext, Classical.choice and Quot.sound. Replacing only the proof of `baseline_graph_refined_budget` with True.intro while preserving its type and universes was rejected. The full earlier physical paired-gap theorem and its physical dependencies remain replay roots; its own corruption test is separately preserved in ci-7e74ae8e.
+
+The refined graph theorem retains the exact complete-background cross term. The scalar variance theorem applies to every decreasing real vector of unit total and every admissible positive paired prefix, with a full top/middle/reversed-bottom decomposition. Both have the explicit hypotheses shown in their Lean statements. They do not assume the final APPT purity theorem. The actual physical-to-paired-gap theorem is separately complete with no supplied eigenvalue permutation or graph cap.
+
+All **44** pinned proof/configuration inputs matched both the committed source and the worktree. All uploaded proof/tool files were byte-compared. The summary's source manifest and each literal stage log hash were verified. Full roots, declarations, axioms, logs and workflow responses are retained here; SOURCE_BINDING.json records the exact checks. The audit runner's timeouts, source-root arguments, corruption controls and axiom policy were not weakened.
+
+This is independent CI and kernel verification of the selected finite statements, not external peer review or complete high-dimensional formal verification. Still required are the actual spectral-baseline instantiation, final centered purity assembly and quantum moment bridge, normalization, exact upper optimization/equality, counterexample joint sufficiency, multiscale compactness and matching constructions, uniform extrema and rigidity. No new preprint or Release was created, and prior proof/publication trees were preserved.

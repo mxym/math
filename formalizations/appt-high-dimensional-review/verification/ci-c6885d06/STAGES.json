@@ -1,0 +1,77 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.765,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "APPTReview"
+    ],
+    "exit_code": 0,
+    "seconds": 62.045,
+    "log": "build.log",
+    "sha256": "a550cfa2a21156cf65c947b6648e981969de5970bf145c950246861f6cd4bc87"
+  },
+  {
+    "stage": "support",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+      "-o",
+      "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+      "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 2.42,
+    "log": "support.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "stage": "regressions",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "-o",
+      "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+      "Regression.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 3.873,
+    "log": "regressions.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "ReviewAudit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 85.544,
+    "log": "kernel.log",
+    "sha256": "ba94d692328e18cebf73c2179f673c71cbfc6335cbf6ec50b2198c1f63c03571"
+  }
+]
