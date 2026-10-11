@@ -40,9 +40,11 @@ It proves both sides of a useful model-design statement:
   weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
   weights and distinct rates, and proves uniqueness of the associated recurrence
   coefficients. It also transfers those coefficients between any two
-  nondegenerate `k`-mode representations with the same first `2*k` moments;
-  the remaining root-matching/permutation step is stated explicitly as outside
-  this package.
+  nondegenerate `k`-mode representations with the same first `2*k` moments.
+* `Hydrology/RootMatching.lean` completes the Vandermonde root-extraction step:
+  an all-index order-`k` recurrence forces every nonzero-weight distinct rate to
+  satisfy its characteristic equation. The final bookkeeping that identifies
+  the two rate multisets up to permutation is still deliberately separate.
 * `Hydrology/Parallel.lean` compares two active two-mode spectra directly:
   equality of the first four moments forces equality of the sum and product of
   their rates, hence equality of the unordered recovered quadratic.
