@@ -33,6 +33,10 @@ def three_parallel_moments(w1, w2, w3, l1, l2, l3):
     )
 
 
+def finite_moment(weights, rates, j):
+    return sum(w * l**j for w, l in zip(weights, rates))
+
+
 def main():
     a, b, c, p = map(F, (2, 2, 2, 3))
     q1, q2, q3 = jet_zero_state(a, b, c, p)
@@ -96,6 +100,21 @@ def main():
     need(det3 == w1 * w2 * w3 * (l1 - l2) ** 2 * (l1 - l3) ** 2 *
          (l2 - l3) ** 2, "three-mode Hankel determinant")
     need(det3 == F(216), "three-mode exact regression value")
+
+    # Arbitrary finite spectra obey the weighted Vandermonde-square identity.
+    weights = tuple(map(F, (1, 2, 3, 5)))
+    rates = tuple(map(F, (1, 2, 4, 7)))
+    M0 = finite_moment(weights, rates, 0)
+    M1 = finite_moment(weights, rates, 1)
+    M2 = finite_moment(weights, rates, 2)
+    lhs = M0 * M2 - M1**2
+    rhs = F(1, 2) * sum(
+        wi * wj * (li - lj)**2
+        for wi, li in zip(weights, rates)
+        for wj, lj in zip(weights, rates)
+    )
+    need(lhs == rhs, "finite-spectrum Hankel variance identity")
+    need(lhs > 0, "distinct positive-weight rates give strict variance")
 
     print("PASS: exact two-storage identifiability and non-identifiability checks")
 
