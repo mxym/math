@@ -26,8 +26,8 @@ It proves both sides of a useful model-design statement:
 * `Hydrology/FiniteBound.lean` proves the finite-spectrum growth invariant
   (M_{j+1}\le \lambda_{\max}M_j) for nonnegative weights and rates.
 * `Hydrology/Variance.lean` proves the arbitrary-finite-mode Hankel identity
-  as a half weighted sum of squared pairwise rate gaps, and its nonnegativity
-  for nonnegative weights.
+  as a half weighted sum of squared pairwise rate gaps, its nonnegativity for
+  nonnegative weights, and strict positivity when two positive-weight rates differ.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every

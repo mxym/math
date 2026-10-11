@@ -248,11 +248,12 @@ expansion gives
 M_0M_2-M_1^2
 =\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2. \tag{12}
 \]
-`Hydrology/Variance.lean` proves this identity for every finite index type and
-proves nonnegativity for nonnegative weights. Thus the order-two Hankel determinant
-is exactly a weighted measure of rate heterogeneity; the two-mode formula (9) is
-its first nontrivial special case. This is an algebraic certificate and does not
-use numerical fitting or a presumed model order.
+`Hydrology/Variance.lean` proves this identity for every finite index type,
+proves nonnegativity for nonnegative weights, and proves strict positivity when
+two positive-weight rates differ. Thus the order-two Hankel determinant is exactly
+a weighted measure of rate heterogeneity; the two-mode formula (9) is its first
+nontrivial special case. This is an algebraic certificate and does not use
+numerical fitting or a presumed model order.
 
 The same argument extends one step further without a numerical approximation.
 For three parallel modes define

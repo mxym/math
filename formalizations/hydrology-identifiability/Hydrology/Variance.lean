@@ -102,3 +102,32 @@ theorem finiteMoment_hankel_nonneg {k : ℕ} (w l : Fin k → ℝ)
   nlinarith [hsum]
 
 end HydrologyIdentifiability
+
+namespace HydrologyIdentifiability
+
+/-- If two positive-weight modes have distinct rates, the order-two Hankel
+certificate is strictly positive. -/
+theorem finiteMoment_hankel_pos_of_distinct {k : ℕ} (w l : Fin k → ℝ)
+    (hw : ∀ i, 0 < w i)
+    (hdistinct : ∃ i j, l i ≠ l j) :
+    0 < finiteMoment w l 0 * finiteMoment w l 2 -
+      (finiteMoment w l 1)^2 := by
+  rw [finiteMoment_hankel_vandermonde]
+  obtain ⟨i₀, j₀, hrate⟩ := hdistinct
+  have hinner_nonneg : ∀ i, 0 ≤ ∑ j, w i * w j * (l i - l j)^2 := by
+    intro i
+    apply Finset.sum_nonneg
+    intro j hj
+    exact mul_nonneg (mul_nonneg (le_of_lt (hw i)) (le_of_lt (hw j))) (sq_nonneg _)
+  have hinner_pos : 0 < ∑ j, w i₀ * w j * (l i₀ - l j)^2 := by
+    apply Finset.sum_pos' (fun j hj =>
+      mul_nonneg (mul_nonneg (le_of_lt (hw i₀)) (le_of_lt (hw j))) (sq_nonneg _))
+    refine ⟨j₀, Finset.mem_univ _, ?_⟩
+    have hsq : 0 < (l i₀ - l j₀)^2 := sq_pos_of_ne_zero (sub_ne_zero.mpr hrate)
+    exact mul_pos (mul_pos (hw i₀) (hw j₀)) hsq
+  have hdouble : 0 < ∑ i, ∑ j, w i * w j * (l i - l j)^2 := by
+    apply Finset.sum_pos' (fun i hi => hinner_nonneg i)
+    exact ⟨i₀, Finset.mem_univ _, hinner_pos⟩
+  nlinarith [hdouble]
+
+end HydrologyIdentifiability
