@@ -1,0 +1,155 @@
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:22:8: warning: Possibly looping simp theorem: `diagWeight.eq_1`
+
+Note: Possibly caused by: `apply_ite`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:22:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:23:84: error: unsolved goals
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+p : a × a
+⊢ if p.1 = p.2 then ¬p.1 = p.2 → halfRoot = 0 else p.1 = p.2 → 0 = halfRoot
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:25:8: warning: automatically included section variable(s) unused in theorem `APPTReview.swapWeight_swap`:
+  [Fintype a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:28:0: warning: automatically included section variable(s) unused in theorem `APPTReview.diagWeight_swap`:
+  [Fintype a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:41:18: error: linarith failed to find a contradiction
+case pos
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+p : a × a
+hp : ¬p.1 = p.2
+h✝ : p.1 < p.2
+⊢ False
+failed
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:41:18: error: linarith failed to find a contradiction
+case neg
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+p : a × a
+hp : ¬p.1 = p.2
+h✝ : ¬p.1 < p.2
+⊢ False
+failed
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:50:4: error: Function expected at
+  hadamard * B
+but this term has type
+  ?m.26
+
+Note: Expected a function because this term is being applied to the argument
+  p
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:50:77: error: unsolved goals
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+κ : Type u_2
+B : Matrix (a × a) κ ℂ
+p : a × a
+q : κ
+⊢ sorry () = diagWeight p * B p q + swapWeight p * B p.swap q
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:52:8: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hadamard, add_mul, ite_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:52:26: warning: This simp argument is unused:
+  hadamard
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, add_mul, ite_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:52:36: warning: This simp argument is unused:
+  add_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, hadamard, ite_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:52:45: warning: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, hadamard, add_mul, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:52:54: warning: This simp argument is unused:
+  Finset.sum_add_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, hadamard, add_mul, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:59:2: error: unsolved goals
+case pos
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : LinearOrder a
+p : a × a
+⊢ if p.swap = p then ¬p.swap = p → swapWeight p = 0 else p.swap = p → swapWeight p = 0
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:62:36: warning: This simp argument is unused:
+  apply_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hadamard, h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:67:45: warning: This simp argument is unused:
+  apply_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hadamard, h, Ne.symm h, hs, hqs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:69:8: warning: declaration uses `sorry`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:73:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:74:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:76:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:72:2: warning: Unused tactic linter: `rw [hadamard_mul_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:73:2: warning: Unused tactic linter: `by_cases hp : p.1 = p.2` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:74:2: warning: Unused tactic linter: `·
+  have hswap : p.swap = p := Prod.ext hp.symm hp
+  simp [hadamard, diagWeight, swapWeight, hp, hswap, Matrix.one_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/Hadamard.lean:76:2: warning: Unused tactic linter: `·
+  have hswap : p.swap ≠ p := by
+    intro hh
+    exact hp (congrArg Prod.snd hh)
+  by_cases h : p = q
+  · subst q
+    simpa [hadamard, hswap, Matrix.one_apply] using weight_squares p
+  · by_cases hs : p.swap = q
+    · subst q
+      simp only [hadamard, h, ite_false, Prod.swap_swap, hswap, ite_true, swapWeight_swap, diagWeight_swap hp]
+      simp [Matrix.one_apply, h]
+      ring
+    · simp [hadamard, h, hs, Matrix.one_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

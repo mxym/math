@@ -1,0 +1,51 @@
+name: APPT high-dimensional proof review
+on:
+  workflow_dispatch:
+  push:
+    branches: ['review/appt-mathematics-lean-20261010']
+    paths:
+      - 'formalizations/appt-high-dimensional-review/**'
+      - '.github/workflows/appt-high-dimensional-review.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build reviewed proof closure
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p verification/ci-current
+          timeout 900 lake build APPTReview 2>&1 | tee verification/ci-current/build.log
+          mkdir -p .lake/build/lib/lean/Verification
+          timeout 180 lake env lean --root=../appt-qutrit-purity -o .lake/build/lib/lean/Verification/ReplaySupport.olean ../appt-qutrit-purity/Verification/ReplaySupport.lean 2>&1 | tee verification/ci-current/support.log
+      - name: Replay reviewed declarations from an empty kernel
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 480 lake env lean -j1 -M6000 ReviewAudit.lean 2>&1 | tee verification/ci-current/replay.log
+          grep -F 'EMPTY_KERNEL_REPLAY_PASS' verification/ci-current/replay.log
+          grep -F 'CORRUPTED_PROOF_REJECTED' verification/ci-current/replay.log
+          cp review-kernel-*.txt verification/ci-current/
+          find APPTReview -name '*.lean' -print0 | sort -z | xargs -0 sha256sum > verification/ci-current/SOURCE_SHA256SUMS
+          sha256sum APPTReview.lean ReviewAudit.lean lean-toolchain lakefile.toml lake-manifest.json >> verification/ci-current/SOURCE_SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-review-${{ github.sha }}
+          path: |
+            formalizations/appt-high-dimensional-review/verification/ci-current/
+            formalizations/appt-high-dimensional-review/APPTReview/
+            formalizations/appt-high-dimensional-review/APPTReview.lean
+            formalizations/appt-high-dimensional-review/ReviewAudit.lean

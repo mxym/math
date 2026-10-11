@@ -1,0 +1,43 @@
+'APPTReview.density_appt_witness_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.diagonal_appt_star_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.entropyCorrection_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.entropyCorrection_head_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'APPTReview.multilevel_sos_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.density_appt_witness_posSemidef':
+(kernel) declaration type mismatch, 'APPTReview.density_appt_witness_posSemidef' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (hmn : @LE.le Nat instLENat m n) →
+      (A : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) →
+        (hρ : @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A) →
+          @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+              (instDecidableEqFin n) A →
+            (σ : @Equiv.Perm (@Prod (Fin m) (Fin n))) →
+              @Matrix.PosSemidef (Fin m) Real Real.instRing Real.partialOrder instStarRingReal
+                (@APPTReview.witnessMatrix (Fin m) (Fin.instLinearOrder m) fun p =>
+                  @Matrix.IsHermitian.eigenvalues Complex Complex.instRCLike (@Prod (Fin m) (Fin n))
+                    (@instFintypeProd (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)) A
+                    (fun a b => @instDecidableEqProd (Fin m) (Fin n) (instDecidableEqFin m) (instDecidableEqFin n) a b)
+                    (@Matrix.PosSemidef.isHermitian (@Prod (Fin m) (Fin n)) Complex Complex.instRing
+                      Complex.partialOrder Complex.instStarRing A
+                      (And.left
+                        (@Matrix.PosSemidef (@Prod (Fin m) (Fin n)) Complex Complex.instRing Complex.partialOrder
+                          Complex.instStarRing A)
+                        (@Eq Complex
+                          (@Matrix.trace (@Prod (Fin m) (Fin n)) Complex
+                            (@instFintypeProd (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)) Complex.instAddCommMonoid
+                            A)
+                          1)
+                        hρ))
+                    (@DFunLike.coe (@Equiv.Perm (@Prod (Fin m) (Fin n))) (@Prod (Fin m) (Fin n))
+                      (fun x => @Prod (Fin m) (Fin n))
+                      (@EquivLike.toFunLike (@Equiv.Perm (@Prod (Fin m) (Fin n))) (@Prod (Fin m) (Fin n))
+                        (@Prod (Fin m) (Fin n)) (@Equiv.instEquivLike (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n))))
+                      σ
+                      (@Prod.mk (Fin m) (Fin n) (@Prod.fst (Fin m) (Fin m) p)
+                        (@DFunLike.coe (@Function.Embedding (Fin m) (Fin n)) (Fin m) (fun x => Fin n)
+                          (@Function.instFunLikeEmbedding (Fin m) (Fin n)) (Fin.castLEEmb m n hmn)
+                          (@Prod.snd (Fin m) (Fin m) p)))))
+EMPTY_KERNEL_REPLAY_PASS 38507 declarations; 9 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.density_appt_witness_posSemidef

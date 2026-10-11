@@ -1,0 +1,46 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_eigenvalue_witness_posSemidef':
+(kernel) declaration type mismatch, 'APPTReview.appt_eigenvalue_witness_posSemidef' has type
+  True
+but it is expected to have type
+  {a : Type u_1} →
+    {b : Type u_2} →
+      [inst : @Fintype a] →
+        [inst_1 : @LinearOrder a] →
+          [inst_2 : @Fintype b] →
+            [inst_3 : @DecidableEq b] →
+              {A : @Matrix (@Prod a b) (@Prod a b) Complex} →
+                (hA :
+                    @Matrix.IsHermitian Complex (@Prod a b)
+                      (@InvolutiveStar.toStar Complex
+                        (@StarAddMonoid.toInvolutiveStar Complex
+                          (@AddCommMonoid.toAddMonoid Complex
+                            (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                    Complex.instNonUnitalCommRing)))))
+                          (@StarRing.toStarAddMonoid Complex
+                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                            Complex.instStarRing)))
+                      A) →
+                  @APPT.Quantum.AbsolutelyPPT a b inst inst_2 (fun a_1 b => @LinearOrder.toDecidableEq a inst_1 a_1 b)
+                      inst_3 A →
+                    (σ : @Equiv.Perm (@Prod a b)) →
+                      (e : a → b) →
+                        @Function.Injective a b e →
+                          @Matrix.PosSemidef a Real Real.instRing Real.partialOrder instStarRingReal
+                            (@APPTReview.witnessMatrix a inst_1 fun p =>
+                              @Matrix.IsHermitian.eigenvalues Complex Complex.instRCLike (@Prod a b)
+                                (@instFintypeProd a b inst inst_2) A
+                                (fun a_1 b_1 =>
+                                  @instDecidableEqProd a b (fun a_2 b => @LinearOrder.toDecidableEq a inst_1 a_2 b)
+                                    inst_3 a_1 b_1)
+                                hA
+                                (@DFunLike.coe (@Equiv.Perm (@Prod a b)) (@Prod a b) (fun x => @Prod a b)
+                                  (@EquivLike.toFunLike (@Equiv.Perm (@Prod a b)) (@Prod a b) (@Prod a b)
+                                    (@Equiv.instEquivLike (@Prod a b) (@Prod a b)))
+                                  σ (@Prod.mk a b (@Prod.fst a a p) (e (@Prod.snd a a p)))))
+EMPTY_KERNEL_REPLAY_PASS 38529 declarations; 13 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_eigenvalue_witness_posSemidef

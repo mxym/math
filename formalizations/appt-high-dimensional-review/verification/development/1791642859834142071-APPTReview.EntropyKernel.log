@@ -1,0 +1,95 @@
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/EntropyKernel.lean:38:44: error: failed to prove positivity/nonnegativity/nonzeroness
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/EntropyKernel.lean:31:66: error: unsolved goals
+case e'_8
+x : ℝ
+hx : 0 ≤ x
+h1 : 1 + x ≠ 0
+h2 : x + 2 ≠ 0
+hi : HasDerivAt id 1 x
+hl : HasDerivAt (fun y => Real.log (1 + id y)) (1 / (1 + id x)) x
+hn :
+  HasDerivAt ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y)
+    (2 * (↑3 * id x ^ (3 - 1) * 1) + 6 * (↑2 * id x ^ (2 - 1) * 1)) x
+hd : HasDerivAt (fun y => 3 * ((fun x => id x + 2) ^ 2) y) (3 * (↑2 * (id x + 2) ^ (2 - 1) * 1)) x
+hh :
+  HasDerivAt
+    ((id - fun y => Real.log (1 + id y)) -
+      ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y) / fun y => 3 * ((fun x => id x + 2) ^ 2) y)
+    (1 - 1 / (1 + id x) -
+      ((2 * (↑3 * id x ^ (3 - 1) * 1) + 6 * (↑2 * id x ^ (2 - 1) * 1)) * (3 * ((fun x => id x + 2) ^ 2) x) -
+          ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y) x * (3 * (↑2 * (id x + 2) ^ (2 - 1) * 1))) /
+        (3 * ((fun x => id x + 2) ^ 2) x) ^ 2)
+    x
+⊢ correctionSlope =
+    (id - fun y => Real.log (1 + y)) - ((fun y => y ^ 3 * 2) + fun y => y ^ 2 * 6) / fun y => 12 + y * 12 + y ^ 2 * 3
+
+case e'_9
+x : ℝ
+hx : 0 ≤ x
+h1 : 1 + x ≠ 0
+h2 : x + 2 ≠ 0
+hi : HasDerivAt id 1 x
+hl : HasDerivAt (fun y => Real.log (1 + id y)) (1 / (1 + id x)) x
+hn :
+  HasDerivAt ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y)
+    (2 * (↑3 * id x ^ (3 - 1) * 1) + 6 * (↑2 * id x ^ (2 - 1) * 1)) x
+hd : HasDerivAt (fun y => 3 * ((fun x => id x + 2) ^ 2) y) (3 * (↑2 * (id x + 2) ^ (2 - 1) * 1)) x
+hh :
+  HasDerivAt
+    ((id - fun y => Real.log (1 + id y)) -
+      ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y) / fun y => 3 * ((fun x => id x + 2) ^ 2) y)
+    (1 - 1 / (1 + id x) -
+      ((2 * (↑3 * id x ^ (3 - 1) * 1) + 6 * (↑2 * id x ^ (2 - 1) * 1)) * (3 * ((fun x => id x + 2) ^ 2) x) -
+          ((fun y => 2 * (id ^ 3) y) + fun y => 6 * (id ^ 2) y) x * (3 * (↑2 * (id x + 2) ^ (2 - 1) * 1))) /
+        (3 * ((fun x => id x + 2) ^ 2) x) ^ 2)
+    x
+⊢ x ^ 3 * (x + 4) / (3 * (x + 1) * (x + 2) ^ 3) =
+    1 - 1 / (1 + x) -
+      ((2 * (3 * x ^ 2 * 1) + 6 * (2 * x ^ 1 * 1)) * (3 * (x + 2) ^ 2) -
+          (2 * x ^ 3 + 6 * x ^ 2) * (3 * (2 * (x + 2) ^ 1 * 1))) /
+        (3 * (x + 2) ^ 2) ^ 2
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/root/appt-independent-review-20261010/formalizations/appt-high-dimensional-review/APPTReview/EntropyKernel.lean:51:54: error: unsolved goals
+case e'_8
+x : ℝ
+hx : 0 ≤ x
+h1 : 1 + x ≠ 0
+h2 : x + 2 ≠ 0
+hi : HasDerivAt id 1 x
+hl : HasDerivAt (fun y => Real.log (1 + id y)) (1 / (1 + id x)) x
+hp :
+  HasDerivAt ((fun x => (id ^ 2) x / 2) + id - (fun x => 1 + id x) * fun y => Real.log (1 + id y))
+    (↑2 * id x ^ (2 - 1) * 1 / 2 + 1 - (1 * Real.log (1 + id x) + (1 + id x) * (1 / (1 + id x)))) x
+hq :
+  HasDerivAt (id ^ 3 / fun y => 3 * (id y + 2))
+    ((↑3 * id x ^ (3 - 1) * 1 * (3 * (id x + 2)) - (id ^ 3) x * (3 * 1)) / (3 * (id x + 2)) ^ 2) x
+⊢ correctionGap =
+    ((fun x => x ^ 2 * (1 / 2)) + id - (fun x => 1 + x) * fun y => Real.log (1 + y)) - id ^ 3 / fun y => 6 + y * 3
+
+case e'_9
+x : ℝ
+hx : 0 ≤ x
+h1 : 1 + x ≠ 0
+h2 : x + 2 ≠ 0
+hi : HasDerivAt id 1 x
+hl : HasDerivAt (fun y => Real.log (1 + id y)) (1 / (1 + id x)) x
+hp :
+  HasDerivAt ((fun x => (id ^ 2) x / 2) + id - (fun x => 1 + id x) * fun y => Real.log (1 + id y))
+    (↑2 * id x ^ (2 - 1) * 1 / 2 + 1 - (1 * Real.log (1 + id x) + (1 + id x) * (1 / (1 + id x)))) x
+hq :
+  HasDerivAt (id ^ 3 / fun y => 3 * (id y + 2))
+    ((↑3 * id x ^ (3 - 1) * 1 * (3 * (id x + 2)) - (id ^ 3) x * (3 * 1)) / (3 * (id x + 2)) ^ 2) x
+⊢ x - Real.log (1 + x) - (2 * x ^ 3 + 6 * x ^ 2) / (3 * (x + 2) ^ 2) =
+    2 * x ^ 1 * 1 / 2 + 1 - (1 * Real.log (1 + x) + (1 + x) * (1 / (1 + x))) -
+      (3 * x ^ 2 * 1 * (3 * (x + 2)) - x ^ 3 * (3 * 1)) / (3 * (x + 2)) ^ 2
