@@ -28,6 +28,10 @@ import ErdosSimilarityGrowingGaps.SequenceTransfer
 import ErdosSimilarityGrowingGaps.RoutingSampleMap
 import ErdosSimilarityGrowingGaps.RoutingSequenceBridge
 import ErdosSimilarityGrowingGaps.UniformPowerTransfer
+import ErdosSimilarityGrowingGaps.SequenceCounting
+import ErdosSimilarityGrowingGaps.VariableSchedule
+import ErdosSimilarityGrowingGaps.SequenceTransferFill
+import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 
 namespace ErdosSimilarityGrowingGaps
 open GrowingGap
@@ -245,29 +249,6 @@ theorem replay_sample_powerPoint_mem_thickening
     ∃ n : ℕ,
       powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G :=
   h.sample_powerPoint_mem_thickening hK hv hvD hC hideal hwidth
-
-theorem replay_powerPoint_error_of_z_bounds
-    {Z : LogScale} {K : ℕ} {x : ℝ}
-    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
-    {v D C : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
-    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (hC : 0 ≤ C) :
-    |powerPoint (input Z n) C (x, p) -
-        powerPoint ((2 : ℝ) ^ (-v)) C (x, p)| ≤
-      |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
-        (2 : ℝ) ^ (-(v + D) * p.1.1)) :=
-  powerPoint_error_of_z_bounds hK hD hlo hhi hC
-
-theorem replay_powerPoint_mem_thickening_of_z_bounds
-    {Z : LogScale} {K : ℕ} {x : ℝ}
-    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
-    {v D C r : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
-    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (hC : 0 ≤ C)
-    {G : Set ℝ}
-    (hideal : powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ∈ G)
-    (hwidth : |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
-      (2 : ℝ) ^ (-(v + D) * p.1.1)) < r) :
-    powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G :=
-  powerPoint_mem_thickening_of_z_bounds hK hD hlo hhi hC hideal hwidth
 
 theorem replay_sequence_missedCenters_transfer
     {Z : LogScale} {K : ℕ} (tests : Finset ℕ) (k : ℤ)
@@ -541,7 +522,6 @@ theorem replay_routing_sample_index_filling_activation
         (c.edgeStart e : ℝ) + c.edgeLength e)) :=
   routingSampleIndex_activation_of_filling_margin c hM hL hspan hR hfill hD e p hK hp hmargin
 
-
 theorem replay_periodic_sequence_blocker_of_power_transfer
     {Z : LogScale} {K : ℕ} (hK : 2 ≤ K)
     (tests : Finset ℕ) (k : ℤ) {W : ℕ}
@@ -628,8 +608,6 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_sample_powerPoint_error
 #print axioms replay_sample_powerPoint_stable_key
 #print axioms replay_sample_powerPoint_mem_thickening
-#print axioms replay_powerPoint_error_of_z_bounds
-#print axioms replay_powerPoint_mem_thickening_of_z_bounds
 #print axioms replay_sequence_missedCenters_transfer
 #print axioms replay_sequence_activation_of_sample_interval
 #print axioms replay_sequence_outcome_density
@@ -655,5 +633,15 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_routing_sample_index_all_edges_injective
 #print axioms replay_routing_sample_index_filling_activation
 #print axioms replay_periodic_sequence_blocker_of_power_transfer
+#print axioms greedyIndex_log_upper_of_filling_prefix
+#print axioms greedyIndex_log_lower
+#print axioms open_window_card_lower_of_gap_le
+#print axioms greedy_open_window_card_lower
+#print axioms sequenceActiveLocalCandidates_hmany_of_injective_active
+#print axioms variableDepth_log_littleO
+#print axioms variableDepth_default_budget
+#print axioms filled_firstGe_transfer_subfields
+#print axioms exists_power_routing_data
+#print axioms sequence_missedCenters_subset_power_missedCenters_buffer
 
 end ErdosSimilarityGrowingGaps

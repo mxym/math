@@ -158,6 +158,32 @@ theorem powerPoint_mem_thickening_of_z_bounds
   rw [Real.dist_eq]
   exact (powerPoint_error_of_z_bounds hK hD hlo hhi hC).trans_lt hwidth
 
+theorem routingSampleIndex_point_transfer_of_margin
+    {Z : LogScale} {M d K : ℕ} (c : RoutingTemplate M d)
+    (hM : 1 ≤ M) (hL : 0 < c.baseLength)
+    (hspan : RoutingTemplate.span M c.gap c.baseLength d ≤ c.origin)
+    {R D : ℝ} (hR : 2 ≤ R)
+    (hfill : FillsAnnulus Z (c.origin : ℝ) R D)
+    (hD : D ≤ c.baseLength) (e : RoutingEdge M d)
+    {k : ℤ} (p : PowerParams (1 / (K : ℝ)) K) (hK : 2 ≤ K)
+    {x r : ℝ} {G : Set ℝ}
+    (hideal : powerPoint (dyadic (c.edgeStart e)) ((2 : ℝ) ^ k) (x, p) ∈ G)
+    (hwidth : |p.2.1 * ((2 : ℝ) ^ k)| *
+      ((2 : ℝ) ^ (-(c.edgeStart e : ℝ) * p.1.1) -
+        (2 : ℝ) ^ (-((c.edgeStart e : ℝ) + D) * p.1.1)) < r) :
+    powerPoint (input Z (routingSampleIndex Z c D e)) ((2 : ℝ) ^ k) (x, p) ∈
+      Metric.thickening r G := by
+  obtain ⟨hlo, hhi⟩ := routingSampleIndex_bounds c hM hL hspan hR hfill hD e
+  have hdyadic : dyadic (c.edgeStart e) =
+      (2 : ℝ) ^ (-(c.edgeStart e : ℝ)) := by
+    unfold dyadic
+    rw [Real.rpow_neg (by norm_num : (0 : ℝ) ≤ 2)]
+    rw [Real.rpow_natCast]
+    simp
+  rw [hdyadic] at hideal
+  exact powerPoint_mem_thickening_of_z_bounds hK (by linarith [hfill.2.2.1]) hlo hhi
+    (by positivity) hideal hwidth
+
 /-- Samples chosen independently at distinct edges remain distinct when the
 annular width is strictly smaller than the base edge length. -/
 theorem routingSampleIndex_injective
