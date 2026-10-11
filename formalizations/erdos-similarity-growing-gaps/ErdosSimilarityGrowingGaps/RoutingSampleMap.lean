@@ -74,6 +74,90 @@ theorem routingSampleIndex_bounds
   have hi := firstGeIndex_value_le_of_mem Z (c.edgeStart e) D n ⟨hnlo, hnhi⟩
   exact ⟨(firstGeIndex_spec Z (c.edgeStart e)).1, hi⟩
 
+/-! The next two lemmas isolate the deterministic point-transfer estimate.
+    Unlike `FillsAnnulus.sample_powerPoint_error`, they apply to a *specified*
+    sample index once its logarithmic coordinate is known to lie in the
+    interval.  This is the estimate needed by the first-ge sample map. -/
+
+theorem powerPoint_error_of_z_bounds
+    {Z : LogScale} {K : ℕ} {x : ℝ}
+    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
+    {v D C : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
+    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (_hC : 0 ≤ C) :
+    |powerPoint (input Z n) C (x, p) -
+        powerPoint ((2 : ℝ) ^ (-v)) C (x, p)| ≤
+      |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+        (2 : ℝ) ^ (-(v + D) * p.1.1)) := by
+  have hs : 0 < p.1.1 := by
+    have hK' : (0 : ℝ) < K := by exact_mod_cast (by omega : 0 < K)
+    exact lt_of_lt_of_le (by positivity) p.1.2.1
+  have hlow : (2 : ℝ) ^ (-(v + D)) ≤ input Z n := by
+    rw [input_eq_rpow]
+    apply Real.rpow_le_rpow_of_exponent_le (by norm_num)
+    linarith
+  have hhigh : input Z n ≤ (2 : ℝ) ^ (-v) := by
+    rw [input_eq_rpow]
+    apply Real.rpow_le_rpow_of_exponent_le (by norm_num)
+    linarith
+  have hpowlow : (2 : ℝ) ^ (-(v + D) * p.1.1) ≤
+      (input Z n) ^ p.1.1 := by
+    calc
+      (2 : ℝ) ^ (-(v + D) * p.1.1) =
+          ((2 : ℝ) ^ (-(v + D))) ^ p.1.1 :=
+        Real.rpow_mul (by norm_num) _ _
+      _ ≤ (input Z n) ^ p.1.1 :=
+        Real.rpow_le_rpow (by positivity) hlow hs.le
+  have hpowhigh : (input Z n) ^ p.1.1 ≤
+      (2 : ℝ) ^ (-v * p.1.1) := by
+    calc
+      (input Z n) ^ p.1.1 ≤ ((2 : ℝ) ^ (-v)) ^ p.1.1 :=
+        Real.rpow_le_rpow (input_pos Z n).le hhigh hs.le
+      _ = (2 : ℝ) ^ (-v * p.1.1) :=
+        (Real.rpow_mul (by norm_num) _ _).symm
+  have hwidth : 0 ≤ (2 : ℝ) ^ (-v * p.1.1) -
+      (2 : ℝ) ^ (-(v + D) * p.1.1) := by
+    apply sub_nonneg.mpr
+    apply Real.rpow_le_rpow_of_exponent_le (by norm_num)
+    nlinarith
+  have habs : |(input Z n) ^ p.1.1 -
+      (2 : ℝ) ^ (-v * p.1.1)| ≤
+      (2 : ℝ) ^ (-v * p.1.1) -
+        (2 : ℝ) ^ (-(v + D) * p.1.1) := by
+    rw [abs_le]
+    constructor <;> linarith
+  calc
+    |powerPoint (input Z n) C (x, p) -
+        powerPoint ((2 : ℝ) ^ (-v)) C (x, p)| =
+      |p.2.1 * C * (input Z n) ^ p.1.1 -
+        p.2.1 * C * ((2 : ℝ) ^ (-v)) ^ p.1.1| := by
+          simp only [powerPoint]
+          ring_nf
+    _ = |p.2.1 * C * (input Z n) ^ p.1.1 -
+        p.2.1 * C * (2 : ℝ) ^ (-v * p.1.1)| := by
+          rw [Real.rpow_mul (by norm_num : (0 : ℝ) ≤ 2) _ _]
+    _ ≤ |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+        (2 : ℝ) ^ (-(v + D) * p.1.1)) := by
+      rw [show p.2.1 * C * (input Z n) ^ p.1.1 -
+          p.2.1 * C * (2 : ℝ) ^ (-v * p.1.1) =
+            p.2.1 * C * ((input Z n) ^ p.1.1 -
+              (2 : ℝ) ^ (-v * p.1.1)) by ring, abs_mul]
+      exact mul_le_mul_of_nonneg_left habs (abs_nonneg _)
+
+theorem powerPoint_mem_thickening_of_z_bounds
+    {Z : LogScale} {K : ℕ} {x : ℝ}
+    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
+    {v D C r : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
+    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (hC : 0 ≤ C)
+    {G : Set ℝ}
+    (hideal : powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ∈ G)
+    (hwidth : |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+      (2 : ℝ) ^ (-(v + D) * p.1.1)) < r) :
+    powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G := by
+  apply Metric.mem_thickening_iff.2
+  refine ⟨powerPoint ((2 : ℝ) ^ (-v)) C (x, p), hideal, ?_⟩
+  rw [Real.dist_eq]
+  exact (powerPoint_error_of_z_bounds hK hD hlo hhi hC).trans_lt hwidth
+
 /-- Samples chosen independently at distinct edges remain distinct when the
 annular width is strictly smaller than the base edge length. -/
 theorem routingSampleIndex_injective

@@ -246,6 +246,29 @@ theorem replay_sample_powerPoint_mem_thickening
       powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G :=
   h.sample_powerPoint_mem_thickening hK hv hvD hC hideal hwidth
 
+theorem replay_powerPoint_error_of_z_bounds
+    {Z : LogScale} {K : ℕ} {x : ℝ}
+    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
+    {v D C : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
+    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (hC : 0 ≤ C) :
+    |powerPoint (input Z n) C (x, p) -
+        powerPoint ((2 : ℝ) ^ (-v)) C (x, p)| ≤
+      |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+        (2 : ℝ) ^ (-(v + D) * p.1.1)) :=
+  powerPoint_error_of_z_bounds hK hD hlo hhi hC
+
+theorem replay_powerPoint_mem_thickening_of_z_bounds
+    {Z : LogScale} {K : ℕ} {x : ℝ}
+    {p : PowerParams (1 / (K : ℝ)) K} {n : ℕ}
+    {v D C r : ℝ} (hK : 2 ≤ K) (hD : 0 ≤ D)
+    (hlo : v ≤ Z.z n) (hhi : Z.z n ≤ v + D) (hC : 0 ≤ C)
+    {G : Set ℝ}
+    (hideal : powerPoint ((2 : ℝ) ^ (-v)) C (x, p) ∈ G)
+    (hwidth : |p.2.1 * C| * ((2 : ℝ) ^ (-v * p.1.1) -
+      (2 : ℝ) ^ (-(v + D) * p.1.1)) < r) :
+    powerPoint (input Z n) C (x, p) ∈ Metric.thickening r G :=
+  powerPoint_mem_thickening_of_z_bounds hK hD hlo hhi hC hideal hwidth
+
 theorem replay_sequence_missedCenters_transfer
     {Z : LogScale} {K : ℕ} (tests : Finset ℕ) (k : ℤ)
     {W : ℕ} (windows : Fin W → ℝ × ℝ) (G : Set ℝ) (r : ℝ)
@@ -605,6 +628,8 @@ theorem replay_input_ratio_zero {Z : LogScale}
 #print axioms replay_sample_powerPoint_error
 #print axioms replay_sample_powerPoint_stable_key
 #print axioms replay_sample_powerPoint_mem_thickening
+#print axioms replay_powerPoint_error_of_z_bounds
+#print axioms replay_powerPoint_mem_thickening_of_z_bounds
 #print axioms replay_sequence_missedCenters_transfer
 #print axioms replay_sequence_activation_of_sample_interval
 #print axioms replay_sequence_outcome_density
