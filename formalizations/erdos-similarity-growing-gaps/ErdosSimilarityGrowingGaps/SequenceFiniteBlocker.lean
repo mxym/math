@@ -347,7 +347,7 @@ structure WindowFillingFiniteSequenceProvider (Z : LogScale) : Prop where
       ∃ c : FiniteSequenceRoutingCertificate Z K k p,
         c.branching = s.branching ∧
         c.depth = s.depth ∧
-        c.template = s.template ∧
+        HEq c.template s.template ∧
         (∀ n ∈ finiteSequenceRoutingTests c, N ≤ n) ∧
         (∀ (r : PowerParams (1 / (K : ℝ)) K) (n : ℕ),
           n ∈ finiteSequenceRoutingTests c →
@@ -381,6 +381,6 @@ theorem finiteSequenceBlockerSpec_of_windowFilling_provider
       hfill sched hsched
   refine ⟨p, hp, hpδ, c, hK, ?_⟩
   intro n hn
-  exact ⟨htail n hn, herror · n hn⟩
+  exact ⟨htail n hn, fun r => herror r n⟩
 
 end ErdosSimilarityGrowingGaps
