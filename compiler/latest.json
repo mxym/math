@@ -1,6 +1,6 @@
 {
   "serial": 10,
-  "status": "COMPILING",
+  "status": "COMPILED",
   "request_blob": "e23e322981acbd009908e6cc7e91e80c4fb96fe7",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -18,7 +18,38 @@
     "HydrologyTree/RootUpdate.lean": "b6a82a5f1dd7baf9e933e31b49a9f124d03e8d570dba3f892c85fc4db8048c86",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.95
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.5
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.615
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 3.35
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.781
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 3.842
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
   "run_id": "38143487813"
 }
