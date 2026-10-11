@@ -1,6 +1,6 @@
 {
   "serial": 32,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "87bfe9a8c4b6ad45dabb09046e3aa888fa06301c",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -28,7 +28,59 @@
     "HydrologyTree/PhysicalLeaf.lean": "2edb43b51262e67231b3e767b8b0a73f68018882a9ee507231ae31c3e4da81b1",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.083
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.111
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.275
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.467
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.875
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.79
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.436
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.462
+    },
+    {
+      "module": "HydrologyTree.RootAttachment",
+      "returncode": 0,
+      "seconds": 1.543
+    },
+    {
+      "module": "HydrologyTree.LeafRecursion",
+      "returncode": 1,
+      "seconds": 1.386
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38149404100"
+  "run_id": "38149404100",
+  "diagnostics": "HydrologyTree/LeafRecursion.lean:19:4: error: unsolved goals\ncase inl\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nl : \u03b9\nv : DeletedVertex l\n\u22a2 (if h : Sum.elim Subtype.val (fun x => l) (Sum.inl v) = l then Sum.inr ()\n    else Sum.inl \u27e8Sum.elim Subtype.val (fun x => l) (Sum.inl v), \u22ef\u27e9) =\n    Sum.inl v\nHydrologyTree/LeafRecursion.lean:20:4: error: unsolved goals\ncase inr.unit\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nl : \u03b9\n\u22a2 Sum.elim Subtype.val (fun x => l) (Sum.inr PUnit.unit) = l\nHydrologyTree/LeafRecursion.lean:22:17: error: unsolved goals\ncase pos\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nl v : \u03b9\nh : v = l\n\u22a2 Sum.elim Subtype.val (fun x => l) (Sum.inr ()) = l\n\ncase neg\n\u03b9 : Type u_1\n\u03ba : Type u_2\ninst\u271d\u00b3 : Fintype \u03b9\ninst\u271d\u00b2 : Fintype \u03ba\ninst\u271d\u00b9 : DecidableEq \u03b9\ninst\u271d : DecidableEq \u03ba\nl v : \u03b9\nh : \u00acv = l\n\u22a2 Sum.elim Subtype.val (fun x => l) (Sum.inl \u27e8v, \u22ef\u27e9) = v\nHydrologyTree/LeafRecursion.lean:19:12: warning: This simp argument is unused:\n  v.property\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/LeafRecursion.lean:51:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidableEq (DeletedVertex l)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/LeafRecursion.lean:56:21: warning: declaration uses `sorry`\nHydrologyTree/LeafRecursion.lean:69:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidableEq (DeletedVertex l)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/LeafRecursion.lean:70:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype (DeletedVertex l)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/LeafRecursion.lean:71:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype (DeletedVertex l \u2295 Unit)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/LeafRecursion.lean:70:73: error: unsolved goals\n\u03b9 : Type u_1\ninst\u271d\u00b9 : Fintype \u03b9\ninst\u271d : DecidableEq \u03b9\nA : Matrix \u03b9 \u03b9 \u211d\nl p : \u03b9\nhp : p \u2260 l\nhrow : \u2200 (v : \u03b9), v \u2260 l \u2192 A l v = if v = p then A l p else 0\nhcol : \u2200 (v : \u03b9), v \u2260 l \u2192 A v l = if v = p then A p l else 0\n\u22a2 A.charpoly = (X - C (A l l)) * sorry - C (A p l * A l p) * sorry\n"
 }
