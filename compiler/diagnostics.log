@@ -4,5 +4,44 @@ Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
 Already decompressed 752 file(s)
 
-MODULE APPTReview.FixedLocalRatio
-APPTReview/FixedLocalRatio.lean:1:0: error: object file '/home/runner/work/_temp/appt-compiler-session/request-1791731952200-d0698b0a/APPTReview/AsymptoticUpper.olean' of module APPTReview.AsymptoticUpper does not exist
+MODULE FixedLocalRatio
+FixedLocalRatio.lean:64:4: error: Type mismatch: After simplification, term
+  hl
+ has type
+  ↑R * t ≤ ∑ i, sortedGap ⋯ f i + ↑R * b
+but is expected to have type
+  ↑R * (t - b) ≤ ∑ i, sortedGap ⋯ f i
+FixedLocalRatio.lean:68:4: error: mod_cast has type
+  2 * Fintype.card (UpperPair m) + m = m * m
+but is expected to have type
+  2 * Fintype.card (UpperPair m) + m = m ^ 2
+FixedLocalRatio.lean:75:36: error: linarith failed to find a contradiction
+case h2
+m n : ℕ
+hm : 2 ≤ m
+hmn : m ≤ n
+A : Matrix (Fin m × Fin n) (Fin m × Fin n) ℂ
+hρ : APPT.Quantum.IsDensity A
+happt : APPT.Quantum.AbsolutelyPPT A
+hR : 0 < Fintype.card (UpperPair m)
+R : ℕ := Fintype.card (UpperPair m)
+f : Fin (Fintype.card (Fin m × Fin n)) → ℝ := ⋯.eigenvalues₀
+b : ℝ := f (pairedPivot ⋯ hmn)
+t : ℝ := f (finalTop hR ⋯)
+G : Matrix (Fin m) (Fin m) ℝ := gapMatrix (placedSpectrum hmn (rowRank m) f)
+hw : (witnessMatrix (placedSpectrum hmn (rowRank m) ⋯.eigenvalues₀)).PosSemidef
+hG : (gapMatrix (placedSpectrum hmn (rowRank m) ⋯.eigenvalues₀)).IsHermitian
+hsym : ∀ (i j : Fin m), G i j = G j i
+hcap : 2 * ∑ i, sortedGap ⋯ f i ≤ ↑m * (2 * b)
+hsum : ∑ p, G (↑p).1 (↑p).2 = ∑ i, sortedGap ⋯ f i
+hlo : ∀ (i : Fin R), t - b ≤ sortedGap ⋯ f i
+hl : ∑ i, (t - b) ≤ ∑ i, sortedGap ⋯ f i
+hl' : ↑R * (t - b) ≤ ∑ i, sortedGap ⋯ f i
+hcN : 2 * Fintype.card (UpperPair m) + m = m * m
+hc : 2 * ↑R + ↑m = ↑m ^ 2
+hmR : 0 < ↑m
+hbad : ¬(↑m - 1) * t ≤ (↑m + 1) * b
+hneg : 0 < ↑m * ((↑m - 1) * t - (↑m + 1) * b)
+a✝ : 2 * ↑R * (t - b) - 2 * ↑m * b < ↑m * ((↑m - 1) * t - (↑m + 1) * b)
+⊢ False
+failed
