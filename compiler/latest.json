@@ -1,6 +1,6 @@
 {
   "serial": 11,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "d09b8b46b5b8b8aade16b0691ef5a2b2aa263d83",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -18,7 +18,39 @@
     "HydrologyTree/RootUpdate.lean": "17a743054b078f8cabef4275be631c67851a493db26422ee2cc4cef317d108b8",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.939
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.49
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.637
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 3.392
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.792
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 1,
+      "seconds": 3.874
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38143487813"
+  "run_id": "38143487813",
+  "diagnostics": "HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nHydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nHydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:\n  if_pos rfl\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,\n    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n \u2260 n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,\n    zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,\n    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n \u2260 n + 1 from by omega), mul_zero, sub_zero,\n    add_zero, zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/RootUpdate.lean:146:4: error: Type mismatch\n  ((X + C x.2.1) * \u2191(monicPoly x.1)).degree\nhas type\n  WithBot \u2115\nbut is expected to have type\n  \u2115\nHydrologyTree/RootUpdate.lean:147:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?m.40 * ?m.41).degree\nin the target expression\n  ?m.2 = n + 1\n\nn : \u2115\nx : \u21a5(Coeff n) \u00d7 \u211d \u00d7 \u21a5(Coeff n)\n\u22a2 ?m.2 = n + 1\nHydrologyTree/RootUpdate.lean:145:6: error: (kernel) declaration has metavariables 'HydrologyTree.degree_rootProduct'\nHydrologyTree/RootUpdate.lean:154:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.38 ?x`) in this equality\n  @?_mvar.72240 ?m.38 ?x = ?m.38 + 1\nHydrologyTree/RootUpdate.lean:167:4: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`@?_mvar.72240 ?m.26 ?x`) in this equality\n  @?_mvar.72240 ?m.26 ?x = ?m.26 + 1\n"
 }
