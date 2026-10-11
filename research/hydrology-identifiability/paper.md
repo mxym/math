@@ -11,7 +11,9 @@ exactly the same discharge for all time. We then prove that a controlled
 constant-rainfall experiment with known zero initial storage recovers all three
 rates from the first three output derivatives. The result separates structural
 non-identifiability from numerical estimation and gives a concrete intervention
-design principle.
+design principle. We also formalize the finite-spectrum obstruction behind
+power-law recession: positive finite-rate exponential mixtures have a uniformly
+bounded moment ratio, whereas the shifted-power-law ratio grows without bound.
 
 ## 1. Model and balance law
 
