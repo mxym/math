@@ -189,7 +189,176 @@ differentiation, or a general distributed-reservoir model. The independent
 checker uses the exact example \((w_1,w_2,\ell_1,\ell_2)=(2,3,1,4)\), for which
 the determinant is exactly \(54\).
 
-## 7. Implications and limits
+## 7. The general finite-mode recurrence
+
+The finite-mode mechanism does not depend on having two or three modes. Let
+
+\[
+h_j=\sum_{i=1}^k w_i\lambda_i^j
+\]
+
+and let \(A(z)=\sum_{r=0}^d a_rz^r\) satisfy \(A(\lambda_i)=0\) for every
+mode. Then, for every \(j\ge0\),
+
+\[
+\sum_{r=0}^d a_r h_{j+r}=0. \tag{10}
+\]
+
+Indeed, expand the left side as a finite double sum, use
+\(\lambda_i^{j+r}=\lambda_i^j\lambda_i^r\), interchange the finite sums, and
+factor \(w_i\lambda_i^j\). The remaining inner sum is \(A(\lambda_i)=0\) for
+each \(i\). This proof is fully formalized in `Hydrology/Generic.lean` for
+arbitrary finite mode count and polynomial degree. It establishes the exact
+finite-dimensional recurrence backbone, while uniqueness of rates still needs
+nondegenerate Hankel/Vandermonde assumptions.
+
+### Finite-spectrum growth obstruction
+
+The finite-mode recurrence has a second consequence under the physical positivity
+assumptions. For nonnegative weights and nonnegative rates, write
+\[
+M_j=\sum_i w_i\lambda_i^j,
+\]
+and choose \(L\) with \(\lambda_i\le L\) for every active mode. Then
+\[
+0\le M_j,qquad M_{j+1}\le L M_j. \tag{11}
+\]
+The Lean theorem `finiteMoment_rate_bound` proves the second inequality exactly
+for every finite index type and every \(j\); no numerical approximation is used.
+
+This yields a general analytic no-go statement for **finite positive parallel
+reservoirs**. If
+\(Q(t)=\sum_i w_i e^{-\lambda_i t}\) with \(w_i>0\) and \(\lambda_i\ge0\),
+then its alternating derivative moments are \(M_j=(-1)^jQ^{(j)}(0)\), and the
+preceding bound gives \(M_{j+1}/M_j\le L\). For an exact positive shifted power
+law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation gives
+\[
+\frac{(-1)^{j+1}Q^{(j+1)}(0)}{(-1)^jQ^{(j)}(0)}
+=\frac{\alpha+j}{\tau},
+\]
+which is unbounded as \(j\to\infty\). Thus no finite positive parallel
+reservoir mixture can equal a shifted power law on an interval. The derivative
+formula and the unboundedness argument are elementary written analysis; the
+finite-spectrum inequality is the part kernel-checked in this repository.
+This statement does not cover signed modal coefficients, complex modes, or
+nonlinear and spatially distributed models.
+The same moments have a universal order-two Hankel identity. A finite double-sum
+expansion gives
+\[
+M_0M_2-M_1^2
+=\frac12\sum_{i,j}w_iw_j(\lambda_i-\lambda_j)^2. \tag{12}
+\]
+`Hydrology/Variance.lean` proves this identity for every finite index type and
+proves nonnegativity for nonnegative weights. Thus the order-two Hankel determinant
+is exactly a weighted measure of rate heterogeneity; the two-mode formula (9) is
+its first nontrivial special case. This is an algebraic certificate and does not
+use numerical fitting or a presumed model order.
+
+The same argument extends one step further without a numerical approximation.
+For three parallel modes define
+
+\[
+n_j=\sum_{i=1}^3 w_i\ell_i^j,\qquad 0\le j\le5,
+\]
+
+and let \(e_1,e_2,e_3\) be the elementary symmetric functions of the three
+rates. The formalized identities are
+
+\[
+n_{j+3}=e_1n_{j+2}-e_2n_{j+1}+e_3n_j\quad(j=0,1,2), \tag{13}
+\]
+
+and
+
+\[
+\det(n_{i+j})_{0\le i,j\le2}
+=w_1w_2w_3(\ell_1-\ell_2)^2(\ell_1-\ell_3)^2(\ell_2-\ell_3)^2. \tag{14}
+\]
+
+The module `Hydrology/Parallel3.lean` also proves that each rate is a root of
+the characteristic cubic. Consequently, positive weights and pairwise
+distinct rates give a strict order-three Hankel certificate; zero weights or
+coincident rates are exactly the algebraic degeneracies detected by (12). The
+independent exact example uses
+\((w_1,w_2,w_3,\ell_1,\ell_2,\ell_3)=(1,2,3,1,2,4)\),
+for which the determinant is \(216\).
+
+## 8. Exact continuum construction of a power-law tail
+
+The finite-dimensional no-go theorem has a physically conservative extension after
+replacing finitely many reservoirs by a continuum of rates. For \(\alpha>1\) and
+\(\tau>0\), let independent reservoirs with decay rate \(\lambda>0\) have initial
+**storage density**
+
+\[
+s_{\alpha,\tau}(\lambda)=\lambda^{\alpha-2}e^{-\tau\lambda}.
+\]
+
+A linear reservoir with rate \(\lambda\) satisfies
+\(\dot x_\lambda=-\lambda x_\lambda\), and its discharge is \(\lambda x_\lambda\).
+Therefore the aggregate discharge is
+
+\[
+Q(t)=\int_0^\infty \lambda s_{\alpha,\tau}(\lambda)e^{-\lambda t}\,d\lambda
+=\int_0^\infty \lambda^{\alpha-1}e^{-(\tau+t)\lambda}\,d\lambda
+=\Gamma(\alpha)(\tau+t)^{-\alpha}. \tag{15}
+\]
+
+Equation (15) is the standard Gamma-integral identity. The initial aggregate storage
+is finite because
+\[
+\int_0^\infty s_{\alpha,\tau}(\lambda)\,d\lambda
+=\Gamma(\alpha-1)\tau^{1-\alpha}<\infty.
+\]
+Thus a continuous rate spectrum gives an exact shifted power law with finite initial
+storage, while every finite positive reservoir network is excluded by the
+finite-dimensional obstruction above. This provides a concrete model-building
+interpretation of the distinction between exponential mixtures and power-law
+recession. The integral identity is written mathematics here; it is not claimed as
+part of the current Lean package.
+
+## 9. A local curvature diagnostic
+
+The continuum construction gives an observable local protocol. For a shifted
+power law \(Q(t)=C(\tau+t)^{-\alpha}\), direct differentiation yields
+
+\[
+I(t):=\frac{Q(t)Q''(t)}{Q'(t)^2}
+=\frac{\alpha+1}{\alpha}=1+\frac1{\alpha},
+\qquad
+\alpha=\frac1{I(t)-1}. \tag{16}
+\]
+
+The local slope then gives
+
+\[
+\tau=\frac{-\alpha Q(t)}{Q'(t)}-t. \tag{17}
+\]
+
+The Lean theorem `powerLaw_alpha_recovery` proves the first inversion from the
+algebraic identity \(I=(\alpha+1)/\alpha\), and
+`powerLaw_shift_recovery` proves the second from
+\(Q'(\tau+t)=-\alpha Q\), with the required nonzero denominators explicit.
+The calculus substitution establishing these jet identities is written in the
+paper; the inverse algebra is kernel checked.
+
+For two positive parallel exponential modes, put
+\(u_i(t)=w_i e^{-\lambda_i t}\). The Hankel identity becomes
+
+\[
+Q(t)Q''(t)-Q'(t)^2
+=u_1(t)u_2(t)(\lambda_1-\lambda_2)^2. \tag{18}
+\]
+
+It is strict for distinct active rates, but after division by \(Q(t)^2\) it
+vanishes asymptotically as the slower mode dominates. An exact power law has the
+constant invariant \(I(t)>1\). This gives a structural diagnostic separating a
+persistent power-law curvature from every finite two-rate recession; it is not a
+statistical fitting claim.
+
+## 10. Implications and limits
+
+
 
 The two statements answer complementary model-design questions. With unknown
 initial storage, the output equation has a genuine parameter symmetry and a
@@ -204,7 +373,7 @@ thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
 observations. A natural next problem is to classify the corresponding
 input/state equivalence classes in one of those nonlinear extensions.
 
-## 8. Reproducibility and prior context
+## 11. Reproducibility and prior context
 
 Run the exact rational checker with
 

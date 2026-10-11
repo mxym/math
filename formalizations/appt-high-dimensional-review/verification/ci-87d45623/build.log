@@ -1,0 +1,381 @@
+✔ [2794/2837] Built APPT.Core (2.2s)
+⚠ [2795/2837] Built APPT.Quantum.Basic (1.9s)
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2796/2837] Built APPT.Quantum.Orbit (1.0s)
+⚠ [2797/2837] Built APPT.Quantum.RealPSD (1.0s)
+warning: APPT/Quantum/RealPSD.lean:8:0: automatically included section variable(s) unused in theorem `APPT.Quantum.real_posSemidef_of_complex`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2798/2837] Built APPT.Quantum.Permutation (2.1s)
+warning: APPT/Quantum/Permutation.lean:14:31: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [permMatrix, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, mul_ite, e.injective.eq_iff,
+    eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/Permutation.lean:16:0: automatically included section variable(s) unused in theorem `APPT.Quantum.permMatrix_conjTranspose`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Permutation.lean:47:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+⚠ [2799/2837] Built APPTReview.BlockContraction (2.7s)
+warning: APPTReview/BlockContraction.lean:19:0: automatically included section variable(s) unused in theorem `APPTReview.localCongruence_posSemidef`:
+  [DecidableEq a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/BlockContraction.lean:23:0: automatically included section variable(s) unused in theorem `APPTReview.localCongruence_apply`:
+  [DecidableEq a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/BlockContraction.lean:27:54: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localCongruence, localLift, Matrix.mul_apply, Matrix.conjTranspose_apply, Fintype.sum_prod_type,
+    Matrix.one_apply, mul_ite, ite_mul, Finset.sum_mul, Finset.mul_sum, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/BlockContraction.lean:29:38: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localCongruence, localLift, Matrix.mul_apply, Matrix.kronecker_apply, Matrix.conjTranspose_apply,
+    Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul, Finset.sum_mul, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/BlockContraction.lean:43:51: This simp argument is unused:
+  complex_conj_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localDiagonal, hi, hj, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2800/2837] Built APPT.Quantum.Reindex (1.8s)
+warning: APPT/Quantum/Reindex.lean:8:0: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_mul`:
+  [DecidableEq ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:15:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_one`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:20:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_conjTranspose`:
+  [Fintype ι]
+  [Fintype κ]
+  [DecidableEq ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] [DecidableEq ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:23:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_diagonal`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2801/2837] Built APPTReview.PositiveMap (3.2s)
+warning: APPTReview/PositiveMap.lean:31:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: APPTReview/PositiveMap.lean:54:43: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_apply, Matrix.smul_apply, Matrix.sum_apply, localDiagonal_apply, pairPositive_apply,
+    Complex.real_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PositiveMap.lean:62:41: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [APPT.Quantum.partialTranspose, Finset.sum_add_distrib, hij, ite_and, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PositiveMap.lean:61:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:61:18: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:64:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:61:8: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [2802/2837] Built APPT.Quantum.UnitaryExtension (2.2s)
+warning: APPT/Quantum/UnitaryExtension.lean:15:8: automatically included section variable(s) unused in theorem `APPT.Quantum.splitEquiv_inl`:
+  [Fintype ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/UnitaryExtension.lean:18:8: automatically included section variable(s) unused in theorem `APPT.Quantum.splitEquiv_inr`:
+  [Fintype ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2803/2837] Built APPT.Quantum.ExtendedConjugate (2.1s)
+warning: APPT/Quantum/ExtendedConjugate.lean:7:0: automatically included section variable(s) unused in theorem `APPT.Quantum.split_diagonal`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2804/2837] Built APPTReview.ProjectionState (2.8s)
+warning: APPTReview/ProjectionState.lean:9:0: automatically included section variable(s) unused in theorem `APPTReview.hermitian_idempotent_posSemidef`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/ProjectionState.lean:51:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/ProjectionState.lean:51:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/ProjectionState.lean:51:10: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/ProjectionState.lean:90:0: automatically included section variable(s) unused in theorem `APPTReview.setProjection_hermitian`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/ProjectionState.lean:92:4: This simp argument is unused:
+  complex_conj_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [setProjection, Matrix.IsHermitian, funext_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/ProjectionState.lean:92:22: This simp argument is unused:
+  funext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [setProjection, Matrix.IsHermitian, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2805/2837] Built APPTReview.Basic (1.8s)
+warning: APPTReview/Basic.lean:17:8: automatically included section variable(s) unused in theorem `APPTReview.partialTransposeRight_eq_transpose`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2806/2837] Built APPTReview.SharpContraction (3.0s)
+warning: APPTReview/SharpContraction.lean:36:0: automatically included section variable(s) unused in theorem `APPTReview.transpose_exchange`:
+  [Fintype a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/SharpContraction.lean:41:40: This simp argument is unused:
+  ite_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [APPT.Quantum.partialTranspose, exchangeOperator, APPT.Quantum.permMatrix, Matrix.vecMulVec,
+    diagonalVector, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/SharpContraction.lean:58:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/SharpContraction.lean:58:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/SharpContraction.lean:58:6: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [2807/2837] Built APPTReview.SOS (2.7s)
+⚠ [2808/2837] Built APPTReview.Hadamard (3.0s)
+warning: APPTReview/Hadamard.lean:34:0: automatically included section variable(s) unused in theorem `APPTReview.hadamard_conjTranspose`:
+  [Fintype a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/Hadamard.lean:49:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2809/2837] Built APPTReview.QuantumWitness (2.5s)
+warning: APPTReview/QuantumWitness.lean:24:6: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/QuantumWitness.lean:30:6: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [2810/2837] Built APPTReview.LogBounds (3.5s)
+⚠ [2811/2837] Built APPTReview.Star (2.2s)
+info: APPTReview/Star.lean:38:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: APPTReview/Star.lean:37:37: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.sum_mul, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/Star.lean:37:55: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.mul_sum, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/Star.lean:103:28: This simp argument is unused:
+  Fin.succ_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, witnessMatrix, ne_of_lt (Fin.succ_pos i), Fin.succ_pos, sub_eq_add_neg, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2812/2837] Built APPTReview.GraphBounds (2.5s)
+warning: APPTReview/GraphBounds.lean:9:0: automatically included section variable(s) unused in theorem `APPTReview.nonnegative_matrix_quadratic_abs`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2813/2837] Built APPTReview.EntropyHead (3.6s)
+✔ [2814/2837] Built APPTReview.SortedWitness (2.6s)
+✔ [2815/2837] Built APPTReview.PairSlots (2.6s)
+✔ [2816/2837] Built APPTReview.SpectralBounds (2.8s)
+✔ [2817/2837] Built APPTReview.PairWitness (2.1s)
+✔ [2818/2837] Built APPTReview.CornerSort (2.8s)
+⚠ [2819/2837] Built APPTReview.PairGraph (2.2s)
+warning: APPTReview/PairGraph.lean:38:42: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gapMatrix, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PairGraph.lean:38:65: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gapMatrix, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PairGraph.lean:38:88: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2820/2837] Built APPTReview.SortedStar (2.3s)
+✔ [2821/2837] Built APPTReview.TriangleRows (2.4s)
+ℹ [2822/2837] Built APPTReview.SortedEntropy (3.0s)
+info: APPTReview/SortedEntropy.lean:72:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [2823/2837] Built APPTReview.RowArrangement (2.3s)
+warning: APPTReview/RowArrangement.lean:12:28: This simp argument is unused:
+  Nat.mod_mod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [upperPairCode, Nat.add_mod, Nat.mul_mod, Nat.mod_self, mul_zero, Nat.zero_mod, zero_add,
+    Nat.mod_eq_of_lt hp, Nat.mod_eq_of_lt hq] at hmod
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2824/2837] Built APPTReview.PaperEntropy (2.7s)
+⚠ [2825/2837] Built APPTReview.GraphEnergy (2.3s)
+warning: APPTReview/GraphEnergy.lean:29:22: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Fin.succ_ne_zero, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/GraphEnergy.lean:27:17: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/GraphEnergy.lean:28:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2826/2837] Built APPTReview.BoundarySpectrum (2.5s)
+✔ [2827/2837] Built APPTReview.SpectralGap (2.4s)
+✔ [2828/2837] Built APPTReview.BaselineGraph (2.8s)
+✔ [2829/2837] Built APPTReview.CenteredVariance (2.9s)
+✔ [2830/2837] Built APPTReview.ResidualGraph (3.6s)
+⚠ [2831/2837] Built APPTReview.SpectralBaseline (2.0s)
+warning: APPTReview/SpectralBaseline.lean:42:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [2832/2837] Built APPTReview.FinitePurity (2.3s)
+✔ [2833/2837] Built APPTReview.PurityNormalization (3.7s)
+⚠ [2834/2837] Built APPTReview.UniformPurityUpper (5.8s)
+warning: APPTReview/UniformPurityUpper.lean:46:57: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:75:69: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:84:59: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:89:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:46:57: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:75:69: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:84:59: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:89:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [2835/2837] Built APPTReview.AsymptoticUpper (1.0s)
+warning: APPTReview/AsymptoticUpper.lean:20:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/AsymptoticUpper.lean:20:8: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [2836/2837] Built APPTReview (1.7s)
+Build completed successfully (2837 jobs).

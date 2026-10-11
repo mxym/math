@@ -3,6 +3,18 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_uniform_asymptotic_upper,
+  ``APPTReview.density_appt_dimension_only_upper,
+  ``APPTReview.dimension_error_factor,
+  ``APPTReview.density_appt_explicit_uniform_upper,
+  ``APPTReview.uniform_purity_constants,
+  ``APPTReview.pairedPivot_prefix_large,
+  ``APPTReview.density_appt_normalized_purity_bound,
+  ``APPTReview.ordered_pivot_variance,
+  ``APPTReview.scalar_pivot_normalization,
+  ``APPTReviewFiniteRegression.sum_baseline_multiplicity_control,
+  ``APPTReviewFiniteRegression.aspect_term_cannot_be_omitted,
+  ``APPTReviewFiniteRegression.normalization_requires_strict_budget,
   ``APPTReview.density_appt_finite_purity_bound,
   ``APPTReview.density_appt_ordered_variance_bound,
   ``APPTReview.purity_eq_ordered_eigenvalues,
