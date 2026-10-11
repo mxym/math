@@ -2,12 +2,12 @@
 from pathlib import Path
 import hashlib, json, re
 ROOT=Path(__file__).resolve().parent
-modules=['HydrologyTree.Coefficients','HydrologyTree.LeadingCoefficients','HydrologyTree.BlockJacobian','HydrologyTree.Scaling','HydrologyTree.Triangular','HydrologyTree.Gluing','HydrologyTree.RootUpdate','HydrologyTree']
+modules=['HydrologyTree.Coefficients','HydrologyTree.LeadingCoefficients','HydrologyTree.BlockJacobian','HydrologyTree.Scaling','HydrologyTree.Triangular','HydrologyTree.Gluing','HydrologyTree.RootUpdate','HydrologyTree.RateChart','HydrologyTree.CompartmentMatrix','HydrologyTree.PhysicalBridge','HydrologyTree.Resolvent','HydrologyTree']
 (ROOT/'MODULES.json').write_text(json.dumps(modules,indent=2)+'\n')
 roots=[]
 for module in modules:
  text=(ROOT/(module.replace('.','/')+'.lean')).read_text()
- roots += ['HydrologyTree.'+x for x in re.findall(r'(?m)^(?:@\[[^\n]*\]\s*)?(?:theorem|lemma|def|abbrev|instance)\s+(\w+)', text)]
+ roots += ['HydrologyTree.'+x for x in re.findall(r'(?m)^(?:@\[[^\n]*\]\s*)?(?:theorem|lemma|def|abbrev|instance|structure)\s+(\w+)', text)]
 (ROOT/'ROOTS.txt').write_text('\n'.join(roots)+'\n')
 (ROOT/'audit/Audit.lean').write_text('import HydrologyTree\n\n'+'\n'.join('#print axioms '+n for n in roots)+'\n')
 p=ROOT/'audit/Replay.lean'

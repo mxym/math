@@ -37,6 +37,7 @@ jobs:
             ${{ runner.temp }}/tree-verification/*.log
             ${{ runner.temp }}/tree-verification/*.json
             ${{ runner.temp }}/tree-verification/*.txt
+            ${{ runner.temp }}/tree-verification/*.tar.gz
           if-no-files-found: warn
       - name: Export credential-free build resources for an isolated verifier
         if: contains(github.event.head_commit.message, '[export-lean-environment]')

@@ -37,7 +37,7 @@ def main():
  args=ap.parse_args()
  if not args.lean:ap.error('Activate Lean 4.34.1 first')
  out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=False)
- report={'status':'RUNNING','scope':'PARTIAL tree coefficient and Jacobian core; not the all-tree main theorem','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
+ report={'status':'RUNNING','scope':'PARTIAL actual polynomial Jacobian core and physical tree rate-chart/matrix semantics; not the full characteristic-coefficient Jacobian theorem or fiber classification','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
  try:
   before=snapshot();report['source_sha256']=before
   lean=Path(args.lean).resolve();env=os.environ.copy();env['PATH']=str(lean.parent)+os.pathsep+env.get('PATH','');env.pop('LEAN_PATH',None);env.pop('LEAN_SRC_PATH',None)
@@ -91,7 +91,7 @@ def main():
   if not axioms.issubset(ALLOWED):raise RuntimeError('Unexpected axioms')
   report['kernel_replay']={'declarations':int(match[1]),'roots':int(match[2]),'trust_level':0,'axioms':sorted(axioms)}
   for name in ['replayed-axioms.txt','replayed-closure.txt']:shutil.copyfile(fresh/name,out/name)
-  controls=[('HydrologyTree/Scaling.lean','monicScalingJacobian x = x.1 ^ n := by','monicScalingJacobian x = x.1 ^ (n+1) := by'),('HydrologyTree/RootUpdate.lean','rootCoefficientJacobian x = (-1 : ℝ)^n := by','rootCoefficientJacobian x = 1 := by'),('HydrologyTree/Gluing.lean','m n ^ 2 := by','m n ^ 3 := by'),('HydrologyTree/Gluing.lean','repeatedBlock (monoSylv x.1) (lowSylv x.2)','repeatedBlock (monoSylv x.1) 0'),('HydrologyTree/BlockJacobian.lean',').det ^ 2 := by',').det ^ 3 := by'),('HydrologyTree/Coefficients.lean','⟨X^n, Polynomial.mem_degreeLT.mpr','⟨X^(n+1), Polynomial.mem_degreeLT.mpr')]
+  controls=[('HydrologyTree/PhysicalBridge.lean','matrixCoordinateJacobian t x = ∏ i : Fin n, x.1 i.succ := by','matrixCoordinateJacobian t x = ∏ i : Fin n, x.2 i := by'),('HydrologyTree/CompartmentMatrix.lean','(∑ v : Fin (n+1), (compartmentMatrix t x *ᵥ s) v) = -x.1 0 * s 0 := by','(∑ v : Fin (n+1), (compartmentMatrix t x *ᵥ s) v) = 0 := by'),('HydrologyTree/Scaling.lean','monicScalingJacobian x = x.1 ^ n := by','monicScalingJacobian x = x.1 ^ (n+1) := by'),('HydrologyTree/RootUpdate.lean','rootCoefficientJacobian x = (-1 : ℝ)^n := by','rootCoefficientJacobian x = 1 := by'),('HydrologyTree/Gluing.lean','m n ^ 2 := by','m n ^ 3 := by'),('HydrologyTree/Gluing.lean','repeatedBlock (monoSylv x.1) (lowSylv x.2)','repeatedBlock (monoSylv x.1) 0'),('HydrologyTree/BlockJacobian.lean',').det ^ 2 := by',').det ^ 3 := by'),('HydrologyTree/Coefficients.lean','⟨X^n, Polynomial.mem_degreeLT.mpr','⟨X^(n+1), Polynomial.mem_degreeLT.mpr')]
   report['negative_controls']=[]
   for i,(rel,old,new) in enumerate(controls):
    text=(ROOT/rel).read_text()
@@ -99,7 +99,22 @@ def main():
    neg=out/('negative-'+str(i+1));(neg/rel).parent.mkdir(parents=True);(neg/rel).write_text(text.replace(old,new))
    run([str(lean),rel],neg,'negative-'+str(i+1)+'.log',True);report['negative_controls'].append({'source':rel,'old':old,'new':new,'rejected':True})
   if snapshot()!=before:raise RuntimeError('Source changed during verification')
-  report['source_hashes_unchanged']=True;report['status']='PASS'
+  report['source_hashes_unchanged']=True
+  import gzip, io, tarfile
+  bundle=out/'verified-source.tar.gz'
+  with bundle.open('wb') as raw:
+   with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
+    with tarfile.open(fileobj=gz,mode='w') as tar:
+     names=set(before)|{'SOURCE_SHA256.json','README.md','DEPENDENCY_MAP.md','GAPS.md','DEPENDENCIES.dot'}
+     for name in sorted(names):
+      p=ROOT/name
+      if not p.is_file():raise RuntimeError('Missing deliverable '+name)
+      data=p.read_bytes();info=tarfile.TarInfo('hydrology-tree-core/'+name)
+      info.size=len(data);info.mtime=0;info.mode=0o644
+      tar.addfile(info,io.BytesIO(data))
+  report['verified_source_archive_sha256']=digest(bundle)
+  report['status']='PASS'
+
  except Exception as e:
   report['status']='FAIL';report['error']=repr(e)
  finally:

@@ -63,3 +63,39 @@ ORCID 0009-0000-3864-3536. No external funding; AI-assisted development.
 Existing repository and third-party notices remain in force. Original additions
 retain all rights not otherwise granted by an applicable existing license.
 No completion Release, DOI, external peer review, or priority claim is made.
+
+## Actual physical tree bridge
+
+`RateChart.lean` proves the physical coordinate change for every finite
+**topologically numbered rooted tree**, with no restriction on its size and no
+nonzero-rate hypothesis. `CompartmentMatrix.lean` constructs the actual
+edge-conservative bidirected matrix and proves its column sums, total-storage
+flux identity, diagonal formula, and nonnegative off-diagonal entries for
+nonnegative rates. `PhysicalBridge.lean` proves that its actual entries give
+exactly those coordinates:
+
+    d_v = -A_vv,       c_e = A_(parent,child) A_(child,parent).
+    det D(rate -> (d,c)) = product_e a_e.
+
+The Frechet derivative is proved and used. Parent iteration is proved to reach
+the root, so disconnected/cyclic parent structures are not silently admitted.
+The current tree encoding includes an explicit topological numbering; transport
+from independently presented unnumbered graph objects remains a separate task.
+
+`Resolvent.lean` constructs the actual characteristic polynomial, actual root
+principal cofactor (with original boundary-exit diagonals), and their full
+non-leading coefficient map. It proves exact degree/monicity/reconstruction
+and the actual matrix inverse entry F(s)/P(s). The true inverse identities are
+asserted only off the characteristic roots; totalized matrix inverse at a pole
+is not interpreted as a physical response there.
+
+**Do not confuse the proved rate-coordinate Jacobian with the unproved full
+characteristic/cofactor coefficient-map Jacobian.** The all-tree determinant
+recursion and assembly, exact coordinate multiplicities, positive singular-locus
+classification, and complete global realization/fiber theorem still remain.
+
+The archived independent checkpoint `evidence/scaling-root-ci/` is
+run 38145415740 on 37cc417b: 8 modules, 92 roots, 26,477 declarations in an empty
+trust-zero kernel, six rejected source mutations. The physical-matrix extension
+is a new source checkpoint and is independently checked by its own subsequent
+CI receipt; that older result is not presented as its verification.

@@ -9,10 +9,14 @@ The full target remains:
     det DC_T = ± product_v f_v^(n_v-1) a_v^n_v
       * product_(sibling pairs v,w at every node) Res(P_v,P_w)^2.
 
-To obtain it, the arbitrary finite rooted tree, its actual rate matrix, its
-characteristic polynomial and root cofactor must be constructed; the actual
-Schur/determinant recursion must be proved; and the polynomial core must be
-assembled with the physical rate-coordinate Jacobian and all-child induction.
+Actual finite topologically numbered rooted trees, their edge-conservative
+rate matrices, characteristic polynomials, root cofactors, complete coefficient
+encoding, and root inverse-entry identity are now constructed and proved. The
+actual physical rate-coordinate Jacobian is also proved at every rate vector.
+Still required are the arbitrary-tree Schur/determinant recursion, all-child
+polynomial assembly, determinant chain rule across the tree, and transport
+from arbitrary graph numberings. None of these follows merely from defining
+the characteristic polynomial or proving the separate local coefficient maps.
 A recursive polynomial definition alone is not that matrix identification.
 
 The nonroot-leak version needs its orientation/reindexing and conservation

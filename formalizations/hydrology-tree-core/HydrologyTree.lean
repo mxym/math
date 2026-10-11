@@ -1,2 +1,4 @@
 import HydrologyTree.Gluing
 import HydrologyTree.RootUpdate
+import HydrologyTree.PhysicalBridge
+import HydrologyTree.Resolvent
