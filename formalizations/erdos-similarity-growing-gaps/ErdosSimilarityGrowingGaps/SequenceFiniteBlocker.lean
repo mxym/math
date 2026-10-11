@@ -2,6 +2,7 @@ import ErdosSimilarityGrowingGaps.SequenceFiniteAssembly
 import ErdosSimilarityGrowingGaps.SequenceSignatures
 import ErdosSimilarityGrowingGaps.GlobalGreedyTests
 import ErdosSimilarityGrowingGaps.SequenceTransferFill
+import ErdosSimilarityGrowingGaps.SequenceGreedyFamily
 import ErdosSimilarityGrowingGaps.VariableRateSchedule
 
 namespace ErdosSimilarityGrowingGaps
@@ -89,6 +90,42 @@ structure VariableRateNodeWitness
   index_injective : Function.Injective (fun i => (children i, indices i))
   logarithmic_gap : ∀ i j, i ≠ j → children i = children j →
     3 ≤ (1 / (K : ℝ)) * |Z.z (indices j) - Z.z (indices i)|
+
+/-! The common greedy-family construction now feeds the dependent witness
+  directly.  This is the first concrete bridge from an annulus to certificate
+  lists: all choices are made by the existing finite supremum construction,
+  and the only rate arithmetic is the explicit late-rate fill inequality. -/
+theorem variableRateNodeWitness_of_input
+    {Z : LogScale} {K : ℕ} {k : ℤ} {p : ℝ} {M d : ℕ}
+    (hK : 2 ≤ K) (c : RoutingTemplate M d) (v : InternalNode M d)
+    (U R D δ : ℝ) (hfill : FillsAnnulus Z U R D)
+    (hM : 2 ≤ M) (hδ : 0 < δ) (hD : 0 ≤ D)
+    (hnode : VariableRateNodeInput (Z := Z) c v U R D δ) :
+    Nonempty (VariableRateNodeWitness c v
+      (lateActivationRate K δ D) hnode.ell) := by
+  have hKpos : (0 : ℝ) < K := by
+    exact_mod_cast (show 0 < K by omega)
+  have hs₀ : 0 < (1 / (K : ℝ)) := by positivity
+  have hs₁ : 0 < (K : ℝ) := hKpos
+  have hell_nonneg : 0 ≤ hnode.ell := by
+    have hKD : 0 < (K : ℝ) * (δ + D) := by positivity
+    nlinarith [hnode.hell]
+  have hη := lateActivationRate_fill_bound K hK δ D hnode.ell
+    hδ hD hell_nonneg
+  obtain ⟨B, children, indices, hactive, hinj, hlog⟩ :=
+    exists_common_greedy_family (s₀ := 1 / (K : ℝ)) (s₁ := (K : ℝ))
+      Z c v k hnode.u hnode.ell D δ (lateActivationRate K δ D)
+      (U := U) (R := R) hfill hM hs₀ hs₁ hδ
+      hnode.ha hnode.ha_hi hnode.hnum hnode.huk hnode.hwindow hnode.hell
+      hnode.hannulus (by simpa using hη) hnode.hsep
+  exact ⟨{
+    B := B
+    children := children
+    indices := indices
+    active_count := hactive
+    index_injective := hinj
+    logarithmic_gap := hlog
+  }⟩
 
 /-- The one common finite test set contains each vertex's own finite list. -/
 noncomputable def finiteSequenceRoutingTests
