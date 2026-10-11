@@ -44,3 +44,8 @@ The new kernel roots include a genuine 2x4 APPT state with scaled purity 4/3, re
 Development used isolated compiler diagnostics while the authorized Windows builder was offline. Diagnostic receipts state compiler errors literally and are not mathematical certification. They use fresh request directories and pinned base imports. Final certification uses the unchanged independent proof workflow, original module paths, the actual source hash inventory, full Lake construction and empty-kernel replay. A green diagnostic transport job is never used as a proof certificate.
 
 Remaining tasks include joint projection-plus-spike sufficiency for the three-level counterexample; exact rectangular optimality and equality classification; multiscale/two-ended graph compactness and matching growing-m families; full sharp extrema in all regimes; and entropy and rigidity laws. None is inferred from the new fixed-m theorem or upper inequality.
+
+
+## Final independent checkpoint
+
+The final audit passed at source 57bc1b6f60a9a10b9c4f289f1644d402799b4369, run 38153054623: 2844 Lake tasks, 42101 trust-zero replayed declarations and 87 roots. Both the fixed-local supremum-limit theorem and all-total-dimension upper theorem reject a proof-only `True.intro` substitution. Literal evidence is retained under `verification/ci-57bc1b6f/`. The failed aa49f7fc audit invocation is preserved separately; the mathematical sources did not change in that repair.

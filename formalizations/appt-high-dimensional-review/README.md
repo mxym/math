@@ -1,60 +1,57 @@
-## New fixed-local result: independent audit pending
-
-The new source proves the fixed-m limit of the supremum over actual APPT density matrices, including matching physical projection states and explicit errors. It also closes the upper half uniformly over all dimension pairs as total dimension grows. Individual development compilations passed; no independent verification of this newly extended source is claimed until its fresh build and kernel audit finish. The older verified checkpoints below retain their original scopes.
-
-See `REVIEW_FIXED_LOCAL_20261011.md` for the exact normalization, supremum definition, finite bounds, quantifiers and remaining obligations. No finite-dimensional `IsGreatest` or matching growing-m lower theorem is inferred from this source.
-
 # High-dimensional APPT: mathematical review and Lean verification
 
-**Partial formal verification of the overall research. The uniform purity UPPER half is complete; matching lower limits, full extrema, entropy and rigidity theorems are not yet fully Lean-certified.** All physical endpoints use actual complex matrices and the original all-global-unitary APPT definition.
+**The full research program remains partially formalized. The fixed-local purity supremum limit is now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. Matching growing-local-dimension lower limits, exact finite maxima/classification, full entropy and rigidity claims remain unclosed.**
 
-## 1. Completed uniform upper half
+Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
-For every actual APPT density matrix A on C^m tensor C^n, with 8<=m<=n, Lean proves
+## 1. Fixed-local purity: both bounds and a genuine limit
 
-    (mn)^2 [purity(A)-1/(mn)]
-      <= [m/(m-7)]^2 max{8,4+n/m}.
+Let D=mn, C_m=m^2/(m^2-1), and let P_sup(m,n) be the supremum of trace(A*A).re over actual APPT density matrices on C^m tensor C^n. `apptPurityValues` defines this physical objective set, and `appt_purity_values_nonempty_bounded` proves it nonempty and bounded for 2<=m<=n. Positive scaling of its supremum is also proved; totalized empty/unbounded-supremum conventions do not supply the result.
 
-The final declaration `appt_uniform_asymptotic_upper` proves the quantified consequence: for every real epsilon>0 there is ONE natural M such that the right coefficient can be replaced by `(1+epsilon)*max{8,4+n/m}` for EVERY m>=M, EVERY n>=m, and EVERY APPT density matrix at those dimensions. No fixed aspect ratio is assumed, and states can vary arbitrarily with dimension. A sufficient real threshold for the error comparison is m>=max{8,7+63/epsilon}.
+For m>=2 and n>=2m the finite bounds are
 
-The final physical theorem assumes only dimensions, density and all-unitary APPT. It does not assume a spectral ansatz, graph cap, variance inequality, pivot bound, compactness input or the claimed conclusion. The exact finite predecessor, valid for all 2<=m<=n, is
+    C_m - 1/n^2 <= (mn)*P_sup(m,n) <= C_m + 13m/n.
 
-    purity(A)-1/(mn) <= max{8,4+mn/(m-1)^2} * b^2,
-    b=lambda_(mn-m(m+1)/2+1),
+The upper inequality holds for every physical state. The lower inequality is witnessed by an actual coordinate-projection state of integer rank k=ceil((m-1)n/2), whose density, APPT and purity were connected previously. The new exact rounding identity proves the stated lower error, without using a noninteger projection rank.
 
-where the eigenvalues are canonically ordered and the index is one-based. The generic quantum identity `purity_eq_ordered_eigenvalues` connects the original trace(A*A).re definition to their squared sum.
+`appt_fixed_local_purity_sup_tendsto` establishes the actual filter limit
 
-Six modules assemble and normalize the earlier checked dependencies: `ResidualGraph`, `SpectralBaseline`, `FinitePurity`, `PurityNormalization`, `UniformPurityUpper`, and `AsymptoticUpper`. See `REVIEW_UPPER_ASYMPTOTIC_20261011.md` for the exact proof chain and the three added error controls.
+    Tendsto (fun n => (mn)*P_sup(m,n)) atTop (nhds C_m)
 
-## 1.1 Formalization status at a glance
+for every fixed integer m>=2. This closes the complementary fixed-m regime; it is not an extrapolation of the earlier growing-m theorem. This endpoint does not assert finite-dimensional `IsGreatest` or classify maximizing spectra.
 
-| Research component | Lean status |
-|---|---|
-| Actual APPT condition to the finite-dimensional purity upper bound | Verified |
-| Connection between physical density-matrix purity and canonically ordered eigenvalues | Verified |
-| Explicit dimension-only normalization and upper bound | Verified |
-| Uniform asymptotic upper bound for all n >= m as m -> infinity | Verified |
-| Matching lower construction for the unrestricted asymptotic maximum | Not yet formalized |
-| Joint sufficiency of the three-level counterexample in the Lean development | Not yet formalized |
-| Full unrestricted purity maximum, entropy extrema, and rigidity/equality classification | Not yet complete |
+## 2. One upper bound over all dimensional growth regimes
 
-## 2. Independent verification
+`appt_total_dimension_uniform_upper` proves: for every real epsilon>0 there is one natural N such that for all integers 2<=m<=n with mn>=N, and for every actual APPT density matrix A,
 
-GitHub Actions run **38141972563**, source **87d456235a25114a192c549158723b4f925b416a**, passed every stage. Its fresh review-package Lake build completed **2,837 tasks**, retaining external dependency caches. Physical regressions passed. A trust-zero empty kernel replayed **42,044 transitive declarations and 68 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`. Replacing only the proof of **`APPTReview.appt_uniform_asymptotic_upper`** by `True.intro`, preserving its type and universe parameters, was rejected.
+    (mn)^2*(purity(A)-1/(mn))
+      <= (1+epsilon)*max(8,4+mn/(m^2-1)).
 
-All **50 pinned local inputs**, including imported quantum definitions and replay support, matched the exact tested commit. Every uploaded proof module, audit, regression, runner and manifest was compared byte-for-byte. The independent kernel log also matches the earlier local WSL kernel log's SHA-256. Source-bound evidence, original logs, roots, complete closure, axioms and artifact metadata are retained in **`verification/ci-87d45623/`**.
+The threshold works simultaneously for fixed m, growing m, and arbitrarily unbalanced dimensions. The proof combines the new finite fixed-local bound with the previously verified growing-m upper theorem. It remains an UPPER theorem; the matching lower construction when m grows depends on still-unformalized graph limits.
 
-The earlier finite-pivot checkpoint independently passed run **38140515745**, source **dcab372f26a250a529112afde26d8cba942d3b32**: 2,834 Lake tasks, 41,998 declarations and 56 roots. Its distinct source-bound evidence is in `verification/ci-dcab372f/`; original local logs remain in `verification/finite-purity-local-20261011/`. No earlier record is relabeled as a later proof.
+The earlier finite pivot bound, its dimension-only normalization, and the explicit growing-m estimate remain in the same proof closure. The latter is valid for 8<=m<=n with coefficient [m/(m-7)]^2*max(8,4+n/m).
 
-## 3. Other finite results retained in the audited closure
+## 3. Independent kernel evidence
 
-The package also checks actual arbitrary-eigenvalue witnesses and canonical rank-two consequences, the largest-eigenvalue bound, the necessity of the uniform rank-(mn-1) spectrum for matrix singularity, and the exact sorted nonlinear entropy-head inequality with the paper's pivot. The physical contraction theorem proves that 0<=P<=I implies all-unitary PPT for (m-1)I+2P; projection states of every allowed rank have verified density, APPT and exact purity. Sharp antisymmetric witnesses and real PPT-but-not-APPT density matrices are included as error controls.
+Run **38153054623**, tested source **57bc1b6f60a9a10b9c4f289f1644d402799b4369**, passed every independent job and reproduction stage. The fresh review-package Lake build completed **2,844 tasks**, retaining external dependency caches. The empty kernel at trust level **zero** replayed **42,101 transitive declarations and 87 explicit roots**. Its only axioms were `propext`, `Classical.choice`, and `Quot.sound`.
 
-The generic triangular graph bounds retain their sign, symmetry and ordering assumptions; the final physical purity theorem proves those conditions rather than supplying them as a surrogate for APPT. The nonlinear entropy-head theorem is still only one dependency of the full entropy law. Earlier independent records remain available under `verification/ci-a3201c67/`, `verification/ci-adcf3348/`, and the other dated checkpoint directories.
+Both final endpoints were tested against forged proofs. The exact fixed-local supremum-limit theorem was rejected after only its proof was replaced by `True.intro`, following a full positive proof replay. A second independently checked type closure of **8,578 declarations** supported the same rejection test for the total-dimension uniform upper theorem. Neither theorem's type or universe parameters were altered.
 
-## 4. Reproduce
+All **57 pinned local inputs**, including original quantum definitions and replay support, matched both the tested commit and the publication worktree. Uploaded source modules, aggregate, regression, audit, runner and manifest were compared byte-for-byte. Literal logs, roots, declarations, axioms, both corruption controls, source hashes and workflow/artifact metadata are retained in **`verification/ci-57bc1b6f/`**.
 
-Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL:
+These are independent CI and Lean-kernel checks, not external mathematical peer review. Earlier audit records retain their own source bindings and are not relabeled as the newer theorem.
+
+## 4. Failure diagnosis and negative controls
+
+The first independent run (38152532117, aa49f7fc) successfully built all mathematical modules and replayed 42,101 declarations with 87 roots, including the fixed-local theorem. It nevertheless FAILED overall: the added second `run_cmd` invocation ended before its arguments because of Lean's command layout. Joining that invocation onto one line fixed the audit wrapper. No mathematical module, theorem type, axiom policy or verification timeout was weakened. The complete workflow was rerun, and the literal failed record remains under `verification/failed-aa49f7fc/`.
+
+The new physical regression roots include a 2x4 APPT state with scaled purity 4/3, rejecting a unit coefficient or the incorrect 1+1/m^2. A 4x5 APPT state has exact positive rounding gap 1/5415, rejecting equality with the continuous-rank optimum at that finite dimension. Existing false-PPT/APPT, wrong dimension constant, signed graph, row-order, summation-scope and zero-denominator controls remain audited.
+
+An isolated development compiler was used while the authorized Windows builder was offline. Its receipts explicitly report compiler errors and are not proof certificates. That session was stopped. This checkpoint instead uses the separate normal proof workflow with the original committed module paths and full trust-zero audit.
+
+## 5. Reproduction and dependencies
+
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL, from this directory:
 
 ```sh
 lake exe cache get
@@ -62,15 +59,12 @@ python3 reproduce.py --check-only
 python3 reproduce.py --fresh
 ```
 
-The runner checks source pins and the actual Mathlib checkout, builds the imported review closure rather than the original 879-module qutrit target, compiles replay support with its explicit source root, runs mathematical positive/negative controls and replays all audit roots. Each stage has a finite timeout; on timeout its process group is terminated and literal failure output is retained. `--write-manifest` records an intended source set and does not verify it.
+The runner verifies source pins and the actual dependency checkout, builds only the imported review closure, compiles replay support with an explicit source root, runs physical controls, and replays all selected roots. Every stage has a finite timeout with process-group termination on timeout and retained diagnostics. `--write-manifest` records intended sources but does not verify them.
 
-## 5. Remaining obligations and review limits
+Seven modules close the new chain: `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
 
-See `COVERAGE.md`. The newly verified theorem proves only the growing-small-dimension upper half directly for every physical state. It does not yet formalize matching lower graph limits, equality or attainment of a limiting maximum, the complementary fixed-m asymptotic, or exact rectangular optimization and its equality classification. The joint projection-plus-spike sufficiency needed for the three-level counterexample is also still missing. Full entropy minima, rigidity and limiting outlier classifications remain unclosed.
+## 6. What is not yet certified
 
-Development caught a real summation-scope mistake, omitted aspect dependence and zero-denominator normalization as potential errors; corresponding exact regression statements are now in the kernel audit. Compilation errors were resolved before the successful CI submissions. A temporary Windows GitHub connection failure was handled by byte-checked transfer to the authorized VPS, and concurrent main updates were merged without overwriting them. No workflow was weakened and no failed proof was counted as verification.
+See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
 
-These are independent CI and Lean-kernel checks, not external mathematical peer
-review. The old qutrit proof and its immutable release remain unchanged; this
-review package does not by itself certify the higher-dimensional analytic
-claims in the expanded preprint.
+The joint projection-plus-spike sufficiency for the three-level counterexample, exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment of the purity supremum is not asserted by the new fixed-local theorem. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
