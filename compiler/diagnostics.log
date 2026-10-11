@@ -41,3 +41,65 @@ HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been depreca
 MODULE HydrologyTree.ProductDerivative
 
 MODULE HydrologyTree.JacobianComposition
+
+MODULE HydrologyTree.FamilyProduct
+HydrologyTree/FamilyProduct.lean:32:4: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/FamilyProduct.lean:44:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddCommGroup ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/FamilyProduct.lean:44:11: error: Type mismatch
+  hasFDerivAt_const x 0
+has type
+  HasFDerivAt (fun x_1 => x) 0 0
+but is expected to have type
+  HasFDerivAt (familyProduct []) (familyProductDerivative [] x) x
+HydrologyTree/FamilyProduct.lean:59:8: error: unsolved goals
+case nil
+x : ProductInput []
+⊢ ↑(monicPoly 0) = 1
+HydrologyTree/FamilyProduct.lean:59:51: warning: This simp argument is unused:
+  coe_monicPoly
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [familyProduct, familyPolynomials]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/FamilyProduct.lean:83:8: error: unsolved goals
+case nil
+x : ProductInput []
+⊢ ((LinearMap.toMatrix (familyBasis []) (degreeLT.basis ℝ 0)) ↑(familyProductDerivative [] x)).det = 1
+HydrologyTree/FamilyProduct.lean:89:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (LinearMap.toMatrix (familyBasis (m :: ms)) (degreeLT.basis ℝ (m + ms.sum))) (?f ∘ₗ ?g)
+in the target expression
+  ((LinearMap.toMatrix (familyBasis (m :: ms)) (degreeLT.basis ℝ (m + ms.sum)))
+        (↑(monoSylv (x.1, familyProduct ms x.2)) ∘ₗ ↑(keepLeft (familyProductDerivative ms x.2)))).det =
+    (↑(monicPoly x.1)).resultant (↑(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2
+
+case cons
+m : ℕ
+ms : List ℕ
+ih :
+  ∀ (x : ProductInput ms),
+    ((LinearMap.toMatrix (familyBasis ms) (degreeLT.basis ℝ ms.sum)) ↑(familyProductDerivative ms x)).det =
+      familyResultant ms x
+x : ProductInput (m :: ms)
+⊢ ((LinearMap.toMatrix (familyBasis (m :: ms)) (degreeLT.basis ℝ (m + ms.sum)))
+        (↑(monoSylv (x.1, familyProduct ms x.2)) ∘ₗ ↑(keepLeft (familyProductDerivative ms x.2)))).det =
+    (↑(monicPoly x.1)).resultant (↑(monicPoly (familyProduct ms x.2))) m ms.sum * familyResultant ms x.2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    x
+  has type
+    ProductInput (m :: ms)
+  but is expected to have type
+    ↥(Coeff m) × ProductInput ms
+  in the application
+    x.1
