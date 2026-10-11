@@ -32,6 +32,64 @@ structure WindowFillingVariableSequenceProvider (Z : LogScale) : Prop where
           q * (input Z n) ^ (r.1.1 + α) <
             routingBufferRadius c.template p)
 
+/-! Canonical node inputs use the actual selector-edge starts as their `u`
+coordinates.  This removes an easy source of dependent-type mistakes: the
+window identity is definitional, while all annulus inequalities remain
+explicit obligations for the geometric bridge. -/
+noncomputable def variableRateNodeInput_of_canonical
+    {Z : LogScale} {K : ℕ} {k : ℤ} {M d : ℕ}
+    (c : RoutingTemplate M d) (v : InternalNode M d)
+    (U R D δ : ℝ)
+    (ha : ∀ child,
+      U / R ≤ (c.edgeStart
+        (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) + (k : ℝ)) /
+        (K : ℝ) - D)
+    (ha_hi : ∀ child,
+      (c.edgeStart
+        (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) + (k : ℝ)) /
+        (K : ℝ) ≤ R * U)
+    (hnum : ∀ child,
+      0 ≤ c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) +
+        (vertexWindowLength c v : ℝ) + (k : ℝ))
+    (huk : ∀ child,
+      0 ≤ c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) +
+        (k : ℝ))
+    (hell : 2 * ((K : ℝ) * (δ + D)) ≤ vertexWindowLength c v)
+    (hannulus : ∀ child,
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) +
+        (vertexWindowLength c v : ℝ) + (k : ℝ)) /
+          (1 / (K : ℝ)) + δ + D ≤ R * U)
+    (hsep : 3 ≤ (1 / (K : ℝ)) * δ) :
+    VariableRateNodeInput (Z := Z) (K := K) (k := k) c v U R D δ := by
+  refine {
+    u := fun child =>
+      (c.edgeStart (RoutingTemplate.selectorRoutingEdge ⟨v, child⟩) : ℝ)
+    ell := vertexWindowLength c v
+    ha := ?_
+    ha_hi := ?_
+    hnum := ?_
+    huk := ?_
+    ell_eq := rfl
+    hwindow := ?_
+    hell := hell
+    hannulus := ?_
+    hsep := hsep
+  }
+  · intro child
+    exact ha child
+  · intro child
+    exact ha_hi child
+  · intro child
+    exact hnum child
+  · intro child
+    exact huk child
+  · intro child
+    constructor
+    · rfl
+    · rfl
+  · intro child
+    exact hannulus child
+
 /-! The assembly theorem is fully kernel-checked.  The only pending work is
 the construction of the direct provider above; once supplied, the theorem
 selects `p = δ/12`, obtains a late annulus from `WindowFilling`, and feeds its
