@@ -28,10 +28,11 @@
 ## 完整书面证明的新预印本
 
 - [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)：证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1，并给出无爪 vertex-minor 的六类分量分类与七顶点连通阈值；完整书面证明与双独立精确 checker，未完整 Lean 化。
-- [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；有限精确诊断与部分 Lean，完整猜想及二次对数间隙序列仍开放。
+- [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；确定性环带采样、窗口填充和变量树代数已完整 Lean，正测度避让主定理仍未形式化；完整猜想及二次对数间隙序列仍开放。
 - [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
 - [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)：对每个 `0<p<1/4` 的四胞质量族给出严格非正四面体改进；等质量情形不在结论内。完整书面反例、精确诊断与部分 Lean。
-- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3−m−2` 区间的精确最大值与极值谱分类；qutrit 主定理完整 Lean，高维部分为书面解析证明与精确 checker。
+- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3-m-2` 区间的精确最大值与极值谱分类；qutrit 主定理完整 Lean，高维纯度部分为书面解析证明与精确 checker。
+- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式；2,745 个构建任务、40,088 个传递声明和 22 个根的 trust-zero 复核通过。高维全局纯度、熵极值、图极限和刚性结论不包含在此次形式化中。
 
 ## 新增高斯维数与质量预印本
 
