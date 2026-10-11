@@ -1,6 +1,6 @@
 {
   "serial": 1791733097686,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "dad0ee2cdaf125e4e730ec2c7015788626e2c460",
   "modules": [
     "FixedLocalRatio",
@@ -18,7 +18,34 @@
     "PlateauApproximation.lean": "1022beb7263e9f84345fbfda471fb04e66c3a95f8b73725f451a6bc0a1beecbd",
     "FixedLocalLimit.lean": "30237a0e5941f2fb02a4e7c609e6aa111eb260f87f60e2a3275b933eff8abb3f"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "FixedLocalRatio",
+      "returncode": 0,
+      "seconds": 4.279
+    },
+    {
+      "module": "IntervalMoment",
+      "returncode": 0,
+      "seconds": 2.928
+    },
+    {
+      "module": "FixedLocalUpper",
+      "returncode": 0,
+      "seconds": 18.574
+    },
+    {
+      "module": "PlateauApproximation",
+      "returncode": 0,
+      "seconds": 6.755
+    },
+    {
+      "module": "FixedLocalLimit",
+      "returncode": 1,
+      "seconds": 3.528
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38150520311"
+  "run_id": "38150520311",
+  "diagnostics": "FixedLocalLimit.lean:87:4: error: Type mismatch: After simplification, term\n  density_appt_fixed_local_upper hm hn hB hp\n has type\n  \u2191m * \u2191n * APPT.Quantum.purity B \u2264 \u2191m ^ 2 / (\u2191m ^ 2 - 1) + \u2191m * 13 / \u2191n\nbut is expected to have type\n  \u2191m * \u2191n * APPT.Quantum.purity B \u2264 U\nFixedLocalLimit.lean:100:6: error: Type mismatch: After simplification, term\n  le_csSup hsbdd\n    (have this := Exists.intro B \u27e8hB, \u27e8hp, rfl\u27e9\u27e9;\n    this)\n has type\n  @LE.le \u211d Real.instConditionallyCompleteLinearOrder.toSemilatticeInf.toLE (\u2191m * \u2191n * APPT.Quantum.purity B)\n    (sSup (scaledAPPTPurities m n))\nbut is expected to have type\n  @LE.le \u211d Real.partialOrder.toLE (\u2191m * \u2191n * APPT.Quantum.purity B) (scaledAPPTPuritySup m n)\n"
 }
