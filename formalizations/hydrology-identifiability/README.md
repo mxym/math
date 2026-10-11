@@ -11,6 +11,9 @@ It proves both sides of a useful model-design statement:
 * the positive second-order coefficients rule out an exact power-law recession
   after the calculus substitution shown in the paper; the formalized core is
   the three-point polynomial residual check.
+* two active parallel exponential reservoirs satisfy an exact order-two moment
+  recurrence, and a nonzero Hankel determinant makes its sum/product
+  coefficients unique from the first four moments.
 
 The package also verifies a physical equifinality example: `(2,2,2)` and
 `(1,1,4)` have the same `(S,P)` and the same equilibrium discharge for every
@@ -33,4 +36,7 @@ lake build
 ```
 
 The Python checker in `checks/exact.py` independently checks the same rational
-identities and deliberate failure controls.
+identities, the parallel-reservoir regression example, and deliberate failure
+controls. The parallel result is in `Hydrology/Parallel.lean`; it recovers the
+unordered rate pair as the roots of the resulting quadratic, but does not claim
+identifiability for arbitrary distributed or nonlinear catchments.

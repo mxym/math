@@ -69,10 +69,11 @@ mechanism explicit rather than assuming an empty catchment.
 The exact rational regression checker is `checks/exact.py` and passes both
 normal and optimized Python execution. The Lean package in
 `formalizations/hydrology-identifiability/` formalizes the pointwise jet
-elimination identity, the stationary equifinality certificate, and the exact
-parameter-recovery formulas. It deliberately does not hide an ODE existence
-assumption: trajectories are represented by explicit pointwise derivative jets,
-so every hypothesis used by the algebraic proof is visible.
+elimination identity, the stationary equifinality certificate, the exact
+parameter-recovery formulas, the finite-storage recession obstruction, and the
+parallel-reservoir moment identities. It deliberately does not hide an ODE
+existence assumption: trajectories are represented by explicit pointwise
+derivative jets, so every hypothesis used by the algebraic proof is visible.
 
 The current result is intentionally limited to this model. It does not claim a
 general identifiability theorem for all conceptual hydrology models. The next
@@ -91,6 +92,30 @@ The Lean proof evaluates this residual at the three exact times \(0,1,2\), so
 the obstruction is a finite algebraic certificate. It separates this finite
 two-storage linear model from exact power-law recession tails without claiming
 that empirical tails are exact or ruling out distributed or nonlinear models.
+
+For two active parallel exponential reservoirs, let
+
+[
+m_j=w_1ell_1^j+w_2ell_2^jquad (j=0,1,2,3).
+]
+
+`Hydrology/Parallel.lean` proves the order-two recurrence
+
+[
+m_{j+2}=(ell_1+ell_2)m_{j+1}-ell_1ell_2m_jquad(j=0,1)
+]
+
+and the exact Hankel identity
+
+[
+m_0m_2-m_1^2=w_1w_2(ell_1-ell_2)^2.
+]
+
+Its uniqueness theorem says that a nonzero Hankel determinant makes the first
+four moments determine (s=ell_1+ell_2) and (p=ell_1ell_2) uniquely; the
+two rates are then the roots of (z^2-sz+p), up to order. This is a finite
+model-order diagnostic, not a general identifiability theorem for distributed
+or nonlinear catchments.
 
 ## Context
 
