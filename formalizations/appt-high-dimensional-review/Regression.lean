@@ -1,3 +1,4 @@
+import APPTReview.RowArrangement
 import APPTReview
 
 open scoped BigOperators ComplexOrder
@@ -57,3 +58,32 @@ theorem plateau_four_fiftyeight :
   exact hh
 
 end APPTReviewRegression
+namespace APPTReviewGraphRegression
+open scoped BigOperators
+open Matrix
+
+def signedGraph : Matrix (Fin 1) (Fin 1) ℝ := (-2 : ℝ) • 1
+
+theorem signedGraph_upper_cap : ((1 : Matrix (Fin 1) (Fin 1) ℝ)-signedGraph).PosSemidef := by
+  have h := (Matrix.PosSemidef.one : (1 : Matrix (Fin 1) (Fin 1) ℝ).PosSemidef).smul
+    (by norm_num : (0 : ℝ)≤3)
+  convert h using 1
+  unfold signedGraph
+  module
+
+theorem signedGraph_square_failure : ¬ (∑ i : Fin 1, (signedGraph *ᵥ (fun _ => (1:ℝ))) i ^ 2) ≤ 1 := by
+  norm_num [signedGraph, Matrix.mulVec, Matrix.smul_apply, Matrix.one_apply, dotProduct]
+
+def lateEdge : Matrix (Fin 3) (Fin 3) ℝ := fun i j =>
+  if (i=1 ∧ j=2) ∨ (i=2 ∧ j=1) then 1 else 0
+
+theorem unordered_triangle_failure :
+    ¬ (3 : ℝ)*(∑ i : Fin 2, APPTReview.rowEnergy lateEdge i.succ) ≤
+      ∑ i : Fin 3, (∑ j : Fin 3, lateEdge i j)^2 := by
+  have h1 : Finset.Ioi (1 : Fin 3) = {2} := by decide
+  have h2 : Finset.Ioi (2 : Fin 3) = ∅ := by decide
+  simp only [Fin.sum_univ_two, Fin.sum_univ_three]
+  norm_num [APPTReview.rowEnergy, h1, h2, lateEdge]
+
+
+end APPTReviewGraphRegression
