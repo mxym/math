@@ -1,8 +1,12 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 1795 file(s)
+Attempting to download 1 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 1 file(s) [attempted 1/1 = 100%, 30 KB/s], Decompressed: 0
+Downloaded: 1 file(s) [attempted 1/1 = 100%, 30 KB/s], Decompressed: 0
+Decompressed 1 file(s)
+Already decompressed 1803 file(s)
 
 MODULE HydrologyTree.EdgeDeterminant
 HydrologyTree/EdgeDeterminant.lean:13:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.add_single_eq_updateRow`:
@@ -34,84 +38,17 @@ HydrologyTree/EdgeDeterminant.lean:60:6: warning: this tactic is never executed
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 
 MODULE HydrologyTree.EdgeCharacteristic
-HydrologyTree/EdgeCharacteristic.lean:15:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
+HydrologyTree/EdgeCharacteristic.lean:2:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:16:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommRing ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:20:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:19:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:21:2: error: No applicable extensionality theorem found for type
-  Matrix ι ι ℝ
-
-Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
-HydrologyTree/EdgeCharacteristic.lean:28:37: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:30:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:28:76: error: unsolved goals
-ι : Type u_1
-inst✝¹ : Fintype ι
-inst✝ : DecidableEq ι
-ℝ : Type u_3
-A : Matrix ι ι ℝ
-i : ι
-s : ℝ
-⊢ sorry = sorry
-HydrologyTree/EdgeCharacteristic.lean:36:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:36:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Field ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:37:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:37:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:37:68: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Neg ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:37:73: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Neg ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:37:80: error: unsolved goals
-case inl.inl
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-ℝ : Type u_3
-A : Matrix ι ι ℝ
-B : Matrix κ κ ℝ
-i : ι
-j : κ
-a f s : ℝ
-val✝¹ val✝ : ι
-⊢ (sorry () - sorry ()) (Sum.inl val✝¹) (Sum.inl val✝) = (sorry () - A) val✝¹ val✝
-
+import Mathlib.Basic.Real.Basic
+HydrologyTree/EdgeCharacteristic.lean:32:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  eval s (A.charmatrix.adjugate i i) = (A.charmatrix.map (eval s)).adjugate i i
+but is expected to have type
+  eval s (A.charmatrix.adjugate i i) = ((scalar ι) s - A).adjugate i i
+HydrologyTree/EdgeCharacteristic.lean:38:80: error: unsolved goals
 case inl.inr
 ι : Type u_1
 κ : Type u_2
@@ -119,7 +56,6 @@ inst✝³ : Fintype ι
 inst✝² : Fintype κ
 inst✝¹ : DecidableEq ι
 inst✝ : DecidableEq κ
-ℝ : Type u_3
 A : Matrix ι ι ℝ
 B : Matrix κ κ ℝ
 i : ι
@@ -127,7 +63,7 @@ j : κ
 a f s : ℝ
 val✝¹ : ι
 val✝ : κ
-⊢ (sorry () - sorry ()) (Sum.inl val✝¹) (Sum.inr val✝) = if i = val✝¹ ∧ j = val✝ then sorry () else 0
+⊢ (-if i = val✝¹ ∧ j = val✝ then a else 0) = if i = val✝¹ ∧ j = val✝ then -a else 0
 
 case inr.inl
 ι : Type u_1
@@ -136,7 +72,6 @@ inst✝³ : Fintype ι
 inst✝² : Fintype κ
 inst✝¹ : DecidableEq ι
 inst✝ : DecidableEq κ
-ℝ : Type u_3
 A : Matrix ι ι ℝ
 B : Matrix κ κ ℝ
 i : ι
@@ -144,55 +79,17 @@ j : κ
 a f s : ℝ
 val✝¹ : κ
 val✝ : ι
-⊢ (sorry () - sorry ()) (Sum.inr val✝¹) (Sum.inl val✝) = if j = val✝¹ ∧ i = val✝ then sorry () else 0
-
-case inr.inr
-ι : Type u_1
-κ : Type u_2
-inst✝³ : Fintype ι
-inst✝² : Fintype κ
-inst✝¹ : DecidableEq ι
-inst✝ : DecidableEq κ
-ℝ : Type u_3
-A : Matrix ι ι ℝ
-B : Matrix κ κ ℝ
-i : ι
-j : κ
-a f s : ℝ
-val✝¹ val✝ : κ
-⊢ (sorry () - sorry ()) (Sum.inr val✝¹) (Sum.inr val✝) = (sorry () - B) val✝¹ val✝
-HydrologyTree/EdgeCharacteristic.lean:40:20: warning: This simp argument is unused:
-  Matrix.scalar_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [edgeJoin, Matrix.diagonal_apply, Matrix.single_apply]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/EdgeCharacteristic.lean:40:41: warning: This simp argument is unused:
-  Matrix.diagonal_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [edgeJoin, Matrix.scalar_apply, Matrix.single_apply]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/EdgeCharacteristic.lean:43:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Semiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:45:14: warning: `Set.compl_setOf` has been deprecated: Use `Set.compl_ofPred` instead
-HydrologyTree/EdgeCharacteristic.lean:53:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommRing ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:53:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommRing ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:53:35: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  HMul ℝ ℝ ?m.21
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/EdgeCharacteristic.lean:52:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Field ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+⊢ (-if j = val✝¹ ∧ i = val✝ then f else 0) = if j = val✝¹ ∧ i = val✝ then -f else 0
+HydrologyTree/EdgeCharacteristic.lean:46:14: warning: `Set.compl_setOf` has been deprecated: Use `Set.compl_ofPred` instead
+HydrologyTree/EdgeCharacteristic.lean:62:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (edgeJoin ((scalar ι) s - A) ((scalar κ) s - B) i j (-a) (-f)).det =
+    ((scalar ι) s - A).det * ((scalar κ) s - B).det -
+      a * f * ((scalar ι) s - A).adjugate i i * ((scalar κ) s - B).adjugate j j
+but is expected to have type
+  s ∈
+    {x |
+      (edgeJoin ((scalar ι) x - A) ((scalar κ) x - B) i j (-a) (-f)).det =
+        ((scalar ι) x - A).det * ((scalar κ) x - B).det -
+          a * f * ((scalar ι) x - A).adjugate i i * ((scalar κ) x - B).adjugate j j}
