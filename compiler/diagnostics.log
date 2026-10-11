@@ -25,40 +25,18 @@ MODULE HydrologyTree.BlockJacobian
 MODULE HydrologyTree.Triangular
 
 MODULE HydrologyTree.RateChart
-HydrologyTree/RateChart.lean:82:57: error: unsolved goals
-case inl.inr
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-val✝¹ : Fin (n + 1)
-val✝ : Fin n
-⊢ (if val✝¹ = t.parent val✝ then 1 else 0) = ∑ x, if val✝¹ = t.parent x then if val✝ = x then 1 else 0 else 0
-HydrologyTree/RateChart.lean:91:90: error: unsolved goals
-n : ℕ
-t : OrderedTree n
-f : EdgeValues n
-i j : Fin n
-⊢ (if i.succ = t.parent j then f i else 0) = if t.parent j = i.succ then f i else 0
-HydrologyTree/RateChart.lean:92:58: warning: This simp argument is unused:
+HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
   ite_mul
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence]
+  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence, eq_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:96:66: error: unsolved goals
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-i j : Fin n
-hij : id j < id i
-hne : t.parent j ≠ i.succ
-⊢ i = j → x.1 i.succ = 0
-HydrologyTree/RateChart.lean:106:9: warning: This simp argument is unused:
-  ne_of_gt hij
+HydrologyTree/RateChart.lean:113:26: warning: This simp argument is unused:
+  Matrix.diagonal_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.sub_apply, Matrix.diagonal_apply, childWeighted_mul_parent, hne]
+  [apply] simp [Matrix.sub_apply, childWeighted_mul_parent, hne, hneq]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:120:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
+HydrologyTree/RateChart.lean:128:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
