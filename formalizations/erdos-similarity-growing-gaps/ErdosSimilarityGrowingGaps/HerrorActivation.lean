@@ -72,4 +72,41 @@ theorem eventually_activation_span_margin
     exact hspani.trans hratio
   linarith
 
+/-! The fixed additive shift in a buffer exponent absorbs the coefficient `q`.
+The form below is tailored to the routing denominator
+`8 * 2 ^ (origin + span + 2)`; callers can obtain `hC` by choosing any
+constant shift large enough for their fixed `q/p` ratio. -/
+theorem herror_buffer_comparison
+    (origin span C p q : ℝ)
+    (hp : 0 < p) (hq : 0 ≤ q)
+    (hC : q * (2 : ℝ) ^ (-C) < p / 64) :
+    q * (2 : ℝ) ^ (-(origin + span + C)) <
+      p / (8 * (2 : ℝ) ^ (origin + span + 2)) := by
+  have hden : 0 < 8 * (2 : ℝ) ^ (origin + span + 2) := by positivity
+  apply (lt_div_iff₀ hden).2
+  have hsplit : (2 : ℝ) ^ (-(origin + span + C)) =
+      (2 : ℝ) ^ (-(origin + span)) * (2 : ℝ) ^ (-C) := by
+    rw [show -(origin + span + C) = -(origin + span) + -C by ring,
+      Real.rpow_add (by norm_num)]
+  have hplus : (2 : ℝ) ^ (origin + span + 2) =
+      (2 : ℝ) ^ (origin + span) * 4 := by
+    rw [show origin + span + 2 = (origin + span) + 2 by ring,
+      Real.rpow_add (by norm_num)]
+    norm_num [Real.rpow_natCast]
+  have hcancel : (2 : ℝ) ^ (-(origin + span)) *
+      (2 : ℝ) ^ (origin + span) = 1 := by
+    rw [← Real.rpow_add (by norm_num)]
+    simp
+  rw [hsplit, hplus]
+  have hscaled : 32 * (q * (2 : ℝ) ^ (-C)) < p := by
+    nlinarith [hC]
+  calc
+    (q * ((2 : ℝ) ^ (-(origin + span)) * (2 : ℝ) ^ (-C))) *
+        (8 * ((2 : ℝ) ^ (origin + span) * 4)) =
+        32 * (q * (2 : ℝ) ^ (-C)) *
+            ((2 : ℝ) ^ (-(origin + span)) *
+              (2 : ℝ) ^ (origin + span)) := by ring
+    _ = 32 * (q * (2 : ℝ) ^ (-C)) := by rw [hcancel]; ring
+    _ < p := hscaled
+
 end ErdosSimilarityGrowingGaps
