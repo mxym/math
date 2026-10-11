@@ -100,4 +100,34 @@ theorem variable_uniform_candidate_count_le_endpoint
     _ ≤ (M : ℝ) * V := by simpa only [Nat.cast_add, Nat.cast_one] using hprod
     _ ≤ (M : ℝ) * T := mul_le_mul_of_nonneg_left hVle hMnonneg
 
+theorem variable_uniform_candidate_count_of_template
+    {M K d : ℕ} (hK : 2 ≤ K) (c : RoutingTemplate M d)
+    (σ D : ℝ) (hσ : 3 * (K : ℝ) ≤ σ) (hD : 0 ≤ D)
+    (horigin : 4 ≤ c.origin)
+    (hspan : (RoutingTemplate.span M c.gap c.baseLength d : ℝ) ≤ c.origin)
+    (hcoeff : |(k : ℝ)| ≤ c.origin) (hDorigin : D ≤ (c.origin : ℝ)) :
+    (((M - 1) * (variableNodeUniformBudget K
+      ((c.origin : ℝ) + RoutingTemplate.span M c.gap c.baseLength d +
+        |(k : ℝ)| + 2) D σ + 1) : ℕ) : ℝ) ≤
+      (M : ℝ) * ((c.origin : ℝ) +
+        (RoutingTemplate.span M c.gap c.baseLength d : ℝ) + |(k : ℝ)| + 2) := by
+  let T : ℝ := (c.origin : ℝ) +
+    (RoutingTemplate.span M c.gap c.baseLength d : ℝ) + |(k : ℝ)| + 2
+  have hT : 0 ≤ T := by
+    dsimp [T]
+    positivity
+  have hT6 : 6 ≤ T := by
+    dsimp [T]
+    have ho : (4 : ℝ) ≤ c.origin := by exact_mod_cast horigin
+    have hs : 0 ≤ (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by positivity
+    have hk : 0 ≤ |(k : ℝ)| := abs_nonneg _
+    linarith
+  have hDle : D ≤ T := by
+    dsimp [T]
+    have hs : 0 ≤ (RoutingTemplate.span M c.gap c.baseLength d : ℝ) := by positivity
+    have hk : 0 ≤ |(k : ℝ)| := abs_nonneg _
+    linarith [hDorigin]
+  apply variable_uniform_candidate_count_le_endpoint hK σ D T T hσ hD hDle
+    hT6 le_rfl
+
 end ErdosSimilarityGrowingGaps
