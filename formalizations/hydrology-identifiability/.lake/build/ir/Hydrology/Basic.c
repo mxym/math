@@ -1,0 +1,267 @@
+// Lean compiler output
+// Module: Hydrology.Basic
+// Imports: public import Init public meta import Init public import Mathlib.Basic.Real.Basic public import Mathlib.Tactic.FieldSimp public import Mathlib.Tactic.Linarith public import Mathlib.Tactic.NormNum public import Mathlib.Tactic.Ring
+#include <lean/lean.h>
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wunused-label"
+#elif defined(__GNUC__) && !defined(__CLANG__)
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-label"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+lean_object* lean_nat_to_int(lean_object*);
+lean_object* l_Rat_ofInt(lean_object*);
+lean_object* lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Basic_Real_Basic_1745762101____hygCtx___hyg_2_(lean_object*, lean_object*, lean_object*);
+lean_object* lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Basic_Real_Basic_2153608522____hygCtx___hyg_2_(lean_object*, lean_object*, lean_object*);
+extern lean_object* lp_mathlib_Real_definition_00___x40_Mathlib_Basic_Real_Basic_6358291____hygCtx___hyg_2_;
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_totalRate(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_productRate(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__2(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0(lean_object*);
+static lean_once_cell_t lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0;
+static lean_once_cell_t lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1;
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA;
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg(lean_object*);
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4(lean_object*, lean_object*, lean_object*);
+static lean_once_cell_t lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0;
+static lean_once_cell_t lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1;
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB;
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_totalRate(lean_object* v_00_u03b8_1_){
+_start:
+{
+lean_object* v_a_2_; lean_object* v_b_3_; lean_object* v_c_4_; lean_object* v___f_5_; lean_object* v___f_6_; 
+v_a_2_ = lean_ctor_get(v_00_u03b8_1_, 0);
+lean_inc(v_a_2_);
+v_b_3_ = lean_ctor_get(v_00_u03b8_1_, 1);
+lean_inc(v_b_3_);
+v_c_4_ = lean_ctor_get(v_00_u03b8_1_, 2);
+lean_inc(v_c_4_);
+lean_dec_ref(v_00_u03b8_1_);
+v___f_5_ = lean_alloc_closure((void*)(lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Basic_Real_Basic_2153608522____hygCtx___hyg_2_), 3, 2);
+lean_closure_set(v___f_5_, 0, v_a_2_);
+lean_closure_set(v___f_5_, 1, v_b_3_);
+v___f_6_ = lean_alloc_closure((void*)(lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Basic_Real_Basic_2153608522____hygCtx___hyg_2_), 3, 2);
+lean_closure_set(v___f_6_, 0, v___f_5_);
+lean_closure_set(v___f_6_, 1, v_c_4_);
+return v___f_6_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_HydrologyIdentifiability_productRate(lean_object* v_00_u03b8_7_){
+_start:
+{
+lean_object* v_a_8_; lean_object* v_c_9_; lean_object* v___f_10_; 
+v_a_8_ = lean_ctor_get(v_00_u03b8_7_, 0);
+lean_inc(v_a_8_);
+v_c_9_ = lean_ctor_get(v_00_u03b8_7_, 2);
+lean_inc(v_c_9_);
+lean_dec_ref(v_00_u03b8_7_);
+v___f_10_ = lean_alloc_closure((void*)(lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Basic_Real_Basic_1745762101____hygCtx___hyg_2_), 3, 2);
+lean_closure_set(v___f_10_, 0, v_a_8_);
+lean_closure_set(v___f_10_, 1, v_c_9_);
+return v___f_10_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__2(lean_object* v_a_11_){
+_start:
+{
+lean_object* v___x_12_; lean_object* v___x_13_; 
+v___x_12_ = lean_nat_to_int(v_a_11_);
+v___x_13_ = l_Rat_ofInt(v___x_12_);
+return v___x_13_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0(lean_object* v___x_14_, lean_object* v_x_15_){
+_start:
+{
+lean_inc_ref(v___x_14_);
+return v___x_14_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0___boxed(lean_object* v___x_16_, lean_object* v_x_17_){
+_start:
+{
+lean_object* v_res_18_; 
+v_res_18_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0(v___x_16_, v_x_17_);
+lean_dec(v_x_17_);
+lean_dec_ref(v___x_16_);
+return v_res_18_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(lean_object* v_a_19_){
+_start:
+{
+lean_object* v___x_20_; lean_object* v___f_21_; 
+v___x_20_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__2(v_a_19_);
+v___f_21_ = lean_alloc_closure((void*)(lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1___lam__0___boxed), 2, 1);
+lean_closure_set(v___f_21_, 0, v___x_20_);
+return v___f_21_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0(lean_object* v_a_22_){
+_start:
+{
+lean_object* v___x_23_; 
+v___x_23_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(v_a_22_);
+return v___x_23_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0(lean_object* v_a_24_){
+_start:
+{
+lean_object* v___x_25_; 
+v___x_25_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(v_a_24_);
+return v___x_25_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0(void){
+_start:
+{
+lean_object* v___x_26_; lean_object* v___x_27_; 
+v___x_26_ = lean_unsigned_to_nat(2u);
+v___x_27_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(v___x_26_);
+return v___x_27_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1(void){
+_start:
+{
+lean_object* v___x_28_; lean_object* v___x_29_; 
+v___x_28_ = lean_obj_once(&lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0, &lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0_once, _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__0);
+v___x_29_ = lean_alloc_ctor(0, 3, 0);
+lean_ctor_set(v___x_29_, 0, v___x_28_);
+lean_ctor_set(v___x_29_, 1, v___x_28_);
+lean_ctor_set(v___x_29_, 2, v___x_28_);
+return v___x_29_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA(void){
+_start:
+{
+lean_object* v___x_30_; 
+v___x_30_ = lean_obj_once(&lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1, &lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1_once, _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA___closed__1);
+return v___x_30_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0(lean_object* v_x_31_, lean_object* v_x_32_){
+_start:
+{
+lean_inc_ref(v_x_31_);
+return v_x_31_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0___boxed(lean_object* v_x_33_, lean_object* v_x_34_){
+_start:
+{
+lean_object* v_res_35_; 
+v_res_35_ = lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0(v_x_33_, v_x_34_);
+lean_dec(v_x_34_);
+lean_dec_ref(v_x_33_);
+return v_res_35_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg(lean_object* v_x_36_){
+_start:
+{
+lean_object* v___f_37_; 
+v___f_37_ = lean_alloc_closure((void*)(lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0___boxed), 2, 1);
+lean_closure_set(v___f_37_, 0, v_x_36_);
+return v___f_37_;
+}
+}
+LEAN_EXPORT lean_object* lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4(lean_object* v_inst_38_, lean_object* v_inst_39_, lean_object* v_x_40_){
+_start:
+{
+lean_object* v___f_41_; 
+v___f_41_ = lean_alloc_closure((void*)(lp_HydrologyIdentifiability_CauSeq_const___at___00CauSeq_Completion_ofRat___at___00Real_definition_00___x40_Mathlib_Basic_Real_Basic_3335671075____hygCtx___hyg_2__spec__2_spec__3___at___00Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1_spec__4___redArg___lam__0___boxed), 2, 1);
+lean_closure_set(v___f_41_, 0, v_x_40_);
+return v___f_41_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0(void){
+_start:
+{
+lean_object* v___x_42_; lean_object* v___x_43_; 
+v___x_42_ = lean_unsigned_to_nat(4u);
+v___x_43_ = lp_HydrologyIdentifiability_Nat_cast___at___00Nat_cast___at___00Nat_cast___at___00HydrologyIdentifiability_thetaA_spec__0_spec__0_spec__1(v___x_42_);
+return v___x_43_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1(void){
+_start:
+{
+lean_object* v___x_44_; lean_object* v___x_45_; lean_object* v___x_46_; 
+v___x_44_ = lean_obj_once(&lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0, &lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0_once, _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__0);
+v___x_45_ = lp_mathlib_Real_definition_00___x40_Mathlib_Basic_Real_Basic_6358291____hygCtx___hyg_2_;
+v___x_46_ = lean_alloc_ctor(0, 3, 0);
+lean_ctor_set(v___x_46_, 0, v___x_45_);
+lean_ctor_set(v___x_46_, 1, v___x_45_);
+lean_ctor_set(v___x_46_, 2, v___x_44_);
+return v___x_46_;
+}
+}
+static lean_object* _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB(void){
+_start:
+{
+lean_object* v___x_47_; 
+v___x_47_ = lean_obj_once(&lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1, &lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1_once, _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB___closed__1);
+return v___x_47_;
+}
+}
+lean_object* initialize_Init(uint8_t builtin);
+lean_object* initialize_Init(uint8_t builtin);
+lean_object* initialize_mathlib_Mathlib_Basic_Real_Basic(uint8_t builtin);
+lean_object* initialize_mathlib_Mathlib_Tactic_FieldSimp(uint8_t builtin);
+lean_object* initialize_mathlib_Mathlib_Tactic_Linarith(uint8_t builtin);
+lean_object* initialize_mathlib_Mathlib_Tactic_NormNum(uint8_t builtin);
+lean_object* initialize_mathlib_Mathlib_Tactic_Ring(uint8_t builtin);
+void lean_initialize();
+static bool _G_initialized = false;
+LEAN_EXPORT lean_object* initialize_HydrologyIdentifiability_Hydrology_Basic(uint8_t builtin) {
+lean_object * res;
+if (_G_initialized) return lean_io_result_mk_ok(lean_box(0));
+_G_initialized = true;
+lean_initialize();
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_mathlib_Mathlib_Basic_Real_Basic(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_mathlib_Mathlib_Tactic_FieldSimp(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_mathlib_Mathlib_Tactic_Linarith(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_mathlib_Mathlib_Tactic_NormNum(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_mathlib_Mathlib_Tactic_Ring(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA = _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA();
+lean_mark_persistent(lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaA);
+lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB = _init_lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB();
+lean_mark_persistent(lp_HydrologyIdentifiability_HydrologyIdentifiability_thetaB);
+return lean_io_result_mk_ok(lean_box(0));
+}
+#ifdef __cplusplus
+}
+#endif

@@ -1,111 +1,153 @@
-# Exact identifiability and equifinality in a two-storage rainfall--runoff model
+# Exact identifiability and equifinality in a two-storage rainfall–runoff model
 
-## 1. Model
+## Abstract
 
-Let (pcolon I	omathbb R) be a known rainfall input. For rates
-(a,b,c>0), consider
+We analyze a positive two-storage linear rainfall–runoff model at exact symbolic
+precision. Eliminating the hidden storage variables yields a scalar output
+identity whose coefficients depend on the three physical rates through only two
+combinations. We give an explicit physically admissible equifinality certificate:
+two distinct rate triples and distinct stationary storage partitions generate
+exactly the same discharge for all time. We then prove that a controlled
+constant-rainfall experiment with known zero initial storage recovers all three
+rates from the first three output derivatives. The result separates structural
+non-identifiability from numerical estimation and gives a concrete intervention
+design principle.
 
+## 1. Model and balance law
+
+Let \(p:I\to\mathbb R\) be a rainfall input and let \(a,b,c>0\). Consider
 \[
- \dot x_1=p-(a+b)x_1+cx_2,
- \qquad
- \dot x_2=bx_1-cx_2,
- \qquad
- Q=ax_1.
-\tag{1}
+\dot x_1=p-(a+b)x_1+cx_2,\qquad
+\dot x_2=bx_1-cx_2,\qquad Q=ax_1. \tag{1}
 \]
-
-The states are fast and slow storage compartments and (Q) is the observed
-outflow. The equations have an exact balance law, obtained by adding the two
-state equations:
-
+The states \(x_1,x_2\) are hidden storage compartments and \(Q\) is the
+observed discharge. Adding the first two equations gives
 \[
- \frac{d}{dt}(x_1+x_2)=p-Q.
-\tag{2}
+\frac{d}{dt}(x_1+x_2)=p-Q. \tag{2}
 \]
+Thus the model has an exact water-balance law independent of any numerical
+solver.
 
-## 2. Observable differential equation
+## 2. Elimination of the hidden states
 
-Put (B=a+b), (S=a+b+c) and (P=ac). Since (Q=ax_1), differentiating
-(1) twice and eliminating (x_2) gives
-
+Put
 \[
- Q''+S Q'+P Q=a p'+Pp.
-\tag{3}
+B=a+b,\qquad S=a+b+c,\qquad P=ac.
 \]
-
-This calculation is exact. In particular, for constant rainfall (p), the
-entire scalar output trajectory depends on the three rates only through
-
+Differentiate \(Q=ax_1\), use (1), and differentiate once more. Substitution
+of \(x_2\) and \(\dot x_2\) gives
 \[
- S=a+b+c,qquad P=ac,
-\tag{4}
+Q''+S Q'+P Q = a p'+Pp. \tag{3}
 \]
+The calculation is an identity in the model equations. In particular, for a
+constant input \(p\), the scalar output law depends on the rate triple through
+\(S\) and \(P\). This is an upper bound on what a single output equation can
+identify; a constant hydrograph can contain still less information.
 
-unless initial-state information or additional forcing experiments are used.
+The Lean file `Hydrology/Basic.lean` formalizes (3) from explicit pointwise
+first and second derivative equations. No existence, uniqueness, or numerical
+approximation is silently used in that formal statement.
 
-## 3. A physical equifinality theorem
+## 3. Exact physical equifinality
 
-The rates ((2,2,2)) and ((1,1,4)) both have (S=6) and (P=4). Take
-(p(t)=1) and (Q(t)=1). The corresponding nonnegative equilibrium states are
-
+Consider
 \[
- (x_1,x_2)=(1/2,1/2),qquad (x_1,x_2)=(1,1/4),
+\theta_A=(a,b,c)=(2,2,2),\qquad
+\theta_B=(a,b,c)=(1,1,4).
 \]
-
-respectively. Substitution in (1) gives (dot x_1=dot x_2=0) in both
-models, and both have exactly the same observed runoff for all (t). Thus even
-perfect continuous discharge data do not identify the three physical rates when
-initial storage is unobserved. This is an exact physical counterexample, not a
-numerical calibration ambiguity.
-
-More generally, if (S,P) are fixed and (a'>0), set
-
+Both have \(S=6\) and \(P=4\). Take \(p(t)=1\). For \(\theta_A\), use the
+constant state \((x_1,x_2)=(1/2,1/2)\); for \(\theta_B\), use
+\((x_1,x_2)=(1,1/4)\). Direct substitution in (1) gives
 \[
- c'=P/a',qquad b'=S-a'-c'.
-\tag{5}
+\dot x_1=\dot x_2=0,\qquad Q=1
 \]
+in both systems. The states are nonnegative, the parameters are positive, and
+therefore both models produce exactly the same curve \(Q(t)=1\) for every time,
+although their parameters and storage partitions differ.
 
-Whenever (b'>0), the scalar output equation (3) is unchanged. A state
-reconstruction from (Q) then gives the same output trajectory; positivity of
-the reconstructed initial state is an open condition around an interior
-equilibrium. This produces a local one-parameter equivalence family.
+This is a structural counterexample to unique physical calibration from one
+unknown-initial-state discharge record. It is not a floating-point or finite
+sampling artifact. The theorem `thetaA_thetaB_stationary_unit` in the Lean
+package is an exact rational certificate of the two stationary systems.
 
-## 4. Identifiability under a controlled initial state
-
-Assume (p(t)=p_0>0) is constant and (x_1(0)=x_2(0)=0). Directly from (1),
-
+More generally, fixing \(S,P\) and choosing \(a'>0\), one may set
 \[
- Q'(0)=ap_0,qquad
- Q''(0)=-a(a+b)p_0,qquad
- Q'''(0)=a((a+b)^2+bc)p_0.
-\tag{6}
+c'=P/a',\qquad b'=S-a'-c'. \tag{4}
 \]
+Whenever \(b'>0\), the eliminated output equation is unchanged. This describes
+the algebraic equivalence fibre. A claim about a particular physical trajectory
+still requires a nonnegative state reconstruction; the displayed stationary
+example supplies that reconstruction explicitly.
 
-Hence
+## 4. Exact recovery under a controlled initial state
 
+Now assume \(p(t)=p_0>0\) is constant and \(x_1(0)=x_2(0)=0\). Directly from
+(1),
 \[
- a=\frac{Q'(0)}{p_0},quad
- B=-\frac{Q''(0)}{Q'(0)},quad
- b=B-a,quad
- c=\frac{Q'''(0)/Q'(0)-B^2}{b}.
-\tag{7}
+Q'(0)=ap_0,\qquad Q''(0)=-a(a+b)p_0,\qquad
+Q'''(0)=a((a+b)^2+bc)p_0. \tag{5}
 \]
+Define \(B=-Q''(0)/Q'(0)\). Since all rates and \(p_0\) are positive,
+\[
+a=\frac{Q'(0)}{p_0},\qquad b=B-a,qquad
+c=\frac{Q'''(0)/Q'(0)-B^2}{b}. \tag{6}
+\]
+The denominator \(b\) is nonzero by the model hypothesis. Therefore the map
+from positive rate triples to the first three output derivatives is injective
+under this intervention, and (6) is an explicit inverse.
 
-The rates are therefore globally identifiable from the first three output
-derivatives under the zero-storage intervention. The same formulas show why
-the initial-state hypothesis cannot be silently omitted.
+`Hydrology/Recovery.lean` formalizes the three jet identities and proves the
+inverse formulas with exact field arithmetic. The sample theorem uses the
+rational triple \((2,2,2)\) and rainfall \(p_0=3\) as a regression case.
 
-## 5. Model-design consequence
+The same file proves an intervention variant that does not require observing
+empty storage. Suppose two constant-rainfall experiments start from the same
+unknown state, with \(p_{\rm hi}>p_{\rm lo}\). Subtracting the two output
+hydrographs gives a difference trajectory with zero initial state. Its first
+three jets satisfy (5) with \(p_0=p_{\rm hi}-p_{\rm lo}\), so the formulas (6)
+recover \(a,b,c\) from the paired experiment. The cancellation is encoded in
+the hypotheses of `PairedDifferenceJets`; it is not an informal appeal to
+numerical fitting.
 
-The result separates two questions that are often combined in calibration:
+The word “recover” here means structural and exact identifiability. It does not
+assert that noisy measurements permit stable numerical differentiation.
 
-1. the output law can be estimated accurately;
-2. the physical rates are uniquely determined.
+## 5. Implications and limits
 
-Equation (5) proves that the second question has a genuine symmetry obstruction
-under a single unknown-state constant-rainfall experiment. Equation (7) gives a
-minimal exact intervention that removes the obstruction in this two-storage
-model. A next theorem should classify the analogous equivalence classes for
-threshold or power-law outflows and finite-time integral observations.
+The two statements answer complementary model-design questions. With unknown
+initial storage, the output equation has a genuine parameter symmetry and a
+physical equifinality certificate. With a known empty initial state and a
+controlled rainfall step, three derivatives remove that symmetry in this
+three-parameter model. Initial-state assumptions and input design are therefore
+part of the identifiability statement, rather than implementation details.
 
-No claim of solving general conceptual-model identifiability is made here.
+The result is deliberately model-specific. It does not claim a universal
+identifiability theorem for conceptual hydrology, nor does it settle models with
+thresholds, power-law reservoirs, spatial routing, or finite-time integral-only
+observations. A natural next problem is to classify the corresponding
+input/state equivalence classes in one of those nonlinear extensions.
+
+## 6. Reproducibility and prior context
+
+Run the exact rational checker with
+
+```sh
+python3 -B checks/exact.py
+python3 -B -O checks/exact.py
+```
+
+The Lean package is built with Lean 4.34.1 and the pinned Mathlib revision:
+
+```sh
+cd formalizations/hydrology-identifiability
+lake build Hydrology
+```
+
+Relevant prior context includes Sorooshian–Gupta, “The analysis of
+conceptual-model calibration,” [Water Resources Research 21 (1985), DOI
+10.1029/WR021i004p00487](https://doi.org/10.1029/WR021i004p00487); Shin et al.,
+“Identifiability of hydrologic models,” [Journal of Hydrology (2015), DOI
+10.1016/j.jhydrol.2014.11.040](https://doi.org/10.1016/j.jhydrol.2014.11.040);
+and Kirchner, “Catchments as simple dynamical systems,” [Water Resources
+Research (2009), DOI 10.1029/2009WR008777](https://doi.org/10.1029/2009WR008777).
+This note makes no historical priority claim.
