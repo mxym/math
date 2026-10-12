@@ -136,3 +136,8 @@ The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `Plat
 See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
 
 The joint projection-plus-spike sufficiency and the original 10x38 physical counterexample are now certified above. Exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
+
+
+## Rectangular-dependency checkpoint
+
+The unique integer projection rank and unrestricted ordered-cut reduction now have a local fresh build and trust-zero replay. See `REVIEW_RECTANGULAR_DEPENDENCIES.md`. This does not yet certify the final unrestricted rectangular maximum or equality classification.

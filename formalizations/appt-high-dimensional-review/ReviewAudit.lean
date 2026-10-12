@@ -3,6 +3,28 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.exists_projection_family_unique_rank_max,
+  ``APPTReview.plateauScaledPurity_ceiling_unique,
+  ``APPTReview.plateauScaledPurity_lt_ceiling,
+  ``APPTReview.fractional_rounding_strict,
+  ``APPTReview.projectionPlateau_scaled_purity,
+  ``APPTReview.plateau_odd_rounding_regression,
+  ``APPTReview.convex_mem_of_signed_balance,
+  ``APPTReview.convex_mem_of_cut_simplex,
+  ``APPTReview.spectralSquares_cut_bound,
+  ``APPTReview.ordered_spectrum_cut_bound,
+  ``APPTReview.ordered_prefix_expansion,
+  ``APPTReview.orderedSimplexWeight_sum,
+  ``APPTReview.uniformPrefix_inner,
+  ``APPTReview.prefixCutValue_pos_iff,
+  ``APPTReview.prefixCutHeight_room,
+  ``APPTReview.cutEdgePurity_le_endpoints,
+  ``APPTReview.cutEdgePurity_quadratic,
+  ``APPTReview.quadratic_lt_strict_endpoint,
+  ``APPTReview.cut_constraint_cannot_be_dropped,
+  ``APPTReview.quadratic_convexity_cannot_be_dropped,
+  ``APPTReview.ordered_weight_regression,
+
   ``APPTReview.not_proposedAPPTPurity_upper,
   ``APPTReview.counterexample1038_formula_gap,
   ``APPTReview.joint_scalar_boundary_and_failure,
@@ -235,3 +257,5 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_pure_signed_mo
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038Interior_margin "review-kernel-strict-margin-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1038_not_appt "review-kernel-boundary-failure-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_spectrum_cut_bound "review-kernel-ordered-cut-control"
