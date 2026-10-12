@@ -24,6 +24,124 @@ MODULE HydrologyTree.BlockJacobian
 
 MODULE HydrologyTree.Triangular
 
+MODULE HydrologyTree.EndJacobian
+
+MODULE HydrologyTree.LeadingCoefficients
+HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.Scaling
+HydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:
+  Matrix.det_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.Gluing
+HydrologyTree/Gluing.lean:72:38: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+HydrologyTree/Gluing.lean:72:38: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+
+MODULE HydrologyTree.ProductDerivative
+
+MODULE HydrologyTree.JacobianComposition
+
+MODULE HydrologyTree.FamilyProduct
+HydrologyTree/FamilyProduct.lean:32:4: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.FamilyScaling
+
+MODULE HydrologyTree.FamilyResultants
+
+MODULE HydrologyTree.FamilySmoothness
+
+MODULE HydrologyTree.TangentJacobian
+
+MODULE HydrologyTree.FamilyGluing
+
+MODULE HydrologyTree.RootUpdate
+HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n ≠ n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,
+    zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n ≠ n + 1 from by omega), mul_zero, sub_zero,
+    add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PathRootTransform
+HydrologyTree/PathRootTransform.lean:79:41: warning: `ContinuousLinearMap.coe_smul` has been deprecated: Use `ContinuousLinearMap.toLinearMap_smul` instead
+
+MODULE HydrologyTree.PathPolynomial
+HydrologyTree/PathPolynomial.lean:68:4: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:68:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:69:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/PathPolynomial.lean:69:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.1 le_rfl,
+    coeff_eq_zero_of_bound z.2.2 (Nat.le_succ n), if_neg (show n + 1 ≠ n + 2 from by omega),
+    if_neg (show n + 1 ≠ n from by omega), mul_zero, mul_one, zero_add, add_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PathPolynomial.lean:69:26: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.1 le_rfl,
+    coeff_eq_zero_of_bound z.2.2 (Nat.le_succ n), if_neg (show n + 1 ≠ n + 2 from by omega),
+    if_neg (show n + 1 ≠ n from by omega), if_pos rfl, mul_zero, zero_add, add_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PathPolynomial.lean:79:4: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:79:41: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:80:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/PathPolynomial.lean:80:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.2.2 le_rfl, if_neg (show n ≠ n + 2 from by omega),
+    if_neg (show n ≠ n + 1 from by omega), mul_zero, mul_one, zero_add, add_zero, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.FamilyNormalization
+HydrologyTree/FamilyNormalization.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.basis_normalized_jacobian`:
+  [FiniteDimensional ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.BranchStep
+
 MODULE HydrologyTree.RateChart
 HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
   ite_mul
@@ -212,14 +330,6 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
-MODULE HydrologyTree.LeadingCoefficients
-HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-
 MODULE HydrologyTree.Resolvent
 
 MODULE HydrologyTree.PhysicalStieltjes
@@ -284,24 +394,103 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq I] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/StieltjesNumerator.lean:26:59: error: unsolved goals
-I : Type u_1
-inst✝¹ : Fintype I
-inst✝ : DecidableEq I
-r w : I → ℝ
-s : ℝ
-⊢ eval s (∑ i, C (w i) * ∏ j ∈ Finset.univ.erase i, (X + C (r j))) = ∑ i, w i * ∏ j ∈ Finset.univ.erase i, (s + r j)
-HydrologyTree/StieltjesNumerator.lean:27:28: warning: This simp argument is unused:
-  Polynomial.eval_sum
+
+MODULE HydrologyTree.RootBranches
+HydrologyTree/RootBranches.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.BranchMatrixSupport
+HydrologyTree/BranchMatrixSupport.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/BranchMatrixSupport.lean:113:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.ChildTree
+HydrologyTree/ChildTree.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.ChildRates
+
+MODULE HydrologyTree.BranchConservation
+HydrologyTree/BranchConservation.lean:22:13: warning: This simp argument is unused:
+  rootPartitionEquiv_root
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [stieltjesNumerator, Polynomial.eval_prod]
+  [apply] simp only [rootPartitionEquiv_branch, Fintype.sum_unique]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/StieltjesNumerator.lean:27:49: warning: This simp argument is unused:
-  Polynomial.eval_prod
+
+MODULE HydrologyTree.ChildMatrix
+
+MODULE HydrologyTree.PhysicalRootDecomposition
+
+MODULE HydrologyTree.DependentBlocks
+HydrologyTree/DependentBlocks.lean:25:37: warning: This simp argument is unused:
+  Matrix.toSquareBlockProp
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [stieltjesNumerator, Polynomial.eval_sum]
+  [apply] simp [e, Matrix.toSquareBlock_def, Equiv.sigmaSubtype]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/DependentBlocks.lean:38:31: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.blockDiagonal'_apply_ne, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.ArrowDeterminant
+HydrologyTree/ArrowDeterminant.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/ArrowDeterminant.lean:75:8: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/ArrowDeterminant.lean:75:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.ArrowCharacteristic
+HydrologyTree/ArrowCharacteristic.lean:39:67: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/ArrowCharacteristic.lean:44:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/ArrowCharacteristic.lean:46:4: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+HydrologyTree/ArrowCharacteristic.lean:56:34: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ArrowCharacteristic.lean:56:51: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PhysicalRecursion
+
+MODULE HydrologyTree.FiniteCancellation
+
+MODULE HydrologyTree.ChildIndex
+
+MODULE HydrologyTree.PhysicalCancellation
+
+MODULE HydrologyTree.TreeCancellation
+
+MODULE HydrologyTree.PhysicalModes
