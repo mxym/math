@@ -87,10 +87,13 @@ actual Gaussian projection and Bochner transport. Still derive that ordered
 representation from an arbitrary rank-one covariance limit, with relabeling,
 and identify its actual facet form with the limiting normal-cone matrix.
 
-For rank two, prove the complete affine-dependence and planar hull case
-analysis of Lemma 6 for four distinct centered actual self-moment scores,
-including absent interfaces and collinear triples. Establish violation of
-the actual inequality L<=P in every case.
+For rank two, the kernel-checked package now extracts an affine relation, proves
+its coefficients are all nonzero when every triple is affinely independent,
+identifies the induced affine score constant, and rules out simultaneous
+alternating-sign diagonal facet patterns. Still prove the complete planar hull
+case classification of Lemma 6 for four distinct centered actual self-moment
+scores, including absent interfaces and collinear triples, and establish
+violation of the actual inequality L<=P in every case.
 
 ## 4. Genuine geometric lower bounds
 

@@ -15,7 +15,7 @@ are not evidence for the subsequent covariance and Hessian additions.
 | Uniform moment separation (Lemma 4) | `ScalarTent`, `SeparatedMoments`, `WinningSeparation` | No gap in the stated separation theorem |
 | Price estimate (10) | `PriceBounds`, `PriceCompactness` | Moving-facet convergence is separate |
 | Boundary continuity (Lemma 5) | `GaussianWinningContinuity`, `BoundarySeparation`, `TripleTie` | Gaussian surface-integral limits at singular diagrams |
-| Rank-one/rank-two obstruction (Lemma 6) | `Profile`, `QuartileIntervals`, `OrderedWinning`, `RankOne`, `CollinearTransport`, `RankOneBridge` | Rank-one bridge is closed for injective score families, including relabeling and actual winning-cell transport; all rank-two hull cases; geometric isoperimetry and merged-cell bound remain open |
+| Rank-one/rank-two obstruction (Lemma 6) | `Profile`, `QuartileIntervals`, `OrderedWinning`, `RankOne`, `CollinearTransport`, `RankOneBridge`, `RankTwoAffineRelation` | Rank-one bridge is closed for injective score families, including relabeling and actual winning-cell transport. Rank-two affine relations now have a triple-independence support lemma, a constant-score relation, and an alternating-sign diagonal-facet contradiction; all rank-two hull cases; geometric isoperimetry and merged-cell bound remain open |
 | Actual price Hessian | `PriceMassDifferential`, `PriceSecondVariation`, `PriceFrechetIntegral`, `PriceFrechetTransport`, `PriceHessian` | Joint parameter continuity and the smooth implicit price map |
 | Gauge-fixed price nondegeneracy | `CenteredPriceHessian` constructs the centered operator and proves bijectivity | Uniform quantitative control required along deformations |
 | Tetrahedral value and covariance Hessian (Lemma 7) | Generic simplex-value and algebra infrastructure | Exact arctangent evaluation; actual covariance second variation and strict local maximum |
@@ -40,5 +40,5 @@ This closes positive-chart compatibility via actual mass derivatives and
 passes masses, Bochner flux and the entire Laplacian to distinct-score
 balanced simplicial limits. It does not construct the variational sequence
 or prove its rank exclusions or the geometric perimeter inputs.
-The expanded inventory has 109 modules and 640 roots. The rank-one bridge and rank-two affine-relation extraction are included in the fresh source-bound
+The expanded inventory has 109 modules and 641 roots. The rank-one bridge and rank-two affine-relation/sign-structure extraction are included in the fresh source-bound
 verification receipts establish the current build/replay status.
