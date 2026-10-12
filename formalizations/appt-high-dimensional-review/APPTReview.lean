@@ -15,3 +15,5 @@ import APPTReview.AsymptoticUpper
 import APPTReview.FixedLocalChecks
 
 import APPTReview.CompactControls
+
+import APPTReview.SingularAttainment
