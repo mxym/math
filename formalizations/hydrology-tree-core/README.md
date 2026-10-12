@@ -1,10 +1,11 @@
 # Hydrological tree identifiability — partial overall Lean formalization
 
 The all-size, all-real-rate Jacobian factorization for the actual rooted tree
-coefficient map is now proved at source level. The overall program remains
-**PARTIAL**: exact algebraic multiplicities, the signed resultant identity,
-positive realization existence/exhaustive fiber count, and some presentation,
-leak-location and ODE bridges remain. See `GAPS.md`.
+coefficient map, its exact signed characteristic/cofactor resultant identity,
+and all exact multivariate coordinate multiplicities are now proved in Lean.
+The overall program remains **PARTIAL**: positive-realization existence and
+exhaustive fiber count, and the remaining graph-presentation, leak-location
+and ODE bridges still need proofs. See `GAPS.md`.
 
 ## Main theorem: arbitrary branching, actual physical objects
 
@@ -117,3 +118,41 @@ This extension has compiled; its independent source-bound verification is the
 new run for its own commit. The preceding all-tree checkpoint 2684e3b3 passed:
 95 modules, 860 roots, 43,356 empty-kernel replay declarations, and 36 rejected
 mutations. That old receipt does not certify the new resultant extension.
+
+## Exact algebraic multiplicities — not just boundary evaluations
+
+`RingTreeModel` constructs the same edge-conservative physical matrix over
+arbitrary commutative coefficient rings and proves its specialization to the
+actual real model. `RingSiblingResidual` builds the actual monic subtree
+resultant residual over independent multivariate rate variables and proves
+that all real specializations give the physical residual.
+
+`SymbolicTreeJacobian` constructs a multivariate polynomial whose evaluation
+at EVERY real rate vector equals the actual standard-basis Frechet Jacobian.
+It proves that this polynomial is the UNIQUE polynomial with those evaluations.
+Uniform coordinate-hyperplane witnesses then prove that no individual rate
+variable divides the residual polynomial. No finite specialization test or
+unproved polynomial-representation premise substitutes for this bridge.
+
+`TreeExactMultiplicities` proves, in the multivariate polynomial ring itself,
+
+    multiplicity(a_e, J_T) = subtreeVertexCount(e),
+    multiplicity(f_e, J_T) = subtreeVertexCount(e)-1.
+
+Equivalently, exactly the displayed power divides J_T and the next power does
+not. The root-leak variable does not divide J_T. The existence-and-exact-powers
+theorem constructs its polynomial, with no representation or multiplicity
+assumption. An explicitly formal-partial-derivative determinant interface is
+being checked separately and is not claimed by this checkpoint.
+
+`TreeBoundarySingularSet` gives the full real Jacobian singular set, including
+zero-rate boundaries: a zero inward rate, or a zero outward rate whose subtree
+has more than one vertex, or failure of sibling coprimality. `ResultantBoundary`
+proves that actual characteristic/cofactor coprimality is equivalent to ALL
+outward rates nonzero AND the Jacobian nonzero; a leaf outward-zero cancellation
+must not be confused with a singular unreduced coefficient Jacobian.
+
+The signed-resultant checkpoint 637a50fc passed independent run 38212403838:
+100 modules, 897 roots, 43,475 empty-kernel declarations, and 38 rejected negative
+controls. The new multiplicity/boundary extension receives its own separate
+source-bound verification; the earlier receipt does not certify these new bytes.

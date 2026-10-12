@@ -22,3 +22,6 @@ import HydrologyTree.JacobianRegularity
 import HydrologyTree.PositiveJacobian
 import HydrologyTree.ZeroOutward
 import HydrologyTree.AllTreeResultant
+import HydrologyTree.TreeBoundarySingularSet
+import HydrologyTree.ResultantBoundary
+import HydrologyTree.TreeExactMultiplicities

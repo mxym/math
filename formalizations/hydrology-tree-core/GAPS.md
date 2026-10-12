@@ -23,21 +23,26 @@ With a positive root leak, it is also equivalent to full distinct positive
 Stieltjes modes. These are now actual Jacobian equivalences; ODE claims remain
 separate. Rate uniqueness per prescribed recursive factor assignment is proved.
 
-## 1. Exact algebraic multiplicities and resultant identity
+## 1. Completed algebraic multiplicities and resultant identity
 
-The all-tree factorization is complete, but a displayed factorization does not
-alone establish the exact multiplicity of each coordinate in the full polynomial.
-Complete the polynomial divisibility/nondivisibility argument ruling out hidden
-individual-rate factors in sibling resultants. A uniform all-tree zero-outward
-construction with distinct inward rates is now proved, including an assignment
-with any selected inward coordinate zero. This is a constructive boundary lemma,
-not yet the full polynomial multiplicity theorem.
+The exact all-rate signed identity Res(P_T,F_T)=epsilon*(product outward)*J_T
+is proved, with a single tree-dependent sign for all rate vectors. The full
+real-rate boundary zero-set distinction is also proved.
 
-The exact signed resultant identity is now proved in AllTreeResultant, for
-every real rate vector with a fixed tree-dependent sign. No zero-rate or
-root-collision exceptions remain. Still state and prove the tree multiplicity
-conjecture corollary with its original parameter convention and explicit
-multivariate polynomial meaning.
+The complete sibling residual is now an explicit multivariate polynomial built
+from ring-valued physical matrices; its specialization identity is proved.
+The unique polynomial representing the actual Frechet Jacobian exists, and
+its individual-rate multiplicities are proved EXACTLY by polynomial prime
+factor/divisibility arguments and uniform hyperplane witnesses. The next power
+is excluded, including the outward-leaf exponent-zero case and the root leak.
+These algebraic multiplicity obligations are no longer missing.
+
+The explicit determinant of formal partial derivatives of symbolic actual
+coefficients is an additional interface under development; it is not needed
+to assume polynomiality of the actual Frechet determinant, which is already
+proved by the unique all-real-evaluation representative. The published
+parameter-convention and independent graph-presentation transport still need
+the precise coverage statements described below.
 
 ## 2. Positive realization existence and exhaustive count
 
