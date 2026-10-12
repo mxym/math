@@ -15,7 +15,7 @@ are not evidence for the subsequent covariance and Hessian additions.
 | Uniform moment separation (Lemma 4) | `ScalarTent`, `SeparatedMoments`, `WinningSeparation` | No gap in the stated separation theorem |
 | Price estimate (10) | `PriceBounds`, `PriceCompactness` | Moving-facet convergence is separate |
 | Boundary continuity (Lemma 5) | `GaussianWinningContinuity`, `BoundarySeparation`, `TripleTie` | Gaussian surface-integral limits at singular diagrams |
-| Rank-one/rank-two obstruction (Lemma 6) | `Profile`, `QuartileIntervals`, `OrderedWinning`, `RankOne`, `CollinearTransport` | Arbitrary rank-one extraction; all rank-two hull cases; geometric isoperimetry and merged-cell bound |
+| Rank-one/rank-two obstruction (Lemma 6) | `Profile`, `QuartileIntervals`, `OrderedWinning`, `RankOne`, `CollinearTransport`, `RankOneBridge` | Rank-one bridge is closed for injective score families, including relabeling and actual winning-cell transport; all rank-two hull cases; geometric isoperimetry and merged-cell bound remain open |
 | Actual price Hessian | `PriceMassDifferential`, `PriceSecondVariation`, `PriceFrechetIntegral`, `PriceFrechetTransport`, `PriceHessian` | Joint parameter continuity and the smooth implicit price map |
 | Gauge-fixed price nondegeneracy | `CenteredPriceHessian` constructs the centered operator and proves bijectivity | Uniform quantitative control required along deformations |
 | Tetrahedral value and covariance Hessian (Lemma 7) | Generic simplex-value and algebra infrastructure | Exact arctangent evaluation; actual covariance second variation and strict local maximum |
@@ -40,5 +40,5 @@ This closes positive-chart compatibility via actual mass derivatives and
 passes masses, Bochner flux and the entire Laplacian to distinct-score
 balanced simplicial limits. It does not construct the variational sequence
 or prove its rank exclusions or the geometric perimeter inputs.
-The expanded inventory has 105 modules and 631 roots. Only new source-bound
+The expanded inventory has 108 modules and 638 roots. The rank-one bridge is included in the fresh source-bound
 verification receipts establish the current build/replay status.

@@ -8,7 +8,7 @@
 | 协方差目标的因子化、齐次性与固定方向导数 | PSD 因子化、Gaussian 线性像、对称迹公式 | GaussianFour.actual_centered_covariance_fixed_differential 及 FixedCovarianceDifferential.lean | 已证明一阶方向结果；尚非完整 Frechet Hessian |
 | 平衡自矩与价格矩阵关系 | 局部极值的一阶必要条件、中心化、正定约束 | GaussianFour.actual_four_local_extremum_self_moments、GaussianFour/SelfMomentCriticality.lean | 已证明带明确局部极值假设的结果 |
 | 价格目标的二阶变分 | Gaussian facet flux、价格 Hessian、常数平移核 | GaussianFour.actual_simplicial_price_hessian、GaussianFour.actual_simplicial_price_hessian_nondegenerate | 已证明价格 Hessian；不能替代协方差 Hessian |
-| 秩一边界排除 | Gram 秩等于行空间维数；秩一表示为共线；一维 Gaussian 投影与自矩输运；有序标量谱障碍 | GaussianFour.scoreGram_rank_eq_span_rows、GaussianFour.scoreGram_rank_le_one_collinear、GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound | 已证明这些核心引理；任意标签的重排与实际 facet 矩阵识别仍缺 |
+| 秩一边界排除 | Gram 秩等于行空间维数；秩一表示为共线；单位方向归一化；任意标签置换为严格有序；winning cell、质量、自矩置换输运；一维 Gaussian 投影与谱障碍 | GaussianFour.exists_unit_strictMono_rankOne_representation、GaussianFour.winningCell_perm、GaussianFour.exists_rankOne_ordered_actual_obstruction | 已证明 rank-one bridge 与实际质量/自矩输运；任意奇异极限的 facet 矩阵识别仍缺 |
 | 奇异边界的 facet 系数 | 正质量图表、图表独立性、系数连续性、Laplacian 极限 | GaussianFour.continuousAt_intrinsicPairWeight、GaussianFour.balanced_simplicial_limit_laplacian | 已证明在书面假设下的实际 Gaussian 通量结果 |
 | 秩二平面情形 | 四个自矩点的全部仿射依赖分类、缺失界面和共线三点处理 | GaussianFour/RankOne.lean、GaussianFour/SeparatedMoments.lean | 尚未完成全分类与谱违背 |
 | 正则化临界序列与协方差山路 | 协方差 Hessian、约束保持流、minimax、奇异极限 | GaussianFour/PriceHessian.lean 等仅提供价格侧工具 | 尚未形式化 |

@@ -635,3 +635,6 @@ import GaussianFour
 #print axioms GaussianFour.scoreGram_rank_le_one_collinear
 #print axioms GaussianFour.exists_perm_strictMono_of_injective
 #print axioms GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound
+#print axioms GaussianFour.exists_unit_strictMono_rankOne_representation
+#print axioms GaussianFour.winningCell_perm
+#print axioms GaussianFour.exists_rankOne_ordered_actual_obstruction

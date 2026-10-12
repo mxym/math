@@ -25,7 +25,10 @@ import GaussianFour.TripleTie
 import GaussianFour.RankOneReduction
 import GaussianFour.PermutationOrder
 import GaussianFour.CollinearTransport
+import GaussianFour.RankOneBridge
 
 /-! Partial formalization only. This module does not prove the global
 four-cell energy bound or its complete equality classification. -/
+
+
 

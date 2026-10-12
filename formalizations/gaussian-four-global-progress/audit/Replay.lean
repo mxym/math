@@ -661,7 +661,11 @@ run_cmd do
     ``GaussianFour.scoreGram_rank_eq_span_rows,
     ``GaussianFour.scoreGram_rank_le_one_collinear,
     ``GaussianFour.exists_perm_strictMono_of_injective,
-    ``GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound,]
+    ``GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound,
+    ``GaussianFour.exists_unit_strictMono_rankOne_representation,
+    ``GaussianFour.winningCell_perm,
+    ``GaussianFour.exists_rankOne_ordered_actual_obstruction,
+  ]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
