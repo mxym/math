@@ -1,14 +1,7 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 192 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 1 file(s) [attempted 1/192 = 0%, 703 KB/s], Decompressed: 0
-Downloaded: 24 file(s) [attempted 24/192 = 12%, 549 KB/s], Decompressed: 19
-Downloaded: 104 file(s) [attempted 104/192 = 54%, 2018 KB/s], Decompressed: 48
-Downloaded: 190 file(s) [attempted 190/192 = 98%, 891 KB/s], Decompressed: 80
-Downloaded: 192 file(s) [attempted 192/192 = 100%, 891 KB/s], Decompressed: 80
-Decompressed 192 file(s)
+No files to download
 Already decompressed 2677 file(s)
 
 MODULE HydrologyTree.Coefficients
@@ -158,55 +151,43 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 MODULE HydrologyTree.GroundedPositivity
 
 MODULE HydrologyTree.SymmetricGenerator
-HydrologyTree/SymmetricGenerator.lean:18:62: error: unsolved goals
-case pos
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-ha : ∀ (e : Fin n), 0 < x.1 e.succ
-hf : ∀ (e : Fin n), 0 < x.2 e
-hpos : ∀ (v : Fin (n + 1)), 0 < √(balanceWeight t x v)
-i j : Fin (n + 1)
-h : i = j
-⊢ √(balanceWeight t x j) * (√(balanceWeight t x j))⁻¹ = 1
-HydrologyTree/SymmetricGenerator.lean:23:31: warning: This simp argument is unused:
+HydrologyTree/SymmetricGenerator.lean:25:10: warning: This simp argument is unused:
   Matrix.diagonal_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.one_apply, h, ne_of_gt (hpos i)]
+  [apply] simp [Matrix.one_apply, ne_of_gt (hpos i)]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/SymmetricGenerator.lean:23:75: warning: This simp argument is unused:
-  ne_of_gt (hpos i)
+HydrologyTree/SymmetricGenerator.lean:25:33: warning: This simp argument is unused:
+  Matrix.one_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.diagonal_apply, Matrix.one_apply, h]
+  [apply] simp [Matrix.diagonal_apply, ne_of_gt (hpos i)]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/SymmetricGenerator.lean:44:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  √(balanceWeight t x v) * (√(balanceWeight t x v))⁻¹
-in the target expression
-  √(balanceWeight t x v) * (√(balanceWeight t x v) * (√(√(balanceWeight t x v) * √(balanceWeight t x v)))⁻¹) =
-    √(√(balanceWeight t x v) * √(balanceWeight t x v))
+HydrologyTree/SymmetricGenerator.lean:26:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
 
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-ha : ∀ (e : Fin n), 0 < x.1 e.succ
-hf : ∀ (e : Fin n), 0 < x.2 e
-v : Fin (n + 1)
-hs : √(balanceWeight t x v) ≠ 0
-hsq : √(balanceWeight t x v) ^ 2 = balanceWeight t x v
-⊢ √(balanceWeight t x v) * (√(balanceWeight t x v) * (√(√(balanceWeight t x v) * √(balanceWeight t x v)))⁻¹) =
-    √(√(balanceWeight t x v) * √(balanceWeight t x v))
-HydrologyTree/SymmetricGenerator.lean:82:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ?L * ?M * ?N
-in the target expression
-  physicalCharacteristic t x = (sqrtWeightDiagonal t x * (invSqrtWeightDiagonal t x * compartmentMatrix t x)).charpoly
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
 
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-ha : ∀ (e : Fin n), 0 < x.1 e.succ
-hf : ∀ (e : Fin n), 0 < x.2 e
-⊢ physicalCharacteristic t x = (sqrtWeightDiagonal t x * (invSqrtWeightDiagonal t x * compartmentMatrix t x)).charpoly
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:26:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveSpectrum
+HydrologyTree/PositiveSpectrum.lean:14:17: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut`
+HydrologyTree/PositiveSpectrum.lean:17:10: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut_apply`
+HydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals
+I : Type u_1
+inst✝¹ : Fintype I
+inst✝ : DecidableEq I
+B : Matrix I I ℝ
+hB : B.PosDef
+hn : -B = sorry
+⊢ sorry.charpoly = ∏ i, (X + C (⋯.eigenvalues i))
