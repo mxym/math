@@ -1,7 +1,7 @@
 {
-  "serial": 116,
-  "status": "COMPILER_ERROR",
-  "request_blob": "2bc4693931644d9f84de5506fef5a48b6ca9fd04",
+  "serial": 117,
+  "status": "COMPILING",
+  "request_blob": "a0d9a556640e30345b1ecf3aced77456ca202b50",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -64,9 +64,19 @@
     "HydrologyTree.CoprimeBranchRecovery",
     "HydrologyTree.SerializedNumerator",
     "HydrologyTree.DependentJacobian",
-    "HydrologyTree.TreePreparation"
+    "HydrologyTree.TreePreparation",
+    "HydrologyTree.PhysicalConstants",
+    "HydrologyTree.RootRecovery",
+    "HydrologyTree.FiniteCancellation",
+    "HydrologyTree.PhysicalCancellation",
+    "HydrologyTree.PhysicalBranchRecovery",
+    "HydrologyTree.TreeStepSemantics",
+    "HydrologyTree.CatenaryOrientation",
+    "HydrologyTree.TreePipeline",
+    "HydrologyTree.TreeJacobianRecurrence"
   ],
   "source_sha256": {
+    "HydrologyTree/TreePipeline.lean": "3712ffecc6958cbdd78e1b68b6421911c661dbd1e18e5ebd18ac28e326df51b9",
     "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
     "HydrologyTree/FamilyScaling.lean": "3a244c8a3dddc41e18368fb4fff7783989094eb9963de47799926f9c9a74ab77",
     "HydrologyTree/PhysicalRecursion.lean": "90df308d419817f922fe6bbee4e4ca915fc7b8b2071b83ce9cfb0c1d47cd2395",
@@ -78,8 +88,10 @@
     "HydrologyTree/BranchStep.lean": "a556ff2126518854c16c40096a86917f03bfef024c85b594666295a24e36c102",
     "HydrologyTree/OriginalWorkCoordinates.lean": "91de86ab666c28bbea34a07fa220f2ee4699ace41f657362892953748bd4b52d",
     "HydrologyTree/BranchMatrixSupport.lean": "76c98a1551860f86ab532ecce8392b8cd4cc1f34ee37acb369ef67b4ebd43d6a",
+    "HydrologyTree/PhysicalConstants.lean": "22d638b9ed435a34dc9a5c837e8bcfd75c03da2047f9a03008adcb41a95bf7ee",
     "HydrologyTree/ScaledSerialization.lean": "6bdefc80a55a6dfb02a6ae9a72ff7f8d273450c2f2cc179b1f1996bd70c3876e",
     "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
+    "HydrologyTree/PhysicalCancellation.lean": "96705736c35803c077494b58ec468271f9e6bcd0245667b772edd9494140faf1",
     "HydrologyTree/CouplingSemantics.lean": "e5e0f23fa69674c5dd75b68a1e759e7ee63c4d4d663e65af70a408b84a3e5a88",
     "HydrologyTree/LeafRecursion.lean": "c039563085aea24353ffb08816d4b9cc3b29cc7e70d008508ffac646aff2d5de",
     "HydrologyTree/RateCoordinates.lean": "fd53efa9c07ddd97ac06375b8291dd312222b6a445c5c72404f75465e3c1ac2f",
@@ -88,16 +100,21 @@
     "HydrologyTree/ArrowDeterminant.lean": "c2289f9773d83922a3cbb9a716f0c51c6b4e209473cca61b89e0fca74de1ec82",
     "HydrologyTree/RootBranches.lean": "7fcf10deb851d042b7815a9910dc67fe9a8300d16e474651ea5c76805bf2d004",
     "HydrologyTree/ChildMatrix.lean": "eaa682115fb8c1959f3caabfd9b1d8d95d1650fccfa67118f01e1876fdfb2f7c",
+    "HydrologyTree/CatenaryOrientation.lean": "d944fb62f339fe82234b747c7c498ed8f0a10190febab2582b35cd197c1f45cc",
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
+    "HydrologyTree/RootRecovery.lean": "a029a8560b3318f369a4c37d5e1657c67acb5f863ec29b0c02228a22e6774579",
     "HydrologyTree/SerializedNumerator.lean": "706babb731591f194053899ec948090b40cdd21c1041d2f81a0f847e874c902f",
     "HydrologyTree/FamilyCoordinateEnergy.lean": "ebf2a831fae076892803f620b73733b5123bbb53548b0128617eebbd3e60e957",
     "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/CoprimeBranchRecovery.lean": "99038d46b663d1b5d5a09713549a51f101d25e7e95a1995feb258570e956f9f5",
+    "HydrologyTree/PhysicalBranchRecovery.lean": "8c8dfc546169d8944768c5c1b1519da0f5a41415cb5acc128b85def1afb5d936",
     "HydrologyTree/CanonicalTree.lean": "6595e14156d1b9dc8d731795341c7a8ff629c4505b7483a5f75a265d47d0e24b",
     "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
+    "HydrologyTree/FiniteCancellation.lean": "13819e480250c6a3f79b4445ef0d68c8a5cf17c49abddadf8fcb9df44fc1c43f",
     "HydrologyTree/FamilySmoothness.lean": "80f1528bf353a12fb96c10ab682af456c88f726286cd0166297ab6f7709e3ecf",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
+    "HydrologyTree/TreeJacobianRecurrence.lean": "795908ad6910262b8e54ba72de53edda190a194406c67c425c0614f4bccbe515",
     "HydrologyTree/PathRates.lean": "9998ab3e20875a475612196ebef1323175bc53fcf73bd8cf01775f3cc28717fb",
     "HydrologyTree/CoordinateEnergy.lean": "e64a3e93bbdadbe3f16c1ceecfef855fcc2d67f233e7e5250d2bb5b05b6d1eff",
     "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
@@ -116,6 +133,7 @@
     "HydrologyTree/PhysicalRootDecomposition.lean": "f65e980ab710562461dd48c436a4d11052e754cd6242521fc73de3924a8cce40",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/BranchConservation.lean": "4861fe63713cc44ede8ecf27a8bbf2b06491a73e5b4defbd82c88eea0dd036d8",
+    "HydrologyTree/TreeStepSemantics.lean": "6b6c7a4e4875eeab831c3f8235d840d303cf7a7c8e026fc38b6e20192a59de81",
     "HydrologyTree/PathPolynomial.lean": "232bad5c5f8debf9bb2dd95b2408bc2b88496de36f7209e7154ba0a60ef6558d",
     "HydrologyTree/ArrowCharacteristic.lean": "eccf072b7733ffdc88948a449b2768913e8613b0d9ffbeb1c3570d01bdf34c4b",
     "HydrologyTree/RootUpdate.lean": "42a9c1b2fe59ad4a99c0b477e48a6f16647344aae57bfc3a35ccc729cb37bb10",
@@ -127,277 +145,10 @@
     "HydrologyTree/PiSerialization.lean": "3690f80432bf61ff9b6826bb3007add5e8e338510340f3955994e2ef7d6cd331",
     "HydrologyTree/FamilyNormalization.lean": "237b96562567fe68a45e7eb31d3514f4b07c1468c91d31792e794ba1abb95f69",
     "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4",
-    "HydrologyTree/IndependentChildCoordinates.lean": "56ad30b4f7d9de2f77defa05627d8f66cd4135a05a86633ab68d1f0aaf4b79ea",
+    "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.297
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.177
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.343
-    },
-    {
-      "module": "HydrologyTree.EndJacobian",
-      "returncode": 0,
-      "seconds": 2.104
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.069
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 2.871
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 3.755
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 2.167
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 2.258
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 2.888
-    },
-    {
-      "module": "HydrologyTree.FamilyScaling",
-      "returncode": 0,
-      "seconds": 2.428
-    },
-    {
-      "module": "HydrologyTree.FamilyResultants",
-      "returncode": 0,
-      "seconds": 1.718
-    },
-    {
-      "module": "HydrologyTree.FamilySmoothness",
-      "returncode": 0,
-      "seconds": 2.009
-    },
-    {
-      "module": "HydrologyTree.TangentJacobian",
-      "returncode": 0,
-      "seconds": 2.085
-    },
-    {
-      "module": "HydrologyTree.FamilyGluing",
-      "returncode": 0,
-      "seconds": 1.797
-    },
-    {
-      "module": "HydrologyTree.RootUpdate",
-      "returncode": 0,
-      "seconds": 3.469
-    },
-    {
-      "module": "HydrologyTree.PathRootTransform",
-      "returncode": 0,
-      "seconds": 2.827
-    },
-    {
-      "module": "HydrologyTree.PathPolynomial",
-      "returncode": 0,
-      "seconds": 2.665
-    },
-    {
-      "module": "HydrologyTree.FamilyNormalization",
-      "returncode": 0,
-      "seconds": 2.835
-    },
-    {
-      "module": "HydrologyTree.BranchStep",
-      "returncode": 0,
-      "seconds": 2.198
-    },
-    {
-      "module": "HydrologyTree.PiSerialization",
-      "returncode": 0,
-      "seconds": 1.919
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 2.593
-    },
-    {
-      "module": "HydrologyTree.PathRates",
-      "returncode": 0,
-      "seconds": 2.163
-    },
-    {
-      "module": "HydrologyTree.PathNormalization",
-      "returncode": 0,
-      "seconds": 2.785
-    },
-    {
-      "module": "HydrologyTree.CoordinateEnergy",
-      "returncode": 0,
-      "seconds": 2.041
-    },
-    {
-      "module": "HydrologyTree.FamilyCoordinateEnergy",
-      "returncode": 0,
-      "seconds": 2.24
-    },
-    {
-      "module": "HydrologyTree.ScaledSerialization",
-      "returncode": 0,
-      "seconds": 2.091
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.945
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.836
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.738
-    },
-    {
-      "module": "HydrologyTree.RootBranches",
-      "returncode": 0,
-      "seconds": 1.692
-    },
-    {
-      "module": "HydrologyTree.BranchMatrixSupport",
-      "returncode": 0,
-      "seconds": 1.707
-    },
-    {
-      "module": "HydrologyTree.ChildTree",
-      "returncode": 0,
-      "seconds": 1.777
-    },
-    {
-      "module": "HydrologyTree.ChildRates",
-      "returncode": 0,
-      "seconds": 1.756
-    },
-    {
-      "module": "HydrologyTree.BranchConservation",
-      "returncode": 0,
-      "seconds": 1.795
-    },
-    {
-      "module": "HydrologyTree.Resolvent",
-      "returncode": 0,
-      "seconds": 1.748
-    },
-    {
-      "module": "HydrologyTree.EdgeDeterminant",
-      "returncode": 0,
-      "seconds": 1.518
-    },
-    {
-      "module": "HydrologyTree.EdgeCharacteristic",
-      "returncode": 0,
-      "seconds": 1.495
-    },
-    {
-      "module": "HydrologyTree.ChildMatrix",
-      "returncode": 0,
-      "seconds": 1.974
-    },
-    {
-      "module": "HydrologyTree.PhysicalRootDecomposition",
-      "returncode": 0,
-      "seconds": 1.653
-    },
-    {
-      "module": "HydrologyTree.DependentBlocks",
-      "returncode": 0,
-      "seconds": 1.411
-    },
-    {
-      "module": "HydrologyTree.ArrowDeterminant",
-      "returncode": 0,
-      "seconds": 2.285
-    },
-    {
-      "module": "HydrologyTree.ArrowCharacteristic",
-      "returncode": 0,
-      "seconds": 1.488
-    },
-    {
-      "module": "HydrologyTree.PhysicalRecursion",
-      "returncode": 0,
-      "seconds": 1.878
-    },
-    {
-      "module": "HydrologyTree.RootAttachment",
-      "returncode": 0,
-      "seconds": 1.556
-    },
-    {
-      "module": "HydrologyTree.LeafRecursion",
-      "returncode": 0,
-      "seconds": 1.424
-    },
-    {
-      "module": "HydrologyTree.PathPhysical",
-      "returncode": 0,
-      "seconds": 1.914
-    },
-    {
-      "module": "HydrologyTree.ScalarCoupling",
-      "returncode": 0,
-      "seconds": 2.021
-    },
-    {
-      "module": "HydrologyTree.PathInduction",
-      "returncode": 0,
-      "seconds": 2.233
-    },
-    {
-      "module": "HydrologyTree.CatenaryJacobian",
-      "returncode": 0,
-      "seconds": 2.565
-    },
-    {
-      "module": "HydrologyTree.CatenaryCanonical",
-      "returncode": 0,
-      "seconds": 2.296
-    },
-    {
-      "module": "HydrologyTree.CanonicalTree",
-      "returncode": 0,
-      "seconds": 2.567
-    },
-    {
-      "module": "HydrologyTree.IndependentChildCoordinates",
-      "returncode": 1,
-      "seconds": 14.603
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230",
-  "diagnostics": "HydrologyTree/IndependentChildCoordinates.lean:44:14: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nHydrologyTree/IndependentChildCoordinates.lean:39:18: error: (deterministic) timeout at `\u00abtactic execution\u00bb`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nHydrologyTree/IndependentChildCoordinates.lean:32:17: error: (deterministic) timeout at `\u00absynthesize pending MVars\u00bb`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nHydrologyTree/IndependentChildCoordinates.lean:57:47: error(lean.unknownIdentifier): Unknown identifier `childPolynomialSlots`\nHydrologyTree/IndependentChildCoordinates.lean:60:0: error: Not a definitional equality: the left-hand side\n  (prepareFamilyEquiv m) z\nis not definitionally equal to the right-hand side\n  (((piScaledEquiv m) fun i => ((coefficientArrayEquiv (m i)).symm (z.1 i)).1,\n      (piScaledEquiv m) fun i => (leadingEquiv (m i)) (z.2.2 i, ((coefficientArrayEquiv (m i)).symm (z.1 i)).2)),\n    z.2.1)\nHydrologyTree/IndependentChildCoordinates.lean:64:79: error: Type mismatch\n  rfl\nhas type\n  ?m.68 = ?m.68\nbut is expected to have type\n  (prepareFamilyEquiv m) z =\n    (((piScaledEquiv m) fun i => ((coefficientArrayEquiv (m i)).symm (z.1 i)).1,\n        (piScaledEquiv m) fun i => (leadingEquiv (m i)) (z.2.2 i, ((coefficientArrayEquiv (m i)).symm (z.1 i)).2)),\n      z.2.1)\n"
+  "run_id": "38201915230"
 }
