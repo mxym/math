@@ -1043,3 +1043,17 @@ import HydrologyTree
 #print axioms HydrologyTree.stieltjesNumerator_sigma
 #print axioms HydrologyTree.stieltjesNumerator_scale
 #print axioms HydrologyTree.stieltjesNumerator_normalization
+#print axioms HydrologyTree.PositiveRateVector
+#print axioms HydrologyTree.assemblePositiveRates
+#print axioms HydrologyTree.assembledRates_root
+#print axioms HydrologyTree.assembledRates_extract
+#print axioms HydrologyTree.assembledRates_child
+#print axioms HydrologyTree.assembledRates_connector
+#print axioms HydrologyTree.assembledRates_child_leak
+#print axioms HydrologyTree.assembledRates_diagonal
+#print axioms HydrologyTree.assemblePositiveRates_positive
+#print axioms HydrologyTree.realized_child_connector
+#print axioms HydrologyTree.assemble_positive_stieltjes_children
+#print axioms HydrologyTree.positive_tree_stieltjes_realization_exists
+#print axioms HydrologyTree.positive_tree_response_realization_exists
+#print axioms HydrologyTree.any_two_trees_share_positive_stieltjes_response

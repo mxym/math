@@ -27,3 +27,4 @@ import HydrologyTree.ResultantBoundary
 import HydrologyTree.TreeExactMultiplicities
 import HydrologyTree.CatenaryFormalPolynomial
 import HydrologyTree.StieltjesGrouping
+import HydrologyTree.PositiveRealizationExistence

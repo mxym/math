@@ -3,8 +3,7 @@
 The all-size, all-real-rate Jacobian factorization for the actual rooted tree
 coefficient map, its exact signed characteristic/cofactor resultant identity,
 and all exact multivariate coordinate multiplicities are now proved in Lean.
-The overall program remains **PARTIAL**: positive-realization existence and
-exhaustive fiber count, and the remaining graph-presentation, leak-location
+The overall program remains **PARTIAL**: exhaustive positive-realization fiber count, and the remaining graph-presentation, leak-location
 and ODE bridges still need proofs. See `GAPS.md`.
 
 ## Main theorem: arbitrary branching, actual physical objects
@@ -198,3 +197,26 @@ and derivative theorems; no external Stieltjes theorem or root solver is assumed
 Positive realization of every full tree and exhaustive factorial counting remain
 separate tasks. The new transformation source compiled; its independent source-
 bound CI receipt is distinct from the earlier verified algebraic checkpoints.
+
+## Unconditional positive realization on every finite tree
+
+`positive_tree_stieltjes_realization_exists` now proves that for EVERY original
+OrderedTree with n+1 vertices and EVERY positive normalized Stieltjes response
+with n+1 distinct positive poles, there exists a strictly positive physical rate
+vector whose ACTUAL characteristic and root cofactor are exactly the requested
+denominator and numerator polynomials. There is no smaller-model existence,
+local inverse, spectral input or realization assertion left as an assumption.
+The proof is strong induction, with the proved reciprocal construction supplying
+all child data and `assemble_positive_stieltjes_children` supplying the actual
+positive matrix construction. All original rates and the root leak are positive.
+
+`positive_tree_response_realization_exists` gives the exact root-resolvent sum
+off the original poles. `any_two_trees_share_positive_stieltjes_response` proves
+that any two prescribed same-size topologies have strictly positive realizations
+with exactly the same characteristic/cofactor pair and root response. At poles,
+the totalized inverse equality is algebraic, not a claim of finite physical
+response. These existence results do not yet enumerate all positive fibers.
+
+The global factorial fiber count and its exhaustive allocation bijection remain
+unproved; alternate leak placement, independent graph-presentation and ODE
+bridges remain explicit. This checkpoint is still partial for the full program.

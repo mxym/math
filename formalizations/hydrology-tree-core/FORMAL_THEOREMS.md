@@ -120,3 +120,17 @@ actual polynomials, so arbitrary injective positive input labels are covered.
 The one-store case n=0 uses the empty product/sum identities explicitly.
 This input closes the reciprocal interlacing/residue obligation but is not alone
 a theorem that all positive tree assignments have been realized or counted.
+
+## Completed global positive existence theorem
+
+For every n≥0, every original parent-encoded rooted tree with n+1 stores, and
+every n+1 distinct positive rates r_i with positive weights summing to one,
+there exists a strictly positive physical rate vector x whose actual matrix
+has characteristic P=product_i(X+r_i) and root cofactor
+F=sum_i w_i product_(j!=i)(X+r_j). The exact root-resolvent response follows off
+its poles. All smaller-child realization inputs are discharged by strong
+induction; every ORIGINAL physical rate and the root leak are proved positive.
+
+The same P,F can therefore be realized on any two specified same-size trees.
+Existence and topology ambiguity are now complete for this model. Exhaustive
+positive-fiber enumeration and its factorial count remain separate obligations.

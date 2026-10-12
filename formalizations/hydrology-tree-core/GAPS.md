@@ -48,14 +48,21 @@ inward/outward exponents.
 The independent graph-presentation and nonroot-leak conventions still require
 the transports specified below; they are not hidden in this rooted-parent model.
 
-## 2. Positive realization existence and exhaustive count
+## 2. Completed positive existence; exhaustive count remains
 
-Uniqueness per prescribed recursive factor assignment is proved. Still required:
-reciprocal Stieltjes pole/zero interlacing and residue signs; construction of a
-positive physical model for every admissible recursive partition; completeness
-of the assignments; the factorial fiber count and any global branch topology.
-Distinct assignments need not give equal rates. Do not relabel assignment-wise
-uniqueness as uniqueness from root observations alone.
+Reciprocal interlacing, complete zero factorization, simple roots, positive
+residues and exact reciprocal reconstruction are proved, including the one-store
+case and arbitrary input pole order. `positive_tree_stieltjes_realization_exists`
+now also constructs an actual strictly positive rate vector on EVERY original
+finite tree with the requested complete characteristic/cofactor pair. The proof
+discharges all smaller-child existence obligations by strong induction. Same-size
+topology non-identifiability is an exact corollary for positive full responses.
+
+Still construct the EXHAUSTIVE bijection between each actual positive rate fiber
+and all allowed recursive labelled pole allocations, and prove its factorial
+cardinality. Existence on each tree and uniqueness for a prescribed assignment
+are not an enumeration theorem. This remaining counting/classification obligation
+is not supplied as a hypothesis to any completed theorem.
 
 ## 3. Other tree presentations and leak locations
 

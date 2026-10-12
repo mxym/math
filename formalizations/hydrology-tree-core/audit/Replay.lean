@@ -1068,7 +1068,21 @@ run_cmd do
     ``HydrologyTree.stieltjes_sigma_erased_product,
     ``HydrologyTree.stieltjesNumerator_sigma,
     ``HydrologyTree.stieltjesNumerator_scale,
-    ``HydrologyTree.stieltjesNumerator_normalization]
+    ``HydrologyTree.stieltjesNumerator_normalization,
+    ``HydrologyTree.PositiveRateVector,
+    ``HydrologyTree.assemblePositiveRates,
+    ``HydrologyTree.assembledRates_root,
+    ``HydrologyTree.assembledRates_extract,
+    ``HydrologyTree.assembledRates_child,
+    ``HydrologyTree.assembledRates_connector,
+    ``HydrologyTree.assembledRates_child_leak,
+    ``HydrologyTree.assembledRates_diagonal,
+    ``HydrologyTree.assemblePositiveRates_positive,
+    ``HydrologyTree.realized_child_connector,
+    ``HydrologyTree.assemble_positive_stieltjes_children,
+    ``HydrologyTree.positive_tree_stieltjes_realization_exists,
+    ``HydrologyTree.positive_tree_response_realization_exists,
+    ``HydrologyTree.any_two_trees_share_positive_stieltjes_response]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
