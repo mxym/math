@@ -1,134 +1,61 @@
-# Exact remaining obligations — partial overall formalization
+# Remaining scope — partial overall program
 
-## Completed at the current source checkpoint
+## Closed for the original root-leak OrderedTree model
 
-The arbitrary-branching coefficient-Jacobian induction is now proved for every
-finite topologically numbered rooted tree and every real rate vector, including
-zero rates, repeated roots and a zero root leak. It is the derivative of the
-ACTUAL characteristic/root-cofactor coefficient map in standard ascending
-coefficient bases, not the easier rate-to-matrix coordinate Jacobian.
+The complete all-rate actual coefficient-Jacobian and formal partial-derivative
+factorizations, exact multivariate coordinate multiplicities, signed resultant
+identity and boundary singularity distinction are proved. Positive spectrum,
+Stieltjes interlacing/reciprocal construction and every positive realization are
+proved from their actual objects. The complete unrestricted-real full-response
+fiber has a recursive labelled-allocation bijection and finite exact cardinality
+n! / product_(nonroot v) |T_v|. Every real competitor is automatically strictly
+positive and has nonzero actual coefficient Jacobian. Root leak identification
+and actual discharge-transfer fibers are included.
 
-`full_tree_standard_jacobian` proves a sign depending only on the tree and
-coordinate order, valid simultaneously for all rates. Its rate exponents are
-the sizes of the actual recursively extracted principal subtrees; its sibling
-resultants are computed from the actual physical subtree characteristic
-polynomials. The proof includes child independence, actual coefficient
-semantics, the global Frechet chain rule, determinant normalization and original
-vertex/edge product flattening. No main conclusion is supplied as a premise.
+The ODE bridges are now proved in BOTH directions for globally continuous real
+inputs, classical trajectories and zero-initial observed responses. Actual
+global existence/uniqueness, output formulas, input-output classification from
+root or discharge histories, and differential/integrated storage balance are
+proved. Exponential probe solutions prevent vacuous use of universal trajectory
+predicates, even for initially unrestricted competing real matrices.
 
-For nonzero real internal rates, Jacobian regularity is equivalent to coprimality
-at every actual sibling family. For positive internal rates it is equivalent to
-absence of real sibling spectral collisions and actual polynomial cancellation.
-With a positive root leak, it is also equivalent to full distinct positive
-Stieltjes modes. These are now actual Jacobian equivalences; ODE claims remain
-separate. Rate uniqueness per prescribed recursive factor assignment is proved.
+Both original-coordinate Kalman matrices are proved nonsingular. Actual state
+trajectory observability on any nonempty open time interval is proved, not just
+its rank criterion. Actual finite-horizon steering is also proved: every T>0
+and every pair of initial/final state vectors admit a constructed continuous
+real control with a unique classical trajectory and those exact endpoints.
+The actual integral Gramian is proved positive before taking its inverse.
 
-## 1. Completed algebraic multiplicities and resultant identity
+## 1. Independent finite rooted graph presentations
 
-The exact all-rate signed identity Res(P_T,F_T)=epsilon*(product outward)*J_T
-is proved, with a single tree-dependent sign for all rate vectors. The full
-real-rate boundary zero-set distinction is also proved.
+The principal theorem still uses OrderedTree: every nonroot vertex has one
+strictly lower-numbered parent. An independently presented finite rooted simple
+graph needs a proved root-parent construction, topological numbering and all
+actual matrix/rate/coefficient transports. Do not silently count that presentation
+bridge as established merely because every finite tree intuitively admits one.
 
-The complete sibling residual is now an explicit multivariate polynomial built
-from ring-valued physical matrices; its specialization identity is proved.
-The unique polynomial representing the actual Frechet Jacobian exists, and
-its individual-rate multiplicities are proved EXACTLY by polynomial prime
-factor/divisibility arguments and uniform hyperplane witnesses. The next power
-is excluded, including the outward-leaf exponent-zero case and the root leak.
-These algebraic multiplicity obligations are no longer missing.
+## 2. Leak away from the observed root
 
-`formalTreeJacobian` now independently constructs the determinant of the matrix
-of formal partial derivatives of the actual symbolic characteristic/cofactor
-coefficients. Its evaluation is proved equal to the actual Frechet Jacobian,
-and its exact polynomial factorization and multiplicities are proved. Thus the
-explicit formal-differentiation interface is also closed. The endpoint path has
-a separate all-size formal polynomial monomial theorem with the original
-inward/outward exponents.
+The current exact model puts input, observation and sole leakage at the same
+root. A leak at a different vertex needs the actual observation-root/leak-root
+coordinate and reindexing proof. Its parameter Jacobian and physical fiber
+variants are not silently inferred from the root-leak theorem.
 
-The independent graph-presentation and nonroot-leak conventions still require
-the transports specified below; they are not hidden in this rooted-parent model.
+## 3. Scope exclusions, not hidden assumptions
 
-## 2. Complete unrestricted-real full-response classification and counting
+The full-fiber count requires N distinct positive target poles, all positive
+weights summing to one, and N vertices. Fewer-mode targets and complex-rate
+fibers are not enumerated by that statement. Signed real-valued controls are
+allowed in the proved controllability theorem; arbitrary steering under a
+nonnegative-rainfall restriction is NOT claimed. Merely measurable, impulsive
+or discontinuous inputs require a separate solution notion and bridge. Nonlinear
+catchments and empirical forecasting superiority remain outside these proofs.
 
-This block is now closed for the original OrderedTree model with a root leak.
-`positiveReciprocalFiberEquiv` proves the exhaustive root-level actual-parameter
-bijection. `positiveStieltjesRecursiveEquiv` recursively constructs the full
-bijection with `RecursivePoleAllocations t`, a type depending only on the tree.
-`positive_stieltjes_fiber_exact_card` proves finite cardinality exactly
-n! / product_(v != root) |T_v| for a tree with n+1 vertices, with original labels
-and actual subtree sizes. All inductive realization and counting premises are
-discharged. No finite candidate list or external root solver is assumed.
+## Verification boundary
 
-`positive_root_response_fiber_exact_card` proves the same count for actual root
-resolvent equality on its genuine nonpole domain, not an artificially stronger
-observation of both coefficient polynomials. Every positive fiber member's actual
-Jacobian is proved nonzero. Singleton trees and all labelled branch shapes are
-included; coincident reference poles and targets with fewer than n+1 modes are
-outside this enumeration theorem, not silently covered.
-
-`real_stieltjes_realization_is_positive` additionally proves that EVERY real
-rate vector with the full positive target pair is automatically strictly positive.
-The competitor is not assumed positive, nonzero, stable or Jacobian-regular.
-Monic child factors divide the simple split root cofactor; pure polynomial
-splitting replaces any positivity assumption in the reverse factor extraction.
-The actual child numerators are recovered by comparison with a proved positive
-reference, and strong induction forces positivity at every descendant.
-
-`realResponseRecursiveEquiv` gives the full bijection for ALL real root-response
-realizations, and `real_root_response_fiber_exact_card` proves their finite exact
-factorial count. `real_full_response_forces_positive_regular` proves both strict
-positivity and the nonzero actual Jacobian, with neither assumed. Thus no extra
-mixed-sign, zero-rate or singular real solutions are excluded from the count.
-Complex-rate fibers have not been claimed or formalized.
-
-These new files have compiled in the source-isolated development environment.
-Their independent verification is tied to this new checkpoint's own source
-hashes and CI receipt; earlier successful receipts do not certify new bytes.
-
-## 3. Other tree presentations and leak locations
-
-The main theorem uses the repository's actual OrderedTree encoding: every
-nonroot vertex has one strictly lower-numbered parent. Transport to independently
-presented arbitrary finite rooted graph objects needs an explicit enumeration
-and coefficient/rate reindexing theorem. The non-observed-root leak version also
-needs its observation-root versus leak-root coordinate argument. These variants
-are not silently included in the proved rooted-parent statement.
-
-## 4. ODE/system interpretation
-
-The actual discharge-transfer bridge is now proved in DischargeFiber: root
-leak times root resolvent, recovery of the unknown leak from discharge equality,
-and equality of the unrestricted real root-response/discharge fibers with the
-same exact finite cardinality. This removes any assumption that the physical
-root leak is separately measured. It does NOT by itself prove the ODE claims.
-
-
-The forward actual ODE bridge is now proved: global classical existence and
-uniqueness for every positive physical model and continuous input, arbitrary
-initial states, exact zero-initial root output, all-continuous-input discharge
-equality for full-response-equivalent real models, and differential/integrated
-storage balance. Positivity is proved from the full target response before this
-ODE theorem is applied. The modal witness is actually constructed.
-
-The reverse root-output implication is now proved by explicit actual exponential
-input trajectories and a norm-controlled asymptotic resolvent limit, without
-assuming stability or positivity of competing matrices. Actual ODE root-output
-fibers are proved equivalent to the full real transfer fibers and have the
-exact finite factorial count. The universal trajectory predicate cannot hide
-nonexistence: the probes are explicitly constructed and full well-posedness is
-then proved from the recovered target.
-
-The discharge-only time-domain inverse is now proved, including identification
-of the unknown leak and exact actual continuous-discharge-fiber cardinality.
-Both actual Kalman matrices are constructed and proved nonsingular for every
-full-response realization. Actual trajectory observability on any nonempty
-open time window is proved from those matrices and the actual derivatives.
-
-Still complete continuous-time finite-horizon steering with a constructed input.
-That claim is not replaced by a Kalman rank statement. Broader forcing and
-independent graph/alternate-leak variants remain separately scoped.
-Piecewise-continuous or merely measurable forcing is not silently included in
-the continuous-input theorem. Graph and alternate-leak variants remain separate.
-
-Every independent receipt certifies only its own source bytes. No completion
-Release or DOI for the entire research program is justified by this checkpoint.
+Each source checkpoint must pass its own fresh build, complete audit, empty
+trust-level-zero replay and rejected false mutations. A local compiler success
+or historical receipt does not certify new sources. The original model's
+matrix/fiber/continuous-ODE/system core is closed; the independent graph and
+alternate-leak extensions remain. No full-program Release or DOI is justified
+until the declared intended scope has been completed and independently checked.

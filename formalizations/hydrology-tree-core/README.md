@@ -238,3 +238,31 @@ Finite-horizon steering by an actual continuous input is not inferred merely
 from the Kalman determinant here; it remains a separate proof obligation until
 its trajectory construction is checked. Broader forcing, independent graph
 presentation and alternate leak location remain outside this checkpoint.
+
+
+## Actual finite-horizon controllability
+
+`ExponentialIndependence` proves independence of every finite family of distinct
+real exponentials on ANY nonempty open interval, using actual derivatives and
+the checked Vandermonde matrix. `ExponentialGramian` proves strict positivity
+of the actual finite-horizon integral Gram matrix for EVERY T>0; no sampled
+matrix, assumed Gramian invertibility or external control theorem is used.
+
+`modalSteeringInput` explicitly constructs a finite linear combination of real
+exponentials from the inverse of that proved positive Gramian.
+`modalSteering_terminal` proves the exact terminal state of the actual interval-
+integral solution. `real_full_response_controllable` then proves, for any full
+response realization, ANY T>0 and ANY initial/final state vectors, existence of
+a continuous real-valued input and its unique global classical state trajectory
+with those endpoints. The actual physical matrix is used and its modal prerequisites
+are constructed from the full target response, not assumed.
+
+This is standard SIGNED-input linear controllability. No claim is made that
+nonnegative rainfall alone can steer arbitrary states. Combined with the actual
+finite-window observation theorem, both continuous-time system bridges are now
+proved for the existing root-leak model. Independent graph presentations and
+alternate leak locations remain separate variants.
+
+The reproduction driver now supports symbolic-link dependency layouts without
+changing any pinned revision or source-blob check. Earlier local setup failures
+are distinct from completed proof checks; each receipt binds its own exact source.

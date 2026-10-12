@@ -38,3 +38,5 @@ import HydrologyTree.PhysicalMassODE
 import HydrologyTree.ContinuousOutputFiber
 import HydrologyTree.ContinuousDischargeFiber
 import HydrologyTree.TrajectoryObservability
+import HydrologyTree.PhysicalControllability
+import HydrologyTree.FullRootLeakTheory

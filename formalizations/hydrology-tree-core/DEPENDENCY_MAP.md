@@ -84,3 +84,10 @@ history inverse and its exact finite fiber count. ModalKalman and PhysicalKalman
 prove original-coordinate Kalman ranks; TrajectoryObservability proves actual
 finite-window state recovery. No continuous-time steering statement is inferred
 without constructing its actual control and endpoint trajectory.
+
+
+ExponentialIndependence -> ExponentialGramian proves the actual finite-horizon
+integral positivity. ModalSteering constructs a continuous real input and checks
+both actual state endpoints. PhysicalControllability discharges every modal
+and regularity prerequisite from the original full response. This closes the
+previous finite-horizon steering gap, distinct from graph/alternate-leak variants.

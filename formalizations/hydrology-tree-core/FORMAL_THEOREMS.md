@@ -281,3 +281,25 @@ with a<b and the observation matrix is nonsingular, then z=q everywhere.
 the full response. There is no assumption of equal initial states. This closes
 trajectory observability, while actual finite-horizon steering still needs its
 own existence construction beyond the already checked Krylov determinant.
+
+
+## Actual finite-horizon state steering
+
+`exponentialGramian r T` has entries integral_(0..T) exp(r_i*s)exp(r_j*s) ds.
+`exponentialGramian_posDef` proves strict positivity for every injective real
+r and every T>0. Actual finite exponential independence on open intervals is
+proved first; a.e. vanishing of the nonnegative square integral is upgraded to
+pointwise vanishing by continuity. No unproved Gramian input is assumed.
+
+`modalSteeringInput` explicitly uses this inverse Gramian and the proved actual
+modal maps to construct a continuous real-valued control. The exact original
+ODE trajectory reaches the desired terminal state, as a checked integral identity.
+`real_full_response_controllable` concludes that for any unrestricted real vector
+realizing the full positive target, for EVERY T>0 and all z0,z1, there exists
+continuous u and a UNIQUE global classical z satisfying the original state
+ODE, z(0)=z0 and z(T)=z1. No controllability/Gramian/positive-rate condition is
+supplied as an additional premise; all follow from the target and are proved.
+
+This is signed-input linear controllability. Neither the control nor the whole
+trajectory is constrained to be nonnegative. The theorem does not assert
+arbitrary reachability using nonnegative rainfall inputs only.

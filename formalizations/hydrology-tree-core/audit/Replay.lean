@@ -1255,7 +1255,27 @@ run_cmd do
     ``HydrologyTree.homogeneous_zero_output_powers,
     ``HydrologyTree.root_observation_detects_trajectory,
     ``HydrologyTree.actual_trajectory_observability,
-    ``HydrologyTree.real_full_response_trajectory_observable]
+    ``HydrologyTree.real_full_response_trajectory_observable,
+    ``HydrologyTree.exponentialMoment,
+    ``HydrologyTree.exponentialMoment_derivative,
+    ``HydrologyTree.exponential_sum_independent,
+    ``HydrologyTree.exponentialSignal,
+    ``HydrologyTree.exponentialGramian,
+    ``HydrologyTree.continuous_exponentialSignal,
+    ``HydrologyTree.exponentialGramian_mulVec,
+    ``HydrologyTree.exponentialGramian_quadratic,
+    ``HydrologyTree.exponentialGramian_posDef,
+    ``HydrologyTree.scalar_exponentialSignal_terminal,
+    ``HydrologyTree.modalSteeringTarget,
+    ``HydrologyTree.modalSteeringCoefficients,
+    ``HydrologyTree.modalSteeringInput,
+    ``HydrologyTree.modalSteering_gramian_equation,
+    ``HydrologyTree.modalSteering_terminal,
+    ``HydrologyTree.modal_finite_horizon_steering,
+    ``HydrologyTree.real_full_response_controllable,
+    ``HydrologyTree.rootLeakDynamicalFiberEquiv,
+    ``HydrologyTree.root_leak_dynamical_fiber_classification,
+    ``HydrologyTree.root_leak_full_dynamical_properties]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
