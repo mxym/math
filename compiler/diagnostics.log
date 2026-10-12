@@ -64,4 +64,12 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
 
 MODULE HydrologyTree.FamilyScaling
-HydrologyTree/FamilyScaling.lean:62:6: error: Failed to rewrite using equation theorems for `scaleLeading`
+HydrologyTree/FamilyScaling.lean:63:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  endJacobian
+    (fun z => (leadingEquiv n).toContinuousLinearEquiv (scaleChart ((leadingEquiv n).toContinuousLinearEquiv.symm z))) q
+in the target expression
+  endJacobian (fun q => (leadingEquiv n) (scaleChart ((leadingEquiv n).symm q))) q = (↑q).coeff n ^ n
+
+n : ℕ
+q : ↥(Coeff (n + 1))
+⊢ endJacobian (fun q => (leadingEquiv n) (scaleChart ((leadingEquiv n).symm q))) q = (↑q).coeff n ^ n
