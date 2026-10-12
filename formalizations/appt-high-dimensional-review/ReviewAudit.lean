@@ -3,6 +3,28 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_rectangular_isGreatest_iff_unitary,
+  ``APPTReview.cutEdgePurity_lt_of_short,
+  ``APPTReview.cutEdge_middle_scaled,
+  ``APPTReview.cutEdge_middle_eq_rounded_iff,
+  ``APPTReview.rounded_plateau_rank_bounds,
+  ``APPTReview.plateauCrossing_entry,
+  ``APPTReview.uniformPrefix_last,
+  ``APPTReview.full_middle_crossing_spectrum,
+  ``APPTReview.full_prefix_edge_maximizer,
+  ``APPTReview.ordered_rectangular_cut_unique_spectrum,
+  ``APPTReview.density_appt_rectangular_spectrum,
+  ``APPTReview.roundedPlateauSpectrum_squares,
+  ``APPTReview.density_appt_rectangular_maximizer_iff,
+  ``APPTReview.eigenvalue_diagonal_eq_rounded,
+  ``APPTReview.hermitian_eq_unitary_rounded,
+  ``APPTReview.roundedPlateauMatrix_properties,
+  ``APPTReview.appt_rectangular_maximizer_iff_unitary,
+  ``APPTReview.rectangular_even_spectrum_control,
+  ``APPTReview.rectangular_odd_spectrum_control,
+  ``APPTReview.rectangular_floor_spectrum_rejected,
+  ``APPTReview.rectangular_reference_physical_control,
+
   ``APPTReview.appt_rectangular_maximum_formula,
   ``APPTReview.appt_rectangular_purity_isGreatest,
   ``APPTReview.appt_rectangular_purity_sup_eq,
@@ -280,3 +302,7 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_spectrum_cut_bound "review-kernel-ordered-cut-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_two_branch_upper "review-kernel-rectangular-upper-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_rectangular_maximizer_iff "review-kernel-rectangular-spectrum-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_rectangular_cut_unique_spectrum "review-kernel-rectangular-cut-equality-control"

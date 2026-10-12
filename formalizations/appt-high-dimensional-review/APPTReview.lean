@@ -27,3 +27,5 @@ import APPTReview.RectangularControls
 import APPTReview.RectangularMaxControls
 
 import APPTReview.UniqueCutReduction
+
+import APPTReview.RectangularClassificationControls
