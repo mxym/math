@@ -1,6 +1,6 @@
 {
   "serial": 118,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "cc30eaa4afb2746f0464904398fe2235deb24540",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -150,7 +150,309 @@
     "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.356
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.264
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.417
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 2.124
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.12
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 2.93
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.892
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.194
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.258
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.972
+    },
+    {
+      "module": "HydrologyTree.FamilyScaling",
+      "returncode": 0,
+      "seconds": 2.468
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.749
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 0,
+      "seconds": 2.082
+    },
+    {
+      "module": "HydrologyTree.TangentJacobian",
+      "returncode": 0,
+      "seconds": 2.142
+    },
+    {
+      "module": "HydrologyTree.FamilyGluing",
+      "returncode": 0,
+      "seconds": 1.835
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 3.526
+    },
+    {
+      "module": "HydrologyTree.PathRootTransform",
+      "returncode": 0,
+      "seconds": 2.941
+    },
+    {
+      "module": "HydrologyTree.PathPolynomial",
+      "returncode": 0,
+      "seconds": 2.736
+    },
+    {
+      "module": "HydrologyTree.FamilyNormalization",
+      "returncode": 0,
+      "seconds": 2.886
+    },
+    {
+      "module": "HydrologyTree.BranchStep",
+      "returncode": 0,
+      "seconds": 2.241
+    },
+    {
+      "module": "HydrologyTree.PiSerialization",
+      "returncode": 0,
+      "seconds": 1.967
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.627
+    },
+    {
+      "module": "HydrologyTree.PathRates",
+      "returncode": 0,
+      "seconds": 2.21
+    },
+    {
+      "module": "HydrologyTree.PathNormalization",
+      "returncode": 0,
+      "seconds": 2.796
+    },
+    {
+      "module": "HydrologyTree.CoordinateEnergy",
+      "returncode": 0,
+      "seconds": 2.038
+    },
+    {
+      "module": "HydrologyTree.FamilyCoordinateEnergy",
+      "returncode": 0,
+      "seconds": 2.275
+    },
+    {
+      "module": "HydrologyTree.ScaledSerialization",
+      "returncode": 0,
+      "seconds": 2.086
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.938
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.83
+    },
+    {
+      "module": "HydrologyTree.MatrixEntries",
+      "returncode": 0,
+      "seconds": 1.752
+    },
+    {
+      "module": "HydrologyTree.RootBranches",
+      "returncode": 0,
+      "seconds": 1.696
+    },
+    {
+      "module": "HydrologyTree.BranchMatrixSupport",
+      "returncode": 0,
+      "seconds": 1.709
+    },
+    {
+      "module": "HydrologyTree.ChildTree",
+      "returncode": 0,
+      "seconds": 1.762
+    },
+    {
+      "module": "HydrologyTree.ChildRates",
+      "returncode": 0,
+      "seconds": 1.76
+    },
+    {
+      "module": "HydrologyTree.BranchConservation",
+      "returncode": 0,
+      "seconds": 1.837
+    },
+    {
+      "module": "HydrologyTree.Resolvent",
+      "returncode": 0,
+      "seconds": 1.764
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.505
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.49
+    },
+    {
+      "module": "HydrologyTree.ChildMatrix",
+      "returncode": 0,
+      "seconds": 1.983
+    },
+    {
+      "module": "HydrologyTree.PhysicalRootDecomposition",
+      "returncode": 0,
+      "seconds": 1.667
+    },
+    {
+      "module": "HydrologyTree.DependentBlocks",
+      "returncode": 0,
+      "seconds": 1.436
+    },
+    {
+      "module": "HydrologyTree.ArrowDeterminant",
+      "returncode": 0,
+      "seconds": 2.341
+    },
+    {
+      "module": "HydrologyTree.ArrowCharacteristic",
+      "returncode": 0,
+      "seconds": 1.527
+    },
+    {
+      "module": "HydrologyTree.PhysicalRecursion",
+      "returncode": 0,
+      "seconds": 1.932
+    },
+    {
+      "module": "HydrologyTree.RootAttachment",
+      "returncode": 0,
+      "seconds": 1.59
+    },
+    {
+      "module": "HydrologyTree.LeafRecursion",
+      "returncode": 0,
+      "seconds": 1.491
+    },
+    {
+      "module": "HydrologyTree.PathPhysical",
+      "returncode": 0,
+      "seconds": 1.973
+    },
+    {
+      "module": "HydrologyTree.ScalarCoupling",
+      "returncode": 0,
+      "seconds": 2.088
+    },
+    {
+      "module": "HydrologyTree.PathInduction",
+      "returncode": 0,
+      "seconds": 2.28
+    },
+    {
+      "module": "HydrologyTree.CatenaryJacobian",
+      "returncode": 0,
+      "seconds": 2.589
+    },
+    {
+      "module": "HydrologyTree.CatenaryCanonical",
+      "returncode": 0,
+      "seconds": 2.302
+    },
+    {
+      "module": "HydrologyTree.CanonicalTree",
+      "returncode": 0,
+      "seconds": 2.607
+    },
+    {
+      "module": "HydrologyTree.IndependentChildCoordinates",
+      "returncode": 0,
+      "seconds": 2.044
+    },
+    {
+      "module": "HydrologyTree.ChildIndex",
+      "returncode": 0,
+      "seconds": 1.725
+    },
+    {
+      "module": "HydrologyTree.RateCoordinates",
+      "returncode": 0,
+      "seconds": 2.007
+    },
+    {
+      "module": "HydrologyTree.RootCoupling",
+      "returncode": 0,
+      "seconds": 2.698
+    },
+    {
+      "module": "HydrologyTree.CouplingSemantics",
+      "returncode": 0,
+      "seconds": 1.943
+    },
+    {
+      "module": "HydrologyTree.OriginalWorkCoordinates",
+      "returncode": 0,
+      "seconds": 1.787
+    },
+    {
+      "module": "HydrologyTree.CoprimeBranchRecovery",
+      "returncode": 0,
+      "seconds": 1.808
+    },
+    {
+      "module": "HydrologyTree.SerializedNumerator",
+      "returncode": 1,
+      "seconds": 1.733
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230"
+  "run_id": "38201915230",
+  "diagnostics": "HydrologyTree/SerializedNumerator.lean:17:9: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nHydrologyTree/SerializedNumerator.lean:91:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  branchNumeratorSum (fun i => ?P (?e i)) fun i => ?R (?e i)\nin the target expression\n  (branchNumeratorSum (fun i => \u2191(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>\n      \u2191(r ((Fintype.equivFin I).symm i))) =\n    branchNumeratorSum (fun i => \u2191(monicPoly (p i))) fun i => \u2191(r i)\n\nI : Type u_1\ninst\u271d\u00b9 : Fintype I\ninst\u271d : DecidableEq I\nm : I \u2192 \u2115\np r : (i : I) \u2192 \u21a5(Coeff (m i + 1))\n\u22a2 (branchNumeratorSum (fun i => \u2191(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>\n      \u2191(r ((Fintype.equivFin I).symm i))) =\n    branchNumeratorSum (fun i => \u2191(monicPoly (p i))) fun i => \u2191(r i)\n"
 }
