@@ -65,36 +65,6 @@ MODULE HydrologyTree.StieltjesDegree
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesInterlacing
-HydrologyTree/StieltjesInterlacing.lean:74:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (fun x => eval x p) a
-in the target expression
-  eval a p * eval b p < 0
 
-p : ℝ[X]
-a b : ℝ
-hab : a < b
-h : eval a p * eval b p < 0
-hu : 0 ∈ Set.uIcc (eval a p) (eval b p)
-z : ℝ
-hz : z ∈ Set.uIcc a b
-hzero : (fun x => eval x p) a = 0
-hz' : a ≤ z ∧ z ≤ b
-he : z = a
-⊢ False
-HydrologyTree/StieltjesInterlacing.lean:75:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (fun x => eval x p) b
-in the target expression
-  eval a p * eval b p < 0
-
-p : ℝ[X]
-a b : ℝ
-hab : a < b
-h : eval a p * eval b p < 0
-hu : 0 ∈ Set.uIcc (eval a p) (eval b p)
-z : ℝ
-hz : z ∈ Set.uIcc a b
-hzero : (fun x => eval x p) b = 0
-hz' : a ≤ z ∧ z ≤ b
-hza : z ≠ a
-he : z = b
-⊢ False
+MODULE HydrologyTree.StieltjesZeroFactorization
+HydrologyTree/StieltjesZeroFactorization.lean:75:2: warning: Try this: intro j hj he
