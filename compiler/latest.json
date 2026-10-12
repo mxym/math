@@ -1,6 +1,6 @@
 {
   "serial": 96,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "90569e9ef990b9ec3794984be161ec920ab924ae",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -108,7 +108,104 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 2.192
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 1.65
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 1.714
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 1.578
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 1.597
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 1.951
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 2.397
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 1.607
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 1.634
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 1.985
+    },
+    {
+      "module": "HydrologyTree.FamilyScaling",
+      "returncode": 0,
+      "seconds": 1.816
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.478
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 0,
+      "seconds": 1.629
+    },
+    {
+      "module": "HydrologyTree.TangentJacobian",
+      "returncode": 0,
+      "seconds": 1.62
+    },
+    {
+      "module": "HydrologyTree.FamilyGluing",
+      "returncode": 0,
+      "seconds": 1.514
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 2.297
+    },
+    {
+      "module": "HydrologyTree.PathRootTransform",
+      "returncode": 0,
+      "seconds": 1.938
+    },
+    {
+      "module": "HydrologyTree.PathPolynomial",
+      "returncode": 0,
+      "seconds": 1.914
+    },
+    {
+      "module": "HydrologyTree.FamilyNormalization",
+      "returncode": 1,
+      "seconds": 1.816
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888"
+  "run_id": "38198592888",
+  "diagnostics": "HydrologyTree/FamilyNormalization.lean:22:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  endJacobian (\u21d1\u2191e.symm.toContinuousLinearEquiv \u2218 f) x\nin the target expression\n  endJacobian (fun z => (bE.equiv bF (Equiv.refl I)).symm (f z)) x = ((LinearMap.toMatrix bE bF) \u2191(fderiv \u211d f x)).det\n\nE : Type u_1\nF : Type u_2\nI : Type u_3\ninst\u271d\u2077 : NormedAddCommGroup E\ninst\u271d\u2076 : NormedSpace \u211d E\ninst\u271d\u2075 : NormedAddCommGroup F\ninst\u271d\u2074 : NormedSpace \u211d F\ninst\u271d\u00b3 : Fintype I\ninst\u271d\u00b2 : DecidableEq I\ninst\u271d\u00b9 : FiniteDimensional \u211d E\ninst\u271d : FiniteDimensional \u211d F\nbE : Basis I \u211d E\nbF : Basis I \u211d F\nf : E \u2192 F\nx : E\nhf : DifferentiableAt \u211d f x\ne : E \u2243\u2097[\u211d] F := bE.equiv bF (Equiv.refl I)\nh : HasFDerivAt (\u21d1\u2191e.symm.toContinuousLinearEquiv \u2218 f) (\u2191e.symm.toContinuousLinearEquiv \u2218SL fderiv \u211d f x) x\n\u22a2 endJacobian (fun z => (bE.equiv bF (Equiv.refl I)).symm (f z)) x = ((LinearMap.toMatrix bE bF) \u2191(fderiv \u211d f x)).det\nHydrologyTree/FamilyNormalization.lean:88:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  endJacobian\n    (fun z =>\n      (familyRootEquiv ns).symm.toContinuousLinearEquiv\n        (rootCoefficientMap ((familyRootEquiv ns).symm.toContinuousLinearEquiv.symm z)))\n    z\nin the target expression\n  endJacobian (fun z => (familyRootEquiv ns).symm (rootCoefficientMap ((familyRootEquiv ns) z))) z = (-1) ^ ns.sum\n\nns : List \u2115\nz : FamilyRootInputs ns\n\u22a2 endJacobian (fun z => (familyRootEquiv ns).symm (rootCoefficientMap ((familyRootEquiv ns) z))) z = (-1) ^ ns.sum\n"
 }
