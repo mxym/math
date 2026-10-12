@@ -1,7 +1,7 @@
 {
-  "serial": 135,
-  "status": "COMPILER_ERROR",
-  "request_blob": "878386ba2564ecff064bc2cf803eba96bf90994c",
+  "serial": 136,
+  "status": "COMPILING",
+  "request_blob": "7b87f882cafae315c2c4dc168440d1d5c782561d",
   "modules": [
     "HydrologyTree.MonicResultantAlgebra",
     "HydrologyTree.Coefficients",
@@ -148,7 +148,7 @@
     "HydrologyTree/RootUpdate.lean": "42a9c1b2fe59ad4a99c0b477e48a6f16647344aae57bfc3a35ccc729cb37bb10",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
-    "HydrologyTree/ResultantFamilyEnumeration.lean": "f2e8e6148a8e06d762ba1c4e125b21db02367016bec10ae8b7acd33514d3e8ca",
+    "HydrologyTree/ResultantFamilyEnumeration.lean": "9d2ee7fc8658f82533253d12f48166ce069ff702af64c697b3013f56fb1e8d0a",
     "HydrologyTree/PathNormalization.lean": "dd253c2af5bb48cb0044fd5c941288011812af611f93e1efa97c7354416f115f",
     "HydrologyTree/ChildTree.lean": "4c51c7ef03b157b4c138fdd478c43e6cfaca1450237acf551d8cd0aa30d1f120",
     "HydrologyTree/PathRootTransform.lean": "8600f114583bbd1f8c0569734359aab6ac90da283bf0f3228c509c1e83b12d12",
@@ -158,64 +158,7 @@
     "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.MonicResultantAlgebra",
-      "returncode": 0,
-      "seconds": 1.64
-    },
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.708
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.482
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 4.097
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.34
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 2.434
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 2.5
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 3.163
-    },
-    {
-      "module": "HydrologyTree.FamilyResultants",
-      "returncode": 0,
-      "seconds": 1.932
-    },
-    {
-      "module": "HydrologyTree.SignedFamilyResultant",
-      "returncode": 0,
-      "seconds": 2.031
-    },
-    {
-      "module": "HydrologyTree.ResultantFamilyEnumeration",
-      "returncode": 1,
-      "seconds": 2.403
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38210619885",
-  "diagnostics": "HydrologyTree/ResultantFamilyEnumeration.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (insert i ?m.116).erase a\nin the target expression\n  r i * \u220f j \u2208 (insert a s).erase i, p j = p a * (r i * \u220f j \u2208 s.erase i, p j)\n\ncase e_a\n\u03b9 : Type u_1\ninst\u271d : DecidableEq \u03b9\ns : Finset \u03b9\np r : \u03b9 \u2192 \u211d[X]\na : \u03b9\nha : a \u2209 s\ni : \u03b9\nhi : i \u2208 s\nhia : i \u2260 a\nhae : a \u2209 s.erase i\n\u22a2 r i * \u220f j \u2208 (insert a s).erase i, p j = p a * (r i * \u220f j \u2208 s.erase i, p j)\nHydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:\n  [DecidableEq \u03b9]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq \u03b9] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/ResultantFamilyEnumeration.lean:75:2: error: Type mismatch: After simplification, term\n  h\n has type\n  (List.map Prod.fst (List.map (fun i => (p i, r i)) (resultantEnumeration \u03b9))).prod.resultant\n      (\u2211 i, r i * \u220f j \u2208 Finset.univ.erase i, p j) (\u220f x, p x).natDegree =\n    (resultantPairSign (List.map (fun x => (p x).natDegree) (resultantEnumeration \u03b9)) * \u220f x, (p x).resultant (r x)) *\n      pairwiseResultants (List.map (fun x => p x) (resultantEnumeration \u03b9)) ^ 2\nbut is expected to have type\n  (\u220f i, p i).resultant (\u2211 i, r i * \u220f j \u2208 Finset.univ.erase i, p j) =\n    (resultantPairSign (List.map (fun i => (p i).natDegree) (resultantEnumeration \u03b9)) * \u220f i, (p i).resultant (r i)) *\n      pairwiseResultants (List.map p (resultantEnumeration \u03b9)) ^ 2\n"
+  "run_id": "38210619885"
 }
