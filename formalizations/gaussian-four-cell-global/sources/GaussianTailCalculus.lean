@@ -54,4 +54,39 @@ theorem standardTail_lipschitz : LipschitzWith ⟨standardDensity 0, (standardDe
   rw [norm_neg, Real.norm_eq_abs, abs_of_pos (standardDensity_pos a)]
   exact standardDensity_le_zero a
 
+/- The strict positivity of the Gaussian density upgrades the derivative
+   formula to strict antitonicity of the tail.  This is useful whenever an
+   equal-mass halfspace has to be identified with the centred halfspace. -/
+theorem standardTail_strictAnti : StrictAnti standardTail := by
+  apply strictAnti_of_deriv_neg
+  intro a
+  rw [(standardTail_hasDerivAt a).deriv]
+  linarith [standardDensity_pos a]
+
+theorem standardTail_zero : standardTail 0 = (1 : ℝ) / 2 := by
+  rw [standardTail_eq_integral]
+  rw [show standardDensity =
+      (fun x : ℝ => (Real.sqrt (2 * Real.pi))⁻¹ * Real.exp (-(x ^ 2) / 2))
+    from funext standardDensity_eq]
+  rw [integral_const_mul]
+  have hfun : (fun x : ℝ => Real.exp (-(x ^ 2) / 2)) =
+      (fun x : ℝ => Real.exp (-(1 / 2 : ℝ) * x ^ 2)) := by
+    funext x
+    congr 1
+    ring
+  rw [hfun]
+  rw [integral_gaussian_Ioi (1 / 2)]
+  have hs : Real.sqrt (2 * Real.pi) ≠ 0 :=
+    ne_of_gt (Real.sqrt_pos.2 (by positivity))
+  have he : Real.sqrt (Real.pi / (1 / 2)) = Real.sqrt (2 * Real.pi) := by
+    congr 1
+    field_simp
+  rw [he]
+  field_simp [hs]
+
+lemma standardTail_eq_half_iff (a : ℝ) :
+    standardTail a = (1 : ℝ) / 2 ↔ a = 0 := by
+  rw [← standardTail_zero]
+  exact standardTail_strictAnti.injective.eq_iff
+
 end GaussianMeasureBridge
