@@ -143,53 +143,15 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 MODULE HydrologyTree.BranchStep
 
 MODULE HydrologyTree.PiSerialization
-HydrologyTree/PiSerialization.lean:47:4: error: Type mismatch
-  ih ?m.28 ?m.29
-has type
-  familyPolynomials (List.ofFn ?m.28) ((piCoefficientsFinEquiv ?m.28) ?m.29) = List.ofFn fun i => ↑(monicPoly (?m.29 i))
-but is expected to have type
-  familyPolynomials (List.ofFn m)
-      ((⋯.mpr
-          ({ toFun := fun f => (f 0, fun i => f i.succ), map_add' := ⋯, map_smul' := ⋯,
-              invFun := fun z i => Fin.cases z.1 z.2 i, left_inv := ⋯, right_inv := ⋯ } ≪≫ₗ
-            (LinearEquiv.refl ℝ ↥(Coeff (m 0))).prodCongr (piCoefficientsFinEquiv fun i => m i.succ)))
-        p) =
-    ↑(monicPoly (p 0)) :: List.ofFn fun i => ↑(monicPoly (p i.succ))
-HydrologyTree/PiSerialization.lean:43:55: warning: This simp argument is unused:
-  LinearEquiv.trans_apply
+HydrologyTree/PiSerialization.lean:29:57: error: No goals to be solved
+HydrologyTree/PiSerialization.lean:36:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Subsingleton (ProductInput (finDegreeList m))
 
-Hint: Omit it from the simp argument list.
-  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.prodCongr_apply, LinearEquiv.refl_apply,
-    finPiHeadTail, familyPolynomials]
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/PiSerialization.lean:52:9: error: Function expected at
+  piCoefficientsFinEquiv ?m.38
+but this term has type
+  ((i : Fin ?m.37) → ↥(Coeff (?m.38 i))) ≃ₗ[ℝ] ProductInput (finDegreeList ?m.38)
 
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PiSerialization.lean:44:6: warning: This simp argument is unused:
-  LinearEquiv.prodCongr_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.refl_apply,
-    finPiHeadTail, familyPolynomials]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PiSerialization.lean:44:35: warning: This simp argument is unused:
-  LinearEquiv.refl_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,
-    finPiHeadTail, familyPolynomials]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PiSerialization.lean:45:6: warning: This simp argument is unused:
-  familyPolynomials
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,
-    LinearEquiv.refl_apply, finPiHeadTail]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PiSerialization.lean:65:79: error: unsolved goals
-I : Type u_1
-inst✝ : Fintype I
-m : I → ℕ
-⊢ (List.ofFn fun i => m ((Fintype.equivFin I).symm i) + 1) =
-    List.ofFn ((fun n => n + 1) ∘ fun i => m ((Fintype.equivFin I).symm i))
+Note: Expected a function because this term is being applied to the argument
+  (fun i : Fin k => p i.succ)
