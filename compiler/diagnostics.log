@@ -181,34 +181,45 @@ Hint: Omit it from the simp argument list.
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.PositiveSpectrum
-HydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals
-I : Type u_1
-inst✝¹ : Fintype I
-inst✝ : DecidableEq I
-B : Matrix I I ℝ
-hB : B.PosDef
-hn : -B = ((conjStarAlgAut ℝ (Matrix I I ℝ)) ⋯.eigenvectorUnitary) (-diagonal (RCLike.ofReal ∘ ⋯.eigenvalues))
-⊢ (-diagonal ⋯.eigenvalues).charpoly = ∏ i, (X + C (⋯.eigenvalues i))
-HydrologyTree/PositiveSpectrum.lean:18:8: warning: This simp argument is unused:
-  ← Matrix.diagonal_neg
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.charpoly_diagonal, Function.comp_def]
-
-Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PositiveSpectrum.lean:18:31: warning: This simp argument is unused:
-  Matrix.charpoly_diagonal
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [← Matrix.diagonal_neg, Function.comp_def]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/PositiveSpectrum.lean:18:57: warning: This simp argument is unused:
+HydrologyTree/PositiveSpectrum.lean:18:55: warning: This simp argument is unused:
   Function.comp_def
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [← Matrix.diagonal_neg, Matrix.charpoly_diagonal]
+  [apply] simp [Matrix.diagonal_neg, Matrix.charpoly_diagonal]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.SpectralResolvent
+HydrologyTree/SpectralResolvent.lean:13:31: error(lean.invalidField): Invalid field `commutes`: The environment does not contain `StarAlgEquiv.commutes`, so it is not possible to project the field `commutes` from an expression
+  (conjStarAlgAut ℝ (Matrix I I ℝ)) U
+of type
+  Matrix I I ℝ ≃⋆ₐ[ℝ] Matrix I I ℝ
+HydrologyTree/SpectralResolvent.lean:20:53: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_diagonal, Matrix.star_apply, star_trivial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:48:4: error: No goals to be solved
+HydrologyTree/SpectralResolvent.lean:65:35: error(lean.unknownIdentifier): Unknown constant `RCLike.ofReal_real`
+HydrologyTree/SpectralResolvent.lean:65:4: error: Type mismatch: After simplification, term
+  IsHermitian.spectral_theorem (PosDef.isHermitian hB)
+ has type
+  @Eq (Matrix I I ℝ) B (((conjStarAlgAut ℝ (Matrix I I ℝ)) ⋯.eigenvectorUnitary) (diagonal fun x => ↑(⋯.eigenvalues x)))
+but is expected to have type
+  @Eq (Matrix I I ℝ) B (((conjStarAlgAut ℝ (Matrix I I ℝ)) U) (diagonal r))
