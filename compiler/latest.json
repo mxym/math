@@ -1,35 +1,28 @@
 {
-  "serial": 90,
-  "status": "COMPILER_ERROR",
-  "request_blob": "db192c64cf7d28cf78dd1982dfe57230adf972bd",
+  "serial": 91,
+  "status": "COMPILING",
+  "request_blob": "652f83cdb9930973437023d592ae237df6eb9949",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
     "HydrologyTree.Triangular",
-    "HydrologyTree.RateChart",
-    "HydrologyTree.CompartmentMatrix",
-    "HydrologyTree.PhysicalBridge",
-    "HydrologyTree.MatrixEntries",
-    "HydrologyTree.BalanceWeights",
-    "HydrologyTree.WeightedEnergy",
-    "HydrologyTree.GroundedPositivity",
-    "HydrologyTree.SymmetricGenerator",
-    "HydrologyTree.PositiveSpectrum",
-    "HydrologyTree.SpectralResolvent",
-    "HydrologyTree.LeadingCoefficients",
-    "HydrologyTree.Resolvent",
-    "HydrologyTree.PhysicalStieltjes",
     "HydrologyTree.EndJacobian",
+    "HydrologyTree.LeadingCoefficients",
     "HydrologyTree.Scaling",
     "HydrologyTree.RootUpdate",
     "HydrologyTree.PathRootTransform",
     "HydrologyTree.PathPolynomial",
+    "HydrologyTree.RateChart",
     "HydrologyTree.PathRates",
+    "HydrologyTree.CompartmentMatrix",
+    "HydrologyTree.PhysicalBridge",
+    "HydrologyTree.MatrixEntries",
     "HydrologyTree.RootBranches",
     "HydrologyTree.BranchMatrixSupport",
     "HydrologyTree.ChildTree",
     "HydrologyTree.ChildRates",
     "HydrologyTree.BranchConservation",
+    "HydrologyTree.Resolvent",
     "HydrologyTree.EdgeDeterminant",
     "HydrologyTree.EdgeCharacteristic",
     "HydrologyTree.ChildMatrix",
@@ -55,7 +48,14 @@
     "HydrologyTree.PhysicalConstants",
     "HydrologyTree.RootRecovery",
     "HydrologyTree.CatenaryGlobal",
-    "HydrologyTree.CatenaryCoprime"
+    "HydrologyTree.CatenaryCoprime",
+    "HydrologyTree.BalanceWeights",
+    "HydrologyTree.WeightedEnergy",
+    "HydrologyTree.GroundedPositivity",
+    "HydrologyTree.SymmetricGenerator",
+    "HydrologyTree.PositiveSpectrum",
+    "HydrologyTree.SpectralResolvent",
+    "HydrologyTree.PhysicalStieltjes"
   ],
   "source_sha256": {
     "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
@@ -86,7 +86,7 @@
     "HydrologyTree/CoordinateEnergy.lean": "e64a3e93bbdadbe3f16c1ceecfef855fcc2d67f233e7e5250d2bb5b05b6d1eff",
     "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
     "HydrologyTree/ChildRates.lean": "6c8a54086231d29e54a20e250a7ef53040fd0abbec8ad4db132b8de1a043feef",
-    "HydrologyTree/SpectralResolvent.lean": "2bb80315b75470b801be021544cc7402664111e083518fe3c35f06a3bb7f217e",
+    "HydrologyTree/SpectralResolvent.lean": "dfb32bc97fbb38e09bcecdb01645070507bf0dae2bd8e284be0dd92e05fd176c",
     "HydrologyTree/PositiveSpectrum.lean": "516beb9b426ec802cdf0cbc1524677f44ba6a4a7c8ee6b3238c75d9db7649c01",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
     "HydrologyTree/CatenaryCanonical.lean": "4957391b937adbb0e1689b223cab62c3ff14914387228b02a077ce28f3df69da",
@@ -112,74 +112,7 @@
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.268
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.707
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 1.775
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 1.901
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.551
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.505
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.516
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.426
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 0,
-      "seconds": 1.554
-    },
-    {
-      "module": "HydrologyTree.GroundedPositivity",
-      "returncode": 0,
-      "seconds": 1.491
-    },
-    {
-      "module": "HydrologyTree.SymmetricGenerator",
-      "returncode": 0,
-      "seconds": 1.745
-    },
-    {
-      "module": "HydrologyTree.PositiveSpectrum",
-      "returncode": 0,
-      "seconds": 1.566
-    },
-    {
-      "module": "HydrologyTree.SpectralResolvent",
-      "returncode": 1,
-      "seconds": 1.606
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/SpectralResolvent.lean:13:31: error(lean.invalidField): Invalid field `commutes`: The environment does not contain `StarAlgEquiv.commutes`, so it is not possible to project the field `commutes` from an expression\n  (conjStarAlgAut \u211d (Matrix I I \u211d)) U\nof type\n  Matrix I I \u211d \u2243\u22c6\u2090[\u211d] Matrix I I \u211d\nHydrologyTree/SpectralResolvent.lean:20:53: warning: This simp argument is unused:\n  Matrix.conjTranspose_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.mul_diagonal, Matrix.star_apply, star_trivial]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/SpectralResolvent.lean:36:10: warning: This simp argument is unused:\n  Matrix.diagonal_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.one_apply, h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/SpectralResolvent.lean:36:33: warning: This simp argument is unused:\n  Matrix.one_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.diagonal_apply, h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/SpectralResolvent.lean:48:4: error: No goals to be solved\nHydrologyTree/SpectralResolvent.lean:65:35: error(lean.unknownIdentifier): Unknown constant `RCLike.ofReal_real`\nHydrologyTree/SpectralResolvent.lean:65:4: error: Type mismatch: After simplification, term\n  IsHermitian.spectral_theorem (PosDef.isHermitian hB)\n has type\n  @Eq (Matrix I I \u211d) B (((conjStarAlgAut \u211d (Matrix I I \u211d)) \u22ef.eigenvectorUnitary) (diagonal fun x => \u2191(\u22ef.eigenvalues x)))\nbut is expected to have type\n  @Eq (Matrix I I \u211d) B (((conjStarAlgAut \u211d (Matrix I I \u211d)) U) (diagonal r))\n"
+  "run_id": "38198592888"
 }
