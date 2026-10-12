@@ -27,5 +27,16 @@ reduction, and the proved two-cell perimeter boundary case. The complete
 source project builds successfully with the pinned toolchain; no `sorry`,
 `admit`, custom axiom, or numerical oracle is used.
 
+The reproducible build command is:
+
+```text
+lake build GaussianProgress
+```
+
+The current clean build completes all 3,887 jobs. A trust-zero replay of the
+conditional four-cell interface, the unconditional two-cell boundary theorem,
+and the discrete ascent theorem reports only Lean's standard
+`propext`, `Classical.choice`, and `Quot.sound` axioms.
+
 Pinned toolchain: Lean 4.34.1 and Mathlib revision
 `d13f23b723b8a846827a245b89c10fc7d3f11612`.
