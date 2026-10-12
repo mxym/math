@@ -1,6 +1,6 @@
 {
   "serial": 114,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "057597905a61795be73954a0255a2fd9ba4341bb",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -110,7 +110,134 @@
     "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.325
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.196
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.461
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 2.074
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.079
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 2.834
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.721
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.142
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.223
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.85
+    },
+    {
+      "module": "HydrologyTree.FamilyScaling",
+      "returncode": 0,
+      "seconds": 2.376
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.697
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 0,
+      "seconds": 1.932
+    },
+    {
+      "module": "HydrologyTree.TangentJacobian",
+      "returncode": 0,
+      "seconds": 2.06
+    },
+    {
+      "module": "HydrologyTree.FamilyGluing",
+      "returncode": 0,
+      "seconds": 1.766
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 3.422
+    },
+    {
+      "module": "HydrologyTree.PathRootTransform",
+      "returncode": 0,
+      "seconds": 2.797
+    },
+    {
+      "module": "HydrologyTree.PathPolynomial",
+      "returncode": 0,
+      "seconds": 2.594
+    },
+    {
+      "module": "HydrologyTree.FamilyNormalization",
+      "returncode": 0,
+      "seconds": 2.752
+    },
+    {
+      "module": "HydrologyTree.BranchStep",
+      "returncode": 0,
+      "seconds": 2.169
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.502
+    },
+    {
+      "module": "HydrologyTree.PathRates",
+      "returncode": 0,
+      "seconds": 2.122
+    },
+    {
+      "module": "HydrologyTree.PathNormalization",
+      "returncode": 0,
+      "seconds": 2.688
+    },
+    {
+      "module": "HydrologyTree.CoordinateEnergy",
+      "returncode": 0,
+      "seconds": 1.969
+    },
+    {
+      "module": "HydrologyTree.FamilyCoordinateEnergy",
+      "returncode": 1,
+      "seconds": 2.16
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230"
+  "run_id": "38201915230",
+  "diagnostics": "HydrologyTree/FamilyCoordinateEnergy.lean:39:8: error: unsolved goals\ncase nil\nx y : ProductInput []\n\u22a2 \u2211 i, ((degreeLT.basis \u211d 0).repr x) i * ((degreeLT.basis \u211d 0).repr y) i = 0\nHydrologyTree/FamilyCoordinateEnergy.lean:41:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  basisDot (Basis.reindex ?b ?e) ?x ?y\nin the target expression\n  basisDot (((degreeLT.basis \u211d m).prod (familyBasis ms)).reindex finSumFinEquiv) x y = familyCoordinateDot (m :: ms) x y\n\ncase cons\nm : \u2115\nms : List \u2115\nih : \u2200 (x y : ProductInput ms), basisDot (familyBasis ms) x y = familyCoordinateDot ms x y\nx y : ProductInput (m :: ms)\n\u22a2 basisDot (((degreeLT.basis \u211d m).prod (familyBasis ms)).reindex finSumFinEquiv) x y = familyCoordinateDot (m :: ms) x y\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    finSumFinEquiv\n  has type\n    Equiv (Fin m \u2295 Fin ms.sum) (Fin (m + ms.sum))\n  but is expected to have type\n    Equiv (Fin m \u2295 Fin ms.sum) (Fin (m :: ms).sum)\n  in the application\n    ((degreeLT.basis \u211d m).prod (familyBasis ms)).reindex finSumFinEquiv\nHydrologyTree/FamilyCoordinateEnergy.lean:82:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) \u2191p.1)).1\n      ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) \u2191q.1)).1 +\n    familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) \u2191p.1)).2\n      ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) \u2191q.1)).2\nin the target expression\n  familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.1 ((branchCoefficientEquiv ms) q).1.1 +\n        familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.2\n          ((branchCoefficientEquiv ms) q).1.2 +\n      (\u2191p.1).coeff N * (\u2191q.1).coeff N =\n    pathCoefficientDot (ChildFactorDegrees ms).sum p q\n\nms : List \u2115\np q : \u21a5(Coeff ((ChildFactorDegrees ms).sum + 1)) \u00d7 \u21a5(Coeff (ChildFactorDegrees ms).sum)\nN : \u2115 := (ChildFactorDegrees ms).sum\nhp : (leadingEquiv N) ((\u2191p.1).coeff N, (cut N) \u2191p.1) = p.1\nhq : (leadingEquiv N) ((\u2191q.1).coeff N, (cut N) \u2191q.1) = q.1\nh :\n  coefficientDot (ChildFactorDegrees ms).sum (p.2, (cut N) \u2191p.1).1 (q.2, (cut N) \u2191q.1).1 +\n      coefficientDot (ChildFactorDegrees ms).sum (p.2, (cut N) \u2191p.1).2 (q.2, (cut N) \u2191q.1).2 =\n    familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) \u2191p.1)).1\n        ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) \u2191q.1)).1 +\n      familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) \u2191p.1)).2\n        ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) \u2191q.1)).2\n\u22a2 familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.1 ((branchCoefficientEquiv ms) q).1.1 +\n        familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.2\n          ((branchCoefficientEquiv ms) q).1.2 +\n      (\u2191p.1).coeff N * (\u2191q.1).coeff N =\n    pathCoefficientDot (ChildFactorDegrees ms).sum p q\n"
 }
