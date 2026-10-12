@@ -137,29 +137,95 @@ MODULE HydrologyTree.PhysicalConstants
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesChildAssembly
-HydrologyTree/StieltjesChildAssembly.lean:60:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ∑ x, ∑ y, ?f ⟨x, y⟩
-in the target expression
-  ∑ x, ∑ i, g (e ⟨x, i⟩) / b (e ⟨x, i⟩) = ∑ i, g i / b i
 
-n : ℕ
-t : OrderedTree n
-e : NumberedChildNodes t ≃ Fin n
-b g : Fin n → ℝ
-d : ℝ
-hb : ∀ (i : Fin n), 0 < b i
-hg : ∀ (i : Fin n), 0 < g i
-hl : 0 < d - ∑ i, g i / b i
-y : ChildStates t
-hy : ∀ (c : RootChild t), PositiveRateVector (y c)
-hP : ∀ (c : RootChild t), physicalCharacteristic (childTree t c) (y c) = stieltjesDenominator fun i => b (e ⟨c, i⟩)
-hF :
-  ∀ (c : RootChild t),
-    physicalRootCofactor (childTree t c) (y c) =
-      stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / ∑ j, g (e ⟨c, j⟩)
-mass : RootChild t → ℝ := fun c => ∑ i, g (e ⟨c, i⟩)
-hm : ∀ (c : RootChild t), 0 < mass c
-f : RootChild t → ℝ := fun c => mass c / (y c).1 0
-hf : ∀ (c : RootChild t), 0 < f c
-hfval : ∀ (c : RootChild t), f c = ∑ i, g (e ⟨c, i⟩) / b (e ⟨c, i⟩)
-⊢ ∑ x, ∑ i, g (e ⟨x, i⟩) / b (e ⟨x, i⟩) = ∑ i, g i / b i
+MODULE HydrologyTree.CoprimeBranchRecovery
+
+MODULE HydrologyTree.EndJacobian
+
+MODULE HydrologyTree.Scaling
+HydrologyTree/Scaling.lean:43:8: warning: This simp argument is unused:
+  Matrix.det_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.RootUpdate
+HydrologyTree/RootUpdate.lean:111:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/RootUpdate.lean:111:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/RootUpdate.lean:111:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_neg (show n ≠ n + 1 from by omega), mul_one, mul_zero, sub_zero, add_zero,
+    zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootUpdate.lean:111:53: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, Polynomial.coeff_C_mul, coeff_eq_zero_of_bound x.1 le_rfl,
+    coeff_eq_zero_of_bound x.2.2 le_rfl, if_pos rfl, if_neg (show n ≠ n + 1 from by omega), mul_zero, sub_zero,
+    add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PathRootTransform
+HydrologyTree/PathRootTransform.lean:79:41: warning: `ContinuousLinearMap.coe_smul` has been deprecated: Use `ContinuousLinearMap.toLinearMap_smul` instead
+
+MODULE HydrologyTree.PathPolynomial
+HydrologyTree/PathPolynomial.lean:68:4: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:68:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:69:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/PathPolynomial.lean:69:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.1 le_rfl,
+    coeff_eq_zero_of_bound z.2.2 (Nat.le_succ n), if_neg (show n + 1 ≠ n + 2 from by omega),
+    if_neg (show n + 1 ≠ n from by omega), mul_zero, mul_one, zero_add, add_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PathPolynomial.lean:69:26: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.1 le_rfl,
+    coeff_eq_zero_of_bound z.2.2 (Nat.le_succ n), if_neg (show n + 1 ≠ n + 2 from by omega),
+    if_neg (show n + 1 ≠ n from by omega), if_pos rfl, mul_zero, zero_add, add_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PathPolynomial.lean:79:4: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:79:41: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/PathPolynomial.lean:80:4: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/PathPolynomial.lean:80:4: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Polynomial.coeff_X_pow, coeff_eq_zero_of_bound z.2.2 le_rfl, if_neg (show n ≠ n + 2 from by omega),
+    if_neg (show n ≠ n + 1 from by omega), mul_zero, mul_one, zero_add, add_zero, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.RootRecovery
+
+MODULE HydrologyTree.FiniteCancellation
+
+MODULE HydrologyTree.PhysicalCancellation
+
+MODULE HydrologyTree.PhysicalBranchRecovery
+
+MODULE HydrologyTree.SubtreeAssignment
+
+MODULE HydrologyTree.PositiveChildModels
+
+MODULE HydrologyTree.TreeCancellation
+
+MODULE HydrologyTree.PhysicalModes
+
+MODULE HydrologyTree.PositiveAssignment
+
+MODULE HydrologyTree.PositiveRealizationExistence
