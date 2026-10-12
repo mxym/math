@@ -750,60 +750,40 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 MODULE HydrologyTree.CatenaryOrientation
 
 MODULE HydrologyTree.TreePreparation
-HydrologyTree/TreePreparation.lean:76:47: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  physicalRateDot ?m.40 ((treeCoordinateReturn ?t) ?p) ((treeCoordinateReturn ?t) ?q)
-in the target expression
-  physicalRateDot n (↑(treeCoordinateReturn t) p) (↑(treeCoordinateReturn t) q) = pathCoefficientDot n p q
 
-n : ℕ
-t : OrderedTree n
-p q : PathCoefficients n
-⊢ physicalRateDot n (↑(treeCoordinateReturn t) p) (↑(treeCoordinateReturn t) q) = pathCoefficientDot n p q
-HydrologyTree/TreePreparation.lean:89:2: error: Tactic `apply` failed: could not unify the conclusion of `@_root_.funext`
-  ?f = ?g
-with the goal
-  (((piScaledEquiv (childEdgeCount t)) fun i =>
-              ((coefficientArrayEquiv (childEdgeCount t i)).symm
-                  ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                        x.1 ↑c * outwardByVertex x.2 ↑c).1
-                    i)).1,
-            (piScaledEquiv (childEdgeCount t)) fun i =>
-              (leadingEquiv (childEdgeCount t i))
-                ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                          x.1 ↑c * outwardByVertex x.2 ↑c).2.2
-                    i,
-                  ((coefficientArrayEquiv (childEdgeCount t i)).symm
-                      ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0,
-                            fun c => x.1 ↑c * outwardByVertex x.2 ↑c).1
-                        i)).2)),
-          (fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                x.1 ↑c * outwardByVertex x.2 ↑c).2.1).1.1 =
-    (piScaledEquiv (childEdgeCount t)) fun c => (physicalCoefficientMap (childTree t c) (childRates t c x)).1
+MODULE HydrologyTree.PhysicalConstants
+HydrologyTree/PhysicalConstants.lean:23:76: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
 
-Note: The full type of `@_root_.funext` is
-  ∀ {α : Sort ?u.17} {β : α → Sort ?u.16} {f g : (x : α) → β x}, (∀ (x : α), f x = g x) → f = g
+MODULE HydrologyTree.RootRecovery
 
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-⊢ (((piScaledEquiv (childEdgeCount t)) fun i =>
-              ((coefficientArrayEquiv (childEdgeCount t i)).symm
-                  ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                        x.1 ↑c * outwardByVertex x.2 ↑c).1
-                    i)).1,
-            (piScaledEquiv (childEdgeCount t)) fun i =>
-              (leadingEquiv (childEdgeCount t i))
-                ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                          x.1 ↑c * outwardByVertex x.2 ↑c).2.2
-                    i,
-                  ((coefficientArrayEquiv (childEdgeCount t i)).symm
-                      ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0,
-                            fun c => x.1 ↑c * outwardByVertex x.2 ↑c).1
-                        i)).2)),
-          (fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
-                x.1 ↑c * outwardByVertex x.2 ↑c).2.1).1.1 =
-    (piScaledEquiv (childEdgeCount t)) fun c => (physicalCoefficientMap (childTree t c) (childRates t c x)).1
-HydrologyTree/TreePreparation.lean:98:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+MODULE HydrologyTree.FiniteCancellation
+
+MODULE HydrologyTree.PhysicalCancellation
+
+MODULE HydrologyTree.PhysicalBranchRecovery
+
+MODULE HydrologyTree.TreeStepSemantics
+
+MODULE HydrologyTree.TreePipeline
+HydrologyTree/TreePipeline.lean:46:6: error: Application type mismatch: The argument
+  ContinuousLinearMap.differentiableAt ↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv
+has type
+  DifferentiableAt ℝ ⇑↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv ?m.152
+but is expected to have type
+  DifferentiableAt ℝ
+    (fun z =>
+      (branchGlueStep (TreeBranchDegrees t) ∘ branchScaleStep (TreeBranchDegrees t))
+        ((prepareFamilyEquiv (childEdgeCount t)) z))
+    z
+in the application
+  DifferentiableAt.comp z ?m.104
+    (ContinuousLinearMap.differentiableAt ↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv)
+HydrologyTree/TreePipeline.lean:42:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+HydrologyTree/TreePipeline.lean:100:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
 Note: Use `set_option maxHeartbeats <num>` to set the limit.
 
