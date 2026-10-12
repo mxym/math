@@ -133,39 +133,18 @@ Hint: Omit it from the simp argument list.
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.FamilyNormalization
-HydrologyTree/FamilyNormalization.lean:22:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  endJacobian (⇑↑e.symm.toContinuousLinearEquiv ∘ f) x
-in the target expression
-  endJacobian (fun z => (bE.equiv bF (Equiv.refl I)).symm (f z)) x = ((LinearMap.toMatrix bE bF) ↑(fderiv ℝ f x)).det
+HydrologyTree/FamilyNormalization.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.basis_normalized_jacobian`:
+  [FiniteDimensional ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional ℝ E] in theorem ...
 
-E : Type u_1
-F : Type u_2
-I : Type u_3
-inst✝⁷ : NormedAddCommGroup E
-inst✝⁶ : NormedSpace ℝ E
-inst✝⁵ : NormedAddCommGroup F
-inst✝⁴ : NormedSpace ℝ F
-inst✝³ : Fintype I
-inst✝² : DecidableEq I
-inst✝¹ : FiniteDimensional ℝ E
-inst✝ : FiniteDimensional ℝ F
-bE : Basis I ℝ E
-bF : Basis I ℝ F
-f : E → F
-x : E
-hf : DifferentiableAt ℝ f x
-e : E ≃ₗ[ℝ] F := bE.equiv bF (Equiv.refl I)
-h : HasFDerivAt (⇑↑e.symm.toContinuousLinearEquiv ∘ f) (↑e.symm.toContinuousLinearEquiv ∘SL fderiv ℝ f x) x
-⊢ endJacobian (fun z => (bE.equiv bF (Equiv.refl I)).symm (f z)) x = ((LinearMap.toMatrix bE bF) ↑(fderiv ℝ f x)).det
-HydrologyTree/FamilyNormalization.lean:88:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  endJacobian
-    (fun z =>
-      (familyRootEquiv ns).symm.toContinuousLinearEquiv
-        (rootCoefficientMap ((familyRootEquiv ns).symm.toContinuousLinearEquiv.symm z)))
-    z
-in the target expression
-  endJacobian (fun z => (familyRootEquiv ns).symm (rootCoefficientMap ((familyRootEquiv ns) z))) z = (-1) ^ ns.sum
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 
-ns : List ℕ
-z : FamilyRootInputs ns
-⊢ endJacobian (fun z => (familyRootEquiv ns).symm (rootCoefficientMap ((familyRootEquiv ns) z))) z = (-1) ^ ns.sum
+MODULE HydrologyTree.BranchStep
+HydrologyTree/BranchStep.lean:108:2: error: 'change' tactic failed, pattern
+  rootCoefficientMap ?m.78 = (rootOutputEquiv (ChildFactorDegrees ms).sum) (branchStepCoefficients ms z)
+is not definitionally equal to target
+  rootCoefficientMap
+      ((familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).1, z.2,
+        (familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).2) =
+    (familyRootEquiv (ChildFactorDegrees ms)) ((branchCoefficientEquiv ms) (branchStepCoefficients ms z))
