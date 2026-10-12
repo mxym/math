@@ -70,3 +70,10 @@ PhysicalForcedODE and FullResponseDynamics discharge the modal and positivity
 inputs for original physical matrices. PhysicalMassODE proves the actual storage
 balance. The reverse time-domain identification and state-space reachability
 obligations remain explicit in GAPS.md.
+
+
+MatrixFlow -> ExponentialODEProbe -> TimeDomainIdentification prove the reverse
+actual ODE-to-transfer implication. ContinuousOutputFiber applies the complete
+real algebraic classification to actual root-output histories, with existence
+of the probing trajectories proved instead of assumed. This closes the previous
+reverse root-output gap, not the independent reachability/observability variants.

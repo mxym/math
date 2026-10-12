@@ -184,3 +184,32 @@ reverse implication from equality of all time-domain outputs to transfer equalit
 continuous-time reachability/observability, independent graph presentations and
 alternate leak locations remain separate obligations. The new modules have
 compiled locally; only their own subsequent source-bound CI certifies replay.
+
+
+## Reverse ODE identification and exact continuous-output fibers
+
+`matrixFlow` is the actual operator exponential of the real matrix linear map.
+Its differential equation and Gronwall growth bound are proved for arbitrary
+real matrices. `exponentialODEProbe` is an explicit zero-initial classical state
+trajectory for the positive continuous input exp(q*t). After scaling by exp(-q*t),
+it converges to the actual resolvent vector whenever q exceeds the operator norm.
+No stability or positivity restriction is imposed on competing real matrices.
+
+`same_continuous_outputs_cross_identity` recovers the actual transfer polynomial
+identity from equality of zero-initial root outputs for every continuous input
+at every nonnegative time. Explicit exponential solutions ensure that this
+universal predicate is not used vacuously. Infinitely many nonpole probes, not
+finite sampled verification, establish the polynomial identity.
+
+`continuous_root_output_iff_response` proves BOTH directions between the actual
+ODE behavior and the full Stieltjes root response, for unrestricted real rates.
+`real_continuous_output_fiber_exact_card` now proves the finite exact factorial
+count for actual continuous-input ODE output fibers. Positivity, regularity and
+global classical well-posedness follow from the behavior; none is imposed as an
+extra condition on the counted parameter vectors. The claim is for globally
+continuous forcing and classical trajectories, not all measurable forcing.
+
+The latest modules are checked by their own source-bound CI. Kalman/actual
+reachability and observability, direct time-domain discharge-only inverse
+identification, independent graph presentation and alternate leaks remain
+separately listed obligations, not consequences silently assumed here.

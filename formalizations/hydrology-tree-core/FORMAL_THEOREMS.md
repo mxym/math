@@ -241,3 +241,22 @@ prove actual differential and integral mass balance, for arbitrary real rates
 whenever a classical trajectory is given. No positivity or symbolic conservation
 axiom is supplied. These are forward dynamical bridges, not yet the converse
 identification theorem or a continuous-time reachability/observability theorem.
+
+
+## Exact inverse identification from actual ODE root outputs
+
+`HasFullContinuousRootOutput T x r w` quantifies every continuous real input u,
+every actual global classical state solution with z(0)=0, and every real s>=0,
+and requires the measured root coordinate to equal the prescribed forced
+Stieltjes sum. It assumes no sign condition or existence assertion about x.
+`continuous_root_output_iff_response` proves equivalence with the actual root
+resolvent condition. Explicit exp(q*t) input solutions exist for every competing
+matrix at the nonpole probes, ruling out any vacuous interpretation.
+
+`RealContinuousOutputFiber` contains precisely the unrestricted real rate vectors
+satisfying that ODE output property. Its actual finiteness and cardinality
+n! / product_e subtreeVertexCount(T,e.succ) are proved in
+`real_continuous_output_fiber_exact_card`. The observed output alone forces
+positivity, the nonzero actual Jacobian, and unique global classical solutions
+for arbitrary initial state and every continuous forcing, proved in
+`continuous_output_forces_physical_wellposedness`.

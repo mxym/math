@@ -110,8 +110,17 @@ equality for full-response-equivalent real models, and differential/integrated
 storage balance. Positivity is proved from the full target response before this
 ODE theorem is applied. The modal witness is actually constructed.
 
-Still prove the reverse implication from all-input time-domain equality to
-transfer equality, and the actual controllability/observability statements.
+The reverse root-output implication is now proved by explicit actual exponential
+input trajectories and a norm-controlled asymptotic resolvent limit, without
+assuming stability or positivity of competing matrices. Actual ODE root-output
+fibers are proved equivalent to the full real transfer fibers and have the
+exact finite factorial count. The universal trajectory predicate cannot hide
+nonexistence: the probes are explicitly constructed and full well-posedness is
+then proved from the recovered target.
+
+Still prove controllability/observability and a direct discharge-only time-domain
+inverse identification. Equal root responses already imply equal ODE discharges;
+the reverse discharge-only assertion is not yet silently included.
 Piecewise-continuous or merely measurable forcing is not silently included in
 the continuous-input theorem. Graph and alternate-leak variants remain separate.
 

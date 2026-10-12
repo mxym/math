@@ -1211,7 +1211,29 @@ run_cmd do
     ``HydrologyTree.coordinateSumCLM,
     ``HydrologyTree.physical_total_storage_hasDerivAt,
     ``HydrologyTree.physical_total_storage_integral_balance,
-    ``HydrologyTree.equal_discharge_equal_total_storage]
+    ``HydrologyTree.equal_discharge_equal_total_storage,
+    ``HydrologyTree.matrixFlow,
+    ``HydrologyTree.matrixFlow_zero,
+    ``HydrologyTree.matrixFlow_hasDerivAt,
+    ``HydrologyTree.matrixFlow_norm_bound,
+    ``HydrologyTree.matrixFlow_scaled_tendsto_zero,
+    ``HydrologyTree.scalar_mulVec_eq_smul,
+    ``HydrologyTree.resolventVector,
+    ``HydrologyTree.resolventVector_equation,
+    ``HydrologyTree.exponentialODEProbe,
+    ``HydrologyTree.exponentialODEProbe_initial,
+    ``HydrologyTree.exponentialODEProbe_ode,
+    ``HydrologyTree.exponentialODEProbe_scaled_limit,
+    ``HydrologyTree.exponentialODEProbe_coordinate_limit,
+    ``HydrologyTree.SameContinuousRootOutputs,
+    ``HydrologyTree.same_continuous_outputs_resolvent,
+    ``HydrologyTree.same_continuous_outputs_cross_identity,
+    ``HydrologyTree.HasFullContinuousRootOutput,
+    ``HydrologyTree.continuous_root_output_iff_response,
+    ``HydrologyTree.RealContinuousOutputFiber,
+    ``HydrologyTree.continuousOutputFiberEquivResponse,
+    ``HydrologyTree.real_continuous_output_fiber_exact_card,
+    ``HydrologyTree.continuous_output_forces_physical_wellposedness]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
