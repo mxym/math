@@ -181,13 +181,34 @@ Hint: Omit it from the simp argument list.
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.PositiveSpectrum
-HydrologyTree/PositiveSpectrum.lean:14:17: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut`
-HydrologyTree/PositiveSpectrum.lean:17:10: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut_apply`
 HydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals
 I : Type u_1
 inst✝¹ : Fintype I
 inst✝ : DecidableEq I
 B : Matrix I I ℝ
 hB : B.PosDef
-hn : -B = sorry
-⊢ sorry.charpoly = ∏ i, (X + C (⋯.eigenvalues i))
+hn : -B = ((conjStarAlgAut ℝ (Matrix I I ℝ)) ⋯.eigenvectorUnitary) (-diagonal (RCLike.ofReal ∘ ⋯.eigenvalues))
+⊢ (-diagonal ⋯.eigenvalues).charpoly = ∏ i, (X + C (⋯.eigenvalues i))
+HydrologyTree/PositiveSpectrum.lean:18:8: warning: This simp argument is unused:
+  ← Matrix.diagonal_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.charpoly_diagonal, Function.comp_def]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PositiveSpectrum.lean:18:31: warning: This simp argument is unused:
+  Matrix.charpoly_diagonal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Matrix.diagonal_neg, Function.comp_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PositiveSpectrum.lean:18:57: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Matrix.diagonal_neg, Matrix.charpoly_diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
