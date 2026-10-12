@@ -1,23 +1,14 @@
 {
-  "serial": 171,
-  "status": "COMPILER_ERROR",
-  "request_blob": "a233967d183d0028a22d5df361e84f751b2697f3",
+  "serial": 172,
+  "status": "COMPILING",
+  "request_blob": "e363fed8b6c13f4b3ab5a61a675770b1a38b3540",
   "modules": [
     "HydrologyTree.SizedSpectralAllocation"
   ],
   "source_sha256": {
-    "HydrologyTree/SizedSpectralAllocation.lean": "6f6028acdf137561dea0818f98974abb88933397b625e60d945a74458fd30169"
+    "HydrologyTree/SizedSpectralAllocation.lean": "8781cf507d6b9abdb0c2b51d38b26e46d8007fdf66a8e3d2d8c85a7d18aca231"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.SizedSpectralAllocation",
-      "returncode": 1,
-      "seconds": 0.966,
-      "development_cache_reused": false,
-      "source_dependency_key": "8239ce54451127e87cda340b5db99d5d6d733d1b90709a9256cc37d3f009bd9c"
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38216278881",
-  "diagnostics": "HydrologyTree/SizedSpectralAllocation.lean:19:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Finite { a // \u2200 (b : B), Fintype.card { i // a i = b } = m b }\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/SizedSpectralAllocation.lean:43:4: error: Tactic `subst` failed: did not find equation for eliminating 'j'\n\ncase left\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\na : SizedAllocation m n\ng : AllocationEnumerations a\nb : B\ni j : Fin (m b)\nh : assembleAllocationMap a g \u27e8b, i\u27e9 = assembleAllocationMap a g \u27e8b, j\u27e9\nhij : \u27e8b, i\u27e9.snd = \u27e8b, j\u27e9.snd\n\u22a2 \u27e8b, i\u27e9 = \u27e8b, j\u27e9\nHydrologyTree/SizedSpectralAllocation.lean:68:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:107:76: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (fun z => assembleAllocationEquiv z.fst z.snd) \u27e8a, g\u27e9\nin the target expression\n  allocationOfEquiv (assembleAllocationEquiv a g) = allocationOfEquiv (assembleAllocationEquiv b h)\n\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\na : SizedAllocation m n\ng : AllocationEnumerations a\nb : SizedAllocation m n\nh : AllocationEnumerations b\nhe : (fun z => assembleAllocationEquiv z.fst z.snd) \u27e8a, g\u27e9 = (fun z => assembleAllocationEquiv z.fst z.snd) \u27e8b, h\u27e9\n\u22a2 allocationOfEquiv (assembleAllocationEquiv a g) = allocationOfEquiv (assembleAllocationEquiv b h)\nHydrologyTree/SizedSpectralAllocation.lean:134:46: error: expected token\nHydrologyTree/SizedSpectralAllocation.lean:145:42: error: expected token\n"
+  "run_id": "38216278881"
 }
