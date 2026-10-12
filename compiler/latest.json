@@ -1,7 +1,7 @@
 {
-  "serial": 79,
-  "status": "COMPILER_ERROR",
-  "request_blob": "f86dca901a4b82fba5dd97d4be642609dba3f66d",
+  "serial": 80,
+  "status": "COMPILING",
+  "request_blob": "2e121f12a052df8b6949ebec318101d4608f8cad",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -11,7 +11,8 @@
     "HydrologyTree.PhysicalBridge",
     "HydrologyTree.MatrixEntries",
     "HydrologyTree.BalanceWeights",
-    "HydrologyTree.WeightedEnergy"
+    "HydrologyTree.WeightedEnergy",
+    "HydrologyTree.GroundedPositivity"
   ],
   "source_sha256": {
     "HydrologyTree/WeightedEnergy.lean": "315756733184a5f8e68ccdb0d255783e439372d48f587b86eb6238ef5f9200b3",
@@ -22,56 +23,10 @@
     "HydrologyTree/BalanceWeights.lean": "60be46a2b09483723c57421d6962de6ad49ef5cef8757092a726910cca51b251",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
-    "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4"
+    "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4",
+    "HydrologyTree/GroundedPositivity.lean": "805747cf4799d6f3b4c28e3bb23ca6d044f1d170bf53603c2d153b21b936223e"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.54
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.891
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.02
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 2.15
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.726
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.653
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.617
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.512
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 1,
-      "seconds": 1.606
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38188517128",
-  "diagnostics": "HydrologyTree/WeightedEnergy.lean:17:10: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hi, hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/WeightedEnergy.lean:23:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeGram_transpose`:\n  [Fintype I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/WeightedEnergy.lean:28:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nTry this:\n  [apply] abel_nf\nHydrologyTree/WeightedEnergy.lean:44:82: error: unsolved goals\nn : \u2115\nt : OrderedTree n\nx : TreeRates n\nha : \u2200 (e : Fin n), x.1 e.succ \u2260 0\ne : Fin n\n\u22a2 single (t.parent e) e.succ (x.2 e * balanceWeight t x (t.parent e)) +\n      (-1 \u2022 single e.succ e.succ (x.2 e * balanceWeight t x (t.parent e)) +\n        (single e.succ (t.parent e) (x.2 e * balanceWeight t x (t.parent e)) +\n          -1 \u2022 single (t.parent e) (t.parent e) (x.2 e * balanceWeight t x (t.parent e)))) =\n    single (t.parent e) (t.parent e) (-1 \u2022 (x.2 e * balanceWeight t x (t.parent e))) +\n      (single e.succ e.succ (-1 \u2022 (x.2 e * balanceWeight t x (t.parent e))) +\n        (-1 \u2022 single (t.parent e) e.succ (-1 \u2022 (x.2 e * balanceWeight t x (t.parent e))) +\n          -1 \u2022 single e.succ (t.parent e) (-1 \u2022 (x.2 e * balanceWeight t x (t.parent e)))))\nHydrologyTree/WeightedEnergy.lean:50:13: warning: This simp argument is unused:\n  Matrix.single_neg\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [edgeGram, smul_sub, smul_add, Matrix.smul_single, smul_eq_mul, mul_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38188517128"
 }
