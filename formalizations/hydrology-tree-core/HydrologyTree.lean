@@ -28,3 +28,4 @@ import HydrologyTree.TreeExactMultiplicities
 import HydrologyTree.CatenaryFormalPolynomial
 import HydrologyTree.StieltjesGrouping
 import HydrologyTree.PositiveRealizationExistence
+import HydrologyTree.PositiveFiberAllocation

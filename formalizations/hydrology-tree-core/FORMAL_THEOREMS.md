@@ -134,3 +134,14 @@ induction; every ORIGINAL physical rate and the root leak are proved positive.
 The same P,F can therefore be realized on any two specified same-size trees.
 Existence and topology ambiguity are now complete for this model. Exhaustive
 positive-fiber enumeration and its factorial count remain separate obligations.
+
+
+## Root allocation extraction (partial fiber-classification step)
+
+`positive_child_allocation_exists`: for every actual positive OrderedTree model
+whose root cofactor is a product of n distinct real linear factors, there is a
+labelled allocation of those pole indices with the actual child vertex counts,
+and every actual child characteristic polynomial equals its allocated factor
+product. `positive_child_allocation_unique` proves uniqueness.
+`sizedAllocation_card_factorial` proves the exact finite allocation count. These
+are not yet the full recursive physical parameter-fiber counting theorem.

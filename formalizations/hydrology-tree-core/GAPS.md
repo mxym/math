@@ -58,6 +58,8 @@ finite tree with the requested complete characteristic/cofactor pair. The proof
 discharges all smaller-child existence obligations by strong induction. Same-size
 topology non-identifiability is an exact corollary for positive full responses.
 
+Root-level extraction of the unique labelled allocation from EVERY actual
+positive model is now proved, as is the exact finite allocation count.
 Still construct the EXHAUSTIVE bijection between each actual positive rate fiber
 and all allowed recursive labelled pole allocations, and prove its factorial
 cardinality. Existence on each tree and uniqueness for a prescribed assignment

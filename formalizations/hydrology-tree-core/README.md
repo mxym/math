@@ -220,3 +220,22 @@ response. These existence results do not yet enumerate all positive fibers.
 The global factorial fiber count and its exhaustive allocation bijection remain
 unproved; alternate leak placement, independent graph-presentation and ODE
 bridges remain explicit. This checkpoint is still partial for the full program.
+
+## Exhaustive root-pole allocation extraction
+
+`positive_child_allocation_exists` proves that EVERY actual positive tree model
+with a prescribed simple root cofactor determines a labelled pole allocation to
+its actual child principal blocks. `positive_child_allocation_unique` proves the
+allocation is unique; each allocated block family is pairwise coprime. No
+numerical root matching or assumed assignment-completeness input is used.
+
+`SizedSpectralAllocation` constructs the exact bijection between global pole
+orderings and labelled allocations together with independent within-block
+permutations. It proves card(allocations) * product(blockSize!) = n! for arbitrary
+finite block labels and sizes, including empty cases. This alone is NOT the
+count of actual physical parameter fibers: the full parent/child fiber bijection
+and recursive physical-fiber cardinality remain to be verified separately.
+
+These new source modules compiled in the isolated development environment.
+Their source-bound independent CI is the new checkpoint's own run, not an older
+126-module receipt. The overall program remains partial.

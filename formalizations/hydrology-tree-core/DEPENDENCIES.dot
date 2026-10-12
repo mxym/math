@@ -196,6 +196,12 @@ rankdir=LR;
 "HydrologyTree.PhysicalConstants" -> "HydrologyTree.StieltjesChildAssembly";
 "HydrologyTree.StieltjesChildAssembly" -> "HydrologyTree.PositiveRealizationExistence";
 "HydrologyTree.PositiveAssignment" -> "HydrologyTree.PositiveRealizationExistence";
+"HydrologyTree.StieltjesReindex" -> "HydrologyTree.SpectralFactorMatching";
+"HydrologyTree.SizedSpectralAllocation" -> "HydrologyTree.AllocationPolynomials";
+"HydrologyTree.StieltjesReindex" -> "HydrologyTree.AllocationPolynomials";
+"HydrologyTree.AllocationPolynomials" -> "HydrologyTree.PositiveFiberAllocation";
+"HydrologyTree.SpectralFactorMatching" -> "HydrologyTree.PositiveFiberAllocation";
+"HydrologyTree.PositiveRealizationExistence" -> "HydrologyTree.PositiveFiberAllocation";
 "HydrologyTree.Gluing" -> "HydrologyTree";
 "HydrologyTree.RootUpdate" -> "HydrologyTree";
 "HydrologyTree.PhysicalBridge" -> "HydrologyTree";
@@ -226,4 +232,5 @@ rankdir=LR;
 "HydrologyTree.CatenaryFormalPolynomial" -> "HydrologyTree";
 "HydrologyTree.StieltjesGrouping" -> "HydrologyTree";
 "HydrologyTree.PositiveRealizationExistence" -> "HydrologyTree";
+"HydrologyTree.PositiveFiberAllocation" -> "HydrologyTree";
 }
