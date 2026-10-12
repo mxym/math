@@ -1,137 +1,57 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
-## Exact rectangular maximum: independent verification completed
+**The exact rectangular purity maximum and all its maximizing spectra/unitary orbits are now complete in Lean. The overall high-dimensional research remains partially formalized: growing-dimension multiscale matching lower bounds, complete entropy extrema and asymptotic rigidity are not yet certified.**
 
-`appt_rectangular_maximum_formula` now proves the original physical **IsGreatest** statement for every integer m>=3 and n>=m^3-m-2. With D=mn and t=ceil((m-1)n/2), the exact maximum is
+Every physical endpoint uses actual complex density matrices, the original trace(A*A).re purity, and positivity after partial transposition of EVERY global-unitary conjugate. No spectral ansatz, supplied graph cap, unproved quantum characterization or assumed optimizing conclusion replaces those hypotheses.
+
+## 1. Exact rectangular maximum and complete equality classification
+
+For all integers m>=3 and n>=m^3-m-2, put D=mn and t=ceil((m-1)n/2). The final numerical theorem `appt_rectangular_maximum_formula` proves IsGreatest of the actual physical purity-value set with value
 
     [D(m-1)^2+4mt]/[D(m-1)+2t]^2.
 
-The actual APPT prefix constraint, the unrestricted ordered-spectrum cut reduction, every shortened/full-support vertex bound, the integer branch comparison, and actual projection-state attainment are connected. No spectral shape, unproved graph bound or presumed optimizer is a final hypothesis. The cutoff is sufficient; it is not claimed to be the smallest possible physical cutoff.
+`density_appt_rectangular_maximizer_iff` proves that an APPT density attains this maximum if and only if its canonically sorted eigenvalues are
 
-Independent run **38238377463**, source **1a3f6275d7979121f6babd6608567fdecbe304fa**, passed all stages. Trust-zero replay checked **42,670 declarations and 247 explicit roots**, with only the three standard axioms. All **99 pinned inputs** matched the tested commit and artifact. Thirteen exact-type corrupted-proof tests passed, including the final maximum theorem and the physical two-branch upper bound. Evidence: `verification/ci-1a3f6275/`.
+    (m+1 repeated t times, m-1 repeated D-t times)/[D(m-1)+2t].
 
-This checkpoint proves the exact maximum and attainment, **not yet the complete maximizing-spectrum classification**. The generic equality reduction is verified, but its final spectral classification is being assembled separately. All growing-dimension multiscale lower limits, full entropy laws and asymptotic rigidity remain separate. No publication or Release was created.
+`appt_rectangular_isGreatest_iff_unitary` gives the complete state-level version: for an actual density matrix A, APPT together with IsGreatest of its purity is equivalent to existence of a global unitary U with A=U*roundedPlateauMatrix*U^*. The fixed representative is explicitly defined and proved density, APPT, and attaining. Neither APPT nor optimality is assumed on the orbit side. All integer ranks, parity cases, shortened supports and arbitrary convex combinations are included.
 
-**The full research program remains partially formalized. The fixed-local purity supremum limit and its first excess-purity coefficient are now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. The two-level projection plateau is also optimized exactly within the plateau family in the even-rank case. Matching growing-local-dimension lower limits, exact finite maxima/classification beyond that family, full entropy and rigidity claims remain unclosed.**
+The proof first derives the exact top-R versus bottom-S cut from physical APPT. Explicit finite mass transport reduces every ordered spectrum to surviving prefixes and crossing edges. The rational edge objective is transformed into a convex quadratic, including strict endpoint inequalities. In the stated region every early or late prefix and every shortened support is strictly suboptimal. The sole remaining full-support middle prefix has the unique integer ceiling rank. The generic convex unique-boundary sublevel argument then classifies arbitrary mixtures. Exact coordinate identities and the unitary spectral theorem finish the physical orbit equivalence.
 
-Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
+The cutoff is sufficient, not asserted minimal. For example m=10 requires n>=988, so this theorem does not contradict the independently verified 10x38 counterexample. The relaxation's complete behavior below the cutoff and the true smallest onset of two-level optimality are not being inferred here. See `REVIEW_RECTANGULAR_MAXIMUM.md` and `REVIEW_RECTANGULAR_CLASSIFICATION.md`.
 
-## Strengthened counterexample statement and physical failure controls
+## 2. Independent verification of the complete finite theorem
 
-`proposedAPPTPurity` records the proposed dimension-dependent formula with its actual integer ceiling. `not_proposedAPPTPurity_upper` proves that it is NOT a universal purity upper bound on the original domain 2<=m<=n and n>2, using the actual 10x38 APPT density matrix. This is a fully quantified formula refutation, not just an unconnected numerical inequality. The source paper's separate polytope-optimization theorem is not claimed as formalized here.
+Run **38241340424**, tested source **e1f7774e267a5a15bc56d19d2301b4c5111cb8a6**, passed all jobs and all five reproduction stages. The fresh review-package Lake build completed **2,891 tasks**, retaining external dependency caches. An empty kernel with trust level **zero** replayed **42,729 transitive declarations and 268 explicit roots**. The only axioms were `propext`, `Classical.choice`, and `Quot.sound`.
 
-The white-noise state
+The primary proof-corruption control targets `appt_rectangular_isGreatest_iff_unitary`. There are **15** checked exact-type rejection controls in this audit, including the sorted-spectrum equivalence and the arbitrary-spectrum cut equality theorem. Original proof closures passed first; the controls replace only the proof by True.intro and retain its exact type and universe parameters. All dependency lists and literal rejection diagnostics are preserved.
 
-    rho_int = (999/1000) rho + (1/1000) I/380
+All **104 pinned inputs** match the exact tested commit and the current source. Every uploaded module, audit, regression, runner and manifest was compared byte-for-byte. Stage log hashes were checked. Evidence: **`verification/ci-e1f7774e/`**. The local WSL fresh build and trust-zero replay also passed for the same input manifest; its kernel log SHA-256 is 9859354b146e1a34869b10697c02cbfa348aa9c9b848972f2724496758cec8c6.
 
-is proved to be a density matrix and APPT, still has purity strictly exceeding the proposed value, and satisfies
+The preceding maximum-only checkpoint independently passed run 38238377463, source 1a3f6275d7979121f6babd6608567fdecbe304fa: 2,886 Lake tasks, 42,670 declarations, 247 roots, and 99 pinned inputs. That historical scope and evidence remain in `verification/ci-1a3f6275/`; it is not relabeled as the later equality proof. The earlier integer-rank/cut-reduction checkpoint remains in `verification/ci-8a0ec9ba/`.
 
-    (U rho_int U*)^Gamma - I/380000 >= 0
+## 3. Other completed results retained in the proof closure
 
-for every global unitary U. `counterexample1038Interior_margin` proves this uniform positive orbit margin; the endpoint is that matrix inequality, not an independently stated topological-relative-interior classification.
+The original 10x38 state diag(41,17 repeated 146 times,15 repeated 233 times)/6018 has a verified actual APPT proof and purity 2675/1006009 exceeding both proposed values. The full universal-formula negation retains its integer ceiling. The joint contraction-plus-spike sufficiency, arbitrary-vector signed Schmidt construction including zero singular rows, robust white-noise positive margin, and actual trace-one non-APPT boundary perturbation are verified. Their earlier independent records are `ci-c7bd84ed` and `ci-c129497b`.
 
-The actual trace-one matrix `boundaryPerturbation1038` increases the spike coefficient from 24 to 25 in the explicit boundary layout. It is positive semidefinite but NOT APPT. The proof uses a genuine rectangular Hadamard-unitary witness and rejects it by exact arithmetic, rather than assuming a failed sampled orbit. Its support has 147 coordinates and includes the spike: the unnormalized levels are 42 once, 17 on the remaining 146 support coordinates and 15 on the other 233 coordinates, with trace 6019. `joint_scalar_boundary_and_failure` separately records the zero-to-negative scalar boundary, and `zero_schmidt_model` checks that zero test vectors are admitted by the general Schmidt construction.
+Finite physical APPT compactness, actual attainment of the purity supremum, the entire attainable-purity interval, unique maximally mixed minimum and strict-mixture rigidity are verified. Purity-ball sufficiency and the necessary-and-sufficient singular APPT spectrum/purity classification, with an actual singular witness, are also verified. These are finite statements, not dimension-varying compactness/rigidity conclusions. Earlier evidence: `ci-0d7760e7`, `ci-4e647075`, and `ci-72f774d8`.
 
-**Final independent verification:** run **38202563748**, tested source **c129497bc843d2054533c405cf5d5201855c0a99**, passed every stage. The build completed **2869 tasks**; an empty trust-zero kernel replayed **42,496 transitive declarations and 208 explicit roots**, with only the three standard axioms. All **82 pinned inputs** matched the exact committed and uploaded source. The primary corrupted-proof control targets the full negation of the proposed universal upper formula. Ten additional corruption controls remain, including joint sufficiency, actual counterexample membership, its positive margin and the non-APPT perturbation. Literal logs and all source/control bindings are in `verification/ci-c129497b/`.
+For each fixed m>=2, the physical supremum satisfies
 
-## Joint sufficiency and the original three-level counterexample
+    (mn)*P_sup(m,n) -> m^2/(m^2-1),
+    (mn)*(P_sup(m,n)-1/(mn)) -> 1/(m^2-1).
 
-**New complete finite result:** `jointSpike_absolutelyPPT` proves all-global-unitary APPT for `(2m-5)I+2P+4(m-4)|v><v|` whenever m>=4, P and I-P are positive semidefinite, and v has squared norm one. The positivity theorem does not assume v lies in range(P), a supplied Schmidt decomposition, a graph inequality, or any APPT spectral criterion. It constructs a Schmidt row factorization from the actual complex matrix, including zero singular values, proves the signed partial-transpose model and trace duality, and applies the joint sum-of-squares inequality.
+The state set is proved nonempty and bounded, positive scaling of the supremum is justified, and actual integer-rank projection states provide the lower bound. For n>=2m the scaled errors are at most 1/n^2 below and 13m/n above. See `FixedLocalLimit`, `PlateauOptimizer`, and `verification/ci-57bc1b6f/`.
 
-`counterexample1038_refutes_formula` then proves density, actual APPT, and the strict purity comparison for the original product-coordinate state
+The all-total-dimension purity UPPER theorem proves that for every epsilon>0, one N works for every 2<=m<=n with mn>=N and every APPT density A:
 
-    rho = diag(41, 17 [146 copies], 15 [233 copies]) / 6018,
-    purity(rho) = 2675/1006009 > max(97/36481,5/1881).
+    (mn)^2*(purity(A)-1/(mn)) <= (1+epsilon)*max(8,4+mn/(m^2-1)).
 
-`counterexample1038_diagonal` verifies that these are the entries of the actual defined matrix, rather than an externally supplied spectrum. The finite support has exactly 147 coordinates; that count is kernel-decided and is not used as a replacement for the dimension-uniform quantum proof. The result refutes the displayed proposed purity formula at 10x38. It does not assert that this state is optimal, that these are the smallest counterexample dimensions, or that all subsequent research claims have been certified.
+Its matching lower construction when m grows remains unclosed. The exact sorted physical entropy-head inequality is verified, but is only one dependency of the full entropy laws. `COVERAGE.md` distinguishes every such endpoint.
 
-Independent Actions run **38200910959**, source **c7bd84ed1df6602d511fbee67f1c66f66809932f**, passed every stage: **2,866 Lake tasks**, **42,442 transitive declarations and 194 roots** replayed at trust level zero, with only `propext`, `Classical.choice`, `Quot.sound`. All **79 pinned inputs** matched the tested commit and downloaded artifact. The primary forged-proof test targets the final physical counterexample theorem. Additional tests preserve the exact theorem types and reject corrupted proofs of generic joint APPT sufficiency, actual counterexample membership, and the unnormalized Schmidt model. Literal evidence is in `verification/ci-c7bd84ed/` and the exact dependency map is in `REVIEW_JOINT_SUFFICIENCY.md`.
+## 4. Reproduction, failures and provenance
 
-## Purity-ball sufficiency and the singular APPT locus
-
-### Integrated source verification
-
-Combined source **72f774d8e8400b58d342e7d9c460c5b138583467** also preserves the concurrent fixed-local excess-limit and even-rank projection-family optimization. Independent run **38190512755** passed all stages: **2,853 Lake tasks, 42,281 declarations, 142 roots, 66 pinned inputs**, trust level zero and only the three standard axioms. Evidence is in `verification/ci-72f774d8/`. The original singular-state checkpoint below retains its own source binding; the merge was independently verified rather than presumed correct from parent builds.
-
-
-
-For D=mn>1, `density_appt_of_purity_ball` proves that every actual density matrix with purity at most 1/(D-1) is APPT under every global unitary. The proof establishes partial-transpose invariance of the Hermitian Hilbert--Schmidt square and derives positivity from the actual matrix eigenvalues. No Schmidt or Hildebrand criterion is assumed.
-
-For 2<=m<=n, `singular_density_appt_iff_spectrum` proves a necessary-and-sufficient statement for a density matrix with determinant zero: it is APPT exactly when its sorted eigenvalues are one zero and D-1 copies of 1/(D-1). Equivalently its purity is 1/(D-1). `exists_singular_appt_density` constructs an actual normalized complementary coordinate projection and proves its density, APPT, determinant-zero and exact-purity properties. The purity-ball condition is only sufficient without singularity; a physical 2x3 counterexample to necessity is included.
-
-Recovered unpublished WSL work was independently read and subjected to a fresh source-bound build/replay before publication. Independent GitHub run **38189500302**, source **4e647075a83f317c16dcecac50b0dc6d91e86d35**, then passed all stages: **2,852 Lake tasks, 42,271 declarations, 139 explicit roots**, trust level zero, and only propext, Classical.choice and Quot.sound. All **65 pinned inputs** and uploaded sources matched. The final singular equivalence, purity-ball theorem and singular-attainment theorem reject forged proofs with unchanged types. Literal evidence and corruption dependencies are in `verification/ci-4e647075/`.
-
-These standard finite-dimensional facts close previously missing sufficiency and classification dependencies. They are not new priority claims, the three-level 10x38 joint sufficiency, an exact unrestricted purity maximum, or the dimension-varying multiscale lower limit. See `REVIEW_SINGULAR_CONTINUATION.md`. No preprint or immutable Release is changed.
-
-## Finite-dimensional attainment checkpoint
-
-The physical APPT set is now proved compact. `exists_appt_purity_isGreatest` and `exists_appt_purity_eq_sup` prove that the original supremum is attained by a genuine complex density matrix for every 2<=m<=n. `apptPurityValues_eq_Icc` gives the exact attainable interval [1/(mn), P_sup(m,n)], without evaluating its upper endpoint. The maximally mixed density uniquely minimizes purity. `appt_maximizing_mixture_rigid` proves that a strict mixture attaining maximal purity has identical endpoints; this is not a maximizing-spectrum classification. The subsequence result concerns fixed dimensions, not the unproved dimension-varying graph limit.
-
-Independent run **38162415802**, source **0d7760e7d33eb38cc72778e4d7ac872216b9d11a**, passed: 2,849 Lake tasks, 42,246 transitive declarations, 122 explicit roots, trust level zero. The only axioms are propext, Classical.choice and Quot.sound. The interval, actual IsGreatest, and mixture-rigidity theorem statements rejected deliberately forged proofs. All 62 pinned inputs and uploaded sources matched the tested commit; literal evidence is in `verification/ci-0d7760e7/`. Existing historical checkpoints retain their original scopes and hashes.
-
-Five modules add this chain: StateTopology, CompactMaximum, PurityMixing, PurityInterval and CompactControls. No numerical unrestricted maximum, multiscale lower limit, full entropy theorem or dimensional rigidity is inferred. These are standard compactness and convex-quadratic arguments formally connected to the actual quantum definitions, not a claim of new mathematical priority. No preprint or Release is changed.
-
-## 1. Fixed-local purity: both bounds and a genuine limit
-
-Let D=mn, C_m=m^2/(m^2-1), and let P_sup(m,n) be the supremum of trace(A*A).re over actual APPT density matrices on C^m tensor C^n. `apptPurityValues` defines this physical objective set, and `appt_purity_values_nonempty_bounded` proves it nonempty and bounded for 2<=m<=n. Positive scaling of its supremum is also proved; totalized empty/unbounded-supremum conventions do not supply the result.
-
-For m>=2 and n>=2m the finite bounds are
-
-    C_m - 1/n^2 <= (mn)*P_sup(m,n) <= C_m + 13m/n.
-
-The upper inequality holds for every physical state. The lower inequality is witnessed by an actual coordinate-projection state of integer rank k=ceil((m-1)n/2), whose density, APPT and purity were connected previously. The new exact rounding identity proves the stated lower error, without using a noninteger projection rank.
-
-`appt_fixed_local_purity_sup_tendsto` establishes the actual filter limit
-
-    Tendsto (fun n => (mn)*P_sup(m,n)) atTop (nhds C_m)
-
-for every fixed integer m>=2. This closes the complementary fixed-m regime; it is not an extrapolation of the earlier growing-m theorem. This endpoint does not assert finite-dimensional `IsGreatest` or classify maximizing spectra.
-
-The companion theorem `appt_fixed_local_excess_sup_tendsto` subtracts the maximally
-mixed baseline and proves the exact first excess coefficient
-
-    Tendsto (fun n => (mn) * (P_sup(m,n) - 1/(mn))) atTop
-      (nhds (1/(m^2-1))).
-
-This is a direct physical supremum limit, with no spectral ansatz or unproved
-attainment assumption. Separately, `PlateauOptimizer.lean` proves the exact square
-deficit for every two-level projection plateau and shows that when `(m-1)*n` is even,
-rank `((m-1)*n)/2` reaches the continuous two-level value and is maximal among all
-plateau ranks. This is a family-restricted optimization statement, not the full
-rectangular APPT maximum or a classification of all maximizing states.
-
-## 2. One upper bound over all dimensional growth regimes
-
-`appt_total_dimension_uniform_upper` proves: for every real epsilon>0 there is one natural N such that for all integers 2<=m<=n with mn>=N, and for every actual APPT density matrix A,
-
-    (mn)^2*(purity(A)-1/(mn))
-      <= (1+epsilon)*max(8,4+mn/(m^2-1)).
-
-The threshold works simultaneously for fixed m, growing m, and arbitrarily unbalanced dimensions. The proof combines the new finite fixed-local bound with the previously verified growing-m upper theorem. It remains an UPPER theorem; the matching lower construction when m grows depends on still-unformalized graph limits.
-
-The earlier finite pivot bound, its dimension-only normalization, and the explicit growing-m estimate remain in the same proof closure. The latter is valid for 8<=m<=n with coefficient [m/(m-7)]^2*max(8,4+n/m).
-
-## 3. Independent kernel evidence
-
-Run **38153054623**, tested source **57bc1b6f60a9a10b9c4f289f1644d402799b4369**, passed every independent job and reproduction stage. The fresh review-package Lake build completed **2,844 tasks**, retaining external dependency caches. The empty kernel at trust level **zero** replayed **42,101 transitive declarations and 87 explicit roots**. Its only axioms were `propext`, `Classical.choice`, and `Quot.sound`.
-
-Both final endpoints were tested against forged proofs. The exact fixed-local supremum-limit theorem was rejected after only its proof was replaced by `True.intro`, following a full positive proof replay. A second independently checked type closure of **8,578 declarations** supported the same rejection test for the total-dimension uniform upper theorem. Neither theorem's type or universe parameters were altered.
-
-All **57 pinned local inputs**, including original quantum definitions and replay support, matched both the tested commit and the publication worktree. Uploaded source modules, aggregate, regression, audit, runner and manifest were compared byte-for-byte. Literal logs, roots, declarations, axioms, both corruption controls, source hashes and workflow/artifact metadata are retained in **`verification/ci-57bc1b6f/`**.
-
-These are independent CI and Lean-kernel checks, not external mathematical peer review. Earlier audit records retain their own source bindings and are not relabeled as the newer theorem.
-
-## 4. Failure diagnosis and negative controls
-
-The first independent run (38152532117, aa49f7fc) successfully built all mathematical modules and replayed 42,101 declarations with 87 roots, including the fixed-local theorem. It nevertheless FAILED overall: the added second `run_cmd` invocation ended before its arguments because of Lean's command layout. Joining that invocation onto one line fixed the audit wrapper. No mathematical module, theorem type, axiom policy or verification timeout was weakened. The complete workflow was rerun, and the literal failed record remains under `verification/failed-aa49f7fc/`.
-
-The new physical regression roots include a 2x4 APPT state with scaled purity 4/3, rejecting a unit coefficient or the incorrect 1+1/m^2. A 4x5 APPT state has exact positive rounding gap 1/5415, rejecting equality with the continuous-rank optimum at that finite dimension. Existing false-PPT/APPT, wrong dimension constant, signed graph, row-order, summation-scope and zero-denominator controls remain audited.
-
-An isolated development compiler was used while the authorized Windows builder was offline. Its receipts explicitly report compiler errors and are not proof certificates. That session was stopped. This checkpoint instead uses the separate normal proof workflow with the original committed module paths and full trust-zero audit.
-
-## 5. Reproduction and dependencies
-
-Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL, from this directory:
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux/WSL, from this directory:
 
 ```sh
 lake exe cache get
@@ -139,19 +59,14 @@ python3 reproduce.py --check-only
 python3 reproduce.py --fresh
 ```
 
-The runner verifies source pins and the actual dependency checkout, builds only the imported review closure, compiles replay support with an explicit source root, runs physical controls, and replays all selected roots. Every stage has a finite timeout with process-group termination on timeout and retained diagnostics. `--write-manifest` records intended sources but does not verify them.
+The runner checks the actual dependency checkout and source manifest, builds the imported review closure, compiles replay support with its explicit source root, runs physical controls and performs trust-zero replay. Every stage has a finite timeout, process-group termination on timeout and retained diagnostics. --write-manifest records intended inputs but does not prove them. The 2,891 build tasks include Mathlib/dependency targets, not that many newly written source modules; replay counts likewise include dependencies.
 
-The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `PlateauOptimizer`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
+This continuation recovered unpublished maximum modules, read their proofs and reran a fresh complete build/replay before publication. A CRLF/LF discrepancy was detected and normalized BEFORE source-bound independent verification, followed by another complete local build. New equality modules compiled individually and then in a full fresh package. Initial local parsing/cast/simplification errors were repaired rather than bypassed. The checked controls include exact even/odd spectrum boundaries, a rejected wrong-floor spectrum, actual representative density/APPT/purity, and the earlier actual 10x38 counterexample to dropping the cutoff.
 
-## 6. What is not yet certified
+Windows GitHub transport was intermittent; exact SHA-256-checked source transfer to the authorized VPS was used. Concurrent main changes are preserved. No original quantum definition, axiom policy, verification workflow, preprint or immutable Release is changed. These are Lean-kernel and independent CI checks, not external mathematical peer review or new historical-priority claims.
 
-See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
+## 5. Remaining program obligations
 
-The joint projection-plus-spike sufficiency and the original 10x38 physical counterexample are now certified above. Exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
+The main outstanding chain is the matching lower bound when both dimensions grow in the multiscale regime: joint graph compactness, simultaneous levels, compatible nested witnesses, finite-dimensional APPT margins and the order of limits. The complete all-regime asymptotic equivalence cannot be inferred merely from its verified upper half.
 
-
-## Rectangular-dependency checkpoint
-
-The unique integer projection rank and unrestricted ordered-cut reduction now have a local fresh build and trust-zero replay. See `REVIEW_RECTANGULAR_DEPENDENCIES.md`. This does not yet certify the final unrestricted rectangular maximum or equality classification.
-
-Independent run **38211631460**, source **8a0ec9ba**, passed: 2,851 build tasks, 42,585 declarations, 229 roots, trust zero, 90 pinned inputs. Evidence: `verification/ci-8a0ec9ba/`.
+Full von Neumann/Renyi entropy extrema, dimensional outlier/bulk rigidity and other asymptotic equality claims remain unclosed. The unrestricted finite maximum outside the stated rectangular region is not evaluated by the new theorem. All such research claims remain explicitly separate from the completed finite rectangular maximum and its complete maximizing-state classification.
