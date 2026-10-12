@@ -197,8 +197,18 @@ MODULE HydrologyTree.PositiveRealizationExistence
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.PositiveFiberAllocation
-HydrologyTree/PositiveFiberAllocation.lean:69:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
-Note: Use `set_option maxHeartbeats <num>` to set the limit.
+MODULE HydrologyTree.PositiveFiberTypes
+HydrologyTree/PositiveFiberTypes.lean:42:22: warning: Variable name `i` is not explicitly referenced.
 
-Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/PositiveFiberTypes.lean:47:6: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/PositiveFiberTypes.lean:52:6: error: Failed to rewrite using equation theorems for `allocatedWeights`
