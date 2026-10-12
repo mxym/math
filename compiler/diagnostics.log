@@ -55,64 +55,28 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 MODULE HydrologyTree.FamilyResultants
 
 MODULE HydrologyTree.SignedFamilyResultant
-HydrologyTree/SignedFamilyResultant.lean:50:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)
-in the target expression
-  (-1) ^ (q.1.natDegree * (List.map natDegree (List.map Prod.fst qs)).sum) * q.1.resultant q.2 *
-        (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)
-          (List.map natDegree (List.map Prod.fst qs)).sum *
-      q.1.resultant (List.map Prod.fst qs).prod q.1.natDegree (List.map natDegree (List.map Prod.fst qs)).sum ^ 2 =
-    resultantPairSign (List.map (fun q => q.1.natDegree) (q :: qs)) *
-        (List.map (fun q => q.1.resultant q.2) (q :: qs)).prod *
-      pairwiseResultants (q.1 :: List.map Prod.fst qs) ^ 2
 
-case cons
-q : ℝ[X] × ℝ[X]
-qs : List (ℝ[X] × ℝ[X])
-ih :
-  (∀ q ∈ qs, q.1.Monic) →
-    (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs) =
-      resultantPairSign (List.map (fun q => q.1.natDegree) qs) * (List.map (fun q => q.1.resultant q.2) qs).prod *
-        pairwiseResultants (List.map Prod.fst qs) ^ 2
-h : ∀ q_1 ∈ q :: qs, q_1.1.Monic
-hq : q.1.Monic
-ht : ∀ r ∈ qs, r.1.Monic
-hm : ∀ p ∈ List.map Prod.fst qs, p.Monic
-⊢ (-1) ^ (q.1.natDegree * (List.map natDegree (List.map Prod.fst qs)).sum) * q.1.resultant q.2 *
-        (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)
-          (List.map natDegree (List.map Prod.fst qs)).sum *
-      q.1.resultant (List.map Prod.fst qs).prod q.1.natDegree (List.map natDegree (List.map Prod.fst qs)).sum ^ 2 =
-    resultantPairSign (List.map (fun q => q.1.natDegree) (q :: qs)) *
-        (List.map (fun q => q.1.resultant q.2) (q :: qs)).prod *
-      pairwiseResultants (q.1 :: List.map Prod.fst qs) ^ 2
-HydrologyTree/SignedFamilyResultant.lean:62:63: error(lean.invalidField): Invalid field `of_dvd_nat`: The environment does not contain `Exists.of_dvd_nat`, so it is not possible to project the field `of_dvd_nat` from an expression
-  Even.mul_right (Nat.even_mul_succ_self f.natDegree) 1
-of type
-  ∃ r, f.natDegree * (f.natDegree + 1) * 1 = r + r
-Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-HydrologyTree/SignedFamilyResultant.lean:64:50: error: unsolved goals
-f N P : ℝ[X]
-hf : f.Monic
-d : ℝ
-hP : P = (X + C d) * f - N
-hdeg : P.natDegree = f.natDegree + 1
-hs : (-1) ^ ((f.natDegree + 1) * f.natDegree) = 1
-⊢ X * f + C d * f - N = X * f + C d * f + N * C (-1)
-HydrologyTree/SignedFamilyResultant.lean:65:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  f.resultant (C (-1) * N + f * (X + C d))
+MODULE HydrologyTree.ResultantFamilyEnumeration
+HydrologyTree/ResultantFamilyEnumeration.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (insert ?m.114 ?m.115).erase ?m.114
 in the target expression
-  f.resultant (C (-1) * N + f * (X + C d)) f.natDegree (f.natDegree + 1) = (-1) ^ f.natDegree * f.resultant N
+  r i * ∏ j ∈ (insert a s).erase i, p j = p a * (r i * ∏ j ∈ s.erase i, p j)
 
-f N P : ℝ[X]
-hf : f.Monic
-d : ℝ
-hP : P = (X + C d) * f - N
-hdeg : P.natDegree = f.natDegree + 1
-hs : (-1) ^ ((f.natDegree + 1) * f.natDegree) = 1
-he : (X + C d) * f - N = C (-1) * N + f * (X + C d)
-⊢ f.resultant (C (-1) * N + f * (X + C d)) f.natDegree (f.natDegree + 1) = (-1) ^ f.natDegree * f.resultant N
+case e_a
+ι : Type u_1
+inst✝ : DecidableEq ι
+s : Finset ι
+p r : ι → ℝ[X]
+a : ι
+ha : a ∉ s
+i : ι
+hi : i ∈ s
+hia : i ≠ a
+hae : a ∉ s.erase i
+⊢ r i * ∏ j ∈ (insert a s).erase i, p j = p a * (r i * ∏ j ∈ s.erase i, p j)
+HydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
