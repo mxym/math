@@ -22,6 +22,8 @@ import GaussianFour.WinningSeparation
 import GaussianFour.BoundarySeparation
 import GaussianFour.TripleTie
 
+import GaussianFour.RankOneReduction
+import GaussianFour.PermutationOrder
 import GaussianFour.CollinearTransport
 
 /-! Partial formalization only. This module does not prove the global

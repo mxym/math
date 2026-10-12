@@ -1,4 +1,5 @@
 import GaussianFour.RankOne
+import GaussianFour.RankOneReduction
 import GaussianNoTies
 
 /-! Actual Gaussian pushforward and Bochner-moment transport for collinear scores. -/
@@ -69,5 +70,17 @@ theorem no_ordered_collinear_selfMoment_spectral_bound {d : ℕ}
     rw [real_inner_smul_right, real_inner_self_eq_norm_sq, hu] at hi
     norm_num only [one_pow, mul_one] at hi
     exact hi.trans (collinear_winning_moment u hu a p i)
+
+/-- Once a rank-one score family has been put in a nonzero ordered
+direction, the actual ambient obstruction is exactly the scalar obstruction. -/
+theorem no_rank_one_ordered_selfMoment_spectral_bound {d : ℕ}
+    (v : Fin 4 → Space d) (u : Space d) (a p : Fin 4 → ℝ)
+    (hrep : ∀ i, v i = a i • u) (hu : ‖u‖ = 1) (ha : StrictMono a)
+    (hm : ∀ i, ((gaussian d) (winningCell v p i)).toReal = 1 / 4)
+    (hself : ∀ i, v i = ∫ x in winningCell v p i, x ∂gaussian d) :
+    ¬ (∀ z : Fin 4 → ℝ, (∑ i, z i) = 0 → scalarFacetForm a p z ≤ ∑ i, z i ^ 2) := by
+  have hv : v = (fun i => a i • u) := funext hrep
+  subst v
+  exact no_ordered_collinear_selfMoment_spectral_bound u hu a p ha hm hself
 
 end GaussianFour
