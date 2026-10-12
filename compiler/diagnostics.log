@@ -29,31 +29,3 @@ HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been depreca
 HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 MODULE HydrologyTree.CoprimeBranchRecovery
-HydrologyTree/CoprimeBranchRecovery.lean:26:48: error: Invalid `←` modifier: `branchNumeratorSum` is a declaration name to be unfolded
-
-Hint: The simplifier cannot "refold" definitions by name. Use `rw` for this instead,
-                      or use the `←` simp modifier with an equational lemma for `branchNumeratorSum`.
-HydrologyTree/CoprimeBranchRecovery.lean:25:73: error: unsolved goals
-I : Type u_1
-inst✝¹ : Fintype I
-inst✝ : DecidableEq I
-P R S : I → ℝ[X]
-hP : ∀ (i j : I), i ≠ j → IsCoprime (P i) (P j)
-hR : ∀ (i : I), (R i).degree < (P i).degree
-hS : ∀ (i : I), (S i).degree < (P i).degree
-h : branchNumeratorSum P R = branchNumeratorSum P S
-⊢ ∑ x, R x * ∏ j ∈ Finset.univ.erase x, P j - ∑ x, S x * ∏ j ∈ Finset.univ.erase x, P j = 0
-HydrologyTree/CoprimeBranchRecovery.lean:26:70: warning: This simp argument is unused:
-  h
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [sub_mul, Finset.sum_sub_distrib, ← branchNumeratorSum, sub_self]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CoprimeBranchRecovery.lean:26:73: warning: This simp argument is unused:
-  sub_self
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [sub_mul, Finset.sum_sub_distrib, ← branchNumeratorSum, h]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
