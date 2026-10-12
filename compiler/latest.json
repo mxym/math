@@ -1,7 +1,7 @@
 {
-  "serial": 89,
-  "status": "COMPILER_ERROR",
-  "request_blob": "9da360d57f66d994f9fa536ef71c7f2254db5f69",
+  "serial": 90,
+  "status": "COMPILING",
+  "request_blob": "db192c64cf7d28cf78dd1982dfe57230adf972bd",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -87,7 +87,7 @@
     "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
     "HydrologyTree/ChildRates.lean": "6c8a54086231d29e54a20e250a7ef53040fd0abbec8ad4db132b8de1a043feef",
     "HydrologyTree/SpectralResolvent.lean": "2bb80315b75470b801be021544cc7402664111e083518fe3c35f06a3bb7f217e",
-    "HydrologyTree/PositiveSpectrum.lean": "05011294a19ec8a2fe29c56ec2ba77abcf5dab618b5e6a7efac9711849e2292f",
+    "HydrologyTree/PositiveSpectrum.lean": "516beb9b426ec802cdf0cbc1524677f44ba6a4a7c8ee6b3238c75d9db7649c01",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
     "HydrologyTree/CatenaryCanonical.lean": "4957391b937adbb0e1689b223cab62c3ff14914387228b02a077ce28f3df69da",
     "HydrologyTree/DependentBlocks.lean": "47d2d8d7e73869f14ec9ffe98b30d5ea1f9320ca8f9e9d1fd636863e7237ba5b",
@@ -112,69 +112,7 @@
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.241
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.705
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 1.802
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 1.887
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.552
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.521
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.449
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.407
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 0,
-      "seconds": 1.536
-    },
-    {
-      "module": "HydrologyTree.GroundedPositivity",
-      "returncode": 0,
-      "seconds": 1.471
-    },
-    {
-      "module": "HydrologyTree.SymmetricGenerator",
-      "returncode": 0,
-      "seconds": 1.716
-    },
-    {
-      "module": "HydrologyTree.PositiveSpectrum",
-      "returncode": 1,
-      "seconds": 1.494
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals\nI : Type u_1\ninst\u271d\u00b9 : Fintype I\ninst\u271d : DecidableEq I\nB : Matrix I I \u211d\nhB : B.PosDef\nhn : -B = ((conjStarAlgAut \u211d (Matrix I I \u211d)) \u22ef.eigenvectorUnitary) (-diagonal (RCLike.ofReal \u2218 \u22ef.eigenvalues))\n\u22a2 (-diagonal \u22ef.eigenvalues).charpoly = \u220f i, (X + C (\u22ef.eigenvalues i))\nHydrologyTree/PositiveSpectrum.lean:18:8: warning: This simp argument is unused:\n  \u2190 Matrix.diagonal_neg\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.charpoly_diagonal, Function.comp_def]\n\nNote: Simp arguments with `\u2190` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `\u2190` with `-` to only get that effect and silence this warning.\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PositiveSpectrum.lean:18:31: warning: This simp argument is unused:\n  Matrix.charpoly_diagonal\n\nHint: Omit it from the simp argument list.\n  [apply] simp [\u2190 Matrix.diagonal_neg, Function.comp_def]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PositiveSpectrum.lean:18:57: warning: This simp argument is unused:\n  Function.comp_def\n\nHint: Omit it from the simp argument list.\n  [apply] simp [\u2190 Matrix.diagonal_neg, Matrix.charpoly_diagonal]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38198592888"
 }
