@@ -5,58 +5,17 @@ No files to download
 Already decompressed 2686 file(s)
 
 MODULE HydrologyTree.SizedSpectralAllocation
-HydrologyTree/SizedSpectralAllocation.lean:39:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:
+HydrologyTree/SizedSpectralAllocation.lean:41:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:
   [Fintype B]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [Fintype B] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/SizedSpectralAllocation.lean:72:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:
+HydrologyTree/SizedSpectralAllocation.lean:74:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:
   [Fintype B]
   [DecidableEq B]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [Fintype B] [DecidableEq B] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/SizedSpectralAllocation.lean:140:6: error(lean.unknownIdentifier): Unknown constant `Fintype.card_pi`
-HydrologyTree/SizedSpectralAllocation.lean:139:70: error: unsolved goals
-B : Type u_1
-inst✝¹ : Fintype B
-inst✝ : DecidableEq B
-m : B → ℕ
-n : ℕ
-a : SizedAllocation m n
-⊢ Fintype.card (AllocationEnumerations a) = ∏ b, (m b).factorial
-HydrologyTree/SizedSpectralAllocation.lean:151:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Fintype ((a : SizedAllocation m n) × AllocationEnumerations a)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/SizedSpectralAllocation.lean:152:6: error(lean.unknownIdentifier): Unknown constant `Fintype.card_sigma`
-HydrologyTree/SizedSpectralAllocation.lean:150:81: error: unsolved goals
-case refine_3
-B : Type u_1
-inst✝¹ : Fintype B
-inst✝ : DecidableEq B
-m : B → ℕ
-n : ℕ
-e : AllocationNodes m ≃ Fin n
-h : Fintype.card ((a : SizedAllocation m n) × AllocationEnumerations a) = Fintype.card (AllocationNodes m ≃ Fin n)
-⊢ Fintype.card (SizedAllocation m n) * ∏ b, (m b).factorial = n.factorial
-
-case refine_1
-B : Type u_1
-inst✝¹ : Fintype B
-inst✝ : DecidableEq B
-m : B → ℕ
-n : ℕ
-e : AllocationNodes m ≃ Fin n
-⊢ Fintype ((a : SizedAllocation m n) × AllocationEnumerations a)
-
-case refine_2
-B : Type u_1
-inst✝¹ : Fintype B
-inst✝ : DecidableEq B
-m : B → ℕ
-n : ℕ
-e : AllocationNodes m ≃ Fin n
-⊢ Fintype (AllocationNodes m ≃ Fin n)
+HydrologyTree/SizedSpectralAllocation.lean:155:75: error(lean.unknownIdentifier): Unknown identifier `smul_eq_mul`
