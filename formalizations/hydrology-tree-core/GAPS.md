@@ -42,9 +42,12 @@ tree. The result holds in every field extension of the reals, for nonzero
 internal directed rates of either sign, and arbitrary root leak. The rate
 inheritance, local cancellation algebra and full tree induction are proved.
 
-Not yet proved: the global resultant identity with the coefficient Jacobian,
-stability / diagonal symmetrization, the equivalence to Jacobian singularity,
-or a controllability/observability theorem about the underlying ODE system.
+Constructed diagonal symmetrization, positive energy, strictly negative real
+characteristic roots, and normalized nonnegative-weight finite Stieltjes
+root responses are now proved. These allow zero observation weights and
+repeated characteristic roots. Still unproved: the global resultant identity
+with the coefficient Jacobian, the equivalence to Jacobian singularity, and
+a controllability/observability theorem about the underlying ODE system.
 The common-root result must not be described as those unproved equivalences.
 Zero internal rates are excluded in this classification; the full Jacobian
 target is supposed to include them. Unreduced coefficient data are not silently
@@ -83,3 +86,9 @@ The endpoint-path uniqueness part is now also proved:
 fiber at every nonsingular path model, with no assumption on the competing
 model. This is not the arbitrary-tree fiber count or realization-existence
 theorem and not reduced-response uniqueness at cancellation boundaries.
+
+Path coprimality and global identification from actual nonpole root resolvents
+are now proved in CatenaryCoprime, assuming nonzero internal rates only for the
+reference path. This is not arbitrary-tree Stieltjes realization existence or
+global fiber counting. Positive-spectrum response weights need not all be
+strictly positive until a further noncancellation argument is supplied.

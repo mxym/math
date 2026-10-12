@@ -15,7 +15,7 @@ map for a conservative bidirected tree with one external leak.
 | All-tree Jacobian factorization | Not yet exported | Arbitrary child-family Jacobian is now proved. The remaining chain rule and global tree induction must connect actual subtree matrix coefficients; basis signs/reindexing must be checked. |
 | Exact edge multiplicities, catenary and tree conjecture statements | Not yet exported | Requires full actual-tree factorization; exact multiplicities additionally need no hidden rate factors in resultants. |
 | Cancellation resultant identity | Not yet exported | All-tree induction, multiplicativity and degree bookkeeping. At zero rates, do not conflate reduced response with unreduced coefficient data. |
-| Strictly positive singular-locus equivalences | Not yet exported | Actual diagonal symmetrization, stability, principal block spectra and no unproved minimality assertion. |
+| Strictly positive singular-locus equivalences | Not yet exported | Actual diagonal symmetrization, grounded energy, strictly negative real spectrum and finite normalized nonnegative Stieltjes response are now proved. Jacobian equivalence and ODE minimality remain unproved. |
 | Complete positive realization and fiber count | Not yet exported | Stieltjes interlacing/residue signs, complete constructive inverse, uniqueness for each assignment, positivity/conservation, factorial count. |
 | Topology ambiguity, global components, physical discharge interpretation | Not yet exported | All claimed consequences need their actual supporting definitions and theorem statements. |
 
@@ -61,3 +61,12 @@ for every tree with arbitrary real rates, including zero.
 singleton real coefficient fibers at every regular endpoint-path model. The
 terminal zero-outward case is included. The arbitrary-tree positive Stieltjes
 realization existence/completeness/count remains a separate obligation.
+
+### Spectral and transfer extension
+
+Constructed actual positive-tree stability and root response:
+`physical_characteristic_negative_real_factorization`, `physical_finite_stieltjes`.
+Root transfer identification for noncancelling reference paths:
+`catenary_global_resolvent_identification`. No condition is imposed on the
+competing rate vector. Global tree Jacobian, exact multiplicity and complete
+positive Stieltjes inverse/fiber count remain separate obligations.

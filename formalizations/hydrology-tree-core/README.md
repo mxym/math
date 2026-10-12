@@ -221,3 +221,36 @@ This concerns complete unreduced characteristic/cofactor coefficient data.
 It is not a blanket uniqueness assertion for a reduced response on zero-rate
 boundaries; nor does it claim existence for an arbitrary prescribed Stieltjes
 response. The branching-tree positive fiber classification remains unproved.
+
+## Constructed stability, Stieltjes response, and path transfer identification
+
+`BalanceWeights`, `WeightedEnergy`, and `GroundedPositivity` construct positive
+detailed-balance weights directly from the tree rates and prove the actual
+grounded Dirichlet energy identity and strict positive definiteness.
+`SymmetricGenerator` proves the explicit diagonal similarity of the physical
+generator to a symmetric negative definite matrix. `PositiveSpectrum` proves
+its full characteristic factorization into strictly negative real roots, with
+multiplicities retained, for every strictly positive physical rate vector.
+
+`SpectralResolvent` and `PhysicalStieltjes` establish a normalized finite
+Stieltjes representation of the ACTUAL physical root resolvent:
+
+    G(s) = sum_i w_i/(s+r_i),  r_i>0, w_i>=0, sum_i w_i=1.
+
+The same r_i give the actual characteristic polynomial product(X+r_i), and
+the identity is asserted on its exact nonpole domain. Both the weights and
+the diagonal similarity are proved constructions. Zero observation weights
+and repeated eigenvalues are allowed, so no unjustified minimality or simple
+spectrum conclusion is smuggled into this theorem.
+
+`CatenaryCoprime` closes path coprimality and the full real-rate identification
+from ACTUAL root resolvents whenever only the reference path's internal rates
+are nonzero. The competing path needs no positivity, regularity or minimality
+assumption. The distinction from unreduced zero-boundary coefficient uniqueness
+is explicit: unlike the latter, transfer identification requires every outward
+internal rate to be nonzero, including the terminal one.
+
+These results do not complete the arbitrary-tree coefficient-Jacobian induction,
+the exact multiplicity classification, or the positive realization-existence
+and fiber enumeration. Their independent certification is the source-bound CI
+run on this source checkpoint; earlier replay receipts certify earlier bytes.

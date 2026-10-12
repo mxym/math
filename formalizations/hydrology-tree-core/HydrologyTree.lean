@@ -12,3 +12,5 @@ import HydrologyTree.TreeCancellation
 import HydrologyTree.CatenaryOrientation
 import HydrologyTree.PhysicalConstants
 import HydrologyTree.CatenaryGlobal
+import HydrologyTree.PhysicalStieltjes
+import HydrologyTree.CatenaryCoprime
