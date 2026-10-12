@@ -1,6 +1,6 @@
 {
   "serial": 132,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "a60e1ff95f89337b1e323d5842106e35578c07e9",
   "modules": [
     "HydrologyTree.MonicResultantAlgebra",
@@ -26,7 +26,59 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.MonicResultantAlgebra",
+      "returncode": 0,
+      "seconds": 1.667
+    },
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.811
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.512
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 4.135
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.335
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.477
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.529
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 3.259
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.983
+    },
+    {
+      "module": "HydrologyTree.SignedFamilyResultant",
+      "returncode": 1,
+      "seconds": 1.964
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38210619885"
+  "run_id": "38210619885",
+  "diagnostics": "HydrologyTree/SignedFamilyResultant.lean:50:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)\nin the target expression\n  (-1) ^ (q.1.natDegree * (List.map natDegree (List.map Prod.fst qs)).sum) * q.1.resultant q.2 *\n        (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)\n          (List.map natDegree (List.map Prod.fst qs)).sum *\n      q.1.resultant (List.map Prod.fst qs).prod q.1.natDegree (List.map natDegree (List.map Prod.fst qs)).sum ^ 2 =\n    resultantPairSign (List.map (fun q => q.1.natDegree) (q :: qs)) *\n        (List.map (fun q => q.1.resultant q.2) (q :: qs)).prod *\n      pairwiseResultants (q.1 :: List.map Prod.fst qs) ^ 2\n\ncase cons\nq : \u211d[X] \u00d7 \u211d[X]\nqs : List (\u211d[X] \u00d7 \u211d[X])\nih :\n  (\u2200 q \u2208 qs, q.1.Monic) \u2192\n    (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs) =\n      resultantPairSign (List.map (fun q => q.1.natDegree) qs) * (List.map (fun q => q.1.resultant q.2) qs).prod *\n        pairwiseResultants (List.map Prod.fst qs) ^ 2\nh : \u2200 q_1 \u2208 q :: qs, q_1.1.Monic\nhq : q.1.Monic\nht : \u2200 r \u2208 qs, r.1.Monic\nhm : \u2200 p \u2208 List.map Prod.fst qs, p.Monic\n\u22a2 (-1) ^ (q.1.natDegree * (List.map natDegree (List.map Prod.fst qs)).sum) * q.1.resultant q.2 *\n        (List.map Prod.fst qs).prod.resultant (resultantFamilyNumerator qs)\n          (List.map natDegree (List.map Prod.fst qs)).sum *\n      q.1.resultant (List.map Prod.fst qs).prod q.1.natDegree (List.map natDegree (List.map Prod.fst qs)).sum ^ 2 =\n    resultantPairSign (List.map (fun q => q.1.natDegree) (q :: qs)) *\n        (List.map (fun q => q.1.resultant q.2) (q :: qs)).prod *\n      pairwiseResultants (q.1 :: List.map Prod.fst qs) ^ 2\nHydrologyTree/SignedFamilyResultant.lean:62:63: error(lean.invalidField): Invalid field `of_dvd_nat`: The environment does not contain `Exists.of_dvd_nat`, so it is not possible to project the field `of_dvd_nat` from an expression\n  Even.mul_right (Nat.even_mul_succ_self f.natDegree) 1\nof type\n  \u2203 r, f.natDegree * (f.natDegree + 1) * 1 = r + r\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nHydrologyTree/SignedFamilyResultant.lean:64:50: error: unsolved goals\nf N P : \u211d[X]\nhf : f.Monic\nd : \u211d\nhP : P = (X + C d) * f - N\nhdeg : P.natDegree = f.natDegree + 1\nhs : (-1) ^ ((f.natDegree + 1) * f.natDegree) = 1\n\u22a2 X * f + C d * f - N = X * f + C d * f + N * C (-1)\nHydrologyTree/SignedFamilyResultant.lean:65:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f.resultant (C (-1) * N + f * (X + C d))\nin the target expression\n  f.resultant (C (-1) * N + f * (X + C d)) f.natDegree (f.natDegree + 1) = (-1) ^ f.natDegree * f.resultant N\n\nf N P : \u211d[X]\nhf : f.Monic\nd : \u211d\nhP : P = (X + C d) * f - N\nhdeg : P.natDegree = f.natDegree + 1\nhs : (-1) ^ ((f.natDegree + 1) * f.natDegree) = 1\nhe : (X + C d) * f - N = C (-1) * N + f * (X + C d)\n\u22a2 f.resultant (C (-1) * N + f * (X + C d)) f.natDegree (f.natDegree + 1) = (-1) ^ f.natDegree * f.resultant N\n"
 }
