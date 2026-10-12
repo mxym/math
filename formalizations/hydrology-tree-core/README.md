@@ -213,3 +213,28 @@ The latest modules are checked by their own source-bound CI. Kalman/actual
 reachability and observability, direct time-domain discharge-only inverse
 identification, independent graph presentation and alternate leaks remain
 separately listed obligations, not consequences silently assumed here.
+
+
+## Actual discharge-history identification and trajectory observability
+
+`same_continuous_discharge_leak` identifies the unknown leak from actual
+zero-initial discharge histories, using actual exponential trajectories and
+monic coefficient identities. `continuous_discharge_output_iff_response` proves
+both directions between the continuous-input discharge behavior and the complete
+Stieltjes root response, without imposing signs on real competing parameters.
+`real_continuous_discharge_fiber_exact_card` proves the complete finite factorial
+count for this actual ODE discharge-history fiber, not only a transfer function.
+
+`rootKrylovMatrix` and `rootObservationMatrix` use actual powers of the original
+matrix and actual root input/output. Their Vandermonde factorizations and
+nonsingularity for every full-response real realization are proved, rather than
+supplied as Kalman-rank assumptions. `actual_trajectory_observability` proves
+that equal root outputs on ANY nonempty open interval and a common forcing
+imply equality of complete actual classical state trajectories. No initial-state
+equality is assumed. `real_full_response_trajectory_observable` discharges the
+rank prerequisite from the full target response.
+
+Finite-horizon steering by an actual continuous input is not inferred merely
+from the Kalman determinant here; it remains a separate proof obligation until
+its trajectory construction is checked. Broader forcing, independent graph
+presentation and alternate leak location remain outside this checkpoint.

@@ -260,3 +260,24 @@ n! / product_e subtreeVertexCount(T,e.succ) are proved in
 positivity, the nonzero actual Jacobian, and unique global classical solutions
 for arbitrary initial state and every continuous forcing, proved in
 `continuous_output_forces_physical_wellposedness`.
+
+
+## Actual discharge ODE histories, Kalman matrices and finite-window observation
+
+`HasFullContinuousDischargeOutput T x r w` quantifies every continuous forcing,
+every actual zero-initial classical trajectory, and every s>=0, observing only
+ell_x*z_0(s). `continuous_discharge_output_iff_response` proves its equivalence
+with the full root transfer property for every unrestricted real vector x.
+`real_continuous_discharge_fiber_exact_card` proves actual finiteness and the
+same exact n! / product(subtree sizes) cardinality, without a calibrated leak.
+
+`rootKrylovMatrix A` has columns A^j e_0, j=0,...,n, and
+`rootObservationMatrix A` has rows e_0^T A^j in the original coordinates.
+`real_full_response_kalman_nonsingular` proves both determinants nonzero.
+`actual_trajectory_observability` compares actual classical forced trajectories
+z and q with the SAME input; if their root values agree throughout any Ioo(a,b)
+with a<b and the observation matrix is nonsingular, then z=q everywhere.
+`real_full_response_trajectory_observable` proves the needed determinant from
+the full response. There is no assumption of equal initial states. This closes
+trajectory observability, while actual finite-horizon steering still needs its
+own existence construction beyond the already checked Krylov determinant.

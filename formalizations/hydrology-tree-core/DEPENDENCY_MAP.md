@@ -77,3 +77,10 @@ actual ODE-to-transfer implication. ContinuousOutputFiber applies the complete
 real algebraic classification to actual root-output histories, with existence
 of the probing trajectories proved instead of assumed. This closes the previous
 reverse root-output gap, not the independent reachability/observability variants.
+
+
+TimeDomainDischarge and ContinuousDischargeFiber close the actual discharge-only
+history inverse and its exact finite fiber count. ModalKalman and PhysicalKalman
+prove original-coordinate Kalman ranks; TrajectoryObservability proves actual
+finite-window state recovery. No continuous-time steering statement is inferred
+without constructing its actual control and endpoint trajectory.

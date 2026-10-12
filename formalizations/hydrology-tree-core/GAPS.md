@@ -118,9 +118,15 @@ exact finite factorial count. The universal trajectory predicate cannot hide
 nonexistence: the probes are explicitly constructed and full well-posedness is
 then proved from the recovered target.
 
-Still prove controllability/observability and a direct discharge-only time-domain
-inverse identification. Equal root responses already imply equal ODE discharges;
-the reverse discharge-only assertion is not yet silently included.
+The discharge-only time-domain inverse is now proved, including identification
+of the unknown leak and exact actual continuous-discharge-fiber cardinality.
+Both actual Kalman matrices are constructed and proved nonsingular for every
+full-response realization. Actual trajectory observability on any nonempty
+open time window is proved from those matrices and the actual derivatives.
+
+Still complete continuous-time finite-horizon steering with a constructed input.
+That claim is not replaced by a Kalman rank statement. Broader forcing and
+independent graph/alternate-leak variants remain separately scoped.
 Piecewise-continuous or merely measurable forcing is not silently included in
 the continuous-input theorem. Graph and alternate-leak variants remain separate.
 

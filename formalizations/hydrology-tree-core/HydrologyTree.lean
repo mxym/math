@@ -36,3 +36,5 @@ import HydrologyTree.DischargeFiber
 import HydrologyTree.FullResponseDynamics
 import HydrologyTree.PhysicalMassODE
 import HydrologyTree.ContinuousOutputFiber
+import HydrologyTree.ContinuousDischargeFiber
+import HydrologyTree.TrajectoryObservability
