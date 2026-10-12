@@ -254,3 +254,33 @@ These results do not complete the arbitrary-tree coefficient-Jacobian induction,
 the exact multiplicity classification, or the positive realization-existence
 and fiber enumeration. Their independent certification is the source-bound CI
 run on this source checkpoint; earlier replay receipts certify earlier bytes.
+
+## Full local branching coefficient-Jacobian assembly
+
+`FamilyScaling`, `FamilyNormalization` and `BranchStep` now compose actual
+simultaneous monic numerator scaling, all-child gluing and the root polynomial
+update, including the Fréchet chain rule, in specified coefficient coordinates.
+`branchStep_actual_jacobian` is the determinant of this entire ACTUAL local
+parent coefficient map, with all child degrees and all real coefficient/scale
+values allowed. Its value is
+
+    (-1)^N * product_(i<j) Res(P_i,P_j)^2 * product_i c_i^m_i,
+    N = sum_i (m_i+1).
+
+Here each child has characteristic degree m_i+1 and cofactor degree m_i.
+The numerator data are actual leading-scale plus lower monic coefficients.
+No generic-rank, coprimality, nonzero scale or simple-root condition is imposed.
+This closes local assembly, not yet the final arbitrary physical-tree induction.
+
+## Exact spectral numerator and full-mode classification
+
+`StieltjesNumerator` proves complete reconstruction of the unreduced root
+cofactor as the Stieltjes numerator, and proves that noncancellation forces
+pairwise distinct characteristic rates and nonzero observation weights.
+`PhysicalModes` combines this with the proved actual sibling common-root theorem:
+for strictly positive physical tree rates, the characteristic/cofactor pair has
+exactly n+1 distinct negative poles with strictly positive normalized weights
+IFF no two actual sibling principal blocks share a spectral value anywhere
+in the tree. Both directions and the actual-polynomial statements are proved.
+This is NOT called a Jacobian singularity equivalence or an ODE observability
+theorem, which are separate remaining claims.

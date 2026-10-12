@@ -92,3 +92,18 @@ are now proved in CatenaryCoprime, assuming nonzero internal rates only for the
 reference path. This is not arbitrary-tree Stieltjes realization existence or
 global fiber counting. Positive-spectrum response weights need not all be
 strictly positive until a further noncancellation argument is supplied.
+
+## Local assembly and full positive-mode classification now closed
+
+BranchStep proves the single composed actual local parent coefficient map:
+all child numerator scalings, gluing, root update, actual Fréchet chain rule
+and exact resultant/scale factors are assembled. The remaining global induction
+must still combine this with independent child physical coefficient maps,
+root coupling, and coordinate transport; the local theorem is not that induction.
+
+StieltjesNumerator and PhysicalModes prove that full distinct positive-weight
+spectral modes are equivalent to absence of actual sibling collisions anywhere
+in a positive-rate tree. Zero observation weights or repeated roots are
+excluded by a proved noncancellation equivalence, not an assumption hidden in
+a spectral theorem. Construction of every positive realization from arbitrary
+Stieltjes data and the exact global fiber count remain to be completed.

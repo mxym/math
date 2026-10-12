@@ -70,3 +70,13 @@ Root transfer identification for noncancelling reference paths:
 `catenary_global_resolvent_identification`. No condition is imposed on the
 competing rate vector. Global tree Jacobian, exact multiplicity and complete
 positive Stieltjes inverse/fiber count remain separate obligations.
+
+### Combined local branching Jacobian and positive mode criterion
+
+`branchStep_actual_jacobian` proves the full actual LOCAL parent coefficient
+transformation with all scaling, gluing and root-update factors composed.
+`physical_stieltjes_polynomials` recovers BOTH actual unreduced polynomials.
+`physical_full_modes_iff_no_sibling_collisions` proves the complete positive
+full-mode/actual-sibling-collision equivalence. The full physical-tree Jacobian
+induction, exact factor multiplicities, ODE observability, constructive inverse
+and global positive-fiber count remain unexported.

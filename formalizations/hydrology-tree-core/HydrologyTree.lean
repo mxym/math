@@ -14,3 +14,5 @@ import HydrologyTree.PhysicalConstants
 import HydrologyTree.CatenaryGlobal
 import HydrologyTree.PhysicalStieltjes
 import HydrologyTree.CatenaryCoprime
+import HydrologyTree.BranchStep
+import HydrologyTree.PhysicalModes
