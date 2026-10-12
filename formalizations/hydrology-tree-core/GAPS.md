@@ -1,124 +1,85 @@
-# Remaining proof obligations — partial formalization
+# Exact remaining proof obligations — partial formalization
 
-The principal unfinished target is the Jacobian of the actual characteristic /
-root-cofactor coefficient map, for every finite physical tree:
+The full target is the Jacobian of the ACTUAL characteristic/cofactor coefficient
+map of every finite bidirected tree with one leak, together with its exact
+factor multiplicities and complete positive realization/fiber classification.
+No missing main conclusion is supplied as an axiom or a hidden premise.
 
-    det DC_T = ± product_v f_v^(n_v-1) a_v^n_v
+## Completed mathematical components
+
+The actual conservative matrix, Bochner-free finite state/rate definitions,
+characteristic/cofactor encoding, root resolvent, rate-coordinate Jacobian,
+child partition, genuine smaller child models, independent rate permutations,
+all-child characteristic/cofactor recursions, and actual local cancellation
+and all-tree sibling-common-root classification are proved.
+
+For every endpoint path length, the canonical all-rate Jacobian formula,
+zero-boundary singular locus, and global real-rate coefficient uniqueness at
+regular reference points are proved. For a noncancelling reference path, actual
+nonpole root-resolvent equality also identifies every competing real rate vector.
+
+For arbitrary finite child families, all numerator scaling, polynomial gluing,
+root update and actual Frechet chain-rule factors are now combined in
+`branchStep_actual_jacobian`, including zero scales and common roots.
+
+For positive physical tree rates, detailed balance and grounded positive energy
+are constructed, exact diagonal symmetrization and strict negative-real spectrum
+are proved, and both actual characteristic and cofactor polynomials receive a
+finite normalized Stieltjes representation. Full distinct positive-weight modes
+are equivalent to the absence of actual sibling spectral collisions anywhere
+in the tree; this is not yet claimed as a Jacobian or ODE-observability equivalence.
+
+Global all-tree uniqueness per prescribed recursive assignment of actual subtree
+characteristic polynomials is proved for nonzero-edge, coprime-sibling references.
+For positive full-mode references these conditions are derived from the spectrum.
+The competing rate vector needs no positivity, regularity or minimality premise.
+
+## 1. Arbitrary branching-tree coefficient-Jacobian induction
+
+Still join the now-proved full local coefficient transformation with the
+independent physical child coefficient maps and root-coupling map across the
+whole tree. Complete the global Frechet chain rule, coordinate orientations,
+and induction identifying the exact actual standard-coordinate Jacobian with
+
+    ± product_v f_v^(n_v-1) a_v^n_v
       * product_(sibling pairs at every node) Res(P_v,P_w)^2.
 
-## Completed connections
+Do not substitute the already proved physical rate-to-matrix coordinate
+Jacobian for this different coefficient-map Jacobian. The endpoint path case
+is complete; arbitrary branching is not. Original observation-root versus
+leak-root changes and arbitrary external graph reindexing also need their
+explicit transport statements.
 
-Actual physical matrices, characteristic/cofactor encoding, conservation,
-resolvent identities and the physical rate-coordinate Jacobian are proved.
-Actual root-branch partition and complete block decomposition, increasing child
-renumbering as a strictly smaller tree, retained exit-to-parent leak, all child
-matrix entries and characteristic/cofactor equalities are proved. The exact
-input-rate partition is a proved linear equivalence onto independent child data.
-The nonlinear root coupling has an actual Frechet Jacobian equal to the product
-of child leak parameters, including when those parameters are zero.
+## 2. Exact multiplicities and full singular-locus equivalences
 
-The end-to-end characteristic and root-cofactor recursions now apply directly
-to the original OrderedTree, not merely to a separately assembled arrow model.
-All-arity polynomial gluing, numerator equality, required second-order
-regularity, monic scaling and root-update Jacobians are also proved.
+After the full branching factorization, show that sibling resultants contain
+no additional individual-rate factors, and derive the exact tree edge
+multiplicities in the manuscript's parameter convention. Derive the global
+resultant identity relating the actual characteristic/root-cofactor pair to
+the actual coefficient Jacobian and the claimed positive singular-locus
+equivalences. The common-root and full-mode classification is complete but
+must not be relabelled as the unproved Jacobian equivalence.
 
-## Full coefficient-Jacobian induction
+## 3. Positive realization existence and exhaustive fiber count
 
-Still assemble the determinant chain rule in compatible finite-dimensional
-bases for the independent family of child rate data, their coefficient maps,
-root coupling, numerator scaling, all-arity gluing and root update. Prove the
-complete induction and its conversion to the displayed edge-exponent and
-sibling-resultant formula. This assembly is not supplied as a hypothesis, nor
-is the separately proved rate-coordinate Jacobian called the target Jacobian.
-Basis orientations and arbitrary external graph relabelings need explicit
-bookkeeping; the observation-root / nonroot-leak version also needs transport.
+Uniqueness for each prescribed recursive factor assignment is now proved.
+Remaining: Stieltjes reciprocal pole/zero interlacing and positive residues;
+construct a positive physical model for every admissible recursive partition;
+prove that all positive realizations arise from those assignments; prove the
+exact factorial count and any claimed global branch/component topology.
 
-## Common-root classification versus remaining spectral/Jacobian claims
+The fixed-assignment uniqueness theorem is not an assertion that every
+assignment exists, nor that one can identify a tree's rates from the root
+response alone. Different assignments may still yield different realizations.
 
-`physicalCommonRoot_iff_siblingCollision` now proves the entire all-size
-classification of actual characteristic/cofactor common zeros: they occur iff
-actual sibling principal-block polynomials share that value somewhere in the
-tree. The result holds in every field extension of the reals, for nonzero
-internal directed rates of either sign, and arbitrary root leak. The rate
-inheritance, local cancellation algebra and full tree induction are proved.
+## 4. ODE/system interpretation beyond the algebraic resolvent
 
-Constructed diagonal symmetrization, positive energy, strictly negative real
-characteristic roots, and normalized nonnegative-weight finite Stieltjes
-root responses are now proved. These allow zero observation weights and
-repeated characteristic roots. Still unproved: the global resultant identity
-with the coefficient Jacobian, the equivalence to Jacobian singularity, and
-a controllability/observability theorem about the underlying ODE system.
-The common-root result must not be described as those unproved equivalences.
-Zero internal rates are excluded in this classification; the full Jacobian
-target is supposed to include them. Unreduced coefficient data are not silently
-replaced by the cancelled response at a zero-rate boundary.
+Any claim phrased as controllability, observability or all-input equality of
+ODE solutions still needs its corresponding actual state-space/ODE definitions
+and bridge. The proved resolvent and characteristic identities are not silently
+presented as an unproved dynamic-system equivalence.
 
-## Exact multiplicities and published conjectures
-
-After the complete Jacobian factorization, prove that sibling resultants have
-no extra individual-rate factors, and derive both conjecture statements with
-their original rate conventions. The factorization alone is not exact
-multiplicity, and finite examples are not all-size conjecture proofs.
-
-## Global positive realizations and fiber count
-
-Still prove rational Stieltjes interlacing and residue signs, the constructive
-inverse, positivity / conservation, uniqueness for fixed recursive pole
-assignments, completeness of every positive realization and the factorial
-count. Any global analytic inverse-branch classification requires its own
-proof. None follows from the local Jacobian or from the common-root theorem.
-
-No complete-formalization Release or DOI is justified by this checkpoint.
-
-## Endpoint path subcase now proved
-
-For the actual endpoint-catenary coefficient map, the all-size determinant
-induction and standard-coordinate normalization are now proved in
-`catenary_standard_jacobian` and `catenary_standard_jacobian_sq`; the exact
-zero-rate singular locus is `catenary_standard_singular_locus`. The sign is
-fixed per size and has magnitude one, proved by bilinear coordinate-energy
-preservation. This does not yet close the full branching-tree induction.
-`PhysicalConstants` proves the exact characteristic/cofactor constants for
-all rooted trees. The global branching-tree and realization gaps above remain.
-
-The endpoint-path uniqueness part is now also proved:
-`catenary_global_fiber_at_regular_point` identifies the entire REAL coefficient
-fiber at every nonsingular path model, with no assumption on the competing
-model. This is not the arbitrary-tree fiber count or realization-existence
-theorem and not reduced-response uniqueness at cancellation boundaries.
-
-Path coprimality and global identification from actual nonpole root resolvents
-are now proved in CatenaryCoprime, assuming nonzero internal rates only for the
-reference path. This is not arbitrary-tree Stieltjes realization existence or
-global fiber counting. Positive-spectrum response weights need not all be
-strictly positive until a further noncancellation argument is supplied.
-
-## Local assembly and full positive-mode classification now closed
-
-BranchStep proves the single composed actual local parent coefficient map:
-all child numerator scalings, gluing, root update, actual Fréchet chain rule
-and exact resultant/scale factors are assembled. The remaining global induction
-must still combine this with independent child physical coefficient maps,
-root coupling, and coordinate transport; the local theorem is not that induction.
-
-StieltjesNumerator and PhysicalModes prove that full distinct positive-weight
-spectral modes are equivalent to absence of actual sibling collisions anywhere
-in a positive-rate tree. Zero observation weights or repeated roots are
-excluded by a proved noncancellation equivalence, not an assumption hidden in
-a spectral theorem. Construction of every positive realization from arbitrary
-Stieltjes data and the exact global fiber count remain to be completed.
-
-## Uniqueness per prescribed recursive assignment now closed
-
-CoprimeBranchRecovery, PhysicalBranchRecovery, SubtreeAssignment and
-PositiveAssignment prove complete original-rate uniqueness for each fixed
-recursive assignment of actual subtree characteristic polynomials, under the
-stated noncancelling reference conditions. The competing real-rate model needs
-no positivity/minimality premise. These proofs recover child cofactors and
-actual connectors and then use full tree induction and the original rate
-permutation. They do not assume child parameter uniqueness as an axiom.
-
-Remaining positive-fiber obligations: construct a physical positive realization
-for every admissible recursive pole partition; prove completeness of the
-admissible partition parameterization; prove the exact combinatorial count.
-The uniqueness part alone must not be presented as existence or enumeration.
+Every completed checkpoint has its own source-bound clean build, axiom audit,
+empty trust-zero replay and deliberately false mutation checks. Old receipts
+certify only their own source bytes. No complete-formalization Release or DOI
+is justified until the remaining main theorems close.
