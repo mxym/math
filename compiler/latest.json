@@ -1,28 +1,11 @@
 {
-  "serial": 97,
-  "status": "COMPILER_ERROR",
-  "request_blob": "297abfb2dbd59b05c83cbc4f172fc2a6c4bcdef9",
+  "serial": 98,
+  "status": "COMPILING",
+  "request_blob": "68c3295fc93eb9f01f083e0f982aaac2eafcce99",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
     "HydrologyTree.Triangular",
-    "HydrologyTree.EndJacobian",
-    "HydrologyTree.LeadingCoefficients",
-    "HydrologyTree.Scaling",
-    "HydrologyTree.Gluing",
-    "HydrologyTree.ProductDerivative",
-    "HydrologyTree.JacobianComposition",
-    "HydrologyTree.FamilyProduct",
-    "HydrologyTree.FamilyScaling",
-    "HydrologyTree.FamilyResultants",
-    "HydrologyTree.FamilySmoothness",
-    "HydrologyTree.TangentJacobian",
-    "HydrologyTree.FamilyGluing",
-    "HydrologyTree.RootUpdate",
-    "HydrologyTree.PathRootTransform",
-    "HydrologyTree.PathPolynomial",
-    "HydrologyTree.FamilyNormalization",
-    "HydrologyTree.BranchStep",
     "HydrologyTree.RateChart",
     "HydrologyTree.CompartmentMatrix",
     "HydrologyTree.PhysicalBridge",
@@ -33,6 +16,7 @@
     "HydrologyTree.SymmetricGenerator",
     "HydrologyTree.PositiveSpectrum",
     "HydrologyTree.SpectralResolvent",
+    "HydrologyTree.LeadingCoefficients",
     "HydrologyTree.Resolvent",
     "HydrologyTree.PhysicalStieltjes",
     "HydrologyTree.EdgeDeterminant",
@@ -53,7 +37,23 @@
     "HydrologyTree.ChildIndex",
     "HydrologyTree.PhysicalCancellation",
     "HydrologyTree.TreeCancellation",
-    "HydrologyTree.PhysicalModes"
+    "HydrologyTree.PhysicalModes",
+    "HydrologyTree.EndJacobian",
+    "HydrologyTree.Scaling",
+    "HydrologyTree.Gluing",
+    "HydrologyTree.ProductDerivative",
+    "HydrologyTree.JacobianComposition",
+    "HydrologyTree.FamilyProduct",
+    "HydrologyTree.FamilyScaling",
+    "HydrologyTree.FamilyResultants",
+    "HydrologyTree.FamilySmoothness",
+    "HydrologyTree.TangentJacobian",
+    "HydrologyTree.FamilyGluing",
+    "HydrologyTree.RootUpdate",
+    "HydrologyTree.PathRootTransform",
+    "HydrologyTree.PathPolynomial",
+    "HydrologyTree.FamilyNormalization",
+    "HydrologyTree.BranchStep"
   ],
   "source_sha256": {
     "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
@@ -62,7 +62,7 @@
     "HydrologyTree/PhysicalRecursion.lean": "90df308d419817f922fe6bbee4e4ca915fc7b8b2071b83ce9cfb0c1d47cd2395",
     "HydrologyTree/PhysicalModes.lean": "c7030f31f95c398ccb28b7fdd7ed260a94519796db06c8fa8f804e508e202a6e",
     "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
-    "HydrologyTree/BranchStep.lean": "3eb4397548fa471880b68ced71111d764818281723f4d93048e559943fd83cb3",
+    "HydrologyTree/BranchStep.lean": "a556ff2126518854c16c40096a86917f03bfef024c85b594666295a24e36c102",
     "HydrologyTree/BranchMatrixSupport.lean": "76c98a1551860f86ab532ecce8392b8cd4cc1f34ee37acb369ef67b4ebd43d6a",
     "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
     "HydrologyTree/PhysicalCancellation.lean": "96705736c35803c077494b58ec468271f9e6bcd0245667b772edd9494140faf1",
@@ -108,109 +108,7 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.79
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.896
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.174
-    },
-    {
-      "module": "HydrologyTree.EndJacobian",
-      "returncode": 0,
-      "seconds": 1.923
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.003
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 2.498
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 2.961
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 2.05
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 1.915
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 2.415
-    },
-    {
-      "module": "HydrologyTree.FamilyScaling",
-      "returncode": 0,
-      "seconds": 2.204
-    },
-    {
-      "module": "HydrologyTree.FamilyResultants",
-      "returncode": 0,
-      "seconds": 1.727
-    },
-    {
-      "module": "HydrologyTree.FamilySmoothness",
-      "returncode": 0,
-      "seconds": 1.956
-    },
-    {
-      "module": "HydrologyTree.TangentJacobian",
-      "returncode": 0,
-      "seconds": 2.044
-    },
-    {
-      "module": "HydrologyTree.FamilyGluing",
-      "returncode": 0,
-      "seconds": 1.783
-    },
-    {
-      "module": "HydrologyTree.RootUpdate",
-      "returncode": 0,
-      "seconds": 2.755
-    },
-    {
-      "module": "HydrologyTree.PathRootTransform",
-      "returncode": 0,
-      "seconds": 2.493
-    },
-    {
-      "module": "HydrologyTree.PathPolynomial",
-      "returncode": 0,
-      "seconds": 2.408
-    },
-    {
-      "module": "HydrologyTree.FamilyNormalization",
-      "returncode": 0,
-      "seconds": 2.443
-    },
-    {
-      "module": "HydrologyTree.BranchStep",
-      "returncode": 1,
-      "seconds": 1.984
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/BranchStep.lean:108:2: error: 'change' tactic failed, pattern\n  rootCoefficientMap ?m.78 = (rootOutputEquiv (ChildFactorDegrees ms).sum) (branchStepCoefficients ms z)\nis not definitionally equal to target\n  rootCoefficientMap\n      ((familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).1, z.2,\n        (familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).2) =\n    (familyRootEquiv (ChildFactorDegrees ms)) ((branchCoefficientEquiv ms) (branchStepCoefficients ms z))\n"
+  "run_id": "38198592888"
 }
