@@ -1,6 +1,6 @@
 {
   "serial": 134,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "37d0d748a924e5133d420640d3f236f61d31f3bf",
   "modules": [
     "HydrologyTree.MonicResultantAlgebra",
@@ -28,7 +28,64 @@
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
     "HydrologyTree/ResultantFamilyEnumeration.lean": "d227cf34f8eb2f65e39e81026a97e94fc886e7fde72f6934082926ce585199d8"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.MonicResultantAlgebra",
+      "returncode": 0,
+      "seconds": 1.7
+    },
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.703
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.48
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 4.099
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.369
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.476
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.581
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 3.195
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.973
+    },
+    {
+      "module": "HydrologyTree.SignedFamilyResultant",
+      "returncode": 0,
+      "seconds": 2.025
+    },
+    {
+      "module": "HydrologyTree.ResultantFamilyEnumeration",
+      "returncode": 1,
+      "seconds": 1.872
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38210619885"
+  "run_id": "38210619885",
+  "diagnostics": "HydrologyTree/ResultantFamilyEnumeration.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (insert i ?m.116).erase a\nin the target expression\n  r i * \u220f j \u2208 (insert a s).erase i, p j = p a * (r i * \u220f j \u2208 s.erase i, p j)\n\ncase e_a\n\u03b9 : Type u_1\ninst\u271d : DecidableEq \u03b9\ns : Finset \u03b9\np r : \u03b9 \u2192 \u211d[X]\na : \u03b9\nha : a \u2209 s\ni : \u03b9\nhi : i \u2208 s\nhia : i \u2260 a\nhae : a \u2209 s.erase i\n\u22a2 r i * \u220f j \u2208 (insert a s).erase i, p j = p a * (r i * \u220f j \u2208 s.erase i, p j)\nHydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:\n  [DecidableEq \u03b9]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq \u03b9] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
 }
