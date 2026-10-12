@@ -23,6 +23,13 @@ The lacunarity condition gives z_{j+1}-z_j >= -log_2(q), but allows arbitrarily 
 
 A direct random-set proof must control an uncountable parameter family (translation and scale) even when one scale jump leaves no cluster of comparable points. The missing lemma is therefore a variable-ratio lacunary covering/entropy theorem, not a missing Lean wrapper.
 
+## Candidate unified route: spacing-or-filling
+A possible route is to abandon the requirement that every logarithmic window contain many samples. At a target exponent window, split the ordered logarithms into:
+- filling pieces, where many selected points have bounded local gaps and the existing routing/tree estimate applies;
+- spacing pieces, where a very large gap gives a point whose scale offset sweeps many dyadic grid levels as the dilation parameter varies.
+
+The missing technical statement would be a single finite entropy lemma showing that the first regime supplies many independent addresses at one grid scale, while the second supplies enough independent addresses across nested grids, with total exceptional density summable over annuli. This must be proved for arbitrary irregular gaps; merely counting large gaps is insufficient because a fixed parameter does not vary during the hitting event.
+
 ## Concrete target lemma
 Let b_{j+1} <= q b_j. For each epsilon > 0, prove or disprove the existence of a periodic closed E with density > 1-epsilon such that, for all x in R and t != 0, some j has x+t b_j outside E. A useful proof must specify:
 
