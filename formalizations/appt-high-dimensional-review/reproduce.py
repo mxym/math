@@ -76,7 +76,7 @@ def main():
         if marker not in audit:raise RuntimeError('Missing audit marker '+marker)
     for p in ROOT.glob('review-kernel-*.txt'):shutil.copy2(p,out/p.name)
     check_sources()
-    result={'status':'PASS','scope':'Complete exact rectangular APPT maximum, ordered-spectrum and actual unitary-orbit equality classification; all listed finite dependencies. NOT growing-dimensional multiscale lower limits, full entropy laws or asymptotic rigidity.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
+    result={'status':'PASS','scope':'Constructive finite APPT spike-plateau lower bounds, all-total-dimension lower branch, exact wide-sector purity asymptotic and all fixed aspect ratios gamma>=4. Earlier finite classifications are retained. NOT the multiscale coefficient eight for gamma<4, full entropy laws or dimension-varying rigidity.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
     (out/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n')
     print('REVIEW_REPRODUCTION_PASS',flush=True)
 if __name__=='__main__':main()

@@ -3,6 +3,43 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_large_aspect_purity_limit,
+  ``APPTReview.effective_joint_pair,
+  ``APPTReview.effective_joint_background,
+  ``APPTReview.effective_joint_signed,
+  ``APPTReview.pure_effective_witness,
+  ``APPTReview.effectiveSpike_hermitian,
+  ``APPTReview.effectiveSpike_quadratic,
+  ``APPTReview.effectiveSpike_partialTranspose_posSemidef,
+  ``APPTReview.effectiveSpike_absolutelyPPT,
+  ``APPTReview.normalized_perturbation_excess,
+  ``APPTReview.effectiveTrace_pos,
+  ``APPTReview.effectivePurity_lower,
+  ``APPTReview.effectiveStateBase_eq,
+  ``APPTReview.effectiveStateBase_trace,
+  ``APPTReview.effectiveState_density,
+  ``APPTReview.effectiveState_appt,
+  ``APPTReview.effectiveStateBase_square,
+  ``APPTReview.effectiveState_purity,
+  ``APPTReview.exists_effective_lower,
+  ``APPTReview.effective_ratio_error,
+  ``APPTReview.appt_growing_branch_lower,
+  ``APPTReview.exists_projection_excess_lower,
+  ``APPTReview.branch_coefficient_identity,
+  ``APPTReview.appt_total_dimension_branch_lower,
+  ``APPTReview.appt_total_branch_sup_lower,
+  ``APPTReview.appt_wide_sup_two_sided,
+  ``APPTReview.appt_wide_relative_error,
+  ``APPTReview.appt_wide_purity_asymptotic,
+  ``APPTReview.large_aspect_sandwich,
+  ``APPTReview.effective_even_support_card,
+  ``APPTReview.effective_even_physical_regression,
+  ``APPTReview.effective_odd_support_card,
+  ``APPTReview.effective_odd_physical_regression,
+  ``APPTReview.effective_finite_not_limit,
+  ``APPTReview.naiveEffective_density,
+  ``APPTReview.naiveEffective_not_appt,
+
   ``APPTReview.appt_rectangular_isGreatest_iff_unitary,
   ``APPTReview.cutEdgePurity_lt_of_short,
   ``APPTReview.cutEdge_middle_scaled,
@@ -306,3 +343,11 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_two_bran
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_rectangular_maximizer_iff "review-kernel-rectangular-spectrum-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_rectangular_cut_unique_spectrum "review-kernel-rectangular-cut-equality-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_wide_purity_asymptotic "review-kernel-wide-effective-limit-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.effectiveSpike_absolutelyPPT "review-kernel-effective-joint-physical-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_effective_lower "review-kernel-effective-density-lower-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_branch_lower "review-kernel-effective-total-lower-control"

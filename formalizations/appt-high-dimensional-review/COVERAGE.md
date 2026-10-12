@@ -49,3 +49,5 @@ No `sorry`, custom axiom, untrusted `native_decide`, assumed main conclusion, or
 
 
 Historical rectangular-dependency checkpoint (subsequently included in the independently verified full rectangular maximum/classification): `plateauScaledPurity_ceiling_unique`, `exists_projection_family_unique_rank_max`, `ordered_spectrum_cut_bound`, and `cutEdgePurity_le_endpoints`. The first two close the integer-rank projection family, not the unrestricted APPT maximum. The latter two are general reduction lemmas with their remaining premises explicit.
+
+Constructive lower-branch continuation: `appt_total_dimension_branch_lower`, `appt_wide_purity_asymptotic`, and `appt_large_aspect_purity_limit` have passed the fresh local trust-zero audit; independent CI is pending for this exact source checkpoint. They close the broad branch and the wide-sector asymptotic, not the multiscale lower coefficient eight below aspect ratio four.

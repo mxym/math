@@ -1,5 +1,9 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
+## Constructive wide-sector continuation
+
+The new finite rational-parameter construction, all-total-dimension lower branch, complete wide-sector purity asymptotic, and fixed-aspect limit for every gamma>=4 have passed a fresh local build and trust-zero replay. Independent CI for the exact committed source is pending at this source checkpoint. See `REVIEW_EFFECTIVE_LOWER.md` and the retained local audit. The coefficient eight for 1<=gamma<4, full entropy laws and dimension-varying rigidity remain unclosed.
+
 **The exact rectangular purity maximum and all its maximizing spectra/unitary orbits are now complete in Lean. The overall high-dimensional research remains partially formalized: growing-dimension multiscale matching lower bounds, complete entropy extrema and asymptotic rigidity are not yet certified.**
 
 Every physical endpoint uses actual complex density matrices, the original trace(A*A).re purity, and positivity after partial transposition of EVERY global-unitary conjugate. No spectral ansatz, supplied graph cap, unproved quantum characterization or assumed optimizing conclusion replaces those hypotheses.
