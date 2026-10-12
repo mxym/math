@@ -1,6 +1,6 @@
 {
   "serial": 174,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "fac28e41e5a6d12c75ca209e5c856b4fde480725",
   "modules": [
     "HydrologyTree.SizedSpectralAllocation",
@@ -64,7 +64,16 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.SizedSpectralAllocation",
+      "returncode": 1,
+      "seconds": 1.298,
+      "development_cache_reused": false,
+      "source_dependency_key": "b866da259d8f8eee07afc0f6aa523aeac476ad8da18cc6169abef76d25746760"
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38236087142"
+  "run_id": "38236087142",
+  "diagnostics": "HydrologyTree/SizedSpectralAllocation.lean:39:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:\n  [Fintype B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:72:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:140:6: error(lean.unknownIdentifier): Unknown constant `Fintype.card_pi`\nHydrologyTree/SizedSpectralAllocation.lean:139:70: error: unsolved goals\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\na : SizedAllocation m n\n\u22a2 Fintype.card (AllocationEnumerations a) = \u220f b, (m b).factorial\nHydrologyTree/SizedSpectralAllocation.lean:151:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype ((a : SizedAllocation m n) \u00d7 AllocationEnumerations a)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/SizedSpectralAllocation.lean:152:6: error(lean.unknownIdentifier): Unknown constant `Fintype.card_sigma`\nHydrologyTree/SizedSpectralAllocation.lean:150:81: error: unsolved goals\ncase refine_3\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\ne : AllocationNodes m \u2243 Fin n\nh : Fintype.card ((a : SizedAllocation m n) \u00d7 AllocationEnumerations a) = Fintype.card (AllocationNodes m \u2243 Fin n)\n\u22a2 Fintype.card (SizedAllocation m n) * \u220f b, (m b).factorial = n.factorial\n\ncase refine_1\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\ne : AllocationNodes m \u2243 Fin n\n\u22a2 Fintype ((a : SizedAllocation m n) \u00d7 AllocationEnumerations a)\n\ncase refine_2\nB : Type u_1\ninst\u271d\u00b9 : Fintype B\ninst\u271d : DecidableEq B\nm : B \u2192 \u2115\nn : \u2115\ne : AllocationNodes m \u2243 Fin n\n\u22a2 Fintype (AllocationNodes m \u2243 Fin n)\n"
 }
