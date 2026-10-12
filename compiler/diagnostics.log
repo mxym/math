@@ -730,35 +730,18 @@ MODULE HydrologyTree.CoprimeBranchRecovery
 
 MODULE HydrologyTree.SerializedNumerator
 HydrologyTree/SerializedNumerator.lean:17:9: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/SerializedNumerator.lean:28:49: error(lean.unknownIdentifier): Unknown constant `Fin.zero_ne_succ`
-HydrologyTree/SerializedNumerator.lean:31:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+HydrologyTree/SerializedNumerator.lean:91:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  branchNumeratorSum (fun i => ?P (?e i)) fun i => ?R (?e i)
+in the target expression
+  (branchNumeratorSum (fun i => ↑(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>
+      ↑(r ((Fintype.equivFin I).symm i))) =
+    branchNumeratorSum (fun i => ↑(monicPoly (p i))) fun i => ↑(r i)
 
-Note: Use `set_option maxHeartbeats <num>` to set the limit.
-
-Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
-HydrologyTree/SerializedNumerator.lean:42:9: error: unsolved goals
-case zero
-m : Fin 0 → ℕ
-p r : (i : Fin 0) → ↥(Coeff (m i + 1))
-⊢ familyNumerator (ChildFactorDegrees []) ((piScaledFinEquiv m) p) ((piScaledFinEquiv m) r) = 0
-HydrologyTree/SerializedNumerator.lean:42:32: warning: This simp argument is unused:
-  familyNumerator
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [finDegreeList, branchNumeratorSum]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/SerializedNumerator.lean:73:5: error: Function expected at
-  piScaledFinEquiv ?m.38
-but this term has type
-  ((i : Fin ?m.37) → ↥(Coeff (?m.38 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.38)
-
-Note: Expected a function because this term is being applied to the argument
-  (fun i : Fin (Fintype.card I) => p ((Fintype.equivFin I).symm i))
-HydrologyTree/SerializedNumerator.lean:74:5: error: Function expected at
-  piScaledFinEquiv ?m.41
-but this term has type
-  ((i : Fin ?m.40) → ↥(Coeff (?m.41 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.41)
-
-Note: Expected a function because this term is being applied to the argument
-  (fun i : Fin (Fintype.card I) => r ((Fintype.equivFin I).symm i))
+I : Type u_1
+inst✝¹ : Fintype I
+inst✝ : DecidableEq I
+m : I → ℕ
+p r : (i : I) → ↥(Coeff (m i + 1))
+⊢ (branchNumeratorSum (fun i => ↑(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>
+      ↑(r ((Fintype.equivFin I).symm i))) =
+    branchNumeratorSum (fun i => ↑(monicPoly (p i))) fun i => ↑(r i)
