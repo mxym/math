@@ -561,13 +561,10 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 MODULE HydrologyTree.ScalarCoupling
 
 MODULE HydrologyTree.PathInduction
-HydrologyTree/PathInduction.lean:20:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Unique (Fin (0 + 1))
+HydrologyTree/PathInduction.lean:21:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Subsingleton (Fin (0 + 1))
 
 Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
 HydrologyTree/PathInduction.lean:16:69: error: unsolved goals
 a : PathRates 0
-⊢ single 0 0 a default default = a
-
-a : PathRates 0
-⊢ Unique (Fin (0 + 1))
+⊢ (compartmentMatrix (pathTree 0) (singletonRateEquiv a)).charmatrix.det.coeff ↑⟨0, ⋯⟩ = a
