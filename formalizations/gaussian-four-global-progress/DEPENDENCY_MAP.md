@@ -40,5 +40,5 @@ This closes positive-chart compatibility via actual mass derivatives and
 passes masses, Bochner flux and the entire Laplacian to distinct-score
 balanced simplicial limits. It does not construct the variational sequence
 or prove its rank exclusions or the geometric perimeter inputs.
-The expanded inventory has 108 modules and 638 roots. The rank-one bridge is included in the fresh source-bound
+The expanded inventory has 109 modules and 640 roots. The rank-one bridge and rank-two affine-relation extraction are included in the fresh source-bound
 verification receipts establish the current build/replay status.

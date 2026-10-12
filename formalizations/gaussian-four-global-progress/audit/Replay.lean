@@ -665,6 +665,8 @@ run_cmd do
     ``GaussianFour.exists_unit_strictMono_rankOne_representation,
     ``GaussianFour.winningCell_perm,
     ``GaussianFour.exists_rankOne_ordered_actual_obstruction,
+    ``GaussianFour.score_vectorSpan_le_two,
+    ``GaussianFour.exists_nontrivial_affine_relation_of_scoreGram_rank_le_two,
   ]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs

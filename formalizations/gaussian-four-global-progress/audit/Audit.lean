@@ -638,3 +638,5 @@ import GaussianFour
 #print axioms GaussianFour.exists_unit_strictMono_rankOne_representation
 #print axioms GaussianFour.winningCell_perm
 #print axioms GaussianFour.exists_rankOne_ordered_actual_obstruction
+#print axioms GaussianFour.score_vectorSpan_le_two
+#print axioms GaussianFour.exists_nontrivial_affine_relation_of_scoreGram_rank_le_two

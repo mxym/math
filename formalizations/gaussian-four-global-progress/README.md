@@ -35,7 +35,7 @@ intrinsic R^3, instantiate its dimension parameter d=2.
 The retained development includes Gaussian fractional partitions, balancing
 prices, primal-dual equality, covariance value and directional derivatives,
 full-rank critical self-moments, the actual price Hessian and centered
-nondegeneracy, moment separation, quartile/rank-one analysis, arbitrary-label rank-one representation and winning-cell transport, normal cones,
+nondegeneracy, moment separation, quartile/rank-one analysis, arbitrary-label rank-one representation and winning-cell transport, rank-two affine-dependence extraction, normal cones,
 regularization residuals and fixed facet-chart continuity. Price Hessians
 are not covariance Hessians; no such identification is claimed.
 
@@ -45,7 +45,7 @@ Toolchain: Lean 4.34.1, commit
 5045d0056413266e57c625dcd7c365b10e377c52.
 Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612.
 All transitive versions are fixed in lake-manifest.json. The current inventory
-has 108 modules and 638 audit roots. Fresh reproduction `repro-20261013-rankone` passed; its receipt is in `evidence/repro-20261013-rankone/`. Historical receipts are not substituted for this run.
+has 109 modules and 640 audit roots. Fresh reproduction `repro-20261013-rank2` passed; its receipt is in `evidence/repro-20261013-rank2/`. Historical receipts are not substituted for this run.
 
 ```bash
 cd formalizations/gaussian-four-global-progress
