@@ -4,6 +4,24 @@
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
+## Strengthened counterexample statement and physical failure controls
+
+`proposedAPPTPurity` records the proposed dimension-dependent formula with its actual integer ceiling. `not_proposedAPPTPurity_upper` proves that it is NOT a universal purity upper bound on the original domain 2<=m<=n and n>2, using the actual 10x38 APPT density matrix. This is a fully quantified formula refutation, not just an unconnected numerical inequality. The source paper's separate polytope-optimization theorem is not claimed as formalized here.
+
+The white-noise state
+
+    rho_int = (999/1000) rho + (1/1000) I/380
+
+is proved to be a density matrix and APPT, still has purity strictly exceeding the proposed value, and satisfies
+
+    (U rho_int U*)^Gamma - I/380000 >= 0
+
+for every global unitary U. `counterexample1038Interior_margin` proves this uniform positive orbit margin; the endpoint is that matrix inequality, not an independently stated topological-relative-interior classification.
+
+The actual trace-one matrix `boundaryPerturbation1038` increases the spike coefficient from 24 to 25 in the explicit boundary layout. It is positive semidefinite but NOT APPT. The proof uses a genuine rectangular Hadamard-unitary witness and rejects it by exact arithmetic, rather than assuming a failed sampled orbit. Its support has 147 coordinates and includes the spike: the unnormalized levels are 42 once, 17 on the remaining 146 support coordinates and 15 on the other 233 coordinates, with trace 6019. `joint_scalar_boundary_and_failure` separately records the zero-to-negative scalar boundary, and `zero_schmidt_model` checks that zero test vectors are admitted by the general Schmidt construction.
+
+**Final independent verification:** run **38202563748**, tested source **c129497bc843d2054533c405cf5d5201855c0a99**, passed every stage. The build completed **2869 tasks**; an empty trust-zero kernel replayed **42,496 transitive declarations and 208 explicit roots**, with only the three standard axioms. All **82 pinned inputs** matched the exact committed and uploaded source. The primary corrupted-proof control targets the full negation of the proposed universal upper formula. Ten additional corruption controls remain, including joint sufficiency, actual counterexample membership, its positive margin and the non-APPT perturbation. Literal logs and all source/control bindings are in `verification/ci-c129497b/`.
+
 ## Joint sufficiency and the original three-level counterexample
 
 **New complete finite result:** `jointSpike_absolutelyPPT` proves all-global-unitary APPT for `(2m-5)I+2P+4(m-4)|v><v|` whenever m>=4, P and I-P are positive semidefinite, and v has squared norm one. The positivity theorem does not assume v lies in range(P), a supplied Schmidt decomposition, a graph inequality, or any APPT spectral criterion. It constructs a Schmidt row factorization from the actual complex matrix, including zero singular values, proves the signed partial-transpose model and trace duality, and applies the joint sum-of-squares inequality.
