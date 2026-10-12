@@ -573,38 +573,93 @@ Note: This linter can be disabled with `set_option linter.style.haveILetI false`
 MODULE HydrologyTree.CatenaryJacobian
 
 MODULE HydrologyTree.CatenaryCanonical
-HydrologyTree/CatenaryCanonical.lean:35:4: error: Type mismatch
-  LinearEquiv.apply_symm_apply e ↑↑x
-has type
-  e (e.symm ↑↑x) = ↑↑x
-but is expected to have type
-  ((((↑e ∘ₗ ↑e.symm) ∘ₗ LinearMap.inl ℝ (VertexValues n) (EdgeValues n)) ∘ₗ LinearMap.single ℝ (fun i => ℝ) x) 1).1 x✝ =
-    (((LinearMap.id ∘ₗ LinearMap.inl ℝ (VertexValues n) (EdgeValues n)) ∘ₗ LinearMap.single ℝ (fun i => ℝ) x) 1).1 x✝
-HydrologyTree/CatenaryCanonical.lean:74:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ?e ((LinearEquiv.symm ?e) ?c)
-in the target expression
-  catenaryCoordinateDet n * catenaryCanonicalJacobian n x =
-    pathOrientation n * pathRateMonomial n ((pathRateEquiv n) ((pathRateEquiv n).toContinuousLinearEquiv.symm x))
 
-n : ℕ
-x : TreeRates n
-he :
-  (fun y => (pathRateEquiv n) (normalizedPhysicalPath n ((pathRateEquiv n).symm y))) = fun y =>
-    (catenaryCoordinateReturn n) (pathCoefficientMap n y)
-h :
-  catenaryCoordinateDet n * catenaryCanonicalJacobian n x =
-    pathOrientation n * pathRateMonomial n ((pathRateEquiv n) ((pathRateEquiv n).toContinuousLinearEquiv.symm x))
-⊢ catenaryCoordinateDet n * catenaryCanonicalJacobian n x = pathOrientation n * pathRateMonomial n x
-Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-HydrologyTree/CatenaryCanonical.lean:88:67: error: unsolved goals
-n : ℕ
-x : TreeRates n
-h : catenaryCoordinateDet n * catenaryCanonicalJacobian n x = pathOrientation n * pathRateMonomial n x
-⊢ pathOrientation n * pathRateMonomial n x =
-    (pathOrientation n * catenaryCoordinateDet n * ∏ x_1, x.1 x_1.succ ^ (n - ↑x_1) * x.2 x_1 ^ (n - ↑x_1 - 1)) *
-      (catenaryCoordinateDet n)⁻¹
+MODULE HydrologyTree.CoordinateEnergy
+HydrologyTree/CoordinateEnergy.lean:71:46: warning: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pathCoefficientDot, coefficientDot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CoordinateEnergy.lean:97:60: warning: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisDot, Matrix.one_apply, Finsupp.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.CatenaryOrientation
+
+MODULE HydrologyTree.ChildIndex
+
+MODULE HydrologyTree.RateCoordinates
+HydrologyTree/RateCoordinates.lean:25:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+HydrologyTree/RateCoordinates.lean:34:11: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:35:12: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:36:11: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:36:13: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:37:12: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:37:14: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.RootCoupling
+HydrologyTree/RootCoupling.lean:14:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.sumCoordinates_apply`:
+  [DecidableEq C]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq C] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/RootCoupling.lean:36:6: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.diagonal_apply, Pi.basisFun_apply,
+    Pi.single_apply, Finsupp.single_apply, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootCoupling.lean:37:23: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.one_apply, Matrix.diagonal_apply,
+    Pi.basisFun_apply, Pi.single_apply, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.CouplingSemantics
+
+MODULE HydrologyTree.PhysicalConstants
+HydrologyTree/PhysicalConstants.lean:23:76: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
