@@ -131,26 +131,114 @@ MODULE HydrologyTree.PhysicalRecursion
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.PositiveRateAssembly
-HydrologyTree/PositiveRateAssembly.lean:66:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (numberedEdgeIndex ?t ?z).succ
-in the target expression
-  0 < (assemblePositiveRates t l f y).1 ((numberedEdgeEquiv t) ⟨c, i⟩).succ
 
-case left.refine_2
+MODULE HydrologyTree.PhysicalConstants
+HydrologyTree/PhysicalConstants.lean:23:76: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+
+MODULE HydrologyTree.StieltjesChildAssembly
+HydrologyTree/StieltjesChildAssembly.lean:60:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, ∑ y, ?f ⟨x, y⟩
+in the target expression
+  ∑ x, ∑ i, g (e ⟨x, i⟩) / b (e ⟨x, i⟩) = ∑ i, g i / b i
+
 n : ℕ
 t : OrderedTree n
-l : ℝ
-f : RootChild t → ℝ
+e : NumberedChildNodes t ≃ Fin n
+b g : Fin n → ℝ
+d : ℝ
+hb : ∀ (i : Fin n), 0 < b i
+hg : ∀ (i : Fin n), 0 < g i
+hl : 0 < d - ∑ i, g i / b i
 y : ChildStates t
-hl : 0 < l
-hf : ∀ (c : RootChild t), 0 < f c
 hy : ∀ (c : RootChild t), PositiveRateVector (y c)
-v : Fin (n + 1)
-e : Fin n
-c : RootChild t
-i : Fin (childEdgeCount t c + 1)
-he : (numberedEdgeEquiv t) ⟨c, i⟩ = e
-⊢ 0 < (assemblePositiveRates t l f y).1 ((numberedEdgeEquiv t) ⟨c, i⟩).succ
-HydrologyTree/PositiveRateAssembly.lean:72:13: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?f
-  ((numberedEdgeEquiv ?t) ⟨?c, ?i⟩)`) in this equality
-  ?f ((numberedEdgeEquiv ?t) ⟨?c, ?i⟩) = outwardByVertex ?f ↑((childEnumeration ?t ?c) ?i)
+hP : ∀ (c : RootChild t), physicalCharacteristic (childTree t c) (y c) = stieltjesDenominator fun i => b (e ⟨c, i⟩)
+hF :
+  ∀ (c : RootChild t),
+    physicalRootCofactor (childTree t c) (y c) =
+      stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / ∑ j, g (e ⟨c, j⟩)
+mass : RootChild t → ℝ := fun c => ∑ i, g (e ⟨c, i⟩)
+hm : ∀ (c : RootChild t), 0 < mass c
+f : RootChild t → ℝ := fun c => mass c / (y c).1 0
+hf : ∀ (c : RootChild t), 0 < f c
+hfval : ∀ (c : RootChild t), f c = ∑ i, g (e ⟨c, i⟩) / b (e ⟨c, i⟩)
+⊢ ∑ x, ∑ i, g (e ⟨x, i⟩) / b (e ⟨x, i⟩) = ∑ i, g i / b i
+HydrologyTree/StieltjesChildAssembly.lean:76:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∏ c, stieltjesDenominator fun i => ?b ⟨c, i⟩
+in the target expression
+  (∏ x, stieltjesDenominator fun i => b (e ⟨x, i⟩)) = stieltjesDenominator b
+
+n : ℕ
+t : OrderedTree n
+e : NumberedChildNodes t ≃ Fin n
+b g : Fin n → ℝ
+d : ℝ
+hb : ∀ (i : Fin n), 0 < b i
+hg : ∀ (i : Fin n), 0 < g i
+hl : 0 < d - ∑ i, g i / b i
+y : ChildStates t
+hy : ∀ (c : RootChild t), PositiveRateVector (y c)
+hP : ∀ (c : RootChild t), physicalCharacteristic (childTree t c) (y c) = stieltjesDenominator fun i => b (e ⟨c, i⟩)
+hF :
+  ∀ (c : RootChild t),
+    physicalRootCofactor (childTree t c) (y c) =
+      stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / ∑ j, g (e ⟨c, j⟩)
+mass : RootChild t → ℝ := fun c => ∑ i, g (e ⟨c, i⟩)
+hm : ∀ (c : RootChild t), 0 < mass c
+f : RootChild t → ℝ := fun c => mass c / (y c).1 0
+hf : ∀ (c : RootChild t), 0 < f c
+hfval : ∀ (c : RootChild t), f c = ∑ i, g (e ⟨c, i⟩) / b (e ⟨c, i⟩)
+hfsum : ∑ c, f c = ∑ i, g i / b i
+l : ℝ := d - ∑ i, g i / b i
+x : TreeRates n := assemblePositiveRates t l f y
+hx : PositiveRateVector (assemblePositiveRates t l f y)
+hchildren : ∀ (c : RootChild t), childRates t c x = y c
+hPchild : ∀ (c : RootChild t), childCharacteristic t x c = stieltjesDenominator fun i => b (e ⟨c, i⟩)
+hFchild :
+  ∀ (c : RootChild t), childCofactor t x c = stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / mass c
+⊢ (∏ x, stieltjesDenominator fun i => b (e ⟨x, i⟩)) = stieltjesDenominator b
+HydrologyTree/StieltjesChildAssembly.lean:89:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ c,
+    (stieltjesNumerator (fun i => ?b ⟨c, i⟩) fun i => ?g ⟨c, i⟩) *
+      ∏ d ∈ Finset.univ.erase c, stieltjesDenominator fun i => ?b ⟨d, i⟩
+in the target expression
+  (∑ x,
+      (stieltjesNumerator (fun i => b (e ⟨x, i⟩)) fun i => g (e ⟨x, i⟩)) *
+        ∏ x ∈ Finset.univ.erase x, stieltjesDenominator fun i => b (e ⟨x, i⟩)) =
+    stieltjesNumerator b g
+
+n : ℕ
+t : OrderedTree n
+e : NumberedChildNodes t ≃ Fin n
+b g : Fin n → ℝ
+d : ℝ
+hb : ∀ (i : Fin n), 0 < b i
+hg : ∀ (i : Fin n), 0 < g i
+hl : 0 < d - ∑ i, g i / b i
+y : ChildStates t
+hy : ∀ (c : RootChild t), PositiveRateVector (y c)
+hP : ∀ (c : RootChild t), physicalCharacteristic (childTree t c) (y c) = stieltjesDenominator fun i => b (e ⟨c, i⟩)
+hF :
+  ∀ (c : RootChild t),
+    physicalRootCofactor (childTree t c) (y c) =
+      stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / ∑ j, g (e ⟨c, j⟩)
+mass : RootChild t → ℝ := fun c => ∑ i, g (e ⟨c, i⟩)
+hm : ∀ (c : RootChild t), 0 < mass c
+f : RootChild t → ℝ := fun c => mass c / (y c).1 0
+hf : ∀ (c : RootChild t), 0 < f c
+hfval : ∀ (c : RootChild t), f c = ∑ i, g (e ⟨c, i⟩) / b (e ⟨c, i⟩)
+hfsum : ∑ c, f c = ∑ i, g i / b i
+l : ℝ := d - ∑ i, g i / b i
+x : TreeRates n := assemblePositiveRates t l f y
+hx : PositiveRateVector (assemblePositiveRates t l f y)
+hchildren : ∀ (c : RootChild t), childRates t c x = y c
+hPchild : ∀ (c : RootChild t), childCharacteristic t x c = stieltjesDenominator fun i => b (e ⟨c, i⟩)
+hFchild :
+  ∀ (c : RootChild t), childCofactor t x c = stieltjesNumerator (fun i => b (e ⟨c, i⟩)) fun i => g (e ⟨c, i⟩) / mass c
+hwhole : ∏ c, childCharacteristic t x c = stieltjesDenominator b
+hden : physicalRootCofactor t x = stieltjesDenominator b
+hdiag : (rateChart t x).1 0 = d
+hedge : ∀ (c : RootChild t), x.1 ↑c * outwardByVertex x.2 ↑c = mass c
+⊢ (∑ x,
+      (stieltjesNumerator (fun i => b (e ⟨x, i⟩)) fun i => g (e ⟨x, i⟩)) *
+        ∏ x ∈ Finset.univ.erase x, stieltjesDenominator fun i => b (e ⟨x, i⟩)) =
+    stieltjesNumerator b g
