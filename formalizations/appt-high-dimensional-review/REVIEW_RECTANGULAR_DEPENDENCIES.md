@@ -14,9 +14,9 @@ The regression roots reject dropping the linear cut, dropping convexity, and cho
 
 ## Local audit and exact source binding
 
-A fresh WSL review-package Lake build completed 2,851 tasks. The empty kernel at trust level zero replayed 42,585 transitive declarations and 148 explicit roots; its only axioms were propext, Classical.choice, and Quot.sound. The main proof-corruption control targeted the actual projection-family maximum theorem. A separate control checked 7,317 type/proof dependencies and rejected a forged proof of the arbitrary-spectrum cut reduction. Earlier physical corruption controls remain present.
+A fresh WSL review-package Lake build completed 2,851 tasks. The empty kernel at trust level zero replayed 42,585 transitive declarations and 229 explicit roots; its only axioms were propext, Classical.choice, and Quot.sound. The main proof-corruption control targeted the actual projection-family maximum theorem. A separate control checked 6,292 type/proof dependencies and rejected a forged proof of the arbitrary-spectrum cut reduction. Earlier physical corruption controls remain present.
 
-All 90 input files are bound by SOURCE_HASHES.json, SHA-256 f4208a1fb95ea716665a0d29b80efac60a22c0f30ca3219973ee34433482f73f. The Windows-to-VPS transport payload was checked against SHA-256 fe93b978e2316f65bccdbef80244d1f5261a3dcd08787e0dc2406bf402d4a8ef; the reconstructed complete source manifest matches the locally audited manifest exactly. Independent CI is dispatched separately and must pass before its status is recorded as successful.
+All 90 input files are bound by SOURCE_HASHES.json, SHA-256 f4208a1fb95ea716665a0d29b80efac60a22c0f30ca3219973ee34433482f73f. The Windows-to-VPS transport payload was checked against SHA-256 fe93b978e2316f65bccdbef80244d1f5261a3dcd08787e0dc2406bf402d4a8ef; the reconstructed complete source manifest matches the locally audited manifest exactly. Independent run 38211631460 now passed the same complete build and trust-zero replay. Its actual root list contains 229 entries; these metadata counts are taken from the retained files rather than the earlier working-note transcription. Source-bound evidence is in verification/ci-8a0ec9ba/.
 
 ## Remaining scope
 

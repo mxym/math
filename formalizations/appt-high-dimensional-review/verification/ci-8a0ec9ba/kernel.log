@@ -1,0 +1,444 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.exists_projection_family_unique_rank_max':
+(kernel) declaration type mismatch, 'APPTReview.exists_projection_family_unique_rank_max' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        have t :=
+          @HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) m 1)
+                n)
+              1)
+            2;
+        @Exists (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) fun A =>
+          And (@APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+            (And
+              (@APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                (instDecidableEqFin n) A)
+              (And
+                (@Eq Real
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                      (@Nat.cast Real Real.instNatCast n))
+                    (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A))
+                  (APPTReview.plateauScaledPurity m n t))
+                ((k : Nat) →
+                  (P : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) →
+                    @Matrix.IsHermitian Complex (@Prod (Fin m) (Fin n))
+                        (@InvolutiveStar.toStar Complex
+                          (@StarAddMonoid.toInvolutiveStar Complex
+                            (@AddCommMonoid.toAddMonoid Complex
+                              (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                      Complex.instNonUnitalCommRing)))))
+                            (@StarRing.toStarAddMonoid Complex
+                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                    Complex.instNonUnitalCommRing)))
+                              Complex.instStarRing)))
+                        P →
+                      @Eq (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex)
+                          (@HMul.hMul (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex)
+                            (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex)
+                            (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex)
+                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin m) (Fin n))
+                              (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex
+                              (@instFintypeProd (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)) Complex.instMul
+                              Complex.instAddCommMonoid)
+                            P P)
+                          P →
+                        @Eq Complex
+                            (@Matrix.trace (@Prod (Fin m) (Fin n)) Complex
+                              (@instFintypeProd (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n))
+                              Complex.instAddCommMonoid P)
+                            (@Nat.cast Complex Complex.instNatCast k) →
+                          And
+                            (@LE.le Real Real.instLE
+                              (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)
+                                (APPTReview.projectionPlateau m n k P))
+                              (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A))
+                            (Iff
+                              (@Eq Real
+                                (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)
+                                  (APPTReview.projectionPlateau m n k P))
+                                (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A))
+                              (@Eq Nat k t)))))
+EMPTY_KERNEL_REPLAY_PASS 42585 declarations; 229 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.exists_projection_family_unique_rank_max
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_total_dimension_uniform_upper':
+(kernel) declaration type mismatch, 'APPTReview.appt_total_dimension_uniform_upper' has type
+  True
+but it is expected to have type
+  (ε : Real) →
+    @LT.lt Real Real.instLT 0 ε →
+      @Exists Nat fun N =>
+        (m n : Nat) →
+          @LE.le Nat instLENat 2 m →
+            @LE.le Nat instLENat m n →
+              @LE.le Nat instLENat N (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) m n) →
+                (A : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) →
+                  @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+                    @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                        (instDecidableEqFin n) A →
+                      @LE.le Real Real.instLE
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@HPow.hPow Real Nat Real
+                            (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                              (@Nat.cast Real Real.instNatCast n))
+                            2)
+                          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                            (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                              1
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@Nat.cast Real Real.instNatCast m) (@Nat.cast Real Real.instNatCast n)))))
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 1 ε)
+                          (@Max.max Real Real.instMax 8
+                            (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 4
+                              (@HDiv.hDiv Real Real Real
+                                (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                  (@Nat.cast Real Real.instNatCast m) (@Nat.cast Real Real.instNatCast n))
+                                (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                  (@HPow.hPow Real Nat Real
+                                    (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                    (@Nat.cast Real Real.instNatCast m) 2)
+                                  1)))))
+TYPE_CLOSURE_REPLAY_PASS 8578 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_total_dimension_uniform_upper
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.exists_appt_purity_isGreatest':
+(kernel) declaration type mismatch, 'APPTReview.exists_appt_purity_isGreatest' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        @Exists (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) fun A =>
+          And (@APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+            (And
+              (@APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                (instDecidableEqFin n) A)
+              (@IsGreatest Real Real.instLE (APPTReview.apptPurityValues m n)
+                (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)))
+TYPE_CLOSURE_REPLAY_PASS 8570 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.exists_appt_purity_isGreatest
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_maximizing_mixture_rigid':
+(kernel) declaration type mismatch, 'APPTReview.appt_maximizing_mixture_rigid' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        {t : Real} →
+          @LT.lt Real Real.instLT 0 t →
+            @LT.lt Real Real.instLT t 1 →
+              {A B : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex} →
+                @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+                  @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                      (instDecidableEqFin n) A →
+                    @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) B →
+                      @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                          (instDecidableEqFin n) B →
+                        @Eq Real
+                            (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)
+                              (@APPTReview.stateMix (Fin m) (Fin n) t A B))
+                            (APPTReview.apptPuritySup m n) →
+                          @Eq (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) A B
+TYPE_CLOSURE_REPLAY_PASS 14720 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_maximizing_mixture_rigid
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.density_appt_of_purity_ball':
+(kernel) declaration type mismatch, 'APPTReview.density_appt_of_purity_ball' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LT.lt Nat instLTNat 1 (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) m n) →
+      {A : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex} →
+        @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+          @LE.le Real Real.instLE (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+              (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 1
+                (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                    (@Nat.cast Real Real.instNatCast n))
+                  1)) →
+            @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+              (instDecidableEqFin n) A
+TYPE_CLOSURE_REPLAY_PASS 8578 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.density_appt_of_purity_ball
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.exists_singular_appt_density':
+(kernel) declaration type mismatch, 'APPTReview.exists_singular_appt_density' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    @LE.le Nat instLENat 2 m →
+      @LE.le Nat instLENat m n →
+        @Exists (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) fun A =>
+          And (@APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+            (And
+              (@APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                (instDecidableEqFin n) A)
+              (And
+                (@Eq Complex
+                  (@Matrix.det (@Prod (Fin m) (Fin n))
+                    (fun a b => @instDecidableEqProd (Fin m) (Fin n) (instDecidableEqFin m) (instDecidableEqFin n) a b)
+                    (@instFintypeProd (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)) Complex Complex.commRing A)
+                  0)
+                (@Eq Real (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                  (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 1
+                    (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                        (@Nat.cast Real Real.instNatCast n))
+                      1)))))
+TYPE_CLOSURE_REPLAY_PASS 10113 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.exists_singular_appt_density
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.jointSpike_absolutelyPPT':
+(kernel) declaration type mismatch, 'APPTReview.jointSpike_absolutelyPPT' has type
+  True
+but it is expected to have type
+  {a : Type u_1} →
+    {b : Type u_2} →
+      [inst : @Fintype a] →
+        [inst_1 : @Fintype b] →
+          [inst_2 : @LinearOrder a] →
+            [inst_3 : @DecidableEq b] →
+              @LE.le Nat instLENat 4 (@Fintype.card a inst) →
+                (P : @Matrix (@Prod a b) (@Prod a b) Complex) →
+                  @Matrix.PosSemidef (@Prod a b) Complex Complex.instRing Complex.partialOrder Complex.instStarRing P →
+                    @Matrix.PosSemidef (@Prod a b) Complex Complex.instRing Complex.partialOrder Complex.instStarRing
+                        (@HSub.hSub (@Matrix (@Prod a b) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                          (@Matrix (@Prod a b) (@Prod a b) Complex)
+                          (@instHSub (@Matrix (@Prod a b) (@Prod a b) Complex)
+                            (@Matrix.sub (@Prod a b) (@Prod a b) Complex Complex.instSub))
+                          1 P) →
+                      (v : @Prod a b → Complex) →
+                        @Eq Complex
+                            (@dotProduct (@Prod a b) Complex (@instFintypeProd a b inst inst_1) Complex.instMul
+                              Complex.instAddCommMonoid
+                              (@Star.star (@Prod a b → Complex)
+                                (@Pi.instStarForall (@Prod a b) (fun a => Complex) fun i =>
+                                  @InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                v)
+                              v)
+                            1 →
+                          @APPT.Quantum.AbsolutelyPPT a b inst inst_1
+                            (fun a_1 b => @LinearOrder.toDecidableEq a inst_2 a_1 b) inst_3
+                            (@APPTReview.jointSpike a b inst inst_2 inst_3 P v)
+TYPE_CLOSURE_REPLAY_PASS 14716 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.jointSpike_absolutelyPPT
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.counterexample1038_absolutelyPPT':
+(kernel) declaration type mismatch, 'APPTReview.counterexample1038_absolutelyPPT' has type
+  True
+but it is expected to have type
+  @APPT.Quantum.AbsolutelyPPT (Fin 10) (Fin 38) (Fin.fintype 10) (Fin.fintype 38) (instDecidableEqFin 10)
+    (instDecidableEqFin 38) APPTReview.counterexample1038
+TYPE_CLOSURE_REPLAY_PASS 14724 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.counterexample1038_absolutelyPPT
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.exists_pure_signed_model':
+(kernel) declaration type mismatch, 'APPTReview.exists_pure_signed_model' has type
+  True
+but it is expected to have type
+  {a : Type u_1} →
+    {b : Type u_2} →
+      [inst : @Fintype a] →
+        [inst_1 : @Fintype b] →
+          [inst_2 : @LinearOrder a] →
+            [inst_3 : @DecidableEq b] →
+              (v : @Prod a b → Complex) →
+                @Exists (a → Real) fun s =>
+                  @Exists (@Matrix (@Prod a b) (@Prod a a) Complex) fun L =>
+                    And ((i : a) → @LE.le Real Real.instLE 0 (s i))
+                      (And
+                        (@Eq Real
+                          (@Finset.sum a Real Real.instAddCommMonoid (@Finset.univ a inst) fun i =>
+                            @HPow.hPow Real Nat Real
+                              (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) (s i) 2)
+                          (Complex.re
+                            (@dotProduct (@Prod a b) Complex (@instFintypeProd a b inst inst_1) Complex.instMul
+                              Complex.instAddCommMonoid
+                              (@Star.star (@Prod a b → Complex)
+                                (@Pi.instStarForall (@Prod a b) (fun a => Complex) fun i =>
+                                  @InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                v)
+                              v)))
+                        (And
+                          (@Matrix.PosSemidef (@Prod a b) Complex Complex.instRing Complex.partialOrder
+                            Complex.instStarRing
+                            (@HSub.hSub (@Matrix (@Prod a b) (@Prod a b) Complex)
+                              (@Matrix (@Prod a b) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                              (@instHSub (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                (@Matrix.sub (@Prod a b) (@Prod a b) Complex Complex.instSub))
+                              1
+                              (@HMul.hMul (@Matrix (@Prod a b) (@Prod a a) Complex)
+                                (@Matrix (@Prod a a) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod a a) (@Prod a b)
+                                  Complex (@instFintypeProd a a inst inst) Complex.instMul Complex.instAddCommMonoid)
+                                L
+                                (@Matrix.conjTranspose (@Prod a b) (@Prod a a) Complex
+                                  (@InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                  L))))
+                          (@Eq (@Matrix (@Prod a b) (@Prod a b) Complex)
+                            (@APPT.Quantum.partialTranspose a b
+                              (@Matrix.vecMulVec (@Prod a b) (@Prod a b) Complex Complex.instMul v
+                                (@Star.star (@Prod a b → Complex)
+                                  (@Pi.instStarForall (@Prod a b) (fun a => Complex) fun i =>
+                                    @InvolutiveStar.toStar Complex
+                                      (@StarAddMonoid.toInvolutiveStar Complex
+                                        (@AddCommMonoid.toAddMonoid Complex
+                                          (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                  Complex.instNonUnitalCommRing)))))
+                                        (@StarRing.toStarAddMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))
+                                          Complex.instStarRing)))
+                                  v)))
+                            (@HMul.hMul (@Matrix (@Prod a b) (@Prod a a) Complex)
+                              (@Matrix (@Prod a a) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod a a) (@Prod a b) Complex
+                                (@instFintypeProd a a inst inst) Complex.instMul Complex.instAddCommMonoid)
+                              (@HMul.hMul (@Matrix (@Prod a b) (@Prod a a) Complex)
+                                (@Matrix (@Prod a a) (@Prod a a) Complex) (@Matrix (@Prod a b) (@Prod a a) Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod a a) (@Prod a a)
+                                  Complex (@instFintypeProd a a inst inst) Complex.instMul Complex.instAddCommMonoid)
+                                L
+                                (@Matrix.diagonal (@Prod a a) Complex
+                                  (fun a_1 b =>
+                                    @instDecidableEqProd a a (fun a_2 b => @LinearOrder.toDecidableEq a inst_2 a_2 b)
+                                      (fun a_2 b => @LinearOrder.toDecidableEq a inst_2 a_2 b) a_1 b)
+                                  Complex.instZero fun p => Complex.ofReal (@APPTReview.schmidtSigned a inst_2 s p)))
+                              (@Matrix.conjTranspose (@Prod a b) (@Prod a a) Complex
+                                (@InvolutiveStar.toStar Complex
+                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                    (@AddCommMonoid.toAddMonoid Complex
+                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))))
+                                    (@StarRing.toStarAddMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))
+                                      Complex.instStarRing)))
+                                L)))))
+TYPE_CLOSURE_REPLAY_PASS 7129 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.exists_pure_signed_model
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.counterexample1038Interior_margin':
+(kernel) declaration type mismatch, 'APPTReview.counterexample1038Interior_margin' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 14729 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.counterexample1038Interior_margin
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.boundaryPerturbation1038_not_appt':
+(kernel) declaration type mismatch, 'APPTReview.boundaryPerturbation1038_not_appt' has type
+  True
+but it is expected to have type
+  Not
+    (@APPT.Quantum.AbsolutelyPPT (Fin 10) (Fin 38) (Fin.fintype 10) (Fin.fintype 38) (instDecidableEqFin 10)
+      (instDecidableEqFin 38) APPTReview.boundaryPerturbation1038)
+TYPE_CLOSURE_REPLAY_PASS 14724 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.boundaryPerturbation1038_not_appt
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.ordered_spectrum_cut_bound':
+(kernel) declaration type mismatch, 'APPTReview.ordered_spectrum_cut_bound' has type
+  True
+but it is expected to have type
+  {D : Nat} →
+    (f c : Fin D → Real) →
+      (C : Real) →
+        @Antitone (Fin D) Real (@PartialOrder.toPreorder (Fin D) (Fin.instPartialOrder D)) Real.instPreorder f →
+          ((i : Fin D) → @LE.le Real Real.instLE 0 (f i)) →
+            @Eq Real
+                (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i => f i)
+                1 →
+              @LE.le Real Real.instLE
+                  (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i =>
+                    @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i) (f i))
+                  0 →
+                ((k : Fin D) →
+                    @LE.le Real Real.instLE
+                        (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i =>
+                          @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i)
+                            (APPTReview.uniformPrefix D k i))
+                        0 →
+                      @LE.le Real Real.instLE
+                        (@APPTReview.spectralSquares (Fin D) (Fin.fintype D) (APPTReview.uniformPrefix D k)) C) →
+                  ((k l : Fin D) →
+                      @LT.lt Real Real.instLT 0
+                          (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D))
+                            fun i =>
+                            @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i)
+                              (APPTReview.uniformPrefix D k i)) →
+                        @LE.le Real Real.instLE
+                            (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D))
+                              fun i =>
+                              @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i)
+                                (APPTReview.uniformPrefix D l i))
+                            0 →
+                          @LE.le Real Real.instLE
+                            (@APPTReview.spectralSquares (Fin D) (Fin.fintype D)
+                              (@APPTReview.cutPair (Fin D)
+                                (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D))
+                                  fun i =>
+                                  @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i)
+                                    (APPTReview.uniformPrefix D k i))
+                                (@Neg.neg Real Real.instNeg
+                                  (@Finset.sum (Fin D) Real Real.instAddCommMonoid
+                                    (@Finset.univ (Fin D) (Fin.fintype D)) fun i =>
+                                    @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (c i)
+                                      (APPTReview.uniformPrefix D l i)))
+                                (APPTReview.uniformPrefix D k) (APPTReview.uniformPrefix D l)))
+                            C) →
+                    @LE.le Real Real.instLE (@APPTReview.spectralSquares (Fin D) (Fin.fintype D) f) C
+TYPE_CLOSURE_REPLAY_PASS 6292 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.ordered_spectrum_cut_bound

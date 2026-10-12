@@ -141,3 +141,5 @@ The joint projection-plus-spike sufficiency and the original 10x38 physical coun
 ## Rectangular-dependency checkpoint
 
 The unique integer projection rank and unrestricted ordered-cut reduction now have a local fresh build and trust-zero replay. See `REVIEW_RECTANGULAR_DEPENDENCIES.md`. This does not yet certify the final unrestricted rectangular maximum or equality classification.
+
+Independent run **38211631460**, source **8a0ec9ba**, passed: 2,851 build tasks, 42,585 declarations, 229 roots, trust zero, 90 pinned inputs. Evidence: `verification/ci-8a0ec9ba/`.
