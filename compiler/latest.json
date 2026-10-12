@@ -1,7 +1,7 @@
 {
-  "serial": 109,
-  "status": "COMPILER_ERROR",
-  "request_blob": "4ea5fded164653ad9a16ea2f21eba60390c72e6c",
+  "serial": 110,
+  "status": "COMPILING",
+  "request_blob": "562b0bf5d4a5b2899c7cf0361abff67c596c51d2",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -23,20 +23,28 @@
     "HydrologyTree.PathPolynomial",
     "HydrologyTree.FamilyNormalization",
     "HydrologyTree.BranchStep",
-    "HydrologyTree.PiSerialization"
+    "HydrologyTree.PiSerialization",
+    "HydrologyTree.EdgeDeterminant",
+    "HydrologyTree.EdgeCharacteristic",
+    "HydrologyTree.DependentBlocks",
+    "HydrologyTree.DependentJacobian"
   ],
   "source_sha256": {
     "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
     "HydrologyTree/FamilyScaling.lean": "3a244c8a3dddc41e18368fb4fff7783989094eb9963de47799926f9c9a74ab77",
+    "HydrologyTree/DependentJacobian.lean": "8c3a9ca3605ffb796745cbce5c8723d396d4884fb91111c72c1426d60a99dad9",
     "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
     "HydrologyTree/BranchStep.lean": "a556ff2126518854c16c40096a86917f03bfef024c85b594666295a24e36c102",
     "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
     "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
     "HydrologyTree/EndJacobian.lean": "d996b6226fb47d8a71ebafb2eab0b69a7692e867452c5b8637aa6b3acbe3270a",
+    "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
     "HydrologyTree/FamilySmoothness.lean": "80f1528bf353a12fb96c10ab682af456c88f726286cd0166297ab6f7709e3ecf",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
     "HydrologyTree/FamilyGluing.lean": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6",
     "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
+    "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
+    "HydrologyTree/DependentBlocks.lean": "47d2d8d7e73869f14ec9ffe98b30d5ea1f9320ca8f9e9d1fd636863e7237ba5b",
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/FamilyProduct.lean": "ad0e3af4e4a36faddb0916bc64ea8a5d483ae861298b77bdfc17bb27697b13ac",
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
@@ -45,117 +53,10 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
     "HydrologyTree/PathRootTransform.lean": "8600f114583bbd1f8c0569734359aab6ac90da283bf0f3228c509c1e83b12d12",
-    "HydrologyTree/PiSerialization.lean": "66b95d787087e615e368084aa8f03d27cc5e8025201a3711ed8cf6dae262698b",
+    "HydrologyTree/PiSerialization.lean": "17e00aee505c8f7126bdecb5d0eb0579999182c616302645501b020b3081aea9",
     "HydrologyTree/FamilyNormalization.lean": "237b96562567fe68a45e7eb31d3514f4b07c1468c91d31792e794ba1abb95f69"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 3.164
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 2.128
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.282
-    },
-    {
-      "module": "HydrologyTree.EndJacobian",
-      "returncode": 0,
-      "seconds": 1.997
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 2.026
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 2.745
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 3.592
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 2.06
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 2.156
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 2.762
-    },
-    {
-      "module": "HydrologyTree.FamilyScaling",
-      "returncode": 0,
-      "seconds": 2.315
-    },
-    {
-      "module": "HydrologyTree.FamilyResultants",
-      "returncode": 0,
-      "seconds": 1.635
-    },
-    {
-      "module": "HydrologyTree.FamilySmoothness",
-      "returncode": 0,
-      "seconds": 1.897
-    },
-    {
-      "module": "HydrologyTree.TangentJacobian",
-      "returncode": 0,
-      "seconds": 2.028
-    },
-    {
-      "module": "HydrologyTree.FamilyGluing",
-      "returncode": 0,
-      "seconds": 1.753
-    },
-    {
-      "module": "HydrologyTree.RootUpdate",
-      "returncode": 0,
-      "seconds": 3.277
-    },
-    {
-      "module": "HydrologyTree.PathRootTransform",
-      "returncode": 0,
-      "seconds": 2.72
-    },
-    {
-      "module": "HydrologyTree.PathPolynomial",
-      "returncode": 0,
-      "seconds": 2.567
-    },
-    {
-      "module": "HydrologyTree.FamilyNormalization",
-      "returncode": 0,
-      "seconds": 2.746
-    },
-    {
-      "module": "HydrologyTree.BranchStep",
-      "returncode": 0,
-      "seconds": 2.12
-    },
-    {
-      "module": "HydrologyTree.PiSerialization",
-      "returncode": 1,
-      "seconds": 1.91
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230",
-  "diagnostics": "HydrologyTree/PiSerialization.lean:47:4: error: Type mismatch\n  ih ?m.28 ?m.29\nhas type\n  familyPolynomials (List.ofFn ?m.28) ((piCoefficientsFinEquiv ?m.28) ?m.29) = List.ofFn fun i => \u2191(monicPoly (?m.29 i))\nbut is expected to have type\n  familyPolynomials (List.ofFn m)\n      ((\u22ef.mpr\n          ({ toFun := fun f => (f 0, fun i => f i.succ), map_add' := \u22ef, map_smul' := \u22ef,\n              invFun := fun z i => Fin.cases z.1 z.2 i, left_inv := \u22ef, right_inv := \u22ef } \u226a\u226b\u2097\n            (LinearEquiv.refl \u211d \u21a5(Coeff (m 0))).prodCongr (piCoefficientsFinEquiv fun i => m i.succ)))\n        p) =\n    \u2191(monicPoly (p 0)) :: List.ofFn fun i => \u2191(monicPoly (p i.succ))\nHydrologyTree/PiSerialization.lean:43:55: warning: This simp argument is unused:\n  LinearEquiv.trans_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.prodCongr_apply, LinearEquiv.refl_apply,\n    finPiHeadTail, familyPolynomials]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PiSerialization.lean:44:6: warning: This simp argument is unused:\n  LinearEquiv.prodCongr_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.refl_apply,\n    finPiHeadTail, familyPolynomials]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PiSerialization.lean:44:35: warning: This simp argument is unused:\n  LinearEquiv.refl_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,\n    finPiHeadTail, familyPolynomials]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PiSerialization.lean:45:6: warning: This simp argument is unused:\n  familyPolynomials\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,\n    LinearEquiv.refl_apply, finPiHeadTail]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PiSerialization.lean:65:79: error: unsolved goals\nI : Type u_1\ninst\u271d : Fintype I\nm : I \u2192 \u2115\n\u22a2 (List.ofFn fun i => m ((Fintype.equivFin I).symm i) + 1) =\n    List.ofFn ((fun n => n + 1) \u2218 fun i => m ((Fintype.equivFin I).symm i))\n"
+  "run_id": "38201915230"
 }
