@@ -1,0 +1,23 @@
+# Oct 8, 2026 exact certificate replay
+$ python3 code/check.py
+PRIME OMISSIONS: [(0, 624), (1, 567), (2, 567), (3, 669), (4, 669), (5, 759), (6, 759)]
+RAMIFIED SQUARE: exact nonzero 1122-voltage walk of 854 steps
+ALL EIGHT EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check.py
+PRIME OMISSIONS: [(0, 624), (1, 567), (2, 567), (3, 669), (4, 669), (5, 759), (6, 759)]
+RAMIFIED SQUARE: exact nonzero 1122-voltage walk of 854 steps
+ALL EIGHT EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: missing prime obstruction
+REJECTED: duplicate prime obstruction
+REJECTED: invalid literal move
+REJECTED: truncated period voltage
+REJECTED: altered ramified-square witness
+ALL NEGATIVE MUTATION TESTS PASSED
+$ python3 -O code/self_test.py
+REJECTED: missing prime obstruction
+REJECTED: duplicate prime obstruction
+REJECTED: invalid literal move
+REJECTED: truncated period voltage
+REJECTED: altered ramified-square witness
+ALL NEGATIVE MUTATION TESTS PASSED

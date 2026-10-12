@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "scope": "Exact algebra, rational spectral gaps and a physical boundary orbit; all-unitary proof is analytic, not finite verification",
+  "polynomial_checks": {
+    "symbolic_identities": 6,
+    "variables": [
+      "m",
+      "x",
+      "y",
+      "tail_sum",
+      "tail_square_sum"
+    ],
+    "positive_shifted_cubic": [
+      3359,
+      1095,
+      116,
+      4
+    ]
+  },
+  "explicit_counterexample": {
+    "m": 10,
+    "n": 38,
+    "projection_rank": 147,
+    "eigenvalue_numerators": [
+      41,
+      17,
+      15
+    ],
+    "multiplicities": [
+      1,
+      146,
+      233
+    ],
+    "normalizer": 6018,
+    "purity": "2675/1006009",
+    "conjectured_candidates": [
+      "97/36481",
+      "5/1881"
+    ],
+    "positive_gaps": [
+      "3802/36700214329",
+      "1630/1892302929"
+    ],
+    "physical_orbit_nonzero_entries": 470,
+    "physical_null_vector_numerator": [
+      4,
+      4,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "interior_epsilon": "1/1000",
+    "interior_uniform_pt_floor": "1/380000",
+    "interior_purity": "1016479028491/382283420000000",
+    "interior_gaps": [
+      "679698380171/13946081445020000000",
+      "30523820609/37846058580000000"
+    ]
+  },
+  "supplementary_dimension_regressions": 200,
+  "negative_controls": [
+    {
+      "name": "largest eigenvalue 42 instead of 41",
+      "rejected": true,
+      "physical_expectation": "-2/30095"
+    },
+    {
+      "name": "identity in place of partial transpose",
+      "rejected": true,
+      "wrong_test_value": "600"
+    },
+    {
+      "name": "tail SOS coefficient 1 instead of 2",
+      "rejected": true,
+      "residual": "16"
+    }
+  ],
+  "sources": {
+    "PROOF.md": "36fcf63bb48f545f1a6605a6ab182e8da592bbb9fdaec850b4433de15addedc3",
+    "check.py": "96981cece97037bf0bc70cfe7ff65a261cdb7b9058a0aaa1efdf2516f4df8df9"
+  }
+}

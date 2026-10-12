@@ -1,0 +1,40 @@
+{
+  "revision": 2,
+  "date_utc": "2026-10-07",
+  "supersedes_archive_sha256": "92791924b587e256016e7a27f2edc4c4eaeff37d874255a14e0620e16b4012ce",
+  "scope": "Packaging integrity guards only; no mathematical source or theorem statement changes",
+  "findings_repaired": [
+    "Reproducer previously skipped verification when SOURCE_MANIFEST.json was missing",
+    "Manifest entry removal could hide a changed exact-statement wrapper",
+    "Manifest source archive metadata was not fixed to the audited source identity",
+    "Reproducer did not validate SHA256SUMS",
+    "Archive builder could package a corrupted checksum list"
+  ],
+  "repairs": [
+    "Both entry points use one fail-closed validator before Lean, downloads or archive writes",
+    "Manifest and checksum list are mandatory; schema, metadata, paths, duplicate keys and digests are strict",
+    "The independently embedded exact payload inventory covers every source, wrapper, script and report",
+    "Actual source files, manifest entries and checksum rows must have exact cross-coverage",
+    "SHA256SUMS must match the complete canonical digest list, including SOURCE_MANIFEST.json",
+    "Only documented top-level runtime/VCS directories are excluded",
+    "Normal and Python -O negative regressions execute both production entry points",
+    "Shared immutable-source and preserved-wrapper checks reject changed proof/pins/statements even after outer manifests/checksums are regenerated"
+  ],
+  "mathematical_source_files_preserved": 46,
+  "authenticity_boundary": "External trusted archive digest or repository commit; internal unkeyed hashes do not authenticate a fully self-consistently rewritten package.",
+  "entrypoint_and_helper_sha256": {
+    "scripts/reproduce.py": "c3389db42826487e9887d5df9621398c9c9186d520fc6a64f42c64e66fb0f9b5",
+    "scripts/make_archive.py": "c4936c968410cb71e2e0000ff70b93a676d468a60ef75cba1016ccec95efddef",
+    "scripts/release_integrity.py": "66bb85485f02604a6d17e18ce082f4a28fdbe62f7fd38928c6d52a0c9404eb92",
+    "scripts/test_release_integrity.py": "dbb29b1be70e1e34050ad6cc9d18ada13116756ec1a441c4f9b6259afced3cea"
+  },
+  "superseded_entrypoint_sha256": {
+    "scripts/reproduce.py": "7b02b80c3e1d9e73dd3fae4a04c00678a9034b8c5d53890c2893df1fb0536dbd",
+    "scripts/make_archive.py": "27a27769603ecdce3774abd0616cc9b855f6ceaadb82eaee255d56438f66f361"
+  },
+  "expected_payload_files": 184,
+  "regression_cases": 34,
+  "regression_production_invocations_per_harness_run": 136,
+  "regression_harness_normal_and_optimized_reports_byte_identical": true,
+  "regressions_status": "PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "failed_run": "${FAILED_RUN_ROOT}",
+  "status": {
+    "status": "FAILED",
+    "task": "bapat-n200",
+    "run": "${FAILED_RUN_ROOT}",
+    "started_utc": "2026-10-08T12:39:50.994922+00:00",
+    "stage": "all-owned audit and empty trust-zero replay",
+    "author_claim_verified": false,
+    "updated_utc": "2026-10-08T12:44:16.423452+00:00",
+    "error": "all-owned audit and empty trust-zero replay failed; see logs/owned-audit-replay.log",
+    "ended_utc": "2026-10-08T12:45:31.941162+00:00"
+  },
+  "violations": [
+    "UNSAFE_OR_PARTIAL_OWNED BapatRankTwo.FSeq._unsafe_rec",
+    "UNSAFE_OR_PARTIAL_OWNED BapatRankTwo.SSeq._unsafe_rec"
+  ],
+  "correction": "Explicit noncomputable def for FSeq and SSeq; no formula or audit policy change",
+  "replacement_run": "${RUN_ROOT}"
+}

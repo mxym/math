@@ -1,0 +1,8 @@
+import Entry002.GenericGeometricScale
+#print axioms Entry002.wordStepBall_eq_planarLatticeBall
+#print axioms Entry002.displacementPackingConstant_spec
+#print axioms Entry002.geometric_log_floor_exp
+#print axioms Entry002.geometric_fresh_scale_from_scale
+#print axioms Entry002.eventually_uniform_geometric_fresh_scales
+#print axioms Entry002.geometricGuardConstant_one_le
+#print axioms Entry002.uniform_geometric_fresh_scales_of_guard

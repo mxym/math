@@ -1,0 +1,86 @@
+C17 chromatic infinite log-concavity: semantic correspondence review
+
+Frozen mathematical source:
+  mxym/math commit 2b73cde3ae77ab1227c7386e9e82d0e815f21e88
+  notes/chromatic-infinite-logconcavity-counterexample
+The downloaded reference files were checked against their Git blob IDs and the
+committed SHA256 manifest. This Lean development proves the C17 disproof, not the
+reference note's larger cycle classification or its endpoint-deleting variant.
+
+1. Actual graph and actual proper colorings
+ChromaticC17.C17 abbreviates mathlib SimpleGraph.cycleGraph 17 on Fin 17.
+The inherited graph relation is the undirected modular successor relation.
+Coloring is mathlib's graph homomorphism into completeGraph, so adjacent vertices
+must have unequal colors. No local replacement of Coloring or its cardinality is
+used. The final explicit counterexample includes actual graph connectedness.
+
+coloringEquivLoops constructs a bijection between these genuine colorings and
+closed length-17 walks in the complete color graph. Forward traversal is in the
+fixed vertex order 0,1,...,16,0. The inverse reads walk vertices. Both inverse laws
+are proved, including the final wraparound edge. Thus the bijection does not count
+rotations, graph isomorphism classes, or colorings modulo permutation of colors.
+
+2. Full chromatic-polynomial bridge
+coloring_card_eq_trace uses the bijection, finite sigma cardinality, and mathlib's
+adjacency-matrix-power walk-count theorem. The complete-graph matrix is J-I. The
+new transferCoeff induction uses J*J=q*J and establishes its trace power formula.
+It is valid for every q : Nat, including zero and one; it does not divide by q.
+
+cyclePolynomial = (X-1)^17 - (X-1) is an actual Polynomial Int. The theorem
+cyclePolynomial_isChromatic proves, for every natural q, that its evaluation is
+the cardinality of C17.Coloring (Fin q). IsChromaticPolynomial is this all-q law.
+IsChromaticPolynomial.unique proves that it determines the polynomial uniquely,
+using infinitely many integer evaluation points. This supplies the standard
+counting definition even though pinned mathlib has no chromatic-polynomial API.
+
+3. Actual coefficients and the iteration convention
+absCoefficients P k is abs (Polynomial.coeff P k), indexed by ascending degree.
+cyclePolynomial_coeff proves every coefficient, using the binomial coefficient
+formula, not a separate unconnected integer list. Its degree>17 zero tail is
+proved. The first six absolute coefficients are 0,16,136,680,2380,6188.
+
+logConcavityOp a k = a(k)^2 - previous(k)*a(k+1), where previous(0)=0 and
+previous(k)=a(k-1) for positive k. logConcavityIterate applies exactly this operator
+repeatedly. Its zero-tail lemmas prove that all iterates retain the finite right
+endpoint. InfinitelyLogConcave requires every positive iterate at every natural
+index to be nonnegative. This agrees with the standard endpoint-retaining,
+zero-extension convention in the primary sources. The coefficient index zero,
+and zero coefficients in general, are retained.
+
+4. Exact negative certificate and quantified conclusion
+third_iterate_value proves L^3(absCoefficients cyclePolynomial)(2) equals
+-28272276537344, with ordinary kernel-checked arithmetic proof construction.
+cyclePolynomial_not_infinitelyLogConcave derives the failure of the full infinite
+property. every_C17_chromatic_polynomial_fails applies uniqueness to every
+polynomial meeting the genuine C17 coloring-count law.
+
+ChromaticInfiniteLogConcavityConjecture quantifies over all n, all SimpleGraph
+(Fin n), and every Polynomial Int meeting that law. The final theorem supplies
+n=17, the actual cycle, and its proven counting polynomial to refute it. Every
+finite unlabeled graph can be represented by such labels; a single labeled
+counterexample already refutes the universal conjecture. No graph-size bound,
+extra positivity premise, or unproved polynomial formula is assumed.
+
+5. Scope and trust boundary
+The checked primary statements are Conjecture 21 of Amdeberhan-Moll and Section
+13/Conjecture 13.1 of Amdeberhan v7. The latter states the left zero boundary;
+Branden's cited definition retains both endpoints. See primary-source-review.json
+for exact URLs and pages. No formalization of a different endpoint-deleting
+convention, C12, the all-n>=17 family, the n<=11 classification, or novelty is
+claimed here.
+
+The complete declaration audit and fresh empty-kernel replay are separately
+recorded in fresh-verification. All declarations introduced by the three modules,
+including generated/private declarations, must be included. The replay starts
+from mkEmptyEnvironment 0 and re-adds the entire type/value/structural dependency
+closure. The preguard rejects unsafe/partial declarations and axioms other than
+propext, Classical.choice, and Quot.sound. Replay itself is not the whitelist.
+This trusts the pinned Lean kernel, its runtime/compiler, and the transparent
+audit infrastructure; it is not a second independently implemented proof kernel.
+
+The recursive transfer coefficient and iteration definitions are noncomputable
+to avoid generating unused executable unsafe auxiliaries. Their logical terms
+and induction equations remain kernel checked. A prior rejected run is retained
+locally and described in prior-run-resolution.json; it is not evidence for the
+final source bytes. Source hashes in the final verification manifest identify
+the final input unambiguously.

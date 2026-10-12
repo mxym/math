@@ -1,0 +1,17 @@
+def Polynomial.cyclotomic.{u_1} : ℕ → (R : Type u_1) → [inst : Ring R] → Polynomial R :=
+fun n R [Ring R] => if h : n = 0 then 1 else Polynomial.map (Int.castRingHom R) ⋯.choose
+Polynomial.cyclotomic.irreducible_rat {n : ℕ} (hpos : 0 < n) : Irreducible (Polynomial.cyclotomic n ℚ)
+Polynomial.cyclotomic.isCoprime_rat {n m : ℕ} (h : n ≠ m) :
+  IsCoprime (Polynomial.cyclotomic n ℚ) (Polynomial.cyclotomic m ℚ)
+Polynomial.map_cyclotomic_int.{u_1} (n : ℕ) (R : Type u_1) [Ring R] :
+  Polynomial.map (Int.castRingHom R) (Polynomial.cyclotomic n ℤ) = Polynomial.cyclotomic n R
+def CyclotomicCounterexample.NonnegativeCoeffs : Polynomial ℤ → Prop :=
+fun f => ∀ (k : ℕ), 0 ≤ f.coeff k
+def CyclotomicCounterexample.qInteger : ℕ → Polynomial ℤ :=
+fun m => ∑ i ∈ Finset.range m, Polynomial.X ^ i
+def CyclotomicCounterexample.qIntegerNumerator : Polynomial ℤ :=
+CyclotomicCounterexample.qInteger 4 * CyclotomicCounterexample.qInteger 9 * CyclotomicCounterexample.qInteger 25 *
+  CyclotomicCounterexample.qInteger 30
+def CyclotomicCounterexample.qIntegerDenominator : Polynomial ℤ :=
+CyclotomicCounterexample.qInteger 1 * CyclotomicCounterexample.qInteger 6 * CyclotomicCounterexample.qInteger 10 *
+  CyclotomicCounterexample.qInteger 15

@@ -1,0 +1,13 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPT.Finite24.eval_det04Term1Coeffs':
+(kernel) declaration type mismatch, 'APPT.Finite24.eval_det04Term1Coeffs' has type
+  True
+but it is expected to have type
+  (g : Fin 24 → Real) →
+    @Eq Real
+      (APPT.CoefficientMerge.eval (APPT.SparsePolynomial.cubeValue (APPT.Finite24.gapValues g) 24)
+        APPT.Finite24.det04Term1Coeffs)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (APPT.SparsePolynomial.eval (APPT.Finite24.gapValues g) APPT.Finite24.entryB01)
+        (APPT.SparsePolynomial.eval (APPT.Finite24.gapValues g) APPT.Finite24.det04Pair1))
+EMPTY_KERNEL_REPLAY_PASS 35850 declarations; 3 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPT.Finite24.eval_det04Term1Coeffs

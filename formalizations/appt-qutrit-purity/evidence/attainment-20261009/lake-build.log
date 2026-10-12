@@ -1,0 +1,138 @@
+✔ [2689/2703] Built APPT.Core (8.5s)
+⚠ [2690/2703] Built APPT.Quantum.Basic (10s)
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2691/2703] Built APPT.CoefficientMerge (10s)
+warning: APPT/CoefficientMerge.lean:23:42: This simp argument is unused:
+  merge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eval, Int.cast_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2692/2703] Built APPT.Quantum.RectangularContraction (7.0s)
+⚠ [2693/2703] Built APPT.Quantum.BlockMaps (7.0s)
+warning: APPT/Quantum/BlockMaps.lean:14:32: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:20:32: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:21:31: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, lift, Matrix.kronecker_apply, Fintype.sum_prod_type, Matrix.one_apply, mul_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/BlockMaps.lean:23:8: automatically included section variable(s) unused in theorem `APPT.Quantum.lift_conjTranspose`:
+  [Fintype b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2694/2703] Built APPT.Quantum.Orbit (7.0s)
+⚠ [2695/2703] Built APPT.Quantum.Contractions (11s)
+warning: APPT/Quantum/Contractions.lean:31:30: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Matrix.smul_apply, sandwich_apply, partialTranspose, d0, d1, d2, s01, s02, s12, a01,
+    a02, a12, Fin.sum_univ_three, Matrix.sub_apply, Matrix.one_apply, hxy, Complex.real_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2696/2703] Built APPT.Quantum.LongAttainment (8.0s)
+warning: APPT/Quantum/LongAttainment.lean:24:38: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coordinateProjection, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/LongAttainment.lean:24:61: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coordinateProjection, Matrix.diagonal_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/LongAttainment.lean:59:21: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPT/Quantum/LongAttainment.lean:59:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPT/Quantum/LongAttainment.lean:59:21: Unused tactic linter: `aesop` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPT/Quantum/LongAttainment.lean:73:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2697/2703] Built APPT.Quantum.PureGram (8.2s)
+warning: APPT/Quantum/PureGram.lean:20:0: automatically included section variable(s) unused in theorem `APPT.Quantum.skewRow_gram`:
+  [Fintype b]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype b] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2698/2703] Built APPT.Quantum.PureProjector (9.7s)
+warning: APPT/Quantum/PureProjector.lean:12:0: automatically included section variable(s) unused in theorem `APPT.Quantum.rankOne_posSemidef`:
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2699/2703] Built APPT.Quantum.PureOrbit (7.4s)
+⚠ [2700/2703] Built APPT.Quantum.ShortAttainment (7.9s)
+warning: APPT/Quantum/ShortAttainment.lean:7:0: automatically included section variable(s) unused in theorem `APPT.Quantum.rankOne_trace`:
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/ShortAttainment.lean:12:0: automatically included section variable(s) unused in theorem `APPT.Quantum.rankOne_sq`:
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/ShortAttainment.lean:35:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPT/Quantum/ShortAttainment.lean:35:8: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPT/Quantum/ShortAttainment.lean:50:4: This simp argument is unused:
+  Complex.natCast_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.trace_smul, Matrix.trace_add, rankOne_trace v hv, Matrix.trace_one, Complex.smul_re,
+    Complex.add_re, Complex.one_re, Fintype.card_prod, Fintype.card_fin, smul_eq_mul, Nat.cast_mul, Nat.cast_ofNat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/ShortAttainment.lean:53:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPT/Quantum/ShortAttainment.lean:52:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPT/Quantum/ShortAttainment.lean:53:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [2701/2703] Built APPT.Quantum.Attainment (7.8s)
+✔ [2702/2703] Built APPT (7.8s)
+Build completed successfully (2703 jobs).

@@ -1,0 +1,104 @@
+--- a/source/continuum-avoidance.tex
++++ b/source/continuum-avoidance.tex
+@@ -218,7 +218,14 @@
+ All of $b,d,K,g,\eta,\lambda,\kappa$ are fixed before choosing the late
+ position of the routing template.
+ 
+-For a positive integer base length $L$, define
++Fix integers $U,L$ satisfying the standing conditions
++\[
++ U\geq4,\qquad U>|k|,\qquad U\geq s_1z_1-k,\qquad
++ L\geq\max\{2,\lceil2D\rceil\}.
++\]
++These conditions apply throughout the routing and probability arguments below;
++Section~\ref{sec:schedule} will impose a sufficiently late schedule on the same
++parameters. For this base length $L$, define
+ \begin{equation}\label{eq:recurrence}
+ \begin{aligned}
+  L_1&=L,\qquad & T_1&=bL+(b-1)g,\\
+@@ -229,7 +236,7 @@
+ The height of a vertex is its remaining distance to the leaves. Each of its
+ outgoing edges receives an integer window of length $L_r$ when its height is
+ $r$. Traverse edges in preorder, including default edges, placing $g$ unused
+-integer indices between consecutive edge windows. Start at an integer $U$.
++integer indices between consecutive edge windows. Start at this integer $U$.
+ For edge $e$ write its endpoints $u_e,v_e=u_e+L_r-1$, and write $v_e^*$ for
+ the last endpoint of that edge and its entire child subtree. Set $T=T_d$.
+ 
+@@ -303,8 +310,8 @@
+ \end{equation}
+ If there is a predecessor $v$, the upper bound is $2^{-v-g}$, so stability
+ prevents crossing its boundary. All earlier grids divide that grid; hence their
+-addresses agree as well. The own grid has width $2^{-u_e-L_r-2}$, less than
+-one quarter of the lower offset bound. Different active logarithms have gap
++addresses agree as well. The own grid has width $2^{-u_e-L_r-2}$, equal to
++one quarter of the displayed lower offset bound. Different active logarithms have gap
+ greater than $3$, so their positive offsets have ratio greater than $8$.
+ Their difference is greater than $7\,2^{-u_e-L_r}$, also exceeding the cell
+ width. All offsets lie in an interval of length less than $1/8$ since $U\geq4$,
+@@ -334,7 +341,8 @@
+ terminal bit is one, it belongs to the actual global set $B$.
+ 
+ \begin{lemma}[Fixed-parameter joint miss]\label{lem:joint}
+-Assume $L\geq\lceil2D\rceil$. On each first-default exposure atom, at fixed
++Under the standing conditions of Section~\ref{sec:routing}, on each
++first-default exposure atom, at fixed
+ $(s,t)$, the probability that all these local tests fail is at most
+ $\exp(-\lambda L_r)$. Equivalently, without dividing by the mass of the atom,
+ its intersection with the miss event has probability at most its own mass
+@@ -342,7 +350,9 @@
+ \end{lemma}
+ \begin{proof}
+ The number $m_*$ of tests is at least $\eta(b-1)L_r$ by
+-Lemma~\ref{lem:sampling}. Their own selector coordinates are distinct and avoid
++Lemma~\ref{lem:sampling}, since $u_e\geq U\geq s_1z_1-k$ and
++$L_r\geq L\geq\lceil2D\rceil$ on every outgoing edge.
++Their own selector coordinates are distinct and avoid
+ every exposed coordinate: for one edge this follows from its own address
+ separation, and different edges have different tables. Thus the tested bits
+ $A_1,\ldots,A_{m_*}$ are free independent fair bits after center exposure.
+@@ -433,17 +443,20 @@
+ \emph{every} assignment of all remaining table entries.
+ 
+ \begin{lemma}[Continuum miss bound]\label{lem:entropy}
+-On a first-default center-exposure atom the probability of a local miss for
+-some $(s,t)$ is at most the atom mass times
++Under the same standing conditions, let $C$ be a first-default center-exposure
++atom, and let $\mathcal M_C$ be the event that, at its first-default vertex,
++all active local tests fail for some $(s,t)\in[s_0,s_1]\times[1,2]$. Then the
++joint probability satisfies
+ \begin{equation}\label{eq:entropy}
+- 5120 b^2(U+T+|k|+2)^2 e^{-\kappa\ell}.
++ \mathbb P(C\cap\mathcal M_C)
++ \leq\mathbb P(C)\,5120 b^2(U+T+|k|+2)^2 e^{-\kappa\ell}.
+ \end{equation}
+ \end{lemma}
+ \begin{proof}
+ Every miss has the same active-address vector as a retained representative,
+ and therefore the same local tests for every outcome. Use the finite union
+ bound, \eqref{eq:repcount}, and Lemma~\ref{lem:joint} at each representative.
+-The bound is
++The factor multiplying $\mathbb P(C)$ is
+ $20[P(3+2^{2\ell+3})+5]^2 e^{-\lambda\ell}$.
+ For $P\geq1$ and $\ell\geq2$,
+ \[
+@@ -476,7 +489,8 @@
+ \end{lemma}
+ \begin{proof}
+ The conditions \eqref{eq:late} hold for all sufficiently large $U$.
+-For $\ell\geq L(U)$, $T(U)\leq U$, and $|k|<U$, \eqref{eq:entropy} is at most
++For $\ell\geq L(U)$, $T(U)\leq U$, and $|k|<U$, the factor multiplying the
++atom mass in \eqref{eq:entropy} is at most
+ \begin{align}
+  46080b^2(U+1)^2e^{-\kappa L(U)}
+  &\leq p e^{-1}\frac{(U+1)^2}{(U+2)^4}<p.\label{eq:smallentropy}
+@@ -693,7 +707,8 @@
+ this sharp failure.
+ 
+ Closed activation would also invalidate the closed-projection argument.
+-For one input $a=1/2$, $x=0,t=1$, activation $s\in[1,2]$ and holes
++For one input $a=1/2$, $x=0,t=1$, ambient exponent interval $[1/2,5/2]$,
++closed activation $s\in[1,2]$ and holes
+ $(2/5,3/5)$, the condition ``inactive or missed'' holds along $s<1$ but fails
+ at the limit $s=1$. With open activation $(1,2)$ the limit is inactive and
+ the relevant union is closed, as used in Lemma~\ref{lem:closed}.

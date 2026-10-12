@@ -1,0 +1,24 @@
+{
+  "release_date": "2026-10-08",
+  "version": "2",
+  "title": "Sharp Chebyshev Atom Moduli for Fixed-Rank Subset Actions",
+  "mathematical_change_from_v1": false,
+  "summary": "21-page typesetting revision with better page balance; same fixed-k asymptotic, all-rank transfer-matrix theorem and 4-subset n<=64 exact certificate classification as first version",
+  "files": [
+    {
+      "path": "notes/sharp-robust-permanent/focused-paper/v2/paper.pdf",
+      "sha256": "ace1367323ab6dbc0a2ad53c199fe24723a2ca471c9a3e8ad56e415b1099d262",
+      "git_blob": "5f860617a1b03bcf57bebcfda8c7bd8df6977c7d",
+      "page_count": 21
+    },
+    {
+      "path": "notes/sharp-robust-permanent/focused-paper/v2/paper.md",
+      "sha256": "3fc60615906235f8d2bf1060c2a338af9c2c32e57389c82fd2d90bfe007f3ffa",
+      "git_blob": "b9e03e76f6390191872dcc50c1c63550851c87f5"
+    }
+  ],
+  "build": "pandoc paper.md --from markdown+tex_math_dollars -s --toc --toc-depth=2 --pdf-engine=pdflatex -o paper.pdf",
+  "verification": "Public files and exact checkers listed in notes/sharp-robust-permanent/VERIFICATION.md",
+  "historical_v1": "releases/2026-10-08-chebyshev-fixed-rank-v1.json",
+  "limitations": "The manuscript is not externally peer-reviewed or formalized in Lean; no universal exact finite-n,k optimal coefficient is claimed."
+}

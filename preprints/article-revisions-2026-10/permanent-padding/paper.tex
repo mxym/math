@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newcommand{\per}{\operatorname{per}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\EE}{\mathcal E}
+\newtheorem{theorem}{Theorem}
+\title{A padding proof of a conjectured permanent inequality}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering,
+South China University of Technology, Guangzhou, China.
+Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}.
+ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
+\date{8 October 2026}
+\hypersetup{pdfauthor={Yongxian Zhang}}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\maketitle
+\begin{abstract}
+The unrestricted-cut permanent inequality stated as Conjecture~9.3 by Pan, Skandera, and Wang follows from their balanced inequality, Theorem~8.18, by adjoining an identity matrix. We give the complete reduction, including singular matrices and endpoint cuts. The only non-elementary input is the balanced theorem from their preprint.
+\end{abstract}
+For an integer $n\geq 0$, write $[n]=\{1,\dots,n\}$, let $\OO_n$ and $\EE_n$ be its odd and even elements, and write $A[S]=A_{S,S}$ for a principal submatrix in increasing index order. The empty permanent is $1$. A real matrix is \emph{totally nonnegative} (TNN) if every square minor is nonnegative.
+
+We use the following even-order instance of Pan--Skandera--Wang's Theorem~8.18~\cite{PSW}: for every $m\geq2$ and every TNN matrix $B$ of order $2m$,
+\begin{equation}\label{balanced}
+\per B[[m]]\,\per B[\{m+1,\dots,2m\}]
+\geq \per B[\OO_{2m}]\,\per B[\EE_{2m}].
+\end{equation}
+For $m=1$ this is an equality.
+
+\begin{theorem}\label{main}
+For every integer $n\geq1$, every TNN matrix $A\in\mathbb R^{n\times n}$, and every integer $0\leq h\leq n$,
+\begin{equation}\label{goal}
+\per A[[h]]\,\per A[\{h+1,\dots,n\}]
+\geq\per A[\OO_n]\,\per A[\EE_n].
+\end{equation}
+In particular, Conjecture~9.3 of~\cite{PSW} holds.
+\end{theorem}
+\begin{proof}
+First recall two elementary facts about ordered direct sums. If $C,D$ are TNN, then $C\oplus D$ is TNN: a square minor selecting unequal numbers of first-block rows and first-block columns is zero by rank deficiency, while a minor selecting equal numbers factors as the product of a minor of $C$ and a minor of $D$, without a sign change. Also,
+\begin{equation}\label{factor}
+\per(C\oplus D)=\per(C)\per(D),
+\end{equation}
+because only permutations preserving both blocks can contribute nonzero summands. These assertions include empty blocks. Every principal submatrix of an identity matrix has permanent $1$.
+
+Suppose $0<h<n$ and $2h\leq n$. Put $d=n-2h$, $m=n-h$, and
+\[
+B=I_d\oplus A.
+\]
+This is a TNN matrix of order $2m$, with balanced leading and trailing principal blocks $I_d\oplus A[[h]]$ and $A[\{h+1,\dots,n\}]$. Thus the left side of~\eqref{balanced} equals the left side of~\eqref{goal}. An index $i$ of $A$ becomes $d+i$ in $B$. Consequently the two parity principal submatrices of $B$ are identity blocks direct-summed with $A[\OO_n]$ and $A[\EE_n]$, in the same order if $d$ is even and the opposite order if $d$ is odd. By~\eqref{factor},
+\[
+\per B[\OO_{2m}]\,\per B[\EE_{2m}]
+=\per A[\OO_n]\,\per A[\EE_n].
+\]
+Applying~\eqref{balanced} proves the claim. The possible case $m=1$ is $n=2,h=1$, where the claim is an equality.
+
+If instead $0<h<n$ and $2h\geq n$, put $d=2h-n$, $m=h$, and $B=A\oplus I_d$. The two balanced blocks are now $A[[h]]$ and $A[\{h+1,\dots,n\}]\oplus I_d$. The original indices of $A$ do not shift, and the parity principal submatrices simply acquire identity direct-summands. Thus both product equalities again hold, and~\eqref{balanced} applies. This also includes $d=0$.
+
+Finally, if $h=0$ or $h=n$, the left side is $\per A$. Every entry of $A$ is nonnegative. The permutations preserving $\OO_n$ and $\EE_n$ contribute exactly the product on the right side, which is therefore at most the sum over all permutations. This handles the endpoint cuts and $n=1$.
+\end{proof}
+
+\paragraph{Scope and attribution.}
+The proof uses no computation and no strict-positivity, irreducibility, or nonvanishing assumption. It is a short consequence of the balanced theorem in~\cite{PSW}, not an independent proof of that theorem. The cited version explicitly states the balanced result as Theorem~8.18 and the unrestricted-cut assertion as Conjecture~9.3. Since the balanced case is included in the unrestricted assertion, identity padding shows that the two universal statements are equivalent.
+
+
+\section*{Source edition and reproduction}
+This signed article edition retains the mathematical argument of the
+previously archived source: \url{https://doi.org/10.5281/zenodo.23248369}.
+The original source, exact inputs, checking programs and prior review
+records remain available there. The companion README identifies the
+frozen Git version and the scope of each auxiliary computation.
+No computational certificate is needed for the written reduction.
+
+\section*{Funding and research methods}
+This research was conducted independently and received no external
+funding. OpenAI AI assistants assisted mathematical research, verification
+code and internal review. Mathematical claims are supported by the
+written proof and the specified public evidence; AI output is not itself
+proof evidence. Internal AI-assisted review is not external human peer
+review.
+\section*{Declaration of generative AI and AI-assisted technologies
+in the writing process}
+OpenAI AI assistants assisted drafting, organization and LaTeX editing.
+The author takes responsibility for the manuscript and its descriptions
+of the proof and verification evidence.
+
+\begin{thebibliography}{1}
+\bibitem{PSW}
+S.~Pan, M.~Skandera, and J.~Wang,
+\emph{Permanental inequalities and unit interval orders},
+arXiv:2610.04809v1 [math.CO], 3 October 2026,
+Theorem~8.18 and Conjecture~9.3.
+\href{https://arxiv.org/abs/2610.04809v1}{arXiv:2610.04809v1}.
+\end{thebibliography}
+\end{document}

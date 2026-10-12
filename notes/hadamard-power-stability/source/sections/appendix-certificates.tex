@@ -1,0 +1,51 @@
+\section{Exact finite certificate data}\label{app:certificates}
+The files \path{check_tangent_rank.py} and \path{tangent_rank_results.json}
+in the companion \texttt{certificates} directory are byte-for-byte copies of the reviewed revision. The script uses Python and SymPy exact arithmetic. Its variables
+are ordered lexicographically as $(a,j)$ with $1\le a,j<n$, and its rows are
+ordered by $a<b$ and then $1\le r<m$. Thus the JSON pivot indices specify the
+chosen row minors unambiguously. The script verifies all two-element ratio
+classes and the identity $BB^{-1}=I$ before recording the determinant and inverse
+infinity norm. Running the script writes its adjacent JSON; use a temporary copy
+if preserving the supplied certificate bytes is important.
+
+The exponent matrices used are the classical cubic seed from the attributed
+exact source and the order-ten seed of McNulty--Weigert~\cite[Appendix A]{MW}:
+\[
+ E_3=\begin{pmatrix}
+0&0&0&0&0&0\\
+0&0&1&2&2&1\\
+0&1&0&1&2&2\\
+0&2&1&0&1&2\\
+0&2&2&1&0&1\\
+0&1&2&2&1&0
+\end{pmatrix}.
+\]
+\[
+ E_5=\begin{pmatrix}
+0&0&0&0&0&0&0&0&0&0\\
+0&1&2&3&4&2&4&1&3&0\\
+0&2&4&1&3&3&2&1&0&4\\
+0&3&1&4&2&3&4&0&1&2\\
+0&4&3&2&1&2&0&3&1&4\\
+0&3&2&2&3&0&1&4&4&1\\
+0&2&0&4&4&1&1&3&2&3\\
+0&1&3&1&0&4&3&4&2&2\\
+0&0&1&3&1&4&2&2&4&3\\
+0&4&4&0&2&1&3&2&3&1
+\end{pmatrix}.
+\]
+
+The certificate records are
+\[
+\begin{array}{c|c|r|r|c}
+ m&\text{shape of }L_G&\rank L_G&\det B&\norm{B^{-1}}_{\infty\to\infty}\\\hline
+3&30\times25&25&34992&18\\
+5&180\times81&81&19531250&503/5
+\end{array}
+\]
+All pivot rows are retained in the JSON rather than inferred from a numerical
+rank. The original independent check reproduced that JSON exactly. The present
+manuscript preparation did not rerun mathematical searches or enlarge the finite
+sample. Exact graph diameters $3$ and $4$, and the separate quadratic-family
+checks reported in Section~\ref{sec:quadratic}, are supplementary review evidence;
+they are not prerequisites for any general proof.

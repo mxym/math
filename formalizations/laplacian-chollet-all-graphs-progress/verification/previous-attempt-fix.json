@@ -1,0 +1,15 @@
+{
+  "previous_attempt": "/workspace/lean-verifier/tasks/chollet-allgraph-complete-20261009/20261009T010920Z-d0ddf1aa",
+  "previous_status": "FAILED",
+  "failure": "all-owned audit rejected compiler-generated partial declaration Chollet.walkWeight._unsafe_rec",
+  "fix": "walkWeight explicitly noncomputable; avoids generated executable recursion helper",
+  "definition_check": "records/CheckWalkDefinition.log: WALK_GENERATED_DECLARATIONS_SAFE",
+  "changed_sources": [
+    {
+      "module": "CholletClosedWalkTrace",
+      "before": "cb2bdd3e0e8562568018269c780c27f2c80f88686ead219cd3bc2a41a6dc0335",
+      "after": "8fe5bb6075cead9f55d6340d292fbbffc838e63f07cb81d301910daa3a56ea77"
+    }
+  ],
+  "new_fresh_verification_required": true
+}

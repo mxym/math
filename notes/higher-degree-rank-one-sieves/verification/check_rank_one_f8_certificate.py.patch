@@ -1,0 +1,35 @@
+--- original-verifiers/check_rank_one_f8_certificate.py
++++ check_rank_one_f8_certificate.py
+@@ -1,5 +1,8 @@
+ #!/usr/bin/env python3
+-"""Exact verification of the rank-one CRT-completed cubic eight-step example.
++"""Author exact verification of the rank-one CRT-completed cubic eight-step example.
++
++Public derivative: strict integer metadata validation and extra schema controls.
++The original verifier is preserved in original-verifiers/.
+ 
+ Reuses only exact arithmetic definitions from the separate F6 verifier, and
+ reconstructs every quotient state and every directed edge from the input.
+@@ -9,10 +12,13 @@
+ import json
+ import math
+ from pathlib import Path
+-from check_cubic_certificate import require, vec, add, mul, matrix, det, in_principal, norm_polynomial
++from check_cubic_certificate import (require, vec, add, mul, matrix, det,
++                                     in_principal, norm_polynomial,
++                                     exact_integer_metadata, metadata_negative_cases)
+ 
+ 
+ def verify(data):
++    exact_integer_metadata(data)
+     require(data['format'] == 'cubic_rank_one_f8_lift_certificate_v1', 'Wrong format')
+     require(data['order'] == {'basis':['1','theta','theta^2'],'relation':'theta^3=2'}, 'Wrong order')
+     generators = [vec(x) for x in data['generators']]
+@@ -80,6 +86,7 @@
+     d=copy.deepcopy(data);d['steps'].append([0,1,-1]);cases.append(d)
+     d=copy.deepcopy(data);d['components'][0].pop();cases.append(d)
+     d=copy.deepcopy(data);d['generator_norms'][3]=13;cases.append(d)
++    cases.extend(metadata_negative_cases(data))
+     for i,d in enumerate(cases):
+         try:
+             verify(d)

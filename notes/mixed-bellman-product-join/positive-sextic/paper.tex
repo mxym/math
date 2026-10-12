@@ -1,0 +1,319 @@
+\documentclass[11pt]{article}
+\pdftrailerid{} % Avoid path-dependent trailer IDs in reproducible builds.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype,hyperref}
+\hypersetup{hidelinks,pdftitle={A positive sextic Bellman envelope for projection body growth},pdfauthor={mxym}}
+\newtheorem{theorem}{Theorem}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\title{A positive sextic Bellman envelope\\for projection body growth}
+\author{mxym\thanks{AI-assisted research and exact arithmetic verification. The independent audit is model-conducted; human peer review and proof-assistant formalization are not asserted.}}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A positive sixth-power term yields a new homogeneous Bellman invariant for the full finite point-generated Cartesian-product/join class, with affine equivalence on full affine hulls. It gives
+\[
+ 2.8534<\Gamma_{\CC}\le \exp(104867/100000)<2.85386.
+\]
+The new upper proof combines 19,900 exact finite supporting planes, 157,872 rational interval tail cells, and an analytic large-factor estimate with exact Bernstein positivity. Submitted and separately reimplemented certificates pass in ordinary and optimized Python. The inherited lower construction is unchanged. The result neither determines the optimum nor addresses arbitrary convex bodies or rank-dropping affine maps. The complete unchanged certificates and independent audit accompany this note as a separate archive.
+\end{abstract}
+
+\section{The class and the theorem}
+The projection body $\Pi K$ of a full-dimensional convex body $K\subset\mathbb R^d$ has support function at a unit vector $u$ equal to the $(d-1)$-dimensional volume of the orthogonal projection of $K$ onto $u^\perp$. Put
+\[
+ R(K)=\frac{|\Pi K|}{|K|^{d-1}},\qquad g(d)=\frac{d^d}{d!}.
+\]
+Zero-dimensional projection volume is one, so an interval has $R=2$. The join of $A\subset\mathbb R^r$ and $B\subset\mathbb R^s$ is the convex hull of $(A,0,0)$ and $(0,B,1)$ in $\mathbb R^{r+s+1}$. Products use independent coordinate spaces.
+
+Let $\CC$ be generated from a formal point by finitely many such products and joins and by invertible affine maps between full affine hulls. Each positive-dimensional member is a polytope identified with a full-dimensional body in its affine hull. A product with a point is redundant. Dimension-reducing affine images are excluded.
+
+We use the cone invariant of entry 005 v2 \cite{calculus}. For facet area $s_i$, outward unit normal $\nu_i$, support number $h_i$, and volume $v=|K|$, put $u_i=s_i\nu_i$ and $b_i=s_i h_i$. Then
+\[
+ P(K)=\sum_{|I|=d}|\det(u_i:i\in I)|=|\Pi K|,
+\quad S(K)=\sum_{|I|=d+1}|\det((u_i,b_i):i\in I)|,
+\]
+\[
+ a(K)=\frac{S(K)}{dvP(K)},\qquad D=d+1,\quad H=1/a(K),\quad
+ Q=\frac{a(K)R(K)}{g(d)}.
+\]
+Endpoint facets in dimension one have area one. The formal point has $(D,H,Q)=(1,1,1)$. The affine invariance, $1/(d+1)\le a\le1$, and the exact calculus below are inherited from \cite{calculus}; their pinned sources are included in \code{dependencies/v2}.
+
+Set
+\[
+ \alpha=\frac{431}{10000},\qquad \beta=\frac9{2500},\qquad
+ \gamma=\frac{197}{100000},\qquad T=\alpha+\beta+\gamma=\frac{4867}{100000}.
+\]
+\begin{theorem}
+Every $K\in\CC$ satisfies
+\begin{equation}\label{eq:main}
+ \log Q\le\Phi(D,H):=\alpha\left(D-\frac{H^2}{D}\right)
+ +\beta\left(D-\frac{H^4}{D^3}\right)
+ +\gamma\left(D-\frac{H^6}{D^5}\right).
+\end{equation}
+The all-dimensional limit exists and satisfies
+\begin{equation}\label{eq:rate}
+ 2.8534<\Gamma_{\CC}:=\lim_{d\to\infty}\sup_{K\in\CC_d}R(K)^{1/d}
+ \le e^{1+T}<\frac{142693}{50000}=2.85386.
+\end{equation}
+\end{theorem}
+The lower endpoint is the existing $T_5$-based self-similar construction of entry 005 v2, Theorem 9.2 and Corollary 9.3. The new contribution is the positive sextic potential and its complete product closure certificates, using the prior supporting-plane, interval-tail, and retained-quartic framework \cite{mixed}. Bellman supersolutions and the inherited numerical mixed-potential direction are not claimed as discoveries here.
+
+\section{Induction and a concave product supersolution}
+The exact inherited join calculus is
+\[
+ (D,H,Q)(A*B)=(D_A+D_B,H_A+H_B,Q_AQ_B).
+\]
+For a product with $r=\dim A\ge1$, $s=\dim B\ge1$, $n=r+s$, $h=H_A$, $j=H_B$, it is
+\[
+ H'=\frac{n}{r/h+s/j},\quad D'=n+1,\quad Q'=Q_AQ_BCx,
+ \quad C=\frac{g(r)g(s)}{g(n)},\quad x=\frac{sh+rj}{n}.
+\]
+The two differently weighted numerators $sh+rj$ and $rh+sj$ used below must be distinguished. Every positive-dimensional state in $\CC$ has $2\le H\le D$: the interval starts with $H=2$, joins add $H$, and products take the dimension-weighted arithmetic mean of the input $a$-values, preserving $a\le1/2$. The upper bound follows from $a\ge1/D$.
+
+For $p=2,4,6$, weighted Jensen gives
+\[
+ \frac{(H_1+H_2)^p}{(D_1+D_2)^{p-1}}
+ \le\frac{H_1^p}{D_1^{p-1}}+\frac{H_2^p}{D_2^{p-1}}.
+\]
+All coefficients are positive, so $\Phi$ is superadditive under joins; it vanishes at the point. Products require
+\[
+ \log(Cx)\le\alpha\Delta_2+\beta\Delta_4+\gamma\Delta_6,
+\quad \Delta_p=-1+\frac{h^p}{(r+1)^{p-1}}+\frac{j^p}{(s+1)^{p-1}}
+                  -\frac{(H')^p}{(n+1)^{p-1}}.
+\]
+Weighted harmonic mean is at most weighted arithmetic mean and each weighted power mean. Consequently $\Delta_p\ge G_p-1$, where
+\[
+ G_2=\frac{h^2}{r+1}+\frac{j^2}{s+1}-\frac{(rh+sj)^2}{n^2(n+1)},
+\]
+\[
+ G_p=A_p h^p+B_pj^p,\quad
+ A_p=\frac1{(r+1)^{p-1}}-\frac r{n(n+1)^{p-1}},\quad
+ B_p=\frac1{(s+1)^{p-1}}-\frac s{n(n+1)^{p-1}},\quad p=4,6.
+\]
+The power coefficients are positive. The first diagonal coefficient of $G_2$ is positive and its determinant is
+\[
+ \frac{rs(3n+2)}{(r+1)n^2(s+1)(n+1)}>0.
+\]
+Thus
+\[
+ f_{r,s}(h,j)=\log(Cx)-\alpha G_2-\beta G_4-\gamma G_6+T
+\]
+is strictly concave on the positive quadrant. It suffices to prove $f<0$ on $[2,r+1]\times[2,s+1]$. By factor symmetry take $r\le s$; the next three cases exhaust all dimension pairs.
+
+\section{Finite rectangles below dimension 200}
+There are exactly $199\cdot200/2=19,900$ pairs $1\le r\le s\le199$. The full finite certificate gives a rational point $p=(h_0,j_0)$ in every rectangle, with common denominator $10^{10}$. If the gradient at $p$ is $(g_h,g_j)$, the supporting plane has rectangle maximum
+\[
+ f(p)+g_h(b_h-h_0)+g_j(b_j-j_0),
+\]
+where $b_h=r+1$ when $g_h\ge0$ and $b_h=2$ otherwise; similarly $b_j=s+1$ or $2$. Concavity bounds every real state by this number.
+
+\code{check_sextic_finite.py} recomputes moments, derivatives, and exact logarithm intervals and checks coefficient identities, ordered dimension coverage, point membership, and strict upper bound below $-1/10^6$. All 19,900 rectangles pass. The worst pair is $(25,25)$ with $h_0=j_0=137374081947/10^{10}$. Its upper value is approximately $-0.0000064803879273$; only the exact rational report is evidence.
+
+\section{Every imbalanced tail}
+For $1\le r<200\le s$ put $z=1/s\in(0,1/200]$ and $u=j/(s+1)$. Enlarge the state domain to $h\in[2,r+1]$, $u\in[0,1]$, and include $z=0$ as an auxiliary limiting parameter. Define
+\[
+ P_2=(1+rz)^2(1+(r+1)z),\quad
+ S_2=3+(3r+2)z+r(r+1)z^2.
+\]
+Exact cancellation gives $G_2=ah^2+bhu+cu^2$, with
+\[
+ a=\frac1{r+1}-\frac{r^2z^3}{P_2},\quad
+ b=-\frac{2rz(1+z)}{P_2},\quad c=\frac{r(1+z)S_2}{P_2}.
+\]
+For $p=4,6$, put
+\[
+ P_p=(1+rz)(1+(r+1)z)^{p-1},\quad
+ S_p=\frac{P_p-(1+z)^{p-1}}{rz},
+\]
+\[
+ a_p=\frac1{(r+1)^{p-1}}-\frac{rz^p}{P_p},\quad
+ d_p=\frac{r(1+z)S_p}{P_p},\qquad G_p=a_ph^p+d_pu^p.
+\]
+The apparent quotient in $S_p$ is a polynomial. Its coefficient of $z^{k-1}$, $1\le k\le p$, equals
+\[
+ \frac{\binom{p-1}{k}((r+1)^k-1)+r\binom{p-1}{k-1}(r+1)^{k-1}}r>0,
+\]
+with out-of-range binomial coefficients zero. This is how the checker evaluates the regular endpoint $z=0$, without dividing an interval containing zero. At that endpoint $(a,b,c)=(1/(r+1),0,3r)$.
+
+The factorial ratio has the bound $C\le g(r)e^{-r}\sqrt{1+rz}$. Indeed let $v_m=m!e^m/(m^m\sqrt m)$. Then
+\[
+ \log\frac{v_{m+1}}{v_m}=1-(m+1/2)\log(1+1/m)<0,
+\]
+since $\log t>2(t-1)/(t+1)$ for $t>1$, by differentiation. Direct substitution yields
+$C=g(r)e^{-r}(v_{r+s}/v_s)\sqrt{(r+s)/s}$.
+Hence $f$ is at most the strictly state-concave function
+\begin{align*}
+ F_{r,z}(h,u)={}&\log g(r)-r+\log[h+r(1+z)u]-\tfrac12\log(1+rz)\\
+ &-\alpha(ah^2+bhu+cu^2)-\beta(a_4h^4+d_4u^4)
+ -\gamma(a_6h^6+d_6u^6)+T.
+\end{align*}
+
+The certificate partitions $[0,1/200]$ into rational dyadic cells for each $r=1,\ldots,199$, with one rational state point per cell. Exact interval arithmetic bounds the coefficients and state derivatives uniformly on the whole cell. Every denominator excludes zero. Let $a_-,c_-$ be lower endpoints, and let $b_*^2$ be the maximum square of the $b$ endpoints. The checker requires
+\[
+ m_h=a_-/2>0,\qquad m_u=c_- -b_*^2/(2a_-)>0.
+\]
+Young's inequality proves
+\[
+ a\eta_h^2+b\eta_h\eta_u+c\eta_u^2\ge m_h\eta_h^2+m_u\eta_u^2.
+\]
+The other concave Taylor remainders have favorable sign, so uniformly on the cell
+\[
+ F(p+\eta)\le F(p)+\nabla F(p)\cdot\eta
+                  -\alpha(m_h\eta_h^2+m_u\eta_u^2).
+\]
+Each separated scalar quadratic is maximized exactly at its clipped vertex and endpoints, including zero. For interval gradients use the lower slope on negative displacements and the upper slope on positive displacements.
+
+\code{check_sextic_tail.py} checks all 157,872 cells, rational state membership, exact ordered coverage without gap or overlap, and uniform upper bound below $-1/10^{10}$. The maximum depth is 11. Submitted and independently reconstructed full replays pass normally and under \code{-O}. A tail cell covers every real $z$ in its interval, not merely a sampled dimension or state.
+
+\section{Both dimensions at least 200}
+This case discards the favorable sextic penalty $-\gamma G_6$ while retaining $\gamma$ in $T$. Write
+\[
+ t=r/s\in(0,1],\quad \tau=1/r\le1/200,\quad B=(sh+rj)/n,\quad q=B^2/r.
+\]
+With $\Delta=4rs+3n+2$, the square identity
+\[
+ G_2-\frac{3n+2}{\Delta}B^2=
+ \frac{rs[(s+1)(3r+s+2)h-(r+1)(r+3s+2)j]^2}
+ {(r+1)n^2(s+1)(n+1)\Delta}\ge0
+\]
+gives $G_2\ge K_2q$, where
+\[
+ K_2=\frac{3(1+t)+2t\tau}{4+3(1+t)\tau+2t\tau^2},\quad K_0=\frac{3(1+t)}4,
+ \quad d(t)=\frac{9+(1003/100)t+(903/100)t^2}{16}.
+\]
+Direct subtraction gives
+\[
+ K_0-K_2=\frac{\tau[9(1+t)^2-8t+6t(1+t)\tau]}
+ {4[4+3(1+t)\tau+2t\tau^2]}\in[0,\tau d(t)].
+\]
+
+For completeness, multiplying $A_4,B_4$ by $r^3$ and writing $v=t/(1+t)$ gives
+\[
+ a_4^*=(1+\tau)^{-3}-v^4(1+v\tau)^{-3},\quad
+ b_4^*=t^3[(1+t\tau)^{-3}-(1+t)^{-4}(1+v\tau)^{-3}].
+\]
+Their $\tau$ derivatives are at least $-3$ and $-3t^4$. At zero they equal
+$P(t)/(1+t)^4$ and $t^4Q(t)/(1+t)^4$, respectively, where
+\[
+ P=1+4t+6t^2+4t^3,\qquad Q=4+6t+4t^2+t^3.
+\]
+The first is at least $15/16$; the second is at least $15t^4/16$, by the chord lower bound $1-(1+t)^{-4}\ge15t/16$. Thus both coefficients retain a factor $1-16\tau/5$. H\"older under $h+tj=(1+t)B$ yields
+\[
+ G_4\ge\tau(1-16\tau/5)[P^{-1/3}+Q^{-1/3}]^{-3}q^2.
+\]
+Now $P\ge(15/16)(1+t)^4$ and
+$Q^2-16(1+t)^3=t^6+8t^5+28t^4+40t^3+20t^2\ge0$.
+Using $(511/500)^3>16/15$, $(63/100)^3>1/4$, and
+$(1+t)^{5/6}\le1+5t/6$ gives
+\[
+ G_4\ge\tau\frac{123}{125}R(t)q^2,\qquad
+ R(t)=\frac{(1+t)^4}{[413/250+(21/40)t]^3}.
+\]
+
+Robbins' bounds \cite{robbins} state
+\[
+ \sqrt{2\pi m}(m/e)^m e^{1/(12m+1)}<m!
+ <\sqrt{2\pi m}(m/e)^m e^{1/(12m)}.
+\]
+Applying them to $C=r^rs^sn!/(r!s!n^n)$ gives
+\[
+ \log(CB)<\tfrac12\log q+\tfrac12\log\frac{1+t}{2\pi}+\sigma/2,
+\]
+\[
+ \sigma=\tau\left[\frac{t}{6(1+t)}-\frac2{12+\tau}-\frac{2t}{12+t\tau}\right],
+ \qquad \sigma/2\le\tau\left[\frac{t}{12(1+t)}-\frac{200(1+t)}{2401}\right].
+\]
+Take the tangent of $\log q$ at $q_0=2/[3\alpha(1+t)]$ and maximize the remaining concave quadratic. Since $G_6>0$, this proves
+\[
+ f<F_\infty+\tau E(t),\qquad F_\infty=T-\tfrac12-\tfrac12\log(3\pi\alpha),
+\]
+\[
+ E(t)=\frac{t}{12(1+t)}-\frac{200(1+t)}{2401}
+       +\frac{\alpha^2d(t)^2}{4\beta(123/125)R(t)}.
+\]
+The assertion $E(t)<7/50$ on $[0,1]$ is positivity of
+\begin{align*}
+ P_E(t)={}&\tfrac7{50}(1+t)^4-\tfrac1{12}t(1+t)^3
+             +\tfrac{200}{2401}(1+t)^5\\
+ &-\frac{\alpha^2}{4\beta(123/125)}d(t)^2[413/250+(21/40)t]^3.
+\end{align*}
+If $P_E=\sum_{k=0}^7c_kt^k$, its Bernstein coefficients are
+$b_i=\sum_{k=0}^i c_k\binom{i}{k}/\binom7k$. The exact checker computes all eight and verifies each is positive; the full rational list is in the archived \code{sextic_large_report.json}. Bernstein partition of unity proves positivity on the entire real interval.
+
+Machin's identity $\pi=16\arctan(1/5)-4\arctan(1/239)$ and alternating remainders give
+\[
+ \pi>16(1/5-(1/5)^3/3+(1/5)^5/5-(1/5)^7/7)-4/239
+       >314159/100000.
+\]
+The exact positive Taylor sum through degree 10 satisfies
+\[
+ 3\frac{314159}{100000}\alpha\sum_{j=0}^{10}\frac{(901/1000)^j}{j!}>1,
+\]
+so $\log(3\pi\alpha)>-901/1000$. Hence for all $r,s\ge200$ and all $h,j>0$,
+\[
+ f<\frac{4867}{100000}-\frac12+\frac{901}{2000}+\frac7{10000}
+   =-\frac{13}{100000}<0.
+\]
+All constant comparisons are checked by \code{check_sextic_large.py}.
+
+\section{Exact logarithms and the spectral endpoint}
+For a positive rational $x=2^ky$ with $1\le y\le2$ and $w=(y-1)/(y+1)\in[0,1/3]$,
+\[
+ \log y=2\sum_{m=0}^{N-1}\frac{w^{2m+1}}{2m+1}+E_N,\qquad
+ 0\le E_N\le\frac{2w^{2N+1}}{(2N+1)(1-w^2)}.
+\]
+Apply the same formula to $\log2$, reversing interval endpoints when multiplying by negative $k$. Rational outward rounding only enlarges intervals. The finite checker uses $N=20$; the tail checker uses $N=28$. Explicit checks, rather than Python assertions, preserve proof decisions under \code{python -O}.
+
+All products and joins now close, so induction over every finite expression proves \eqref{eq:main}. For clarity, the inherited spectral argument \cite{spectral} is recalled. Put $\lambda_* =\sup Q(K)^{1/(d+1)}$. The new invariant makes it finite. Since $a\ge1/(d+1)$,
+\[
+ R(K)\le(d+1)g(d)\lambda_*^{d+1},
+\]
+and Stirling gives the upper limiting rate $e\lambda_*$. Conversely fix $K$ of dimension $k$ and write $d+1=m(k+1)+q$, $0\le q\le k$. Its $m$-fold self-join, with a $(q-1)$-simplex filler if $q>0$, has dimension $d$ and $Q=Q(K)^m$. The filler has $Q=1$; $a\le1$ gives a root rate tending to $eQ(K)^{1/(k+1)}$. Taking the supremum over fixed $K$ proves the limit and
+\[
+ \Gamma_{\CC}=e\sup_{K\in\CC}Q(K)^{1/(d+1)}.
+\]
+Dividing \eqref{eq:main} by $D$ gives $\log Q/D<T$ for each positive-dimensional state, hence $\Gamma_{\CC}\le e^{1+T}$. An individual strict inequality does not imply a uniform strict spectral gap. For $x=1+T$, the exact degree-12 exponential sum with geometric remainder satisfies
+\[
+ e^x\le\sum_{m=0}^{12}\frac{x^m}{m!}
+       +\frac{x^{13}/13!}{1-x/14}<\frac{142693}{50000}.
+\]
+Together with the inherited strict lower construction this proves \eqref{eq:rate}.
+
+\section{What improves and what remains open}
+At the five-simplex product state $r=s=5$, $h=j=6$, exact closure requires
+\[
+ \log(189/128)\le\frac{85}{11}\alpha+\frac{13345}{1331}\beta
+                    +\frac{1724905}{161051}\gamma.
+\]
+The positive sextic term has substantive effect; exact negative controls show that removing it, or dropping its penalty while retaining $T$, fails at this state. The prior quadratic/quartic local-method obstruction forces $T>3046/62500$. The new $T=4867/100000$ lies below that threshold by $33/500000$ because it belongs to a richer family. The obstruction is not an extremal lower bound on $\Gamma_{\CC}$. Compared with the preceding certified exponent $39/800$, the improvement is $1/12500$.
+
+The new potential does not dominate the previous one pointwise. If $x=(H/D)^2$, then
+\[
+ \frac{\Phi_{\rm old}-\Phi_{\rm new}}D
+  =\frac{(1-x)(8+13x-197x^2)}{100000},
+\]
+which takes both signs. The valid comparison is the improved spectral ceiling of a newly closed invariant. No optimality even within the positive sextic family is established. Numerical discovery only proposed rational coefficients and supporting points; exact replay decides their validity.
+
+\section{Certificates and independent verification}
+\code{certificates-and-independent-audit.zip} is the corrected complete archive, SHA-256
+\begin{center}\small\code{b069821e04e84b4d55c97bafd0820969bacedae0dcc84652f6f3075e4af1b533}\end{center}
+It retains all 143 original entries unchanged and adds only two hash-pinned ancestor package manifests. These complete the original 61 ancestor files to all 63. The external \code{ARCHIVE_INVENTORY.json} records all 145 entries, both archive hashes, and the exact additions. Historical root manifests retain their original bytes.
+
+The full 5,164,290-byte tail certificate, finite certificate, verifier sources, reports, and independent audit are unchanged. The separate checker imports no candidate module; its independent intervals, logarithms, polynomial cancellation, Bernstein conversion, and endpoint estimate are described in the audit. The archived full normal/\code{-O} audits pass all finite rectangles, tail cells, large constants, 14 symbolic identities, and inherited calculus, spectral, and lower checks. They reject 28 corrupt cases and pass 106,892 supplementary exact sample checks. Continuous coverage rests on the certificates. This is model-conducted audit, not human peer review or proof-assistant formalization.
+
+Run \code{python3 verify_release.py --full --output /tmp/sextic-replay} for isolated complete replays in both modes. SymPy is required only for independent symbolic/large modes; submitted verification uses the standard library. \code{--quick} omits full tails. Default integrity checks cover the complete inventory and all 63 ancestor pins. \code{bash build.sh} rebuilds the PDF. The README, audit summary, and source map give instructions, hashes, and attribution.
+
+\begin{thebibliography}{9}
+\small\raggedright
+\bibitem{calculus}mxym, \emph{Projection-volume calculus for joins and Cartesian products}, entry 005 v2, 7 October 2026. Pinned commit and unmodified included copy: \code{SOURCE_MAP.json}.
+\bibitem{spectral}mxym, \emph{Asymptotic spectral reduction for the product/join calculus}, entry 005 v2 supplement, 7 October 2026. Same pinned commit; included under \code{dependencies/v2}.
+\bibitem{mixed}mxym, \emph{A sharper certified mixed quadratic/quartic envelope for projection-body growth} and \emph{A sharp two-test obstruction for the positive quadratic/quartic Bellman ansatz}, 7 October 2026. Complete source preserved in the accompanying archive.
+\bibitem{robbins}H. Robbins, A remark on Stirling's formula, \emph{Amer. Math. Monthly} \textbf{62} (1955), 26--29. \href{https://doi.org/10.2307/2308012}{doi:10.2307/2308012}.
+\end{thebibliography}
+\end{document}

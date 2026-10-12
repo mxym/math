@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "exact_arithmetic": "Fraction",
+  "cases": 1006,
+  "covers": 159,
+  "failures": 847,
+  "density_budget_failures": 233,
+  "geometric_feasibility_cases": 773,
+  "independent_method": "Fourier--Motzkin elimination and midpoint arrangement density/gaps",
+  "selected_cases": [
+    {
+      "name": "four_cluster_toy",
+      "valid": true,
+      "density": "4/5",
+      "oracle_counterexample": null,
+      "subject_result": {
+        "valid": true,
+        "density": "4/5",
+        "states_visited": 9,
+        "claim": "every normalized parameter pair forces one entire cluster into holes for every allowed independent error"
+      }
+    },
+    {
+      "name": "six_cluster_three_quarters_toy",
+      "valid": true,
+      "density": "3/4",
+      "oracle_counterexample": null,
+      "subject_result": {
+        "valid": true,
+        "density": "3/4",
+        "states_visited": 14,
+        "claim": "every normalized parameter pair forces one entire cluster into holes for every allowed independent error"
+      }
+    },
+    {
+      "name": "three_cluster_deletion",
+      "valid": false,
+      "density": "4/5",
+      "oracle_counterexample": [
+        "243/400",
+        "79/50"
+      ],
+      "subject_result": {
+        "valid": false,
+        "reason": "one candidate can escape in every cluster",
+        "density": "4/5",
+        "states_visited": 4,
+        "witness": {
+          "x": "7/15",
+          "t": "1591/900",
+          "chosen_failures": [
+            {
+              "point": "3/4",
+              "error": "3/400",
+              "value": "9/5"
+            },
+            {
+              "point": "1/4",
+              "error": "0",
+              "value": "3271/3600"
+            },
+            {
+              "point": "3/16",
+              "error": "3/1600",
+              "value": "4/5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "full_measure_singleton_gap",
+      "valid": false,
+      "density": "1",
+      "oracle_counterexample": [
+        "7/8",
+        "1"
+      ],
+      "subject_result": {
+        "valid": false,
+        "reason": "one candidate can escape in every cluster",
+        "density": "1",
+        "states_visited": 2,
+        "witness": {
+          "x": "7/8",
+          "t": "1",
+          "chosen_failures": [
+            {
+              "point": "1/8",
+              "error": "0",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "large_errors_full_hole",
+      "valid": true,
+      "density": "1",
+      "oracle_counterexample": null,
+      "subject_result": {
+        "valid": true,
+        "density": "1",
+        "states_visited": 1,
+        "claim": "every normalized parameter pair forces one entire cluster into holes for every allowed independent error"
+      }
+    },
+    {
+      "name": "wrapped_touching",
+      "valid": false,
+      "density": "1",
+      "oracle_counterexample": [
+        "3/4",
+        "2"
+      ],
+      "subject_result": {
+        "valid": false,
+        "reason": "one candidate can escape in every cluster",
+        "density": "1",
+        "states_visited": 6,
+        "witness": {
+          "x": "3/4",
+          "t": "2",
+          "chosen_failures": [
+            {
+              "point": "1/8",
+              "error": "0",
+              "value": "1"
+            },
+            {
+              "point": "3/8",
+              "error": "0",
+              "value": "3/2"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "scope": "Finite checker audit, not a global small-density construction"
+}

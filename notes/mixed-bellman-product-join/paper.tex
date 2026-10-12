@@ -1,0 +1,513 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={A certified mixed quadratic/quartic envelope for projection-body growth},pdfauthor={mxym},pdfsubject={Exact upper bound for the point-generated product/join class}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\RR}{\mathbb R}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\clip}{clip}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\title{A certified mixed quadratic/quartic envelope\protect\\for projection-body growth}
+\author{mxym\thanks{AI-assisted research manuscript. No institutional affiliation, human peer review, or proof-assistant formalization is asserted.}}
+\date{7 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove a dimension-uniform upper bound for polytopes generated from a point by Cartesian products, joins, and invertible affine maps on their affine hulls. In the exact invariant coordinates $D=d+1$, $H=1/a$, and $Q=aR/g(d)$, the bound is
+\[
+ \log Q\le\frac{87}{2000}\left(D-\frac{H^2}{D}\right)
+ +\frac{11}{2000}\left(D-\frac{H^4}{D^3}\right).
+\]
+It implies that the optimal asymptotic projection-body volume growth rate of this entire recursive class is at most $e^{1049/1000}<2.855$, strictly below the previously certified quadratic ceiling. The proof combines an analytic large-dimension estimate, exact supporting planes on 19,900 finite dimension rectangles, and rational interval certificates on 15,568 cells covering every imbalanced tail. All certificate decisions use integers, fractions, and proved logarithm intervals. The existing lower bound $2.8534$ is unchanged. The result does not determine the optimal constant and does not bound the unrestricted class of convex bodies.
+\end{abstract}
+
+\section{The class, the invariants, and the result}
+
+For a full-dimensional convex body $K\subset\RR^d$, the projection body $\Pi K$ is the origin-symmetric body whose support function at a unit vector $u$ is the $(d-1)$-dimensional volume of the orthogonal projection of $K$ onto $u^\perp$. We use
+\[
+ R(K)=\frac{|\Pi K|}{|K|^{d-1}},\qquad g(d)=\frac{d^d}{d!}.
+\]
+For an interval, the zero-dimensional projection volume is one, so $\Pi K=[-1,1]$ and $R(K)=2$.
+
+The join of $A\subset\RR^r$ and $B\subset\RR^s$ is
+\[
+ A*B=\conv\bigl\{(x,0,0):x\in A;\ (0,y,1):y\in B\bigr\}
+ \subset\RR^{r+s+1}.
+\]
+Products use independent coordinate spaces. Let $\CC$ be the class of all affine images of polytopes obtained from a formal zero-dimensional point by finitely many products and joins, where throughout this paper an affine image means the image under an affine map that restricts to an isomorphism between the affine hulls. Thus the closure is under affine equivalence. A product with a point is redundant. Each positive-dimensional member is identified with a full-dimensional body in its affine hull.
+
+We recall the cone invariant of entry 005 \cite{calculus}. For a $d$-dimensional polytope of volume $v$, write its facet data as
+\[
+ u_i=s_i\nu_i,\qquad b_i=s_i h_i,
+\]
+where $s_i$ is the facet area, $\nu_i$ its outward unit normal, and $h_i$ its support number. In dimension one the endpoint facets have zero-dimensional area one. Define
+\[
+ P(K)=\sum_{|I|=d}|\det(u_i:i\in I)|=|\Pi K|,
+\]
+\[
+ S(K)=\sum_{|I|=d+1}|\det((u_i,b_i):i\in I)|,
+ \qquad a(K)=\frac{S(K)}{dvP(K)}.
+\]
+The equality for $P$ is the usual facet-zonotope formula. The invariant $a$ is positive and affine invariant; translation changes the last row of each lifted determinant by a linear combination of its horizontal rows. The exact calculus and the lower bound $a(K)\ge1/(d+1)$ are established in \cite{calculus}.
+
+For a positive-dimensional member of $\CC$, set
+\begin{equation}\label{eq:coordinates}
+ D=d+1,\qquad H=\frac1{a(K)},\qquad Q=\frac{a(K)R(K)}{g(d)}.
+\end{equation}
+The formal point has $(D,H,Q)=(1,1,1)$. Put
+\begin{equation}\label{eq:constants}
+ \alpha=\frac{87}{2000},\qquad \beta=\frac{11}{2000},\qquad
+ T=\alpha+\beta=\frac{49}{1000}.
+\end{equation}
+
+\begin{theorem}[Mixed envelope]\label{thm:main}
+Every $K\in\CC$ satisfies
+\begin{equation}\label{eq:main}
+ \log Q(K)\le
+ \alpha\left(D-\frac{H^2}{D}\right)
+ +\beta\left(D-\frac{H^4}{D^3}\right).
+\end{equation}
+Consequently, for $\CC_d=\{K\in\CC:\dim K=d\}$,
+\begin{equation}\label{eq:rate}
+ 2.8534<\Gamma_{\CC}:=
+ \lim_{d\to\infty}\sup_{K\in\CC_d}R(K)^{1/d}
+ \le e^{1049/1000}<2.855.
+\end{equation}
+The lower endpoint is the existing certified self-similar construction of \cite{calculus}; it is not a new lower construction here.
+\end{theorem}
+
+The public quadratic Bellman supplement \cite{quadratic} already proves a full-class ceiling below $2.8589$ and records numerical evidence for a mixed quadratic/quartic potential. The contribution of Theorem~\ref{thm:main} is exact certification of the displayed, strictly smaller ceiling over every finite product/join tree. We compare the actual constants in Section~\ref{sec:comparison}. The method of homogeneous concave Bellman supersolutions is established prior methodology \cite{tree,hessian,isoperimetric}; no claim of first discovery is made.
+
+\section{Join closure and the exact product reduction}
+
+The inherited join calculus is
+\begin{equation}\label{eq:join}
+ (D,H,Q)(A*B)=(D_A+D_B,H_A+H_B,Q_AQ_B).
+\end{equation}
+For a product of positive-dimensional factors of dimensions $r,s$, put $n=r+s$, $h=H_A$, and $j=H_B$. The exact product calculus is
+\begin{equation}\label{eq:product}
+ H'=\frac{n}{r/h+s/j},\qquad D'=n+1,\qquad
+ Q'=Q_AQ_BCx,
+\end{equation}
+where
+\begin{equation}\label{eq:Cx}
+ C=\frac{g(r)g(s)}{g(n)},\qquad x=\frac{sh+rj}{n}.
+\end{equation}
+Every positive-dimensional state in $\CC$ satisfies
+\begin{equation}\label{eq:statebox}
+ 2\le H\le d+1.
+\end{equation}
+The upper bound is the inherited $a\ge1/(d+1)$. For the lower bound, a join of two points has $H=2$. Joins add $H$, and products make $a$ a dimension-weighted arithmetic mean of the input $a$-values. Induction therefore gives $a\le1/2$ for all positive-dimensional states in this class. No symmetry assumption is used.
+
+Define the proposed potential
+\[
+ \Phi(D,H)=TD-\alpha H^2/D-\beta H^4/D^3.
+\]
+For $p\ge1$, weighted Jensen's inequality gives
+\begin{equation}\label{eq:perspective}
+ \frac{(H_1+H_2)^p}{(D_1+D_2)^{p-1}}
+ \le\frac{H_1^p}{D_1^{p-1}}+\frac{H_2^p}{D_2^{p-1}}.
+\end{equation}
+Applying this with $p=2,4$ shows that $\Phi$ is superadditive under simultaneous addition of $(D,H)$. Thus \eqref{eq:main} is preserved by joins. The point has equality because $T=\alpha+\beta$.
+
+For the product, set
+\[
+ \Delta_p=-1+\frac{h^p}{(r+1)^{p-1}}+
+ \frac{j^p}{(s+1)^{p-1}}-\frac{(H')^p}{(n+1)^{p-1}}.
+\]
+The difference between the product potential and the sum of the input potentials is $\alpha\Delta_2+\beta\Delta_4$. Hence product closure follows from
+\begin{equation}\label{eq:exactcondition}
+ \log(Cx)\le\alpha\Delta_2+\beta\Delta_4.
+\end{equation}
+
+Weighted harmonic mean is at most weighted arithmetic mean and at most weighted fourth-power mean. In particular,
+\[
+ H'\le\frac{rh+sj}{n},\qquad (H')^4\le\frac{rh^4+sj^4}{n}.
+\]
+Define
+\begin{equation}\label{eq:G2}
+ G_2=\frac{h^2}{r+1}+\frac{j^2}{s+1}
+ -\frac{(rh+sj)^2}{n^2(n+1)},
+\end{equation}
+\begin{equation}\label{eq:G4}
+ G_4=A_4h^4+B_4j^4,\qquad
+ A_4=\frac1{(r+1)^3}-\frac r{n(n+1)^3},\quad
+ B_4=\frac1{(s+1)^3}-\frac s{n(n+1)^3}.
+\end{equation}
+Then $\Delta_2\ge G_2-1$ and $\Delta_4\ge G_4-1$. It is sufficient to prove
+\begin{equation}\label{eq:f}
+ f_{r,s}(h,j):=\log(Cx)-\alpha G_2-\beta G_4+T<0
+\end{equation}
+on $[2,r+1]\times[2,s+1]$ for every positive integer dimension split.
+
+Both quartic coefficients are positive: for example $r(r+1)^3<n(n+1)^3$. The quadratic form $G_2$ is positive definite. Indeed, weighted Cauchy's inequality gives
+\[
+ (rh+sj)^2\le\bigl(r^2(r+1)+s^2(s+1)\bigr)
+ \left(\frac{h^2}{r+1}+\frac{j^2}{s+1}\right),
+\]
+and
+\[
+ n^2(n+1)-r^2(r+1)-s^2(s+1)=rs(3n+2)>0.
+\]
+Equivalently, its first diagonal coefficient is positive and its determinant is
+\begin{equation}\label{eq:det}
+ \frac{rs(3n+2)}{(r+1)n^2(s+1)(n+1)}>0.
+\end{equation}
+Therefore $f_{r,s}$ is strictly concave on the positive quadrant. A supporting plane bounds every real state in its rectangle. By symmetry we assume $r\le s$ and treat three exhaustive ranges: $s<200$, $r<200\le s$, and $r,s\ge200$.
+
+\section{Both factors large: an analytic estimate}\label{sec:large}
+
+This argument in fact covers $r,s\ge160$. Put
+\[
+ \delta=4rs+3n+2,\qquad k=\frac{3n+2}{\delta}.
+\]
+Direct expansion gives the nonnegative-square identity
+\begin{align}\label{eq:square}
+ G_2-kx^2={}&\frac{rs}{(r+1)n^2(s+1)(n+1)\delta}\notag\\
+ &\times\bigl[(s+1)(3r+s+2)h-(r+1)(r+3s+2)j\bigr]^2\ge0.
+\end{align}
+Since $G_4\ge0$, maximizing over all $x>0$ gives
+\begin{equation}\label{eq:largemax}
+ f_{r,s}\le\log(Cx)-\alpha kx^2+T
+ \le\frac12\log\frac{C^2}{2\alpha k}-\frac12+T.
+\end{equation}
+It is enough to prove
+\begin{equation}\label{eq:largetarget}
+ \frac{C^2}{k}<2\alpha e^{1-2T}.
+\end{equation}
+
+\begin{lemma}[Normalized factorial estimate]\label{lem:factorial}
+For positive integers $r,s$, with $n=r+s$,
+\begin{equation}\label{eq:factorial}
+ C<\sqrt{\frac{n}{2\pi rs}}.
+\end{equation}
+For fixed $r$, and $z=1/s$, one also has
+\begin{equation}\label{eq:factorialtail}
+ C<g(r)e^{-r}\sqrt{1+rz}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $t>1$,
+\begin{equation}\label{eq:loglower}
+ \log t>\frac{2(t-1)}{t+1}.
+\end{equation}
+The difference is zero at one and has derivative $(t-1)^2/[t(t+1)^2]>0$. Define
+\[
+ v_m=\frac{m!e^m}{m^m\sqrt m}\quad(m\ge1).
+\]
+Then
+\[
+ \log(v_{m+1}/v_m)=1-(m+1/2)\log(1+1/m)<0.
+\]
+Thus $v_m$ strictly decreases to $\sqrt{2\pi}$ by ordinary Stirling asymptotics. Exact substitution gives
+\[
+ C=\frac{v_n}{v_rv_s}\sqrt{\frac n{rs}}
+ <\frac1{v_s}\sqrt{\frac n{rs}}
+ <\sqrt{\frac n{2\pi rs}},
+\]
+which proves \eqref{eq:factorial}. Alternatively,
+\[
+ C=g(r)e^{-r}\frac{v_{r+s}}{v_s}\sqrt{\frac{r+s}{s}},
+\]
+which proves \eqref{eq:factorialtail}.
+\end{proof}
+
+For $r,s\ge160$, Lemma~\ref{lem:factorial} yields
+\begin{align}\label{eq:largeconstant}
+ \frac{C^2}{k}
+ &<\frac2\pi\left(\frac{n}{3n+2}+\frac{n}{4rs}\right)\notag\\
+ &<\frac{2/3+1/160}{\pi}<\frac{1615}{7536}.
+\end{align}
+The middle inequality uses $1/r+1/s\le1/80$, and the last uses $\pi>157/50$. The remaining exact comparison is
+\begin{equation}\label{eq:largeTaylor}
+ \frac{1615}{7536}
+ <\frac{87}{1000}\sum_{m=0}^{10}\frac{(451/500)^m}{m!}
+ <\frac{87}{1000}e^{451/500}=2\alpha e^{1-2T}.
+\end{equation}
+The first inequality is rational and is checked by \code{check_mixed_large_dimensions.py}; the second follows from positivity of the exponential series. Equations~\eqref{eq:largemax}--\eqref{eq:largeTaylor} prove \eqref{eq:f} throughout this range, without the state box constraints.
+
+For completeness, the bound on $\pi$ follows from Machin's identity and alternating series:
+\begin{align*}
+ \pi&=16\arctan(1/5)-4\arctan(1/239)\\
+ &>16\left(\frac15-\frac1{3\cdot5^3}+\frac1{5\cdot5^5}-\frac1{7\cdot5^7}\right)-\frac4{239}
+ >\frac{157}{50}.
+\end{align*}
+The final comparison is rational. To verify the identity, the tangent double-angle formula gives $\tan(4\arctan(1/5))=120/119$ and
+$\tan(4\arctan(1/5)-\arctan(1/239))=1$; the latter angle lies in $(0,\pi/2)$.
+
+\section{Finite dimension rectangles: exact supporting planes}\label{sec:finite}
+
+There are 19,900 pairs $1\le r\le s\le199$. For each pair, the certificate \code{mixed_finite_points.json} supplies a rational point $p=(h_0,j_0)$ of common denominator $10^9$ in
+\[
+ \mathcal B_{r,s}=[2,r+1]\times[2,s+1].
+\]
+Strict concavity implies
+\begin{equation}\label{eq:tangent}
+ f_{r,s}(h,j)\le f_{r,s}(p)+\nabla f_{r,s}(p)\cdot((h,j)-p).
+\end{equation}
+Every derivative at $p$ is rational. With $v=rh+sj$, the formulas are
+\begin{align}\label{eq:finitegradient}
+ \partial_hf&=\frac{s}{nx}
+ -\alpha\left(\frac{2h}{r+1}-\frac{2rv}{n^2(n+1)}\right)-4\beta A_4h^3,\notag\\
+ \partial_jf&=\frac{r}{nx}
+ -\alpha\left(\frac{2j}{s+1}-\frac{2sv}{n^2(n+1)}\right)-4\beta B_4j^3.
+\end{align}
+For a derivative $g$, the maximizing coordinate in \eqref{eq:tangent} is the upper endpoint if $g\ge0$ and the lower endpoint otherwise. Thus the exact linear support correction is
+\[
+ S_p=g_h(e_r(g_h)-h_0)+g_j(e_s(g_j)-j_0),\qquad
+ e_d(g)=\begin{cases}d+1,&g\ge0,\\2,&g<0.\end{cases}
+\]
+This includes the degenerate interval $[2,2]$ when a factor has dimension one.
+
+The independent verifier \code{check_finite.py} checks all constants, integer row types, ordered coverage of every pair, and membership of each point in its rectangle. It recomputes \eqref{eq:G2}--\eqref{eq:finitegradient} exactly, encloses $f_{r,s}(p)$ with the rational logarithm bounds in Section~\ref{sec:verification}, and proves
+\begin{equation}\label{eq:finitecheck}
+ \overline{f_{r,s}(p)}+S_p<-\frac3{2000}.
+\end{equation}
+Here an overline denotes the proved upper interval endpoint. Acceptance does not require the point to be an optimizer or a stationary point. Numerical optimization only proposes the stored rational point; the verifier imports no numerical optimization package.
+
+The greatest certified upper bound occurs at $(r,s)=(5,5)$ and
+\[
+ p=\left(\frac{5995534181}{10^9},\frac{5995534181}{10^9}\right).
+\]
+Its complete rational value, gradients, and support correction are recorded in \code{finite_report.json}. Combining \eqref{eq:tangent} and \eqref{eq:finitecheck} proves strict negativity on every real state in every finite rectangle, rather than only at the stored points.
+
+\section{Imbalanced dimensions: a compact interval certificate}\label{sec:tail}
+
+Fix $1\le r<200$ and let $s\ge200$. Set
+\[
+ z=1/s\in(0,1/200],\qquad h=H_A,\qquad u=H_B/(s+1).
+\]
+Every actual state lies in the enlarged fixed box
+\[
+ \mathcal B_r=[2,r+1]\times[0,1].
+\]
+The enlargement of the second lower bound is deliberate and only strengthens the required assertion. Define
+\begin{align*}
+ P_2&=(1+rz)^2(1+(r+1)z),\\
+ S_2&=3+(3r+2)z+r(r+1)z^2,\\
+ P_4&=(1+rz)(1+(r+1)z)^3,\\
+ S_4&=4+(6r+9)z+(4r^2+9r+6)z^2+(r+1)^3z^3.
+\end{align*}
+Exact cancellation of the apparent singularity at $z=0$ gives
+\begin{align}\label{eq:tailquad}
+ G_2&=ah^2+bhu+cu^2,\notag\\
+ a&=\frac1{r+1}-\frac{r^2z^3}{P_2},\qquad
+ b=-\frac{2rz(1+z)}{P_2},\qquad
+ c=\frac{r(1+z)S_2}{P_2},
+\end{align}
+\begin{align}\label{eq:tailquartic}
+ G_4&=a_4h^4+d_4u^4,\notag\\
+ a_4&=\frac1{(r+1)^3}-\frac{rz^4}{P_4},\qquad
+ d_4=\frac{r(1+z)S_4}{P_4}.
+\end{align}
+These rational functions are regular on the whole closed interval $[0,1/200]$. For $z>0$, the quartic coefficients are positive and $G_2$ is positive definite by the preceding product reduction. The same properties hold at $z=0$, where $a=1/(r+1)$, $b=0$, $c=3r$, $a_4=1/(r+1)^3$, and $d_4=4r$.
+
+By Lemma~\ref{lem:factorial}, the original product violation is bounded above by
+\begin{align}\label{eq:tailF}
+ F_{r,z}(h,u)={}&\log g(r)-r+
+ \log(h+r(1+z)u)-\tfrac12\log(1+rz)\notag\\
+ &-\alpha G_2-\beta G_4+T.
+\end{align}
+Indeed $x=[h+r(1+z)u]/(1+rz)$, so multiplication by the bound \eqref{eq:factorialtail} gives precisely the logarithmic expression in \eqref{eq:tailF}. The function is strictly concave in $(h,u)$ for every $z$ in the closed interval. The endpoint $z=0$ is only its regular algebraic extension; no infinite-dimensional body is asserted.
+
+\subsection{A uniform supporting bound on one rational cell}
+
+Let $I=[z_0,z_1]\subset[0,1/200]$ have rational endpoints and let $p=(h_0,u_0)\in\mathcal B_r$ be rational. Ordinary rational interval arithmetic encloses all coefficient functions on $I$. Write $a\in[a_-,a_+]$, $b\in[b_-,b_+]$, $c\in[c_-,c_+]$, and define
+\begin{equation}\label{eq:curvature}
+ m_h=\frac{a_-}{2},\qquad
+ m_u=c_- -\frac{\max(b_-^2,b_+^2)}{2a_-}.
+\end{equation}
+The checker requires both to be strictly positive. Young's inequality gives, for every $z\in I$ and every displacement $\eta$,
+\begin{equation}\label{eq:young}
+ a\eta_h^2+b\eta_h\eta_u+c\eta_u^2
+ \ge m_h\eta_h^2+m_u\eta_u^2.
+\end{equation}
+For example $|b\eta_h\eta_u|\le(a_-/2)\eta_h^2+
+ b^2\eta_u^2/(2a_-)$. The logarithm has a concave supporting plane, the quartic terms have favorable remainders, and $G_2$ has an exact quadratic expansion. Therefore
+\begin{equation}\label{eq:strongsupport}
+ F_{r,z}(p+\eta)\le F_{r,z}(p)+\nabla F_{r,z}(p)\cdot\eta
+ -\alpha(m_h\eta_h^2+m_u\eta_u^2).
+\end{equation}
+
+The state derivatives are rational functions of $z$ at $p$. With $M=h+r(1+z)u$, they are
+\begin{align}\label{eq:tailgrad}
+ F_h&=\frac1M-\alpha(2ah+bu)-4\beta a_4h^3,\notag\\
+ F_u&=\frac{r(1+z)}M-\alpha(bh+2cu)-4\beta d_4u^3.
+\end{align}
+The value \eqref{eq:tailF} and both derivatives are enclosed over the entire cell, not evaluated only at a midpoint. Every division is checked to have a denominator interval separated from zero. The interval enclosure of a logarithm uses its monotonicity and the rational endpoint bounds described below.
+
+Suppose one enclosed derivative is $g\in[g_-,g_+]$ and its displacement interval is $[L,U]$, where $L\le0\le U$. To bound
+$g\eta-\alpha m\eta^2$, maximize
+\[
+ g_-\eta-\alpha m\eta^2\quad\text{on }[L,0],\qquad
+ g_+\eta-\alpha m\eta^2\quad\text{on }[0,U].
+\]
+Each maximum is attained at the rational vertex $g_\pm/(2\alpha m)$ clipped to its interval. The larger of these two exact maxima covers every possible derivative in the interval. Adding the two coordinate bounds to the upper interval endpoint for $F_{r,z}(p)$ gives a rigorous upper bound for every state and every $z\in I$ by \eqref{eq:strongsupport}.
+
+\subsection{Coverage of the entire infinite tail}
+
+The certificate \code{mixed_tail_certificate.json} partitions $[0,1/200]$ into rational dyadic cells, separately for every integer $1\le r<200$. Each cell carries a rational supporting point. The independent checker \code{check_mixed_tail.py} recomputes all enclosures and supporting bounds just described on 15,568 cells, of maximum subdivision depth seven, and proves that every upper bound is strictly below $-10^{-8}$.
+
+For each dimension, it sorts the cells and verifies that their endpoints meet exactly from zero to $1/200$, with neither a gap nor an overlap. Thus the proof covers every real $z$ in the interval and every state in $\mathcal B_r$, and therefore every integer $s\ge200$. It is not an extrapolation from a finite list of dimension values. The stored report \code{mixed_tail_report.json} records the exact uniform negative endpoint and the certificate hash.
+
+\section{Exact verification and completion of the theorem}\label{sec:verification}
+
+All logarithm bounds use the following elementary identity. For a positive rational argument, reduce by powers of two to $x=2^k y$ with $1\le y\le2$, and set $w=(y-1)/(y+1)\in[0,1/3]$. Then
+\begin{equation}\label{eq:logseries}
+ \log y=2\sum_{m=0}^{N-1}\frac{w^{2m+1}}{2m+1}+E_N,
+ \qquad 0\le E_N\le
+ \frac{2w^{2N+1}}{(2N+1)(1-w^2)}.
+\end{equation}
+This follows from the integrated geometric series, bounding every omitted denominator below by $2N+1$. The same expansion at $w=1/3$ encloses $\log2$. Negative integer multiples swap interval endpoints before addition.
+
+The finite checker uses $N=20$ and rounds each proved logarithm interval outward to denominator $2^{96}$ by exact integer floor and ceiling. It caches integer logarithms through 398 and sums them to enclose factorial logarithms, using
+\[
+ \log C=r\log r+s\log s-n\log n+
+ \log(n!)-\log(r!)-\log(s!).
+\]
+The logarithm of the rational state $x$ is enclosed directly. The tail checker uses $N=28$ and outward rounding to denominator $10^{24}$. Outward rounding widens an already proved enclosure and preserves its correctness. All subsequent operations use integer or fraction arithmetic with the correct interval signs. Numerical packages are used only by optional point generators, and are not imported by the certificate checkers.
+
+Sections~\ref{sec:large}--\ref{sec:tail} exhaust all positive integer splits. They prove \eqref{eq:f}, hence \eqref{eq:exactcondition}. Products therefore preserve \eqref{eq:main}; joins preserve it by \eqref{eq:perspective}; and the point satisfies it. Structural induction over finite construction expressions and affine invariance prove the envelope in Theorem~\ref{thm:main}.
+
+\subsection{The spectral reduction and the limiting constant}
+
+For completeness, we give the inherited reduction \cite{spectral} in the present class. Set
+\[
+ \lambda(K)=Q(K)^{1/(d+1)},\qquad \lambda_*=
+ \sup_{K\in\CC,\ d\ge1}\lambda(K).
+\]
+From $R=g(d)HQ$ and $1\le H\le d+1$,
+\[
+ \sup_{K\in\CC_d}R(K)^{1/d}
+ \le\bigl((d+1)g(d)\lambda_*^{d+1}\bigr)^{1/d}.
+\]
+Stirling's formula gives $g(d)^{1/d}\to e$, so the limiting upper bound is $e\lambda_*$.
+
+For the reverse bound, fix $K\in\CC$ of dimension $d$ and write $n+1=k(d+1)+q$ with $0\le q\le d$. Take the join of $k$ copies of $K$ and, when $q>0$, a $(q-1)$-simplex. A simplex is the join of points and has $Q=1$. The resulting body has dimension $n$, has $Q=Q(K)^k$, and has $H\ge1$. Thus its $R^{1/n}$ is at least $g(n)^{1/n}Q(K)^{k/n}$, which tends to $e\lambda(K)$. Taking the supremum over fixed $K$ proves existence of the limit and
+\begin{equation}\label{eq:spectral}
+ \Gamma_{\CC}=e\lambda_*.
+\end{equation}
+The envelope gives
+\[
+ \log\lambda(K)\le T-\alpha(H/D)^2-\beta(H/D)^4<T.
+\]
+Taking the supremum and using \eqref{eq:spectral} proves $\Gamma_{\CC}\le e^{1+T}$.
+
+With $x=1049/1000$, a positive exponential series and a geometric tail give
+\begin{equation}\label{eq:decimal}
+ e^x<\sum_{m=0}^{12}\frac{x^m}{m!}
+ +\frac{x^{13}/13!}{1-x/14}<\frac{571}{200}=2.855.
+\end{equation}
+Every successive ratio after the first omitted term is at most $x/14<1$, proving the tail estimate; the final rational comparison is replayed by the large-dimension checker. The lower endpoint in \eqref{eq:rate} is the exact self-similar result in \cite{calculus}, whose original certificate was also successfully replayed. This completes Theorem~\ref{thm:main}.
+
+\subsection{Reproduction and the role of the certificates}
+
+The companion files include the complete finite and interval point data, the three standard-library Python checkers, and the exact reports. The mathematical induction, concavity arguments, interval coverage, and analytic large-factor estimate are written above; the finite arithmetic comparisons are supplied by the executable certificates. This is an exact computer-assisted proof, not a proof-assistant formalization.
+
+The verification commands, from the companion directory, are
+\begin{verbatim}
+python3 check_finite.py mixed_finite_points.json --quiet
+python3 check_mixed_tail.py
+python3 check_mixed_large_dimensions.py
+\end{verbatim}
+Each also passes with \code{python3 -O}. All correctness checks use explicit exceptions, so optimization does not disable them. Ordinary and optimized finite reports are byte-identical. The proofs and checkers have undergone a separate model-conducted mathematical audit; this does not assert independent human peer review. The optional numerical generators reproduce proposed supporting points but are unnecessary when replaying the saved exact certificates.
+
+\section{Comparison, scope, and remaining questions}\label{sec:comparison}
+
+The public quadratic Bellman supplement \cite{quadratic} proves the ceiling $e^{1+\alpha_*}$, with
+\[
+ \alpha_* =\frac{11}{85}\log\frac{189}{128},\qquad
+ 2.8534<\Gamma_{\CC}\le e^{1+\alpha_*}<2.8589.
+\]
+The strict improvement here is a comparison of actual constants. By \eqref{eq:loglower},
+\[
+ \alpha_* >\frac{11}{85}\frac{2(189-128)}{189+128}
+ =\frac{1342}{26945}>\frac{49}{1000}=T.
+\]
+The final rational gap is $21695/26945000>0$. Therefore $e^{1+T}<e^{1+\alpha_*}$, independently of their rounded decimal bounds. The public supplement had already recorded numerical evidence for the mixed-potential direction; the result here is its stronger rigorous certification at the displayed parameters.
+
+The related public version-5 theorem \cite{balanced} classifies balanced homogeneous simplex recursions and identifies the binary $T_5$ orbit as their unique optimum. The present theorem instead controls arbitrary finite point-generated operation trees. It neither identifies the full-class supremum nor proves optimality of that orbit. No finite spectral improvement is presented as an improvement of the actual limiting lower rate, and the earlier optimum over products of simplices is not recast as an unrestricted optimum.
+
+For unrestricted convex bodies, Lutwak--Yang--Zhang \cite{lyz} give
+\[
+ R(K)\le\frac{d^d(d+1)^{(d+1)/2}}{(d!)^{3/2}},
+\]
+whose asymptotic upper root is $e^{3/2}$. A smaller classical unrestricted bound is recorded by Saroglou \cite{saroglou2015}: Zhang's lower inequality for $|\Pi^\circ K||K|^{d-1}$ and Blaschke--Santal\'o for the symmetric body $\Pi K$ yield
+\[
+ R(K)\le\omega_d^2\frac{d^d(d!)^2}{(2d)!},
+ \qquad\omega_d=|B_2^d|.
+\]
+Stirling's formula gives its limiting root $\pi e/2$. These are prior unrestricted upper bounds, not conclusions of this paper. The recent counterexample constructions of Feng--Hu--Liu--Xu \cite{fhlx} and the zonotope results of Henk \cite{henk} provide relevant background but do not identify the optimal high-dimensional root considered here.
+
+Homogeneous concave potentials and local inequalities that telescope over trees are established Bellman methodology; see, for example, \cite{tree,hessian,isoperimetric}. The focused primary-source comparison did not locate a matching certified mixed projection-body inequality, but that limited search is not an absence or priority certificate. The full text of Saroglou's 2011 cone study \cite{saroglou2011} was unavailable in that comparison; no claim of disjointness from all its identities is made. The companion literature note records the exact sources inspected and their limitations.
+
+The point-generation hypothesis is essential to the stated proof: it supplies $H\ge2$ in the state rectangles. The theorem is not an unrestricted extremal statement. The remaining certified interval is
+\[
+ 2.8534<\Gamma_{\CC}<2.855.
+\]
+Determining its optimal constant, proving optimality of a limiting construction, or producing a better certified lower construction remains open.
+
+\begin{thebibliography}{99}
+\bibitem{calculus}
+mxym, \emph{Projection-volume calculus for joins and Cartesian products}, entry 005, version 2, AI-assisted research manuscript, 7 October 2026.
+\href{https://github.com/mxym/math/blob/3360e7191cf564a46d09edcbfbd107c9178bd98f/preprints/005-simplex-product-optimum/v2/paper.md}{Version 2 source at commit 3360e719}.
+
+\bibitem{spectral}
+mxym, \emph{Asymptotic spectral reduction for the product/join calculus}, supplement to entry 005 v2, 7 October 2026.
+\href{https://github.com/mxym/math/blob/3360e7191cf564a46d09edcbfbd107c9178bd98f/preprints/005-simplex-product-optimum/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md}{Spectral supplement at commit 3360e719}.
+
+\bibitem{quadratic}
+mxym, \emph{A Bellman upper bound for the product/join closure}, supplement to entry 005 v2, public version inspected at commit \code{3360e719}, 7 October 2026.
+\href{https://github.com/mxym/math/blob/3360e7191cf564a46d09edcbfbd107c9178bd98f/preprints/005-simplex-product-optimum/v2/BELLMAN_UPPER_BOUND.md}{Quadratic supplement at commit 3360e719}.
+
+\bibitem{balanced}
+mxym, \emph{The unique balanced homogeneous simplex recursion}, entry 005, version 5, AI-assisted research manuscript, 7 October 2026.
+\href{https://github.com/mxym/math/blob/3360e7191cf564a46d09edcbfbd107c9178bd98f/preprints/005-simplex-product-optimum/v5/paper.md}{Version 5 source at commit 3360e719}.
+
+\bibitem{lyz}
+E. Lutwak, D. Yang, and G. Zhang, A new affine invariant for polytopes and Schneider's projection problem, \emph{Trans. Amer. Math. Soc.} \textbf{353} (2001), 1767--1779.
+\href{https://doi.org/10.1090/S0002-9947-01-02726-X}{doi:10.1090/S0002-9947-01-02726-X}.
+Author text: \url{https://cims.nyu.edu/~yangd/papers/trans.pdf}.
+
+\bibitem{saroglou2015}
+C. Saroglou, On the shape of a convex body with respect to its second projection body, \emph{Adv. Appl. Math.} \textbf{67} (2015), 55--74.
+\url{https://arxiv.org/abs/1409.4347}.
+
+\bibitem{saroglou2011}
+C. Saroglou, Volumes of projection bodies of some classes of convex bodies, \emph{Mathematika} \textbf{57} (2011), 329--353.
+\href{https://doi.org/10.1112/S0025579311001860}{doi:10.1112/S0025579311001860}.
+
+\bibitem{fhlx}
+Y. Feng, S. Hu, W. Liu, and L. Xu, \emph{On the Reverse Projection Inequality}, author-uploaded research preprint, PDF dated 26 August 2026, MathSciDoc 2608.23002.
+\url{https://archive.ymsc.tsinghua.edu.cn/pacm_paperurl/20260821091122099811781}.
+
+\bibitem{henk}
+M. Henk, Note on projection bodies of zonotopes with $n+1$ generators, \emph{Acta Math. Sci.} \textbf{45} (2025), 96--103.
+\href{https://doi.org/10.1007/s10473-025-0107-9}{doi:10.1007/s10473-025-0107-9}.
+
+\bibitem{tree}
+N. Arcozzi, I. Holmes, P. Mozolyako, and A. Volberg, Bellman function sitting on a tree, \emph{Int. Math. Res. Not.} \textbf{2021} (2021), 12037--12053.
+\href{https://doi.org/10.1093/imrn/rnz224}{doi:10.1093/imrn/rnz224}; \url{https://arxiv.org/abs/1809.03397}.
+
+\bibitem{hessian}
+P. Ivanisvili and A. Volberg, \emph{Hessian of Bellman functions and uniqueness of Brascamp--Lieb inequality}, preprint, 2014.
+\url{https://arxiv.org/abs/1411.5349}.
+
+\bibitem{isoperimetric}
+P. Ivanisvili and A. Volberg, \emph{Bellman partial differential equation and the hill property for classical isoperimetric problems}, preprint, 2015.
+\url{https://arxiv.org/abs/1506.03409}.
+\end{thebibliography}
+\end{document}

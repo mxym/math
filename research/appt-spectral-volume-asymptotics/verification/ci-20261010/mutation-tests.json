@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Original checker plus precise rejection of three source mutations; not a proof of the continuum theorem",
+  "source_sha256": "716dbd28039d459729f68c976edb53efe1a278f432d476fe6780abdbe80c3744",
+  "checks": [
+    {
+      "case": "original",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "EXACT_ANCILLARY_CHECKS_PASS\nGEOMETRY_CASES 36 VERTICES 2760\nSYMBOLIC_DENSITY_MOMENTS_PASS\nNEGATIVE_CONTROLS_REJECTED 4\n"
+    },
+    {
+      "case": "original optimized",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "EXACT_ANCILLARY_CHECKS_PASS\nGEOMETRY_CASES 36 VERTICES 2760\nSYMBOLIC_DENSITY_MOMENTS_PASS\nNEGATIVE_CONTROLS_REJECTED 4\n"
+    },
+    {
+      "case": "changed factorial numerator",
+      "exit_code": 1,
+      "passed": true,
+      "rejection": "tangent volume factorial identity",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 246, in <module>\n    main()\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 230, in main\n    'geometry':check_geometry(), 'slots':check_slot_identities(),\n               ^^^^^^^^^^^^^^^^\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 95, in check_geometry\n    require(product == tangent_volume(m, n), 'tangent volume factorial identity')\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 25, in require\n    raise ValueError(message)\nValueError: tangent volume factorial identity\n"
+    },
+    {
+      "case": "changed leading coefficient",
+      "exit_code": 1,
+      "passed": true,
+      "rejection": "qubit leading constant",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 246, in <module>\n    main()\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 231, in main\n    'probability':check_dirichlet_bounds(), 'constants':check_constants_and_moments(),\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 174, in check_constants_and_moments\n    require(constant_squared_over_2pi(2) == F(243, 16), 'qubit leading constant')\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 25, in require\n    raise ValueError(message)\nValueError: qubit leading constant\n"
+    },
+    {
+      "case": "changed density second moment",
+      "exit_code": 1,
+      "passed": true,
+      "rejection": "limiting density exact second moment",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 246, in <module>\n    main()\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 231, in main\n    'probability':check_dirichlet_bounds(), 'constants':check_constants_and_moments(),\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 189, in check_constants_and_moments\n    require(square == expected, 'limiting density exact second moment')\n  File \"/tmp/appt-volume-checker-tests-ylrbqw4b/check.py\", line 25, in require\n    raise ValueError(message)\nValueError: limiting density exact second moment\n"
+    }
+  ]
+}

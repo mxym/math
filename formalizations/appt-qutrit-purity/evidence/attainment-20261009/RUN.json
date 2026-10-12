@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "scope": "quantum positive-contraction orbit and sparse-merge checkpoint; NOT full purity theorem",
+  "lean": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "sources": {
+    "APPT/CoefficientMerge.lean": "9ee66cdd3d67752f592d633250747cf7fdfebdd14b1bd25526942e7ae60b56a8",
+    "APPT/Core.lean": "9ec88b8962a48e34276c2a90d54e2c130d9a6985418aa5cf6ff2c82b29797640",
+    "APPT/Quantum/Attainment.lean": "f4fbf398614ea3196f3d6732ff672cbceba959d9c1bfec04001a97e3f4a42795",
+    "APPT/Quantum/Basic.lean": "8f4fdcd32e939b908cd67a94574eed5f06cb21f0986533af6fd3e00e0bd1b1f3",
+    "APPT/Quantum/BlockMaps.lean": "2533e009f85241761114b82c4e50b8b34164c905af38c17ef9cb22a91b6e4fa0",
+    "APPT/Quantum/Contractions.lean": "cd561c0b85308ecb087d7d508e9295b2712602294dd8902ab2492d4852c25211",
+    "APPT/Quantum/LongAttainment.lean": "2c2b1b9af7ad4a5492b46f48766dafbceeec15ec15aa464aaf0db398491a5575",
+    "APPT/Quantum/Orbit.lean": "1058bd6b272c38ad4f7b1617984b1d45c2dea6e585932f2f22785a7ce6261630",
+    "APPT/Quantum/PureGram.lean": "da69d4fb5ee95f9626461f977260465acfa0514dccd7a32a4143e68b2d2c0777",
+    "APPT/Quantum/PureOrbit.lean": "645e79bd6bc7e22020ff003291f1c0a789e038a8b91240efc0d29c9a8e658bc3",
+    "APPT/Quantum/PureProjector.lean": "5270fe324692a8103c03cca42aa87e7fb312b526bd7af644d61408984f70865b",
+    "APPT/Quantum/RectangularContraction.lean": "cc9ba56585e15e158b9c3da8c523b6d8dbe264af3710333b759ac5ed84034e32",
+    "APPT/Quantum/ShortAttainment.lean": "95a762442c1c0dbbb54358f70efefe9a0c9b0b0ee0bf198f577b5a6d3ad0107b",
+    "APPT.lean": "e38bfc41c277ec4bc6c9ac847aba786d5fc001ac4d6c185ef8964f46e6a5e256",
+    "CheckpointReplay.lean": "0d52e2e73c01496f9a33deb5d89589ee8e25c7dfe9eed3d6bca1b1827adbeb78",
+    "PositiveCoefficient.lean": "fae9bf98e5a7f2d9e96d3f2f9be7f2f7439abfbeb4a0f0922cfd4be7f384401a",
+    "RejectCoefficient.lean": "744239893fce6af5e6cc8bdff6c7d6ed0e41a202a33d555fd4bba1116c4900a9",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lakefile.toml": "b21b26b8e69c627e38778cd38b6a8d58731730697e6295c87e508449585c2536",
+    "lake-manifest.json": "262a9805db549ce3bf7ce6d848cab7aafca942a9cebec14c988591e6311f192d",
+    "reproduce.py": "75a9f35d55af001856bb5c9f6b41c012c3795fc566b1a5e53e99e1c8432adb8b"
+  },
+  "checks": [
+    {
+      "name": "lake-build",
+      "command": [
+        "lake",
+        "build"
+      ],
+      "exit_code": 0,
+      "expected_rejection": false,
+      "passed": true,
+      "seconds": 93.055,
+      "log_sha256": "06b71f96cf2ce89808f5f18688a0b5c1ddaf7b1e1b91d7ab328edb4f1e2684fe"
+    },
+    {
+      "name": "positive-coefficient",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M12288",
+        "PositiveCoefficient.lean"
+      ],
+      "exit_code": 0,
+      "expected_rejection": false,
+      "passed": true,
+      "seconds": 13.55,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "negative-coefficient",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M12288",
+        "RejectCoefficient.lean"
+      ],
+      "exit_code": 1,
+      "expected_rejection": true,
+      "passed": true,
+      "seconds": 15.059,
+      "log_sha256": "4b17e8f49d24dc08d0987ceb5bc7695b24e9894d6ad963f58a1395637a07514f"
+    },
+    {
+      "name": "empty-kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M12288",
+        "CheckpointReplay.lean"
+      ],
+      "exit_code": 0,
+      "expected_rejection": false,
+      "passed": true,
+      "seconds": 40.845,
+      "log_sha256": "26c59d6222cb5dc7a67645110a0eb7184f2f8d254fea8022c71cfda42a1affcb"
+    }
+  ],
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

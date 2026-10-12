@@ -1,0 +1,41 @@
+name: Complete Lean verification of Wakhare entropy polynomial counterexample
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/wakhare-entropy-four-roots-lean.yml'
+      - 'formalizations/wakhare-entropy-four-roots-lean/**'
+  pull_request:
+    paths:
+      - '.github/workflows/wakhare-entropy-four-roots-lean.yml'
+      - 'formalizations/wakhare-entropy-four-roots-lean/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check full source and evidence checksum inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd formalizations/wakhare-entropy-four-roots-lean
+          sha256sum -c SHA256SUMS
+      - name: Compile original conjecture formula and four-root Lean theorem
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/wakhare-entropy-four-roots-lean
+          use-mathlib-cache: 'true'
+          build: 'true'
+          test: 'false'
+      - name: Audit complete theorem axioms and reject intentionally invalid proof
+        working-directory: formalizations/wakhare-entropy-four-roots-lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/replay.sh

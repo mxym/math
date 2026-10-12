@@ -1,0 +1,34 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_uniform_asymptotic_upper':
+(kernel) declaration type mismatch, 'APPTReview.appt_uniform_asymptotic_upper' has type
+  True
+but it is expected to have type
+  (ε : Real) →
+    @LT.lt Real Real.instLT 0 ε →
+      @Exists Nat fun M =>
+        (m n : Nat) →
+          @LE.le Nat instLENat M m →
+            @LE.le Nat instLENat m n →
+              (A : @Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) →
+                @APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A →
+                  @APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) (instDecidableEqFin m)
+                      (instDecidableEqFin n) A →
+                    @LE.le Real Real.instLE
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (@HPow.hPow Real Nat Real
+                          (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                            (@Nat.cast Real Real.instNatCast n))
+                          2)
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                          (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 1
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                              (@Nat.cast Real Real.instNatCast n)))))
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 1 ε)
+                        (@Max.max Real Real.instMax 8
+                          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 4
+                            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                              (@Nat.cast Real Real.instNatCast n) (@Nat.cast Real Real.instNatCast m)))))
+EMPTY_KERNEL_REPLAY_PASS 42044 declarations; 68 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_uniform_asymptotic_upper

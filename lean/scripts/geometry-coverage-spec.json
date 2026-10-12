@@ -1,0 +1,268 @@
+{
+  "Entry005.euclidean_unit_ball_cube": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 380–384 (cube inside the intrinsic unit ball after rescaling).",
+    "coverage_kind": "proved Euclidean volume helper",
+    "assumptions_summary": "An integer m ≥ 1; actual EuclideanSpace ℝ (Fin m) with its canonical Euclidean volume.",
+    "description": "Proves ENNReal.ofReal((2/m)^m) ≤ volume(closedBall(0,1)). The coordinate cube [−1/m,1/m]^m is proved to lie in the Euclidean unit ball; its actual product-box measure is transported by the volume-preserving PiLp map. No synthetic volume or exact unit-ball volume formula is assumed.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.unit_ball_cube": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 368–370 and 380–384 (intrinsic dimension m and cube lower bound).",
+    "coverage_kind": "proved intrinsic volume helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. The dimension m = finrank ℝ E satisfies m ≥ 1.",
+    "description": "Proves ENNReal.ofReal((2/m)^m) ≤ volume(closedBall(0:E,1)) for the actual intrinsic volume. It transports the Euclidean cube bound through a volume-preserving orthonormal-coordinate isometry.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.closest_support": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–365 (closest point and supporting unit normal).",
+    "coverage_kind": "proved geometric support helper",
+    "assumptions_summary": "A real inner product space E (NormedAddCommGroup and InnerProductSpace ℝ). K is a nonempty complete convex subset of E; q ∉ K. No finite-dimensionality, enclosing body, ball, projection-deficit or supporting-normal assumption.",
+    "description": "Produces k ∈ K and a unit normal n with s = ‖q−k‖ > 0, inner(n,q)−inner(n,k)=s, inner(n,x) ≤ inner(n,k) for every x ∈ K, and ‖q−k‖ ≤ ‖q−x‖ for every x ∈ K. The nearest point and whole-set supporting inequality are derived.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.cap_ball": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 373–379 (actual disjoint cap ball).",
+    "coverage_kind": "proved geometric cap construction",
+    "assumptions_summary": "A real inner product space E (NormedAddCommGroup and InnerProductSpace ℝ). Actual sets K,P; P convex and containing the closed unit ball; q ∈ P; ‖n‖=1; M ≥ 0; ‖q‖ ≤ M; 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). No convexity/completeness of K or inclusion K ⊆ P is required by this helper.",
+    "description": "For τ=s/[2(M+1)], proves closedBall((1−τ)q,τ) ⊆ P and disjointness of this actual ball from K. The support gap is a stated helper input; the terminal nested-body/projection theorems derive it.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.cap_measure_gain": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 373–384 (cap inclusion, disjoint additivity and actual volume gain).",
+    "coverage_kind": "proved Haar-volume cap helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Any additive Haar measure μ on E. Actual sets K ⊆ P, P convex and containing the closed unit ball, q ∈ P, ‖n‖=1, M ≥ 0, ‖q‖ ≤ M, 0 < s ≤ M, exact supporting gap inner(n,q)−inner(n,k)=s, and inner(n,x) ≤ inner(n,k) for all x ∈ K.",
+    "description": "Proves μ(K)+ENNReal.ofReal((s/[2(M+1)])^finrank(ℝ,E)) μ(closedBall(0,1)) ≤ μ(P). The summand is the Haar measure of the actual constructed disjoint cap ball, derived using Haar scaling and measure additivity; it is not a conclusion-shaped assumed gain.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.nested_body_cap_gain": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–365 and 373–384 (support construction followed by actual cap-volume gain).",
+    "coverage_kind": "proved nested-body cap-volume theorem",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies K,P; M ≥ 0; closed unit ball B ⊆ K ⊆ P ⊆ closedBall(0,M); q ∈ P and q ∉ K. Any additive Haar measure μ on E. No assumed nearest point, normal, cap inequality or projection deficit.",
+    "description": "Produces a closest k ∈ K and proves μ(K)+ENNReal.ofReal((‖q−k‖/[2(M+1)])^finrank(ℝ,E)) μ(B) ≤ μ(P). The supporting normal and gap are derived from compact convex K, and ‖q−k‖ ≤ M follows by comparing with 0 ∈ K.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.R0_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 57 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < R0(d)=d(d+1). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.b_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 58 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < b(d)=1/[4(dR0(d))^d]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.M_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 59 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < M(d)=1/b(d). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.Q_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 60 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < Q(d)=(d+1)(d+2)8^d M(d)^(4d), exactly the written b(d)^(−4d) expression. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.L_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 61–62 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < L(d)=(d−1)(M(d)+1). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.J_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 63–64 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 1 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < J(d)=(d/2)(2R0(d))^d[1+M(d)+d·2^(d−1)M(d)]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.rSharp_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 65–66 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < rSharp(d)=min{b(d), 1/[J(d)(8M(d)dL(d))^(d−1)]}. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.eSharp_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 67 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < eSharp(d)=rSharp(d)/[Q(d)(d+1)]. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.aSharp_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 68 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < aSharp(d)=4M(d)dL(d)[J(d)Q(d)(d+1)]^(1/(d−1)). This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.gSharp_pos": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Definitions and explicit constants, lines 69–70 and 72.",
+    "coverage_kind": "proved constant positivity only",
+    "assumptions_summary": "A natural dimension d with 2 ≤ d; the constants are the concrete real expressions in Entry005.Constants. No geometric or defect assumptions.",
+    "description": "Proves 0 < gSharp(d)=max{aSharp(d),(R0(d)−1)eSharp(d)^(−1/(d−1))}. This proves positivity only, not the sharp stability estimate, the threshold inequality, a best-possible multiplicative constant, or truncation sharpness.",
+    "unformalized_application_dependencies": [
+      "Only the displayed constant positivity is proved. The exact dimension-only gate aSharp(d) * eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3, and the local/global sharp-stability assembly, remain unproved. thresholdGateGoal is a proposed, independently typechecked Prop definition, not an exported theorem and not an added premise of sharpLocalGoal.",
+      "The positivity result does not establish the upstream arbitrary-body cone law, nonatomic integrated assignment, Cauchy/Minkowski projection-deficit bridge, maximum-simplex normalization, or actual simplex-matrix/volume and original-centroid conversion."
+    ]
+  },
+  "Entry005.project_body_mono": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap hypothesis and proof, lines 352 and 366–371 (nested actual projected bodies).",
+    "coverage_kind": "proved orthogonal-projection inclusion helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, genuine compact nonempty convex bodies K,P, and K ⊆ P. No dimension lower bound or measure hypothesis.",
+    "description": "Proves projectBody(U,K) ⊆ projectBody(U,P) for the genuine image under orthogonalProjectionOnto U. No formal surrogate projected body is used.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.project_body_unit_ball": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 369–370 (intrinsic unit ball survives projection).",
+    "coverage_kind": "proved orthogonal-projection inner-ball helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E and a genuine compact nonempty convex body K containing closedBall(0:E,1). No dimension lower bound or projection deficit.",
+    "description": "Proves closedBall(0:U,1) ⊆ projectBody(U,K), using the actual orthogonal projection and its identity on U.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.project_body_outer_ball": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 369–370 (projected enclosing radius M).",
+    "coverage_kind": "proved orthogonal-projection outer-ball helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, a genuine compact nonempty convex body P, a real M, and P ⊆ closedBall(0:E,M). No separate M ≥ 0 assumption is present.",
+    "description": "Proves projectBody(U,P) ⊆ closedBall(0:U,M) by the actual orthogonal projection contraction.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.inner_project": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 366–371 (support gap preserved in the target subspace).",
+    "coverage_kind": "proved orthogonal-projection support identity",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A submodule U ⊆ E, n ∈ U, and arbitrary x ∈ E. No unit-normal, ball, body or measure assumption.",
+    "description": "Proves inner(⟨n,hnU⟩, orthogonalProjectionOnto(U,x)) = inner(n,x). This supplies the exact linear-functional identity that preserves the supporting gap after projection.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.exists_perpendicular_unit": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, line 366 (unit projection direction perpendicular to the normal).",
+    "coverage_kind": "proved perpendicular-direction helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). finrank ℝ E ≥ 2 and a vector n with ‖n‖=1. No convex-body or measure assumptions.",
+    "description": "Produces a unit u with inner(u,n)=0 by using the positive-dimensional orthogonal complement of the span of n.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.hyperplane_dimension": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, line 368 (true intrinsic dimension m=d−1).",
+    "coverage_kind": "proved codimension-one identity",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A vector u with ‖u‖=1. No explicit ambient-dimension lower bound, body or measure assumptions.",
+    "description": "Proves finrank ℝ ((ℝ ∙ u)ᗮ) = finrank ℝ E − 1. The exponent and coefficient in the final cap theorem therefore use the actual hyperplane dimension, not ambient dimension.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.projection_cap_gain": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 366–384 (gap-preserving projection and intrinsic cap-volume gain).",
+    "coverage_kind": "proved intrinsic projected-cap volume helper",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; a submodule U; q ∈ P; ‖n‖=1 and n ∈ U; s=‖q−k‖ satisfies 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). The helper takes k,n and their gap/support properties as inputs, and does not require k ∈ K.",
+    "description": "Writing m=finrank ℝ U, proves projectedVolume(U,K)+ENNReal.ofReal((s/[2(M+1)])^m) volume(closedBall(0:U,1)) ≤ projectedVolume(U,P). projectedVolume is actual canonical Haar volume on U of the image convex body, never ambient-dimensional volume of a hyperplane.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.projection_cap_cube_gain": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 380–384 (explicit coarse cube coefficient).",
+    "coverage_kind": "proved explicit intrinsic projected-cap lower bound",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; a submodule U; q ∈ P; ‖n‖=1 and n ∈ U; s=‖q−k‖ satisfies 0 < s ≤ M; inner(n,q)−inner(n,k)=s; every x ∈ K satisfies inner(n,x) ≤ inner(n,k). The helper takes k,n and their gap/support properties as inputs, and does not require k ∈ K. In addition m=finrank ℝ U ≥ 1.",
+    "description": "Proves projectedVolume(U,K)+ENNReal.ofReal((s/[m(M+1)])^m) ≤ projectedVolume(U,P). The exact coefficient follows from the proved actual unit-ball cube bound, not an assumed scalar cap formula.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.exists_projection_cap": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap proof, lines 362–384 (closest point, codimension-one projection and explicit cap lower bound).",
+    "coverage_kind": "proved complete geometric projection-cap lower bound",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Ambient dimension d=finrank ℝ E ≥ 2; genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M), M ≥ 0; q ∈ P and q ∉ K. No nearest point, supporting normal, projection direction, deficit or cap conclusion is assumed.",
+    "description": "Produces k ∈ K closest to q and a unit u such that projectedVolume(uᗮ,K)+ENNReal.ofReal((‖q−k‖/[(d−1)(M+1)])^(d−1)) ≤ projectedVolume(uᗮ,P). The proof constructs the supporting normal and perpendicular projection direction and derives the actual codimension-one cap geometry and volume.",
+    "unformalized_application_dependencies": [
+      "Applying the cap chain to the entry005 defect remains unproved: arbitrary-body cone-law and random-determinant representation; nonatomic integrated witness/assignment and polar-simplex centering/weights; Cauchy brightness; Minkowski/first-variation scale control yielding an actual uniform intrinsic projection deficit η = Jh ≤ JQ(d+1)entryDefect(K). These are application obligations, not extra assumptions of this export.",
+      "Completing sharp simplex stability remains unproved: affine invariance and normalization of every maximum inscribed simplex; actual simplex-matrix/Lebesgue-volume correspondence; shrink containment, maximality and the geometric invocation of the proved stochastic lemma; vertex matching and dilation about the original chosen simplex centroid; defect nonnegativity, exact threshold gate and local/global assembly."
+    ]
+  },
+  "Entry005.hausdorff_from_projection_deficit": {
+    "paper_statement": "mxym/math 3a1dbb9bab7ef72db726e8221deec925e0938c8d, notes/sharp-simplex-stability/proof.tex (snapshot references/projection-cap/public-proof.tex), Projection-cap Lemma (lem:projection-cap), lines 351–357, and its proof lines 360–387.",
+    "coverage_kind": "complete natural geometric lemma under genuine projection-deficit hypothesis",
+    "assumptions_summary": "A finite-dimensional real inner product space E (NormedAddCommGroup, InnerProductSpace ℝ, and FiniteDimensional ℝ). A measurable space with its Borel-space instance; volume is canonical Euclidean Haar volume. Ambient dimension d=finrank ℝ E ≥ 2; genuine compact nonempty convex bodies B ⊆ K ⊆ P ⊆ closedBall(0,M); M ≥ 0 and η ≥ 0. For every actual unit u ∈ E, projectedVolume(uᗮ,P).toReal − projectedVolume(uᗮ,K).toReal ≤ η, where each projectedVolume is actual canonical intrinsic volume on the orthogonal hyperplane. No simplex, cone-law, Cauchy, Minkowski, nearest-point, supporting-normal, cap-gain or Hausdorff-conclusion hypothesis.",
+    "description": "Proves Metric.hausdorffDist(K,P) ≤ (d−1)(M+1)η^(1/(d−1)), including η=0, with exactly the written coarse cube coefficient and exponent. Nearest points, support normals, codimension-one projection directions, cap inclusion/disjointness and volume gain are derived; compactness establishes finite projected volumes before ENNReal.toReal conversion. This is the natural geometric projection-cap lemma, not the end-to-end entryDefect stability theorem or a best-possible multiplicative-constant claim.",
+    "unformalized_application_dependencies": [
+      "Projection-body support/functional properties, entryDefect nonnegativity, affine invariance and normalization of an arbitrary initially chosen maximum-volume inscribed simplex.",
+      "Arbitrary-convex-body centered cone law, surface-area/Gauss-map foundations and the random-determinant representation relating entryDefect to determinant deficit.",
+      "Nonatomic integrated witness/assignment with well-conditioned anchors, polar-simplex centering and weights, and centered transport/weight correction.",
+      "Cauchy brightness and normalized projection control; Minkowski/first-variation and Brunn–Minkowski scale control deriving the genuine uniform absolute intrinsic projection deficit η=Jh ≤ JQ(d+1)entryDefect(K). This hdef bridge is not proved by this endpoint.",
+      "The concrete unproved simplexMatrixVolumeInterfaceGoal: W=A(P)^(-1)A(S) from actual simplex points must be proved column stochastic, reconstruct vertices, and have |det W| equal to the positive finite actual Lebesgue-volume ratio. Determinant-defined model volume or assuming these outputs would not close the bridge.",
+      "Hausdorff-to-shrink containment; maximum-simplex actual volume/determinant lower bound; geometric invocation of the already proved stochastic near-permutation theorem at cardinality d+1; vertex matching and dilation around the original chosen maximum simplex centroid.",
+      "Exact threshold algebra aSharp(d)eSharp(d)^(1/(d−1)) ≤ 1/2 for d ≥ 3 and full local/global sharp-stability assembly. Proposed thresholdGateGoal is an unproved auxiliary definition, never an extra hypothesis of sharpLocalGoal.",
+      "Actual truncation-family defect, maximum simplex, excess and asymptotics proving exponent sharpness arbitrarily near defect zero. The proposed correction requires 0 < entryDefect(K) < ε as well as 0 < t < min(ε,1); truncationSharpnessGoal remains a definition without a proof."
+    ]
+  }
+}

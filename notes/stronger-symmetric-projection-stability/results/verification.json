@@ -1,0 +1,89 @@
+{
+  "arithmetic": "exact rational; no floating-point certification",
+  "independent_cases": 7992,
+  "schema_version": 1,
+  "scope": "Finite regression checks only. They verify the enumerated identities and bounds and are not analytic proofs, human peer review, or proof-assistant verification of the universal theorems.",
+  "source_sha256": {
+    "check_geometry_next.py": "0ee0be7290990e46fc4d04263ce0c36bf5694c8e2e9ef6157e87c03e7f577b57",
+    "check_global_slanted.py": "ff0d55477ff65cca0ec0bbab3c399e64a6bfc5e20e9bf1a991e566390a894478",
+    "check_halfmass_sharpness.py": "66d4711e90ea82cfb0efae7e14c432367bc1bdb548581780c785744dcb68f767",
+    "check_matching_improvement.py": "1d2c51dd400b53f91b0a5e1c3cc66be6ee03184ddd98ff8d4e9a23d245bfab4d",
+    "verify.py": "0747311efc620b24d9ec712b9b74e48926e78214ffed11d89643a16552d055ba"
+  },
+  "status": "PASS",
+  "suites": [
+    {
+      "finite_scope": "Exact rational finite regressions for omitted-basis cofactor identities, truncation perturbations, adjacent weighted edges, and the rational bounded-law obstruction; no integral proof.",
+      "independent_cases": 2432,
+      "result": {
+        "adjacent_edge_bound_cases": 600,
+        "arithmetic": "exact rational",
+        "cofactor_formula_cases": 900,
+        "obstruction_formula_cases": 32,
+        "scope": "finite algebraic regressions; not a proof of integral gates",
+        "status": "PASS",
+        "total_cases": 2432,
+        "truncation_bound_cases": 900
+      },
+      "source": "check_matching_improvement.py",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f277b36e72a534e6cadaef1db385148b367fc91ce4c7615cef5d70ff0bcee5a7",
+      "suite": "matching"
+    },
+    {
+      "finite_scope": "Eight exact rational cone-law parameter cases in dimensions three and four, checking determinant mass, signed defect, fourth cofactor, weighted half-mass tail, and support surplus.",
+      "independent_cases": 8,
+      "result": {
+        "arithmetic": "exact rational; full signed determinant enumeration",
+        "dimensions": [
+          3,
+          4
+        ],
+        "rational_parameters_per_dimension": 4,
+        "status": "PASS",
+        "total_cases": 8
+      },
+      "source": "check_halfmass_sharpness.py",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0fddf5150be06a5c79ecb962130fcc4b35ef52c317dd27eb26d0ece41598ff14",
+      "suite": "halfmass"
+    },
+    {
+      "finite_scope": "Exact rational weighted corner-cut identities and squared normal distances in dimensions three through twelve: 480 corner-cut cases and 40 near-axis counterexample cases.",
+      "independent_cases": 520,
+      "result": {
+        "arithmetic": "exact rational; squared normal distances",
+        "near_axis_counterexample_cases": 40,
+        "scope": "finite identities only; analytic proofs are in geometry-next.md",
+        "status": "PASS",
+        "total_cases": 520,
+        "weighted_corner_cut_cases": 480
+      },
+      "source": "check_geometry_next.py",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "62ed813490577c357c9253590174d9843dcb85d619c026273912aba56666426d",
+      "suite": "geometry"
+    },
+    {
+      "finite_scope": "Five thousand ordered four-direction tuples at eight rational parameters, each with sixteen sign averages, plus thirty-two product-dimension parameter cases in dimensions three through six. Also checks the displayed section and coordinate-block formulas; it does not prove unrestricted geometric distance.",
+      "independent_cases": 5032,
+      "result": {
+        "ordered_four_type_tuples": 5000,
+        "product_dimension_cases": 32,
+        "rational_parameters": 8,
+        "section_and_block_formulas": "PASS",
+        "sign_averages_per_tuple": 16,
+        "status": "PASS"
+      },
+      "source": "check_global_slanted.py",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9b64a024285633d96142fc47c64aaacb3d589e86e9ff289d11e78e7442e1488a",
+      "suite": "global"
+    }
+  ],
+  "three_dimensional_global_sign_averages": 80000
+}

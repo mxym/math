@@ -1,0 +1,20 @@
+import ContinuumRemainder.ErrorDomination
+import ContinuumRemainder.RobustRepair
+import ContinuumRemainder.ErrorSchedule
+import ContinuumRemainder.RobustAssembly
+
+set_option autoImplicit false
+
+#print axioms ContinuumRemainder.active_power_error_lt_radius
+#print axioms ContinuumRemainder.active_error_in_outer_buffer
+#print axioms ContinuumRemainder.power_controlled_error_tendsto
+#print axioms ContinuumRemainder.perturbed_power_tendsto
+#print axioms ContinuumRemainder.isClosed_sampledMissedCenters
+#print axioms ContinuumRemainder.sampled_robust_repair_all_centers
+#print axioms ContinuumRemainder.actual_buffer_cost_eq
+#print axioms ContinuumRemainder.sublinear_buffer_cost_tendsto_zero
+#print axioms ContinuumRemainder.scheduledSpan_div_tendsto_zero
+#print axioms ContinuumRemainder.scheduledSpan_isBigO_log
+#print axioms ContinuumRemainder.exists_late_robust_schedule
+#print axioms ContinuumRemainder.periodic_sampled_robust_outcome_repair
+#print axioms ContinuumRemainder.actual_sampled_routing_blocker_of_stable_miss

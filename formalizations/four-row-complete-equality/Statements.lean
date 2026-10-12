@@ -1,0 +1,6 @@
+import FourRowCompleteEquality
+#print FourRowTradeoff.IsFlatRankOne
+#print FourRowTradeoff.IsMonomial
+#print FourRowTradeoff.NonzeroRows
+#print FourRowTradeoff.sharp_four_row_complete
+#print axioms FourRowTradeoff.sharp_four_row_complete

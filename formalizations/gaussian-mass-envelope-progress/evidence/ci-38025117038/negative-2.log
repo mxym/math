@@ -1,0 +1,15 @@
+GaussianTail.lean:115:2: error: linarith failed to find a contradiction
+case h1
+a : ℝ
+h : gaussianTail a - ∫ (a : ℝ) in Ioi a, a ^ 2 * standardDensity a = 0 - a * standardDensity a
+a✝ : ∫ (x : ℝ) in Ioi a, x ^ 2 * standardDensity x < 2 * gaussianTail a + a * standardDensity a
+⊢ False
+failed
+GaussianTail.lean:150:2: error: Type mismatch
+  hnon
+has type
+  0 ≤
+    2 * gaussianTail a + a * standardDensity a - 2 * c * standardDensity a +
+      c ^ 2 * ∫ (a : ℝ) in Ioi a, standardDensity a
+but is expected to have type
+  0 ≤ gaussianTail a + a * standardDensity a - 2 * c * standardDensity a + c ^ 2 * gaussianTail a

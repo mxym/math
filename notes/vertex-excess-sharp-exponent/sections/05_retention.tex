@@ -1,0 +1,163 @@
+\section{Retention of every prescribed maximum simplex}
+\label{sec:retention}
+This section reproduces the retained retention estimates with the quantifier
+on the original simplex explicit. The arguments use only containment and
+near-vertex points, independently of how those points were obtained.
+
+\begin{lemma}[Substochastic determinant matching]\label{lem:matching}
+Let $U$ be a nonnegative $l\times l$ column-substochastic matrix, where
+$l\ge1$. If $|\det U|\ge1-\eta$ and $0\le\eta<1/3$, then a permutation
+of its columns makes every diagonal entry at least $1-\eta$.
+\end{lemma}
+\begin{proof}
+Represent each column as the expectation of a random standard basis
+vector, assigning any missing mass to the zero vector. Independent
+selection represents the determinant as the expectation of a variable in
+$\{-1,0,1\}$. If every column but column $j$ is sampled, each resulting
+cofactor vector either vanishes or selects exactly one entry of column $j$
+with a sign. Hence $|\det U|\le\max_iU_{ij}$. Choose an entry at least
+$1-\eta$ in each column. If two chosen entries share a row, the independent
+selections collide with probability at least $(1-\eta)^2$, so
+\[
+ |\det U|\le1-(1-\eta)^2\le2\eta<1-\eta,
+\]
+a contradiction. The selected rows are distinct.
+\end{proof}
+
+\begin{lemma}[Inverse bootstrap]\label{lem:bootstrap}
+Let $K\subset P$, where $P$ is a $d$-simplex and $S$ is a prescribed
+maximum-volume simplex in $K$. Suppose $q_i\in K$ have $P$-coordinates
+$Q_{ii}\ge1-\rho$. Suppose that after relabeling the vertices of this same
+$S$, their $P$-coordinate matrix $W$ satisfies $W_{ii}\ge1-\eta$, where
+$0\le\eta\le1/8$ and $0\le\rho\le1/16$. Then
+\begin{equation}\label{eq:bootstrap}
+ E(K,S)\le8(d+1)\rho.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The matrix $W$ is nonnegative column stochastic and invertible. Put
+$B=W^{-1}$, $D=B-I$, $\beta=\max_{ij}|D_{ij}|$, and
+$r_j=1-W_{jj}$. From $DW=I-W$ and column stochasticity,
+\[
+ D_{ij}=(\delta_{ij}-W_{ij})+
+           \sum_{l\ne j}(D_{ij}-D_{il})W_{lj}.
+\]
+Consequently $\beta\le\eta+2\eta\beta$, whence
+\begin{equation}\label{eq:firstinverse}
+ \beta\le\frac\eta{1-2\eta}\le\frac16.
+\end{equation}
+The $ii$ entry of $BW=I$ gives
+\[
+ B_{ii}-1\ge\frac{(1-\beta)r_i}{1-r_i}\ge r_i/2.
+\]
+On the other hand, $q_i\in K$ and maximality of the same $S$ imply
+$(BQ)_{ii}\le1$ by replacement. Since $Q_{ii}\ge1-\rho$,
+$B_{ii}>0$, and $B_{ij}\ge-\beta$ for $i\ne j$,
+\[
+ B_{ii}-1\le\rho(B_{ii}+\beta)\le2\rho.
+\]
+Thus $r_i\le4\rho$ for every $i$. Reapply the inverse identity with this
+improved column loss to obtain
+\[
+ \beta\le\frac{4\rho}{1-8\rho}\le8\rho.
+\]
+Every $S$-coordinate of each $P$-vertex is an entry of $B$ and is at least
+$-8\rho$. Convex averaging gives the same lower bound throughout $P$.
+Equation~\eqref{eq:dilationcoords} now yields \eqref{eq:bootstrap} about
+$S$'s own centroid.
+\end{proof}
+
+\begin{proposition}[Two all-scale retention bounds]\label{prop:retention}
+Let $d\ge1$ be an integer, $n=d+1$, and let $K\subset P$, where $K$ is a
+full-dimensional compact convex body and $P$ a $d$-simplex. Suppose every
+$P$-coordinate attains at least $1-\rho$ on $K$, where $\rho\ge0$.
+For every prescribed maximum-volume inscribed simplex $S$,
+\begin{equation}\label{eq:unrestrictedretention}
+ E(K,S)\le16n^2\rho.
+\end{equation}
+If, additionally, $K$ is a polytope with at most $n+r$ vertices for an
+integer $r\ge1$, then
+\begin{equation}\label{eq:boundedretention}
+ E(K,S)\le64nr\rho.
+\end{equation}
+The local estimate $E(K,S)\le8n\rho$ holds in the first case for
+$\rho\le1/(16n)$ and in the second case for $\rho\le1/(64r)$.
+\end{proposition}
+\begin{proof}
+The universal estimate $E(K,S)\le n$ follows from maximum-volume
+replacement and \eqref{eq:dilationcoords}, without any normalization.
+It handles the complementary large-$\rho$ branches of both bounds.
+
+For the unrestricted local branch, choose $q_i\in K$ with $P$-coordinate
+at least $1-\rho$ and let $Q$ be their column coordinate matrix. Independent
+column selection gives
+\[
+ \det Q\ge2\prod_iQ_{ii}-1\ge1-2n\rho.
+\]
+Indeed the identity selection has probability $\prod_iQ_{ii}$ and every
+other signed selection is at least $-1$. For $\rho\le1/(16n)$ the right
+side is positive, so these points form a comparison simplex. Maximality of
+$S$ gives $|\det W|\ge\det Q\ge1-\eta$ with $\eta=2n\rho\le1/8$.
+Lemma~\ref{lem:matching} relabels only the vertices of this same $S$ so
+that $W_{ii}\ge1-\eta$. Lemma~\ref{lem:bootstrap} proves the local bound.
+Together with $E\le n$ for $\rho>1/(16n)$, this proves
+\eqref{eq:unrestrictedretention}.
+
+For the bounded-vertex branch assume $\rho\le1/(64r)$. Choose actual
+vertices $q_i$ maximizing the $P$-coordinates. They are distinct because
+$\rho<1/2$. Their nonnegative column-stochastic matrix satisfies
+\begin{equation}\label{eq:Qinverse}
+ \norm{Q-I}_1\le2\rho,
+ \qquad \norm{Q^{-1}}_1\le(1-2\rho)^{-1}\le1+4\rho.
+\end{equation}
+Here $\norm{\cdot}_1$ is the induced column-sum matrix norm and
+$\rho\le1/4$. Thus $T=\conv(q_i)$ is a simplex in $K$.
+
+First let $S_v$ be any maximum simplex with vertices among those of $K$.
+Such a maximum exists by multiaffinity of the determinant. It omits at most
+$r$ of the $q_i$ because there are at most $r$ other vertices. Let $R$ be
+the omitted index set, of size $l\le\min(r,n)$. If $l=0$, then $S_v=T$.
+Otherwise label its retained $q_i$ by their own indices and put the remaining
+vertices in columns $R$. If $W$ is its coordinate matrix and $C_0=Q^{-1}W$,
+then $(C_0)_i=e_i$ for $i\notin R$, so
+\[
+ |\det (C_0)_{R,R}|=|\det C_0|=\frac{|S_v|}{|T|}\ge1.
+\]
+The restricted matrix $U=W_{R,R}$ is column substochastic. Each column of
+$(C_0)_{R,R}$ has $\ell^1$ norm at most $1+4\rho$; by
+$W-C_0=(Q-I)C_0$ its distance from the corresponding $U$-column is at most
+$2\rho/(1-2\rho)\le4\rho$. Telescoping the determinant gives
+\[
+ \bigl|\det U-\det(C_0)_{R,R}\bigr|
+ \le4l\rho(1+4\rho)^{l-1}\le8l\rho.
+\]
+For the last inequality, $4l\rho\le1/16$ and
+$(1+4\rho)^{l-1}\le(1-4l\rho)^{-1}<2$, by the binomial expansion.
+Hence $|\det U|\ge1-\eta$ with $\eta=8r\rho\le1/8$.
+Lemma~\ref{lem:matching} matches the omitted indices, while the retained
+$q_i$ already have diagonal coordinates at least $1-\rho\ge1-\eta$.
+Every maximum vertex simplex therefore has exactly one vertex in each of
+the disjoint convex caps
+\begin{equation}\label{eq:disjointcaps}
+ \mathcal C_i=\{x\in K:\lambda_i^P(x)\ge1-\eta\}.
+\end{equation}
+This conclusion also covers $l=0$.
+
+Now return to the prescribed maximum $S$, whose vertices need not be
+vertices of $K$. Express each vertex of $S$ as a convex combination of
+$K$-vertices and sample the combinations independently. Its determinant is
+the expectation of the sampled determinants. Every sampled absolute
+volume is at most $|S|$. Equality in the expectation and triangle
+inequality forces every positive-probability sampled tuple to be a maximum
+vertex simplex, with one point in each cap \eqref{eq:disjointcaps}.
+For each $i$, some sampled column must lie in $\mathcal C_i$ with probability
+one; otherwise independence would give positive probability that all
+columns avoid it. Distinct caps require distinct such columns. There are
+$n$ columns and $n$ caps, so after relabeling, each actual vertex of this
+same $S$ lies in its corresponding cap by convexity.
+
+Thus $W_{ii}\ge1-\eta$ for the prescribed $S$, and
+Lemma~\ref{lem:bootstrap} proves $E(K,S)\le8n\rho$ locally.
+For $\rho>1/(64r)$ the universal estimate gives $E(K,S)<64nr\rho$.
+No change of simplex carrier or centroid has occurred.
+\end{proof}

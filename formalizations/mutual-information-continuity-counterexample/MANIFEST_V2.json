@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "version": "v2-lean",
+  "public_repository": "https://github.com/mxym/math",
+  "public_directory": "formalizations/mutual-information-continuity-counterexample",
+  "release_tag": "mutual-information-continuity-counterexample-v2-lean",
+  "frozen_original_lean_source_commit": "90ea9677c67281ff6d9f0fff1f00f3a8a374f117",
+  "original_lean_source_sha256": "1726a70d840a8af78ccde0fb0801273a5e9acc424b258684fce21c07d6c9419d",
+  "written_v1": {
+    "commit": "a179e33532707abe09247d87aad484e9965847b4",
+    "release_id": 407445157,
+    "tag": "mutual-information-continuity-counterexample-v1",
+    "published_at": "2026-10-09T02:50:02Z",
+    "preserved": true
+  },
+  "verification": {
+    "status": "PASS",
+    "fresh_owned_modules": 1,
+    "owned_declarations": 38,
+    "all_owned_closure": 16161,
+    "empty_base": true,
+    "trust_level": 0,
+    "excluded_owned_modules": [],
+    "root_closures": [
+      {
+        "name": "MutualInformationCounterexample.counterexample_family",
+        "closure_count": 16144
+      },
+      {
+        "name": "MutualInformationCounterexample.proposed_classical_bound_false",
+        "closure_count": 16151
+      },
+      {
+        "name": "MutualInformationCounterexample.counterexamples_arbitrarily_close",
+        "closure_count": 16151
+      },
+      {
+        "name": "MutualInformationCounterexample.P_probability",
+        "closure_count": 8591
+      },
+      {
+        "name": "MutualInformationCounterexample.Q_probability",
+        "closure_count": 8594
+      },
+      {
+        "name": "MutualInformationCounterexample.mutualInformation_P",
+        "closure_count": 16098
+      },
+      {
+        "name": "MutualInformationCounterexample.mutualInformation_Q",
+        "closure_count": 16109
+      },
+      {
+        "name": "MutualInformationCounterexample.totalVariation_P_Q",
+        "closure_count": 8544
+      }
+    ],
+    "standard_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "standard_axiom_signatures_checked": true,
+    "invalid_proof_negative_control": "PASS: rejected",
+    "source_byte_preserved": true,
+    "dependency_cache_byte_preserved": true,
+    "literal_semantics": {
+      "status": "PASS",
+      "source_sha256": "5480e00f7b406c30b6f0d863ccd16426d964761b3e2804f77fbade513b8d55ca",
+      "actual_3x3_tables": true,
+      "nonnegativity_and_normalization": true,
+      "row_and_column_marginals": true,
+      "Shannon_entropy_and_mutual_information": true,
+      "half_L1_total_variation": true,
+      "every_positive_neighborhood": true,
+      "both_marginals_differ": true
+    },
+    "fresh_run_started": "2026-10-09T02:53:13.633183+00:00",
+    "fresh_run_ended": "2026-10-09T03:04:41.088281+00:00",
+    "semantic_check_completed": "2026-10-09T03:07:08.329778+00:00"
+  },
+  "environment": {
+    "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+    "lean_binary_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lean_runtime_sha256": "6b30cc963d065fc9d2f87f7e9cbe0682b23000ae5425bccd769c5d477fa74f13"
+  },
+  "pinned_dependencies": [
+    {
+      "name": "mathlib",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+    },
+    {
+      "name": "plausible",
+      "commit": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+    },
+    {
+      "name": "LeanSearchClient",
+      "commit": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+    },
+    {
+      "name": "importGraph",
+      "commit": "e928b72544873815af278d38681b31c0293588e3"
+    },
+    {
+      "name": "proofwidgets",
+      "commit": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+    },
+    {
+      "name": "aesop",
+      "commit": "355695d523e41d0554926416cba2a2b3544fbbc9"
+    },
+    {
+      "name": "Qq",
+      "commit": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+    },
+    {
+      "name": "batteries",
+      "commit": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+    },
+    {
+      "name": "Cli",
+      "commit": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+    }
+  ],
+  "scope": {
+    "formalized": "Actual classical 3-by-3 joint probability tables, nonnegativity and normalization, row/column marginals, Shannon entropy, mutual information, exact half-L1 distance, strict violation for every 0 < epsilon <= 1/16, universal bound negation and counterexamples in every positive-distance neighborhood.",
+    "marginals": "Both marginals change. The fixed-one-marginal proposal is not resolved.",
+    "quantum": "Diagonal quantum embedding remains a written argument; no general quantum spectral-function library is formalized.",
+    "written_section_5": "The necessary leading-coefficient lower bound remains a written argument and is not claimed Lean-formalized.",
+    "priority": "Unconfirmed",
+    "external_human_peer_review_certified": false
+  },
+  "release_commit_binding": "RELEASE_BINDING.json in the immutable Release binds the final public source commit; this source manifest avoids a self-referential commit hash.",
+  "files": [
+    {
+      "path": "README.md",
+      "size": 6520,
+      "sha256": "84a39f983795d2fc7c0b7549d59148f8c2677589f7df6450df5def9d1f89e3e1"
+    },
+    {
+      "path": "SEMANTIC_REVIEW.md",
+      "size": 2876,
+      "sha256": "7f5c963e9e48ac7d7447e7caecd234be9de7fb17e609473b5b20311c36a0dcf9"
+    },
+    {
+      "path": "case.json",
+      "size": 1224,
+      "sha256": "6b3cec6221c24e6054a7f45432de5c73d6bf2799bb7adac80e1d322f1c91f4c8"
+    },
+    {
+      "path": "lake-manifest.json",
+      "size": 3577,
+      "sha256": "a5019fa4f323cde9c0f8fcb6028336d2365bd637f85bcd800d0c0a30378f12c6"
+    },
+    {
+      "path": "lakefile.lean",
+      "size": 303,
+      "sha256": "17c68b160849654290e2f195e0c703881a9a3fe1d351fcdb8dd82169b9e2f966"
+    },
+    {
+      "path": "lean-toolchain",
+      "size": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "reproduce.py",
+      "size": 1862,
+      "sha256": "df184c4b4cb6a82211b37479766f0535e645f5264f0065fc07c3274b229a0016"
+    },
+    {
+      "path": "src/Counterexample.lean",
+      "size": 6292,
+      "sha256": "1726a70d840a8af78ccde0fb0801273a5e9acc424b258684fce21c07d6c9419d"
+    },
+    {
+      "path": "verification/LiteralSemantics.lean",
+      "size": 2823,
+      "sha256": "5480e00f7b406c30b6f0d863ccd16426d964761b3e2804f77fbade513b8d55ca"
+    },
+    {
+      "path": "verification/UNIFIED_REVIEW.json",
+      "size": 5251,
+      "sha256": "704075a4d5079add3296b2c6ed823f9bfc90c2cfa236e875ee6a31956c6517d3"
+    },
+    {
+      "path": "verification/all-owned-closure.json.gz",
+      "size": 819812,
+      "sha256": "6c6d21a8acceb3b503a8ce84942b210ec929e75cbbe8b4c41a3ff6f2e31d8457"
+    },
+    {
+      "path": "verification/complete-replay.tar.gz",
+      "size": 1259542,
+      "sha256": "7baeec780a3f0dc5fa3bcf59f4dd76f3d293b8012b08227baf3dbb3c3aa1e164"
+    },
+    {
+      "path": "verification/lake-config-check.json",
+      "size": 396,
+      "sha256": "95d22c8f6e32eb517817b658127d2fb8d0c45e53e0cc9fd9960b608a00216a74"
+    },
+    {
+      "path": "verification/literal-semantics-result.json",
+      "size": 1709,
+      "sha256": "9993dd15a55ad834510242271eb8a16ca036765bb1c8e8a32594cb0365f846de"
+    },
+    {
+      "path": "verification/replay-summary.json",
+      "size": 925,
+      "sha256": "45c0e63c070a238c257748b56941de7db29c49a256d828b9faeae3ff37ac9db4"
+    },
+    {
+      "path": "verifier/bin/leanctl.py",
+      "size": 12105,
+      "sha256": "743273fd3485334dc40182fcc980e65ab4d58e9ce8c2bc4fadab8d90540f60e7"
+    },
+    {
+      "path": "verifier/checks/OwnedAudit.standard-axioms-v1.template.lean",
+      "size": 10837,
+      "sha256": "db13cc8d8688f2382ca2b6529f3f69f93e4b896dff4ad3371563f024fb89af26"
+    },
+    {
+      "path": "verifier/checks/RejectInvalidProof.lean",
+      "size": 1107,
+      "sha256": "a65cb0e8e11c81664690c24aca0d3952aa4753a7bf0b418a382dad811a613d55"
+    },
+    {
+      "path": "verifier/environment-template.json",
+      "size": 4042,
+      "sha256": "9e38ec5509be37e390ecc6ea77f429ceedc3c58da507adf70dc0fbb079ffb184"
+    }
+  ]
+}

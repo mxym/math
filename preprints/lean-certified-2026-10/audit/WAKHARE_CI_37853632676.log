@@ -1,0 +1,451 @@
+lean-kernel	Set up job	﻿2026-10-08T22:27:58.2383437Z Current runner version: '2.337.0'
+lean-kernel	Set up job	2026-10-08T22:27:58.2407532Z ##[group]Runner Image Provisioner
+lean-kernel	Set up job	2026-10-08T22:27:58.2408464Z Hosted Compute Agent
+lean-kernel	Set up job	2026-10-08T22:27:58.2409122Z Version: 20261002.596
+lean-kernel	Set up job	2026-10-08T22:27:58.2409710Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+lean-kernel	Set up job	2026-10-08T22:27:58.2410406Z Build Date: 2026-10-02T22:28:27Z
+lean-kernel	Set up job	2026-10-08T22:27:58.2411066Z Worker ID: {0c7f6610-ff35-45cb-8345-0fd793d0d65f}
+lean-kernel	Set up job	2026-10-08T22:27:58.2411943Z Region: westus3
+lean-kernel	Set up job	2026-10-08T22:27:58.2412494Z Cloud: Azure
+lean-kernel	Set up job	2026-10-08T22:27:58.2413001Z ##[endgroup]
+lean-kernel	Set up job	2026-10-08T22:27:58.2414439Z ##[group]Operating System
+lean-kernel	Set up job	2026-10-08T22:27:58.2415096Z Ubuntu
+lean-kernel	Set up job	2026-10-08T22:27:58.2415584Z 24.04.5
+lean-kernel	Set up job	2026-10-08T22:27:58.2416117Z LTS
+lean-kernel	Set up job	2026-10-08T22:27:58.2416743Z ##[endgroup]
+lean-kernel	Set up job	2026-10-08T22:27:58.2417280Z ##[group]Runner Image
+lean-kernel	Set up job	2026-10-08T22:27:58.2417896Z Image: ubuntu-24.04
+lean-kernel	Set up job	2026-10-08T22:27:58.2418425Z Version: 20261004.327.1
+lean-kernel	Set up job	2026-10-08T22:27:58.2419412Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+lean-kernel	Set up job	2026-10-08T22:27:58.2421003Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+lean-kernel	Set up job	2026-10-08T22:27:58.2421947Z ##[endgroup]
+lean-kernel	Set up job	2026-10-08T22:27:58.2422956Z ##[group]GITHUB_TOKEN Permissions
+lean-kernel	Set up job	2026-10-08T22:27:58.2425481Z Contents: read
+lean-kernel	Set up job	2026-10-08T22:27:58.2426056Z Metadata: read
+lean-kernel	Set up job	2026-10-08T22:27:58.2426872Z ##[endgroup]
+lean-kernel	Set up job	2026-10-08T22:27:58.2428975Z Secret source: Actions
+lean-kernel	Set up job	2026-10-08T22:27:58.2429910Z Cache mode: write
+lean-kernel	Set up job	2026-10-08T22:27:58.2430558Z Prepare workflow directory
+lean-kernel	Set up job	2026-10-08T22:27:58.2717802Z Prepare all required actions
+lean-kernel	Set up job	2026-10-08T22:27:58.2763296Z Getting action download info
+lean-kernel	Set up job	2026-10-08T22:27:58.6015766Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+lean-kernel	Set up job	2026-10-08T22:27:58.7129416Z Download action repository 'leanprover/lean-action@v1' (SHA:f061402b660e0c34644504b324e830f2991d4865)
+lean-kernel	Set up job	2026-10-08T22:27:59.1297447Z Getting action download info
+lean-kernel	Set up job	2026-10-08T22:27:59.2582553Z Download action repository 'actions/cache@caa296126883cff596d87d8935842f9db880ef25' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+lean-kernel	Set up job	2026-10-08T22:27:59.4782277Z Complete job name: lean-kernel
+lean-kernel	Run actions/checkout@v4	﻿2026-10-08T22:27:59.5463577Z ##[group]Run actions/checkout@v4
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5464495Z with:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5465029Z   repository: mxym/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5469609Z   token: ***
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5470171Z   ssh-strict: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5470689Z   ssh-user: git
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5471307Z   persist-credentials: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5471889Z   clean: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5472470Z   sparse-checkout-cone-mode: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5473088Z   fetch-depth: 1
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5473577Z   fetch-tags: false
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5474573Z   show-progress: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5475117Z   lfs: false
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5475651Z   submodules: false
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5476243Z   set-safe-directory: true
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5476999Z   allow-unsafe-pr-checkout: false
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.5477913Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6465683Z Syncing repository: mxym/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6468988Z ##[group]Getting Git version info
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6470285Z Working directory is '/home/runner/work/math/math'
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6472245Z [command]/usr/bin/git version
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6473137Z git version 2.55.0
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6475929Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6483521Z Temporarily overriding HOME='/home/runner/work/_temp/8a17007f-e4e6-476e-83e2-c26672f86d6b' before making global git config changes
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6485833Z Adding repository directory to the temporary git global config as a safe directory
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6487826Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/math/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6525800Z Deleting the contents of '/home/runner/work/math/math'
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6534394Z ##[group]Initializing the repository
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6537720Z [command]/usr/bin/git init /home/runner/work/math/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6618462Z hint: Using 'master' as the name for the initial branch. This default branch name
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6620516Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6621605Z hint: to use in all of your new repositories, which will suppress this warning,
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6622476Z hint: call:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6623051Z hint:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6624067Z hint: 	git config --global init.defaultBranch <name>
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6624855Z hint:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6625559Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6626862Z hint: 'development'. The just-created branch can be renamed via this command:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6628307Z hint:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6629122Z hint: 	git branch -m <name>
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6630067Z hint:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6631255Z hint: Disable this message with "git config set advice.defaultBranchName false"
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6632959Z Initialized empty Git repository in /home/runner/work/math/math/.git/
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6635957Z [command]/usr/bin/git remote add origin https://github.com/mxym/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6658854Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6660362Z ##[group]Disabling automatic garbage collection
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6661794Z [command]/usr/bin/git config --local gc.auto 0
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6698078Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6699471Z ##[group]Setting up auth
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6702812Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.6729823Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7019551Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7045691Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7240636Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7269176Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7451734Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7486225Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7487668Z ##[group]Fetching the repository
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:27:59.7495671Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +93a7512b3606581fcbbca310c7d2d587a8c1a903:refs/remotes/origin/main
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8120358Z From https://github.com/mxym/math
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8121646Z  * [new ref]         93a7512b3606581fcbbca310c7d2d587a8c1a903 -> origin/main
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8123975Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8124548Z ##[group]Determining the checkout info
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8126161Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8131838Z [command]/usr/bin/git sparse-checkout disable
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8178672Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8206152Z ##[group]Checking out the ref
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:06.8209629Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8580072Z Updating files:  99% (7228/7271)
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8580861Z Updating files: 100% (7271/7271)
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8581534Z Updating files: 100% (7271/7271), done.
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8708715Z Switched to a new branch 'main'
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8712595Z branch 'main' set up to track 'origin/main'.
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8758293Z ##[endgroup]
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8789485Z [command]/usr/bin/git log -1 --format=%H
+lean-kernel	Run actions/checkout@v4	2026-10-08T22:28:07.8812345Z 93a7512b3606581fcbbca310c7d2d587a8c1a903
+lean-kernel	Check full source and evidence checksum inventory	﻿2026-10-08T22:28:07.9011775Z ##[group]Run set -euo pipefail
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9012313Z [36;1mset -euo pipefail[0m
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9012983Z [36;1mcd formalizations/wakhare-entropy-four-roots-lean[0m
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9013412Z [36;1msha256sum -c SHA256SUMS[0m
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9169326Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9169865Z ##[endgroup]
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9266060Z .gitignore: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9266779Z EntropyWakhare/Alpha.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9267299Z EntropyWakhare/Core.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9267836Z EntropyWakhare/FourRoots.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9268352Z EntropyWakhare/Polynomial.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9268884Z EntropyWakhare/Signs.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9269297Z EntropyWakhare.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9269882Z README.md: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9270317Z audit/AUDIT.md: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9270767Z audit/AxiomsAudit.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9271119Z audit/InvalidProof.lean: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9271453Z lake-manifest.json: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9271874Z lakefile.toml: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9272174Z lean-toolchain: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9272516Z results/axioms.txt: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9272826Z results/invalid-proof.txt: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9273171Z results/source_sha256.txt: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9273499Z results/verification.txt: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9273816Z scripts/check_axioms.py: OK
+lean-kernel	Check full source and evidence checksum inventory	2026-10-08T22:28:07.9274184Z scripts/replay.sh: OK
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	﻿2026-10-08T22:28:07.9587529Z ##[group]Run leanprover/lean-action@v1
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9587906Z with:
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9588367Z   lake-package-directory: formalizations/wakhare-entropy-four-roots-lean
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9588872Z   use-mathlib-cache: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9589244Z   build: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9589526Z   test: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9589800Z   auto-config: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9590121Z   lint: default
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9590417Z   mk_all-check: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9590747Z   check-reservoir-eligibility: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9591133Z   leanchecker: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9591432Z   lean4checker: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9591764Z   nanoda: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9592092Z   nanoda-allow-sorry: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9592415Z   axiom-audit: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9592813Z   axiom-audit-allow: propext,Classical.choice,Quot.sound
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9593221Z   use-github-cache: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9593572Z   reinstall-transient-toolchain: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9593920Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9664534Z ##[start-action display=install elan;id=__leanprover_lean-action.__run]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9701152Z ##[group]Run : Install Elan
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9701571Z [36;1m: Install Elan[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9701957Z [36;1m${GITHUB_ACTION_PATH}/scripts/install_elan.sh[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9738641Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9739066Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:07.9813753Z ##[group]Elan Installation Output
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:08.0506342Z info: downloading installer
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:09.4205039Z info: downloading https://releases.lean-lang.org/lean4/v4.34.1/lean-4.34.1-linux.tar.zst
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:13.7763361Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.34.1
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.4522315Z Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.4976195Z Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.5009917Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.5010242Z 
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.5043624Z ##[end-action id=__leanprover_lean-action.__run;outcome=success;conclusion=success;duration_ms=13537]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.5057150Z ##[start-action display=configure `lean-action`;id=__leanprover_lean-action.config]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6011148Z ##[group]Run : Configure Lean Action
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6011592Z [36;1m: Configure Lean Action[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6012007Z [36;1m${GITHUB_ACTION_PATH}/scripts/config.sh[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6051912Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6052404Z env:
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6052901Z   AUTO_CONFIG: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6053203Z   BUILD: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6053500Z   TEST: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6053770Z   LINT: default
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6054056Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6233623Z ##[group]Configure lean-action
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6255052Z build: true -> will run lake build
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6255893Z auto-config: true
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6256338Z     -> will run lake build
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6256997Z test: false -> will not run lake test
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6733410Z lake check-lint failed -> will not run lake lint
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6763677Z ##[end-action id=__leanprover_lean-action.config;outcome=success;conclusion=success;duration_ms=170]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6769518Z ##[start-action display=reinstall transient toolchain;id=__leanprover_lean-action.__run_2]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6791190Z ##[end-action id=__leanprover_lean-action.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6794779Z ##[start-action display=ensure all files are imported;id=__leanprover_lean-action.mk_all]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6800308Z ##[end-action id=__leanprover_lean-action.mk_all;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.6802821Z ##[start-action display=Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9628630Z ##[group]Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9629367Z with:
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9629734Z   path: formalizations/wakhare-entropy-four-roots-lean/.lake
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9630705Z   key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57-93a7512b3606581fcbbca310c7d2d587a8c1a903
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9631991Z   restore-keys: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9632803Z   enableCrossOsArchive: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9633157Z   fail-on-cache-miss: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9633470Z   lookup-only: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:21.9633774Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4056279Z Cache not found for input keys: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57-93a7512b3606581fcbbca310c7d2d587a8c1a903, lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4102985Z ##[end-action id=__leanprover_lean-action.__actions_cache;outcome=success;conclusion=success;duration_ms=729]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4105993Z ##[start-action display=detect mathlib;id=__leanprover_lean-action.detect-mathlib]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4112765Z ##[end-action id=__leanprover_lean-action.detect-mathlib;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4115895Z ##[start-action display=get mathlib cache;id=__leanprover_lean-action.__run_3]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4499668Z ##[group]Run : Get Mathlib Cache
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4500080Z [36;1m: Get Mathlib Cache[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4500433Z [36;1mecho "::group::Mathlib Cache"[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4500834Z [36;1mlake exe cache get[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4501154Z [36;1mecho "::endgroup::"[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4501471Z [36;1mecho[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4539122Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.4539548Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.5307408Z ##[group]Mathlib Cache
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:22.5787196Z info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:56.5163952Z info: mathlib: checking out revision 'd13f23b723b8a846827a245b89c10fc7d3f11612'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:58.3165717Z info: plausible: cloning https://github.com/leanprover-community/plausible
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:58.8943321Z info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:58.9049725Z info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:59.4411106Z info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:28:59.4513823Z info: importGraph: cloning https://github.com/leanprover-community/import-graph
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:00.1394574Z info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:00.1537375Z info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:01.2706332Z info: proofwidgets: checking out revision '106ff4fafc74ef4ac99d81dbf3ab399118f497a5'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:01.8443777Z info: aesop: cloning https://github.com/leanprover-community/aesop
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:03.1104445Z info: aesop: checking out revision '355695d523e41d0554926416cba2a2b3544fbbc9'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:03.1250974Z info: Qq: cloning https://github.com/leanprover-community/quote4
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:03.7818094Z info: Qq: checking out revision '6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:03.7924907Z info: batteries: cloning https://github.com/leanprover-community/batteries
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:07.1227220Z info: batteries: checking out revision 'f2effa3d803fda822b1f97b806c47cf2adfbcbc2'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:07.1507016Z info: Cli: cloning https://github.com/leanprover/lean4-cli
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:07.6905869Z info: Cli: checking out revision 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204'
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.0031240Z ✔ [1/5] Built Cache.Cli (268ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.1048782Z ✔ [3/42] Built Cache.Lean (364ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.2047889Z ✔ [6/42] Built Cache.Cli:c.o (169ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.3042858Z ✔ [7/42] Built Cache.Lean:c.o (212ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.4130021Z ✔ [8/42] Built Cache.Env (359ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.6133085Z ✔ [9/42] Built Cache.Env:c.o (168ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:08.8134653Z ✔ [10/42] Built Cache.Infra (401ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:09.0138310Z ✔ [11/42] Built Batteries.Tactic.OpenPrivate (920ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:09.0139506Z ✔ [12/42] Built Cache.Infra:c.o (231ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:10.1150646Z ✔ [13/42] Built Batteries.Tactic.OpenPrivate:c.o (1.2s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:10.2152324Z ✔ [14/42] Built Cache.IO (1.3s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:10.9168745Z ✔ [15/42] Built Cache.Hashing (642ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:11.4165860Z ✔ [16/42] Built Cache.Hashing:c.o (519ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:11.7168838Z ✔ [17/42] Built Cache.IO:c.o (1.5s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:12.6188599Z ✔ [18/42] Built Cache.Requests (1.7s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:13.0238960Z ✔ [19/42] Built Cache.Marker (460ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:13.2202285Z ✔ [20/42] Built Cache.Marker:c.o (128ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:13.8238513Z ✔ [21/42] Built Cache.Upload.Dest (730ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:13.9238132Z ✔ [22/42] Built Cache.Query (853ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:13.9267991Z ✔ [23/42] Built Cache.Upload.Dest:c.o (150ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:14.3260829Z ✔ [24/42] Built Cache.Query:c.o (391ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:14.6308521Z ✔ [25/42] Built Cache.Upload.Rclone (801ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:14.7319337Z ✔ [26/42] Built Cache.Upload.Curl (770ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:14.8338419Z ✔ [27/42] Built Cache.Upload.Rclone:c.o (217ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:14.9328204Z ✔ [28/42] Built Cache.Upload.Curl:c.o (245ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.3348185Z ✔ [29/42] Built Cache.Warning (971ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.6363577Z ✔ [30/42] Built Cache.Upload.Azure (795ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.7362870Z ✔ [31/42] Built Cache.Requests:c.o (3.2s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.7363818Z ✔ [32/42] Built Cache.Upload.Azure:c.o (147ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.7375681Z ✔ [33/42] Built Cache.Warning:c.o (417ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:15.8364496Z ✔ [34/42] Built Cache.Upload.S3 (860ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:16.1368120Z ✔ [35/42] Built Cache.Upload.S3:c.o (308ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:16.2369775Z ✔ [36/42] Built Cache.Upload.Defs (474ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:16.4373143Z ✔ [37/42] Built Cache.Upload.Defs:c.o (123ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:16.7389591Z ✔ [38/42] Built Cache.Upload (447ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:16.8390836Z ✔ [39/42] Built Cache.Upload:c.o (113ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:17.6399643Z ✔ [40/42] Built Cache.Main (951ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:18.4408293Z ✔ [41/42] Built Cache.Main:c.o (809ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:19.1414586Z ✔ [42/42] Built cache:exe (628ms)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.0442001Z Current branch: HEAD
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.0442688Z Using cache from origin: (some leanprover-community/mathlib4)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.0443781Z Attempting to download 8908 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.1955947Z 
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.3011909Z Downloaded: 1 file(s) [attempted 1/8908 = 0%, 330 KB/s], Decompressed: 0
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.4061800Z Downloaded: 82 file(s) [attempted 82/8908 = 0%, 305 KB/s], Decompressed: 34
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.5072213Z Downloaded: 154 file(s) [attempted 154/8908 = 1%, 3173 KB/s], Decompressed: 34
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.6098024Z Downloaded: 205 file(s) [attempted 205/8908 = 2%, 299 KB/s], Decompressed: 82
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.7083303Z Downloaded: 332 file(s) [attempted 332/8908 = 3%, 102 KB/s], Decompressed: 82
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.8088170Z Downloaded: 435 file(s) [attempted 435/8908 = 4%, 394 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:21.9116718Z Downloaded: 536 file(s) [attempted 536/8908 = 6%, 1754 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.0248263Z Downloaded: 649 file(s) [attempted 649/8908 = 7%, 227 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.1239822Z Downloaded: 757 file(s) [attempted 757/8908 = 8%, 341 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.2288164Z Downloaded: 870 file(s) [attempted 870/8908 = 9%, 595 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.3328007Z Downloaded: 990 file(s) [attempted 990/8908 = 11%, 883 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.4444323Z Downloaded: 1082 file(s) [attempted 1082/8908 = 12%, 1816 KB/s], Decompressed: 166
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.5482176Z Downloaded: 1170 file(s) [attempted 1170/8908 = 13%, 477 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.6500989Z Downloaded: 1259 file(s) [attempted 1259/8908 = 14%, 2436 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.7526939Z Downloaded: 1331 file(s) [attempted 1331/8908 = 14%, 94 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.8820259Z Downloaded: 1425 file(s) [attempted 1425/8908 = 15%, 266 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:22.9877991Z Downloaded: 1487 file(s) [attempted 1487/8908 = 16%, 170 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.0869764Z Downloaded: 1583 file(s) [attempted 1583/8908 = 17%, 2573 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.1871021Z Downloaded: 1701 file(s) [attempted 1701/8908 = 19%, 2514 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.2927846Z Downloaded: 1802 file(s) [attempted 1802/8908 = 20%, 381 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.3933508Z Downloaded: 1900 file(s) [attempted 1900/8908 = 21%, 154 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.4923119Z Downloaded: 1994 file(s) [attempted 1994/8908 = 22%, 7910 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.5967984Z Downloaded: 2092 file(s) [attempted 2092/8908 = 23%, 3164 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.6996923Z Downloaded: 2174 file(s) [attempted 2174/8908 = 24%, 1276 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.8097706Z Downloaded: 2277 file(s) [attempted 2277/8908 = 25%, 464 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:23.9095545Z Downloaded: 2354 file(s) [attempted 2354/8908 = 26%, 727 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.0095936Z Downloaded: 2460 file(s) [attempted 2460/8908 = 27%, 955 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.1094179Z Downloaded: 2567 file(s) [attempted 2567/8908 = 28%, 530 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.2178316Z Downloaded: 2676 file(s) [attempted 2676/8908 = 30%, 1138 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.3168126Z Downloaded: 2784 file(s) [attempted 2784/8908 = 31%, 69 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.4304209Z Downloaded: 2870 file(s) [attempted 2870/8908 = 32%, 707 KB/s], Decompressed: 428
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.5378284Z Downloaded: 2918 file(s) [attempted 2918/8908 = 32%, 118 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.6517916Z Downloaded: 3005 file(s) [attempted 3005/8908 = 33%, 634 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.7561510Z Downloaded: 3108 file(s) [attempted 3108/8908 = 34%, 2358 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:24.8541254Z Downloaded: 3230 file(s) [attempted 3230/8908 = 36%, 400 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.0168017Z Downloaded: 3345 file(s) [attempted 3345/8908 = 37%, 694 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.1207959Z Downloaded: 3391 file(s) [attempted 3391/8908 = 38%, 1388 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.2209678Z Downloaded: 3533 file(s) [attempted 3533/8908 = 39%, 881 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.3198940Z Downloaded: 3650 file(s) [attempted 3650/8908 = 40%, 865 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.4228284Z Downloaded: 3774 file(s) [attempted 3774/8908 = 42%, 1738 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.5227987Z Downloaded: 3886 file(s) [attempted 3886/8908 = 43%, 627 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.6226820Z Downloaded: 4000 file(s) [attempted 4000/8908 = 44%, 813 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.7219835Z Downloaded: 4099 file(s) [attempted 4099/8908 = 46%, 2531 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.8507023Z Downloaded: 4197 file(s) [attempted 4197/8908 = 47%, 5741 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:25.9528589Z Downloaded: 4267 file(s) [attempted 4267/8908 = 47%, 901 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.0511183Z Downloaded: 4322 file(s) [attempted 4322/8908 = 48%, 775 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.1517185Z Downloaded: 4425 file(s) [attempted 4425/8908 = 49%, 1205 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.2568043Z Downloaded: 4531 file(s) [attempted 4531/8908 = 50%, 637 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.3551882Z Downloaded: 4651 file(s) [attempted 4651/8908 = 52%, 576 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.4562310Z Downloaded: 4682 file(s) [attempted 4682/8908 = 52%, 2780 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.5558762Z Downloaded: 4812 file(s) [attempted 4812/8908 = 54%, 229 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.6581596Z Downloaded: 4935 file(s) [attempted 4935/8908 = 55%, 2641 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.7660973Z Downloaded: 5033 file(s) [attempted 5033/8908 = 56%, 1559 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.8653784Z Downloaded: 5134 file(s) [attempted 5134/8908 = 57%, 343 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:26.9648048Z Downloaded: 5256 file(s) [attempted 5256/8908 = 59%, 199 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.0647437Z Downloaded: 5364 file(s) [attempted 5364/8908 = 60%, 2345 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.1808235Z Downloaded: 5487 file(s) [attempted 5487/8908 = 61%, 327 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.2822682Z Downloaded: 5568 file(s) [attempted 5568/8908 = 62%, 121 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.3825908Z Downloaded: 5636 file(s) [attempted 5636/8908 = 63%, 393 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.4888513Z Downloaded: 5705 file(s) [attempted 5705/8908 = 64%, 397 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.5903951Z Downloaded: 5811 file(s) [attempted 5811/8908 = 65%, 1168 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.6907451Z Downloaded: 5943 file(s) [attempted 5943/8908 = 66%, 5444 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.7948226Z Downloaded: 6089 file(s) [attempted 6089/8908 = 68%, 393 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:27.9008788Z Downloaded: 6219 file(s) [attempted 6219/8908 = 69%, 634 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.0168035Z Downloaded: 6351 file(s) [attempted 6351/8908 = 71%, 926 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.1934135Z Downloaded: 6435 file(s) [attempted 6435/8908 = 72%, 2299 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.2968023Z Downloaded: 6514 file(s) [attempted 6514/8908 = 73%, 178 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.3992865Z Downloaded: 6656 file(s) [attempted 6656/8908 = 74%, 587 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.5022619Z Downloaded: 6757 file(s) [attempted 6757/8908 = 75%, 981 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.6090151Z Downloaded: 6860 file(s) [attempted 6860/8908 = 77%, 317 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.7565762Z Downloaded: 6973 file(s) [attempted 6973/8908 = 78%, 153 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.8649054Z Downloaded: 7035 file(s) [attempted 7035/8908 = 78%, 2187 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:28.9644037Z Downloaded: 7119 file(s) [attempted 7119/8908 = 79%, 123 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.0658164Z Downloaded: 7244 file(s) [attempted 7244/8908 = 81%, 285 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.1681773Z Downloaded: 7342 file(s) [attempted 7342/8908 = 82%, 182 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.2728678Z Downloaded: 7474 file(s) [attempted 7474/8908 = 83%, 2382 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.3718283Z Downloaded: 7599 file(s) [attempted 7599/8908 = 85%, 2434 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.4748085Z Downloaded: 7726 file(s) [attempted 7726/8908 = 86%, 238 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.5918098Z Downloaded: 7851 file(s) [attempted 7851/8908 = 88%, 227 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.6888622Z Downloaded: 7928 file(s) [attempted 7928/8908 = 88%, 128 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.7903817Z Downloaded: 8029 file(s) [attempted 8029/8908 = 90%, 1660 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:29.9488077Z Downloaded: 8154 file(s) [attempted 8154/8908 = 91%, 6524 KB/s], Decompressed: 1139
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.0451273Z Downloaded: 8247 file(s) [attempted 8247/8908 = 92%, 452 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.1465780Z Downloaded: 8386 file(s) [attempted 8386/8908 = 94%, 567 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.2661953Z Downloaded: 8466 file(s) [attempted 8466/8908 = 95%, 1255 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.4405957Z Downloaded: 8564 file(s) [attempted 8564/8908 = 96%, 308 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.5428025Z Downloaded: 8672 file(s) [attempted 8672/8908 = 97%, 1368 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.6627922Z Downloaded: 8787 file(s) [attempted 8787/8908 = 98%, 3813 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.6697706Z Downloaded: 8903 file(s) [attempted 8903/8908 = 99%, 654 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:30.6698864Z Downloaded: 8908 file(s) [attempted 8908/8908 = 100%, 654 KB/s], Decompressed: 2918
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1255196Z Decompressed 8908 file(s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1256009Z Already decompressed 8908 file(s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1712466Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1712763Z 
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1720721Z ##[end-action id=__leanprover_lean-action.__run_3;outcome=success;conclusion=success;duration_ms=95760]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.1734440Z ##[start-action display=build mxym/math;id=__leanprover_lean-action.build]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2303020Z ##[group]Run : Lake Build
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2303397Z [36;1m: Lake Build[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2303748Z [36;1m${GITHUB_ACTION_PATH}/scripts/lake_build.sh[0m
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2360565Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2361085Z env:
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2361400Z   BUILD_ARGS: 
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2361702Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:29:58.2447912Z ##[group]Lake Build Output
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:30:18.6683864Z ✔ [1637/1643] Built EntropyWakhare.Core (19s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:30:20.4758148Z ✔ [1638/1643] Built EntropyWakhare.Alpha (1.8s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:20.8499100Z ✔ [1639/1643] Built EntropyWakhare.Signs (62s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:23.1530690Z ✔ [1640/1643] Built EntropyWakhare.FourRoots (2.4s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:24.4535130Z ⚠ [1641/1643] Built EntropyWakhare.Polynomial (1.3s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:24.4536479Z warning: EntropyWakhare/Polynomial.lean:15:33: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5547403Z ✔ [1642/1643] Built EntropyWakhare (1.1s)
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5574752Z Build completed successfully (1643 jobs).
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5798871Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5799228Z 
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5808674Z ##[end-action id=__leanprover_lean-action.build;outcome=success;conclusion=success;duration_ms=87407]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.5811666Z ##[start-action display=Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache_2]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6847955Z ##[group]Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6848417Z with:
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6848772Z   path: formalizations/wakhare-entropy-four-roots-lean/.lake
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6850043Z   key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57-93a7512b3606581fcbbca310c7d2d587a8c1a903
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6851062Z   enableCrossOsArchive: false
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.6851384Z ##[endgroup]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:25.8380495Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/math/math --files-from manifest.txt --use-compress-program zstdmt
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:45.3068236Z Sent 0 of 2575826098 (0.0%), 0.0 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:46.3088190Z Sent 536870912 of 2575826098 (20.8%), 255.9 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:47.3061890Z Sent 671088640 of 2575826098 (26.1%), 213.2 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:48.3098324Z Sent 1073741824 of 2575826098 (41.7%), 255.7 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:49.3088113Z Sent 1610612736 of 2575826098 (62.5%), 306.9 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:50.3102450Z Sent 2013265920 of 2575826098 (78.2%), 319.7 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.3107293Z Sent 2374499506 of 2575826098 (92.2%), 323.2 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.4703883Z Sent 2575826098 of 2575826098 (100.0%), 342.8 MBs/sec
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8635583Z Cache saved with key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-b212d05a3060d00d86841b5318f2fe129ca46a037ce36fd8d24014d0ffc15b57-93a7512b3606581fcbbca310c7d2d587a8c1a903
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8725701Z ##[end-action id=__leanprover_lean-action.__actions_cache_2;outcome=success;conclusion=success;duration_ms=26291]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8732275Z ##[start-action display=test mxym/math;id=__leanprover_lean-action.test]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8738554Z ##[end-action id=__leanprover_lean-action.test;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8741515Z ##[start-action display=lint mxym/math;id=__leanprover_lean-action.lint]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8746818Z ##[end-action id=__leanprover_lean-action.lint;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8749039Z ##[start-action display=check reservoir eligibility;id=__leanprover_lean-action.__run_4]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8753185Z ##[end-action id=__leanprover_lean-action.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8756759Z ##[start-action display=check environment with leanchecker;id=__leanprover_lean-action.__run_5]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8763500Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8766730Z ##[start-action display=check environment with nanoda;id=__leanprover_lean-action.nanoda]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8770973Z ##[end-action id=__leanprover_lean-action.nanoda;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8773614Z ##[start-action display=audit axioms with axiom-audit;id=__leanprover_lean-action.axiom-audit]
+lean-kernel	Compile original conjecture formula and four-root Lean theorem	2026-10-08T22:31:51.8777952Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=skipped;conclusion=skipped;duration_ms=0]
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	﻿2026-10-08T22:31:51.8837347Z ##[group]Run set -euo pipefail
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:51.8837754Z [36;1mset -euo pipefail[0m
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:51.8838161Z [36;1mbash scripts/replay.sh[0m
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:51.8910528Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:51.8910968Z ##[endgroup]
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:52.7258484Z Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:53.7524715Z ⚠ [1641/1643] Replayed EntropyWakhare.Polynomial
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:53.7525928Z warning: EntropyWakhare/Polynomial.lean:15:33: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:53.7565037Z Build completed successfully (1643 jobs).
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:55.5360941Z PASS: 12 named Lean theorem roots, only standard kernel axioms
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:57.2396167Z PASS: intentionally invalid proof rejected by Lean
+lean-kernel	Audit complete theorem axioms and reject intentionally invalid proof	2026-10-08T22:31:57.2397288Z PASS: full Wakhare entropy polynomial original formula has four distinct interior roots
+lean-kernel	Post Run actions/checkout@v4	﻿2026-10-08T22:31:57.2537029Z Post job cleanup.
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3369028Z [command]/usr/bin/git version
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3412494Z git version 2.55.0
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3452264Z Temporarily overriding HOME='/home/runner/work/_temp/25cc3e5f-30f8-4935-8bc3-b15238de8292' before making global git config changes
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3453521Z Adding repository directory to the temporary git global config as a safe directory
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3458465Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/math/math
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3494038Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3525573Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3779069Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3802682Z http.https://github.com/.extraheader
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3812624Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.3843529Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.4053249Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lean-kernel	Post Run actions/checkout@v4	2026-10-08T22:31:57.4101329Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lean-kernel	Complete job	﻿2026-10-08T22:31:57.4442591Z Cleaning up orphan processes
+lean-kernel	Complete job	2026-10-08T22:31:57.4770174Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,33 @@
+<ORIGINAL_RUN>/sources/BapatRepetition.lean:40:16: warning: This simp argument is unused:
+  eq_self_iff_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ne_eq, Prod.mk.injEq, true_and, hij, false_and, not_false_eq_true, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<ORIGINAL_RUN>/sources/BapatRepetition.lean:49:6: warning: This simp argument is unused:
+  eq_self_iff_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ne_eq, Prod.mk.injEq, true_and, hij.symm, false_and, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<ORIGINAL_RUN>/sources/BapatRepetition.lean:92:0: warning: automatically included section variable(s) unused in theorem `BapatFiniteRank.sum_lex_prod`:
+  [LinearOrder ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+<ORIGINAL_RUN>/sources/BapatRepetition.lean:129:0: warning: automatically included section variable(s) unused in theorem `BapatFiniteRank.remainingPolynomial_eq_deleteTwoProduct`:
+  [LinearOrder C]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder C] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+<ORIGINAL_RUN>/sources/BapatRepetition.lean:137:0: warning: automatically included section variable(s) unused in theorem `BapatFiniteRank.formsProduct_repeat`:
+  [LinearOrder ι]
+  [LinearOrder C]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder ι] [LinearOrder C] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

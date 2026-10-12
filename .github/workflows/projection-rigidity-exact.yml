@@ -1,0 +1,45 @@
+name: Projection rigidity exact replay
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/projection-rigidity-exact.yml'
+      - 'preprints/005-simplex-product-optimum/v3/**'
+      - 'preprints/005-simplex-product-optimum/v2/paper.md'
+      - 'preprints/005-simplex-product-optimum/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-rigidity-exact.yml'
+      - 'preprints/005-simplex-product-optimum/v3/**'
+      - 'preprints/005-simplex-product-optimum/v2/paper.md'
+      - 'preprints/005-simplex-product-optimum/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the triggering revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, verified upstream commit
+        with:
+          persist-credentials: false
+      - name: Verify proof inputs and independent rational checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd preprints/005-simplex-product-optimum/v3
+          python3 code/check_manifest.py
+          python3 -O code/check_manifest.py
+          python3 code/generate.py --output /tmp/005-v3-exact.json
+          cmp certificates/exact.json /tmp/005-v3-exact.json
+          python3 code/check.py certificates/exact.json --self-test --report /tmp/005-v3-check.json
+          python3 -O code/check.py certificates/exact.json --self-test --report /tmp/005-v3-optimized.json
+          cmp results/check.json /tmp/005-v3-check.json
+          cmp results/optimized_check.json /tmp/005-v3-optimized.json
+          cmp /tmp/005-v3-check.json /tmp/005-v3-optimized.json
+          git diff --exit-code

@@ -1,0 +1,47 @@
+[
+  {
+    "check": "IndependentPublicAudit",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "OwnedInventory",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "LiteralPositiveControls",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "NegativeMainSubstitution",
+    "exit_code": 1,
+    "expected_rejection": true
+  },
+  {
+    "check": "NegativeFormulaOmission",
+    "exit_code": 1,
+    "expected_rejection": true
+  },
+  {
+    "check": "KernelNegativeControl",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "ReplayAllSafeOwned",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "rational-normal",
+    "exit_code": 0,
+    "expected_rejection": false
+  },
+  {
+    "check": "rational-optimized",
+    "exit_code": 0,
+    "expected_rejection": false
+  }
+]

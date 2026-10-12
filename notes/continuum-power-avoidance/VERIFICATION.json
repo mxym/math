@@ -1,0 +1,73 @@
+{
+  "clean_archive_reproduction": {
+    "all_eleven_release_pages_visually_inspected": true,
+    "normal_and_optimized_replays": "PASS and byte-identical",
+    "normal_and_optimized_three_pass_pdf_rebuilds": "PASS",
+    "pdf_sha256": "63a9438294c34fcdea963d3dfa33420dcde0e58ba6f73883efed646e5f35da22",
+    "rebuilt_pdfs_equal_release_bytes": true
+  },
+  "date": "2026-10-07",
+  "exact_replay": {
+    "coarsened_terminal_collision_outcomes": 732,
+    "independent_activation_representatives": 5322,
+    "independent_entropy_instances": 2352,
+    "independent_preorder_templates": 320,
+    "independent_report_sha256": "42f5242f31324fdb4c78fc7f723af1b7348d846ccafdc47605b73d83f6188780",
+    "independent_selector_assignments": 4096,
+    "independent_sparse_block_witnesses": 20,
+    "negative_controls": [
+      "Parameter-edge-only failure at sharp rational error radius",
+      "Closed activation loses closedness",
+      "One buffer can lose allowed error equality",
+      "Terminal coarsening destroys distinct-address product identity",
+      "Upper Banach density one does not guarantee logarithmic-span template activity"
+    ],
+    "normal_optimized_byte_identical": true,
+    "status": "PASS",
+    "submitted_report_sha256": "0f518a0cc8275812088a68e89d85f06ca4fad0bc6335f340941a3ad481c0ac42"
+  },
+  "later_literature_comparison_complete": false,
+  "lean_formalization": false,
+  "novelty_or_priority_certified": false,
+  "package_negative_controls": {
+    "controls": [
+      "Pinned reference byte corruption",
+      "Proof payload byte corruption",
+      "Unexpected file outside whitelist"
+    ],
+    "normal_and_optimized": "All three controls rejected in each mode",
+    "uses_assert": false
+  },
+  "packaging": {
+    "complete_release_files": 29,
+    "deterministic_member_order_and_metadata": true,
+    "public_path_whitelist_is_complete": true,
+    "source_and_release_manifests_have_explicit_self_exclusions": true,
+    "source_archive_members": 25,
+    "source_hashed_files": 24
+  },
+  "pdf": {
+    "all_pages_visually_inspected": true,
+    "byte_equality_required_across_installations": false,
+    "creation_and_modification_dates_omitted": true,
+    "format": "Letter, single-file editable LaTeX",
+    "overfull_boxes": 0,
+    "pages": 11,
+    "private_path_metadata_suppressed": true,
+    "shell_escape": false,
+    "undefined_references": 0
+  },
+  "received_inputs": {
+    "independent_audit_members": 7,
+    "original_bundle_members": 17,
+    "unchanged_hashes_verified": true
+  },
+  "references": {
+    "bytes_match_pins": true,
+    "mathematical_components": 6,
+    "notices_and_licenses": 2
+  },
+  "reproduction_note": "The installed TeX distribution required isolated writable format/font caches; no package download or source change was required. verify.py --build uses the caller's working TeX installation. Logs and caches are excluded from the public copy.",
+  "scope": "Public reader formatting and offline reproduction of the independently audited bounded-logarithmic-gap continuum-power theorem. Exact controls do not prove the infinite theorem.",
+  "written_proof_audit": "PASS for the received proof; independent final-copy review is separate."
+}

@@ -1,0 +1,7 @@
+import Entry002.GenericCommonWindowCharge
+#print axioms Entry002.common_window_batch_split
+#print axioms Entry002.common_window_batch_law
+#print axioms Entry002.common_window_factor_split
+#print axioms Entry002.common_window_factor_law
+#print axioms Entry002.batch_collision_short_of_sq
+#print axioms Entry002.eventually_common_window_batch_charge

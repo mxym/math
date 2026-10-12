@@ -1,0 +1,30 @@
+import Entry002.PrimeIdealEulerLogRealPole
+
+#print axioms Entry002.idealNormCount_sum_Icc
+#print axioms Entry002.idealNormCoefficient_tendsto_sum_div
+#print axioms Entry002.idealNormCoefficient_sum_isBigO
+#print axioms Entry002.idealNormCoefficient_LSeriesSummable
+#print axioms Entry002.idealNormCoefficient_abscissaOfAbsConv_le_one
+#print axioms Entry002.dedekindZeta_eq_idealNormCoefficient_LSeries
+#print axioms Entry002.idealNormCoefficient_LSeries_analyticOnNhd
+#print axioms Entry002.dedekindZeta_analyticOnNhd_re_gt_one
+#print axioms Entry002.actualDedekindZeta_pos_real
+#print axioms Entry002.actualDedekindZeta_ne_zero_real
+#print axioms Entry002.actualDedekindZeta_residue_pos
+#print axioms Entry002.actualDedekindZeta_tendsto_sub_one_mul_nhdsGT
+#print axioms Entry002.idealNormCoefficient_LSeries_tendsto_sub_one_mul_nhdsGT
+#print axioms Entry002.idealNormCoefficient_abscissaOfAbsConv_eq_one
+#print axioms Entry002.primeIdealLogCoefficient_eq_zero_of_lt_two
+#print axioms Entry002.primeIdealLogCoefficient_nonneg
+#print axioms Entry002.primeIdealLogCoefficient_le_degree
+#print axioms Entry002.primeIdealLogCoefficient_log_mul
+#print axioms Entry002.primeIdealLogCoefficient_complex_logMul
+#print axioms Entry002.primeIdealEulerLogLSeries_abscissa_le_one
+#print axioms Entry002.primeIdealEulerLogLSeriesSummable
+#print axioms Entry002.primeIdealEulerLogLSeries_hasDerivAt
+#print axioms Entry002.primeIdealEulerLogLSeries_tendsto_zero_atTop
+#print axioms Entry002.actualDedekindZeta_tendsto_one_atTop
+#print axioms Entry002.actualDedekindZeta_log_sub_eulerLog_hasDerivAt_zero
+#print axioms Entry002.actualDedekindZeta_log_sub_eulerLog_tendsto_zero_atTop
+#print axioms Entry002.actualDedekindZeta_real_log_eq_eulerLog
+#print axioms Entry002.primeIdealEulerLogLSeries_add_log_sub_one_tendsto_nhdsGT

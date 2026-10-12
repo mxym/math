@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\Ptwo}{\mathcal P_2}
+\title{Source overlap and target tails in quantitative Brenier stability\\\large A derived synthesis note for entries 001, 007 and 008}
+\author{}
+\date{Synthesis note, 7 October 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We identify linear bounded-overlap control with global Sobolev regularity of the appropriate density root and compute the strong first-order limit of the exact minimum-density weight. We then express the existing convex-gradient interpolation theorem as a pairing between source-overlap and actual target-energy profiles. The latter envelope is a direct consequence of manuscript 001 v5, not a new sharpness theorem. These statements unify proof interfaces used in 001, 007 and 008; they do not classify every source with stable transport maps. Every transport application retains its separate centered-potential hypothesis.
+\end{abstract}
+\paragraph{Status.} This synthesis note uses the pinned repository snapshot
+\texttt{c897a556e12e460380c7}\allowbreak\texttt{cf521e88f84286994915}. The proposed synthesis has undergone an independent model audit. This is not external human peer review or formal verification. No novelty, priority or journal-tier assertion is made. Historical sources are unchanged.
+
+\section{Exact overlap control and the density root}
+Let $r$ be a finite nonnegative representative of a Lebesgue probability density on $\R^d$, let $\rho=r\dd x$, and fix $1<s<\infty$. All supported densities are extended by zero to $\R^d$. Put $\sigma=r^{1/s}$, so $\sigma\in L^s(\dd x)$ and $\norm\sigma_s=1$. For each coordinate $j$ and $h>0$ define
+\[
+ d_{j,\pm h}(x)=\left(1-\frac{r(x\pm he_j)}{r(x)}\right)_+
+ \quad(r(x)>0),
+ \qquad d_{j,\pm h}(x)=0\quad(r(x)=0),
+\]
+\[
+ W_{j,h}=6|d_{j,h}-d_{j,-h}|+2d_{j,h},\qquad
+ \Xi_j(h)=\max_{\pm}\norm{d_{j,\pm h}}_{L^s(\rho)},\qquad
+ B_j(h)=\norm{\sigma(\cdot+he_j)-\sigma}_{L^s(\dd x)}.
+\]
+This $W_{j,h}$ is exactly the weight in 001 v5, Lemma 3.1: writing
+$m(x)=\min\{r(x),r(x+he_j)\}$ gives
+$|m(x-he_j)-m(x)|/r(x)=|d_{j,h}-d_{j,-h}|$ and
+$1-m(x)/r(x)=d_{j,h}$ on $\{r>0\}$. Both weights vanish on $\{r=0\}$.
+
+\begin{lemma}[Quantitative equivalence of the profiles]\label{lem:profiles}
+For every $h>0$,
+\begin{align}
+ 2\Xi_j(h)&\le\norm{W_{j,h}}_{L^s(\rho)}\le14\Xi_j(h),\label{eq:loss-weight}\\
+ B_j(h)&\le2^{1/s-1}\norm{W_{j,h}}_{L^s(\rho)}
+          \le14s\,2^{1/s-1}B_j(h),\label{eq:root-weight}\\
+ \norm{W_{j,h}}_{L^s(\rho)}&\le14s B_j(h).\label{eq:upper-root}
+\end{align}
+No support, positivity or log-concavity assumption is required.
+\end{lemma}
+\begin{proof}
+For $a,b\ge0$, $6|a-b|+2a\ge2\max(a,b)$ and
+$6|a-b|+2a\le8a+6b$. Apply these to the two deficits and use Minkowski to prove \eqref{eq:loss-weight}.
+
+For $0\le t\le1$, $1-t\le1-t^s\le s(1-t)$. Therefore
+\[
+ (\sigma(x)-\sigma(x+he_j))_+
+ \le\sigma(x)d_{j,h}(x)
+ \le s(\sigma(x)-\sigma(x+he_j))_+.
+\]
+At $\sigma=0$ both sides vanish. The upward root increment, after the change of variable $y=x+he_j$, is bounded by $\sigma(y)d_{j,-h}(y)$. Thus
+\[
+ B_j(h)^s\le\norm{d_{j,h}}_{L^s(\rho)}^s+
+                    \norm{d_{j,-h}}_{L^s(\rho)}^s
+ \le2^{1-s}\norm{W_{j,h}}_{L^s(\rho)}^s.
+\]
+Also each deficit norm is at most $s B_j(h)$, because the forward and backward root translations have equal Lebesgue norms. Combining this with $W\le8d_{j,h}+6d_{j,-h}$ proves \eqref{eq:upper-root} and the remaining inequality. Every change of variable includes the zero extension, so boundary jumps are retained.
+\end{proof}
+
+\begin{theorem}[Root characterization and exact first-order limit]\label{thm:root}
+The following are equivalent:
+\begin{enumerate}
+\item $\sigma\in W^{1,s}(\R^d)$;
+\item for every $j$, $\limsup_{h\downarrow0}h^{-1}\norm{W_{j,h}}_{L^s(\rho)}<\infty$;
+\item for every $j$, $\liminf_{h\downarrow0}h^{-1}\norm{W_{j,h}}_{L^s(\rho)}<\infty$.
+\end{enumerate}
+Under these conditions, writing $b_j=\partial_j\sigma$, one has
+\begin{equation}\label{eq:strong-limit}
+ \frac{\sigma W_{j,h}}h\longrightarrow
+ s\bigl(6|b_j|+2(-b_j)_+\bigr)
+ \quad\hbox{strongly in }L^s(\dd x).
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:norm-limit}
+ \lim_{h\downarrow0}\frac{\norm{W_{j,h}}_{L^s(\rho)}}h
+ =s\norm{6|b_j|+2(-b_j)_+}_{L^s(\dd x)}.
+\end{equation}
+These equivalences characterize the linear-overlap interpolation condition, not necessity of a one-third transport-map estimate.
+\end{theorem}
+\begin{proof}
+Suppose condition 3 holds. For each $j$ choose its own sequence $h_n\downarrow0$ along which the quotients are bounded. Lemma~\ref{lem:profiles} bounds
+$q_n=(\sigma(\cdot+h_ne_j)-\sigma)/h_n$ in $L^s(\dd x)$. Reflexivity gives a weakly convergent subsequence. For $\phi\in C_c^\infty(\R^d)$,
+\[
+ \int q_n\phi\dd x
+ =\int\sigma(x)\frac{\phi(x-h_ne_j)-\phi(x)}{h_n}\dd x
+ \longrightarrow-\int\sigma\partial_j\phi\dd x.
+\]
+Here the test quotients converge uniformly on one fixed compact set, and $\sigma$ is locally integrable. The weak limit is the distributional derivative in $L^s$. Doing this for all coordinates proves condition 1. Conversely the Sobolev translation bound $B_j(h)\le h\norm{b_j}_s$ and \eqref{eq:upper-root} prove condition 2. Condition 2 implies condition 3.
+
+For the strong limit, coordinatewise absolute continuity and translation continuity in $L^s$ give
+\[
+ q_h^+=\frac{\sigma(\cdot+he_j)-\sigma}h\longrightarrow b_j,
+ \qquad q_h^-=\frac{\sigma-\sigma(\cdot-he_j)}h\longrightarrow b_j
+ \quad\hbox{strongly in }L^s.
+\]
+Indeed each quotient is an average of translated $b_j$. The weak derivative of a nonnegative Sobolev function vanishes almost everywhere on its zero set. On almost every coordinate line this follows because its continuous absolutely continuous representative has derivative zero at each differentiability point where it attains zero.
+
+Set $c_s(t)=(1-t^s)/(1-t)$ for $0\le t<1$, $c_s(1)=s$, and take $c_s(t)=s$ for $t>1$, where the corresponding positive part below vanishes. On $[0,1]$ it is bounded between $1$ and $s$. On $\{\sigma>0\}$ one has exactly
+\[
+ \frac{\sigma d_{j,h}}h
+ =c_s\left(\frac{\sigma(\cdot+he_j)}\sigma\right)(-q_h^+)_+,
+ \qquad
+ \frac{\sigma d_{j,-h}}h
+ =c_s\left(\frac{\sigma(\cdot-he_j)}\sigma\right)(q_h^-)_+.
+\]
+Both expressions are zero on $\{\sigma=0\}$. From any sequence $h_n\downarrow0$, strong translation convergence permits extraction of a subsequence on which both translated $\sigma$ converge almost everywhere to $\sigma$. The multipliers then tend to $s$ on $\{\sigma>0\}$. On $\{\sigma=0\}$ the limiting derivative is zero.
+For either positive quotient $z_h$ with strong limit $z$, and its bounded multiplier $c_h$, use
+\[
+ \norm{c_hz_h-sz}_s\le s\norm{z_h-z}_s+
+                              \norm{(c_h-s)z}_s.
+\]
+The second term tends to zero by dominated convergence against the integrable function $|z|^s$. This proves on that subsequence
+\[
+ \frac{\sigma d_{j,h}}h\longrightarrow s(-b_j)_+,
+ \qquad \frac{\sigma d_{j,-h}}h\longrightarrow s(b_j)_+
+ \quad\hbox{strongly in }L^s.
+\]
+Every sequence has such a subsequence, so the limits hold as $h\downarrow0$. The map $(a,b)\mapsto6|a-b|+2a$ is Lipschitz, proving \eqref{eq:strong-limit}. Norm convergence gives \eqref{eq:norm-limit} since $\norm{W}_{L^s(\rho)}=\norm{\sigma W}_{L^s(\dd x)}$.
+\end{proof}
+
+\begin{remark}[The endpoint is different]
+The characterization requires $1<s<\infty$. At $s=1$, uniformly bounded translation quotients characterize BV rather than $W^{1,1}$. An interval indicator has $W$-mean $14h$ for small $h$ but a nonzero boundary jump. Thus the theorem must not be extended to $s=1$, or to bounded gradients through the conjugate endpoint, by continuity in the exponent.
+\end{remark}
+
+\begin{corollary}[Connection to the existing $L^1$ limit]
+Under Theorem~\ref{thm:root}, $r\in W^{1,1}(\R^d)$ and
+\[
+ \frac{rW_{j,h}}h\longrightarrow
+ 6|\partial_jr|+2(-\partial_jr)_+\quad\hbox{strongly in }L^1(\dd x).
+\]
+\end{corollary}
+\begin{proof}
+Apply the Lipschitz chain rule to $\min(\sigma,N)^s$ and pass to the limit. H\"older and dominated convergence give
+$\partial_jr=s\sigma^{s-1}b_j$ in $L^1$. Multiply \eqref{eq:strong-limit} by $\sigma^{s-1}\in L^{s/(s-1)}$ and use H\"older. This recovers 001 v5's first-order formula on the density-root subclass. Its assertion for all $W^{1,1}$ densities is broader and remains necessary.
+\end{proof}
+
+\section{Source-overlap and actual target-energy profiles}
+We explicitly import 001 v5, Lemma 3.1. For proper convex functions $u,v:\R^d\to(-\infty,+\infty]$, finite $\rho$-almost everywhere, with gradients in $L^2(\rho)$ and difference square-integrable up to a constant, put
+\[
+ D=\norm{\nabla u-\nabla v}_{L^2(\rho)},\qquad
+ \delta=\inf_{a\in\R}\norm{u-v-a}_{L^2(\rho)}.
+\]
+That lemma states, for every $h>0$,
+\begin{equation}\label{eq:imported}
+ D^2\le12d\delta^2h^{-2}+\sum_j\int W_{j,h}
+                 (|\partial_ju|^2+|\partial_jv|^2)\dd\rho.
+\end{equation}
+The exact domain conventions and signed-square proof are in the pinned source; no density regularity assumption supplies this convexity input.
+
+For a nonnegative random variable $a$ on any probability space, define its decreasing rearrangement on $(0,1)$ by
+\[
+ a^*(t)=\inf\{z\ge0:\Pr(a>z)\le t\}.
+\]
+Changing values at endpoints of constant intervals has no effect on our integrals. Put $F_h=\max_jW_{j,h}$, so $0\le F_h\le8$. For a target probability $\mu\in\Ptwo(\R^d)$ let $E_\mu$ be the decreasing rearrangement of $|y|^2$ under $\mu$.
+
+\begin{lemma}[Pairing without independence]\label{lem:pair}
+For jointly distributed nonnegative $a,b$,
+\[
+ \mathbb E[ab]\le\int_0^1a^*(t)b^*(t)\dd t.
+\]
+This remains valid with atoms and infinite nonnegative integrals.
+\end{lemma}
+\begin{proof}
+Tonelli's layer-cake identity gives
+\[
+ \mathbb E[ab]=\int_0^\infty\!\int_0^\infty
+        \Pr(a>z,b>v)\dd z\dd v
+ \le\int_0^\infty\!\int_0^\infty
+        \min\{\Pr(a>z),\Pr(b>v)\}\dd z\dd v.
+\]
+The rearranged superlevel sets are initial intervals of lengths $\Pr(a>z)$ and $\Pr(b>v)$, up to null endpoints. Their intersection has the minimum of these lengths. Applying layer cake to $a^*b^*$ proves the claim. Distribution preservation follows directly from the generalized inverse definition, including jumps of the distribution function. Independence and non-atomic target laws were never assumed.
+\end{proof}
+
+\begin{theorem}[Derived joint profile envelope]\label{thm:envelope}
+Suppose a fixed absolutely continuous source $\rho\in\Ptwo$ has centered Brenier potentials satisfying the domain hypotheses of \eqref{eq:imported} and the separately verified estimate
+\begin{equation}\label{eq:P}
+ \text{(P)}\qquad\norm{U_\mu-U_\nu}_{L^2(\rho)}\le A_\rho W_2(\mu,\nu)
+ \qquad(\mu,\nu\in\Ptwo).
+\end{equation}
+For every $\mu,\nu\in\Ptwo$, writing $w=W_2(\mu,\nu)$,
+\begin{equation}\label{eq:envelope}
+ \norm{T_\mu-T_\nu}_{L^2(\rho)}^2
+ \le\inf_{h>0}\left\{12dA_\rho^2w^2h^{-2}+
+       \int_0^1 F_h^*(t)[E_\mu(t)+E_\nu(t)]\dd t\right\}.
+\end{equation}
+The source profile is $F_h^*$ and the actual target profiles are $E_\mu,E_\nu$. This is an upper envelope, with no asserted converse, optimality of constants, or realizability of a maximizing profile by convex gradients.
+\end{theorem}
+\begin{proof}
+The coordinate sum in \eqref{eq:imported} is at most
+$\int F_h(|\nabla u|^2+|\nabla v|^2)\dd\rho$.
+Apply Lemma~\ref{lem:pair} to each product. The pushforward identities give the squared gradient laws $|T_\mu|^2\sim |y|^2$ under $\mu$ and similarly for $\nu$. Apply (P), then infimize in $h$. All pairings are finite because $F_h\le8$ and both targets have finite second moments.
+\end{proof}
+
+For full-dimensional $\rho=Z^{-1}\exp(-\kappa|x|^2/2-W)\dd x$, where $\kappa>0$ and $W$ is proper lower-semicontinuous convex, (P) is supplied by 001 v3, Theorem 1.1, with $A_\rho=\sqrt{2/\kappa}$. Its complete finite-cell and all-$\Ptwo$ proof is retained there. For a full-dimensional log-concave probability density supported on a compact convex body $K\subset B_R$, $R>0$, its Theorem 1.4 instead supplies $A_\rho=(1+\sqrt{162})R$. Its centered potentials are in $L^2(\rho)$ and finite and convex on $\operatorname{int}K$; their proper convex extensions to $\R^d$ supply the domain convention of Lemma 3.1. Neither arbitrary BV regularity nor the root condition implies (P).
+
+\section{Recoveries and precise limits of the synthesis}
+\subsection{Finite moments and the root condition}
+Fix $q>2$, $s=q/(q-2)$, $m_\mu=(\int|y|^q\dd\mu)^{1/q}$ and $M=m_\mu+m_\nu$. H\"older in \eqref{eq:envelope} bounds its profile term by
+\[
+ \norm{F_h}_{L^s(\rho)}(m_\mu^2+m_\nu^2)
+ \le M^2\norm{F_h}_{L^s(\rho)}.
+\]
+If $\norm{F_h}_s\le C h^\theta$ for $0<h\le1$, $0<\theta\le1$, then $w\le M$, and choosing $h=(w/M)^{2/(2+\theta)}$ gives, for $wM>0$,
+\[
+ \norm{T_\mu-T_\nu}_2\le
+ \sqrt{12dA_\rho^2+C}\,M^{2/(2+\theta)}w^{\theta/(2+\theta)}.
+\]
+Zero cases follow from zero gradient moments or uniqueness. The root condition gives $\theta=1$:
+\[
+ \norm{F_h}_s\le
+ 14s h\left(\sum_j\norm{\partial_jr^{1/s}}_s^s\right)^{1/s}.
+\]
+Theorem~\ref{thm:root} adds an exact characterization of this linear-overlap method and its first-order coefficient, rather than a new sharp transport exponent.
+
+\subsection{General tails and the BV rate}
+Set $S=\sum_j\operatorname{TV}_j(r)$ when finite, and
+\[
+ \tau_{\mu,\nu}(L)=\int_{|y|>L}|y|^2\dd\mu+
+                         \int_{|y|>L}|y|^2\dd\nu.
+\]
+Splitting each energy profile at $L^2$ gives
+\[
+ D^2\le12dA_\rho^2w^2h^{-2}+2L^2\int F_h\dd\rho+8\tau_{\mu,\nu}(L).
+\]
+The sharp weight-mean estimate in 001 v5, Proposition 4.1, gives
+$\int F_h\dd\rho\le\sum_j\int W_{j,h}\dd\rho\le7Sh$.
+Thus
+\begin{equation}\label{eq:tail}
+ D^2\le12dA_\rho^2w^2h^{-2}+14ShL^2+8\tau_{\mu,\nu}(L).
+\end{equation}
+This is the existing 001 v5 bound. Manuscript 007, Theorem 1.1, has the better tail coefficient $4$, using the coordinate-slice common-good-interval proof; $S=2V(r)$ in its notation. That proof should be retained rather than replaced by \eqref{eq:tail} when its stronger constant matters.
+
+Since $F_h\le8$ and $\int F_h\le7Sh$, $\norm{F_h}_s\le8^{1-1/s}(7Sh)^{1/s}$. The finite-moment recovery has $\theta=1/s$, giving $(q-2)/(3q-2)$. General uniformly integrable second-moment tails, logarithmic second moments and stretched-exponential tails are treated by the same tail splitting; the stronger Gaussian logarithmic rates use its specific weight distribution and logarithmic pairing as proved in 001 v4/v5. No new sharpness follows from this envelope.
+
+\subsection{Boundary and critical source profiles}
+For $d\ge2$, $b\ge0$ and 008's specific source $r_b=f_b(x_1)\prod_{j\ge2}g(x_j)$, where $f_b(x)=c_bx^be^{-x^2/2}\mathbf1_{x>0}$ and $g$ is its infinitely vanishing transverse bump, its proved root-translation bounds give, for sufficiently small $0<h\le h_0<1$,
+\[
+ \norm{F_h}_s\le C\begin{cases}
+ h^{(b+1)/s},&b<s-1,\\
+ h(1+\log(1/h))^{1/s},&b=s-1,\\
+ h,&b>s-1.
+ \end{cases}
+\]
+Optimization yields its upper phase diagram and critical logarithmic power $1/(3s)$. Matching lower bounds require 008's separately proved global convex constructions and exact mass matching; the critical construction has growing atom count. Its slowly-varying supplement at $b=s-1$ assumes $L>0$ is $C^2$ near zero and, with $\ell=\log L$, $x\ell'(x)\to0$ and $x^2\ell''(x)\to0$. For sufficiently small $a>0$, the first marginal is $f(x)=c x^{s-1}L(x)e^{-x^2/2}$ on $0<x<a$, with the same transverse factors $g$ as above. It is extended with a $C^2$, $1$-strongly convex potential and quadratic tail. Under those hypotheses the root bound is $ChH(h)^{1/s}$ with $H(h)=1+\int_h^aL(x)\dd x/x$. Balancing gives $w=h^{3/2}H(h)^{1/(2s)}$ and map scale $h^{1/2}H(h)^{1/(2s)}$. The supplement proves the inverse comparison and all-small-distance lower bound. Replacing its implicit inverse by $w^{2/3}$ is not justified for all allowed slowly varying $L$.
+
+\paragraph{Two distinct thresholds.} The source threshold $b=s-1=2/(q-2)$ is about boundary root regularity at a fixed target moment $q$. The Gaussian target-tail threshold $\beta=1/2$ in 001's logarithmic-second-moment theorem is about integrability of $|y|^2[\log(e+|y|^2)]^\beta$ for a fixed Gaussian source. They are different statements. The general Fisher threshold $q=4$ is a sufficient-condition threshold over a source class, not a necessary threshold at each source.
+
+\paragraph{What remains separate.} The fixed smooth steep-layer construction in 007 has the optimal finite-moment power and a vanishing endpoint ratio. The strengthened construction in 001 v5 also has a vanishing endpoint ratio for its stretched-exponential obstruction, while its logarithmic-second-moment lower comparison has a positive ratio along a sequence. These conclusions differ from 008's two-sided all-small-distance envelope. The hard-boundary stretched-exponential supplement supplies positive matching endpoint ratios for its displayed sources. The one-third estimate for each specified superquadratic product source and its separate sharpness construction are retained in 007. Qualitative smoothness and full support alone are not root regularity, and none of these statements is a complete source classification. Dimension one is isometric for atomless sources, so the lower obstructions require $d\ge2$.
+
+\section*{Pinned proof inputs and attribution}
+\begingroup\small
+The exact dependency file accompanying this note records SHA-256 hashes at the fixed snapshot. Public proof inputs are:
+\begin{itemize}
+\item 001 v3, Theorems 1.1 and 1.4, at \texttt{5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3}; its potential framework credits the pinned OpenAI predecessor and the primary transport literature.
+\item 001 v5, Lemma 3.1, Propositions 4.1--4.2 and 5.1, and Theorem 6.1; its root sufficient condition overlaps 008 and is counted once.
+\item 007 v2, its inherited v1 core and extension; its separate coarea tail proof, superquadratic results and fixed smooth-source lower construction retain their own attribution.
+\item 008 v1, Lemmas 2.1 and 4.1, Theorem 2.2, Corollary 2.3 and Theorems 1.1--1.2; its later critical slowly-varying supplement, Theorem 1, Corollary 3 and Remark 4, supplies the implicit modulus, the criterion within that family, and the inverse-substitution limitation.
+\end{itemize}
+The rearrangement envelope is an elementary layer-cake consequence of the existing minimum-weight lemma; it is not proposed as new literature novelty. The overlap/root equivalence and strong limit are proved here to make the synthesis exact, without changing any historical claim. Full literature comparison remains incomplete. No external human peer review, full formalization, general necessity theorem, new licence or publication decision is inferred.
+\endgroup
+\end{document}

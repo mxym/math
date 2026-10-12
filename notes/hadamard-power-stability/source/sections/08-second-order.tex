@@ -1,0 +1,78 @@
+\section{Second-order liftability and the exact tangent cone}\label{sec:second}
+Fix $m\ge2$ and a dephased cyclic seed $G$. Let $V_G$ denote its simultaneous dephased first-order kernel. Consider a twice-differentiable unit-modulus phase curve
+\[
+ K(t)=G\circ\exp\bigl(i[tX+t^2Y+o(t^2)]\bigr),
+\]
+with real $X,Y$ zero on the initial row and column. The coefficient $Y$ is half the usual second phase derivative. Its phase two-jet is \emph{admissible} if every required power Gram residual is $o(t^2)$.
+
+\begin{theorem}\label{thm:twojet}
+The admissible phase two-jets are exactly those satisfying $Y\in V_G$ and either $X=0$ or
+\[
+ X=\beta\ind_{R\times S},\qquad\beta\in\R\setminus\{0\},
+\]
+for a compatible rectangle with $|R|=|S|=m$ avoiding the initial indices. Thus the nonzero velocities admitting any second-order lift are exactly the tangent lines of the compatible phase circles. This does not assert that every admissible two-jet extends to an exact curve with its prescribed acceleration $Y$.
+\end{theorem}
+
+\subsection{Conjugate powers separate acceleration and drift}
+For a row pair put
+\[
+ g_j=G_{aj}\overline{G_{bj}},\quad u_j=X_{aj}-X_{bj},\quad
+ v_j=Y_{aj}-Y_{bj},\quad S_k=\sum_jg_j^kv_j,\quad Q_k=\sum_jg_j^ku_j^2.
+\]
+The first-order equation is $\sum_jg_j^ku_j=0$, and the second-order equation is
+\begin{equation}\label{eq:secondcoefficient}
+ ikS_k-(k^2/2)Q_k=0,\qquad S_k=-(ik/2)Q_k.
+\end{equation}
+Because $g_j\in\mu_m$ and $u_j,v_j$ are real,
+\[
+ S_{m-k}=\overline{S_k},\qquad Q_{m-k}=\overline{Q_k}.
+\]
+Comparing~\eqref{eq:secondcoefficient} at $m-k$ with its conjugate at $k$ gives
+\[
+ -\frac{i(m-k)}2\overline{Q_k}=\frac{ik}2\overline{Q_k}.
+\]
+Thus $Q_k=S_k=0$ for all nontrivial characters. When $k=m-k$, including $m=2$, the same conclusion follows by separating real and imaginary parts. Hence acceleration cannot cancel quadratic phase drift: admissibility forces separately
+\begin{equation}\label{eq:secondseparation}
+ \sum_jg_j^ku_j^2=0,\qquad\sum_jg_j^kv_j=0.
+\end{equation}
+The latter is $Y\in V_G$. The same reasoning applies to columns because row and column Gram operator norms coincide at each $t$.
+
+\subsection{A real distance-geometry lemma}
+Subtract linear row and column phase gauges to make $X$ double-centered; admissibility is preserved. For each row pair, Fourier inversion says that the first-order differences have zero sum in each two-element class, hence are $u,-u$ there. The squared sums in~\eqref{eq:secondseparation} are constant across classes, so
+\begin{equation}\label{eq:equaldistances}
+ (X_{aj}-X_{bj})^2\text{ is independent of }j,
+ \qquad (X_{aj}-X_{a\ell})^2\text{ is independent of }a.
+\end{equation}
+
+\begin{lemma}\label{lem:rankonesigns}
+A nonzero double-centered real matrix satisfying~\eqref{eq:equaldistances} is $X=ars^{\mathsf T}$, where $a\ne0$ and $r,s$ are sign vectors each having $m$ entries of each sign.
+\end{lemma}
+\begin{proof}
+Choose a nonconstant column $u$, which exists by nonzero column centering. The first equality in~\eqref{eq:equaldistances} makes every other labelled column configuration on the real line have the same pairwise distances as $u$. Two such finite configurations differ only by a translation and a reflection: fix two distinct coordinates as anchors, then solve their two squared-distance equations for each remaining coordinate. Centering removes translation, so each column is $u$ or $-u$. Row centering forces exactly $m$ columns of each sign. Apply the second equality in~\eqref{eq:equaldistances} to an opposite-sign pair: every coordinate of $u$ has the same absolute value. Column centering gives exactly $m$ coordinates of each sign.
+\end{proof}
+
+\subsection{Dephasing and compatibility}
+The dephased representative of $ars^{\mathsf T}$ is
+\[
+ X_{ij}=a(r_i-r_0)(s_j-s_0).
+\]
+It is zero off $R\times S$, where $R=\{i:r_i\ne r_0\}$ and $S=\{j:s_j\ne s_0\}$, and equals $\beta=4ar_0s_0\ne0$ on that rectangle. Both sets have size $m$ and exclude the initial indices. For $a\in R,b\notin R$, its first-order equation is
+\[
+ \sum_{j\in S}(G_{aj}\overline{G_{bj}})^k=0\qquad(1\le k<m).
+\]
+There are $m$ roots in this multiset. Fourier inversion says each root occurs once, precisely compatibility; the complementary half follows from the full counts. Conversely compatibility makes $G\circ e^{it\beta\ind_Q}$ an exact curve. Its linear and quadratic coefficients vanish, while every $Y\in V_G$ contributes zero at second order. Together with~\eqref{eq:secondseparation}, this proves Theorem~\ref{thm:twojet}.
+
+\subsection{A graph test for branches}
+Let the graph components be $C_1,\ldots,C_r$ with row weights $c_1,\ldots,c_r$, where $(0,0)\in C_1$. Compatible rectangles correspond exactly to sign assignments $\sigma_\ell\in\{1,-1\}$ satisfying
+\begin{equation}\label{eq:signassignment}
+ \sigma_1=1,\qquad\sum_\ell c_\ell\sigma_\ell=0,
+\end{equation}
+for which the component-constant sign matrix has real rank one. Indeed a balanced rank-one sign matrix is $rs^{\mathsf T}$; normalizing its $(0,0)$ value to one removes sign ambiguity and dephasing gives the rectangle. Conversely the double-centered rectangle velocity is a scalar multiple of that matrix. The graph-kernel theorem gives both implications. This is an exact finite sign test followed by a rank-one test.
+
+The number $b$ of compatible circles through $G$ obeys
+\begin{equation}\label{eq:sperner}
+ b\le\binom{r-1}{\lfloor(r-1)/2\rfloor}.
+\end{equation}
+To see this, the positive component subset contains $C_1$ and has total row weight $m$. The remaining subsets form an antichain because all weights are positive; strict inclusion increases total weight. Sperner's bound proves~\eqref{eq:sperner}, and the rank-one condition can only reduce the number. The classical order-four root has $r=4$ and three compatible branches, attaining the bound. The independent finite review also checked its second-order branch equations: in the three rectangle tangent coordinates $(a,b,c)$, the vanishing ideal is $(ab,ac,bc)$, the union of the three coordinate lines. This finite check is not used in the theorem.
+
+At odd $m$, there are no compatible rectangles by the exact theory. Independently, the positive cells of a balanced rank-one sign matrix form a union of graph components of row weight $m$. Two distinct rows with the same row sign have identical support of odd size $m$, contradicting Lemma~\ref{lem:evenintersection}; there are at least two such rows since $m\ge3$. Thus every nonzero simultaneous kernel direction at an odd seed is obstructed at second order. This does not prove that its first-order kernel is zero.

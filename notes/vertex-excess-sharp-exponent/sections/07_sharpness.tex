@@ -1,0 +1,150 @@
+\section{The exact truncation and pyramid obstruction}
+\label{sec:sharpness}
+Put $k=\min(r,d-1)$ and $m=k+1$, so $2\le m\le d$. For $0<t<1$ define
+\begin{equation}\label{eq:core}
+ C_t=\left\{x\in\R^m:x_i\ge0,\quad t\le\sum_i x_i\le1\right\}
+     =\conv\{e_1,\ldots,e_m,te_1,\ldots,te_m\}.
+\end{equation}
+This is a simplex truncated parallel to the facet opposite zero.
+
+\begin{proposition}[Exact core calculation]\label{prop:core}
+The body $C_t$ has $2m$ vertices, and
+$T_t=\conv(e_1,\ldots,e_m,te_1)$ is a maximum-volume inscribed simplex.
+With the original centroid of $T_t$,
+\begin{equation}\label{eq:coreE}
+ |T_t|=\frac{1-t}{m!},\qquad E(C_t,T_t)=(m+1)t.
+\end{equation}
+Its actual defect is
+\begin{equation}\label{eq:coree}
+ e_m(C_t)=
+ \frac{t^{m-1}[m(m-1)-(m+1)(m-2)t-2t^m]}
+ {(m+1)(1-t^m)[m+1+(m-1)t^{m-1}]}.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:corelimit}
+ \lim_{t\downarrow0}\frac{e_m(C_t)}{t^{m-1}}
+ =\frac{m(m-1)}{(m+1)^2}>0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Every full-dimensional vertex simplex must use all $m$ coordinate rays;
+otherwise it lies in a coordinate hyperplane. An $(m+1)$-tuple consequently
+has exactly one doubled ray. Its determinant magnitude is
+$(1-t)t^j$ for some $j\ge0$: the doubled ray contributes $1-t$ and each
+other selected low vertex contributes a factor $t$. Hence the maximum
+vertex-simplex volume is $(1-t)/m!$, attained by $T_t$. Expressing arbitrary
+inscribed points as convex combinations of the vertices and using
+multiaffinity and the triangle inequality proves the same bound for all
+inscribed simplices.
+
+Write $s=\sum_i x_i$. Relative to the ordered vertices
+$(te_1,e_1,e_2,\ldots,e_m)$ of $T_t$, the coordinates are
+\[
+ \beta_0=\frac{1-s}{1-t},\qquad
+ \beta_1=x_1-t\beta_0,\qquad \beta_i=x_i\quad(2\le i\le m).
+\]
+On $C_t$, $0\le\beta_0\le1$ and all coordinates are at least $-t$.
+At $te_2$, the coordinate $\beta_1$ equals $-t$. The centered-dilation
+formula \eqref{eq:dilationcoords} proves \eqref{eq:coreE}.
+
+For the defect put $c=1/(m-1)!$, $q=t^{m-1}$, and $b=1-q$.
+The actual facet area-normal and support pairs are
+\[
+ (-cb e_i,0)\quad(1\le i\le m),\qquad
+ (c\mathbf1,c),\qquad(-cq\mathbf1,-ct^m).
+\]
+The volume is $(1-t^m)/m!$. The horizontal minors consist of the
+all-coordinate subset, the $m$ subsets using the top facet, and the $m$
+subsets using the bottom facet; subsets using both parallel top and bottom
+normals vanish. Therefore
+\begin{equation}\label{eq:coreH}
+ \mathcal H(C_t)=c^m b^{m-1}[m+1+(m-1)q].
+\end{equation}
+For the lifted minors the all-coordinate-plus-top term is $c^{m+1}b^m$,
+the all-coordinate-plus-bottom term is $c^{m+1}b^m t^m$, and each of the
+$m$ terms with top, bottom, and $m-1$ coordinate facets is
+$c^{m+1}b^{m-1}(q-t^m)$. Thus
+\begin{equation}\label{eq:coreL}
+ \mathcal L(C_t)=c^{m+1}b^{m-1}
+       [1+(m-1)q-(m-1)t^m-qt^m].
+\end{equation}
+By \eqref{eq:a_raw},
+\[
+ a_m(C_t)=
+ \frac{1+(m-1)q-(m-1)t^m-qt^m}
+ {(1-t^m)[m+1+(m-1)q]}.
+\]
+Subtracting $1/(m+1)$ gives \eqref{eq:coree}. Its numerator bracket equals
+$(m+1)(m-2)(1-t)+2(1-t^m)>0$ for every $m\ge2$.
+The limit \eqref{eq:corelimit} follows.
+\end{proof}
+
+\begin{remark}[The two-dimensional core]
+The computation explicitly includes $m=2$; it is not an invocation of a
+statement restricted to dimensions at least three. In this case
+\begin{equation}\label{eq:twoD}
+ e_2(C_t)=\frac{2t}{3(3+t)},\qquad
+ 3-\frac1{a_2(C_t)}=\frac{2t}{1+t}.
+\end{equation}
+This is the core required for the entire $r=1$ layer of the main theorem.
+\end{remark}
+
+\begin{lemma}[Pyramid identities]\label{lem:pyramid}
+For a full-dimensional $p$-polytope $L$ with $a_p(L)>0$,
+\begin{equation}\label{eq:apyr}
+ a_{p+1}(\pyr L)=\frac{a_p(L)}{1+a_p(L)}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:Deltainvariant}
+ \Delta(L):=p+1-\frac1{a_p(L)}
+\end{equation}
+is unchanged by taking a pyramid. If $T$ is a maximum simplex in $L$,
+then $\pyr T$ is a maximum simplex in $\pyr L$. If all $T$-coordinates
+on $L$ are at least $-t$, and one coordinate attains $-t$, then the
+same is true for the $\pyr T$-coordinates on $\pyr L$.
+\end{lemma}
+\begin{proof}
+Substitute \eqref{eq:pyrH}--\eqref{eq:pyrL} into \eqref{eq:a_raw} to get
+\[
+ a_{p+1}(\pyr L)
+ =\frac{\mathcal L(L)}{\mathcal L(L)+p|L|\mathcal H(L)}
+ =\frac{a_p(L)}{1+a_p(L)}.
+\]
+Thus $1/a_{p+1}=1+1/a_p$, proving \eqref{eq:Deltainvariant}.
+Every full-dimensional vertex simplex in a pyramid includes its unique
+apex, and its base is a full-dimensional vertex simplex of $L$. Comparing
+base volumes proves the maximum statement for vertex simplices;
+multiaffinity extends it to arbitrary inscribed simplices. A point in the
+pyramid can be written as $((1-s)x,s)$ with $x\in L$, $0\le s\le1$.
+Its old coordinates are $(1-s)\alpha_i^T(x)$ and its new apex coordinate
+is $s$. They are bounded below by $-t$, and the old base still realizes
+that lower value.
+\end{proof}
+
+\begin{proof}[Proof of sharpness in Theorem~\ref{thm:main}]
+Set
+\[
+ K_t=\pyr^{\,d-m}C_t,\qquad S_t=\pyr^{\,d-m}T_t.
+\]
+These are actual $d$-polytopes and actual prescribed maxima. Their vertex
+count is $2m+(d-m)=d+1+k\le d+1+r$. Iterating
+Lemma~\ref{lem:pyramid} and using \eqref{eq:coreE} gives
+\begin{equation}\label{eq:ambientE}
+ E(K_t,S_t)=nt,\qquad n=d+1.
+\end{equation}
+From \eqref{eq:corelimit} and the identity
+\[
+ \Delta(C_t)=\frac{(m+1)^2e_m(C_t)}{1+(m+1)e_m(C_t)},
+\]
+we obtain $\Delta(C_t)/t^k\to k(k+1)$. In ambient dimension $d$, pyramid
+invariance and $a_d=1/(n-\Delta)$ yield exactly
+\begin{equation}\label{eq:ambiente}
+ e_d(K_t)=\frac{\Delta(C_t)}{n[n-\Delta(C_t)]},\qquad
+ \frac{e_d(K_t)}{t^k}\longrightarrow\frac{k(k+1)}{n^2}.
+\end{equation}
+Together with \eqref{eq:ambientE}, this is \eqref{eq:sharp_limit}.
+For $\beta>1/k$, the ratio $E(K_t,S_t)/e_d(K_t)^\beta$ is asymptotic to a
+positive constant times $t^{1-k\beta}$, which diverges. Hence no finite
+coefficient depending on $d,r$ can support that stronger exponent near
+zero defect.
+\end{proof}

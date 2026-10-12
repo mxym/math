@@ -1,0 +1,566 @@
+\section{Structure forced by all directional projections}
+\label{sec:projection-structure}
+\label{sec:projection}
+
+Let $P=\conv(p_0,\ldots,p_d)\subset\R^d$ be a full-dimensional
+simplex, let $K\subset P$ be a convex body, and assume throughout this
+section that
+\begin{equation}
+ \pi_K(v)\geq (1-\delta)\pi_P(v)
+ \quad\text{for every unit direction }v,
+ \qquad 0\leq\delta\leq1,\quad d\geq3.
+ \label{eq:projection-all-directions}
+\end{equation}
+Here $\pi_L(v)=\vol_{d-1}(\operatorname{proj}_{v^\perp}L)$ denotes
+actual Euclidean projection volume for unit $v$.  Directions constructed below
+are normalized when applying this hypothesis.  Write
+\[
+ n=d+1,\qquad m=d-1,\qquad \rho=\delta^{1/(d-1)},
+ \qquad c_P=\frac1n\sum_{i=0}^d p_i.
+\]
+We first retain an elementary concentric-core argument and its
+Brunn--Minkowski refinement, and then prove a stronger finite-spectrum
+bound.  These conclusions use the complete hypothesis
+\eqref{eq:projection-all-directions}, rather than only the existence of
+one point close to each vertex.  They construct a comparison simplex
+with centroid $c_P$; this simplex is not asserted to be maximum-volume
+and need not coincide with an originally prescribed maximum simplex $S$.
+
+\subsection{Centroid caps and a separating projection}
+
+\begin{lemma}[Elementary centroid cap]
+\label{lem:projection-elementary-cap}
+Let $D$ be an $m$-dimensional simplex with centroid $g$.  Every closed
+halfspace $H$ whose boundary contains $g$ satisfies
+\begin{equation}
+ \vol_m(D\cap H)\geq \frac{\vol_m(D)}{m+1}.
+ \label{eq:projection-elementary-cap}
+\end{equation}
+Consequently, if $z\in D$, $0\leq\theta\leq1$, and
+$y=(1-\theta)z+\theta g$, every closed halfspace $H_y$ through $y$
+satisfies
+\begin{equation}
+ \vol_m(D\cap H_y)\geq
+ \frac{\theta^m}{m+1}\vol_m(D).
+ \label{eq:projection-homothetic-cap}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Use barycentric coordinates $x_0,\ldots,x_m$ on $D$ and write
+$H=\{L\geq0\}$ with $L(g)=0$.  Let $\sigma$ cyclically permute these
+coordinates.  Each $\sigma^k$ preserves $D$ and its volume, while
+\[
+ \sum_{k=0}^m L(\sigma^k x)=(m+1)L(g)=0.
+\]
+At least one summand is nonnegative.  The $m+1$ inverse cyclic images
+of $D\cap H$ therefore cover $D$, proving
+\eqref{eq:projection-elementary-cap}.  A constant functional causes
+no difficulty.  For the second assertion, take the parallel centroid
+halfspace and apply the homothety
+$x\mapsto(1-\theta)z+\theta x$.  Its image lies in $D\cap H_y$ and
+has the volume asserted in \eqref{eq:projection-homothetic-cap}.
+\end{proof}
+
+\begin{lemma}[A separator-parallel simplicial projection]
+\label{lem:projection-separator}
+Let $L$ be a nonconstant affine functional on $P$.  There is a nonzero
+direction $v$ parallel to the level hyperplanes of $L$ for which
+$D=\operatorname{proj}_{v^\perp}P$ is an $(d-1)$-simplex.  If $g$ is
+the centroid of $D$, then
+\begin{equation}
+ c_P'=\frac d n g+\frac1n r'
+ \label{eq:projection-centroid-decomposition}
+\end{equation}
+for a point $r'\in D$, where primes denote this orthogonal projection.
+The functional $L$ descends to a nonconstant affine functional on $D$.
+\end{lemma}
+
+\begin{proof}
+Choose distinct indices $a,b$ such that $L(p_a)$ and $L(p_b)$ are,
+respectively, the minimum and maximum vertex values.  Choose any
+$j\notin\{a,b\}$.  A point $r\in[p_a,p_b]$ satisfies
+$L(r)=L(p_j)$.  Put $v=p_j-r$.  This vector is nonzero and parallel
+to the level hyperplanes of $L$.  Orthogonal projection along $v$
+sends $p_j$ to $r'$.  The other $d$ projected vertices are affinely
+independent: otherwise $v$ would be parallel to the facet opposite
+$p_j$, whereas $p_j-r$ is transverse to that facet.  Their convex hull
+is $D$, because $r'$ lies on their projected edge $[p_a',p_b']$.
+Summing the projected vertices gives
+\eqref{eq:projection-centroid-decomposition}.  The two extreme values
+of $L$ are distinct and survive the projection, so the descended
+functional is nonconstant.  Repeated extreme values or equality of
+$L(p_j)$ with an endpoint value do not affect the construction.
+The construction itself requires only $d\geq2$.
+\end{proof}
+
+\subsection{Two concentric-core bounds}
+
+\begin{theorem}[Elementary concentric core]
+\label{thm:projection-elementary-core}
+Define
+\[
+ \kappa_d=\frac{d+1}{d}\,d^{1/(d-1)}.
+\]
+If $t=\kappa_d\rho\leq1$, then
+\begin{equation}
+ (1-t)P+t c_P\subset K.
+ \label{eq:projection-elementary-core}
+\end{equation}
+Moreover,
+$\kappa_d\leq4\sqrt3/3<7/3$ for all $d\geq3$.
+\end{theorem}
+
+\begin{proof}
+Fix $0<t\leq1$ and suppose that
+$y=(1-t)x+t c_P\notin K$ for some $x\in P$.  Strict separation gives
+a nonconstant affine functional $L$ with
+$\max_K L<L(y)$.  Apply Lemma~\ref{lem:projection-separator}, so
+that the projection is parallel to the levels of $L$.  By
+\eqref{eq:projection-centroid-decomposition},
+\begin{align*}
+ y'&=(1-t)x'+\frac t n r'+\frac{td}{n}g
+     =(1-\theta)z+\theta g,\\
+ \theta&=\frac{td}{n},\qquad
+ z=\frac{(1-t)x'+(t/n)r'}{1-td/n}\in D.
+\end{align*}
+The denominator is positive even for $t=1$.  Since $\theta>0$,
+$y'$ is interior to $D$ in its affine hull.  The projection of $K$
+lies strictly on the lower-$L$ side of $y'$.  The opposite cap has
+volume at least
+\[
+ \frac1d\left(\frac{td}{n}\right)^{d-1}\vol_{d-1}(D)
+\]
+by Lemma~\ref{lem:projection-elementary-cap}.  In fact, the missing
+volume is strictly larger: the strip between $\max_K L$ and $L(y')$
+has positive $(d-1)$-volume because $y'$ is interior.  Hence
+\begin{equation}
+ \delta>\frac1d\left(\frac{td}{n}\right)^{d-1}.
+ \label{eq:projection-elementary-contradiction}
+\end{equation}
+For $t=\kappa_d\rho>0$, the right-hand side is
+$\rho^{d-1}=\delta$, a contradiction.  This also proves the
+$t=1$ endpoint.  If $\delta=0$, the same contradiction applies for
+every $t>0$; letting $t$ decrease to zero and using closedness of $K$
+gives $K=P$.
+
+Finally, $d\leq3^{(d-1)/2}$ for $d\geq3$.  There is equality at
+$d=3$, and the ratio $(d+1)/d$ is at most $4/3<\sqrt3$ in the
+inductive step.  Thus $d^{1/(d-1)}\leq\sqrt3$, and the stated
+uniform bound follows from $(d+1)/d\leq4/3$.
+\end{proof}
+
+The preceding proof is independent of Brunn--Minkowski.  For completeness
+we also retain the stronger centroid-cap argument, including the
+one-dimensional derivation used in the refinement.
+
+\begin{lemma}[Centroid cap from Brunn--Minkowski]
+\label{lem:projection-sharp-cap}
+Let $D$ be an $m$-dimensional convex body with centroid $g$.  Every
+closed halfspace $H$ through $g$ satisfies
+\begin{equation}
+ \frac{\vol_m(D\cap H)}{\vol_m(D)}
+ \geq\left(\frac m{m+1}\right)^m.
+ \label{eq:projection-sharp-cap}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $X$ be uniform in $D$ and let $Z=L(X)$, where $L$ is the affine
+functional defining $H$, oriented so that $H=\{L\geq0\}$ and
+normalized by $\mathbb E Z=0$.  A constant functional is immediate,
+so assume $L$ is nonconstant.  Set
+\[
+ F(u)=\mathbb P(Z\geq u),\qquad R(u)=F(u)^{1/m}.
+\]
+For $0\leq\alpha\leq1$,
+\[
+ (1-\alpha)(D\cap\{L\geq u\})+
+ \alpha(D\cap\{L\geq v\})
+ \subset D\cap\{L\geq(1-\alpha)u+\alpha v\}.
+\]
+Brunn--Minkowski therefore makes $R$ concave.  Between the minimum and
+maximum of $L$ on $D$, this function is continuous and strictly
+decreasing.  Its inverse $T$ on $(0,1)$ is also concave and decreasing:
+apply concavity of $R$ to $T(s_0),T(s_1)$ and then use its decreasing
+monotonicity.  The distribution of $Z$ is continuous, and the
+probability-integral transform makes $F(Z)$ uniform on $(0,1)$.
+Consequently $U=R(Z)$ has density $m s^{m-1}$ and
+\[
+ \mathbb E U=\frac m{m+1},\qquad
+ \mathbb E T(U)=\mathbb E Z=0.
+\]
+Jensen's inequality gives $T(m/(m+1))\geq0$.  Since $T$ is
+decreasing, $R(0)\geq m/(m+1)$, proving
+\eqref{eq:projection-sharp-cap}.  These expectations are bounded
+one-dimensional integrals; equivalently, the Jensen step follows by
+integrating a supporting line for $T$ at $m/(m+1)$.
+\end{proof}
+
+\begin{theorem}[Sharper concentric core]
+\label{thm:projection-sharp-core}
+The conclusion of Theorem~\ref{thm:projection-elementary-core} holds
+with
+\begin{equation}
+ t=\frac{d+1}{d-1}\rho\leq1.
+ \label{eq:projection-sharp-parameter}
+\end{equation}
+In particular, the coefficient $(d+1)/(d-1)$ is at most $2$.
+\end{theorem}
+
+\begin{proof}
+Repeat the proof of Theorem~\ref{thm:projection-elementary-core},
+replacing the centroid fraction $1/d$ by
+$((d-1)/d)^{d-1}$ from Lemma~\ref{lem:projection-sharp-cap}.
+The same homothety and strictly positive strip show that a missing
+core point would force
+\[
+ \delta>
+ \left(\frac{t(d-1)}{d+1}\right)^{d-1}.
+\]
+The choice \eqref{eq:projection-sharp-parameter} contradicts this
+inequality.  Strict separation again includes $t=1$, and the closed
+limit used above includes $\delta=0$.
+\end{proof}
+
+\subsection{An elementary finite-spectrum refinement}
+
+\begin{theorem}[Finite-spectrum concentric core]
+\label{thm:projection-finite-spectrum}
+Put
+\[
+ M_0=1,\qquad M_k=\frac{k^k}{(k+1)^{2k+1}}\quad(k\geq1),
+ \qquad
+ \tau_d(\delta)=n\max_{1\leq\ell\leq m}
+                   (M_{\ell-1}\delta)^{1/\ell}.
+\]
+If $0\leq\tau_d(\delta)\leq1$, then
+\begin{equation}
+ (1-\tau_d(\delta))P+\tau_d(\delta)c_P\subset K.
+ \label{eq:projection-finite-spectrum-core}
+\end{equation}
+This conclusion uses neither Brunn--Minkowski nor a centroid-cap
+inequality.  One may use the smallest parameter among the applicable
+core bounds.
+\end{theorem}
+
+\begin{proof}
+We first obtain an explicit missing-cap estimate.  Let $b\geq0$ be
+affine on $P$, normalized so that its minimum vertex value is zero
+and the sum of all its vertex values is one.  List its other $d$
+vertex values as
+\[
+ B\geq C\geq b_1\geq\cdots\geq b_{d-2}\geq0.
+\]
+Let $0<s\leq1/n$ and assume $K$ lies strictly in $\{b>s\}$.
+Project along the line joining the vertex of value $C$ to the point
+of value $C$ on the edge with endpoint values $0$ and $B$.
+As in Lemma~\ref{lem:projection-separator}, this direction is
+parallel to the levels of $b$ and gives an $m$-simplex $D$ whose
+vertex values are
+\[
+ 0,B,b_1,\ldots,b_{d-2}.
+\]
+The value-$C$ vertex has become redundant.  Since $B\geq1/d>s$,
+the cap $\{b\leq s\}$ contains the simplex with apex at the
+zero-valued vertex and edge-intercept fractions
+$\min(1,s/a)$ for each other endpoint value $a$, with fraction one
+when $a=0$.  Its relative volume is exactly
+\begin{equation}
+ R_s=\frac{s^m}{B\prod_{i=1}^{d-2}\max(b_i,s)}.
+ \label{eq:projection-intercept-volume}
+\end{equation}
+All of it is missing from the projection of $K$.  The actual missing
+volume is strictly larger, since $K$ lies strictly above level $s$
+and $D$ has positive-volume strips immediately above that level.
+
+Let $k$ be the number of $b_i$ exceeding $s$, so $0\leq k\leq m-1$.
+For $k=0$ the denominator in \eqref{eq:projection-intercept-volume}
+is at most $s^{m-1}=M_0s^{m-1}$.  For $k\geq1$, let $U$ be the sum
+of these $k$ active values.  As $C$ is at least each active value,
+$C\geq U/k$, and normalization gives
+\[
+ 1\geq B+C+U\geq B+(1+1/k)U.
+\]
+The arithmetic--geometric mean inequality yields
+\[
+ \prod_{\mathrm{active}}b_i
+ \leq(U/k)^k\leq\left(\frac{1-B}{k+1}\right)^k.
+\]
+The maximum of $B((1-B)/(k+1))^k$ on $[0,1]$ occurs at
+$B=1/(k+1)$ and equals $M_k$.  Hence
+\[
+ B\prod_i\max(b_i,s)
+ \leq\max_{0\leq k\leq m-1}M_k s^{m-1-k}.
+\]
+The relative projection deficit is therefore strictly larger than
+\begin{equation}
+ \min_{1\leq\ell\leq m}\frac{s^\ell}{M_{\ell-1}}.
+ \label{eq:projection-optimized-cap}
+\end{equation}
+This optimization is an upper bound on the denominator; it does not
+assert that every formal optimizer is compatible with every active
+coordinate regime.
+
+Now suppose $y=(1-t)x+t c_P\notin K$, with $x\in P$ and
+$0<t\leq1$.  Orient a strict separating affine functional so that
+$K$ has larger values than $y$, subtract its minimum vertex value,
+and divide by the sum of its vertex values.  This gives the preceding
+normalized $b$, with
+\[
+ b(y)=(1-t)b(x)+t/n\geq t/n.
+\]
+Thus $K$ lies strictly in $\{b>t/n\}$.  Set $s=t/n$ in
+\eqref{eq:projection-optimized-cap}.  If $t=\tau_d(\delta)>0$,
+then every term $s^\ell/M_{\ell-1}$ is at least $\delta$, a
+contradiction to \eqref{eq:projection-all-directions}.  The argument
+includes $t=1$.  For $\delta=0$, apply the positive-$t$ argument
+and pass to the closed limit as before.
+\end{proof}
+
+\begin{proposition}[Uniform top-spectrum branch]
+\label{prop:projection-top-spectrum}
+For every $d\geq3$ and $0\leq\rho\leq1/3$, the term $\ell=m$ is
+largest in the definition of $\tau_d$.  Consequently
+\begin{align}
+ \tau_d(\delta)&=\gamma_d\rho,\nonumber\\
+ \gamma_d&=n\left(
+       \frac{(d-2)^{d-2}}{(d-1)^{2d-3}}\right)^{1/(d-1)}
+   =\frac{m+2}{m}\left(1-\frac1m\right)^{(m-1)/m}
+   \longrightarrow1.
+ \label{eq:projection-gamma}
+\end{align}
+On this branch $\tau_d(\delta)\leq2/3<1$, so the positive-core
+condition is automatic.  In each fixed dimension the exact threshold
+\begin{equation}
+ \delta\leq
+ \min_{1\leq\ell<m}
+ \left(\frac{M_{m-1}^{\ell}}{M_{\ell-1}^{m}}
+ \right)^{1/(m-\ell)}
+ \label{eq:projection-exact-branch}
+\end{equation}
+is also sufficient and may enlarge this branch.  In particular,
+\[
+ \tau_3(\delta)=\max(4\delta,\sqrt{2\delta}),
+\]
+which equals $\sqrt2\,\rho$ for $\delta\leq1/8$.
+\end{proposition}
+
+\begin{proof}
+Set $f_\ell=\ell M_{\ell-1}^{1/\ell}$.  Then $f_1=1$ and
+\[
+ f_\ell=(1-1/\ell)^{1-1/\ell}\quad(\ell\geq2).
+\]
+The latter sequence increases, since $x\log x$ increases on
+$[1/2,1)$.  In particular, $1/\sqrt2\leq f_m<1$.
+For $\rho>0$ and $2\leq\ell\leq m$, the ratio of the $\ell$th
+term to the $m$th term is
+\[
+ \frac m\ell\frac{f_\ell}{f_m}\rho^{m/\ell-1}
+ \leq\frac m\ell\rho^{m/\ell-1}\leq1
+ \qquad(\rho\leq1/3).
+\]
+For the last inequality put $x=m/\ell\geq1$ and use
+$\log x\leq x-1\leq(x-1)\log3$.  For $\ell=1$ the ratio is
+\[
+ \frac m{f_m}\rho^{m-1}
+ \leq\sqrt2\,m3^{1-m}\leq\frac{2\sqrt2}{3}<1.
+\]
+Indeed $m3^{1-m}$ decreases for integer $m\geq2$, because its
+successive ratio is $(m+1)/(3m)<1$.  The case $\rho=0$ is immediate
+without division.  Formula \eqref{eq:projection-gamma} follows by
+substitution, and
+\[
+ \tau_d(\delta)=\frac{m+2}{m}f_m\rho\leq\frac23<1.
+\]
+For fixed $m$ and $\ell<m$, the ratio
+$(\delta M_{\ell-1})^{1/\ell}/
+(\delta M_{m-1})^{1/m}$ tends to zero as $\delta$ decreases to
+zero.  Rearranging the condition that this ratio be at most one for
+every $\ell<m$ gives \eqref{eq:projection-exact-branch}.
+The $d=3$ formula follows from $M_0=1$ and $M_1=1/8$.
+\end{proof}
+
+\subsection{Depth at faces of every positive dimension}
+
+Let $\lambda_0,\ldots,\lambda_d$ be the barycentric coordinates of
+$P$.  For a nonempty index set $I$ define
+$f_I=\sum_{i\in I}\lambda_i$ and $s_I=\min_K f_I$.
+
+\begin{theorem}[Face-depth hierarchy]
+\label{thm:projection-face-depth}
+If $|I|=r$ with $1\leq r\leq d-1$, then
+\begin{equation}
+ F_{r,d-r}(s_I)\leq\delta,\qquad
+ F_{r,d-r}(s)=\sum_{j=r}^{d-1}
+     \binom{d-1}{j}s^j(1-s)^{d-1-j}.
+ \label{eq:projection-face-polynomial}
+\end{equation}
+In particular,
+\begin{equation}
+ s_I\leq\delta^{1/r}=\rho^{(d-1)/r}.
+ \label{eq:projection-face-power}
+\end{equation}
+For each facet coordinate,
+\begin{equation}
+ \min_K\lambda_i\leq1-(1-\delta)^{1/(d-1)}
+ \leq\frac{2\delta}{d-1}\quad\text{if }\delta\leq\tfrac12.
+ \label{eq:projection-facet-depth}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The complement of $I$ contains two indices $a,b$.  Project along
+the edge direction $p_a-p_b$.  The image $D$ is an $(d-1)$-simplex,
+obtained by identifying exactly the vertices $a,b$.  The affine
+function $f_I$ descends and becomes the sum of exactly $r$ of the
+$d$ barycentric coordinates of $D$.  Since $K\subset\{f_I\geq s_I\}$,
+its projection omits $\{f_I<s_I\}$.
+
+A direct section calculation in a simplex with $d$ vertices gives
+the density of the sum of $r$ barycentric coordinates as
+\[
+ \frac{(d-1)!}{(r-1)!(d-r-1)!}
+ s^{r-1}(1-s)^{d-r-1},\qquad 0<s<1.
+\]
+Its integral from zero to $s$ is $F_{r,d-r}(s)$: differentiating
+the polynomial in \eqref{eq:projection-face-polynomial} makes
+adjacent binomial terms telescope to the displayed density, and the
+polynomial vanishes at zero.  No independence of barycentric
+coordinates is asserted.  The omitted relative volume is therefore
+$F_{r,d-r}(s_I)$, proving the first inequality.
+
+As a polynomial identity, $F_{r,d-r}(s)$ also equals the probability
+of at least $r$ successes among $d-1$ independent Bernoulli trials
+with parameter $s$.  The event that the first $r$ trials succeed
+has probability $s^r$ and is contained in that event.  Thus
+$F_{r,d-r}(s)\geq s^r$, proving \eqref{eq:projection-face-power}.
+For $r=1$, $F_{1,d-1}(s)=1-(1-s)^{d-1}$, which gives the exact
+first bound in \eqref{eq:projection-facet-depth}.  For
+$m=d-1$ and $\delta\leq1/2$,
+\[
+ 1-(1-\delta)^{1/m}
+ =\int_0^\delta\frac1m(1-u)^{1/m-1}\,du
+ \leq\frac{\delta}{m(1-\delta)}\leq\frac{2\delta}{m}.
+\]
+The zero and unit depth endpoints follow directly or by continuity.
+\end{proof}
+
+The theorem concerns faces of positive dimension: the face
+$\{\lambda_i=0:i\in I\}$ has codimension $r\leq d-1$.
+The vertex case is separate, with projection exponent $d-1$, rather
+than $d$.  When $\rho$ is of order $1/d$, the facet estimate imposes
+exponentially small barycentric distance to each facet.
+
+\subsection{Necessary tests for finite hulls and the remaining target}
+
+Let $K_0$ be the convex hull of finitely many proposed near-corner
+points and candidate-simplex vertices.  Since $f_I$ is affine,
+$\min_{K_0}f_I$ is the minimum over the generators.  Thus a violation
+of \eqref{eq:projection-face-polynomial} rules out
+\eqref{eq:projection-all-directions}, regardless of any replacement
+minor constraints and without deciding whether the candidate simplex
+is maximum-volume.
+
+\begin{proposition}[A facet obstruction for finite hulls]
+\label{prop:projection-finite-hull-obstruction}
+If every generator of $K_0$ has $\lambda_i\geq\varepsilon$ for
+some fixed $i$ and $0\leq\varepsilon\leq1$, then any deficit
+$\delta$ satisfying \eqref{eq:projection-all-directions} obeys
+\begin{equation}
+ \delta\geq1-(1-\varepsilon)^{d-1}
+ \geq\frac{(d-1)\varepsilon}{1+(d-1)\varepsilon}.
+ \label{eq:projection-facet-obstruction}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The first inequality is the facet case of
+Theorem~\ref{thm:projection-face-depth}.  For $\varepsilon<1$,
+$(1-\varepsilon)^{-(d-1)}\geq1+(d-1)\varepsilon$, which gives
+the second inequality after taking reciprocals.  The endpoint
+$\varepsilon=1$ follows directly.
+\end{proof}
+
+For example, let the comparison simplex have barycentric matrix
+$Q_a=(1-a)\Id_n+(a/n)\ones\ones^{\mathsf T}$, and suppose every
+additional generator has every coordinate at least $b/n$.
+Then \eqref{eq:projection-facet-obstruction} applies to every facet
+with $\varepsilon=\min(a,b)/n$.  If $a$ and $b$ are comparable to
+$\rho$, the actual deficit is bounded below by a constant times
+$\rho$, rather than $\rho^{d-1}$.  Such thin positive-coordinate
+hulls cannot model the difficult $\rho\asymp1/d$ regime.
+
+The core theorem gives another finite test: whenever
+$\kappa_d\rho\leq1$, every point
+\[
+ y_i=(1-\kappa_d\rho)p_i+\kappa_d\rho c_P
+\]
+must belong to $K_0$.  Membership is a finite linear feasibility
+problem.  If membership fails, its separating functional determines,
+by Lemma~\ref{lem:projection-separator}, an actual projection
+direction violating the proposed deficit.  This is only a necessary
+test; passing it does not establish all-direction projection control.
+The stronger core parameters give the corresponding stronger tests.
+
+In particular, the full projection hypothesis permits the special
+central comparison matrix
+\[
+ Q_t=(1-t)\Id_n+\frac t n\ones\ones^{\mathsf T}.
+\]
+For a prescribed maximum simplex with barycentric matrix $W$, maximum
+volume still gives all replacement-minor inequalities for
+$W^{-1}Q_t$.  A dimension-free lower bound on its entries, or a proof
+that the additional face-depth inequalities force such a bound,
+remains open here.  These conclusions alone do not improve the
+general estimate $E(K,S)\leq16n^2\rho$ to $Cn\rho$ and do not
+produce a genuine quadratic lower-bound body.
+
+\begin{corollary}[Concentric comparison without prescribed retention]
+\label{cor:projection-concentric-comparison}
+Let $t<1$ be any core parameter proved above and put
+$T=(1-t)P+t c_P$.  Then $T$ is a full-dimensional simplex with
+centroid $c_P$, and
+\begin{equation}
+ T\subset K\subset P
+ =c_P+\frac1{1-t}(T-c_P),\qquad
+ E(K,T)\leq\frac t{1-t}.
+ \label{eq:projection-comparison-excess}
+\end{equation}
+For the sharper parameter $t=((d+1)/(d-1))\rho\leq1/2$, this gives
+$E(K,T)\leq4\rho$.  On the uniform finite-spectrum branch
+$\rho\leq1/3$, it gives
+\begin{equation}
+ E(K,T)\leq\frac{\gamma_d\rho}{1-\gamma_d\rho},
+ \qquad \gamma_d\longrightarrow1.
+ \label{eq:projection-finite-excess}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The core inclusion and $K\subset P$ give the sandwich, and the
+displayed homothety is exact.  The defining centered excess therefore
+gives \eqref{eq:projection-comparison-excess}.  If $t\leq1/2$,
+then $t/(1-t)\leq2t\leq4\rho$.  The finite-spectrum assertion
+follows by substituting $t=\gamma_d\rho$ and using
+Proposition~\ref{prop:projection-top-spectrum}.
+\end{proof}
+
+\begin{remark}[Actual-defect substitution and scope]
+\label{rem:projection-actual-defect-scope}
+On the small-defect branch where the previously established actual
+enclosing-simplex/projection chain supplies
+$\delta=H_de(K)$ with $H_d=3d^2(d+1)^3(d+2)$, one may substitute
+\[
+ t=\frac{d+1}{d-1}H_d^{1/(d-1)}e(K)^{1/(d-1)}
+\]
+in \eqref{eq:projection-comparison-excess} whenever $t<1$.
+Likewise the finite-spectrum parameter may be applied to the same
+actual projection packet, within its stated gate.  Neither
+substitution changes the defect or its power law.  The simplex $T$
+retains the enclosing centroid $c_P$; it is not identified with an
+arbitrarily prescribed maximum simplex $S$, and its centroid is not
+substituted for the original centroid of $S$.  Thus the
+dimension-free comparison approximation and prescribed-maximum
+retention remain distinct assertions.
+\end{remark}

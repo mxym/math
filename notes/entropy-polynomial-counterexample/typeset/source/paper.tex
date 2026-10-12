@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyvrb}
+\hypersetup{pdftitle={A counterexample to the entropy polynomial root conjecture},pdfsubject={Exact rational counterexample at k=11 and r=10}}
+\newtheorem{theorem}{Theorem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\title{A counterexample to the entropy polynomial root conjecture}
+\author{}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1.8em}
+\begin{abstract}
+Wakhare's entropy polynomial root conjecture asserts that an explicit polynomial
+$p_{k,r}$ has exactly two roots in $(0,1)$ for every pair of integers $k>r\geq1$.
+We give a counterexample with the coprime pair $(k,r)=(11,10)$.
+Five exact rational sign evaluations yield at least four distinct roots.
+\end{abstract}
+
+\section{The conjecture and the counterexample}
+In Conjecture 2 of \cite{Wakhare}, the entropy polynomials are defined by
+\begin{equation}\label{eq:h}
+h_{k,r}(x)=\sum_{j=0}^{k-1}x^{rj}
+ \sum_{v=0}^{j}\frac{(-1)^{j-v}}{v+1}
+ \binom{rv+k}{k}\binom{k}{j-v},
+\end{equation}
+and
+\begin{equation}\label{eq:p}
+p_{k,r}(x)=\alpha_{k/r}k(1-x^r)^k h_{k,k}(x)
+-r(1-x^k)^k h_{k,r}(x),
+\end{equation}
+where $\alpha_s>0$ is the unique solution of
+$\alpha_s(1+\alpha_s)^{s-1}=1$.
+The conjecture states that $p_{k,r}$ has exactly two real roots in $(0,1)$,
+counting multiplicity.
+
+\begin{theorem}\label{thm:counter}
+The polynomial $p_{11,10}$ has a root in each of
+\[
+(1/5,2/5),\quad (2/5,3/5),\quad (3/5,2/3),\quad (2/3,4/5).
+\]
+In particular, Conjecture 2 of \cite{Wakhare} is false, even when $k$ and $r$
+are required to be coprime.
+\end{theorem}
+
+Write $\alpha=\alpha_{11/10}$, so $\alpha^{10}(1+\alpha)=1$.
+Define
+\begin{align*}
+P(t)={}&1+352705t+60632419t^2+1227099358t^3\\
+ &+6330005947t^4+10701243741t^5+6330005947t^6\\
+ &+1227099358t^7+60632419t^8+352705t^9+t^{10},\\[3pt]
+Q(t)={}&11+1939817t+289126442t^2+5380098482t^3\\
+ &+25959010187t^4+41238382790t^5+22851341183t^6\\
+ &+4098130058t^7+181139618t^8+831413t^9-t^{10}.
+\end{align*}
+Evaluation of the finite sums in \eqref{eq:h} gives exactly
+\begin{equation}\label{eq:coeff}
+h_{11,11}(x)=P(x^{11}),\qquad h_{11,10}(x)=Q(x^{10})/11.
+\end{equation}
+Both $P(t)$ and $Q(t)$ are positive for $0<t<1$: all coefficients of $P$ are
+positive, while the constant and final terms of $Q$ sum to $11-t^{10}>0$
+and its other coefficients are positive.
+
+\section{Exact signs and the proof}
+The function $z^{10}(1+z)$ is strictly increasing on $z>0$. The integer identities
+\begin{align*}
+117^{10}\cdot242-125^{11}&=-90074807210933370467<0,\\
+937^{10}\cdot1937-1000^{11}&=10474898608767871728104442364513>0
+\end{align*}
+therefore establish
+\begin{equation}\label{eq:alpha}
+117/125<\alpha<937/1000.
+\end{equation}
+For $0<x<1$, put
+\begin{equation}\label{eq:R}
+R(x)=\frac{10(1-x^{11})^{11}Q(x^{10})}
+ {121(1-x^{10})^{11}P(x^{11})}.
+\end{equation}
+The denominator is positive, and \eqref{eq:p}--\eqref{eq:coeff} give
+\[
+p_{11,10}(x)=11(1-x^{10})^{11}P(x^{11})\bigl(\alpha-R(x)\bigr).
+\]
+Thus the sign of $p_{11,10}(x)$ is the sign of $\alpha-R(x)$.
+The strict rational comparisons below are certified by the positive integers
+in the appendix.
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+$x$ & Exact bound on $R(x)$ & $\operatorname{sgn}p_{11,10}(x)$\\
+\midrule
+$1/5$ & $R(x)<919/1000<117/125$ & $+$\\
+$2/5$ & $R(x)>1131/1000>937/1000$ & $-$\\
+$3/5$ & $R(x)<935/1000<117/125$ & $+$\\
+$2/3$ & $R(x)>938/1000>937/1000$ & $-$\\
+$4/5$ & $R(x)<928/1000<117/125$ & $+$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Since $p_{11,10}$ is continuous and these five ordered points lie in $(0,1)$,
+the intermediate value theorem gives a root in each of the four disjoint
+intervals in Theorem~\ref{thm:counter}. The roots are distinct, proving the theorem.
+\hfill$\square$
+
+\paragraph{Scope.}
+The argument proves \emph{at least four} roots, and makes no assertion that
+there are exactly four. It does not refute the associated binary-entropy
+inequality, Conjecture 1 of \cite{Wakhare}, proved for all real exponents greater
+than one by Ho \cite{Ho}. It also does not resolve Frankl's union-closed sets conjecture.
+
+\paragraph{Reproduction.}
+The accompanying \texttt{check\_certificate.py} reconstructs \eqref{eq:coeff}
+from \eqref{eq:h}, checks \eqref{eq:alpha}, and verifies all five strict comparisons
+using integer arithmetic only. It uses no floating-point arithmetic, computer
+algebra system, or numerical root finder. Full numerator and denominator data
+are included in \texttt{certificate.json}.
+
+\newpage
+\appendix
+\section{Cleared denominator certificate}
+Write $P(t)=\sum_{j=0}^{10}p_jt^j$ and $Q(t)=\sum_{j=0}^{10}q_jt^j$.
+For integers $0<a<b$, define
+\begin{align*}
+\mathcal P(a,b)&=\sum_{j=0}^{10}p_j a^{11j}b^{11(10-j)},&
+\mathcal Q(a,b)&=\sum_{j=0}^{10}q_j a^{10j}b^{10(10-j)},\\
+N(a,b)&=10(b^{11}-a^{11})^{11}\mathcal Q(a,b),&
+D(a,b)&=121b(b^{10}-a^{10})^{11}\mathcal P(a,b).
+\end{align*}
+Then $N,D>0$ and $R(a/b)=N(a,b)/D(a,b)$. The following are exact positive
+integer values. Each decimal integer is wrapped across lines; its lines are to
+be concatenated.
+
+\noindent $919D(1,5)-1000N(1,5)=$
+\begin{Verbatim}[fontsize=\footnotesize]
+46687482475003686731728494443175716091029147392029835848827061539678
+77835881726361080687327974249063360575405536849747865170141728596492
+75824805705028730880
+\end{Verbatim}
+
+\noindent $1000N(2,5)-1131D(2,5)=$
+\begin{Verbatim}[fontsize=\footnotesize]
+42538194776507513458711885524826212893895489706184796164361512069476
+99426927690709188274361013225559293120108639340014430569971253115788
+9439015076159529241505
+\end{Verbatim}
+
+\noindent $935D(3,5)-1000N(3,5)=$
+\begin{Verbatim}[fontsize=\footnotesize]
+52516379104498148655863274985954973433649161277407686847051045991991
+85256340399027956110708767358049927938282779151210248609234143827247
+884850356820630516531200
+\end{Verbatim}
+
+\noindent $1000N(2,3)-938D(2,3)=$
+\begin{Verbatim}[fontsize=\footnotesize]
+88008107586949258139134527029175262251555372081468008081118660645776
+7956959351946751016842608896901672363281250
+\end{Verbatim}
+
+\noindent $928D(4,5)-1000N(4,5)=$
+\begin{Verbatim}[fontsize=\footnotesize]
+12136820388591534024573035987433025741626348214182265217990319570111
+14963599358661651488660016203235762863004128345364061271715446024425
+596394854034905941742192560
+\end{Verbatim}
+
+\begin{thebibliography}{9}
+\bibitem{Wakhare}
+T.~Wakhare, \emph{Iterated entropy derivatives and binary entropy inequalities},
+Journal of Approximation Theory \textbf{307} (2025), 106143.
+\href{https://doi.org/10.1016/j.jat.2025.106143}{doi:10.1016/j.jat.2025.106143}.
+\href{https://arxiv.org/abs/2312.14743v2}{arXiv:2312.14743v2}.
+
+\bibitem{Ho}
+B.~S.~Ho, \emph{A generalization of Boppana's entropy inequality},
+\href{https://arxiv.org/abs/2601.19327}{arXiv:2601.19327} (2026).
+\end{thebibliography}
+\end{document}

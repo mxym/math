@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "scope": "Ported audit helper compilation and small checks using authenticated independent fresh-build mathematical objects. Not a new owned/CFT source build or a repeated full Main kernel replay.",
+  "runs": [
+    {
+      "name": "AuditCore",
+      "source_sha256": "c5e077b96021d57dfc0e2db270857fae1fd31b9f9e88b73502fe749868607c92",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 2.691,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "EmptyKernelReplay",
+      "source_sha256": "1a1b22e624c690ac7ebe7c9fd3a2c613f838c938e4d6ad88a1f57316884eb993",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 1.078,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "StockAxiomSnapshot",
+      "source_sha256": "8f1841f3211104e633651cf6b0cea3a09db6941ebbb80549538a7cc0704be484",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 1.078,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "StockStandardAxioms",
+      "source_sha256": "65ed7585e660c2b966e14aa0202dfe2a6df31940b31218abcd82d1caf05d204a",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 0.847,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "CheckLiteralStandardAxioms",
+      "source_sha256": "a331f1c4a221c4db30351999ad9e9a43301fbdaa8ff4d88912c1cc788a09ee03",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 6.064,
+      "log_sha256": "41bceeaf999ec04f84860a990acfd24cadc6961e2f206522de4290b1cd79c5e5"
+    },
+    {
+      "name": "ClosedWeakSmoke",
+      "source_sha256": "deb370369b23f1fca606805c78a2b8ba663d22c2af4cbdbc459701ccf540628e",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 3.573,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "NonvacuitySmoke",
+      "source_sha256": "8f691a75ad2d753cad872ba79ebe6c66dce18103900ab37d001e651933c57abb",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 2.528,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "CheckCombinedOwned",
+      "source_sha256": "a399a9983f22c147feeb85385557ff9c1b0102d97aaf4a48958c5e05f7453143",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 166.894,
+      "log_sha256": "da1c33692e228ed4a8d2c31fe6c721d8cd708df66b015543258f241b84d246e7"
+    },
+    {
+      "name": "EmptyKernelMini",
+      "source_sha256": "8eff638b66f8d2e5da67f7c4750ff96ef9bf6c20ebfb0675a83ab2c658b000a3",
+      "exit_code": 0,
+      "expected_failure": null,
+      "passed": true,
+      "seconds": 0.945,
+      "log_sha256": "b94da5032b230bb68421906d367b79e09dbe0e97fbf4032833a002a2679593e6"
+    },
+    {
+      "name": "NegativePromoteWeakSupply",
+      "source_sha256": "67d5e20a3d5638a3aca3019214eb2d53fc2fc7fff64e808fbbdb64ae09ddfc91",
+      "exit_code": 1,
+      "expected_failure": "type mismatch",
+      "passed": true,
+      "seconds": 2.891,
+      "log_sha256": "e1e3669734f169c4a6ae24e6971e89570fed0cc33480b994e26b44f76d7f4cdd"
+    },
+    {
+      "name": "NegativeOnlyMaximalOrders",
+      "source_sha256": "0156afcb695806e6a6da2d8ceff0a16a4c5c086b0bec02ef577aaa0dba5a9edd",
+      "exit_code": 1,
+      "expected_failure": "type mismatch",
+      "passed": true,
+      "seconds": 2.511,
+      "log_sha256": "5a3220424a0e0ee51218f873a2f742ab37c6c2c1fffa51af409b8b09de715489"
+    },
+    {
+      "name": "NegativeOnlyNcard",
+      "source_sha256": "7ddcc0a43447e0969529fae5a8bc26454c16621f0693c101a5f18e751b1b3e4b",
+      "exit_code": 1,
+      "expected_failure": "type mismatch",
+      "passed": true,
+      "seconds": 2.384,
+      "log_sha256": "6934a9dc2e79344c7e062d9879825de5617819ba56631cd9bc5182a7475ee0ca"
+    },
+    {
+      "name": "NegativeMissingSupply",
+      "source_sha256": "c7730ba171813514276123d3f9c6518e2d48bee3cce16033e1e241dec3b87b31",
+      "exit_code": 1,
+      "expected_failure": "type mismatch",
+      "passed": true,
+      "seconds": 2.31,
+      "log_sha256": "7245ce012eb94f499caa8123f82b74e2b3485ccc0bd25e78987762545148cfa2"
+    },
+    {
+      "name": "EmptyKernelMiniCorrupt",
+      "source_sha256": "65abfcc6c924aea7e79d5da0dcee930b3a9722e8eef0fd545d8056dff34892da",
+      "exit_code": 1,
+      "expected_failure": "(kernel) declaration type mismatch",
+      "passed": true,
+      "seconds": 0.885,
+      "log_sha256": "194068b39cec983389679ce953cfb88e8c7582af2263ddb86b4990e79c2de172"
+    }
+  ]
+}

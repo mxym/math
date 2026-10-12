@@ -1,0 +1,10 @@
+import Entry002.IdealFactorLogarithm
+
+#check Entry002.ideal_prime_pow_dvd_iff_count
+#check Entry002.ideal_log_norm_eq_factor_sum
+#check Entry002.ideal_prime_power_divisor_exponent_le
+#check Entry002.ideal_log_norm_eq_prime_power_divisor_sum
+#print axioms Entry002.ideal_prime_pow_dvd_iff_count
+#print axioms Entry002.ideal_log_norm_eq_factor_sum
+#print axioms Entry002.ideal_prime_power_divisor_exponent_le
+#print axioms Entry002.ideal_log_norm_eq_prime_power_divisor_sum

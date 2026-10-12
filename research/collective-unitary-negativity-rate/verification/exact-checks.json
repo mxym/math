@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite Bell/covariance identities, rational inequalities, type cardinalities, and escort algebra only; not a Lean or full analytic-proof certificate",
+  "bell_cases": [
+    {
+      "a": 2,
+      "b": 2,
+      "ambient_dimension": 4,
+      "block_dimension": 4,
+      "bell_vectors": 4,
+      "orthogonality_pairs": 16
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "ambient_dimension": 6,
+      "block_dimension": 4,
+      "bell_vectors": 4,
+      "orthogonality_pairs": 16
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "ambient_dimension": 10,
+      "block_dimension": 8,
+      "bell_vectors": 8,
+      "orthogonality_pairs": 64
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "ambient_dimension": 9,
+      "block_dimension": 9,
+      "bell_vectors": 9,
+      "orthogonality_pairs": 81
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "ambient_dimension": 12,
+      "block_dimension": 9,
+      "bell_vectors": 9,
+      "orthogonality_pairs": 81
+    },
+    {
+      "a": 3,
+      "b": 7,
+      "ambient_dimension": 21,
+      "block_dimension": 18,
+      "bell_vectors": 18,
+      "orthogonality_pairs": 324
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "ambient_dimension": 16,
+      "block_dimension": 16,
+      "bell_vectors": 16,
+      "orthogonality_pairs": 256
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "ambient_dimension": 20,
+      "block_dimension": 16,
+      "bell_vectors": 16,
+      "orthogonality_pairs": 256
+    },
+    {
+      "a": 4,
+      "b": 9,
+      "ambient_dimension": 36,
+      "block_dimension": 32,
+      "bell_vectors": 32,
+      "orthogonality_pairs": 1024
+    },
+    {
+      "a": 5,
+      "b": 5,
+      "ambient_dimension": 25,
+      "block_dimension": 25,
+      "bell_vectors": 25,
+      "orthogonality_pairs": 625
+    }
+  ],
+  "scalar_checks": {
+    "bernstein_coefficients": {
+      "(2, 0)": "2",
+      "(1, 1)": "20/3",
+      "(0, 2)": "8/3"
+    },
+    "dimension_pairs": 966,
+    "union_failure_bound": "25/36",
+    "balanced_qutrit_factor": "153/121"
+  },
+  "type_checks": {
+    "exact_type_bounds": 710,
+    "enumerated_types": 154,
+    "mode_comparisons": 1296
+  },
+  "escort_algebra": {
+    "exact_identities": 4
+  },
+  "negative_controls": [
+    {
+      "name": "constant Bell phase",
+      "rejected": true,
+      "reason": "Bell orthogonality"
+    },
+    {
+      "name": "identity instead of partial transpose",
+      "rejected": true,
+      "reason": "partial-transpose involution"
+    },
+    {
+      "name": "wrong matrix variance factor",
+      "rejected": true,
+      "reason": "sum-of-squares covariance identity"
+    },
+    {
+      "name": "altered Bernstein coefficient",
+      "rejected": true,
+      "reason": "Bernstein exponent certificate"
+    }
+  ],
+  "script_sha256": "008d4e21d4528bd4a653db8892ffab0d4a1aab509e4d242fe35679883034fe35"
+}

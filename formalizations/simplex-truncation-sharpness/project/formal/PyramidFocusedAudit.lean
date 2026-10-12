@@ -1,0 +1,76 @@
+import Entry005.PyramidProjectionBody
+
+#check Entry005.pyramidBaseMap_apply
+#print axioms Entry005.pyramidBaseMap_apply
+#check Entry005.pyramidFlip_apply
+#print axioms Entry005.pyramidFlip_apply
+#check Entry005.pyramidSet_eq_flip_radial
+#print axioms Entry005.pyramidSet_eq_flip_radial
+#check Entry005.mem_pyramidSet_iff
+#print axioms Entry005.mem_pyramidSet_iff
+#check Entry005.pyramidSet_compact
+#print axioms Entry005.pyramidSet_compact
+#check Entry005.pyramidFlip_volume
+#print axioms Entry005.pyramidFlip_volume
+#check Entry005.pyramidSet_volume
+#print axioms Entry005.pyramidSet_volume
+#check Entry005.pyramidSlope_pos
+#print axioms Entry005.pyramidSlope_pos
+#check Entry005.pyramidSlope_sq
+#print axioms Entry005.pyramidSlope_sq
+#check Entry005.pyramidBaseNormal_unit
+#print axioms Entry005.pyramidBaseNormal_unit
+#check Entry005.pyramidSideNormal_unit
+#print axioms Entry005.pyramidSideNormal_unit
+#check Entry005.inner_pyramidBaseNormal
+#print axioms Entry005.inner_pyramidBaseNormal
+#check Entry005.inner_pyramidSideNormal
+#print axioms Entry005.inner_pyramidSideNormal
+#check Entry005.mem_pyramidHalfspace_iff
+#print axioms Entry005.mem_pyramidHalfspace_iff
+#check Entry005.finite_halfspace_convex
+#print axioms Entry005.finite_halfspace_convex
+#check Entry005.finite_halfspace_homogeneous_eq_zero
+#print axioms Entry005.finite_halfspace_homogeneous_eq_zero
+#check Entry005.pyramidHalfspaceNormal_unit
+#print axioms Entry005.pyramidHalfspaceNormal_unit
+#check Entry005.pyramidHalfspaceNormal_injective
+#print axioms Entry005.pyramidHalfspaceNormal_injective
+#check Entry005.finite_halfspace_index_nonempty
+#print axioms Entry005.finite_halfspace_index_nonempty
+#check Entry005.pyramidSet_finite_halfspace
+#print axioms Entry005.pyramidSet_finite_halfspace
+#check Entry005.pyramidBaseIsometry_val
+#print axioms Entry005.pyramidBaseIsometry_val
+#check Entry005.pyramid_base_facet_chart
+#print axioms Entry005.pyramid_base_facet_chart
+#check Entry005.pyramid_base_facet_area
+#print axioms Entry005.pyramid_base_facet_area
+#check Entry005.pyramidSideFrameLinear_val
+#print axioms Entry005.pyramidSideFrameLinear_val
+#check Entry005.pyramidSideFrameLinear_norm
+#print axioms Entry005.pyramidSideFrameLinear_norm
+#check Entry005.pyramidSideFrameLinear_surjective
+#print axioms Entry005.pyramidSideFrameLinear_surjective
+#check Entry005.pyramidSideFrame_val
+#print axioms Entry005.pyramidSideFrame_val
+#check Entry005.pyramid_side_chart_offset
+#print axioms Entry005.pyramid_side_chart_offset
+#check Entry005.pyramid_side_radial_coordinates
+#print axioms Entry005.pyramid_side_radial_coordinates
+#check Entry005.pyramid_side_facet_chart
+#print axioms Entry005.pyramid_side_facet_chart
+#check Entry005.pyramid_side_facet_of_empty
+#print axioms Entry005.pyramid_side_facet_of_empty
+#check Entry005.pyramid_side_facet_area
+#print axioms Entry005.pyramid_side_facet_area
+#check Entry005.pyramid_projection_generator_eq
+#print axioms Entry005.pyramid_projection_generator_eq
+#check Entry005.pyramid_projection_body_eq_zonotope
+#print axioms Entry005.pyramid_projection_body_eq_zonotope
+#check Entry005.pyramid_finite_halfspace_volume
+#print axioms Entry005.pyramid_finite_halfspace_volume
+#check Entry005.finite_halfspace_facet_area_of_empty
+#print axioms Entry005.finite_halfspace_facet_area_of_empty
+#check Entry005.pyramid_side_facet_area_of_empty
+#print axioms Entry005.pyramid_side_facet_area_of_empty

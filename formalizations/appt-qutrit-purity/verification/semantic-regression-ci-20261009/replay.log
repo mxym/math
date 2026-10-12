@@ -1,0 +1,19 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPT.Quantum.exists_PPT_density_exceeding_target':
+(kernel) declaration type mismatch, 'APPT.Quantum.exists_PPT_density_exceeding_target' has type
+  True
+but it is expected to have type
+  (n : Nat) →
+    @LE.le Nat instLENat 3 n →
+      @Exists (@Matrix (@Prod (Fin 3) (Fin n)) (@Prod (Fin 3) (Fin n)) Complex) fun A =>
+        And (@APPT.Quantum.IsDensity (Fin 3) (Fin n) (Fin.fintype 3) (Fin.fintype n) A)
+          (And
+            (@Matrix.PosSemidef (@Prod (Fin 3) (Fin n)) Complex Complex.instRing Complex.partialOrder
+              Complex.instStarRing (@APPT.Quantum.partialTranspose (Fin 3) (Fin n) A))
+            (And
+              (@LT.lt Real Real.instLT (APPT.Quantum.targetPurity n)
+                (@APPT.Quantum.purity (Fin 3) (Fin n) (Fin.fintype 3) (Fin.fintype n) A))
+              (Not
+                (@APPT.Quantum.AbsolutelyPPT (Fin 3) (Fin n) (Fin.fintype 3) (Fin.fintype n) (instDecidableEqFin 3)
+                  (instDecidableEqFin n) A))))
+EMPTY_KERNEL_REPLAY_PASS 35589 declarations; 6 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPT.Quantum.exists_PPT_density_exceeding_target

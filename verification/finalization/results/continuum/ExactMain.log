@@ -1,0 +1,97 @@
+def ContinuumRemainder.ContinuumPowerTarget : Prop :=
+∀ (ι : Type) [Countable.{1} ι] [Nonempty.{1} ι] (A : ι → Set.{0} Real),
+  (∀ (l : ι),
+      And
+        (@LE.le.{0} (Set.{0} Real) (@Set.instLE.{0} Real) (A l)
+          (@Set.Ioi.{0} Real Real.instPreorder
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+        (ContinuumRemainder.LogSyndetic (A l))) →
+    ∀ (ε : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+        @LT.lt.{0} Real Real.instLT ε (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          @Exists.{1} (Set.{0} Real) fun (E : Set.{0} Real) =>
+            And
+              (@IsClosed.{0} Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                E)
+              (And
+                (@Eq.{1} (Set.{0} Real)
+                  (@interior.{0} Real
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    E)
+                  (@EmptyCollection.emptyCollection.{0} (Set.{0} Real) (@Set.instEmptyCollection.{0} Real)))
+                (And (ContinuumGeometric.OnePeriodic E)
+                  (And
+                    (∀ (x : Real),
+                      @LT.lt.{0} ENNReal
+                        (@Preorder.toLT.{0} ENNReal (@PartialOrder.toPreorder.{0} ENNReal ENNReal.instPartialOrder))
+                        (ENNReal.ofReal
+                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) ε))
+                        (@DFunLike.coe.{1, 1, 1}
+                          (@MeasureTheory.Measure.{0} Real
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace))
+                          (Set.{0} Real) (fun (x : Set.{0} Real) => ENNReal)
+                          (@MeasureTheory.Measure.instFunLike.{0} Real
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace))
+                          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                          (@Inter.inter.{0} (Set.{0} Real) (@Set.instInter.{0} Real) E
+                            (@Set.Icc.{0} Real Real.instPreorder x
+                              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) x
+                                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))))
+                    (@ContinuumRemainder.AvoidsPowerRemainderTails.{0} ι A E))))
+def ContinuumRemainder.LogSyndetic : (A : Set.{0} Real) → Prop :=
+fun (A : Set.{0} Real) =>
+  @Exists.{1} Nat fun (G : Nat) =>
+    @Exists.{1} Nat fun (J : Nat) =>
+      And (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) G)
+        (And (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) J)
+          (∀ (j : Nat),
+            @LE.le.{0} Nat instLENat J j →
+              @Exists.{1} Nat fun (i : Nat) =>
+                And (@LE.le.{0} Nat instLENat j i)
+                  (And
+                    (@LT.lt.{0} Nat instLTNat i (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) j G))
+                    (ContinuumRemainder.OccupiedBin A i))))
+def ContinuumRemainder.OccupiedBin : (A : Set.{0} Real) → (j : Nat) → Prop :=
+fun (A : Set.{0} Real) (j : Nat) =>
+  @Set.Nonempty.{0} Real
+    (@Inter.inter.{0} (Set.{0} Real) (@Set.instInter.{0} Real) A
+      (@Set.Ioc.{0} Real Real.instPreorder
+        (ContinuumGeometric.dyadic
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) j
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (ContinuumGeometric.dyadic j)))
+def ContinuumRemainder.PowerRemainderOn : (A : Set.{0} Real) → (f : Real → Real) → (y c s α M : Real) → Prop :=
+fun (A : Set.{0} Real) (f : Real → Real) (y c s α M : Real) =>
+  @Exists.{1} Real fun (ρ : Real) =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ)
+      (∀ (a : Real),
+        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real) A a →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+            @LT.lt.{0} Real Real.instLT a ρ →
+              @LE.le.{0} Real Real.instLE
+                (@abs.{0} Real Real.lattice Real.instAddGroup
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (f a) y)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) c
+                      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) a s))))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) M
+                  (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) a
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) s α))))
+def ContinuumRemainder.TailValuesOutside : (A : Set.{0} Real) →
+  (f : Real → Real) → (E : Set.{0} Real) → (ρ : Real) → Set.{0} Real :=
+fun (A : Set.{0} Real) (f : Real → Real) (E : Set.{0} Real) (ρ : Real) =>
+  @Set.ofPred.{0} Real fun (z : Real) =>
+    @Exists.{1} Real fun (a : Real) =>
+      And (@Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real) A a)
+        (And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a)
+          (And (@LT.lt.{0} Real Real.instLT a ρ)
+            (And (@Eq.{1} Real (f a) z)
+              (Not (@Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real) E z)))))
+ContinuumRemainder.continuum_power_target : ContinuumRemainder.ContinuumPowerTarget
+'ContinuumRemainder.continuum_power_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ContinuumRemainder.robustCompactBlockerSpec_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ContinuumRemainder.compact_power_avoidance' depends on axioms: [propext, Classical.choice, Quot.sound]

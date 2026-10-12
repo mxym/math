@@ -1,0 +1,1721 @@
+Entry005.actual_body_affine_first_moment_tendsto_of_compact_limit {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Filter.Tendsto.{0, 0}
+    (fun k =>
+      ∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+        abs.{0}
+          (Matrix.det.{0, 0}
+            (Entry005.anchorMatrix
+              w)) ∂Entry005.iidLaw.{0} (Entry005.halfspaceApproximationLaw K hc hconv hb (φ k))
+          (HAdd.hAdd.{0, 0, 0} d 1))
+    Filter.atTop.{0}
+    (nhds.{0}
+      (∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+        abs.{0}
+          (Matrix.det.{0, 0}
+            (Entry005.anchorMatrix
+              w)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) (HAdd.hAdd.{0, 0, 0} d 1)))
+'Entry005.actual_body_affine_first_moment_tendsto_of_compact_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_assignment_volume_scale_of_finite_minkowski {d : ℕ} [Nontrivial.{0} (Entry005.Space d)] {n : ℕ}
+  (hMinkowski : Entry005.FiniteSupportMinkowskiObligation d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hconvP : Convex.{0, 0} ℝ P) (hKP : K ⊆ P) (M : ℝ)
+  (hM : LE.le.{0} 0 M) (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HPow.hPow.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0} 1
+        (HMul.hMul.{0, 0, 0} M
+          (∫ (x : Fin d → ℝ),
+            norm.{0}
+              (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))))
+      d)
+'Entry005.actual_body_assignment_volume_scale_of_finite_minkowski' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_enclosing_support_height_assignment_test_bound {d n : ℕ} (K : Set.{0} (Entry005.Space d))
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hKP : K ⊆ P) (M : ℝ) (hM : LE.le.{0} 0 M)
+  (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x))
+      ↑(Entry005.compactBallRawLaw μ) ∧
+    MeasureTheory.Integrable.{0, 0}
+        (fun x => norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))))
+        ↑(Entry005.compactBallRawLaw μ) ∧
+      LE.le.{0}
+        (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ))
+        (HAdd.hAdd.{0, 0, 0} 1
+          (HMul.hMul.{0, 0, 0} M
+            (∫ (x : Fin d → ℝ),
+              norm.{0}
+                (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                  (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))))
+'Entry005.actual_body_enclosing_support_height_assignment_test_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_enclosing_support_height_assignment_test_bounds {d : ℕ} [Nontrivial.{0} (Entry005.Space d)] {n : ℕ}
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hKP : K ⊆ P) (M : ℝ) (hM : LE.le.{0} 0 M)
+  (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x))
+      ↑(Entry005.compactBallRawLaw μ) ∧
+    MeasureTheory.Integrable.{0, 0}
+        (fun x => norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))))
+        ↑(Entry005.compactBallRawLaw μ) ∧
+      LE.le.{0} 1
+          (∫ (x : Fin d → ℝ),
+            Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ)) ∧
+        LE.le.{0}
+          (∫ (x : Fin d → ℝ),
+            Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ))
+          (HAdd.hAdd.{0, 0, 0} 1
+            (HMul.hMul.{0, 0, 0} M
+              (∫ (x : Fin d → ℝ),
+                norm.{0}
+                  (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                    (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))))
+'Entry005.actual_body_enclosing_support_height_assignment_test_bounds' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_horizontal_first_moment_pos_of_compact_limit {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  LT.lt.{0} 0
+    (∫ (base : Fin d → Fin d → ℝ),
+      abs.{0} (Entry005.horizontalDeterminant base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+'Entry005.actual_body_horizontal_first_moment_pos_of_compact_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_original_scale_of_strong_same_assignment {d n : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hd : LE.le.{0} 1 d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hKP : K ⊆ P)
+  (hPM : P ⊆ Metric.closedBall.{0} 0 (Entry005.M d)) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) (e : ℝ) (he : LE.le.{0} 0 e)
+  (hcost :
+    LE.le.{0}
+      (∫ (x : Fin d → ℝ),
+        norm.{0}
+          (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e)
+          (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e))))) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HPow.hPow.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0} 1
+        (HMul.hMul.{0, 0, 0} (Entry005.M d)
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e)))
+      d)
+'Entry005.actual_body_original_scale_of_strong_same_assignment' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_same_assignment_linear_volume_bound {d : ℕ} [Nontrivial.{0} (Entry005.Space d)] {n : ℕ}
+  (hd : LE.le.{0} 1 d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hKP : K ⊆ P) (M : ℝ) (hM : LE.le.{0} 1 M)
+  (hPM : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HAdd.hAdd.{0, 0, 0} 1
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} M d))
+        (∫ (x : Fin d → ℝ),
+          norm.{0}
+            (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+              (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))))
+'Entry005.actual_body_same_assignment_linear_volume_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_scale_of_same_assignment_budget {d n : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hMinkowski : Entry005.FiniteSupportMinkowskiObligation d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hconvP : Convex.{0, 0} ℝ P) (hKP : K ⊆ P) (M h : ℝ)
+  (hM : LE.le.{0} 0 M) (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r)
+  (hcost :
+    LE.le.{0}
+      (∫ (x : Fin d → ℝ),
+        norm.{0}
+          (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))
+      h) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} M h)) d)
+'Entry005.actual_body_scale_of_same_assignment_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_support_height_facet_sum_tendsto {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hneP : Set.Nonempty.{0} P) :
+  Filter.Tendsto.{0, 0}
+    (fun k =>
+      HDiv.hDiv.{0, 0, 0}
+        (∑ i,
+          HMul.hMul.{0, 0, 0}
+            (Entry005.finiteHalfspaceFacetArea.{0, 0} (fun u => ↑u) (fun u => Entry005.compactSupportHeight.{0} K ↑u) i)
+            (Entry005.compactSupportHeight.{0} P ↑i))
+        (HMul.hMul.{0, 0, 0} (↑d)
+          (MeasureTheory.volume.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb (φ k))).toReal))
+    Filter.atTop.{0}
+    (nhds.{0}
+      (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ)))
+'Entry005.actual_body_support_height_facet_sum_tendsto' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_support_height_test_integral_tendsto {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hneP : Set.Nonempty.{0} P) :
+  Filter.Tendsto.{0, 0}
+    (fun k =>
+      ∫ (x : Fin d → ℝ),
+        Entry005.compactSupportHeight.{0} P
+          (WithLp.toLp.{0} 2 x) ∂Entry005.halfspaceApproximationLaw K hc hconv hb (φ k))
+    Filter.atTop.{0}
+    (nhds.{0}
+      (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ)))
+'Entry005.actual_body_support_height_test_integral_tendsto' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_volume_ratio_le_linear_support_test {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hd : LE.le.{0} 1 d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hKP : K ⊆ P) (M : ℝ) (hM : LE.le.{0} 1 M)
+  (hPM : P ⊆ Metric.closedBall.{0} 0 M) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HAdd.hAdd.{0, 0, 0} 1
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} M (HSub.hSub.{0, 0, 0} d 1)))
+        (HSub.hSub.{0, 0, 0}
+          (∫ (x : Fin d → ℝ),
+            Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ))
+          1)))
+'Entry005.actual_body_volume_ratio_le_linear_support_test' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_body_volume_ratio_le_support_test_pow_of_finite_minkowski {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hMinkowski : Entry005.FiniteSupportMinkowskiObligation d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hconvP : Convex.{0, 0} ℝ P) (hneP : Set.Nonempty.{0} P) :
+  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+    (HPow.hPow.{0, 0, 0}
+      (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ)) d)
+'Entry005.actual_body_volume_ratio_le_support_test_pow_of_finite_minkowski' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_cap_bound_of_scale_and_brightness {d : ℕ} (hd : LE.le.{0} 2 d) (K P : ConvexBody.{0} (Entry005.Space d))
+  (hball : Metric.closedBall.{0} 0 1 ⊆ ↑K) (hKP : LE.le.{0} K P) (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d))
+  (hPM : ↑P ⊆ Metric.closedBall.{0} 0 (Entry005.M d)) (h : ℝ) (hh : LE.le.{0} 0 h)
+  (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} (Entry005.M d) h) 1)
+  (hscale :
+    LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} ↑P).toReal (MeasureTheory.volume.{0} ↑K).toReal)
+      (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (Entry005.M d) h)) d))
+  (hbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (abs.{0}
+            (HSub.hSub.{0, 0, 0}
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑P) u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑P).toReal))
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal))))
+          (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Entry005.M d) 1) h) 2))
+  (hPbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑P) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑P).toReal))
+          (1 / 2)) :
+  LE.le.{0} (Metric.hausdorffDist.{0} ↑K ↑P)
+    (HMul.hMul.{0, 0, 0} (Entry005.L d)
+      (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.J d) h) (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.actual_cap_bound_of_scale_and_brightness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.actual_cap_of_same_assignment_and_finite_minkowski {d n : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hd : LE.le.{0} 2 d) (hMinkowski : Entry005.FiniteSupportMinkowskiObligation d)
+  (K P : ConvexBody.{0} (Entry005.Space d)) (hb : Metric.closedBall.{0} 0 1 ⊆ ↑K) (hKP : LE.le.{0} K P)
+  (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (hPM : ↑P ⊆ Metric.closedBall.{0} 0 (Entry005.M d))
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability ↑K ⋯ ⋯ hb (φ k))) Filter.atTop.{0}
+      (nhds.{0} μ))
+  (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} (↑P) (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) (h : ℝ) (hh : LE.le.{0} 0 h)
+  (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} (Entry005.M d) h) 1)
+  (hcost :
+    LE.le.{0}
+      (∫ (x : Fin d → ℝ),
+        norm.{0}
+          (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))
+      h)
+  (hbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (abs.{0}
+            (HSub.hSub.{0, 0, 0}
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑P) u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑P).toReal))
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal))))
+          (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Entry005.M d) 1) h) 2))
+  (hPbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑P) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑P).toReal))
+          (1 / 2)) :
+  LE.le.{0} (Metric.hausdorffDist.{0} ↑K ↑P)
+    (HMul.hMul.{0, 0, 0} (Entry005.L d)
+      (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.J d) h) (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.actual_cap_of_same_assignment_and_finite_minkowski' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_entryDefect_nonnegative_of_prescribed_maximum {d : ℕ} (hd : LE.le.{0} 1 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (S : Affine.Simplex.{0, 0, 0} ℝ (Entry005.Space d) d)
+  (hmax : Entry005.maximumInscribed K S) : LE.le.{0} 0 (Entry005.entryDefect.{0} ↑K)
+'Entry005.actual_entryDefect_nonnegative_of_prescribed_maximum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_finite_enclosing_body_same_assignment_cap {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hd : LE.le.{0} 2 d) (hMinkowski : Entry005.FiniteSupportMinkowskiObligation d)
+  (K P : ConvexBody.{0} (Entry005.Space d)) (hb : Metric.closedBall.{0} 0 1 ⊆ ↑K) (hKP : LE.le.{0} K P)
+  (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (hPM : ↑P ⊆ Metric.closedBall.{0} 0 (Entry005.M d))
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability ↑K ⋯ ⋯ hb (φ k))) Filter.atTop.{0}
+      (nhds.{0} μ))
+  (hcenter : ∀ (j : Fin d), Eq.{1} (∫ (x : Fin d → ℝ), x j ∂↑(Entry005.compactBallRawLaw μ)) 0)
+  (hKbrightness :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        Eq.{1}
+          (Entry005.negativeIntegral.{0} ↑(Entry005.compactBallRawLaw μ) fun x =>
+            dotProduct.{0, 0} (WithLp.ofLp.{0} u) x)
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal)))
+  (n : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (heights : Fin (HAdd.hAdd.{0, 0, 0} d 1) → ℝ)
+  (hn : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (norm.{0} (n i)) 1)
+  (hh : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LT.lt.{0} 0 (heights i)) (hinj : Function.Injective.{1, 1} n)
+  (hP : Eq.{1} (↑P) (Entry005.finiteHalfspaceSet.{0, 0} n heights)) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ)
+  (hatom :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+      Eq.{1} (Entry005.finiteConePoint.{0} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i))
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ fun i => WithLp.toLp.{0} 2 (w i))
+  (hround :
+    Metric.closedBall.{0} 0 (Entry005.b d) ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} fun i => WithLp.toLp.{0} 2 (w i)))
+  (hsupport :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (Entry005.compactSupportHeight.{0} (↑P) (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} d 1)) (hr : Measurable.{0, 0} r) (h : ℝ) (hherror : LE.le.{0} 0 h)
+  (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} (Entry005.M d) h) 1)
+  (hcost :
+    LE.le.{0}
+      (∫ (x : Fin d → ℝ),
+        norm.{0}
+          (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))
+      h) :
+  LE.le.{0} (Metric.hausdorffDist.{0} ↑K ↑P)
+    (HMul.hMul.{0, 0, 0} (Entry005.L d)
+      (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.J d) h) (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.actual_finite_enclosing_body_same_assignment_cap' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_finite_enclosing_body_strong_same_assignment_cap {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hd : LE.le.{0} 2 d) (K P : ConvexBody.{0} (Entry005.Space d)) (hb : Metric.closedBall.{0} 0 1 ⊆ ↑K)
+  (hKP : LE.le.{0} K P) (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d))
+  (hPM : ↑P ⊆ Metric.closedBall.{0} 0 (Entry005.M d))
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability ↑K ⋯ ⋯ hb (φ k))) Filter.atTop.{0}
+      (nhds.{0} μ))
+  (hcenter : ∀ (j : Fin d), Eq.{1} (∫ (x : Fin d → ℝ), x j ∂↑(Entry005.compactBallRawLaw μ)) 0)
+  (hKbrightness :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        Eq.{1}
+          (Entry005.negativeIntegral.{0} ↑(Entry005.compactBallRawLaw μ) fun x =>
+            dotProduct.{0, 0} (WithLp.ofLp.{0} u) x)
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal)))
+  (n : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (heights : Fin (HAdd.hAdd.{0, 0, 0} d 1) → ℝ)
+  (hn : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (norm.{0} (n i)) 1)
+  (hh : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LT.lt.{0} 0 (heights i)) (hinj : Function.Injective.{1, 1} n)
+  (hP : Eq.{1} (↑P) (Entry005.finiteHalfspaceSet.{0, 0} n heights)) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ)
+  (hatom :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+      Eq.{1} (Entry005.finiteConePoint.{0} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i))
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ fun i => WithLp.toLp.{0} 2 (w i))
+  (hround :
+    Metric.closedBall.{0} 0 (Entry005.b d) ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} fun i => WithLp.toLp.{0} 2 (w i)))
+  (hsupport :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (Entry005.compactSupportHeight.{0} (↑P) (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} d 1)) (hr : Measurable.{0, 0} r) (e : ℝ) (he : LE.le.{0} 0 e)
+  (hesmall : LE.le.{0} e (Entry005.eSharp d))
+  (hcost :
+    LE.le.{0}
+      (∫ (x : Fin d → ℝ),
+        norm.{0}
+          (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e)
+          (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e))))) :
+  LE.le.{0} (Metric.hausdorffDist.{0} ↑K ↑P)
+    (HMul.hMul.{0, 0, 0} (Entry005.L d)
+      (HPow.hPow.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (Entry005.J d)
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e))
+        (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.actual_finite_enclosing_body_strong_same_assignment_cap' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_polar_enclosing_simplex {d : ℕ} (hd : LE.le.{0} 1 d) (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hne : Set.Nonempty.{0} K) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (w i)) 1)
+  {b : ℝ} (hb : LT.lt.{0} 0 b) (hround : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (hboundary : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (Entry005.compactSupportHeight.{0} K (w i)) 1) :
+  ∃ P n heights,
+    Eq.{1} (Entry005.simplexSet P)
+        (Set.ofPred.{0} fun x => ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (inner.{0, 0} ℝ (w i) x) 1) ∧
+      K ⊆ Entry005.simplexSet P ∧
+        Metric.closedBall.{0} 0 1 ⊆ Entry005.simplexSet P ∧
+          Entry005.simplexSet P ⊆ Metric.closedBall.{0} 0 (Inv.inv.{0} b) ∧
+            (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (norm.{0} (n i)) 1) ∧
+              (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LT.lt.{0} 0 (heights i)) ∧
+                Function.Injective.{1, 1} n ∧
+                  Eq.{1} (Entry005.simplexSet P) (Entry005.finiteHalfspaceSet.{0, 0} n heights) ∧
+                    (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+                        Eq.{1} (Entry005.finiteConePoint.{0} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) fun j =>
+                          WithLp.ofLp.{0} (w i) j) ∧
+                      ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+                        Eq.{1} (Entry005.compactSupportHeight.{0} (Entry005.simplexSet P) (w i)) 1
+'Entry005.actual_polar_enclosing_simplex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.actual_polar_enclosing_simplex_original_radius {d : ℕ} (hd : LE.le.{0} 2 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ fun i => WithLp.toLp.{0} 2 (w i))
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (hround :
+    Metric.closedBall.{0} 0 (Entry005.b d) ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} fun i => WithLp.toLp.{0} 2 (w i)))
+  (hboundary :
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Membership.mem.{0, 0} (Entry005.actualPolarBoundaryRaw ↑K) (w i)) :
+  ∃ P n heights,
+    Eq.{1} (Entry005.simplexSet P)
+        (Set.ofPred.{0} fun x =>
+          ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (inner.{0, 0} ℝ (WithLp.toLp.{0} 2 (w i)) x) 1) ∧
+      ↑K ⊆ Entry005.simplexSet P ∧
+        Metric.closedBall.{0} 0 1 ⊆ Entry005.simplexSet P ∧
+          Entry005.simplexSet P ⊆ Metric.closedBall.{0} 0 (Entry005.M d) ∧
+            (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (norm.{0} (n i)) 1) ∧
+              (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LT.lt.{0} 0 (heights i)) ∧
+                Function.Injective.{1, 1} n ∧
+                  Eq.{1} (Entry005.simplexSet P) (Entry005.finiteHalfspaceSet.{0, 0} n heights) ∧
+                    (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+                        Eq.{1} (Entry005.finiteConePoint.{0} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i)) ∧
+                      ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+                        Eq.{1} (Entry005.compactSupportHeight.{0} (Entry005.simplexSet P) (WithLp.toLp.{0} 2 (w i))) 1
+'Entry005.actual_polar_enclosing_simplex_original_radius' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_projection_deficit_of_scale_and_brightness {d : ℕ} (hd : LE.le.{0} 1 d)
+  (K P : Set.{0} (Entry005.Space d)) (hcK : IsCompact.{0} K) (hcP : IsCompact.{0} P)
+  (hball : Metric.closedBall.{0} 0 1 ⊆ K) (hKP : K ⊆ P) (hbound : K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (h : ℝ)
+  (hh : LE.le.{0} 0 h) (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} (Entry005.M d) h) 1)
+  (hscale :
+    LE.le.{0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal (MeasureTheory.volume.{0} K).toReal)
+      (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (Entry005.M d) h)) d))
+  (hbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (abs.{0}
+            (HSub.hSub.{0, 0, 0}
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} P u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} P).toReal))
+              (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} K u)
+                (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} K).toReal))))
+          (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Entry005.M d) 1) h) 2))
+  (hPbright :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0}
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} P u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} P).toReal))
+          (1 / 2))
+  (u : Entry005.Space d) :
+  Eq.{1} (norm.{0} u) 1 →
+    LE.le.{0} (HSub.hSub.{0, 0, 0} (Entry005.projectionVolumeSet.{0} P u) (Entry005.projectionVolumeSet.{0} K u))
+      (HMul.hMul.{0, 0, 0} (Entry005.J d) h)
+'Entry005.actual_projection_deficit_of_scale_and_brightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_same_limit_anchor_defect_entryDefect {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Eq.{1}
+    (Entry005.determinantLawDefect.{0, 0} (Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+      (↑(Entry005.compactBallRawLaw μ)) id.{1} id.{1})
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+        (∫ (base : Fin d → Fin d → ℝ),
+          abs.{0} (Entry005.horizontalDeterminant base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+      (Entry005.entryDefect.{0} K))
+'Entry005.actual_same_limit_anchor_defect_entryDefect' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.actual_same_limit_anchor_moment_entryA {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d))
+  (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Eq.{1}
+    (∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+      abs.{0}
+        (Matrix.det.{0, 0}
+          (Entry005.anchorMatrix w)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) (HAdd.hAdd.{0, 0, 0} d 1))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+        (∫ (base : Fin d → Fin d → ℝ),
+          abs.{0} (Entry005.horizontalDeterminant base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+      (Entry005.entryA.{0} K))
+'Entry005.actual_same_limit_anchor_moment_entryA' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.assigned_atom_absolute_direction_error.{u_1, u_2, u_3} {α : Type u_1} {ι : Type u_2} [MeasurableSpace.{u_1} α]
+  [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι] {E : Type u_3}
+  [NormedAddCommGroup.{u_3} E] [InnerProductSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E]
+  (ν : MeasureTheory.Measure.{u_1} α) [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (X : α → E)
+  (hX : MeasureTheory.Integrable.{u_3, u_1} X ν) (w : ι → E) (r : α → ι) (hr : Measurable.{u_1, u_2} r) (u : E)
+  (hu : Eq.{1} (norm.{u_3} u) 1) :
+  LE.le.{0}
+    (abs.{0}
+      (HSub.hSub.{0, 0, 0}
+        (∑ i, HMul.hMul.{0, 0, 0} (Entry005.assignedAtomWeights.{u_1, u_2} ν r i) (abs.{0} (inner.{0, u_3} ℝ u (w i))))
+        (∫ (x : α), abs.{0} (inner.{0, u_3} ℝ u (X x)) ∂ν)))
+    (∫ (x : α), norm.{u_3} (HSub.hSub.{u_3, u_3, u_3} (X x) (w (r x))) ∂ν)
+'Entry005.assigned_atom_absolute_direction_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.assigned_atom_barycenter_norm_le_cost.{u_1, u_2, u_3} {α : Type u_1} {ι : Type u_2} [MeasurableSpace.{u_1} α]
+  [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι] {E : Type u_3}
+  [NormedAddCommGroup.{u_3} E] [NormedSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E] (ν : MeasureTheory.Measure.{u_1} α)
+  [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (X : α → E) (hX : MeasureTheory.Integrable.{u_3, u_1} X ν)
+  (hcenter : Eq.{u_3 + 1} (∫ (x : α), X x ∂ν) 0) (w : ι → E) (r : α → ι) (hr : Measurable.{u_1, u_2} r) :
+  LE.le.{0} (norm.{u_3} (∑ i, HSMul.hSMul.{0, u_3, u_3} (Entry005.assignedAtomWeights.{u_1, u_2} ν r i) (w i)))
+    (∫ (x : α), norm.{u_3} (HSub.hSub.{u_3, u_3, u_3} (X x) (w (r x))) ∂ν)
+'Entry005.assigned_atom_barycenter_norm_le_cost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.assigned_atom_weights_integral.{u_1, u_2, u_3} {α : Type u_1} {ι : Type u_2} [MeasurableSpace.{u_1} α]
+  [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι] {E : Type u_3}
+  [NormedAddCommGroup.{u_3} E] [NormedSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E] (ν : MeasureTheory.Measure.{u_1} α)
+  [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (r : α → ι) (hr : Measurable.{u_1, u_2} r) (f : ι → E) :
+  Eq.{u_3 + 1} (∑ i, HSMul.hSMul.{0, u_3, u_3} (Entry005.assignedAtomWeights.{u_1, u_2} ν r i) (f i))
+    (∫ (x : α), f (r x) ∂ν)
+'Entry005.assigned_atom_weights_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.assigned_atom_weights_probability.{u_1, u_2} {α : Type u_1} {ι : Type u_2} [MeasurableSpace.{u_1} α]
+  [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι] (ν : MeasureTheory.Measure.{u_1} α)
+  [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (r : α → ι) :
+  (∀ (i : ι), LE.le.{0} 0 (Entry005.assignedAtomWeights.{u_1, u_2} ν r i)) ∧
+    Eq.{1} (∑ i, Entry005.assignedAtomWeights.{u_1, u_2} ν r i) 1
+'Entry005.assigned_atom_weights_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.bounded_body_volume_le_cube {d : ℕ} (K : Set.{0} (Entry005.Space d)) (R : ℝ) (hR : LE.le.{0} 0 R)
+  (hbound : K ⊆ Metric.closedBall.{0} 0 R) :
+  LE.le.{0} (MeasureTheory.volume.{0} K).toReal (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 R) d)
+'Entry005.bounded_body_volume_le_cube' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.centered_atom_mixture_mean.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι] [AddCommGroup.{u_2} E]
+  [Module.{0, u_2} ℝ E] (w : ι → E) (p q : ι → ℝ) (t : ℝ) :
+  Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (Entry005.centeredAtomMixture.{u_1} p q t i) (w i))
+    (HSMul.hSMul.{0, u_2, u_2} (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 t))
+      (HAdd.hAdd.{u_2, u_2, u_2} (∑ i, HSMul.hSMul.{0, u_2, u_2} (p i) (w i))
+        (HSMul.hSMul.{0, u_2, u_2} t (∑ i, HSMul.hSMul.{0, u_2, u_2} (q i) (w i)))))
+'Entry005.centered_atom_mixture_mean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.centered_atom_mixture_probability.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] (p q : ι → ℝ) (t : ℝ)
+  (hp : ∀ (i : ι), LE.le.{0} 0 (p i)) (hq : ∀ (i : ι), LE.le.{0} 0 (q i)) (hpsum : Eq.{1} (∑ i, p i) 1)
+  (hqsum : Eq.{1} (∑ i, q i) 1) (ht : LE.le.{0} 0 t) :
+  (∀ (i : ι), LE.le.{0} 0 (Entry005.centeredAtomMixture.{u_1} p q t i)) ∧
+    Eq.{1} (∑ i, Entry005.centeredAtomMixture.{u_1} p q t i) 1
+'Entry005.centered_atom_mixture_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.centered_atom_mixture_test_error.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] (p q f : ι → ℝ) (t : ℝ)
+  (hp : ∀ (i : ι), LE.le.{0} 0 (p i)) (hq : ∀ (i : ι), LE.le.{0} 0 (q i)) (hpsum : Eq.{1} (∑ i, p i) 1)
+  (hqsum : Eq.{1} (∑ i, q i) 1) (ht : LE.le.{0} 0 t) (hf : ∀ (i : ι), LE.le.{0} 0 (f i) ∧ LE.le.{0} (f i) 1) :
+  LE.le.{0}
+    (abs.{0}
+      (HSub.hSub.{0, 0, 0} (∑ i, HMul.hMul.{0, 0, 0} (Entry005.centeredAtomMixture.{u_1} p q t i) (f i))
+        (∑ i, HMul.hMul.{0, 0, 0} (p i) (f i))))
+    t
+'Entry005.centered_atom_mixture_test_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.centered_integral_negative_eq_half_absolute.{u_1, u_2} {α : Type u_1} {E : Type u_2} [MeasurableSpace.{u_1} α]
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{0, u_2} ℝ E] [CompleteSpace.{u_2} E]
+  (ν : MeasureTheory.Measure.{u_1} α) (X : α → E) (hX : MeasureTheory.Integrable.{u_2, u_1} X ν)
+  (hcenter : Eq.{u_2 + 1} (∫ (x : α), X x ∂ν) 0) (u : E) :
+  Eq.{1} (Entry005.negativeIntegral.{u_1} ν fun x => inner.{0, u_2} ℝ u (X x))
+    (HDiv.hDiv.{0, 0, 0} (∫ (x : α), abs.{0} (inner.{0, u_2} ℝ u (X x)) ∂ν) 2)
+'Entry005.centered_integral_negative_eq_half_absolute' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.compact_cone_law_support_height_assignment_test_bound {d n : ℕ}
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (P : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} P) (hne : Set.Nonempty.{0} P) (M : ℝ) (hM : LE.le.{0} 0 M)
+  (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x))
+      ↑(Entry005.compactBallRawLaw μ) ∧
+    MeasureTheory.Integrable.{0, 0}
+        (fun x => norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))))
+        ↑(Entry005.compactBallRawLaw μ) ∧
+      LE.le.{0}
+        (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂↑(Entry005.compactBallRawLaw μ))
+        (HAdd.hAdd.{0, 0, 0} 1
+          (HMul.hMul.{0, 0, 0} M
+            (∫ (x : Fin d → ℝ),
+              norm.{0}
+                (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                  (WithLp.toLp.{0} 2 (w (r x)))) ∂↑(Entry005.compactBallRawLaw μ))))
+'Entry005.compact_cone_law_support_height_assignment_test_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.compact_support_height_mono {d : ℕ} (K P : Set.{0} (Entry005.Space d)) (hcK : IsCompact.{0} K)
+  (hneK : Set.Nonempty.{0} K) (hcP : IsCompact.{0} P) (hneP : Set.Nonempty.{0} P) (hKP : K ⊆ P) (u : Entry005.Space d) :
+  LE.le.{0} (Entry005.compactSupportHeight.{0} K u) (Entry005.compactSupportHeight.{0} P u)
+'Entry005.compact_support_height_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.compact_support_height_raw_abs_bound {d : ℕ} (P : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} P)
+  (hne : Set.Nonempty.{0} P) (M : ℝ) (hbound : P ⊆ Metric.closedBall.{0} 0 M) (x : Fin d → ℝ) :
+  LE.le.{0} (abs.{0} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x)))
+    (HMul.hMul.{0, 0, 0} (norm.{0} (WithLp.toLp.{0} 2 x)) M)
+'Entry005.compact_support_height_raw_abs_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.conditional_actual_body_affine_first_moment_entryA_of_compact_limit {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hvolume : Entry005.FiniteActualPyramidVolumeFormula d)
+  (hprojection : Entry005.FiniteActualPyramidProjectionFormula d) (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Eq.{1}
+    (∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+      abs.{0}
+        (Matrix.det.{0, 0}
+          (Entry005.anchorMatrix w)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) (HAdd.hAdd.{0, 0, 0} d 1))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+        (∫ (base : Fin d → Fin d → ℝ),
+          abs.{0} (Entry005.horizontalDeterminant base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+      (Entry005.entryA.{0} K))
+'Entry005.conditional_actual_body_affine_first_moment_entryA_of_compact_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.conditional_actual_body_determinant_defect_entryDefect_of_compact_limit {d : ℕ}
+  [Nontrivial.{0} (Entry005.Space d)] (hvolume : Entry005.FiniteActualPyramidVolumeFormula d)
+  (hprojection : Entry005.FiniteActualPyramidProjectionFormula d) (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Eq.{1}
+    (Entry005.determinantLawDefect.{0, 0} (Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+      (↑(Entry005.compactBallRawLaw μ)) id.{1} id.{1})
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+        (∫ (base : Fin d → Fin d → ℝ),
+          abs.{0} (Entry005.horizontalDeterminant base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+      (Entry005.entryDefect.{0} K))
+'Entry005.conditional_actual_body_determinant_defect_entryDefect_of_compact_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.conditional_actual_body_joint_polar_horizontal_assignment_defect {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hvolume : Entry005.FiniteActualPyramidVolumeFormula d)
+  (hprojection : Entry005.FiniteActualPyramidProjectionFormula d) (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) :
+  ∃ μ φ,
+    StrictMono.{0, 0} φ ∧
+      Filter.Tendsto.{0, 0}
+          (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+          Filter.atTop.{0} (nhds.{0} μ) ∧
+        Filter.Tendsto.{0, 0} (fun k => Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)) Filter.atTop.{0}
+            (nhds.{0} (Entry005.compactBallRawLaw μ)) ∧
+          (∀ᵐ (x : Fin d → ℝ) ∂↑(Entry005.compactBallRawLaw μ), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1) ∧
+            (∀ (i : Fin d), Eq.{1} (∫ (x : Fin d → ℝ), x i ∂↑(Entry005.compactBallRawLaw μ)) 0) ∧
+              (∀ (u : Entry005.Space d),
+                  Eq.{1} (norm.{0} u) 1 →
+                    Eq.{1}
+                      (Entry005.negativeIntegral.{0} ↑(Entry005.compactBallRawLaw μ) fun x =>
+                        dotProduct.{0, 0} (fun j => WithLp.ofLp.{0} u j) x)
+                      (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} K u)
+                        (HMul.hMul.{0, 0, 0} (↑(Module.finrank.{0, 0} ℝ (Entry005.Space d)))
+                          (MeasureTheory.volume.{0} K).toReal))) ∧
+                (∀ᵐ (x : Fin d → ℝ) ∂↑(Entry005.compactBallRawLaw μ),
+                    Membership.mem.{0, 0} (Entry005.actualPolarBoundaryRaw K) x) ∧
+                  MeasureTheory.Measure.support.{0} ↑(Entry005.compactBallRawLaw μ) ⊆
+                      Entry005.actualPolarBoundaryRaw K ∧
+                    Eq.{1}
+                        (∫ (base : Fin d → Fin d → ℝ),
+                          abs.{0}
+                            (Entry005.horizontalDeterminant
+                              base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+                        (HMul.hMul.{0, 0, 0}
+                          (HDiv.hDiv.{0, 0, 0} (↑d.factorial)
+                            (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} K).toReal) d))
+                          (MeasureTheory.volume.{0} (Entry005.projectionBodySet.{0} K)).toReal) ∧
+                      Eq.{1}
+                          (∫ (v : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+                            abs.{0}
+                              (Matrix.det.{0, 0}
+                                (Entry005.anchorMatrix
+                                  v)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) (HAdd.hAdd.{0, 0, 0} d 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+                              (∫ (base : Fin d → Fin d → ℝ),
+                                abs.{0}
+                                  (Entry005.horizontalDeterminant
+                                    base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+                            (Entry005.entryA.{0} K)) ∧
+                        Eq.{1}
+                            (Entry005.determinantLawDefect.{0, 0}
+                              (Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+                              (↑(Entry005.compactBallRawLaw μ)) id.{1} id.{1})
+                            (HMul.hMul.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+                                (∫ (base : Fin d → Fin d → ℝ),
+                                  abs.{0}
+                                    (Entry005.horizontalDeterminant
+                                      base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d))
+                              (Entry005.entryDefect.{0} K)) ∧
+                          LT.lt.{0} 0
+                              (∫ (base : Fin d → Fin d → ℝ),
+                                abs.{0}
+                                  (Entry005.horizontalDeterminant
+                                    base) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d) ∧
+                            LE.le.{0} 0 (Entry005.entryDefect.{0} K) ∧
+                              LT.lt.{0} 0
+                                  (∫ (v : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+                                    abs.{0}
+                                      (Matrix.det.{0, 0}
+                                        (Entry005.anchorMatrix
+                                          v)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ))
+                                      (HAdd.hAdd.{0, 0, 0} d 1)) ∧
+                                ∃ w,
+                                  ∃ (_ : Ne.{1} (Matrix.det.{0, 0} (Entry005.anchorMatrix w)) 0),
+                                    (∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)),
+                                        Membership.mem.{0, 0}
+                                            (MeasureTheory.Measure.support.{0} ↑(Entry005.compactBallRawLaw μ)) (w i) ∧
+                                          LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1) ∧
+                                      (AffineIndependent.{0, 0, 0, 0} ℝ fun i => WithLp.toLp.{0} 2 (w i)) ∧
+                                        (Measurable.{0, 0} fun x =>
+                                            Entry005.largestCoordinate (Entry005.anchorCoordinates w x)) ∧
+                                          MeasureTheory.Integrable.{0, 0}
+                                              (fun x =>
+                                                norm.{0}
+                                                  (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                                                    (WithLp.toLp.{0} 2
+                                                      (w
+                                                        (Entry005.largestCoordinate
+                                                          (Entry005.anchorCoordinates w x))))))
+                                              ↑(Entry005.compactBallRawLaw μ) ∧
+                                            LE.le.{0}
+                                              (∫ (x : Fin d → ℝ),
+                                                norm.{0}
+                                                  (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x)
+                                                    (WithLp.toLp.{0} 2
+                                                      (w
+                                                        (Entry005.largestCoordinate
+                                                          (Entry005.anchorCoordinates w
+                                                            x))))) ∂↑(Entry005.compactBallRawLaw μ))
+                                              (HDiv.hDiv.{0, 0, 0}
+                                                (HMul.hMul.{0, 0, 0}
+                                                  (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+                                                    (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+                                                  (Entry005.determinantLawDefect.{0, 0}
+                                                    (Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) d)
+                                                    (↑(Entry005.compactBallRawLaw μ)) id.{1} id.{1}))
+                                                (∫ (v : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+                                                  abs.{0}
+                                                    (Matrix.det.{0, 0}
+                                                      (Entry005.anchorMatrix
+                                                        v)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ))
+                                                    (HAdd.hAdd.{0, 0, 0} d 1)))
+'Entry005.conditional_actual_body_joint_polar_horizontal_assignment_defect' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.conditional_actual_pyramid_projection_formula_of_compact_limit {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hfinite : Entry005.FiniteActualPyramidProjectionFormula d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure.{0} (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono.{0, 0} φ)
+  (hlim :
+    Filter.Tendsto.{0, 0}
+      (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop.{0} (nhds.{0} μ)) :
+  Eq.{1} (MeasureTheory.volume.{0} (Entry005.projectionBodySet.{0} (Entry005.pyramidSet.{0} K))).toReal
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (MeasureTheory.volume.{0} K).toReal (HAdd.hAdd.{0, 0, 0} d 1))
+          ↑(HAdd.hAdd.{0, 0, 0} d 1).factorial)
+        (∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+          abs.{0}
+            (Matrix.det.{0, 0}
+              (Entry005.anchorMatrix
+                w)) ∂Entry005.iidLaw.{0} (↑(Entry005.compactBallRawLaw μ)) (HAdd.hAdd.{0, 0, 0} d 1)))
+      (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} K).toReal (HPow.hPow.{0, 0, 0} (↑d) d))
+        (MeasureTheory.volume.{0} (Entry005.projectionBodySet.{0} K)).toReal))
+'Entry005.conditional_actual_pyramid_projection_formula_of_compact_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.conditional_actual_pyramid_volume_formula {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hfinite : Entry005.FiniteActualPyramidVolumeFormula d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) :
+  Eq.{1} (MeasureTheory.volume.{0} (Entry005.pyramidSet.{0} K)).toReal
+    (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} K).toReal (HAdd.hAdd.{0, 0, 0} (↑d) 1))
+'Entry005.conditional_actual_pyramid_volume_formula' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.conditional_halfspace_approximation_pyramid_projection_formula {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hfinite : Entry005.FiniteActualPyramidProjectionFormula d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) (m : ℕ) :
+  Eq.{1}
+    (MeasureTheory.volume.{0}
+        (Entry005.projectionBodySet.{0}
+          (Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)))).toReal
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HDiv.hDiv.{0, 0, 0}
+          (HPow.hPow.{0, 0, 0}
+            (MeasureTheory.volume.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)).toReal
+            (HAdd.hAdd.{0, 0, 0} d 1))
+          ↑(HAdd.hAdd.{0, 0, 0} d 1).factorial)
+        (∫ (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ),
+          abs.{0}
+            (Matrix.det.{0, 0}
+              (Entry005.anchorMatrix
+                w)) ∂Entry005.iidLaw.{0} (Entry005.halfspaceApproximationLaw K hc hconv hb m)
+            (HAdd.hAdd.{0, 0, 0} d 1)))
+      (HMul.hMul.{0, 0, 0}
+        (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)).toReal
+          (HPow.hPow.{0, 0, 0} (↑d) d))
+        (MeasureTheory.volume.{0}
+            (Entry005.projectionBodySet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m))).toReal))
+'Entry005.conditional_halfspace_approximation_pyramid_projection_formula' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.conditional_halfspace_approximation_pyramid_volume_formula {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (hfinite : Entry005.FiniteActualPyramidVolumeFormula d) (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) (m : ℕ) :
+  Eq.{1}
+    (MeasureTheory.volume.{0}
+        (Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m))).toReal
+    (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)).toReal
+      (HAdd.hAdd.{0, 0, 0} (↑d) 1))
+'Entry005.conditional_halfspace_approximation_pyramid_volume_formula' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.euclidean_closed_ball_volume_le_cube (d : ℕ) (R : ℝ) (hR : LE.le.{0} 0 R) :
+  LE.le.{0} (MeasureTheory.volume.{0} (Metric.closedBall.{0} 0 R)).toReal
+    (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 R) d)
+'Entry005.euclidean_closed_ball_volume_le_cube' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.exists_centered_assigned_atom_brightness.{u_1, u_2, u_3} {α : Type u_1} {ι : Type u_2} {E : Type u_3}
+  [MeasurableSpace.{u_1} α] [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι]
+  [NormedAddCommGroup.{u_3} E] [InnerProductSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E]
+  (ν : MeasureTheory.Measure.{u_1} α) [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (X : α → E)
+  (hX : MeasureTheory.Integrable.{u_3, u_1} X ν) (hcenter : Eq.{u_3 + 1} (∫ (x : α), X x ∂ν) 0) (w : ι → E)
+  (hw : ∀ (i : ι), LE.le.{0} (norm.{u_3} (w i)) 1) (r : α → ι) (hr : Measurable.{u_1, u_2} r) (b h : ℝ)
+  (hb : LT.lt.{0} 0 b) (hh : LE.le.{0} 0 h)
+  (hcost : LE.le.{0} (∫ (x : α), norm.{u_3} (HSub.hSub.{u_3, u_3, u_3} (X x) (w (r x))) ∂ν) h)
+  (hball : Metric.closedBall.{u_3} 0 b ⊆ (convexHull.{0, u_3} ℝ) (Set.range.{u_3, u_2 + 1} w)) :
+  ∃ β,
+    (∀ (i : ι), LE.le.{0} 0 (β i)) ∧
+      Eq.{1} (∑ i, β i) 1 ∧
+        Eq.{u_3 + 1} (∑ i, HSMul.hSMul.{0, u_3, u_3} (β i) (w i)) 0 ∧
+          (Eq.{1} h 0 → Eq.{u_2 + 1} β (Entry005.assignedAtomWeights.{u_1, u_2} ν r)) ∧
+            ∀ (u : E),
+              Eq.{1} (norm.{u_3} u) 1 →
+                LE.le.{0}
+                  (abs.{0}
+                    (HSub.hSub.{0, 0, 0}
+                      (∑ i, HMul.hMul.{0, 0, 0} (β i) (max.{0} (Neg.neg.{0} (inner.{0, u_3} ℝ u (w i))) 0))
+                      (Entry005.negativeIntegral.{u_1} ν fun x => inner.{0, u_3} ℝ u (X x))))
+                  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Inv.inv.{0} b) 1) h) 2)
+'Entry005.exists_centered_assigned_atom_brightness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.exists_centered_atom_correction.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [NormedAddCommGroup.{u_2} E] [NormedSpace.{0, u_2} ℝ E] (w : ι → E) (p : ι → ℝ) (b h : ℝ)
+  (hp : ∀ (i : ι), LE.le.{0} 0 (p i)) (hpsum : Eq.{1} (∑ i, p i) 1) (hb : LT.lt.{0} 0 b) (hh : LE.le.{0} 0 h)
+  (hz : LE.le.{0} (norm.{u_2} (∑ i, HSMul.hSMul.{0, u_2, u_2} (p i) (w i))) h)
+  (hball : Metric.closedBall.{u_2} 0 b ⊆ (convexHull.{0, u_2} ℝ) (Set.range.{u_2, u_1 + 1} w)) :
+  ∃ β,
+    (∀ (i : ι), LE.le.{0} 0 (β i)) ∧
+      Eq.{1} (∑ i, β i) 1 ∧
+        Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (β i) (w i)) 0 ∧
+          (Eq.{1} h 0 → Eq.{u_1 + 1} β p) ∧
+            ∀ (f : ι → ℝ),
+              (∀ (i : ι), LE.le.{0} 0 (f i) ∧ LE.le.{0} (f i) 1) →
+                LE.le.{0}
+                  (abs.{0}
+                    (HSub.hSub.{0, 0, 0} (∑ i, HMul.hMul.{0, 0, 0} (β i) (f i)) (∑ i, HMul.hMul.{0, 0, 0} (p i) (f i))))
+                  (HMul.hMul.{0, 0, 0} (Inv.inv.{0} b) h)
+'Entry005.exists_centered_atom_correction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.exists_correcting_probability_on_same_atoms.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [NormedAddCommGroup.{u_2} E] [NormedSpace.{0, u_2} ℝ E] (w : ι → E) (z : E) (b h : ℝ) (hb : LT.lt.{0} 0 b)
+  (hh : LT.lt.{0} 0 h) (hz : LE.le.{0} (norm.{u_2} z) h)
+  (hball : Metric.closedBall.{u_2} 0 b ⊆ (convexHull.{0, u_2} ℝ) (Set.range.{u_2, u_1 + 1} w)) :
+  ∃ q,
+    (∀ (i : ι), LE.le.{0} 0 (q i)) ∧
+      Eq.{1} (∑ i, q i) 1 ∧
+        Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (q i) (w i))
+          (Neg.neg.{u_2} (HSMul.hSMul.{0, u_2, u_2} (Inv.inv.{0} (HMul.hMul.{0, 0, 0} (Inv.inv.{0} b) h)) z))
+'Entry005.exists_correcting_probability_on_same_atoms' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_actual_pyramid_projection_formula_proved (d : ℕ) : Entry005.FiniteActualPyramidProjectionFormula d
+'Entry005.finite_actual_pyramid_projection_formula_proved' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_actual_pyramid_volume_formula_proved (d : ℕ) : Entry005.FiniteActualPyramidVolumeFormula d
+'Entry005.finite_actual_pyramid_volume_formula_proved' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_assignment_error_integrable_of_unit_ball {d n : ℕ} (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ) (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1))
+  (hr : Measurable.{0, 0} r) :
+  MeasureTheory.Integrable.{0, 0}
+    (fun x => norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x))))) ν
+'Entry005.finite_assignment_error_integrable_of_unit_ball' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_atom_negative_integral_eq_weighted.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ} (p : ι → ℝ)
+  (w : ι → Fin d → ℝ) (hp : ∀ (i : ι), LE.le.{0} 0 (p i)) (u : Fin d → ℝ) :
+  Eq.{1} (Entry005.negativeIntegral.{0} (Entry005.finiteAtomLaw.{u_1} p w) fun x => dotProduct.{0, 0} u x)
+    (∑ i, HMul.hMul.{0, 0, 0} (p i) (max.{0} (Neg.neg.{0} (dotProduct.{0, 0} u (w i))) 0))
+'Entry005.finite_atom_negative_integral_eq_weighted' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_centered_negative_eq_half_absolute.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{0, u_2} ℝ E] (w : ι → E) (β : ι → ℝ)
+  (hmean : Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (β i) (w i)) 0) (u : E) :
+  Eq.{1} (∑ i, HMul.hMul.{0, 0, 0} (β i) (max.{0} (Neg.neg.{0} (inner.{0, u_2} ℝ u (w i))) 0))
+    (HDiv.hDiv.{0, 0, 0} (∑ i, HMul.hMul.{0, 0, 0} (β i) (abs.{0} (inner.{0, u_2} ℝ u (w i)))) 2)
+'Entry005.finite_centered_negative_eq_half_absolute' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_convex_hull_probability_weights.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [AddCommGroup.{u_2} E] [Module.{0, u_2} ℝ E] (w : ι → E) (y : E)
+  (hy : Membership.mem.{u_2, u_2} ((convexHull.{0, u_2} ℝ) (Set.range.{u_2, u_1 + 1} w)) y) :
+  ∃ q,
+    (∀ (i : ι), LE.le.{0} 0 (q i)) ∧ Eq.{1} (∑ i, q i) 1 ∧ Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (q i) (w i)) y
+'Entry005.finite_convex_hull_probability_weights' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_dimensional_projection_body_compact.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [InnerProductSpace.{0, u_1} ℝ E] [FiniteDimensional.{0, u_1} ℝ E] [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E]
+  (K : Set.{u_1} E) : IsCompact.{u_1} (Entry005.projectionBodySet.{u_1} K)
+'Entry005.finite_dimensional_projection_body_compact' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_halfspace_assigned_cone_weights.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ}
+  [Nontrivial.{0} (Entry005.Space d)] (n : ι → Entry005.Space d) (heights : ι → ℝ) (w : ι → Fin d → ℝ)
+  (hn : ∀ (i : ι), Eq.{1} (norm.{0} (n i)) 1) (hh : ∀ (i : ι), LT.lt.{0} 0 (heights i))
+  (hinj : Function.Injective.{u_1 + 1, 1} n) (hc : IsCompact.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights))
+  (hatom : ∀ (i : ι), Eq.{1} (Entry005.finiteConePoint.{u_1} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i)) :
+  (∀ (i : ι), LE.le.{0} 0 (Entry005.finiteHalfspaceAssignedConeWeights.{u_1} n heights i)) ∧
+    Eq.{1} (∑ i, Entry005.finiteHalfspaceAssignedConeWeights.{u_1} n heights i) 1 ∧
+      Eq.{1}
+          (∑ i,
+            HSMul.hSMul.{0, 0, 0} (Entry005.finiteHalfspaceAssignedConeWeights.{u_1} n heights i)
+              (WithLp.toLp.{0} 2 (w i)))
+          0 ∧
+        Eq.{1} (Entry005.finiteAtomLaw.{u_1} (Entry005.finiteHalfspaceAssignedConeWeights.{u_1} n heights) w)
+          (Entry005.finiteHalfspaceConeLaw.{u_1} n heights)
+'Entry005.finite_halfspace_assigned_cone_weights' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_halfspace_centered_assignment_brightness.{u_1} {ι : Type u_1} [Fintype.{u_1} ι]
+  [MeasurableSpace.{u_1} ι] [MeasurableSingletonClass.{u_1} ι] {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (ν : MeasureTheory.Measure.{0} (Fin d → ℝ)) [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hνball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1)
+  (hνcenter : ∀ (j : Fin d), Eq.{1} (∫ (x : Fin d → ℝ), x j ∂ν) 0) (n : ι → Entry005.Space d) (heights : ι → ℝ)
+  (w : ι → Fin d → ℝ) (hn : ∀ (i : ι), Eq.{1} (norm.{0} (n i)) 1) (hh : ∀ (i : ι), LT.lt.{0} 0 (heights i))
+  (hinj : Function.Injective.{u_1 + 1, 1} n) (hc : IsCompact.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights))
+  (hatom : ∀ (i : ι), Eq.{1} (Entry005.finiteConePoint.{u_1} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i))
+  (hw : ∀ (i : ι), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (ha : AffineIndependent.{0, 0, 0, u_1} ℝ fun i => WithLp.toLp.{0} 2 (w i)) (r : (Fin d → ℝ) → ι)
+  (hr : Measurable.{0, u_1} r) (b h : ℝ) (hb : LT.lt.{0} 0 b) (hherror : LE.le.{0} 0 h)
+  (hcost :
+    LE.le.{0} (∫ (x : Fin d → ℝ), norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂ν)
+      h)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, u_1 + 1} fun i => WithLp.toLp.{0} 2 (w i)))
+  (u : Entry005.Space d) :
+  Eq.{1} (norm.{0} u) 1 →
+    LE.le.{0}
+      (abs.{0}
+        (HSub.hSub.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights) u)
+            (HMul.hMul.{0, 0, 0} (↑(Module.finrank.{0, 0} ℝ (Entry005.Space d)))
+              (MeasureTheory.volume.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights)).toReal))
+          (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (WithLp.ofLp.{0} u) x)))
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Inv.inv.{0} b) 1) h) 2)
+'Entry005.finite_halfspace_centered_assignment_brightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_halfspace_radial_support_test_bound.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ}
+  [Nontrivial.{0} (Entry005.Space d)] (hd : LE.le.{0} 1 d) (n : ι → Entry005.Space d) (h : ι → ℝ)
+  (hn : ∀ (i : ι), Eq.{1} (norm.{0} (n i)) 1) (hh : ∀ (i : ι), LT.lt.{0} 0 (h i))
+  (hinj : Function.Injective.{u_1 + 1, 1} n) (hc : IsCompact.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n h))
+  (hb : Metric.closedBall.{0} 0 1 ⊆ Entry005.finiteHalfspaceSet.{u_1, 0} n h) (hheight : ∀ (i : ι), LE.le.{0} 1 (h i))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hneP : Set.Nonempty.{0} P) (M : ℝ) (hM : LE.le.{0} 1 M)
+  (hPM : P ⊆ Metric.closedBall.{0} 0 M)
+  (hlower : ∀ (i : ι), LE.le.{0} (h i) (Entry005.compactSupportHeight.{0} P (n i))) :
+  LE.le.{0}
+    (HDiv.hDiv.{0, 0, 0} (MeasureTheory.volume.{0} P).toReal
+      (MeasureTheory.volume.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n h)).toReal)
+    (HAdd.hAdd.{0, 0, 0} 1
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} M (HSub.hSub.{0, 0, 0} d 1)))
+        (HSub.hSub.{0, 0, 0}
+          (∫ (x : Fin d → ℝ),
+            Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂Entry005.finiteHalfspaceConeLaw.{u_1} n h)
+          1)))
+'Entry005.finite_halfspace_radial_support_test_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_halfspace_scaled_radial_cover.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{0, u_2} ℝ E] (n : ι → E) (h s : ι → ℝ)
+  (hc : IsCompact.{u_2} (Entry005.finiteHalfspaceSet.{u_1, u_2} n h))
+  (hb : Metric.closedBall.{u_2} 0 1 ⊆ Entry005.finiteHalfspaceSet.{u_1, u_2} n h) (hh : ∀ (i : ι), LT.lt.{0} 0 (h i))
+  (hs : ∀ (i : ι), LT.lt.{0} 0 (s i)) (P : Set.{u_2} E)
+  (hP :
+    ∀ (x : E),
+      Membership.mem.{u_2, u_2} P x →
+        ∀ (i : ι), LE.le.{0} (inner.{0, u_2} ℝ (n i) x) (HMul.hMul.{0, 0, 0} (s i) (h i))) :
+  P ⊆
+    Union.union.{u_2} (⋃ i, HSMul.hSMul.{0, u_2, u_2} (s i) (Entry005.finiteHalfspaceFacetCone.{u_1, u_2} n h i))
+      (singleton.{u_2, u_2} 0)
+'Entry005.finite_halfspace_scaled_radial_cover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_halfspace_scaled_radial_volume_bound.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{0, u_2} ℝ E] [FiniteDimensional.{0, u_2} ℝ E]
+  [MeasurableSpace.{u_2} E] [BorelSpace.{u_2} E] [Nontrivial.{u_2} E] (n : ι → E) (h s : ι → ℝ)
+  (hc : IsCompact.{u_2} (Entry005.finiteHalfspaceSet.{u_1, u_2} n h))
+  (hb : Metric.closedBall.{u_2} 0 1 ⊆ Entry005.finiteHalfspaceSet.{u_1, u_2} n h) (hh : ∀ (i : ι), LT.lt.{0} 0 (h i))
+  (hs : ∀ (i : ι), LT.lt.{0} 0 (s i)) (P : Set.{u_2} E)
+  (hP :
+    ∀ (x : E),
+      Membership.mem.{u_2, u_2} P x →
+        ∀ (i : ι), LE.le.{0} (inner.{0, u_2} ℝ (n i) x) (HMul.hMul.{0, 0, 0} (s i) (h i))) :
+  LE.le.{0} (MeasureTheory.volume.{u_2} P).toReal
+    (∑ i,
+      HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (s i) (Module.finrank.{0, u_2} ℝ E))
+        (MeasureTheory.volume.{u_2} (Entry005.finiteHalfspaceFacetCone.{u_1, u_2} n h i)).toReal)
+'Entry005.finite_halfspace_scaled_radial_volume_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_halfspace_support_height_test_integrable.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ}
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (P : Set.{0} (Entry005.Space d)) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x))
+    (Entry005.finiteHalfspaceConeLaw.{u_1} n h)
+'Entry005.finite_halfspace_support_height_test_integrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_halfspace_support_height_test_integral.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ}
+  [Nontrivial.{0} (Entry005.Space d)] (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), Eq.{1} (norm.{0} (n i)) 1)
+  (hh : ∀ (i : ι), LT.lt.{0} 0 (h i)) (hcQ : IsCompact.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n h))
+  (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P) (hneP : Set.Nonempty.{0} P) :
+  Eq.{1}
+    (∫ (x : Fin d → ℝ),
+      Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂Entry005.finiteHalfspaceConeLaw.{u_1} n h)
+    (HDiv.hDiv.{0, 0, 0}
+      (∑ i,
+        HMul.hMul.{0, 0, 0} (Entry005.finiteHalfspaceFacetArea.{u_1, 0} n h i)
+          (Entry005.compactSupportHeight.{0} P (n i)))
+      (HMul.hMul.{0, 0, 0} (↑(Module.finrank.{0, 0} ℝ (Entry005.Space d)))
+        (MeasureTheory.volume.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n h)).toReal))
+'Entry005.finite_halfspace_support_height_test_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_halfspace_unit_atom_normalized_brightness_le_half.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {d : ℕ}
+  [Nontrivial.{0} (Entry005.Space d)] (n : ι → Entry005.Space d) (heights : ι → ℝ) (w : ι → Fin d → ℝ)
+  (hn : ∀ (i : ι), Eq.{1} (norm.{0} (n i)) 1) (hh : ∀ (i : ι), LT.lt.{0} 0 (heights i))
+  (hinj : Function.Injective.{u_1 + 1, 1} n) (hc : IsCompact.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights))
+  (hatom : ∀ (i : ι), Eq.{1} (Entry005.finiteConePoint.{u_1} (fun i j => WithLp.ofLp.{0} (n i) j) heights i) (w i))
+  (hw : ∀ (i : ι), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1) (u : Entry005.Space d)
+  (hu : Eq.{1} (norm.{0} u) 1) :
+  LE.le.{0}
+    (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights) u)
+      (HMul.hMul.{0, 0, 0} (↑(Module.finrank.{0, 0} ℝ (Entry005.Space d)))
+        (MeasureTheory.volume.{0} (Entry005.finiteHalfspaceSet.{u_1, 0} n heights)).toReal))
+    (1 / 2)
+'Entry005.finite_halfspace_unit_atom_normalized_brightness_le_half' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.finite_probability_test_bounds.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] (p f : ι → ℝ)
+  (hp : ∀ (i : ι), LE.le.{0} 0 (p i)) (hpsum : Eq.{1} (∑ i, p i) 1)
+  (hf : ∀ (i : ι), LE.le.{0} 0 (f i) ∧ LE.le.{0} (f i) 1) :
+  LE.le.{0} 0 (∑ i, HMul.hMul.{0, 0, 0} (p i) (f i)) ∧ LE.le.{0} (∑ i, HMul.hMul.{0, 0, 0} (p i) (f i)) 1
+'Entry005.finite_probability_test_bounds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.finite_zero_barycentric_weights_unique.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype.{u_1} ι]
+  [AddCommGroup.{u_2} E] [Module.{0, u_2} ℝ E] (w : ι → E) (ha : AffineIndependent.{0, u_2, u_2, u_1} ℝ w) (p q : ι → ℝ)
+  (hp : Eq.{1} (∑ i, p i) 1) (hq : Eq.{1} (∑ i, q i) 1)
+  (hpmean : Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (p i) (w i)) 0)
+  (hqmean : Eq.{u_2 + 1} (∑ i, HSMul.hSMul.{0, u_2, u_2} (q i) (w i)) 0) : Eq.{u_1 + 1} p q
+'Entry005.finite_zero_barycentric_weights_unique' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.halfspace_approximation_pyramid_compact {d : ℕ} (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) (m : ℕ) :
+  IsCompact.{0} (Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m))
+'Entry005.halfspace_approximation_pyramid_compact' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.halfspace_approximation_pyramid_dilation_sandwich {d : ℕ} (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) (m : ℕ) :
+  Entry005.pyramidSet.{0} K ⊆ Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m) ∧
+    Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m) ⊆
+      HSMul.hSMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Entry005.halfspaceApproximationTolerance m))
+        (Entry005.pyramidSet.{0} K)
+'Entry005.halfspace_approximation_pyramid_dilation_sandwich' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.halfspace_approximation_pyramid_projection_body_volume_tendsto {d : ℕ} (K : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) :
+  Filter.Tendsto.{0, 0}
+    (fun m =>
+      (MeasureTheory.volume.{0}
+          (Entry005.projectionBodySet.{0}
+            (Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)))).toReal)
+    Filter.atTop.{0}
+    (nhds.{0} (MeasureTheory.volume.{0} (Entry005.projectionBodySet.{0} (Entry005.pyramidSet.{0} K))).toReal)
+'Entry005.halfspace_approximation_pyramid_projection_body_volume_tendsto' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.halfspace_approximation_pyramid_volume_tendsto {d : ℕ} (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hconv : Convex.{0, 0} ℝ K) (hb : Metric.closedBall.{0} 0 1 ⊆ K) :
+  Filter.Tendsto.{0, 0}
+    (fun m =>
+      (MeasureTheory.volume.{0}
+          (Entry005.pyramidSet.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m))).toReal)
+    Filter.atTop.{0} (nhds.{0} (MeasureTheory.volume.{0} (Entry005.pyramidSet.{0} K)).toReal)
+'Entry005.halfspace_approximation_pyramid_volume_tendsto' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.halfspace_approximation_support_height_test_integral {d : ℕ} [Nontrivial.{0} (Entry005.Space d)]
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hconv : Convex.{0, 0} ℝ K)
+  (hb : Metric.closedBall.{0} 0 1 ⊆ K) (m : ℕ) (P : Set.{0} (Entry005.Space d)) (hcP : IsCompact.{0} P)
+  (hneP : Set.Nonempty.{0} P) :
+  Eq.{1}
+    (∫ (x : Fin d → ℝ),
+      Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂Entry005.halfspaceApproximationLaw K hc hconv hb m)
+    (HDiv.hDiv.{0, 0, 0}
+      (∑ i,
+        HMul.hMul.{0, 0, 0}
+          (Entry005.finiteHalfspaceFacetArea.{0, 0} (fun u => ↑u) (fun u => Entry005.compactSupportHeight.{0} K ↑u) i)
+          (Entry005.compactSupportHeight.{0} P ↑i))
+      (HMul.hMul.{0, 0, 0} (↑d)
+        (MeasureTheory.volume.{0} (Entry005.halfspaceApproximationBody.{0} K hc hconv hb m)).toReal))
+'Entry005.halfspace_approximation_support_height_test_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.normalized_body_directional_brightness_lower_original {d : ℕ} (hd : LE.le.{0} 2 d)
+  (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K) (hb : Metric.closedBall.{0} 0 1 ⊆ K)
+  (hbound : K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (u : Entry005.Space d) (hu : Eq.{1} (norm.{0} u) 1) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 (Entry005.b d))
+    (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} K u)
+      (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} K).toReal))
+'Entry005.normalized_body_directional_brightness_lower_original' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.normalized_convex_body_cone_directional_roundness {d : ℕ} (hd : LE.le.{0} 2 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (hb : Metric.closedBall.{0} 0 1 ⊆ ↑K)
+  (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hbrightness :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        Eq.{1} (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (fun j => WithLp.ofLp.{0} u j) x)
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal)))
+  (u : Entry005.Space d) :
+  Eq.{1} (norm.{0} u) 1 →
+    LE.le.{0} (HMul.hMul.{0, 0, 0} 2 (Entry005.b d))
+      (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (fun j => WithLp.ofLp.{0} u j) x)
+'Entry005.normalized_convex_body_cone_directional_roundness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.normalized_convex_body_cone_raw_directional_roundness {d : ℕ} (hd : LE.le.{0} 2 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (hb : Metric.closedBall.{0} 0 1 ⊆ ↑K)
+  (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d)) (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hbrightness :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        Eq.{1} (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (fun j => WithLp.ofLp.{0} u j) x)
+          (HDiv.hDiv.{0, 0, 0} (Entry005.projectionVolumeSet.{0} (↑K) u)
+            (HMul.hMul.{0, 0, 0} (↑d) (MeasureTheory.volume.{0} ↑K).toReal)))
+  (u : Fin d → ℝ) :
+  Eq.{1} (norm.{0} (WithLp.toLp.{0} 2 u)) 1 →
+    LE.le.{0} (HMul.hMul.{0, 0, 0} 2 (Entry005.b d)) (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} u x)
+'Entry005.normalized_convex_body_cone_raw_directional_roundness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.normalized_maximum_simplex_excess_of_original_cap {d : ℕ} (hd : LE.le.{0} 2 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (P S : Affine.Simplex.{0, 0, 0} ℝ (Entry005.Space d) d)
+  (hmax : Entry005.maximumInscribed K S) (hKP : ↑K ⊆ Entry005.simplexSet P)
+  (hPM : Entry005.simplexSet P ⊆ Metric.closedBall.{0} 0 (Entry005.M d))
+  (hcentroid : Eq.{1} (Affine.Simplex.centroid.{0, 0, 0} S) 0) (hbS : Metric.closedBall.{0} 0 1 ⊆ Entry005.simplexSet S)
+  (e : ℝ) (he : LE.le.{0} 0 e) (hsmall : LE.le.{0} e (Entry005.eSharp d))
+  (hcap :
+    LE.le.{0} (Metric.hausdorffDist.{0} (↑K) (Entry005.simplexSet P))
+      (HMul.hMul.{0, 0, 0} (Entry005.L d)
+        (HPow.hPow.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (Entry005.J d)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e))
+          (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))) :
+  LE.le.{0} (Entry005.excess (↑K) S)
+    (HMul.hMul.{0, 0, 0} (Entry005.aSharp d) (HPow.hPow.{0, 0, 0} e (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.normalized_maximum_simplex_excess_of_original_cap' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.normalized_sharp_upper_local {d : ℕ} [Nontrivial.{0} (Entry005.Space d)] (hd : LE.le.{0} 2 d)
+  (K : ConvexBody.{0} (Entry005.Space d)) (S : Affine.Simplex.{0, 0, 0} ℝ (Entry005.Space d) d)
+  (hmax : Entry005.maximumInscribed K S) (hcentroid : Eq.{1} (Affine.Simplex.centroid.{0, 0, 0} S) 0)
+  (hbS : Metric.closedBall.{0} 0 1 ⊆ Entry005.simplexSet S) (hbound : ↑K ⊆ Metric.closedBall.{0} 0 (Entry005.R0 d))
+  (hsmall : LE.le.{0} (Entry005.entryDefect.{0} ↑K) (Entry005.eSharp d)) :
+  LE.le.{0} (Entry005.excess (↑K) S)
+    (HMul.hMul.{0, 0, 0} (Entry005.aSharp d)
+      (HPow.hPow.{0, 0, 0} (Entry005.entryDefect.{0} ↑K) (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.normalized_sharp_upper_local' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_Q_absorbs_radial_power {d : ℕ} (hd : LE.le.{0} 1 d) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Entry005.M d) (HSub.hSub.{0, 0, 0} d 1))
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2)))
+    (Entry005.Q d)
+'Entry005.original_Q_absorbs_radial_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_Q_dominates_strong_assignment_coefficient {d : ℕ} (hd : LE.le.{0} 1 d) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2)) (Entry005.Q d)
+'Entry005.original_Q_dominates_strong_assignment_coefficient' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.original_cap_radius_retention_gate {d : ℕ} (hd : LE.le.{0} 2 d) (e : ℝ) (he : LE.le.{0} 0 e)
+  (hsmall : LE.le.{0} e (Entry005.eSharp d)) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (↑d)
+      (HMul.hMul.{0, 0, 0} (Entry005.L d)
+        (HPow.hPow.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (Entry005.J d)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e))
+          (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1)))))
+    (1 / 8)
+'Entry005.original_cap_radius_retention_gate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_global_scalar_gluing {d : ℕ} (hd : LE.le.{0} 2 d) (E e : ℝ) (he : LE.le.{0} 0 e)
+  (hlocal :
+    LE.le.{0} e (Entry005.eSharp d) →
+      LE.le.{0} E
+        (HMul.hMul.{0, 0, 0} (Entry005.aSharp d)
+          (HPow.hPow.{0, 0, 0} e (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1)))))
+  (hcoarse : LE.le.{0} E (HSub.hSub.{0, 0, 0} (Entry005.R0 d) 1)) :
+  LE.le.{0} E
+    (HMul.hMul.{0, 0, 0} (Entry005.gSharp d) (HPow.hPow.{0, 0, 0} e (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.original_global_scalar_gluing' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_local_cap_to_excess_scalar {d : ℕ} (hd : LE.le.{0} 2 d) (E delta e : ℝ) (he : LE.le.{0} 0 e)
+  (hcap :
+    LE.le.{0} delta
+      (HMul.hMul.{0, 0, 0} (Entry005.L d)
+        (HPow.hPow.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (Entry005.J d)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e))
+          (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1)))))
+  (hretain : LE.le.{0} E (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Entry005.M d)) ↑d) delta)) :
+  LE.le.{0} E
+    (HMul.hMul.{0, 0, 0} (Entry005.aSharp d) (HPow.hPow.{0, 0, 0} e (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+'Entry005.original_local_cap_to_excess_scalar' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_one_le_M {d : ℕ} (hd : LE.le.{0} 1 d) : LE.le.{0} 1 (Entry005.M d)
+'Entry005.original_one_le_M' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_radial_strong_cost_absorption {d : ℕ} (hd : LE.le.{0} 1 d) (e cost : ℝ) (he : LE.le.{0} 0 e)
+  (hcost :
+    LE.le.{0} cost
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e)
+          (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e))))) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Entry005.M d) (HSub.hSub.{0, 0, 0} d 1)) cost)
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e)
+'Entry005.original_radial_strong_cost_absorption' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_roundness_cube_coefficient {d : ℕ} (hd : LE.le.{0} 1 d) :
+  Eq.{1}
+    (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 ↑d) (HSub.hSub.{0, 0, 0} d 1))
+      (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (Entry005.R0 d)) d)))
+    (HMul.hMul.{0, 0, 0} 2 (Entry005.b d))
+'Entry005.original_roundness_cube_coefficient' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_sharp_threshold {d : ℕ} (hd : LE.le.{0} 2 d) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (Entry005.aSharp d)
+      (HPow.hPow.{0, 0, 0} (Entry005.eSharp d) (HDiv.hDiv.{0, 0, 0} 1 ↑(HSub.hSub.{0, 0, 0} d 1))))
+    (1 / 2)
+'Entry005.original_sharp_threshold' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_small_error_budget {d : ℕ} (hd : LE.le.{0} 1 d) (e : ℝ) (he : LE.le.{0} e (Entry005.eSharp d)) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e)
+    (Entry005.rSharp d)
+'Entry005.original_small_error_budget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_small_error_implies_M_budget {d : ℕ} (hd : LE.le.{0} 1 d) (e : ℝ)
+  (he : LE.le.{0} e (Entry005.eSharp d)) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (Entry005.M d)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e))
+    1
+'Entry005.original_small_error_implies_M_budget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.original_threshold_gate : Entry005.thresholdGateGoal
+'Entry005.original_threshold_gate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_vertex_coord_eq_basis_coord {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1} (Entry005.polarVertexCoord w ha i) (AffineBasis.coord.{0, 0, 0, 0} (Entry005.polarVertexBasis w ha hb hball) i)
+'Entry005.polar_vertex_coord_eq_basis_coord' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_vertex_coord_vertex {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (i j : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1} ((Entry005.polarVertexCoord w ha i) (Entry005.polarWitnessVertex w ha j)) (ite.{1} (Eq.{1} i j) 1 0)
+'Entry005.polar_vertex_coord_vertex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_convex_body_coe {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Eq.{1} (↑(Entry005.polarWitnessConvexBody w ha hb hball))
+    (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball))
+'Entry005.polar_witness_convex_body_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_finite_cone_point {d : ℕ} (hd : LE.le.{0} 1 d)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ}
+  (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1}
+    (Entry005.finiteConePoint.{0} (fun i j => WithLp.ofLp.{0} (Entry005.polarWitnessNormal w i) j)
+      (Entry005.polarWitnessHeight w) i)
+    fun j => WithLp.ofLp.{0} (w i) j
+'Entry005.polar_witness_finite_cone_point' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_gradient_inner {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) (x : Entry005.Space d) :
+  Eq.{1} (inner.{0, 0} ℝ (Entry005.polarWitnessGradient w ha i) x)
+    (HSub.hSub.{0, 0, 0} ((AffineBasis.coord.{0, 0, 0, 0} (Entry005.polarWitnessBasis w ha) i) x)
+      (Entry005.polarWitnessWeight w ha i))
+'Entry005.polar_witness_gradient_inner' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_height_pos {d : ℕ} (hd : LE.le.{0} 1 d) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  LT.lt.{0} 0 (Entry005.polarWitnessHeight w i)
+'Entry005.polar_witness_height_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_normal_support_height {d : ℕ} (hd : LE.le.{0} 1 d)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ}
+  (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1}
+    (Entry005.compactSupportHeight.{0} (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball))
+      (Entry005.polarWitnessNormal w i))
+    (Entry005.polarWitnessHeight w i)
+'Entry005.polar_witness_normal_support_height' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_normal_unit {d : ℕ} (hd : LE.le.{0} 1 d) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1} (norm.{0} (Entry005.polarWitnessNormal w i)) 1
+'Entry005.polar_witness_normal_unit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_normals_injective {d : ℕ} (hd : LE.le.{0} 1 d)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ}
+  (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Function.Injective.{1, 1} (Entry005.polarWitnessNormal w)
+'Entry005.polar_witness_normals_injective' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_point_ne_zero {d : ℕ} (hd : LE.le.{0} 1 d) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Ne.{1} (w i) 0
+'Entry005.polar_witness_point_ne_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_compact {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  IsCompact.{0} (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball))
+'Entry005.polar_witness_simplex_compact' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_contains_body {d : ℕ} (K : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} K)
+  (hne : Set.Nonempty.{0} K) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (hboundary : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), Eq.{1} (Entry005.compactSupportHeight.{0} K (w i)) 1) :
+  K ⊆ Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball)
+'Entry005.polar_witness_simplex_contains_body' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_contains_unit_ball {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (w i)) 1)
+  {b : ℝ} (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Metric.closedBall.{0} 0 1 ⊆ Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball)
+'Entry005.polar_witness_simplex_contains_unit_ball' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_halfspaces {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Eq.{1} (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball))
+    (Set.ofPred.{0} fun x => ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (inner.{0, 0} ℝ (w i) x) 1)
+'Entry005.polar_witness_simplex_halfspaces' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_normal_halfspaces {d : ℕ} (hd : LE.le.{0} 1 d)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ}
+  (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Eq.{1} (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball))
+    (Entry005.finiteHalfspaceSet.{0, 0} (Entry005.polarWitnessNormal w) (Entry005.polarWitnessHeight w))
+'Entry005.polar_witness_simplex_normal_halfspaces' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_radius_bound {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball) ⊆ Metric.closedBall.{0} 0 (Inv.inv.{0} b)
+'Entry005.polar_witness_simplex_radius_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_simplex_support_one {d : ℕ} (hd : LE.le.{0} 1 d)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d) (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ}
+  (hb : LT.lt.{0} 0 b) (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1} (Entry005.compactSupportHeight.{0} (Entry005.simplexSet (Entry005.polarWitnessSimplex w ha hb hball)) (w i)) 1
+'Entry005.polar_witness_simplex_support_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_vertex_inner {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w))
+  (i j : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  Eq.{1} (inner.{0, 0} ℝ (w i) (Entry005.polarWitnessVertex w ha j))
+    (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} (ite.{1} (Eq.{1} i j) 1 0) (Entry005.polarWitnessWeight w ha j)))
+'Entry005.polar_witness_vertex_inner' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_vertices_affine_independent {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  AffineIndependent.{0, 0, 0, 0} ℝ (Entry005.polarWitnessVertex w ha)
+'Entry005.polar_witness_vertices_affine_independent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_weight_lt_one {d : ℕ} (hd : LE.le.{0} 1 d) (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  LT.lt.{0} (Entry005.polarWitnessWeight w ha i) 1
+'Entry005.polar_witness_weight_lt_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polar_witness_weight_pos {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  LT.lt.{0} 0 (Entry005.polarWitnessWeight w ha i)
+'Entry005.polar_witness_weight_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.power_minus_one_le_bounded_geometric_sum {d : ℕ} (hd : LE.le.{0} 1 d) {s M : ℝ} (hs : LE.le.{0} 1 s)
+  (hsM : LE.le.{0} s M) :
+  LE.le.{0} (HPow.hPow.{0, 0, 0} s d)
+    (HAdd.hAdd.{0, 0, 0} 1
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} M (HSub.hSub.{0, 0, 0} d 1)))
+        (HSub.hSub.{0, 0, 0} s 1)))
+'Entry005.power_minus_one_le_bounded_geometric_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.projection_difference_of_normalized_brightness {d : ℕ} (hd : LE.le.{0} 1 d) (V alpha k p M h : ℝ)
+  (hV : LE.le.{0} 0 V) (hM : LE.le.{0} 0 M) (hh : LE.le.{0} 0 h) (halpha : LE.le.{0} 1 alpha)
+  (hscale : LE.le.{0} alpha (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} M h)) d))
+  (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} M h) 1) (hp : LE.le.{0} p (1 / 2))
+  (hbright :
+    LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} p k))
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} M 1) h) 2)) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) V) (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} alpha p) k))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (↑d) 2) V)
+        (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 M)
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} 2 (HSub.hSub.{0, 0, 0} d 1))) M)))
+      h)
+'Entry005.projection_difference_of_normalized_brightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.pyramid_apex_mem.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  (K : Set.{u_1} E) :
+  Membership.mem.{u_1, u_1} (Entry005.pyramidSet.{u_1} K) (WithLp.toLp.{u_1} 2 (Prod.mk.{u_1, 0} 0 1))
+'Entry005.pyramid_apex_mem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_base_mem.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  {K : Set.{u_1} E} {x : E} (hx : Membership.mem.{u_1, u_1} K x) :
+  Membership.mem.{u_1, u_1} (Entry005.pyramidSet.{u_1} K) (WithLp.toLp.{u_1} 2 (Prod.mk.{u_1, 0} x 0))
+'Entry005.pyramid_base_mem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_first_moment_entry_scalar_algebra (d : ℕ) (hd : LE.le.{0} 1 d) (V W B : ℝ) (hV : Ne.{1} V 0)
+  (hW : Ne.{1} W 0) :
+  Eq.{1} B
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1)
+        (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (↑d.factorial) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) V) d))
+          W))
+      (HSub.hSub.{0, 0, 0}
+        (HDiv.hDiv.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (↑d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) d)
+            (HDiv.hDiv.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0}
+                  (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} V (HAdd.hAdd.{0, 0, 0} d 1))
+                    ↑(HAdd.hAdd.{0, 0, 0} d 1).factorial)
+                  B)
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} V (HPow.hPow.{0, 0, 0} (↑d) d)) W))
+              (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} V (HAdd.hAdd.{0, 0, 0} (↑d) 1)) d)))
+          (HDiv.hDiv.{0, 0, 0} W (HPow.hPow.{0, 0, 0} V (HSub.hSub.{0, 0, 0} d 1))))
+        1))
+'Entry005.pyramid_first_moment_entry_scalar_algebra' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_product_finrank {d : ℕ} :
+  Eq.{1} (Module.finrank.{0, 0} ℝ (WithLp.{0} 2 (Prod.{0, 0} (Entry005.Space d) ℝ))) (HAdd.hAdd.{0, 0, 0} d 1)
+'Entry005.pyramid_product_finrank' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_compact.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  (K : Set.{u_1} E) (hc : IsCompact.{u_1} K) (hconv : Convex.{0, u_1} ℝ K) (hne : Set.Nonempty.{u_1} K) :
+  IsCompact.{u_1} (Entry005.pyramidSet.{u_1} K)
+'Entry005.pyramid_set_compact' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_convex.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  (K : Set.{u_1} E) : Convex.{0, u_1} ℝ (Entry005.pyramidSet.{u_1} K)
+'Entry005.pyramid_set_convex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_dilation_sandwich.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [InnerProductSpace.{0, u_1} ℝ E] {K P : Set.{u_1} E} (h0 : Membership.mem.{u_1, u_1} K 0) (a : ℝ) (ha : LE.le.{0} 1 a)
+  (hKP : K ⊆ P) (hPK : P ⊆ HSMul.hSMul.{0, u_1, u_1} a K) :
+  Entry005.pyramidSet.{u_1} K ⊆ Entry005.pyramidSet.{u_1} P ∧
+    Entry005.pyramidSet.{u_1} P ⊆ HSMul.hSMul.{0, u_1, u_1} a (Entry005.pyramidSet.{u_1} K)
+'Entry005.pyramid_set_dilation_sandwich' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_eq_parametric_image.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [InnerProductSpace.{0, u_1} ℝ E] (K : Set.{u_1} E) (hconv : Convex.{0, u_1} ℝ K) (hne : Set.Nonempty.{u_1} K) :
+  Eq.{u_1 + 1} (Entry005.pyramidSet.{u_1} K)
+    (Set.image.{u_1, u_1}
+      (fun p =>
+        HAdd.hAdd.{u_1, u_1, u_1}
+          (HSMul.hSMul.{0, u_1, u_1} (HSub.hSub.{0, 0, 0} 1 p.1) (WithLp.toLp.{u_1} 2 (Prod.mk.{u_1, 0} p.2 0)))
+          (HSMul.hSMul.{0, u_1, u_1} p.1 (WithLp.toLp.{u_1} 2 (Prod.mk.{u_1, 0} 0 1))))
+      (SProd.sprod.{0, u_1, u_1} (Set.Icc.{0} 0 1) K))
+'Entry005.pyramid_set_eq_parametric_image' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_mono.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  {K P : Set.{u_1} E} (hKP : K ⊆ P) : Entry005.pyramidSet.{u_1} K ⊆ Entry005.pyramidSet.{u_1} P
+'Entry005.pyramid_set_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_set_subset_dilation.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  {K P : Set.{u_1} E} (h0 : Membership.mem.{u_1, u_1} K 0) (a : ℝ) (ha : LE.le.{0} 1 a)
+  (hPK : P ⊆ HSMul.hSMul.{0, u_1, u_1} a K) :
+  Entry005.pyramidSet.{u_1} P ⊆ HSMul.hSMul.{0, u_1, u_1} a (Entry005.pyramidSet.{u_1} K)
+'Entry005.pyramid_set_subset_dilation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.pyramid_zero_mem.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E] [InnerProductSpace.{0, u_1} ℝ E]
+  {K : Set.{u_1} E} (h0 : Membership.mem.{u_1, u_1} K 0) : Membership.mem.{u_1, u_1} (Entry005.pyramidSet.{u_1} K) 0
+'Entry005.pyramid_zero_mem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.raw_zero_barycentric_weights_assignment_brightness.{u_1} {ι : Type u_1} [Fintype.{u_1} ι]
+  [MeasurableSpace.{u_1} ι] [MeasurableSingletonClass.{u_1} ι] {d : ℕ} (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hνball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1)
+  (hνcenter : ∀ (j : Fin d), Eq.{1} (∫ (x : Fin d → ℝ), x j ∂ν) 0) (w : ι → Fin d → ℝ)
+  (hw : ∀ (i : ι), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (ha : AffineIndependent.{0, 0, 0, u_1} ℝ fun i => WithLp.toLp.{0} 2 (w i)) (c : ι → ℝ) (hcsum : Eq.{1} (∑ i, c i) 1)
+  (hcmean : Eq.{1} (∑ i, HSMul.hSMul.{0, 0, 0} (c i) (WithLp.toLp.{0} 2 (w i))) 0) (r : (Fin d → ℝ) → ι)
+  (hr : Measurable.{0, u_1} r) (b h : ℝ) (hb : LT.lt.{0} 0 b) (hh : LE.le.{0} 0 h)
+  (hcost :
+    LE.le.{0} (∫ (x : Fin d → ℝ), norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂ν)
+      h)
+  (hball :
+    Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, u_1 + 1} fun i => WithLp.toLp.{0} 2 (w i))) :
+  (∀ (i : ι), LE.le.{0} 0 (c i)) ∧
+    (Eq.{1} h 0 → Eq.{u_1 + 1} c (Entry005.assignedAtomWeights.{0, u_1} ν r)) ∧
+      ∀ (u : EuclideanSpace.{0, 0} ℝ (Fin d)),
+        Eq.{1} (norm.{0} u) 1 →
+          LE.le.{0}
+            (abs.{0}
+              (HSub.hSub.{0, 0, 0}
+                (Entry005.negativeIntegral.{0} (Entry005.finiteAtomLaw.{u_1} c w) fun x =>
+                  dotProduct.{0, 0} (WithLp.ofLp.{0} u) x)
+                (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (WithLp.ofLp.{0} u) x)))
+            (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Inv.inv.{0} b) 1) h) 2)
+'Entry005.raw_zero_barycentric_weights_assignment_brightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.same_witness_original_Q_and_round_hull {d : ℕ} (hd : LE.le.{0} 1 d) (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)), LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} d 1)) (hr : Measurable.{0, 0} r)
+  (hround :
+    ∀ (u : Entry005.Space d),
+      Eq.{1} (norm.{0} u) 1 →
+        LE.le.{0} (HMul.hMul.{0, 0, 0} 2 (Entry005.b d))
+          (Entry005.negativeIntegral.{0} ν fun x => dotProduct.{0, 0} (WithLp.ofLp.{0} u) x))
+  (e : ℝ) (he : LE.le.{0} 0 e) (hsmall : LE.le.{0} e (Entry005.eSharp d))
+  (hcost :
+    LE.le.{0} (∫ (x : Fin d → ℝ), norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂ν)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e)
+          (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e))))) :
+  LE.le.{0} (∫ (x : Fin d → ℝ), norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂ν)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e) ∧
+    Metric.closedBall.{0} 0 (Entry005.b d) ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} fun i => WithLp.toLp.{0} 2 (w i))
+'Entry005.same_witness_original_Q_and_round_hull' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.scale_increment_of_volume_ratio {d : ℕ} (alpha M h : ℝ) (hM : LE.le.{0} 0 M) (hh : LE.le.{0} 0 h)
+  (hsmall : LE.le.{0} (HMul.hMul.{0, 0, 0} M h) 1)
+  (hscale : LE.le.{0} alpha (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} M h)) d)) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} alpha 1)
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} 2 (HSub.hSub.{0, 0, 0} d 1))) M) h)
+'Entry005.scale_increment_of_volume_ratio' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.sharpLocal : Entry005.sharpLocalGoal
+'Entry005.sharpLocal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.sharpMain : Entry005.sharpMainGoal
+'Entry005.sharpMain' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.sharpMain_of_local_and_actual_coarse (hlocal : Entry005.sharpLocalGoal)
+  (hnonnegative :
+    ∀ (d : ℕ),
+      LE.le.{0} 3 d →
+        ∀ (K : ConvexBody.{0} (Entry005.Space d)),
+          Set.Nonempty.{0} (interior.{0} ↑K) → LE.le.{0} 0 (Entry005.entryDefect.{0} ↑K))
+  (hcoarse :
+    ∀ (d : ℕ),
+      LE.le.{0} 3 d →
+        ∀ (K : ConvexBody.{0} (Entry005.Space d)),
+          Set.Nonempty.{0} (interior.{0} ↑K) →
+            ∀ (S : Affine.Simplex.{0, 0, 0} ℝ (Entry005.Space d) d),
+              Entry005.maximumInscribed K S →
+                LE.le.{0} (Entry005.excess (↑K) S) (HSub.hSub.{0, 0, 0} (Entry005.R0 d) 1)) :
+  Entry005.sharpMainGoal
+'Entry005.sharpMain_of_local_and_actual_coarse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.strong_ratio_assignment_le_original_Q_budget {d : ℕ} (hd : LE.le.{0} 1 d) (e : ℝ) (he : LE.le.{0} 0 e) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) (HAdd.hAdd.{0, 0, 0} (↑d) 2))
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e)
+        (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑d) 1) e))))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Entry005.Q d) (HAdd.hAdd.{0, 0, 0} (↑d) 1)) e)
+'Entry005.strong_ratio_assignment_le_original_Q_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.support_height_assignment_pointwise_bound {d n : ℕ} (P : Set.{0} (Entry005.Space d)) (hc : IsCompact.{0} P)
+  (hne : Set.Nonempty.{0} P) (M : ℝ) (hbound : P ⊆ Metric.closedBall.{0} 0 M)
+  (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (x : Fin d → ℝ) :
+  LE.le.{0} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x))
+    (HAdd.hAdd.{0, 0, 0} 1
+      (HMul.hMul.{0, 0, 0} M (norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))))))
+'Entry005.support_height_assignment_pointwise_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.unit_ball_support_height_assignment_test_bound {d n : ℕ} (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1) (P : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} P) (hne : Set.Nonempty.{0} P) (M : ℝ) (hM : LE.le.{0} 0 M)
+  (hbound : P ⊆ Metric.closedBall.{0} 0 M) (w : Fin (HAdd.hAdd.{0, 0, 0} n 1) → Fin d → ℝ)
+  (hw : ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 (w i))) 1)
+  (r : (Fin d → ℝ) → Fin (HAdd.hAdd.{0, 0, 0} n 1)) (hr : Measurable.{0, 0} r) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x)) ν ∧
+    MeasureTheory.Integrable.{0, 0}
+        (fun x => norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x))))) ν ∧
+      LE.le.{0} (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x) ∂ν)
+        (HAdd.hAdd.{0, 0, 0} 1
+          (HMul.hMul.{0, 0, 0} M
+            (∫ (x : Fin d → ℝ), norm.{0} (HSub.hSub.{0, 0, 0} (WithLp.toLp.{0} 2 x) (WithLp.toLp.{0} 2 (w (r x)))) ∂ν)))
+'Entry005.unit_ball_support_height_assignment_test_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.unit_ball_support_height_test_integrable {d : ℕ} (ν : MeasureTheory.Measure.{0} (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure.{0} ν]
+  (hball : ∀ᵐ (x : Fin d → ℝ) ∂ν, LE.le.{0} (norm.{0} (WithLp.toLp.{0} 2 x)) 1) (P : Set.{0} (Entry005.Space d))
+  (hc : IsCompact.{0} P) (hne : Set.Nonempty.{0} P) (M : ℝ) (hM : LE.le.{0} 0 M)
+  (hbound : P ⊆ Metric.closedBall.{0} 0 M) :
+  MeasureTheory.Integrable.{0, 0} (fun x => Entry005.compactSupportHeight.{0} P (WithLp.toLp.{0} 2 x)) ν
+'Entry005.unit_ball_support_height_test_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.unit_increment_power_bound (d : ℕ) (t : ℝ) (ht : LE.le.{0} 0 t) (ht1 : LE.le.{0} t 1) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 t) d) 1)
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑d) (HPow.hPow.{0, 0, 0} 2 (HSub.hSub.{0, 0, 0} d 1))) t)
+'Entry005.unit_increment_power_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.unit_projection_ball_volume_lower_original {d : ℕ} (hd : LE.le.{0} 2 d) :
+  LE.le.{0} (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 ↑d) (HSub.hSub.{0, 0, 0} d 1))
+    (Entry005.unitProjectionBallVolume d)
+'Entry005.unit_projection_ball_volume_lower_original' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.zero_barycentric_weights_assigned_brightness.{u_1, u_2, u_3} {α : Type u_1} {ι : Type u_2} {E : Type u_3}
+  [MeasurableSpace.{u_1} α] [Fintype.{u_2} ι] [MeasurableSpace.{u_2} ι] [MeasurableSingletonClass.{u_2} ι]
+  [NormedAddCommGroup.{u_3} E] [InnerProductSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E]
+  (ν : MeasureTheory.Measure.{u_1} α) [MeasureTheory.IsProbabilityMeasure.{u_1} ν] (X : α → E)
+  (hX : MeasureTheory.Integrable.{u_3, u_1} X ν) (hcenter : Eq.{u_3 + 1} (∫ (x : α), X x ∂ν) 0) (w : ι → E)
+  (hw : ∀ (i : ι), LE.le.{0} (norm.{u_3} (w i)) 1) (ha : AffineIndependent.{0, u_3, u_3, u_2} ℝ w) (c : ι → ℝ)
+  (hcsum : Eq.{1} (∑ i, c i) 1) (hcmean : Eq.{u_3 + 1} (∑ i, HSMul.hSMul.{0, u_3, u_3} (c i) (w i)) 0) (r : α → ι)
+  (hr : Measurable.{u_1, u_2} r) (b h : ℝ) (hb : LT.lt.{0} 0 b) (hh : LE.le.{0} 0 h)
+  (hcost : LE.le.{0} (∫ (x : α), norm.{u_3} (HSub.hSub.{u_3, u_3, u_3} (X x) (w (r x))) ∂ν) h)
+  (hball : Metric.closedBall.{u_3} 0 b ⊆ (convexHull.{0, u_3} ℝ) (Set.range.{u_3, u_2 + 1} w)) :
+  (∀ (i : ι), LE.le.{0} 0 (c i)) ∧
+    (Eq.{1} h 0 → Eq.{u_2 + 1} c (Entry005.assignedAtomWeights.{u_1, u_2} ν r)) ∧
+      ∀ (u : E),
+        Eq.{1} (norm.{u_3} u) 1 →
+          LE.le.{0}
+            (abs.{0}
+              (HSub.hSub.{0, 0, 0} (∑ i, HMul.hMul.{0, 0, 0} (c i) (max.{0} (Neg.neg.{0} (inner.{0, u_3} ℝ u (w i))) 0))
+                (Entry005.negativeIntegral.{u_1} ν fun x => inner.{0, u_3} ℝ u (X x))))
+            (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Inv.inv.{0} b) 1) h) 2)
+'Entry005.zero_barycentric_weights_assigned_brightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Entry005.polarWitnessBasis {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) :
+  AffineBasis.{0, 0, 0, 0} (Fin (HAdd.hAdd.{0, 0, 0} d 1)) ℝ (Entry005.Space d)
+'Entry005.polarWitnessBasis' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessWeight {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) : ℝ
+'Entry005.polarWitnessWeight' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessGradient {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) : Entry005.Space d
+'Entry005.polarWitnessGradient' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessVertex {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) : Entry005.Space d
+'Entry005.polarWitnessVertex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarVertexBasis {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  AffineBasis.{0, 0, 0, 0} (Fin (HAdd.hAdd.{0, 0, 0} d 1)) ℝ (Entry005.Space d)
+'Entry005.polarVertexBasis' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarVertexCoord {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) :
+  AffineMap.{0, 0, 0, 0, 0} ℝ (Entry005.Space d) ℝ
+'Entry005.polarVertexCoord' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessSimplex {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) :
+  Affine.Simplex.{0, 0, 0} ℝ (Entry005.Space d) d
+'Entry005.polarWitnessSimplex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessNormal {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) : Entry005.Space d
+'Entry005.polarWitnessNormal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessHeight {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (i : Fin (HAdd.hAdd.{0, 0, 0} d 1)) : ℝ
+'Entry005.polarWitnessHeight' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.polarWitnessConvexBody {d : ℕ} (w : Fin (HAdd.hAdd.{0, 0, 0} d 1) → Entry005.Space d)
+  (ha : AffineIndependent.{0, 0, 0, 0} ℝ w) {b : ℝ} (hb : LT.lt.{0} 0 b)
+  (hball : Metric.closedBall.{0} 0 b ⊆ (convexHull.{0, 0} ℝ) (Set.range.{0, 1} w)) : ConvexBody.{0} (Entry005.Space d)
+'Entry005.polarWitnessConvexBody' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Entry005.sharpMain : Entry005.sharpMainGoal
+Entry005.sharpMain : Entry005.sharpMainGoal

@@ -1,0 +1,39 @@
+EntropyCounterexample.parameter_equation_iff_original_real_power {a : ℝ} (ha : 0 < a) :
+  a ^ 10 * (1 + a) = 1 ↔ a = 1 / (1 + a).rpow (11 / 10 - 1)
+'EntropyCounterexample.parameter_equation_iff_original_real_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EntropyCounterexample.alpha_original_real_power :
+  EntropyCounterexample.alpha = 1 / (1 + EntropyCounterexample.alpha).rpow (11 / 10 - 1)
+'EntropyCounterexample.alpha_original_real_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.alpha_existsUnique_original_real_power :
+  ∃! a, a ∈ Set.Ioo 0 1 ∧ a = 1 / (1 + a).rpow (11 / 10 - 1)
+'EntropyCounterexample.alpha_existsUnique_original_real_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EntropyCounterexample.counterexample_original_real_power {a : ℝ} (ha : a ∈ Set.Ioo 0 1)
+  (heq : a = 1 / (1 + a).rpow (11 / 10 - 1)) :
+  4 ≤ EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial 11 10 a)
+'EntropyCounterexample.counterexample_original_real_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+EntropyCounterexample.counterexample_to_conjecture_two_original_real_power :
+  ∃ k r a,
+    0 < r ∧
+      r < k ∧
+        k.Coprime r ∧
+          a ∈ Set.Ioo 0 1 ∧
+            a = 1 / (1 + a).rpow (↑k / ↑r - 1) ∧
+              4 ≤ EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial k r a)
+'EntropyCounterexample.counterexample_to_conjecture_two_original_real_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EntropyCounterexample.wakhare_conjecture_two_false_original_real_power :
+  ¬∀ (k r : ℕ),
+      0 < r →
+        r < k →
+          k.Coprime r →
+            ∀ a ∈ Set.Ioo 0 1,
+              a = 1 / (1 + a).rpow (↑k / ↑r - 1) →
+                EntropyCounterexample.unitRootCount (EntropyCounterexample.pPolynomial k r a) = 2
+'EntropyCounterexample.wakhare_conjecture_two_false_original_real_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

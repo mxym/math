@@ -1,0 +1,48 @@
+name: APPT spectral-volume analytic preprint and exact ancillary checks
+on:
+  push:
+    paths:
+      - 'research/appt-spectral-volume-asymptotics/**'
+      - '.github/workflows/appt-spectral-volume.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact source and ancillary checks (not Lean)
+        working-directory: research/appt-spectral-volume-asymptotics
+        run: |
+          set -euo pipefail
+          mkdir -p verification
+          python3 verify_sources.py | tee verification/source-check.log
+          python3 check.py --report verification/exact-checks.json | tee verification/exact-checks.log
+          python3 -O check.py --self-test | tee verification/optimized-checks.log
+          python3 test_checker.py verification/mutation-tests.json | tee verification/mutation-tests.log
+      - name: Install manuscript typesetting tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends pandoc texlive-latex-extra lmodern
+      - name: Build the signed analytic manuscript
+        working-directory: research/appt-spectral-volume-asymptotics
+        run: |
+          python3 build_manuscript.py
+          python3 verify_sources.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-volume-preprint-${{ github.sha }}
+          path: |
+            research/appt-spectral-volume-asymptotics/PROOF.md
+            research/appt-spectral-volume-asymptotics/README.md
+            research/appt-spectral-volume-asymptotics/*.py
+            research/appt-spectral-volume-asymptotics/*.json
+            research/appt-spectral-volume-asymptotics/RESEARCH_LOG.md
+            research/appt-spectral-volume-asymptotics/verification/
+            research/appt-spectral-volume-asymptotics/manuscript-build/

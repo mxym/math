@@ -1,0 +1,548 @@
+% Faithful LaTeX body derived from the reviewed PROOF.md source.
+% Source SHA-256: 6858879d5acb26657b7d83ffc1b99386e67cd5c9fbf60ab451b579d132f1b9d8
+% Explicit equation tags preserve all source equation numbers.
+
+\section{Fixed source, target classes, and exact statements}
+
+Fix $d\ge2$, $p>2$, and $s=p/(p-2)>1$. Independently fix a boundary exponent
+\[
+  \alpha=\beta+1>1.
+\]
+Let $L>0$ be $C^2$ near zero, with $\ell=\log L$ satisfying
+\begin{equation}
+  x\ell'(x)\longrightarrow0,
+  \qquad x^2\ell''(x)\longrightarrow0.
+  \tag{SV}\label{eq:sv}
+\end{equation}
+Use one fixed first marginal $f$ which near zero equals
+\[
+  f(x)=c x^{\alpha-1}L(x)\exp(-x^2/2),\qquad x>0,
+\]
+and has a $C^2$, $1$-strongly convex negative logarithm and a quadratic far tail.
+Such an extension exists because its prescribed second derivative is
+$1+\beta/x^2-\ell''(x)\ge1+\beta/(2x^2)$ near zero; extend this derivative continuously above one, make it equal to one far away, and integrate twice. Normalize. The fixed source is
+\[
+  \begin{aligned}
+  r(x)&=f(x_1)\prod_{j=2}^d g(x_j),\\
+  g(z)&=c_g\exp\!\left[-\frac{1}{1-z^2}\right]\mathbf{1}_{\{|z|<1\}},\\
+  \rho(dx)&=r(x)\,dx.
+  \end{aligned}
+\]
+It is absolutely continuous, $1$-strongly log-concave on its extended convex support, and has moments of every positive order. It stays fixed as all other parameters vary. Its distribution function and half-mass quantile are
+\[
+  F(t)=\int_0^t f(x)\,dx,
+  \qquad q(m)=F^{-1}(m),\quad 0<m\le\tfrac12,
+  \qquad T=q(\tfrac12).
+\]
+The statement below depends on the entire fixed $f$ through constants and through $q$. The boundary asymptotics used later are
+\begin{equation}
+  F(t)\sim\frac{c}{\alpha}t^\alpha L(t),
+  \qquad \frac{tf(t)}{F(t)}\longrightarrow\alpha.
+  \tag{1.1}\label{eq:1.1}
+\end{equation}
+Both follow by dominated convergence after rescaling the integral, using $|x\ell'(x)|$ arbitrarily small.
+
+For every target with finite second moment, $T_\mu$ is its Brenier map from $\rho$. All target classes impose $\int |y|^p\,d\mu\le1$. Atom locations are not separately bounded. Distinct positive-mass locations are the actual support; repeated labels are merged and zero-mass labels discarded.
+
+Define three moduli:
+\begin{enumerate}
+  \item $\Omega_2(w)$: both targets have at most two actual atoms and $W_2(\mu,\nu)\le w$.
+  \item $\Omega_{2,\eta}(w)$, $0<\eta\le\tfrac12$: the same, and every positive atom of each target has mass at least $\eta$. A Dirac mass is allowed.
+  \item $\Omega_{[m]}(w)$, $0<m\le\tfrac12$: each target has the form $(1-m)\delta_a+m\delta_b$, $a,b$ arbitrary, with the moment bound. Allowing $a=b$ simply includes Dirac masses and does not change any result. The \emph{two} targets have the same prescribed mass vector $(1-m,m)$.
+\end{enumerate}
+Each modulus is the supremum of $\|T_\mu-T_\nu\|_{L^2(\rho)}$ over the indicated pairs.
+
+Put
+\[
+  B(t)=tF(t)^{1/(2s)},\quad 0<t\le T,
+  \qquad g_*(t)=\frac{F(t)^{1/(2s)}}{t}.
+\]
+$B$ is continuous strictly increasing. For $0<w<B(T)$, let $h_w$ be the unique solution
+\begin{equation}
+  w=h_w F(h_w)^{1/(2s)}.
+  \tag{1.2}\label{eq:1.2}
+\end{equation}
+For $0<r\le T$ define the running maximum
+\begin{equation}
+  G(r)=\max_{r\le t\le T}g_*(t).
+  \tag{1.3}\label{eq:1.3}
+\end{equation}
+
+\subsection*{Theorem A: fixed mass and minimum-mass crossover}
+
+There exist $c,C,w_0>0$, depending only on the one fixed source, $p$, and $d$, such that the following hold simultaneously for \emph{every} $0<w\le w_0$ and the stated entire mass ranges:
+\begin{equation}
+  \Omega_{[m]}(w)
+  \asymp w+\min\!\left\{m^{1/(2s)},
+    \left[\frac{w m^{1/(2s)}}{q(m)}\right]^{1/2}\right\},
+  \qquad 0<m\le\tfrac12;
+  \tag{1.4}\label{eq:1.4}
+\end{equation}
+\begin{equation}
+  \Omega_{2,\eta}(w)
+  \asymp\bigl[wG(\max\{h_w,q(\eta)\})\bigr]^{1/2},
+  \qquad 0<\eta\le\tfrac12;
+  \tag{1.5}\label{eq:1.5}
+\end{equation}
+\begin{equation}
+  \Omega_2(w)\asymp\bigl[wG(h_w)\bigr]^{1/2}.
+  \tag{1.6}\label{eq:1.6}
+\end{equation}
+Here and below $\asymp$ between positive expressions denotes two-sided comparison up to positive constants, not a leading-coefficient asymptotic; $\sim$ in \eqref{eq:1.1} denotes the stated ratio-one asymptotic. The \emph{same} constants work for all $m$ or $\eta$ in the displayed intervals. In \eqref{eq:1.5}, $w_0<B(T)$, so the interval in \eqref{eq:1.3} is never empty.
+
+There is no reliance on the preceding top-$N$ envelope. In particular the upper bounds are direct binary transport estimates, not consequences of $(P)$.
+
+\subsection*{Corollary B: the binary boundary threshold is $\alpha=2s$}
+
+For $L=1$, uniformly for small $w$,
+\begin{equation}
+  \Omega_2(w)\asymp
+  \begin{cases}
+    w^{\alpha/(2s+\alpha)},&1<\alpha<2s,\\
+    w^{1/2},&\alpha\ge2s.
+  \end{cases}
+  \tag{1.7}\label{eq:1.7}
+\end{equation}
+Thus binary targets have a different phase boundary from the already established unrestricted / $N\ge3$ power-law result, whose critical CDF exponent is $\alpha=s$ and whose interior obstruction is one third. A third atom can change the optimal power even though both budgets are fixed.
+
+For a general \eqref{eq:sv} factor:
+\begin{itemize}
+  \item If $1<\alpha<2s$, $\Omega_2(w)\asymp F(h_w)^{1/(2s)}=w/h_w$.
+  \item If $\alpha>2s$, $\Omega_2(w)\asymp w^{1/2}$.
+  \item If $\alpha=2s$, choose a small fixed $a<T$ in the source's prescribed region. Then
+  \begin{equation}
+    \Omega_2(w)\asymp w^{1/2}
+      \left[1+\sup_{h_w\le t\le a}L(t)\right]^{1/(4s)}.
+    \tag{1.8}\label{eq:1.8}
+  \end{equation}
+  The added one absorbs the fixed interior range; any other fixed positive constant gives an equivalent expression. No monotonicity of $L$ is assumed.
+\end{itemize}
+For $L(t)=[\log(e/t)]^\gamma$ these become
+\begin{equation}
+  \Omega_2(w)\asymp
+  \begin{cases}
+    w^{\alpha/(2s+\alpha)}[\log(e/w)]^{\gamma/(2s+\alpha)},
+      &1<\alpha<2s,\\
+    w^{1/2}[\log(e/w)]^{\max(\gamma,0)/(4s)},&\alpha=2s,\\
+    w^{1/2},&\alpha>2s.
+  \end{cases}
+  \tag{1.9}\label{eq:1.9}
+\end{equation}
+At the old critical source $\alpha=s$, formula \eqref{eq:1.9} gives
+\[
+  \Omega_2(w)\asymp w^{1/3}[\log(e/w)]^{\gamma/(3s)}
+  \qquad\text{for all real }\gamma.
+\]
+In particular negative $\gamma$ genuinely separates two atoms from three: the binary ratio to $w^{1/3}$ tends to zero, while the inherited three-atom interior construction has a positive one-third lower ratio.
+
+\section{A weighted score controls every halfspace, in every orientation}
+
+We first prove the uniform geometric estimate needed for arbitrary binary target locations. This prevents the lower construction's preferred direction from being silently imposed on the upper bound.
+
+\subsection{Source regularity and score tail}
+
+The zero-extended density $r$ is continuous, belongs to $W^{1,1}(\mathbb R^d)$, and satisfies
+\[
+  r(x)\le C\exp(-c|x|^2),
+  \qquad |x|r(x)\in W^{1,1}(\mathbb R^d).
+\]
+Near $x_1=0$, continuity follows from $\beta>0$ and slow variation. The derivative is bounded by $C x_1^{\beta-1}L(x_1)$, which is integrable since $\beta>0$. There is no boundary jump. Transverse boundary derivatives are integrable because $g$ vanishes faster than every power, and far-tail integrability follows from the quadratic extension.
+
+On the source interior define the nonnegative weighted score
+\[
+  A(x)=1+|x|\,|\nabla\log r(x)|.
+\]
+Set it arbitrarily, say zero, on the $\rho$-null complement. There is $C$ such that its decreasing rearrangement satisfies
+\begin{equation}
+  A^*(u)\le\frac{C}{q(u)},\qquad 0<u\le\tfrac12,
+  \tag{2.1}\label{eq:2.1}
+\end{equation}
+\begin{equation}
+  \int_0^m A^*(u)\,du\le\frac{Cm}{q(m)},
+  \qquad 0<m\le\tfrac12.
+  \tag{2.2}\label{eq:2.2}
+\end{equation}
+\begin{proof}
+Write $X=x_1$, $Z_j=x_j$, and $D_j=(1-|Z_j|)^{-2}$. The source formula and its extension give
+\begin{equation}
+  A\le C\left[1+X^2+X^{-1}+(1+X)\sum_{j\ge2}D_j\right].
+  \tag{2.3}\label{eq:2.3}
+\end{equation}
+The $X^{-1}$ term has tail $F(1/t)$. The other first-coordinate terms have Gaussian or exponential tails, and $\mathbb P(D_j>t)\le C\exp(-c\sqrt t)$. For the product, the union bound
+\[
+  \begin{aligned}
+  \mathbb P((1+X)D_j>t)
+  &\le\mathbb P(1+X>t^{1/3})+\mathbb P(D_j>t^{2/3})\\
+  &\le C\exp(-ct^{1/3})
+  \end{aligned}
+\]
+holds for large $t$. The polynomial lower bounds on $F(1/t)$ from slow variation absorb all these faster tails. Fixed-ratio comparison of $F$ then yields $\mathbb P(A>t)\le CF(1/t)$. Absorbing the outside constant by a fixed change in $t$, again using regular variation of $F$, proves \eqref{eq:2.1} for small $u$; enlarge $C$ for the compact remaining interval.
+
+Because $\alpha>1$, choose $r_0$ with $1/\alpha<r_0<1$. Integration of the inverse logarithmic derivative $F(x)/(xf(x))\longrightarrow1/\alpha$ gives
+\[
+  q(v)\ge C^{-1}q(m)(v/m)^{r_0},
+  \qquad 0<v\le m\le\tfrac12.
+\]
+Its integral proves \eqref{eq:2.2}.
+\end{proof}
+
+\subsection{Weighted halfspace trace bound}
+
+For every halfspace $H=\{x:u\cdot x>c\}$, $|u|=1$, with $\rho(H)=m\le\tfrac12$,
+\begin{equation}
+  \int_{\partial H}|x|r(x)\,d\mathcal H^{d-1}(x)
+  \le\int_H A\,d\rho
+  \le\frac{Cm}{q(m)}.
+  \tag{2.4}\label{eq:2.4}
+\end{equation}
+To see the first inequality, apply the divergence theorem for the $W^{1,1}$ vector field $u|x|r(x)$ on $H$, with a large-radius cutoff and then let the cutoff tend to infinity. The outward normal on the finite boundary is $-u$, so
+\[
+  \int_{\partial H}|x|r
+  =-\int_H u\cdot\nabla(|x|r)
+  \le\int_H[r+|x|\,|\nabla r|].
+\]
+The right side is exactly the indicated bound. The identity initially holds for almost every $c$ by Sobolev slicing. It holds for all $c$ by continuity of the hyperplane integrals: $r$ is continuous with a Gaussian envelope, and local orthogonal parametrizations of hyperplanes permit dominated convergence. The cutoff tails tend to zero by the same envelope. The second inequality is the elementary rearrangement bound on an $m$-mass set followed by \eqref{eq:2.2}.
+
+No alignment of $H$ with a coordinate axis was assumed.
+
+\subsection{Moving a fixed-mass halfspace}\label{sec:2.3}
+
+For each unit $u$ and $0<m<1$, let $H_{m,u}$ be the unique upper halfspace normal to $u$ with $\rho$-mass $m$. All projected laws are atomless. The projection of the open convex source interior is an interval, and its density is positive at any quantile of mass strictly between zero and one. Thus the threshold is unique.
+
+For $0<m\le\tfrac12$ and any unit $u,v$,
+\begin{equation}
+  \rho(H_{m,u}\mathbin{\triangle}H_{m,v})
+  \le C\min\!\left\{m,\frac{\operatorname{angle}(u,v)m}{q(m)}\right\}.
+  \tag{2.5}\label{eq:2.5}
+\end{equation}
+\begin{proof}
+Along a shortest spherical path $u(t)$, let $c(t)$ be the threshold preserving mass $m$. The function giving halfspace mass is $C^1$ in normal and threshold: locally write the boundary as a graph over a fixed hyperplane, then differentiate the integral; continuity and the Gaussian envelope justify differentiation. Its threshold derivative is minus the strictly positive hyperplane density. The implicit function theorem gives a $C^1$ threshold along the path, locally and hence over the compact path.
+
+Differentiating the mass constraint gives
+\[
+  c'(t)=
+  \frac{\displaystyle\int_{u(t)\cdot x=c(t)}
+    u'(t)\cdot x\,r(x)\,d\mathcal H^{d-1}(x)}
+  {\displaystyle\int_{u(t)\cdot x=c(t)}
+    r(x)\,d\mathcal H^{d-1}(x)}.
+\]
+The normal velocity is $u'(t)\cdot x-c'(t)$. Its weighted absolute integral is at most
+\begin{equation}
+  2|u'(t)|\int_{u(t)\cdot x=c(t)}|x|r(x)\,d\mathcal H^{d-1}(x)
+  \le C|u'(t)|\frac{m}{q(m)},
+  \tag{2.6}\label{eq:2.6}
+\end{equation}
+by \eqref{eq:2.4}. Integrating the boundary-crossing estimate along the path proves the angular bound. One can justify this estimate by smoothing the indicator of a halfspace, applying the fundamental theorem of calculus, and passing to the limit using the displayed continuous hyperplane integrals. The path length is $\operatorname{angle}(u,v)$. The trivial symmetric-difference bound is $2m$. Combining them proves \eqref{eq:2.5}, after changing $C$.
+\end{proof}
+
+This estimate is what allows arbitrary binary directions and arbitrary cell shapes, including directions almost parallel to the source boundary.
+
+\section{Exact binary target coupling after centering}\label{sec:3}
+
+Every non-Dirac binary target can be written
+\[
+  \mu=(1-m)\delta_a+m\delta_b,\quad 0<m\le\tfrac12,
+  \qquad v=b-a,\quad R=|v|>0,
+  \qquad\bar\mu=a+mv.
+\]
+Its Brenier map is
+\begin{equation}
+  T_\mu=\bar\mu+v(\mathbf1_{H_{m,u}}-m),
+  \qquad u=v/R.
+  \tag{3.1}\label{eq:3.1}
+\end{equation}
+Indeed the maximum of two affine functions has those two gradients and selects an upper halfspace normal to $v$. Adjust its intercept to give the prescribed mass; uniqueness of Brenier maps supplies \eqref{eq:3.1}.
+
+The moment bound gives
+\begin{equation}
+  |\bar\mu|\le1,\qquad |v|\le Cm^{-1/p}.
+  \tag{3.2}\label{eq:3.2}
+\end{equation}
+The second estimate follows directly from $|a|\le(1-m)^{-1/p}$ and $|b|\le m^{-1/p}$. No centered $p$th-moment assertion is needed.
+
+For a second binary target $\nu$, write its rare mass $n\le\tfrac12$, gap vector $z$, length $S$, and barycenter $\bar\nu$. Both target and map squared distances split off their barycenters:
+\begin{equation}
+  \begin{aligned}
+  W_2(\mu,\nu)^2&=|\bar\mu-\bar\nu|^2+W_c^2,\\
+  \|T_\mu-T_\nu\|_2^2&=|\bar\mu-\bar\nu|^2+D_c^2.
+  \end{aligned}
+  \tag{3.3}\label{eq:3.3}
+\end{equation}
+A coupling of the centered binary targets is determined by $\tau=\mathbb P(I=1,J=1)$, where $I,J$ are Bernoulli of means $m,n$. Its centered cost is
+\begin{equation}
+  m(1-m)R^2+n(1-n)S^2-2(\tau-mn)v\cdot z.
+  \tag{3.4}\label{eq:3.4}
+\end{equation}
+The feasible interval is $\max(0,m+n-1)\le\tau\le\min(m,n)$. This exactly solves the $2\times2$ transport problem: choose the upper endpoint when $v\cdot z\ge0$, and the lower endpoint otherwise.
+
+Assume first $v\cdot z\ge0$ and relabel the \emph{two} targets so $m\le n$. Then
+\begin{equation}
+  W_c^2=m(1-n)|v-z|^2
+    +(n-m)\bigl[mR^2+(1-n)S^2\bigr].
+  \tag{3.5}\label{eq:3.5}
+\end{equation}
+In particular, because $n\le\tfrac12$,
+\begin{equation}
+  m|v-z|^2\le2W_c^2,
+  \qquad (n-m)S^2\le2W_c^2.
+  \tag{3.6}\label{eq:3.6}
+\end{equation}
+Let $A=H_{m,v/R}$, $B=H_{n,z/S}$. A halfspace with fixed normal is nested in its mass, so
+\begin{equation}
+  \rho(A\mathbin{\triangle}B)
+  \le n-m+\rho(H_{m,v/R}\mathbin{\triangle}H_{m,z/S}).
+  \tag{3.7}\label{eq:3.7}
+\end{equation}
+Writing the centered map difference as
+\[
+  (v-z)(\mathbf1_A-m)+z\bigl[(\mathbf1_A-\mathbf1_B)-(m-n)\bigr]
+\]
+and taking the square norm gives
+\begin{equation}
+  D_c^2\le2m|v-z|^2+2S^2\rho(A\mathbin{\triangle}B).
+  \tag{3.8}\label{eq:3.8}
+\end{equation}
+For the angle $\theta$ between the two vectors, with $0\le\theta\le\pi/2$,
+\begin{equation}
+  \theta\le C\frac{|v-z|}{\max(R,S)}.
+  \tag{3.9}\label{eq:3.9}
+\end{equation}
+This follows because $|v-z|\ge\max(R,S)\sin\theta$, by minimizing the other vector's length, and $\theta\le\pi\sin\theta/2$ on this range.
+
+Combine \eqref{eq:2.5}, \eqref{eq:3.2}, and \eqref{eq:3.6}--\eqref{eq:3.9}. If $W_2\le w$, then
+\begin{equation}
+  \begin{aligned}
+  S^2\rho(H_{m,v/R}\mathbin{\triangle}H_{m,z/S})
+  &\le C\min\!\left\{mS^2,\frac{S|v-z|m}{q(m)}\right\}\\
+  &\le C\min\!\left\{m^{1/s},\frac{w m^{1/(2s)}}{q(m)}\right\}.
+  \end{aligned}
+  \tag{3.10}\label{eq:3.10}
+\end{equation}
+Therefore all acute pairs satisfy
+\begin{equation}
+  \begin{aligned}
+  \|T_\mu-T_\nu\|_2^2&\le C\bigl[w^2+\Psi(w,m)\bigr],\\
+  \Psi(w,m)&=\min\!\left\{m^{1/s},\frac{w m^{1/(2s)}}{q(m)}\right\},
+  \end{aligned}
+  \tag{3.11}\label{eq:3.11}
+\end{equation}
+where $m$ is their smaller rare mass. In particular, $m$ is at least $\eta$ if a minimum weight $\eta$ is imposed.
+
+\subsection*{Obtuse directions are not omitted}
+
+Suppose $v\cdot z<0$. If $m+n\le\tfrac34$, the lower feasible coupling endpoint is zero, and \eqref{eq:3.4} gives
+\begin{equation}
+  W_c^2\ge(1-m-n)(mR^2+nS^2)
+    \ge\frac{mR^2+nS^2}{4}.
+  \tag{3.12}\label{eq:3.12}
+\end{equation}
+Here use $2RS\le R^2+S^2$ to bound the negative cross term. The map variance is at most $2(mR^2+nS^2)$, so the map distance is at most $Cw$.
+
+If $m+n>\tfrac34$, both $m,n$ exceed $\tfrac14$. Reverse the two labels of $\nu$: its gap becomes $-z$, its distinguished mass becomes $n'=1-n\in[\tfrac12,\tfrac34)$, and its centered map is unchanged. Now $v\cdot(-z)>0$ and $m\le n'$, while $1-n'>\tfrac14$. Formula \eqref{eq:3.5} remains valid, with $n'$, and controls $|v+z|\le Cw$ and $(n'-m)S^2\le Cw^2$. Both gap lengths are bounded by a fixed constant from their original moment bounds. The comparison in \eqref{eq:3.7} uses only the angular lemma at mass $m$, which is in $(\tfrac14,\tfrac12]$. Its $q(m)$ is bounded below. Thus the same calculation gives
+\begin{equation}
+  \|T_\mu-T_\nu\|_2^2\le C(w^2+w).
+  \tag{3.13}\label{eq:3.13}
+\end{equation}
+The estimate remains valid when the vectors are tiny: use $S^2\theta\le CS|v+z|$, never divide by a fixed positive lower bound on a gap.
+
+For two targets with the \emph{same} prescribed rare mass $m$, the last case requires $m>\tfrac38$. Choose $w_0\le q(\tfrac38)(\tfrac38)^{1/(2s)}$. Then $\Psi(w,m)=w m^{1/(2s)}/q(m)\ge cw$ throughout $m\ge\tfrac38$, so \eqref{eq:3.13} is absorbed by \eqref{eq:3.11}. For a minimum-mass or unrestricted class, its supremum of $\Psi$ includes $m=\tfrac12$, which likewise absorbs $Cw$. Finally, if either target is a Dirac mass, the map distance equals $W_2$ exactly, since there is only one coupling to a Dirac mass. All degeneracies are therefore covered.
+
+\section{Genuine two-atom lower examples with exactly prescribed masses}
+
+Fix \emph{any} $0<m\le\tfrac12$ and write $t=q(m)$. The two atoms will have masses exactly $1-m$ and $m$ throughout the construction, even as $w$ varies.
+
+There is one sufficiently small $\varepsilon>0$, depending only on the fixed source, such that for every $t\in(0,T]$ and $0<b\le\varepsilon t$ the following holds. Define
+\[
+  \begin{aligned}
+  H_b(y)&=\mathbb E F(y+bZ),&\qquad \ell_b&=H_b^{-1}(F(t)),\\
+  A&=\{X<t\},& C&=\{X<\ell_b+bZ\},
+  \end{aligned}
+\]
+where $Z$ has the symmetric transverse density $g$. Both cells have mass $m$ exactly. The inverse exists, and bracketing gives $|\ell_b-t|\le b$. On $[t-2b,t+2b]$, density comparability and $|f'|\le Cf(t)/t$ hold uniformly. These follow near zero from \eqref{eq:sv}, and on the remaining compact range from $f>0$ and $C^2$ regularity. Symmetry $\mathbb E Z=0$ and Taylor expansion improve the intercept to
+\begin{equation}
+  \ell_b=t+O(b^2/t).
+  \tag{4.1}\label{eq:4.1}
+\end{equation}
+The cell disagreement has the exact representation
+\[
+  \begin{aligned}
+  \rho(A\mathbin{\triangle}C)
+  &=\mathbb E\bigl|F(\ell_b+bZ)-F(t)\bigr|\\
+  &=b f(t)\mathbb E|Z|+O\bigl(b^2 f(t)/t\bigr).
+  \end{aligned}
+\]
+One fixed choice of $\varepsilon$ gives
+\begin{equation}
+  cbf(t)\le\rho(A\mathbin{\triangle}C)\le Cbf(t).
+  \tag{4.2}\label{eq:4.2}
+\end{equation}
+Also $f(t)$ is uniformly comparable to $F(t)/t$ over $0<t\le T$: use \eqref{eq:1.1} near zero and positivity/continuity on the compact remainder.
+
+Let $R=m^{-1/p}$, and define
+\begin{equation}
+  \begin{aligned}
+  \mu&=(1-m)\delta_0+m\delta_{-Re_1},\\
+  \nu&=(1-m)\delta_0+m\delta_{R(-e_1+be_2)/\sqrt{1+b^2}}.
+  \end{aligned}
+  \tag{4.3}\label{eq:4.3}
+\end{equation}
+Each target has precisely two distinct positive-mass atoms and $p$th moment exactly one. The maps are gradients of the global hinge potentials
+\begin{equation}
+  U(x)=R(t-x_1)_+,
+  \qquad V(x)=\frac{R}{\sqrt{1+b^2}}(\ell_b-x_1+bx_2)_+.
+  \tag{4.4}\label{eq:4.4}
+\end{equation}
+Thus they are genuine Brenier maps, not assigned step functions. The same-label target coupling gives
+\begin{equation}
+  W_2(\mu,\nu)\le m^{1/(2s)}b.
+  \tag{4.5}\label{eq:4.5}
+\end{equation}
+Indeed the difference between $(-1,0)$ and $(-1,b)/\sqrt{1+b^2}$ has length at most $b$. On the mismatch $A\mathbin{\triangle}C$, one source map is zero and the other has length $R$. Consequently,
+\begin{equation}
+  \|T_\mu-T_\nu\|_2^2
+    \ge R^2\rho(A\mathbin{\triangle}C)
+    \ge\frac{cbm^{1/s}}{t}.
+  \tag{4.6}\label{eq:4.6}
+\end{equation}
+Choose
+\[
+  b=\varepsilon\min\!\left\{t,\frac{w}{m^{1/(2s)}}\right\},
+\]
+also taking $\varepsilon\le1$. Then $W_2\le w$ and
+\begin{equation}
+  \|T_\mu-T_\nu\|_2^2\ge c\Psi(w,m).
+  \tag{4.7}\label{eq:4.7}
+\end{equation}
+All constants are uniform in $m,w$. The locations may tend to infinity as $m$ decreases, precisely as permitted by the moment class. There is no hidden lower mass condition.
+
+To obtain the remaining $w$ term in \eqref{eq:1.4}, use the same mass vector with two short, distinct atoms, for example $(1-m)\delta_0+m\delta_{e_1/4}$, and translate the whole target by $we_2$, for $w\le\tfrac14$. Both $p$th moments remain below one. Translation adds the same vector to the Brenier map, and its Wasserstein distance is exactly $w$ by the barycenter lower bound and the translating coupling. Thus the map distance is $w$. Taking the better of this example and \eqref{eq:4.7}, and using $\max(A,B)\ge(A+B)/2$, proves the lower half of \eqref{eq:1.4}.
+
+The preceding upper argument proves its upper half after taking square roots. This completes the fixed-mass formula, without any use of $(P)$.
+
+\section{Optimize the mass, with or without a minimum weight}
+
+From Sections 3--4, uniformly for $0<\eta\le\tfrac12$,
+\begin{equation}
+  \Omega_{2,\eta}(w)^2\asymp\sup_{\eta\le m\le1/2}\Psi(w,m).
+  \tag{5.1}\label{eq:5.1}
+\end{equation}
+The possible $w^2$ terms are absorbed: at $m=\tfrac12$ and small $w$, $\Psi(w,\tfrac12)=c_0w\ge c_0w^2$. The same reasoning gives the unrestricted binary formula with $0<m\le\tfrac12$.
+
+Make the exact change $m=F(t)$. The two arguments of the minimum in $\Psi$ are equal if and only if
+\[
+  w=tF(t)^{1/(2s)}=B(t).
+\]
+$B$ is strictly increasing, so the change occurs uniquely at $t=h_w$. For $t\le h_w$, the smaller argument is $F(t)^{1/s}$, increasing in $t$. For $t\ge h_w$, the smaller argument is $wg_*(t)$. If the admissible interval includes $h_w$, its entire lower portion has maximum at $h_w$, and that value is already $wg_*(h_w)$. If its lower endpoint exceeds $h_w$, only the second regime is present. Therefore, \emph{exactly},
+\begin{equation}
+  \sup_{\eta\le m\le1/2}\Psi(w,m)
+  =w\max_{\max\{h_w,q(\eta)\}\le t\le T}g_*(t).
+  \tag{5.2}\label{eq:5.2}
+\end{equation}
+For no minimum weight replace $\max\{h_w,q(\eta)\}$ by $h_w$. Equations \eqref{eq:5.1}--\eqref{eq:5.2} prove \eqref{eq:1.5}--\eqref{eq:1.6}.
+
+The maximum in \eqref{eq:5.2} is over a compact interval and is attained. The lower example in Section 4, at that maximizing mass, has both its masses at least $\eta$. This closes the actual target-position, mass, coupling and convex-gradient optimization; it is not merely a one-sided mass-profile envelope.
+
+\section{Evaluate the phase diagram}
+
+By \eqref{eq:1.1},
+\begin{equation}
+  \begin{aligned}
+  g_*(t)&\asymp t^{\alpha/(2s)-1}L(t)^{1/(2s)},\\
+  \frac{d\log g_*(t)}{d\log t}
+    &=\frac{tf(t)}{2sF(t)}-1
+      \longrightarrow\frac{\alpha}{2s}-1.
+  \end{aligned}
+  \tag{6.1}\label{eq:6.1}
+\end{equation}
+
+\subsection*{Subcritical binary boundary: $\alpha<2s$}
+
+The derivative in \eqref{eq:6.1} is strictly negative for all sufficiently small $t$, and $g_*(t)$ tends to infinity. Hence for all small $h$, the running maximum on $[h,T]$ is exactly $g_*(h)$: the finite maximum on the remaining compact range is eventually dominated. Thus
+\begin{equation}
+  \Omega_2(w)\asymp\bigl[wg_*(h_w)\bigr]^{1/2}
+    =F(h_w)^{1/(2s)}=\frac{w}{h_w}.
+  \tag{6.2}\label{eq:6.2}
+\end{equation}
+The identity uses \eqref{eq:1.2}, not a substitution $h=w$ raised to a power. It remains valid for nonmonotone \eqref{eq:sv} factors because the nonzero power in \eqref{eq:6.1} dominates their logarithmic derivative.
+
+\subsection*{Supercritical binary boundary: $\alpha>2s$}
+
+Now $g_*(t)$ tends to zero at the boundary and has a finite positive maximum on $(0,T]$. Its running maximum therefore approaches a finite positive limit. Equation \eqref{eq:1.6} gives $\Omega_2(w)\asymp w^{1/2}$.
+
+\subsection*{Critical binary boundary: $\alpha=2s$}
+
+The power vanishes and $g_*(t)$ is comparable to $L(t)^{1/(2s)}$ near zero. The fixed compact remainder contributes a finite positive constant. Hence \eqref{eq:1.6} gives \eqref{eq:1.8}, with the \emph{actual} $h_w$ from \eqref{eq:1.2}. A local endpoint value $L(h_w)$ need not control the running maximum for oscillatory $L$.
+
+For $L=1$ this proves \eqref{eq:1.7}. For logarithmic powers, solve
+\[
+  w\asymp h^{1+\alpha/(2s)}[\log(e/h)]^{\gamma/(2s)}.
+\]
+Its logarithm shows $\log(e/h)\asymp\log(e/w)$, and standard substitution with fixed multiplicative comparison gives
+\[
+  h\asymp w^{2s/(2s+\alpha)}[\log(e/w)]^{-\gamma/(2s+\alpha)}.
+\]
+For $\alpha<2s$, substitute into $w/h$ to obtain \eqref{eq:1.9}. For $\alpha=2s$ the running maximum of the logarithmic factor grows as $[\log(e/h)]^\gamma$ when $\gamma>0$ and is bounded when $\gamma\le0$. For $\alpha>2s$ use the preceding supercritical argument. Every statement is for all sufficiently small $w$, not merely a subsequence.
+
+\section{The explicit minimum-weight crossover in the old critical family}
+
+Take $\alpha=s$, corresponding to $\beta=s-1$ in the completed critical-atom result. Choose $\eta_0>0$ small enough that $g_*(t)$ is decreasing on $(0,q(\eta_0)]$ and exceeds its later compact maximum there. For $0<\eta\le\eta_0$ and small $w$, Theorem A simplifies to
+\begin{equation}
+  \Omega_{2,\eta}(w)\asymp
+  \begin{cases}
+    \bigl[w\eta^{1/(2s)}/q(\eta)\bigr]^{1/2},
+      &w\le q(\eta)\eta^{1/(2s)},\\
+    F(h_w)^{1/(2s)},&w\ge q(\eta)\eta^{1/(2s)}.
+  \end{cases}
+  \tag{7.1}\label{eq:7.1}
+\end{equation}
+The constants are simultaneous in $\eta,w$. The threshold is the actual mass-quantile scale, not an unspecified $\eta$-dependent constant.
+
+For $L=1$, $q(\eta)\asymp\eta^{1/s}$, and \eqref{eq:7.1} becomes
+\begin{equation}
+  \Omega_{2,\eta}(w)\asymp
+    \min\!\left\{w^{1/3},w^{1/2}\eta^{-1/(4s)}\right\}
+  \tag{7.2}\label{eq:7.2}
+\end{equation}
+for all $0<\eta\le\eta_0$ and sufficiently small $w$. The crossover is $w\asymp\eta^{3/(2s)}$. Thus fixing a positive minimum atom weight improves the exponent from one third to one half, with the exact divergence of the one-half constant as the mass floor disappears.
+
+For the \emph{exact} mass vector $(1-m,m)$, the extra large-$w$ saturation is different and is not replaced by the minimum-weight formula:
+\begin{equation}
+  \Omega_{[m]}(w)\asymp
+    w+\min\!\left\{m^{1/(2s)},w^{1/2}m^{-1/(4s)}\right\}
+  \tag{7.3}\label{eq:7.3}
+\end{equation}
+for $L=1$ and small $m,w$, uniformly. The $w$ term matters when the whole rare component is much smaller than the allowed translation distance.
+
+For a general slow factor at $\alpha=s$, keep $q(\eta)$ in \eqref{eq:7.1} and $q(m)$ in \eqref{eq:1.4}. Since $q(\eta)^sL(q(\eta))$ is comparable to $\eta$, the half-power coefficient is also comparable to
+\begin{equation}
+  \eta^{-1/(4s)}L(q(\eta))^{1/(2s)}.
+  \tag{7.4}\label{eq:7.4}
+\end{equation}
+The exact quantile formulas are safer than replacing $q(\eta)$ by a bare power for arbitrary \eqref{eq:sv} factors.
+
+\section{New versus inherited statements and scope boundaries}
+
+The three main increments are:
+\begin{enumerate}
+  \item A direct upper-and-lower optimal law for \emph{all} binary targets, permitting both positions and masses to vary, and not assuming a preferred direction or shared zero atom in the upper bound.
+  \item Uniform sharp formulas for a fixed binary mass vector and for a disappearing lower bound on positive atom masses.
+  \item The binary boundary threshold $\alpha=2s$ and its critical running-maximum correction, distinct from the already completed $\alpha=s$ threshold for unrestricted targets and $N\ge3$.
+\end{enumerate}
+The original two-atom rare-cell mechanism belongs to entry 008. Here its rotation is made independently tunable at an exactly prescribed mass, and a new all-directions binary upper bound is matched to it. Neither Brenier uniqueness, two-affine-plane convexity, nor elementary $2\times2$ coupling optimization is claimed as a new general mechanism.
+
+The top-$N$ slowly-varying result is \emph{not} an input. Its final status is a conditional pass on the imported centered-potential estimate $(P)$; comparisons to its sharper $N\ge3$ envelope retain that dependency. The assertion that three atoms have an interior one-third obstruction is already in the completed entry 008 and suffices for the negative-$\gamma$ binary-versus-three-atom separation stated above.
+
+No theorem here claims arbitrary source classification or a fixed-mass $N\ge3$ result. The general \eqref{eq:sv} theorem assumes $\beta>0$, so the zero-extended density has no first-boundary jump and its weighted score is integrable. The hard-boundary $\beta=0$ power source can be handled separately by a bounded hyperplane-trace argument, but it is not silently included in the proof above. Dimension one remains isometric and is excluded.
+
+\section{Literature and dependency notes}
+
+\begingroup\small
+Primary sources checked in the research pass:
+\begin{itemize}[itemsep=2pt,topsep=3pt]
+  \item Bansil and Kitagawa, \emph{Quantitative stability in the geometry of semi-discrete optimal transport}, arXiv:2002.02022v2: \url{https://arxiv.org/html/2002.02022}. Their fixed-support Laguerre-cell stability is a relevant comparison, including weight dependence. The present problem allows arbitrary changing binary support and measures target distance in $W_2$.
+  \item Delalande and Merigot, \emph{Quantitative stability of optimal transport maps under variations of the target measure}: \url{https://arxiv.org/html/2103.05934}. Background for quantitative map stability.
+  \item Cyril Letrouit, \emph{Unstable optimal transport maps}, arXiv:2510.13265 (2025): \url{https://arxiv.org/abs/2510.13265}. Its full text, \url{https://arxiv.org/html/2510.13265v1}, explicitly uses rotating equal-weight two-atom targets to exhibit strong instability for a source with boundary density blow-up. Thus rotation of binary targets and fixed-weight counterexamples are established mechanisms, not claimed new here. Our source family instead has a vanishing boundary density and an integrable weighted score; the new statements are the matching mass-dependent modulus and the $\alpha=2s$ classification. This short screening does not settle historical priority.
+  \item The completed predecessor source-phase construction: \href{https://github.com/mxym/math/blob/c2281bc871c9bf60994985d6665ae45f4711d080/preprints/008-density-overlap-phase/v1/main.tex}{entry 008 (version 1, pinned source)}.
+\end{itemize}
+The proof above is self-contained apart from standard existence/uniqueness of quadratic Brenier maps for an absolutely continuous source and elementary Sobolev divergence/slicing, change of variables, dominated convergence, and the implicit function theorem. In particular, no centered-potential stability theorem is imported.
+\par\endgroup

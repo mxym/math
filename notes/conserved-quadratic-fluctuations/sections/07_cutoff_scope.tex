@@ -1,0 +1,141 @@
+\section{Endpoint cutoffs and precise scope}\label{sec:scope}
+The main theorem needs only initial compact tests and exact conservation.
+The following separate endpoint gate records what Gaussian birth energy
+also proves, and the order of limits it permits.
+
+\begin{lemma}[Pasted polynomial endpoint covariance gate]
+\label{lem:endpoint}
+Let $q$ be any fixed polynomial, $0\le\chi\le1$ a smooth cutoff equal
+to one on the unit phase ball and zero outside the radius-two ball,
+$\chi_R(z)=\chi(z/R)$, and $q^{>R}=q(1-\chi_R)$. For every fixed
+$M>0$, uniformly for sufficiently large $R$ and sufficiently small $\eps$,
+\begin{equation}\label{eq:endpoint-tail}
+ \sup_{t\le T}\E|\zeta_t^{\eps,p}(q^{>R})|^2
+        \le C_qe^{-c_qR^2}+C_{q,M}\eps^M.
+\end{equation}
+The statement holds for fixed finite endpoint record lists and gives
+covariance cutoff approximation at two times. In particular its cutoff
+limit takes $\eps\to0$ first, then $R\to\infty$.
+\end{lemma}
+\begin{proof}
+The actual pasted speed bound \eqref{eq:record-clip-scale} gives
+$|x_j^p(t)|\le R_x+TV_\eps$. Choose a fixed polylogarithmic
+$Q_\eps\ge1$ dominating $|q|$ on that actual phase region, independently
+of $R$. Use the globally bounded test
+$\clip(q^{>R}/Q_\eps,-1,1)$ on every signed branch. On actual endpoints
+restoring $Q_\eps$ gives the raw tail, and on artificial branches its
+absolute value is bounded by $|q^{>R}|$. Restore degree two only after
+H3's unweighted remainder and tail estimates. Choose their arbitrary-power
+accuracy after the degree, requested $M$, and the covariance factor $\mu$.
+All restored errors are $O(\eps^M)$ uniformly in $R$.
+
+Every tested endpoint is on a required record-bearing line continued to zero.
+Its initial input is supported in the compact position support of $f_0$,
+either through $F_{1,0}^\eps$ or through an initial cumulant dominated by
+products of $f_0$. Retain this anchor before spatial envelope domination.
+H4 gives, on every nonzero retained branch with birth energy $E$,
+\[
+ |v_j(t)|\le\sqrt E,\qquad |x_j(t)|\le R_x+T\sqrt E.
+\]
+The continued line is position-continuous. Thus for $R\ge\max(1,2R_x)$
+a nonzero tail factor forces
+$E\ge R^2/[4(T+1)^2]$.
+If $q$ has degree $d$, two raw endpoint factors are bounded by
+\[
+ C_{q,T}(1+E)^d\ind_{\{E\ge c_TR^2\}}.
+\]
+Only after extracting this implication discard the compact-anchor indicator.
+One birth factor is integrated in the common translation and the others
+bounded by spatial suprema, leaving $C^m e^{-bE}$ as in H4. One fixed
+Gaussian fraction extracts $e^{-c_qR^2}$, a second absorbs the fixed
+polynomial, and the rest supports the same factorial and time sum. The
+gamma-ratio estimate in Lemma~\ref{lem:weighted} shows that fixed degree
+changes only the size polynomial. The reserved fractions and the admissible
+size base are fixed once; $L$ is not chosen after $R$ or $q$.
+At connected order $h=1,2$ the bound is
+$C_q\mu^{1-h}e^{-c_qR^2}$, uniformly in record times. Later independent
+births need not have compact spatial support.
+
+For a field test $u$ the exact second-cumulant identity is
+\[
+ \operatorname{Var}\zeta_t^{\eps,p}(u)
+       =\int F_{1,t}^{\eps,p}u^2
+                          +\mu\int c_{2,t}^{\eps,p}(u\otimes u).
+\]
+The retained bounds at $u=q^{>R}$ and the restored errors prove
+\eqref{eq:endpoint-tail}. The same proof without a tail gives bounded
+second moments. Cauchy--Schwarz then proves two-time covariance cutoff
+approximation, uniformly in its two record times.
+\end{proof}
+
+For $q\in\cQ$, the true law inherits a marginal probability cutoff gate.
+Indeed $|q^{>R}|\le|q|$, so \eqref{eq:global-bound} and the Holder estimate
+\eqref{eq:mean-transfer} compare the exact centerings uniformly in $R,t$.
+Off H6's full-time exceptional event the raw paths agree. Chebyshev applied
+to \eqref{eq:endpoint-tail}, then this comparison, gives for every $\delta>0$
+\[
+ \lim_{R\to\infty}\limsup_{\eps\to0}\sup_{t\le T}
+           \Prob\{|\zeta_t^\eps(q^{>R})|>\delta\}=0.
+\]
+It is a marginal statement, not an assertion of a true covariance bound.
+
+Uniform marginal variance alone does not imply a uniform path cutoff. For
+example, a randomly placed interval of length $1/m$ on the unit time circle
+has an indicator with variance at most $1/m$ at each fixed time, whereas its
+centered time supremum is $1-1/m$. Theorem~\ref{thm:main} avoids that issue
+by \eqref{eq:exact-path} and the monotone speed-sum LLN.
+Likewise taking $R$ beyond the actual polylog endpoint range at each fixed
+$\eps$ would produce a vacuous tail bound; the iterated order stated in the
+lemma is the relevant one.
+
+For $q\in\cQ$ the lemma also defines the Gaussian $L^2$ endpoint limit
+of $G_t(q\chi_R)$. Apply its bound to differences of compact cutoffs,
+pass to their fixed finite-dimensional Gaussian limits, and obtain an
+$L^2$-Cauchy family. Joint probability comparison with the moment limit
+already proved identifies it as $Z_0(r_q(t))$. This supplies the indicated
+finite-dimensional covariance interpretation, not an all-polynomial
+strong-dual functional theorem.
+
+\subsection{The unresolved covariance transfer}
+On the bad event the mechanical bound allows a quadratic fluctuation
+difference of order $\eps^{-1}N/\mu$. H1 and H6 give only
+\begin{equation}\label{eq:failed-L2-transfer}
+ \eps^{-2}\E[(N/\mu)^2\ind_{E_\eps}]
+       \le C_p\eps^{-2+(21/20)(1-2/p)}.
+\end{equation}
+Its exponent approaches $-19/20$ as $p\to\infty$ and equals $-1$ at
+$p=42$. Thus this method does not establish true prelimit covariance
+convergence. A growing upper bound supplies no lower bound on the actual
+covariance and proves no physical divergence.
+
+A scalar example displays the logical gap. Take a bounded centered $W$
+and an independent event $A_\eps$ of probability $\eps^{21/20}$, and set
+\[
+ X_\eps=W+\eps^{-1}(\ind_{A_\eps}-\eps^{21/20}).
+\]
+Then $X_\eps-W\to0$ in probability, its uncentered mean shift
+$\eps^{1/20}$ vanishes, but
+\[
+ \operatorname{Var}X_\eps-\operatorname{Var}W
+        =\eps^{-19/20}(1-\eps^{21/20})\to\infty.
+\]
+This is not a hard-sphere counterexample. Additional weighted true-flow
+control could prove covariance convergence; the present results leave it
+unresolved.
+
+\subsection{Other boundaries}
+The theorem identifies global quadratic moments and their first means.
+It does not establish a phase-space distribution limit of
+$\eps^{-1}(\E\pi_t^\eps-f_t)$, a full unit-activity mean corrector,
+or a local stress-corrector equation. No compact cubic activity result
+is used or reproduced. The invariant projection and Gaussian mapping are
+standard; the additional work is the clipped two-root weighted record
+bound, its uniform weak-law use, the exact conserved closure, and the
+intrinsic corollary, all relative to the pinned package.
+
+The compact initial position anchor is substantive for
+Lemma~\ref{lem:endpoint}. With large initial position and small velocity,
+its implication $E\ge cR^2$ fails. A summable spatial Bol norm alone
+does not force a second spatial moment. The compact support assumption
+also makes the initial polynomial-to-compact substitution exact.
+Removal of this assumption requires separate weighted initial information.

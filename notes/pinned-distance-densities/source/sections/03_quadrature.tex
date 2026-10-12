@@ -1,0 +1,119 @@
+\section{Two bounded variation quadrature estimates}\label{sec:quadrature}
+We first isolate the deterministic geometric estimate used at every stage.
+Let $U$ denote uniform probability on $[0,1]$.
+
+\begin{lemma}[Equal-bin quadrature]\label{lem:BV}
+If a probability $\xi$ assigns mass $1/N$ to each of the $N$ equal bins
+of $[0,1]$, then for every function $F$ of bounded variation,
+\begin{equation}\label{eq:BV}
+ \left|\int F\,d\xi-\int F\,dU\right|\leq\frac{\Var(F)}N.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Within each bin the difference between the two conditional averages is
+bounded by the oscillation of $F$. Summing with weight $1/N$ proves the
+claim, since the sum of the bin oscillations is at most total variation.
+At jump endpoints use one-sided representatives consistent with the bin
+convention. The template laws~\eqref{eq:template} used below are absolutely
+continuous within bins, so endpoint values do not affect their integrals.
+\end{proof}
+
+Let $Q=[q_1,q_1+h]\times[q_2,q_2+h]$, $0<h\leq1$, satisfy
+\eqref{eq:separation} with respect to the pin $p$. Let $U_Q$ be uniform
+probability on $Q$, and let $\rho_Q$ be the affine image of the product
+in~\eqref{eq:template}, allowing any integers $A,B\geq1$ and widths
+$0<w\leq A^{-1}$, $0<v\leq B^{-1}$. Write
+\[
+ M_\varepsilon(p,y)=\ind_{\{|y_1-p_1|\geq\varepsilon\}}.
+\]
+When a norm of a signed pushforward is written below, it means the norm of
+its density. Each constituent measure is positive and unnormalized.
+
+\begin{lemma}[Fixed-band comparison]\label{lem:fixed-band}
+Both masked distance pushforwards have densities, and
+\begin{equation}\label{eq:fixed-band}
+ \norm{(D_p)_*(M_\varepsilon\rho_Q)
+       -(D_p)_*(M_\varepsilon U_Q)}_\infty
+ \leq\frac{4D_0}{h}
+       \left(\frac1{v_0A}+\frac1{\varepsilon Bw}\right).
+\end{equation}
+The pin and the mask are identical in the two terms.
+\end{lemma}
+\begin{proof}
+Use coordinates $X=q_1+hu$, $Y=q_2+hz$ and the local output
+$t=|y-p|/h$. Conversion back to physical radius contributes a final
+factor $h^{-1}$ to the density.
+
+First fix a horizontal strip $i/A\leq u\leq i/A+w$, keep the part
+$|X-p_1|\geq\varepsilon$, and average in the vertical coordinate.
+For a fixed local output $t$, set $r=ht$. Horizontal coarea gives the
+$t$-density
+\begin{equation}\label{eq:horizontal-coarea}
+ G_i(z,t)=\frac1w\sum_{\text{allowed roots }X}\frac{r}{|X-p_1|},
+ \qquad X-p_1=\pm\sqrt{r^2-(Y-p_2)^2}.
+\end{equation}
+Indeed $\partial t/\partial u=(X-p_1)/r$, so no extra factor of $h$
+belongs in~\eqref{eq:horizontal-coarea}. On each branch, $Y-p_2>0$
+and $|X-p_1|$ decreases as $z$ increases. The reciprocal derivative
+$r/|X-p_1|$ is monotone. Requiring the root to lie in the strip cuts out
+an interval of $z$, and imposing the band cutoff only shortens it.
+The zero extension of each monotone interval function has variation at
+most twice its supremum. There are at most two branches, each at most
+$D_0/(\varepsilon w)$, so
+\begin{equation}\label{eq:vertical-variation}
+ \Var_z G_i(z,t)\leq\frac{4D_0}{\varepsilon w}.
+\end{equation}
+Lemma~\ref{lem:BV} replaces $\zeta_{B,v}$ by $U$ at a density cost
+$4D_0/(\varepsilon Bw)$. Averaging the strips with their $1/A$ weights
+preserves that bound. The width $v$ has not entered except through
+$v\leq1/B$.
+
+With the vertical coordinate uniform, fix $u$. There is only one allowed
+vertical root because $Y-p_2\geq v_0$. Its local-output density is
+\begin{equation}\label{eq:vertical-coarea}
+ J(u,t)=\ind_{\{\text{allowed vertical root}\}}
+        \ind_{\{|X-p_1|\geq\varepsilon\}}
+        \frac{r}{Y-p_2}.
+\end{equation}
+It is at most $D_0/v_0$. On either side of $X=p_1$ it is monotone in
+$|X-p_1|$; requiring the root to lie in the vertical side of $Q$ leaves
+at most one interval per side. Therefore
+$\Var_u J(u,t)\leq4D_0/v_0$. A second application of
+Lemma~\ref{lem:BV}, this time to $\xi_{A,w}$, costs $4D_0/(v_0A)$.
+Adding the two errors and returning to physical radius proves the claim.
+Coarea is applied on strictly monotone intervals; the cutoff removes the
+only horizontal critical point. All bounds hold for almost every output,
+which is sufficient for the stated essential supremum.
+\end{proof}
+
+\begin{lemma}[Harmonic improvement]\label{lem:harmonic}
+At the particular physical cutoff $\varepsilon=h/A$,
+\begin{equation}\label{eq:harmonic}
+ \norm{(D_p)_*(M_{h/A}\rho_Q)-(D_p)_*(M_{h/A}U_Q)}_\infty
+ \leq C D_0\left(\frac1{hv_0A}
+              +\frac{\log(2A)}{h^2Bw}\right).
+\end{equation}
+\end{lemma}
+\begin{proof}
+For the physical strip
+$I_i=[q_1+hi/A,q_1+hi/A+hw]$, let $d_i$ be the infimum of
+$|X-p_1|$ over its nonempty retained part. Empty strips are omitted.
+Then $d_i\geq h/A$, and the sharper variation bound in the first part
+of the preceding proof is $4D_0/(wd_i)$. Each strip lies in its own
+coarse bin of length $h/A$. Order bins to the left and right of $p_1$.
+Except for at most a fixed number of nearest neighbors, the $l$-th bin
+has distance at least $lh/(2A)$. The cutoff controls the nearest bins.
+The same ordering works if $p_1$ lies outside $Q$. Hence
+\begin{equation}\label{eq:harmonic-sum}
+ \frac1A\sum_i d_i^{-1}
+ \leq\frac Ch\left(1+\sum_{l=1}^A\frac1l\right)
+ \leq\frac Ch\log(2A).
+\end{equation}
+Average this sharper variation over strips before the vertical quadrature
+step. Its local-output error is at most $CD_0\log(2A)/(hBw)$;
+physical scaling gives the second term in~\eqref{eq:harmonic}.
+The horizontal quadrature term is unchanged.
+\end{proof}
+The resolving relation $Bw=A\to\infty$ expresses a vertical sampling
+spacing fine enough to resolve an actual horizontal interval. A Frostman
+bound or a numerical branching profile does not imply either lemma.

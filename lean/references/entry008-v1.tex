@@ -1,0 +1,480 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{needspace}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\ind}{\mathbf 1}\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\Ptwo}{\mathcal P_2}\newcommand{\eps}{\varepsilon}
+\DeclareMathOperator{\Var}{Var}
+\title{Density overlap and a sharp boundary phase diagram\\for moment-controlled Brenier stability}
+\author{mxym\thanks{Repository-account attribution: \url{https://github.com/mxym/math}. Prepared with AI assistance. No institutional affiliation is asserted.}}
+\date{October 7, 2026\quad Version 1}
+\hypersetup{pdfauthor={mxym},pdflang={en-US}}
+\begin{document}\maketitle
+\begin{abstract}
+We replace an untruncated density-translation ratio by its bounded overlap loss in convex-gradient interpolation. Sobolev regularity of a density root then supplies one-third Brenier-map stability; finite Fisher information suffices on bounded fourth-moment target classes. For an explicit family of fixed strongly log-concave sources whose density vanishes to order $\beta$ at one boundary, we determine the entire optimal modulus on bounded $p$th-moment target classes, $p>2$. The transition occurs at $\beta=2/(p-2)$. Below it the sharp modulus is a smaller power; above it the sharp power is one third. At equality a logarithmic correction is necessary and sufficient. A mass-matched multiscale construction, rather than a single rare-atom example, proves the critical logarithm sharp. The independent interpolation argument needs no log-concavity. The transport upper bounds explicitly use the centered-potential estimate in manuscript 001; the lower bounds are direct convex-potential constructions.
+\end{abstract}
+\paragraph{Status and attribution.}
+Complete written proof draft; not independently peer reviewed or proof-assistant formalized. The signed-square and minimum-weight mechanism is adapted from 001 v3 and 007 v2~\cite{M001,M007}. Unlike their full translation-ratio estimate, the present proof only uses losses bounded between zero and one. The source-specific upper bounds use the precise potential estimate stated below. The two-atom and three-atom mechanisms have precedents in those manuscripts; the boundary-order classification and the simultaneous mass-matched critical construction are the proposed increments. No journal-tier or priority certification is asserted. Exact finite regressions check identities and finite constructions, not the general analytic proof.
+
+\section{Main results and source family}
+Fix $d\ge2$, $p>2$, and set $s=p/(p-2)$. For a fixed absolutely continuous source $\rho$, let $T_\mu$ denote its quadratic Brenier map to $\mu$. Define the bounded target class and its uniform modulus by
+\[
+ \mathcal C_p=\left\{\mu:\int|y|^p\,d\mu(y)\le1\right\},\qquad
+ \Omega_{\rho,p}(w)=\sup_{\substack{\mu,\nu\in\mathcal C_p\\W_2(\mu,\nu)\le w}}
+                  \norm{T_\mu-T_\nu}_{L^2(\rho)}.
+\]
+All constants below may depend on the fixed source, $p$, and $d$, but not on the target measures or $w$.
+
+Let
+\begin{equation}\label{eq:source}
+ f_\beta(x)=c_\beta x^\beta e^{-x^2/2}\ind_{\{x>0\}},\qquad
+ g(z)=c_g e^{-1/(1-z^2)}\ind_{\{|z|<1\}},\qquad
+ r_\beta(x)=f_\beta(x_1)\prod_{j=2}^d g(x_j),
+\end{equation}
+where $\beta\ge0$ and the positive constants normalize the densities. Its support interior is the open convex set
+$D=(0,\infty)\times(-1,1)^{d-1}$. On $D$ the Hessian of $-\log r_\beta$ is at least the identity, since
+\[
+ (-\log f_\beta)''=1+\beta/x^2,\qquad
+ (-\log g)''=\frac{2(1+3z^2)}{(1-z^2)^3}\ge2.
+\]
+It is strongly log-concave in the extended-valued sense, with a hard domain boundary but a specified vanishing density. Only the first boundary has finite-order vanishing; $g$ vanishes to infinite order at both endpoints.
+
+\begin{theorem}[Complete boundary-order modulus]\label{thm:phase}
+For the single fixed source $\rho_\beta=r_\beta\,dx$ and every $p>2$,
+\begin{equation}\label{eq:phase}
+ \boxed{\quad\Omega_{\rho_\beta,p}(w)\asymp
+ \begin{cases}
+ w^{\frac{(\beta+1)(p-2)}{2p+(\beta+1)(p-2)}},
+       &0\le\beta<\dfrac{2}{p-2},\\[2mm]
+ w^{1/3}\bigl(1+\log(1/w)\bigr)^{\frac{p-2}{3p}},
+       &\beta=\dfrac{2}{p-2},\\[2mm]
+ w^{1/3},&\beta>\dfrac{2}{p-2},
+ \end{cases}\qquad(w\downarrow0).\quad}
+\end{equation}
+Here $\asymp$ means two-sided bounds with positive constants for every sufficiently small $w$, not merely along a sequence. At the critical line a pure one-third bound fails, and the logarithmic exponent cannot be reduced. Below the line two-atom targets suffice for sharpness; above it three-atom targets suffice. The critical lower bound uses finitely supported targets with a number of atoms growing logarithmically as $w$ decreases.
+\end{theorem}
+
+The theorem is for this explicit family, not a classification of every log-concave source. In dimension one an atomless source instead has $\norm{T_\mu-T_\nu}_2=W_2(\mu,\nu)$, so the restriction $d\ge2$ is substantive.
+
+\begin{theorem}[Finite-information criterion]\label{thm:fisher}
+Suppose $r$ is a probability density, supported in an open convex domain $D$, for which centered finite convex transport potentials satisfy
+\begin{equation}\tag{P}\label{eq:P}
+ \norm{U_\mu-U_\nu}_{L^2(r)}\le K_\rho W_2(\mu,\nu)
+ \qquad(\mu,\nu\in\Ptwo(\R^d)).
+\end{equation}
+If $r^{1/s}\in W^{1,s}(\R^d)$, with $r$ extended by zero off its support, then
+\[
+ \Omega_{\rho,p}(w)\le C w^{1/3}.
+\]
+In particular, finite Fisher information in the global Sobolev sense,
+\[
+ \mathcal I(r):=4\int_{\R^d}|\nabla\sqrt r|^2<\infty,
+ \qquad\sqrt r\in W^{1,2}(\R^d),
+\]
+suffices for every $p\ge4$. The threshold four cannot be lowered for this assertion about all strongly log-concave sources with finite Fisher information: for every $2<p<4$ there is a fixed such source for which a one-third bound fails.
+\end{theorem}
+
+Strongly log-concave sources, including~\eqref{eq:source}, satisfy (P) with $K_\rho=\sqrt{2/\kappa}$ by the explicitly cited theorem of 001 v3~\cite{M001}. This is an imported theorem of the research collection, not a new independent proof of it. The lower bounds in Sections~\ref{sec:subcritical}--\ref{sec:critical} do not use (P).
+
+\section{Overlap loss and convex-gradient interpolation}\label{sec:overlap}
+Throughout this section $D$ is open and convex, $r\ge0$ has integral one and vanishes almost everywhere outside $D$, and $u,v$ are finite convex functions on $D$. Assume $u-v$ is square-integrable up to a constant and $\nabla u,\nabla v\in L^p(r)$. Set
+\[
+ \delta=\inf_{a\in\R}\norm{u-v-a}_{L^2(r)},\qquad
+ X=\norm{\nabla u-\nabla v}_{L^2(r)}.
+\]
+For $h>0$ define the bounded relative losses
+\[
+ L_{j,\pm,h}(x)=\left(1-\frac{r(x\pm he_j)}{r(x)}\right)_+
+ \quad\text{where }r(x)>0,
+\]
+and give them value zero where $r=0$. Write
+\[
+ \Xi_{r,s}(h)=\max_{j,\pm}\norm{L_{j,\pm,h}}_{L^s(r)},\qquad
+ B_{r,s}(h)=\max_j\norm{r^{1/s}(\cdot+he_j)-r^{1/s}}_{L^s(dx)}.
+\]
+The norm in $B$ is with respect to Lebesgue measure, unlike the one in $\Xi$. Both definitions make sense with zeros in the density and do not require ratios to be bounded above.
+
+\begin{lemma}[Density-root control]\label{lem:root}
+For every $h>0$,
+\begin{equation}\label{eq:loss-root}
+ \Xi_{r,s}(h)\le s B_{r,s}(h).
+\end{equation}
+If $r^{1/s}\in W^{1,s}(\R^d)$, then
+\[
+ B_{r,s}(h)\le h\max_j\norm{\partial_j r^{1/s}}_{L^s(dx)}.
+\]
+\end{lemma}
+\begin{proof}
+For $0\le b\le a$, $a>0$, write $t=(b/a)^{1/s}\in[0,1]$. Convexity of $t\mapsto t^s$ gives $1-t^s\le s(1-t)$, hence
+\[
+ a(1-b/a)^s\le s^s(a^{1/s}-b^{1/s})^s.
+\]
+Apply this pointwise to $a=r(x)$ and $b=r(x\pm he_j)$ on the region where $a\ge b$, integrate, and take $s$th roots. The positive and negative translate differences have equal Lebesgue norms. The Sobolev translation bound follows by integrating the weak derivative along almost every coordinate line and applying Minkowski; smooth approximation gives the same argument for every $W^{1,s}$ function.
+\end{proof}
+
+\begin{theorem}[Overlap interpolation]\label{thm:interpolation}
+For every $h>0$,
+\begin{equation}\label{eq:overlap-interpolation}
+ \boxed{X^2\le12d h^{-2}\delta^2+
+ 14\Xi_{r,s}(h)\sum_{j=1}^d
+ \left(\norm{\partial_j u}_{L^p(r)}^2+
+       \norm{\partial_j v}_{L^p(r)}^2\right).}
+\end{equation}
+No log-concavity, differentiability, or strict positivity of the density is assumed.
+\end{theorem}
+\begin{proof}
+Fix a coordinate and suppress its index. Put $m_h(x)=\min(r(x),r(x+he_j))$. Define difference quotients only on pairs of points in $D$; this includes the region where $m_h>0$. Convexity of $D$ keeps the segment between the endpoints in $D$. Local absolute continuity of convex functions on coordinate lines gives, almost everywhere on this region,
+\[
+ z(x):=\partial_j u(x)\le D_{j,h}u(x)\le z(x+he_j).
+\]
+For $A\le B$, the elementary signed-square inequality is
+\[
+ (B-A)^2\le2(B|B|-A|A|).
+\]
+Consequently, with $G=z|z|$,
+\begin{equation}\label{eq:error}
+ \int|D_{j,h}u-z|^2m_h
+ \le2\int(G(x+he_j)-G(x))m_h(x)\,dx.
+\end{equation}
+Extend $G$ arbitrarily by zero outside $D$. Both translated terms are absolutely integrable: after a change of variables their weights are at most $r$, and $G\in L^1(r)$. Thus the last integral before the factor two is exactly
+\begin{align*}
+ \int G(x)\bigl(m_h(x-he_j)-m_h(x)\bigr)\,dx
+ &=\int G(x)r(x)
+       \bigl(L_{j,+,h}(x)-L_{j,-,h}(x)\bigr)\,dx\\
+ &\le2\Xi_{r,s}(h)\norm z_{L^p(r)}^2.
+\end{align*}
+Here $s$ and $p/2$ are conjugate. Hence the error in~\eqref{eq:error} is at most $4\Xi\norm z_p^2$. This uses bounded losses on \emph{both} sides of the same point; it does not estimate an untruncated ratio $r(x+h)/r(x)$.
+
+For $f=u-v-a$, both endpoints of its difference quotient are controlled by their original density, so
+\[
+ \int|D_{j,h}f|^2m_h\le4h^{-2}\int|f|^2r.
+\]
+Decompose $\partial_j u-\partial_j v$ into this difference quotient and the two individual errors. The three-term square inequality gives on $m_h$ the bound
+\[
+ 12h^{-2}\norm f_2^2+12\Xi
+       (\norm{\partial_j u}_p^2+\norm{\partial_j v}_p^2).
+\]
+The remaining weight satisfies $r-m_h=rL_{j,+,h}$, so H\"older and $|a-b|^2\le2(a^2+b^2)$ bound its contribution by
+$2\Xi(\norm{\partial_j u}_p^2+\norm{\partial_j v}_p^2)$.
+Sum over coordinates and infimize over $a$. This proves the stated coefficient fourteen. All changes of variables were on absolutely integrable functions; no boundary derivative of $r$ is used.
+\end{proof}
+
+\begin{corollary}[A general transport modulus]\label{cor:transport}
+Under (P), with
+$M=\norm{T_\mu}_{L^p(r)}+\norm{T_\nu}_{L^p(r)}$ and $w=W_2(\mu,\nu)$,
+\begin{equation}\label{eq:general-transport}
+ \norm{T_\mu-T_\nu}_2^2
+ \le\inf_{0<h\le1}\left\{12dK_\rho^2w^2h^{-2}
+                          +14dM^2\Xi_{r,s}(h)\right\}.
+\end{equation}
+If $\Xi(h)\le C h^\sigma$, $0<\sigma\le1$, the resulting bound is
+$C' M^{2/(2+\sigma)}w^{\sigma/(2+\sigma)}$. If
+$\Xi(h)\le C h(1+\log(1/h))^a$, $a\ge0$, then for $0<w\le M$
+\[
+ \norm{T_\mu-T_\nu}_2
+ \le C'M^{2/3}w^{1/3}(1+\log(M/w))^{a/3}.
+\]
+\end{corollary}
+\begin{proof}
+The pushforward identity identifies gradient $p$-norms with target moments, and the coordinate norm sum is at most $dM^2$. Apply (P) and Theorem~\ref{thm:interpolation}. For a power, choose $h=(w/M)^{2/(2+\sigma)}$; for the logarithmic bound choose
+$h=(w/M)^{2/3}(1+\log(M/w))^{-a/3}$.
+These are in $(0,1]$ and give the claimed estimates by substitution. The inequality $w\le M$ follows from the triangle inequality through $\delta_0$ and $L^2\le L^p$. Zero cases follow from uniqueness of the transport map.
+\end{proof}
+
+\section{Sobolev information and the fourth-moment threshold}\label{sec:fisher}
+\begin{proof}[Proof of the positive assertions in Theorem~\ref{thm:fisher}]
+Lemma~\ref{lem:root} gives $\Xi(h)\le s h\max_j\norm{\partial_jr^{1/s}}_s$. Apply Corollary~\ref{cor:transport} with $\sigma=1$ and note $M\le2$ on $\mathcal C_p$.
+
+For finite Fisher information and $1<s\le2$, the Sobolev chain rule and truncation give
+\[
+ \partial_j r^{1/s}=\frac2s r^{1/s-1/2}\partial_j\sqrt r,
+\]
+with the derivative assigned zero at zeros of $r$. H\"older yields
+\[
+ \int|\partial_j r^{1/s}|^s
+ \le(2/s)^s\left(\int r\right)^{1-s/2}
+                \left(\int|\partial_j\sqrt r|^2\right)^{s/2}.
+\]
+One rigorous way to obtain the global chain rule is to apply it to powers of $\min(\sqrt r,N)$, whose scalar derivatives are bounded because $2/s\ge1$, and pass to the limit using this bound and $r^{1/s}\in L^s$. Thus $r^{1/s}\in W^{1,s}$ for $s\le2$, equivalently $p\ge4$.
+\end{proof}
+
+When $r$ is strictly positive and smooth on all of $\R^d$, the Sobolev quantity is the score moment:
+\[
+ s^s\int|\partial_jr^{1/s}|^s
+ =\int|\partial_j\log r|^s r.
+\]
+For supported densities, the global root condition is essential. Merely integrating the classical interior score misses a jump at the support boundary; a uniform density is not a finite-Fisher example in the above global sense.
+
+A useful variant interpolates information orders. If $r^{1/t}\in W^{1,t}$ for some $t>1$, then for $s>t$, since $0\le L_{j,\pm,h}\le1$,
+\[
+ \Xi_{r,s}(h)\le\Xi_{r,t}(h)^{t/s}=O(h^{t/s}).
+\]
+For $s\le t$, H\"older on the probability space gives $\Xi_{r,s}(h)\le\Xi_{r,t}(h)=O(h)$. Thus an information order $t$ yields the power
+\[
+ \frac{\min\{1,t(p-2)/p\}}{2+\min\{1,t(p-2)/p\}}.
+\]
+This is a sufficient hierarchy; no source-by-source necessity is asserted for arbitrary densities.
+
+\section{Root regularity and the upper half of the phase diagram}\label{sec:upper}
+\begin{lemma}[Boundary root translations]\label{lem:beta}
+For~\eqref{eq:source}, $s>1$ and $0<h<1/4$,
+\[
+ B_{r_\beta,s}(h)\le C_{\beta,s,d}
+ \begin{cases}
+ h^{(\beta+1)/s},&\beta<s-1,\\
+ h(1+\log(1/h))^{1/s},&\beta=s-1,\\
+ h,&\beta>s-1.
+ \end{cases}
+\]
+For the first marginal these orders are also lower bounds up to constants. In particular $\sqrt{r_\beta}\in W^{1,2}(\R^d)$ exactly when $\beta>1$.
+\end{lemma}
+\begin{proof}
+Consider $F(x)=f_\beta(x)^{1/s}=C x_+^{\beta/s}e^{-x^2/(2s)}$. The portion of
+$\int|F(x+h)-F(x)|^s dx$ with $-h<x<2h$ is at most $C h^{\beta+1}$. On $x\ge2h$, integrate the derivative between the endpoints and use H\"older in that interval, followed by Tonelli. Its contribution is at most
+\[
+ C h^s\left(1+\int_h^1 x^{\beta-s}\,dx\right).
+\]
+Indeed $|F'(x)|\le C(x^{\beta/s-1}+x^{\beta/s+1})e^{-x^2/(2s)}$ for $x>0$; omitting the first term when $\beta=0$ only improves the upper bound. These two estimates give the three cases. The emerging part $-h<x<0$ proves the lower order in the first case. At $\beta=s-1>0$, on $2h<x<c$ the derivative has fixed sign and magnitude bounded below by a multiple of $x^{\beta/s-1}$, yielding $c h^s\log(1/h)$. Above the threshold any fixed small interval where $F'$ is nonzero gives a lower bound $c h^s$.
+
+For each other marginal $g$, its root has derivative in $L^s$ for every finite $s$: differentiating gives a polynomial boundary factor multiplied by $e^{-1/(s(1-z^2))}$, which dominates that factor at both endpoints. Its zero extension has zero trace. In a product density the other root factors have $L^s$ norm one, so coordinate translation norms factor exactly. This proves the multidimensional upper bound. Finally, near zero $|\partial_x\sqrt{f_\beta}|^2$ behaves as a positive multiple of $x^{\beta-2}$ when $\beta>0$, giving integrability precisely for $\beta>1$; $\beta=0$ has a nonzero trace jump. The other marginals introduce no obstruction.
+\end{proof}
+
+Apply (P), Lemmas~\ref{lem:root} and \ref{lem:beta}, and Corollary~\ref{cor:transport}. With $s=p/(p-2)$ this proves the upper bounds in~\eqref{eq:phase}. At the critical line the logarithmic exponent is exactly $1/(3s)=(p-2)/(3p)$, not an unspecified logarithmic loss.
+
+\section{Subcritical sharpness from one rare cell}\label{sec:subcritical}
+Write $\eta=\beta+1$ and let $X,Z$ be independent with densities $f_\beta,g$. Let
+$F(t)=\Pr(X<t)$ for $t\ge0$, and $F(t)=0$ for $t<0$. Then
+\[
+ F(t)\sim A_\beta t^\eta\quad(t\downarrow0),\qquad
+ F(t)\le A_\beta t^\eta\quad(t\ge0).
+\]
+Fix $k=1/4$, and for each small $a>0$ choose $c_a$ such that
+\begin{equation}\label{eq:rare-match}
+ \E F(a(c_a+kZ))=F(a)=:m_a.
+\end{equation}
+The left side is continuous and strictly increasing over the relevant positive range. Comparing $c=1-k$ and $c=1+k$ gives a unique $c_a\in(1-k,1+k)$. In particular all $c_a+kZ$ are positive. Uniform convergence on this compact range gives
+\[
+ c_a\to c_0,\qquad \E(c_0+kZ)^\eta=1.
+\]
+The central cells $A_a=\{X<a\}$ and $C_a=\{X<a(c_a+kZ)\}$ have equal mass and
+\begin{equation}\label{eq:rare-difference}
+ \frac{\rho(A_a\triangle C_a)}{m_a}
+ =\frac{\E|F(a(c_a+kZ))-F(a)|}{F(a)}
+ \longrightarrow\E|(c_0+kZ)^\eta-1|>0.
+\end{equation}
+The positivity follows because $Z$ is nondegenerate and the power is strictly increasing.
+
+Put $R_a=m_a^{-1/p}$, $b_a=ka$ and $v_a=(-e_1+b_ae_2)/\sqrt{1+b_a^2}$. Use targets
+\[
+ \mu_a=(1-m_a)\delta_0+m_a\delta_{-R_ae_1},\qquad
+ \nu_a=(1-m_a)\delta_0+m_a\delta_{R_av_a}.
+\]
+Both $p$th moments are exactly one. Explicit finite convex potentials are
+\[
+ u_a(x)=R_a(a-x_1)_+,\qquad
+ v_a^{\rm pot}(x)=\frac{R_a}{\sqrt{1+b_a^2}}
+                      (ac_a-x_1+b_ax_2)_+.
+\]
+Their gradients have the specified target laws, and the integrated supporting-plane inequality proves their quadratic optimality. Let
+$\Delta_a=|-e_1-v_a|\sim ka$. Matching the rare atoms is optimal among target couplings: a matched mass $t$ gives cost
+$R_a^2(t\Delta_a^2+2(m_a-t))$, decreasing in $t$ because $\Delta_a^2<2$. Hence
+\begin{align*}
+ W_2(\mu_a,\nu_a)^2&=m_aR_a^2\Delta_a^2,\\
+ \norm{T_{\mu_a}-T_{\nu_a}}_2^2
+ &=R_a^2\bigl(\rho(A_a\triangle C_a)
+                  +\Delta_a^2\rho(A_a\cap C_a)\bigr).
+\end{align*}
+Consequently, with $\theta=1/2-1/p$,
+\[
+ W_2(\mu_a,\nu_a)\asymp a^{1+\eta\theta},\qquad
+ \norm{T_{\mu_a}-T_{\nu_a}}_2\asymp a^{\eta\theta}.
+\]
+Choosing $a=(w/C)^{1/(1+\eta\theta)}$ with a sufficiently large fixed $C$ proves the first lower bound in~\eqref{eq:phase} for every small $w$. This argument supplies a lower bound in other parameter ranges as well, but not the strongest one there.
+
+It also completes the threshold assertion in Theorem~\ref{thm:fisher}: if $2<p<4$, choose
+$1<\beta<2/(p-2)$. Lemma~\ref{lem:beta} gives finite Fisher information, while the exponent just proved is strictly smaller than one third. No source-dependent finite constant can restore the latter exponent for that fixed source.
+
+\section{Interior one-third sharpness}\label{sec:interior}
+We verify sharpness for each particular source~\eqref{eq:source}, rather than infer it from another member of a class. Use the symmetric coordinate $Z=x_2$ for the strip, and the nondegenerate coordinate $X=x_1$ for the perturbation. Write $Q(t)=\Pr(|Z|<t)$ for $t\ge0$, and zero otherwise. Then
+$Q(t)/t\to2g(0)>0$ at zero and $Q(t)\le C t_+$ on $\R$.
+Choose $k>0$ so small that $k\E X<1$, and define $c_a$ by
+\[
+ \E Q(c_a+kaX)=Q(a)=:m_a.
+\]
+Continuity and monotonicity give a solution; strictness holds at these small positive masses. Dominated convergence, using $Q(t)\le Ct_+$ and the finite first moment of $X$, and monotone bracketing show
+\[
+ c_a/a\to c_0=1-k\E X>0.
+\]
+The potentials
+\[
+ u_a=\max(-x_2,x_2,a),\qquad
+ v_a=\max(-x_2,x_2,c_a+ka x_1)
+\]
+have outer gradient atoms $\pm e_2$ with equal unchanged masses and central gradient atoms $0$ and $kae_1$ with mass $m_a$. Symmetry of $g$ proves the equal outer masses conditionally for each $X$; it is not an assumption of symmetry for $X$. The central-cell symmetric difference divided by $a$ tends to
+\[
+ 2g(0)\E|c_0+kX-1|>0.
+\]
+The same domination justifies this limit even though $X$ is unbounded. All target atoms lie in $B_1$ for small $a$, so the targets belong to every $\mathcal C_p$. The same-label coupling has cost $m_a k^2a^2=O(a^3)$, while the map discrepancy squared is bounded below by the symmetric-difference mass, hence by $c a$. Choosing $a=(w/C)^{2/3}$ proves
+$\Omega_{\rho_\beta,p}(w)\ge c w^{1/3}$ for every small $w$.
+
+\section{The critical logarithm: a mass-matched multiscale construction}\label{sec:critical}
+Assume now $\beta=s-1=2/(p-2)>0$, and use $X=x_1$, $Z=x_2$. Only their two coordinates are involved. All constants in this section are independent of the number of scales and of the small strip width.
+
+\subsection{Exact mass matching at separated locations}
+Fix $k=1/4$, an integer $K\ge1$, and
+\[
+ t_n=2^{-n},\qquad R_n=t_n^{-\beta/2}\quad(1\le n\le K).
+\]
+Take $0<h\le\eps t_K$, with a sufficiently small fixed $\eps>0$ chosen below. The intervals $[t_n-3h,t_n+3h]$ are then positive and disjoint. Let
+\[
+ H_h(y)=\E F(y+khZ),\quad
+ \ell_n=H_h^{-1}(F(t_n-h)),\quad
+ r_n=H_h^{-1}(F(t_n+h)),
+\]
+where $F$ is the first marginal distribution function. The inverse is well defined on these levels: $H_h$ is continuous and strictly increasing on the positive region in question. The elementary bounds
+$F(y-kh)\le H_h(y)\le F(y+kh)$ give
+\begin{equation}\label{eq:inverse-bounds}
+ |\ell_n-(t_n-h)|\le kh,\qquad
+ |r_n-(t_n+h)|\le kh.
+\end{equation}
+Moreover, uniformly in $n,K,h$ in the prescribed range,
+\begin{equation}\label{eq:inverse-fine}
+ \ell_n=t_n-h+O(h^2/t_n),\qquad
+ r_n=t_n+h+O(h^2/t_n).
+\end{equation}
+Indeed $Z$ is symmetric with mean zero. Taylor's theorem for $F$ gives
+$|H_h(y)-F(y)|\le C h^2\sup_{|z-y|\le kh}|f_\beta'(z)|$.
+On $|y-t_n|\le3h$, $f_\beta(y)\asymp f_\beta(t_n)$ and
+$|f_\beta'(y)|\le C f_\beta(t_n)/t_n$, because
+$f_\beta'/f_\beta=\beta/y-y$ and $0<t_n\le1/2$. Also $H_h'(y)\ge c f_\beta(t_n)$ there. Apply the mean value theorem after the coarse bound~\eqref{eq:inverse-bounds}.
+
+Put
+\[
+ d_n=(\ell_n+r_n)/2,\qquad \gamma_n=(r_n-\ell_n)/(2h).
+\]
+By~\eqref{eq:inverse-bounds}, $|d_n-t_n|\le kh$ and
+$1-k\le\gamma_n\le1+k$. Therefore all half-widths
+$h(\gamma_n+kz)$, $|z|\le1$, are positive and less than $2h$.
+Define the original and perturbed central strips by
+\[
+ A_n=\{t_n-h<X<t_n+h\},\qquad
+ C_n=\{\ell_n-khZ<X<r_n+khZ\}.
+\]
+Their masses are exactly equal:
+\begin{equation}\label{eq:two-cumulative}
+ \E F(\ell_n-khZ)=F(t_n-h),\qquad
+ \E F(r_n+khZ)=F(t_n+h).
+\end{equation}
+For the first equality use symmetry of $Z$. These are two separate cumulative equations, so they preserve \emph{both} neighboring outer-cell masses as well as the central mass. Merely matching the central mass would not suffice for the construction.
+
+Let $m_n=\rho(A_n)=\rho(C_n)$ and $D_n=\rho(A_n\triangle C_n)$. Uniformly for sufficiently small fixed $\eps$,
+\begin{equation}\label{eq:local-estimates}
+ c f_\beta(t_n)h\le m_n,D_n\le C f_\beta(t_n)h.
+\end{equation}
+For $m_n$ use the local comparability of the density. For $D_n$, compare the perturbed endpoints with $t_n\pm h\pm khZ$ using~\eqref{eq:inverse-fine}. The latter intervals have symmetric-difference length $2kh|Z|$. The endpoint errors change this length by at most $C h^2/t_n$. The actual intervals overlap and all their points are within $3h$ of $t_n$, by~\eqref{eq:inverse-bounds} and $k=1/4$. Thus
+\[
+ D_n=2kh f_\beta(t_n)\E|Z|+O(f_\beta(t_n)h^2/t_n).
+\]
+Since $\E|Z|>0$, choose $\eps$ so small that the uniform error is at most half the leading term. This proves~\eqref{eq:local-estimates} with constants independent of $K$.
+
+\subsection{Global convex potentials realizing all local strips}
+Consider the one-dimensional convex broken lines
+\[
+ \Phi(x)=\sum_{n=1}^K2R_n(t_n-x)_+,\qquad
+ \widetilde\Phi(x)=\sum_{n=1}^K2R_n(d_n-x)_+.
+\]
+They have the same successive slopes and ordered cusp locations. At the $n$th cusp let $q_n$ be the average of the two adjacent slopes. Let
+\[
+ L_n(x)=\Phi(t_n)+q_n(x-t_n),\quad
+ \widetilde L_n(x)=\widetilde\Phi(d_n)+q_n(x-d_n).
+\]
+Both are supporting affine functions. In the interval up to the neighboring cusps,
+$\Phi(x)-L_n(x)=R_n|x-t_n|$, and globally this is a lower bound; the analogous statement holds for $\widetilde\Phi$.
+Define finite convex maxima on $\R^d$ by
+\begin{align}
+ U_h(x)&=\max\left\{\Phi(x_1),\ L_n(x_1)+R_nh:1\le n\le K\right\},\label{eq:multi-u}\\
+ V_h(x)&=\max\left\{\widetilde\Phi(x_1),\
+ \widetilde L_n(x_1)+R_nh\gamma_n+R_nhk x_2:1\le n\le K\right\}.
+ \label{eq:multi-v}
+\end{align}
+A central plane in~\eqref{eq:multi-u} can dominate only in $A_n$, where the local equality shows that it does dominate. The same reasoning gives exactly $C_n$ for~\eqref{eq:multi-v}, on the source domain $|x_2|<1$. Separation of the windows prevents any other central plane from interfering. The broken lines themselves are finite affine maxima, so these are genuine global convex functions, not independently prescribed gradient patches.
+
+The target gradient atoms outside the strips are the same outer slopes in both constructions. The $n$th central atoms are
+$q_ne_1$ and $q_ne_1+R_nhk e_2$. Equations~\eqref{eq:two-cumulative} imply equality of each outer-cell mass: between consecutive strips it is a difference of the corresponding two expected cumulative endpoints. The extreme cells satisfy the same assertion. Thus all atom labels have exactly matching masses.
+
+At each central mismatch the horizontal slope difference is exactly $R_n$ in magnitude. The two central intervals always overlap, so a point cannot move directly from the left outer label to the right outer label. On every perturbed central cell the vertical difference is $R_nhk$. Therefore the exact cost identity is
+\begin{equation}\label{eq:map-exact}
+ \norm{\nabla U_h-\nabla V_h}_{L^2(\rho)}^2
+ =\sum_{n=1}^K R_n^2D_n
+  +k^2h^2\sum_{n=1}^K R_n^2m_n.
+\end{equation}
+The same-label target coupling has cost
+\begin{equation}\label{eq:coupling-upper}
+ W_2((\nabla U_h)_\#\rho,(\nabla V_h)_\#\rho)^2
+ \le k^2h^2\sum_{n=1}^K R_n^2m_n.
+\end{equation}
+No claim that this coupling is optimal is needed. Convexity and the gradient pushforwards identify these maps as Brenier maps; all potentials have finite slopes for each fixed $K,h$, so the supporting-plane argument is integrable.
+
+\subsection{Uniform moment normalization}
+There is a fixed $C_0<\infty$, depending only on $\beta,p$ and the source, such that
+\begin{equation}\label{eq:moment-bound}
+ \int\bigl(|\nabla U_h|^p+|\nabla V_h|^p\bigr)\,d\rho\le C_0(K+1).
+\end{equation}
+To verify it, the geometric sums of adjacent slope jumps are bounded by a fixed multiple of the largest local $R_n$, since $\beta>0$. The shifted cusps move at most $kh$, so on $0<x_1<1$ every active horizontal slope is at most
+\[
+ C\min\{x_1^{-\beta/2},t_K^{-\beta/2}\}
+\]
+in magnitude, and all slopes vanish for $x_1\ge1$. On a central cell the vertical slope is at most a fixed multiple of the same quantity, because $hk\le1$ and the cell is near its cusp. Near zero integrate the constant cap against $Cx_1^\beta dx$. On $t_K<x_1<1$ use the critical identity
+$\beta p/2=\beta+1$, giving
+\[
+ \int_{t_K}^1 x_1^{\beta-\beta p/2}\,dx_1
+ =\int_{t_K}^1\frac{dx_1}{x_1}=K\log2.
+\]
+The capped part is bounded independently of $K$. This proves~\eqref{eq:moment-bound}.
+
+Scale both potentials by $\lambda_K=(C_0(K+1))^{-1/p}$, increasing $C_0$ if necessary. Both induced targets then belong to $\mathcal C_p$. Since
+$R_n^2f_\beta(t_n)=c_\beta e^{-t_n^2/2}$ is uniformly bounded above and below, equations~\eqref{eq:local-estimates}--\eqref{eq:coupling-upper} yield
+\begin{equation}\label{eq:critical-costs}
+ \norm{T_{\mu_{K,h}}-T_{\nu_{K,h}}}_2
+ \ge c K^{1/(2s)}h^{1/2},\qquad
+ W_2(\mu_{K,h},\nu_{K,h})\le C_1 K^{1/(2s)}h^{3/2}
+\end{equation}
+for $K\ge1$ and $0<h\le\eps2^{-K}$. The constants are uniform over both variables. This is the step where accumulating many scales creates a logarithm; one rare cell only gives the critical power.
+
+\subsection{Lower bound for every small target distance}
+For any sufficiently small $w>0$ choose
+\[
+ K=\left\lfloor\tfrac14\log_2(1/w)\right\rfloor,\qquad
+ h=\left(\frac{w}{C_1K^{1/(2s)}}\right)^{2/3}.
+\]
+Then $K\asymp1+\log(1/w)$ and $h/2^{-K}\to0$, because $h$ has the power $w^{2/3}$ whereas $2^{-K}$ is comparable to $w^{1/4}$. Thus all preceding uniform estimates apply. The second bound in~\eqref{eq:critical-costs} is at most $w$, and the first becomes
+\[
+ \Omega_{\rho_\beta,p}(w)
+ \ge c w^{1/3}K^{1/(3s)}
+ \ge c' w^{1/3}(1+\log(1/w))^{1/(3s)}.
+\]
+Combined with the upper bound, this completes Theorem~\ref{thm:phase}, including the critical logarithm. In particular it proves failure of the endpoint pure power, not merely sharpness of a supremal H\"older exponent.
+
+\section{Verification scope, dependencies, and limitations}
+The proof uses the following logically separate inputs. The overlap interpolation, density-root estimates, and every lower-bound construction are proved in this paper. The transport upper bounds use (P); for the displayed sources it is supplied by 001 v3. This dependence is essential and remains subject to the verification status of that manuscript. The novel lower-bound mechanism is preserved even without assuming (P), although the matched two-sided classification would then not be certified.
+
+The accompanying standard-library Python program checks the bounded-loss/root inequality and the signed-square change-of-variables identity using exact rational step densities and monotone slopes. A second exact check builds the entire finite affine maxima in a rational two-dimensional model. It independently clips every pair of cells, integrates their polynomial density, verifies each labeled target mass, and replays the map-cost identity and target-coupling upper bound. Its rational model uses a linear first-coordinate density and a uniform transverse density so that mass matching can be expressed by rational hyperbola parametrizations. It verifies the finite construction mechanism; it is not a numerical certificate for the smooth transverse density in the theorem. The general estimates and critical limiting regime are the analytic proofs above.
+
+No finite check is substituted for a universal quantifier. The critical lower bounds use increasing numbers of atoms; we do not assert the same logarithmic obstruction for a fixed atom count. Finite Fisher information is sufficient under the potential estimate, not a necessary condition for one-third stability of every source. The explicit phase diagram concerns the family~\eqref{eq:source}; it is not a classification of all sources by Fisher information or all possible boundary geometries. External bibliographic comparison is focused, not exhaustive. Prior transport stability and potential-interpolation literature include~\cite{DM}; no first-use claim is made for that overall approach.
+
+\begin{thebibliography}{9}
+\bibitem{M001} mxym, \emph{Sharp Brenier stability under target moment bounds}, v3, October 7, 2026, manuscript 001, \texttt{mxym/math}. Pinned snapshot \texttt{5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3}, source blob \texttt{0007edf5e28e4b4b0d34b2043cffd6e13e9f5aed}. In particular the all-$\mathcal P_2$ centered-potential theorem. AI-assisted research draft.
+\bibitem{M007} mxym, \emph{Tail-sensitive convex-gradient interpolation and Brenier stability beyond bounded targets}, v2, October 7, 2026, manuscript 007, \texttt{mxym/math}. Pinned compiled snapshot \texttt{c450c746ea17a90e4b97ca429193b80692056639}. The signed-square/minimum-weight method and single-rare-cell constructions are acknowledged antecedents. AI-assisted research draft.
+\bibitem{O374} OpenAI, \emph{Sharp One-Third Stability of Brenier Maps}, family 374, September 25, 2026, \texttt{openai/math}, pinned snapshot \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}. The original bounded-gradient finite-difference and moving-cell framework is inherited through manuscript 001.
+\bibitem{DM} A. Delalande and Q. M\'erigot, \emph{Quantitative stability of optimal transport maps under variations of the target measure}, Duke Mathematical Journal (2023), DOI \href{https://doi.org/10.1215/00127094-2022-0106}{10.1215/00127094-2022-0106}; arXiv:2103.05934.
+\end{thebibliography}
+\end{document}

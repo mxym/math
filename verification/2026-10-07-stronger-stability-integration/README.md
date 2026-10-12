@@ -1,0 +1,25 @@
+# Stronger endpoint stability: integration and verification
+
+Date: 2026-10-07. These three additive packages retain separate identities and proof/audit scopes. They add exactly 129 public files; all payload bytes and Git modes are preserved from the audited bundles.
+
+## Mathematical scope
+
+- [Integrated-witness simplex stability](../../notes/integrated-witness-simplex-stability/README.md): E(K,S) <= G_d* (a(K)-1/(d+1))^(1/d), for every compact full-dimensional convex body in fixed d >= 3 and every maximum-volume inscribed simplex with its own centroid. Constants and gates are explicit. No symmetry, smoothness, atomicity or uniqueness assumption. The separate truncation ceiling is 1/(d-1); equality of the exponents is not proved.
+- [Stronger symmetric upper stability](../../notes/stronger-symmetric-projection-stability/README.md): D(K,E_d)-1 <= min{d^12 delta^(1/(3d)), d^19 delta^(1/(3(d-1)))}, delta=1/2-a(K), for every origin-symmetric full-dimensional compact convex body in d >= 3 and the entire affine symmetric line/plane product class. Dimensions 1 and 2 have distance one. The remaining obstruction ceiling is 1/d. Intermediate sharpness does not certify optimality of the composed bound.
+- [Historical bibliographic correction](../../notes/quantitative-symmetric-projection-stability-bibliographic-correction/README.md): the original 1/(6d) theorem and all mathematical proofs are unchanged. Seven attribution/comparison corrections have an exact reversible diff. Weil-body, matroid, lift-zonoid and cap antecedents are credited; the Böröczky–De comparison is qualitative. The separate v4 patch is review material only.
+
+Neither stronger result uses a quantitative inverse-Minkowski theorem or the disputed convex-dual product estimate. The [original upper note](../../notes/quantitative-symmetric-projection-stability/README.md) remains immutable; use the separate corrected article as the active historical bibliographic reference. The [lower obstruction](../../notes/simplex-truncation-stability/README.md) remains a separate proof and comparison, not an input to the new positive modulus.
+
+## Verification boundaries
+
+The lower and stronger-upper packages each supply INDEPENDENT_AUDIT.md, VERIFICATION.md, SOURCE_CHANGES.json, MANIFEST.json, package checks and deterministic source.zip. Their analytic model audits cover the written theorems, not merely finite examples. The lower proof environments and all displayed formulas retain their audited mathematics. The standalone upper geometry note now explicitly states Q=-Q; that was already the parent theorem's assumption. Other publication changes are editorial or typesetting-only. The public source-change record redacts a removed private download locator while retaining source/output hash pins; byte-exact reversal was separately checked during the source-preservation audit and is not claimed to be reconstructible from that redacted public record alone. Producer checkers retain their bytes.
+
+Ordinary and optimized Python replays agree. Actual extraction of both clean source archives, fresh-cache PDF rebuilding and repackaging reproduce every public byte with the recorded toolchain. All five lower, 44 stronger-upper and 11 corrected-baseline PDF pages were inspected individually. The corrected baseline's exact reversal, ordinary/optimized replay, archive extraction and all-page visual review also passed. These claims concern the tested package/toolchain, not every possible TeX installation.
+
+The public [payload manifest](PAYLOAD_MANIFEST.json) gives all 129 file sizes, SHA-256 hashes, Git blob SHA-1 hashes and modes. The [integration source map](SOURCE_MAP.json) identifies each additive file and the unchanged baseline boundary. The [release manifest](../../releases/2026-10-07-stronger-stability-and-bibliographic-correction-v1.json) records all changed files, excluding itself explicitly to avoid self-reference. Existing files are preserved except the five named navigation/verification edits. No numbered version source, original note package, original archive or older manifest changes. No build/cache, private audit/staging file, or private staging file is integrated. The separate attribution patch is shipped only as explicitly labelled review material and is not applied.
+
+These are AI-assisted research proofs. Model-assisted analytic audits, finite arithmetic, source identity, artifact reproduction and visual inspection are distinct checks. No novelty, first-priority, best-known rate, optimal composed exponent, external peer review, full Lean/formal verification or journal-acceptance claim is made.
+
+## Immutable review-copy link exception
+
+The before/after v4 review copies preserve the original ../v3/paper.md link relative to their numbered-source layout. In this additive overlay, use the pinned v3 link in the correction bundle’s [DEPENDENCIES.md](../../notes/quantitative-symmetric-projection-stability-bibliographic-correction/DEPENDENCIES.md). These two historical source-relative destinations are not active local package navigation. The copies remain byte-preserved, and the separate v4 attribution patch is not applied.

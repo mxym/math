@@ -1,0 +1,21 @@
+import Entry002.WeakSupplyDirichletGoodBins
+
+#check Entry002.positiveUpperLogGoodBinSupply_of_positiveUpperDirichletSupply
+#print axioms Entry002.supply_dyadicPrimeBatch_log_weight_le
+#print axioms Entry002.supply_dyadicPrimeBatch_card_le
+#print axioms Entry002.supply_dyadic_rpow_discount
+#print axioms Entry002.supply_dyadicPrimeBatch_dirichlet_le
+#print axioms Entry002.supply_dyadicPrimeBatch_card_le_all
+#print axioms Entry002.supply_dyadicPrimeBatch_ratio_le
+#print axioms Entry002.supply_dyadic_discount_nonneg
+#print axioms Entry002.supply_dyadic_discount_lt_one
+#print axioms Entry002.supply_dyadicPrimeBatch_ratio_discount_summable
+#print axioms Entry002.supply_prime_mem_log_dyadic
+#print axioms Entry002.supplyPrimeDirichletSeries_le_dyadic
+#print axioms Entry002.supply_dyadic_bad_ratio_le
+#print axioms Entry002.supply_dyadic_ratio_good_bad_le
+#print axioms Entry002.supply_dyadic_Icc_ratio_good_bad_le
+#print axioms Entry002.supply_dyadic_prefix_good_bad_le
+#print axioms Entry002.supply_dyadic_ratio_discount_tail_le
+#print axioms Entry002.supplyPrimeDirichletSeries_le_good_bin_cutoff
+#print axioms Entry002.positiveUpperLogGoodBinSupply_of_positiveUpperDirichletSupply

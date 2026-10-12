@@ -1,0 +1,51 @@
+name: APPT exact sparse polynomial arithmetic
+on:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/SparsePolynomial.lean'
+      - 'formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean'
+      - 'formalizations/appt-qutrit-purity/SparseArithmeticAudit.lean'
+      - 'formalizations/appt-qutrit-purity/RejectSparseCoefficient.lean'
+      - '.github/workflows/appt-sparse-arithmetic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Compile and independently replay the arithmetic proof closure
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sparse-audit-logs .lake/build/lib/lean/Verification
+          timeout 300 lake build +APPT.SparsePolynomial 2>&1 | tee sparse-audit-logs/build.log
+          timeout 120 lake env lean -j1 -M12288 -o .lake/build/lib/lean/Verification/ReplaySupport.olean Verification/ReplaySupport.lean 2>&1 | tee sparse-audit-logs/support.log
+          timeout 300 lake env lean -j1 -M12288 SparseArithmeticAudit.lean 2>&1 | tee sparse-audit-logs/replay.log
+          grep -F 'EMPTY_KERNEL_REPLAY_PASS' sparse-audit-logs/replay.log
+          grep -F 'CORRUPTED_PROOF_REJECTED' sparse-audit-logs/replay.log
+          set +e
+          timeout 120 lake env lean -j1 -M12288 RejectSparseCoefficient.lean > sparse-audit-logs/negative-coefficient.log 2>&1
+          code=$?
+          set -e
+          echo "$code" > sparse-audit-logs/negative-coefficient.exit
+          test "$code" -eq 1
+          grep -F 'Tactic `decide` proved that the proposition' sparse-audit-logs/negative-coefficient.log
+          grep -F 'is false' sparse-audit-logs/negative-coefficient.log
+          cp sparse-replayed-*.txt sparse-audit-logs/
+          sha256sum APPT/SparsePolynomial.lean Verification/ReplaySupport.lean SparseArithmeticAudit.lean RejectSparseCoefficient.lean lean-toolchain lake-manifest.json > sparse-audit-logs/SHA256SUMS
+          echo SPARSE_ARITHMETIC_AUDIT_PASS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sparse-arithmetic-audit-${{ github.sha }}
+          path: formalizations/appt-qutrit-purity/sparse-audit-logs/

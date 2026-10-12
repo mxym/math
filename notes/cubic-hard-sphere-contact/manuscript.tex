@@ -1,0 +1,400 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem,xcolor}
+\usepackage[breaklinks,colorlinks,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{bookmark,fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Cubic activity correction for hard spheres}\fancyhead[R]{\small Research supplement}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}\setlength{\emergencystretch}{2em}
+\pdfinfoomitdate=0\pdftrailerid{}
+\hypersetup{pdftitle={Cubic activity corrections for the incoming contact law and hard-sphere mean},pdfauthor={},pdfsubject={Research supplement; exact compact-source model review passed}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\R}{\mathbb R}\newcommand{\eps}{\varepsilon}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\E}{\mathbb E}\newcommand{\ind}{\mathbf1}\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Sfd}{S_{\mathrm{fd}}}\newcommand{\U}{\mathcal U}\newcommand{\D}{\mathcal D}
+\title{Cubic activity corrections for the incoming contact law\\and the hard-sphere mean}
+\author{}\date{7 October 2026\quad Research supplement version 1}
+\begin{document}\maketitle
+\begin{abstract}
+For the three-dimensional excluded-product grand-canonical hard-sphere gas, we study the exact second and third activity coefficients with diameter $\eps$, activity scale $\mu=\eps^{-2}$, and empirical normalization $\mu^{-1}$. For smooth compactly supported data, the cubic incoming contact cumulant divided by $\eps$ converges to an explicit infinite-past three-sphere scattering integral. A signed cluster cancellation and three two-encounter geometries give an absolute spatial tail $C/R$. Contact convergence is uniform away from zero in an incoming-flux $L^1$ norm and time-integrated through zero. The cubic mean coefficient then has a first-diameter expansion with a uniform-in-time $o(\eps)$ remainder in total variation. Its equation includes the quadratic correction, a finite-diameter cross term, and a three-body source. Only classical isolated finite-particle flow and scattering facts are imported. No many-particle history package, higher-activity summation, or first-order theorem at unit activity amplitude is asserted.
+\end{abstract}
+\paragraph{Review status.} Independent model checks have passed for the coefficient identity, geometric tail, mean deduction and this exact compact-data formulation. The accompanying sign-off records the reviewed source hash and reproduced ten-page build. This is not external peer review or a novelty claim.
+\tableofcontents
+
+\section{Normalization and conclusions}
+Let $f_0\in C_c^\infty(\R_x^3\times\R_v^3)$ be a nonnegative probability density supported in $|x|\le R_x$, $|v|\le R_v$. Fix any $T<\infty$, put $\mu=\eps^{-2}$, and introduce an auxiliary amplitude $\lambda\ge0$:
+\begin{equation}\label{eq:law}
+ \mathbb P_{\eps,\lambda}(N,\dd Z_N)=\mathcal Z_{\eps,\lambda}^{-1}
+ \frac{(\lambda\mu)^N}{N!}\ind_{\D_N^\eps}(Z_N)f_0^{\otimes N}(Z_N)\dd Z_N,
+ \qquad \D_N^\eps=\{|x_i-x_j|>\eps\ (i\ne j)\}.
+\end{equation}
+The empirical measure is always $\pi_t^\eps=\mu^{-1}\sum_i\delta_{z_i(t)}$. Ordered factorial densities are normalized by $\mu^{-h}$, not $(\lambda\mu)^{-h}$. Write
+\[
+ M_{n,\eps}=[\lambda^n]\E_\lambda\pi_t^\eps,\qquad
+ c_{2,t}^{\eps,\lambda}=F_{2,t}^{\eps,\lambda}
+           -F_{1,t}^{\eps,\lambda}\otimes F_{1,t}^{\eps,\lambda}.
+\]
+For fixed $\eps$, compact spatial support and exclusion bound the initial particle number. The relevant numerators and partition function are polynomials in $\lambda$, with denominator one at zero. No uniform analytic estimate in the coefficient order is used.
+
+For incoming centers $x,x+\eps\omega$ use
+\[
+ g=v-w,\quad B=(g\cdot\omega)_+,\qquad
+ v'=v-(g\cdot\omega)\omega,\quad w'=w+(g\cdot\omega)\omega.
+\]
+Sphere measure is unnormalized and contact densities mean exterior incoming traces. Define $\delta_1\phi=\phi(x,v')-\phi(x,v)$ and
+$\Delta\phi=\delta_1\phi+\phi(x,w')-\phi(x,w)$. In $\Delta_\eps\phi$, the two partner terms instead use $x+\eps\omega$.
+The bilinear convention is
+\[
+ Q(F,G)(\phi)=\int BF(x,v)G(x,w)\delta_1\phi\dd x\dd v\dd w\dd\omega.
+\]
+In particular $Q(F,F)(\phi)=\tfrac12\int BFF_*\Delta\phi$.
+Let $\mathsf T_th(x,v)=h(x-tv,v)$ and define Boltzmann coefficients recursively:
+\begin{align}
+ F_1(t)&=\mathsf T_tf_0,\label{eq:Fn}\\
+ F_2(t)&=\int_0^t\mathsf T_{t-s}Q(F_1,F_1)(s)\dd s,\nonumber\\
+ F_3(t)&=\int_0^t\mathsf T_{t-s}\{Q(F_1,F_2)+Q(F_2,F_1)\}(s)\dd s.\nonumber
+\end{align}
+These are the coefficients of the small-amplitude Boltzmann solution; the recursive definition suffices here. No regularity of the unit-amplitude solution on $[0,T]$ is assumed.
+
+Define the finite-diameter forces
+\begin{align}
+ \Sfd[F](\phi)&=\int BF\,\omega\cdot\nabla_xF_*\,\delta_1\phi,\label{eq:forces}\\
+ \Sfd^{\rm cross}(F,G)(\phi)&=\int B\{F\,\omega\cdot\nabla_xG_*
+                     +G\,\omega\cdot\nabla_xF_*\}\delta_1\phi.\nonumber
+\end{align}
+All unspecified collision integrals use $\dd x\dd v\dd w\dd\omega$.
+
+\begin{theorem}[Incoming contact coefficient]\label{thm:contact}
+For the above datum and interval, the isolated-scattering integral $H_3[F]$ defined in Section~\ref{sec:kernel} is absolutely integrable in the incoming-flux norm for $F=F_1(t)$. Put
+\[
+ h_{3,\eps}(t,x,v,w,\omega)=\eps^{-1}[\lambda^3]c_{2,t}^{\eps,\lambda,\rm in}
+                               (x,v;x+\eps\omega,w).
+\]
+For every $0<\delta<T$,
+\begin{equation}\label{eq:away}
+ \int B\sup_{\delta\le t\le T}|h_{3,\eps}(t)-H_3[F_1(t)]|
+                              \dd x\dd v\dd w\dd\omega\longrightarrow0.
+\end{equation}
+Both families have uniformly bounded flux norms down to zero, and
+\begin{equation}\label{eq:through-zero}
+ \int_0^T\int B|h_{3,\eps}(t)-H_3[F_1(t)]|
+                              \dd x\dd v\dd w\dd\omega\dd t\longrightarrow0.
+\end{equation}
+No uniform contact convergence at zero or quantitative rate is asserted.
+\end{theorem}
+
+\begin{theorem}[Mean coefficients]\label{thm:mean}
+Under the same hypotheses, uniformly on $[0,T]$ in $L^1(\dd x\dd v)$, equivalently total variation,
+\[
+ M_{1,\eps}=F_1,\qquad M_{2,\eps}=F_2+\eps k_2+O_T(\eps^2),\qquad
+ M_{3,\eps}=F_3+\eps k_3+o_T(\eps).
+\]
+The corrections are the unique free-transport mild solutions
+\begin{align}
+ (\partial_t+v\cdot\nabla_x)k_2&=\Sfd[F_1],
+ &k_2(0)&=-\tfrac{4\pi}{3}\rho_0f_0,\label{eq:k2}\\
+ (\partial_t+v\cdot\nabla_x)k_3
+ &=Q(k_2,F_1)+Q(F_1,k_2)+\Sfd^{\rm cross}(F_1,F_2)+\mathcal R_3[F_1],
+ &k_3(0)&=0,\label{eq:k3}
+\end{align}
+where $\rho_0=\int f_0\dd v$ and
+\begin{equation}\label{eq:R3}
+ \mathcal R_3[F](\phi)=\tfrac12\int BH_3[F]\Delta\phi.
+\end{equation}
+The cubic remainder has no proved polynomial rate. The mean convergence includes zero.
+\end{theorem}
+These are exact activity coefficients, not an expansion of the full mean at $\lambda=1$. Higher coefficients are not summed.
+
+\section{Classical finite-particle facts and exact coefficients}
+We use the standard isolated flow for at most three spheres in the whole space: outside a phase-volume null set it is defined on every finite interval, preserves phase volume, and is piecewise free with elastic binary updates. The unit-diameter collision tube has Jacobian $B\dd s\dd\omega$. A version-specific reference for the almost-everywhere finite-particle flow is \cite[Proposition 1.2]{DHM}; none of that paper's kinetic-limit conclusions is used.
+
+Separately, a nonsingular isolated finite hard-ball trajectory has finitely many collisions on the whole time axis. Theorem 1.1 and Section 3 assumptions of \cite{Burdzy} give a uniform bound for equal masses and radii, stronger than the qualitative fact needed here. Scaling its radius convention to diameter one does not change the assertion. Each subsystem therefore has an exactly free incoming asymptote.
+
+These facts hold on an incoming root-contact surface in the flux almost-everywhere sense. Restrict to nonzero root flux and a short collision-free backward segment. Flowing the contact into the interior gives an injective tube with Jacobian $B$; a positive-flux family of singular contacts would yield a positive-volume singular tube. A countable cover handles varying segment lengths. Simultaneous additional terminal contacts are null and $B=0$ carries zero flux. This trace argument uses the usual invariant flow-null set as well as the tube formula; it is not a consequence of collision-count finiteness alone.
+
+For nonempty $A\subset\{1,2,3\}$ set
+\[
+ G_A^\eps(t,Z_A)=\ind_{\D_A^\eps}(Z_A)
+       \prod_{j\in A}f_0\bigl(\Phi_A^\eps(-t,Z_A)_j\bigr).
+\]
+Set it to zero on inadmissible terminal configurations without invoking a flow there. For singletons write $\widetilde f_j=f_0(x_j-tv_j,v_j)$. At incoming root contact,
+\begin{equation}\label{eq:pair-free}
+ G_{12}^\eps=\widetilde f_1\widetilde f_2.
+\end{equation}
+An isolated incoming pair cannot have collided earlier: after a collision its relative motion separates forever. Its backward reconstruction is free and admissible.
+
+\begin{lemma}[Exact incoming Ursell formula]\label{lem:ursell}
+The quadratic incoming pair-cumulant coefficient vanishes, and
+\begin{equation}\label{eq:ursell}
+ [\lambda^3]c_{2,t}^{\eps,\lambda,\rm in}
+ =\mu\int\bigl(G_{123}^\eps-G_{13}^\eps\widetilde f_2-G_{23}^\eps\widetilde f_1
+                   +\widetilde f_1\widetilde f_2\widetilde f_3\bigr)\dd z_3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The partition function starts as $1+\lambda\mu+O(\lambda^2)$. Ordered factorial factors cancel the sector factorials, giving
+\[
+ [\lambda^2]F_{2,t}^{\eps,\lambda}=G_{12}^\eps,\quad
+ [\lambda^3]F_{2,t}^{\eps,\lambda}=\mu\left(\int G_{123}^\eps\dd z_3-G_{12}^\eps\right),
+\]
+\[
+ M_{1,\eps}=F_1,\qquad
+ M_{2,\eps}(z_i)=\mu\left(\int G_{i3}^\eps\dd z_3-\widetilde f_i\right).
+\]
+Subtract the cubic coefficient of the product of means and use \eqref{eq:pair-free} and $\int\widetilde f_3\dd z_3=1$. Before the incoming simplification, the bracket is the complete combination
+$G_{123}-G_{12}\widetilde f_3-G_{13}\widetilde f_2-G_{23}\widetilde f_1+2\widetilde f_1\widetilde f_2\widetilde f_3$.
+The quadratic assertion follows from \eqref{eq:pair-free}.
+\end{proof}
+
+\section{The two-particle formula and its total-variation remainder}
+For a bounded test put $\phi_r(x,v)=\phi(x+rv,v)$. Exact quadratic coefficient extraction gives
+\begin{equation}\label{eq:M2}
+ \begin{split}
+ M_{2,\eps}(t;\phi)={}&-\mu\int f_0(x,v)f_0(y,w)\ind_{\{|x-y|\le\eps\}}
+                      \phi_t(x,v)\dd x\dd y\dd v\dd w\\
+ &+\int_0^t\mathcal C_\eps[F_1(s)](\phi_{t-s})\dd s,
+ \end{split}
+\end{equation}
+where
+\begin{equation}\label{eq:C}
+ \mathcal C_\eps[F](\phi)=\tfrac12\int BF(x,v)F(x+\eps\omega,w)\Delta_\eps\phi
+                       =\int BF(x,v)F(x+\eps\omega,w)\delta_1\phi.
+\end{equation}
+To prove \eqref{eq:M2}, its initial-sector expression is
+\[
+ \frac\mu2\int f_0(z_1)f_0(z_2)
+ \left[\ind_{\D_2^\eps}\sum_{j=1}^2\phi(z_j^{(2)}(t))
+                     -\phi_t(z_1)-\phi_t(z_2)\right]\dd z_1\dd z_2.
+\]
+Split off the forbidden core. An allowed pair has at most one collision, at time $s$, with initial centers $x-sv$ and $x+\eps\omega-sw$ and Jacobian $\eps^2B\dd s\dd\omega$. Their initial separation is allowed since its square is $\eps^2+2\eps sB+s^2|v-w|^2$. Subtracting the free observation from the scattered observation and using $\mu\eps^2=1$ gives \eqref{eq:M2}. Exchanging the two labels, including $x\mapsto x+\eps\omega$ and $\omega\mapsto-\omega$, proves the second form in \eqref{eq:C}.
+
+By spatial Taylor expansion over a centered ball,
+\[
+ \mu\int_{|y-x|\le\eps}\rho_0(y)\dd y
+         =\eps\tfrac{4\pi}{3}\rho_0(x)+O(\eps^3).
+\]
+In the one-root form of \eqref{eq:C} all $\eps$ shifts are on densities. Since $|\delta_1\phi|\le2\|\phi\|_\infty$,
+\[
+ \sup_{s\le T}\|\mathcal C_\eps[F_1(s)]-\mathcal C_0[F_1(s)]-\eps\Sfd[F_1(s)]\|_1
+          \le C_T\eps^2.
+\]
+Incoming velocities and positions lie in fixed compact sets; outgoing velocities lie in the two-particle energy ball. No derivative of a bounded test is used. Free transport is an $L^1$ isometry. These facts prove the quadratic mean assertion and \eqref{eq:k2}.
+
+The same argument works after any fixed number of spatial derivatives. Rewrite the core in relative displacement coordinates; in the strong gain/loss form derivatives act on translated densities rather than collision indicators. Consequently
+\begin{equation}\label{eq:Wk}
+ \sup_{t\le T}\|(M_{2,\eps}-F_2)/\eps-k_2\|_{W_x^{k,1}(\dd x\dd v)}
+          \le C_{T,k}\eps
+\end{equation}
+for each fixed k. No velocity derivative estimate is needed.
+
+\section{Unit-diameter rescaling and the incoming scattering kernel}\label{sec:kernel}
+Set terminal positions $q_1=0,q_2=\omega,q_3=y$ and velocities $V=(v,w,u)$. Denote a unit-diameter isolated subsystem trajectory by $(Q_{A,j}(-s),V_{A,j}(-s))$. Define
+\[
+ T_{A,\eps}(t,x,q,V)=\ind_{\D_A^1}(q)
+  \prod_{j\in A}f_0\bigl(x+\eps Q_{A,j}(-t/\eps),V_{A,j}(-t/\eps)\bigr)
+\]
+on its allowed terminal set, with the exterior incoming root-root convention. Put
+\begin{equation}\label{eq:Ueps}
+ \U_\eps=T_{123,\eps}-T_{13,\eps}T_{2,\eps}
+             -T_{23,\eps}T_{1,\eps}+T_{1,\eps}T_{2,\eps}T_{3,\eps}.
+\end{equation}
+Setting $x_3=x+\eps y$ in \eqref{eq:ursell} gives exactly
+\begin{equation}\label{eq:scaling}
+ h_{3,\eps}=\int\U_\eps\dd y\dd u,\qquad \eps^{-1}\mu\dd x_3=\dd y.
+\end{equation}
+Before taking limits, singleton factors keep their own terminal positions.
+
+The scattering input supplies finite offsets and asymptotic velocities with
+\[
+ Q_{A,j}(-s)=a_{A,j}^- -sV_{A,j}^-\quad\hbox{for all sufficiently large }s.
+\]
+No uniform bound on the last collision time or these offsets is asserted. Define
+\begin{align}
+ T_A^\infty[F](x,q,V)&=\ind_{\D_A^1}(q)\prod_{j\in A}F(x,V_{A,j}^-),\nonumber\\
+ \U_\infty[F]&=T_{123}^\infty-T_{13}^\infty T_2^\infty
+                  -T_{23}^\infty T_1^\infty+T_1^\infty T_2^\infty T_3^\infty,\label{eq:Uinf}\\
+ H_3[F](x,v,w,\omega)&=\int\U_\infty[F](x,v,w,\omega;y,u)\dd y\dd u.\label{eq:H}
+\end{align}
+Singleton asymptotic velocities are their terminal velocities. Absolute integrability of \eqref{eq:H} is a conclusion below.
+
+\begin{lemma}[Fixed spatial window]\label{lem:window}
+For finite R and $0<\delta<T$,
+\[
+ \int B\int_{|y|\le R}\int\sup_{\delta\le t\le T}
+       |\U_\eps(t)-\U_\infty[F_1(t)]|\dd u\dd y\dd x\dd v\dd w\dd\omega\to0.
+\]
+\end{lemma}
+\begin{proof}
+For each nonsingular configuration, $\delta/\eps$ eventually exceeds all subsystem backward collision times. The spatial arguments then equal $x-tV_{A,j}^-+\eps a_{A,j}^-$ uniformly for $t\in[\delta,T]$. Uniform continuity gives convergence.
+
+Any nonzero term has total terminal energy $|v|^2+|w|^2+|u|^2\le3R_v^2$, by conservation in its subsystems. Particle 1 belongs to a subsystem in every term, so nonvanishing also requires $|x|\le R_x+T\sqrt3R_v$. Each term is bounded by $\|f_0\|_\infty^3$. With $|y|\le R$ these give an integrable flux majorant for the time supremum, and dominated convergence applies.
+\end{proof}
+
+\section{The two-encounter spatial tail}\label{sec:tail}
+\begin{lemma}[Far third-particle geometry]\label{lem:geometry}
+At terminal positions $0,\omega,y$ with $g\cdot\omega>0$ and $|v|,|w|,|u|\le V$, let $E_{\rm true}$ be the event that the isolated backward three-ball history has two different-pair collisions, and $E_{\rm virtual}$ the event that both isolated pairs 13 and 23 have backward collisions. For $R\ge4$,
+\begin{equation}\label{eq:tailgeom}
+ \int_{|v|,|w|\le V}\int_{S^2}B
+ \int_{|u|\le V}\int_{|y|>R}\ind_{E_{\rm true}\cup E_{\rm virtual}}
+                       \dd y\dd u\dd\omega\dd v\dd w\le C_V/R.
+\end{equation}
+Events may use the infinite backward horizon, so the estimate is uniform for all finite horizons.
+\end{lemma}
+\begin{proof}
+The case V=0 is trivial. The free backward root separation is $\omega+sg$, whose square is $1+2s g\cdot\omega+s^2|g|^2\ge1$. The first true backward collision must involve particle 3. For the virtual event select the earlier isolated root-third encounter. Split according to whether the selected first pair is 13 or 23. Swapping roots translates y by $-\omega$, changing the radial cutoff by at most one.
+
+Suppose the first selected pair is 13, at time $\sigma$. Its normal n points from ball 1 to ball 3. With $a=u-v$,
+\[
+ q=a\cdot n>0,\qquad y=\sigma a+n,\qquad \dd y=q\dd\sigma\dd n.
+\]
+For fixed a, an incoming crossing of the unit sphere is unique; its other possible crossing is outgoing. This gives injectivity and the Jacobian off null tangencies. Since $|a|\le2V$, $|y|>R$ requires $\sigma>(R-1)/(2V)$. Dropping earliest-event constraints only enlarges the domains estimated next.
+
+\paragraph{Second true pair 12.}
+After the backward collision physical velocities are $-v-qn,-w,-u+qn$. The pair 13 separates and cannot collide again before another pair intervenes. A second 12 collision at time $\sigma+\eta$, $\eta\ge0$, requires
+\[
+ |\omega+(\sigma+\eta)g+\eta qn|=1.
+\]
+Projection on $n^\perp$ gives $(\sigma+\eta)|P_{n^\perp}g|\le2$. Thus $|g\times n|\le2/\sigma$. For $\sigma|g|\ge10$, n belongs to two caps of combined area $C(\sigma|g|)^{-2}$. Integrate bounded u with $q\le2V$ to get
+\begin{equation}\label{eq:slot}
+ \int\int q\ind_{\{13\text{ followed by }12\}}\dd u\dd n
+          \le C_V\min\{1,(\sigma|g|)^{-2}\}.
+\end{equation}
+
+\paragraph{Second true pair 23.}
+Decompose $a=qn+a_T$, $a_T\perp n$. The separation at the second event satisfies
+\[
+ |\omega-n+(\sigma+\eta)g+\eta a_T|=1.
+\]
+Its n-component gives $|g\cdot n|\le3/\sigma$. For $\sigma|g|\ge10$ this is a belt of area $C/(\sigma|g|)$, with $|g_T|\ge c|g|$. In the plane $n^\perp$, the ray starts at $D_T=\omega_T+\sigma g_T$, where $|D_T|\ge c\sigma|g|$, and has velocity $c_T=g_T+a_T$, bounded by $4V$. Velocities of rays hitting the unit disk occupy a cone of aperture $C/(\sigma|g|)$, whose intersection with the bounded planar velocity disk has area $C_V/(\sigma|g|)$.
+
+Crucially, this planar velocity is independent of q. The decomposition $\dd u=\dd q\dd a_T$ has unit Jacobian and $\int_0^{2V}q\dd q\le2V^2$. Multiply the planar cone and normal belt bounds to obtain \eqref{eq:slot} for this second-pair choice. When $\sigma|g|<10$, use the trivial bounded-domain estimate. These are the only second true pairs; later collisions need no bound.
+
+\paragraph{The two isolated-pair encounters.}
+Suppose isolated pair 13 collides first. The separate pair-23 history does not scatter particle 3 at that 13 event. Its encounter at $\sigma+\eta$ requires
+\[
+ |D+\eta c|=1,\qquad D=\omega+\sigma g-n,\quad c=u-w.
+\]
+For $\sigma|g|\ge10$, $|D|\ge c\sigma|g|$. For fixed n, velocities c in a bounded ball whose forward ray reaches the unit ball form a solid cone of angular area $C(\sigma|g|)^{-2}$, hence volume $C_V(\sigma|g|)^{-2}$. Translation to u preserves volume; $q\le2V$ and integration over n again give \eqref{eq:slot}. Swap roots for the other temporal order. This virtual branch is necessary even when the true trajectory has only one interacting pair.
+
+\paragraph{Time and low relative speed.}
+Both root choices admit the common lower time cutoff $(R-2)/(2V)$. The total is bounded by
+\[
+ C_V\int_{|v|,|w|\le V}|g|\int_{(R-2)/(2V)}^\infty
+               \min\{1,(\sigma|g|)^{-2}\}\dd\sigma\dd v\dd w.
+\]
+For $\sigma\ge1/V$, the radial g integral is bounded by
+\[
+ C_V\int_0^{2V}r^3\min\{1,(\sigma r)^{-2}\}\dd r\le C_V\sigma^{-2}.
+\]
+Integration in $\sigma$ gives $C_V/R$. The set g=0 has zero incoming root flux. Thus no lower bound on relative speed is needed.
+\end{proof}
+
+\begin{lemma}[Connected cancellation and uniform absolute tail]\label{lem:tail}
+For $R\ge4$,
+\begin{equation}\label{eq:fulltail}
+ \int B\int_{|y|>R}\int\sup_{0\le t\le T}|\U_\eps(t)|
+                  \dd u\dd y\dd x\dd v\dd w\dd\omega\le C_{f_0,T}/R.
+\end{equation}
+The same bound holds for $\U_\infty[F_1(t)]$.
+\end{lemma}
+\begin{proof}
+For $|y|>4$ all terminal exclusions hold. If the true triple has no backward collision before the relevant horizon, neither isolated root-third pair can have one: its first encounter would also be a first true encounter. The four free products cancel.
+
+If the true graph uses only pair 13, its trajectory is the isolated 13 trajectory and free root 2. Thus $T_{123,\eps}=T_{13,\eps}T_{2,\eps}$. If isolated pair 23 has no collision, $T_{23,\eps}=T_{2,\eps}T_{3,\eps}$ and the remaining terms cancel. Otherwise both isolated pairs collide, giving $E_{\rm virtual}$. The case of pair 23 alone is symmetric. Pair 12 alone is impossible, and any other true graph has two distinct pair collisions. Therefore
+\[
+ \U_\eps\ne0\ \Longrightarrow\ E_{\rm true}\cup E_{\rm virtual}\quad (|y|>4).
+\]
+This cancellation is imposed before absolute values. Separate estimates of the four terms would lose it.
+
+A nonzero term has total energy at most $3R_v^2$, position $|x|\le R_x+T\sqrt3R_v$, and magnitude at most $\|f_0\|_\infty^3$. Enlarge its event support once to the infinite-backward-time events, independently of t and $\eps$. Lemma~\ref{lem:geometry}, with $V=\sqrt3R_v$, proves \eqref{eq:fulltail}, including the time supremum. The limit version follows by the same cancellation or by Fatou applied to fixed-window pointwise convergence.
+\end{proof}
+
+\section{Completion of the contact and mean limits}
+\begin{proof}[Proof of Theorem~\ref{thm:contact}]
+The region $|y|\le4$ has a uniform integrable flux bound by the energy and position restrictions in Lemma~\ref{lem:window}; Lemma~\ref{lem:tail} controls its complement. Hence \eqref{eq:H} is absolutely defined in the contact-flux norm and both families are bounded down to zero.
+
+For $t\in[\delta,T]$, use Lemma~\ref{lem:window} inside $|y|\le R$ and bound both tails by $C/R$. Send $\eps\to0$ and then $R\to\infty$ to prove \eqref{eq:away}. The integral on $[0,\delta]$ is at most $C\delta$ by the uniform bound. Sending $\delta\to0$ proves \eqref{eq:through-zero}, without interchanging the endpoint trace and the positive-time limit.
+\end{proof}
+
+\begin{proof}[Proof of the cubic assertion in Theorem~\ref{thm:mean}]
+Put $B_{n,\eps}=(M_{n,\eps}-F_n)/\eps$. The incoming quadratic cumulant is zero, and at cubic order
+\[
+ [\lambda^3]F_{2,t}^{\eps,\lambda,\rm in}
+ =F_1(x,v)M_{2,\eps}(x+\eps\omega,w)
+  +M_{2,\eps}(x,v)F_1(x+\eps\omega,w)
+  +[\lambda^3]c_{2,t}^{\eps,\lambda,\rm in}.
+\]
+Integrating streaming and binary jumps of the finite-sector empirical sum gives the exact first hierarchy equation. Subtract its Boltzmann cubic version and divide by $\eps$:
+\begin{equation}\label{eq:B3}
+ \begin{split}
+ \partial_t B_{3,\eps}(\phi)={}&B_{3,\eps}(v\cdot\nabla_x\phi)
+   +B_{2,\eps}(K_{\eps,F_1}\phi)
+   +G_\eps^{\rm cross}(F_1,F_2)(\phi)\\
+ &+\tfrac12\int Bh_{3,\eps}\Delta_\eps\phi,
+ \end{split}
+\end{equation}
+where
+\[
+ K_{\eps,F}\phi(x,v)=\int BF(x+\eps\omega,w)\Delta_\eps\phi\dd w\dd\omega.
+\]
+The cross difference quotient is formed from
+\[
+ \mathcal C_\eps^{\rm cross}(F,G)(\phi)
+ =\int B\{F(x,v)G(x+\eps\omega,w)+G(x,v)F(x+\eps\omega,w)\}\delta_1\phi.
+\]
+Its spatial Taylor expansion converges in $L^1$ to $\Sfd^{\rm cross}$, uniformly on finite time intervals.
+
+The cubic initial coefficient is $O(\eps^2)$ in $L^1$. Direct coefficient division at time zero gives
+\[
+ \begin{split}
+ M_{3,\eps}(0,z_1)=\frac{\mu^2}{2}f_0(z_1)\int f_0(z_2)f_0(z_3)
+ \bigl(&\chi_{12}\chi_{13}+\chi_{12}\chi_{23}+\chi_{13}\chi_{23}\\
+       &-\chi_{12}\chi_{13}\chi_{23}\bigr)\dd z_2\dd z_3,
+ \end{split}
+\]
+where $\chi_{ij}=\ind_{\{|x_i-x_j|\le\eps\}}$. Each term has two independent ball integrations of volume $O(\eps^6)$; multiplying by $\mu^2=\eps^{-4}$ proves the assertion. Since $F_3(0)=0$, $\|B_{3,\eps}(0)\|_1=O(\eps)$.
+
+By \eqref{eq:Wk}, the second term in \eqref{eq:B3} converges in $L^1$ to $Q(k_2,F_1)+Q(F_1,k_2)$. First replace $B_{2,\eps}$ by $k_2$ using the bounded-velocity collision estimate and boundedness of $F_1$, then remove spatial shifts of the fixed $F_1,k_2$ using integrable spatial derivatives. These fixed three-particle coefficients have velocities in a fixed energy ball and positions in a fixed finite-time region.
+
+The contact forcing converges to \eqref{eq:R3} in $L^1([0,T];L^1(\dd x\dd v))$. Its four pushforwards contract total variation relative to the measure $B|h_{3,\eps}-H_3|\dd x\dd v\dd w\dd\omega$, whose time integral vanishes. For the remaining partner-position shift use $L^1_x$ continuity of translations of the density $BH_3$, integrated in time, velocities and normal. Approximation by smooth compact spatial functions makes the estimate uniform for displacements of length at most $\eps$, despite the dependence of the direction on $\omega$. This is not TV continuity of translations of arbitrary singular measures. Pair scattering preserves phase volume and flux, so these pushforwards have $L^1$ densities.
+
+Every forcing in \eqref{eq:B3} therefore converges in time-integrated $L^1$. Free-transport Duhamel and its isometry imply
+\[
+ \sup_{t\le T}\|B_{3,\eps}(t)-k_3(t)\|_1\longrightarrow0.
+\]
+The limit is \eqref{eq:k3}, with zero initial value and integrable forcing. This proves existence and uniqueness in $C([0,T];L^1)$ and completes the theorem. The contact layer produces no atom in the integrated forcing.
+\end{proof}
+
+\section{Initial time, Maxwellian algebra, and limits of scope}
+At time zero the four-term unit-diameter kernel has no velocity evolution. Its indicators reduce to the ball intersection. Thus the incoming cubic coefficient divided by $\eps$ tends to
+\[
+ \frac{5\pi}{12}\rho_0(x)f_0(x,v)f_0(x,w).
+\]
+This endpoint value need not determine the infinite-past kernel. The theorem gives time-integrated contact control rather than an interchange of derivatives at zero, but the mean limit is uniform including zero.
+
+As a separate algebraic check, take a Maxwellian $h(v)=A\exp(-a|v-U|^2)$. Energy and momentum conservation preserve its product on every subsystem. At any finite backward time, or at the incoming asymptote, the spatially frozen kernel is exactly
+\[
+ h(v)h(w)h(u)\ind_{\{|y|\le1\}}\ind_{\{|y-\omega|\le1\}}.
+\]
+Its y,u integral is $(5\pi/12)\rho_hh(v)h(w)$, and the source \eqref{eq:R3} is zero since $Q(h,h)=0$. This identity is outside the nonzero compact-velocity class of the theorems. It illustrates regeneration of actual three-body correlations; it is not an extension to Gaussian data or a persistence inference from the initial pair contribution alone.
+
+Classical three-body kinetic corrections and quantitative correlation estimates supply context \cite{BE,PS}. No novelty claim is made for the scattering representation or collisional geometry. The present results specify the exact activity normalization, finite-time convergence topology, and remainder. A first-order mean theorem at $\lambda=1$ still needs a uniform summation of higher activity or attached-tree histories. These results do not replace exact centering in a full fluctuation theorem.
+
+\appendix
+\section{Reproduction and dependency boundary}
+The source builds without any private research file. Its only dynamical imports are the classical almost-everywhere isolated flow and finite total collision count on nonsingular trajectories, stated explicitly above. No many-particle regular-lifespan history package is a hypothesis. Exact coefficient identities, two-body expansion, the connected two-encounter tail and the strong mean deduction are proved here.
+
+The build fixes \texttt{SOURCE\_DATE\_EPOCH=1791331200}, disables shell escape and records its inputs. Review artifacts are evidence rather than proof dependencies. The exact compact-source sign-off is complete; Gaussian and matched-layer extensions are excluded.
+
+\begin{thebibliography}{9}\small
+\bibitem{DHM} Y. Deng, Z. Hani and X. Ma. \emph{Long time derivation of the Boltzmann equation from hard sphere dynamics}. \href{https://arxiv.org/abs/2408.07818v3}{arXiv:2408.07818v3}, 18 July 2025. Only Proposition 1.2's finite-particle flow input is used here.
+\bibitem{Burdzy} K. Burdzy. \emph{An improved upper bound on the number of billiard ball collisions}. \href{https://arxiv.org/abs/2107.10362v2}{arXiv:2107.10362v2}, 13 November 2021. Theorem 1.1 and Section 3 assumptions; only collision-count finiteness is needed.
+\bibitem{BE} H. van Beijeren and M. H. Ernst. \emph{Kinetic theory of hard spheres}. J. Stat. Phys. \textbf{21} (1979), 125--167. \href{https://www.phys.uu.nl/~vanbeije/pub/KinThHS.pdf}{Primary manuscript}. Context only.
+\bibitem{PS} M. Pulvirenti and S. Simonella. \emph{The Boltzmann--Grad limit of a hard sphere system: analysis of the correlation error}. \href{https://arxiv.org/abs/1405.4676v2}{arXiv:1405.4676v2}. Context only.
+\end{thebibliography}
+\end{document}

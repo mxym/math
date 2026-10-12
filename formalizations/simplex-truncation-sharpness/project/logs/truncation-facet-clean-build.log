@@ -1,0 +1,227 @@
+PASS Entry005/TruncationSimplexVolume.lean
+PASS Entry005/TruncationVolume.lean
+PASS Entry005/TruncationFacetGeometry.lean
+PASS audit/truncation-facets.lean
+OAI.ProjectionCounterexample.coordinateSimplex_measurableSet (n : ℕ) (r : ℝ) :
+  MeasurableSet (OAI.ProjectionCounterexample.coordinateSimplex n r)
+'OAI.ProjectionCounterexample.coordinateSimplex_measurableSet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg (n : ℕ) {r : ℝ} (hr : r < 0) :
+  OAI.ProjectionCounterexample.coordinateSimplex n r = ∅
+'OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OAI.ProjectionCounterexample.integral_simplex_slice (n : ℕ) {r : ℝ} (hr : 0 ≤ r) :
+  ∫⁻ (t : ℝ) in Set.Icc 0 r, ENNReal.ofReal ((r - t) ^ n / ↑n.factorial) =
+    ENNReal.ofReal (r ^ (n + 1) / ↑(n + 1).factorial)
+'OAI.ProjectionCounterexample.integral_simplex_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.ProjectionCounterexample.volume_coordinateSimplex (n : ℕ) (r : ℝ) (hr : 0 ≤ r) :
+  MeasureTheory.volume (OAI.ProjectionCounterexample.coordinateSimplex n r) = ENNReal.ofReal (r ^ n / ↑n.factorial)
+'OAI.ProjectionCounterexample.volume_coordinateSimplex' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.ProjectionCounterexample.volume_unit_coordinateSimplex (n : ℕ) :
+  MeasureTheory.volume (OAI.ProjectionCounterexample.coordinateSimplex n 1) = ENNReal.ofReal (1 / ↑n.factorial)
+'OAI.ProjectionCounterexample.volume_unit_coordinateSimplex' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex (n : ℕ) (f : (Fin n → ℝ) →ₗ[ℝ] Fin n → ℝ) :
+  MeasureTheory.volume (⇑f '' OAI.ProjectionCounterexample.coordinateSimplex n 1) =
+    ENNReal.ofReal (|LinearMap.det f| / ↑n.factorial)
+'OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OAI.ProjectionCounterexample.volume_unit_euclideanSimplex (n : ℕ) :
+  MeasureTheory.volume {x | (∀ (i : Fin n), 0 ≤ x.ofLp i) ∧ ∑ i, x.ofLp i ≤ 1} = ENNReal.ofReal (1 / ↑n.factorial)
+'OAI.ProjectionCounterexample.volume_unit_euclideanSimplex' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex (n : ℕ) :
+  (MeasureTheory.volume {x | (∀ (i : Fin n), 0 ≤ x.ofLp i) ∧ ∑ i, x.ofLp i ≤ 1}).toReal = 1 / ↑n.factorial
+'OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Entry005.truncation_ambient_simplex_measurable (d : ℕ) (r : ℝ) : MeasurableSet (Entry005.truncationAmbientSimplex d r)
+'Entry005.truncation_ambient_simplex_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_ambient_simplex_volume (d : ℕ) (r : ℝ) (hr : 0 ≤ r) :
+  MeasureTheory.volume (Entry005.truncationAmbientSimplex d r) = ENNReal.ofReal (r ^ d / ↑d.factorial)
+'Entry005.truncation_ambient_simplex_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_ambient_simplex_real_volume (d : ℕ) (r : ℝ) (hr : 0 ≤ r) :
+  (MeasureTheory.volume (Entry005.truncationAmbientSimplex d r)).toReal = r ^ d / ↑d.factorial
+'Entry005.truncation_ambient_simplex_real_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_sum_level_volume_zero {d : ℕ} (hd : 0 < d) (r : ℝ) :
+  MeasureTheory.volume {x | ∑ i, x.ofLp i = r} = 0
+'Entry005.truncation_sum_level_volume_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_union_removed_simplex {d : ℕ} {t : ℝ} (ht : t ≤ 1) :
+  Entry005.truncationSet d t ∪ Entry005.truncationAmbientSimplex d t = Entry005.truncationAmbientSimplex d 1
+'Entry005.truncation_union_removed_simplex' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_removed_overlap_volume_zero {d : ℕ} (hd : 0 < d) (t : ℝ) :
+  MeasureTheory.volume (Entry005.truncationSet d t ∩ Entry005.truncationAmbientSimplex d t) = 0
+'Entry005.truncation_removed_overlap_volume_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_actual_volume {d : ℕ} (hd : 0 < d) (t : ℝ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) :
+  (MeasureTheory.volume (Entry005.truncationSet d t)).toReal = (1 - t ^ d) / ↑d.factorial
+'Entry005.truncation_actual_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_diagonal_inner (d : ℕ) (x : Entry005.Space d) :
+  inner ℝ (Entry005.truncationDiagonal d) x = ∑ i, x.ofLp i
+'Entry005.truncation_diagonal_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_unit_diagonal_inner (d : ℕ) (x : Entry005.Space d) :
+  inner ℝ (Entry005.truncationUnitDiagonal d) x = (√↑d)⁻¹ * ∑ i, x.ofLp i
+'Entry005.truncation_unit_diagonal_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_unit_diagonal_norm {d : ℕ} (hd : 0 < d) : ‖Entry005.truncationUnitDiagonal d‖ = 1
+'Entry005.truncation_unit_diagonal_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_facet_norm {d : ℕ} (hd : 0 < d) (i : Entry005.TruncationFacetIndex d) :
+  ‖Entry005.truncationFacetNormal d i‖ = 1
+'Entry005.truncation_facet_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_halfspace_representation {d : ℕ} (hd : 0 < d) (t : ℝ) :
+  Entry005.finiteHalfspaceSet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t) =
+    Entry005.truncationSet d t
+'Entry005.truncation_halfspace_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_top_facet {d : ℕ} (hd : 0 < d) (t : ℝ) (ht1 : t ≤ 1) :
+  Entry005.finiteHalfspaceFacet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t)
+      (Sum.inr false) =
+    {x | (∀ (i : Fin d), 0 ≤ x.ofLp i) ∧ ∑ i, x.ofLp i = 1}
+'Entry005.truncation_top_facet' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_bottom_facet {d : ℕ} (hd : 0 < d) (t : ℝ) (ht1 : t ≤ 1) :
+  Entry005.finiteHalfspaceFacet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t) (Sum.inr true) =
+    {x | (∀ (i : Fin d), 0 ≤ x.ofLp i) ∧ ∑ i, x.ofLp i = t}
+'Entry005.truncation_bottom_facet' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_top_facet_cone {d : ℕ} (hd : 0 < d) (t : ℝ) (ht1 : t ≤ 1) :
+  Entry005.finiteHalfspaceFacetCone (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t)
+      (Sum.inr false) =
+    Entry005.truncationAmbientSimplex d 1
+'Entry005.truncation_top_facet_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_top_facet_area {d : ℕ} (hd : 0 < d) (t : ℝ) (ht0 : 0 < t) (ht1 : t < 1) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t)
+      (Sum.inr false) =
+    √↑d / ↑(d - 1).factorial
+'Entry005.truncation_top_facet_area' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_bottom_facet_homothety {d : ℕ} (hd : 0 < d) (t : ℝ) (ht0 : 0 < t) (ht1 : t ≤ 1) :
+  Entry005.finiteHalfspaceFacet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t) (Sum.inr true) =
+    t •
+      Entry005.finiteHalfspaceFacet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t)
+        (Sum.inr false)
+'Entry005.truncation_bottom_facet_homothety' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_facet_area_projection {d : ℕ} (hd : 0 < d) (t : ℝ) (i : Entry005.TruncationFacetIndex d) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t) i =
+    Entry005.projectionVolumeSet
+      (Entry005.finiteHalfspaceFacet (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t) i)
+      (Entry005.truncationFacetNormal d i)
+'Entry005.truncation_facet_area_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.truncation_bottom_facet_area {d : ℕ} (hd : 0 < d) (t : ℝ) (ht0 : 0 < t) (ht1 : t < 1) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.truncationFacetNormal d) (Entry005.truncationFacetHeight d t)
+      (Sum.inr true) =
+    t ^ (d - 1) * (√↑d / ↑(d - 1).factorial)
+'Entry005.truncation_bottom_facet_area' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS audit/truncation-facet-owned.lean
+OWNED_DECL Entry005.TruncationFacetIndex
+OWNED_AXIOMS Entry005.TruncationFacetIndex: []
+OWNED_DECL Entry005.finiteHalfspaceFacet.eq_1
+OWNED_AXIOMS Entry005.finiteHalfspaceFacet.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationAmbientSimplex
+OWNED_AXIOMS Entry005.truncationAmbientSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationDiagonal
+OWNED_AXIOMS Entry005.truncationDiagonal: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationDiagonal._proof_1
+OWNED_AXIOMS Entry005.truncationDiagonal._proof_1: [propext]
+OWNED_DECL Entry005.truncationDiagonal.eq_1
+OWNED_AXIOMS Entry005.truncationDiagonal.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetHeight
+OWNED_AXIOMS Entry005.truncationFacetHeight: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetHeight.eq_1
+OWNED_AXIOMS Entry005.truncationFacetHeight.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetHeight.eq_2
+OWNED_AXIOMS Entry005.truncationFacetHeight.eq_2: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetHeight.eq_3
+OWNED_AXIOMS Entry005.truncationFacetHeight.eq_3: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetNormal
+OWNED_AXIOMS Entry005.truncationFacetNormal: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetNormal.eq_1
+OWNED_AXIOMS Entry005.truncationFacetNormal.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetNormal.eq_2
+OWNED_AXIOMS Entry005.truncationFacetNormal.eq_2: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetNormal.eq_3
+OWNED_AXIOMS Entry005.truncationFacetNormal.eq_3: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationFacetNormal.match_1
+OWNED_AXIOMS Entry005.truncationFacetNormal.match_1: []
+OWNED_DECL Entry005.truncationUnitDiagonal
+OWNED_AXIOMS Entry005.truncationUnitDiagonal: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncationUnitDiagonal.eq_1
+OWNED_AXIOMS Entry005.truncationUnitDiagonal.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_actual_volume
+OWNED_AXIOMS Entry005.truncation_actual_volume: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_ambient_simplex_measurable
+OWNED_AXIOMS Entry005.truncation_ambient_simplex_measurable: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_ambient_simplex_real_volume
+OWNED_AXIOMS Entry005.truncation_ambient_simplex_real_volume: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_ambient_simplex_volume
+OWNED_AXIOMS Entry005.truncation_ambient_simplex_volume: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_bottom_facet
+OWNED_AXIOMS Entry005.truncation_bottom_facet: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_bottom_facet._simp_1_2
+OWNED_AXIOMS Entry005.truncation_bottom_facet._simp_1_2: [propext]
+OWNED_DECL Entry005.truncation_bottom_facet_area
+OWNED_AXIOMS Entry005.truncation_bottom_facet_area: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_bottom_facet_homothety
+OWNED_AXIOMS Entry005.truncation_bottom_facet_homothety: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_diagonal_inner
+OWNED_AXIOMS Entry005.truncation_diagonal_inner: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_facet_area_projection
+OWNED_AXIOMS Entry005.truncation_facet_area_projection: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_facet_norm
+OWNED_AXIOMS Entry005.truncation_facet_norm: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_halfspace_representation
+OWNED_AXIOMS Entry005.truncation_halfspace_representation: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_removed_overlap_volume_zero
+OWNED_AXIOMS Entry005.truncation_removed_overlap_volume_zero: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_sum_level_volume_zero
+OWNED_AXIOMS Entry005.truncation_sum_level_volume_zero: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_top_facet
+OWNED_AXIOMS Entry005.truncation_top_facet: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_top_facet._simp_1_2
+OWNED_AXIOMS Entry005.truncation_top_facet._simp_1_2: [propext]
+OWNED_DECL Entry005.truncation_top_facet_area
+OWNED_AXIOMS Entry005.truncation_top_facet_area: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_top_facet_cone
+OWNED_AXIOMS Entry005.truncation_top_facet_cone: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_top_facet_cone._simp_1_1
+OWNED_AXIOMS Entry005.truncation_top_facet_cone._simp_1_1: [propext, Quot.sound]
+OWNED_DECL Entry005.truncation_union_removed_simplex
+OWNED_AXIOMS Entry005.truncation_union_removed_simplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_unit_diagonal_inner
+OWNED_AXIOMS Entry005.truncation_unit_diagonal_inner: [propext, Classical.choice, Quot.sound]
+OWNED_DECL Entry005.truncation_unit_diagonal_norm
+OWNED_AXIOMS Entry005.truncation_unit_diagonal_norm: [propext, Classical.choice, Quot.sound]
+OWNED_DECL MeasurableEquiv.piFinSuccAbove.eq_1
+OWNED_AXIOMS MeasurableEquiv.piFinSuccAbove.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.coordinateSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.coordinateSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.coordinateSimplex.eq_1
+OWNED_AXIOMS OAI.ProjectionCounterexample.coordinateSimplex.eq_1: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg
+OWNED_AXIOMS OAI.ProjectionCounterexample.coordinateSimplex_eq_empty_of_neg: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.coordinateSimplex_measurableSet
+OWNED_AXIOMS OAI.ProjectionCounterexample.coordinateSimplex_measurableSet: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.integral_simplex_slice
+OWNED_AXIOMS OAI.ProjectionCounterexample.integral_simplex_slice: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.realVolume_unit_euclideanSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.volume_coordinateSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_coordinateSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_3
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_3: [propext]
+OWNED_DECL OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_4
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_4: [propext]
+OWNED_DECL OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_5
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_coordinateSimplex._simp_1_5: [propext]
+OWNED_DECL OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_linearImage_unit_coordinateSimplex: [propext,
+ Classical.choice,
+ Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.volume_unit_coordinateSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_unit_coordinateSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL OAI.ProjectionCounterexample.volume_unit_euclideanSimplex
+OWNED_AXIOMS OAI.ProjectionCounterexample.volume_unit_euclideanSimplex: [propext, Classical.choice, Quot.sound]
+OWNED_DECL _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_1
+OWNED_AXIOMS _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_1: []
+OWNED_DECL _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_2
+OWNED_AXIOMS _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_2: []
+OWNED_DECL _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_3
+OWNED_AXIOMS _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.eq_3: []
+OWNED_DECL _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.splitter
+OWNED_AXIOMS _private.Entry005.TruncationFacetGeometry.0.Entry005.truncationFacetNormal.match_1.splitter: []
+FACET_LOCAL_CLEAN_PASS 3 modules; 27 exports; 57 owned declarations

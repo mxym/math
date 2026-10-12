@@ -1,0 +1,12 @@
+'CyclotomicCounterexample.F_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_coeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_isCyclotomicProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CyclotomicCounterexample.F_isBasicCGF_of_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+Polynomial.constantCoeff.{u} {R : Type u} [Semiring R] : Polynomial R →+* R
+Polynomial.monic_prod_of_monic.{u, y} {R : Type u} {ι : Type y} [CommSemiring R] (s : Finset ι) (f : ι → Polynomial R)
+  (hs : ∀ i ∈ s, (f i).Monic) : (∏ i ∈ s, f i).Monic
+Polynomial.eval_prod.{u, u_1} {R : Type u} [CommSemiring R] {ι : Type u_1} (s : Finset ι) (p : ι → Polynomial R)
+  (x : R) : Polynomial.eval x (∏ j ∈ s, p j) = ∏ j ∈ s, Polynomial.eval x (p j)

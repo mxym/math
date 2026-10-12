@@ -1,0 +1,305 @@
+INDEPENDENT MATHEMATICAL SEMANTICS REVIEW
+Geometric avoidance Lean version 3, 7 October 2026
+
+Result: PASS at source/construction level. I found no missing mathematical
+premise, quantifier weakening, or mismatch between the constructed blocker and
+the original exact affine-geometric target. This finding is independent of the
+author's completion claim. Acceptance as a kernel-checked theorem still depends
+on the separate clean rebuild, exact-signature probe, and transitive trust audit.
+This report does not itself certify those compiler results.
+
+Scope: I reviewed the new construction modules, the actual connections between
+them, and the final target reduction. The earlier arrangement/local-signature
+modules are the unchanged reviewed components, not a new theorem assumed by the
+construction. The review followed the source definitions and proof arguments,
+not only README descriptions. File references below are relative to
+source/project/ContinuumGeometric/ in this audit. The independent finite exact
+regressions in semantic_exact_checks.py supplement, rather than replace, the
+universal Lean proofs.
+
+1. Exact purpose of the construction
+
+RoutingInterfaces.lean defines unitDensity(S) as real Lebesgue volume of
+S intersect [0,1). SmallCompactBlockerSpec quantifies over every natural K>=2,
+every INTEGER scale k, every natural original tail N, and every real positive
+budget delta<1. Its conclusion is an open, one-periodic set H with small genuine
+Lebesgue density, hitting every real center x and every parameter
+(s,t) in [1/K,K] times [1,2]. The points are exactly
+x+t*2^k*((1/2)^n)^s; there is no sampled-center or rational-parameter replacement.
+
+MainProof.lean:13 proves this specification, without an argument supplying it.
+It takes p=delta/12, obtains an actual RoutingSchedule, applies the proved
+stable-center probability estimate, and invokes the actual routing assembly.
+The assembly provides density(H)<6p=delta/2<delta. MainProof.lean:30 then applies
+the countable-exhaustion bridge to this proved specification. Thus conditional
+helper interfaces truly disappear at the final theorem, rather than being
+renamed or hidden as fields of an assumed global object.
+
+2. Finite candidate sets retain actual indices and all active parameters
+
+CandidateBounds.lean:15 chooses m=ceil(3/s0)+2, proving m*s0>3. Its finite label
+budget at :31 is ceil((U+T+|k|)/3)+1, retaining the absolute position U, the
+signed coefficient scale, and the additive constant. Candidate indices at :64
+are actual natural numbers m*n satisfying the requested N<=m*n. No downstream
+tail statement refers to a relabeled index n instead of m*n.
+
+The upper-index bound follows directly from strict activation
+u<s*(m*n)-k<v<=U+T and m*s>=3. The tail guard s1*N<=u+k gives m*n>=N.
+activeOriginalIndices_count_bounds (:137) gives at least
+ell/(2*m*s1) active original indices when ell>=2*m*s1, with both activation
+endpoints excluded. The map n -> m*n is injective because m>0.
+
+potentialOriginalPairs (:187) filters the finite edge/index product by actual
+existence of an active point somewhere in the FULL compact parameter rectangle.
+mem_potentialOriginalPairs_exact (:230) proves the intended equivalence;
+activeOriginalPairs_eq_potential_filter (:393) proves that filtering these
+candidates at a fixed parameter recovers exactly the original arithmetic tests.
+Their count is bounded by number-of-selector-children times the label budget.
+The canonical enumeration is injective and complete (:260, :267).
+RoutingLocalProbability.scheduled_vertex_active_count (:229) discharges all these
+guards for the actual scheduled tree and proves the needed count
+eta*(M-1)*ell, eta=1/(2*m*K). The tail start ceil(K*N+|k|)+5 supplies both
+U>=4 and the signed shift guard; it is not an unsigned replacement for k.
+
+3. Actual complete tree, predecessor stability, and subtree spans
+
+RoutingTemplate.lean:11-14 indexes a complete ordered M-ary tree by finite paths.
+ALL M children carry windows, including the default child; only the first M-1
+have selector tables. Windows are placed in preorder. A nonterminal edge's
+length is g+span(its child tree), making its edge-plus-subtree block twice that
+length. A terminal edge has base length L. This is an explicit recurrence, not
+an invariant postulated about an unspecified tree.
+
+RoutingPreorder.preorderActualWindows_eq_schedule (:261) proves that the actual
+recursive placement equals a sequential schedule whose next window starts
+at prior endpoint+g+1. The proof traverses complete subtrees and default edges.
+earlier_edgeEnd_add_gap_le (:562) derives the separation of ANY earlier edge,
+not merely adjacent siblings. predecessorBoundary is actual edgeStart-g-1
+(:580); the origin guard U>=g+1 prevents natural-number truncation.
+earlier_edgeEnd_le_predecessorBoundary (:591) therefore controls all earlier
+selector grids. The initial edge gets a harmless additional stability condition,
+which is counted in the finite-edge union bound.
+
+RoutingTemplate.edge_span_bound (:126) proves the entropy guard
+edgeStar+1<=edgeStart+2*edgeLength. RoutingTreeBounds proves that every descendant
+selector and every local terminal endpoint lie between the incoming edge's
+endpoint and its subtree endpoint. Hence local finest grids are genuinely fine
+enough for every possible local routing path, while global endpoints fit in
+U+T-1. The exact total span is A*L+B*g with A,B depending only on M,d
+(RoutingTemplate.span_affine, :163).
+
+The stable-center predicate excludes a grid boundary in (x,x+R], allowing a
+boundary at x, as required by left-closed/right-open cells. For each edge the
+predecessor scale b0 uses R=2^(-b0-g). Strict activation gives a displacement
+less than 2^(1-u)=R. Thus the point preserves the predecessor key and, by exact
+dyadic refinement, every earlier key. This is the conclusion of
+RoutingStableGeometry.actual_stable_earlier_address_agreement (:36), with
+actual tree-order and radius premises already discharged.
+
+4. Real floor/modulo keys, injectivity, and the true global readout
+
+RoutingGeometry works with floor(N*z) mod N and explicitly proves its equality
+to floor(N*fract(z)), so negative centers and integer wrap are included. Fine
+key division gives coarse keys exactly, including cell-boundary equality.
+Distinctness uses a scaled displacement at least one cell and at most N-1;
+it never silently replaces modulo-floor equality by ordinary floor equality.
+
+RoutingActiveGeometry uses strict upper activation and t>=1 to obtain a lower
+offset >2^(-u-ell). The own grid has scale 2^(u+ell+2), giving a gap from the
+center of more than four cells. Original stride indices are separated by at
+least three output-log units, hence by a factor eight in offsets; two active
+points in one edge are separated by more than 28 own-grid cells. Since u>=4,
+all offsets are below 1/8, ruling out a full-period collision. These statements
+hold for arbitrary real centers.
+
+RoutingSeparation.actual_local_address_separation (:27) establishes the full
+probability contract. Different children have different table tags. Within one
+child, original-index separation makes own keys distinct. Own addresses avoid
+all exposed center addresses. For terminals, equal terminal addresses force
+the same leaf, therefore the same chosen child; the terminal key is finer than
+the child's own grid, contradicting own-key separation. Importantly, terminal
+injection holds for EVERY selector assignment, including assignments where an
+own bit is false and paths share auxiliary selector reads.
+
+The local route is initially defined by forcing entry to a prescribed child.
+It is not assumed to equal the global route. RoutingLocalHit proves the needed
+connection: preceding-key agreement preserves precisely the ancestor reads
+through each selected child; at a center-default vertex all earlier sibling
+bits are false; then an own true bit selects the prescribed local child.
+RoutingStableGeometry.actual_stable_local_success_mem_routedSet (:59) concludes
+actual global membership. Thus a convenient artificial local success has not
+been substituted for membership in the constructed set.
+
+5. Continuum factorization is uniform in every random assignment
+
+RoutingFactorization proves a local finest key determines all selector reads
+in that child subtree and the terminal key at its resulting leaf. Its
+actualLocalAllMiss_iff_of_localGridVector_eq keeps activation status as well as
+keys: inactive tests are represented by none, active tests by some(key).
+actual_routing_local_representatives (:135) then returns a finite parameter
+representative family and a representative for each real parameter BEFORE
+quantifying over ALL complete selector/terminal assignments.
+
+Consequently the old boundary-complete arrangement theorem now applies to the
+actual routing event, rather than merely to an unrelated vector. The returned
+bound is 20*(P*(3+2^(2*ell+3))+5)^2. Negative/zero/positive cut signs and strict
+activation endpoints remain present. Representatives may depend on the fixed
+real center, but no measurable choice of representatives as the center varies
+is needed: a pointwise finite-outcome probability bound is established first.
+
+6. Explicit independence calculation, atom partition, and no-default law
+
+FiniteRoutingProbability defines all weights as finite products: fair selector
+bits and Bernoulli-p terminal bits. It proves normalization and, for 0<=p<=1,
+nonnegativity. The target construction supplies these inequalities.
+
+terminal_average_local_miss (:156) first fixes EVERY selector coordinate. The
+terminal address map is then deterministic and injective, so terminal averaging
+gives product_i[(1-p) if own_i=true else 1]. center_atom_weight_factorization
+(:187) expresses a center atom as its scalar mass times independent fair bits
+at unexposed coordinates and point masses at exposed coordinates. Averaging the
+distinct unexposed own bits yields exactly (1-p/2)^m.
+joint_center_atom_all_miss (:231) proves the JOINT law
+Pr(atom and all miss)=Pr(atom)*(1-p/2)^m. It never divides by atom mass, asserts
+independence of adaptive paths, or forbids harmless shared auxiliary reads.
+RoutingLocalProbability.actual_fixed_parameter_joint_miss (:81) instantiates
+this with the geometrically proved actual addresses.
+
+NoDefaultProbability.actual_routeHasNoDefault_probability (:259) derives
+(1-2^(-(M-1)))^d for the actual global route. It partitions by prescribed
+nondefault leaves; each leaf fixes the earlier sibling bits and its chosen bit
+at each depth, at distinct table coordinates. These disjoint route probabilities
+sum by finite products. The formula is proved, not used as a model assumption.
+
+RoutingCenterAtoms.actual_center_atom_partition (:100) gives an exact partition
+by all actual exposed center reads. The atom fixes the entire center route.
+center_atom_default_vertex_exists (:61) chooses one default vertex from a
+canonical assignment and proves that this SAME vertex works for every selector
+assignment in the atom. This is why the final bound incurs no extraneous factor
+for the number of vertices or atoms. The continuum local bound is multiplied
+by atom mass before summing; atom masses sum to one.
+
+RoutingStableProbability.actual_missed_center_forces_vertex_miss (:15) connects
+an actual closed global failure to a local all-miss event at that vertex.
+actual_stable_missed_center_probability_le (:88) then gives at most 2p at every
+stable real center: at most p for routes with no default, and at most p for
+failure on routes having a default.
+
+7. Noncircular schedules and the empty-candidate entropy constant
+
+The choices proceed strictly in this order: stride m from K; branching M from
+p and eta; depth d from M and p; gap g from the fixed finite edge count and p;
+finally absolute position U and base length L. None depends on a center,
+a sampled parameter, a table outcome, or later choices.
+
+Branching gives lambda=p*eta*(M-1)/2 and kappa=lambda-4*log(2)>0. Depth makes
+no-default probability <p. Gap makes #edges*2^(3-g)<p. With these fixed, the
+span is affine in L. EntropySchedule defines
+L(U)=Lmin+ceil((4*log(U+2)+max(C,0))/kappa).
+The logarithmic upper bound proves A*L(U)+B<=U eventually (:51). Its lower
+bound proves the STRICT entropy budget, retaining the absolute U factor.
+exists_late_entropy_schedule (:100) intersects the eventual span condition with
+U>=Umin. Umin includes the original-tail, signed-scale, and predecessor guards.
+This is a noncircular late-integer existence proof, not an informal assertion
+that a sufficiently large L also fits inside U.
+
+RoutingEntropy.signature_entropy_exp_bound (:32) uses
+5120*(P+1)^2*exp(4*log(2)*ell). The +1 is essential: at P=0 the original
+arrangement bound is 20*5^2=500, not zero. Thus the empty candidate family has
+not been used to erase the constant entropy cost. With T<=U and |k|<=U,
+P+1<=3*M*(U+1), giving 46080*M^2*(U+1)^2. Positive kappa and ell>=L complete
+signature_entropy_position_bound (:67).
+
+RoutingSchedule.exists_routing_schedule (:48) assembles all guards and budgets
+from the explicit choices; routingSchedule_node_entropy_lt (:96) applies them
+to each actual vertex. RoutingLocalProbability.scheduled_vertex_continuum_joint_
+miss_bound (:289) consequently supplies the atom-mass times p estimate with
+candidate count, activation count, geometry, and continuum factorization all
+discharged.
+
+8. Real measure, buffers, closed bad centers, and repair
+
+RoutingGlobalGrid.actual_routedSet_finite_grid (:98) proves the actual global
+readout is a finite canonical periodic grid at endpoint U+T-1. It is not merely
+asserted measurable or periodic. PeriodicRepair.periodicGridSet_eq_integer_
+Periodization (:168) treats half-open cells, negative lifts, and wrap exactly.
+Finite cell thickening bounds give the double-buffer cost at most 4*G*r (:296).
+With r=p/(8*G)>0 that cost is p/2<p (:305). The inner and outer buffers are
+actual open metric thickenings; the base set really lies inside the inner one.
+
+The stable-center bad set is a union of left half-open boundary strips of
+length R. RoutingStableMeasure.unitDensity_gridBoundaryBad_le (:99) proves
+density<=G*R, an upper bound, not an unjustified equality in overlap cases.
+The predecessor scale cancels, yielding #edges*2^(3-g)<p for the actual unstable
+centers. Stability is a deterministic geometric set, independent of the random
+outcome.
+
+The missed-center set is the EXISTENCE, over compact real parameters, of failure
+of every strictly active finite test to hit the open inner buffer. The unchanged
+ClosedProjection proves this set closed, using open activation and open hit sets.
+The finite-sum Fubini identity in RoutingMeasure (:59) integrates probabilities
+over the entire real unit interval. On stable centers miss probability<=2p;
+on the exceptional centers probability<=1. Their density<=p yields expected
+missed-center density<=3p. Actual routed-set occupancy has expectation p;
+the outer-buffer bound yields expected buffered density<=2p. A true finite
+outcome has the sum of these densities<=5p (:199, :219, :360). Selection allows
+zero outcome weights; normalization ensures a nonempty outcome space.
+
+PeriodicRepair.closed_onePeriodic_open_cover (:325) supplies the previously
+missing SMALL open periodic cover V of the actual closed missed-center set R,
+with density(V)<density(R)+p. It uses continuity of measures of shrinking
+thickenings under the finite restricted Lebesgue measure on [0,1), so wraps
+are retained. It does not take V=univ or assume the desired cover estimate.
+periodic_power_outcome_repair (:362) returns H=B2 union V of density<6p.
+Outside R a finite active original-tail point hits B1. Inside R, openness of V
+and convergence of the infinite progression to its center give an arbitrarily
+late point in V. The repair index need not belong to the finite test set.
+This is exactly what the all-center requirement needs.
+
+9. Signed countable exhaustion and strict compactification
+
+CoefficientCover.affine_geometric_compact_power_cover (:46) represents each real
+nonzero affine coefficient using a sign, an INTEGER dyadic scale k and t in
+[1,2), and each real q in (0,1) using a positive exponent in some [1/K,K]. The
+identity holds for EVERY natural index. In the negative branch the center is
+also reflected: -powerPoint(...)(-b,p). No arbitrarily small coefficient is lost.
+
+CountableExhaustion indexes all K>=2, k in Z, and N in N (:39). It chooses
+strictly summable positive budgets with sum<epsilon/2, then includes each
+blocker and its reflection. Reflection preserves fundamental-interval density
+(:25), including the Ico/Ioc endpoint change. Their open periodic union has
+density<epsilon (:49) and hits every requested original tail of every real
+progression, using the corresponding (K,k,N) member of the family. The common
+union is chosen before a,b,q,N, so quantifier order is preserved.
+
+The final E=[0,1] minus that open union is compact and contained in [0,1].
+compact_complement_of_open_small (:99) uses the exact Lebesgue partition and
+null endpoint differences to retain STRICT volume(E)>1-epsilon. No toReal
+conversion, substituted measure, or almost-everywhere center exception appears.
+
+10. Review limits and residual issues
+
+No mathematical construction gap was found in the requested exact geometric
+target. Some module comments still describe their conditional local interface
+as OPEN; they are historical/staged descriptions, not open hypotheses of
+MainProof. The final source explicitly supplies those conditions. This wording
+could be clarified editorially, but no source modification is needed for the
+mathematical result.
+
+The construction is noncomputable and its constants can be enormous; an
+existence theorem does not require feasible numerical extraction of E. The
+stronger continuum leading-exponent/nonlinear-remainder theorem remains only a
+separate written result and is outside this review. No novelty/priority claim,
+arbitrary C1/flat-germ extension, or finite-sieve optimality claim follows here.
+
+The exact finite regression script retains positive checks and three explicit
+failure witnesses showing that dropping own-coordinate injection, own-coordinate
+nonexposure, or terminal injection changes the joint miss law. Its normal and
+optimized reports must agree. These finite checks are independent sanity tests;
+the source arguments and the separately audited Lean proof close the continuum
+and unbounded quantifiers.
+
+Completed regression result: PASS, 1,176,885 exact integer/rational checks.
+Normal Python and Python -O reports are byte-identical. The 53 principal source
+locations are recorded in SEMANTIC_SOURCE_REFERENCES.json. Hashes and equality
+status are in SEMANTIC_CHECK_MANIFEST.json. No submitted Lean source was changed.

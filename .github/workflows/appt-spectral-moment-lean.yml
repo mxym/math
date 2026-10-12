@@ -1,0 +1,43 @@
+name: APPT spectral moments Lean kernel verification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/SpectralMoment.lean'
+      - 'formalizations/appt-qutrit-purity/SpectralMomentAudit.lean'
+      - '.github/workflows/appt-spectral-moment-lean.yml'
+  pull_request:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/SpectralMoment.lean'
+      - 'formalizations/appt-qutrit-purity/SpectralMomentAudit.lean'
+      - '.github/workflows/appt-spectral-moment-lean.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  spectral-moments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Build three actual-state spectral moment theorems
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build APPT.Quantum.SpectralMoment
+          lake env lean SpectralMomentAudit.lean > SpectralMomentAudit.log 2>&1
+          cat SpectralMomentAudit.log
+          if grep -E 'sorryAx|unexpected axiom' SpectralMomentAudit.log; then exit 1; fi
+      - name: Check for incomplete or untrusted proof shortcuts
+        run: |
+          set -euo pipefail
+          ! grep -nE '(^|[[:space:]])(sorry|admit|axiom|native_decide)([[:space:]]|$)' formalizations/appt-qutrit-purity/APPT/Quantum/SpectralMoment.lean

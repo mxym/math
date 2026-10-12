@@ -1,0 +1,10 @@
+APPT.Quantum.density_appt_has_sorted_spectrum (n : ℕ) (hn : 3 ≤ n) (A : Matrix (Fin 3 × Fin n) (Fin 3 × Fin n) ℂ)
+  (hA : IsDensity A) (h : AbsolutelyPPT A) :
+  ∃ lam,
+    Antitone lam ∧
+      (∀ (i : Fin (3 * n)), 0 ≤ lam i) ∧
+        ∑ i, lam i = 1 ∧
+          purity A = ∑ i, lam i ^ 2 ∧
+            ∀ (x : Fin 9 → Fin (3 * n)),
+              Function.Injective x → (APPT.matA (lam ∘ x)).PosSemidef ∧ (APPT.matB (lam ∘ x)).PosSemidef
+'APPT.Quantum.density_appt_has_sorted_spectrum' depends on axioms: [propext, Classical.choice, Quot.sound]

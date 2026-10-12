@@ -1,0 +1,2120 @@
+--- /dev/null
++++ b/formal/Entry005/PyramidContinuity.lean
+@@ -0,0 +1,106 @@
++import Entry005.PyramidMomentDefect
++
++/-! The finite-basis compactness argument is adapted to arbitrary ambient
++inner-product spaces from OpenAI/math `Brightness.lean`, theorems
++`projectionBody_norm_le` and `projectionBody_isCompact`, commit
++adc7f1241b42e322a6451854ab7e4b4c146bf78a. -/
++
++noncomputable section
++open Metric MeasureTheory Module Filter
++open scoped BigOperators RealInnerProductSpace Pointwise Topology
++namespace Entry005
++
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++theorem pyramidSet_mono {K L : Set E} (h : K ⊆ L) : pyramidSet K ⊆ pyramidSet L :=
++  convexHull_mono (Set.union_subset_union (Set.image_mono h) (Set.Subset.refl _))
++
++theorem pyramidSet_zero_mem {K : Set E} (h : (0 : E) ∈ K) :
++    (0 : WithLp 2 (E × ℝ)) ∈ pyramidSet K := by
++  apply subset_convexHull ℝ
++  exact Set.mem_union_left _ ⟨0, h, by simp⟩
++
++theorem pyramidSet_apex_mem (K : Set E) : pyramidApex ∈ pyramidSet K :=
++  (subset_convexHull ℝ _) (Set.mem_union_right _ (Set.mem_singleton _))
++
++/-- An isotropic dilation of the base also contains its canonical height-one pyramid. -/
++theorem pyramidSet_subset_dilation {K L : Set E} (hzero : (0 : E) ∈ K)
++    (a : ℝ) (ha : 1 ≤ a) (hLK : L ⊆ a • K) : pyramidSet L ⊆ a • pyramidSet K := by
++  have ha0 : 0 < a := lt_of_lt_of_le zero_lt_one ha
++  apply convexHull_min _ ((convex_convexHull ℝ _).smul a)
++  rintro p (⟨x, hx, rfl⟩ | hp)
++  · obtain ⟨z, hz, rfl⟩ := hLK hx
++    refine ⟨WithLp.toLp 2 (z, (0 : ℝ)), (subset_convexHull ℝ _)
++      (Set.mem_union_left _ ⟨z, hz, rfl⟩), ?_⟩
++    change a • WithLp.toLp 2 (z, (0 : ℝ)) = WithLp.toLp 2 (a • z, (0 : ℝ))
++    rw [← WithLp.toLp_smul]
++    simp
++  · rcases Set.mem_singleton_iff.mp hp with rfl
++    refine ⟨a⁻¹ • pyramidApex, ?_, ?_⟩
++    · exact (convex_convexHull ℝ _).smul_mem_of_zero_mem (pyramidSet_zero_mem hzero)
++        (pyramidSet_apex_mem K) ⟨(inv_pos.mpr ha0).le, inv_le_one_of_one_le₀ ha⟩
++    · change a • (a⁻¹ • pyramidApex) = pyramidApex
++      rw [smul_smul, mul_inv_cancel₀ ha0.ne', one_smul]
++
++variable [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++
++theorem projectionVolumeSet_neg_normal (K : Set E) (u : E) :
++    projectionVolumeSet K (-u) = projectionVolumeSet K u := by
++  unfold projectionVolumeSet
++  exact congrArg (fun P : Submodule ℝ E => (volume (Pᗮ.orthogonalProjectionOnto '' K)).toReal)
++    (by simpa only [neg_one_smul] using
++      (Submodule.span_singleton_smul_eq (isUnit_iff_ne_zero.mpr (by norm_num : (-1 : ℝ) ≠ 0)) (x := u)))
++
++/-- Actual projection bodies are compact by a finite orthonormal coordinate bound. -/
++theorem actual_projection_body_compact_general (K : Set E) :
++    IsCompact (projectionBodySet K) := by
++  let b := stdOrthonormalBasis ℝ E
++  apply Metric.isCompact_iff_isClosed_bounded.mpr
++  refine ⟨projection_body_closed K, isBounded_iff_forall_norm_le.mpr
++    ⟨∑ i, projectionVolumeSet K (b i), ?_⟩⟩
++  intro y hy
++  calc
++    ‖y‖ = ‖∑ i, inner ℝ (b i) y • b i‖ := by rw [b.sum_repr']
++    _ ≤ ∑ i, ‖inner ℝ (b i) y • b i‖ := norm_sum_le _ _
++    _ = ∑ i, |inner ℝ (b i) y| := by simp [norm_smul, Real.norm_eq_abs]
++    _ ≤ ∑ i, projectionVolumeSet K (b i) := by
++      apply Finset.sum_le_sum
++      intro i _
++      apply abs_le.mpr
++      constructor
++      · have h := hy (-b i) (by simp)
++        simpa only [inner_neg_left, projectionVolumeSet_neg_normal, neg_neg] using neg_le_neg h
++      · exact hy (b i) (by simp)
++
++theorem tendsto_pyramid_projection_ratio_of_dilation_sandwich
++    (K : Set E) (P : ℕ → Set E) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hP : ∀ m, IsCompact (P m)) (hPc : ∀ m, Convex ℝ (P m))
++    (hzero : (0 : E) ∈ K) (hV : (volume K).toReal ≠ 0)
++    (δ : ℕ → ℝ) (hδ : ∀ m, 0 ≤ δ m) (hlim : Tendsto δ atTop (𝓝 0))
++    (hKP : ∀ m, K ⊆ P m) (hPK : ∀ m, P m ⊆ (1 + δ m) • K) :
++    Tendsto (fun m => projectionRatio (pyramidSet (P m))) atTop
++      (𝓝 (projectionRatio (pyramidSet K))) := by
++  apply tendsto_projection_ratio_of_dilation_sandwich (pyramidSet K)
++    (fun m => pyramidSet (P m)) (pyramidSet_compact hc hconv)
++    (fun m => pyramidSet_compact (hP m) (hPc m))
++    (actual_projection_body_compact_general _) _ δ hδ hlim
++    (fun m => pyramidSet_mono (hKP m))
++    (fun m => pyramidSet_subset_dilation hzero _ (by linarith [hδ m]) (hPK m))
++  rw [pyramidSet_volume hc hconv]
++  exact div_ne_zero hV (by positivity)
++
++theorem tendsto_entryA_of_dilation_sandwich
++    (K : Set E) (P : ℕ → Set E) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hP : ∀ m, IsCompact (P m)) (hPc : ∀ m, Convex ℝ (P m))
++    (hzero : (0 : E) ∈ K) (hV : (volume K).toReal ≠ 0)
++    (hQ : projectionRatio K ≠ 0)
++    (δ : ℕ → ℝ) (hδ : ∀ m, 0 ≤ δ m) (hlim : Tendsto δ atTop (𝓝 0))
++    (hKP : ∀ m, K ⊆ P m) (hPK : ∀ m, P m ⊆ (1 + δ m) • K) :
++    Tendsto (fun m => entryA (P m)) atTop (𝓝 (entryA K)) := by
++  have htP := tendsto_pyramid_projection_ratio_of_dilation_sandwich K P hc hconv
++    hP hPc hzero hV δ hδ hlim hKP hPK
++  have htK := tendsto_projection_ratio_of_dilation_sandwich K P hc hP
++    (actual_projection_body_compact_general K) hV δ hδ hlim hKP hPK
++  exact ((htP.const_mul _).div htK hQ).sub_const 1
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidEntryDefect.lean
+@@ -0,0 +1,86 @@
++import Entry005.PyramidLiftedMoment
++
++noncomputable section
++open Metric MeasureTheory Module
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++variable {ι : Type*} [Fintype ι] {d : ℕ} [Nontrivial (Space d)]
++
++theorem finite_halfspace_projection_body_volume_pos (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h)) :
++    0 < (volume (projectionBodySet (finiteHalfspaceSet n h))).toReal := by
++  obtain ⟨ε, hε, hbound⟩ := finite_uniform_positive h hh
++  let c := ε⁻¹
++  let K := finiteHalfspaceSet n h
++  have hcpos : 0 < c := inv_pos.mpr hε
++  have hcK : IsCompact (c • K) := by
++    change IsCompact ((fun x : Space d => c • x) '' K)
++    exact hc.image (continuous_id.const_smul c)
++  have hb : closedBall (0 : Space d) 1 ⊆ c • K := by
++    intro x hx
++    have hxn : ‖x‖ ≤ 1 := by simpa only [mem_closedBall, dist_zero_right] using hx
++    refine ⟨ε • x, ?_, ?_⟩
++    · intro i
++      rw [inner_smul_right]
++      calc
++        ε * inner ℝ (n i) x ≤ ε * (‖n i‖ * ‖x‖) :=
++          mul_le_mul_of_nonneg_left (real_inner_le_norm _ _) hε.le
++        _ ≤ ε := by rw [hn i, one_mul]; exact mul_le_of_le_one_right hε.le hxn
++        _ ≤ h i := hbound i
++    · change ε⁻¹ • (ε • x) = x
++      rw [smul_smul, inv_mul_cancel₀ hε.ne', one_smul]
++  obtain ⟨R, hR, hKR⟩ := hcK.isBounded.subset_closedBall_lt 1 (0 : Space d)
++  have hp := normalized_projection_body_volume_pos (c • K) hcK hb R (by linarith) hKR
++  rw [projection_body_positive_smul K c hcpos,
++    real_volume_nonnegative_smul _ _ (pow_pos hcpos _).le] at hp
++  exact (mul_pos_iff_of_pos_left (pow_pos (pow_pos hcpos _) _)).mp hp
++
++/-- The published cone-law identity for actual finite halfspace bodies.
++Both iid moments use the actual finiteHalfspaceConeLaw. Every geometric identity
++and every denominator's positivity is derived in the proof. -/
++theorem finite_halfspace_entryA_lifted_moment (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    entryA (finiteHalfspaceSet n h) =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) /
++      ((d + 1 : ℝ) * (∫ w : Fin d → Fin d → ℝ,
++        |horizontalDeterminant w| ∂iidLaw (finiteHalfspaceConeLaw n h) d)) := by
++  let K := finiteHalfspaceSet n h
++  let V := (volume K).toReal
++  let Q := (volume (projectionBodySet K)).toReal
++  let B := ∫ w : Fin (d + 1) → Fin d → ℝ,
++    |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)
++  have hV : 0 < V := finite_halfspace_volume_pos n h hn hh hc
++  have hQ : 0 < Q := finite_halfspace_projection_body_volume_pos n h hn hh hc
++  have hd : finrank ℝ (Space d) = d := by simp [Space]
++  have hdN : 0 < d := by simpa only [hd] using (finrank_pos : 0 < finrank ℝ (Space d))
++  have hdR : (d : ℝ) ≠ 0 := by exact_mod_cast hdN.ne'
++  have hdp : (d + 1 : ℝ) ≠ 0 := by positivity
++  have hfact : (d.factorial : ℝ) ≠ 0 := by exact_mod_cast Nat.factorial_ne_zero d
++  have hPP := pyramid_projection_body_volume_decomposition n h hn hh hinj hc
++  rw [pyramid_side_zonotope_volume_lifted_moment n h hn hh hinj hc, hd] at hPP
++  change (volume (projectionBodySet (pyramidSet K))).toReal =
++    V ^ (d + 1) / ((d + 1).factorial : ℝ) * B + V * (1 / (d : ℝ)) ^ d * Q at hPP
++  have hPV := pyramid_finite_halfspace_volume n h hc
++  rw [hd] at hPV
++  have hA := finite_halfspace_horizontal_first_moment n h hn hh hinj hc
++  change _ = (d.factorial : ℝ) / ((d : ℝ) * V) ^ d * Q at hA
++  change entryA K = B / ((d + 1 : ℝ) * _)
++  rw [hA]
++  unfold entryA projectionRatio
++  rw [hPP, hPV, finrank_lifted_space, hd]
++  simp only [Nat.add_sub_cancel]
++  have hpV : V ^ d = V ^ (d - 1) * V := by
++    rw [← pow_succ]
++    congr 1
++    omega
++  simp only [div_pow, mul_pow, one_pow, Nat.factorial_succ, Nat.cast_mul, Nat.cast_add, Nat.cast_one]
++  change ((d : ℝ) ^ d / (d + 1 : ℝ) ^ d) *
++    ((V ^ (d + 1) / ((d + 1 : ℝ) * d.factorial) * B + V * (1 / (d : ℝ) ^ d) * Q) /
++      (V ^ d / (d + 1 : ℝ) ^ d)) / (Q / V ^ (d - 1)) - 1 = _
++  rw [pow_succ, hpV]
++  field_simp [hV.ne', hQ.ne', hdR, hdp, hfact]
++  ring
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidFacetAreas.lean
+@@ -0,0 +1,78 @@
++import Entry005.PyramidHalfspaces
++
++noncomputable section
++open MeasureTheory Module
++open scoped RealInnerProductSpace Pointwise
++namespace Entry005
++
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++def pyramidBaseIsometry : E ≃ₗᵢ[ℝ] (ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ where
++  toFun x := ⟨WithLp.toLp 2 (x, 0), by
++    rw [Submodule.mem_orthogonal_singleton_iff_inner_right, inner_pyramidBaseNormal]
++    simp⟩
++  invFun y := y.val.ofLp.1
++  left_inv x := rfl
++  right_inv y := by
++    apply Subtype.ext
++    change WithLp.toLp 2 (y.val.ofLp.1, (0 : ℝ)) = y.val
++    have hy := Submodule.mem_orthogonal_singleton_iff_inner_right.mp y.property
++    obtain ⟨⟨x, t⟩, hp⟩ := WithLp.toLp_surjective 2 y.val
++    rw [← hp, inner_pyramidBaseNormal] at hy
++    rw [← hp]
++    apply WithLp.ofLp_injective
++    change (x, 0) = (x, t)
++    have ht : t = 0 := by linarith
++    rw [ht]
++  map_add' x y := by
++    apply Subtype.ext
++    change WithLp.toLp 2 (x + y, (0 : ℝ)) = WithLp.toLp 2 (x, 0) + WithLp.toLp 2 (y, 0)
++    rw [← WithLp.toLp_add]
++    simp
++  map_smul' a x := by
++    apply Subtype.ext
++    change WithLp.toLp 2 (a • x, (0 : ℝ)) = a • WithLp.toLp 2 (x, 0)
++    rw [← WithLp.toLp_smul]
++    simp
++  norm_map' x := by
++    change ‖WithLp.toLp 2 (x, (0 : ℝ))‖ = ‖x‖
++    exact WithLp.norm_toLp_fst 2 E ℝ x
++
++@[simp] theorem pyramidBaseIsometry_val (x : E) :
++    (pyramidBaseIsometry x : WithLp 2 (E × ℝ)) = WithLp.toLp 2 (x, 0) := rfl
++
++variable {ι : Type*} [Fintype ι]
++
++omit [Fintype ι] in
++theorem pyramid_base_facet_chart (n : ι → E) (h : ι → ℝ) :
++    finiteHalfspaceFacetChart (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) none =
++      pyramidBaseIsometry '' finiteHalfspaceSet n h := by
++  ext y
++  obtain ⟨x, rfl⟩ := pyramidBaseIsometry.surjective y
++  change (0 : ℝ) • pyramidBaseNormal + WithLp.toLp 2 (x, 0) ∈
++      finiteHalfspaceSet (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) ↔ _
++  rw [zero_smul, zero_add, mem_pyramidHalfspace_iff]
++  simp only [mul_zero, add_zero, le_refl, true_and]
++  constructor
++  · intro hx
++    exact ⟨x, hx, rfl⟩
++  · rintro ⟨z, hz, heq⟩
++    have hzx := pyramidBaseIsometry.injective heq
++    subst z
++    exact hz
++
++section Volume
++variable [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++
++omit [Fintype ι] in
++/-- The base area is the actual intrinsic hyperplane Haar volume. -/
++theorem pyramid_base_facet_area (n : ι → E) (h : ι → ℝ) :
++    finiteHalfspaceFacetArea (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) none =
++      (volume (finiteHalfspaceSet n h)).toReal := by
++  unfold finiteHalfspaceFacetArea
++  rw [pyramid_base_facet_chart]
++  change (volume (pyramidBaseIsometry '' finiteHalfspaceSet n h)).toReal = _
++  rw [IntrinsicLinearImageReuse.isometry_volume_image]
++
++end Volume
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidFormalization.lean
+@@ -0,0 +1,5 @@
++import Entry005
++import Entry005.ActualPyramidJointCone
++
++/-! Complete affine checkpoint plus actual finite-pyramid geometry and
++the common actual arbitrary-body cone-law / pyramid-moment bridge. -/
+--- /dev/null
++++ b/formal/Entry005/PyramidHalfspaces.lean
+@@ -0,0 +1,230 @@
++import Entry005.FiniteHalfspaceCauchy
++import Entry005.PyramidVolume
++
++noncomputable section
++open Metric MeasureTheory
++open scoped RealInnerProductSpace Pointwise
++namespace Entry005
++
++def pyramidSlope (h : ℝ) : ℝ := Real.sqrt (1 + h ^ 2)
++
++theorem pyramidSlope_pos (h : ℝ) : 0 < pyramidSlope h := by
++  exact Real.sqrt_pos.mpr (by positivity)
++
++theorem pyramidSlope_sq (h : ℝ) : pyramidSlope h ^ 2 = 1 + h ^ 2 :=
++  Real.sq_sqrt (by positivity)
++
++variable {ι E : Type*} [Fintype ι] [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++def pyramidBaseNormal : WithLp 2 (E × ℝ) := WithLp.toLp 2 ((0 : E), (-1 : ℝ))
++
++def pyramidSideNormal (n : E) (h : ℝ) : WithLp 2 (E × ℝ) :=
++  (pyramidSlope h)⁻¹ • WithLp.toLp 2 (n, h)
++
++def pyramidHalfspaceNormal (n : ι → E) (h : ι → ℝ) : Option ι → WithLp 2 (E × ℝ)
++  | none => pyramidBaseNormal
++  | some i => pyramidSideNormal (n i) (h i)
++
++def pyramidHalfspaceHeight (h : ι → ℝ) : Option ι → ℝ
++  | none => 0
++  | some i => h i / pyramidSlope (h i)
++
++omit [Fintype ι] [InnerProductSpace ℝ E] in
++theorem pyramidBaseNormal_unit : ‖(pyramidBaseNormal : WithLp 2 (E × ℝ))‖ = 1 := by
++  apply (sq_eq_sq₀ (norm_nonneg _) (by norm_num)).mp
++  rw [WithLp.prod_norm_sq_eq_of_L2]
++  change ‖(0 : E)‖ ^ 2 + ‖(-1 : ℝ)‖ ^ 2 = 1 ^ 2
++  norm_num [pyramidBaseNormal]
++
++omit [Fintype ι] in
++theorem pyramidSideNormal_unit (n : E) (h : ℝ) (hn : ‖n‖ = 1) :
++    ‖pyramidSideNormal n h‖ = 1 := by
++  apply (sq_eq_sq₀ (norm_nonneg _) (by norm_num)).mp
++  rw [pyramidSideNormal, norm_smul, Real.norm_eq_abs, abs_inv,
++    abs_of_pos (pyramidSlope_pos h), mul_pow, inv_pow, WithLp.prod_norm_sq_eq_of_L2]
++  change (pyramidSlope h ^ 2)⁻¹ * (‖n‖ ^ 2 + ‖h‖ ^ 2) = 1 ^ 2
++  rw [hn, Real.norm_eq_abs, sq_abs, pyramidSlope_sq]
++  have hp : 1 + h ^ 2 ≠ 0 := by positivity
++  field_simp
++
++omit [Fintype ι] in
++theorem inner_pyramidBaseNormal (x : E) (t : ℝ) :
++    inner ℝ pyramidBaseNormal (WithLp.toLp 2 (x, t)) = -t := by
++  simp [pyramidBaseNormal, WithLp.prod_inner_apply]
++
++omit [Fintype ι] in
++theorem inner_pyramidSideNormal (n x : E) (h t : ℝ) :
++    inner ℝ (pyramidSideNormal n h) (WithLp.toLp 2 (x, t)) =
++      (inner ℝ n x + h * t) / pyramidSlope h := by
++  simp [pyramidSideNormal, real_inner_smul_left, WithLp.prod_inner_apply, div_eq_mul_inv]
++  ring
++
++omit [Fintype ι] in
++theorem mem_pyramidHalfspace_iff (n : ι → E) (h : ι → ℝ) (x : E) (t : ℝ) :
++    WithLp.toLp 2 (x, t) ∈ finiteHalfspaceSet (pyramidHalfspaceNormal n h)
++      (pyramidHalfspaceHeight h) ↔
++      0 ≤ t ∧ ∀ i, inner ℝ (n i) x + h i * t ≤ h i := by
++  constructor
++  · intro hp
++    have ht := hp none
++    change inner ℝ pyramidBaseNormal (WithLp.toLp 2 (x, t)) ≤ 0 at ht
++    rw [inner_pyramidBaseNormal] at ht
++    refine ⟨by linarith, ?_⟩
++    intro i
++    have hi := hp (some i)
++    change inner ℝ (pyramidSideNormal (n i) (h i)) (WithLp.toLp 2 (x, t)) ≤
++      h i / pyramidSlope (h i) at hi
++    rw [inner_pyramidSideNormal] at hi
++    exact (div_le_div_iff_of_pos_right (pyramidSlope_pos _)).mp hi
++  · rintro ⟨ht, hp⟩ (i | i)
++    · change inner ℝ pyramidBaseNormal (WithLp.toLp 2 (x, t)) ≤ 0
++      rw [inner_pyramidBaseNormal]
++      linarith
++    · change inner ℝ (pyramidSideNormal (n i) (h i)) (WithLp.toLp 2 (x, t)) ≤
++        h i / pyramidSlope (h i)
++      rw [inner_pyramidSideNormal]
++      exact (div_le_div_iff_of_pos_right (pyramidSlope_pos _)).mpr (hp i)
++
++omit [Fintype ι] in
++theorem finite_halfspace_convex (n : ι → E) (h : ι → ℝ) :
++    Convex ℝ (finiteHalfspaceSet n h) := by
++  intro x hx y hy a b ha hb hab i
++  rw [inner_add_right, inner_smul_right, inner_smul_right]
++  calc
++    a * inner ℝ (n i) x + b * inner ℝ (n i) y ≤ a * h i + b * h i :=
++      add_le_add (mul_le_mul_of_nonneg_left (hx i) ha) (mul_le_mul_of_nonneg_left (hy i) hb)
++    _ = h i := by rw [← add_mul, hab, one_mul]
++
++omit [Fintype ι] in
++/-- Actual compactness rules out every nonzero homogeneous recession direction. -/
++theorem finite_halfspace_homogeneous_eq_zero (n : ι → E) (h : ι → ℝ)
++    (hh : ∀ i, 0 ≤ h i) (hc : IsCompact (finiteHalfspaceSet n h))
++    (x : E) (hx : ∀ i, inner ℝ (n i) x ≤ 0) : x = 0 := by
++  obtain ⟨R, hR⟩ := (hc.image continuous_norm).bddAbove
++  have h0 : (0 : E) ∈ finiteHalfspaceSet n h := by simpa [finiteHalfspaceSet] using hh
++  have hRn : 0 ≤ R := by simpa using hR ⟨0, h0, rfl⟩
++  by_contra hx0
++  have hn : 0 < ‖x‖ := norm_pos_iff.mpr hx0
++  let a := (R + 1) / ‖x‖
++  have ha : 0 ≤ a := div_nonneg (by linarith) hn.le
++  have hax : a • x ∈ finiteHalfspaceSet n h := by
++    intro i
++    rw [inner_smul_right]
++    exact (mul_nonpos_of_nonneg_of_nonpos ha (hx i)).trans (hh i)
++  have hb := hR ⟨a • x, hax, rfl⟩
++  change ‖a • x‖ ≤ R at hb
++  rw [norm_smul, Real.norm_eq_abs, abs_of_nonneg ha] at hb
++  dsimp [a] at hb
++  rw [div_mul_cancel₀ _ hn.ne'] at hb
++  linarith
++
++omit [Fintype ι] in
++theorem pyramidHalfspaceNormal_unit (n : ι → E) (h : ι → ℝ) (hn : ∀ i, ‖n i‖ = 1)
++    (i : Option ι) : ‖pyramidHalfspaceNormal n h i‖ = 1 := by
++  cases i with
++  | none => exact pyramidBaseNormal_unit
++  | some i => exact pyramidSideNormal_unit (n i) (h i) (hn i)
++
++omit [Fintype ι] in
++theorem pyramidHalfspaceNormal_injective (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hinj : Function.Injective n) :
++    Function.Injective (pyramidHalfspaceNormal n h) := by
++  have hbase : ∀ i, pyramidBaseNormal ≠ pyramidSideNormal (n i) (h i) := by
++    intro i heq
++    have hf := congrArg (fun p : WithLp 2 (E × ℝ) => ‖p.ofLp.1‖) heq
++    change ‖(0 : E)‖ = ‖(pyramidSlope (h i))⁻¹ • n i‖ at hf
++    rw [norm_zero, norm_smul, Real.norm_eq_abs, abs_inv,
++      abs_of_pos (pyramidSlope_pos _), hn i, mul_one] at hf
++    exact (inv_ne_zero (pyramidSlope_pos _).ne') hf.symm
++  intro i j hij
++  cases i with
++  | none =>
++    cases j with
++    | none => rfl
++    | some j => exact False.elim (hbase j hij)
++  | some i =>
++    cases j with
++    | none => exact False.elim (hbase i hij.symm)
++    | some j =>
++      have hf := congrArg (fun p : WithLp 2 (E × ℝ) => p.ofLp.1) hij
++      change (pyramidSlope (h i))⁻¹ • n i = (pyramidSlope (h j))⁻¹ • n j at hf
++      have hs := congrArg norm hf
++      simp only [norm_smul, Real.norm_eq_abs, abs_inv, abs_of_pos (pyramidSlope_pos _),
++        hn i, hn j, mul_one] at hs
++      rw [← hs] at hf
++      have he := smul_right_injective E (inv_ne_zero (pyramidSlope_pos (h i)).ne') hf
++      exact congrArg some (hinj he)
++
++section Representation
++variable [Nontrivial E]
++
++omit [Fintype ι] in
++theorem finite_halfspace_index_nonempty (n : ι → E) (h : ι → ℝ)
++    (hh : ∀ i, 0 ≤ h i) (hc : IsCompact (finiteHalfspaceSet n h)) : Nonempty ι := by
++  classical
++  by_contra hi
++  obtain ⟨x, hx⟩ := exists_ne (0 : E)
++  apply hx
++  exact finite_halfspace_homogeneous_eq_zero n h hh hc x (fun i => False.elim (hi ⟨i⟩))
++
++omit [Fintype ι] in
++/-- Genuine finite-halfspace representation of the canonical convex pyramid.
++Compactness, positive support heights and a nontrivial base space supply the
++otherwise implicit top-height bound. Redundant halfspaces are allowed. -/
++theorem pyramidSet_finite_halfspace (n : ι → E) (h : ι → ℝ)
++    (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h)) :
++    pyramidSet (finiteHalfspaceSet n h) =
++      finiteHalfspaceSet (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) := by
++  have hconv := finite_halfspace_convex n h
++  obtain ⟨i₀⟩ := finite_halfspace_index_nonempty n h (fun i => (hh i).le) hc
++  ext p
++  obtain ⟨⟨x, t⟩, rfl⟩ := WithLp.toLp_surjective 2 p
++  rw [mem_pyramidHalfspace_iff, mem_pyramidSet_iff hconv]
++  constructor
++  · rintro (hp | ⟨r, hr, z, hz, hp⟩)
++    · have hxt : (x, t) = ((0 : E), (1 : ℝ)) := congrArg WithLp.ofLp hp
++      cases hxt
++      refine ⟨by norm_num, ?_⟩
++      intro i
++      simp
++    · have hxt : (x, t) = (r • z, 1 - r) := congrArg WithLp.ofLp hp
++      cases hxt
++      refine ⟨by linarith [hr.2], ?_⟩
++      intro i
++      rw [inner_smul_right]
++      have hm := mul_le_mul_of_nonneg_left (hz i) hr.1
++      nlinarith
++  · rintro ⟨ht, hp⟩
++    have htop : t ≤ 1 := by
++      by_contra htop
++      have ht' : 1 < t := lt_of_not_ge htop
++      have hx : ∀ i, inner ℝ (n i) x ≤ 0 := by
++        intro i
++        have hm : h i < h i * t := lt_mul_of_one_lt_right (hh i) ht'
++        linarith [hp i]
++      have hx0 := finite_halfspace_homogeneous_eq_zero n h (fun i => (hh i).le) hc x hx
++      have hpi := hp i₀
++      rw [hx0, inner_zero_right, zero_add] at hpi
++      have hm : h i₀ < h i₀ * t := lt_mul_of_one_lt_right (hh i₀) ht'
++      linarith
++    by_cases ht1 : t = 1
++    · have hx0 : x = 0 := finite_halfspace_homogeneous_eq_zero n h
++        (fun i => (hh i).le) hc x (by intro i; have hi := hp i; rw [ht1, mul_one] at hi; linarith)
++      exact Or.inl (by simp [hx0, ht1, pyramidApex])
++    · have hr : 0 < 1 - t := sub_pos.mpr (lt_of_le_of_ne htop ht1)
++      let z := (1 - t)⁻¹ • x
++      have hz : z ∈ finiteHalfspaceSet n h := by
++        intro i
++        change inner ℝ (n i) ((1 - t)⁻¹ • x) ≤ h i
++        rw [inner_smul_right]
++        have hi : inner ℝ (n i) x ≤ h i * (1 - t) := by nlinarith [hp i]
++        simpa [div_eq_mul_inv, mul_comm] using (div_le_iff₀ hr).mpr hi
++      refine Or.inr ⟨1 - t, ⟨hr.le, by linarith⟩, z, hz, ?_⟩
++      apply WithLp.ofLp_injective
++      change (x, t) = ((1 - t) • ((1 - t)⁻¹ • x), 1 - (1 - t))
++      rw [smul_smul, mul_inv_cancel₀ hr.ne', one_smul]
++      congr 1
++      ring
++
++end Representation
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidIidMomentReuse.lean
+@@ -0,0 +1,53 @@
++import Entry005.PyramidEntryDefect
++
++/- Exact narrow reuse of the main owner iid moment helpers; bodies unchanged.
++Original IidWeightedAnchorSelection.lean SHA256: 2ea69f9c469ccb5123d99f755d405cd4103276fa8811eac5dc23e5ffd3b0861d. -/
++
++noncomputable section
++open MeasureTheory
++open scoped BigOperators
++namespace Entry005.PyramidIidMomentReuse
++
++theorem measurable_iid_anchor_volume {d : ℕ} :
++    Measurable (fun w : Fin (d + 1) → Fin d → ℝ => |(anchorMatrix w).det|) := by
++  have hd : Measurable (fun w : Fin (d + 1) → Fin d → ℝ =>
++      liftedDeterminant (fun i => w i.succ) (w 0)) := measurable_lifted_determinant
++    (fun i j => (measurable_pi_apply j).comp (measurable_pi_apply i.succ))
++    (fun i => (measurable_pi_apply i).comp (measurable_pi_apply 0))
++  simpa only [anchorMatrix, liftedDeterminant, Real.norm_eq_abs] using hd.norm
++
++theorem iid_anchor_volume_integrable {d : ℕ}
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν]
++    (hX : ∀ i, Integrable (fun x : Fin d → ℝ => x i) ν) :
++    Integrable (fun w : Fin (d + 1) → Fin d → ℝ => |(anchorMatrix w).det|)
++      (iidLaw ν (d + 1)) := by
++  have hXLift (i : Fin (d + 1)) :
++      Integrable (fun x : Fin d → ℝ => liftedCoordinates id x i) ν := by
++    induction i using Fin.cases with
++    | zero => simp [liftedCoordinates]
++    | succ i => simpa [liftedCoordinates] using hX i
++  have hmatrix (w : Fin (d + 1) → Fin d → ℝ) :
++      sampledMatrix (liftedCoordinates id) w = anchorMatrix w := by
++    ext i j
++    simp [sampledMatrix, anchor_matrix_entry, liftedCoordinates]
++  simpa only [hmatrix, Real.norm_eq_abs] using
++    (sampled_determinant_integrable (liftedCoordinates id) hXLift).norm
++
++theorem iid_anchor_volume_integral_eq {d : ℕ}
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν] :
++    (∫ w : Fin (d + 1) → Fin d → ℝ, |(anchorMatrix w).det| ∂iidLaw ν (d + 1)) =
++      ∫ z : (Fin d → Fin d → ℝ) × (Fin d → ℝ),
++        |liftedDeterminant z.1 z.2| ∂(iidLaw ν d).prod ν := by
++  let e : (Fin (d + 1) → Fin d → ℝ) ≃ᵐ
++      ((Fin d → Fin d → ℝ) × (Fin d → ℝ)) :=
++    (iidSplit d).trans MeasurableEquiv.prodComm
++  have he : MeasurePreserving e (iidLaw ν (d + 1)) ((iidLaw ν d).prod ν) :=
++    Measure.measurePreserving_swap.comp (iid_split_preserving ν d)
++  have heval (w : Fin (d + 1) → Fin d → ℝ) :
++      e w = (fun i => w i.succ, w 0) := by
++    ext i <;> simp [e, iidSplit, MeasurableEquiv.piFinSuccAbove,
++      Fin.insertNthEquiv, Fin.tail, MeasurableEquiv.prodComm]
++  simpa only [heval, anchorMatrix, liftedDeterminant] using
++    he.integral_comp' (fun z => |liftedDeterminant z.1 z.2|)
++
++end Entry005.PyramidIidMomentReuse
+--- /dev/null
++++ b/formal/Entry005/PyramidLiftCoordinates.lean
+@@ -0,0 +1,65 @@
++import Entry005.PyramidProjectionBody
++import Entry005.FiniteLawZonotopeMoment
++import Entry005.FiniteHalfspaceConeLaw
++
++noncomputable section
++open MeasureTheory
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++
++/-- Height-first determinant coordinates to the literal pyramid product space. -/
++def pyramidLiftCoordinates (d : ℕ) : Space (d + 1) ≃ₗᵢ[ℝ] WithLp 2 (Space d × ℝ) where
++  toFun x := WithLp.toLp 2 (WithLp.toLp 2 (fun j => x j.succ), x 0)
++  invFun p := WithLp.toLp 2 (Fin.cases p.ofLp.2 p.ofLp.1.ofLp)
++  left_inv x := by
++    ext j
++    induction j using Fin.cases with
++    | zero => rfl
++    | succ j => rfl
++  right_inv p := by
++    apply WithLp.ofLp_injective
++    apply Prod.ext
++    · apply WithLp.ofLp_injective
++      rfl
++    · rfl
++  map_add' x y := by
++    apply WithLp.ofLp_injective
++    apply Prod.ext
++    · apply WithLp.ofLp_injective
++      rfl
++    · rfl
++  map_smul' a x := by
++    apply WithLp.ofLp_injective
++    apply Prod.ext
++    · apply WithLp.ofLp_injective
++      rfl
++    · rfl
++  norm_map' x := by
++    apply (sq_eq_sq₀ (norm_nonneg _) (norm_nonneg _)).mp
++    rw [WithLp.prod_norm_sq_eq_of_L2]
++    change ‖WithLp.toLp 2 (fun j : Fin d => x j.succ)‖ ^ 2 + ‖x 0‖ ^ 2 = ‖x‖ ^ 2
++    rw [EuclideanSpace.norm_sq_eq, EuclideanSpace.norm_sq_eq, Fin.sum_univ_succ]
++    ring
++
++@[simp] theorem pyramidLiftCoordinates_apply (d : ℕ) (x : Fin d → ℝ) (t : ℝ) :
++    pyramidLiftCoordinates d (WithLp.toLp 2 (Fin.cases t x)) =
++      WithLp.toLp 2 (WithLp.toLp 2 x, t) := rfl
++
++theorem pyramid_lifted_law_generator {ι : Type*} {d : ℕ} (a h : ι → ℝ)
++    (n : ι → Space d) (M : ℝ) (hh : ∀ i, h i ≠ 0) (i : ι) :
++    pyramidLiftCoordinates d ((a i * h i / M) •
++      WithLp.toLp 2 (Fin.cases 1 (finiteConePoint (fun i j => n i j) h i))) =
++      (a i / M) • WithLp.toLp 2 (n i, h i) := by
++  rw [map_smul]
++  change (a i * h i / M) • WithLp.toLp 2
++    (WithLp.toLp 2 (fun j => n i j / h i), 1) = _
++  apply WithLp.ofLp_injective
++  apply Prod.ext
++  · apply WithLp.ofLp_injective
++    funext j
++    change a i * h i / M * (n i j / h i) = a i / M * n i j
++    field_simp [hh i]
++  · change a i * h i / M * 1 = a i / M * h i
++    ring
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidLiftedMoment.lean
+@@ -0,0 +1,91 @@
++import Entry005.PyramidProjectionVolume
++import Entry005.FiniteHalfspaceHorizontalMoment
++
++noncomputable section
++open MeasureTheory Module
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++
++theorem pyramid_lifted_law_image {ι : Type*} [Fintype ι] {d : ℕ}
++    (a h : ι → ℝ) (n : ι → Space d) (M : ℝ) (hh : ∀ i, h i ≠ 0) :
++    pyramidLiftCoordinates d '' finiteLiftedLawZonotope (fun i => a i * h i / M)
++      (finiteConePoint (fun i j => n i j) h) =
++      finiteZonotope (fun i => (a i / M) • WithLp.toLp 2 (n i, h i)) := by
++  unfold finiteLiftedLawZonotope finiteLawZonotope
++  have hi : pyramidLiftCoordinates d ''
++      finiteZonotope (fun i => (a i * h i / M) •
++        WithLp.toLp 2 (Fin.cases 1 (finiteConePoint (fun i j => n i j) h i))) =
++      finiteZonotope (fun i => pyramidLiftCoordinates d ((a i * h i / M) •
++        WithLp.toLp 2 (Fin.cases 1 (finiteConePoint (fun i j => n i j) h i)))) :=
++    finite_zonotope_linear_image _ _
++  rw [hi]
++  congr 1
++  funext i
++  exact pyramid_lifted_law_generator a h n M hh i
++
++variable {ι : Type*} [Fintype ι] {d : ℕ} [Nontrivial (Space d)]
++
++theorem pyramid_side_zonotope_eq_scaled_lifted (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h)) :
++    pyramidSideZonotope n h = ((volume (finiteHalfspaceSet n h)).toReal / 2) •
++      (pyramidLiftCoordinates d '' finiteLiftedLawZonotope
++        (fun i => finiteHalfspaceFacetArea n h i * h i /
++          ((d : ℝ) * (volume (finiteHalfspaceSet n h)).toReal))
++        (finiteConePoint (fun i j => n i j) h)) := by
++  have hV := finite_halfspace_volume_pos n h hn hh hc
++  have hd : (d : ℝ) ≠ 0 := by
++    have hdN : 0 < d := by simpa [Space] using (finrank_pos_iff.mpr inferInstance :
++      0 < finrank ℝ (Space d))
++    exact_mod_cast hdN.ne'
++  rw [pyramid_lifted_law_image _ _ _ _ (fun i => (hh i).ne'), ← finite_zonotope_scalar_image]
++  unfold pyramidSideZonotope
++  congr 1
++  funext i
++  rw [smul_smul]
++  congr 1
++  simp only [Space, finrank_euclideanSpace, Fintype.card_fin]
++  field_simp [hV.ne', hd]
++
++/-- First affine determinant moment B equals the actual lifted side-zonotope
++volume, with the exact Euclidean and factorial normalization. -/
++theorem pyramid_side_zonotope_volume_lifted_moment (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (volume (pyramidSideZonotope n h)).toReal =
++      (volume (finiteHalfspaceSet n h)).toReal ^ (d + 1) / ((d + 1).factorial : ℝ) *
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) := by
++  classical
++  let : MeasurableSpace ι := ⊤
++  let : MeasurableSingletonClass ι := ⟨fun _ => trivial⟩
++  let V := (volume (finiteHalfspaceSet n h)).toReal
++  let M := (d : ℝ) * V
++  let a := finiteHalfspaceFacetArea n h
++  have hd : finrank ℝ (Space d) = d := by simp [Space]
++  have hV : 0 < V := finite_halfspace_volume_pos n h hn hh hc
++  have hM : 0 < M := by simpa only [M, V, hd] using finite_halfspace_normalization_pos n h hn hh hc
++  have hmass : ∑ i, a i * h i = M := by
++    simpa only [a, M, V, hd] using finite_halfspace_facet_mass n h hn hh hinj hc
++  have hmoment := finite_cone_lifted_zonotope_volume_first_moment a h (fun i j => n i j) M
++    (finite_halfspace_facet_area_nonneg n h) hh hM hmass
++  rw [pyramid_side_zonotope_eq_scaled_lifted n h hn hh hc,
++    real_volume_nonnegative_smul _ _ (by positivity), IntrinsicLinearImageReuse.isometry_volume_image]
++  change (V / 2) ^ finrank ℝ (WithLp 2 (Space d × ℝ)) *
++    (volume (finiteLiftedLawZonotope (fun i => a i * h i / M)
++      (finiteConePoint (fun i j => n i j) h))).toReal = _
++  rw [hmoment]
++  have hdim : finrank ℝ (WithLp 2 (Space d × ℝ)) = d + 1 := by
++    rw [← (pyramidLiftCoordinates d).toLinearEquiv.finrank_eq]
++    simp [Space]
++  rw [hdim]
++  change (V / 2) ^ (d + 1) * (2 ^ (d + 1) / ((d + 1).factorial : ℝ) *
++    (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)|
++        ∂iidLaw (finiteConeLaw a h (fun i j => n i j) M) (d + 1))) = _
++  simp only [finiteHalfspaceConeLaw, hd]
++  change (V / 2) ^ (d + 1) * (2 ^ (d + 1) / ((d + 1).factorial : ℝ) * _) = V ^ (d + 1) / _ * _
++  dsimp [a, M, V]
++  rw [div_pow]
++  field_simp
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidMomentDefect.lean
+@@ -0,0 +1,109 @@
++import Entry005.PyramidIidMomentReuse
++
++noncomputable section
++open MeasureTheory Module
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++
++/-- Genuine centered iid Jensen cancellation; coordinates need only first moments. -/
++theorem centered_iid_lifted_moment_ge_horizontal {d : ℕ}
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν]
++    (hX : ∀ i, Integrable (fun x : Fin d → ℝ => x i) ν)
++    (hcenter : ∀ i, (∫ x : Fin d → ℝ, x i ∂ν) = 0) :
++    (∫ w : Fin d → Fin d → ℝ, |horizontalDeterminant w| ∂iidLaw ν d) ≤
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) := by
++  let e : (Fin (d + 1) → Fin d → ℝ) ≃ᵐ ((Fin d → Fin d → ℝ) × (Fin d → ℝ)) :=
++    (iidSplit d).trans MeasurableEquiv.prodComm
++  have he : MeasurePreserving e (iidLaw ν (d + 1)) ((iidLaw ν d).prod ν) :=
++    Measure.measurePreserving_swap.comp (iid_split_preserving ν d)
++  have heval (w : Fin (d + 1) → Fin d → ℝ) : e w = (fun i => w i.succ, w 0) := by
++    ext i <;> simp [e, iidSplit, MeasurableEquiv.piFinSuccAbove,
++      Fin.insertNthEquiv, Fin.tail, MeasurableEquiv.prodComm]
++  have hmF : Measurable (fun z : (Fin d → Fin d → ℝ) × (Fin d → ℝ) => liftedDeterminant z.1 z.2) :=
++    measurable_lifted_determinant
++      (fun i j => (measurable_pi_apply j).comp ((measurable_pi_apply i).comp measurable_fst))
++      (fun i => (measurable_pi_apply i).comp measurable_snd)
++  have habs : Integrable (fun z : (Fin d → Fin d → ℝ) × (Fin d → ℝ) =>
++      |liftedDeterminant z.1 z.2|) ((iidLaw ν d).prod ν) := by
++    apply (he.integrable_comp_emb e.measurableEmbedding).mp
++    simpa only [Function.comp_def, heval, anchorMatrix, liftedDeterminant] using
++      PyramidIidMomentReuse.iid_anchor_volume_integrable ν hX
++  have hF : Integrable (fun z : (Fin d → Fin d → ℝ) × (Fin d → ℝ) =>
++      liftedDeterminant z.1 z.2) ((iidLaw ν d).prod ν) := by
++    apply (integrable_norm_iff hmF.aestronglyMeasurable).mp
++    simpa only [Real.norm_eq_abs] using habs
++  have hD := (centered_determinant_family_budget (σ := iidLaw ν d) (base := id) (X := id)
++    hX hcenter hmF hF).1
++  have hB := PyramidIidMomentReuse.iid_anchor_volume_integral_eq ν
++  change (∫ w : Fin (d + 1) → Fin d → ℝ,
++    |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) =
++    (∫ z : (Fin d → Fin d → ℝ) × (Fin d → ℝ),
++      |liftedDeterminant z.1 z.2| ∂(iidLaw ν d).prod ν) at hB
++  unfold determinantLawDefect at hD
++  simpa only [id_eq, ← hB, sub_nonneg] using hD
++
++variable {ι : Type*} [Fintype ι] {d : ℕ} [Nontrivial (Space d)]
++
++theorem finite_halfspace_horizontal_moment_pos (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    0 < (∫ w : Fin d → Fin d → ℝ, |horizontalDeterminant w| ∂iidLaw (finiteHalfspaceConeLaw n h) d) := by
++  rw [finite_halfspace_horizontal_first_moment n h hn hh hinj hc]
++  have hd : 0 < (d : ℝ) := by
++    exact_mod_cast (by simpa [Space] using (finrank_pos : 0 < finrank ℝ (Space d)))
++  exact mul_pos (div_pos (by exact_mod_cast Nat.factorial_pos d)
++    (pow_pos (mul_pos hd (finite_halfspace_volume_pos n h hn hh hc)) _))
++    (finite_halfspace_projection_body_volume_pos n h hn hh hc)
++
++theorem finite_halfspace_lifted_moment_pos (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    0 < (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) := by
++  let ν := finiteHalfspaceConeLaw n h
++  let : IsProbabilityMeasure ν := finite_halfspace_cone_probability n h hn hh hinj hc
++  have hX : ∀ i, Integrable (fun x : Fin d → ℝ => x i) ν :=
++    fun i => finite_cone_integrable _ _ _ _ _
++  exact (finite_halfspace_horizontal_moment_pos n h hn hh hinj hc).trans_le
++    (centered_iid_lifted_moment_ge_horizontal ν hX (finite_halfspace_cone_centered n h hn hh hinj hc))
++
++theorem finite_halfspace_entryDefect_moment (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (d + 1 : ℝ) *
++      (∫ w : Fin d → Fin d → ℝ, |horizontalDeterminant w| ∂iidLaw (finiteHalfspaceConeLaw n h) d) *
++        entryDefect (finiteHalfspaceSet n h) =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) -
++      (∫ w : Fin d → Fin d → ℝ, |horizontalDeterminant w| ∂iidLaw (finiteHalfspaceConeLaw n h) d) := by
++  unfold entryDefect
++  rw [finite_halfspace_entryA_lifted_moment n h hn hh hinj hc]
++  have hA := finite_halfspace_horizontal_moment_pos n h hn hh hinj hc
++  have hd : finrank ℝ (Space d) = d := by simp [Space]
++  rw [hd]
++  field_simp [hA.ne']
++
++theorem finite_halfspace_defect_over_first_moment (n : ι → Space d) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    ((∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) -
++      (∫ w : Fin d → Fin d → ℝ, |horizontalDeterminant w| ∂iidLaw (finiteHalfspaceConeLaw n h) d)) /
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) =
++      (d + 1 : ℝ) * entryDefect (finiteHalfspaceSet n h) /
++        (1 + (d + 1 : ℝ) * entryDefect (finiteHalfspaceSet n h)) := by
++  have hD := finite_halfspace_entryDefect_moment n h hn hh hinj hc
++  have hA := finite_halfspace_horizontal_moment_pos n h hn hh hinj hc
++  have hB := finite_halfspace_lifted_moment_pos n h hn hh hinj hc
++  have he : 1 + (d + 1 : ℝ) * entryDefect (finiteHalfspaceSet n h) ≠ 0 := by
++    intro hz
++    have heq : (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (finiteHalfspaceConeLaw n h) (d + 1)) = 0 := by
++      nlinarith [hD]
++    exact hB.ne' heq
++  field_simp [hA.ne', hB.ne', he]
++  nlinarith [hD]
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidProjectionBody.lean
+@@ -0,0 +1,70 @@
++import Entry005.PyramidSideArea
++
++noncomputable section
++open MeasureTheory Module
++open scoped RealInnerProductSpace Pointwise
++namespace Entry005
++
++variable {ι E : Type*} [Fintype ι] [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [Nontrivial E]
++
++def pyramidProjectionGenerator (n : ι → E) (h : ι → ℝ) : Option ι → WithLp 2 (E × ℝ)
++  | none => ((volume (finiteHalfspaceSet n h)).toReal / 2) • pyramidBaseNormal
++  | some i => (finiteHalfspaceFacetArea n h i / (2 * Module.finrank ℝ E : ℝ)) •
++      WithLp.toLp 2 (n i, h i)
++
++omit [Fintype ι] in
++theorem pyramid_projection_generator_eq (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h))
++    (i : Option ι) :
++    (finiteHalfspaceFacetArea (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) i / 2) •
++      pyramidHalfspaceNormal n h i = pyramidProjectionGenerator n h i := by
++  cases i with
++  | none => rw [pyramid_base_facet_area]; rfl
++  | some i =>
++    rw [pyramid_side_facet_area n h i (hn i) hh hc]
++    change (finiteHalfspaceFacetArea n h i * pyramidSlope (h i) / (Module.finrank ℝ E : ℝ) / 2) •
++      ((pyramidSlope (h i))⁻¹ • WithLp.toLp 2 (n i, h i)) = _
++    rw [smul_smul]
++    congr 1
++    field_simp [(pyramidSlope_pos (h i)).ne']
++
++/-- Actual projection body of the canonical pyramid, derived from its actual
++finite-halfspace facets and intrinsic areas. No Cauchy identity is assumed. -/
++theorem pyramid_projection_body_eq_zonotope (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    projectionBodySet (pyramidSet (finiteHalfspaceSet n h)) =
++      finiteZonotope (pyramidProjectionGenerator n h) := by
++  have hp := pyramidSet_compact hc (finite_halfspace_convex n h)
++  rw [pyramidSet_finite_halfspace n h hh hc] at hp ⊢
++  rw [finite_halfspace_projection_body_eq_zonotope _ _
++    (pyramidHalfspaceNormal_unit n h hn) (pyramidHalfspaceNormal_injective n h hn hinj) hp]
++  congr 1
++  funext i
++  exact pyramid_projection_generator_eq n h hn hh hc i
++
++omit [Fintype ι] [Nontrivial E] in
++theorem pyramid_finite_halfspace_volume (n : ι → E) (h : ι → ℝ)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (volume (pyramidSet (finiteHalfspaceSet n h))).toReal =
++      (volume (finiteHalfspaceSet n h)).toReal / (Module.finrank ℝ E + 1 : ℝ) :=
++  pyramidSet_volume hc (finite_halfspace_convex n h)
++
++omit [Fintype ι] [Nontrivial E] in
++theorem finite_halfspace_facet_area_of_empty (n : ι → E) (h : ι → ℝ) (i : ι)
++    (hn : ‖n i‖ = 1) (he : finiteHalfspaceFacet n h i = ∅) :
++    finiteHalfspaceFacetArea n h i = 0 := by
++  unfold finiteHalfspaceFacetArea
++  rw [← finite_halfspace_facet_chart_projection_image n h i hn, he, Set.image_empty]
++  simp
++
++omit [Fintype ι] in
++theorem pyramid_side_facet_area_of_empty (n : ι → E) (h : ι → ℝ) (i : ι)
++    (hn : ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h))
++    (he : finiteHalfspaceFacet n h i = ∅) :
++    finiteHalfspaceFacetArea (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) (some i) = 0 := by
++  rw [pyramid_side_facet_area n h i hn hh hc, finite_halfspace_facet_area_of_empty n h i hn he]
++  simp
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidProjectionVolume.lean
+@@ -0,0 +1,103 @@
++import Entry005.PyramidZonotopeAlgebra
++
++noncomputable section
++open MeasureTheory Module
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++theorem pyramid_horizontal_projection (x : E) (t : ℝ) :
++    (ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto
++      (WithLp.toLp 2 (x, t)) = pyramidBaseIsometry x := by
++  apply Subtype.ext
++  rw [orthogonal_hyperplane_projection_formula, pyramidBaseNormal_unit, inner_pyramidBaseNormal]
++  change WithLp.toLp 2 (x, t) - (-t / 1 ^ 2) • WithLp.toLp 2 (0, (-1 : ℝ)) =
++    WithLp.toLp 2 (x, 0)
++  rw [← WithLp.toLp_smul, ← WithLp.toLp_sub]
++  simp
++
++variable {ι : Type*} [Fintype ι] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++  [Nontrivial E]
++
++omit [Nontrivial E] in
++theorem pyramid_side_horizontal_image (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto ''
++      pyramidSideZonotope n h =
++        pyramidBaseIsometry '' ((1 / Module.finrank ℝ E : ℝ) •
++          projectionBodySet (finiteHalfspaceSet n h)) := by
++  unfold pyramidSideZonotope
++  have hQ : (ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto ''
++      finiteZonotope (fun i => (finiteHalfspaceFacetArea n h i / (2 * Module.finrank ℝ E : ℝ)) •
++        WithLp.toLp 2 (n i, h i)) =
++      finiteZonotope (fun i => (ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto
++        ((finiteHalfspaceFacetArea n h i / (2 * Module.finrank ℝ E : ℝ)) • WithLp.toLp 2 (n i, h i))) :=
++    finite_zonotope_linear_image _ _
++  rw [hQ]
++  rw [finite_halfspace_projection_body_eq_zonotope n h hn hinj hc,
++    ← finite_zonotope_scalar_image]
++  have hJ : pyramidBaseIsometry '' finiteZonotope
++      (fun i => (1 / Module.finrank ℝ E : ℝ) • ((finiteHalfspaceFacetArea n h i / 2) • n i)) =
++      finiteZonotope (fun i => pyramidBaseIsometry
++        ((1 / Module.finrank ℝ E : ℝ) • ((finiteHalfspaceFacetArea n h i / 2) • n i))) :=
++    finite_zonotope_linear_image _ _
++  rw [hJ]
++  congr 1
++  funext i
++  simp only [map_smul, pyramid_horizontal_projection, smul_smul]
++  congr 1
++  ring
++
++omit [Nontrivial E] in
++theorem pyramid_side_horizontal_volume (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (volume ((ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto ''
++      pyramidSideZonotope n h)).toReal =
++        (1 / Module.finrank ℝ E : ℝ) ^ Module.finrank ℝ E *
++          (volume (projectionBodySet (finiteHalfspaceSet n h))).toReal := by
++  rw [pyramid_side_horizontal_image n h hn hinj hc,
++    IntrinsicLinearImageReuse.isometry_volume_image,
++    Measure.addHaar_smul_of_nonneg volume (by positivity), ENNReal.toReal_mul,
++    ENNReal.toReal_ofReal (by positivity)]
++
++/-- Actual projection-body volume of the pyramid is the lifted side zonotope
++volume plus the real extrusion contribution of its base facet. -/
++theorem pyramid_projection_body_volume_decomposition (n : ι → E) (h : ι → ℝ)
++    (hn : ∀ i, ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hinj : Function.Injective n)
++    (hc : IsCompact (finiteHalfspaceSet n h)) :
++    (volume (projectionBodySet (pyramidSet (finiteHalfspaceSet n h)))).toReal =
++      (volume (pyramidSideZonotope n h)).toReal +
++        (volume (finiteHalfspaceSet n h)).toReal *
++          (1 / Module.finrank ℝ E : ℝ) ^ Module.finrank ℝ E *
++            (volume (projectionBodySet (finiteHalfspaceSet n h))).toReal := by
++  let V := (volume (finiteHalfspaceSet n h)).toReal
++  let g := pyramidProjectionGenerator n h
++  have hV : 0 < V := finite_halfspace_volume_pos n h hn hh hc
++  have hv : ‖g none‖ = V / 2 := by
++    change ‖(V / 2) • (pyramidBaseNormal : WithLp 2 (E × ℝ))‖ = _
++    rw [norm_smul, Real.norm_eq_abs, abs_of_pos (by positivity), pyramidBaseNormal_unit, mul_one]
++  have hs : ℝ ∙ g none = ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)) :=
++    Submodule.span_singleton_smul_eq (isUnit_iff_ne_zero.mpr (by positivity : V / 2 ≠ 0)) _
++  have hcZ := finite_zonotope_compact (fun i => g (some i))
++  have hcQ := hcZ.image (ℝ ∙ g none)ᗮ.orthogonalProjectionOnto.continuous
++  have hpvol : volume ((ℝ ∙ g none)ᗮ.orthogonalProjectionOnto '' finiteZonotope (fun i => g (some i))) =
++      volume ((ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto ''
++        finiteZonotope (fun i => g (some i))) :=
++    congrArg (fun P : Submodule ℝ (WithLp 2 (E × ℝ)) =>
++      volume (Pᗮ.orthogonalProjectionOnto '' finiteZonotope (fun i => g (some i)))) hs
++  rw [pyramid_projection_body_eq_zonotope n h hn hh hinj hc,
++    finite_zonotope_option_volume]
++  change (volume (finiteZonotope (fun i => g (some i))) + ENNReal.ofReal (2 * ‖g none‖) *
++      volume ((ℝ ∙ g none)ᗮ.orthogonalProjectionOnto '' finiteZonotope (fun i => g (some i)))).toReal = _
++  rw [ENNReal.toReal_add hcZ.measure_ne_top (ENNReal.mul_ne_top ENNReal.ofReal_ne_top hcQ.measure_ne_top),
++    ENNReal.toReal_mul, ENNReal.toReal_ofReal (by positivity), hv, hpvol]
++  change (volume (pyramidSideZonotope n h)).toReal +
++      (2 * (V / 2)) * (volume ((ℝ ∙ (pyramidBaseNormal : WithLp 2 (E × ℝ)))ᗮ.orthogonalProjectionOnto ''
++        pyramidSideZonotope n h)).toReal = _
++  rw [pyramid_side_horizontal_volume n h hn hinj hc]
++  dsimp [V]
++  ring
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidSideArea.lean
+@@ -0,0 +1,180 @@
++import Entry005.PyramidFacetAreas
++import Entry005.PyramidSideFrame
++
++noncomputable section
++open MeasureTheory Module
++open scoped RealInnerProductSpace Pointwise
++namespace Entry005
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++def pyramidSideChartApex (n : E) (h : ℝ) : (ℝ ∙ pyramidSideNormal n h)ᗮ :=
++  (ℝ ∙ pyramidSideNormal n h)ᗮ.orthogonalProjectionOnto pyramidApex
++
++theorem pyramid_side_chart_offset (n : E) (h : ℝ) (hn : ‖n‖ = 1) :
++    (h / pyramidSlope h) • pyramidSideNormal n h +
++      (pyramidSideChartApex n h : WithLp 2 (E × ℝ)) = pyramidApex := by
++  have hd := unit_normal_projection_decomposition (pyramidSideNormal n h) pyramidApex
++    (pyramidSideNormal_unit n h hn)
++  have hi : inner ℝ (pyramidSideNormal n h) pyramidApex = h / pyramidSlope h := by
++    rw [pyramidApex, inner_pyramidSideNormal]
++    simp
++  rw [hi] at hd
++  simpa only [pyramidSideChartApex, add_comm] using hd.symm
++
++/-- Actual side coordinates from a literal radial cone over the original facet chart. -/
++theorem pyramid_side_radial_coordinates (n : E) (h : ℝ) (hn : ‖n‖ = 1)
++    (q : (ℝ ∙ n)ᗮ) (r : ℝ) :
++    pyramidApex + (pyramidSideFrame n h hn (WithLp.toLp 2 (r • q, r * pyramidSlope h)) :
++        WithLp 2 (E × ℝ)) =
++      WithLp.toLp 2 (r • (h • n + (q : E)), 1 - r) := by
++  rw [pyramidSideFrame_val, pyramidApex, ← WithLp.toLp_add]
++  apply WithLp.ofLp_injective
++  apply Prod.ext
++  · change 0 + (r • (q : E) + (r * pyramidSlope h / pyramidSlope h * h) • n) = _
++    rw [mul_div_cancel_right₀ _ (pyramidSlope_pos h).ne', zero_add]
++    module
++  · change 1 + -(r * pyramidSlope h) / pyramidSlope h = 1 - r
++    field_simp [(pyramidSlope_pos h).ne']
++    ring
++
++variable {ι : Type*} [Fintype ι] [Nontrivial E]
++
++omit [Fintype ι] in
++theorem pyramid_side_facet_chart (n : ι → E) (h : ι → ℝ) (i : ι)
++    (hn : ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h)) :
++    finiteHalfspaceFacetChart (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) (some i) =
++      (fun y => pyramidSideChartApex (n i) (h i) + y) ''
++        (pyramidSideFrame (n i) (h i) hn ''
++          (WithLp.toLp 2 '' radialCone (finiteHalfspaceFacetChart n h i) (pyramidSlope (h i)))) ∪
++      {pyramidSideChartApex (n i) (h i)} := by
++  let a := pyramidSideChartApex (n i) (h i)
++  let v := pyramidSideNormal (n i) (h i)
++  let b := h i / pyramidSlope (h i)
++  have hoff : b • v + (a : WithLp 2 (E × ℝ)) = pyramidApex :=
++    pyramid_side_chart_offset (n i) (h i) hn
++  have hconv := finite_halfspace_convex n h
++  change ({y : (ℝ ∙ v)ᗮ | b • v + (y : WithLp 2 (E × ℝ)) ∈
++      finiteHalfspaceSet (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h)} : Set (ℝ ∙ v)ᗮ) =
++    (fun y : (ℝ ∙ v)ᗮ => a + y) ''
++      (pyramidSideFrame (n i) (h i) hn ''
++        (WithLp.toLp 2 '' radialCone (finiteHalfspaceFacetChart n h i) (pyramidSlope (h i)))) ∪ {a}
++  ext y
++  change b • v + (y : WithLp 2 (E × ℝ)) ∈
++      finiteHalfspaceSet (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) ↔ _
++  constructor
++  · intro hy
++    have hp : b • v + (y : WithLp 2 (E × ℝ)) ∈ pyramidSet (finiteHalfspaceSet n h) := by
++      rwa [pyramidSet_finite_halfspace n h hh hc]
++    have hi : inner ℝ v (b • v + (y : WithLp 2 (E × ℝ))) = b := by
++      rw [inner_add_right, inner_smul_right, real_inner_self_eq_norm_sq,
++        pyramidSideNormal_unit (n i) (h i) hn,
++        Submodule.mem_orthogonal_singleton_iff_inner_right.mp y.property]
++      simp
++    rcases (mem_pyramidSet_iff hconv _).mp hp with hp | ⟨r, hr, z, hz, hp⟩
++    · apply Set.mem_union_right
++      apply Set.mem_singleton_iff.mpr
++      apply Subtype.ext
++      exact add_left_cancel (hp.trans hoff.symm)
++    · by_cases hr0 : r = 0
++      · apply Set.mem_union_right
++        apply Set.mem_singleton_iff.mpr
++        apply Subtype.ext
++        have hp' : b • v + (y : WithLp 2 (E × ℝ)) = pyramidApex := by
++          simpa [hr0, pyramidApex] using hp
++        exact add_left_cancel (hp'.trans hoff.symm)
++      · have hzi : inner ℝ (n i) z = h i := by
++          rw [hp] at hi
++          change inner ℝ (pyramidSideNormal (n i) (h i)) (WithLp.toLp 2 (r • z, 1 - r)) =
++            h i / pyramidSlope (h i) at hi
++          rw [inner_pyramidSideNormal, inner_smul_right] at hi
++          have he := (div_left_inj' (pyramidSlope_pos (h i)).ne').mp hi
++          have hm : r * (inner ℝ (n i) z - h i) = 0 := by nlinarith
++          exact sub_eq_zero.mp ((mul_eq_zero.mp hm).resolve_left hr0)
++        let q := (ℝ ∙ n i)ᗮ.orthogonalProjectionOnto z
++        have hq : q ∈ finiteHalfspaceFacetChart n h i := by
++          rw [← finite_halfspace_facet_chart_projection_image n h i hn]
++          exact ⟨z, ⟨hz, hzi⟩, rfl⟩
++        have hzq : h i • n i + (q : E) = z := by
++          have hd := unit_normal_projection_decomposition (n i) z hn
++          rw [hzi] at hd
++          simpa only [q, add_comm] using hd.symm
++        apply Set.mem_union_left
++        refine ⟨pyramidSideFrame (n i) (h i) hn
++          (WithLp.toLp 2 (r • q, r * pyramidSlope (h i))), ?_, ?_⟩
++        · refine ⟨WithLp.toLp 2 (r • q, r * pyramidSlope (h i)), ?_, rfl⟩
++          exact ⟨(r • q, r * pyramidSlope (h i)), ⟨r, hr, q, hq, rfl⟩, rfl⟩
++        · apply Subtype.ext
++          apply (add_left_cancel (a := b • v))
++          rw [Submodule.coe_add, ← add_assoc, hoff, pyramid_side_radial_coordinates, hzq]
++          exact hp.symm
++  · rintro (⟨s, ⟨p, ⟨z, ⟨r, hr, q, hq, rfl⟩, rfl⟩, rfl⟩, rfl⟩ | hy)
++    · rw [Submodule.coe_add, ← add_assoc, hoff, pyramid_side_radial_coordinates]
++      rw [← pyramidSet_finite_halfspace n h hh hc]
++      exact (mem_pyramidSet_iff hconv _).mpr (Or.inr ⟨r, hr, h i • n i + (q : E), hq, rfl⟩)
++    · rcases Set.mem_singleton_iff.mp hy with rfl
++      rw [hoff, ← pyramidSet_finite_halfspace n h hh hc]
++      exact (mem_pyramidSet_iff hconv _).mpr (Or.inl rfl)
++
++omit [Fintype ι] in
++theorem pyramid_side_facet_of_empty (n : ι → E) (h : ι → ℝ) (i : ι)
++    (hn : ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h))
++    (he : finiteHalfspaceFacet n h i = ∅) :
++    finiteHalfspaceFacet (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) (some i) =
++      {pyramidApex} := by
++  have hchart : finiteHalfspaceFacetChart n h i = ∅ := by
++    rw [← finite_halfspace_facet_chart_projection_image n h i hn, he, Set.image_empty]
++  have hr : radialCone (∅ : Set (ℝ ∙ n i)ᗮ) (pyramidSlope (h i)) = ∅ := by
++    ext p
++    simp [radialCone]
++  rw [← finite_halfspace_facet_chart_image (pyramidHalfspaceNormal n h)
++    (pyramidHalfspaceHeight h) (some i) (pyramidSideNormal_unit (n i) (h i) hn),
++    pyramid_side_facet_chart n h i hn hh hc, hchart]
++  simp only [hr, Set.image_empty, Set.empty_union]
++  change (fun z : (ℝ ∙ pyramidSideNormal (n i) (h i))ᗮ =>
++    (h i / pyramidSlope (h i)) • pyramidSideNormal (n i) (h i) +
++    (z : WithLp 2 (E × ℝ))) '' {pyramidSideChartApex (n i) (h i)} = _
++  rw [Set.image_singleton, pyramid_side_chart_offset (n i) (h i) hn]
++
++section Volume
++variable [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++
++omit [Fintype ι] in
++/-- Actual side area, with no assumed pyramid, Jacobian or facet-area identity. -/
++theorem pyramid_side_facet_area (n : ι → E) (h : ι → ℝ) (i : ι)
++    (hn : ‖n i‖ = 1) (hh : ∀ i, 0 < h i) (hc : IsCompact (finiteHalfspaceSet n h)) :
++    finiteHalfspaceFacetArea (pyramidHalfspaceNormal n h) (pyramidHalfspaceHeight h) (some i) =
++      finiteHalfspaceFacetArea n h i * pyramidSlope (h i) / (Module.finrank ℝ E : ℝ) := by
++  let J := pyramidSideFrame (n i) (h i) hn
++  let a := pyramidSideChartApex (n i) (h i)
++  let C := WithLp.toLp 2 '' radialCone (finiteHalfspaceFacetChart n h i) (pyramidSlope (h i))
++  have hF := finite_halfspace_facet_chart_compact n h i hn hc
++  have hz : volume ({a} : Set (ℝ ∙ pyramidSideNormal (n i) (h i))ᗮ) = 0 := by
++    calc
++      volume {a} = volume (J '' {J.symm a}) := by simp
++      _ = volume {J.symm a} := IntrinsicLinearImageReuse.isometry_volume_image J _
++      _ = 0 := by simp
++  have hu : volume ((fun y => a + y) '' (J '' C) ∪ {a}) =
++      volume ((fun y => a + y) '' (J '' C)) := by
++    apply le_antisymm
++    · simpa [hz] using measure_union_le (μ := volume) ((fun y => a + y) '' (J '' C)) {a}
++    · exact measure_mono Set.subset_union_left
++  have hn0 : n i ≠ 0 := by intro he; rw [he, norm_zero] at hn; norm_num at hn
++  have hd : Module.finrank ℝ (ℝ ∙ n i)ᗮ + 1 = Module.finrank ℝ E := by
++    have hdim := (ℝ ∙ n i).finrank_add_finrank_orthogonal
++    rw [finrank_span_singleton hn0] at hdim
++    omega
++  unfold finiteHalfspaceFacetArea
++  rw [pyramid_side_facet_chart n h i hn hh hc]
++  change (volume ((fun y => a + y) '' (J '' C) ∪ {a})).toReal = _
++  rw [hu, IntrinsicLinearImageReuse.translation_volume_image,
++    IntrinsicLinearImageReuse.isometry_volume_image]
++  change (volume (WithLp.toLp 2 '' radialCone (finiteHalfspaceFacetChart n h i)
++    (pyramidSlope (h i)))).toReal = _
++  rw [radial_cone_lp_volume hF (pyramidSlope_pos _)]
++  have hdR : (Module.finrank ℝ (ℝ ∙ n i)ᗮ : ℝ) + 1 = (Module.finrank ℝ E : ℝ) := by
++    exact_mod_cast hd
++  rw [hdR]
++  ring
++
++end Volume
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidSideFrame.lean
+@@ -0,0 +1,101 @@
++import Entry005.PyramidHalfspaces
++
++noncomputable section
++open scoped RealInnerProductSpace
++namespace Entry005
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++/-- Orthogonal coordinates within the lifted side hyperplane. -/
++def pyramidSideFrameLinear (n : E) (h : ℝ) (hn : ‖n‖ = 1) :
++    WithLp 2 ((ℝ ∙ n)ᗮ × ℝ) →ₗ[ℝ] (ℝ ∙ pyramidSideNormal n h)ᗮ where
++  toFun p := ⟨WithLp.toLp 2 ((p.ofLp.1 : E) + (p.ofLp.2 / pyramidSlope h * h) • n,
++      -p.ofLp.2 / pyramidSlope h), by
++    rw [Submodule.mem_orthogonal_singleton_iff_inner_right, inner_pyramidSideNormal]
++    rw [inner_add_right, inner_smul_right, real_inner_self_eq_norm_sq, hn,
++      Submodule.mem_orthogonal_singleton_iff_inner_right.mp p.ofLp.1.property]
++    ring_nf⟩
++  map_add' p q := by
++    apply Subtype.ext
++    apply WithLp.ofLp_injective
++    change ((p.ofLp.1 : E) + (q.ofLp.1 : E) +
++      ((p.ofLp.2 + q.ofLp.2) / pyramidSlope h * h) • n,
++      -(p.ofLp.2 + q.ofLp.2) / pyramidSlope h) =
++      ((p.ofLp.1 : E) + (p.ofLp.2 / pyramidSlope h * h) • n +
++        ((q.ofLp.1 : E) + (q.ofLp.2 / pyramidSlope h * h) • n),
++        -p.ofLp.2 / pyramidSlope h + -q.ofLp.2 / pyramidSlope h)
++    apply Prod.ext
++    · simp only [add_div, add_mul, add_smul]
++      module
++    · ring
++  map_smul' a p := by
++    apply Subtype.ext
++    apply WithLp.ofLp_injective
++    change (a • (p.ofLp.1 : E) + (a * p.ofLp.2 / pyramidSlope h * h) • n,
++      -(a * p.ofLp.2) / pyramidSlope h) =
++      (a • ((p.ofLp.1 : E) + (p.ofLp.2 / pyramidSlope h * h) • n),
++      a * (-p.ofLp.2 / pyramidSlope h))
++    apply Prod.ext
++    · simp only [smul_add, smul_smul]
++      module
++    · ring
++
++@[simp] theorem pyramidSideFrameLinear_val (n : E) (h : ℝ) (hn : ‖n‖ = 1)
++    (q : (ℝ ∙ n)ᗮ) (w : ℝ) :
++    (pyramidSideFrameLinear n h hn (WithLp.toLp 2 (q, w)) : WithLp 2 (E × ℝ)) =
++      WithLp.toLp 2 ((q : E) + (w / pyramidSlope h * h) • n, -w / pyramidSlope h) := rfl
++
++theorem pyramidSideFrameLinear_norm (n : E) (h : ℝ) (hn : ‖n‖ = 1)
++    (p : WithLp 2 ((ℝ ∙ n)ᗮ × ℝ)) : ‖pyramidSideFrameLinear n h hn p‖ = ‖p‖ := by
++  obtain ⟨⟨q, w⟩, rfl⟩ := WithLp.toLp_surjective 2 p
++  apply (sq_eq_sq₀ (norm_nonneg _) (norm_nonneg _)).mp
++  change ‖WithLp.toLp 2 ((q : E) + (w / pyramidSlope h * h) • n,
++      -w / pyramidSlope h)‖ ^ 2 = ‖WithLp.toLp 2 (q, w)‖ ^ 2
++  rw [WithLp.prod_norm_sq_eq_of_L2, WithLp.prod_norm_sq_eq_of_L2]
++  change ‖(q : E) + (w / pyramidSlope h * h) • n‖ ^ 2 + ‖-w / pyramidSlope h‖ ^ 2 =
++    ‖(q : E)‖ ^ 2 + ‖w‖ ^ 2
++  rw [norm_add_sq_real, inner_smul_right,
++    Submodule.mem_orthogonal_singleton_iff_inner_left.mp q.property, norm_smul,
++    Real.norm_eq_abs, hn, mul_one]
++  simp only [mul_zero, add_zero, sq_abs, Real.norm_eq_abs]
++  have hs : pyramidSlope h ≠ 0 := (pyramidSlope_pos h).ne'
++  have hs2 := pyramidSlope_sq h
++  field_simp [hs]
++  rw [hs2]
++  ring
++
++theorem pyramidSideFrameLinear_surjective (n : E) (h : ℝ) (hn : ‖n‖ = 1) :
++    Function.Surjective (pyramidSideFrameLinear n h hn) := by
++  intro y
++  obtain ⟨⟨x, t⟩, hp⟩ := WithLp.toLp_surjective 2 y.val
++  have hy := Submodule.mem_orthogonal_singleton_iff_inner_right.mp y.property
++  rw [← hp, inner_pyramidSideNormal] at hy
++  have heq : inner ℝ n x + h * t = 0 := (div_eq_zero_iff.mp hy).resolve_right
++    (pyramidSlope_pos h).ne'
++  refine ⟨WithLp.toLp 2 ((ℝ ∙ n)ᗮ.orthogonalProjectionOnto x, -pyramidSlope h * t), ?_⟩
++  apply Subtype.ext
++  rw [pyramidSideFrameLinear_val, ← hp]
++  apply WithLp.ofLp_injective
++  apply Prod.ext
++  · change ((ℝ ∙ n)ᗮ.orthogonalProjectionOnto x : E) +
++      (-pyramidSlope h * t / pyramidSlope h * h) • n = x
++    have hd := unit_normal_projection_decomposition n x hn
++    have hc : -pyramidSlope h * t / pyramidSlope h * h = inner ℝ n x := by
++      field_simp [(pyramidSlope_pos h).ne']
++      nlinarith
++    rw [hc]
++    exact hd.symm
++  · change -(-pyramidSlope h * t) / pyramidSlope h = t
++    field_simp [(pyramidSlope_pos h).ne']
++
++def pyramidSideFrame (n : E) (h : ℝ) (hn : ‖n‖ = 1) :
++    WithLp 2 ((ℝ ∙ n)ᗮ × ℝ) ≃ₗᵢ[ℝ] (ℝ ∙ pyramidSideNormal n h)ᗮ :=
++  LinearIsometryEquiv.ofSurjective
++    ⟨pyramidSideFrameLinear n h hn, pyramidSideFrameLinear_norm n h hn⟩
++    (pyramidSideFrameLinear_surjective n h hn)
++
++@[simp] theorem pyramidSideFrame_val (n : E) (h : ℝ) (hn : ‖n‖ = 1)
++    (q : (ℝ ∙ n)ᗮ) (w : ℝ) :
++    (pyramidSideFrame n h hn (WithLp.toLp 2 (q, w)) : WithLp 2 (E × ℝ)) =
++      WithLp.toLp 2 ((q : E) + (w / pyramidSlope h * h) • n, -w / pyramidSlope h) := rfl
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidVolume.lean
+@@ -0,0 +1,152 @@
++import Entry005.AffinePyramid
++import Entry005.IntrinsicLinearImageReuse
++import Entry005.RadialConeVolume
++import Mathlib.Analysis.Convex.Join
++
++noncomputable section
++open MeasureTheory
++open scoped Pointwise
++namespace Entry005
++
++variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++def pyramidBaseMap : E →ₗ[ℝ] WithLp 2 (E × ℝ) :=
++  (WithLp.linearEquiv 2 ℝ (E × ℝ)).symm.toLinearMap.comp
++    (LinearMap.id.prod (0 : E →ₗ[ℝ] ℝ))
++
++@[simp] theorem pyramidBaseMap_apply (x : E) :
++    pyramidBaseMap x = WithLp.toLp 2 (x, (0 : ℝ)) := rfl
++
++def pyramidApex : WithLp 2 (E × ℝ) := WithLp.toLp 2 ((0 : E), (1 : ℝ))
++
++def pyramidReflectionLinear : WithLp 2 (E × ℝ) ≃ₗ[ℝ] WithLp 2 (E × ℝ) where
++  toFun p := WithLp.toLp 2 (p.ofLp.1, -p.ofLp.2)
++  invFun p := WithLp.toLp 2 (p.ofLp.1, -p.ofLp.2)
++  left_inv p := by apply WithLp.ofLp_injective; ext <;> simp
++  right_inv p := by apply WithLp.ofLp_injective; ext <;> simp
++  map_add' p q := by
++    change WithLp.toLp 2 (p.ofLp.1 + q.ofLp.1, -(p.ofLp.2 + q.ofLp.2)) = _
++    rw [← WithLp.toLp_add]
++    simp [add_comm]
++  map_smul' a p := by
++    change WithLp.toLp 2 (a • p.ofLp.1, -(a * p.ofLp.2)) = _
++    rw [← WithLp.toLp_smul]
++    simp
++
++def pyramidReflection : WithLp 2 (E × ℝ) ≃ₗᵢ[ℝ] WithLp 2 (E × ℝ) where
++  toLinearEquiv := pyramidReflectionLinear
++  norm_map' p := by
++    apply (sq_eq_sq₀ (norm_nonneg _) (norm_nonneg _)).mp
++    rw [WithLp.prod_norm_sq_eq_of_L2, WithLp.prod_norm_sq_eq_of_L2]
++    simp [pyramidReflectionLinear]
++
++def pyramidFlip : WithLp 2 (E × ℝ) ≃ᵃ[ℝ] WithLp 2 (E × ℝ) :=
++  AffineEquiv.ofLinearEquiv pyramidReflection.toLinearEquiv 0 pyramidApex
++
++@[simp] theorem pyramidFlip_apply (x : E) (t : ℝ) :
++    pyramidFlip (WithLp.toLp 2 (x, t)) = WithLp.toLp 2 (x, 1 - t) := by
++  simp only [pyramidFlip, AffineEquiv.ofLinearEquiv_apply, vsub_eq_sub,
++    sub_zero, vadd_eq_add]
++  change WithLp.toLp 2 (x, -t) + WithLp.toLp 2 (0, 1) = _
++  rw [← WithLp.toLp_add]
++  simp [sub_eq_add_neg, add_comm]
++
++theorem pyramidSet_eq_flip_radial {K : Set E} (hK : Convex ℝ K) :
++    pyramidSet K =
++      pyramidFlip '' ((WithLp.toLp 2) '' radialCone K 1) ∪ {pyramidApex} := by
++  by_cases hne : K.Nonempty
++  · have hb : Convex ℝ (pyramidBaseMap '' K) := hK.linear_image pyramidBaseMap
++    have hs : pyramidSet K = convexJoin ℝ {pyramidApex} (pyramidBaseMap '' K) := by
++      unfold pyramidSet
++      change convexHull ℝ (pyramidBaseMap '' K ∪ {pyramidApex}) = _
++      rw [hb.convexHull_union (convex_singleton _) (hne.image _) (Set.singleton_nonempty _),
++        convexJoin_comm]
++    rw [hs]
++    ext p
++    constructor
++    · intro hp
++      rcases mem_convexJoin.mp hp with ⟨a, ha, b, hb, hseg⟩
++      rcases Set.mem_singleton_iff.mp ha with rfl
++      rcases hb with ⟨x, hx, rfl⟩
++      rw [segment_eq_image] at hseg
++      obtain ⟨t, ht, rfl⟩ := hseg
++      apply Set.mem_union_left
++      refine ⟨WithLp.toLp 2 (t • x, t), ⟨(t • x, t), ⟨t, ht, x, hx, by simp⟩, rfl⟩, ?_⟩
++      rw [pyramidFlip_apply, pyramidBaseMap_apply]
++      simp only [pyramidApex, ← WithLp.toLp_smul, ← WithLp.toLp_add]
++      simp
++    · rintro (⟨q, ⟨z, ⟨t, ht, x, hx, rfl⟩, rfl⟩, rfl⟩ | hp)
++      · apply mem_convexJoin.mpr
++        refine ⟨pyramidApex, rfl, pyramidBaseMap x, ⟨x, hx, rfl⟩, ?_⟩
++        rw [segment_eq_image]
++        refine ⟨t, ht, ?_⟩
++        rw [pyramidFlip_apply, pyramidBaseMap_apply]
++        simp only [pyramidApex, ← WithLp.toLp_smul, ← WithLp.toLp_add]
++        simp
++      · rcases Set.mem_singleton_iff.mp hp with rfl
++        exact subset_convexJoin_left (hne.image _) (Set.mem_singleton _)
++  · have hzero : K = ∅ := Set.not_nonempty_iff_eq_empty.mp hne
++    simp [hzero, pyramidSet, radialCone, pyramidApex, convexHull_singleton]
++
++/-- Literal parametrization, retaining the apex even for an empty base. -/
++theorem mem_pyramidSet_iff {K : Set E} (hK : Convex ℝ K) (p : WithLp 2 (E × ℝ)) :
++    p ∈ pyramidSet K ↔ p = pyramidApex ∨
++      ∃ r ∈ Set.Icc (0 : ℝ) 1, ∃ z ∈ K, p = WithLp.toLp 2 (r • z, 1 - r) := by
++  rw [pyramidSet_eq_flip_radial hK]
++  constructor
++  · rintro (⟨q, ⟨v, ⟨r, hr, z, hz, rfl⟩, rfl⟩, rfl⟩ | hp)
++    · exact Or.inr ⟨r, hr, z, hz, by rw [pyramidFlip_apply]; simp⟩
++    · exact Or.inl (Set.mem_singleton_iff.mp hp)
++  · rintro (rfl | ⟨r, hr, z, hz, rfl⟩)
++    · exact Set.mem_union_right _ (Set.mem_singleton _)
++    · apply Set.mem_union_left
++      refine ⟨WithLp.toLp 2 (r • z, r), ⟨(r • z, r), ⟨r, hr, z, hz, by simp⟩, rfl⟩, ?_⟩
++      rw [pyramidFlip_apply]
++
++section Volume
++variable [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++
++omit [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] in
++theorem pyramidSet_compact {K : Set E} (hc : IsCompact K) (hconv : Convex ℝ K) :
++    IsCompact (pyramidSet K) := by
++  rw [pyramidSet_eq_flip_radial hconv]
++  have hf : Continuous (pyramidFlip : WithLp 2 (E × ℝ) → WithLp 2 (E × ℝ)) := by
++    have he : (pyramidFlip : WithLp 2 (E × ℝ) → WithLp 2 (E × ℝ)) =
++        (fun p => pyramidReflection p + pyramidApex) := by
++      funext p
++      simp [pyramidFlip, AffineEquiv.ofLinearEquiv_apply, vadd_eq_add]
++    rw [he]
++    exact pyramidReflection.continuous.add continuous_const
++  exact (((radial_cone_compact hc 1).image (WithLp.prod_continuous_toLp 2 E ℝ)).image
++    hf).union isCompact_singleton
++
++theorem pyramidFlip_volume (S : Set (WithLp 2 (E × ℝ))) :
++    volume (pyramidFlip '' S) = volume S := by
++  have hi : pyramidFlip '' S =
++      (fun x : WithLp 2 (E × ℝ) => pyramidApex + x) '' (pyramidReflection '' S) := by
++    rw [Set.image_image]
++    congr 1
++    funext p
++    simp [pyramidFlip, AffineEquiv.ofLinearEquiv_apply, vadd_eq_add, add_comm]
++  rw [hi, IntrinsicLinearImageReuse.translation_volume_image,
++    IntrinsicLinearImageReuse.isometry_volume_image]
++
++/-- Actual volume of the canonical compact convex pyramid, from genuine Fubini slices.
++The empty base is included; no pyramid-volume identity is an input. -/
++theorem pyramidSet_volume {K : Set E} (hc : IsCompact K) (hconv : Convex ℝ K) :
++    (volume (pyramidSet K)).toReal =
++      (volume K).toReal / (Module.finrank ℝ E + 1 : ℝ) := by
++  rw [pyramidSet_eq_flip_radial hconv]
++  have hz : volume ({pyramidApex} : Set (WithLp 2 (E × ℝ))) = 0 := by simp
++  have hu : volume (pyramidFlip '' (WithLp.toLp 2 '' radialCone K 1) ∪ {pyramidApex}) =
++      volume (pyramidFlip '' (WithLp.toLp 2 '' radialCone K 1)) := by
++    apply le_antisymm
++    · simpa [hz] using measure_union_le (μ := volume) (pyramidFlip '' (WithLp.toLp 2 '' radialCone K 1))
++        ({pyramidApex} : Set (WithLp 2 (E × ℝ)))
++    · exact measure_mono Set.subset_union_left
++  rw [hu, pyramidFlip_volume,
++    radial_cone_lp_volume hc (by norm_num)]
++  ring
++
++end Volume
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/PyramidZonotopeAlgebra.lean
+@@ -0,0 +1,50 @@
++import Entry005.PyramidLiftCoordinates
++
++noncomputable section
++open MeasureTheory Module
++open scoped BigOperators RealInnerProductSpace Pointwise
++namespace Entry005
++variable {ι E : Type*} [Fintype ι] [NormedAddCommGroup E] [InnerProductSpace ℝ E]
++
++theorem finite_zonotope_option (g : Option ι → E) :
++    finiteZonotope g = symmetricSegmentExtrusion (finiteZonotope (fun i => g (some i))) (g none) := by
++  classical
++  ext y
++  constructor
++  · rintro ⟨t, ht, rfl⟩
++    refine ⟨∑ i, t (some i) • g (some i), ⟨fun i => t (some i), fun i => ht (some i), rfl⟩,
++      t none, ht none, ?_⟩
++    change (∑ i, t i • g i) = _
++    rw [Fintype.sum_option]
++    exact add_comm _ _
++  · rintro ⟨x, ⟨t, ht, rfl⟩, r, hr, rfl⟩
++    refine ⟨(fun i => match i with | none => r | some j => t j), ?_, ?_⟩
++    · intro i
++      cases i with
++      | none => exact hr
++      | some i => exact ht i
++    · change (∑ i, (match i with | none => r | some j => t j) • g i) = _
++      rw [Fintype.sum_option]
++      exact add_comm _ _
++
++theorem finite_zonotope_scalar_image (g : ι → E) (c : ℝ) :
++    finiteZonotope (fun i => c • g i) = c • finiteZonotope g := by
++  have hm := finite_zonotope_linear_image g (c • LinearMap.id)
++  simpa only [LinearMap.smul_apply, LinearMap.id_apply, Set.image_smul] using hm.symm
++
++variable [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
++
++theorem finite_zonotope_option_volume (g : Option ι → E) :
++    volume (finiteZonotope g) = volume (finiteZonotope (fun i => g (some i))) +
++      ENNReal.ofReal (2 * ‖g none‖) *
++        volume ((ℝ ∙ g none)ᗮ.orthogonalProjectionOnto '' finiteZonotope (fun i => g (some i))) := by
++  rw [finite_zonotope_option, symmetric_segment_extrusion_eq_preimage,
++    measure_preimage_add, compact_convex_extrusion_volume
++      (finite_zonotope_compact _) (finite_zonotope_convex _) (g none) 2 (by norm_num)]
++
++/-- Actual side-generated segment sum of the lifted pyramid. -/
++def pyramidSideZonotope (n : ι → E) (h : ι → ℝ) : Set (WithLp 2 (E × ℝ)) :=
++  finiteZonotope (fun i => (finiteHalfspaceFacetArea n h i / (2 * Module.finrank ℝ E : ℝ)) •
++    WithLp.toLp 2 (n i, h i))
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/ActualPyramidAssignment.lean
+@@ -0,0 +1,59 @@
++import Entry005.ActualPyramidDefect
++
++noncomputable section
++open Metric MeasureTheory Module
++open scoped BigOperators
++namespace Entry005
++variable {d : ℕ} [Nontrivial (Space d)]
++
++/-- One actual compact-limit cone law supplies A, B, D, brightness and the
++quantitative assignment. The assignment is applied to that same law directly;
++no independently chosen existential probability measures are identified. -/
++theorem actual_body_geometric_first_moment_assignment
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    ∃ ν : ProbabilityMeasure (Fin d → ℝ),
++      (∀ᵐ x ∂(ν : Measure (Fin d → ℝ)), ‖WithLp.toLp 2 x‖ ≤ 1) ∧
++      (∀ i, (∫ x, x i ∂(ν : Measure (Fin d → ℝ))) = 0) ∧
++      (∀ u : Space d, ‖u‖ = 1 → negativeIntegral (ν : Measure (Fin d → ℝ))
++        (fun x => dotProduct (fun j => u j) x) =
++        projectionVolumeSet K u / ((finrank ℝ (Space d) : ℝ) * (volume K).toReal)) ∧
++      (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) =
++        (d.factorial : ℝ) / ((d : ℝ) * (volume K).toReal) ^ d *
++          (volume (projectionBodySet K)).toReal ∧
++      0 < (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) ∧
++      entryA K =
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) /
++        ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d)) ∧
++      determinantLawDefect (iidLaw (ν : Measure (Fin d → ℝ)) d) (ν : Measure (Fin d → ℝ)) id id =
++        (d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) * entryDefect K ∧
++      ∃ w : Fin (d + 1) → Fin d → ℝ, ∃ _hdet : (anchorMatrix w).det ≠ 0,
++        (∀ i, w i ∈ (ν : Measure (Fin d → ℝ)).support ∧ ‖WithLp.toLp 2 (w i)‖ ≤ 1) ∧
++        AffineIndependent ℝ (fun i => WithLp.toLp 2 (w i)) ∧
++        Measurable (fun x => largestCoordinate (anchorCoordinates w x)) ∧
++        Integrable (fun x => ‖WithLp.toLp 2 x -
++          WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖) (ν : Measure (Fin d → ℝ)) ∧
++        (∫ x, ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖
++          ∂(ν : Measure (Fin d → ℝ))) ≤
++          ((d + 1 : ℝ) * (d + 2 : ℝ)) *
++            ((d + 1 : ℝ) * entryDefect K / (1 + (d + 1 : ℝ) * entryDefect K)) := by
++  obtain ⟨ν, hball, hcenter, hbright, hhorizontal, hA, hentry⟩ :=
++    actual_body_cone_law_with_pyramid_first_moment K hc hconv hb
++  have hX := unit_ball_coordinate_integrable (ν : Measure (Fin d → ℝ)) hball
++  have hB := hA.trans_le (centered_iid_lifted_moment_ge_horizontal _ hX hcenter)
++  have hBanchor : 0 < (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |(anchorMatrix w).det| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) := hB
++  obtain ⟨w, hdet, hw, ha, hm, hi, he⟩ :=
++    unit_ball_first_moment_assignment (ν : Measure (Fin d → ℝ)) hball hcenter hBanchor
++  refine ⟨ν, hball, hcenter, hbright, hhorizontal, hA, hentry,
++    entryDefect_iid_moment_identity K _ hA hentry, w, hdet, hw, ha, hm, hi, ?_⟩
++  change (∫ x, ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖
++    ∂(ν : Measure (Fin d → ℝ))) ≤ ((d + 1 : ℝ) * (d + 2 : ℝ)) *
++      determinantLawDefect (iidLaw (ν : Measure (Fin d → ℝ)) d) (ν : Measure (Fin d → ℝ)) id id /
++        (∫ v : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => v j.succ) (v 0)| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) at he
++  rw [mul_div_assoc, entryDefect_iid_defect_ratio K _ hX hcenter hA hentry] at he
++  exact he
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/ActualPyramidDefect.lean
+@@ -0,0 +1,117 @@
++import Entry005.ActualPyramidMoment
++
++noncomputable section
++open Metric MeasureTheory Module Filter
++open scoped BigOperators Topology
++namespace Entry005
++
++/-- The actual product-law defect is exactly the difference of the literal iid moments. -/
++theorem determinantLawDefect_iid_eq {d : ℕ} (ν : Measure (Fin d → ℝ))
++    [IsProbabilityMeasure ν] :
++    determinantLawDefect (iidLaw ν d) ν id id =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) -
++      (∫ w, |horizontalDeterminant w| ∂iidLaw ν d) := by
++  have hB := PyramidIidMomentReuse.iid_anchor_volume_integral_eq ν
++  change (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) =
++    (∫ z : (Fin d → Fin d → ℝ) × (Fin d → ℝ),
++      |liftedDeterminant z.1 z.2| ∂(iidLaw ν d).prod ν) at hB
++  unfold determinantLawDefect
++  simp only [id_eq, ← hB]
++
++/-- Exact defect algebra for a law whose two literal moments compute the actual invariant. -/
++theorem entryDefect_iid_moment_identity {d : ℕ} (K : Set (Space d))
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν]
++    (hA : 0 < (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))
++    (hentry : entryA K =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) /
++      ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))) :
++    determinantLawDefect (iidLaw ν d) ν id id =
++      (d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw ν d) * entryDefect K := by
++  rw [determinantLawDefect_iid_eq]
++  unfold entryDefect
++  rw [hentry]
++  simp only [finrank_euclideanSpace_fin]
++  field_simp [hA.ne']
++
++theorem entryDefect_iid_nonnegative {d : ℕ} (K : Set (Space d))
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν]
++    (hX : ∀ i, Integrable (fun x : Fin d → ℝ => x i) ν)
++    (hcenter : ∀ i, (∫ x : Fin d → ℝ, x i ∂ν) = 0)
++    (hA : 0 < (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))
++    (hentry : entryA K =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) /
++      ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))) :
++    0 ≤ entryDefect K := by
++  have hD := centered_iid_lifted_moment_ge_horizontal ν hX hcenter
++  have he := entryDefect_iid_moment_identity K ν hA hentry
++  rw [determinantLawDefect_iid_eq] at he
++  have hp : 0 < (d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw ν d) :=
++    mul_pos (by positivity) hA
++  exact (mul_nonneg_iff_of_pos_left hp).mp (by linarith [he])
++
++theorem entryDefect_iid_defect_ratio {d : ℕ} (K : Set (Space d))
++    (ν : Measure (Fin d → ℝ)) [IsProbabilityMeasure ν]
++    (hX : ∀ i, Integrable (fun x : Fin d → ℝ => x i) ν)
++    (hcenter : ∀ i, (∫ x : Fin d → ℝ, x i ∂ν) = 0)
++    (hA : 0 < (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))
++    (hentry : entryA K =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) /
++      ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw ν d))) :
++    determinantLawDefect (iidLaw ν d) ν id id /
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw ν (d + 1)) =
++      (d + 1 : ℝ) * entryDefect K / (1 + (d + 1 : ℝ) * entryDefect K) := by
++  have hD := entryDefect_iid_moment_identity K ν hA hentry
++  have hB := hA.trans_le (centered_iid_lifted_moment_ge_horizontal ν hX hcenter)
++  have he := entryDefect_iid_nonnegative K ν hX hcenter hA hentry
++  have hp : 0 < 1 + (d + 1 : ℝ) * entryDefect K := by positivity
++  rw [determinantLawDefect_iid_eq] at hD ⊢
++  field_simp [hB.ne', hp.ne']
++  nlinarith [hD]
++
++variable {d : ℕ} [Nontrivial (Space d)]
++
++/-- Every normalized actual body has a single centered law satisfying all
++cone brightness and actual pyramid identities, including D=(d+1)A e(K). -/
++theorem actual_body_cone_law_with_pyramid_defect
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    ∃ ν : ProbabilityMeasure (Fin d → ℝ),
++      (∀ᵐ x ∂(ν : Measure (Fin d → ℝ)), ‖WithLp.toLp 2 x‖ ≤ 1) ∧
++      (∀ i, (∫ x, x i ∂(ν : Measure (Fin d → ℝ))) = 0) ∧
++      (∀ u : Space d, ‖u‖ = 1 → negativeIntegral (ν : Measure (Fin d → ℝ))
++        (fun x => dotProduct (fun j => u j) x) =
++        projectionVolumeSet K u / ((finrank ℝ (Space d) : ℝ) * (volume K).toReal)) ∧
++      (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) =
++        (d.factorial : ℝ) / ((d : ℝ) * (volume K).toReal) ^ d *
++          (volume (projectionBodySet K)).toReal ∧
++      0 < (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) ∧
++      entryA K =
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) /
++        ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d)) ∧
++      determinantLawDefect (iidLaw (ν : Measure (Fin d → ℝ)) d) (ν : Measure (Fin d → ℝ)) id id =
++        (d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) * entryDefect K ∧
++      determinantLawDefect (iidLaw (ν : Measure (Fin d → ℝ)) d) (ν : Measure (Fin d → ℝ)) id id /
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) =
++        (d + 1 : ℝ) * entryDefect K / (1 + (d + 1 : ℝ) * entryDefect K) := by
++  obtain ⟨ν, hball, hcenter, hbright, hhorizontal, hA, hentry⟩ :=
++    actual_body_cone_law_with_pyramid_first_moment K hc hconv hb
++  exact ⟨ν, hball, hcenter, hbright, hhorizontal, hA, hentry,
++    entryDefect_iid_moment_identity K _ hA hentry,
++    entryDefect_iid_defect_ratio K _ (unit_ball_coordinate_integrable _ hball) hcenter hA hentry⟩
++
++/-- The normalized actual body's canonical pyramid defect is nonnegative. -/
++theorem actual_body_entryDefect_nonnegative (K : Set (Space d)) (hc : IsCompact K)
++    (hconv : Convex ℝ K) (hb : closedBall (0 : Space d) 1 ⊆ K) : 0 ≤ entryDefect K := by
++  obtain ⟨ν, hball, hcenter, _, _, hA, hentry⟩ :=
++    actual_body_cone_law_with_pyramid_first_moment K hc hconv hb
++  exact entryDefect_iid_nonnegative K _ (unit_ball_coordinate_integrable _ hball) hcenter hA hentry
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/ActualPyramidJointCone.lean
+@@ -0,0 +1,77 @@
++import Entry005.ActualPyramidAssignment
++import Entry005.ActualBodyJointConeInterface
++
++noncomputable section
++open Metric MeasureTheory Module Filter
++open scoped BigOperators Topology
++namespace Entry005
++variable {d : ℕ} [Nontrivial (Space d)]
++
++/-- Joint final interface: one compact-limit witness and its one raw law supply
++polar boundary, brightness, A, B, D and the same assignment points. -/
++theorem actual_body_joint_polar_pyramid_assignment
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    ∃ μ : ProbabilityMeasure (CompactConeBall d), ∃ φ : ℕ → ℕ,
++      StrictMono φ ∧
++      Tendsto (fun k => compactBallLaw (halfspaceApproximationProbability K hc hconv hb (φ k)))
++        atTop (𝓝 μ) ∧
++      Tendsto (fun k => halfspaceApproximationProbability K hc hconv hb (φ k))
++        atTop (𝓝 (compactBallRawLaw μ)) ∧
++      (∀ᵐ x ∂(compactBallRawLaw μ : Measure (Fin d → ℝ)), ‖WithLp.toLp 2 x‖ ≤ 1) ∧
++      (∀ i, (∫ x, x i ∂(compactBallRawLaw μ : Measure (Fin d → ℝ))) = 0) ∧
++      (∀ u : Space d, ‖u‖ = 1 →
++        negativeIntegral (compactBallRawLaw μ : Measure (Fin d → ℝ))
++          (fun x => dotProduct (fun j => u j) x) =
++          projectionVolumeSet K u / ((finrank ℝ (Space d) : ℝ) * (volume K).toReal)) ∧
++      (∀ᵐ x ∂(compactBallRawLaw μ : Measure (Fin d → ℝ)), x ∈ actualPolarBoundaryRaw K) ∧
++      (compactBallRawLaw μ : Measure (Fin d → ℝ)).support ⊆ actualPolarBoundaryRaw K ∧
++      (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d) =
++        (d.factorial : ℝ) / ((d : ℝ) * (volume K).toReal) ^ d *
++          (volume (projectionBodySet K)).toReal ∧
++      0 < (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d) ∧
++      entryA K =
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)|
++          ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1)) /
++        ((d + 1 : ℝ) *
++          (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d)) ∧
++      determinantLawDefect (iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d)
++        (compactBallRawLaw μ : Measure (Fin d → ℝ)) id id =
++        (d + 1 : ℝ) *
++          (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d) *
++            entryDefect K ∧
++      0 < (∫ v : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => v j.succ) (v 0)|
++        ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1)) ∧
++      ∃ w : Fin (d + 1) → Fin d → ℝ, ∃ _hdet : (anchorMatrix w).det ≠ 0,
++        (∀ i, w i ∈ (compactBallRawLaw μ : Measure (Fin d → ℝ)).support ∧ ‖WithLp.toLp 2 (w i)‖ ≤ 1) ∧
++        AffineIndependent ℝ (fun i => WithLp.toLp 2 (w i)) ∧
++        Measurable (fun x => largestCoordinate (anchorCoordinates w x)) ∧
++        Integrable (fun x => ‖WithLp.toLp 2 x -
++          WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖)
++          (compactBallRawLaw μ : Measure (Fin d → ℝ)) ∧
++        (∫ x, ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖
++          ∂(compactBallRawLaw μ : Measure (Fin d → ℝ))) ≤
++          ((d + 1 : ℝ) * (d + 2 : ℝ)) *
++            ((d + 1 : ℝ) * entryDefect K / (1 + (d + 1 : ℝ) * entryDefect K)) := by
++  obtain ⟨μ, φ, hφ, hlim, hraw, hball, hcenter, hbright,
++      hboundary, hsupport, hhorizontal, hB, w, hdet, hw, ha, hm, hi, he⟩ :=
++    actual_body_joint_polar_horizontal_assignment K hc hconv hb
++  have hA := actual_body_horizontal_moment_pos_of_compact_limit K hc hconv hb μ φ hφ hlim
++  have hentry := actual_body_entryA_of_compact_limit K hc hconv hb μ φ hφ hlim
++  have hX := unit_ball_coordinate_integrable (compactBallRawLaw μ : Measure (Fin d → ℝ)) hball
++  refine ⟨μ, φ, hφ, hlim, hraw, hball, hcenter, hbright, hboundary, hsupport, hhorizontal,
++    hA, hentry, entryDefect_iid_moment_identity K _ hA hentry,
++    hB, w, hdet, hw, ha, hm, hi, ?_⟩
++  change (∫ x, ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (largestCoordinate (anchorCoordinates w x)))‖
++    ∂(compactBallRawLaw μ : Measure (Fin d → ℝ))) ≤ ((d + 1 : ℝ) * (d + 2 : ℝ)) *
++      determinantLawDefect (iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d)
++        (compactBallRawLaw μ : Measure (Fin d → ℝ)) id id /
++        (∫ v : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => v j.succ) (v 0)|
++          ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1)) at he
++  rw [mul_div_assoc, entryDefect_iid_defect_ratio K _ hX hcenter hA hentry] at he
++  exact he
++
++end Entry005
+--- /dev/null
++++ b/formal/Entry005/ActualPyramidMoment.lean
+@@ -0,0 +1,162 @@
++import Entry005.PyramidContinuity
++import Entry005.ActualBodyHorizontalMoment
++
++noncomputable section
++open Metric MeasureTheory Module Filter
++open scoped BigOperators Topology
++namespace Entry005
++variable {d : ℕ} [Nontrivial (Space d)]
++
++theorem compact_normalized_projection_ratio_pos (K : Set (Space d))
++    (hc : IsCompact K) (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    0 < projectionRatio K := by
++  obtain ⟨R, hR, hbound⟩ := hc.isBounded.subset_closedBall_lt 0 (0 : Space d)
++  exact normalized_projection_ratio_pos K hc hb R hR.le hbound
++
++theorem halfspace_approximation_entryA_tendsto (K : Set (Space d))
++    (hc : IsCompact K) (hconv : Convex ℝ K) (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    Tendsto (fun m => entryA (halfspaceApproximationBody K hc hconv hb m))
++      atTop (𝓝 (entryA K)) := by
++  exact tendsto_entryA_of_dilation_sandwich K _ hc hconv
++    (halfspace_approximation_body_compact K hc hconv hb)
++    (fun _ => finite_halfspace_convex _ _)
++    (hb (by simp)) (compact_body_volume_pos_of_unit_ball K hc hb).ne'
++    (compact_normalized_projection_ratio_pos K hc hb).ne'
++    halfspaceApproximationTolerance (fun m => (halfspace_approximation_tolerance_pos m).le)
++    halfspace_approximation_tolerance_tendsto (subset_halfspace_approximation_body K hc hconv hb)
++    (halfspace_approximation_body_subset_dilation K hc hconv hb)
++
++/-- Both literal determinant moments converge along the same actual finite-law subsequence. -/
++theorem halfspace_approximation_iid_moments_tendsto
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K)
++    (μ : ProbabilityMeasure (CompactConeBall d)) (φ : ℕ → ℕ)
++    (hlim : Tendsto (fun k => compactBallLaw (halfspaceApproximationProbability K hc hconv hb (φ k)))
++      atTop (𝓝 μ)) :
++    Tendsto (fun k => ∫ w, |horizontalDeterminant w|
++      ∂iidLaw (halfspaceApproximationLaw K hc hconv hb (φ k)) d) atTop
++      (𝓝 (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d)) ∧
++    Tendsto (fun k => ∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)|
++      ∂iidLaw (halfspaceApproximationLaw K hc hconv hb (φ k)) (d + 1)) atTop
++      (𝓝 (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)|
++        ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1))) := by
++  let ν := halfspaceApproximationProbability K hc hconv hb
++  let x : C(CompactConeBall d, Fin d → ℝ) := ⟨compactBallRaw, continuous_compactBallRaw⟩
++  have hball : ∀ m, ∀ᵐ z ∂(ν m : Measure (Fin d → ℝ)), ‖WithLp.toLp 2 z‖ ≤ 1 :=
++    halfspace_approximation_law_ae_unit_ball K hc hconv hb
++  have hmap (k : ℕ) : (compactBallLaw (ν (φ k))).map x = ν (φ k) :=
++    compactBallLaw_raw_probability_pushforward _ (hball (φ k))
++  have hA := tendsto_horizontal_mapped_iid_first_moment hlim x
++  have hB := tendsto_lifted_mapped_iid_first_moment hlim x
++  change Tendsto (fun k => ∫ w, |horizontalDeterminant w|
++    ∂iidLaw ((compactBallLaw (ν (φ k))).map x : Measure (Fin d → ℝ)) d) atTop
++    (𝓝 (∫ w, |horizontalDeterminant w| ∂iidLaw (μ.map x : Measure (Fin d → ℝ)) d)) at hA
++  change Tendsto (fun k => ∫ w : Fin (d + 1) → Fin d → ℝ,
++    |liftedDeterminant (fun j => w j.succ) (w 0)|
++    ∂iidLaw ((compactBallLaw (ν (φ k))).map x : Measure (Fin d → ℝ)) (d + 1)) atTop
++    (𝓝 (∫ w : Fin (d + 1) → Fin d → ℝ, |liftedDeterminant (fun j => w j.succ) (w 0)|
++      ∂iidLaw (μ.map x : Measure (Fin d → ℝ)) (d + 1))) at hB
++  simp_rw [hmap] at hA hB
++  exact ⟨hA, hB⟩
++
++theorem actual_body_horizontal_moment_pos_of_compact_limit
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K)
++    (μ : ProbabilityMeasure (CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
++    (hlim : Tendsto (fun k => compactBallLaw (halfspaceApproximationProbability K hc hconv hb (φ k)))
++      atTop (𝓝 μ)) :
++    0 < (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d) := by
++  rw [actual_body_horizontal_first_moment_of_compact_limit K hc hconv hb μ φ hφ hlim]
++  obtain ⟨R, hR, hbound⟩ := hc.isBounded.subset_closedBall_lt 0 (0 : Space d)
++  have hd : 0 < (d : ℝ) := by
++    exact_mod_cast (by simpa [Space] using (finrank_pos : 0 < finrank ℝ (Space d)))
++  exact mul_pos (div_pos (by exact_mod_cast Nat.factorial_pos d)
++    (pow_pos (mul_pos hd (compact_body_volume_pos_of_unit_ball K hc hb)) _))
++    (normalized_projection_body_volume_pos K hc hb R hR.le hbound)
++
++/-- The actual lifted moment is computed from actual canonical pyramid geometry,
++with the finite identities passed through the same compact cone-law limit as A. -/
++theorem actual_body_lifted_first_moment_of_compact_limit
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K)
++    (μ : ProbabilityMeasure (CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
++    (hlim : Tendsto (fun k => compactBallLaw (halfspaceApproximationProbability K hc hconv hb (φ k)))
++      atTop (𝓝 μ)) :
++    (∫ w : Fin (d + 1) → Fin d → ℝ,
++      |liftedDeterminant (fun j => w j.succ) (w 0)|
++      ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1)) =
++      (d + 1 : ℝ) *
++        (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d) *
++          entryA K := by
++  have ht := halfspace_approximation_iid_moments_tendsto K hc hconv hb μ φ hlim
++  have he := (halfspace_approximation_entryA_tendsto K hc hconv hb).comp hφ.tendsto_atTop
++  have hgeo := (ht.1.const_mul (d + 1 : ℝ)).mul he
++  have hid (k : ℕ) : (d + 1 : ℝ) *
++      (∫ w, |horizontalDeterminant w| ∂iidLaw (halfspaceApproximationLaw K hc hconv hb (φ k)) d) *
++        entryA (halfspaceApproximationBody K hc hconv hb (φ k)) =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)|
++        ∂iidLaw (halfspaceApproximationLaw K hc hconv hb (φ k)) (d + 1)) := by
++    have hfinite := finite_halfspace_entryA_lifted_moment _ _
++      (halfspace_approximation_normals_unit K hc hconv hb (φ k))
++      (halfspace_approximation_heights_pos K hc hconv hb (φ k))
++      (halfspace_approximation_normals_injective K hc hconv hb (φ k))
++      (halfspace_approximation_body_compact K hc hconv hb (φ k))
++    have hA := finite_halfspace_horizontal_moment_pos _ _
++      (halfspace_approximation_normals_unit K hc hconv hb (φ k))
++      (halfspace_approximation_heights_pos K hc hconv hb (φ k))
++      (halfspace_approximation_normals_injective K hc hconv hb (φ k))
++      (halfspace_approximation_body_compact K hc hconv hb (φ k))
++    change entryA (halfspaceApproximationBody K hc hconv hb (φ k)) = _ at hfinite
++    rw [hfinite]
++    exact mul_div_cancel₀ _ (mul_ne_zero (by positivity) hA.ne')
++  simp_rw [Function.comp_def, hid] at hgeo
++  exact tendsto_nhds_unique ht.2 hgeo
++
++/-- Exact paper identity a(K)=B/((d+1)A) for a common actual compact cone-law limit. -/
++theorem actual_body_entryA_of_compact_limit
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K)
++    (μ : ProbabilityMeasure (CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
++    (hlim : Tendsto (fun k => compactBallLaw (halfspaceApproximationProbability K hc hconv hb (φ k)))
++      atTop (𝓝 μ)) :
++    entryA K =
++      (∫ w : Fin (d + 1) → Fin d → ℝ,
++        |liftedDeterminant (fun j => w j.succ) (w 0)|
++        ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) (d + 1)) /
++      ((d + 1 : ℝ) *
++        (∫ w, |horizontalDeterminant w| ∂iidLaw (compactBallRawLaw μ : Measure (Fin d → ℝ)) d)) := by
++  rw [actual_body_lifted_first_moment_of_compact_limit K hc hconv hb μ φ hφ hlim,
++    mul_div_cancel_left₀ _ (mul_ne_zero (by positivity)
++      (actual_body_horizontal_moment_pos_of_compact_limit K hc hconv hb μ φ hφ hlim).ne')]
++
++/-- Every normalized actual compact convex body has one actual centered law
++satisfying brightness, the horizontal volume identity, and the canonical
++pyramid identity. No law, geometric identity or weak limit is assumed. -/
++theorem actual_body_cone_law_with_pyramid_first_moment
++    (K : Set (Space d)) (hc : IsCompact K) (hconv : Convex ℝ K)
++    (hb : closedBall (0 : Space d) 1 ⊆ K) :
++    ∃ ν : ProbabilityMeasure (Fin d → ℝ),
++      (∀ᵐ x ∂(ν : Measure (Fin d → ℝ)), ‖WithLp.toLp 2 x‖ ≤ 1) ∧
++      (∀ i, (∫ x, x i ∂(ν : Measure (Fin d → ℝ))) = 0) ∧
++      (∀ u : Space d, ‖u‖ = 1 → negativeIntegral (ν : Measure (Fin d → ℝ))
++        (fun x => dotProduct (fun j => u j) x) =
++        projectionVolumeSet K u / ((finrank ℝ (Space d) : ℝ) * (volume K).toReal)) ∧
++      (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) =
++        (d.factorial : ℝ) / ((d : ℝ) * (volume K).toReal) ^ d *
++          (volume (projectionBodySet K)).toReal ∧
++      0 < (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d) ∧
++      entryA K =
++        (∫ w : Fin (d + 1) → Fin d → ℝ,
++          |liftedDeterminant (fun j => w j.succ) (w 0)| ∂iidLaw (ν : Measure (Fin d → ℝ)) (d + 1)) /
++        ((d + 1 : ℝ) * (∫ w, |horizontalDeterminant w| ∂iidLaw (ν : Measure (Fin d → ℝ)) d)) := by
++  obtain ⟨μ, φ, hφ, hlim, _, hball, hcenter, hbrightness⟩ :=
++    actual_body_compact_cone_law_exists K hc hconv hb
++  exact ⟨compactBallRawLaw μ, hball, hcenter, hbrightness,
++    actual_body_horizontal_first_moment_of_compact_limit K hc hconv hb μ φ hφ hlim,
++    actual_body_horizontal_moment_pos_of_compact_limit K hc hconv hb μ φ hφ hlim,
++    actual_body_entryA_of_compact_limit K hc hconv hb μ φ hφ hlim⟩
++
++end Entry005
+--- /dev/null
++++ b/formal/PyramidFinalAudit.lean
+@@ -0,0 +1,166 @@
++import Entry005.ActualPyramidJointCone
++
++#check Entry005.pyramidSet_mono
++#print axioms Entry005.pyramidSet_mono
++#check Entry005.pyramidSet_zero_mem
++#print axioms Entry005.pyramidSet_zero_mem
++#check Entry005.pyramidSet_apex_mem
++#print axioms Entry005.pyramidSet_apex_mem
++#check Entry005.pyramidSet_subset_dilation
++#print axioms Entry005.pyramidSet_subset_dilation
++#check Entry005.projectionVolumeSet_neg_normal
++#print axioms Entry005.projectionVolumeSet_neg_normal
++#check Entry005.actual_projection_body_compact_general
++#print axioms Entry005.actual_projection_body_compact_general
++#check Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
++#print axioms Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich
++#check Entry005.tendsto_entryA_of_dilation_sandwich
++#print axioms Entry005.tendsto_entryA_of_dilation_sandwich
++#check Entry005.finite_halfspace_projection_body_volume_pos
++#print axioms Entry005.finite_halfspace_projection_body_volume_pos
++#check Entry005.finite_halfspace_entryA_lifted_moment
++#print axioms Entry005.finite_halfspace_entryA_lifted_moment
++#check Entry005.pyramidBaseIsometry_val
++#print axioms Entry005.pyramidBaseIsometry_val
++#check Entry005.pyramid_base_facet_chart
++#print axioms Entry005.pyramid_base_facet_chart
++#check Entry005.pyramid_base_facet_area
++#print axioms Entry005.pyramid_base_facet_area
++#check Entry005.pyramidSlope_pos
++#print axioms Entry005.pyramidSlope_pos
++#check Entry005.pyramidSlope_sq
++#print axioms Entry005.pyramidSlope_sq
++#check Entry005.pyramidBaseNormal_unit
++#print axioms Entry005.pyramidBaseNormal_unit
++#check Entry005.pyramidSideNormal_unit
++#print axioms Entry005.pyramidSideNormal_unit
++#check Entry005.inner_pyramidBaseNormal
++#print axioms Entry005.inner_pyramidBaseNormal
++#check Entry005.inner_pyramidSideNormal
++#print axioms Entry005.inner_pyramidSideNormal
++#check Entry005.mem_pyramidHalfspace_iff
++#print axioms Entry005.mem_pyramidHalfspace_iff
++#check Entry005.finite_halfspace_convex
++#print axioms Entry005.finite_halfspace_convex
++#check Entry005.finite_halfspace_homogeneous_eq_zero
++#print axioms Entry005.finite_halfspace_homogeneous_eq_zero
++#check Entry005.pyramidHalfspaceNormal_unit
++#print axioms Entry005.pyramidHalfspaceNormal_unit
++#check Entry005.pyramidHalfspaceNormal_injective
++#print axioms Entry005.pyramidHalfspaceNormal_injective
++#check Entry005.finite_halfspace_index_nonempty
++#print axioms Entry005.finite_halfspace_index_nonempty
++#check Entry005.pyramidSet_finite_halfspace
++#print axioms Entry005.pyramidSet_finite_halfspace
++#check Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
++#print axioms Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume
++#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
++#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable
++#check Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
++#print axioms Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq
++#check Entry005.pyramidLiftCoordinates_apply
++#print axioms Entry005.pyramidLiftCoordinates_apply
++#check Entry005.pyramid_lifted_law_generator
++#print axioms Entry005.pyramid_lifted_law_generator
++#check Entry005.pyramid_lifted_law_image
++#print axioms Entry005.pyramid_lifted_law_image
++#check Entry005.pyramid_side_zonotope_eq_scaled_lifted
++#print axioms Entry005.pyramid_side_zonotope_eq_scaled_lifted
++#check Entry005.pyramid_side_zonotope_volume_lifted_moment
++#print axioms Entry005.pyramid_side_zonotope_volume_lifted_moment
++#check Entry005.centered_iid_lifted_moment_ge_horizontal
++#print axioms Entry005.centered_iid_lifted_moment_ge_horizontal
++#check Entry005.finite_halfspace_horizontal_moment_pos
++#print axioms Entry005.finite_halfspace_horizontal_moment_pos
++#check Entry005.finite_halfspace_lifted_moment_pos
++#print axioms Entry005.finite_halfspace_lifted_moment_pos
++#check Entry005.finite_halfspace_entryDefect_moment
++#print axioms Entry005.finite_halfspace_entryDefect_moment
++#check Entry005.finite_halfspace_defect_over_first_moment
++#print axioms Entry005.finite_halfspace_defect_over_first_moment
++#check Entry005.pyramid_projection_generator_eq
++#print axioms Entry005.pyramid_projection_generator_eq
++#check Entry005.pyramid_projection_body_eq_zonotope
++#print axioms Entry005.pyramid_projection_body_eq_zonotope
++#check Entry005.pyramid_finite_halfspace_volume
++#print axioms Entry005.pyramid_finite_halfspace_volume
++#check Entry005.finite_halfspace_facet_area_of_empty
++#print axioms Entry005.finite_halfspace_facet_area_of_empty
++#check Entry005.pyramid_side_facet_area_of_empty
++#print axioms Entry005.pyramid_side_facet_area_of_empty
++#check Entry005.pyramid_horizontal_projection
++#print axioms Entry005.pyramid_horizontal_projection
++#check Entry005.pyramid_side_horizontal_image
++#print axioms Entry005.pyramid_side_horizontal_image
++#check Entry005.pyramid_side_horizontal_volume
++#print axioms Entry005.pyramid_side_horizontal_volume
++#check Entry005.pyramid_projection_body_volume_decomposition
++#print axioms Entry005.pyramid_projection_body_volume_decomposition
++#check Entry005.pyramid_side_chart_offset
++#print axioms Entry005.pyramid_side_chart_offset
++#check Entry005.pyramid_side_radial_coordinates
++#print axioms Entry005.pyramid_side_radial_coordinates
++#check Entry005.pyramid_side_facet_chart
++#print axioms Entry005.pyramid_side_facet_chart
++#check Entry005.pyramid_side_facet_of_empty
++#print axioms Entry005.pyramid_side_facet_of_empty
++#check Entry005.pyramid_side_facet_area
++#print axioms Entry005.pyramid_side_facet_area
++#check Entry005.pyramidSideFrameLinear_val
++#print axioms Entry005.pyramidSideFrameLinear_val
++#check Entry005.pyramidSideFrameLinear_norm
++#print axioms Entry005.pyramidSideFrameLinear_norm
++#check Entry005.pyramidSideFrameLinear_surjective
++#print axioms Entry005.pyramidSideFrameLinear_surjective
++#check Entry005.pyramidSideFrame_val
++#print axioms Entry005.pyramidSideFrame_val
++#check Entry005.pyramidBaseMap_apply
++#print axioms Entry005.pyramidBaseMap_apply
++#check Entry005.pyramidFlip_apply
++#print axioms Entry005.pyramidFlip_apply
++#check Entry005.pyramidSet_eq_flip_radial
++#print axioms Entry005.pyramidSet_eq_flip_radial
++#check Entry005.mem_pyramidSet_iff
++#print axioms Entry005.mem_pyramidSet_iff
++#check Entry005.pyramidSet_compact
++#print axioms Entry005.pyramidSet_compact
++#check Entry005.pyramidFlip_volume
++#print axioms Entry005.pyramidFlip_volume
++#check Entry005.pyramidSet_volume
++#print axioms Entry005.pyramidSet_volume
++#check Entry005.finite_zonotope_option
++#print axioms Entry005.finite_zonotope_option
++#check Entry005.finite_zonotope_scalar_image
++#print axioms Entry005.finite_zonotope_scalar_image
++#check Entry005.finite_zonotope_option_volume
++#print axioms Entry005.finite_zonotope_option_volume
++#check Entry005.actual_body_geometric_first_moment_assignment
++#print axioms Entry005.actual_body_geometric_first_moment_assignment
++#check Entry005.determinantLawDefect_iid_eq
++#print axioms Entry005.determinantLawDefect_iid_eq
++#check Entry005.entryDefect_iid_moment_identity
++#print axioms Entry005.entryDefect_iid_moment_identity
++#check Entry005.entryDefect_iid_nonnegative
++#print axioms Entry005.entryDefect_iid_nonnegative
++#check Entry005.entryDefect_iid_defect_ratio
++#print axioms Entry005.entryDefect_iid_defect_ratio
++#check Entry005.actual_body_cone_law_with_pyramid_defect
++#print axioms Entry005.actual_body_cone_law_with_pyramid_defect
++#check Entry005.actual_body_entryDefect_nonnegative
++#print axioms Entry005.actual_body_entryDefect_nonnegative
++#check Entry005.actual_body_joint_polar_pyramid_assignment
++#print axioms Entry005.actual_body_joint_polar_pyramid_assignment
++#check Entry005.compact_normalized_projection_ratio_pos
++#print axioms Entry005.compact_normalized_projection_ratio_pos
++#check Entry005.halfspace_approximation_entryA_tendsto
++#print axioms Entry005.halfspace_approximation_entryA_tendsto
++#check Entry005.halfspace_approximation_iid_moments_tendsto
++#print axioms Entry005.halfspace_approximation_iid_moments_tendsto
++#check Entry005.actual_body_horizontal_moment_pos_of_compact_limit
++#print axioms Entry005.actual_body_horizontal_moment_pos_of_compact_limit
++#check Entry005.actual_body_lifted_first_moment_of_compact_limit
++#print axioms Entry005.actual_body_lifted_first_moment_of_compact_limit
++#check Entry005.actual_body_entryA_of_compact_limit
++#print axioms Entry005.actual_body_entryA_of_compact_limit
++#check Entry005.actual_body_cone_law_with_pyramid_first_moment
++#print axioms Entry005.actual_body_cone_law_with_pyramid_first_moment

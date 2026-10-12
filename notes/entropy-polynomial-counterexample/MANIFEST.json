@@ -1,0 +1,159 @@
+{
+  "format": 1,
+  "version": "2026-10-08-v1",
+  "prepared_utc": "2026-10-08T08:08:06.538600+00:00",
+  "package": "entropy-polynomial-counterexample",
+  "theorem": "Wakhare Conjecture 2 is false: k=11,r=10 gives at least four distinct roots in (0,1).",
+  "root_intervals": [
+    [
+      "1/5",
+      "2/5"
+    ],
+    [
+      "2/5",
+      "3/5"
+    ],
+    [
+      "3/5",
+      "2/3"
+    ],
+    [
+      "2/3",
+      "4/5"
+    ]
+  ],
+  "proof_sha256": "eabd930d0e77fe94abc1056837f85370da26e73c1ab1d58039844dccbdfded59",
+  "payload": {
+    "COUNTEREXAMPLE_PROOF.md": {
+      "bytes": 6975,
+      "sha256": "eabd930d0e77fe94abc1056837f85370da26e73c1ab1d58039844dccbdfded59"
+    },
+    "README.md": {
+      "bytes": 3445,
+      "sha256": "8e11dcc4ca683bb8f3ce61afd78e253241eceef2ab49ed797467161b6e6dda52"
+    },
+    "independent/AUDIT.md": {
+      "bytes": 9138,
+      "sha256": "c2848b56e27070975ed78cf8f040551976021d6743f0b97274bd58bc035a25f8"
+    },
+    "independent/compact_certificate.json": {
+      "bytes": 8401,
+      "sha256": "7eb4273947685f4ac8b56b48e8ff5a5314d146216fce1ee745a723b908a8a138"
+    },
+    "independent/integer_certificate.json": {
+      "bytes": 78729,
+      "sha256": "9172dfc474f6d79e658050f1368aea755052745cca248cb140037372f11f704e"
+    },
+    "independent/small_integer_certificate.json": {
+      "bytes": 13121,
+      "sha256": "5cbfe85f60e107500e4b17dd505ac800f564a620ad9724e7be391d8b977a2327"
+    },
+    "independent/verify_integer.py": {
+      "bytes": 3730,
+      "sha256": "e54e7e89c6f04c02a22c847cb0a46038a79e9100061f7f7ad281f8dcfc367923"
+    },
+    "independent/verify_small_integer.py": {
+      "bytes": 2290,
+      "sha256": "2468e5d2a74a9dccc0eecab324c9bc0e6c12b7a914da4d94f3974d8f0495039d"
+    },
+    "small_exact_certificate.json": {
+      "bytes": 3833,
+      "sha256": "f01ffec01976a3c6d92702473310fa6631e6f0fdbe57c246b9fd05d55b46591e"
+    },
+    "verify_small_counterexample.py": {
+      "bytes": 3170,
+      "sha256": "2732fa0789df7b93fd9713a4e24cb8fbc413d3c7583bf393b9856eb24fe5b027"
+    }
+  },
+  "unchanged_input_identities": [
+    {
+      "public_path": "COUNTEREXAMPLE_PROOF.md",
+      "original_path": "COUNTEREXAMPLE_PROOF.md",
+      "source_role": "proof author",
+      "sha256": "eabd930d0e77fe94abc1056837f85370da26e73c1ab1d58039844dccbdfded59"
+    },
+    {
+      "public_path": "verify_small_counterexample.py",
+      "original_path": "verify_small_counterexample.py",
+      "source_role": "proof author",
+      "sha256": "2732fa0789df7b93fd9713a4e24cb8fbc413d3c7583bf393b9856eb24fe5b027"
+    },
+    {
+      "public_path": "small_exact_certificate.json",
+      "original_path": "small_exact_certificate.json",
+      "source_role": "proof author",
+      "sha256": "f01ffec01976a3c6d92702473310fa6631e6f0fdbe57c246b9fd05d55b46591e"
+    },
+    {
+      "public_path": "independent/AUDIT.md",
+      "original_path": "AUDIT.md",
+      "source_role": "independent exact audit",
+      "sha256": "c2848b56e27070975ed78cf8f040551976021d6743f0b97274bd58bc035a25f8"
+    },
+    {
+      "public_path": "independent/verify_small_integer.py",
+      "original_path": "verify_small_integer.py",
+      "source_role": "independent exact audit",
+      "sha256": "2468e5d2a74a9dccc0eecab324c9bc0e6c12b7a914da4d94f3974d8f0495039d"
+    },
+    {
+      "public_path": "independent/small_integer_certificate.json",
+      "original_path": "small_integer_certificate.json",
+      "source_role": "independent exact audit",
+      "sha256": "5cbfe85f60e107500e4b17dd505ac800f564a620ad9724e7be391d8b977a2327"
+    },
+    {
+      "public_path": "independent/verify_integer.py",
+      "original_path": "verify_integer.py",
+      "source_role": "independent exact audit",
+      "sha256": "e54e7e89c6f04c02a22c847cb0a46038a79e9100061f7f7ad281f8dcfc367923"
+    },
+    {
+      "public_path": "independent/integer_certificate.json",
+      "original_path": "integer_certificate.json",
+      "source_role": "independent exact audit",
+      "sha256": "9172dfc474f6d79e658050f1368aea755052745cca248cb140037372f11f704e"
+    },
+    {
+      "public_path": "independent/compact_certificate.json",
+      "original_path": "compact_certificate.json",
+      "source_role": "independent exact audit",
+      "sha256": "7eb4273947685f4ac8b56b48e8ff5a5314d146216fce1ee745a723b908a8a138"
+    }
+  ],
+  "publisher_fresh_reproductions": [
+    {
+      "script": "verify_small_counterexample.py",
+      "returncode": 0,
+      "certificate_files_byte_identical": [
+        "small_exact_certificate.json"
+      ],
+      "assertions_enabled": true
+    },
+    {
+      "script": "independent/verify_small_integer.py",
+      "returncode": 0,
+      "certificate_files_byte_identical": [
+        "independent/small_integer_certificate.json"
+      ],
+      "assertions_enabled": true
+    },
+    {
+      "script": "independent/verify_integer.py",
+      "returncode": 0,
+      "certificate_files_byte_identical": [
+        "independent/integer_certificate.json",
+        "independent/compact_certificate.json"
+      ],
+      "assertions_enabled": true
+    }
+  ],
+  "final_copy_gate": "Parent received independent final-copy PASS for the exact three primary file hashes above before publication.",
+  "limits": [
+    "At least four, not exactly four; not a minimality, multiplicity, infinite-family or novelty certificate.",
+    "Conjecture 1 and Frankl are not refuted or solved by this counterexample.",
+    "No completed Lean verification or human professional peer review is claimed.",
+    "No digital signature is asserted."
+  ],
+  "hash_scope": "payload excludes this manifest and SHA256SUMS to avoid recursion; SHA256SUMS also binds this manifest."
+}

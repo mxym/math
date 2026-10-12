@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "review_date_utc": "2026-10-08",
+  "review_kind": "Independent final-public-copy static integrity and semantic-consistency gate",
+  "snapshot_scope": {
+    "relative_root": "formalizations/q-permanent-halfline-counterexample",
+    "payload_files_before_this_report": 73,
+    "total_files_before_this_report": 75,
+    "sha256sum_entries_before_this_report": 74,
+    "manifest_sha256_before_this_report": "03c6881fb2791379d326082cac3b7da1773fab9c82e609478385557b64c538a7",
+    "sha256sums_sha256_before_this_report": "86cf5f106dfcb50dd1fdae9e309af282c5f7020e573cb2c50f072ed3e52f0bf2",
+    "self_reference_note": "This review identifies the candidate before adding this report. The publisher must rebuild the current manifest/checksum list after adding this report, then rerun both default checks."
+  },
+  "executed_checks": [
+    {
+      "command": "python3 check_public.py",
+      "working_directory": "formalizations/q-permanent-halfline-counterexample",
+      "exit_code": 0,
+      "result": "Complete inventory, every payload hash, historical mapping, dependency closure and exact arithmetic checks PASS"
+    },
+    {
+      "command": "sha256sum -c SHA256SUMS",
+      "working_directory": "formalizations/q-permanent-halfline-counterexample",
+      "exit_code": 0,
+      "successful_entries": 74
+    },
+    {
+      "check": "Independent byte comparison against the original evidence archive",
+      "unchanged_mapped_files": 57,
+      "status": "PASS"
+    },
+    {
+      "check": "Original 38-entry fresh-run checksum list retained byte-for-byte as SHA256SUMS.original",
+      "unchanged_historical_files": 37,
+      "explicit_configuration_projection_entries": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Public configuration equals both original copies after removing only owner_thread and parent_thread; all other fields unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "Original administrative identifier values are absent from all public file bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "Current inventory covers every actual candidate file, without ignored subdirectories",
+      "missing_files": 0,
+      "extra_files": 0,
+      "status": "PASS"
+    }
+  ],
+  "entrypoint_tests": [
+    {
+      "test": "unlisted_lake_file_rejected",
+      "exit_code": 1,
+      "expected": "reject",
+      "status": "PASS"
+    },
+    {
+      "test": "source_hash_mutation_rejected",
+      "exit_code": 1,
+      "expected": "reject",
+      "status": "PASS"
+    },
+    {
+      "test": "prepare_only_no_lean_executed",
+      "exit_code": 0,
+      "expected": "accept",
+      "status": "PASS"
+    },
+    {
+      "test": "existing_workdir_rejected",
+      "exit_code": 2,
+      "expected": "reject",
+      "status": "PASS"
+    }
+  ],
+  "prepare_only_test_limit": "Synthetic existing-asset placeholders, no --run, no Lean executable invoked; checks wrapper/config relocation only. Does not validate Lean installation or execute compilation/replay.",
+  "semantic_scope": "The same four mathematical source modules and historical compile/replay/negative-control logs are unchanged. The formal result is the explicit 4-by-4 real positive-definite, non-diagonal counterexample with P49>P50 and the stated half-line monotonicity failure. Dimension-four minimality, n<=3 results, the general family for every t>1, and the original Bapat interval [-1,1] are not formalized by this package.",
+  "trust_boundary": "Trust level zero comes from mkEmptyEnvironment 0. The two zeros in addDeclCore 0 0 are resource limits. The outer auditor rejects unsafe/partial proof-closure members and nonstandard axioms before Lean.Replay, checks an empty base, and checks final declaration presence/type/universe parameters. The permitted closure axioms are propext, Classical.choice and Quot.sound.",
+  "execution_attribution": "Fresh Lean compilation, empty-kernel replay and the malformed-proof rejection were executed by the proof producer and are represented by the unchanged historical evidence. This final-copy reviewer ran only Python/static checks, exact arithmetic, checksum checks, synthetic negative controls and a prepare-only wrapper test. No Lean installation, compilation or replay was performed by this reviewer.",
+  "reproduction_interface": "The documented reproduce_lean.py interface uses PUBLIC_ENVIRONMENT_CONFIG.json and existing pinned assets, creates an external workspace, and does not require unpublished original metadata or configuration files. The preparation-only branch was exercised; the --run branch was statically reviewed, not executed.",
+  "github_ci_claim": "No GitHub Actions run or green CI result is claimed.",
+  "blocking_defects": [],
+  "resolved_gate_issue": "Removed generated Python bytecode from the candidate and made the current inventory check reject files in all subdirectories, including .lake and __pycache__."
+}

@@ -1,0 +1,9 @@
+import Entry002.WeakSupplyWindowIndependentGrid
+#print axioms Entry002.independent_weak_window_log_width_lower
+#print axioms Entry002.independent_weak_window_forty_cover
+#print axioms Entry002.independent_weak_window_integer_catch
+#print axioms Entry002.independent_weak_window_integer_catch_in_range
+#print axioms Entry002.independent_weighted_thin_bins
+#print axioms Entry002.independent_actual_weak_window_forty_cover
+#print axioms Entry002.independent_actual_weak_window_integer_catch
+#print axioms Entry002.independent_actual_weak_window_integer_catch_in_range

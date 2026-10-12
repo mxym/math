@@ -1,0 +1,18 @@
+def FourRowTradeoff.IsFlatRankOne : FourRowTradeoff.Mat → Prop :=
+fun A =>
+  ∃ u v,
+    (∀ (i : Fin 4), u i ≠ 0) ∧
+      (∀ (j : Fin 4), v j ≠ 0) ∧
+        (∀ (j : Fin 4), Complex.normSq (v j) = Complex.normSq (v 0)) ∧ ∀ (i j : Fin 4), A i j = u i * v j
+def FourRowTradeoff.IsMonomial : FourRowTradeoff.Mat → Prop :=
+fun A => ∃ σ, ∀ (i : Fin 4), A i (σ i) ≠ 0 ∧ ∀ (j : Fin 4), j ≠ σ i → A i j = 0
+def FourRowTradeoff.NonzeroRows : FourRowTradeoff.Mat → Prop :=
+fun A => ∀ (i : Fin 4), ∃ j, A i j ≠ 0
+theorem FourRowTradeoff.sharp_four_row_complete : ∀ (A : Matrix (Fin 4) (Fin 4) ℂ) (c : ℝ),
+  0 ≤ c →
+    ‖A.permanent‖ + c * ‖A.det‖ ≤ max (3 / 2) (1 + c) * ∏ i, √(∑ j, ‖A i j‖ ^ 2) ∧
+      (‖A.permanent‖ + c * ‖A.det‖ = max (3 / 2) (1 + c) * ∏ i, √(∑ j, ‖A i j‖ ^ 2) ↔
+        (∃ i, ∀ (j : Fin 4), A i j = 0) ∨
+          FourRowTradeoff.IsFlatRankOne A ∧ c ≤ 1 / 2 ∨ FourRowTradeoff.IsMonomial A ∧ 1 / 2 ≤ c) :=
+fun A c hc => ⟨FourRowTradeoff.sharp_four_row A c hc, FourRowTradeoff.sharp_four_row_equality_iff A c hc⟩
+'FourRowTradeoff.sharp_four_row_complete' depends on axioms: [propext, Classical.choice, Quot.sound]

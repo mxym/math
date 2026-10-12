@@ -1,0 +1,13 @@
+import Entry002.GenericCommonWindowNumerics
+#print axioms Entry002.eventually_length_smoothing
+#print axioms Entry002.floor_size_lower
+#print axioms Entry002.one_step_coverage_scalar_guards
+#print axioms Entry002.eventually_collision_integer_batch_bounds
+#print axioms Entry002.eventually_common_window_errors
+#print axioms Entry002.eventually_common_middle_size
+#print axioms Entry002.eventually_window_batch_arithmetic
+#print axioms Entry002.eventually_common_window_batch_arithmetic
+#print axioms Entry002.eventually_common_window_backward_arithmetic
+#print axioms Entry002.eventually_common_window_large
+#print axioms Entry002.exists_window_gap_parameters
+#print axioms Entry002.bandSize_pos_of_relative

@@ -1,0 +1,28 @@
+{
+  "completed": "2026-10-07T21:29:12.003062+00:00",
+  "runs": [
+    {
+      "source": "EmptyKernelMini.lean",
+      "log": "${ROUND5_AUDIT}/replay/audit/EmptyKernelMini.lean.log",
+      "sha256": "bdda1875d8de1bbceb944a34d2e1e188df1323f2f24553952ca1c5bbf7652885",
+      "actual_exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "source": "EmptyKernelMiniCorrupt.lean",
+      "log": "${ROUND5_AUDIT}/replay/audit/EmptyKernelMiniCorrupt.lean.log",
+      "sha256": "6946dfa597bc4f96108af303d08459eba51f6319247da79ba898296bf8b3f75d",
+      "actual_exit": 1,
+      "expected_exit": 1
+    },
+    {
+      "source": "RunInjectedAudit.lean",
+      "log": "${ROUND5_AUDIT}/replay/audit/RunInjectedAudit.lean.log",
+      "sha256": "c1507693be7f9378a6d25776ace4a85055558eeb53b18a9c8ac383cfa128e158",
+      "actual_exit": 0,
+      "expected_exit": 0
+    }
+  ],
+  "hidden_axiom_validator_exit": 1,
+  "status": "PASS"
+}

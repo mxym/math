@@ -1,0 +1,31 @@
+# Exact independent integer proof replay, Oct 8 2026
+$ python3 code/check_exact.py
+NEGATIVE: 682 explicit admissible nonzero-voltage walks for every squarefree q<1122; longest 561 steps
+POSITIVE: all 1258884 residues checked; 204800 allowed; 6688 exact closed connected components; maximum 2283
+EXCEPTIONAL: 14 special primes, 92-point closed overgraph, 90 connected irreducible elements, exactly two units
+IDEALS: seven explicit prime-ideal congruence conditions exactly match the norm gcd predicate on all residues
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check_exact.py
+NEGATIVE: 682 explicit admissible nonzero-voltage walks for every squarefree q<1122; longest 561 steps
+POSITIVE: all 1258884 residues checked; 204800 allowed; 6688 exact closed connected components; maximum 2283
+EXCEPTIONAL: 14 special primes, 92-point closed overgraph, 90 connected irreducible elements, exactly two units
+IDEALS: seven explicit prime-ideal congruence conditions exactly match the norm gcd predicate on all residues
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: missing lower period
+REJECTED: broken q=1 voltage path
+REJECTED: out-of-range negative move
+REJECTED: missing quotient vertex
+REJECTED: duplicate quotient point
+REJECTED: missing exceptional vertex
+REJECTED: false exceptional primality
+ALL TAMPER TESTS PASSED
+$ python3 -O code/self_test.py
+REJECTED: missing lower period
+REJECTED: broken q=1 voltage path
+REJECTED: out-of-range negative move
+REJECTED: missing quotient vertex
+REJECTED: duplicate quotient point
+REJECTED: missing exceptional vertex
+REJECTED: false exceptional primality
+ALL TAMPER TESTS PASSED

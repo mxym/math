@@ -1,0 +1,78 @@
+Entry005.finite_halfspace_scaled_radial_cover.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι]
+  [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : ι → E) (h s : ι → ℝ)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) (hb : Metric.closedBall 0 1 ⊆ Entry005.finiteHalfspaceSet n h)
+  (hh : ∀ (i : ι), 0 < h i) (hs : ∀ (i : ι), 0 < s i) (P : Set E)
+  (hP : ∀ x ∈ P, ∀ (i : ι), inner ℝ (n i) x ≤ s i * h i) :
+  P ⊆ (⋃ i, s i • Entry005.finiteHalfspaceFacetCone n h i) ∪ {0}
+'Entry005.finite_halfspace_scaled_radial_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_scaled_radial_volume_bound.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι]
+  [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+  [Nontrivial E] (n : ι → E) (h s : ι → ℝ) (hc : IsCompact (Entry005.finiteHalfspaceSet n h))
+  (hb : Metric.closedBall 0 1 ⊆ Entry005.finiteHalfspaceSet n h) (hh : ∀ (i : ι), 0 < h i) (hs : ∀ (i : ι), 0 < s i)
+  (P : Set E) (hP : ∀ x ∈ P, ∀ (i : ι), inner ℝ (n i) x ≤ s i * h i) :
+  (MeasureTheory.volume P).toReal ≤
+    ∑ i, s i ^ Module.finrank ℝ E * (MeasureTheory.volume (Entry005.finiteHalfspaceFacetCone n h i)).toReal
+'Entry005.finite_halfspace_scaled_radial_volume_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.power_minus_one_le_bounded_geometric_sum {d : ℕ} (hd : 1 ≤ d) {s M : ℝ} (hs : 1 ≤ s) (hsM : s ≤ M) :
+  s ^ d ≤ 1 + ↑d * M ^ (d - 1) * (s - 1)
+'Entry005.power_minus_one_le_bounded_geometric_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_radial_support_test_bound.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ}
+  [Nontrivial (Entry005.Space d)] (hd : 1 ≤ d) (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1)
+  (hh : ∀ (i : ι), 0 < h i) (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h))
+  (hb : Metric.closedBall 0 1 ⊆ Entry005.finiteHalfspaceSet n h) (hheight : ∀ (i : ι), 1 ≤ h i)
+  (P : Set (Entry005.Space d)) (hcP : IsCompact P) (hneP : P.Nonempty) (M : ℝ) (hM : 1 ≤ M)
+  (hPM : P ⊆ Metric.closedBall 0 M) (hlower : ∀ (i : ι), h i ≤ Entry005.compactSupportHeight P (n i)) :
+  (MeasureTheory.volume P).toReal / (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal ≤
+    1 +
+      ↑d * M ^ (d - 1) *
+        (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight P (WithLp.toLp 2 x) ∂Entry005.finiteHalfspaceConeLaw n h - 1)
+'Entry005.finite_halfspace_radial_support_test_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_volume_ratio_le_linear_support_test {d : ℕ} [Nontrivial (Entry005.Space d)] (hd : 1 ≤ d)
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ))
+  (P : Set (Entry005.Space d)) (hcP : IsCompact P) (hKP : K ⊆ P) (M : ℝ) (hM : 1 ≤ M)
+  (hPM : P ⊆ Metric.closedBall 0 M) :
+  (MeasureTheory.volume P).toReal / (MeasureTheory.volume K).toReal ≤
+    1 +
+      ↑d * M ^ (d - 1) *
+        (∫ (x : Fin d → ℝ), Entry005.compactSupportHeight P (WithLp.toLp 2 x) ∂↑(Entry005.compactBallRawLaw μ) - 1)
+'Entry005.actual_body_volume_ratio_le_linear_support_test' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_same_assignment_linear_volume_bound {d : ℕ} [Nontrivial (Entry005.Space d)] {n : ℕ} (hd : 1 ≤ d)
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ))
+  (P : Set (Entry005.Space d)) (hcP : IsCompact P) (hKP : K ⊆ P) (M : ℝ) (hM : 1 ≤ M) (hPM : P ⊆ Metric.closedBall 0 M)
+  (w : Fin (n + 1) → Fin d → ℝ) (hw : ∀ (i : Fin (n + 1)), Entry005.compactSupportHeight P (WithLp.toLp 2 (w i)) = 1)
+  (r : (Fin d → ℝ) → Fin (n + 1)) (hr : Measurable r) :
+  (MeasureTheory.volume P).toReal / (MeasureTheory.volume K).toReal ≤
+    1 + ↑d * M ^ d * ∫ (x : Fin d → ℝ), ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (r x))‖ ∂↑(Entry005.compactBallRawLaw μ)
+'Entry005.actual_body_same_assignment_linear_volume_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.original_Q_absorbs_radial_power {d : ℕ} (hd : 1 ≤ d) :
+  Entry005.M d ^ (d - 1) * ((↑d + 1) * (↑d + 2)) ≤ Entry005.Q d
+'Entry005.original_Q_absorbs_radial_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.original_radial_strong_cost_absorption {d : ℕ} (hd : 1 ≤ d) (e cost : ℝ) (he : 0 ≤ e)
+  (hcost : cost ≤ (↑d + 1) * (↑d + 2) * ((↑d + 1) * e / (1 + (↑d + 1) * e))) :
+  Entry005.M d ^ (d - 1) * cost ≤ Entry005.Q d * (↑d + 1) * e
+'Entry005.original_radial_strong_cost_absorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_original_scale_of_strong_same_assignment {d n : ℕ} [Nontrivial (Entry005.Space d)] (hd : 1 ≤ d)
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ))
+  (P : Set (Entry005.Space d)) (hcP : IsCompact P) (hKP : K ⊆ P) (hPM : P ⊆ Metric.closedBall 0 (Entry005.M d))
+  (w : Fin (n + 1) → Fin d → ℝ) (hw : ∀ (i : Fin (n + 1)), Entry005.compactSupportHeight P (WithLp.toLp 2 (w i)) = 1)
+  (r : (Fin d → ℝ) → Fin (n + 1)) (hr : Measurable r) (e : ℝ) (he : 0 ≤ e)
+  (hcost :
+    ∫ (x : Fin d → ℝ), ‖WithLp.toLp 2 x - WithLp.toLp 2 (w (r x))‖ ∂↑(Entry005.compactBallRawLaw μ) ≤
+      (↑d + 1) * (↑d + 2) * ((↑d + 1) * e / (1 + (↑d + 1) * e))) :
+  (MeasureTheory.volume P).toReal / (MeasureTheory.volume K).toReal ≤
+    (1 + Entry005.M d * (Entry005.Q d * (↑d + 1) * e)) ^ d
+'Entry005.actual_body_original_scale_of_strong_same_assignment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

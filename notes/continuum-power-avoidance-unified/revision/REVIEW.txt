@@ -1,0 +1,70 @@
+Revision 2: missing standing hypotheses and three wording corrections
+7 October 2026
+
+Audit finding confirmed.
+The old Lemma 4.1 invoked the lower count of Lemma 2.2 without having
+established u_e >= s1*z1-k. The old Lemma 5.2 also used the resulting joint
+bound. The final choice in Section 6 already supplied this condition, so
+the final application did not use the false early-window case.
+
+A complete symbolic counterexample to the old isolated lemma:
+Take s0=1, s1=2, G=1, k=0, p=1/24. The prescribed sampling construction
+has m=5, B0=6, D=12, eta=1/24. Choose b=6913, so
+p*eta*(b-1)=12 and lambda=6. Choose finite d and g satisfying the original
+depth and unstable-density constraints, choose L>=24, and let T be the
+resulting finite template span at U=4. All these choices are independent
+of the initial occupied bin, since G and the gap bounds are fixed.
+Choose an integer R>U+T and A={2^(-j):j>=R}. This configuration has
+G=1, J=R. A permitted sample has j1=R+1, j_(n+1)=j_n+5 and
+a_n=2^(-j_n), so z_n=j_n. Every s in [1,2] has
+w_n(s)=s*z_n >= z_n > U+T. There are therefore no active inputs anywhere
+in the template. A stable center exists because unstable density is <p<1.
+On the positive-mass exposure atom C where every center selector is zero,
+the center first defaults at the root. Every local test fails vacuously,
+and P(C intersection miss)=P(C)>P(C)*exp(-6*L_d).
+All old stipulated numerical restrictions hold apart from the missing
+origin-versus-first-sample restriction, which was not yet stipulated.
+
+Correction and propagation:
+Section 3 now fixes U>=4, U>|k|, U>=s1*z1-k, and
+L>=max{2,ceil(2D)} before defining and using the template. Consequently
+every edge has u_e>=U>=s1*z1-k and L_r>=L>=2D, so Lemma 2.2 applies.
+The first condition supplies the short-offset/grid geometry; the second
+supplies the positive absolute-position candidate/error bounds; the third
+supplies the initial-sample count; the length bound supplies the count and
+entropy estimates. Lemmas 4.1 and 5.2 explicitly invoke these standing
+conditions, and the proof of 4.1 records their edgewise propagation.
+The Section 6 schedule already has all four restrictions and further
+imposes T(U)<=U and the entropy/error budgets. Its order of choices remains
+fixed tree constants, explicit L(U)/T(U), then sufficiently late U.
+
+The frozen formal counterpart already retains the hypothesis:
+project/ContinuumRemainder/SampleLocalProbability.lean
+  sample_vertex_active_count: hstart at line 49, propagated at line 72;
+  sample_vertex_continuum_joint_miss_bound: hstart at line 97.
+project/ContinuumRemainder/SampleSchedule.lean
+  start_guard at line 35, constructed at lines 94-100 and stored at 111.
+project/ContinuumRemainder/SampleStableProbability.lean
+  final application supplies S.start_guard at line 104.
+Source hashes are recorded in the unchanged frozen archive and inventories.
+No Lean source has been edited or new formal proof claim introduced.
+
+Additional minimal corrections requested by the audit:
+1. The own-grid width equals one quarter of the displayed lower offset bound.
+2. The closed-activation counterexample's ambient exponent interval is now
+   [1/2,5/2], so a sequence of inactive exponents below 1 is in that space.
+3. Lemma 5.2 now explicitly states P(C intersection M_C)<=P(C)*B;
+   Section 6 explicitly estimates the factor multiplying P(C).
+   This is a joint probability, never conditional probability times P(C).
+
+source.patch is the exact unified diff of the sole changed paper source
+against revision/baseline/source/continuum-avoidance.tex, retained byte for
+byte from the previously delivered ZIP. Its public citations and audit
+attributions are otherwise unchanged. The original PDF is retained under
+revision/baseline/ for comparison, with the old delivery's identifiers
+and SHA256 in baseline-identifiers.json.
+
+The exact rational control is a negative control for the window-count
+interface and a positive control for the corrected endpoint guard. It
+does not enumerate the large routing probability space, replace the
+symbolic counterexample above, or verify the infinite theorem.

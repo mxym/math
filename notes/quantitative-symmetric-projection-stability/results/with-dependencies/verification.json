@@ -1,0 +1,81 @@
+{
+  "arithmetic": "Exact integers and fractions.Fraction; no third-party packages.",
+  "dependency_validation": {
+    "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+    "repository": "https://github.com/mxym/math",
+    "scope": "Pinned HEAD and specified inputs only; other checkout files are not audited.",
+    "status": "passed",
+    "working_file_hashes": {
+      "preprints/005-simplex-product-optimum/v2/certificates/exact.json": "7cdd69c6ae451a94d09cd56716e2bf901473666afd0c5171a5a3a0a6d0051175",
+      "preprints/005-simplex-product-optimum/v2/code/check.py": "b68da0937f9c16af85dff26c295aaa1fc8952150f365d03a43bbac2e970c0f7d",
+      "preprints/005-simplex-product-optimum/v2/paper.md": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430",
+      "preprints/005-simplex-product-optimum/v2/results/check.json": "a362e9e4b1331ceb5f0b36d9fe1ffb4271226c7e1d967e53df8f85188fe9f17b",
+      "preprints/005-simplex-product-optimum/v3/certificates/exact.json": "962498c4bcd5e020a706ac72e3a597f393f6f0c1210bc6cfabcd16ba96591d17",
+      "preprints/005-simplex-product-optimum/v3/code/check.py": "3989ffb87a75e0b506e424d28a642daff98467747d66e72de22c8f26aa213f69",
+      "preprints/005-simplex-product-optimum/v3/paper.md": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "preprints/005-simplex-product-optimum/v3/results/check.json": "b197e93847eff43552947df028ab108693c2ff417f68ab7ce7dad9b79b8a7b38",
+      "preprints/005-simplex-product-optimum/v4/code/check_examples.py": "5ed06558e87938d05bb5f400050076756ad1c7ac204869db681e44255fcbea32",
+      "preprints/005-simplex-product-optimum/v4/paper.md": "19eb5aa0c79e34280cc3619cf40c1bea7acda6f6ec1161b05fbb6bf2308fda81"
+    }
+  },
+  "driver_sha256": "b7846ae5b6f6b08e14dbf1672c412f4318a76ea32012e0f4cd09b4486d357b45",
+  "inherited_checks": [
+    {
+      "ordinary_and_optimized_outputs_identical": true,
+      "report_matches_pinned_reference": true,
+      "status": "passed",
+      "stdout": "PASS: exact downward-hull closure in dimensions 0..14;\n      every recursive product/join body has R <= c_n for n <= 13;\n      the dimension-14 optimum is (385/384)c_14.\nPASS: 14 direct low-dimensional calculus tests; all 136 maximal\n      horizontal/lifted minors of the explicit 14D witness checked.\nPASS: independent central-binomial recurrence and exact endpoints\n      2.8534 < Lambda < 2.8535; eventual gain over v1.1 exceeds 1.015^n.\nPASS: four deliberately corrupted certificates rejected.\nSCOPE: paper.md supplies the geometric identities and infinite arguments.\n",
+      "version": "v2"
+    },
+    {
+      "ordinary_and_optimized_outputs_identical": true,
+      "report_matches_pinned_reference": true,
+      "status": "passed",
+      "stdout": "PASS: 23 rational laws, 18199 ordered lifted tuples\nPASS: 1149 balanced sign tests; 5 spectral examples\nPASS: all 7 deliberate corruptions rejected\n  uniform-simplex-d1: a=1/2, defect=0, singular=0\n  nonuniform-simplex-d1: a=1/2, defect=0, singular=0\n  simplex-origin-mixture-d1-t1_2: a=3/4, defect=1/4, singular=1/4\n  simplex-origin-mixture-d1-t1_7: a=13/14, defect=6/49, singular=6/49\n  uniform-simplex-d2: a=1/3, defect=0, singular=0\n  nonuniform-simplex-d2: a=1/3, defect=0, singular=0\n  simplex-origin-mixture-d2-t1_2: a=2/3, defect=1/6, singular=1/6\n  simplex-origin-mixture-d2-t1_7: a=19/21, defect=8/343, singular=8/343\n  uniform-simplex-d3: a=1/4, defect=0, singular=0\n  nonuniform-simplex-d3: a=1/4, defect=0, singular=0\n  simplex-origin-mixture-d3-t1_2: a=5/8, defect=9/128, singular=9/128\n  simplex-origin-mixture-d3-t1_7: a=25/28, defect=27/9604, singular=27/9604\n  uniform-simplex-d4: a=1/5, defect=0, singular=0\n  nonuniform-simplex-d4: a=1/5, defect=0, singular=0\n  axes-boundary-d2: a=1/2, defect=1/4, singular=1/4\n  cube-vertices-boundary-d2: a=1/2, defect=1/2, singular=1/2\n  even-interior-counterexample-d2: a=3/4, defect=5/32, singular=5/32\n  axes-boundary-d3: a=1/2, defect=2/9, singular=2/9\n  cube-vertices-boundary-d3: a=15/32, defect=21/16, singular=9/8\n  even-interior-counterexample-d3: a=3/4, defect=1/18, singular=1/18\n  nonuniform-square-boundary: a=1/2, defect=43/100, singular=31/125\n  centered-generic-d2: a=1031/2467, defect=1252/3375, singular=0\n  centered-generic-d3: a=10955/30106, defect=54856/64827, singular=0\n",
+      "version": "v3"
+    },
+    {
+      "ordinary_and_optimized_outputs_identical": true,
+      "report_matches_pinned_reference": null,
+      "status": "passed",
+      "stdout": "PASS: exact symmetric-equality regressions\nrademacher_grid_cases = 7749\nrademacher_four_quarters = 3/8\nhalf_mass_boundary_case = 1/2\nnonextreme_boundary_law: A = 3/16 B = 3/8 a = 1/2\naxes_boundary_d3: A = 2/9 B = 4/9 a = 1/2\ncube_vertices_boundary_d3: A = 3/2 B = 45/16 a = 15/32\narithmetic: Fraction only; no floating point\nchecks remain active under python -O\n",
+      "version": "v4"
+    }
+  ],
+  "inherited_checks_requested": true,
+  "new_exact_cases": 5696,
+  "ordinary_and_optimized_outputs_identical": true,
+  "python": "3.12.14",
+  "schema": "upper-end-stability-verification-v1",
+  "status": "passed",
+  "tests": [
+    {
+      "exact_cases": 4930,
+      "name": "balanced_defect",
+      "ordinary_and_optimized_outputs_identical": true,
+      "source": "code/check_balanced_defect.py",
+      "source_sha256": "79d3179da895ca874fb5c86525e8d6280b0c66be40abc6af31231f36bc096883",
+      "status": "passed",
+      "stdout": "{\n  \"checks_survive_python_optimization\": true,\n  \"coefficient_counts\": {\n    \"4\": 150,\n    \"5\": 433,\n    \"6\": 882,\n    \"7\": 1436,\n    \"8\": 2029\n  },\n  \"denominator\": 30,\n  \"four_equal_defect\": \"1/8\",\n  \"half_mass_defect\": \"0\",\n  \"status\": \"passed\",\n  \"total_cases\": 4930\n}\n"
+    },
+    {
+      "exact_cases": 750,
+      "name": "rank_identities",
+      "ordinary_and_optimized_outputs_identical": true,
+      "source": "code/check_rank_identities.py",
+      "source_sha256": "b327f9f8f6e1964e0fedc2c43cd1980bb3eb5259246c7e53dd8779c1b249d607",
+      "status": "passed",
+      "stdout": "Exact Fraction audit passed: 750 omitted-index cofactor identities in dimensions 3 through 7 (seed 541).\n"
+    },
+    {
+      "exact_cases": 16,
+      "name": "truncation_obstruction",
+      "ordinary_and_optimized_outputs_identical": true,
+      "source": "code/check_truncation_obstruction.py",
+      "source_sha256": "375642f226ffda65ed0e52cce2f8739243e08cc4e230c3fb689ceab7fdeffe04",
+      "status": "passed",
+      "stdout": "d=3, t=1: deficit=7/920; exact minors PASS\nd=3, t=1/2: deficit=31/25976; exact minors PASS\nd=3, t=1/3: deficit=71/191512; exact minors PASS\nd=3, t=1/7: deficit=391/12972056; exact minors PASS\nd=4, t=1: deficit=47/25976; exact minors PASS\nd=4, t=1/2: deficit=383/3169272; exact minors PASS\nd=4, t=1/3: deficit=1295/53868664; exact minors PASS\nd=4, t=1/7: deficit=16463/20243036792; exact minors PASS\nd=5, t=1: deficit=2681/11913152; exact minors PASS\nd=5, t=1/2: deficit=6143/863375936; exact minors PASS\nd=5, t=1/3: deficit=31103/33174211136; exact minors PASS\nd=5, t=1/7: deficit=6453881/476032568395712; exact minors PASS\nd=6, t=1: deficit=11517/566943712; exact minors PASS\nd=6, t=1/2: deficit=368637/1159687569376; exact minors PASS\nd=6, t=1/3: deficit=2799357/100306661548000; exact minors PASS\nd=6, t=1/7: deficit=4722357/27307899132583136; exact minors PASS\n16 exact facet-minor cases verified independently.\n"
+    }
+  ],
+  "verification_scope": "Finite exact regressions only. General probability-law, measure-theoretic and convex-geometric assertions are written proofs in paper.md; these checks are not formal proof verification."
+}

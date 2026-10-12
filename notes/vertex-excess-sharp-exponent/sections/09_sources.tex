@@ -1,0 +1,73 @@
+\appendix
+\section{Source correspondence and verification boundary}
+\label{app:sources}
+This manuscript expands the frozen proof
+\pathref{research_math/vertex_excess_sharp_exponent_20261008/SHARP_VERTEX_EXCESS_EXPONENT.md}
+and its geometric-sharpness addendum. The frozen main has SHA-256
+\pathref{8da4c012d4099465b4702ce4091ba4d1e2cc7862c12e8eb55cbd7467414e0f05}.
+The separate traditional review is
+\pathref{research_math/vertex_excess_exponent_independent_audit_20261008/REFEREE_REPORT.md},
+SHA-256
+\pathref{d638e1ebf4505f480d99c08c21a2012fb36f0e021cd86d828d142effd5df283b}.
+The supplied review checks the main exponent, the exact actual-defect
+constant, the arbitrary-prescribed-maximum quantifier, both defect
+endpoints, and the lower family. It is an independent model's analytic
+review, not a human referee report or a new Lean replay.
+
+\subsection{Retained arguments reproduced here}
+The volume-weighted determinant selection is retained from
+\pathref{notes/quadratic-dimensional-simplex-stability/imports/weighted_anchors.md}
+in the project publication tree. Section~\ref{sec:assignment} supplies its
+finite-support seminorm proof. The bounded-vertex retention argument is
+retained from
+\pathref{research_math/linear_retention_investigation_20261008/BOUNDED_VERTEX_EXCESS_RETENTION.md}.
+Section~\ref{sec:retention} includes both that proof and the unrestricted
+retention proof. The exact truncation calculation is retained from
+\pathref{notes/simplex-truncation-stability/proof.tex} in the publication
+tree; Section~\ref{sec:sharpness} includes the facet calculation, the
+$m=2$ case, the maximum-simplex proof, and the pyramid identities.
+The package's \pathref{SOURCE_MAP.md} records the precise local source
+paths, hashes, and section-level correspondence, and includes frozen
+copies of the main input documents.
+
+\subsection{Lean references refer to retained statements only}
+For the earlier formal source, the module filenames and theorem namespaces
+must be distinguished. In particular, the retained interfaces include
+\begin{itemize}[leftmargin=1.5em]
+\item \pathref{Entry005.finite_halfspace_entryA_lifted_moment}, in
+\pathref{Entry005/PyramidEntryDefect.lean};
+\item \pathref{Entry005.finite_halfspace_defect_over_first_moment}, in
+\pathref{Entry005/PyramidMomentDefect.lean};
+\item \pathref{Entry005.unit_ball_seminorm_first_moment_assignment}, in
+\pathref{Entry005/SeminormFirstMoment.lean}.
+\end{itemize}
+Actual finite-law probability, centering, ball support, and brightness
+interfaces are in \pathref{Entry005/FiniteHalfspaceConeLaw.lean};
+finite-support assignment interfaces are in
+\pathref{Entry005/FiniteBodyWeightedAssignment.lean}; the earlier
+unrestricted prescribed-simplex interface is in
+\pathref{Entry005/RelativeSimplexRetention.lean}.
+These are references to retained code, not new formalization claims for
+this manuscript. In particular, \pathref{PyramidEntryDefect} and
+\pathref{PyramidMomentDefect} are module names, not the theorem namespace.
+
+The older compact-limit main theorem does not by itself provide the
+actual-facet incidence used in Corollary~\ref{cor:caps}. Here that incidence
+is proved directly by choosing anchors from the finite law
+\eqref{eq:law}. The new cone/prismoid estimate, ray-collapse/counting step,
+finite-law specialization with this incidence, and final exponent assembly
+still need corresponding Lean formalization. An earlier successful
+\pathref{compiledMain} or other main build cannot certify those additions.
+
+\subsection{Editorial clarifications implemented}
+The positive-integer restrictions in Lemma~\ref{lem:cone}, unit projection
+convention and homogeneous brightness notation, explicit two-dimensional
+core, actual Lean namespace references, and mixed-volume factorial
+convention implement all nonblocking clarifications requested by the
+supplied review. The finite actual-facet chain is expanded in full in
+Section~\ref{sec:enclosure}. Standard mixed-volume inputs remain credited
+as classical, and no strict-monotonicity theorem from~\cite{BS} is needed.
+
+The theorem is a mathematical manuscript candidate. Neither the focused
+literature check nor the separate model review establishes priority,
+journal suitability, or acceptance by professional mathematicians.

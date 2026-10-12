@@ -1,0 +1,16 @@
+import Entry002.GenericDyadicDensity
+
+#print axioms Entry002.dyadicPrimeBatch_card
+#print axioms Entry002.mem_dyadicPrimeBatch
+#print axioms Entry002.dyadicPrimeBatch_prime_bounds
+#print axioms Entry002.prime_log_mass_le_theta
+#print axioms Entry002.dyadicPrimeBatch_log_weight_le
+#print axioms Entry002.dyadicPrimeBatch_signed_log_weight_le
+#print axioms Entry002.dyadicPrimeBatch_nonempty_of_dense
+#print axioms Entry002.uniform_dyadic_density_of_tendsto
+#print axioms Entry002.ArithmeticInterface.uniform_dyadic_density
+#print axioms Entry002.ArithmeticInterface.uniform_dyadic_batches
+#print axioms Entry002.thin_bins
+#print axioms Entry002.dyadicLogWindow_bounds
+#print axioms Entry002.separated_dyadic_batches_of_tendsto
+#print axioms Entry002.ArithmeticInterface.separated_dyadic_batches

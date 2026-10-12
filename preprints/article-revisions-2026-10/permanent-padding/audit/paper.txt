@@ -1,0 +1,105 @@
+       A padding proof of a conjectured permanent inequality
+                                         Yongxian Zhang∗
+
+                                          8 October 2026
+
+
+
+                                              Abstract
+         The unrestricted-cut permanent inequality stated as Conjecture 9.3 by Pan, Skandera,
+      and Wang follows from their balanced inequality, Theorem 8.18, by adjoining an identity
+      matrix. We give the complete reduction, including singular matrices and endpoint cuts.
+      The only non-elementary input is the balanced theorem from their preprint.
+
+For an integer n ≥ 0, write [n] = {1, . . . , n}, let On and En be its odd and even elements, and
+write A[S] = AS,S for a principal submatrix in increasing index order. The empty permanent
+is 1. A real matrix is totally nonnegative (TNN) if every square minor is nonnegative.
+    We use the following even-order instance of Pan–Skandera–Wang’s Theorem 8.18 [1]: for
+every m ≥ 2 and every TNN matrix B of order 2m,
+
+                  per B[[m]] per B[{m + 1, . . . , 2m}] ≥ per B[O2m ] per B[E2m ].                 (1)
+
+For m = 1 this is an equality.
+
+Theorem 1. For every integer n ≥ 1, every TNN matrix A ∈ Rn×n , and every integer
+0 ≤ h ≤ n,
+               per A[[h]] per A[{h + 1, . . . , n}] ≥ per A[On ] per A[En ].  (2)
+In particular, Conjecture 9.3 of [1] holds.
+
+Proof. First recall two elementary facts about ordered direct sums. If C, D are TNN, then
+C ⊕ D is TNN: a square minor selecting unequal numbers of first-block rows and first-block
+columns is zero by rank deficiency, while a minor selecting equal numbers factors as the product
+of a minor of C and a minor of D, without a sign change. Also,
+
+                                  per(C ⊕ D) = per(C) per(D),                                      (3)
+
+because only permutations preserving both blocks can contribute nonzero summands. These
+assertions include empty blocks. Every principal submatrix of an identity matrix has permanent
+1.
+    Suppose 0 < h < n and 2h ≤ n. Put d = n − 2h, m = n − h, and
+
+                                            B = Id ⊕ A.
+
+This is a TNN matrix of order 2m, with balanced leading and trailing principal blocks Id ⊕A[[h]]
+and A[{h + 1, . . . , n}]. Thus the left side of (1) equals the left side of (2). An index i of A
+becomes d + i in B. Consequently the two parity principal submatrices of B are identity blocks
+  ∗
+    School of Computer Science and Engineering, South China University of Technology, Guangzhou, China.
+Email: mxymmxym1@gmail.com. ORCID: 0009-0000-3864-3536.
+
+
+
+
+                                                  1
+direct-summed with A[On ] and A[En ], in the same order if d is even and the opposite order if
+d is odd. By (3),
+                     per B[O2m ] per B[E2m ] = per A[On ] per A[En ].
+Applying (1) proves the claim. The possible case m = 1 is n = 2, h = 1, where the claim is an
+equality.
+    If instead 0 < h < n and 2h ≥ n, put d = 2h − n, m = h, and B = A ⊕ Id . The two
+balanced blocks are now A[[h]] and A[{h + 1, . . . , n}] ⊕ Id . The original indices of A do not
+shift, and the parity principal submatrices simply acquire identity direct-summands. Thus
+both product equalities again hold, and (1) applies. This also includes d = 0.
+    Finally, if h = 0 or h = n, the left side is per A. Every entry of A is nonnegative. The
+permutations preserving On and En contribute exactly the product on the right side, which is
+therefore at most the sum over all permutations. This handles the endpoint cuts and n = 1.
+
+Scope and attribution. The proof uses no computation and no strict-positivity, irreducibil-
+ity, or nonvanishing assumption. It is a short consequence of the balanced theorem in [1], not
+an independent proof of that theorem. The cited version explicitly states the balanced result
+as Theorem 8.18 and the unrestricted-cut assertion as Conjecture 9.3. Since the balanced
+case is included in the unrestricted assertion, identity padding shows that the two universal
+statements are equivalent.
+
+
+Source edition and reproduction
+This signed article edition retains the mathematical argument of the previously archived
+source: https://doi.org/10.5281/zenodo.23248369. The original source, exact inputs,
+checking programs and prior review records remain available there. The companion README
+identifies the frozen Git version and the scope of each auxiliary computation. No computational
+certificate is needed for the written reduction.
+
+
+Funding and research methods
+This research was conducted independently and received no external funding. OpenAI AI
+assistants assisted mathematical research, verification code and internal review. Mathematical
+claims are supported by the written proof and the specified public evidence; AI output is not
+itself proof evidence. Internal AI-assisted review is not external human peer review.
+
+
+Declaration of generative AI and AI-assisted technologies in the
+writing process
+OpenAI AI assistants assisted drafting, organization and LaTeX editing. The author takes
+responsibility for the manuscript and its descriptions of the proof and verification evidence.
+
+
+References
+[1] S. Pan, M. Skandera, and J. Wang, Permanental inequalities and unit interval or-
+    ders, arXiv:2610.04809v1 [math.CO], 3 October 2026, Theorem 8.18 and Conjecture 9.3.
+    arXiv:2610.04809v1.
+
+
+
+
+                                               2
+

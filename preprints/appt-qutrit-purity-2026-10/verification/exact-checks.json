@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "Seven exact certificate identities, an altered-coefficient rejection, and the phase-average coefficient identity; not a new Lean run",
+  "certificate_hashes": {
+    "qutrit_D12_cubic_certificate.json": "8ebdf6d6b3712018f91818c6d2bf6336d6a7c6befb34245bf12d719fd3dd31cb",
+    "qutrit_D15_fast_certificate.json": "c5f688e354e3d2aeabbde72ea343316df64867d60dd095c6f8ee201b466d3df8",
+    "qutrit_D18_fast_certificate.json": "1312bfc0488d8f7ca8afff43007d93d62d81dc9a0cd664f57196b4622d328811",
+    "qutrit_D21_fast_certificate.json": "34931c9638725825a0efe8bd80d4a1cb15e53de6d1b433b8b77809f09597ea46",
+    "qutrit_D24_fast_certificate.json": "b19f93c12f369530ff436f095700efa631b029a8964a29e32fb3ea125d22d65e",
+    "qutrit_cubic_certificate_search.json": "0e5fb10986416ab1a8a5420d92a7a689b5a55d063c9a417d6ce53c2960f1ad77",
+    "qutrit_uniform_parameter_search.json": "d381b47b3bcb67ddc457f7c866b5a6e97757e81cb9d7a84fb832a7b397a826a3"
+  },
+  "checks": [
+    {
+      "case": "D9",
+      "passed": true,
+      "terms": 166,
+      "target_monomials": 165,
+      "seconds": 0.0139
+    },
+    {
+      "case": "D12",
+      "passed": true,
+      "terms": 363,
+      "target_monomials": 364,
+      "seconds": 0.0239
+    },
+    {
+      "case": "D15",
+      "passed": true,
+      "terms": 679,
+      "target_monomials": 680,
+      "seconds": 0.0566
+    },
+    {
+      "case": "D18",
+      "passed": true,
+      "terms": 1139,
+      "target_monomials": 1140,
+      "seconds": 0.1007
+    },
+    {
+      "case": "D21",
+      "passed": true,
+      "terms": 1769,
+      "target_monomials": 1771,
+      "seconds": 0.1773
+    },
+    {
+      "case": "D24",
+      "passed": true,
+      "terms": 2596,
+      "target_monomials": 2600,
+      "seconds": 0.2501
+    },
+    {
+      "case": "Uniform",
+      "passed": true,
+      "terms": 1635,
+      "target_monomials": 1270,
+      "seconds": 0.2174
+    },
+    {
+      "case": "corrupted-D24-coefficient",
+      "passed": true,
+      "expected_rejection": true
+    },
+    {
+      "case": "qutrit-phase-average",
+      "passed": true,
+      "ranks": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

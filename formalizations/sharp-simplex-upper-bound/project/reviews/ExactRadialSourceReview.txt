@@ -1,0 +1,96 @@
+EXACT-SOURCE INDEPENDENT RADIAL SCALE REVIEW
+2026-10-07; agent zonotope_volume; fresh owned replay output.
+
+VERDICT: PASS. No statement gap or semantic mismatch was found in the six
+FiniteRadialSupportScale proofs or the three OriginalRadialScale proofs.
+They close the radial scale derivations identified in the frozen written
+Main proof, with the actual measures/carriers and the original Q and M.
+
+Exact source hashes:
+FiniteRadialSupportScale.lean
+  1ad1e4e4a5c02223427141c7e117072d23481e7a7da0212efc74602479fdd9c5
+OriginalRadialScale.lean
+  ffeabfb4cad0a2ba766b1f2298115c403e11bce400956b6ba2376a5b957f8386
+
+Both exact sources were copied without modification to formal/Entry005 in
+this review directory and independently compiled with pinned Lean 4.34.1,
+-DautoImplicit=false, and fresh owned regular olean outputs. Dependencies
+were reused read-only. Both compilation exits are 0 and both logs contain
+zero bytes, hence zero warnings. RadialScaleAudit.lean checks all nine exact
+signatures and prints all nine transitive axiom dependencies; audit exit 0,
+zero warnings/errors, and every proof depends only on propext, Classical.choice
+and Quot.sound. This review never writes a shared source or dependency target.
+
+SIX ACTUAL RADIAL PROOFS
+1. finite_halfspace_scaled_radial_cover gives the literal set inclusion
+   P subset union_i s_i * finiteHalfspaceFacetCone(n,h,i), plus {0}.
+   It rescales each nonzero x by 1/(||x||+1) into the actual Q unit ball,
+   invokes the previously checked actual radial cover, and uses the active
+   facet equation and actual P inequality to bound the recovered factor
+   by s_i. It requires positive heights/scales and actual compact Q; it
+   neither assumes Q subset P nor posits a ray-exit conclusion.
+2. finite_halfspace_scaled_radial_volume_bound applies actual measure
+   subadditivity and actual positive dilation scaling to that inclusion.
+   The Nontrivial ambient-space premise supplies nullity of the origin.
+   Compact scaled cones give a finite upper measure bound before conversion
+   toReal. Hence even the absence of a compactness premise for arbitrary P
+   in this low-level theorem does not conceal an infinite-measure toReal=0
+   shortcut. No disjointness of the scaled cones is needed.
+3. power_minus_one_le_bounded_geometric_sum proves the exact natural-power
+   estimate for 1<=s<=M, d>=1. The finite geometric sum uses exponents at most
+   d-1, so it also correctly covers d=1; d=0 is explicitly excluded.
+4. finite_halfspace_radial_support_test_bound chooses the actual ratios
+   s_i=sigma_P(n_i)/h_i. Required h_i>=1, h_i<=sigma_P(n_i), and P subset
+   M-ball derive 1<=s_i<=M. Unit injective normals and positive heights give
+   the actual facet-cone volume partition and positive Q volume. The exact
+   discrete support integral equals the actual weighted cone sum. Empty or
+   zero-area facets are allowed; no individual positive area or mass is
+   divided by. The resulting upper bound is on actual volume(P)/volume(Q).
+5. actual_body_volume_ratio_le_linear_support_test uses exactly the supplied
+   mu,phi and its compact weak convergence, not a new selected law or sequence.
+   StrictMono phi supplies actual approximant volume convergence; unit-ball
+   K gives a positive limit denominator. Actual support-test integral
+   convergence and support monotonicity K subset P derive the finite lower
+   support bounds. Neither the linear scale conclusion nor I_m convergence
+   is an extra premise. No Q_m subset P is needed.
+6. actual_body_same_assignment_linear_volume_bound uses the actual support
+   test under compactBallRawLaw(mu) and the supplied SAME w,r. The premise
+   sigma_P(w_i)=1 is explicit. Test and assignment integrability are derived
+   by the consumed ActualSupportFirstVariationTest lemmas, which were also
+   read here: despite their filename they are support continuity/Lipschitz,
+   finite-discrete integral and actual weak-limit statements, not a volume
+   derivative or first-variation inequality. The outcome is the actual
+   alpha<=1+d M^d int||x-w(r x)|| bound.
+
+THREE ORIGINAL-CONSTANT PROOFS
+7. original_Q_absorbs_radial_power proves M^(d-1)(d+1)(d+2)<=Q using the
+   original M>=1 and the literal Q=(d+1)(d+2)8^d M^(4d).
+8. original_radial_strong_cost_absorption retains the strong coefficient and
+   ratio t/(1+t), t=(d+1)e, with e>=0. It multiplies by the correct
+   M^(d-1), uses the original Q absorption, then t/(1+t)<=t. A nonnegativity
+   premise for the abstract cost is unnecessary for this scalar inequality;
+   in the application it is an actual nonnegative integral.
+9. actual_body_original_scale_of_strong_same_assignment composes the actual
+   same-assignment linear volume bound with this exact strong-cost estimate
+   and Bernoulli. Its conclusion is the literal scale interface
+   volume(P)/volume(K)<=(1+M(d)[Q(d)(d+1)e])^d.
+   No geometric scale or finite Minkowski conclusion is a premise. It retains
+   the supplied mu,phi,w,r, actual P containment/bound, sigma_P(w_i)=1, and
+   actual strong-cost assumption. It does not replace the law or witness.
+
+SCOPE AND LIMITS
+These are genuine closed radial geometry and scale leaves; no changes to the
+original constants or the frozen written Main report were needed. All zero
+cost/error cases are included. This nine-proof audit is transitive for axioms
+but does not constitute a new semantic audit of every dependency, nor a proof
+of an unconditional Main target. In particular, constructing the actual
+enclosing simplex P from the chosen SAME polar-boundary atoms, proving its
+sigma_P(w_i)=1 facts, and final typed Main assembly remain outside these nine
+source statements. Their explicit supplied geometry/assignment premises are
+precisely the interfaces identified in the written proof, rather than hidden
+body-law or scale assertions.
+
+The earlier frozen CompleteSharpMainRadialProof.txt, ReviewFindings.txt and
+their source manifest were not modified. The present source review and
+independent nine-proof compilation/audit are separate evidence of newly
+closed formal scale interfaces.

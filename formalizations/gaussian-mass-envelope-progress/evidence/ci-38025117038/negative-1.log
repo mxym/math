@@ -1,0 +1,10 @@
+GaussianHazard.lean:81:4: error: linarith failed to find a contradiction
+case right
+a b : ℝ
+hab : a ≤ b
+hm :
+  (fun x => thresholdHazard x ^ 2 + 2 * Real.log (gaussianTail x)) b ≤
+    (fun x => thresholdHazard x ^ 2 + 2 * Real.log (gaussianTail x)) a
+a✝ : 1 * (Real.log (gaussianTail a) - Real.log (gaussianTail b)) < thresholdHazard b ^ 2 - thresholdHazard a ^ 2
+⊢ False
+failed

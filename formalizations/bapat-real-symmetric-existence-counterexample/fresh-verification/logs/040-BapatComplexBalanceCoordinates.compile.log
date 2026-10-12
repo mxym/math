@@ -1,0 +1,31 @@
+<ORIGINAL_RUN>/sources/BapatComplexBalanceCoordinates.lean:30:53: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<ORIGINAL_RUN>/sources/BapatComplexBalanceCoordinates.lean:45:73: warning: This simp argument is unused:
+  WithLp.ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [EuclideanSpace.norm_sq_eq, complexRealPart4, complexImagPart4, Real.norm_eq_abs, sq_abs,
+    ← Complex.normSq_eq_norm_sq, Complex.normSq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<ORIGINAL_RUN>/sources/BapatComplexBalanceCoordinates.lean:58:23: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexQuadratic4, complexRealPart4, complexImagPart4, PiLp.inner_apply, RCLike.inner_apply, pow_two,
+    Complex.mul_im]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<ORIGINAL_RUN>/sources/BapatComplexBalanceCoordinates.lean:68:49: warning: This simp argument is unused:
+  Complex.div_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [a, Complex.norm_exp, Complex.mul_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<ORIGINAL_RUN>/sources/BapatComplexBalanceCoordinates.lean:97:53: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

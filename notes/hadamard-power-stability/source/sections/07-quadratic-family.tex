@@ -1,0 +1,93 @@
+\section{The classical quadratic prime-order family}\label{sec:quadratic}
+This section proves a uniform graph and conditioning theorem for known MUB seeds. It does not construct a new seed family or assert equivalence of the entire parameter family with Butson's original construction.
+
+\subsection{Exponent formula and exact counts}
+Let $p$ be an odd prime, let $\chi$ be its quadratic character, and choose
+\[
+ r\in\F_p\setminus\{0,1\},\qquad\chi(1-r)=-1,\qquad q=1-r.
+\]
+Rows are indexed by top labels $x\in\F_p$ and bottom labels $y\in\F_p$; columns by left labels $u\in\F_p$ and right labels $v\in\F_p$. All fractions below are in $\F_p$. Define
+\begin{equation}\label{eq:quadraticblocks}
+ \begin{aligned}
+ E_{Tx,Lu}&=xu,&E_{Tx,Rv}&=rx^2+xv,\\
+ E_{By,Lu}&=(u^2-2uy)/4,&E_{By,Rv}&=(v-y)^2/(4q)-y^2/4.
+ \end{aligned}
+\end{equation}
+Then $G=\zeta_p^E$ is dephased at top row $x=0$ and left column $u=0$.
+
+Two distinct top rows have nonzero linear difference on each block, hence each residue occurs once per block. The same holds for distinct bottom rows. For a top row $x$ and bottom row $y$, the differences are
+\[
+ C-(u-u_0)^2/4,\qquad C-(v-v_0)^2/(4q),
+\]
+where $u_0=2x+y$, $v_0=2qx+y$, and $C=(2x+y)^2/4$. Since $\chi(q)=-1$, the noncentral quadratic value sets are complementary, with multiplicity two on the block where they occur; the common central value occurs once in each block. Thus every residue occurs twice, proving the cyclic $\GH(p,2)$ condition.
+
+\subsection{Explicit attribution bridge from MUB blocks}
+Let $F_{xu}=p^{-1/2}\zeta_p^{xu}$, $D_a=\operatorname{diag}(\zeta_p^{ax^2})$, and $U_a=D_aF$. The standard MUB block construction~\cite[Theorem 3 and its two-block specializations]{MW} gives the normalized matrix
+\[
+ \frac1{\sqrt2}\begin{pmatrix}F&U_r\\U_1^*F&-U_1^*U_r\end{pmatrix}.
+\]
+For $a\ne0$ put $\gamma(a)=p^{-1/2}\sum_x\zeta_p^{ax^2}$. Completing the square and using $\gamma(a)=\chi(a)\gamma(1)$ shows that, after multiplying the displayed matrix by $\sqrt{2p}$, its lower blocks have entries
+\[
+ \gamma(-1)\zeta_p^{(u-y)^2/4},\qquad
+ -\gamma(-q)\zeta_p^{(v-y)^2/(4q)}.
+\]
+The first top row is already one. The first-column entry in bottom row $y$ is $\gamma(-1)\zeta_p^{y^2/4}$. Dividing that row by this entry produces the lower exponents in~\eqref{eq:quadraticblocks}; the residual right-block constant is
+\[
+ -\gamma(-q)/\gamma(-1)=-\chi(q)=1.
+\]
+The top exponents are unchanged. This gives all four claimed blocks, explicitly identifying the construction and dephasing. The Gauss-sum formulation is also discussed in~\cite[Section 4]{BOP}. Here ``Butson-type'' only specifies the root level, not an unproved whole-family equivalence with Butson's original construction.
+
+\subsection{Within-group components}
+The graph induced on top-row cells splits into the $p$ sets
+\[
+ T_s=\{(Tx,Lu):u-rx=s\}\ \cup\ \{(Tx,Rv):v+rx=s\}.
+\]
+Each is $K_{p,p}$ minus a perfect matching, with the omitted pair in the same row. Indeed, for $x\ne x'$, equal-ratio columns satisfy $v=u-r(x+x')$. Since $p\ge3$, each $T_s$ is connected with diameter at most three.
+
+Similarly the bottom induced graph splits into
+\[
+ B_t=\{(By,Lu):qu+(r/2)y=t\}\ \cup\ \{(By,Rv):v-(r/2)y=t\}.
+\]
+For $y\ne y'$, paired columns satisfy $v=qu+(r/2)(y+y')$, again giving $K_{p,p}$ minus a perfect matching and diameter at most three. The conditions $r\ne0$, $q\ne0$ ensure the required distinct vertices in each part.
+
+\subsection{Cross-group neighbors and diameter seven}
+For a fixed top-left cell $(Tx,Lu)$, its neighbor in bottom row $y$ lies in the component with label
+\begin{equation}\label{eq:top-left-label}
+ t=4qx-qu+\frac{4-3r}{2}y.
+\end{equation}
+For a fixed top-right cell $(Tx,Rv)$, that label is
+\begin{equation}\label{eq:top-right-label}
+ t=4qx-v+\frac{4-r}{2}y.
+\end{equation}
+To verify the formulas away from the central value, use the reflections $u'=4x+2y-u$ and $v'=4qx+2y-v$ in the completed-square differences. At the central root the pairing switches blocks, but both centers have the same component label, so the formulas remain valid.
+
+The two slopes in~\eqref{eq:top-left-label}--\eqref{eq:top-right-label} differ by $r\ne0$, so at least one column type can reach every bottom component in one cross-group step. A vertex of the other type reaches a good type in one within-$T_s$ edge. Thus every top vertex is within two steps of every prescribed bottom component.
+
+Conversely, for a fixed bottom-left or bottom-right cell the labels of its top neighbors are, respectively,
+\begin{equation}\label{eq:reverse-labels}
+ s=(4-r)x+2y-u,\qquad s=(4-3r)x+2y-v.
+\end{equation}
+Their slopes differ by $2r\ne0$. Therefore every bottom vertex lies within two steps of each prescribed top component. Two top vertices can reach the same bottom component in at most two steps each and connect inside it in three; the same applies to bottom vertices. Opposite-group vertices need at most five steps.
+
+\begin{theorem}\label{thm:quadraticdiameter}
+For every odd prime and every admissible parameter in~\eqref{eq:quadraticblocks}, the rectangle graph is connected and has diameter at most seven.
+\end{theorem}
+The argument uses elementary finite-field counts and is uniform; it needs neither numerical rank computations nor a classification of seeds.
+
+\begin{corollary}\label{cor:quadraticlinear}
+Suppose the rounded seed of a unit-modulus matrix of order $2p$ is a matrix in~\eqref{eq:quadraticblocks}, or is equivalent to one by row/column phases and permutations. If
+\[
+ \eps\le2^{-34}p^{-3},
+\]
+then
+\[
+ \norm{K-G}_\mx\le\frac{56H_{p-1}}p\eps.
+\]
+Every seed in this family has zero simultaneous dephased tangent kernel and best local exponent one.
+\end{corollary}
+\begin{proof}
+The rectangle condition and diameter are invariant under the stated equivalences. The global entrance bound applies at the given threshold, and~\eqref{eq:graphentrance} follows since $D\le7$ and $49<64$. Formula~\eqref{eq:graphlinear} gives the result. The kernel and exponent assertions follow from Theorem~\ref{thm:graphkernel} and Proposition~\ref{prop:odd-dichotomy}.
+\end{proof}
+Initial lightweight checks verified counts and connectivity for all admissible parameters at $p=3,5,7,11,13,17,19$. The independent analytical review additionally checked all 45 admissible parameters through $p=23$, including the adjacency formulas; for $p\le7$ it traversed all source vertices for exact diameters. None of these finite checks is used in the general proof.
+
+Conjecture 4.5 of~\cite{BOP} concerns ordinary first-power isolation for specified MUB parameters. Zero ordinary defect would imply zero simultaneous defect, but ordinary isolation and zero ordinary defect differ, and our all-power theorem establishes neither ordinary assertion in general. In particular, arbitrary real tangent coefficients cannot be held fixed while a cyclotomic Galois automorphism is applied to the seed equations. Any such ordinary-defect conclusion would require additional work.

@@ -1,0 +1,163 @@
+\section{Gaussian geometry before the first redundancy}\label{sec:geometry}
+
+\begin{lemma}[Transverse Gaussian bound]\label{lem:smallball}
+Let $(D,U)$ be jointly Gaussian in $\R^3\times\R^3$, with $U$ centered
+and isotropic. If $\lambda=\lambda_{\max}\Cov(D\mid U)>0$, then
+\[
+ \Pp\{\operatorname{dist}(D,\R U)\leq\eps\}
+       \leq C\min(1,\eps/\sqrt\lambda).
+\]
+\end{lemma}
+\begin{proof}
+Choose a top eigenvector $e$. Conditional on $U=u$, project onto
+$w=P_{u^\perp}e/\sin\theta$, where $\theta$ is the angle of $u,e$.
+The variance of $w\cdot D$ is at least $\lambda\sin^2\theta$.
+A one-dimensional Gaussian density gives
+$C\min(1,\eps/(\sqrt\lambda\sin\theta))$, independently of its mean.
+The direction of $U$ is uniform and $\E(\sin\theta)^{-1}=\pi/2$.
+The zero and parallel cases are null.
+\end{proof}
+
+\subsection{Repeated earlier pairs}
+\begin{lemma}[An erased normal coordinate]\label{lem:repeated}
+Fix a chronological merger forest, its normals and C/O flags.
+Suppose A and B have a prescribed contact at $t_0$, and the prospective
+first redundant contact repeats this pair. Let $t_1>t_0$ be the first
+later C contact touching either endpoint, and $\ell=t_1-t_0$.
+At the beginning of the tested subsequent free segment, write $D$ for
+their relative displacement and $Y$ for both endpoint velocities. Then
+\[
+ \Cov(D\mid Y)\succeq\sigma^2\ell^2 n_1n_1^T,
+ \qquad
+ \Pp_\gamma\{\text{return}\}\leq C_\sigma\min(1,\eps/\ell).
+\]
+If no such C contact exists, a second incoming crossing is impossible.
+\end{lemma}
+\begin{proof}
+A C collision swaps the two normal components and retains the transverse
+ones. It is orthogonal in all birth Gaussian coordinates; the current
+velocity array is therefore a product Gaussian at fixed free normals.
+After A and B first belong to one component, every merger touching an
+endpoint imports a disjoint component. Its incident normal scalar is
+Gaussian and independent of the entire previous tagged history.
+That imported component cannot feed a scalar back through another merger:
+such a contact would already be redundant.
+
+Suppose A has the first C update. With $A_0,B_0$ the velocities just after
+the earlier pair contact, set $\xi=A_0\cdot n_1$. It is independent of
+$P_{n_1^\perp}A_0,B_0$ and all later imported scalars. At $t_1$ it is
+erased from A and never re-enters a tagged endpoint before the first
+redundancy. Consequently
+\[
+ D=\ell n_1\xi+R,\qquad
+ \xi\ \text{is independent of }(R,Y).
+\]
+The initial contact displacement is a deterministic $\eps$-normal
+offset. This proves the covariance inequality. Updating B changes only
+the sign. The final relative velocity is isotropic, and the proof of
+\Cref{lem:smallball} gives the stated probability bound.
+Without a C update the relative line remains straight: a C contact
+separates, while an O contact has only the outgoing exit. Neither permits
+a second incoming crossing.
+\end{proof}
+
+The conditioning is only on the two endpoint velocities, not on all
+partner velocities, realizability, or collision fluxes. The erased scalar
+was exported to a partner and can be revealed by those stronger
+conditionings.
+
+\subsection{Nonneighbor pairs}
+\begin{lemma}[Rank one across a forest cut]\label{lem:rankone}
+The $3$ by $3$ velocity-transfer block between distinct labels in a
+prescribed forest of C/O contacts has rank at most one.
+\end{lemma}
+\begin{proof}
+Cut an edge on their unique path. It is the only contact crossing that
+cut. A C contact transmits one normal scalar across it; O transmits none.
+Every later update is internal to one side, so dependence on the original
+velocity continues to factor through that scalar. This does not require
+the chronological order to be monotone along the spatial path.
+\end{proof}
+
+Fix nonneighbors A,B. Orient tree edges $e=(p_e,q_e)$, put
+$b_e=e_{p_e}-e_{q_e}$, and write
+$b=e_A-e_B=\sum_es_eb_e$ for their signed spatial path.
+The actual contact equations give, at a time $t_*$ after the prefix,
+\begin{equation}\label{eq:position}
+ D_\eps=\eps\sum_es_e\omega_e+
+   \sum_es_e\int_{t_e}^{t_*}(v_{p_e}(r)-v_{q_e}(r))\dd r .
+\end{equation}
+This telescopes positions; it makes no constrained initial positions
+independent. At fixed normals all velocities are linear in the birth array
+$V$. Write $D_\eps=\eps\xi+L(t)V$, $U=QV$, $QQ^T=2I$. Then
+\begin{equation}\label{eq:regression}
+ \Cov(D_\eps\mid U)=\sigma^2H(t)H(t)^T,\qquad
+ H(t)=L(t)\left(I-\tfrac12Q^TQ\right).
+\end{equation}
+Velocity maps depend on the prescribed order and normals, not on the
+contact times inside their ordered domains.
+
+\begin{lemma}[A nonzero contact-time slope]\label{lem:slope}
+Let $e_*$ be the earliest edge on the A--B spatial path.
+The derivative of the residual coefficient $H$ with respect to its
+contact time has operator norm at least one.
+\end{lemma}
+\begin{proof}
+Before $e_*$ the sum of the already-contacted path incidences is zero;
+just afterward it is $e_p-e_q$. Differentiating \eqref{eq:position} gives
+the negative relative velocity immediately after $e_*$.
+Remove this edge from the final tree. The two sides have independent
+current Gaussian coordinates, and no later contact crosses the cut.
+If $K_A,K_B$ transfer the current $p,q$ velocities to the final A,B
+velocities, conditioning on both final velocities gives covariance
+\[
+ \sigma^2(2I-K_A^TK_A-K_B^TK_B).
+\]
+At least one transfer is off-diagonal, because the path has at least two
+edges. It has rank at most one by \Cref{lem:rankone} and norm at most one
+by orthogonality. On its kernel the displayed matrix has a direction of
+variance at least $\sigma^2$. Conditioning only on the final difference
+increases covariance. Equation \eqref{eq:regression} proves the claim.
+\end{proof}
+
+\begin{proposition}[Time-averaged nonneighbor event]\label{prop:nonneighbor}
+Let $a_i$ count all free merger times in the full schedule, including
+post-return mergers, and let $i_*$ contain $e_*$. The Gaussian prefix
+return event $G$ satisfies
+\[
+ \int_{\prod_i\mathcal S_{a_i}(\tau)}\Pp_\gamma(G)\dd t
+ \leq C\prod_i\frac{\tau^{a_i}}{a_i!}
+ \min\left(1,\frac{a_{i_*}\eps}{\sigma\tau}
+                  [1+\logp(\sigma\tau/\eps)]\right).
+\]
+This is uniform in all free normals and prescribed forest shapes.
+\end{proposition}
+\begin{proof}
+Vary $t_{e_*}$ between its nearest full-schedule neighbors in its slab,
+using slab endpoints if needed. Hold all other parameters fixed.
+The slope lemma supplies unit vectors $w,z$ with
+$w^TH(t)z=\alpha t_{e_*}+\beta$, $|\alpha|\geq1$.
+The largest conditional variance is at least
+$\sigma^2|\alpha t_{e_*}+\beta|^2$. For an interval $J$ of length $s$,
+\[
+ \int_J\min(1,\rho/|\alpha t+\beta|)\dd t
+       \leq2\rho[1+\logp(s/(2\rho))],\qquad \rho=\eps/\sigma.
+\]
+The even decreasing integrand has maximal interval integral when centered
+at its singularity. Apply \Cref{lem:smallball}, use $s\leq\tau$, and
+remove the selected time from its ordered simplex. The remaining volume
+is $\tau^{a_{i_*}-1}/(a_{i_*}-1)!$; every other slab factorial is unchanged.
+Also use the trivial probability bound.
+
+For fixed birth and ending interfaces, allocate all birth Gaussian
+coordinates in advance, leave unborn coordinates unused, and freely
+extend terminated lines only for \eqref{eq:position}. The auxiliary
+extensions introduce no contact or random coordinate and cancel in the
+spatial telescoping sum. Varying the selected contact within its own slab
+retains the original interface assignments.
+\end{proof}
+
+An untruncated inverse covariance moment at exponent one is not claimed:
+two O contacts on the path $1$--$2$--$3$ give covariance proportional to
+the square of their time gap, whose inverse square root is not integrable.
+The truncated probability estimate legitimately retains one logarithm.

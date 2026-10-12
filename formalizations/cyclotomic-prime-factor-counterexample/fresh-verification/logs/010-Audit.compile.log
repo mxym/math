@@ -1,0 +1,240 @@
+CyclotomicCounterexample.ofCoeffs : List ℤ → Polynomial ℤ
+'CyclotomicCounterexample.ofCoeffs' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.coeff_ofCoeffs (as : List ℤ) (k : ℕ) :
+  (CyclotomicCounterexample.ofCoeffs as).coeff k = as[k]?.getD 0
+'CyclotomicCounterexample.coeff_ofCoeffs' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.cyclotomic_four_int : Polynomial.cyclotomic 4 ℤ = 1 + Polynomial.X ^ 2
+'CyclotomicCounterexample.cyclotomic_four_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.cyclotomic_nine_int : Polynomial.cyclotomic 9 ℤ = 1 + Polynomial.X ^ 3 + Polynomial.X ^ 6
+'CyclotomicCounterexample.cyclotomic_nine_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.cyclotomic_twenty_five_int :
+  Polynomial.cyclotomic 25 ℤ = 1 + Polynomial.X ^ 5 + Polynomial.X ^ 10 + Polynomial.X ^ 15 + Polynomial.X ^ 20
+'CyclotomicCounterexample.cyclotomic_twenty_five_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.cyclotomic_thirty_int :
+  Polynomial.cyclotomic 30 ℤ =
+    1 + Polynomial.X - Polynomial.X ^ 3 - Polynomial.X ^ 4 - Polynomial.X ^ 5 + Polynomial.X ^ 7 + Polynomial.X ^ 8
+'CyclotomicCounterexample.cyclotomic_thirty_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.cyclotomic_not_dvd_product_pow_rat {n : ℕ} (hn : 0 < n) (h4 : n ≠ 4) (h9 : n ≠ 9)
+  (h25 : n ≠ 25) (h30 : n ≠ 30) (k : ℕ) :
+  ¬Polynomial.cyclotomic n ℚ ∣
+      (Polynomial.cyclotomic 4 ℚ * Polynomial.cyclotomic 9 ℚ * Polynomial.cyclotomic 25 ℚ *
+          Polynomial.cyclotomic 30 ℚ) ^
+        k
+'CyclotomicCounterexample.cyclotomic_not_dvd_product_pow_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.prime_cyclotomic_not_dvd_rat (p : ℕ) (hp : Nat.Prime p) :
+  ¬Polynomial.cyclotomic p ℚ ∣
+      (Polynomial.cyclotomic 4 ℚ * Polynomial.cyclotomic 9 ℚ * Polynomial.cyclotomic 25 ℚ *
+          Polynomial.cyclotomic 30 ℚ) ^
+        6
+'CyclotomicCounterexample.prime_cyclotomic_not_dvd_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.prime_cyclotomic_not_dvd_int (p : ℕ) (hp : Nat.Prime p) :
+  ¬Polynomial.cyclotomic p ℤ ∣
+      (Polynomial.cyclotomic 4 ℤ * Polynomial.cyclotomic 9 ℤ * Polynomial.cyclotomic 25 ℤ *
+          Polynomial.cyclotomic 30 ℤ) ^
+        6
+'CyclotomicCounterexample.prime_cyclotomic_not_dvd_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F : Polynomial ℤ
+'CyclotomicCounterexample.F' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.NonnegativeCoeffs (f : Polynomial ℤ) : Prop
+'CyclotomicCounterexample.NonnegativeCoeffs' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.IsCyclotomicProduct (f : Polynomial ℤ) : Prop
+'CyclotomicCounterexample.IsCyclotomicProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.IsBasicCGF (f : Polynomial ℤ) : Prop
+'CyclotomicCounterexample.IsBasicCGF' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.UnimodalCoeffs (f : Polynomial ℤ) : Prop
+'CyclotomicCounterexample.UnimodalCoeffs' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_monic : CyclotomicCounterexample.F.Monic
+'CyclotomicCounterexample.F_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_natDegree : CyclotomicCounterexample.F.natDegree = 216
+'CyclotomicCounterexample.F_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_degree : CyclotomicCounterexample.F.degree = 216
+'CyclotomicCounterexample.F_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_ne_one : CyclotomicCounterexample.F ≠ 1
+'CyclotomicCounterexample.F_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_coeff_zero : CyclotomicCounterexample.F.coeff 0 = 1
+'CyclotomicCounterexample.F_coeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_isCyclotomicProduct : CyclotomicCounterexample.IsCyclotomicProduct CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_isCyclotomicProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_isBasicCGF_of_nonnegative
+  (h : CyclotomicCounterexample.NonnegativeCoeffs CyclotomicCounterexample.F) :
+  CyclotomicCounterexample.IsBasicCGF CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_isBasicCGF_of_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.coefficients : List ℤ
+'CyclotomicCounterexample.coefficients' does not depend on any axioms
+CyclotomicCounterexample.product_eq_coefficient_polynomial :
+  (Polynomial.cyclotomic 4 ℤ * Polynomial.cyclotomic 9 ℤ * Polynomial.cyclotomic 25 ℤ * Polynomial.cyclotomic 30 ℤ) ^
+      6 =
+    CyclotomicCounterexample.ofCoeffs CyclotomicCounterexample.coefficients
+'CyclotomicCounterexample.product_eq_coefficient_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.a (k : ℕ) : ℤ
+'CyclotomicCounterexample.a' depends on axioms: [propext]
+CyclotomicCounterexample.coefficients_length : CyclotomicCounterexample.coefficients.length = 217
+'CyclotomicCounterexample.coefficients_length' does not depend on any axioms
+CyclotomicCounterexample.data_positive (k : Fin 217) : 0 < CyclotomicCounterexample.a ↑k
+'CyclotomicCounterexample.data_positive' depends on axioms: [propext]
+CyclotomicCounterexample.data_increase (k : Fin 108) :
+  5 ≤ CyclotomicCounterexample.a (↑k + 1) - CyclotomicCounterexample.a ↑k
+'CyclotomicCounterexample.data_increase' depends on axioms: [propext]
+CyclotomicCounterexample.data_decrease (k : Fin 108) :
+  5 ≤ CyclotomicCounterexample.a (108 + ↑k) - CyclotomicCounterexample.a (109 + ↑k)
+'CyclotomicCounterexample.data_decrease' depends on axioms: [propext]
+CyclotomicCounterexample.data_palindrome (k : Fin 217) :
+  CyclotomicCounterexample.a ↑k = CyclotomicCounterexample.a (216 - ↑k)
+'CyclotomicCounterexample.data_palindrome' depends on axioms: [propext]
+CyclotomicCounterexample.data_peak : CyclotomicCounterexample.a 108 = 11434392
+'CyclotomicCounterexample.data_peak' depends on axioms: [propext]
+CyclotomicCounterexample.data_unique_peak (k : Fin 217) :
+  ↑k ≠ 108 → CyclotomicCounterexample.a ↑k < CyclotomicCounterexample.a 108
+'CyclotomicCounterexample.data_unique_peak' depends on axioms: [propext]
+CyclotomicCounterexample.data_first_difference : CyclotomicCounterexample.a 1 - CyclotomicCounterexample.a 0 = 5
+'CyclotomicCounterexample.data_first_difference' depends on axioms: [propext]
+CyclotomicCounterexample.data_zero_tail (k : ℕ) (hk : 216 < k) : CyclotomicCounterexample.a k = 0
+'CyclotomicCounterexample.data_zero_tail' depends on axioms: [propext, Quot.sound]
+CyclotomicCounterexample.F_coeff (k : ℕ) : CyclotomicCounterexample.F.coeff k = CyclotomicCounterexample.a k
+'CyclotomicCounterexample.F_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_coeff_positive (k : ℕ) (hk : k ≤ 216) : 0 < CyclotomicCounterexample.F.coeff k
+'CyclotomicCounterexample.F_coeff_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_coeff_zero_tail (k : ℕ) (hk : 216 < k) : CyclotomicCounterexample.F.coeff k = 0
+'CyclotomicCounterexample.F_coeff_zero_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_nonnegative : CyclotomicCounterexample.NonnegativeCoeffs CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_strict_increase (k : ℕ) (hk : k < 108) :
+  CyclotomicCounterexample.F.coeff k < CyclotomicCounterexample.F.coeff (k + 1)
+'CyclotomicCounterexample.F_strict_increase' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_increase_margin (k : ℕ) (hk : k < 108) :
+  5 ≤ CyclotomicCounterexample.F.coeff (k + 1) - CyclotomicCounterexample.F.coeff k
+'CyclotomicCounterexample.F_increase_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_strict_decrease (k : ℕ) (hl : 108 ≤ k) (hu : k < 216) :
+  CyclotomicCounterexample.F.coeff (k + 1) < CyclotomicCounterexample.F.coeff k
+'CyclotomicCounterexample.F_strict_decrease' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_palindrome (k : ℕ) (hk : k ≤ 216) :
+  CyclotomicCounterexample.F.coeff k = CyclotomicCounterexample.F.coeff (216 - k)
+'CyclotomicCounterexample.F_palindrome' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_unique_peak (k : ℕ) (hk : k ≠ 108) :
+  CyclotomicCounterexample.F.coeff k < CyclotomicCounterexample.F.coeff 108
+'CyclotomicCounterexample.F_unique_peak' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_peak_value : CyclotomicCounterexample.F.coeff 108 = 11434392
+'CyclotomicCounterexample.F_peak_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_minimum_increase :
+  CyclotomicCounterexample.F.coeff 1 - CyclotomicCounterexample.F.coeff 0 = 5 ∧
+    ∀ k < 108, 5 ≤ CyclotomicCounterexample.F.coeff (k + 1) - CyclotomicCounterexample.F.coeff k
+'CyclotomicCounterexample.F_minimum_increase' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_unimodal : CyclotomicCounterexample.UnimodalCoeffs CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_unimodal' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_basic : CyclotomicCounterexample.IsBasicCGF CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_basic' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_no_prime_cyclotomic (p : ℕ) (hp : Nat.Prime p) :
+  ¬Polynomial.cyclotomic p ℤ ∣ CyclotomicCounterexample.F
+'CyclotomicCounterexample.F_no_prime_cyclotomic' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.Conjecture48 : Prop
+'CyclotomicCounterexample.Conjecture48' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.explicit_counterexample :
+  CyclotomicCounterexample.IsBasicCGF CyclotomicCounterexample.F ∧
+    CyclotomicCounterexample.UnimodalCoeffs CyclotomicCounterexample.F ∧
+      CyclotomicCounterexample.F ≠ 1 ∧
+        CyclotomicCounterexample.F.Monic ∧
+          CyclotomicCounterexample.F.degree = 216 ∧
+            CyclotomicCounterexample.F.natDegree = 216 ∧
+              CyclotomicCounterexample.F.coeff 0 = 1 ∧
+                (∀ (k : ℕ), 0 ≤ CyclotomicCounterexample.F.coeff k) ∧
+                  (∀ k ≤ 216, 0 < CyclotomicCounterexample.F.coeff k) ∧
+                    (∀ k < 108, CyclotomicCounterexample.F.coeff k < CyclotomicCounterexample.F.coeff (k + 1)) ∧
+                      (∀ (k : ℕ),
+                          108 ≤ k →
+                            k < 216 → CyclotomicCounterexample.F.coeff (k + 1) < CyclotomicCounterexample.F.coeff k) ∧
+                        (∀ (k : ℕ),
+                            k ≠ 108 → CyclotomicCounterexample.F.coeff k < CyclotomicCounterexample.F.coeff 108) ∧
+                          ∀ (p : ℕ), Nat.Prime p → ¬Polynomial.cyclotomic p ℤ ∣ CyclotomicCounterexample.F
+'CyclotomicCounterexample.explicit_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.conjecture48_false : ¬CyclotomicCounterexample.Conjecture48
+'CyclotomicCounterexample.conjecture48_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredWeights : List ℤ
+'CyclotomicCounterexample.centeredWeights' does not depend on any axioms
+CyclotomicCounterexample.centeredWeights_length : CyclotomicCounterexample.centeredWeights.length = 109
+'CyclotomicCounterexample.centeredWeights_length' does not depend on any axioms
+CyclotomicCounterexample.centeredWeights_zero : CyclotomicCounterexample.centeredWeights[0]?.getD 0 = 1
+'CyclotomicCounterexample.centeredWeights_zero' depends on axioms: [propext]
+CyclotomicCounterexample.centeredWeights_positive (j : Fin 109) :
+  0 < CyclotomicCounterexample.centeredWeights[↑j]?.getD 0
+'CyclotomicCounterexample.centeredWeights_positive' depends on axioms: [propext]
+CyclotomicCounterexample.qInteger (m : ℕ) : Polynomial ℤ
+'CyclotomicCounterexample.qInteger' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredExpansion : Polynomial ℤ
+'CyclotomicCounterexample.centeredExpansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qInteger_coeff (m k : ℕ) :
+  (CyclotomicCounterexample.qInteger m).coeff k = if k < m then 1 else 0
+'CyclotomicCounterexample.qInteger_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredTerm_coeff (w : ℤ) (j m k : ℕ) :
+  (Polynomial.C w * Polynomial.X ^ j * CyclotomicCounterexample.qInteger m).coeff k = if j ≤ k ∧ k - j < m then w else 0
+'CyclotomicCounterexample.centeredTerm_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredCoefficient (k : ℕ) : ℤ
+'CyclotomicCounterexample.centeredCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredExpansion_coeff (k : ℕ) :
+  CyclotomicCounterexample.centeredExpansion.coeff k = CyclotomicCounterexample.centeredCoefficient k
+'CyclotomicCounterexample.centeredExpansion_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centered_coefficients_match (k : Fin 217) :
+  CyclotomicCounterexample.centeredCoefficient ↑k = CyclotomicCounterexample.coefficients[↑k]?.getD 0
+'CyclotomicCounterexample.centered_coefficients_match' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.centeredCoefficient_tail (k : ℕ) (hk : 217 ≤ k) :
+  CyclotomicCounterexample.centeredCoefficient k = 0
+'CyclotomicCounterexample.centeredCoefficient_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.coefficient_polynomial_eq_centeredExpansion :
+  CyclotomicCounterexample.ofCoeffs CyclotomicCounterexample.coefficients = CyclotomicCounterexample.centeredExpansion
+'CyclotomicCounterexample.coefficient_polynomial_eq_centeredExpansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CyclotomicCounterexample.product_eq_centeredExpansion :
+  (Polynomial.cyclotomic 4 ℤ * Polynomial.cyclotomic 9 ℤ * Polynomial.cyclotomic 25 ℤ * Polynomial.cyclotomic 30 ℤ) ^
+      6 =
+    CyclotomicCounterexample.centeredExpansion
+'CyclotomicCounterexample.product_eq_centeredExpansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_centered_qInteger_expansion :
+  CyclotomicCounterexample.F =
+    ∑ j ∈ Finset.range 109,
+      Polynomial.C (CyclotomicCounterexample.centeredWeights[j]?.getD 0) * Polynomial.X ^ j *
+        ∑ k ∈ Finset.range (217 - 2 * j), Polynomial.X ^ k
+'CyclotomicCounterexample.F_centered_qInteger_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_centered_certificate :
+  CyclotomicCounterexample.centeredWeights.length = 109 ∧
+    CyclotomicCounterexample.centeredWeights[0]?.getD 0 = 1 ∧
+      (∀ (j : Fin 109), 0 < CyclotomicCounterexample.centeredWeights[↑j]?.getD 0) ∧
+        CyclotomicCounterexample.F =
+          ∑ j ∈ Finset.range 109,
+            Polynomial.C (CyclotomicCounterexample.centeredWeights[j]?.getD 0) * Polynomial.X ^ j *
+              ∑ k ∈ Finset.range (217 - 2 * j), Polynomial.X ^ k
+'CyclotomicCounterexample.F_centered_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qIntegerNumerator : Polynomial ℤ
+'CyclotomicCounterexample.qIntegerNumerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qIntegerDenominator : Polynomial ℤ
+'CyclotomicCounterexample.qIntegerDenominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qInteger_base_identity :
+  CyclotomicCounterexample.qIntegerNumerator =
+    Polynomial.cyclotomic 4 ℤ * Polynomial.cyclotomic 9 ℤ * Polynomial.cyclotomic 25 ℤ * Polynomial.cyclotomic 30 ℤ *
+      CyclotomicCounterexample.qIntegerDenominator
+'CyclotomicCounterexample.qInteger_base_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qInteger_eval_one (m : ℕ) : Polynomial.eval 1 (CyclotomicCounterexample.qInteger m) = ↑m
+'CyclotomicCounterexample.qInteger_eval_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qIntegerDenominator_eval_one :
+  Polynomial.eval 1 CyclotomicCounterexample.qIntegerDenominator = 900
+'CyclotomicCounterexample.qIntegerDenominator_eval_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.qIntegerDenominator_ne_zero : CyclotomicCounterexample.qIntegerDenominator ≠ 0
+'CyclotomicCounterexample.qIntegerDenominator_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+CyclotomicCounterexample.F_qInteger_quotient_certificate :
+  CyclotomicCounterexample.qIntegerNumerator ^ 6 =
+      CyclotomicCounterexample.F * CyclotomicCounterexample.qIntegerDenominator ^ 6 ∧
+    CyclotomicCounterexample.qIntegerDenominator ^ 6 ≠ 0
+'CyclotomicCounterexample.F_qInteger_quotient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+def CyclotomicCounterexample.F : Polynomial ℤ :=
+(Polynomial.cyclotomic 4 ℤ * Polynomial.cyclotomic 9 ℤ * Polynomial.cyclotomic 25 ℤ * Polynomial.cyclotomic 30 ℤ) ^ 6
+def CyclotomicCounterexample.IsBasicCGF : Polynomial ℤ → Prop :=
+fun f => CyclotomicCounterexample.NonnegativeCoeffs f ∧ CyclotomicCounterexample.IsCyclotomicProduct f
+def CyclotomicCounterexample.IsCyclotomicProduct : Polynomial ℤ → Prop :=
+fun f => ∃ s m, (∀ n ∈ s, 2 ≤ n) ∧ f = ∏ n ∈ s, Polynomial.cyclotomic n ℤ ^ m n
+def CyclotomicCounterexample.UnimodalCoeffs : Polynomial ℤ → Prop :=
+fun f =>
+  ∃ peak,
+    (∀ (i j : ℕ), i ≤ j → j ≤ peak → f.coeff i ≤ f.coeff j) ∧ ∀ (i j : ℕ), peak ≤ i → i ≤ j → f.coeff j ≤ f.coeff i
+def CyclotomicCounterexample.Conjecture48 : Prop :=
+∀ (f : Polynomial ℤ),
+  CyclotomicCounterexample.IsBasicCGF f →
+    CyclotomicCounterexample.UnimodalCoeffs f → f ≠ 1 → ∃ p, Nat.Prime p ∧ Polynomial.cyclotomic p ℤ ∣ f

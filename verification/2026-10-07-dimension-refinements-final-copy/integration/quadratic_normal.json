@@ -1,0 +1,37 @@
+{
+  "schema": "quadratic-stability-replay-v1",
+  "status": "PASS",
+  "checks": [
+    {
+      "script": "check_weighted_anchors.py",
+      "status": "PASS",
+      "assertions": "enabled in isolated unoptimized child",
+      "stdout_sha256": "6e9e56e0971d32c8fc9f665b59c1874c11d543f1ff30a5e58322ac3cc8419cdb"
+    },
+    {
+      "script": "check_constants.py",
+      "status": "PASS",
+      "assertions": "enabled in isolated unoptimized child",
+      "stdout_sha256": "ed35c9baa2bc353dcdd2a2dc6f9e87a3f7db7bde39436e49b68472cb44c9be26"
+    },
+    {
+      "script": "check_independent_refinement_audit.py",
+      "status": "PASS",
+      "assertions": "enabled in isolated unoptimized child",
+      "stdout_sha256": "a1cb69e1930ea829771a8292ec7501e7140a73b8930f51abd7708f07867fc6a5"
+    },
+    {
+      "script": "check_quadratic_constants.py",
+      "status": "PASS",
+      "assertions": "enabled in isolated unoptimized child",
+      "stdout_sha256": "0ecf3bbe2f38a70135e5d2cee08087d9186872a19327a1e48f9fca7adbdb5048"
+    },
+    {
+      "script": "check_independent_quadratic_audit.py",
+      "status": "PASS",
+      "assertions": "enabled in isolated unoptimized child",
+      "stdout_sha256": "fa504e43555903fca88891dde66d44865bb285940024e3fc115805e5e173e82f"
+    }
+  ],
+  "scope": "Finite arithmetic/normalization checks supplement the written analytic proof; they do not establish the universal theorem."
+}

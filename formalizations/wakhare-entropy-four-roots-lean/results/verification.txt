@@ -1,0 +1,11 @@
+Lean 4.34.1 (x86_64 Linux), commit 5045d0056413266e57c625dcd7c365b10e377c52.
+Mathlib pinned SHA d13f23b723b8a846827a245b89c10fc7d3f11612, manifest pinned.
+Verified the five prefix-named proof modules Core, Signs, Alpha, FourRoots, Polynomial,
+plus the EntropyWakhare.lean library entrypoint under Lean's kernel in WSL.
+Verified 12 named theorem axiom inventories (only propext, Classical.choice, Quot.sound).
+Deliberately invalid proof of False was rejected by Lean as a type mismatch.
+Source file hashes match byte-for-byte the prefixed modules that Lean compiled.
+All five signs were derived from Wakhare's original binomial sums via norm_num,
+not from a pretrusted coefficient table or external floating-point root finding.
+Exact original-predicate polynomial object in Polynomial.lean was kernel verified.
+CI will independently repeat a clean Lake build and the same adversarial audit.

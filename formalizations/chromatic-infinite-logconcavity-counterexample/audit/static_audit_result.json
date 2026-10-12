@@ -1,0 +1,75 @@
+{
+  "audit_mode": "STATIC_RECORD_AND_SEMANTIC_REVIEW_NO_LEAN_EXECUTED",
+  "time_utc": "2026-10-08T11:42:21.312700+00:00",
+  "input_archive": {
+    "bytes": 1417848,
+    "sha256": "3abea26096508a6a12a87eea65785bb37e7656fd13d496d6900e2f2d7c699617"
+  },
+  "package_hashed_files": 74,
+  "fresh_evidence_hashed_files": 33,
+  "reference_hashed_files": 12,
+  "reference_audit_hashed_files": 4,
+  "live_fixed_commit_reference_blobs_matched": 13,
+  "original_mathematical_proof_bytes_match": true,
+  "identical_final_and_fresh_source_modules": 3,
+  "checker_template_sources_and_control_hashes_bound": true,
+  "public_configuration_projection_verified": true,
+  "raw_execution_archive_limit": "Original archive itself not provided; original config bytes independently available and match both declared transformations. Other unchanged-history claim remains an archive-provenance assertion.",
+  "owned_count": 98,
+  "explicit_count": 41,
+  "generated_auxiliary_count": 57,
+  "owned_module_counts": {
+    "CycleColoring": 33,
+    "LogConcavityCounterexample": 44,
+    "ChromaticPolynomial": 21
+  },
+  "all_owned_closure_count": 10964,
+  "root_union_count": 10929,
+  "per_root_counts": {
+    "ChromaticC17.explicit_counterexample": 8828,
+    "ChromaticC17.chromatic_infinite_logconcavity_conjecture_false": 8355,
+    "ChromaticC17.cyclePolynomial_isChromatic": 7831,
+    "ChromaticC17.every_C17_chromatic_polynomial_fails": 10601,
+    "ChromaticC17.third_iterate_value": 6947
+  },
+  "edge_counts": {
+    "type_direct": 78851,
+    "value_direct": 138852,
+    "structural_dependencies": 11417
+  },
+  "closure_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unsafe_partial_owned_or_closure": 0,
+  "all_98_per_declaration_axiom_reports_match_graph": true,
+  "recorded_successful_commands": 8,
+  "recorded_fresh_run": "<VERIFIER_ROOT>/tasks/chromatic-c17-2b73cde3/20261008T112728Z-31290fd6",
+  "cache_check_scope": "Path/size/mtime metadata equality, not a content-authentication guarantee",
+  "recorded_negative_control": "False proof using True.intro rejected for kernel type mismatch",
+  "independently_fetched_pinned_mathlib_sources": 4,
+  "reused_hash_verified_kernel_sources": [
+    "Lean/Replay.lean",
+    "Lean/Util/FoldConsts.lean",
+    "Lean/Environment.lean"
+  ],
+  "independent_exact_check": {
+    "c17_edges": 17,
+    "edge_subsets_enumerated": 131072,
+    "all_18_signed_coefficients_match": true,
+    "four_full_iteration_rows_match": true,
+    "third_iterate_index2": -28272276537344,
+    "color_count_samples": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 131070,
+      "4": 129140160,
+      "5": 17179869180,
+      "17": 295147905179352825840
+    },
+    "all_q_proof_basis": "Reviewed Lean bijection, complete-graph matrix induction, and polynomial evaluation theorem; finite DP samples are supplementary only"
+  },
+  "status": "PASS_STATIC_SEMANTIC_AND_EVIDENCE_AUDIT"
+}

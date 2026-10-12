@@ -1,0 +1,353 @@
+    Equal Gaussian cells: the sharp simplex first-moment theorem
+                                              Yongxian Zhang
+                                School of Computer Science and Engineering
+                                   South China University of Technology
+                                           mxymmxym1@gmail.com
+                                       ORCID: 0009-0000-3864-3536
+
+                                               8 October 2026
+
+
+                                                     Abstract
+          For every number of cells k ≥ 2, we determine the sharp squared first-moment sum for
+      equal-probability Gaussian partitions when the ambient dimension is at least k − 1. The
+      unique maximizers are central regular simplex cones, and the value is (E maxi≤k Zi )2 /(k − 1)
+      for independent standard normals. The bound also holds in lower dimensions and for fractional
+      partitions. We prove a covariance comparison by combining Gaussian flux with the established
+      Gaussian multi-bubble perimeter theorem. A weighted Cauchy inequality yields a first-order
+      differential inequality along each path from the regular covariance; its initial derivative vanishes
+      by symmetry. This gives the global bound and equality classification, with an exact nonnegative
+      integral expression for the deficit. No numerical search, variation of arbitrary competing cell
+      boundaries, local simplex Hessian or mountain-pass argument is needed. We distinguish the
+      imported perimeter theorem and partial formal checks from the new analytic comparison.
+
+
+1. Statement and prior conjecture
+Let γdR be standard Gaussian probability on Rd . For a measurable partition C1 , . . . , Ck define
+mi = Ci x dγd and F = i |mi |2 . Write Z1 , . . . , Zk for independent standard normals and
+                      P
+
+                                                                 ak
+                             ak = E max Zi ,            ck = √       ,           Fk = c2k .
+                                      i≤k                        k−1
+   These constants are exact; for example integration by parts gives
+                                                    Z
+                                  ak = k(k − 1)           ϕ(x)2 Φ(x)k−2 dx > 0,                              (1)
+                                                      R
+    where ϕ, Φ are the standard normal density and distribution.
+    Theorem 1. For every integer k ≥ 2, every integer d ≥ 1, and every Gaussian partition with
+γd (Ci ) = 1/k,
+                                        k Z                     2
+                                        X                                a2k
+                                                    x dγd (x)       ≤        .                               (2)
+                                        i=1    Ci                       k−1
+    If d ≥ k − 1, equality holds precisely for the central regular simplex winning partition in a (k − 1)-
+dimensional subspace, with the orthogonal complement unrestricted, up to null sets, orthogonal
+transformations and relabeling. If d < k − 1, the inequality is strict for every partition; we do not
+claim this is the sharp bound at a fixed such lower dimension.
+
+                                                           1
+                                   for fractional partitions: 0 ≤ fi ≤ 1, i fi = 1 almost everywhere,
+                                                                                   P
+   The
+    R
+         identical statement holds
+                                R
+and fi dγd = 1/k, using mi = xfi dγd . The functions fi are measurable. Equality forces the same
+ordinary winning indicators.
+   This settles the equal-mass subcase for every number of cells of the first-moment conjecture in
+[H19, Problem 1.15 and Conjecture 1.16], and in particular the four-cell dimension-three question
+[H14, Conjecture 3]. It is not the positive-correlation noise-stability conjecture or the arbitrary
+prescribed-mass statement. The latter is false as written [EX]. Our literature status reports the
+precise sources checked and makes no worldwide first-proof claim.
+
+
+2. The balanced covariance value function
+Put 1 = (1, . . . , 1)T ∈ Rk , P = I − 11T /k, n = k − 1,
+
+                        K = {Q = QT ⪰ 0 : Q1 = 0, tr Q = 1},                   Q∗ = P/n.
+   For every positive semidefinite Q annihilating 1, define
+                                        (                              )
+                                            1X
+                     C(Q) = inf                 λi + E max(Yi − λi ) ,         Y ∼ N (0, Q).                      (3)
+                                 λ∈Rk       k i         i
+
+     For a centered k × n score matrix M with M M T = Q, this is called the balanced score value. For
+distinct rows it equals the optimal assignment value, as proved below. Prices attain their infimum:
+in the gauge min λi = 0, the expression is at least max λi /k by using a zero-priced mean-zero
+score. This closed gauge therefore has bounded sublevel sets, and the objective is continuous. The
+maximum also bounds the average, so the objective is nonnegative. A compactness argument gives
+                                                                       P
+a minimum; common price shifts let us place it in the smooth gauge i λi = 0. For distinct scores
+vi , differentiating in prices gives 1/k − γn (Ci ), where
+
+                                     Ci = {x : vi · x − λi ≥ vj · x − λj ∀j}.                                     (4)
+   Ties are Gaussian-null. Minimizing prices therefore give all masses 1/k; the winning labels attain
+the linear assignment pointwise.
+   Two elementary facts include the singular covariance boundary:
+                             √
+                  C(sQ) =        s C(Q) (s ≥ 0),           C is continuous on the closed cone.                    (5)
+     For homogeneity scale scores and prices, and note C(0) = 0. For continuity couple Q1/2 G and
+Qe 1/2 G on the same standard Gaussian space. The difference of the maxima, for any price, is at most
+|(Q1/2 − Q e 1/2 )G|. Its expectation bounds the difference of the two infima, uniformly in prices; the
+matrix square root is continuous.
+     We use differentiability only where Q is positive definite on 1⊥ . There the k scores are affinely
+independent in Rn . Every pair of winning cells has a positive Gaussian facet area: the nonsingular
+score-difference coordinates allow any chosen pair to tie at the top while all other scores are strictly
+lower. For the ordinary ij facet put
+                                        Z                                                X
+         ℓij = |vi − vj |,   Aij =            φn dHn−1 ,    wij = Aij /ℓij ,   (Lu)i =          wij (ui − uj ).   (6)
+                                        Σij                                              j̸=i
+                             R
+   Let B have rows bi =          Ci x dγn . Gaussian integration by parts gives
+
+
+
+
+                                                            2
+                                                                         X                              X
+                B = LM,      C(Q) = ⟨M, B⟩ = tr(LQ) =                          wij ℓ2ij ,   tr L = 2          wij .    (7)
+                                                                         i<j                            i<j
+
+    The inward ij normal of cell i is (vi − vj )/ℓij . To justify flux on unbounded cells truncate with
+large balls; their additional Gaussian boundary term tends to zero exponentially. The price term in
+(3) cancels because all winning masses are 1/k.
+    Lemma 2 (smooth derivative). On this positive cone C is smooth, and for every symmetric
+D annihilating 1,
+
+                                           dC(Q)[D] = 12 tr(LD).                                                       (8)
+   Proof. Let T have rows vi − vk , i < k, and put ai = λi − λk . The map T : Rn → Rn is invertible.
+With s = T X − a, its Gaussian covariance is T T T > 0 and its mean is −a. If pΣ,µ denotes that
+ordinary n-dimensional Gaussian density, the objective equals
+                               1X
+                                                      Z
+                   J(M, λ) =       λi − λk +                   max(0, s1 , . . . , sn )pT T T ,−a (s) ds.             (8a)
+                               k i                        Rn
+
+    The winner regions in s are fixed polyhedral cones. On a compact neighborhood of a full-rank
+score and finite price, covariance eigenvalues stay bounded away from zero and infinity and the
+                                                                                                     2
+mean stays bounded. Each parameter derivative of the density is bounded by C(1 + |s|)r e−c|s| for
+constants C, c > 0 and a finite r depending on the derivative order. The maximum has at most
+linear growth. Differentiation under the integral therefore proves smoothness of the objective and all
+winning probabilities.
+    For a fixed cell i, use the invertible coordinates zj = (vi − vj ) · X, j ̸= i. Its probability is a
+Gaussian orthant integral with lower thresholds λi − λj . Differentiating one threshold gives the
+negative face integral; the coarea formula for the scalar coordinate (vi − vj ) · X converts that integral
+to −Aij /ℓij = −wij . Thus
+                                           X
+                        ∂λi γn (Ci ) = −          wij ,            ∂λj γn (Ci ) = wij       (j ̸= i).                 (8b)
+                                           j̸=i
+
+    Since the objective’s price gradient is 1/k − γn (Ci ), its price Hessian is exactly L. Every weight
+                                                             P
+is positive at every finite price. For any nonzero u with i ui = 0,
+                                                    X
+                                     uT Lu =              wij (ui − uj )2 > 0.
+                                                    i<j
+
+    This gives strict convexity on the price gauge along every nonconstant segment, hence uniqueness
+of its minimizing price. The gauge gradient maps 1⊥ to itself, and its Jacobian L is invertible there.
+The implicit function theorem makes balancing prices smooth in the full-rank scores. A smooth
+positive matrix square-root factorization of Q|1⊥ then gives smoothness in Q.
+    For the covariance derivative, set N = (M T M )−1 M T . Since M is a column isomorphism onto 1⊥ ,
+N M = In and M N = P . For the given D let A = N DN T . Then A = AT and M AM T = P DP = D.
+For sufficiently small positive and negative t, I + tA is positive, and
+
+              M (t) = M (I + tA)1/2 ,             M (t)M (t)T = Q + tD,                     M ′ (0) = M A/2.
+    Off Gaussian-null ties the envelope score derivative is the winning moment matrix B; the
+difference quotients have an integrable bound proportional to 1 + |X|. The price derivative vanishes
+at balance. Using (7) and cyclicity of trace gives
+
+
+                                                               3
+                      dC(Q)[D] = 12 tr(B T M A) = 21 tr(LM AM T ) = 12 tr(LD).
+   Here L uses weights Aij /ℓij ; it must not be confused with the interface-area Laplacian with
+weights Aij used elsewhere in multi-bubble profile theory. □
+
+
+3. The imported perimeter theorem and the regular constant
+We use the established Gaussian multi-bubble theorem [MN22, Theorem 1.1]: for 2 ≤ k ≤ n + 1
+and fixed positive masses in Rn , a simplicial Voronoi cluster of k equidistant sites minimizes the
+total Gaussian perimeter S = 12 i Pγ (Ci ) = i<j Aij . We always apply it in dimension n = k − 1,
+                                  P             P
+
+with k = n + 1 and the strictly positive mass vector (1/k, . . . , 1/k). To match the theorem’s cluster
+definition, take the strict winning cells in (4), or assign ties to the smallest label. These Borel cells
+are disjoint and cover almost everywhere. Their Gaussian-null difference from (4) changes no mass,
+moment or variational perimeter. Each has finitely many flat facets of finite Gaussian area, and
+intersections of codimension at least two contribute no interface area; for n = 1 the interface is a
+point with its zero-dimensional Hausdorff measure. They therefore have finite Gaussian perimeter.
+                                                                 2
+The surface weight is the ambient density φn = (2π)−n/2 e−|x| /2 against Hn−1 , not an independently
+normalized (n − 1)-dimensional Gaussian density. The original measurable or fractional partition
+need not have finite perimeter: only this auxiliary polyhedral cluster is used in the imported theorem.
+    At equal masses this minimizer is the central regular simplex fan: balancing prices of regular
+scores are unique modulo constants by Lemma 2, and permutation symmetry makes all of them
+equal. Only the perimeter minimum, not its uniqueness part, is needed below.
+                                                                                                     √
+    For the trace-one regular scores with Gram matrix Q∗ = P/n, we can write Yi = (Zi − Z)/ n.
+Their winning labels are uniform, so
+
+                                              C(Q∗ ) = ck .
+                                                                      ∗ = c /k. All pair distances
+    All facet weights are equal by symmetry; (7) gives L∗ = ck P and wij   k
+          p
+are ℓ∗ = 2/n. Consequently the minimum perimeter is
+
+                                         k(k − 1) ck q         q
+                                  S∗ =                 2/n = ck n/2.                                 (9)
+                                            2     k
+   For any Q ∈ K positive definite on 1⊥ , weighted Cauchy–Schwarz and (7) give
+                                   2                
+                           X             X       X
+                    S 2 =  wij ℓij  ≤  wij   wij ℓ2  = 1 tr L C(Q).
+                                                                 ij     2
+                            i<j               i<j        i<j
+
+   Combining this with S ≥ S∗ proves the fundamental inequality
+
+                                               tr L
+                                            C(Q)    ≥ c2k .                                 (10)
+                                                 n
+    All weights here are positive, so equality in weighted Cauchy is possible only when all pair
+distances are equal. This observation will supply the equality classification.
+
+
+
+
+                                                    4
+4. The radial differential comparison and its deficit
+Theorem 3 (covariance form). For every Q ∈ K, C(Q) ≤ ck , with equality only at Q∗ .
+    Proof. Put Qt = Q∗ + t(Q − Q∗ ). It is positive on 1⊥ for 0 ≤ t < 1, even if the endpoint Q is
+singular. Let C(t) = C(Qt ) and Lt be its facet matrix. For 0 < t < 1, (7)–(8) give
+
+                                                                               tr Lt
+                                                                                         
+                          tC ′ (t) = 21 tr(Lt (Qt − Q∗ )) = 12 C(t) −                .            (11)
+                                                                                 n
+   Let h(t) = C(t)2 − c2k . Inequality (10) implies
+                                                                                     ′
+                                                 tr Lt                        h(t)
+                                                                          
+                        th′ (t) = C(t)2 − C(t)         ≤ h(t),                            ≤ 0.    (12)
+                                                   n                           t
+    At zero L∗ = ck P , and tr(Q − Q∗ ) = 0. Thus (8) gives C ′ (0) = 0, while C(0) = ck . It follows
+that limt↓0 h(t)/t = 0. The quotient is nonincreasing by (12), hence h(t) ≤ 0 on (0, 1). Continuity
+(5) gives the claimed bound at t = 1. No differentiability, balancing-price limit or bounded limiting
+facet matrix at a singular endpoint is required.
+    If C(Q) = ck , the quotient tends to zero also at one. A nonincreasing function with both endpoint
+limits zero is identically zero. Therefore C(t) = ck for every 0 < t < 1, and (11) gives tr Lt = nck .
+The perimeter/Cauchy chain in Section 3 then consists entirely of equalities. All ℓij (t) are equal,
+since all weights are positive. Centered scores of squared norm sum one with equal pair distances
+have Gram matrix P/n: summing their squared pair distances over j gives k|vi |2 + 1, independent
+of i; thus |vi |2 = 1/k and ℓ2ij = 2/n. Hence Qt = Q∗ . For any fixed 0 < t < 1, this forces Q = Q∗ . □
+    There is also an exact deficit identity. For Qt as above put
+
+                                                    tr Lt
+                                      D(t) = C(t)         − c2k ≥ 0.
+                                                      n
+   The equality version of (12) reads (h/t)′ = −D(t)/t2 , giving
+                                                         Z 1
+                                                               D(t)
+                                       c2k − C(Q)2 =                dt.                           (13)
+                                                          0     t2
+   This is a nonnegative improper integral. At zero smoothness gives h = O(t2 ); integrating on
+compact subintervals and using the endpoint limits proves convergence and (13), even for a singular
+                                        P
+endpoint. In particular, writing W (t) = i<j wij (t),
+                                                                                             
+                               2       X
+                      D(t) =     W (t)     wij (t)ℓij (t)2 − S(t)2 + S(t)2 − S∗2  .              (14)
+                               n       i<j
+
+    Both terms are nonnegative: the first is the weighted edge-length variance, and the second is the
+established perimeter deficit. This is an exact identity, not a claim of an explicit metric stability
+constant or of full covariance concavity.
+
+
+5. Return to measurable and fractional partitions
+For any partition in Theorem 1, let M be its k × d moment matrix. Its rows sum to zero, so M M T
+has rank at most k − 1 and trace F . For every price, its labels give a feasible assignment in (3):
+
+                                     F = E[mI · X] ≤ C(M M T ).
+
+
+                                                     5
+    This remains valid for fractional labels by replacing the selected score with their convex com-
+bination. The Gaussian score distribution has the same covariance     √ even if the original dimension
+differs from k − 1. When F > 0, (5) and Theorem 3 give F ≤ ck F , proving (2). For F = 0 the
+positive bound is strict.
+    Equality forces M M T = Fk P/n and equality in the feasible assignment. The regular centered
+scores have null ties and equal prices by symmetry and uniqueness, so the original labels must
+be their winning labels almost everywhere. Fractional labels likewise must be the unique winning
+indicators. Their span has dimension k − 1, which excludes equality if d < k − 1.
+    Conversely, take the regular scores with Gram matrix P/n and their central winning cells. By
+(7) and L∗ = ck P , their actual moments are ck vi , of squared sum c2k . Cylindrical extension preserves
+both masses and moments. This proves attainment and all equality assertions. For k = 2 the
+trace-one covariance domain is a singleton; the proof includes this case. The excluded k = 1 case is
+separately trivial, with one cell and zero first moment.
+
+
+6. Mathematical and verification dependencies
+The only imported non-elementary geometric result is the Gaussian multi-bubble perimeter theorem
+[MN22]. Its hypotheses, ambient dimension and perimeter normalization are stated in Section 3.
+The proof uses Gaussian integration by parts, dominated convergence, smooth matrix square roots
+in the positive cone, the implicit function theorem, and one-variable differential comparison. Price
+derivatives are justified by Gaussian differentiation in fixed coordinates in Lemma 2. No further
+regularity or second-variation theory for arbitrary perimeter minimizers is required beyond the
+imported theorem. No local simplex Hessian, full covariance concavity or mountain-pass theorem is
+assumed.
+    No finite search, solver, floating integral or numerical eigenvalue is a premise of this result. Partial
+Lean proofs and exact arithmetic controls bundled in this paper package have their own explicit
+scope and do not formalize its Gaussian endpoint. A separate Lean development formalizes actual
+Gaussian moments, balancing prices, flux and the comparison and equality chains, with the needed
+geometric perimeter lower bound remaining an explicit premise. It also proves regular attainment
+and the necessary simplicial BV upper bridge. This does not give a complete Lean proof of the
+imported multi-bubble theorem or the unconditional all-k endpoint. Internal model reviews are not
+external human peer review. The complete earlier four-cell proof [FOUR] is preserved as a historical,
+longer argument; the present proof is standalone and covers all k.
+
+
+Declarations
+Funding.     No external research funding was received.
+
+AI use in research. OpenAI ChatGPT assisted with mathematical exploration, proof development,
+internal review and partial Lean formalization. The written proof identifies its published geometric
+dependency and supplies the analytic argument. The principal Gaussian endpoint is not claimed to
+have a complete Lean proof; internal model reviews are not external human peer review.
+
+AI use in manuscript preparation. ChatGPT assisted with drafting, editing, reference checks
+and preparation of the reproducibility materials. The author takes responsibility for the manuscript
+and its stated proof and verification boundaries.
+
+
+
+                                                     6
+References
+[H14]   S. Heilman, Euclidean partitions optimizing noise stability, Electronic Journal of Probability
+        19 (2014), no. 71, 1–37. https://doi.org/10.1214/ejp.v19-3083. Conjecture 3 in
+        https://arxiv.org/abs/1211.7138v2.
+
+[H19]   S. Heilman, Stable Gaussian Minimal Bubbles, arXiv:1901.03934v1 (2019), Problem 1.15
+        and Conjecture 1.16. https://arxiv.org/abs/1901.03934v1.
+
+[MN22] E. Milman and J. Neeman, The Gaussian Double-Bubble and Multi-Bubble Conjectures,
+       Annals of Mathematics 195 (2022), no. 1, 89–206. https://doi.org/10.4007/annals.2
+       022.195.1.2. Theorem 1.1 in https://arxiv.org/abs/1805.10961v3.
+
+[EX]    mxym/math research project, A counterexample to the prescribed-mass Gaussian regular-
+        simplex conjecture, repository companion (2026). https://github.com/mxym/math/tree/
+        main/research/gaussian-fixed-mass-propeller-counterexample.
+
+[FOUR] mxym/math research project, Four equal Gaussian cells: covariance deforma-
+      tion and tetrahedral rigidity, historical eleven-page repository companion, commit
+       0d27babe7dfa33dccf9b2867e39ea86b4ea91c4e (2026). https://github.com/mxym/ma
+       th/tree/0d27babe7dfa33dccf9b2867e39ea86b4ea91c4e/research/gaussian-balance
+       d-four-global.
+
+
+
+
+                                                 7
+

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "Exact editorial reversal; preserves every original theorem and proof byte. No mathematical re-audit is asserted.",
+  "checks": [
+    {
+      "file": "paper.md",
+      "exact_reversal_matches_original": true,
+      "baseline_sha256": "08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf786507aaef862c",
+      "corrected_sha256": "6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193"
+    },
+    {
+      "file": "LITERATURE.md",
+      "exact_reversal_matches_original": true,
+      "baseline_sha256": "42e941dfab420e4a4a39ffde5b40f7e11dcebe0f8748a26c74947fdfd513ef69",
+      "corrected_sha256": "5acb656da2363327df656f1e99ddbff8af4f0160e79ddeb7a9b43201225edf39"
+    },
+    {
+      "file": "corrections/v4-paper.after.md",
+      "deleting_only_attribution_recovers_pinned_original": true,
+      "original_sha256": "19eb5aa0c79e34280cc3619cf40c1bea7acda6f6ec1161b05fbb6bf2308fda81",
+      "corrected_sha256": "3c62ef4494ae957d7ff8c894fc8953fcfb7121c94284f5590b89a75faf82dba4"
+    }
+  ]
+}

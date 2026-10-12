@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\hypersetup{pdftitle={A ternary counterexample to a proposed mutual-information continuity bound}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\TV}{\operatorname{TV}}
+\title{A ternary counterexample to a proposed\newline mutual-information continuity bound}
+\author{}
+\date{Written proof v1 --- 9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give explicit classical $3\times3$ probability tables at total variation distance $\eps$ whose mutual-information difference violates the general proposed bound in arXiv:2408.15226v2, Eq.~(106), for every $0<\eps\le1/16$. The same construction defines commuting quantum states. Both marginals change: the version requiring one equal marginal is unresolved by this note. Lean formalization is incomplete in this version. Novelty and priority are unconfirmed; no external independent review is certified.
+\end{abstract}
+
+\section{Exact target and scope}
+Mario Berta, Ludovico Lami and Marco Tomamichel, \emph{Continuity of entropies via integral representations}, propose the general mutual-information continuity inequality
+\begin{equation}\label{eq:target}
+\left|I(A:B)_\rho-I(A:B)_\sigma\right|
+\le h(\eps)+\eps\log\!\left(\min\{d_A^2,d_B^2\}-1\right)
+\end{equation}
+for nearby bipartite states whose trace distance is at most a sufficiently small $\eps$. This is Eq.~(106) of \href{https://arxiv.org/html/2408.15226v2\#S4}{arXiv:2408.15226v2} and Eq.~(54) of \href{https://arxiv.org/html/2408.15226v1\#S3.SS3}{v1}. The surrounding discussion first considers applications with one equal marginal, then proposes this more general inequality without that restriction.
+
+The construction below refutes the general version with different marginals at arbitrarily small distances. Both marginals change. It does not resolve the version in which one marginal must remain equal.
+
+All logarithms are natural. Write
+\begin{equation}
+h(\eps)=-\eps\log\eps-(1-\eps)\log(1-\eps),\qquad 0\log0=0.
+\end{equation}
+For a probability vector $p$, let $H(p)=-\sum_i p_i\log p_i$. For a joint probability table $R$, let $R_A$ and $R_B$ be its row and column marginals and set $I(R)=H(R_A)+H(R_B)-H(R)$.
+
+\section{Construction on a ternary product alphabet}
+For every $0<\eps\le1/16$, define probability tables on $\{0,1,2\}\times\{0,1,2\}$ by
+\begin{equation}
+P_\eps=\begin{pmatrix}
+(1-\eps)/2&0&0\\
+0&(1-\eps)/2&0\\
+0&0&\eps
+\end{pmatrix},\qquad
+Q_\eps=\begin{pmatrix}
+(1-\eps)/2&\eps/2&0\\
+\eps/2&(1-\eps)/2&0\\
+0&0&0
+\end{pmatrix}.
+\end{equation}
+Every entry is nonnegative, and each table sums to one. The entries at $(0,0)$ and $(1,1)$ agree. The only nonzero entries of $P_\eps-Q_\eps$ are $+\eps$ at $(2,2)$ and $-\eps/2$ at each of $(0,1)$ and $(1,0)$. Hence
+\begin{equation}
+\TV(P_\eps,Q_\eps)=\frac12\sum_{i,j}|P_\eps(i,j)-Q_\eps(i,j)|
+=\frac12(\eps+\eps/2+\eps/2)=\eps.
+\end{equation}
+The tables also define diagonal density matrices
+\begin{equation}
+\rho_\eps=\sum_{i,j}P_\eps(i,j)|ij\rangle\langle ij|,\qquad
+\sigma_\eps=\sum_{i,j}Q_\eps(i,j)|ij\rangle\langle ij|
+\end{equation}
+on $\mathbb C^3\otimes\mathbb C^3$. Their quantum trace distance equals this total variation distance, and their von Neumann entropies equal the Shannon entropies of the corresponding diagonal probabilities. Thus the classical commuting construction is also a quantum counterexample.
+
+\section{Exact entropies and mutual information}
+Both marginals of $P_\eps$ are
+\begin{equation}
+(P_\eps)_A=(P_\eps)_B=\big((1-\eps)/2,(1-\eps)/2,\eps\big).
+\end{equation}
+Its joint distribution is supported on the diagonal. Direct expansion gives
+\begin{align}
+H((P_\eps)_A)=H((P_\eps)_B)=H(P_\eps)
+&=-(1-\eps)\log\frac{1-\eps}{2}-\eps\log\eps\notag\\
+&=h(\eps)+(1-\eps)\log2,
+\end{align}
+so
+\begin{equation}
+I(P_\eps)=h(\eps)+(1-\eps)\log2.
+\end{equation}
+Both marginals of $Q_\eps$ are $(1/2,1/2,0)$, so each has entropy $\log2$. Its four nonzero joint entries describe a fair binary input followed by binary crossover probability $\eps$. Equivalently, direct expansion gives
+\begin{equation}
+H(Q_\eps)=-(1-\eps)\log\frac{1-\eps}{2}-\eps\log\frac{\eps}{2}
+=\log2+h(\eps).
+\end{equation}
+Consequently,
+\begin{equation}
+I(Q_\eps)=\log2-h(\eps),\qquad
+I(P_\eps)-I(Q_\eps)=2h(\eps)-\eps\log2.
+\end{equation}
+
+\section{Strict violation at arbitrarily small distances}
+Here $d_A=d_B=3$, so the proposed right-hand side is $h(\eps)+\eps\log8$. The signed mutual-information difference minus this bound is
+\begin{equation}
+I(P_\eps)-I(Q_\eps)-\big(h(\eps)+\eps\log8\big)=h(\eps)-\eps\log16.
+\end{equation}
+For $0<\eps\le1/16$, monotonicity of the logarithm gives
+\begin{equation}
+-\eps\log\eps\ge\eps\log16.
+\end{equation}
+Since $0<1-\eps<1$, also
+\begin{equation}
+-(1-\eps)\log(1-\eps)>0.
+\end{equation}
+Adding these proves $h(\eps)-\eps\log16>0$. The signed difference is positive and equals its absolute value. Thus, for \emph{every} $0<\eps\le1/16$,
+\begin{equation}
+\boxed{\left|I(P_\eps)-I(Q_\eps)\right|>h(\eps)+\eps\log8},\qquad
+\TV(P_\eps,Q_\eps)=\eps.
+\end{equation}
+There is no positive uniform small-distance neighborhood on which the proposed general inequality holds. Given any $\delta>0$, take $\eps=\min\{\delta/2,1/32\}$; then $0<\eps<\delta$, and the construction still violates the bound.
+
+The exact rational choice $\eps=1/32$ gives the strictly positive gap
+\begin{equation}
+\frac{\log2}{32}-\frac{31}{32}\log\frac{31}{32}>0.
+\end{equation}
+This positivity is symbolic and does not require numerical certification.
+
+\section{Necessary leading coefficient}
+The exact loss $2h(\eps)-\eps\log2$ implies that no modulus of the form $c\,h(\eps)+C\eps$, with finite fixed $C$ and $c<2$, can bound arbitrary ternary mutual-information differences near zero. Indeed,
+\begin{equation}
+\frac{h(\eps)}{\eps}\ge-\log\eps\longrightarrow+\infty\qquad(\eps\downarrow0),
+\end{equation}
+so $(2-c)h(\eps)-\eps(\log2+C)>0$ for sufficiently small positive $\eps$. This is a lower bound on the necessary leading coefficient; it does not establish an exact optimal finite-distance modulus.
+
+\section{Version status and remaining scope}
+This v1 publishes the complete written construction. Lean formalization is incomplete and is not included as a verified result. The equal-one-marginal version remains unresolved by this note. Novelty and priority are unconfirmed. No external independent review is certified.
+
+\begin{thebibliography}{1}
+\bibitem{BLT} Mario Berta, Ludovico Lami and Marco Tomamichel.
+\emph{Continuity of entropies via integral representations}.
+arXiv:2408.15226. Version~2, Eq.~(106), concluding discussion:
+\url{https://arxiv.org/html/2408.15226v2}.
+Version~1, Eq.~(54), Section~III.3:
+\url{https://arxiv.org/html/2408.15226v1}.
+\end{thebibliography}
+\end{document}

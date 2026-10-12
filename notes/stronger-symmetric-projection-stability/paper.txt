@@ -1,0 +1,2487 @@
+                      Stronger symmetric projection stability
+
+                                                 mxym
+
+                                            7 October 2026
+
+This complete proof collection establishes the two globally valid bounds D(K, Ed ) − 1 ≤
+min{d12 δ 1/(3d) , d19 δ 1/[3(d−1)] } for origin-symmetric full-dimensional bodies in dimension d ≥ 3. The
+optimum remains unresolved. Section and equation labels below are local to each named component.
+The first component states all assumptions and constants; the second supplies the retained cone-law
+input and whole-class obstruction. The historical exponent and gap statements in Component II refer
+to the preserved baseline theorem; Component I gives the stronger current modulus and narrower
+unresolved gap. No quantitative inverse-Minkowski theorem is used.
+
+
+
+
+                                                    1
+Stronger symmetric projection stability                                                                    mxym
+
+
+I Main theorem and assembly
+A stronger upper-end exponent from weighted rank-two matching
+7 October 2026. This note proves a strengthening of the completed symmetric projection-cone stability
+theorem. The completed supplement is unchanged. The new steps are a sharp square-root matching
+estimate and a direct recovery theorem from off-block normals. No heuristic tuning of thresholds is
+used.
+
+1. Statement
+Let K ⊂ Rd be a centrally symmetric full-dimensional convex body, centered at zero, and let a(K) be
+the entry005 affine projection-cone invariant. Set δ = 1/2 − a(K). Let Ed be the entire class of linear
+images of Cartesian products of centrally symmetric convex factors of dimensions one and two. Use
+     dBM (K, E) = inf{λ ≥ 1 : T E ⊆ K ⊆ λT E, T ∈ GL(d)},                        D(K, Ed ) = inf dBM (K, E).
+                                                                                               E∈Ed
+
+Theorem 1 (weighted matching). For every d ≥ 3 and every such K,
+                                                                      1/(3d)
+                                  D(K, Ed ) − 1 ≤ d12 12 − a(K)                   .                            (1)
+
+There is no smoothness, curvature, polytope, atom, or absolute-continuity hypothesis. In dimensions
+one and two the distance is one.
+For the explicit unsimplified constants put
+                 N = d + 1,                    κd = π d/2 /Γ(1 + d/2),           ad = d−2d ,
+                           √ d
+                                      !
+                Zd = 2d+9 N d   /κd ,          Fd = 13N + 3Zd ,                  Bd = 4N Fd /ad ,
+                              3
+                                1/2
+                                                      √
+                b d = 5d2 a−2 B ,
+                L                             b d = d( d + 1)L
+                                              H              bd,                 Cbd = 2d(2dH
+                                                                                            b d )1/d .
+                           d   d
+
+The proof gives the stronger constant Cbd ≤ d12 , and
+                                          D(K, Ed ) − 1 ≤ Cbd δ 1/(3d) .                                       (2)
+If                                                                  !3
+                                                              2−d
+                                          0 < δ ≤ δbd∗ :=                ,
+                                                             2dH
+                                                               bd
+there is also the explicit containment estimate
+                                                               1
+                                      D(K, Ed ) ≤                            .                                 (3)
+                                                     1 − (2dH
+                                                            b d δ 1/3 )1/d
+
+The constants are conservative and depend on dimension. The earlier all-class corner-truncation
+obstruction still excludes exponents above 1/d. The next theorem further improves the geometric
+exponent.
+Theorem 2 (weighted matching and direct geometric recovery). Under exactly the same
+hypotheses,
+                                                                    1/[3(d−1)]
+                                D(K, Ed ) − 1 ≤ d19 12 − a(K)                         .                        (8)
+Both estimates hold globally, so their minimum is also a valid modulus. The remaining optimal-
+exponent interval is [1/[3(d − 1)], 1/d]. The factor d19 is deliberately coarse.
+
+                                                        2
+Stronger symmetric projection stability                                                            mxym
+
+
+2. The inputs retained from the completed proof
+The normalized cone law is
+                                                                hK (u)
+                                                                             
+                                 νK = (u 7→ u/hK (u))∗                 dSK (u) .
+                                                                 d|K|
+For independent samples Xi define
+                                                                                           !
+                                                                 X1 · · ·           Xd+1
+                      A = E| det(X1 , . . . , Xd )|,   B = E det                               .
+                                                                 1 ···               1
+
+Entry005 v3 proves a(K) = B/((d + 1)A) for general convex bodies. For a (d + 1)-tuple, write ϕ
+for its fourth-largest absolute horizontal cofactor. The completed proof supplies the following three
+established inputs.
+                                                   √
+   1. In symmetric John position B2d ⊆ K ⊆ dB2d , the law is supported in the unit ball and
+       A ≥ d−3d/2 ≥ ad . This follows from the regular-contact identity E[Y X T ] = I/d and sequential
+       wedge expectations.
+   2. The cone-specific contact-slab argument gives Eϕ ≤ Fd δ 2/3 . Its conditional determinant
+       denominator cancels before integration. The estimate includes singular tuples, nonatomic laws,
+       flat-face atoms, and the zero-deficit case.
+   3. If Q is centered symmetric and full-dimensional, Q ⊆ RB2d , and W is the union of an orthogonal
+       block decomposition, then its product of block projections P satisfies
+                                                      √
+                    (1 − (2dv)1/d )P ⊆ Q ⊆ P, v = R( m + 1)EνQ dist(X, W), 2dv < 1.                (4)
+
+      Here m is the number of blocks. The proof bounds V (Q[d − 1], P )/|Q| − 1 by v, uses Minkowski’s
+      first inequality, and inserts a homothetic image of a symmetric half of P into its missing cap. It
+      assumes no inradius bound or inverse cone-volume uniqueness theorem.
+These inputs are Sections 2, 3 and 5 of the completed English proof. For Theorem 1 the replaced
+argument is its Section 4 matching estimate; Theorem 2 also replaces the final geometric recovery
+step. The full new matching proof is in the accompanying matching.md, and its essential quantitative
+mechanism is recorded next.
+
+3. Why weighted matching improves the power
+For a bounded Borel law with A ≥ a > 0, Eϕ ≤ ε, put q = 4(d + 1)ε/a. The simultaneous Fubini-
+section selection in matching.md gives a sampled basis U , with D = | det U | ≥ a/2, whose one-sample
+and every omitted-basis two-sample section each have fourth-cofactor expectation at most q. In
+particular
+                   √               √
+           ∥U ∥ ≤ d, ∥U −1 ∥ ≤ 2 d/a, |αi | ≤ 1/D, Es3 (α) ≤ q/D2 ,             α = U −1 X,
+
+where s3 is the third-largest coordinate magnitude.
+Retain the two largest coordinates of each vector, with fixed-index tie breaking. In an omitted-basis
+section the cofactors, up to signs, are
+
+                                 Dαj ,    Dβj ,    D(αi βj − αj βi )    (i ̸= j).
+
+Truncating both vectors changes each entry by at most 2s3 (α) + 2s3 (β). Absolute value and a fixed
+order statistic are 1-Lipschitz in the maximum norm, so the truncated section expectation is at most
+q + 4q/D2 .
+
+                                                        3
+Stronger symmetric projection stability                                                            mxym
+
+
+Give a coordinate pair ij the weighted mass
+                                      h                                            i
+                            mij = E min(|αi |, |αj |)1{ij is the chosen top pair} .
+
+For adjacent pairs ij, jk, their two truncated vectors make four cofactors at least D2 rα rβ , where r
+denotes the smaller retained magnitude. Thus
+
+                                                     q + 4q/D2  5q
+                                       mij mjk ≤           2
+                                                               ≤ 4.                                   (5)
+                                                         D      D
+Pairs with mass exceeding q + 4q/D2 /D form a matching. Use them as plane blocks and the
+                              p
+
+remaining indices as line blocks. A discarded pair contributes its smaller coordinate to distance from
+the chosen block union, rather than its entire probability mass. Consequently, for 0 ≤ q ≤ 1,
+                                             √
+                                                              q + 4q/D2
+                                                          !p
+                                                dq      d
+                              E dist(α, W) ≤       +
+                                              D2        2        D
+                                             √      √ d                                            (6)
+                                                d+ 5 2 √            2 −2 √
+                                           ≤                 q ≤ 5d a      q.
+                                                  D2
+                                    √     √ 
+The last inequality follows from 4( d + 5 d2 ) ≤ 4d + 5d(d − 1) ≤ 5d2 . For q = 0, all positive-weight
+edges form a matching and the third coordinate vanishes almost surely. This proves the zero case
+without a limit. All selections are finite Borel partitions, so no point needs positive mass.
+
+4. Complete assembly of the stronger theorem
+Put K in symmetric John position, and apply (6) with a = ad , ε = Fd δ 2/3 . Then
+
+                              q = Bd δ 2/3 ,      E dist(U −1 X, W) ≤ L
+                                                                      b d δ 1/3 .                     (7)
+                                                       1/2
+For δ ≤ δbd∗ , the condition q ≤ 1 is valid: H
+                                             b d ≥ B , and therefore
+                                                    d
+                                                              !2
+                                                        2−d
+                                           q ≤ Bd                  ≤ 1.
+                                                       2dH
+                                                         bd
+
+
+Apply the primal map U T . The body Q = U T K is contained in dB2d ; its cone law is exactly (U −1 )∗ νK .
+Its coordinate line and plane blocks are orthogonal. Thus (4), with R = d, m ≤ d, and (7), gives
+(3). Every projection factor is centrally symmetric and full-dimensional in its block, so P ∈ Ed . No
+decomposition has to be canonical or unique.
+At the smallness threshold,
+                                          r := (2dH
+                                                  b d δ 1/3 )1/d ≤ 1/2.
+
+The sandwich (1 − r)P ⊆ Q ⊆ P gives
+                                                    r
+                               D(K, Ed ) − 1 ≤         ≤ 2(2dH
+                                                             b d )1/d δ 1/(3d) .
+                                                   1−r
+For every larger deficit use the John sandwich with a cube, which gives D(K, Ed ) ≤ d. The global
+coefficient in (2) covers this range because
+
+                                               Cbd (δbd∗ )1/(3d) = d.
+
+
+                                                         4
+Stronger symmetric projection stability                                                                 mxym
+
+
+At δ = 0, (6) gives exact block support and (4) gives the product itself. For d = 1, 2, K is already an
+allowed factor. This proves (2) and (3) in all cases.
+                                                                              √
+To prove the stated numerical constant, the inscribed cube bound κd ≥ (2/ d)d yields
+
+                     Zd ≤ 210 dd/2+9/2 ,     Fd ≤ 212 dd/2+9/2 ,     Bd ≤ 215 d(5/2)d+11/2 .
+
+Consequently
+                       b d ≤ 5 215/2 d(21/4)d+19/4 ,
+                       L                                    b d ≤ 10 215/2 d(21/4)d+25/4 ,
+                                                            H
+and
+                                        Cbdd ≤ 20 2d+15/2 d(25/4)d+29/4 .
+For d ≥ 3, 20 215/2 < 4096 ≤ d8 , while 2d ≤ 3d−1 ≤ dd−1 : the first inequality starts at 8 ≤ 9 and its
+ratio decreases by 2/3 with each increment of d. Hence
+
+                                           Cbdd ≤ d(29/4)d+57/4 ≤ d12d ,
+
+where the last inequality is exactly 19d ≥ 57. This proves (1). □
+
+4.1. The direct geometric recovery theorem The full proof in geometry-rigidity.md gives the
+following stronger geometric input. For a centered symmetric full-dimensional body Q ⊂ RB2d , an
+orthogonal decomposition into m nonzero blocks, its projection product P , and s = EνQ dist(X, W),
+put
+                                     T = (22d−1 dRs)1/(d−1) .
+Then
+                                             (1 − mT )P ⊂ Q ⊂ P                                           (9)
+whenever mT < 1. In particular the Banach–Mazur excess to this product is at most 2mT when
+mT ≤ 1/2. If the factors have dimensions one or two, the globally valid whole-class excess is at most
+2mdT . No inradius or inverse-basis norm occurs in these estimates.
+For clarity, the mechanism and constants can be summarized independently. For an orthogonal
+bipartition E ⊕ F , write PE,F for the two-factor projection product, λPE,F ⊂ Q for its maximal
+centered homothetic inclusion, and τ = 1 − λ. A support witness u, p has u · p = H = hPE,F (u) and
+hQ (u) = (1 − τ )H. Lift the two block components of p to qA , qB ∈ Q. Their differences from p span a
+two-dimensional plane L with orthogonal axes in E, F . Its normal component uL is nonzero.
+Contract p, qA , qB by 1 − η toward any interior point of Q, with η = τ /4. The contracted witness
+remains outside Q by support height at least τ H/2. In every resulting planar section, the mixed-normal
+boundary length is therefore at least τ H/(2|uL |). The planar assertion is proved by writing its negative
+quadrant frontier as y = −g(x): convexity makes g ′ nondecreasing, and min(1, g ′ ) = min(g(x) − x)
+                                                                             R
+
+is at least the distance to the witness.
+The transverse parameters fill a scaled copy of projL⊥ Q of measure η d−2 | projL⊥ Q|. The coarea
+Jacobian on the regular boundary is | projL n|, so
+
+                                                                                              τH
+                           Z
+                 IE,F :=        min(| projE n|, | projF n|) dHd−1 ≥ η d−2 | projL⊥ Q|               .
+                           ∂Q                                                                2|uL |
+
+Every planar fiber has area at most 4RH/|uL |, by the same support slab and the outer-radius bound.
+Fubini cancels the transverse projection and support denominator, giving
+
+                                           τ d−1 ≤ 22d−1 RIE,F /|Q|.
+
+                                                        5
+Stronger symmetric projection stability                                                                   mxym
+
+
+For a single-block bipartition, its normal integrand is at most dist(n, W). Homogeneity of distance
+cancels the cone weight, so the latter integral is exactly d|Q|s, and every single-block homothetic loss
+is at most T .
+The single-block inclusions multiply: successively replace coordinates by their desired projection-
+product values, scaled by the preceding inclusion factors. The resulting point is in Q and has all
+coordinates scaled by j λj . Thus ( j λj )P ⊂ Q, with j λj ≥ 1 − j (1 − λj ) ≥ 1 − mT , proving (9).
+                       Q            Q                 Q            P
+
+The full note supplies the planar lemma and coarea regularity details for arbitrary convex boundaries,
+including flat facets and nonatomic laws.
+
+4.2. Complete
+        √            assembly and numerical constant for Theorem 2                      Retain Md = L
+                                                                                                    bd =
+5d2 a−2
+     d    B d , and define
+
+                                                                                    1
+                    Gd = (22d−1 d2 Md )1/(d−1) ,      Cd′ = 2d2 Gd ,      βd =            .
+                                                                                 3(d − 1)
+
+The coordinate body from (7) has R = d, m ≤ d, and s ≤ Md δ 1/3 . Therefore T ≤ Gd δ βd . For
+
+                                     0 < δ ≤ δd′ := (1/(2dGd ))3(d−1) ,
+                                                                            √                       √
+we have mT ≤ 1/2. The matching condition q ≤ 1 also holds: Md ≥                 Bd , hence Gd−1
+                                                                                            d   ≥       Bd , and
+
+                                          q ≤ Bd /(2dGd )2(d−1) ≤ 1.
+
+The small-deficit excess is consequently at most 2dGd δ βd . At all larger deficits use the John bound
+D − 1 ≤ d − 1; it is covered by the global coefficient since Cd′ (δd′ )βd = d. At zero deficit, the exact
+matching case and (9) give the product itself. This proves D − 1 ≤ Cd′ δ βd in every case.
+To bound Cd′ , the earlier estimate on Bd gives
+
+                   Md ≤ 5 215/2 d(21/4)d+19/4 ,      (Cd′ )d−1 ≤ 5 23d+11/2 d(29/4)d+19/4 .
+
+For d ≥ 3, 8 ≤ d2 , and 5 211/2 < 243 ≤ d5 . Thus
+
+                                   (Cd′ )d−1 ≤ d(37/4)d+39/4 ≤ d19(d−1) ,
+
+where the final inequality is exactly 39d ≥ 115, valid already at d = 3. Hence Cd′ ≤ d19 , proving (8).
+□
+
+5. What is genuinely sharp, and what remains open
+The accompanying complete notes isolate different hypotheses.
+   • halfmass.md proves that the cone-specific power 2/3, its near-half-mass tail power two, and the
+     contact-slab area power two are sharp for actual cone laws in every fixed d ≥ 3. The bodies are
+     a doubly truncated three-cube times intervals, already in John position.
+   • matching.md proves that the improved power 1/2 is sharp for bounded laws with determinant
+     mass bounded below, even over every choice of basis and every line/plane decomposition. Its first
+     obstruction is an arbitrary even law. The separate global-next.md strengthens the sharpness
+     statement to actual cone laws and proves a geometric all-product distance obstruction for that
+     family.
+
+
+
+                                                      6
+Stronger symmetric projection stability                                                          mxym
+
+
+   • geometry-next.md proves that the cap exponent 1/d is sharp under volume-only information.
+     With the stronger off-block normal measurement, truncated cubes instead exclude powers
+     above 1/(d − 1). The general recovery theorem with power 1/(d − 1), now proved directly in
+     geometry-rigidity.md, closes this intermediate geometric gap. It is sharp for the stronger normal
+     input.
+These sharpness examples do not establish optimality of (8): independent losses need not be simulta-
+neously sharp on the same cone law. They rule out improving the first two isolated lemmas under
+their present hypotheses, and explain why a further gain should retain more geometry or couple the
+stages.
+The universally valid weighted relation
+
+                           E[ϕg] ≤ (d + 1)Aδ,   g = 1/2 − max(|ci |/
+                                                                       X
+                                                                           |cj |),
+                                                            i
+                                                                       j
+
+with g = 0 on the singular event j |cj | = 0, retains information lost by the unweighted fourth-cofactor
+                                  P
+
+moment. On the sharp half-mass family, the actual mixed-volume support surplus is linear in δ.
+However, inserting an extra global containment factor into the support-surplus estimate is false: the
+explicit near-coordinate cuts in geometry-next.md give a counterexample. No unproved coupled
+support-surplus theorem is used in either bound.
+No quantitative inverse-Minkowski theorem is a proof input. The direct section/coarea proof supplies
+the geometric estimate used here.
+
+6. Dependency and verification scope
+The complete baseline proof is included in dependencies/completed-proof.md. Its corrected
+text has SHA-256 6a31c8d2dff76b3f73b862a0b6ef2ea192afc9de23b3605208b465ee3a5c1193; the
+immutable original has SHA-256 08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf 7865
+07aaef862c. The baseline pins the v2–v4 sources of mxym/math to 6785c1c830f8e19e2eb07b0bb8
+9f4d475a8b154a. The exact dependency map remains applicable. Bibliographic attributions and
+comparisons are corrected separately; this package includes the corrected baseline mathematical proof
+in dependencies/completed-proof.md. Neither the lower-end simplex modulus nor the v5 spectral
+recursion is imported here.
+The new rational programs check the polynomial identities and exact examples described in their
+adjacent notes. They use explicit exceptions and retain checks under Python optimization. They do
+not prove the general integral, surface-measure, or convex-geometric assertions. The written proof
+and its independent model audit are separate from these finite regressions. No human peer review,
+proof-assistant verification, or novelty claim is made.
+The optimal final exponent remains unresolved between 1/[3(d−1)] and 1/d. The isolated intermediate
+examples do not establish optimality of the composed bound. The original completed release is
+preserved.
+
+
+
+
+                                                   7
+Stronger symmetric projection stability                                                                  mxym
+
+
+II Retained baseline proof and whole class obstruction
+1. The theorem and explicit constants
+Let K ⊂ Rd be any full-dimensional centrally symmetric convex body, with its center translated to
+zero. There is no polytope, smoothness, strict-convexity, absolute-continuity, or positive-curvature
+assumption. Retain the entry005 invariant
+                                              d
+                                       d           R(PK)                              |ΠK|
+                                  
+                         a(K) =                          − 1,         R(K) =                .
+                                      d+1           R(K)                             |K|d−1
+Let Ed consist of all linear images of Cartesian products of centrally symmetric factors of dimensions
+one and two. For centered symmetric bodies use
+
+       dBM (K, L) = inf{λ ≥ 1 : T L ⊆ K ⊆ λT L, T ∈ GL(d)},                    D(K, Ed ) = inf dBM (K, E).
+                                                                                                E∈Ed
+
+Write δ = 21 − a(K), which is nonnegative by v3.
+Theorem A. Explicit power stability for the entire equality class. For d = 1, 2, D(K, Ed ) = 1.
+For every d ≥ 3, define
+
+                                                          π d/2
+                     N = d + 1,                 κd =              ,        ad = d−2d ,
+                                                       Γ(1 + d/2)
+                               √ 
+                         2d+9 N d d3                                   4N Fd
+                    Zd =             ,         Fd = 13N + 3Zd ,   Bd =       ,
+                              κd                                         ad
+                                      1/4
+                                                      √
+                    Ld = 6d3 a−4
+                              d Bd ,           Hd = d( d + 1)Ld , Cd = 2d(2dHd )1/d .
+Then, for every such K,
+                                            D(K, Ed ) − 1 ≤ Cd δ 1/(6d) .                                    (1.1)
+In particular, Cd ≤ d15 , so the following simple numerical version holds in every dimension d ≥ 3:
+                                                                       1/(6d)
+                                  D(K, Ed ) − 1 ≤ d15 12 − a(K)                  .                       (1.1a)
+
+Equivalently, δ ≤ (ε/d15 )6d guarantees a Banach–Mazur factor at most 1 + ε. All constants are
+numerical functions of dimension. They are deliberately conservative. A more informative small-deficit
+bound is
+                                                        1
+                                   D(K, Ed ) ≤                      ,                           (1.2)
+                                               1 − (2dHd δ 1/6 )1/d
+whenever                                                              !6
+                                                               2−d
+                                            0 < δ ≤ δd∗ :=                 .                                 (1.3)
+                                                              2dHd
+At zero deficit the v4 equality classification applies, or the zero-defect versions of the lemmas below
+give the same conclusion directly.
+Theorem B. A dimensional obstruction. For d ≥ 3 and 0 < t ≤ 1, set
+                                                                                         1
+                   Kt = [−1, 1]d ∩ {x : |x1 + · · · + xd | ≤ d − t},             cd =      − 21−d .
+                                                                                         2
+Then
+                                               t                    d
+                                       1+          ≤ D(Kt , Ed ) ≤     ,                                     (1.4)
+                                              5d 2                 d−t
+
+                                                         8
+Stronger symmetric projection stability                                                           mxym
+
+
+and
+               1              2d − 2td−1 /(d − 1)!         2td               cd d
+                 − a(Kt ) = cd d                                         ∼        t .             (1.5)
+               2              d2 − 2t /(d − 1)! (d − 1)!2 + 2(d − 1)t
+                                       d                 d           d−1   d!2d−1
+Consequently no universal fixed-dimensional power exponent greater than 1/d is possible. No positive
+exponent independent of dimension can work, even when its constants are allowed to depend on
+dimension. The optimal exponent remains between 1/(6d) and 1/d; neither theorem identifies it.
+The proof combines three effective estimates: a cone-specific contact-slab bound, a quantitative
+matching of basis coordinates, and a mixed-volume containment argument. The hypothesis and
+equality class differ from those of the lower-end simplex stability problem.
+
+2. Cone law, contact identity, and the exact upper-end defect
+Sections 2–5 assume d ≥ 3; dimensions one and two were settled in the statement.
+The v3 cone law is the pushforward of hK (u)dSK (u)/(d|K|) by u 7→ u/hK (u). Denote it by νK . For
+independent samples define
+                                                                                          !
+                                                                 X1 · · ·            XN
+                      A = E| det(X1 , . . . , Xd )|,   B = E det                              .
+                                                                 1 ···                1
+
+These determinant expectations are classical zonoid volumes. In the normalization Z(ν) = E[0, X]
+and Z(ν)
+     b   = E[0, (1, X)], Koshevoy–Mosler, Lift zonoids, random convex hulls and the variability of
+random vectors, Bernoulli 4 (1998), 377–399, Section 4, gives
+
+                                 |Z(ν)| = A/d!,        |Z(ν)|
+                                                        b     = B/(d + 1)!.
+
+Consequently the cone-law identity used here reads
+
+                                          a(K) = |Z(ν
+                                                  b K )|/|Z(νK )|.
+
+The determinant representation is established background; the restriction to cone laws and the
+endpoint inequality, equality analysis and stability are separate assertions. See the primary author
+PDF, printed p. 387, Theorem 4.1 and equation (4.3).
+We import the v3 identity a(K) = B/(N A), affine invariance, and the balanced Rademacher inequality.
+These hold for arbitrary convex bodies, by the surface-area formulation and the continuity argument
+proved there. The law is even for symmetric K.
+Put K in symmetric John position:                          √ d
+                                               B2d ⊆ K ⊆    dB2 .                                 (2.1)
+Then νK is supported in the unit ball and |K| ≥ κd . The law can also be sampled by a regular
+boundary contact Y ∈ ∂K, with density
+                               ⟨Y, nK (Y )⟩                           nK (Y )
+                                            dHd−1 (Y ),       X=                 .
+                                   d|K|                             ⟨Y, nK (Y )⟩
+The nonregular boundary has surface measure zero. The divergence theorem gives
+
+                                    ⟨Y, X⟩ = 1,           E[Y X T ] = I/d.                        (2.2)
+                                      √
+For every unit vector v, since |Y | ≤ d,
+                                                           1
+                                               E|⟨v, X⟩| ≥ √ .
+                                                          d d
+
+                                                       9
+Stronger symmetric projection stability                                                            mxym
+
+
+Conditioning on successive samples and using distance to their span, this implies
+
+                                 A = E∥X1 ∧ · · · ∧ Xd ∥ ≥ d−3d/2 ≥ ad .                            (2.3)
+
+Indeed, for every fixed proper subspace choose a unit vector perpendicular to it; the conditional
+expected distance of the next sample to that subspace is at least d−3/2 . Multiplying these lower
+bounds proves (2.3), with dependent partial tuples contributing zero harmlessly. Hadamard gives
+A ≤ 1.
+For an N -tuple, let ci be its signed horizontal cofactors and put M =      |ci |. Their relation is
+                                                                               P
+
+  ci Xi = 0. Since the points lie on ∂K ◦ , the Minkowski norm with unit ball K ◦ gives |ci | ≤ M/2.
+P
+
+On M > 0, sort the normalized magnitudes as t1 ≥ · · · ≥ tN , and put
+
+                                          1                         1
+                                D(t) =                         g=
+                                                 X
+                                            − Eϵ   ϵi ti ,            − t1 .
+                                          2      i
+                                                                    2
+
+Define expressions involving t to be zero on M = 0. Sign averaging the lifted determinant, using
+evenness, gives the exact identity
+
+                             ∆ := E[M D(t)] = N Aδ,          EM = N A ≤ N.                          (2.4)
+
+This includes singular tuples. Let ϕ = M t4 be the fourth-largest absolute cofactor, set to zero if all
+cofactors vanish.
+
+3. Robust balanced equality and the cone-specific half-mass gate
+Lemma 3.1. For balanced normalized coefficients as above,
+
+                                          D(t) ≥ min{t4 /2, g/4}.                                   (3.1)
+
+Their ℓ1 -distance to the entire coefficient equality set (at most three nonzero entries, or one entry
+equal to one half) is at most 8(N − 3)D(t).
+Proof. On the capped simplex {si ≥ 0,            si = 1, si ≤ 1/2}, the convex function Eϵ | ϵi si | is
+                                               P                                               P
+
+at most one half by the v3 inequality. Let y = (1/4, 1/4, 1/4, 1/4, 0, . . .), whose value is 3/8. Set
+α = min(4t4 , 2g). If positive, α < 1, and (t−αy)/(1−α) remains in the capped simplex: nonnegativity
+uses α ≤ 4t4 ; for the first four entries the upper cap is equivalent to ti + α/4 ≤ 1/2; for the others it
+follows from α ≤ 2g. Convexity yields a defect at least α/8, proving (3.1). If α = 0, (3.1) is immediate.
+To reach the half-mass branch, increase t1 by g and subtract that mass from the other entries, costing
+2g. To reach three-point support, remove the tail of mass q ≤ (N − 3)t4 and redistribute it in the first
+three entries without exceeding the cap, costing 2q. Their available capacity is 1/2 + q. Use the first
+construction when the minimum in (3.1) is g/4, and the second otherwise. This proves the distance
+bound. □
+The half-mass branch cannot be dropped: (1/2, 1/6, 1/6, 1/6) has zero defect and four positive entries.
+Exact exposedness in v4 removes it at equality, but does not supply a quantitative margin. We
+instead use contact geometry.
+Lemma 3.2. Corner-slab surface area. If Q ⊆ [−1, 1]d is any convex body, the regular boundary
+part where some three coordinates are within r > 0 of independently chosen signed cube faces has
+area at most                                      !
+                                                d
+                                         d2d+1     r2 .                                     (3.2)
+                                                3
+
+                                                    10
+Stronger symmetric projection stability                                                          mxym
+
+
+Proof. Fix a triple and its signs and write ℓ = min(r, 2). Each coordinate projection of the relevant
+boundary part is contained in a box of (d − 1)-volume at most 2d−3 ℓ2 . If the deleted coordinate is
+outside the triple, the sharper bound is 2d−4 ℓ3 , which is no larger. For any measurable boundary part
+H, the area formula and convexity give
+                                               Z
+                                                   |ni | dHd−1 ≤ 2|πi H|.
+                                               H
+
+Almost every fiber has at most an upper and a lower boundary point with nonzero normal component.
+Parallel boundary segments have zero such component.       Since i |ni | ≥ 1, summing gives area at
+                                                                  P
+
+most d2d−2 r2 for one signed triple. There are 8 d3 choices, proving (3.2), also when r ≥ 2. □
+                                                   
+
+Lemma 3.3. Weighted exclusion of long near-half-mass circuits. For 0 < η ≤ 1/4 and ρ > 0,
+
+                                          E M 1{t4 >ρ, g≤η} ≤ Zd (η/ρ)2 .                         (3.3)
+                                                               
+
+
+The event is understood on M > 0, as already implied by t4 > ρ.
+Proof. Take a union over the distinguished index k with |ck |/M ≥ 1/2 − η, and condition on the
+other d samples, arranged as columns of a matrix U . If det U = 0, this event at k is impossible.
+Otherwise put D0 = | det U |, Xk = U α, and S = |αj |. Cofactor identities give
+                                               P
+
+                                                                               |ck |    1
+                    |ck | = D0 ,    |cj | = D0 |αj |,     M = D0 (1 + S),            =     .
+                                                                                M      1+S
+On this event M ≤ 4D0 and S − 1 ≤ 8η. The condition t4 > ρ supplies at least three other coordinates
+with |αj | > ρ.
+Set Q = U T K. Because the columns of U belong to K ◦ , Q ⊆ [−1, 1]d and |Q| = D0 |K|. Under a
+primal linear map T , normalized cone mass is preserved and the scaled normal becomes T −T X; hence
+νQ = (U −1 )∗ νK . This follows directly from the regular-boundary formulas
+
+                              T −T n
+                      n′ =            ,    dH ′ = | det T | |T −T n| dH,    h′ = h/|T −T n|.
+                             |T −T n|
+For every regular contact z ∈ ∂Q generating the conditional sample α, ⟨α, z⟩ = 1, so
+
+                                          |αj | 1 − sgn(αj )zj = S − 1 ≤ 8η.
+                                    X                               
+
+                                     j
+
+The three substantial coordinates therefore put z within r = 8η/ρ of three signed cube √
+                                                                                       faces. Lemma
+3.2 bounds their surface area. The boundary cone density on Q is ⟨z, nQ (z)⟩/(d|Q|) ≤ d/(dD0 |K|),
+so the conditional probability is at most
+                                              √ 
+                                          2d+1 d d3
+                                                    (8η/ρ)2 .
+                                            D0 |K|
+Multiplication by M ≤ 4D0 cancels the determinant exactly. Integrate the conditioning variables,
+sum over N indices, and use |K| ≥ κd . The resulting constant is Zd . □
+This cancellation treats arbitrarily ill-conditioned conditional matrices. The estimate uses regular
+primal contacts, not strong exposedness of polar points, so atoms caused by flat faces and nonatomic
+cone laws are both covered.
+Lemma 3.4. Effective short-cofactor estimate.
+
+                                                     Eϕ ≤ Fd δ 2/3 .                              (3.4)
+
+                                                           11
+Stronger symmetric projection stability                                                                      mxym
+
+
+Proof. First suppose 0 < δ < 1/4. For ρ ∈ [δ, 1/4], put η = δ 1/3 ρ2/3 ≤ ρ. In the weighted tail
+T (ρ) = E[M 1{t4 >ρ} ], the part with g > η costs at most 4∆/η by Lemma 3.1. The other part costs at
+most Zd (η/ρ)2 by Lemma 3.3. Using (2.4),
+
+                                        T (ρ) ≤ (4N + Zd )δ 2/3 ρ−2/3 .
+                                       R 1/4
+Since t4 ≤ 1/4, Tonelli gives Eϕ = 0 T (ρ) dρ. The interval below δ costs at most N δ ≤ N δ 2/3 ; the
+remaining integral of ρ−2/3 is at most 3. This gives (3.4). If δ ≥ 1/4, use Eϕ ≤ N/4 ≤ N δ 2/3 . If
+δ = 0, for fixed ρ > 0 let η ↓ 0 in the same split, with η ≤ min(1/4, 2ρ), to get T (ρ) = 0. Tonelli
+proves (3.4) at zero without compactness. □
+
+4. A quantitative matching of line and plane blocks
+The exact rank-two decomposition underlying this lemma has a matroid antecedent: van der Pol–
+Walsh–Wigal, arXiv:2502.03673v2, Lemma 5.2, classify U3,4 -minor-free matroids as direct sums of
+rank-at-most-two matroids. The estimate below concerns small expected cofactor magnitudes and
+supplies a conditioned basis and quantitative approximation to such blocks.
+Lemma 4.1. Let ν be any Borel probability law supported in the unit ball, with A ≥ a, 0 < a ≤ 1,
+and suppose its expected fourth absolute cofactor is at most ε. Put q = 4(d + 1)ε/a. If 0 < q ≤ 1,
+there are a basis matrix U and a partition of its coordinate indices into singletons and pairs, with
+coordinate block union W, such that
+                                                   √               √
+                          | det U | ≥ a/2, ∥U ∥ ≤ d, ∥U −1 ∥ ≤ 2 d/a,
+
+                                      E dist(U −1 X, W) ≤ 6d3 a−4 q 1/4 .                                    (4.1)
+For ε = 0, the same conclusion holds with zero distance. All statements include nonatomic laws and
+singular sampled tuples.
+Proof. For a deterministic candidate basis b = (b1 , . . . , bd ), define its section cost
+                           Z                    d ZZ
+                  Q(b) =       ϕ(b, x)dν(x) +
+                                                X
+                                                        ϕ(b1 , . . . , bbj , . . . , bd , x, y)dν(x)dν(y).
+                                                j=1
+
+Tonelli gives Eb Q(b) ≤ (d + 1)ε. Since | det b| ≤ 1, the event | det b| ≥ a/2 has probability at least
+a/2. Markov gives P(Q > q) ≤ a/4. Thus choose U = (bi ) with D := | det U | ≥ a/2 and Q(U ) ≤ q.
+The norm bounds follow from unit-length columns and inverse rows, each of length at most 1/D.
+Cramer’s rule also gives |αi | ≤ 1/D for α = U −1 X.
+Let s3 be the third-largest coordinate magnitude. The absolute cofactors of (b1 , . . . , bd , X) are D
+times (1, |α1 |, . . . , |αd |). If s3 ≤ 1, its fourth largest is at least Ds3 ; otherwise it is at least D, and
+s3 ≤ 1/D. In both cases
+                                                     Es3 ≤ q/D2 .                                           (4.2)
+Fix 0 < t ≤ 1 and set r = Dt2 /2. Break coordinate ties by index. For each pair ij, let Eij be the
+event that its coordinates are the largest two, both have magnitude at least t, and s3 ≤ r. Write
+pij = ν(Eij ).
+For distinct i, j, k, take x ∈ Eij , y ∈ Ejk , with coordinates α, β. In the tuple consisting of the basis
+except bj , followed by x, y, the cofactors attached to x, y, bi , bk have, up to signs, the values
+
+                           Dβj ,    Dαj ,      D(αi βj − αj βi ),     D(αk βj − αj βk ).
+
+
+                                                         12
+Stronger symmetric projection stability                                                         mxym
+
+
+These are determinant identities without a rank assumption. The first two have magnitude at least
+Dt. Each of the last two has magnitude at least D(t2 − r/D) = Dt2 /2, since the unwanted coordinate
+is at most r and the other factor at most 1/D. Hence
+                                                           2q
+                                               pij pjk ≤       .
+                                                           Dt2
+Pairs with mass exceeding w = 2q/D/t form a matching. Take its pairs as plane blocks and every
+                                    p
+
+remaining index as a line block. Discarded pairs have total mass at most d2 w.
+                                                                       √
+Outside the discarded-pair events and {s3 > r}, a point is within d t of its block: if its second
+coordinate is below t, use the block containing its largest coordinate; otherwise use its matched
+                                                                                            √     pair,
+whose remaining coordinates are at most r ≤ t. Every point has coordinate norm at most d/D. By
+(4.2) and Markov,                                √ " !p
+                                         √                    2q/D      2q
+                                                                           #
+                                                   d    d
+                         E dist(α, W) ≤ d t +                      + 3 2 .                        (4.3)
+                                                 D      2      t      D t
+
+Take t = q 1/4 . Since q ≤ 1 and D ≥ a/2, the right side is at most
+
+                             √
+                                           !
+                                          d −3/2
+                                 d [1 + 4   a    + 32a−4 ]q 1/4 ≤ 6d3 a−4 q 1/4
+                                          2
+
+for d ≥ 3. This proves (4.1).
+At ε = 0, choose Q(U ) = 0 on the determinant-good event. Equation (4.2) makes every sample
+two-sparse almost surely. If two positive-mass two-coordinate classes shared an index, the displayed
+omitted-basis tuple would have four nonzero cofactors on their product, contradicting its zero section
+cost. Thus the positive-mass pairs form a matching and the coordinate distance is zero. This also
+proves the zero case. □
+The basis is selected with simultaneous control of all required sections. Its condition number is
+bounded explicitly. No limiting choice of a basis or unique product decomposition is assumed.
+
+5. From approximate normals to an actual product body
+Lemma 5.1. Suppose Q is a full-dimensional centered symmetric convex body, Q ⊆ RB2d , and
+Rd = j Wj is an orthogonal sum. Set W = j Wj and P = j projWj Q, with m blocks. If
+      L                                        S               Q
+
+s = EνQ dist(X, W), then
+                                                  √
+                                |P |/|Q| ≤ (1 + R( m + 1)s)d .                       (5.1)
+               √
+Putting v = R( m + 1)s, if 2dv < 1,
+
+                                          (1 − (2dv)1/d )P ⊆ Q ⊆ P.                               (5.2)
+
+The conversion from relative volume loss to containment is the standard nested-body cap argument;
+compare Böröczky–Henk, Cone-volume measure and stability, Lemma 3.1(i), printed p. 8. Central
+symmetry permits the constant 2 in place of the centered-body constant e in that result.
+                                                                     √
+Proof. The projection product contains Q, is symmetric, and lies in mRB2d . Its support function
+agrees with hQ on every block. For x ∈ ∂Q◦ , choose a closest block projection z ∈ W. Support
+functions are globally Lipschitz with their circumradii, so
+                                                             √
+                        0 ≤ hP (x) − 1 = hP (x) − hQ (x) ≤ R( m + 1)|x − z|.
+
+
+                                                     13
+Stronger symmetric projection stability                                                             mxym
+
+
+The cone-law definition, homogeneity, and the first mixed-volume formula give
+
+                               V (Q[d − 1], P )
+                                                − 1 = EνQ [hP (X) − 1] ≤ v.
+                                     |Q|
+
+Minkowski’s first inequality gives (5.1). Consequently θ = 1 − |Q|/|P | ≤ 1 − (1 + v)−d ≤ dv.
+For completeness, a symmetric nested-body cap converts this relative volume loss to containment.
+Let λ be maximal with λP ⊆ Q; then 0 < λ ≤ 1. If λ < 1, a touching supporting direction u and
+point p ∈ P satisfy hQ (u) = λhP (u), ⟨u, p⟩ = hP (u). The image
+
+                                    λp + (1 − λ) P ∩ {z : ⟨u, z⟩ ≥ 0}
+                                                                          
+
+
+lies in P by convexity and outside int Q by support. Symmetry makes its volume (1 − λ)d |P |/2. Hence
+θ ≥ (1 − λ)d /2, proving (5.2). No inverse cone-volume uniqueness theorem is used. □
+Proof of Theorem A. Use (2.1). Lemma 3.4 gives ε = Fd δ 2/3 . By (2.3), apply Lemma 4.1 with
+                                                               1/4
+a = ad , so q = Bd δ 2/3 . For δ ≤ δd∗ , q ≤ 1: indeed Hd ≥ Bd , so Bd (2−d /(2dHd ))4 ≤ 1. The resulting
+coordinate law satisfies
+                                           E dist(U −1 X, W) ≤ Ld δ 1/6 .
+                                                                                   √
+Apply the primal map U T . Its body Q = U T K lies in dB2d , because ∥U ∥ ≤ d, and its cone law is the
+coordinate law just obtained. Its blocks are orthogonal coordinate lines and planes. Lemma 5.1 gives
+v ≤ Hd δ 1/6 , with a product P ∈ Ed , proving (1.2). In the range (1.3), the quantity r = (2dHd δ 1/6 )1/d
+is at most 1/2, so
+                                                      r
+                                 D(K, Ed ) − 1 ≤          ≤ 2(2dHd )1/d δ 1/(6d) .
+                                                    1−r
+For larger deficits, a universal elementary bound is D(K, Ed ) ≤ d. In John position, d−1/2 [−1, 1]d ⊆
+K ⊆ d1/2 [−1, 1]d , and the cube belongs to Ed . If δ ≥ δd∗ , the constant in (1.1) satisfies
+
+                                 Cd δ 1/(6d) ≥ 2d(2dHd )1/d (δd∗ )1/(6d) = d,
+
+which covers D − 1 ≤ d − 1. At zero use the zero cases of the lemmas or v4. For d = 1, 2, every
+symmetric body is itself an allowed factor. This completes the proof. □
+                                                                                    √
+For the stated simpler constant, the cube inscribed in the unit ball gives κd ≥ (2/ d)d . Using N ≤ 2d
+and d3 ≤ d3 , one obtains
+
+                     Zd ≤ 210 dd/2+9/2 ,     Fd ≤ 212 dd/2+9/2 ,   Bd ≤ 215 d(5/2)d+11/2 ,
+
+                    Hd ≤ 12 215/4 d(69/8)d+47/8 ,        Cdd ≤ 2d (24 215/4 )d(77/8)d+55/8 .
+Since 2d ≤ dd and 24 215/4 < 512 ≤ d6 for d ≥ 3,
+
+                                          Cdd ≤ d(85/8)d+103/8 ≤ d15d ,
+
+where the last inequality is 35d ≥ 103. This proves (1.1a).
+
+6. Proof of the dimensional obstruction
+We give the full-class argument, since comparing only to the cube would not establish a distance
+lower bound to arbitrary planar-factor products.
+
+
+
+                                                       14
+Stronger symmetric projection stability                                                                             mxym
+
+
+Let D ∈ Ed and suppose Kt ⊆ D ⊆ (1 + s)Kt . Any defining Banach–Mazur sandwich can be rescaled
+into this form, preserving Ed . Write
+
+           D = F1 + · · · + Fm ,       Rd = W1 ⊕ · · · ⊕ Wm ,               Fj ⊂ Wj ,     dim Wj ∈ {1, 2}.
+
+The factors are centered symmetric and full-dimensional in their subspaces. Let Pj be the projection
+onto Wj along the remaining summands, and set aji = hFj (ei ) ≥ 0. Then
+
+                   Pj2 = Pj ,   tr Pj = dim Wj ,              Pj = I,        1≤         aji ≤ 1 + s.                    (6.1)
+                                                       X                          X
+
+                                                          j                         j
+
+
+Every cube vertex σ ∈ {±1}d except the two all-equal ones belongs to Kt . Since Pj σ ∈ Fj , the
+nonnegative quantities aji − σi (Pj σ)i sum to at most s. Therefore
+
+                                             |(Pj σ)i − aji σi | ≤ s.                                                   (6.2)
+
+For any coordinate k, assign both signs among the other coordinates; this is possible since d ≥ 3.
+Both vertices obtained by changing only σk are retained. Subtract (6.2) for them to obtain
+
+                                      |(Pj − diag(aj1 , . . . , ajd ))ik | ≤ s.                                         (6.3)
+
+This controls all entries even when the original decomposition is badly conditioned.
+Suppose s ≤ 1/(4d), and write pji = (Pj )ii . Idempotence gives |pji (pji − 1)| ≤ (d − 1)s2 . Thus some
+zji ∈ {0, 1} satisfies
+                                     |pji − zji | ≤ 2(d − 1)s2 .
+Inside [0, 1], this follows from q(1 − q) ≥ q/2 for distance q ≤ 1/2 to an endpoint; outside the interval
+it follows directly. The integer trace and sum identities in (6.1), with errors less than one half, give
+   i zji = dim Wj and       j zji = 1. Hence Jj = {i : zji = 1} partitions the indices into sets of size one
+P                        P
+
+or two. For i ∈ / Jj , (6.3) gives aji ≤ s + 2(d − 1)s2 .
+Let u = (1, . . . , 1). Choose a retained vertex with plus signs on Jj and a minus sign outside it.
+Equation (6.2) implies
+
+                          hFj (u) ≥       aji − 3ds − 4d(d − 1)s2 ≥               aji − 4ds.
+                                      X                                      X
+
+                                      i                                       i
+
+Summing gives hD (u) ≥ d − 4d2 s, while containment in (1 + s)Kt gives hD (u) ≤ d − t + ds. Therefore
+t ≤ 5d2 s. If s > 1/(4d), the same lower bound follows from t ≤ 1. This proves the lower part of (1.4)
+for every product decomposition. The upper part follows from (1 − t/d)[−1, 1]d ⊆ Kt ⊆ [−1, 1]d .
+For the exact deficit, the two removed corner simplices each have volume td /d!, and every coordinate
+facet has area α = 2d−1 − td−1 /(d − 1)!. The two new area-normal vectors are ±td−1 u/(d − 1)!, with
+area times support number β = (d − t)td−1 /(d − 1)!. Put
+
+                                                                   2d − 2td−1 /(d − 1)!                2(d − t)td−1
+     Vt = 2d − 2td /d!,   Dt = d2d − 2td /(d − 1)!,           p=                        ,      r=                   .
+                                                                           Dt                           (d − 1)!Dt
+
+The cone law has direction pairs ±ei , each with total probability p, and ±u/(d − t), with total
+probability r. Within pairs signs are uniform; dp + r = 1. Direct type enumeration gives
+                                                                  dr
+                                                                       
+                                          A = d!p   d−1
+                                                              p+     .
+                                                                 d−t
+
+                                                          15
+Stronger symmetric projection stability                                                          mxym
+
+
+Only N -tuples containing all d + 1 different direction types have a nonzero Rademacher defect. Tuples
+with fewer than d types have zero cofactors; those with exactly d types have a repeated parallel
+direction and a two-term cofactor relation. For the all-distinct tuple, cofactor magnitudes are 1 and d
+copies of q = 1/(d − t). Averaging the sign multiplying 1 gives E max(1, |q di=1 ϵi |). For t ≤ 1, only
+                                                                               P
+
+the two all-equal sign patterns exceed 1, so its value is 1 + 21−d (dq − 1). The defect is cd t/(d − t).
+The probability of all-distinct types is N !pd r, giving
+                                                       cd prt
+                                            δt =                 .
+                                                   (d − t)p + dr
+
+Substitute p, r to get (1.5). Also p ≤ 1/d, hence δt ≤ cd td /(d!2d−1 ). Combining this with (1.4)
+excludes every exponent greater than 1/d as t ↓ 0. In dimension three,
+
+                                                     t3 (8 − t2 )
+                                          δt =                        .
+                                                 8(24 − t3 )(4 + t2 )
+This proves Theorem B. □
+
+7. Comparison with primary cone-volume and stability literature
+The class Ed is the familiar class of affine Cartesian products of centrally symmetric intervals and
+planar bodies, called Weil bodies in Saroglou, On the shape of a convex body with respect to its
+second projection body, pp. 2–4. That paper relates the class to Weil’s polytopal classification for
+homothety under the second projection-body operator and gives a three-dimensional zonoid endpoint
+with symmetric-cylinder equality (Theorem 1.2). These use a different functional from a(K); the
+common extremal class alone does not make their statements equivalent to entry005 v4’s equality
+theorem or Theorem A here.
+The relevant antecedent is Böröczky–Lutwak–Yang–Zhang, The logarithmic Minkowski problem,
+JAMS 26 (2013), 831–852. Its subspace concentration condition and complementary-subspace clause
+characterize existence of symmetric cone-volume measures. They do not supply the near-short-circuit
+estimate (3.4), a quantitative matching into dimensions at most two, or the present invariant’s
+endpoint.
+Böröczky–Henk, Cone-volume measure and stability, Adv. Math. 306 (2017), 24–50, Theorem 1.1
+gives complementary-factor stability with containment exponent 1/(5d) from almost saturated cone
+mass on an exact proper subspace; its constants and smallness threshold are stated as dimension-
+dependent, rather than numerical formulas. Its U-functional stability targets parallelotopes. Our
+equality class includes all symmetric planar factors, and our hypothesis is determinant magnitude, not
+the U-functional’s independence indicator. Thus that theorem is not an equivalent endpoint result.
+The exact-subspace premise cannot be inferred here: for even integers p → ∞, smooth strictly convex
+ℓp balls converge to the cube and have a → 1/2, yet their cone-volume measures give zero mass to
+every proper linear subspace. On each open coordinate octant the Gauss map is a diffeomorphism
+with positive curvature; the omitted coordinate-zero parts have surface measure zero, proving absolute
+continuity. Our method instead produces an expected distance to blocks and recovers an actual
+product by Lemma 5.1.
+Böröczky–De, Stable solution of the logarithmic Minkowski problem in the case of hyperplane
+symmetries, J. Differential Equations 298 (2021), 298–322, obtains quantitative inverse cone-volume
+estimates under Coxeter symmetry and a tube concentration margin. The reducible-group margin
+degenerates at concentration on a proper group-invariant product block, and the symmetry hypothesis
+does not cover arbitrary symmetric planar factors. Their anisotropic-squeeze example also explains
+
+                                                       16
+Stronger symmetric projection stability                                                         mxym
+
+
+why normalization is necessary. Abdallah–Mérigot, On the reconstruction of convex sets from random
+normal measurements, gives a surface-area inverse estimate of order 1/d with area and rotundity
+control. Cone-volume data additionally contains the unknown support function; Lemma 5.1 avoids
+solving that inverse problem.
+Böröczky–De also discuss volume-normalized unconditional bodies obtained by truncating vertices of
+a cube (published version, p. 302). This provides related geometric context. Theorem B independently
+computes the upper-end scalar deficit 1/2 − a(Kt ) and proves a distance lower bound against every
+affine product of symmetric one- and two-dimensional bodies. A comparison with one fixed cube
+would not establish that full-class lower bound.
+Saroglou’s Volumes of projection bodies of some classes of convex bodies is a primary projection-body
+comparison. Only its publication record and abstract were available; a full-text comparison remains in-
+complete. The recent Liu–Xiong–Yang mixed-volume stability paper, DOI 10.1016/j.aim.2026.110886,
+is relevant to broader mixed-volume stability questions. No theorem from either of these two papers
+is imported as a dependency. The present literature comparison is confined to the primary statements
+described above.
+
+8. Dependencies, reproducibility, and open questions
+The affine calculus and cone-law representation are inherited from entry 005 versions 2–3; the exact
+equality class is the version 4 theorem. The pinned sources are listed below. The quantitative
+contact-slab, matching, and product recovery arguments in Sections 3–5 are supplied in full here. In
+particular, the lower-end simplex modulus and the balanced-recursion spectral theorem are separate
+results and are not inputs to this proof.
+The accompanying exact programs test 4,930 balanced rational coefficient multisets, 750 omitted-basis
+cofactor identities, and 16 corner-truncation facet-minor calculations. They use only integers and
+rational arithmetic, and explicit exceptions keep the checks active under Python optimization. These
+finite regressions supplement the written analytic proof. The package records source hashes and
+separates regenerated outputs from shipped reference reports.
+The constants are deliberately coarse. The optimal universal exponent remains between 1/(6d) and
+1/d for d ≥ 3. Sharpening the matching estimate and the conversion of normal concentration to
+product containment may reduce the gap.
+
+References and provenance
+   • [005v2] mxym, Projection-volume calculus for joins and Cartesian products, entry 005, version
+     2. Definitions, affine invariance, and product calculus. Pinned source.
+   • [005v3] mxym, Random-determinant rigidity, sharp symmetric cone bounds, and spectral nonat-
+     tainment, entry 005, version 3. Cone-law representation and symmetric inequality. Pinned
+     source.
+   • [005v4] mxym, Equality in the symmetric projection-cone bound, entry 005, version 4. The
+     equality class and its qualitative stability. Pinned source.
+   • [BLYZ] K.J. Böröczky, E. Lutwak, D. Yang, and G. Zhang, The logarithmic Minkowski problem,
+     Journal of the American Mathematical Society 26 (2013), 831–852. DOI.
+   • [BH] K.J. Böröczky and M. Henk, Cone-volume measure and stability, Advances in Mathematics
+     306 (2017), 24–50. DOI.
+   • [BD] K.J. Böröczky and A. De, Stable solution of the logarithmic Minkowski problem in the case
+     of hyperplane symmetries, Journal of Differential Equations 298 (2021), 298–322. DOI. Primary
+     preprint, version 2.
+
+                                                  17
+Stronger symmetric projection stability                                                      mxym
+
+
+   • [AM] H. Abdallah and Q. Mérigot, On the reconstruction of convex sets from random normal
+     measurements. Primary preprint.
+   • [S] C. Saroglou, Volumes of projection bodies of some classes of convex bodies, Mathematika 57
+     (2011), 329–353. DOI.
+   • [LXY] Y.-D. Liu, G. Xiong, and K.-W. Yang, Sharp quantitative stability for the Minkowski
+     first inequality via a quadratic estimate for the cone-volume measure, Advances in Mathematics
+     492 (2026), 110886. DOI.
+   • [KM] G. Koshevoy and K. Mosler, Lift zonoids, random convex hulls and the variability of
+     random vectors, Bernoulli 4 (1998), 377–399. Primary author PDF, Section 4, Theorem 4.1 and
+     equation (4.3).
+   • [VPWW] J. van der Pol, Z. Walsh, and M.C. Wigal, Turán densities for matroid basis hypergraphs,
+     arXiv:2502.03673v2, 10 March 2025. Primary manuscript, Section 5, Lemma 5.2 (printed p. 15).
+   • [SS] C. Saroglou, On the shape of a convex body with respect to its second projection body,
+     arXiv:1409.4347v2. Primary manuscript, pp. 2–4 and Theorem 1.2. It cites W. Weil, Über die
+     Projektionenkörper konvexer Polytope, Archiv der Mathematik 22 (1971), 664–672; that original
+     article was not obtained for this comparison.
+   • [Sch] R. Schneider, Convex Bodies: The Brunn–Minkowski Theory, second expanded edition,
+     Cambridge University Press, 2014. Support functions, surface area, John normalization, and
+     mixed volumes.
+Versions2–4 credit the projection-volume product and simplex computations inherited from OpenAI
+family 088, pinned at commit adc7f1241b42e322a6451854ab7e4b4c146bf78a. This supplement uses
+the inherited identities through the explicitly cited entry 005 sources.
+
+
+
+
+                                                18
+Stronger symmetric projection stability                                                                                      mxym
+
+
+III Weighted rank two matching
+A sharp square-root matching theorem for bounded laws
+This note strengthens the matching lemma in the completed upper-end stability supplement. It is
+separate research; it does not alter that supplement.
+
+Statement and conventions
+Let d ≥ 3, let ν be a Borel probability measure supported in the Euclidean unit ball, and let
+X1 , . . . , Xd+1 be independent samples. Write
+
+                                               A = E| det(X1 , . . . , Xd )|.
+
+For a tuple of d + 1 vectors, let ϕ denote the fourth-largest of the d + 1 absolute d-dimensional
+cofactors. Suppose
+                           A ≥ a > 0,     Eϕ ≤ ε,      q = 4(d + 1)ε/a.
+Hadamard’s inequality implies a ≤ 1.
+Theorem 1 (square-root matching). There are a basis matrix U whose columns lie in the support
+of ν, and a partition of its coordinates into singletons and pairs, such that the union W of the resulting
+coordinate blocks satisfies
+                                                       √                   √
+                           | det U | ≥ a/2,     ∥U ∥ ≤ d,      ∥U −1 ∥ ≤ 2 d/a,
+
+and, if 0 ≤ q ≤ 1,
+                                                                      √
+                                           E dist(U −1 X, W) ≤ 5d2 a−2 q.                                                      (1)
+The conclusion includes nonatomic laws and singular sampled tuples. The power 1/2 cannot be
+increased under these hypotheses, even for even finite laws and fixed dimension.
+
+Proof of Theorem 1
+For a candidate sampled basis b = (b1 , . . . , bd ), put
+                      Z                                    d ZZ
+             Q(b) =       ϕ(b1 , . . . , bd , x) dν(x) +
+                                                           X
+                                                                      ϕ(b1 , . . . , bbj , . . . , bd , x, y) dν(x) dν(y).
+                                                           j=1
+
+Tonelli’s theorem gives Eb Q(b) ≤ (d+1)ε. Since D(b) = | det b| ≤ 1 and its expectation is at least a, the
+event D(b) ≥ a/2 has probability at least a/2. If ε > 0, Markov’s inequality gives P(Q(b) > q) ≤ a/4.
+These two events therefore intersect. If ε = 0, Q(b) = 0 almost everywhere and the determinant-good
+event again intersects it. Fix such a basis U = (bi ), and write
+
+                                        D = | det U | ≥ a/2,                 R = D−1 .
+
+Each inverse row has length at most D−1 , by its√cofactor-wedge√formula and the unit-length bound
+on the other columns. Consequently ∥U −1 ∥ ≤ d/D, ∥U ∥ ≤ d, and the coordinates α = U −1 X
+obey maxi |αi | ≤ R.
+Let s3 (α) be the third-largest coordinate magnitude. The absolute cofactors of (b1 , . . . , bd , X) are D
+times (1, |α1 |, . . . , |αd |). If s3 ≤ 1, the fourth largest is at least Ds3 ; otherwise it is at least D, and
+s3 ≤ D−1 . Thus
+                                                Es3 ≤ Q0 /D2 ≤ q/D2 ,                                         (2)
+
+                                                                 19
+Stronger symmetric projection stability                                                            mxym
+
+
+where Q0 is the one-sample term of Q(U ).
+For every α, retain its two largest coordinates, breaking ties by index, and set all others to zero.
+Denote the resulting vector by α.
+                               e This is a Borel map, it does not enlarge the coordinate bounds, and
+                                                               √
+                                  e ∞ ≤ s3 (α),
+                             ∥α − α∥                      e ≤ d s3 (α).
+                                                    |α − α|                                       (3)
+
+We first control the two-sample sections after this truncation. For independent coordinate vectors
+α, β, the absolute cofactors of the tuple omitting bj and appending U α, U β are the absolute values of
+
+                                Dαj ,     Dβj ,   D(αi βj − αj βi )   (i ̸= j),                       (4)
+
+up to signs and reordering. This is the polynomial determinant identity obtained by applying U −1 to
+every column.
+Replacing both vectors by their truncations changes either linear entry by at most D(s3 (α) + s3 (β)).
+For every bilinear entry, telescoping the two products and using all coordinate bounds R = D−1 gives
+a change at most
+                                2DR s3 (α) + s3 (β) = 2 s3 (α) + s3 (β) .
+                                                                      
+
+Taking absolute values and the fourth-largest entry are both 1-Lipschitz for the maximum norm on
+these finite lists. Therefore the truncated section expectation Q
+                                                                e j satisfies
+
+                                   e j ≤ Qj + 4Es3 ≤ q + 4q/D 2 =: qe.
+                                   Q                                                                  (5)
+
+No regularity or atom assumption is used here.
+For each unordered pair ij, let Eij be the Borel event that i, j are the selected two largest coordinates.
+Define its weighted mass by                  h                     i
+                                     mij = E min(|αi |, |αj |) 1Eij .                                 (6)
+Zero second coordinates contribute zero, so arbitrary tie choices there are harmless. Consider
+distinct i, j, k. On Eij × Ejk , the two truncated vectors are exactly supported on ij and jk. Put
+rα = min(|αi |, |αj |) and rβ = min(|βj |, |βk |). Four entries in (4) have absolute values
+
+                                 D|αj |,    D|βj |,   D|αi βj |,   D|αj βk |.
+
+Since rα , rβ ≤ R and D ≤ 1, each of these is at least D2 rα rβ . Integrating the fourth cofactor over
+this product event gives
+                                         D2 mij mjk ≤ Q
+                                                      e j ≤ qe.                                    (7)
+                                                          √
+In particular, edges of weight strictly greater than w = qe/D cannot share a vertex. They form a
+matching. Use those edges as pair blocks and every remaining coordinate as a singleton block. Every
+discarded edge has weight at most w.
+If the selected top pair of α is a matching edge, its truncated vector lies in its plane block. Otherwise,
+its distance to the block containing its largest coordinate is at most the smaller retained coordinate.
+By (3) and the triangle inequality,
+                                        √
+                          dist(α, W) ≤ d s3 (α) + min(|αi |, |αj |)1{ij discarded} .
+
+Hence (2), (5), and (6) give
+                                        √                              √      √ 
+                                                       q + 4q/D2           d + 5 d2 √
+                                                   !p
+                                     dq   d
+                     E dist(α, W) ≤     +                        ≤                    q.              (8)
+                                    D 2   2               D                  D2
+
+                                                      20
+Stronger symmetric projection stability                                                                                mxym
+
+
+                                                                        √                   √
+The last step uses q ≤ 1 and D ≤ 1. Finally, D ≥ a/2,                       5 ≤ 5/2, and        d ≤ d imply
+                                     √
+                                                       !!
+                                               √       d
+                                4        d+        5        ≤ 4d + 5d(d − 1) ≤ 5d2 ,
+                                                       2
+
+which proves (1). At q = 0, (7) says all positive-weight edges form a matching, (2) gives exact
+two-sparsity almost everywhere, and (8) has zero right-hand side. This proves the zero case directly.
+
+A sharp obstruction under the intermediate hypotheses
+Lemma 2 (cofactor vanishing for a block union). Let Rd =                                j Wj , where dim Wj ∈ {1, 2}. For
+                                                                                        L
+
+every d + 1 vectors in j Wj , the fourth absolute cofactor is zero.
+                      S
+
+Proof. If the tuple has rank below d, all cofactors vanish. Otherwise assign each vector to one block
+containing it, assigning a zero vector arbitrarily. If block j receives nj vectors, full rank requires
+nj ≥ dim Wj for every block. As their sum is d + 1, exactly one block receives one extra vector and
+the others receive precisely their dimensions. The unique relation on the tuple is supported on that
+oversampled block, which receives at most three vectors. Cofactors are its relation coefficients, so at
+most three cofactors are nonzero. □
+Lemma 3 (a quantitative distance witness). If z1 , . . . , zd+1 are in the unit ball, then, for every
+block union V in Lemma 2,
+                                         d+1
+                                               dist(zi , V) ≥ ϕ(z1 , . . . , zd+1 ).                                     (9)
+                                         X
+
+                                         i=1
+
+Proof. Project each zi orthogonally onto a closest block and call the resulting vector yi . Then |yi | ≤ 1
+and |zi − yi | = dist(zi , V). For each cofactor, multilinear telescoping and Hadamard’s inequality
+bound its change by the sum of these distances over its d columns, hence by the full sum. The fourth
+absolute cofactor is 1-Lipschitz in the list of cofactors, and it vanishes for the yi by Lemma 2. □
+Now put
+                       √                             √
+      v12 = (e1 + e2 )/ 2,          v23 = (e2 + e3 )/ 2,                0 < p ≤ 1/(d + 2),           w = (1 − 2p)/d.
+
+Let νp give total mass w to each antipodal pair {±ei }, and mass p to each of {±v12 }, {±v23 },
+distributing each antipodal mass equally. This is an even law in the unit ball, and w ≥ p. Sampling
+the d axis directions in any order gives
+
+                                    A(νp ) ≥ d!wd ≥ ad := d!/(d + 2)d > 0.                                              (10)
+
+Any repeated direction gives a relation supported on its two repeated columns. If the tuple has rank
+below d, all cofactors vanish; otherwise its unique relation is that repeated-direction relation, so at
+most two cofactors are nonzero. Thus such a tuple has fourth cofactor zero. Among distinct-direction
+d + 1-tuples, the only set with positive fourth cofactor is
+
+                                            (e1 , e3 , e4 , . . . , ed , v12 , v23 ).                                   (11)
+
+Indeed, omitting an outside axis gives rank below d; omitting one of the two new directions leaves a
+three-term circuit; and omitting e1 or e3 likewise leaves the three-term
+                                                               √      √ circuit on e2 , e3 , v23 or e1 , e2 , v12 .
+In (11), the four nonzero absolute cofactors are 1/2, 1/2, 1/ 2, 1/ 2, and all other cofactors are zero.
+Its fourth cofactor is 1/2. Therefore, exactly,
+                                                                (d + 1)! d−1 2
+                                         εp := Eνpd+1 ϕ =               w p .                                           (12)
+                                                                   2
+
+                                                              21
+Stronger symmetric projection stability                                                             mxym
+
+
+Signs and permutations do not change this value.
+Applying Lemma 3 to (11), and using that every direction has mass at least p, gives for every direct
+sum of line and plane blocks
+                                     Eνp dist(X, V) ≥ p/2.                                      (13)
+This lower bound is independent of the choice, angles, or uniqueness
+                                                             √       of the decomposition. For any
+basis U with unit-length columns, let V = U W. Since ∥U ∥ ≤ d,
+                                                   1               p
+                              E dist(U −1 X, W) ≥ √ E dist(X, V) ≥ √ .                                (14)
+                                                    d             2 d
+
+As p ↓ 0, (12) is a positive constant depending on d times p2 + Od (p3 ), while (10) is uniformly positive.
+Thus an estimate with power γ > 1/2 and constants depending only on a, d is impossible under the
+hypotheses of Theorem 1.
+The obstruction is about arbitrary bounded even laws. No claim is made that these particular laws
+are cone laws of centrally symmetric bodies. The completed cone-specific half-mass argument must
+still be retained when applying the matching theorem to convex bodies.
+
+Consequence for the existing proof chain
+Keeping the completed estimate Eϕ ≤ Fd δ 2/3 , its determinant lower bound a = aJohn
+                                                                                d    , and its geometry
+lemma unchanged, (1) gives
+                                                  q
+                                s ≤ 5d2 (aJohn
+                                          d    )−2 4(d + 1)Fd /aJohn
+                                                                d    δ 1/3 .
+
+The same cap-to-containment step therefore yields a proved upper-end power 1/(3d), with explicit
+constants obtained by this substitution. The root assembly is responsible for stating and simplifying
+the final global constant. The intermediate square-root matching step is sharp, so improving it further
+requires additional cone-law information or a different geometric route.
+
+Verification scope
+check_matching_improvement.py checks the cofactor formula, the truncation perturbation inequality,
+the adjacent-edge lower bound, and the exact finite-law obstruction formula using rational arithmetic.
+For the last check it uses the rational variant vij = (ei + ej )/2, whose fourth cofactor is 1/4 and
+whose expectation is (d + 1)!wd−1 p2 /4, avoiding any floating-point square roots. These finite checks
+support the polynomial identities; the measure-theoretic selection and integral proof above do not
+depend on enumeration.
+
+
+
+
+                                                      22
+Stronger symmetric projection stability                                                                   mxym
+
+
+IV Direct geometric recovery
+Direct quantitative recovery from off-block normals
+Date: 7 October 2026. This is a separate research note. It does not alter the completed upper-end
+stability supplement.
+
+1. Statement
+Let d ≥ 2, and let Q ⊂ Rd be an origin-symmetric (Q = −Q), full-dimensional convex body such that
+
+                                      rB2d ⊂ Q ⊂ RB2d ,            0 < r ≤ R.
+
+Let Rd =     j=1 Wj be an orthogonal decomposition into nonzero subspaces, let W =                j Wj , and put
+           Lm                                                                                 S
+
+
+                             m                             Z
+                       P =         projWj Q,         I=          dist(nQ (x), W) dHd−1 (x).
+                             Y
+
+                             j=1                            ∂Q
+
+
+Regular boundary points suffice in this integral; the omitted set has surface measure zero. Thus
+                                               Z
+                                        I=              dist(u, W) dSQ (u).
+                                                S d−1
+
+Write κk = |B2k |, including κ0 = 1, and set
+
+                                                             √        !d−2
+                                                    2      2( 2R + r)
+                                     Ad,r,R =                              .
+                                                   κd−2        r
+
+Theorem. The product built from the actual block projections satisfies
+
+                                       dH (Q, P ) ≤ m(Ad,r,R I)1/(d−1) ,                                   (1.1)
+
+                                                            m
+                                    dBM (Q, P ) − 1 ≤         (Ad,r,R I)1/(d−1) .                          (1.2)
+                                                            r
+Equivalently, for the cone-law measurement
+
+                                                                        I
+                                          s = EνQ dist(X, W) =             ,
+                                                                      d|Q|
+
+one has the explicit estimate
+
+                                                        m                 1/(d−1)
+                              dBM (Q, P ) − 1 ≤            Ad,r,R dκd Rd s          .                      (1.3)
+                                                        r
+
+No atomicity, polyhedrality, smoothness, or uniqueness of a product decomposition is required. The
+dimensions of the blocks do not enter the proof. If every block has dimension one or two, P is in the
+equality class of the completed theorem, so its distance to the entire class has the same upper bound.
+For m = 1, P = Q, and all claims are immediate.
+
+
+                                                           23
+Stronger symmetric projection stability                                                                   mxym
+
+
+2. A planar mixed-normal lemma
+Lemma. Let C ⊂ R2 be a full-dimensional compact convex set. Suppose C contains points (−b0 , 0)
+and (0, −a0 ), where a0 , b0 > 0, while dist(0, C) ≥ t > 0. Then
+                                          Z
+                                               min(|n1 |, |n2 |) dH1 ≥ t.                                 (2.1)
+                                          ∂C
+
+Proof. Intersect with the closed negative quadrant. Choose the closest intersection points to the
+origin on its coordinate axes and write them as (−b, 0) and (0, −a), with a, b > 0. They exist because
+the original two points are in C, and positivity follows from the distance assumption. For −b ≤ x ≤ 0,
+let
+
+                                  f (x) = max{y : (x, y) ∈ C ∩ (−∞, 0]2 }.
+
+The segment connecting the two chosen points proves that this function is defined on the entire
+interval. Convexity shows that f is concave; it is continuous, f (−b) = 0, and f (0) = −a. The choice
+of b gives f (x) < 0 for −b < x ≤ 0. Concavity and f ≤ 0 imply that f is nonincreasing. Its open
+graph belongs to the boundary of the original C, because both quadrant constraints are inactive
+there.
+Put g = −f . This is a nonnegative, nondecreasing convex function, with g(−b) = 0 and g(0) = a. It
+is absolutely continuous and its almost-everywhere derivativep is nonnegative and nondecreasing. At
+regular graph points the unit outward normal is (g ′ (x), 1)/ 1 + g ′ (x)2 , so the graph contribution is
+                                               Z 0
+                                                     min(1, g ′ (x)) dx.
+                                                −b
+
+Since g ′ is nondecreasing, let x∗ ∈ [−b, 0] be a crossing point of the level one, with the natural endpoint
+choices if g ′ ≥ 1 everywhere or g ′ ≤ 1 everywhere. Integration before and after the crossing gives
+                            Z 0
+                                  min(1, g ′ ) dx = g(x∗ ) − x∗ = min (g(x) − x).
+                             −b                                        [−b,0]
+
+Each graph point (x, −g(x)) ∈ C is at Euclidean distance at least
+t from the origin. Its distance in the ℓ1 norm is g(x) − x, hence the displayed minimum is at least t.
+All other boundary contributions are nonnegative. This proves (2.1). Endpoint vertical segments, if
+present, have zero mixed-normal contribution and do not change the argument. □
+
+3. Two-factor recovery by thickening a planar section
+Fix an orthogonal bipartition Rd = E ⊕ F into nonzero subspaces and put
+                                                               Z
+             PE,F = projE Q × projF Q,               IE,F =         min(| projE n|, | projF n|) dHd−1 .
+                                                               ∂Q
+
+We claim
+
+                                       dH (Q, PE,F )d−1 ≤ Ad,r,R IE,F .                                   (3.1)
+
+
+
+                                                          24
+Stronger symmetric projection stability                                                          mxym
+
+
+Since Q ⊂ PE,F , choose a point p ∈ PE,F where t = dist(p, Q) = dH (Q, PE,F ) is attained. If t = 0 the
+claim is immediate. Choose qA , qB ∈ Q with
+
+                              projE qA = projE p,           projF qB = projF p.
+
+Then a = p − qA ∈ F and b = p − qB ∈ E are nonzero and orthogonal. Define the two-dimensional
+plane
+
+                    L = span{b, a},                    e2 = a/|a| ∈ F, T = L⊥ .
+                                          e1 = b/|b| ∈ E,
+                                                                  √                  √
+Because each component of p is a projection of a point of Q, |p| ≤ 2R. Also t ≤ |p| ≤ 2R, because
+0 ∈ Q. Set
+
+                                                   t
+                                          η=     √        ∈ (0, 1).
+                                               2( 2R + r)
+
+For every z ∈ T with |z| < ηr, the points
+
+                             qA,z = (1 − η)qA + z,          qB,z = (1 − η)qB + z
+
+belong to the interior of Q: each is the convex combination of a point of Q and the interior-ball point
+z/η. They share an affine plane parallel to L with
+
+                                              pz = (1 − η)p + z.
+
+Relative to pz , the endpoints have coordinates (0, −(1 − η)|a|) and (−(1 − η)|b|, 0). Furthermore
+
+                                                               √
+                           dist(pz , Q) ≥ t − |p − pz | ≥ t − η 2R − |z| ≥ t/2.                   (3.2)
+
+The planar section Cz = Q ∩ (pz + L) is full-dimensional in its plane and contains both endpoints.
+Applying the planar lemma gives
+                                Z
+                                       min(|nCz · e1 |, |nCz · e2 |) dH1 ≥ t/2.                   (3.3)
+                                 ∂Cz
+
+The linear projection πT : ∂Q → T has tangential (d − 2)-Jacobian | projL n|. For almost every
+transverse parameter, its slice has outward normal
+
+                                                        projL n
+                                               nCz =
+                                                       | projL n|
+
+at almost every regular intersection point. The coarea formula therefore gives, with zero integrand
+when projL n = 0,
+
+
+
+
+                                                       25
+Stronger symmetric projection stability                                                           mxym
+
+
+
+                                 Z
+                        IE,F ≥        min(|n · e1 |, |n · e2 |) dHd−1
+                                 ∂Q
+                                 Z             Z
+                             ≥                           min(|nCz · e1 |, |nCz · e2 |) dH1 dz
+                                {|z|<ηr}⊂T ∂Cz
+
+                             ≥ κd−2 (ηr)d−2 t/2
+                                                             !d−2
+                               κd−2           r
+                             =              √                          td−1 .
+                                2         2( 2R + r)
+
+This is (3.1). For d = 2, the transverse space has dimension zero, and the same formula is interpreted
+with κ0 = 1.
+The coarea argument applies to arbitrary convex bodies: their boundaries are countably rectifiable
+and regular almost everywhere. The singular boundary has zero (d − 1)-measure and therefore zero
+weighted coarea contribution. For almost every transverse parameter, the intersection of the regular
+boundary is the section boundary up to length-zero sets. The ball thickening ensures that all sections
+used here have nonempty relative interior. Flat facets and nonatomic surface-area laws are both
+allowed.
+
+4. Recovering all factors
+For each j, apply (3.1) to E = Wj , F = Wj⊥ , and write the resulting two-factor product as Pj . For
+any unit vector n,
+
+                               min(| projWj n|, | projW ⊥ n|) ≤ dist(n, W).
+                                                                  j
+
+
+Indeed, if the largest block component is the j-th one, the right-hand side is exactly the complementary
+norm; if another block component is largest, the right-hand side is at least the j-th component norm.
+Consequently
+
+                                     ej := dH (Q, Pj ) ≤ (Ad,r,R I)1/(d−1) .                        (4.1)
+
+Fix any p ∈ P , start with q0 ∈ Q, and successively replace the j-th block coordinate of qj−1 by that
+of p. Call the new point zj . It belongs to Pj , because its j-th component is feasible in the projection
+of Q, while the complementary component is the projection of qj−1 ∈ Q. Choose qj ∈ Q such that
+
+                                          q j = z j + εj ,            |εj | ≤ ej .
+
+Writing πj = projWj , the recurrence is
+
+                                        qj = πj p + (I − πj )qj−1 + εj .
+
+The mutually orthogonal coordinate projections commute. After all blocks have been replaced, the
+original q0 contributes zero and
+                                                                               
+                                                   m         m
+                                     qm − p =                         (I − πk ) εj .
+                                                   X         Y
+                                                         
+                                                   j=1     k=j+1
+
+
+
+                                                             26
+Stronger symmetric projection stability                                                                mxym
+
+
+Every displayed product is an orthogonal projection, so |qm − p| ≤             j ej . Taking the maximum over
+                                                                           P
+
+p ∈ P proves (1.1).
+Finally, if e = dH (Q, P ), support functions satisfy
+
+                                  hP (u) ≤ hQ (u) + e ≤ (1 + e/r)hQ (u)
+
+for unit u, because hQ (u) ≥ r. Hence
+
+                                          (1 + e/r)−1 P ⊂ Q ⊂ P.
+
+This proves (1.2), and |Q| ≤ κd Rd gives (1.3).
+
+5. Consequences and limits
+The weighted corner cuts in geometry-next.md, and their all-product distance obstruction imported
+from the audited supplement, show that the exponent 1/(d − 1) in (1.3) cannot be improved in general
+when the blocks have dimension one or two. Their radii can be kept uniformly bounded above and
+below. Thus this direct recovery theorem closes the geometry-only exponent gap; it does not identify
+the sharp exponent of the original upper-end deficit.
+The selected basis in the completed rank lemma already gives an explicit inradius sufficient to apply
+this theorem. If its columns have Euclidean norm at most one and determinant D ≥ ad /2, every row
+of its inverse has norm at most 1/D by the cofactor-wedge bound. Therefore
+                                             √                         ad
+                                 ∥U −1 ∥ ≤    d/D,             U T K ⊃ √ B2d
+                                                                      2 d
+
+when K is in symmetric John position. The same transformed body satisfies U T K ⊂ dB2d . Thus
+the existing estimate s ≤ Ld δ 1/6 yields an improved geometric exponent δ 1/[6(d−1)] , with constants
+obtained directly from (1.3). The direct geometric estimate and its use in the stronger matching
+assembly passed an independent analytic model audit. It does not change the completed release and
+does not rely on the extra-factor estimate refuted in geometry-next.md.
+
+6. Stronger homothetic recovery without an inradius constant
+The interior-ball thickening can be replaced by a thickening with Q itself. This removes the inradius
+from the small-error bound.
+Keep Q = −Q, Q ⊂ RB2d , and the orthogonal block decomposition from above. Define
+
+                                         1/(d−1)
+                       T = 22d−1 dR s                ,        λ = max{α ≥ 0 : αP ⊂ Q}.
+
+Theorem. For arbitrary nonzero block dimensions,
+
+                                                1 − λ ≤ mT.                                             (6.1)
+
+If mT ≤ 1/2, then
+
+                                           dBM (Q, P ) − 1 ≤ 2mT.                                       (6.2)
+
+
+                                                         27
+Stronger symmetric projection stability                                                             mxym
+
+
+When all block dimensions are one or two, the global whole-class estimate is
+
+                                                                       1/(d−1)
+                                D(Q, Ed ) − 1 ≤ 2md 22d−1 dR s                     .                 (6.3)
+
+The global estimate uses the symmetric John bound only for the regime mT > 1/2. It is an estimate
+to the entire affine product class; in that regime it does not claim control of distance to the one fixed
+product P .
+
+6.1. Bipartition lemma        For an orthogonal bipartition E ⊕ F , put PE,F and IE,F as in Section 3,
+and set
+
+                            λE,F = max{α : αPE,F ⊂ Q},                  τ = 1 − λE,F .
+
+We prove
+
+                                                               IE,F
+                                             τ d−1 ≤ 22d−1 R        .                                (6.4)
+                                                                |Q|
+
+Both bodies contain the origin in their interiors, and Q ⊂ PE,F , so λE,F ∈ (0, 1]. The claim is
+immediate when τ = 0. Otherwise compactness of the support-function ratio gives a unit vector u
+such that
+
+                                            hQ (u) = λE,F hPE,F (u).
+
+Write H = hPE,F (u) > 0, and choose p ∈ PE,F with u · p = H. Choose qA , qB ∈ Q sharing respectively
+the E and F components of p. As before,
+
+                   a = p − qA ∈ F,        b = p − qB ∈ E,      L = span{b, a},         T0 = L⊥ .
+
+The two vectors a, b are nonzero: the support gap at p is τ H > 0. Furthermore uL = projL u =
+                                                                                            ̸ 0,
+because
+
+                                      u · a = H − u · qA ≥ τ H > 0.
+
+Set η = τ /4 ∈ (0, 1/4). For any z ∈ intT0 (projT0 Q), choose an interior lift q ∈ int Q with projT0 q = z.
+Such a lift exists because a surjective linear map sends the interior of a convex body onto the interior
+of its image. Consider
+
+                pq = (1 − η)p + ηq,       qA,q = (1 − η)qA + ηq,         qB,q = (1 − η)qB + ηq.
+
+The endpoints belong to the interior of Q, share a plane parallel to L with pq , and relative to pq have
+the same negative-axis form as in Section 3. Central symmetry gives u · q ≥ −hQ (u). Consequently
+
+                                  u · pq − hQ (u) = τ H − η(H − u · q)
+                                                   ≥ τ H − η(H + hQ (u))
+                                                   ≥ τ H − 2ηH = τ H/2.
+
+
+                                                      28
+Stronger symmetric projection stability                                                             mxym
+
+
+On this fixed affine plane, only the component uL of the normal varies. Thus the distance of pq to
+the planar section is at least
+
+                                                       τH
+                                                             .
+                                                      2|uL |
+
+Apply the planar lemma and then the same weighted coarea identity as in Section 3. The transverse
+parameters now fill
+
+                                      (1 − η) projT0 p + η projT0 Q,
+
+whose (d − 2)-volume is η d−2 | projT0 Q|. The boundary of this projection has measure zero. Every
+interior parameter has an interior lift, so its section is full-dimensional; no measurable selection of the
+lift is needed, since the lower bound holds for each such section. It follows that
+
+                                                                        τH
+                                      IE,F ≥ η d−2 | projT0 Q|                .                       (6.5)
+                                                                       2|uL |
+
+For any fixed transverse parameter w, its fiber in Q is contained in a planar rectangle with side
+lengths at most
+
+                                          2hQ (u)    2H
+                                                  ≤              and     2R.
+                                           |uL |    |uL |
+
+The first follows from −hQ (u) ≤ uL · xL + uT0 · w ≤ hQ (u); the second follows from Q ⊂ RB2d in the
+perpendicular direction inside L. Fubini therefore yields
+
+                                                    4RH
+                                            |Q| ≤         | projT0 Q|.                                (6.6)
+                                                    |uL |
+
+Substitute (6.6) into (6.5), and use η = τ /4:
+
+                                          IE,F     τ d−1     τ d−1
+                                               ≥          =         .
+                                           |Q|   8 4d−2 R   22d−1 R
+
+This proves (6.4), also in dimension two with the zero-dimensional transverse volume convention.
+
+6.2. Combining the homothetic inclusions For each single-block bipartition Pj = projWj Q ×
+projW ⊥ Q, let λj = max{α : αPj ⊂ Q}. The pointwise normal inequality from Section 4 and I = d|Q|s
+     j
+give
+
+                                                    1 − λj ≤ T.                                       (6.7)
+
+We claim
+                                                       
+                                                  m
+                                                                                                      (6.8)
+                                                  Y
+                                                     λj  P ⊂ Q.
+                                                j=1
+
+Fix p ∈ P , write pj = projWj p, and prescribe the adjusted coordinates
+
+                                                        29
+Stronger symmetric projection stability                                                            mxym
+
+
+
+                                                                   
+
+                                                  pej = 
+                                                            Y
+                                                                  λk  pj .
+                                                            k<j
+
+Each adjusted coordinate lies in its factor projection, since that factor is convex and contains zero.
+Start with q0 = 0 ∈ Q. For j = 1, . . . , m, replace the j-th block of qj−1 by pej to obtain zj ∈ Pj , and
+then set qj = λj zj ∈ Q. The j-th block of qm is
+                                                   
+                                              m                     m
+                                                                              !
+                                                  λk  pej =
+                                              Y                     Y
+                                                                        λk pj .
+                                          k=j                      k=1
+
+Therefore qm = (    j λj )p ∈ Q, proving (6.8). Since the λj lie in (0, 1],
+                  Q
+
+
+                                     1−                         (1 − λj ) ≤ mT.
+                                              Y          X
+                                                  λj ≤
+                                              j             j
+
+This proves (6.1). In the small-error regime it gives
+
+                                                                                     mT
+                      (1 − mT )P ⊂ Q ⊂ P,               dBM (Q, P ) − 1 ≤                 ≤ 2mT,
+                                                                                   1 − mT
+which is (6.2). For the whole-class estimate, the same bound applies when mT ≤ 1/2, and otherwise
+symmetric John’s theorem gives D(Q, Ed ) − 1 ≤ d − 1 ≤ 2mdT . This proves (6.3).
+
+6.3. Original endpoint implication The completed proof’s final coordinate body satisfies
+Q ⊂ dB2d . Thus (6.2) or (6.3) can be used without paying for the small determinant of the selected
+basis. In particular, the existing s ≤ Ld δ 1/6 improves the deficit exponent from 1/(6d) to 1/[6(d − 1)].
+Any independent improvement in the matching-stage power can be combined with this proof, after
+checking its precise inputs.
+The 1/(d − 1) power in (6.3) is sharp in fixed dimension by the corner cut bodies and the all-product
+distance lower bound in geometry-next.md. The new proof does not infer a sharp original-deficit
+exponent from that intermediate sharpness.
+The direct recovery proof uses thickening by the body itself and a shared support direction to cancel
+the conditioning loss. Its small-error estimate needs no inradius constant and has geometric power
+1/(d − 1). The optimal original-deficit exponent remains unresolved.
+
+
+
+
+                                                            30
+Stronger symmetric projection stability                                                            mxym
+
+
+V Half mass obstruction for actual cone laws
+Sharpness of the cone-specific half-mass gate
+7 October 2026. This note concerns the short-cofactor gate in Sections 2–3 of the completed upper-end
+stability manuscript. It does not modify that manuscript or assert an improved stability exponent.
+
+Result
+For every fixed dimension d ≥ 3, the estimate
+
+                                                      Eϕ ≤ Fd δ 2/3
+
+has the best possible power under its stated hypotheses, even among centrally symmetric polytopes
+already in symmetric John position. Here δ = 1/2 − a(K), and ϕ is the fourth-largest absolute
+horizontal cofactor of d + 1 independent cone-law samples. Neither the corner-slab area power two nor
+the weighted near-half-mass tail power two can be improved without adding hypotheses or changing
+the intermediate quantity.
+The obstruction is an actual cone law. It does not use a freely prescribed even law on a polar boundary.
+
+1. A product of a truncated three-cube with intervals
+For 0 < t ≤ 1, define
+
+                 Ht = [−1, 1]3 ∩ {|x1 + x2 + x3 | ≤ 3 − t},            Kd,t = Ht × [−1, 1]d−3 .
+
+The interpretation in dimension three is K3,t√= Ht . The unit ball is contained in Kd,t : its first-three-
+coordinate
+         √ sum  has absolute value at most 3 < 2 ≤ 3 − t. The body is contained in the cube and
+hence in dB2 . Its coordinate-facet contacts ±ei , with weights 1/2 for each sign, give the symmetric
+              d
+
+John identity i (ei eT
+                     i ) = I. Thus the unit ball is its John ellipsoid; there is no hidden change of
+               P
+
+normalization in the cofactor calculation.
+Put
+                                            8 − t2          (3 − t)t2            1
+                    Z = 24 − t3 ,         p=       ,    r=            ,     q=       .
+                                              Z                 Z              3−t
+The cone law of Ht has three direction pairs ±ei , each with total probability p, and one pair
+±q(e1 + e2 + e3 ), with total probability r. Signs within each pair are uniform. In particular 3p + r = 1.
+Indeed, |Ht | = 8 − t3 /3. Each coordinate facet has area
+                                                        √ 4 2− t /2 and support height one,
+                                                                2
+                                                                                        √ giving pair
+cone mass 8 − t . Each new triangular facet has area 3t /2, support height (3 − t)/ 3, and scaled
+                2
+
+normal ±q(e1 + e2 + e3 ). Its two-sign pair cone mass is (3 − t)t2 . The normalization is 3|Ht | = Z.
+The product cone law is supported on the same four direction pairs in the first three coordinates,
+together with ±e4 , . . . , ±ed . Its pair probabilities are
+                                      3
+                                P =     p       for each of the first three axes,
+                                      d
+                                                3
+                                      R=          r   for the diagonal pair,
+                                                d
+                                            1
+                                    w=            for every remaining axis.
+                                            d
+To verify the dimension factors directly, a facet lifted from the three-dimensional factor has its
+area-times-height and total body volume both multiplied by 2d−3 ; division by d|Kd,t | instead of 3|Ht |
+
+                                                           31
+Stronger symmetric projection stability                                                              mxym
+
+
+multiplies the corresponding normalized mass by 3/d. Every interval-axis pair has area-times-height
+|Kd,t |, and therefore normalized mass 1/d. This argument uses ordinary facet cone-volume mass and
+does not assume that an arbitrary discrete measure is realizable.
+
+2. Exact fourth-cofactor expectation
+Call the unsigned direction pairs types. The d + 1 types span dimension d, and their unique linear
+dependence is supported on the first three axes and the diagonal. A d + 1-tuple with fewer than d
+distinct types has all horizontal cofactors zero. A tuple with exactly d distinct types has one repeated
+parallel direction. If its rank is d, its kernel is generated by the relation between those two columns
+and has just two nonzero cofactors; if its rank is smaller, all cofactors vanish.
+Consequently ϕ > 0 occurs exactly when all d + 1 types occur. On that event the absolute cofactors
+are
+                                      1, q, q, q, 0, . . . , 0,
+                                                          | {z }
+                                                           d−3
+
+regardless of the independent signs. Since q ≤ 1/2, their fourth-largest member is q. The event
+probability is
+                                                           81(d + 1)! 3
+                             Π = (d + 1)!P 3 Rwd−3 =                  p r.
+                                                              dd+1
+Therefore
+                                   81(d + 1)! (8 − t2 )3 t2     (d + 1)! 2
+                            Eϕ =                             ∼          t .                (2.1)
+                                     d d+1    (24 − t )3  4      8dd+1
+
+3. Exact deficit
+For completeness this deficit can be computed without invoking the dimension-weighted product
+identity. The determinant expectation is
+                                                             27d! 2
+                              A = d!wd−3 P 2 (P + 3Rq) =         p (p + 3rq).
+                                                              dd
+The first term uses all d axis types; the three remaining nonzero terms replace one of the first three
+axes by the diagonal. Replacing any other axis by the diagonal gives zero determinant.
+Tuples with fewer than d types have zero cofactor mass. Tuples with exactly d types have zero
+balanced Rademacher defect, because their two nonzero cofactor magnitudes agree. On the all-distinct
+event, sign averaging gives
+                                                                1
+                                Eϵ |ϵ0 + q(ϵ1 + ϵ2 + ϵ3 )| = 1 + (3q − 1).
+                                                                4
+Here only the two all-equal patterns in the last three signs have |q(ϵ1 + ϵ2 + ϵ3 )| > 1; all other patterns
+have value q < 1. Its unnormalized cofactor defect is consequently
+                            1 + 3q      1           3q − 1       t
+                                                      
+                                   − 1 + (3q − 1) =        =          .
+                              2         4              4     4(3 − t)
+
+Using ∆ = (d + 1)Aδ, this proves
+
+                                           3     t3 (8 − t2 )      1 3
+                                  δd,t =                        ∼     t .                              (3.1)
+                                           d 8(24 − t )(4 + t )
+                                                      3       2   32d
+
+
+                                                     32
+Stronger symmetric projection stability                                                                  mxym
+
+
+In particular the normalization agrees with the completed manuscript’s dimension-three formula.
+Combining (2.1) and (3.1), for every β > 2/3,
+
+                                         Eϕ         (d + 1)!
+                                                ∼            (32d)β t2−3β −→ ∞.
+                                          β
+                                         δd,t        8dd+1
+
+No dimension-dependent finite constant can repair an exponent β > 2/3 in this intermediate estimate,
+in any fixed d ≥ 3.
+
+4. Sharpness of the weighted tail and contact-slab powers
+On the all-distinct event,
+                                           6−t                 1           1   1       t
+                     M = 1 + 3q =              ,       t4 =       ,   g=     −   =          .
+                                           3−t                6−t          2 M     2(6 − t)
+
+All other tuples have t4 = 0. Choose ρ = 1/7 and ηt = t/[2(6 − t)]. Then t4 > ρ on every all-distinct
+tuple and ηt ≤ 1/10 < 1/4. Thus
+
+                                                       81(d + 1)! (8 − t2 )3 t2 (6 − t)   3(d + 1)! 2
+                E M 1{t4 >ρ, g≤ηt } = M Π =
+                                    
+                                                                                        ∼          t .
+                                                         d d+1        (24 − t ) 3 4        4dd+1
+
+Since t = 12ηt /(1 + 2ηt ),
+
+                                     E[M 1{t4 >1/7, g≤ηt } ]   108(d + 1)!
+                               lim             2             =             > 0.                          (4.1)
+                               t↓0            ηt                  dd+1
+Therefore the exponent two in the weighted near-half-mass bound cannot be increased, even with ρ
+fixed and even for these actual cone laws.
+The corner-slab area estimate is independently sharp. The two diagonal facets of Kd,t lie in the
+respective three-coordinate corner slabs of width t: if x1 + x2 + x3 = 3 − t, then each xi ≥ 1 − t, with
+the analogous negative assertion. Their total regular boundary area is
+                                              √ d−3 2
+                                                32 t .
+
+Any area bound with a power strictly greater than two would fail as t ↓ 0. Flat facets, rather than
+exceptional nonregular contacts, already realize this obstruction. The completed projection-area and
+determinant-cancellation argument therefore cannot acquire a better power merely by a stronger
+universal patch-area estimate.
+
+5. A different geometric quantity does avoid this loss on the family
+The preceding obstruction concerns an intermediate moment. It does not exclude a stronger final
+stability exponent through another argument. Let Cd = [−1, 1]d and consider the actual cone support
+surplus
+                                      v = EνKd,t [hCd (X) − 1].
+Axis samples have zero surplus. At a diagonal sample the surplus is 3q − 1 = t/(3 − t), and its
+probability is R. Consequently
+
+                                            3t3                v     8(4 + t2 )  40
+                               v=                    ,             =            ≤ .                      (5.1)
+                                         d(24 − t3 )          δd,t    8−t  2      7
+
+                                                              33
+Stronger symmetric projection stability                                                           mxym
+
+
+The actual mixed-volume error used in product recovery is therefore linear in δ on this sharp half-
+mass family. Bounding the support surplus by a support-function Lipschitz constant times distance
+to the coordinate line/plane union discards a factor of order t here: the diagonal samples stay a
+positive distance from that union, while their support surplus tends to zero. A proof of a global joint
+block-selection and support-surplus estimate would be a different route; this note proves no such
+estimate.
+One loss-free weighted quantity is already available for arbitrary balanced coefficients. Since t4 ≤ 1/4
+and g ≤ 1/2,
+                                     t4 g ≤ min(t4 /2, g/4) ≤ D(t).
+Hence the exact deficit identity gives
+
+                                          E[ϕg] ≤ ∆ = (d + 1)Aδ.                                   (5.2)
+
+On the truncation family this weighted moment has order t3 , rather than the order t2 of Eϕ. Equation
+(5.2) is not by itself a geometric stability theorem: the missing step is to select one global line/plane
+decomposition while retaining an actual support-surplus weight instead of unweighted sparsity distance.
+
+Verification scope
+The analytic argument above proves the all-dimensional statements. An optional exact-rational
+regression in check_halfmass_sharpness.py checks the formulas by direct determinant/type and
+sign enumeration in dimensions three and four. It does not replace the proof and imposes no polytope
+restriction on the completed upper stability theorem.
+
+
+
+
+                                                   34
+Stronger symmetric projection stability                                                                       mxym
+
+
+VI Weighted cuts and geometric obstruction
+Geometry gate: exact obstructions and one restricted improvement
+Date: 7 October 2026. This note leaves the completed quantitative theorem unchanged. It isolates
+what can and cannot be inferred from the inputs of its product-recovery lemma. Every assertion
+below is proved explicitly; the general recovery theorem subsequently obtained is in the separate note
+geometry-rigidity.md.
+
+1. Measurements and a cancellation worth preserving
+Let Q be a centered full-dimensional convex body, let Rd =                      j Wj be an orthogonal decomposition,
+                                                                          L
+
+and write W = j Wj , P = j projWj Q. Set
+               S            Q
+
+
+                         s(Q, W) = EνQ dist(X, W),                v(Q, P ) = EνQ [hP (X) − 1].
+
+Because distance to the union of linear subspaces is homogeneous, the cone weight cancels exactly:
+
+                                                   1
+                                                         Z
+                                   s(Q, W) =                      dist(u, W) dSQ (u).                          (G1)
+                                                 d|Q|    S d−1
+
+There is no support-height factor left in (G1). This is valid for arbitrary surface-area measures,
+including atoms. The mixed-volume identity likewise is
+
+                                   1                                            V (Q[d − 1], P )
+                                        Z
+                      v(Q, P ) =            (hP (u) − hQ (u)) dSQ (u) =                          − 1.          (G2)
+                                 d|Q|                                                 |Q|
+                                   √
+The completed proof bounds v ≤ R( m + 1)s, then converts relative volume loss into a containment
+loss. The example below distinguishes those two steps.
+
+2. A complete exact calculation for weighted corner cuts
+Fix d ≥ 3, positive coefficients ai ≤ 1 with maxi ai = 1, and 0 < t ≤ mini ai . Let
+
+           S=                 H = S − t,      A∗ =                  Qa,t = [−1, 1]d ∩ {x : |⟨a, x⟩| ≤ H}.      (G3)
+                X                                    Y
+                       ai ,                              ai ,
+                  i                                  i
+
+Both removed corner simplices are contained in their respective cube corner regions: writing yi = 1−xi ,
+the positive cap is yi ≥ 0, i ai yi < t, and its intercepts are t/ai ≤ 1. Their interiors are disjoint. In
+                           P
+
+particular
+
+                                                                        2td
+                                              V := |Qa,t | = 2d −           .                                  (G4)
+                                                                       d!A∗
+For any coordinate block of size at most two, its projection is the entire coordinate cube. Indeed,
+at any vertex of that block choose signs among the remaining coordinates so that the full vertex
+is neither of the two all-equal vertices. Such a full vertex has |⟨a, x⟩| ≤ S − 2 mini ai ≤ S − t. All
+coordinate-block cube vertices therefore lift to points of Qa,t , and convexity proves the claim. Hence
+P = [−1, 1]d for every such coordinate partition. (The same statement holds for a single coordinate
+projection without needing a partition.)
+
+
+                                                             35
+Stronger symmetric projection stability                                                                 mxym
+
+
+Each coordinate facet has area
+
+                                                              td−1
+                                       αi = 2d−1 −                       .
+                                                        (d − 1)! k̸=i ak
+                                                                Q
+
+
+The two new facet area-normal vectors are
+
+                                                                td−1
+                                          ±ca,         c=               .                               (G5)
+                                                             (d − 1)!A∗
+
+For example, projecting a new facet onto e⊥
+                                          i gives a (d−1)-simplex of volume t
+                                                                             d−1 /((d−1)!
+                                                                                          k̸=i ak ) =
+                                                                                                    Q
+
+cai , proving (G5) by the projection area formula. All old facet normals belong to W, and the new
+cone-law sample is ±a/H. Consequently the exact formulas are
+
+                                    2td−1 dist(a, W)                                 2td
+                    s(Qa,t , W) =                    ,         v(Qa,t , P ) =                 .         (G6)
+                                     d(d − 1)!A∗ V                              d(d − 1)!A∗ V
+
+Their ratio is particularly informative:
+
+                                                 v        t
+                                                   =            .                                       (G7)
+                                                 s   dist(a, W)
+
+These formulas account for every facet, rather than just the new faces. The normalization can also be
+checked directly:
+
+                                           2         αi + 2cH = dV.
+                                               X
+
+                                                 i
+
+The maximal centered homothetic containment is exactly
+
+                                                      S−t                           t
+                            λP ⊆ Qa,t ,        λ=         ,        τ := 1 − λ =       .                 (G8)
+                                                       S                            S
+Indeed, the sole new slab constraint forces and suffices for this factor.
+
+3. Two sharp upper restrictions, with different exponents
+For a = (1, . . . , 1), write Kt = Qa,t . If the coordinate partition has largest block dimension b ∈ {1, 2},
+then
+                                   √
+                                  2 d−b                                            2
+                    s(Kt , W) =                td−1 ,          v(Kt , P ) =                  td .       (G9)
+                                d(d − 1)!|Kt |                                d(d − 1)!|Kt |
+
+Here P = [−1, 1]d , τ = t/d, and θ = 1 − |Kt |/|P | = 2td /(d!2d ). Thus the relative-volume-to-
+homothetic-containment exponent 1/d is optimal already in this nested symmetric family. It cannot
+be increased even when both bodies have uniformly bounded radii and a fixed positive inradius.
+For the stronger conclusion involving distance to the entire product class, the completed and
+independently audited Theorem B proves
+
+
+
+                                                        36
+Stronger symmetric projection stability                                                           mxym
+
+
+
+                                                                   t
+                                           D(Kt , Ed ) − 1 ≥          .                           (G10)
+                                                                  5d2
+Combining (G9) and (G10) proves the following precise intermediate obstruction. No estimate
+
+                                     D(Q, Ed ) − 1 ≤ Cd,r,R s(Q, W)β
+
+can hold for all bodies and all coordinate√line/plane decompositions with rB ⊆ Q ⊆ RB when
+β > 1/(d − 1). One may take r = 2/3, R = d, and the same fixed partition throughout: Kt contains
+(1 − t/d)[−1, 1]d , so these bounds hold for 0 < t ≤ 1. This obstruction does not prove that the present
+geometric 1/d exponent is sharp as a function of s. The exact normal measurement has a different
+scale from relative missing volume.
+
+4. A rigorous 1/(d − 1) recovery theorem for this full weighted family
+Assume in addition t ≤ 1/2. Choose a coordinate block attaining the maximum projected norm of a.
+At least one index k is outside that block because every block has dimension at most two and d ≥ 3.
+Since all coefficients are at most one,
+
+                                           A∗ ≤ ak ≤ dist(a, W).
+
+Using V ≤ 2d in (G6) gives
+
+                                                        td−1
+                                                  s≥          .
+                                                       d!2d−1
+Since S ≥ 1, (G8) yields
+
+                                                  t                    1/(d−1)
+                           D(Qa,t , Ed ) − 1 ≤       ≤ 2t ≤ 2 d!2d−1 s          .                 (G11)
+                                                 S−t
+This restricted theorem is uniform over arbitrarily small coefficients
+ai , subject only to t ≤ mini ai : nearly coordinate normals do not destroy the improved exponent
+for weighted corner cuts. Together with (G9)–(G10), it identifies 1/(d − 1) as the optimal geometry
+exponent within this family. It does not silently assert that the general body is a polytope or belongs
+to this family.
+
+5. An obstruction to an attractive extra-factor argument
+It is tempting to replace v ≤ Cs by v ≤ Cτ s, with τ = 1 − λ. That stronger intermediate assertion is
+false, even with fixed radius and inradius bounds and in the explicit family above.
+Take a = (1, ε, . . . , ε), t = ε, 0 < ε ≤ 1/2, and all coordinate lines as blocks. Then
+
+                                                              2ε               ε
+                         S = 1 + (d − 1)ε,       V = 2d −        ,   τ=                ,
+                                                              d!          1 + (d − 1)ε
+                     √
+                    2 d − 1ε                       2ε                v   1 + (d − 1)ε
+                 s=            ,          v=              ,             = √           −→ ∞.       (G12)
+                    d(d − 1)!V                 d(d − 1)!V            τs     d − 1ε
+
+
+                                                       37
+Stronger symmetric projection stability                                                          mxym
+
+
+                                                                                            √
+In particular no constant depending only on d, r, and R can justify this factor. Here Q ⊆       dB and,
+by (G8), Q ⊇ (1 − ε)[−1, 1]d ⊇ 21 B.
+Even the pointwise proposed estimate
+
+                                      hP (X) − 1 ≤ Cτ dist(X, W)
+                                                                                   √
+fails at both new facet samples: the left-hand side is ε/H, whereas the distance is d − 1ε/H. The
+ratio before inserting τ is fixed. The small facets responsible for a missing corner can instead be
+macroscopic nearly coordinate facets, with a normal angle of order ε. This is an actual convex-body
+counterexample, not a synthetic law unrelated to its body.
+
+6. What this resolves and what remains
+The cap-to-distance step is sharp under its volume-only input.                    The separate note
+geometry-rigidity.md now proves the general 1/(d − 1) recovery theorem under fixed ra-
+dius and inradius bounds, with explicit constants. Its direct proof thickens a two-dimensional convex
+section and applies the coarea formula to the off-block surface integral (G1). Thus (G9)–(G10)
+identify the sharp geometric exponent under these stronger inputs. No extra τ factor is inserted in
+(G2), and the volume-only cap conversion is bypassed.
+The half-mass and matching stages may also be coupled directly to the support surplus v, instead of
+first bounding s. Equations (G7) and (G12) show why such a coupling must preserve information
+about the normal direction and cannot depend only on global containment error.
+The all-product distance lower bound (G10) is imported only from the completed audited theorem;
+its proof handles arbitrary oblique planar factor products and does not assume uniqueness of the
+decomposition.
+
+7. Exact finite verification
+The adjacent script check_geometry_next.py uses rational arithmetic to verify facet normalization,
+the exact v identity, squared s identities, and the near-coordinate counterexample for finitely many
+dimensions and rational weights. It is supplementary verification, not a proof of any universal
+statement. It needs only Python’s standard library, uses explicit exceptions, and retains checks under
+python -O.
+The corner-cut examples distinguish missing volume of order td from off-block normal mass of order
+td−1 . The geometric 1/(d−1) estimate is established separately; the extra containment factor proposed
+for mixed-volume recovery is contradicted by the displayed family.
+
+
+
+
+                                                 38
+Stronger symmetric projection stability                                                                mxym
+
+
+VII Slanted actual cone law obstruction
+Coupled upper-end stability: a cone-law obstruction to a linear volume gate
+This note is separate from the completed upper-end stability supplement. It contains proved gate
+obstructions and one explicitly unproved route. No claim of an improved global exponent is made
+here. The separate matching and geometry notes improve the matching and containment gates,
+respectively.
+
+1. Precise obstruction under the selected-basis intermediate hypotheses
+Let 0<e<=1/2 and put
+
+                           Qe = [−1, 1]3 ∩ {|x1 + ex2 | ≤ 1, |x2 + ex3 | ≤ 1}.                         (1.1)
+
+The body is centrally symmetric and full-dimensional, with (1-e)[-1,1]ˆ3 subset Q_e subset
+[-1,1]ˆ3. Its cone law has five direction pairs
+
+           ±z1 = ±e1 ,     ±z2 = ±e2 ,     ±z3 = ±e3 ,      ±z4 = ±(1, e, 0),      ±z5 = ±(0, 1, e).   (1.2)
+
+Write p_i for the probability of the entire pair, with uniform signs inside each pair. Define
+
+                               Ve = 8 − 4e + e2 − e3 /3,
+                         C1 = C4 = 2 − e/2,          C2 = 2 − e,
+                                                                                                       (1.3)
+                               C3 = 4 − 3e + e − e3 /2,
+                                                 2
+                                                                  C5 = 2 − e + e2 /2,
+                                pi = 2Ci /(3Ve ).
+
+In particular sum p_i=1, p_4,p_5>=1/8, and
+
+                             (p1 , p2 , p3 , p4 , p5 ) −→ (1/6, 1/6, 1/3, 1/6, 1/6).                   (1.4)
+
+Let phi be the fourth-largest absolute cofactor of a four-sample tuple, and let A=E|det(X_1,X_2,X_3)|.
+Exact enumeration gives
+
+                                       Eϕ = 24p1 p3 p4 p5 e2 ∼ e2 /27,                                 (1.5)
+
+
+                       A = 6[p1 p2 p3 + ep1 p2 p5 + ep1 p3 p4 + p1 p3 p5
+                                                                                                       (1.6)
+                               + e2 p1 p4 p5 + p2 p3 p4 + ep2 p4 p5 + p3 p4 p5 ] −→ 2/9,
+
+and the scalar upper-end deficit is
+
+                                                      3p1 p3 p4 p5 e2
+                                δe = 12 − a(Qe ) =                    ∼ e2 /48.                        (1.7)
+                                                            A
+For the basis U=I, the simultaneous section cost used in the matching lemma is exactly
+
+
+
+
+                                                       39
+Stronger symmetric projection stability                                                                                   mxym
+
+
+
+
+            Z                                  3 ZZ
+  Q(U ) =       ϕ(e1 , e2 , e3 , x) dν(x) +            ϕ(e1 , . . . , ebj , . . . , e3 , x, y) dν(x)dν(y) = 2p4 p5 e2 ∼ e2 /18.
+                                               X
+
+                                               j=1
+                                                                                                                           (1.8)
+Let W be any coordinate partition into lines and planes, and let P_W=product_j proj_(W_j) Q_e.
+All four possible partitions satisfy
+
+                                 vW := EνQe [hPW (X) − 1]
+                                       = EνQe dist(X,             Wj ) ∈ {p4 e, p5 e, (p4 + p5 )e},
+                                                             [
+
+                                                              j
+                                                                                                                           (1.9)
+                            min vW = e min(p4 , p5 ) ≥ e/8.
+                             W
+
+Thus neither a coordinate-block mean-distance estimate nor a coordinate-block mixed-volume-surplus
+estimate with exponent greater than 1/2 in Q(U) can hold under these hypotheses. In particular, the
+tempting replacement
+
+                                       min vW ≤ CEϕ               or    min vW ≤ Cδe                                      (1.10)
+                                           W                             W
+
+is false for this uniformly nondegenerate family. These particular support calculations concern the
+prescribed basis and its coordinate partitions. Section 3 gives separate proofs for arbitrary block
+choices and for distance to the entire affine equality class; neither follows merely from (1.9).
+The unit-ball hypothesis of the matching lemma is obtained without changing the obstruction. Put
+c=sqrt(1+eˆ2), replace Q_e by c Q_e, and choose the basis with columns e_i/c. Every cone-law
+sample then has norm at most one, the basis determinant is cˆ(-3)>= (5/4)ˆ(-3/2), its coordinate
+law remains exactly (1.2), and its transformed primal body remains Q_e. The section cost and E
+phi are simply divided by cˆ3. Its determinant expectation remains bounded below by a positive
+constant. Consequently the example meets the bounded-law, determinant, simultaneous-section, and
+controlled-basis hypotheses with constants independent of e.
+
+2. Proof of the formulas
+Fix u=x_2. The allowed x_1 interval has length 2-e|u|. The allowed x_3 interval has length 2 if
+|u|<=1-e, and length 1+(1-|u|)/e otherwise. Therefore
+
+                                                           2,             u ≤ 1 − e,
+                                      Z 1              (
+                          |Qe | = 2         (2 − eu)                                 du = Ve .
+                                       0                   1 + (1 − u)/e, u > 1 − e
+
+On the positive x_1=1 facet one has -1<=u<=0, giving area 2-e/2. On the positive x_2=1 facet the
+allowed x_1 and x_3 lengths are 2-e and 1, respectively. On the positive x_3=1 facet one integrates
+2-e|u| over -1<=u<=1-e, giving C_3. These coordinate facets have support number one.
+The positive new facet x_1+e x_2=1 is parametrized by x_1=1-eu, 0<=u<=1, and its allowed x_3
+interval. Its area-normal vector is C_4(1,e,0); its area times support number is C_4=2-e/2. The
+other positive new facet has x_2=1-e x_3, 0<=x_3<=1, and x_1 length 2-e+eˆ2x_3. Its area-normal
+vector is C_5(0,1,e), with area times support number C_5. These calculations prove the cone masses
+in (1.3). They also give sum C_i=3V_e/2, as required by the divergence theorem.
+
+
+                                                                  40
+Stronger symmetric projection stability                                                         mxym
+
+
+For four samples to have four nonzero cofactors, their four distinct direction types must be {1,3,4,5}.
+Every other type set has a zero cofactor, and any repeated type also produces at most three nonzero
+cofactors. For the exceptional type set the cofactor magnitudes are
+
+                                                  (1, 1, e, e2 ).
+
+Its fourth absolute cofactor is eˆ2. Its unnormalized balanced Rademacher defect is exactly
+
+                               2 + e + e2                              e2
+                                          − E|ϵ1 + ϵ2 + eϵ3 + e2 ϵ4 | = .
+                                   2                                   2
+Indeed, equal signs on the first two terms contribute mean absolute value 2, and opposite signs
+contribute mean absolute value e; both cases have probability one half. All other tuples have zero
+defect by the balanced three-support equality. The probability of the exceptional four-type set is
+24p_1p_3p_4p_5. Equations (1.5) and (1.7) follow, using Delta=4A delta. Enumerating the ten
+three-type sets gives (1.6).
+For (1.8), the one-sample section vanishes because every sample is at most two-sparse. Among the
+two-sample sections, only the one omitting e_2 can have four nonzero cofactors; its two additional
+types must be 4,5, in either order. Its fourth cofactor is eˆ2, giving the formula.
+Every coordinate projection has both axis support numbers equal to one. The projection onto the 12
+plane preserves the first new inequality, and the projection onto the 23 plane preserves the second.
+Thus the 12|3 product has support surplus zero at z_4 and e at z_5; the 1|23 product has the
+opposite behavior. At the 13|2 product and the all-line product both new normals have surplus e.
+All axis normals have surplus zero. The Euclidean distances to the block unions are precisely the
+same: an unhandled pair has a tail of length e and all handled pairs have distance zero. This proves
+(1.9).
+
+3. What this says about a coupled proof
+Sharp square-root matching even with arbitrary block choices The mean-distance obstruc-
+tion is stronger than the fixed-coordinate statement. It persists if the line and plane blocks, and the
+sampled basis, can be chosen freely. The following elementary finite-set lemma makes this precise.
+Finite-set lemma. Let d>=3, 0<e<=1/2, and let Rˆd=direct_sum W_j, with dim W_j equal to one
+or two. For
+
+                                   Ze = {e1 , . . . , ed , e1 + ee2 , e2 + ee3 }
+
+one has
+
+                                                                 e
+                                          max dist(z,     Wj ) ≥ √ .                              (3.2)
+                                                        [
+                                          z∈Ze
+                                                        j       6 d
+
+Proof. Suppose the maximum is r<e/(6 sqrt d). Assign each axis vector to a nearest block and
+choose w_i in that block with |w_i-e_i|<=r. Let T have columns w_i. Then ||T-I||<=sqrt d
+r=:eta<1/12, so T is invertible. The number of assigned axis indices in each block is at most its
+dimension. Summing the numbers and dimensions gives d on both sides; therefore the assigned index
+sets J_j partition the axes, have sizes one or two, and W_j=T span{e_i:i in J_j}.
+For y in W_j,
+
+                                                        41
+Stronger symmetric projection stability                                                        mxym
+
+
+
+                                                                  η
+                                            | projJjc y| ≤           |y|.
+                                                                 1−η
+Take y to be the orthogonal projection of an arbitrary z onto W_j. Since |y|<=|z|, the triangle
+inequality gives
+
+                                                                             η
+                                dist(z, Wj ) ≥ dist(z, span Jj ) −              |z|.
+                                                                            1−η
+The two edges 12 and 23 cannot both be contained in blocks of a partition whose block sizes are
+at most two. For the corresponding uncontained edge vector z, its distance to every coordinate
+block is at least e. Since |z|<=sqrt(5/4), its distance to every actual block is at least e-3 sqrt(d)
+r>e/2>r, a contradiction. This proves (3.2).
+For every dimension, take the actual cone body
+
+                                           Ke,d = Qe × [−1, 1]d−3 .                             (3.3)
+
+Its cone law has the five three-dimensional direction-pair masses (3/d)p_i, and mass 1/d on each
+additional coordinate-axis pair. All d+2 masses are at least 3/(8d). Applying (3.2) therefore yields
+
+                                                                             e
+                                   inf EνKe,d dist(X,             Wj ) ≥                        (3.4)
+                                                         [
+                                                                                  .
+                                   (Wj )
+                                                             j
+                                                                           16d3/2
+
+The determinant and fourth-cofactor expectations are exactly
+
+                            d! 27                  (d + 1)! 81                  (d + 1)! 2
+                     Ad =         A,       Eϕd =               p1 p3 p4 p5 e2 ∼         e .     (3.5)
+                            6dd                       dd+1                       8dd+1
+For the first formula, a determinant needs one sample on each additional coordinate axis and three
+independent samples in the first three-dimensional subspace. For a positive fourth cofactor, a (d+1)-
+tuple needs one sample on every additional axis and the four exceptional types {1,3,4,5} in that
+subspace. Its four nonzero cofactors have magnitudes (1,1,e,eˆ2), with all other cofactors zero.
+This proves (3.5) by ordered-type counting. The scalar deficit is
+
+                                       δ(Ke,d ) = (3/d)δe ∼ e2 /(16d),                          (3.6)
+
+either by the dimension-weighted product identity or by the same exact defect count. The section
+cost at the axis basis is 18 p_4 p_5 eˆ2/dˆ2.
+Scaling by c=sqrt(1+eˆ2) puts the entire cone law in the unit ball. Every basis matrix formed from
+its samples has ||U||<=sqrt d. If its coordinate blocks are W'_j, their original blocks are U W'_j,
+and
+
+                                                         1
+                               dist(U −1 X,     Wj′ ) ≥ √ dist(X, U Wj′ ).
+                                              [                  [
+
+                                              j           d      j
+
+Consequently (3.4) gives a coordinate mean lower bound e/(16 c dˆ2) for every invertible sampled
+basis and every line/plane partition. The bounded-law determinant mass has an explicit uniform
+lower bound: using p_i>=1/8 and A>=6p_1p_2p_3>=3/256, one obtains
+
+
+                                                       42
+Stronger symmetric projection stability                                                               mxym
+
+
+
+                                                            27d!
+                                          Ad /cd ≥                     .                                (3.7)
+                                                     512dd (5/4)d/2
+
+It follows that, in every fixed dimension d>=3, no exponent greater than 1/2 can replace the square-
+root exponent in a mean-distance matching lemma under its actual hypotheses, even when the law is
+required to be the cone law of a uniformly nondegenerate symmetric body and the block decomposition
+can be chosen freely.
+
+The discrepancy is also linear in distance to the entire product class                       The same family
+satisfies a full-class geometric estimate:
+
+                                  e                          e
+                                   √ ≤ D(Ke,d , Ed ) − 1 ≤       ≤ 2e.                                  (3.8)
+                                120 d                      1 − e
+
+This does not improve the existing 1/d obstruction, since here the scalar deficit is of order eˆ2. It
+shows, however, that the matching square-root loss can reflect an actual first-order product discrepancy,
+rather than only a badly chosen coordinate presentation.
+We use a general elementary flat-facet observation. Suppose a full-dimensional body K has a facet with
+unit normal n, support number h>0, and a Euclidean tangent disk of radius rho contained in the facet.
+If K subset E subset (1+s)K, the upper boundary of E, over that disk and in direction n, is the
+graph of a finite concave function with height in [0,sh] above the facet plane. At a differentiability
+point in the concentric disk of radius rho/2, its gradient has norm at most 2sh/rho: restrict the
+concave function to each tangent line, and compare its derivative with secants to points at distance
+rho/2 on either side. Such differentiability points exist by local Lipschitz continuity of finite concave
+functions. Their outward unit normal n_E satisfies
+
+                                                                   2sh
+                                          dist(n, span nE ) ≤          .                                (3.9)
+                                                                    ρ
+If E is an affine product of line and plane factors, every regular outward normal of E lies in one of
+its dual blocks, a direct-sum partition into subspaces of dimensions one and two. Indeed, if two
+primal factors were on their boundaries at a point, their nonzero normal cones would give at least
+two independent normal rays; that point could not be regular. At a regular point exactly one factor
+is on its boundary, and its normal annihilates all the other primal blocks.
+For Q_e, tangent disks of radius rho=1/10 lie in its five positive facets, with centers
+
+             (1, −1/2, 0),   (0, 1, −1/2),    (0, 0, 1),    (1 − e/2, 1/2, 0),   (0, 1 − e/2, 1/2).
+
+For the two new facets the disk is taken in their actual tangent planes. All disks satisfy the remaining
+inequalities with room to spare for e<=1/2. In K_{e,d}, use the same centers with zero extra
+coordinates; the radius-1/10 disks in the full (d-1)-dimensional tangent planes remain inside the
+corresponding facets. Each additional coordinate facet also contains such a disk centered at its
+coordinate-axis endpoint. All facets in question have the scaled normals in Z_e, namely z=n/h.
+For any E in E_d with K_{e,d} subset E subset (1+s)K_{e,d}, (3.9) therefore puts every z in
+Z_e within
+
+                                             (1/h)(2sh/ρ) = 20s
+
+                                                       43
+Stronger symmetric projection stability                                                           mxym
+
+
+of the union of E’s dual line/plane blocks. Equation (3.2) forces 20s>=e/(6 sqrt d). Every Banach–
+Mazur sandwich can be rescaled to this form, and taking its infimum proves the lower bound in (3.8),
+without any attainment assumption. Finally (1-e)[-1,1]ˆd subset K_{e,d} subset [-1,1]ˆd
+gives the upper bound.
+
+A joint geometric gate remains necessary The family has deficit of order eˆ2 and a ridge-scale
+geometric discrepancy of order e. It does not threaten the conjectured optimal dimension-three power
+1/3, since e is smaller than a constant times deltaˆ(1/3). Instead it shows why it is unsafe to
+strengthen the final volume gate by inserting a square into the mean-distance estimate. The small
+determinant factor eˆ2 is compensated by geometry spread over a ridge, whose cap-volume scale has
+exponent two rather than three.
+By contrast, the three-coordinate corner truncation has E phi of order tˆ2, delta of order tˆ3, and
+support surplus of order tˆ3. In that case the half-mass gate and a support-Lipschitz estimate lose a
+factor which the actual support cost already contains. The two families show different gates becoming
+active. The separate extreme bounds cannot be assumed to saturate on one body.
+There is a useful exact weighted estimate. For the normalized cofactor tuple, let g=1/2-t_1 and
+phi=M t_4 on M>0, and define g=phi=0 on M=0. Since t_4<=1/4 and g<=1/2 on M>0, Lemma 3.1 of
+the completed proof implies
+
+                           t4 g ≤ min(t4 /2, g/4) ≤ D(t),     E[ϕg] ≤ N Aδ.                        (3.1)
+
+This carries no power loss, but it cannot replace the omitted-basis matching cost by itself. Matching
+consistency must still be proved using a geometric cost which treats a shallow long circuit and two
+overlapping nearly-axis pair directions differently.
+An unproved route toward the optimal 1/d is to produce a geometric witness at a product-containment
+defect t, classify the support involved by its active block dimension, and show that the cone-law masses
+times the circuit defect are at least c_d tˆr for some r<=d. A proof must account for determinant
+factors, the normal-angle factors in localized facet mass, and non-polyhedral contact patches together.
+Merely optimizing the independent mean estimates does not establish such a statement. No complete
+lemma of this form is proved in this note.
+
+4. Exact finite verification
+check_global_slanted.py replays the cone-mass identity, the determinant expectation, all 625
+ordered direction-type four-tuples with their 16 sign averages, all simultaneous two-sample sections,
+and the four block costs, at eight rational values of e. It also checks the product determinant,
+fourth-cofactor and scalar-deficit formulas in 32 cases across dimensions three through six. It uses
+exact rational arithmetic and exceptions rather than Python assertions. The finite checks support the
+displayed identities; the all-parameter proof is the algebra above.
+The finite-set lemma, facet disks, and flat-facet geometric argument in Section 3 also received a
+separate analytical audit, with no gap found. This is model-assisted mathematical review, not external
+peer review or formal certification; the exact tests are not used to establish these geometric arguments.
+
+
+
+
+                                                   44
+

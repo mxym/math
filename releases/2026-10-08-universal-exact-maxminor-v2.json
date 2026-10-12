@@ -1,0 +1,53 @@
+{
+  "title": "Universal exact finite subset-action moduli by maximal integer minors",
+  "version": "2",
+  "released_at": "2026-10-08",
+  "status": "Complete traditional mathematical proof draft, exact integer program and GitHub-hosted CI; initial compiled Lean lemma only; no external peer review or priority certification.",
+  "key_results": [
+    "Every finite n>=1, 0<=k<=n: exact optimal C_{n,k} as a finite maximum of integer maximal-minor absolute-value ratios, plus exact exceptional cases.",
+    "For m=min(k,n-k)>=1 the orbital constraint matrix has full row rank m+1; an explicit subdeterminant equals (-1)^m product_{r=0}^{m-1} binom(n-2r,m-r).",
+    "Every positive optimum is attained by an exact central signed perturbation involving at most m+2 conjugacy classes; bound m+2 sharp at (n,k)=(11,4).",
+    "All finite permutation group actions admit an analogous rational maximal-minor exact formula using their conjugacy classes and orbitals.",
+    "Preferred rank determinant proof uses finite integer-polynomial trace recurrences with no algebraic-root or formal-series derivation."
+  ],
+  "primary_files": [
+    "notes/sharp-robust-permanent/universal-exact/README.md",
+    "notes/sharp-robust-permanent/universal-exact/paper.md",
+    "notes/sharp-robust-permanent/universal-exact/typeset/paper.pdf",
+    "notes/sharp-robust-permanent/universal-exact/typeset/paper.md",
+    "notes/sharp-robust-permanent/universal-exact/VERIFICATION.md",
+    "notes/sharp-robust-permanent/universal-exact/LEAN_ROADMAP.md",
+    "notes/sharp-robust-permanent/code/check_universal_max_minors.py",
+    "notes/sharp-robust-permanent/code/check_finite_difference_rank.py",
+    "notes/sharp-robust-permanent/code/check_generic_circuit_audit.py",
+    "notes/sharp-robust-permanent/code/check_sparse_support_sharpness.py",
+    "notes/sharp-robust-permanent/formal/KernelMass.lean"
+  ],
+  "typeset_pdf": {
+    "pages": 10,
+    "sha256": "d349387be3c0f5f2cdb731a14e4a3882484c49758c92a2b343b7af8417192b82",
+    "git_blob": "aa48d74dbe52de45a559f806c7c377d616bae8aa"
+  },
+  "fixed_integer_tests": {
+    "max_minor_case_values": 15,
+    "largest_tuple_enumeration": 118755,
+    "rank_product_tested_m": "1..9",
+    "finite_difference_m": "1..10",
+    "finite_difference_pairs": 30
+  },
+  "sparse_sharp_case": "(11,4), exact 6 tight types and 5x6 cofactor vector with no zero entries",
+  "independent_generic_circuit_tests": 214,
+  "successful_hosted_ci": "https://github.com/mxym/math/actions/runs/37733321450",
+  "lean": {
+    "status": "partial",
+    "version": "4.34.1",
+    "compiled_lemma": "mass_zero_of_first_row_ones",
+    "whole_theorem_formalized": false
+  },
+  "critical_limitations": [
+    "The formula remains a finite maximum over potentially exponentially many integer determinant candidates as m grows; a bounded-branch elementary piecewise-rational formula is not proved.",
+    "Polynomial runtime is asserted only for fixed m as n grows, not polynomial in logarithmic input size or variable m.",
+    "No full Lean kernel verification, external human referee report or systematic novelty/priority certification."
+  ],
+  "previous_manifest": "releases/2026-10-08-universal-exact-maxminor-v1.json"
+}

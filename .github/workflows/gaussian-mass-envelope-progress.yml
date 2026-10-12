@@ -1,0 +1,53 @@
+name: Gaussian mass-envelope analytic core
+
+on:
+  push:
+    branches: [main, formalize/gaussian-mass-envelope-analytic-core]
+    paths:
+      - 'formalizations/gaussian-mass-envelope-progress/**'
+      - '.github/workflows/gaussian-mass-envelope-progress.yml'
+  pull_request:
+    paths:
+      - 'formalizations/gaussian-mass-envelope-progress/**'
+      - '.github/workflows/gaussian-mass-envelope-progress.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install the exact Lean release
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst \
+            --output "$RUNNER_TEMP/lean.tar.zst"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/lean-4.34.1-linux/bin" >> "$GITHUB_PATH"
+      - name: Pinned dependency cache and complete Lake build
+        working-directory: formalizations/gaussian-mass-envelope-progress
+        run: |
+          set -euo pipefail
+          lean --version
+          bash fetch_cache.sh
+          lake build
+      - name: Fresh own modules, source audit, empty-kernel replay and mutation rejection
+        working-directory: formalizations/gaussian-mass-envelope-progress
+        run: |
+          set -euo pipefail
+          python3 reproduce.py --output-dir "$RUNNER_TEMP/gaussian-mass-envelope-verification"
+      - name: Preserve the actual verification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: gaussian-mass-envelope-verification-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/gaussian-mass-envelope-verification/*.log
+            ${{ runner.temp }}/gaussian-mass-envelope-verification/*.json
+            ${{ runner.temp }}/gaussian-mass-envelope-verification/*.txt
+          if-no-files-found: warn

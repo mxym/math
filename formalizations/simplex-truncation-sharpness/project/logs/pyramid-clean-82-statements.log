@@ -1,0 +1,627 @@
+Entry005.pyramidSet_mono.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K L : Set E} (h : K ⊆ L) :
+  Entry005.pyramidSet K ⊆ Entry005.pyramidSet L
+'Entry005.pyramidSet_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_zero_mem.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K : Set E}
+  (h : 0 ∈ K) : 0 ∈ Entry005.pyramidSet K
+'Entry005.pyramidSet_zero_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_apex_mem.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (K : Set E) :
+  Entry005.pyramidApex ∈ Entry005.pyramidSet K
+'Entry005.pyramidSet_apex_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_subset_dilation.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K L : Set E}
+  (hzero : 0 ∈ K) (a : ℝ) (ha : 1 ≤ a) (hLK : L ⊆ a • K) : Entry005.pyramidSet L ⊆ a • Entry005.pyramidSet K
+'Entry005.pyramidSet_subset_dilation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.projectionVolumeSet_neg_normal.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (K : Set E) (u : E) :
+  Entry005.projectionVolumeSet K (-u) = Entry005.projectionVolumeSet K u
+'Entry005.projectionVolumeSet_neg_normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_projection_body_compact_general.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (K : Set E) : IsCompact (Entry005.projectionBodySet K)
+'Entry005.actual_projection_body_compact_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (K : Set E) (P : ℕ → Set E)
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hP : ∀ (m : ℕ), IsCompact (P m)) (hPc : ∀ (m : ℕ), Convex ℝ (P m))
+  (hzero : 0 ∈ K) (hV : (MeasureTheory.volume K).toReal ≠ 0) (δ : ℕ → ℝ) (hδ : ∀ (m : ℕ), 0 ≤ δ m)
+  (hlim : Filter.Tendsto δ Filter.atTop (nhds 0)) (hKP : ∀ (m : ℕ), K ⊆ P m) (hPK : ∀ (m : ℕ), P m ⊆ (1 + δ m) • K) :
+  Filter.Tendsto (fun m => Entry005.projectionRatio (Entry005.pyramidSet (P m))) Filter.atTop
+    (nhds (Entry005.projectionRatio (Entry005.pyramidSet K)))
+'Entry005.tendsto_pyramid_projection_ratio_of_dilation_sandwich' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Entry005.tendsto_entryA_of_dilation_sandwich.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (K : Set E) (P : ℕ → Set E) (hc : IsCompact K)
+  (hconv : Convex ℝ K) (hP : ∀ (m : ℕ), IsCompact (P m)) (hPc : ∀ (m : ℕ), Convex ℝ (P m)) (hzero : 0 ∈ K)
+  (hV : (MeasureTheory.volume K).toReal ≠ 0) (hQ : Entry005.projectionRatio K ≠ 0) (δ : ℕ → ℝ) (hδ : ∀ (m : ℕ), 0 ≤ δ m)
+  (hlim : Filter.Tendsto δ Filter.atTop (nhds 0)) (hKP : ∀ (m : ℕ), K ⊆ P m) (hPK : ∀ (m : ℕ), P m ⊆ (1 + δ m) • K) :
+  Filter.Tendsto (fun m => Entry005.entryA (P m)) Filter.atTop (nhds (Entry005.entryA K))
+'Entry005.tendsto_entryA_of_dilation_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_projection_body_volume_pos.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ}
+  [Nontrivial (Entry005.Space d)] (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1)
+  (hh : ∀ (i : ι), 0 < h i) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  0 < (MeasureTheory.volume (Entry005.projectionBodySet (Entry005.finiteHalfspaceSet n h))).toReal
+'Entry005.finite_halfspace_projection_body_volume_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_entryA_lifted_moment.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.entryA (Entry005.finiteHalfspaceSet n h) =
+    (∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ)
+            (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1)) /
+      ((↑d + 1) *
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) d)
+'Entry005.finite_halfspace_entryA_lifted_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidBaseIsometry_val.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (x : E) :
+  ↑(Entry005.pyramidBaseIsometry x) = WithLp.toLp 2 (x, 0)
+'Entry005.pyramidBaseIsometry_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_base_facet_chart.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  {ι : Type u_2} (n : ι → E) (h : ι → ℝ) :
+  Entry005.finiteHalfspaceFacetChart (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) none =
+    ⇑Entry005.pyramidBaseIsometry '' Entry005.finiteHalfspaceSet n h
+'Entry005.pyramid_base_facet_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_base_facet_area.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {ι : Type u_2}
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) none =
+    (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal
+'Entry005.pyramid_base_facet_area' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSlope_pos (h : ℝ) : 0 < Entry005.pyramidSlope h
+'Entry005.pyramidSlope_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSlope_sq (h : ℝ) : Entry005.pyramidSlope h ^ 2 = 1 + h ^ 2
+'Entry005.pyramidSlope_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidBaseNormal_unit.{u_2} {E : Type u_2} [NormedAddCommGroup E] : ‖Entry005.pyramidBaseNormal‖ = 1
+'Entry005.pyramidBaseNormal_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSideNormal_unit.{u_2} {E : Type u_2} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E) (h : ℝ)
+  (hn : ‖n‖ = 1) : ‖Entry005.pyramidSideNormal n h‖ = 1
+'Entry005.pyramidSideNormal_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.inner_pyramidBaseNormal.{u_2} {E : Type u_2} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (x : E) (t : ℝ) :
+  inner ℝ Entry005.pyramidBaseNormal (WithLp.toLp 2 (x, t)) = -t
+'Entry005.inner_pyramidBaseNormal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.inner_pyramidSideNormal.{u_2} {E : Type u_2} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n x : E)
+  (h t : ℝ) :
+  inner ℝ (Entry005.pyramidSideNormal n h) (WithLp.toLp 2 (x, t)) = (inner ℝ n x + h * t) / Entry005.pyramidSlope h
+'Entry005.inner_pyramidSideNormal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.mem_pyramidHalfspace_iff.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (n : ι → E) (h : ι → ℝ) (x : E) (t : ℝ) :
+  WithLp.toLp 2 (x, t) ∈
+      Entry005.finiteHalfspaceSet (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) ↔
+    0 ≤ t ∧ ∀ (i : ι), inner ℝ (n i) x + h i * t ≤ h i
+'Entry005.mem_pyramidHalfspace_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_convex.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  (n : ι → E) (h : ι → ℝ) : Convex ℝ (Entry005.finiteHalfspaceSet n h)
+'Entry005.finite_halfspace_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_homogeneous_eq_zero.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (n : ι → E) (h : ι → ℝ) (hh : ∀ (i : ι), 0 ≤ h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) (x : E) (hx : ∀ (i : ι), inner ℝ (n i) x ≤ 0) : x = 0
+'Entry005.finite_halfspace_homogeneous_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidHalfspaceNormal_unit.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (n : ι → E) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (i : Option ι) :
+  ‖Entry005.pyramidHalfspaceNormal n h i‖ = 1
+'Entry005.pyramidHalfspaceNormal_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidHalfspaceNormal_injective.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (n : ι → E) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hinj : Function.Injective n) :
+  Function.Injective (Entry005.pyramidHalfspaceNormal n h)
+'Entry005.pyramidHalfspaceNormal_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_index_nonempty.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [Nontrivial E] (n : ι → E) (h : ι → ℝ) (hh : ∀ (i : ι), 0 ≤ h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) : Nonempty ι
+'Entry005.finite_halfspace_index_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_finite_halfspace.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [Nontrivial E] (n : ι → E) (h : ι → ℝ) (hh : ∀ (i : ι), 0 < h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.pyramidSet (Entry005.finiteHalfspaceSet n h) =
+    Entry005.finiteHalfspaceSet (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h)
+'Entry005.pyramidSet_finite_halfspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume {d : ℕ} :
+  Measurable fun w => |(Entry005.anchorMatrix w).det|
+'Entry005.PyramidIidMomentReuse.measurable_iid_anchor_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable {d : ℕ} (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] (hX : ∀ (i : Fin d), MeasureTheory.Integrable (fun x => x i) ν) :
+  MeasureTheory.Integrable (fun w => |(Entry005.anchorMatrix w).det|) (Entry005.iidLaw ν (d + 1))
+'Entry005.PyramidIidMomentReuse.iid_anchor_volume_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq {d : ℕ} (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] :
+  ∫ (w : Fin (d + 1) → Fin d → ℝ), |(Entry005.anchorMatrix w).det| ∂Entry005.iidLaw ν (d + 1) =
+    ∫ (z : (Fin d → Fin d → ℝ) × (Fin d → ℝ)), |Entry005.liftedDeterminant z.1 z.2| ∂(Entry005.iidLaw ν d).prod ν
+'Entry005.PyramidIidMomentReuse.iid_anchor_volume_integral_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Entry005.pyramidLiftCoordinates_apply (d : ℕ) (x : Fin d → ℝ) (t : ℝ) :
+  (Entry005.pyramidLiftCoordinates d) (WithLp.toLp 2 fun i => Fin.cases t x i) = WithLp.toLp 2 (WithLp.toLp 2 x, t)
+'Entry005.pyramidLiftCoordinates_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_lifted_law_generator.{u_1} {ι : Type u_1} {d : ℕ} (a h : ι → ℝ) (n : ι → Entry005.Space d) (M : ℝ)
+  (hh : ∀ (i : ι), h i ≠ 0) (i : ι) :
+  (Entry005.pyramidLiftCoordinates d)
+      ((a i * h i / M) •
+        WithLp.toLp 2 fun i_1 => Fin.cases 1 (Entry005.finiteConePoint (fun i j => (n i).ofLp j) h i) i_1) =
+    (a i / M) • WithLp.toLp 2 (n i, h i)
+'Entry005.pyramid_lifted_law_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_lifted_law_image.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} (a h : ι → ℝ) (n : ι → Entry005.Space d)
+  (M : ℝ) (hh : ∀ (i : ι), h i ≠ 0) :
+  ⇑(Entry005.pyramidLiftCoordinates d) ''
+      Entry005.finiteLiftedLawZonotope (fun i => a i * h i / M) (Entry005.finiteConePoint (fun i j => (n i).ofLp j) h) =
+    Entry005.finiteZonotope fun i => (a i / M) • WithLp.toLp 2 (n i, h i)
+'Entry005.pyramid_lifted_law_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_zonotope_eq_scaled_lifted.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.pyramidSideZonotope n h =
+    ((MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal / 2) •
+      ⇑(Entry005.pyramidLiftCoordinates d) ''
+        Entry005.finiteLiftedLawZonotope
+          (fun i =>
+            Entry005.finiteHalfspaceFacetArea n h i * h i /
+              (↑d * (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal))
+          (Entry005.finiteConePoint (fun i j => (n i).ofLp j) h)
+'Entry005.pyramid_side_zonotope_eq_scaled_lifted' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_zonotope_volume_lifted_moment.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ}
+  [Nontrivial (Entry005.Space d)] (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1)
+  (hh : ∀ (i : ι), 0 < h i) (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  (MeasureTheory.volume (Entry005.pyramidSideZonotope n h)).toReal =
+    (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal ^ (d + 1) / ↑(d + 1).factorial *
+      ∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ)
+            (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1)
+'Entry005.pyramid_side_zonotope_volume_lifted_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.centered_iid_lifted_moment_ge_horizontal {d : ℕ} (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] (hX : ∀ (i : Fin d), MeasureTheory.Integrable (fun x => x i) ν)
+  (hcenter : ∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂ν = 0) :
+  ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d ≤
+    ∫ (w : Fin (d + 1) → Fin d → ℝ), |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1)
+'Entry005.centered_iid_lifted_moment_ge_horizontal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_horizontal_moment_pos.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  0 <
+    ∫ (w : Fin d → Fin d → ℝ),
+      |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) d
+'Entry005.finite_halfspace_horizontal_moment_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_lifted_moment_pos.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  0 <
+    ∫ (w : Fin (d + 1) → Fin d → ℝ),
+      |Entry005.liftedDeterminant (fun j => w j.succ)
+          (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1)
+'Entry005.finite_halfspace_lifted_moment_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_entryDefect_moment.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  ((↑d + 1) *
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) d) *
+      Entry005.entryDefect (Entry005.finiteHalfspaceSet n h) =
+    ∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ)
+            (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1) -
+      ∫ (w : Fin d → Fin d → ℝ),
+        |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) d
+'Entry005.finite_halfspace_entryDefect_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_defect_over_first_moment.{u_1} {ι : Type u_1} [Fintype ι] {d : ℕ}
+  [Nontrivial (Entry005.Space d)] (n : ι → Entry005.Space d) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1)
+  (hh : ∀ (i : ι), 0 < h i) (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  (∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ)
+              (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1) -
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) d) /
+      ∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ)
+            (w 0)| ∂Entry005.iidLaw (Entry005.finiteHalfspaceConeLaw n h) (d + 1) =
+    (↑d + 1) * Entry005.entryDefect (Entry005.finiteHalfspaceSet n h) /
+      (1 + (↑d + 1) * Entry005.entryDefect (Entry005.finiteHalfspaceSet n h))
+'Entry005.finite_halfspace_defect_over_first_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_projection_generator_eq.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [Nontrivial E] (n : ι → E)
+  (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i) (hc : IsCompact (Entry005.finiteHalfspaceSet n h))
+  (i : Option ι) :
+  (Entry005.finiteHalfspaceFacetArea (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) i / 2) •
+      Entry005.pyramidHalfspaceNormal n h i =
+    Entry005.pyramidProjectionGenerator n h i
+'Entry005.pyramid_projection_generator_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_projection_body_eq_zonotope.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [Nontrivial E] (n : ι → E)
+  (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i) (hinj : Function.Injective n)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.projectionBodySet (Entry005.pyramidSet (Entry005.finiteHalfspaceSet n h)) =
+    Entry005.finiteZonotope (Entry005.pyramidProjectionGenerator n h)
+'Entry005.pyramid_projection_body_eq_zonotope' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_finite_halfspace_volume.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  (MeasureTheory.volume (Entry005.pyramidSet (Entry005.finiteHalfspaceSet n h))).toReal =
+    (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal / (↑(Module.finrank ℝ E) + 1)
+'Entry005.pyramid_finite_halfspace_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_halfspace_facet_area_of_empty.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ) (i : ι)
+  (hn : ‖n i‖ = 1) (he : Entry005.finiteHalfspaceFacet n h i = ∅) : Entry005.finiteHalfspaceFacetArea n h i = 0
+'Entry005.finite_halfspace_facet_area_of_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_facet_area_of_empty.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [Nontrivial E] (n : ι → E)
+  (h : ι → ℝ) (i : ι) (hn : ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i) (hc : IsCompact (Entry005.finiteHalfspaceSet n h))
+  (he : Entry005.finiteHalfspaceFacet n h i = ∅) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) (some i) =
+    0
+'Entry005.pyramid_side_facet_area_of_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_horizontal_projection.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (x : E)
+  (t : ℝ) :
+  (ℝ ∙ Entry005.pyramidBaseNormal)ᗮ.orthogonalProjectionOnto (WithLp.toLp 2 (x, t)) = Entry005.pyramidBaseIsometry x
+'Entry005.pyramid_horizontal_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_horizontal_image.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  {ι : Type u_2} [Fintype ι] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ)
+  (hn : ∀ (i : ι), ‖n i‖ = 1) (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  ⇑(ℝ ∙ Entry005.pyramidBaseNormal)ᗮ.orthogonalProjectionOnto '' Entry005.pyramidSideZonotope n h =
+    ⇑Entry005.pyramidBaseIsometry ''
+      ((1 / ↑(Module.finrank ℝ E)) • Entry005.projectionBodySet (Entry005.finiteHalfspaceSet n h))
+'Entry005.pyramid_side_horizontal_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_horizontal_volume.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  {ι : Type u_2} [Fintype ι] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ)
+  (hn : ∀ (i : ι), ‖n i‖ = 1) (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  (MeasureTheory.volume
+        (⇑(ℝ ∙ Entry005.pyramidBaseNormal)ᗮ.orthogonalProjectionOnto '' Entry005.pyramidSideZonotope n h)).toReal =
+    (1 / ↑(Module.finrank ℝ E)) ^ Module.finrank ℝ E *
+      (MeasureTheory.volume (Entry005.projectionBodySet (Entry005.finiteHalfspaceSet n h))).toReal
+'Entry005.pyramid_side_horizontal_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_projection_body_volume_decomposition.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] {ι : Type u_2} [Fintype ι] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+  [Nontrivial E] (n : ι → E) (h : ι → ℝ) (hn : ∀ (i : ι), ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hinj : Function.Injective n) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  (MeasureTheory.volume (Entry005.projectionBodySet (Entry005.pyramidSet (Entry005.finiteHalfspaceSet n h)))).toReal =
+    (MeasureTheory.volume (Entry005.pyramidSideZonotope n h)).toReal +
+      (MeasureTheory.volume (Entry005.finiteHalfspaceSet n h)).toReal *
+          (1 / ↑(Module.finrank ℝ E)) ^ Module.finrank ℝ E *
+        (MeasureTheory.volume (Entry005.projectionBodySet (Entry005.finiteHalfspaceSet n h))).toReal
+'Entry005.pyramid_projection_body_volume_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_chart_offset.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E) (h : ℝ)
+  (hn : ‖n‖ = 1) :
+  (h / Entry005.pyramidSlope h) • Entry005.pyramidSideNormal n h + ↑(Entry005.pyramidSideChartApex n h) =
+    Entry005.pyramidApex
+'Entry005.pyramid_side_chart_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_radial_coordinates.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E)
+  (h : ℝ) (hn : ‖n‖ = 1) (q : ↥(ℝ ∙ n)ᗮ) (r : ℝ) :
+  Entry005.pyramidApex + ↑((Entry005.pyramidSideFrame n h hn) (WithLp.toLp 2 (r • q, r * Entry005.pyramidSlope h))) =
+    WithLp.toLp 2 (r • (h • n + ↑q), 1 - r)
+'Entry005.pyramid_side_radial_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_facet_chart.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  {ι : Type u_2} [Nontrivial E] (n : ι → E) (h : ι → ℝ) (i : ι) (hn : ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.finiteHalfspaceFacetChart (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h)
+      (some i) =
+    (fun y => Entry005.pyramidSideChartApex (n i) (h i) + y) ''
+        ⇑(Entry005.pyramidSideFrame (n i) (h i) hn) ''
+          WithLp.toLp 2 ''
+            Entry005.radialCone (Entry005.finiteHalfspaceFacetChart n h i) (Entry005.pyramidSlope (h i)) ∪
+      {Entry005.pyramidSideChartApex (n i) (h i)}
+'Entry005.pyramid_side_facet_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_facet_of_empty.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  {ι : Type u_2} [Nontrivial E] (n : ι → E) (h : ι → ℝ) (i : ι) (hn : ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i)
+  (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) (he : Entry005.finiteHalfspaceFacet n h i = ∅) :
+  Entry005.finiteHalfspaceFacet (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) (some i) =
+    {Entry005.pyramidApex}
+'Entry005.pyramid_side_facet_of_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramid_side_facet_area.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {ι : Type u_2}
+  [Nontrivial E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (n : ι → E) (h : ι → ℝ) (i : ι)
+  (hn : ‖n i‖ = 1) (hh : ∀ (i : ι), 0 < h i) (hc : IsCompact (Entry005.finiteHalfspaceSet n h)) :
+  Entry005.finiteHalfspaceFacetArea (Entry005.pyramidHalfspaceNormal n h) (Entry005.pyramidHalfspaceHeight h) (some i) =
+    Entry005.finiteHalfspaceFacetArea n h i * Entry005.pyramidSlope (h i) / ↑(Module.finrank ℝ E)
+'Entry005.pyramid_side_facet_area' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSideFrameLinear_val.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E) (h : ℝ)
+  (hn : ‖n‖ = 1) (q : ↥(ℝ ∙ n)ᗮ) (w : ℝ) :
+  ↑((Entry005.pyramidSideFrameLinear n h hn) (WithLp.toLp 2 (q, w))) =
+    WithLp.toLp 2 (↑q + (w / Entry005.pyramidSlope h * h) • n, -w / Entry005.pyramidSlope h)
+'Entry005.pyramidSideFrameLinear_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSideFrameLinear_norm.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E) (h : ℝ)
+  (hn : ‖n‖ = 1) (p : WithLp 2 (↥(ℝ ∙ n)ᗮ × ℝ)) : ‖(Entry005.pyramidSideFrameLinear n h hn) p‖ = ‖p‖
+'Entry005.pyramidSideFrameLinear_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSideFrameLinear_surjective.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E)
+  (h : ℝ) (hn : ‖n‖ = 1) : Function.Surjective ⇑(Entry005.pyramidSideFrameLinear n h hn)
+'Entry005.pyramidSideFrameLinear_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSideFrame_val.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : E) (h : ℝ)
+  (hn : ‖n‖ = 1) (q : ↥(ℝ ∙ n)ᗮ) (w : ℝ) :
+  ↑((Entry005.pyramidSideFrame n h hn) (WithLp.toLp 2 (q, w))) =
+    WithLp.toLp 2 (↑q + (w / Entry005.pyramidSlope h * h) • n, -w / Entry005.pyramidSlope h)
+'Entry005.pyramidSideFrame_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidBaseMap_apply.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (x : E) :
+  Entry005.pyramidBaseMap x = WithLp.toLp 2 (x, 0)
+'Entry005.pyramidBaseMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidFlip_apply.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] (x : E) (t : ℝ) :
+  Entry005.pyramidFlip (WithLp.toLp 2 (x, t)) = WithLp.toLp 2 (x, 1 - t)
+'Entry005.pyramidFlip_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_eq_flip_radial.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K : Set E}
+  (hK : Convex ℝ K) :
+  Entry005.pyramidSet K = ⇑Entry005.pyramidFlip '' WithLp.toLp 2 '' Entry005.radialCone K 1 ∪ {Entry005.pyramidApex}
+'Entry005.pyramidSet_eq_flip_radial' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.mem_pyramidSet_iff.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K : Set E}
+  (hK : Convex ℝ K) (p : WithLp 2 (E × ℝ)) :
+  p ∈ Entry005.pyramidSet K ↔ p = Entry005.pyramidApex ∨ ∃ r ∈ Set.Icc 0 1, ∃ z ∈ K, p = WithLp.toLp 2 (r • z, 1 - r)
+'Entry005.mem_pyramidSet_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_compact.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {K : Set E}
+  (hc : IsCompact K) (hconv : Convex ℝ K) : IsCompact (Entry005.pyramidSet K)
+'Entry005.pyramidSet_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidFlip_volume.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  [MeasurableSpace E] [BorelSpace E] (S : Set (WithLp 2 (E × ℝ))) :
+  MeasureTheory.volume (⇑Entry005.pyramidFlip '' S) = MeasureTheory.volume S
+'Entry005.pyramidFlip_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.pyramidSet_volume.{u_1} {E : Type u_1} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+  [MeasurableSpace E] [BorelSpace E] {K : Set E} (hc : IsCompact K) (hconv : Convex ℝ K) :
+  (MeasureTheory.volume (Entry005.pyramidSet K)).toReal = (MeasureTheory.volume K).toReal / (↑(Module.finrank ℝ E) + 1)
+'Entry005.pyramidSet_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_zonotope_option.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (g : Option ι → E) :
+  Entry005.finiteZonotope g = Entry005.symmetricSegmentExtrusion (Entry005.finiteZonotope fun i => g (some i)) (g none)
+'Entry005.finite_zonotope_option' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_zonotope_scalar_image.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] (g : ι → E) (c : ℝ) :
+  (Entry005.finiteZonotope fun i => c • g i) = c • Entry005.finiteZonotope g
+'Entry005.finite_zonotope_scalar_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.finite_zonotope_option_volume.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [NormedAddCommGroup E]
+  [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (g : Option ι → E) :
+  MeasureTheory.volume (Entry005.finiteZonotope g) =
+    MeasureTheory.volume (Entry005.finiteZonotope fun i => g (some i)) +
+      ENNReal.ofReal (2 * ‖g none‖) *
+        MeasureTheory.volume (⇑(ℝ ∙ g none)ᗮ.orthogonalProjectionOnto '' Entry005.finiteZonotope fun i => g (some i))
+'Entry005.finite_zonotope_option_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_geometric_first_moment_assignment {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) :
+  ∃ ν,
+    (∀ᵐ (x : Fin d → ℝ) ∂↑ν, ‖WithLp.toLp 2 x‖ ≤ 1) ∧
+      (∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂↑ν = 0) ∧
+        (∀ (u : Entry005.Space d),
+            ‖u‖ = 1 →
+              (Entry005.negativeIntegral ↑ν fun x => (fun j => u.ofLp j) ⬝ᵥ x) =
+                Entry005.projectionVolumeSet K u /
+                  (↑(Module.finrank ℝ (Entry005.Space d)) * (MeasureTheory.volume K).toReal)) ∧
+          ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d =
+              ↑d.factorial / (↑d * (MeasureTheory.volume K).toReal) ^ d *
+                (MeasureTheory.volume (Entry005.projectionBodySet K)).toReal ∧
+            0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d ∧
+              Entry005.entryA K =
+                  (∫ (w : Fin (d + 1) → Fin d → ℝ),
+                      |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw (↑ν) (d + 1)) /
+                    ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d) ∧
+                Entry005.determinantLawDefect (Entry005.iidLaw (↑ν) d) (↑ν) id id =
+                    ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d) *
+                      Entry005.entryDefect K ∧
+                  ∃ w,
+                    ∃ (_ : (Entry005.anchorMatrix w).det ≠ 0),
+                      (∀ (i : Fin (d + 1)), w i ∈ (↑ν).support ∧ ‖WithLp.toLp 2 (w i)‖ ≤ 1) ∧
+                        (AffineIndependent ℝ fun i => WithLp.toLp 2 (w i)) ∧
+                          (Measurable fun x => Entry005.largestCoordinate (Entry005.anchorCoordinates w x)) ∧
+                            MeasureTheory.Integrable
+                                (fun x =>
+                                  ‖WithLp.toLp 2 x -
+                                      WithLp.toLp 2 (w (Entry005.largestCoordinate (Entry005.anchorCoordinates w x)))‖)
+                                ↑ν ∧
+                              ∫ (x : Fin d → ℝ),
+                                  ‖WithLp.toLp 2 x -
+                                      WithLp.toLp 2
+                                        (w (Entry005.largestCoordinate (Entry005.anchorCoordinates w x)))‖ ∂↑ν ≤
+                                (↑d + 1) * (↑d + 2) *
+                                  ((↑d + 1) * Entry005.entryDefect K / (1 + (↑d + 1) * Entry005.entryDefect K))
+'Entry005.actual_body_geometric_first_moment_assignment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.determinantLawDefect_iid_eq {d : ℕ} (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] :
+  Entry005.determinantLawDefect (Entry005.iidLaw ν d) ν id id =
+    ∫ (w : Fin (d + 1) → Fin d → ℝ), |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1) -
+      ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d
+'Entry005.determinantLawDefect_iid_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.entryDefect_iid_moment_identity {d : ℕ} (K : Set (Entry005.Space d)) (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν]
+  (hA : 0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)
+  (hentry :
+    Entry005.entryA K =
+      (∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1)) /
+        ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)) :
+  Entry005.determinantLawDefect (Entry005.iidLaw ν d) ν id id =
+    ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d) *
+      Entry005.entryDefect K
+'Entry005.entryDefect_iid_moment_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.entryDefect_iid_nonnegative {d : ℕ} (K : Set (Entry005.Space d)) (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] (hX : ∀ (i : Fin d), MeasureTheory.Integrable (fun x => x i) ν)
+  (hcenter : ∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂ν = 0)
+  (hA : 0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)
+  (hentry :
+    Entry005.entryA K =
+      (∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1)) /
+        ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)) :
+  0 ≤ Entry005.entryDefect K
+'Entry005.entryDefect_iid_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.entryDefect_iid_defect_ratio {d : ℕ} (K : Set (Entry005.Space d)) (ν : MeasureTheory.Measure (Fin d → ℝ))
+  [MeasureTheory.IsProbabilityMeasure ν] (hX : ∀ (i : Fin d), MeasureTheory.Integrable (fun x => x i) ν)
+  (hcenter : ∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂ν = 0)
+  (hA : 0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)
+  (hentry :
+    Entry005.entryA K =
+      (∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1)) /
+        ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw ν d)) :
+  Entry005.determinantLawDefect (Entry005.iidLaw ν d) ν id id /
+      ∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw ν (d + 1) =
+    (↑d + 1) * Entry005.entryDefect K / (1 + (↑d + 1) * Entry005.entryDefect K)
+'Entry005.entryDefect_iid_defect_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_cone_law_with_pyramid_defect {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) :
+  ∃ ν,
+    (∀ᵐ (x : Fin d → ℝ) ∂↑ν, ‖WithLp.toLp 2 x‖ ≤ 1) ∧
+      (∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂↑ν = 0) ∧
+        (∀ (u : Entry005.Space d),
+            ‖u‖ = 1 →
+              (Entry005.negativeIntegral ↑ν fun x => (fun j => u.ofLp j) ⬝ᵥ x) =
+                Entry005.projectionVolumeSet K u /
+                  (↑(Module.finrank ℝ (Entry005.Space d)) * (MeasureTheory.volume K).toReal)) ∧
+          ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d =
+              ↑d.factorial / (↑d * (MeasureTheory.volume K).toReal) ^ d *
+                (MeasureTheory.volume (Entry005.projectionBodySet K)).toReal ∧
+            0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d ∧
+              Entry005.entryA K =
+                  (∫ (w : Fin (d + 1) → Fin d → ℝ),
+                      |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw (↑ν) (d + 1)) /
+                    ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d) ∧
+                Entry005.determinantLawDefect (Entry005.iidLaw (↑ν) d) (↑ν) id id =
+                    ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d) *
+                      Entry005.entryDefect K ∧
+                  Entry005.determinantLawDefect (Entry005.iidLaw (↑ν) d) (↑ν) id id /
+                      ∫ (w : Fin (d + 1) → Fin d → ℝ),
+                        |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw (↑ν) (d + 1) =
+                    (↑d + 1) * Entry005.entryDefect K / (1 + (↑d + 1) * Entry005.entryDefect K)
+'Entry005.actual_body_cone_law_with_pyramid_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_entryDefect_nonnegative {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) : 0 ≤ Entry005.entryDefect K
+'Entry005.actual_body_entryDefect_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_joint_polar_pyramid_assignment {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) :
+  ∃ μ φ,
+    StrictMono φ ∧
+      Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+          Filter.atTop (nhds μ) ∧
+        Filter.Tendsto (fun k => Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)) Filter.atTop
+            (nhds (Entry005.compactBallRawLaw μ)) ∧
+          (∀ᵐ (x : Fin d → ℝ) ∂↑(Entry005.compactBallRawLaw μ), ‖WithLp.toLp 2 x‖ ≤ 1) ∧
+            (∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂↑(Entry005.compactBallRawLaw μ) = 0) ∧
+              (∀ (u : Entry005.Space d),
+                  ‖u‖ = 1 →
+                    (Entry005.negativeIntegral ↑(Entry005.compactBallRawLaw μ) fun x => (fun j => u.ofLp j) ⬝ᵥ x) =
+                      Entry005.projectionVolumeSet K u /
+                        (↑(Module.finrank ℝ (Entry005.Space d)) * (MeasureTheory.volume K).toReal)) ∧
+                (∀ᵐ (x : Fin d → ℝ) ∂↑(Entry005.compactBallRawLaw μ), x ∈ Entry005.actualPolarBoundaryRaw K) ∧
+                  (↑(Entry005.compactBallRawLaw μ)).support ⊆ Entry005.actualPolarBoundaryRaw K ∧
+                    ∫ (w : Fin d → Fin d → ℝ),
+                          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d =
+                        ↑d.factorial / (↑d * (MeasureTheory.volume K).toReal) ^ d *
+                          (MeasureTheory.volume (Entry005.projectionBodySet K)).toReal ∧
+                      0 <
+                          ∫ (w : Fin d → Fin d → ℝ),
+                            |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d ∧
+                        Entry005.entryA K =
+                            (∫ (w : Fin (d + 1) → Fin d → ℝ),
+                                |Entry005.liftedDeterminant (fun j => w j.succ)
+                                    (w 0)| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) (d + 1)) /
+                              ((↑d + 1) *
+                                ∫ (w : Fin d → Fin d → ℝ),
+                                  |Entry005.horizontalDeterminant
+                                      w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d) ∧
+                          Entry005.determinantLawDefect (Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d)
+                                (↑(Entry005.compactBallRawLaw μ)) id id =
+                              ((↑d + 1) *
+                                  ∫ (w : Fin d → Fin d → ℝ),
+                                    |Entry005.horizontalDeterminant
+                                        w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d) *
+                                Entry005.entryDefect K ∧
+                            0 <
+                                ∫ (v : Fin (d + 1) → Fin d → ℝ),
+                                  |Entry005.liftedDeterminant (fun j => v j.succ)
+                                      (v 0)| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) (d + 1) ∧
+                              ∃ w,
+                                ∃ (_ : (Entry005.anchorMatrix w).det ≠ 0),
+                                  (∀ (i : Fin (d + 1)),
+                                      w i ∈ (↑(Entry005.compactBallRawLaw μ)).support ∧ ‖WithLp.toLp 2 (w i)‖ ≤ 1) ∧
+                                    (AffineIndependent ℝ fun i => WithLp.toLp 2 (w i)) ∧
+                                      (Measurable fun x =>
+                                          Entry005.largestCoordinate (Entry005.anchorCoordinates w x)) ∧
+                                        MeasureTheory.Integrable
+                                            (fun x =>
+                                              ‖WithLp.toLp 2 x -
+                                                  WithLp.toLp 2
+                                                    (w (Entry005.largestCoordinate (Entry005.anchorCoordinates w x)))‖)
+                                            ↑(Entry005.compactBallRawLaw μ) ∧
+                                          ∫ (x : Fin d → ℝ),
+                                              ‖WithLp.toLp 2 x -
+                                                  WithLp.toLp 2
+                                                    (w
+                                                      (Entry005.largestCoordinate
+                                                        (Entry005.anchorCoordinates w
+                                                          x)))‖ ∂↑(Entry005.compactBallRawLaw μ) ≤
+                                            (↑d + 1) * (↑d + 2) *
+                                              ((↑d + 1) * Entry005.entryDefect K /
+                                                (1 + (↑d + 1) * Entry005.entryDefect K))
+'Entry005.actual_body_joint_polar_pyramid_assignment' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.compact_normalized_projection_ratio_pos {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hb : Metric.closedBall 0 1 ⊆ K) : 0 < Entry005.projectionRatio K
+'Entry005.compact_normalized_projection_ratio_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.halfspace_approximation_entryA_tendsto {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) :
+  Filter.Tendsto (fun m => Entry005.entryA (Entry005.halfspaceApproximationBody K hc hconv hb m)) Filter.atTop
+    (nhds (Entry005.entryA K))
+'Entry005.halfspace_approximation_entryA_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.halfspace_approximation_iid_moments_tendsto {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ)) :
+  Filter.Tendsto
+      (fun k =>
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant
+              w| ∂Entry005.iidLaw (Entry005.halfspaceApproximationLaw K hc hconv hb (φ k)) d)
+      Filter.atTop
+      (nhds
+        (∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d)) ∧
+    Filter.Tendsto
+      (fun k =>
+        ∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ)
+              (w 0)| ∂Entry005.iidLaw (Entry005.halfspaceApproximationLaw K hc hconv hb (φ k)) (d + 1))
+      Filter.atTop
+      (nhds
+        (∫ (w : Fin (d + 1) → Fin d → ℝ),
+          |Entry005.liftedDeterminant (fun j => w j.succ)
+              (w 0)| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) (d + 1)))
+'Entry005.halfspace_approximation_iid_moments_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_horizontal_moment_pos_of_compact_limit {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ)) :
+  0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d
+'Entry005.actual_body_horizontal_moment_pos_of_compact_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_lifted_first_moment_of_compact_limit {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ)) :
+  ∫ (w : Fin (d + 1) → Fin d → ℝ),
+      |Entry005.liftedDeterminant (fun j => w j.succ)
+          (w 0)| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) (d + 1) =
+    ((↑d + 1) *
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d) *
+      Entry005.entryA K
+'Entry005.actual_body_lifted_first_moment_of_compact_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_entryA_of_compact_limit {d : ℕ} [Nontrivial (Entry005.Space d)] (K : Set (Entry005.Space d))
+  (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K)
+  (μ : MeasureTheory.ProbabilityMeasure (Entry005.CompactConeBall d)) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+  (hlim :
+    Filter.Tendsto (fun k => Entry005.compactBallLaw (Entry005.halfspaceApproximationProbability K hc hconv hb (φ k)))
+      Filter.atTop (nhds μ)) :
+  Entry005.entryA K =
+    (∫ (w : Fin (d + 1) → Fin d → ℝ),
+        |Entry005.liftedDeterminant (fun j => w j.succ)
+            (w 0)| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) (d + 1)) /
+      ((↑d + 1) *
+        ∫ (w : Fin d → Fin d → ℝ),
+          |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑(Entry005.compactBallRawLaw μ)) d)
+'Entry005.actual_body_entryA_of_compact_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Entry005.actual_body_cone_law_with_pyramid_first_moment {d : ℕ} [Nontrivial (Entry005.Space d)]
+  (K : Set (Entry005.Space d)) (hc : IsCompact K) (hconv : Convex ℝ K) (hb : Metric.closedBall 0 1 ⊆ K) :
+  ∃ ν,
+    (∀ᵐ (x : Fin d → ℝ) ∂↑ν, ‖WithLp.toLp 2 x‖ ≤ 1) ∧
+      (∀ (i : Fin d), ∫ (x : Fin d → ℝ), x i ∂↑ν = 0) ∧
+        (∀ (u : Entry005.Space d),
+            ‖u‖ = 1 →
+              (Entry005.negativeIntegral ↑ν fun x => (fun j => u.ofLp j) ⬝ᵥ x) =
+                Entry005.projectionVolumeSet K u /
+                  (↑(Module.finrank ℝ (Entry005.Space d)) * (MeasureTheory.volume K).toReal)) ∧
+          ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d =
+              ↑d.factorial / (↑d * (MeasureTheory.volume K).toReal) ^ d *
+                (MeasureTheory.volume (Entry005.projectionBodySet K)).toReal ∧
+            0 < ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d ∧
+              Entry005.entryA K =
+                (∫ (w : Fin (d + 1) → Fin d → ℝ),
+                    |Entry005.liftedDeterminant (fun j => w j.succ) (w 0)| ∂Entry005.iidLaw (↑ν) (d + 1)) /
+                  ((↑d + 1) * ∫ (w : Fin d → Fin d → ℝ), |Entry005.horizontalDeterminant w| ∂Entry005.iidLaw (↑ν) d)
+'Entry005.actual_body_cone_law_with_pyramid_first_moment' depends on axioms: [propext, Classical.choice, Quot.sound]

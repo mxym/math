@@ -1,0 +1,301 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\ind}{\mathbf 1}\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\Ptwo}{\mathcal P_2}
+\title{A sharp target-atom budget at the critical boundary\newline for Brenier stability}
+\author{}
+\date{October 8, 2026\quad Research note}
+\begin{document}\maketitle
+\begin{abstract}
+For the fixed critical boundary source of manuscript 008, we determine the joint dependence of the moment-controlled Brenier-map modulus on target distance and the number of target atoms. With $p>2$, $s=p/(p-2)$, at most $N\ge2$ atoms in each target, and unit $p$th moments, the modulus is comparable to $w^{1/3}\min\{N,\log(e/w)\}^{1/(3s)}$, uniformly in both parameters for sufficiently small $w$. Thus each fixed finite atom budget restores a pure one-third estimate, with optimal constant growth $N^{1/(3s)}$. A weak-$L^s$ overlap estimate and finite-level pairing give the upper bound. The lower bound tracks the atom count in the previously proved globally mass-matched construction; the two-atom case is treated separately. The potential estimate is an explicit upstream input.
+\end{abstract}
+\paragraph{Status and attribution.}
+Written research theorem, prepared with AI assistance. The longer candidate proof received a separate model-conducted mathematical review; this note is not a Lean formalization, external human peer review, or novelty determination. The source, potential theorem, rare-cell mechanism and multiscale convex construction are inherited from manuscripts 001 and 008. The contribution here is the weak-overlap finite-budget bound and the jointly uniform cardinality/distance crossover, not a new proof of those upstream results.
+
+\section{Statement and fixed source}
+Fix $d\ge2$, $p>2$, and put
+\[
+ s=\frac p{p-2},\qquad \beta=s-1=\frac2{p-2},\qquad \alpha=\frac1{3s}.
+\]
+Throughout the source is the single normalized probability
+\begin{equation}\label{eq:source}
+ r(x)=f_\beta(x_1)\prod_{j=2}^d g(x_j),\quad
+ f_\beta(t)=c_\beta t^\beta e^{-t^2/2}\ind_{t>0},\quad
+ g(z)=c_g e^{-1/(1-z^2)}\ind_{|z|<1},\quad \rho=r\dd x,
+\end{equation}
+where each factor integrates to one. Its density is zero off
+$D=(0,\infty)\times(-1,1)^{d-1}$. This is precisely the critical source in 008. It has all moments and is $1$-strongly log-concave, since on its support
+\[
+ (-\log f_\beta)''=1+\beta/t^2,\qquad
+ (-\log g)''=2(1+3z^2)/(1-z^2)^3\ge2.
+\]
+Write $T_\mu$ for the quadratic Brenier map from $\rho$ to $\mu$. For each positive integer $N$, define
+\[
+ \mathcal C_{p,N}=\{\mu\text{ a probability}:|\operatorname{supp}\mu|\le N,
+                      \ \int |y|^p\dd\mu\le1\},
+\]
+\[
+ \Omega_N(w)=\sup_{\substack{\mu,\nu\in\mathcal C_{p,N}\\W_2(\mu,\nu)\le w}}
+                 \norm{T_\mu-T_\nu}_{L^2(\rho)}.
+\]
+Support counts distinct positive-mass atoms; coincident labels are merged and zero weights discarded. Atom locations and weights may both vary, with no lower weight bound or common fixed support.
+
+\begin{theorem}[Joint atom-budget and distance law]\label{thm:main}
+There exist $c,C>0$ and $w_0\in(0,1)$, depending only on $p,d$ and the fixed normalized source \eqref{eq:source}, such that for every integer $N\ge2$ and every $0<w\le w_0$,
+\begin{equation}\label{eq:main}
+ c w^{1/3}\min\{N,\log(e/w)\}^{\alpha}
+ \le\Omega_N(w)\le
+ C w^{1/3}\min\{N,\log(e/w)\}^{\alpha}.
+\end{equation}
+All three constants are independent of $N$. For $N=1$ one has exactly
+$\Omega_1(w)=\min\{w,2\}$ for every $w\ge0$.
+\end{theorem}
+
+\paragraph{Upstream potential premise.}
+The upper bound uses centered convex Brenier potentials satisfying
+\begin{equation}\tag{P}\label{eq:P}
+ \norm{U_\mu-U_\nu}_{L^2(\rho)}\le K_\rho W_2(\mu,\nu)
+ \qquad(\mu,\nu\in\Ptwo).
+\end{equation}
+Their convex representatives are finite on $D$. Manuscript 001 v3, Theorem 1.1, supplies $K_\rho=\sqrt2$ for \eqref{eq:source}. This is an explicitly imported written theorem, not independently reproved here. Finite target supports suffice in the present application and give finite-slope potentials. The lower bounds below do not use (P).
+
+\section{Weak overlap and a finite-level energy estimate}
+For a nonnegative random variable $a$ on a probability space put
+$\norm a_{s,\infty}=\sup_{t>0}t\Pr(a>t)^{1/s}$, and write $s'=s/(s-1)=p/2$.
+\begin{lemma}[Finite-level pairing]\label{lem:pair}
+If $\norm a_{s,\infty}\le H$ and $b\ge0$ takes at most $N$ values, then
+\[
+ \E[ab]\le s'H N^{1/s}\norm b_{s'}.
+\]
+More precisely, if the values of $b$ are $b_i$ on disjoint sets of masses $m_i$, then the right side may be replaced by $s'H\sum_i b_i m_i^{1/s'}$.
+\end{lemma}
+\begin{proof}
+Layer cake gives, for a set $E$ of mass $m$,
+\[
+ \int_E a\le\int_0^\infty\min\{m,(H/t)^s\}\dd t=s'Hm^{1/s'}.
+\]
+Sum over the level sets and apply finite-sequence H\"older to
+$b_i m_i^{1/s'}$ and the sequence of ones. Zero cases are immediate. No minimum $m_i$ is needed.
+\end{proof}
+
+For $h>0$, define on $\{r>0\}$
+\[
+ d_{j,\pm h}=(1-r(x\pm he_j)/r(x))_+,\quad
+ W_{j,h}=6|d_{j,h}-d_{j,-h}|+2d_{j,h},\quad F_h=\max_j W_{j,h},
+\]
+and set these functions to zero on $\{r=0\}$. Always $0\le F_h\le8$.
+\begin{lemma}[Critical weak overlap]\label{lem:weak}
+For the fixed source \eqref{eq:source} there is $B<\infty$ such that, for $0<h\le1/4$,
+\begin{equation}\label{eq:weak}
+ \norm{F_h}_{L^{s,\infty}(\rho)}\le Bh.
+\end{equation}
+Consequently, for sufficiently small $h$,
+$\norm{F_h}_{L^s(\rho)}\le C h(1+\log(1/h))^{1/s}$.
+\end{lemma}
+\begin{proof}
+Product structure reduces each relative loss to its own marginal. Integrating the logarithmic derivative $\beta/x-x$ when $x>2h$, and using the bound one when $x\le2h$, gives
+\[
+ d_{1,\pm h}\le\min\{1,C_\beta h(X+1+X^{-1})\}.
+\]
+Here $X\sim f_\beta$, $\Pr(X<a)\le C a^{\beta+1}=C a^s$ for all $a>0$, and $\E X^s<\infty$. A union bound and Markov's inequality show that $X+1+X^{-1}$ has bounded weak-$L^s$ norm.
+
+For a transverse factor put $a=1-|z|$. If $a>2h$, its logarithmic derivative on the translated segment has magnitude at most $C/a^2$. If $a\le2h$ and $h\le1/4$, then $h/a^2\ge1$. Hence
+\[
+ d_{j,\pm h}\le\min\{1,Ch(1-|Z_j|)^{-2}\}.
+\]
+All moments of $(1-|Z_j|)^{-2}$ under $g$ are finite. Use Markov and
+$W_{j,h}\le14\max_\pm d_{j,\pm h}$, and then take a finite union over coordinates and signs. This proves \eqref{eq:weak}, including boundary losses from the zero extension. Finally integrate
+$s\int_0^8 t^{s-1}\rho(F_h>t)\dd t$ and split at $Bh$ to obtain the strong bound.
+\end{proof}
+
+\section{The two upper estimates}
+For convex $u,v$ finite on $D$, put
+$\delta=\inf_a\norm{u-v-a}_{L^2(\rho)}$ and
+$X=\norm{\nabla u-\nabla v}_{L^2(\rho)}$. The exact minimum-weight estimate is
+\begin{equation}\label{eq:weight}
+ X^2\le12d\delta^2h^{-2}
+       +\int F_h(|\nabla u|^2+|\nabla v|^2)\dd\rho.
+\end{equation}
+We recall its short proof to specify the domain and coefficients. Fix a coordinate, let $m_h=\min\{r(x),r(x+he_j)\}$, and write $z=\partial_j u$. On $\{m_h>0\}$, convexity gives $z(x)\le D_hu(x)\le z(x+he_j)$. The signed-square inequality
+$(b-a)^2\le2(b|b|-a|a|)$ for $a\le b$, followed by translation, yields
+\[
+ \int|D_hu-z|^2m_h\dd x
+ \le2\int |z|^2r|d_{j,h}-d_{j,-h}|\dd x.
+\]
+The weights after translation are at most $r$, so all terms are integrable. Also
+$\int|D_h(u-v-a)|^2m_h\le4h^{-2}\norm{u-v-a}_2^2$.
+The three-term square inequality gives coefficient six in the individual gradient energies. On the missing weight $r-m_h=rd_{j,h}$, the inequality $|a-b|^2\le2(|a|^2+|b|^2)$ gives coefficient two. Sum over coordinates and infimize in $a$. Convexity of $D$ keeps every segment with $m_h>0$ in the domain. This proves \eqref{eq:weight}.
+
+Now take transport potentials for $\mu,\nu\in\mathcal C_{p,N}$ and $W_2(\mu,\nu)\le w$. Each energy $|T_\mu|^2$ takes at most $N$ values and has $L^{s'}$ norm at most one. By (P), Lemmas~\ref{lem:pair}--\ref{lem:weak},
+\[
+ \norm{T_\mu-T_\nu}_2^2\le12dK_\rho^2w^2h^{-2}+2s'BhN^{1/s}.
+\]
+Set $h=w^{2/3}N^{-1/(3s)}$, which is at most $1/4$ for sufficiently small $w$ independently of $N$. This gives
+\begin{equation}\label{eq:Nupper}
+ \Omega_N(w)\le Cw^{1/3}N^{1/(3s)}.
+\end{equation}
+Alternatively use strong H\"older and the last assertion of Lemma~\ref{lem:weak} in \eqref{eq:weight}. Set $L=\log(e/w)$ and
+$h=w^{2/3}L^{-1/(3s)}$. Then $\log(1/h)\le C_sL$ and
+\begin{equation}\label{eq:logupper}
+ \Omega_N(w)\le Cw^{1/3}L^{1/(3s)},
+\end{equation}
+without needing finite support. The minimum of \eqref{eq:Nupper} and \eqref{eq:logupper} proves the upper half of \eqref{eq:main}.
+
+\begin{remark}
+The finite-budget upper bound holds at any source satisfying (P) and \eqref{eq:weak}, with the relevant domain hypotheses. More precisely, the target contribution may be bounded by
+$s'Bh\sum_i m_i^{2/p}|y_i|^2$ instead of $s'BhN^{1/s}$.
+The weak/finite-level pairing is elementary; no first-use claim is made for Lorentz-space reasoning.
+\end{remark}
+
+\section{Lower bounds with the atom count retained}
+The construction in the next lemma is inherited from 008, Section 7. Its proof is recalled with the exact cardinality and uniformity needed here; it is not counted as a new construction.
+
+\begin{lemma}[Uniform finite-strip family]\label{lem:strips}
+There are constants $c_1,C_1,\varepsilon_0>0$, independent of $K,h$, such that for every integer $K\ge1$ and $0<h\le\varepsilon_0 2^{-K}$ there are targets $\mu_{K,h},\nu_{K,h}\in\mathcal C_{p,2K+1}$ with
+\begin{equation}\label{eq:strips}
+ \norm{T_{\mu_{K,h}}-T_{\nu_{K,h}}}_2\ge c_1K^{1/(2s)}h^{1/2},\qquad
+ W_2(\mu_{K,h},\nu_{K,h})\le C_1K^{1/(2s)}h^{3/2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $X,Z$ have independent laws $f_\beta,g$, and let $F(t)=\Pr(X<t)$, zero for $t\le0$. Fix $k=1/4$ and set
+$t_n=2^{-n}$, $R_n=t_n^{-\beta/2}$ for $1\le n\le K$. Take $\varepsilon_0\le1/12$ initially, so the windows $[t_n-3h,t_n+3h]$ are positive and disjoint. For $H_h(y)=\E F(y+khZ)$ define
+\[
+ \ell_n=H_h^{-1}(F(t_n-h)),\qquad r_n=H_h^{-1}(F(t_n+h)).
+\]
+Strict monotonicity supplies these inverses on the relevant positive interval. Bracketing by $F(y\pm kh)$ gives
+$|\ell_n-(t_n-h)|,|r_n-(t_n+h)|\le kh$.
+Since $\E Z=0$, Taylor expansion and the mean value theorem improve these to $O(h^2/t_n)$. Uniformly on the window this uses
+$f_\beta(y)\asymp f_\beta(t_n)$,
+$|f_\beta'(y)|\le C f_\beta(t_n)/t_n$, and
+$H_h'(y)\ge c f_\beta(t_n)$.
+
+Put $d_n=(\ell_n+r_n)/2$, $\gamma_n=(r_n-\ell_n)/(2h)$ and
+\[
+ A_n=\{t_n-h<X<t_n+h\},\qquad
+ C_n=\{\ell_n-khZ<X<r_n+khZ\}.
+\]
+The perturbed half-width lies between $h/2$ and $3h/2$. Symmetry gives the two separate exact cumulative identities
+\begin{equation}\label{eq:cumulative}
+ \E F(\ell_n-khZ)=F(t_n-h),\qquad
+ \E F(r_n+khZ)=F(t_n+h).
+\end{equation}
+Thus $m_n=\rho(A_n)=\rho(C_n)$. For $D_n=\rho(A_n\triangle C_n)$, the overlapping intervals and the endpoint estimates give
+\[
+ m_n\asymp f_\beta(t_n)h,\qquad
+ D_n=2kh f_\beta(t_n)\E|Z|+O(f_\beta(t_n)h^2/t_n).
+\]
+Decrease $\varepsilon_0$ once so $D_n\asymp f_\beta(t_n)h$ uniformly. All constants are independent of $K$.
+
+For global convex realization, set
+\[
+ \Phi(x)=\sum_n2R_n(t_n-x)_+,\qquad
+ \widetilde\Phi(x)=\sum_n2R_n(d_n-x)_+.
+\]
+They have the same ordered outer slopes. Let $q_n$ be the average of the slopes adjacent to cusp $n$, and let $L_n,\widetilde L_n$ be the supporting lines with slope $q_n$ at $t_n,d_n$. Between adjacent cusps
+$\Phi-L_n=R_n|x-t_n|$, and globally the left side is at least the right; similarly for the tilded functions. Define
+\begin{align*}
+ U_h(x)&=\max\{\Phi(x_1),L_n(x_1)+R_nh:1\le n\le K\},\\
+ V_h(x)&=\max\{\widetilde\Phi(x_1),
+       \widetilde L_n(x_1)+R_nh\gamma_n+R_nhkx_2:1\le n\le K\}.
+\end{align*}
+The central planes are active exactly on $A_n,C_n$ on the source; supporting-line bounds and window separation exclude all other interference. There are $K+1$ outer labels and $K$ central labels, hence $2K+1$ atoms in each target. All have positive mass and are distinct, though only the upper count is needed. The outer labels agree between the two maps, and the central labels are $q_ne_1$ and $q_ne_1+R_nhk e_2$.
+
+Both endpoint identities \eqref{eq:cumulative} preserve every outer mass as well as each central mass: an intermediate outer mass is the difference of its two bordering cumulative masses. Consequently same-label target coupling is admissible. The horizontal discrepancy on $A_n\triangle C_n$ is exactly $R_n$, and the vertical discrepancy is $R_nhk$ on $C_n$. There is no direct left-outer to right-outer jump because the central intervals overlap. Thus
+\begin{align*}
+ \norm{\nabla U_h-\nabla V_h}_2^2
+   &=\sum_nR_n^2D_n+k^2h^2\sum_nR_n^2m_n,\\
+ W_2((\nabla U_h)_\#\rho,(\nabla V_h)_\#\rho)^2
+   &\le k^2h^2\sum_nR_n^2m_n.
+\end{align*}
+Convexity identifies the source maps as Brenier maps; each has finite slopes for fixed $K$. No optimality of the same-label target coupling is needed.
+
+Geometric summation of the jumps bounds both gradient magnitudes by
+$C\min\{x_1^{-\beta/2},t_K^{-\beta/2}\}$ on $0<x_1<1$, with zero slopes for $x_1\ge1$. Cusp shifts and vertical slopes change only $C$. The critical identity $\beta p/2=\beta+1$ gives
+\[
+ \int(|\nabla U_h|^p+|\nabla V_h|^p)\dd\rho\le C_0(K+1):
+\]
+the capped part below $t_K$ is bounded and the remainder is at most
+$C\int_{t_K}^1\dd x/x$. Scale both potentials by
+$\lambda_K=[C_0(K+1)]^{-1/p}$, so each target moment is at most one.
+Finally $R_n^2 f_\beta(t_n)=c_\beta e^{-t_n^2/2}\asymp1$, and $1-2/p=1/s$. The preceding identities give \eqref{eq:strips} with constants uniform in both $K,h$.
+\end{proof}
+
+\subsection{Uniform choice for every $N\ge3$}
+Increase $C_1$ to at least one. Take $w_0$ so small that
+$\frac14\log_2(1/w)\ge2$ for $w\le w_0$, and set
+\[
+ K=\min\left\{\left\lfloor\frac{N-1}{2}\right\rfloor,
+                  \left\lfloor\tfrac14\log_2(1/w)\right\rfloor\right\},
+ \qquad h=\left(\frac{w}{C_1K^{1/(2s)}}\right)^{2/3}.
+\]
+Then $K\ge1$, $2K+1\le N$, and
+$K\ge c\min\{N,\log(e/w)\}$ uniformly: the first floor is at least $N/4$ for $N\ge3$, and the other floor is comparable to $\log(e/w)$ on this range. Also
+\[
+ h2^K\le C_1^{-2/3}w^{,2/3-1/4}K^{-1/(3s)}
+           \le C_1^{-2/3}w^{5/12}.
+\]
+One further decrease of $w_0$, independent of $N$, therefore ensures the hypothesis of Lemma~\ref{lem:strips}. Its target distance is at most $w$, and its map distance is at least
+$c w^{1/3}K^{1/(3s)}$, proving the desired lower bound. For every fixed $N$, $K$ eventually equals $\lfloor(N-1)/2\rfloor$ and stays fixed as $w\downarrow0$; only $h$ varies. There is no exchange of fixed and growing atom budgets.
+
+\subsection{A separate two-atom example}
+For $N=2$ the preceding $K$ would be zero, so use 008's rare-cell construction. For small $a>0$, let $m_a=F(a)$ and choose $c_a\in(1-k,1+k)$ with
+$\E F(a(c_a+kZ))=F(a)$. Strict monotonicity and endpoint bracketing prove existence and uniqueness. Since $F(t)\sim c t^s$ at zero,
+\[
+ c_a\longrightarrow c_0,\qquad \E(c_0+kZ)^s=1,
+\]
+and, for $A_a=\{X<a\}$ and $C_a=\{X<a(c_a+kZ)\}$,
+\[
+ \rho(A_a\triangle C_a)/m_a\longrightarrow
+       \E|(c_0+kZ)^s-1|>0.
+\]
+The last positivity uses nondegeneracy of $Z$. Put $R_a=m_a^{-1/p}$,
+$b_a=ka$ and $v_a=(-e_1+b_ae_2)/\sqrt{1+b_a^2}$. The two target probabilities
+\[
+ \mu_a=(1-m_a)\delta_0+m_a\delta_{-R_ae_1},\qquad
+ \nu_a=(1-m_a)\delta_0+m_a\delta_{R_av_a}
+\]
+have $p$th moments exactly one, and are induced by the convex potentials
+$R_a(a-x_1)_+$ and
+$R_a(a c_a-x_1+b_ax_2)_+/\sqrt{1+b_a^2}$.
+Same-label coupling and the cell mismatch imply
+\[
+ W_2(\mu_a,\nu_a)\le C a m_a^{1/2-1/p}\le C'a^{3/2},\qquad
+ \norm{T_{\mu_a}-T_{\nu_a}}_2\ge c m_a^{1/2-1/p}\ge c'a^{1/2},
+\]
+using $m_a\asymp a^s$ and $1/2-1/p=1/(2s)$. Choose
+$a=(w/C')^{2/3}$ and decrease $w_0$ once. This proves the $N=2$ lower bound, since $\min\{2,\log(e/w)\}^{\alpha}$ is a fixed bounded factor on this range.
+
+\subsection{One atom}
+For point targets $\delta_y,\delta_z$ with $|y|,|z|\le1$, both transport maps are constant and their $L^2(\rho)$ distance equals $|y-z|=W_2(\delta_y,\delta_z)$. Taking
+$y=-te_1/2$, $z=te_1/2$ with $t=\min\{w,2\}$ attains the upper bound and respects both moment constraints. This proves the exact one-atom assertion and completes Theorem~\ref{thm:main}.
+
+\section{Interpretation and scope}
+For each $N\ge2$, Theorem~\ref{thm:main} gives
+\[
+ cN^{\alpha}\le\liminf_{w\downarrow0}\frac{\Omega_N(w)}{w^{1/3}}
+ \le\limsup_{w\downarrow0}\frac{\Omega_N(w)}{w^{1/3}}\le CN^{\alpha}.
+\]
+No limit or exact leading constant is asserted. The logarithmic loss of the unrestricted problem saturates once the available number of atom levels is reached. The global density root still fails to belong to $W^{1,s}$: its derivative's $s$th power behaves as $1/x$ near the first boundary. Hence that strong root condition is not necessary for one-third stability on a fixed finite-atom class. This does not contradict its characterization of linear strong-$L^s$ overlap, nor supply an arbitrary-source converse.
+
+The constants and distance threshold are independent of $N$, but may depend on $p,d$ and the fixed source. Vanishing atom weights as $w\to0$ are permitted; a lower-weight constraint changes the question. Dimension one remains a separate isometric setting. No statement for general slowly varying boundary factors is made here.
+
+The proof reuses 008's source and lower constructions, and (P) from 001; the new statement is their explicit finite-complexity continuation. The nearby semi-discrete results of Bansil--Kitagawa fix a common finite target support and control Laguerre-cell changes under weight perturbations, among other conclusions. Here positions and weights both vary under a moment constraint, and the metric is $W_2$ on targets versus $L^2$ on maps. This focused comparison does not certify historical originality.
+
+\begin{thebibliography}{9}
+\bibitem{M001} mxym, \emph{Source regularity and sharp Brenier stability under target moment bounds}, manuscript 001, v3 and v5, 2026. The all-$\Ptwo$ potential theorem is v3, Theorem 1.1, pinned at commit \texttt{5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3}. AI-assisted written research source.
+\bibitem{M008} mxym, \emph{Density overlap and a sharp boundary phase diagram for moment-controlled Brenier stability}, manuscript 008, v1, 2026. Source blob \texttt{3b2882cef1a65e890549332c5c9014af9dc5f245}; Sections 5 and 7 supply the inherited lower constructions.
+\bibitem{Synthesis} mxym, \emph{Source overlap and target tails in quantitative Brenier stability}, 2026. \url{https://github.com/mxym/math/tree/main/notes/transport-source-tail-synthesis}. Root characterization and exact weight interface; not a source for the finite-budget theorem here.
+\bibitem{BK} M. Bansil and J. Kitagawa, \emph{Quantitative stability in the geometry of semi-discrete optimal transport}, International Mathematics Research Notices (2022); \url{https://arxiv.org/abs/2002.02022}.
+\bibitem{DM} A. Delalande and Q. M\'erigot, \emph{Quantitative stability of optimal transport maps under variations of the target measure}, Duke Mathematical Journal (2023); \url{https://arxiv.org/abs/2103.05934}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,131 @@
+\section{Exact source map and reproducibility}\label{sec:sources}
+All imports are public text at immutable commits. F and V are in
+\texttt{mxym/math} at
+\begin{center}\small\texttt{\srcpin}.\end{center}
+U is in \texttt{OpenAI/math} at
+\begin{center}\small\texttt{\uppin}.\end{center}
+The original shorthand \texttt{mxym/math009} did not identify an accessible
+repository; the audited source is entry 009 within \texttt{mxym/math}.
+The twenty-five audited F/V files have identical Git blob hashes at the
+first commit and \path{1c67b4146f9e54291c8a5ca1f42a028bf307629f}.
+No result here depends on an unpinned working tree.
+
+\subsection{Imported results and their exact locations}
+In the following map, paths are repository-relative and labels are the
+literal TeX labels in the pinned source. Line numbers are conveniences for
+the pinned bytes, not the basis of identification.
+
+\paragraph{Virial supplement V.}
+All of the following labels are in
+\path{notes/full-density-virial-stress/manuscript.tex}:
+\begingroup\small
+\begin{longtable}{@{}p{0.24\textwidth}p{0.40\textwidth}p{0.29\textwidth}@{}}
+\toprule
+Use here & Exact source label(s) & Pinned line(s) \\
+\midrule\endhead
+Model, diameter, ensemble & \lab{ass:model}, \lab{eq:ensemble} & 46, 56 \\
+Collision and sphere normalization & \lab{eq:collision}, \lab{eq:J} & 70, 82 \\
+H1 & \lab{imp:initial} & 142 \\
+H2 & \lab{imp:algebra}, \lab{eq:partition}, \lab{eq:rootoutput} & 145, 149, 151 \\
+H3 & \lab{imp:unweighted}, \lab{eq:unweighted} & 163, 165 \\
+H4 & \lab{imp:majorant}, \lab{eq:majorant} & 172, 179 \\
+H5 & \lab{imp:tree} & 184 \\
+H6 & \lab{imp:coupling} & 193 \\
+Mechanical identities & \lab{lem:mechanics}, \lab{eq:micro-virial}, \lab{eq:micro-spread} & 210, 213, 215 \\
+Vacancy expansion & \lab{lem:initial}, \lab{eq:vacancy} & 233, 235 \\
+Incidence mean and clipping & \lab{prop:incidence}, \lab{eq:mark-bound}, \lab{eq:clip}, \lab{eq:rawbound}, \lab{eq:scalar-moment} & 257, 286, 296, 308, 323 \\
+First-moment transfer & \lab{lem:transfer}, \lab{eq:transfer}, \lab{eq:true-incidence} & 344, 346, 369 \\
+\bottomrule
+\end{longtable}
+\endgroup
+The proof of Lemma~\ref{lem:incidence-mean} reproduces the weighted
+mean argument in V. V's $H_\eps^p$ denotes an expectation; this manuscript's
+$\cH_\eps^p$ is random and $m_\eps=\E\cH_\eps^p$. Confusing these two
+would bypass the required variance estimate.
+
+\paragraph{Functional manuscript F.}
+Use the prefix
+\path{preprints/009-functional-hard-sphere-fluctuations/v1/sections/}.
+\begin{longtable}{@{}p{0.31\textwidth}p{0.35\textwidth}p{0.27\textwidth}@{}}
+\toprule
+File & Exact labels & Use here \\
+\midrule\endhead
+\path{01_model.tex} & \lab{ass:kinetic}, \lab{lem:convention} & Kinetic interval, path versions \\
+\path{02_imports.tex} & \lab{eq:counts}, \lab{prop:imports} & Factorial/cumulant normalization and package \\
+\path{05_increments.tex} & \lab{lem:remainder} & Unweighted record errors \\
+\path{06_microscopic.tex} & \lab{lem:record} & Passive bounded records and zero continuation \\
+\path{07_functional.tex} & \lab{thm:functional} & Exactly centered Schwartz functional limit \\
+\path{08_tempered.tex} & \lab{thm:tempered}, \lab{eq:tempered-covariance} & Strong-dual path limit, Gaussian covariance \\
+\bottomrule
+\end{longtable}
+The connected scaling at several roots in \eqref{eq:scaling} uses F's
+normalized factorial convention and V's chronological birth/link count.
+The initial Gaussian covariance and initial/noise independence are those
+of F. Its positive-time test space is retained exactly as stated.
+
+\paragraph{Upstream source U.}
+Use the prefix
+\path{preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build/sections/}.
+\begin{longtable}{@{}p{0.32\textwidth}p{0.35\textwidth}p{0.26\textwidth}@{}}
+\toprule
+File & Exact labels or portion & Use here \\
+\midrule\endhead
+\path{02-initial-target.tex} & \lab{prop:initial}, proof's static cumulant bound & Bounded initial CLT and $\mu\|c_{2,0}\|_{\TV}=O(\eps)$ \\
+\path{03-dhm-inputs.tex} & Gaussian input envelope and dynamics & Bol inputs within H1 \\
+\path{04-cluster-expansion.tex} & Autonomous partition and coarse variation argument & Operational basis of H2/H3 \\
+\path{05-cutoff.tex} & \lab{prop:cutoff}, \lab{eq:cutoff-probability} & Full-time $O(\eps^{21/20})$ probability comparison \\
+\path{06-sharp-asymptotics.tex} & \lab{eq:sharp-input-bounds}, \lab{eq:sharp-scaling}, \lab{lem:sharp-factorials}, \lab{lem:sharp-summability}, \lab{eq:sharp-energy-sum} & Chronological scaling, energy bins, Stirling and entropy sum \\
+\path{07-gaussian-limit.tex} & Leading-tree cancellation and Gaussian identification & Basis of H5 and input F \\
+\bottomrule
+\end{longtable}
+The seven-file U inventory includes its \path{build/main.tex}. These
+operational and functional inputs are the conditional foundation; this
+manuscript does not claim to reprove the entire upstream hierarchy.
+
+\subsection{Proof contribution and conclusion ledger}
+Lemma~\ref{lem:weighted} proves the previously missing degree-two,
+two-root passive-speed estimate by global clipping and retained Gaussian
+energy. The exact variance formula then proves \eqref{eq:Hvar}; monotonicity
+proves the uniform pasted $L^2$ LLN and H6 gives the true probability LLN.
+Sections~\ref{sec:mechanics} and \ref{sec:process} supply maximal quadratic
+closure, the full thirteen-component theorem, the joint-field argument,
+and pasted covariance convergence. Corollary~\ref{cor:intrinsic} adds the
+per-particle intrinsic observables via explicit differentials.
+Lemma~\ref{lem:endpoint} is a separate endpoint covariance result.
+The true prelimit covariance obstruction in
+\eqref{eq:failed-L2-transfer} remains an unresolved transfer problem.
+
+\subsection{Reproduction package}
+The source archive contains this manuscript and all its sections, the PDF,
+\path{build.py}, \path{README.txt}, optimization-safe symbolic checks,
+negative-control evidence, and source provenance. The thirty-two exact pinned
+verification-cache files are bundled under \path{sources/}; their URL, byte
+count, SHA-256 and Git blob SHA-1 are recorded in
+\path{provenance/source-manifest.json} and
+\path{provenance/upstream-manifest.json}. This cache contains the audited
+imports, rather than complete standalone distributions of F, V and U.
+The public strict checker verifies all cache bytes and literal source labels
+offline; optional fetching uses ordinary TLS verification.
+
+\path{audit/AUDIT.txt} is a documented public derivative of the original
+mathematical audit. The seven original audit objects remain unchanged and
+are represented by their hashes in \path{provenance/original-object-pins.json}.
+The original patch has SHA-256
+\begin{center}\small
+\path{6c659d81faafc9a803efe97da399e16aa7aa642ab352213e5c3f77d360442528}.
+\end{center}
+The public checker uses explicit exceptions and verifies fixed audit,
+provenance, manuscript and cached-source anchors under both ordinary Python
+and \texttt{python -O}. Deliberate corruption is rejected in both modes.
+These checks verify identities, normalizations and source correspondence;
+the analytic proofs are in the text above. No Lean verification is claimed.
+
+The build fixes the source epoch, omits volatile PDF dates and identifiers,
+disables shell escape, and performs three pdfLaTeX passes in a fresh
+directory. \path{build/determinism.json} records two fresh matching builds.
+The isolated fallback format loads \texttt{english hyphen.tex} when the
+standard installation lacks its generated format or font map.
+Byte reproducibility across different TeX or font versions is not asserted.
+\path{PUBLIC_FILES.json} is the publication whitelist;
+\path{package-manifest.json} hashes its files except the self-excluded
+manifest. \path{checks/verify_package.py} also rejects unexpected files.

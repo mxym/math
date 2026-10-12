@@ -1,0 +1,5 @@
+import Entry002.WeakSupplyWindowLogCertificate
+
+#check Entry002.weakSupplyWindow_log100_bounds
+#print axioms Entry002.weakSupplyWindow_log100_eq
+#print axioms Entry002.weakSupplyWindow_log100_bounds

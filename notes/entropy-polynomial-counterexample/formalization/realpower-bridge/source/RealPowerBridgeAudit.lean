@@ -1,0 +1,21 @@
+import RealPowerBridge
+set_option pp.fullNames true
+
+#check EntropyCounterexample.parameter_equation_iff_original_real_power
+#print axioms EntropyCounterexample.parameter_equation_iff_original_real_power
+
+#check EntropyCounterexample.alpha_original_real_power
+#print axioms EntropyCounterexample.alpha_original_real_power
+
+#check EntropyCounterexample.alpha_existsUnique_original_real_power
+#print axioms EntropyCounterexample.alpha_existsUnique_original_real_power
+
+#check EntropyCounterexample.counterexample_original_real_power
+#print axioms EntropyCounterexample.counterexample_original_real_power
+
+#check EntropyCounterexample.counterexample_to_conjecture_two_original_real_power
+#print axioms EntropyCounterexample.counterexample_to_conjecture_two_original_real_power
+
+#check EntropyCounterexample.wakhare_conjecture_two_false_original_real_power
+#print axioms EntropyCounterexample.wakhare_conjecture_two_false_original_real_power
+

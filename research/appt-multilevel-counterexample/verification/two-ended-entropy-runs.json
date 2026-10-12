@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "Exact rational and interval worktree checks; not independent CI, Lean verification, external review, or certification of the graph compactness limit",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "source_files": 24,
+  "source_manifest_sha256": "a1dd6389de007fa0267656e48a9e04d5486b00e02f7ef1a3b99d9c76f2b1c92f",
+  "runs": [
+    {
+      "commands": [
+        "python3 check_two_ended.py",
+        "python3 -O check_two_ended.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "retained_report": "two-ended-checks.json",
+      "normal_stdout_sha256": "91769247fb8fa9617b2e100eaa87119cbbeae30bbacdaa4c6eb8b02fca3f8d09",
+      "assertions_disabled_stdout_sha256": "91769247fb8fa9617b2e100eaa87119cbbeae30bbacdaa4c6eb8b02fca3f8d09",
+      "outputs_identical": true,
+      "program_sha256": "1a0a5c3e1fb7124c670163823a69c9a89e5ed30a03fde80639bcf60579d1d8c3"
+    },
+    {
+      "commands": [
+        "python3 check_entropy.py",
+        "python3 -O check_entropy.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "retained_report": "entropy-checks.json",
+      "normal_stdout_sha256": "aef1958ce0a6208d9c5be902d634d4257c7c78bfb6e448b46c7e210adcb344c6",
+      "assertions_disabled_stdout_sha256": "aef1958ce0a6208d9c5be902d634d4257c7c78bfb6e448b46c7e210adcb344c6",
+      "outputs_identical": true,
+      "program_sha256": "03c289e05e815afca9636a8f60f05b202a7adb5c611988350b669bd9fd3987cd"
+    }
+  ],
+  "mathematical_scope": [
+    "Two-ended hierarchy exact graph and energy limit with nested lower witnesses",
+    "Spectrally flat, reflected APPT near-maximal-purity families",
+    "Unrestricted sharp Renyi minimum-entropy law for every fixed finite alpha>=1",
+    "Different necessary outlier structures on the two sides of alpha=2",
+    "Finite all-unitary APPT entropy separation from the inscribed polytope"
+  ],
+  "remaining_gaps": [
+    "Exact general finite-dimensional entropy optima",
+    "0<alpha<1",
+    "Effective hierarchy thresholds",
+    "Absolute separability of the new families"
+  ]
+}

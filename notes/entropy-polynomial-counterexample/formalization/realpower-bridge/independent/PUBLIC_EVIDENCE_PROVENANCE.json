@@ -1,0 +1,33 @@
+{
+  "original_verification_sha256": "f35c2e66a271097e05444bf3f89906344f75ee6d0747b63665324f987f35c45d",
+  "public_verification_sha256": "f7f4bafa04561c90971037bb920c989ea8b3e03cf3f50594b3b89bef224dd60c",
+  "normalization": "Only the listed original absolute audit-location fields are replaced with symbolic placeholders; all mathematical/source/artifact hashes, counts, conditions and results remain identical.",
+  "normalized_fields": [
+    ".prior_core_gate.path",
+    ".prior_core_gate.report_path",
+    ".prior_core_gate.manifest_path",
+    ".prior_core_gate.fresh_build_directory",
+    ".new_bridge_build_directory"
+  ],
+  "unchanged_selected_files": {
+    "AUDIT.md": "efaa43c15ae7bdbf67e08c3cc89385e8e2b67492f8cf1db295572a83d0b85dbb",
+    "source-sha256.json": "ce706b4fc78c398435a4f190a79d96b7490ced2135d979e2235aced255504e14",
+    "theorems.txt": "dfc18fa7cd8803fcba6dee27151ab53ca6cc7a3d885935b373584c532be8af2f",
+    "theorem-axioms.json": "f252dfaa5587cb3ee855061041117454de6c43457165113d8b51b885ed0fbc2d",
+    "all-bridge-owned-axioms.json": "b8ba38f7ff81aca6a5ac8c32ee947687b8f311d9401052e16341079563e19997",
+    "checks/BridgeSignatures.lean": "92efdb9f0473677f5268162e49ea1ac6d7c2f0482342874edcb98d2389f29eb9",
+    "checks/ReplayAllBridgeOwned.lean": "24fc22840a376c242f2aeaf76b3a092b56f9051111ab1ee517e8c22de5aa4124",
+    "logs/bridge-empty-kernel-replay.log": "5dcd9f65ec4b6ba39027d7fde88c6cc33fdd6dcfe4f45a6d9c5bf1d851ad1eb5",
+    "logs/bridge-signatures-and-axioms.log": "7f620c7f6713e2e7d03162554da088c6977ce41b398bef826b8e2897d5e3f7a4",
+    "logs/pins.log": "fdef04e161ca7649eed47775a66f1be3b0edd8ff762f1e50d4b1373b9edd6478",
+    "logs/run.log": "be42a8554d08e51e652b25dc972333184664a89c0008322211b8e96f08a8c9bc"
+  },
+  "omitted_environment_specific_files": [
+    "logs/build-directory.txt",
+    "logs/lean-path.txt",
+    "run_bridge_audit.sh",
+    "verify_evidence.py",
+    "SHA256SUMS"
+  ],
+  "reason": "Historical launchers and path inventories refer to an unbundled original cache location; public reproduction instructions use explicit supplied paths."
+}

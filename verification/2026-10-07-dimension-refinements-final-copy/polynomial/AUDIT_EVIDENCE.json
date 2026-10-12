@@ -1,0 +1,487 @@
+{
+  "frozen_hashes": {
+    "INDEPENDENT_REFINEMENT_AUDIT.md": "05ec04f17a2fe58c582edcadb83201bb021b1ec162938b458095d641bb277370",
+    "MANIFEST.json": "a16e45b0e35373622da8cc887887fb03a193a235937805c42145a1da2e0c2895",
+    "MATHEMATICAL_DELTA.md": "420663ad9ee483413cda202240a7bc1bb5f212d946b5ae4be3592c0c8f19a047",
+    "NOTICE.md": "c973c71630d02eb60bed2b96befa1042ecf15c81c0be17012d050482d35f17c7",
+    "PDF_QA.json": "c65b2712d87a8b92845a1867e11c1c708210f9beacf0619a7ae38f2d4c60432d",
+    "POLYNOMIAL_REFINEMENT.md": "2b398cba3afd73819dbf90d5106e64be64ba06a07f9e42d23f4c2037ff5cd791",
+    "README.md": "4ec6851fcdb41352c31ece839f69f121c446cb3ba1b09d0e5c306a03f513681c",
+    "RELEASE_SCOPE.json": "26b233951fdd391c3162517a00adcdf44e3fb8a6a16152e08bc808c70fb0a8df",
+    "SANITIZATION_LEDGER.json": "c2c2c08f8fba846c9f88a22d2b6384578035ae0123aef0e165e869e223e05b78",
+    "SHA256SUMS": "a31044b364e1e005739823918f58ff74ae4d9209669e87171e867d574f5fbbbf",
+    "SOURCE_FIDELITY.json": "87d76584ff3644c8b19178a8761b81562cf7c1fb25dc72998750bef2ceadbf1d",
+    "SOURCE_PINS.json": "cbb71466ee00d08e851816898e8240ecc6b1e91e11c1d791c49b2b44a957167c",
+    "SQUARE_PYRAMID_LOWER_BOUND.md": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e",
+    "TYPESETTING_LEDGER.md": "1d54c565479bce7b2bd929b8b6da05e8dab2d1407dbc21f2a1462c9064d3ced7",
+    "build.sh": "3875b76f4f7e70a61f872e210b34ed2dd4b8b91b40bd59e45d2314e36aba340b",
+    "check_constants.py": "7162b2270f611e8ce2225a77210c194b3feb63bf546fe0cf9448e3005d4399bd",
+    "check_independent_refinement_audit.py": "ea28f927e6886825eeef99fe5d5e9e816ad8e06d7641aefc9b10fd63677f9c58",
+    "check_package.py": "b2a859f9d9919747b1d1d143a655d31a1b5e251382181c454b9ab88c2db68d9a",
+    "check_weighted_anchors.py": "701b924efa85be95791f4a0ca81ca35110ff32f94b4a2f85e2be9ea9ace6c44f",
+    "make_package.py": "a1f793b68d36f83b3c7538b991f9273e6ee09a1d25dc607ea93d5a8367dab87c",
+    "proof.pdf": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9",
+    "proof.tex": "73ff46719e442da83eb773ff0f1ee7d9b49d30bfa2200786a11fe433fe09572c",
+    "source.zip": "4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a",
+    "sources/UPSTREAM_NOTICE.md": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+    "sources/entry005-v2.md": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430",
+    "sources/entry005-v3.md": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+    "sources/openai_math_LICENSE.txt": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+    "sources/released-explicit-modulus.md": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+    "sources/sharp-simplex-proof.tex": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+    "sources/truncation-proof.tex": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+    "verification/check_independent_refinement_audit.log": "a1cb69e1930ea829771a8292ec7501e7140a73b8930f51abd7708f07867fc6a5",
+    "verification/check_weighted_anchors.log": "6e9e56e0971d32c8fc9f665b59c1874c11d543f1ff30a5e58322ac3cc8419cdb",
+    "verification/constant_checks.json": "92a4e8d0176422bbd0f1194939c507a16ed381350e186e3b44fe44538ecf5b1c",
+    "verify.py": "94d4727bccd991f048d939e248b29a49490fc3ff6793ed6849dd0521a4783efe",
+    "weighted_anchors.md": "76af987c3e66b749ff9238c78e040ef91d6f17406753b4bfeca1cb3bc81ba3dd"
+  },
+  "basis_fidelity": {
+    "files": 12,
+    "core_sha256": "94c4e777b0000e5e33e024d59c47e258594fbfacc554e4faa91f8b5264c503f5",
+    "status": "PASS"
+  },
+  "sanitization_reconstruction": [
+    {
+      "path": "weighted_anchors.md",
+      "edits_replayed": 3,
+      "status": "PASS"
+    },
+    {
+      "path": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "edits_replayed": 9,
+      "status": "PASS"
+    }
+  ],
+  "independent_source_fetches": [
+    {
+      "path": "sources/sharp-simplex-proof.tex",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/notes/sharp-simplex-stability/proof.tex",
+      "bytes": 22992,
+      "sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/entry005-v3.md",
+      "url": "https://github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum/v3/paper.md",
+      "bytes": 29756,
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/released-explicit-modulus.md",
+      "url": "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/quantitative-projection-simplex-stability/paper.md",
+      "bytes": 20103,
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/truncation-proof.tex",
+      "url": "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/simplex-truncation-stability/proof.tex",
+      "bytes": 21403,
+      "sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/entry005-v2.md",
+      "url": "https://github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum/v2/paper.md",
+      "bytes": 31278,
+      "sha256": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/UPSTREAM_NOTICE.md",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "status": "PASS"
+    },
+    {
+      "path": "sources/openai_math_LICENSE.txt",
+      "url": "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/third_party_licenses/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "status": "PASS"
+    }
+  ],
+  "public_markdown_local_links": [
+    {
+      "file": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "target": "sources/sharp-simplex-proof.tex",
+      "exists": true
+    },
+    {
+      "file": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "target": "sources/entry005-v3.md",
+      "exists": true
+    },
+    {
+      "file": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "target": "sources/entry005-v2.md",
+      "exists": true
+    },
+    {
+      "file": "weighted_anchors.md",
+      "target": "sources/sharp-simplex-proof.tex",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "POLYNOMIAL_REFINEMENT.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "proof.pdf",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "proof.tex",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "INDEPENDENT_REFINEMENT_AUDIT.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "TYPESETTING_LEDGER.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "weighted_anchors.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "SQUARE_PYRAMID_LOWER_BOUND.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/entry005-v3.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/entry005-v2.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "SOURCE_PINS.json",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/sharp-simplex-proof.tex",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/released-explicit-modulus.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/truncation-proof.tex",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "source.zip",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "MATHEMATICAL_DELTA.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "SANITIZATION_LEDGER.json",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "RELEASE_SCOPE.json",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "NOTICE.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/UPSTREAM_NOTICE.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "sources/openai_math_LICENSE.txt",
+      "exists": true
+    }
+  ],
+  "historical_source_local_links": [
+    {
+      "file": "sources/entry005-v3.md",
+      "target": "../v2/paper.md",
+      "exists": false
+    },
+    {
+      "file": "sources/entry005-v3.md",
+      "target": "../v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md",
+      "exists": false
+    },
+    {
+      "file": "sources/entry005-v2.md",
+      "target": "RESEARCH_LOG.md",
+      "exists": false
+    }
+  ],
+  "pdf_links": {
+    "unique_uris": [
+      "https://arxiv.org/abs/2001.10706",
+      "https://github.com/mxym/math/blob/31e3d8a37e4a3051a7f5a2535be1c75642e15bcc/preprints/005-simplex-product-optimum/v3/paper.md",
+      "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/quantitative-projection-simplex-stability/paper.md",
+      "https://github.com/mxym/math/blob/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/simplex-truncation-stability/proof.tex",
+      "https://github.com/mxym/math/blob/e4352dd1a3415ee0dbe3213e13932173d879fe10/notes/sharp-simplex-stability/proof.tex",
+      "https://www.renyi.hu/~carlos/cone-volume-stability.pdf",
+      "https://www.renyi.hu/~carlos/rogerstab.pdf"
+    ],
+    "annotations": 13,
+    "internal_destinations": 42,
+    "status": "PASS"
+  },
+  "privacy_scan": {
+    "status": "PASS",
+    "expected_checker_self_references": [
+      {
+        "path": "check_package.py",
+        "pattern": "/workspace/"
+      },
+      {
+        "path": "check_package.py",
+        "pattern": "/home/agent/"
+      },
+      {
+        "path": "check_package.py",
+        "pattern": "/root/"
+      },
+      {
+        "path": "check_package.py",
+        "pattern": "research_math/"
+      },
+      {
+        "path": "check_package.py",
+        "pattern": "sediment://"
+      },
+      {
+        "path": "check_package.py",
+        "pattern": "codex://"
+      }
+    ]
+  },
+  "extracted_verification": {
+    "command": [
+      "python3",
+      "verify.py",
+      "--extracted"
+    ],
+    "returncode": 0,
+    "stdout": "PASS: 32 payload files; immutable mathematics, source pins, sanitized reports, checksums and deterministic archive.\nPASS: 32 payload files; immutable mathematics, source pins, sanitized reports, checksums and deterministic archive.\nrare triangle t=1/4\n  A=1/6, B=1/6, D=0, EV2=1/4, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/4, eta=1/100\n  A=3267/20000, B=166617/1000000, D=3267/1000000, EV2=9801/40000, EHsing=0\n  E_V[H/V]=33/1700; 6D/B=2/17; chosen H/V=1/200, h_inf=1/400\nrare triangle t=1/100\n  A=1/1734, B=1/1734, D=0, EV2=1/1700, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/100, eta=1/100\n  A=3267/5780000, B=9801/17000000, D=3267/289000000, EV2=9801/17000000, EHsing=0\n  E_V[H/V]=33/28900; 6D/B=2/17; chosen H/V=1/3400, h_inf=1/10000\nrare triangle t=1/10000\n  A=1/16673334, B=1/16673334, D=0, EV2=1/16670000, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/10000, eta=1/100\n  A=3267/55577780000, B=166617/2778889000000, D=3267/2778889000000, EV2=9801/166700000000, EHsing=0\n  E_V[H/V]=33/2833900; 6D/B=2/17; chosen H/V=1/333400, h_inf=1/1000000\nflat rectangle s=1\n  A=1, B=3/2, D=1/2, EV2=6, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/2\nflat rectangle s=1/100\n  A=1/100, B=3/200, D=1/200, EV2=3/5000, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/200\nflat rectangle s=1/10000\n  A=1/10000, B=3/20000, D=1/20000, EV2=3/50000000, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/20000\ncross plus origin, including singular positive H\n  A=8/25, B=72/125, D=32/125, EV2=24/25, EHsing=24/625\n  E_V[H/V]=7/15; 6D/B=8/3; chosen H/V=2/5, h_inf=2/5\nAll exact checks passed.\nPASS: 102 numerical constant/gate checks; universal inequalities are proved analytically.\none-dimensional asymmetric law: PASS; d=1; nonsingular unordered anchors=3; D/B=1/103; singular E[H]=0\ntwo-dimensional exact equality: PASS; d=2; nonsingular unordered anchors=1; D/B=0; singular E[H]=0\ntwo-dimensional nearly flat cross: PASS; d=2; nonsingular unordered anchors=8; D/B=4/9; singular E[H]=3/78125\nthree-dimensional rare atoms plus origin: PASS; d=3; nonsingular unordered anchors=5; D/B=3/13; singular E[H]=0\nfour-dimensional simplex plus origin: PASS; d=4; nonsingular unordered anchors=6; D/B=1/6; singular E[H]=0\nSquare-pyramid direct facet certificate: PASS, dimensions 3 through 12.\nConstants and gate: PASS, dimensions 3 through 10000; largest tested G/d^6=96394.6502644 at d=3.\nALL INDEPENDENT REGRESSIONS PASSED. Finite tests supplement the analytic audit.\nPASS: all three unchanged regressions; frozen source bytes remained intact.\n",
+    "stderr": ""
+  },
+  "extracted_optimized_verification": {
+    "command": [
+      "python3",
+      "-O",
+      "verify.py",
+      "--extracted"
+    ],
+    "returncode": 0,
+    "stdout": "PASS: 32 payload files; immutable mathematics, source pins, sanitized reports, checksums and deterministic archive.\nPASS: 32 payload files; immutable mathematics, source pins, sanitized reports, checksums and deterministic archive.\nrare triangle t=1/4\n  A=1/6, B=1/6, D=0, EV2=1/4, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/4, eta=1/100\n  A=3267/20000, B=166617/1000000, D=3267/1000000, EV2=9801/40000, EHsing=0\n  E_V[H/V]=33/1700; 6D/B=2/17; chosen H/V=1/200, h_inf=1/400\nrare triangle t=1/100\n  A=1/1734, B=1/1734, D=0, EV2=1/1700, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/100, eta=1/100\n  A=3267/5780000, B=9801/17000000, D=3267/289000000, EV2=9801/17000000, EHsing=0\n  E_V[H/V]=33/28900; 6D/B=2/17; chosen H/V=1/3400, h_inf=1/10000\nrare triangle t=1/10000\n  A=1/16673334, B=1/16673334, D=0, EV2=1/16670000, EHsing=0\n  E_V[H/V]=0; 6D/B=0; chosen H/V=0, h_inf=0\nrare triangle plus center t=1/10000, eta=1/100\n  A=3267/55577780000, B=166617/2778889000000, D=3267/2778889000000, EV2=9801/166700000000, EHsing=0\n  E_V[H/V]=33/2833900; 6D/B=2/17; chosen H/V=1/333400, h_inf=1/1000000\nflat rectangle s=1\n  A=1, B=3/2, D=1/2, EV2=6, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/2\nflat rectangle s=1/100\n  A=1/100, B=3/200, D=1/200, EV2=3/5000, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/200\nflat rectangle s=1/10000\n  A=1/10000, B=3/20000, D=1/20000, EV2=3/50000000, EHsing=0\n  E_V[H/V]=1/2; 6D/B=2; chosen H/V=1/2, h_inf=1/20000\ncross plus origin, including singular positive H\n  A=8/25, B=72/125, D=32/125, EV2=24/25, EHsing=24/625\n  E_V[H/V]=7/15; 6D/B=8/3; chosen H/V=2/5, h_inf=2/5\nAll exact checks passed.\nPASS: 102 numerical constant/gate checks; universal inequalities are proved analytically.\none-dimensional asymmetric law: PASS; d=1; nonsingular unordered anchors=3; D/B=1/103; singular E[H]=0\ntwo-dimensional exact equality: PASS; d=2; nonsingular unordered anchors=1; D/B=0; singular E[H]=0\ntwo-dimensional nearly flat cross: PASS; d=2; nonsingular unordered anchors=8; D/B=4/9; singular E[H]=3/78125\nthree-dimensional rare atoms plus origin: PASS; d=3; nonsingular unordered anchors=5; D/B=3/13; singular E[H]=0\nfour-dimensional simplex plus origin: PASS; d=4; nonsingular unordered anchors=6; D/B=1/6; singular E[H]=0\nSquare-pyramid direct facet certificate: PASS, dimensions 3 through 12.\nConstants and gate: PASS, dimensions 3 through 10000; largest tested G/d^6=96394.6502644 at d=3.\nALL INDEPENDENT REGRESSIONS PASSED. Finite tests supplement the analytic audit.\nPASS: all three unchanged regressions; frozen source bytes remained intact.\n",
+    "stderr": ""
+  },
+  "archive_regeneration": {
+    "command": [
+      "python3",
+      "make_package.py"
+    ],
+    "returncode": 0,
+    "stdout": "PASS: 32 manifest files; source.zip 672029 bytes; SHA-256 4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a\n",
+    "stderr": ""
+  },
+  "archive_layout": {
+    "status": "PASS",
+    "members": 34,
+    "bytes": 672029,
+    "sha256": "4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a"
+  },
+  "negative_controls": [
+    {
+      "case": "main_changed",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Manifest mismatch: POLYNOMIAL_REFINEMENT.md"
+    },
+    {
+      "case": "main_changed",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Manifest mismatch: POLYNOMIAL_REFINEMENT.md"
+    },
+    {
+      "case": "main_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen mathematical Markdown changed"
+    },
+    {
+      "case": "main_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen mathematical Markdown changed"
+    },
+    {
+      "case": "source_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: sources/entry005-v3.md"
+    },
+    {
+      "case": "source_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: sources/entry005-v3.md"
+    },
+    {
+      "case": "square_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: SQUARE_PYRAMID_LOWER_BOUND.md"
+    },
+    {
+      "case": "square_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: SQUARE_PYRAMID_LOWER_BOUND.md"
+    },
+    {
+      "case": "audit_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Sanitized derivative changed: INDEPENDENT_REFINEMENT_AUDIT.md"
+    },
+    {
+      "case": "audit_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Sanitized derivative changed: INDEPENDENT_REFINEMENT_AUDIT.md"
+    },
+    {
+      "case": "anchors_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Sanitized derivative changed: weighted_anchors.md"
+    },
+    {
+      "case": "anchors_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Sanitized derivative changed: weighted_anchors.md"
+    },
+    {
+      "case": "checker_regenerated",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: check_constants.py"
+    },
+    {
+      "case": "checker_regenerated",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Frozen source mismatch: check_constants.py"
+    },
+    {
+      "case": "tex_changed",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Manifest mismatch: proof.tex"
+    },
+    {
+      "case": "tex_changed",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Manifest mismatch: proof.tex"
+    },
+    {
+      "case": "unlisted_file",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Unlisted payload file: surprise.txt"
+    },
+    {
+      "case": "unlisted_file",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Unlisted payload file: surprise.txt"
+    },
+    {
+      "case": "missing_archive",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: source.zip missing; use --extracted for an extracted archive"
+    },
+    {
+      "case": "missing_archive",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: source.zip missing; use --extracted for an extracted archive"
+    },
+    {
+      "case": "archive_changed",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "RuntimeError: Archive is not the exact deterministic payload"
+    },
+    {
+      "case": "archive_changed",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "RuntimeError: Archive is not the exact deterministic payload"
+    },
+    {
+      "case": "checksum_changed",
+      "optimized": false,
+      "returncode": 1,
+      "last_error": "ValueError: not enough values to unpack (expected 2, got 1)"
+    },
+    {
+      "case": "checksum_changed",
+      "optimized": true,
+      "returncode": 1,
+      "last_error": "ValueError: not enough values to unpack (expected 2, got 1)"
+    }
+  ],
+  "clean_build": {
+    "status": "PASS",
+    "pdf_sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9",
+    "source_only_inputs": [
+      "proof.tex",
+      "build.sh"
+    ],
+    "independent_rebuild_directories": [
+      "clean_build",
+      "second_clean_build"
+    ],
+    "fresh_formats_generated": true
+  },
+  "historical_relative_links_resolve_in_pinned_context": true,
+  "historical_absolute_github_links_resolve": true,
+  "status": "PASS"
+}

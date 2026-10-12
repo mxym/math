@@ -1,0 +1,548 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Strong Chollet inequalities for all simple graph Laplacians},pdfauthor={Yongxian Zhang}}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[1]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\per}{per}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\R}{\mathbb R}
+\newcommand{\PSD}{positive semidefinite}
+\title{Strong Chollet inequalities\protect\\for all simple graph Laplacians}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering,
+South China University of Technology, Guangzhou, China.
+Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}.
+ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
+\date{October 8, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the degree-product form of Chollet's inequality for the Laplacian
+of every finite simple unweighted graph, including every principal
+submatrix with degrees retained from the original graph. The result also
+holds after arbitrary nonnegative diagonal additions. For a two-connected
+noncycle block, a feasible point of the full matching polytope supplies a
+permanent lower bound, while a cycle expansion and a trace estimate supply
+an upper bound for the entrywise square. The two logarithmic coefficients
+are separated by $1/60$. Cycles are treated directly, and hereditary
+strength is preserved by diagonal additions and one-point sums. Block
+decomposition completes the proof for arbitrary graphs. This answers the
+two all-graph questions stated by Pant and Singh. A separate complete Lean
+proof establishes the same graph inequalities, including empty and singular
+cases; we explain its exact scope and its differences from the written proof.
+\end{abstract}
+
+\section{Introduction and statements}\label{sec:intro}
+For an $n\times n$ matrix $A=(a_{ij})$, its permanent is
+\[
+\per A=\sum_{\pi\in\mathfrak S_n}\prod_{i=1}^n a_{i,\pi(i)}.
+\]
+Chollet's conjecture asks whether
+$\per(A\circ B)\le\per(A)\per(B)$ for Hermitian positive-semidefinite
+matrices $A,B$, where $\circ$ is the entrywise product.
+The self case takes $A=B$. Pant and Singh~\cite{PantSingh} study structural
+classes of real matrices and graph Laplacians. Their Section~6 asks whether
+the self inequality holds for every graph Laplacian and, more strongly,
+whether its right-hand side can be replaced by the permanent times the
+product of vertex degrees. We prove this stronger assertion for all finite
+simple unweighted graphs and for every principal submatrix.
+
+Let $G=(V,E)$ be a finite simple undirected graph. Write $d_v=\deg_G(v)$
+and let $L_G$ be its ordinary Laplacian: $(L_G)_{vv}=d_v$, and, for
+$u\ne v$, $(L_G)_{uv}=-1$ on edges and $0$ otherwise.
+For $S\subseteq V$, $A[S]$ denotes the principal submatrix on $S$.
+The degrees in $L_G[S]$ are always the degrees in $G$, not in $G[S]$.
+The permanent and diagonal product of an empty matrix are both $1$.
+
+\begin{theorem}\label{thm:main}
+For every $G$ as above and every $S\subseteq V$,
+\begin{equation}\label{eq:main}
+\per\bigl(L_G[S]\circ L_G[S]\bigr)
+\le \per\bigl(L_G[S]\bigr)\prod_{v\in S}d_v.
+\end{equation}
+More generally, for any numbers $\alpha_v\ge0$ and
+$A=L_G+\operatorname{diag}(\alpha_v:v\in V)$,
+\begin{equation}\label{eq:diagonal-main}
+\per\bigl(A[S]\circ A[S]\bigr)
+\le\per\bigl(A[S]\bigr)\prod_{v\in S}(d_v+\alpha_v).
+\end{equation}
+Consequently $\per(L_G\circ L_G)\le\per(L_G)^2$.
+\end{theorem}
+
+There are no connectivity, minimum-degree, nonsingularity or nonemptiness
+assumptions. In particular, taking a principal submatrix does not remove
+the contribution of edges leaving $S$ from its diagonal.
+No assertion for arbitrary weighted graph Laplacians or arbitrary
+positive-semidefinite matrices is made.
+
+The proof has three parts. On a two-connected noncycle block, diagonal
+normalization turns the problem into a comparison between $\per(I+C)$
+and $\per(I-B)$, where $C=B\circ B$. A trace estimate gives the upper
+coefficient $19/12$ over unordered edges, and a fractional matching gives
+the lower coefficient $8/5$. Their difference is $1/60$.
+Cycle and edge blocks require separate arguments. Finally, the inequality
+for every principal submatrix is preserved by one-point sums, allowing
+the blocks of an arbitrary graph to be assembled.
+
+We use Lieb's established block permanent inequality~\cite{Lieb} and
+Edmonds' full matching-polytope theorem~\cite{Edmonds}, with all their
+required conditions stated below. The diagonal and coalescence closures
+are already present in Pant--Singh~\cite[Theorem 4.3 and Appendix A]{PantSingh};
+we give the needed algebra in full. The written proof was previously
+archived as a research note~\cite{WrittenArchive}. The present paper
+organizes that proof and its verification scope; it does not present this
+editorial revision as a separate solution of the underlying questions.
+
+\section{Two established inputs and hereditary strength}\label{sec:inputs}
+A real symmetric positive-semidefinite matrix $A$ is
+\emph{hereditarily strong} if
+\begin{equation}\label{eq:hereditary}
+\per(H\circ H)\le\per(H)\prod_i h_{ii}
+\quad\text{for every principal submatrix }H\text{ of }A.
+\end{equation}
+The adjective refers to the actual principal diagonal entries.
+
+\begin{theorem}[Lieb's block permanent inequality]\label{thm:lieb}
+Let $A$ be Hermitian positive semidefinite and let $S_1,\ldots,S_k$
+partition its index set. Then
+\[
+\per A\ge\prod_{j=1}^k\per A[S_j].
+\]
+In particular $\per A\ge\prod_i a_{ii}\ge0$.
+\end{theorem}
+This is the non-strict inequality proved in~\cite{Lieb}; no equality
+classification or unresolved permanental-dominance assertion is used.
+
+\begin{theorem}[Edmonds' matching polytope]\label{thm:edmonds}
+For a finite simple graph $H$, a vector $(x_e)_{e\in E(H)}$ is a convex
+combination of incidence vectors of matchings if and only if
+\begin{align*}
+x_e&\ge0,\\
+\sum_{e\ni v}x_e&\le1 &&(v\in V(H)),\\
+\sum_{e\in E_H(U)}x_e&\le\frac{|U|-1}{2}
+&& (U\subseteq V(H),\ |U|\text{ odd}).
+\end{align*}
+Here $E_H(U)$ denotes the edges with both ends in $U$.
+\end{theorem}
+In particular, for any real edge weights $w_e$, some matching $F$
+satisfies $\sum_{e\in F}w_e\ge\sum_e x_e w_e$.
+Indeed this follows by averaging over the convex combination.
+
+\section{A cycle-trace permanent upper bound}\label{sec:trace}
+\begin{lemma}\label{lem:upper}
+Let $C$ be real symmetric, entrywise nonnegative, with zero diagonal
+and all row sums at most $1/2$. Then
+\begin{equation}\label{eq:upper}
+\log\per(I+C)\le\frac{19}{12}\sum_{i<j}c_{ij}^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+A permutation is a family of vertex-disjoint nontrivial directed cycles,
+with its remaining vertices fixed. A two-cycle is counted once; longer
+cycles are counted up to cyclic rotation with orientations distinguished.
+Give such a cycle $\gamma$ weight $w(\gamma)$, the product of its entries
+of $C$. Dropping disjointness only adds nonnegative terms, so
+\[
+\per(I+C)\le\prod_{\gamma}(1+w(\gamma))
+\le \exp\left(\sum_{\gamma}w(\gamma)\right).
+\]
+For cycles of length $k$, the total weight is at most $\tr(C^k)/k$:
+each simple directed cycle has exactly $k$ rooted closed walks in the
+trace, and the trace also counts nonsimple closed walks with nonnegative
+weights. This statement also applies to $k=2$.
+
+All eigenvalues of $C$ lie in $[-1/2,1/2]$, since its row sums are at
+most $1/2$. For any such eigenvalue and $k\ge2$,
+$\lambda^k\le2^{-(k-2)}\lambda^2$. Thus
+\[
+\sum_{\gamma}w(\gamma)
+\le\tr(C^2)\sum_{k\ge2}\frac{2^{-(k-2)}}k.
+\]
+The cycle family itself is finite; extending the nonnegative upper bound
+to this convergent infinite series is harmless. Moreover
+\[
+\sum_{k\ge2}\frac{2^{-(k-2)}}k
+\le\frac12+\frac16+\frac14\sum_{k\ge4}2^{-(k-2)}
+=\frac{19}{24}.
+\]
+Since $\tr(C^2)=2\sum_{i<j}c_{ij}^2$, this proves
+\eqref{eq:upper}. Its logarithm is defined because the identity
+permutation contributes $1$ to $\per(I+C)$.
+\end{proof}
+
+\section{A feasible matching in each noncycle block}\label{sec:matching}
+Here a graph is two-connected if it has at least three vertices and
+remains connected after deletion of any single vertex.
+
+\begin{lemma}\label{lem:matching}
+Let $G$ be two-connected and not a cycle. Set $d_v=\deg_G(v)$ and
+\[
+c_{uv}=\frac1{d_ud_v},\qquad x_{uv}=\frac95 c_{uv}\quad(uv\in E(G)).
+\]
+Then $x$ belongs to the matching polytope of $G$.
+\end{lemma}
+\begin{proof}
+Every $d_v\ge2$. Nonnegativity holds, and the vertex constraints follow
+from
+\[
+\sum_{u\sim v}x_{uv}=\frac9{5d_v}\sum_{u\sim v}\frac1{d_u}
+\le\frac9{10}<1.
+\]
+We check every odd-set constraint, including the small sets.
+
+For $U\subseteq V(G)$ with $|U|\ge2$, call $v\in U$ exceptional if
+$d_v\ge3$ or $v$ has a neighbor outside $U$. There are at least two
+exceptional vertices. For proper $U$, no exception contradicts
+connectivity, and a unique exception $v$ would disconnect the nonempty
+sets $U\setminus\{v\}$ and $V(G)\setminus U$ upon deletion of $v$.
+For $U=V(G)$, all degrees equal to two would make $G$ a cycle.
+If only one vertex $v$ had degree at least three, $G-v$ would be a
+connected graph of maximum degree two with at least three degree-one
+vertices, namely the neighbors of $v$. A connected graph of maximum
+degree two is a path or a cycle and cannot have that property.
+
+Let $d_U(v)$ count neighbors in $U$. The inequality
+$2/(d_ud_v)\le1/d_u^2+1/d_v^2$ implies
+\[
+4\sum_{uv\in E_G(U)}c_{uv}\le2\sum_{v\in U}\frac{d_U(v)}{d_v^2}.
+\]
+Each deficit $1-2d_U(v)/d_v^2$ is nonnegative. It is at least $1/3$
+when $d_v\ge3$, and at least $1/2$ when $d_v=2$ has an external
+neighbor. The two exceptions therefore give
+\begin{equation}\label{eq:deficit}
+4\sum_{uv\in E_G(U)}c_{uv}\le |U|-\frac23.
+\end{equation}
+For odd $|U|\ge5$, it follows that
+\[
+\sum_{uv\in E_G(U)}x_{uv}\le\frac{9|U|-6}{20}
+\le\frac{|U|-1}{2},
+\]
+where the last comparison already holds for $|U|\ge4$.
+
+If $|U|=3$ and $G[U]$ has at most two edges, its $c$-sum is at most
+$1/2$, giving an $x$-sum at most $9/10$. If $G[U]$ is a triangle,
+at least two of its vertices have degree at least three. Otherwise the
+third vertex separates the two degree-two vertices from the rest of
+$G$, unless $G$ is that triangle, which was excluded. Hence
+\[
+\sum_{uv\in E_G(U)}c_{uv}\le\frac16+\frac16+\frac19=\frac49,
+\]
+and its $x$-sum is at most $4/5$. A singleton has no internal edge.
+All conditions of Theorem~\ref{thm:edmonds} hold.
+\end{proof}
+
+\begin{proposition}\label{prop:block}
+The Laplacian of every two-connected noncycle graph is hereditarily strong.
+For any principal subset $S$, put
+$X_S=\sum_{uv\in E(G[S])}(d_ud_v)^{-2}$. More precisely,
+\begin{equation}\label{eq:margin}
+\per(L_G[S]\circ L_G[S])
+\le e^{-X_S/60}\per(L_G[S])\prod_{v\in S}d_v.
+\end{equation}
+Thus the inequality is strict if $G[S]$ contains an edge, and is an
+equality when $G[S]$ has no edge.
+\end{proposition}
+\begin{proof}
+The empty case is immediate. All original degrees are positive. Normalize
+\[
+M=\operatorname{diag}(d_v^{-1/2}:v\in S)L_G[S]
+\operatorname{diag}(d_v^{-1/2}:v\in S)=I-B.
+\]
+The matrix $M$ is positive semidefinite. The matrix $B$ is symmetric
+with zero diagonal and $b_{uv}=1/\sqrt{d_ud_v}$ on edges of $G[S]$.
+For $C=B\circ B$, its edge entry is $c_{uv}=1/(d_ud_v)\le1/4$,
+and its row sums are at most $1/2$. Lemma~\ref{lem:upper} gives
+\begin{equation}\label{eq:upper-normalized}
+\log\per(M\circ M)=\log\per(I+C)\le\frac{19}{12}X_S.
+\end{equation}
+
+Restrict the feasible vector of Lemma~\ref{lem:matching} to $G[S]$.
+Restriction preserves all matching-polytope constraints. With edge
+weights $\log(1+c_{uv})$, Theorem~\ref{thm:edmonds} supplies a matching
+$F$ whose weight is at least
+$\frac95\sum_{uv\in E(G[S])}c_{uv}\log(1+c_{uv})$.
+Partition $S$ into its matched pairs and remaining singletons. Each pair
+has permanent $1+b_{uv}^2=1+c_{uv}$. Theorem~\ref{thm:lieb} yields
+\[
+\per M\ge\prod_{uv\in F}(1+c_{uv}).
+\]
+For $0\le t\le1/4$,
+\[
+\log(1+t)\ge\frac{2t}{2+t}\ge\frac89t.
+\]
+The first inequality follows by differentiation: the difference has
+derivative $t^2/((1+t)(2+t)^2)\ge0$ and value zero at $0$.
+Consequently
+\begin{equation}\label{eq:lower-normalized}
+\log\per M\ge\frac85X_S.
+\end{equation}
+The permanent is at least $1$ by Theorem~\ref{thm:lieb}, so these
+logarithms are well defined. Subtracting
+\eqref{eq:lower-normalized} from \eqref{eq:upper-normalized} gives
+$\per(M\circ M)\le e^{-X_S/60}\per M$.
+If $Z_S=\prod_{v\in S}d_v$, diagonal scaling gives
+$\per L_G[S]=Z_S\per M$ and
+$\per(L_G[S]\circ L_G[S])=Z_S^2\per(M\circ M)$.
+This proves \eqref{eq:margin}. An internal edge makes $X_S>0$;
+without any internal edge $M=I$, giving equality.
+\end{proof}
+
+\section{Cycle and bridge blocks}\label{sec:cycles}
+\begin{lemma}\label{lem:bipartite}
+A real positive-semidefinite matrix with nonpositive off-diagonal entries
+and bipartite off-diagonal support is hereditarily strong.
+\end{lemma}
+\begin{proof}
+Fix a principal submatrix $H$ and a permanent monomial
+$t_\pi=\prod_i h_{i,\pi(i)}$. Every nonzero nontrivial permutation cycle
+in its support has even length, so $t_\pi\ge0$. Positivity of every
+two-by-two principal minor gives $|h_{ij}|\le\sqrt{h_{ii}h_{jj}}$.
+Therefore, with $D=\prod_i h_{ii}$,
+\[
+0\le t_\pi\le\prod_i\sqrt{h_{ii}h_{\pi(i),\pi(i)}}=D.
+\]
+Summing $t_\pi^2\le D t_\pi$ proves \eqref{eq:hereditary}.
+The argument includes zero diagonal entries and the empty submatrix.
+\end{proof}
+
+\begin{lemma}\label{lem:cycles}
+The Laplacians of $K_2$ and every cycle are hereditarily strong.
+\end{lemma}
+\begin{proof}
+Lemma~\ref{lem:bipartite} handles $K_2$, even cycles and every proper
+principal submatrix of a cycle Laplacian: the latter has forest support.
+For the full odd cycle $C_n$, $n\ge3$, put $M=L_{C_n}/2=I-B$,
+where $b_{uv}=1/2$ on cycle edges. A maximum matching has $(n-1)/2$
+edges, so Theorem~\ref{thm:lieb} and the preceding scalar bound give
+\[
+\log\per M\ge\frac{n-1}{2}\log\frac54\ge\frac{n-1}{9}.
+\]
+For $C=B\circ B$, the simple directed cycles are the $n$ two-cycles
+of weight $1/16$ and the two orientations of the full cycle of weight
+$4^{-n}$. The cycle-product argument of Lemma~\ref{lem:upper} gives
+\[
+\log\per(M\circ M)\le\frac n{16}+\frac2{4^n}.
+\]
+For every integer $n\ge3$,
+\[
+\frac{n-1}{9}-\frac n{16}-\frac2{4^n}
+=\frac{7n-16}{144}-\frac2{4^n}>0.
+\]
+The expression is increasing in $n$ and equals $1/288$ at $n=3$.
+Undoing normalization proves the full-cycle inequality, strictly.
+\end{proof}
+
+\section{Diagonal additions and one-point sums}\label{sec:closure}
+The following closure arguments also account for all principal subsets
+at articulation vertices, where degrees from both sides contribute.
+
+\begin{lemma}\label{lem:diagonal}
+Hereditary strength is preserved by adding a nonnegative diagonal matrix.
+\end{lemma}
+\begin{proof}
+It suffices to add $\alpha\ge0$ at one diagonal index $v$. For any
+principal submatrix containing $v$, write its old matrix as $A$ and put
+\[
+a=a_{vv},\quad P=\per A,\quad R=\per A(v),\quad
+Q=\per(A\circ A),\quad T=\per(A(v)\circ A(v)),
+\]
+where $A(v)$ deletes $v$, and let $h$ be its diagonal product.
+Expansion in the changed diagonal entry gives
+\[
+\per(A+\alpha E_{vv})=P+\alpha R,\qquad
+\per((A+\alpha E_{vv})\circ(A+\alpha E_{vv}))
+=Q+(2a\alpha+\alpha^2)T.
+\]
+Hereditary strength gives $Q\le ahP$ and $T\le hR$, while
+Theorem~\ref{thm:lieb} gives $P\ge aR$. All quantities multiplied
+below are nonnegative. Hence
+\begin{align*}
+Q+(2a\alpha+\alpha^2)T
+&\le h\bigl[aP+(2a\alpha+\alpha^2)R\bigr]\\
+&\le h(a+\alpha)(P+\alpha R),
+\end{align*}
+because the second difference is $h\alpha(P-aR)\ge0$.
+Other principal subsets are unchanged. Iteration proves the lemma.
+\end{proof}
+
+\begin{lemma}\label{lem:onepoint}
+The one-point sum of two hereditarily strong positive-semidefinite
+matrices is hereditarily strong. Direct sums have the same property.
+\end{lemma}
+\begin{proof}
+For the one-point sum, identify distinguished indices of $A_1,A_2$,
+add their diagonal entries $a_1,a_2$, and set cross entries between
+the two remaining index sets to zero. The resulting matrix $A$ is
+positive semidefinite, being the sum of the two embedded matrices.
+Let $B_i$ delete the distinguished index and put
+\[
+P_i=\per A_i,\quad R_i=\per B_i,\quad
+Q_i=\per(A_i\circ A_i),\quad T_i=\per(B_i\circ B_i),
+\]
+with $h_i$ the diagonal product of $B_i$.
+A permutation cycle through the common vertex cannot visit both sides:
+such a cycle would have to pass through that vertex twice. Expansion
+by this cycle, including the fixed-vertex case, gives
+\begin{align}
+\per A&=P_1R_2+R_1P_2,\label{eq:onepoint-per}\\
+\per(A\circ A)&=Q_1T_2+T_1Q_2+2a_1a_2T_1T_2.
+\label{eq:onepoint-square}
+\end{align}
+The additional term in \eqref{eq:onepoint-square} comes from
+$(a_1+a_2)^2-a_1^2-a_2^2$. Hereditary strength and nonnegativity imply
+\[
+\per(A\circ A)\le h_1h_2
+\bigl(a_1P_1R_2+a_2R_1P_2+2a_1a_2R_1R_2\bigr).
+\]
+The target right-hand side is
+$h_1h_2(a_1+a_2)(P_1R_2+R_1P_2)$. After removing $h_1h_2$, their
+difference is
+\[
+a_2R_2(P_1-a_1R_1)+a_1R_1(P_2-a_2R_2)\ge0
+\]
+by Theorem~\ref{thm:lieb}. This proves the whole-matrix inequality.
+
+For a principal subset containing the common vertex, take its selected
+indices from each side together with that vertex on each side, and apply
+the same computation. Either selected side may consist just of the common
+vertex; the empty-matrix conventions give $R_i=T_i=h_i=1$ there.
+For a subset omitting the common vertex, the matrix is a direct sum.
+Permanents and diagonal products multiply on direct sums, proving both
+remaining assertions, with empty and singular cases included.
+\end{proof}
+
+\section{Assembly of all graphs}\label{sec:assembly}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The standard block decomposition of a connected graph expresses it as
+successive one-point sums of its bridges and maximal two-connected
+blocks; see, for example,~\cite[Chapter 3]{Diestel}.
+At each articulation vertex, its full degree is the sum of its degrees
+in those blocks. Thus the same decomposition identifies the actual
+Laplacian, with its full diagonal, as their matrix one-point sum.
+Each bridge is $K_2$. Each two-connected block is a cycle or a noncycle.
+Proposition~\ref{prop:block} and Lemma~\ref{lem:cycles} establish
+hereditary strength for all blocks, and Lemma~\ref{lem:onepoint}
+preserves it during assembly. A one-vertex component has zero Laplacian:
+its nonempty permanent is zero, and its empty permanent is one.
+Disconnected graphs are direct sums of their connected components.
+This proves \eqref{eq:main} for all $G,S$.
+
+Lemma~\ref{lem:diagonal} proves \eqref{eq:diagonal-main}. Finally
+Theorem~\ref{thm:lieb} gives $\per L_G\ge\prod_v d_v\ge0$.
+Multiplication by the nonnegative $\per L_G$ yields
+$\per(L_G\circ L_G)\le\per(L_G)^2$.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:block} records the quantitative gap already
+implicit in the block comparison. It classifies equality for those
+principal submatrices of a two-connected noncycle graph. It is not a
+classification of equality for all assembled graphs, and the constant
+$1/60$ is not claimed to be optimal.
+\end{remark}
+
+\section{Formal verification and reproduction}\label{sec:formal}
+The same graph endpoint has a complete independent Lean proof in the
+fixed package~\cite{LeanArchive}. Its main declaration is
+\begin{quote}\small\path{Chollet.strongChollet_all_graphs}\end{quote}
+in \path{src/CholletAllGraphs.lean}. It uses the actual Mathlib
+\path{SimpleGraph.lapMatrix} and \path{Matrix.permanent}, and the shared
+\path{StrongChollet} definition quantifies over every principal vertex
+subset, retaining the degrees of the original graph. The stronger
+declaration \path{laplacianDiagonalStrong_all} permits arbitrary
+nonnegative diagonal additions to the whole graph Laplacian.
+
+Lean is pinned to 4.34.1, compiler commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}, and Mathlib to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The fixed records report fresh compilation of all 83 source modules and
+empty-kernel, trust-level-zero replay of 985 owned declarations and
+their 44,173-declaration transitive closure. Only the standard axioms
+\path{propext}, \path{Classical.choice} and \path{Quot.sound} are
+allowed, and a deliberately false proof is rejected.
+These are records of the frozen verification run, not a claim that this
+editorial revision reran the kernel.
+
+The Lean proof is not a line-by-line transcription of this paper.
+It derives the matching lower bound from proved Gram and Fischer
+identities, uses the bundled proved perfect-matching polytope theorem,
+and bounds degree-two vertex-robust blocks through a vanishing third
+trace and scaled feasible weights. Vertex-count induction strengthened
+by nonnegative diagonal additions then replaces explicit block-tree
+assembly. A semantic review checks that the unconditional endpoint
+has exactly the graph quantifiers in Theorem~\ref{thm:main}.
+Neither the exponential refinement in Proposition~\ref{prop:block}
+nor every intermediate written argument is claimed to be separately
+formalized. Third-party source adaptations and licenses are documented
+in the package's \path{THIRD_PARTY.md}.
+
+For reproduction, start with the package README and \path{case.json}.
+The latter fixes all source hashes and the complete module order.
+Run \path{lake build} for the candidate build. The included
+\path{reproduce.py} documents fresh compilation and trust-zero replay
+with the pinned official dependencies and a new output directory.
+Its recorded results are \path{verification/final-review.json},
+\path{verification/replay-summary.json} and
+\path{verification/negative-kernel.log}. The traditional proof above
+does not use a finite computation as a premise.
+
+\section{Further questions}
+The graph theorem leaves the general positive-semidefinite Chollet
+conjecture untouched. An extension to arbitrary positive edge weights
+would require additional control: the present fractional matching uses
+unweighted vertex degrees and the fixed normalized edge size. The proof
+also does not provide a full equality classification after block assembly.
+Those questions are distinct from the two all-graph unweighted questions
+answered here.
+
+\section*{Funding}
+This research was conducted independently and received no external funding.
+\section*{AI-assisted research methods}
+OpenAI AI assistants assisted mathematical research, proof development,
+Lean formalization and internal review. Claims are supported by the
+written proof and the fixed formal-verification evidence. AI output is
+not itself proof evidence, and internal review is not external human
+peer review.
+\section*{Declaration of generative AI and AI-assisted technologies
+in the writing process}
+OpenAI AI assistants assisted drafting, organization and LaTeX editing.
+The author takes responsibility for the manuscript and its account of
+the verification evidence.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{PantSingh}
+P. Pant and R. Singh, \emph{Structural Classes for Chollet's Permanent
+Conjecture}, arXiv:2604.24192v2 (2026), revised 18 September 2026,
+Section 6, Theorem 4.3 and Appendix A.
+\url{https://arxiv.org/abs/2604.24192v2}.
+\bibitem{Lieb}
+E. H. Lieb, \emph{Proofs of some conjectures on permanents},
+Journal of Mathematics and Mechanics \textbf{16} (1966), 127--134.
+\url{https://doi.org/10.1512/iumj.1967.16.16008}.
+\bibitem{Edmonds}
+J. Edmonds, \emph{Maximum matching and a polyhedron with 0,1-vertices},
+Journal of Research of the National Bureau of Standards B \textbf{69B}
+(1965), 125--130. \url{https://doi.org/10.6028/jres.069B.013}.
+\bibitem{Diestel}
+R. Diestel, \emph{Graph Theory}, fifth edition, Graduate Texts in
+Mathematics 173, Springer, 2017.
+\bibitem{WrittenArchive}
+Y. Zhang, \emph{A strong Chollet inequality for every simple graph
+Laplacian}, written proof archive, version 1 (2026).
+\url{https://doi.org/10.5281/zenodo.23248359}.
+\bibitem{LeanArchive}
+Y. Zhang, \emph{Strong Chollet inequalities for all finite simple graph
+Laplacians: complete Lean proof}, proof archive, version 2.0 (2026).
+\url{https://doi.org/10.5281/zenodo.23252138}.
+Fixed source commit \nolinkurl{4d2eefd40ee930216ccd8fc0f51e4bf694251967}.
+\end{thebibliography}
+\end{document}

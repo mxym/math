@@ -1,0 +1,10 @@
+${RELEASE}/audit/checks/NegativeFormulaOmission.lean:3:2: error: Type mismatch
+  Entry005.truncation_sharpness_from_actual_defect_formula
+has type
+  (∀ (d : ℕ),
+      3 ≤ d →
+        ∀ (t : ℝ),
+          0 < t → t < 1 → Entry005.entryDefect (Entry005.truncationSet d t) = Entry005.truncationRationalDefect d t) →
+    Entry005.truncationSharpnessGoal
+but is expected to have type
+  Entry005.truncationSharpnessGoal

@@ -1,0 +1,576 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Brenier stability under logarithmic second moments}
+\fancyhead[R]{\small Research draft v4}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\crefname{lemma}{lemma}{lemmas}\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{proposition}{propositions}\Crefname{proposition}{Proposition}{Propositions}
+\crefname{corollary}{corollary}{corollaries}\Crefname{corollary}{Corollary}{Corollaries}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathcal P}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ind}{\mathbf 1}\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\Var}{\operatorname{Var}}\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\id}{\operatorname{id}}
+\title{Sharp Gaussian Brenier stability\\under logarithmic second moments}
+\author{}\date{Research manuscript 001, version 4\quad 7 October 2026}
+\hypersetup{pdftitle={Sharp Gaussian Brenier stability under logarithmic second moments},pdfauthor={},pdfsubject={Sharp logarithmic target-moment exponents and critical finite-moment constants}}
+\begin{document}
+\maketitle\vspace{-1.5em}
+\begin{abstract}
+A logarithmic strengthening of the target second moment determines an exact stability exponent for Brenier maps from a fixed Gaussian source. Under the normalized bound $\int (|y|/M)^2[\log(e+(|y|/M)^2)]^\beta\dd\lambda\le1$, $\beta>0$, we prove a homogeneous $L^2$ map estimate with Wasserstein exponent $\min\{1/3,\beta/(\beta+1)\}$. This exponent is optimal in every fixed dimension at least two, including the transition $\beta=1/2$ without a logarithmic loss. At $\beta=0$ there is no uniform modulus in these dimensions. The proof combines the previously established radius-free potential estimate with a minimum-density finite-difference inequality. Integrating signed-square derivative increments directly against the common endpoint weight requires only $L^2$ gradients and produces polynomial source-coordinate weights. A dependence-free logarithmic-moment pairing controls these weights. We also prove uniform estimates for full-support strongly convex $C^{1,1}$ source potentials with a fixed gradient-Lipschitz bound. As a further consequence, the best Gaussian finite-$q$ one-third constant, in its natural homogeneous normalization, has exact order $(q-2)^{-1/6}$ as $q\downarrow2$. The sharpness and endpoint obstructions are multidimensional; in one dimension the map distance equals $W_2$.
+\end{abstract}
+
+\paragraph{Status and proof dependency.}
+This is a research draft, not a formally verified or externally peer-reviewed paper. No publication-priority claim is made. The all-$\Prob_2$ potential theorem from the public version~3 manuscript \cite{ManuscriptV3} is an explicit input, restated below with its exact hypotheses. The present version gives complete proofs of the new interpolation, logarithmic-moment, sharpness and critical-constant statements; it does not independently re-prove the earlier cell-calculus theorem. Comparison with the full text of \cite{Merigot2026} remains unfinished.
+
+\section{The logarithmic threshold}\label{sec:statements}
+Let $\gamma_d$ denote standard Gaussian probability on $\R^d$. For an absolutely continuous source $\rho\in\Prob_2(\R^d)$ and a target $\mu\in\Prob_2(\R^d)$, write $T_\mu$ for the unique quadratic optimal transport map from $\rho$ to $\mu$. It is the gradient of a convex Brenier potential \cite{Brenier1991}. Here $\Prob_q$ denotes probability measures with finite $q$th moment, and
+\[
+ W_2(\mu,\nu)^2=\inf_{\pi\in\Pi(\mu,\nu)}\int|y-z|^2\dd\pi(y,z).
+\]
+The Euclidean norm is $|\cdot|$, all logarithms are natural, and $t_+=\max(t,0)$.
+
+For $\beta\ge0$, define $\Phi_\beta(s)=s[\log(e+s)]^\beta$ for $s\ge0$. This function is increasing and is at least $s$. Our target condition, with common scale $M>0$, is
+\begin{equation}\label{eq:log-class}
+ \int\Phi_\beta\left(\frac{|y|^2}{M^2}\right)\dd\lambda(y)\le1
+ \qquad(\lambda=\mu,\nu).
+\end{equation}
+It implies both target second moments are at most $M^2$.
+
+\begin{theorem}[Sharp Gaussian logarithmic-moment estimate]\label{thm:log}
+Let $d\ge1$, $\beta>0$, and put
+\begin{align}
+ \eta&=\min\{1,2\beta\},&
+ \alpha&=\frac\eta{\eta+2}=\min\left\{\frac13,\frac\beta{\beta+1}\right\},\label{eq:eta-alpha}\\
+ K_\eta&=6\cdot2^\eta+2,&
+ B_\beta&=2+8^\beta+\sqrt2(8\beta/e)^\beta,\label{eq:constants}\\
+ C_{d,\beta}&=\bigl(24d+2dK_\eta B_\beta\bigr)^{1/2}.&&\notag
+\end{align}
+If $\mu,\nu$ satisfy \eqref{eq:log-class}, their Brenier maps from $\gamma_d$ obey
+\begin{equation}\label{eq:main-log}
+ \norm{T_\mu-T_\nu}_{L^2(\gamma_d)}
+ \le C_{d,\beta}M^{1-\alpha}W_2(\mu,\nu)^\alpha.
+\end{equation}
+Moments may instead be measured about any common center $z\in\R^d$.
+
+For each fixed $d\ge2$, the exponent $\alpha$ cannot be increased on the normalized class \eqref{eq:log-class} with $M=1$. At $\beta=0$, that class has no uniform map-continuity modulus. In dimension one,
+\begin{equation}\label{eq:one-dimensional}
+ \norm{T_\mu-T_\nu}_{L^2(\gamma_1)}=W_2(\mu,\nu),
+\end{equation}
+including the second-moment endpoint.
+\end{theorem}
+
+The transition at $\beta=1/2$ is included: its exponent is exactly $1/3$. The constants displayed here are admissible, not asserted optimal. For $\beta>0$ the condition already implies uniform integrability of the second moments, since
+\[
+ \int_{|y|>R}|y|^2\dd\lambda(y)
+ \le\frac{M^2}{[\log(e+(R/M)^2)]^\beta}.
+\]
+Thus qualitative uniform continuity also follows from classical transport stability and $W_2$ compactness. The issue addressed here is the explicit sharp power law and its endpoint.
+
+\subsection{A smooth-source extension}
+The same exponent holds for full-support uniformly strongly log-concave sources with a controlled gradient of their logarithmic density.
+
+\begin{theorem}[Uniform smooth-source estimate]\label{thm:smooth}
+Let $V:\R^d\to\R$ be continuously differentiable, $\kappa$-strongly convex, and have globally $\Lambda$-Lipschitz gradient, where $0<\kappa\le\Lambda<\infty$. Let $\rho=Z^{-1}e^{-V}\dd x$. For $\beta>0$ set $\eta,\alpha,K_\eta$ as in \eqref{eq:eta-alpha}--\eqref{eq:constants} and define
+\begin{align}
+ B_{d,\kappa,\Lambda,\beta}
+ &=2+(8/\kappa)^\beta
+     +(8\beta/(\kappa e))^\beta(2\Lambda/\kappa)^{d/2},\label{eq:smooth-B}\\
+ C_{d,\kappa,\Lambda,\beta}
+ &=\max\left\{2,
+ \left(\frac{24d}{\kappa}
+       +2dK_\eta\Lambda^\eta B_{d,\kappa,\Lambda,\beta}\right)^{1/2}\right\}.
+ \label{eq:smooth-C}
+\end{align}
+For targets satisfying \eqref{eq:log-class},
+\begin{equation}\label{eq:smooth-main}
+ \norm{T_\mu-T_\nu}_{L^2(\rho)}
+ \le C_{d,\kappa,\Lambda,\beta}M^{1-\alpha}W_2(\mu,\nu)^\alpha.
+\end{equation}
+The constant is uniform in $V$ for fixed $d,\kappa,\Lambda,\beta$, and common-center moments may be used. If $d\ge2$, the exponent is sharp over this source class; individual sharpness for every non-Gaussian member is not asserted. Hard convex boundaries are excluded from this theorem.
+\end{theorem}
+
+\subsection{The critical finite-moment constant}
+The same interpolation improves the dependence on the target-moment order in the Gaussian one-third estimate.
+
+\begin{theorem}[Sharp finite-$q$ constant order]\label{thm:q}
+For $q>2$, put
+\[
+ p=\frac q{q-2},\qquad D_q=\norm{1+|G|}_{L^p(\gamma_1)},\qquad G\sim\gamma_1,
+\]
+and, for $\mu,\nu\in\Prob_q(\R^d)$, let
+\[
+ M_q=\left(\int|y|^q\dd\mu(y)\right)^{1/q}
+     +\left(\int|y|^q\dd\nu(y)\right)^{1/q}.
+\]
+Then for the standard Gaussian source in every $d\ge1$,
+\begin{equation}\label{eq:q-upper}
+ \norm{T_\mu-T_\nu}_{L^2(\gamma_d)}
+ \le\sqrt{38d}\,D_q^{1/3}M_q^{2/3}W_2(\mu,\nu)^{1/3}.
+\end{equation}
+Let $C_*(d,q)$ be the smallest constant in the same inequality when the factor $\sqrt{38d}D_q^{1/3}$ is replaced by a constant uniform over all such targets. For $d\ge2$, there are explicit $c_0>0$ and $A_d<\infty$, independent of $q$, with
+\begin{equation}\label{eq:q-sharp-order}
+ c_0p^{1/6}\le C_*(d,q)\le A_dp^{1/6}.
+\end{equation}
+In particular $C_*(d,q)\asymp_d(q-2)^{-1/6}$ as $q\downarrow2$. For $d=1$, $C_*(1,q)=1$.
+\end{theorem}
+
+The last theorem concerns the best constant in the specified homogeneous normalization, rather than a different transport exponent. Explicit choices for $c_0,A_d$ appear in \Cref{sec:q}.
+
+\subsection{Provenance and related estimates}
+The potential estimate used here is \cite[Theorem~1.1]{ManuscriptV3}. That manuscript develops a strongly log-concave extension of the finite-cell and moving-site framework of the OpenAI uniform-source preprint \cite{OpenAI2026}. The earlier Gaussian three-atom construction is used below with full details. The new interpolation keeps signed derivative increments under the minimum of the two endpoint densities; it does not estimate an exponential density ratio against the original weight.
+
+Potential-to-gradient interpolation and unbounded-target moment estimates have important precedents. Delalande and M\'erigot \cite[Proposition~4.1 and Corollary~4.4]{DelalandeMerigot2023} treat bounded-gradient interpolation and finite target moments for compact convex sources with two-sided density bounds. For moment order $p\ge4$, $p>d$, their map exponent is $p/(6p+16d)$ in $W_1$. Letrouit and M\'erigot \cite[Theorem~1.4 and Remark~1.5]{LetrouitMerigot2026} treat strongly log-concave sources and bounded logarithmic perturbations with compact targets; their unbounded-target case is left untreated there. Mischler and Trevisan \cite{MischlerTrevisan2026} establish related potential and map estimates for general power costs and discuss weighted interpolation. These results have different source or target hypotheses. Neither a metric exponent nor the absence of a statement in the compared results is evidence of priority. A full comparison with \cite{Merigot2026} remains unfinished.
+
+\section{The inherited potential theorem}\label{sec:input}
+We state exactly the result from version~3 that is required below. Its full public proof, including nonsmooth source conditioning, finite-target approximation and completion to all $\Prob_2$ targets, is in the cited manuscript.
+
+\begin{theorem}[Potential stability input, {\cite[Theorem~1.1]{ManuscriptV3}}]\label{thm:input}
+Let $\rho=r\dd x$ be full-dimensional with
+\[
+ r(x)=Z^{-1}\exp(-\kappa|x|^2/2-W(x)),\qquad \kappa>0,
+\]
+where $W:\R^d\to(-\infty,+\infty]$ is proper, lower-semicontinuous and convex. For every $\mu\in\Prob_2(\R^d)$, its Brenier potential has a unique centered representative $U_\mu\in L^2(\rho)$, finite and convex on the interior of the source support. For every $\mu,\nu\in\Prob_2(\R^d)$,
+\begin{equation}\label{eq:potential-input}
+ \norm{U_\mu-U_\nu}_{L^2(\rho)}^2
+ \le\frac2\kappa W_2(\mu,\nu)^2.
+\end{equation}
+\end{theorem}
+
+This is an established input within the cited proof chain, not a new conditional hypothesis on the targets. For the Gaussian and smooth sources of the present paper the support is all of $\R^d$, so the representatives are finite convex functions everywhere. The Gaussian has $W=0$, $\kappa=1$. Under \Cref{thm:smooth}, $W=V-\kappa|x|^2/2$ is finite convex. The source has a finite second moment in both cases. No bounded-gradient conclusion is inferred for unbounded targets.
+
+We also use the standard optimality of a convex gradient to its own law. For finite maxima of affine functions, it follows directly by integrating the supporting affine inequalities: the gradient plan maximizes $\int x\cdot y$, hence minimizes quadratic cost, and equality forces its unique maximizing slope almost everywhere. This verifies every explicit map in the sharpness examples below.
+
+\section{A minimum-density finite-difference inequality}\label{sec:minimum}
+The key point is to preserve the common endpoint weight when integrating the signed-square derivative increment. The following form does not assume log-concavity of the density.
+
+\begin{lemma}[General minimum-weight inequality]\label[lemma]{lem:minimum}
+Let $\rho=r\dd x$ be a probability on $\R^d$ with $0<r<\infty$ almost everywhere. Let $u,v$ be finite convex functions on $\R^d$, with gradients in $L^2(\rho)$ and $f=u-v-a\in L^2(\rho)$ for some $a\in\R$. For $h>0$ and each coordinate $j$, define
+\begin{align*}
+ m_{j,h}(x)&=\min\{r(x),r(x+he_j)\},\\
+ A_{j,h}(x)&=\frac{|m_{j,h}(x-he_j)-m_{j,h}(x)|}{r(x)},\qquad
+ B_{j,h}(x)=1-\frac{m_{j,h}(x)}{r(x)}.
+\end{align*}
+Then $0\le A_{j,h},B_{j,h}\le1$ almost everywhere and
+\begin{equation}\label{eq:general-minimum}
+ \begin{split}
+ \norm{\nabla u-\nabla v}_{L^2(\rho)}^2
+ &\le\frac{12d}{h^2}\norm f_{L^2(\rho)}^2\\
+ &\quad+\sum_{j=1}^d\int(6A_{j,h}+2B_{j,h})
+                (|\partial_j u|^2+|\partial_j v|^2)\dd\rho.
+ \end{split}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Fix $j,h$ and abbreviate $m=m_{j,h}$. For this fixed displacement, discard the null differentiability sets and their translates. Convexity gives
+\[
+ \partial_j u(x)\le D_hu(x):=\frac{u(x+he_j)-u(x)}h
+          \le\partial_j u(x+he_j).
+\]
+Set $a_u=\partial_j u$, $g_u=a_u|a_u|$ and $\delta_u=D_hu-a_u\ge0$. The elementary inequality
+\begin{equation}\label{eq:signed-square}
+ (b-a)^2\le2(b|b|-a|a|)\qquad(a\le b)
+\end{equation}
+follows by factoring the difference of squares when the signs agree, and by $(|a|+|b|)^2\le2(a^2+b^2)$ when they differ. Consequently
+\[
+ \delta_u(x)^2\le2\bigl(g_u(x+he_j)-g_u(x)\bigr),
+\]
+with a nonnegative bracket.
+
+Both terms are absolutely integrable under the minimum weight using only the assumed $L^2$ gradient:
+\begin{align*}
+ \int|g_u(x)|m(x)\dd x&\le\int|a_u|^2r\dd x<\infty,\\
+ \int|g_u(x+he_j)|m(x)\dd x
+ &=\int|g_u(y)|m(y-he_j)\dd y\le\int|a_u|^2r\dd y<\infty.
+\end{align*}
+The second bound uses $m(y-he_j)=\min(r(y-he_j),r(y))\le r(y)$. Signed subtraction and a change of variable are therefore legitimate. They give
+\begin{align}
+ \int\delta_u^2m\dd x
+ &\le2\int g_u(y)\bigl(m(y-he_j)-m(y)\bigr)\dd y\notag\\
+ &\le2\int|a_u|^2 A_{j,h}\dd\rho.\label{eq:minimum-error}
+\end{align}
+The first signed integral is nonnegative by its preceding representation; its integrand after translation need not be pointwise nonnegative. Taking an absolute-value upper bound is valid. The same calculation holds for $v$.
+
+The common weight controls both finite-difference endpoints:
+\begin{align}
+ \int|D_hf|^2m\dd x
+ &\le\frac2{h^2}\int\bigl(|f(x+he_j)|^2+|f(x)|^2\bigr)m(x)\dd x\notag\\
+ &\le\frac4{h^2}\norm f_{L^2(\rho)}^2.\label{eq:fd-bound}
+\end{align}
+No translated $L^2(\rho)$ assumption on $f$ is used. Since
+$a_u-a_v=D_hf-\delta_u+\delta_v$, the three-term square inequality and \eqref{eq:minimum-error}--\eqref{eq:fd-bound} yield
+\[
+ \int|a_u-a_v|^2m\dd x
+ \le\frac{12}{h^2}\norm f_2^2
+          +6\int A_{j,h}(|a_u|^2+|a_v|^2)\dd\rho.
+\]
+On the remaining weight, $|a_u-a_v|^2\le2(|a_u|^2+|a_v|^2)$ gives the term with $2B_{j,h}$. Summing in $j$ proves \eqref{eq:general-minimum}. The bounds $A_{j,h},B_{j,h}\le1$ follow because both minimum densities in $A_{j,h}$ lie between zero and $r(x)$.
+\end{proof}
+
+\begin{corollary}[Gaussian polynomial-weight interpolation]\label[corollary]{cor:gaussian-interpolation}
+Under the assumptions of \Cref{lem:minimum} with $\rho=\gamma_d$, for $0<\eta\le1$ and $0<h\le1$,
+\begin{equation}\label{eq:gaussian-interpolation}
+ \begin{split}
+ \norm{\nabla u-\nabla v}_2^2
+ &\le12dh^{-2}\norm{u-v-a}_2^2\\
+ &\quad+K_\eta h^\eta\sum_j\int
+ (|\partial_j u|^2+|\partial_j v|^2)(1+|x_j|)^\eta\dd\gamma_d.
+ \end{split}
+\end{equation}
+The last integrals may initially be infinite; the inequality remains valid in the extended-real sense.
+\end{corollary}
+\begin{proof}
+Put $F(s)=\min(1,e^s)$. This function takes values in $(0,1]$ and is globally $1$-Lipschitz. Gaussian translation gives
+\[
+ \frac{m_{j,h}(x-he_j)-m_{j,h}(x)}{r(x)}
+ =F(hx_j-h^2/2)-F(-hx_j-h^2/2).
+\]
+Hence $A_{j,h}\le\min(2h|x_j|,1)$. Also
+\[
+ B_{j,h}=(1-e^{-hx_j-h^2/2})_+
+ \le\min\{h(|x_j|+\tfrac12),1\}.
+\]
+For $t\ge0$ and $0<\eta\le1$, $\min(t,1)\le t^\eta$. Therefore
+\[
+ 6A_{j,h}+2B_{j,h}
+ \le h^\eta\bigl(6\cdot2^\eta|x_j|^\eta
+                     +2(|x_j|+\tfrac12)^\eta\bigr)
+ \le K_\eta h^\eta(1+|x_j|)^\eta.
+\]
+Insert this into \eqref{eq:general-minimum}.
+\end{proof}
+
+\section{A dependence-free logarithmic pairing}\label{sec:pairing}
+The map coordinate and the source coordinate in the next application are generally dependent. No independence is needed.
+
+\begin{lemma}[Logarithmic moment pairing]\label[lemma]{lem:pairing}
+On a probability space, let $A,S\ge0$ be arbitrary jointly distributed variables. Assume $\beta>0$, $a>0$ and
+\[
+ \E\Phi_\beta(A)\le1,\qquad \E e^{aS^2}\le H<\infty.
+\]
+If $0<\eta\le\min(1,2\beta)$, then
+\begin{equation}\label{eq:pairing}
+ \E[A(1+S)^\eta]
+ \le2+(2/a)^\beta+(2\beta/(ae))^\beta H.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Since $\Phi_\beta(A)\ge A$, $\E A\le1$. For $s\ge0$,
+$(1+s)^\eta\le1+s^\eta\le2+s^{2\beta}$. On the event
+$S^2\le(2/a)\log(e+A)$,
+\[
+ AS^{2\beta}\le(2/a)^\beta\Phi_\beta(A).
+\]
+On the complementary event, $A<e^{aS^2/2}$, and
+\[
+ AS^{2\beta}\le e^{aS^2/2}S^{2\beta}
+ \le(2\beta/(ae))^\beta e^{aS^2}.
+\]
+The last inequality follows by maximizing $x^\beta e^{-ax/2}$ over $x\ge0$, whose maximum is $(2\beta/(ae))^\beta$. Taking expectations proves \eqref{eq:pairing}.
+\end{proof}
+
+For $S=|G|$, $G\sim\gamma_1$, take $a=1/4$ and $H=\sqrt2$, since $\E e^{G^2/4}=\sqrt2$. Then \eqref{eq:pairing} gives exactly $B_\beta$ in \eqref{eq:constants}.
+
+\begin{proof}[Upper estimate in \Cref{thm:log}]
+The logarithmic condition puts both targets in $\Prob_2$. Let $u=U_\mu$, $v=U_\nu$ be the centered potentials from \Cref{thm:input}, finite on all of $\R^d$. Set $w=W_2(\mu,\nu)$. Their difference satisfies $\norm{u-v}_2^2\le2w^2$.
+For each $j$, apply \Cref{lem:pairing} with
+\[
+ A=|\partial_j u|^2/M^2,\qquad S=|x_j|.
+\]
+The source coordinate is standard Gaussian. Monotonicity of $\Phi_\beta$, the inequality $|\partial_j u|\le|\nabla u|$, and $(\nabla u)_\#\gamma_d=\mu$ verify its logarithmic hypothesis. The same holds for $v$. Hence
+\[
+ \sum_j\int(|\partial_j u|^2+|\partial_j v|^2)
+               (1+|x_j|)^\eta\dd\gamma_d\le2dB_\beta M^2.
+\]
+By \Cref{cor:gaussian-interpolation},
+\begin{equation}\label{eq:log-balance}
+ \norm{T_\mu-T_\nu}_2^2
+ \le24d w^2h^{-2}+2dK_\eta B_\beta M^2h^\eta.
+\end{equation}
+If $0<w\le M$, choose $h=(w/M)^{2/(\eta+2)}\in(0,1]$. Both terms have scale $M^{4/(\eta+2)}w^{2\eta/(\eta+2)}$, and taking square roots proves \eqref{eq:main-log}. If $w>M$, the elementary bound $\norm{T_\mu-T_\nu}_2\le2M$ proves the same conclusion since $C_{d,\beta}\ge2$. If $w=0$, uniqueness gives equality of the maps. The scale $M$ is strictly positive, so no division by zero is involved.
+
+For a common center $z$, subtract $z\cdot x$ from both convex potentials. Their difference and the map difference remain unchanged, and the gradient laws are the common translates of the targets. The same argument therefore proves the centered-moment version.
+\end{proof}
+
+\section{Sharpness and the second-moment endpoint}\label{sec:sharpness}
+We first establish a reusable two-atom calculation. Its radius will then be chosen to fit the logarithmic normalization or a fixed power moment.
+
+\begin{lemma}[Rare rotated halfspaces]\label[lemma]{lem:halfspaces}
+Let $d\ge2$, $t\ge1$, and let $G,Z$ be independent standard normals. Put
+\[
+ m_t=\Pr(G>t),\qquad n_t=\cos(1/t)e_1+\sin(1/t)e_2,
+ \qquad\delta_t=|e_1-n_t|.
+\]
+For any $R>0$, define
+\[
+ \mu=(1-m_t)\delta_0+m_t\delta_{Re_1},\qquad
+ \nu=(1-m_t)\delta_0+m_t\delta_{Rn_t}.
+\]
+Their Gaussian Brenier maps are $Re_1\ind_{A_t}$ and $Rn_t\ind_{B_t}$, where
+$A_t=\{x_1>t\}$ and $B_t=\{x\cdot n_t>t\}$. If $D_t=\gamma_d(A_t\mathbin\triangle B_t)$, then
+\begin{align}
+ W_2(\mu,\nu)^2&=m_tR^2\delta_t^2,\label{eq:halfspace-W}\\
+ \norm{T_\mu-T_\nu}_2^2
+ &=R^2\bigl[D_t+\delta_t^2(m_t-D_t/2)\bigr],\label{eq:halfspace-map}\\
+ c\,m_t&\le D_t\le2m_t,
+ \qquad c=e^{-3/2}\Pr(Z<-2)>0.\label{eq:halfspace-D}
+\end{align}
+Also
+\begin{equation}\label{eq:mills}
+ e^{-3/2}\frac{\varphi(t)}t\le m_t\le\frac{\varphi(t)}t,
+ \qquad \delta_t=2\sin(1/(2t))\sim t^{-1},
+\end{equation}
+where $\varphi$ is the standard normal density.
+\end{lemma}
+\begin{proof}
+The maps are gradients of $R(x_1-t)_+$ and $R(x\cdot n_t-t)_+$. Rotational invariance gives both rare cells mass $m_t$; convexity and the supporting-inequality argument identify their optimal maps.
+Since $m_t<1/2$, a two-by-two target coupling is specified by the mass $s\in[0,m_t]$ sent between the two nonzero atoms. Its squared cost is
+\[
+ R^2\bigl(2(m_t-s)+s\delta_t^2\bigr)
+ =2R^2\bigl(m_t-s\cos(1/t)\bigr).
+\]
+This is minimized at $s=m_t$ because $\cos(1/t)>0$, proving \eqref{eq:halfspace-W}. On the symmetric difference the squared map discrepancy is $R^2$; on the overlap it is $R^2\delta_t^2$. The overlap mass is $m_t-D_t/2$, giving \eqref{eq:halfspace-map}.
+
+The event $E_t=\{t<G<t+1/t,\ Z<-2\}$ lies in $A_t\setminus B_t$. Indeed $\sin x\ge5x/6$ for $0<x\le1$, and on this event
+\[
+ G\cos(1/t)+Z\sin(1/t)
+ <t+1/t-5/(3t)<t.
+\]
+Monotonicity of $\varphi$ on $[t,\infty)$ gives
+\[
+ \Pr(t<G<t+1/t)\ge\frac{\varphi(t+1/t)}t
+ \ge e^{-3/2}\frac{\varphi(t)}t.
+\]
+Furthermore
+\[
+ m_t\le\int_t^\infty(s/t)\varphi(s)\dd s=\varphi(t)/t.
+\]
+Independence of $G,Z$ therefore gives $\Pr(E_t)\ge c m_t$, proving the lower bound in \eqref{eq:halfspace-D}; its upper bound follows by the union bound. The same interval estimate is a lower bound for $m_t$ and proves \eqref{eq:mills}. The identity for $\delta_t$ follows from elementary trigonometry.
+\end{proof}
+
+\subsection{The logarithmic rare-event obstruction}
+For $\beta>0$, choose $R_t>0$ uniquely by
+\begin{equation}\label{eq:log-radius}
+ m_tR_t^2[\log(e+R_t^2)]^\beta=1.
+\end{equation}
+The left side is continuous and strictly increasing in $R_t$ from zero to infinity. The targets in \Cref{lem:halfspaces} then satisfy \eqref{eq:log-class} with $M=1$ and equality.
+
+We record the scale rigorously. Set $Q_t=R_t^2$ and $\ell_t=\log(1/m_t)$. From \eqref{eq:mills},
+\begin{equation}\label{eq:tail-log}
+ \ell_t=t^2/2+\log t+O(1)\sim t^2/2.
+\end{equation}
+Equation \eqref{eq:log-radius} first implies $Q_t\to\infty$, since a bounded subsequence would make its left side tend to zero. Taking logarithms gives
+\[
+ \ell_t=\log Q_t+\beta\log\log(e+Q_t).
+\]
+The second term is $o(\log Q_t)$, so $\log(e+Q_t)\sim\ell_t$. Returning to \eqref{eq:log-radius} yields
+\begin{equation}\label{eq:log-radius-scale}
+ m_tR_t^2=[\log(e+R_t^2)]^{-\beta}\sim(t^2/2)^{-\beta}.
+\end{equation}
+Write $w_t=W_2(\mu_t,\nu_t)$. The exact identities and bounds in \Cref{lem:halfspaces} now imply
+\begin{equation}\label{eq:log-sharp-scales}
+ w_t\sim2^{\beta/2}t^{-\beta-1},
+ \qquad \norm{T_{\mu_t}-T_{\nu_t}}_2\asymp_\beta t^{-\beta}.
+\end{equation}
+For the second assertion, \eqref{eq:halfspace-map} is bounded below by $cm_tR_t^2$ and above by $(2+\delta_t^2)m_tR_t^2$. An exact asymptotic of $D_t/m_t$ is unnecessary.
+Consequently, for every $\theta>\beta/(\beta+1)$,
+\[
+ \frac{\norm{T_{\mu_t}-T_{\nu_t}}_2}{w_t^\theta}
+ \longrightarrow\infty.
+\]
+This gives the matching obstruction for $0<\beta\le1/2$.
+
+At $\beta=0$, take $R_t=m_t^{-1/2}$. Both second moments are exactly one, while \eqref{eq:halfspace-W} gives $w_t=\delta_t\to0$ and \eqref{eq:halfspace-map}--\eqref{eq:halfspace-D} give a uniform positive lower bound for map distance. This excludes every uniform modulus at the endpoint, not just positive H\"older exponents.
+
+\subsection{The bounded one-third obstruction}
+For completeness we reconstruct the Gaussian three-atom family from \cite[Theorem~1.3]{ManuscriptV3}, which adapts the three-plane mechanism in \cite{OpenAI2026}.
+Let
+\[
+ F(s)=\Pr(|G|<s)\quad(s\ge0),\qquad b=ka,
+\]
+where $k>0$ is fixed and $a\downarrow0$. There is a unique $c_a\in\R$ satisfying
+\begin{equation}\label{eq:three-mass}
+ \E F((c_a+kaZ)_+)=F(a)=:m_a.
+\end{equation}
+The expectation is continuous, strictly increasing in $c_a$, and ranges from zero to one. Define
+\[
+ u_a(x)=\max\{-x_1,x_1,a\},\qquad
+ v_a(x)=\max\{-x_1,x_1,c_a+ka x_2\}.
+\]
+Their central cells are $A_a=\{|x_1|<a\}$ and
+$B_a=\{|x_1|<(c_a+ka x_2)_+\}$. They have equal mass by \eqref{eq:three-mass}. Symmetry in $x_1$ gives the induced targets
+\begin{align*}
+ \mu_a&=\tfrac12(1-m_a)(\delta_{-e_1}+\delta_{e_1})+m_a\delta_0,\\
+ \nu_a&=\tfrac12(1-m_a)(\delta_{-e_1}+\delta_{e_1})+m_a\delta_{be_2}.
+\end{align*}
+Their convex gradients are the optimal maps. Matching the two outer atoms and moving the central atom costs $m_ab^2$, and every coupling has at least that second-coordinate cost. Hence
+\begin{equation}\label{eq:three-W}
+ W_2(\mu_a,\nu_a)^2=m_ab^2.
+\end{equation}
+
+Let $c_*$ be the unique real number with $\E(c_*+kZ)_+=1$. Since $F(s)\le2\varphi(0)s$ and $F(as)/a\to2\varphi(0)s$, dominated convergence gives, for each fixed $c$,
+\[
+ a^{-1}\E F(a(c+kZ)_+)\longrightarrow2\varphi(0)\E(c+kZ)_+.
+\]
+Monotone bracketing at fixed $c_-<c_*<c_+$ in \eqref{eq:three-mass}, followed by arbitrarily close brackets, proves $c_a/a\to c_*$. In particular these ratios are bounded. The two central intervals are nested on every $x_2$ slice, so
+\[
+ D_a:=\gamma_d(A_a\mathbin\triangle B_a)
+ =\E|F((c_a+kaZ)_+)-F(a)|.
+\]
+The integrand divided by $a$ is dominated by a fixed multiple of $1+|Z|$. Thus
+\[
+ D_a/a\longrightarrow2\varphi(0)\E|(c_*+kZ)_+-1|>0.
+\]
+The limit is positive because $(c_*+kZ)_+$ is not constant. Coordinate orthogonality gives exactly
+\[
+ |T_{\mu_a}-T_{\nu_a}|^2
+ =\ind_{A_a\mathbin\triangle B_a}+b^2\ind_{B_a},
+ \qquad \norm{T_{\mu_a}-T_{\nu_a}}_2^2=D_a+m_ab^2.
+\]
+Since $m_a\sim2\varphi(0)a$, the target distance is of order $a^{3/2}$ and the map distance of order $a^{1/2}$. All targets lie in $B_1$ for small $a$.
+
+To fit any fixed logarithmic class with $M=1$, multiply every atom by
+\[
+ s_\beta=[\log(e+1)]^{-\beta/2}\le1.
+\]
+On the scaled support, $|y|^2[\log(e+|y|^2)]^\beta\le s_\beta^2[\log(e+1)]^\beta=1$. Scaling the convex potentials scales the maps, so both map distance and $W_2$ are multiplied by $s_\beta$. Every exponent above $1/3$ still fails. This is the matching obstruction for $\beta\ge1/2$; at the transition both constructions match.
+
+Together with the upper proof, this completes \Cref{thm:log} in $d\ge2$. All examples use only two source coordinates. In $d=1$, the two increasing Brenier maps use a common source-quantile parameter, so their joint law is the monotone optimal coupling of the targets. This proves \eqref{eq:one-dimensional} and its stated exceptional scope.
+
+\section{Uniform full-support smooth sources}\label{sec:smooth}
+\begin{proof}[Proof of \Cref{thm:smooth}]
+Strong convexity gives a unique minimizer $x_*$ of $V$ with $\nabla V(x_*)=0$. Put $S(x)=|x-x_*|$. Strong convexity and integration of the gradient-Lipschitz bound give
+\[
+ |\nabla V(x)|\le\Lambda S(x),\qquad
+ V(x_*)+\tfrac\kappa2 S(x)^2\le V(x)
+ \le V(x_*)+\tfrac\Lambda2 S(x)^2.
+\]
+Therefore $0<Z<\infty$ and
+\begin{equation}\label{eq:smooth-envelope}
+ r(x)\le(\Lambda/(2\pi))^{d/2}e^{-\kappa S(x)^2/2},
+ \qquad \E_\rho e^{\kappa S^2/4}\le(2\Lambda/\kappa)^{d/2}.
+\end{equation}
+The normalization bound uses $Z\ge e^{-V(x_*)}(2\pi/\Lambda)^{d/2}$; the exponential-moment bound is the integral of the resulting Gaussian envelope.
+
+Use the same $F(s)=\min(1,e^s)$ as above. The difference of minimum weights satisfies
+\[
+ \frac{m_{j,h}(x-he_j)-m_{j,h}(x)}{r(x)}
+ =F(V(x)-V(x-he_j))-F(V(x)-V(x+he_j)).
+\]
+Because $F$ is $1$-Lipschitz with unit range, and $0<h\le1$,
+\begin{align*}
+ A_{j,h}(x)&\le\min\{|V(x+he_j)-V(x-he_j)|,1\}
+ \le\min\{2h\Lambda(S(x)+1),1\},\\
+ B_{j,h}(x)&\le\min\{|V(x+he_j)-V(x)|,1\}
+ \le\min\{h\Lambda(S(x)+1),1\}.
+\end{align*}
+Indeed integration on the segment bounds the first potential difference by $2h\Lambda S+\Lambda h^2$, and the second by $h\Lambda S+\Lambda h^2/2$. Thus \Cref{lem:minimum} gives
+\begin{equation}\label{eq:smooth-interpolation}
+ \begin{split}
+ \norm{\nabla u-\nabla v}_{L^2(\rho)}^2
+ &\le12dh^{-2}\norm{u-v-a}_{L^2(\rho)}^2\\
+ &\quad+K_\eta\Lambda^\eta h^\eta\sum_j\int
+ (|\partial_j u|^2+|\partial_j v|^2)(1+S)^\eta\dd\rho.
+ \end{split}
+\end{equation}
+Every signed-integral justification is already contained in the general minimum-weight lemma and uses only the original $L^2$ gradients.
+
+For the centered Brenier potentials, apply \Cref{lem:pairing} with $A=|\partial_j u|^2/M^2$, the radial variable $S$, $a=\kappa/4$, and $H=(2\Lambda/\kappa)^{d/2}$. The pushforward identity and \eqref{eq:log-class} verify its target hypothesis, while \eqref{eq:smooth-envelope} verifies its source hypothesis. Its constant is precisely \eqref{eq:smooth-B}. Hence the sum of the weighted gradient integrals in \eqref{eq:smooth-interpolation} is at most $2dB_{d,\kappa,\Lambda,\beta}M^2$.
+
+Since $W=V-\kappa|x|^2/2$ is finite convex, \Cref{thm:input} gives $\norm{u-v}_2^2\le(2/\kappa)w^2$. We obtain
+\[
+ \norm{T_\mu-T_\nu}_2^2
+ \le(24d/\kappa)w^2h^{-2}
+       +2dK_\eta\Lambda^\eta B_{d,\kappa,\Lambda,\beta}M^2h^\eta.
+\]
+For $0<w\le M$, take $h=(w/M)^{2/(\eta+2)}$. For $w>M$ use $\norm{T_\mu-T_\nu}_2\le2M$, and for $w=0$ use uniqueness. This proves \eqref{eq:smooth-main} with \eqref{eq:smooth-C}. Subtracting a common affine function gives the common-center statement.
+
+For sharpness over the class, it contains the source $N(0,\kappa^{-1}I_d)$, whose gradient-Lipschitz constant is $\kappa\le\Lambda$. If $u$ is a potential for any standard-Gaussian example above, then $u(\sqrt\kappa x)/\sqrt\kappa$ has the same gradient law and map-discrepancy distribution under this dilated source. The target laws, logarithmic moments and Wasserstein distances are unchanged. The Gaussian obstructions therefore establish sharpness for the class in $d\ge2$. Individual sharpness for non-Gaussian members is not claimed.
+\end{proof}
+
+\section{The sharp critical order of finite-moment constants}\label{sec:q}
+\begin{proof}[Proof of \Cref{thm:q}]
+Set $\eta=1$ in \eqref{eq:gaussian-interpolation}, so $K_1=14$. H\"older's inequality with conjugate exponents $q/2$ and $p=q/(q-2)$ gives
+\[
+ \int|\partial_j u|^2(1+|x_j|)\dd\gamma_d
+ \le D_q\norm{\partial_j u}_{L^q(\gamma_d)}^2.
+\]
+For centered Brenier potentials, \Cref{thm:input} and the gradient laws imply
+\begin{equation}\label{eq:q-balance}
+ \norm{T_\mu-T_\nu}_2^2
+ \le24d w^2h^{-2}+14dD_qM_q^2h.
+\end{equation}
+Here the sum of coordinate $L^q$ norms squared is at most $d$ times the sum of the two vector $L^q$ norms squared, hence at most $dM_q^2$.
+If $w>0$, then $M_q>0$, and $w\le M_q$ by the triangle inequality through $\delta_0$ and $L^q$ domination of $L^2$. Since $D_q\ge1$, the choice
+\begin{equation}\label{eq:q-scale}
+ h=\left(\frac{w}{M_q\sqrt{D_q}}\right)^{2/3}
+\end{equation}
+lies in $(0,1]$. Substitution in \eqref{eq:q-balance} gives coefficients $24d$ and $14d$ multiplying the common scale $D_q^{2/3}M_q^{4/3}w^{2/3}$. This proves \eqref{eq:q-upper}. The zero cases follow from uniqueness; $M_q=0$ means both targets are $\delta_0$.
+
+For every $p\ge1$, maximizing $s^pe^{-s^2/4}$ gives
+\[
+ \E|G|^p\le(2p/e)^{p/2}\E e^{G^2/4}
+ =\sqrt2(2p/e)^{p/2}.
+\]
+Thus
+\[
+ D_q\le1+2\sqrt{p/e}\le(1+2/\sqrt e)\sqrt p,
+\]
+and the upper bound in \eqref{eq:q-sharp-order} holds with
+\begin{equation}\label{eq:q-Ad}
+ A_d=\sqrt{38d}(1+2/\sqrt e)^{1/3}.
+\end{equation}
+Retaining $D_q$ in the admissible scale \eqref{eq:q-scale} is essential to this dependence; the scale need not be the exact numerical minimizer.
+
+For the matching lower bound, fix $d\ge2$, $q>2$, and use \Cref{lem:halfspaces} with any $t\ge1$ and radius $R=m_t^{-1/q}$. Both $q$th moments are exactly one, so $M_q=2$. Since $1-2/q=1/p$, equations \eqref{eq:halfspace-W}--\eqref{eq:halfspace-D} imply
+\begin{equation}\label{eq:q-ratio-lower}
+ \frac{\norm{T_\mu-T_\nu}_2}{M_q^{2/3}W_2(\mu,\nu)^{1/3}}
+ \ge2^{-2/3}\sqrt c\,m_t^{1/(3p)}\delta_t^{-1/3}.
+\end{equation}
+Take $t=\sqrt p\ge1$. The lower bound in \eqref{eq:mills} gives
+\[
+ m_t\ge e^{-3/2}(2\pi)^{-1/2}e^{-p/2}p^{-1/2}.
+\]
+Therefore, using $(\log p)/p\le1/e$,
+\begin{align*}
+ m_t^{1/(3p)}
+ &\ge\exp\left(-\frac16-\frac1{2p}
+                   -\frac{\log(2\pi)}{6p}-\frac{\log p}{6p}\right)\\
+ &\ge\exp\left(-\frac16-\frac12-\frac{\log(2\pi)}6-\frac1{6e}\right).
+\end{align*}
+Also $\delta_t=2\sin(1/(2t))\le1/t=p^{-1/2}$. Inserting these bounds into \eqref{eq:q-ratio-lower} proves the lower inequality in \eqref{eq:q-sharp-order} with
+\begin{equation}\label{eq:q-c0}
+ c_0=2^{-2/3}\sqrt{e^{-3/2}\Pr(G<-2)}
+ \exp\left(-\frac16-\frac12-\frac{\log(2\pi)}6-\frac1{6e}\right)>0.
+\end{equation}
+This holds for every $p>1$, not just asymptotically, and the source is fixed throughout. Since $p\sim2/(q-2)$ as $q\downarrow2$, the critical order follows.
+
+In $d=1$, the quantile identity gives map distance $w$, and $w\le M_q$ implies $w\le M_q^{2/3}w^{1/3}$. Two opposite nonzero Dirac targets have $w=M_q$, so equality is attainable and $C_*(1,q)=1$.
+\end{proof}
+
+\section{Scope and relation to the earlier manuscript}
+As an integrability requirement, the logarithmic condition is weaker than any fixed higher-power moment condition. Its positive exponent is nevertheless possible because the minimum-density identity produces a polynomial Gaussian-coordinate weight, and the logarithmic target moment pairs with Gaussian exponential-square integrability. Neither that pairing nor the proof assumes independence between transport values and source points.
+
+Version~3 \cite{ManuscriptV3} contains additional results for compact log-concave sources and hard-boundary target-tail estimates. They remain separate, established parts of that earlier manuscript. The present focused version does not extend the logarithmic theorem to arbitrary strongly log-concave sources with hard boundaries, nor to arbitrary bounded non-log-concave perturbations. The smooth-source theorem requires full support and the stated global gradient-Lipschitz bound. Sharpness for that class follows through its Gaussian member; no claim is made for every individual non-Gaussian source.
+
+The sharpness of the exponent in \Cref{thm:log}, the absence of a modulus at $\beta=0$, and the critical order in \Cref{thm:q} concern fixed source dimension $d\ge2$. Dimension one is governed by the exact quantile isometry. Mathematical proof and bibliographic priority are distinct issues; the latter is not asserted here.
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

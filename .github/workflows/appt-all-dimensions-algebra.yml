@@ -1,0 +1,41 @@
+name: APPT arbitrary-dimension auxiliary exact algebra
+on:
+  push:
+    paths:
+      - 'research/appt-all-dimensions/**'
+      - '.github/workflows/appt-all-dimensions-algebra.yml'
+  pull_request:
+    paths:
+      - 'research/appt-all-dimensions/**'
+      - '.github/workflows/appt-all-dimensions-algebra.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify the pinned research source inventory
+        working-directory: research/appt-all-dimensions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          root=Path('.')
+          for name,expected in json.loads(Path('SOURCE_HASHES.json').read_text()).items():
+              if hashlib.sha256((root/name).read_bytes()).hexdigest()!=expected:
+                  raise RuntimeError('Source hash mismatch: '+name)
+          print('RESEARCH_SOURCE_HASHES_PASS')
+          PY
+      - name: Check exact identities and paired corrupted-certificate rejection
+        working-directory: research/appt-all-dimensions
+        run: |
+          python3 check.py --report /tmp/appt-exact-checks.json
+          python3 -O check.py --self-test --report /tmp/appt-exact-checks-optimized-python.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-auxiliary-exact-algebra-${{ github.sha }}
+          path: /tmp/appt-exact-checks*.json

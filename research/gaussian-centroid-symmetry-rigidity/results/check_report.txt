@@ -1,0 +1,19 @@
+PASS exact centroid-variance: binary_hom, k=2, zero-variance=True
+PASS exact centroid-variance: binary_split, k=2, zero-variance=False
+PASS exact centroid-variance: uniform_10, k=10, zero-variance=True
+PASS exact centroid-variance: one_bad_100, k=100, zero-variance=False
+PASS exact centroid-variance: alternating_100, k=100, zero-variance=False
+PASS exact centroid-variance: tiny_bad_fraction, k=1000, zero-variance=False
+PASS exact centroid-variance: rational_unequal, k=4, zero-variance=False
+PASS exact centroid-variance: pseudorational_3_0, k=3, zero-variance=False
+PASS exact centroid-variance: pseudorational_3_1, k=3, zero-variance=False
+PASS exact centroid-variance: pseudorational_7_0, k=7, zero-variance=False
+PASS exact centroid-variance: pseudorational_7_1, k=7, zero-variance=False
+PASS exact centroid-variance: pseudorational_17_0, k=17, zero-variance=False
+PASS exact centroid-variance: pseudorational_17_1, k=17, zero-variance=False
+PASS exact centroid-variance: pseudorational_101_0, k=101, zero-variance=False
+PASS exact centroid-variance: pseudorational_101_1, k=101, zero-variance=False
+PASS exact centroid-variance: pseudorational_1024_0, k=1024, zero-variance=False
+PASS exact centroid-variance: pseudorational_1024_1, k=1024, zero-variance=False
+PASS negative algebraic control: omitting variance can break cap transfer
+ALL EXACT CHECKS PASSED: 17 rational profiles, one algebraic negative control; no floating point

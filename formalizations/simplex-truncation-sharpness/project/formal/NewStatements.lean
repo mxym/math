@@ -1,0 +1,11 @@
+import Entry005.PrescribedSimplex
+set_option pp.funBinderTypes true
+#check Entry005.simplex_vertex_matching
+#check Entry005.simplex_equal_volume_permutation
+#check Entry005.simplex_hull_matching
+#check Entry005.simplex_hull_dilation
+#check Entry005.maximum_simplex_volume_ratio
+#check Entry005.retain_maximum_simplex_about
+#check Entry005.retain_maximum_simplex_centroid
+#check Entry005.retain_maximum_simplex_excess
+#check Entry005.retain_maximum_simplex

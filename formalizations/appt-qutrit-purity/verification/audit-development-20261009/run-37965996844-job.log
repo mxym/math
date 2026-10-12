@@ -1,0 +1,654 @@
+﻿2026-10-09T17:24:10.3098149Z Current runner version: '2.337.0'
+2026-10-09T17:24:10.3124423Z ##[group]Runner Image Provisioner
+2026-10-09T17:24:10.3125396Z Hosted Compute Agent
+2026-10-09T17:24:10.3125994Z Version: 20261002.596
+2026-10-09T17:24:10.3126611Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-09T17:24:10.3127403Z Build Date: 2026-10-02T22:28:27Z
+2026-10-09T17:24:10.3128212Z Worker ID: {5ce878b6-780b-4780-8262-c877b3f1fc7c}
+2026-10-09T17:24:10.3128960Z Region: westus
+2026-10-09T17:24:10.3129504Z Cloud: Azure
+2026-10-09T17:24:10.3130028Z ##[endgroup]
+2026-10-09T17:24:10.3131730Z ##[group]Operating System
+2026-10-09T17:24:10.3132757Z Ubuntu
+2026-10-09T17:24:10.3133415Z 24.04.5
+2026-10-09T17:24:10.3133952Z LTS
+2026-10-09T17:24:10.3134467Z ##[endgroup]
+2026-10-09T17:24:10.3135084Z ##[group]Runner Image
+2026-10-09T17:24:10.3135809Z Image: ubuntu-24.04
+2026-10-09T17:24:10.3136414Z Version: 20261004.327.1
+2026-10-09T17:24:10.3137691Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-09T17:24:10.3139346Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-09T17:24:10.3140310Z ##[endgroup]
+2026-10-09T17:24:10.3141517Z ##[group]GITHUB_TOKEN Permissions
+2026-10-09T17:24:10.3143772Z Actions: read
+2026-10-09T17:24:10.3144476Z Contents: read
+2026-10-09T17:24:10.3145108Z Metadata: read
+2026-10-09T17:24:10.3145719Z ##[endgroup]
+2026-10-09T17:24:10.3147960Z Secret source: Actions
+2026-10-09T17:24:10.3148928Z Cache mode: write
+2026-10-09T17:24:10.3149743Z Prepare workflow directory
+2026-10-09T17:24:10.3514415Z Prepare all required actions
+2026-10-09T17:24:10.3588208Z Getting action download info
+2026-10-09T17:24:10.7606823Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-09T17:24:10.8664870Z Download action repository 'leanprover/lean-action@v1' (SHA:f061402b660e0c34644504b324e830f2991d4865)
+2026-10-09T17:24:11.1014940Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-09T17:24:11.5371690Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-09T17:24:11.7621738Z Getting action download info
+2026-10-09T17:24:11.9146853Z Download action repository 'actions/cache@caa296126883cff596d87d8935842f9db880ef25' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-10-09T17:24:12.0779645Z Complete job name: complete
+2026-10-09T17:24:12.1640963Z ##[group]Run actions/checkout@v4
+2026-10-09T17:24:12.1641923Z with:
+2026-10-09T17:24:12.1642613Z   repository: mxym/math
+2026-10-09T17:24:12.1646739Z   token: ***
+2026-10-09T17:24:12.1647180Z   ssh-strict: true
+2026-10-09T17:24:12.1647616Z   ssh-user: git
+2026-10-09T17:24:12.1648072Z   persist-credentials: true
+2026-10-09T17:24:12.1648575Z   clean: true
+2026-10-09T17:24:12.1649023Z   sparse-checkout-cone-mode: true
+2026-10-09T17:24:12.1649552Z   fetch-depth: 1
+2026-10-09T17:24:12.1649998Z   fetch-tags: false
+2026-10-09T17:24:12.1650488Z   show-progress: true
+2026-10-09T17:24:12.1650948Z   lfs: false
+2026-10-09T17:24:12.1651374Z   submodules: false
+2026-10-09T17:24:12.1651830Z   set-safe-directory: true
+2026-10-09T17:24:12.1652347Z   allow-unsafe-pr-checkout: false
+2026-10-09T17:24:12.1653591Z ##[endgroup]
+2026-10-09T17:24:12.2705523Z Syncing repository: mxym/math
+2026-10-09T17:24:12.2707430Z ##[group]Getting Git version info
+2026-10-09T17:24:12.2708210Z Working directory is '/home/runner/work/math/math'
+2026-10-09T17:24:12.2709267Z [command]/usr/bin/git version
+2026-10-09T17:24:12.2865089Z git version 2.55.0
+2026-10-09T17:24:12.2876222Z ##[endgroup]
+2026-10-09T17:24:12.2892101Z Temporarily overriding HOME='/home/runner/work/_temp/67863cde-ed30-448a-ad50-1dad1597a9a7' before making global git config changes
+2026-10-09T17:24:12.2894850Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-09T17:24:12.2906117Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/math/math
+2026-10-09T17:24:12.2963053Z Deleting the contents of '/home/runner/work/math/math'
+2026-10-09T17:24:12.2967729Z ##[group]Initializing the repository
+2026-10-09T17:24:12.2972050Z [command]/usr/bin/git init /home/runner/work/math/math
+2026-10-09T17:24:12.3091625Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-09T17:24:12.3095788Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-09T17:24:12.3097393Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-09T17:24:12.3098673Z hint: call:
+2026-10-09T17:24:12.3099372Z hint:
+2026-10-09T17:24:12.3100202Z hint: 	git config --global init.defaultBranch <name>
+2026-10-09T17:24:12.3101182Z hint:
+2026-10-09T17:24:12.3102098Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-09T17:24:12.3103858Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-09T17:24:12.3105121Z hint:
+2026-10-09T17:24:12.3105865Z hint: 	git branch -m <name>
+2026-10-09T17:24:12.3106674Z hint:
+2026-10-09T17:24:12.3107711Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-09T17:24:12.3109514Z Initialized empty Git repository in /home/runner/work/math/math/.git/
+2026-10-09T17:24:12.3112763Z [command]/usr/bin/git remote add origin https://github.com/mxym/math
+2026-10-09T17:24:12.3160296Z ##[endgroup]
+2026-10-09T17:24:12.3161674Z ##[group]Disabling automatic garbage collection
+2026-10-09T17:24:12.3167503Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-09T17:24:12.3198137Z ##[endgroup]
+2026-10-09T17:24:12.3199480Z ##[group]Setting up auth
+2026-10-09T17:24:12.3207077Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-09T17:24:12.3240809Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-09T17:24:12.3609281Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-09T17:24:12.3650971Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-09T17:24:12.3912259Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-09T17:24:12.3956835Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-09T17:24:12.4214525Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-09T17:24:12.4261254Z ##[endgroup]
+2026-10-09T17:24:12.4263294Z ##[group]Fetching the repository
+2026-10-09T17:24:12.4278489Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +97d498d499ce0b779dc19d531876a0b0bd3c4076:refs/remotes/origin/work/appt-full-bounded-20261009
+2026-10-09T17:24:18.1741723Z From https://github.com/mxym/math
+2026-10-09T17:24:18.1743681Z  * [new ref]         97d498d499ce0b779dc19d531876a0b0bd3c4076 -> origin/work/appt-full-bounded-20261009
+2026-10-09T17:24:18.1746594Z ##[endgroup]
+2026-10-09T17:24:18.1747930Z ##[group]Determining the checkout info
+2026-10-09T17:24:18.1750105Z ##[endgroup]
+2026-10-09T17:24:18.1756826Z [command]/usr/bin/git sparse-checkout disable
+2026-10-09T17:24:18.1808603Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-09T17:24:18.1841303Z ##[group]Checking out the ref
+2026-10-09T17:24:18.1848034Z [command]/usr/bin/git checkout --progress --force -B work/appt-full-bounded-20261009 refs/remotes/origin/work/appt-full-bounded-20261009
+2026-10-09T17:24:19.2233013Z Updating files:  73% (6753/9160)
+2026-10-09T17:24:19.2332405Z Updating files:  74% (6779/9160)
+2026-10-09T17:24:19.2458137Z Updating files:  75% (6870/9160)
+2026-10-09T17:24:19.2581214Z Updating files:  76% (6962/9160)
+2026-10-09T17:24:19.2673334Z Updating files:  77% (7054/9160)
+2026-10-09T17:24:19.2759762Z Updating files:  78% (7145/9160)
+2026-10-09T17:24:19.2843222Z Updating files:  79% (7237/9160)
+2026-10-09T17:24:19.2986679Z Updating files:  80% (7328/9160)
+2026-10-09T17:24:19.3067575Z Updating files:  81% (7420/9160)
+2026-10-09T17:24:19.3170848Z Updating files:  82% (7512/9160)
+2026-10-09T17:24:19.3257692Z Updating files:  83% (7603/9160)
+2026-10-09T17:24:19.3354716Z Updating files:  84% (7695/9160)
+2026-10-09T17:24:19.3558302Z Updating files:  85% (7786/9160)
+2026-10-09T17:24:19.3685479Z Updating files:  86% (7878/9160)
+2026-10-09T17:24:19.3829435Z Updating files:  87% (7970/9160)
+2026-10-09T17:24:19.3926862Z Updating files:  88% (8061/9160)
+2026-10-09T17:24:19.4221693Z Updating files:  89% (8153/9160)
+2026-10-09T17:24:19.4521775Z Updating files:  90% (8244/9160)
+2026-10-09T17:24:19.4609905Z Updating files:  91% (8336/9160)
+2026-10-09T17:24:19.4706486Z Updating files:  92% (8428/9160)
+2026-10-09T17:24:19.4772005Z Updating files:  93% (8519/9160)
+2026-10-09T17:24:19.4836247Z Updating files:  94% (8611/9160)
+2026-10-09T17:24:19.4939238Z Updating files:  95% (8702/9160)
+2026-10-09T17:24:19.4989416Z Updating files:  96% (8794/9160)
+2026-10-09T17:24:19.5038379Z Updating files:  97% (8886/9160)
+2026-10-09T17:24:19.5182091Z Updating files:  98% (8977/9160)
+2026-10-09T17:24:19.5482234Z Updating files:  99% (9069/9160)
+2026-10-09T17:24:19.5483211Z Updating files: 100% (9160/9160)
+2026-10-09T17:24:19.5483719Z Updating files: 100% (9160/9160), done.
+2026-10-09T17:24:19.5596163Z Switched to a new branch 'work/appt-full-bounded-20261009'
+2026-10-09T17:24:19.5602002Z branch 'work/appt-full-bounded-20261009' set up to track 'origin/work/appt-full-bounded-20261009'.
+2026-10-09T17:24:19.5668260Z ##[endgroup]
+2026-10-09T17:24:19.5714969Z [command]/usr/bin/git log -1 --format=%H
+2026-10-09T17:24:19.5743172Z 97d498d499ce0b779dc19d531876a0b0bd3c4076
+2026-10-09T17:24:19.6269070Z ##[group]Run leanprover/lean-action@v1
+2026-10-09T17:24:19.6269397Z with:
+2026-10-09T17:24:19.6269705Z   lake-package-directory: formalizations/appt-qutrit-purity
+2026-10-09T17:24:19.6270066Z   use-mathlib-cache: true
+2026-10-09T17:24:19.6270293Z   build: false
+2026-10-09T17:24:19.6270483Z   test: false
+2026-10-09T17:24:19.6270672Z   auto-config: true
+2026-10-09T17:24:19.6270869Z   lint: default
+2026-10-09T17:24:19.6271061Z   mk_all-check: false
+2026-10-09T17:24:19.6271297Z   check-reservoir-eligibility: false
+2026-10-09T17:24:19.6271560Z   leanchecker: false
+2026-10-09T17:24:19.6271770Z   lean4checker: false
+2026-10-09T17:24:19.6271971Z   nanoda: false
+2026-10-09T17:24:19.6272180Z   nanoda-allow-sorry: true
+2026-10-09T17:24:19.6272615Z   axiom-audit: false
+2026-10-09T17:24:19.6272909Z   axiom-audit-allow: propext,Classical.choice,Quot.sound
+2026-10-09T17:24:19.6273258Z   use-github-cache: true
+2026-10-09T17:24:19.6273510Z   reinstall-transient-toolchain: false
+2026-10-09T17:24:19.6273831Z ##[endgroup]
+2026-10-09T17:24:19.6338474Z ##[start-action display=install elan;id=__leanprover_lean-action.__run]
+2026-10-09T17:24:19.6380985Z ##[group]Run : Install Elan
+2026-10-09T17:24:19.6381283Z [36;1m: Install Elan[0m
+2026-10-09T17:24:19.6381580Z [36;1m${GITHUB_ACTION_PATH}/scripts/install_elan.sh[0m
+2026-10-09T17:24:19.6640303Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-09T17:24:19.6640705Z ##[endgroup]
+2026-10-09T17:24:19.6780581Z ##[group]Elan Installation Output
+2026-10-09T17:24:19.7233466Z info: downloading installer
+2026-10-09T17:24:20.4090195Z info: downloading https://releases.lean-lang.org/lean4/v4.34.1/lean-4.34.1-linux.tar.zst
+2026-10-09T17:24:24.5168555Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.34.1
+2026-10-09T17:24:31.3709855Z Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+2026-10-09T17:24:31.4213190Z Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+2026-10-09T17:24:31.4253313Z ##[endgroup]
+2026-10-09T17:24:31.4253841Z 
+2026-10-09T17:24:31.4278101Z ##[end-action id=__leanprover_lean-action.__run;outcome=success;conclusion=success;duration_ms=11793]
+2026-10-09T17:24:31.4288011Z ##[start-action display=configure `lean-action`;id=__leanprover_lean-action.config]
+2026-10-09T17:24:31.4309849Z ##[group]Run : Configure Lean Action
+2026-10-09T17:24:31.4310292Z [36;1m: Configure Lean Action[0m
+2026-10-09T17:24:31.4310712Z [36;1m${GITHUB_ACTION_PATH}/scripts/config.sh[0m
+2026-10-09T17:24:31.4376852Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-09T17:24:31.4377196Z env:
+2026-10-09T17:24:31.4377386Z   AUTO_CONFIG: true
+2026-10-09T17:24:31.4377592Z   BUILD: false
+2026-10-09T17:24:31.4377789Z   TEST: false
+2026-10-09T17:24:31.4377987Z   LINT: default
+2026-10-09T17:24:31.4378183Z ##[endgroup]
+2026-10-09T17:24:31.4478965Z ##[group]Configure lean-action
+2026-10-09T17:24:31.4504303Z build: false -> will not run lake build
+2026-10-09T17:24:31.4504810Z test: false -> will not run lake test
+2026-10-09T17:24:31.4948989Z lake check-lint failed -> will not run lake lint
+2026-10-09T17:24:31.4985347Z ##[end-action id=__leanprover_lean-action.config;outcome=success;conclusion=success;duration_ms=69]
+2026-10-09T17:24:31.4991661Z ##[start-action display=reinstall transient toolchain;id=__leanprover_lean-action.__run_2]
+2026-10-09T17:24:31.5013688Z ##[end-action id=__leanprover_lean-action.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:24:31.5016569Z ##[start-action display=ensure all files are imported;id=__leanprover_lean-action.mk_all]
+2026-10-09T17:24:31.5020175Z ##[end-action id=__leanprover_lean-action.mk_all;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:24:31.5022321Z ##[start-action display=Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache]
+2026-10-09T17:24:31.7311798Z ##[group]Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+2026-10-09T17:24:31.7312803Z with:
+2026-10-09T17:24:31.7313088Z   path: formalizations/appt-qutrit-purity/.lake
+2026-10-09T17:24:31.7314083Z   key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f-97d498d499ce0b779dc19d531876a0b0bd3c4076
+2026-10-09T17:24:31.7315488Z   restore-keys: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f
+2026-10-09T17:24:31.7316273Z   enableCrossOsArchive: false
+2026-10-09T17:24:31.7316532Z   fail-on-cache-miss: false
+2026-10-09T17:24:31.7316764Z   lookup-only: false
+2026-10-09T17:24:31.7316976Z ##[endgroup]
+2026-10-09T17:24:32.1234009Z Cache hit for restore-key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f-d73051da70f49a26379fe781e1f323f4d26186cd
+2026-10-09T17:24:33.4051695Z Received 4194304 of 2574315609 (0.2%), 4.0 MBs/sec
+2026-10-09T17:24:34.4053432Z Received 134217728 of 2574315609 (5.2%), 64.0 MBs/sec
+2026-10-09T17:24:35.4083520Z Received 285212672 of 2574315609 (11.1%), 90.6 MBs/sec
+2026-10-09T17:24:36.4133463Z Received 486539264 of 2574315609 (18.9%), 115.9 MBs/sec
+2026-10-09T17:24:37.4487176Z Received 671088640 of 2574315609 (26.1%), 126.9 MBs/sec
+2026-10-09T17:24:38.4476174Z Received 834666496 of 2574315609 (32.4%), 131.7 MBs/sec
+2026-10-09T17:24:39.4483292Z Received 994050048 of 2574315609 (38.6%), 134.6 MBs/sec
+2026-10-09T17:24:40.4490423Z Received 1145044992 of 2574315609 (44.5%), 135.8 MBs/sec
+2026-10-09T17:24:41.4563653Z Received 1317011456 of 2574315609 (51.2%), 138.8 MBs/sec
+2026-10-09T17:24:42.4733485Z Received 1476395008 of 2574315609 (57.4%), 139.9 MBs/sec
+2026-10-09T17:24:43.4718254Z Received 1610612736 of 2574315609 (62.6%), 138.8 MBs/sec
+2026-10-09T17:24:44.4733749Z Received 1744830464 of 2574315609 (67.8%), 137.9 MBs/sec
+2026-10-09T17:24:45.4733469Z Received 1879048192 of 2574315609 (73.0%), 137.1 MBs/sec
+2026-10-09T17:24:46.4734980Z Received 2013265920 of 2574315609 (78.2%), 136.5 MBs/sec
+2026-10-09T17:24:47.4739743Z Received 2147483648 of 2574315609 (83.4%), 135.9 MBs/sec
+2026-10-09T17:24:48.4746230Z Received 2277507072 of 2574315609 (88.5%), 135.2 MBs/sec
+2026-10-09T17:24:49.4749144Z Received 2411724800 of 2574315609 (93.7%), 134.7 MBs/sec
+2026-10-09T17:24:50.4758050Z Received 2520776704 of 2574315609 (97.9%), 133.0 MBs/sec
+2026-10-09T17:24:51.4766795Z Received 2570121305 of 2574315609 (99.8%), 128.5 MBs/sec
+2026-10-09T17:24:51.6103711Z Received 2574315609 of 2574315609 (100.0%), 127.8 MBs/sec
+2026-10-09T17:24:51.6133111Z Cache Size: ~2455 MB (2574315609 B)
+2026-10-09T17:24:51.6196278Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b99aadb3-9c42-43be-ba6d-6cf75b831f69/cache.tzst -P -C /home/runner/work/math/math --use-compress-program unzstd
+2026-10-09T17:25:09.4979443Z Cache restored successfully
+2026-10-09T17:25:09.6179483Z Cache restored from key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f-d73051da70f49a26379fe781e1f323f4d26186cd
+2026-10-09T17:25:09.6321489Z ##[end-action id=__leanprover_lean-action.__actions_cache;outcome=success;conclusion=success;duration_ms=38129]
+2026-10-09T17:25:09.6326220Z ##[start-action display=detect mathlib;id=__leanprover_lean-action.detect-mathlib]
+2026-10-09T17:25:09.6335296Z ##[end-action id=__leanprover_lean-action.detect-mathlib;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:25:09.6338762Z ##[start-action display=get mathlib cache;id=__leanprover_lean-action.__run_3]
+2026-10-09T17:25:09.6541471Z ##[group]Run : Get Mathlib Cache
+2026-10-09T17:25:09.6541819Z [36;1m: Get Mathlib Cache[0m
+2026-10-09T17:25:09.6542111Z [36;1mecho "::group::Mathlib Cache"[0m
+2026-10-09T17:25:09.6542736Z [36;1mlake exe cache get[0m
+2026-10-09T17:25:09.6543019Z [36;1mecho "::endgroup::"[0m
+2026-10-09T17:25:09.6543285Z [36;1mecho[0m
+2026-10-09T17:25:09.7698271Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-09T17:25:09.7698688Z ##[endgroup]
+2026-10-09T17:25:09.8185124Z ##[group]Mathlib Cache
+2026-10-09T17:25:17.4955592Z Current branch: HEAD
+2026-10-09T17:25:17.4956156Z Using cache from origin: (some leanprover-community/mathlib4)
+2026-10-09T17:25:17.4957224Z Attempting to download 8908 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+2026-10-09T17:25:17.9765589Z 
+2026-10-09T17:25:18.0828299Z Downloaded: 1 file(s) [attempted 1/8908 = 0%, 32 KB/s], Decompressed: 0
+2026-10-09T17:25:18.2182004Z Downloaded: 5 file(s) [attempted 5/8908 = 0%, 78 KB/s], Decompressed: 3
+2026-10-09T17:25:18.3358376Z Downloaded: 17 file(s) [attempted 17/8908 = 0%, 32 KB/s], Decompressed: 15
+2026-10-09T17:25:18.4453034Z Downloaded: 31 file(s) [attempted 31/8908 = 0%, 39 KB/s], Decompressed: 29
+2026-10-09T17:25:18.5471961Z Downloaded: 65 file(s) [attempted 65/8908 = 0%, 198 KB/s], Decompressed: 63
+2026-10-09T17:25:18.6469151Z Downloaded: 111 file(s) [attempted 111/8908 = 1%, 756 KB/s], Decompressed: 108
+2026-10-09T17:25:18.7465676Z Downloaded: 158 file(s) [attempted 158/8908 = 1%, 114 KB/s], Decompressed: 149
+2026-10-09T17:25:18.8467005Z Downloaded: 200 file(s) [attempted 200/8908 = 2%, 301 KB/s], Decompressed: 197
+2026-10-09T17:25:18.9490326Z Downloaded: 233 file(s) [attempted 233/8908 = 2%, 917 KB/s], Decompressed: 231
+2026-10-09T17:25:19.0507714Z Downloaded: 274 file(s) [attempted 274/8908 = 3%, 97 KB/s], Decompressed: 269
+2026-10-09T17:25:19.1577554Z Downloaded: 310 file(s) [attempted 310/8908 = 3%, 77 KB/s], Decompressed: 308
+2026-10-09T17:25:19.2601837Z Downloaded: 361 file(s) [attempted 361/8908 = 4%, 216 KB/s], Decompressed: 358
+2026-10-09T17:25:19.3641799Z Downloaded: 395 file(s) [attempted 395/8908 = 4%, 160 KB/s], Decompressed: 387
+2026-10-09T17:25:19.4771347Z Downloaded: 435 file(s) [attempted 435/8908 = 4%, 569 KB/s], Decompressed: 431
+2026-10-09T17:25:19.5790292Z Downloaded: 483 file(s) [attempted 483/8908 = 5%, 84 KB/s], Decompressed: 481
+2026-10-09T17:25:19.6900411Z Downloaded: 536 file(s) [attempted 536/8908 = 6%, 162 KB/s], Decompressed: 529
+2026-10-09T17:25:19.7904709Z Downloaded: 572 file(s) [attempted 572/8908 = 6%, 368 KB/s], Decompressed: 570
+2026-10-09T17:25:19.8969190Z Downloaded: 613 file(s) [attempted 613/8908 = 6%, 247 KB/s], Decompressed: 608
+2026-10-09T17:25:20.0175478Z Downloaded: 659 file(s) [attempted 659/8908 = 7%, 289 KB/s], Decompressed: 654
+2026-10-09T17:25:20.1176341Z Downloaded: 693 file(s) [attempted 693/8908 = 7%, 72 KB/s], Decompressed: 690
+2026-10-09T17:25:20.2259166Z Downloaded: 744 file(s) [attempted 744/8908 = 8%, 114 KB/s], Decompressed: 741
+2026-10-09T17:25:20.3373384Z Downloaded: 796 file(s) [attempted 796/8908 = 8%, 388 KB/s], Decompressed: 794
+2026-10-09T17:25:20.4549242Z Downloaded: 846 file(s) [attempted 846/8908 = 9%, 586 KB/s], Decompressed: 844
+2026-10-09T17:25:20.5675493Z Downloaded: 899 file(s) [attempted 899/8908 = 10%, 124 KB/s], Decompressed: 897
+2026-10-09T17:25:20.6687990Z Downloaded: 947 file(s) [attempted 947/8908 = 10%, 136 KB/s], Decompressed: 945
+2026-10-09T17:25:20.7760106Z Downloaded: 995 file(s) [attempted 995/8908 = 11%, 413 KB/s], Decompressed: 988
+2026-10-09T17:25:20.8817058Z Downloaded: 1022 file(s) [attempted 1022/8908 = 11%, 236 KB/s], Decompressed: 1017
+2026-10-09T17:25:20.9833932Z Downloaded: 1063 file(s) [attempted 1063/8908 = 11%, 94 KB/s], Decompressed: 1059
+2026-10-09T17:25:21.0849112Z Downloaded: 1113 file(s) [attempted 1113/8908 = 12%, 209 KB/s], Decompressed: 1106
+2026-10-09T17:25:21.1848095Z Downloaded: 1159 file(s) [attempted 1159/8908 = 13%, 249 KB/s], Decompressed: 1158
+2026-10-09T17:25:21.2887521Z Downloaded: 1208 file(s) [attempted 1208/8908 = 13%, 222 KB/s], Decompressed: 1204
+2026-10-09T17:25:21.3936141Z Downloaded: 1257 file(s) [attempted 1257/8908 = 14%, 258 KB/s], Decompressed: 1255
+2026-10-09T17:25:21.4948651Z Downloaded: 1305 file(s) [attempted 1305/8908 = 14%, 268 KB/s], Decompressed: 1303
+2026-10-09T17:25:21.5971636Z Downloaded: 1353 file(s) [attempted 1353/8908 = 15%, 229 KB/s], Decompressed: 1351
+2026-10-09T17:25:21.7014035Z Downloaded: 1401 file(s) [attempted 1401/8908 = 15%, 362 KB/s], Decompressed: 1396
+2026-10-09T17:25:21.8032167Z Downloaded: 1447 file(s) [attempted 1447/8908 = 16%, 991 KB/s], Decompressed: 1444
+2026-10-09T17:25:21.9038137Z Downloaded: 1497 file(s) [attempted 1497/8908 = 16%, 129 KB/s], Decompressed: 1495
+2026-10-09T17:25:22.0040182Z Downloaded: 1555 file(s) [attempted 1555/8908 = 17%, 176 KB/s], Decompressed: 1553
+2026-10-09T17:25:22.1048356Z Downloaded: 1613 file(s) [attempted 1613/8908 = 18%, 253 KB/s], Decompressed: 1610
+2026-10-09T17:25:22.2048491Z Downloaded: 1668 file(s) [attempted 1668/8908 = 18%, 641 KB/s], Decompressed: 1663
+2026-10-09T17:25:22.3090714Z Downloaded: 1716 file(s) [attempted 1716/8908 = 19%, 171 KB/s], Decompressed: 1709
+2026-10-09T17:25:22.4095034Z Downloaded: 1764 file(s) [attempted 1764/8908 = 19%, 387 KB/s], Decompressed: 1761
+2026-10-09T17:25:22.5108795Z Downloaded: 1817 file(s) [attempted 1817/8908 = 20%, 118 KB/s], Decompressed: 1814
+2026-10-09T17:25:22.6132601Z Downloaded: 1867 file(s) [attempted 1867/8908 = 20%, 234 KB/s], Decompressed: 1865
+2026-10-09T17:25:22.7254401Z Downloaded: 1913 file(s) [attempted 1913/8908 = 21%, 439 KB/s], Decompressed: 1910
+2026-10-09T17:25:22.8249476Z Downloaded: 1961 file(s) [attempted 1961/8908 = 22%, 1948 KB/s], Decompressed: 1958
+2026-10-09T17:25:22.9430811Z Downloaded: 2019 file(s) [attempted 2019/8908 = 22%, 371 KB/s], Decompressed: 2016
+2026-10-09T17:25:23.0479923Z Downloaded: 2078 file(s) [attempted 2078/8908 = 23%, 176 KB/s], Decompressed: 2076
+2026-10-09T17:25:23.1561198Z Downloaded: 2131 file(s) [attempted 2131/8908 = 23%, 232 KB/s], Decompressed: 2126
+2026-10-09T17:25:23.2749362Z Downloaded: 2194 file(s) [attempted 2194/8908 = 24%, 50 KB/s], Decompressed: 2191
+2026-10-09T17:25:23.3998421Z Downloaded: 2242 file(s) [attempted 2242/8908 = 25%, 105 KB/s], Decompressed: 2237
+2026-10-09T17:25:23.5000282Z Downloaded: 2287 file(s) [attempted 2287/8908 = 25%, 52 KB/s], Decompressed: 2282
+2026-10-09T17:25:23.6192216Z Downloaded: 2342 file(s) [attempted 2342/8908 = 26%, 153 KB/s], Decompressed: 2340
+2026-10-09T17:25:23.7185338Z Downloaded: 2402 file(s) [attempted 2402/8908 = 26%, 392 KB/s], Decompressed: 2395
+2026-10-09T17:25:23.8187965Z Downloaded: 2442 file(s) [attempted 2442/8908 = 27%, 66 KB/s], Decompressed: 2434
+2026-10-09T17:25:23.9186395Z Downloaded: 2486 file(s) [attempted 2486/8908 = 27%, 456 KB/s], Decompressed: 2484
+2026-10-09T17:25:24.0216094Z Downloaded: 2551 file(s) [attempted 2551/8908 = 28%, 1398 KB/s], Decompressed: 2549
+2026-10-09T17:25:24.1217712Z Downloaded: 2614 file(s) [attempted 2614/8908 = 29%, 49 KB/s], Decompressed: 2611
+2026-10-09T17:25:24.2283142Z Downloaded: 2667 file(s) [attempted 2667/8908 = 29%, 376 KB/s], Decompressed: 2659
+2026-10-09T17:25:24.3279891Z Downloaded: 2712 file(s) [attempted 2712/8908 = 30%, 384 KB/s], Decompressed: 2710
+2026-10-09T17:25:24.4377977Z Downloaded: 2773 file(s) [attempted 2773/8908 = 31%, 440 KB/s], Decompressed: 2770
+2026-10-09T17:25:24.5429714Z Downloaded: 2820 file(s) [attempted 2820/8908 = 31%, 283 KB/s], Decompressed: 2818
+2026-10-09T17:25:24.6428113Z Downloaded: 2875 file(s) [attempted 2875/8908 = 32%, 802 KB/s], Decompressed: 2873
+2026-10-09T17:25:24.7443948Z Downloaded: 2929 file(s) [attempted 2929/8908 = 32%, 1740 KB/s], Decompressed: 2926
+2026-10-09T17:25:24.8468456Z Downloaded: 2984 file(s) [attempted 2984/8908 = 33%, 157 KB/s], Decompressed: 2981
+2026-10-09T17:25:24.9493837Z Downloaded: 3036 file(s) [attempted 3036/8908 = 34%, 1318 KB/s], Decompressed: 3034
+2026-10-09T17:25:25.0523288Z Downloaded: 3080 file(s) [attempted 3080/8908 = 34%, 90 KB/s], Decompressed: 3076
+2026-10-09T17:25:25.1548034Z Downloaded: 3116 file(s) [attempted 3116/8908 = 34%, 280 KB/s], Decompressed: 3113
+2026-10-09T17:25:25.2613142Z Downloaded: 3161 file(s) [attempted 3161/8908 = 35%, 871 KB/s], Decompressed: 3159
+2026-10-09T17:25:25.3641165Z Downloaded: 3221 file(s) [attempted 3221/8908 = 36%, 556 KB/s], Decompressed: 3216
+2026-10-09T17:25:25.4639500Z Downloaded: 3274 file(s) [attempted 3274/8908 = 36%, 314 KB/s], Decompressed: 3269
+2026-10-09T17:25:25.5635145Z Downloaded: 3325 file(s) [attempted 3325/8908 = 37%, 397 KB/s], Decompressed: 3320
+2026-10-09T17:25:25.6750954Z Downloaded: 3350 file(s) [attempted 3350/8908 = 37%, 159 KB/s], Decompressed: 3346
+2026-10-09T17:25:25.7778515Z Downloaded: 3384 file(s) [attempted 3384/8908 = 37%, 427 KB/s], Decompressed: 3382
+2026-10-09T17:25:25.8851800Z Downloaded: 3435 file(s) [attempted 3435/8908 = 38%, 272 KB/s], Decompressed: 3432
+2026-10-09T17:25:25.9850412Z Downloaded: 3478 file(s) [attempted 3478/8908 = 39%, 26 KB/s], Decompressed: 3473
+2026-10-09T17:25:26.0856299Z Downloaded: 3524 file(s) [attempted 3524/8908 = 39%, 68 KB/s], Decompressed: 3517
+2026-10-09T17:25:26.1870754Z Downloaded: 3574 file(s) [attempted 3574/8908 = 40%, 810 KB/s], Decompressed: 3565
+2026-10-09T17:25:26.2874000Z Downloaded: 3629 file(s) [attempted 3629/8908 = 40%, 475 KB/s], Decompressed: 3622
+2026-10-09T17:25:26.3923777Z Downloaded: 3670 file(s) [attempted 3670/8908 = 41%, 2223 KB/s], Decompressed: 3663
+2026-10-09T17:25:26.4926708Z Downloaded: 3716 file(s) [attempted 3716/8908 = 41%, 1646 KB/s], Decompressed: 3712
+2026-10-09T17:25:26.5956854Z Downloaded: 3764 file(s) [attempted 3764/8908 = 42%, 151 KB/s], Decompressed: 3761
+2026-10-09T17:25:26.6992900Z Downloaded: 3817 file(s) [attempted 3817/8908 = 42%, 737 KB/s], Decompressed: 3812
+2026-10-09T17:25:26.8020032Z Downloaded: 3872 file(s) [attempted 3872/8908 = 43%, 1082 KB/s], Decompressed: 3869
+2026-10-09T17:25:26.9024589Z Downloaded: 3920 file(s) [attempted 3920/8908 = 44%, 400 KB/s], Decompressed: 3915
+2026-10-09T17:25:27.0102785Z Downloaded: 3958 file(s) [attempted 3958/8908 = 44%, 122 KB/s], Decompressed: 3956
+2026-10-09T17:25:27.1101784Z Downloaded: 4009 file(s) [attempted 4009/8908 = 45%, 86 KB/s], Decompressed: 4006
+2026-10-09T17:25:27.2094411Z Downloaded: 4059 file(s) [attempted 4059/8908 = 45%, 54 KB/s], Decompressed: 4054
+2026-10-09T17:25:27.3244116Z Downloaded: 4109 file(s) [attempted 4109/8908 = 46%, 205 KB/s], Decompressed: 4105
+2026-10-09T17:25:27.4260272Z Downloaded: 4158 file(s) [attempted 4158/8908 = 46%, 449 KB/s], Decompressed: 4155
+2026-10-09T17:25:27.5336992Z Downloaded: 4215 file(s) [attempted 4215/8908 = 47%, 976 KB/s], Decompressed: 4210
+2026-10-09T17:25:27.6393593Z Downloaded: 4270 file(s) [attempted 4270/8908 = 47%, 196 KB/s], Decompressed: 4268
+2026-10-09T17:25:27.7430909Z Downloaded: 4323 file(s) [attempted 4323/8908 = 48%, 143 KB/s], Decompressed: 4321
+2026-10-09T17:25:27.8473670Z Downloaded: 4381 file(s) [attempted 4381/8908 = 49%, 96 KB/s], Decompressed: 4376
+2026-10-09T17:25:27.9499488Z Downloaded: 4439 file(s) [attempted 4439/8908 = 49%, 998 KB/s], Decompressed: 4436
+2026-10-09T17:25:28.0540227Z Downloaded: 4501 file(s) [attempted 4501/8908 = 50%, 32 KB/s], Decompressed: 4496
+2026-10-09T17:25:28.1683306Z Downloaded: 4544 file(s) [attempted 4544/8908 = 51%, 1089 KB/s], Decompressed: 4539
+2026-10-09T17:25:28.2888804Z Downloaded: 4592 file(s) [attempted 4592/8908 = 51%, 408 KB/s], Decompressed: 4587
+2026-10-09T17:25:28.3888601Z Downloaded: 4623 file(s) [attempted 4623/8908 = 51%, 32 KB/s], Decompressed: 4616
+2026-10-09T17:25:28.4917715Z Downloaded: 4674 file(s) [attempted 4674/8908 = 52%, 758 KB/s], Decompressed: 4671
+2026-10-09T17:25:28.6067578Z Downloaded: 4724 file(s) [attempted 4724/8908 = 53%, 914 KB/s], Decompressed: 4722
+2026-10-09T17:25:28.7097812Z Downloaded: 4779 file(s) [attempted 4779/8908 = 53%, 62 KB/s], Decompressed: 4777
+2026-10-09T17:25:28.8178159Z Downloaded: 4832 file(s) [attempted 4832/8908 = 54%, 794 KB/s], Decompressed: 4828
+2026-10-09T17:25:28.9182194Z Downloaded: 4885 file(s) [attempted 4885/8908 = 54%, 89 KB/s], Decompressed: 4883
+2026-10-09T17:25:29.0233556Z Downloaded: 4941 file(s) [attempted 4941/8908 = 55%, 94 KB/s], Decompressed: 4938
+2026-10-09T17:25:29.1272959Z Downloaded: 4988 file(s) [attempted 4988/8908 = 55%, 1404 KB/s], Decompressed: 4986
+2026-10-09T17:25:29.4788573Z Downloaded: 5034 file(s) [attempted 5034/8908 = 56%, 717 KB/s], Decompressed: 5032
+2026-10-09T17:25:29.5841012Z Downloaded: 5065 file(s) [attempted 5065/8908 = 56%, 149 KB/s], Decompressed: 5063
+2026-10-09T17:25:29.6928433Z Downloaded: 5113 file(s) [attempted 5113/8908 = 57%, 113 KB/s], Decompressed: 5094
+2026-10-09T17:25:29.8076806Z Downloaded: 5166 file(s) [attempted 5166/8908 = 57%, 872 KB/s], Decompressed: 5164
+2026-10-09T17:25:29.9084112Z Downloaded: 5207 file(s) [attempted 5207/8908 = 58%, 89 KB/s], Decompressed: 5204
+2026-10-09T17:25:30.0293817Z Downloaded: 5233 file(s) [attempted 5233/8908 = 58%, 257 KB/s], Decompressed: 5229
+2026-10-09T17:25:30.1300423Z Downloaded: 5269 file(s) [attempted 5269/8908 = 59%, 98 KB/s], Decompressed: 5267
+2026-10-09T17:25:30.2295408Z Downloaded: 5317 file(s) [attempted 5317/8908 = 59%, 442 KB/s], Decompressed: 5315
+2026-10-09T17:25:30.3353884Z Downloaded: 5368 file(s) [attempted 5368/8908 = 60%, 171 KB/s], Decompressed: 5365
+2026-10-09T17:25:30.4724349Z Downloaded: 5413 file(s) [attempted 5413/8908 = 60%, 631 KB/s], Decompressed: 5409
+2026-10-09T17:25:30.5749495Z Downloaded: 5454 file(s) [attempted 5454/8908 = 61%, 82 KB/s], Decompressed: 5452
+2026-10-09T17:25:30.6756523Z Downloaded: 5490 file(s) [attempted 5490/8908 = 61%, 401 KB/s], Decompressed: 5485
+2026-10-09T17:25:30.7758548Z Downloaded: 5528 file(s) [attempted 5528/8908 = 62%, 756 KB/s], Decompressed: 5524
+2026-10-09T17:25:30.8772974Z Downloaded: 5579 file(s) [attempted 5579/8908 = 62%, 1629 KB/s], Decompressed: 5574
+2026-10-09T17:25:30.9848447Z Downloaded: 5620 file(s) [attempted 5620/8908 = 63%, 117 KB/s], Decompressed: 5618
+2026-10-09T17:25:31.0972055Z Downloaded: 5654 file(s) [attempted 5654/8908 = 63%, 35 KB/s], Decompressed: 5649
+2026-10-09T17:25:31.2118436Z Downloaded: 5702 file(s) [attempted 5702/8908 = 64%, 630 KB/s], Decompressed: 5697
+2026-10-09T17:25:31.3120110Z Downloaded: 5750 file(s) [attempted 5750/8908 = 64%, 630 KB/s], Decompressed: 5747
+2026-10-09T17:25:31.4196980Z Downloaded: 5783 file(s) [attempted 5783/8908 = 64%, 697 KB/s], Decompressed: 5778
+2026-10-09T17:25:31.5276340Z Downloaded: 5800 file(s) [attempted 5800/8908 = 65%, 234 KB/s], Decompressed: 5798
+2026-10-09T17:25:31.6644617Z Downloaded: 5826 file(s) [attempted 5826/8908 = 65%, 286 KB/s], Decompressed: 5824
+2026-10-09T17:25:31.7635700Z Downloaded: 5860 file(s) [attempted 5860/8908 = 65%, 722 KB/s], Decompressed: 5855
+2026-10-09T17:25:31.8778686Z Downloaded: 5910 file(s) [attempted 5910/8908 = 66%, 184 KB/s], Decompressed: 5908
+2026-10-09T17:25:31.9825802Z Downloaded: 5961 file(s) [attempted 5961/8908 = 66%, 1901 KB/s], Decompressed: 5958
+2026-10-09T17:25:32.0836903Z Downloaded: 6007 file(s) [attempted 6007/8908 = 67%, 213 KB/s], Decompressed: 6002
+2026-10-09T17:25:32.1962027Z Downloaded: 6043 file(s) [attempted 6043/8908 = 67%, 1646 KB/s], Decompressed: 6040
+2026-10-09T17:25:32.2955451Z Downloaded: 6088 file(s) [attempted 6088/8908 = 68%, 622 KB/s], Decompressed: 6083
+2026-10-09T17:25:32.3964500Z Downloaded: 6131 file(s) [attempted 6131/8908 = 68%, 217 KB/s], Decompressed: 6127
+2026-10-09T17:25:32.4973904Z Downloaded: 6182 file(s) [attempted 6182/8908 = 69%, 417 KB/s], Decompressed: 6175
+2026-10-09T17:25:32.6043355Z Downloaded: 6230 file(s) [attempted 6230/8908 = 69%, 448 KB/s], Decompressed: 6227
+2026-10-09T17:25:32.7113697Z Downloaded: 6273 file(s) [attempted 6273/8908 = 70%, 802 KB/s], Decompressed: 6271
+2026-10-09T17:25:32.8116055Z Downloaded: 6316 file(s) [attempted 6316/8908 = 70%, 76 KB/s], Decompressed: 6311
+2026-10-09T17:25:32.9173911Z Downloaded: 6367 file(s) [attempted 6367/8908 = 71%, 454 KB/s], Decompressed: 6364
+2026-10-09T17:25:33.0186543Z Downloaded: 6422 file(s) [attempted 6422/8908 = 72%, 159 KB/s], Decompressed: 6419
+2026-10-09T17:25:33.1190812Z Downloaded: 6472 file(s) [attempted 6472/8908 = 72%, 125 KB/s], Decompressed: 6470
+2026-10-09T17:25:33.2237063Z Downloaded: 6516 file(s) [attempted 6516/8908 = 73%, 182 KB/s], Decompressed: 6511
+2026-10-09T17:25:33.3266098Z Downloaded: 6566 file(s) [attempted 6566/8908 = 73%, 933 KB/s], Decompressed: 6564
+2026-10-09T17:25:33.4368324Z Downloaded: 6604 file(s) [attempted 6604/8908 = 74%, 61 KB/s], Decompressed: 6600
+2026-10-09T17:25:33.5369780Z Downloaded: 6633 file(s) [attempted 6633/8908 = 74%, 320 KB/s], Decompressed: 6631
+2026-10-09T17:25:33.6539037Z Downloaded: 6679 file(s) [attempted 6679/8908 = 74%, 3564 KB/s], Decompressed: 6676
+2026-10-09T17:25:33.7596611Z Downloaded: 6712 file(s) [attempted 6712/8908 = 75%, 1139 KB/s], Decompressed: 6708
+2026-10-09T17:25:33.8650987Z Downloaded: 6746 file(s) [attempted 6746/8908 = 75%, 142 KB/s], Decompressed: 6744
+2026-10-09T17:25:33.9689270Z Downloaded: 6777 file(s) [attempted 6777/8908 = 76%, 82 KB/s], Decompressed: 6775
+2026-10-09T17:25:34.0845666Z Downloaded: 6808 file(s) [attempted 6808/8908 = 76%, 35 KB/s], Decompressed: 6806
+2026-10-09T17:25:34.1849381Z Downloaded: 6847 file(s) [attempted 6847/8908 = 76%, 61 KB/s], Decompressed: 6842
+2026-10-09T17:25:34.2959435Z Downloaded: 6873 file(s) [attempted 6873/8908 = 77%, 156 KB/s], Decompressed: 6871
+2026-10-09T17:25:34.4129688Z Downloaded: 6919 file(s) [attempted 6919/8908 = 77%, 101 KB/s], Decompressed: 6914
+2026-10-09T17:25:34.6276236Z Downloaded: 6941 file(s) [attempted 6941/8908 = 77%, 72 KB/s], Decompressed: 6939
+2026-10-09T17:25:34.7584612Z Downloaded: 6972 file(s) [attempted 6972/8908 = 78%, 142 KB/s], Decompressed: 6969
+2026-10-09T17:25:34.8752268Z Downloaded: 6991 file(s) [attempted 6991/8908 = 78%, 206 KB/s], Decompressed: 6989
+2026-10-09T17:25:34.9820578Z Downloaded: 7010 file(s) [attempted 7010/8908 = 78%, 128 KB/s], Decompressed: 7008
+2026-10-09T17:25:35.0913841Z Downloaded: 7061 file(s) [attempted 7061/8908 = 79%, 137 KB/s], Decompressed: 7058
+2026-10-09T17:25:35.1910989Z Downloaded: 7104 file(s) [attempted 7104/8908 = 79%, 765 KB/s], Decompressed: 7101
+2026-10-09T17:25:35.2929426Z Downloaded: 7153 file(s) [attempted 7153/8908 = 80%, 147 KB/s], Decompressed: 7149
+2026-10-09T17:25:35.3957430Z Downloaded: 7197 file(s) [attempted 7197/8908 = 80%, 375 KB/s], Decompressed: 7195
+2026-10-09T17:25:35.4960686Z Downloaded: 7243 file(s) [attempted 7243/8908 = 81%, 225 KB/s], Decompressed: 7241
+2026-10-09T17:25:35.5959057Z Downloaded: 7282 file(s) [attempted 7282/8908 = 81%, 247 KB/s], Decompressed: 7274
+2026-10-09T17:25:35.6990939Z Downloaded: 7320 file(s) [attempted 7320/8908 = 82%, 433 KB/s], Decompressed: 7318
+2026-10-09T17:25:35.8105262Z Downloaded: 7358 file(s) [attempted 7358/8908 = 82%, 410 KB/s], Decompressed: 7356
+2026-10-09T17:25:35.9292871Z Downloaded: 7385 file(s) [attempted 7385/8908 = 82%, 169 KB/s], Decompressed: 7382
+2026-10-09T17:25:36.0384604Z Downloaded: 7418 file(s) [attempted 7418/8908 = 83%, 30 KB/s], Decompressed: 7416
+2026-10-09T17:25:36.1510390Z Downloaded: 7445 file(s) [attempted 7445/8908 = 83%, 132 KB/s], Decompressed: 7442
+2026-10-09T17:25:36.2600736Z Downloaded: 7474 file(s) [attempted 7474/8908 = 83%, 190 KB/s], Decompressed: 7471
+2026-10-09T17:25:36.3672867Z Downloaded: 7483 file(s) [attempted 7483/8908 = 84%, 253 KB/s], Decompressed: 7481
+2026-10-09T17:25:36.4690888Z Downloaded: 7512 file(s) [attempted 7512/8908 = 84%, 30 KB/s], Decompressed: 7509
+2026-10-09T17:25:36.5826254Z Downloaded: 7553 file(s) [attempted 7553/8908 = 84%, 162 KB/s], Decompressed: 7550
+2026-10-09T17:25:36.6946502Z Downloaded: 7598 file(s) [attempted 7598/8908 = 85%, 166 KB/s], Decompressed: 7594
+2026-10-09T17:25:36.7949035Z Downloaded: 7627 file(s) [attempted 7627/8908 = 85%, 1683 KB/s], Decompressed: 7625
+2026-10-09T17:25:36.8954953Z Downloaded: 7675 file(s) [attempted 7675/8908 = 86%, 208 KB/s], Decompressed: 7671
+2026-10-09T17:25:36.9997809Z Downloaded: 7719 file(s) [attempted 7719/8908 = 86%, 474 KB/s], Decompressed: 7714
+2026-10-09T17:25:37.1058514Z Downloaded: 7764 file(s) [attempted 7764/8908 = 87%, 116 KB/s], Decompressed: 7762
+2026-10-09T17:25:37.2057390Z Downloaded: 7810 file(s) [attempted 7810/8908 = 87%, 265 KB/s], Decompressed: 7807
+2026-10-09T17:25:37.3060092Z Downloaded: 7867 file(s) [attempted 7867/8908 = 88%, 423 KB/s], Decompressed: 7860
+2026-10-09T17:25:37.4118344Z Downloaded: 7914 file(s) [attempted 7914/8908 = 88%, 286 KB/s], Decompressed: 7911
+2026-10-09T17:25:37.5127500Z Downloaded: 7966 file(s) [attempted 7966/8908 = 89%, 430 KB/s], Decompressed: 7961
+2026-10-09T17:25:37.6125337Z Downloaded: 8021 file(s) [attempted 8021/8908 = 90%, 166 KB/s], Decompressed: 8019
+2026-10-09T17:25:37.7214310Z Downloaded: 8052 file(s) [attempted 8052/8908 = 90%, 95 KB/s], Decompressed: 8050
+2026-10-09T17:25:37.8229355Z Downloaded: 8098 file(s) [attempted 8098/8908 = 90%, 255 KB/s], Decompressed: 8095
+2026-10-09T17:25:37.9414465Z Downloaded: 8146 file(s) [attempted 8146/8908 = 91%, 169 KB/s], Decompressed: 8141
+2026-10-09T17:25:38.0647871Z Downloaded: 8194 file(s) [attempted 8194/8908 = 91%, 433 KB/s], Decompressed: 8192
+2026-10-09T17:25:38.1650830Z Downloaded: 8237 file(s) [attempted 8237/8908 = 92%, 144 KB/s], Decompressed: 8235
+2026-10-09T17:25:38.2650933Z Downloaded: 8280 file(s) [attempted 8280/8908 = 92%, 2118 KB/s], Decompressed: 8278
+2026-10-09T17:25:38.3680063Z Downloaded: 8331 file(s) [attempted 8331/8908 = 93%, 583 KB/s], Decompressed: 8328
+2026-10-09T17:25:38.4679029Z Downloaded: 8384 file(s) [attempted 8384/8908 = 94%, 291 KB/s], Decompressed: 8381
+2026-10-09T17:25:38.5800660Z Downloaded: 8422 file(s) [attempted 8422/8908 = 94%, 143 KB/s], Decompressed: 8420
+2026-10-09T17:25:38.6850634Z Downloaded: 8472 file(s) [attempted 8472/8908 = 95%, 555 KB/s], Decompressed: 8468
+2026-10-09T17:25:38.8748061Z Downloaded: 8520 file(s) [attempted 8520/8908 = 95%, 396 KB/s], Decompressed: 8518
+2026-10-09T17:25:39.0254721Z Downloaded: 8566 file(s) [attempted 8566/8908 = 96%, 948 KB/s], Decompressed: 8564
+2026-10-09T17:25:39.1392136Z Downloaded: 8614 file(s) [attempted 8614/8908 = 96%, 57 KB/s], Decompressed: 8612
+2026-10-09T17:25:39.2432664Z Downloaded: 8667 file(s) [attempted 8667/8908 = 97%, 401 KB/s], Decompressed: 8665
+2026-10-09T17:25:39.3455331Z Downloaded: 8720 file(s) [attempted 8720/8908 = 97%, 740 KB/s], Decompressed: 8715
+2026-10-09T17:25:39.4530490Z Downloaded: 8775 file(s) [attempted 8775/8908 = 98%, 121 KB/s], Decompressed: 8773
+2026-10-09T17:25:39.5540512Z Downloaded: 8833 file(s) [attempted 8833/8908 = 99%, 1290 KB/s], Decompressed: 8830
+2026-10-09T17:25:39.5895848Z Downloaded: 8890 file(s) [attempted 8890/8908 = 99%, 1328 KB/s], Decompressed: 8888
+2026-10-09T17:25:39.5896981Z Downloaded: 8908 file(s) [attempted 8908/8908 = 100%, 1328 KB/s], Decompressed: 8902
+2026-10-09T17:25:40.3726932Z Decompressed 8908 file(s)
+2026-10-09T17:25:40.3727493Z Already decompressed 8908 file(s)
+2026-10-09T17:25:40.4164846Z ##[endgroup]
+2026-10-09T17:25:40.4165429Z 
+2026-10-09T17:25:40.4173300Z ##[end-action id=__leanprover_lean-action.__run_3;outcome=success;conclusion=success;duration_ms=30783]
+2026-10-09T17:25:40.4187914Z ##[start-action display=build mxym/math;id=__leanprover_lean-action.build]
+2026-10-09T17:25:40.4212293Z ##[end-action id=__leanprover_lean-action.build;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:25:40.4215292Z ##[start-action display=Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache_2]
+2026-10-09T17:25:41.2600132Z ##[group]Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+2026-10-09T17:25:41.2600623Z with:
+2026-10-09T17:25:41.2601038Z   path: formalizations/appt-qutrit-purity/.lake
+2026-10-09T17:25:41.2602103Z   key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f-97d498d499ce0b779dc19d531876a0b0bd3c4076
+2026-10-09T17:25:41.2603529Z   enableCrossOsArchive: false
+2026-10-09T17:25:41.2603927Z ##[endgroup]
+2026-10-09T17:25:41.4151106Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/math/math --files-from manifest.txt --use-compress-program zstdmt
+2026-10-09T17:26:03.4883823Z Sent 0 of 2574356461 (0.0%), 0.0 MBs/sec
+2026-10-09T17:26:04.4880837Z Sent 134217728 of 2574356461 (5.2%), 64.0 MBs/sec
+2026-10-09T17:26:05.4888088Z Sent 536870912 of 2574356461 (20.9%), 170.7 MBs/sec
+2026-10-09T17:26:06.4904227Z Sent 1073741824 of 2574356461 (41.7%), 255.9 MBs/sec
+2026-10-09T17:26:07.4893028Z Sent 1409286144 of 2574356461 (54.7%), 268.7 MBs/sec
+2026-10-09T17:26:08.4887493Z Sent 1744830464 of 2574356461 (67.8%), 277.3 MBs/sec
+2026-10-09T17:26:09.4914366Z Sent 2080374784 of 2574356461 (80.8%), 283.3 MBs/sec
+2026-10-09T17:26:10.4903847Z Sent 2574356461 of 2574356461 (100.0%), 306.8 MBs/sec
+2026-10-09T17:26:11.0680957Z Cache saved with key: lake-Linux-X64-d791b020c21edcc7e9e22797f1d59fde59e8af8f675af62dc2f1fd7521bfef93-cc0821392235d0e60f0972bc46430901b985a718aa3b1322ee150cbc1fbc220f-97d498d499ce0b779dc19d531876a0b0bd3c4076
+2026-10-09T17:26:11.0774556Z ##[end-action id=__leanprover_lean-action.__actions_cache_2;outcome=success;conclusion=success;duration_ms=30655]
+2026-10-09T17:26:11.0779841Z ##[start-action display=test mxym/math;id=__leanprover_lean-action.test]
+2026-10-09T17:26:11.0786297Z ##[end-action id=__leanprover_lean-action.test;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0789068Z ##[start-action display=lint mxym/math;id=__leanprover_lean-action.lint]
+2026-10-09T17:26:11.0793758Z ##[end-action id=__leanprover_lean-action.lint;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0795659Z ##[start-action display=check reservoir eligibility;id=__leanprover_lean-action.__run_4]
+2026-10-09T17:26:11.0798936Z ##[end-action id=__leanprover_lean-action.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0801372Z ##[start-action display=check environment with leanchecker;id=__leanprover_lean-action.__run_5]
+2026-10-09T17:26:11.0806503Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0808809Z ##[start-action display=check environment with nanoda;id=__leanprover_lean-action.nanoda]
+2026-10-09T17:26:11.0812099Z ##[end-action id=__leanprover_lean-action.nanoda;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0815071Z ##[start-action display=audit axioms with axiom-audit;id=__leanprover_lean-action.axiom-audit]
+2026-10-09T17:26:11.0818329Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-09T17:26:11.0880424Z ##[group]Run set -euo pipefail
+2026-10-09T17:26:11.0880802Z [36;1mset -euo pipefail[0m
+2026-10-09T17:26:11.0881079Z [36;1mmkdir -p component-provenance[0m
+2026-10-09T17:26:11.0881546Z [36;1mgh api repos/mxym/math/actions/runs/37956727424 > component-provenance/run.json[0m
+2026-10-09T17:26:11.0882193Z [36;1mgh api repos/mxym/math/actions/runs/37956727424/jobs > component-provenance/jobs.json[0m
+2026-10-09T17:26:11.0882999Z [36;1mpython3 - <<'PY'[0m
+2026-10-09T17:26:11.0883251Z [36;1mimport json[0m
+2026-10-09T17:26:11.0883488Z [36;1mfrom pathlib import Path[0m
+2026-10-09T17:26:11.0883780Z [36;1mp=Path('component-provenance')[0m
+2026-10-09T17:26:11.0884119Z [36;1mrun=json.loads((p/'run.json').read_text())[0m
+2026-10-09T17:26:11.0884546Z [36;1massert run['head_sha']=='b30faa14239c85ea61447c055d37731c9e987939'[0m
+2026-10-09T17:26:11.0885298Z [36;1mexpected={f'components ({c})' for c in ['Dimension9','Dimension12','Dimension15','Dimension18','Dimension21','Dimension24','UniformBuild']}[0m
+2026-10-09T17:26:11.0886000Z [36;1mjobs=json.loads((p/'jobs.json').read_text())['jobs'][0m
+2026-10-09T17:26:11.0886400Z [36;1mmatched=[j for j in jobs if j['name'] in expected][0m
+2026-10-09T17:26:11.0886836Z [36;1massert len(matched)==7 and {j['name'] for j in matched}==expected[0m
+2026-10-09T17:26:11.0887366Z [36;1massert all(j['status']=='completed' and j['conclusion']=='success' for j in matched)[0m
+2026-10-09T17:26:11.0887848Z [36;1mprint('SEVEN_COMPONENT_JOB_PROVENANCE_PASS')[0m
+2026-10-09T17:26:11.0888149Z [36;1mPY[0m
+2026-10-09T17:26:11.0953240Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-09T17:26:11.0953591Z env:
+2026-10-09T17:26:11.0956628Z   GH_TOKEN: ***
+2026-10-09T17:26:11.0956855Z ##[endgroup]
+2026-10-09T17:26:12.5661155Z SEVEN_COMPONENT_JOB_PROVENANCE_PASS
+2026-10-09T17:26:12.5752229Z ##[group]Run actions/download-artifact@v4
+2026-10-09T17:26:12.5752992Z with:
+2026-10-09T17:26:12.5753263Z   repository: mxym/math
+2026-10-09T17:26:12.5756179Z   github-token: ***
+2026-10-09T17:26:12.5756431Z   run-id: 37956727424
+2026-10-09T17:26:12.5756741Z   pattern: component-*-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:12.5757117Z   path: component-artifacts
+2026-10-09T17:26:12.5757374Z   merge-multiple: false
+2026-10-09T17:26:12.5757602Z ##[endgroup]
+2026-10-09T17:26:12.7344662Z Fetching artifact list for workflow run 37956727424 in repository mxym/math
+2026-10-09T17:26:12.7415318Z (node:15754) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-09T17:26:12.7416659Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-09T17:26:12.7621754Z (node:15754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-09T17:26:13.0286573Z Found 8 artifact(s)
+2026-10-09T17:26:13.0287931Z Filtering artifacts by pattern 'component-*-b30faa14239c85ea61447c055d37731c9e987939'
+2026-10-09T17:26:13.0310150Z Preparing to download the following artifacts:
+2026-10-09T17:26:13.0311684Z - component-Dimension24-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11631111137, Size: 195609067, Expected Digest: sha256:d9290d59f684d2eea79b3b8b52ac33e4a1a1617724c7f70ce9a7f40b5b6037db)
+2026-10-09T17:26:13.0314405Z - component-Dimension21-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11629860227, Size: 163381275, Expected Digest: sha256:18c4af6ce66f3ab225cd16ae738c6ce20cfe2c84a6d9103c42de8d5cca9769f2)
+2026-10-09T17:26:13.0317034Z - component-Dimension18-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11629860204, Size: 101537843, Expected Digest: sha256:92b940c1af9fba66f7e0e51e31172d2adab6dbc5fba8941d89fe753e7060fad6)
+2026-10-09T17:26:13.0319519Z - component-Dimension9-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11628641691, Size: 18157001, Expected Digest: sha256:65559321b26defd28857b18aaa8531fc3ece90ca9a1242a1ba872bea1600e07a)
+2026-10-09T17:26:13.0322614Z - component-Dimension15-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11628537530, Size: 60323052, Expected Digest: sha256:f1afefcb8c2d067b42af5bf0db6edbf80dd5df66cd50f3d4ce41e06b8234df10)
+2026-10-09T17:26:13.0325118Z - component-Dimension12-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11628323284, Size: 32880469, Expected Digest: sha256:4b6428a6d5f24dfaa0774e4f64d1e7ad44eaad00d0decc0fbf27c0c96f83bf3d)
+2026-10-09T17:26:13.0327023Z - component-UniformBuild-b30faa14239c85ea61447c055d37731c9e987939 (ID: 11627539822, Size: 510511838, Expected Digest: sha256:639fc116524002ee507d417bb57d8aec21e838410f34e3aee3494d37b5773fa6)
+2026-10-09T17:26:13.0373626Z Downloading artifact '11631111137' from 'mxym/math'
+2026-10-09T17:26:13.0420999Z Downloading artifact '11628537530' from 'mxym/math'
+2026-10-09T17:26:13.0486005Z Downloading artifact '11627539822' from 'mxym/math'
+2026-10-09T17:26:13.0555899Z Downloading artifact '11628323284' from 'mxym/math'
+2026-10-09T17:26:13.0612755Z Downloading artifact '11629860227' from 'mxym/math'
+2026-10-09T17:26:13.0677524Z Downloading artifact '11629860204' from 'mxym/math'
+2026-10-09T17:26:13.0747397Z Downloading artifact '11628641691' from 'mxym/math'
+2026-10-09T17:26:13.3304590Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-66e6f2c8-0535-5c11-bf07-f0927289b0ef/artifacts/fa15176ae1877b643d61a667d877221b023244bcd9d04c02e8b65007e93cfbf6.zip
+2026-10-09T17:26:13.3306455Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-UniformBuild-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.3332905Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-f50d2814-8379-5b98-af5f-354bea1ad1fd/artifacts/47a34c19b06aef354bee5f59f55d13692019b37f8f668227262369c909904841.zip
+2026-10-09T17:26:13.3336255Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension12-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.3403924Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-b1afcc7a-5576-595a-9781-bdd6557c0613/artifacts/3ecc0f393f203dad08e725ecb36fef0821352ad6b252c5ccc3fbf97187ef2c76.zip
+2026-10-09T17:26:13.3406866Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension24-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.3442074Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-f8981a83-5ee3-51ba-8940-8feabd30e505/artifacts/fb868d8925451b654bd5eaeb95545a82fc65a053101d6d677705f59d8dc24b8e.zip
+2026-10-09T17:26:13.3444001Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension21-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.3469942Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-1663a277-1101-50f2-b584-e3eb5dcbca18/artifacts/5e232365a37d1baaa70e22cefc041e62cafffaaaf2d5a7b4aa4b428b787f77b0.zip
+2026-10-09T17:26:13.3472776Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension9-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.3811119Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-37ee32aa-b97d-5daf-9404-8f396db5e277/artifacts/0b4e215cca1ce9b9f6b618b6deb1e47c7044e10e04c9ac6eaeda086e5c8d442b.zip
+2026-10-09T17:26:13.3813279Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension18-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.4159033Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/347b1c0d-511f-434a-bdad-9eb49fa20812/workflow-job-run-55458530-383b-5835-b652-aa9b08300834/artifacts/6e5cdf8aabca772b8282e0dedb1b85225fb5c113a68b9d70f2d027b94b182086.zip
+2026-10-09T17:26:13.4160944Z Starting download of artifact to: /home/runner/work/math/math/component-artifacts/component-Dimension15-b30faa14239c85ea61447c055d37731c9e987939
+2026-10-09T17:26:13.6498768Z (node:15754) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-09T17:26:15.3287870Z SHA256 digest of downloaded artifact is 65559321b26defd28857b18aaa8531fc3ece90ca9a1242a1ba872bea1600e07a
+2026-10-09T17:26:15.3288853Z Artifact download completed successfully.
+2026-10-09T17:26:16.0826142Z SHA256 digest of downloaded artifact is 4b6428a6d5f24dfaa0774e4f64d1e7ad44eaad00d0decc0fbf27c0c96f83bf3d
+2026-10-09T17:26:16.0826797Z Artifact download completed successfully.
+2026-10-09T17:26:17.2809115Z SHA256 digest of downloaded artifact is f1afefcb8c2d067b42af5bf0db6edbf80dd5df66cd50f3d4ce41e06b8234df10
+2026-10-09T17:26:17.2810241Z Artifact download completed successfully.
+2026-10-09T17:26:18.8782557Z SHA256 digest of downloaded artifact is 92b940c1af9fba66f7e0e51e31172d2adab6dbc5fba8941d89fe753e7060fad6
+2026-10-09T17:26:18.8783654Z Artifact download completed successfully.
+2026-10-09T17:26:20.3717105Z SHA256 digest of downloaded artifact is 18c4af6ce66f3ab225cd16ae738c6ce20cfe2c84a6d9103c42de8d5cca9769f2
+2026-10-09T17:26:20.3718070Z Artifact download completed successfully.
+2026-10-09T17:26:21.5428068Z SHA256 digest of downloaded artifact is d9290d59f684d2eea79b3b8b52ac33e4a1a1617724c7f70ce9a7f40b5b6037db
+2026-10-09T17:26:21.5429380Z Artifact download completed successfully.
+2026-10-09T17:26:58.1579259Z SHA256 digest of downloaded artifact is 639fc116524002ee507d417bb57d8aec21e838410f34e3aee3494d37b5773fa6
+2026-10-09T17:26:58.1580096Z Artifact download completed successfully.
+2026-10-09T17:26:58.1580419Z Total of 7 artifact(s) downloaded
+2026-10-09T17:26:58.1587174Z Download artifact has finished successfully
+2026-10-09T17:26:58.1805634Z ##[group]Run set -euo pipefail
+2026-10-09T17:26:58.1805998Z [36;1mset -euo pipefail[0m
+2026-10-09T17:26:58.1806306Z [36;1mpython3 scripts/source_manifest.py --check[0m
+2026-10-09T17:26:58.1806761Z [36;1mpython3 scripts/component_cache.py merge ../../component-artifacts[0m
+2026-10-09T17:26:58.1807460Z [36;1mfind ../../component-artifacts -name UNIFORM_CACHE_PROVENANCE.json -exec cp {} local-verification/complete/ \;[0m
+2026-10-09T17:26:58.1808141Z [36;1mcp ../../component-provenance/*.json local-verification/complete/[0m
+2026-10-09T17:26:58.1808606Z [36;1mpython3 reproduce.py 2>&1 | tee full-verification.log[0m
+2026-10-09T17:26:58.1871435Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-09T17:26:58.1871808Z ##[endgroup]
+2026-10-09T17:26:58.5737953Z COMPLETE_SOURCE_MANIFEST_PASS 942 files
+2026-10-09T17:27:37.4506274Z SOURCE_BOUND_COMPONENT_MERGE_PASS 7 components
+2026-10-09T17:27:42.0472181Z {"name": "source-inventory", "command": ["python3", "scripts/source_manifest.py", "--check"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 0.214, "log_sha256": "72cacc8c4a50c6bf51d6828dcdadf99eb6b1ca85978c5425d709fac7be85867e"}
+2026-10-09T17:27:42.6639031Z {"name": "regenerate-uniform", "command": ["python3", "scripts/generate_uniform.py", "--check"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 0.616, "log_sha256": "27cda8380c56ae2c7b6b83b568e509e928bb072820ef3cbf6d164d81be8b5278"}
+2026-10-09T17:27:52.9539219Z {"name": "regenerate-finite", "command": ["python3", "scripts/generate_finite_sparse.py", "--check"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 10.289, "log_sha256": "b1d97a386db0c8a1455826e8acb5553f1a592586a4c6965bb20edc44f1e3e4b3"}
+2026-10-09T17:27:53.4704312Z {"name": "certificate-controls", "command": ["python3", "scripts/certificate_controls.py"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 0.515, "log_sha256": "e39381d3f806672182d127e5edbe5ade70518370813ecbb1c25feed19a38fb9d"}
+2026-10-09T17:27:58.2973739Z {"name": "replay-controls", "command": ["lake", "env", "lean", "-j1", "ReplayControls.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 4.826, "log_sha256": "875a2da9febde38e091e6b7ee722ea72453b52abc667b3a4b8b6424d3b27f72a"}
+2026-10-09T17:27:58.5631242Z {"name": "module-graph", "command": ["python3", "scripts/completion_graph.py", "--check"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 0.265, "log_sha256": "a5d91b48d064176292470481afaac08a1c8e5cda65d4cf03c6dc35fb6bcef9e7"}
+2026-10-09T17:28:37.8933060Z {"name": "bounded-lake", "command": ["lake", "env", "python3", "scripts/build_blocks.py", "--case", "All", "--engine", "lake", "--jobs", "2", "--timeout", "300"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 39.329, "log_sha256": "b46204dfb2954ca31a6b2e9c5e3e2f8b4a3605fd1bffd92be1360f6906772288"}
+2026-10-09T17:28:39.9174743Z {"name": "lake-build", "command": ["lake", "build"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 2.022, "log_sha256": "f5be3ef995f091a9d5b471cd2a185742331f1feaf21ccafed8ab0a9b7876f2f6"}
+2026-10-09T17:28:42.4896822Z {"name": "positive-sparse", "command": ["lake", "env", "lean", "-j1", "-M12288", "PositiveSparse.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 2.571, "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-10-09T17:28:45.1114593Z {"name": "negative-sparse", "command": ["lake", "env", "lean", "-j1", "-M12288", "RejectSparse.lean"], "exit_code": 1, "expected_rejection": true, "timed_out": false, "passed": true, "seconds": 2.621, "log_sha256": "49843e28476f2486c023d77ffa901b22aa927da9697446a41c4a78acffa2b1b8"}
+2026-10-09T17:28:47.6835031Z {"name": "positive-corner", "command": ["lake", "env", "lean", "-j1", "-M12288", "NecessityPositive.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 2.571, "log_sha256": "c2b8f18a43cd83d7d72980eb8e82529e7eca97efd24cd7dc1a11052781027b06"}
+2026-10-09T17:28:50.2566378Z {"name": "negative-corner", "command": ["lake", "env", "lean", "-j1", "-M12288", "NecessityReject.lean"], "exit_code": 1, "expected_rejection": true, "timed_out": false, "passed": true, "seconds": 2.572, "log_sha256": "bfaa4e6ec4c17a83f59ebde0bffc5f093040ad32be5580895b64c320ab144c35"}
+2026-10-09T17:28:53.5807488Z {"name": "positive-purity", "command": ["lake", "env", "lean", "-j1", "-M12288", "PositivePurity.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 3.323, "log_sha256": "51777b897b99548b4d2da80a43ca2a92e178c413cf41080a46dc75b5fc49656b"}
+2026-10-09T17:28:56.7535498Z {"name": "negative-purity", "command": ["lake", "env", "lean", "-j1", "-M12288", "RejectPurity.lean"], "exit_code": 1, "expected_rejection": true, "timed_out": false, "passed": true, "seconds": 3.172, "log_sha256": "02be4baec321c8e7c908042f7d3c2e6bfd5c9e39f3cd385c0d71a5805e20c756"}
+2026-10-09T17:29:00.0265240Z {"name": "completion-formula-controls", "command": ["lake", "env", "lean", "-j1", "-M12288", "CompletionFormulaControls.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 3.272, "log_sha256": "b3d7f5f878c9254020f03773259bd22f88c0e71c38b21abdaccff34f50068d30"}
+2026-10-09T17:40:28.8586676Z {"name": "empty-kernel", "command": ["lake", "env", "lean", "-j1", "-M12288", "CheckpointReplay.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 688.831, "log_sha256": "14422d75c89821c4bbe5f807936c4c6c75e2502fd8406950f5fa03775ea035ac"}
+2026-10-09T17:40:30.8797788Z {"name": "replay-support", "command": ["lake", "env", "lean", "-j1", "-M12288", "-o", ".lake/build/lib/lean/Verification/ReplaySupport.olean", "Verification/ReplaySupport.lean"], "exit_code": 0, "expected_rejection": false, "timed_out": false, "passed": true, "seconds": 2.02, "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-10-09T17:40:34.4539747Z {"name": "corrupt-final-theorem", "command": ["lake", "env", "lean", "-j1", "-M12288", "CompletionAudit.lean"], "exit_code": 1, "expected_rejection": false, "timed_out": false, "passed": false, "seconds": 3.573, "log_sha256": "6e6462f78bcb6b3703cb4df891799ac3194753999a8c0a60c94ab3cfe5c7b5b8"}
+2026-10-09T17:40:34.5543625Z Traceback (most recent call last):
+2026-10-09T17:40:34.5545030Z   File "/home/runner/work/math/math/formalizations/appt-qutrit-purity/reproduce.py", line 121, in <module>
+2026-10-09T17:40:34.5546348Z     if __name__=='__main__':main()
+2026-10-09T17:40:34.5546929Z                             ^^^^^^
+2026-10-09T17:40:34.5547720Z   File "/home/runner/work/math/math/formalizations/appt-qutrit-purity/reproduce.py", line 93, in main
+2026-10-09T17:40:34.5548752Z     if not passed:raise RuntimeError('Verification failed: '+name)
+2026-10-09T17:40:34.5549461Z                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-09T17:40:34.5550227Z RuntimeError: Verification failed: corrupt-final-theorem
+2026-10-09T17:40:34.5733020Z ##[error]Process completed with exit code 1.
+2026-10-09T17:40:34.5808769Z ##[group]Run actions/upload-artifact@v4
+2026-10-09T17:40:34.5809088Z with:
+2026-10-09T17:40:34.5809400Z   name: complete-maximum-97d498d499ce0b779dc19d531876a0b0bd3c4076
+2026-10-09T17:40:34.5810759Z   path: formalizations/appt-qutrit-purity/logs/blocks/
+formalizations/appt-qutrit-purity/replayed-*.txt
+formalizations/appt-qutrit-purity/completion-replayed-*.txt
+formalizations/appt-qutrit-purity/local-verification/complete/
+formalizations/appt-qutrit-purity/full-verification.log
+component-provenance/
+
+2026-10-09T17:40:34.5812044Z   if-no-files-found: warn
+2026-10-09T17:40:34.5812286Z   compression-level: 6
+2026-10-09T17:40:34.5812722Z   overwrite: false
+2026-10-09T17:40:34.5812951Z   include-hidden-files: false
+2026-10-09T17:40:34.5813197Z ##[endgroup]
+2026-10-09T17:40:34.7643451Z (node:17411) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-09T17:40:34.7644854Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-09T17:40:35.0191103Z Uploads are case insensitive: /home/runner/work/math/math/formalizations/appt-qutrit-purity/local-verification/complete/run.json was detected that it will be overwritten by another file with the same path
+2026-10-09T17:40:35.1201907Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-09T17:40:35.1204923Z The least common ancestor is /home/runner/work/math/math. This will be the root directory of the artifact
+2026-10-09T17:40:35.1206031Z With the provided path, there will be 1788 files uploaded
+2026-10-09T17:40:35.1212681Z Artifact name is valid!
+2026-10-09T17:40:35.1213530Z Root directory input is valid!
+2026-10-09T17:40:35.5571028Z Beginning upload of artifact content to blob storage
+2026-10-09T17:40:36.7453772Z (node:17411) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-09T17:40:37.5032841Z Uploaded bytes 2501665
+2026-10-09T17:40:37.5815748Z Finished uploading artifact content to blob storage!
+2026-10-09T17:40:37.5817051Z SHA256 digest of uploaded artifact zip is 5629e1975604a7bb022fdcc15e7499306ff0be6cdd229ee79f48c9c9ecc00210
+2026-10-09T17:40:37.5818401Z Finalizing artifact upload
+2026-10-09T17:40:37.8541093Z Artifact complete-maximum-97d498d499ce0b779dc19d531876a0b0bd3c4076.zip successfully finalized. Artifact ID 11633713780
+2026-10-09T17:40:37.8544024Z Artifact complete-maximum-97d498d499ce0b779dc19d531876a0b0bd3c4076 has been successfully uploaded! Final size is 2501665 bytes. Artifact ID is 11633713780
+2026-10-09T17:40:37.8549202Z Artifact download URL: https://github.com/mxym/math/actions/runs/37965996844/artifacts/11633713780
+2026-10-09T17:40:37.8863384Z Post job cleanup.
+2026-10-09T17:40:37.9775273Z [command]/usr/bin/git version
+2026-10-09T17:40:37.9822787Z git version 2.55.0
+2026-10-09T17:40:37.9868582Z Temporarily overriding HOME='/home/runner/work/_temp/7ed6921b-9d75-4858-9a0f-e2973afb801c' before making global git config changes
+2026-10-09T17:40:37.9870283Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-09T17:40:37.9874918Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/math/math
+2026-10-09T17:40:37.9918641Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-09T17:40:37.9955959Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-09T17:40:38.0289183Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-09T17:40:38.0320960Z http.https://github.com/.extraheader
+2026-10-09T17:40:38.0336369Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-09T17:40:38.0386345Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-09T17:40:38.0665678Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-09T17:40:38.0712072Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-09T17:40:38.1142261Z Cleaning up orphan processes
+2026-10-09T17:40:38.1651143Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

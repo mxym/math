@@ -1,0 +1,88 @@
+--- a/LITERATURE.md
++++ b/LITERATURE.md
+@@ -6,6 +6,27 @@
+ proof. The direct entry005 v2–v4 inputs are pinned separately in
+ [DEPENDENCIES.md](DEPENDENCIES.md). The comparison is not an exhaustive review
+ of the projection-body or random-simplex literature.
++
++## Classical determinant identities and block structure
++
++The determinant expectations \(A\) and \(B\) in Section 2 are zonoid and
++lift-zonoid volumes in the normalization \(Z(\nu)=\mathbb E[0,X]\) and
++\(\widehat Z(\nu)=\mathbb E[0,(1,X)]\). G. Koshevoy and K. Mosler,
++*Lift zonoids, random convex hulls and the variability of random vectors*,
++Bernoulli **4** (1998), 377–399, give the relevant determinant representation
++in Section 4, Theorem 4.1 and equation (4.3), printed p. 387 of the
++[primary author PDF](https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf).
++The determinant identity is background; the cone-law endpoint and stability
++assertions require the further arguments in entry005 and this supplement.
++
++The finite-support exact rank-two block structure has a matroid antecedent:
++J. van der Pol, Z. Walsh and M.C. Wigal, *Turán densities for matroid basis
++hypergraphs*, [arXiv:2502.03673v2](https://arxiv.org/html/2502.03673v2#S5),
++Section 5 and Lemma 5.2, printed pp. 14–15. They classify
++\(U_{3,4}\)-minor-free matroids as direct sums of matroids of rank at most two.
++Circuits of size at most three give that excluded-minor condition. Entry005 v4
++includes a direct proof for its almost-sure measure formulation; the present
++quantitative lemma estimates approximation from small expected cofactors.
+ 
+ ## Exact subspace concentration and complementary factors
+ 
+@@ -93,14 +114,14 @@
+ invariant product block. Arbitrary centrally symmetric planar factors need not
+ have the assumed Coxeter symmetries.
+ 
+-The introduction also uses volume-normalized unconditional vertex-truncated
+-cubes: cone-volume Wasserstein error is \(O_d(\varepsilon)\), while containment
+-loss is \(\Omega_d(\varepsilon^{1/d})\). This is a related cap-volume
+-mechanism. The supplement instead computes the scalar upper deficit and bounds
+-distance to the entire affine one-/two-dimensional product class, rather than
+-to a fixed cube. Example 1.4 shows weak-measure collapse under anisotropic
+-squeezing for volume-one bodies satisfying zero cone mass on the specified
+-equator. That hypothesis must be retained.
++The introduction discusses volume-normalized unconditional bodies obtained by
++truncating vertices of a cube ([published version](https://real.mtak.hu/196592/1/1-s2.0-S0022039621004393-main.pdf),
++p. 302). The shared truncation geometry is relevant background. The supplement's
++Theorem B independently computes its own scalar deficit and bounds distance to
++the entire affine one-/two-dimensional product class. Example 1.4 separately
++shows weak-measure collapse under anisotropic squeezing for volume-one bodies
++satisfying zero cone mass on the specified equator; that hypothesis must be
++retained.
+ 
+ ## Surface-area reconstruction
+ 
+@@ -132,6 +153,19 @@
+ 
+ ## Projection-body and recent mixed-volume comparisons
+ 
++The class \(\mathcal E_d\) is the familiar class of affine Cartesian products
++of centrally symmetric intervals and planar bodies, called Weil bodies in
++C. Saroglou, *On the shape of a convex body with respect to its second projection
++body*, [arXiv:1409.4347v2](https://arxiv.org/pdf/1409.4347v2), pp. 2–4.
++That paper relates the class to Weil's polytopal classification for homothety
++under the second projection-body operator and gives a three-dimensional zonoid
++endpoint with symmetric-cylinder equality (Theorem 1.2). These use a different
++functional from \(a(K)\); the common extremal class alone does not make their
++statements equivalent to entry005 v4's equality theorem or Theorem A here.
++The Weil reference listed there is W. Weil, *Über die Projektionenkörper
++konvexer Polytope*, Arch. Math. **22** (1971), 664–672. The original 1971
++article was not obtained, and no exact theorem number in it is asserted.
++
+ C. Saroglou, *Volumes of projection bodies of some classes of convex bodies*,
+ Mathematika **57** (2011), 329–353,
+ [DOI: 10.1112/S0025579311001860](https://doi.org/10.1112/S0025579311001860).
+@@ -158,10 +192,13 @@
+ | Böröczky–Lutwak–Yang–Zhang, 2013 | Full author manuscript available; Theorem 1.1, complementary-support condition and stated uniqueness scope checked. |
+ | Böröczky–Henk, 2016 | Full author manuscript available; centered subspace concentration, equality geometry and U-functional consequence checked. |
+ | Böröczky–Henk, 2017 | Final author manuscript available; definition and Theorems 1.1–1.3 checked against that version's numbering. |
+-| Böröczky–De, 2021 | Full arXiv v2 available; Theorem 1.2, truncation comparison and Example 1.4 checked; published metadata verified independently. |
++| Böröczky–De, 2021 | Full arXiv v2 and the published PDF available; Theorem 1.2, the qualitative truncation discussion on journal p. 302 and Example 1.4 checked. No Wasserstein scaling for the illustrative truncation is asserted here. |
+ | Abdallah–Mérigot, 2014 | Full arXiv v1 available; Theorem 3.1 and dependence of inverse constants checked. |
+ | Hu–Ivaki, 2025 | Full arXiv v2 available; Theorem 1.1 and its normalizations checked. |
+ | Saroglou, 2011 | Publication record and abstract only; full-text comparison remains incomplete. |
++| Saroglou, 2014, v2 | Full primary manuscript available; Weil-body terminology, pp. 2–4 and Theorem 1.2 checked. Weil's 1971 original was not obtained. |
++| Koshevoy–Mosler, 1998 | Full primary author PDF available; Sections 2–4, Theorem 4.1 and equation (4.3), printed p. 387 checked. |
++| van der Pol–Walsh–Wigal, 2025, v2 | Full primary manuscript available; Section 5 and Lemma 5.2, printed pp. 14–15 checked. |
+ | Liu–Xiong–Yang, 2026 | Publisher-deposited metadata and author talk description only; full-text comparison remains incomplete. |
+ 
+ The two full-text limits affect the breadth of the comparison. Neither paper

@@ -1,0 +1,27 @@
+import ContinuumGeometric
+import Mathlib.MeasureTheory.Measure.Basic
+import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+
+#check Real.logb_pos_of_base_lt_one
+#check Real.rpow_logb
+#check Real.rpow_natCast_mul
+#check Real.rpow_mul_natCast
+#check Int.floor_lt
+#check Int.lt_ceil
+#check Int.floor_le
+#check Int.le_ceil
+#check Int.card_Ioo_of_lt
+#check Finset.card_image_of_injOn
+#check tendsto_pow_atTop_nhds_zero_of_lt_one
+#check MeasureTheory.measure_iUnion_le
+#check ENNReal.ofReal_tsum_of_nonneg
+#check hasSum_geometric_two'
+#check isCompact_Icc
+#check IsCompact.inter_right
+#check MeasureTheory.measure_inter_add_sdiff
+#check Real.volume_Icc
+#check isClosedMap_fst_of_compactSpace
+#check Real.continuous_const_rpow
+#check Metric.isOpen_thickening
+#check Metric.thickening_mono
+#check Metric.mem_thickening_iff

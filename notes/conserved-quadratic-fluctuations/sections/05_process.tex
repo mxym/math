@@ -1,0 +1,115 @@
+\section{Proof of the functional and joint limits}\label{sec:process}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Fix $\eta\in C_c^\infty$ equal to one near $\operatorname{supp}f_0$.
+Initially every particle lies in that support, so for each $q\in\cQ$,
+$\pi_0^\eps(q)=\pi_0^\eps(\eta q)$ almost surely, including equality of
+expectations. Input F therefore gives the initial Gaussian vector $Z_0$
+with covariance \eqref{eq:initial-cov}. This is an exact compact-test
+substitution at time zero, not an unbounded positive-time observation.
+Lemma~\ref{lem:vacancy} adds its deterministic vector $a$ for Boltzmann
+centering. Since $r_q(t)$ is a fixed finite linear combination of the basis
+\eqref{eq:basis}, all of its initial fluctuations follow jointly from
+this one vector.
+
+Subtract \eqref{eq:Bol-Q} from \eqref{eq:Q-identity} and divide by $\eps$:
+\begin{equation}\label{eq:exact-path}
+ Y_t^\eps(q)=Y_0^\eps(r_q(t))
+       +d(q)\cH_\eps(t)+2e(q)\int_0^t\cH_\eps(s)\dd s.
+\end{equation}
+For the pasted law use \eqref{eq:L2-LLN}; for the true law use
+\eqref{eq:true-LLN}. The event term converges uniformly in probability
+to its continuous deterministic limit. The initial-vector map is continuous
+into the space of continuous finite-coefficient polynomial paths. Ordinary
+finite-dimensional Slutsky gives the joint $D([0,T],\R^{13})$, $J_1$
+limit \eqref{eq:main-limit}. Indeed \eqref{eq:exact-path} provides a
+uniform-in-time residual tending to zero. No independence between the
+initial vector and the speed sum is required, since the latter limit
+is deterministic.
+
+Taking expectations in the same identity, using the vacancy bias and the
+separate mean convergence of both speed sums, proves
+\eqref{eq:mean-limit}. Uniformity follows from the fixed polynomial
+coefficients and the uniform expectation limit. Subtracting the convergent
+means proves the exactly centered limit. Formula \eqref{eq:limit-cov}
+is then the covariance of the Gaussian linear initial field.
+
+For the pasted prelimit covariance, let
+$Z_{0,\eps}(q)=\zeta_0^\eps(q)$ and
+$R_{q,\eps}(t)=d(q)[\cH_\eps^p(t)-m_\eps(t)]
++2e(q)\int_0^t[\cH_\eps^p(s)-m_\eps(s)]\dd s$.
+The centered path identity reads
+\[
+ \zeta_t^{\eps,p}(q)=Z_{0,\eps}(r_q(t))+R_{q,\eps}(t).
+\]
+Proposition~\ref{prop:LLN} implies
+$\E\sup_t|R_{q,\eps}(t)|^2\to0$.
+The initial covariance matrices converge to \eqref{eq:initial-cov} by
+the initial static factorial bounds, and are bounded. Finite coefficients
+in $r_q(t)$ and Cauchy--Schwarz make every covariance involving a residual
+uniformly small in $t,s$. The remaining initial covariance converges
+uniformly to \eqref{eq:limit-cov}. This argument transfers no squared
+bad-event error to the true law.
+
+It remains to justify the product with the strong-dual field. Let
+$\mathfrak E=D([0,T],\cS'_\beta)$ have input F's generalized $J_1$
+topology, and let $\mathcal Z_\eps$ be its exactly centered field.
+Evaluation at zero against a fixed finite Schwartz list is continuous:
+every allowed time change fixes zero. With the basis $q_1,\ldots,q_{13}$,
+\[
+ Y_0^\eps(q_i)=\mathcal Z_\eps(0)(\eta q_i)+a_\eps(q_i).
+\]
+Define the continuous map from $\mathfrak E$ to
+$\mathfrak E\times D([0,T],\R^{13})$ which retains its first coordinate
+and constructs its second by \eqref{eq:main-limit}, replacing
+$Z_0(q_i)$ by $z(0)(\eta q_i)$. Input F and continuous mapping give its
+weak limit. The actual second coordinate differs uniformly in probability
+from this construction by \eqref{eq:exact-path} and
+$a_\eps\to a$.
+
+For completeness, this perturbation step can be proved without assuming a
+general nonmetrizable Slutsky theorem. Given a bounded continuous function
+$g$ on the product and a compact $K\subset\mathfrak E$ carrying all but
+arbitrarily small probability of the tight field laws, the constructed
+graph over $K$ is compact. At each graph point continuity gives a field
+neighborhood and a radius in the metric $J_1$ second factor where $g$
+changes by less than a chosen $\delta$. Shrink the field neighborhood
+using continuity of the constructed second coordinate. A finite subcover
+of $K$ gives a common positive radius. If the field lies in $K$ and the
+second-coordinate perturbation is smaller than this radius, the two
+$g$ values differ by at most $2\delta$. Its exceptional probability
+tends to zero. Outside $K$, use $2\|g\|_\infty$; then let the compact
+exception and $\delta$ tend to zero. This proves convergence of all
+bounded continuous product tests, as required. The joint conclusion
+follows, with $Z_0(q)=G_0(\eta q)$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:three}]
+The transported tests are
+$r_E=|v|^2$, $r_V=x\cdot v+t|v|^2$, and $r_X=|x+tv|^2$.
+Their initial-coefficient matrix is $A(t)$ in \eqref{eq:three-limit}.
+For virial $d=1,e=0$, and for spread $d=0,e=1$; energy has both zero.
+Theorem~\ref{thm:main} gives all assertions. Fubini gives
+$2\int_0^tH(s)\dd s=\int_0^t(t-s)J_f(s)\dd s$.
+\end{proof}
+
+The joint Gaussian cross covariance, for $q\in\cQ$ and
+$\phi\in\cS$, is
+\begin{equation}\label{eq:cross-cov}
+ \operatorname{Cov}(G_s(\phi),Y_q(t))
+           =\int f_0(z)[U(0,s)\phi](z)r_q(t,z)\dd z.
+\end{equation}
+Replace $r_q$ by $\eta r_q$ on the compact initial support and use
+independence of the initial Gaussian field and its noise in input F.
+This proves \eqref{eq:cross-cov} using only the existing
+compact/Schwartz interpretation of $U$. The phase-space field in the
+joint theorem retains exact microscopic centering; no generic
+Boltzmann recentering of that field is implicit.
+
+The collisional drift is nonzero for the stated smooth nonzero datum.
+At some open set of positions the initial velocity density is positive
+on an open velocity set, so
+$\int |v-w|^2f_0(x,v)f_0(x,w)\dd x\dd v\dd w>0$.
+Continuity on a compact subregion preserves a positive lower bound for
+small positive times. Thus $H(t)>0$ there. The Gaussian part, by contrast,
+comes entirely from the initial field because all transported tests in
+$\cQ$ are co-located collision invariants.

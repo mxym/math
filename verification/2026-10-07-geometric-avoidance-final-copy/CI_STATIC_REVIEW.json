@@ -1,0 +1,26 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "workflow": "ci/geometric-avoidance.yml.proposed",
+  "sha256": "d28d7fd1289ca668fd84dd7e71cf7e6a84f0fb81afa4d424d98cd7d4851fd42e",
+  "installed": false,
+  "permissions": {
+    "contents": "read"
+  },
+  "triggers": [
+    "push",
+    "pull_request",
+    "workflow_dispatch"
+  ],
+  "bash_checks": [
+    {
+      "step": 1,
+      "bash_syntax": "PASS"
+    },
+    {
+      "step": 2,
+      "bash_syntax": "PASS"
+    }
+  ],
+  "online_bootstrap_executed": false,
+  "remote_ci_executed": false
+}

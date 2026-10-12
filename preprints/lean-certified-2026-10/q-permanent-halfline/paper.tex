@@ -1,0 +1,147 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,longtable,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\hypersetup{pdfauthor={Yongxian Zhang}}
+
+\title{An explicit positive-definite counterexample to half-line q-permanent monotonicity}
+\author{Yongxian Zhang\\[2pt]\small School of Computer Science and Engineering\\\small South China University of Technology\\\small\texttt{mxymmxym1@gmail.com}\\\small ORCID: 0009-0000-3864-3536}
+\date{8 October 2026}
+\begin{document}\maketitle
+\begin{abstract}We exhibit a rational real symmetric positive-definite matrix of order four whose inversion-weighted q-permanent decreases between q=49 and q=50. Exact principal minors establish positive definiteness, and a six-term permutation computation gives the complete polynomial. The counterexample disproves da Fonseca's positive-definite half-line extension, independently of the convention at its left endpoint. The actual matrix and q-permanent counterexample are completely formalized in Lean.\end{abstract}
+\section{The half-line conjecture}\label{the-half-line-conjecture}
+
+For a real matrix \(A=(a_{ij})\) of order \(n\), define \[
+ P_q(A)=\sum_{\sigma\in S_n}q^{\operatorname{inv}(\sigma)}
+                  \prod_{i=1}^n a_{i,\sigma(i)},\qquad
+ \operatorname{inv}(\sigma)=\#\{(i,j):i<j,\ \sigma(i)>\sigma(j)\}.
+\] The index ordering is part of the definition. Da Fonseca's half-line
+extension asks whether, for a real symmetric positive-definite
+non-diagonal matrix, there is a left endpoint at or below \(-1\) from
+which this function is strictly increasing up to \(+\infty\). His 2018
+formulation uses an endpoint strictly below \(-1\). A decrease between
+49 and 50 refutes both versions, independently of the left endpoint
+convention.
+
+\section{The exact counterexample}\label{the-exact-counterexample}
+
+\textbf{Theorem.} The rational matrix \[
+A=\begin{pmatrix}
+1&-99/100&0&1/500\\
+-99/100&1&0&1/8\\
+0&0&1&0\\
+1/500&1/8&0&1
+\end{pmatrix}
+\] is positive definite, and \(P_{49}(A)>P_{50}(A)\). Consequently it
+disproves the positive-definite half-line conjecture.
+
+\textbf{Proof.} Its successive leading principal minors are \[
+1,\quad\frac{199}{10000},\quad\frac{199}{10000},\quad\frac{59}{15625}.
+\] They are strictly positive, so Sylvester's criterion proves positive
+definiteness. A permutation can contribute only if it fixes index 3. The
+six permutations of indices \(\{1,2,4\}\) give the following complete
+list.
+
+\begin{longtable}[]{@{}lrl@{}}
+\toprule\noalign{}
+Permutation & Inversions & Monomial contribution \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Identity & 0 & \(1\) \\
+\((12)\) & 1 & \((9801/10000)q\) \\
+\((24)\) & 3 & \((1/64)q^3\) \\
+\((14)\) & 5 & \((1/250000)q^5\) \\
+\((124)\) & 4 & \(-(99/400000)q^4\) \\
+\((142)\) & 4 & \(-(99/400000)q^4\) \\
+\end{longtable}
+
+Thus exact enumeration, retaining all four index positions, gives \[
+P_q(A)=1+\frac{9801}{10000}q+\frac1{64}q^3
+                -\frac{99}{200000}q^4+\frac1{250000}q^5.
+\] Evaluation yields \[
+P_{49}(A)=\frac{81807513}{500000},\qquad
+P_{50}(A)=\frac{7969}{50},\qquad
+P_{49}(A)-P_{50}(A)=\frac{2117513}{500000}>0.
+\] Since \(49<50\), the theorem follows. No numerical optimization,
+approximate eigenvalue or derivative test is used. \(\square\)
+
+\section{Scope and reproduction}\label{scope-and-reproduction}
+
+This is the positive-definite half-line conjecture, not Bapat's original
+monotonicity conjecture restricted to \([-1,1]\). Deleting the isolated
+identity index or moving the nonzero triangle to three consecutive
+indices would change the inversion statistic and the displayed
+polynomial. The checker \texttt{verify\_exact.py} independently
+enumerates all permutations and evaluates every determinant and
+polynomial value in rational arithmetic. The accompanying Lean proof
+works with the actual matrix positive-definiteness definition and the
+actual inversion-weighted permutation sum, rather than assuming a
+surrogate polynomial identity. The separate minimum-dimension and
+arbitrary-\(t>1\) extensions in the earlier research note are outside
+this preprint and its formalization claims.
+
+\section{References}\label{references}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  C. M. da Fonseca, \emph{The mu-permanent of a tridiagonal matrix,
+  orthogonal polynomials, and chain sequences}, Linear Algebra and its
+  Applications \textbf{432} (2010), 1258--1266, Conjecture 1, p.~1259.
+  \url{https://doi.org/10.1016/j.laa.2009.10.036}.
+\item
+  C. M. da Fonseca, \emph{The mu-permanent revisited},
+  arXiv:1804.02231v1 (2018), Conjecture 2.
+  \url{https://arxiv.org/abs/1804.02231v1}.
+\item
+  L. Mitchell, \emph{A note on Bapat's q-permanent conjecture},
+  Operators and Matrices \textbf{14} (2020), 915--919, especially the
+  remark on pp.~917--918 distinguishing the positive-definite conjecture
+  from its singular extension.
+  \url{https://doi.org/10.7153/oam-2020-14-56}.
+\end{enumerate}
+
+\section{Formal verification and reproduction}
+The principal theorem has a complete Lean proof. The precise scope is:
+Only the displayed 4-by-4 real rational positive-definite counterexample and its exact decrease between q=49 and q=50. Minimal dimension and the all-t>1 family from the older research note are outside this paper.
+The public proof source snapshot is fixed at commit
+\nolinkurl{02af7db99db789fecb0d5f5f8f37b1a4e40762a0} in \url{https://github.com/mxym/math}.
+The proof packages, with their own dependency locks, audit records and
+reproduction instructions, are:
+\begin{itemize}
+\item \nolinkurl{formalizations/q-permanent-halfline-counterexample}.
+\end{itemize}
+The main formal entry points are:
+\begin{itemize}
+\item \nolinkurl{QPermanentHalfline.explicit_counterexample}.
+\item \nolinkurl{QPermanentHalfline.halfLineConjecture_false}.
+\end{itemize}
+Lean is fixed to version 4.34.1, compiler commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}; Mathlib is fixed to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The audited mathematical roots depend only on the standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The archived audits state their actual compilation and replay scopes;
+publication of this typeset version does not imply a new execution of every
+previous empty-kernel replay. The companion README maps each printed
+principal result to its formal theorem and explains how to repeat verification.
+
+\section*{Research and preparation disclosures}
+This research, formalization and manuscript preparation used AI assistance.
+The author is responsible for the manuscript. The principal claims are
+supported by the readable proofs and the public Lean artifacts specified
+above. Formal verification is not external human peer review; no such review
+is claimed. No external funding was received. No worldwide priority or
+journal acceptance is asserted.
+\end{document}

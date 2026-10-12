@@ -1,0 +1,37 @@
+# Exact integer replay, Oct 8 2026
+$ python3 code/check_exact.py
+POSITIVE: 8 residues, 4 complete two-vertex components
+EXCEPTIONAL: finite closed 16 points; 14 primes in two 7-vertex components
+MAXIMAL FAILURES: three verified 6-period nonzero-voltage walks [4, 12, 12]
+LOWER: nonzero-voltage walks for all periods 1..5 [(1, 1), (2, 1), (3, 3), (4, 2), (5, 3)]
+EXHAUSTIVE: all 2048 ideal subsets tested, 256 successful exactly as predicted
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 -O code/check_exact.py
+POSITIVE: 8 residues, 4 complete two-vertex components
+EXCEPTIONAL: finite closed 16 points; 14 primes in two 7-vertex components
+MAXIMAL FAILURES: three verified 6-period nonzero-voltage walks [4, 12, 12]
+LOWER: nonzero-voltage walks for all periods 1..5 [(1, 1), (2, 1), (3, 3), (4, 2), (5, 3)]
+EXHAUSTIVE: all 2048 ideal subsets tested, 256 successful exactly as predicted
+ALL EXACT CERTIFICATES VERIFIED
+$ python3 code/self_test.py
+REJECTED: positive component deletion
+REJECTED: duplicate positive vertex
+REJECTED: exceptional closure deletion
+REJECTED: wrong exceptional point
+REJECTED: missing maximal failure proof
+REJECTED: shortened voltage cycle
+REJECTED: wrong omitted ideal
+REJECTED: missing smaller period
+REJECTED: invalid intermediate step
+ALL TAMPER TESTS PASSED
+$ python3 -O code/self_test.py
+REJECTED: positive component deletion
+REJECTED: duplicate positive vertex
+REJECTED: exceptional closure deletion
+REJECTED: wrong exceptional point
+REJECTED: missing maximal failure proof
+REJECTED: shortened voltage cycle
+REJECTED: wrong omitted ideal
+REJECTED: missing smaller period
+REJECTED: invalid intermediate step
+ALL TAMPER TESTS PASSED

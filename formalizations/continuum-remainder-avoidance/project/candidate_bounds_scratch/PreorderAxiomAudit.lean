@@ -1,0 +1,20 @@
+import ContinuumGeometric.RoutingPreorder
+
+#print axioms ContinuumGeometric.mem_preorderPaths_iff
+#print axioms ContinuumGeometric.preorderPaths_length
+#print axioms ContinuumGeometric.RoutingTemplate.incomingStart_of_edge
+#print axioms ContinuumGeometric.RoutingTemplate.incomingEnd_eq_start_add_length
+#print axioms ContinuumGeometric.preorderLengths_weight
+#print axioms ContinuumGeometric.preorderActualWindows_eq_schedule
+#print axioms ContinuumGeometric.preorder_adjacent_gap
+#print axioms ContinuumGeometric.preorder_adjacent_earlier_end_le
+#print axioms ContinuumGeometric.preorderPaths_nodup
+#print axioms ContinuumGeometric.preorder_last_endpoint
+#print axioms ContinuumGeometric.routingEdge_mem_preorderPaths
+#print axioms ContinuumGeometric.preorder_first_start
+#print axioms ContinuumGeometric.preorder_index_predecessor_gap
+#print axioms ContinuumGeometric.preorder_index_earlier_end_le
+#print axioms ContinuumGeometric.preorderNoninitialIndex_card_le
+#print axioms ContinuumGeometric.RoutingTemplate.earlier_edgeEnd_add_gap_le
+#print axioms ContinuumGeometric.RoutingTemplate.predecessorBoundary_start
+#print axioms ContinuumGeometric.RoutingTemplate.earlier_edgeEnd_le_predecessorBoundary

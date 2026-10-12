@@ -1,0 +1,5 @@
+{'name': 'lake-build', 'command': ['lake', 'build'], 'exit_code': 0, 'expected_rejection': False, 'passed': True, 'seconds': 53.502, 'log_sha256': 'c35ebade38decbb5ef6e0d4cff444359f9913ed01b4d3f0f542303534bb0ec73'}
+{'name': 'positive-coefficient', 'command': ['lake', 'env', 'lean', '-j1', '-M12288', 'PositiveCoefficient.lean'], 'exit_code': 0, 'expected_rejection': False, 'passed': True, 'seconds': 13.3, 'log_sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}
+{'name': 'negative-coefficient', 'command': ['lake', 'env', 'lean', '-j1', '-M12288', 'RejectCoefficient.lean'], 'exit_code': 1, 'expected_rejection': True, 'passed': True, 'seconds': 13.551, 'log_sha256': '4b17e8f49d24dc08d0987ceb5bc7695b24e9894d6ad963f58a1395637a07514f'}
+{'name': 'empty-kernel', 'command': ['lake', 'env', 'lean', '-j1', '-M12288', 'CheckpointReplay.lean'], 'exit_code': 0, 'expected_rejection': False, 'passed': True, 'seconds': 43.582, 'log_sha256': '0608cf8b31ef5ff1ee4f04638551ceb85df1b74550cd55607a910db933418d48'}
+CHECKPOINT_VERIFICATION_PASS

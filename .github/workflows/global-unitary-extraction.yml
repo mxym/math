@@ -1,0 +1,55 @@
+name: Global-unitary extraction exact ancillary checks
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/global-unitary-ppt-extraction/**'
+      - '.github/workflows/global-unitary-extraction.yml'
+  pull_request:
+    paths:
+      - 'research/global-unitary-ppt-extraction/**'
+      - '.github/workflows/global-unitary-extraction.yml'
+permissions:
+  contents: read
+jobs:
+  exact-ancillary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check pinned proof and manuscript inputs
+        working-directory: research/global-unitary-ppt-extraction
+        run: python3 verify_sources.py
+      - name: Run exact ancillary checks and source-corruption controls
+        working-directory: research/global-unitary-ppt-extraction
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p verification/ci-local
+          python3 check.py --report verification/ci-local/exact-checks.json > verification/ci-local/exact-checks.log
+          python3 -O test_checker.py --report verification/ci-local/source-mutations.json > verification/ci-local/source-mutations.log
+          python3 verify_sources.py > verification/ci-local/source-hashes.log
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,sys
+          r=Path('.')
+          for name in ('exact-checks','source-mutations'):
+              report=json.loads((r/'verification/ci-local'/f'{name}.json').read_text())
+              if report['status']!='PASS':raise RuntimeError(name+' did not pass')
+          summary={'status':'PASS','scope':'Exact ancillary identities and corrupted-checker rejection; not a Lean or full analytic-proof certificate',
+                   'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'python':sys.version,
+                   'source_manifest_sha256':hashlib.sha256((r/'SOURCE_HASHES.json').read_bytes()).hexdigest(),
+                   'pdf_sha256':hashlib.sha256((r/'main.pdf').read_bytes()).hexdigest()}
+          (r/'verification/ci-local/SUMMARY.json').write_text(json.dumps(summary,indent=2)+'\n')
+          print('EXACT_ANCILLARY_AND_MUTATION_CONTROLS_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: global-unitary-extraction-${{ github.sha }}
+          path: |
+            research/global-unitary-ppt-extraction/verification/ci-local/
+            research/global-unitary-ppt-extraction/SOURCE_HASHES.json
+            research/global-unitary-ppt-extraction/main.pdf
+            research/global-unitary-ppt-extraction/main.tex
+            research/global-unitary-ppt-extraction/PROOF.md

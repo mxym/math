@@ -1,0 +1,40 @@
+{
+  "task": "q-permanent-halfline",
+  "source_dir": "/workspace/lean-verifier/projects/q-permanent-halfline/sources",
+  "module_order": [
+    "QPermanentDefs",
+    "QPermanentPosDef",
+    "QPermanentValues",
+    "QPermanentCounterexample"
+  ],
+  "modules": {
+    "QPermanentDefs": {
+      "path": "QPermanentDefs.lean",
+      "sha256": "ef344c076b2cd5ac88c8bb41e839357d0366bb9405e87c54851619f3c7d57e4e"
+    },
+    "QPermanentPosDef": {
+      "path": "QPermanentPosDef.lean",
+      "sha256": "3906898cda61fa642a88975310c20d19082534a21bf03d52636ec8ae56399de2"
+    },
+    "QPermanentValues": {
+      "path": "QPermanentValues.lean",
+      "sha256": "653e2eeb27ca05438d8794aa9f955674eb68ce77c2cac66be1afa8e9d5b9cb9e"
+    },
+    "QPermanentCounterexample": {
+      "path": "QPermanentCounterexample.lean",
+      "sha256": "bcacb35ffd6f7db5a007990fd4c37f4671f31cdbc4a45705e6a2db778957a6db"
+    }
+  },
+  "audit_modules": [
+    "QPermanentDefs",
+    "QPermanentPosDef",
+    "QPermanentValues",
+    "QPermanentCounterexample"
+  ],
+  "roots": [
+    "QPermanentHalfline.explicit_counterexample",
+    "QPermanentHalfline.halfLineConjecture_false",
+    "QPermanentHalfline.counterexampleMatrix_posDef",
+    "QPermanentHalfline.counterexampleMatrix_exact_decrease"
+  ]
+}

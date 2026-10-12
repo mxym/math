@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "Typesetting build only; analytic proof and exact ancillary checks are separate",
+  "proof_sha256": "4ecaff615d50aac20a3f4854d5a2842003214c5356b9c4219ab026c684dc6f51",
+  "checks": [
+    {
+      "command": [
+        "pandoc",
+        "manuscript.md",
+        "--from=markdown+tex_math_single_backslash",
+        "--standalone",
+        "--to=latex",
+        "--include-in-header=header.tex",
+        "-o",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "log_sha256": "f36a236b22fbd7c4ac85767a2fb77cf08c604349eb98b3cf6c6028396d56f649"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "log_sha256": "06788ac24ac8e4f1a4da6136f551b2062e7e3b8a4078e3e723127dcf2e221988"
+    }
+  ],
+  "outputs": {
+    "manuscript.md": "a5707c25663b40623b0b8d3a00dff974f4296e260d863a87b3160f3a2cf31da9",
+    "header.tex": "259d18bcc4b921fd31e5f2421f8db71f28f3de59a6e296f2e93055eb6cf2efdd",
+    "main.tex": "149c745bda47e2e5134545effc34920fab15e8ce03854688627a18c4fe8e1112",
+    "main.pdf": "9887e9e772607642d6c591f6ef999e4b65f5a93ca94ba133fb320c0d368547f3"
+  }
+}

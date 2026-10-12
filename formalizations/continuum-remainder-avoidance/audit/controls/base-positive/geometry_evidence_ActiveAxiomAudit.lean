@@ -1,0 +1,9 @@
+import ContinuumGeometric.RoutingActiveGeometry
+
+#print axioms ContinuumGeometric.active_power_gridAddress_ne_center
+#print axioms ContinuumGeometric.active_subsequence_gridAddress_ne
+#print axioms ContinuumGeometric.active_original_gridAddress_injective
+#print axioms ContinuumGeometric.active_power_finer_gridAddress_ne_center
+#print axioms ContinuumGeometric.active_original_finer_gridAddress_ne
+#print axioms ContinuumGeometric.active_power_preceding_gridAddress_eq
+#print axioms ContinuumGeometric.active_power_coarser_preceding_gridAddress_eq

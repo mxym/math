@@ -1,0 +1,171 @@
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,9 @@
+ # Effective stability at the symmetric projection-cone endpoint
++
++This is a **separate bibliographic correction bundle** dated 7 October 2026.
++The earlier release remains immutable. Every mathematical theorem and proof is
++unchanged; `CORRECTIONS.md` records the exact editorial diff and verification.
++This correction is separate from subsequent exponent-improvement research.
+ 
+ This research supplement gives a complete English proof for centrally symmetric,
+ full-dimensional convex bodies, with no regularity or discreteness hypothesis:
+@@ -22,6 +27,9 @@
+ - `DEPENDENCIES.md` and `DEPENDENCIES.json`: exact pinned entry005 v2–v4
+   statements, byte hashes, provenance, and the classical inputs.
+ - `LITERATURE.md`: primary-source comparison with explicit full-text limits.
++- `CORRECTIONS.md`, `PRIMARY_LOCATORS.md`, and `corrections/`: exact editorial
++  patches, primary-source audit, immutable-baseline identifiers, and separate
++  before/after v4 attribution copies.
+ - `AUDIT.md`: scope of the two passed independent model mathematical audits.
+ - `VERIFICATION.md`, `code/`, and `results/`: exact regression sources,
+   portable replay instructions, and recorded output.
+@@ -30,13 +38,15 @@
+   sizes and SHA-256 hashes of the shipped files.
+ 
+ The upper-end theorem does not import the lower-end simplex modulus or the
+-v5 spectral recursion. Inherited repository manuscripts are linked and hashed,
+-rather than redistributed. No publication, external peer review, formal
++v5 spectral recursion. Mathematical dependency pins remain unchanged. The
++separate `corrections/` folder contains v4 before/after copies solely to review
++its attribution insertion; v2–v3 are linked and hashed. No publication, external peer review, formal
+ verification, or novelty determination is asserted.
+ 
+ The archive tree is additive under
+-`notes/quantitative-symmetric-projection-stability/`. It contains no changes to
+-the numbered entry005 versions or repository catalogue files.
++`notes/quantitative-symmetric-projection-stability-bibliographic-correction/`.
++The v4 attribution insertion is supplied as a separate patch and review copies;
++no upstream numbered manuscript or repository catalogue has been edited.
+ 
+ ## Rebuild the article
+ 
+--- a/AUDIT.md
++++ b/AUDIT.md
+@@ -90,6 +90,8 @@
+ recorded in `results/package-tests.json`. PDF visual inspection and clean
+ rebuild evidence are recorded separately in `PDF_QA.md` and `BUILD.md`.
+ 
+-Saroglou and Liu–Xiong–Yang full-text comparisons remain incomplete. Their
+-available primary records are described conservatively in `LITERATURE.md`;
+-neither is a proof dependency.
++Saroglou's 2011 paper and the Liu–Xiong–Yang paper remain full-text limits.
++Saroglou's 2014 version 2 is now checked separately for Weil-body context.
++The bibliographic correction and its primary-source audit are recorded in
++`CORRECTIONS.md` and `PRIMARY_LOCATORS.md`; all theorem/proof text is preserved.
++None of these comparison papers is imported as a proof dependency.
+--- a/BUILD.md
++++ b/BUILD.md
+@@ -1,4 +1,7 @@
+ # Article build and archive reproduction
++
++This records the separate bibliographic correction build. The earlier release
++remains immutable; article theorem/proof text is unchanged.
+ 
+ The article is 11 US-letter pages. The final source and PDF were rebuilt from
+ only `paper.md`, `header.tex`, and `build.sh` in an empty directory. The rebuilt
+@@ -24,8 +27,8 @@
+ 
+ | File | Bytes | SHA-256 |
+ | --- | ---: | --- |
+-| `paper.tex` | 36,623 | `8aa856c42ededb1ad5ec6763fa50395f4f590a2c82ae8006021963daa6351e9b` |
+-| `paper.pdf` | 393,147 | `12b9b21ff9cf079bf8773aeaaadacbe76550800d6111694c97d92ed00a6ee6d1` |
++| `paper.tex` | 39,854 | `723ae494c5ad14d667df699df75495ae5b0f6c69efb133ba868cce1912284a9a` |
++| `paper.pdf` | 397,479 | `53feada957f34b8598b3cef5a59f01ddb11aaaf44b78a13eacd71077962c9986` |
+ 
+ ## Rebuild from Markdown
+ 
+@@ -68,9 +71,10 @@
+ archives under `dist/`. The source archive contains the editable article,
+ supporting documentation, exact code, and recorded reports. The complete
+ archive also includes the PDF. Every archive entry is under
+-`notes/quantitative-symmetric-projection-stability/`, with a fixed timestamp.
+-No build intermediate, checkout, catalogue file, or numbered preprint is
+-collected. `dist/SHA256SUMS` records the archive hashes.
++`notes/quantitative-symmetric-projection-stability-bibliographic-correction/`, with a fixed timestamp.
++No build intermediate, checkout, or catalogue file is collected. Separate v4
++before/after review copies and the requested attribution patch are included
++under `corrections/`; the mathematical dependency pins remain unchanged. `dist/SHA256SUMS` records the archive hashes.
+ 
+ The manifests identify file bytes; they are not formal mathematical
+ certificates. The exact checks and their limitations are documented in
+--- a/PDF_QA.md
++++ b/PDF_QA.md
+@@ -1,25 +1,25 @@
+-# PDF visual quality review
++# Corrected PDF visual quality review
+ 
+ Date: 7 October 2026.
+ 
+ **Result: PASS. No required visual fixes were found.**
+ 
+-The reviewed final `paper.pdf` has 11 US-letter pages (612 by 792 points). Every page was reinspected visually after the final literature wording revision using the supplied PNG render at 110 dpi (935 by 1210 pixels), including equation tags, subscripts and superscripts, boxed bounds, headers, footers, and references. The final PDF SHA-256 at review was `12b9b21ff9cf079bf8773aeaaadacbe76550800d6111694c97d92ed00a6ee6d1`.
++The reviewed bibliographic-correction `paper.pdf` has 11 US-letter pages (612 by 792 points). Its SHA-256 at review was `53feada957f34b8598b3cef5a59f01ddb11aaaf44b78a13eacd71077962c9986`. Each of the eleven supplied PNG pages was actually inspected with the image-viewing tool at 110 dpi (935 by 1210 pixels). A fresh render of this exact PDF was also generated, and all eleven images matched the supplied review images pixel for pixel.
+ 
+-This is a layout and rendering review, not a mathematical audit, human peer review, or formal verification. Text extraction and the final TeX log were supplementary checks; neither replaced inspection of the rendered pages. The log contained no overfull/underfull-box, missing-character, warning, or error messages.
++This is a visual layout and rendering review, not a mathematical audit, human peer review, or formal verification. Text extraction, pixel comparison, and the typesetting log were supplementary checks; they did not replace viewing the rendered pages. The typesetting log contained no overfull/underfull-box, missing-character, warning, or error messages.
+ 
+ | Page | Visual observations |
+ | --- | --- |
+-| 1 | Title, abstract, theorem statement, explicit constants, and both boxed bounds are legible. Fractions, gamma, calligraphic symbols, and tags (1.1), (1.1a) render correctly. No clipping or overlap. |
+-| 2 | Threshold formulas and the long exact deficit (1.5) fit inside the margins, with equation tags clear. Cone-law determinant matrix and contact-density formula are legible. |
+-| 3 | Contact identities, wedge product, defect notation, and coefficient lemma render clearly. The proof continuation at the page end is readable. |
+-| 4 | Surface-area lemma and conditional contact-slab proof have clear integrals, binomial coefficients, subscripts, and affine transformation formulas. No crowding at the footer. |
+-| 5 | Short-cofactor estimate, matching lemma, inverse-norm bound, and section-cost integral are legible. The page break leaves a complete concluding sentence for the continued paragraph. |
+-| 6 | Cofactor identities and equation (4.3) fit without collision with its tag. Product-recovery statement and both containment bounds render correctly. |
+-| 7 | Mixed-volume formula, cap argument, assembly of Theorem A, and the dimension-dependent constant estimates are clear. The long constant line fits within the text block. |
+-| 8 | Oblique product decomposition, projection identities, rounding argument, and exact truncation quantities are legible. The corrected spacing between the factor subspace and its dimension is visible. |
+-| 9 | Exact type enumeration and the dimension-three deficit formula are clear. Literature paragraphs and linked titles wrap without clipping. |
+-| 10 | The final literature-access qualification, reproducibility statements, and references remain legible. The revised paragraph wraps cleanly. The last bibliography entry continues to the next page; this is acceptable and does not orphan a heading. |
+-| 11 | Continued bibliography, remaining references, and provenance paragraph render correctly. The long commit identifier fits within the margin. The substantial final-page whitespace is normal for an article ending in its bibliography. |
++| 1 | Title, abstract, theorem statement, explicit constants, and both boxed bounds are legible. Fractions, gamma, calligraphic symbols, subscripts, superscripts, and equation tags (1.1) and (1.1a) render correctly. No clipping or overlap. |
++| 2 | Threshold formulas and the long exact deficit (1.5) fit within the margins. The cone-law determinant matrix and the added zonoid-volume identities are clear. The new Koshevoy–Mosler citation and primary-PDF link wrap cleanly at the page end. |
++| 3 | Contact identities, wedge product, normalized coefficient defect, and Lemma 3.1 render clearly. The section heading and lemma have accompanying body text, so no heading is stranded at the page break. |
++| 4 | The corner-slab lemma, integrals, binomial coefficients, conditional cofactor formulas, and affine normal-transform formulas are legible. No collision with the footer. |
++| 5 | Short-cofactor estimate and its boxed inequality are clear. The added van der Pol–Walsh–Wigal attribution, arXiv link, and rank-at-most-two wording fit cleanly. The quantitative matching lemma and inverse-norm bound are legible. |
++| 6 | Section-cost integral, cofactor identities, and equation (4.3) fit without equation-tag collisions. The proof and zero-defect conclusion wrap normally and leave a readable continuation at the page end. |
++| 7 | Product-recovery formulas and the added Böröczky–Henk cap-argument attribution are clear. Mixed-volume notation, containment argument, and assembly of Theorem A remain legible, with no overlap or clipping. |
++| 8 | Dimension-dependent constant estimates, oblique product decomposition, projection identities, and rounding argument are readable. The long displayed expressions fit the text block. |
++| 9 | Exact type enumeration and the dimension-three deficit formula render clearly. The added Weil-body discussion, linked Saroglou title, and Theorem 1.2 reference wrap cleanly. The literature heading has ample accompanying text. |
++| 10 | Primary-literature comparisons and the corrected qualitative cube-truncation paragraph are legible. Linked titles and the published-version locator fit without clipping. The dependencies heading and reproducibility text remain readable at the bottom of the page. |
++| 11 | The full references and provenance section are legible. Added Koshevoy–Mosler, matroid, and Saroglou references render with clear accents and mathematical notation. Long titles and the final commit identifier fit inside the margins. |
+ 
+-All pages have consistent running headers, page numbers, margins, and text size. No missing mathematical glyph, overlapping text, clipped formula, or illegible equation tag was observed. The bibliography entry spanning pages 10–11 is a nonblocking pagination choice; no amendment is needed for a reviewable release.
++The title page uses its normal title layout; pages 2–11 have consistent running headers. Page numbers, margins, text sizes, and equation tags are clear throughout. No missing mathematical glyph, overlapping text, clipped formula, stranded section heading, or illegible reference was observed. No article edits were made during this review.
+--- a/code/package_release.py
++++ b/code/package_release.py
+@@ -16,13 +16,14 @@
+ 
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-PREFIX = "notes/quantitative-symmetric-projection-stability"
+-NAME = "quantitative-symmetric-projection-stability"
++PREFIX = "notes/quantitative-symmetric-projection-stability-bibliographic-correction"
++NAME = "quantitative-symmetric-projection-stability-bibliographic-correction"
+ PIN = "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a"
+ DOCUMENTS = (
+     "README.md", "paper.md", "paper.tex", "header.tex", "build.sh",
+     "AUDIT.md", "BUILD.md", "PDF_QA.md", "VERIFICATION.md",
+     "DEPENDENCIES.md", "DEPENDENCIES.json", "LITERATURE.md",
++    "CORRECTIONS.md", "PRIMARY_LOCATORS.md",
+ )
+ 
+ 
+@@ -41,6 +42,8 @@
+     return (json.dumps({
+         "schema": schema, "date": "2026-10-07", "archive_prefix": PREFIX,
+         "dependency_commit": PIN, "files": records,
++        "release_kind": "separate bibliographic correction; original release immutable",
++        "baseline_paper_sha256": "08f6f55c6a694da05d348d3dcbda18be186044fd39570c51bf786507aaef862c",
+         "scope": "Byte identity and packaging; not mathematical certification.",
+     }, indent=2, sort_keys=True) + "\n").encode("utf-8")
+ 
+@@ -66,6 +69,8 @@
+     if output == ROOT or output == ROOT / "code" or output == ROOT / "results":
+         raise RuntimeError("Use a separate archive output directory.")
+     source = list(DOCUMENTS)
++    source += [str(path.relative_to(ROOT)) for path in sorted((ROOT / "corrections").iterdir())
++               if path.is_file() and path.suffix in (".md", ".patch", ".json")]
+     source += [str(path.relative_to(ROOT)) for path in sorted((ROOT / "code").iterdir())
+                if path.is_file() and path.suffix in (".py", ".json")]
+     source += [str(path.relative_to(ROOT)) for path in sorted((ROOT / "results").rglob("*"))

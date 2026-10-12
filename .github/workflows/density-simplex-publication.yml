@@ -1,0 +1,106 @@
+name: Density and simplex publication
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/density-simplex-publication.yml'
+      - 'preprints/004-log-density-similarity/v1.1/build/main.tex'
+      - 'preprints/004-log-density-similarity/v1.1/verification/check_cover.py'
+      - 'preprints/005-simplex-product-optimum/v1.1/build/main.tex'
+      - 'preprints/005-simplex-product-optimum/v1.1/verification/verify_exact.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: density-simplex-publication
+  cancel-in-progress: false
+
+jobs:
+  verify-build-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out publication sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Replay exact finite checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          A=preprints/004-log-density-similarity/v1.1
+          B=preprints/005-simplex-product-optimum/v1.1
+          python3 "$B/verification/verify_exact.py" --limit 300 --output "$B/verification/exact_certificate.json" | tee "$B/verification/run.txt"
+          python3 -O "$B/verification/verify_exact.py" --limit 112 --output /tmp/simplex-optimized-mode.json
+          python3 "$A/verification/check_cover.py" --self-test > "$A/verification/self_test.json"
+          python3 "$A/verification/check_cover.py" "$A/verification/toy_certificate.json" > "$A/verification/toy_result.json"
+      - name: Compile complete manuscripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          for base in preprints/004-log-density-similarity/v1.1 preprints/005-simplex-product-optimum/v1.1; do
+            (cd "$base/build" && pdflatex -interaction=nonstopmode -halt-on-error main.tex && pdflatex -interaction=nonstopmode -halt-on-error main.tex)
+            cp "$base/build/main.pdf" "$base/paper.pdf"
+            if grep -E 'LaTeX Warning: (Reference .* undefined|There were undefined references)' "$base/build/main.log"; then
+              echo 'Unresolved references'; exit 1
+            fi
+          done
+      - name: Record exact published-file hashes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib, subprocess, zipfile
+          roots = [pathlib.Path('preprints/004-log-density-similarity'), pathlib.Path('preprints/005-simplex-product-optimum')]
+          files = []
+          for root in roots:
+              for p in root.rglob('*'):
+                  if not p.is_file():
+                      continue
+                  if 'build' in p.parts and p.name != 'main.tex':
+                      continue
+                  if p.suffix in {'.md', '.tex', '.py', '.json', '.txt', '.pdf'}:
+                      files.append(p)
+          record = {'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'first_source_publication_commit': 'e6c776cae39477baa4e1a03d59a1547417f1a68e', 'version': 'density-simplex-v1.1', 'verification': 'exact finite comparisons and DP; not external peer review or proof-assistant formalization', 'files': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}}
+          out = pathlib.Path('releases/density-simplex-2026-10-07-v1.1.json')
+          out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps(record, indent=2)+'\n', encoding='utf-8')
+          with zipfile.ZipFile('/tmp/density-simplex-v1.1.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(files)+[out]:
+                  z.write(p, str(p))
+          PY
+      - name: Commit only generated publication artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add preprints/004-log-density-similarity/v1.1/paper.pdf preprints/004-log-density-similarity/v1.1/verification/self_test.json preprints/004-log-density-similarity/v1.1/verification/toy_result.json
+          git add preprints/005-simplex-product-optimum/v1.1/paper.pdf preprints/005-simplex-product-optimum/v1.1/verification/exact_certificate.json preprints/005-simplex-product-optimum/v1.1/verification/run.txt releases/density-simplex-2026-10-07-v1.1.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build and verify density/similarity and simplex-product v1.1 publication artifacts'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Preserve versioned research release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG=density-simplex-20261007-v1.1
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'Existing release retained without replacement.'
+            exit 0
+          fi
+          cp preprints/004-log-density-similarity/v1.1/paper.pdf /tmp/log-density-similarity-v1.1.pdf
+          cp preprints/005-simplex-product-optimum/v1.1/paper.pdf /tmp/simplex-product-optimum-v1.1.pdf
+          printf '%s\n' 'Complete written proofs, editable sources, and exact finite verification for manuscripts 004 and 005.' 'First source publication: e6c776cae39477baa4e1a03d59a1547417f1a68e.' 'Research drafts: not independently peer reviewed or proof-assistant formalized. Mathematical novelty and priority have not been certified.' 'The similarity toy certificate does not certify the full small-measure theorem. The simplex result is restricted to products of simplices.' > /tmp/density-simplex-release-notes.txt
+          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title 'Log-density similarity and exact simplex-product optimization v1.1' --notes-file /tmp/density-simplex-release-notes.txt /tmp/log-density-similarity-v1.1.pdf /tmp/simplex-product-optimum-v1.1.pdf /tmp/density-simplex-v1.1.zip releases/density-simplex-2026-10-07-v1.1.json

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "started": "2026-10-07T23:25:56.108941+00:00",
+  "driver_sha256": "8a94740391b88f91fb1468bc5b95c8e70673f553ac7f8a007618f7c0c8c1557b",
+  "runs": [
+    {
+      "command": [
+        "${TOOLCHAIN}/bin/lean",
+        "CheckLiteralStandardAxioms.lean"
+      ],
+      "cwd": "${ROUND5_AUDIT}/replay/audit",
+      "exit_code": 0,
+      "seconds": 3.7741830348968506,
+      "log": "${ROUND5_AUDIT}/replay/audit/literal-standard-axioms.log",
+      "log_sha256": "41bceeaf999ec04f84860a990acfd24cadc6961e2f206522de4290b1cd79c5e5"
+    },
+    {
+      "command": [
+        "${TOOLCHAIN}/bin/lean",
+        "CheckCombinedOwned.lean"
+      ],
+      "cwd": "${ROUND5_AUDIT}/replay/audit",
+      "exit_code": 0,
+      "seconds": 150.7725214958191,
+      "log": "${ROUND5_AUDIT}/replay/audit/combined-owned-check.log",
+      "log_sha256": "da1c33692e228ed4a8d2c31fe6c721d8cd708df66b015543258f241b84d246e7"
+    }
+  ],
+  "completed": "2026-10-07T23:28:32.150355+00:00"
+}

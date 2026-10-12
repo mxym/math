@@ -1,0 +1,427 @@
+\section{Statement and inherited inputs}
+Fix $d\ge2$ and $p>2$. Write
+\[
+ s=\frac{p}{p-2},\qquad \beta=s-1>0,\qquad s'=\frac p2.
+\]
+Let $L$ be positive and $C^2$ on $(0,a_*)$, and put $\ell=\log L$. Assume
+\begin{equation}
+ x\ell'(x)\longrightarrow0,\qquad x^2\ell''(x)\longrightarrow0
+ \quad(x\downarrow0).\tag{SV}
+\end{equation}
+Construct a single fixed probability density $f$ on $(0,\infty)$ which agrees, on a sufficiently short initial interval, with
+\[
+ f(x)=c x^{s-1}L(x)e^{-x^2/2},
+\]
+and whose negative logarithm is $C^2$, $1$-strongly convex, and quadratic up to a linear term in the far tail. This is possible: the prescribed second derivative is
+\[
+ 1+\frac{\beta}{x^2}-\ell''(x)\ge1+\frac{\beta}{2x^2}
+\]
+near zero. Extend this continuous second derivative while keeping it at least one, make it equal to one in the far tail, and integrate twice with the matching value and first derivative. Normalize afterward. The source is the fixed product
+\[
+ \rho(\dd x)=f(x_1)\prod_{j=2}^d g(x_j)\dd x,
+ \qquad g(z)=c_g\exp\!\left[-\frac1{1-z^2}\right]\ind_{\{|z|<1\}}.
+\]
+It is absolutely continuous, $1$-strongly log-concave on its extended convex support, and has all positive moments. It does not vary with $N$ or $w$. No full-support smoothness across $x_1=0$ is asserted.
+
+For a probability $\mu$, $T_\mu$ denotes its quadratic Brenier map from $\rho$. Let
+\begin{align*}
+ \mathcal C_{p,N}&=\left\{\mu:\#\supp\mu\le N,\ \int|y|^p\dd\mu(y)\le1\right\},\\
+ \Omega_N(w)&=\sup\left\{\norm{T_\mu-T_\nu}_{L^2(\rho)}:
+ \mu,\nu\in\mathcal C_{p,N},\ W_2(\mu,\nu)\le w\right\}.
+\end{align*}
+Support counts distinct positive-mass atoms. Coincident labels are merged and zero-weight labels discarded. Locations are unrestricted, the two supports need not agree, and no lower bound on atom masses is imposed.
+
+Choose a sufficiently small fixed $a>0$. Its choice, made more precisely below, depends only on the fixed source and $p$. Define
+\begin{align*}
+ t_j&=a2^{-j},\qquad a_j=L(t_j),\qquad j\ge1,\\
+ A_N(K)&=\text{sum of the largest $\min(N,K)$ members of $\{a_1,\ldots,a_K\}$},\\
+ W_{N,K}&=t_K^{3/2}A_N(K)^{1/(2s)},\qquad K\ge1.
+\end{align*}
+The choice of $a$ can ensure that $W_{N,K}$ is strictly decreasing in $K$, tends to zero, and its adjacent ratios are bounded above and below by constants in $(0,1)$, simultaneously for every integer $N\ge1$. Moreover $W_{N,1}$ is independent of $N$. For $0<w<W_{N,1}$, set
+\[
+ K_N(w)=\min\{K\ge1:W_{N,K}\le w\}.
+\]
+\subsection*{Theorem A \quad Sharp finite complexity envelope}
+There exist $c,C,w_0>0$ depending only on $p,d$ and this one fixed source, such that, simultaneously for every integer $N\ge3$ and every $0<w\le w_0$,
+\begin{equation}
+ c w^{1/3}A_N(K_N(w))^{1/(3s)}\le\Omega_N(w)
+ \le C w^{1/3}A_N(K_N(w))^{1/(3s)}.\tag{1.1}
+\end{equation}
+The upper bound holds also for $N=1,2$. The matching general lower bound is claimed only for $N\ge3$. For $N=1$ the exact modulus is $\min(w,2)$. A separate binary lower argument extends the logarithmic corollary below to $N=2$ when its logarithmic exponent $\gamma$ is nonnegative. No general binary classification or fixed/minimum-mass theorem is asserted here.
+
+The source need not have a monotone $L$. The largest dyadic source weights may come from widely separated scales. In particular, (1.1) is not obtained by replacing $L$ with its value at the smallest scale.
+
+\subsection*{Imported potential estimate}
+All upper bounds use the centered-potential statement
+\begin{equation}
+ \inf_{b\in\R}\norm{U_\mu-U_\nu-b}_{L^2(\rho)}
+ \le K_\rho W_2(\mu,\nu).\tag{P}
+\end{equation}
+The displayed source lies in the $1$-strongly log-concave class of manuscript 001 version 3, Theorem 1.1 \cite{potential}, which supplies $K_\rho=\sqrt2$. More precisely, that theorem admits densities proportional to $\exp(-\kappa|x|^2/2-W(x))$ with proper lower-semicontinuous convex extended-valued $W$, full-dimensional support, and arbitrary finite-second-moment targets. It therefore permits the extended convex support used here. Its proof is neither reproduced nor audited in the present series. The convex-gradient finite-difference estimate is also inherited, with a short derivation recalled in Section 5. Lower bounds use no (P).
+
+The inherited critical-atom proof treats $L=1$. The earlier slowly-varying supplement treats unrestricted target complexity and sums all dyadic weights. The contribution here is their jointly uniform, nonmonotone source-scale and finite-complexity envelope, including a matching convex-gradient realization of the selection of the largest source weights. Neither the unrestricted slowly-varying phase diagram nor the $L=1$ atom-budget law is counted as new.
+
+\section{Elementary uniform facts about the fixed source}
+Reduce $a$ until all intervals used below lie inside the prescribed source formula. Choose
+\[
+ 0<\eta<\min\left(\frac{s-1}{4},\frac14\right).
+\]
+By (SV), $a$ can be chosen so that $|x\ell'(x)|\le\eta$ on $(0,8a)$. Integration gives
+\begin{equation}
+ (x/y)^\eta\le\frac{L(x)}{L(y)}\le(y/x)^\eta,
+ \qquad0<x\le y\le8a.\tag{2.1}
+\end{equation}
+In particular adjacent dyadic values have ratios between $2^{-\eta}$ and $2^\eta$. All fixed-ratio comparisons of $L$, and hence of $f$ at a fixed-ratio change of $x$, have constants independent of the scale.
+
+Let $F(x)=\PP(X<x)$ for $X$ with density $f$, extended by $F(x)=0$ for $x\le0$. The derivative assumption gives
+\begin{equation}
+ F(x)\sim\frac cs x^sL(x),\qquad \frac{xf(x)}{F(x)}\longrightarrow s.
+ \tag{2.2}
+\end{equation}
+For completeness, integrate $x^{s-1}L(x)$ after writing $x=tv$. For every fixed $v>0$, $L(tv)/L(t)\to1$; (2.1) bounds the normalized integrand by $v^{s-1-\eta}$, integrable on $(0,1)$. Dominated convergence proves the first assertion, with the exponential tending uniformly to one. The second follows from the displayed density formula. Thus no external regular-variation theorem is needed.
+
+Further reduce $a$ so that
+\begin{equation}
+ \frac s2\le\frac{xf(x)}{F(x)}\le2s,\qquad0<x\le4a,\tag{2.3}
+\end{equation}
+ and $|f'(x)|\le C f(x)/x$ on the same interval. Choose any $r$ satisfying $1/s<r<1$. Let $q(u)=F^{-1}(u)$ for $0<u\le F(a)$, and $q(u)=a$ for $F(a)<u\le1$. By (2.2), reducing $a$ if necessary, the logarithmic derivative of $q$ lies between positive constants and is at most $r$ on $(0,F(a)]$. Across the compact continuation there is a fixed constant $C$ such that
+\begin{equation}
+ q(v)\ge C^{-1}q(u)(v/u)^r,\qquad0<v\le u\le1.\tag{2.4}
+\end{equation}
+One can prove this directly by integrating $\dd\log q/\dd\log u=F(x)/(xf(x))$; the constant handles the constant continuation above $F(a)$.
+
+Set $M(u)=u/q(u)^s$. For $u=F(x)$, $0<x\le a$,
+\begin{align}
+ M(F(x))&\sim(c/s)L(x),\tag{2.5}\\
+ \frac{\dd[-\log F(x)]}{\dd[\log(a/x)]}
+ &=\frac{xf(x)}{F(x)}\in[s/2,2s].\tag{2.6}
+\end{align}
+The logarithmic derivative of $M$ with respect to $-\log u$ is bounded, and tends to zero at infinity. Consequently $M(e^{-B})$ has bounded comparison constants on intervals of any fixed length in $B$. These observations also hold on the finite initial interval $0\le B\le-\log F(a)$, with constants depending on the fixed source.
+
+\section{The overlap rearrangement and finite step compression}
+Use the exact minimum-density weights from manuscript 001 version 5 and the critical-atom proof. Extend $\rho$'s density $r$ by zero. On $\{r>0\}$, for each coordinate $j$ and $h>0$ put
+\begin{align*}
+ d_{j,+h}(x)&=\left(1-\frac{r(x+he_j)}{r(x)}\right)_+,\qquad
+ d_{j,-h}(x)=\left(1-\frac{r(x-he_j)}{r(x)}\right)_+,\\
+ W_{j,h}&=6|d_{j,+h}-d_{j,-h}|+2d_{j,+h},\qquad F_h=\max_jW_{j,h}.
+\end{align*}
+Set these to zero off $\{r>0\}$. Always $0\le F_h\le8$. A star denotes decreasing rearrangement on a probability space.
+
+\subsection*{Lemma 3.1 \quad Source quantile majorant}
+For all sufficiently small $h$ and all $0<u<1$,
+\begin{equation}
+ F_h^*(u)\le C\min\{1,h/q(u)\}.\tag{3.1}
+\end{equation}
+\begin{proof}
+Near zero, if $x>2h$, integrate the logarithmic derivative $\beta/x+\ell'(x)-x$ to bound either first-coordinate deficit by $\min(1,Ch/x)$. If $x\le2h$ use the trivial bound one. On the remaining first-coordinate region the fixed extension gives a bound $\min(1,Ch(1+x))$. For a transverse coordinate, integrating the logarithmic derivative of $g$ and treating distance to its boundary $\le2h$ trivially gives $\min(1,Ch(1-|z|)^{-2})$. Thus
+\begin{equation}
+ F_h\le C\min(1,hB),\qquad
+ B=1+X+1/X+\sum_{j\ge2}(1-|Z_j|)^{-2}.\tag{3.2}
+\end{equation}
+The first marginal has a Gaussian tail after a fixed point; the transverse terms have tails bounded by $C\exp(-c\sqrt t)$ for large $t$. By (2.1)--(2.2), these tails are bounded by $CF(1/t)$. The $1/X$ term has exactly that tail, and the union bound and fixed-ratio comparisons of $F$ give
+\begin{equation}
+ \PP(B>t)\le CF(1/t)\tag{3.3}
+\end{equation}
+for all large $t$. Decrease the argument of $F$ by a sufficiently large fixed factor to absorb $C$; (2.1)--(2.2), or integration of (2.3), justifies that step uniformly. This gives $B^*(u)\le C/q(u)$ for small $u$; enlarge $C$ for the compact remaining probability interval. Rearrangement commutes with a nondecreasing continuous truncation, so (3.2) proves (3.1).
+\end{proof}
+
+\subsection*{Lemma 3.2 \quad The finite step compression inequality}
+For every integer $N\ge1$, every $K\ge1$, and every nonnegative random variable $b$ taking at most $N$ values,
+\begin{equation}
+ \int F_{t_K}b\dd\rho
+ \le C t_K A_N(K)^{1/s}\norm b_{L^{s'}(\rho)}.\tag{3.4}
+\end{equation}
+All constants are independent of $N,K$, the step heights, and their masses.
+\begin{proof}
+The Hardy--Littlewood inequality, which follows immediately by layer cake and $\min\{\PP(a>t),\PP(b>v)\}$, bounds the left side by $\int_0^1 F_{t_K}^*(u)b^*(u)\dd u$. The decreasing rearrangement $b^*$ is constant on a partition into at most $N$ intervals $I_i$ of lengths $m_i$. Finite H\"older gives
+\begin{equation}
+ \begin{gathered}
+ \int a_hb^*\le Q_h(\text{partition})^{1/s}\norm b_{s'},\qquad
+ a_h(u)=\min(1,h/q(u)),\\
+ Q_h(\text{partition})=\sum_i m_i^{1-s}
+ \left(\int_{I_i}a_h\right)^s.
+ \end{gathered}\tag{3.5}
+\end{equation}
+We prove $Q_{t_K}\le Ct_K^sA_N(K)$.
+
+First split the interval partition at $u_h=F(h)$. Splitting a cell can only increase the sum $Q$: this is the weighted H\"older inequality
+\[
+ \frac{(A_1+A_2)^s}{(m_1+m_2)^{s-1}}
+ \le\frac{A_1^s}{m_1^{s-1}}+\frac{A_2^s}{m_2^{s-1}}.
+\]
+On $(0,u_h)$, $a_h=1$, so the total contribution is $u_h\le Ch^sL(h)$. This is at most $Ch^sA_N(K)$ when $h=t_K$.
+
+Consider each remaining interval $(v,u)$ within $[u_h,1]$. Write $B=-\log u$ and $z=\log(u/v)$. Inequality (2.4) gives
+\[
+ \int_v^u q(t)^{-1}\dd t\le C\frac u{q(u)}\min(1,z).
+\]
+For $z\le1$, use (2.4) to compare $q(t)$ to $q(u)$ throughout the interval; for $z\ge1$ integrate $(u/t)^r$, using $r<1$. Since $u-v=u(1-e^{-z})$ and $1-e^{-z}\asymp\min(1,z)$, the contribution of this interval is at most
+\begin{equation}
+ Ch^sM(u)\min(1,z).\tag{3.6}
+\end{equation}
+For each such interval select $E_i=[B,B+\min(1,z)]$ on the logarithmic-probability axis. The $E_i$ are disjoint, each has length at most one, and there are at most $N+1$ of them. The bounded local ratios of $M$ imply
+\begin{equation}
+ \sum_i M(e^{-B_i})|E_i|\le C\int_E M(e^{-B})\dd B,
+ \qquad E=\bigcup_iE_i.\tag{3.7}
+\end{equation}
+All of $E$ lies in $[0,-\log F(h)]$. Its part in the fixed interval $[0,-\log F(a)]$ has integral bounded by a fixed constant, hence by $Ca_1\le CA_N(K)$.
+
+On the remainder make the change $x=q(e^{-B})$. Equations (2.5)--(2.6) compare the integrand to $L(x)$ and logarithmic length $\dd B$ to $\dd\log(a/x)$. An interval $E_i$ of length at most one meets at most $Q$ dyadic $x$-shells, where $Q$ is a fixed integer depending on $s$. The union meets at most $Q(N+1)$ shells. Its integral in any one whole shell is at most $Ca_j$ by (2.1); shells within $[h,a]$ have indices $1,\ldots,K$, up to an irrelevant fixed endpoint convention. Consequently
+\begin{equation}
+ \begin{split}
+ \int_E M(e^{-B})\dd B
+ &\le C\bigl[\text{sum of the largest $\min\{Q(N+1),K\}$ dyadic weights}\bigr]\\
+ &\le CA_N(K).
+ \end{split}\tag{3.8}
+\end{equation}
+The last inequality follows by grouping the decreasingly sorted weights into blocks of size $N$; at most $2Q+1$ blocks are needed, each with sum at most the first block. This comparison keeps the multiplicative loss in $N$ explicit and does not replace the actual transport by an arbitrary step-energy construction.
+
+Equations (3.5)--(3.8), the low-probability cap, and Lemma 3.1 prove (3.4).
+\end{proof}
+The argument proves an upper envelope for actual atomic target energies. Its sharpness as a transport estimate still requires the realizations in Section 6; an abstract extremizer of (3.5) is not assumed realizable by a convex gradient.
+
+\section{The dyadic distance scale is monotone}
+The definition of $A_N$ gives
+\begin{equation}
+ 1\le\frac{A_N(K+1)}{A_N(K)}\le1+2^\eta.\tag{4.1}
+\end{equation}
+Indeed $A_N(K)$ contains at least the last old term $a_K$, while adding $a_{K+1}$ can increase the largest-$N$ sum by at most $a_{K+1}\le2^\eta a_K$. It follows that
+\begin{equation}
+ 2^{-3/2}\le\frac{W_{N,K+1}}{W_{N,K}}
+ \le2^{-3/2}(1+2^\eta)^{1/(2s)}=:\theta<1.\tag{4.2}
+\end{equation}
+The bound $\theta<1$ follows from the stipulated $\eta$; it is uniform in $N,K$. Thus $W_{N,K}$ decreases to zero uniformly at a geometric rate. Its first value $t_1^{3/2}a_1^{1/(2s)}$ does not depend on $N$. Set, for example, $w_0<\min\{1,W_{1,1}/2\}$. For $K=K_N(w)$, $K\ge2$ and
+\begin{equation}
+ W_{N,K}\le w<W_{N,K-1}\le2^{3/2}W_{N,K}.\tag{4.3}
+\end{equation}
+This establishes the inversion convention without a hidden monotonicity assumption on $L$. The map-scale sequence $t_K^{1/2}A_N(K)^{1/(2s)}$ is also decreasing under the chosen $\eta$, since $1+2^\eta<2^s$, although that extra monotonicity is not needed below.
+
+\section{Transport upper bound}
+For proper convex $u,v$ finite on the source interior, with square-integrable gradients, the inherited exact minimum-weight estimate is
+\begin{equation}
+ \begin{split}
+ \norm{\grad u-\grad v}_2^2
+ &\le12d\frac{\delta^2}{h^2}
+ +\int F_h(|\grad u|^2+|\grad v|^2)\dd\rho,\\
+ \delta&=\inf_b\norm{u-v-b}_2.
+ \end{split}\tag{5.1}
+\end{equation}
+Briefly, for $m_h(x)=\min(r(x),r(x+he_j))$, convexity puts the forward difference quotient between the two directional derivatives. The elementary inequality $(b-a)^2\le2(b|b|-a|a|)$ for $a\le b$ and a change of variables yield the weighted derivative error with coefficient $2|m_h(x-he_j)-m_h(x)|$. Three-term squaring supplies coefficient six; the missing weight $r-m_h$ supplies coefficient two. The difference quotient of $u-v-b$ costs at most $4h^{-2}\norm{u-v-b}_2^2$. Sum over coordinates. Segments with $m_h>0$ stay inside the convex source support; no value off that support is needed. Finite-atom potentials have bounded slopes, so all these integrals and representatives are legitimate.
+
+Apply (P). For $\mu\in\mathcal C_{p,N}$, $b=|T_\mu|^2$ takes at most $N$ values and
+\[
+ \norm b_{s'}=\left(\int|y|^p\dd\mu\right)^{2/p}\le1.
+\]
+Lemma 3.2 therefore gives, at $h=t_K$,
+\begin{equation}
+ \norm{T_\mu-T_\nu}_2^2\le C\left[\frac{w^2}{t_K^2}+t_KA_N(K)^{1/s}\right].\tag{5.2}
+\end{equation}
+Choose $K=K_N(w)$. By (4.3), both terms are at most $Ct_KA_N(K)^{1/s}$. Since $W_{N,K}\asymp w$,
+\begin{equation}
+ \Omega_N(w)\le Cw^{1/3}A_N(K_N(w))^{1/(3s)}.\tag{5.3}
+\end{equation}
+This holds for every $N\ge1$. It includes variable masses, coincident support points after merging, and locations with no individual bound.
+
+\section{Selecting source scales by convex gradient maps}
+This is the critical-strip construction of manuscript 008 \cite{phase}, with a new arbitrary-subset moment estimate. The global convex geometry and the two cumulative mass matches are retained exactly.
+
+Fix a nonempty finite set $J$ of dyadic indices and let $M=\#J$. Let $K\ge\max J$ and choose $0<h\le\epsilon t_K$, with one sufficiently small $\epsilon>0$ independent of $J,K,h$. For $j\in J$ write
+\[
+ R_j=t_j^{-\beta/2},\qquad S_J=\sum_{j\in J}L(t_j),\qquad k=\frac14.
+\]
+All windows $[t_j-3h,t_j+3h]$ are positive and disjoint. Their separation is valid even for adjacent dyadic indices; removing some indices only improves it.
+
+\subsection{Exact masses and local changes}
+Let $Z$ have density $g$ and be independent of $X$. Define $H_h(y)=\E F(y+khZ)$ and
+\begin{align*}
+ \ell_j&=H_h^{-1}(F(t_j-h)),&r_j&=H_h^{-1}(F(t_j+h)),\\
+ d_j&=(\ell_j+r_j)/2,&\gamma_j&=(r_j-\ell_j)/(2h).
+\end{align*}
+Bracketing $H_h$ by $F(y-kh),F(y+kh)$ gives endpoint errors $\le kh$. Symmetry $\E Z=0$, Taylor's theorem, the derivative estimate in Section 2, and a positive lower bound for $H_h'$ on the local window improve this to
+\begin{equation}
+ \ell_j=t_j-h+O(h^2/t_j),\qquad r_j=t_j+h+O(h^2/t_j),\tag{6.1}
+\end{equation}
+uniformly over all selected indices. Let
+\[
+ A_j=\{t_j-h<X<t_j+h\},\qquad
+ C_j=\{\ell_j-khZ<X<r_j+khZ\}.
+\]
+The two exact identities
+\begin{equation}
+ \E F(\ell_j-khZ)=F(t_j-h),\qquad
+ \E F(r_j+khZ)=F(t_j+h)\tag{6.2}
+\end{equation}
+use symmetry for the first equation. They preserve both neighboring cumulative masses, not merely each central mass. Write $m_j=\rho(A_j)=\rho(C_j)$ and $D_j=\rho(A_j\symdiff C_j)$. Uniformly,
+\begin{equation}
+ chf(t_j)\le m_j,D_j\le Chf(t_j).\tag{6.3}
+\end{equation}
+For the lower bound on $D_j$, the leading symmetric-difference length is $2kh|Z|$; the endpoint and density errors are $O(f(t_j)h^2/t_j)$. Thus
+\[
+ D_j=2khf(t_j)\E|Z|+O(f(t_j)h^2/t_j).
+\]
+One fixed decrease of $\epsilon$ makes the error at most half the positive main term.
+
+\subsection{Global potentials and all labels}
+Define convex broken lines
+\[
+ \Phi(x)=\sum_{j\in J}2R_j(t_j-x)_+,\qquad
+ \widetilde\Phi(x)=\sum_{j\in J}2R_j(d_j-x)_+.
+\]
+They have the same ordered slopes. At each selected cusp let $q_j$ be the midpoint of its two adjacent slopes, and let $L_j,\widetilde L_j$ be the corresponding supporting affine lines through the cusps. Set
+\begin{align*}
+ U_h(x)&=\max\{\Phi(x_1),\ L_j(x_1)+R_jh:j\in J\},\\
+ V_h(x)&=\max\{\widetilde\Phi(x_1),\
+ \widetilde L_j(x_1)+R_jh\gamma_j+R_jhkx_2:j\in J\}.
+\end{align*}
+These are finite global convex functions. The inequality $\Phi-L_j\ge R_j|x_1-t_j|$, with equality between neighboring cusps, shows that the raised plane is active exactly on $A_j$. The analogous assertion gives $C_j$ for $V_h$ on the source's transverse support. Distinct windows cannot compete there. There are $M+1$ outer slope labels and $M$ central labels, all with positive masses and distinct locations: exactly $2M+1$ atoms in each target.
+
+All outer labels are the same in $U_h$ and $V_h$. Central labels are respectively $q_je_1$ and $q_je_1+R_jhke_2$. The separate cumulative matches (6.2) preserve every outer label's mass, including across large skipped-scale gaps, as well as every central label's mass. Therefore the same-label coupling is an actual target coupling and
+\begin{equation}
+ \begin{aligned}
+ \norm{\grad U_h-\grad V_h}_2^2
+ &=\sum_{j\in J}R_j^2D_j+k^2h^2\sum_{j\in J}R_j^2m_j,\\
+ W_2((\grad U_h)_\#\rho,(\grad V_h)_\#\rho)^2
+ &\le k^2h^2\sum_{j\in J}R_j^2m_j.
+ \end{aligned}\tag{6.4}
+\end{equation}
+On a central mismatch the horizontal difference is $R_j$. The intervals overlap, so no direct crossing between the two outer labels occurs. Their gradients are the actual Brenier maps to the gradient laws, by global convexity. Optimality of the same-label target coupling is not required.
+
+\subsection{Moment bound that does not pay for skipped scales}
+Using an integral over every scale between the first and last selected index would be too crude for this theorem. Instead exploit the geometric growth of the selected jumps.
+
+The numbers $R_j$ increase by a factor at least $2^{\beta/2}>1$ as $j$ runs through $J$ in increasing order. Thus for every subset of such jumps,
+\begin{equation}
+ \left(\sum R_j\right)^p\le C\sum R_j^p,\tag{6.5}
+\end{equation}
+with $C$ depending only on $\beta,p$. Every active horizontal slope of either potential is bounded by $C\sum_{j\in J}R_j\ind_{\{X\le2t_j\}}$. Endpoint shifts and central cells obey the same bound; their vertical components $R_jhk$ are also absorbed, since $h$ is small and $X$ is comparable to $t_j$ there. Hence pointwise,
+\begin{equation}
+ |\grad U_h|^p+|\grad V_h|^p
+ \le C\sum_{j\in J}R_j^p\ind_{\{X\le2t_j\}}.\tag{6.6}
+\end{equation}
+Integrating and using $\beta p/2=s$ together with (2.2),
+\begin{equation}
+ \int(|\grad U_h|^p+|\grad V_h|^p)\dd\rho
+ \le C\sum_{j\in J}R_j^p F(2t_j)
+ \le C\sum_{j\in J}L(t_j)=CS_J.\tag{6.7}
+\end{equation}
+This estimates only the selected scales. It is the required moment justification for sparse, nonconsecutive scale selection.
+
+Multiply both potentials by $\lambda=(C_0S_J)^{-1/p}$, with one fixed sufficiently large $C_0$. Each target then has $p$th moment $\le1$. Since
+\[
+ R_j^2f(t_j)=cL(t_j)e^{-t_j^2/2}\asymp L(t_j),
+\]
+(6.3)--(6.4) imply
+\begin{equation}
+ \norm{T_\mu-T_\nu}_2\ge ch^{1/2}S_J^{1/(2s)},\qquad
+ W_2(\mu,\nu)\le Ch^{3/2}S_J^{1/(2s)}.\tag{6.8}
+\end{equation}
+These constants are independent of the selected set, its cardinality, its gaps, its last index, and $h$ in the stated range.
+
+\section{Uniform matching lower bound and the atom budget}
+Fix $N\ge3$ and $K=K_N(w)$. Put $n=\lfloor(N-1)/2\rfloor$, and select $J$ from $\{1,\ldots,K\}$ to consist of the $\min(n,K)$ largest dyadic weights. Then
+\begin{equation}
+ \#\supp\mu=\#\supp\nu=2\#J+1\le N,\qquad
+ \tfrac14A_N(K)\le S_J=A_n(K)\le A_N(K).\tag{7.1}
+\end{equation}
+The comparison follows by sorting: $n\ge N/4$ for $N\ge3$, and the average of the largest $n$ terms is at least the average of the largest $N$, with the obvious truncation when $K<N$. The replacement of $N$ by roughly $N/2$ is thus a proved fixed-factor comparison, not a dropped atom count.
+
+Set $h=\epsilon t_K$. Decrease the fixed $\epsilon$, if necessary, so the upper coupling constant in (6.8) times $\epsilon^{3/2}$ is at most one. This is compatible with all local estimates. Then
+\[
+ W_2(\mu,\nu)\le t_K^{3/2}A_N(K)^{1/(2s)}=W_{N,K}\le w,
+\]
+while
+\begin{equation}
+ \begin{aligned}
+ \norm{T_\mu-T_\nu}_2
+ &\ge ct_K^{1/2}A_N(K)^{1/(2s)}\\
+ &=cW_{N,K}^{1/3}A_N(K)^{1/(3s)}\\
+ &\ge c'w^{1/3}A_N(K)^{1/(3s)},
+ \end{aligned}\tag{7.2}
+\end{equation}
+where (4.3) gives the last inequality. This proves Theorem A.
+
+For each fixed $N$, only finitely many atoms are used at every $w$; the selected indices may move with $w$, as they must when the most adverse source layers move toward the boundary. Source, constants, and the target class stay fixed. The atom weights themselves are permitted to tend to zero, exactly as in the definition of $\mathcal C_{p,N}$.
+
+\section{Explicit logarithmic corollary}
+Take, near zero, $L(x)=[\log(e/x)]^\gamma$, with $\gamma$ any real number. The source extension above applies. Put $B_w=\log(e/w)$ and $m=\min(N,B_w)$. Uniformly for $N\ge3$ and sufficiently small $w$,
+\begin{equation}
+ \Omega_N(w)\asymp w^{1/3}
+ \begin{cases}
+ B_w^{\gamma/(3s)}m^{1/(3s)},&\gamma\ge0,\\
+ m^{(\gamma+1)/(3s)},&-1<\gamma<0,\\
+ [\log(e+m)]^{1/(3s)},&\gamma=-1,\\
+ 1,&\gamma<-1.
+ \end{cases}\tag{8.1}
+\end{equation}
+\begin{proof}
+The sequence $a_j$ is comparable to $(j+c)^\gamma$. For $\gamma\ge0$ its largest $\min(N,K)$ terms sum to a quantity comparable to $K^\gamma\min(N,K)$. For $\gamma<0$ its largest terms are the first $\min(N,K)$, whose power sum has the three displayed orders. Uniformly in $N$, the logarithm of $A_N(K)$ is $O(\log(e+K))$, so (4.3) implies $K_N(w)\asymp B_w$. Substitution into (1.1) proves (8.1).
+\end{proof}
+At $\gamma=0$ this reproduces the critical atom-budget theorem. Letting $N$ exceed the available scales reproduces the unrestricted slowly-varying hierarchy. The contributions are the joint cutoffs and, in particular, the very different finite-complexity behavior for positive and negative $\gamma$.
+
+\subsection*{The binary addition for nonnegative logarithmic exponent}
+For $N=2$ the upper bound just proved applies. Its matching lower bound follows from one rare cell, as in manuscript 008. Let $u>0$ be small, $m_u=F(u)$, $k=1/4$, and choose $c_u$ with
+\[
+ \E F(u(c_u+kZ))=F(u).
+\]
+Regular variation of $F$ with index $s$ gives $c_u\to c_0$, where $\E(c_0+kZ)^s=1$. The symmetric difference of $\{X<u\}$ and $\{X<u(c_u+kZ)\}$ has mass comparable to $m_u$. The targets
+\begin{align*}
+ &(1-m_u)\delta_0+m_u\delta_{-m_u^{-1/p}e_1},\\
+ &(1-m_u)\delta_0+m_u\delta_{m_u^{-1/p}(-e_1+kue_2)/\sqrt{1+k^2u^2}}
+\end{align*}
+have $p$th moment one and are realized by the corresponding two-plane hinge potentials. Their map distance is at least $cm_u^{1/(2s)}$, and the same-label target coupling costs at most $Cum_u^{1/(2s)}$. Since $m_u\asymp u^s[\log(e/u)]^\gamma$, inverting the latter expression gives
+\[
+ \Omega_2(w)\ge cw^{1/3}[\log(e/w)]^{\gamma/(3s)}.
+\]
+The inversion is valid for every small $w$ because $uF(u)^{1/(2s)}$ is continuous strictly increasing, with logarithmic derivative tending to $3/2$. This matches (8.1) with $N=2$ when $\gamma\ge0$. For negative $\gamma$ the same binary lower bound does not match the $N\ge3$ formula, and no equality is asserted here.
+
+\section{A fixed cardinality criterion and complexity constants}
+Let $A_N(\infty)=\sup_K A_N(K)$, possibly infinite. For every fixed $N\ge3$, Theorem A and $K_N(w)\to\infty$ imply
+\begin{equation}
+ \begin{aligned}
+ cA_N(\infty)^{1/(3s)}
+ &\le\liminf_{w\downarrow0}\frac{\Omega_N(w)}{w^{1/3}}\\
+ &\le\limsup_{w\downarrow0}\frac{\Omega_N(w)}{w^{1/3}}
+ \le CA_N(\infty)^{1/(3s)},
+ \end{aligned}\tag{9.1}
+\end{equation}
+with the natural interpretation that if $A_N(\infty)=\infty$, the lower limit is infinity. The constants $c,C$ remain uniform in $N$. No existence of an exact leading-coefficient limit is asserted.
+
+For this source family, a fixed finite atom budget $N\ge3$ restores a pure one-third estimate if and only if $L$ is bounded near zero. Indeed $A_N(\infty)<\infty$ is equivalent to $\sup_j L(t_j)<\infty$, and fixed-ratio comparability (2.1) makes that equivalent to boundedness of $L$ near zero. This differs from the unrestricted criterion, which involves integrability of $L(x)\dd x/x$.
+
+When $L$ is bounded, $A_N(\infty)$ is the effective source-weighted complexity controlling the optimal fixed-$N$ constant. It may grow as $N$, a fractional power of $N$, $\log N$, or remain bounded; formula (8.1) gives examples. These are consequences for unrestricted atom masses, not results for prescribed mass vectors.
+
+\section{A nonmonotone source and endpoint substitution}
+For sufficiently small $x$ set $\tau=\log(e/x)$ and
+\begin{equation}
+ L(x)=\exp\bigl[\sqrt\tau\sin(\log\tau)\bigr].\tag{10.1}
+\end{equation}
+The derivatives of $\log L$ with respect to $\tau$ are $O(\tau^{-1/2})$ and $O(\tau^{-3/2})$; the chain rule verifies both conditions (SV). Thus this determines one admissible fixed strongly log-concave source after extension.
+
+Take valley parameters $\tau_n=\exp(3\pi/2+2\pi n)$. At the corresponding $x$, $L(x)=\exp(-\sqrt{\tau_n})$. A preceding peak lies at $\tau_n'=\exp(\pi/2+2\pi n)=e^{-\pi}\tau_n$, where $L=\exp(e^{-\pi/2}\sqrt{\tau_n})$. Choosing the nearest dyadic $x$-scales changes either value only by a multiplicative factor tending to one, because the $\tau$-grid spacing is fixed and the logarithmic derivative tends to zero. Therefore, at valley cutoffs $K_n$,
+\begin{equation}
+ \frac{A_3(K_n)}{L(t_{K_n})}
+ \ge\exp\bigl[(1+e^{-\pi/2}+o(1))\sqrt{\tau_n}\bigr]\longrightarrow\infty.
+ \tag{10.2}
+\end{equation}
+The three-atom lower construction can use a preceding favorable layer while taking a much thinner central strip. Theorem A detects this. A proposed law that replaced the top-$N$ source envelope by $NL(t_K)$ would fail on this one fixed source by an unbounded factor. It is likewise unsafe, for arbitrary (SV) factors, to replace the implicit distance inversion by $h=w^{2/3}$.
+
+\section{Other boundary powers and limits of the result}
+Manuscript 008 already proves the full unrestricted power-law classification for $f_\beta\asymp x^\beta$, including subcritical and supercritical exponents. Its subcritical rare-cell lower bound uses only two atoms, and its supercritical interior lower bound uses three. Thus, aside from the critical line's slowly-varying corrections, simply imposing an atom budget $N\ge3$ does not create a further power-law phase: the old unrestricted upper and bounded-atom lower already match. Those inherited observations are not counted as a new theorem here.
+
+Theorem A resolves the critical family's arbitrary (SV) source-scale and cardinality interaction. This paper does not resolve prescribed positive mass vectors or a lower atom-weight bound; a sharp general binary law for nonmonotone or vanishing $L$; a converse characterization for arbitrary, non-product sources; or an independent proof of the imported potential estimate (P). The binary questions are addressed separately in the second paper of this series, without being used here.
+
+The law optimizes over genuine target measures, with the selected-scale realizations and their full moment and label accounting above. It does not claim that every step-energy profile is transport-realizable.
+
+\section{Predecessors and primary literature}
+The repository predecessors are the critical atom-budget proof ($L=1$, jointly uniform $N,w$ law and finite-level weak-$L^s$ upper pairing); the critical slow-variation supplement (unrestricted arbitrary-(SV) modulus through $1+\int_h^a L(x)\dd x/x$); the source-tail synthesis (a general rearrangement upper envelope without a new sharpness claim); and manuscript 008 (the power phase diagram and original global mass-matched multi-strip construction). Exact local source paths and hashes are recorded in the source map supplied with this series.
+
+Bansil and Kitagawa \cite{bansil} fix a finite support and study Laguerre-cell and potential stability, including target-weight perturbations. Their explicit cardinality dependence and small-weight effects are relevant comparison points; the present class allows locations and masses to vary without a common support or minimum weight. Delalande and M\'erigot \cite{delalande} provide background for quantitative map stability and already appear in the predecessors' context.
+
+Finite-step rearrangement and local regular-variation tools are elementary standard analysis; no historical novelty is claimed for them individually. The selected-scale sharp transport envelope is a candidate contribution relative to the repository predecessors. The focused literature screening does not establish historical priority or a publication-tier claim.
+
+\begin{thebibliography}{9}
+\bibitem{bansil} M. Bansil and J. Kitagawa, \emph{Quantitative stability in the geometry of semi-discrete optimal transport}, arXiv:2002.02022v2 (2021). \url{https://arxiv.org/abs/2002.02022}.
+\bibitem{delalande} A. Delalande and Q. M\'erigot, \emph{Quantitative stability of optimal transport maps under variations of the target measure}, arXiv:2103.05934. \url{https://arxiv.org/abs/2103.05934}.
+\bibitem{phase} Repository manuscript 008, \emph{Density overlap phase}, version 1. \href{https://github.com/mxym/math/blob/c2281bc871c9bf60994985d6665ae45f4711d080/preprints/008-density-overlap-phase/v1/main.tex}{Fixed source at revision \texttt{c2281bc871c9}}.
+\bibitem{potential} Repository manuscript 001, \emph{Strongly log-concave Brenier stability}, version 3, Theorem 1.1. \href{https://github.com/mxym/math/blob/5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3/preprints/001-strongly-log-concave-brenier/v3/manuscript.tex}{Fixed source at revision \texttt{5c6c088aa5ab}}.
+\end{thebibliography}

@@ -1,0 +1,22 @@
+# Nonlinear avoidance and transport-tail reconciliation
+
+This note records a focused comparison after source disclosure. It is not an exhaustive priority search.
+
+## Internal parallel work
+
+Manuscript 001 v3 was published in commit 5c6c088aa5abf1c1a4bdca6a8ce5beaa27faaef3 at 2026-10-07 01:36:59 UTC. It already contains the general log-concave finite-q moment exponent (q-2)/(3q-2), sharp fixed truncated-Gaussian and cube examples, and a sharp one-third bound for Gaussian sources and a positive extension to strongly convex C1,1 potentials with globally bounded Hessian. Manuscript 007 v1 overlaps these finite-moment transport conclusions. Its full source was later, at 72eb17dfd6448f879192b6763b9b5c99b4c072f7. We therefore count the overlap as a separate derivation/cross-check, not a new project result.
+
+007 v2 explicitly credits 001 v3 and adds a fixed smooth FULL-SUPPORT strongly log-concave counterexample with the sharp general finite-q exponent. There is no hard support boundary. It also verifies one-third estimates for superquadratic source potentials with unbounded Hessian and proves sharpness for each fixed product source in that class. The standalone interpolation theorem permits BV-slice densities beyond log-concavity. The counterexample's lower bound is independent of the imported potential-stability theorem; the matching upper bound uses it.
+
+## External primary sources checked
+
+- Delalande and Merigot, Quantitative stability of optimal transport maps under variations of the target measure, Duke Mathematical Journal (2023), arXiv:2103.05934, DOI 10.1215/00127094-2022-0106. Its unbounded-target setting includes a moment assumption p>d and a compact source with density bounded above and below. It is an important predecessor to the potential-to-gradient approach. Source: https://arxiv.org/abs/2103.05934 . No first-use claim for that overall approach is made.
+- Cyril Letrouit, Unstable optimal transport maps, Comptes Rendus Mathematique 364 (2026), 333--344, DOI 10.5802/crmath.834. The journal abstract describes an unbounded source density on a bounded ball blowing up at two boundary points, and instability near loss of uniqueness for uniform densities on bounded open sets. This differs from our bounded, smooth, strongly log-concave density with full support and normalized finite target moments. This pass checked the journal abstract and metadata, not its entire proof. Source: https://comptes-rendus.academie-sciences.fr/mathematique/articles/10.5802/crmath.834/ . General instability of optimal maps is not a new claim here.
+- Feng, Lai and Xiong, Erdos similarity problem via bi-Lipschitz embedding, arXiv:2312.01319v1; IMRN 2024(17), 12327--12342, DOI 10.1093/imrn/rnae167. Theorem 1.1 gives bi-Lipschitz universality with derivative one at the accumulation point under a block-lacunarity condition. The proof is based on density points. The positive C1 endpoint in 006 is closely related and is not advertised as a new universality mechanism. The new nonlinear avoidance statement concerns prescribed quantitative remainder moduli and excludes C1,alpha/nonflat smooth germs, not all C1 germs. Source text: https://arxiv.org/html/2312.01319v1 .
+- The original geometric routing mechanism is explicitly attributed to OpenAI family 084 and the logarithmic-density extension 004. The nonlinear proof does not follow merely by applying the qualitative affine main theorem: it needs a finite grid with complexity fixed before its absolute location, plus a perturbation buffer.
+
+Both search indexes were used for targeted combinations of smooth/full-support strongly log-concave sources, moment stability, optimal-map instability, and nonlinear Erdos similarity. These searches did not certify absence of an equivalent earlier theorem. Merigot's later sharp-stability preprint and the whole transport literature have not been exhaustively compared in full text. No journal-tier, novelty, or first-priority conclusion is drawn from a negative search.
+
+## Parallel review received during this pass
+
+Commit 7cc69f72d81e3ed22b394af549528b2740b9b4f2 adds another model's review of 004--005 and independent finite tests. That review reports no confirmed proof defect in those versions and clarifies the known non-simplex growth-rate gap for 005. We preserve that review and do not relabel it human peer review. It supports keeping 005 restricted to its solved simplex-product class rather than treating it as an unrestricted projection-body optimum.

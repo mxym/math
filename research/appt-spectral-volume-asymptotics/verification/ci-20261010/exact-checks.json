@@ -1,0 +1,263 @@
+{
+  "status": "PASS",
+  "scope": "Exact ancillary algebra, moment identities, finite formula checks, and explicit rejection controls; analytic all-dimension proof is separate; not Lean",
+  "geometry": {
+    "cases": 36,
+    "vertices_checked": 2760,
+    "dimensions": [
+      {
+        "m": 2,
+        "n": 2,
+        "D": 4,
+        "empty_middle": true
+      },
+      {
+        "m": 2,
+        "n": 3,
+        "D": 6,
+        "empty_middle": false
+      },
+      {
+        "m": 2,
+        "n": 4,
+        "D": 8,
+        "empty_middle": false
+      },
+      {
+        "m": 2,
+        "n": 7,
+        "D": 14,
+        "empty_middle": false
+      },
+      {
+        "m": 3,
+        "n": 3,
+        "D": 9,
+        "empty_middle": true
+      },
+      {
+        "m": 3,
+        "n": 4,
+        "D": 12,
+        "empty_middle": false
+      },
+      {
+        "m": 3,
+        "n": 6,
+        "D": 18,
+        "empty_middle": false
+      },
+      {
+        "m": 3,
+        "n": 10,
+        "D": 30,
+        "empty_middle": false
+      },
+      {
+        "m": 4,
+        "n": 4,
+        "D": 16,
+        "empty_middle": true
+      },
+      {
+        "m": 4,
+        "n": 5,
+        "D": 20,
+        "empty_middle": false
+      },
+      {
+        "m": 4,
+        "n": 8,
+        "D": 32,
+        "empty_middle": false
+      },
+      {
+        "m": 4,
+        "n": 13,
+        "D": 52,
+        "empty_middle": false
+      },
+      {
+        "m": 5,
+        "n": 5,
+        "D": 25,
+        "empty_middle": true
+      },
+      {
+        "m": 5,
+        "n": 6,
+        "D": 30,
+        "empty_middle": false
+      },
+      {
+        "m": 5,
+        "n": 10,
+        "D": 50,
+        "empty_middle": false
+      },
+      {
+        "m": 5,
+        "n": 16,
+        "D": 80,
+        "empty_middle": false
+      },
+      {
+        "m": 6,
+        "n": 6,
+        "D": 36,
+        "empty_middle": true
+      },
+      {
+        "m": 6,
+        "n": 7,
+        "D": 42,
+        "empty_middle": false
+      },
+      {
+        "m": 6,
+        "n": 12,
+        "D": 72,
+        "empty_middle": false
+      },
+      {
+        "m": 6,
+        "n": 19,
+        "D": 114,
+        "empty_middle": false
+      },
+      {
+        "m": 7,
+        "n": 7,
+        "D": 49,
+        "empty_middle": true
+      },
+      {
+        "m": 7,
+        "n": 8,
+        "D": 56,
+        "empty_middle": false
+      },
+      {
+        "m": 7,
+        "n": 14,
+        "D": 98,
+        "empty_middle": false
+      },
+      {
+        "m": 7,
+        "n": 22,
+        "D": 154,
+        "empty_middle": false
+      },
+      {
+        "m": 8,
+        "n": 8,
+        "D": 64,
+        "empty_middle": true
+      },
+      {
+        "m": 8,
+        "n": 9,
+        "D": 72,
+        "empty_middle": false
+      },
+      {
+        "m": 8,
+        "n": 16,
+        "D": 128,
+        "empty_middle": false
+      },
+      {
+        "m": 8,
+        "n": 25,
+        "D": 200,
+        "empty_middle": false
+      },
+      {
+        "m": 9,
+        "n": 9,
+        "D": 81,
+        "empty_middle": true
+      },
+      {
+        "m": 9,
+        "n": 10,
+        "D": 90,
+        "empty_middle": false
+      },
+      {
+        "m": 9,
+        "n": 18,
+        "D": 162,
+        "empty_middle": false
+      },
+      {
+        "m": 9,
+        "n": 28,
+        "D": 252,
+        "empty_middle": false
+      },
+      {
+        "m": 10,
+        "n": 10,
+        "D": 100,
+        "empty_middle": true
+      },
+      {
+        "m": 10,
+        "n": 11,
+        "D": 110,
+        "empty_middle": false
+      },
+      {
+        "m": 10,
+        "n": 20,
+        "D": 200,
+        "empty_middle": false
+      },
+      {
+        "m": 10,
+        "n": 31,
+        "D": 310,
+        "empty_middle": false
+      }
+    ]
+  },
+  "slots": {
+    "formal_slot_families": 9
+  },
+  "probability": {
+    "parameter_checks": 9,
+    "interpretation": "exact identities and bound regressions, not asymptotic proof by finite testing"
+  },
+  "constants": {
+    "symbolic_density_moments": true,
+    "C2_squared_over_2pi": "243/16",
+    "C3_squared_over_2pi": "4251528/25",
+    "APPT_to_inner_m2": "3",
+    "APPT_to_inner_m3": "2187/40"
+  },
+  "negative_controls": [
+    {
+      "name": "changed tangent-volume numerator",
+      "rejected": true,
+      "diagnostic": "tangent volume factorial identity"
+    },
+    {
+      "name": "changed leading coefficient",
+      "rejected": true,
+      "diagnostic": "qubit leading constant"
+    },
+    {
+      "name": "wrong positive slot count",
+      "rejected": true,
+      "diagnostic": "positive mean identity"
+    },
+    {
+      "name": "linear relaxation incorrectly asserted sufficient",
+      "rejected": true,
+      "diagnostic": "negative partial-transpose quadratic form"
+    }
+  ],
+  "checker_sha256": "716dbd28039d459729f68c976edb53efe1a278f432d476fe6780abdbe80c3744"
+}

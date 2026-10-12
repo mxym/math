@@ -1,0 +1,591 @@
+{
+  "schema": "avoidance-covering-and-arithmetic-additive-release-v1",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "3a1dbb9bab7ef72db726e8221deec925e0938c8d",
+  "base_tree": "5739dcce808d4fbd2a57d7be47383bc986021cd4",
+  "package_counts": {
+    "avoidance_covering": 47,
+    "higher_degree_arithmetic": 26
+  },
+  "archives": [
+    {
+      "package": "avoidance-covering",
+      "path": "releases/2026-10-07-avoidance-covering-refinements-v1.tar.gz",
+      "bytes": 800005,
+      "sha256": "98e18bc2d6cda731ffe8c70e47e010e9a549c7231fc384ceca468712589bc2ec",
+      "mode": "100644",
+      "members": 47
+    },
+    {
+      "package": "higher-degree-rank-one",
+      "path": "releases/2026-10-07-higher-degree-rank-one-sieves-v1.tar.gz",
+      "bytes": 61173,
+      "sha256": "6e9719e77a6b6e9db772776f101021118e28c0fed25256efe8405aeee1da5931",
+      "mode": "100644",
+      "members": 26
+    }
+  ],
+  "avoidance_editorial_derivative": {
+    "original_manifest_sha256": "4ca6d8a9c8560af51930a11510fcffbee1fe6eb92acf89fcaae0524008ea7700",
+    "final_manifest_sha256": "4a3bb54724acf44447a1cb0571cc217c2fc663871da4b4091498254051af0881",
+    "original_archive_sha256": "b058016f1b29e8e5bd90f248a657918d35682b82e0e80e89d078e15d126cf6b8",
+    "final_archive_sha256": "98e18bc2d6cda731ffe8c70e47e010e9a549c7231fc384ceca468712589bc2ec",
+    "summary_edits": [
+      "notes/critical-covering-gauge/README.md",
+      "notes/avoidance-covering-refinements.md"
+    ],
+    "integrity_bindings_only": [
+      "notes/avoidance-covering-provenance/MANIFEST.json",
+      "notes/avoidance-covering-provenance/SHA256SUMS"
+    ],
+    "unchanged_other_files": 43,
+    "scope": "Explicit gauge domain and no-bi-Lipschitz-finite-dimensional-real-normed-space target; all proof, PDF, checker, certificate, source and audit bytes unchanged; targeted editorial-only review passed."
+  },
+  "source_inventory_records": [
+    {
+      "path": "notes/avoidance-covering-provenance/PROVENANCE.json",
+      "sha256": "5a059bd62385be02994ce9298239c0588272d0f18456cbb0382eb8a03d9e6ed5",
+      "bytes": 9756
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/SOURCE_HASHES.json",
+      "sha256": "0242aa9253a5fbbac0b427cc7d5d8c706e7390881d7e7f61f5510f786c8a7844",
+      "bytes": 2029
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/SOURCE_MAP.md",
+      "sha256": "69a5b418b7daf767d6338bc6d232504e5b1afa1b8942c477b4fce0e4a5454048",
+      "bytes": 6310
+    }
+  ],
+  "scope": "Bounded finite-cluster selector avoidance under positive annular logarithmic upper Banach density and prescribed countable moduli/profiles; prescribed finite-valued nondecreasing divergent gauge h:[1,infinity) -> [1,infinity) Banach nonembedding obstruction; conditional rank-one completion, all-degree irreducible restoration, and exact cubic F6/F8chain sieves.",
+  "verification_scope": "Independent model-conducted mathematical and final-copy audits; fresh ordinary/optimized finite evidence and package integrity replay; exact source and deterministic archive checks; hash preservation of the already independently inspected 10-, 14- and 9-page PDFs. No fresh integration PDF rebuild, whole-paper Lean, human peer review, novelty/priority, universal avoidance/moat or optimal-dimension claim.",
+  "preservation": {
+    "base_paths_retained": 831,
+    "non_navigation_base_bytes_and_modes_unchanged": 827,
+    "modified_existing_paths": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md"
+    ],
+    "deleted_paths": []
+  },
+  "package_mode_policy": "Avoidance/covering package modes follow its independently audited reproducible archive; the exact deviations from local source-stage filesystem modes are listed below. Arithmetic package modes are uniformly 100644. Package bytes are unchanged.",
+  "archive_mode_adoption": [
+    {
+      "path": "notes/avoidance-covering-provenance/audited-subjects/check_cluster_cover.original.py",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/build.sh",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/verify.py",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/build.sh",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/check_cluster_cover.py",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/independent_checker_audit.py",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    },
+    {
+      "path": "notes/critical-covering-gauge/build.sh",
+      "source_stage_git_mode": "100644",
+      "published_archive_git_mode": "100755"
+    }
+  ],
+  "archival_editorial_observation": "Arithmetic Corollary 4 retains preceding restoration proof although the expanded proof is in following Section 7. Final-copy review documented this nonblocking directional-reference typo; the frozen text is unchanged.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 22653,
+      "mode": "100644",
+      "sha256": "442c22c12590499987ccab15e4f655173fdafd13d60c69635f74a38de250e43b"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 25449,
+      "mode": "100644",
+      "sha256": "7bd64028bfea6c462b33c4a3ec010f8a15688835f2ee8f87698f4b76b55da8de"
+    },
+    {
+      "path": "README.md",
+      "bytes": 30660,
+      "mode": "100644",
+      "sha256": "88f7b3aa46c74d0d66f71f05c282772b7f4d600222a2154ae8fcbe91024094e7"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/MANIFEST.json",
+      "bytes": 12933,
+      "mode": "100644",
+      "sha256": "4a3bb54724acf44447a1cb0571cc217c2fc663871da4b4091498254051af0881"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/OPENAI_MATH_LICENSE.txt",
+      "bytes": 11358,
+      "mode": "100644",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/PROVENANCE.json",
+      "bytes": 9756,
+      "mode": "100644",
+      "sha256": "5a059bd62385be02994ce9298239c0588272d0f18456cbb0382eb8a03d9e6ed5"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/README.md",
+      "bytes": 2769,
+      "mode": "100644",
+      "sha256": "11e4b08be7110a0c3a96488937744daa3d6c997cac0125aad651d14a8a4b6ad2"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/SHA256SUMS",
+      "bytes": 5774,
+      "mode": "100644",
+      "sha256": "c64d051cc24d331e406031cea99fef0c4d368e4bae427914eb37060e6941543e"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/audited-subjects/bounded-cluster-audited-subject.md",
+      "bytes": 25802,
+      "mode": "100644",
+      "sha256": "00a30c349e3cde98faf5b1df361d94cd69320f6598c561921964387b32fd53a2"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/audited-subjects/bounded-cluster-clarified-subject.md",
+      "bytes": 26833,
+      "mode": "100644",
+      "sha256": "03f489274d81487818b17235fe7bd3b69319158e8e9dffbc4f52c9a4fdc75db5"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/audited-subjects/check_cluster_cover.original.py",
+      "bytes": 7986,
+      "mode": "100755",
+      "sha256": "d8de956cbb87a1d23aae9d98eb79e7416018157f6a7c748e73af43ad025636f3"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/audited-subjects/critical-gauge-audited-subject.md",
+      "bytes": 7626,
+      "mode": "100644",
+      "sha256": "f1da669946c4cb43fc2d694201af9e3845a374f944740735f86b672e53ce85eb"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/build.sh",
+      "bytes": 2285,
+      "mode": "100755",
+      "sha256": "de87f93775983febb2c444eab678f472dc2a96fdebbe5d2959eba75d4b7dd8c5"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/mxym-003/assouad_two_zero_box.tex",
+      "bytes": 29802,
+      "mode": "100644",
+      "sha256": "3b202f7c835107f21a08b5f69b78dfdf8ea06cc14d9df8837be27c5097ee7623"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/mxym-004/main.tex",
+      "bytes": 28487,
+      "mode": "100644",
+      "sha256": "2e3558848d7b022f85206ceefdafe3e75cd5c9307d70724bca5e1fc4c2dfdf38"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/mxym-006-v1/main.tex",
+      "bytes": 25411,
+      "mode": "100644",
+      "sha256": "103ebb2e59b7a0ab884f7cb1b196301dba550754cb1ea2af7e245defa4eeae55"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/mxym-006-v2/paper.md",
+      "bytes": 13228,
+      "mode": "100644",
+      "sha256": "2bbdd8c242effa5e248387b2279d0fd6b25dd00394cb8737058c026636aebf16"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/figures/window-block.tex",
+      "bytes": 1489,
+      "mode": "100644",
+      "sha256": "93483bc5f4748f0ae60813eb45a879d6e9ca0b2e1f08466118b44dfe8a60b5df"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/main.tex",
+      "bytes": 1886,
+      "mode": "100644",
+      "sha256": "2b2660c50a9f0fa7d4df0e572f581b47f2a1f584a9f5c456f8e5d0c54b63e398"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/references.bib",
+      "bytes": 4393,
+      "mode": "100644",
+      "sha256": "ba499b3ff788c00124a9404868069b86dc0f97a63f76be3429d7579fff6db092"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/01-history.tex",
+      "bytes": 3739,
+      "mode": "100644",
+      "sha256": "6f8488a0f8888b9051b8a09bdd7da5d49b13ff7466fa7c86afa63435520c6cd7"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/01-introduction.tex",
+      "bytes": 4470,
+      "mode": "100644",
+      "sha256": "d9d640fb2f76bcd727147e5fc9805ab6404eace4a01e0ede2e7cdf1d81f8f45a"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/02-periodic.tex",
+      "bytes": 2567,
+      "mode": "100644",
+      "sha256": "495a0aad88677e2e61904cf5fe029b709033d0830f7c98d386661632abc8bdb8"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/03-windows.tex",
+      "bytes": 7439,
+      "mode": "100644",
+      "sha256": "8556c2b128c63df3f2cbc1c3b595838df5b9e93bbc386ed7aa2b11bea2e1aeb0"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/04-routing.tex",
+      "bytes": 9430,
+      "mode": "100644",
+      "sha256": "973fbd5dbcc2ea4752528e659a9f004962f275142f23932a3c86eea00aa8d4e1"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-084/sections/05-scales.tex",
+      "bytes": 7592,
+      "mode": "100644",
+      "sha256": "b1511f9f5a5d17183e2996c437e48fca2aa215f4960f9087377bf439096eef54"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/sources/openai-098/main.tex",
+      "bytes": 41962,
+      "mode": "100644",
+      "sha256": "3eac74d00462787aec0f48599cdf51d6b14599c53fdbb247f16539d8cfdd06c7"
+    },
+    {
+      "path": "notes/avoidance-covering-provenance/verify.py",
+      "bytes": 4549,
+      "mode": "100755",
+      "sha256": "9913a26fd74e47944014bc3eee2aaa233321e20425fbe37fa14223fbe47629f6"
+    },
+    {
+      "path": "notes/avoidance-covering-refinements.md",
+      "bytes": 2110,
+      "mode": "100644",
+      "sha256": "c27f142f2d10a414e921b5ad9ee7374cf99a5e7181c7374113e9b501293204e2"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/MATHEMATICAL_CLARIFICATIONS.patch",
+      "bytes": 5678,
+      "mode": "100644",
+      "sha256": "50b2ac5c97c033d8d12bceddd80d3ec3479f3b0169a0d8dcf158c40533c74bd1"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/PROOF_AUDIT.md",
+      "bytes": 25263,
+      "mode": "100644",
+      "sha256": "bc022cf6217fc4717310c6aa637f0a792e3786356615937d4230fb45984bd4bf"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/README.md",
+      "bytes": 2450,
+      "mode": "100644",
+      "sha256": "c1dde047b57dd4fadc9fb139fa39157befa91a233ea52e526dd45a5dc865a36b"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/build.sh",
+      "bytes": 166,
+      "mode": "100755",
+      "sha256": "df82cea747db19f4fc871e064fe4e43a9f8147b337728e3ded32140c298c004c"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/paper.md",
+      "bytes": 28510,
+      "mode": "100644",
+      "sha256": "5c95b4d697a454ebd6716a4567b0933f02bf3a1a2cb706c5fcfebd585c247022"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/paper.pdf",
+      "bytes": 293736,
+      "mode": "100644",
+      "sha256": "8494ee340916e3c318d2cf59d34a3ed68b737a0b89ae8eb730d79e881f5b538c"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/paper.tex",
+      "bytes": 33932,
+      "mode": "100644",
+      "sha256": "fd6cbe8d7216c12acb25c63a53dada4d19db3dea51a668af05b7be5da8ce0744"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/check_cluster_cover.py",
+      "bytes": 8097,
+      "mode": "100755",
+      "sha256": "c8e9e1d9752d9d81b53b046faee2c54cb35d87e49d79fa4fdc6c9e1ce47dc522"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/independent_checker_audit.py",
+      "bytes": 6908,
+      "mode": "100755",
+      "sha256": "3941bb1f01b33b5b0cb4861c393a5dc3fa947885b9ebe15509b6c0e7c8560be3"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/independent_checker_results.json",
+      "bytes": 3581,
+      "mode": "100644",
+      "sha256": "66e5e60abb3bf7a5c830fd131b444916d42899365f1ee629403994e109a4acbf"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/self_test.json",
+      "bytes": 2673,
+      "mode": "100644",
+      "sha256": "7b81d77fd1bc0f27072ac5a30adbb9e45500fc7aed3aba61b6e4af35c5d203c9"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/toy_cluster_certificate.json",
+      "bytes": 614,
+      "mode": "100644",
+      "sha256": "99b154bb053e9c9400f15500fbca5d225f2b10cbaa08bb6bb3d956113c9007bd"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/toy_cluster_certificate_3_4.json",
+      "bytes": 878,
+      "mode": "100644",
+      "sha256": "8f5019b7b145ddd33dc3c5e5cb3b0ef3f4a5f85470f9a27338d5990ae7a3ef21"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/toy_cluster_result.json",
+      "bytes": 182,
+      "mode": "100644",
+      "sha256": "99be6e24d77b98710e425e132f0c20a9825f4f47907a3f2db5a98a796b4ee3cb"
+    },
+    {
+      "path": "notes/bounded-cluster-avoidance/verification/toy_cluster_result_3_4.json",
+      "bytes": 183,
+      "mode": "100644",
+      "sha256": "0f29e4ae8a0b0dd8a72ad65dbed2f117388671977b5feda3beb9450f55b15b1f"
+    },
+    {
+      "path": "notes/critical-covering-gauge/PROOF_AUDIT.md",
+      "bytes": 13668,
+      "mode": "100644",
+      "sha256": "5c9aad38867ff537a32e341d2073c2ac2995bbb66a1c56c8b26d54fdf89c39db"
+    },
+    {
+      "path": "notes/critical-covering-gauge/README.md",
+      "bytes": 2007,
+      "mode": "100644",
+      "sha256": "6b6fa242708835a2b7db178c1f7bba9ac72b8aaf8e7566880683bc55e0d2ac46"
+    },
+    {
+      "path": "notes/critical-covering-gauge/build.sh",
+      "bytes": 164,
+      "mode": "100755",
+      "sha256": "6568b57ec444ba501fa5cf1c4895985b47312d0ed2a1a086c3dde44c19bda18c"
+    },
+    {
+      "path": "notes/critical-covering-gauge/paper.md",
+      "bytes": 9401,
+      "mode": "100644",
+      "sha256": "629a0008cb76ea9075fa46325493dde1d08dd4ebbd1e8aa44bc347577c3eac5c"
+    },
+    {
+      "path": "notes/critical-covering-gauge/paper.pdf",
+      "bytes": 354557,
+      "mode": "100644",
+      "sha256": "02ffb8f70c3ecb501cf36b94d2cccf838b4f7bc518035d32cc5732db3ade503c"
+    },
+    {
+      "path": "notes/critical-covering-gauge/paper.tex",
+      "bytes": 41751,
+      "mode": "100644",
+      "sha256": "bdbc2ac09212640389830317194dcc75f45a2951af8208efb66f2843490a7348"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/AUDIT.md",
+      "bytes": 5592,
+      "mode": "100644",
+      "sha256": "962dd6881a515c7cd372c29a35687c9c14a703ea33eef1bf5491a597b2d10c78"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/MANIFEST.json",
+      "bytes": 5098,
+      "mode": "100644",
+      "sha256": "5423705b758c9e2b6da8f6870e060b592940e80938c5f67aec1a6006fb4de7f4"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/README.md",
+      "bytes": 4639,
+      "mode": "100644",
+      "sha256": "dfa640fd53415d32776bb3b4e5446be4125e7114858224a876d1b8af99faafc3"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/SHA256SUMS",
+      "bytes": 2381,
+      "mode": "100644",
+      "sha256": "59e9468a0f41aa3fe0d9b42c52ddc473e7239860752676e8300aca541ecb1d99"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/SOURCE_HASHES.json",
+      "bytes": 2029,
+      "mode": "100644",
+      "sha256": "0242aa9253a5fbbac0b427cc7d5d8c706e7390881d7e7f61f5510f786c8a7844"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/SOURCE_MAP.md",
+      "bytes": 6310,
+      "mode": "100644",
+      "sha256": "69a5b418b7daf767d6338bc6d232504e5b1afa1b8942c477b4fce0e4a5454048"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/check_cubic_certificate.py",
+      "bytes": 10564,
+      "mode": "100644",
+      "sha256": "1bfde3eac40f79b707cef404d02312219fb644e2f8edd27443f23027411d8ca8"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/check_rank_one_f8_certificate.py",
+      "bytes": 5163,
+      "mode": "100644",
+      "sha256": "9411a19b4aacdcce9d3952b63a41ac18dbc71c56b05ff40f66fc84b8ad727662"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/cubic_f6_certificate.json",
+      "bytes": 2525,
+      "mode": "100644",
+      "sha256": "17858bc398fa8c2c28eb7e6f8398385f98fff53a581dcd59ad42f7f89c3f319c"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/cubic_rank_one_f8_certificate.json",
+      "bytes": 10062,
+      "mode": "100644",
+      "sha256": "f52f7963c96214244dc15f29616abdc96bdc54ecfd040b3f5f945d57c10fc645"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/independent_check.py",
+      "bytes": 12135,
+      "mode": "100644",
+      "sha256": "a868795e9cfa174c8be3d8556835ffbebe264ce5815d94a5cec0993d313f25ab"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/original-verifiers/check_cubic_certificate.py",
+      "bytes": 8058,
+      "mode": "100644",
+      "sha256": "29db789dcd5219495baf0c044b339fc789780ed763c161f038e20b0930ad1a7d"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/original-verifiers/check_rank_one_f8_certificate.py",
+      "bytes": 4809,
+      "mode": "100644",
+      "sha256": "810226ffaa92e1c38485d5b8ba17004356933f5a86bcb805d1939f6bbfeca2e5"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/original-verifiers/independent_check.py",
+      "bytes": 12144,
+      "mode": "100644",
+      "sha256": "b2cf470fbd52073b310b4040a7b42971136caed13eec8f0e6d7ee63c8ae3f3c8"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/paper.md",
+      "bytes": 28385,
+      "mode": "100644",
+      "sha256": "d10d74c11464c48f11b88525266a032295d1533805e2cd132284b54c145a9606"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/paper.pdf",
+      "bytes": 28823,
+      "mode": "100644",
+      "sha256": "a22ca0f7dfe24f744ec7d80c98dabe376c8d846aa7f680ed5c4d282c9a083ff8"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/tools/check_metadata_controls.py",
+      "bytes": 3118,
+      "mode": "100644",
+      "sha256": "db29b0bc8bb5dfc1aff1fa2e04ccd4403860846988ac840886dfa7ba6edbad16"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/tools/render_pdf.py",
+      "bytes": 5206,
+      "mode": "100644",
+      "sha256": "3dd8c85223c0f2fcdadc39972c20799d2f7635c2078d57ad124f524cc6414087"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/tools/reproduce.py",
+      "bytes": 6415,
+      "mode": "100644",
+      "sha256": "75b8ce739da77dd512d0bb19a07ba5704c25e563312809d502061458d9a63986"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/author_f6_results.json",
+      "bytes": 1394,
+      "mode": "100644",
+      "sha256": "fda6adb01e06c2a611ba49f3fc5ffb977e49b4d9519c5ecce0059365ce03a58b"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/author_f8_results.json",
+      "bytes": 305,
+      "mode": "100644",
+      "sha256": "d5d32d1f460a7ef454febe7ea09306c9b58e5f483deb2c34a26787a42c9e5d53"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/check_cubic_certificate.py.patch",
+      "bytes": 3661,
+      "mode": "100644",
+      "sha256": "c14f0d22e34f8367226ca47378e2b51682ca32b493b0ff5b473be4fb4e863991"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/check_rank_one_f8_certificate.py.patch",
+      "bytes": 1652,
+      "mode": "100644",
+      "sha256": "8cc9462ca2a14fd00234c20080be6e78031b964e47d33ae54b7ef16a6906628d"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/independent_check.py.patch",
+      "bytes": 522,
+      "mode": "100644",
+      "sha256": "d6f85be5c83a8bca060675f2ef06d401202a1035f845c5dba2b82f8d19c5af22"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/independent_results.json",
+      "bytes": 8115,
+      "mode": "100644",
+      "sha256": "dcbca56d70463c574035fc1fe9aaa015f6369eded9150afb91846f02d04b18be"
+    },
+    {
+      "path": "notes/higher-degree-rank-one-sieves/verification/metadata_regression_results.json",
+      "bytes": 986,
+      "mode": "100644",
+      "sha256": "f8adac6bd9b8648f11b0f3dd48a1b9e9c12f67712fbce242a23747f289362c2e"
+    },
+    {
+      "path": "releases/2026-10-07-avoidance-covering-refinements-v1.tar.gz",
+      "bytes": 800005,
+      "mode": "100644",
+      "sha256": "98e18bc2d6cda731ffe8c70e47e010e9a549c7231fc384ceca468712589bc2ec"
+    },
+    {
+      "path": "releases/2026-10-07-higher-degree-rank-one-sieves-v1.tar.gz",
+      "bytes": 61173,
+      "mode": "100644",
+      "sha256": "6e9719e77a6b6e9db772776f101021118e28c0fed25256efe8405aeee1da5931"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 30071,
+      "mode": "100644",
+      "sha256": "d0c5d447adc5c71dd8c09cdece55ce4d604e18c8b5d0e1ba11ddc4b62f33fc8d"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-avoidance-covering-and-arithmetic-v1.json"
+}

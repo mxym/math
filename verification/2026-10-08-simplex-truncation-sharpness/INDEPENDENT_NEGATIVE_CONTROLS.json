@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "attack": "helper_execution_before_validation",
+      "python_optimized": false,
+      "returncode": 1,
+      "integrity_rejected": true,
+      "no_output_created": true,
+      "helper_sentinel_absent": true,
+      "output": "RELEASE_INTEGRITY: immutable required payload differs: scripts/source_inventory.py"
+    },
+    {
+      "attack": "helper_execution_before_validation",
+      "python_optimized": true,
+      "returncode": 1,
+      "integrity_rejected": true,
+      "no_output_created": true,
+      "helper_sentinel_absent": true,
+      "output": "RELEASE_INTEGRITY: immutable required payload differs: scripts/source_inventory.py"
+    },
+    {
+      "attack": "coordinated_proof_and_outer_reseal",
+      "python_optimized": false,
+      "returncode": 1,
+      "integrity_rejected": true,
+      "no_output_created": true,
+      "helper_sentinel_absent": true,
+      "output": "RELEASE_INTEGRITY: immutable required payload differs: project/formal/Entry005/TruncationSharpness.lean"
+    },
+    {
+      "attack": "coordinated_proof_and_outer_reseal",
+      "python_optimized": true,
+      "returncode": 1,
+      "integrity_rejected": true,
+      "no_output_created": true,
+      "helper_sentinel_absent": true,
+      "output": "RELEASE_INTEGRITY: immutable required payload differs: project/formal/Entry005/TruncationSharpness.lean"
+    }
+  ]
+}

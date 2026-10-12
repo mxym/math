@@ -1,0 +1,39 @@
+--- originals/entropy.corrected.tex
++++ entropy.tex
+@@ -23,7 +23,7 @@
+ \begin{document}
+ \maketitle
+ \begin{abstract}
+-For smooth positive densities $p,q$ with $D^2(-\log q)\succeq-\kappa\Id$, finite relative entropy and relative score energy, and an exponential-square moment under $p$, we prove a weighted upper bound for the entropy lost under common Gaussian convolution. It uses the conditional prediction of the initial relative score. The resulting uniform scalar factor is $(1-\kappa z)^{-1}$ for $z<1/\kappa$, and is optimal. Smooth quartic reference densities prove that no finite curvature-only factor exists at or beyond $1/\kappa$, and give an explicit finite counterexample to the unweighted inequality for a nonconvex reference. The argument adapts a public finite-observation lemma; every needed estimate and all limit orders are supplied. It uses no tensor hierarchy or covariance-freezing theorem, and proves no general non-log-concave logarithmic Sobolev inequality. Independent review and a priority assessment remain open.
++For smooth positive densities $p,q$ with $D^2(-\log q)\succeq-\kappa\Id$, finite relative entropy and relative score energy, and an exponential-square moment under $p$, we prove a weighted upper bound for the entropy lost under common Gaussian convolution. It uses the conditional prediction of the initial relative score. The resulting uniform scalar factor is $(1-\kappa z)^{-1}$ for $z<1/\kappa$, and is optimal. Smooth quartic reference densities prove that no finite curvature-only factor exists at or beyond $1/\kappa$, and give an explicit finite counterexample to the unweighted inequality for a nonconvex reference. The argument adapts a public finite-observation lemma; every needed estimate and all limit orders are supplied. It uses no tensor hierarchy or covariance-freezing theorem, and proves no general non-log-concave logarithmic Sobolev inequality. An independent analytic audit supports these statements after correction of one helper-lemma parameter domain. No priority or novelty claim is made.
+ \end{abstract}
+ \tableofcontents
+ 
+@@ -93,7 +93,7 @@
+ this integration.
+ \end{proof}
+ 
+-\section{Source audit and standard inputs}
++\section{Sources and proof dependencies}
+ The source is OpenAI's \emph{A dimension-free logarithmic Sobolev inequality
+ for subgaussian log-concave measures}, 23 September 2026, pinned at
+ \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+@@ -631,10 +631,16 @@
+ Proved under the displayed hypotheses: the weighted and scalar comparisons,
+ the conditional version, optimal constants, a finite failure of the
+ unweighted nonconvex extension, and impossibility at or beyond the horizon.
++An independent analytic audit supports the displayed statements. The original
++Lemma 3.1 allowed negative $\theta$ in its square-exponential clause. Its
++correct domain is $0\le\theta<a/2$; all applications already use
++$\theta=\min\{c/16,a/4\}>0$. For $\pi=N(0,1/2)$, $a=1$, $\theta=-1$,
++the original bound would assert $1/\sqrt2\le1/\sqrt3$, which is false.
++This helper-domain correction leaves the main theorem unchanged.
++
+ Not established: removal of the exponential-square moment, nonsmooth priors,
+ a general non-log-concave dimension-free LSI, a tensor/freezing extension,
+-priority or novelty, formal verification, or independent peer review.
+-The earlier Crouzeix files are frozen and were not edited.
++priority or novelty, complete Lean verification, or external peer review.
+ 
+ \begin{thebibliography}{9}
+ \bibitem{OAI} OpenAI, \emph{A dimension-free logarithmic Sobolev inequality for

@@ -1,0 +1,813 @@
+{
+  "schema": "sharp-simplex-dimension-refinements-v1",
+  "date": "2026-10-07",
+  "repository": "mxym/math",
+  "base_commit": "c897a556e12e460380c7cf521e88f84286994915",
+  "base_tree": "22867e052de546ba1fa1508819aeaedb46e31619",
+  "packages": [
+    {
+      "name": "polynomial",
+      "root": "notes/polynomial-dimensional-simplex-stability",
+      "files": 35,
+      "source_archive_sha256": "4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a",
+      "manifest_sha256": "a16e45b0e35373622da8cc887887fb03a193a235937805c42145a1da2e0c2895"
+    },
+    {
+      "name": "quadratic",
+      "root": "notes/quadratic-dimensional-simplex-stability",
+      "files": 40,
+      "source_archive_sha256": "d79b07df28ad259f6f02c396335a69a9a3bff98b0a98dfd17d89e5199d4b980d",
+      "manifest_sha256": "f84d3d1989c39333159f99d8fa22a7e2e58385f6bc4911f13d4e815bc867e486"
+    }
+  ],
+  "frozen_package_files": 75,
+  "public_audit_evidence_files": 29,
+  "strongest_coefficient": "4096 d^2",
+  "preserved_companion_coefficient": "2^20 d^6",
+  "scope": "Two successive dimension refinements of one sharp-simplex theorem. Every integer d >= 3, every full-dimensional convex body, every prescribed maximum-volume simplex, its original centroid, and exponent 1/(d-1) are retained. The optimal dimension order remains between linear and quadratic.",
+  "pdf": {
+    "path": "notes/polynomial-dimensional-simplex-stability/proof.pdf",
+    "pages": 11,
+    "sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9",
+    "quadratic_edition": "Complete Markdown proof; no new quadratic PDF"
+  },
+  "verification_scope": "Independent model-conducted analytic and final-copy reviews; fresh ordinary/optimized finite regression and integrity replay, exact source-archive extraction and deterministic regeneration. The previously inspected companion PDF is preserved by hash, not rebuilt during integration.",
+  "nonclaims": [
+    "No complete Lean or other whole-theorem proof-assistant formalization",
+    "No human peer review or journal acceptance",
+    "No novelty, first-discovery or priority determination",
+    "No optimal dimension order",
+    "No separately developed construction supplements or further refinements included"
+  ],
+  "preservation": {
+    "existing_base_paths": 1428,
+    "all_existing_paths_retained": true,
+    "modified_existing_paths": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md"
+    ],
+    "unrelated_existing_bytes_and_git_modes_preserved": true,
+    "deleted_paths": []
+  },
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 25845,
+      "sha256": "ae429ae4a4603e5c0067d8dd80f3164f277da2c71bc63222280ea3dd65853d02",
+      "git_blob_sha1": "375981551d2014d91417d65efd66a3a8dd09f541",
+      "mode": "100644"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 31418,
+      "sha256": "53e4be9a81446d7078262838bfad8c173d05d576e296279046f89069ec27ba53",
+      "git_blob_sha1": "d8b66ec0f58650ff2c5eccfcde66fb4fa6e85622",
+      "mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "bytes": 36560,
+      "sha256": "d13940e83adb0f4658b84c9d14c34cd93dbb6e1211c7abcd871af45114776289",
+      "git_blob_sha1": "124bbf9ab53ea8cbb18632ab156032a80ae050fc",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/INDEPENDENT_REFINEMENT_AUDIT.md",
+      "bytes": 16532,
+      "sha256": "05ec04f17a2fe58c582edcadb83201bb021b1ec162938b458095d641bb277370",
+      "git_blob_sha1": "35eca45af7c1725ae99a7c09da45bdca855b85bb",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/MANIFEST.json",
+      "bytes": 5411,
+      "sha256": "a16e45b0e35373622da8cc887887fb03a193a235937805c42145a1da2e0c2895",
+      "git_blob_sha1": "144e4a971b7d21642eee918c7bf6e666fe28af50",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/MATHEMATICAL_DELTA.md",
+      "bytes": 3893,
+      "sha256": "420663ad9ee483413cda202240a7bc1bb5f212d946b5ae4be3592c0c8f19a047",
+      "git_blob_sha1": "40a5e4beb5720f7f39fff519e6b925c3cfcef70e",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/NOTICE.md",
+      "bytes": 1548,
+      "sha256": "c973c71630d02eb60bed2b96befa1042ecf15c81c0be17012d050482d35f17c7",
+      "git_blob_sha1": "686829d2e14ab05d04ff5bda3131d555a824e3dd",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/PDF_QA.json",
+      "bytes": 2642,
+      "sha256": "c65b2712d87a8b92845a1867e11c1c708210f9beacf0619a7ae38f2d4c60432d",
+      "git_blob_sha1": "5ea2f0243b844871aedbb6ab9e59f99ffe933ed6",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/POLYNOMIAL_REFINEMENT.md",
+      "bytes": 16680,
+      "sha256": "2b398cba3afd73819dbf90d5106e64be64ba06a07f9e42d23f4c2037ff5cd791",
+      "git_blob_sha1": "be12304b04e64caf57fc5a1f8b76fb57339b8b13",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/README.md",
+      "bytes": 5226,
+      "sha256": "4ec6851fcdb41352c31ece839f69f121c446cb3ba1b09d0e5c306a03f513681c",
+      "git_blob_sha1": "b7804c9aa9d55eca4e33b50c1d6a8a52626eaf94",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/RELEASE_SCOPE.json",
+      "bytes": 1158,
+      "sha256": "26b233951fdd391c3162517a00adcdf44e3fb8a6a16152e08bc808c70fb0a8df",
+      "git_blob_sha1": "fe8b73b7cfc0ba86fcab76ea206e1bc2b5ca25cf",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/SANITIZATION_LEDGER.json",
+      "bytes": 7946,
+      "sha256": "c2c2c08f8fba846c9f88a22d2b6384578035ae0123aef0e165e869e223e05b78",
+      "git_blob_sha1": "6b4880c6ff3f9b8530a3af12bfa623549221e9c7",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/SHA256SUMS",
+      "bytes": 2941,
+      "sha256": "a31044b364e1e005739823918f58ff74ae4d9209669e87171e867d574f5fbbbf",
+      "git_blob_sha1": "61af6680d6625e3f2927f05defd1220aee036422",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/SOURCE_FIDELITY.json",
+      "bytes": 2976,
+      "sha256": "87d76584ff3644c8b19178a8761b81562cf7c1fb25dc72998750bef2ceadbf1d",
+      "git_blob_sha1": "52708e23c2845ac7d485aff4b92cc6cab63fc955",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/SOURCE_PINS.json",
+      "bytes": 3438,
+      "sha256": "cbb71466ee00d08e851816898e8240ecc6b1e91e11c1d791c49b2b44a957167c",
+      "git_blob_sha1": "94de2ba10602f00c5a89eb16dacda262a10d7b4d",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "bytes": 3759,
+      "sha256": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e",
+      "git_blob_sha1": "c7e90deb7b37c9824c60a88336a289879fa88dcd",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/TYPESETTING_LEDGER.md",
+      "bytes": 9205,
+      "sha256": "1d54c565479bce7b2bd929b8b6da05e8dab2d1407dbc21f2a1462c9064d3ced7",
+      "git_blob_sha1": "d570d7a93619759bf6fb2fcdb0ea7330ca24cb88",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/build.sh",
+      "bytes": 2807,
+      "sha256": "3875b76f4f7e70a61f872e210b34ed2dd4b8b91b40bd59e45d2314e36aba340b",
+      "git_blob_sha1": "ecce419cc17afd6e537057bbf9e1d8da2c437949",
+      "mode": "100755"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/check_constants.py",
+      "bytes": 1298,
+      "sha256": "7162b2270f611e8ce2225a77210c194b3feb63bf546fe0cf9448e3005d4399bd",
+      "git_blob_sha1": "56cf24fe81203becd44e149289e7bef82b3f55f5",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/check_independent_refinement_audit.py",
+      "bytes": 6510,
+      "sha256": "ea28f927e6886825eeef99fe5d5e9e816ad8e06d7641aefc9b10fd63677f9c58",
+      "git_blob_sha1": "35d9329cd68a08dfe07ebb0acb5057b84272f2ff",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/check_package.py",
+      "bytes": 4216,
+      "sha256": "b2a859f9d9919747b1d1d143a655d31a1b5e251382181c454b9ab88c2db68d9a",
+      "git_blob_sha1": "f93cd53e8e2debb537fcb91acb602de714c03296",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/check_weighted_anchors.py",
+      "bytes": 4027,
+      "sha256": "701b924efa85be95791f4a0ca81ca35110ff32f94b4a2f85e2be9ea9ace6c44f",
+      "git_blob_sha1": "0a85e645bb5070178a58954debb224b766353e0a",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/make_package.py",
+      "bytes": 2840,
+      "sha256": "a1f793b68d36f83b3c7538b991f9273e6ee09a1d25dc607ea93d5a8367dab87c",
+      "git_blob_sha1": "214ac319001eb208e4225ce80b19e0ce7c775d9f",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/proof.pdf",
+      "bytes": 354063,
+      "sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9",
+      "git_blob_sha1": "461e1c79d70f79eba226a0159ca645bd13ecb6e3",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/proof.tex",
+      "bytes": 27658,
+      "sha256": "73ff46719e442da83eb773ff0f1ee7d9b49d30bfa2200786a11fe433fe09572c",
+      "git_blob_sha1": "30423b3b48f112518dbcc259f70f6ad9a08b27c0",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/source.zip",
+      "bytes": 672029,
+      "sha256": "4fc6de94915be740c03f48e4b437b5481c3dbcddef946c86aaee78494264820a",
+      "git_blob_sha1": "2357ff051fa97bb922370b8904c3af8d6f003204",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/entry005-v2.md",
+      "bytes": 31278,
+      "sha256": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430",
+      "git_blob_sha1": "5d5b909b5b6532910af80e17ba5abf74c0ae4c02",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/entry005-v3.md",
+      "bytes": 29756,
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "git_blob_sha1": "27a7883cbbe99ab674565cbb9fa5daaee150678a",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/released-explicit-modulus.md",
+      "bytes": 20103,
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "git_blob_sha1": "a9d9662f8d42d7d2ad658db6fe2dc3e6350cfa57",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/sharp-simplex-proof.tex",
+      "bytes": 22992,
+      "sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "git_blob_sha1": "3ca3088dfca5a406a2556bbdd0eb291ba83829f8",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/sources/truncation-proof.tex",
+      "bytes": 21403,
+      "sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "git_blob_sha1": "23c1d50870c64d63283c08b68972ad73492fc8f7",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/verification/check_independent_refinement_audit.log",
+      "bytes": 780,
+      "sha256": "a1cb69e1930ea829771a8292ec7501e7140a73b8930f51abd7708f07867fc6a5",
+      "git_blob_sha1": "4704cd348a9124ed8f60c9019d92379afeb0b849",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/verification/check_weighted_anchors.log",
+      "bytes": 1485,
+      "sha256": "6e9e56e0971d32c8fc9f665b59c1874c11d543f1ff30a5e58322ac3cc8419cdb",
+      "git_blob_sha1": "1dd32ae98388d864177544fcf7623c501d4a3c1b",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/verification/constant_checks.json",
+      "bytes": 14071,
+      "sha256": "92a4e8d0176422bbd0f1194939c507a16ed381350e186e3b44fe44538ecf5b1c",
+      "git_blob_sha1": "2c3a36929439b62ef0db49e4d4d232feba1eb862",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/verify.py",
+      "bytes": 2680,
+      "sha256": "94d4727bccd991f048d939e248b29a49490fc3ff6793ed6849dd0521a4783efe",
+      "git_blob_sha1": "86364a212d2cc640ac5a3a01fb61afaeced5affb",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/polynomial-dimensional-simplex-stability/weighted_anchors.md",
+      "bytes": 21313,
+      "sha256": "76af987c3e66b749ff9238c78e040ef91d6f17406753b4bfeca1cb3bc81ba3dd",
+      "git_blob_sha1": "951e30fe0e7fef327037c0a9d65f5ae2a96975aa",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/AUDITED_ORIGINAL_SOURCE_HASHES.json",
+      "bytes": 3976,
+      "sha256": "0b69a634ac15af86b7f9c072782e804faac7fc621c360bff910eba89dc7221ce",
+      "git_blob_sha1": "d503eb72b15deb10c631b521e2a9324345857a7b",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/INDEPENDENT_QUADRATIC_AUDIT.md",
+      "bytes": 25505,
+      "sha256": "2414bf14446769bd505d4fd110f3157d80cbc282b0d44de3692426bfe369c0fc",
+      "git_blob_sha1": "3c83b8130677a4535f119ea3fd92992e01cb69bb",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/INTRINSIC_NORM_CONVERSION.md",
+      "bytes": 5429,
+      "sha256": "3f527129e3c799d39eda14dd8a9f5714fd9b84bf5cef94d52acb4716d2406cf6",
+      "git_blob_sha1": "8f600044a7a6ff3a6915217fe5fee82c93fd6423",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/MANIFEST.json",
+      "bytes": 6227,
+      "sha256": "f84d3d1989c39333159f99d8fa22a7e2e58385f6bc4911f13d4e815bc867e486",
+      "git_blob_sha1": "51cc36d07ae74b4448c7456ecce731d319c9b82f",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/MATHEMATICAL_DELTA.md",
+      "bytes": 3073,
+      "sha256": "1ccaf86df0add6661445ea1f844e48b0decb3a1b7c834ca37dbe128dd1875954",
+      "git_blob_sha1": "7fec49e4156aa41122810329dd7ff50abc23694c",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/NOTICE.md",
+      "bytes": 1571,
+      "sha256": "1faa477e71343e306d0586f8b5079993ad2d3477f894be2b17d86a4969c333d2",
+      "git_blob_sha1": "7e9e38e6cf76aeea5a8abf64ca40f6d38c6fff2c",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/QUADRATIC_DIMENSION_THEOREM.md",
+      "bytes": 5453,
+      "sha256": "3db48eeb9424bae7678253d803420b43908b93611231767353977a939db14423",
+      "git_blob_sha1": "8a0e6173941216d3e6d49771ca9877a88e2e4455",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/README.md",
+      "bytes": 5457,
+      "sha256": "7b8ded81cb2c29fc0c9db3f8d95b60cf0b48e9a0e9f782f2551709a46cdac3ba",
+      "git_blob_sha1": "aab3c58ea4791c7504e970f1721ab8e0526dcdd0",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/RELEASE_SCOPE.json",
+      "bytes": 1405,
+      "sha256": "36032e255cbf1f104ce48dbed6a36e610f7c491bb9bd6f328b551e3fb73bbb25",
+      "git_blob_sha1": "cd3fa758b70ef17884ab20c229ff793b4d9be7e6",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/SANITIZATION_LEDGER.json",
+      "bytes": 47194,
+      "sha256": "d6044c77373e2d262260ae715e73b2600c9addac846e01eae3b0bd1aa98b28e9",
+      "git_blob_sha1": "c122f42458f8f8b92ae2b3b383c9eb9426c83c36",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/SHA256SUMS",
+      "bytes": 3605,
+      "sha256": "ea714e1b27b27d264740149db32fd052c443a73303536e626bba634f56b78115",
+      "git_blob_sha1": "a7c96e284fc2c980e72b384b47a76c6b73f9e179",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/SOURCE_FIDELITY.json",
+      "bytes": 6529,
+      "sha256": "399046fbf19b8f4e39f4644970519597aaabaddeb734a6ed52057c5093d64092",
+      "git_blob_sha1": "1256ace016b57da41ae404d6a192be0f3221b8b6",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/SOURCE_GUIDE.md",
+      "bytes": 3085,
+      "sha256": "66337aa3e915eccfd89004f2ae43a951ed9e36222f47decbce8344ff936eb5c2",
+      "git_blob_sha1": "f8b0ab3695c6030f667bc765281e4038ed7da462",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/SOURCE_PINS.json",
+      "bytes": 5988,
+      "sha256": "fb6cbffc766a8f1518831bce8e0187c9b3cb353269fd8c60a51c59b5b4a65068",
+      "git_blob_sha1": "5c757c066b7a2516e0d2c153fe76a06bf5b1039f",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_constants.py",
+      "bytes": 1298,
+      "sha256": "7162b2270f611e8ce2225a77210c194b3feb63bf546fe0cf9448e3005d4399bd",
+      "git_blob_sha1": "56cf24fe81203becd44e149289e7bef82b3f55f5",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_independent_quadratic_audit.py",
+      "bytes": 7081,
+      "sha256": "9d549ff1ae97b46021956d2ab2562ce24c73313796d65f176eb455c58646a6ed",
+      "git_blob_sha1": "a05968141378deccccf12115bb110f6c305399a1",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_independent_refinement_audit.py",
+      "bytes": 6510,
+      "sha256": "ea28f927e6886825eeef99fe5d5e9e816ad8e06d7641aefc9b10fd63677f9c58",
+      "git_blob_sha1": "35d9329cd68a08dfe07ebb0acb5057b84272f2ff",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_package.py",
+      "bytes": 6281,
+      "sha256": "0a49f8a45ee66c595fb248d46323230c4741aa8eab2e9b6615d7a20e4d8edf8a",
+      "git_blob_sha1": "82c21b7db047bd4566aa8da17d6af3ad03ba7052",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_quadratic_constants.py",
+      "bytes": 1036,
+      "sha256": "2bf8f8621c53809be3e37f5c3a716e11b036c4132bc0d1d27231123438521f5b",
+      "git_blob_sha1": "ad1f5a14c47ba2602c757f734d1a086d70ef937a",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/check_weighted_anchors.py",
+      "bytes": 4027,
+      "sha256": "701b924efa85be95791f4a0ca81ca35110ff32f94b4a2f85e2be9ea9ace6c44f",
+      "git_blob_sha1": "0a85e645bb5070178a58954debb224b766353e0a",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/imports/POLYNOMIAL_REFINEMENT.md",
+      "bytes": 16734,
+      "sha256": "fa920be0d844f3fefd779103d8f204f4041dd815e6e20cbcd84a0ad812da2a63",
+      "git_blob_sha1": "df7f772c08216fded4650b5f9db82a262790e66b",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/imports/SQUARE_PYRAMID_LOWER_BOUND.md",
+      "bytes": 3759,
+      "sha256": "dee887e50590cd750d5b211acd9015fa57db5bd70786dcd67ec701674139596e",
+      "git_blob_sha1": "c7e90deb7b37c9824c60a88336a289879fa88dcd",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/imports/weighted_anchors.md",
+      "bytes": 21367,
+      "sha256": "b7d75699d80daf2e11d539dd43cc59a3278a58c93a51cca0b22741c14f0587ac",
+      "git_blob_sha1": "ac7d2e024447ea603aa58e8ce17ae960326432eb",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md",
+      "bytes": 7647,
+      "sha256": "680cba26ca1bdc47605f8366d3fe5a1c495716c138d3c1a85bbd377e84484448",
+      "git_blob_sha1": "11c6aabd0144018085702d100c40060109886a6b",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/make_package.py",
+      "bytes": 2783,
+      "sha256": "922b9bad76fd9996dcb768a0a0c3a4ab57ea01186904a1de9c2f1d2b8cc029a6",
+      "git_blob_sha1": "ad2e028a3174d4f8a67e12442d48837f687a0d67",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/source.zip",
+      "bytes": 342836,
+      "sha256": "d79b07df28ad259f6f02c396335a69a9a3bff98b0a98dfd17d89e5199d4b980d",
+      "git_blob_sha1": "fb367c440350e492dc61e882b19164aa07ce1b89",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/HISTORICAL_SOURCE_PINS.json",
+      "bytes": 1979,
+      "sha256": "5026125b9ca0a649bfec0c18b23a959621955edf5b0e88bdf1a1d32507e15ba2",
+      "git_blob_sha1": "ae5b74df097c49bb05bb68b4871ac861d6b40a48",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/entry005-v3.md",
+      "bytes": 29756,
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "git_blob_sha1": "27a7883cbbe99ab674565cbb9fa5daaee150678a",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/released-explicit-modulus.md",
+      "bytes": 20103,
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "git_blob_sha1": "a9d9662f8d42d7d2ad658db6fe2dc3e6350cfa57",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/sharp-simplex-proof.tex",
+      "bytes": 22992,
+      "sha256": "9361999cfa4337500041da4b3fc824cd3676a07a22ffad0274e38346bf301b98",
+      "git_blob_sha1": "3ca3088dfca5a406a2556bbdd0eb291ba83829f8",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/sources/truncation-proof.tex",
+      "bytes": 21403,
+      "sha256": "e467ede337597fed05cb2cf570bacb620b62dd99e5d57758e691198eec569aac",
+      "git_blob_sha1": "23c1d50870c64d63283c08b68972ad73492fc8f7",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/check_independent_quadratic_audit.log",
+      "bytes": 2232,
+      "sha256": "fa504e43555903fca88891dde66d44865bb285940024e3fc115805e5e173e82f",
+      "git_blob_sha1": "b98ba9401f36c9cbc96a0cf9107a7a9b7904a058",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/check_independent_refinement_audit.log",
+      "bytes": 780,
+      "sha256": "a1cb69e1930ea829771a8292ec7501e7140a73b8930f51abd7708f07867fc6a5",
+      "git_blob_sha1": "4704cd348a9124ed8f60c9019d92379afeb0b849",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/check_weighted_anchors.log",
+      "bytes": 1485,
+      "sha256": "6e9e56e0971d32c8fc9f665b59c1874c11d543f1ff30a5e58322ac3cc8419cdb",
+      "git_blob_sha1": "1dd32ae98388d864177544fcf7623c501d4a3c1b",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/constant_checks.json",
+      "bytes": 14071,
+      "sha256": "92a4e8d0176422bbd0f1194939c507a16ed381350e186e3b44fe44538ecf5b1c",
+      "git_blob_sha1": "2c3a36929439b62ef0db49e4d4d232feba1eb862",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/independent_exact_checks.json",
+      "bytes": 2232,
+      "sha256": "fa504e43555903fca88891dde66d44865bb285940024e3fc115805e5e173e82f",
+      "git_blob_sha1": "b98ba9401f36c9cbc96a0cf9107a7a9b7904a058",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verification/quadratic_constant_checks.json",
+      "bytes": 1768,
+      "sha256": "0ecf3bbe2f38a70135e5d2cee08087d9186872a19327a1e48f9fca7adbdb5048",
+      "git_blob_sha1": "5e6dbe876a6db190dea57d0c81ae15fd5fe50490",
+      "mode": "100644"
+    },
+    {
+      "path": "notes/quadratic-dimensional-simplex-stability/verify.py",
+      "bytes": 3371,
+      "sha256": "364917ee5633f81efdbd4ba3a9e482611f2c2f955a1ebbf98906c925cd12e9ff",
+      "git_blob_sha1": "f95d075190eb47d18b3f8f823c5ba8691e0fce08",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/README.md",
+      "bytes": 4298,
+      "sha256": "6eb24c0ce8c91fa6ce7a06ea7e221ad1f27bc0e2f6ae7603878fd42cd6d4d0f3",
+      "git_blob_sha1": "00e23e330f736cb6e93cf6352614e58af5ee29cf",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/REPLAY_SUMMARY.json",
+      "bytes": 2731,
+      "sha256": "2c866780132dd09201848699eef8f9732e8cff1c8dd3923bc8f0cccbb3b2451f",
+      "git_blob_sha1": "676544bfd782b6dd6cf204dfbd8df90e0f687b5e",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_extracted_normal.log",
+      "bytes": 2611,
+      "sha256": "56fe2fa3dcf7bbfb268c1430e194898804ed70e01b2c7ff87000553ea94d9335",
+      "git_blob_sha1": "6f6b42fe3cc819d859a28a0ab6b60f1f586bb086",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_extracted_optimized.log",
+      "bytes": 2611,
+      "sha256": "56fe2fa3dcf7bbfb268c1430e194898804ed70e01b2c7ff87000553ea94d9335",
+      "git_blob_sha1": "6f6b42fe3cc819d859a28a0ab6b60f1f586bb086",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_normal.json",
+      "bytes": 978,
+      "sha256": "a8ce10e2b9ec43415cc2f7b01ee4a78665e255bf25b1ff33d10813952ac75bc6",
+      "git_blob_sha1": "4034e184ad20413ca81576b691be81295bdb2466",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_normal.log",
+      "bytes": 2663,
+      "sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "git_blob_sha1": "a72bb27991f278c8d4be285f84d43b5d53f38a51",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_optimized.json",
+      "bytes": 978,
+      "sha256": "a8ce10e2b9ec43415cc2f7b01ee4a78665e255bf25b1ff33d10813952ac75bc6",
+      "git_blob_sha1": "4034e184ad20413ca81576b691be81295bdb2466",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_optimized.log",
+      "bytes": 2663,
+      "sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "git_blob_sha1": "a72bb27991f278c8d4be285f84d43b5d53f38a51",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/polynomial_regeneration.log",
+      "bytes": 123,
+      "sha256": "15c75ad4b4899f86484c3ebb889fb07ba4956effe0aa8743d69bd9a2e4b02fc3",
+      "git_blob_sha1": "6b35d296c48f4993170aacff8dd2746e8e3f7cae",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_extracted_normal.log",
+      "bytes": 423,
+      "sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f",
+      "git_blob_sha1": "58dd783147feefc6e702d74e63a6f8eb8310ec2c",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_extracted_optimized.log",
+      "bytes": 423,
+      "sha256": "17e15f6790ef9e64bc94da0cf62094070fc03281043397c06c899eb988a5265f",
+      "git_blob_sha1": "58dd783147feefc6e702d74e63a6f8eb8310ec2c",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_normal.json",
+      "bytes": 1407,
+      "sha256": "d993595d3a13b416d834f9dcbb8e93fcdc8e8a74bdc78234016c7a5e4090db66",
+      "git_blob_sha1": "75fa23767167c92b9aaea6bc645a3b73375557e3",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_normal.log",
+      "bytes": 469,
+      "sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da",
+      "git_blob_sha1": "b4d32e674ab0430655da9016e9c32c8a651a1053",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_optimized.json",
+      "bytes": 1407,
+      "sha256": "d993595d3a13b416d834f9dcbb8e93fcdc8e8a74bdc78234016c7a5e4090db66",
+      "git_blob_sha1": "75fa23767167c92b9aaea6bc645a3b73375557e3",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_optimized.log",
+      "bytes": 469,
+      "sha256": "787cf5b01ccc35fc82cc156096eacae71ac5455f33762ccb5ce7a398370817da",
+      "git_blob_sha1": "b4d32e674ab0430655da9016e9c32c8a651a1053",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/integration/quadratic_regeneration.log",
+      "bytes": 154,
+      "sha256": "b9feeb8fac1cbac5592216fe68a2de0de84e4b0b9a67166f5bcd11fb8fb2f210",
+      "git_blob_sha1": "61e34470de5c8a8dae29d3d8788e777dea1eb256",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/AUDIT_EVIDENCE.json",
+      "bytes": 21525,
+      "sha256": "434ff07de6388e9b66051dfa607b250a5a3172609786718da7b3f08fb0be266f",
+      "git_blob_sha1": "6ccb9e3c473e878c0aeaf322957a3e0e6e43c115",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/FINAL_COPY_AUDIT.md",
+      "bytes": 10987,
+      "sha256": "834e65e98e22ed51332163549e25f5dbd360e01a794e2f216e5d2976e67abe09",
+      "git_blob_sha1": "b8fa8a38df6382a0b1115223c087e74c3f5ca5b8",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/PUBLIC_COPY_LEDGER.json",
+      "bytes": 2789,
+      "sha256": "eb84133b408532866c3d823f54a81c6721b770cb32f755ecd20f680a512f0b20",
+      "git_blob_sha1": "a6198d6fb18366b4dc57b0722322828e2c5cbc52",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/VISUAL_QA.json",
+      "bytes": 4350,
+      "sha256": "738bfd22a1527d87a49712c03ca565022e5e038756fe244fa70324082294f014",
+      "git_blob_sha1": "201a59360db5af11755624bf33b0d56fea8a3dde",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/math_fidelity/MATHEMATICAL_FIDELITY_AUDIT.md",
+      "bytes": 13525,
+      "sha256": "0a3606d7a8066dfbc3b288b52b71e92df999c7732db835dc11247d19072432ac",
+      "git_blob_sha1": "93ff9f7ce1d0b4811e97d30a5667cee1d78bc4eb",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/verify_normal.log",
+      "bytes": 2663,
+      "sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "git_blob_sha1": "a72bb27991f278c8d4be285f84d43b5d53f38a51",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/polynomial/verify_optimized.log",
+      "bytes": 2663,
+      "sha256": "ff4907ab0d7b382165cf150da484d63cff425c7013977d98ca12be276cbd1cb8",
+      "git_blob_sha1": "a72bb27991f278c8d4be285f84d43b5d53f38a51",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_FINAL_COPY_AUDIT.md",
+      "bytes": 7727,
+      "sha256": "a8c8bf44161a011ae9b5e777cf3ce21ade2a0b74a0740aade223d2fe8c28bb4e",
+      "git_blob_sha1": "ece36a145faab49d648d6d302881b6e825facdef",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_FINAL_COPY_EVIDENCE.json",
+      "bytes": 24223,
+      "sha256": "a37de6b2dfe4ae6ddd8e0bec4d13381178bea5776145347b3c9c7a8c9c3ebb1f",
+      "git_blob_sha1": "2145b07345010daf7830127659e9386176d29138",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_FINAL_COPY_INVENTORY.json",
+      "bytes": 6627,
+      "sha256": "200d8dbb24c9cad20560a5f8e4b528c2ac9e5cf6c3849eb4fb08d8b65cd20763",
+      "git_blob_sha1": "c24f3d65fa32abedabb311d753f26b361d74c594",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_FINAL_COPY_SHA256SUMS",
+      "bytes": 500,
+      "sha256": "95591386364332b586ff45542873256874549f2fee6a24bf4952c696fd761a8f",
+      "git_blob_sha1": "f65b52205a05a01b9f841d136375f4446072e9a5",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_MATHEMATICAL_AUDIT.md",
+      "bytes": 11184,
+      "sha256": "74f235693ab2c867abb29892b3b61824e095c08fe4ad3c9ce3c98d6d0858505e",
+      "git_blob_sha1": "d16fce4eebf2364bf6e215d0647444f34672c1cd",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/2026-10-07-dimension-refinements-final-copy/quadratic/QUADRATIC_MATHEMATICAL_EVIDENCE.json",
+      "bytes": 5842,
+      "sha256": "2edf20ca8e91cdc71c05fa31d2aeeefeb413afe9a83db4c0f9069361857bf703",
+      "git_blob_sha1": "530aedb3e9388b24aa81a8d8dea77ee5929522eb",
+      "mode": "100644"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 37044,
+      "sha256": "12bc2e8ce0fab8bfdfbdbd52a5f6c8627a354524ce50eae9683d30f2a12f8d1f",
+      "git_blob_sha1": "b7f996bdf85769f9af26e556dfedbb7a096547bd",
+      "mode": "100644"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-07-dimension-refinements-v1.json"
+}

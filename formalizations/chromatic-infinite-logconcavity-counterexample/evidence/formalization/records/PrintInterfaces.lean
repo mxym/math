@@ -1,0 +1,16 @@
+import LogConcavityCounterexample
+#print ChromaticC17.C17
+#print SimpleGraph.Coloring
+#print ChromaticC17.IsChromaticPolynomial
+#print ChromaticC17.cyclePolynomial
+#print ChromaticC17.absCoefficients
+#print ChromaticC17.logConcavityOp
+#print ChromaticC17.logConcavityIterate
+#print ChromaticC17.InfinitelyLogConcave
+#print ChromaticC17.ChromaticInfiniteLogConcavityConjecture
+#check ChromaticC17.IsChromaticPolynomial.unique
+#check ChromaticC17.cyclePolynomial_isChromatic
+#check ChromaticC17.explicit_counterexample
+#check ChromaticC17.every_C17_chromatic_polynomial_fails
+#print axioms ChromaticC17.chromatic_infinite_logconcavity_conjecture_false
+#print axioms ChromaticC17.third_iterate_value

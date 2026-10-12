@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite ancillary worktree executions; not independent CI, Lean verification or certification of the analytic limit",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "source_files": 14,
+  "source_manifest_sha256": "3e70fe4b1facf37804d4f9613239e4ed49695b372de1c3ec97f6aa51a220b640",
+  "checks": [
+    {
+      "commands": [
+        "python3 check_mesoscopic.py",
+        "python3 -O check_mesoscopic.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "retained_report": "mesoscopic-checks.json",
+      "normal_output_sha256": "bab28ab15e4f775b9142be3805bb741589d2612b796538012e6e11c7b795cdbf",
+      "assertions_disabled_output_sha256": "bab28ab15e4f775b9142be3805bb741589d2612b796538012e6e11c7b795cdbf",
+      "outputs_identical": true,
+      "program_sha256": "51d6956159e9a04d00e2e033d268bd9c50f80e1494d92294ccc6c983b42f4103"
+    },
+    {
+      "commands": [
+        "python3 check_triangular.py",
+        "python3 -O check_triangular.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "retained_report": "triangular-checks.json",
+      "normal_output_sha256": "30e8b2d81c05f584014ac2d92285bd95aced9c0a00f586e91d7e3e19a7e1e805",
+      "assertions_disabled_output_sha256": "30e8b2d81c05f584014ac2d92285bd95aced9c0a00f586e91d7e3e19a7e1e805",
+      "outputs_identical": true,
+      "program_sha256": "42a3171b6d9d303a17d6fd804b8015a7268d33eda8b6ffef88989427e27f008d"
+    }
+  ],
+  "mathematical_status": "Working analytic proof of the unrestricted sharp excess-purity equivalent, uniform in all large dimension pairs; external review and formalization not claimed"
+}

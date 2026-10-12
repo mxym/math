@@ -1,0 +1,100 @@
+@Exists.{1} Nat fun (N : Nat) =>
+  @Exists.{1} (Matrix.{0, 0, 0} (Fin N) (Fin N) Int) fun (B : Matrix.{0, 0, 0} (Fin N) (Fin N) Int) =>
+    And (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) N)
+      (And (@Matrix.IsSymm.{0, 0} Int (Fin N) B)
+        (And
+          (@Matrix.PosDef.{0, 0} (Fin N) Real Real.instRing Real.partialOrder instStarRingReal
+            (@BapatRealExistence.realOfIntMatrix N B))
+          (And
+            (Not
+              (@Matrix.IsDiag.{0, 0} Int (Fin N)
+                (@MulZeroClass.toZero.{0} Int (@instMulZeroClassOfSemiring.{0} Int Int.instSemiring)) B))
+            (And
+              (@LT.lt.{0} Real Real.instLT
+                (@Polynomial.eval.{0} Real
+                  (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@LinearMap.{0, 0, 0, 0} Real Real
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                      (@RingHom.id.{0} Real
+                        (@Semiring.toNonAssocSemiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Polynomial.{0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                      (@Polynomial.{0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                      (@Semiring.toAddCommMonoid.{0}
+                        (@Polynomial.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                        (@Polynomial.semiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Semiring.toAddCommMonoid.{0}
+                        (@Polynomial.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                        (@Polynomial.semiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Polynomial.module.{0, 0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)) Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                        (@Semiring.toModule.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Polynomial.module.{0, 0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)) Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                        (@Semiring.toModule.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))))
+                    (@Polynomial.{0} Real
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                    (fun
+                        (x :
+                          @Polynomial.{0} Real
+                            (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))) =>
+                      @Polynomial.{0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                    (@LinearMap.instFunLike.{0, 0, 0, 0} Real Real
+                      (@Polynomial.{0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                      (@Polynomial.{0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                      (@Semiring.toAddCommMonoid.{0}
+                        (@Polynomial.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                        (@Polynomial.semiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Semiring.toAddCommMonoid.{0}
+                        (@Polynomial.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                        (@Polynomial.semiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Polynomial.module.{0, 0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)) Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                        (@Semiring.toModule.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@Polynomial.module.{0, 0} Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)) Real
+                        (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))
+                        (@Semiring.toModule.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing))))
+                      (@RingHom.id.{0} Real
+                        (@Semiring.toNonAssocSemiring.{0} Real
+                          (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))))
+                    (@Polynomial.derivative.{0} Real
+                      (@CommSemiring.toSemiring.{0} Real (@CommRing.toCommSemiring.{0} Real Real.commRing)))
+                    (@BapatFiniteRank.qPolynomial.{0} N Real Real.commRing (@BapatRealExistence.realOfIntMatrix N B))))
+                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+              (@Exists.{1} Rat fun (q₀ : Rat) =>
+                @Exists.{1} Rat fun (q₁ : Rat) =>
+                  And (@LT.lt.{0} Rat Rat.instLT (@OfNat.ofNat.{0} Rat (nat_lit 0) (@Rat.instOfNat (nat_lit 0))) q₀)
+                    (And (@LT.lt.{0} Rat Rat.instLT q₀ q₁)
+                      (And
+                        (@LT.lt.{0} Rat Rat.instLT q₁ (@OfNat.ofNat.{0} Rat (nat_lit 1) (@Rat.instOfNat (nat_lit 1))))
+                        (@LT.lt.{0} Real Real.instLT
+                          (@BapatRankTwo.qPermanent.{0} Real Real.instCommSemiring N
+                            (@BapatRealExistence.realOfIntMatrix N B) (@Rat.cast.{0} Real Real.instRatCast q₁))
+                          (@BapatRankTwo.qPermanent.{0} Real Real.instCommSemiring N
+                            (@BapatRealExistence.realOfIntMatrix N B) (@Rat.cast.{0} Real Real.instRatCast q₀))))))))))

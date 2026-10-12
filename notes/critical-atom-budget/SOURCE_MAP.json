@@ -1,0 +1,83 @@
+{
+  "format": "critical-atom-budget-source-map-v1",
+  "date": "2026-10-08",
+  "unchanged_inputs": [
+    {
+      "source_filename": "PROOF.md",
+      "public_path": "PROOF.md",
+      "bytes": 22652,
+      "sha256": "88d9971c062414b1637806b0b61248585f1132c6082783df227266fe7122996e",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper.tex",
+      "public_path": "paper.tex",
+      "bytes": 19500,
+      "sha256": "208d9643aec88d143c26028fb616144c7cc5cd2e0c3822265b413ddee0c4d030",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper.pdf",
+      "public_path": "paper.pdf",
+      "bytes": 353567,
+      "sha256": "d117df45635753ce0ad88d82dbff2854803f2c558adaaf82e06bdf7cfb28dbfc",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "PARENT_INDEPENDENT_REVIEW.md",
+      "public_path": "review/PARENT_INDEPENDENT_REVIEW.md",
+      "bytes": 3405,
+      "sha256": "f0a135768a3efd6d86772dd689636f7fa264fda8168b1239b99538dd5e959d1c",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "FINAL_COPY_REVIEW.json",
+      "public_path": "review/FINAL_COPY_REVIEW.json",
+      "bytes": 1140,
+      "sha256": "a94c88cd8a1d97c1717eabd6edb8fe355bd564fd9c5d9a889cb6a91b72e0cd5a",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper-v1.tex",
+      "public_path": "history/paper-v1.tex",
+      "bytes": 19476,
+      "sha256": "fb526952185098b61c90f89bc4f5b4e47a0f4300ae9008949fdabfafeeb9395b",
+      "byte_identical": true
+    },
+    {
+      "source_filename": "paper-v1-to-final.diff",
+      "public_path": "history/paper-v1-to-final.diff",
+      "bytes": 979,
+      "sha256": "aab833916f148174989c9c29588b539990614a809e49cb8d76fb1f5114008321",
+      "byte_identical": true
+    }
+  ],
+  "public_derivatives": {
+    "README.md": "New publication guide superseding the earlier mixed-topic, pre-compilation checkpoint README; no mathematical source edits.",
+    "verify.py": "Frozen-byte, exact-diff and optional isolated PDF-build checker. PDF build support adapted from the separately published unified-avoidance manuscript checker. Not a proof verifier.",
+    "build.sh": "Command wrapper invoking the public checker with a fresh external PDF output directory."
+  },
+  "omitted_inputs": [
+    {
+      "filename": "README.md",
+      "sha256": "6aa10c9bd24bd247b0fb22cda4a8fac7a436403e166b5e23717f9d625cff267d",
+      "reason": "Earlier mixed-topic worker checkpoint; superseded by the public guide, not redistributed."
+    },
+    {
+      "filename": "pdf-build/final-run2.txt",
+      "sha256": "9ca6f926fcdbf3ef75a40a268d6c9204736dca1d1f51fc9fb2ddb036f1ab1e1b",
+      "reason": "Original build log contains a machine-local font-cache path; the public integration summary records the repeatable result without private paths."
+    },
+    {
+      "filename": "MATRIX_TECHNICAL_DEDUCTION.md",
+      "reason": "Unrelated matrix research; outside this note."
+    },
+    {
+      "filename": "DIRECTION_BOUNDARIES.md",
+      "reason": "Unrelated research planning; outside this note."
+    }
+  ],
+  "authorship": "Original blank TeX author field preserved; no authorship assignment.",
+  "license": "No new blanket license is assigned.",
+  "review_scope": "Written theorem with explicit imported potential premise (P); no Lean verification, human peer review or novelty certification."
+}

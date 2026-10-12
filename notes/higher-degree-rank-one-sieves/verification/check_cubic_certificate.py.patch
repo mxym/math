@@ -1,0 +1,73 @@
+--- original-verifiers/check_cubic_certificate.py
++++ check_cubic_certificate.py
+@@ -1,5 +1,8 @@
+ #!/usr/bin/env python3
+-"""Independent exact verifier for the explicit cubic F6 lift certificate.
++"""Author exact verifier for the explicit cubic F6 lift certificate.
++
++Public derivative: strict integer metadata validation and extra schema controls.
++The original verifier is preserved in original-verifiers/.
+ 
+ Uses only integer arithmetic and the standard library. Does not import a search
+ or certificate generator. All input checks remain active under python -O.
+@@ -84,7 +87,52 @@
+     return a**3 + 2*b**3 + 4*c**3 - 6*a*b*c
+ 
+ 
++def exact_integer_metadata(data):
++    """Reject JSON booleans/floats even when Python numeric equality holds."""
++    require(type(data) is dict, 'Expected a certificate object')
++    for field in ('generator_norms', 'allowed_states'):
++        value = data[field]
++        require(type(value) is list and all(is_int(x) for x in value),
++                'Expected exact integer list: ' + field)
++    require(is_int(data['quotient_modulus']), 'Expected exact integer modulus')
++    components = data['components']
++    require(type(components) is list and all(
++        type(c) is list and all(is_int(x) for x in c) for c in components),
++        'Expected exact integer component states')
++    summary = data['summary']
++    require(type(summary) is dict and set(summary) == {
++        'allowed_count', 'directed_edge_count', 'component_sizes',
++        'maximum_component_size'}, 'Wrong summary fields')
++    for field in ('allowed_count', 'directed_edge_count', 'maximum_component_size'):
++        require(is_int(summary[field]), 'Expected exact integer statistic: ' + field)
++    sizes = summary['component_sizes']
++    require(type(sizes) is list and all(is_int(x) for x in sizes),
++            'Expected exact integer component sizes')
++
++
++def metadata_negative_cases(data):
++    """The public derivatives' additional strict-schema controls."""
++    import copy
++    cases = []
++    def changed(change):
++        d = copy.deepcopy(data)
++        change(d)
++        cases.append(d)
++    changed(lambda d: d['allowed_states'].__setitem__(0, True))
++    changed(lambda d: d['allowed_states'].__setitem__(0, float(d['allowed_states'][0])))
++    changed(lambda d: d['generator_norms'].__setitem__(0, 2.0))
++    changed(lambda d: d['generator_norms'].__setitem__(0, True))
++    changed(lambda d: d.__setitem__('quotient_modulus', float(d['quotient_modulus'])))
++    changed(lambda d: d['components'][0].__setitem__(0, float(d['components'][0][0])))
++    changed(lambda d: d['components'][0].__setitem__(0, True))
++    changed(lambda d: d['summary'].__setitem__('allowed_count', float(d['summary']['allowed_count'])))
++    changed(lambda d: d['summary'].__setitem__('directed_edge_count', True))
++    changed(lambda d: d['summary']['component_sizes'].__setitem__(0, float(d['summary']['component_sizes'][0])))
++    return cases
++
++
+ def verify(data):
++    exact_integer_metadata(data)
+     require(data['format'] == 'cubic_crt_lift_certificate_v1', 'Wrong format')
+     require(data['order'] == {'basis': ['1','theta','theta^2'], 'relation':'theta^3=2'}, 'Wrong order')
+     generators = [vec(x) for x in data['generators']]
+@@ -186,6 +234,7 @@
+     d = copy.deepcopy(data); d['lift_sections'][0]['state'] = True; cases.append(d)
+     d = copy.deepcopy(data); d['steps'].append([0,1,1]); cases.append(d)
+     d = copy.deepcopy(data); d['enlarged_step_obstruction']['walk'][2] = [1,1,2]; cases.append(d)
++    cases.extend(metadata_negative_cases(data))
+     for i, d in enumerate(cases):
+         try:
+             verify(d)

@@ -1,0 +1,7 @@
+${ROUND5_AUDIT}/replay/audit/EmptyKernelMiniCorrupt.lean:4:0: error: while replaying declaration 'Nat.add_comm':
+(kernel) declaration type mismatch, 'Nat.add_comm' has type
+  Nat
+but it is expected to have type
+  (n m : Nat) →
+    @Eq Nat (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n m)
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) m n)

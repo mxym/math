@@ -1,0 +1,135 @@
+\section{Cone volume and a ray-collapsing projection}
+\label{sec:cones}
+\begin{lemma}[Finite apex count]\label{lem:cone}
+Let $N,m$ be positive integers. Let $B$ be a compact convex
+$(N-1)$-body in the affine hyperplane $\ell=1$ of $\R^N$, where $\ell$
+is linear, and suppose $C=\conv(0,B)$ is full dimensional.
+For $z_1,\ldots,z_m\in B$ and $0\le\rho\le s_j\le1$ with $\rho<1$, set
+\[
+ L=\conv(B,s_1z_1,\ldots,s_mz_m).
+\]
+Then
+\begin{equation}\label{eq:cone}
+ \frac{|L|}{|C|}\le1-\rho^{\min(m,N)}.
+\end{equation}
+The exponent and constant are sharp.
+\end{lemma}
+\begin{proof}
+If $\rho=0$, the assertion is $L\subset C$. For $N=1$, the base is a point
+and the interval length ratio is at most $1-\rho$. We may thus suppose
+$N\ge2$ and $0<\rho<1$. Since
+\[
+ s_jz_j=\frac{1-s_j}{1-\rho}\rho z_j+
+          \frac{s_j-\rho}{1-\rho}z_j,
+\]
+we have $L\subset\conv(B,\rho Z)$, where
+$Z=\conv(z_1,\ldots,z_m)$ and $h=\dim Z\le\min(m-1,N-1)$.
+Put $q=N-1$. At height $\ell=s\in[\rho,1]$, the latter hull has section
+\begin{equation}\label{eq:section}
+ aB+bZ,\qquad a=\frac{s-\rho}{1-\rho},\qquad
+ b=\frac{\rho(1-s)}{1-\rho}.
+\end{equation}
+To interpret its $q$-volume, choose $b_0\in B$ and subtract $s b_0$.
+Since $a+b=s$, the translated section is
+$a(B-b_0)+b(Z-b_0)$ in $\ker\ell$.
+
+Normalize mixed volume by $V(B[q])=|B|_q$. The classical volume polynomial is
+\begin{equation}\label{eq:mv}
+ |aB+bZ|_q=\sum_{j=0}^q\binom qj a^{q-j}b^j V(B[q-j],Z[j]).
+\end{equation}
+Translation invariance and monotonicity give
+$0\le V(B[q-j],Z[j])\le |B|_q$. For $j>h$ these terms vanish:
+translate $Z$ into an $h$-dimensional linear subspace; a product box bounds
+$|B+tZ|_q$ by $O(t^h)$ for $t\ge1$, and nonnegativity of the polynomial
+coefficients forces every higher coefficient to vanish. This also follows
+from the essential-collection criterion in~\cite[Theorem 2.2]{BS}.
+
+The substitution $s=\rho+(1-\rho)v$ gives
+\[
+ \binom qj\int_\rho^1a^{q-j}b^j\,ds
+ =(1-\rho)\rho^j\binom qj\int_0^1v^{q-j}(1-v)^j\,dv
+ =\frac{(1-\rho)\rho^j}{q+1}.
+\]
+The normal-height Jacobian is $1/\norm\ell$, while
+$|C|=|B|_q/(N\norm\ell)$. Consequently
+\[
+ \frac{|L|}{|C|}\le(1-\rho)\sum_{j=0}^h\rho^j
+ =1-\rho^{h+1}\le1-\rho^{\min(m,N)}.
+\]
+For sharpness when $m\le N$, take $C=\conv(0,e_1,\ldots,e_N)$,
+$B=\conv(e_1,\ldots,e_N)$, and $z_j=e_j$. The omitted region has the
+volume of the simplex with intercepts $\rho$ on the first $m$ coordinate
+rays and one on the others, namely $\rho^m|C|$. For $m>N$, include all
+$N$ base vertices and add redundant points; the omitted volume is
+$\rho^N|C|$.
+\end{proof}
+
+\begin{remark}[Factorial convention]\label{rem:factorial}
+With the diagonal normalization above, the coefficient of
+$\lambda_1\cdots\lambda_q$ in
+$|\lambda_1K_1+\cdots+\lambda_qK_q|_q$ is
+$q!V(K_1,\ldots,K_q)$. Grouping repeated factors gives exactly the binomial
+coefficient in \eqref{eq:mv}. The coefficient statement in
+\cite[Theorem 2.1, version 2]{BS} appears to omit this factorial relative
+to that paper's definition (1.1). We use its classical background and
+multilinearity with the normalization stated here, not that coefficient
+statement literally. At $q=2$ and $K_1=K_2=B$, the cross coefficient of
+$(\lambda_1+\lambda_2)^2|B|_2$ is already $2|B|_2$.
+\end{remark}
+
+\begin{lemma}[Projection collapse]\label{lem:collapse}
+Let $d\ge2$ and $r\ge1$ be integers. Let $P$ be a full-dimensional
+$d$-simplex, let $K\subset P$ be a full-dimensional polytope, and fix a
+vertex $v$ of $P$ with opposite facet $B$. Write $\lambda_v$ for its
+$P$-barycentric coordinate and
+$\rho=1-\max_{x\in K}\lambda_v(x)$. If at most $r+1$ vertices of $K$
+lie outside $B$, some unit direction $u$ parallel to $B$ satisfies
+\begin{equation}\label{eq:collapse}
+ \frac{\pi_P(u)-\pi_K(u)}{\pi_P(u)}\ge\rho^{\min(r,d-1)}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $\rho=0$ the result is immediate. Full dimensionality gives $\rho<1$.
+Translate $v$ to zero and set $\ell=1-\lambda_v$, a linear functional
+with $\ell(B)=1$. List the off-base vertices as $q_1,\ldots,q_j$,
+where $1\le j\le r+1$. Uniquely,
+\[
+ q_i=s_i z_i,\qquad z_i\in B,\qquad \rho\le s_i<1.
+\]
+Thus $K\subset\conv(B,q_1,\ldots,q_j)$.
+If $j\ge2$ and $z_1\ne z_2$, project orthogonally along $z_1-z_2$.
+Their projected base points coincide. Of the projected $q_1,q_2$, retain
+the one with the smaller $s_i$; the other lies between it and the common
+projected base point. If $z_1=z_2$, the same redundancy exists before
+projection, and any nonzero base-parallel direction can be chosen.
+If $j=1$, choose any such direction and retain this single point.
+
+In every case at most $m\le r$ inner apex points remain. The functional
+$\ell$ descends through the projection. The projected $P$ is a genuine
+$(d-1)$-cone with a $(d-2)$-dimensional base; all retained depths are at
+least $\rho$. Lemma~\ref{lem:cone} gives missing fraction at least
+$\rho^{\min(m,d-1)}\ge\rho^{\min(r,d-1)}$. Normalize the projection
+direction to obtain the required unit $u$.
+\end{proof}
+
+\begin{corollary}[Actual facet incidence]\label{cor:caps}
+Let $d\ge2$, $r\ge1$ be integers and $k=\min(r,d-1)$. Suppose $K\subset P$,
+where $P$ is a $d$-simplex and $K$ has at most $d+1+r$ vertices. Assume
+every facet hyperplane of $P$ is the hyperplane of an actual facet of $K$.
+If, for $0\le\delta\le1$,
+\[
+ \pi_P(u)-\pi_K(u)\le\delta\pi_P(u)\qquad(\norm u=1),
+\]
+then every $P$-coordinate satisfies
+\begin{equation}\label{eq:caps}
+ \max_{x\in K}\lambda_i(x)\ge1-\delta^{1/k}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+An actual facet of a full-dimensional $d$-polytope contains at least $d$
+vertices. Thus at most $r+1$ vertices of $K$ lie outside any specified
+facet of $P$. Apply Lemma~\ref{lem:collapse} at each opposite vertex.
+\end{proof}
+Mere support contact does not give this count: a supporting plane can touch
+only one vertex. The next two sections construct $P$ from actual facets,
+rather than assume that a limiting support law supplies this property.

@@ -1,0 +1,2985 @@
+{
+  "scope": "Independent full sharp Main audit; excludes generated objects and this self-referential inventory",
+  "files": [
+    {
+      "path": "INCOMPLETE_DELIVERY_BLOCKER.md",
+      "bytes": 1922,
+      "sha256": "2a101829564669112d9a8777069b68e48819ac24927f337f79a536972798610c"
+    },
+    {
+      "path": "REPRODUCE.md",
+      "bytes": 2869,
+      "sha256": "f6da5285a731704b122c30910f1ce974fd17868f365533c5d415d597cfc2c3d8"
+    },
+    {
+      "path": "TECHNICAL_REPORT.md",
+      "bytes": 9904,
+      "sha256": "a80f9f362390667bd1eee82a439b55674290a4e660adfa6a7c0edfd0b141af6c"
+    },
+    {
+      "path": "checks-driver.txt",
+      "bytes": 330,
+      "sha256": "62987e648b6c684fb195ee8651135ddcfa5491add21ac5c3e34b0403e680dc30"
+    },
+    {
+      "path": "checks/FINAL_PASS.json",
+      "bytes": 910,
+      "sha256": "aed0e8e20a734bd5494a3d463067452fb0f4514c565a7a82154089b8fa214f46"
+    },
+    {
+      "path": "checks/IndependentPublicAudit.lean",
+      "bytes": 94941,
+      "sha256": "6fe8ed6ce69192c497a4c290f271ae4c70864f8b4683a639271cd5408b5297dd"
+    },
+    {
+      "path": "checks/IndependentPublicAudit.result.json",
+      "bytes": 205,
+      "sha256": "55d6469b157f9657482d42afd999d08ed78d8fc44e58afbead9c8a5415a4f8b3"
+    },
+    {
+      "path": "checks/KernelNegativeControl.lean",
+      "bytes": 1327,
+      "sha256": "118066285c05980a650d15c1e1450809b4d10a8f20648b480cff263bab96b06d"
+    },
+    {
+      "path": "checks/KernelNegativeControl.result.json",
+      "bytes": 204,
+      "sha256": "3a57d33622b560d219a76189532b739b7690d647280538d5d9784bf9fa20a76c"
+    },
+    {
+      "path": "checks/LiteralPositiveControls.lean",
+      "bytes": 2109,
+      "sha256": "208d9226d2f6b87fc7a29d623f610ed71295ee8cfd788fc95b2d57ae7e2e68c0"
+    },
+    {
+      "path": "checks/LiteralPositiveControls.result.json",
+      "bytes": 206,
+      "sha256": "1bef6064f12a3f9dafef9d27e6f2c45930a52de9c30fa5f999e251b7ed388733"
+    },
+    {
+      "path": "checks/NegativeAbbreviationAsProof.lean",
+      "bytes": 114,
+      "sha256": "8d66b4fc0fa4928bc000f078e2f2579bef8f0c39c2eb0b30889724117b989f11"
+    },
+    {
+      "path": "checks/NegativeAbbreviationAsProof.result.json",
+      "bytes": 208,
+      "sha256": "9275b17eb2f1f9e32ccc21e5e1d157304422e8265e71af70d9919fc59e0a5ef7"
+    },
+    {
+      "path": "checks/NegativeConstantOmission.lean",
+      "bytes": 358,
+      "sha256": "272dae4b75223d43a64b0317ef1c240ddf92f1b25c7725981431266efdb64757"
+    },
+    {
+      "path": "checks/NegativeConstantOmission.result.json",
+      "bytes": 207,
+      "sha256": "25998a1973e774cef826f0f01c1dea2afc345ebebb9c11252ff6998a6de88513"
+    },
+    {
+      "path": "checks/NegativeWrongQuantifier.lean",
+      "bytes": 442,
+      "sha256": "78451438060f81c84ef2dafe5a1b8268e9bb3f09f2a433accd56b1194a1f830d"
+    },
+    {
+      "path": "checks/NegativeWrongQuantifier.result.json",
+      "bytes": 204,
+      "sha256": "39afffb71c3a1d4bf6a0a9fa646411deb6596ab7b3b7c089a47898739b9c9727"
+    },
+    {
+      "path": "checks/OwnedInventory.lean",
+      "bytes": 10236,
+      "sha256": "afd517120c58f03357ce19b7333f05fd1ec0499e29d618a6676d5a82b72c7a2a"
+    },
+    {
+      "path": "checks/OwnedInventory.result.json",
+      "bytes": 197,
+      "sha256": "a6169d8964f9f86b7ecf01c8d074c2a6031f79e4a17e35eb4d785e6f942f1214"
+    },
+    {
+      "path": "checks/ReplayAllSafeOwned.lean",
+      "bytes": 10986,
+      "sha256": "0b3d70fad71368e2111ea031bfdc2a4305b5430b2373151a45c8328b5e2703a7"
+    },
+    {
+      "path": "checks/ReplayAllSafeOwned.result.json",
+      "bytes": 201,
+      "sha256": "5b7f5431cfdc9cf186ed6a69674de85cde9a7da8d69d2360e8a22980c76f2ec2"
+    },
+    {
+      "path": "checks/ReplayLiteralMain.lean",
+      "bytes": 11071,
+      "sha256": "22042d2685f61b63abdb596081adba1f7b69370c980d4951c863a149861181f8"
+    },
+    {
+      "path": "checks/ReplayLiteralMain.result.json",
+      "bytes": 200,
+      "sha256": "83b1bd6db5f059bbd007c2f33474435c513c0c95b160a779c17399d2992b6f8b"
+    },
+    {
+      "path": "checks/build-progress-summary.json",
+      "bytes": 43530,
+      "sha256": "fc548932dd047b5e5c758dd8a7bdc26ebb4baa34b2c1bb6607215ce0f4cf113a"
+    },
+    {
+      "path": "checks/build-progress.json",
+      "bytes": 40750,
+      "sha256": "5b5e59ceb365fdef994e0c99d62f0c610159186849f6186ff6f828f613abdc40"
+    },
+    {
+      "path": "checks/build.json",
+      "bytes": 43499,
+      "sha256": "a2a1f7494fa4be134302e5e97a5bff5a09655d6126153103d5f27a0693063e53"
+    },
+    {
+      "path": "checks/control-sources-before-portability.json",
+      "bytes": 902,
+      "sha256": "8277e238ec9f0be90567ead344381c481dfdd035ada757663887b0d7d43f2777"
+    },
+    {
+      "path": "checks/environment.json",
+      "bytes": 1601,
+      "sha256": "00266f1d31d072a31be97fad4824fbbd3a5c286571664413c1f257f7ce64efa5"
+    },
+    {
+      "path": "checks/fresh-regular-owned-outputs.json",
+      "bytes": 12737,
+      "sha256": "77c972e58741ce10888b7372950df58d3f5f939610235c2bef472ea479639774"
+    },
+    {
+      "path": "checks/import-closure.json",
+      "bytes": 2737863,
+      "sha256": "f5b6662fe11f7f8a4e931edbdd79892c87a794d681c94d6babd97a86d5066b83"
+    },
+    {
+      "path": "checks/independent-pins.json",
+      "bytes": 1496,
+      "sha256": "99671a4bb29b98c92a3b12e4974b6a7b92d274a654f275b48f4297c56557e82a"
+    },
+    {
+      "path": "checks/input-integrity.json",
+      "bytes": 29243,
+      "sha256": "2eb7a17a44689bd51002f3b565b37e737d8360c8357e3e32b23266e0acaacbbc"
+    },
+    {
+      "path": "checks/main-owned-dependency-closure.json",
+      "bytes": 57171,
+      "sha256": "e9fac7738b1973c40c06a2e4139b894f5f333078cf5cd0aa31a9301742d8cc8b"
+    },
+    {
+      "path": "checks/missing-dependencies.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "checks/missing-owned-imports.json",
+      "bytes": 142,
+      "sha256": "1a37d62bc1db6237fa4cd59c536e5e90f6b99f5e8161a82d035be17f2b6d0140"
+    },
+    {
+      "path": "checks/original-definition-identities.json",
+      "bytes": 1066,
+      "sha256": "269f1632d98b21ac634e7907a93756ddb02705da85a7c872ec082a75b7da772a"
+    },
+    {
+      "path": "checks/owned-declarations.json",
+      "bytes": 1358160,
+      "sha256": "64085e9c7ec9192a779b6d68ee25d0e3bf2777ad63ddc6112bb83a57aa167c1d"
+    },
+    {
+      "path": "checks/owned-source-set.json",
+      "bytes": 13212,
+      "sha256": "3949db5376c550186c5815099530fd49dc8a809b158f6faaa9204c45e9980631"
+    },
+    {
+      "path": "checks/ownership-summary.json",
+      "bytes": 144,
+      "sha256": "2bad9e952930655f163b140778e560236f685449b29bf022e10ba3a9da93f915"
+    },
+    {
+      "path": "checks/post-audit-pins.json",
+      "bytes": 923,
+      "sha256": "65f01a15c9b8af32d923c74416810b2088f2768c1c92583ea6e76eb770f1bfe4"
+    },
+    {
+      "path": "checks/public-axioms.json",
+      "bytes": 93855,
+      "sha256": "921408de11f7989eaa17e15caec8921d57977a64a73f9601d9912fc95b235755"
+    },
+    {
+      "path": "checks/source-public-theorems.json",
+      "bytes": 40473,
+      "sha256": "7f56bb4bde68dc8cc2f82215986fe9770983251c6f1ded20bd15e0a0fd77bee1"
+    },
+    {
+      "path": "checks/unresolved-source-closure.json",
+      "bytes": 54,
+      "sha256": "29958b724eeafad1bfb99eb29a3e7b046ec26b0e5f3a37ae582f43e807904076"
+    },
+    {
+      "path": "composed-source/README.md",
+      "bytes": 4595,
+      "sha256": "24353bc458cefa8b827618981b5cf99b69ea7445cfbc0acfad6d4618e391b799"
+    },
+    {
+      "path": "composed-source/evidence/ActualFiniteEnclosingRadialCap-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/ActualNormalizedDirectionalRoundness-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/FiniteRadialSupportScale-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/OriginalRadialScale-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/PolarSimplexConstruction-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/SharpMainRetentionAssembly-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/SharpUpperMain-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/VerifiedPyramidMomentBridge-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/additive141-signatures-and-axioms.txt",
+      "bytes": 123072,
+      "sha256": "cc1435b12c4e7dac47935b6da417c17efd8941edf4614ec8fc371c03585847dc"
+    },
+    {
+      "path": "composed-source/evidence/incoming-compatible-source-build.json",
+      "bytes": 8203,
+      "sha256": "be3d37017b1466ff9324aabade056d9f2f6b13ab8acd61b6293a4b5b1b2d98dc"
+    },
+    {
+      "path": "composed-source/evidence/incoming-source-materialization.json",
+      "bytes": 5672,
+      "sha256": "6b2ed2378d7545d24c015047f82a17f1487657db0a0d89f049f4f28daa79c578"
+    },
+    {
+      "path": "composed-source/evidence/independent-final-Main-verification.json",
+      "bytes": 706,
+      "sha256": "7a99601aed613b82d8cf1399c68a573925a222ca606d87ee5f4ea13c153376b6"
+    },
+    {
+      "path": "composed-source/evidence/portable-main-replay-verification.json",
+      "bytes": 1563,
+      "sha256": "af6f7ce91d91bce6affc7825ae1a66866db0804501a49f934043fc4ea806a4e4"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ActualFiniteEnclosingCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ActualFiniteEnclosingRadialCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ActualNormalizedDirectionalRoundness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ActualSupportFirstVariationTest.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.CenteredAtomCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ConditionalPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.FiniteHalfspaceCenteredCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.FiniteMinkowskiScaleGate.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.FiniteRadialSupportScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.MainTarget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.OriginalRadialScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.PolarSimplexConstruction.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.ProjectionScaleAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.PyramidApproximationLimits.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.SameWitnessOriginalQBudget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.SharpConstantGates.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.SharpMainRetentionAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.SharpUpperMain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.SupportScaleCapAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/replay-Entry005.VerifiedPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/evidence/source-manifest.json",
+      "bytes": 93633,
+      "sha256": "7c4f3dc1e9422ed86de72b38c7d906a775f61ff0cca07c059bfb09fc4465e1d6"
+    },
+    {
+      "path": "composed-source/evidence/upper-main-audit-verification.json",
+      "bytes": 4301,
+      "sha256": "37bfbf6020a04765c2bab9748ab21fbea8c248fc3c91e88d4777343ed97b2625"
+    },
+    {
+      "path": "composed-source/evidence/upper-main-signatures-and-axioms.txt",
+      "bytes": 40609,
+      "sha256": "d6082a7cc93d2d30357adba67ad295e704a3db044631e15d3864d422c5f8e2e8"
+    },
+    {
+      "path": "composed-source/evidence/written-Main-Library-readback-verification.json",
+      "bytes": 231,
+      "sha256": "458d4a0f2a859555279a0f338f50b3e25a9a0d649d99556702fa767776f410e3"
+    },
+    {
+      "path": "composed-source/formal/Entry005.lean",
+      "bytes": 802,
+      "sha256": "e90d22f26bd26535c6bed987eb152f543b6fc99a105d90e7d5dd608e5888181c"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualAssignmentAssembly.lean",
+      "bytes": 7931,
+      "sha256": "f800056836ecfa3003904edf1c6e07da010c8eb736fe08ef71e384b3bfe9e196"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualBodyConeLaw.lean",
+      "bytes": 6601,
+      "sha256": "9beb3d967d7fe11d6fdf729f981f64551810501e9d1ae0579172c148fd8fa08a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualBodyHorizontalMoment.lean",
+      "bytes": 6040,
+      "sha256": "b9a6f2488cfd10d0c702b62f3821a204ff14cb225b7fad8b05d48d78b97fdbb8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualBodyJointConeInterface.lean",
+      "bytes": 3742,
+      "sha256": "02670efa0eb6d2dc756ca82d7d70bb9c252796cd1e987f308bdfe9a6aaddbffd"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualBodyPolarBoundary.lean",
+      "bytes": 11158,
+      "sha256": "8490fea3abff416fb36519d348b0a86fc8344611cfd84995b8bb450faea4ce2d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualFiniteEnclosingCap.lean",
+      "bytes": 3922,
+      "sha256": "59aec918b77014ec2ff9addac1dcbac9098373fa74adb091d6c82e37616a4280"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualFiniteEnclosingRadialCap.lean",
+      "bytes": 4304,
+      "sha256": "456d37797841537ad517326af746ecfbb2b5374b1e53abaf98e784427cc0b9cd"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualNormalizedDirectionalRoundness.lean",
+      "bytes": 5395,
+      "sha256": "977e171b7893c632dfb8560c94f55cf3a1f117a2c7fe98d558538a363864cd9b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualPyramidAssignment.lean",
+      "bytes": 3875,
+      "sha256": "f0b257a5eefddaaec8e1812f95b2d36b27838654a0ba984972d02c026b02bdae"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualPyramidDefect.lean",
+      "bytes": 6629,
+      "sha256": "a3cf5e3c3a43605677071dc29d9a0de537ee89847950a4ede8baa77bd0fbd32c"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualPyramidJointCone.lean",
+      "bytes": 4888,
+      "sha256": "7bd5e52c4b0d17aacf278bf1ddcb60a572959949fd2a8b2e5f565a26ed31f49c"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualPyramidMoment.lean",
+      "bytes": 9940,
+      "sha256": "e80e5764f5cf36f7ece9d1ae0090b4da0a8863ffa817b08eb3c7176597f718a2"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ActualSupportFirstVariationTest.lean",
+      "bytes": 15117,
+      "sha256": "49dfb7b45fca1f9188cc27f88999c1dd50e7344d0f01b05959f2f080a23df426"
+    },
+    {
+      "path": "composed-source/formal/Entry005/AffineNormalization.lean",
+      "bytes": 13072,
+      "sha256": "0eb042e579af047c75873373afe2f50eb72286c64d25ab5cf62c594dde6f89b8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/AffinePyramid.lean",
+      "bytes": 7463,
+      "sha256": "64d064ae5c246893007676993de570f44274ac2b20ff9b01854e3c54ad6af23f"
+    },
+    {
+      "path": "composed-source/formal/Entry005/AnchorCoordinates.lean",
+      "bytes": 10304,
+      "sha256": "19abf1208fb0a6ef166cb199a564341ced733531eb2cc10947ca19f41a7684f3"
+    },
+    {
+      "path": "composed-source/formal/Entry005/AnchorSelection.lean",
+      "bytes": 4221,
+      "sha256": "f3b318d527c94e60dba9fe814b2721e8415defab6e1f6fdae2fe55081973f3f0"
+    },
+    {
+      "path": "composed-source/formal/Entry005/AssignmentKernel.lean",
+      "bytes": 8000,
+      "sha256": "407f1608600f9ef093ce129a171075a7c8b578df74b9770af6c89eac83a2221b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/BallVolume.lean",
+      "bytes": 3551,
+      "sha256": "dd55e65e1dc1bf010af5b3e3ee2183e447c4b5970a1bb3f5d9866414d650f609"
+    },
+    {
+      "path": "composed-source/formal/Entry005/Cap.lean",
+      "bytes": 6873,
+      "sha256": "b3f11c2e21211a456dfa5dfffd45373fd80378daad71f27a54f75da4002fe41e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CenteredAtomCorrection.lean",
+      "bytes": 19726,
+      "sha256": "e3f9d1d3bd2fe117bbc932bb6aecbffe2a1a873f6f9a3756722485bede55d4cb"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CentroidMaximumBound.lean",
+      "bytes": 3253,
+      "sha256": "5f978ad4e7cb5c472989309631350688b2822f1f832b79ad35d94c0cfdff9b07"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ClippedAssignmentKernel.lean",
+      "bytes": 6215,
+      "sha256": "d37d72cf0c98c63383c9866d2c21028b1dc2c476c87da11a919acb6773b86816"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CompactBallConeLaw.lean",
+      "bytes": 13887,
+      "sha256": "9dc249629b52333236ac8f1c2bd9e870c6d06042e6165ab8e5a9cac1d9ed3f8d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CompactIidMomentContinuity.lean",
+      "bytes": 11445,
+      "sha256": "68fe3e0db9563021f6bd44f8ba251eeef493cf35b593dac936ed343778fe0109"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CompactProbabilitySubsequence.lean",
+      "bytes": 1859,
+      "sha256": "ea394b5139d8d668835b38f73fdfc9f64fa3fb1e2c3892bee392cc601450415e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ConditionalPyramidMomentBridge.lean",
+      "bytes": 19837,
+      "sha256": "94d18fa01ec64772d63cf5fb38a0044bade60d9a733b186a57e2bbebd84245f4"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ConeLawFinite.lean",
+      "bytes": 13268,
+      "sha256": "f7358fee0d865c1c404d9f4d4244a5bfe717a19eda6e177a891c4088aa1ba6ca"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ConeLawGeometry.lean",
+      "bytes": 7703,
+      "sha256": "038de63347d1b1b2b6ea0251cae3888b0237b629bcbe1169bba8ea1e9dc2e5a5"
+    },
+    {
+      "path": "composed-source/formal/Entry005/Constants.lean",
+      "bytes": 2770,
+      "sha256": "b3cdc026d3b5be2f495e8613bd98f36408b6ece56811adc1b562994fc447425e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/CovarianceConditioning.lean",
+      "bytes": 4832,
+      "sha256": "0d31a0d0adc323e62740ab060a5c0c51c30eb76487df954541565da3ff7057f9"
+    },
+    {
+      "path": "composed-source/formal/Entry005/DeterminantMoment.lean",
+      "bytes": 8760,
+      "sha256": "83fa28271519bc6a25cd9e58e9922a04375476fc16e5e051a06ca640ae976d73"
+    },
+    {
+      "path": "composed-source/formal/Entry005/DeterminantWitness.lean",
+      "bytes": 4962,
+      "sha256": "51fcda05126f6098420f0ccd62b369718ccf65c8f6c33c848f5d449e47a40a1f"
+    },
+    {
+      "path": "composed-source/formal/Entry005/EntryAffineInvariance.lean",
+      "bytes": 3399,
+      "sha256": "9bc0902f101e2badc6cc5dec05a477a35c248d268d8a29a680ec1c9cc8b60d81"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FacetRadialMass.lean",
+      "bytes": 14130,
+      "sha256": "9d600c17e406e24fc68110689d762b4d3305bc757eb63620165a32de9042c46d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FamilyWitness.lean",
+      "bytes": 7569,
+      "sha256": "b5dedb91db4a106a339c6e9547199597a90073bcc36efa49a98bbae2ac9e621f"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteBodyWeightedAssignment.lean",
+      "bytes": 4875,
+      "sha256": "cc559ed8a8177381bbf5adeb8169ffe9c45c9100099018959a7e30cd12f0b889"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteDeterminantTupleInjection.lean",
+      "bytes": 2912,
+      "sha256": "3838474cd54a75ab94d56da38040ed19f4d39e2556d8a9a7e3b03a9e47c6d555"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteHalfspaceCauchy.lean",
+      "bytes": 10193,
+      "sha256": "26e36595e7e5a61a4b74c77e31e25b2a3a7de48ec358b70aa1afd67597344c60"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteHalfspaceCenteredCorrection.lean",
+      "bytes": 6483,
+      "sha256": "8e1a2998ef841b353fd5bda36487ce2ed9090a20bbd6c08448a645158341e7cf"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteHalfspaceConeLaw.lean",
+      "bytes": 9422,
+      "sha256": "48c2479dfbe3cec48306219da8da1070c903cedd53103132ec0b20599989dee4"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteHalfspaceFacets.lean",
+      "bytes": 17392,
+      "sha256": "7c3359747b8d6b90a082c39d299c8be18d09c6a5f77c7b158522bf8c4b4a4b7b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteHalfspaceHorizontalMoment.lean",
+      "bytes": 4081,
+      "sha256": "a2be893ab72aaba12d9e8cafd759b812c9a5cc0c7ba5fcdf5baf10733834b8d0"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteLawZonotopeMoment.lean",
+      "bytes": 9492,
+      "sha256": "637e7322f40ddcbd361c340ce096154b4247ee340c8036101485546f961340a7"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteMinkowskiScaleGate.lean",
+      "bytes": 4546,
+      "sha256": "464a779ad4b77f006207b38e88bd780d13d906f5846d17efc87c89330baf9ab7"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FiniteRadialSupportScale.lean",
+      "bytes": 12891,
+      "sha256": "1ad1e4e4a5c02223427141c7e117072d23481e7a7da0212efc74602479fdd9c5"
+    },
+    {
+      "path": "composed-source/formal/Entry005/FirstMomentAssignment.lean",
+      "bytes": 5644,
+      "sha256": "2c4cbd16dae4abd94f343bc8d55102d19fcdf1be4ae7acf404e17265b7b05fd4"
+    },
+    {
+      "path": "composed-source/formal/Entry005/GeometricEndpoint.lean",
+      "bytes": 4040,
+      "sha256": "bf649dd58a6fb14f7bb23ace436adbbccf21eecd05bc3b14c3de1cf0b7437bf8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/HalfspaceApproximation.lean",
+      "bytes": 12553,
+      "sha256": "605aa94bab35911e543c7ed2e7405dff63366742a3d5c982fe987689f22e07f9"
+    },
+    {
+      "path": "composed-source/formal/Entry005/HalfspaceApproximationSequence.lean",
+      "bytes": 11684,
+      "sha256": "f7713882a265f0764f92111061c48b43228013d5853b1790711b6af08ce8c2a4"
+    },
+    {
+      "path": "composed-source/formal/Entry005/Handoff.lean",
+      "bytes": 1846,
+      "sha256": "bf0a682f17bfd913ec5a8119149bcec8d77f928fb8660d91d6cb34649896b970"
+    },
+    {
+      "path": "composed-source/formal/Entry005/HausdorffRetention.lean",
+      "bytes": 10632,
+      "sha256": "a17c7873ede212a149050a8149136d2e2850e151a75264e35b5cc65b7958198e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/HyperplaneProjectionJacobian.lean",
+      "bytes": 10514,
+      "sha256": "ed62871e6bbc9f97bc8071611e66a3c365cd1d798236837b6a1f108046ae06d8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IidAnchorAffineDeterminant.lean",
+      "bytes": 1648,
+      "sha256": "82c3db154e77150f9482c04b8fb6db9cc2b9607514f36a658bbf695e3b64d663"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IidAnchorFirstMomentPositive.lean",
+      "bytes": 3973,
+      "sha256": "14239f2f74fc0811dedc0ba429058e568ff14e0c97f2d5714c0992d2c1820993"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IidAnchorSpanningSupport.lean",
+      "bytes": 2723,
+      "sha256": "e08ef73f77543cc4d96888b060acfb8e7323829d8e4fc2ae52737b94df13776e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IidTransport.lean",
+      "bytes": 5490,
+      "sha256": "3707e0c7aaa9abb0e11c0bc5ef6c2010886511ff86f3f050e1f1ed19877fac3f"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IidWeightedAnchorSelection.lean",
+      "bytes": 9856,
+      "sha256": "2ea69f9c469ccb5123d99f755d405cd4103276fa8811eac5dc23e5ffd3b0861d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IntegratedWitness.lean",
+      "bytes": 6194,
+      "sha256": "f3191057f2548d3097ee0f9f2bcba07ad15ae867fa49ef5ed113f50d05cb05e9"
+    },
+    {
+      "path": "composed-source/formal/Entry005/IntrinsicLinearImageReuse.lean",
+      "bytes": 2580,
+      "sha256": "59819907b174be70e1a1d9454c454ac921c69189e5efbcad2c90d24e551a73fc"
+    },
+    {
+      "path": "composed-source/formal/Entry005/LargestCoordinate.lean",
+      "bytes": 2851,
+      "sha256": "013dc67ab4a916fda24d6035a3e13a57a959c0c78109e30896519ac6e6aff1af"
+    },
+    {
+      "path": "composed-source/formal/Entry005/MainTarget.lean",
+      "bytes": 329,
+      "sha256": "bd1b99380fd495acae3387fec8d2a99131cdb1f30aea97fa2bbaf65c7ee1d8ac"
+    },
+    {
+      "path": "composed-source/formal/Entry005/MaximumOuterBall.lean",
+      "bytes": 12337,
+      "sha256": "cbc9832839850b800636c94aafd74f28710996112c5fd8541e50b345853259b5"
+    },
+    {
+      "path": "composed-source/formal/Entry005/OfficialProjectionDefinitions.lean",
+      "bytes": 2947,
+      "sha256": "ac70196a55558604e6f7d32bc39f644cf4205207d7077b33e56038fa363336bb"
+    },
+    {
+      "path": "composed-source/formal/Entry005/OriginalRadialScale.lean",
+      "bytes": 3713,
+      "sha256": "ffeabfb4cad0a2ba766b1f2298115c403e11bce400956b6ba2376a5b957f8386"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PaperWitnessCombinatorics.lean",
+      "bytes": 2884,
+      "sha256": "525f7d6f641dec0cbb7c948d80b18a573da6a8ec31285a6124258370b2812b7a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PaperWitnessTransport.lean",
+      "bytes": 11190,
+      "sha256": "95801c9d83ae40f25db7c120b381676f1cf4ee337dcd23cfaafd4ea94e90154a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PolarSimplexConstruction.lean",
+      "bytes": 22006,
+      "sha256": "25c218de019a59683a5ff589c4c398e91fec9f79b3c511cc4424c02b2d992e67"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PrescribedSimplex.lean",
+      "bytes": 13047,
+      "sha256": "a704a0c4d47f93168215821f6a57860cbd8bdf23d06132990f67955fab77f704"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionAffineTransport.lean",
+      "bytes": 10453,
+      "sha256": "f85b8ac829caa6c558c9b8099dd8ecd8669c13f535c4036e8a5a6e13ed689207"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionBodyCovariance.lean",
+      "bytes": 5917,
+      "sha256": "7f9f42f452d9c6657e2ca6b0b4b21588ea705ab2ca7349379da0f166e29ecd2b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionBodyDirections.lean",
+      "bytes": 3804,
+      "sha256": "8d21cb171239f51ff6c706f2ad470b1b528409a9ef4c171e7cad99c91a5dc37d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionCap.lean",
+      "bytes": 11086,
+      "sha256": "d3b223066c4c2e727971d1a2f9ce84d01611b11d6392c4072dc9f9c6e085fec8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionScaleAssembly.lean",
+      "bytes": 8683,
+      "sha256": "dac46ff812246c218a2d6d12499f7a57fce528e5c5e8e4e870255a55b531157c"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ProjectionVolumeSqueeze.lean",
+      "bytes": 18083,
+      "sha256": "1d6870ac82787fc360ea1d0344e50b33745e961676626f99b427de130047262e"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidApproximationLimits.lean",
+      "bytes": 8405,
+      "sha256": "5b2b8f0d62b26a334dbcb974f689c710505067d750521849dd029286968c4ddb"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidContinuity.lean",
+      "bytes": 5317,
+      "sha256": "676cfc06abaf943202a6141638ea5e95c705cfdd82586ea7dd7567fb972016f9"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidEntryDefect.lean",
+      "bytes": 4390,
+      "sha256": "c8356c97c2baaf2ec339a9c31f49077ed86c051bbe4ee87f70fd658f61d9d67a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidFacetAreas.lean",
+      "bytes": 2872,
+      "sha256": "224c961f217098bc6a8d85adc72fe44691f8a924dc6adea021db8510361bc4de"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidFormalization.lean",
+      "bytes": 197,
+      "sha256": "68bef885e554be610610d2552e968cc4148929e6c3d5f62176e2b2dbf304268a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidHalfspaces.lean",
+      "bytes": 9680,
+      "sha256": "0bafb3f5856e53b4f4fb656bb0153cf938f6bb020e8c9d22490ae3e25735a190"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidIidMomentReuse.lean",
+      "bytes": 2701,
+      "sha256": "ffae66fb4770e22ab61f78c47f363852ce069a9446a07298cc230761e81b5a52"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidLiftCoordinates.lean",
+      "bytes": 2217,
+      "sha256": "a627812f77cd16356d70710332089c09ad03dd5d7628a3517d885ba2a55a622a"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidLiftedMoment.lean",
+      "bytes": 4461,
+      "sha256": "368a85465c3a4a4e637e4a63d9841fab9d355f8100295b2e23fc91351e5796fc"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidMomentDefect.lean",
+      "bytes": 6442,
+      "sha256": "39a35d81534b1871077bf8f9d7ed23fcd8710c367dba8cb50e95371ddebed963"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidProjectionBody.lean",
+      "bytes": 3375,
+      "sha256": "1b481d59730ebcbd2553e785dfb45047b2d8f11574e1bdc254ee3ba3ccd6cd5b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidProjectionVolume.lean",
+      "bytes": 5643,
+      "sha256": "e0a0d2026db6d6f3ef0732d31374347295eee86f72ff6460aa3a60f37dec0099"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidSideArea.lean",
+      "bytes": 9330,
+      "sha256": "a26ac473543266b682d125e675fe01eaa2819cc87835cdcb594eeb7b07cbfba1"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidSideFrame.lean",
+      "bytes": 4649,
+      "sha256": "76f6d71e20f60d8b56a48958d86bafa78bfb8495142ea4e9ada54cc0f1679f5b"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidVolume.lean",
+      "bytes": 6871,
+      "sha256": "15fdfca23a1057a970742625b27393df261ef6964296b17acf963da95d209927"
+    },
+    {
+      "path": "composed-source/formal/Entry005/PyramidZonotopeAlgebra.lean",
+      "bytes": 2200,
+      "sha256": "ae8ae9583e2af1f46b79e4bd2aeb23c1ed7cc89b9bdbd401db0bc071cc979721"
+    },
+    {
+      "path": "composed-source/formal/Entry005/RadialConeVolume.lean",
+      "bytes": 5567,
+      "sha256": "885f171b764b25370c6d61a321bade883009bf09ae0b9d233268f082ba4cd3f0"
+    },
+    {
+      "path": "composed-source/formal/Entry005/RadialPowerIntegral.lean",
+      "bytes": 860,
+      "sha256": "df7640165053dba28e3b75b7af715c1856e1e930abbe5fd9ec1d218f08ad31fc"
+    },
+    {
+      "path": "composed-source/formal/Entry005/RegularSimplex.lean",
+      "bytes": 16329,
+      "sha256": "dbc1740461d7b2f824ee64d64317ce54625c75b601cbd6b7e9c1789c29de2864"
+    },
+    {
+      "path": "composed-source/formal/Entry005/RoundAnchorChain.lean",
+      "bytes": 2924,
+      "sha256": "243033e6923df6688cc3c8e96cf1339341c99c43e6a2028a64b2edadf8566582"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SameWitnessOriginalQBudget.lean",
+      "bytes": 3444,
+      "sha256": "b8621876564c024194e06cedf26747b7dc288083b6902c355b88b8736ff6458d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SelectedAnchorHullRoundness.lean",
+      "bytes": 5338,
+      "sha256": "edfca1a3ae33a55278773cc6c7784acbb355570b3072afe9a70c158b95813fd4"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SelectedAnchorSimplex.lean",
+      "bytes": 1726,
+      "sha256": "7408fdb02da634a4f172c38bac08c77cb1b1e8edf1bc25bc31887a1836020f0d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SharpConstantGates.lean",
+      "bytes": 5077,
+      "sha256": "3d81144d6ce7954a7bb2b1a4ab9e28584bbf0e0aa7fd7cca30d6947541101863"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SharpMainRetentionAssembly.lean",
+      "bytes": 2867,
+      "sha256": "92c7338e28b397b0d2e4e002ed3e16aab8f7fd1a818dc73371a5a50e8c1beeae"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SharpNormalizationRadius.lean",
+      "bytes": 5895,
+      "sha256": "b83a914f86f096b713cd965d14604de2c367ec8a52d8d1b9ad28c1a6eb2fb484"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SharpUpperMain.lean",
+      "bytes": 4864,
+      "sha256": "03d5ac8ccde7b92d7f5084a50e9aa841ad539684a8582a98d0546431c170a2aa"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SimplexVolumeInterface.lean",
+      "bytes": 10639,
+      "sha256": "d0b2e1e8f4d216ab027909ca668f0a5042810afdb27671d5cf89754658dea5e8"
+    },
+    {
+      "path": "composed-source/formal/Entry005/StrongBallVolume.lean",
+      "bytes": 3390,
+      "sha256": "7c32fbfe5fa5e2e72056bf8328720eeab5c461e1aa774d6024fa5b3c08b61afb"
+    },
+    {
+      "path": "composed-source/formal/Entry005/StrongGeometricEndpoint.lean",
+      "bytes": 6822,
+      "sha256": "52c06c648f79bbfa28db7bf6760d4f6865b9fcdbb6343fab7bc2434b193db9a5"
+    },
+    {
+      "path": "composed-source/formal/Entry005/StrongProjectionCap.lean",
+      "bytes": 11413,
+      "sha256": "7ab7f334457ca31f7ecfdfa705e4468927814280984372d9a2ac84c5b4d2867c"
+    },
+    {
+      "path": "composed-source/formal/Entry005/SupportScaleCapAssembly.lean",
+      "bytes": 5009,
+      "sha256": "0c4a58f498f17cd257405c78e63cd84eb4617e0742cbe2dbcea29ab25916eb9d"
+    },
+    {
+      "path": "composed-source/formal/Entry005/Targets.lean",
+      "bytes": 4644,
+      "sha256": "8bc873bff65384b67b05d3d4fd405bdf9c728e0befb0e6ac355373fa3ded7c94"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ThresholdGate.lean",
+      "bytes": 4776,
+      "sha256": "d8366f933447b307f9afba512a083cf6944bd0ce985c25d845bb257451d89d74"
+    },
+    {
+      "path": "composed-source/formal/Entry005/UnitBallAnchorChain.lean",
+      "bytes": 3740,
+      "sha256": "f92f686856913c05317dbfd74d9b54f439b080c0ea66b9d53baedd572792b745"
+    },
+    {
+      "path": "composed-source/formal/Entry005/UnitBallDeterminant.lean",
+      "bytes": 3920,
+      "sha256": "893f7e8f65a0ef6b5dd4eeaca17521ed0a6c54c51d4c31a9906aa095c926a2d6"
+    },
+    {
+      "path": "composed-source/formal/Entry005/VerifiedPyramidMomentBridge.lean",
+      "bytes": 3115,
+      "sha256": "4c2d278a7d051f6d038ffc26243f0635df04cbce0457b0c3d5bec8562d2dfd83"
+    },
+    {
+      "path": "composed-source/formal/Entry005/WeightedAnchorSelection.lean",
+      "bytes": 5179,
+      "sha256": "2007dfd4352ad910e9e3755fc5feda8993931e917fdfaa866774dd64ab2e33b1"
+    },
+    {
+      "path": "composed-source/formal/Entry005/WitnessAnchorChain.lean",
+      "bytes": 5392,
+      "sha256": "c7fa9b697cc3a0856d5c52c7041fde417b5d41452e53b5f0329265a68620d584"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ZonotopeDeterminant.lean",
+      "bytes": 10273,
+      "sha256": "a4cc3b6c088ae2838141e5c5428949fb32ca1972960ce98af4ca1956edf326bd"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ZonotopeFormula.lean",
+      "bytes": 5375,
+      "sha256": "ba216221b66feb2035bac755b49438472b833383bfbae9baa24de5cbc5a6cd58"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ZonotopeInjectionCombinatorics.lean",
+      "bytes": 7638,
+      "sha256": "570af9e1e040e0e5044f15315d2bf8e1ffdad640dec2fb649933658398c6bbc5"
+    },
+    {
+      "path": "composed-source/formal/Entry005/ZonotopeVolume.lean",
+      "bytes": 19008,
+      "sha256": "dcf0f7ce03c45525d181c583d27b48aaba7512074459cc0106c94cbaad0a4541"
+    },
+    {
+      "path": "composed-source/formal/Mxym/StochasticRigidity.lean",
+      "bytes": 9353,
+      "sha256": "66daed1469b8555c3d199f1389aacc8e29d0dfeec13a0d99920c5cc2575d08a6"
+    },
+    {
+      "path": "composed-source/formal/OAI/Geometry/ProjectionVolume/Basic.lean",
+      "bytes": 781,
+      "sha256": "241fadb593edf602f91235669f16893fba0f13a98e405dbaf05203d9f7b71347"
+    },
+    {
+      "path": "composed-source/formal/OAI/Geometry/ProjectionVolume/Brightness.lean",
+      "bytes": 5688,
+      "sha256": "91d5a0e29a5114b113251847b3bf889e158132e328b940c1cabf6b542712b794"
+    },
+    {
+      "path": "composed-source/formal/OAI/Geometry/ProjectionVolume/Model.lean",
+      "bytes": 1981,
+      "sha256": "61bc6519604211b4272963ccd0fbc59bfa70d1190b0f2dd9178e122ac8c1c0b8"
+    },
+    {
+      "path": "composed-source/formal/UpperMainAudit.lean",
+      "bytes": 17526,
+      "sha256": "7861fc47430a5673fd943891f3e3944418b9062136bd73366fb10110a28636b3"
+    },
+    {
+      "path": "composed-source/formal/controls/AffinePyramidChecks.lean",
+      "bytes": 2637,
+      "sha256": "d7584cdc1a7f2b21fda0f0d608da6a1c03ace0c1e51fbfe26619668d31121cfc"
+    },
+    {
+      "path": "composed-source/formal/controls/CentroidMaximumBoundChecks.lean",
+      "bytes": 4017,
+      "sha256": "ee7db57a1b3055a7d22558388d1056b9c53a26021ef20cb76d4b3906c71589d7"
+    },
+    {
+      "path": "composed-source/formal/controls/EntryAffineInvarianceChecks.lean",
+      "bytes": 3305,
+      "sha256": "dd2ccc362eeb1bf7748b7a9ca772f3c6e8b7cc418fbb89a37c929ab2b3547258"
+    },
+    {
+      "path": "composed-source/formal/controls/GeometricEndpointChecks.lean",
+      "bytes": 1925,
+      "sha256": "36952105381ac606356b567057c883b4b154e2e673dc4efcca5646292c0ae80c"
+    },
+    {
+      "path": "composed-source/formal/controls/HausdorffChecks.lean",
+      "bytes": 6951,
+      "sha256": "f452461da76bfe9b39b14899827146984a77977f6721cddd434ba109828282a5"
+    },
+    {
+      "path": "composed-source/formal/controls/InterfaceChecks.lean",
+      "bytes": 5722,
+      "sha256": "6d035015dd4bc800188bb0ceb19273f742b2c98cd1c2b89233d1e27bf3653dc2"
+    },
+    {
+      "path": "composed-source/formal/controls/MaximumOuterBallChecks.lean",
+      "bytes": 3790,
+      "sha256": "d43b029be6571d1c7788f729ece1b8b511015ec9bcff94629a2abbfeeac23d77"
+    },
+    {
+      "path": "composed-source/formal/controls/PrescribedChecks.lean",
+      "bytes": 11983,
+      "sha256": "67997897f64ed68fcdc9d093b5bb48ca25694c8883fda1512378ff47441c7a9e"
+    },
+    {
+      "path": "composed-source/formal/controls/ProjectionAffineTransportChecks.lean",
+      "bytes": 3751,
+      "sha256": "9209f1153b88bac30d2e766411ff32aa91ff3b2a2f5a341596f4838735e31f47"
+    },
+    {
+      "path": "composed-source/formal/controls/RegularSimplexChecks.lean",
+      "bytes": 2308,
+      "sha256": "c51691827484dbb2413e6d112ec84fca6ab9f045cb505db518ffc33cfe363850"
+    },
+    {
+      "path": "composed-source/formal/controls/SharpNormalizationRadiusChecks.lean",
+      "bytes": 5947,
+      "sha256": "aeb6cdda46bb046f4a2c22944bac268a55ae364cadc66065a23375fa3863ed41"
+    },
+    {
+      "path": "composed-source/formal/controls/StrongGeometricEndpointChecks.lean",
+      "bytes": 2238,
+      "sha256": "302c91d558a72ac4bf0427fb8406a288110afde267102c45538e324d18d3a76e"
+    },
+    {
+      "path": "composed-source/formal/controls/StrongProjectionCapChecks.lean",
+      "bytes": 4317,
+      "sha256": "8c8d198544a8cac3220b1f3a6a40b959f9407a3117b8277acc6156f33fcac230"
+    },
+    {
+      "path": "composed-source/formal/controls/ThresholdChecks.lean",
+      "bytes": 495,
+      "sha256": "1f112b83c68e2040caa70873573f3986844e06655ced0cc2a02dace11e338453"
+    },
+    {
+      "path": "composed-source/licenses/Original533OfficialSourceNotice.md",
+      "bytes": 2247,
+      "sha256": "1375fbfc4d2f981b9722ae50ad6e834589eff75b4429ac2511674ea7722fa4d1"
+    },
+    {
+      "path": "composed-source/licenses/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "composed-source/licenses/formal/OAI/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "composed-source/licenses/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "composed-source/proofs/CompleteSharpMainRadialProof.txt",
+      "bytes": 18361,
+      "sha256": "0c2e2eebf7f4409f4fdb56d68879eb5281b4d6db71337c9864f497922715d0e4"
+    },
+    {
+      "path": "composed-source/proofs/FrozenReports.sha256",
+      "bytes": 274,
+      "sha256": "1fde5aa0df553e6ef67213c324f09597f0013b63aa3638c8e7f419c152390b15"
+    },
+    {
+      "path": "composed-source/proofs/InspectedSources.sha256",
+      "bytes": 3492,
+      "sha256": "cbcb77d079007ba040033f0f124738874586be88bcee51f2bcac5b5c839a7216"
+    },
+    {
+      "path": "composed-source/proofs/ReviewFindings.txt",
+      "bytes": 4975,
+      "sha256": "29d66f0af53aaf47ea89911408043f247670fc00497340f41d49e757683698cd"
+    },
+    {
+      "path": "composed-source/reviews/DirectionalRoundnessVerification.md",
+      "bytes": 3661,
+      "sha256": "c621195679fa5964baad0f2aff572d0ca0b1e14515419828ce751e5601d04569"
+    },
+    {
+      "path": "composed-source/reviews/ExactRadialSourceReview.txt",
+      "bytes": 6055,
+      "sha256": "444a5e64c1a28f5569c09dabc96361eca0d992e0121ab178af4c0e37c79d7690"
+    },
+    {
+      "path": "composed-source/reviews/FinalMainAudit.lean",
+      "bytes": 2818,
+      "sha256": "b847a5ce0e8d02ba3e780560bf8a29f72878031134ebcd1135d1cb3c0e0f0cac"
+    },
+    {
+      "path": "composed-source/reviews/FinalMainAudit.log",
+      "bytes": 4196,
+      "sha256": "ce0496c261f61ec9d307f7b1742e4c1361393a8ad283c226237c17f29c041489"
+    },
+    {
+      "path": "composed-source/reviews/FinalMainExactSourceReview.txt",
+      "bytes": 5449,
+      "sha256": "ac0eb454b247e7e3a40df76bb69a766f29fd84648d94b454ed76a31a6f709533"
+    },
+    {
+      "path": "composed-source/reviews/FinalReviewFrozen.sha256",
+      "bytes": 668,
+      "sha256": "fba552936577ab8ea6c12c2d6f905d79438d0f72813175b964c9b51e296f2131"
+    },
+    {
+      "path": "composed-source/reviews/FrozenSourceReview.sha256",
+      "bytes": 574,
+      "sha256": "87b3376a53a70074041fc345543833e2a996205e091ba1611f044f390d8ec30c"
+    },
+    {
+      "path": "composed-source/reviews/Independent-MainTargetCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/reviews/Independent-SharpMainRetentionAssemblyCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/reviews/Independent-SharpUpperMainCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "composed-source/reviews/PolarSimplex-Audit.log",
+      "bytes": 18031,
+      "sha256": "c5b11474e19671e1caa2e3fbd751fd95a18b410781030ba0d3f6bbb4e1d4218c"
+    },
+    {
+      "path": "composed-source/reviews/PolarSimplex-LiteralTerminal.lean",
+      "bytes": 1556,
+      "sha256": "cf09c902a376bd4eb5a8e7e9fa09dfe1d29d1a5559c7076b5376beef27dc53b3"
+    },
+    {
+      "path": "composed-source/reviews/PolarSimplex-LiteralTerminal.log",
+      "bytes": 150,
+      "sha256": "491ca184edc0b9c0ab15af9be2a56e0bdeeb8cd818ddddfbf48c83435fd9def9"
+    },
+    {
+      "path": "composed-source/reviews/PolarSimplex-Manifest.json",
+      "bytes": 2334,
+      "sha256": "2e2fafaa33d3aae46866f8aa63fd706949d30658f617d38b28d479c0561cbe51"
+    },
+    {
+      "path": "composed-source/reviews/PolarSimplex-VerificationReport.md",
+      "bytes": 7871,
+      "sha256": "b3c71ef818e61a6cba4b3f092eb2636055a02ffc258a4ce2a217faea55750d05"
+    },
+    {
+      "path": "composed-source/reviews/RadialScaleAudit.log",
+      "bytes": 6745,
+      "sha256": "272b2c78c93948da54f24b2917925aac8280f520757600e0eaf7eba27a540cc6"
+    },
+    {
+      "path": "composed-source/scripts/make_readable_patch.py",
+      "bytes": 2447,
+      "sha256": "6893f58e2abf7b54bfbd17d856315301fbebd314543aca462151dfc16266ab71"
+    },
+    {
+      "path": "composed-source/scripts/pins.json",
+      "bytes": 1256,
+      "sha256": "f3fe26601bbb3302e2742dbbe8b085837ea733f272da1f9c944fb5e1a82d13cf"
+    },
+    {
+      "path": "composed-source/scripts/replay_upper_main.py",
+      "bytes": 6642,
+      "sha256": "05f3198efff18086c11c27e3791eff55e69e5b4c6c9e3e1da6683257464e111a"
+    },
+    {
+      "path": "composed-source/scripts/source_inventory.py",
+      "bytes": 5440,
+      "sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/README.md",
+      "bytes": 4595,
+      "sha256": "24353bc458cefa8b827618981b5cf99b69ea7445cfbc0acfad6d4618e391b799"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/ActualFiniteEnclosingRadialCap-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/ActualNormalizedDirectionalRoundness-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/FiniteRadialSupportScale-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/OriginalRadialScale-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/PolarSimplexConstruction-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/SharpMainRetentionAssembly-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/SharpUpperMain-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/VerifiedPyramidMomentBridge-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/additive141-signatures-and-axioms.txt",
+      "bytes": 123072,
+      "sha256": "cc1435b12c4e7dac47935b6da417c17efd8941edf4614ec8fc371c03585847dc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/incoming-compatible-source-build.json",
+      "bytes": 8203,
+      "sha256": "be3d37017b1466ff9324aabade056d9f2f6b13ab8acd61b6293a4b5b1b2d98dc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/incoming-source-materialization.json",
+      "bytes": 5672,
+      "sha256": "6b2ed2378d7545d24c015047f82a17f1487657db0a0d89f049f4f28daa79c578"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/independent-final-Main-verification.json",
+      "bytes": 706,
+      "sha256": "7a99601aed613b82d8cf1399c68a573925a222ca606d87ee5f4ea13c153376b6"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/portable-main-replay-verification.json",
+      "bytes": 1563,
+      "sha256": "af6f7ce91d91bce6affc7825ae1a66866db0804501a49f934043fc4ea806a4e4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ActualFiniteEnclosingCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ActualFiniteEnclosingRadialCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ActualNormalizedDirectionalRoundness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ActualSupportFirstVariationTest.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.CenteredAtomCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ConditionalPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.FiniteHalfspaceCenteredCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.FiniteMinkowskiScaleGate.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.FiniteRadialSupportScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.MainTarget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.OriginalRadialScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.PolarSimplexConstruction.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.ProjectionScaleAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.PyramidApproximationLimits.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.SameWitnessOriginalQBudget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.SharpConstantGates.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.SharpMainRetentionAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.SharpUpperMain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.SupportScaleCapAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/replay-Entry005.VerifiedPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/source-manifest.json",
+      "bytes": 93633,
+      "sha256": "7c4f3dc1e9422ed86de72b38c7d906a775f61ff0cca07c059bfb09fc4465e1d6"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/upper-main-audit-verification.json",
+      "bytes": 4301,
+      "sha256": "37bfbf6020a04765c2bab9748ab21fbea8c248fc3c91e88d4777343ed97b2625"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/upper-main-signatures-and-axioms.txt",
+      "bytes": 40609,
+      "sha256": "d6082a7cc93d2d30357adba67ad295e704a3db044631e15d3864d422c5f8e2e8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/evidence/written-Main-Library-readback-verification.json",
+      "bytes": 231,
+      "sha256": "458d4a0f2a859555279a0f338f50b3e25a9a0d649d99556702fa767776f410e3"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005.lean",
+      "bytes": 802,
+      "sha256": "e90d22f26bd26535c6bed987eb152f543b6fc99a105d90e7d5dd608e5888181c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualAssignmentAssembly.lean",
+      "bytes": 7931,
+      "sha256": "f800056836ecfa3003904edf1c6e07da010c8eb736fe08ef71e384b3bfe9e196"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualBodyConeLaw.lean",
+      "bytes": 6601,
+      "sha256": "9beb3d967d7fe11d6fdf729f981f64551810501e9d1ae0579172c148fd8fa08a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualBodyHorizontalMoment.lean",
+      "bytes": 6040,
+      "sha256": "b9a6f2488cfd10d0c702b62f3821a204ff14cb225b7fad8b05d48d78b97fdbb8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualBodyJointConeInterface.lean",
+      "bytes": 3742,
+      "sha256": "02670efa0eb6d2dc756ca82d7d70bb9c252796cd1e987f308bdfe9a6aaddbffd"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualBodyPolarBoundary.lean",
+      "bytes": 11158,
+      "sha256": "8490fea3abff416fb36519d348b0a86fc8344611cfd84995b8bb450faea4ce2d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualFiniteEnclosingCap.lean",
+      "bytes": 3922,
+      "sha256": "59aec918b77014ec2ff9addac1dcbac9098373fa74adb091d6c82e37616a4280"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualFiniteEnclosingRadialCap.lean",
+      "bytes": 4304,
+      "sha256": "456d37797841537ad517326af746ecfbb2b5374b1e53abaf98e784427cc0b9cd"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualNormalizedDirectionalRoundness.lean",
+      "bytes": 5395,
+      "sha256": "977e171b7893c632dfb8560c94f55cf3a1f117a2c7fe98d558538a363864cd9b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualPyramidAssignment.lean",
+      "bytes": 3875,
+      "sha256": "f0b257a5eefddaaec8e1812f95b2d36b27838654a0ba984972d02c026b02bdae"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualPyramidDefect.lean",
+      "bytes": 6629,
+      "sha256": "a3cf5e3c3a43605677071dc29d9a0de537ee89847950a4ede8baa77bd0fbd32c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualPyramidJointCone.lean",
+      "bytes": 4888,
+      "sha256": "7bd5e52c4b0d17aacf278bf1ddcb60a572959949fd2a8b2e5f565a26ed31f49c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualPyramidMoment.lean",
+      "bytes": 9940,
+      "sha256": "e80e5764f5cf36f7ece9d1ae0090b4da0a8863ffa817b08eb3c7176597f718a2"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ActualSupportFirstVariationTest.lean",
+      "bytes": 15117,
+      "sha256": "49dfb7b45fca1f9188cc27f88999c1dd50e7344d0f01b05959f2f080a23df426"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/AffineNormalization.lean",
+      "bytes": 13072,
+      "sha256": "0eb042e579af047c75873373afe2f50eb72286c64d25ab5cf62c594dde6f89b8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/AffinePyramid.lean",
+      "bytes": 7463,
+      "sha256": "64d064ae5c246893007676993de570f44274ac2b20ff9b01854e3c54ad6af23f"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/AnchorCoordinates.lean",
+      "bytes": 10304,
+      "sha256": "19abf1208fb0a6ef166cb199a564341ced733531eb2cc10947ca19f41a7684f3"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/AnchorSelection.lean",
+      "bytes": 4221,
+      "sha256": "f3b318d527c94e60dba9fe814b2721e8415defab6e1f6fdae2fe55081973f3f0"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/AssignmentKernel.lean",
+      "bytes": 8000,
+      "sha256": "407f1608600f9ef093ce129a171075a7c8b578df74b9770af6c89eac83a2221b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/BallVolume.lean",
+      "bytes": 3551,
+      "sha256": "dd55e65e1dc1bf010af5b3e3ee2183e447c4b5970a1bb3f5d9866414d650f609"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/Cap.lean",
+      "bytes": 6873,
+      "sha256": "b3f11c2e21211a456dfa5dfffd45373fd80378daad71f27a54f75da4002fe41e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CenteredAtomCorrection.lean",
+      "bytes": 19726,
+      "sha256": "e3f9d1d3bd2fe117bbc932bb6aecbffe2a1a873f6f9a3756722485bede55d4cb"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CentroidMaximumBound.lean",
+      "bytes": 3253,
+      "sha256": "5f978ad4e7cb5c472989309631350688b2822f1f832b79ad35d94c0cfdff9b07"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ClippedAssignmentKernel.lean",
+      "bytes": 6215,
+      "sha256": "d37d72cf0c98c63383c9866d2c21028b1dc2c476c87da11a919acb6773b86816"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CompactBallConeLaw.lean",
+      "bytes": 13887,
+      "sha256": "9dc249629b52333236ac8f1c2bd9e870c6d06042e6165ab8e5a9cac1d9ed3f8d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CompactIidMomentContinuity.lean",
+      "bytes": 11445,
+      "sha256": "68fe3e0db9563021f6bd44f8ba251eeef493cf35b593dac936ed343778fe0109"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CompactProbabilitySubsequence.lean",
+      "bytes": 1859,
+      "sha256": "ea394b5139d8d668835b38f73fdfc9f64fa3fb1e2c3892bee392cc601450415e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ConditionalPyramidMomentBridge.lean",
+      "bytes": 19837,
+      "sha256": "94d18fa01ec64772d63cf5fb38a0044bade60d9a733b186a57e2bbebd84245f4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ConeLawFinite.lean",
+      "bytes": 13268,
+      "sha256": "f7358fee0d865c1c404d9f4d4244a5bfe717a19eda6e177a891c4088aa1ba6ca"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ConeLawGeometry.lean",
+      "bytes": 7703,
+      "sha256": "038de63347d1b1b2b6ea0251cae3888b0237b629bcbe1169bba8ea1e9dc2e5a5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/Constants.lean",
+      "bytes": 2770,
+      "sha256": "b3cdc026d3b5be2f495e8613bd98f36408b6ece56811adc1b562994fc447425e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/CovarianceConditioning.lean",
+      "bytes": 4832,
+      "sha256": "0d31a0d0adc323e62740ab060a5c0c51c30eb76487df954541565da3ff7057f9"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/DeterminantMoment.lean",
+      "bytes": 8760,
+      "sha256": "83fa28271519bc6a25cd9e58e9922a04375476fc16e5e051a06ca640ae976d73"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/DeterminantWitness.lean",
+      "bytes": 4962,
+      "sha256": "51fcda05126f6098420f0ccd62b369718ccf65c8f6c33c848f5d449e47a40a1f"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/EntryAffineInvariance.lean",
+      "bytes": 3399,
+      "sha256": "9bc0902f101e2badc6cc5dec05a477a35c248d268d8a29a680ec1c9cc8b60d81"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FacetRadialMass.lean",
+      "bytes": 14130,
+      "sha256": "9d600c17e406e24fc68110689d762b4d3305bc757eb63620165a32de9042c46d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FamilyWitness.lean",
+      "bytes": 7569,
+      "sha256": "b5dedb91db4a106a339c6e9547199597a90073bcc36efa49a98bbae2ac9e621f"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteBodyWeightedAssignment.lean",
+      "bytes": 4875,
+      "sha256": "cc559ed8a8177381bbf5adeb8169ffe9c45c9100099018959a7e30cd12f0b889"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteDeterminantTupleInjection.lean",
+      "bytes": 2912,
+      "sha256": "3838474cd54a75ab94d56da38040ed19f4d39e2556d8a9a7e3b03a9e47c6d555"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteHalfspaceCauchy.lean",
+      "bytes": 10193,
+      "sha256": "26e36595e7e5a61a4b74c77e31e25b2a3a7de48ec358b70aa1afd67597344c60"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteHalfspaceCenteredCorrection.lean",
+      "bytes": 6483,
+      "sha256": "8e1a2998ef841b353fd5bda36487ce2ed9090a20bbd6c08448a645158341e7cf"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteHalfspaceConeLaw.lean",
+      "bytes": 9422,
+      "sha256": "48c2479dfbe3cec48306219da8da1070c903cedd53103132ec0b20599989dee4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteHalfspaceFacets.lean",
+      "bytes": 17392,
+      "sha256": "7c3359747b8d6b90a082c39d299c8be18d09c6a5f77c7b158522bf8c4b4a4b7b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteHalfspaceHorizontalMoment.lean",
+      "bytes": 4081,
+      "sha256": "a2be893ab72aaba12d9e8cafd759b812c9a5cc0c7ba5fcdf5baf10733834b8d0"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteLawZonotopeMoment.lean",
+      "bytes": 9492,
+      "sha256": "637e7322f40ddcbd361c340ce096154b4247ee340c8036101485546f961340a7"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteMinkowskiScaleGate.lean",
+      "bytes": 4546,
+      "sha256": "464a779ad4b77f006207b38e88bd780d13d906f5846d17efc87c89330baf9ab7"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FiniteRadialSupportScale.lean",
+      "bytes": 12891,
+      "sha256": "1ad1e4e4a5c02223427141c7e117072d23481e7a7da0212efc74602479fdd9c5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/FirstMomentAssignment.lean",
+      "bytes": 5644,
+      "sha256": "2c4cbd16dae4abd94f343bc8d55102d19fcdf1be4ae7acf404e17265b7b05fd4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/GeometricEndpoint.lean",
+      "bytes": 4040,
+      "sha256": "bf649dd58a6fb14f7bb23ace436adbbccf21eecd05bc3b14c3de1cf0b7437bf8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/HalfspaceApproximation.lean",
+      "bytes": 12553,
+      "sha256": "605aa94bab35911e543c7ed2e7405dff63366742a3d5c982fe987689f22e07f9"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/HalfspaceApproximationSequence.lean",
+      "bytes": 11684,
+      "sha256": "f7713882a265f0764f92111061c48b43228013d5853b1790711b6af08ce8c2a4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/Handoff.lean",
+      "bytes": 1846,
+      "sha256": "bf0a682f17bfd913ec5a8119149bcec8d77f928fb8660d91d6cb34649896b970"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/HausdorffRetention.lean",
+      "bytes": 10632,
+      "sha256": "a17c7873ede212a149050a8149136d2e2850e151a75264e35b5cc65b7958198e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/HyperplaneProjectionJacobian.lean",
+      "bytes": 10514,
+      "sha256": "ed62871e6bbc9f97bc8071611e66a3c365cd1d798236837b6a1f108046ae06d8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IidAnchorAffineDeterminant.lean",
+      "bytes": 1648,
+      "sha256": "82c3db154e77150f9482c04b8fb6db9cc2b9607514f36a658bbf695e3b64d663"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IidAnchorFirstMomentPositive.lean",
+      "bytes": 3973,
+      "sha256": "14239f2f74fc0811dedc0ba429058e568ff14e0c97f2d5714c0992d2c1820993"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IidAnchorSpanningSupport.lean",
+      "bytes": 2723,
+      "sha256": "e08ef73f77543cc4d96888b060acfb8e7323829d8e4fc2ae52737b94df13776e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IidTransport.lean",
+      "bytes": 5490,
+      "sha256": "3707e0c7aaa9abb0e11c0bc5ef6c2010886511ff86f3f050e1f1ed19877fac3f"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IidWeightedAnchorSelection.lean",
+      "bytes": 9856,
+      "sha256": "2ea69f9c469ccb5123d99f755d405cd4103276fa8811eac5dc23e5ffd3b0861d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IntegratedWitness.lean",
+      "bytes": 6194,
+      "sha256": "f3191057f2548d3097ee0f9f2bcba07ad15ae867fa49ef5ed113f50d05cb05e9"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/IntrinsicLinearImageReuse.lean",
+      "bytes": 2580,
+      "sha256": "59819907b174be70e1a1d9454c454ac921c69189e5efbcad2c90d24e551a73fc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/LargestCoordinate.lean",
+      "bytes": 2851,
+      "sha256": "013dc67ab4a916fda24d6035a3e13a57a959c0c78109e30896519ac6e6aff1af"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/MainTarget.lean",
+      "bytes": 329,
+      "sha256": "bd1b99380fd495acae3387fec8d2a99131cdb1f30aea97fa2bbaf65c7ee1d8ac"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/MaximumOuterBall.lean",
+      "bytes": 12337,
+      "sha256": "cbc9832839850b800636c94aafd74f28710996112c5fd8541e50b345853259b5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/OfficialProjectionDefinitions.lean",
+      "bytes": 2947,
+      "sha256": "ac70196a55558604e6f7d32bc39f644cf4205207d7077b33e56038fa363336bb"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/OriginalRadialScale.lean",
+      "bytes": 3713,
+      "sha256": "ffeabfb4cad0a2ba766b1f2298115c403e11bce400956b6ba2376a5b957f8386"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PaperWitnessCombinatorics.lean",
+      "bytes": 2884,
+      "sha256": "525f7d6f641dec0cbb7c948d80b18a573da6a8ec31285a6124258370b2812b7a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PaperWitnessTransport.lean",
+      "bytes": 11190,
+      "sha256": "95801c9d83ae40f25db7c120b381676f1cf4ee337dcd23cfaafd4ea94e90154a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PolarSimplexConstruction.lean",
+      "bytes": 22006,
+      "sha256": "25c218de019a59683a5ff589c4c398e91fec9f79b3c511cc4424c02b2d992e67"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PrescribedSimplex.lean",
+      "bytes": 13047,
+      "sha256": "a704a0c4d47f93168215821f6a57860cbd8bdf23d06132990f67955fab77f704"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionAffineTransport.lean",
+      "bytes": 10453,
+      "sha256": "f85b8ac829caa6c558c9b8099dd8ecd8669c13f535c4036e8a5a6e13ed689207"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionBodyCovariance.lean",
+      "bytes": 5917,
+      "sha256": "7f9f42f452d9c6657e2ca6b0b4b21588ea705ab2ca7349379da0f166e29ecd2b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionBodyDirections.lean",
+      "bytes": 3804,
+      "sha256": "8d21cb171239f51ff6c706f2ad470b1b528409a9ef4c171e7cad99c91a5dc37d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionCap.lean",
+      "bytes": 11086,
+      "sha256": "d3b223066c4c2e727971d1a2f9ce84d01611b11d6392c4072dc9f9c6e085fec8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionScaleAssembly.lean",
+      "bytes": 8683,
+      "sha256": "dac46ff812246c218a2d6d12499f7a57fce528e5c5e8e4e870255a55b531157c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ProjectionVolumeSqueeze.lean",
+      "bytes": 18083,
+      "sha256": "1d6870ac82787fc360ea1d0344e50b33745e961676626f99b427de130047262e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidApproximationLimits.lean",
+      "bytes": 8405,
+      "sha256": "5b2b8f0d62b26a334dbcb974f689c710505067d750521849dd029286968c4ddb"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidContinuity.lean",
+      "bytes": 5317,
+      "sha256": "676cfc06abaf943202a6141638ea5e95c705cfdd82586ea7dd7567fb972016f9"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidEntryDefect.lean",
+      "bytes": 4390,
+      "sha256": "c8356c97c2baaf2ec339a9c31f49077ed86c051bbe4ee87f70fd658f61d9d67a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidFacetAreas.lean",
+      "bytes": 2872,
+      "sha256": "224c961f217098bc6a8d85adc72fe44691f8a924dc6adea021db8510361bc4de"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidFormalization.lean",
+      "bytes": 197,
+      "sha256": "68bef885e554be610610d2552e968cc4148929e6c3d5f62176e2b2dbf304268a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidHalfspaces.lean",
+      "bytes": 9680,
+      "sha256": "0bafb3f5856e53b4f4fb656bb0153cf938f6bb020e8c9d22490ae3e25735a190"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidIidMomentReuse.lean",
+      "bytes": 2701,
+      "sha256": "ffae66fb4770e22ab61f78c47f363852ce069a9446a07298cc230761e81b5a52"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidLiftCoordinates.lean",
+      "bytes": 2217,
+      "sha256": "a627812f77cd16356d70710332089c09ad03dd5d7628a3517d885ba2a55a622a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidLiftedMoment.lean",
+      "bytes": 4461,
+      "sha256": "368a85465c3a4a4e637e4a63d9841fab9d355f8100295b2e23fc91351e5796fc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidMomentDefect.lean",
+      "bytes": 6442,
+      "sha256": "39a35d81534b1871077bf8f9d7ed23fcd8710c367dba8cb50e95371ddebed963"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidProjectionBody.lean",
+      "bytes": 3375,
+      "sha256": "1b481d59730ebcbd2553e785dfb45047b2d8f11574e1bdc254ee3ba3ccd6cd5b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidProjectionVolume.lean",
+      "bytes": 5643,
+      "sha256": "e0a0d2026db6d6f3ef0732d31374347295eee86f72ff6460aa3a60f37dec0099"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidSideArea.lean",
+      "bytes": 9330,
+      "sha256": "a26ac473543266b682d125e675fe01eaa2819cc87835cdcb594eeb7b07cbfba1"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidSideFrame.lean",
+      "bytes": 4649,
+      "sha256": "76f6d71e20f60d8b56a48958d86bafa78bfb8495142ea4e9ada54cc0f1679f5b"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidVolume.lean",
+      "bytes": 6871,
+      "sha256": "15fdfca23a1057a970742625b27393df261ef6964296b17acf963da95d209927"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/PyramidZonotopeAlgebra.lean",
+      "bytes": 2200,
+      "sha256": "ae8ae9583e2af1f46b79e4bd2aeb23c1ed7cc89b9bdbd401db0bc071cc979721"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/RadialConeVolume.lean",
+      "bytes": 5567,
+      "sha256": "885f171b764b25370c6d61a321bade883009bf09ae0b9d233268f082ba4cd3f0"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/RadialPowerIntegral.lean",
+      "bytes": 860,
+      "sha256": "df7640165053dba28e3b75b7af715c1856e1e930abbe5fd9ec1d218f08ad31fc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/RegularSimplex.lean",
+      "bytes": 16329,
+      "sha256": "dbc1740461d7b2f824ee64d64317ce54625c75b601cbd6b7e9c1789c29de2864"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/RoundAnchorChain.lean",
+      "bytes": 2924,
+      "sha256": "243033e6923df6688cc3c8e96cf1339341c99c43e6a2028a64b2edadf8566582"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SameWitnessOriginalQBudget.lean",
+      "bytes": 3444,
+      "sha256": "b8621876564c024194e06cedf26747b7dc288083b6902c355b88b8736ff6458d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SelectedAnchorSimplex.lean",
+      "bytes": 1726,
+      "sha256": "7408fdb02da634a4f172c38bac08c77cb1b1e8edf1bc25bc31887a1836020f0d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SharpConstantGates.lean",
+      "bytes": 5077,
+      "sha256": "3d81144d6ce7954a7bb2b1a4ab9e28584bbf0e0aa7fd7cca30d6947541101863"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SharpMainRetentionAssembly.lean",
+      "bytes": 2867,
+      "sha256": "92c7338e28b397b0d2e4e002ed3e16aab8f7fd1a818dc73371a5a50e8c1beeae"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SharpNormalizationRadius.lean",
+      "bytes": 5895,
+      "sha256": "b83a914f86f096b713cd965d14604de2c367ec8a52d8d1b9ad28c1a6eb2fb484"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SharpUpperMain.lean",
+      "bytes": 4864,
+      "sha256": "03d5ac8ccde7b92d7f5084a50e9aa841ad539684a8582a98d0546431c170a2aa"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SimplexVolumeInterface.lean",
+      "bytes": 10639,
+      "sha256": "d0b2e1e8f4d216ab027909ca668f0a5042810afdb27671d5cf89754658dea5e8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/StrongBallVolume.lean",
+      "bytes": 3390,
+      "sha256": "7c32fbfe5fa5e2e72056bf8328720eeab5c461e1aa774d6024fa5b3c08b61afb"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/StrongGeometricEndpoint.lean",
+      "bytes": 6822,
+      "sha256": "52c06c648f79bbfa28db7bf6760d4f6865b9fcdbb6343fab7bc2434b193db9a5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/StrongProjectionCap.lean",
+      "bytes": 11413,
+      "sha256": "7ab7f334457ca31f7ecfdfa705e4468927814280984372d9a2ac84c5b4d2867c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/SupportScaleCapAssembly.lean",
+      "bytes": 5009,
+      "sha256": "0c4a58f498f17cd257405c78e63cd84eb4617e0742cbe2dbcea29ab25916eb9d"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/Targets.lean",
+      "bytes": 4644,
+      "sha256": "8bc873bff65384b67b05d3d4fd405bdf9c728e0befb0e6ac355373fa3ded7c94"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ThresholdGate.lean",
+      "bytes": 4776,
+      "sha256": "d8366f933447b307f9afba512a083cf6944bd0ce985c25d845bb257451d89d74"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/UnitBallAnchorChain.lean",
+      "bytes": 3740,
+      "sha256": "f92f686856913c05317dbfd74d9b54f439b080c0ea66b9d53baedd572792b745"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/UnitBallDeterminant.lean",
+      "bytes": 3920,
+      "sha256": "893f7e8f65a0ef6b5dd4eeaca17521ed0a6c54c51d4c31a9906aa095c926a2d6"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/VerifiedPyramidMomentBridge.lean",
+      "bytes": 3115,
+      "sha256": "4c2d278a7d051f6d038ffc26243f0635df04cbce0457b0c3d5bec8562d2dfd83"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/WeightedAnchorSelection.lean",
+      "bytes": 5179,
+      "sha256": "2007dfd4352ad910e9e3755fc5feda8993931e917fdfaa866774dd64ab2e33b1"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/WitnessAnchorChain.lean",
+      "bytes": 5392,
+      "sha256": "c7fa9b697cc3a0856d5c52c7041fde417b5d41452e53b5f0329265a68620d584"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ZonotopeDeterminant.lean",
+      "bytes": 10273,
+      "sha256": "a4cc3b6c088ae2838141e5c5428949fb32ca1972960ce98af4ca1956edf326bd"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ZonotopeFormula.lean",
+      "bytes": 5375,
+      "sha256": "ba216221b66feb2035bac755b49438472b833383bfbae9baa24de5cbc5a6cd58"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ZonotopeInjectionCombinatorics.lean",
+      "bytes": 7638,
+      "sha256": "570af9e1e040e0e5044f15315d2bf8e1ffdad640dec2fb649933658398c6bbc5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Entry005/ZonotopeVolume.lean",
+      "bytes": 19008,
+      "sha256": "dcf0f7ce03c45525d181c583d27b48aaba7512074459cc0106c94cbaad0a4541"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/Mxym/StochasticRigidity.lean",
+      "bytes": 9353,
+      "sha256": "66daed1469b8555c3d199f1389aacc8e29d0dfeec13a0d99920c5cc2575d08a6"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/OAI/Geometry/ProjectionVolume/Basic.lean",
+      "bytes": 781,
+      "sha256": "241fadb593edf602f91235669f16893fba0f13a98e405dbaf05203d9f7b71347"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/OAI/Geometry/ProjectionVolume/Brightness.lean",
+      "bytes": 5688,
+      "sha256": "91d5a0e29a5114b113251847b3bf889e158132e328b940c1cabf6b542712b794"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/OAI/Geometry/ProjectionVolume/Model.lean",
+      "bytes": 1981,
+      "sha256": "61bc6519604211b4272963ccd0fbc59bfa70d1190b0f2dd9178e122ac8c1c0b8"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/UpperMainAudit.lean",
+      "bytes": 17526,
+      "sha256": "7861fc47430a5673fd943891f3e3944418b9062136bd73366fb10110a28636b3"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/AffinePyramidChecks.lean",
+      "bytes": 2637,
+      "sha256": "d7584cdc1a7f2b21fda0f0d608da6a1c03ace0c1e51fbfe26619668d31121cfc"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/CentroidMaximumBoundChecks.lean",
+      "bytes": 4017,
+      "sha256": "ee7db57a1b3055a7d22558388d1056b9c53a26021ef20cb76d4b3906c71589d7"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/EntryAffineInvarianceChecks.lean",
+      "bytes": 3305,
+      "sha256": "dd2ccc362eeb1bf7748b7a9ca772f3c6e8b7cc418fbb89a37c929ab2b3547258"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/GeometricEndpointChecks.lean",
+      "bytes": 1925,
+      "sha256": "36952105381ac606356b567057c883b4b154e2e673dc4efcca5646292c0ae80c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/HausdorffChecks.lean",
+      "bytes": 6951,
+      "sha256": "f452461da76bfe9b39b14899827146984a77977f6721cddd434ba109828282a5"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/InterfaceChecks.lean",
+      "bytes": 5722,
+      "sha256": "6d035015dd4bc800188bb0ceb19273f742b2c98cd1c2b89233d1e27bf3653dc2"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/MaximumOuterBallChecks.lean",
+      "bytes": 3790,
+      "sha256": "d43b029be6571d1c7788f729ece1b8b511015ec9bcff94629a2abbfeeac23d77"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/PrescribedChecks.lean",
+      "bytes": 11983,
+      "sha256": "67997897f64ed68fcdc9d093b5bb48ca25694c8883fda1512378ff47441c7a9e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/ProjectionAffineTransportChecks.lean",
+      "bytes": 3751,
+      "sha256": "9209f1153b88bac30d2e766411ff32aa91ff3b2a2f5a341596f4838735e31f47"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/RegularSimplexChecks.lean",
+      "bytes": 2308,
+      "sha256": "c51691827484dbb2413e6d112ec84fca6ab9f045cb505db518ffc33cfe363850"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/SharpNormalizationRadiusChecks.lean",
+      "bytes": 5947,
+      "sha256": "aeb6cdda46bb046f4a2c22944bac268a55ae364cadc66065a23375fa3863ed41"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/StrongGeometricEndpointChecks.lean",
+      "bytes": 2238,
+      "sha256": "302c91d558a72ac4bf0427fb8406a288110afde267102c45538e324d18d3a76e"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/StrongProjectionCapChecks.lean",
+      "bytes": 4317,
+      "sha256": "8c8d198544a8cac3220b1f3a6a40b959f9407a3117b8277acc6156f33fcac230"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/formal/controls/ThresholdChecks.lean",
+      "bytes": 495,
+      "sha256": "1f112b83c68e2040caa70873573f3986844e06655ced0cc2a02dace11e338453"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/licenses/Original533OfficialSourceNotice.md",
+      "bytes": 2247,
+      "sha256": "1375fbfc4d2f981b9722ae50ad6e834589eff75b4429ac2511674ea7722fa4d1"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/licenses/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/licenses/formal/OAI/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/licenses/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/proofs/CompleteSharpMainRadialProof.txt",
+      "bytes": 18361,
+      "sha256": "0c2e2eebf7f4409f4fdb56d68879eb5281b4d6db71337c9864f497922715d0e4"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/proofs/FrozenReports.sha256",
+      "bytes": 274,
+      "sha256": "1fde5aa0df553e6ef67213c324f09597f0013b63aa3638c8e7f419c152390b15"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/proofs/InspectedSources.sha256",
+      "bytes": 3492,
+      "sha256": "cbcb77d079007ba040033f0f124738874586be88bcee51f2bcac5b5c839a7216"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/proofs/ReviewFindings.txt",
+      "bytes": 4975,
+      "sha256": "29d66f0af53aaf47ea89911408043f247670fc00497340f41d49e757683698cd"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/DirectionalRoundnessVerification.md",
+      "bytes": 3661,
+      "sha256": "c621195679fa5964baad0f2aff572d0ca0b1e14515419828ce751e5601d04569"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/ExactRadialSourceReview.txt",
+      "bytes": 6055,
+      "sha256": "444a5e64c1a28f5569c09dabc96361eca0d992e0121ab178af4c0e37c79d7690"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/FinalMainAudit.lean",
+      "bytes": 2818,
+      "sha256": "b847a5ce0e8d02ba3e780560bf8a29f72878031134ebcd1135d1cb3c0e0f0cac"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/FinalMainAudit.log",
+      "bytes": 4196,
+      "sha256": "ce0496c261f61ec9d307f7b1742e4c1361393a8ad283c226237c17f29c041489"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/FinalMainExactSourceReview.txt",
+      "bytes": 5449,
+      "sha256": "ac0eb454b247e7e3a40df76bb69a766f29fd84648d94b454ed76a31a6f709533"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/FinalReviewFrozen.sha256",
+      "bytes": 668,
+      "sha256": "fba552936577ab8ea6c12c2d6f905d79438d0f72813175b964c9b51e296f2131"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/FrozenSourceReview.sha256",
+      "bytes": 574,
+      "sha256": "87b3376a53a70074041fc345543833e2a996205e091ba1611f044f390d8ec30c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/Independent-MainTargetCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/Independent-SharpMainRetentionAssemblyCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/Independent-SharpUpperMainCompile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/PolarSimplex-Audit.log",
+      "bytes": 18031,
+      "sha256": "c5b11474e19671e1caa2e3fbd751fd95a18b410781030ba0d3f6bbb4e1d4218c"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/PolarSimplex-LiteralTerminal.lean",
+      "bytes": 1556,
+      "sha256": "cf09c902a376bd4eb5a8e7e9fa09dfe1d29d1a5559c7076b5376beef27dc53b3"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/PolarSimplex-LiteralTerminal.log",
+      "bytes": 150,
+      "sha256": "491ca184edc0b9c0ab15af9be2a56e0bdeeb8cd818ddddfbf48c83435fd9def9"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/PolarSimplex-Manifest.json",
+      "bytes": 2334,
+      "sha256": "2e2fafaa33d3aae46866f8aa63fd706949d30658f617d38b28d479c0561cbe51"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/PolarSimplex-VerificationReport.md",
+      "bytes": 7871,
+      "sha256": "b3c71ef818e61a6cba4b3f092eb2636055a02ffc258a4ce2a217faea55750d05"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/reviews/RadialScaleAudit.log",
+      "bytes": 6745,
+      "sha256": "272b2c78c93948da54f24b2917925aac8280f520757600e0eaf7eba27a540cc6"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/scripts/make_readable_patch.py",
+      "bytes": 2447,
+      "sha256": "6893f58e2abf7b54bfbd17d856315301fbebd314543aca462151dfc16266ab71"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/scripts/pins.json",
+      "bytes": 1256,
+      "sha256": "f3fe26601bbb3302e2742dbbe8b085837ea733f272da1f9c944fb5e1a82d13cf"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/scripts/replay_upper_main.py",
+      "bytes": 6642,
+      "sha256": "05f3198efff18086c11c27e3791eff55e69e5b4c6c9e3e1da6683257464e111a"
+    },
+    {
+      "path": "entry005-sharp-upper-main-20261007/scripts/source_inventory.py",
+      "bytes": 5440,
+      "sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b"
+    },
+    {
+      "path": "helpers/check-templates/KernelNegativeControl.lean",
+      "bytes": 1327,
+      "sha256": "118066285c05980a650d15c1e1450809b4d10a8f20648b480cff263bab96b06d"
+    },
+    {
+      "path": "helpers/check-templates/OwnedInventory.lean",
+      "bytes": 5690,
+      "sha256": "739d1ef793919526e54f4fc74a53561f4b241ddf95077dcd8563fc21c6834d61"
+    },
+    {
+      "path": "helpers/check-templates/ReplayAllSafeOwned.lean",
+      "bytes": 6440,
+      "sha256": "0ea9b50f5f303028782333668da3a8a4afdf6fd7d50f50e8befa42887cfc8078"
+    },
+    {
+      "path": "helpers/library_file_transfer.py",
+      "bytes": 11085,
+      "sha256": "5c81478cd94a59d721a1677d0bd36f7cec23c18a21b48740b1c9ff94d27fb26f"
+    },
+    {
+      "path": "helpers/source_inventory.py",
+      "bytes": 5440,
+      "sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b"
+    },
+    {
+      "path": "independent_build.py",
+      "bytes": 8732,
+      "sha256": "45d7a7f02ef52ee0fc4e46b41134b488f82937f4fd5634e06aad5298d9ef4110"
+    },
+    {
+      "path": "independent_checks.py",
+      "bytes": 4753,
+      "sha256": "4df1b7a7218f02c72e81bb4b510ad46d322f3c17bb67f0fd606ff29fbf956745"
+    },
+    {
+      "path": "logs-driver-composed.txt",
+      "bytes": 429,
+      "sha256": "c9798ecc0ef4cca19ec63d6d47e0c1089c3e26c600759fffc72af70c82dc8cc5"
+    },
+    {
+      "path": "logs-driver.txt",
+      "bytes": 5688,
+      "sha256": "37dbe9258453c53862e1ecca884758aaa3258ef1ed3af9f12d732ec89463b41a"
+    },
+    {
+      "path": "logs/Entry005.ActualAssignmentAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualBodyConeLaw.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualBodyHorizontalMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualBodyJointConeInterface.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualBodyPolarBoundary.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualFiniteEnclosingCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualFiniteEnclosingRadialCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualNormalizedDirectionalRoundness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualPyramidAssignment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualPyramidDefect.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualPyramidJointCone.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualPyramidMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ActualSupportFirstVariationTest.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.AffineNormalization.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.AffinePyramid.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.AnchorCoordinates.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.AnchorSelection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.AssignmentKernel.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.BallVolume.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.Cap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CenteredAtomCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CentroidMaximumBound.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ClippedAssignmentKernel.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CompactBallConeLaw.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CompactIidMomentContinuity.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CompactProbabilitySubsequence.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ConditionalPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ConeLawFinite.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ConeLawGeometry.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.Constants.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.CovarianceConditioning.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.DeterminantMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.DeterminantWitness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.EntryAffineInvariance.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FacetRadialMass.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FamilyWitness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteBodyWeightedAssignment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteDeterminantTupleInjection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteHalfspaceCauchy.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteHalfspaceCenteredCorrection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteHalfspaceConeLaw.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteHalfspaceFacets.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteHalfspaceHorizontalMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteLawZonotopeMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteMinkowskiScaleGate.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FiniteRadialSupportScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.FirstMomentAssignment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.GeometricEndpoint.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.HalfspaceApproximation.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.HalfspaceApproximationSequence.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.Handoff.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.HausdorffRetention.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.HyperplaneProjectionJacobian.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IidAnchorAffineDeterminant.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IidAnchorFirstMomentPositive.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IidAnchorSpanningSupport.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IidTransport.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IidWeightedAnchorSelection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IntegratedWitness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.IntrinsicLinearImageReuse.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.LargestCoordinate.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.MainTarget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.MaximumOuterBall.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.OfficialProjectionDefinitions.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.OriginalRadialScale.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PaperWitnessCombinatorics.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PaperWitnessTransport.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PolarSimplexConstruction.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PrescribedSimplex.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionAffineTransport.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionBodyCovariance.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionBodyDirections.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionScaleAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ProjectionVolumeSqueeze.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidApproximationLimits.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidContinuity.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidEntryDefect.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidFacetAreas.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidFormalization.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidHalfspaces.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidIidMomentReuse.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidLiftCoordinates.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidLiftedMoment.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidMomentDefect.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidProjectionBody.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidProjectionVolume.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidSideArea.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidSideFrame.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidVolume.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.PyramidZonotopeAlgebra.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.RadialConeVolume.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.RadialPowerIntegral.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.RegularSimplex.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.RoundAnchorChain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SameWitnessOriginalQBudget.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SelectedAnchorHullRoundness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SelectedAnchorSimplex.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SharpConstantGates.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SharpMainRetentionAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SharpNormalizationRadius.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SharpUpperMain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SimplexVolumeInterface.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.StrongBallVolume.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.StrongGeometricEndpoint.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.StrongProjectionCap.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.SupportScaleCapAssembly.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.Targets.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ThresholdGate.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.UnitBallAnchorChain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.UnitBallDeterminant.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.VerifiedPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.WeightedAnchorSelection.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.WitnessAnchorChain.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ZonotopeDeterminant.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ZonotopeFormula.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ZonotopeInjectionCombinatorics.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Entry005.ZonotopeVolume.compile.log",
+      "bytes": 28,
+      "sha256": "17dc3cb247daafcae232bcf4a5745fd7e7f168e1c5e2388853447f304633f01e"
+    },
+    {
+      "path": "logs/Entry005.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/IndependentPublicAudit.log",
+      "bytes": 606652,
+      "sha256": "6bf00a14d3ae9989d1d72e09949e163818599d72f5b40d180afae908c828b26b"
+    },
+    {
+      "path": "logs/KernelNegativeControl.log",
+      "bytes": 239,
+      "sha256": "d70a655bc077fa7334a048e107448dcdb282bf0b0e03f121492edb8709702a19"
+    },
+    {
+      "path": "logs/LiteralPositiveControls.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/Mxym.StochasticRigidity.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/NegativeAbbreviationAsProof.log",
+      "bytes": 278,
+      "sha256": "3a5634efc48e11d4a91d7cdbc29d6d3a9b2c165c4224fe6c07cb1b8c4c890369"
+    },
+    {
+      "path": "logs/NegativeConstantOmission.log",
+      "bytes": 344,
+      "sha256": "c37527aeb0f76dcb9c1653785a0420b71bbd922424012117d023338faa79e9d0"
+    },
+    {
+      "path": "logs/NegativeWrongQuantifier.log",
+      "bytes": 228,
+      "sha256": "a4359d23cdfe3b467d444fe8728326abcf2fdf7a33f84afcf0be6b2f36850d44"
+    },
+    {
+      "path": "logs/OAI.Geometry.ProjectionVolume.Basic.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/OAI.Geometry.ProjectionVolume.Brightness.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/OAI.Geometry.ProjectionVolume.Model.compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/OwnedInventory.log",
+      "bytes": 1152083,
+      "sha256": "c2907ffbb5c070c79ce628d72a25e2e7ec024db7cfd2b08fa6084f4535ab0eb5"
+    },
+    {
+      "path": "logs/ReplayAllSafeOwned.log",
+      "bytes": 133,
+      "sha256": "9f1de44a166d6cc179487d41abe0d004d4b7d471d0e2cab299e304b1f26bf613"
+    },
+    {
+      "path": "logs/ReplayLiteralMain.log",
+      "bytes": 53720,
+      "sha256": "a79647471f1d9b9d532780c32824eafb9a98cb3fb4face86b02b3f2f32099d1f"
+    },
+    {
+      "path": "logs/portable-prepare-validation.log",
+      "bytes": 37,
+      "sha256": "63d275242fd9df3bf24c420f9213a08cdc7000f7cbc5c8fb121e3570af39c602"
+    },
+    {
+      "path": "prepare_checks.py",
+      "bytes": 5349,
+      "sha256": "9614db72828dac9bf6f8e18494c06caad2aa6110cecc65dcde0885c65eb77344"
+    },
+    {
+      "path": "received/entry005-sharp-upper-main-readable.index.json",
+      "bytes": 51845,
+      "sha256": "dade68daabe6fec12878b8a360002501b7294e1800a50a0f764059b66887bfef"
+    },
+    {
+      "path": "received/entry005-sharp-upper-main-readable.patch",
+      "bytes": 1422231,
+      "sha256": "9a0a33f57cc6a3f9f373040ae11fd98ade985bbd5712f31fca3b82f702b7a932"
+    },
+    {
+      "path": "received/supplement/SelectedAnchorHullRoundness-exact-source-readable.patch",
+      "bytes": 5664,
+      "sha256": "01dab955ed966f094eedb30de00a392af6615f8960114a8099187f7061a7a71e"
+    }
+  ]
+}

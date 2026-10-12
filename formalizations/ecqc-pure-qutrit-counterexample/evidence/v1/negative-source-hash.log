@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/ecqc-qutrit-source-negative-20261009/reproduce.py", line 125, in <module>
+    main()
+  File "/root/ecqc-qutrit-source-negative-20261009/reproduce.py", line 44, in main
+    verify_sources()
+  File "/root/ecqc-qutrit-source-negative-20261009/reproduce.py", line 43, in verify_sources
+    require(sha(root / name) == digest, f'Source hash mismatch: {name}')
+  File "/root/ecqc-qutrit-source-negative-20261009/reproduce.py", line 24, in require
+    raise RuntimeError(message)
+RuntimeError: Source hash mismatch: QuantumCore.lean

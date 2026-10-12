@@ -1,0 +1,52 @@
+name: Projection-body sharp Bellman quadratic oscillation theorem
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-bellman-quadratic-oscillation.yml'
+      - 'notes/projection-bellman-quadratic-oscillation/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-bellman-quadratic-oscillation.yml'
+      - 'notes/projection-bellman-quadratic-oscillation/**'
+
+permissions:
+  contents: read
+
+jobs:
+  independent-exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check full research package SHA-256 inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd notes/projection-bellman-quadratic-oscillation
+          sha256sum -c SHA256SUMS
+      - name: Independently verify universal no-quadratic-germ and oscillation bound
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-quadratic-oscillation/code/check.py > /tmp/osc-normal.txt
+          python3 -O notes/projection-bellman-quadratic-oscillation/code/check.py > /tmp/osc-optimized.txt
+          cmp /tmp/osc-normal.txt /tmp/osc-optimized.txt
+          cmp /tmp/osc-normal.txt notes/projection-bellman-quadratic-oscillation/results/check.txt
+      - name: Independently verify the canonical nonanalytic interpolant fails closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-quadratic-oscillation/code/check_canonical_rational.py > /tmp/can-normal.txt
+          python3 -O notes/projection-bellman-quadratic-oscillation/code/check_canonical_rational.py > /tmp/can-optimized.txt
+          cmp /tmp/can-normal.txt /tmp/can-optimized.txt
+          cmp /tmp/can-normal.txt notes/projection-bellman-quadratic-oscillation/results/canonical-rational-replay.txt
+      - name: Reject falsified pi, logarithm, factorial or source data
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-bellman-quadratic-oscillation/code/negative_controls.py > /tmp/negative-normal.txt
+          python3 -O notes/projection-bellman-quadratic-oscillation/code/negative_controls.py > /tmp/negative-optimized.txt
+          cmp /tmp/negative-normal.txt /tmp/negative-optimized.txt
+          cmp /tmp/negative-normal.txt notes/projection-bellman-quadratic-oscillation/results/negative.txt

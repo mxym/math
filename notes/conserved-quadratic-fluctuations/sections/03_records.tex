@@ -1,0 +1,211 @@
+\section{Speed records and a uniform incidence law}\label{sec:records}
+Give each particle a passive mark $y_j(t)$, initially zero. At every accepted
+C event add its incoming normal speed $B$ to each participant. O and rejected
+contacts add zero. A particle never copies its partner's previous mark.
+Define the random cumulative speed sum
+\begin{equation}\label{eq:random-H}
+ \cH_\eps^p(t)=\frac1{2\mu}\sum_j y_j(t)
+             =\frac1\mu\sum_{c\in\mathcal C_t^p}B_c.
+\end{equation}
+Its expectation is denoted $m_\eps(t)$. This random variable must be
+distinguished from V's deterministic notation for its expectation.
+
+With root phase/record variables $\xi_j$, let
+\[
+ F_h^\eps=\mu^{-h}\E\sum_{i_1,\ldots,i_h\ \text{distinct}}
+                      \delta_{(\xi_{i_1},\ldots,\xi_{i_h})},
+ \qquad c_1^\eps=F_1^\eps,\qquad
+ c_2^\eps=F_2^\eps-F_1^\eps\otimes F_1^\eps.
+\]
+Records at different times can be included as a fixed finite root-output
+list. No positive separation of those times is needed.
+
+\begin{lemma}[Weighted one- and two-root bounds]\label{lem:weighted}
+Uniformly over observation times in $[0,T]$, for $h\le2$ and nonnegative
+integers $b_j$ with $\sum b_j\le2$,
+\begin{equation}\label{eq:weighted}
+ \left|\int c_h^{\eps,p}\prod_{j=1}^h y_j^{b_j}\right|
+                                      \le C\mu^{1-h}.
+\end{equation}
+In particular
+\begin{equation}\label{eq:Hvar}
+ \sup_{t\le T}\operatorname{Var}(\cH_\eps^p(t))\le C\mu^{-1}=C\eps^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We first bound actual records, then estimate all signed-branch tests globally.
+In slab $i$ a final accepted component has at most $\Lambda_i$ labels and no
+accepted edge to its complement. Its energy is conserved throughout the slab,
+including before its prefixes merge. If slab-start speeds are bounded by
+$V_i$, every later speed in that component is at most $\sqrt{\Lambda_i}V_i$.
+Across the fixed slab list this gives
+\[
+ V_\eps=R_v\prod_{i=1}^L\sqrt{\Lambda_i},\qquad
+ \max_{j,t}|v_j^p(t)|\le V_\eps.
+\]
+Its accepted multigraph has at most $\Lambda_i-1+\Gamma$ edges, so
+\begin{equation}\label{eq:record-clip-scale}
+ 0\le y_j(t)\le D_\eps,
+ \qquad D_\eps=2V_\eps\sum_i(\Lambda_i-1+\Gamma),
+ \qquad P_\eps=1+D_\eps.
+\end{equation}
+For fixed $L$ these quantities are fixed powers of $1+|\log\eps|$.
+
+Append the passive coordinate to the H2 root-output maps and use
+$\ell_\eps(y)=\clip(y/P_\eps,-1,1)$ on \emph{every} signed branch.
+Compatibility reproduces the same accepted history, hence the same mark.
+Kernel weights, spectators, fresh-label coefficients, and one-root regrouping
+are unchanged. Pushforward has variation norm at most one. Required recorded
+lines continue to zero. Thus the finite output algebra and H3 unweighted
+error mechanism remain valid, just as for the accepted-contact count record
+in F. The mark normalization changes no trajectory.
+
+On the actual process $P_\eps\ell_\eps(y)=y$, while on any artificial branch
+$|P_\eps\ell_\eps(y)|\le|y|$. The bounded test must be global: actual speed
+support cannot be assigned to artificial independent birth inputs.
+Write $\delta_h=\|F_h-\widehat F_h\|_{\TV}$.
+Actual factorial masses are at most one by H1 and conservation of $N$, so
+$\|\widehat F_1\|_{\TV}\le1+\delta_1$. Finite inversion gives, directly,
+\[
+ \|c_2-\widehat c_2\|_{\TV}
+             \le\delta_2+\delta_1(2+\delta_1).
+\]
+Restoring degree at most two costs at most $P_\eps^2$. It leaves H3's
+exponential remainder smaller than every fixed power of $\eps$.
+Choose complexity and nonphysical initial-tail accuracies after this degree;
+for example an unweighted $O(\eps^6)$ tail, restored by a fixed polylogarithm,
+is $o(\eps^2)=o(\mu^{-1})$. For a later field covariance, its additional
+factor $\mu$ is included before choosing accuracy. No weighted microscopic
+remainder is used.
+
+At fixed complexity $K$, total slab size $n$, and total birth energy $E$,
+there are at most $n+C_K$ prescribed contacts and $B\le\sqrt{2E}$.
+Consequently
+\begin{equation}\label{eq:record-energy}
+ |y_j|\le C_K(1+n)\sqrt E,
+ \qquad
+ \left|\prod_jy_j^{b_j}\right|\le C_K(1+n)^2(1+E)
+                             \quad\text{if }\sum b_j\le2.
+\end{equation}
+This uses active energy on the realizable branch, including determined
+redundant updates; unrealizable branches remain zero. It also dominates the
+restored clipped output. With $m$ births, $a=m-1-p$ mergers, and $p$ physical
+initial links, the exact connected normalization at $h$ roots is
+\begin{equation}\label{eq:scaling}
+ \mu^{m-h}\eps^{2a}\eps^{3p}=\mu^{1-h}\eps^p.
+\end{equation}
+Continuation contributes no extra birth or activity factor.
+
+We detail why the energy insertion preserves the size base. On a dyadic
+energy bin of upper scale $P$, summing the next merger pair in slab $i$
+costs at most $n_i^{3/2}\sqrt P$. Normal integration adds a fixed exponential
+factor, ordered merger times give $\tau^{a_i}/a_i!$, and fresh labels give
+$1/n_i!$ up to fixed complexity polynomials. The birth product after one
+translation integration is $C^m e^{-bE}$. The source's energy-bin calculation
+therefore gives, before the final Stirling estimate,
+\begin{equation}\label{eq:pre-stirling}
+ C^{n+a}\tau^a(1+a)^{a/2}
+              \prod_i\frac{n_i^{3a_i/2}}{a_i!n_i!},
+\end{equation}
+up to a fixed polynomial. Reserving a fixed Gaussian fraction absorbs
+$(1+E)$ in \eqref{eq:record-energy}. Equivalently, a fixed integer shift
+$r$ of the energy-bin power has gamma ratio
+\[
+ \frac{\Gamma(s+r+1)}{\Gamma(s+1)}
+       =\prod_{k=1}^r(s+k)\le C_r(1+s)^r,
+\]
+and costs only a fixed power of size. Since $\delta_i=n_i-a_i\ge0$ and
+$\sum_i\delta_i=O_K(1)$, Stirling and convexity yield
+\[
+ \frac{n_i^{3a_i/2}}{a_i!n_i!}
+ \le e^{2n_i}(1+n_i)^{\delta_i}n_i^{-n_i/2},\qquad
+ \prod_i n_i^{n_i}\ge(n/L)^n.
+\]
+Inserting these into \eqref{eq:pre-stirling} gives
+$C_K\mu^{1-h}\eps^p(1+n)^{D_K}\theta^n$ with
+$\theta=C\tau\sqrt L<1$. Choose $L$ once for the fixed smaller Gaussian
+exponent. Later fixed degrees change front constants and powers of size,
+not that choice. Summing $n$ and adding the restored small errors proves
+\eqref{eq:weighted}. The reasoning is uniform on partial slabs and finite
+record lists.
+
+Finally, for $S_y=\sum_j y_j$, the identical-index and distinct-index terms
+give the exact identity
+\[
+ \operatorname{Var}S_y
+ =\mu\int F_1 y^2+\mu^2\int c_2y_1y_2.
+\]
+Dividing by $4\mu^2$ proves \eqref{eq:Hvar}. The second integral may be
+signed; its absolute bound suffices. The $1/2$ in \eqref{eq:random-H}
+is necessary because each contact is recorded by both participants.
+\end{proof}
+
+\begin{lemma}[Speed-incidence mean]\label{lem:incidence-mean}
+The same pasted dynamics satisfies
+$m_\eps(t)=\E\cH_\eps^p(t)\to H(t)$ uniformly on $[0,T]$.
+\end{lemma}
+\begin{proof}
+This is the weighted incidence theorem of V; the short proof from the stated
+package is included. Remove microscopic and complexity errors with the
+globally clipped degree-one test as above. At fixed size and bounded birth
+energy the raw finite speed sum converges by H5, and clipping is eventually
+inactive. The bound \eqref{eq:record-energy}, its Gaussian domination, and
+the size majorant remove the energy and size cutoffs. Physical initial links
+retain $\eps$ and cyclic terms vanish after the same weighted truncation and
+domination. Bol-norm convergence replaces interface births by $f_{i\tau}$.
+No qualitative normalized-record convergence is multiplied by $P_\eps$.
+
+In the surviving finite limiting tree class, inspect contacts in reverse
+chronological order. Project unused future auxiliary records. The latest
+contact that meets no tested root has equal incoming C/O flux, opposite
+signs, and the same root output, including its mark, so its choices cancel.
+Repeat until the latest remaining contact meets the root. Delete that
+contact at time $s$ using H5. Its two incoming components factor with their
+original fresh-label weights and the combined-size cutoff. For the terminal
+test $y$, the C-minus-O increment is exactly $B$, independently of both
+incoming historical marks. Both components can therefore be projected onto
+their unmarked phase points, whose measures are $f_s(x,v)$ and $f_s(x,w)$.
+The one-root moment is
+\[
+ M_y(t)=\int_0^t\int B^2 f_s(x,v)f_s(x,w)
+                         \dd x\dd v\dd w\dd\omega\dd s.
+\]
+The flux supplies one $B$ and the mark supplies the second. Absolute
+summability removes the combined-size cutoff before replacing the incoming
+components by their unrestricted product. A one-root insertion has no factor
+$1/2$; the relation $\sum_j y_j=2\sum_c B_c$ then gives $H=M_y/2$.
+The unused partner history was projected out, not replaced by a fresh zero
+mark. The argument holds at every fixed time, including a partial final slab.
+Both $m_\eps$ and $H$ are nondecreasing and $H$ is continuous. A fixed finite
+grid with small $H$ increments sandwiches intermediate values, giving uniform
+convergence from the fixed-time convergence.
+\end{proof}
+
+\begin{proposition}[Uniform incidence LLN]\label{prop:LLN}
+For the pasted flow,
+\begin{equation}\label{eq:L2-LLN}
+ \E\sup_{t\le T}|\cH_\eps^p(t)-H(t)|^2\longrightarrow0.
+\end{equation}
+For the true speed sum $\cH_\eps(t)=\mu^{-1}\sum_{c\in\mathcal C_t}B_c$,
+\begin{equation}\label{eq:true-LLN}
+ \sup_{t\le T}|\cH_\eps(t)-H(t)|\longrightarrow0
+                                      \quad\text{in probability}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Given $\eta>0$, take a fixed grid whose successive $H$ increments are at
+most $\eta$. Uniform mean convergence makes successive $m_\eps$ grid
+increments at most $3\eta$ for small $\eps$. Every sample and every mean
+$\cH_\eps^p,m_\eps$ is nondecreasing. Thus
+\[
+ \sup_t|\cH_\eps^p(t)-m_\eps(t)|
+ \le\max_i|\cH_\eps^p(t_i)-m_\eps(t_i)|+3\eta.
+\]
+The squared expectation of the maximum is bounded by the sum of its endpoint
+variances, at most $C\#\{t_i\}\eps^2$. First let $\eps\to0$ for this
+fixed grid, then $\eta\to0$, and add $\|m_\eps-H\|_\infty$.
+This proves \eqref{eq:L2-LLN}. On the good event in H6 the true and pasted
+events, hence their entire speed-sum paths, agree. Its exceptional probability
+tends to zero, proving \eqref{eq:true-LLN}. No squared bad-event comparison
+is used.
+\end{proof}

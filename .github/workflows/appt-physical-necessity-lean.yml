@@ -1,0 +1,40 @@
+name: APPT physical necessity clean build and kernel replay
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'formalizations/appt-qutrit-purity/APPT/Quantum/**'
+      - 'formalizations/appt-qutrit-purity/APPT/Core.lean'
+      - 'formalizations/appt-qutrit-purity/Necessity*.lean'
+      - 'formalizations/appt-qutrit-purity/NECESSITY_SOURCES.json'
+      - 'formalizations/appt-qutrit-purity/reproduce_necessity.py'
+      - 'formalizations/appt-qutrit-purity/lake*'
+      - 'formalizations/appt-qutrit-purity/lean-toolchain'
+      - '.github/workflows/appt-physical-necessity-lean.yml'
+permissions:
+  contents: read
+jobs:
+  physical-necessity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-qutrit-purity
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Fresh package target, paired controls, trust-zero replay
+        working-directory: formalizations/appt-qutrit-purity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 reproduce_necessity.py --fresh
+      - name: Retain literal logs and source-bound proof records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appt-physical-necessity-${{ github.sha }}
+          path: formalizations/appt-qutrit-purity/local-verification/necessity/
+          if-no-files-found: warn

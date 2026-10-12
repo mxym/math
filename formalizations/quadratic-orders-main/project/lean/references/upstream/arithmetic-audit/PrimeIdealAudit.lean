@@ -1,0 +1,7 @@
+import ArithmeticSupplyMainFromPrimeIdealPNT
+#print axioms Entry002.arithmeticSupply_conductor_primeTo_of_gt
+#print axioms Entry002.arithmeticSupply_principalSupply_of_primeIdealPNT
+#print axioms Entry002.arithmeticSupply_mainTarget_of_primeIdealPNT
+#print axioms Entry002.arithmeticSupply_dyadic_above_cutoff_eq
+#print axioms Entry002.arithmeticSupply_dyadic_above_cutoff
+#print Entry002.arithmeticSupply_mainTarget_of_primeIdealPNT

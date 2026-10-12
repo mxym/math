@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-08T08:25:30.613748+00:00",
+  "scope": "Additive independent verification of frozen RealPowerBridge, including the actual original real-power conjecture-negation theorem.",
+  "lean_version": "4.34.1",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_sha256": {
+    "Alpha.lean": "a4849d6b932fdc82562c20d9a5cfb07c4090fa5928e9dbd0f21db210d72bb547",
+    "Definitions.lean": "abae976750b66b1166eb2552273cff9384eeb69c5c796c8294f869bb24ed954f",
+    "Signs.lean": "ad19d59b8ec8ff89d92e011a964aca1e2bbb46431568d6eaeb9cdf09b1e2835a",
+    "FourRoots.lean": "f6d2cdb28995185dd5eed1d645a78f8566bc3ecf9a46f15171567835d92f0ce8",
+    "Counterexample.lean": "22a752fda200dce134fae897336459858189fe26f1895c0a33d17cd97ba4c3aa",
+    "RealPowerBridge.lean": "9a51cdd8d6cb3d87fbe97cf6121198ea891b115cd0a07ad29379ed2df7607249"
+  },
+  "bridge_source_sha256": "9a51cdd8d6cb3d87fbe97cf6121198ea891b115cd0a07ad29379ed2df7607249",
+  "unchanged_core_hashes_verified": true,
+  "prior_core_gate": {
+    "path": "<original-audit-location>/VERIFICATION.json",
+    "sha256": "5d880a00347bf572ace3600b0a8606b6a451c8ce2bfb55229826a8d2c54da8a9",
+    "report_path": "<original-audit-location>/AUDIT.md",
+    "report_sha256": "e2c9d0e0c3a580e141b0b4d529f501281c14608e6a9c06271d061064655c9727",
+    "manifest_path": "<original-audit-location>/SHA256SUMS",
+    "manifest_sha256": "e4b6c5465cde0d5a4b3fb9263de4aacd9c00f11adc9570193e30a68c4fa6c4a3",
+    "fresh_build_directory": "<original-audit-location>/fresh-owned.8auvwI",
+    "owned_olean_sha256": {
+      "Alpha.olean": "6872dbe86e1f29eff1b376b52ec3ed770dc278c322ca896806333c17206c2cd6",
+      "Counterexample.olean": "58844cd88ce8605169677ce20b61f7fd4cdd2faedd299f0568e564e8cdd97681",
+      "Definitions.olean": "115ac535cbcde7f0df0ee09e3319557d5fc4b1a298701a08e175b1bad21487de",
+      "FourRoots.olean": "fa9f465c1b5cc54ad132ebbe61311fd223a1db7bbd9463480c4a03d4fc18025d",
+      "Signs.olean": "eb2deec773e560f3ec8c206d27e1c4e44481537b3fe10a5b90f5d59b56a0f9d9"
+    }
+  },
+  "new_bridge_build_directory": "<original-audit-location>/fresh-bridge.CbVCvv",
+  "new_bridge_olean_sha256": "e6173dad71ea7adafa7ce52443fe0774b52d21fa72b5cca6406356415e05038d",
+  "author_owned_olean_imported": false,
+  "fresh_compilation": "Only the added bridge is newly compiled; the unchanged five modules use the prior independent fresh compilation.",
+  "new_explicit_theorems": 6,
+  "new_all_owned_declarations": 6,
+  "cumulative_explicit_theorems": 43,
+  "cumulative_all_owned_declarations": 85,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axioms": 0,
+  "owned_unsafe_or_partial_declarations": 0,
+  "warnings": 0,
+  "empty_kernel_replay": {
+    "status": "PASS",
+    "actual_final_root": "EntropyCounterexample.wakhare_conjecture_two_false_original_real_power",
+    "actual_final_root_explicitly_required": true,
+    "root_selection": "Every declaration originating in RealPowerBridge, including all six new theorems.",
+    "roots": 6,
+    "transitive_closure_declarations": 18783,
+    "trust_level": 0,
+    "initial_environment": "mkEmptyEnvironment 0",
+    "skipped": [],
+    "elapsed_seconds": 82.78
+  },
+  "negative_control": "Prior unchanged kernel-negative-control PASS reused; not rerun.",
+  "final_theorem_outer_hypotheses": 0,
+  "original_real_power_definition_proved": true,
+  "positive_domain_equivalence_proved": true,
+  "original_parameter_exists_unique_proved": true,
+  "original_parameter_root_count_at_least_four_proved": true,
+  "original_real_power_universal_conjecture_negation_proved": true,
+  "resolved_prior_limitation": "Equivalence of the defining real-power equation (1.1) with the counterexample integer-power parameter equation is now formalized.",
+  "remaining_boundaries": [
+    "At least four roots, not exactly four or specified multiplicities.",
+    "No smallest-example or novelty claim.",
+    "No refutation of the entropy inequality or resolution of the union-closed sets conjecture.",
+    "Shared environment and official Lean kernel; no independent kernel implementation or whole-mathlib source rebuild."
+  ],
+  "publication_actions_performed": false
+}

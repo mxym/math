@@ -1,0 +1,171 @@
+\section{Collision counts and microscopic windows}\label{sec:micro}
+We prove the needed source extensions explicitly. In this section a
+constant may depend on a requested fixed remainder accuracy.
+
+\begin{lemma}[A passive incidence record]\label{lem:record}
+The exact component expansion and unweighted variation estimates in
+\Cref{prop:imports} also hold when a designated particle records its
+number of accepted C contacts in an interval $I$.
+\end{lemma}
+\begin{proof}
+In slab $i$ an accepted component has at most
+$\Lambda_i-1+\Gamma$ edges. Thus each particle's total incidence record
+is at most $B_\eps=\sum_i(\Lambda_i-1+\Gamma)$, a fixed power of
+$|\log\eps|$. Normalize it by $B_\eps$.
+In the source's autonomous partition identity, compatible autonomous
+components reproduce the full accepted root history, hence this statistic.
+The one-slab root-output kernel can therefore append it as one passive
+coordinate. Spectator cancellation and the fresh-label identity are
+unchanged. Pushforward has variation norm at most one; the crude operator
+bound and stopped forest domination do not require derivatives or a
+particular choice of output statistic.
+Required record labels still continue to zero, while unmarked one-root
+blocks are the same inputs $g_i$. Thus the source's finite regrouping and
+coarse estimates apply with one bounded coordinate per required label,
+not one coordinate per mesh point.
+At total degree $k$, restoring the raw record costs $B_\eps^k$ on errors.
+This is polylogarithmic, so exponentially small errors remain smaller than
+every power, and arbitrary-power tails can be chosen after $k$.
+On a retained diagram, raw mark powers cost only a fixed power of its
+contact count, hence a fixed polynomial in size at complexity $K$.
+\end{proof}
+
+\begin{lemma}[Calendar localization]\label{lem:calendar}
+For fixed factorial order, complexity and total contact-mark degree, the
+sum of connected retained absolute marked integrals is at most
+$C\mu^{1-h}|I|$, provided at least one marked contact is required to lie
+in $I$. Nonphysical initial tails may instead be assigned arbitrary-power
+errors.
+\end{lemma}
+\begin{proof}
+First integrate out every common spatial translation and replace the
+birth factors by their uniform envelope $C^m e^{-bE}$.
+The remaining quotient coordinates are $(V,\Omega,t,y)$; there is no
+remaining integration in an unrestricted translation variable.
+Collapse identity interface gluings of continued lines.
+For the positive comparison family, freely extend each global line
+before its first and after its last prescribed contact. Redundant-contact
+segments end at neighboring prescribed contacts or at infinity, not at
+fixed physical lifetime interfaces. Keep the full chronological slot
+order and the requirement that each redundant incoming intersection
+exists; otherwise its branch weight is zero.
+
+For $u\geq0$ set
+\[
+ t_e\longmapsto t_e+u,\qquad
+ y_{pq}\longmapsto y_{pq}-u(v_p^{\rm birth}-v_q^{\rm birth}),
+\]
+leaving birth velocities and free normals fixed.
+This quotient-coordinate map has determinant one. Reconstructing virtual
+paths inductively shows that the new path at time $t$ is the old path at
+$t-u$, up to the already integrated representative translation.
+Merger normals, velocities and fluxes are unchanged. A redundant
+incoming intersection shifts by $u$ with its normal and update unchanged.
+The first shifted contact is later than the original one, so its fixed
+birth anchor remains on its incoming free segment.
+Endings and nominal slab interfaces are only constraints in the original
+domain; virtual comparison paths may extend beyond them.
+All global coordinates remain in the energy accounting, and every update
+preserves total birth energy.
+
+Put all absolute birth, ending, interface and nominal-slab restrictions,
+including those on determined redundant times, into a domain $D$.
+The Gaussian, fluxes and virtual chronological branch indicators form
+a calendar-invariant core $W$.
+If $t_*$ is a selected contact, $t_*(\Phi_u\theta)=t_*(\theta)+u$.
+Changing variables, enlarging all shifted domains to $D_\ell^+$, and
+averaging over $0\leq u\leq\ell$ gives
+\begin{equation}\label{eq:calendar-average}
+ \int_D\ind_{\{t_*\in I\}}W\dd\theta
+ \leq\frac{|I|}{\ell}\int_{D_\ell^+}W^+\dd\theta ,
+\end{equation}
+because $\int_0^\ell\ind_{\{t_*\in I+u\}}\dd u\leq|I|$.
+The changed interval $I+u$ is essential.
+
+If $p=0$, take $\ell=\tau$. Nominal merger-time intervals have length at
+most $2\tau$, and remain ordered within each slab.
+Their volumes are $(2\tau)^{a_i}/a_i!$.
+Retain the original global slot order until the final volume upper bound.
+The same pair-speed, Gaussian-energy and factorial estimates apply to
+these virtual histories: the subset of $n_i$ nominal labels has
+$\sum_{p<q}|v_p-v_q|\leq n_i^{3/2}\sqrt E$.
+Thus their size majorant is
+$C_K\mu^{1-h}(1+n)^{d_K}(2C_b\tau\sqrt L)^n$.
+Taking $L$ sufficiently large once absorbs the enlargement.
+
+If $p\geq1$, take $\ell=\eps<\tau$. An initial-link ball enlarges to
+radius $\eps(R_{K,D}+\sqrt{2E})$. The $p$ link volumes are at most
+$C_{K,D}\eps^{3p}(1+E)^{3p/2}$.
+The normalization remains $\mu^{1-h}\eps^p$.
+Averaging in \eqref{eq:calendar-average} pays $\eps^{-1}$; the link gain
+leaves $\eps^{p-1}\leq1$.
+Absorb the fixed energy polynomial into half the birth Gaussian:
+$(1+E)^{3p/2}e^{-bE}\leq C_{b,p}e^{-bE/2}$.
+The fraction reserved is fixed independently of $p$, so the exponential
+size base stays independent of complexity and moment order.
+Nonphysical initial tails are erased with their inherited power cost
+and chosen afterward.
+Selecting a contact and restoring raw mark powers add only polynomial
+size factors. Summing the geometric size tail proves the lemma.
+\end{proof}
+
+\begin{proposition}[Actual incidence cumulants]\label{prop:counts}
+Let $A_I$ be the total number of collision incidences, two per accepted
+C contact. For every fixed integers $k\geq1$ and fixed accuracy $M>0$,
+\[
+ |\kap_k(A_I)|\leq C_{k,M}(\mu|I|+\eps^M)
+\]
+uniformly in $I\subset[0,T]$.
+\end{proposition}
+\begin{proof}
+Apply \Cref{lem:record}. In a connected retained term of total mark degree
+$k$, a nonzero mark product selects at least one C contact in $I$.
+\Cref{lem:calendar} bounds its factorial-order-$h$ contribution by
+$C_{h,K,k}\mu^{1-h}|I|$. The ordinary-cumulant partition identity then
+multiplies by $\mu^h$, giving $C\mu|I|$.
+Choose complexity, initial tails and stopped-error powers after $k,M$,
+allowing for the fixed factors $\mu^h$ and $B_\eps^k$.
+The actual hierarchy-to-cumulant remainder is handled exactly as in
+\Cref{lem:remainder}. The leading constant may depend on $M$ through $K$;
+there is no assertion of a constant uniform over all accuracy choices.
+\end{proof}
+
+\begin{proposition}[Microscopic modulus]\label{prop:micro}
+For every fixed $J\geq2$, $\lambda>0$ and compact smooth $\phi$,
+\[
+ \Pp\left\{\sup_{|t-s|\leq\eps^J}
+       |\zeta_t^{\eps,p}(\phi)-\zeta_s^{\eps,p}(\phi)|>\lambda\right\}
+       \leq C_{\phi,\lambda,J}\eps^2
+\]
+for sufficiently small $\eps$.
+\end{proposition}
+\begin{proof}
+Put $\delta=\eps^J$ and cover the interval by $O(T/\delta)$ overlapping
+windows of length $2\delta$. The raw fourth-moment identity and
+\Cref{prop:counts}, with the accuracy fixed sufficiently large after $J$,
+give
+\[
+ \E A_I^4\leq C\sum_{r=1}^4(\mu|I|)^r+O(\eps^M).
+\]
+For example accuracy $M+6$ in each cumulant absorbs the other at most
+three factors of order $\mu$. Markov and the grid union bound yield
+\[
+ \Pp\{\max_I\eps A_I>\lambda\}
+ \leq C_\lambda(\eps^2+\delta+\eps^{-2}\delta^2+
+                         \eps^{-4}\delta^3)
+       +O(\eps^{M+4-J})=O(\eps^2).
+\]
+Pathwise, with $D_\phi=\|v\cdot\nabla_x\phi\|_\infty$,
+\[
+ \osc_I\left(\eps\sum_i\phi(z_i^p(t))\right)
+       \leq\eps D_\phi N|I|+2\|\phi\|_\infty\eps A_I.
+\]
+There are no state jumps when the pasted prehistory restarts.
+The single global $N$ term needs no grid union:
+$\E N^2\leq C\mu^2$ bounds its probability by
+$C\eps^2\mu^2\delta^2=C\eps^{2J-2}\leq C\eps^2$.
+The exact mean increment is deterministically at most
+$C_\phi\eps^{-1}\delta+O(\eps^M)$ by the first incidence cumulant.
+It is smaller than a fixed threshold for small $\eps$.
+This proves the statement, with constants allowed to depend on $J$.
+\end{proof}

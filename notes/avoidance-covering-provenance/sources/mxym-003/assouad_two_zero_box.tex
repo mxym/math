@@ -1,0 +1,449 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=2pt,topsep=5pt}
+\setlength{\emergencystretch}{1.5em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+\newcommand{\av}[1]{\langle#1\rangle}
+\newcommand{\dimA}{\dim_{\mathrm A}}
+\newcommand{\dimB}{\mathop{\overline{\dim}}\nolimits_{\mathrm B}}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\spanop}{span}
+\title{Compact Banach space obstructions\texorpdfstring{\\}{ }with Assouad dimension two}
+\author{}
+\date{Research note \quad October 7, 2026}
+\hypersetup{pdftitle={Compact Banach space obstructions with Assouad dimension two},pdfauthor={},pdfsubject={An extension of the OpenAI doubling Hilbert subset construction}}
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+\begin{abstract}
+Every infinite-dimensional real Banach space contains a countable compact subset of upper box dimension zero and Assouad dimension exactly two that admits no bi-Lipschitz embedding into any finite-dimensional real normed space. Its doubling constant has a universal bound. The proof modifies the scale schedule in the sheet construction of OpenAI, retaining its derivative and crossing obstruction. A refined covering estimate controls the Assouad dimension, and a sparse union of finite witnesses gives zero upper box dimension. The analytic nonembedding mechanism is inherited from the cited source; the additional dimensional conclusions are proved here. No optimality assertion for the value two is made.
+\end{abstract}
+
+\section{Statement and scope}
+For a metric space $X$, write $B_X(x,R)=\{y\in X:d(x,y)\le R\}$. If $E\subseteq X$, let $N_r^X(E)$ be the least number of closed radius-$r$ balls with centers in $X$ that cover $E$. The \emph{Assouad dimension} is
+\[
+ \dimA X=\inf\left\{s\ge0:\ \exists C<\infty\ \forall x\in X\ \forall\,0<r<R,
+ \quad N_r^X(B_X(x,R))\le C(R/r)^s\right\}.
+\]
+For a nonempty compact space, its \emph{upper box dimension} is
+\[
+ \dimB X=\limsup_{r\downarrow0}\frac{\log N_r^X(X)}{\log(1/r)}.
+\]
+A space is $\lambda$-doubling if $N_{R/2}^X(B_X(x,R))\le\lambda$ for every $x,R$. A map has distortion at most $D$ if, for some $b>0$,
+\[
+ b\,d(x,y)\le\norm{f(x)-f(y)}\le Db\,d(x,y)\qquad(x,y\in X).
+\]
+
+\begin{theorem}\label{thm:main}
+There is a numerical constant $\Lambda$ such that every infinite-dimensional real Banach space $B$ contains a countable compact subset $K$ satisfying
+\[
+ \dimB K=0,\qquad \dimA K=2,
+\]
+with doubling constant at most $\Lambda$, and with no bi-Lipschitz embedding into any finite-dimensional real normed space. One may take
+\[
+ \Lambda=1+5\cdot 76800^8.
+\]
+\end{theorem}
+
+The starting point is the OpenAI manuscript \emph{A doubling Hilbert subset with no finite-dimensional bi-Lipschitz embedding} \cite{OpenAI}, which proves compact doubling obstructions in all infinite-dimensional real Banach spaces. Its finite-cluster assembly already gives a countable set, hence Hausdorff dimension zero. Making those clusters sparse also gives zero upper box dimension without changing the central obstruction. The substantive additional estimate here is exact Assouad dimension two, compatible with the other conclusions.
+
+The original construction uses scales $1000^{-j}$. Here they are replaced by $1000^{-j^2}$. Section~\ref{sec:source} states precisely the inherited nonembedding result in the scale-flexible form needed below. Appendix~\ref{sec:appendix} records the source argument and verifies its scale dependence. Sections~\ref{sec:cover}--\ref{sec:assembly} contain the refined covering and assembly proofs. The reference is pinned to repository commit
+\begin{center}
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\end{center}
+This is a research-note argument. It is not a formal verification of the modified construction or a claim that the literature has been exhaustively checked. In particular, the theorem does not assert that Assouad dimension two is the smallest possible dimension for such an obstruction.
+
+\section{The sheet construction and its inherited obstruction}\label{sec:source}
+Fix a sequence $(N_j,W_j)_{j\ge1}$ in $\N^2$ in which every pair occurs infinitely often. For example, concatenate the lists $\{1,\ldots,m\}^2$, $m=1,2,\ldots$. Let $(\rho_j)$ be positive scales satisfying
+\begin{equation}\label{eq:scale-general}
+ \rho_{j+1}\le 10^{-3}\rho_j.
+\end{equation}
+In the Hilbert direct sum
+\[
+ \mathcal H=\R^2\oplus\bigoplus_{j\ge1}\R^{N_j},
+\]
+write $e_{j,i}$ for the coordinate vectors of the $j$th summand. At level $j$, color the open horizontal strips
+\[
+ \{(x,y):q\rho_j<y<(q+1)\rho_j\},\qquad q\in\Z,
+\]
+by $i\in\{1,\ldots,N_j\}$ when $q\equiv i-1\pmod{N_j}$. Color the vertical strips
+\[
+ \{(x,y):qW_j\rho_j<x<(q+1)W_j\rho_j\}
+\]
+in the same way. Denote the unions of color-$i$ strips by $H_{j,i}$ and $V_{j,i}$, and set $U_{j,i}=H_{j,i}\cup V_{j,i}$.
+
+Let $S(\rho)\subset\mathcal H$ consist of the points $(p,w)$ for which $w=(w_j)$ has finite support and, independently at each level,
+\begin{equation}\label{eq:coordinate}
+ w_j=0\quad\hbox{or}\quad w_j=\rho_j e_{j,i}\ \hbox{with }p\in U_{j,i}.
+\end{equation}
+The zero coordinate is always permitted, also on strip boundaries. In particular, $S(\rho)$ contains an isometric copy of $\R^2$.
+
+\begin{lemma}[Scale-flexible source obstruction]\label{lem:source}
+For every schedule satisfying \eqref{eq:scale-general}, the space $S(\rho)$ has doubling constant at most $\lambda=76800$ and admits no finite-distortion bi-Lipschitz embedding into $\R^k$, for any positive integer $k$.
+\end{lemma}
+
+\begin{proof}[Source dependency and scale check]
+The construction and analytic argument are those of \cite[Sections 2--5]{OpenAI}. The doubling proof uses only \eqref{eq:scale-general} and the geometric tail estimate
+\begin{equation}\label{eq:tail}
+ \sum_{\rho_j\le t}\rho_j^2\le\frac{t^2}{1-10^{-6}}.
+\end{equation}
+For completeness, consider a radius-$R$ ball. Coordinates with $\rho_j>R$ are fixed. There is at most one level with $R/64<\rho_j\le R$. The base projection meets at most $129$ horizontal and $129$ vertical strips at that level, hence fewer than $300$ coordinate labels including zero. Divide its base square of side $2R$ into $16^2$ cells of side $R/8$. In each group with a common cell and label, the squared diameter is at most
+\[
+ 2(R/8)^2+\frac{2(R/64)^2}{1-10^{-6}}<(R/2)^2.
+\]
+One point from each nonempty group yields the claimed $300\cdot16^2$ intrinsic balls.
+
+For nonembedding, the only scale choice in the source's derivative and crossing proof is the following: after a finite-support sheet, a positive square side $l$, a fixed color count $N$, and an integer $n$ are chosen, choose an unused level $j$ with
+\begin{equation}\label{eq:source-choice}
+ (N_j,W_j)=(N,n),\qquad Nn\rho_j<l n^{-8}/100.
+\end{equation}
+Infinite recurrence and $\rho_j\to0$ give this choice. The horizontal and vertical energy estimates then use this one level and the strip widths $\rho_j,n\rho_j$. They use no further relation between different levels. Appendix~\ref{sec:appendix} gives the estimates and packing contradiction explicitly. Thus the same nonembedding proof applies under \eqref{eq:scale-general}.
+\end{proof}
+
+From now on, fix
+\begin{equation}\label{eq:superlacunary}
+ \rho_j=1000^{-j^2},\qquad S=S(\rho).
+\end{equation}
+This satisfies \eqref{eq:scale-general}, and the consecutive ratios $\rho_j/\rho_{j+1}$ tend to infinity. Retaining the independently recurring aspect ratios $W_j$ is essential in \eqref{eq:source-choice}; faster absolute decay does not replace the anisotropy of the source argument.
+
+\section{A refined covering estimate}\label{sec:cover}
+\begin{proposition}\label{prop:refined}
+There is a numerical constant $C$ such that, for every $x\in S$ and $0<r<R$,
+\begin{equation}\label{eq:refined}
+ N_r^S(B_S(x,R))\le C(R/r)^2\,5^{m(R,r)},
+ \qquad m(R,r)=\#\{j:r/16<\rho_j\le R\}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Different allowed choices at level $j$ have distance at least $\rho_j$. Thus every coordinate with $\rho_j>R$ agrees with that of $x$ throughout the ball. Partition a base square of side $2R$ containing its projection into cells with side at most $r/16$. This uses at most
+\[
+ \lceil32R/r\rceil^2\le 33^2(R/r)^2
+\]
+cells, with boundaries assigned arbitrarily.
+
+At an active level $r/16<\rho_j\le R$, each coordinate interval of a cell meets at most two strips in its respective direction: its length is smaller than both strip widths $\rho_j$ and $W_j\rho_j$. Across that cell, at most two horizontal colors and two vertical colors are available. Including zero leaves at most five displacement choices. This bound is independent of $N_j$ and $W_j$.
+
+Group the ball's points by their base cell and all active coordinates. Within each group, all coarse and active coordinates agree. For two points in a group, the squared fine-coordinate distance is at most
+\[
+ 2\sum_{\rho_j\le r/16}\rho_j^2
+ \le\frac{2(r/16)^2}{1-10^{-6}}<\frac{r^2}{64}.
+\]
+Their squared base distance is at most $2(r/16)^2=r^2/128$. The total diameter of a group is therefore less than $r$. Choosing a point of $S$ in every nonempty group proves \eqref{eq:refined}, with $C=33^2$.
+\end{proof}
+
+\begin{corollary}\label{cor:assouad-source}
+For every $s>2$ there is $C_s<\infty$ such that
+\begin{equation}\label{eq:s-source}
+ N_r^S(B_S(x,R))\le C_s(R/r)^s\qquad(x\in S,\ 0<r<R).
+\end{equation}
+Consequently, $\dimA S=2$.
+\end{corollary}
+\begin{proof}
+Fix $\varepsilon=s-2>0$ and put $L=5^{1/\varepsilon}$. Since consecutive scale ratios tend to infinity, choose $J$ such that $\rho_j/\rho_{j+1}\ge L$ for $j\ge J$. The active levels form a consecutive interval of indices. All but at most $J+1$ of its $m=m(R,r)$ levels contribute a successive gap of size at least $L$. If $m>J+1$, this gives
+\[
+ (m-J-1)\log L\le\log(16R/r).
+\]
+The resulting estimate also holds when $m\le J+1$:
+\[
+ 5^m\le5^{J+1}(16R/r)^\varepsilon.
+\]
+Combine this with \eqref{eq:refined}. It follows that $\dimA S\le2$. The base plane gives the reverse inequality, for instance by planar grid packing. No exponent-two covering bound is needed or asserted.
+\end{proof}
+
+\section{Finite witnesses and transfer to Banach spaces}\label{sec:witnesses}
+\begin{lemma}\label{lem:witnesses}
+For each $j\in\N$, there is a finite subset $X_j\subset S$ with no embedding into $\R^j$ of distortion at most $j$, and containing the planar grid
+\begin{equation}\label{eq:grid}
+ G_j=\{((a/j,b/j),0):a,b\in\{0,\ldots,j\}\}.
+\end{equation}
+These sets can be chosen before specifying the ambient Banach space or a prospective finite-dimensional target.
+\end{lemma}
+\begin{proof}
+Use the compactness argument of \cite[Section 7]{OpenAI}. Fix $k\ge1$ and $D\ge1$. If every finite subset of $S$ had distortion at most $D$ into $\R^k$, fix $o\in S$ and form the compact product
+\[
+ \prod_{x\in S}\{u\in\R^k:\norm u\le Dd(o,x)\}.
+\]
+For each pair $x,y$, impose the closed constraint
+\[
+ d(x,y)\le\norm{f(x)-f(y)}\le Dd(x,y).
+\]
+Any finite collection of constraints involves finitely many points. Include $o$, normalize the assumed finite embedding to be noncontracting and $D$-Lipschitz, and translate its value at $o$ to zero. Set unused product coordinates to zero. This verifies the finite-intersection property. Product compactness would produce a forbidden embedding of all of $S$, contradicting Lemma~\ref{lem:source}.
+
+Apply this with $k=D=j$ and adjoin $G_j$ to the resulting witness. Enlarging a set cannot remove its nonembedding obstruction.
+\end{proof}
+
+Fix an infinite-dimensional real Banach space $B$. The classical finite-dimensional Dvoretzky theorem \cite{Dvoretzky}, in the formulation recalled in \cite[Theorem 1.1]{COO}, gives linear maps
+\[
+ T_j:\spanop X_j\longrightarrow B,
+ \qquad \norm u_2\le\norm{T_ju}_B\le2\norm u_2.
+\]
+Only this qualitative assertion for each finite-dimensional Hilbert space is required. Put $Y_j=T_j(X_j)$.
+
+\begin{lemma}\label{lem:uniform-cluster}
+Every $Y_j$ has doubling constant at most $\lambda_0=76800^4$. For every $s>2$, all $Y_j$ satisfy an intrinsic exponent-$s$ covering estimate with a common constant $A_s$, independent of $j$ and $B$. Both assertions remain true after any translation and positive rescaling of each $Y_j$ separately.
+\end{lemma}
+\begin{proof}
+The preimage $E$ of a radius-$R$ ball in $Y_j$, centered at $T_jx$, lies in $B_S(x,R)$. Four applications of Lemma~\ref{lem:source} cover this source ball by at most $\lambda^4$ balls of radius $R/16$. In each one meeting $E$, select $x_0\in E$. If $x'$ lies in the same ball, then
+\[
+ \norm{T_jx'-T_jx_0}_B\le2d(x',x_0)\le R/4\le R/2.
+\]
+The selected images give an intrinsic doubling cover.
+
+Similarly, for $0<r<R$, cover $B_S(x,R)$ by source balls of radius $r/4$, using \eqref{eq:s-source}. Re-center every ball meeting $E$ at a point of $E$. Its selected image is at distance at most $2\cdot2(r/4)=r$ from all the other images in that ball. Thus the number required is at most $C_s(4R/r)^s$, uniformly. Translation and rescaling preserve these dimensionless inequalities.
+\end{proof}
+
+\section{Sparse compact assembly}\label{sec:assembly}
+Let $n_j=|X_j|=|Y_j|$ and $M_j=\sum_{i=1}^j n_i$. Fix a unit vector $v\in B$ and put $\eta=1/100$. Choose positive numbers $a_j$ recursively such that
+\begin{equation}\label{eq:placement-scales}
+ a_{j+1}\le a_j/2,\qquad
+ a_j\le\min\{e^{-j^2},M_j^{-j}\}.
+\end{equation}
+All $M_j$ are fixed in advance, so these requirements are compatible. For each $j$, choose a translation $t_j\in B$ and a positive scale $\tau_j$ for which
+\[
+ C_j=t_j+\tau_jY_j\subset B_B(a_jv,\eta a_j),
+ \qquad K=\{0\}\cup\bigcup_{j\ge1}C_j.
+\]
+Such placement is possible because each $Y_j$ is finite. It has no effect on the uniform constants in Lemma~\ref{lem:uniform-cluster}.
+
+\subsection{Separation and compactness}
+For $i<j$, and $p\in C_i,q\in C_j$,
+\begin{equation}\label{eq:separation}
+ \norm{p-q}_B\ge(a_i-a_j)-\eta(a_i+a_j)
+ \ge\left(\frac12-\frac{3\eta}{2}\right)a_i
+ =\frac{97}{200}a_i.
+\end{equation}
+Also $(1-\eta)a_j\le\norm p_B\le(1+\eta)a_j$ for $p\in C_j$. Thus the clusters are disjoint and exclude zero. The set $K$ is countable. Any sequence in $K$ has either a constant subsequence in a finite union of clusters and $\{0\}$, or a subsequence with cluster indices tending to infinity. The latter converges to zero because $a_j\to0$. Hence $K$ is compact.
+
+\subsection{Zero upper box dimension}
+For every sufficiently small $r>0$, there is a unique $j$ such that
+\[
+ 2a_{j+1}\le r<2a_j.
+\]
+All clusters with index greater than $j$, together with zero, lie in the single radius-$r$ ball centered at zero. The first $j$ clusters can be covered using their $M_j$ individual points. Consequently,
+\[
+ N_r^K(K)\le M_j+1,
+ \qquad
+ \frac{\log N_r^K(K)}{\log(1/r)}
+ \le\frac{\log(M_j+1)}{j\log M_j-\log2}.
+\]
+Here \eqref{eq:placement-scales} gives $\log(1/r)>j\log M_j-\log2$. As $r\downarrow0$, the associated $j$ tends to infinity; $M_j\ge j$ and the last quotient tends to zero. Thus $\dimB K=0$. Its Hausdorff dimension is also zero, both by countability and by the box-dimension bound.
+
+\subsection{A universal doubling constant}
+Fix $x\in K$ and $R>0$. Clusters with $a_j\le R/4$, and zero, are covered by $B_K(0,R/2)$, because $(1+\eta)R/4<R/2$. Consider
+\[
+ I=\{j:C_j\cap B_K(x,R)\ne\varnothing,\ a_j>R/4\}.
+\]
+If $I$ has at least two indices, let $i$ be its smallest. Apply \eqref{eq:separation} to points in the two intersections to obtain $a_i\le400R/97$. All scales indexed by $I$ then lie in
+\[
+ (R/4,400R/97],
+\]
+whose endpoint ratio is $1600/97<32$. Since successive $a_j$ decrease by at least a factor of two, there are at most five such scales. The bound $|I|\le5$ also holds when $I$ has at most one index, without any bound on its scale.
+
+For $j\in I$, choose $y_j\in C_j\cap B_K(x,R)$. That intersection is contained in $B_{C_j}(y_j,2R)$, which two cluster doublings cover by at most $\lambda_0^2$ balls of radius $R/2$ with centers in $C_j$. Together with the tail ball this uses at most
+\[
+ 1+5\lambda_0^2=1+5\cdot76800^8
+\]
+balls centered in $K$. This proves the advertised universal bound.
+
+\subsection{The upper Assouad estimate}
+Fix $s>2$. We prove a uniform exponent-$s$ covering estimate for $K$. Consider $B_K(x,R)$ and $0<r<R$.
+
+If the ball meets a cluster $C_i$ with $a_i>5R$, it cannot meet any other cluster: \eqref{eq:separation}, in either index order, would give distance at least $(97/200)a_i>2R$ between the two intersections. It cannot contain zero either. Choosing a point in its intersection with $C_i$, that intersection lies in a $C_i$-ball of radius $2R$. Lemma~\ref{lem:uniform-cluster} gives a cover by at most $A_s(2R/r)^s$ balls.
+
+Otherwise, every intersected cluster has $a_j\le5R$. Clusters with $a_j\le r/4$ are covered by the radius-$r$ ball at zero. For each remaining cluster, its diameter is at most $2\eta a_j$. The uniform cluster estimate, or one ball when that diameter is at most $r$, gives a cover of the entire cluster by at most
+\[
+ A'_s\max\{1,(a_j/r)^s\}
+\]
+balls of radius $r$. On the range $a_j>r/4$, the maximum is at most $4^s(a_j/r)^s$. If $j_0$ is the first index in $r/4<a_j\le5R$, then $a_{j_0+h}\le2^{-h}a_{j_0}\le2^{-h}5R$. Hence
+\[
+ \sum_{j:\,r/4<a_j\le5R}\max\{1,(a_j/r)^s\}
+ \le\frac{4^s5^s}{1-2^{-s}}(R/r)^s.
+\]
+This bounds the full cover by a constant depending only on $s$ times $(R/r)^s$. Since every $s>2$ is admissible, $\dimA K\le2$.
+
+\subsection{The lower Assouad estimate}
+The image of $G_j$ in $C_j$ contains $(j+1)^2$ points with pairwise distances at least $\tau_j/j$. They lie in a ball centered at one of these points with radius $3\tau_j$, since $2\sqrt2\tau_j<3\tau_j$. A radius-$\tau_j/(3j)$ ball, wherever its center lies in $K$, contains at most one grid point: its diameter is smaller than their separation. If an exponent $s<2$ were admissible for $K$, then its covering constant would satisfy
+\[
+ (j+1)^2\le C\left(\frac{3\tau_j}{\tau_j/(3j)}\right)^s
+ =C(9j)^s\qquad(j\ge1),
+\]
+a contradiction. Thus $\dimA K\ge2$. The arbitrarily small placement scales cancel from the ratio of observation radius to mesh size.
+
+\subsection{Nonembedding into every finite-dimensional target}
+Suppose $K$ embeds bi-Lipschitzly into a finite-dimensional real normed space. The zero-dimensional case is impossible. Otherwise compose with a linear identification of the target with Euclidean $\R^k$. Equivalence of finite-dimensional norms gives a finite distortion $D$ for the composition. Choose an integer $j\ge k$ with $j\ge2D$. Restrict to $C_j$ and precompose with $x\mapsto t_j+\tau_jT_jx$ on $X_j$. After the isometric inclusion $\R^k\hookrightarrow\R^j$, the resulting embedding of $X_j$ has distortion at most $2D\le j$, contrary to Lemma~\ref{lem:witnesses}. This finishes the proof of Theorem~\ref{thm:main}.
+
+\section{What the conclusion does and does not establish}
+The construction separates global and local covering complexity. Its total covering number grows more slowly than every power as the scale tends to zero, while its finite grid patterns force local Assouad exponent at least two. The nonembedding obstruction resides in the finite witnesses and survives arbitrarily small similarities.
+
+The result is an extension of the stated OpenAI manuscript. The derivative-extremum mechanism, strip crossings, finite-witness compactness, and Dvoretzky transfer are inherited. The refined $5^{m(R,r)}$ estimate, the use of superlacunary scales to obtain exponent $2+\varepsilon$ for every $\varepsilon>0$, and the compatible grid-enriched sparse assembly supply the dimensional refinement. Zero upper box dimension by itself is a straightforward sparsification of the source's final assembly. Neither a sharp universal lower threshold nor a comprehensive novelty claim follows from this proof. The existing source formalization is not, by itself, a formal proof of the changed scale schedule and the additional dimension statements.
+
+\appendix
+\section{The inherited analytic proof and its scale dependence}\label{sec:appendix}
+This appendix records the derivative and crossing argument of \cite[Sections 3--5]{OpenAI} for the general schedule of Lemma~\ref{lem:source}. Its purpose is to make the dependency explicit and verify the permissible change of scales. The analytic mechanism is credited to that source. Besides the displayed construction, it uses Rademacher's theorem, Lebesgue differentiation, absolute continuity of Lipschitz maps on line segments, and finite-dimensional Euclidean volume comparison.
+
+\subsection{Sheets and a compact extremal set}
+Assume, towards a contradiction, that $f:S(\rho)\to\R^k$ satisfies
+\begin{equation}\label{eq:bilip}
+ \norm{z-z'}\le\norm{f(z)-f(z')}\le D\norm{z-z'}.
+\end{equation}
+For a finite-support tuple $w$, put $\Omega_w=\{p:(p,w)\in S(\rho)\}$. This is the finite intersection of the open sets $U_{j,i}$ corresponding to its nonzero entries. The sheet $F_w(p)=f(p,w)$ is $D$-Lipschitz on $\Omega_w$, even if the domain is disconnected. At almost every point it is differentiable and its derivative columns are Lebesgue points. Call these points good. At a good point with columns $u,v$, the mean of
+\[
+ \norm{(F_w)_x-u}^2+\norm{(F_w)_y-v}^2
+\]
+over shrinking centered squares tends to zero, since the derivative columns are bounded.
+
+Let $\mathcal D\subset[0,D^2]^2$ be the closure of all pairs of squared derivative-column norms at good points of every sheet. It is nonempty and compact. Define its lexicographic maximum by
+\[
+ \alpha=\max\{a:(a,b)\in\mathcal D\},\qquad
+ \beta=\max\{b:(\alpha,b)\in\mathcal D\}.
+\]
+For every $\varepsilon>0$, compactness gives $\delta>0$ such that
+\[
+ (a,b)\in\mathcal D,\quad a>\alpha-\delta
+ \quad\Longrightarrow\quad b\le\beta+\varepsilon.
+\]
+Indeed, failure would give a limiting point $(\alpha,b)\in\mathcal D$ with $b\ge\beta+\varepsilon$. Consequently, if $(a_n,b_n)$ are $\mathcal D$-valued random variables with $\mathbb E(\alpha-a_n)\to0$, then
+\begin{equation}\label{eq:lex}
+ \limsup_n\mathbb E b_n\le\beta.
+\end{equation}
+To see this, bound the probability of $\alpha-a_n\ge\delta$ by $\mathbb E(\alpha-a_n)/\delta$ and use $b_n\le D^2$ on this exceptional set.
+
+\subsection{Near-extremal rectangles and the sole scale choice}
+Fix an integer $N>(1+2D)^k$. For each $n\in\N$, choose a sheet $F$ and a good point with columns $u,v$ such that
+\[
+ 0\le\alpha-\norm u^2<n^{-4},\qquad
+ |\beta-\norm v^2|<n^{-4}.
+\]
+Choose a centered square $Q^0$ of side $l$, with closure in the sheet domain, on which the mean squared derivative error is less than $n^{-8}$. Now choose an unused level satisfying \eqref{eq:source-choice}, and write $\rho=\rho_j$. This is possible for every such sheet and square, because its support is finite, the pair $(N,n)$ recurs infinitely often, and $\rho_j\to0$.
+
+Trim $Q^0$ to a rectangle $Q$ tiled by whole period blocks of width $Nn\rho$ and height $N\rho$. Each side loses at most two periods, so its side lengths $L_x,L_y$ are at least $l/2$. With all following averages over $Q$,
+\begin{equation}\label{eq:appendix-error}
+ \av{\norm{F_x-u}^2+\norm{F_y-v}^2}<4n^{-8},
+ \qquad \frac{\rho}{L_x},\frac{\rho}{L_y}<\frac{n^{-9}}{50N}.
+\end{equation}
+Let $F_i$ be the sheet obtained by adding $\rho e_{j,i}$ at this unused level. It is defined on $\Omega_w\cap U_{j,i}$ and
+\begin{equation}\label{eq:offset}
+ \norm{F_i-F}\le D\rho
+ \quad\hbox{on }Q\cap(H_{j,i}\cup V_{j,i}).
+\end{equation}
+Crucially, its horizontal and vertical restrictions are parts of the same map.
+
+Select $G_H^x=(F_i)_x$ according to the horizontal strip color. Select $G_V^x=(F_i)_x$ and $G_V^y=(F_i)_y$ according to the vertical strip color. Almost everywhere,
+\[
+ \norm{G_H^x}^2\le\alpha,\qquad
+ (\norm{G_V^x}^2,\norm{G_V^y}^2)\in\mathcal D.
+\]
+The set $\mathcal D$, its maximum, the map $f$, and $N$ are fixed as $n$ varies.
+
+\subsection{The two energy estimates}
+For any vector field $G$ and constant vector $a$,
+\begin{equation}\label{eq:variance}
+ \av{\norm{G-a}^2}
+ =\av{\norm G^2}-\norm a^2-2\ip{a}{\av G-a}.
+\end{equation}
+Integrating $F_i-F$ along full horizontal segments in its color strip gives an endpoint error of norm at most $2D\rho$. Fubini, absolute continuity, and \eqref{eq:appendix-error} imply
+\[
+ \norm{\av{G_H^x}-u}\le2D\rho/L_x+2n^{-4}.
+\]
+Using \eqref{eq:variance} and $\norm u\le D$ gives
+\[
+ \av{\norm{G_H^x-u}^2}\le(1+4D)n^{-4}+4D^2\rho/L_x.
+\]
+Therefore
+\begin{equation}\label{eq:horiz-rate}
+ \begin{split}
+ n^2\av{\norm{G_H^x-F_x}^2}
+ &\le2(1+4D)n^{-2}
+       +\frac{4D^2}{25N}n^{-7}+8n^{-6}\longrightarrow0.
+ \end{split}
+\end{equation}
+The factor $n^2$ is the one needed for the long horizontal segments.
+
+For the vertical selection, first integrate the horizontal derivative separately across full vertical strips of width $n\rho$. The same endpoint error now gives
+\[
+ \norm{\av{G_V^x}-u}\le2D/n+2n^{-4}.
+\]
+There is no continuity requirement for the selected field across strip boundaries. Discarding the nonnegative left side of \eqref{eq:variance}, obtain
+\[
+ 0\le\av{\alpha-\norm{G_V^x}^2}
+ \le(1+4D)n^{-4}+4D^2/n\longrightarrow0.
+\]
+Equation~\eqref{eq:lex}, applied with normalized area on $Q$, gives
+\[
+ \limsup_n\av{\norm{G_V^y}^2}\le\beta.
+\]
+Each vertical strip spans the height of $Q$, so integration in the vertical direction also gives
+\[
+ \norm{\av{G_V^y}-v}\le2D\rho/L_y+2n^{-4}\longrightarrow0.
+\]
+Since $\norm v^2\to\beta$ and $\norm v\le D$, equation~\eqref{eq:variance} implies $\av{\norm{G_V^y-v}^2}\to0$. Combining with the base derivative error yields
+\begin{equation}\label{eq:vert-rate}
+ \av{\norm{G_V^y-F_y}^2}\longrightarrow0.
+\end{equation}
+No quantitative modulus in \eqref{eq:lex} is needed. The strip width $n\rho$ supplies the $1/n$ deficit bound, independently of the absolute value of $\rho$.
+
+\subsection{Crossings and Euclidean packing}
+Choose a period block $P\subset Q$ on which the mean combined energy
+\[
+ n^2\norm{G_H^x-F_x}^2+\norm{G_V^y-F_y}^2
+\]
+is at most its mean on $Q$. Call this block average $\varepsilon_n$. By \eqref{eq:horiz-rate} and \eqref{eq:vert-rate}, $\varepsilon_n\to0$. The block contains one row and one column of each color. In each color-$i$ row choose a horizontal line $y=y_i$ satisfying
+\[
+ \frac{1}{Nn\rho}\int n^2\norm{(F_i-F)_x}^2\,dx
+ \le2N\varepsilon_n.
+\]
+In its column choose a vertical line $x=x_i$ satisfying
+\[
+ \frac{1}{N\rho}\int\norm{(F_i-F)_y}^2\,dy
+ \le2N\varepsilon_n.
+\]
+Fubini permits these independent choices in the full-measure set of lines on which partial and line derivatives agree. If $\varepsilon_n=0$, use zero-energy lines. Endpoint values are interpreted by the Lipschitz one-sided limits.
+
+Set $h_i=(F_i-F)/\rho$. Absolute continuity and Cauchy--Schwarz show that the oscillation of $h_i$ on either chosen line is at most
+\[
+ \omega_n=N\sqrt{2N\varepsilon_n}\longrightarrow0.
+\]
+Let $z_i=h_i(x_i,y_i)$; then $\norm{z_i}\le D$ by \eqref{eq:offset}. For $i\ne m$, both labels $\rho e_{j,i}$ and $\rho e_{j,m}$ are permitted at $(x_m,y_i)$, the first by the row and the second by the column. Their source distance is $\sqrt2\rho$, so \eqref{eq:bilip} gives
+\[
+ \norm{h_i(x_m,y_i)-h_m(x_m,y_i)}\ge\sqrt2.
+\]
+Moving along row $i$ and column $m$ therefore yields
+\[
+ \norm{z_i-z_m}\ge\sqrt2-2\omega_n>1
+\]
+for all pairs when $n$ is sufficiently large. No differentiability at the crossing points is needed, since the oscillation estimates hold at every point on the chosen lines.
+
+The $N$ disjoint open radius-$1/2$ balls around these vectors lie in the radius-$(D+1/2)$ ball in $\R^k$. Volume comparison gives $N\le(1+2D)^k$, contradicting the fixed choice of $N$. This proves the nonembedding part of Lemma~\ref{lem:source}. The only level selection was \eqref{eq:source-choice}; all subsequent estimates involve that level alone.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{OpenAI}
+OpenAI, \emph{A doubling Hilbert subset with no finite-dimensional bi-Lipschitz embedding}, OpenAI Math Release preprint, September 25, 2026, family 098. Version at commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-doubling-Hilbert-subset-with-no-finite-dimensional-bi-Lipschitz-embedding-September-25-2026/main.pdf}{Pinned manuscript};
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-doubling-Hilbert-subset-with-no-finite-dimensional-bi-Lipschitz-embedding-September-25-2026/build/main.tex}{pinned source};
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-doubling-Hilbert-subset-with-no-finite-dimensional-bi-Lipschitz-embedding-September-25-2026/README.md}{citation metadata}.
+
+\bibitem{Dvoretzky}
+A. Dvoretzky, \emph{Some results on convex bodies and Banach spaces}, in Proceedings of the International Symposium on Linear Spaces (Jerusalem, 1960), Jerusalem Academic Press, Jerusalem; Pergamon Press, Oxford, 1961, pp.~123--160.
+
+\bibitem{COO}
+F. Catrina, S. Ostrovska, and M. I. Ostrovskii, \emph{Dvoretzky-type theorem for locally finite subsets of a Hilbert space}, Annales de l'Institut Fourier \textbf{75} (2025), no.~6, 2565--2607.
+\href{https://doi.org/10.5802/aif.3672}{doi:10.5802/aif.3672}.
+\end{thebibliography}
+\end{document}

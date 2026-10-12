@@ -1,0 +1,76 @@
+Public-copy note: this report records the independent boundary audit. Original audit-local paths are historical references; current programs are under audit/controls/independent and scripts/semantic_exact_checks.py. The main release verification guide gives current commands.
+
+Independent hostile semantic and boundary audit
+Date: 2026-10-07 UTC
+Scope: New prescribed-family continuum power-remainder theorem
+Verdict: PASS for the semantic, nonvacuity, hypothesis, endpoint, and quantifier controls in this report. No mathematical defect found in this scope.
+
+PRIMARY FINDINGS
+
+1. The target is nonvacuous and has the advertised family-first quantifier order.
+   Specification.lean:14-20 uses actual nonempty intersections with half-open dyadic bins. Specification.lean:35-42 quantifies a nonempty countable indexed family before E. The avoidance predicate at 29-33 then quantifies ALL real s, alpha, y, c, M and arbitrary total real functions f, with s>0, alpha>0, c!=0, M>=0. Neither the sets A nor f have measurability/continuity premises. The tail threshold in PowerRemainderOn:22-24 is positive, and the conclusion concerns every positive requested tail.
+
+   Independent SemanticControls.lean:12-35 constructs A = range(n -> (1/2)^n), proves A is positive and LogSyndetic with the explicit G=J=1, and constructs the actual SampledLogConfiguration with s0=1/2 and h=10. Empty A is separately proved not LogSyndetic at 37-40. These close the most obvious false-vacuity loopholes.
+
+   FinalNonvacuity.lean:10-23 applies the actual final theorem, with all family and numerical hypotheses discharged, to f(a)=7-2*a^(1/2)+a^(5/6), y=7, c=-2, s=1/2, alpha=1/3, M=1, epsilon=1/2. It obtains one E that is closed, has empty interior, is one-periodic, has volume(E intersect [x,x+1])>1/2 at every real x, and has infinitely many distinct f-values outside E in every positive A-tail. This tests a negative nonzero leading coefficient, fractional real exponents, and a genuinely nonzero remainder. The compact corollary is separately instantiated at 26-32.
+
+2. Distinct images are real image-set infinitude, not merely infinitely many inputs.
+   TailValuesOutside in Specification.lean:26-27 is a SET OF REAL VALUES z with f(a)=z. It is not an index set or multiset.
+   DistinctMisses.lean:26-57 derives the strict lower bound |c|*a^s/2>0 and upper bound 3|c|*a^s/2 on |f(a)-y|; 75-98 combines arbitrarily small hits with those bounds to obtain points arbitrarily close to y but unequal to y. The finite-closed-set argument at 60-71 genuinely gives infinitely many distinct values. No injectivity or regularity of f is presumed.
+
+   Independent controls prove finite image sets for every constant f, every A, every E, and every rho. HypothesisMutations.lean then proves that each of the following weakened avoidance assertions is impossible for EVERY E on the actual dyadic LogSyndetic family:
+   - Drop c!=0: f=0, y=0, c=0, s=alpha=1, M=0.
+   - Allow alpha=0: f=0, y=0, c=1, s=1, alpha=0, M=1; the error cancels the whole leading term.
+   - Allow s=0: f=1, y=0, c=1, s=0, alpha=1, M=0.
+   The controls prove the original PowerRemainderOn conditions and negate the claimed image infinitude; no hand-coded replacement predicate is used.
+
+3. One positive-measure E working for all admissible families is formally impossible.
+   UniversalFamilyControl.lean:57-64 proves:
+     For every E with volume E != 0, there is A subset (0,infinity), LogSyndetic A, such that the Unit-indexed family A is NOT avoided by E.
+   The proof uses the genuine cached mathlib Besicovitch density theorem, not a new assumption. At a density point y of E, centered density >3/4 forces occupancy of the right shell (y+r/2,y+r]; a missing shell would constrain the intersection to an interval of length 3r/2 inside a ball of length 2r. Every sufficiently small dyadic shell is therefore occupied. The adaptive family A={a>0 | y+a in E} has G=1 after some J, and f(a)=y+a is an exact allowed leading-power map with all values in E. Its outside-image set is empty.
+   This countercontrol applies in particular to positive-measure closed nowhere-dense periodic E. Thus swapping the target's family and E quantifiers cannot be a harmless stronger interpretation.
+
+4. Activation endpoints and error buffers have correct strictness.
+   LogGeometry.lean:10-12 and RobustRepair.lean:45-47 use strict inequalities at BOTH output-window endpoints. SemanticControls.lean proves lower/upper inactivity and an interior active point. Separate false fixtures use shifted window data z=2, k=1, (u,v)=(1,3), t=2, with endpoint exponents s=1 and s=2; both fail at a mathematical False goal.
+
+   ErrorDomination.lean:11-18 defines a positive radius even when q=0. The active estimate at 33-70 retains s<=s1, alpha>0, and U+k>=0. The perturbation conclusion at 74-86 has an OPEN inner radius r buffer and OPEN outer 2r buffer. The underlying double_buffer_contains_perturbation is ContinuumGeometric/ZeroErrorBuffer.lean:29.
+   Independent controls confirm U+k=0 is allowed, q=0 still has positive radius, and |e|=r is compatible with both positive and negative perturbations if the inner buffer is open. They prove a single radius is insufficient: x=1/2, e=1, B={0}, r=1 gives distance 3/2. Closing the inner buffer also loses strict slack: x=1, e=1 lands at distance 2, excluded by the open outer radius-2 buffer.
+
+   Exact tests also show the two active-error side conditions cannot simply disappear:
+   - Drop s<=s1: a=1/4, z=2, s=2, s1=1, alpha=4, U=3, k=0, q=1. Activation is strict, but error=1/4096 > radius=1/16384.
+   - Drop U+k>=0: a=4, z=-2, s=1, s1=3, alpha=6, U=-3, k=0, q=1. Activation is strict, but error=16384 > radius=1024.
+   - Alpha=0 gives buffer cost 4*2^(U+2)*r_U = 32 for q=1,k=0,s1=1 and zero extra span, for every tested U, rather than decay. Positive alpha=1 yields decay and cost<1 from U=6 in the same exact arithmetic regression.
+
+5. Topology and measure are genuine.
+   OnePeriodic is exact translation membership equivalence, not an uninterpreted tag: ContinuumGeometric/RoutingInterfaces.lean:14-15.
+   unitDensity uses genuine Lebesgue volume on S intersect Ico(0,1): same file:17-18.
+   Specification.lean:39-41 uses ordinary IsClosed, interior, empty set and Lebesgue volume on each shifted Icc(x,x+1).
+   TopologyConclusion.lean:41-72 proves the shifted interval equality by integer translation, splitting and null endpoint equivalence. Its final bridge at 98-128 supplies the full actual topology/density/avoidance conjunction; it is discharged unconditionally by FinalProof.lean:37-38. The compact corollary at FinalProof.lean:40-46 is kept separate and does not incorrectly assert periodicity of a compact set.
+
+EXECUTABLE EVIDENCE AND REPRODUCTION
+
+Run from the workspace, after the parent's independent rebuild populates ../build and ../lean_env.json:
+  python3 research_math/lean_continuum_remainder_independent_audit_20261007/hostile_review/verify_suite.py
+  python3 -O research_math/lean_continuum_remainder_independent_audit_20261007/hostile_review/verify_suite.py
+  cmp research_math/lean_continuum_remainder_independent_audit_20261007/hostile_review/suite-normal/report.json research_math/lean_continuum_remainder_independent_audit_20261007/hostile_review/suite-optimized/report.json
+
+The verifier compiles four independent positive Lean modules (SemanticControls, HypothesisMutations, FinalNonvacuity, UniversalFamilyControl), checks no printed proof axiom is sorryAx, and requires six false Lean fixtures to fail on explicit unsolved False goals rather than syntax/import/type errors. Fifteen additional exact Fraction arithmetic regressions exercise error-radius and buffer behavior. All checks use explicit runtime exceptions and survive python -O. It verifies all submitted frozen project Lean source hashes before running. It writes only under hostile_review. Normal and optimized reports contain stable hashes, exit statuses, arithmetic witnesses, and pointers to full diagnostics.
+
+Normative artifacts:
+  SemanticControls.lean
+  HypothesisMutations.lean
+  FinalNonvacuity.lean
+  UniversalFamilyControl.lean
+  negative/*.lean
+  verify_suite.py
+  suite-normal/report.json and logs
+  suite-optimized/report.json and logs
+  reviewed_source_hashes.json
+  BOUNDARY_AUDIT_REPORT.txt
+
+All printed independent theorem axiom sets are subsets of the standard propext, Classical.choice, Quot.sound set. The final theorem application uses exactly these three. No new axiom, sorry/admit, native_decide, unsafe operation, mutable source replacement, or opaque substitute for the true predicates is present in the positive controls.
+
+LIMITS
+This is the semantic and boundary-control lane of the audit. The parent owns fresh complete source rebuild, imported-closure kernel replay, original submitted controls, inventory and dependency hash verification. These independent controls do not on their own reproduce the entire probabilistic routing proof or prove novelty. They establish consistency of the intended target with concrete instances and reject specific tempting overstatements. The universal-family impossibility theorem is an added, fully checked limitation proof, not part of the submitted theorem's dependency closure. It imports an additional official mathlib Besicovitch module from the parent's verified cache.
+
+Development-only bootstrap/API files and bootstrap/fresh scratch logs are not part of the normative result. The normative verifier never reads the bootstrap overlay. Final independent source builds always resolve ContinuumRemainder imports through the parent's fresh ../build using ../lean_env.json.

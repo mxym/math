@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact rational",
+  "tests": [
+    {
+      "name": "ordinary toy cover",
+      "valid": true,
+      "density": "9/10",
+      "states_visited": 2,
+      "claim": "all normalized parameters and all listed bounded independent errors are covered"
+    },
+    {
+      "name": "robust toy cover radius 1/100",
+      "valid": true,
+      "density": "9/10",
+      "states_visited": 2,
+      "claim": "all normalized parameters and all listed bounded independent errors are covered"
+    },
+    {
+      "name": "sharp boundary failure at radius 1/80",
+      "valid": false,
+      "reason": "robust uncovered parameter pair",
+      "density": "9/10",
+      "states_visited": 3,
+      "witness": {
+        "x": "69/80",
+        "t": "1",
+        "errors": [
+          "1/80",
+          "-1/80"
+        ]
+      }
+    },
+    {
+      "name": "larger uncertainty fails",
+      "valid": false,
+      "reason": "robust uncovered parameter pair",
+      "density": "9/10",
+      "states_visited": 3,
+      "witness": {
+        "x": "21/25",
+        "t": "28/25",
+        "errors": [
+          "1/50",
+          "-1/50"
+        ]
+      }
+    },
+    {
+      "name": "boundary-only ordinary failure",
+      "valid": false,
+      "reason": "robust uncovered parameter pair",
+      "density": "7/8",
+      "states_visited": 3,
+      "witness": {
+        "x": "7/8",
+        "t": "1",
+        "errors": [
+          "0",
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "singleton gaps retained",
+      "valid": false,
+      "reason": "robust uncovered parameter pair",
+      "density": "1",
+      "states_visited": 3,
+      "witness": {
+        "x": "3/4",
+        "t": "2",
+        "errors": [
+          "0",
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "whole circle robust cover",
+      "valid": true,
+      "density": "1",
+      "states_visited": 1,
+      "claim": "all normalized parameters and all listed bounded independent errors are covered"
+    },
+    {
+      "name": "empty holes",
+      "valid": false,
+      "reason": "robust uncovered parameter pair",
+      "density": "0",
+      "states_visited": 2,
+      "witness": {
+        "x": "0",
+        "t": "1",
+        "errors": [
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "density budget enforced",
+      "valid": false,
+      "reason": "density budget exceeded",
+      "density": "9/10"
+    }
+  ],
+  "scope": "finite regression checks only; not a global small-density witness or formalization"
+}

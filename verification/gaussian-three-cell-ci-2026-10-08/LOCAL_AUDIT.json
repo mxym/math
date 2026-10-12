@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "parent_commit": "2fb5231220fb518174a12e0256b52af89b81bb14",
+  "fixed_commit": "c601b080c76f0038aeccba45446d10ce3fa82cf7",
+  "source_path": "formalizations/gaussian-simplex-all-k-progress/sources/GaussianThreeCellElementary.lean",
+  "source_sha256": "39e1d4c426eaaadfb73af01eadbcca5924f55557d240ed2c9da6c52d30d017b2",
+  "lean_version": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "axiom_roots": 13,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "dependency_build_jobs": 3795,
+  "fix": "After norm_num produces norm=1 or norm=-1, split the alternatives and exclude the negative case by norm nonnegativity. No theorem or hypothesis changed.",
+  "scope": "Fresh compilation of selected owned Gaussian dependencies and exact fixed elementary-three-cell source; official pinned dependency cache reused. Not a new empty-kernel replay or a proof of all k>=4.",
+  "prior_push_rejected_to_preserve_parallel_doc_commit": true
+}

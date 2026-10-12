@@ -1,0 +1,57 @@
+\section{A direct subcritical increment argument}\label{app:subcritical}
+The endpoint proof in Section~\ref{sec:superlacunary} uses a harmonic gain
+and global product masses. We retain here the alternative strictly
+subcritical argument, which uses a wider auxiliary band and estimates
+inside each parent square. Assume $1<\alpha<3/2$ and fix $1<q<q_*$.
+Set
+\begin{equation}\label{eq:theta}
+ \sigma=1-1/q,\qquad
+ \theta=\frac{1+c\sigma/a}{2},\qquad
+ \gamma_q=\frac{a-c\sigma}{2}>0.
+\end{equation}
+Then $0<\theta<1$. In a parent square of side $h=2^{-n}$, take the
+physical band width $\varepsilon_j=hd$ where $d=A^{-\theta}$.
+This is again a decomposition of a signed increment, not a good-law
+restoration with a uniform $L^2$ bound.
+
+By Lemma~\ref{lem:fixed-band} and $Bw=A$, the outer conditional
+$L^\infty$ error is at most
+\[
+ Ch^{-1}\bigl[A^{-1}+(hdA)^{-1}\bigr]
+ \leq Ch^{-2}A^{-(1-\theta)}.
+\]
+The output lies in an interval of length $\sqrt2h$, so its $L^q$ error
+is at most
+\begin{equation}\label{eq:subcritical-outer}
+ C_qh^{-(2-1/q)}A^{-(1-\theta)}.
+\end{equation}
+Inside the band, the replacement has mass at most $2d+2/A\leq4d$,
+since $d\geq1/A$ and the horizontal law assigns mass $1/A$ to each
+bin. The filled parent has band mass at most $2d$. The replacement's
+vertical relative-coordinate density is at most $(Bv)^{-1}$; physical
+vertical coarea gives an inner density supremum at most
+$Ch^{-1}d(Bv)^{-1}$. Its mass is at most $4d$, so interpolation yields
+\begin{equation}\label{eq:subcritical-inner}
+ \norm{\text{inner conditional density}}_q
+ \leq C_q h^{-\sigma}d(Bv)^{-\sigma}.
+\end{equation}
+The parent obeys the same bound with $Bv$ replaced by one and is therefore
+no larger. These finite-stage density estimates do not presume a
+Lebesgue vertical coordinate in the limiting singular law.
+
+Using $Bv=2^{-cL}$, combine~\eqref{eq:subcritical-outer} and
+\eqref{eq:subcritical-inner}. The conditional unmasked increment is at most
+\begin{align}
+ C_q\bigl[h^{-(2-1/q)}2^{-a(1-\theta)L}
+       +h^{-\sigma}2^{-(a\theta-c\sigma)L}\bigr]
+ &\leq C_q2^{(2-1/q)n-\gamma_qL},\label{eq:subcritical-increment}
+\end{align}
+since both $L$ exponents equal $\gamma_q$ by~\eqref{eq:theta}.
+Weighting by parent masses and applying Minkowski leaves this bound
+unchanged. Superlacunarity makes the series summable; for example,
+eventually $\gamma_qL_j\geq(3-1/q)n_{j-1}$, leaving $C_q2^{-n_{j-1}}$.
+The initial density is bounded and weak convergence identifies the $L^q$
+limit with the actual original law. This recovers the strictly subcritical
+upper range directly. The separate harmonic and global-band argument is
+what retains the finite endpoint and proves the bounded endpoint at
+$\alpha=3/2$.

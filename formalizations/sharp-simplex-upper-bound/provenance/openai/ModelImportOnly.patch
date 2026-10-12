@@ -1,0 +1,16 @@
+--- official/OAI/Geometry/ProjectionVolume/Model.lean
++++ adapted/OAI/Geometry/ProjectionVolume/Model.lean
+@@ -1,4 +1,12 @@
+-import Mathlib
++/- Import-only adaptation of OpenAI/math, commit
++adc7f1241b42e322a6451854ab7e4b4c146bf78a, licensed under Apache-2.0.
++The umbrella Mathlib import was replaced by four checked narrow imports.
++All original declarations are unchanged. See ModelImportOnly.patch and
++Provenance.json in the source checkpoint. -/
++import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
++import Mathlib.Analysis.InnerProductSpace.PiL2
++import Mathlib.Analysis.Convex.Hull
++import Mathlib.Tactic.Ring
+ 
+ namespace OAI
+ 

@@ -1,0 +1,176 @@
+Mxym.BalancedRecursion.shifted_dimension (t p j : ℕ) (ht : 2 ≤ t) :
+  ↑(Mxym.BalancedRecursion.dimension t p j) + 1 / (↑t + 1) = (↑p + 1 / (↑t + 1)) * (↑t ^ 2) ^ j
+Mxym.BalancedRecursion.invariant_closed_form (t p j : ℕ) :
+  Mxym.BalancedRecursion.invariant t p j = 1 / ((↑p + 1) * ↑t ^ j)
+Mxym.BalancedRecursion.dimension_binary (p j : ℕ) : 3 * Mxym.BalancedRecursion.dimension 2 p j + 1 = (3 * p + 1) * 4 ^ j
+Mxym.BalancedRecursion.winning_dimension_level_six : Mxym.BalancedRecursion.dimension 2 5 6 = 21845
+Mxym.BalancedRecursion.winning_invariant_level_six : Mxym.BalancedRecursion.invariant 2 5 6 = 1 / 384
+Mxym.Determinant.cofactor_vector_relation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) :
+  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j • Mxym.Determinant.column x j = 0
+Mxym.Determinant.mapped_cofactor_relation.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E] {d : ℕ}
+  (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E) :
+  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j • φ (Mxym.Determinant.column x j) = 0
+Mxym.Determinant.cofactor_balance_of_normalized_columns.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)
+  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1)
+  (i : Fin (d + 1)) : |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2
+Mxym.Determinant.normalized_sign_average_bound.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E] {d : ℕ}
+  (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)
+  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1) :
+  (∑ ε : Fin (d + 1) → Bool,
+        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+              fun (x : Fin (d + 1)) => 1).det|) /
+      ↑(Fintype.card (Fin (d + 1) → Bool)) ≤
+    (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2
+Mxym.Determinant.normalized_sign_average_equality_iff.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (φ : (Fin d → ℝ) ≃ₗ[ℝ] E)
+  (hunit : ∀ (j : Fin (d + 1)), Mxym.Determinant.cofactor x j ≠ 0 → ‖φ (Mxym.Determinant.column x j)‖ = 1) :
+  (∑ ε : Fin (d + 1) → Bool,
+          |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+                fun (x : Fin (d + 1)) => 1).det|) /
+        ↑(Fintype.card (Fin (d + 1) → Bool)) =
+      (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2 ↔
+    Fintype.card { j : Fin (d + 1) // Mxym.Determinant.cofactor x j ≠ 0 } ≤ 3 ∨
+      ∃ (j : Fin (d + 1)), |Mxym.Determinant.cofactor x j| = (∑ k : Fin (d + 1), |Mxym.Determinant.cofactor x k|) / 2
+Mxym.Determinant.lift_expansion {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (a : Fin (d + 1) → ℝ) :
+  (Mxym.Determinant.lift x a).det = ∑ j : Fin (d + 1), a j * Mxym.Determinant.cofactor x j
+Mxym.Determinant.horizontal_cofactor_relation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (i : Fin d) :
+  ∑ j : Fin (d + 1), Mxym.Determinant.cofactor x j * x i j = 0
+Mxym.Determinant.sign_cancellation {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) (ε : Fin (d + 1) → Bool) :
+  |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+          fun (x : Fin (d + 1)) => 1).det| =
+    |Mxym.Rademacher.signedSum (Mxym.Determinant.cofactor x) ε|
+Mxym.Determinant.sign_average_eq {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ) :
+  (∑ ε : Fin (d + 1) → Bool,
+        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+              fun (x : Fin (d + 1)) => 1).det|) /
+      ↑(Fintype.card (Fin (d + 1) → Bool)) =
+    Mxym.Rademacher.mean (Mxym.Determinant.cofactor x)
+Mxym.Determinant.balanced_sign_average_bound {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ)
+  (hbal :
+    ∀ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2) :
+  (∑ ε : Fin (d + 1) → Bool,
+        |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+              fun (x : Fin (d + 1)) => 1).det|) /
+      ↑(Fintype.card (Fin (d + 1) → Bool)) ≤
+    (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2
+Mxym.Determinant.balanced_sign_average_equality_iff {d : ℕ} (x : Matrix (Fin d) (Fin (d + 1)) ℝ)
+  (hbal :
+    ∀ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| ≤ (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2) :
+  (∑ ε : Fin (d + 1) → Bool,
+          |(Mxym.Determinant.lift (fun (i : Fin d) (j : Fin (d + 1)) => Mxym.Rademacher.sign (ε j) * x i j)
+                fun (x : Fin (d + 1)) => 1).det|) /
+        ↑(Fintype.card (Fin (d + 1) → Bool)) =
+      (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2 ↔
+    Fintype.card { i : Fin (d + 1) // Mxym.Determinant.cofactor x i ≠ 0 } ≤ 3 ∨
+      ∃ (i : Fin (d + 1)), |Mxym.Determinant.cofactor x i| = (∑ j : Fin (d + 1), |Mxym.Determinant.cofactor x j|) / 2
+Mxym.FiniteDefect.mean_decomposition.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :
+  ∑ i : ι, p i * z i = Mxym.FiniteDefect.positiveMass p z - Mxym.FiniteDefect.negativeMass p z
+Mxym.FiniteDefect.absolute_decomposition.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :
+  ∑ i : ι, p i * |z i| = Mxym.FiniteDefect.positiveMass p z + Mxym.FiniteDefect.negativeMass p z
+Mxym.FiniteDefect.defect_identity.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) :
+  ∑ i : ι, p i * |z i| - |∑ i : ι, p i * z i| =
+    2 * min (Mxym.FiniteDefect.positiveMass p z) (Mxym.FiniteDefect.negativeMass p z)
+Mxym.FiniteDefect.finite_jensen.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :
+  |∑ i : ι, p i * z i| ≤ ∑ i : ι, p i * |z i|
+Mxym.FiniteDefect.defect_lower_bound.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (i j : ι)
+  (hi : 0 ≤ z i) (hj : z j ≤ 0) : 2 * min (p i * z i) (p j * -z j) ≤ ∑ k : ι, p k * |z k| - |∑ k : ι, p k * z k|
+Mxym.FiniteDefect.strict_of_opposite_signs.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i)
+  (i j : ι) (hpi : 0 < p i) (hpj : 0 < p j) (hi : 0 < z i) (hj : z j < 0) : |∑ k : ι, p k * z k| < ∑ k : ι, p k * |z k|
+Mxym.FiniteDefect.positive_mass_eq_zero_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :
+  Mxym.FiniteDefect.positiveMass p z = 0 ↔ ∀ (i : ι), 0 < p i → z i ≤ 0
+Mxym.FiniteDefect.negative_mass_eq_zero_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :
+  Mxym.FiniteDefect.negativeMass p z = 0 ↔ ∀ (i : ι), 0 < p i → 0 ≤ z i
+Mxym.FiniteDefect.finite_jensen_eq_iff.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) :
+  |∑ i : ι, p i * z i| = ∑ i : ι, p i * |z i| ↔ (∀ (i : ι), 0 < p i → 0 ≤ z i) ∨ ∀ (i : ι), 0 < p i → z i ≤ 0
+Mxym.NormedBalance.coefficient_balance.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]
+  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)
+  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) (i : ι) : |c i| ≤ (∑ j : ι, |c j|) / 2
+Mxym.NormedBalance.rademacher_bound.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]
+  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)
+  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) : Mxym.Rademacher.mean c ≤ (∑ j : ι, |c j|) / 2
+Mxym.NormedBalance.rademacher_equality_iff.{u_1, u_2} {ι : Type u_1} {E : Type u_2} [Fintype ι] [DecidableEq ι]
+  [NormedAddCommGroup E] [NormedSpace ℝ E] (c : ι → ℝ) (x : ι → E) (hrelation : ∑ j : ι, c j • x j = 0)
+  (hunit : ∀ (j : ι), c j ≠ 0 → ‖x j‖ = 1) :
+  Mxym.Rademacher.mean c = (∑ j : ι, |c j|) / 2 ↔
+    Fintype.card { j : ι // c j ≠ 0 } ≤ 3 ∨ ∃ (j : ι), |c j| = (∑ k : ι, |c k|) / 2
+Mxym.Rademacher.abs_sign (b : Bool) : |Mxym.Rademacher.sign b| = 1
+Mxym.Rademacher.sign_not (b : Bool) : (Mxym.Rademacher.sign !b) = -Mxym.Rademacher.sign b
+Mxym.Rademacher.sign_space_card.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] :
+  Fintype.card (ι → Bool) = 2 ^ Fintype.card ι
+Mxym.Rademacher.mean_nonneg.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) : 0 ≤ Mxym.Rademacher.mean c
+Mxym.Rademacher.mean_smul.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ℝ) (c : ι → ℝ) :
+  Mxym.Rademacher.mean (a • c) = |a| * Mxym.Rademacher.mean c
+Mxym.Rademacher.convex_mean.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : ConvexOn ℝ Set.univ Mxym.Rademacher.mean
+Mxym.Rademacher.continuous_mean.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : Continuous Mxym.Rademacher.mean
+Mxym.Rademacher.abs_pair (a z : ℝ) (hz : |z| ≤ |a|) : |a + z| + |-a + z| = 2 * |a|
+Mxym.Rademacher.mean_eq_of_dominant.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (k : ι)
+  (hk : ∑ i : ι, |c i| - |c k| ≤ |c k|) : Mxym.Rademacher.mean c = |c k|
+Mxym.Rademacher.compact_balancedPolytope.{u_1} {ι : Type u_1} [Fintype ι] : IsCompact Mxym.Rademacher.balancedPolytope
+Mxym.Rademacher.convex_balancedPolytope.{u_1} {ι : Type u_1} [Fintype ι] : Convex ℝ Mxym.Rademacher.balancedPolytope
+Mxym.Rademacher.extreme_has_half.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Set.extremePoints ℝ Mxym.Rademacher.balancedPolytope) : ∃ (i : ι), t i = 1 / 2
+Mxym.Rademacher.normalized_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) : Mxym.Rademacher.mean t ≤ 1 / 2
+Mxym.Rademacher.mean_abs.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) :
+  (Mxym.Rademacher.mean fun (i : ι) => |c i|) = Mxym.Rademacher.mean c
+Mxym.Rademacher.mean_zero.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] : Mxym.Rademacher.mean 0 = 0
+Mxym.Rademacher.balanced_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ)
+  (hbal : ∀ (i : ι), |c i| ≤ (∑ j : ι, |c j|) / 2) : Mxym.Rademacher.mean c ≤ (∑ j : ι, |c j|) / 2
+Mxym.Rademacher.mean_eq_half_of_half_mass.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (k : ι)
+  (hk : |c k| = (∑ i : ι, |c i|) / 2) : Mxym.Rademacher.mean c = (∑ i : ι, |c i|) / 2
+Mxym.Rademacher.normalized_defect_lower_bound.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ι → ℝ)
+  (ha : a ∈ Mxym.Rademacher.balancedPolytope) (t g : ℝ) (ht : 0 ≤ t) (hg : 0 ≤ g) (e : Fin 4 ↪ ι)
+  (het : ∀ (k : Fin 4), t ≤ a (e k)) (hgap : ∀ (i : ι), a i ≤ 1 / 2 - g) :
+  min (t / 2) (g / 4) ≤ 1 / 2 - Mxym.Rademacher.mean a
+Mxym.Rademacher.normalized_defect_lower_bound_or_zero.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (a : ι → ℝ)
+  (ha : a ∈ Mxym.Rademacher.balancedPolytope) (t g : ℝ) (ht : 0 ≤ t) (hg : 0 ≤ g) (hgap : ∀ (i : ι), a i ≤ 1 / 2 - g)
+  (hwitness : t = 0 ∨ ∃ (e : Fin 4 ↪ ι), ∀ (k : Fin 4), t ≤ a (e k)) :
+  min (t / 2) (g / 4) ≤ 1 / 2 - Mxym.Rademacher.mean a
+Mxym.Rademacher.mean_reindex.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ] [DecidableEq ι]
+  [DecidableEq κ] (e : ι ≃ κ) (c : κ → ℝ) : (Mxym.Rademacher.mean fun (i : ι) => c (e i)) = Mxym.Rademacher.mean c
+Mxym.Rademacher.mean_sum_zero.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ] [DecidableEq ι]
+  [DecidableEq κ] (c : ι → ℝ) : Mxym.Rademacher.mean (Sum.elim c fun (x : κ) => 0) = Mxym.Rademacher.mean c
+Mxym.Rademacher.mean_restrict.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ) (p : ι → Prop)
+  [DecidablePred p] (hc : ∀ (i : ι), ¬p i → c i = 0) :
+  Mxym.Rademacher.mean c = Mxym.Rademacher.mean fun (i : { i : ι // p i }) => c ↑i
+Mxym.Rademacher.sum_signs_succ {n : ℕ} (f : (Fin (n + 1) → Bool) → ℝ) :
+  ∑ ε : Fin (n + 1) → Bool, f ε = ∑ ε : Fin n → Bool, f (Fin.cons true ε) + ∑ ε : Fin n → Bool, f (Fin.cons false ε)
+Mxym.Rademacher.mean_three_nonneg (a b c : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ b) (hc : 0 ≤ c) (ha' : a ≤ b + c) (hb' : b ≤ a + c)
+  (hc' : c ≤ a + b) : Mxym.Rademacher.mean ![a, b, c] = (a + b + c) / 2
+Mxym.Rademacher.mean_four_quarters : (Mxym.Rademacher.mean fun (x : Fin 4) => 1 / 4) = 3 / 8
+Mxym.Rademacher.normalized_strict_positive.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hpos : ∀ (i : ι), 0 < t i) (hlt : ∀ (i : ι), t i < 1 / 2)
+  (hcard : 4 ≤ Fintype.card ι) : Mxym.Rademacher.mean t < 1 / 2
+Mxym.Rademacher.restrict_balanced.{u_1} {ι : Type u_1} [Fintype ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) :
+  (fun (i : { i : ι // t i ≠ 0 }) => t ↑i) ∈ Mxym.Rademacher.balancedPolytope
+Mxym.Rademacher.normalized_strict.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hlt : ∀ (i : ι), t i < 1 / 2)
+  (hcard : 4 ≤ Fintype.card { i : ι // t i ≠ 0 }) : Mxym.Rademacher.mean t < 1 / 2
+Mxym.Rademacher.normalized_small_finite {n : ℕ} (v : Fin n → ℝ) (hv : v ∈ Mxym.Rademacher.balancedPolytope)
+  (hn : n ≤ 3) : Mxym.Rademacher.mean v = 1 / 2
+Mxym.Rademacher.normalized_small_support.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) (hcard : Fintype.card { i : ι // t i ≠ 0 } ≤ 3) :
+  Mxym.Rademacher.mean t = 1 / 2
+Mxym.Rademacher.normalized_equality_iff.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (t : ι → ℝ)
+  (ht : t ∈ Mxym.Rademacher.balancedPolytope) :
+  Mxym.Rademacher.mean t = 1 / 2 ↔ Fintype.card { i : ι // t i ≠ 0 } ≤ 3 ∨ ∃ (i : ι), t i = 1 / 2
+Mxym.Rademacher.balanced_equality_iff.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (c : ι → ℝ)
+  (hbal : ∀ (i : ι), |c i| ≤ (∑ j : ι, |c j|) / 2) :
+  Mxym.Rademacher.mean c = (∑ j : ι, |c j|) / 2 ↔
+    Fintype.card { i : ι // c i ≠ 0 } ≤ 3 ∨ ∃ (i : ι), |c i| = (∑ j : ι, |c j|) / 2
+Mxym.Transport.signed_square (a b : ℝ) (hab : a ≤ b) : (b - a) ^ 2 ≤ 2 * (b * |b| - a * |a|)
+Mxym.Transport.signed_square_eq_iff (a b : ℝ) (hab : a ≤ b) : (b - a) ^ 2 = 2 * (b * |b| - a * |a|) ↔ a = b ∨ a = -b
+Mxym.Transport.intermediate_square (a q b : ℝ) (haq : a ≤ q) (hqb : q ≤ b) : (q - a) ^ 2 ≤ 2 * (b * |b| - a * |a|)
+Mxym.Transport.three_term_square (x y z : ℝ) : (x + y + z) ^ 2 ≤ 3 * (x ^ 2 + y ^ 2 + z ^ 2)
+OAI.Paper092.twice_sum_negative_eq_sum_abs.{uι} {ι : Type uι} [Fintype ι] (v : ι → ℝ) (hv : ∑ i : ι, v i = 0) :
+  2 * ∑ i : { i : ι // v i < 0 }, -v ↑i = ∑ i : ι, |v i|
+OAI.Paper092.simplex_constant_product_ratio (r s : ℕ) (hr : 0 < r) (hs : 0 < s) :
+  OAI.Paper092.simplexConstant r * OAI.Paper092.simplexConstant s / OAI.Paper092.simplexConstant (r + s) =
+    (↑r + 1) * (↑s + 1) / (↑r + ↑s + 1) * ↑((r + s).choose r) * (↑r ^ r * ↑s ^ s / ↑(r + s) ^ (r + s))
+OAI.Paper092.dimension_twenty_ratio :
+  OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10 / OAI.Paper092.simplexConstant 20 =
+    22355476 / 22020096
+OAI.Paper092.dimension_twenty_strict :
+  OAI.Paper092.simplexConstant 20 < OAI.Paper092.simplexConstant 10 * OAI.Paper092.simplexConstant 10

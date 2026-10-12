@@ -1,0 +1,47 @@
+# Proposed workflow: prepared locally; no remote run has been performed.
+name: Geometric avoidance
+
+on:
+  push:
+    paths:
+      - formalizations/geometric-avoidance/**
+      - .github/workflows/geometric-avoidance.yml
+  pull_request:
+    paths:
+      - formalizations/geometric-avoidance/**
+      - .github/workflows/geometric-avoidance.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash --noprofile --norc -euo pipefail {0}
+    steps:
+      - name: Check out the exact public-repository event commit
+        run: |
+          test "$GITHUB_SERVER_URL" = https://github.com
+          [[ "$GITHUB_REPOSITORY" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$GITHUB_SHA" =~ ^[0-9a-f]{40}$ ]]
+          mkdir "$GITHUB_WORKSPACE/source"
+          git -C "$GITHUB_WORKSPACE/source" init --quiet
+          git -C "$GITHUB_WORKSPACE/source" remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git -C "$GITHUB_WORKSPACE/source" -c protocol.version=2 fetch --no-tags --depth=1 origin "$GITHUB_SHA"
+          git -C "$GITHUB_WORKSPACE/source" checkout --detach FETCH_HEAD
+          test "$(git -C "$GITHUB_WORKSPACE/source" rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Reproduce the proof and its checks
+        working-directory: source/formalizations/geometric-avoidance
+        run: |
+          for tool in python3 git tar zstd curl; do
+            command -v "$tool"
+          done
+          python3 --version
+          git --version
+          python3 -c 'import subprocess, sys; v = subprocess.check_output(["curl", "--version"], text=True).split()[1]; v = tuple(map(int, v.split(".")[:2])); sys.exit(0 if v >= (7, 81) else "curl >= 7.81 is required to avoid downloading an extra helper")'
+          python3 scripts/reproduce.py --bootstrap --fetch-dependencies

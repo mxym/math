@@ -1,0 +1,11 @@
+--- original-verifiers/independent_check.py
++++ independent_check.py
+@@ -230,7 +230,7 @@
+                                   'directed_edges':gate_edges,'V':2,'CRT_primes':[5,11],
+                                   'CRT_slab_period':55,'slab_bound':108}
+     for name,variant in [('cubic_f6_certificate.json','F6'),('cubic_rank_one_f8_certificate.json','F8')]:
+-        path = HERE/'frozen'/name
++        path = HERE/name
+         raw = path.read_bytes()
+         data = json.loads(raw)
+         out = verify(data,variant)

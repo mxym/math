@@ -1,0 +1,657 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ind}{\mathbf 1}
+\title{Gaussian entropy loss under a lower curvature bound\\\large Complete finite-observation proof, sharp constants, and a horizon obstruction}
+\author{Research working note prepared with AI assistance}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For smooth positive densities $p,q$ with $D^2(-\log q)\succeq-\kappa\Id$, finite relative entropy and relative score energy, and an exponential-square moment under $p$, we prove a weighted upper bound for the entropy lost under common Gaussian convolution. It uses the conditional prediction of the initial relative score. The resulting uniform scalar factor is $(1-\kappa z)^{-1}$ for $z<1/\kappa$, and is optimal. Smooth quartic reference densities prove that no finite curvature-only factor exists at or beyond $1/\kappa$, and give an explicit finite counterexample to the unweighted inequality for a nonconvex reference. The argument adapts a public finite-observation lemma; every needed estimate and all limit orders are supplied. It uses no tensor hierarchy or covariance-freezing theorem, and proves no general non-log-concave logarithmic Sobolev inequality. Independent review and a priority assessment remain open.
+\end{abstract}
+\tableofcontents
+
+\section{The precise theorem}
+For probability densities $p,q$ on $\R^n$, let
+\[
+H(p\mid q)=\int p\log(p/q),\qquad
+w=\nabla\log(p/q),\qquad I=\E_p|w(Y)|^2.
+\]
+Let $G$ be standard Gaussian independent of $Y\sim p$, let
+$U_r=Y+\sqrt rG$, and write $p_r=p*N(0,r\Id)$, $q_r=q*N(0,r\Id)$.
+Define
+\[
+H_r=H(p_r\mid q_r),\qquad
+J(r)=\E_p\abs{\E_p[w(Y)\mid U_r]}^2 \quad(r>0).
+\]
+Expectations include the independent observation noise. Set $J(0)=I$.
+
+\begin{theorem}[Weighted entropy-loss comparison]\label{thm:main}
+Suppose $p,q$ are $C^\infty$ strictly positive probability densities on $\R^n$,
+$\kappa\ge0$,
+\[
+D^2(-\log q)\succeq-\kappa\Id,\qquad
+H_0<\infty,\qquad I<\infty,\qquad
+\E_p e^{c|Y|^2}<\infty \text{ for some } c>0.
+\]
+For $0<z<1/\kappa$, with all $z>0$ allowed when $\kappa=0$,
+\begin{align}
+2(H_0-H_z)&\le\int_0^z\frac{J(r)}{(1-\kappa r)^2}\,dr,
+\label{eq:weighted}\\
+2(H_0-H_z)&\le\frac{1}{1-\kappa z}\int_0^z J(r)\,dr.
+\label{eq:scalar}
+\end{align}
+The constants do not depend on dimension. The leading coefficient one in
+\eqref{eq:weighted} and the scalar factor in \eqref{eq:scalar} are optimal
+over this class. For each $\kappa>0$ and $z\ge1/\kappa$, no finite factor
+$C(\kappa,z)$ can replace the scalar factor uniformly, already in dimension one.
+\end{theorem}
+
+The quantity $J(r)$ is not generally the relative Fisher information
+$I(p_r\mid q_r)$. No identification of these two quantities is used.
+Data processing gives $0\le H_z\le H_0$.
+The theorem bounds an entropy difference, not $H_0$ itself; it does not establish
+a logarithmic Sobolev inequality for $q$.
+
+\begin{corollary}[Conditional version]\label{cor:conditional}
+Let $L$ take values in a standard Borel space with law $\lambda$.
+Let $p_\ell,q_\ell$ and their first derivatives be jointly measurable, with
+$C^\infty$ strictly positive conditional densities for $\lambda$-almost every
+$\ell$. Suppose $D^2(-\log q_\ell)\succeq-\kappa\Id$ with the same $\kappa$,
+and
+\[
+\E_L H(p_L\mid q_L)<\infty,\qquad
+\E|w_L(Y)|^2<\infty,\qquad \E e^{c|Y|^2}<\infty
+\]
+for some $c>0$, where $Y\mid L=\ell\sim p_\ell$.
+Take $G$ independent of $(L,Y)$. Then both bounds hold after averaging the
+entropies over $L$ and replacing $J(r)$ by
+$\E|\E[w_L(Y)\mid U_r,L]|^2$.
+\end{corollary}
+\begin{proof}
+All three finite nonnegative expectations give their one-label finiteness
+almost everywhere. Apply Theorem~\ref{thm:main} separately to each such label.
+Then integrate the proved inequality and use Tonelli on its nonnegative
+right side. In particular, no uniform mesh-error bound over labels is asserted
+or needed: the three observation limits are completed at each label before
+this integration.
+\end{proof}
+
+\section{Source audit and standard inputs}
+The source is OpenAI's \emph{A dimension-free logarithmic Sobolev inequality
+for subgaussian log-concave measures}, 23 September 2026, pinned at
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+Its Lemma 4.2 (pp.\ 22--25) proves \eqref{eq:scalar} for $\kappa=0$ with the
+same entropy, score, and exponential-square assumptions. Its proof was read
+in full, including every finite-copy comparison and all three limits.
+Lemma 2.1 and its complete curvature/approximation proof (pp.\ 6--7) were also
+read. The following obligations were checked rather than inferred from the
+main manuscript's abstract:
+\begin{enumerate}
+\item An adaptive projected observation has the same Gaussian likelihood
+factor under both priors. The chosen direction is determined by the retained
+past, so it supplies no additional likelihood ratio.
+\item Coinciding projected means give an averaged $O(\delta^2)$ entropy cost,
+with constants uniform in the finite mesh. Here the posterior curvature is
+$a=b-\kappa$, not $b$; the explicit constant is proved below.
+\item Independence is used for full observation arrays across copies.
+Retained adaptive histories do not factor across copies. Future-dependent
+residuals are nevertheless conditionally independent given the full past.
+\item The comparison of the two quadratic minima uses a dual test and the
+minimizer of the true minimum. It does not assume that random coordinate
+projections commute with conditional expectations.
+\item Limits are mesh refinement at fixed $N,u$, then $N\to\infty$ at fixed
+$u$, then $u\to\infty$. No uniform entropy-cost constant in $N$ is required.
+\end{enumerate}
+
+Primary literature was checked at the relevant argument, not only its title.
+Chen--Eldan \cite{CE}, Sections 2.4.2 and 3.2.3, gives the Gaussian-quadratic
+form of localization and the mean-difference entropy drift, Equation (27).
+That setup uses positive definite continuous-time controls; it does not
+itself justify our singular adaptive finite observations.
+Eldan--Koehler--Zeitouni \cite{EKZ}, Lemma 2 and its full proof in
+Section 2.0.1, constructs smooth approximations to function-preserving
+orthogonal controls for an SDE. Our finite observations require only
+measurable controls, and no SDE with singular controls is invoked.
+The positive-curvature criterion is the standard Bakry--\'Emery input
+\cite{BE}; its precise anisotropic version and extension to finite-energy
+densities are reproved in Lemma~\ref{lem:curvature}.
+The Gaussian channel identity, conditional expectation as an orthogonal
+projection, entropy chain rule, and the monotone-functions integral
+inequality are standard.
+
+No theorem about the source's critical sequence, symmetric tensor hierarchy,
+matrix square roots, frozen covariance blocks, or scale-integrated information
+contradiction is imported. In particular, a future use of the source's main
+dimension-free LSI would separately require audits of Proposition 5.1,
+Proposition 6.8, and Propositions 7.2 and 7.9 and their assumptions. They are
+not dependencies of this note.
+
+\section{Positive-curvature and one-step estimates}
+\begin{lemma}[Anisotropic curvature inequality]\label{lem:curvature}
+Let $\pi=Z^{-1}e^{-V}$ be a smooth strictly positive probability on $\R^D$
+with $D^2V\succeq S$, where $S$ is a fixed positive definite matrix.
+For any smooth positive probability density $\rho$ whose right side is finite,
+\begin{equation}\label{eq:lsi}
+2H(\rho\mid\pi)\le
+\E_\rho\langle\nabla\log(\rho/\pi),S^{-1}\nabla\log(\rho/\pi)\rangle.
+\end{equation}
+If $S\succeq a\Id$, $a>0$, and $X$ has law $\pi$ projected to a $k$-dimensional
+subspace and centered there, then
+\begin{equation}\label{eq:subgauss}
+\E e^{v\cdot X}\le e^{|v|^2/(2a)},\qquad
+\E|X|^2\le k/a,\qquad
+\E e^{\theta|X|^2}\le(1-2\theta/a)^{-k/2}\quad(2\theta<a).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The transformation $y=S^{1/2}x$ reduces the first assertion to $S=\Id$.
+Write $V(y)=|y|^2/2+U(y)$, where $U$ is convex. First suppose that $U$
+is smooth with bounded Hessian. The diffusion
+$dX_t=\sqrt2\,dB_t-\nabla V(X_t)\,dt$ has globally Lipschitz drift, is
+nonexplosive, and preserves $\pi$ by integration by parts.
+Its derivative flow satisfies $\dot A_t=-D^2V(X_t)A_t$, so
+$\norm{A_t}_{\rm op}\le e^{-t}$. For a bounded positive Lipschitz function
+$g$ bounded away from zero, differentiation of the flow and weighted
+Cauchy--Schwarz give
+\[
+\frac{|\nabla P_tg|^2}{P_tg}
+\le e^{-2t}P_t\!\left(\frac{|\nabla g|^2}{g}\right).
+\]
+Integration by parts gives
+$-\frac{d}{dt}\operatorname{Ent}_\pi(P_tg)
+=\int|\nabla P_tg|^2/(P_tg)\,d\pi$.
+Coupling a trajectory at $x$ with a stationary one using the same Brownian
+motion bounds their separation by $e^{-t}$ times its initial value.
+The affine lower bound on $U$ gives Gaussian tails of $\pi$; this coupling
+therefore yields $P_tg\to\E_\pi g$. Boundedness and a positive lower bound
+allow dominated convergence of the entropy to zero. Integration in time
+gives
+$\operatorname{Ent}_\pi(g)\le\frac12\int|\nabla g|^2/g\,d\pi$.
+Use $g=f^2+\varepsilon$ and then $\varepsilon\downarrow0$ to obtain
+$\operatorname{Ent}_\pi(f^2)\le2\int|\nabla f|^2\,d\pi$ for compact smooth $f$.
+
+For general convex $U$, take the Moreau envelopes
+$U_j(x)=\inf_y\{U(y)+j|x-y|^2/2\}$.
+They are convex with Lipschitz gradient, increase to $U$, and a fixed affine
+minorant $U(y)\ge\ell\cdot y+c_0$ gives
+$U_j(x)\ge\ell\cdot x+c_0-|\ell|^2/(2j)$.
+Mollify each $U_j$ by a centered compact smooth kernel, choosing its radius
+so the mollification differs by at most $1/j$ on the ball of radius $j$.
+The resulting smooth convex functions have bounded Hessian and the same
+uniform affine minorant. Their Gaussian-weighted normalized densities
+converge pointwise and in $L^1$, dominated by a fixed integrable Gaussian
+times a linear exponential. The compact-test inequality passes by dominated
+convergence.
+
+For $f=\sqrt{\rho/\pi}$ with finite energy, multiply by cutoffs with gradients
+$O(1/R)$ and approximate locally by compact smooth functions. Their $L^2$
+norms tend to one and their energies tend to the energy of $f$.
+Lower semicontinuity of relative entropy follows from
+$H(\rho\mid\pi)=\sup_h\{\E_\rho h-\log\E_\pi e^h\}$ over bounded $h$;
+normalizing the approximating squared functions thus proves \eqref{eq:lsi}.
+Undoing the linear transformation supplies $S^{-1}$.
+
+For $S\succeq a\Id$, apply the inequality to exponential tests.
+If $\psi(t)=\log\E_\pi e^{t v\cdot X}$, it gives
+$t\psi'(t)-\psi(t)\le t^2|v|^2/(2a)$.
+Integrating the derivative of $\psi(t)/t$, also for negative $t$, proves the
+first bound in \eqref{eq:subgauss}. Bounded Lipschitz truncations justify the
+tests; the Gaussian tails just established allow their passage to the limit.
+Differentiation at zero gives the covariance bound. Finally average
+$e^{\sqrt{2\theta}G\cdot X}$ over an independent $k$-dimensional Gaussian:
+the first bound yields
+$\E e^{\theta|X|^2}\le\E e^{(\theta/a)|G|^2}
+=(1-2\theta/a)^{-k/2}$. This proves all assertions.
+\end{proof}
+
+\begin{lemma}[Uniform entropy cost for matching means]\label{lem:cost}
+Fix $N$, put $D=Nn$, and let the signal $\mathbf Y=(Y_1,\ldots,Y_N)$ have
+prior $p^{\otimes N}$. Suppose a retained history $\mathcal H$ gives the
+reference posterior curvature at least $a\Id$, $a>0$. Let $Q$ be an
+$\mathcal H$-measurable orthogonal projection for which the two projected
+posterior means agree. At strength $\delta$, observe $Q(\sqrt\delta\mathbf Y+G)$.
+Set
+\[
+\theta=\min\{c/16,a/4\},\quad
+C_{N,a,p}=\frac{4e^{\theta D/(2a)}}{\theta^2}
+\left[(\E_p e^{8\theta|Y|^2})^N+(1-2\theta/a)^{-D}\right].
+\]
+For $0<\delta\le\theta$, its conditional relative entropy cost, averaged
+under the alternative history law, is at most $C_{N,a,p}\delta^2$.
+The constant is finite and independent of the chosen history sigma-field,
+mesh, and controls; the bound is averaged, not pointwise in the history.
+\end{lemma}
+\begin{proof}
+Center the projected signal at its common conditional mean and call it $X$.
+For the reference, \eqref{eq:subgauss} gives
+$\E_q e^{\theta|X|^2}\le(1-2\theta/a)^{-D/2}$ and
+$\E_q|X|^2\le D/a$.
+For the alternative let $m=\E_p[\mathbf Y\mid\mathcal H]$.
+Since $|Q(\mathbf Y-m)|^2\le2|\mathbf Y|^2+2|m|^2$, two conditional
+Jensen inequalities give
+\[
+\E_p[e^{\theta|X|^2}\mid\mathcal H]
+\le(\E_p[e^{2\theta|\mathbf Y|^2}\mid\mathcal H])^2,\qquad
+\E(\E_p[e^{\theta|X|^2}\mid\mathcal H])^2
+\le\E_p e^{8\theta|\mathbf Y|^2}.
+\]
+The last expectation is $(\E_p e^{8\theta|Y|^2})^N$, finite since
+$8\theta\le c/2$. These bounds hold for every conditioning sigma-field.
+
+In $\operatorname{ran}Q$, let $\phi$ be standard Gaussian density and $h$
+the density of $\sqrt\delta X+G$. For a conditionally independent copy $X'$,
+direct Gaussian integration gives
+\[
+\chi^2(h\mid\phi)=\E[e^{\delta X\cdot X'}\mid\mathcal H]-1.
+\]
+The linear term vanishes. Use
+$|e^t-1-t|\le t^2e^{|t|}/2$,
+$|X\cdot X'|^2\le|X|^2|X'|^2$, and
+$|X\cdot X'|\le(|X|^2+|X'|^2)/2$.
+For $\delta\le\theta$, $s e^{\delta s/2}\le(2/\theta)e^{\theta s}$,
+so
+\[
+\chi^2(h\mid\phi)
+\le\frac{2\delta^2}{\theta^2}
+(\E[e^{\theta|X|^2}\mid\mathcal H])^2.
+\]
+Centering and Jensen also give
+$h_q(x)/\phi(x)\ge e^{-\delta D/(2a)}$ pointwise.
+Since $H(h_p\mid h_q)\le\chi^2(h_p\mid h_q)$,
+\[
+H(h_p\mid h_q)
+\le2e^{\delta D/(2a)}
+\bigl(\chi^2(h_p\mid\phi)+\chi^2(h_q\mid\phi)\bigr).
+\]
+Average and substitute the moment estimates to obtain the stated constant.
+For a zero-dimensional observed subspace the cost is zero.
+\end{proof}
+
+\section{Finite observations and comparison of minima}
+\begin{proof}[Proof of \eqref{eq:weighted}]
+Fix $z$ in the stated range, set $b=1/z$, $a=b-\kappa>0$, and take $N$
+independent copies. Write $\mathbf W=(w(Y_1),\ldots,w(Y_N))$.
+All expectations and $L^2$ inner products in this proof use the alternative
+$p^{\otimes N}$ together with independent full Gaussian noises.
+In particular $\norm{\mathbf W}_2^2=NI$.
+
+First observe $Z_0=\sqrt b\,\mathbf Y+G_0$.
+The averaged remaining posterior entropy is $N(H_0-H_z)$ by the chain rule:
+the channel is identical under the two priors and its scaled output
+has law $p_z^{\otimes N}$ or $q_z^{\otimes N}$.
+Fix $u>0$, $m\ge1$, and $\delta=u/m\le\theta$.
+Let $\mathcal H_i$ be the retained history before step $i$, initially $Z_0$.
+Given $\mathcal H_i$, let $P_i$ project onto the difference of posterior means,
+with $P_i=0$ if that difference is zero, and put $Q_i=\Id-P_i$.
+Retain $Q_iZ_{i+1}$, where $Z_{i+1}=\sqrt\delta\,\mathbf Y+G_{i+1}$.
+Each $P_i$ is measurable in the retained past; positive posterior densities
+give integral versions of the means. A measurable orthonormal frame in the
+observed subspace, chosen for example by Gram--Schmidt with a deterministic
+pivot rule, makes this a usual conditional Gaussian kernel.
+
+For any realized retained history the likelihood as a function of $\mathbf y$
+is a common Gaussian quadratic factor of precision
+\[
+B=b\Id+\delta\sum_{i=0}^{m-1}Q_i.
+\]
+No likelihood factor is added by choosing $P_i$, since that choice is a
+deterministic function of the retained past under both priors.
+Thus the reference posterior curvature is at least
+$B-\kappa\Id=a\Id+\delta\sum Q_i$, and its relative score is exactly
+$\mathbf W$. Every reference posterior is proper with Gaussian tails
+by the affine lower bound on its convex remainder. Alternative posterior
+means are finite almost everywhere by the exponential-square hypothesis.
+Lemma~\ref{lem:cost} applies at every step because $Q_i$ kills the
+posterior-mean difference. The entropy chain rule and Lemma~\ref{lem:curvature}
+for the final posterior imply
+\begin{equation}\label{eq:posterior}
+2N(H_0-H_z)\le
+\E\langle\mathbf W,(B-\kappa\Id)^{-1}\mathbf W\rangle
++2C_{N,a,p}u\delta.
+\end{equation}
+All chain-rule entropies are finite in expectation, bounded by $NH_0$;
+the posterior Fisher right side is at most $NI/a$.
+
+Work in the Hilbert space of square-integrable $D$-vector fields on the
+signal and all full observations through $Z_m$. Completing the square,
+\begin{equation}\label{eq:true-min}
+aNI-a^2\E\langle\mathbf W,(B-\kappa\Id)^{-1}\mathbf W\rangle
+=\mathcal M
+:=\min_v\left\{a\norm{\mathbf W-v}_2^2+
+\delta\sum_{i=0}^{m-1}\norm{Q_i v}_2^2\right\}.
+\end{equation}
+The minimizer is $v_*=a(B-\kappa\Id)^{-1}\mathbf W$, so
+$\norm{v_*}_2\le\sqrt{NI}$.
+
+Let $\mathcal F_i=\sigma(Z_0,\ldots,Z_i)$ and let $e_i$ be conditional
+expectation onto $\mathcal F_i$. They are nested orthogonal projections,
+and $P_i$ is $\mathcal F_i$-measurable. Define the comparison minimum by
+replacing $Q_i$ in \eqref{eq:true-min} with $\Id-e_i$, and denote it
+$\mathcal M_0$. Its minimizer is
+\[
+v_0=a\left(a\Id+\delta\sum_{i=0}^{m-1}(\Id-e_i)\right)^{-1}\mathbf W.
+\]
+With $\alpha_k=a/(a+k\delta)$, the nested projection decomposition gives
+\begin{align}
+v_0&=\alpha_m\mathbf W+
+\sum_{k=0}^{m-1}(\alpha_k-\alpha_{k+1})e_k\mathbf W,
+\label{eq:v0}\\
+g_i:=(\Id-e_i)v_0
+&=\alpha_m(\mathbf W-e_i\mathbf W)+
+\sum_{k=i+1}^{m-1}(\alpha_k-\alpha_{k+1})
+(e_k\mathbf W-e_i\mathbf W).
+\label{eq:gi}
+\end{align}
+Indeed a component in $\operatorname{ran}(e_j-e_{j-1})$ has precisely
+$j$ penalties, hence multiplier $\alpha_j$; the final unpredicted
+component has $m$ penalties. The nonnegative weights in \eqref{eq:gi}
+sum to $\alpha_{i+1}\le1$.
+
+Conditional on $\mathcal F_i$, the full arrays of signal and future noise
+remain independent across copies: their original joint law is a product,
+and $\mathcal F_i$ conditions each factor only on its own full past.
+Moreover $e_k\mathbf W_j$ uses only copy $j$'s observations.
+Thus the blocks $g_{i,j}$ are conditionally independent and centered.
+The retained histories need not have this property.
+Conditional Jensen, the tower property, and \eqref{eq:gi} give
+\[
+Z_{i,j}:=\tr\Cov(g_{i,j}\mid\mathcal F_i)
+\le\E[|\mathbf W_j-e_i\mathbf W_j|^2\mid\mathcal F_i]
+\le\E[|\mathbf W_j|^2\mid\mathcal F_i].
+\]
+For any integrable $Z\ge0$ and $M=\E[Z\mid\mathcal F]$,
+\[
+\E[M\ind_{\{M>K\}}]\le2\E[Z\ind_{\{Z>K/2\}}],
+\]
+because $M\le K/2+\E[Z\ind_{\{Z>K/2\}}\mid\mathcal F]$.
+The conditional covariance of $g_i$ is block diagonal, and $P_i$ has
+rank at most one. Therefore
+\[
+\E|P_i g_i|^2
+\le\E\max_j Z_{i,j}
+\le K+2N\E_p[|w|^2\ind_{\{|w|^2>K/2\}}].
+\]
+Put
+\[
+\tau_N=\inf_{K>0}\left\{K/N+
+2\E_p[|w|^2\ind_{\{|w|^2>K/2\}}]\right\}.
+\]
+Then $\tau_N\to0$, by first fixing $K$ to control the integrable tail
+and then taking $N\to\infty$. Uniformly in $i,m,\delta$,
+$\norm{P_i g_i}_2^2\le N\tau_N$.
+
+No commutation between $P_i$ and $e_i$ is required.
+For every $v$,
+$\norm{Q_i v}_2^2\ge2\langle v,Q_i g_i\rangle-\norm{g_i}_2^2$.
+The normal equation for $v_0$ is
+$a(\mathbf W-v_0)=\delta\sum_i g_i$.
+Consequently the minimum of
+$a\norm{\mathbf W-v}_2^2+2\delta\sum_i\langle v,g_i\rangle
+-\delta\sum_i\norm{g_i}_2^2$ is attained at $v_0$ and equals $\mathcal M_0$,
+using $\langle v_0,g_i\rangle=\norm{g_i}_2^2$.
+Test the preceding linear bound at $v_*$ to obtain
+\begin{equation}\label{eq:dual}
+\mathcal M\ge\mathcal M_0-
+2\delta\sum_i\norm{v_*}_2\norm{P_i g_i}_2
+\ge\mathcal M_0-2uN\sqrt{I\tau_N}.
+\end{equation}
+
+\section*{The three limits within the proof}
+The same orthogonal decomposition gives
+\[
+\frac{\mathcal M_0}{N}
+=\sum_{i=0}^{m-1}
+\frac{a^2\delta}{(a+i\delta)(a+(i+1)\delta)}
+\left(I-\norm{e_i\mathbf W_1}_2^2\right).
+\]
+For a component first predicted at step $j$, the coefficients telescope to
+$aj\delta/(a+j\delta)$, exactly its minimized quadratic penalty.
+Full observations through $i$ have sufficient statistic
+$\sqrt b Z_0+\sqrt\delta\sum_{k=1}^i Z_k$.
+Completing the Gaussian likelihood square shows that all other observation
+coordinates are independent Gaussian noise with no information about the
+signal. The resulting precision is $b+i\delta$, not $a+i\delta$.
+Thus $\norm{e_i\mathbf W_1}_2^2=J(1/(b+i\delta))$.
+Combining \eqref{eq:posterior}--\eqref{eq:dual} and telescoping yields the
+explicit prelimit bound
+\begin{align}
+2(H_0-H_z)\le {}&
+\frac I{a+u}
++\sum_{i=0}^{m-1}
+\frac{\delta\,J(1/(b+i\delta))}
+{(a+i\delta)(a+(i+1)\delta)}
+\label{eq:prelimit}\\
+&+\frac{2u}{a^2}\sqrt{I\tau_N}
++\frac{2C_{N,a,p}u\delta}{N}. \nonumber
+\end{align}
+
+The prediction $J(r)$ is nonincreasing in $r$ and is between zero and $I$.
+Indeed a higher-noise Gaussian output is obtained from a lower-noise
+output by adding independent Gaussian noise; the Markov property and
+conditional Jensen contract the squared predicted norm.
+The explicit Gaussian conditional-density formulas also make $J$ measurable.
+The coefficient $\delta/((a+i\delta)(a+(i+1)\delta))$ is exactly the integral
+of $(a+t)^{-2}$ over $[i\delta,(i+1)\delta]$.
+Since $J(1/(b+t))$ is bounded and monotone, this weighted sum converges
+to its integral as $m\to\infty$.
+
+First take $m\to\infty$ at fixed $N,u$.
+The explicit $C_{N,a,p}$ is finite at these fixed parameters, so its error
+vanishes. Next take $N\to\infty$ at fixed $u$, using $\tau_N\to0$:
+\[
+2(H_0-H_z)\le\frac I{a+u}
++\int_0^u\frac{J(1/(b+t))}{(a+t)^2}\,dt.
+\]
+Finally take $u\to\infty$. The remainder tends to zero and the nonnegative
+integral increases to a finite value bounded by $I/a$.
+With $r=1/(b+t)$ and $a=b-\kappa$, its value is
+$\int_0^z J(r)/(1-\kappa r)^2\,dr$.
+This proves \eqref{eq:weighted} in the stated order, without exchanging
+mesh and copy limits or requiring higher moments of the score.
+\end{proof}
+
+\begin{proof}[Proof of \eqref{eq:scalar}]
+$J$ decreases while $g(r)=(1-\kappa r)^{-2}$ increases.
+Integrating
+$(J(r)-J(s))(g(r)-g(s))\le0$ over $[0,z]^2$ gives
+\[
+\int_0^zJ(r)g(r)\,dr
+\le\frac1z\left(\int_0^zJ(r)\,dr\right)
+\left(\int_0^zg(r)\,dr\right).
+\]
+The last integral is $z/(1-\kappa z)$, including its limit at $\kappa=0$.
+Combine with \eqref{eq:weighted}.
+\end{proof}
+
+\section{Sharpness and explicit obstructions}
+All examples below are one-dimensional smooth positive densities and satisfy
+the exact hypotheses, including finite entropy and score energy.
+Fix $t>0$, $\kappa\ge0$, and $R>0$, and set
+\[
+p_t=N(0,t),\qquad
+f_R(x)=e^{\kappa x^2/2-x^4/R^4},\qquad
+q_R(x)=Z_R^{-1}f_R(x).
+\]
+Here $0<Z_R<\infty$ and
+$(-\log q_R)''=-\kappa+12x^2/R^4\ge-\kappa$.
+Write $A=\kappa+1/t$ and $d_R=4/R^4$. The relative score is
+$w_R(Y)=-AY+d_RY^3$, and
+\begin{align}
+I_R&=A^2t-24At^2/R^4+240t^3/R^8,\label{eq:IR}\\
+J_R(r)&=\frac{(A-3d_Rt)^2t^2}{t+r}
++\frac{6d_R^2t^6}{(t+r)^3}. \label{eq:JR}
+\end{align}
+To verify \eqref{eq:JR}, decompose
+$w_R=(-A+3d_Rt)Y+d_R(Y^3-3tY)$ into orthogonal Gaussian Hermite terms.
+For $U_r\sim N(0,t+r)$, its posterior mean and variance are
+$tU_r/(t+r)$ and $tr/(t+r)$.
+Their cubic moment gives the conditional Hermite term
+$(t/(t+r))^3(U_r^3-3(t+r)U_r)$.
+The two terms are orthogonal, with squared norms $t+r$ and $6(t+r)^3$.
+This proves \eqref{eq:JR}; $r=0$ also gives \eqref{eq:IR}.
+
+\subsection{Sharp weighted and scalar constants below the horizon}
+For $z<1/\kappa$, define $h_R=f_R*N(0,z)$.
+As $R\to\infty$,
+\[
+h_R(x)\longrightarrow h_\infty(x)
+=(1-\kappa z)^{-1/2}
+\exp\!\left(\frac{\kappa x^2}{2(1-\kappa z)}\right).
+\]
+Completing the square gives the stronger quantitative identity
+\[
+\frac{h_R(x)}{h_\infty(x)}
+=\E_{\;T_x}e^{-T_x^4/R^4},\qquad
+T_x\sim N\left(\frac{x}{1-\kappa z},\frac z{1-\kappa z}\right).
+\]
+Jensen therefore yields
+$0\le\log h_\infty(x)-\log h_R(x)\le\E T_x^4/R^4$.
+If $X\sim N(0,t+z)$, put
+\[
+T=\frac{t+z}{(1-\kappa z)^2}+\frac z{1-\kappa z}.
+\]
+Then $0\le\E\log h_\infty(X)-\E\log h_R(X)\le3T^2/R^4$.
+No improper prior is used as a probability: $h_\infty$ only evaluates a
+limit of unnormalized likelihoods, and $Z_R$ cancels from the entropy
+difference for every finite $R$.
+
+Since Gaussian differential entropy satisfies $h(p_t)=\frac12\log(2\pi et)$,
+\begin{align*}
+2(H(p_t\mid q_R)-H((p_t)_z\mid(q_R)_z))
+&=\log(1+z/t)+2\E\log h_R(X)-\kappa t+6t^2/R^4\\
+&\longrightarrow
+\mathcal A_t(z)
+:=\log(1+z/t)-\log(1-\kappa z)
++\frac{\kappa z(1+\kappa t)}{1-\kappa z}.
+\end{align*}
+Moreover the finite-$R$ expression is at least
+$\mathcal A_t(z)-6T^2/R^4$.
+From \eqref{eq:JR}, $J_R$ converges uniformly on $[0,z]$ to
+$J_\infty(r)=(1+\kappa t)^2/(t+r)$.
+Direct differentiation, with both sides zero at $z=0$, proves
+\[
+\mathcal A_t(z)=\int_0^z
+\frac{(1+\kappa t)^2}{(t+r)(1-\kappa r)^2}\,dr.
+\]
+Thus the ratio in the weighted inequality tends to one for every fixed
+$t,z$, establishing optimality of its leading coefficient.
+For $\kappa>0$,
+\[
+\int_0^zJ_\infty(r)\,dr=(1+\kappa t)^2\log(1+z/t),\qquad
+\frac{\mathcal A_t(z)}{(1+\kappa t)^2\log(1+z/t)}
+\longrightarrow\frac1{1-\kappa z}\quad(t\to\infty).
+\]
+Indeed numerator and denominator have leading terms
+$\kappa^2tz/(1-\kappa z)$ and $\kappa^2tz$.
+For any smaller proposed factor, first choose finite $t$ large enough,
+then finite $R$ large enough. This proves optimality with proper smooth
+probability densities in the order $R\to\infty$ at fixed $t$, then $t\to\infty$.
+When $\kappa=0$, numerator and denominator limits both equal
+$\log(1+z/t)>0$, proving optimality of factor one as well.
+
+\subsection{A finite counterexample to the unweighted extension}
+Take $\kappa=t=1$, $z=1/2$, $R=4$.
+Then $p=N(0,1)$, $q=Z^{-1}\exp(x^2/2-x^4/256)$, and $q$ is non-log-concave
+because its potential has second derivative $-1$ at zero.
+Here $T=7$ and the entropy bound just proved gives
+\[
+2(H_0-H_{1/2})\ge\log3+2-294/256
+=\log3+109/128.
+\]
+The exact prediction integral is
+\[
+\int_0^{1/2}J_R(r)\,dr
+=\frac{15625}{4096}\log(3/2)+\frac5{12288}.
+\]
+Strict convexity of $x\mapsto1/x$ gives
+$\log3>1$ by its midpoint lower bound on $[1,3]$,
+and $\log(3/2)<5/12$ by its trapezoid upper bound on $[1,3/2]$.
+Consequently
+\[
+2(H_0-H_{1/2})-\int_0^{1/2}J_R(r)\,dr
+>\frac{237}{128}-\frac{78145}{49152}
+=\frac{12863}{49152}>0.
+\]
+This is an analytic finite counterexample; no numerical quadrature or
+uncertified estimate of $Z$ is involved.
+
+\subsection{No finite factor at or beyond the horizon}
+Fix $\kappa>0$, $t>0$, and $z\ge1/\kappa$.
+Using the same proper $q_R$, symmetry and $\cosh\ge1$ give
+\begin{align*}
+h_R(x)
+&=\frac{e^{-x^2/(2z)}}{\sqrt{2\pi z}}
+\int_\R e^{(\kappa-1/z)y^2/2-y^4/R^4}\cosh(xy/z)\,dy\\
+&\ge\frac{2R}{e\sqrt{2\pi z}}e^{-x^2/(2z)},
+\end{align*}
+where the last bound integrates just $|y|\le R$ and uses $\kappa-1/z\ge0$.
+Put $c_z=2/(e\sqrt{2\pi z})$. The exact entropy-difference identity above
+now implies
+\[
+2(H_0-H_z)\ge
+\log(1+z/t)+2\log R+2\log c_z-(t+z)/z-\kappa t+6t^2/R^4
+\longrightarrow\infty.
+\]
+On the other hand, conditional Jensen and \eqref{eq:IR} give, for $R\ge1$,
+\[
+\int_0^zJ_R(r)\,dr\le zI_R
+\le z\bigl(A^2t+240t^3\bigr)<\infty,
+\]
+uniformly in $R$. Every example has finite entropy and Fisher information;
+the exponential-square moment belongs to the fixed Gaussian $p_t$.
+Thus no finite curvature-and-time-only comparison factor exists in this range.
+This proves the remaining sharpness assertions of Theorem~\ref{thm:main}.
+
+\section{Verification and proved boundaries}
+The accompanying checker uses exact rational arithmetic for Gaussian
+polynomial predictions, the finite explicit counterexample, precision-kernel
+identities, and a finite-product test of genuinely adaptive rank-one
+quadratic-minimum comparisons. Its finite-product noise is discrete: that
+test probes the Hilbert-space comparison, not the Gaussian entropy-cost
+lemma. Source hashes and a LaTeX build provide separate provenance and
+readability checks. They do not substitute for the analytic proofs.
+
+Proved under the displayed hypotheses: the weighted and scalar comparisons,
+the conditional version, optimal constants, a finite failure of the
+unweighted nonconvex extension, and impossibility at or beyond the horizon.
+Not established: removal of the exponential-square moment, nonsmooth priors,
+a general non-log-concave dimension-free LSI, a tensor/freezing extension,
+priority or novelty, formal verification, or independent peer review.
+The earlier Crouzeix files are frozen and were not edited.
+
+\begin{thebibliography}{9}
+\bibitem{OAI} OpenAI, \emph{A dimension-free logarithmic Sobolev inequality for
+subgaussian log-concave measures}, 23 September 2026,
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-dimension-free-logarithmic-Sobolev-inequality-for-subgaussian-log-concave-measures-September-23-2026/paper.pdf}{pinned public manuscript}.
+Lemma 4.2, pp.\ 22--25, and Lemma 2.1, pp.\ 6--7.
+\bibitem{BE} D. Bakry and M. \'Emery, \emph{Diffusions hypercontractives},
+S\'eminaire de probabilit\'es XIX (1985), 177--206,
+\href{https://www.numdam.org/item/SPS_1985__19__177_0/}{primary publication}.
+Proposition 3, pp.\ 187--188, and Corollary 2, p.\ 199.
+\bibitem{CE} Y. Chen and R. Eldan, \emph{Localization Schemes: A Framework for
+Proving Mixing Bounds for Markov Chains},
+\href{https://arxiv.org/abs/2203.04163v2}{arXiv:2203.04163v2}, 6 June 2022.
+Sections 2.4.2 and 3.2.3, Equation (27).
+\bibitem{EKZ} R. Eldan, F. Koehler and O. Zeitouni, \emph{A Spectral Condition
+for Spectral Gap: Fast Mixing in High-Temperature Ising Models},
+\href{https://arxiv.org/abs/2007.08200v2}{arXiv:2007.08200v2}, 6 August 2021.
+Lemma 2 and Section 2.0.1.
+\end{thebibliography}
+\end{document}

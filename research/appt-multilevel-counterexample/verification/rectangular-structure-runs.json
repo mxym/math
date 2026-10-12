@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Exact supporting worktree executions, not independent CI, Lean verification, or external mathematical review",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "source_files": 19,
+  "source_manifest_sha256": "843178a5d907c41ce56f830df3721de5bc6dcda03c87f9b62f9887e1c41bbdc1",
+  "runs": [
+    {
+      "commands": [
+        "python3 check_rectangular.py",
+        "python3 -O check_rectangular.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_stdout_sha256": "7ada0c765c3caef1e14eda3b4b123ed6d75c08908d464d8c63a59eb549610435",
+      "assertions_disabled_stdout_sha256": "7ada0c765c3caef1e14eda3b4b123ed6d75c08908d464d8c63a59eb549610435",
+      "outputs_identical": true,
+      "program_sha256": "c69e9982fdcbafe94d0b5b45cbbb6e20fa7eea822e699698379f4dd6f3aee66a",
+      "retained_report": "rectangular-checks.json"
+    },
+    {
+      "commands": [
+        "python3 check_structure.py",
+        "python3 -O check_structure.py"
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_stdout_sha256": "17f6501edf3f06cee15f3b1d5f0329b2b8fac9c87b12dcb56d9328a9c9fa51ed",
+      "assertions_disabled_stdout_sha256": "17f6501edf3f06cee15f3b1d5f0329b2b8fac9c87b12dcb56d9328a9c9fa51ed",
+      "outputs_identical": true,
+      "program_sha256": "7e97b138fd279efde4b5d077d6330a5540d744e8f5a57a27fc7fec928ebc4b2e",
+      "retained_report": "structure-checks.json"
+    }
+  ],
+  "mathematical_scope": [
+    "Exact finite rectangular maximum and all maximizing spectra for the stated cutoff",
+    "Universal near-maximizer spectral rigidity including the critical two-phase alternative",
+    "Exact graph limit and sharp energy allocation within the fixed lacunary hierarchy model"
+  ]
+}

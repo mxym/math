@@ -1,0 +1,550 @@
+ Four equal Gaussian cells: covariance deformation and tetrahedral
+                              rigidity
+
+                                    mxym/math research project
+
+                                           8 October 2026
+
+
+Abstract
+We prove that a partition of standard Gaussian space into four cells of probability 1/4 maximizes the
+sum of squared first moments precisely when it is the central regular
+                                                                  √ 2 tetrahedral  partition, extended
+                                                                         3
+cylindrically in dimensions above three. Its value is 12(arctan 2) /𝜋 . The argument introduces
+a trace-normalized Gaussian covariance value function. The Gaussian multi-bubble perimeter the-
+orem puts every full-rank critical value above the tetrahedral value. A constrained mountain-pass
+argument would contradict any additional maximizer, but its covariance domain has a singular
+boundary. We handle that boundary by smooth covariance regularization, a normal-cone spectral
+estimate, and a uniform separation inequality for balanced winning cells. Rank-two and rank-
+one obstructions then exclude all limiting boundary critical points. The proof is analytic; it uses
+no numerical search or computer-assisted Gaussian integration. We state the imported Gaussian
+isoperimetric results explicitly. Partial Lean checks cover finite algebra, not the Gaussian analysis
+or the complete theorem.
+
+
+1. The theorem and its scope
+                                                                                  2
+Let 𝛾𝑑 be standard Gaussian probability on ℝ𝑑 , with density (2𝜋)−𝑑/2 𝑒−|𝑥| /2 . A partition is a
+measurable list 𝐶1 , … , 𝐶4 , disjoint and covering space up to null sets. Define
+
+                                                         4                       √
+                   𝑚𝑖 = ∫ 𝑥 𝑑𝛾𝑑 (𝑥),        𝐹 (𝐶) = ∑ |𝑚𝑖 |2 ,         𝜃 = arctan 2.
+                           𝐶𝑖                           𝑖=1
+
+
+Theorem 1. If 𝑑 ≥ 3 and 𝛾𝑑 (𝐶𝑖 ) = 1/4 for every 𝑖, then
+
+                                                              12𝜃2
+                                          𝐹 (𝐶) ≤ 𝐹∗ ∶=            .                              (1)
+                                                               𝜋3
+
+Equality holds exactly for the following partitions, up to null sets, orthogonal transformations and
+relabeling. In an orthogonal three-dimensional subspace take
+
+
+             𝜎1 = (1, 1, 1),    𝜎2 = (1, −1, −1),   𝜎3 = (−1, 1, −1),     𝜎4 = (−1, −1, 1),
+
+
+
+
+                                                    1
+and assign 𝑥 to the label maximizing 𝜎𝑖 ⋅ 𝑥. The cells are central regular tetrahedral cones, with
+the orthogonal complement unrestricted.
+The same bound and equality classification hold for fractional partitions: measurable 0 ≤ 𝑓𝑖 ≤ 1
+with ∑𝑖 𝑓𝑖 = 1 almost everywhere and ∫ 𝑓𝑖 𝑑𝛾𝑑 = 1/4, using 𝑚𝑖 = ∫ 𝑥𝑓𝑖 𝑑𝛾𝑑 .
+This solves the equal-mass four-cell first-moment question, including Heilman’s 2014 Conjecture 3
+in dimension three [H14], with regularity added to its stated simplicial-conical classification, and the
+equal-mass four-cell case of [H19, Conjecture 1.16]. It does not assert the arbitrary-mass conjecture,
+more than four cells, or noise stability at positive correlation. The arbitrary-mass statement as
+written in [H19] is false, as the companion note [EX] explains. The literature screen in this package
+is finite and makes no worldwide priority claim.
+
+
+2. Balanced Gaussian assignments and their covariance
+Write 1 = (1, 1, 1, 1)𝑇 , 𝑃 = 𝐼 − 11𝑇 /4 and
+
+
+                      𝒦 = {𝑄 = 𝑄𝑇 ⪰ 0 ∶ 𝑄1 = 0, tr 𝑄 = 1},             𝑄∗ = 𝑃 /3.
+
+This is a compact convex subset of the six-dimensional Euclidean space of symmetric matrices
+annihilating 1, with the Frobenius inner product. For every such positive semidefinite 𝑄, without
+the trace restriction, define
+
+
+                               1
+                   𝒞(𝑄) = inf { ∑ 𝜆𝑖 + 𝔼 max(𝑌𝑖 − 𝜆𝑖 )} ,               𝑌 ∼ 𝑁 (0, 𝑄).               (2)
+                         𝜆∈ℝ4  4 𝑖        𝑖
+
+
+Equivalently, it is the largest 𝔼𝑌𝐼 among couplings with ℙ(𝐼 = 𝑖) = 1/4. At coincident scores such
+couplings can split tied labels. Only the dual definition, and the ordinary winning assignment for
+distinct scores, are needed below.
+For completeness, write 𝑌 = 𝑀 𝐺 with centered score rows 𝑣𝑖 , so 𝑀 𝑀 𝑇 = 𝑄. Fix the gauge
+min𝑖 𝜆𝑖 = 0. The expression in braces, called Ψ(𝑀 , 𝜆), is at least max𝑖 𝜆𝑖 /4: choose a zero-priced
+label in the pointwise maximum and use its zero Gaussian mean. Thus a minimizing price exists.
+For distinct 𝑣𝑖 , score ties are null, and differentiation in prices gives
+
+
+                  𝜕𝜆𝑖 Ψ = 1/4 − 𝛾(𝐶𝑖 ),        𝐶𝑖 = {𝑥 ∶ 𝑣𝑖 ⋅ 𝑥 − 𝜆𝑖 ≥ 𝑣𝑗 ⋅ 𝑥 − 𝜆𝑗 ∀𝑗}.             (3)
+
+These winning cells therefore have the four required masses. They attain the linear assignment
+because the winning score is pointwise largest. At degenerate scores the coupling interpretation can
+also be obtained by approximating 𝑄 with positive covariances and taking weakly compact limits
+of the four fractional assignments on a common Gaussian space. The moment integrals pass to the
+limit because Gaussian coordinates are in 𝐿2 .
+Lemma 2 (continuity and scaling). 𝒞 is continuous on the closed covariance cone and 𝒞(𝑠𝑄) =
+√
+ 𝑠 𝒞(𝑄) for 𝑠 ≥ 0.
+Proof. Scaling scores and prices proves homogeneity for 𝑠 > 0, and 𝒞(0) = 0. Couple 𝑌 = 𝑄1/2 𝐺
+    ̃=𝑄
+and 𝑌    ̃1/2 𝐺. For every price the difference of expected maxima is at most 𝔼|(𝑄1/2 − 𝑄
+                                                                                        ̃1/2 )𝐺|.
+
+
+                                                    2
+This bound is independent of prices, hence also bounds the difference of their infima. Continuity of
+the matrix square root proves the assertion. □
+Suppose now that 𝑄 is positive definite on 1⟂ and take a centered 4 × 3 matrix 𝑀 with 𝑀 𝑀 𝑇 = 𝑄.
+The scores are aﬀinely independent. Every pair has a positive-area winning facet. For its relatively
+open part Σ𝑖𝑗 put
+
+                                                     𝐴𝑖𝑗
+                 𝐴𝑖𝑗 = ∫ 𝜑3 𝑑ℋ2 ,         𝑤𝑖𝑗 =              ,   (𝐿𝑢)𝑖 = ∑ 𝑤𝑖𝑗 (𝑢𝑖 − 𝑢𝑗 ).         (4)
+                           Σ𝑖𝑗                    |𝑣𝑖 − 𝑣𝑗 |             𝑗≠𝑖
+
+
+At a lower-rank diagram the same definition in ambient dimension three is used, with 𝐴𝑖𝑗 = 0 for an
+absent facet. Cylindrical coordinates integrate to one. Let 𝐵 be the matrix of actual cell moments.
+Gaussian integration by parts gives
+
+
+                                 𝐵 = 𝐿𝑀 ,     𝒞(𝑄) = ⟨𝑀 , 𝐵⟩ = tr(𝐿𝑄).                             (5)
+
+Indeed the inward normal to cell 𝑖 on this facet is (𝑣𝑖 − 𝑣𝑗 )/|𝑣𝑖 − 𝑣𝑗 |. Truncation by large balls
+justifies integration by parts: their additional Gaussian flux tends to zero exponentially.
+Lemma 3 (interior differential identity). In the positive cone 𝒞 is smooth, and for every
+symmetric 𝐷 with 𝐷1 = 0,
+
+                                                          1
+                                         𝑑𝒞(𝑄)[𝐷] =         tr(𝐿𝐷).                                (6)
+                                                          2
+
+Proof. Smoothness can be seen without differentiating moving corners. The three score differences
+against label four make a nonsingular aﬀine change of variables; in those variables all four winning
+regions are fixed polyhedral cones. Gaussian density derivatives in the changed variables are poly-
+nomials times locally uniformly dominated Gaussian densities. The price Hessian is 𝐿, obtained by
+normal flux across the facets. It is positive definite in the gauge ∑ 𝜆𝑖 = 0, since the facet graph
+is complete. The implicit function theorem gives smooth balancing prices. This proves smoothness
+locally everywhere in the positive cone. Uniqueness of prices in this gauge follows as well: the
+Hessian is positive definite along any price segment.
+Write 𝐷 = 𝑀 𝐴𝑀 𝑇 with 𝐴 = 𝐴𝑇 , and realize 𝑄 + 𝑡𝐷 using 𝑀 (𝑡) = 𝑀 (𝐼 + 𝑡𝐴)1/2 . The envelope
+derivative of the balanced score value is 𝐵, so
+
+
+                                  𝑑𝒞(𝑄)[𝐷] = 12 tr(𝐵𝑇 𝑀 𝐴) = 12 tr(𝐿𝐷).
+
+Every covariance direction has this representation because 𝑀 maps onto 1⟂ . □
+
+
+3. Separation of the moments of winning cells
+                       2
+Let 𝜙(𝑡) = (2𝜋)−1/2 𝑒−𝑡 /2 , 𝑞 = Φ−1 (3/4), ℎ0 = 𝜙(𝑞) and 𝑘0 = 1/(16𝜙(0)). Every cell of mass 1/4
+has moment norm at most ℎ0 : for a prescribed direction 𝑇 = 𝑢 ⋅ 𝑋, let 𝑓 be any cell indicator (or
+fractional indicator) of that mass. Pointwise, (𝑇 − 𝑞)(𝑓 − 1𝑇 ≥𝑞 ) ≤ 0. Integration cancels the 𝑞 term
+by equal masses, giving ∫ 𝑇 𝑓 ≤ ∫𝑇 ≥𝑞 𝑇 = 𝜙(𝑞). Consequently, for trace-one scores,
+
+
+
+                                                      3
+                                     0 ≤ 𝒞(𝑄) = ⟨𝑀 , 𝐵⟩ ≤ 2ℎ0 .                                       (7)
+
+This initially holds in the positive cone, and extends to its boundary by Lemma 2.
+Lemma 4 (uniform pair separation). For any distinct-score balanced winning diagram, and
+every pair 𝑖 ≠ 𝑗,
+
+                                                      𝑣𝑖 − 𝑣𝑗
+                                      (𝑏𝑖 − 𝑏𝑗 ) ⋅              ≥ 𝑘0 .                                (8)
+                                                     |𝑣𝑖 − 𝑣𝑗 |
+
+Proof. Put 𝑛 = (𝑣𝑖 − 𝑣𝑗 )/|𝑣𝑖 − 𝑣𝑗 | and 𝑡 = (𝜆𝑖 − 𝜆𝑗 )/|𝑣𝑖 − 𝑣𝑗 |. On 𝐷 = 𝐶𝑖 ∪ 𝐶𝑗 the two labels are
+separated exactly by 𝑛 ⋅ 𝑋 = 𝑡. The subdensity 𝑔 of 𝑛 ⋅ 𝑋 restricted to 𝐷 satisfies 0 ≤ 𝑔 ≤ 𝜙(0) and
+has mass 1/2. Both sides of 𝑡 have mass 1/4. Thus
+
+                                                              1/(4𝜙(0))
+                 (𝑏𝑖 − 𝑏𝑗 ) ⋅ 𝑛 = ∫ |𝑧 − 𝑡|𝑔(𝑧) 𝑑𝑧 ≥ ∫                    ( 12 − 2𝜙(0)𝑠) 𝑑𝑠 = 𝑘0 .    (9)
+                                                          0
+
+Here the constant 𝑡 cancels by equal masses. The inequality is the layer-cake formula and the bound
+on the mass in [𝑡 − 𝑠, 𝑡 + 𝑠]. No optimality of the squared moment objective is assumed. □
+We will also need the price bound
+
+
+                                        |𝜆𝑖 − 𝜆𝑗 | ≤ 𝑞|𝑣𝑖 − 𝑣𝑗 |.                                    (10)
+
+Each winning cell lies in its pairwise winning halfspace. Both opposite halfspaces have probability
+at least 1/4, giving (10).
+
+
+4. Boundary continuity of the facet matrix
+Lemma 5. Suppose centered score lists 𝑀𝑛 → 𝑀0 in dimension three have pairwise separated
+rows. Let their balanced prices converge to 𝜆0 . Then the limiting diagram has four masses 1/4 and
+𝐿𝑛 → 𝐿0 , where 𝐿0 is its facet matrix. The assertion allows rank-one or rank-two limits.
+Proof. Distinct limiting scores have pairwise tie hyperplanes of Gaussian measure zero. Domi-
+nated convergence of the winning indicators gives the four limiting masses. The same dominated
+convergence applies to first moments, since Gaussian coordinates are integrable.
+A codimension-one triple tie is impossible in this positive-mass diagram. Such a tie makes three
+score vectors aﬀinely collinear with exactly the same aﬀine relation among their prices. One of the
+three aﬀine scores is then globally a strict convex combination of the other two. Its winning cell is
+contained in a hyperplane and is null, a contradiction.
+For each pair write its facet plane as 𝑛𝑛 ⋅ 𝑋 = 𝑡𝑛 . Its area is 𝜙(𝑡𝑛 ) times the two-dimensional
+Gaussian probability of the other two winning inequalities restricted to that plane. A continuous
+local orthonormal frame for 𝑛⟂
+                             𝑛 exists near its limiting normal; use it to express these inequalities in
+fixed two-dimensional Gaussian coordinates. A limiting nonconstant inequality has a Gaussian-null
+zero set. A constant nonzero one is stable under convergence. A constant zero inequality would be
+the prohibited codimension-one triple tie. Dominated convergence therefore gives each facet area,
+
+
+                                                      4
+including those that tend to zero. Pair separation keeps its denominator nonzero, proving 𝐿𝑛 → 𝐿0 .
+The limiting flux identity (5) holds by the same integration by parts. □
+
+
+5. A boundary obstruction for self-moment diagrams
+Lemma 6. There is no balanced four-cell winning diagram in dimension three whose four distinct
+inducing vectors are its own cell moments, whose moment rank is at most two, and whose facet
+matrix satisfies 𝐿 ⪯ 𝑃 .
+We give the complete proof because this is the boundary hypothesis needed later; the lemma does
+not assume global maximality.
+First recall the elementary unrestricted three-cell bound
+
+                                                     2
+                                       3
+                                      ∑ ∣∫ 𝑥 𝑑𝛾∣ ≤ 𝐵3 ∶= 9/(8𝜋).                                (11)
+                                      𝑖=1   𝐷𝑖
+
+                                                                              √
+To prove it, if its moment sum is 𝑆 > 0, divide the centered moments by 𝑆 to get scores with
+squared
+√        norm sum one. Their span has dimension at most two, and pointwise maximization gives
+  𝑆 ≤ 𝔼 max𝑖 𝑣𝑖 ⋅ 𝐺. The winning cells√are at most three planar sectors, possibly empty. A sector of
+angle 𝛼 has moment norm sin(𝛼/2)/ 2𝜋. If 𝑥𝑖 = 𝛼𝑖 /2 sum to 𝜋, ∑ sin2 𝑥𝑖 = 2 + 2 ∏ cos 𝑥𝑖 ≤ 9/4:
+a negative cosine makes the product nonpositive; otherwise concavity of log cos bounds the product
+by 1/8. Endpoints follow by continuity. Cauchy–Schwarz for the normalized scores and sector
+moments now gives 𝔼 max𝑖 𝑣𝑖 ⋅ 𝐺 ≤ √𝐵3 , proving (11). Rank-one cases may be viewed in a plane
+with an unused coordinate.
+The strict profile estimate is
+
+
+                                 ℎ20 > 𝐵3 /4 = 9/(32𝜋),        ℎ0 > 3𝜙(0)/4.                    (12)
+                                                                     2
+Indeed 𝜋 < 22/7 < 32/9 gives 𝜙(0) > 3/8 and 𝑒−𝑥 /2 ≥ 1 − 𝑥2 /2 gives Φ(3/4) >
+                                                                                         2
+1/2 + (3/8)(87/128) > 3/4.         Thus 0 < 𝑞 < 3/4.         Taylor’s theorem implies 𝑒−𝑞 >
+1 − 9/16 + (9/16)2 /2 − (9/16)3 /6 = 4637/8192 > 9/16. This proves both claims in (12).
+Now suppose the self-moment rank is two. Write its matrix as 𝑀 . Flux gives 𝐿𝑀 = 𝑀 . Hence
+𝑊 = 𝑃 − 𝐿 ⪰ 0 annihilates 1 and the two-dimensional column space of 𝑀 , so
+
+
+                  𝑊 = 𝑐𝑎𝑎𝑇 ,      𝑐 ≥ 0,    𝑎 ⟂ 1,       𝑎𝑇 𝑀 = 0,       𝑤𝑖𝑗 = 1/4 + 𝑐𝑎𝑖 𝑎𝑗 .   (13)
+
+If all four moments are hull vertices, they form a convex quadrilateral. Its aﬀine dependence has
+alternating signs, say 𝑎1 , 𝑎3 > 0 and 𝑎2 , 𝑎4 < 0. For the scores 𝑠𝑖 = 𝑚𝑖 ⋅ 𝑥 − 𝜆𝑖 , the number
+𝐾 = ∑ 𝑎𝑖 𝑠𝑖 = − ∑ 𝑎𝑖 𝜆𝑖 is constant. On an ordinary 13 facet, 𝑠1 = 𝑠3 = 𝑇 > 𝑠2 , 𝑠4 gives
+𝐾 = 𝑎2 (𝑠2 − 𝑇 ) + 𝑎4 (𝑠4 − 𝑇 ) > 0. On a 24 facet it gives 𝐾 < 0. Both diagonal facets cannot exist,
+but (13) gives both positive weights. This is a contradiction.
+                                                                                 3
+Otherwise a moment lies in the hull of the other three. Write 𝑚4 = ∑𝑗=1 𝛼𝑗 𝑚𝑗 , 𝛼𝑗 ≥ 0, ∑ 𝛼𝑗 = 1.
+In (13) take 𝑎 = (𝛼1 , 𝛼2 , 𝛼3 , −1). Then 𝑤4𝑗 ≤ 1/4. Put 𝑡 = |𝑚4 | and 𝐹 = ∑ |𝑚𝑖 |2 . The classical
+
+
+
+                                                         5
+single-cell Gaussian isoperimetric theorem [B75, ST78] gives the following perimeter lower bound
+for the fourth cell, which has mass 1/4:
+
+                                                                    √
+                           ℎ0 ≤ ∑ 𝐴4𝑗 ≤ 14 ∑ |𝑚4 − 𝑚𝑗 | ≤ 43 √𝐹 + 4𝑡2 .                            (14)
+                                  𝑗              𝑗
+
+
+The squared lengths sum to 𝐹 + 4𝑡2 because the four moments sum to zero. If 𝑡 > 0, the convex
+combination gives some 𝑚4 ⋅ 𝑚𝑗 ≥ 𝑡2 . Merging these two cells and using (11) yields 𝐹 + 2𝑡2 ≤ 𝐵3 .
+Projecting all moments onto 𝑚4 /𝑡, two projections are 𝑡 and 𝑠 ≥ 𝑡, and the other two sum to −𝑡 − 𝑠.
+Thus 𝐹 ≥ 𝑡2 + 𝑠2 + (𝑡 + 𝑠)2 /2 ≥ 4𝑡2 . For 𝑡 = 0 these same two inequalities hold by merging any
+other cell. They imply 𝑡2 ≤ 𝐵3 /6 and 𝐹 + 4𝑡2 ≤ 4𝐵3 /3. Equation (14) now gives ℎ0 ≤ √𝐵3 /2,
+contradicting (12). This includes points on hull edges and zero coeﬀicients 𝛼𝑗 .
+For rank one, the four distinct slopes give four ordered intervals, whose equal masses force endpoints
+−𝑞, 0, 𝑞. Their own moments are (−ℎ0 , ℎ0 − 𝜙(0), 𝜙(0) − ℎ0 , ℎ0 ). The middle facet has weight
+
+                                                     𝜙(0)
+                                        𝑤23 =                  > 2,
+                                                 2(𝜙(0) − ℎ0 )
+
+by (12). Hence tr 𝐿 ≥ 2𝑤23 > 4, contradicting 𝐿 ⪯ 𝑃 and tr 𝑃 = 3. Rank zero contradicts distinct
+moments. This proves Lemma 6. □
+
+
+6. The regular value and its strict local maximum
+Lemma 7. Put 𝑐∗ ∶= √𝐹∗ . Then 𝒞(𝑄∗ ) = 𝑐∗ , and 𝑄∗ is a strict local maximum of 𝒞 on 𝒦.
+We include the local calculation.
+                      √            For regular scores 𝑚0𝑖 = 𝑎𝜎𝑖 , the 12 facet is the plane 𝑦 + 𝑧 = 0
+with
+ √ wedge 𝑋 ≥ |𝑌 |/ 2. Its angular width is 2𝜃 and Gaussian area is 𝜙(0)𝜃/𝜋. Its edge length is
+2 2𝑎. Taking 𝑎 = 𝜃/𝜋3/2 makes every weight 1/4, so flux gives precisely the cell moments 𝑚0𝑖 . Thus
+their value is 12𝑎2 = 𝐹∗ . The trace-one scores are 𝑚0𝑖 /𝑐∗ , with covariance 𝑄∗ , and their assignment
+value is 𝑐∗ .
+To check strict local maximality, work near the self-moment list and remove rotations by polar
+decomposition. Perturb the scores by the symmetric map 𝐼 + 𝐵, where
+
+                               𝑢 𝑏𝑧 𝑏𝑦                      √
+                                                             2              √𝜋/3
+                             ⎜𝑏𝑧 𝑣 𝑏𝑥 ⎞
+                           𝐵=⎛         ⎟,              𝑐0 =    ,     ℎ=          .
+                                                            3𝜃               𝜃
+                             ⎝𝑏𝑦 𝑏𝑥 𝑠 ⎠
+
+The latter ℎ is the normalized 𝑋-mean of the facet wedge: its mass is 𝜃/𝜋 and its unnormalized
+mean is 𝜙(0)√2/3. A price variation can be parametrized by an apex variation 𝑧, with 𝛿𝜆𝑖 = 𝑚0𝑖 ⋅ 𝑧
+in the zero-sum gauge. Facet flux gives
+
+
+                                      𝛿𝑝𝑖 = 𝑎𝜎𝑖 ⋅ (ℎ(𝑏𝑥 , 𝑏𝑦 , 𝑏𝑧 ) − 𝑧).
+
+For example the facet conditional mean is ℎ𝑒𝑥 on 12. Summing all facet fluxes gives 𝛿𝑝𝑖 =
+(ℎ/(2𝑎))((𝑚0𝑖 )𝑇 𝐵𝑚0𝑖 − 𝑎2 tr 𝐵) − 𝑚0𝑖 ⋅ 𝑧, which is the displayed expression. Balanced prices therefore
+give 𝑧 = ℎ(𝑏𝑥 , 𝑏𝑦 , 𝑏𝑧 ).
+
+                                                      6
+Set 𝐾𝑥 = 𝑐0 (𝑢 − (𝑣 + 𝑠)/2) − (𝑣 + 𝑠)/2, with cyclic definitions for 𝐾𝑦 , 𝐾𝑧 . The two opposite
+facet-weight derivatives are
+
+
+                 4𝛿𝑤12 = 𝐾𝑥 + (𝑐0 − 1)𝑏𝑥 − ℎ𝑧𝑥 ,          4𝛿𝑤34 = 𝐾𝑥 − (𝑐0 − 1)𝑏𝑥 + ℎ𝑧𝑥 .             (15)
+                                                                  √
+Here a diagonal perturbation changes the half wedge angle by ( 2/3)(𝑢 − (𝑣 + 𝑠)/2),√and the edge
+length relatively
+               √ by (𝑣 + 𝑠)/2. For 𝑏𝑥 , the first-order wedge is 𝑋 ≥ (1 − 𝑏𝑥 )|𝑌 |/ 2: the angle
+derivative is ( 2/3)𝑏𝑥 and the relative edge derivative is 𝑏𝑥 . Reflection symmetry makes the other
+two off-diagonal angular derivatives zero. Translating the apex contributes −𝐴12 ℎ𝑧𝑥 to its area
+derivative, with opposite sign on 34. These calculations give (15) and its cyclic versions.
+Let 𝐻(𝑀 ) = 2𝒞(𝑀 𝑀 𝑇 ) − |𝑀 |2𝐹 . Its score gradient is 2(𝐵(𝑀 ) − 𝑀 ). At the regular point 𝐿 = 𝑃 ,
+so
+
+
+                               𝐻 ″ = 2 ∑ 𝛿𝑤𝑖𝑗 (𝛿𝑚𝑖 − 𝛿𝑚𝑗 ) ⋅ (𝑚0𝑖 − 𝑚0𝑗 ).
+                                        𝑖<𝑗
+
+
+Write (𝑢, 𝑣, 𝑠) = 𝜌(1, 1, 1) + (𝑢0 , 𝑣0 , 𝑠0 ) with sum of the latter zero. Substitution of (15) and 𝑧 =
+ℎ(𝑏𝑥 , 𝑏𝑦 , 𝑏𝑧 ) gives
+
+
+           𝐻 ″ = −24𝑎2 𝜌2 − 2𝑎2 (3𝑐0 + 1)(𝑢20 + 𝑣02 + 𝑠20 ) − 8𝑎2 (1 + ℎ2 − 𝑐0 )(𝑏𝑥2 + 𝑏𝑦2 + 𝑏𝑧2 ).   (16)
+
+The diagonal terms follow from 4𝑎2 √  ∑ 𝐾𝑥 (𝑣                                            2      2
+                                           √ + 𝑠); each off-diagonal pair contributes −8𝑎 (1 + ℎ −
+     2
+𝑐0 )𝑏𝑥 . Also 0 < 𝑐0 < 1, since arctan 2 > 2/3 by the integral defining arctangent. All coeﬀicients
+in (16) are strictly negative. Smoothness and Taylor’s theorem give a strict local maximum of 𝐻
+modulo rotations.
+For 𝑄 ∈ 𝒦 near 𝑄∗ choose centered scores with Gram matrix 𝑄 and multiply them by 𝑐∗ . They have
+squared norm 𝐹∗ and are near the regular self-moment list modulo rotations. Since 𝐻 = 2𝑐∗ 𝒞(𝑄) −
+𝐹∗ , the preceding strict inequality proves the claimed strict local maximum on the covariance domain.
+□
+
+
+7. Perimeter bounds for full-rank critical values
+We import the following precise case of the Gaussian multi-bubble theorem [MN22, Theorem 1.1]:
+among all four-cell partitions in ℝ3 with masses 1/4, the total Gaussian interface perimeter 𝑆 =
+1
+2 ∑𝑖 𝑃𝛾 (𝐶𝑖 ) = ∑𝑖<𝑗 𝐴𝑖𝑗 is at least its value for the regular tetrahedral fan. The theorem applies
+because the number of cells is at most dimension plus one. Its simplicial minimizer is central in this
+equal-mass case: for regular scores the balancing prices are unique modulo a constant by Lemma 3,
+and symmetry makes all prices equal. The regular value computed above is
+
+
+                                        𝑆∗ = 6𝜙(0)𝜃/𝜋 = 𝑐∗ √3/2.                                      (17)
+
+This is an established external theorem, not a new proof of the multi-bubble result. Its uniqueness
+part is not needed here.
+Lemma 8. Any full-rank 𝑄 ∈ 𝒦 at which the trace-constrained derivative of 𝒞 vanishes satisfies
+𝒞(𝑄) ≥ 𝑐∗ .
+
+                                                      7
+Proof. By (6), 𝐿 = 𝜇𝑃 on 1⟂ , and by (5) 𝒞(𝑄) = 𝜇. Each weight is 𝜇/4. Since the rows of 𝑀 sum
+to zero and their squared norms sum to one,
+
+                                                       𝜇
+                        ∑ |𝑣𝑖 − 𝑣𝑗 |2 = 4,      𝑆=       ∑ |𝑣 − 𝑣𝑗 | ≤ 𝜇√3/2.
+                         𝑖<𝑗
+                                                       4 𝑖<𝑗 𝑖
+
+Combine this upper bound with (17) to get 𝜇 ≥ 𝑐∗ . The perimeter theorem gives a lower critical-
+value bound; the next argument is necessary to turn it into a global upper bound. □
+
+
+8. A constrained mountain-pass lemma with the required sign
+Lemma 9. Let 𝐾 be nonempty compact convex in a finite-dimensional Euclidean space, and let 𝑓
+be 𝐶 2 on a neighborhood of 𝐾. Let 𝑥0 , 𝑥1 ∈ 𝐾. Suppose every continuous path in 𝐾 joining them
+meets a set on which 𝑓 ≤ 𝑎 < min(𝑓(𝑥0 ), 𝑓(𝑥1 )). Then some 𝑥 ∈ 𝐾 has 𝑓(𝑥) ≤ 𝑎 and
+
+
+                                 ⟨∇𝑓(𝑥), 𝑦 − 𝑥⟩ ≤ 0      for all 𝑦 ∈ 𝐾.                            (18)
+
+Proof. Let Γ be these paths and put 𝑏 = sup𝛾∈Γ min𝑡 𝑓(𝛾(𝑡)) ≤ 𝑎. The family is nonempty by
+convexity. Let Π𝐾 be Euclidean projection and 𝐷(𝑥) = Π𝐾 (𝑥 + ∇𝑓(𝑥)) − 𝑥. The projection
+inequality tested at 𝑥 ∈ 𝐾 gives ∇𝑓(𝑥) ⋅ 𝐷(𝑥) ≥ |𝐷(𝑥)|2 . Moreover 𝐷(𝑥) = 0 exactly when (18)
+holds. This vector field is locally Lipschitz, since 𝑓 is 𝐶 2 and projection is nonexpansive.
+If the level 𝑏 contains no zero of 𝐷, compactness gives 𝜂, 𝛼 > 0 with |𝐷| ≥ 𝛼 on {|𝑓 − 𝑏| ≤ 2𝜂} ∩ 𝐾.
+The level is nonempty by any path and the intermediate value theorem. Shrink 𝜂 so both endpoint
+values exceed 𝑏 + 2𝜂. Choose a Lipschitz cutoff 0 ≤ 𝜒 ≤ 1, one for |𝑓 − 𝑏| ≤ 𝜂 and zero for
+|𝑓 − 𝑏| ≥ 2𝜂. The flow 𝑥′ = 𝜒(𝑓(𝑥))𝐷(𝑥) stays in 𝐾: every suﬀiciently small forward Euler step
+is a convex combination of 𝑥 and Π𝐾 (𝑥 + ∇𝑓(𝑥)). Euler approximations converge to the locally
+Lipschitz flow, giving invariance. Compactness permits any finite forward time and continuous
+dependence on the initial point. Along the flow 𝑓 never decreases and increases at rate at least 𝛼2
+while |𝑓 − 𝑏| ≤ 𝜂; the endpoints are fixed.
+Choose 𝛾 with minimum greater than 𝑏 − 𝜂/2. Applying a fixed flow time greater than 𝜂/𝛼2 makes
+every point on this path have value at least 𝑏 + 𝜂/2. Points already above this value do not descend,
+and the others reach it within that time. This continuous path contradicts the definition of 𝑏. Thus
+a zero exists at level 𝑏, proving the lemma. □
+The sign in (18) is the upper normal cone, which is essential below. The proof uses only Euclidean
+projection and the elementary existence, Euler approximation and continuous-dependence theorems
+for locally Lipschitz finite-dimensional ODEs. It does not assume nondegenerate critical points or
+a smooth boundary of 𝐾.
+
+
+9. Regularization excludes every additional maximizer
+Theorem 10 (covariance form). For 𝑄 ∈ 𝒦, 𝒞(𝑄) ≤ 𝑐∗ , with equality only at 𝑄∗ .
+Proof. Suppose 𝑄1 ≠ 𝑄∗ has 𝒞(𝑄1 ) ≥ 𝑐∗ . By Lemma 7 choose 𝑟, 𝛿 > 0 so that the closed radius-𝑟
+ball about 𝑄∗ within the trace aﬀine space lies in the positive cone, 𝑄1 is outside it, and its boundary
+has 𝒞 ≤ 𝑐∗ − 𝛿. For 𝜀 ↓ 0 define on 𝒦
+
+
+                                                   8
+                                         ̃
+                              𝒞𝜀 (𝑄) = 𝒞(𝑄),        ̃ = (1 − 𝜀)𝑄 + 𝜀𝑄 .
+                                                    𝑄                ∗
+
+
+This is smooth on an open neighborhood of 𝒦, and converges uniformly to 𝒞 by Lemma 2 and
+compactness. For small 𝜀, its values at 𝑄∗ , 𝑄1 exceed 𝑐∗ − 𝛿/3, whereas every joining path meets the
+sphere with value at most 𝑐∗ − 2𝛿/3. Lemma 9 gives 𝑄𝜀 ∈ 𝒦 satisfying the upper-normal condition
+and
+
+                                            ̃ ) ≤ 𝑐 − 2𝛿/3.
+                                          𝒞(𝑄                                                     (19)
+                                             𝜀     ∗
+
+
+Let 𝐿𝜀 be its full-rank facet matrix. By (6), the normal condition says that 𝑄𝜀 maximizes tr(𝐿𝜀 𝑄)
+on 𝒦. If 𝜇𝜀 is the largest eigenvalue of 𝐿𝜀 on 1⟂ , this is equivalent to
+
+
+                               0 ⪯ 𝐿𝜀 ⪯ 𝜇 𝜀 𝑃 ,      (𝐿𝜀 − 𝜇𝜀 𝑃 )𝑄𝜀 = 0.                          (20)
+
+Indeed the linear functional on positive trace-one matrices is at most its top eigenvalue. Equality
+makes the range of 𝑄𝜀 lie in its top eigenspace; this follows by diagonalizing 𝐿𝜀 and using nonnegative
+diagonal entries of 𝑄𝜀 (a zero diagonal in a positive matrix has zero row).
+                                                                ̃1/2
+Choose once and for all a 4 × 3 isometry 𝑈 onto 1⟂ and set 𝑀𝜀 = 𝑄𝜀 𝑈 , 𝐵𝜀 = 𝐿𝜀 𝑀𝜀 . Equations
+(5) and (20) imply
+
+
+                                       ̃ ) = (1 − 𝜀)𝜇 + 𝜀 tr 𝐿 /3,
+                                     𝒞(𝑄𝜀            𝜀        𝜀
+                                    0 < 𝜇𝜀 ≤ 2ℎ0 /(1 − 𝜀),                                        (21)
+                                              𝜀
+                             |𝐵𝜀 − 𝜇𝜀 𝑀𝜀 |2𝐹 = tr [(𝐿𝜀 − 𝜇𝜀 𝑃 )2 ] ≤ 𝜀𝜇2𝜀 .
+                                              3
+
+For the last identity, insert 𝑀𝜀 𝑀𝜀𝑇 = (1 − 𝜀)𝑄𝜀 + 𝜀𝑃 /3 into the squared norm; the 𝑄𝜀 term vanishes
+by (20). The three eigenvalues of 𝐿𝜀 lie in [0, 𝜇𝜀 ], giving the inequality.
+Lemma 4 and (21) yield, for every pair,
+
+                                                                √
+                                      𝑘0 ≤ 𝜇𝜀 (|𝑣𝑖𝜀 − 𝑣𝑗𝜀 | +    2𝜀).                             (22)
+            √                                                    √
+The factor 2 bounds a difference of two rows
+                                           √  of the residual by  2 times its Frobenius norm. Since
+|𝑀𝜀 |2𝐹 = 1, all pair distances are at most 2. Thus (22) also bounds 𝜇𝜀 away from zero. Together
+with its uniform upper bound, it keeps all score pairs uniformly separated as 𝜀 → 0.
+Pass to a subsequence with 𝑄𝜀 → 𝑄0 ∈ 𝒦, 𝜇𝜀 → 𝜇0 > 0 and 𝑀𝜀 → 𝑀0 . Normalize prices by
+minimum zero. Equation (10) bounds them, so take a further convergent subsequence. Lemma 5
+gives balanced limiting cells and 𝐿𝜀 → 𝐿0 . Their moments satisfy
+
+
+                                𝐵0 = 𝐿0 𝑀0 = 𝜇0 𝑀0 ,            𝐿0 ⪯ 𝜇0 𝑃 .                       (23)
+
+If 𝑄0 has rank at most two, multiply its scores and prices by 𝜇0 . The winning cells do not change;
+their inducing vectors become their own moments by (23), and their facet matrix becomes 𝐿0 /𝜇0 ⪯
+
+                                                    9
+𝑃 . Their rows remain distinct, contradicting Lemma 6. If 𝑄0 has rank three, (23) gives 𝐿0 = 𝜇0 𝑃 ,
+so Lemma 8 gives 𝒞(𝑄0 ) ≥ 𝑐∗ . But continuity and (19) give 𝒞(𝑄0 ) ≤ 𝑐∗ − 2𝛿/3. This is again a
+contradiction. There is no 𝑄1 as assumed, proving the theorem. □
+
+
+10. Completion of the partition theorem
+Let 𝑀 have rows 𝑚𝑖 for an arbitrary partition in Theorem 1. Its rows sum to zero, so its rank is at
+most three, and tr(𝑀 𝑀 𝑇 ) = 𝐹 . For every price, its labels are a feasible linear assignment in (2),
+giving
+
+
+                                           𝐹 ≤ 𝒞(𝑀 𝑀 𝑇 ).
+                                                            √
+For 𝐹 > 0, Theorem 10 and homogeneity imply 𝐹 ≤ 𝑐∗ 𝐹 , which is (1). The case 𝐹 = 0 is
+strictly smaller. Equality requires 𝑀 𝑀 𝑇 = 𝐹∗ 𝑃 /3, by Theorem 10, and equality in the pointwise
+optimal assignment. These four regular scores have null ties; their equal-mass prices are all equal by
+symmetry and uniqueness. Hence the original partition is the regular winning partition. Fractional
+partitions have the identical feasible-assignment inequality; equality likewise forces their labels to
+be the unique winning label almost everywhere. This proves the stated extension and classification.
+As a further consequence, every full-rank balanced self-moment stationary diagram is regular: its
+normalized score covariance is an interior critical point, so Lemma 8 puts its value at least 𝑐∗ and
+Theorem 10 puts it at most 𝑐∗ with a unique attaining covariance. This is not an assertion that
+lower-rank stationary saddles do not exist.
+
+
+11. Dependencies and verification scope
+The analytic inputs are the classical single-cell Gaussian isoperimetric theorem, the Gaussian multi-
+bubble perimeter theorem [MN22], and elementary finite-dimensional analysis (dominated conver-
+gence, implicit functions, polar decomposition, spectral decomposition, Gaussian integration by
+parts, and locally Lipschitz ODE flow). The three-cell estimate, profile margin, local tetrahedral
+calculation, constrained deformation and limiting-rank obstructions have been proved above.
+No floating data, optimized solver, numerical root, or unverified quadrature sign is a premise of
+Theorem 1. The older covariance concavity route is unnecessary; this theorem does not prove
+that stronger concavity statement. The partial formal checks in this package explicitly state their
+scalar hypotheses and do not formalize Gaussian integrals, perimeter, the ODE deformation or the
+complete theorem. Internal model review is documented separately and is not external human peer
+review.
+
+
+References
+  • [H14] S. Heilman, Euclidean Partitions Optimizing Noise Stability, Electronic Journal of Prob-
+    ability 19 (2014), no. 71, 1–37; arXiv:1211.7138v2, Conjecture 3 and Definition 1.7.
+  • [H19] S. Heilman, Stable Gaussian Minimal Bubbles, arXiv:1901.03934v1, Problem 1.15 and
+    Conjecture 1.16.
+  • [MN22] E. Milman and J. Neeman, The Gaussian Double-Bubble and Multi-Bubble Conjec-
+    tures, Annals of Mathematics 195 (2022), no. 1, 89–206; DOI 10.4007/annals.2022.195.1.2;
+    arXiv:1805.10961v3, Theorem 1.1.
+
+                                                 10
+• [B75] C. Borell, The Brunn–Minkowski inequality in Gauss space, Inventiones Mathematicae
+  30 (1975), 207–216.
+• [ST78] V. N. Sudakov and B. S. Tsirelson, Extremal properties of half-spaces for spherically
+  invariant measures, Journal of Soviet Mathematics 9 (1978), 9–18 (Russian original, 1974).
+• [KN09] S. Khot and A. Naor, Approximate Kernel Clustering, Mathematika 55 (2009), 129–
+  165; arXiv:0807.4626v2. The three-cell calculation is classical.
+• [EX] mxym/math research project, A counterexample to the prescribed-mass Gaussian
+  regular-simplex conjecture, repository companion research/gaussian-fixed-mass-propeller-
+  counterexample, 2026.
+• [LOCAL] mxym/math research project, Rank rigidity and local optimality for four balanced
+  Gaussian cells, repository companion research/gaussian-balanced-four-rigidity, commit
+  b627062, 2026. The present paper makes the global argument standalone.
+
+
+
+
+                                            11
+

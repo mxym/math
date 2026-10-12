@@ -1,0 +1,46 @@
+This is a compact reproducible publication profile, NOT a byte-for-byte copy
+of either preserved full archive. Mathematical proof source bytes are identical.
+The CSV and public mathematical reference files are unchanged. All 22 fresh
+source snapshots are deduplicated to formalization/sources. The 44 own .olean
+and .ilean files are omitted; their exact original hashes are listed in
+provenance/omitted-build-artifacts.json. Dependency binaries are not bundled.
+provenance/file-map.json maps EVERY one of the 196 original public files.
+
+The complete all-owned inventory, all-owned transitive dependency graph, and
+requested-root closure are losslessly compressed as manifest/*.json.gz.
+Decompressed bytes match their original hashes in file-map.json. The full
+repository-tree.json is likewise losslessly compressed. Logs, command argv,
+timestamps, exit codes and environment pins remain. Machine paths/task labels
+are mechanically substituted; process IDs are removed. These transformed
+records are not advertised as exact original log bytes. Historical checksum
+files in provenance describe the full archive, not the compact tree.
+
+Validate this tree first:
+  sha256sum --check SHA256SUMS
+  python3 reproduce.py --check-only
+
+Use an existing official pinned Lean 4.34.1 installation at commit
+5045d0056413266e57c625dcd7c365b10e377c52. Package revisions and official GitHub
+URLs are in verifier/config/environment.json; mathlib is pinned to
+d13f23b723b8a846827a245b89c10fc7d3f11612. Compiled dependencies must be present
+under each package's .lake/build/lib/lean. This runner never downloads or
+installs tools, builds dependencies or alters shared package checkouts.
+
+Inspect environment without rerunning the proof:
+  python3 reproduce.py --toolchain /local/pinned/lean --packages-root /local/packages --work-dir /new/writable/check --doctor-only
+To run the complete independent verification, omit --doctor-only.
+The work directory must not exist. Only local root paths are configured;
+source hashes, modules, roots, package pins and audit policy are retained.
+Own modules are compiled fresh, every owned declaration is audited, the whole
+all-owned closure is replayed from an empty trust-zero kernel, and an invalid
+proof negative control must be rejected. Failures have nonzero exit status.
+
+Recorded outcome: 22 modules, 928 owned declarations, no audit exclusions,
+22371 all-owned closure declarations; only propext, Classical.choice and
+Quot.sound are allowed axioms. Negative kernel control passed. This package
+has not rerun Lean solely for repackaging. See formalization/RESULT.json and
+formalization/semantic-review.json for execution and mathematical scope.
+The dimension-200 positive definite shift and interior real points are
+existential. No claim is made here about the paper's specified epsilon/q0,
+rational-complex positive definite witness, real-symmetric restriction, CP1
+route, or historical priority. No GitHub publication was performed.

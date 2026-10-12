@@ -1,0 +1,90 @@
+\documentclass[11pt,letterpaper]{article}
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\pdfinfoomitdate=1
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem,booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[breaklinks,colorlinks,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{bookmark,fancyhdr}
+\hypersetup{pdftitle={Conserved quadratic fluctuations and collisional drift in a hard-sphere gas},pdfauthor={},pdfsubject={Conditional theorem on a pinned operational history package}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Conserved quadratic fluctuations}
+\fancyhead[R]{\small Conditional theorem}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\clip}{\operatorname{clip}}
+\newcommand{\bex}{b_{\rm ex}}
+\newcommand{\lab}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\srcpin}{87868bcb65bf0460a90d6bc2efc3324e46481230}
+\newcommand{\uppin}{adc7f1241b42e322a6451854ab7e4b4c146bf78a}
+\title{Conserved quadratic fluctuations and collisional drift
+in a hard-sphere gas\\[0.5em]\large A conditional functional theorem and intrinsic-moment extension}
+\author{}
+\date{7 October 2026 \quad Version 1}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the three-dimensional excluded-product grand-canonical hard-sphere gas
+with diameter $\eps$ and activity $\mu=\eps^{-2}$, we prove a functional
+Gaussian limit for the maximal thirteen-dimensional quadratic family closed
+under free transport and co-located elastic collision invariance. The limit
+contains an initial vacancy bias and a finite-diameter deterministic
+collisional drift; its Gaussian randomness is entirely the initial field.
+The proof supplies the two-root connected estimate for speed-weighted passive
+records, derives a uniform incidence law of large numbers, and uses exact
+mechanical identities rather than an unbounded-test functional theorem.
+A corollary treats per-particle thermal energy, intrinsic virial, and spread
+about the center of mass. The assertion is conditional on the explicitly
+stated, commit-pinned operational history package and the existing exactly
+centered Schwartz functional theorem. True-flow distributional convergence,
+first-moment transfer, and pasted prelimit covariance convergence are proved
+separately. The available probability coupling does not establish true
+prelimit covariance convergence, and does not imply its divergence. No
+full phase-space mean correction is asserted.
+\end{abstract}
+\tableofcontents
+\input{sections/01_statement}
+\input{sections/02_package}
+\input{sections/03_records}
+\input{sections/04_mechanics}
+\input{sections/05_process}
+\input{sections/06_intrinsic}
+\input{sections/07_cutoff_scope}
+\appendix
+\input{sections/08_sources}
+\noindent\begin{minipage}{\textwidth}
+\begin{thebibliography}{9}
+\bibitem{F} \emph{Functional hard-sphere fluctuations}, entry 009, version 1.
+\href{https://github.com/mxym/math/tree/87868bcb65bf0460a90d6bc2efc3324e46481230/preprints/009-functional-hard-sphere-fluctuations/v1}{Public source at the pinned mxym/math commit}.
+\bibitem{V} \emph{Full-density virial and spatial-spread corrections and the
+collisional momentum-balance defect}, version 1, 7 October 2026.
+\href{https://github.com/mxym/math/tree/87868bcb65bf0460a90d6bc2efc3324e46481230/notes/full-density-virial-stress}{Public source at the same pinned commit}.
+\bibitem{U} \emph{Hard-sphere fluctuations on the regular Boltzmann lifespan},
+OpenAI Math Release, 23 September 2026.
+\href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Hard-sphere-fluctuations-on-the-regular-Boltzmann-lifespan-September-23-2026/build}{Public TeX snapshot at the pinned OpenAI/math commit}.
+\end{thebibliography}
+\end{minipage}
+\end{document}

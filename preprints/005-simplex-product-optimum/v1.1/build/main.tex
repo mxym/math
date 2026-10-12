@@ -1,0 +1,342 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{needspace}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\N}{\mathbb N}\newcommand{\Z}{\mathbb Z}
+\DeclareMathOperator{\conv}{conv}
+\title{Exact projection-volume optimization\\over Cartesian products of simplices}
+\author{mxym\thanks{Repository account and project attribution: \url{https://github.com/mxym/math}. Prepared with AI assistance. No institutional affiliation is asserted.}}
+\date{October 7, 2026 \quad Version 1.1}
+\begin{document}\maketitle
+\begin{abstract}
+We determine, in every dimension, the largest normalized projection-body volume among Cartesian products of simplices. The exact optimum reduces to the comparison of two balanced partitions, with numbers of factors equal to the floor and ceiling of the dimension divided by thirteen. A residue-class formula holds from dimension 100 onward, with an exact recurrence of period thirteen and a sharp starting threshold. The unique asymptotically optimal repeated block is a thirteen-dimensional simplex. We also prove uniqueness of the optimal dimension multiset and quantitative stability of near-optimal products. The result optimizes the product construction in OpenAI's elementary counterexample note; it does not identify the maximizer among all convex bodies.
+\end{abstract}
+\paragraph{Status and attribution.}
+This draft has a complete mathematical argument and an accompanying exact-arithmetic verifier, but has not been independently peer reviewed or formalized in a proof assistant. The projection-body product identity, the simplex value, and the twenty-dimensional counterexample are explicitly credited to the source note~\cite{OpenAI088} and are rederived here. The all-dimensional optimization, sharp eventual formula, uniqueness, and stability are the proposed additional results. A limited literature search is not a priority determination. The source note itself reports earlier counterexamples in every dimension at least nine; nothing here claims to be the first disproof of Brannen's unrestricted conjecture.
+
+\section{The exact optimization problem}
+For a full-dimensional convex body $K\subset\R^n$, its projection body $\Pi K$ is defined by
+\[
+ h_{\Pi K}(u)=|\operatorname{proj}_{u^\perp}K|_{n-1}\quad(u\in S^{n-1}).
+\]
+Put
+\[
+ R_n(K)=\frac{|\Pi K|}{|K|^{n-1}},\qquad
+ T_n=\conv(0,e_1,\ldots,e_n),\qquad
+ c_n=\frac{(n+1)n^n}{n!}.
+\]
+For interval factors we use the natural zero-dimensional projection convention: $\Pi_1I=[-1,1]$ for any nondegenerate interval, so $R_1(I)=c_1=2$.
+
+Let $M_n$ be the largest value of $R_n$ among products $T_{d_1}\times\cdots\times T_{d_k}$ with positive integer dimensions summing to $n$. Affine images of these products have the same values. For $1\le k\le n$, write $n=kq+r$ with $0\le r<k$, and define
+\[
+ F_n(k)=c_q^{k-r}c_{q+1}^{r}.
+\]
+
+\Needspace{11\baselineskip}
+\begin{theorem}[All-dimensional formula]\label{thm:all}
+For every $n\ge1$, let
+\[
+ k_- =\max\{1,\lfloor n/13\rfloor\},\qquad
+ k_+ =\max\{1,\lceil n/13\rceil\}.
+\]
+Then
+\[
+ \boxed{M_n=\max\{F_n(k_-),F_n(k_+)\}.}
+\]
+In particular, an optimal product has balanced factor dimensions and one of these two numbers of factors. Theorem~\ref{thm:unique} below strengthens this to uniqueness of the dimension multiset.
+\end{theorem}
+
+\begin{theorem}[Sharp eventual formula]\label{thm:residue}
+For $n\ge100$, write $n=13m+r$, $0\le r\le12$. Then
+\[
+ \boxed{M_n=
+ \begin{cases}
+ c_{13}^{m}, &r=0,\\
+ c_{13}^{m-r}c_{14}^{r}, &1\le r\le8,\\
+ c_{13}^{m+r-12}c_{12}^{13-r}, &9\le r\le12.
+ \end{cases}}
+\]
+Consequently $M_{n+13}=c_{13}M_n$ for every $n\ge100$. The starting threshold 100 is sharp: the recurrence fails at $n=99$.
+\end{theorem}
+
+\begin{corollary}\label{cor:rate}
+The unique maximizer of $c_d^{1/d}$ over positive integer $d$ is $d=13$. Moreover,
+\[
+ \lim_{n\to\infty} M_n^{1/n}
+ =\rho=c_{13}^{1/13}
+ =\left(\frac{23298085122481}{34214400}\right)^{1/13},
+\]
+\[
+ 2.809964732559<\rho<2.809964732560,
+ \qquad
+ \lim_{n\to\infty}\left(\frac{M_n}{c_n}\right)^{1/n}=\frac\rho e.
+\]
+\end{corollary}
+
+\begin{corollary}\label{cor:twenty}
+The smallest dimension in which a product of simplices exceeds the simplex value is 20. In that dimension an optimal product is $T_{10}\times T_{10}$.
+\end{corollary}
+
+\section{Geometric reduction}
+For a polytope $P$, write $s_F\nu_F$ for the area-normal vector of a facet $F$. Counting the entry and exit facets of lines in a fixed direction gives Cauchy's projection formula
+\[
+ h_{\Pi P}(u)=\frac12\sum_Fs_F|\langle\nu_F,u\rangle|.
+\]
+Equivalently $\Pi P$ is the sum of the segments $[-s_F\nu_F/2,s_F\nu_F/2]$. The formula includes a one-dimensional interval when each endpoint is assigned zero-dimensional area one.
+
+The facets of $A\times B$ have one facet factor and one whole factor. Their area-normal vectors are $(|B|s_F\nu_F,0)$ and $(0,|A|s_G\nu_G)$. Thus
+\[
+ \Pi(A\times B)=(|B|\Pi A)\times(|A|\Pi B),
+ \qquad R_{r+s}(A\times B)=R_r(A)R_s(B).
+\]
+This argument also handles interval factors. Under an invertible linear map $L$, an area-normal vector becomes $|\det L|L^{-\mathsf T}(s_F\nu_F)$. Hence $\Pi(LP)=|\det L|L^{-\mathsf T}\Pi P$, proving affine invariance of $R_n$ for the polytopes under discussion.
+
+For $T_d$, the area-normal vectors are $-e_i/(d-1)!$ for $1\le i\le d$, and $(1,\ldots,1)/(d-1)!$. Up to translation, its projection body is therefore
+\[
+ \frac1{(d-1)!}\bigl([0,1]^d+[0,(1,\ldots,1)]\bigr).
+\]
+The cube extruded by the last segment has volume $d+1$: it has the volume-one cube and one volume-one prism for each of the $d$ visible coordinate facets, with overlaps confined to null boundaries. Equivalently, the volume formula for a zonotope sums the absolute determinants of its $d$-element generating subsets, and all $d+1$ such determinants equal one. Since $|T_d|=1/d!$, this gives
+\[
+ R_d(T_d)=\frac{(d+1)/(d-1)!^d}{(1/d!)^{d-1}}=c_d.
+\]
+It follows that our entire geometric problem is exactly
+\begin{equation}\label{eq:partition}
+ M_n=\max_{d_1+\cdots+d_k=n}\prod_{i=1}^k c_{d_i}.
+\end{equation}
+
+\section{Concavity and the exceptional dimension thirteen}
+Set $f(n)=\log c_n$. Its successive increments are the logarithms of
+\[
+ r_n=\frac{c_{n+1}}{c_n}=\frac{n+2}{n+1}\left(1+\frac1n\right)^n.
+\]
+
+\begin{lemma}\label{lem:concavity}
+The sequence $f(n)$ is discretely concave, with $r_1=r_2=3$ and $r_n$ strictly decreasing for $n\ge2$.
+\end{lemma}
+\begin{proof}
+For real $x\ge2$, define $r(x)$ by the displayed formula. Direct differentiation gives
+\[
+ D(x):=\frac{d}{dx}\log r(x)
+ =\log(1+1/x)+\frac1{x+2}-\frac2{x+1},
+\]
+\[
+ D'(x)=\frac{x^2-x-4}{x(x+1)^2(x+2)^2}.
+\]
+We have $D(2)=\log(3/2)-5/12<0$. Indeed, the strict trapezoidal upper bound for the integral of the strictly convex function $1/t$ on $[1,3/2]$ is $5/12$. The derivative $D'$ is negative from 2 to $(1+\sqrt{17})/2$ and positive thereafter. Since $D(x)\to0$, it follows that $D(x)<0$ for all $x\ge2$. The equalities $r_1=r_2=3$ are immediate.
+\end{proof}
+
+Define
+\[
+ h_n=(n+1)f(n)-nf(n+1).
+\]
+Writing $\Delta_n=f(n+1)-f(n)$, Lemma~\ref{lem:concavity} gives
+\[
+ h_{n+1}-h_n=(n+1)(\Delta_n-\Delta_{n+1})\ge0.
+\]
+Two exact rational comparisons locate the change of sign:
+\begin{equation}\label{eq:root-certs}
+ c_{13}^{12}>c_{12}^{13},\qquad c_{13}^{14}>c_{14}^{13}.
+\end{equation}
+These imply $h_{12}<0<h_{13}$, and consequently
+\[
+ h_n<0\ (n\le12),\qquad h_n>0\ (n\ge13).
+\]
+Therefore $f(n)/n$ strictly increases through $n=13$ and strictly decreases afterward. The rational comparisons~\eqref{eq:root-certs}, and all later finite comparisons, can be checked simply by substituting the displayed factorial definition of $c_n$ and clearing positive denominators. The supplied verifier records the positive integer numerator-minus-denominator for each relevant ratio.
+
+\section{Only two factor counts can be optimal}
+For a fixed number $k$ of factors, if two dimensions $a,b$ satisfy $b\ge a+2$, replacing them by $a+1,b-1$ does not reduce their log-value:
+\[
+ f(a+1)-f(a)\ge f(b)-f(b-1).
+\]
+Repeated balancing terminates and proves that the maximum at fixed $k$ equals $F_n(k)$.
+
+Let $\widetilde f$ be the piecewise-linear interpolation of $f$ on $[1,\infty)$. For real $1\le k\le n$ put
+\[
+ G_n(k)=k\widetilde f(n/k).
+\]
+At integer $k$ this is $\log F_n(k)$. On a piece where $n/k\in[q,q+1]$,
+\[
+ G_n(k)=n(f(q+1)-f(q))+k((q+1)f(q)-qf(q+1)),
+\]
+so its slope is $h_q$. It is strictly increasing for $k<n/13$ and strictly decreasing for $k>n/13$, with continuity at the breakpoints. If $n<13$ it is decreasing throughout its domain. Thus the integer maximum lies at $k_-$ or $k_+$, proving Theorem~\ref{thm:all}. This proof covers all positive integers $n$; it is not an extrapolation from finite experiments.
+
+\section{Residue classes and the sharp threshold}
+For $n=13m+r$ with $1\le r\le12$, extend the affine segment joining $f(13),f(14)$ to all real arguments, and similarly extend the segment joining $f(12),f(13)$. Concavity implies that each extension is an upper supporting line for $\widetilde f$ outside and inside its segment. Thus the candidates with $m$ and $m+1$ factors have upper bounds
+\[
+ A_r=c_{13}^{m-r}c_{14}^{r},\qquad
+ B_r=c_{13}^{m+r-12}c_{12}^{13-r},
+\]
+respectively. A possibly negative exponent here is only an upper-bound expression, not a claimed geometric factor. Equality holds for the first expression when $m\ge r$, and for the second when $m\ge12-r$; these are exactly the conditions for their displayed factor multiplicities to be nonnegative.
+
+The ratio, independent of $m$, is
+\[
+ \frac{A_r}{B_r}
+ =\frac{c_{14}^{r}c_{13}^{12-2r}}{c_{12}^{13-r}}.
+\]
+Increasing $r$ multiplies this ratio by $c_{12}c_{14}/c_{13}^2<1$. The exact comparisons
+\begin{equation}\label{eq:residue-certs}
+ c_{14}^{8}>c_{12}^{5}c_{13}^{4},\qquad
+ c_{14}^{9}<c_{12}^{4}c_{13}^{6}
+\end{equation}
+therefore show that $A_r>B_r$ for $1\le r\le8$ and $A_r<B_r$ for $9\le r\le12$.
+
+For $n\ge100$, the winning expression is always a feasible product: $m\ge r$ in the first residue range and $m\ge12-r$ in the second. The actual competing candidate is at most its supporting-line bound. Thus the winning feasible expression is the exact maximum. The case $r=0$ follows at once from the unique optimal root at dimension thirteen. This proves the formula and recurrence in Theorem~\ref{thm:residue}.
+
+At $n=99$, the two-candidate formula, followed by an exact comparison, gives
+\[
+ M_{99}=c_{12}^{5}c_{13}^{3}.
+\]
+At $n=112$, the residue formula gives $M_{112}=c_{14}^{8}$. The first inequality in~\eqref{eq:residue-certs} proves $M_{112}>c_{13}M_{99}$, so no threshold at or below 99 works for the recurrence. For the residue formula itself, the expression prescribed at $n=99$ would have a negative exponent and is strictly larger than the actual maximum. Its threshold 100 is sharp as well.
+
+\begin{proof}[Proof of Corollary~\ref{cor:rate}]
+The root maximum was proved above. The residue formula differs from a pure power of $c_{13}$ by a positive constant depending only on one of thirteen residues, so $M_n^{1/n}\to c_{13}^{1/13}$. The rational bounds on $\rho$ are checked by raising the proposed rational endpoints to the thirteenth power and comparing with $c_{13}$. Finally Stirling's formula gives $c_n^{1/n}\to e$, proving the relative exponential rate. Numerically $\rho/e$ is about $1.0337282555$; this decimal is illustrative, not used in any proof.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:twenty}]
+For $n\le13$ Theorem~\ref{thm:all} gives $M_n=c_n$. For $14\le n\le19$, compare $c_n$ with $c_{\lfloor n/2\rfloor}c_{\lceil n/2\rceil}$; each of these six exact rational comparisons favors $c_n$. At $n=20$, the competing product is $c_{10}^2$, and
+\[
+ \frac{c_{10}^2}{c_{20}}
+ =\frac{121\binom{20}{10}}{21\cdot2^{20}}
+ =\frac{22355476}{22020096}>1.
+\]
+The integer difference in the last ratio is $335380$. All six smaller comparisons are independently reproduced in the supplied exhaustive dynamic program. The dimension-twenty witness itself is from~\cite{OpenAI088}; the added assertion is its minimality and optimality within the whole simplex-product class.
+\end{proof}
+
+
+\section{Uniqueness and quantitative stability}
+\begin{theorem}[All optimal dimension multisets]\label{thm:unique}
+For every $n\ge1$, there is exactly one unordered multiset of positive
+factor dimensions attaining $M_n$. For $n\ge100$ it is the multiset
+displayed in Theorem~\ref{thm:residue}; in every dimension it is the
+unique winning balanced candidate of Theorem~\ref{thm:all}.
+\end{theorem}
+\begin{proof}
+Strict monotonicity of $G_n$ away from its peak excludes every factor
+count except the two candidates. For $n\le13$ there is just one
+candidate, namely a single factor. For $n\ge14$, a candidate count $k$
+satisfies $k\le\lceil n/13\rceil\le n/7$, so its average part is at
+least seven. If a partition at this count is not balanced, take its
+smallest and largest parts $a,b$; then $b\ge7$ and $b\ge a+2$.
+The replacement $(a,b)\mapsto(a+1,b-1)$ strictly increases its value:
+indeed $r_a>r_{b-1}$, since the only equal consecutive increments are
+$r_1=r_2$. Thus every optimizer is balanced.
+
+For $n\ge100$ and nonzero residue, the strict comparisons
+\eqref{eq:residue-certs} and the supporting-line bounds exclude a tie
+between counts. For zero residue there is only one candidate. It
+remains to exclude a tie for $14\le n\le99$. For each such $n$ with
+distinct candidate counts, substituting the factorial expression for
+$c_d$ and clearing positive denominators yields two unequal integers.
+The accompanying exact verifier checks every one of these finitely
+many comparisons and records the winning count and the positive
+integer margin of the winning-to-losing ratio. This is an exhaustive
+finite arithmetic step, not an assumption based on numerical
+precision. Consequently exactly one count and one balanced multiset
+can maximize.
+\end{proof}
+
+Put $\rho=c_{13}^{1/13}$ and define
+\[
+ \gamma=\log\rho-\frac{\log c_{14}}{14}
+ =\frac1{182}\log\frac{c_{13}^{14}}{c_{14}^{13}}>0.
+\]
+The exact inequality $c_{14}^{6}>c_{12}^{7}$ shows that dimension
+fourteen is the unique runner-up to thirteen for $c_d^{1/d}$; the
+monotonicity proved in Section~3 excludes all other dimensions.
+
+\Needspace{12\baselineskip}
+\begin{theorem}[Dimension-mass stability]\label{thm:stability}
+For any positive integer partition $n=d_1+\cdots+d_k$, let
+\[
+ V=\prod_i c_{d_i},\qquad b=\sum_{i:d_i\ne13}d_i.
+\]
+Then
+\begin{equation}\label{eq:mass}
+ \boxed{V\le\rho^n e^{-\gamma b}.}
+\end{equation}
+Equality holds precisely when every part is either thirteen or
+fourteen. For $n\ge100$, set
+\[
+ \lambda_{12}=12\log\rho-\log c_{12},\qquad
+ \lambda_{14}=14\log\rho-\log c_{14},\qquad
+ \Lambda=8\lambda_{14}.
+\]
+If $V\ge e^{-s}M_n$ for $s\ge0$, then
+\begin{equation}\label{eq:near}
+ \boxed{b\le112+\frac{s}{\gamma}.}
+\end{equation}
+The additive constant 112 is sharp uniformly for $n\ge100$: at $n=112$, the optimizer has eight fourteen-dimensional factors. In particular, in any sequence of products whose log-values differ
+from $\log M_n$ by $o(n)$, the proportion of total dimension belonging
+to factors other than thirteen tends to zero.
+\end{theorem}
+\begin{proof}
+For $d\ne13$, the runner-up property gives
+$\log c_d\le d(\log\rho-\gamma)$, with equality exactly at $d=14$.
+Summing this inequality, and the identity $\log c_{13}=13\log\rho$,
+proves~\eqref{eq:mass} and its equality case. The residue formula gives
+\[
+ n\log\rho-\log M_n=
+ \begin{cases}
+ 0,&r=0,\\
+ r\lambda_{14},&1\le r\le8,\\
+ (13-r)\lambda_{12},&9\le r\le12.
+ \end{cases}
+\]
+The exact comparison $c_{13}^{16}c_{12}^{13}>c_{14}^{26}$ is equivalent to $\lambda_{12}<2\lambda_{14}$. Hence all displayed deficits are at most $8\lambda_{14}=\Lambda=112\gamma$. Thus
+$\gamma b\le n\log\rho-\log V\le s+\Lambda$, proving~\eqref{eq:near}. The product $T_{14}^8$ gives $b=112$, $s=0$, proving sharpness.
+Division by $n$ gives the final assertion.
+\end{proof}
+
+\begin{remark}
+The mass estimate concerns the factor dimensions, not a metric distance
+between arbitrary convex bodies. The exact classification and the
+stability statement remain restricted to products of simplices and
+their affine images. They do not identify an unrestricted projection-body
+volume maximizer.
+\end{remark}
+
+\section{Reproducibility and scope}
+The accompanying \texttt{verify\_exact.py} uses only arbitrary-precision integers and Python's \texttt{fractions.Fraction}. Run
+\begin{verbatim}
+python3 verification/verify_exact.py --limit 300 \
+  --output verification/exact_certificate.json
+\end{verbatim}
+It verifies the seven rational inequalities governing the root maximum, strict concavity at 13, the residue switch, the runner-up block, and the sharp stability constant; all their positive integer margins are written to JSON. It independently solves~\eqref{eq:partition} by exhaustive dynamic programming in dimensions 1 through 300 and compares the answers with both formulas. It also checks the dimension-99 failure, a rational isolating interval for $\rho$, every finite no-tie comparison in Theorem~\ref{thm:unique}, and uniqueness of the optimal multiset through the dynamic program. The verifier raises explicit errors rather than relying on Python assertions, so its checks are not disabled by the optimization flag.
+
+The dynamic program is exhaustive because any optimal partition has a first part $d$ and an optimal remaining partition, giving
+\[
+ M_0=1,\qquad M_n=\max_{1\le d\le n}c_dM_{n-d}.
+\]
+It is a cross-check and a source of replayable finite certificates. The infinite-dimensional scope instead rests on the concavity and supporting-line proofs.
+
+\begin{center}
+\begin{tabular}{r l}
+\toprule
+Dimension & One optimal multiset of factor dimensions\\
+\midrule
+19 & $19$\\
+20 & $10,10$\\
+25 & $12,13$\\
+26 & $13,13$\\
+50 & $12,12,13,13$\\
+99 & five $12$'s and three $13$'s\\
+100 & four $12$'s and four $13$'s\\
+112 & eight $14$'s\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This result does not establish an upper bound for all convex bodies, classify all maximizers of projection-body volume, or improve the smallest known dimension of an unrestricted Brannen counterexample. Its scope is the exact extremal problem over all Cartesian products of simplices, including interval factors, and their affine images.
+
+\begin{thebibliography}{9}
+\bibitem{OpenAI088} OpenAI, \emph{A product counterexample to the simplex maximum for projection-body volume}, September 24, 2026. Repository \texttt{openai/math}, family 088, snapshot \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}. \href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-product-counterexample-to-the-simplex-maximum-for-projection-body-volume-September-24-2026}{Pinned source directory}.
+\end{thebibliography}
+\end{document}

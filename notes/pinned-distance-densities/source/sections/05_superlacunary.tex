@@ -1,0 +1,138 @@
+\section{The attained superlacunary endpoint}\label{sec:superlacunary}
+We now use the exact global product structure to strengthen
+Corollary~\ref{cor:weak}. Write $g_{j,p}$ for the unmasked filled-tail
+distance density. In a stage beginning at $n=n_{j-1}$, write $L=L_j$,
+$h=2^{-n}$ and use the parameters in~\eqref{eq:template}. Decompose the
+\emph{signed increment} $g_{j,p}-g_{j-1,p}$ using the auxiliary band
+\begin{equation}\label{eq:aux-band}
+ \varepsilon_j=h/A.
+\end{equation}
+This changing band is only a proof device; it is not the fixed positive
+restriction of Section~\ref{sec:filters}.
+
+\subsection{The outer and inner parts of a stage increment}
+Lemma~\ref{lem:harmonic} and $Bw=A$ give, after weighting by parent
+masses, an outer-part bound
+\begin{equation}\label{eq:outer}
+ \norm{\text{outer increment}}_\infty
+ \leq C(1+L)2^{2n-aL}.
+\end{equation}
+It also bounds every finite $L^q$ norm up to a constant depending only on
+$I$. Under superlacunarity the series is summable: eventually
+$\log_2(1+L)\leq aL/2$ and $aL/2\geq3n$, leaving $C2^{-n}$.
+
+For the inner part it is essential to estimate the \emph{global} horizontal
+mass. At depth $n$, every occupied horizontal prefix interval has
+$\kappa$-mass $2^{k-bn}$. The next-stage coarse bins of width $h/A$
+are globally aligned; each occupied strip has mass $2^{k-bn}/A$.
+A band of length $2h/A$ meets only a bounded number of these bins.
+For both the new filled law and the old filled law this gives
+\begin{equation}\label{eq:global-M}
+ M_j,M_{j-1}\leq C_k A^{-1}2^{-bn}.
+\end{equation}
+For the old law this is also immediate from its piecewise constant
+horizontal density and the band's length. The corresponding vertical
+densities satisfy
+\begin{equation}\label{eq:global-H}
+ H_j=2^{k+c(n+L)},\qquad H_{j-1}=2^{k+cn}.
+\end{equation}
+Horizontal restriction does not change the vertical conditional law:
+both measures are actual product measures.
+
+For a product submeasure of horizontal mass $M$ with vertical density
+at most $H$, vertical coarea gives a distance-density supremum at most
+$(D_0/v_0)MH$. Its total mass is $M$. Hence, putting
+$\sigma=1-1/q$, with $1/\infty=0$,
+\begin{equation}\label{eq:MH}
+ \norm{\text{band density}}_q\leq C M H^\sigma,
+ \qquad 1\leq q\leq\infty.
+\end{equation}
+For $q=\infty$ this is the direct supremum bound. Substituting
+\eqref{eq:global-M}--\eqref{eq:global-H} gives for the new law
+\begin{equation}\label{eq:inner-general}
+ C2^{[-b+c\sigma]n}2^{[-a+c\sigma]L}.
+\end{equation}
+The old law has the additional favorable factor $2^{-c\sigma L}$.
+The norm of their difference is bounded by the sum of these positive norms.
+
+\begin{proposition}[Uniform endpoint upper bound]\label{prop:super-upper}
+If $1<\alpha<3/2$, then
+$\sup_{p\in P}\norm{g_p}_{q_*}<\infty$ for $q_*$ in~\eqref{eq:qstar}.
+If $3/2\leq\alpha<2$, then the original densities are uniformly bounded
+and have a jointly continuous version on $P\times\R$.
+\end{proposition}
+\begin{proof}
+For $\alpha<3/2$, the endpoint identity is
+\[
+ c(1-1/q_*)=a.
+\]
+Thus~\eqref{eq:inner-general} reduces exactly to
+$C2^{-(b-a)n}=C2^{-n/2}$. For $\alpha\geq3/2$, take $q=\infty$,
+so $\sigma=1$ and the same bound becomes
+\begin{equation}\label{eq:infinity-endpoint}
+ C2^{-(\alpha-1)n}2^{-(\alpha-3/2)L}\leq C2^{-n/2}.
+\end{equation}
+In either case the inner parts are summable. Together with
+\eqref{eq:outer}, this shows
+\begin{equation}\label{eq:super-increment}
+ \sup_{p\in P}\norm{g_{j,p}-g_{j-1,p}}_q
+ \leq C\bigl[(1+L_j)2^{2n_{j-1}-aL_j}+2^{-n_{j-1}/2}\bigr],
+\end{equation}
+for the stated endpoint $q$. The initial filled density is bounded.
+Therefore the unmasked stage densities are uniformly Cauchy in $L^q$.
+Their weak limits are the actual $\nu_p$, since $D_p$ is continuous
+and $\mu_j\rightharpoonup\mu$. On the common bounded output interval,
+$L^q$ convergence implies $L^1$ convergence and identifies the density.
+No discontinuous mask remains in this final identification.
+
+For $q=\infty$, the unmasked finite densities are jointly continuous
+by~\eqref{eq:polar-continuity} with the band indicator removed.
+The continuous versions satisfy the same supremum estimates and converge
+uniformly. The limit is jointly continuous. In particular the case
+$\alpha=3/2$ follows from the explicit summable bound $C2^{-n/2}$
+in~\eqref{eq:infinity-endpoint}.
+\end{proof}
+
+\subsection{The track lower bound for every horizontal-support pin}
+Let $p\in\mathcal B$. At stage $j$ select a supporting horizontal
+coding interval of depth $n+L/2$ containing $p_1$. Its width is
+$2^{-n-L/2}$ and its exact horizontal mass is
+\begin{equation}\label{eq:track-mass}
+ m_j=2^{k-bn-aL}.
+\end{equation}
+This remains valid at coding endpoints by selecting one supporting closed
+cylinder. The vertical support has at most $2^{b(n+L)-k}$ occupied
+intervals of length $\delta_j=2^{-(n+L)}$. On the horizontal track,
+\[
+ 0\leq|y-p|-(y_2-p_2)
+ =\frac{(y_1-p_1)^2}{|y-p|+(y_2-p_2)}
+ \leq\frac{2^{-2n-L}}{2v_0}\leq C\delta_j.
+\]
+Its distance image is therefore contained in a Borel set $U_j$ with
+\begin{equation}\label{eq:track-image}
+ |U_j|\leq C2^{-c(n+L)-k},\qquad \nu_p(U_j)\geq m_j.
+\end{equation}
+The argument uses only $p_1\in H$ and the vertical separation, not
+membership of $p_2$ in the lower vertical Cantor support.
+
+For every finite $q>1$, H\"older's inequality on this particular set gives
+\begin{equation}\label{eq:track-lower}
+ \int_{U_j}g_p(r)^q\,dr
+ \geq\frac{m_j^q}{|U_j|^{q-1}}
+ \geq c_q 2^{[q(c-a)-c]L+[q(c-b)-c]n}.
+\end{equation}
+The inequality also holds with an infinite left side.
+When $1<\alpha<3/2$ and $q>q_*$, the coefficient of $L$ is positive;
+superlacunarity makes the right side diverge. Hence $g_p\notin L^q$.
+Compact output support then also excludes $L^\infty$.
+At $q=q_*$ the residual exponent is instead $-q_*n/2$, consistent with
+the attained upper endpoint. This proves the sharp part of
+Theorem~\ref{thm:main-super}; off-$H$ behavior is proved in
+Section~\ref{sec:pins}.
+
+Consequently the superlacunary regimes on $\mathcal B$ are:
+$1<\alpha<4/3$ gives an attained $q_*<2$ and failure of $L^2$;
+$\alpha=4/3$ gives $L^2$ and failure of all $L^{2+\varepsilon}$;
+$4/3<\alpha<3/2$ gives an attained finite $q_*>2$; and
+$\alpha\geq3/2$ gives bounded jointly continuous densities on the entire
+pin rectangle. These nonmembership statements never extend to off-$H$ pins.

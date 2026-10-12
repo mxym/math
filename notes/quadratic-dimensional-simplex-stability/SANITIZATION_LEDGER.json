@@ -1,0 +1,955 @@
+{
+  "schema": "quadratic-public-sanitization-ledger-v1",
+  "basis_archive_sha256": "e4692f094731baa994ae10a2d81bc0b50334ed65bb5e5f676c3e48d5b21fe978",
+  "mapping_convention": "Edits are ordered and applied exactly once. Original fragment hashes and byte lengths identify removed text without disclosing private locators. Line-segment records bind every unchanged public segment to its original segment hash; original whole-file hashes are separate from public hashes.",
+  "derivatives": [
+    {
+      "path": "QUADRATIC_DIMENSION_THEOREM.md",
+      "before_bytes": 5352,
+      "before_sha256": "8b66a2eddd69e8135584712f3a30e7565b2f391007bbfb69af456e29c1d30743",
+      "after_bytes": 5453,
+      "after_sha256": "3db48eeb9424bae7678253d803420b43908b93611231767353977a939db14423",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "audited-status",
+          "source_line_1based": 3,
+          "before_fragment_sha256": "c9e2c1638932d7237539b9fbbbbddd0ae59f51329864a172a6f96f550d5519d9",
+          "before_fragment_bytes": 199,
+          "replacement": "Date: 7 October 2026. Status: complete written mathematical proof; independent analytic model audit PASS. This is not a Lean formalization, human peer review, or priority claim. The earlier d^6 sources remain unchanged.",
+          "after_fragment_sha256": "3ecee643461743918a51199c861f98c9d0818be842202c5e7009df003522c139"
+        },
+        {
+          "id": "companion-link",
+          "source_line_1based": 28,
+          "before_fragment_sha256": "15967ae55c4e311dbcee10f4c86495c8c9fe36996b5659bf7f693bfed7f19d7f",
+          "before_fragment_bytes": 43,
+          "replacement": "1. [INTRINSIC_NORM_CONVERSION.md](INTRINSIC_NORM_CONVERSION.md) proves that",
+          "after_fragment_sha256": "103993deb1ce67d151c66918c8d83b655a2534643297c877361b545279b3b54b"
+        },
+        {
+          "id": "cap-link",
+          "source_line_1based": 38,
+          "before_fragment_sha256": "3f41c2cef957f5c2632c6f6af842138c360e4a88a9c563057b613c5d0a828b13",
+          "before_fragment_bytes": 59,
+          "replacement": "2. [intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md](intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md) proves that",
+          "after_fragment_sha256": "8942fff1d4c4bb7712f9e06b5220dde7fd553a80ab1d72951a49327233757bca"
+        },
+        {
+          "id": "import-links",
+          "source_line_1based": 44,
+          "before_fragment_sha256": "6be6ecfb609ab5bd5d627ed8e115e9d02bc48a6a2269bce3c14476fe57acc51b",
+          "before_fragment_bytes": 248,
+          "replacement": "The only nonclassical imports are the first-moment weighted-anchor theorem in [imports/weighted_anchors.md](imports/weighted_anchors.md) and the actual cone-law identity in [imports/POLYNOMIAL_REFINEMENT.md](imports/POLYNOMIAL_REFINEMENT.md), Section 3, and [sources/entry005-v3.md](sources/entry005-v3.md), Section 4. Exact source and public-derivative hashes are recorded in SOURCE_PINS.json and SOURCE_FIDELITY.json.",
+          "after_fragment_sha256": "ae816265839c83936faf9b3e3eaed0806ae9893b539a240da9770b33d17df191"
+        },
+        {
+          "id": "excluded-construction-remark",
+          "source_line_1based": 95,
+          "before_fragment_sha256": "6273c9b060cfc9ef38ce56a30d32570db28677deade99969dd7ad921dc52ff8b",
+          "before_fragment_bytes": 314,
+          "replacement": "The separate Euclidean-radius construction is outside this supplement. The quadratic upper proof does not depend on it.",
+          "after_fragment_sha256": "12f867f74f0564c1a476872d6b0e9fbba4ce141be15aaba2a71bd789eef5069e"
+        },
+        {
+          "id": "completed-audit-status",
+          "source_line_1based": 97,
+          "before_fragment_sha256": "142837f4942cf37ffa16337c1f624fff6af7f06a636d7143bab39a9e441e2592",
+          "before_fragment_bytes": 156,
+          "replacement": "No assertion of first discovery or formal verification is made. The independent analytic model audit is included as [INDEPENDENT_QUADRATIC_AUDIT.md](INDEPENDENT_QUADRATIC_AUDIT.md).",
+          "after_fragment_sha256": "cd68c40f9a33165788cf1701ba6fb3f271d28db65f85a0d8854fa8a18e6455e0"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 2,
+          "public_start_line": 1,
+          "public_end_line": 2,
+          "original_sha256": "ddcf0a63e0bdeeca26e70bbbb3748113a0e23a16c8735ede425e86fef0ede081",
+          "public_sha256": "ddcf0a63e0bdeeca26e70bbbb3748113a0e23a16c8735ede425e86fef0ede081"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 3,
+          "original_end_line": 3,
+          "public_start_line": 3,
+          "public_end_line": 3,
+          "original_sha256": "780e80bca58b9adb2df6ae8e46a48c8d8964dce300b8a1274dea60c204424a00",
+          "public_sha256": "9771d8e4d0769560d47b0078fd0e76aac54303a303cfbb879e0810700dab4b1f"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 4,
+          "original_end_line": 27,
+          "public_start_line": 4,
+          "public_end_line": 27,
+          "original_sha256": "7e0f47425be3cd32a161599a2dc00b3bde3575cc0059d3ba2dd7c1506973c81d",
+          "public_sha256": "7e0f47425be3cd32a161599a2dc00b3bde3575cc0059d3ba2dd7c1506973c81d"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 28,
+          "original_end_line": 28,
+          "public_start_line": 28,
+          "public_end_line": 28,
+          "original_sha256": "bc10cffe987976e3ab4962e5c89156ee25effb3fd49db63a0a00d889dfa55aac",
+          "public_sha256": "ce63c00bb82891d8c576d3245f8a5d9722ab7815c209a250d76308f89db64018"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 29,
+          "original_end_line": 37,
+          "public_start_line": 29,
+          "public_end_line": 37,
+          "original_sha256": "dca6e00784ea215191f5632dc3e86609d1663245e9e65f818b6388ee0706439f",
+          "public_sha256": "dca6e00784ea215191f5632dc3e86609d1663245e9e65f818b6388ee0706439f"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 38,
+          "original_end_line": 38,
+          "public_start_line": 38,
+          "public_end_line": 38,
+          "original_sha256": "40cbe57de755c13e7fdf3a264968be3e77a2fa8488af1b29f483b56dc138417a",
+          "public_sha256": "6b5b21927f4bdc91a34f5c3554691286cf16a532e389a5ddb5d28a48ce582920"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 39,
+          "original_end_line": 43,
+          "public_start_line": 39,
+          "public_end_line": 43,
+          "original_sha256": "165ae34d3d447ff3dfc384b4606739400e9590ffffd69160439a5d2c2762b636",
+          "public_sha256": "165ae34d3d447ff3dfc384b4606739400e9590ffffd69160439a5d2c2762b636"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 44,
+          "original_end_line": 44,
+          "public_start_line": 44,
+          "public_end_line": 44,
+          "original_sha256": "f146b59e0bf27a022e51a5aedeb179f0b5e63c5d1e4d75272f0fd1b325a2b7d1",
+          "public_sha256": "536ba4904750aac0db21b138aba9c6c3c560cac26fb79b7b940de084eb231460"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 45,
+          "original_end_line": 94,
+          "public_start_line": 45,
+          "public_end_line": 94,
+          "original_sha256": "f20ce2cf0dff953d94746d512c1009f5f4f79378c0b762e66786379a429ccafe",
+          "public_sha256": "f20ce2cf0dff953d94746d512c1009f5f4f79378c0b762e66786379a429ccafe"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 95,
+          "original_end_line": 95,
+          "public_start_line": 95,
+          "public_end_line": 95,
+          "original_sha256": "f49c39b96ebfe4220e4cb00cb38ef8c41d964e56036a8891ec56947e393ca8d0",
+          "public_sha256": "8e6dca5f92936404c801d589dd1b7250fe31a3b8a4e010c253f7b7ddba85c80b"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 96,
+          "original_end_line": 96,
+          "public_start_line": 96,
+          "public_end_line": 96,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 97,
+          "original_end_line": 97,
+          "public_start_line": 97,
+          "public_end_line": 97,
+          "original_sha256": "e07f6b3b0a859e13e9786bd9101d963441db712a372d65b684f6b5bb4931e5c3",
+          "public_sha256": "2ba694395cb4fe89be2a0e0d773a6a34d25aefd2f82ae4261602c9af00d97413"
+        }
+      ]
+    },
+    {
+      "path": "INTRINSIC_NORM_CONVERSION.md",
+      "before_bytes": 5229,
+      "before_sha256": "c2f5b579b1241ce5e06b98573eb3e9b69f328b2e2ad6e455c18a61115ac52a05",
+      "after_bytes": 5429,
+      "after_sha256": "3f527129e3c799d39eda14dd8a9f5714fd9b84bf5cef94d52acb4716d2406cf6",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "audited-status",
+          "source_line_1based": 3,
+          "before_fragment_sha256": "d0a9a1de16b23697573219972e333c87c571a643972e3915ffa479526df5b848",
+          "before_fragment_bytes": 74,
+          "replacement": "Written mathematical proof, 7 October 2026; included in the independent analytic model audit. This refinement is separate from the earlier releases.",
+          "after_fragment_sha256": "ee090736ffa991ed0610bfb9e4d4f5649a3d217b4425b26a28406d1b043dc3dc"
+        },
+        {
+          "id": "cone-import-link",
+          "source_line_1based": 7,
+          "before_fragment_sha256": "8a2cc782a4c7794a1378edd382625571e3518deef7a88a6c857c55a8a68b7c45",
+          "before_fragment_bytes": 86,
+          "replacement": "Use the invariant and actual convex-body cone law in [imports/POLYNOMIAL_REFINEMENT.md](imports/POLYNOMIAL_REFINEMENT.md), Section 3, and the exact [cone-law source](sources/entry005-v3.md), Section 4.",
+          "after_fragment_sha256": "ee60965a5ce35f111c44d6b251d76f9b3e5772a5bb3d2ee02f4070a9cf7981fa"
+        },
+        {
+          "id": "anchor-import-link",
+          "source_line_1based": 9,
+          "before_fragment_sha256": "dd920044be9d91988ea3ce997b556db39550bd6e6b014d28657eae149037ea3a",
+          "before_fragment_bytes": 62,
+          "replacement": "the [integrated assignment theorem](imports/weighted_anchors.md) supplies",
+          "after_fragment_sha256": "bf95b000d3102ed7e396a8158fb72ab235c14c9730defb39f3821b11ef2ea6e4"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 2,
+          "public_start_line": 1,
+          "public_end_line": 2,
+          "original_sha256": "5f9f50612a3f4b6151f126adf522552bdde44aba095afb21eabf64abbfa6bb98",
+          "public_sha256": "5f9f50612a3f4b6151f126adf522552bdde44aba095afb21eabf64abbfa6bb98"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 3,
+          "original_end_line": 3,
+          "public_start_line": 3,
+          "public_end_line": 3,
+          "original_sha256": "4ed3f3097e52ccfba67a9b3fbe1d6b67dbd13315149e38cf95b015041ef55930",
+          "public_sha256": "2c2ce62e23c90f99abdca22a7d07c532634ebfcddaca5531de0736ce5660cd95"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 4,
+          "original_end_line": 6,
+          "public_start_line": 4,
+          "public_end_line": 6,
+          "original_sha256": "0d8cb2aa4e9d716579ee69130fc89db2de99f100ef69e9116bafd714cd80dd22",
+          "public_sha256": "0d8cb2aa4e9d716579ee69130fc89db2de99f100ef69e9116bafd714cd80dd22"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 7,
+          "original_end_line": 7,
+          "public_start_line": 7,
+          "public_end_line": 7,
+          "original_sha256": "833c697fefc8f2396773eeb7a40edcae1a457e9f5e4eebaeb6c28bef0ce34cdd",
+          "public_sha256": "8db99b145d4262a43ed0620e2e955637b45d37a8632accad9a1d0e2f924ef2ed"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 8,
+          "original_end_line": 8,
+          "public_start_line": 8,
+          "public_end_line": 8,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 9,
+          "original_end_line": 9,
+          "public_start_line": 9,
+          "public_end_line": 9,
+          "original_sha256": "399738ac707797c55ae455b929e269b03876e5ad0e5b86296db9c4c4e549aa53",
+          "public_sha256": "9e40000afc9ef7f7508b2d7a8cb137ca2a32d521ebb1ca20fe86d3f2b555b4ba"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 10,
+          "original_end_line": 112,
+          "public_start_line": 10,
+          "public_end_line": 112,
+          "original_sha256": "e38f273e427fae8aa3e5d6469041cb3f298081f3fc6d7923c2e85a8266474240",
+          "public_sha256": "e38f273e427fae8aa3e5d6469041cb3f298081f3fc6d7923c2e85a8266474240"
+        }
+      ]
+    },
+    {
+      "path": "intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md",
+      "before_bytes": 7591,
+      "before_sha256": "7e5a89b6761559cb980670719db10c10d075e1d5918bf6d49c5fb397287385e9",
+      "after_bytes": 7647,
+      "after_sha256": "680cba26ca1bdc47605f8366d3fe5a1c495716c138d3c1a85bbd377e84484448",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "audited-status",
+          "source_line_1based": 3,
+          "before_fragment_sha256": "f1ca4dacb50568a83aa263619cfa56ccd2a6df6ab1c6c5262ac0f1ffff139b95",
+          "before_fragment_bytes": 142,
+          "replacement": "Date: 7 October 2026. This is a written mathematical proof included in the independent analytic model audit. It changes no earlier source and is not a proof-assistant verification or priority claim.",
+          "after_fragment_sha256": "38d935543fdfe140dff4dd1b347c9eefdb88c8a5c3865ca39c2c53eb2ae02b62"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 2,
+          "public_start_line": 1,
+          "public_end_line": 2,
+          "original_sha256": "7ca56507ebc936a022d16c9b8c0b87906f1bd27d25cf45ffccac994c059197f5",
+          "public_sha256": "7ca56507ebc936a022d16c9b8c0b87906f1bd27d25cf45ffccac994c059197f5"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 3,
+          "original_end_line": 3,
+          "public_start_line": 3,
+          "public_end_line": 3,
+          "original_sha256": "da0df82a66d334ce0d34c9de90dac0c3dc9daeb105be26b9e6c533a3e3a471da",
+          "public_sha256": "369b5b6d960880491c3139451d9b86f063f020708c0d63edeaedad648fcd483b"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 4,
+          "original_end_line": 152,
+          "public_start_line": 4,
+          "public_end_line": 152,
+          "original_sha256": "1a6dce2691037fe78c0656124952e28b38e9a32d6a2a82a421fd15e8703114e5",
+          "public_sha256": "1a6dce2691037fe78c0656124952e28b38e9a32d6a2a82a421fd15e8703114e5"
+        }
+      ]
+    },
+    {
+      "path": "imports/POLYNOMIAL_REFINEMENT.md",
+      "before_bytes": 16680,
+      "before_sha256": "2b398cba3afd73819dbf90d5106e64be64ba06a07f9e42d23f4c2037ff5cd791",
+      "after_bytes": 16734,
+      "after_sha256": "fa920be0d844f3fefd779103d8f204f4041dd815e6e20cbcd84a0ad812da2a63",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "prescribed-simplex-wording",
+          "source_line_1based": 104,
+          "before_fragment_sha256": "8cb1bd072e773757b11960d7716dd8e5eb168c276f53401509e7556f503afb23",
+          "before_fragment_bytes": 55,
+          "replacement": "Fix the originally prescribed maximum simplex S;",
+          "after_fragment_sha256": "56e61c95d4a5e1b5ca6a6c3496ddf5c22d4ae359c446b1b7a68d601158cec20f"
+        },
+        {
+          "id": "source-pin-link",
+          "source_line_1based": 310,
+          "before_fragment_sha256": "ad4a93020fa244f53da34245c5ea22e00b2772603508e62941e9186c6dba8206",
+          "before_fragment_bytes": 29,
+          "replacement": "recorded in [SOURCE_PINS.json](../SOURCE_PINS.json).",
+          "after_fragment_sha256": "22890b5532d99245ca7e8f64464aef57691d893aa5d1cba61d94220916881229"
+        },
+        {
+          "id": "source-copy-link",
+          "source_line_1based": 310,
+          "before_fragment_sha256": "51d5617cf0b0f9fa57b82f23a1062436787f1498c37377c4b511a847d41fbeab",
+          "before_fragment_bytes": 44,
+          "replacement": "supplied as [sources/sharp-simplex-proof.tex](../sources/sharp-simplex-proof.tex);",
+          "after_fragment_sha256": "7753a40d06516b1a67f22e80073e308bf5d0e741669df6b906df88eecb3c73f1"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 103,
+          "public_start_line": 1,
+          "public_end_line": 103,
+          "original_sha256": "bc5d2c8a74b69ea3cced84043d2246dc727a132b60bc5fc87bc17c4604d8a6fa",
+          "public_sha256": "bc5d2c8a74b69ea3cced84043d2246dc727a132b60bc5fc87bc17c4604d8a6fa"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 104,
+          "original_end_line": 104,
+          "public_start_line": 104,
+          "public_end_line": 104,
+          "original_sha256": "72c55e2577fb255698637be3a756d1b671c167a79ce70fc150ac752fd91c4422",
+          "public_sha256": "377ca7fc7d20c4d2b44dd948be701f1c5646798b5ce34b0f98840a8764d0dcaa"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 105,
+          "original_end_line": 309,
+          "public_start_line": 105,
+          "public_end_line": 309,
+          "original_sha256": "d68160908b3f29679813958676f5eb9c03d839a17498865d33b6619a93044ccc",
+          "public_sha256": "d68160908b3f29679813958676f5eb9c03d839a17498865d33b6619a93044ccc"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 310,
+          "original_end_line": 310,
+          "public_start_line": 310,
+          "public_end_line": 310,
+          "original_sha256": "946925c68a7bfb1851c476bbacdecf38445f731883fb3f0785027432bdee0065",
+          "public_sha256": "eca3c6305b0e45472828524b249a15b39e0c639a2a07229d6931de8680805bfb"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 311,
+          "original_end_line": 318,
+          "public_start_line": 311,
+          "public_end_line": 318,
+          "original_sha256": "2df3aa405fb671c8427b3d7513236f4dc6abe4e68c245a3728432d1eb062037e",
+          "public_sha256": "2df3aa405fb671c8427b3d7513236f4dc6abe4e68c245a3728432d1eb062037e"
+        }
+      ]
+    },
+    {
+      "path": "imports/weighted_anchors.md",
+      "before_bytes": 21332,
+      "before_sha256": "4378ebfb1438fe10fe45bc24fbafffff73b5f7f6419ed5b4b8bd8653ec5af538",
+      "after_bytes": 21367,
+      "after_sha256": "b7d75699d80daf2e11d539dd43cc59a3278a58c93a51cca0b22741c14f0587ac",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "anchor-main-reference",
+          "source_line_1based": 331,
+          "before_fragment_sha256": "561c8add5b41f5f107d430f43c78b73115602e5cb0fd72fc7773986c47f45a8e",
+          "before_fragment_bytes": 106,
+          "replacement": "The main proof, POLYNOMIAL_REFINEMENT.md, assembles the remaining endpoint conversion and its explicit polynomial global constant.",
+          "after_fragment_sha256": "899a3b5899fee975770a9886e3300f48adc2dac8f9886d0872fd10a87a20169a"
+        },
+        {
+          "id": "anchor-sharp-source-reference",
+          "source_line_1based": 517,
+          "before_fragment_sha256": "9fc12d2897ab832010eb2ae41e529a5015551e6eb9249982cc6ff962e73dee6e",
+          "before_fragment_bytes": 98,
+          "replacement": "[sources/sharp-simplex-proof.tex](sources/sharp-simplex-proof.tex), pinned in SOURCE_PINS.json",
+          "after_fragment_sha256": "5d5e6a31b2d571d140af69b9c75593486551e39fd54cd6598c998dd192456bae"
+        },
+        {
+          "id": "anchor-scope-prose",
+          "source_line_1based": 519,
+          "before_fragment_sha256": "aa1a6ffe1894ea0d0b3ce118e46a26fa3cf6a429bf1f5eba81e11d9e50799e00",
+          "before_fragment_bytes": 94,
+          "replacement": "No external stability theorem is used in this argument.",
+          "after_fragment_sha256": "e38f5043c965ba5583c22fcbd304efa3c60d9a8f9ba3fec00d8e99c86969b47e"
+        },
+        {
+          "id": "source-link-relocation",
+          "source_line_1based": 517,
+          "before_fragment_sha256": "5d5e6a31b2d571d140af69b9c75593486551e39fd54cd6598c998dd192456bae",
+          "before_fragment_bytes": 94,
+          "replacement": "[sources/sharp-simplex-proof.tex](../sources/sharp-simplex-proof.tex), pinned in [SOURCE_PINS.json](../SOURCE_PINS.json)",
+          "after_fragment_sha256": "d59ec85f8f6413dbc8dcaa70952305c449d5b74aa6b1bc4a23c99dd6102b3af5"
+        },
+        {
+          "id": "main-link",
+          "source_line_1based": 331,
+          "before_fragment_sha256": "500f5e0e86a7693402a0af962a112fdfcce614981443b130055a310ecc5516ad",
+          "before_fragment_bytes": 41,
+          "replacement": "The main proof, [POLYNOMIAL_REFINEMENT.md](POLYNOMIAL_REFINEMENT.md),",
+          "after_fragment_sha256": "11100f3f24d1cecbae02377e98f40939569263a978afcff4e0bc009d38d0151a"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 330,
+          "public_start_line": 1,
+          "public_end_line": 330,
+          "original_sha256": "57feb36e23539df8063f4eeac7634621df6feb57e5164b736edf72cba39d7fe5",
+          "public_sha256": "57feb36e23539df8063f4eeac7634621df6feb57e5164b736edf72cba39d7fe5"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 331,
+          "original_end_line": 331,
+          "public_start_line": 331,
+          "public_end_line": 331,
+          "original_sha256": "fd6c075ebd9929a172ea9cde90ca2e8211236c4a9309f6676c55bc64358c450a",
+          "public_sha256": "b2a51a9e28bba477107c6dd857b3e4d72a6fd9b76704a2456ac2e41b70262878"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 332,
+          "original_end_line": 516,
+          "public_start_line": 332,
+          "public_end_line": 516,
+          "original_sha256": "5b59ade216d8a0ac933748f171f6da7854e4097d04240cdc8ce6edcc0d3827a6",
+          "public_sha256": "5b59ade216d8a0ac933748f171f6da7854e4097d04240cdc8ce6edcc0d3827a6"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 517,
+          "original_end_line": 517,
+          "public_start_line": 517,
+          "public_end_line": 517,
+          "original_sha256": "f01afa3a650c2055478bcb51e293573e2c11dcacc95434916067b2d73f1b5b35",
+          "public_sha256": "86bcf601eac7147533f53a3a841bf2bbc1820e63bc3b2a4d1a3d2417e07c2061"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 518,
+          "original_end_line": 518,
+          "public_start_line": 518,
+          "public_end_line": 518,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 519,
+          "original_end_line": 519,
+          "public_start_line": 519,
+          "public_end_line": 519,
+          "original_sha256": "73e518fac06cbe68dea1376dc25a1ff51c7cb57f8c4afbe57a66b3e1c423743f",
+          "public_sha256": "492d05623ed4a5c52bf33b6f6edfe86b2f34b23df2b36ef289c2a39998a48611"
+        }
+      ]
+    },
+    {
+      "path": "check_independent_quadratic_audit.py",
+      "before_bytes": 7066,
+      "before_sha256": "95f8db8d1196bf1379034b17f97648cb31f34798ee4933def4773e8dfd56c677",
+      "after_bytes": 7081,
+      "after_sha256": "9d549ff1ae97b46021956d2ab2562ce24c73313796d65f176eb455c58646a6ed",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "output-location-doc",
+          "source_line_1based": 3,
+          "before_fragment_sha256": "26a7dbcc846963fd1299b480314451d5061ef98a7d9c706392aaa0565848a5b7",
+          "before_fragment_bytes": 68,
+          "replacement": "No proof-author check code is imported. The replay runner executes this script in a temporary copy.",
+          "after_fragment_sha256": "1351796e46c160941725d34694aa74ca989d88855b423d907b6de6c904645970"
+        },
+        {
+          "id": "public-manifest",
+          "source_line_1based": 128,
+          "before_fragment_sha256": "2ccfe1e6d720561911c5374ca5a858db7062f363417365de3fd1fd381355129e",
+          "before_fragment_bytes": 145,
+          "replacement": "# Public derivative and exact historical source pins match the reviewed payload.\nmanifest=json.loads((ROOT/'SOURCE_PINS.json').read_text())",
+          "after_fragment_sha256": "efc40dbcbe13d2c6aba09e37ca606a313ede5ae4c2744f15da50f8f441ba4f06"
+        },
+        {
+          "id": "relative-path-resolution",
+          "source_line_1based": 131,
+          "before_fragment_sha256": "f0f6d9a9a277c569a92ef520844413a9b39a38aa66752623010afd6ca347b0d1",
+          "before_fragment_bytes": 27,
+          "replacement": "p=ROOT/row['path']",
+          "after_fragment_sha256": "782064c4f60c04670f2c8c51104cc983f67bda4392b3d7342cc5f2536410f714"
+        },
+        {
+          "id": "diagnostic-scope",
+          "source_line_1based": 132,
+          "before_fragment_sha256": "61493772275a5ff0812e03dd5f19f7fd63dbad57cd84138f398904ac844d5015",
+          "before_fragment_bytes": 31,
+          "replacement": "'public source pin mismatch: '",
+          "after_fragment_sha256": "403dea696abe38c2ca9adc23398185ea399c0d56a931980be58ebaf53cd32cb5"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "equal",
+          "original_start_line": 1,
+          "original_end_line": 2,
+          "public_start_line": 1,
+          "public_end_line": 2,
+          "original_sha256": "177f0aa0147ac28ed64b80fbfe4e2832d9b1e668e256c2363a7b0105529ff1cc",
+          "public_sha256": "177f0aa0147ac28ed64b80fbfe4e2832d9b1e668e256c2363a7b0105529ff1cc"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 3,
+          "original_end_line": 3,
+          "public_start_line": 3,
+          "public_end_line": 3,
+          "original_sha256": "19e99d9b0f8f21873adbb90dac492ffd1b0f517c7fded61beb9ee241d18ae1b9",
+          "public_sha256": "fcc00a9588b1699a841c73216add1cb492241ae792db8fe0efa6331fcdffc767"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 4,
+          "original_end_line": 127,
+          "public_start_line": 4,
+          "public_end_line": 127,
+          "original_sha256": "5db370d4c5488070a2ade23ba10d5912adbc2221e5feb11f713f7f23517e8c2b",
+          "public_sha256": "5db370d4c5488070a2ade23ba10d5912adbc2221e5feb11f713f7f23517e8c2b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 128,
+          "original_end_line": 129,
+          "public_start_line": 128,
+          "public_end_line": 129,
+          "original_sha256": "97f4d476b1f039015fce930496c2cfe8591776e8600db4086ac8fe7815a75fba",
+          "public_sha256": "2852a9feaadecf864cce9ae99802a3fd2bce8dec26db2fca91db8667cb832734"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 130,
+          "original_end_line": 130,
+          "public_start_line": 130,
+          "public_end_line": 130,
+          "original_sha256": "0be476e27fa368626d512d18dec6d070354233e1a9f60af25b1fa0f0e74b518e",
+          "public_sha256": "0be476e27fa368626d512d18dec6d070354233e1a9f60af25b1fa0f0e74b518e"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 131,
+          "original_end_line": 132,
+          "public_start_line": 131,
+          "public_end_line": 132,
+          "original_sha256": "52b8bd94fa000449b4036bc4131afb1ac46d35b9e7303ad4e38d1e0e5985cdd6",
+          "public_sha256": "c2f32475e570fd553aac2779522e75c7f26d2d506d088be906f11177f168638d"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 133,
+          "original_end_line": 135,
+          "public_start_line": 133,
+          "public_end_line": 135,
+          "original_sha256": "b3c04b5f588325e0600c9ba089e1621182e39423c8c50f5f69da05c2e37b0310",
+          "public_sha256": "b3c04b5f588325e0600c9ba089e1621182e39423c8c50f5f69da05c2e37b0310"
+        }
+      ]
+    },
+    {
+      "path": "INDEPENDENT_QUADRATIC_AUDIT.md",
+      "before_bytes": 24910,
+      "before_sha256": "36a0704b44f9e9a77031e428b199299ac2f164fe17311fd33572035a67df01b8",
+      "after_bytes": 25505,
+      "after_sha256": "2414bf14446769bd505d4fd110f3157d80cbc282b0d44de3692426bfe369c0fc",
+      "mathematical_changes": "None; source/scope/status or replay path changes only. The separately scoped construction remark is omitted where identified.",
+      "edits": [
+        {
+          "id": "audit-editorial-1",
+          "source_line_1based": 1,
+          "before_fragment_sha256": "930c595b2599a77f850ba26fcbdc05fb9b3092d4ac06648369d177c35a3be919",
+          "before_fragment_bytes": 56,
+          "replacement": "# Independent analytic model audit: quadratic dimension growth",
+          "after_fragment_sha256": "26649811edd258c1653dfa7d93cdda5a5242c255a675085bd36817e64224c43e"
+        },
+        {
+          "id": "audit-editorial-2",
+          "source_line_1based": 16,
+          "before_fragment_sha256": "348d19e03394e11304a65d485ec53427a3b412bdc78d79a243ed01c11ee22d7e",
+          "before_fragment_bytes": 389,
+          "replacement": "This is an independent analytic **model-written audit**, accompanied by independently written finite exact-arithmetic checks. It is not a Lean proof, other proof-assistant verification, human peer review, a publication, a claim of priority, a novelty certification, or a determination of the optimal dimension order. This public-clean derivative preserves the mathematical content and analytic findings of the original audit.",
+          "after_fragment_sha256": "774ba696e5eee6a060ceab8352921120dd27371c3d299b7a1e808d54e7949897"
+        },
+        {
+          "id": "audit-editorial-3",
+          "source_line_1based": 18,
+          "before_fragment_sha256": "7eb43e4a4460091e41d47ec0f354630c3aef9e92e4767f871619fb26cff70591",
+          "before_fragment_bytes": 69,
+          "replacement": "the cone-law representation is an explicitly identified prior theorem",
+          "after_fragment_sha256": "ee7b30744fda6dcf6075d495fea7b714dc573b2e88e5b542eabbc5e49b072c81"
+        },
+        {
+          "id": "audit-editorial-4",
+          "source_line_1based": 22,
+          "before_fragment_sha256": "da47dc6d3b0a4716c84e9b9c1e2b5c75c79fc1e6abf693a78dfebfd487cc6be8",
+          "before_fragment_bytes": 32,
+          "replacement": "The three original proof files audited are listed below by their public release paths. Every SHA-256 value in this section identifies the audited-original bytes, not the public-clean derivative bytes:",
+          "after_fragment_sha256": "5d0b7ba958514c6960b72743fd216c2f23af1909b582d431579cbb3c838e288a"
+        },
+        {
+          "id": "audit-editorial-5",
+          "source_line_1based": 24,
+          "before_fragment_sha256": "83d6d7bc6cb711a6278f2273f56f7c0310f70ead507fe2359b1c8a36656b6077",
+          "before_fragment_bytes": 108,
+          "replacement": "1. QUADRATIC_DIMENSION_THEOREM.md, audited-original SHA-256 8b66a2eddd69e8135584712f3a30e7565b2f391007bbfb69af456e29c1d30743.",
+          "after_fragment_sha256": "01186d21c1bb582fdb23692755d24faa4ca43e1394bcb18d4fc4fca693a9dbdb"
+        },
+        {
+          "id": "audit-editorial-6",
+          "source_line_1based": 25,
+          "before_fragment_sha256": "8af24ea15c2f80d9ad923f0e8d6c64f442c1f21a4917953d003c58abc6b7e3e4",
+          "before_fragment_bytes": 106,
+          "replacement": "2. INTRINSIC_NORM_CONVERSION.md, audited-original SHA-256 c2f5b579b1241ce5e06b98573eb3e9b69f328b2e2ad6e455c18a61115ac52a05.",
+          "after_fragment_sha256": "5d7ebf2df5595514827c5aad5f407a9983ad653235d46a974ea835a5736fa856"
+        },
+        {
+          "id": "audit-editorial-7",
+          "source_line_1based": 26,
+          "before_fragment_sha256": "0a716e0965fd27f5ca71332b1074fd59caad15be223275742a325f39bd2da3f8",
+          "before_fragment_bytes": 122,
+          "replacement": "3. intrinsic_caps/INTRINSIC_GEOMETRIC_BRIDGE.md, audited-original SHA-256 7e5a89b6761559cb980670719db10c10d075e1d5918bf6d49c5fb397287385e9.",
+          "after_fragment_sha256": "2d07d86e3bc2e5e78919d7a4d48f0424e5861736093baf13fed0260cc6a65de9"
+        },
+        {
+          "id": "audit-editorial-8",
+          "source_line_1based": 28,
+          "before_fragment_sha256": "f1bf7df66667ec581078156da9554510fe81ad4e5ed0a3add41583f1e7de61af",
+          "before_fragment_bytes": 428,
+          "replacement": "AUDITED_ORIGINAL_SOURCE_HASHES.json records the public release paths, audited-original byte counts and SHA-256 hashes, and public derivative SHA-256 hashes. It includes the three proof files, imports/POLYNOMIAL_REFINEMENT.md, imports/weighted_anchors.md, sources/HISTORICAL_SOURCE_PINS.json, the four pinned manuscripts in sources/, and imports/SQUARE_PYRAMID_LOWER_BOUND.md. The original audit verified that every historical source byte count and hash matched the original source-pin manifest, reproduced as sources/HISTORICAL_SOURCE_PINS.json, and that the audited-original bytes were unchanged by the independent checker. Public derivative hashes are identified separately and are not the audited-original hashes.",
+          "after_fragment_sha256": "263651ff2961ee6f54c032afea0b949faa25fc9e0e1f9eb655b3ec0dbf9a0277"
+        },
+        {
+          "id": "audit-editorial-9",
+          "source_line_1based": 30,
+          "before_fragment_sha256": "7bdb7a9b956936eadbe53b1b87561631e8c6b5ecf6581158c5975238d47e93b1",
+          "before_fragment_bytes": 324,
+          "replacement": "The analytic verdict does not rely on numerical checks as evidence for unrestricted claims. The supplemental check_independent_quadratic_audit.py was independently written and uses exact rational arithmetic. Its output is verification/independent_exact_checks.json.",
+          "after_fragment_sha256": "5c1be50ea1917274c335e54f1436fc87524c1f72a8cd96f853c7ca19eea28b46"
+        },
+        {
+          "id": "audit-editorial-10",
+          "source_line_1based": 82,
+          "before_fragment_sha256": "d27341f8132ef8a205dfd79f45734cec00a13efb6e88ccddfbe9d7f3149d98d5",
+          "before_fragment_bytes": 50,
+          "replacement": "The pinned sources/entry005-v3.md, Proposition 4.1, states",
+          "after_fragment_sha256": "d074d24087439eedcdd3bc785eed77986cd62320a381aa6c73815e641ec10a74"
+        },
+        {
+          "id": "audit-editorial-11",
+          "source_line_1based": 96,
+          "before_fragment_sha256": "512c56ee2a1c39df4b18fe2ed7a08f5af8fc91df74378797d02ff4bae80d60d0",
+          "before_fragment_bytes": 72,
+          "replacement": "The imported weighted-anchor proof in imports/weighted_anchors.md was checked beyond its final statement:",
+          "after_fragment_sha256": "d839f348bc2057cbd37fb037d8c9d132ebbe7021b5edebe28ba7117d816fdce8"
+        },
+        {
+          "id": "audit-editorial-12",
+          "source_line_1based": 301,
+          "before_fragment_sha256": "8ec5612811733ccf61f7202c82f19bd65844f27467569ea167d4ccaf727e74f7",
+          "before_fragment_bytes": 94,
+          "replacement": "The square-pyramid lower bound in imports/SQUARE_PYRAMID_LOWER_BOUND.md was also checked against its supplied direct facet certificate:",
+          "after_fragment_sha256": "a0e9ca82f27dca41c3e6489704250b7ed46291765baf0aec15e6c1a864b40805"
+        },
+        {
+          "id": "audit-editorial-13",
+          "source_line_1based": 320,
+          "before_fragment_sha256": "5f9238f4f7802370a2703bfbf6130c508ba032e43361f4060da673922155aba8",
+          "before_fragment_bytes": 150,
+          "replacement": "- Repeat the actual cone-law pushforward formula in the intrinsic companion, so readers do not have to locate its definition in imports/POLYNOMIAL_REFINEMENT.md.",
+          "after_fragment_sha256": "edc29bcb6df84b50126bbe7d6d244fb72fb304ada54351ef341ca3342ee7bd9c"
+        },
+        {
+          "id": "audit-editorial-14",
+          "source_line_1based": 323,
+          "before_fragment_sha256": "0becd01a2d0af512c509c5f6bb7dbe80dfd3c63be0460120172d471aa3bdb5d7",
+          "before_fragment_bytes": 218,
+          "replacement": "- Keep the three proof files together, with AUDITED_ORIGINAL_SOURCE_HASHES.json, if the statement is circulated. They form one proof; the short theorem file alone deliberately imports its substantive arguments from the companions.",
+          "after_fragment_sha256": "09e3158d32603bc446c953430cb20f442b727236fb69d573cf7fe7dcaab281bc"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "replace",
+          "original_start_line": 1,
+          "original_end_line": 1,
+          "public_start_line": 1,
+          "public_end_line": 1,
+          "original_sha256": "d05099d972f558ea8aaf3f568fdac462226f4f39b242ac584fb71c531b65ce7f",
+          "public_sha256": "83f5f61f8af4ad4aa90bdf619b7489b1b8057d04a6feba41ed380f8ae2a41c17"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 2,
+          "original_end_line": 15,
+          "public_start_line": 2,
+          "public_end_line": 15,
+          "original_sha256": "938dffd8912873587853e78df72b93e19522880f3b69365f1a70cb3f16c60780",
+          "public_sha256": "938dffd8912873587853e78df72b93e19522880f3b69365f1a70cb3f16c60780"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 16,
+          "original_end_line": 16,
+          "public_start_line": 16,
+          "public_end_line": 16,
+          "original_sha256": "7fd2f369a7781a666a2ab31712a098793b98c32cc4eadb0045d4b5755fc03ec1",
+          "public_sha256": "e291de174aa4d082729e0d791ddf78b39a9192e8d09fd2cbe9ddd0bf71ffa77f"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 17,
+          "original_end_line": 17,
+          "public_start_line": 17,
+          "public_end_line": 17,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 18,
+          "original_end_line": 18,
+          "public_start_line": 18,
+          "public_end_line": 18,
+          "original_sha256": "2aeb50e2e01fe4e51af52035811fdc618e4fa877cd9eba7d0e7f9cdbca753ff1",
+          "public_sha256": "b198cb3a8660253f68886f6ee3283420026c6d54676522ef879e97fe933c1172"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 19,
+          "original_end_line": 21,
+          "public_start_line": 19,
+          "public_end_line": 21,
+          "original_sha256": "28622a868e97a52b1d2535dc7958327fa9da449e8cc8e21635f6ea8c17c69a7b",
+          "public_sha256": "28622a868e97a52b1d2535dc7958327fa9da449e8cc8e21635f6ea8c17c69a7b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 22,
+          "original_end_line": 22,
+          "public_start_line": 22,
+          "public_end_line": 22,
+          "original_sha256": "10501fab848d8be82216ad1933d78ab630f9cdca066e6b125f39ca2fa919991a",
+          "public_sha256": "8fa2e333fbd284d3e007ac98bf2ea6817bb058a83edada3b769c2e2d4b1723fb"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 23,
+          "original_end_line": 23,
+          "public_start_line": 23,
+          "public_end_line": 23,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 24,
+          "original_end_line": 26,
+          "public_start_line": 24,
+          "public_end_line": 26,
+          "original_sha256": "5638272a181e4d2952c711ea3265458bcb66a265a657847a6914c5f385b1c392",
+          "public_sha256": "d1d5f87197cff8b5b446f659debe1bc7be01766a81f71f3f41bee902809ed186"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 27,
+          "original_end_line": 27,
+          "public_start_line": 27,
+          "public_end_line": 27,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 28,
+          "original_end_line": 28,
+          "public_start_line": 28,
+          "public_end_line": 28,
+          "original_sha256": "5862ce3492288362ea976aef6dd2baec41a4fce734ae6f7229995111be3b5ac3",
+          "public_sha256": "c47c21c290758a665257718f1e2fdcd8de31ad45ad583ad0926390e0182743b4"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 29,
+          "original_end_line": 29,
+          "public_start_line": 29,
+          "public_end_line": 29,
+          "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 30,
+          "original_end_line": 30,
+          "public_start_line": 30,
+          "public_end_line": 30,
+          "original_sha256": "5a74c804c3ada120ca2949d63843c7fb294f25e1e3385f4e5581087e0026feae",
+          "public_sha256": "49de4825c1c739a4bbf6bef315214951445ae65de0c20b48163079cdbb91c8d6"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 31,
+          "original_end_line": 81,
+          "public_start_line": 31,
+          "public_end_line": 81,
+          "original_sha256": "9502b873aa3b38627d2138d0399eeb1f9a2a4e0bfa90c437563febcb6946decb",
+          "public_sha256": "9502b873aa3b38627d2138d0399eeb1f9a2a4e0bfa90c437563febcb6946decb"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 82,
+          "original_end_line": 82,
+          "public_start_line": 82,
+          "public_end_line": 82,
+          "original_sha256": "a7789fc87ea8a559413b81cd3f989711c4c37bad9a70e56943c63dd0a206f789",
+          "public_sha256": "0804fa9f5f3390e6154b0045bea4f4a6ff48ff5da5636dedf549b15f3d7924e0"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 83,
+          "original_end_line": 95,
+          "public_start_line": 83,
+          "public_end_line": 95,
+          "original_sha256": "a3652df8ad625b19762aee1f80cc2edbc3184e75bab8c0d6d154cccbf28cf1fa",
+          "public_sha256": "a3652df8ad625b19762aee1f80cc2edbc3184e75bab8c0d6d154cccbf28cf1fa"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 96,
+          "original_end_line": 96,
+          "public_start_line": 96,
+          "public_end_line": 96,
+          "original_sha256": "a4c871dca3e3870a01244109c1a4cbdfa918ada8975f0c927e5fcc93df5f8b10",
+          "public_sha256": "6cb742c1ceb9e95cf1271b9b141a8fec4280c4dc5c9b07dbd3c36017c7fa6822"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 97,
+          "original_end_line": 300,
+          "public_start_line": 97,
+          "public_end_line": 300,
+          "original_sha256": "2b0a75ef0e6e1e7c7e81b448c5a9ce812da3c6f6a9af6f37fd9fd49ae434e1de",
+          "public_sha256": "2b0a75ef0e6e1e7c7e81b448c5a9ce812da3c6f6a9af6f37fd9fd49ae434e1de"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 301,
+          "original_end_line": 301,
+          "public_start_line": 301,
+          "public_end_line": 301,
+          "original_sha256": "8c8a1bc4ae10a35cd5f11e52e0383b6428e37661350212d9aa09610beb2dd92a",
+          "public_sha256": "4693bf29d4e51682969dafc8104a887b86faa85d62a901dcaefa7061ae329f6e"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 302,
+          "original_end_line": 319,
+          "public_start_line": 302,
+          "public_end_line": 319,
+          "original_sha256": "0ba0f41bf4966ff77f845e1b4624431a7995a9f0799679eebff7c561576ca673",
+          "public_sha256": "0ba0f41bf4966ff77f845e1b4624431a7995a9f0799679eebff7c561576ca673"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 320,
+          "original_end_line": 320,
+          "public_start_line": 320,
+          "public_end_line": 320,
+          "original_sha256": "bc28cfdbba3abe7dd3650bb2f336d551a51bbc0ab47cab3958650e65105f1191",
+          "public_sha256": "3f0bbe42a08d9ea65344af8c5ca9504073abf6e3ee74208acfb62dcb5dfed0c5"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 321,
+          "original_end_line": 322,
+          "public_start_line": 321,
+          "public_end_line": 322,
+          "original_sha256": "4c1309444b7652359c1bc244856e84ce9d8617e2c65ded82c685b07eabbdff4d",
+          "public_sha256": "4c1309444b7652359c1bc244856e84ce9d8617e2c65ded82c685b07eabbdff4d"
+        },
+        {
+          "kind": "replace",
+          "original_start_line": 323,
+          "original_end_line": 323,
+          "public_start_line": 323,
+          "public_end_line": 323,
+          "original_sha256": "b9217bbba83c6a07b55e161162671ab7bfc9c47bc2b34bd1f44ca0a6f35e2e38",
+          "public_sha256": "795289713309ff72d7c3e1ab3d15cff0340c9eb9841bd8e9c1979c4c998b5e3e"
+        },
+        {
+          "kind": "equal",
+          "original_start_line": 324,
+          "original_end_line": 325,
+          "public_start_line": 324,
+          "public_end_line": 325,
+          "original_sha256": "e5b4bcd985971333819a8ab84ceb656f36d392691b2c71b8b8d0228d68663b0f",
+          "public_sha256": "e5b4bcd985971333819a8ab84ceb656f36d392691b2c71b8b8d0228d68663b0f"
+        }
+      ]
+    }
+  ]
+}

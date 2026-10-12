@@ -1,0 +1,99 @@
+\section{Quantitative polygons and the common rectangle}\label{sec:core}
+This section is parity-free. It supplies the quantitative scalar, support, and block estimates used in both global theorems.
+
+\subsection{A scalar product identity}
+\begin{lemma}\label{lem:scalar}
+Let $v_1,\ldots,v_{2m}$ lie on the unit circle, include $1$, and satisfy
+\[
+ \abs{\sum_jv_j^k}\le\eps\quad(1\le k<m),\qquad 0\le\eps\le1.
+\]
+Put $d=\prod_jv_j$ and $P(z)=\prod_j(z-v_j)$. There is a polynomial $E$ whose coefficient absolute-value sum is at most $4(m-1)\eps$ such that
+\begin{equation}\label{eq:scalarpoly}
+ P(z)=(z^m-1)(z^m-d)+E(z).
+\end{equation}
+Consequently, writing $w_j=v_j^m$ and $t=|d-1|$,
+\begin{align}
+ |(w_j-1)(w_j-d)|&\le4(m-1)\eps,\label{eq:scalarprod}\\
+ |w_j-1|&\le t+2\sqrt{(m-1)\eps}.\label{eq:coarse}
+\end{align}
+\end{lemma}
+\begin{proof}
+Let $e_\ell$ denote the elementary symmetric functions, with $e_0=1$. Newton's identities give by induction $|e_\ell|\le\eps$ for $1\le\ell<m$, since
+\[
+ \ell|e_\ell|\le\eps[1+(\ell-1)\eps]\le\ell\eps.
+\]
+The unit-modulus complement identity is $e_{2m-\ell}=d\overline{e_\ell}$. Hence
+\[
+ P(z)=z^{2m}+cz^m+d+R(z),
+\]
+where $R$ has at most $2(m-1)$ nonzero coefficients, each of modulus at most $\eps$. The included entry $1$ gives $P(1)=0$, so $c=-1-d-R(1)$. Taking $E(z)=R(z)-R(1)z^m$ proves the coefficient bound and~\eqref{eq:scalarpoly}. Evaluate at $v_j$ to obtain~\eqref{eq:scalarprod}. At least one of $|w_j-1|,|w_j-d|$ is at most $2\sqrt{(m-1)\eps}$, proving~\eqref{eq:coarse}.
+\end{proof}
+
+\subsection{Separated polygons with multiplicities}
+\begin{lemma}\label{lem:matching}
+Under Lemma~\ref{lem:scalar}, assume $\eps>0$ and $t=|d-1|\ge32\sqrt{m\eps}$. The entries admit a bijective matching with the $2m$ distinct roots of $(z^m-1)(z^m-d)$, each matching distance being at most
+\[
+ r_0=64\eps/t.
+\]
+Exactly $m$ entries satisfy $|v_j^m-1|\le h_0$ and exactly $m$ satisfy $|v_j^m-d|\le h_0$, where $h_0=64m\eps/t$. These classes are disjoint, and an entry equal to $1$ belongs to the first.
+\end{lemma}
+\begin{proof}
+The hypotheses give $r_0\le t/(8m)$ and $mr_0\le1/4$. On a circle of radius $r_0$ about a root $u$ of either factor, write $z=u(1+w)$ with $|w|=r_0$. The binomial estimate
+\[
+ |(1+w)^m-1-mw|\le (mr_0)^2e^{mr_0}/2
+\]
+implies $mr_0/2\le|z^m-u^m|\le2mr_0$. The other factor has modulus at least $t-2mr_0\ge3t/4$, so the product has modulus at least
+\[
+ (3/8)mr_0t=24m\eps.
+\]
+On the same circle, Lemma~\ref{lem:scalar} gives
+\[
+ |E(z)|\le4(m-1)\eps(1+r_0)^{2m}<8(m-1)\eps.
+\]
+Rouch\'e's theorem gives one zero of $P$, counting multiplicity, in each disk. The disks are disjoint: roots of different factors have distance at least $t/m$ by telescoping their $m$th powers; roots of the same factor have distance at least $2\sin(\pi/m)\ge4/m$. The $2m$ disks therefore count all roots. Since matching endpoints are unit, $|v_j^m-u^m|\le m|v_j-u|\le h_0$. Finally $h_0\le t/16$, proving disjointness and the assertion about the entry $1$.
+\end{proof}
+The bijection, rather than mere proximity to two phases, certifies multiplicity and ensures that later restricted half-sums contain each root once.
+
+\subsection{Common active supports}
+For a dephased $K$ with $\eps>0$, put
+\begin{equation}\label{eq:active-defs}
+ L=K^{\circ m},\quad d_a=\prod_jK_{aj},\quad c_j=\prod_iK_{ij},
+ \quad\delta=32\sqrt{m\eps},\quad s=\max_a|d_a-1|.
+\end{equation}
+Call a row active if $|d_a-1|\ge\delta$, and a column active if $|c_j-1|\ge\delta$. An active row has a support of $m$ entries of $L$ near $d_a$, with the remaining entries near $1$; the errors are at most $\delta/16$. Every entry of an inactive row is within $17\delta/16$ of $1$, by~\eqref{eq:coarse}. The column assertions are identical. The initial all-ones row and column satisfy these estimates trivially; the scalar moment lemmas apply only to the other rows and columns, using ratios with the initial ones.
+
+\begin{lemma}\label{lem:common}
+All active rows have the same support, and all active columns have the same support.
+\end{lemma}
+\begin{proof}
+If active rows $a,b$ have different supports $S,U$, choose $j\in S\setminus U$. Write $x=d_a$, $y=d_b$, and $w=L_{aj}/L_{bj}$. Then $|w-x|\le\delta/8$. The actual ratio $v_\ell=K_{a\ell}/K_{b\ell}$ includes $1$ at column zero and has product exactly $x/y$. Thus
+\[
+ |(w-1)(w-x/y)|\le4(m-1)\eps\le\delta^2/256.
+\]
+Both factors on the left are at least $7\delta/8$, because $|x-1|,|y-1|\ge\delta$ and $|x-x/y|=|y-1|$. This is impossible. Transposition gives the column argument.
+\end{proof}
+Retaining the actual entry product is essential; an approximate cardinality-parity argument would not supply this conclusion.
+
+\subsection{A large phase forces a balanced rectangle}\label{subsec:rectangle}
+Suppose $s>8\delta$. Choose a maximizing row $a$, put $x=d_a$, and let $S$ be the common active-row support. Every column in $S$ is active: its entry at row $a$ is farther than $17\delta/16$ from $1$. These columns have a common support $T$ of size $m$, containing $a$.
+
+No column outside $S$ is active. Otherwise its support also contains $a$, where its distance from $1$ would be at least $15\delta/16$; row $a$ instead bounds that distance by $\delta/16$. For $j\in S$, comparison at row $a$ gives $|c_j-x|\le\delta/8$. Thus for $i\in T,j\in S$, $|L_{ij}-x|\le3\delta/16$, so row $i$ is active. Conversely an active row cannot lie outside $T$, by comparison in a column of $S$. The active rows are precisely $R=T$, and $|R|=|S|=m$.
+
+Permute labels for the proof only, placing $R^c,S^c$ first, and write $K=\begin{pmatrix}A&B\\C&D\end{pmatrix}$. We have
+\begin{equation}\label{eq:coarserectangle}
+ \begin{array}{c|c}
+ R^c\times S^c&|L_{ij}-1|\le17\delta/16\\
+ R^c\times S&|L_{ij}-1|\le\delta/16\\
+ R\times S^c&|L_{ij}-1|\le\delta/16\\
+ R\times S&|L_{ij}-x|\le3\delta/16.
+ \end{array}
+\end{equation}
+For $j\notin S$ and $\ell\in S$, the column ratio $v_i=K_{ij}/K_{i\ell}$ has product $d=c_j/c_\ell$ and separation
+\[
+ t=|d-1|\ge s-9\delta/8>s/2\ge\delta.
+\]
+Its top-half entries satisfy $|v_i^m-1|\le9\delta/8$. In the matching lemma their power error is at most $\delta/16$, and they cannot belong to the $d$-polygon since $t-\delta/16>9\delta/8$. All $m$ top entries match bijectively to $\mu_m$. Their sum has modulus at most $128m\eps/s$. It follows that
+\begin{equation}\label{eq:half-sum}
+ \norm{A^*B}_\op\le128m^2\eps/s.
+\end{equation}
+Only the first-power restricted half-sum is needed for this bound.

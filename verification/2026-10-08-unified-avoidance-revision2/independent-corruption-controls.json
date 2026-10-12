@@ -1,0 +1,242 @@
+[
+  {
+    "case": "unchanged",
+    "optimized": false,
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "matched": true,
+    "output": "{\n  \"status\": \"PASS\",\n  \"python_optimization_active\": false,\n  \"payload_files_verified\": 27,\n  \"revision\": {\n    \"exact_diff_and_zero_fuzz_replay\": true,\n    \"old_origin_countercontrol\": true,\n    \"guarded_endpoint_cases\": 8,\n    \"blank_author_preserved\": true\n  },\n  \"correspondence\": {\n    \"paper_steps\": 20,\n    \"mapped_declarations\": 57,\n    \"source_visible_declarations\": 759,\n    \"source_modules\": 65,\n    \"local_import_edges\": 172,\n    \"scope\": \"Source map and inventories; not kernel proof dependency closure.\"\n  },\n  \"formal_source_comparison\": {\n    \"status\": \"NOT_RUN\",\n    \"reason\": \"Supply a repository root or both public formalization roots.\",\n    \"new_lean_build\": false,\n    \"new_kernel_replay\": false\n  },\n  \"isolated_pdf_rebuild\": {\n    \"status\": \"NOT_RUN\"\n  },\n  \"package_mutations\": 0,\n  \"scope\": \"Integrity, finite origin controls, revision, correspondence, and requested optional checks; not a proof of the infinite theorem.\"\n}\n"
+  },
+  {
+    "case": "unchanged",
+    "optimized": true,
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "matched": true,
+    "output": "{\n  \"status\": \"PASS\",\n  \"python_optimization_active\": true,\n  \"payload_files_verified\": 27,\n  \"revision\": {\n    \"exact_diff_and_zero_fuzz_replay\": true,\n    \"old_origin_countercontrol\": true,\n    \"guarded_endpoint_cases\": 8,\n    \"blank_author_preserved\": true\n  },\n  \"correspondence\": {\n    \"paper_steps\": 20,\n    \"mapped_declarations\": 57,\n    \"source_visible_declarations\": 759,\n    \"source_modules\": 65,\n    \"local_import_edges\": 172,\n    \"scope\": \"Source map and inventories; not kernel proof dependency closure.\"\n  },\n  \"formal_source_comparison\": {\n    \"status\": \"NOT_RUN\",\n    \"reason\": \"Supply a repository root or both public formalization roots.\",\n    \"new_lean_build\": false,\n    \"new_kernel_replay\": false\n  },\n  \"isolated_pdf_rebuild\": {\n    \"status\": \"NOT_RUN\"\n  },\n  \"package_mutations\": 0,\n  \"scope\": \"Integrity, finite origin controls, revision, correspondence, and requested optional checks; not a proof of the infinite theorem.\"\n}\n"
+  },
+  {
+    "case": "changed_source",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Byte-size mismatch: source/continuum-avoidance.tex\"\n}\n"
+  },
+  {
+    "case": "changed_source",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Byte-size mismatch: source/continuum-avoidance.tex\"\n}\n"
+  },
+  {
+    "case": "changed_notice",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Byte-size mismatch: NOTICE.md\"\n}\n"
+  },
+  {
+    "case": "changed_notice",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Byte-size mismatch: NOTICE.md\"\n}\n"
+  },
+  {
+    "case": "missing_pdf",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Package inventory changed: ['continuum-avoidance.pdf']\"\n}\n"
+  },
+  {
+    "case": "missing_pdf",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Package inventory changed: ['continuum-avoidance.pdf']\"\n}\n"
+  },
+  {
+    "case": "extra_file",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Package inventory changed: ['unlisted.txt']\"\n}\n"
+  },
+  {
+    "case": "extra_file",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Package inventory changed: ['unlisted.txt']\"\n}\n"
+  },
+  {
+    "case": "symlink_file",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Unexpected symlink in package\"\n}\n"
+  },
+  {
+    "case": "symlink_file",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Unexpected symlink in package\"\n}\n"
+  },
+  {
+    "case": "symlink_dir",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Unexpected symlink in package\"\n}\n"
+  },
+  {
+    "case": "symlink_dir",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Unexpected symlink in package\"\n}\n"
+  },
+  {
+    "case": "duplicate_manifest_key",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Duplicate JSON key: schema_version\"\n}\n"
+  },
+  {
+    "case": "duplicate_manifest_key",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Duplicate JSON key: schema_version\"\n}\n"
+  },
+  {
+    "case": "malformed_manifest",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\"\n}\n"
+  },
+  {
+    "case": "malformed_manifest",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\"\n}\n"
+  },
+  {
+    "case": "duplicate_checksum",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Duplicate checksum path: MANIFEST.json\"\n}\n"
+  },
+  {
+    "case": "duplicate_checksum",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Duplicate checksum path: MANIFEST.json\"\n}\n"
+  },
+  {
+    "case": "malformed_checksum",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Malformed checksum line\"\n}\n"
+  },
+  {
+    "case": "malformed_checksum",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Malformed checksum line\"\n}\n"
+  },
+  {
+    "case": "source_resigned",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Frozen revision anchor changed: source/continuum-avoidance.tex\"\n}\n"
+  },
+  {
+    "case": "source_resigned",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Frozen revision anchor changed: source/continuum-avoidance.tex\"\n}\n"
+  },
+  {
+    "case": "missing_external_roots",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"[Errno 2] No such file or directory: '[temporary audit directory]/absent'\"\n}\n"
+  },
+  {
+    "case": "missing_external_roots",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"[Errno 2] No such file or directory: '[temporary audit directory]/absent'\"\n}\n"
+  },
+  {
+    "case": "one_external_root",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Both separate formalization roots are required\"\n}\n"
+  },
+  {
+    "case": "one_external_root",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Both separate formalization roots are required\"\n}\n"
+  },
+  {
+    "case": "both_routes",
+    "optimized": false,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Choose one formal-source input route\"\n}\n"
+  },
+  {
+    "case": "both_routes",
+    "optimized": true,
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "matched": true,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"error\": \"Choose one formal-source input route\"\n}\n"
+  }
+]

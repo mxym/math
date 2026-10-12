@@ -1,0 +1,31 @@
+{
+  "status": "REBUILT_AND_RENDER_INSPECTED",
+  "recorded_utc": "2026-10-09T06:54:03.221174+00:00",
+  "source": "research/ecqc-pure-state-counterexamples/paper.tex",
+  "source_sha256": "f1fb82b105fce7aa2d0e47cd9e4842ab495627d45b5a3451a9996e140d22ade4",
+  "pdf": "research/ecqc-pure-state-counterexamples/paper.pdf",
+  "pdf_sha256": "98d45d1dc97b88848bb1f03a165d8143bf25f9e0abf86ee47b23457c86754273",
+  "pages": 10,
+  "commands": [
+    [
+      "latexmk",
+      "-pdf",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "paper.tex"
+    ],
+    [
+      "pdftoppm",
+      "-f",
+      "9",
+      "-l",
+      "9",
+      "-scale-to",
+      "1500",
+      "-png",
+      "paper.pdf",
+      "paper-final"
+    ]
+  ],
+  "inspection": "Verification section and final pages rendered with pdftoppm; no undefined references or overfull boxes in the final TeX log. No mathematical proof text outside the formalization-scope section was changed."
+}

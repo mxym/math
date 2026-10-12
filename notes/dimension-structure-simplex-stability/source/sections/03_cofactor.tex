@@ -1,0 +1,148 @@
+\section{The actual defect from signed facet cofactors}\label{sec:cofactor}
+Let $K$ be a full-dimensional $d$-polytope with exactly $N=d+2$
+irredundant facets. Put $n=d+1$. For facet $i$, let $\nu_i$ be its outward
+unit normal, $s_i>0$ its actual area, and $h_i$ its support number. Set
+\[
+ g_i=s_i\nu_i,\qquad U_i=(g_i,s_ih_i)\in\R^{d+1},\qquad V=|K|>0.
+\]
+The divergence identities give
+\begin{equation}\label{eq:cofactor-sum}
+ \sum_i g_i=0,\qquad \sum_i s_ih_i=dV,
+ \qquad\sum_iU_i=(0,\ldots,0,dV).
+\end{equation}
+The horizontal rows of $U$ have rank $d$ because the facet normals span
+$\R^d$. The last column-sum identity supplies an independent vertical
+direction, so $U$ has rank $n$. Define the signed maximal cofactors
+\begin{equation}\label{eq:cofactor-z}
+ z_i=(-1)^{i-1}\det(U_1,\ldots,U_{i-1},U_{i+1},\ldots,U_N).
+\end{equation}
+Then $z\ne0$ and $\sum_i z_iU_i=0$. Translating the origin to the interior
+of $K$ leaves these determinants invariant by a row operation and makes
+all $h_i>0$. Thus $\sum_i z_is_ih_i=0$ forces both positive and negative
+entries in $z$.
+
+\begin{theorem}[Exact cofactor defect]\label{thm:cofactor}
+With $L=\sum_i|z_i|$ and $T=\sum_{i<j}|z_i-z_j|$, the original invariant
+satisfies
+\begin{equation}\label{eq:cofactor-invariant}
+ a(K)=\frac LT,\qquad
+ \delta(K):=n-\frac1{a(K)}=n-\frac TL,\qquad
+ e(K)=\frac{\delta(K)}{n(n-\delta(K))}.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:cofactor-min}
+ \delta(K)=\frac2L\sum_{\substack{i<j\\z_iz_j>0}}
+                            \min(|z_i|,|z_j|).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $H=\sum_{i<j}|\det(g_k:k\notin\{i,j\})|$, with the remaining
+columns in increasing order. The actual finite-facet identity proved
+in Appendix~\ref{prop:actual-moments} gives $a(K)=L/(dVH)$. We show
+\begin{equation}\label{eq:cofactor-difference}
+ dV\,|\det(g_k:k\notin\{i,j\})|=|z_i-z_j|.
+\end{equation}
+Fix $i<j$. In the $n$-column matrix omitting column $i$, replace its
+column $U_j$ by $\sum_kU_k$. By multilinearity only the original term
+and the term replacing $U_j$ by $U_i$ survive. Reordering the latter
+columns with the signs in \eqref{eq:cofactor-z} gives $z_i-z_j$ up to an
+overall sign. The replacement column is $(0,\ldots,0,dV)$ by
+\eqref{eq:cofactor-sum}, and expansion along it gives the other side of
+\eqref{eq:cofactor-difference}, again up to sign. Hence $dVH=T$ and
+$a=L/T$. Solving $e=a-1/n$ proves \eqref{eq:cofactor-invariant}; all
+its denominators are positive.
+
+For real $x,y$, the difference $|x|+|y|-|x-y|$ equals
+$2\min(|x|,|y|)$ when $xy>0$, and equals zero otherwise. Each $|z_i|$
+occurs in $n$ unordered pairs. Summing this identity gives
+\eqref{eq:cofactor-min}.
+\end{proof}
+
+\subsection{Signed concentration}
+Sort the positive entries as $p_1\ge\cdots\ge p_p>0$ and the absolute
+values of the negative entries as $q_1\ge\cdots\ge q_q>0$. Then
+\begin{equation}\label{eq:cofactor-sorted}
+ \delta(K)=\frac2L\left(\sum_{i=2}^p(i-1)p_i+
+                              \sum_{j=2}^q(j-1)q_j\right).
+\end{equation}
+For $\varepsilon=(L-p_1-q_1)/L$ this gives
+\begin{equation}\label{eq:cofactor-concentration}
+ 2\varepsilon\le\delta(K)\le2\max(p-1,q-1)\varepsilon
+                          \le2d\varepsilon.
+\end{equation}
+Indeed each omitted weight in \eqref{eq:cofactor-sorted} has coefficient
+between one and $\max(p-1,q-1)$, and both sign classes are nonempty.
+At least $1-\delta(K)/2$ of the normalized absolute cofactor mass is
+therefore concentrated on one positive and one negative entry. The
+weighted identity, rather than only this comparison, determines the defect.
+Common nonzero rescaling and overall sign reversal leave all formulas
+unchanged. Zero cofactors, including pyramid degeneracies, are permitted;
+no simplicity or genericity condition is required. Arbitrary signed
+vectors are not asserted to be realizable facet data.
+
+\subsection{Explicit clipping coordinates}
+Suppose $K=P\cap\{f\ge0\}$ with $f=\sum_if_i\lambda_i$, and now assume
+that all $n$ old facets and the cut facet remain irredundant. Use the
+partition $f_i=-a_i<0$ on $I$, $f_j=b_j>0$ on $J$, allowing zero values.
+For any origin there are unique positive scales $r_i,q$ such that
+\[
+ U_i=r_i(-\nabla\lambda_i,\lambda_i(0)),\qquad
+ U_c=q(-\nabla f,f(0)).
+\]
+Since $\sum_i\lambda_i=1$, the column-sum identity and independence of the
+affine barycentric functions imply
+\begin{equation}\label{eq:cofactor-scales}
+ r_i+qf_i=R,\qquad R=dV>0,
+\end{equation}
+so each $r_i=R-qf_i$ is positive. The affine identity for $f$ gives the
+kernel vector, up to common scale,
+\[
+ z_c=1,\qquad z_i=-qf_i/r_i.
+\]
+Write
+\[
+ \alpha_i=\frac{qa_i}{R+qa_i}\in(0,1),\qquad
+ \beta_j=\frac{qb_j}{R-qb_j}>0.
+\]
+The cut entry and each $\alpha_i$ have the same sign, with
+$\min(1,\alpha_i)=\alpha_i$, so \eqref{eq:cofactor-min} becomes
+\begin{equation}\label{eq:cofactor-clipping}
+ \delta(K)=
+ \frac{2\left[\sum_i\alpha_i+\sum_{i<i'}\min(\alpha_i,\alpha_{i'})+
+                         \sum_{j<j'}\min(\beta_j,\beta_{j'})\right]}
+ {1+\sum_i\alpha_i+\sum_j\beta_j}.
+\end{equation}
+Zero $f_i$ give zero cofactors. If clipping removes an entire old facet,
+that redundant facet must be deleted before applying this calculation;
+one may not divide by a vanished area.
+
+For the equal-intercept truncation
+\begin{equation}\label{eq:truncation-body}
+ K_t=\{x_i\ge0:\ t\le\textstyle\sum_i x_i\le1\},\qquad0<t<1,
+\end{equation}
+the normalized cofactor vector is
+\[
+ z_c=1,\qquad z_0=t^d,\qquad z_1=\cdots=z_d=-\beta,
+ \qquad\beta=\frac{t^{d-1}(1-t)}{1-t^{d-1}}.
+\]
+The old opposite facet retains its whole area, each other old facet
+retains the fraction $1-t^{d-1}$, and the cut area scale is the fraction
+$t^{d-1}$. These facts, or substitution in \eqref{eq:cofactor-scales},
+give the displayed vector. Therefore
+\begin{equation}\label{eq:truncation-delta}
+ \delta(K_t)=\frac{2[t^d+\binom d2\beta]}{1+t^d+d\beta}.
+\end{equation}
+Substitution into \eqref{eq:cofactor-invariant} yields the exact original
+defect and its fixed-dimensional leading term
+\begin{equation}\label{eq:truncation-exact}
+ \begin{split}
+ e(K_t)&=\frac{t^{d-1}[d(d-1)-(d+1)(d-2)t-2t^d]}
+ {(d+1)(1-t^d)(d+1+(d-1)t^{d-1})},\\
+ e(K_t)&=\frac{d(d-1)}{(d+1)^2}t^{d-1}+O(t^d).
+ \end{split}
+\end{equation}
+For a square followed by $d-2$ pyramids, the four nonzero cofactors are
+proportional to $(1,-1,1,-1)$ and the remaining $d-2$ vanish. Thus
+$\delta=1$ and $e=1/[d(d+1)]$. The direct facet certificate in the next
+section checks the same actual invariant without assuming realizability
+of a merely formal cofactor vector.

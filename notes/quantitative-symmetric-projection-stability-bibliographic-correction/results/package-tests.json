@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "Extracted archive runs from unrelated cwd without a repository.",
+    "Default output is unpacked-package/build/verification.",
+    "Explicit external output works in optimized Python.",
+    "Ordinary and optimized driver reports are byte-identical.",
+    "All 5696 exact cases pass in each archive-driver run.",
+    "Shipped inputs and reference reports are unchanged.",
+    "Atomic report replacement preserves hardlinked shipped reference files.",
+    "Unsafe TMPDIR is ignored; external-output replay changes no package files.",
+    "Wrong dependency HEAD leaves existing output byte-identical.",
+    "Wrong dependency HEAD creates no new output directory.",
+    "Writing into shipped results/ is rejected before mutation.",
+    "Inherited replay without dependency argument is rejected before mutation.",
+    "Pinned checkout validates without running inherited checkers.",
+    "Corrupted working-file hash at pinned HEAD preserves existing output.",
+    "Corrupted working-file hash at pinned HEAD creates no output."
+  ],
+  "schema": "upper-end-stability-packaging-test-v1",
+  "scope": "Package behavior only; not mathematical proof verification.",
+  "status": "passed"
+}

@@ -1,0 +1,44 @@
+name: Projection balanced recursion exact replay
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/projection-balanced-recursion.yml'
+      - 'preprints/005-simplex-product-optimum/v5/**'
+      - 'preprints/005-simplex-product-optimum/v2/paper.md'
+      - 'preprints/005-simplex-product-optimum/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md'
+      - 'comparisons/2026-10-07-balanced-recursion.md'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-balanced-recursion.yml'
+      - 'preprints/005-simplex-product-optimum/v5/**'
+      - 'preprints/005-simplex-product-optimum/v2/paper.md'
+      - 'preprints/005-simplex-product-optimum/v2/ASYMPTOTIC_SPECTRAL_REDUCTION.md'
+      - 'comparisons/2026-10-07-balanced-recursion.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the triggering revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify balanced-recursion theorem and pinned inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd preprints/005-simplex-product-optimum/v5
+          python3 code/check_manifest.py
+          python3 -O code/check_manifest.py
+          python3 code/check_balanced.py > /tmp/005-v5-check.txt
+          python3 -O code/check_balanced.py > /tmp/005-v5-check-opt.txt
+          cmp /tmp/005-v5-check.txt /tmp/005-v5-check-opt.txt
+          cmp results/check_balanced.txt /tmp/005-v5-check.txt
+          git diff --exit-code

@@ -1,0 +1,48 @@
+name: Projection product-depth hierarchy and exact depth-two spectrum
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/projection-product-depth-hierarchy.yml'
+      - 'notes/projection-product-depth-hierarchy/**'
+  pull_request:
+    paths:
+      - '.github/workflows/projection-product-depth-hierarchy.yml'
+      - 'notes/projection-product-depth-hierarchy/**'
+
+permissions:
+  contents: read
+
+jobs:
+  full-exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify complete frozen package hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd notes/projection-product-depth-hierarchy
+          sha256sum -c SHA256SUMS
+      - name: Independently replay certified depth-one parent Pareto data
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-persistent-nesting-gap/code/check.py > /tmp/depthone-proof.txt
+          grep -F 'PASS: sharp persistent projection nesting separation' /tmp/depthone-proof.txt
+      - name: Replay full exact depth-two proof normally and under Python optimization
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-product-depth-hierarchy/code/check_depth2.py > /tmp/depth2-normal.txt
+          python3 -O notes/projection-product-depth-hierarchy/code/check_depth2.py > /tmp/depth2-optimized.txt
+          cmp /tmp/depth2-normal.txt /tmp/depth2-optimized.txt
+          cmp /tmp/depth2-normal.txt notes/projection-product-depth-hierarchy/results/replay.txt
+      - name: Reject incorrect proof constants and corrupted finite certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 notes/projection-product-depth-hierarchy/code/negative_controls.py > /tmp/depth2-negative.txt
+          cmp /tmp/depth2-negative.txt notes/projection-product-depth-hierarchy/results/negative.txt

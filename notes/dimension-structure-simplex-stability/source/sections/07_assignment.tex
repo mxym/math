@@ -1,0 +1,103 @@
+\section{A finite determinant assignment theorem}
+\label{sec:assignment}
+We record a finite version of the retained volume-weighted assignment
+argument, with its proof. For a real number $t$, write $t_+=\max(t,0)$.
+All probability measures in this section have finite support, so no
+integrability or limiting-law issue is present.
+
+\begin{lemma}[Seminorm assignment]\label{lem:assignment}
+Let $\mu$ be a centered probability measure with finite support
+$\mathcal A\subset\R^d$ whose affine span is $\R^d$. Let $N$ be a seminorm
+with $N(x)\le R_0$ on $\mathcal A$, where $R_0\ge0$. For independent
+samples with law $\mu$, put
+\[
+ A=\E\abs{\det(X_1,\ldots,X_d)},\qquad
+ B=\E\abs{\det((X_0,1),\ldots,(X_d,1))}.
+\]
+Then $B>0$, $D:=B-A\ge0$, and there are affinely independent anchors
+$w_0,\ldots,w_d\in\mathcal A$ and an assignment $I:\mathcal A\to\{0,\ldots,d\}$
+with
+\begin{equation}\label{eq:assignment}
+ h:=\E N(X-w_{I(X)})\le R_0(d+1)(d+2)\frac{D}{B}.
+\end{equation}
+One can choose $I(x)$ to be the least index of a largest barycentric
+coordinate of $x$ in the anchor simplex.
+\end{lemma}
+\begin{proof}
+For an ordered base $\mathbf x=(x_1,\ldots,x_d)$ define
+\[
+ F_{\mathbf x}(y)=\det((x_1,1),\ldots,(x_d,1),(y,1)),\quad
+ P_{\mathbf x}=\E(F_{\mathbf x}(X))_+,\quad
+ M_{\mathbf x}=\E(-F_{\mathbf x}(X))_+.
+\]
+Centering and affinity in the last column give
+$\abs{\E F_{\mathbf x}(X)}=\abs{\det(x_1,\ldots,x_d)}$. Hence
+\begin{equation}\label{eq:Dsign}
+ D=2\E_{\mathbf X}\min(P_{\mathbf X},M_{\mathbf X})\ge0.
+\end{equation}
+For two test points set
+\[
+ \psi_{\mathbf x}(y,z)=
+ \min((F_{\mathbf x}(y))_+,(-F_{\mathbf x}(z))_+)
+ +\min((-F_{\mathbf x}(y))_+,(F_{\mathbf x}(z))_+).
+\]
+Each conditional expected minimum is at most
+$\min(P_{\mathbf x},M_{\mathbf x})$. Therefore
+\begin{equation}\label{eq:psibudget}
+ \E_{\mathbf X,Y,Z}\psi_{\mathbf X}(Y,Z)\le D.
+\end{equation}
+These statements include singular bases.
+
+For an anchor tuple $W=(w_0,\ldots,w_d)$, put
+$v(W)=\abs{\det((w_0,1),\ldots,(w_d,1))}$. Form $G(W,x)$ by adding the
+following witnesses, with any fixed order on each base:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item for each $i$, the base is the other $d$ anchors and the test points
+are $w_i,x$;
+\item for each $i<j$, the base is $x$ and the other $d-1$ anchors, and the
+test points are $w_i,w_j$.
+\end{enumerate}
+Reversing base orientation does not change $\psi$. There are
+$M_d=(d+1)(d+2)/2$ summands. Each uses $d+2$ independent samples when
+$W$ and $x$ are sampled, so, with $J(W)=\E_XG(W,X)$,
+\[
+ \E_WJ(W)\le M_dD,\qquad \E_Wv(W)=B>0.
+\]
+Positivity of $B$ follows from an affinely independent tuple in the support.
+Weighting anchor tuples by $v(W)/B$ gives an anchor tuple with $v(W)>0$ and
+\begin{equation}\label{eq:weightedchoice}
+ \frac{J(W)}{v(W)}\le M_d\frac{D}{B}.
+\end{equation}
+Indeed its weighted mean is
+$\E[J(W)\mathbf1_{\{v(W)>0\}}]/B\le M_dD/B$.
+No assertion that $J$ vanishes at singular tuples is needed.
+
+Fix this tuple, and write $\alpha_i(x)$ for its barycentric coordinates.
+Determinant affinity gives, for witnesses of type (i),
+$v(W)\min(1,(-\alpha_i)_+)$; those of type (ii) equal
+\[
+ v(W)\bigl[\min((\alpha_i)_+,(\alpha_j)_+)
+           +\min((-\alpha_i)_+,(-\alpha_j)_+)\bigr].
+\]
+It follows that $G(W,x)\ge v(W)\phi(x)$, where
+\[
+ \phi(x)=\sum_i\min(1,(-\alpha_i(x))_+)
+       +\sum_{i<j}\min((\alpha_i(x))_+,(\alpha_j(x))_+).
+\]
+Let $j=I(x)$ be a largest coordinate. Since $\sum_i\alpha_i=1$, we have
+$\alpha_j>0$. Put $N_x=\sum_i(-\alpha_i)_+$ and
+$U_x=\sum_{i\ne j}(\alpha_i)_+$. The support bounds yield both
+\[
+ N(x-w_j)\le2R_0(N_x+U_x),\qquad N(x-w_j)\le2R_0.
+\]
+The first follows by expanding $x-w_j=\sum_{i\ne j}\alpha_i(w_i-w_j)$;
+the second uses $x,w_j\in\mathcal A$. The pairs containing the largest
+coordinate give $U_x\le\sum_{i<l}\min((\alpha_i)_+,(\alpha_l)_+)$.
+Also $\min(1,N_x)\le\sum_i\min(1,(-\alpha_i)_+)$. Thus
+\[
+ N(x-w_{I(x)})\le2R_0\min(1,N_x+U_x)
+ \le2R_0\phi(x)\le2R_0\frac{G(W,x)}{v(W)}.
+\]
+Integrating and using \eqref{eq:weightedchoice} proves \eqref{eq:assignment}.
+The reasoning includes $D=0$ without division by $D$.
+\end{proof}

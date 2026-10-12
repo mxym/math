@@ -1,0 +1,137 @@
+\section{Conservation, maximality, and initial bias}\label{sec:mechanics}
+\begin{lemma}[Mechanical identities and global quadratic bounds]
+\label{lem:mechanics}
+For either microscopic flow, almost surely on its defined trajectories,
+\begin{align}
+ \pi_t^\eps(|v|^2)&=\pi_0^\eps(|v|^2),\label{eq:energy}\\
+ \pi_t^\eps(x\cdot v)&=\pi_0^\eps(x\cdot v)+t\pi_0^\eps(|v|^2)
+                                  +\eps\cH_\eps(t),\label{eq:virial}\\
+ \pi_t^\eps(|x|^2)&=\pi_0^\eps(|x|^2)+2t\pi_0^\eps(x\cdot v)
+       +t^2\pi_0^\eps(|v|^2)+2\eps\int_0^t\cH_\eps(s)\dd s.
+ \label{eq:spread}
+\end{align}
+Mass, momentum, and angular momentum are constant, and the position sum is
+its initial value plus $t$ times momentum. For every fixed $q\in\cQ$,
+\begin{equation}\label{eq:global-bound}
+ \sup_{t\le T}\sum_j|q(z_j(t))|\le C_{q,T}N.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Energy conservation and the initial velocity support give
+$\|V(t)\|_2\le R_v\sqrt N$. With continuous positions and their piecewise
+velocity derivative, Minkowski gives
+\[
+ \|X(t)\|_2\le\|X(0)\|_2+\int_0^t\|V(s)\|_2\dd s
+                           \le(R_x+TR_v)\sqrt N.
+\]
+Cauchy--Schwarz controls the absolute mixed and angular sums and the linear
+position and velocity sums, proving \eqref{eq:global-bound}.
+At a contact the pair energy and momentum jumps are zero, whereas
+\[
+ x\cdot(v'-v)+(x+\eps\omega)\cdot(w'-w)=\eps B.
+\]
+The angular jump is $\eps B\,\omega\times\omega=0$.
+Streaming gives derivatives $|v|^2$ for $x\cdot v$, $2x\cdot v$ for
+$|x|^2$, and zero for $x\times v$. Integration proves the identities.
+Accepted pasted contacts have exactly the same separation and orientation;
+rejected contacts and restarts have no phase impulse. Overlaps introduce
+no additional term. The nonnegative cumulative speed sum is bounded by $C_TN/\eps$,
+so no extra true collision-count moment estimate is required for its
+integrability. H1 justifies taking expectations.
+\end{proof}
+
+\begin{proposition}[Maximal transport-closed quadratic invariants]
+\label{prop:maximal}
+The definition of $\cQ$ gives exactly \eqref{eq:Q}. In spatial dimension
+$d$, its dimension is $2d+4+d(d-1)/2$.
+\end{proposition}
+\begin{proof}
+Write a general quadratic as
+\[
+ \alpha+b\cdot x+c\cdot v+x^TDx+x^TMv+v^TFv,
+ \qquad D^T=D,\quad F^T=F.
+\]
+At a common collision position the linear-in-velocity terms depend only
+on pair momentum. Expressing the velocities by their center velocity and
+relative velocity $g$, pair invariance of the remaining term requires
+$g^TFg$ invariant under every reflection of $g$. A reflection can send a
+vector to any other vector of the same length; hence $F=\kappa I$.
+The velocity-quadratic coefficient of $q(x+tv,v)$ is
+$F+t\operatorname{sym}M+t^2D$. For it to be scalar at every $t$,
+$\operatorname{sym}M=dI$ and $D=eI$. The skew part of $M$ is arbitrary.
+Conversely these conditions make all the transported tests collision
+invariant. They give \eqref{eq:Q}. Counting its independent coefficients
+gives the dimension. This proves maximality with the stated property,
+without asserting invariance for an arbitrary anisotropic quadratic.
+\end{proof}
+
+For $q\in\cQ$, the mechanical identities combine to
+\begin{equation}\label{eq:Q-identity}
+ \pi_t^\eps(q)=\pi_0^\eps(r_q(t))
+ +\eps\left[d(q)\cH_\eps(t)+2e(q)\int_0^t\cH_\eps(s)\dd s\right].
+\end{equation}
+The skew term in \eqref{eq:Q} has neither a streaming derivative nor a
+finite-diameter impulse. Boltzmann's co-located invariants give
+\begin{equation}\label{eq:Bol-Q}
+ f_t(q)=f_0(r_q(t)).
+\end{equation}
+These deterministic moment identities can be justified first with spatial
+and velocity cutoffs. Global energy and the propagated spatial second
+moment remove them; the latter follows from compact initial support and
+$2|x\cdot v|\le|x|^2+|v|^2$. This deterministic integration is not an
+unbounded fluctuation theorem.
+
+\begin{lemma}[Initial vacancy bias]\label{lem:vacancy}
+For every fixed polynomial $q$,
+\begin{equation}\label{eq:vacancy}
+ a_\eps(q):=\eps^{-1}[\E\pi_0^\eps(q)-f_0(q)]\longrightarrow a(q).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The insertion identity for \eqref{eq:ensemble} is
+$F_{1,0}^\eps(x,v)=f_0(x,v)\Prob\{K_x=0\}$, where $K_x$ counts centers
+of an independent initial configuration in the radius-$\eps$ ball about $x$.
+H1, smoothness of $\rho_0$, and $\mu\eps^3=\eps$ give, uniformly in $x$,
+\[
+ \E K_x=\eps\bex\rho_0(x)+O(\eps^2),\qquad
+ \E K_x(K_x-1)\le\mu^2\left(\int_{B(x,\eps)}\rho_0\right)^2
+                                                   =O(\eps^2).
+\]
+The elementary Bonferroni inequalities
+\[
+ \E K_x-\tfrac12\E K_x(K_x-1)
+                 \le\Prob(K_x\ge1)\le\E K_x
+\]
+yield
+$F_{1,0}^\eps=f_0[1-\eps\bex\rho_0+O(\eps^2)]$.
+Multiply by $q$ and integrate on the compact support of $f_0$.
+This proves \eqref{eq:vacancy}. In particular the activity $\mu$ cannot
+be identified with $\E N$ at the order relevant to Boltzmann centering.
+\end{proof}
+
+\begin{lemma}[True mean transfer]\label{lem:mean-transfer}
+For $q\in\cQ$ and every fixed integer $p>21$,
+\begin{equation}\label{eq:mean-transfer}
+ \sup_{t\le T}\eps^{-1}
+  |\E\pi_t^\eps(q)-\E\pi_t^{\eps,p}(q)|
+                      \le C_{q,T,p}\eps^{(p-21)/(20p)}.
+\end{equation}
+Moreover $\E\cH_\eps\to H$ uniformly.
+\end{lemma}
+\begin{proof}
+Let $E_\eps$ be H6's full-time discrepancy event. Off it the moment paths
+agree; on it \eqref{eq:global-bound} bounds their absolute particle-sum
+difference by $C_{q,T}N$. Holder and H1 give
+\[
+ \eps^{-1}\E[(N/\mu)\ind_{E_\eps}]
+ \le C_p\eps^{-1+(21/20)(1-1/p)}
+ =C_p\eps^{(p-21)/(20p)}.
+\]
+For $p=42$ the exponent is $1/40$. Apply \eqref{eq:virial} to both
+coupled flows: their initial and energy terms agree, so
+$\cH_\eps-\cH_\eps^p=\eps^{-1}
+[\pi_t^\eps(x\cdot v)-\pi_t^{\eps,p}(x\cdot v)]$.
+The mean comparison therefore controls the speed-sum expectation uniformly.
+Lemma~\ref{lem:incidence-mean} completes the proof. This is first-moment
+transfer, not a deduction from probability coupling alone.
+\end{proof}

@@ -1,0 +1,31 @@
+<project>/.lake/extension-controls-2i36_3gw/strict-zero-endpoint/Entry005/ProjectionCap.lean:188:2: error: Tactic `apply` failed: could not unify the conclusion of `hausdorffDist_le_of_mem_dist hbound`
+  hausdorffDist ?m.216 ?m.217 ≤ C * η ^ (1 / ↑m)
+with the goal
+  hausdorffDist ↑K ↑P < ↑(Module.finrank ℝ E - 1) * (M + 1) * η ^ (1 / ↑(Module.finrank ℝ E - 1))
+
+Note: The full type of `hausdorffDist_le_of_mem_dist hbound` is
+  (∀ x ∈ ?m.216, ∃ y ∈ ?m.217, dist x y ≤ C * η ^ (1 / ↑m)) →
+    (∀ x ∈ ?m.217, ∃ y ∈ ?m.216, dist x y ≤ C * η ^ (1 / ↑m)) → hausdorffDist ?m.216 ?m.217 ≤ C * η ^ (1 / ↑m)
+
+E : Type u_1
+inst✝⁴ : NormedAddCommGroup E
+inst✝³ : InnerProductSpace ℝ E
+inst✝² : FiniteDimensional ℝ E
+inst✝¹ : MeasurableSpace E
+inst✝ : BorelSpace E
+hd : 2 ≤ Module.finrank ℝ E
+K P : ConvexBody E
+M η : ℝ
+hM : 0 ≤ M
+hη : 0 ≤ η
+hball : closedBall 0 1 ⊆ ↑K
+hKP : K ≤ P
+hPM : ↑P ⊆ closedBall 0 M
+hdef : ∀ (u : E), ‖u‖ = 1 → (projectedVolume (ℝ ∙ u)ᗮ P).toReal - (projectedVolume (ℝ ∙ u)ᗮ K).toReal ≤ η
+m : ℕ := Module.finrank ℝ E - 1
+C : ℝ := ↑m * (M + 1)
+hm : 0 < m
+hmR : 0 < ↑m
+hC : 0 < C
+hbound : 0 ≤ C * η ^ (1 / ↑m)
+⊢ hausdorffDist ↑K ↑P < ↑(Module.finrank ℝ E - 1) * (M + 1) * η ^ (1 / ↑(Module.finrank ℝ E - 1))

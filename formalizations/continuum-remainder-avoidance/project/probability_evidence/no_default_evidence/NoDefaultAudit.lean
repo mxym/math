@@ -1,0 +1,12 @@
+import ContinuumGeometric.NoDefaultProbability
+
+#print axioms ContinuumGeometric.chooseRoutingChild_eq_default_iff_all_false
+#print axioms ContinuumGeometric.nondefaultPathAddress_injective
+#print axioms ContinuumGeometric.routeLeaf_eq_nondefault_iff_reads
+#print axioms ContinuumGeometric.actual_nondefault_leaf_probability
+#print axioms ContinuumGeometric.actual_routeHasNoDefault_probability
+#print axioms ContinuumGeometric.actual_routeHasNoDefault_probability_rpow
+
+#check ContinuumGeometric.actual_routeHasNoDefault_probability
+#check ContinuumGeometric.actual_routeHasNoDefault_probability_rpow
+#check ContinuumGeometric.chooseRoutingChild_eq_default_iff_all_false

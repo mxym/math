@@ -1,0 +1,78 @@
+{
+  "status": "pass",
+  "document": "proof.pdf",
+  "document_sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9",
+  "document_bytes": 354063,
+  "page_count": 11,
+  "page_size": "US Letter (612 x 792 pt)",
+  "rendering": {
+    "tool": "pdftoppm (Poppler)",
+    "format": "PNG",
+    "resolution_dpi": 120,
+    "output_pattern": "build/render/page-XX.png"
+  },
+  "visual_review": {
+    "method": "Each rendered page opened individually with view_image",
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "result": "No clipping, overlapping text or equations, missing glyphs, unreadable bibliography URLs, or broken page numbering. Mathematical spacing and typography are consistent.",
+    "final_edit": "Section 2 heading on page 4 received a deliberate line break; the final page was re-rendered and re-inspected."
+  },
+  "independent_visual_review": {
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "result": "All final rendered pages rechecked after the heading correction. No clipping, overlap, missing glyphs, or unreadable references found.",
+    "final_page_4_recheck": "pass: the heading breaks cleanly before two elementary improvements",
+    "verified_pdf_sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9"
+  },
+  "compiler": {
+    "engine": "pdfTeX 1.40.26 (TeX Live 2025/dev/Debian)",
+    "passes": 3,
+    "shell_escape": false,
+    "overfull_boxes": 0,
+    "underfull_boxes": 0,
+    "undefined_references_or_citations": 0,
+    "missing_characters": 0,
+    "warnings": [
+      "Package epstopdf Warning: Shell escape feature is not enabled."
+    ],
+    "warning_assessment": "Expected non-blocking warning: this proof contains no EPS graphics and deliberately builds with shell escape disabled."
+  },
+  "reproducibility": {
+    "source_date_epoch": 1791331200,
+    "force_source_date": 1,
+    "timezone": "UTC",
+    "locale": "C",
+    "fresh_rebuilds": 2,
+    "fresh_rebuild_directories": [
+      "build/rebuild-check",
+      "build/second-fresh-rebuild"
+    ],
+    "method": "Only proof.tex and build.sh were copied into each clean directory; each generated a fresh TeX format from installed sources. No format cache was copied.",
+    "all_pdf_bytes_equal": true,
+    "pdf_sha256": "1972edd13d2b43d6318fbb0ccdbc192ef14139b83f429249da9bc06ae764f2d9"
+  },
+  "scope": "Layout QA and byte reproducibility do not constitute mathematical proof verification, human peer review, or proof-assistant formalization."
+}

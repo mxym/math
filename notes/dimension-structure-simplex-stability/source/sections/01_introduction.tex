@@ -1,0 +1,81 @@
+\section{The original invariant and the dimension question}\label{sec:intro}
+For a full-dimensional convex body $K\subset\R^d$, write $|K|$ for its
+Euclidean volume and $h_K$ for its support function. For a unit vector $u$,
+let $\pi_K(u)$ denote the $(d-1)$-dimensional volume of the orthogonal
+projection onto $u^\perp$. Its homogeneous extension is
+\[
+ b_K(z)=\begin{cases}\norm z\pi_K(z/\norm z),&z\ne0,\\0,&z=0.\end{cases}
+\]
+The canonical projection body $\Pi K$ has support function $b_K$.
+For a body $L$ of dimension $p$, put
+\[
+ R(L)=\frac{|\Pi L|}{|L|^{p-1}},\qquad
+ \pyr L=\conv((L,0)\cup\{(0,1)\}).
+\]
+The actual projection-body pyramid quantities are
+\begin{equation}\label{eq:actualdefect}
+ a(K)=\left(\frac d{d+1}\right)^d\frac{R(\pyr K)}{R(K)}-1,
+ \qquad e(K)=a(K)-\frac1{d+1}.
+\end{equation}
+For a full-dimensional simplex $S\subset K$ with its own centroid $g_S$,
+we define the excess
+\begin{equation}\label{eq:excess}
+ E(K,S)=\inf\{u\ge0:K\subset g_S+(1+u)(S-g_S)\}.
+\end{equation}
+The simplex $S$ is prescribed. In particular, the definition does not
+minimize over maximum simplices or over centers. All affine changes below
+transport $K$, $S$, and $g_S$ together. Set
+\[
+ n=d+1,\qquad m=d-1,\qquad H_d=3d^2(d+1)^3(d+2).
+\]
+Unless stated otherwise $d\ge3$. The geometric clipping results also apply
+in smaller dimensions within their explicitly stated ranges.
+
+The retained unrestricted theorem~\cite{Quadratic} gives
+$E(K,S)\le4096d^2e(K)^{1/m}$ for every prescribed maximum simplex;
+realized square-pyramid bodies give a lower coefficient of
+$n[dn]^{1/m}$. Its proof and formal-verification record are prior inputs,
+not formal verification of the statements added here. Our principal result
+settles the leading dimensional coefficient on an entire facet-count class.
+
+\begin{theorem}[The few-facet coefficient]\label{thm:few-facet}
+For every full-dimensional convex $d$-polytope $K$ with at most $d+2$
+facets and every maximum-volume inscribed simplex $S$,
+\begin{equation}\label{eq:few-upper}
+ E(K,S)\le nH_d^{1/m}e(K)^{1/m}\le192d\,e(K)^{1/m}.
+\end{equation}
+The power $1/m$ is sharp in this class. If
+\[
+ G_d^{\rm fac}=\sup\left\{\frac{E(K,S)}{e(K)^{1/m}}:
+ K\text{ has at most }d+2\text{ facets},\ S\text{ is maximum},\ e(K)>0\right\},
+\]
+where all bodies are full dimensional, then
+\begin{equation}\label{eq:few-squeeze}
+ n[dn]^{1/m}\le G_d^{\rm fac}\le nH_d^{1/m},
+ \qquad\lim_{d\to\infty}\frac{G_d^{\rm fac}}d=1.
+\end{equation}
+\end{theorem}
+The exact fixed-dimensional optimum is not determined. The proof in
+Section~\ref{sec:few} uses two exact descriptions: all maxima in an arbitrary
+one-halfspace clipping, and the actual defect from signed facet cofactors.
+The halfspace may remove several vertices of its original simplex.
+
+Full projection control has additional content beyond near-corner points.
+Section~\ref{sec:projection} develops inscribed concentric cores and a
+complete face-depth hierarchy. The resulting comparison simplex is not
+identified with a prescribed maximum. Section~\ref{sec:inverse} proves
+inverse rigidity and retention when columns have support at most two;
+its actual-defect conclusion requires compatibility with the enclosing
+simplex supplied by the actual chain. These conclusions leave the
+unrestricted linear-versus-quadratic dimension-order question open.
+
+The actual facet identities, finite determinant assignment, and enclosure
+proof are reproduced in Appendices~\ref{sec:assignment}--\ref{sec:enclosure}.
+Their standard convex-geometric inputs are Cauchy's projection formula,
+the zonotope volume formula, the first mixed-volume formula, and
+Minkowski's first inequality; Brunn--Minkowski is also used for one of the
+core proofs. We use these classical results in their ordinary forms
+\cite{Schneider}. A systematic literature and priority comparison has not
+been carried out. Source-series provenance~\cite{Series} and the precise review
+boundaries are recorded separately in Appendix~\ref{app:review} and the
+accompanying source map.

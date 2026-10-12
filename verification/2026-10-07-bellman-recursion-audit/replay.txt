@@ -1,0 +1,42 @@
+Audited base: 80b3317de497dffdaa6b6398d7ba908c29cb252a
+Base tree: 1917de5a50dd94941833c903be9aa3eb88c12b2d
+Runtime: Python 3.12.14
+All proof and regression comparisons use explicit exceptions, retained under -O.
+
+Original v5 manifest, normal and -O:
+PASS: 9 pinned files match SHA-256 manifest
+
+Original v5 balanced certificate, normal and -O, byte-identical to committed output:
+PASS: balanced homogeneous simplex-orbit classification certificate
+finite_core_excluded = 335
+finite_core_exception_pairs = 7
+three_level_exceptions_excluded = 6
+p_tail_arities_certified = 18
+large_t_tail = all t>=20, all p>=1
+winner = (t,p)=(2,5)
+winner_dimension_level6 = 21845
+winner_lower_endpoint = 14267/5000
+competitor_log_upper = 131/125
+
+Original and corrected Bellman certificate, normal and -O, byte-identical reports:
+PASS: 26,847 finite Bellman branches certified.
+PASS: unique product equality is T5 x T5 at B=6.
+PASS: analytic tails s>=10 and r>=1000 for s<=9 certified.
+PASS: Gamma_C <= e*(189/128)^(11/85) < 2.8589.
+Exact JSON bytes: 857255
+Exact JSON SHA256: cd66ff9796b985b18f9fd3c051109d09ab30973d79c97606a6a614e8b67986de
+
+Structural regression, normal and -O:
+PASS: 26,847 independently reconstructed quadratic branches; 80,541 endpoint/midpoint minimizer checks.
+PASS: all three implicit endpoint-tail monotonicity conditions verified exactly.
+PASS: both manuscript high-branch notation counterexamples verified exactly.
+PASS: limiting high-branch sign certificates and invalid-log negative controls.
+
+Inherited v2 checker, normal and -O with --self-test:
+PASS: exact downward-hull closure in dimensions 0..14;
+PASS: direct geometry and all 136 witness minors;
+PASS: independent central-binomial recurrence, 2.8534 < Lambda < 2.8535;
+PASS: four deliberately corrupted certificates rejected.
+Exact JSON SHA256: a362e9e4b1331ceb5f0b36d9fe1ffb4271226c7e1d967e53df8f85188fe9f17b
+
+Scope: restricted-model theorems and arithmetic replay, not external peer review or analytic formalization.

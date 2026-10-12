@@ -1,0 +1,53 @@
+{
+  "status": "FAIL",
+  "mode": "negative",
+  "raw_log_sha256": "c1507693be7f9378a6d25776ace4a85055558eeb53b18a9c8ac383cfa128e158",
+  "owned_module_count_including_umbrella": 1,
+  "all_owned_declarations": 21,
+  "all_owned_kinds": {
+    "inductive": 1,
+    "theorem": 5,
+    "definition": 11,
+    "opaque": 1,
+    "axiom": 1,
+    "constructor": 1,
+    "recursor": 1
+  },
+  "safe_roots": 17,
+  "safe_root_kinds": {
+    "theorem": 5,
+    "definition": 11,
+    "opaque": 1
+  },
+  "private_safe_roots": [
+    "_private.ControlInjected.0.UnrelatedNamespace.generatedHiddenProof"
+  ],
+  "private_theorems": [
+    "_private.ControlInjected.0.UnrelatedNamespace.generatedHiddenProof"
+  ],
+  "inventory_partial_or_unsafe": [],
+  "owned_not_reachable_from_safe_roots": [],
+  "safe_root_axioms": [
+    "_private.ControlInjected.0.UnrelatedNamespace.injectedPrivateAxiom",
+    "propext"
+  ],
+  "safe_root_escape_counts": {
+    "unsafe_dependencies": 0,
+    "partial_dependencies": 0,
+    "missing_dependencies": 0
+  },
+  "unique_reachable_constants_across_all_owned_declarations": 63,
+  "edge_extractor_disagreements": [],
+  "safe_root_cached_discrepancies": [],
+  "non_safe_root_cached_discrepancies": [],
+  "resolved_owned_paths": {
+    "ControlInjected": "${ROUND5_AUDIT}/replay/audit/ControlInjected.olean"
+  },
+  "frozen_safe_root_comparison": null,
+  "violations": [
+    "UnrelatedNamespace.publicLeak: nonstandard axioms ['_private.ControlInjected.0.UnrelatedNamespace.injectedPrivateAxiom']",
+    "UnrelatedNamespace.storedOpaqueLeak: nonstandard axioms ['_private.ControlInjected.0.UnrelatedNamespace.injectedPrivateAxiom']",
+    "_private.ControlInjected.0.UnrelatedNamespace.generatedHiddenProof: nonstandard axioms ['_private.ControlInjected.0.UnrelatedNamespace.injectedPrivateAxiom']",
+    "_private.ControlInjected.0.UnrelatedNamespace.injectedPrivateAxiom: owned custom axiom"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "scope": "Exact checker corruption controls, not a Lean or analytic-proof certificate",
+  "checker_sha256": "6b20f8165a033f081705f03f74080fd953b85ee6f1091faddab00bc32ff26ced",
+  "checks": [
+    {
+      "name": "unchanged checker",
+      "exit_code": 0,
+      "passed": true,
+      "expected_diagnostic": null,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"scope\": \"Exact finite ancillary identities only; not a proof of the unbounded analytic theorem\",\n  \"schur\": {\n    \"shapes\": 306,\n    \"probability_checks\": 1224,\n    \"zero_probability_blocks\": 432\n  },\n  \"orientation\": {\n    \"noncommuting_input_states\": 4,\n    \"matrix_dimension\": 16,\n    \"central_block_ranks\": [\n      10,\n      6\n    ]\n  },\n  \"multiplicity_selection\": {\n    \"coherent_multiplicity_selections\": 45\n  },\n  \"packing\": {\n    \"integer_packing_cases\": 60517,\n    \"truncated_cases\": 23160,\n    \"fully_extracted_cases\": 11589\n  },\n  \"coherent_channels\": {\n    \"code_systems\": 5,\n    \"coherent_dyads\": 632\n  },\n  \"scalar_converses\": {\n    \"scalar_effect_cases\": 1356\n  },\n  \"algebra\": {\n    \"symbolic_polynomial_identities\": 2\n  },\n  \"checker_sha256\": \"6b20f8165a033f081705f03f74080fd953b85ee6f1091faddab00bc32ff26ced\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "unchanged checker with assertions disabled",
+      "exit_code": 0,
+      "passed": true,
+      "expected_diagnostic": null,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"scope\": \"Exact finite ancillary identities only; not a proof of the unbounded analytic theorem\",\n  \"schur\": {\n    \"shapes\": 306,\n    \"probability_checks\": 1224,\n    \"zero_probability_blocks\": 432\n  },\n  \"orientation\": {\n    \"noncommuting_input_states\": 4,\n    \"matrix_dimension\": 16,\n    \"central_block_ranks\": [\n      10,\n      6\n    ]\n  },\n  \"multiplicity_selection\": {\n    \"coherent_multiplicity_selections\": 45\n  },\n  \"packing\": {\n    \"integer_packing_cases\": 60517,\n    \"truncated_cases\": 23160,\n    \"fully_extracted_cases\": 11589\n  },\n  \"coherent_channels\": {\n    \"code_systems\": 5,\n    \"coherent_dyads\": 632\n  },\n  \"scalar_converses\": {\n    \"scalar_effect_cases\": 1356\n  },\n  \"algebra\": {\n    \"symbolic_polynomial_identities\": 2\n  },\n  \"checker_sha256\": \"6b20f8165a033f081705f03f74080fd953b85ee6f1091faddab00bc32ff26ced\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "hook denominator shift",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "integral Weyl and hook dimensions",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 269, in run_checks\n    'schur':check_schur(),'orientation':check_unknown_orientation(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 75, in check_schur\n    block_dims={lam:dims(lam) for lam in shapes}\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 75, in <dictcomp>\n    block_dims={lam:dims(lam) for lam in shapes}\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 33, in dims\n    require(u.denominator==v.denominator==1,'integral Weyl and hook dimensions')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: integral Weyl and hook dimensions\n"
+    },
+    {
+      "name": "incorrect Schur character index",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "independent Weyl character dimension",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 269, in run_checks\n    'schur':check_schur(),'orientation':check_unknown_orientation(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 80, in check_schur\n    require(schur(lam,tuple(F(1) for _ in range(D)))==u,'independent Weyl character dimension')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: independent Weyl character dimension\n"
+    },
+    {
+      "name": "missing universal-state normalization",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "normalized universal state",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 269, in run_checks\n    'schur':check_schur(),'orientation':check_unknown_orientation(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 125, in check_unknown_orientation\n    require(trace(tau)==1,'normalized universal state')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: normalized universal state\n"
+    },
+    {
+      "name": "truncate the unknown representation factor",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "multiplicity-factor retained mass",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 270, in run_checks\n    'multiplicity_selection':check_multiplicity_selection(),'packing':check_packing(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 158, in check_multiplicity_selection\n    require(trace(retained)==F(vp,v),'multiplicity-factor retained mass')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: multiplicity-factor retained mass\n"
+    },
+    {
+      "name": "cut off the multiplicity factor by one",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "complete extraction of every good block",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 270, in run_checks\n    'multiplicity_selection':check_multiplicity_selection(),'packing':check_packing(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 187, in check_packing\n    require(vp==v and d==K,'complete extraction of every good block');exact+=1\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: complete extraction of every good block\n"
+    },
+    {
+      "name": "omit leftover Kraus coordinates",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "all leftover Kraus branches present",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 271, in run_checks\n    'coherent_channels':check_coherent_code(),'scalar_converses':check_scalar_converses(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 208, in check_coherent_code\n    require(len(A)==a and len(B)==b,'all leftover Kraus branches present')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: all leftover Kraus branches present\n"
+    },
+    {
+      "name": "keep false cross-code coherences",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "all coherent code dyads extracted correctly",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 271, in run_checks\n    'coherent_channels':check_coherent_code(),'scalar_converses':check_scalar_converses(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 216, in check_coherent_code\n    require(result==(phi if i==j else {}),'all coherent code dyads extracted correctly')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: all coherent code dyads extracted correctly\n"
+    },
+    {
+      "name": "wrong target overlap power",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "squared target overlap convention",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 271, in run_checks\n    'coherent_channels':check_coherent_code(),'scalar_converses':check_scalar_converses(),\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 217, in check_coherent_code\n    if i==j:require(trace(multiply(result,target))==F(d*d,K*K),'squared target overlap convention')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: squared target overlap convention\n"
+    },
+    {
+      "name": "wrong escort sign",
+      "exit_code": 1,
+      "passed": true,
+      "expected_diagnostic": "escort relative-entropy identity",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 280, in <module>\n    if __name__=='__main__':main()\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 276, in main\n    args=p.parse_args();report=run_checks();text=json.dumps(report,indent=2)+'\\n'\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 272, in run_checks\n    'algebra':check_algebra(),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 255, in check_algebra\n    require(poly_mul(a,D)==right,'escort relative-entropy identity')\n  File \"/srv/mcp-workspace/.tmp/schur-extraction-mutants-y6p3o9b9/check.py\", line 18, in require\n    raise CheckFailed(label)\n__main__.CheckFailed: escort relative-entropy identity\n"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+name: Complete Lean verification of all cycle chromatic polynomials
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/chromatic-cycles-all-n-lean.yml'
+      - 'formalizations/chromatic-cycles-all-n-lean/**'
+  pull_request:
+    paths:
+      - '.github/workflows/chromatic-cycles-all-n-lean.yml'
+      - 'formalizations/chromatic-cycles-all-n-lean/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check immutable source manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd formalizations/chromatic-cycles-all-n-lean
+          sha256sum -c SHA256SUMS
+      - name: Install pinned Lean and independently build Mathlib-backed proof library
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/chromatic-cycles-all-n-lean
+          use-mathlib-cache: 'true'
+          build: 'true'
+          test: 'false'
+      - name: Audit all exported theorems, ban non-kernel placeholders and reject invalid proof
+        working-directory: formalizations/chromatic-cycles-all-n-lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/replay.sh

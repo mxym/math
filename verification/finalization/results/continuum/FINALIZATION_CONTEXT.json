@@ -1,0 +1,34 @@
+{
+  "schema": "continuum-fresh-finalization-context-v1",
+  "finished_utc": "2026-10-08T06:45:14.786077+00:00",
+  "integration_snapshot": "bddf3ac39f90fe828c85be269e984ffe050a4136",
+  "original_sealed_verifier_sha256": "c0f68c5904bf175e284d4255f5dfb3a1c43a19643e821172b2d88b7d6330bdc5",
+  "adapter_sha256": "b238eb14cac6d24e2264e3a71ff19ea695026441a679cb110c474732b3c33266",
+  "pinned_import_scanner_sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b",
+  "historical_proof_sources_and_kernel_checks": "unchanged",
+  "original_postbuild_guards_and_numeric_postconditions": "PASS without adaptation",
+  "owned_modules_recompiled": 65,
+  "new_external_modules_recompiled": 1107,
+  "raw_log_files": 1249,
+  "all_raw_logs_archive_verified_against_original_bytes": true,
+  "packaging_guard_case_count": 88,
+  "packaging_guard_production_invocations": 547,
+  "replay_command": [
+    "python3",
+    "-B",
+    "verification/finalization/replay_continuum.py",
+    "--lean-bin",
+    "/path/to/lean-4.34.1/bin",
+    "--dependency-project",
+    "/path/to/pinned-dependency-project",
+    "--output",
+    "/outside/repository/new-run"
+  ],
+  "limits": [
+    "Official Lean compiler, kernel implementation, runtime and machine remain trusted.",
+    "Standard propext, Classical.choice and Quot.sound axioms remain.",
+    "Pinned official dependency caches reused; not a rebuild of all Mathlib.",
+    "Independent AI/model review is not external human peer review.",
+    "The avoiding set depends on the fixed prescribed nonempty countable family; no universal-family set is claimed."
+  ]
+}

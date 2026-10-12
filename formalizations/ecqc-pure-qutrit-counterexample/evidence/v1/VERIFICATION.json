@@ -1,0 +1,172 @@
+{
+  "status": "FRESH_COMPILE_AND_EMPTY_KERNEL_REPLAY_PASS",
+  "started_utc": "2026-10-09T06:38:29.568897+00:00",
+  "completed_utc": "2026-10-09T06:42:39.614180+00:00",
+  "work_directory": "/root/ecqc-qutrit-fresh-20261009-v1",
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "actual_lean_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "dependencies": {
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+  },
+  "module_count": 8,
+  "root_count": 73,
+  "closure_count": 35401,
+  "trust_level": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_hashes": {
+    "QuantumCore.lean": "712db98dff63f60e49f477628a79cc4feb7157b50f4e13caca08cef7a009a195",
+    "QuantumBorn.lean": "d36c992eefbacdbb0fca94f8aa2d6b0de4e3c9c89120b503f1fe11a0c054d173",
+    "QuantumInfo.lean": "45bbdf84818b0ab61a14d08a67b9787aac1507d621b2dbe8bec1abf0a7fdfbc3",
+    "QutritState.lean": "272beba6f19bab204fe8997b516af6944bb312828ef3bef3713c39ef4a131a63",
+    "QutritMUB.lean": "bf04834351496901957b6db91fdb06a6ed5e28b2d638eb43fc38fdfc36a7f3d7",
+    "QutritBorn.lean": "69c6d3480751fd5281aa76bf396f1f2e431d42630611a5c4191cb69c6ac2c443",
+    "QutritEntropy.lean": "b236347f4383b7d26d834fcf29701156f2bb8f833594ebda5e9bc0b06d08e2dc",
+    "ECQC.lean": "9caed479cc56d2e67a1ed1af6c04c226202dd3e11370ab87257ea76784c8f6df",
+    "Replay.lean": "d39e22227182819dbdafe24b05c280a59cb80221dff407b2022d875c369e6239",
+    "reproduce.py": "f19f93cd68339bfa75bbc69d9b632702821f4a7d64f5d2faa4827aa901764ef8",
+    "lakefile.toml": "9b1e9b95b90f149cd696108e0f2db32bbc6da0c6f34e2b273ae41eac21168696",
+    "lake-manifest.json": "5371ea6e788504bc756dc4ef3fd24a794be9b2a7c3920d781cbc885e2b988aeb",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "olean_sha256": {
+    "QuantumCore": "21b54c2eb40af39b80d1a76adc6943693830e18aa51d2422d52838bea2423b9c",
+    "QuantumBorn": "ea34911bf2943fda22a172b52280cce056cd8bbaed7cc62c1717e18e93cf3dca",
+    "QuantumInfo": "0b686d3433f9c3ea9501105199034f7b0c61b992c396864bc48106be9f3fae86",
+    "QutritState": "a552cbcae4373d84140ced0fd157c7ff17be25fe505ef00680fc9480b183a900",
+    "QutritMUB": "907fd76694001fe0d6306a522af9232244e6c5c6f0af13c9cc672d1e3495adcf",
+    "QutritBorn": "2b522970b9c81aca7579ef0a53045731780e9ae2cd56b5074d7c656e62db70b3",
+    "QutritEntropy": "f77c7f9ba74c691f7f0a51bc0deed76d2e71e4a2fd05e89fc511c1782c15d71a",
+    "ECQC": "7c3be823c438ea20659e540a278d7b8b3786e3437f1a776e27b593cb1934218b"
+  },
+  "commands": [
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QuantumCore.olean",
+        "QuantumCore.lean"
+      ],
+      "log": "build-QuantumCore.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QuantumBorn.olean",
+        "QuantumBorn.lean"
+      ],
+      "log": "build-QuantumBorn.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QuantumInfo.olean",
+        "QuantumInfo.lean"
+      ],
+      "log": "build-QuantumInfo.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QutritState.olean",
+        "QutritState.lean"
+      ],
+      "log": "build-QutritState.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QutritMUB.olean",
+        "QutritMUB.lean"
+      ],
+      "log": "build-QutritMUB.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QutritBorn.olean",
+        "QutritBorn.lean"
+      ],
+      "log": "build-QutritBorn.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QutritEntropy.olean",
+        "QutritEntropy.lean"
+      ],
+      "log": "build-QutritEntropy.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/ECQC.olean",
+        "ECQC.lean"
+      ],
+      "log": "build-ECQC.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "env",
+        "lean",
+        "Replay.lean"
+      ],
+      "log": "empty-kernel-replay.log",
+      "returncode": 0
+    }
+  ],
+  "log_sha256": {
+    "build-QuantumCore.log": "5f550ac9e0bcbf89df5b05d17dcb384883e9b150a5d9b2b2378825869387e0fd",
+    "build-QuantumBorn.log": "0cc8d842e7172aef319deb736ca4cb3fc894918bd0a5b9133d9db38d38e1e520",
+    "build-QuantumInfo.log": "1000b4ab07980e4a598f71fcc1f1feb71d0d3339ade3a0cf70f1c72b90b5587d",
+    "build-QutritState.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build-QutritMUB.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build-QutritBorn.log": "a5c6d1ab3a0235f805114c4fcb7da439ba2abeb542bcbd4a333b978327f7c750",
+    "build-QutritEntropy.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build-ECQC.log": "0bea39838ceb9db8e712f3dd8c923bf6bd342419c956e0b5ca7c0176ca574c18",
+    "empty-kernel-replay.log": "e76c84c88d1634348f23b41cddf0e2c6efe9a4fc9c0373f0a557dd9fa3b38d35"
+  }
+}

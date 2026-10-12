@@ -1,0 +1,117 @@
+\section{Model and results}\label{sec:model}
+Write $z=(x,v)\in\R^3\times\R^3$. Define
+\[
+ \|g\|_{\mathrm{Bol},\beta}
+ =\sum_{a\in\mathbb Z^3}\sup_{|x-a|\leq1,\,v\in\R^3}
+       e^{\beta|v|^2}|g(x,v)|.
+\]
+\begin{assumption}\label{ass:kinetic}
+The initial datum $f_0$ is a smooth nonnegative probability density with
+$\|f_0\|_{\mathrm{Bol},2\beta}
++\|\nabla_xf_0\|_{\mathrm{Bol},2\beta}<\infty$.
+On a fixed interval $[0,T]$ there is a nonnegative classical Boltzmann
+solution $f$ with $f|_{t=0}=f_0$ satisfying
+$\sup_{t\leq T,x,v}e^{2\beta|v|^2}f_t(x,v)<\infty$.
+\end{assumption}
+The scattering convention is
+\[
+ B(v-v_*,\omega)=[(v-v_*)\cdot\omega]_+,\quad
+ v'=v-[(v-v_*)\cdot\omega]\omega,\quad
+ v_*'=v_*+[(v-v_*)\cdot\omega]\omega ,
+\]
+with ordinary surface measure on $S^2$, and
+$Q(f,f)=\int B(f'f_*'-ff_*)\dd v_*\dd\omega$.
+For diameter $\eps$ put $\mu=\eps^{-2}$ and use the grand-canonical law
+\[
+ \Pp_\eps(N,\dd Z_N)=
+ Z_\eps^{-1}\frac{\mu^N}{N!}
+ \prod_{j=1}^Nf_0(z_j)
+ \prod_{i<j}\ind_{\{|x_i-x_j|>\eps\}}\dd Z_N .
+\]
+The true flow has elastic hard-sphere collisions. We also use the single
+restarted pasted flow of~\cite[\S3]{U}: in each fixed slab, a proposed
+collision is retained only while its connected component remains below
+the prescribed size and cycle-excess caps. The parameter $\Gamma$ and
+the number $L$ of slabs are fixed before choosing any moment order.
+The size cutoffs are $A_L=|\log\eps|$, $\Lambda_i=A_i^{30}$,
+and $A_{i-1}=\Lambda_i^{30}$, with harmless integer rounding.
+A proposed C contact is accepted only if the new component has at most
+$\Lambda_i$ labels and excess at most $\Gamma$, with repeated edges counted.
+Otherwise the lines continue straight. Restarting changes only prehistory,
+not positions or velocities; overlaps are allowed for this auxiliary flow.
+Set $\tau=T/L$ and, for real $\phi\in C_c^\infty(\R^6)$,
+\[
+ \zeta_t^{\eps,p}(\phi)=\mu^{-1/2}
+ \left(\sum_{i=1}^N\phi(z_i^p(t))
+             -\E\sum_{i=1}^N\phi(z_i^p(t))\right).
+\]
+At every collision time we take the post-collision, right-continuous
+velocity version, for both true and pasted flows. Positions are continuous.
+The imported fixed-time laws are unchanged by this convention, as justified
+below. Every centering is the exact expectation of the indicated microscopic law.
+
+\begin{lemma}[Path convention]\label{lem:convention}
+Replacing incoming values at collision instants by outgoing values gives
+cadlag empirical test paths and changes neither a deterministic-time law
+nor its expectation.
+\end{lemma}
+\begin{proof}
+Conditional on each finite N, the initial law is absolutely continuous.
+The fixed-time collision sets are Lebesgue-null under the hard-sphere and
+capped flows; the latter preserve absolute continuity through their
+countable injective volume-preserving branches
+\cite[Appendix A, proof of Proposition 4.5, items (1) and (5)]{DHM}.
+Induct over the fixed slab restarts for the pasted law. At each fixed time
+both conventions consequently agree almost surely. A finite list of fixed
+times has the same joint law. The almost-everywhere flows have the usual
+one-sided collision limits; assigning the post-collision values gives
+cadlag paths. For bounded tests the sum is dominated by a constant times N,
+whose expectation is finite, so the mean is cadlag by dominated convergence.
+\end{proof}
+Put $r_\eps=\sqrt{\eps(1+\log(1/\eps))}$ for $0<\eps\leq e^{-1}$.
+
+\begin{theorem}[Quantitative cyclic histories]\label{thm:cycles}
+Under \Cref{ass:kinetic} and the imported package in
+\Cref{prop:imports}, fix a factorial order $h$, a bounded finite record
+list, and a complexity cutoff $K$.
+The absolute sum of retained connected histories with trivial initial
+cumulants and at least one redundant contact is at most
+$C_{K,h,T}\mu^{1-h}r_\eps$.
+The sum includes all sizes, all slab placements, and all permitted
+post-first-return weights. The repeated-earlier-edge sector has the
+stronger bound $C_{K,h,T}\mu^{1-h}\sqrt\eps$.
+One sufficiently fine fixed slab decomposition works at every fixed
+$K,h$.
+\end{theorem}
+
+\begin{theorem}[Microscopic increment cumulants]\label{thm:increments}
+For the genuine pasted law and every fixed integer $k\geq2$,
+\[
+ \left|\kap_k\bigl(\zeta_t^{\eps,p}(\phi)
+                      -\zeta_s^{\eps,p}(\phi)\bigr)\right|
+ \leq C_{k,\phi}\eps^{k-2}(|t-s|+r_\eps),
+ \qquad 0\leq s\leq t\leq T.
+\]
+The same dynamics is used at all orders. The sufficiently small upper
+bound on $\eps$ may depend on the fixed order.
+In particular $r_\eps\leq C_\eta\eps^\eta$ for every fixed $\eta<1/2$.
+\end{theorem}
+
+Bodineau, Gallagher, Saint-Raymond and Simonella~\cite{BGSS} already proved
+nonequilibrium Gaussian-process convergence on a short time interval.
+Their later work~\cite{BGSSeq} treats arbitrarily long times at equilibrium.
+The source theorem~\cite{U} treats a regular kinetic lifespan away from
+equilibrium, but explicitly concerns finite-dimensional laws and does not
+assert path-space tightness. Gaussian-process convergence itself is
+therefore not the novelty at issue. The functional extension below concerns
+the source's precise regular-lifespan hypotheses.
+
+\paragraph{Strong distribution-valued conclusion.}
+The principal functional result, \Cref{thm:tempered}, gives weak convergence
+of the centered empirical signed measures in
+$D([0,T],\mathcal S'_\beta(\R^6))$, for the generalized $J_1$ topology
+induced by the strong dual of the Schwartz space. Its limit is Radon and
+strongly continuous. The proof includes the extension to every Schwartz
+test and the path-law measurability and identification needed for the
+nuclear-space tightness theorem. No rate of convergence of these path laws
+or of their covariance to the Boltzmann limit is claimed.

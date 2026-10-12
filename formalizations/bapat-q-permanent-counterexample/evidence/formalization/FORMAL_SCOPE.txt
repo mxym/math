@@ -1,0 +1,36 @@
+BAPAT ORIGINAL-INTERVAL COUNTEREXAMPLE — FORMAL SCOPE
+
+Target: Mitchell (2020), page 915: every non-diagonal complex Hermitian
+positive definite matrix has strictly increasing q-permanent on [-1,1].
+
+The source q-permanent sums over all permutations, weighted by the actual
+inversion count on the original ordered index set. The 200 CSV rows remain
+in their published order. The Gram matrix has entry A[0,1] = 398 - I.
+
+The generic proof chain is:
+actual inversions -> marked pair sum -> two-row determinant/cofactor sum
+-> mixed Gram permanent/Fischer pairing -> actual ordered wedge sum S
+-> proved sequential F/S recurrence -> exact Gaussian integer coefficient
+lists -> 200 kernel-checked state transitions -> positive integer norm gap
+-> negative actual q-permanent derivative at 1 -> continuity and a strictly
+positive diagonal perturbation -> a strict decrease at two interior points.
+
+The final result is a complete existential counterexample in dimension 200
+and a negation of the original strict formulation, including the non-diagonal
+condition. Hermitian reality of the q-permanent makes the use of real parts
+in the real-valued analytic formulation exact.
+
+The particular epsilon and q0 bounds printed in the public paper are not
+formalized in this version. The chosen small shift is an existential real
+number; no claim that this formal proof selects a rational shift is made.
+The real-symmetric restriction and the separate CP1 asymptotic proof are not
+settled by this formalization. No historical-priority claim is made.
+
+All source modules, including numeric checkpoints and generated declarations,
+are included in the independent dependency audit and trust-zero replay.
+Development success alone is not the final independent evidence. Consult
+RESULT.json and fresh-verification/manifest/replay-summary.json.
+
+The 200 arithmetic transitions are split into four source modules to stay
+within the fixed 6144 MiB compilation limit. A single-file trial exceeded that
+limit and is not used as evidence. The verifier trust policy is unchanged.

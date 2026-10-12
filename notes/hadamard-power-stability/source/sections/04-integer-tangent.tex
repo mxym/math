@@ -1,0 +1,78 @@
+\section{An integer tangent matrix and explicit inverse bounds}\label{sec:integer}
+Fix odd $m\ge3$, $n=2m$, and a labelled dephased seed $G_{aj}=\zeta_m^{E_{aj}}$. Use real dephased phase coordinates $X_{0j}=X_{i0}=0$; their dimension is $d=(2m-1)^2$. For $a<b$ and $r\in\Z/m\Z$, define
+\[
+ S_{ab,r}=\{j:E_{aj}-E_{bj}=r\pmod m\},\qquad
+ T_{ab,r}(X)=\sum_{j\in S_{ab,r}}(X_{aj}-X_{bj}).
+\]
+Each class has two elements. Let the integer map $L_G$ have coordinates
+\[
+ (L_GX)_{ab,r}=T_{ab,r}(X)-T_{ab,0}(X),\qquad1\le r<m.
+\]
+It has $n(n-1)(m-1)/2$ rows and $d$ columns. Every coefficient is $0,1$, or $-1$, with at most eight nonzero coefficients in a row.
+
+\begin{lemma}\label{lem:integer-kernel}
+The kernel of $L_G$ is exactly the dephased simultaneous first-order kernel of the power-Hadamard equations.
+\end{lemma}
+\begin{proof}
+For $K(t)=G\circ e^{itX}$, the derivative of the $(a,b)$ Gram entry at power $k$ is
+\[
+ ik\sum_r\zeta_m^{kr}T_{ab,r}(X).
+\]
+All these derivatives vanish for $1\le k<m$ exactly when the nontrivial Fourier coefficients of $(T_{ab,r})_r$ vanish, equivalently that vector is constant. This is $L_GX=0$. Diagonal Gram entries are identically $n$, and row equations suffice.
+\end{proof}
+This proof works for composite $m$ as well. The kernel is an intersection of power tangent kernels; it is not automatically the ordinary first-power defect for $m>3$.
+
+\begin{proposition}[Inverse-minor conditioning]\label{prop:minor}
+Suppose $\rank L_G=d$. Choose any invertible $d\times d$ row submatrix $B$, and put $C=\norm{B^{-1}}_{\infty\to\infty}$. For a dephased unit-modulus matrix $K=G\circ e^{iX}$ with
+\[
+ x=\norm X_\mx\le\frac1{8Cm(m-1)},
+\]
+one has
+\begin{equation}\label{eq:minor-linear}
+ \norm{K-G}_\mx\le x\le\frac{4Ch}{m}\eps.
+\end{equation}
+Moreover $C\le d\,8^{(d-1)/2}$. If $G$ is obtained by Theorem~\ref{thm:odd}, the phase-radius condition follows upon also imposing
+\begin{equation}\label{eq:minor-entrance}
+ \eps\le\frac1{2^{26}C^2m(m-1)^2}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For a row pair put $Y_j=X_{aj}-X_{bj}$, so $|Y_j|\le2x$. Since exact seed sums vanish and $|e^{iu}-1-iu|\le u^2/2$,
+\[
+ \abs{\sum_j\zeta_m^{k(E_{aj}-E_{bj})}Y_j}
+ \le\frac\eps k+2nkx^2.
+\]
+Fourier inversion and $|\zeta_m^{-kr}-1|\le2$ give
+\[
+ \norm{L_GX}_\mx\le\frac{2h}{m}\eps+2n(m-1)x^2
+ =\frac{2h}{m}\eps+4m(m-1)x^2.
+\]
+Since $x\le C\norm{L_GX}_\mx$, the phase-radius condition absorbs the last term into $x/2$ and proves~\eqref{eq:minor-linear}.
+
+The integer determinant of $B$ has modulus at least $1$. Every cofactor has modulus at most $8^{(d-1)/2}$ by Hadamard's determinant inequality, so summing a row of the inverse proves the stated bound on $C$. Finally Theorem~\ref{thm:odd} and the principal-angle estimate give
+\[
+ x\le\frac\pi2\norm{K-G}_\mx\le1024\sqrt{\eps/m}.
+\]
+Condition~\eqref{eq:minor-entrance} makes this at most $1/[8Cm(m-1)]$.
+\end{proof}
+The seed-independent inverse-minor bound is deliberately crude and is not polynomial in $m$; the graph argument below avoids this cost when the graph is connected.
+
+\begin{proposition}[Odd-seed local dichotomy]\label{prop:odd-dichotomy}
+At an odd-half-order seed, the best local residual exponent is $1$ if $L_G$ is injective and $1/2$ otherwise, in the precise local sense of Definition~\ref{def:exponent} below. This does not assert existence of a rank-deficient odd seed.
+\end{proposition}
+\begin{proof}
+If $0\ne X\in\ker L_G$, normalize $\norm X_\mx=1$ and set $K(t)=G\circ e^{itX}$. The linearized moments vanish. The preceding Taylor bound, followed by $\norm M_\op\le n\norm M_\mx$, gives
+\begin{equation}\label{eq:kernelquadratic}
+ \eps(K(t))\le2n^2(m-1)^2t^2=8m^2(m-1)^2t^2.
+\end{equation}
+For sufficiently small $t$, $G$ is the unique nearest exact dephased solution: at odd $m$ the exact set consists of root matrices, and any different root matrix is separated from $G$ by at least $2\sin(\pi/m)$. Meanwhile
+\[
+ \norm{K(t)-G}_\mx=2\sin(|t|/2)\ge2|t|/\pi\qquad(|t|\le\pi).
+\]
+No exponent greater than $1/2$ is possible, and Theorem~\ref{thm:odd} supplies $1/2$. If $L_G$ is injective, Proposition~\ref{prop:minor} supplies exponent $1$. Perturbing one noninitial entry by $e^{it}$ gives distance of order $|t|$ from the finite root set and residual at most a constant times $|t|$, excluding exponents greater than $1$.
+\end{proof}
+
+\subsection{Exact finite certificates}
+The supplied script checks every GH count, constructs $L_G$, selects a full-rank row minor by exact rational elimination, and verifies $BB^{-1}=I$. No floating-point rank threshold is used. For the classical cubic order-six seed it gives shape $30\times25$, rank $25$, determinant $34992$, and $C=18$. Thus $x\le1/864$ yields $\norm{K-G}_\mx\le36\eps$.
+
+For the order-ten $\operatorname{BH}(10,5)$ seed in McNulty--Weigert's Appendix A~\cite{MW}, it gives shape $180\times81$, rank $81$, determinant $19531250$, and $C=503/5$. Thus $x\le1/16096$ yields $\norm{K-G}_\mx\le(503/3)\eps$. Appendix~\ref{app:certificates} records the matrices and certificate convention; the exact pivot lists are in the companion JSON. These certificates supply the particular inverse-minor constants, not a discovery of isolation of the classical seeds, whose zero ordinary defects were already known.

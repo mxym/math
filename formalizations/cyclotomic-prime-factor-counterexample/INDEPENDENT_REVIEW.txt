@@ -1,0 +1,136 @@
+CGF Conjecture 48: independent Lean verification of the recovered source checkpoint
+Review date: 2026-10-08 UTC
+
+RESULT: fresh source compilation, all-owned declaration audit, and empty-kernel
+trust-level-zero replay PASS. Semantic review matches the explicit counterexample
+to the published basic/unimodal statement of Conjecture 48.
+
+Public input, fixed exactly:
+Repository: https://github.com/mxym/math
+Commit: 616877a1f3ac57ddc23737901581e666b0aabdd1
+Directory: notes/cyclotomic-prime-factor-counterexample/lean-source-checkpoint
+Frozen mathematical source commit: 0b9aa237472dfc7cfc252d8708aadd3fd5e897df
+Frozen certificate SHA256:
+64b10e5427ecaaaf9076e5d8b592831393db9fcb2b412c5894fd928d5fd4dfad
+
+Source provenance:
+All 20 checkpoint files were retrieved from the exact public commit and checked
+against the Git blob IDs returned for that commit. All 19 PACKAGE_MANIFEST.json
+entries matched in size and SHA256; the remaining manifest itself is bound by
+the Git blob/commit. All 11 Lean files matched both recovered_sha256 and
+original_pre_reset_sha256 in RECOVERY_MANIFEST.json. All 217 literal coefficients
+and all 109 centered weights match the frozen mathematical certificate.
+The source tree at the commit contains no applicable AGENTS.md/.agents files.
+
+No author Lean source byte was changed. No author support script was changed.
+The unified independent leanctl.py workflow was used instead of verify.sh;
+check_sources.py was additionally run unchanged after reviewing its code.
+Thus this result does not claim that the published verify.sh workflow itself
+was exercised end to end. Its 11 Lean inputs, including all three audit programs,
+were each compiled and executed by the independent workflow.
+
+Fresh run:
+/workspace/lean-verifier/tasks/cgf-checkpoint-616877a1/20261008T105335Z-df58d5b8
+Started: 2026-10-08T10:53:35.198339+00:00
+Completed: 2026-10-08T10:56:55.656576+00:00
+
+Pins:
+Lean 4.34.1 commit 5045d0056413266e57c625dcd7c365b10e377c52
+mathlib d13f23b723b8a846827a245b89c10fc7d3f11612
+The environment manifest records all nine exact dependency revisions and the
+Lean executable/runtime hashes. Existing dependencies were reused; no toolchain
+installation or cache download was needed for this verification.
+
+Mechanical coverage:
+8 mathematical modules and 3 author audit modules compiled from hash-checked
+sources into a newly created, initially empty output directory. Every Lean
+command, exit code, source hash, import search path, actual --deps output and
+compiler log is preserved. No prior owned .olean was used.
+
+The author's explicit inventory contains 73 declarations. All 73 signature/axiom
+reports appeared exactly once. Four report no axioms: coefficients,
+coefficients_length, centeredWeights, centeredWeights_length. Every other report
+uses only a subset of propext, Classical.choice, Quot.sound.
+
+The independent audit found 112 owned declarations: all 73 explicit declarations
+plus 39 generated/private declarations. No author module or owned declaration
+was excluded. The three audit modules introduce no mathematical declarations.
+The full owned transitive closure contains 29,737 declarations. Types, values,
+and structural dependencies are included; exported graph edges are closed.
+The only closure axioms are propext, Classical.choice and Quot.sound. There are
+no owned axioms or unsafe/partial closure declarations.
+
+Requested roots and individual transitive-closure sizes:
+CyclotomicCounterexample.explicit_counterexample                 29681
+CyclotomicCounterexample.conjecture48_false                       29661
+CyclotomicCounterexample.F_centered_certificate                   29581
+CyclotomicCounterexample.F_qInteger_quotient_certificate           29553
+Their union contains 29,717 declarations. The larger all-owned closure is what
+was replayed, so unused owned helper statements are included as well.
+
+The checker creates mkEmptyEnvironment 0 and checks that its initial constant
+map has size zero. Lean.Kernel.Environment.replay then rechecks the full closure.
+Every resulting declaration must exist and preserve its type and level parameters.
+Unsafe/partial declarations are rejected before replay (Replay itself skips them).
+The axiom whitelist is checked before replay (Replay itself permits added axioms).
+The two zero arguments to addDeclCore are resource limits, not a trust argument;
+trust zero is supplied by mkEmptyEnvironment 0.
+
+Negative control: a declaration of False carrying a proof of True is rejected
+by the empty trust-zero kernel with a declaration type mismatch.
+Shared dependency metadata is identical before/after the run. All 73 evidence
+file hashes in the fresh run's SHA256SUMS were checked after completion.
+
+Semantic coverage, checked against source and actual imported signatures:
+1. F is literally (Polynomial.cyclotomic 4 Int * cyclotomic 9 Int *
+   cyclotomic 25 Int * cyclotomic 30 Int)^6. The actual imported mathlib
+   cyclotomic definition and the rational irreducibility/coprimality interfaces
+   were printed in the fresh run's import environment.
+2. IsBasicCGF conjoins all-natural-index nonnegative integer coefficients with
+   a finite product of cyclotomic polynomials of indices at least 2. There is
+   no extra scalar or monomial. The concrete F is monic, has constant term 1,
+   degree and natDegree 216, and differs from 1.
+3. The 217-entry list is connected to the genuine product by a polynomial
+   equality. F_coeff applies at every natural index; the tail is proved zero.
+   Positivity on 0 through 216 and nonnegativity at every natural index follow.
+4. UnimodalCoeffs quantifies over all natural i,j, including the zero tail.
+   The proof establishes strict increase below 108, strict decrease from 108
+   through 216, and a unique maximum at 108 against every other natural index.
+   The peak is 11434392. The 108 first-half adjacent differences have minimum
+   5; the separate list of 109 centered weights has initial value 1.
+5. Prime exclusion is universal over every p with Nat.Prime p. It uses genuine
+   rational cyclotomic coprimality/irreducibility and transports any hypothetical
+   integer divisibility to rational divisibility. It is not a bounded-prime test.
+6. F_centered_certificate proves a full polynomial equality with the centered
+   q-integer sum, all 109 weights positive, and the initial weight equal to 1.
+7. qInteger is the actual geometric sum of powers of X. Its numerator uses
+   indices 4,9,25,30 and its denominator 1,6,10,15. The quotient certificate
+   proves N^6 = F*D^6 and D^6 != 0. This is a denominator-cleared identity;
+   no separate Lean rational-function division theorem is claimed.
+8. Conjecture48 quantifies over every nontrivial basic unimodal polynomial and
+   asks for some prime-order cyclotomic divisor. conjecture48_false derives its
+   negation from this concrete witness, with no extra irreducibility, squarefree,
+   or non-power restriction on the witness.
+
+Published interface references:
+https://arxiv.org/html/2305.07620v3 : Definitions 1,3,45 and Conjecture 48.
+https://doi.org/10.37236/12687
+The semantic identification with the mathematical paper is this reviewer's
+assessment, separate from the kernel's verification of the stored Lean statements.
+The runner's generic author_claim_verified=false/semantic-review-required flags
+are intentionally retained in the immutable mechanical record; this companion
+review records the subsequent semantic assessment.
+
+Reproduction in the retained environment:
+python3 /workspace/lean-verifier/bin/leanctl.py verify /workspace/lean-verifier/projects/cgf-checkpoint-616877a1/verify.json
+
+For a different environment, preserve the exact source hashes and pins, configure
+the independent verifier's environment.json with existing matching dependency
+paths, and adjust only verify.json's source_dir. Its source tree must contain
+only the 11 listed author .lean files. Never use old owned build outputs in place
+of a new run. The included author reference/README.md retains its historical
+pending status because the public source checkpoint was not edited here.
+
+This evidence records an independent Lean owner checking the author's recovered
+proof bytes; it is not a new author proof. It makes no minimum-degree, priority,
+or external-human-peer-review claim. No GitHub write or Release was performed.

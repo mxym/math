@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "supplement_title": "Effective upper-end stability of the symmetric projection-cone invariant",
+  "status": "complete written proof; independent model mathematical audits passed; no human peer review or proof-assistant formalization claimed",
+  "repository": "https://github.com/mxym/math",
+  "commit": "6785c1c830f8e19e2eb07b0bb89f4d475a8b154a",
+  "retrieval_basis": "Git object bytes at the exact public commit; SHA-256 over complete raw file bytes.",
+  "mathematical_dependencies": [
+    {
+      "path": "preprints/005-simplex-product-optimum/v2/paper.md",
+      "role": "direct mathematical dependency",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v2/paper.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v2/paper.md",
+      "sha256": "8b7ad76a8a4b96ff40d43e9f9c3e7f4fe494dbadcf82bbdc114f980971ffb430",
+      "git_blob": "5d5b909b5b6532910af80e17ba5abf74c0ae4c02",
+      "size_bytes": 31278,
+      "line_count": 495,
+      "locations": [
+        {
+          "statement": "Lemma 2.1; Section 5",
+          "lines": [
+            74,
+            104
+          ],
+          "extension_lines": [
+            219,
+            227
+          ],
+          "use": "Affine invariance of R and a for full-dimensional convex bodies."
+        },
+        {
+          "statement": "Section 3 product formula",
+          "lines": [
+            139,
+            153
+          ],
+          "extension_lines": [
+            219,
+            227
+          ],
+          "formula": "a(A x B) = (r a(A) + s a(B))/(r+s)",
+          "use": "Converse product equality construction."
+        },
+        {
+          "statement": "Section 3 pyramid formula",
+          "lines": [
+            155,
+            171
+          ],
+          "extension_lines": [
+            219,
+            227
+          ],
+          "formula": "R(P K) = (1+1/d)^d (1+a(K)) R(K)",
+          "use": "Definition of a and agreement of polytope and general-body normalizations."
+        }
+      ]
+    },
+    {
+      "path": "preprints/005-simplex-product-optimum/v3/paper.md",
+      "role": "direct mathematical dependency",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v3/paper.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v3/paper.md",
+      "sha256": "7827af9bbd122acd0852778c22ba94dbc9c80b729b5502f2944574f8b9e5121a",
+      "git_blob": "27a7883cbbe99ab674565cbb9fa5daaee150678a",
+      "size_bytes": 29756,
+      "line_count": 396,
+      "locations": [
+        {
+          "statement": "Section 2 definitions",
+          "lines": [
+            58,
+            70
+          ],
+          "formula": "A = E abs(det(X1,...,Xd)); B = E abs(det((X1,...,X(d+1));(1,...,1)))",
+          "use": "Random-determinant notation."
+        },
+        {
+          "statement": "Section 4 and Proposition 4.1, equation (4.2)",
+          "lines": [
+            167,
+            190
+          ],
+          "formula": "nu_K = (u/h_K(u))_* [h_K dS_K/(d |K|)]; a(K) = B(nu_K)/((d+1) A(nu_K))",
+          "use": "Cone-law representation for arbitrary convex bodies."
+        },
+        {
+          "statement": "Lemma 6.1, equation (6.1)",
+          "lines": [
+            258,
+            277
+          ],
+          "formula": "E_epsilon abs(sum epsilon_i c_i) <= (1/2) sum abs(c_i), when max abs(c_i) <= (1/2) sum abs(c_i)",
+          "use": "Pointwise balanced upper estimate."
+        },
+        {
+          "statement": "Theorem 6.2 and Corollary 6.3, equation (6.2)",
+          "lines": [
+            279,
+            308
+          ],
+          "formula": "B <= (d+1) A/2; a(K) <= 1/2; planar symmetric equality",
+          "use": "Nonnegativity of the upper deficit and low-dimensional equality cases."
+        }
+      ]
+    },
+    {
+      "path": "preprints/005-simplex-product-optimum/v4/paper.md",
+      "role": "direct zero-deficit dependency and structural antecedent",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v4/paper.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v4/paper.md",
+      "sha256": "19eb5aa0c79e34280cc3619cf40c1bea7acda6f6ec1161b05fbb6bf2308fda81",
+      "git_blob": "48168a1af645b0f927cc3ed4bed409f7fb1dc8ef",
+      "size_bytes": 21039,
+      "line_count": 529,
+      "locations": [
+        {
+          "statement": "Theorem 1.1",
+          "lines": [
+            22,
+            46
+          ],
+          "proof_lines": [
+            346,
+            389
+          ],
+          "use": "Complete equality class at zero upper deficit."
+        },
+        {
+          "statement": "Lemma 2.1",
+          "lines": [
+            65,
+            124
+          ],
+          "use": "Two-branch equality antecedent, replaced by a quantitative coefficient estimate."
+        },
+        {
+          "statement": "Lemmas 3.1 and 4.1",
+          "lines": [
+            139,
+            198
+          ],
+          "use": "Exposedness antecedent, replaced by contact-slab geometry for near equality."
+        },
+        {
+          "statement": "Lemma 5.1",
+          "lines": [
+            204,
+            286
+          ],
+          "use": "Exact rank-two matching antecedent, replaced quantitatively."
+        },
+        {
+          "statement": "Lemma 6.1",
+          "lines": [
+            292,
+            344
+          ],
+          "use": "Exact measure-to-product antecedent, replaced quantitatively."
+        },
+        {
+          "statement": "Theorem 8.4",
+          "lines": [
+            423,
+            479
+          ],
+          "use": "Qualitative fixed-dimension context only; no numerical rate imported."
+        },
+        {
+          "statement": "Section 9",
+          "lines": [
+            481,
+            512
+          ],
+          "use": "Guard against claiming rank-two structure for arbitrary even boundary laws."
+        }
+      ]
+    }
+  ],
+  "comparison_only_sources": [
+    {
+      "path": "preprints/005-simplex-product-optimum/README.md",
+      "role": "context only; current entry scope",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/README.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/README.md",
+      "sha256": "52d3b73b05ed04824d2f17816eaff3ddbb872aa16126f231f25c05ec64e1a051",
+      "git_blob": "33b210878e03dc38efced79bb759855af28363b0",
+      "size_bytes": 7513,
+      "line_count": 65,
+      "locations": []
+    },
+    {
+      "path": "preprints/005-simplex-product-optimum/v5/README.md",
+      "role": "context only; no proof import",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v5/README.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/preprints/005-simplex-product-optimum/v5/README.md",
+      "sha256": "73a4c6c442a48bbcf72425a5f7b42a921f2aaa9c1498165b79bbee804a64b06a",
+      "git_blob": "df949626a4764226da510337498741904e2b7aa0",
+      "size_bytes": 3146,
+      "line_count": 105,
+      "locations": []
+    },
+    {
+      "path": "notes/quantitative-projection-simplex-stability/paper.md",
+      "role": "context only; lower endpoint, no proof import",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/notes/quantitative-projection-simplex-stability/paper.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/notes/quantitative-projection-simplex-stability/paper.md",
+      "sha256": "33651147ae32773add33066c3b60dd099209dcadd6b3b7079e3e08eeaba976d2",
+      "git_blob": "a9d9662f8d42d7d2ad658db6fe2dc3e6350cfa57",
+      "size_bytes": 20103,
+      "line_count": 243,
+      "locations": []
+    }
+  ],
+  "provenance_notice_sources": [
+    {
+      "path": "NOTICE.md",
+      "role": "rights and provenance notice only",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/NOTICE.md",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/NOTICE.md",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542",
+      "git_blob": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "size_bytes": 1162,
+      "line_count": 7,
+      "locations": []
+    },
+    {
+      "path": "third_party_licenses/openai_math_LICENSE.txt",
+      "role": "retained upstream OpenAI license only",
+      "url": "https://github.com/mxym/math/blob/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/third_party_licenses/openai_math_LICENSE.txt",
+      "raw_url": "https://raw.githubusercontent.com/mxym/math/6785c1c830f8e19e2eb07b0bb89f4d475a8b154a/third_party_licenses/openai_math_LICENSE.txt",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "git_blob": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "size_bytes": 11358,
+      "line_count": 202,
+      "locations": []
+    }
+  ],
+  "classical_inputs": [
+    "Symmetric John ellipsoid theorem",
+    "Almost-everywhere regularity of convex boundaries",
+    "Area formula for coordinate projections of rectifiable boundaries",
+    "Gauss-map definition of surface area measure",
+    "Divergence theorem",
+    "First mixed-volume formula",
+    "Minkowski first inequality"
+  ],
+  "dependency_boundary": {
+    "upper_endpoint": "1/2 - a(K), centrally symmetric full-dimensional bodies",
+    "target": "Entire affine class of products of centrally symmetric factors of dimensions one or two",
+    "not_imported": [
+      "Lower-end simplex modulus from notes/quantitative-projection-simplex-stability",
+      "Entry005 v5 balanced homogeneous spectral recursion results",
+      "Quantitative inverse cone-volume theorems from comparison literature",
+      "A quantitative rate inferred from compactness"
+    ],
+    "inherited_sources_bundled": false,
+    "new_license_assigned": false,
+    "optional_inherited_checker_manifest": "code/dependency-inputs.json",
+    "new_exact_checks": "Self-contained standard-library scripts; supplementary to the analytic proof."
+  }
+}

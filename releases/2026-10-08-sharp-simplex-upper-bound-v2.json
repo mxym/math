@@ -1,0 +1,2319 @@
+{
+  "schema": "sharp-simplex-upper-bound-publication-v2",
+  "date": "2026-10-08",
+  "repository": "mxym/math",
+  "base_commit": "d3bde9e728ac12c589505ae90460b1508c0a1862",
+  "base_tree": "862140e7d2285fe30013b647c4780691d890bc3e",
+  "package_root": "formalizations/sharp-simplex-upper-bound",
+  "package_files": 304,
+  "scope": "Literal Entry005.sharpMainGoal / MainTarget with original gSharp, actual entryDefect, every prescribed globally maximum inscribed affine simplex and the original centroid of that simplex; exponent 1/(d-1), for every d >= 3 and actual compact convex body with nonempty interior. Separate lower proof and later improved constants are not included.",
+  "source_archive": {
+    "path": "releases/2026-10-08-sharp-simplex-upper-bound-source-v2.tar.gz",
+    "bytes": 3391434,
+    "sha256": "494e73fc7e077ff85a433c0c06529def3e3909501c7a9c4444b10c7546daec59"
+  },
+  "certified_input_composition_files": 204,
+  "original_203_file_delivery_complete": false,
+  "base_patch_sha256": "9a0a33f57cc6a3f9f373040ae11fd98ade985bbd5712f31fca3b82f702b7a932",
+  "supplement_patch_sha256": "01dab955ed966f094eedb30de00a392af6615f8960114a8099187f7061a7a71e",
+  "preserved_mathematical_modules": 123,
+  "preserved_delivered_Lean_files": 140,
+  "nonmathematical_input_derivatives": 7,
+  "main_independent_audit_original_sha256": "a80f9f362390667bd1eee82a439b55674290a4e660adfa6a7c0edfd0b141af6c",
+  "producer_completed_fresh_replay": {
+    "modules": 123,
+    "public_proofs": 848,
+    "owned_declarations": 1833,
+    "main_empty_kernel_closure": 54277,
+    "all_owned_empty_kernel_closure": 55067,
+    "source_record_sha256": "5d371e72bd96a869849ed24d2661307538659a5d78627da49f2dd8eeece563cf"
+  },
+  "independent_final_copy_review": {
+    "report": "verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md",
+    "report_sha256": "42477ee41942e73b2bd726be0a08f9d8caf4e617cee2d7c347d3d0bc403063bc",
+    "artifact_count": 12,
+    "fresh_producer_artifacts_and_logs_independently_cross_checked": true,
+    "independent_runtime_compiler_import_source_cache_and_kernel_controls": true,
+    "second_complete_build_or_large_replay_by_final_copy_reviewer": false
+  },
+  "integration": {
+    "normal_optimized_integrity": "PASS",
+    "normal_optimized_archive_identity": "PASS",
+    "packaging_each_python_mode": {
+      "status": "PASS",
+      "cases": 91,
+      "production_invocations": 730
+    },
+    "normal_guard_report_sha256": "9c0c9949fe78188c745841ea34bc99cb489c5ddcb123ef106f3c84ffe1d689ff",
+    "optimized_guard_report_sha256": "9c0c9949fe78188c745841ea34bc99cb489c5ddcb123ef106f3c84ffe1d689ff"
+  },
+  "preservation": {
+    "base_files_retained": 3050,
+    "unchanged_outside_navigation": 3046,
+    "changed_existing": [
+      "README.md",
+      "CONTENTS.md",
+      "CHANGELOG.md",
+      "verification/STATUS.md"
+    ],
+    "deleted": [],
+    "all_304_sealed_files_unchanged": true
+  },
+  "nonclaims": [
+    "Separate lower truncation proof within this source project",
+    "Any later improved-constant package",
+    "Fresh rebuild of every dependency",
+    "Executed optional online bootstrap or remote CI success",
+    "Novelty, priority, external human peer review, new authorship or license grant"
+  ],
+  "files": [
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/.gitignore",
+      "bytes": 36,
+      "mode": "100644",
+      "git_blob_sha1": "ac1fc94f23bb30c40d8bad82e8f2709b1ab32f61",
+      "sha256": "d781522b5e8568bddad4a73a41e8839fc34b848b1e916e41f959212ae19bcb32"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/LICENSE_NOTICE.md",
+      "bytes": 1400,
+      "mode": "100644",
+      "git_blob_sha1": "ad3c7ddb509bc18317fbc9e7b4d970ab8328cf61",
+      "sha256": "5f1cbcc81b9ba1ffb387c0d2723bd409895c090843c5ca596a90d4cd522753e5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/PROOF_ROADMAP.md",
+      "bytes": 8878,
+      "mode": "100644",
+      "git_blob_sha1": "2a7e63b083485cdaa8906bce72d55a713fb6611d",
+      "sha256": "ed9d72421bff3247f85889ba09a27166d9c3cfe7a439334d9ab73c44422504e0"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/PROVENANCE.md",
+      "bytes": 3435,
+      "mode": "100644",
+      "git_blob_sha1": "f422dfb90fd826e4c385684fc3df0d078c23ea6e",
+      "sha256": "1bc0bda05c50f8bd2a2c2be664d6fd340f8349ebcb191aaed683e5b8c4cdb363"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/README.md",
+      "bytes": 4177,
+      "mode": "100644",
+      "git_blob_sha1": "a40f282d31d874ec0d84e467e5dc6e12e4be3963",
+      "sha256": "3bf0e456ba7178b511c381c80eb4b29bfd8edb8ba99c90e9aa1f85b6de88aa9b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/SHA256SUMS",
+      "bytes": 34309,
+      "mode": "100644",
+      "git_blob_sha1": "8c4019b90a5706be78b461d9b630c2242a5a1e0a",
+      "sha256": "810db9cd9d6bb302d2b577524261582967434298b46d7a2370fa65da195bd89e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/SOURCE_MANIFEST.json",
+      "bytes": 37407,
+      "mode": "100644",
+      "git_blob_sha1": "14adb9bb06a0ce2998588a9434480d14f1d0bfed",
+      "sha256": "e4b3174169e45714d9fda1f1f7585e5188d2103696ffc749c189a2c40778c010"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/THEOREM.md",
+      "bytes": 2730,
+      "mode": "100644",
+      "git_blob_sha1": "7ebc91a308a52038a4858429f8003ab9140c69ce",
+      "sha256": "e48bb14ec46df4b68c4a5c6d813fd774094c62fb9fb02b8e5c61e91573d29889"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/VERIFICATION.md",
+      "bytes": 6369,
+      "mode": "100644",
+      "git_blob_sha1": "46c74183eb6a1e8d355000b9049d99144c26fa83",
+      "sha256": "e704ff61eeb743efd5dcfc0aafe937825ce92638a413a2885c125f3450038e1d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/README.md",
+      "bytes": 1237,
+      "mode": "100644",
+      "git_blob_sha1": "c39ef092bd0083f698fbbf8de80842f8687c8488",
+      "sha256": "7cfc35d4c68a06425a1550ba1faeafa492d1408136659873d8a10e07642e4e0e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/IndependentPublicAudit.lean",
+      "bytes": 94941,
+      "mode": "100644",
+      "git_blob_sha1": "00002f9fcf3219cd01a4dec3d3ad5d1864c316a1",
+      "sha256": "6fe8ed6ce69192c497a4c290f271ae4c70864f8b4683a639271cd5408b5297dd"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/KernelNegativeControl.lean",
+      "bytes": 1327,
+      "mode": "100644",
+      "git_blob_sha1": "00c300c937385ff9e0ff4741c7d861f27b591c2b",
+      "sha256": "118066285c05980a650d15c1e1450809b4d10a8f20648b480cff263bab96b06d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/LiteralPositiveControls.lean",
+      "bytes": 2109,
+      "mode": "100644",
+      "git_blob_sha1": "f616ce57903846005849eada0520d963d13044f2",
+      "sha256": "208d9226d2f6b87fc7a29d623f610ed71295ee8cfd788fc95b2d57ae7e2e68c0"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/NegativeAbbreviationAsProof.lean",
+      "bytes": 114,
+      "mode": "100644",
+      "git_blob_sha1": "81cdc3fd1a9f0c229e27d1f702d791d1939287e2",
+      "sha256": "8d66b4fc0fa4928bc000f078e2f2579bef8f0c39c2eb0b30889724117b989f11"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/NegativeConstantOmission.lean",
+      "bytes": 358,
+      "mode": "100644",
+      "git_blob_sha1": "22252d1e8d2039c80b09d4cf870828e248115bc4",
+      "sha256": "272dae4b75223d43a64b0317ef1c240ddf92f1b25c7725981431266efdb64757"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/NegativeWrongQuantifier.lean",
+      "bytes": 442,
+      "mode": "100644",
+      "git_blob_sha1": "60529f921c6eba69934de4324178f584d262a45b",
+      "sha256": "78451438060f81c84ef2dafe5a1b8268e9bb3f09f2a433accd56b1194a1f830d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/OwnedInventory.lean",
+      "bytes": 10236,
+      "mode": "100644",
+      "git_blob_sha1": "ddfa87bf2a32e2277082e6c958555898b794bddf",
+      "sha256": "afd517120c58f03357ce19b7333f05fd1ec0499e29d618a6676d5a82b72c7a2a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/ReplayAllSafeOwned.lean",
+      "bytes": 10986,
+      "mode": "100644",
+      "git_blob_sha1": "6c8221e9c0251d0f14f2e5722e5dc50a3d23cf32",
+      "sha256": "0b3d70fad71368e2111ea031bfdc2a4305b5430b2373151a45c8328b5e2703a7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/checks/ReplayLiteralMain.lean",
+      "bytes": 11071,
+      "mode": "100644",
+      "git_blob_sha1": "fd81ea5a74c044846c9753619c89de84b8f28f50",
+      "sha256": "22042d2685f61b63abdb596081adba1f7b69370c980d4951c863a149861181f8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/historical/replay_upper_main.original.py",
+      "bytes": 6642,
+      "mode": "100644",
+      "git_blob_sha1": "86e59372073e748d8f36aa4b4903422bf30446a3",
+      "sha256": "05f3198efff18086c11c27e3791eff55e69e5b4c6c9e3e1da6683257464e111a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/AUDIT_EVIDENCE_SHA256.json",
+      "bytes": 115689,
+      "mode": "100644",
+      "git_blob_sha1": "17b106ef3b42e84dc72ef478ab08b1a29e92797c",
+      "sha256": "1f8e7fbe02a5cce13a79cd026bf94d2ed943eaf5b755d99630db311c25f71b61"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/FINAL_PASS.json",
+      "bytes": 910,
+      "mode": "100644",
+      "git_blob_sha1": "65c9dae948e3c8c7545daa7478d8f4841c404098",
+      "sha256": "aed0e8e20a734bd5494a3d463067452fb0f4514c565a7a82154089b8fa214f46"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/IndependentPublicAudit.log.gz",
+      "bytes": 59365,
+      "mode": "100644",
+      "git_blob_sha1": "d33fcb2bc90d8bd1f5d76cf85120be3ff3c44050",
+      "sha256": "1ab619f505111c71c89d83ea7bd13584be600e82b0e58c4aaef69261e8d88173"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/IndependentPublicAudit.result.json",
+      "bytes": 205,
+      "mode": "100644",
+      "git_blob_sha1": "7baed378157ada88935e1e88486733b5874753e9",
+      "sha256": "55d6469b157f9657482d42afd999d08ed78d8fc44e58afbead9c8a5415a4f8b3"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/KernelNegativeControl.log",
+      "bytes": 239,
+      "mode": "100644",
+      "git_blob_sha1": "60371a4ea44ecc1c3990873c58106199c1021b2a",
+      "sha256": "d70a655bc077fa7334a048e107448dcdb282bf0b0e03f121492edb8709702a19"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/KernelNegativeControl.result.json",
+      "bytes": 204,
+      "mode": "100644",
+      "git_blob_sha1": "5aab226c505c2893c717fc041259bf1e5aa13d48",
+      "sha256": "3a57d33622b560d219a76189532b739b7690d647280538d5d9784bf9fa20a76c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/LiteralPositiveControls.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/LiteralPositiveControls.result.json",
+      "bytes": 206,
+      "mode": "100644",
+      "git_blob_sha1": "ba8b97b08b03aabfb7f7f0d9c424845d60a41d97",
+      "sha256": "1bef6064f12a3f9dafef9d27e6f2c45930a52de9c30fa5f999e251b7ed388733"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeAbbreviationAsProof.log",
+      "bytes": 265,
+      "mode": "100644",
+      "git_blob_sha1": "6a9f2ea634e6c3b55700184f9aa1b4ccb26bef57",
+      "sha256": "300eb2ccfe556f4455d3a12f04dc5ec92441f5940f1ca017d921c5c34400df6e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeAbbreviationAsProof.result.json",
+      "bytes": 208,
+      "mode": "100644",
+      "git_blob_sha1": "9eec021b4ae14964eed4dfcc4c3a5c86ee222f2f",
+      "sha256": "9275b17eb2f1f9e32ccc21e5e1d157304422e8265e71af70d9919fc59e0a5ef7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeConstantOmission.log",
+      "bytes": 331,
+      "mode": "100644",
+      "git_blob_sha1": "82a2742521310a03e852cfa7a3bb7651905bbfc4",
+      "sha256": "791cc1412be52598ab8f4be4afa600e56dd4f96cab457b7f0859428f68660720"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeConstantOmission.result.json",
+      "bytes": 207,
+      "mode": "100644",
+      "git_blob_sha1": "2ad89222e0eb34460591ba9aea7d100044304f31",
+      "sha256": "25998a1973e774cef826f0f01c1dea2afc345ebebb9c11252ff6998a6de88513"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeWrongQuantifier.log",
+      "bytes": 215,
+      "mode": "100644",
+      "git_blob_sha1": "c6a04e3db9ddceea2f0fb16195735afbce2bab43",
+      "sha256": "4094a8cdfee46bc3afd495837b625225f0c65441b8a22539a170194f6e037e9e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/NegativeWrongQuantifier.result.json",
+      "bytes": 204,
+      "mode": "100644",
+      "git_blob_sha1": "cba1c9effd7d83620902ce527600e82dc3f827b4",
+      "sha256": "39afffb71c3a1d4bf6a0a9fa646411deb6596ab7b3b7c089a47898739b9c9727"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/OwnedInventory.log.gz",
+      "bytes": 137753,
+      "mode": "100644",
+      "git_blob_sha1": "5f233ad8abe54477775aaeb0d706128b73985b37",
+      "sha256": "18fa69ab358c1627b5b3179f3daf7472ad5cb6a9063a4dafe1378df4ff0a8b32"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/OwnedInventory.result.json",
+      "bytes": 197,
+      "mode": "100644",
+      "git_blob_sha1": "34c4d4177a63d592979a03b9a20ed1d979c8e9e8",
+      "sha256": "a6169d8964f9f86b7ecf01c8d074c2a6031f79e4a17e35eb4d785e6f942f1214"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/REPRODUCE.md",
+      "bytes": 2869,
+      "mode": "100644",
+      "git_blob_sha1": "ba203f1719b63ea80bf1980f8b3a4ddd65409f0b",
+      "sha256": "f6da5285a731704b122c30910f1ce974fd17868f365533c5d415d597cfc2c3d8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/ReplayAllSafeOwned.log",
+      "bytes": 133,
+      "mode": "100644",
+      "git_blob_sha1": "f5a931b6656727fef80ceae6ca077155dc06cbf3",
+      "sha256": "9f1de44a166d6cc179487d41abe0d004d4b7d471d0e2cab299e304b1f26bf613"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/ReplayAllSafeOwned.result.json",
+      "bytes": 201,
+      "mode": "100644",
+      "git_blob_sha1": "9021e7dd3bfa6e8093404f2b689dab576a33887e",
+      "sha256": "5b7f5431cfdc9cf186ed6a69674de85cde9a7da8d69d2360e8a22980c76f2ec2"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/ReplayLiteralMain.log",
+      "bytes": 53720,
+      "mode": "100644",
+      "git_blob_sha1": "ae8ef7a0accd04e7c089ebe2da4f97a9158bb0c6",
+      "sha256": "a79647471f1d9b9d532780c32824eafb9a98cb3fb4face86b02b3f2f32099d1f"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/ReplayLiteralMain.result.json",
+      "bytes": 200,
+      "mode": "100644",
+      "git_blob_sha1": "aee6e0bcd8fded10e6d7fc06ade3882f5f40ab24",
+      "sha256": "83b1bd6db5f059bbd007c2f33474435c513c0c95b160a779c17399d2992b6f8b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/TECHNICAL_REPORT.md",
+      "bytes": 9895,
+      "mode": "100644",
+      "git_blob_sha1": "2ad14e0c3bd28b4fa73bcca27603616664e8446a",
+      "sha256": "5128e47db739949ff2fc52521bf5d2795e1853c0787a5a5315875f4b0f44f4ab"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/build-progress-summary.json",
+      "bytes": 43530,
+      "mode": "100644",
+      "git_blob_sha1": "feee71b88f1c42de547476449808eeef7cd370ab",
+      "sha256": "fc548932dd047b5e5c758dd8a7bdc26ebb4baa34b2c1bb6607215ce0f4cf113a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/build-progress.json",
+      "bytes": 40750,
+      "mode": "100644",
+      "git_blob_sha1": "d6989feb1731315aab0804241ab88538fa54d848",
+      "sha256": "5b5e59ceb365fdef994e0c99d62f0c610159186849f6186ff6f828f613abdc40"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/build.json",
+      "bytes": 43499,
+      "mode": "100644",
+      "git_blob_sha1": "57940d572b7b3917311c94814dd5962037a59463",
+      "sha256": "a2a1f7494fa4be134302e5e97a5bff5a09655d6126153103d5f27a0693063e53"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/environment.json",
+      "bytes": 1445,
+      "mode": "100644",
+      "git_blob_sha1": "d609220c1642f3747c0f82c3eb7b6346e21cea2d",
+      "sha256": "26487efcae49ec98b6dd0b49426c3c560da7ddab2a9f416c1ff20b6bcd0416d2"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/fresh-regular-owned-outputs.json",
+      "bytes": 12737,
+      "mode": "100644",
+      "git_blob_sha1": "fb58cc392c99f656894e32a9d4d9b8d063fb2f81",
+      "sha256": "77c972e58741ce10888b7372950df58d3f5f939610235c2bef472ea479639774"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/import-closure.json.gz",
+      "bytes": 377366,
+      "mode": "100644",
+      "git_blob_sha1": "9b38b073c5ea5e0b16813cecebfe798d5ec2e992",
+      "sha256": "2e5465f77e7834affe5d0b48b51e38b270a7e05523479475397296a1cc0a4aad"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/independent-pins.json",
+      "bytes": 1496,
+      "mode": "100644",
+      "git_blob_sha1": "99ce8eadd4d6b48325b061d92375c24ce425e963",
+      "sha256": "99671a4bb29b98c92a3b12e4974b6a7b92d274a654f275b48f4297c56557e82a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/input-integrity.json",
+      "bytes": 29243,
+      "mode": "100644",
+      "git_blob_sha1": "37ed512e52762e1cad8ae6500a737ac9907965c1",
+      "sha256": "2eb7a17a44689bd51002f3b565b37e737d8360c8357e3e32b23266e0acaacbbc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/main-owned-dependency-closure.json",
+      "bytes": 57171,
+      "mode": "100644",
+      "git_blob_sha1": "c417fb8d29ebf098fd463082c6a94a9db2bd7d17",
+      "sha256": "e9fac7738b1973c40c06a2e4139b894f5f333078cf5cd0aa31a9301742d8cc8b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/missing-dependencies.json",
+      "bytes": 3,
+      "mode": "100644",
+      "git_blob_sha1": "0967ef424bce6791893e9a57bb952f80fd536e93",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/missing-owned-imports.json",
+      "bytes": 142,
+      "mode": "100644",
+      "git_blob_sha1": "cdac818fe19577d7d8c73836426ff9dc77acd6ec",
+      "sha256": "1a37d62bc1db6237fa4cd59c536e5e90f6b99f5e8161a82d035be17f2b6d0140"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/original-definition-identities.json",
+      "bytes": 1027,
+      "mode": "100644",
+      "git_blob_sha1": "e985488368cdfd095709cc58f40be58189a71972",
+      "sha256": "1913ab115059563e632c66e6605ea9206fc19d74f43e012ed0b022a843adb7ad"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/owned-declarations.json.gz",
+      "bytes": 146854,
+      "mode": "100644",
+      "git_blob_sha1": "f05e1b2f182c685d7a023c04555c338777e22ef9",
+      "sha256": "e94ecb9f328ef11a1887a940ff22a2f5c9b24ace92217905d7bcbafc2d773b72"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/owned-source-set.json",
+      "bytes": 13212,
+      "mode": "100644",
+      "git_blob_sha1": "eb5bbcb4c145d59a3efd4b37834e342b2fe02979",
+      "sha256": "3949db5376c550186c5815099530fd49dc8a809b158f6faaa9204c45e9980631"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/ownership-summary.json",
+      "bytes": 144,
+      "mode": "100644",
+      "git_blob_sha1": "5bc385e0894eb63f580837604c74f7e4ae2e58f8",
+      "sha256": "2bad9e952930655f163b140778e560236f685449b29bf022e10ba3a9da93f915"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/post-audit-pins.json",
+      "bytes": 923,
+      "mode": "100644",
+      "git_blob_sha1": "5d8d0e202692609a1a502542b3b36982e7e7cbdb",
+      "sha256": "65f01a15c9b8af32d923c74416810b2088f2768c1c92583ea6e76eb770f1bfe4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/public-axioms.json.gz",
+      "bytes": 6990,
+      "mode": "100644",
+      "git_blob_sha1": "26dd0da9869f734f72a81b25ddb4d5a3031ee744",
+      "sha256": "dd8e73e917661d9e178c2cf2c6654381d9811b5a3842c323292db8cecda59f28"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/source-public-theorems.json",
+      "bytes": 40473,
+      "mode": "100644",
+      "git_blob_sha1": "7d57772acaee8c19613a9678821f6c115d491d53",
+      "sha256": "7f56bb4bde68dc8cc2f82215986fe9770983251c6f1ded20bd15e0a0fd77bee1"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/independent/unresolved-source-closure.json",
+      "bytes": 54,
+      "mode": "100644",
+      "git_blob_sha1": "96628ee12a2e3189776357fb331dc43ca0dca41e",
+      "sha256": "29958b724eeafad1bfb99eb29a3e7b046ec26b0e5f3a37ae582f43e807904076"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/mathematical/REVIEW.md",
+      "bytes": 22629,
+      "mode": "100644",
+      "git_blob_sha1": "d7b9a0f701c3901079b59ed41b9fdd8d88b67f33",
+      "sha256": "f832656d9b2e4546ebace80e81ff5c8b6cd2cd38fafaefef996a8dd8d0c93923"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/audit/mathematical/exact_controls.py",
+      "bytes": 6248,
+      "mode": "100644",
+      "git_blob_sha1": "31ac047d092650a7cba52008f93c62d53e2f6802",
+      "sha256": "cdc76ae661197bd73177992cd9518e2c7690309ad406ca1639b7be44b0536b26"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/README.md",
+      "bytes": 4946,
+      "mode": "100644",
+      "git_blob_sha1": "65c0ca5efdbe03cecb2cc1b83bbfc86dc6e9deef",
+      "sha256": "21a577042dce27955435129866e524a798eaedc1ac825175b5f994d48eb87996"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/ActualFiniteEnclosingRadialCap-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/ActualNormalizedDirectionalRoundness-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/FiniteRadialSupportScale-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/OriginalRadialScale-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/PolarSimplexConstruction-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/SharpMainRetentionAssembly-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/SharpUpperMain-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/VerifiedPyramidMomentBridge-compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/additive141-signatures-and-axioms.txt",
+      "bytes": 123072,
+      "mode": "100644",
+      "git_blob_sha1": "3b80a7097752d6784cf0592ce6d6553fdf6e28dc",
+      "sha256": "cc1435b12c4e7dac47935b6da417c17efd8941edf4614ec8fc371c03585847dc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/incoming-compatible-source-build.json",
+      "bytes": 8203,
+      "mode": "100644",
+      "git_blob_sha1": "fc1854300ecebbfd31961a1efb5e91e829e70367",
+      "sha256": "be3d37017b1466ff9324aabade056d9f2f6b13ab8acd61b6293a4b5b1b2d98dc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/incoming-source-materialization.json",
+      "bytes": 5672,
+      "mode": "100644",
+      "git_blob_sha1": "efd2bee36bf708b649893e645d37028855a5303d",
+      "sha256": "6b2ed2378d7545d24c015047f82a17f1487657db0a0d89f049f4f28daa79c578"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/independent-final-Main-verification.json",
+      "bytes": 706,
+      "mode": "100644",
+      "git_blob_sha1": "9d3a182dd67319c6c90a99c37578e3bd4df8a85a",
+      "sha256": "7a99601aed613b82d8cf1399c68a573925a222ca606d87ee5f4ea13c153376b6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/portable-main-replay-verification.json",
+      "bytes": 1495,
+      "mode": "100644",
+      "git_blob_sha1": "0e6e4a2d2fe8b4637fb9f2a55d0bd89299c36f56",
+      "sha256": "b7f1ada58b27bbb47de3a74956f019921b1989edada09281eada1d12f3bc4049"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ActualFiniteEnclosingCap.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ActualFiniteEnclosingRadialCap.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ActualNormalizedDirectionalRoundness.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ActualSupportFirstVariationTest.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.CenteredAtomCorrection.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ConditionalPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.FiniteHalfspaceCenteredCorrection.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.FiniteMinkowskiScaleGate.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.FiniteRadialSupportScale.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.MainTarget.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.OriginalRadialScale.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.PolarSimplexConstruction.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.ProjectionScaleAssembly.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.PyramidApproximationLimits.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.SameWitnessOriginalQBudget.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.SharpConstantGates.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.SharpMainRetentionAssembly.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.SharpUpperMain.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.SupportScaleCapAssembly.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/replay-Entry005.VerifiedPyramidMomentBridge.compile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/source-manifest.json",
+      "bytes": 93633,
+      "mode": "100644",
+      "git_blob_sha1": "41fe6fe7f1e240cbdb8fbc1cc0b9e8dfbaf7ecbc",
+      "sha256": "7c4f3dc1e9422ed86de72b38c7d906a775f61ff0cca07c059bfb09fc4465e1d6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/upper-main-audit-verification.json",
+      "bytes": 4301,
+      "mode": "100644",
+      "git_blob_sha1": "afbb1ecba578a3a12949901dc50183a647dc3629",
+      "sha256": "37bfbf6020a04765c2bab9748ab21fbea8c248fc3c91e88d4777343ed97b2625"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/upper-main-signatures-and-axioms.txt",
+      "bytes": 40609,
+      "mode": "100644",
+      "git_blob_sha1": "7f6fe3e2ee111af60725e76b9a102c1a19f8dcf6",
+      "sha256": "d6082a7cc93d2d30357adba67ad295e704a3db044631e15d3864d422c5f8e2e8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/evidence/written-Main-Library-readback-verification.json",
+      "bytes": 228,
+      "mode": "100644",
+      "git_blob_sha1": "ef25675c68ed63769ee7008703bdb5bb5a2299f6",
+      "sha256": "e6225206495ebdedcf67bea15eb56ef456969fcc8eb5f2a1fd3e964e3de6e0c7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualAssignmentAssembly.lean",
+      "bytes": 7931,
+      "mode": "100644",
+      "git_blob_sha1": "ad834f8936324385490166470e677b7bf98e5629",
+      "sha256": "f800056836ecfa3003904edf1c6e07da010c8eb736fe08ef71e384b3bfe9e196"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualBodyConeLaw.lean",
+      "bytes": 6601,
+      "mode": "100644",
+      "git_blob_sha1": "173120cf96ad782bbe4ee41f6b602ee7087c1afc",
+      "sha256": "9beb3d967d7fe11d6fdf729f981f64551810501e9d1ae0579172c148fd8fa08a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualBodyHorizontalMoment.lean",
+      "bytes": 6040,
+      "mode": "100644",
+      "git_blob_sha1": "072a8eeb4f5186c2dc5ff9f9972c73661b0f774d",
+      "sha256": "b9a6f2488cfd10d0c702b62f3821a204ff14cb225b7fad8b05d48d78b97fdbb8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualBodyJointConeInterface.lean",
+      "bytes": 3742,
+      "mode": "100644",
+      "git_blob_sha1": "cf84ad70e1a657ef60b34c707031ba28532acfaa",
+      "sha256": "02670efa0eb6d2dc756ca82d7d70bb9c252796cd1e987f308bdfe9a6aaddbffd"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualBodyPolarBoundary.lean",
+      "bytes": 11158,
+      "mode": "100644",
+      "git_blob_sha1": "53480996178a43f8fc6b393952e8f6d012c18cfc",
+      "sha256": "8490fea3abff416fb36519d348b0a86fc8344611cfd84995b8bb450faea4ce2d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualFiniteEnclosingCap.lean",
+      "bytes": 3922,
+      "mode": "100644",
+      "git_blob_sha1": "cb6135b24142242c7231946af8f9ef97249d6a07",
+      "sha256": "59aec918b77014ec2ff9addac1dcbac9098373fa74adb091d6c82e37616a4280"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualFiniteEnclosingRadialCap.lean",
+      "bytes": 4304,
+      "mode": "100644",
+      "git_blob_sha1": "0ddc3fedf24ce351f8c799a3e2b12edb83ff8d85",
+      "sha256": "456d37797841537ad517326af746ecfbb2b5374b1e53abaf98e784427cc0b9cd"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualNormalizedDirectionalRoundness.lean",
+      "bytes": 5395,
+      "mode": "100644",
+      "git_blob_sha1": "df03f3165502823a70dd693fde9dfe040425c8ca",
+      "sha256": "977e171b7893c632dfb8560c94f55cf3a1f117a2c7fe98d558538a363864cd9b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualPyramidAssignment.lean",
+      "bytes": 3875,
+      "mode": "100644",
+      "git_blob_sha1": "f59b4e64975605c61bc8560891baf81a6aa960f7",
+      "sha256": "f0b257a5eefddaaec8e1812f95b2d36b27838654a0ba984972d02c026b02bdae"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualPyramidDefect.lean",
+      "bytes": 6629,
+      "mode": "100644",
+      "git_blob_sha1": "649835017e6347f10565ca9ccec74586b550693d",
+      "sha256": "a3cf5e3c3a43605677071dc29d9a0de537ee89847950a4ede8baa77bd0fbd32c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualPyramidJointCone.lean",
+      "bytes": 4888,
+      "mode": "100644",
+      "git_blob_sha1": "0eae405470b8fe28bceb102d0d086a11472f8b9d",
+      "sha256": "7bd5e52c4b0d17aacf278bf1ddcb60a572959949fd2a8b2e5f565a26ed31f49c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualPyramidMoment.lean",
+      "bytes": 9940,
+      "mode": "100644",
+      "git_blob_sha1": "c0efddd9d878a22ca601ec1343804af829b88743",
+      "sha256": "e80e5764f5cf36f7ece9d1ae0090b4da0a8863ffa817b08eb3c7176597f718a2"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ActualSupportFirstVariationTest.lean",
+      "bytes": 15117,
+      "mode": "100644",
+      "git_blob_sha1": "b4efe62d84f938c31324faa8e0727c49e4106b81",
+      "sha256": "49dfb7b45fca1f9188cc27f88999c1dd50e7344d0f01b05959f2f080a23df426"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/AffineNormalization.lean",
+      "bytes": 13072,
+      "mode": "100644",
+      "git_blob_sha1": "f7815904830627a15c681a3c743e1251f673ef4d",
+      "sha256": "0eb042e579af047c75873373afe2f50eb72286c64d25ab5cf62c594dde6f89b8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/AffinePyramid.lean",
+      "bytes": 7463,
+      "mode": "100644",
+      "git_blob_sha1": "61250e475f94a1cb657614a079491944aaf034d0",
+      "sha256": "64d064ae5c246893007676993de570f44274ac2b20ff9b01854e3c54ad6af23f"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/AnchorCoordinates.lean",
+      "bytes": 10304,
+      "mode": "100644",
+      "git_blob_sha1": "44e68fdf9855acd62f821a48307d1fb86b153b9a",
+      "sha256": "19abf1208fb0a6ef166cb199a564341ced733531eb2cc10947ca19f41a7684f3"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/AnchorSelection.lean",
+      "bytes": 4221,
+      "mode": "100644",
+      "git_blob_sha1": "5916aa8b65437471f761bf282af337d131ed8068",
+      "sha256": "f3b318d527c94e60dba9fe814b2721e8415defab6e1f6fdae2fe55081973f3f0"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/AssignmentKernel.lean",
+      "bytes": 8000,
+      "mode": "100644",
+      "git_blob_sha1": "396a91d6581b3eb1b128896dae642ac4c49b3f71",
+      "sha256": "407f1608600f9ef093ce129a171075a7c8b578df74b9770af6c89eac83a2221b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/BallVolume.lean",
+      "bytes": 3551,
+      "mode": "100644",
+      "git_blob_sha1": "5e0f3489abab24bdddf0a2ebe1b4499b940b4082",
+      "sha256": "dd55e65e1dc1bf010af5b3e3ee2183e447c4b5970a1bb3f5d9866414d650f609"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/Cap.lean",
+      "bytes": 6873,
+      "mode": "100644",
+      "git_blob_sha1": "625022628a5fc9cf0f37ba43b5da34a3ae9ca4ba",
+      "sha256": "b3f11c2e21211a456dfa5dfffd45373fd80378daad71f27a54f75da4002fe41e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CenteredAtomCorrection.lean",
+      "bytes": 19726,
+      "mode": "100644",
+      "git_blob_sha1": "9fae9a14e0d627b0c42bf6711a3f86bfbeeaffd6",
+      "sha256": "e3f9d1d3bd2fe117bbc932bb6aecbffe2a1a873f6f9a3756722485bede55d4cb"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CentroidMaximumBound.lean",
+      "bytes": 3253,
+      "mode": "100644",
+      "git_blob_sha1": "3aed889fe6460b9709de4876562c3a718d907c17",
+      "sha256": "5f978ad4e7cb5c472989309631350688b2822f1f832b79ad35d94c0cfdff9b07"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ClippedAssignmentKernel.lean",
+      "bytes": 6215,
+      "mode": "100644",
+      "git_blob_sha1": "9a97aa4e0ed9d46868f8f268df6d81313e8b05e4",
+      "sha256": "d37d72cf0c98c63383c9866d2c21028b1dc2c476c87da11a919acb6773b86816"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CompactBallConeLaw.lean",
+      "bytes": 13887,
+      "mode": "100644",
+      "git_blob_sha1": "1f235c080f95f501d6255dff939644193922e6f9",
+      "sha256": "9dc249629b52333236ac8f1c2bd9e870c6d06042e6165ab8e5a9cac1d9ed3f8d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CompactIidMomentContinuity.lean",
+      "bytes": 11445,
+      "mode": "100644",
+      "git_blob_sha1": "bf2e71957ac32bca67ffb2376437b505adc60235",
+      "sha256": "68fe3e0db9563021f6bd44f8ba251eeef493cf35b593dac936ed343778fe0109"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CompactProbabilitySubsequence.lean",
+      "bytes": 1859,
+      "mode": "100644",
+      "git_blob_sha1": "f7970ba122ae4d7df27e5aea2d67450aaef60d62",
+      "sha256": "ea394b5139d8d668835b38f73fdfc9f64fa3fb1e2c3892bee392cc601450415e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ConditionalPyramidMomentBridge.lean",
+      "bytes": 19837,
+      "mode": "100644",
+      "git_blob_sha1": "8909787f09d000829fcd562711f8e20206ad6098",
+      "sha256": "94d18fa01ec64772d63cf5fb38a0044bade60d9a733b186a57e2bbebd84245f4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ConeLawFinite.lean",
+      "bytes": 13268,
+      "mode": "100644",
+      "git_blob_sha1": "9f7f8a7bc3b05fde4111a01c68429ec995e67c63",
+      "sha256": "f7358fee0d865c1c404d9f4d4244a5bfe717a19eda6e177a891c4088aa1ba6ca"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ConeLawGeometry.lean",
+      "bytes": 7703,
+      "mode": "100644",
+      "git_blob_sha1": "4b1d718160f3e70b5ceb15d150ae009ef94b0aaf",
+      "sha256": "038de63347d1b1b2b6ea0251cae3888b0237b629bcbe1169bba8ea1e9dc2e5a5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/Constants.lean",
+      "bytes": 2770,
+      "mode": "100644",
+      "git_blob_sha1": "57836bfae150c3af9fc093a7d86bd515e8b2a17f",
+      "sha256": "b3cdc026d3b5be2f495e8613bd98f36408b6ece56811adc1b562994fc447425e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/CovarianceConditioning.lean",
+      "bytes": 4832,
+      "mode": "100644",
+      "git_blob_sha1": "ce43008d19a2b71bc0314c5a2909157dec202902",
+      "sha256": "0d31a0d0adc323e62740ab060a5c0c51c30eb76487df954541565da3ff7057f9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/DeterminantMoment.lean",
+      "bytes": 8760,
+      "mode": "100644",
+      "git_blob_sha1": "81cc28d2dcbef43e6f590a168fe3ce4d60e68da7",
+      "sha256": "83fa28271519bc6a25cd9e58e9922a04375476fc16e5e051a06ca640ae976d73"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/DeterminantWitness.lean",
+      "bytes": 4962,
+      "mode": "100644",
+      "git_blob_sha1": "4d6b4b62c6f4c1c821adca43652859f87a0702b9",
+      "sha256": "51fcda05126f6098420f0ccd62b369718ccf65c8f6c33c848f5d449e47a40a1f"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/EntryAffineInvariance.lean",
+      "bytes": 3399,
+      "mode": "100644",
+      "git_blob_sha1": "b02cd4bec6e42dbc021334dcc30a7415a926a36b",
+      "sha256": "9bc0902f101e2badc6cc5dec05a477a35c248d268d8a29a680ec1c9cc8b60d81"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FacetRadialMass.lean",
+      "bytes": 14130,
+      "mode": "100644",
+      "git_blob_sha1": "b73a8970488bb6f1bafa44bc5be00136b00406ce",
+      "sha256": "9d600c17e406e24fc68110689d762b4d3305bc757eb63620165a32de9042c46d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FamilyWitness.lean",
+      "bytes": 7569,
+      "mode": "100644",
+      "git_blob_sha1": "e735bacb778760030d5328664f497239303e33c8",
+      "sha256": "b5dedb91db4a106a339c6e9547199597a90073bcc36efa49a98bbae2ac9e621f"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteBodyWeightedAssignment.lean",
+      "bytes": 4875,
+      "mode": "100644",
+      "git_blob_sha1": "a88896c465ffd2e17e69ceb871294a3487a75024",
+      "sha256": "cc559ed8a8177381bbf5adeb8169ffe9c45c9100099018959a7e30cd12f0b889"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteDeterminantTupleInjection.lean",
+      "bytes": 2912,
+      "mode": "100644",
+      "git_blob_sha1": "11475356614b69234e3a34cb5002b88e7fc85812",
+      "sha256": "3838474cd54a75ab94d56da38040ed19f4d39e2556d8a9a7e3b03a9e47c6d555"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteHalfspaceCauchy.lean",
+      "bytes": 10193,
+      "mode": "100644",
+      "git_blob_sha1": "79ee9816b7435f1b96527f8b75bc42ea440a0393",
+      "sha256": "26e36595e7e5a61a4b74c77e31e25b2a3a7de48ec358b70aa1afd67597344c60"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteHalfspaceCenteredCorrection.lean",
+      "bytes": 6483,
+      "mode": "100644",
+      "git_blob_sha1": "4c53d97aa7135d0e8e451f328114db0a70c17002",
+      "sha256": "8e1a2998ef841b353fd5bda36487ce2ed9090a20bbd6c08448a645158341e7cf"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteHalfspaceConeLaw.lean",
+      "bytes": 9422,
+      "mode": "100644",
+      "git_blob_sha1": "d9940a9e04f3ed168a7e90aca37f86a4d1b79a43",
+      "sha256": "48c2479dfbe3cec48306219da8da1070c903cedd53103132ec0b20599989dee4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteHalfspaceFacets.lean",
+      "bytes": 17392,
+      "mode": "100644",
+      "git_blob_sha1": "9f5f64e7d46b1fef08b0a5052ceaa9fbdf352be4",
+      "sha256": "7c3359747b8d6b90a082c39d299c8be18d09c6a5f77c7b158522bf8c4b4a4b7b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteHalfspaceHorizontalMoment.lean",
+      "bytes": 4081,
+      "mode": "100644",
+      "git_blob_sha1": "0d42b08c105e534af3602118c679c5f9fd6157b9",
+      "sha256": "a2be893ab72aaba12d9e8cafd759b812c9a5cc0c7ba5fcdf5baf10733834b8d0"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteLawZonotopeMoment.lean",
+      "bytes": 9492,
+      "mode": "100644",
+      "git_blob_sha1": "13469033cb1561cde377da9544bdee9fbcf8f645",
+      "sha256": "637e7322f40ddcbd361c340ce096154b4247ee340c8036101485546f961340a7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteMinkowskiScaleGate.lean",
+      "bytes": 4546,
+      "mode": "100644",
+      "git_blob_sha1": "1fc753665c948effa1f8367d30c74b4e5d3a9026",
+      "sha256": "464a779ad4b77f006207b38e88bd780d13d906f5846d17efc87c89330baf9ab7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FiniteRadialSupportScale.lean",
+      "bytes": 12891,
+      "mode": "100644",
+      "git_blob_sha1": "1a39c9a912332c4dbf08dfff2162addaf3e0b8d2",
+      "sha256": "1ad1e4e4a5c02223427141c7e117072d23481e7a7da0212efc74602479fdd9c5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/FirstMomentAssignment.lean",
+      "bytes": 5644,
+      "mode": "100644",
+      "git_blob_sha1": "569dda6ff384abcc47fd6dcb1f09702a1a082b98",
+      "sha256": "2c4cbd16dae4abd94f343bc8d55102d19fcdf1be4ae7acf404e17265b7b05fd4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/GeometricEndpoint.lean",
+      "bytes": 4040,
+      "mode": "100644",
+      "git_blob_sha1": "2fc4a271bb0c13cacefe34dd551808cb88039ec7",
+      "sha256": "bf649dd58a6fb14f7bb23ace436adbbccf21eecd05bc3b14c3de1cf0b7437bf8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/HalfspaceApproximation.lean",
+      "bytes": 12553,
+      "mode": "100644",
+      "git_blob_sha1": "67b6b6c854f71690f70a4e93e43f4c43f4424943",
+      "sha256": "605aa94bab35911e543c7ed2e7405dff63366742a3d5c982fe987689f22e07f9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/HalfspaceApproximationSequence.lean",
+      "bytes": 11684,
+      "mode": "100644",
+      "git_blob_sha1": "9b20d92a4d18a1f4e8b91c29dd3bf740d2ba7dcd",
+      "sha256": "f7713882a265f0764f92111061c48b43228013d5853b1790711b6af08ce8c2a4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/Handoff.lean",
+      "bytes": 1846,
+      "mode": "100644",
+      "git_blob_sha1": "fa40514dbc308dbe47d8386aa9dfb224f42e9767",
+      "sha256": "bf0a682f17bfd913ec5a8119149bcec8d77f928fb8660d91d6cb34649896b970"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/HausdorffRetention.lean",
+      "bytes": 10632,
+      "mode": "100644",
+      "git_blob_sha1": "1ef96146ae87f8f6e34a86c6253b481d1c462074",
+      "sha256": "a17c7873ede212a149050a8149136d2e2850e151a75264e35b5cc65b7958198e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/HyperplaneProjectionJacobian.lean",
+      "bytes": 10514,
+      "mode": "100644",
+      "git_blob_sha1": "d77324de6d5ef679712c438eeb2f607fa14228c8",
+      "sha256": "ed62871e6bbc9f97bc8071611e66a3c365cd1d798236837b6a1f108046ae06d8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IidAnchorAffineDeterminant.lean",
+      "bytes": 1648,
+      "mode": "100644",
+      "git_blob_sha1": "13df9d1152591c6eb1dbc32ae04a51f1509ed7f0",
+      "sha256": "82c3db154e77150f9482c04b8fb6db9cc2b9607514f36a658bbf695e3b64d663"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IidAnchorFirstMomentPositive.lean",
+      "bytes": 3973,
+      "mode": "100644",
+      "git_blob_sha1": "01e45e99181429569d0d6a52ddf9929804475ec3",
+      "sha256": "14239f2f74fc0811dedc0ba429058e568ff14e0c97f2d5714c0992d2c1820993"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IidAnchorSpanningSupport.lean",
+      "bytes": 2723,
+      "mode": "100644",
+      "git_blob_sha1": "d158d7d02f0dd6b06bc79c30a24f7a7c955ec9d2",
+      "sha256": "e08ef73f77543cc4d96888b060acfb8e7323829d8e4fc2ae52737b94df13776e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IidTransport.lean",
+      "bytes": 5490,
+      "mode": "100644",
+      "git_blob_sha1": "a148941d669e1d40296128e88a3a349701b12dca",
+      "sha256": "3707e0c7aaa9abb0e11c0bc5ef6c2010886511ff86f3f050e1f1ed19877fac3f"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IidWeightedAnchorSelection.lean",
+      "bytes": 9856,
+      "mode": "100644",
+      "git_blob_sha1": "f6cc22685e75015acbe6d4b39e5802ca3b5ae582",
+      "sha256": "2ea69f9c469ccb5123d99f755d405cd4103276fa8811eac5dc23e5ffd3b0861d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IntegratedWitness.lean",
+      "bytes": 6194,
+      "mode": "100644",
+      "git_blob_sha1": "1ce1942f30ae0d6a967fc00f9bb3f824c944ba9b",
+      "sha256": "f3191057f2548d3097ee0f9f2bcba07ad15ae867fa49ef5ed113f50d05cb05e9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/IntrinsicLinearImageReuse.lean",
+      "bytes": 2580,
+      "mode": "100644",
+      "git_blob_sha1": "97bbe48a02034733590811667c607df7f74a9ecc",
+      "sha256": "59819907b174be70e1a1d9454c454ac921c69189e5efbcad2c90d24e551a73fc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/LargestCoordinate.lean",
+      "bytes": 2851,
+      "mode": "100644",
+      "git_blob_sha1": "c589ab2643f37443fbbb26723b4d246fa999361d",
+      "sha256": "013dc67ab4a916fda24d6035a3e13a57a959c0c78109e30896519ac6e6aff1af"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/MainTarget.lean",
+      "bytes": 329,
+      "mode": "100644",
+      "git_blob_sha1": "985706ee82ef594a6e756592cb8ebb057f451987",
+      "sha256": "bd1b99380fd495acae3387fec8d2a99131cdb1f30aea97fa2bbaf65c7ee1d8ac"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/MaximumOuterBall.lean",
+      "bytes": 12337,
+      "mode": "100644",
+      "git_blob_sha1": "bbabd61c481d2dd51c262a0948d07694fd13603c",
+      "sha256": "cbc9832839850b800636c94aafd74f28710996112c5fd8541e50b345853259b5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/OfficialProjectionDefinitions.lean",
+      "bytes": 2947,
+      "mode": "100644",
+      "git_blob_sha1": "cda31ee811a0070c8727407677b0021b83952e2d",
+      "sha256": "ac70196a55558604e6f7d32bc39f644cf4205207d7077b33e56038fa363336bb"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/OriginalRadialScale.lean",
+      "bytes": 3713,
+      "mode": "100644",
+      "git_blob_sha1": "31c09a2cbcc9fa7e5dadf9555818af5c5f5fd904",
+      "sha256": "ffeabfb4cad0a2ba766b1f2298115c403e11bce400956b6ba2376a5b957f8386"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PaperWitnessCombinatorics.lean",
+      "bytes": 2884,
+      "mode": "100644",
+      "git_blob_sha1": "93cef38913846f1659546854c30f34f4f062f7e5",
+      "sha256": "525f7d6f641dec0cbb7c948d80b18a573da6a8ec31285a6124258370b2812b7a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PaperWitnessTransport.lean",
+      "bytes": 11190,
+      "mode": "100644",
+      "git_blob_sha1": "4bb2a0a2b19d2c54615afea8ba6eda6bbe0d121b",
+      "sha256": "95801c9d83ae40f25db7c120b381676f1cf4ee337dcd23cfaafd4ea94e90154a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PolarSimplexConstruction.lean",
+      "bytes": 22006,
+      "mode": "100644",
+      "git_blob_sha1": "6d05348b0c289c5ce8906b3d558ba0220fd2ef38",
+      "sha256": "25c218de019a59683a5ff589c4c398e91fec9f79b3c511cc4424c02b2d992e67"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PrescribedSimplex.lean",
+      "bytes": 13047,
+      "mode": "100644",
+      "git_blob_sha1": "cbcaf0a72562c1d82870a584f0f971b12687e37d",
+      "sha256": "a704a0c4d47f93168215821f6a57860cbd8bdf23d06132990f67955fab77f704"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionAffineTransport.lean",
+      "bytes": 10453,
+      "mode": "100644",
+      "git_blob_sha1": "5e283f6d82f55b2968d371c25ead46b9f96833c5",
+      "sha256": "f85b8ac829caa6c558c9b8099dd8ecd8669c13f535c4036e8a5a6e13ed689207"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionBodyCovariance.lean",
+      "bytes": 5917,
+      "mode": "100644",
+      "git_blob_sha1": "10623661cbf2f6249a8b9b6a3184a32714a08574",
+      "sha256": "7f9f42f452d9c6657e2ca6b0b4b21588ea705ab2ca7349379da0f166e29ecd2b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionBodyDirections.lean",
+      "bytes": 3804,
+      "mode": "100644",
+      "git_blob_sha1": "fe276fc961915587b481a7ae268127a889d72168",
+      "sha256": "8d21cb171239f51ff6c706f2ad470b1b528409a9ef4c171e7cad99c91a5dc37d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionCap.lean",
+      "bytes": 11086,
+      "mode": "100644",
+      "git_blob_sha1": "88950b1cb1fbb09c2b0af12c527c0a7eee55049e",
+      "sha256": "d3b223066c4c2e727971d1a2f9ce84d01611b11d6392c4072dc9f9c6e085fec8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionScaleAssembly.lean",
+      "bytes": 8683,
+      "mode": "100644",
+      "git_blob_sha1": "cbc484afbfaeca00338075eda3e15bfc426269d8",
+      "sha256": "dac46ff812246c218a2d6d12499f7a57fce528e5c5e8e4e870255a55b531157c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ProjectionVolumeSqueeze.lean",
+      "bytes": 18083,
+      "mode": "100644",
+      "git_blob_sha1": "292838c0ba12677be4594ab866ca2a20de6ee3bc",
+      "sha256": "1d6870ac82787fc360ea1d0344e50b33745e961676626f99b427de130047262e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidApproximationLimits.lean",
+      "bytes": 8405,
+      "mode": "100644",
+      "git_blob_sha1": "3ee6a6ac1109a2228c28832edca13f7baf8981a1",
+      "sha256": "5b2b8f0d62b26a334dbcb974f689c710505067d750521849dd029286968c4ddb"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidContinuity.lean",
+      "bytes": 5317,
+      "mode": "100644",
+      "git_blob_sha1": "e07845555aebaf5f7a21e0229f36ee41ba09e5da",
+      "sha256": "676cfc06abaf943202a6141638ea5e95c705cfdd82586ea7dd7567fb972016f9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidEntryDefect.lean",
+      "bytes": 4390,
+      "mode": "100644",
+      "git_blob_sha1": "96f1811d0f57f94a3c24e6453f9369266fb797b6",
+      "sha256": "c8356c97c2baaf2ec339a9c31f49077ed86c051bbe4ee87f70fd658f61d9d67a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidFacetAreas.lean",
+      "bytes": 2872,
+      "mode": "100644",
+      "git_blob_sha1": "3a6d0de2dd554314fcbcb1a04dffc22499d892cc",
+      "sha256": "224c961f217098bc6a8d85adc72fe44691f8a924dc6adea021db8510361bc4de"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidFormalization.lean",
+      "bytes": 197,
+      "mode": "100644",
+      "git_blob_sha1": "c9710a02f7691b2668ec7538047cb6d2aa624d0e",
+      "sha256": "68bef885e554be610610d2552e968cc4148929e6c3d5f62176e2b2dbf304268a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidHalfspaces.lean",
+      "bytes": 9680,
+      "mode": "100644",
+      "git_blob_sha1": "ff74da760470fb87c3ef6cbf9ece14c90a4cbaaf",
+      "sha256": "0bafb3f5856e53b4f4fb656bb0153cf938f6bb020e8c9d22490ae3e25735a190"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidIidMomentReuse.lean",
+      "bytes": 2701,
+      "mode": "100644",
+      "git_blob_sha1": "d791af5d44b04dd2836c27e8df4b6a515cffdabe",
+      "sha256": "ffae66fb4770e22ab61f78c47f363852ce069a9446a07298cc230761e81b5a52"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidLiftCoordinates.lean",
+      "bytes": 2217,
+      "mode": "100644",
+      "git_blob_sha1": "aca44d8fc482f1d0498ad29423dafe5df88cfbd3",
+      "sha256": "a627812f77cd16356d70710332089c09ad03dd5d7628a3517d885ba2a55a622a"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidLiftedMoment.lean",
+      "bytes": 4461,
+      "mode": "100644",
+      "git_blob_sha1": "86fa1e61d463aca6fbaaeecb17abba01952a72ac",
+      "sha256": "368a85465c3a4a4e637e4a63d9841fab9d355f8100295b2e23fc91351e5796fc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidMomentDefect.lean",
+      "bytes": 6442,
+      "mode": "100644",
+      "git_blob_sha1": "424a1ddff738e08da7f91543978c34418cd40ec9",
+      "sha256": "39a35d81534b1871077bf8f9d7ed23fcd8710c367dba8cb50e95371ddebed963"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidProjectionBody.lean",
+      "bytes": 3375,
+      "mode": "100644",
+      "git_blob_sha1": "9792625a62a788bd4563b85ab798587248b280c5",
+      "sha256": "1b481d59730ebcbd2553e785dfb45047b2d8f11574e1bdc254ee3ba3ccd6cd5b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidProjectionVolume.lean",
+      "bytes": 5643,
+      "mode": "100644",
+      "git_blob_sha1": "7c8f7dee128bb447d0c1e04cb8f3d3eacb144f47",
+      "sha256": "e0a0d2026db6d6f3ef0732d31374347295eee86f72ff6460aa3a60f37dec0099"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidSideArea.lean",
+      "bytes": 9330,
+      "mode": "100644",
+      "git_blob_sha1": "6a0de8edd1c54564df371eceabdc0b711aafdc06",
+      "sha256": "a26ac473543266b682d125e675fe01eaa2819cc87835cdcb594eeb7b07cbfba1"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidSideFrame.lean",
+      "bytes": 4649,
+      "mode": "100644",
+      "git_blob_sha1": "18fe98bb67d36f863794e31aed4c87cfb1d31b8c",
+      "sha256": "76f6d71e20f60d8b56a48958d86bafa78bfb8495142ea4e9ada54cc0f1679f5b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidVolume.lean",
+      "bytes": 6871,
+      "mode": "100644",
+      "git_blob_sha1": "5b76e65e35e979e4f60b1b62971437fd2528f4b5",
+      "sha256": "15fdfca23a1057a970742625b27393df261ef6964296b17acf963da95d209927"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/PyramidZonotopeAlgebra.lean",
+      "bytes": 2200,
+      "mode": "100644",
+      "git_blob_sha1": "f083add769adae16f7943476b40a88b57f5feef5",
+      "sha256": "ae8ae9583e2af1f46b79e4bd2aeb23c1ed7cc89b9bdbd401db0bc071cc979721"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/RadialConeVolume.lean",
+      "bytes": 5567,
+      "mode": "100644",
+      "git_blob_sha1": "dd8c9b07085a4aee8f6d834a5f37c165476e79cd",
+      "sha256": "885f171b764b25370c6d61a321bade883009bf09ae0b9d233268f082ba4cd3f0"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/RadialPowerIntegral.lean",
+      "bytes": 860,
+      "mode": "100644",
+      "git_blob_sha1": "eb03d2ed2522e2cecb11a31c96efdc1ee733901a",
+      "sha256": "df7640165053dba28e3b75b7af715c1856e1e930abbe5fd9ec1d218f08ad31fc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/RegularSimplex.lean",
+      "bytes": 16329,
+      "mode": "100644",
+      "git_blob_sha1": "90d4fa454ae2a5490bac57fe5e206d2ffa4f2da8",
+      "sha256": "dbc1740461d7b2f824ee64d64317ce54625c75b601cbd6b7e9c1789c29de2864"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/RoundAnchorChain.lean",
+      "bytes": 2924,
+      "mode": "100644",
+      "git_blob_sha1": "261adda83b0108dfe53d5e2e85bd0bfa40a892f6",
+      "sha256": "243033e6923df6688cc3c8e96cf1339341c99c43e6a2028a64b2edadf8566582"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SameWitnessOriginalQBudget.lean",
+      "bytes": 3444,
+      "mode": "100644",
+      "git_blob_sha1": "e2de379b415b7731ab0c08afab403db02d78b64c",
+      "sha256": "b8621876564c024194e06cedf26747b7dc288083b6902c355b88b8736ff6458d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SelectedAnchorHullRoundness.lean",
+      "bytes": 5338,
+      "mode": "100644",
+      "git_blob_sha1": "2e159c4a5301d3bf2e917a00bdbdc168f467b40a",
+      "sha256": "edfca1a3ae33a55278773cc6c7784acbb355570b3072afe9a70c158b95813fd4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SelectedAnchorSimplex.lean",
+      "bytes": 1726,
+      "mode": "100644",
+      "git_blob_sha1": "3566605ecf898d96eeb4a7cc50a56dab8df00ed7",
+      "sha256": "7408fdb02da634a4f172c38bac08c77cb1b1e8edf1bc25bc31887a1836020f0d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpConstantGates.lean",
+      "bytes": 5077,
+      "mode": "100644",
+      "git_blob_sha1": "80dfbeb4c3a5ce5346bc22a6b10bfdca67547a90",
+      "sha256": "3d81144d6ce7954a7bb2b1a4ab9e28584bbf0e0aa7fd7cca30d6947541101863"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpMainRetentionAssembly.lean",
+      "bytes": 2867,
+      "mode": "100644",
+      "git_blob_sha1": "e23fe4836261a64f9affa667a49bb00e04d0c9bd",
+      "sha256": "92c7338e28b397b0d2e4e002ed3e16aab8f7fd1a818dc73371a5a50e8c1beeae"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpNormalizationRadius.lean",
+      "bytes": 5895,
+      "mode": "100644",
+      "git_blob_sha1": "3e49b594d258ccca4b622ea51d46e6c2acb1396a",
+      "sha256": "b83a914f86f096b713cd965d14604de2c367ec8a52d8d1b9ad28c1a6eb2fb484"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SharpUpperMain.lean",
+      "bytes": 4864,
+      "mode": "100644",
+      "git_blob_sha1": "b8fe1e277b76d12ac644a290c2b414c9f17f209c",
+      "sha256": "03d5ac8ccde7b92d7f5084a50e9aa841ad539684a8582a98d0546431c170a2aa"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SimplexVolumeInterface.lean",
+      "bytes": 10639,
+      "mode": "100644",
+      "git_blob_sha1": "891dded90e0f2f4d5a8b59fc5ea88b83a78f74a7",
+      "sha256": "d0b2e1e8f4d216ab027909ca668f0a5042810afdb27671d5cf89754658dea5e8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/StrongBallVolume.lean",
+      "bytes": 3390,
+      "mode": "100644",
+      "git_blob_sha1": "5fae2f3deff899d685cbd211458db114ad9883c1",
+      "sha256": "7c32fbfe5fa5e2e72056bf8328720eeab5c461e1aa774d6024fa5b3c08b61afb"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/StrongGeometricEndpoint.lean",
+      "bytes": 6822,
+      "mode": "100644",
+      "git_blob_sha1": "00081aee1b18e3faa3f2446bf42a621ec09103da",
+      "sha256": "52c06c648f79bbfa28db7bf6760d4f6865b9fcdbb6343fab7bc2434b193db9a5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/StrongProjectionCap.lean",
+      "bytes": 11413,
+      "mode": "100644",
+      "git_blob_sha1": "79329336d824b065b6646f39b56fa2efc2316b9a",
+      "sha256": "7ab7f334457ca31f7ecfdfa705e4468927814280984372d9a2ac84c5b4d2867c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/SupportScaleCapAssembly.lean",
+      "bytes": 5009,
+      "mode": "100644",
+      "git_blob_sha1": "c054d28ff78b87f371277305550224096b346483",
+      "sha256": "0c4a58f498f17cd257405c78e63cd84eb4617e0742cbe2dbcea29ab25916eb9d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/Targets.lean",
+      "bytes": 4644,
+      "mode": "100644",
+      "git_blob_sha1": "435d869c7bac9242d4d91d64843e6b001d71755d",
+      "sha256": "8bc873bff65384b67b05d3d4fd405bdf9c728e0befb0e6ac355373fa3ded7c94"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ThresholdGate.lean",
+      "bytes": 4776,
+      "mode": "100644",
+      "git_blob_sha1": "eb30e15ed3cb1107784e6ee02c067058ec8e07a4",
+      "sha256": "d8366f933447b307f9afba512a083cf6944bd0ce985c25d845bb257451d89d74"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/UnitBallAnchorChain.lean",
+      "bytes": 3740,
+      "mode": "100644",
+      "git_blob_sha1": "025d3f059caea409670c4c7f78e2413614339c4f",
+      "sha256": "f92f686856913c05317dbfd74d9b54f439b080c0ea66b9d53baedd572792b745"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/UnitBallDeterminant.lean",
+      "bytes": 3920,
+      "mode": "100644",
+      "git_blob_sha1": "6ad9aeb2e041e1a93ab0ae8a822059ef1bb05703",
+      "sha256": "893f7e8f65a0ef6b5dd4eeaca17521ed0a6c54c51d4c31a9906aa095c926a2d6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/VerifiedPyramidMomentBridge.lean",
+      "bytes": 3115,
+      "mode": "100644",
+      "git_blob_sha1": "85cc4bd300f85a53eb29e99f3c4ca987e9737d35",
+      "sha256": "4c2d278a7d051f6d038ffc26243f0635df04cbce0457b0c3d5bec8562d2dfd83"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/WeightedAnchorSelection.lean",
+      "bytes": 5179,
+      "mode": "100644",
+      "git_blob_sha1": "6ac5ad18dad2ea53f2a0d35d9a7ab0f07efa49a7",
+      "sha256": "2007dfd4352ad910e9e3755fc5feda8993931e917fdfaa866774dd64ab2e33b1"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/WitnessAnchorChain.lean",
+      "bytes": 5392,
+      "mode": "100644",
+      "git_blob_sha1": "450833f4edee637dc5c86614aa09725dd736afbb",
+      "sha256": "c7fa9b697cc3a0856d5c52c7041fde417b5d41452e53b5f0329265a68620d584"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ZonotopeDeterminant.lean",
+      "bytes": 10273,
+      "mode": "100644",
+      "git_blob_sha1": "2d8862132576ee76a7ea1de7a44333b9ce6bbefe",
+      "sha256": "a4cc3b6c088ae2838141e5c5428949fb32ca1972960ce98af4ca1956edf326bd"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ZonotopeFormula.lean",
+      "bytes": 5375,
+      "mode": "100644",
+      "git_blob_sha1": "6ae79903b77e0a9d6911ee3e058eb55335e8bf2c",
+      "sha256": "ba216221b66feb2035bac755b49438472b833383bfbae9baa24de5cbc5a6cd58"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ZonotopeInjectionCombinatorics.lean",
+      "bytes": 7638,
+      "mode": "100644",
+      "git_blob_sha1": "f84c3eaba15996cc1877d2a6218d7f8c696568a0",
+      "sha256": "570af9e1e040e0e5044f15315d2bf8e1ffdad640dec2fb649933658398c6bbc5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005/ZonotopeVolume.lean",
+      "bytes": 19008,
+      "mode": "100644",
+      "git_blob_sha1": "14ff29d7110927bf72c31ca4da198fc1c73729a4",
+      "sha256": "dcf0f7ce03c45525d181c583d27b48aaba7512074459cc0106c94cbaad0a4541"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Entry005.lean",
+      "bytes": 802,
+      "mode": "100644",
+      "git_blob_sha1": "4b2e539076c11d87f58007a38ae4dbb0612eb3a2",
+      "sha256": "e90d22f26bd26535c6bed987eb152f543b6fc99a105d90e7d5dd608e5888181c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/Mxym/StochasticRigidity.lean",
+      "bytes": 9353,
+      "mode": "100644",
+      "git_blob_sha1": "c5acbe707ea259937c2a30ed2e2c34b14e3c87ba",
+      "sha256": "66daed1469b8555c3d199f1389aacc8e29d0dfeec13a0d99920c5cc2575d08a6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/OAI/Geometry/ProjectionVolume/Basic.lean",
+      "bytes": 781,
+      "mode": "100644",
+      "git_blob_sha1": "ce4f24062457103132800a7fbd3c9b3b99a704e9",
+      "sha256": "241fadb593edf602f91235669f16893fba0f13a98e405dbaf05203d9f7b71347"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/OAI/Geometry/ProjectionVolume/Brightness.lean",
+      "bytes": 5688,
+      "mode": "100644",
+      "git_blob_sha1": "3a58706db77df6fff73e16380d4276548969ad28",
+      "sha256": "91d5a0e29a5114b113251847b3bf889e158132e328b940c1cabf6b542712b794"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/OAI/Geometry/ProjectionVolume/Model.lean",
+      "bytes": 1981,
+      "mode": "100644",
+      "git_blob_sha1": "e40f64bd9f75c10843654b87e4f734f2e13b4ee3",
+      "sha256": "61bc6519604211b4272963ccd0fbc59bfa70d1190b0f2dd9178e122ac8c1c0b8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/UpperMainAudit.lean",
+      "bytes": 17526,
+      "mode": "100644",
+      "git_blob_sha1": "9b4b5569e3e2f59712cd64eaefd0dc5f26f0dc08",
+      "sha256": "7861fc47430a5673fd943891f3e3944418b9062136bd73366fb10110a28636b3"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/AffinePyramidChecks.lean",
+      "bytes": 2637,
+      "mode": "100644",
+      "git_blob_sha1": "aab33d3dc29b6327f131bedcf2a7e9969c0a48bc",
+      "sha256": "d7584cdc1a7f2b21fda0f0d608da6a1c03ace0c1e51fbfe26619668d31121cfc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/CentroidMaximumBoundChecks.lean",
+      "bytes": 4017,
+      "mode": "100644",
+      "git_blob_sha1": "ac2f010b486de8ef6f5780268618e1f5c769e4f5",
+      "sha256": "ee7db57a1b3055a7d22558388d1056b9c53a26021ef20cb76d4b3906c71589d7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/EntryAffineInvarianceChecks.lean",
+      "bytes": 3305,
+      "mode": "100644",
+      "git_blob_sha1": "002b4c64c51ca880bf82a2db7c26131e7460c214",
+      "sha256": "dd2ccc362eeb1bf7748b7a9ca772f3c6e8b7cc418fbb89a37c929ab2b3547258"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/GeometricEndpointChecks.lean",
+      "bytes": 1925,
+      "mode": "100644",
+      "git_blob_sha1": "8c0069ba394b5d59c39616d9320f61f7d1a68177",
+      "sha256": "36952105381ac606356b567057c883b4b154e2e673dc4efcca5646292c0ae80c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/HausdorffChecks.lean",
+      "bytes": 6951,
+      "mode": "100644",
+      "git_blob_sha1": "09086e5c3f12d2090e636e9a65d84c6fe693184e",
+      "sha256": "f452461da76bfe9b39b14899827146984a77977f6721cddd434ba109828282a5"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/InterfaceChecks.lean",
+      "bytes": 5722,
+      "mode": "100644",
+      "git_blob_sha1": "4b03ee448403c4b8408c0eeb6906244f87653f7e",
+      "sha256": "6d035015dd4bc800188bb0ceb19273f742b2c98cd1c2b89233d1e27bf3653dc2"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/MaximumOuterBallChecks.lean",
+      "bytes": 3790,
+      "mode": "100644",
+      "git_blob_sha1": "4dfe0e6100de8e0c16230fee749715667786bdb7",
+      "sha256": "d43b029be6571d1c7788f729ece1b8b511015ec9bcff94629a2abbfeeac23d77"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/PrescribedChecks.lean",
+      "bytes": 11983,
+      "mode": "100644",
+      "git_blob_sha1": "91144f50f4a3e5eb1be20f9b3a292859fa348fac",
+      "sha256": "67997897f64ed68fcdc9d093b5bb48ca25694c8883fda1512378ff47441c7a9e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/ProjectionAffineTransportChecks.lean",
+      "bytes": 3751,
+      "mode": "100644",
+      "git_blob_sha1": "f6ae0385091420bd3ef2c3cabe1393f38989c2b7",
+      "sha256": "9209f1153b88bac30d2e766411ff32aa91ff3b2a2f5a341596f4838735e31f47"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/RegularSimplexChecks.lean",
+      "bytes": 2308,
+      "mode": "100644",
+      "git_blob_sha1": "0670765382114bffba7612c2974dd81e0880d5a4",
+      "sha256": "c51691827484dbb2413e6d112ec84fca6ab9f045cb505db518ffc33cfe363850"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/SharpNormalizationRadiusChecks.lean",
+      "bytes": 5947,
+      "mode": "100644",
+      "git_blob_sha1": "d456a2c3df7068a38d62782b7f5e510751f1d458",
+      "sha256": "aeb6cdda46bb046f4a2c22944bac268a55ae364cadc66065a23375fa3863ed41"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/StrongGeometricEndpointChecks.lean",
+      "bytes": 2238,
+      "mode": "100644",
+      "git_blob_sha1": "3dd4acffa36f46071fdb46c03fc35fea7f05079c",
+      "sha256": "302c91d558a72ac4bf0427fb8406a288110afde267102c45538e324d18d3a76e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/StrongProjectionCapChecks.lean",
+      "bytes": 4317,
+      "mode": "100644",
+      "git_blob_sha1": "c06228a8f6bfa84d505d9a9a1b976bda14857a3e",
+      "sha256": "8c8d198544a8cac3220b1f3a6a40b959f9407a3117b8277acc6156f33fcac230"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/controls/ThresholdChecks.lean",
+      "bytes": 495,
+      "mode": "100644",
+      "git_blob_sha1": "ce59a795f7798ad446e73d1825640cdfbfbb67cd",
+      "sha256": "1f112b83c68e2040caa70873573f3986844e06655ced0cc2a02dace11e338453"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/lake-manifest.json",
+      "bytes": 3546,
+      "mode": "100644",
+      "git_blob_sha1": "eecc912b40d40af0ee0be69a1e87a9a929a1eeaf",
+      "sha256": "77dff81399a610f631302a0d71db235aa1373e983cd684cd471c2d5ed0cd95a6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/lakefile.toml",
+      "bytes": 376,
+      "mode": "100644",
+      "git_blob_sha1": "9867d4382dac4d4fc88d59e471f221f1fcfa4775",
+      "sha256": "304984011b21eac0598828f1ee58e9caa4ac602e7622f596b266b16256cc40a4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/formal/lean-toolchain",
+      "bytes": 25,
+      "mode": "100644",
+      "git_blob_sha1": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/licenses/Original533OfficialSourceNotice.md",
+      "bytes": 2200,
+      "mode": "100644",
+      "git_blob_sha1": "a3d01d93735eaceabf539293692e9b70acf075e6",
+      "sha256": "9e9bbc1f69b5a56a418c20780722d497cfdc7f358f2b7a39390bb6e47f1ed7b6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/licenses/UPSTREAM_NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/licenses/formal/OAI/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/licenses/openai_math_LICENSE.txt",
+      "bytes": 11358,
+      "mode": "100644",
+      "git_blob_sha1": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/proofs/CompleteSharpMainRadialProof.txt",
+      "bytes": 18361,
+      "mode": "100644",
+      "git_blob_sha1": "e10c710aa500cdbeb27b45d39c7e346f384211d9",
+      "sha256": "0c2e2eebf7f4409f4fdb56d68879eb5281b4d6db71337c9864f497922715d0e4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/proofs/FrozenReports.sha256",
+      "bytes": 274,
+      "mode": "100644",
+      "git_blob_sha1": "288124dabc77c37729b32516cd484c55e46fa0ea",
+      "sha256": "1fde5aa0df553e6ef67213c324f09597f0013b63aa3638c8e7f419c152390b15"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/proofs/InspectedSources.sha256",
+      "bytes": 1911,
+      "mode": "100644",
+      "git_blob_sha1": "c406125d0ba106e00ad061eac1b13371af023327",
+      "sha256": "90ef370ad10c8ca584fd440535cbde606fe56b3c0c542d7f9bd31f146b455aa6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/proofs/ReviewFindings.txt",
+      "bytes": 4975,
+      "mode": "100644",
+      "git_blob_sha1": "9c0fb496d228460e00d60d49580af96efaa2fa16",
+      "sha256": "29d66f0af53aaf47ea89911408043f247670fc00497340f41d49e757683698cd"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/DirectionalRoundnessVerification.md",
+      "bytes": 3661,
+      "mode": "100644",
+      "git_blob_sha1": "8563e9923863b455f46934de0195177aed427b45",
+      "sha256": "c621195679fa5964baad0f2aff572d0ca0b1e14515419828ce751e5601d04569"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/ExactRadialSourceReview.txt",
+      "bytes": 6055,
+      "mode": "100644",
+      "git_blob_sha1": "7f823ffbcffe9d1abb7b1ea25b2eb9e3c5134e6b",
+      "sha256": "444a5e64c1a28f5569c09dabc96361eca0d992e0121ab178af4c0e37c79d7690"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/FinalMainAudit.lean",
+      "bytes": 2818,
+      "mode": "100644",
+      "git_blob_sha1": "96e60289ac0f4b3c7f8ca42c55073b112e2f34fb",
+      "sha256": "b847a5ce0e8d02ba3e780560bf8a29f72878031134ebcd1135d1cb3c0e0f0cac"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/FinalMainAudit.log",
+      "bytes": 4196,
+      "mode": "100644",
+      "git_blob_sha1": "dc6c0dd43eb2a1d8ed542fd5c108dfc343aea847",
+      "sha256": "ce0496c261f61ec9d307f7b1742e4c1361393a8ad283c226237c17f29c041489"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/FinalMainExactSourceReview.txt",
+      "bytes": 5449,
+      "mode": "100644",
+      "git_blob_sha1": "798f63982d4d8edac740a004c19061683546c755",
+      "sha256": "ac0eb454b247e7e3a40df76bb69a766f29fd84648d94b454ed76a31a6f709533"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/FinalReviewFrozen.sha256",
+      "bytes": 668,
+      "mode": "100644",
+      "git_blob_sha1": "a4c889140a6997099b695f13dc0b45eb9635e318",
+      "sha256": "fba552936577ab8ea6c12c2d6f905d79438d0f72813175b964c9b51e296f2131"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/FrozenSourceReview.sha256",
+      "bytes": 574,
+      "mode": "100644",
+      "git_blob_sha1": "ee251435bb5bec2216b0db4b79e453dc98c7ea6a",
+      "sha256": "87b3376a53a70074041fc345543833e2a996205e091ba1611f044f390d8ec30c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/Independent-MainTargetCompile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/Independent-SharpMainRetentionAssemblyCompile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/Independent-SharpUpperMainCompile.log",
+      "bytes": 0,
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/PolarSimplex-Audit.log",
+      "bytes": 18031,
+      "mode": "100644",
+      "git_blob_sha1": "9e89d095de4eda499f08695d8f3e79f6a253660d",
+      "sha256": "c5b11474e19671e1caa2e3fbd751fd95a18b410781030ba0d3f6bbb4e1d4218c"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/PolarSimplex-LiteralTerminal.lean",
+      "bytes": 1556,
+      "mode": "100644",
+      "git_blob_sha1": "0a73fc4da76e078fc6e47c62c506b2af48d580d5",
+      "sha256": "cf09c902a376bd4eb5a8e7e9fa09dfe1d29d1a5559c7076b5376beef27dc53b3"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/PolarSimplex-LiteralTerminal.log",
+      "bytes": 150,
+      "mode": "100644",
+      "git_blob_sha1": "6729dd7f4a1709993fa8de51155e290dba73c4dd",
+      "sha256": "491ca184edc0b9c0ab15af9be2a56e0bdeeb8cd818ddddfbf48c83435fd9def9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/PolarSimplex-Manifest.json",
+      "bytes": 2334,
+      "mode": "100644",
+      "git_blob_sha1": "8fdd146840ecb89a5d5ad3662584e1e674290d82",
+      "sha256": "2e2fafaa33d3aae46866f8aa63fd706949d30658f617d38b28d479c0561cbe51"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/PolarSimplex-VerificationReport.md",
+      "bytes": 7806,
+      "mode": "100644",
+      "git_blob_sha1": "adfa4ceebb2904b3e838cf8d82f4bedfddbd49d8",
+      "sha256": "bab8df70a1f900c3225f2af81d990bf9921407689d7ce225551da5231850acc9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/reviews/RadialScaleAudit.log",
+      "bytes": 6745,
+      "mode": "100644",
+      "git_blob_sha1": "9c0f4b25541c9024bea45a167249177b4d054f21",
+      "sha256": "272b2c78c93948da54f24b2917925aac8280f520757600e0eaf7eba27a540cc6"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/scripts/make_readable_patch.py",
+      "bytes": 2447,
+      "mode": "100644",
+      "git_blob_sha1": "baf812f820a28b4c303bd0b40d97b71f5ec696ad",
+      "sha256": "6893f58e2abf7b54bfbd17d856315301fbebd314543aca462151dfc16266ab71"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/scripts/pins.json",
+      "bytes": 1256,
+      "mode": "100644",
+      "git_blob_sha1": "bd876f0796b695e48ae5679da2b498be54234928",
+      "sha256": "f3fe26601bbb3302e2742dbbe8b085837ea733f272da1f9c944fb5e1a82d13cf"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/scripts/replay_upper_main.py",
+      "bytes": 471,
+      "mode": "100644",
+      "git_blob_sha1": "438625d67f2454fb106a831c4aa96a57114038d7",
+      "sha256": "e21a664d9f06ae9221099dc114cdd1dafebd27d7d620bd4e984090771397f865"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/project/scripts/source_inventory.py",
+      "bytes": 5440,
+      "mode": "100644",
+      "git_blob_sha1": "f69aaa0ff76f2eb3bcad0a4c082b7db07cffa95f",
+      "sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/DEPENDENCY_PROVENANCE.json",
+      "bytes": 14452,
+      "mode": "100644",
+      "git_blob_sha1": "4d325c741470e2c9db75625aa560b1d3fe344b07",
+      "sha256": "925e621838c02a290b3bf63b8a7a904ac4f9b8d9a949e57945945e0ca17df17d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/EXTERNAL_ARTIFACTS_REFERENCE.json.gz",
+      "bytes": 1327270,
+      "mode": "100644",
+      "git_blob_sha1": "1386b0e7b52346832c19e3bb9fcc2eba2542d26b",
+      "sha256": "91fae36ad0402485ae6fa583d1dcd901e706f7d632cc1e65bb7b0c4f8ad3f48e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/INPUT_COMPOSITION.json",
+      "bytes": 971,
+      "mode": "100644",
+      "git_blob_sha1": "e612e1721cb5679846a5907c999db249643e62d1",
+      "sha256": "88d2d033b30854881c7fd03991d79b11b154f0efad28976732eaca3139aa9c5b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/ORIGINAL_SOURCE_SHA256.json",
+      "bytes": 25429,
+      "mode": "100644",
+      "git_blob_sha1": "f5a2b0d1a27767dfb6e1c2fc7fd61dfc7fc62e3b",
+      "sha256": "09daf048d201c3f86be9f8145581657e384542002c278f8b974b5ce30ef37c77"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/PUBLIC_DERIVATIVE_LEDGER.json",
+      "bytes": 9165,
+      "mode": "100644",
+      "git_blob_sha1": "efd0b3cd60f2d998c45953f5e0407da97150ddef",
+      "sha256": "d6cc522596dbc9da28cfe5e9329dcc2873c51a2c1568dad2cab8164fb374b4a7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/REQUIRED_PAYLOAD_SHA256.json",
+      "bytes": 36124,
+      "mode": "100644",
+      "git_blob_sha1": "4dbe5f169124010d4b9c7f845c58099018eb20f3",
+      "sha256": "6f497ae04220dd1fbd4fd9fa3cbc1e21ee6c7b60c1bfa7004c7435850f622039"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/TOOLCHAIN_FILES_SHA256.json",
+      "bytes": 2121799,
+      "mode": "100644",
+      "git_blob_sha1": "44fea5e792612364a7de114fa560cab110cfacba",
+      "sha256": "5ce0ade313b607222e8409a5bcbf1a7c2161ea1ef7ef5ba11edd11f8a45779e8"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/openai/LICENSE.OpenAI-math.Apache-2.0.txt",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/openai/ModelImportOnly.patch",
+      "bytes": 645,
+      "mode": "100644",
+      "git_blob_sha1": "0dbd404fc6240d33a94472f8121ef821d70d0813",
+      "sha256": "f16359db25180db5e7067533939a90475434c1eb5c578ffe055e6cd027f715f2"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/provenance/openai/Provenance.json",
+      "bytes": 1154,
+      "mode": "100644",
+      "git_blob_sha1": "5f69a06e658b58c6bbd926ed7c01a88335bd607b",
+      "sha256": "30d5f812a6deee77a3e270a158736a317dd55fbfabfa870f059f036cdf6d66b1"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/bootstrap.py",
+      "bytes": 474,
+      "mode": "100644",
+      "git_blob_sha1": "e0e525d29503cf0fc5888f41ae5c9d7433d06d05",
+      "sha256": "882baff3d3781a85d769091a396db71423944a25719aae4e4721994700602dcc"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/make_archive.py",
+      "bytes": 2616,
+      "mode": "100644",
+      "git_blob_sha1": "e4a83925af3eb2b2aaa4bed7ae716ed408664d3f",
+      "sha256": "277236dfbafd8dfe966f9354c1f981d21020950fa1b1ae41fd513f852c6f96a7"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/release_integrity.py",
+      "bytes": 26263,
+      "mode": "100644",
+      "git_blob_sha1": "81008e66c736135e06faebbd1545d68fa5de1daa",
+      "sha256": "373fa362db337d02de9bad253f2193028b764bfde64d2fdae30b32ff56e1f123"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/seal_release.py",
+      "bytes": 2132,
+      "mode": "100644",
+      "git_blob_sha1": "2fec7b70bde9a867efd19db88ece134956ebb724",
+      "sha256": "00166497ad27ffb67415caa26aada9bac83f866daa710a50065c6343dbabe920"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/source_inventory.py",
+      "bytes": 5440,
+      "mode": "100644",
+      "git_blob_sha1": "f69aaa0ff76f2eb3bcad0a4c082b7db07cffa95f",
+      "sha256": "3f4732fab33823e303dc60452ddf7f3d6f1cb4152c816229e166343576be1e8b"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/test_release_integrity.py",
+      "bytes": 10749,
+      "mode": "100644",
+      "git_blob_sha1": "0135b7f5041b7da36a23f05cb2462568ec4243e4",
+      "sha256": "360a79bd2c0dd28450ca5adac4b4ab2429152dc348ee0ca2ede914e45e6d8e8d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/test_source_completeness.py",
+      "bytes": 3532,
+      "mode": "100644",
+      "git_blob_sha1": "3ba52c8f82754e3fa9bb079144dcbec803fbab56",
+      "sha256": "0591b55c4973fe7e25c55727240ffa0c772dc978a92a11d8a9e76bc7e17b76d9"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/verify.py",
+      "bytes": 12398,
+      "mode": "100644",
+      "git_blob_sha1": "903df2828834fc9a0ce4758e14daf7ba45ec7999",
+      "sha256": "90a4ef3acbe237c836201105c2091b2a62bfb07898eebe85e8d34b4093cb1eab"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/scripts/verify_integrity.py",
+      "bytes": 654,
+      "mode": "100644",
+      "git_blob_sha1": "a8e78929675028235d9c324f118df124c9356f32",
+      "sha256": "ffe75d5dc770778a50a7d8fe86c124827102727a5b9f3a94dc8a664dda4fc5ec"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/Cli/LICENSE",
+      "bytes": 1062,
+      "mode": "100644",
+      "git_blob_sha1": "98b19b60b19889fb74443ff5fe2cf36babf017f9",
+      "sha256": "f7e95706807e931782b6efd9a9d2789508a52423ad67b56ee7e5e324362d4aac"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/LeanSearchClient/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/Qq/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/SHA256SUMS",
+      "bytes": 1592,
+      "mode": "100644",
+      "git_blob_sha1": "b3977e931e47e8e00bc6cf7793f4400b7c987bd9",
+      "sha256": "d569b252505cd11b252bcef2b6cfc4df281d1279bc3f9da15e528860b255420d"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/aesop/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/batteries/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/importGraph/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/importGraph/html-template/LICENSE_source",
+      "bytes": 1068,
+      "mode": "100644",
+      "git_blob_sha1": "9c0b6d7205b531c3afbaef35b18acd460bc8d2a5",
+      "sha256": "49110e6ed9990dbd0869c66bdae2882a9e74776094a12e87f25067979e777502"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/lean4/LICENSE",
+      "bytes": 9160,
+      "mode": "100644",
+      "git_blob_sha1": "813da297567374691eaae7a88739dbbefd2afdfd",
+      "sha256": "8b28515ffffc5c0fe2807d8ae3735b00b324d9b7ce807dd63ff6ac8922fbce7e"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/lean4/LICENSES",
+      "bytes": 81854,
+      "mode": "100644",
+      "git_blob_sha1": "37427171b06efa9b2d05065de853f2bf93d63df0",
+      "sha256": "00cce2ac071f63d470a287438a7c6bbc4334706be244384e9af4fc9ead11cdce"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/mathlib/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/openai_math_LICENSE.txt",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/plausible/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/proofwidgets/LICENSE",
+      "bytes": 11357,
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "formalizations/sharp-simplex-upper-bound/third_party_licenses/repository_NOTICE.md",
+      "bytes": 1162,
+      "mode": "100644",
+      "git_blob_sha1": "4fae0e02522580f85d3935711611ac4c4561fcca",
+      "sha256": "1f1d6f4638d99535bb113dce6efb142ea9404f669d135f624c927f8d78386542"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/COMPILER_ALL_SOURCE_DAG_AUDIT.json",
+      "bytes": 1281,
+      "mode": "100644",
+      "git_blob_sha1": "0da83c37c36a1b1d01ea3d04e58a84482d6ccb77",
+      "sha256": "d16be68a66c8505ae3b0d773f874b585c5c6ab7224777e2a81b2e9ac5a22c25c"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/DEPENDENCY_SOURCE_CACHE_ATTACK-v2.json",
+      "bytes": 1266,
+      "mode": "100644",
+      "git_blob_sha1": "83020d1b0d4fbe2156e400321c41a5b90e7307f1",
+      "sha256": "08a3c660cebeaef51e864494b680c25bb0b697206103b20e943b062bcf2f3429"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/EVIDENCE_SHA256.json",
+      "bytes": 1167,
+      "mode": "100644",
+      "git_blob_sha1": "1c2123c0085dd5f508469b8c1fa6d940ce8951cd",
+      "sha256": "aed9e47eb51ce450eef76bc3eae957112bd2fa42489db986854bab998469e06b"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.json",
+      "bytes": 2816,
+      "mode": "100644",
+      "git_blob_sha1": "7ddae0272bb86354e39c49f012fd317aa4b0f61b",
+      "sha256": "14202686c9d839c8965834421ba6843ea962403fcb446c27d102e9c32b673dc8"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/FINAL_COPY_AUDIT.md",
+      "bytes": 6232,
+      "mode": "100644",
+      "git_blob_sha1": "ae3ce392572730675b31b8f53cd2f0ed9edf5888",
+      "sha256": "42477ee41942e73b2bd726be0a08f9d8caf4e617cee2d7c347d3d0bc403063bc"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/INDEPENDENT_LITERAL_KERNEL_CONTROLS.json",
+      "bytes": 1383,
+      "mode": "100644",
+      "git_blob_sha1": "701809f0b12a35632f2deef35d46c7ede058d45e",
+      "sha256": "d86e6dffe4e24e78af7e806a6548880205fb1cb91885558cc418ab587e9cafd4"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/PRODUCER_RUN_INDEPENDENT_CHECK-v1.json",
+      "bytes": 15621,
+      "mode": "100644",
+      "git_blob_sha1": "e0daad34c4e07ff48baddb4b88525b1dfc985ffc",
+      "sha256": "988ea2c1832abe978c12306a949316fd639ea3986ad641d30fee69370cc2a9fa"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/PRODUCER_RUN_INDEPENDENT_CHECK-v2.json",
+      "bytes": 15621,
+      "mode": "100644",
+      "git_blob_sha1": "896c82cfac1807240e3f8beed4b9f233ac6a9f84",
+      "sha256": "1292500a46decc3d30e1334be7f58ea5e1e7697afad6f85487e26970bc715a0a"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/PRODUCTION_ENTRY_ATTACKS-v2.json",
+      "bytes": 16606,
+      "mode": "100644",
+      "git_blob_sha1": "94673921a476f8a9899c87c8ade9b5330f5f2d9f",
+      "sha256": "e8d958f827bfde991afdcc316aae06449e9460af243da90d282ca99875a9186c"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/RUNTIME_SOURCE_DAG_AUDIT.json",
+      "bytes": 1284,
+      "mode": "100644",
+      "git_blob_sha1": "836ee67c5cb2c14496f5e970ed1b285523d88457",
+      "sha256": "e5fac12bf56fa0c090c477c7f6b45fd8bac78925fe9cecfe3da1dbca2aa27c83"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/V2_MINIMAL_DIFF_INDEPENDENT.json",
+      "bytes": 2260,
+      "mode": "100644",
+      "git_blob_sha1": "1f4624e089f998a554e2eaceca913f9731d19c66",
+      "sha256": "afdd5bb609f13f7115bdedb614215196ad1096d9b2de929ef386557e13edbba6"
+    },
+    {
+      "path": "verification/2026-10-08-sharp-simplex-upper-bound/V2_PUBLIC_METADATA_CHECK.json",
+      "bytes": 199,
+      "mode": "100644",
+      "git_blob_sha1": "61f50fef13dd10283122df5aaf5c13221e91e68f",
+      "sha256": "fff3134fcc8acb9c016e1334e4917030c5632c64a6c869c5ad86363346360002"
+    },
+    {
+      "path": "releases/2026-10-08-sharp-simplex-upper-bound-source-v2.tar.gz",
+      "bytes": 3391434,
+      "mode": "100644",
+      "git_blob_sha1": "8090fcf1fe09422f45a6ec4b588319fff241a467",
+      "sha256": "494e73fc7e077ff85a433c0c06529def3e3909501c7a9c4444b10c7546daec59"
+    },
+    {
+      "path": "README.md",
+      "bytes": 70420,
+      "mode": "100644",
+      "git_blob_sha1": "8cd43e1c373b36bed04519f62f2e6cfe750cbbd2",
+      "sha256": "3538892d0e2d8f48fd7a07e7d8f908d485edbf1b3f353e931cd9ff3dfc0cd735"
+    },
+    {
+      "path": "CONTENTS.md",
+      "bytes": 52751,
+      "mode": "100644",
+      "git_blob_sha1": "1d5d268a86e48b0afbb10e61758c8c755c035e04",
+      "sha256": "faf79bb0ab3132ad9c65efc98871dd8b63ad6d7c29d2d38badbf991dcb1dd03e"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 45591,
+      "mode": "100644",
+      "git_blob_sha1": "d4c1732453b75127b1bb2415823bfb1dabccaf19",
+      "sha256": "3b7728b9b2a9a5e75b520932ef9521bdc2458d5963ef52fd5b611cc322e912e8"
+    },
+    {
+      "path": "verification/STATUS.md",
+      "bytes": 49357,
+      "mode": "100644",
+      "git_blob_sha1": "b80e574a28c484dc57c86d1437fb613e024612fa",
+      "sha256": "5823599989c7deb74dc71b374f5014732019f8dd6fe23de073d71743c8d5cedd"
+    }
+  ],
+  "manifest_self_exclusion": "releases/2026-10-08-sharp-simplex-upper-bound-v2.json"
+}

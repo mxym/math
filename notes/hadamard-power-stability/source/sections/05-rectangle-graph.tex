@@ -1,0 +1,100 @@
+\section{The rectangle graph and polynomial conditioning}\label{sec:graph}
+Here $m\ge2$ need not be odd. For a cyclic $\GH(m,2)$ seed, put a vertex at each cell $(a,j)$ and join $(a,j)$ to $(b,\ell)$ when
+\begin{equation}\label{eq:edge}
+ a\ne b,\quad j\ne\ell,\quad G_{aj}G_{b\ell}=G_{a\ell}G_{bj}.
+\end{equation}
+Each row-ratio class has two columns, so the other diagonal $(a,\ell),(b,j)$ is also joined. The column GH counts follow from all-power column orthogonality and Fourier inversion. Thus every vertex has exactly one neighbor in each other row and exactly one in each other column: the graph is simple and $(n-1)$-regular.
+
+\begin{lemma}\label{lem:componentweight}
+Every component $C$ contains the same number $c_C$ of cells in each row and each column. It has $nc_C$ vertices, and $\sum_Cc_C=n$.
+\end{lemma}
+\begin{proof}
+The neighbor correspondence between any two rows is a bijection of their cells. It restricts to a bijection on cells belonging to any fixed component, since edges cannot leave it. The column argument is identical, and total-size counting identifies the row and column constants.
+\end{proof}
+
+\subsection{The component formula for the full kernel}
+Write $V_G$ for the simultaneous dephased first-order kernel. Real phase directions are taken modulo row and column phase directions. Each class has a unique double-centered representative $X$, with every row and column sum zero, obtained by subtracting row and column means and adding the global mean. This preserves the tangent equations because phase gauges are exact symmetries.
+
+\begin{theorem}\label{thm:graphkernel}
+A double-centered real matrix is in the simultaneous first-order kernel exactly when it is constant on every rectangle-graph component. Consequently, if the graph has $r$ components,
+\begin{equation}\label{eq:dimension}
+ \dim V_G=r-1.
+\end{equation}
+In particular $L_G$ has full column rank exactly when the graph is connected.
+\end{theorem}
+\begin{proof}
+Finite Fourier inversion of the first-order row equations says that the sums of $X_{aj}-X_{bj}$ over the two-element ratio classes are equal. Their total is zero by double centering, so each is zero. The corresponding column assertion holds as well: differentiating square unitarity shows that a vanishing row Gram derivative at an exact square Hadamard matrix implies a vanishing column Gram derivative.
+
+For a rectangle in~\eqref{eq:edge}, the row and column equations are
+\[
+ X_{aj}+X_{a\ell}-X_{bj}-X_{b\ell}=0,\qquad
+ X_{aj}+X_{bj}-X_{a\ell}-X_{b\ell}=0.
+\]
+Adding and subtracting gives $X_{aj}=X_{b\ell}$ and $X_{a\ell}=X_{bj}$. Thus the values are component-constant. Conversely diagonal constancy gives these equations, hence all row derivatives by Fourier inversion.
+
+If the component values are $u_C$, Lemma~\ref{lem:componentweight} makes every row and column sum equal to $\sum_Cc_Cu_C$. Double centering imposes precisely this one independent equation, proving~\eqref{eq:dimension}. Dephased and double-centered spaces are complements to the same $(2n-1)$-dimensional gauge space.
+\end{proof}
+For a proper component indicator $W$, the matrix $W-(c_C/n)J$ is double-centered and its dephased representative is
+\[
+ X_{ij}=W_{ij}-W_{i0}-W_{0j}+W_{00}.
+\]
+Thus a disconnected graph supplies rational kernel directions without solving a cyclotomic linear system.
+
+\subsection{Edge estimates and graph diameter}
+Suppose the graph is connected, of diameter $D$. Write $K=G\circ e^{iX}$ in small dephased principal phases, let $Y$ be its double centering, and put $y=\norm Y_\mx$. The corresponding phase-gauged $K'=G\circ e^{iY}$ has the same residual.
+
+\begin{lemma}\label{lem:edgebound}
+For every edge $(a,j)\sim(b,\ell)$,
+\begin{equation}\label{eq:edgeestimate}
+ |Y_{aj}-Y_{b\ell}|\le\frac hm\eps+n(m-1)y^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Taylor expansion of the power-$k$ row correlation gives
+\[
+ \abs{\sum_t(G_{at}/G_{bt})^k(Y_{at}-Y_{bt})}
+ \le\eps/k+2nky^2.
+\]
+The zero-frequency sum vanishes by double centering. Fourier inversion for the two-element class $j,\ell$ yields
+\[
+ |Y_{aj}+Y_{a\ell}-Y_{bj}-Y_{b\ell}|
+ \le(h/m)\eps+n(m-1)y^2.
+\]
+By~\eqref{eq:column-residual}, the column-pair sum has the same bound. Add the two sums and divide by two to obtain~\eqref{eq:edgeestimate}.
+\end{proof}
+Since $Y$ has mean zero, its maximum absolute value is at most its range. Graph paths therefore give
+\[
+ y\le D[(h/m)\eps+n(m-1)y^2].
+\]
+If $y\le1/[2Dn(m-1)]$, absorb the quadratic term to get $y\le2Dh\eps/m$. Recovering dephased phases by $X_{ij}=Y_{ij}-Y_{i0}-Y_{0j}+Y_{00}$ proves
+\begin{equation}\label{eq:graphlinear}
+ \norm{K-G}_\mx\le\norm X_\mx\le\frac{8Dh}{m}\eps.
+\end{equation}
+
+For completeness, a connected graph on $n^2$ vertices of minimum degree $n-1$ has diameter at most $3n-1$. On a geodesic of length $D$, select positions $0,3,6,\ldots,3\lfloor D/3\rfloor$. Their closed neighborhoods are disjoint, since overlap would connect two selected vertices within distance two. Each neighborhood has at least $n$ vertices, so
+\[
+ [\lfloor D/3\rfloor+1]n\le n^2,\qquad D\le3n-1<6m.
+\]
+Applied inside a component of row weight $c_C$, the same argument gives component diameter at most $3c_C-1$.
+
+\subsection{An explicit residual-only entrance condition}
+Now take odd $m\ge3$ and round by Theorem~\ref{thm:odd}. The principal phases satisfy
+\[
+ \norm X_\mx\le1024\sqrt{\eps/m},\qquad
+ y\le4\norm X_\mx\le4096\sqrt{\eps/m}.
+\]
+For the rounded seed's graph, the local radius follows from
+\begin{equation}\label{eq:graphentrance}
+ \eps\le\frac1{2^{28}D^2m(m-1)^2}.
+\end{equation}
+Since $D<6m$, the simpler sufficient restriction is $\eps\le2^{-34}m^{-5}$, already below the global threshold.
+
+\begin{theorem}[Polynomial linear certificate]\label{thm:polynomial}
+For odd $m\ge3$, let $H$ have exactly unit-modulus entries and residual at most $2^{-34}m^{-5}$. If the rectangle graph of its rounded dephased seed $G$ is connected, then
+\[
+ \norm{K-G}_\mx\le48H_{m-1}\eps.
+\]
+\end{theorem}
+The graph is computable by integer modular comparisons and traversal. The theorem is a per-seed certificate; it is not a proof that every odd seed's graph is connected. A disconnected odd seed would instead yield a genuine square-root obstruction by Proposition~\ref{prop:odd-dichotomy}. Discreteness of the exact set alone does not imply a zero tangent kernel.
+
+For the two classical seeds of Section~\ref{sec:integer}, exact traversal gives one component and diameters $3$ and $4$. Formula~\eqref{eq:graphlinear} improves their local constants to $12$ and $40/3$, respectively. These are conditioning improvements, not new isolation results.
