@@ -142,6 +142,8 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 
 MODULE HydrologyTree.BranchStep
 
+MODULE HydrologyTree.PiSerialization
+
 MODULE HydrologyTree.RateChart
 HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
   ite_mul
@@ -264,58 +266,152 @@ Hint: Omit it from the simp argument list.
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.FamilyCoordinateEnergy
-HydrologyTree/FamilyCoordinateEnergy.lean:39:8: error: unsolved goals
-case nil
-x y : ProductInput []
-⊢ ∑ i, ((degreeLT.basis ℝ 0).repr x) i * ((degreeLT.basis ℝ 0).repr y) i = 0
-HydrologyTree/FamilyCoordinateEnergy.lean:41:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  basisDot (Basis.reindex ?b ?e) ?x ?y
-in the target expression
-  basisDot (((degreeLT.basis ℝ m).prod (familyBasis ms)).reindex finSumFinEquiv) x y = familyCoordinateDot (m :: ms) x y
 
-case cons
-m : ℕ
-ms : List ℕ
-ih : ∀ (x y : ProductInput ms), basisDot (familyBasis ms) x y = familyCoordinateDot ms x y
-x y : ProductInput (m :: ms)
-⊢ basisDot (((degreeLT.basis ℝ m).prod (familyBasis ms)).reindex finSumFinEquiv) x y = familyCoordinateDot (m :: ms) x y
+MODULE HydrologyTree.ScaledSerialization
+HydrologyTree/ScaledSerialization.lean:15:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Subsingleton (ScaledFamilyInput (finDegreeList m))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/ScaledSerialization.lean:44:9: error: Function expected at
+  piScaledFinEquiv ?m.61
+but this term has type
+  ((i : Fin ?m.60) → ↥(Coeff (?m.61 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.61)
+
+Note: Expected a function because this term is being applied to the argument
+  (fun i : Fin k => p i.succ)
+HydrologyTree/ScaledSerialization.lean:39:18: warning: This simp argument is unused:
+  finDegreeList
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scaleFamilyWeight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ScaledSerialization.lean:52:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Subsingleton (ScaledFamilyInput (finDegreeList m))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/ScaledSerialization.lean:56:9: error: Function expected at
+  piScaledFinEquiv ?m.45
+but this term has type
+  ((i : Fin ?m.44) → ↥(Coeff (?m.45 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.45)
+
+Note: Expected a function because this term is being applied to the argument
+  (fun i : Fin k => p i.succ)
+HydrologyTree/ScaledSerialization.lean:66:9: error: unsolved goals
+case zero
+m : Fin 0 → ℕ
+p q : (i : Fin 0) → ↥(Coeff (m i + 1))
+⊢ familyCoordinateDot (ChildFactorDegrees []) ((piScaledFinEquiv m) p) ((piScaledFinEquiv m) q) = 0
+HydrologyTree/ScaledSerialization.lean:71:9: error: Function expected at
+  piScaledFinEquiv ?m.72
+but this term has type
+  ((i : Fin ?m.71) → ↥(Coeff (?m.72 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.72)
+
+Note: Expected a function because this term is being applied to the argument
+  (fun i : Fin k => p i.succ)
+HydrologyTree/ScaledSerialization.lean:72:9: error: Function expected at
+  piScaledFinEquiv ?m.75
+but this term has type
+  ((i : Fin ?m.74) → ↥(Coeff (?m.75 i + 1))) ≃ₗ[ℝ] ScaledFamilyInput (finDegreeList ?m.75)
+
+Note: Expected a function because this term is being applied to the argument
+  (fun i : Fin k => q i.succ)
+HydrologyTree/ScaledSerialization.lean:66:32: warning: This simp argument is unused:
+  familyCoordinateDot
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [finDegreeList]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ScaledSerialization.lean:90:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (LinearEquiv.trans ?m.63 ?m.64) ?c
+in the target expression
+  scaleFamilyWeight (degreeSequence m)
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        p) =
+    ∏ i, (↑(p i)).coeff (m i) ^ m i
+
+I : Type u_1
+inst✝ : Fintype I
+m : I → ℕ
+p : (i : I) → ↥(Coeff (m i + 1))
+⊢ scaleFamilyWeight (degreeSequence m)
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        p) =
+    ∏ i, (↑(p i)).coeff (m i) ^ m i
 
 Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
 Full error:
   Application type mismatch: The argument
-    finSumFinEquiv
+    piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)
   has type
-    Equiv (Fin m ⊕ Fin ms.sum) (Fin (m + ms.sum))
+    @LinearEquiv ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (RingHom.id ℝ) ⋯ ⋯
+      ((i : Fin (Fintype.card I)) → ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1)))
+      (ScaledFamilyInput (finDegreeList fun i => m ((Fintype.equivFin I).symm i))) Pi.addCommMonoid
+      (productInputNormed (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toAddCommMonoid
+      (Pi.module (Fin (Fintype.card I)) (fun i => ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1))) ℝ)
+      (productInputNormedSpace (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toModule
   but is expected to have type
-    Equiv (Fin m ⊕ Fin ms.sum) (Fin (m :: ms).sum)
+    @LinearEquiv ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (RingHom.id ℝ) ⋯ ⋯
+      ((i : Fin (Fintype.card I)) → ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1)))
+      (ScaledFamilyInput (degreeSequence m)) Pi.addCommMonoid
+      (productInputNormed (ChildFactorDegrees (degreeSequence m))).toAddCommMonoid
+      (Pi.module (Fin (Fintype.card I)) (fun i => ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1))) ℝ)
+      (productInputNormedSpace (ChildFactorDegrees (degreeSequence m))).toModule
   in the application
-    ((degreeLT.basis ℝ m).prod (familyBasis ms)).reindex finSumFinEquiv
-HydrologyTree/FamilyCoordinateEnergy.lean:82:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) ↑p.1)).1
-      ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) ↑q.1)).1 +
-    familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) ↑p.1)).2
-      ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) ↑q.1)).2
+    LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+      piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)
+HydrologyTree/ScaledSerialization.lean:102:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (LinearEquiv.trans ?m.72 ?m.73) ?c
 in the target expression
-  familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.1 ((branchCoefficientEquiv ms) q).1.1 +
-        familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.2
-          ((branchCoefficientEquiv ms) q).1.2 +
-      (↑p.1).coeff N * (↑q.1).coeff N =
-    pathCoefficientDot (ChildFactorDegrees ms).sum p q
+  familyCoordinateDot (ChildFactorDegrees (degreeSequence m))
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        p)
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        q) =
+    ∑ i, coefficientDot (m i + 1) (p i) (q i)
 
-ms : List ℕ
-p q : ↥(Coeff ((ChildFactorDegrees ms).sum + 1)) × ↥(Coeff (ChildFactorDegrees ms).sum)
-N : ℕ := (ChildFactorDegrees ms).sum
-hp : (leadingEquiv N) ((↑p.1).coeff N, (cut N) ↑p.1) = p.1
-hq : (leadingEquiv N) ((↑q.1).coeff N, (cut N) ↑q.1) = q.1
-h :
-  coefficientDot (ChildFactorDegrees ms).sum (p.2, (cut N) ↑p.1).1 (q.2, (cut N) ↑q.1).1 +
-      coefficientDot (ChildFactorDegrees ms).sum (p.2, (cut N) ↑p.1).2 (q.2, (cut N) ↑q.1).2 =
-    familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) ↑p.1)).1
-        ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) ↑q.1)).1 +
-      familyCoordinateDot (ChildFactorDegrees ms) ((familyPairEquiv (ChildFactorDegrees ms)).symm (p.2, (cut N) ↑p.1)).2
-        ((familyPairEquiv (ChildFactorDegrees ms)).symm (q.2, (cut N) ↑q.1)).2
-⊢ familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.1 ((branchCoefficientEquiv ms) q).1.1 +
-        familyCoordinateDot (ChildFactorDegrees ms) ((branchCoefficientEquiv ms) p).1.2
-          ((branchCoefficientEquiv ms) q).1.2 +
-      (↑p.1).coeff N * (↑q.1).coeff N =
-    pathCoefficientDot (ChildFactorDegrees ms).sum p q
+I : Type u_1
+inst✝ : Fintype I
+m : I → ℕ
+p q : (i : I) → ↥(Coeff (m i + 1))
+⊢ familyCoordinateDot (ChildFactorDegrees (degreeSequence m))
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        p)
+      ((LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))
+        q) =
+    ∑ i, coefficientDot (m i + 1) (p i) (q i)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)
+  has type
+    @LinearEquiv ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (RingHom.id ℝ) ⋯ ⋯
+      ((i : Fin (Fintype.card I)) → ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1)))
+      (ScaledFamilyInput (finDegreeList fun i => m ((Fintype.equivFin I).symm i))) Pi.addCommMonoid
+      (productInputNormed (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toAddCommMonoid
+      (Pi.module (Fin (Fintype.card I)) (fun i => ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1))) ℝ)
+      (productInputNormedSpace (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toModule
+  but is expected to have type
+    @LinearEquiv ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (RingHom.id ℝ) ⋯ ⋯
+      ((i : Fin (Fintype.card I)) → ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1)))
+      (ScaledFamilyInput (degreeSequence m)) Pi.addCommMonoid
+      (productInputNormed (ChildFactorDegrees (degreeSequence m))).toAddCommMonoid
+      (Pi.module (Fin (Fintype.card I)) (fun i => ↥(Coeff (m ((Fintype.equivFin I).symm i) + 1))) ℝ)
+      (productInputNormedSpace (ChildFactorDegrees (degreeSequence m))).toModule
+  in the application
+    LinearEquiv.piCongrLeft' ℝ (fun i => ↥(Coeff (m i + 1))) (Fintype.equivFin I) ≪≫ₗ
+      piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)
+HydrologyTree/ScaledSerialization.lean:109:8: error: typeclass instance problem is stuck
+  CommMonoid ?m.44
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `CommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
