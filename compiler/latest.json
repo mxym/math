@@ -1,7 +1,7 @@
 {
-  "serial": 78,
-  "status": "COMPILED",
-  "request_blob": "07b6509595749fd232a7cb6aa57d431eac21a945",
+  "serial": 79,
+  "status": "COMPILING",
+  "request_blob": "f86dca901a4b82fba5dd97d4be642609dba3f66d",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -10,9 +10,11 @@
     "HydrologyTree.CompartmentMatrix",
     "HydrologyTree.PhysicalBridge",
     "HydrologyTree.MatrixEntries",
-    "HydrologyTree.BalanceWeights"
+    "HydrologyTree.BalanceWeights",
+    "HydrologyTree.WeightedEnergy"
   ],
   "source_sha256": {
+    "HydrologyTree/WeightedEnergy.lean": "315756733184a5f8e68ccdb0d255783e439372d48f587b86eb6238ef5f9200b3",
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
@@ -22,48 +24,7 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.561
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.909
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 1.995
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 2.192
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.81
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.828
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.645
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.629
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
   "run_id": "38188517128"
 }
