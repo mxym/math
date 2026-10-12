@@ -775,43 +775,13 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 MODULE HydrologyTree.TreePipeline
 
 MODULE HydrologyTree.TreeJacobianRecurrence
-HydrologyTree/TreeJacobianRecurrence.lean:62:8: error: Type mismatch: After simplification, term
-  hf
- has type
-  DifferentiableAt ℝ (⇑↑(treeCoordinateReturn t).toContinuousLinearEquiv ∘ physicalCoefficientMap t) x
-but is expected to have type
-  DifferentiableAt ℝ (fun y => (treeCoordinateReturn t) (physicalCoefficientMap t y))
-    ((originalWorkEquiv t).toContinuousLinearEquiv.symm ((originalWorkEquiv t) x))
-HydrologyTree/TreeJacobianRecurrence.lean:71:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (LinearEquiv.symm ?e) (?e ?b)
-in the target expression
-  endJacobian (treePipeline t) ((originalWorkEquiv t) x) =
-    endJacobian (fun y => (treeCoordinateReturn t) (physicalCoefficientMap t y))
-      ((originalWorkEquiv t).toContinuousLinearEquiv.symm ((originalWorkEquiv t) x))
-
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-hx : DifferentiableAt ℝ (physicalCoefficientMap t) x
-hf : DifferentiableAt ℝ (⇑↑(treeCoordinateReturn t).toContinuousLinearEquiv ∘ physicalCoefficientMap t) x
-he :
-  (fun z =>
-      (originalWorkEquiv t) ((treeCoordinateReturn t) (physicalCoefficientMap t ((originalWorkEquiv t).symm z)))) =
-    treePipeline t
-h :
-  endJacobian (treePipeline t) ((originalWorkEquiv t) x) =
-    endJacobian (fun y => (treeCoordinateReturn t) (physicalCoefficientMap t y))
-      ((originalWorkEquiv t).toContinuousLinearEquiv.symm ((originalWorkEquiv t) x))
-⊢ endJacobian (treePipeline t) ((originalWorkEquiv t) x) = treeCoordinateDet t * treeCanonicalJacobian t x
-HydrologyTree/TreeJacobianRecurrence.lean:107:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  endJacobian (treeLocalStep ?t) (treeChildStep ?t (rootCoupling (childLeakMap ?t) ((originalWorkEquiv ?t) ?x)))
-in the target expression
-  endJacobian (treeLocalStep t) ((treeChildStep t ∘ rootCoupling (childLeakMap t)) ((originalWorkEquiv t) x)) *
-      (endJacobian (treeChildStep t) (rootCoupling (childLeakMap t) ((originalWorkEquiv t) x)) *
-        endJacobian (rootCoupling (childLeakMap t)) ((originalWorkEquiv t) x)) =
-    (-1) ^ n * treeSiblingResultant t x ^ 2 * treeRootRateFactor t x *
-      ∏ c, treeCanonicalJacobian (childTree t c) (childRates t c x)
-
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/TreeJacobianRecurrence.lean:95:87: error: unsolved goals
 n : ℕ
 t : OrderedTree n
 x : TreeRates n
@@ -820,8 +790,24 @@ hp : DifferentiableAt ℝ (physicalCoefficientMap t) x
 hCouple : DifferentiableAt ℝ (rootCoupling (childLeakMap t)) ((originalWorkEquiv t) x)
 hz : (rootCoupling (childLeakMap t) ((originalWorkEquiv t) x)).1 = fun c => childRates t c x
 hChild : DifferentiableAt ℝ (treeChildStep t) (rootCoupling (childLeakMap t) ((originalWorkEquiv t) x))
-⊢ endJacobian (treeLocalStep t) ((treeChildStep t ∘ rootCoupling (childLeakMap t)) ((originalWorkEquiv t) x)) *
-      (endJacobian (treeChildStep t) (rootCoupling (childLeakMap t) ((originalWorkEquiv t) x)) *
-        endJacobian (rootCoupling (childLeakMap t)) ((originalWorkEquiv t) x)) =
-    (-1) ^ n * treeSiblingResultant t x ^ 2 * treeRootRateFactor t x *
-      ∏ c, treeCanonicalJacobian (childTree t c) (childRates t c x)
+hfac : (∏ c, (x.1 ↑c * outwardByVertex x.2 ↑c) ^ childEdgeCount t c) * ∏ c, x.1 ↑c = treeRootRateFactor t x
+⊢ (((treeSiblingResultant t x ^ 2 *
+            ∏ x_1, x.1 ↑x_1 ^ childEdgeCount t x_1 * outwardByVertex x.2 ↑x_1 ^ childEdgeCount t x_1) *
+          ∏ c,
+            treeCanonicalJacobian (childTree t c)
+              ((rootCoupling (childLeakMap t) (fun c => childRates t c x, x.1 0, fun c => outwardByVertex x.2 ↑c)).1
+                c)) *
+        ∏ x_1, x.1 ↑x_1) *
+      (-1) ^ n =
+    (((treeSiblingResultant t x ^ 2 *
+            ∏ x_1, x.1 ↑x_1 ^ childEdgeCount t x_1 * outwardByVertex x.2 ↑x_1 ^ childEdgeCount t x_1) *
+          ∏ x_1, x.1 ↑x_1) *
+        ∏ c, treeCanonicalJacobian (childTree t c) (childRates t c x)) *
+      (-1) ^ n
+HydrologyTree/TreeJacobianRecurrence.lean:111:29: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [childRates_leak]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
