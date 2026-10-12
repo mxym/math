@@ -108,15 +108,21 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.PhysicalBridge
 
-MODULE HydrologyTree.BalanceWeights
-HydrologyTree/BalanceWeights.lean:11:43: error(lean.unknownIdentifier): Unknown identifier `outwardByVertex`
-HydrologyTree/BalanceWeights.lean:17:6: warning: declaration uses `sorry`
-HydrologyTree/BalanceWeights.lean:15:16: warning: declaration uses `sorry`
-HydrologyTree/BalanceWeights.lean:22:6: warning: declaration uses `sorry`
-HydrologyTree/BalanceWeights.lean:20:6: warning: declaration uses `sorry`
-HydrologyTree/BalanceWeights.lean:24:2: warning: Unused tactic linter: `rfl` does nothing
+MODULE HydrologyTree.MatrixEntries
+HydrologyTree/MatrixEntries.lean:23:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+HydrologyTree/MatrixEntries.lean:36:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.BalanceWeights
+HydrologyTree/BalanceWeights.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
 HydrologyTree/BalanceWeights.lean:51:6: warning: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
