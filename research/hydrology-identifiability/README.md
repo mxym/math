@@ -205,8 +205,12 @@ matrix factors as a transposed Vandermonde matrix, a diagonal weight matrix, and
 Vandermonde matrix. Therefore its determinant is nonzero for nonzero weights and
 pairwise distinct rates. `Hydrology/Prony.lean` then proves that the first \(k\)
 recurrence equations have a unique coefficient vector. This closes the linear
-coefficient-recovery part of finite-spectrum identification; matching the roots
-of two unknown characteristic polynomials is deliberately left as the next step.
+coefficient-recovery part of finite-spectrum identification. `Hydrology/RootMatching.lean`
+now completes the final step: the monic characteristic polynomial has degree \(k\),
+every active rate is a root, and root-counting gives equality of the two rate sets
+for any two nondegenerate spectra with the same first \(2k\) moments. The theorem
+`finite_spectrum_rate_set_identifiable` therefore proves exact finite-mode rate
+identifiability up to permutation; no root-matching assumption is left.
 
 The finite-dimensional obstruction also suggests a physically conservative model extension.
 For \(\alpha>1\) and \(\tau>0\), take a continuum of independent linear

@@ -41,10 +41,10 @@ It proves both sides of a useful model-design statement:
   weights and distinct rates, and proves uniqueness of the associated recurrence
   coefficients. It also transfers those coefficients between any two
   nondegenerate `k`-mode representations with the same first `2*k` moments.
-* `Hydrology/RootMatching.lean` completes the Vandermonde root-extraction step:
-  an all-index order-`k` recurrence forces every nonzero-weight distinct rate to
-  satisfy its characteristic equation. The final bookkeeping that identifies
-  the two rate multisets up to permutation is still deliberately separate.
+* `Hydrology/RootMatching.lean` completes the Vandermonde root-extraction and
+  finite-spectrum rate-set identification step: an all-index order-`k` recurrence
+  forces every nonzero-weight distinct rate to satisfy its characteristic equation,
+  and root counting identifies the two finite rate sets up to permutation.
 * `Hydrology/Parallel.lean` compares two active two-mode spectra directly:
   equality of the first four moments forces equality of the sum and product of
   their rates, hence equality of the unordered recovered quadratic.
