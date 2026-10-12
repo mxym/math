@@ -145,3 +145,34 @@ and every actual child characteristic polynomial equals its allocated factor
 product. `positive_child_allocation_unique` proves uniqueness.
 `sizedAllocation_card_factorial` proves the exact finite allocation count. These
 are not yet the full recursive physical parameter-fiber counting theorem.
+
+
+## Complete actual positive fibers: exhaustive bijection and exact cardinality
+
+Let T : OrderedTree n, r,w : Fin(n+1) -> R, with r injective, every r_i>0,
+every w_i>0, and sum_i w_i=1. Let P=product_i(X+r_i) and
+F=sum_i w_i product_(j != i)(X+r_j). `PositiveStieltjesFiber T r w` is exactly
+{ x : TreeRates n | ALL inward rates including the root leak are positive,
+ALL outward rates are positive, charpoly(A_T(x))=P, root cofactor(A_T(x))=F }.
+
+`positiveStieltjesRecursiveEquiv` is an actual Lean equivalence from this set
+to the complete recursive labelled pole-allocation type. It uses no assumed
+classification, counting or smaller-model existence premise.
+
+`positive_stieltjes_fiber_exact_card` proves BOTH that this actual set is finite
+and that its cardinality equals n! / product_(e : Fin n) subtreeVertexCount(T,e.succ).
+The original vertex labels and branch identities remain fixed. The quotient is
+proved integral through `treeFiberDegree_mul_hook` and actual subtree recursion.
+
+`HasStieltjesRootResponse T x r w` quantifies every real s where the ACTUAL
+matrix (sI-A_T(x)) is invertible and every target denominator s+r_i is nonzero,
+and requires the actual inverse entry (0,0) to equal sum_i w_i/(s+r_i).
+`stieltjes_root_response_iff_polynomials` proves equivalence with the two full
+polynomial equalities; the competing real vector is not assumed regular.
+`positive_root_response_fiber_exact_card` gives the same finite exact count for
+positive real vectors satisfying just this response condition.
+
+`positive_stieltjes_fiber_regular` proves that the actual coefficient Jacobian
+of EVERY counted positive model is nonzero. Regularity is not an extra condition
+silently deleting positive solutions. The separate ODE and alternate-leak
+variants remain outside these theorem statements.

@@ -1,4 +1,4 @@
-digraph PartialTreeProof {
+digraph TreeCoreProof {
 rankdir=LR;
 "HydrologyTree.Coefficients" -> "HydrologyTree.LeadingCoefficients";
 "HydrologyTree.Coefficients" -> "HydrologyTree.BlockJacobian";
@@ -202,6 +202,19 @@ rankdir=LR;
 "HydrologyTree.AllocationPolynomials" -> "HydrologyTree.PositiveFiberAllocation";
 "HydrologyTree.SpectralFactorMatching" -> "HydrologyTree.PositiveFiberAllocation";
 "HydrologyTree.PositiveRealizationExistence" -> "HydrologyTree.PositiveFiberAllocation";
+"HydrologyTree.PositiveFiberAllocation" -> "HydrologyTree.PositiveFiberTypes";
+"HydrologyTree.PositiveFiberTypes" -> "HydrologyTree.PositiveFiberRecovery";
+"HydrologyTree.PositiveFiberRecovery" -> "HydrologyTree.PositiveFiberEquivalence";
+"HydrologyTree.PositiveFiberTypes" -> "HydrologyTree.TreeFiberCombinatorics";
+"HydrologyTree.SubtreeProducts" -> "HydrologyTree.TreeFiberCombinatorics";
+"HydrologyTree.PositiveFiberEquivalence" -> "HydrologyTree.PositiveFiberCount";
+"HydrologyTree.TreeFiberCombinatorics" -> "HydrologyTree.PositiveFiberCount";
+"HydrologyTree.PositiveFiberCount" -> "HydrologyTree.PositiveResponseFiber";
+"HydrologyTree.PositiveJacobian" -> "HydrologyTree.PositiveResponseFiber";
+"HydrologyTree.ResultantBoundary" -> "HydrologyTree.PositiveResponseFiber";
+"HydrologyTree.CatenaryCoprime" -> "HydrologyTree.PositiveResponseFiber";
+"HydrologyTree.PositiveFiberEquivalence" -> "HydrologyTree.RecursiveFiberClassification";
+"HydrologyTree.TreeFiberCombinatorics" -> "HydrologyTree.RecursiveFiberClassification";
 "HydrologyTree.Gluing" -> "HydrologyTree";
 "HydrologyTree.RootUpdate" -> "HydrologyTree";
 "HydrologyTree.PhysicalBridge" -> "HydrologyTree";
@@ -233,4 +246,6 @@ rankdir=LR;
 "HydrologyTree.StieltjesGrouping" -> "HydrologyTree";
 "HydrologyTree.PositiveRealizationExistence" -> "HydrologyTree";
 "HydrologyTree.PositiveFiberAllocation" -> "HydrologyTree";
+"HydrologyTree.PositiveResponseFiber" -> "HydrologyTree";
+"HydrologyTree.RecursiveFiberClassification" -> "HydrologyTree";
 }

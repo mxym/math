@@ -28,3 +28,16 @@ and the graph/leak/ODE variants remain.
 The audit roots include all owned declarations and their used dependencies.
 Development compiler receipts are separate from independent source-bound
 Lake/empty-kernel verification. No missing paper result is added as an axiom.
+
+
+### Positive fiber completion
+
+The prior existence/at-most-one-assignment obligations are now complemented by
+`PositiveFiberAllocation` (unique exhaustive factor extraction),
+`PositiveFiberRecovery` (actual child numerator recovery),
+`PositiveFiberEquivalence` (surjective and injective actual root assembly),
+`RecursiveFiberClassification` (complete recursive allocation bijection),
+`TreeFiberCombinatorics` (original-subtree factorial identity),
+`PositiveFiberCount` (actual finiteness and exact cardinality), and
+`PositiveResponseFiber` (response-only equivalence, exact count and regularity).
+These replace, rather than assume, the previously missing positive-fiber count.

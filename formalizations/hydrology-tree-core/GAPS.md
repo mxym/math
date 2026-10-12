@@ -48,23 +48,27 @@ inward/outward exponents.
 The independent graph-presentation and nonroot-leak conventions still require
 the transports specified below; they are not hidden in this rooted-parent model.
 
-## 2. Completed positive existence; exhaustive count remains
+## 2. Complete positive full-response classification and counting
 
-Reciprocal interlacing, complete zero factorization, simple roots, positive
-residues and exact reciprocal reconstruction are proved, including the one-store
-case and arbitrary input pole order. `positive_tree_stieltjes_realization_exists`
-now also constructs an actual strictly positive rate vector on EVERY original
-finite tree with the requested complete characteristic/cofactor pair. The proof
-discharges all smaller-child existence obligations by strong induction. Same-size
-topology non-identifiability is an exact corollary for positive full responses.
+This block is now closed for the original OrderedTree model with a root leak.
+`positiveReciprocalFiberEquiv` proves the exhaustive root-level actual-parameter
+bijection. `positiveStieltjesRecursiveEquiv` recursively constructs the full
+bijection with `RecursivePoleAllocations t`, a type depending only on the tree.
+`positive_stieltjes_fiber_exact_card` proves finite cardinality exactly
+n! / product_(v != root) |T_v| for a tree with n+1 vertices, with original labels
+and actual subtree sizes. All inductive realization and counting premises are
+discharged. No finite candidate list or external root solver is assumed.
 
-Root-level extraction of the unique labelled allocation from EVERY actual
-positive model is now proved, as is the exact finite allocation count.
-Still construct the EXHAUSTIVE bijection between each actual positive rate fiber
-and all allowed recursive labelled pole allocations, and prove its factorial
-cardinality. Existence on each tree and uniqueness for a prescribed assignment
-are not an enumeration theorem. This remaining counting/classification obligation
-is not supplied as a hypothesis to any completed theorem.
+`positive_root_response_fiber_exact_card` proves the same count for actual root
+resolvent equality on its genuine nonpole domain, not an artificially stronger
+observation of both coefficient polynomials. Every positive fiber member's actual
+Jacobian is proved nonzero. Singleton trees and all labelled branch shapes are
+included; coincident reference poles and targets with fewer than n+1 modes are
+outside this enumeration theorem, not silently covered.
+
+These new files have compiled in the source-isolated development environment.
+Their independent verification is tied to this new checkpoint's own source
+hashes and CI receipt; earlier successful receipts do not certify new bytes.
 
 ## 3. Other tree presentations and leak locations
 

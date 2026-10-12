@@ -29,3 +29,5 @@ import HydrologyTree.CatenaryFormalPolynomial
 import HydrologyTree.StieltjesGrouping
 import HydrologyTree.PositiveRealizationExistence
 import HydrologyTree.PositiveFiberAllocation
+import HydrologyTree.PositiveResponseFiber
+import HydrologyTree.RecursiveFiberClassification

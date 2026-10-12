@@ -3,8 +3,10 @@
 The all-size, all-real-rate Jacobian factorization for the actual rooted tree
 coefficient map, its exact signed characteristic/cofactor resultant identity,
 and all exact multivariate coordinate multiplicities are now proved in Lean.
-The overall program remains **PARTIAL**: exhaustive positive-realization fiber count, and the remaining graph-presentation, leak-location
-and ODE bridges still need proofs. See `GAPS.md`.
+The exhaustive positive full-response realization classification and its exact
+factorial fiber count are now also proved. The overall program remains
+**PARTIAL** only for the separately stated graph-presentation, alternate
+leak-location and ODE/system bridges; see `GAPS.md`. See `GAPS.md`.
 
 ## Main theorem: arbitrary branching, actual physical objects
 
@@ -239,3 +241,37 @@ and recursive physical-fiber cardinality remain to be verified separately.
 These new source modules compiled in the isolated development environment.
 Their source-bound independent CI is the new checkpoint's own run, not an older
 126-module receipt. The overall program remains partial.
+
+## Complete positive full-response classification and exact count
+
+`positiveStieltjesRecursiveEquiv` gives a proved bijection between the ACTUAL
+strictly positive physical parameter fiber and the purely combinatorial type
+`RecursivePoleAllocations t`. Both directions are proved: every actual model
+is recovered and every recursive labelled allocation is realized. Internal
+enumerations inside a child block are canonical, not extra counted choices.
+
+`positive_stieltjes_fiber_exact_card` proves, for every original OrderedTree
+with n+1 vertices and every normalized positive Stieltjes response with n+1
+DISTINCT positive poles, that the actual positive parameter fiber is finite and
+
+    card(fiber) = n! / product_(original nonroot v) subtreeVertexCount(v).
+
+The denominator uses original subtree sizes. Integrality and strict positivity
+of the count are proved; this is not a count of candidate factorizations and
+Nat.card is not allowed to hide an infinite set. All child-fiber count and
+classification obligations are discharged by strong induction. The singleton
+tree is included. Labels are preserved; tree automorphisms are not quotiented.
+
+`positive_root_response_fiber_exact_card` proves the SAME count when only the
+actual root matrix-resolvent function is specified on the common nonpole domain.
+Full characteristic/cofactor data are recovered from that response, not assumed
+as additional observations. Every counted positive model has nonzero actual
+coefficient Jacobian, proved as a conclusion rather than imposed as genericity.
+
+Scope: the full-size, distinct-positive-pole, positive-weight Stieltjes class.
+Targets with fewer observable modes are not enumerated by this theorem. This
+is still not a theorem about arbitrary nonlinear catchments or all-input ODE
+solutions. The non-observed-root leak and independent graph-presentation bridges
+remain separate. All new proof sources compiled in the isolated development
+compiler; independent verification is the new source-bound CI run, not an older
+receipt. No completion Release or historical-priority claim is made here.
