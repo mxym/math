@@ -1,8 +1,24 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
-**The full research program remains partially formalized. The fixed-local purity supremum limit is now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. Matching growing-local-dimension lower limits, exact finite maxima/classification, full entropy and rigidity claims remain unclosed.**
+**The full research program remains partially formalized. The fixed-local purity supremum limit and its first excess-purity coefficient are now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. The two-level projection plateau is also optimized exactly within the plateau family in the even-rank case. Matching growing-local-dimension lower limits, exact finite maxima/classification beyond that family, full entropy and rigidity claims remain unclosed.**
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
+
+## Purity-ball sufficiency and the singular APPT locus
+
+### Integrated source verification
+
+Combined source **72f774d8e8400b58d342e7d9c460c5b138583467** also preserves the concurrent fixed-local excess-limit and even-rank projection-family optimization. Independent run **38190512755** passed all stages: **2,853 Lake tasks, 42,281 declarations, 142 roots, 66 pinned inputs**, trust level zero and only the three standard axioms. Evidence is in `verification/ci-72f774d8/`. The original singular-state checkpoint below retains its own source binding; the merge was independently verified rather than presumed correct from parent builds.
+
+
+
+For D=mn>1, `density_appt_of_purity_ball` proves that every actual density matrix with purity at most 1/(D-1) is APPT under every global unitary. The proof establishes partial-transpose invariance of the Hermitian Hilbert--Schmidt square and derives positivity from the actual matrix eigenvalues. No Schmidt or Hildebrand criterion is assumed.
+
+For 2<=m<=n, `singular_density_appt_iff_spectrum` proves a necessary-and-sufficient statement for a density matrix with determinant zero: it is APPT exactly when its sorted eigenvalues are one zero and D-1 copies of 1/(D-1). Equivalently its purity is 1/(D-1). `exists_singular_appt_density` constructs an actual normalized complementary coordinate projection and proves its density, APPT, determinant-zero and exact-purity properties. The purity-ball condition is only sufficient without singularity; a physical 2x3 counterexample to necessity is included.
+
+Recovered unpublished WSL work was independently read and subjected to a fresh source-bound build/replay before publication. Independent GitHub run **38189500302**, source **4e647075a83f317c16dcecac50b0dc6d91e86d35**, then passed all stages: **2,852 Lake tasks, 42,271 declarations, 139 explicit roots**, trust level zero, and only propext, Classical.choice and Quot.sound. All **65 pinned inputs** and uploaded sources matched. The final singular equivalence, purity-ball theorem and singular-attainment theorem reject forged proofs with unchanged types. Literal evidence and corruption dependencies are in `verification/ci-4e647075/`.
+
+These standard finite-dimensional facts close previously missing sufficiency and classification dependencies. They are not new priority claims, the three-level 10x38 joint sufficiency, an exact unrestricted purity maximum, or the dimension-varying multiscale lower limit. See `REVIEW_SINGULAR_CONTINUATION.md`. No preprint or immutable Release is changed.
 
 ## Finite-dimensional attainment checkpoint
 
@@ -27,6 +43,19 @@ The upper inequality holds for every physical state. The lower inequality is wit
     Tendsto (fun n => (mn)*P_sup(m,n)) atTop (nhds C_m)
 
 for every fixed integer m>=2. This closes the complementary fixed-m regime; it is not an extrapolation of the earlier growing-m theorem. This endpoint does not assert finite-dimensional `IsGreatest` or classify maximizing spectra.
+
+The companion theorem `appt_fixed_local_excess_sup_tendsto` subtracts the maximally
+mixed baseline and proves the exact first excess coefficient
+
+    Tendsto (fun n => (mn) * (P_sup(m,n) - 1/(mn))) atTop
+      (nhds (1/(m^2-1))).
+
+This is a direct physical supremum limit, with no spectral ansatz or unproved
+attainment assumption. Separately, `PlateauOptimizer.lean` proves the exact square
+deficit for every two-level projection plateau and shows that when `(m-1)*n` is even,
+rank `((m-1)*n)/2` reaches the continuous two-level value and is maximal among all
+plateau ranks. This is a family-restricted optimization statement, not the full
+rectangular APPT maximum or a classification of all maximizing states.
 
 ## 2. One upper bound over all dimensional growth regimes
 
@@ -69,7 +98,7 @@ python3 reproduce.py --fresh
 
 The runner verifies source pins and the actual dependency checkout, builds only the imported review closure, compiles replay support with an explicit source root, runs physical controls, and replays all selected roots. Every stage has a finite timeout with process-group termination on timeout and retained diagnostics. `--write-manifest` records intended sources but does not verify them.
 
-Seven modules close the new chain: `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
+The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `PlateauOptimizer`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
 
 ## 6. What is not yet certified
 
