@@ -155,3 +155,32 @@ South China University of Technology; mxymmxym1@gmail.com;
 ORCID 0009-0000-3864-3536. No external funding; AI-assisted development.
 Existing repository and third-party notices remain in force. Original additions
 retain all rights not otherwise granted by an applicable existing license.
+
+
+## Actual continuous-input ODE bridge
+
+`IsPhysicalForcedSolution` is the actual state equation z'=A_T(x)z+u e_0,
+expressed by HasDerivAt at every real time. `physical_forced_ODE_existsUnique`
+proves a unique global classical trajectory for every positive physical model,
+every continuous real input and arbitrary initial state/time. The scalar solution
+uses actual interval integration; all derivative and initial-value identities
+are proved. `physical_root_modal_representation` constructs the complete modal
+witness from the original matrix rather than assuming a representation.
+
+`real_full_response_forced_ODE` discharges positivity from the previously proved
+unrestricted-real response theorem and proves the unique actual zero-initial
+trajectory and its prescribed time-domain root output. The competing real
+parameters need no sign or regularity hypothesis. `same_full_response_all_continuous_inputs`
+proves equality of actual root state and discharge for every continuous input,
+including across two prescribed same-size tree topologies. Equality is not
+limited to sampled histories or sinusoidal probes.
+
+`physical_total_storage_hasDerivAt` proves d(sum z_i)/dt=u-ell*z_0 for ANY
+classical physical trajectory and arbitrary real rates. Its integrated interval
+balance and equality of storage under equal input/discharge are proved separately.
+
+Scope is globally continuous real forcing with classical trajectories. The
+reverse implication from equality of all time-domain outputs to transfer equality,
+continuous-time reachability/observability, independent graph presentations and
+alternate leak locations remain separate obligations. The new modules have
+compiled locally; only their own subsequent source-bound CI certifies replay.

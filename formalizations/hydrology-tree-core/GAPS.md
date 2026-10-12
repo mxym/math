@@ -103,9 +103,17 @@ same exact finite cardinality. This removes any assumption that the physical
 root leak is separately measured. It does NOT by itself prove the ODE claims.
 
 
-Controllability, observability and all-input equality of actual ODE solutions
-need their definitions and state-space bridges. The proved matrix resolvent,
-noncancellation and full-mode formulas do not themselves supply those bridges.
+The forward actual ODE bridge is now proved: global classical existence and
+uniqueness for every positive physical model and continuous input, arbitrary
+initial states, exact zero-initial root output, all-continuous-input discharge
+equality for full-response-equivalent real models, and differential/integrated
+storage balance. Positivity is proved from the full target response before this
+ODE theorem is applied. The modal witness is actually constructed.
+
+Still prove the reverse implication from all-input time-domain equality to
+transfer equality, and the actual controllability/observability statements.
+Piecewise-continuous or merely measurable forcing is not silently included in
+the continuous-input theorem. Graph and alternate-leak variants remain separate.
 
 Every independent receipt certifies only its own source bytes. No completion
 Release or DOI for the entire research program is justified by this checkpoint.

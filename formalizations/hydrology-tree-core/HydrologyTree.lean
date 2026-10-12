@@ -33,3 +33,5 @@ import HydrologyTree.PositiveResponseFiber
 import HydrologyTree.RecursiveFiberClassification
 import HydrologyTree.RealFiberClassification
 import HydrologyTree.DischargeFiber
+import HydrologyTree.FullResponseDynamics
+import HydrologyTree.PhysicalMassODE

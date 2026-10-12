@@ -217,3 +217,27 @@ fibers WITHOUT an externally given leak. `real_discharge_fiber_exact_card` prove
 that this actual discharge fiber is finite of cardinality n! / product_(e)|T_e|.
 This is a rigorously proved matrix-transfer bridge; actual ODE solution and
 system-theoretic controllability/observability statements are still separate.
+
+
+## Actual classical ODE and continuous forcing
+
+`IsPhysicalForcedSolution T x u z` means, for EVERY real time s,
+HasDerivAt z (compartmentMatrix T x *v z(s) + u(s) * e_0) s.
+`physical_forced_ODE_existsUnique` proves global existence and uniqueness for
+arbitrary initial time/state and every continuous u whenever all physical rates
+are strictly positive. It constructs modal coordinates from the actual weighted
+symmetric generator and uses the actual interval-integral scalar solution.
+
+`real_full_response_forced_ODE` assumes only the earlier full positive Stieltjes
+TARGET hypotheses and actual root-response equality for the competing real
+parameters. It concludes a unique classical zero-initial solution for every
+continuous u and its exact root value sum_i w_i*scalarForcedSolution(r_i,u,a,0,s).
+The sign and regularity of the competing parameters are derived, not presumed.
+`same_full_response_all_continuous_inputs` compares actual solution outputs on
+two prescribed topologies for every continuous input and initial time.
+
+`physical_total_storage_hasDerivAt` and `physical_total_storage_integral_balance`
+prove actual differential and integral mass balance, for arbitrary real rates
+whenever a classical trajectory is given. No positivity or symbolic conservation
+axiom is supplied. These are forward dynamical bridges, not yet the converse
+identification theorem or a continuous-time reachability/observability theorem.

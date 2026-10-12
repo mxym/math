@@ -58,3 +58,15 @@ additional sign-constrained domain is hidden in these unrestricted fibers.
 leak from transfer equality, and gives exact all-real discharge-fiber cardinality.
 The real-fiber note under research/hydrology-tree-real-fibers explains the complete
 mathematical proof; it is not a replacement for the checked Lean dependencies.
+
+
+### Actual ODE forward bridge
+
+LinearForcedODE -> ScalarForcedODE; RootModalData plus the actual spectral
+construction -> PhysicalModalConstruction; scalar integral solutions and the
+proved coordinate witness -> ModalForcedODE. StieltjesWeightedMatching proves
+that the complete coefficient pair fixes every weighted spectral sum.
+PhysicalForcedODE and FullResponseDynamics discharge the modal and positivity
+inputs for original physical matrices. PhysicalMassODE proves the actual storage
+balance. The reverse time-domain identification and state-space reachability
+obligations remain explicit in GAPS.md.
