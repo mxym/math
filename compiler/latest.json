@@ -1,6 +1,6 @@
 {
   "serial": 111,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "a6c50df859b718cfc54c80493e33bed345841914",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -56,7 +56,49 @@
     "HydrologyTree/PiSerialization.lean": "ada11882ac7dd43d839a11beec92744b7cd3a8baa927925d80b489c619b6e297",
     "HydrologyTree/FamilyNormalization.lean": "237b96562567fe68a45e7eb31d3514f4b07c1468c91d31792e794ba1abb95f69"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.283
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.204
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.362
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 2.065
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.485
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.453
+    },
+    {
+      "module": "HydrologyTree.DependentBlocks",
+      "returncode": 0,
+      "seconds": 1.394
+    },
+    {
+      "module": "HydrologyTree.DependentJacobian",
+      "returncode": 1,
+      "seconds": 2.007
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230"
+  "run_id": "38201915230",
+  "diagnostics": "HydrologyTree/DependentJacobian.lean:26:34: error: Application type mismatch: The argument\n  ContinuousLinearMap.hasFDerivAt ?m.98\nhas type\n  HasFDerivAt \u21d1?m.98 ?m.98 ?m.99\nbut is expected to have type\n  HasFDerivAt (fun x => x i) (ContinuousLinearMap.proj i) z\nin the application\n  HasFDerivAt.comp z (DifferentiableAt.hasFDerivAt (hf i)) (ContinuousLinearMap.hasFDerivAt ?m.98)\nHydrologyTree/DependentJacobian.lean:39:43: warning: This simp argument is unused:\n  Ne.symm h\n\nHint: Omit it from the simp argument list.\n  [apply] simp [LinearMap.toMatrix_apply, Pi.basis_apply, Pi.basis_repr, Matrix.blockDiagonal'_apply_ne, h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
 }
