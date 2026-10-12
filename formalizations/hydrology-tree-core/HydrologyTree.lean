@@ -21,3 +21,4 @@ import HydrologyTree.SubtreeProducts
 import HydrologyTree.JacobianRegularity
 import HydrologyTree.PositiveJacobian
 import HydrologyTree.ZeroOutward
+import HydrologyTree.AllTreeResultant

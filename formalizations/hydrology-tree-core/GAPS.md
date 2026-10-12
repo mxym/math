@@ -33,10 +33,11 @@ construction with distinct inward rates is now proved, including an assignment
 with any selected inward coordinate zero. This is a constructive boundary lemma,
 not yet the full polynomial multiplicity theorem.
 
-Prove the exact signed resultant identity connecting the original characteristic
-and root cofactor with the coefficient Jacobian, not merely their positive-domain
-zero-set equivalence. State the tree multiplicity conjecture corollary with its
-original parameter convention and supporting polynomial meaning.
+The exact signed resultant identity is now proved in AllTreeResultant, for
+every real rate vector with a fixed tree-dependent sign. No zero-rate or
+root-collision exceptions remain. Still state and prove the tree multiplicity
+conjecture corollary with its original parameter convention and explicit
+multivariate polynomial meaning.
 
 ## 2. Positive realization existence and exhaustive count
 

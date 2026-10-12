@@ -96,3 +96,24 @@ Existing repository and third-party notices remain in force. Original additions
 retain all rights not otherwise granted by an applicable existing license.
 No historical-priority or complete-program claim, completion Release or DOI is
 made by this partial-overall package.
+
+## Exact signed resultant identity
+
+`full_tree_resultant_jacobian` now proves, for one sign ε depending only on
+T and its fixed coordinate conventions, simultaneously for ALL real rates,
+
+    Res(P_T,F_T) = ε * (product_e f_e) * det D C_T.
+
+P_T and F_T are the actual characteristic and root principal-cofactor
+polynomials and D C_T is the actual standard-basis Frechet Jacobian. Zero
+rates, zero root leak, repeated roots and zero resultants are included.
+`physicalResultant_eq_signed_jacobian` gives the explicitly defined sign;
+`physicalResultant_jacobian_square` is its exact sign-independent consequence.
+The proof establishes actual-degree resultant algebra, arbitrary-family signs,
+finite numerator enumeration, the physical root recursion, and strong induction.
+It does not divide by an edge rate or use only a generic-parameter argument.
+
+This extension has compiled; its independent source-bound verification is the
+new run for its own commit. The preceding all-tree checkpoint 2684e3b3 passed:
+95 modules, 860 roots, 43,356 empty-kernel replay declarations, and 36 rejected
+mutations. That old receipt does not certify the new resultant extension.

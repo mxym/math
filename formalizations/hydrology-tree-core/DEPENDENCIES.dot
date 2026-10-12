@@ -1,4 +1,4 @@
-digraph HydrologyTreeProof {
+digraph PartialTreeProof {
 rankdir=LR;
 "HydrologyTree.Coefficients" -> "HydrologyTree.LeadingCoefficients";
 "HydrologyTree.Coefficients" -> "HydrologyTree.BlockJacobian";
@@ -148,6 +148,13 @@ rankdir=LR;
 "HydrologyTree.PositiveAssignment" -> "HydrologyTree.PositiveJacobian";
 "HydrologyTree.SubtreeAssignment" -> "HydrologyTree.ZeroOutward";
 "HydrologyTree.PositiveChildModels" -> "HydrologyTree.ZeroOutward";
+"HydrologyTree.MonicResultantAlgebra" -> "HydrologyTree.SignedFamilyResultant";
+"HydrologyTree.FamilyResultants" -> "HydrologyTree.SignedFamilyResultant";
+"HydrologyTree.SignedFamilyResultant" -> "HydrologyTree.ResultantFamilyEnumeration";
+"HydrologyTree.ResultantFamilyEnumeration" -> "HydrologyTree.PhysicalResultantRecurrence";
+"HydrologyTree.TreeJacobianRecurrence" -> "HydrologyTree.PhysicalResultantRecurrence";
+"HydrologyTree.PhysicalResultantRecurrence" -> "HydrologyTree.AllTreeResultant";
+"HydrologyTree.SubtreeProducts" -> "HydrologyTree.AllTreeResultant";
 "HydrologyTree.Gluing" -> "HydrologyTree";
 "HydrologyTree.RootUpdate" -> "HydrologyTree";
 "HydrologyTree.PhysicalBridge" -> "HydrologyTree";
@@ -171,4 +178,5 @@ rankdir=LR;
 "HydrologyTree.JacobianRegularity" -> "HydrologyTree";
 "HydrologyTree.PositiveJacobian" -> "HydrologyTree";
 "HydrologyTree.ZeroOutward" -> "HydrologyTree";
+"HydrologyTree.AllTreeResultant" -> "HydrologyTree";
 }
