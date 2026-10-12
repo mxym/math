@@ -1,6 +1,6 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
-**The full research program remains partially formalized. The fixed-local purity supremum limit is now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. Matching growing-local-dimension lower limits, exact finite maxima/classification, full entropy and rigidity claims remain unclosed.**
+**The full research program remains partially formalized. The fixed-local purity supremum limit and its first excess-purity coefficient are now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. The two-level projection plateau is also optimized exactly within the plateau family in the even-rank case. Matching growing-local-dimension lower limits, exact finite maxima/classification beyond that family, full entropy and rigidity claims remain unclosed.**
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
@@ -37,6 +37,19 @@ The upper inequality holds for every physical state. The lower inequality is wit
     Tendsto (fun n => (mn)*P_sup(m,n)) atTop (nhds C_m)
 
 for every fixed integer m>=2. This closes the complementary fixed-m regime; it is not an extrapolation of the earlier growing-m theorem. This endpoint does not assert finite-dimensional `IsGreatest` or classify maximizing spectra.
+
+The companion theorem `appt_fixed_local_excess_sup_tendsto` subtracts the maximally
+mixed baseline and proves the exact first excess coefficient
+
+    Tendsto (fun n => (mn) * (P_sup(m,n) - 1/(mn))) atTop
+      (nhds (1/(m^2-1))).
+
+This is a direct physical supremum limit, with no spectral ansatz or unproved
+attainment assumption. Separately, `PlateauOptimizer.lean` proves the exact square
+deficit for every two-level projection plateau and shows that when `(m-1)*n` is even,
+rank `((m-1)*n)/2` reaches the continuous two-level value and is maximal among all
+plateau ranks. This is a family-restricted optimization statement, not the full
+rectangular APPT maximum or a classification of all maximizing states.
 
 ## 2. One upper bound over all dimensional growth regimes
 
@@ -79,7 +92,7 @@ python3 reproduce.py --fresh
 
 The runner verifies source pins and the actual dependency checkout, builds only the imported review closure, compiles replay support with an explicit source root, runs physical controls, and replays all selected roots. Every stage has a finite timeout with process-group termination on timeout and retained diagnostics. `--write-manifest` records intended sources but does not verify them.
 
-Seven modules close the new chain: `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
+The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `PlateauApproximation`, `FixedLocalLimit`, `PlateauOptimizer`, `AllDimensionUpper`, and `FixedLocalChecks`. `REVIEW_FIXED_LOCAL_20261011.md` gives their mathematical dependency map. Earlier sorted entropy-head, contraction-sufficiency, projection-attainment and finite purity chains remain checked.
 
 ## 6. What is not yet certified
 

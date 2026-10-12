@@ -4,6 +4,9 @@ import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReview.singular_density_appt_iff_spectrum,
+  ``APPTReview.appt_fixed_local_excess_sup_tendsto,
+  ``APPTReview.plateauScaledPurity_le_continuous,
+  ``APPTReview.plateauScaledPurity_even_rank_max,
   ``APPTReview.purity_partialTranspose,
   ``APPTReview.one_sub_psd_of_hermitian_purity,
   ``APPTReview.absolutelyPPT_one_sub_of_hermitian_purity,
