@@ -561,10 +561,23 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 MODULE HydrologyTree.ScalarCoupling
 
 MODULE HydrologyTree.PathInduction
-HydrologyTree/PathInduction.lean:21:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Subsingleton (Fin (0 + 1))
+HydrologyTree/PathInduction.lean:18:2: warning: Try this: 
+  letI̵
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PathInduction.lean:16:69: error: unsolved goals
-a : PathRates 0
-⊢ (compartmentMatrix (pathTree 0) (singletonRateEquiv a)).charmatrix.det.coeff ↑⟨0, ⋯⟩ = a
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.CatenaryJacobian
+HydrologyTree/CatenaryJacobian.lean:127:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  catenaryJacobian ?n ?x = 0
+in the target expression
+  catenaryJacobian n x ≠ 0
+
+n : ℕ
+x : TreeRates n
+ha : ∀ (i : Fin n), x.1 i.succ ≠ 0
+hf : ∀ (i : Fin n), ↑i + 1 < n → x.2 i ≠ 0
+⊢ catenaryJacobian n x ≠ 0
