@@ -8,7 +8,7 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Arbitrarily labeled eigenvalue witnesses | `appt_eigenvalue_witness_posSemidef` | Kernel checked with supplied permutation and injective corner. |
 | Canonical ordered rank-two witness | `appt_sorted_rankTwo_witness`, `appt_sorted_rankTwo_determinant` | Complete necessary physical bridge; permutations constructed internally. |
 | Largest eigenvalue bound | `appt_largest_eigenvalue_bound` | Complete necessary bound from actual density and APPT, not its equality/attainment classification. |
-| Complete singular-state APPT locus | `singular_density_appt_iff_spectrum`, `singular_density_appt_iff_purity`, `exists_singular_appt_density` | COMPLETE necessity, sufficiency and actual singular attainment for density matrices with determinant zero. Independent CI 38189500302 and trust-zero replay passed. |
+| Complete singular-state APPT locus | `singular_density_appt_iff_spectrum`, `singular_density_appt_iff_purity`, `exists_singular_appt_density` | COMPLETE necessity, sufficiency and actual singular attainment for density matrices with determinant zero. Independent CI 38189500302 and integrated run 38190512755 passed with trust-zero replay. |
 | Canonical least-diagonal star | `appt_sorted_shifted_star` | Physical placement and all leaf orientations constructed. No star budget supplied. |
 | Positive sorted normalization pivot | `ordered_pivot_positive`, `paper_pivot_rank_bounds` | Trace, ordering and dimension obligations discharged in physical wrapper. |
 | True logarithm inequalities and scalar nonlinear head | `entropyHead_le_two` and LogBounds | Previously checked scalar theorem, still explicitly retains scalar hypotheses. |

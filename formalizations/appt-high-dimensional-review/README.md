@@ -6,6 +6,12 @@ Every physical endpoint uses actual complex density matrices and the original al
 
 ## Purity-ball sufficiency and the singular APPT locus
 
+### Integrated source verification
+
+Combined source **72f774d8e8400b58d342e7d9c460c5b138583467** also preserves the concurrent fixed-local excess-limit and even-rank projection-family optimization. Independent run **38190512755** passed all stages: **2,853 Lake tasks, 42,281 declarations, 142 roots, 66 pinned inputs**, trust level zero and only the three standard axioms. Evidence is in `verification/ci-72f774d8/`. The original singular-state checkpoint below retains its own source binding; the merge was independently verified rather than presumed correct from parent builds.
+
+
+
 For D=mn>1, `density_appt_of_purity_ball` proves that every actual density matrix with purity at most 1/(D-1) is APPT under every global unitary. The proof establishes partial-transpose invariance of the Hermitian Hilbert--Schmidt square and derives positivity from the actual matrix eigenvalues. No Schmidt or Hildebrand criterion is assumed.
 
 For 2<=m<=n, `singular_density_appt_iff_spectrum` proves a necessary-and-sufficient statement for a density matrix with determinant zero: it is APPT exactly when its sorted eigenvalues are one zero and D-1 copies of 1/(D-1). Equivalently its purity is 1/(D-1). `exists_singular_appt_density` constructs an actual normalized complementary coordinate projection and proves its density, APPT, determinant-zero and exact-purity properties. The purity-ball condition is only sufficient without singularity; a physical 2x3 counterexample to necessity is included.
