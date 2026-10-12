@@ -1,92 +1,28 @@
-# Written theorems to checked Lean: current correspondence
+# Paper statements → actual Lean proof chain
 
-Status: partial formalization, not a proof of the all-tree theorem or all its
-corollaries. The target is the actual monic characteristic/cofactor coefficient
-map for a conservative bidirected tree with one external leak.
+Overall status: partial formalization. The all-tree rooted coefficient Jacobian
+is proved; existence/counting, exact multiplicity and some variants remain.
 
-| Required statement | Current Lean theorem | Remaining connection |
+| Statement | Main Lean entries | Exact scope |
 |---|---|---|
-| Coefficient charts and reconstruction of actual monic polynomials | `Coefficients`, `LeadingCoefficients`, `monic_reconstruct` | No sampled coefficient model is substituted. |
-| Two-child polynomial gluing | `hasFDerivAt_glue`, `gluingJacobian_eq_resultant_sq` | All degrees, all numerator coefficients, common roots and degree-zero cases included. Full arbitrary-family induction is now `familyGlueJacobian_eq_pairwise`, with actual numerator equality and proved second-order regularity. |
-| Numerator scaling R=c F | `hasFDerivAt_scaleMonic`, `monicScalingJacobian_eq` | Actual monic polynomial coefficients; determinant c^n at every scalar, including zero. |
-| Root update P=(X+d)F-N | `hasFDerivAt_rootCoefficientMap`, `rootCoefficientJacobian_eq`, `rootPolynomial_monic`, `rootPolynomial_natDegree` | Actual polynomial operation and its Frechet derivative; no assumed Jacobian. Identification with a tree characteristic determinant remains. |
-| Rate chart (lambda,a,f) -> (d,c) | `matrixCoordinateJacobian_eq`, `hasFDerivAt_matrixRateCoordinates` | Complete for every topologically numbered rooted tree, all real rates including zero; arbitrary graph reindexing and observation-root/leak-root change still need integration. |
-| Actual characteristic/cofactor objects | `physicalCoefficientMap`, both reconstruction theorems, `physicalRootResponse_eq` | Actual matrix, conservation, rates, charpoly and cofactor semantics are proved. Single-edge determinant/cofactor recursion and arbitrary-branch matrix assembly are now proved in `RootAttachment` and `BranchAssembly`. PhysicalLeaf now proves an all-size last-leaf recurrence directly for the original OrderedTree matrix. RootBranches, BranchMatrixSupport and physical_root_block_decomposition now prove the exact original matrix root/branch transport. ChildMatrix now proves complete identification with a smaller physical OrderedTree, retaining the exit leak. Global rate-coordinate permutation and derivative induction remain. |
-| All-tree Jacobian factorization | Not yet exported | Arbitrary child-family Jacobian is now proved. The remaining chain rule and global tree induction must connect actual subtree matrix coefficients; basis signs/reindexing must be checked. |
-| Exact edge multiplicities, catenary and tree conjecture statements | Not yet exported | Requires full actual-tree factorization; exact multiplicities additionally need no hidden rate factors in resultants. |
-| Cancellation resultant identity | Not yet exported | All-tree induction, multiplicativity and degree bookkeeping. At zero rates, do not conflate reduced response with unreduced coefficient data. |
-| Strictly positive singular-locus equivalences | Not yet exported | Actual diagonal symmetrization, grounded energy, strictly negative real spectrum and finite normalized nonnegative Stieltjes response are now proved. Jacobian equivalence and ODE minimality remain unproved. |
-| Complete positive realization and fiber count | Not yet exported | Stieltjes interlacing/residue signs, complete constructive inverse, uniqueness for each assignment, positivity/conservation, factorial count. |
-| Topology ambiguity, global components, physical discharge interpretation | Not yet exported | All claimed consequences need their actual supporting definitions and theorem statements. |
+| Physical rate matrix and conservative balance | `compartmentMatrix`, `compartment_column_sum`, `compartment_total_flux` | Actual entries, arbitrary real rates |
+| Genuine principal child models | `physicalBranch_eq_childTree`, `physicalBranch_charpoly_eq`, `physicalBranch_cofactor_eq` | Original exit-to-parent diagonal retained |
+| Independent original rate coordinates | `originalWorkEquiv_apply`, `originalWorkEquiv_dot` | Rate-independent bijection and exact coefficient-dot preservation |
+| Actual child coefficient preparation | `prepareFamilyEquiv`, `prepareFamilyEquiv_dot`, `actualBranchInputs_coefficients` | Actual polynomials; no assumed child-Jacobian semantic bridge |
+| All-child polynomial scaling/gluing/root step | `familyGlueJacobian_eq_pairwise`, `normalizedBranchStep_jacobian` | All degrees/rates, including zero scales and repeated roots |
+| Full physical pipeline | `treePipeline_actual`, `treeCanonicalJacobian_recurrence` | End-to-end physical identification and discharged smaller-child induction |
+| Main all-tree standard Jacobian | `full_tree_standard_jacobian` | Actual Frechet derivative, fixed sign for all rates; products on original vertices/edges |
+| Jacobian regularity and sibling coprimality | `treeJacobian_ne_zero_iff_coprime` | Nonzero real internal rates; root leak unrestricted |
+| Positive spectral singular set | `positive_tree_jacobian_zero_iff_collision` | Positive internal rates; actual real sibling principal spectra |
+| Full positive Stieltjes modes | `positive_tree_jacobian_iff_full_modes` | Positive root leak and internal rates; energy/spectral proof imported, not assumed |
+| Global uniqueness per fixed subtree assignment | `regular_tree_assignment_unique` | Arbitrary real competitor; not uniqueness from root response alone |
+| Uniform coordinate-boundary construction | `zero_outward_characteristic`, `zero_coordinate_coprime_witness` | All tree sizes; distinct inward rates, all outward rates zero |
+| Exact individual-rate polynomial multiplicities | Not yet exported | Need complete divisibility/nondivisibility argument; the displayed factorization alone is insufficient |
+| Exact signed resultant/Jacobian identity | Not yet exported | Zero-set equivalences do not replace the exact polynomial identity |
+| All positive realizations and factorial count | Not yet exported | Interlacing, residue signs, every partition's realization, completeness and count remain |
+| Nonroot leak / arbitrary external graph presentation | Not yet exported | Rooted OrderedTree main theorem does not silently include these transports |
+| ODE all-input / controllability interpretations | Not yet exported | Algebraic resolvent and polynomial identities do not supply ODE semantics |
 
-The isolated compiler session is development infrastructure. Its status is not a
-proof certificate. Only the separate source-bound Lake/replay/negative-control
-workflow can certify a completed source checkpoint. No main theorem is exported
-with its conclusion or a missing geometric/algebraic bridge as a hypothesis.
-
-## Updated end-to-end coverage
-
-- Child renumbering and all matrix/characteristic/cofactor transport:
-  `physicalBranch_eq_childTree`, `physicalBranch_charpoly_eq`,
-  `physicalBranch_cofactor_eq`, `childEdgeCount_lt`.
-- Full independent rate input chart: `ratePartitionEquiv`,
-  `ratePartition_child`, `ratePartition_unique_original` (see actual ROOTS.txt
-  for the exported uniqueness declaration's precise name).
-- Nonlinear root coupling: `rootCoupling_jacobian`,
-  `rootCoupling_physical_coordinates`, `actualCoupling_jacobian`.
-- Actual original-tree recursions: `physicalRootCofactor_child_product`,
-  `physicalCharacteristic_child_recursion`.
-- Full common-root classification under nonzero internal edges, all tree sizes
-  and arbitrary real field extensions: `physicalCommonRoot_iff_siblingCollision`.
-  This has no assumed block determinant, child matrix transport or cancellation
-  statement. Its proof uses the proved local algebra and well-founded child
-  recursion. It does not assert the unfinished global Jacobian equivalence.
-
-The global coefficient-Jacobian chain and its basis/orientation assembly,
-exact multiplicities, positive spectral consequences and complete positive
-inverse/fiber classification remain the explicit missing mathematical work.
-
-### Endpoint-path completion
-
-The actual coefficient map, its Fréchet derivative and all-size determinant
-recurrence are `PathPhysical`, `PathInduction`, `CatenaryJacobian`.
-`CatenaryCanonical`, `CoordinateEnergy` and `CatenaryOrientation` prove transport
-to standard ascending P/F coefficient and physical-array coordinates with a
-fixed factor of magnitude exactly one. `catenary_standard_singular_locus` includes
-all zero boundaries. This is an unconditional endpoint-path theorem, not the
-all-tree induction. `PhysicalConstants` proves P(0)=lambda F(0) and F(0)=prod a
-for every tree with arbitrary real rates, including zero.
-
-`RootRecovery` and `CatenaryGlobal` prove actual leak recovery and global
-singleton real coefficient fibers at every regular endpoint-path model. The
-terminal zero-outward case is included. The arbitrary-tree positive Stieltjes
-realization existence/completeness/count remains a separate obligation.
-
-### Spectral and transfer extension
-
-Constructed actual positive-tree stability and root response:
-`physical_characteristic_negative_real_factorization`, `physical_finite_stieltjes`.
-Root transfer identification for noncancelling reference paths:
-`catenary_global_resolvent_identification`. No condition is imposed on the
-competing rate vector. Global tree Jacobian, exact multiplicity and complete
-positive Stieltjes inverse/fiber count remain separate obligations.
-
-### Combined local branching Jacobian and positive mode criterion
-
-`branchStep_actual_jacobian` proves the full actual LOCAL parent coefficient
-transformation with all scaling, gluing and root-update factors composed.
-`physical_stieltjes_polynomials` recovers BOTH actual unreduced polynomials.
-`physical_full_modes_iff_no_sibling_collisions` proves the complete positive
-full-mode/actual-sibling-collision equivalence. The full physical-tree Jacobian
-induction, exact factor multiplicities, ODE observability, constructive inverse
-and global positive-fiber count remain unexported.
-
-### Global recovery per prescribed denominator assignment
-
-`physical_subtree_assignment_unique` proves uniqueness of all actual real rates
-for a fixed recursive subtree-characteristic assignment, with coprime siblings
-and nonzero edges assumed only of the reference model.
-`full_modes_subtree_assignment_unique` derives this for a positive full-mode
-reference, using constructed spectra and proved coprimality. This closes the
-uniqueness-per-assignment component; constructive existence of every assignment,
-complete parameterization and the factorial fiber count remain separate gaps.
+The audit roots include all owned declarations and their used dependencies.
+Development compiler receipts are separate from independent source-bound
+Lake/empty-kernel verification. No missing paper result is added as an axiom.

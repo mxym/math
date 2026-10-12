@@ -17,3 +17,7 @@ import HydrologyTree.CatenaryCoprime
 import HydrologyTree.BranchStep
 import HydrologyTree.PhysicalModes
 import HydrologyTree.PositiveAssignment
+import HydrologyTree.SubtreeProducts
+import HydrologyTree.JacobianRegularity
+import HydrologyTree.PositiveJacobian
+import HydrologyTree.ZeroOutward
