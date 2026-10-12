@@ -17,3 +17,7 @@ import APPTReview.FixedLocalChecks
 import APPTReview.CompactControls
 import APPTReview.SingularAttainment
 import APPTReview.PlateauOptimizer
+
+import APPTReview.Counterexample1038
+
+import APPTReview.JointBoundaryControl

@@ -511,26 +511,34 @@ Moreover $D(x)=0$ exactly when (18) holds.
 This vector field is locally Lipschitz, since $f$ is $C^2$ and projection
 is nonexpansive.
 
-If the level $b$ contains no zero of $D$, compactness gives
-$\eta,\alpha>0$ with $|D|\ge\alpha$ on
-$\{|f-b|\le2\eta\}\cap K$. The level is nonempty by any path and the
-intermediate value theorem. Shrink $\eta$ so both endpoint values exceed
-$b+2\eta$. Choose a Lipschitz cutoff $0\le\chi\le1$, one for
-$|f-b|\le\eta$ and zero for $|f-b|\ge2\eta$.
-The flow $x'=\chi(f(x))D(x)$ stays in $K$: every sufficiently small
-forward Euler step is a convex combination of $x$ and
-$\Pi_K(x+\nabla f(x))$. Euler approximations converge to the locally
-Lipschitz flow, giving invariance. Compactness permits any finite
-forward time and continuous dependence on the initial point.
-Along the flow $f$ never decreases and increases at rate at least
-$\alpha^2$ while $|f-b|\le\eta$; the endpoints are fixed.
+Assume instead that no zero of $D$ occurs in the sublevel
+$K_{\le a}=\{x\in K:f(x)\le a\}$. This is the correct compact set for
+the argument: the absence of zeros only on the single level $f=b$ would
+not give a uniform bound on a whole neighborhood of that level. If
+$K_{\le a}$ is empty, the conclusion is immediate, so otherwise
+compactness gives $\alpha>0$ with $|D|\ge\alpha$ on $K_{\le a}$.
+The projection inequality then gives
+$\nabla f\cdot D\ge\alpha^2$ throughout this sublevel.
 
-Choose $\gamma$ with minimum greater than $b-\eta/2$. Applying a fixed
-flow time greater than $\eta/\alpha^2$ makes every point on this path
-have value at least $b+\eta/2$. Points already above this value do not
-descend, and the others reach it within that time. This continuous path
-contradicts the definition of $b$. Thus a zero exists at level $b$,
-proving the lemma. $\square$
+There are two cases. If $b<a$, choose $\eta>0$ with
+$b+2\eta<a$ and with both endpoint values greater than $b+2\eta$.
+The level $b$ is nonempty by the intermediate value theorem. A Lipschitz
+cutoff supported in $|f-b|<2\eta$ and equal to one on
+$|f-b|\le\eta$ produces an invariant projected flow. Starting from a
+path whose minimum is greater than $b-\eta/2$, the flow raises every
+point below $b+\eta/2$ above that level in a common finite time, while
+never decreasing the other points. This contradicts the definition of
+$b$.
+
+If $b=a$, the same projected flow is run with a cutoff supported in a
+small neighborhood of $K_{\le a}$. Since $D$ is nonzero on the compact
+sublevel, continuity gives a boundary strip
+$a-\eta<f<a+\eta$ on which
+$\nabla f\cdot D\ge\alpha^2/2$. Thus every point initially below $a$
+crosses the level $a$ and continues strictly above it in a common finite
+time; points already above $a$ do not decrease. The resulting path has
+minimum strictly larger than $a$, again a contradiction. Hence a zero of
+$D$ lies in $K_{\le a}$, which is exactly (18). $\square$
 
 The sign in (18) is the upper normal cone, which is essential below.
 The proof uses only Euclidean projection and the elementary existence,

@@ -4,6 +4,37 @@
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
+## Strengthened counterexample statement and physical failure controls
+
+`proposedAPPTPurity` records the proposed dimension-dependent formula with its actual integer ceiling. `not_proposedAPPTPurity_upper` proves that it is NOT a universal purity upper bound on the original domain 2<=m<=n and n>2, using the actual 10x38 APPT density matrix. This is a fully quantified formula refutation, not just an unconnected numerical inequality. The source paper's separate polytope-optimization theorem is not claimed as formalized here.
+
+The white-noise state
+
+    rho_int = (999/1000) rho + (1/1000) I/380
+
+is proved to be a density matrix and APPT, still has purity strictly exceeding the proposed value, and satisfies
+
+    (U rho_int U*)^Gamma - I/380000 >= 0
+
+for every global unitary U. `counterexample1038Interior_margin` proves this uniform positive orbit margin; the endpoint is that matrix inequality, not an independently stated topological-relative-interior classification.
+
+The actual trace-one matrix `boundaryPerturbation1038` increases the spike coefficient from 24 to 25 in the explicit boundary layout. It is positive semidefinite but NOT APPT. The proof uses a genuine rectangular Hadamard-unitary witness and rejects it by exact arithmetic, rather than assuming a failed sampled orbit. Its support has 147 coordinates and includes the spike: the unnormalized levels are 42 once, 17 on the remaining 146 support coordinates and 15 on the other 233 coordinates, with trace 6019. `joint_scalar_boundary_and_failure` separately records the zero-to-negative scalar boundary, and `zero_schmidt_model` checks that zero test vectors are admitted by the general Schmidt construction.
+
+**Final independent verification:** run **38202563748**, tested source **c129497bc843d2054533c405cf5d5201855c0a99**, passed every stage. The build completed **2869 tasks**; an empty trust-zero kernel replayed **42,496 transitive declarations and 208 explicit roots**, with only the three standard axioms. All **82 pinned inputs** matched the exact committed and uploaded source. The primary corrupted-proof control targets the full negation of the proposed universal upper formula. Ten additional corruption controls remain, including joint sufficiency, actual counterexample membership, its positive margin and the non-APPT perturbation. Literal logs and all source/control bindings are in `verification/ci-c129497b/`.
+
+## Joint sufficiency and the original three-level counterexample
+
+**New complete finite result:** `jointSpike_absolutelyPPT` proves all-global-unitary APPT for `(2m-5)I+2P+4(m-4)|v><v|` whenever m>=4, P and I-P are positive semidefinite, and v has squared norm one. The positivity theorem does not assume v lies in range(P), a supplied Schmidt decomposition, a graph inequality, or any APPT spectral criterion. It constructs a Schmidt row factorization from the actual complex matrix, including zero singular values, proves the signed partial-transpose model and trace duality, and applies the joint sum-of-squares inequality.
+
+`counterexample1038_refutes_formula` then proves density, actual APPT, and the strict purity comparison for the original product-coordinate state
+
+    rho = diag(41, 17 [146 copies], 15 [233 copies]) / 6018,
+    purity(rho) = 2675/1006009 > max(97/36481,5/1881).
+
+`counterexample1038_diagonal` verifies that these are the entries of the actual defined matrix, rather than an externally supplied spectrum. The finite support has exactly 147 coordinates; that count is kernel-decided and is not used as a replacement for the dimension-uniform quantum proof. The result refutes the displayed proposed purity formula at 10x38. It does not assert that this state is optimal, that these are the smallest counterexample dimensions, or that all subsequent research claims have been certified.
+
+Independent Actions run **38200910959**, source **c7bd84ed1df6602d511fbee67f1c66f66809932f**, passed every stage: **2,866 Lake tasks**, **42,442 transitive declarations and 194 roots** replayed at trust level zero, with only `propext`, `Classical.choice`, `Quot.sound`. All **79 pinned inputs** matched the tested commit and downloaded artifact. The primary forged-proof test targets the final physical counterexample theorem. Additional tests preserve the exact theorem types and reject corrupted proofs of generic joint APPT sufficiency, actual counterexample membership, and the unnormalized Schmidt model. Literal evidence is in `verification/ci-c7bd84ed/` and the exact dependency map is in `REVIEW_JOINT_SUFFICIENCY.md`.
+
 ## Purity-ball sufficiency and the singular APPT locus
 
 ### Integrated source verification
@@ -104,4 +135,4 @@ The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `Plat
 
 See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
 
-The joint projection-plus-spike sufficiency for the three-level counterexample, exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
+The joint projection-plus-spike sufficiency and the original 10x38 physical counterexample are now certified above. Exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
