@@ -1,0 +1,29 @@
+import GaussianFour.IntrinsicBoundary
+import GaussianFour.FacetCoordinates
+import GaussianFour.CenteredPriceHessian
+import GaussianFour.PriceHessian
+import GaussianFour.PriceFrechetIntegral
+import GaussianFour.PriceSecondVariation
+import GaussianFour.PriceMassDifferential
+import GaussianFour.SelfMomentCriticality
+import GaussianFour.CovarianceCriticality
+import GaussianFour.CenteredSpectral
+import GaussianFour.FixedCovarianceDifferential
+import GaussianFour.RegularizedResidual
+import GaussianFour.NormalCone
+import GaussianFour.TraceSupport
+import GaussianFour.PriceCompactness
+import GaussianFour.PriceBounds
+import GaussianPrimalDual
+import GaussianFractionalEquality
+import GaussianFour.ScalarTent
+import GaussianFour.SeparatedMoments
+import GaussianFour.WinningSeparation
+import GaussianFour.BoundarySeparation
+import GaussianFour.TripleTie
+
+import GaussianFour.CollinearTransport
+
+/-! Partial formalization only. This module does not prove the global
+four-cell energy bound or its complete equality classification. -/
+
