@@ -103,3 +103,20 @@ are the outstanding blocks listed in `GAPS.md`.
 All verification statements refer to the exact source hashes and completed
 independent receipts, not to development compiler statuses. A complete-program
 Release or DOI is not asserted.
+
+## Completed reciprocal analytic input
+
+For any positive normalized Stieltjes data with n+1 distinct positive rates,
+there exist n positive, distinct, strictly interlacing zero rates b_i and positive
+g_i, and a real d, such that the actual input numerator F and denominator P obey
+
+    F = product_i (X+b_i),
+    P = (X+d) F - sum_i g_i product_(j != i) (X+b_j),
+    d - sum_i g_i/b_i = P(0)/F(0) > 0.
+
+Existence and simplicity of all zeros, residue signs, and the entire polynomial
+identity are proved rather than imported as assumptions. Sorting preserves the
+actual polynomials, so arbitrary injective positive input labels are covered.
+The one-store case n=0 uses the empty product/sum identities explicitly.
+This input closes the reciprocal interlacing/residue obligation but is not alone
+a theorem that all positive tree assignments have been realized or counted.

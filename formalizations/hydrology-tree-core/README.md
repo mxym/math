@@ -177,3 +177,24 @@ complete the algebraic proof for this independently defined formal determinant.
 The source has compiled and its full source-bound independent verification is
 the new run for this exact checkpoint. Earlier 100/110-module receipts must not
 be reported as certifying the additional formal-derivative files.
+
+## Constructive reciprocal Stieltjes transformation
+
+`exists_positive_reciprocal_stieltjes_data` proves the full reciprocal
+transformation from any normalized strictly positive finite Stieltjes sum with
+strictly increasing positive rates. Actual numerator zeros exist strictly between
+every consecutive pair of poles, factor the entire numerator and are all simple.
+Their reciprocal residues are proved positive from the actual derivative identity.
+The reciprocal polynomial identity follows from checked monic division and
+interpolation. The new root-leak value is the original reciprocal at zero and is
+strictly positive. The one-store/empty-zero case is included.
+
+`exists_positive_reciprocal_data_unordered` removes the sorted-label restriction
+by a proved finite sorting permutation and exact reindexing of both polynomials.
+`StieltjesGrouping` proves the numerator/denominator regrouping needed for every
+labelled child-pole allocation. These results use real IVT, polynomial degree
+and derivative theorems; no external Stieltjes theorem or root solver is assumed.
+
+Positive realization of every full tree and exhaustive factorial counting remain
+separate tasks. The new transformation source compiled; its independent source-
+bound CI receipt is distinct from the earlier verified algebraic checkpoints.
