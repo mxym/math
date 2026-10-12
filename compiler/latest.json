@@ -1,35 +1,18 @@
 {
-  "serial": 100,
-  "status": "COMPILER_ERROR",
-  "request_blob": "ea200f6274a1f1f66cc537cbe3425020787d7c28",
+  "serial": 101,
+  "status": "COMPILING",
+  "request_blob": "00f9acb7fac6dc7ef0129d9e7a5139e8b0ef4382",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.LeadingCoefficients",
     "HydrologyTree.CoprimeBranchRecovery"
   ],
   "source_sha256": {
-    "HydrologyTree/CoprimeBranchRecovery.lean": "8429ee6fc8c8cad882fd63de1519f9002f1faa32361f7323918005481bc834e7",
+    "HydrologyTree/CoprimeBranchRecovery.lean": "5017518e026a191f135372a602744013fdd28ffd839b15a675438a297932cc9f",
     "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.476
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 1.838
-    },
-    {
-      "module": "HydrologyTree.CoprimeBranchRecovery",
-      "returncode": 1,
-      "seconds": 1.553
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/CoprimeBranchRecovery.lean:26:48: error: Invalid `\u2190` modifier: `branchNumeratorSum` is a declaration name to be unfolded\n\nHint: The simplifier cannot \"refold\" definitions by name. Use `rw` for this instead,\n                      or use the `\u2190` simp modifier with an equational lemma for `branchNumeratorSum`.\nHydrologyTree/CoprimeBranchRecovery.lean:25:73: error: unsolved goals\nI : Type u_1\ninst\u271d\u00b9 : Fintype I\ninst\u271d : DecidableEq I\nP R S : I \u2192 \u211d[X]\nhP : \u2200 (i j : I), i \u2260 j \u2192 IsCoprime (P i) (P j)\nhR : \u2200 (i : I), (R i).degree < (P i).degree\nhS : \u2200 (i : I), (S i).degree < (P i).degree\nh : branchNumeratorSum P R = branchNumeratorSum P S\n\u22a2 \u2211 x, R x * \u220f j \u2208 Finset.univ.erase x, P j - \u2211 x, S x * \u220f j \u2208 Finset.univ.erase x, P j = 0\nHydrologyTree/CoprimeBranchRecovery.lean:26:70: warning: This simp argument is unused:\n  h\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [sub_mul, Finset.sum_sub_distrib, \u2190 branchNumeratorSum, sub_self]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/CoprimeBranchRecovery.lean:26:73: warning: This simp argument is unused:\n  sub_self\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [sub_mul, Finset.sum_sub_distrib, \u2190 branchNumeratorSum, h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38198592888"
 }
