@@ -1,10 +1,7 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 4 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 4 file(s) [attempted 4/4 = 100%], Decompressed: 2
-Decompressed 4 file(s)
+No files to download
 Already decompressed 2681 file(s)
 
 MODULE HydrologyTree.Coefficients
@@ -65,22 +62,110 @@ MODULE HydrologyTree.StieltjesNumerator
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesDegree
-HydrologyTree/StieltjesDegree.lean:21:6: error: Tactic `rewrite` failed: motive is not type correct:
-  fun _a => (∏ j ∈ Finset.univ.erase i, (X + C (r j))).coeff _a = 1
-Error: Application type mismatch: The argument
-  i
-has type
-  Fin (n + 1)
-but is expected to have type
-  Fin (_a + 1)
-in the application
-  Finset.univ.erase i
 
-Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
-
-Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
-
-n : ℕ
-r : Fin (n + 1) → ℝ
-i : Fin (n + 1)
-⊢ (∏ j ∈ Finset.univ.erase i, (X + C (r j))).coeff n = 1
+MODULE HydrologyTree.StieltjesInterlacing
+HydrologyTree/StieltjesInterlacing.lean:22:41: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  b - d ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ 0
+  a - d ≥ 0
+where
+ a := ↑↑i.castSucc
+ b := ↑↑j
+ c := ↑n
+ d := ↑↑i.succ
+HydrologyTree/StieltjesInterlacing.lean:23:32: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ 0
+  a - d ≤ -1
+where
+ a := ↑↑j
+ b := ↑↑i.castSucc
+ c := ↑n
+ d := ↑↑i.succ
+HydrologyTree/StieltjesInterlacing.lean:24:49: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  b - d ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ 0
+  a - d ≥ 1
+where
+ a := ↑↑j
+ b := ↑↑i.castSucc
+ c := ↑n
+ d := ↑↑i.succ
+HydrologyTree/StieltjesInterlacing.lean:31:40: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a - b ≤ 0
+where
+ a := ↑↑i.succ
+ b := ↑n
+HydrologyTree/StieltjesInterlacing.lean:34:63: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ 0
+where
+ a := ↑↑i.castSucc
+ b := ↑↑i.succ
+ c := ↑n
+HydrologyTree/StieltjesInterlacing.lean:44:6: error(lean.unknownIdentifier): Unknown constant `Finset.erase_comm`
+HydrologyTree/StieltjesInterlacing.lean:55:52: error(lean.invalidField): Invalid field `continuous`: The environment does not contain `Polynomial.continuous`, so it is not possible to project the field `continuous` from an expression
+  p
+of type `ℝ[X]`
+HydrologyTree/StieltjesInterlacing.lean:65:46: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  a ≥ 0
+  a - b ≥ 0
+  a - c ≤ 0
+where
+ a := ↑↑i.castSucc
+ b := ↑↑i.succ
+ c := ↑n
+HydrologyTree/StieltjesInterlacing.lean:92:57: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+  c ≥ 0
+  c - d ≥ 0
+  c - e ≥ 0
+  b ≥ 0
+  b - c ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ -1
+where
+ a := ↑↑j
+ b := ↑↑i
+ c := ↑n
+ d := ↑↑i.succ
+ e := ↑↑j.castSucc
