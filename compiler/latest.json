@@ -1,7 +1,7 @@
 {
-  "serial": 93,
-  "status": "COMPILER_ERROR",
-  "request_blob": "fa8c8cfdd4114a0f54478139458c7b68bf2795f1",
+  "serial": 94,
+  "status": "COMPILING",
+  "request_blob": "c08bc43ac4de698478b1ccad9b3bcb946547eb92",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -21,12 +21,14 @@
     "HydrologyTree.RootUpdate",
     "HydrologyTree.PathRootTransform",
     "HydrologyTree.PathPolynomial",
-    "HydrologyTree.FamilyNormalization"
+    "HydrologyTree.FamilyNormalization",
+    "HydrologyTree.BranchStep"
   ],
   "source_sha256": {
     "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
-    "HydrologyTree/FamilyScaling.lean": "77402d2e66ffefd85f26f78a9c1907bc71e036add7a842eb48e7e3c01c49400d",
+    "HydrologyTree/FamilyScaling.lean": "e742eca02fb3fd8478322b6aa27094c209a2c7409617e201771c07e28e35bf4c",
     "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
+    "HydrologyTree/BranchStep.lean": "3eb4397548fa471880b68ced71111d764818281723f4d93048e559943fd83cb3",
     "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
     "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
     "HydrologyTree/EndJacobian.lean": "d996b6226fb47d8a71ebafb2eab0b69a7692e867452c5b8637aa6b3acbe3270a",
@@ -42,66 +44,9 @@
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
     "HydrologyTree/PathRootTransform.lean": "8600f114583bbd1f8c0569734359aab6ac90da283bf0f3228c509c1e83b12d12",
-    "HydrologyTree/FamilyNormalization.lean": "79e9c66c50022a859e92254be7c6c5890a3bce63395a34212247212bc53e18bc"
+    "HydrologyTree/FamilyNormalization.lean": "691a4e2d5dace6adad8ef0ac6d238f8ba8120045bfd609784398ee9e2a291918"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.562
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.864
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 2.076
-    },
-    {
-      "module": "HydrologyTree.EndJacobian",
-      "returncode": 0,
-      "seconds": 1.801
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 1.844
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 2.334
-    },
-    {
-      "module": "HydrologyTree.Gluing",
-      "returncode": 0,
-      "seconds": 2.78
-    },
-    {
-      "module": "HydrologyTree.ProductDerivative",
-      "returncode": 0,
-      "seconds": 1.85
-    },
-    {
-      "module": "HydrologyTree.JacobianComposition",
-      "returncode": 0,
-      "seconds": 1.885
-    },
-    {
-      "module": "HydrologyTree.FamilyProduct",
-      "returncode": 0,
-      "seconds": 2.328
-    },
-    {
-      "module": "HydrologyTree.FamilyScaling",
-      "returncode": 1,
-      "seconds": 1.933
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/FamilyScaling.lean:62:6: error: Failed to rewrite using equation theorems for `scaleLeading`\n"
+  "run_id": "38198592888"
 }
