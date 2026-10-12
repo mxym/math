@@ -4,6 +4,19 @@
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
+## Joint sufficiency and the original three-level counterexample
+
+**New complete finite result:** `jointSpike_absolutelyPPT` proves all-global-unitary APPT for `(2m-5)I+2P+4(m-4)|v><v|` whenever m>=4, P and I-P are positive semidefinite, and v has squared norm one. The positivity theorem does not assume v lies in range(P), a supplied Schmidt decomposition, a graph inequality, or any APPT spectral criterion. It constructs a Schmidt row factorization from the actual complex matrix, including zero singular values, proves the signed partial-transpose model and trace duality, and applies the joint sum-of-squares inequality.
+
+`counterexample1038_refutes_formula` then proves density, actual APPT, and the strict purity comparison for the original product-coordinate state
+
+    rho = diag(41, 17 [146 copies], 15 [233 copies]) / 6018,
+    purity(rho) = 2675/1006009 > max(97/36481,5/1881).
+
+`counterexample1038_diagonal` verifies that these are the entries of the actual defined matrix, rather than an externally supplied spectrum. The finite support has exactly 147 coordinates; that count is kernel-decided and is not used as a replacement for the dimension-uniform quantum proof. The result refutes the displayed proposed purity formula at 10x38. It does not assert that this state is optimal, that these are the smallest counterexample dimensions, or that all subsequent research claims have been certified.
+
+Independent Actions run **38200910959**, source **c7bd84ed1df6602d511fbee67f1c66f66809932f**, passed every stage: **2,866 Lake tasks**, **42,442 transitive declarations and 194 roots** replayed at trust level zero, with only `propext`, `Classical.choice`, `Quot.sound`. All **79 pinned inputs** matched the tested commit and downloaded artifact. The primary forged-proof test targets the final physical counterexample theorem. Additional tests preserve the exact theorem types and reject corrupted proofs of generic joint APPT sufficiency, actual counterexample membership, and the unnormalized Schmidt model. Literal evidence is in `verification/ci-c7bd84ed/` and the exact dependency map is in `REVIEW_JOINT_SUFFICIENCY.md`.
+
 ## Purity-ball sufficiency and the singular APPT locus
 
 ### Integrated source verification
@@ -104,4 +117,4 @@ The new chain uses `FixedLocalRatio`, `IntervalMoment`, `FixedLocalUpper`, `Plat
 
 See `COVERAGE.md`. The growing-m matching lower bound still requires multiscale and two-ended graph compactness, simultaneous spectral levels, compatible lower witnesses, finite-dimensional positivity margins and justified limit order. No such lower bound follows from the now-verified all-regime upper half.
 
-The joint projection-plus-spike sufficiency for the three-level counterexample, exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
+The joint projection-plus-spike sufficiency and the original 10x38 physical counterexample are now certified above. Exact finite rectangular optimization and equality classification, full entropy minima and outlier/phase rigidity remain substantive formal obligations. Finite-dimensional attainment is now proved separately by the compactness checkpoint above; the older fixed-local theorem remains unchanged. No new preprint or Release was made, and the earlier qutrit proof, research notes and publication trees were not changed by these commits.
