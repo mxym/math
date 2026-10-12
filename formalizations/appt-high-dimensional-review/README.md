@@ -4,6 +4,22 @@
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
 
+## Purity-ball sufficiency and the singular APPT locus
+
+### Integrated source verification
+
+Combined source **72f774d8e8400b58d342e7d9c460c5b138583467** also preserves the concurrent fixed-local excess-limit and even-rank projection-family optimization. Independent run **38190512755** passed all stages: **2,853 Lake tasks, 42,281 declarations, 142 roots, 66 pinned inputs**, trust level zero and only the three standard axioms. Evidence is in `verification/ci-72f774d8/`. The original singular-state checkpoint below retains its own source binding; the merge was independently verified rather than presumed correct from parent builds.
+
+
+
+For D=mn>1, `density_appt_of_purity_ball` proves that every actual density matrix with purity at most 1/(D-1) is APPT under every global unitary. The proof establishes partial-transpose invariance of the Hermitian Hilbert--Schmidt square and derives positivity from the actual matrix eigenvalues. No Schmidt or Hildebrand criterion is assumed.
+
+For 2<=m<=n, `singular_density_appt_iff_spectrum` proves a necessary-and-sufficient statement for a density matrix with determinant zero: it is APPT exactly when its sorted eigenvalues are one zero and D-1 copies of 1/(D-1). Equivalently its purity is 1/(D-1). `exists_singular_appt_density` constructs an actual normalized complementary coordinate projection and proves its density, APPT, determinant-zero and exact-purity properties. The purity-ball condition is only sufficient without singularity; a physical 2x3 counterexample to necessity is included.
+
+Recovered unpublished WSL work was independently read and subjected to a fresh source-bound build/replay before publication. Independent GitHub run **38189500302**, source **4e647075a83f317c16dcecac50b0dc6d91e86d35**, then passed all stages: **2,852 Lake tasks, 42,271 declarations, 139 explicit roots**, trust level zero, and only propext, Classical.choice and Quot.sound. All **65 pinned inputs** and uploaded sources matched. The final singular equivalence, purity-ball theorem and singular-attainment theorem reject forged proofs with unchanged types. Literal evidence and corruption dependencies are in `verification/ci-4e647075/`.
+
+These standard finite-dimensional facts close previously missing sufficiency and classification dependencies. They are not new priority claims, the three-level 10x38 joint sufficiency, an exact unrestricted purity maximum, or the dimension-varying multiscale lower limit. See `REVIEW_SINGULAR_CONTINUATION.md`. No preprint or immutable Release is changed.
+
 ## Finite-dimensional attainment checkpoint
 
 The physical APPT set is now proved compact. `exists_appt_purity_isGreatest` and `exists_appt_purity_eq_sup` prove that the original supremum is attained by a genuine complex density matrix for every 2<=m<=n. `apptPurityValues_eq_Icc` gives the exact attainable interval [1/(mn), P_sup(m,n)], without evaluating its upper endpoint. The maximally mixed density uniquely minimizes purity. `appt_maximizing_mixture_rigid` proves that a strict mixture attaining maximal purity has identical endpoints; this is not a maximizing-spectrum classification. The subsequence result concerns fixed dimensions, not the unproved dimension-varying graph limit.

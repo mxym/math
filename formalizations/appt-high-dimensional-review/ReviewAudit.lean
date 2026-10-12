@@ -3,6 +3,27 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.singular_density_appt_iff_spectrum,
+  ``APPTReview.appt_fixed_local_excess_sup_tendsto,
+  ``APPTReview.plateauScaledPurity_le_continuous,
+  ``APPTReview.plateauScaledPurity_even_rank_max,
+  ``APPTReview.purity_partialTranspose,
+  ``APPTReview.one_sub_psd_of_hermitian_purity,
+  ``APPTReview.absolutelyPPT_one_sub_of_hermitian_purity,
+  ``APPTReview.density_complement_absolutelyPPT,
+  ``APPTReview.density_one_sub_smul_purity,
+  ``APPTReview.density_appt_of_purity_ball,
+  ``APPTReview.uniform_hole_square_sum,
+  ``APPTReview.density_appt_of_uniform_singular_spectrum,
+  ``APPTReview.singular_appt_purity,
+  ``APPTReview.singular_density_appt_iff_purity,
+  ``APPTReview.singletonProjection_density,
+  ``APPTReview.uniformHole_isDensity,
+  ``APPTReview.uniformHole_absolutelyPPT,
+  ``APPTReview.uniformHole_singular,
+  ``APPTReview.exists_singular_appt_density,
+  ``APPTReview.purity_ball_not_necessary,
+
   ``APPTReview.apptPurityValues_eq_Icc,
   ``APPTReview.continuous_partialTranspose,
   ``APPTReview.isClosed_absolutelyPPT,
@@ -133,3 +154,6 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_appt_purity_isGreatest "review-kernel-attainment-control"
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_maximizing_mixture_rigid "review-kernel-extremality-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_of_purity_ball "review-kernel-purity-ball-control"
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_singular_appt_density "review-kernel-singular-attainment-control"
