@@ -8,6 +8,8 @@
 
 ## 完整 Lean 的主要入口
 
+- [一般维数 APPT 候选纯度公式：真实 10×38 反例](formalizations/appt-high-dimensional-review/REVIEW_JOINT_SUFFICIENCY.md)：维数通用的投影加尖峰充分性、原始复密度矩阵、任意全局酉 APPT、精确 trace-square 及候选公式的全称否定已闭合；白噪声版本的严格统一正性裕量和实际非 APPT 扰动对照也已核验。独立 CI 38202563748：42,496 声明、208 根、trust zero。此项不表示后续渐近下界、完整熵极值或源论文的独立多面体优化定理已全部形式化。
+
 - [qutrit–qudit APPT 最大纯度：全部 n≥3](formalizations/appt-qutrit-purity/README.md)：真实复密度矩阵及任意全局酉变换下的部分转置正性；n≤8 时为 (3n+8)/(3n+2)^2，n≥9 时为 3/(8n)，含上界与实际取到。879 模块构建和 155,787 声明空内核重放通过，保留失败对照、源码哈希及完整复现脚本。
 
 - [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。
@@ -31,8 +33,8 @@
 - [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整猜想及二次对数间隙序列仍开放。
 - [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
 - [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)：对每个 `0<p<1/4` 的四胞质量族给出严格非正四面体改进；等质量情形不在结论内。完整书面反例、精确诊断与部分 Lean。
-- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3-m-2` 区间的精确最大值与极值谱分类；qutrit 主定理完整 Lean，高维纯度部分为书面解析证明与精确 checker。
-- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式，并完成固定局部维数首阶超额极限及偶数秩二层 plateau 族优化；高维全局纯度、熵极值、图极限和刚性结论仍未完全闭合。
+- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3-m-2` 区间的精确最大值与极值谱分类；qutrit 主定理及 10×38 真实 APPT 公式反例已完整 Lean；高维渐近下界及完整极值谱分类仍以书面解析证明与精确 checker 为主。
+- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式，并完成 10×38 物理反例、联合充分性、固定局部维数首阶超额极限及偶数秩二层 plateau 族优化；高维匹配下界、完整熵极值、图极限和渐近刚性仍未完全闭合。
 
 ## 新增高斯维数与质量预印本
 

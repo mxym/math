@@ -3,6 +3,74 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.not_proposedAPPTPurity_upper,
+  ``APPTReview.counterexample1038_formula_gap,
+  ``APPTReview.joint_scalar_boundary_and_failure,
+  ``APPTReview.zero_schmidt_model,
+  ``APPTReview.counterexample1038Interior_density,
+  ``APPTReview.counterexample1038Interior_appt,
+  ``APPTReview.counterexample1038Interior_margin,
+  ``APPTReview.counterexample1038Interior_formula_gap,
+  ``APPTReview.boundarySupport1038_card,
+  ``APPTReview.boundaryBase1038_diagonal,
+  ``APPTReview.boundaryBase1038_trace,
+  ``APPTReview.boundaryBase1038_25_not_appt,
+  ``APPTReview.boundaryPerturbation1038_density,
+  ``APPTReview.boundaryPerturbation1038_not_appt,
+
+  ``APPTReview.counterexample1038_refutes_formula,
+  ``APPTReview.exists_unitary_orthogonal_rows,
+  ``APPTReview.gram_zero_row,
+  ``APPTReview.normalizeRows_apply,
+  ``APPTReview.normalizeRows_reconstruct,
+  ``APPTReview.normalizeRows_gram,
+  ``APPTReview.trace_unitary_left_gram,
+  ``APPTReview.exists_schmidt_rows,
+  ``APPTReview.schmidtFrame_apply,
+  ``APPTReview.schmidtFrame_gram,
+  ``APPTReview.schmidtFrame_contraction,
+  ``APPTReview.schmidtExchange_hermitian,
+  ``APPTReview.schmidt_congruence_apply,
+  ``APPTReview.partialTranspose_rowPure_eq_schmidt,
+  ``APPTReview.exists_pure_partialTranspose_model,
+  ``APPTReview.hadamard_schmidt_exchange,
+  ``APPTReview.schmidtExchange_diagonalization,
+  ``APPTReview.schmidtNegative_nonneg,
+  ``APPTReview.schmidtSigned_add_negative_nonneg,
+  ``APPTReview.trace_partialTranspose_pairing,
+  ``APPTReview.trace_mul_pure,
+  ``APPTReview.trace_congruence_diagonal,
+  ``APPTReview.compression_positive_contraction,
+  ``APPTReview.diagonal_floor_lift,
+  ``APPTReview.exists_pure_partialTranspose_diagonal,
+  ``APPTReview.trace_contraction_diagonal_lower,
+  ``APPTReview.schmidtMass_nonneg,
+  ``APPTReview.schmidtMass_identity,
+  ``APPTReview.schmidt_joint_background_nonneg,
+  ``APPTReview.sum_remove_two,
+  ``APPTReview.schmidt_joint_pair_nonneg,
+  ``APPTReview.schmidt_joint_background,
+  ``APPTReview.schmidt_joint_signed_nonneg,
+  ``APPTReview.exists_pure_signed_model,
+  ``APPTReview.pure_joint_witness,
+  ``APPTReview.jointSpike_hermitian,
+  ``APPTReview.jointSpike_quadratic,
+  ``APPTReview.jointSpike_partialTranspose_posSemidef,
+  ``APPTReview.pure_conjugate_general,
+  ``APPTReview.unitary_normSq_general,
+  ``APPTReview.jointSpike_absolutelyPPT,
+  ``APPTReview.setProjection_mul_subset,
+  ``APPTReview.pure_single_eq_setProjection,
+  ``APPTReview.counterexample1038Support_card,
+  ``APPTReview.counterexample1038Support_zero,
+  ``APPTReview.counterexample1038Base_as_joint,
+  ``APPTReview.counterexample1038_absolutelyPPT,
+  ``APPTReview.counterexample1038Base_trace,
+  ``APPTReview.counterexample1038_isDensity,
+  ``APPTReview.counterexample1038Base_sq,
+  ``APPTReview.counterexample1038_purity,
+  ``APPTReview.counterexample1038_diagonal,
+
   ``APPTReview.singular_density_appt_iff_spectrum,
   ``APPTReview.appt_fixed_local_excess_sup_tendsto,
   ``APPTReview.plateauScaledPurity_le_continuous,
@@ -157,3 +225,13 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_maximizing_mixtu
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_of_purity_ball "review-kernel-purity-ball-control"
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_singular_appt_density "review-kernel-singular-attainment-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.jointSpike_absolutelyPPT "review-kernel-joint-sufficiency-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038_absolutelyPPT "review-kernel-counterexample-membership-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_pure_signed_model "review-kernel-schmidt-model-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038Interior_margin "review-kernel-strict-margin-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1038_not_appt "review-kernel-boundary-failure-control"

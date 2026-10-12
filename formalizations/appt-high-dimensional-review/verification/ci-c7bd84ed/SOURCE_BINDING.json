@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "source_commit": "c7bd84ed1df6602d511fbee67f1c66f66809932f",
+  "run_id": 38200910959,
+  "job_ids": [
+    114653902561
+  ],
+  "artifact_ids": [
+    11725297801
+  ],
+  "build_tasks": 2866,
+  "kernel_declarations": 42442,
+  "roots": 194,
+  "trust_level": 0,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "pinned_inputs": 79,
+  "source_manifest_sha256": "28a4629ac112b258bc818eb79367b9ec14345fe1362e3aec17a8f7fb699e54ad",
+  "uploaded_source_files_compared": [
+    "APPTReview/AllDimensionUpper.lean",
+    "APPTReview/AsymptoticUpper.lean",
+    "APPTReview/BaselineGraph.lean",
+    "APPTReview/Basic.lean",
+    "APPTReview/BlockContraction.lean",
+    "APPTReview/BoundarySpectrum.lean",
+    "APPTReview/CenteredVariance.lean",
+    "APPTReview/CompactControls.lean",
+    "APPTReview/CompactMaximum.lean",
+    "APPTReview/ComplementSufficiency.lean",
+    "APPTReview/CornerSort.lean",
+    "APPTReview/Counterexample1038.lean",
+    "APPTReview/EntropyHead.lean",
+    "APPTReview/FinitePurity.lean",
+    "APPTReview/FixedLocalChecks.lean",
+    "APPTReview/FixedLocalLimit.lean",
+    "APPTReview/FixedLocalRatio.lean",
+    "APPTReview/FixedLocalUpper.lean",
+    "APPTReview/GraphBounds.lean",
+    "APPTReview/GraphEnergy.lean",
+    "APPTReview/Hadamard.lean",
+    "APPTReview/IntervalMoment.lean",
+    "APPTReview/JointSufficiency.lean",
+    "APPTReview/LogBounds.lean",
+    "APPTReview/PairGraph.lean",
+    "APPTReview/PairSlots.lean",
+    "APPTReview/PairWitness.lean",
+    "APPTReview/PaperEntropy.lean",
+    "APPTReview/PlateauApproximation.lean",
+    "APPTReview/PlateauOptimizer.lean",
+    "APPTReview/PositiveMap.lean",
+    "APPTReview/ProjectionState.lean",
+    "APPTReview/PurityInterval.lean",
+    "APPTReview/PurityMixing.lean",
+    "APPTReview/PurityNormalization.lean",
+    "APPTReview/QuantumTrace.lean",
+    "APPTReview/QuantumWitness.lean",
+    "APPTReview/ResidualGraph.lean",
+    "APPTReview/RowArrangement.lean",
+    "APPTReview/SchmidtDiagonal.lean",
+    "APPTReview/SchmidtFrame.lean",
+    "APPTReview/SchmidtJointScalar.lean",
+    "APPTReview/SchmidtJointWitness.lean",
+    "APPTReview/SchmidtMass.lean",
+    "APPTReview/SchmidtModel.lean",
+    "APPTReview/SchmidtNormalize.lean",
+    "APPTReview/SchmidtPartialTranspose.lean",
+    "APPTReview/SchmidtRows.lean",
+    "APPTReview/SharpContraction.lean",
+    "APPTReview/SingularAttainment.lean",
+    "APPTReview/SingularClassification.lean",
+    "APPTReview/SortedEntropy.lean",
+    "APPTReview/SortedStar.lean",
+    "APPTReview/SortedWitness.lean",
+    "APPTReview/SOS.lean",
+    "APPTReview/SpectralBaseline.lean",
+    "APPTReview/SpectralBounds.lean",
+    "APPTReview/SpectralGap.lean",
+    "APPTReview/Star.lean",
+    "APPTReview/StateTopology.lean",
+    "APPTReview/TriangleRows.lean",
+    "APPTReview/UniformPurityUpper.lean",
+    "APPTReview.lean",
+    "Regression.lean",
+    "reproduce.py",
+    "ReviewAudit.lean"
+  ],
+  "all_current_and_committed_inputs_match": true,
+  "primary_corrupted_theorem": "APPTReview.counterexample1038_refutes_formula",
+  "additional_corruption_controls": [
+    {
+      "theorem": "APPTReview.appt_total_dimension_uniform_upper",
+      "type_dependencies": 8578,
+      "prefix": "review-kernel-total-dimension-control"
+    },
+    {
+      "theorem": "APPTReview.exists_appt_purity_isGreatest",
+      "type_dependencies": 8570,
+      "prefix": "review-kernel-attainment-control"
+    },
+    {
+      "theorem": "APPTReview.appt_maximizing_mixture_rigid",
+      "type_dependencies": 14720,
+      "prefix": "review-kernel-extremality-control"
+    },
+    {
+      "theorem": "APPTReview.density_appt_of_purity_ball",
+      "type_dependencies": 8578,
+      "prefix": "review-kernel-purity-ball-control"
+    },
+    {
+      "theorem": "APPTReview.exists_singular_appt_density",
+      "type_dependencies": 10113,
+      "prefix": "review-kernel-singular-attainment-control"
+    },
+    {
+      "theorem": "APPTReview.jointSpike_absolutelyPPT",
+      "type_dependencies": 14716,
+      "prefix": "review-kernel-joint-sufficiency-control"
+    },
+    {
+      "theorem": "APPTReview.counterexample1038_absolutelyPPT",
+      "type_dependencies": 14724,
+      "prefix": "review-kernel-counterexample-membership-control"
+    },
+    {
+      "theorem": "APPTReview.exists_pure_signed_model",
+      "type_dependencies": 7129,
+      "prefix": "review-kernel-schmidt-model-control"
+    }
+  ],
+  "scope": "Physical all-unitary joint contraction-plus-unit-spike sufficiency in arbitrary dimensions, the explicit 10x38 density matrix and exact purity-formula counterexample, with reconstructed Schmidt coordinates including zero rows. Not every subsequent asymptotic/entropy/rigidity research claim."
+}
