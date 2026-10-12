@@ -1,0 +1,22 @@
+[
+  {
+    "name": "wrong_tent_area",
+    "module": "GaussianTent",
+    "old": "theorem integral_tent (a t : \u211d) (ha : 0 \u2264 a) : (\u222b x, tent a t x) = a ^ 2 := by",
+    "new": "theorem integral_tent (a t : \u211d) (ha : 0 \u2264 a) : (\u222b x, tent a t x) = a ^ 2 + 1 := by"
+  },
+  {
+    "name": "wrong_exact_separation_constant",
+    "module": "GaussianMomentSeparation",
+    "old": "lemma separationConstant_eq : separationConstant = Real.sqrt (2 * Real.pi) / 16 := by",
+    "new": "lemma separationConstant_eq : separationConstant = Real.sqrt (2 * Real.pi) / 15 := by"
+  },
+  {
+    "name": "wrong_zero_scale",
+    "file": "NegativeZeroScale.lean"
+  },
+  {
+    "name": "false_fractional_purification",
+    "file": "NegativeFractionalEquality.lean"
+  }
+]
