@@ -657,11 +657,11 @@ run_cmd do
     ``GaussianFour.intrinsicLaplacian,
     ``GaussianFour.continuous_facetLaplacian,
     ``GaussianFour.continuousAt_intrinsicLaplacian,
-    ``GaussianFour.balanced_simplicial_limit_laplacian]
+    ``GaussianFour.balanced_simplicial_limit_laplacian,
     ``GaussianFour.scoreGram_rank_eq_span_rows,
     ``GaussianFour.scoreGram_rank_le_one_collinear,
     ``GaussianFour.exists_perm_strictMono_of_injective,
-    ``GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound,
+    ``GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound,]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
