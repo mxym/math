@@ -45,3 +45,14 @@ with its conclusion or a missing geometric/algebraic bridge as a hypothesis.
 The global coefficient-Jacobian chain and its basis/orientation assembly,
 exact multiplicities, positive spectral consequences and complete positive
 inverse/fiber classification remain the explicit missing mathematical work.
+
+### Endpoint-path completion
+
+The actual coefficient map, its Fréchet derivative and all-size determinant
+recurrence are `PathPhysical`, `PathInduction`, `CatenaryJacobian`.
+`CatenaryCanonical`, `CoordinateEnergy` and `CatenaryOrientation` prove transport
+to standard ascending P/F coefficient and physical-array coordinates with a
+fixed factor of magnitude exactly one. `catenary_standard_singular_locus` includes
+all zero boundaries. This is an unconditional endpoint-path theorem, not the
+all-tree induction. `PhysicalConstants` proves P(0)=lambda F(0) and F(0)=prod a
+for every tree with arbitrary real rates, including zero.

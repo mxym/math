@@ -180,3 +180,30 @@ The full coefficient-Jacobian determinant induction still needs to assemble
 these actual maps in compatible bases. Exact factor multiplicities,
 Jacobian/spectral equivalences and the complete Stieltjes realization/fiber
 count remain explicitly unproved. See the updated GAPS.md.
+
+## All-size endpoint-catenary theorem
+
+The endpoint path subcase is now closed at the source-proof level, including
+all real rates and every zero-rate boundary. Independent verification is
+source-specific; consult the corresponding completed run receipt.
+
+`CatenaryOrientation.catenary_standard_jacobian` (namespace `HydrologyTree`)
+proves, for every n>=0 (n+1 stores), a fixed sign eps in {+1,-1}, independent of
+all rates, such that the actual standard-coordinate Jacobian is
+
+    eps * product_(i : Fin n) a_(i+1)^(n-i) f_i^(n-i-1).
+
+The matrix is the actual `compartmentMatrix (pathTree n) x`; output coefficients
+are the actual unreduced characteristic polynomial and root principal cofactor.
+The Fréchet derivative, all-size physical induction and coordinate transport
+are proved. `CoordinateEnergy` proves that the transport preserves the finite
+coefficient dot product; the normalization is exactly a sign, not an arbitrary
+nonzero scaling constant. The exact standard-coordinate singular locus is also
+proved. The last outward rate and root leak need not be nonzero.
+
+`PhysicalConstants` additionally proves, for every actual finite rooted tree
+and every real rate vector, F(0)=product inward rates and P(0)=rootLeak*F(0).
+Neither identity divides by a rate or assumes stability/positivity.
+
+**These results do not close the all-branching-tree Jacobian, its exact factor
+multiplicity theorem, or the complete positive-realization/fiber classification.**

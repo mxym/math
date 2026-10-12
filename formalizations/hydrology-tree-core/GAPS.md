@@ -66,3 +66,14 @@ count. Any global analytic inverse-branch classification requires its own
 proof. None follows from the local Jacobian or from the common-root theorem.
 
 No complete-formalization Release or DOI is justified by this checkpoint.
+
+## Endpoint path subcase now proved
+
+For the actual endpoint-catenary coefficient map, the all-size determinant
+induction and standard-coordinate normalization are now proved in
+`catenary_standard_jacobian` and `catenary_standard_jacobian_sq`; the exact
+zero-rate singular locus is `catenary_standard_singular_locus`. The sign is
+fixed per size and has magnitude one, proved by bilinear coordinate-energy
+preservation. This does not yet close the full branching-tree induction.
+`PhysicalConstants` proves the exact characteristic/cofactor constants for
+all rooted trees. The global branching-tree and realization gaps above remain.

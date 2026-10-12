@@ -9,3 +9,5 @@ import HydrologyTree.PhysicalRootDecomposition
 import HydrologyTree.ChildMatrix
 import HydrologyTree.CouplingSemantics
 import HydrologyTree.TreeCancellation
+import HydrologyTree.CatenaryOrientation
+import HydrologyTree.PhysicalConstants
