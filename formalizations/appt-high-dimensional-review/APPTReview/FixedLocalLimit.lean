@@ -109,6 +109,26 @@ theorem appt_fixed_local_purity_sup_tendsto (m : ℕ) (hm : 2≤m) :
   filter_upwards [eventually_ge_atTop (2*m)] with n hn
   exact scaled_sup_eq_dimension_mul_purity_sup hm hn
 
+/-- The fixed-local first excess-purity coefficient, in the natural
+dimension-scaled normalization.  This is the direct consequence of the
+scaled supremum limit after subtracting the maximally mixed baseline. -/
+theorem appt_fixed_local_excess_sup_tendsto (m : ℕ) (hm : 2≤m) :
+    Tendsto (fun n : ℕ => ((m:ℝ)*n) *
+      (apptPuritySup m n - 1/((m:ℝ)*n))) atTop
+      (𝓝 (1/((m:ℝ)^2-1))) := by
+  have hsub := (appt_fixed_local_purity_sup_tendsto m hm).sub_const (1 : ℝ)
+  have hvalue : (m:ℝ)^2/((m:ℝ)^2-1)-1 = 1/((m:ℝ)^2-1) := by
+    have hmR : (2:ℝ) ≤ m := by exact_mod_cast hm
+    have hden : (m:ℝ)^2-1 ≠ 0 := by nlinarith
+    field_simp [hden]
+    ring
+  rw [← hvalue]
+  apply Filter.Tendsto.congr' _ hsub
+  filter_upwards [eventually_ge_atTop 1] with n hn
+  have hmR : (0:ℝ) < m := by exact_mod_cast (by omega : 0 < m)
+  have hnR : (0:ℝ) < n := by exact_mod_cast (by omega : 0 < n)
+  field_simp [ne_of_gt hmR, ne_of_gt hnR]
+
 end APPTReview
 
 namespace APPTReview
