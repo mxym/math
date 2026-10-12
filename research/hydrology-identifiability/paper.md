@@ -11,7 +11,9 @@ exactly the same discharge for all time. We then prove that a controlled
 constant-rainfall experiment with known zero initial storage recovers all three
 rates from the first three output derivatives. The result separates structural
 non-identifiability from numerical estimation and gives a concrete intervention
-design principle. We also formalize the finite-spectrum obstruction behind
+design principle. We also formalize exact finite-mode rate-set identifiability up
+to permutation from the first (2k) moments, together with the finite-spectrum
+obstruction behind
 power-law recession: positive finite-rate exponential mixtures have a uniformly
 bounded moment ratio, whereas the shifted-power-law ratio grows without bound.
 
@@ -238,15 +240,22 @@ product of the weights. For nonzero weights and pairwise distinct rates this is
 nonzero. The theorem `momentHankel_det_ne_zero` in `Hydrology/Prony.lean`
 formalizes this factorization and `finite_spectrum_recurrence_unique` proves
 that the first \(k\) recurrence equations have a unique coefficient vector.
-This closes the linear coefficient-recovery part of Prony identification; matching
-the roots of two unknown characteristic polynomials remains a separate step.
-More precisely, `two_spectrum_recurrence_coefficients_equal` proves the transfer
-statement needed to compare two competing nondegenerate \(k\)-mode models: if
-their first \(2k\) moments agree and each model supplies an order-\(k\)
-recurrence, the coefficient vectors are identical. Thus the remaining nonlinear
-step is exactly root matching (including the permutation of distinct rates), not
-another hidden linear-algebra assumption. This is the strongest fully
-formalized unknown-rate statement in the current package.
+This closes the linear coefficient-recovery part of Prony identification.
+The remaining root step is also now formalized. `two_spectrum_recurrence_coefficients_equal`
+first proves that two competing nondegenerate \(k\)-mode models with the same first
+\(2k\) moments have identical recurrence coefficients. `finite_spectrum_rate_set_identifiable`
+then forms the monic characteristic polynomial
+
+\[
+P(z)=z^k-\sum_{r=0}^{k-1}c_rz^r.
+\]
+
+Vandermonde root extraction shows that every active rate of either model is a root of
+the same \(P\). Since each rate list is injective and \(P\) has degree \(k\), root
+counting gives equality of the two finite rate sets. Thus the only remaining ambiguity
+is permutation of the unlabelled reservoir components; no nonlinear root-matching
+assumption is left in the finite positive model theorem. This is exact structural
+identifiability up to permutation, not a numerical fitting or stability claim.
 
 ### Finite-spectrum growth obstruction
 

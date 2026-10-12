@@ -82,7 +82,7 @@
 | 连续幂与可控余项避让 | 给定可数有界对数间隙族后构造大测度集合，统一避让允许的幂渐近 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/continuum-power-avoidance/README.md)；[完整书面整合稿](notes/continuum-power-avoidance-unified/README.md) |
 | 全实比值仿射几何序列 | 单个紧集同时处理所有实 a ≠ 0、b 和 0 < q < 1 | [完整 Lean 工程](formalizations/geometric-avoidance/README.md) |
 | 对数密度与非线性扩展 | 所述密度／轮廓条件下的避让；不是完整 Erdős 相似性猜想 | [004 稿件](preprints/004-log-density-similarity/README.md)；[006 稿件](preprints/006-modulus-nonlinear-similarity/README.md) |
-| 增长对数间隙 | 覆盖部分相邻比值趋零的序列类；已冻结为独立预印本 | [预印本与 DOI](preprints/erdos-similarity-growing-gaps-2026-10/README.md)；完整猜想仍未解决 |
+| 增长对数间隙 | 覆盖满足晚期环带填充条件的序列类；Theorem 2 及连续间隙特例已完整 Lean 内核复核；完整猜想仍未解决 | [预印本与 DOI](preprints/erdos-similarity-growing-gaps-2026-10/README.md) |
 | 精确维数紧集不可嵌入 | Assouad 维数为 2 的 Banach 空间障碍构造 | [003 研究稿](preprints/003-assouad-two-zero-box/README.md) |
 
 ## 最优传输与动力学
@@ -103,7 +103,7 @@
 
 ## 探索项目与文献比较
 
-- [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例、受控或双实验恢复三参数，以及二/三并联衰减模式的 Hankel 阶数证书；非线性扩展仍在研究。
+- [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例、受控或双实验恢复三参数，以及有限并联衰减谱从前 (2k) 个矩确定速率集合（仅差标签置换）；非线性扩展仍在研究。
 - [Ryser rank-six 探索](research/ryser-rank-six/README.md)：搜索模型、独立 witness checker 与受限模板排除；未证明一般反例或一般非存在性。
 - [Borsuk 平衡切片记录](notes/balanced_borsuk_slice.md)：排除一个提出的构造，不解决八维问题。
 - [文献比较](comparisons/)与[原创性初步筛查](research/novelty-assessment/)：区分已有输入、独立推导、加强及待确认的历史关系。

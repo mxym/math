@@ -76,7 +76,7 @@ def main():
         if marker not in audit:raise RuntimeError('Missing audit marker '+marker)
     for p in ROOT.glob('review-kernel-*.txt'):shutil.copy2(p,out/p.name)
     check_sources()
-    result={'status':'PASS','scope':'Fixed-local physical purity supremum limit and all-total-dimension upper half; physical spectral-gap upper bounds, sufficiency, projection attainment, sorted witnesses and nonlinear-head declarations; NOT the full high-dimensional purity/entropy research theorems','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
+    result={'status':'PASS','scope':'Physical compactness, attained maxima, attainable-purity interval and mixture rigidity; fixed-local physical purity supremum limit and all-total-dimension upper half; physical spectral-gap upper bounds, sufficiency, projection attainment, sorted witnesses and nonlinear-head declarations; NOT the full high-dimensional purity/entropy research theorems','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
     (out/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n')
     print('REVIEW_REPRODUCTION_PASS',flush=True)
 if __name__=='__main__':main()

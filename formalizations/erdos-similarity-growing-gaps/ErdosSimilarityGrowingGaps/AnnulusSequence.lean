@@ -14,6 +14,40 @@ def WindowFilling (Z : LogScale) : Prop :=
     (∀ j, FillsAnnulus Z (U j) R (D j)) ∧
     Tendsto (fun j => D j / Real.log (Real.log (U j : ℝ))) atTop (𝓝 0)
 
+theorem WindowFilling.exists_late_annulus {Z : LogScale}
+    (hW : WindowFilling Z) (R : ℕ) (hR : 2 ≤ R)
+    (U₀ η : ℝ) (_hU₀ : 0 < U₀) (hη : 0 < η) :
+    ∃ U : ℕ, ∃ D : ℝ, U₀ ≤ (U : ℝ) ∧ 1 < Real.log (U : ℝ) ∧
+      FillsAnnulus Z (U : ℝ) R D ∧
+      D / Real.log (Real.log (U : ℝ)) < η := by
+  obtain ⟨U, D, hUtop, hlog, hfill, hratio⟩ := hW R hR
+  have hUevent : ∀ᶠ j : ℕ in atTop, U₀ ≤ (U j : ℝ) :=
+    hUtop.eventually (eventually_ge_atTop U₀)
+  have hRatioevent : ∀ᶠ j : ℕ in atTop,
+      D j / Real.log (Real.log (U j : ℝ)) < η :=
+    hratio.eventually (Iio_mem_nhds hη)
+  obtain ⟨j, hjU, hjratio⟩ := (hUevent.and hRatioevent).exists
+  exact ⟨U j, D j, hjU, hlog j, hfill j, hjratio⟩
+
+/-! A form useful for variable schedules: the little-o width hypothesis can be
+  consumed with any fixed positive coefficient while retaining the original
+  sequential witnesses. -/
+theorem WindowFilling.eventually_width_le_loglog
+    {Z : LogScale} (hW : WindowFilling Z) (R : ℕ) (hR : 2 ≤ R)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ (U : ℕ → ℕ) (D : ℕ → ℝ),
+      Tendsto (fun j => (U j : ℝ)) atTop atTop ∧
+      (∀ j, 1 < Real.log (U j : ℝ)) ∧
+      (∀ j, FillsAnnulus Z (U j) R (D j)) ∧
+      (∀ᶠ j : ℕ in atTop,
+        D j ≤ ε * Real.log (Real.log (U j : ℝ))) := by
+  obtain ⟨U, D, hU, hlog, hfill, hsmall⟩ := hW R hR
+  refine ⟨U, D, hU, hlog, hfill, ?_⟩
+  filter_upwards [hsmall.eventually (Iio_mem_nhds hε)] with j hj
+  have hll : 0 < Real.log (Real.log (U j : ℝ)) :=
+    Real.log_pos (hlog j)
+  exact (div_lt_iff₀ hll).1 hj |>.le
+
 /-- Filled real annuli can be shrunk to integer-origin annuli. Using ratio
 `2*R` before rounding is what preserves both endpoints. -/
 theorem AnnularFilling.integer_witness {Z : LogScale} (hW : AnnularFilling Z)

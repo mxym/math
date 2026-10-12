@@ -40,9 +40,11 @@ It proves both sides of a useful model-design statement:
   weighted Vandermonde matrix, proves its determinant is nonzero for nonzero
   weights and distinct rates, and proves uniqueness of the associated recurrence
   coefficients. It also transfers those coefficients between any two
-  nondegenerate `k`-mode representations with the same first `2*k` moments;
-  the remaining root-matching/permutation step is stated explicitly as outside
-  this package.
+  nondegenerate `k`-mode representations with the same first `2*k` moments.
+* `Hydrology/RootMatching.lean` completes the Vandermonde root-extraction and
+  finite-spectrum rate-set identification step: an all-index order-`k` recurrence
+  forces every nonzero-weight distinct rate to satisfy its characteristic equation,
+  and root counting identifies the two finite rate sets up to permutation.
 * `Hydrology/Parallel.lean` compares two active two-mode spectra directly:
   equality of the first four moments forces equality of the sum and product of
   their rates, hence equality of the unordered recovered quadratic.
@@ -60,16 +62,16 @@ separates structural non-identifiability from numerical conditioning.
 
 ## Reproduce
 
-With Lean 4.34.1 and the pinned Mathlib revision:
+With Lean 4.34.1 and the pinned Mathlib revision, run:
 
 ```bash
 lake exe cache get
 lake build
 ```
 
-The Python checker in `checks/exact.py` independently checks the same rational
-identities, the parallel-reservoir regression example, and deliberate failure
-controls. The parallel result is in `Hydrology/Parallel.lean`; it recovers the
+The package currently has no separate Python checker; the authoritative
+verification is the Lean kernel build above. The parallel result is in
+`Hydrology/Parallel.lean`; it recovers the
 unordered rate pair as the roots of the resulting quadratic, but does not claim
 identifiability for arbitrary distributed or nonlinear catchments. The
 three-mode extension is in `Hydrology/Parallel3.lean` and is likewise an exact
