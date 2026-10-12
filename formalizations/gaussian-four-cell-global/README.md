@@ -27,6 +27,14 @@ reduction, and the proved two-cell perimeter boundary case. The complete
 source project builds successfully with the pinned toolchain; no `sorry`,
 `admit`, custom axiom, or numerical oracle is used.
 
+`GaussianInteriorFluxStationarity.lean` now also pins one genuine facet-flux
+matrix for every centered Hermitian covariance direction and proves the
+corresponding directional derivative. Under a directional local-maximum
+hypothesis it yields the vanishing trace pairing for every centered,
+trace-zero direction. This is a new unconditional stationarity reduction; it
+does not yet classify the resulting weighted Laplacian or prove the global
+four-cell perimeter bound.
+
 The reproducible build command is:
 
 ```text
