@@ -1,8 +1,12 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 2474 file(s)
+Attempting to download 15 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 1 file(s) [attempted 1/15 = 6%, 181 KB/s], Decompressed: 0
+Downloaded: 15 file(s) [attempted 15/15 = 100%, 181 KB/s], Decompressed: 7
+Decompressed 15 file(s)
+Already decompressed 2489 file(s)
 
 MODULE HydrologyTree.Coefficients
 HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
@@ -129,3 +133,44 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 HydrologyTree/BalanceWeights.lean:51:6: warning: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.WeightedEnergy
+HydrologyTree/WeightedEnergy.lean:17:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/WeightedEnergy.lean:23:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeGram_transpose`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/WeightedEnergy.lean:28:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] abel_nf
+HydrologyTree/WeightedEnergy.lean:44:82: error: unsolved goals
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+ha : ∀ (e : Fin n), x.1 e.succ ≠ 0
+e : Fin n
+⊢ single (t.parent e) e.succ (x.2 e * balanceWeight t x (t.parent e)) +
+      (-1 • single e.succ e.succ (x.2 e * balanceWeight t x (t.parent e)) +
+        (single e.succ (t.parent e) (x.2 e * balanceWeight t x (t.parent e)) +
+          -1 • single (t.parent e) (t.parent e) (x.2 e * balanceWeight t x (t.parent e)))) =
+    single (t.parent e) (t.parent e) (-1 • (x.2 e * balanceWeight t x (t.parent e))) +
+      (single e.succ e.succ (-1 • (x.2 e * balanceWeight t x (t.parent e))) +
+        (-1 • single (t.parent e) e.succ (-1 • (x.2 e * balanceWeight t x (t.parent e))) +
+          -1 • single e.succ (t.parent e) (-1 • (x.2 e * balanceWeight t x (t.parent e)))))
+HydrologyTree/WeightedEnergy.lean:50:13: warning: This simp argument is unused:
+  Matrix.single_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [edgeGram, smul_sub, smul_add, Matrix.smul_single, smul_eq_mul, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
