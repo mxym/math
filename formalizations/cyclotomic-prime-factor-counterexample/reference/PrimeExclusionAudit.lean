@@ -1,5 +1,0 @@
-import PrimeExclusion
-
-#print axioms CyclotomicCounterexample.cyclotomic_not_dvd_product_pow_rat
-#print axioms CyclotomicCounterexample.prime_cyclotomic_not_dvd_rat
-#print axioms CyclotomicCounterexample.prime_cyclotomic_not_dvd_int
