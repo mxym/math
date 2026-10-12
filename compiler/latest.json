@@ -1,6 +1,6 @@
 {
   "serial": 82,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "1863ac13c8bd1b5139aa560c37e34dbfc970b621",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -104,7 +104,59 @@
     "HydrologyTree/GroundedPositivity.lean": "64649ebbdf2cd95ce26a4c4948f00633238800599d3ad73645fd6bde098007ed",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 2.43
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 1.799
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 1.947
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.101
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.793
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.798
+    },
+    {
+      "module": "HydrologyTree.MatrixEntries",
+      "returncode": 0,
+      "seconds": 1.636
+    },
+    {
+      "module": "HydrologyTree.BalanceWeights",
+      "returncode": 0,
+      "seconds": 1.627
+    },
+    {
+      "module": "HydrologyTree.WeightedEnergy",
+      "returncode": 0,
+      "seconds": 1.716
+    },
+    {
+      "module": "HydrologyTree.GroundedPositivity",
+      "returncode": 1,
+      "seconds": 1.634
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38188517128"
+  "run_id": "38188517128",
+  "diagnostics": "HydrologyTree/GroundedPositivity.lean:42:24: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`\nHydrologyTree/GroundedPositivity.lean:51:24: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`\n"
 }
