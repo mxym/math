@@ -96,6 +96,13 @@ are not silently included in the proved rooted-parent statement.
 
 ## 4. ODE/system interpretation
 
+The actual discharge-transfer bridge is now proved in DischargeFiber: root
+leak times root resolvent, recovery of the unknown leak from discharge equality,
+and equality of the unrestricted real root-response/discharge fibers with the
+same exact finite cardinality. This removes any assumption that the physical
+root leak is separately measured. It does NOT by itself prove the ODE claims.
+
+
 Controllability, observability and all-input equality of actual ODE solutions
 need their definitions and state-space bridges. The proved matrix resolvent,
 noncancellation and full-mode formulas do not themselves supply those bridges.

@@ -103,6 +103,24 @@ These theorems apply to full N-mode targets. Repeated-pole or fewer-mode targets
 are not counted by this result. Complex parameter fibers, alternate leak placement,
 ODE input histories and nonlinear catchments are not silently included.
 
+## Actual root discharge and unknown leak
+
+`physicalDischargeResponse` is the actual root leak times the actual root
+resolvent. `equal_discharge_recovers_leak` derives the leak from discharge
+transfer equality via the leading coefficients of an exact polynomial identity.
+For the full positive target, `full_stieltjes_leak_identified` proves
+ell = 1 / sum_i(w_i/r_i). This parameter is not assumed calibrated externally.
+
+`stieltjes_discharge_iff_root_response` proves that the prescribed physical
+discharge transfer and the normalized root response have the same unrestricted
+real parameter fiber. `real_discharge_fiber_exact_card` proves the exact finite
+factorial count for actual discharge observations. The independent ODE solution
+and controllability bridges remain separate; transfer equality is not silently
+called an all-input ODE proof.
+
+A self-contained written explanation of the complete proof is available in
+[the real-fiber research note](../../research/hydrology-tree-real-fibers/README.md).
+
 ## Reproduction and audit
 
 Lean 4.34.1 (`5045d0056413266e57c625dcd7c365b10e377c52`), Mathlib

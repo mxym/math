@@ -52,3 +52,9 @@ and proves automatic strict positivity by strong induction.
 `RealFiberClassification` transports the full recursive bijection and exact
 cardinality to ALL real models sharing the actual target root response. No
 additional sign-constrained domain is hidden in these unrestricted fibers.
+
+
+`DischargeFiber` proves the actual leak-scaled root transfer, identifies the
+leak from transfer equality, and gives exact all-real discharge-fiber cardinality.
+The real-fiber note under research/hydrology-tree-real-fibers explains the complete
+mathematical proof; it is not a replacement for the checked Lean dependencies.

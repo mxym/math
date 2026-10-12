@@ -204,3 +204,16 @@ response. No real sign or regularity restriction is part of the counted set.
 These statements concern real rate parameters on the existing root-leak
 OrderedTree model. Complex fibers, nonroot leak variants and actual ODE
 controllability/observability remain outside the formal theorem scope.
+
+
+## Actual discharge transfer, leak identification and exact all-real fibers
+
+`physicalDischargeResponse T x s` equals (x.1 0)*physicalRootResponse T x s.
+`stieltjesLeak r w` is (sum_i w_i/r_i)^(-1), proved positive for the target class.
+`equal_discharge_recovers_leak` recovers equal actual leaks from equal discharge
+transfers on the common nonpole domain, using actual monic coefficient identities.
+`stieltjes_discharge_iff_root_response` identifies the two unrestricted real
+fibers WITHOUT an externally given leak. `real_discharge_fiber_exact_card` proves
+that this actual discharge fiber is finite of cardinality n! / product_(e)|T_e|.
+This is a rigorously proved matrix-transfer bridge; actual ODE solution and
+system-theoretic controllability/observability statements are still separate.

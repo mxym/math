@@ -1145,3 +1145,13 @@ import HydrologyTree
 #print axioms HydrologyTree.real_stieltjes_fiber_exact_card
 #print axioms HydrologyTree.real_root_response_fiber_exact_card
 #print axioms HydrologyTree.real_full_response_forces_positive_regular
+#print axioms HydrologyTree.physicalDischargeResponse
+#print axioms HydrologyTree.stieltjesLeak
+#print axioms HydrologyTree.stieltjesLeak_pos
+#print axioms HydrologyTree.full_stieltjes_leak_identified
+#print axioms HydrologyTree.equal_discharge_recovers_leak
+#print axioms HydrologyTree.HasStieltjesDischargeResponse
+#print axioms HydrologyTree.stieltjes_discharge_iff_root_response
+#print axioms HydrologyTree.RealDischargeFiber
+#print axioms HydrologyTree.realDischargeFiberEquivRoot
+#print axioms HydrologyTree.real_discharge_fiber_exact_card

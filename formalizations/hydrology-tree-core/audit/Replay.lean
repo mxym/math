@@ -1170,7 +1170,17 @@ run_cmd do
     ``HydrologyTree.realResponseRecursiveEquiv,
     ``HydrologyTree.real_stieltjes_fiber_exact_card,
     ``HydrologyTree.real_root_response_fiber_exact_card,
-    ``HydrologyTree.real_full_response_forces_positive_regular]
+    ``HydrologyTree.real_full_response_forces_positive_regular,
+    ``HydrologyTree.physicalDischargeResponse,
+    ``HydrologyTree.stieltjesLeak,
+    ``HydrologyTree.stieltjesLeak_pos,
+    ``HydrologyTree.full_stieltjes_leak_identified,
+    ``HydrologyTree.equal_discharge_recovers_leak,
+    ``HydrologyTree.HasStieltjesDischargeResponse,
+    ``HydrologyTree.stieltjes_discharge_iff_root_response,
+    ``HydrologyTree.RealDischargeFiber,
+    ``HydrologyTree.realDischargeFiberEquivRoot,
+    ``HydrologyTree.real_discharge_fiber_exact_card]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
