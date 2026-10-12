@@ -667,14 +667,3 @@ HydrologyTree/PhysicalConstants.lean:23:76: warning: `Polynomial.eval_finset_sum
 MODULE HydrologyTree.RootRecovery
 
 MODULE HydrologyTree.CatenaryGlobal
-HydrologyTree/CatenaryGlobal.lean:20:2: error: Unnecessary `generalizing` argument: Variable `x` is generalized automatically
-HydrologyTree/CatenaryGlobal.lean:20:2: error: Unnecessary `generalizing` argument: Variable `y` is generalized automatically
-HydrologyTree/CatenaryGlobal.lean:49:32: error: Application type mismatch: The argument
-  hdata
-has type
-  ((pathCoefficientMap n u).1, (ell + f, u.1 0 * f), (pathCoefficientMap n u).2) =
-    ((pathCoefficientMap n v).1, (ell' + g, v.1 0 * g), (pathCoefficientMap n v).2)
-but is expected to have type
-  pathCoefficientMap n u = pathCoefficientMap n v
-in the application
-  congrArg Prod.fst hdata
