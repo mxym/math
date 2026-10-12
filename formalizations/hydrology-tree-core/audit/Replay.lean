@@ -1158,7 +1158,19 @@ run_cmd do
     ``HydrologyTree.recursivePoleAllocations_finite_card,
     ``HydrologyTree.positivePolynomialFiberCongr,
     ``HydrologyTree.positive_stieltjes_recursive_equiv_exists,
-    ``HydrologyTree.positiveStieltjesRecursiveEquiv]
+    ``HydrologyTree.positiveStieltjesRecursiveEquiv,
+    ``HydrologyTree.monic_split_fin_factorization,
+    ``HydrologyTree.real_child_allocation_exists,
+    ``HydrologyTree.realFiber_child_cofactors,
+    ``HydrologyTree.real_stieltjes_realization_is_positive,
+    ``HydrologyTree.RealStieltjesFiber,
+    ``HydrologyTree.RealResponseFiber,
+    ``HydrologyTree.realStieltjesFiberEquivPositive,
+    ``HydrologyTree.realResponseFiberEquivCoefficients,
+    ``HydrologyTree.realResponseRecursiveEquiv,
+    ``HydrologyTree.real_stieltjes_fiber_exact_card,
+    ``HydrologyTree.real_root_response_fiber_exact_card,
+    ``HydrologyTree.real_full_response_forces_positive_regular]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

@@ -48,7 +48,7 @@ inward/outward exponents.
 The independent graph-presentation and nonroot-leak conventions still require
 the transports specified below; they are not hidden in this rooted-parent model.
 
-## 2. Complete positive full-response classification and counting
+## 2. Complete unrestricted-real full-response classification and counting
 
 This block is now closed for the original OrderedTree model with a root leak.
 `positiveReciprocalFiberEquiv` proves the exhaustive root-level actual-parameter
@@ -65,6 +65,21 @@ observation of both coefficient polynomials. Every positive fiber member's actua
 Jacobian is proved nonzero. Singleton trees and all labelled branch shapes are
 included; coincident reference poles and targets with fewer than n+1 modes are
 outside this enumeration theorem, not silently covered.
+
+`real_stieltjes_realization_is_positive` additionally proves that EVERY real
+rate vector with the full positive target pair is automatically strictly positive.
+The competitor is not assumed positive, nonzero, stable or Jacobian-regular.
+Monic child factors divide the simple split root cofactor; pure polynomial
+splitting replaces any positivity assumption in the reverse factor extraction.
+The actual child numerators are recovered by comparison with a proved positive
+reference, and strong induction forces positivity at every descendant.
+
+`realResponseRecursiveEquiv` gives the full bijection for ALL real root-response
+realizations, and `real_root_response_fiber_exact_card` proves their finite exact
+factorial count. `real_full_response_forces_positive_regular` proves both strict
+positivity and the nonzero actual Jacobian, with neither assumed. Thus no extra
+mixed-sign, zero-rate or singular real solutions are excluded from the count.
+Complex-rate fibers have not been claimed or formalized.
 
 These new files have compiled in the source-isolated development environment.
 Their independent verification is tied to this new checkpoint's own source

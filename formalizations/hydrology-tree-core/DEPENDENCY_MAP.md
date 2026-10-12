@@ -41,3 +41,14 @@ The prior existence/at-most-one-assignment obligations are now complemented by
 `PositiveFiberCount` (actual finiteness and exact cardinality), and
 `PositiveResponseFiber` (response-only equivalence, exact count and regularity).
 These replace, rather than assume, the previously missing positive-fiber count.
+
+
+### Unrestricted real-fiber strengthening
+
+`RealFactorAllocation` proves real splitting and labelled allocation of every
+actual child factor without any sign condition on the competing rate vector.
+`RealFiberRigidity` recovers the normalized child data from a positive reference
+and proves automatic strict positivity by strong induction.
+`RealFiberClassification` transports the full recursive bijection and exact
+cardinality to ALL real models sharing the actual target root response. No
+additional sign-constrained domain is hidden in these unrestricted fibers.

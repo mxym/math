@@ -176,3 +176,31 @@ positive real vectors satisfying just this response condition.
 of EVERY counted positive model is nonzero. Regularity is not an extra condition
 silently deleting positive solutions. The separate ODE and alternate-leak
 variants remain outside these theorem statements.
+
+
+## Automatic positivity and complete UNRESTRICTED REAL fiber classification
+
+`RealStieltjesFiber T r w` has only the two actual polynomial equalities as
+membership conditions. `RealResponseFiber T r w` has ONLY the actual root
+resolvent equality on the common nonpole domain. Neither definition assumes
+positive/nonnegative/nonzero rates, stable matrices, or nonsingular Jacobians.
+
+Under the same full positive target hypotheses (distinct n+1 positive poles,
+positive weights summing to one), `real_stieltjes_realization_is_positive` proves
+ALL original directed rates and the root leak strictly positive. It uses the
+real factorization of each monic child divisor of the target numerator, exact
+child-cofactor recovery and a complete strong induction; no positivity theorem
+or missing spectral claim is supplied as a hypothesis.
+
+`realStieltjesFiberEquivPositive` preserves the actual rate vector in both
+directions. `realResponseRecursiveEquiv` is a full equivalence from every real
+root-response realization to RecursivePoleAllocations T.
+`real_stieltjes_fiber_exact_card` and `real_root_response_fiber_exact_card`
+prove actual finiteness and exact cardinality n! / product_(e) |T_(e.succ)|.
+`real_full_response_forces_positive_regular` proves strict positivity and a
+nonzero actual coefficient Jacobian for every real competitor with the specified
+response. No real sign or regularity restriction is part of the counted set.
+
+These statements concern real rate parameters on the existing root-leak
+OrderedTree model. Complex fibers, nonroot leak variants and actual ODE
+controllability/observability remain outside the formal theorem scope.

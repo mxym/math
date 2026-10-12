@@ -1133,3 +1133,15 @@ import HydrologyTree
 #print axioms HydrologyTree.positivePolynomialFiberCongr
 #print axioms HydrologyTree.positive_stieltjes_recursive_equiv_exists
 #print axioms HydrologyTree.positiveStieltjesRecursiveEquiv
+#print axioms HydrologyTree.monic_split_fin_factorization
+#print axioms HydrologyTree.real_child_allocation_exists
+#print axioms HydrologyTree.realFiber_child_cofactors
+#print axioms HydrologyTree.real_stieltjes_realization_is_positive
+#print axioms HydrologyTree.RealStieltjesFiber
+#print axioms HydrologyTree.RealResponseFiber
+#print axioms HydrologyTree.realStieltjesFiberEquivPositive
+#print axioms HydrologyTree.realResponseFiberEquivCoefficients
+#print axioms HydrologyTree.realResponseRecursiveEquiv
+#print axioms HydrologyTree.real_stieltjes_fiber_exact_card
+#print axioms HydrologyTree.real_root_response_fiber_exact_card
+#print axioms HydrologyTree.real_full_response_forces_positive_regular
