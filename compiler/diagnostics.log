@@ -320,4 +320,71 @@ MODULE HydrologyTree.SubtreeProducts
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.TreeFiberCombinatorics
-HydrologyTree/TreeFiberCombinatorics.lean:65:9: error(lean.unknownIdentifier): Unknown constant `Nat.mul_pos_iff.mp`
+HydrologyTree/TreeFiberCombinatorics.lean:67:2: warning: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+MODULE HydrologyTree.PositiveFiberCount
+HydrologyTree/PositiveFiberCount.lean:33:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.JacobianRegularity
+HydrologyTree/JacobianRegularity.lean:16:25: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveJacobian
+
+MODULE HydrologyTree.MonicResultantAlgebra
+
+MODULE HydrologyTree.SignedFamilyResultant
+
+MODULE HydrologyTree.ResultantFamilyEnumeration
+HydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.PhysicalResultantRecurrence
+
+MODULE HydrologyTree.AllTreeResultant
+
+MODULE HydrologyTree.ResultantBoundary
+
+MODULE HydrologyTree.CatenaryGlobal
+
+MODULE HydrologyTree.CatenaryCoprime
+HydrologyTree/CatenaryCoprime.lean:88:16: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/CatenaryCoprime.lean:94:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.PositiveResponseFiber
+HydrologyTree/PositiveResponseFiber.lean:86:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.RecursiveFiberClassification
+HydrologyTree/RecursiveFiberClassification.lean:26:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
