@@ -1,6 +1,6 @@
 {
   "serial": 97,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "297abfb2dbd59b05c83cbc4f172fc2a6c4bcdef9",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -108,7 +108,109 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 2.79
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 1.896
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.174
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 1.923
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.003
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 2.498
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 2.961
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.05
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 1.915
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.415
+    },
+    {
+      "module": "HydrologyTree.FamilyScaling",
+      "returncode": 0,
+      "seconds": 2.204
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.727
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 0,
+      "seconds": 1.956
+    },
+    {
+      "module": "HydrologyTree.TangentJacobian",
+      "returncode": 0,
+      "seconds": 2.044
+    },
+    {
+      "module": "HydrologyTree.FamilyGluing",
+      "returncode": 0,
+      "seconds": 1.783
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 2.755
+    },
+    {
+      "module": "HydrologyTree.PathRootTransform",
+      "returncode": 0,
+      "seconds": 2.493
+    },
+    {
+      "module": "HydrologyTree.PathPolynomial",
+      "returncode": 0,
+      "seconds": 2.408
+    },
+    {
+      "module": "HydrologyTree.FamilyNormalization",
+      "returncode": 0,
+      "seconds": 2.443
+    },
+    {
+      "module": "HydrologyTree.BranchStep",
+      "returncode": 1,
+      "seconds": 1.984
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888"
+  "run_id": "38198592888",
+  "diagnostics": "HydrologyTree/BranchStep.lean:108:2: error: 'change' tactic failed, pattern\n  rootCoefficientMap ?m.78 = (rootOutputEquiv (ChildFactorDegrees ms).sum) (branchStepCoefficients ms z)\nis not definitionally equal to target\n  rootCoefficientMap\n      ((familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).1, z.2,\n        (familyGlue (ChildFactorDegrees ms) (z.1.1, scaleFamily ms z.1.2)).2) =\n    (familyRootEquiv (ChildFactorDegrees ms)) ((branchCoefficientEquiv ms) (branchStepCoefficients ms z))\n"
 }
