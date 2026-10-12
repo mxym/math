@@ -45,3 +45,6 @@ Formal coverage is relative to the actual source statements, not green CI labels
 | Rigidity and equality classifications | No final endpoint | Saturation, empirical/outlier limits and attaining constructions still missing. |
 
 No `sorry`, custom axiom, untrusted `native_decide`, assumed main conclusion, or finite enumeration is used to turn an unclosed row into a verified theorem.
+
+
+New locally kernel-verified rectangular dependencies: `plateauScaledPurity_ceiling_unique`, `exists_projection_family_unique_rank_max`, `ordered_spectrum_cut_bound`, and `cutEdgePurity_le_endpoints`. The first two close the integer-rank projection family, not the unrestricted APPT maximum. The latter two are general reduction lemmas with their remaining premises explicit.

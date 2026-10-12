@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Joint all-unitary APPT sufficiency, original and robust physical counterexamples with boundary controls; singular-state classification and attainment, physical purity-ball sufficiency; physical compactness, attained maxima, attainable-purity interval and mixture rigidity; fixed-local physical purity supremum limit and all-total-dimension upper half; physical spectral-gap upper bounds, sufficiency, projection attainment, sorted witnesses and nonlinear-head declarations; NOT the full high-dimensional purity/entropy research theorems",
+  "source_manifest_sha256": "f4208a1fb95ea716665a0d29b80efac60a22c0f30ca3219973ee34433482f73f",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.916,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 137.334,
+      "log": "build.log",
+      "sha256": "11e153e701aa59c1fab4e9b05b020468b710d77d229798b0530d5fad1cb4c54b"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.27,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.32,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 187.722,
+      "log": "kernel.log",
+      "sha256": "02827ca4c7ee96eace6576eff467a0275183861b6308c453a1473df835af7626"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 90
+}

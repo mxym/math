@@ -21,3 +21,5 @@ import APPTReview.PlateauOptimizer
 import APPTReview.Counterexample1038
 
 import APPTReview.JointBoundaryControl
+
+import APPTReview.RectangularControls
