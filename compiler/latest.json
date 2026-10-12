@@ -1,7 +1,7 @@
 {
-  "serial": 86,
-  "status": "COMPILER_ERROR",
-  "request_blob": "d98103eba6c1c83b0fef96cff8025f842af60def",
+  "serial": 87,
+  "status": "COMPILING",
+  "request_blob": "12d8ce2f4d6b7949e6414defc336d60e3e3ef509",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -56,7 +56,7 @@
     "HydrologyTree.CatenaryCoprime"
   ],
   "source_sha256": {
-    "HydrologyTree/SymmetricGenerator.lean": "93798e4076bb465fbb335c6e111666280a9c1b529bf4f9b70171afc49c795b30",
+    "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
     "HydrologyTree/PhysicalRecursion.lean": "90df308d419817f922fe6bbee4e4ca915fc7b8b2071b83ce9cfb0c1d47cd2395",
     "HydrologyTree/RootAttachment.lean": "a6376191302dfbb1199db7b7a40a9a163ea2ef05fdd36d784c6c7f5af0d4d9de",
     "HydrologyTree/RootCoupling.lean": "487f5a86c65078e5757ef961a0ca54540d9fdba1ac232c4a95910130e6db2d26",
@@ -108,64 +108,7 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.367
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.905
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 1.827
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 1.997
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.688
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.564
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.63
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.472
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 0,
-      "seconds": 1.583
-    },
-    {
-      "module": "HydrologyTree.GroundedPositivity",
-      "returncode": 0,
-      "seconds": 1.516
-    },
-    {
-      "module": "HydrologyTree.SymmetricGenerator",
-      "returncode": 1,
-      "seconds": 1.856
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/SymmetricGenerator.lean:18:62: error: unsolved goals\ncase pos\nn : \u2115\nt : OrderedTree n\nx : TreeRates n\nha : \u2200 (e : Fin n), 0 < x.1 e.succ\nhf : \u2200 (e : Fin n), 0 < x.2 e\nhpos : \u2200 (v : Fin (n + 1)), 0 < \u221a(balanceWeight t x v)\ni j : Fin (n + 1)\nh : i = j\n\u22a2 \u221a(balanceWeight t x j) * (\u221a(balanceWeight t x j))\u207b\u00b9 = 1\nHydrologyTree/SymmetricGenerator.lean:23:31: warning: This simp argument is unused:\n  Matrix.diagonal_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.one_apply, h, ne_of_gt (hpos i)]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/SymmetricGenerator.lean:23:75: warning: This simp argument is unused:\n  ne_of_gt (hpos i)\n\nHint: Omit it from the simp argument list.\n  [apply] simp [Matrix.diagonal_apply, Matrix.one_apply, h]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/SymmetricGenerator.lean:44:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u221a(balanceWeight t x v) * (\u221a(balanceWeight t x v))\u207b\u00b9\nin the target expression\n  \u221a(balanceWeight t x v) * (\u221a(balanceWeight t x v) * (\u221a(\u221a(balanceWeight t x v) * \u221a(balanceWeight t x v)))\u207b\u00b9) =\n    \u221a(\u221a(balanceWeight t x v) * \u221a(balanceWeight t x v))\n\nn : \u2115\nt : OrderedTree n\nx : TreeRates n\nha : \u2200 (e : Fin n), 0 < x.1 e.succ\nhf : \u2200 (e : Fin n), 0 < x.2 e\nv : Fin (n + 1)\nhs : \u221a(balanceWeight t x v) \u2260 0\nhsq : \u221a(balanceWeight t x v) ^ 2 = balanceWeight t x v\n\u22a2 \u221a(balanceWeight t x v) * (\u221a(balanceWeight t x v) * (\u221a(\u221a(balanceWeight t x v) * \u221a(balanceWeight t x v)))\u207b\u00b9) =\n    \u221a(\u221a(balanceWeight t x v) * \u221a(balanceWeight t x v))\nHydrologyTree/SymmetricGenerator.lean:82:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?L * ?M * ?N\nin the target expression\n  physicalCharacteristic t x = (sqrtWeightDiagonal t x * (invSqrtWeightDiagonal t x * compartmentMatrix t x)).charpoly\n\nn : \u2115\nt : OrderedTree n\nx : TreeRates n\nha : \u2200 (e : Fin n), 0 < x.1 e.succ\nhf : \u2200 (e : Fin n), 0 < x.2 e\n\u22a2 physicalCharacteristic t x = (sqrtWeightDiagonal t x * (invSqrtWeightDiagonal t x * compartmentMatrix t x)).charpoly\n"
+  "run_id": "38198592888"
 }
