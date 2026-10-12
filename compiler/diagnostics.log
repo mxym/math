@@ -789,13 +789,48 @@ MODULE HydrologyTree.TreePipeline
 MODULE HydrologyTree.TreeJacobianRecurrence
 
 MODULE HydrologyTree.PhysicalResultantRecurrence
-HydrologyTree/PhysicalResultantRecurrence.lean:48:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
-Note: Use `set_option maxHeartbeats <num>` to set the limit.
+MODULE HydrologyTree.AllTreeJacobian
 
-Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
-HydrologyTree/PhysicalResultantRecurrence.lean:26:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+MODULE HydrologyTree.SubtreeProducts
+HydrologyTree/SubtreeProducts.lean:72:52: warning: This simp argument is unused:
+  numberedRootEquiv_zero
 
-Note: Use `set_option maxHeartbeats <num>` to set the limit.
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.prod_unique, Fintype.prod_sigma, numberedRootEquiv_child, subtreeNodeValue_root,
+    subtreeNodeValue_child]
 
-Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SubtreeProducts.lean:73:28: warning: This simp argument is unused:
+  subtreeNodeValue_root
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.prod_unique, Fintype.prod_sigma, numberedRootEquiv_zero, numberedRootEquiv_child,
+    subtreeNodeValue_child]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.AllTreeResultant
+
+MODULE HydrologyTree.RingTreeModel
+HydrologyTree/RingTreeModel.lean:29:74: error: unsolved goals
+R : Type u_1
+S : Type u_2
+inst✝¹ : CommRing R
+inst✝ : CommRing S
+φ : R →+* S
+n : ℕ
+t : OrderedTree n
+x : RatesOver R n
+i j : Fin (n + 1)
+⊢ φ
+        ((∑ e,
+            (x.1 e.succ • (single (t.parent e) e.succ 1 - single e.succ e.succ 1) +
+              x.2 e • (single e.succ (t.parent e) 1 - single (t.parent e) (t.parent e) 1)))
+          i j) -
+      φ (if 0 = i ∧ 0 = j then x.1 0 else 0) =
+    (∑ e,
+          (φ (x.1 e.succ) • (single (t.parent e) e.succ 1 - single e.succ e.succ 1) +
+            φ (x.2 e) • (single e.succ (t.parent e) 1 - single (t.parent e) (t.parent e) 1)))
+        i j -
+      if 0 = i ∧ 0 = j then φ (x.1 0) else 0
