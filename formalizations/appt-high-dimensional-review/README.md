@@ -1,5 +1,17 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
+## Exact rectangular maximum: independent verification completed
+
+`appt_rectangular_maximum_formula` now proves the original physical **IsGreatest** statement for every integer m>=3 and n>=m^3-m-2. With D=mn and t=ceil((m-1)n/2), the exact maximum is
+
+    [D(m-1)^2+4mt]/[D(m-1)+2t]^2.
+
+The actual APPT prefix constraint, the unrestricted ordered-spectrum cut reduction, every shortened/full-support vertex bound, the integer branch comparison, and actual projection-state attainment are connected. No spectral shape, unproved graph bound or presumed optimizer is a final hypothesis. The cutoff is sufficient; it is not claimed to be the smallest possible physical cutoff.
+
+Independent run **38238377463**, source **1a3f6275d7979121f6babd6608567fdecbe304fa**, passed all stages. Trust-zero replay checked **42,670 declarations and 247 explicit roots**, with only the three standard axioms. All **99 pinned inputs** matched the tested commit and artifact. Thirteen exact-type corrupted-proof tests passed, including the final maximum theorem and the physical two-branch upper bound. Evidence: `verification/ci-1a3f6275/`.
+
+This checkpoint proves the exact maximum and attainment, **not yet the complete maximizing-spectrum classification**. The generic equality reduction is verified, but its final spectral classification is being assembled separately. All growing-dimension multiscale lower limits, full entropy laws and asymptotic rigidity remain separate. No publication or Release was created.
+
 **The full research program remains partially formalized. The fixed-local purity supremum limit and its first excess-purity coefficient are now complete, and the purity upper half is verified uniformly over all dimension pairs as total dimension grows. The two-level projection plateau is also optimized exactly within the plateau family in the even-rank case. Matching growing-local-dimension lower limits, exact finite maxima/classification beyond that family, full entropy and rigidity claims remain unclosed.**
 
 Every physical endpoint uses actual complex density matrices and the original all-global-unitary APPT definition. No spectral ansatz, unproved quantum characterization, graph cap or claimed main conclusion is assumed in the final physical theorems.
