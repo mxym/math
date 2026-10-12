@@ -765,25 +765,12 @@ MODULE HydrologyTree.PhysicalBranchRecovery
 MODULE HydrologyTree.TreeStepSemantics
 
 MODULE HydrologyTree.TreePipeline
-HydrologyTree/TreePipeline.lean:46:6: error: Application type mismatch: The argument
-  ContinuousLinearMap.differentiableAt ↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv
-has type
-  DifferentiableAt ℝ ⇑↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv ?m.152
-but is expected to have type
-  DifferentiableAt ℝ
-    (fun z =>
-      (branchGlueStep (TreeBranchDegrees t) ∘ branchScaleStep (TreeBranchDegrees t))
-        ((prepareFamilyEquiv (childEdgeCount t)) z))
-    z
-in the application
-  DifferentiableAt.comp z ?m.104
-    (ContinuousLinearMap.differentiableAt ↑(prepareFamilyEquiv (childEdgeCount t)).toContinuousLinearEquiv)
 HydrologyTree/TreePipeline.lean:42:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
 Note: Use `set_option maxHeartbeats <num>` to set the limit.
 
 Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
-HydrologyTree/TreePipeline.lean:100:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+HydrologyTree/TreePipeline.lean:93:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
 Note: Use `set_option maxHeartbeats <num>` to set the limit.
 
