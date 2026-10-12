@@ -1,6 +1,6 @@
 {
   "serial": 177,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "a68fdfbd51f32ea2456e60227ab050181418a2f5",
   "modules": [
     "HydrologyTree.SizedSpectralAllocation",
@@ -138,7 +138,16 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.SizedSpectralAllocation",
+      "returncode": 1,
+      "seconds": 1.42,
+      "development_cache_reused": false,
+      "source_dependency_key": "e7a533af2c78a29b456c69478711510533ed32c66488485c45fb2a21e78686c7"
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38236087142"
+  "run_id": "38236087142",
+  "diagnostics": "HydrologyTree/SizedSpectralAllocation.lean:41:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:\n  [Fintype B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:74:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:155:75: error(lean.unknownIdentifier): Unknown identifier `nsmul_eq_mul`\n"
 }
