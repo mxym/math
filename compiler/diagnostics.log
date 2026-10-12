@@ -1,48 +1,44 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 10 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 1 file(s) [attempted 1/10 = 10%, 116 KB/s], Decompressed: 0
-Downloaded: 10 file(s) [attempted 10/10 = 100%, 116 KB/s], Decompressed: 1
-Decompressed 10 file(s)
+No files to download
 Already decompressed 2690 file(s)
 
 MODULE HydrologyTree.MultivariateDifferential
-HydrologyTree/MultivariateDifferential.lean:17:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.multivariateDifferential_apply`:
+HydrologyTree/MultivariateDifferential.lean:18:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.multivariateDifferential_apply`:
   [DecidableEq ι]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [DecidableEq ι] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/MultivariateDifferential.lean:21:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.multivariateDifferential_constant`:
+HydrologyTree/MultivariateDifferential.lean:22:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.multivariateDifferential_constant`:
   [DecidableEq ι]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [DecidableEq ι] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/MultivariateDifferential.lean:23:33: warning: This simp argument is unused:
+HydrologyTree/MultivariateDifferential.lean:24:33: warning: This simp argument is unused:
   MvPolynomial.pderiv_C
 
 Hint: Omit it from the simp argument list.
   [apply] simp [multivariateDifferential]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/MultivariateDifferential.lean:30:64: warning: This simp argument is unused:
+HydrologyTree/MultivariateDifferential.lean:31:64: warning: This simp argument is unused:
   eq_comm
 
 Hint: Omit it from the simp argument list.
   [apply] simp [MvPolynomial.pderiv_X, Pi.single_apply, ite_mul, apply_ite]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/MultivariateDifferential.lean:44:13: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+HydrologyTree/MultivariateDifferential.lean:45:13: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
-HydrologyTree/MultivariateDifferential.lean:44:43: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+HydrologyTree/MultivariateDifferential.lean:45:43: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
-HydrologyTree/MultivariateDifferential.lean:59:4: error: Type mismatch: After simplification, term
-  HasFDerivAt.add hp hq
+HydrologyTree/MultivariateDifferential.lean:61:4: error: Type mismatch: After simplification, term
+  h
  has type
   @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (ι → ℝ) Pi.normedAddCommGroup.toAddCommGroup
     Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedAddCommGroup.toAddCommGroup
@@ -54,9 +50,16 @@ but is expected to have type
     Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
     (fun y => (MvPolynomial.eval y) p + (MvPolynomial.eval y) q)
     (multivariateDifferential p x + multivariateDifferential q x) x
-HydrologyTree/MultivariateDifferential.lean:62:6: error: Type mismatch
-  ContinuousLinearMap.hasFDerivAt ?m.114
-has type
-  HasFDerivAt ⇑?m.114 ?m.114 ?m.115
+HydrologyTree/MultivariateDifferential.lean:65:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.mul hp hj
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (ι → ℝ) Pi.normedAddCommGroup.toAddCommGroup
+    Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ
+    Real.normedCommRing.toCommRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ((fun y => (MvPolynomial.eval y) p) * fun y => y j)
+    ((MvPolynomial.eval x) p • ContinuousLinearMap.proj j + x j • multivariateDifferential p x) x
 but is expected to have type
-  HasFDerivAt (fun y => y j) (ContinuousLinearMap.proj j) x
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (ι → ℝ) Pi.addCommGroup (Pi.Function.module ι ℝ ℝ)
+    Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (fun y => (MvPolynomial.eval y) p * y j)
+    ((MvPolynomial.eval x) p • ContinuousLinearMap.proj j + x j • multivariateDifferential p x) x
