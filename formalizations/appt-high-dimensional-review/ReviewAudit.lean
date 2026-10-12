@@ -3,6 +3,42 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.apptPurityValues_eq_Icc,
+  ``APPTReview.continuous_partialTranspose,
+  ``APPTReview.isClosed_absolutelyPPT,
+  ``APPTReview.continuous_quantum_trace,
+  ``APPTReview.continuous_quantum_purity,
+  ``APPTReview.isClosed_density,
+  ``APPTReview.purity_eq_entry_norm_sum,
+  ``APPTReview.density_entry_norm_le_one,
+  ``APPTReview.density_norm_le_one,
+  ``APPTReview.isCompact_density,
+  ``APPTReview.isCompact_physicalAPPTStates,
+  ``APPTReview.physicalAPPTStates_nonempty,
+  ``APPTReview.continuous_objective_appt_extrema,
+  ``APPTReview.exists_appt_purity_isGreatest,
+  ``APPTReview.exists_appt_purity_eq_sup,
+  ``APPTReview.appt_purity_sup_isGreatest,
+  ``APPTReview.appt_near_maximizers_subsequence,
+  ``APPTReview.stateMix_density,
+  ``APPTReview.stateMix_appt,
+  ``APPTReview.stateMix_purity,
+  ``APPTReview.hermitian_purity_nonneg,
+  ``APPTReview.hermitian_purity_zero_iff,
+  ``APPTReview.appt_maximizing_mixture_rigid,
+  ``APPTReview.maximallyMixed_density,
+  ``APPTReview.maximallyMixed_appt,
+  ``APPTReview.maximallyMixed_purity,
+  ``APPTReview.density_centered_purity,
+  ``APPTReview.density_minimum_purity,
+  ``APPTReviewCompactControls.nilpotent_sq,
+  ``APPTReviewCompactControls.nilpotent_purity_zero,
+  ``APPTReviewCompactControls.nilpotent_ne_zero,
+  ``APPTReviewCompactControls.nilpotent_not_hermitian,
+  ``APPTReviewCompactControls.zero_dimension_no_density,
+  ``APPTReviewCompactControls.two_by_two_nonuniform_exists,
+  ``APPTReviewCompactControls.zero_weight_rigidity_fails,
+
   ``APPTReview.appt_fixed_local_purity_sup_tendsto,
   ``APPTReview.appt_total_dimension_uniform_upper,
   ``APPTReview.appt_fixed_local_scaled_sup_tendsto,
@@ -94,3 +130,6 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReviewRegression.productState_not_appt] "review-kernel"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_uniform_upper "review-kernel-total-dimension-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_appt_purity_isGreatest "review-kernel-attainment-control"
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_maximizing_mixture_rigid "review-kernel-extremality-control"

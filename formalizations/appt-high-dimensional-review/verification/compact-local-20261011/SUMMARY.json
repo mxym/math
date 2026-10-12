@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Physical compactness, attained maxima, attainable-purity interval and mixture rigidity; fixed-local physical purity supremum limit and all-total-dimension upper half; physical spectral-gap upper bounds, sufficiency, projection attainment, sorted witnesses and nonlinear-head declarations; NOT the full high-dimensional purity/entropy research theorems",
+  "source_manifest_sha256": "d22c97fb0292a9554c7f0bee0dc66660ceb63fd6cec8881401540ddcbceea8ad",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.365,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 58.678,
+      "log": "build.log",
+      "sha256": "24650c28a40a866d30fb7740fd9f1db74340df6a019fbe7f760ba5d003e96ae8"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/root/appt-compact-review-20261011/formalizations/appt-qutrit-purity",
+        "-o",
+        "/root/appt-compact-review-20261011/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/root/appt-compact-review-20261011/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.373,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/root/appt-compact-review-20261011/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.271,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 67.315,
+      "log": "kernel.log",
+      "sha256": "f4fa4f89c8a5b85833b13740bbe541cc347c96d14cc8dfa0ae8f458e6f17473d"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 62
+}
