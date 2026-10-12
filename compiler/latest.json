@@ -1,6 +1,6 @@
 {
   "serial": 115,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "c4c1384b044ab845e24660fb7657e9f24ff65768",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -116,7 +116,144 @@
     "HydrologyTree/IndependentChildCoordinates.lean": "56ad30b4f7d9de2f77defa05627d8f66cd4135a05a86633ab68d1f0aaf4b79ea",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 3.408
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.255
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.426
+    },
+    {
+      "module": "HydrologyTree.EndJacobian",
+      "returncode": 0,
+      "seconds": 2.159
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.168
+    },
+    {
+      "module": "HydrologyTree.Scaling",
+      "returncode": 0,
+      "seconds": 2.989
+    },
+    {
+      "module": "HydrologyTree.Gluing",
+      "returncode": 0,
+      "seconds": 3.857
+    },
+    {
+      "module": "HydrologyTree.ProductDerivative",
+      "returncode": 0,
+      "seconds": 2.224
+    },
+    {
+      "module": "HydrologyTree.JacobianComposition",
+      "returncode": 0,
+      "seconds": 2.282
+    },
+    {
+      "module": "HydrologyTree.FamilyProduct",
+      "returncode": 0,
+      "seconds": 2.979
+    },
+    {
+      "module": "HydrologyTree.FamilyScaling",
+      "returncode": 0,
+      "seconds": 2.452
+    },
+    {
+      "module": "HydrologyTree.FamilyResultants",
+      "returncode": 0,
+      "seconds": 1.746
+    },
+    {
+      "module": "HydrologyTree.FamilySmoothness",
+      "returncode": 0,
+      "seconds": 2.015
+    },
+    {
+      "module": "HydrologyTree.TangentJacobian",
+      "returncode": 0,
+      "seconds": 2.145
+    },
+    {
+      "module": "HydrologyTree.FamilyGluing",
+      "returncode": 0,
+      "seconds": 1.868
+    },
+    {
+      "module": "HydrologyTree.RootUpdate",
+      "returncode": 0,
+      "seconds": 3.527
+    },
+    {
+      "module": "HydrologyTree.PathRootTransform",
+      "returncode": 0,
+      "seconds": 2.888
+    },
+    {
+      "module": "HydrologyTree.PathPolynomial",
+      "returncode": 0,
+      "seconds": 2.708
+    },
+    {
+      "module": "HydrologyTree.FamilyNormalization",
+      "returncode": 0,
+      "seconds": 2.869
+    },
+    {
+      "module": "HydrologyTree.BranchStep",
+      "returncode": 0,
+      "seconds": 2.208
+    },
+    {
+      "module": "HydrologyTree.PiSerialization",
+      "returncode": 0,
+      "seconds": 1.917
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.669
+    },
+    {
+      "module": "HydrologyTree.PathRates",
+      "returncode": 0,
+      "seconds": 2.186
+    },
+    {
+      "module": "HydrologyTree.PathNormalization",
+      "returncode": 0,
+      "seconds": 2.773
+    },
+    {
+      "module": "HydrologyTree.CoordinateEnergy",
+      "returncode": 0,
+      "seconds": 2.011
+    },
+    {
+      "module": "HydrologyTree.FamilyCoordinateEnergy",
+      "returncode": 0,
+      "seconds": 2.21
+    },
+    {
+      "module": "HydrologyTree.ScaledSerialization",
+      "returncode": 1,
+      "seconds": 1.983
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38201915230"
+  "run_id": "38201915230",
+  "diagnostics": "HydrologyTree/ScaledSerialization.lean:15:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Subsingleton (ScaledFamilyInput (finDegreeList m))\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/ScaledSerialization.lean:44:9: error: Function expected at\n  piScaledFinEquiv ?m.61\nbut this term has type\n  ((i : Fin ?m.60) \u2192 \u21a5(Coeff (?m.61 i + 1))) \u2243\u2097[\u211d] ScaledFamilyInput (finDegreeList ?m.61)\n\nNote: Expected a function because this term is being applied to the argument\n  (fun i : Fin k => p i.succ)\nHydrologyTree/ScaledSerialization.lean:39:18: warning: This simp argument is unused:\n  finDegreeList\n\nHint: Omit it from the simp argument list.\n  [apply] simp [scaleFamilyWeight]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/ScaledSerialization.lean:52:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Subsingleton (ScaledFamilyInput (finDegreeList m))\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/ScaledSerialization.lean:56:9: error: Function expected at\n  piScaledFinEquiv ?m.45\nbut this term has type\n  ((i : Fin ?m.44) \u2192 \u21a5(Coeff (?m.45 i + 1))) \u2243\u2097[\u211d] ScaledFamilyInput (finDegreeList ?m.45)\n\nNote: Expected a function because this term is being applied to the argument\n  (fun i : Fin k => p i.succ)\nHydrologyTree/ScaledSerialization.lean:66:9: error: unsolved goals\ncase zero\nm : Fin 0 \u2192 \u2115\np q : (i : Fin 0) \u2192 \u21a5(Coeff (m i + 1))\n\u22a2 familyCoordinateDot (ChildFactorDegrees []) ((piScaledFinEquiv m) p) ((piScaledFinEquiv m) q) = 0\nHydrologyTree/ScaledSerialization.lean:71:9: error: Function expected at\n  piScaledFinEquiv ?m.72\nbut this term has type\n  ((i : Fin ?m.71) \u2192 \u21a5(Coeff (?m.72 i + 1))) \u2243\u2097[\u211d] ScaledFamilyInput (finDegreeList ?m.72)\n\nNote: Expected a function because this term is being applied to the argument\n  (fun i : Fin k => p i.succ)\nHydrologyTree/ScaledSerialization.lean:72:9: error: Function expected at\n  piScaledFinEquiv ?m.75\nbut this term has type\n  ((i : Fin ?m.74) \u2192 \u21a5(Coeff (?m.75 i + 1))) \u2243\u2097[\u211d] ScaledFamilyInput (finDegreeList ?m.75)\n\nNote: Expected a function because this term is being applied to the argument\n  (fun i : Fin k => q i.succ)\nHydrologyTree/ScaledSerialization.lean:66:32: warning: This simp argument is unused:\n  familyCoordinateDot\n\nHint: Omit it from the simp argument list.\n  [apply] simp [finDegreeList]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/ScaledSerialization.lean:90:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (LinearEquiv.trans ?m.63 ?m.64) ?c\nin the target expression\n  scaleFamilyWeight (degreeSequence m)\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        p) =\n    \u220f i, (\u2191(p i)).coeff (m i) ^ m i\n\nI : Type u_1\ninst\u271d : Fintype I\nm : I \u2192 \u2115\np : (i : I) \u2192 \u21a5(Coeff (m i + 1))\n\u22a2 scaleFamilyWeight (degreeSequence m)\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        p) =\n    \u220f i, (\u2191(p i)).coeff (m i) ^ m i\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)\n  has type\n    @LinearEquiv \u211d \u211d Real.semiring Real.semiring (RingHom.id \u211d) (RingHom.id \u211d) \u22ef \u22ef\n      ((i : Fin (Fintype.card I)) \u2192 \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1)))\n      (ScaledFamilyInput (finDegreeList fun i => m ((Fintype.equivFin I).symm i))) Pi.addCommMonoid\n      (productInputNormed (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toAddCommMonoid\n      (Pi.module (Fin (Fintype.card I)) (fun i => \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1))) \u211d)\n      (productInputNormedSpace (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toModule\n  but is expected to have type\n    @LinearEquiv \u211d \u211d Real.semiring Real.semiring (RingHom.id \u211d) (RingHom.id \u211d) \u22ef \u22ef\n      ((i : Fin (Fintype.card I)) \u2192 \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1)))\n      (ScaledFamilyInput (degreeSequence m)) Pi.addCommMonoid\n      (productInputNormed (ChildFactorDegrees (degreeSequence m))).toAddCommMonoid\n      (Pi.module (Fin (Fintype.card I)) (fun i => \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1))) \u211d)\n      (productInputNormedSpace (ChildFactorDegrees (degreeSequence m))).toModule\n  in the application\n    LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n      piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)\nHydrologyTree/ScaledSerialization.lean:102:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (LinearEquiv.trans ?m.72 ?m.73) ?c\nin the target expression\n  familyCoordinateDot (ChildFactorDegrees (degreeSequence m))\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        p)\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        q) =\n    \u2211 i, coefficientDot (m i + 1) (p i) (q i)\n\nI : Type u_1\ninst\u271d : Fintype I\nm : I \u2192 \u2115\np q : (i : I) \u2192 \u21a5(Coeff (m i + 1))\n\u22a2 familyCoordinateDot (ChildFactorDegrees (degreeSequence m))\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        p)\n      ((LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n          piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i))\n        q) =\n    \u2211 i, coefficientDot (m i + 1) (p i) (q i)\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)\n  has type\n    @LinearEquiv \u211d \u211d Real.semiring Real.semiring (RingHom.id \u211d) (RingHom.id \u211d) \u22ef \u22ef\n      ((i : Fin (Fintype.card I)) \u2192 \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1)))\n      (ScaledFamilyInput (finDegreeList fun i => m ((Fintype.equivFin I).symm i))) Pi.addCommMonoid\n      (productInputNormed (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toAddCommMonoid\n      (Pi.module (Fin (Fintype.card I)) (fun i => \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1))) \u211d)\n      (productInputNormedSpace (ChildFactorDegrees (finDegreeList fun i => m ((Fintype.equivFin I).symm i)))).toModule\n  but is expected to have type\n    @LinearEquiv \u211d \u211d Real.semiring Real.semiring (RingHom.id \u211d) (RingHom.id \u211d) \u22ef \u22ef\n      ((i : Fin (Fintype.card I)) \u2192 \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1)))\n      (ScaledFamilyInput (degreeSequence m)) Pi.addCommMonoid\n      (productInputNormed (ChildFactorDegrees (degreeSequence m))).toAddCommMonoid\n      (Pi.module (Fin (Fintype.card I)) (fun i => \u21a5(Coeff (m ((Fintype.equivFin I).symm i) + 1))) \u211d)\n      (productInputNormedSpace (ChildFactorDegrees (degreeSequence m))).toModule\n  in the application\n    LinearEquiv.piCongrLeft' \u211d (fun i => \u21a5(Coeff (m i + 1))) (Fintype.equivFin I) \u226a\u226b\u2097\n      piScaledFinEquiv fun i => m ((Fintype.equivFin I).symm i)\nHydrologyTree/ScaledSerialization.lean:109:8: error: typeclass instance problem is stuck\n  CommMonoid ?m.44\n\nNote: Lean will not try to resolve this typeclass instance problem because the type argument to `CommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.\n\nHint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.\n"
 }
