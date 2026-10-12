@@ -1,7 +1,7 @@
 {
-  "serial": 87,
-  "status": "COMPILER_ERROR",
-  "request_blob": "12d8ce2f4d6b7949e6414defc336d60e3e3ef509",
+  "serial": 88,
+  "status": "COMPILING",
+  "request_blob": "cca2e6c5a2bb8262fc8cef392587f00c116aec67",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -15,6 +15,7 @@
     "HydrologyTree.GroundedPositivity",
     "HydrologyTree.SymmetricGenerator",
     "HydrologyTree.PositiveSpectrum",
+    "HydrologyTree.SpectralResolvent",
     "HydrologyTree.EndJacobian",
     "HydrologyTree.LeadingCoefficients",
     "HydrologyTree.Scaling",
@@ -84,7 +85,8 @@
     "HydrologyTree/CoordinateEnergy.lean": "e64a3e93bbdadbe3f16c1ceecfef855fcc2d67f233e7e5250d2bb5b05b6d1eff",
     "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
     "HydrologyTree/ChildRates.lean": "6c8a54086231d29e54a20e250a7ef53040fd0abbec8ad4db132b8de1a043feef",
-    "HydrologyTree/PositiveSpectrum.lean": "6501a0763640adefb2e0fcc5fc61a291a9215ecc797d35299df4334046fdb5f3",
+    "HydrologyTree/SpectralResolvent.lean": "276c91431612eaa003586624418b3055a78928e293b6539731d0405281e48d36",
+    "HydrologyTree/PositiveSpectrum.lean": "05011294a19ec8a2fe29c56ec2ba77abcf5dab618b5e6a7efac9711849e2292f",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
     "HydrologyTree/CatenaryCanonical.lean": "4957391b937adbb0e1689b223cab62c3ff14914387228b02a077ce28f3df69da",
     "HydrologyTree/DependentBlocks.lean": "47d2d8d7e73869f14ec9ffe98b30d5ea1f9320ca8f9e9d1fd636863e7237ba5b",
@@ -108,69 +110,7 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 2.326
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 1.694
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 1.861
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 2.114
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 1.695
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 1.601
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 1.554
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 1.517
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 0,
-      "seconds": 1.675
-    },
-    {
-      "module": "HydrologyTree.GroundedPositivity",
-      "returncode": 0,
-      "seconds": 1.599
-    },
-    {
-      "module": "HydrologyTree.SymmetricGenerator",
-      "returncode": 0,
-      "seconds": 1.851
-    },
-    {
-      "module": "HydrologyTree.PositiveSpectrum",
-      "returncode": 1,
-      "seconds": 1.528
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888",
-  "diagnostics": "HydrologyTree/PositiveSpectrum.lean:14:17: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut`\nHydrologyTree/PositiveSpectrum.lean:17:10: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut_apply`\nHydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals\nI : Type u_1\ninst\u271d\u00b9 : Fintype I\ninst\u271d : DecidableEq I\nB : Matrix I I \u211d\nhB : B.PosDef\nhn : -B = sorry\n\u22a2 sorry.charpoly = \u220f i, (X + C (\u22ef.eigenvalues i))\n"
+  "run_id": "38198592888"
 }
