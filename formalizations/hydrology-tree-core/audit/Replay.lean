@@ -573,7 +573,16 @@ run_cmd do
     ``HydrologyTree.physicalCharacteristic_eval_zero,
     ``HydrologyTree.physicalRootCofactor_eval_zero_ne_zero,
     ``HydrologyTree.physicalRootCofactor_eval_zero_pos,
-    ``HydrologyTree.physical_root_leak_eq_ratio]
+    ``HydrologyTree.physical_root_leak_eq_ratio,
+    ``HydrologyTree.physicalCoefficientMap_eq_iff,
+    ``HydrologyTree.physical_inward_nonzero_iff,
+    ``HydrologyTree.physical_root_leak_identified,
+    ``HydrologyTree.rootTransition_fiber_unique,
+    ``HydrologyTree.pathStepCoefficients_fiber_unique,
+    ``HydrologyTree.PathRegularRates,
+    ``HydrologyTree.catenary_coefficient_fiber_unique,
+    ``HydrologyTree.catenary_global_fiber_at_regular_point,
+    ``HydrologyTree.catenary_positive_global_identification]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

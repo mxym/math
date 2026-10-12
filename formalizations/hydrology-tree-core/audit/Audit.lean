@@ -548,3 +548,12 @@ import HydrologyTree
 #print axioms HydrologyTree.physicalRootCofactor_eval_zero_ne_zero
 #print axioms HydrologyTree.physicalRootCofactor_eval_zero_pos
 #print axioms HydrologyTree.physical_root_leak_eq_ratio
+#print axioms HydrologyTree.physicalCoefficientMap_eq_iff
+#print axioms HydrologyTree.physical_inward_nonzero_iff
+#print axioms HydrologyTree.physical_root_leak_identified
+#print axioms HydrologyTree.rootTransition_fiber_unique
+#print axioms HydrologyTree.pathStepCoefficients_fiber_unique
+#print axioms HydrologyTree.PathRegularRates
+#print axioms HydrologyTree.catenary_coefficient_fiber_unique
+#print axioms HydrologyTree.catenary_global_fiber_at_regular_point
+#print axioms HydrologyTree.catenary_positive_global_identification

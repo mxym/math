@@ -56,3 +56,8 @@ fixed factor of magnitude exactly one. `catenary_standard_singular_locus` includ
 all zero boundaries. This is an unconditional endpoint-path theorem, not the
 all-tree induction. `PhysicalConstants` proves P(0)=lambda F(0) and F(0)=prod a
 for every tree with arbitrary real rates, including zero.
+
+`RootRecovery` and `CatenaryGlobal` prove actual leak recovery and global
+singleton real coefficient fibers at every regular endpoint-path model. The
+terminal zero-outward case is included. The arbitrary-tree positive Stieltjes
+realization existence/completeness/count remains a separate obligation.

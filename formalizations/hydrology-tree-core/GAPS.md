@@ -77,3 +77,9 @@ fixed per size and has magnitude one, proved by bilinear coordinate-energy
 preservation. This does not yet close the full branching-tree induction.
 `PhysicalConstants` proves the exact characteristic/cofactor constants for
 all rooted trees. The global branching-tree and realization gaps above remain.
+
+The endpoint-path uniqueness part is now also proved:
+`catenary_global_fiber_at_regular_point` identifies the entire REAL coefficient
+fiber at every nonsingular path model, with no assumption on the competing
+model. This is not the arbitrary-tree fiber count or realization-existence
+theorem and not reduced-response uniqueness at cancellation boundaries.

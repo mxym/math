@@ -187,7 +187,7 @@ The endpoint path subcase is now closed at the source-proof level, including
 all real rates and every zero-rate boundary. Independent verification is
 source-specific; consult the corresponding completed run receipt.
 
-`CatenaryOrientation.catenary_standard_jacobian` (namespace `HydrologyTree`)
+`HydrologyTree.catenary_standard_jacobian`
 proves, for every n>=0 (n+1 stores), a fixed sign eps in {+1,-1}, independent of
 all rates, such that the actual standard-coordinate Jacobian is
 
@@ -207,3 +207,17 @@ Neither identity divides by a rate or assumes stability/positivity.
 
 **These results do not close the all-branching-tree Jacobian, its exact factor
 multiplicity theorem, or the complete positive-realization/fiber classification.**
+
+## Global uniqueness at every regular path model
+
+`catenary_global_fiber_at_regular_point` proves that a nonzero canonical
+Jacobian at an endpoint-path model implies its ENTIRE real coefficient fiber
+is a singleton. The competing rate vector is arbitrary: positivity, regularity
+or proximity are not assumed for it. This is a constructive algebraic induction,
+not just an inverse-function theorem. Root-leak recovery from P(0)/F(0), lower
+numerator recovery, and the zero-dimensional terminal case are all proved.
+
+This concerns complete unreduced characteristic/cofactor coefficient data.
+It is not a blanket uniqueness assertion for a reduced response on zero-rate
+boundaries; nor does it claim existence for an arbitrary prescribed Stieltjes
+response. The branching-tree positive fiber classification remains unproved.
