@@ -2,7 +2,9 @@
 """Interactive development diagnostics, NOT a proof verification certificate.
 
 Only validated Lean source paths and module names are accepted. Every request
-gets a fresh owned-object directory. The independent source-bound proof CI is
+gets a separate work directory; successful module objects may be reused only
+under a source-and-transitive-dependency cache key. This is development-only.
+The independent source-bound proof CI is
 separate and must succeed before a formalization checkpoint is certified.
 """
 from pathlib import Path
@@ -56,6 +58,14 @@ for ref in (INPUT_REF,OUTPUT_REF):ensure_branch(ref)
 lean=Path(shutil.which('lean')).resolve()
 packages=BASE/'.lake/packages'
 paths=[str(p/'.lake/build/lib/lean') for p in packages.iterdir() if p.is_dir()]
+owned_cache=OUT/'owned-module-cache';owned_cache.mkdir(exist_ok=True)
+compiler_key=hashlib.sha256((BASE/'lean-toolchain').read_bytes()+(BASE/'lake-manifest.json').read_bytes()).hexdigest()
+
+def module_cache_key(module, text, dependencies):
+ payload={'compiler':compiler_key,'module':module,'source':hashlib.sha256(text.encode()).hexdigest(),
+          'dependencies':dict(sorted(dependencies.items()))}
+ return hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest()
+
 publish({'status':'READY','base_commit':os.environ['GITHUB_SHA']})
 last=None
 while time.monotonic()-START<3300:
@@ -96,19 +106,44 @@ while time.monotonic()-START<3300:
   logs.append('CACHE\n'+cache.stdout)
   if cache.returncode:report['status']='CACHE_ERROR'
  if report['status']=='COMPILING':
+  module_keys={};module_set=set(modules)
   for module in modules:
-   name=module.replace('.','/');start=time.monotonic()
-   try:
-    p=subprocess.run([str(lean),'-j2','-o',name+'.olean',name+'.lean'],cwd=work,env=env,
-        stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=180)
-    text=p.stdout;rc=p.returncode
-   except subprocess.TimeoutExpired as e:
-    rc=124;text='COMPILER TIMEOUT\n'+str(e.stdout or '')
+   name=module.replace('.','/');start=time.monotonic();source=(work/(name+'.lean')).read_text()
+   direct=[]
+   for line in source.splitlines():
+    if line.startswith('import '):direct.extend(m for m in line.split()[1:] if m in module_set)
+   if any(m not in module_keys for m in direct):raise ValueError('Non-topological module list')
+   key=module_cache_key(module,source,{m:module_keys[m] for m in direct})
+   entry=owned_cache/key;reused=(entry/'COMPLETE.json').is_file()
+   if reused:
+    meta=json.loads((entry/'COMPLETE.json').read_text())
+    for suffix,digest in meta['objects'].items():
+     blob=entry/('output'+suffix)
+     if hashlib.sha256(blob.read_bytes()).hexdigest()!=digest:raise RuntimeError('Corrupt development cache')
+     shutil.copyfile(blob,work/(name+suffix))
+    rc=0;text='DEVELOPMENT CACHE: source and all owned dependency keys matched.\n'
+   else:
+    try:
+     p=subprocess.run([str(lean),'-j2','-o',name+'.olean',name+'.lean'],cwd=work,env=env,
+         stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=180)
+     text=p.stdout;rc=p.returncode
+    except subprocess.TimeoutExpired as e:
+     rc=124;text='COMPILER TIMEOUT\n'+str(e.stdout or '')
+    if rc==0:
+     entry.mkdir(exist_ok=True);objects={}
+     for suffix in ['.olean','.olean.private','.olean.server','.ilean']:
+      blob=work/(name+suffix)
+      if blob.is_file():
+       shutil.copyfile(blob,entry/('output'+suffix));objects[suffix]=hashlib.sha256(blob.read_bytes()).hexdigest()
+     if '.olean' not in objects:raise RuntimeError('Successful compiler emitted no object')
+     (entry/'COMPLETE.json').write_text(json.dumps({'module':module,'input_key':key,'objects':objects}))
    logs.append('MODULE '+module+'\n'+text)
-   record={'module':module,'returncode':rc,'seconds':round(time.monotonic()-start,3)}
+   record={'module':module,'returncode':rc,'seconds':round(time.monotonic()-start,3),
+           'development_cache_reused':reused,'source_dependency_key':key}
    report['commands'].append(record)
    if rc:
     report['status']='COMPILER_ERROR';report['diagnostics']=text[-40000:];break
+   module_keys[module]=key
   else:report['status']='COMPILED'
  log='\n'.join(logs);(work/'diagnostics.log').write_text(log)
  (work/'report.json').write_text(json.dumps(report,indent=2)+'\n')
