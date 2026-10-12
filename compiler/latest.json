@@ -1,7 +1,7 @@
 {
-  "serial": 175,
-  "status": "COMPILER_ERROR",
-  "request_blob": "31e86761dbc23829fc27d310fccc527ee5b00a42",
+  "serial": 176,
+  "status": "COMPILING",
+  "request_blob": "1d1aec7e4ad040345fa50819129fb03ad1b6dfe7",
   "modules": [
     "HydrologyTree.SizedSpectralAllocation",
     "HydrologyTree.Coefficients",
@@ -92,7 +92,7 @@
     "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/PositiveFiberAllocation.lean": "e70483d51980ae79bc2b0785ebe89e8a741f25b6615bf142e4230880dbcbb319",
-    "HydrologyTree/SizedSpectralAllocation.lean": "981f90672dc08df29f39338b46a0a25b7f01905c4e10876d82756e2a1ccd8e82",
+    "HydrologyTree/SizedSpectralAllocation.lean": "d22789e9d9666ff58132157262deaffdab0d624c7db7dcc8046f90d68cc096b3",
     "HydrologyTree/StieltjesDegree.lean": "a35d9e35b9c6d09e0c3dfff440a9f6aabe3d5afa35f219d9eb72fe32e15c4a35",
     "HydrologyTree/CoprimeBranchRecovery.lean": "99038d46b663d1b5d5a09713549a51f101d25e7e95a1995feb258570e956f9f5",
     "HydrologyTree/PhysicalBranchRecovery.lean": "8c8dfc546169d8944768c5c1b1519da0f5a41415cb5acc128b85def1afb5d936",
@@ -136,16 +136,7 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.SizedSpectralAllocation",
-      "returncode": 1,
-      "seconds": 1.405,
-      "development_cache_reused": false,
-      "source_dependency_key": "c2c98ef70378d35de0c8ff3c8b26b20b2a309ba5835e3811ecdf832b13a03e4f"
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38236087142",
-  "diagnostics": "HydrologyTree/SizedSpectralAllocation.lean:41:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:\n  [Fintype B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:74:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:155:75: error(lean.unknownIdentifier): Unknown identifier `smul_eq_mul`\n"
+  "run_id": "38236087142"
 }
