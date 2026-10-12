@@ -779,14 +779,10 @@ MODULE HydrologyTree.TreeJacobianRecurrence
 MODULE HydrologyTree.AllTreeJacobian
 
 MODULE HydrologyTree.SubtreeProducts
-HydrologyTree/SubtreeProducts.lean:70:67: error: unsolved goals
-α : Type u_1
-inst✝ : CommMonoid α
-f : {m : ℕ} → OrderedTree m → TreeRates m → α
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-⊢ subtreeNodeValue (fun {m} => f) t x ((numberedRootEquiv t) (Sum.inl default)) *
+HydrologyTree/SubtreeProducts.lean:74:2: error: 'change' tactic failed, pattern
+  f t x * ?m.75 = f t x * ?m.78
+is not definitionally equal to target
+  subtreeNodeValue (fun {m} => f) t x ((numberedRootEquiv t) (Sum.inl default)) *
       ∏ x_1, ∏ y, subtreeNodeValue (fun {m} => f) (childTree t x_1) (childRates t x_1 x) y =
     f t x * ∏ x_1, ∏ y, subtreeNodeValue (fun {m} => f) (childTree t x_1) (childRates t x_1 x) y
 HydrologyTree/SubtreeProducts.lean:72:52: warning: This simp argument is unused:
@@ -805,24 +801,4 @@ Hint: Omit it from the simp argument list.
     subtreeNodeValue_child]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/SubtreeProducts.lean:88:2: error: 'change' tactic failed, pattern
-  ∏ i,
-      x.1 ↑((childEnumeration t c) i) ^ subtreeVertexCount t ↑((childEnumeration t c) i) *
-        outwardByVertex x.2 ↑((childEnumeration t c) i) ^ (subtreeVertexCount t ↑((childEnumeration t c) i) - 1) =
-    ?m.121
-is not definitionally equal to target
-  ∏ x_1,
-      x.1 ((numberedEdgeEquiv t) ⟨c, x_1⟩).succ ^ subtreeVertexCount t ((numberedEdgeEquiv t) ⟨c, x_1⟩).succ *
-        outwardByVertex x.2 ↑((childEnumeration t c) x_1) ^
-          (subtreeVertexCount t ((numberedEdgeEquiv t) ⟨c, x_1⟩).succ - 1) =
-    x.1 ↑c ^ (childEdgeCount t c + 1) * outwardByVertex x.2 ↑c ^ childEdgeCount t c *
-      originalTreeRateMonomial (childTree t c) (childRates t c x)
-HydrologyTree/SubtreeProducts.lean:87:13: warning: This simp argument is unused:
-  ← numberedEdgeIndex_succ t
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [outward_at_numbered_child]
-
-Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SubtreeProducts.lean:100:2: error: No goals to be solved
