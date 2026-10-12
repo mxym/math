@@ -1,0 +1,636 @@
+{
+  "ci": {
+    "GITHUB_ACTIONS": null,
+    "GITHUB_REF": null,
+    "GITHUB_RUN_ID": null,
+    "GITHUB_SHA": null
+  },
+  "commands": [
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lake",
+        "build"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-lake/formalizations/gaussian-four-global-progress",
+      "elapsed_seconds": 148.06,
+      "log": "lake-build.log",
+      "log_sha256": "d88900d4a9d9c94827c7421270783c3291e08de1345c4027ea9f95b6042de2e1",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianPartition.olean",
+        "GaussianPartition.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.358,
+      "log": "build-GaussianPartition.log",
+      "log_sha256": "bb55328ae6021a79a0177a7ab2d481cab0e4ae1ce9b13651e35ec9bf2683d42c",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianPrices.olean",
+        "GaussianPrices.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.257,
+      "log": "build-GaussianPrices.log",
+      "log_sha256": "7301d0ffea48f76ad21425a89dcc99a94bcdc78c38c2d30fb98beb7f9eca5ecb",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianNoTies.olean",
+        "GaussianNoTies.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.258,
+      "log": "build-GaussianNoTies.log",
+      "log_sha256": "e4646ab182bc06f8cf0145e40302c0a9b4c0fa8b5e7d3fa3f1e65ffc59fa1b00",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianFullSupport.olean",
+        "GaussianFullSupport.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.156,
+      "log": "build-GaussianFullSupport.log",
+      "log_sha256": "6b79d5bb18abba41c52bb966ab3c1da6d5745f3e5134d7344572b64a5bcb15cc",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianBalancedPrices.olean",
+        "GaussianBalancedPrices.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.058,
+      "log": "build-GaussianBalancedPrices.log",
+      "log_sha256": "1abc36a16bcbf63a91abb47e5c7df771dfa30ab23cf1575952030dd2971a2d1e",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianWinningPartition.olean",
+        "GaussianWinningPartition.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 15.756,
+      "log": "build-GaussianWinningPartition.log",
+      "log_sha256": "54c5b351c1076d0791505700baba15639d9b2edae5f22d625112453b7a2efbff",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianUniquePrices.olean",
+        "GaussianUniquePrices.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.659,
+      "log": "build-GaussianUniquePrices.log",
+      "log_sha256": "b6f127a7eac3ece5840f0ab4613b64ba88fb149bc973b75ec11a8d3d3b4abed3",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianPrimalDual.olean",
+        "GaussianPrimalDual.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.459,
+      "log": "build-GaussianPrimalDual.log",
+      "log_sha256": "0d929a4e6e15cc6bccaebd8a201bc9612b314a2d72b0b763021c4d4f5733a52f",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianFractionalEquality.olean",
+        "GaussianFractionalEquality.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.71,
+      "log": "build-GaussianFractionalEquality.log",
+      "log_sha256": "93ab67f385be4dbc6ef82afe9b22e4bce22d45a734e20b4bec448216eb930359",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianTent.olean",
+        "GaussianTent.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.106,
+      "log": "build-GaussianTent.log",
+      "log_sha256": "f72c436a1544463c7d0c20705630c25ac4fd56275808067ceb760703e7118ed2",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianMomentSeparation.olean",
+        "GaussianMomentSeparation.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.359,
+      "log": "build-GaussianMomentSeparation.log",
+      "log_sha256": "4221bee94d08010380471ea2748baa2bd234028ce7585e1563e36e51d9870377",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianWinningLimits.olean",
+        "GaussianWinningLimits.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.709,
+      "log": "build-GaussianWinningLimits.log",
+      "log_sha256": "efbd994631def939f411e7c07353461b70a6f39a4c4bc71943ea07b966561d6c",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianBoundaryTransfer.olean",
+        "GaussianBoundaryTransfer.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.559,
+      "log": "build-GaussianBoundaryTransfer.log",
+      "log_sha256": "41d2e2531c09824f935d0b1c73ed5a0c2856661fba8fa4adc5b27b69d6d749ef",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianBalancedValue.olean",
+        "GaussianBalancedValue.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.458,
+      "log": "build-GaussianBalancedValue.log",
+      "log_sha256": "cd9ea2d7cfb01d71421bfa627fc033a06170f829f4f7312f1d9eff3e6f27cf85",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianHomogeneity.olean",
+        "GaussianHomogeneity.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.408,
+      "log": "build-GaussianHomogeneity.log",
+      "log_sha256": "83a32be815b8d551760a2371d4f2979bd7e0efec39745c1220904465639a59e3",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianFractionalReduction.olean",
+        "GaussianFractionalReduction.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.058,
+      "log": "build-GaussianFractionalReduction.log",
+      "log_sha256": "f26db693484f090cce0d7e890f8407da2b1756b46b53151426594b66ac115da3",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianSetPartitions.olean",
+        "GaussianSetPartitions.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.711,
+      "log": "build-GaussianSetPartitions.log",
+      "log_sha256": "d808bcb5fc0d5f77a2b3fc1e883a72e28beba60d95c1d7f0061e2e27097c5393",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianGramInvariance.olean",
+        "GaussianGramInvariance.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.408,
+      "log": "build-GaussianGramInvariance.log",
+      "log_sha256": "ed804edcd9e890f3c2af8844b7377bf8ea76f9ea56aad3f9ff069f32044a253b",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianEqualityGuard.olean",
+        "GaussianEqualityGuard.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.355,
+      "log": "build-GaussianEqualityGuard.log",
+      "log_sha256": "7ce9b47e0ceebc6dc06f838fd99879deb2b3284b9e8631ab1888455c4d695f87",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianFourProgress.olean",
+        "GaussianFourProgress.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.158,
+      "log": "build-GaussianFourProgress.log",
+      "log_sha256": "56e3edbf30a0242cf409457fac3adcf2c1eb9adb47e93ce3fe901659ac40d10c",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "UnprovedTargets.olean",
+        "UnprovedTargets.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 15.755,
+      "log": "build-UnprovedTargets.log",
+      "log_sha256": "b4e41f3ee721ce5942d9b64fdb9bd4d40fdb004f184c78356747c8da6dadd934",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "Audit.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 16.157,
+      "log": "audit.log",
+      "log_sha256": "a87298e7191a7fc0de18c427f1313dfad0cf4d09a3cb27f56e841fb8f5b99b04",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "Replay.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/fresh-direct",
+      "elapsed_seconds": 60.523,
+      "log": "replay.log",
+      "log_sha256": "3f5c434396208f9f7f74617c3fba35655ee32860958aef812cccd2775be638c6",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianTent.olean",
+        "GaussianTent.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/negative/wrong_tent_area",
+      "elapsed_seconds": 17.059,
+      "log": "negative-wrong_tent_area.log",
+      "log_sha256": "dd7c7dc9b56f9e14009215d867989397c1b5ac56f1a28dc8e2248079ec9849ea",
+      "returncode": 1
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "GaussianMomentSeparation.olean",
+        "GaussianMomentSeparation.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/negative/wrong_exact_separation_constant",
+      "elapsed_seconds": 16.457,
+      "log": "negative-wrong_exact_separation_constant.log",
+      "log_sha256": "d766614b9118d6616912f47fd5132cd6bef8a4f9a1611c80a790dbb255042e2a",
+      "returncode": 1
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "NegativeZeroScale.olean",
+        "NegativeZeroScale.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/negative/wrong_zero_scale",
+      "elapsed_seconds": 15.757,
+      "log": "negative-wrong_zero_scale.log",
+      "log_sha256": "2626545f5438e9fcfe3db6296e71dd8f4f3c7758751f641dfcb73894c63a7034",
+      "returncode": 1
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "NegativeFractionalEquality.olean",
+        "NegativeFractionalEquality.lean"
+      ],
+      "cwd": "/tmp/gaussian-four-bridge-repro-20261012/negative/false_fractional_purification",
+      "elapsed_seconds": 13.551,
+      "log": "negative-false_fractional_purification.log",
+      "log_sha256": "e30054add66dd1918b15aafa74cbbd6dd892957a78b47b12bb1c70ac90671153",
+      "returncode": 1
+    }
+  ],
+  "dependencies": {
+    "Cli": {
+      "lf_normalized_git_blobs_checked": 8,
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "status": "PASS"
+    },
+    "LeanSearchClient": {
+      "lf_normalized_git_blobs_checked": 11,
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "status": "PASS"
+    },
+    "Qq": {
+      "lf_normalized_git_blobs_checked": 31,
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "status": "PASS"
+    },
+    "aesop": {
+      "lf_normalized_git_blobs_checked": 253,
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "status": "PASS"
+    },
+    "batteries": {
+      "lf_normalized_git_blobs_checked": 263,
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "status": "PASS"
+    },
+    "importGraph": {
+      "lf_normalized_git_blobs_checked": 57,
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "status": "PASS"
+    },
+    "mathlib": {
+      "lf_normalized_git_blobs_checked": 9114,
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "status": "PASS"
+    },
+    "plausible": {
+      "lf_normalized_git_blobs_checked": 31,
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "status": "PASS"
+    },
+    "proofwidgets": {
+      "lf_normalized_git_blobs_checked": 48,
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "status": "PASS"
+    }
+  },
+  "dependencies_rechecked_after_build": true,
+  "dependency_cache_reused": true,
+  "direct_object_sha256": {
+    "GaussianBalancedPrices": "ea1c85ebac30c1192ad0813ad1b29ae61df7d96ab8a6d463059007baad223bae",
+    "GaussianBalancedValue": "5dde9883704217183bdc2ee8368a0bf258ec5b1c358d2d2e6acb632241f0d706",
+    "GaussianBoundaryTransfer": "cab1a1bb7f23b23e4bcff4153e7e3039adaa9a564d1ff83904a5aebb9316d39d",
+    "GaussianEqualityGuard": "37c15f6121cb9a64a0620415456d2d0e5f561963951de7c8bb2a5715db18853a",
+    "GaussianFourProgress": "e69c02a8b53dfc3a38754f6916cf3b1f638ead71cb049dd892e2afe3105dd220",
+    "GaussianFractionalEquality": "6d2dfc2bc81f928b884afbb43b84793db2e9edde134f7df15a1fae7b790adfac",
+    "GaussianFractionalReduction": "277fb45df418eb82d36b087a4311c608fe855510fd381eec77d1516daf48abeb",
+    "GaussianFullSupport": "b8533ea23bcea93af1d97a0d3789dcb2cb24d4b19ba8a3262be91d0ed8437f82",
+    "GaussianGramInvariance": "7a0f735acb9106861d448540cc0e69b1afabac87df39c154166d4ca69174bbc3",
+    "GaussianHomogeneity": "fa4a969b52c995ade4823c79f857d71604149d3e73eded7bdb90bd493a0c2833",
+    "GaussianMomentSeparation": "6543c6fbb45b23a8b8df179b699eb64699b36cb22cac48c49e328ad36ee836eb",
+    "GaussianNoTies": "76c75c63ce35948f484e29896ae61c0f12c55f8489b5cab709a5c54e76a80449",
+    "GaussianPartition": "10f3d6e509a36eb98b7aab59eea191f5c357331d111cd9a122b5a9ddc09a9985",
+    "GaussianPrices": "1f36dfebff7fc3eb527fde2a5e65dddab468bd4161f4989d3a23ca2a9a427453",
+    "GaussianPrimalDual": "2fae62a008b9fa91d6fa82f8645cb061a304eb35c0c21ae2c926abe2eb8e7714",
+    "GaussianSetPartitions": "3ef5bfc5c6ef03eadc5c201b8eecd0d5ffe3dd0116f56bc889444b9fcabe9350",
+    "GaussianTent": "23517d1f6de6c209d32ddcbee4047f9a98771f8ff8786c7f71cdde23b7d39592",
+    "GaussianUniquePrices": "bee3ad81360a8c4e8c8534729da840f5735dde4ae03a18f4f26f8d7a20f01823",
+    "GaussianWinningLimits": "a4ae7fa843310cc968c405940441ecb92957ea137ef2e2d7072b295fae41fd22",
+    "GaussianWinningPartition": "2f4a641fd7e34b299eec6a03914266d284a9ea09b2df8f803d1f3a88196d3213",
+    "UnprovedTargets": "ab27fac987c658b80fa13226eae0712671e331579b0de87736dd97947af95834"
+  },
+  "direct_owned_objects_before": 0,
+  "empty_kernel_replay": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "declarations": 52924,
+    "roots": 135,
+    "status": "PASS",
+    "trust_level": 0
+  },
+  "finished_utc": "2026-10-12T14:23:15.664544+00:00",
+  "fresh_lake_build": {
+    "modules": 21,
+    "object_sha256": {
+      "GaussianBalancedPrices": "94ec3d6f20393a1f1c0dad8000c39c76add4d51347579918e05a37eefa65d959",
+      "GaussianBalancedValue": "6c1c727fe3b089efe4d2587f51a4ffd0e8ceb111d114534d6cb4e724f5783768",
+      "GaussianBoundaryTransfer": "77ce02b85bc37dac7b52aaf122fd22a6ec3d7dedc4ad7fc510a7f097f343ab38",
+      "GaussianEqualityGuard": "8c446e2bf0c2135e3b8fe18ef19838f0dac9ff9dfd21df944e863c42cca6f63c",
+      "GaussianFourProgress": "37c28305559c9f1e03b6130f0dcecf3b46f688cd2d38f3c29018f79a4ff3aa12",
+      "GaussianFractionalEquality": "257bc620df21f51e1fec669d90ded2a9994385d447a883218efa9802c7b3f139",
+      "GaussianFractionalReduction": "0f11c62357445ba0fdd05bf0b0ca2fb337f14d4a839c83770aed07cc9bc93ce6",
+      "GaussianFullSupport": "636c1bf33a84d2af68bd19f294e75f918904026dd569a7b83498be883748310d",
+      "GaussianGramInvariance": "e00360f986db4c73c938641dc9e264e8d349dbfeab61cf7b666968ed36fbc313",
+      "GaussianHomogeneity": "8769ffd88e5460d8ec2494544a3e877be5123d64a0c363538212b572f8fea8eb",
+      "GaussianMomentSeparation": "262cb63139f0bc8d2a9174b87f0f286b6268d16836fb164e5f013d13f58987ec",
+      "GaussianNoTies": "8b227c26516222be5f1a94155d5ab8e32b233c5d328796f5f0bd24d175e98415",
+      "GaussianPartition": "b349d26caa8ccbf9c83c9010e0ca5bb1cf270f8d74dfa11b8f0df5ddf56f586a",
+      "GaussianPrices": "5ae79f1652a61a1c457fb2eecb5294a733f73eefbfc530e3451dacc7df418ccd",
+      "GaussianPrimalDual": "997697ed6a993126d4258d879898ae104b3ddf9a267f73d3c98e15c3af6b1e69",
+      "GaussianSetPartitions": "6e37c9fb0c8908fa8d1d36f88c5211422cab9d5acee396a220e9e8a16056c881",
+      "GaussianTent": "c899aa645d7f55efb5908398ad1271fdd5c6c1826f37751919800c47c8fccfaf",
+      "GaussianUniquePrices": "fe5fba7a5f759f3870db38fba0e6ba37ab16b572b0ff853427c3f507426b4a12",
+      "GaussianWinningLimits": "62715be8b18cf3116b2453cf6bc9dd21afe2968857cfa847f5b156e98e74b3a0",
+      "GaussianWinningPartition": "82f1e7e691ec1ae25da27302f777f4635ebaa4f086592951bcc4b19d1bbc5760",
+      "UnprovedTargets": "c50701e5f564d2af96d6b3e54ca3cc66681bcda3fda64a34a069f2d212337256"
+    },
+    "status": "PASS"
+  },
+  "full_mathlib_rebuilt_from_source": false,
+  "input_source_sha256_raw": {
+    "../gaussian-measure-primal-dual/GaussianBalancedPrices.lean": "bfea3b1cc0a110be98675c7bee01445730ec5c6a159a56e5cfb526a062beaff1",
+    "../gaussian-measure-primal-dual/GaussianFractionalEquality.lean": "b251d8a7f8ed6be0b4fe6da68757765f152a30088ba1ae3b91b8ad8474ecf061",
+    "../gaussian-measure-primal-dual/GaussianFullSupport.lean": "75bcde779f0148d4297a9ed8d5018f43ad0d97df9b8160f74db5d8c887314b78",
+    "../gaussian-measure-primal-dual/GaussianNoTies.lean": "5031e4ffa88306d5a0f21b9533d244e1443a15bff26ff5ff724c19b563d56421",
+    "../gaussian-measure-primal-dual/GaussianPartition.lean": "0e36a239332f67b642d0b56afa4458a069cfbb0480e6ef8033a25676a4bbc9b0",
+    "../gaussian-measure-primal-dual/GaussianPrices.lean": "a2827ce0b1047780a6198a749fc0e0e9afe53d075ab24df816743800a7ad5214",
+    "../gaussian-measure-primal-dual/GaussianPrimalDual.lean": "f7103eface47b713d3e2df030fe8c8222caff9ca7658a01107eeb266b5079433",
+    "../gaussian-measure-primal-dual/GaussianUniquePrices.lean": "42d0e13cba5e63b48c51c937cdf890df6d9f9663ee098a1cd4a53d58bd30d612",
+    "../gaussian-measure-primal-dual/GaussianWinningPartition.lean": "d84143b76a987bc1efd81160205b0751388a7583c7acd0baf5869044f97415e3",
+    "DEPENDENCY_PINS.json": "a85f0cd568bd1e6f9333a94a3e14a7bed18c89c8811a4ebf3ace8b47f32b99a5",
+    "GaussianBalancedValue.lean": "85e63f234489f2250054dabf7bcff2e94bdfb03546af989c848973b55d08034b",
+    "GaussianBoundaryTransfer.lean": "e3b38e67ab18cc363b627c0345d7db24794bbebcf28a68db8a6c91a0d46eef1a",
+    "GaussianEqualityGuard.lean": "ee74e66184bc7ade47ddca99688a393e77f59d3ee3786cc477b9771998f45bd1",
+    "GaussianFourProgress.lean": "bf900eb48dce0c0a6fd5134a82d8e5decadf2727cb2fefa4c84a28ec4ba1454b",
+    "GaussianFractionalReduction.lean": "791698e289cdab564b3592a4fda43cdab004cb62f8411f83341cd4312411ddd8",
+    "GaussianGramInvariance.lean": "1a0a06b06354baee0ea7fc18f5d6cedb328fbcd09d246ae76bc6fe26e5f2eee9",
+    "GaussianHomogeneity.lean": "9fd198287d1c82bbe416d67895b1459b4001965a668d55c4519d5bfc29e7f929",
+    "GaussianMomentSeparation.lean": "ec55bf32c6bb78e1c22a7c340782b5f17ba1f1a490f925462f7fa4c9916b64c1",
+    "GaussianSetPartitions.lean": "6dddb60af77eabcdd5043e762c281ca87524cb2c93da9e232bb970c887afc781",
+    "GaussianTent.lean": "292869d32c77309b58eb4bda8772a06efdf659bd1996d72815bcb87587c51d71",
+    "GaussianWinningLimits.lean": "5af7f3151a8d5a14f1662ae2ee8659d5ccafab72b341d747515093c502e111b9",
+    "MODULES.json": "75cd36f366e08332cd4c450d11427dd378d08d1ae59fb7d0339c2610ea8f8df2",
+    "ROOTS.json": "2afd5e320d51559c37a189660667b392529f5959fed161ea802b1e40ca4d51f9",
+    "SCOPE.json": "655002a96d01622208ca11a1b39e2ae90ae2379599bb0659a740e05cccc6b224",
+    "TOOLCHAIN_PINS.json": "ca9753fd25b36bef442e8022086fa09093e886a44b189dd01791bf1d384e59ab",
+    "UnprovedTargets.lean": "88c45091b539fcd81a06a6f124ef1325230e3deb2f7d1684e2f33ae50a07b0e7",
+    "audit/Audit.lean": "eeb317b62eaeeb2e70a230a6d517cb14de458822d09aeebfaf05b3afc925c9a8",
+    "audit/NEGATIVE_CONTROLS.json": "827fcab3050454e3988ff89e08a512ce6f3c198f3da5898b50973ea254779fd0",
+    "audit/NegativeFractionalEquality.lean": "ea1881e7643570019fdc2f724f5e3197f5a61d4b2f328709b61019c4da5bc774",
+    "audit/NegativeZeroScale.lean": "04196f5f8820bbe3f8bd6e57f887ff11c7921534cfa21f790695cc84179a30ef",
+    "audit/Replay.lean": "4d49dfb5b76544aa610564b9efc13526538d91f5280f2d75aa764b4e3b93c99a",
+    "fetch_cache.sh": "b8132dcc83dbbcbfb3f9f60e65cef83437ede0b268c21e72ef011fee035ed0ce",
+    "lake-manifest.json": "7dd0168e38284245970249ea538dc39d42e4e85b1b5df1fcd08487d71fe67825",
+    "lakefile.lean": "9ee5d3310a5d78917c4724767d3db88bcb706b9550bb92eb1d2ec32475a82693",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "proof-dependencies.dot": "10f289cf227c37f4b67b530b4c679264d02f791da970763f758c826819b05f7c",
+    "reproduce.py": "2d5aa78a4ff5016d1bff93fa92bb7ca738514b46bb328cdfb9b9e98d3ecd62cc",
+    "update_source_manifest.py": "b47b4d347d7bbd80ee04b73b5b903ce801ff76a82635312c18b4d1e7971fe57c"
+  },
+  "lake_owned_objects_before": 0,
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "module_registry": {
+    "base": [
+      "GaussianPartition",
+      "GaussianPrices",
+      "GaussianNoTies",
+      "GaussianFullSupport",
+      "GaussianBalancedPrices",
+      "GaussianWinningPartition",
+      "GaussianUniquePrices",
+      "GaussianPrimalDual",
+      "GaussianFractionalEquality"
+    ],
+    "entry": [
+      "GaussianFourProgress"
+    ],
+    "proof": [
+      "GaussianTent",
+      "GaussianMomentSeparation",
+      "GaussianWinningLimits",
+      "GaussianBoundaryTransfer",
+      "GaussianBalancedValue",
+      "GaussianHomogeneity",
+      "GaussianFractionalReduction",
+      "GaussianSetPartitions",
+      "GaussianGramInvariance",
+      "GaussianEqualityGuard"
+    ],
+    "target_statements": [
+      "UnprovedTargets"
+    ]
+  },
+  "negative_controls": [
+    {
+      "module": "GaussianTent",
+      "mutated_source_sha256": "af5567dc8e7e72684fb7d831f7d2eb393b44be98e5ff50d8a27a815a68875e34",
+      "name": "wrong_tent_area",
+      "new": "theorem integral_tent (a t : \u211d) (ha : 0 \u2264 a) : (\u222b x, tent a t x) = a ^ 2 + 1 := by",
+      "old": "theorem integral_tent (a t : \u211d) (ha : 0 \u2264 a) : (\u222b x, tent a t x) = a ^ 2 := by",
+      "status": "REJECTED"
+    },
+    {
+      "module": "GaussianMomentSeparation",
+      "mutated_source_sha256": "c8fe42648424c1bcde19d53efa1c219e4956648ba3cb8615350041e479538697",
+      "name": "wrong_exact_separation_constant",
+      "new": "lemma separationConstant_eq : separationConstant = Real.sqrt (2 * Real.pi) / 15 := by",
+      "old": "lemma separationConstant_eq : separationConstant = Real.sqrt (2 * Real.pi) / 16 := by",
+      "status": "REJECTED"
+    },
+    {
+      "file": "NegativeZeroScale.lean",
+      "mutated_source_sha256": "04196f5f8820bbe3f8bd6e57f887ff11c7921534cfa21f790695cc84179a30ef",
+      "name": "wrong_zero_scale",
+      "status": "REJECTED"
+    },
+    {
+      "file": "NegativeFractionalEquality.lean",
+      "mutated_source_sha256": "ea1881e7643570019fdc2f724f5e3197f5a61d4b2f328709b61019c4da5bc774",
+      "name": "false_fractional_purification",
+      "status": "REJECTED"
+    }
+  ],
+  "roots_manifest_sha256": "2afd5e320d51559c37a189660667b392529f5959fed161ea802b1e40ca4d51f9",
+  "scope": "PARTIAL analytic core; global bound and equality UNPROVED",
+  "source_git_revision": "93ae88a1b9e6d08232954faa67522e1d6c60584e",
+  "source_hashes_unchanged": true,
+  "source_manifest_sha256": "a01d8fd61eb0fede0b7980fcd66a41fd9883725924c5497e37769edd34e5d0fc",
+  "source_sha256_lf_normalized": {
+    "../gaussian-measure-primal-dual/GaussianBalancedPrices.lean": "bfea3b1cc0a110be98675c7bee01445730ec5c6a159a56e5cfb526a062beaff1",
+    "../gaussian-measure-primal-dual/GaussianFractionalEquality.lean": "b251d8a7f8ed6be0b4fe6da68757765f152a30088ba1ae3b91b8ad8474ecf061",
+    "../gaussian-measure-primal-dual/GaussianFullSupport.lean": "75bcde779f0148d4297a9ed8d5018f43ad0d97df9b8160f74db5d8c887314b78",
+    "../gaussian-measure-primal-dual/GaussianNoTies.lean": "5031e4ffa88306d5a0f21b9533d244e1443a15bff26ff5ff724c19b563d56421",
+    "../gaussian-measure-primal-dual/GaussianPartition.lean": "0e36a239332f67b642d0b56afa4458a069cfbb0480e6ef8033a25676a4bbc9b0",
+    "../gaussian-measure-primal-dual/GaussianPrices.lean": "a2827ce0b1047780a6198a749fc0e0e9afe53d075ab24df816743800a7ad5214",
+    "../gaussian-measure-primal-dual/GaussianPrimalDual.lean": "f7103eface47b713d3e2df030fe8c8222caff9ca7658a01107eeb266b5079433",
+    "../gaussian-measure-primal-dual/GaussianUniquePrices.lean": "42d0e13cba5e63b48c51c937cdf890df6d9f9663ee098a1cd4a53d58bd30d612",
+    "../gaussian-measure-primal-dual/GaussianWinningPartition.lean": "d84143b76a987bc1efd81160205b0751388a7583c7acd0baf5869044f97415e3",
+    "DEPENDENCY_PINS.json": "a85f0cd568bd1e6f9333a94a3e14a7bed18c89c8811a4ebf3ace8b47f32b99a5",
+    "GaussianBalancedValue.lean": "85e63f234489f2250054dabf7bcff2e94bdfb03546af989c848973b55d08034b",
+    "GaussianBoundaryTransfer.lean": "e3b38e67ab18cc363b627c0345d7db24794bbebcf28a68db8a6c91a0d46eef1a",
+    "GaussianEqualityGuard.lean": "ee74e66184bc7ade47ddca99688a393e77f59d3ee3786cc477b9771998f45bd1",
+    "GaussianFourProgress.lean": "bf900eb48dce0c0a6fd5134a82d8e5decadf2727cb2fefa4c84a28ec4ba1454b",
+    "GaussianFractionalReduction.lean": "791698e289cdab564b3592a4fda43cdab004cb62f8411f83341cd4312411ddd8",
+    "GaussianGramInvariance.lean": "1a0a06b06354baee0ea7fc18f5d6cedb328fbcd09d246ae76bc6fe26e5f2eee9",
+    "GaussianHomogeneity.lean": "9fd198287d1c82bbe416d67895b1459b4001965a668d55c4519d5bfc29e7f929",
+    "GaussianMomentSeparation.lean": "ec55bf32c6bb78e1c22a7c340782b5f17ba1f1a490f925462f7fa4c9916b64c1",
+    "GaussianSetPartitions.lean": "6dddb60af77eabcdd5043e762c281ca87524cb2c93da9e232bb970c887afc781",
+    "GaussianTent.lean": "292869d32c77309b58eb4bda8772a06efdf659bd1996d72815bcb87587c51d71",
+    "GaussianWinningLimits.lean": "5af7f3151a8d5a14f1662ae2ee8659d5ccafab72b341d747515093c502e111b9",
+    "MODULES.json": "75cd36f366e08332cd4c450d11427dd378d08d1ae59fb7d0339c2610ea8f8df2",
+    "ROOTS.json": "2afd5e320d51559c37a189660667b392529f5959fed161ea802b1e40ca4d51f9",
+    "SCOPE.json": "655002a96d01622208ca11a1b39e2ae90ae2379599bb0659a740e05cccc6b224",
+    "TOOLCHAIN_PINS.json": "ca9753fd25b36bef442e8022086fa09093e886a44b189dd01791bf1d384e59ab",
+    "UnprovedTargets.lean": "88c45091b539fcd81a06a6f124ef1325230e3deb2f7d1684e2f33ae50a07b0e7",
+    "audit/Audit.lean": "eeb317b62eaeeb2e70a230a6d517cb14de458822d09aeebfaf05b3afc925c9a8",
+    "audit/NEGATIVE_CONTROLS.json": "827fcab3050454e3988ff89e08a512ce6f3c198f3da5898b50973ea254779fd0",
+    "audit/NegativeFractionalEquality.lean": "ea1881e7643570019fdc2f724f5e3197f5a61d4b2f328709b61019c4da5bc774",
+    "audit/NegativeZeroScale.lean": "04196f5f8820bbe3f8bd6e57f887ff11c7921534cfa21f790695cc84179a30ef",
+    "audit/Replay.lean": "4d49dfb5b76544aa610564b9efc13526538d91f5280f2d75aa764b4e3b93c99a",
+    "fetch_cache.sh": "b8132dcc83dbbcbfb3f9f60e65cef83437ede0b268c21e72ef011fee035ed0ce",
+    "lake-manifest.json": "7dd0168e38284245970249ea538dc39d42e4e85b1b5df1fcd08487d71fe67825",
+    "lakefile.lean": "9ee5d3310a5d78917c4724767d3db88bcb706b9550bb92eb1d2ec32475a82693",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "proof-dependencies.dot": "10f289cf227c37f4b67b530b4c679264d02f791da970763f758c826819b05f7c",
+    "reproduce.py": "2d5aa78a4ff5016d1bff93fa92bb7ca738514b46bb328cdfb9b9e98d3ecd62cc",
+    "update_source_manifest.py": "b47b4d347d7bbd80ee04b73b5b903ce801ff76a82635312c18b4d1e7971fe57c"
+  },
+  "started_utc": "2026-10-12T14:12:40.989453+00:00",
+  "status": "PASS",
+  "toolchain_binary_sha256": {
+    "bin/lake": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d",
+    "bin/lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lib/lean/libleanshared.so": "6b30cc963d065fc9d2f87f7e9cbe0682b23000ae5425bccd769c5d477fa74f13"
+  }
+}
