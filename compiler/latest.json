@@ -1,7 +1,7 @@
 {
-  "serial": 177,
-  "status": "COMPILER_ERROR",
-  "request_blob": "a68fdfbd51f32ea2456e60227ab050181418a2f5",
+  "serial": 178,
+  "status": "COMPILING",
+  "request_blob": "79deb86adb44720c871f4f7870c7dedb91e19186",
   "modules": [
     "HydrologyTree.SizedSpectralAllocation",
     "HydrologyTree.Coefficients",
@@ -68,7 +68,8 @@
     "HydrologyTree.PositiveAssignment",
     "HydrologyTree.PositiveRealizationExistence",
     "HydrologyTree.PositiveFiberAllocation",
-    "HydrologyTree.PositiveFiberTypes"
+    "HydrologyTree.PositiveFiberTypes",
+    "HydrologyTree.PositiveFiberRecovery"
   ],
   "source_sha256": {
     "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
@@ -85,6 +86,7 @@
     "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
     "HydrologyTree/EndJacobian.lean": "d996b6226fb47d8a71ebafb2eab0b69a7692e867452c5b8637aa6b3acbe3270a",
     "HydrologyTree/ArrowDeterminant.lean": "c2289f9773d83922a3cbb9a716f0c51c6b4e209473cca61b89e0fca74de1ec82",
+    "HydrologyTree/PositiveFiberRecovery.lean": "17bf5f009ef584ddcf2a84ee598bb0adcd7f03f29deb392236179e04e52f0fa9",
     "HydrologyTree/StieltjesGrouping.lean": "84df7b97e9dae02fb9da3c4c6f6d59a94866a24419470309fb5b55b9c8d6f810",
     "HydrologyTree/RootBranches.lean": "7fcf10deb851d042b7815a9910dc67fe9a8300d16e474651ea5c76805bf2d004",
     "HydrologyTree/ChildMatrix.lean": "eaa682115fb8c1959f3caabfd9b1d8d95d1650fccfa67118f01e1876fdfb2f7c",
@@ -93,7 +95,7 @@
     "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/PositiveFiberAllocation.lean": "e70483d51980ae79bc2b0785ebe89e8a741f25b6615bf142e4230880dbcbb319",
-    "HydrologyTree/SizedSpectralAllocation.lean": "d22789e9d9666ff58132157262deaffdab0d624c7db7dcc8046f90d68cc096b3",
+    "HydrologyTree/SizedSpectralAllocation.lean": "e7be39d3b3228fd654a22993889178a2323aa9e4d55e2f12a45fd6e9d1c361a3",
     "HydrologyTree/StieltjesDegree.lean": "a35d9e35b9c6d09e0c3dfff440a9f6aabe3d5afa35f219d9eb72fe32e15c4a35",
     "HydrologyTree/CoprimeBranchRecovery.lean": "99038d46b663d1b5d5a09713549a51f101d25e7e95a1995feb258570e956f9f5",
     "HydrologyTree/PhysicalBranchRecovery.lean": "8c8dfc546169d8944768c5c1b1519da0f5a41415cb5acc128b85def1afb5d936",
@@ -138,16 +140,7 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.SizedSpectralAllocation",
-      "returncode": 1,
-      "seconds": 1.42,
-      "development_cache_reused": false,
-      "source_dependency_key": "e7a533af2c78a29b456c69478711510533ed32c66488485c45fb2a21e78686c7"
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38236087142",
-  "diagnostics": "HydrologyTree/SizedSpectralAllocation.lean:41:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:\n  [Fintype B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:74:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/SizedSpectralAllocation.lean:155:75: error(lean.unknownIdentifier): Unknown identifier `nsmul_eq_mul`\n"
+  "run_id": "38236087142"
 }
