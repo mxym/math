@@ -2,7 +2,7 @@ CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 2474 file(s)
+Already decompressed 2485 file(s)
 
 MODULE HydrologyTree.MonicResultantAlgebra
 
@@ -80,3 +80,14 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq ι] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/ResultantFamilyEnumeration.lean:75:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (List.map Prod.fst (List.map (fun i => (p i, r i)) (resultantEnumeration ι))).prod.resultant
+      (∑ i, r i * ∏ j ∈ Finset.univ.erase i, p j) (∏ x, p x).natDegree =
+    (resultantPairSign (List.map (fun x => (p x).natDegree) (resultantEnumeration ι)) * ∏ x, (p x).resultant (r x)) *
+      pairwiseResultants (List.map (fun x => p x) (resultantEnumeration ι)) ^ 2
+but is expected to have type
+  (∏ i, p i).resultant (∑ i, r i * ∏ j ∈ Finset.univ.erase i, p j) =
+    (resultantPairSign (List.map (fun i => (p i).natDegree) (resultantEnumeration ι)) * ∏ i, (p i).resultant (r i)) *
+      pairwiseResultants (List.map p (resultantEnumeration ι)) ^ 2
