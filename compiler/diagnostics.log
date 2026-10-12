@@ -1,10 +1,7 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 1 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 1 file(s) [attempted 1/1 = 100%], Decompressed: 0
-Decompressed 1 file(s)
+No files to download
 Already decompressed 2686 file(s)
 
 MODULE HydrologyTree.Coefficients
@@ -74,11 +71,12 @@ MODULE HydrologyTree.StieltjesZeroFactorization
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesResidues
-HydrologyTree/StieltjesResidues.lean:30:77: error: Application type mismatch: The argument
-  hs i
-has type
-  s + r i ≠ 0
+HydrologyTree/StieltjesResidues.lean:29:4: error: Type mismatch: After simplification, term
+  HasDerivAt.fun_div (hasDerivAt_const s (w i)) (HasDerivAt.add_const (r i) (hasDerivAt_id s)) (hs i)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
+    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun y => w i / (id y + r i)) (-w i / (id s + r i) ^ 2) s
 but is expected to have type
-  ?m.122 (w i) ≠ 0
-in the application
-  HasDerivAt.fun_div (hasDerivAt_const (w i) s) ?m.135 (hs i)
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun z => w i / (z + r i)) (-w i / (s + r i) ^ 2) s
