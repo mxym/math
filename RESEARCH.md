@@ -59,6 +59,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 圆排列交换距离：对径旋转中心化子 | 所有奇数 m≥3 的中心化子循环移位至少 4 环；奇素数 p 时精确最大交换距离为 2p−4；不涉及无对称约束的完整 t(2p) | [完整书面证明与独立穷举](research/circular-sorting-antipodal/README.md)；未 Lean 形式化 |
 | 周期图无限对数凹性 | 全部 n ≥ 3；当且仅当 3 ≤ n ≤ 11，所有负例也已形式化 | [预印本](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md)；[完整 Lean 工程](formalizations/chromatic-cycles-all-n-lean/README.md) |
 | 通用轨道原始—对偶 | 任意有限群作用的有理最优证书与锐性 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) |
 | 每个有限 (n,k) 的精确公式 | 有限枚举的有理行列式最大值公式；不是无需取最大值的简单闭式 | [完整书面证明与整数实现](notes/sharp-robust-permanent/universal-exact/README.md)；全公式 Lean 未完成 |
