@@ -77,13 +77,12 @@ MODULE HydrologyTree.ReciprocalInterpolation
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesReciprocal
-HydrologyTree/StieltjesReciprocal.lean:28:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  DecidableEq I
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/StieltjesReciprocal.lean:27:77: error: unsolved goals
-I : Type u_1
-inst✝ : Fintype I
-r : I → ℝ
-hr : ∀ (i : I), 0 < r i
-⊢ DecidableEq I
+MODULE HydrologyTree.StieltjesReindex
+HydrologyTree/StieltjesReindex.lean:30:8: error: typeclass instance problem is stuck
+  AddCommMonoid ?m.18
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+HydrologyTree/StieltjesReindex.lean:69:37: error: unexpected token 'λ'; expected '⟩'
