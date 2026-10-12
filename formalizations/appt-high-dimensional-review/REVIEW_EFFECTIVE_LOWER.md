@@ -1,5 +1,7 @@
 # Effective spike-plateau lower bound and the complete wide-sector asymptotic
 
+**Independent verification completed:** run 38272300965, source c1bc61aa861f3d270c0f4ca669d8b154f5b81b98; 2,900 build tasks, 42,804 transitive declarations, 304 explicit roots, 113 pinned inputs, and 19 exact-type rejection controls. The complete original proof closure passed in an empty trust-zero kernel. Source-bound evidence is in `verification/ci-c1bc61aa/`. The precise incomplete scope at the end remains unchanged.
+
 This checkpoint verifies a lower branch of the existing high-dimensional purity research. It does not certify the multiscale coefficient eight below aspect ratio four, the full entropy laws, or dimension-varying rigidity. No new preprint or Release is prepared.
 
 ## Physical construction and exact finite statement
