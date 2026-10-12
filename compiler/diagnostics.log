@@ -80,10 +80,30 @@ MODULE HydrologyTree.StieltjesReciprocal
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesReindex
-HydrologyTree/StieltjesReindex.lean:30:8: error: typeclass instance problem is stuck
-  AddCommMonoid ?m.18
 
-Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+MODULE HydrologyTree.StieltjesGrouping
+HydrologyTree/StieltjesGrouping.lean:11:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.stieltjesDenominator_sigma`:
+  [DecidableEq B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq B] in theorem ...
 
-Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
-HydrologyTree/StieltjesReindex.lean:69:37: error: unexpected token 'λ'; expected '⟩'
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/StieltjesGrouping.lean:21:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.112 ?m.116 * ∏ x ∈ Finset.univ.erase ?m.116, ?m.112 x
+in the target expression
+  (X + C (b ⟨c, i⟩)) * ∏ v ∈ Finset.univ.erase ⟨c, i⟩, (X + C (b v)) =
+    (X + C (b ⟨c, i⟩)) *
+      ((∏ j ∈ Finset.univ.erase i, (X + C (b ⟨c, j⟩))) *
+        ∏ d ∈ Finset.univ.erase c, stieltjesDenominator fun j => b ⟨d, j⟩)
+
+B : Type u_1
+inst✝¹ : Fintype B
+inst✝ : DecidableEq B
+m : B → ℕ
+b : (c : B) × Fin (m c + 1) → ℝ
+c : B
+i : Fin (m c + 1)
+⊢ (X + C (b ⟨c, i⟩)) * ∏ v ∈ Finset.univ.erase ⟨c, i⟩, (X + C (b v)) =
+    (X + C (b ⟨c, i⟩)) *
+      ((∏ j ∈ Finset.univ.erase i, (X + C (b ⟨c, j⟩))) *
+        ∏ d ∈ Finset.univ.erase c, stieltjesDenominator fun j => b ⟨d, j⟩)
