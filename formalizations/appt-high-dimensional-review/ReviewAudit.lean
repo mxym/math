@@ -3,6 +3,25 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_rectangular_maximum_formula,
+  ``APPTReview.appt_rectangular_purity_isGreatest,
+  ``APPTReview.appt_rectangular_purity_sup_eq,
+  ``APPTReview.density_appt_two_branch_upper,
+  ``APPTReview.density_appt_prefix_mass,
+  ``APPTReview.density_appt_ordered_prefix_cut,
+  ``APPTReview.ordered_rectangular_cut_upper,
+  ``APPTReview.uniformPrefix_crossing_purity,
+  ``APPTReview.outerSpike_lt_roundedPlateau,
+  ``APPTReview.outerSpike_lt_rounded_model,
+  ``APPTReview.outerSpike_deficit_identity,
+  ``APPTReview.rectangular_cutoff_implies_dimensions,
+  ``APPTReview.roundedPlateauPurity_mem,
+  ``APPTReview.rectangular_4_58_maximum,
+  ``APPTReview.rectangular_4_59_maximum,
+  ``APPTReview.rectangular_cutoff_cannot_be_dropped,
+  ``APPTReview.ordered_spectrum_cut_unique,
+  ``APPTReview.convex_unique_spectral_sublevel,
+
   ``APPTReview.exists_projection_family_unique_rank_max,
   ``APPTReview.plateauScaledPurity_ceiling_unique,
   ``APPTReview.plateauScaledPurity_lt_ceiling,
@@ -259,3 +278,5 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038Int
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1038_not_appt "review-kernel-boundary-failure-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_spectrum_cut_bound "review-kernel-ordered-cut-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_two_branch_upper "review-kernel-rectangular-upper-control"

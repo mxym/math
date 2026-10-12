@@ -23,3 +23,7 @@ import APPTReview.Counterexample1038
 import APPTReview.JointBoundaryControl
 
 import APPTReview.RectangularControls
+
+import APPTReview.RectangularMaxControls
+
+import APPTReview.UniqueCutReduction
