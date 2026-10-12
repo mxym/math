@@ -71,12 +71,35 @@ MODULE HydrologyTree.StieltjesZeroFactorization
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesResidues
-HydrologyTree/StieltjesResidues.lean:29:4: error: Type mismatch: After simplification, term
-  HasDerivAt.fun_div (hasDerivAt_const s (w i)) (HasDerivAt.add_const (r i) (hasDerivAt_id s)) (hs i)
- has type
-  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
-    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
-    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun y => w i / (id y + r i)) (-w i / (id s + r i) ^ 2) s
-but is expected to have type
-  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
-    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun z => w i / (z + r i)) (-w i / (s + r i) ^ 2) s
+
+MODULE HydrologyTree.ReciprocalInterpolation
+HydrologyTree/ReciprocalInterpolation.lean:50:6: error: failed to create binder due to failure when reverting variable dependencies
+HydrologyTree/ReciprocalInterpolation.lean:60:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eval (-b i) (P %ₘ F)
+in the target expression
+  eval ((Neg.neg ∘ b) i) (P %ₘ F) = eval ((Neg.neg ∘ b) i) (-stieltjesNumerator b g)
+
+case neg.heval
+n : ℕ
+P : ℝ[X]
+b g : Fin n → ℝ
+hP : P.Monic
+hd : P.natDegree = n + 1
+hb : Function.Injective b
+hg : ∀ (i : Fin n), g i = -eval (-b i) P / eval (-b i) (derivative (stieltjesDenominator b))
+F : ℝ[X] := stieltjesDenominator b
+hF : F.Monic
+hFd : F.natDegree = n
+hQ : P /ₘ F = X + C ((P /ₘ F).coeff 0)
+hn : ¬n = 0
+hF1 : F ≠ 1
+i : Fin n
+hv : eval (-b i) (P %ₘ F) = eval (-b i) P
+⊢ eval ((Neg.neg ∘ b) i) (P %ₘ F) = eval ((Neg.neg ∘ b) i) (-stieltjesNumerator b g)
+HydrologyTree/ReciprocalInterpolation.lean:73:2: error: 'change' tactic failed, pattern
+  -stieltjesNumerator b g + F * (X + C ((P /ₘ F).coeff 0)) = (X + C ((P /ₘ F).coeff 0)) * F - stieltjesNumerator b g
+is not definitionally equal to target
+  -stieltjesNumerator b g + F * (X + C ((P /ₘ F).coeff 0)) =
+    (X + C (((-stieltjesNumerator b g + F * (X + C ((P /ₘ F).coeff 0))) /ₘ stieltjesDenominator b).coeff 0)) *
+        stieltjesDenominator b -
+      stieltjesNumerator b g
