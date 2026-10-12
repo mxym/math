@@ -665,19 +665,16 @@ MODULE HydrologyTree.PhysicalConstants
 HydrologyTree/PhysicalConstants.lean:23:76: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
 
 MODULE HydrologyTree.RootRecovery
-HydrologyTree/RootRecovery.lean:53:43: error: Application type mismatch: The argument
-  h
+
+MODULE HydrologyTree.CatenaryGlobal
+HydrologyTree/CatenaryGlobal.lean:20:2: error: Unnecessary `generalizing` argument: Variable `x` is generalized automatically
+HydrologyTree/CatenaryGlobal.lean:20:2: error: Unnecessary `generalizing` argument: Variable `y` is generalized automatically
+HydrologyTree/CatenaryGlobal.lean:49:32: error: Application type mismatch: The argument
+  hdata
 has type
-  rootTransition α β L K z = rootTransition α β L K w
+  ((pathCoefficientMap n u).1, (ell + f, u.1 0 * f), (pathCoefficientMap n u).2) =
+    ((pathCoefficientMap n v).1, (ell' + g, v.1 0 * g), (pathCoefficientMap n v).2)
 but is expected to have type
-  z = w
+  pathCoefficientMap n u = pathCoefficientMap n v
 in the application
-  congrArg Prod.fst h
-HydrologyTree/RootRecovery.lean:62:49: error: Application type mismatch: The argument
-  hc0
-has type
-  β w.1 + w.2.1.1 * α w.1 - z.2.1.2 = β w.1 + w.2.1.1 * α w.1 - w.2.1.2
-but is expected to have type
-  z.2.1.2 - ?m.256 = w.2.1.2 - ?m.256
-in the application
-  sub_left_inj.mp hc0
+  congrArg Prod.fst hdata
