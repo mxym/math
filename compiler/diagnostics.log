@@ -730,18 +730,81 @@ MODULE HydrologyTree.CoprimeBranchRecovery
 
 MODULE HydrologyTree.SerializedNumerator
 HydrologyTree/SerializedNumerator.lean:17:9: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/SerializedNumerator.lean:91:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  branchNumeratorSum (fun i => ?P (?e i)) fun i => ?R (?e i)
-in the target expression
-  (branchNumeratorSum (fun i => ↑(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>
-      ↑(r ((Fintype.equivFin I).symm i))) =
-    branchNumeratorSum (fun i => ↑(monicPoly (p i))) fun i => ↑(r i)
 
-I : Type u_1
-inst✝¹ : Fintype I
-inst✝ : DecidableEq I
-m : I → ℕ
-p r : (i : I) → ↥(Coeff (m i + 1))
-⊢ (branchNumeratorSum (fun i => ↑(monicPoly (p ((Fintype.equivFin I).symm i)))) fun i =>
-      ↑(r ((Fintype.equivFin I).symm i))) =
-    branchNumeratorSum (fun i => ↑(monicPoly (p i))) fun i => ↑(r i)
+MODULE HydrologyTree.DependentJacobian
+HydrologyTree/DependentJacobian.lean:21:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.hasFDerivAt_dependentPiEnd`:
+  [LinearOrder I]
+  [∀ (i : I), FiniteDimensional ℝ (E i)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder I] [∀ (i : I), FiniteDimensional ℝ (E i)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/DependentJacobian.lean:40:43: warning: This simp argument is unused:
+  Ne.symm h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.toMatrix_apply, Pi.basis_apply, Pi.basis_repr, Matrix.blockDiagonal'_apply_ne, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.CatenaryOrientation
+
+MODULE HydrologyTree.TreePreparation
+HydrologyTree/TreePreparation.lean:76:47: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  physicalRateDot ?m.40 ((treeCoordinateReturn ?t) ?p) ((treeCoordinateReturn ?t) ?q)
+in the target expression
+  physicalRateDot n (↑(treeCoordinateReturn t) p) (↑(treeCoordinateReturn t) q) = pathCoefficientDot n p q
+
+n : ℕ
+t : OrderedTree n
+p q : PathCoefficients n
+⊢ physicalRateDot n (↑(treeCoordinateReturn t) p) (↑(treeCoordinateReturn t) q) = pathCoefficientDot n p q
+HydrologyTree/TreePreparation.lean:89:2: error: Tactic `apply` failed: could not unify the conclusion of `@_root_.funext`
+  ?f = ?g
+with the goal
+  (((piScaledEquiv (childEdgeCount t)) fun i =>
+              ((coefficientArrayEquiv (childEdgeCount t i)).symm
+                  ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                        x.1 ↑c * outwardByVertex x.2 ↑c).1
+                    i)).1,
+            (piScaledEquiv (childEdgeCount t)) fun i =>
+              (leadingEquiv (childEdgeCount t i))
+                ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                          x.1 ↑c * outwardByVertex x.2 ↑c).2.2
+                    i,
+                  ((coefficientArrayEquiv (childEdgeCount t i)).symm
+                      ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0,
+                            fun c => x.1 ↑c * outwardByVertex x.2 ↑c).1
+                        i)).2)),
+          (fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                x.1 ↑c * outwardByVertex x.2 ↑c).2.1).1.1 =
+    (piScaledEquiv (childEdgeCount t)) fun c => (physicalCoefficientMap (childTree t c) (childRates t c x)).1
+
+Note: The full type of `@_root_.funext` is
+  ∀ {α : Sort ?u.17} {β : α → Sort ?u.16} {f g : (x : α) → β x}, (∀ (x : α), f x = g x) → f = g
+
+n : ℕ
+t : OrderedTree n
+x : TreeRates n
+⊢ (((piScaledEquiv (childEdgeCount t)) fun i =>
+              ((coefficientArrayEquiv (childEdgeCount t i)).symm
+                  ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                        x.1 ↑c * outwardByVertex x.2 ↑c).1
+                    i)).1,
+            (piScaledEquiv (childEdgeCount t)) fun i =>
+              (leadingEquiv (childEdgeCount t i))
+                ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                          x.1 ↑c * outwardByVertex x.2 ↑c).2.2
+                    i,
+                  ((coefficientArrayEquiv (childEdgeCount t i)).symm
+                      ((fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0,
+                            fun c => x.1 ↑c * outwardByVertex x.2 ↑c).1
+                        i)).2)),
+          (fun c => normalizedPhysicalTree (childTree t c) (childRates t c x), (rateChart t x).1 0, fun c =>
+                x.1 ↑c * outwardByVertex x.2 ↑c).2.1).1.1 =
+    (piScaledEquiv (childEdgeCount t)) fun c => (physicalCoefficientMap (childTree t c) (childRates t c x)).1
+HydrologyTree/TreePreparation.lean:98:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
