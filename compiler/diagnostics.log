@@ -1,8 +1,12 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 2485 file(s)
+Attempting to download 2 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 1 file(s) [attempted 1/2 = 50%, 35 KB/s], Decompressed: 0
+Downloaded: 2 file(s) [attempted 2/2 = 100%, 35 KB/s], Decompressed: 0
+Decompressed 2 file(s)
+Already decompressed 2679 file(s)
 
 MODULE HydrologyTree.MonicResultantAlgebra
 
@@ -812,25 +816,10 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.AllTreeResultant
 
+MODULE HydrologyTree.ResultantBoundary
+
 MODULE HydrologyTree.RingTreeModel
-HydrologyTree/RingTreeModel.lean:29:74: error: unsolved goals
-R : Type u_1
-S : Type u_2
-inst✝¹ : CommRing R
-inst✝ : CommRing S
-φ : R →+* S
-n : ℕ
-t : OrderedTree n
-x : RatesOver R n
-i j : Fin (n + 1)
-⊢ φ
-        ((∑ e,
-            (x.1 e.succ • (single (t.parent e) e.succ 1 - single e.succ e.succ 1) +
-              x.2 e • (single e.succ (t.parent e) 1 - single (t.parent e) (t.parent e) 1)))
-          i j) -
-      φ (if 0 = i ∧ 0 = j then x.1 0 else 0) =
-    (∑ e,
-          (φ (x.1 e.succ) • (single (t.parent e) e.succ 1 - single e.succ e.succ 1) +
-            φ (x.2 e) • (single e.succ (t.parent e) 1 - single (t.parent e) (t.parent e) 1)))
-        i j -
-      if 0 = i ∧ 0 = j then φ (x.1 0) else 0
+HydrologyTree/RingTreeModel.lean:31:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
