@@ -3,6 +3,21 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.not_proposedAPPTPurity_upper,
+  ``APPTReview.counterexample1038_formula_gap,
+  ``APPTReview.joint_scalar_boundary_and_failure,
+  ``APPTReview.zero_schmidt_model,
+  ``APPTReview.counterexample1038Interior_density,
+  ``APPTReview.counterexample1038Interior_appt,
+  ``APPTReview.counterexample1038Interior_margin,
+  ``APPTReview.counterexample1038Interior_formula_gap,
+  ``APPTReview.boundarySupport1038_card,
+  ``APPTReview.boundaryBase1038_diagonal,
+  ``APPTReview.boundaryBase1038_trace,
+  ``APPTReview.boundaryBase1038_25_not_appt,
+  ``APPTReview.boundaryPerturbation1038_density,
+  ``APPTReview.boundaryPerturbation1038_not_appt,
+
   ``APPTReview.counterexample1038_refutes_formula,
   ``APPTReview.exists_unitary_orthogonal_rows,
   ``APPTReview.gram_zero_row,
@@ -216,3 +231,7 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.jointSpike_absolutely
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038_absolutelyPPT "review-kernel-counterexample-membership-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_pure_signed_model "review-kernel-schmidt-model-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038Interior_margin "review-kernel-strict-margin-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1038_not_appt "review-kernel-boundary-failure-control"
