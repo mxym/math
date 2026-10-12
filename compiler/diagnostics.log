@@ -400,38 +400,3 @@ MODULE HydrologyTree.FiniteCancellation
 MODULE HydrologyTree.PhysicalCancellation
 
 MODULE HydrologyTree.PhysicalBranchRecovery
-HydrologyTree/PhysicalBranchRecovery.lean:19:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (physicalCharacteristic ?m.29 ?m.30).degree
-in the target expression
-  (childCharacteristic t x c).degree = ↑(childEdgeCount t c + 1)
-
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-c : RootChild t
-⊢ (childCharacteristic t x c).degree = ↑(childEdgeCount t c + 1)
-HydrologyTree/PhysicalBranchRecovery.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (physicalRootCofactor ?m.76 ?m.77).degree
-in the target expression
-  (childCofactor t x c).degree < ↑(childEdgeCount t c + 1)
-
-case neg
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-c : RootChild t
-hP : (childCharacteristic t x c).degree = ↑(childEdgeCount t c + 1)
-hc : ¬x.1 ↑c * outwardByVertex x.2 ↑c = 0
-⊢ (childCofactor t x c).degree < ↑(childEdgeCount t c + 1)
-HydrologyTree/PhysicalBranchRecovery.lean:37:2: error: ring failed, ring expressions not equal
-n : ℕ
-t : OrderedTree n
-x : TreeRates n
-h :
-  physicalCharacteristic t x =
-    (X + C ((rateChart t x).1 0)) * ∏ c, childCharacteristic t x c -
-      branchNumeratorSum (childCharacteristic t x) (physicalChildNumerator t x)
-⊢ branchNumeratorSum (childCharacteristic t x) (physicalChildNumerator t x) * 2 + physicalCharacteristic t x * 2 -
-        (X * ∏ c, childCharacteristic t x c) * 2 -
-      (C ((rateChart t x).1 0) * ∏ c, childCharacteristic t x c) * 2 =
-    0
