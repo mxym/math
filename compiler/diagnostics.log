@@ -2,7 +2,7 @@ CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 2474 file(s)
+Already decompressed 2677 file(s)
 
 MODULE HydrologyTree.Coefficients
 HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
@@ -402,3 +402,137 @@ MODULE HydrologyTree.PhysicalCancellation
 MODULE HydrologyTree.PhysicalBranchRecovery
 
 MODULE HydrologyTree.SubtreeAssignment
+
+MODULE HydrologyTree.BalanceWeights
+HydrologyTree/BalanceWeights.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/BalanceWeights.lean:51:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/BalanceWeights.lean:51:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.WeightedEnergy
+HydrologyTree/WeightedEnergy.lean:17:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/WeightedEnergy.lean:23:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeGram_transpose`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/WeightedEnergy.lean:28:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.GroundedPositivity
+
+MODULE HydrologyTree.SymmetricGenerator
+HydrologyTree/SymmetricGenerator.lean:25:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, ne_of_gt (hpos i)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:25:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, ne_of_gt (hpos i)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:26:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:26:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveSpectrum
+HydrologyTree/PositiveSpectrum.lean:18:55: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_neg, Matrix.charpoly_diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveChildModels
+
+MODULE HydrologyTree.SpectralResolvent
+HydrologyTree/SpectralResolvent.lean:20:53: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_diagonal, Matrix.star_apply, star_trivial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PhysicalStieltjes
+HydrologyTree/PhysicalStieltjes.lean:22:52: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PhysicalStieltjes.lean:22:75: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.StieltjesNumerator
+HydrologyTree/StieltjesNumerator.lean:17:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.stieltjesDenominator_monic`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/StieltjesNumerator.lean:20:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.eval_stieltjesDenominator`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.TreeCancellation
+
+MODULE HydrologyTree.PhysicalModes
+
+MODULE HydrologyTree.PositiveAssignment
