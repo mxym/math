@@ -57,23 +57,6 @@ MODULE HydrologyTree.FamilyResultants
 MODULE HydrologyTree.SignedFamilyResultant
 
 MODULE HydrologyTree.ResultantFamilyEnumeration
-HydrologyTree/ResultantFamilyEnumeration.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (insert i ?m.116).erase a
-in the target expression
-  r i * ∏ j ∈ (insert a s).erase i, p j = p a * (r i * ∏ j ∈ s.erase i, p j)
-
-case e_a
-ι : Type u_1
-inst✝ : DecidableEq ι
-s : Finset ι
-p r : ι → ℝ[X]
-a : ι
-ha : a ∉ s
-i : ι
-hi : i ∈ s
-hia : i ≠ a
-hae : a ∉ s.erase i
-⊢ r i * ∏ j ∈ (insert a s).erase i, p j = p a * (r i * ∏ j ∈ s.erase i, p j)
 HydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:
   [DecidableEq ι]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
