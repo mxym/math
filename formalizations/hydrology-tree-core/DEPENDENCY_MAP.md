@@ -80,3 +80,13 @@ transformation with all scaling, gluing and root-update factors composed.
 full-mode/actual-sibling-collision equivalence. The full physical-tree Jacobian
 induction, exact factor multiplicities, ODE observability, constructive inverse
 and global positive-fiber count remain unexported.
+
+### Global recovery per prescribed denominator assignment
+
+`physical_subtree_assignment_unique` proves uniqueness of all actual real rates
+for a fixed recursive subtree-characteristic assignment, with coprime siblings
+and nonzero edges assumed only of the reference model.
+`full_modes_subtree_assignment_unique` derives this for a positive full-mode
+reference, using constructed spectra and proved coprimality. This closes the
+uniqueness-per-assignment component; constructive existence of every assignment,
+complete parameterization and the factorial fiber count remain separate gaps.

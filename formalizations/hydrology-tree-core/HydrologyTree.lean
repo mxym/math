@@ -16,3 +16,4 @@ import HydrologyTree.PhysicalStieltjes
 import HydrologyTree.CatenaryCoprime
 import HydrologyTree.BranchStep
 import HydrologyTree.PhysicalModes
+import HydrologyTree.PositiveAssignment

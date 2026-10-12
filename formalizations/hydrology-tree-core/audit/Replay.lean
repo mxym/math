@@ -696,7 +696,29 @@ run_cmd do
     ``HydrologyTree.FullPositiveModes,
     ``HydrologyTree.fullPositiveModes_of_noncancellation,
     ``HydrologyTree.fullPositiveModes_noncancellation,
-    ``HydrologyTree.physical_full_modes_iff_no_sibling_collisions]
+    ``HydrologyTree.physical_full_modes_iff_no_sibling_collisions,
+    ``HydrologyTree.branchNumeratorSum,
+    ``HydrologyTree.coprime_branch_numerators_unique,
+    ``HydrologyTree.coprime_branch_numerators_unique_mod_product,
+    ``HydrologyTree.scalar_monic_polynomial_unique,
+    ``HydrologyTree.physicalChildNumerator,
+    ``HydrologyTree.physicalChildNumerator_degree,
+    ``HydrologyTree.physical_branch_numerator_sum,
+    ``HydrologyTree.physical_child_numerators_identified,
+    ``HydrologyTree.physical_child_coefficients_identified,
+    ``HydrologyTree.physical_child_data_and_connectors_identified,
+    ``HydrologyTree.CoprimeAtEveryBranch,
+    ``HydrologyTree.SameSubtreeCharacteristics,
+    ``HydrologyTree.physical_subtree_assignment_unique,
+    ``HydrologyTree.inward_nonroot_pos,
+    ``HydrologyTree.outward_nonroot_pos,
+    ``HydrologyTree.positive_child_rates,
+    ``HydrologyTree.coprime_linear_of_ne,
+    ``HydrologyTree.linear_factorizations_coprime,
+    ``HydrologyTree.positive_child_characteristics_coprime,
+    ``HydrologyTree.coprime_branches_of_no_spectral_collision,
+    ``HydrologyTree.positive_subtree_assignment_unique,
+    ``HydrologyTree.full_modes_subtree_assignment_unique]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

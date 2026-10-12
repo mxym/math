@@ -284,3 +284,26 @@ IFF no two actual sibling principal blocks share a spectral value anywhere
 in the tree. Both directions and the actual-polynomial statements are proved.
 This is NOT called a Jacobian singularity equivalence or an ODE observability
 theorem, which are separate remaining claims.
+
+## Global uniqueness per prescribed subtree-factor assignment
+
+`CoprimeBranchRecovery` proves uniqueness of the actual strict-degree branch
+numerators modulo the full denominator product, using polynomial coprimality
+and divisibility rather than a local inverse or numerical argument.
+`PhysicalBranchRecovery` connects this to the actual matrix characteristic
+recursion: prescribed pairwise-coprime child denominator factors and the parent
+characteristic determine all child cofactors, connector products and outgoing
+connector rates. The reference only needs nonzero internal edges; the competing
+real rate vector is unrestricted.
+
+`SubtreeAssignment` then completes an arbitrary-tree global induction. With
+coprime siblings and nonzero edges in the reference model, a prescribed recursive
+assignment of ACTUAL subtree characteristic polynomials has at most one complete
+real physical rate vector. Cofactors and rates are not assumed equal.
+`PositiveChildModels` and `PositiveAssignment` derive the needed coprimality
+from positive physical rates and the already proved actual no-spectral-collision
+criterion. This also applies to every positive full-mode model.
+
+These are uniqueness-per-assignment theorems, not a claim that every assignment
+is realizable or that all positive realizations have been counted. The constructive
+inverse/existence step and factorial enumeration remain explicit open proof tasks.

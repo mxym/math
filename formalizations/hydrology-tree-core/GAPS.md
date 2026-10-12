@@ -107,3 +107,18 @@ in a positive-rate tree. Zero observation weights or repeated roots are
 excluded by a proved noncancellation equivalence, not an assumption hidden in
 a spectral theorem. Construction of every positive realization from arbitrary
 Stieltjes data and the exact global fiber count remain to be completed.
+
+## Uniqueness per prescribed recursive assignment now closed
+
+CoprimeBranchRecovery, PhysicalBranchRecovery, SubtreeAssignment and
+PositiveAssignment prove complete original-rate uniqueness for each fixed
+recursive assignment of actual subtree characteristic polynomials, under the
+stated noncancelling reference conditions. The competing real-rate model needs
+no positivity/minimality premise. These proofs recover child cofactors and
+actual connectors and then use full tree induction and the original rate
+permutation. They do not assume child parameter uniqueness as an axiom.
+
+Remaining positive-fiber obligations: construct a physical positive realization
+for every admissible recursive pole partition; prove completeness of the
+admissible partition parameterization; prove the exact combinatorial count.
+The uniqueness part alone must not be presented as existence or enumeration.
