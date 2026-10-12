@@ -142,216 +142,54 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 
 MODULE HydrologyTree.BranchStep
 
-MODULE HydrologyTree.RateChart
-HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
-  ite_mul
+MODULE HydrologyTree.PiSerialization
+HydrologyTree/PiSerialization.lean:47:4: error: Type mismatch
+  ih ?m.28 ?m.29
+has type
+  familyPolynomials (List.ofFn ?m.28) ((piCoefficientsFinEquiv ?m.28) ?m.29) = List.ofFn fun i => ↑(monicPoly (?m.29 i))
+but is expected to have type
+  familyPolynomials (List.ofFn m)
+      ((⋯.mpr
+          ({ toFun := fun f => (f 0, fun i => f i.succ), map_add' := ⋯, map_smul' := ⋯,
+              invFun := fun z i => Fin.cases z.1 z.2 i, left_inv := ⋯, right_inv := ⋯ } ≪≫ₗ
+            (LinearEquiv.refl ℝ ↥(Coeff (m 0))).prodCongr (piCoefficientsFinEquiv fun i => m i.succ)))
+        p) =
+    ↑(monicPoly (p 0)) :: List.ofFn fun i => ↑(monicPoly (p i.succ))
+HydrologyTree/PiSerialization.lean:43:55: warning: This simp argument is unused:
+  LinearEquiv.trans_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence, eq_comm]
+  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.prodCongr_apply, LinearEquiv.refl_apply,
+    finPiHeadTail, familyPolynomials]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:113:26: warning: This simp argument is unused:
-  Matrix.diagonal_apply
+HydrologyTree/PiSerialization.lean:44:6: warning: This simp argument is unused:
+  LinearEquiv.prodCongr_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.sub_apply, childWeighted_mul_parent, hne, hneq]
+  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.refl_apply,
+    finPiHeadTail, familyPolynomials]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RateChart.lean:128:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
-
-MODULE HydrologyTree.CompartmentMatrix
-HydrologyTree/CompartmentMatrix.lean:27:10: warning: This simp argument is unused:
-  Matrix.single_apply
+HydrologyTree/PiSerialization.lean:44:35: warning: This simp argument is unused:
+  LinearEquiv.refl_apply
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [h]
+  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,
+    finPiHeadTail, familyPolynomials]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:70:30: warning: This simp argument is unused:
-  Matrix.single_apply
+HydrologyTree/PiSerialization.lean:45:6: warning: This simp argument is unused:
+  familyPolynomials
 
 Hint: Omit it from the simp argument list.
-  [apply] simp [edgeMatrix, h1, h2, eq_comm]
+  [apply] simp only [List.ofFn_succ, piCoefficientsFinEquiv, LinearEquiv.trans_apply, LinearEquiv.prodCongr_apply,
+    LinearEquiv.refl_apply, finPiHeadTail]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:70:59: warning: This simp argument is unused:
-  eq_comm
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [edgeMatrix, Matrix.single_apply, h1, h2]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:85:10: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [sub_eq_add_neg]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:87:10: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hi, sub_eq_add_neg, add_comm]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:97:12: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hvw, Ne.symm hvw]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:97:38: warning: This simp argument is unused:
-  Ne.symm hvw
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.single_apply, hvw]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:98:12: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [hi, Ne.symm hi]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/CompartmentMatrix.lean:98:37: warning: This simp argument is unused:
-  Ne.symm hi
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [Matrix.single_apply, hi]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-
-MODULE HydrologyTree.PhysicalBridge
-
-MODULE HydrologyTree.RootBranches
-HydrologyTree/RootBranches.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hv
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-
-MODULE HydrologyTree.BranchMatrixSupport
-HydrologyTree/BranchMatrixSupport.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/BranchMatrixSupport.lean:113:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-
-MODULE HydrologyTree.ChildTree
-HydrologyTree/ChildTree.lean:28:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-
-MODULE HydrologyTree.MatrixEntries
-HydrologyTree/MatrixEntries.lean:23:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-HydrologyTree/MatrixEntries.lean:36:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-
-MODULE HydrologyTree.ChildRates
-
-MODULE HydrologyTree.ChildIndex
-
-MODULE HydrologyTree.RateCoordinates
-HydrologyTree/RateCoordinates.lean:25:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-HydrologyTree/RateCoordinates.lean:34:11: warning: Variable name `f` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _f
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RateCoordinates.lean:35:12: warning: Variable name `g` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _g
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RateCoordinates.lean:36:11: warning: Variable name `f` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _f
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RateCoordinates.lean:36:13: warning: Variable name `g` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _g
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RateCoordinates.lean:37:12: warning: Variable name `c` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _c
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RateCoordinates.lean:37:14: warning: Variable name `f` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _f
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-
-MODULE HydrologyTree.RootCoupling
-HydrologyTree/RootCoupling.lean:14:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.sumCoordinates_apply`:
-  [DecidableEq C]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq C] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/RootCoupling.lean:36:6: warning: This simp argument is unused:
-  Matrix.one_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.diagonal_apply, Pi.basisFun_apply,
-    Pi.single_apply, Finsupp.single_apply, eq_comm]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RootCoupling.lean:37:23: warning: This simp argument is unused:
-  Finsupp.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.one_apply, Matrix.diagonal_apply,
-    Pi.basisFun_apply, Pi.single_apply, eq_comm]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-
-MODULE HydrologyTree.CouplingSemantics
-
-MODULE ProbeForest
-LinearMap.det_pi.{u_1, u_2, u_4} {R : Type u_1} [CommRing R] {M : Type u_2} [AddCommGroup M] [Module R M] {ι : Type u_4}
-  [Fintype ι] [Module.Free R M] [Module.Finite R M] (f : ι → M →ₗ[R] M) :
-  LinearMap.det (LinearMap.pi fun i => f i ∘ₗ LinearMap.proj i) = ∏ i, LinearMap.det (f i)
-ProbeForest.lean:5:7: error(lean.unknownIdentifier): Unknown constant `LinearMap.det_piMap`
-LinearMap.pi.{u, w, x, i} {R : Type u} {M₂ : Type w} {ι : Type x} [Semiring R] [AddCommMonoid M₂] [Module R M₂]
-  {φ : ι → Type i} [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (f : (i : ι) → M₂ →ₗ[R] φ i) :
-  M₂ →ₗ[R] (i : ι) → φ i
-ProbeForest.lean:7:7: error(lean.unknownIdentifier): Unknown constant `Module.Basis.pi`
-Pi.basis.{u_2, u_4, u_5, u_6} {R : Type u_2} {η : Type u_4} {ιs : η → Type u_5} {Ms : η → Type u_6} [Semiring R]
-  [(i : η) → AddCommMonoid (Ms i)] [(i : η) → Module R (Ms i)] [Fintype η]
-  (s : (j : η) → Module.Basis (ιs j) R (Ms j)) : Module.Basis ((j : η) × ιs j) R ((j : η) → Ms j)
-LinearEquiv.piCongrRight.{u, x, u_1, u_2} {R : Type u} {ι : Type x} [Semiring R] {φ : ι → Type u_1} {ψ : ι → Type u_2}
-  [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] [(i : ι) → AddCommMonoid (ψ i)] [(i : ι) → Module R (ψ i)]
-  (e : (i : ι) → φ i ≃ₗ[R] ψ i) : ((i : ι) → φ i) ≃ₗ[R] (i : ι) → ψ i
-LinearEquiv.piCongrLeft.{u, x, x', u_1} (R : Type u) {ι : Type x} {ι' : Type x'} [Semiring R] (φ : ι → Type u_1)
-  [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (e : ι' ≃ ι) : ((i' : ι') → φ (e i')) ≃ₗ[R] (i : ι) → φ i
-LinearEquiv.piCongrLeft'.{u, x, x', u_1} (R : Type u) {ι : Type x} {ι' : Type x'} [Semiring R] (φ : ι → Type u_1)
-  [(i : ι) → AddCommMonoid (φ i)] [(i : ι) → Module R (φ i)] (e : ι ≃ ι') :
-  ((i' : ι) → φ i') ≃ₗ[R] (i : ι') → φ (e.symm i)
-List.ofFn_succ.{u_1} {α : Type u_1} {n : ℕ} {f : Fin (n + 1) → α} : List.ofFn f = f 0 :: List.ofFn fun i => f i.succ
-ProbeForest.lean:13:7: error(lean.unknownIdentifier): Unknown constant `Equiv.piFinSucc`
-ProbeForest.lean:14:7: error(lean.unknownIdentifier): Unknown constant `LinearEquiv.piFinSucc`
-Fintype.sum_equiv.{u_1, u_2, u_3} {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [Fintype ι] [Fintype κ] [AddCommMonoid M]
-  (e : ι ≃ κ) (f : ι → M) (g : κ → M) (h : ∀ (x : ι), f x = g (e x)) : ∑ x, f x = ∑ x, g x
-Fintype.card_sigma.{u_7, u_8} {ι : Type u_8} {α : ι → Type u_7} [Fintype ι] [(i : ι) → Fintype (α i)] :
-  Fintype.card (Sigma α) = ∑ i, Fintype.card (α i)
-ProbeForest.lean:17:7: error(lean.unknownIdentifier): Unknown constant `FiniteDimensional.finrank_eq_card_basis`
+HydrologyTree/PiSerialization.lean:65:79: error: unsolved goals
+I : Type u_1
+inst✝ : Fintype I
+m : I → ℕ
+⊢ (List.ofFn fun i => m ((Fintype.equivFin I).symm i) + 1) =
+    List.ofFn ((fun n => n + 1) ∘ fun i => m ((Fintype.equivFin I).symm i))
