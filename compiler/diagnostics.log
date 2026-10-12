@@ -764,13 +764,21 @@ MODULE HydrologyTree.PhysicalBranchRecovery
 
 MODULE HydrologyTree.TreeStepSemantics
 
+MODULE HydrologyTree.LinearConjugation
+HydrologyTree/LinearConjugation.lean:18:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.endJacobian_linear_conjugate`:
+  [FiniteDimensional ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
 MODULE HydrologyTree.TreePipeline
-HydrologyTree/TreePipeline.lean:42:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+HydrologyTree/TreePipeline.lean:44:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
 
 Note: Use `set_option maxHeartbeats <num>` to set the limit.
 
 Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
-HydrologyTree/TreePipeline.lean:93:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+HydrologyTree/TreePipeline.lean:89:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
 
 Note: Use `set_option maxHeartbeats <num>` to set the limit.
 
