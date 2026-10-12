@@ -74,11 +74,16 @@ MODULE HydrologyTree.StieltjesResidues
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.ReciprocalInterpolation
-HydrologyTree/ReciprocalInterpolation.lean:50:6: warning: Try this: 
-  letI̵
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
+MODULE HydrologyTree.StieltjesReciprocal
+HydrologyTree/StieltjesReciprocal.lean:28:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq I
 
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/StieltjesReciprocal.lean:27:77: error: unsolved goals
+I : Type u_1
+inst✝ : Fintype I
+r : I → ℝ
+hr : ∀ (i : I), 0 < r i
+⊢ DecidableEq I
