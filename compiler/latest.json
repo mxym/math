@@ -1,6 +1,6 @@
 {
   "serial": 87,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "12d8ce2f4d6b7949e6414defc336d60e3e3ef509",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -108,7 +108,69 @@
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 2.326
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 1.694
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 1.861
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.114
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 1.695
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.601
+    },
+    {
+      "module": "HydrologyTree.MatrixEntries",
+      "returncode": 0,
+      "seconds": 1.554
+    },
+    {
+      "module": "HydrologyTree.BalanceWeights",
+      "returncode": 0,
+      "seconds": 1.517
+    },
+    {
+      "module": "HydrologyTree.WeightedEnergy",
+      "returncode": 0,
+      "seconds": 1.675
+    },
+    {
+      "module": "HydrologyTree.GroundedPositivity",
+      "returncode": 0,
+      "seconds": 1.599
+    },
+    {
+      "module": "HydrologyTree.SymmetricGenerator",
+      "returncode": 0,
+      "seconds": 1.851
+    },
+    {
+      "module": "HydrologyTree.PositiveSpectrum",
+      "returncode": 1,
+      "seconds": 1.528
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38198592888"
+  "run_id": "38198592888",
+  "diagnostics": "HydrologyTree/PositiveSpectrum.lean:14:17: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut`\nHydrologyTree/PositiveSpectrum.lean:17:10: error(lean.unknownIdentifier): Unknown identifier `conjStarAlgAut_apply`\nHydrologyTree/PositiveSpectrum.lean:13:71: error: unsolved goals\nI : Type u_1\ninst\u271d\u00b9 : Fintype I\ninst\u271d : DecidableEq I\nB : Matrix I I \u211d\nhB : B.PosDef\nhn : -B = sorry\n\u22a2 sorry.charpoly = \u220f i, (X + C (\u22ef.eigenvalues i))\n"
 }
