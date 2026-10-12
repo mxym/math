@@ -1,8 +1,12 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 2681 file(s)
+Attempting to download 4 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 1 file(s) [attempted 1/4 = 25%, 480 KB/s], Decompressed: 0
+Downloaded: 4 file(s) [attempted 4/4 = 100%, 480 KB/s], Decompressed: 1
+Decompressed 4 file(s)
+Already decompressed 2685 file(s)
 
 MODULE HydrologyTree.Coefficients
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
@@ -62,110 +66,39 @@ MODULE HydrologyTree.StieltjesNumerator
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesDegree
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.StieltjesInterlacing
-HydrologyTree/StieltjesInterlacing.lean:22:41: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  d ≥ 0
-  c ≥ 0
-  c - d ≥ 0
-  b ≥ 0
-  b - c ≤ 0
-  b - d ≤ -1
-  a ≥ 0
-  a - b ≥ 1
-  a - c ≤ 0
-  a - d ≥ 0
-where
- a := ↑↑i.castSucc
- b := ↑↑j
- c := ↑n
- d := ↑↑i.succ
-HydrologyTree/StieltjesInterlacing.lean:23:32: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  d ≥ 0
-  c ≥ 0
-  c - d ≥ 0
-  b ≥ 0
-  b - c ≤ 0
-  a ≥ 0
-  a - b ≥ 1
-  a - c ≤ 0
-  a - d ≤ -1
-where
- a := ↑↑j
- b := ↑↑i.castSucc
- c := ↑n
- d := ↑↑i.succ
-HydrologyTree/StieltjesInterlacing.lean:24:49: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  d ≥ 0
-  c ≥ 0
-  c - d ≥ 0
-  b ≥ 0
-  b - c ≤ 0
-  b - d ≥ 0
-  a ≥ 0
-  a - b ≥ 1
-  a - c ≤ 0
-  a - d ≥ 1
-where
- a := ↑↑j
- b := ↑↑i.castSucc
- c := ↑n
- d := ↑↑i.succ
-HydrologyTree/StieltjesInterlacing.lean:31:40: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  b ≥ 0
-  a ≥ 0
-  a - b ≤ 0
-where
- a := ↑↑i.succ
- b := ↑n
-HydrologyTree/StieltjesInterlacing.lean:34:63: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  c ≥ 0
-  b ≥ 0
-  b - c ≤ 0
-  a ≥ 0
-  a - b ≥ 1
-  a - c ≤ 0
-where
- a := ↑↑i.castSucc
- b := ↑↑i.succ
- c := ↑n
-HydrologyTree/StieltjesInterlacing.lean:44:6: error(lean.unknownIdentifier): Unknown constant `Finset.erase_comm`
-HydrologyTree/StieltjesInterlacing.lean:55:52: error(lean.invalidField): Invalid field `continuous`: The environment does not contain `Polynomial.continuous`, so it is not possible to project the field `continuous` from an expression
-  p
-of type `ℝ[X]`
-HydrologyTree/StieltjesInterlacing.lean:65:46: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  c ≥ 0
-  b ≥ 0
-  b - c ≤ 0
-  a ≥ 0
-  a - b ≥ 0
-  a - c ≤ 0
-where
- a := ↑↑i.castSucc
- b := ↑↑i.succ
- c := ↑n
-HydrologyTree/StieltjesInterlacing.lean:92:57: error: omega could not prove the goal:
-a possible counterexample may satisfy the constraints
-  e ≥ 0
-  d ≥ 0
-  d - e ≥ 1
-  c ≥ 0
-  c - d ≥ 0
-  c - e ≥ 0
-  b ≥ 0
-  b - c ≤ -1
-  a ≥ 0
-  a - b ≥ 1
-  a - c ≤ -1
-where
- a := ↑↑j
- b := ↑↑i
- c := ↑n
- d := ↑↑i.succ
- e := ↑↑j.castSucc
+HydrologyTree/StieltjesInterlacing.lean:74:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun x => eval x p) a
+in the target expression
+  eval a p * eval b p < 0
+
+p : ℝ[X]
+a b : ℝ
+hab : a < b
+h : eval a p * eval b p < 0
+hu : 0 ∈ Set.uIcc (eval a p) (eval b p)
+z : ℝ
+hz : z ∈ Set.uIcc a b
+hzero : (fun x => eval x p) a = 0
+hz' : a ≤ z ∧ z ≤ b
+he : z = a
+⊢ False
+HydrologyTree/StieltjesInterlacing.lean:75:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun x => eval x p) b
+in the target expression
+  eval a p * eval b p < 0
+
+p : ℝ[X]
+a b : ℝ
+hab : a < b
+h : eval a p * eval b p < 0
+hu : 0 ∈ Set.uIcc (eval a p) (eval b p)
+z : ℝ
+hz : z ∈ Set.uIcc a b
+hzero : (fun x => eval x p) b = 0
+hz' : a ≤ z ∧ z ≤ b
+hza : z ≠ a
+he : z = b
+⊢ False
