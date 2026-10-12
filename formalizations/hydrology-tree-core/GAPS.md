@@ -37,12 +37,16 @@ factor/divisibility arguments and uniform hyperplane witnesses. The next power
 is excluded, including the outward-leaf exponent-zero case and the root leak.
 These algebraic multiplicity obligations are no longer missing.
 
-The explicit determinant of formal partial derivatives of symbolic actual
-coefficients is an additional interface under development; it is not needed
-to assume polynomiality of the actual Frechet determinant, which is already
-proved by the unique all-real-evaluation representative. The published
-parameter-convention and independent graph-presentation transport still need
-the precise coverage statements described below.
+`formalTreeJacobian` now independently constructs the determinant of the matrix
+of formal partial derivatives of the actual symbolic characteristic/cofactor
+coefficients. Its evaluation is proved equal to the actual Frechet Jacobian,
+and its exact polynomial factorization and multiplicities are proved. Thus the
+explicit formal-differentiation interface is also closed. The endpoint path has
+a separate all-size formal polynomial monomial theorem with the original
+inward/outward exponents.
+
+The independent graph-presentation and nonroot-leak conventions still require
+the transports specified below; they are not hidden in this rooted-parent model.
 
 ## 2. Positive realization existence and exhaustive count
 

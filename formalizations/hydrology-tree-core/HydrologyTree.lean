@@ -25,3 +25,4 @@ import HydrologyTree.AllTreeResultant
 import HydrologyTree.TreeBoundarySingularSet
 import HydrologyTree.ResultantBoundary
 import HydrologyTree.TreeExactMultiplicities
+import HydrologyTree.CatenaryFormalPolynomial

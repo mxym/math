@@ -142,8 +142,9 @@ unproved polynomial-representation premise substitutes for this bridge.
 Equivalently, exactly the displayed power divides J_T and the next power does
 not. The root-leak variable does not divide J_T. The existence-and-exact-powers
 theorem constructs its polynomial, with no representation or multiplicity
-assumption. An explicitly formal-partial-derivative determinant interface is
-being checked separately and is not claimed by this checkpoint.
+assumption. The explicit determinant of formal partial derivatives of the actual symbolic
+coefficient polynomials is now also proved equal to this unique polynomial;
+see `FormalTreePolynomial` and the mathematical statement in `FORMAL_THEOREMS.md`.
 
 `TreeBoundarySingularSet` gives the full real Jacobian singular set, including
 zero-rate boundaries: a zero inward rate, or a zero outward rate whose subtree
@@ -156,3 +157,23 @@ The signed-resultant checkpoint 637a50fc passed independent run 38212403838:
 100 modules, 897 roots, 43,475 empty-kernel declarations, and 38 rejected negative
 controls. The new multiplicity/boundary extension receives its own separate
 source-bound verification; the earlier receipt does not certify these new bytes.
+
+## Formal partial-derivative determinant
+
+`MultivariateDifferential` proves the Frechet derivative of arbitrary finite
+multivariate polynomial evaluation from formal partial derivatives.
+`PolynomialMapJacobian` identifies the determinant of this formal derivative
+matrix with the actual Frechet determinant. `SymbolicCoefficients` constructs
+the actual physical matrix characteristic/cofactor coefficient polynomials.
+
+`formalTreeJacobian` is defined as the determinant of their formal partial
+derivatives, independently of the factorization. `formalTreeJacobian_evaluate`
+proves equality to the actual standard-coordinate physical Jacobian at every
+real rate vector. `formalTreeJacobian_factorization`,
+`formalTreeJacobian_exact_powers`, and the inward/outward multiplicity theorems
+complete the algebraic proof for this independently defined formal determinant.
+`catenary_standard_formal_polynomial` gives its all-size endpoint-path monomial.
+
+The source has compiled and its full source-bound independent verification is
+the new run for this exact checkpoint. Earlier 100/110-module receipts must not
+be reported as certifying the additional formal-derivative files.

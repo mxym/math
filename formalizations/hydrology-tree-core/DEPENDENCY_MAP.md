@@ -1,7 +1,8 @@
 # Paper statements → actual Lean proof chain
 
 Overall status: partial formalization. The all-tree rooted coefficient Jacobian
-is proved; existence/counting, exact multiplicity and some variants remain.
+and exact polynomial rate multiplicities are proved; positive existence/counting
+and the graph/leak/ODE variants remain.
 
 | Statement | Main Lean entries | Exact scope |
 |---|---|---|
@@ -16,9 +17,10 @@ is proved; existence/counting, exact multiplicity and some variants remain.
 | Positive spectral singular set | `positive_tree_jacobian_zero_iff_collision` | Positive internal rates; actual real sibling principal spectra |
 | Full positive Stieltjes modes | `positive_tree_jacobian_iff_full_modes` | Positive root leak and internal rates; energy/spectral proof imported, not assumed |
 | Global uniqueness per fixed subtree assignment | `regular_tree_assignment_unique` | Arbitrary real competitor; not uniqueness from root response alone |
+| Formal symbolic/analytic derivative identification | `formalTreeJacobian_evaluate`, `formal_catenary_jacobian_polynomial` | Actual symbolic characteristic/cofactor coefficients and formal partial derivatives, matched to actual Frechet derivatives at every real rate vector |
 | Uniform coordinate-boundary construction | `zero_outward_characteristic`, `zero_coordinate_coprime_witness` | All tree sizes; distinct inward rates, all outward rates zero |
-| Exact individual-rate polynomial multiplicities | Not yet exported | Need complete divisibility/nondivisibility argument; the displayed factorization alone is insufficient |
-| Exact signed resultant/Jacobian identity | Not yet exported | Zero-set equivalences do not replace the exact polynomial identity |
+| Exact individual-rate polynomial multiplicities | `formalTreeJacobian_exact_powers`, `formalTreeJacobian_inward_multiplicity`, `formalTreeJacobian_outward_multiplicity` | Polynomial prime multiplicity of the formally differentiated actual coefficient determinant; nondivisibility by the next power proved, including zero exponents |
+| Exact signed resultant/Jacobian identity | `full_tree_resultant_jacobian`, `physicalResultant_jacobian_square` | Fixed tree-dependent sign, all real rates and all degenerate boundaries |
 | All positive realizations and factorial count | Not yet exported | Interlacing, residue signs, every partition's realization, completeness and count remain |
 | Nonroot leak / arbitrary external graph presentation | Not yet exported | Rooted OrderedTree main theorem does not silently include these transports |
 | ODE all-input / controllability interpretations | Not yet exported | Algebraic resolvent and polynomial identities do not supply ODE semantics |
