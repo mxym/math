@@ -14,7 +14,7 @@ identifies intrinsic facet coefficients with every positive orthogonal chart,
 proves their joint continuity, and passes the actual Bochner moment flux and
 entire Laplacian matrix to distinct-score limits of balanced simplicial
 diagrams. Eight new modules and one byte-identical reused source are integrated.
-See [INTRINSIC_BOUNDARY_PROGRESS.md](INTRINSIC_BOUNDARY_PROGRESS.md).
+See [INTRINSIC_BOUNDARY_PROGRESS.md](INTRINSIC_BOUNDARY_PROGRESS.md) and [THEOREM_MAP.md](THEOREM_MAP.md).
 
 Principal entries:
 
@@ -45,7 +45,7 @@ Toolchain: Lean 4.34.1, commit
 5045d0056413266e57c625dcd7c365b10e377c52.
 Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612.
 All transitive versions are fixed in lake-manifest.json. The current inventory
-has 105 modules and 631 audit roots. Its new fresh verification is in progress;
+has 107 modules and 635 audit roots. Its new fresh verification is in progress;
 historical receipts are not substituted for the new checks.
 
 ```bash

@@ -631,3 +631,7 @@ import GaussianFour
 #print axioms GaussianFour.continuous_facetLaplacian
 #print axioms GaussianFour.continuousAt_intrinsicLaplacian
 #print axioms GaussianFour.balanced_simplicial_limit_laplacian
+#print axioms GaussianFour.scoreGram_rank_eq_span_rows
+#print axioms GaussianFour.scoreGram_rank_le_one_collinear
+#print axioms GaussianFour.exists_perm_strictMono_of_injective
+#print axioms GaussianFour.no_rank_one_ordered_selfMoment_spectral_bound
