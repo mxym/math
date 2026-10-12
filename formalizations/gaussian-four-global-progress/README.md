@@ -45,7 +45,7 @@ Toolchain: Lean 4.34.1, commit
 5045d0056413266e57c625dcd7c365b10e377c52.
 Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612.
 All transitive versions are fixed in lake-manifest.json. The current inventory
-has 109 modules and 641 audit roots. Fresh reproduction `repro-20261013-sign` passed; its receipt is in `evidence/repro-20261013-sign/`. Historical receipts are not substituted for this run.
+has 109 modules and 641 audit roots. Fresh reproduction `repro-20261013-sign2` passed after the rank-two affine/sign additions; its receipt is in `evidence/repro-20261013-sign2/`. The earlier sign receipt is retained as historical evidence.
 
 ```bash
 cd formalizations/gaussian-four-global-progress
