@@ -1,6 +1,6 @@
 {
   "serial": 71,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "5fa72190e61d858fc1b9de3e1567b49a307e729e",
   "modules": [
     "HydrologyTree.Coefficients",
@@ -60,7 +60,144 @@
     "HydrologyTree/ChildTree.lean": "4c51c7ef03b157b4c138fdd478c43e6cfaca1450237acf551d8cd0aa30d1f120",
     "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "HydrologyTree.Coefficients",
+      "returncode": 0,
+      "seconds": 2.921
+    },
+    {
+      "module": "HydrologyTree.BlockJacobian",
+      "returncode": 0,
+      "seconds": 2.045
+    },
+    {
+      "module": "HydrologyTree.Triangular",
+      "returncode": 0,
+      "seconds": 2.225
+    },
+    {
+      "module": "HydrologyTree.RateChart",
+      "returncode": 0,
+      "seconds": 2.408
+    },
+    {
+      "module": "HydrologyTree.CompartmentMatrix",
+      "returncode": 0,
+      "seconds": 2.017
+    },
+    {
+      "module": "HydrologyTree.PhysicalBridge",
+      "returncode": 0,
+      "seconds": 1.834
+    },
+    {
+      "module": "HydrologyTree.RootBranches",
+      "returncode": 0,
+      "seconds": 1.759
+    },
+    {
+      "module": "HydrologyTree.BranchMatrixSupport",
+      "returncode": 0,
+      "seconds": 1.763
+    },
+    {
+      "module": "HydrologyTree.ChildTree",
+      "returncode": 0,
+      "seconds": 1.809
+    },
+    {
+      "module": "HydrologyTree.MatrixEntries",
+      "returncode": 0,
+      "seconds": 1.809
+    },
+    {
+      "module": "HydrologyTree.ChildRates",
+      "returncode": 0,
+      "seconds": 1.84
+    },
+    {
+      "module": "HydrologyTree.BranchConservation",
+      "returncode": 0,
+      "seconds": 1.899
+    },
+    {
+      "module": "HydrologyTree.LeadingCoefficients",
+      "returncode": 0,
+      "seconds": 2.063
+    },
+    {
+      "module": "HydrologyTree.Resolvent",
+      "returncode": 0,
+      "seconds": 1.797
+    },
+    {
+      "module": "HydrologyTree.EdgeDeterminant",
+      "returncode": 0,
+      "seconds": 1.525
+    },
+    {
+      "module": "HydrologyTree.EdgeCharacteristic",
+      "returncode": 0,
+      "seconds": 1.559
+    },
+    {
+      "module": "HydrologyTree.ChildMatrix",
+      "returncode": 0,
+      "seconds": 1.947
+    },
+    {
+      "module": "HydrologyTree.PhysicalRootDecomposition",
+      "returncode": 0,
+      "seconds": 1.692
+    },
+    {
+      "module": "HydrologyTree.DependentBlocks",
+      "returncode": 0,
+      "seconds": 1.399
+    },
+    {
+      "module": "HydrologyTree.ArrowDeterminant",
+      "returncode": 0,
+      "seconds": 1.919
+    },
+    {
+      "module": "HydrologyTree.ArrowCharacteristic",
+      "returncode": 0,
+      "seconds": 1.479
+    },
+    {
+      "module": "HydrologyTree.PhysicalRecursion",
+      "returncode": 0,
+      "seconds": 1.856
+    },
+    {
+      "module": "HydrologyTree.ChildIndex",
+      "returncode": 0,
+      "seconds": 1.714
+    },
+    {
+      "module": "HydrologyTree.RateCoordinates",
+      "returncode": 0,
+      "seconds": 1.963
+    },
+    {
+      "module": "HydrologyTree.RootCoupling",
+      "returncode": 0,
+      "seconds": 2.492
+    },
+    {
+      "module": "HydrologyTree.CouplingSemantics",
+      "returncode": 0,
+      "seconds": 1.907
+    },
+    {
+      "module": "HydrologyTree.PhysicalConstants",
+      "returncode": 1,
+      "seconds": 1.665
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38188517128"
+  "run_id": "38188517128",
+  "diagnostics": "HydrologyTree/PhysicalConstants.lean:31:13: error: `simp` made no progress\nHydrologyTree/PhysicalConstants.lean:23:76: warning: This simp argument is unused:\n  Polynomial.eval_sum\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Polynomial.eval_sub, Polynomial.eval_mul, Polynomial.eval_add, Polynomial.eval_X,\n    Polynomial.eval_C, zero_add, Polynomial.eval_prod]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHydrologyTree/PhysicalConstants.lean:41:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u220f x, \u220f y, ?f \u27e8x, y\u27e9\nin the target expression\n  \u220f c, \u220f i, (childRates t c x).1 i = \u220f e, x.1 e.succ\n\nn : \u2115\nt : OrderedTree n\nx : TreeRates n\n\u22a2 \u220f c, \u220f i, (childRates t c x).1 i = \u220f e, x.1 e.succ\n"
 }
