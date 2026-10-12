@@ -40,7 +40,35 @@ lemma exists_nontrivial_affine_relation_of_scoreGram_rank_le_two {d : ℕ}
   rw [Finset.weightedVSub_eq_linear_combination (Finset.univ) ha] at hsum
   exact hsum
 
+/-- A nonzero affine relation has coefficients of both signs. -/
+theorem affine_relation_has_pos_neg {a : Fin 4 → ℝ}
+    (hsum : (∑ i, a i) = 0) (hnz : ∀ i, a i ≠ 0) :
+    (∃ i, 0 < a i) ∧ ∃ j, a j < 0 := by
+  have hpos : ∃ i, 0 < a i := by
+    by_contra h
+    push_neg at h
+    have hle : ∀ i, a i ≤ 0 := h
+    have hlt : a (0 : Fin 4) < 0 :=
+      lt_of_le_of_ne (hle 0) (hnz 0)
+    have hs : ∑ i, a i < 0 := by
+      apply Finset.sum_neg' (s := Finset.univ)
+      · intro i hi
+        exact hle i
+      · exact ⟨0, Finset.mem_univ _, hlt⟩
+    linarith
+  have hneg : ∃ j, a j < 0 := by
+    by_contra h
+    push_neg at h
+    have hge : ∀ i, 0 ≤ a i := h
+    have hlt : 0 < a (0 : Fin 4) :=
+      lt_of_le_of_ne (hge 0) (hnz 0).symm
+    have hs : 0 < ∑ i, a i := by
+      apply Finset.sum_pos' (s := Finset.univ)
+      · intro i hi
+        exact hge i
+      · exact ⟨0, Finset.mem_univ _, hlt⟩
+    linarith
+  exact ⟨hpos, hneg⟩
 end GaussianFour
-
 
 

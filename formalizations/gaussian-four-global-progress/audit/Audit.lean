@@ -640,3 +640,4 @@ import GaussianFour
 #print axioms GaussianFour.exists_rankOne_ordered_actual_obstruction
 #print axioms GaussianFour.score_vectorSpan_le_two
 #print axioms GaussianFour.exists_nontrivial_affine_relation_of_scoreGram_rank_le_two
+#print axioms GaussianFour.affine_relation_has_pos_neg
