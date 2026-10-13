@@ -278,24 +278,26 @@ MODULE HydrologyTree.ArrowDiagonalGauge
 HydrologyTree/ArrowDiagonalGauge.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.arrowGaugeWeight_nonzero`:
   [Fintype C]
   [DecidableEq C]
+  [LinearOrder C]
   [(c : C) → Fintype (V c)]
   [(c : C) → DecidableEq (V c)]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype C] [DecidableEq C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
+  omit [Fintype
+  C] [DecidableEq C] [LinearOrder C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/ArrowDiagonalGauge.lean:32:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  LinearOrder C
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/ArrowDiagonalGauge.lean:33:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  LinearOrder C
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/ArrowDiagonalGauge.lean:36:30: warning: This simp argument is unused:
-  arrowMatrix
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [diagonalGauge_apply, arrowGaugeWeight]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ArrowDiagonalGauge.lean:37:4: error: 'change' tactic failed, pattern
+  (if v = r k then alpha k else 0) = (1 * if v = r k then a k else 0) * (beta k / f k * h k v)⁻¹
+is not definitionally equal to target
+  arrowMatrix d A r alpha beta (Sum.inl u) (Sum.inr ⟨k, v⟩) =
+    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inl u) (Sum.inr ⟨k, v⟩)
+HydrologyTree/ArrowDiagonalGauge.lean:46:4: error: 'change' tactic failed, pattern
+  (if u = r c then beta c else 0) = (beta c / f c * h c u * if u = r c then f c else 0) * 1⁻¹
+is not definitionally equal to target
+  arrowMatrix d A r alpha beta (Sum.inr ⟨c, u⟩) (Sum.inl v) =
+    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inr ⟨c, u⟩) (Sum.inl v)
+HydrologyTree/ArrowDiagonalGauge.lean:52:4: error: 'change' tactic failed, pattern
+  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
+is not definitionally equal to target
+  arrowMatrix d A r alpha beta (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩) =
+    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩)
