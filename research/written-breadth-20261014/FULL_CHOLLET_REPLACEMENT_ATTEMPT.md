@@ -204,7 +204,7 @@ Thus a PSD replacement operator on all holomorphic polynomial squares would stil
 
 ## C13. Phase boundary and next analytic requirement
 
-At 20:46:03 UTC the active Chollet research time was22 minutes45 seconds: wall time since20:19:32 minus the independent finite-APPT service review20:36:46–20:40:32. The stage remains active. No stochastic optimization or exhaustive small-order rerun was performed. The remaining route must control actual coupled ordinary/doubled sectors, rather than use an abstract nonnegative-polynomial implication or PSD replacement operator. All six diagnostics above are retained as exclusions, without promoting them to a complete result.
+At 20:46:03 UTC the active Chollet research time was22 minutes45 seconds: wall time since20:19:32 minus the independent finite-APPT service review20:36:46–20:40:32. The stage remains active. No stochastic optimization or exhaustive small-order rerun was performed. The remaining route must control actual coupled ordinary/doubled sectors, rather than use an abstract nonnegative-polynomial implication or PSD replacement operator. All diagnostics above are retained as exclusions, without promoting them to a complete result.
 
 ## C14. Current quadratic Fourier conjecture is a sufficient input, not a theorem
 
@@ -294,3 +294,29 @@ up to a consistent harmless transpose convention. This follows equally from the 
 Diagonal entries are products of principal permanents, bounded by per A by the published Lieb block-supermultiplicativity theorem. Thus the known grouping result bounds the normalized TRACE of K, and proves the trivial diagonal-partner replica endpoint bound; it does not bound the normalized squared Frobenius norm needed here.
 
 The off-diagonal entries contain nonprincipal blocks. Their Gram Cauchy–Schwarz bounds do not close the sum, because the number of compatible colorings supplies additional multiplicities. A conjectural operator bound K<=per A I would recover the already false permanent-on-top strengthening as N grows. The actual missing claim is the particular normalized squared-norm comparison, or a weaker coupled complementary-block estimate sufficient for it. No fake independence, positivity of each permutation monomial, or unproved general-immanant input is used.
+
+## C17. Equivalent fully separable permutation-twirl purity question
+
+For a correlation Gram matrix A, choose unit rows a_1,...,a_n in a common finite-dimensional Hilbert space H and put xi=a_1 tensor...tensor a_n. Let U_sigma permute tensor positions, let P_sym be the orthogonal symmetric projector, and form the actual fully separable permutation-invariant density
+\[
+ R_A=\frac1{n!}\sum_\sigma U_\sigma|\xi\rangle\langle\xi|U_\sigma^*.
+\]
+All trace normalizations here are physical. Direct relative-permutation counting gives
+\[
+ \operatorname{tr}R_A^2=\operatorname{per}(A\circ\overline A)/n!,
+ \qquad \operatorname{tr}(P_{\rm sym}R_A)=\operatorname{per}A/n!.
+\]
+Thus full Chollet is equivalent to
+\[
+ \operatorname{tr}R^2\leq
+ n![\operatorname{tr}(P_{\rm sym}R)]^2
+ \tag{C17}
+\]
+for every finite n, every finite H and every fully separable permutation-invariant density R on H^{tensor n}. The forward extension from product-generated twirls to all such R is rigorous: symmetrize any finite pure-product separable decomposition, then use the Hilbert–Schmidt triangle inequality
+\[
+ \|R\|_2\leq\sum_jw_j\|R_{A_j}\|_2
+ \leq\sqrt{n!}\sum_jw_j\operatorname{tr}(P_{\rm sym}R_{A_j}).
+\]
+Conversely the displayed product twirls lie in that class, so C17 gives the self-conjugate target, and C2's Cauchy–Schwarz transfer gives arbitrary pairs.
+
+This is a full-object equivalent reformulation, not a proof. The complete separability assumption cannot be replaced by permutation invariance alone: a normalized antisymmetric projector has zero symmetric weight and positive purity. Nor is a PPT relaxation certificate or PPT violating state an actual separable/Chollet counterexample. No semidefinite relaxation or new positivity audit was run.
