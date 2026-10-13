@@ -43,3 +43,13 @@ Hint: Omit it from the simp argument list.
 Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE SchmidtLocalization
+SchmidtLocalization.lean:51:22: error: Application type mismatch: The argument
+  add_le_add_left hsmall Q
+has type
+  (∑ i, if s i < Real.exp (-(1 + η) * L / 2) then s i ^ 2 else 0) + Q ≤ Real.exp (-η * L) + Q
+but is expected to have type
+  (Q + ∑ i, if bad i then s i ^ 2 else 0) ≤ Q + B
+in the application
+  LE.le.trans hmass (add_le_add_left hsmall Q)
