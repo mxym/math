@@ -527,40 +527,33 @@ consider restructuring your `variable` declarations so that the variables are no
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 HydrologyTree/GraphModelInjectivity.lean:34:72: warning: `if_false` has been deprecated: Use `ite_false` instead
-HydrologyTree/GraphModelInjectivity.lean:44:44: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/GraphModelInjectivity.lean:44:4: error: Type mismatch: After simplification, term
-  hs
- has type
-  (if True then -x.1 else 0) = if True then -y.1 else 0
-but is expected to have type
-  x.1 = y.1
-HydrologyTree/GraphModelInjectivity.lean:55:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/GraphModelInjectivity.lean:55:52: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/GraphModelInjectivity.lean:56:11: error: Application type mismatch: The argument
-  hs
-has type
-  (if True then -x.1 else 0) = 0
-but is expected to have type
-  x.1 = 0
-in the application
-  hx hs
-HydrologyTree/GraphModelInjectivity.lean:55:41: warning: This simp argument is unused:
-  if_pos rfl
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [graphCompartment_column_sum, if_neg ho, neg_eq_zero] at hs
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/GraphModelInjectivity.lean:55:62: warning: This simp argument is unused:
-  neg_eq_zero
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [graphCompartment_column_sum, if_pos rfl, if_neg ho] at hs
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphModelInjectivity.lean:55:50: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 HydrologyTree/GraphModelInjectivity.lean:61:36: warning: Variable name `ell` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _ell
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.LeakImpossibility
+HydrologyTree/LeakImpossibility.lean:19:14: error: Function expected at
+  ((scalar V) s - graphCompartmentMatrix G ell ↑y)⁻¹
+but this term has type
+  ?m.97
+
+Note: Expected a function because this term is being applied to the argument
+  o
+HydrologyTree/LeakImpossibility.lean:20:8: error: Function expected at
+  ((scalar V) s - graphCompartmentMatrix G ell' ↑y')⁻¹
+but this term has type
+  ?m.115
+
+Note: Expected a function because this term is being applied to the argument
+  o
+HydrologyTree/LeakImpossibility.lean:33:4: error: Type mismatch
+  Eq.symm (((relocatePositiveLeak_response hG ell ell' y).right o).right s)
+has type
+  Eq.{1} (((scalar V) s - graphCompartmentMatrix G ell ↑y)⁻¹ o o)
+    (((scalar V) s - graphCompartmentMatrix G ell' ↑((relocatePositiveLeak hG ell ell') y))⁻¹ o o)
+but is expected to have type
+  Eq.{u_2} ?m.25 ?m.27
