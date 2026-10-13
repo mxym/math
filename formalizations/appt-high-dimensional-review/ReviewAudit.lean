@@ -3,6 +3,36 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.canonical_lacunary_states_appt,
+  ``APPTReview.lacunary_density_eventually,
+  ``APPTReview.lacunarySpike_absolutelyPPT_eventually,
+  ``APPTReview.lacunarySpike_partialTranspose_of_graph,
+  ``APPTReview.lacunarySpike_posSemidef,
+  ``APPTReview.lacunarySpike_quadratic,
+  ``APPTReview.lacunaryDensity_isDensity,
+  ``APPTReview.lacunarySpike_retrace_lower,
+  ``APPTReview.lacunary_single_spike_bound,
+  ``APPTReview.lacunary_single_spike_unit_bound,
+  ``APPTReview.pair_rayleigh_homogeneous,
+  ``APPTReview.sparseSpikeError_tendsto,
+  ``APPTReview.sparseSpikeError_identity,
+  ``APPTReview.rayleigh_single_spike_bound,
+  ``APPTReview.rayleigh_remove_bound,
+  ``APPTReview.positive_product_trace_re,
+  ``APPTReview.compression_trace_le,
+  ``APPTReview.compressionDiagonal_budget,
+  ``APPTReview.symmetricCompressionWeight_bounds,
+  ``APPTReview.symmetricCompressionWeight_mass,
+  ``APPTReview.symmetricCompressionWeight_pairing,
+  ``APPTReview.compressed_schmidt_rank_witness,
+  ``APPTReview.cappedRankSupport_card,
+  ``APPTReview.canonicalScaleProjection_properties,
+  ``APPTReview.coordinateUnitVector_norm,
+  ``APPTReview.spike_finite_error_cannot_be_deleted,
+  ``APPTReview.symmetric_rank_mass_factor_two,
+  ``APPTReview.zero_spike_rayleigh,
+  ``APPTReview.two_scale_physical_family,
+
   ``APPTReview.lacunary_sparse_matrix_bound,
   ``APPTReview.fractional_weight_cauchy,
   ``APPTReview.fractional_strip_localization,
@@ -424,3 +454,9 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.sparse_scale_localiza
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.finiteScaleProbability_band "review-kernel-finite-probability-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.matrix_cap_of_nonnegative_unit "review-kernel-homogeneous-matrix-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_single_spike_bound "review-kernel-lacunary-spike-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.compressed_schmidt_rank_witness "review-kernel-rank-compression-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunarySpike_absolutelyPPT_eventually "review-kernel-lacunary-physical-control"

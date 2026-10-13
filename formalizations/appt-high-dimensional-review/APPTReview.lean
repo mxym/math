@@ -38,3 +38,5 @@ import APPTReview.LacunaryUniformBand
 import APPTReview.LacunaryControls
 
 import APPTReview.SparseLocalizationControls
+
+import APPTReview.MultiscaleBridgeControls
