@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "record_kind": "authoring_assistant_self_check_and_source_binding",
+  "agent_task": "/root/written_breadth",
+  "date_local": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "manuscript": {
+    "path": "research/written-breadth-20261014/GAUSSIAN_QUADRATIC_FORM_COROLLARY.md",
+    "sha256": "4e62a5d2d6c7d3bd44c070e4c0a63f2e08246cb546b82c288f8722f33b0f672e",
+    "lines_checked": [
+      1,
+      130
+    ]
+  },
+  "external_input": {
+    "authors": [
+      "Frederic Ouimet",
+      "Dylan Greaves"
+    ],
+    "url": "https://arxiv.org/html/2609.20234v1",
+    "arxiv_version": "2609.20234v1",
+    "retrieved_html_sha256": "16ddd6a51b026fb99883f6ab566a6d238bbce24a0795e4861d478ebaea591e42",
+    "actual_read_scope": "Theorem 1 and complete main proof in Section 2; no full-source or external peer-review certification.",
+    "exact_statement_used": "All centered finite jointly real Gaussian vectors, all positive exponents, comparison to product of all marginal moments; with nonzero variances equality iff independence."
+  },
+  "theorem_map": [
+    {
+      "id": "N1",
+      "range": "Every finite collection of arbitrary-size centered jointly real Gaussian blocks, arbitrary PSD joint covariance and all positive real powers.",
+      "proof": "Positive spherical projection identity, scalar external input, Tonelli, finite Gaussian moments.",
+      "equality": "Zero block implies equality automatically; otherwise all real cross covariance blocks vanish, equivalently joint independence."
+    },
+    {
+      "id": "Q1",
+      "range": "Arbitrary finite PSD Gaussian covariance and arbitrary collection of PSD real quadratic forms, with no rank/commutation/support limitation; all positive real powers.",
+      "proof": "Apply N1 to B_i^(1/2) G; zero trace is equivalent to zero form; covariance Frobenius identity and Gaussian fourth moments.",
+      "equality": "Automatic if some tr(Sigma B_i)=0; otherwise B_i^(1/2) Sigma B_j^(1/2)=0 for all distinct i,j, equivalent to zero trace(B_i Sigma B_j Sigma) and joint independence of the forms."
+    },
+    {
+      "id": "C1",
+      "range": "Every finite centered complex Gaussian block family, proper or improper, all positive real powers.",
+      "proof": "Realification and invertible Hermitian/pseudo-covariance-to-real-covariance identities.",
+      "equality": "With no zero block, both Hermitian and pseudo cross covariance vanish; proper jointly Gaussian laws reduce to the Hermitian condition."
+    },
+    {
+      "id": "integer_Wishart_trace",
+      "range": "Positive integer degrees, every trace block and positive real powers.",
+      "limitation": "No noninteger Gaussian sample representation, determinant product theorem, or arbitrary-grouped product conclusion."
+    }
+  ],
+  "self_checks": [
+    "Sphere constant positive including S^0 and singular covariance projections.",
+    "Nonzero cross covariance has a positive-measure set of nonzero projected covariance; all positive projected variances hold almost everywhere.",
+    "Quadratic equality uses Frobenius norm squared, not potentially signed trace inference.",
+    "Independent forms force zero covariance; exact Gaussian fourth-moment formula forces full block independence.",
+    "Improper complex negative control Z2=conjugate(Z1) has Hermitian cross covariance zero but pseudo cross covariance one, hence strict inequality.",
+    "The external scalar GPC was publicly claimed before this note; full Wishart Conjecture1.1 remains unresolved here."
+  ],
+  "scope_limits": {
+    "independent_second_agent_review": false,
+    "external_human_peer_review": false,
+    "historical_priority_certification": false,
+    "original_GPC_solution_credited_here": false,
+    "new_major_conjecture_solution_count": 0,
+    "new_lean": false,
+    "new_audit": false,
+    "publication": false,
+    "proof_dependent_on_numerical_search": false
+  }
+}
