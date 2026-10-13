@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fresh owned-source builds and empty trust-zero kernel replay of partial results."""
+"""Source-bound fresh builds, exact scope documents and empty trust-zero kernel replay."""
 from pathlib import Path
 import argparse, datetime, hashlib, json, os, re, shutil, subprocess, time
 ROOT=Path(__file__).resolve().parent
@@ -37,7 +37,7 @@ def main():
  args=ap.parse_args()
  if not args.lean:ap.error('Activate Lean 4.34.1 first')
  out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=False)
- report={'status':'RUNNING','scope':'Root-leak tree: exact all-real full-response fibers, actual continuous-input ODE equivalence and controllability/observability; independent graph and alternate-leak variants remain partial','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
+ report={'status':'RUNNING','scope':'Finite labelled bidirected tree theorem core: all-real arbitrary-leak Jacobian polynomial, exact multiplicities and zero sets; full-positive-target real fibers, independent graph presentation, continuous-input ODE and signed-control results; exact exclusions in hashed GAPS.md and FORMAL_THEOREMS.md','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
  try:
   before=snapshot();report['source_sha256']=before
   lean=Path(args.lean).resolve();env=os.environ.copy();env['PATH']=str(lean.parent)+os.pathsep+env.get('PATH','');env.pop('LEAN_PATH',None);env.pop('LEAN_SRC_PATH',None)

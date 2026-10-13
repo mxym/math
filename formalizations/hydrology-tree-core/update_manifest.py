@@ -13,6 +13,18 @@ for module in modules:
 p=ROOT/'audit/Replay.lean'
 s=p.read_text();a=s.index('  let roots := [');b=s.index('\n  let cs ',a)
 s=s[:a]+'  let roots := [\n    '+',\n    '.join('``'+r for r in roots)+']'+s[b:];p.write_text(s)
-files=[m.replace('.','/')+'.lean' for m in modules]+['audit/Audit.lean','audit/Replay.lean','MODULES.json','ROOTS.txt','lakefile.toml','lake-manifest.json','lean-toolchain','reproduce.py','update_manifest.py','fetch_cache.sh','FORMAL_THEOREMS.md']
+# Bind the public coverage documents and regenerate the exact owned import DAG.
+order={m:i for i,m in enumerate(modules)}
+lines=['digraph HydrologyTreeProof {','rankdir=LR;']
+for module in modules:
+ for line in (ROOT/(module.replace('.','/')+'.lean')).read_text().splitlines():
+  if line.startswith('import '):
+   for dep in line.split()[1:]:
+    if dep in order:
+     if order[dep]>=order[module]:raise RuntimeError('Non-topological import '+module+' '+dep)
+     lines.append(f'"{dep}" -> "{module}";')
+lines.append('}')
+(ROOT/'DEPENDENCIES.dot').write_text('\n'.join(lines)+'\n')
+files=[m.replace('.','/')+'.lean' for m in modules]+['audit/Audit.lean','audit/Replay.lean','MODULES.json','ROOTS.txt','lakefile.toml','lake-manifest.json','lean-toolchain','reproduce.py','update_manifest.py','fetch_cache.sh','FORMAL_THEOREMS.md','README.md','GAPS.md','DEPENDENCY_MAP.md','DEPENDENCIES.dot']
 (ROOT/'SOURCE_SHA256.json').write_text(json.dumps({f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in sorted(files)},indent=2)+'\n')
 print('modules',len(modules),'roots',len(roots))
