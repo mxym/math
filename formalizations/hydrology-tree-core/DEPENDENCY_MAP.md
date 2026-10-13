@@ -129,3 +129,12 @@ prove actual rational derivative/inverse/shear determinants, not assumed local
 diffeomorphisms. `LocatedLeakJacobian` reads the independent actual coefficient
 map, proves its differentiability and precise determinant transport, including
 positive singular points. All-real zero-boundary polynomial assembly remains.
+
+
+All-real alternate-leak closure: TreeMatrixSupport -> SupportedMatrixRecursion
+-> SupportedStieltjesChildren -> SupportedPositiveGauge; ArrowDiagonalGauge
+supplies exact child assembly. ConservationGaugeRigidity -> RealLocatedPositivity
+removes competing sign assumptions. MatrixStieltjesIdentification and
+MatrixTimeIdentification recover full pairs from actual resolvents and histories.
+RealLocatedClassification and RealLocatedODEClassification provide complete
+all-real fibers, exact counts and actual-Jacobian regularity.

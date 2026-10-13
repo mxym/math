@@ -437,3 +437,35 @@ These statements use the explicitly constructed rational rate relocation on its
 positive domain. They do not yet claim an expanded all-real polynomial identity
 at zero-rate boundaries, nor exact coordinate multiplicities there. The overall
 program's remaining alternate-leak scope is recorded precisely in GAPS.md.
+
+
+## Unrestricted real alternate-leak classification — latest closure
+
+The former positive-domain restriction is now removed for full targets.
+`supported_positive_diagonal_realization` constructs an actual positive root-
+leak reference and a normalized nonzero real diagonal similarity for EVERY real
+tree-supported matrix with the full positive Stieltjes pair. The competitor
+needs no conservation, positivity, stability or similarity assumption. Exact
+child-factor extraction, normalized child recovery and the full induction are proved.
+
+`single_leak_diagonal_gauge_rigid` then proves that invertibility and actual
+single-site column conservation eliminate that diagonal freedom. Consequently,
+`real_located_pair_forces_positive` derives strict positivity of every initially
+signed real graph rate vector at ANY leakage site. Full real response fibers
+are classified by `realLocatedRecursiveEquiv` and have the exact factorial
+cardinality. Unknown-site real fibers have |V| times that cardinality. Every
+full-response solution has a nonzero ACTUAL located coefficient Jacobian.
+
+`MatrixTimeIdentification` constructs actual exponential-input probes for
+arbitrary real matrices. `real_located_continuous_iff_response` proves the reverse
+actual-history implication before positivity is derived. Thus no universal
+ODE predicate is satisfied vacuously. `finite_graph_all_real_leak_ODE_classification`
+constructs the independent graph presentation and gives full all-real
+continuous-output fibers at every site, all exact counts and automatic positivity.
+No negative-rate, zero-rate or singular real competitor is excluded by definition.
+
+Only the expanded ALL-RATE alternate-leak polynomial Jacobian factorization
+and exact coordinate multiplicities at zero boundaries remain separate; the
+full-target real classification, ODE equivalence and system properties are closed.
+This supersedes the scope limits in earlier incremental construction notes.
+New source bytes are certified only by their own independent CI receipt.

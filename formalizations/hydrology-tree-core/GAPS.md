@@ -65,10 +65,15 @@ alternate-leak characteristic/cofactor Jacobian at every positive vector, even
 at positive spectral collisions. All full positive alternate-leak models are
 therefore regular. This is not an expanded zero-boundary polynomial theorem.
 
+Automatic positivity of EVERY initially unrestricted REAL full-target model
+at any leak site is now proved. A full diagonal realization theorem for arbitrary
+real tree-supported matrices and an exact single-site conservation rigidity
+theorem discharge all missing sign and similarity obligations. All-real
+response fibers and actual continuous-output fibers, including unknown-site
+counts, are closed. Reverse history identification uses actual exponential probe
+solutions BEFORE positivity is derived; no vacuous existence premise is used.
+
 Still required for the broader alternate-leak scope:
-- Automatic positivity and complete counting without ANY sign premise on the
-  initial REAL alternate-leak vector (the positive-space equivalence does not
-  itself assert this stronger statement).
 - Its all-real-rate Jacobian polynomial, orientation and exact coordinate
   multiplicities, including zero boundaries.
 

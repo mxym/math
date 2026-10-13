@@ -430,3 +430,32 @@ prove the positive singular-set transport and full-target regularity.
 independent of ell and every y, and the exact previously proved root rate/subtree
 factors evaluated at the explicitly relocated actual graph model. This is not
 an assertion of zero-boundary all-real polynomial factorization.
+
+
+## Unrestricted-real arbitrary-leak and actual ODE classification
+
+`supported_positive_diagonal_realization` quantifies ANY real matrix A with
+actual tree support and the prescribed full Stieltjes characteristic/cofactor
+pair. It constructs a positive conservative model x and nonzero real h with
+h(root)=1 and A=diag(h)A_x diag(h)^(-1). No conservation, positivity, stability
+or diagonal-similarity premise on A remains after the proved strong induction.
+`single_leak_diagonal_gauge_rigid` shows that actual single-leak column sums at
+the same site and an invertible nonzero-leak reference force A=B and constant h.
+These are the proved dependencies of `real_located_pair_forces_positive`.
+
+`RealLocatedFiber` has ONLY actual response equality as membership; the initially
+real rates have no sign, stability or nonzero-Jacobian restrictions.
+`realLocatedRecursiveEquiv` gives the complete recursive bijection;
+`real_located_fiber_exact_card` proves finite exact n!/product|T_v| cardinality.
+`real_located_full_response_positive_regular` derives signs and actual Jacobian
+regularity for all competitors. Every specified leak site is included.
+
+`RealLocatedContinuousFiber` likewise has only the actual every-continuous-input
+history condition. Reverse identification is proved through explicit actual
+exponential-input trajectories for arbitrary matrices. No input rescaling or
+vacuous ODE hypothesis is used. `finite_graph_all_real_leak_ODE_classification`
+constructs the graph representation, proves the complete all-site actual-ODE
+fiber bijections, exact cardinalities and automatic positivity/regularity. The
+unknown-site fiber includes the actual site as a parameter and has |V| times the
+prescribed-site count. All-rate alternate-leak zero-boundary polynomial
+factorization and exact multiplicities remain outside this new full-target block.
