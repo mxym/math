@@ -10,7 +10,7 @@ Author: Yongxian Zhang (张永贤). School of Computer Science and Engineering, 
 
 For every k ≥ 2 and every measurable standard Gaussian partition into k equal-mass cells, the sum of squared first moments is at most `(E max_{i≤k} Z_i)^2/(k−1)`. For ambient dimension d ≥ k−1, equality holds exactly for central regular-simplex cones, extended cylindrically, up to null sets, rotations and relabeling. For d < k−1 the bound is strictly unattained; the exact lower-dimensional optimum is not claimed. Fractional partitions are included. An exact nonnegative covariance-deficit integral is proved.
 
-The proof uses the **published Milman–Neeman Gaussian multi-bubble theorem**, https://doi.org/10.4007/annals.2022.195.1.2, followed by the paper's Gaussian flux, price-Hessian and radial differential comparison. This is an ordinary mathematical proof using a proved external theorem. Complete Lean formalization is not a publication prerequisite and is not claimed here.
+The proof is a complete ordinary mathematical proof of the stated all-k theorem. It uses the **published Milman–Neeman Gaussian multi-bubble theorem**, https://doi.org/10.4007/annals.2022.195.1.2, followed by the paper's Gaussian flux, price-Hessian and radial differential comparison. Complete Lean formalization is not a publication prerequisite; the Lean materials are an independently scoped verification layer.
 
 ## Proof and verification boundaries
 

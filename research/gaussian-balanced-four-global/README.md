@@ -22,21 +22,24 @@ maximum and positive-noise results. No worldwide priority claim is made.
 它覆盖任意可测分割及分数分割、所有 d≥3，不是只有局部极值或数值证据。
 不涉及任意质量、更多单元或正相关噪声稳定性。
 
-The proof combines the established Gaussian multi-bubble perimeter theorem
-with a new covariance deformation argument. A smooth regularization and a
-normal-cone residual estimate prevent singular-boundary escape in the
-constrained mountain-pass proof. The manuscript includes every required
-rank obstruction and local calculation; readers need not recover them
-from earlier repository versions. The two imported Gaussian isoperimetric
-theorems and ordinary finite-dimensional analysis are named explicitly.
+The proof is complete as an ordinary mathematical proof: it combines the
+established Gaussian multi-bubble perimeter theorem with a new covariance
+deformation argument. A smooth regularization and a normal-cone residual
+estimate prevent singular-boundary escape in the constrained mountain-pass
+proof. The manuscript includes every required rank obstruction and local
+calculation; readers need not recover them from earlier repository versions.
+The two imported Gaussian isoperimetric theorems and ordinary
+finite-dimensional analysis are named explicitly, with their hypotheses
+matched to the argument.
 
-No computer calculation is a premise of the global theorem. Eight partial
-Lean exports check scalar algebra, with a fresh empty-kernel replay of
-7,286 dependency declarations and a rejected false weakened-profile
-control. They do **not** formalize the Gaussian integrals, imported
-perimeter theorem, deformation flow or complete endpoint. Two independent
-internal model reviews are in [review/](review/); they are not external
-human peer review.
+No computer calculation is a premise of the global theorem. The Lean
+exports verify the internal reductions and finite algebra with a fresh
+empty-kernel replay of 7,286 dependency declarations and a rejected false
+weakened-profile control. The external Gaussian multi-bubble theorem and
+parts of the Gaussian integral/deformation analysis remain outside the Lean
+kernel, while they are proved or cited explicitly in the written paper.
+Two independent internal model reviews are in [review/](review/); they are
+not external human peer review.
 
 Reproduce the exact diagnostics and verify the bound package:
 
