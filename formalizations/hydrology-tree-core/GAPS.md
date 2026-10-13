@@ -59,3 +59,13 @@ or historical receipt does not certify new sources. The original model's
 matrix/fiber/continuous-ODE/system core is closed; the independent graph and
 alternate-leak extensions remain. No full-program Release or DOI is justified
 until the declared intended scope has been completed and independently checked.
+
+
+## Additional closed optimal-control refinement
+
+For the root-leak model, the exact global minimum energy among all continuous
+signed controls meeting arbitrary endpoints in T>0 is now proved, with a
+constructed attaining input, exact inverse-Gramian cost and complete equality
+classification on [0,T]. Moment feasibility is derived from the actual ODE.
+The value is independent of modal coordinates. This does not resolve the
+independent graph-presentation or alternate-leak variants stated above.

@@ -91,3 +91,14 @@ integral positivity. ModalSteering constructs a continuous real input and checks
 both actual state endpoints. PhysicalControllability discharges every modal
 and regularity prerequisite from the original full response. This closes the
 previous finite-horizon steering gap, distinct from graph/alternate-leak variants.
+
+
+### Minimum energy with actual ODE endpoints
+
+ControlEnergy proves the actual integral expansion and continuous zero-energy
+criterion. MinimumEnergyMoments constructs the inverse-Gramian input and proves
+feasibility, exact cost, sharp energy gap and complete equality classification.
+ModalMinimumEnergy derives every moment condition from the actual endpoint ODE,
+then proves the sharp optimum and independence of modal coordinates.
+PhysicalMinimumEnergy constructs the physical simple modal witness from the
+full-response hypothesis and proves the unrestricted continuous-control theorem.

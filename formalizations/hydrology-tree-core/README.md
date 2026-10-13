@@ -266,3 +266,33 @@ alternate leak locations remain separate variants.
 The reproduction driver now supports symbolic-link dependency layouts without
 changing any pinned revision or source-blob check. Earlier local setup failures
 are distinct from completed proof checks; each receipt binds its own exact source.
+
+
+## Exact minimum-energy state transfer and complete equality classification
+
+`real_full_response_minimum_energy_control` strengthens actual finite-horizon
+controllability: for every full-response realization, T>0 and initial/final
+physical state vectors, it constructs a continuous real input u* and its unique
+actual global classical trajectory meeting both endpoints. For EVERY continuous
+competing input u with an actual trajectory meeting the same endpoints, it proves
+
+    integral_(0..T) u^2 = integral_(0..T) (u*)^2
+      + integral_(0..T) (u-u*)^2.
+
+Thus u* is a global minimum over all continuous feasible controls. Equality is
+proved equivalent to u=u* on the complete CLOSED interval [0,T], including its
+endpoints. No uniqueness of inputs outside that interval is falsely asserted.
+The endpoint-to-moment implication is proved for actual ODE trajectories, not
+assumed as a substitute feasibility condition.
+
+In any proved simple modal coordinates, let H_ij=integral_(0..T) exp(r_i*s)exp(r_j*s),
+and d_i=(exp(r_i*T)*(analysis*z1)_i-(analysis*z0)_i)/amplitude_i. The exact minimum
+is d^T H^(-1)d, attained by sum_i (H^(-1)d)_i exp(r_i*s). H is the actual positive
+integral Gramian. `modalMinimumEnergy_independent_of_witness` proves the value is
+independent of the modal coordinate witness for the same physical matrix.
+
+These statements concern signed real controls. They do not assert arbitrary
+steering using nonnegative rainfall only, nor global uniqueness of control values
+outside [0,T]. The result is a formally checked optimal-control refinement, not
+a claim of a historically new control theorem. Independent graph presentation
+and alternate leak-location obligations remain in GAPS.md.

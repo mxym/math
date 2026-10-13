@@ -303,3 +303,25 @@ supplied as an additional premise; all follow from the target and are proved.
 This is signed-input linear controllability. Neither the control nor the whole
 trajectory is constrained to be nonnegative. The theorem does not assert
 arbitrary reachability using nonnegative rainfall inputs only.
+
+
+## Actual minimum-energy continuous control
+
+For every actual root-leak tree realization of a full normalized positive target,
+every T>0 and every pair of state vectors z0,z1, there exists a globally continuous
+real input u* with a unique global classical actual ODE trajectory through those
+endpoints. For every OTHER continuous u and every actual trajectory z with
+z(0)=z0 and z(T)=z1, `real_full_response_minimum_energy_control` proves:
+
+    E(u)=E(u*)+E(u-u*), E(u*)<=E(u),
+    E(u)=E(u*) iff forall s in [0,T], u(s)=u*(s),
+    where E(v)=integral_(0..T) v(s)^2 ds.
+
+The original matrix and actual HasDerivAt equation are used. The endpoint moment
+constraints are derived in `actual_terminal_implies_moments`. No candidate input
+family, assumed Gramian or unproved minimization interface replaces the full
+quantifiers. `minimumEnergyInput_energy` proves the exact quadratic value d^T H^-1 d.
+`modalMinimumEnergy_independent_of_witness` proves coordinate independence.
+The continuous equality statement includes endpoints but deliberately imposes
+nothing outside the energy interval. Signed inputs and real state vectors are
+allowed; nonnegative-input reachability is not claimed.
