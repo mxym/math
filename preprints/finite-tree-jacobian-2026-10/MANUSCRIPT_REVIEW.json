@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-14",
+  "client_timezone": "Asia/Shanghai",
+  "reviewer": {
+    "identity": "/root/written_breadth",
+    "kind": "OpenAI AI assistant, independent subagent",
+    "external_peer_review": false
+  },
+  "review_type": "Fresh ordinary mathematical manuscript and source-correspondence review; no new Lean audit",
+  "canonical_source_worktree": "/home/mxym/math-appt-multiscale-20261013",
+  "record_worktree": "/home/mxym/math-written-breadth-20261014",
+  "canonical_manuscript": {
+    "path": "preprints/finite-tree-jacobian-2026-10/paper.tex",
+    "sha256": "de18fa917786bab43ddbe84793138d3ffa8845f08396407bfc6877639ac558c1",
+    "actual_final_read_lines": [
+      1,
+      604
+    ],
+    "read_from_canonical_root": true,
+    "manuscript_copied_to_review_worktree": false,
+    "bytes": 30775
+  },
+  "theorem_map": {
+    "path": "preprints/finite-tree-jacobian-2026-10/THEOREM_MAP.md",
+    "sha256": "e984085a09b56c456d8fd105d5d5ab4ad81d60f76216a34bb929c938d2a121a4",
+    "actual_read_scope": "Entire theorem map; all 33 named Lean declarations found in the current existing package.",
+    "missing_declared_names": [],
+    "bytes": 5208
+  },
+  "verdict": "No mathematical gap or material scope mismatch identified in the reviewed final manuscript.",
+  "unresolved_required_changes": [],
+  "findings": [
+    {
+      "topic": "Actual model, original coefficients and coordinate sign",
+      "final_lines": [
+        77,
+        170
+      ],
+      "result": "No error identified",
+      "checked": "The column-sum convention uses k_vu for u-to-v rates. Principal submatrices retain the original diagonal entries. Characteristic and cofactor coefficients are monic, uncancelled and ordered in ascending powers. There are 2N-1 actual variables and outputs. The observation-root enumeration fixes the sign independently of leak site; only a fixed coordinate permutation relates the formal graph representation. The manuscript correctly treats the zero set as a coefficient-Jacobian rank statement, not every notion of local uniqueness."
+    },
+    {
+      "topic": "Gluing determinant and root-leak recursion",
+      "final_lines": [
+        172,
+        246
+      ],
+      "result": "No error identified",
+      "checked": "The product derivative is the strict-degree numerator assembly. Its coefficient determinant has one pairwise resultant product, justified by root evaluation and Vandermonde cancellation. The (q_i,d) block gives the same determinant with one monic d pivot, yielding squared resultants. Polynomial identity removes coprimality and simple-root restrictions. Child branches are actual conservative models with connector a_i as their root leak. The rate chart contributes product a_i and monic cofactor scaling contributes (a_i f_i)^(n_i-1), with polynomial validity at zero products. The singleton and empty-family cases are covered."
+    },
+    {
+      "topic": "Arbitrary leak relocation and all-real extension",
+      "final_lines": [
+        248,
+        297
+      ],
+      "result": "No error identified",
+      "checked": "The slide diagonal similarity has the stated component ratio and preserves every original principal characteristic polynomial and edge product. Its Jacobian is f/(a+lambda) in the fixed three-coordinate ordering. Path composition telescopes the leak ratio. Conservation gives P(0)=lambda F_ell(0), while positive leaf elimination gives F_ell(0)=the leak-oriented rate product; both extend polynomially. The transported lambda ratio is eliminated before extension. Equality on a product of positive half-lines proves equality of the original-coordinate polynomials by the infinite-zero principle; no zero-boundary division or density assertion is used."
+    },
+    {
+      "topic": "Residual nondivisibility and exact coordinate multiplicities",
+      "final_lines": [
+        299,
+        318
+      ],
+      "result": "No error identified",
+      "checked": "Rooting the triangular witness at the leak and setting all outward rates to zero makes every original principal polynomial a product of distinct diagonal factors. Disjoint observation-root sibling sets have nonzero resultants. Each selected coordinate can be set to zero while preserving that property, including an inward rate and the leak. Variable primality then proves the displayed powers are exact, not merely lower bounds. The leak exponent is zero. This is an arbitrary-size witness, not a finite sample."
+    },
+    {
+      "topic": "Full target reciprocal and forward reconstruction",
+      "final_lines": [
+        320,
+        369
+      ],
+      "result": "No error identified",
+      "checked": "Distinct positive poles and positive residues produce exactly N-1 simple negative numerator zeros by monotonicity between poles. Reciprocal residues have the stated negative sign and positive magnitudes. Labelled pole allocations of the fixed subtree sizes produce normalized full child targets. Recursion yields positive a_c=1/G_c(0), f_c=b_c/a_c and root leak 1/G(0), reproducing the full characteristic/cofactor pair. The base singleton is included."
+    },
+    {
+      "topic": "Reverse extraction, complete real root fiber and hook count",
+      "final_lines": [
+        371,
+        402
+      ],
+      "result": "No error identified",
+      "checked": "Target coprimality plus equal monic denominator degree recovers the original coefficient pair from response equality. Every actual child denominator partitions the simple reciprocal poles. Modulo each coprime child factor, strict-degree numerator uniqueness forces its numerator and positive edge product. Child induction then forces actual signed competitors to be positive. Forward and inverse operations act on rate vectors, so the count is an explicit bijection. The factorial recurrence simplifies to (N-1)!/product N_v, with labels retained and regularity following from nonzero actual sibling resultants."
+    },
+    {
+      "topic": "General supported matrices, signed gauges and arbitrary-site positivity",
+      "final_lines": [
+        404,
+        443
+      ],
+      "result": "No error identified",
+      "checked": "The support-only induction requires no conservation or sign condition on the competitor. Full pair extraction gives positive boundary edge products and full child pairs. Nonzero signed child gauges extend using M_co/f_c; the edge product supplies the opposite boundary entry and the root diagonal is fixed by the coefficient pair. This constructs a positive conservative reference on the same labelled topology. Only that positive reference is relocated. Its invertibility follows from P(0)>0. Same-site column conservation and invertibility force lambda_A=lambda_B and a constant nonzero gauge, so the actual competitor equals the positive reference. No unproved competitor rate or leak is divided by."
+    },
+    {
+      "topic": "Fixed-site and unknown-site actual matrix counts",
+      "final_lines": [
+        445,
+        452
+      ],
+      "result": "No error identified",
+      "checked": "Positive relocation is invertible by the reverse edge slide, giving a bijection of actual fixed-site fibers and preserving regularity. A strictly positive leak makes the column-sum vector recover the site and leak; off-diagonal entries recover directed rates. Thus the factor N counts distinct physical matrices, not redundant site labels or only algebraic candidates."
+    },
+    {
+      "topic": "Actual continuous-input histories",
+      "final_lines": [
+        454,
+        496
+      ],
+      "result": "No error identified after the target output was explicitly defined",
+      "checked": "The final text defines g_G(t)=sum w_i exp(-r_i t) and the target convolution. Every real matrix with continuous input has a unique global classical solution. Equal rational responses determine all resolvent moments and hence the entire exponential kernel; the converse follows already from the constant input and a Laplace transform on sufficiently large real s. It requires no competitor stability or positivity and has actual trajectories, avoiding a vacuous predicate. Normalizing the relocation gauge at the observer preserves both input and state output. Off-diagonal discharge and nonnegative-rainfall controllability remain excluded."
+    },
+    {
+      "topic": "Formal correspondence and old receipt boundary",
+      "final_lines": [
+        498,
+        578
+      ],
+      "result": "No material scope mismatch identified",
+      "checked": "All 33 named declarations exist. Read key actual types retain finite tree structure, collocated observation and full target hypotheses, while arbitrary-real factorization and exact powers impose no positivity hypothesis. Signed gauge construction and same-site rigidity do not assume positivity of the competitor gauge. The manuscript discloses the fixed existing independent run and separates the new source/archive/API readback from a fresh kernel audit. The new paper.tex prose is not an input certified by that old kernel receipt; this source-bound ordinary review records its separate status."
+    }
+  ],
+  "resolved_feedback": [
+    {
+      "issue": "The original history proposition referred to the target output without defining its kernel explicitly.",
+      "severity": "Clarification, not a mathematical failure",
+      "action": "The root agent added the exact target kernel and convolution, final lines 455-460; the revised paragraph was read and accepted."
+    }
+  ],
+  "version_history": {
+    "initial_full_manuscript_sha256": "9816e62515357be7ee027329d016e8345b016d91e38d11026ddbcccdbc1f98c8",
+    "intermediate_sha256": "55757385589311f2f83479a6a297671edc9079330f48f65d3b24b7138ef5cd97",
+    "change_to_intermediate": "Explicit target kernel/output definition and long-path/preamble formatting changes.",
+    "change_to_final": "Only begin{samepage}/end{samepage} wrapping the availability paragraph, relative to the intermediate version; no mathematical or scope change.",
+    "final_version_read_again_in_full": true
+  },
+  "primary_literature_checks": [
+    {
+      "url": "https://arxiv.org/pdf/1709.10013v3",
+      "authors": "Gross, Meshkat and Shiu",
+      "actual_read_scope": "Conjectures 5.5 and 5.9, their original input/output/leak setup and multiplicity procedure, and Proposition 6.2 attribution.",
+      "conclusion": "The endpoint-path monomial and root-tree exact-power specializations match the original conventions up to a fixed sign. The Hoch-Sweeney-Tung attribution and the earlier star/path count attribution are correctly preserved.",
+      "limitation": "This is a statement/alignment review, not an audit of the entire older article or a historical-priority certificate."
+    },
+    {
+      "url": "https://arxiv.org/html/2412.05283v3",
+      "authors": "Ahmed et al.",
+      "actual_read_scope": "Actual matrix convention and Section 6 discussion of the earlier Conjecture 5.5.",
+      "conclusion": "The retrieved primary author version explicitly presents possible resolution of GMS Conjecture 5.5 as a prospective use of its coefficient formulas.",
+      "limitation": "No claim that targeted current searches establish this manuscript's historical firstness."
+    },
+    {
+      "citation": "Cobelli, Lepschy and Romanin Jacur (1979)",
+      "actual_read_scope": "Attribution via GMS Proposition 6.2; complete original article not obtained by this reviewer.",
+      "conclusion": "Earlier star and path counts are not attributed to the present work. The manuscript discloses its limited access to the older article."
+    }
+  ],
+  "verification_limits": {
+    "lean_execution_performed": false,
+    "fresh_owned_build": false,
+    "fresh_empty_kernel_replay": false,
+    "audit_roots_added": false,
+    "audit_scope_expanded": false,
+    "existing_220_module_receipt_independently_reproduced": false,
+    "root_235_input_readback_claim_repeated_as_reviewer_execution": false,
+    "pdf_layout_review_performed": false,
+    "external_peer_review": false,
+    "historical_priority_certification": false,
+    "new_manuscript_prose_certified_by_old_kernel_receipt": false
+  },
+  "actions": {
+    "canonical_root_files_modified_by_reviewer": false,
+    "gaussian_worktree_modified": false,
+    "push": false,
+    "publication": false,
+    "submission": false
+  },
+  "theorem_map_declaration_presence": [
+    {
+      "name": "finite_graph_complete_all_leak_algebra",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedBoundarySingularSet.lean",
+          "line": 42,
+          "sha256": "90077e53bd1a53be40c5f7cb6cd3fd809c0c1be6b958ba1c724aa9d13d42e12b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "formalLocatedJacobian_coordinate_factorization",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+          "line": 17,
+          "sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "formalLocatedJacobian_evaluate",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/GraphFormalDifferential.lean",
+          "line": 28,
+          "sha256": "96eb04c15e2eff77f801a2e096091c31a5ab65c494700770ed5f944797b22225"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "familyProductDerivative_polynomial",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/FamilyGluing.lean",
+          "line": 26,
+          "sha256": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "familyProductJacobian_eq_pairwise",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/FamilyResultants.lean",
+          "line": 77,
+          "sha256": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "familyGlueJacobian_eq_pairwise",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/FamilyGluing.lean",
+          "line": 70,
+          "sha256": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "det_rateChartDerivative",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RateChart.lean",
+          "line": 123,
+          "sha256": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "treeCanonicalJacobian_recurrence",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/TreeJacobianRecurrence.lean",
+          "line": 127,
+          "sha256": "e17ab6035169dc7cdee790d4d4b2179f0b488f6079baf1b9f5f9cd07f2a9ed03"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "all_tree_canonical_jacobian",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/AllTreeJacobian.lean",
+          "line": 44,
+          "sha256": "750dcba61d037df41574a03433c865e8f7d501ea5ffb0da78071b922b3e294af"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "slideLeakJacobian_formula",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LeakSlideJacobian.lean",
+          "line": 49,
+          "sha256": "99d0e3ee614a7dd347aa1d86f124a9d7867bfae7187c2c0a5bbaa951583890f9"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "leakWalkJacobian_leak_weight",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LeakSlideJacobian.lean",
+          "line": 77,
+          "sha256": "99d0e3ee614a7dd347aa1d86f124a9d7867bfae7187c2c0a5bbaa951583890f9"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "locatedGraphJacobian_leak_weight",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedLeakJacobian.lean",
+          "line": 77,
+          "sha256": "8a094892fb68852e6e0c90c295ff19e3942ff4fd3662c15cc63a0ee77f1205ee"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "graphCharacteristic_eval_zero_leak",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/GraphLeakCofactor.lean",
+          "line": 34,
+          "sha256": "a71d33c4579cde7efb69cc2f746b04b67ed2cacb8ce28ea59ad2facaae12876d"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "locatedGraphJacobian_all_real_factored",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedAllRateJacobian.lean",
+          "line": 41,
+          "sha256": "72f72cf0fec21cb423555b33c93c5badc0064c1dcfdb5c4a78be138eb61da0c7"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "symbolicLocatedResidual_no_coordinate_factor",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/GraphResidualWitness.lean",
+          "line": 71,
+          "sha256": "5301d4f127a51ae38d8733cec4f55e0e0eb21813491ae510bdfea507651426a1"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "formalLocatedJacobian_exact_power",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+          "line": 37,
+          "sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "locatedJacobian_zero_iff_all_rates",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedBoundarySingularSet.lean",
+          "line": 30,
+          "sha256": "90077e53bd1a53be40c5f7cb6cd3fd809c0c1be6b958ba1c724aa9d13d42e12b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "catenary_standard_formal_polynomial",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/CatenaryFormalPolynomial.lean",
+          "line": 34,
+          "sha256": "deb8f388c185f7fa0014c2cc8ee7ef7bf5869236d15ec316167031fb0273ba4d"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "located_collocated_inward_multiplicity",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+          "line": 77,
+          "sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "located_collocated_outward_multiplicity",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+          "line": 85,
+          "sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "stieltjes_reciprocal_polynomial",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/StieltjesReciprocal.lean",
+          "line": 14,
+          "sha256": "f6e347de2c1b610023bfc7329914aed4d3a71bb5de4105c30c53804019822199"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_stieltjes_realization_is_positive",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberRigidity.lean",
+          "line": 43,
+          "sha256": "e932d4efd4493ba6d17fa440dcd1d804e7bff56274561c5b0bd5fe9c3f8c1b0b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "realResponseRecursiveEquiv",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberClassification.lean",
+          "line": 45,
+          "sha256": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_root_response_fiber_exact_card",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberClassification.lean",
+          "line": 68,
+          "sha256": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "supported_positive_diagonal_realization",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/SupportedPositiveGauge.lean",
+          "line": 14,
+          "sha256": "541a2c117eeeb67d787a1213c0a8a29e6ad3285b7d31761198929629e3304ee0"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "graph_same_leak_gauge_unique",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/ConservationGaugeRigidity.lean",
+          "line": 47,
+          "sha256": "065fb22671492cac6d631ebe474aaccf60cb210b24c689fffa9c3048a003f4d4"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_located_response_forces_positive",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+          "line": 25,
+          "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "realLocatedRecursiveEquiv",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+          "line": 47,
+          "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_located_fiber_exact_card",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+          "line": 54,
+          "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_located_full_response_positive_regular",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+          "line": 67,
+          "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_unknown_leak_fiber_exact_card",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+          "line": 78,
+          "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "real_located_continuous_iff_response",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedODEClassification.lean",
+          "line": 15,
+          "sha256": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    },
+    {
+      "name": "finite_graph_all_real_leak_ODE_classification",
+      "declaration_found": true,
+      "locations": [
+        {
+          "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedODEClassification.lean",
+          "line": 90,
+          "sha256": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8"
+        }
+      ],
+      "check_kind": "Textual declaration-presence and source-binding check; not kernel execution"
+    }
+  ],
+  "actual_key_type_and_definition_reads": [
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/SupportedPositiveGauge.lean",
+      "sha256": "541a2c117eeeb67d787a1213c0a8a29e6ad3285b7d31761198929629e3304ee0",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/ConservationGaugeRigidity.lean",
+      "sha256": "065fb22671492cac6d631ebe474aaccf60cb210b24c689fffa9c3048a003f4d4",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedBoundarySingularSet.lean",
+      "sha256": "90077e53bd1a53be40c5f7cb6cd3fd809c0c1be6b958ba1c724aa9d13d42e12b",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+      "sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberClassification.lean",
+      "sha256": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedClassification.lean",
+      "sha256": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedODEClassification.lean",
+      "sha256": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedLeakJacobian.lean",
+      "sha256": "8a094892fb68852e6e0c90c295ff19e3942ff4fd3662c15cc63a0ee77f1205ee",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/CatenaryFormalPolynomial.lean",
+      "sha256": "deb8f388c185f7fa0014c2cc8ee7ef7bf5869236d15ec316167031fb0273ba4d",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/AllTreeJacobian.lean",
+      "sha256": "750dcba61d037df41574a03433c865e8f7d501ea5ffb0da78071b922b3e294af",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/CanonicalTree.lean",
+      "sha256": "6595e14156d1b9dc8d731795341c7a8ff629c4505b7483a5f75a265d47d0e24b",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/EndJacobian.lean",
+      "sha256": "d996b6226fb47d8a71ebafb2eab0b69a7692e867452c5b8637aa6b3acbe3270a",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/FamilyGluing.lean",
+      "sha256": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/GraphResidualWitness.lean",
+      "sha256": "5301d4f127a51ae38d8733cec4f55e0e0eb21813491ae510bdfea507651426a1",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/GraphModelInjectivity.lean",
+      "sha256": "31050e04ece2cbc663fd8e79c6f03b14fb2a5b7b9a3a3796124e6f26f8d2645e",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    },
+    {
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LeakLocationIdentifiability.lean",
+      "sha256": "6cd1c43019cd8eabc8f7e63b93b54f667e2609db699ca2a39259cb10cdc07aec",
+      "scope": "Actual key theorem types, model/coordinate definitions and as-used arguments; not a complete independent module proof audit."
+    }
+  ]
+}
