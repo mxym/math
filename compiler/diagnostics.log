@@ -72,4 +72,16 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
 
-MODULE LocalizationControls
+MODULE WeightedInteraction
+WeightedInteraction.lean:74:2: error: linarith failed to find a contradiction
+case h1
+m : ℕ
+s : Fin m → ℝ
+i j : Fin m
+hij : i ≠ j
+h1 : ∑ k, s k = s i + s j + ∑ k, s ↑k
+h3 : ∑ k, removePair s i j ↑k = ∑ k, s ↑k
+h2 : (∑ k, if k = i ∨ k = j then 0 else s k) = ∑ k, s ↑k
+a✝ : ∑ k, s k < s i + s j + ∑ k, removePair s i j k
+⊢ False
+failed
