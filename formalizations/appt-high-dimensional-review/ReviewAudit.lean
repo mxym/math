@@ -3,6 +3,28 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.lacunary_weighted_graph_eventual,
+  ``APPTReview.lacunary_finite_bound_with_error,
+  ``APPTReview.schmidt_level_localization,
+  ``APPTReview.unit_schmidt_entry_le_one,
+  ``APPTReview.small_schmidt_mass,
+  ``APPTReview.schmidt_pair_square_mass,
+  ``APPTReview.schmidtScalePoint_coe,
+  ``APPTReview.schmidt_pair_in_scaleBand,
+  ``APPTReview.fractional_weight_cauchy,
+  ``APPTReview.fractional_strip_localization,
+  ``APPTReview.finiteAtomicMeasure_probability,
+  ``APPTReview.finiteAtomicMeasure_real,
+  ``APPTReview.finiteAtomicMeasure_prod,
+  ``APPTReview.finiteAtomicMeasure_map,
+  ``APPTReview.scaleLift_atomic,
+  ``APPTReview.atomic_scaleBand_mass,
+  ``APPTReview.symmetric_pair_sum,
+  ``APPTReview.upperPair_mass_le_half,
+  ``APPTReview.selected_pair_mass_bound,
+  ``APPTReview.fractional_cap_cannot_be_dropped,
+  ``APPTReview.atomic_zero_and_collision_control,
+
   ``APPTReview.lacunary_uniform_all_smaller_bands,
   ``APPTReview.lacunary_uniform_band_energy,
   ``APPTReview.lacunary_moving_energy_eventually,
@@ -378,3 +400,7 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_probability_energy "review-kernel-lacunary-measure-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.moving_scaleBand_eventually_lt "review-kernel-moving-band-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_uniform_all_smaller_bands "review-kernel-uniform-band-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.schmidt_level_localization "review-kernel-schmidt-localization-control"

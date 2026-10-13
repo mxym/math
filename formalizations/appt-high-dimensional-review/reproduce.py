@@ -76,7 +76,7 @@ def main():
         if marker not in audit:raise RuntimeError('Missing audit marker '+marker)
     for p in ROOT.glob('review-kernel-*.txt'):shutil.copy2(p,out/p.name)
     check_sources()
-    result={'status':'PASS','scope':'Lacunary common-measure energy, measurable canonical bipartition, moving-strip weak limit, and uniform compact probability threshold; retained physical APPT finite and wide-sector theorems. NOT the full sparse-graph localization, multiscale coefficient-eight lower construction, entropy extrema or dimension-varying rigidity.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
+    result={'status':'PASS','scope':'Complete uniform lacunary weighted Schmidt/Rayleigh graph estimate, including actual finite empirical measure, logarithmic localization, zero coordinates, common-measure compactness and finite negative controls. Retained physical APPT finite/wide-sector endpoints remain. The isolated-spike and physical multiscale coefficient-eight construction, full entropy and asymptotic rigidity are not certified by this checkpoint.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
     (out/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n')
     print('REVIEW_REPRODUCTION_PASS',flush=True)
 if __name__=='__main__':main()

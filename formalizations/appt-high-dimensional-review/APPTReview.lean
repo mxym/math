@@ -36,3 +36,5 @@ import APPTReview.EffectiveControls
 
 import APPTReview.LacunaryUniformBand
 import APPTReview.LacunaryControls
+
+import APPTReview.LocalizationControls
