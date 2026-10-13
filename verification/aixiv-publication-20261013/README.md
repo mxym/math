@@ -51,7 +51,7 @@ records. None of the author's claimed imported entries was changed.
 
 The manuscript sources were compared against repository revision
 `07559d229e39206f657b1b7a2d39d09da21fba41`; the older Windows copies have the same
-text, with CRLF rather than LF endings. The active manuscripts were rendered
+text, with CRLF rather than LF endings. Manuscripts newly submitted in this round were rendered
 page by page and inspected. Downloaded online PDFs were also checked for page
 counts and text outside the page. The four-row manuscript was typeset anew,
 compiled twice without LaTeX warnings or overfull/underfull boxes, and visually
