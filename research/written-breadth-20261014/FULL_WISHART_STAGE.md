@@ -150,3 +150,11 @@ For the exact SPD negative-control scale above, \(s=89/100\) and \(q=-9/250\). F
        \left(\frac{89}{100}\beta-\frac{9}{125}(k+1)\right).
 \]
 This is negative for sufficiently large \(k\), at every fixed admissible shape. Hence complete monotonicity of the normalized excess cannot be assumed to turn positive integer/half-integer evidence into the full real-degree theorem. The weaker first-derivative sign (T) remains a substantive unclosed question.
+
+## Stage boundary
+
+At about 03:30 local time on 14 October 2026, the present Wishart routes reached approximately 45 effective research minutes without a complete general proof or an admissible counterexample. This estimate counts the confirmed 18:42 UTC onward activity and approximately five confirmed pre-continuation minutes; it excludes the 18:33–18:42 continuation/compaction interval and approximately eight minutes of requested APPT service reviews. It is a conservative approximate active-time ledger, not an assertion that interruption wall time was research.
+
+The full Wishart conjecture remains unresolved here. Both bounded discovery processes ended naturally; no own process is left running. The exact moment data, source distinction, local variation, negative-coefficient/noncentral controls and real-degree shape-tilt identity are preserved for possible later return. No partial positive class is promoted to a complete answer.
+
+The active breadth target now changes to the full Gaussian polynomial U-conjecture. Its original arbitrary-degree/finite-dimension statement, current source boundary, exact essential-subspace criterion and first analytic route are recorded in FULL_U_CONJECTURE_ATTEMPT.md. This change is not counted as a theorem and does not replace or duplicate the root APPT entropy direction.
