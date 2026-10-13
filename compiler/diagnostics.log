@@ -152,35 +152,42 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq V] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/LeakRelocationDifferential.lean:34:26: error: Application type mismatch: The argument
-  hd
-has type
-  DifferentiableAt.{0, u_1, 0} ℝ ((fun z => z.2 d) + fun z => z.1) y
+HydrologyTree/LeakRelocationDifferential.lean:35:4: error: Type mismatch: After simplification, term
+  DifferentiableAt.mul (DifferentiableAt.mul ha hl) hi
+ has type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
+    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (((fun z => z.2 d.symm) * fun z => z.1) * (fun y => y⁻¹) ∘ ((fun z => z.2 d) + fun z => z.1)) y
 but is expected to have type
-  DifferentiableAt.{0, 0, 0} ℝ (HAdd.hAdd (y.2 d)) y.1
-in the application
-  DifferentiableAt.div ?m.237 hd
-HydrologyTree/LeakRelocationDifferential.lean:40:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeakRelocationDifferential.lean:43:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeakRelocationDifferential.lean:43:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeakRelocationDifferential.lean:44:30: error: Application type mismatch: The argument
-  hd
-has type
-  DifferentiableAt.{0, u_1, 0} ℝ ((fun z => z.2 d) + fun z => z.1) y
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
+    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ
+    Real.normedAddCommGroup.toAddCommGroup RCLike.toInnerProductSpaceReal.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun x => x.2 d.symm * x.1 * (x.2 d + x.1)⁻¹) y
+HydrologyTree/LeakRelocationDifferential.lean:41:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeakRelocationDifferential.lean:44:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeakRelocationDifferential.lean:44:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeakRelocationDifferential.lean:45:8: error: Type mismatch: After simplification, term
+  DifferentiableAt.mul (DifferentiableAt.mul ha hf) hi
+ has type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
+    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (((fun z => z.2 d.symm) * fun z => z.2 d) * (fun y => y⁻¹) ∘ ((fun z => z.2 d) + fun z => z.1)) y
 but is expected to have type
-  DifferentiableAt.{0, 0, 0} ℝ (HAdd.hAdd (y.2 d)) y.1
-in the application
-  DifferentiableAt.div ?m.352 hd
-HydrologyTree/LeakRelocationDifferential.lean:45:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeakRelocationDifferential.lean:45:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/LeakRelocationDifferential.lean:76:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakWalkRates_positive`:
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.instAddCommGroup Prod.instModule
+    instTopologicalSpaceProd ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun z => z.2 d.symm * z.2 d * (z.2 d + z.1)⁻¹) y
+HydrologyTree/LeakRelocationDifferential.lean:46:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeakRelocationDifferential.lean:46:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeakRelocationDifferential.lean:77:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakWalkRates_positive`:
   [Fintype V]
   [DecidableRel G.Adj]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [Fintype V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/LeakRelocationDifferential.lean:82:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakWalkRates_eq_equiv`:
+HydrologyTree/LeakRelocationDifferential.lean:83:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakWalkRates_eq_equiv`:
   [Fintype V]
   [DecidableRel G.Adj]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
