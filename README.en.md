@@ -39,7 +39,7 @@ The table lists the current version DOI for each published manuscript. Older imm
 
 The complete catalog, including smaller formalized results and research notes, is in [SOLVED_PROBLEMS.md](SOLVED_PROBLEMS.md) and [RESEARCH.md](RESEARCH.md).
 
-[aiXiv publication, deduplication and license readback](verification/aixiv-publication-20261013/README.md) records eight additional papers and three withdrawn duplicates. The four-cell Gaussian submission is prepared but awaits resolution of the new-submission license behavior.
+[aiXiv publication, deduplication and license readback](verification/aixiv-publication-20261013/README.md) records nine additional papers and three withdrawn duplicates. The four-cell Gaussian paper uses CC BY-NC-ND 4.0 with the author's explicit approval.
 
 ## Claimed results
 

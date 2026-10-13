@@ -20,6 +20,7 @@ in the platform's `checking` state at the recorded readback time.
 | Sharp simplex stability | [2610.01487](https://aixiv.online/abs/2610.01487) | Upper theorem and geometric exponent obstruction in the two separate source projects |
 | Bapat original-interval counterexamples | [2610.01488](https://aixiv.online/abs/2610.01488) | Specified complex rational witness and real symmetric integer existence theorem in one manuscript |
 | Four-row permanent–determinant inequality | [2610.01489](https://aixiv.online/abs/2610.01489) | Sharp coefficient, attainment, complete equality classification and real pencil norm |
+| Four equal Gaussian cells | [2610.01490](https://aixiv.online/abs/2610.01490) | Written proof with explicitly cited external Gaussian isoperimetric results; no claim of a self-contained complete Lean proof |
 
 The preceding four account submissions remain:
 [APPT qutrit purity](https://aixiv.online/abs/2610.01472),
@@ -67,15 +68,18 @@ minimize disclosure. Credentials and private account files are absent from this
 public record. Optional AI process summaries, prompts and other extra fields
 were not submitted.
 
-## License metadata and pending Gaussian submission
+## License metadata and the Gaussian submission
 
-The latest version of every account paper was read back as
-`All rights reserved`; existing third-party licenses and notices remain in
+The latest version of the twelve preceding active account papers was read back
+as `All rights reserved`; existing third-party licenses and notices remain in
 force. Early submissions inherited aiXiv's default CC BY 4.0 metadata.
 Subsequent tests showed that even explicitly supplying
 `--license "All rights reserved"` on a new submission returned
 `record.license = "CC BY 4.0"`, despite the CLI dry-run display showing the
-requested value. The exact server-side cause is not established. Metadata-only
+requested value. The MCP `submit_paper` input schema accepts only `CC BY 4.0`,
+`CC BY-SA 4.0`, `CC BY-NC-ND 4.0` and `CC0 1.0 (public domain)`;
+`All rights reserved` is not a supported new-submission value. The unsupported
+value was observed to fall back to CC BY 4.0. Metadata-only
 new versions corrected the current records; historical versions remain intact.
 This report makes no claim that changing the latest metadata erases historical
 licenses.
@@ -91,11 +95,17 @@ normalization and q = 4, n = 3 applicability were checked against the primary
 perimeter minimum, and Theorem 1.2 gives uniqueness. The cluster perimeter is
 one half of the sum of cell perimeters.
 
-Its automatic submission was stopped before publishing because the new-record
-license behavior above conflicts with the author's rights instruction. No
-Gaussian aiXiv publication URL is asserted. The original PDF and immutable DOI
-were not altered. Future submission must resolve that license issue and perform
-an author/title/source search again before creating a record.
+Its automatic submission was initially stopped before publishing because this
+new-record license behavior conflicted with the author's rights instruction.
+After the author explicitly approved CC BY-NC-ND 4.0 for this paper, submission
+was repeated with that supported value and completed as
+[aiXiv:2610.01490](https://aixiv.online/abs/2610.01490). The server record was read
+back as `CC BY-NC-ND 4.0`, with zero attached traces. The source ZIP and author
+PDF were both supplied; the downloaded eleven-page PDF is byte-identical to
+the checked signed PDF. The original immutable DOI record was not altered.
+This permission concerns the Gaussian paper, without imposing a new blanket
+license on unrelated original research. Future submissions must check supported
+license values and perform author/title/source deduplication before publishing.
 
 [PUBLICATION_RECEIPTS.json](PUBLICATION_RECEIPTS.json) preserves the public
 readback fields, version hashes, withdrawal state, downloaded PDF hashes, and

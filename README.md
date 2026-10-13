@@ -58,7 +58,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 [17 篇稿件的文章与范围审计](reviews/manuscript-quality-2026-10-08/README.md) · [9 篇修订版 DOI 与公开附件核验](releases/manuscript-revisions-20261008/README.md)
 
-[aiXiv 发布、去重与当前许可证核对](verification/aixiv-publication-20261013/README.md)：8 篇补发，3 条主动重复记录已撤回；高斯四单元待新建投稿的许可证问题解决。
+[aiXiv 发布、去重与当前许可证核对](verification/aixiv-publication-20261013/README.md)：9 篇补发，3 条主动重复记录已撤回；高斯四单元按作者单独授权的 CC BY-NC-ND 4.0 发布。
 
 余子式谱 Theorem 1 的[完整 Lean 形式化与范围核对](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)单独列出；后续 ramp／endpoint 结论不计入该形式化证书。
 
