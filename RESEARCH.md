@@ -102,6 +102,10 @@
 | 分数覆盖／匹配谱 | 所述有限比值极限前沿与设计等号结构，引用经典设计输入 | [整合论文](manuscripts/fractional-cover-spectrum/README.md)；完整书面证明、部分 Lean |
 | 小三重交的整数恢复 | 在明确区间和三重交假设下由分数最优恢复整数渐近 | [完整书面证明与部分 Lean](notes/diffuse-fractional-cover-rounding/README.md)；一般问题仍未解决 |
 
+## 有限树储库模型可辨识性
+
+- [有限树模型定理与 Lean 工程](formalizations/hydrology-tree-core/README.md)：实际矩阵与系数 Jacobian 的全实参数分解、任意泄漏位置的精确重数和零边界奇异集、完整正目标的全部实解分类与精确计数，以及连续输入 ODE 和有符号控制桥接。范围限于文档明确的有限线性树模型；不宣称一般非线性水文问题已解决。 [独立空内核核验](verification/hydrology-tree-core-ad92bfe7/README.md) · [任意泄漏位置的完整书面证明](research/hydrology-tree-real-fibers/ALTERNATE_LEAK_JACOBIAN.md) · [已发表猜想的命题对应](research/hydrology-tree-real-fibers/PUBLISHED_CONJECTURE_ALIGNMENT.md)。
+
 ## 探索项目与文献比较
 
 - [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例、受控或双实验恢复三参数，以及有限并联衰减谱从前 (2k) 个矩确定速率集合（仅差标签置换）；非线性扩展仍在研究。
