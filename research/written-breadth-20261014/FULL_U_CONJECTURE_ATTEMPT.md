@@ -239,3 +239,18 @@ Vanishing of (H) forces every first contraction to vanish and thus the orthogona
 The substantive missing implication is from actual ordinary independence of \(P(X),Q(X)\) to (H)=0. Assuming independence of each pair of chaos components would simply assume the desired stronger property. The fixed-class source proves it only through its special nonnegative covariance decomposition, which has been explicitly excluded for general polynomial bases.
 
 The all-polynomial isometry (I) is a necessary consequence of the original law independence, not asserted to be a converse. Even an infinite formal mixed-moment factorization is not automatically a law-independence certificate for high-degree moment-indeterminate marginals. A proof from (I) alone would be a sufficient stronger algebraic bridge; if that bridge cannot be established, the full sigma-field independence must still be available through the exact conditional identities (C) and bounded test functions. This distinction is retained in every potential counterexample or continuation.
+
+## Same-point gradient orthogonality is not the target
+
+The independent-copy contraction in (U)/(H) cannot be replaced by
+\(\nabla P(x)\cdot\nabla Q(x)=0\) at the same point. For
+\[
+ P=X^2-Y^2,\qquad Q=2XY,
+\]
+the same-point gradient inner product vanishes identically, but
+\(K_P=K_Q=4I_2\), so \(H(P,Q)=32\). Direct Gaussian moments give
+\[
+ \mathbb EP^2=\mathbb EQ^2=4,\qquad
+ \mathbb EP^2Q^2=48>16,
+\]
+hence the variables are dependent. The unsymmetrized first contraction and the global essential spaces are the actual objects; a same-point cancellation of the symmetric gradient polynomial does not certify unlinking or independence.
