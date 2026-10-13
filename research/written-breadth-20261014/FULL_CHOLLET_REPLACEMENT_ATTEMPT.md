@@ -144,3 +144,64 @@ Thus permanent is not convex on the positive definite fixed-diagonal domain. Con
 ## C9. Current unresolved step
 
 The complete target remains the monomial product comparison in C2. A replica monotonicity proof could still work, but its coefficients and full test-function moment operator have unavoidable signs. A new proof must exploit the actual factorized Gaussian covariance/copy structure without assuming any of C4, C6, C7, or C8's false strengthenings. These are ordinary complete proofs of route obstructions, not a new solution of a major conjecture.
+
+## C10. Actual ordinary/doubled sectors cannot be paired separately
+
+Let m=2, H=J_2, x=(1,-1)^T. The normalized border is the actual PSD Gram matrix
+\[
+ A=\begin{pmatrix}2&0&1\\0&2&-1\\1&-1&1\end{pmatrix};
+\]
+Gram rows are (1,1),(1,-1),(0,1). Direct expansion gives
+\[
+ F(t)=2+2t^2,\qquad
+ \Gamma(a,b)=2(1+b)^2+8a^2.
+\]
+Thus ordinary alpha_1=0, although the doubled occupation profile with one label2 and one label3 has squared-norm coefficient4. Indeed its complete sector vector is -2 times the symmetric tensor of the two orthogonal unit label vectors; its squared norm is8, divided by m!=2. The two remaining profiles with two label2 or two label3 each contribute2, giving gamma_(2,0)=8. Consequently an individual-profile estimate against alpha_1 alpha_1 is false on an actual PSD border.
+
+Even the ordinary inductive deficit has a negative coefficient:
+\[
+ F(t)^2-\Gamma(t,t^2)=2(1-t^2)^2\geq0.
+\]
+Its middle coefficient is -4. At t=1 the smaller matrix R(1)=2I_2 is an equality case, so a pointwise inductive inequality does not yield coefficientwise dominance. The full border still has per A=8 and per(A circle A)=24<64; this is not a Chollet counterexample or new rank-two result.
+
+## C11. Nonnegative coefficients plus pointwise induction alone are insufficient
+
+This next example concerns an abstract implication, not actual PSD matrices. With m=64 set
+\[
+ F(t)=1+2^{-16}t^{64},\qquad \Gamma(a,b)=b^8/8.
+\]
+Their coefficients are nonnegative and in the usual degree ranges. For t>=0, put s=t^16/16. Then F(t)=1+s^4 and Gamma(t,t^2)=2s. Elementary differentiation gives
+\[
+ \inf_{s>0}\frac{(1+s^4)^2}{s}=\frac{64}{7^{7/4}}>2;
+\]
+the last sign is the exact integer comparison 32^4=1048576>823543=7^7. Hence Gamma(t,t^2)<=F(t)^2 for every t>=0. Nevertheless
+\[
+ \Gamma(1,1)+\partial_b\Gamma(1,1)=9/8
+   > (F(1)+F'(1))^2=(1+65/65536)^2.
+\]
+The exact squared comparison is 8(65601)^2<9(65536)^2.
+
+Therefore positivity of both coefficient lists and pointwise self-conjugate induction along every parabolic evaluation cannot by themselves imply the complete border inequality. This pair of abstract polynomials is expressly NOT a legal Gram witness: alpha_64>0 would force every x_i nonzero and gamma_(0,64)=alpha_64^2/64!>0, which the displayed Gamma lacks. The diagnostic isolates the additional actual sector relations that a valid complete proof must use.
+
+## C12. The polynomial-moment-operator obstruction persists in the self case
+
+The signed-test failure in C7 does not disappear after reducing to B=conjugate(A). Let Z and W be independent standard proper complex Gaussian vectors of dimension2, and set
+\[
+ F_1=Z_1W_1,\quad F_2=Z_2W_2,\quad
+ F_3=(Z_1+Z_2)(W_1+W_2),\quad
+ F_4=(Z_1+iZ_2)(W_1-iW_2).
+\]
+These have coefficients a_i and conjugate(a_i), for a_i=(1,0),(0,1),(1,1),(1,i), so the covariance is precisely A circle conjugate(A) for the PSD Gram A of these rows. Put
+\[
+ Q(z)=4z_1z_2-(z_3-z_1-z_2)^2-(z_4-z_1-z_2)^2.
+\]
+Writing u=Z_1W_1,v=Z_2W_2,a=Z_1W_2,b=Z_2W_1 shows Q(F)=4(uv-ab)=0 identically. The matching Gaussian vector is obtained by applying the same linear formulas to four independent standard complex Gaussian matrix entries H_11,H_22,H_12,H_21. Its covariance is A circle conjugate(A), and
+\[
+ Q(G)=4(H_{11}H_{22}-H_{12}H_{21}),\qquad
+ \mathbb E|Q(G)|^2=32.
+\]
+Thus a PSD replacement operator on all holomorphic polynomial squares would still be false in the exact self-conjugate setting. The determinant-like signed polynomial is not the required product of legal rank-one factors; its failure does not decide Chollet.
+
+## C13. Phase boundary and next analytic requirement
+
+At 20:46:03 UTC the active Chollet research time was22 minutes45 seconds: wall time since20:19:32 minus the independent finite-APPT service review20:36:46–20:40:32. The stage remains active. No stochastic optimization or exhaustive small-order rerun was performed. The remaining route must control actual coupled ordinary/doubled sectors, rather than use an abstract nonnegative-polynomial implication or PSD replacement operator. All six diagnostics above are retained as exclusions, without promoting them to a complete result.
