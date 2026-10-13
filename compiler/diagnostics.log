@@ -287,13 +287,20 @@ consider restructuring your `variable` declarations so that the variables are no
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-HydrologyTree/ArrowDiagonalGauge.lean:45:34: error: unsolved goals
+HydrologyTree/ArrowDiagonalGauge.lean:58:10: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  inst✝³
+inferred
+  fun a b => LinearOrder.toDecidableEq a b
+HydrologyTree/ArrowDiagonalGauge.lean:58:41: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  inst✝³
+inferred
+  fun a b => LinearOrder.toDecidableEq a b
+HydrologyTree/ArrowDiagonalGauge.lean:61:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩
+in the target expression
+  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
+
+case neg
 C : Type u_1
 inst✝⁴ : Fintype C
 inst✝³ : DecidableEq C
@@ -312,26 +319,21 @@ hh : ∀ (c : C) (i : V c), h c i ≠ 0
 hroot : ∀ (c : C), h c (r c) = 1
 hchild : ∀ (c : C), A c = diagonalGauge (h c) (B c)
 hprod : ∀ (c : C), alpha c * beta c = a c * f c
-u : Unit
+c : C
+u : V c
 k : C
-⊢ a k * f k * (beta k)⁻¹ = a k * (beta k)⁻¹ * (f k)⁻¹⁻¹
-HydrologyTree/ArrowDiagonalGauge.lean:55:4: error: 'change' tactic failed, pattern
-  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
-is not definitionally equal to target
-  arrowMatrix d A r alpha beta (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩) =
-    arrowGaugeWeight f beta h (Sum.inr ⟨c, u⟩) * arrowMatrix d B r a f (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩) *
-      (arrowGaugeWeight f beta h (Sum.inr ⟨k, v⟩))⁻¹
+v : V k
+hck : ¬c = k
+⊢ blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    blockDiagonal' A ⟨c, u⟩
 HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: This simp argument is unused:
   if_pos rfl
 
 Hint: Omit it from the simp argument list.
   [apply] simp only [hroot, one_mul, mul_one]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/ArrowDiagonalGauge.lean:45:48: warning: This simp argument is unused:
-  inv_div
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [div_eq_mul_inv]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
