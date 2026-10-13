@@ -3,6 +3,57 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.appt_purity_excess_equivalent,
+  ``APPTReview.positive_sum_square_trace_lower,
+  ``APPTReview.positive_add_square_trace_lower,
+  ``APPTReview.normalized_identity_purity,
+  ``APPTReview.pure_unit_square_trace,
+  ``APPTReview.lacunaryPerturbation_posSemidef,
+  ``APPTReview.lacunaryPerturbation_square_lower,
+  ``APPTReview.canonical_coefficient_square,
+  ``APPTReview.canonical_energy_identity,
+  ``APPTReview.canonical_trace_identity,
+  ``APPTReview.scalar_normalized_moment_lower,
+  ``APPTReview.canonicalScaleProjection_trace,
+  ``APPTReview.canonical_projection_energy_lower,
+  ``APPTReview.lacunaryTraceError_nonneg,
+  ``APPTReview.lacunaryPerturbation_trace,
+  ``APPTReview.canonical_perturbation_moments,
+  ``APPTReview.lacunaryDensity_purity,
+  ``APPTReview.scalar_identity_excess_ratio,
+  ``APPTReview.canonical_lacunary_purity_finite,
+  ``APPTReview.lacunaryTraceError_tendsto,
+  ``APPTReview.lacunaryMomentError_tendsto,
+  ``APPTReview.lacunaryPurityLower_tendsto,
+  ``APPTReview.canonical_lacunary_energy_lower,
+  ``APPTReview.geometricScales_range,
+  ``APPTReview.geometricScales_lacunary,
+  ``APPTReview.geometricScales_pairwise_gt,
+  ``APPTReview.geometricScales_nodup,
+  ``APPTReview.geometricScales_length,
+  ``APPTReview.geometricScales_card,
+  ``APPTReview.sqrt_eq_of_nonnegative_square,
+  ``APPTReview.hierarchy_energy_bound,
+  ``APPTReview.hierarchy_spike_range,
+  ``APPTReview.hierarchy_total_energy,
+  ``APPTReview.hierarchy_deficit_bound,
+  ``APPTReview.geometric_hierarchy_energy,
+  ``APPTReview.geometric_hierarchy_budget,
+  ``APPTReview.appt_growing_dimension_eight_lower,
+  ``APPTReview.appt_total_dimension_sharp_lower,
+  ``APPTReview.appt_sharp_sup_two_sided,
+  ``APPTReview.sharpPurityCoefficient_pos,
+  ``APPTReview.appt_sharp_purity_relative_error,
+  ``APPTReview.appt_sharp_purity_asymptotic,
+  ``APPTReview.sharp_aspect_sandwich,
+  ``APPTReview.appt_all_aspect_purity_limit,
+  ``APPTReview.appt_balanced_excess_limit,
+  ``APPTReview.hierarchy_energy_strictly_below_eight,
+  ``APPTReview.floor_rank_is_not_real_rank,
+  ``APPTReview.positive_cross_moments_not_zero,
+  ``APPTReview.centering_loss_cannot_be_deleted,
+  ``APPTReview.sharp_branch_regression,
+
   ``APPTReview.canonical_lacunary_states_appt,
   ``APPTReview.lacunary_density_eventually,
   ``APPTReview.lacunarySpike_absolutelyPPT_eventually,
@@ -460,3 +511,9 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_single_spike
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.compressed_schmidt_rank_witness "review-kernel-rank-compression-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunarySpike_absolutelyPPT_eventually "review-kernel-lacunary-physical-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_growing_dimension_eight_lower "review-kernel-eight-physical-lower-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.canonical_lacunary_purity_finite "review-kernel-lacunary-purity-finite-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_all_aspect_purity_limit "review-kernel-all-aspect-limit-control"

@@ -40,3 +40,5 @@ import APPTReview.LacunaryControls
 import APPTReview.SparseLocalizationControls
 
 import APPTReview.MultiscaleBridgeControls
+
+import APPTReview.SharpPurityControls
