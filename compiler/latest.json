@@ -1,7 +1,7 @@
 {
-  "serial": 234,
-  "status": "COMPILER_ERROR",
-  "request_blob": "ea96c58d6ea5f0a422b342f83d63a31a680285d8",
+  "serial": 235,
+  "status": "COMPILING",
+  "request_blob": "56da2a907cf4770028abd89d65f9f3d6a927339e",
   "modules": [
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
@@ -150,7 +150,41 @@
     "HydrologyTree.CatenaryGlobal",
     "HydrologyTree.CatenaryCoprime",
     "HydrologyTree.PositiveResponseFiber",
-    "HydrologyTree.MatrixStieltjesIdentification"
+    "HydrologyTree.MatrixStieltjesIdentification",
+    "HydrologyTree.LeakRelocationDifferential",
+    "HydrologyTree.ScalarSlotJacobian",
+    "HydrologyTree.LeakSlideJacobian",
+    "HydrologyTree.RealFiberRigidity",
+    "HydrologyTree.RecursiveFiberClassification",
+    "HydrologyTree.RealFiberClassification",
+    "HydrologyTree.GraphResponseClassification",
+    "HydrologyTree.ExponentialIndependence",
+    "HydrologyTree.ExponentialGramian",
+    "HydrologyTree.ModalSteering",
+    "HydrologyTree.ModalKalman",
+    "HydrologyTree.PhysicalKalman",
+    "HydrologyTree.PhysicalControllability",
+    "HydrologyTree.MatrixFlow",
+    "HydrologyTree.ExponentialODEProbe",
+    "HydrologyTree.TimeDomainIdentification",
+    "HydrologyTree.DischargeFiber",
+    "HydrologyTree.FullResponseDynamics",
+    "HydrologyTree.ContinuousOutputFiber",
+    "HydrologyTree.TimeDomainDischarge",
+    "HydrologyTree.ContinuousDischargeFiber",
+    "HydrologyTree.TrajectoryObservability",
+    "HydrologyTree.FullRootLeakTheory",
+    "HydrologyTree.ControlEnergy",
+    "HydrologyTree.MinimumEnergyMoments",
+    "HydrologyTree.ModalMinimumEnergy",
+    "HydrologyTree.PhysicalMinimumEnergy",
+    "HydrologyTree.GraphDynamicalClassification",
+    "HydrologyTree.GraphCoefficientJacobian",
+    "HydrologyTree.GraphFullTheory",
+    "HydrologyTree.LocatedLeakFiber",
+    "HydrologyTree.LocatedLeakJacobian",
+    "HydrologyTree.RealLocatedClassification",
+    "HydrologyTree.MatrixTimeIdentification"
   ],
   "source_sha256": {
     "HydrologyTree/TreePipeline.lean": "1d966a90c50183e3a547c40a6e1fea707170502780956a6f4dc6515466cd7c03",
@@ -159,11 +193,14 @@
     "HydrologyTree/FamilyScaling.lean": "3a244c8a3dddc41e18368fb4fff7783989094eb9963de47799926f9c9a74ab77",
     "HydrologyTree/StieltjesChildAssembly.lean": "87f111b149028a7ca053be57051f9ebb31dd6e3e138b4fe1910f46425d8dead0",
     "HydrologyTree/PhysicalRecursion.lean": "90df308d419817f922fe6bbee4e4ca915fc7b8b2071b83ce9cfb0c1d47cd2395",
+    "HydrologyTree/ExponentialIndependence.lean": "fa91a004e4447f267d823c0b4a71d56323989ecd5e99d703dafd5b44ca69042c",
     "HydrologyTree/PhysicalModes.lean": "c7030f31f95c398ccb28b7fdd7ed260a94519796db06c8fa8f804e508e202a6e",
     "HydrologyTree/DependentJacobian.lean": "0d9764ff9b9275c335d8fe245486a1c91e1a50ddf70c9d43b5a4e8569983bffd",
     "HydrologyTree/RootAttachment.lean": "a6376191302dfbb1199db7b7a40a9a163ea2ef05fdd36d784c6c7f5af0d4d9de",
     "HydrologyTree/RootCoupling.lean": "487f5a86c65078e5757ef961a0ca54540d9fdba1ac232c4a95910130e6db2d26",
     "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
+    "HydrologyTree/GraphFullTheory.lean": "c9d67613fee1102ab45b5b9f9865afe52ed910ad9ce3f5098ec37cff3d086955",
+    "HydrologyTree/TimeDomainDischarge.lean": "8fc75c58dd9b6d5b300938b8694ed72789a3666ea5036b76e3ebe1be4fb29c2c",
     "HydrologyTree/CatenaryJacobian.lean": "300b61b84ac764c7068a81fdd08030980108b638cc429992254877e477347f90",
     "HydrologyTree/ModalForcedODE.lean": "227128ed33cdbc4947159393343174ee307679a2b519dd608a474c574414f106",
     "HydrologyTree/LinearConjugation.lean": "050b3c4b024c31832c6d53207db0271c317f25eabde29180dde5414ceccad305",
@@ -176,10 +213,13 @@
     "HydrologyTree/StieltjesWeightedMatching.lean": "4faf4a2ed415d9cf71bca04b298aab287a16e67112ca87cfc5854f3aed9b99fa",
     "HydrologyTree/PhysicalCancellation.lean": "96705736c35803c077494b58ec468271f9e6bcd0245667b772edd9494140faf1",
     "HydrologyTree/TreeFiberCombinatorics.lean": "1c1bb08633d962a1192b6868d8563e9a7e89d25df0897da23e796151f19904d1",
+    "HydrologyTree/RealFiberClassification.lean": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955",
     "HydrologyTree/WeightedEnergy.lean": "4d8fdcad99619718647b05bdd0c5d953e73bcfd3b5abcd8f9f5e5b379e3f2fbf",
     "HydrologyTree/CouplingSemantics.lean": "e5e0f23fa69674c5dd75b68a1e759e7ee63c4d4d663e65af70a408b84a3e5a88",
     "HydrologyTree/LeafRecursion.lean": "c039563085aea24353ffb08816d4b9cc3b29cc7e70d008508ffac646aff2d5de",
     "HydrologyTree/RateCoordinates.lean": "fd53efa9c07ddd97ac06375b8291dd312222b6a445c5c72404f75465e3c1ac2f",
+    "HydrologyTree/MatrixFlow.lean": "1f2abead1ca9e15b7a676bad2e97818a7ad4d1828ea06333c027552cd56df6d0",
+    "HydrologyTree/ContinuousDischargeFiber.lean": "157664d044eb37d196aa1324ace8c2cd9c753acafd5f1ea6d36b9e04858c6fcc",
     "HydrologyTree/LinearForcedODE.lean": "317ede038033b19217c5524a07682919df21b1512d71b948c0820a25dac645a8",
     "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
     "HydrologyTree/AllTreeJacobian.lean": "750dcba61d037df41574a03433c865e8f7d501ea5ffb0da78071b922b3e294af",
@@ -192,32 +232,43 @@
     "HydrologyTree/CatenaryOrientation.lean": "d944fb62f339fe82234b747c7c498ed8f0a10190febab2582b35cd197c1f45cc",
     "HydrologyTree/RealFactorAllocation.lean": "e8f32c5c84a18ccb5a9aa147879f9c32a1acd58bd8cd9ed3434f48472c2bbd23",
     "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
+    "HydrologyTree/ModalSteering.lean": "1608257a20fc3e48842515763cf5eb64db8132e056adb0f0545270b54933281c",
     "HydrologyTree/RootRecovery.lean": "a029a8560b3318f369a4c37d5e1657c67acb5f863ec29b0c02228a22e6774579",
+    "HydrologyTree/ModalKalman.lean": "986da9efe3dc4fd49ff232a2d92dc2d6c27ae0c76fc93a21b45b3522a3c4a765",
     "HydrologyTree/ArrowDiagonalGauge.lean": "046bc321944c06ff0fdbc27c298ee4ff0eae2b2039e4cd181f37e6e13409afa0",
+    "HydrologyTree/LeakSlideJacobian.lean": "99d0e3ee614a7dd347aa1d86f124a9d7867bfae7187c2c0a5bbaa951583890f9",
     "HydrologyTree/LeakGauge.lean": "e42f6ba1d1207cb1340a9895dfd3dbd1c4419c064f0f006598fe8f818bcb91e3",
+    "HydrologyTree/LeakRelocationDifferential.lean": "d0722e2303207b5c7793613b35ca9af2e1e729847aac07a0aa1d896da861c9e8",
     "HydrologyTree/SerializedNumerator.lean": "445672db9fd532f2537e31d334fa6882f5de0a1a4d69f250499ced6dcfa5b302",
     "HydrologyTree/GraphMassBalance.lean": "6a3d6c485c3d05075d903ed5240b2b5d7e5bc4af1da62cce65d23a015af4b2f4",
     "HydrologyTree/FamilyCoordinateEnergy.lean": "ebf2a831fae076892803f620b73733b5123bbb53548b0128617eebbd3e60e957",
+    "HydrologyTree/ModalMinimumEnergy.lean": "c55ed4341b6eac221f6aa0a8a427485ba0d8938e99d5dfc6601e595d70993a5b",
     "HydrologyTree/TreeMatrixSupport.lean": "c7f32ed159d9ed6cd51f99cd16af3eadcc7c3987c6b4258b0316333f2102e8fb",
+    "HydrologyTree/FullResponseDynamics.lean": "dbb409f8bacd754c496a45648c39b8fb18cb4d5d8ab884ae74e696900b485aa0",
     "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
     "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
     "HydrologyTree/RealLocatedPositivity.lean": "1ff1074338163270614020e83c06056098e1301b2d4309b1e50245464a09caa2",
+    "HydrologyTree/ExponentialGramian.lean": "14163b524000c938c7e8570bf499129eee60604c4fa0eb2d77cca2904d4dffcd",
     "HydrologyTree/GraphMatrixTransport.lean": "67641a4f4cb704b064413e9241c710845e972a2ee498265752d3badc351ca849",
     "HydrologyTree/PositiveFiberAllocation.lean": "ff4611f1bc79745f75d40333b612335dab996335eb6d3ed313b79e51ef4df9c4",
     "HydrologyTree/SizedSpectralAllocation.lean": "b0e8bac533977fd5f2d5178312527028f8351e3fa4de2558b5543a300acaa947",
     "HydrologyTree/GraphODETransport.lean": "5f0beb2b448f5d9886ed25bfc006627de5a01cb3a1ff67d04ea94f5d67cbffb0",
+    "HydrologyTree/PhysicalMinimumEnergy.lean": "0d333dec0ad189a437cbfc9c141f63a1df93bbc0c2aaa02e1755015a62ef40a4",
     "HydrologyTree/GraphPresentation.lean": "20c596ebc69d9cb1f9ad5d1caffbf843c3f8947a8058e59205bade358929db98",
     "HydrologyTree/StieltjesDegree.lean": "a35d9e35b9c6d09e0c3dfff440a9f6aabe3d5afa35f219d9eb72fe32e15c4a35",
     "HydrologyTree/CoprimeBranchRecovery.lean": "99038d46b663d1b5d5a09713549a51f101d25e7e95a1995feb258570e956f9f5",
+    "HydrologyTree/MinimumEnergyMoments.lean": "e5a922d5b7b0b2b22d15794f71f004e63711fdfce1e3f5487cd23e1f2b2c2ada",
     "HydrologyTree/GraphRateTransport.lean": "e3dcf1edb91948f7e6ff2f570987083cd9cf70ad3b954e7a2ce4dd95ae52f4d5",
     "HydrologyTree/PhysicalBranchRecovery.lean": "8c8dfc546169d8944768c5c1b1519da0f5a41415cb5acc128b85def1afb5d936",
     "HydrologyTree/StieltjesInterlacing.lean": "e6ea01461cc858aff0d305000a094dce578374d75d8f51f9c186811fcef08a9d",
     "HydrologyTree/CanonicalTree.lean": "6595e14156d1b9dc8d731795341c7a8ff629c4505b7483a5f75a265d47d0e24b",
     "HydrologyTree/JacobianRegularity.lean": "c6e71a8c1c2c3fe3f978502483f36228571c1bde39d15632d90009cbed65441a",
     "HydrologyTree/ConservationGaugeRigidity.lean": "065fb22671492cac6d631ebe474aaccf60cb210b24c689fffa9c3048a003f4d4",
+    "HydrologyTree/LocatedLeakJacobian.lean": "8a094892fb68852e6e0c90c295ff19e3942ff4fd3662c15cc63a0ee77f1205ee",
     "HydrologyTree/SupportedPositiveGauge.lean": "ae46bddc0c037b6231bc0e87cb0a5ea6d8ab71f4299a33741a2915f084526cd7",
     "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
     "HydrologyTree/ResultantBoundary.lean": "79223d9f987489b582f8b4a6334023d02e9c7b77f892545e203b78bd81f298ad",
+    "HydrologyTree/ScalarSlotJacobian.lean": "4c8a27b6655b27f032e1706786817d2054e59ed3610b3a49b6b1e113ea1ac175",
     "HydrologyTree/FiniteCancellation.lean": "13819e480250c6a3f79b4445ef0d68c8a5cf17c49abddadf8fcb9df44fc1c43f",
     "HydrologyTree/FamilySmoothness.lean": "80f1528bf353a12fb96c10ab682af456c88f726286cd0166297ab6f7709e3ecf",
     "HydrologyTree/PositiveAssignment.lean": "a43923a901dbc4a39619fb3562c10efd680d05ed6d96136b88d4fb1a4f7b37c2",
@@ -227,8 +278,10 @@
     "HydrologyTree/StieltjesZeroFactorization.lean": "e9fe66da19adfb1f2652017befd3d9814a6f07df6dd252daf3cbc8238c2105c5",
     "HydrologyTree/TreeJacobianRecurrence.lean": "e17ab6035169dc7cdee790d4d4b2179f0b488f6079baf1b9f5f9cd07f2a9ed03",
     "HydrologyTree/PathRates.lean": "9998ab3e20875a475612196ebef1323175bc53fcf73bd8cf01775f3cc28717fb",
+    "HydrologyTree/RealFiberRigidity.lean": "e932d4efd4493ba6d17fa440dcd1d804e7bff56274561c5b0bd5fe9c3f8c1b0b",
     "HydrologyTree/CatenaryCoprime.lean": "b4ede903f0d87b195c4144eb13ebbbd0f4a2fdafbca5b3067a468ebcaa95fea9",
     "HydrologyTree/LeakRelocationWalk.lean": "73264f8c8c9a87d10ee5430a9cc9cbb020d6388ec078c05e68c6e437d8aa42c9",
+    "HydrologyTree/GraphDynamicalClassification.lean": "5442b71ef3a5db2e1ae2ca859b843ca8609aa5c6512ea0d8cbffa6dda1293617",
     "HydrologyTree/StieltjesResidues.lean": "368b07ad2c4f10c9a3e3cf9d8d23087eb3899dd4c8be25668ed60bceab004e25",
     "HydrologyTree/CoordinateEnergy.lean": "e64a3e93bbdadbe3f16c1ceecfef855fcc2d67f233e7e5250d2bb5b05b6d1eff",
     "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
@@ -236,6 +289,7 @@
     "HydrologyTree/GraphModelInjectivity.lean": "31050e04ece2cbc663fd8e79c6f03b14fb2a5b7b9a3a3796124e6f26f8d2645e",
     "HydrologyTree/GraphLeakCut.lean": "a723aef929047cd67591f6117217a0190783007d5f02b6d99d68841870ad8a51",
     "HydrologyTree/PhysicalResultantRecurrence.lean": "7d8e41036d4b9a7d1b6dec12dcf911bd7a28b77c4d4e5da69a60bca0891b54f6",
+    "HydrologyTree/FullRootLeakTheory.lean": "a73ba6b057d1d62a49394393bf3950581e45c449eff14aa5776f04bd34a8f491",
     "HydrologyTree/FamilyGluing.lean": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6",
     "HydrologyTree/PhysicalMassODE.lean": "6124b8d5ee01d30584af2bdd69990fb076c617a04dc221bbf93371bb0ebe9515",
     "HydrologyTree/SubtreeProducts.lean": "353a1839e3b4e79d4360f10edede992d27614eacd3bf87edd606f02aeb6d5869",
@@ -243,13 +297,16 @@
     "HydrologyTree/TreeCancellation.lean": "6c261aa9c2b914442885235042bab09ba5bbc5e1710764865b5e15f956ca2aea",
     "HydrologyTree/ChildRates.lean": "6c8a54086231d29e54a20e250a7ef53040fd0abbec8ad4db132b8de1a043feef",
     "HydrologyTree/SpectralResolvent.lean": "dfb32bc97fbb38e09bcecdb01645070507bf0dae2bd8e284be0dd92e05fd176c",
+    "HydrologyTree/PhysicalControllability.lean": "8369824115f8218537f0b807142113ab5923d250369ad9cd14c644d169d9d27e",
     "HydrologyTree/PositiveSpectrum.lean": "516beb9b426ec802cdf0cbc1524677f44ba6a4a7c8ee6b3238c75d9db7649c01",
     "HydrologyTree/SignedFamilyResultant.lean": "4cc99ff42568ad376c7bb47df9a2cdfce3392e3b9347b8e400684ca360aa5009",
     "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
     "HydrologyTree/PositiveRealizationExistence.lean": "c2702b3fbd9c1e155ab9729fdb4b1f47407d6ee9cae0955b08e72f7ba618e1a7",
     "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
+    "HydrologyTree/MatrixTimeIdentification.lean": "839881ab1d92cc3e2208f8c08a79a3e14bcce1775a6305ea0367761a1b5e0973",
     "HydrologyTree/CatenaryCanonical.lean": "4957391b937adbb0e1689b223cab62c3ff14914387228b02a077ce28f3df69da",
     "HydrologyTree/DependentBlocks.lean": "47d2d8d7e73869f14ec9ffe98b30d5ea1f9320ca8f9e9d1fd636863e7237ba5b",
+    "HydrologyTree/LocatedLeakFiber.lean": "4ecc8532e86574d43fa81b2592ffe65ab63f1365732f395e729120e733313f19",
     "HydrologyTree/TreePreparation.lean": "f54351141ffd872e0e28b918f27506a7ea98ba53f4e28db9c6ab88a307cb591c",
     "HydrologyTree/PositiveJacobian.lean": "f76d845f7fc5b4ba47c1d7f14273d72585d51524ad2c572de49ac7e88e09a6c4",
     "HydrologyTree/PhysicalBridge.lean": "54b6cbd39d7717bde62272659991fc865596af948da116486e1c07749677f628",
@@ -267,10 +324,14 @@
     "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
     "HydrologyTree/BranchConservation.lean": "4861fe63713cc44ede8ecf27a8bbf2b06491a73e5b4defbd82c88eea0dd036d8",
     "HydrologyTree/AllTreeResultant.lean": "a9c52bd4b9b800c492407caccce7c8cee911a9f6d6dd6b8391824196243c106e",
+    "HydrologyTree/PhysicalKalman.lean": "6c8f3627a4de0f1f6c496a82cc0aba79dfd29d1eaaf38fd712fc329b1d57c600",
+    "HydrologyTree/TrajectoryObservability.lean": "5daf720927b87c16d4d966270eb1f7de5384faa2014bafebe52292acdbafc0c4",
     "HydrologyTree/DiagonalGauge.lean": "5ad03ae672bb261faa17d77a0d78796f539eef5f942f31c3511358752a1dc743",
     "HydrologyTree/PositiveFiberCount.lean": "78448afd4ae6958332e151b10625ff6a77ef71741598981de1671dcd582cd439",
     "HydrologyTree/PhysicalForcedODE.lean": "77a257ebe3270fac835da1b4ac2dad33628aa653525df8e0d25681d1bc124072",
+    "HydrologyTree/DischargeFiber.lean": "cf2269cc2f43292fe95c599a6622294ac10eb5c571d854d368b89b4b16424271",
     "HydrologyTree/MatrixStieltjesIdentification.lean": "522a6c52eb3257b15b76f0e58a1e04c969fc615d0473dec4e0ddcd5600da726f",
+    "HydrologyTree/ContinuousOutputFiber.lean": "19a78031b916297a40363ae9555275de636ac3e1ed4763e6483888273b2f6305",
     "HydrologyTree/TreeStepSemantics.lean": "6b6c7a4e4875eeab831c3f8235d840d303cf7a7c8e026fc38b6e20192a59de81",
     "HydrologyTree/PathPolynomial.lean": "232bad5c5f8debf9bb2dd95b2408bc2b88496de36f7209e7154ba0a60ef6558d",
     "HydrologyTree/ArrowCharacteristic.lean": "eccf072b7733ffdc88948a449b2768913e8613b0d9ffbeb1c3570d01bdf34c4b",
@@ -278,670 +339,38 @@
     "HydrologyTree/RootUpdate.lean": "42a9c1b2fe59ad4a99c0b477e48a6f16647344aae57bfc3a35ccc729cb37bb10",
     "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
     "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
+    "HydrologyTree/TimeDomainIdentification.lean": "2d3d5307f290231bf540e163672e07f52a672086b2a016cce0382f4d64c46e04",
     "HydrologyTree/ResultantFamilyEnumeration.lean": "0dba8d2f792794ced9e9a7f8f6121baf11161ea6f79dc8e2d921240a99faa57e",
     "HydrologyTree/StieltjesReindex.lean": "6207225c3589fb6bdd1ddd3d55c270c1b3e65bf795bc3d430188093d04b32073",
     "HydrologyTree/PathNormalization.lean": "dd253c2af5bb48cb0044fd5c941288011812af611f93e1efa97c7354416f115f",
+    "HydrologyTree/ControlEnergy.lean": "508c48f54c700fc99c894ebbd79d5cd605f0cb8c4a0afc64fe5cc284e293c9ad",
     "HydrologyTree/ChildTree.lean": "4c51c7ef03b157b4c138fdd478c43e6cfaca1450237acf551d8cd0aa30d1f120",
     "HydrologyTree/PathRootTransform.lean": "8600f114583bbd1f8c0569734359aab6ac90da283bf0f3228c509c1e83b12d12",
     "HydrologyTree/SpectralFactorMatching.lean": "fb78a75866f2f8074de1758c354ed59a499f3bdd91ec2c97336d8d225d969c6c",
     "HydrologyTree/PositiveResponseFiber.lean": "889d39d9837b45bd8ac458658089958d85703f65f41df96efd1e4768b46fee09",
     "HydrologyTree/PiSerialization.lean": "3690f80432bf61ff9b6826bb3007add5e8e338510340f3955994e2ef7d6cd331",
     "HydrologyTree/FamilyNormalization.lean": "237b96562567fe68a45e7eb31d3514f4b07c1468c91d31792e794ba1abb95f69",
+    "HydrologyTree/RealLocatedClassification.lean": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b",
     "HydrologyTree/SubtreeAssignment.lean": "fa651c64d04784d0a6a7a318e80137057a8e4c9af1ebc8a4452c04f63394b6bb",
+    "HydrologyTree/GraphResponseClassification.lean": "1995204955b88207395e9e9cf64099fd2f48be870328b82d24623aec4651a1a7",
+    "HydrologyTree/GraphCoefficientJacobian.lean": "59c80e40dc214ed2e25ac7c2b666f21ace1d4f1a4cd289e7a5823558705b0ba6",
     "HydrologyTree/GraphLeakMatrix.lean": "8f193bab20d93c2df6e35044496894fb83c964571e3759cfd2bcfe2f738701c3",
     "HydrologyTree/AllocationPolynomials.lean": "9b51cc907ea66cde35b64c1e5bdbc833d152c1a9ac8ac746c86f3af56494f1b6",
     "HydrologyTree/PositiveChildModels.lean": "4150a3040592ddcf4b82e1d7539be0d4d8c3f4e722d10c0386921f54369f6eb0",
     "HydrologyTree/StieltjesReciprocal.lean": "f6e347de2c1b610023bfc7329914aed4d3a71bb5de4105c30c53804019822199",
     "HydrologyTree/OrderedTreeGraph.lean": "8d23e9e237879691d1360e74c55b2e2cf64b7b65776c193711c1497641d14f6a",
+    "HydrologyTree/ExponentialODEProbe.lean": "e7deaffaff88ed718ba6bf4d672cc30d22330a497e3b4848f103c9022e8b38b3",
     "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4",
     "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
     "HydrologyTree/PositiveFiberEquivalence.lean": "989e65bbd219618bd7af3b49ea07c4776156b832af044d29baa13a3d08dacb97",
     "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf",
     "HydrologyTree/ScalarForcedODE.lean": "9b87b30297bdbf9a1610d2f9f63696987a94a5d456cbc5609fca12b04560fa80",
     "HydrologyTree/LeakRelocationRates.lean": "5a8c6918f5e8e97d535a0a4cdf486f38abc148d6b54007c67c65930d4118c4ca",
+    "HydrologyTree/RecursiveFiberClassification.lean": "085d444c6a916962a13d7fb638aec314ccb401c94405cc1444b7d9bb5cdde34b",
     "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.Coefficients",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "85d505270dfbf71d18b3077f89aeb1438bc45e22126391cd8ab610420dcbe979"
-    },
-    {
-      "module": "HydrologyTree.BlockJacobian",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "6e55850100ab8b342ee1a4c0cce088cae35e8b45f5c029a6cc9a1951b2b265a3"
-    },
-    {
-      "module": "HydrologyTree.Triangular",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "43a8100f45d18476599eaf3c7343097c376688651889bb0f02a1657d4716d2de"
-    },
-    {
-      "module": "HydrologyTree.RateChart",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "2c2d9bc6017f31906cfa2b1a66c8b948ca158f4e32f5279850bb0def661b3c41"
-    },
-    {
-      "module": "HydrologyTree.CompartmentMatrix",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "ce59c03e06ba2a475cd503b0a6d3dfbefef87f00c24ebe2a03a7540b5d8e49b2"
-    },
-    {
-      "module": "HydrologyTree.PhysicalBridge",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "8523ba5454ed1b136628890597db998084d3e96fb6b0bfd8d9722443e23f9067"
-    },
-    {
-      "module": "HydrologyTree.EdgeDeterminant",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "99eb1aaa01cdc7c7126bc83caf8700c66a6856615f16d7c67d2e189066f3b92a"
-    },
-    {
-      "module": "HydrologyTree.EdgeCharacteristic",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "a185aba753dc6529d4e1a7fce91e5377dfdbe52ccf6b404377746b3ace5c81ce"
-    },
-    {
-      "module": "HydrologyTree.RootAttachment",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "937c6f94d00edf05573c45fdea33fcd6a3d134af63e678e5f89bf8cd1b50647e"
-    },
-    {
-      "module": "HydrologyTree.LeafRecursion",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "7de2a670b01b9414aae1a23c27216fc7b1e01d17b828735cd4555f25214ef425"
-    },
-    {
-      "module": "HydrologyTree.OrderedTreeGraph",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "55ace9aa383f15c181820502c4a46d9eaf2905aaf73dcc90dabf55a43ee72b41"
-    },
-    {
-      "module": "HydrologyTree.GraphPresentation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "46f04cc876a469f96e868021da341f9165882f5a1d79cec7065f36407d7d4fe1"
-    },
-    {
-      "module": "HydrologyTree.RootBranches",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "59ee180e8533ffca30d52f4258808e2fa263fad8bae324ffa64ce3383e2bdf39"
-    },
-    {
-      "module": "HydrologyTree.BranchMatrixSupport",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d1349302f631719595d3b437ab31909907772152fcd78784c1f695b093a3c287"
-    },
-    {
-      "module": "HydrologyTree.ChildTree",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "ba698dca004d688f8de8b591bb3468f8efe25a9c46135b7b9912dea911dae749"
-    },
-    {
-      "module": "HydrologyTree.MatrixEntries",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "ac373af2bfe9e81f62089d7a1e52fdc0d7a8b641eb937fa6baeffee03f6b7a71"
-    },
-    {
-      "module": "HydrologyTree.ChildRates",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "b7133f9f00955a9f042ad6cbb812f7f134ef9311e33ca9a94c16fa0715849afe"
-    },
-    {
-      "module": "HydrologyTree.ChildIndex",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "826ba214c96584e5828c0e700a580a4b812b81631346b35a9918ee827c3b287f"
-    },
-    {
-      "module": "HydrologyTree.RateCoordinates",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d3daafe0cb0825400bb8cdbbe42235e537bd1af16df1bad5231c0695f518f17f"
-    },
-    {
-      "module": "HydrologyTree.RootCoupling",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "0a34777ee2a572361e340ccc54e0b274cbbd6a2d7fc2529e981dd57b43c0ae51"
-    },
-    {
-      "module": "HydrologyTree.CouplingSemantics",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "3d4f5c28dbe55b359524db685b9337fceb89931a71023433de8fad258d11610d"
-    },
-    {
-      "module": "HydrologyTree.BranchConservation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "69cf68d4f8d10c11759c606cb50e17b8b60d4e17a92b05f358fc7d84cf10f6e8"
-    },
-    {
-      "module": "HydrologyTree.LeadingCoefficients",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "e25bce3e3f8dd56e4f3c00a8a60cd7dbd9dd8f66af95fa347401cc8bf4b761e1"
-    },
-    {
-      "module": "HydrologyTree.Resolvent",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d144258abb571ddbae33576a55ff42272d1bbef6894f0e7192b0c3e06faab5b4"
-    },
-    {
-      "module": "HydrologyTree.ChildMatrix",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "7e7b6db55d9b4c821f23fda6707ab0401423da742a6f08e2ac35505380655017"
-    },
-    {
-      "module": "HydrologyTree.PhysicalRootDecomposition",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "f5c0e93990e91839223f8402b41cb1db6cde76305e0acf667849b529ea9c8d48"
-    },
-    {
-      "module": "HydrologyTree.DependentBlocks",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "4fe2f7bc8cdd04ed3583cf5f8011c2ceeba1b48caa465ed1c4c4e0aadcf9b51d"
-    },
-    {
-      "module": "HydrologyTree.ArrowDeterminant",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "40114e1c24202b4e3c10da6679b4bee6fb96dec2948df057e5d925dcdc04b24c"
-    },
-    {
-      "module": "HydrologyTree.ArrowCharacteristic",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "284e08cd9b80808ce9e03388909ae1d5622c0acb7d312be35358ea62ae3945eb"
-    },
-    {
-      "module": "HydrologyTree.PhysicalRecursion",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "88033487b477a7ea07ae15075c437bd1108f530a9e732d4cf03bd2c5bd14ab13"
-    },
-    {
-      "module": "HydrologyTree.PositiveRateAssembly",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "77cf500f8d6552ce5e69a2b94a9df6612234694d47c54d9464b85dfdd1a480d0"
-    },
-    {
-      "module": "HydrologyTree.GraphRateTransport",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "cd27101e07a74a8f39c00d953e8efaefcde370c702cec543d6438e735138527d"
-    },
-    {
-      "module": "HydrologyTree.GraphLeakCut",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "95eaf908ea59578071a85a2706c227a86db4d17ae1d2a46418f4e4fa69dc0af1"
-    },
-    {
-      "module": "HydrologyTree.GraphMatrixTransport",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "813535bf58f2da2857c33246954e994d718afd1c1b6df8b6dade169cb9092cd5"
-    },
-    {
-      "module": "HydrologyTree.LinearForcedODE",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "cef1638a967dcd3e2d383bf103db285933ef6aa71308d801baec7b9d7afadd3d"
-    },
-    {
-      "module": "HydrologyTree.RootModalData",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "7717068b9fd1a148e95641e5053f3421fda494242935c537fee750b9af4efcff"
-    },
-    {
-      "module": "HydrologyTree.BalanceWeights",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "5add4b4712c7dfb678f12cf26971ce991cb5e0c22d423121e677e66babe86e26"
-    },
-    {
-      "module": "HydrologyTree.WeightedEnergy",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "56b022ed48ccb267cd029b5f1140b77da18ad013e8b152d7d7b4095ea7a5964d"
-    },
-    {
-      "module": "HydrologyTree.GroundedPositivity",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "215dae8dcdd5d42e79cdee27953810818d8f6ab4bff902234c1f0ca6a0a8a880"
-    },
-    {
-      "module": "HydrologyTree.SymmetricGenerator",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "49a96054da4eb274b2523f0da04b82e9d0752e3f286e92c16b0358d0e65b8083"
-    },
-    {
-      "module": "HydrologyTree.PositiveSpectrum",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "19634b385efa1d6c1b4f5e016a09f82cf31b92f39c92cc28b948d627c41ed70f"
-    },
-    {
-      "module": "HydrologyTree.SpectralResolvent",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "daaa4f059dff70a902aad32e226764c167c0d01859e48fad75fca7d18735530c"
-    },
-    {
-      "module": "HydrologyTree.PhysicalStieltjes",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "c44862899b87caf242fdb11c3de9095cb1455b7512517cdd7b92cac9d00f64c9"
-    },
-    {
-      "module": "HydrologyTree.StieltjesNumerator",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d3ccf94defc882ab89de16e8d81ad6034a6ba9d7022d7770e3455270b8da97a5"
-    },
-    {
-      "module": "HydrologyTree.PhysicalModalConstruction",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d9b3d16871a2529029d429559537add0ffeef9b2fbab3eaf9147d49f255837d3"
-    },
-    {
-      "module": "HydrologyTree.ScalarForcedODE",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "cd7fda9bc9ac61a72d365cdab1008dd8b4ad83341673cdc2cbc6a8e6a4c81fa2"
-    },
-    {
-      "module": "HydrologyTree.ModalForcedODE",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "18dc4ee9e2cb8da068f0072ce3756f0600646dc5582eb49ebc2e31935d866ce3"
-    },
-    {
-      "module": "HydrologyTree.StieltjesDegree",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "b353b88c027e9142259b81b3dc5d011b1ee0bb5b1444db2b58818fbabc72e886"
-    },
-    {
-      "module": "HydrologyTree.StieltjesInterlacing",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "c3685bb5f58d3132528740ee9aefcbdf7440036c9879de4edbf32f5bfb26b57b"
-    },
-    {
-      "module": "HydrologyTree.StieltjesZeroFactorization",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "7315a2e856941408654dabcec2df579cee9114df2a51643b00eae09a7a907e57"
-    },
-    {
-      "module": "HydrologyTree.StieltjesResidues",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "9300d63d3817f7c703b67914d7b8b77dcb272a6d550ab0c65ca383ea3919d7fb"
-    },
-    {
-      "module": "HydrologyTree.ReciprocalInterpolation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "4dd40c0eec4de9ab62fd41d043bb5d25ede7a10ecc240896beca55b74f804c4f"
-    },
-    {
-      "module": "HydrologyTree.StieltjesReciprocal",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "2145698a71fb51a7241d757783d096c2df20711b31d08bfc89430df0d45db000"
-    },
-    {
-      "module": "HydrologyTree.StieltjesReindex",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "e0ff691ed3dba88b133136aca787ff9ac76f13174b9de17f59876ddda154fba8"
-    },
-    {
-      "module": "HydrologyTree.SpectralFactorMatching",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "288b40d571aafe9a719bd9c62d96e46ebe08fd7309874f327a1e427bb916cc29"
-    },
-    {
-      "module": "HydrologyTree.StieltjesWeightedMatching",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "c11a8405c96e5d105554fc58a37c0856e1cd83f21426bf4c2b4d5ba12c945cae"
-    },
-    {
-      "module": "HydrologyTree.PhysicalForcedODE",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "c053d59ecf74728808023f07748abbd0140147ab27df3b095f1fea214299404d"
-    },
-    {
-      "module": "HydrologyTree.GraphODETransport",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "446cb2ec85d848e1d845e4cf42e3c2bc57f44d994fe3dbf9760991238398db27"
-    },
-    {
-      "module": "HydrologyTree.PhysicalMassODE",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "d0213284f4c33e1d9f454975015ccede1891ceb98ff695aba77af112793dccb1"
-    },
-    {
-      "module": "HydrologyTree.GraphMassBalance",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "4afe84c74a448150657f106fffa8819b6d17efefe0023ef172b65ecfabcb8d2d"
-    },
-    {
-      "module": "HydrologyTree.LeakRelocationRates",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "95b2d9cf8eae2729287d836b896d2065be009b87a2a3f69102a0c7d3a62469ac"
-    },
-    {
-      "module": "HydrologyTree.GraphModelInjectivity",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "1ca635dc9181541407e6cd2f10d83d20f12e4f4446a96f537c92d696c1ce527f"
-    },
-    {
-      "module": "HydrologyTree.TreeMatrixSupport",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "bd98b1f125454a5798f69ff6e70f662a671bc580d0f7215038faf926bf84ad7e"
-    },
-    {
-      "module": "HydrologyTree.CoprimeBranchRecovery",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "9a8fc2b239adfc6d577b9f87657b19b9a55007d9ac32f9fd5fa8b130f88d6205"
-    },
-    {
-      "module": "HydrologyTree.SupportedMatrixRecursion",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "6309eb521a8819e273c41fc88546a5110ad33956d55d5881f878d0b24f14fdd6"
-    },
-    {
-      "module": "HydrologyTree.SizedSpectralAllocation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "e1d6239fb34638b7745a362b3540292dfb137c5dfaf46dc502d5d02a9e271537"
-    },
-    {
-      "module": "HydrologyTree.AllocationPolynomials",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "74428f57ae3a52578ecc8f42b60b569b3d94476e48a118b5a20f62d2a61d7d1e"
-    },
-    {
-      "module": "HydrologyTree.StieltjesGrouping",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "1a23bd3160d350dae3f40aa7b07c2db346379d38e465fee0589062dd791b778b"
-    },
-    {
-      "module": "HydrologyTree.PhysicalConstants",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "56b2ee17ea1fbb0b4aae4c41fc915aee477e2162f8caf14c7004609cb9a8f261"
-    },
-    {
-      "module": "HydrologyTree.StieltjesChildAssembly",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "eac9a768e6250f4f0214f9d0deff89f1192467cfa3dce0ec12806354080b664c"
-    },
-    {
-      "module": "HydrologyTree.EndJacobian",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "7fbe0fdb1c9bd28bda81b1dc0d8422b231c6da61a403c0d9ee69bc0398dd580a"
-    },
-    {
-      "module": "HydrologyTree.Scaling",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "79b147d3e6a4af0e86ba2173db5e15066269ad2f37a1d73c3314a9bfd75c0571"
-    },
-    {
-      "module": "HydrologyTree.RootUpdate",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "4b65bc4c01dc9280379c6b17ea6bcc4b4576a91d8357c6151606fb912874f697"
-    },
-    {
-      "module": "HydrologyTree.PathRootTransform",
-      "returncode": 0,
-      "seconds": 0.001,
-      "development_cache_reused": true,
-      "source_dependency_key": "d39a2d264e2a7dc63232d87e3f45315e0c802a4d4494c00072d8866052d972f2"
-    },
-    {
-      "module": "HydrologyTree.PathPolynomial",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "39b4b2938060501df5f423ed9c08021b14ad766b33e105df5d043582292ed132"
-    },
-    {
-      "module": "HydrologyTree.RootRecovery",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "83f85cf54917a1e8115d2d0eacee740a7feda3df15b5795bef5fec1edcbd29c5"
-    },
-    {
-      "module": "HydrologyTree.FiniteCancellation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "612ba260df06ed4d048681c775835acc1c239ae1ee472d05c37895527ab9ac62"
-    },
-    {
-      "module": "HydrologyTree.PhysicalCancellation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "9b483d3dcce40dcf1e9cc6484c6c4698d1cd57c270980690e57674f3915cf44b"
-    },
-    {
-      "module": "HydrologyTree.PhysicalBranchRecovery",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "1c8498d074f087b45f9609ef5511d11fe12c2ea49a53f13794bdec5831886c26"
-    },
-    {
-      "module": "HydrologyTree.SubtreeAssignment",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "9f6b609d5005e60bad180258fbc7f9bdd95389b75b4d90102a6aeb0a39e1dd25"
-    },
-    {
-      "module": "HydrologyTree.PositiveChildModels",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "1485dbb83bf06240d4bc1360ef4a979d217cd546a4057b7eaa523de8b718dedc"
-    },
-    {
-      "module": "HydrologyTree.TreeCancellation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "298933f7614ad6222acea38c9eb899d94a552a93b0a38fa1232a52b50aef38db"
-    },
-    {
-      "module": "HydrologyTree.PhysicalModes",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "3190c869f9d665b51dfca28f02a53ef47caa3fd55948133a8f147db4c388e29f"
-    },
-    {
-      "module": "HydrologyTree.PositiveAssignment",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "61901c4a684c47ba0d6bab5befe0158f3fa1502261d189c5017dbacfee67f102"
-    },
-    {
-      "module": "HydrologyTree.PositiveRealizationExistence",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "1d84cdaaf3745b35c2a0b7cc4670cf1428c2f87afca100f70a7eb1a7628c0ae3"
-    },
-    {
-      "module": "HydrologyTree.PositiveFiberAllocation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "6aa802adeed1d68d5b473102fce77b3dd0ba274044b90c5acef423bb2d0b2e75"
-    },
-    {
-      "module": "HydrologyTree.RealFactorAllocation",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "5c4a9b46f693d277c41acde5c2b13dc9b51e772cbe0cfcfe0b794f566850149f"
-    },
-    {
-      "module": "HydrologyTree.PositiveFiberTypes",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "0283d4c0940632eb3d41d39ad45d7b1fc06f8770193d9cfa6d1e8255918c3e2b"
-    },
-    {
-      "module": "HydrologyTree.SupportedStieltjesChildren",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "47500c67169fd8291b5e1ffa2886a195ce967aeb24b4c5dc0caf92674a71c32f"
-    },
-    {
-      "module": "HydrologyTree.DiagonalGauge",
-      "returncode": 0,
-      "seconds": 0.0,
-      "development_cache_reused": true,
-      "source_dependency_key": "c30dee77fc870816d6d3cb8402945c39c9ea95c88cf9d18ab65478409b8265bf"
-    },
-    {
-      "module": "HydrologyTree.ArrowDiagonalGauge",
-      "returncode": 1,
-      "seconds": 1.743,
-      "development_cache_reused": false,
-      "source_dependency_key": "3769551cf2782aa5619ca6aa211f752fa244e3cac5465eb1298822e2b714fdf8"
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38349608759",
-  "diagnostics": "HydrologyTree/ArrowDiagonalGauge.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.arrowGaugeWeight_nonzero`:\n  [Fintype C]\n  [DecidableEq C]\n  [LinearOrder C]\n  [(c : C) \u2192 Fintype (V c)]\n  [(c : C) \u2192 DecidableEq (V c)]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  C] [DecidableEq C] [LinearOrder C] [(c : C) \u2192 Fintype (V c)] [(c : C) \u2192 DecidableEq (V c)] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nHydrologyTree/ArrowDiagonalGauge.lean:58:10: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized\n  inst\u271d\u00b3\ninferred\n  fun a b => LinearOrder.toDecidableEq a b\nHydrologyTree/ArrowDiagonalGauge.lean:58:41: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized\n  inst\u271d\u00b3\ninferred\n  fun a b => LinearOrder.toDecidableEq a b\nHydrologyTree/ArrowDiagonalGauge.lean:61:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  blockDiagonal' A \u27e8c, u\u27e9 \u27e8k, v\u27e9\nin the target expression\n  blockDiagonal' A \u27e8c, u\u27e9 \u27e8k, v\u27e9 = beta c / f c * h c u * blockDiagonal' B \u27e8c, u\u27e9 \u27e8k, v\u27e9 * (beta k / f k * h k v)\u207b\u00b9\n\ncase neg\nC : Type u_1\ninst\u271d\u2074 : Fintype C\ninst\u271d\u00b3 : DecidableEq C\ninst\u271d\u00b2 : LinearOrder C\nV : C \u2192 Type u_2\ninst\u271d\u00b9 : (c : C) \u2192 Fintype (V c)\ninst\u271d : (c : C) \u2192 DecidableEq (V c)\nd : \u211d\nA B : (c : C) \u2192 Matrix (V c) (V c) \u211d\nr : (c : C) \u2192 V c\nalpha beta a f : C \u2192 \u211d\nh : (c : C) \u2192 V c \u2192 \u211d\nhf : \u2200 (c : C), f c \u2260 0\nhb : \u2200 (c : C), beta c \u2260 0\nhh : \u2200 (c : C) (i : V c), h c i \u2260 0\nhroot : \u2200 (c : C), h c (r c) = 1\nhchild : \u2200 (c : C), A c = diagonalGauge (h c) (B c)\nhprod : \u2200 (c : C), alpha c * beta c = a c * f c\nc : C\nu : V c\nk : C\nv : V k\nhck : \u00acc = k\n\u22a2 blockDiagonal' A \u27e8c, u\u27e9 \u27e8k, v\u27e9 = beta c / f c * h c u * blockDiagonal' B \u27e8c, u\u27e9 \u27e8k, v\u27e9 * (beta k / f k * h k v)\u207b\u00b9\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  function expected\n    blockDiagonal' A \u27e8c, u\u27e9\nHydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: This simp argument is unused:\n  if_pos rfl\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hroot, one_mul, mul_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  "run_id": "38349608759"
 }
