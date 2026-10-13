@@ -90,7 +90,7 @@ and identify its actual facet form with the limiting normal-cone matrix.
 For rank two, the kernel-checked package now extracts an affine relation, proves
 its coefficients are all nonzero when every triple is affinely independent,
 identifies the induced affine score constant, and rules out simultaneous
-alternating-sign diagonal facet patterns. Still prove the complete planar hull
+alternating-sign diagonal facet patterns, and derives the two-positive/two-negative sign count from a formal convex-hull-vertex predicate. Still prove the complete planar hull
 case classification of Lemma 6 for four distinct centered actual self-moment
 scores, including absent interfaces and collinear triples, and establish
 violation of the actual inequality L<=P in every case.

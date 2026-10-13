@@ -153,6 +153,134 @@ lemma affine_relation_no_two_diagonal_facets {a s : Fin 4 → ℝ} {K : ℝ}
       mul_pos ha2 (sub_pos.mpr h24.2.2), hsum']
   linarith
 
+
+lemma affine_relation_one_positive_convex_combination {d : ℕ}
+    (v : Fin 4 → Space d) {a : Fin 4 → ℝ}
+    (hsum : (∑ j, a j) = 0) (hrel : (∑ j, a j • v j) = 0)
+    (i : Fin 4) (hpos : 0 < a i)
+    (hneg : ∀ j, j ≠ i → a j < 0) :
+    ∃ c : Fin 4 → ℝ, (∀ j, 0 ≤ c j) ∧ c i = 0 ∧
+      (∑ j, c j) = 1 ∧ (∑ j, c j • v j) = v i := by
+  let c : Fin 4 → ℝ := fun j => if j = i then 0 else -a j / a i
+  have hai : a i ≠ 0 := ne_of_gt hpos
+  have hci : c i = 0 := by simp [c]
+  have hcnonneg : ∀ j, 0 ≤ c j := by
+    intro j
+    by_cases hji : j = i
+    · simp [c, hji]
+    · simp only [c, hji, ↓reduceIte]
+      exact div_nonneg (neg_nonneg.mpr (le_of_lt (hneg j hji))) hpos.le
+  have hsum_erase : (∑ j ∈ Finset.univ.erase i, a j) = -a i := by
+    have h := Finset.sum_erase_add (Finset.univ : Finset (Fin 4)) a (Finset.mem_univ i)
+    rw [hsum] at h
+    exact eq_neg_of_add_eq_zero_left (by simpa using h)
+  have hsumc_erase : (∑ j ∈ Finset.univ.erase i, c j) =
+      ∑ j ∈ Finset.univ.erase i, (-a j / a i) := by
+    apply Finset.sum_congr rfl
+    intro j hj
+    simp only [c]
+    rw [if_neg (Finset.ne_of_mem_erase hj)]
+  have hsumc : (∑ j, c j) = 1 := by
+    have h := Finset.sum_erase_add (Finset.univ : Finset (Fin 4)) c (Finset.mem_univ i)
+    have hc_sum : (∑ j, c j) = ∑ j ∈ Finset.univ.erase i, c j := by
+      simpa [hci] using h.symm
+    rw [hc_sum, hsumc_erase]
+    rw [← Finset.sum_div]
+    simp only [Finset.sum_neg_distrib, hsum_erase]
+    field_simp
+  have hrel_erase : (∑ j ∈ Finset.univ.erase i, a j • v j) =
+      -(a i • v i) := by
+    have h := Finset.sum_erase_add (Finset.univ : Finset (Fin 4))
+      (fun j => a j • v j) (Finset.mem_univ i)
+    rw [hrel] at h
+    exact eq_neg_of_add_eq_zero_left (by simpa using h)
+  have hneg_rel_erase : (∑ j ∈ Finset.univ.erase i, (-a j) • v j) =
+      a i • v i := by
+    calc
+      (∑ j ∈ Finset.univ.erase i, (-a j) • v j) =
+          -(∑ j ∈ Finset.univ.erase i, a j • v j) := by
+            simp_rw [neg_smul]
+            rw [Finset.sum_neg_distrib]
+      _ = -(-(a i • v i)) := by rw [hrel_erase]
+      _ = a i • v i := neg_neg _
+  have hrelc : (∑ j, c j • v j) = v i := by
+    have h := Finset.sum_erase_add (Finset.univ : Finset (Fin 4))
+      (fun j => c j • v j) (Finset.mem_univ i)
+    have hc_sum : (∑ j, c j • v j) = ∑ j ∈ Finset.univ.erase i, c j • v j := by
+      simpa [hci] using h.symm
+    have hc_rel_erase : (∑ j ∈ Finset.univ.erase i, c j • v j) =
+        ∑ j ∈ Finset.univ.erase i, (-a j / a i) • v j := by
+      apply Finset.sum_congr rfl
+      intro j hj
+      simp [c, Finset.ne_of_mem_erase hj]
+    rw [hc_sum, hc_rel_erase]
+    have hfactor : (∑ j ∈ Finset.univ.erase i, (-a j / a i) • v j) =
+        (a i)⁻¹ • (∑ j ∈ Finset.univ.erase i, (-a j) • v j) := by
+      rw [Finset.smul_sum]
+      apply Finset.sum_congr rfl
+      intro j hj
+      rw [smul_smul]
+      congr 1
+      field_simp
+    rw [hfactor, hneg_rel_erase, smul_smul, inv_mul_cancel₀ hai, one_smul]
+  exact ⟨c, hcnonneg, hci, hsumc, hrelc⟩
+
+
+lemma affine_relation_no_unique_sign_of_hull_vertex {d : ℕ}
+    (v : Fin 4 → Space d) {a : Fin 4 → ℝ}
+    (hsum : (∑ j, a j) = 0) (hrel : (∑ j, a j • v j) = 0)
+    (hnz : ∀ j, a j ≠ 0)
+    (hvertex : ∀ i (c : Fin 4 → ℝ), (∀ j, 0 ≤ c j) → c i = 0 →
+      (∑ j, c j) = 1 → (∑ j, c j • v j) ≠ v i) :
+    (¬ ∃ i, 0 < a i ∧ ∀ j, j ≠ i → a j < 0) ∧
+    (¬ ∃ i, a i < 0 ∧ ∀ j, j ≠ i → 0 < a j) := by
+  constructor
+  · rintro ⟨i, hi, hrest⟩
+    obtain ⟨c, hc, hci, hcsum, hcrel⟩ :=
+      affine_relation_one_positive_convex_combination v hsum hrel i hi hrest
+    exact hvertex i c hc hci hcsum hcrel
+  · rintro ⟨i, hi, hrest⟩
+    have hsum' : (∑ j, (-a j)) = 0 := by simpa [hsum]
+    have hrel' : (∑ j, (-a j) • v j) = 0 := by
+      simp only [neg_smul, Finset.sum_neg_distrib, hrel, neg_zero]
+    have hpos' : 0 < (-a i) := neg_pos.mpr hi
+    have hneg' : ∀ j, j ≠ i → (-a j) < 0 := by
+      intro j hji
+      exact neg_neg_of_pos (hrest j hji)
+    obtain ⟨c, hc, hci, hcsum, hcrel⟩ :=
+      affine_relation_one_positive_convex_combination v hsum' hrel' i hpos' hneg'
+    exact hvertex i c hc hci hcsum hcrel
+
+lemma affine_relation_has_two_pos_two_neg_of_hull_vertices {d : ℕ}
+    (v : Fin 4 → Space d) {a : Fin 4 → ℝ}
+    (hsum : (∑ j, a j) = 0) (hrel : (∑ j, a j • v j) = 0)
+    (hnz : ∀ j, a j ≠ 0)
+    (hvertex : ∀ i (c : Fin 4 → ℝ), (∀ j, 0 ≤ c j) → c i = 0 →
+      (∑ j, c j) = 1 → (∑ j, c j • v j) ≠ v i) :
+    (∃ i j, i ≠ j ∧ 0 < a i ∧ 0 < a j) ∧
+    ∃ i j, i ≠ j ∧ a i < 0 ∧ a j < 0 := by
+  have hsign := affine_relation_has_pos_neg hsum hnz
+  have hno := affine_relation_no_unique_sign_of_hull_vertex v hsum hrel hnz hvertex
+  constructor
+  · by_contra h
+    obtain ⟨i, hi⟩ := hsign.1
+    have hrest : ∀ j, j ≠ i → a j < 0 := by
+      intro j hji
+      have hle : a j ≤ 0 := by
+        by_contra hnot
+        exact h ⟨i, j, hji.symm, hi, lt_of_not_ge hnot⟩
+      exact lt_of_le_of_ne hle (hnz j)
+    exact hno.1 ⟨i, hi, hrest⟩
+  · by_contra h
+    obtain ⟨i, hi⟩ := hsign.2
+    have hrest : ∀ j, j ≠ i → 0 < a j := by
+      intro j hji
+      have hge : 0 ≤ a j := by
+        by_contra hnot
+        exact h ⟨i, j, hji.symm, hi, lt_of_not_ge hnot⟩
+      exact lt_of_le_of_ne hge (hnz j).symm
+    exact hno.2 ⟨i, hi, hrest⟩
+
 end GaussianFour
 
 
