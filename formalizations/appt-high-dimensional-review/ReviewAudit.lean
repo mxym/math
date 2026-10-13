@@ -3,6 +3,46 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.lacunary_sparse_matrix_bound,
+  ``APPTReview.fractional_weight_cauchy,
+  ``APPTReview.fractional_strip_localization,
+  ``APPTReview.finiteScaleMeasure_apply,
+  ``APPTReview.finiteScaleMeasure_probability,
+  ``APPTReview.finiteScaleMeasure_real,
+  ``APPTReview.finiteScaleMeasure_prod,
+  ``APPTReview.finiteScaleMeasure_map,
+  ``APPTReview.finiteScaleProbability_band,
+  ``APPTReview.pair_square_mass,
+  ``APPTReview.pair_bad_mass,
+  ``APPTReview.weighted_pair_band_bound,
+  ``APPTReview.amplitudeScale_bounds,
+  ``APPTReview.amplitudeScale_clip_error,
+  ``APPTReview.amplitude_product_band,
+  ``APPTReview.small_amplitude_mass,
+  ``APPTReview.sparseScale_budget,
+  ``APPTReview.sparseScale_low_error,
+  ``APPTReview.sparseScale_high_error,
+  ``APPTReview.nonneg_mul_sqrt,
+  ``APPTReview.sparseScale_normalize_bound,
+  ``APPTReview.unit_amplitude_le_one,
+  ``APPTReview.sparse_scale_localization,
+  ``APPTReview.sparseScaleError_tendsto,
+  ``APPTReview.sqrt_two_energy,
+  ``APPTReview.sparse_multiscale_localization,
+  ``APPTReview.lacunary_fractional_uniform,
+  ``APPTReview.lacunary_fractional_graph_limit,
+  ``APPTReview.rayleigh_le_of_nonnegative_unit,
+  ``APPTReview.matrix_cap_of_nonnegative_unit,
+  ``APPTReview.sparseScaleRank_log,
+  ``APPTReview.sparseScaleCoefficient_log,
+  ``APPTReview.lacunarySparseMatrix_rayleigh,
+  ``APPTReview.fractional_weight_cap_cannot_be_dropped,
+  ``APPTReview.outside_band_mass_not_zero,
+  ``APPTReview.bad_pair_factor_cannot_be_one,
+  ``APPTReview.clipping_band_factor_cannot_be_two,
+  ``APPTReview.zero_amplitude_scale_defined,
+  ``APPTReview.nonsymmetric_rayleigh_not_operator_cap,
+
   ``APPTReview.lacunary_uniform_all_smaller_bands,
   ``APPTReview.lacunary_uniform_band_energy,
   ``APPTReview.lacunary_moving_energy_eventually,
@@ -378,3 +418,9 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_probability_energy "review-kernel-lacunary-measure-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.moving_scaleBand_eventually_lt "review-kernel-moving-band-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.sparse_scale_localization "review-kernel-sparse-localization-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.finiteScaleProbability_band "review-kernel-finite-probability-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.matrix_cap_of_nonnegative_unit "review-kernel-homogeneous-matrix-control"
