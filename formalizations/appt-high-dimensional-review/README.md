@@ -1,69 +1,47 @@
-# High-dimensional APPT: mathematical review and Lean verification
+# High-dimensional APPT: verified sharp purity law
 
-## Physical multiscale sufficiency checkpoint
+**The complete leading excess-purity asymptotic is now Lean-verified uniformly over all dimension pairs 2<=m<=n as mn grows. The overall research is not fully formalized: complete entropy extrema, dimension-varying spectral rigidity, and several more refined hierarchy claims remain separate obligations.**
 
-`canonical_lacunary_states_appt` now constructs actual integer-projection density matrices with a spike and proves eventual APPT under every global unitary, uniformly for all n>=m. Independent run **38383302058** passed; its exact source and downloaded evidence are retained in `verification/ci-3bfdc77f/`. The purity moment asymptotic and coefficient-eight lower bound remain separate at this checkpoint. See `REVIEW_MULTISCALE_BRIDGE.md`.
+All physical endpoints use actual complex density matrices, the original trace(A*A).re purity, and positivity after partial transposition of EVERY global-unitary conjugate. No assumed graph cap, spectral ansatz, lower bound, or main conclusion is a final physical hypothesis.
 
-## Canonical sparse-matrix graph limit: complete dependency checkpoint
+## 1. Complete sharp purity formula
 
-The finite sparse-matrix localization is now connected to the existing common-measure compactness theorem. `lacunary_sparse_matrix_bound` proves a uniform actual PSD/operator-square bound for every symmetric fractional matrix family with canonical power edge budgets. Independent run **38349046520** passed with **131 pinned inputs**. See `REVIEW_SPARSE_LOCALIZATION.md` and `verification/ci-3ae4c512/`. This does not yet certify the coefficient-eight physical lower construction, full entropy laws or dimensional rigidity.
+Let D=mn and P_sup(m,n) be the existing supremum over the actual physical APPT states, proved nonempty, bounded and attained. Set K(m,n)=max(8,4+mn/(m^2-1)). The final quantified theorem `appt_sharp_purity_relative_error` proves
 
-## Lacunary probability and compactness checkpoint
+    for every epsilon>0, there is ONE N such that every 2<=m<=n, mn>=N satisfies
+    |D^2*(P_sup(m,n)-1/D)/K(m,n)-1| <= epsilon.
 
-The canonical measurable bipartition, arbitrary common-probability-measure energy inequality, moving-strip weak limit, and uniform strip-width threshold over all probability measures on [0,1] are independently kernel-verified. Run **38337062170**, source **66f32a995d793bdbfe233e68ef4f851eaf3ea90a**, passed all stages: **3,124 build tasks, 50,471 transitive declarations, 326 roots, 121 pinned inputs**, trust zero and only the three standard axioms. All 21 unchanged-type corruption controls passed. Evidence: `verification/ci-66f32a99/`; dependency review: `REVIEW_LACUNARY_MEASURE.md`. This establishes the common-measure compactness portion, not the remaining finite sparse-graph localization, actual multiscale APPT construction or coefficient-eight sharpness below aspect ratio four.
+`appt_purity_excess_equivalent` proves the corresponding actual filter limit along EVERY sequence with growing total dimension. Fixed, growing, oscillating and arbitrarily unbalanced smaller dimensions are all covered. This completes the matching coefficient-eight lower half, not just the previously verified upper bound or wide-sector result.
 
-**The constructive broad-plateau lower branch and the complete wide-sector purity asymptotic are now verified. Every fixed finite aspect ratio gamma>=4 is covered, including approach to four from either side. The overall program remains partial: the matching multiscale coefficient eight for 1<=gamma<4, full entropy extrema and dimension-varying rigidity remain unclosed.**
+`appt_all_aspect_purity_limit` proves D^2*(P_sup-1/D)->max(8,4+gamma) for every finite fixed gamma>=1 with m->infinity and n/m->gamma. The critical ratio four may be approached from either side or crossed repeatedly. `appt_balanced_excess_limit` gives m^4*(P_sup(m,m)-1/m^2)->8. These are leading excess asymptotics, not exact finite-dimensional interpolation formulas or effective moderate-dimensional thresholds.
 
-All physical endpoints use actual complex density matrices, the original trace(A*A).re purity and positivity after partial transposition of EVERY global-unitary conjugate. No spectral ansatz or unproved graph limit replaces those objects.
+## 2. Proof mechanism and review
 
-## 1. Complete asymptotic results added in this checkpoint
+The prior lacunary common-measure compactness, finite sparse localization, rank-sensitive Schmidt compression, spike decoupling and actual normalized projection-state APPT theorem remain in the full checked closure. The new moment argument proves nonnegative cross traces of arbitrary positive semidefinite matrices. It needs no nesting or commutation hypothesis for the projections. Every integer floor, trace-centering term and denominator loss is retained; the lower expression converges uniformly in n>=m for each fixed finite hierarchy.
 
-Write D=mn and P_max for the actual attained APPT purity maximum. `appt_total_dimension_branch_lower` constructs states giving, uniformly over all integer 2<=m<=n as D grows,
+Choose J=2h^2 distinct scales 1/3,...,3^(-J), energy 2h^2/(h+1)^4 at each scale, and spike 2h/(h+1). The APPT budget equals the spike and is strictly below two. The total target energy is 4(h/(h+1))^2+4(h/(h+1))^4>=8-24/(h+1). For a requested error, h is fixed BEFORE the dimension threshold. No unproved interchange with a growing hierarchy is used. The construction uses exact real coefficients; rational matrix entries are not claimed for this implementation.
 
-    D^2 [Tr(rho^2)-1/D] >= (1-epsilon)[4+D/(m^2-1)].
+The coefficient-eight construction combines with the earlier all-dimensional broad branch. Bounded smaller dimensions automatically fall in the broad branch when total dimension is large enough. The existing physical upper bound then yields the complete relative equivalent. See `REVIEW_SHARP_PURITY.md` for the dependency map, normalization algebra and review boundaries.
 
-Together with the unrestricted upper theorem, `appt_wide_relative_error` proves a two-sided relative asymptotic uniformly for n>=4m:
+Nine unpublished modules were recovered, independently read and recompiled; four further modules assemble the final all-regime and all-aspect laws and controls. Earlier development receipts were not treated as fresh full verification.
 
-    D^2 [P_max(m,n)-1/D] / [4+D/(m^2-1)] -> 1.
+## 3. Independent source-bound verification
 
-`appt_wide_purity_asymptotic` is a genuine Tendsto theorem along every eventually admissible dimension sequence with total dimension tending to infinity. The smaller dimension may stay fixed, grow, or oscillate. Separately, `appt_large_aspect_purity_limit` proves
+Independent run **38441930508**, exact tested source **abf3fb4eb3efb4efa2847838005c63f70ab03c27**, passed every job and all five reproduction stages. The fresh review-package build completed **3,157 tasks**, retaining external dependency caches. A trust-zero empty kernel replayed **50,788 transitive declarations and 444 explicit roots**. Its only axioms were `propext`, `Classical.choice`, and `Quot.sound`.
 
-    D^2 [P_max(m,n)-1/D] -> 4+gamma
+All **154 pinned inputs** matched the tested commit and downloaded sources. Stage logs were hash-checked. The primary proof corruption test targets the full formula `appt_purity_excess_equivalent`; **30 exact-type controls** were rejected after positive proof replay, including the actual coefficient-eight existence theorem, finite canonical matrix lower bound and all-aspect limit. No failed proof, missing dependency or timeout counts as a passing control. Evidence: `verification/ci-abf3fb4e/`.
 
-when m tends to infinity and n/m tends to any fixed finite gamma>=4. At gamma=4, ratios below four are allowed. These are unrestricted physical extrema, not optimization within the construction family. Existence, boundedness and attainment of the objective are connected through the previously verified compactness theorems.
+The new mathematical controls reject dropping trace centering, replacing an integer floor by a real rank, or erasing nonzero positive cross moments. Every finite hierarchy is proved strictly below eight, and the balanced physical supremum limit is a separate audit root. Earlier counterexample, APPT-versus-PPT, wrong dimension constant, parity, signed-matrix and cutoff controls remain in the same closure. This is independent CI and kernel verification, not external peer review or a new priority claim.
 
-## 2. Effective finite construction without multiscale compactness
+## 4. Earlier completed finite results remain verified
 
-For h>=1 and m>=2h^2+4h, put k=ceil(mn/2) and b=(h+1)m+2h^2+h. A rank-k coordinate projection P and a coordinate unit vector v in its range define
+The qutrit result is unchanged in its separate full package. This review package retains the actual 10x38 counterexample and its robust positive margin, joint spike/contraction sufficiency, complete singular-state locus, physical compactness and attainment, exact attainable-purity interval, and the finite nonlinear entropy-head bridge. The exact rectangular maximum and complete maximizing-spectrum/unitary-orbit classification hold for m>=3,n>=m^3-m-2; that cutoff is sufficient, not asserted minimal.
 
-    B=b I+2h P+2mh |v><v|,
-    rho=B/[mn b+2h(k+m)].
+The fixed-m limit, wide-sector law and integer plateau optimizer remain verified predecessors. The new theorem subsumes their leading-asymptotic scalar scopes without relabeling their historical audits. Earlier source-bound directories and original failure records are retained.
 
-`effectiveSpike_absolutelyPPT` proves generic joint sufficiency for every positive contraction P and unit vector, with no range assumption needed for positivity. The coordinate range condition is used for the exact trace-square calculation. `exists_effective_lower` constructs the integer support and proves actual density, APPT and
+## 5. Reproduction
 
-    D^2 [purity(rho)-1/D] >= (h/(h+2))^2 (4+n/m).
-
-All integer-parameter coefficients are explicit rational expressions. A finite Young/Cauchy sum-of-squares identity supplies positivity; no asymptotic Schmidt model, sampled unitary, compactness or interchange of hierarchy limits is assumed. `effective_ratio_error` provides the explicit parameter approximation h>=4/epsilon. See `REVIEW_EFFECTIVE_LOWER.md` for the complete dependency map and normalization identities.
-
-The exact even 6x24 and odd 7x29 controls check support cardinalities, true APPT density and purity. A positive trace-one 2x2 matrix diag(8,8,26,8)/50 is proved NOT APPT after the finite interaction reserve is deleted. A separate exact test rejects replacing a finite family member by its limiting coefficient.
-
-## 3. Independent verification
-
-Run **38272300965**, exact source **c1bc61aa861f3d270c0f4ca669d8b154f5b81b98**, passed all jobs and all five reproduction stages. A fresh package build completed **2,900 tasks**, retaining external dependency caches. Empty-kernel replay at trust level **zero** checked **42,804 transitive declarations and 304 explicit roots**. Only `propext`, `Classical.choice` and `Quot.sound` were found as axioms.
-
-All **113 pinned inputs** match the tested commit and the current source. Uploaded sources, audit, regressions, runner, manifest and every stage log were checked against exact hashes. **19 exact-type corruption controls** reject forged proofs after the original positive replay, including the final aspect limit, the all-total-dimension wide limit, generic physical joint sufficiency, the actual finite lower witness and the uniform total-dimension lower branch. No theorem type or universe parameter is altered. Evidence: `verification/ci-c1bc61aa/`.
-
-The local WSL fresh build/replay also passed. Its source-bound logs are retained separately in `verification/local-effective-20261012/`. Only this working branch was added to the existing workflow push trigger; all verification jobs, commands, axiom policies and limits stayed unchanged. This is independent CI and Lean-kernel verification, not external mathematical peer review or a priority claim.
-
-## 4. Earlier complete finite and asymptotic results retained
-
-The exact rectangular maximum for m>=3,n>=m^3-m-2 and its complete sorted-spectrum/global-unitary-orbit classification remain verified (`ci-e1f7774e`). The actual 10x38 counterexample, universal formula refutation, generic joint sufficiency, white-noise positive margin and physical failing perturbation remain verified (`ci-c129497b`). Finite physical compactness, attained maxima, the attainable purity interval, unique mixed minimum, singular APPT spectrum/purity equivalence and purity-ball sufficiency remain verified in their corresponding historical checkpoints.
-
-For every fixed m>=2, the actual purity supremum has the complete limit (mn)P_max -> m^2/(m^2-1), with matching finite errors and exact integer projection rounding. The all-total-dimension upper coefficient max(8,4+mn/(m^2-1)) and the finite spectral-pivot upper inequalities remain in the same audited closure. The finite nonlinear entropy-head statement is verified, not the entire entropy law. See `COVERAGE.md`; historical records retain their original source bindings.
-
-## 5. Reproduce and remaining scope
-
-Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. On Linux or WSL, from this directory:
+Lean **4.34.1** and Mathlib **d13f23b723b8a846827a245b89c10fc7d3f11612** remain pinned. From this directory on Linux or WSL:
 
 ```sh
 lake exe cache get
@@ -71,6 +49,8 @@ python3 reproduce.py --check-only
 python3 reproduce.py --fresh
 ```
 
-The runner checks actual dependency/source pins, uses finite stage timeouts, terminates timed-out process groups, retains failures, and replays the full selected proof closure. The new modules are EffectiveJointScalar, EffectiveJoint, EffectiveLowerScalar, EffectiveState, EffectiveAsymptotic, TotalBranchLower, WideAsymptotic, LargeAspectLimit and EffectiveControls.
+The runner checks actual source and dependency hashes, rebuilds the review closure, compiles replay support with an explicit source root, runs mathematical controls and replays every selected root at trust level zero. Every stage has a finite timeout and process-group termination. `--write-manifest` records an intended source set, not verification.
 
-The remaining sharp lower coefficient eight for fixed 1<=gamma<4 requires the multiscale graph argument or another valid construction. This checkpoint proves 4+gamma there as a lower branch, not equality with the true optimum. Full entropy minima, dimension-varying phase/outlier rigidity and the multiscale/two-ended compactness dependencies remain unverified. Exact finite maxima outside the rectangular theorem remain a separate research question. No new preprint or immutable Release is made; the original quantum definitions and published proof trees remain unchanged.
+## 6. Remaining scope
+
+Complete von Neumann/Renyi extrema and dimension-varying bulk/outlier rigidity are still unclosed in Lean. The exact optimal energy of every finite hierarchy and the full two-ended graph theory are not inferred from the sufficient lacunary bound used here. Exact finite maxima outside the already verified rectangular region, next-order expansions, minimal rectangular cutoffs, efficient dimension thresholds, and APPT versus absolute separability remain separate. This checkpoint creates no preprint or Release and changes no original quantum definition.

@@ -76,7 +76,7 @@ def main():
         if marker not in audit:raise RuntimeError('Missing audit marker '+marker)
     for p in ROOT.glob('review-kernel-*.txt'):shutil.copy2(p,out/p.name)
     check_sources()
-    result={'status':'PASS','scope':'Complete eventual all-global-unitary APPT sufficiency and normalized integer-projection lacunary states, with a single spike, actual rank-sensitive compression and finite decoupling. All earlier finite results retained. The matching coefficient-eight purity limit, full entropy and asymptotic rigidity are NOT certified by this checkpoint.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
+    result={'status':'PASS','scope':'Complete sharp APPT purity excess asymptotic uniformly over every dimension pair with growing product; actual coefficient-eight lower states, all finite aspect ratios, and balanced limit. Earlier verified physical statements retained. Full entropy and dimension-varying rigidity claims are NOT certified by this checkpoint.','source_manifest_sha256':sha(ROOT/'SOURCE_HASHES.json'),'stages':records,'empty_kernel_trust_level':0,'source_files':len(inventory())}
     (out/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n')
     print('REVIEW_REPRODUCTION_PASS',flush=True)
 if __name__=='__main__':main()
