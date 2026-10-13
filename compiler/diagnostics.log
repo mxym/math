@@ -1,0 +1,57 @@
+CACHE
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 2063 file(s)
+
+MODULE WeightedLocalization
+WeightedLocalization.lean:31:5: warning: Variable name `hy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE FiniteProbability
+FiniteProbability.lean:41:22: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE FinitePairMass
+FinitePairMass.lean:24:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (finiteAtomicMeasure (fun z => p ?m.112 * p ?m.115) ?m.102).real ?S
+in the target expression
+  (finiteAtomicMeasure (fun z => p z.1 * p z.2) fun z => (↑(x z.1), ↑(x z.2))).real (scaleBand d t) =
+    ∑ i, ∑ j, if |↑↑(x i) + ↑↑(x j) - d| ≤ t then p i * p j else 0
+
+ι : Type u_1
+inst✝ : Fintype ι
+p : ι → ℝ
+x : ι → ↑ScaleInterval
+hp : ∀ (i : ι), 0 ≤ p i
+hs : ∑ i, p i = 1
+d t : ℝ
+⊢ (finiteAtomicMeasure (fun z => p z.1 * p z.2) fun z => (↑(x z.1), ↑(x z.2))).real (scaleBand d t) =
+    ∑ i, ∑ j, if |↑↑(x i) + ↑↑(x j) - d| ≤ t then p i * p j else 0
+FinitePairMass.lean:46:13: error: don't know how to synthesize implicit argument `s`
+  @Finset.sum_nonneg (Fin m) ℝ Real.instAddCommMonoid Real.instPreorder (fun i => F i i) ?m.56
+    IsOrderedAddMonoid.toAddLeftMono fun i x => hdiag i
+context:
+m : ℕ
+F : Fin m → Fin m → ℝ
+hF : ∀ (i j : Fin m), F i j = F j i
+hdiag : ∀ (i : Fin m), 0 ≤ F i i
+he : ∑ i, ∑ j, F i j = ∑ i, F i i + 2 * ∑ p, F (↑p).1 (↑p).2
+⊢ Finset (Fin m)
+FinitePairMass.lean:46:38: error(lean.inferBinderTypeFailed): Failed to infer binder type
+FinitePairMass.lean:46:7: error: failed to infer `have` declaration type
+FinitePairMass.lean:44:63: error: unsolved goals
+m : ℕ
+F : Fin m → Fin m → ℝ
+hF : ∀ (i j : Fin m), F i j = F j i
+hdiag : ∀ (i : Fin m), 0 ≤ F i i
+he : ∑ i, ∑ j, F i j = ∑ i, F i i + 2 * ∑ p, F (↑p).1 (↑p).2
+⊢ ∑ p, F (↑p).1 (↑p).2 ≤ (∑ i, ∑ j, F i j) / 2
