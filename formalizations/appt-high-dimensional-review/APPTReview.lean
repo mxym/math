@@ -33,3 +33,6 @@ import APPTReview.RectangularClassificationControls
 import APPTReview.LargeAspectLimit
 
 import APPTReview.EffectiveControls
+
+import APPTReview.LacunaryUniformBand
+import APPTReview.LacunaryControls

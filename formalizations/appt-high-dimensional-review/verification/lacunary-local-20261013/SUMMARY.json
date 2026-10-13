@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Lacunary common-measure energy, measurable canonical bipartition, moving-strip weak limit, and uniform compact probability threshold; retained physical APPT finite and wide-sector theorems. NOT the full sparse-graph localization, multiscale coefficient-eight lower construction, entropy extrema or dimension-varying rigidity.",
+  "source_manifest_sha256": "dc92b630ea9dbafd8e304cf9acef38eea9a5f5b073c1e3e27993746103b55331",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.465,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 121.387,
+      "log": "build.log",
+      "sha256": "1fba6b7058f53d59d47bb182a1e8ee902febe2a029287c3b542c86cd94259dee"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/root/appt-lacunary-review-20261013/formalizations/appt-qutrit-purity",
+        "-o",
+        "/root/appt-lacunary-review-20261013/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/root/appt-lacunary-review-20261013/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.824,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/root/appt-lacunary-review-20261013/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.922,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 247.252,
+      "log": "kernel.log",
+      "sha256": "8c4bef1fe57e2aa74687d8b825b2269b6b8b8c379d7d948096930517d7aa0f0c"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 121
+}

@@ -1,5 +1,9 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
+## Lacunary probability and compactness checkpoint
+
+The canonical measurable bipartition, arbitrary common-probability-measure energy inequality, moving-strip weak limit, and one uniform strip-width threshold over all probability measures on [0,1] have passed a fresh local build and trust-zero replay. Independent CI of this exact source is pending at this checkpoint. No finite atomic approximation or presumed moving-set Portmanteau rule supplies these results. The sparse-graph localization, physical multiscale lower construction, coefficient-eight sharpness below aspect ratio four, full entropy and asymptotic rigidity remain separate obligations.
+
 **The constructive broad-plateau lower branch and the complete wide-sector purity asymptotic are now verified. Every fixed finite aspect ratio gamma>=4 is covered, including approach to four from either side. The overall program remains partial: the matching multiscale coefficient eight for 1<=gamma<4, full entropy extrema and dimension-varying rigidity remain unclosed.**
 
 All physical endpoints use actual complex density matrices, the original trace(A*A).re purity and positivity after partial transposition of EVERY global-unitary conjugate. No spectral ansatz or unproved graph limit replaces those objects.

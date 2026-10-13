@@ -3,6 +3,29 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.lacunary_uniform_all_smaller_bands,
+  ``APPTReview.lacunary_uniform_band_energy,
+  ``APPTReview.lacunary_moving_energy_eventually,
+  ``APPTReview.moving_scaleBand_eventually_lt,
+  ``APPTReview.probability_closed_eventually_lt,
+  ``APPTReview.markedScaleBand_mass,
+  ``APPTReview.scaleBand_zero,
+  ``APPTReview.scaleBandEnergy_mono,
+  ``APPTReview.lacunary_probability_energy,
+  ``APPTReview.lacunary_probability_energy_doubled,
+  ``APPTReview.lacunary_energy_budget,
+  ``APPTReview.lacunary_off_mass,
+  ``APPTReview.scale_center_mass,
+  ``APPTReview.scaleLine_measure_split,
+  ``APPTReview.lacunaryColor_separates,
+  ``APPTReview.LacunaryScales.nodup,
+  ``APPTReview.measurable_lacunaryColor,
+  ``APPTReview.nonlacunary_triangle_not_colorable,
+  ``APPTReview.separated_three_scales,
+  ``APPTReview.loop_dirac_line_mass,
+  ``APPTReview.loop_term_cannot_be_omitted,
+  ``APPTReview.empty_scale_energy,
+
   ``APPTReview.appt_large_aspect_purity_limit,
   ``APPTReview.effective_joint_pair,
   ``APPTReview.effective_joint_background,
@@ -351,3 +374,7 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.effectiveSpike_absolu
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_effective_lower "review-kernel-effective-density-lower-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_branch_lower "review-kernel-effective-total-lower-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_probability_energy "review-kernel-lacunary-measure-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.moving_scaleBand_eventually_lt "review-kernel-moving-band-control"
