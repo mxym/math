@@ -1,6 +1,6 @@
 {
   "serial": 1791860461419,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "8b826e1c07b8eb9f7eb154fecb46fe60d37f0edf",
   "modules": [
     "WeightedLocalization",
@@ -24,7 +24,54 @@
     "LogScaleCoordinates.lean": "8478664f3b8af9af8b9101886153dddcc48ad1c2669c615433178e6e46b6c6d5",
     "WeightedLocalization.lean": "dbd31180403a9e701feea7ad281b2f257f712eca109034029becd437c0321a71"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "WeightedLocalization",
+      "returncode": 0,
+      "seconds": 2.751
+    },
+    {
+      "module": "FiniteProbability",
+      "returncode": 0,
+      "seconds": 2.162
+    },
+    {
+      "module": "FinitePairMass",
+      "returncode": 0,
+      "seconds": 2.19
+    },
+    {
+      "module": "LogScaleCoordinates",
+      "returncode": 0,
+      "seconds": 5.61
+    },
+    {
+      "module": "PairLocalization",
+      "returncode": 0,
+      "seconds": 2.581
+    },
+    {
+      "module": "SchmidtEmpirical",
+      "returncode": 0,
+      "seconds": 2.196
+    },
+    {
+      "module": "SchmidtLocalization",
+      "returncode": 0,
+      "seconds": 5.581
+    },
+    {
+      "module": "LacunaryFiniteGraph",
+      "returncode": 0,
+      "seconds": 2.853
+    },
+    {
+      "module": "WeightedInteraction",
+      "returncode": 1,
+      "seconds": 2.558
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38337216012"
+  "run_id": "38337216012",
+  "diagnostics": "WeightedInteraction.lean:74:2: error: linarith failed to find a contradiction\ncase h1\nm : \u2115\ns : Fin m \u2192 \u211d\ni j : Fin m\nhij : i \u2260 j\nh1 : \u2211 k, s k = s i + s j + \u2211 k, s \u2191k\nh3 : \u2211 k, removePair s i j \u2191k = \u2211 k, s \u2191k\nh2 : (\u2211 k, if k = i \u2228 k = j then 0 else s k) = \u2211 k, s \u2191k\na\u271d : \u2211 k, s k < s i + s j + \u2211 k, removePair s i j k\n\u22a2 False\nfailed\n"
 }
