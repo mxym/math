@@ -360,3 +360,38 @@ Jacobian factorization and exact multiplicities remain distinct obligations.
 The earlier unrestricted-real theorem at a co-located root leak is unchanged.
 All new files compiled; the new source-specific independent CI certifies them,
 not an earlier receipt. The overall research program remains partial.
+
+
+## Arbitrary-site actual ODE theory and all-input leakage non-identifiability
+
+`normalizedGaugeState` rescales each state by h_v/h_o, so the fixed inlet and
+observed state coordinate are unchanged. `GaugeODETransport` proves both
+directions for actual classical trajectories and endpoints; it does not simply
+infer an ODE theorem from a resolvent identity. No input rescaling occurs.
+
+`located_continuous_iff_response` identifies actual continuous-input root-state
+history fibers with the positive located-response fibers, with both directions
+proved. `finite_graph_all_leak_ODE_classification` gives the complete recursive
+bijection and exact finite count at every leak site in an independently supplied
+graph, and the |V| extra factor when that site is unknown.
+
+`located_forced_ODE_existsUnique` proves global classical well-posedness for
+arbitrary positive tree rates and arbitrary continuous input. Under the full
+positive response hypotheses, `located_full_response_observable`,
+`located_full_response_controllable` and `located_full_response_minimum_energy`
+prove exact finite-window trajectory observability, signed finite-horizon
+steering and the energy-gap identity including its complete equality case.
+The endpoints are the original physical states, transported explicitly and back.
+
+`leak_location_all_input_indistinguishability` is stronger than a full-mode
+counting corollary: for ANY positive tree model, moving its leak to ANY other
+vertex preserves every zero-initial collocated state-output history for every
+continuous forcing, at every choice of collocated inlet/observer. Both systems'
+actual global solutions exist uniquely. No simple-pole/full-mode assumption is
+needed. This does NOT assert equality of cross responses or physical outflow at
+a DIFFERENT leak vertex. No extra observable is silently treated as unchanged.
+
+The alternate-leak ODE bridge is now closed on its explicitly positive domain.
+Remaining extensions concern unrestricted-real alternate-leak rigidity and its
+all-rate polynomial Jacobian/multiplicity analysis, not the positive trajectory
+transport. Independent validation is the source-specific new CI run.

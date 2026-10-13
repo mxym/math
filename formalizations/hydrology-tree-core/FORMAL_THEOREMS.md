@@ -371,3 +371,33 @@ n! / product_(v != o)|T_v|. `UnknownLeakFiber` includes the actual leak vertex a
 part of the parameters; its exact finite cardinality is |V| times that number.
 No positivity premise on an unrestricted competitor has been silently dropped:
 this extension is about the stated POSITIVE physical fibers.
+
+
+## Actual ODE transport and leakage identifiability
+
+For B=diag(h) A diag(h)^(-1), with h_v nonzero, the explicitly constructed state
+map S(z)_v=(h_v/h_o)z_v fixes both the physical scalar inlet at o and the observed
+coordinate o. `normalizedGauge_solution_iff` proves equivalence of actual
+classical ODE solution predicates with the SAME forcing. Both endpoints and
+initial values are transported exactly. No positivity premise is needed for
+this generic normalized state-equivalence lemma.
+
+For positive finite trees and arbitrary leak ell, `located_continuous_iff_response`
+proves exact equivalence of the actual every-continuous-input root-state histories
+and the prescribed full Stieltjes response. `finite_graph_all_leak_ODE_classification`
+constructs the independent graph presentation and proves complete finite actual
+trajectory-fiber classification at each ell and for the unknown-site disjoint
+union. The unknown-site count is |V| times the usual factorial/hook expression.
+
+`located_full_response_minimum_energy` states the exact energy decomposition
+for every continuous competing control and ACTUAL endpoint-feasible trajectory,
+with equality exactly when the controls agree at every point of [0,T]. Signed
+control, arbitrary T>0, original state endpoints and the absence of input
+rescaling are explicit. Well-posedness and full state observability are proved.
+
+Without ANY full-mode assumption, `leak_location_all_input_indistinguishability`
+constructs the actual unique zero-initial solutions of both models for every
+continuous input at every collocated inlet/state observer, and proves identical
+output histories at every time. The leakage-location transformation is the
+same rate-space equivalence for all those collocated experiments. Cross-transfer
+and output at a different leaking compartment are not asserted invariant.

@@ -51,14 +51,20 @@ preserved. Exact positive physical fiber classification and counting therefore
 hold at any prescribed leak site. The model space with an unknown site is proved
 finite of cardinality |V| times the prescribed-site count.
 
+The normalized diagonal gauge now also transports actual ODE trajectories,
+inputs and endpoints. Full continuous-input state-history fibers, their exact
+counts including unknown leak sites, well-posedness, signed steering, finite-
+window observability and exact minimum-energy equality are proved. The entire
+all-input leakage non-identifiability result is proved for any positive tree,
+not just a full-mode target. Solutions are constructed, so the universal history
+condition is not vacuous.
+
 Still required for the broader alternate-leak scope:
 - Automatic positivity and complete counting without ANY sign premise on the
   initial REAL alternate-leak vector (the positive-space equivalence does not
   itself assert this stronger statement).
 - Its all-real-rate Jacobian polynomial, orientation and exact coordinate
   multiplicities, including zero boundaries.
-- The explicit actual ODE/state/endpoint transport of the new diagonal gauge.
-  A matrix-resolvent identity alone is not called that dynamical proof.
 
 Collocated input/state observation at o is distinct from measuring physical
 outflow at a DIFFERENT leak vertex ell. No equality of those different data

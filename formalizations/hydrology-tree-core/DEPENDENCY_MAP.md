@@ -113,3 +113,12 @@ and diagonal cofactor/resolvent invariance. `LeakRelocationWalk` constructs arbi
 site movement; `LocatedLeakFiber` proves positive exact fibers and the extra
 |V| multiplicity of an unknown leak site. Unrestricted-real alternate-leak
 rigidity/Jacobian and the diagonal-gauge ODE transport remain separate.
+
+
+`GaugeODETransport` constructs input-preserving normalized state maps and exact
+solution/endpoint equivalence. `LocatedLeakODE` gives continuous-history/response
+bijections and counting; `LocatedLeakDynamics` gives actual existence, signed
+reachability, observability and complete minimum-energy rigidity at arbitrary
+leak sites. `LeakLocationIdentifiability` proves all-input, all-collocated-probe
+indistinguishability with nonvacuous unique actual solutions, and unknown-site
+trajectory-fiber counting. Alternate-leak unrestricted-real algebra remains.
