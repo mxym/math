@@ -286,18 +286,52 @@ consider restructuring your `variable` declarations so that the variables are no
   C] [DecidableEq C] [LinearOrder C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/ArrowDiagonalGauge.lean:37:4: error: 'change' tactic failed, pattern
-  (if v = r k then alpha k else 0) = (1 * if v = r k then a k else 0) * (beta k / f k * h k v)⁻¹
-is not definitionally equal to target
-  arrowMatrix d A r alpha beta (Sum.inl u) (Sum.inr ⟨k, v⟩) =
-    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inl u) (Sum.inr ⟨k, v⟩)
-HydrologyTree/ArrowDiagonalGauge.lean:46:4: error: 'change' tactic failed, pattern
-  (if u = r c then beta c else 0) = (beta c / f c * h c u * if u = r c then f c else 0) * 1⁻¹
-is not definitionally equal to target
-  arrowMatrix d A r alpha beta (Sum.inr ⟨c, u⟩) (Sum.inl v) =
-    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inr ⟨c, u⟩) (Sum.inl v)
-HydrologyTree/ArrowDiagonalGauge.lean:52:4: error: 'change' tactic failed, pattern
+HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/ArrowDiagonalGauge.lean:45:34: error: unsolved goals
+C : Type u_1
+inst✝⁴ : Fintype C
+inst✝³ : DecidableEq C
+inst✝² : LinearOrder C
+V : C → Type u_2
+inst✝¹ : (c : C) → Fintype (V c)
+inst✝ : (c : C) → DecidableEq (V c)
+d : ℝ
+A B : (c : C) → Matrix (V c) (V c) ℝ
+r : (c : C) → V c
+alpha beta a f : C → ℝ
+h : (c : C) → V c → ℝ
+hf : ∀ (c : C), f c ≠ 0
+hb : ∀ (c : C), beta c ≠ 0
+hh : ∀ (c : C) (i : V c), h c i ≠ 0
+hroot : ∀ (c : C), h c (r c) = 1
+hchild : ∀ (c : C), A c = diagonalGauge (h c) (B c)
+hprod : ∀ (c : C), alpha c * beta c = a c * f c
+u : Unit
+k : C
+⊢ a k * f k * (beta k)⁻¹ = a k * (beta k)⁻¹ * (f k)⁻¹⁻¹
+HydrologyTree/ArrowDiagonalGauge.lean:55:4: error: 'change' tactic failed, pattern
   blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
 is not definitionally equal to target
   arrowMatrix d A r alpha beta (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩) =
-    diagonalGauge (arrowGaugeWeight f beta h) (arrowMatrix d B r a f) (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩)
+    arrowGaugeWeight f beta h (Sum.inr ⟨c, u⟩) * arrowMatrix d B r a f (Sum.inr ⟨c, u⟩) (Sum.inr ⟨k, v⟩) *
+      (arrowGaugeWeight f beta h (Sum.inr ⟨k, v⟩))⁻¹
+HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hroot, one_mul, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ArrowDiagonalGauge.lean:45:48: warning: This simp argument is unused:
+  inv_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
