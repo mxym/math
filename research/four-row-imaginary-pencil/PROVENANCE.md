@@ -20,6 +20,15 @@ factor identities and 65,536-entry operator identity imply the original matrix
 inequality through the written product-vector argument. The full imaginary
 parameter axis then follows analytically; finite t grids play no role.
 
+The equality supplement was derived from the first exact positive Gram block:
+its five difference columns force six two-column product equalities. An
+elementary support lemma reduces every invertible boundary equality matrix to
+a singleton row or column. The already proved three-row Hermitian identity
+then forces the Fourier block, including at the transition. This is a complete
+proof on the actual matrices; no numerical equality guess or unproved unitary
+reduction is used. Its auxiliary checker exhausts the finite support space and
+checks the specialized determinant and Fourier identities exactly.
+
 Numerical discovery used NumPy, SciPy, SymPy, CVXPY and SDP solvers. None of
 those packages is needed by the published verifier, which uses Python's standard
 library and exact fractions only. Windows and WSL executed the same finalized

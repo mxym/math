@@ -31,7 +31,11 @@ Let β=3/2−1/√3>0. The sharp constant is 3/2 on the entire interval
 |t|≤β, and |t|+1/√3 outside it. This determines the **whole purely imaginary
 axis**, rather than a finite table of coefficients. The general coefficient
 λ∈C with both nonzero real and imaginary parts remains unclassified here.
-Complete equality classification and higher matrix orders are not claimed.
+The complete equality classification on this axis is proved in
+[EQUALITY.md](EQUALITY.md): below the transition only flat rank-one matrices
+occur; at the transition they coexist with oriented Fourier3 direct sums;
+above it only the oriented Fourier-block class occurs. Zero rows give trivial
+equality. Higher matrix orders are not claimed.
 
 The permanent-only endpoint 3/2 and the real-coefficient norm are already
 known; they are not attributed to this paper as new. The substantive new
@@ -222,13 +226,16 @@ The full complex-plane candidate
 remains **unproved** for four rows in this paper. Numerical product optimization
 is only discovery evidence. A numerical gap in a fully-PPT relaxation near a
 different complex-coefficient transition is not a counterexample among actual
-matrices, and is not used in Theorem 1. No higher-order tradeoff, complete
-imaginary-axis equality classification or experimental confirmation is asserted.
+matrices, and is not used in Theorem 1. No higher-order tradeoff or
+experimental confirmation is asserted. The imaginary-axis equality proof is
+complete in the linked supplement; its support rigidity follows from the
+actual first positive Gram factor, not from a unitary-optimizer hypothesis.
 
 ## 7. Reproduction and exact verification scope
 
 ```bash
 python3 check_certificate.py --negative-controls
+python3 check_equality_structure.py
 ```
 
 Only Python 3.10+ and its standard library are required. The project contains
@@ -241,5 +248,8 @@ candidate numbers; the published proof/replay needs neither.
 
 The exact algebraic check proves (I3) and positive factors; Sections 2, 4 and 5
 provide the elementary analytic endpoint, extension and sharpness arguments.
-Together they prove the stated full imaginary-axis theorem. There is no Lean
+Together they prove the stated full imaginary-axis theorem. The equality
+supplement gives the complete equality classification, and its checker verifies
+the actual difference Gram block, exhaustive support obstruction and three-row
+boundary algebra. There is no Lean
 formalization, kernel replay or peer-review claim for this new package.
