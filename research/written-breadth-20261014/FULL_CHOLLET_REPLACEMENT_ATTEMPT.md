@@ -205,3 +205,53 @@ Thus a PSD replacement operator on all holomorphic polynomial squares would stil
 ## C13. Phase boundary and next analytic requirement
 
 At 20:46:03 UTC the active Chollet research time was22 minutes45 seconds: wall time since20:19:32 minus the independent finite-APPT service review20:36:46–20:40:32. The stage remains active. No stochastic optimization or exhaustive small-order rerun was performed. The remaining route must control actual coupled ordinary/doubled sectors, rather than use an abstract nonnegative-polynomial implication or PSD replacement operator. All six diagnostics above are retained as exclusions, without promoting them to a complete result.
+
+## C14. Current quadratic Fourier conjecture is a sufficient input, not a theorem
+
+The September26 primary preprint of Yair Lavi states, for every PSD A and every irreducible character chi_lambda of S_n,
+\[
+ \operatorname{tr}F_\lambda(A)^2\leq
+ d_\lambda(\operatorname{per}A)^2,\qquad
+ F_\lambda(A)=\sum_{\sigma\in S_n}a_\sigma(A)\rho_\lambda(\sigma).
+ \tag{C14}
+\]
+All Fourier blocks are Hermitian PSD. The actual conjecture's character expression is chi_lambda(sigma tau) a_sigma a_tau; it is not a coefficientwise character sign claim. The current paper proves this only through n=5. Its complete Section2 implication proof and the analytic portions of Section4 were read. The order-four and order-five finite certificate packages were not audited or adopted as new work here.
+
+The ordinary immanant dominance already known in more orders controls tr F, not tr F^2, so it cannot be substituted for C14. A permanent-on-top eigenvalue violation likewise does not automatically violate this quadratic bound.
+
+Plancherel gives
+\[
+ n!\operatorname{per}(A\circ\overline A)
+   =\sum_{\lambda\vdash n}d_\lambda\operatorname{tr}F_\lambda(A)^2.
+\]
+Since sum d_lambda^2=n!, complete C14 would imply the self target. This is exactly the implication disclosed by Lavi; it is not a new proof.
+
+For integer replica N, Schur–Weyl decomposition of the character N^{c(rho)} in C3 also gives
+\[
+ M_N=N^{-n}\sum_{\lambda\vdash n}
+   s_\lambda(1^N)\operatorname{tr}F_\lambda(A)^2.
+\]
+The nonnegative Schur dimensions satisfy sum s_lambda(1^N)d_lambda=N^n. Hence complete C14 would bound M_N by M_1 for every integer N. Individual weights need not approach their limiting values monotonically: for n=5, lambda=(4,1), s_lambda(1^2)/2^5=1/8, whereas its limit is d_lambda/5!=1/30. No monotonicity conclusion is obtained just from these positive weights.
+
+Source: https://yair-lavi.com/publications/quadratic-permanent-conjecture/paper.pdf , dated26 September2026,8pages, SHA256 0a61b003335d9e18ebcbed80b90f1d335551aa8443cf32fb1cb9f40cb487978c (108108bytes, local reading snapshot outside repository). The displayed input remains an open all-order conjecture.
+
+## C15. Two further exact exclusions of uniform auxiliary estimates
+
+Lavi's Section4 proof uses a bound on the permanental adjugate of order-four correlation matrices. Its naive constant-two extension to every order is false. Let
+\[
+ B=(6I_7+J_7)/7.
+\]
+This is a positive definite correlation matrix. All adjugate entries are positive and its rows have equal sum, so that sum is its largest eigenvalue. Expanding per(aI+rJ) and differentiating in r at a=6,r=1 gives exactly
+\[
+ \frac{\lambda_{\max}(\operatorname{padj}B)}{\operatorname{per}B}
+  =\frac{22169}{10505}>2.
+\]
+Indeed per(6I+rJ)=sum_k (7)_k 6^{7-k}r^k, and diagonal scaling contributes the factor7 that cancels the derivative's row-sum factor1/7. This refutes only the proposed unrestricted auxiliary bound; it does not refute the actual order-four lemma or C14.
+
+Nor can one discard phases with per|A|<=(per A)^2. For the legal rank-four correlation matrix Y_5, with diagonal1 and off-diagonal-1/4, eigenvalues are0 and5/4 repeated4. Direct aI+rJ expansion gives
+\[
+ \operatorname{per}Y_5=185/128,\qquad
+ \operatorname{per}|Y_5|=69/32,\qquad
+ \operatorname{per}|Y_5|-(\operatorname{per}Y_5)^2=1103/16384>0.
+\]
+Thus the absolute row-sum bound on the Schur power matrix cannot be closed by that strengthening. Neither auxiliary counterexample is a Chollet counterexample; entrywise-positive B even satisfies Chollet termwise, and order five is already solved.
