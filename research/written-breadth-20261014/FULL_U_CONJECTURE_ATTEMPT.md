@@ -115,3 +115,33 @@ This is not a polynomial in \(a\). Taking any independent Gaussian-coordinate po
 The entire Section3.6 proof of the 2015 fixed-class unlinking theorem was subsequently read. Its decisive step is a sum of nonnegative pairwise chaotic-square covariances, followed by the Üstünel–Zakai first-contraction criterion. General mixed-chaos polynomial bases lack that sum-of-squares form.
 
 The literature also distinguishes ordinary from strong independence on Wiener space. An existing counterexample in Tudor's asymptotic Cramér work uses a stochastic sign integral with infinitely many Gaussian-chaos components. It is not a finite polynomial pair and cannot be relabelled as a counterexample to the original U-conjecture.
+
+## Bounded multiplication is too weak
+
+The exact isometry (I) must not be weakened to boundedness of multiplication on \(\mathbb R[P]\). Take independent standard Gaussians \(X,Y\),
+\[
+ P=X^2+Y^4,\qquad Q=X.
+\]
+Here \(E_P=\mathbb R^2\) and \(E_Q=\mathbb R e_1\), so the essential subspaces overlap. Nevertheless
+\[
+ \sup_{p>0}\mathbb E[X^2\mid P=p]<\infty.                 \tag{B}
+\]
+It follows that \(\|Qf(P)\|_2^2\leq C\|f(P)\|_2^2\) for every polynomial \(f\). Bounded multiplication therefore does not force unlinking.
+
+To verify (B), the conditional density of \(X\), up to its positive normalizing factor, is
+\[
+ 1_{\{|x|<\sqrt p\}}\,
+ e^{-x^2/2}(p-x^2)^{-3/4}e^{-\sqrt{p-x^2}/2}.
+\]
+For \(p\downarrow0\), its second moment is at most \(p\), hence tends to zero. On every compact interval of positive \(p\), substituting \(x=\sqrt p\,s\) makes numerator and denominator continuous positive integrals against the integrable weight \((1-s^2)^{-3/4}\).
+
+For \(p\to\infty\), divide the weight by \(p^{-3/4}e^{-\sqrt p/2}\). For \(x^2\leq p/2\), the remaining factor is
+\[
+ (1-x^2/p)^{-3/4}
+ \exp\{(\sqrt p-\sqrt{p-x^2})/2\}
+ \leq 2^{3/4}\exp\{x^2/[2\sqrt p(1+1/\sqrt2)]\}.
+\]
+It tends pointwise to one and is dominated after multiplication by \(e^{-x^2/2}\), also with the additional second-moment factor. For \(x^2>p/2\), the normalized numerator and denominator tails are bounded by a polynomial in \(p\) times \(e^{-p/4+\sqrt p/2}\), using the endpoint integrability of \((p-x^2)^{-3/4}\). They vanish. Thus the normalized conditional density converges with its second moment to a standard Gaussian density, giving
+\(\mathbb E[X^2\mid P=p]\to1\). Together with compact continuity and the zero boundary this proves (B).
+
+The conditional second moment is not constant: it tends to zero at the lower boundary and to one at infinity. Therefore this is not an independent pair or a U-conjecture counterexample. It removes the proposed bounded-operator shortcut while preserving the need to exploit **exact** isometry for all algebra elements.
