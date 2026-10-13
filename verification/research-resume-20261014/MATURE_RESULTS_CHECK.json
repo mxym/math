@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-14 Asia/Shanghai",
+  "scope": "Exact auxiliary checks and prior package source readback; not universal-proof replacements or Lean audits",
+  "source_binding": [
+    {
+      "package": "four-row-imaginary-pencil",
+      "files_checked": 16,
+      "mismatches": []
+    },
+    {
+      "package": "weighted-cycle-chollet",
+      "files_checked": 8,
+      "mismatches": []
+    }
+  ],
+  "new_auxiliary_runs": [
+    {
+      "command": [
+        "python3",
+        "research/appt-multilevel-counterexample/check_half_strictness.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.016,
+      "log": "mature-1.log"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "research/appt-multilevel-counterexample/check_half_strictness.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.029,
+      "log": "mature-2.log"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "research/weighted-cycle-chollet/check.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.516,
+      "log": "mature-3.log"
+    }
+  ],
+  "imaginary_certificate": "Prior exact rational and equality diagnostics retained with identical bound source; not rerun this round",
+  "lean_scope": "No modules, roots or trusted inputs changed or added",
+  "status": "PASS"
+}

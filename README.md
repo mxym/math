@@ -20,6 +20,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
+| [有限树模型的全实 Jacobian 与精确实解纤维](preprints/finite-tree-jacobian-2026-10/README.md) · [PDF](preprints/finite-tree-jacobian-2026-10/paper.pdf) | 任意泄漏位置的全实分解、精确重数、完整正目标的全部实解及计数 | 主定理对应既有固定 Lean；235 输入／原归档独立核对，论文为公开准备稿 | — |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
 | [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md) · [PDF](preprints/appt-purity-unified-2026-10/main.pdf) | 合并 qutrit–qudit 精确最大值、一般维数反例、全域渐近律及充分长方形区间的精确最大值与极值谱分类 | qutrit、10×38 反例、充分长方形区间精确最大值与全部极值态分类，以及长宽比至少4区域的完整渐近律已 Lean；临界比值4允许双侧趋近；小于4时的多尺度下界、完整熵与渐近刚性尚未整体 Lean 化 | — |
 | [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整数学证明，使用已发表 Gaussian multi-bubble 与 Gaussian 等周定理；Lean 验证除外部 Gaussian 多泡定理及部分 Gaussian 积分外的内部证明链 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
@@ -72,8 +73,9 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 问题／成果 | 书面已证明的精确范围 | 完整证明与输入 | Lean 实际状态 |
 | --- | --- | --- | --- |
-| APPT 亚单位 Rényi 熵锐渐近 | 每个固定 0<α<1，m→∞ 时统一覆盖 n≥m；熵亏损系数 max{2α,1}+(α/2)max{4,n/m}，分界 α=1/2 | [锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)、[低阶谱刚性](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)与[本轮数学重算](research/appt-multilevel-counterexample/SUBUNIT_REVIEW.json)；明确使用仓库已证星形、图极限及平坦构造 | [实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)已内核复核；完整熵极限未 Lean 化 |
-| 四行虚参数永久量—行列式锐范数 | 任意实际复 4×4 矩阵、全部实数 t；虚轴最优常数 max{3/2, abs(t)+1/√3}，包含零行及取到 | [完整书面证明](research/four-row-imaginary-pencil/PAPER.md)；精确 256×256 代数身份、正 Gram 因子及标量延拓 | 新方向无 Lean；一般复参数和全部等号态仍未分类 |
+| APPT 亚单位 Rényi 熵锐渐近与谱分类 | 每个固定 0<α<1，覆盖固定、增长及振荡的较小局域维数；联合增长有 α=1/2 分界，固定局域维数有精确首项及全部近极小谱分类 | [联合增长](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)、[全维统一式与固定局域分类](research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md)、[有限长宽比低阶刚性](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)、[源绑定内审](research/appt-multilevel-counterexample/ALL_DIMENSIONS_REVIEW.json) | [实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)已内核复核；全维熵极限及谱分类未整体 Lean 化 |
+| 四行虚参数永久量—行列式锐范数及全部等号 | 任意实际复 4×4 矩阵与全部实数 t；锐常数 max{3/2, abs(t)+1/√3}，含零行、flat 与定向 Fourier 块的完整分支分类 | [范数证明](research/four-row-imaginary-pencil/PAPER.md)、[全部等号证明](research/four-row-imaginary-pencil/EQUALITY.md)；精确 256×256 代数身份与正 Gram 证书 | 新方向无 Lean；整个一般复参数平面仍未解决 |
+| 任意权环及 cycle/bipartite 块的强 Chollet | 任意非负实 conductance、全部环长 n≥3、原图度数下全部主子矩阵与非负对角增量；正奇环有明确严格缺口 | [完整书面证明](research/weighted-cycle-chollet/PAPER.md)、[定理与验证范围](research/weighted-cycle-chollet/THEOREM_MAP.md)；披露 Lieb 及既有二分图输入 | 无新增 Lean；任意加权非二分块及全部 PSD Z 情形仍未解决 |
 | ECQC 临界亏秩全部等号态 | 所有奇素数，r=(p+1)/2；p≡1 mod4 或 p=3 时恰 p⁴ 条指定 Weyl 轨道射线，其余 p≡3 mod4、p≥7 在该秩无等号 | [完整分类证明](research/ecqc-critical-rank-equality/PAPER.md)；引用 Holevo 等号必要条件，逐步证明 MUB／矩阵刚性桥接 | [有限域核心与矩阵引理](formalizations/ecqc-critical-rank-progress/README.md)部分 Lean；量子主定理未整体形式化；更低秩未分类 |
 | 图态 MMI 禁止子图定理 | Conjecture 1、无爪 vertex-minor 六类分量分类及七顶点连通阈值 | [完整证明与双独立 checker](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；全阶归纳与熵证明另行给出 | 未完整 Lean；有限图证书不替代一般定理 |
 | ECQC 满秩刚性与纯稳定子分类 | 任意奇素数全部满秩等号态、全部双 qudit 纯稳定子分数，p≡1 mod4 的全纯态最优比值 p/2 | [完整证明与文献范围](research/ecqc-stabilizer-saturation/README.md)；Holevo 定理为已发表外部输入 | 主分类未整体 Lean；不包括所有亏秩等号态 |

@@ -11,10 +11,14 @@
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
-- [四行虚参数永久量—行列式锐范数](research/four-row-imaginary-pencil/README.md)：任意真实复 4×4 矩阵与全部实数 t，虚轴最优常数和取到完整证明；精确代数 Gram 证书不依赖浮点求解器。未 Lean 化，不涵盖一般复参数或全部等号分类。
+- [四行虚参数永久量—行列式锐范数与全部等号](research/four-row-imaginary-pencil/README.md)：任意实际复 4×4 矩阵、全部实数 t，包含零行、flat／定向 Fourier 块及临界两类的完整分类；精确代数证书，未 Lean 化，一般复参数平面仍未解决。
+- [任意权环及限定块图的强 Chollet](research/weighted-cycle-chollet/README.md)：任意非负实权、全部环长、全部原图度数主子矩阵及非负对角增量；完整书面证明，无新增 Lean；任意加权非二分块不在范围内。
+- [APPT 亚单位熵的全维统一首项与固定局域谱分类](research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md)：固定、增长及振荡较小局域维数，含 A1–A9 与实际极值无端外 outlier；[本轮源绑定内部审查](research/appt-multilevel-counterexample/ALL_DIMENSIONS_REVIEW.json)，未完整 Lean 化。
 - [APPT 亚单位熵近极小谱分类](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)：固定有限长宽比下 0<α<1/2 的唯一零孔型与 α=1/2 的两种端点型，含交替序列和最终满秩；完整书面证明，未整体 Lean 化。
 
 ## 完整 Lean 的主要入口
+
+- [有限树模型全实任意泄漏 Jacobian、精确重数与完整正目标实解分类](preprints/finite-tree-jacobian-2026-10/README.md)：[聚焦论文与定理映射](preprints/finite-tree-jacobian-2026-10/THEOREM_MAP.md)对应[固定 Lean 包](formalizations/hydrology-tree-core/README.md)，原独立运行 220 模块、1,677 入口；[本轮 235 输入／归档核对](verification/research-resume-20261014/INHERITED_SOURCE_CHECK.json)。严格限于实际有限单泄漏线性树和同点输入／状态观察，不扩大旧审计或宣称一般水文突破。
 
 - [一般维数 APPT 候选纯度公式：真实 10×38 反例](formalizations/appt-high-dimensional-review/REVIEW_JOINT_SUFFICIENCY.md)：维数通用的投影加尖峰充分性、原始复密度矩阵、任意全局酉 APPT、精确 trace-square 及候选公式的全称否定已闭合；白噪声版本的严格统一正性裕量和实际非 APPT 扰动对照也已核验。独立 CI 38202563748：42,496 声明、208 根、trust zero。此项不表示后续渐近下界、完整熵极值或源论文的独立多面体优化定理已全部形式化。
 

@@ -7,9 +7,13 @@ mxymmxym1@gmail.com · ORCID 0009-0000-3864-3536
 This note explains the all-size real-fiber theorems in
 [the Lean project](../../formalizations/hydrology-tree-core/README.md).
 It concerns actual linear bidirected tree compartment matrices, not arbitrary
-nonlinear catchments. The specified input, observation and sole external loss
-are at one root. The overall research formalization remains partial for alternate
-leak locations, independent graph presentations and actual ODE/system bridges.
+nonlinear catchments. The proof in this note specializes to input, observation and external loss
+at one root. The completed fixed theorem core also covers arbitrary leak sites,
+independent graph presentations and actual continuous-input ODE bridges; see
+[the focused manuscript](../../preprints/finite-tree-jacobian-2026-10/README.md),
+[arbitrary-leak algebra](ALTERNATE_LEAK_JACOBIAN.md), and
+[exact source entrypoints](THEOREM_ENTRYPOINTS.md). This publication-preparation
+round checks existing source and receipts and adds no Lean audit roots.
 
 ## 1. Model and theorem
 
@@ -218,16 +222,20 @@ root-response equality. The converse uses the proved formula for ell.
 
 The `DischargeFiber` module formalizes this actual matrix-transfer bridge and
 proves the same exact all-real cardinality for discharge-response fibers.
-It does not claim that all-input ODE solution equivalence has thereby been
-formalized; that further analytic/system interface is stated separately.
+The complete package separately proves both directions of continuous-input
+ODE history equivalence; see `real_located_continuous_iff_response` and
+`finite_graph_all_real_leak_ODE_classification` in the source entrypoint index.
+That analytic interface is not inferred from the discharge algebra alone.
 
 ## 8. Scope and verification
 
 The hypotheses are essential to the stated scope: finite labelled bidirected
 trees, constant real rates, root input and observation, sole leak at that root,
-and a full N-mode positive target. Fewer-mode or repeated-pole targets, independent
-graph presentations, alternate leak placements, distributed inputs and nonlinear
-hydrological systems are outside this theorem as formalized.
+and a full N-mode positive target. The original root-leak theorem in this note
+is supplemented by the completed independent-graph, alternate-leak and actual
+ODE theorems in the fixed core. Fewer-mode or repeated-pole targets, distributed
+inputs, off-diagonal observations and nonlinear hydrological systems remain
+outside this stated scope.
 
 The complete code, exact theorem statements, dependency map, fixed toolchain,
 source hashes, empty-kernel replay and deliberately incorrect controls are in

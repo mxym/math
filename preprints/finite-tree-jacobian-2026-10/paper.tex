@@ -1,0 +1,605 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage{hyperref,xurl}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
+ pdftitle={All-real Jacobians and exact response fibers of finite tree compartment models},
+ pdfauthor={Yongxian Zhang}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\coef}{\operatorname{coef}}
+\DeclareMathOperator{\supp}{supp}
+\setlength{\emergencystretch}{2em}
+\title{All-real Jacobians and exact response fibers\newline
+of finite tree compartment models}
+\author{Yongxian Zhang\\
+\small School of Computer Science and Engineering\\
+\small South China University of Technology\\
+\small \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a finite labelled bidirected tree with collocated input and state
+observation at $o$ and one external leak at any vertex $\ell$, we factor the
+actual characteristic/cofactor coefficient Jacobian at every real parameter
+vector. The factors are one rate on each edge directed toward $\ell$, each
+edge product to its observed-subtree-size-minus-one power, and the squared
+resultants of the actual sibling principal polynomials. Signed triangular
+witnesses prove every coordinate multiplicity is exact, including multiplicity
+zero for the leak, and identify the entire real Jacobian zero set.
+The root-leak specializations imply the catenary and tree-multiplicity
+conjectures of Gross, Meshkat and Shiu. For every full positive Stieltjes
+response, we also classify all real realizations: positivity and Jacobian
+regularity are consequences of the response, and the exact count is
+$(N-1)!/\prod_{v\ne o}|T_v|$ at each prescribed leak site. An unknown site
+multiplies this actual matrix count by $N$. We supply ordinary proofs and a
+map to a fixed, independently kernel-checked Lean package. Verification
+certifies the specified statements; historical priority and external peer
+review are separate questions.
+\end{abstract}
+
+\section{Context and precise contribution}
+Identifiability of linear compartmental systems has a substantial classical
+literature. Tree-type realization counts were already investigated by Cobelli,
+Lepschy and Romanin Jacur \cite{CLR}; we make no claim to have invented tree
+enumeration or Stieltjes reconstruction. Gross, Meshkat and Shiu
+\cite{GMS} posed a path singular-locus monomial conjecture (Conjecture 5.5)
+and a rooted-tree coordinate-multiplicity conjecture (Conjecture 5.9), the
+latter attributed there to Hoch, Sweeney and Tung. Our factorization and
+exact-power statements imply both in their original collocated-leak setting.
+Ahmed et al.\ \cite{Ahmed}, Section 6, still discuss the earlier path
+conjecture as a prospective application of their coefficient formulas.
+These correspondences do not establish that the present proof is historically
+first: targeted searches cannot rule out all later or unpublished work.
+
+The paper's main algebraic result includes arbitrary single-leak location,
+every real rate, the full sibling-resultant residual, and exact coordinate
+powers. A second result gives an exhaustive real fiber for each full
+distinct-positive-pole target, with automatic admissibility of every real
+competitor. It distinguishes this non-generic target statement from a generic
+complex identifiability degree. The matrix, coefficients, derivatives and
+ODE observations are the actual compartment objects throughout.
+
+\section{Actual model and all-real factorization}
+Let $T=(V,E)$ be a finite labelled simple tree, $|V|=N\ge1$. Fix the
+collocated input and state observer $o\in V$, and one leak vertex $\ell\in V$.
+For each directed edge $u\to v$ let $k_{v u}\in\R$ be its transfer rate,
+and let $\lambda\in\R$ be the external leak at $\ell$. Define
+\begin{equation}\label{eq:model}
+ A_{v u}=k_{v u}\quad(u\sim v),\qquad
+ A_{u u}=-\sum_{v\sim u}k_{v u}-\lambda\,\1_{u=\ell},
+\end{equation}
+with all other off-diagonal entries zero. Thus
+$\1^T A=-\lambda e_\ell^T$. The dynamics are
+$\dot x=Ax+e_o u$, with state output $y=e_o^Tx$.
+
+Put
+\begin{equation}\label{eq:pair}
+ P(s)=\det(sI-A),\qquad
+ F_o(s)=\det((sI-A)[V\setminus\{o\}]),\qquad
+ G_o(s)=\frac{F_o(s)}{P(s)}.
+\end{equation}
+The principal submatrix retains its original diagonal entries, including
+rates exiting the retained set. The empty determinant is one. The two
+polynomials are monic of degrees $N$ and $N-1$. No cancellation is performed
+before defining the coefficient map.
+
+Root the tree at $o$. For $v\ne o$, let $p(v)$ be its parent,
+$T_v$ its descendant vertex set, $N_v=|T_v|$,
+$a_v=k_{p(v),v}$ and $f_v=k_{v,p(v)}$. Fix a parent-before-child enumeration
+and use parameter order $(\lambda,(a_v)_{v\ne o},(f_v)_{v\ne o})$.
+The coefficient output is
+\[
+ C_{o,\ell}=(P_0,\ldots,P_{N-1},(F_o)_0,\ldots,(F_o)_{N-2}),
+\]
+in ascending powers; monic leading coefficients are omitted. This is a square
+polynomial map in $2N-1$ real variables. Write
+$J_{o,\ell}=\det DC_{o,\ell}$.
+The Lean graph entry uses the same ascending array followed by a fixed
+coordinate permutation; transporting between conventions changes only a
+rate-independent sign. It never introduces a parameter-dependent factor.
+
+For every child $c$ of any observed-root vertex $v$, define the actual
+principal polynomial
+\[
+ P_c(s)=\det(sI-A[T_c]).
+\]
+Define the observed sibling residual and leak-oriented product by
+\begin{equation}\label{eq:residual}
+ S_{o,\ell}=\prod_{v\in V}\ \prod_{\{c,d\}\subseteq\operatorname{child}(v)}
+       \Res(P_c,P_d)^2,\qquad
+ L_\ell=\prod_{e\in E} k_{e\to\ell}.
+\end{equation}
+Here $k_{e\to\ell}$ is the rate on $e$ pointing toward $\ell$ along its
+unique tree path. Empty products are one. Each $P_c$, including its diagonal,
+depends on the original model with leak at $\ell$.
+
+\begin{theorem}[All-real Jacobian and exact powers]\label{thm:jac}
+There is a sign $\varepsilon_o\in\{1,-1\}$, depending only on the chosen
+observation-root coordinate convention, such that simultaneously for every
+leak site $\ell$,
+\begin{equation}\label{eq:main}
+ J_{o,\ell}=\varepsilon_o L_\ell
+       \prod_{v\ne o}(a_vf_v)^{N_v-1}S_{o,\ell}.
+\end{equation}
+This is an identity of multivariate real polynomials and of the actual
+Fr\'{e}chet derivative determinant at every real vector. The exact power of
+either directed coordinate on the edge at $v$ is
+\begin{equation}\label{eq:exponent}
+ N_v-1+\1_{\text{that direction points toward }\ell}.
+\end{equation}
+The leak coordinate has exact power zero. Hence $J_{o,\ell}=0$ precisely
+when a rate with positive displayed exponent vanishes, or $S_{o,\ell}=0$.
+Zero leak, zero edge rates, repeated spectra and signed parameters are included.
+\end{theorem}
+
+Exact power means that the stated power of the coordinate variable divides
+the formal Jacobian polynomial and the next power does not. The residual
+is not asserted irreducible. The zero set is a Jacobian-rank statement;
+it need not characterize every notion of local uniqueness at singular points.
+
+\begin{corollary}[Rooted trees and endpoint paths]\label{cor:path}
+For $\ell=o$, the inward and outward coordinate powers are respectively
+$N_v$ and $N_v-1$. On the path $1,\ldots,N$ with $o=\ell=1$,
+\[
+ J=\varepsilon_o\prod_{i=1}^{N-1}
+       k_{i,i+1}^{N-i}k_{i+1,i}^{N-i-1}.
+\]
+These give the path monomial and rooted-tree multiplicities of
+\cite[Conjectures 5.5 and 5.9]{GMS}, in the stated original coordinate
+convention up to sign.
+\end{corollary}
+
+For the path there are no sibling pairs, so $S=1$. The rooted-tree powers
+satisfy the subtree recursion $N_v=1+\sum_{c\in\operatorname{child}(v)}N_c$,
+with the corresponding inward/outward leaf values $1,0$. This is the required
+multiplicity implication, rather than mere divisibility by a candidate monomial.
+
+\section{Proof of the polynomial theorem}
+\subsection{Coefficient assembly and the root-leak case}
+The following elementary determinant calculation is the algebraic source
+of the squared sibling resultants.
+
+\begin{lemma}[Polynomial gluing]\label{lem:glue}
+Let $p_i$ be monic of degree $n_i\ge1$, let $q_i$ have degree less than $n_i$,
+and let $d$ be a scalar. With $K=\sum_i n_i$, put
+\[
+ F=\prod_i p_i,\qquad
+ P=(s+d)F-\sum_i q_i\prod_{j\ne i}p_j.
+\]
+The map from the non-leading coefficients of the $p_i$, all coefficients of
+the $q_i$, and $d$, to the non-leading coefficients of $F,P$ has determinant
+\[
+ \sigma\prod_{i<j}\Res(p_i,p_j)^2,
+\]
+where $\sigma=\pm1$ depends only on the fixed coefficient ordering. This
+identity holds without coprimality or simple-root hypotheses.
+\end{lemma}
+\begin{proof}
+Write $\mathcal L_p(h_i)=\sum_i h_i\prod_{j\ne i}p_j$, with
+$\deg h_i<n_i$. This is a square linear map to polynomials of degree below $K$.
+The derivative of $(p_i)\mapsto F$ is exactly $\mathcal L_p$.
+In coefficient bases its determinant is a fixed sign times
+$\prod_{i<j}\Res(p_i,p_j)$.
+
+Here is a direct verification of the latter assertion. Initially take all
+roots to be simple and mutually disjoint in $\C$. Evaluate at the roots of
+each $p_i$, in fixed block order. Only $h_i$ contributes at its own block,
+with diagonal multipliers $\prod_{j\ne i}p_j(\alpha)$.
+The quotient of the full Vandermonde determinant by the within-block
+Vandermondes is the cross-root difference product. Cancelling one copy
+of that product in the evaluation identity leaves one resultant for each
+pair, with a fixed ordering sign. Both sides are polynomials in the
+coefficients, so equality on this nonempty open set proves the identity
+for every coefficient vector.
+
+For fixed $(p_i)$, variations of $(q_i,d)$ give
+$\delta P=\delta d\,F-\mathcal L_p(\delta q_i)$. Since $F$ is monic,
+its $s^K$ coefficient supplies the $\delta d$ pivot; the remaining determinant
+is the same $\det\mathcal L_p$ up to a fixed sign. The entire derivative is
+block triangular because $F$ does not depend on $q_i,d$. Its determinant
+therefore contains two copies of the resultant product. This also proves
+the empty-family case $F=1,P=s+d$.
+\end{proof}
+
+Suppose first that the leak is at $o$. Its child branches have sizes $n_i$,
+actual characteristic polynomials $P_i$ and root cofactors $F_i$.
+The principal branch is a genuine child model whose leak is the inward
+connector $a_i$. Original diagonals are essential here. Schur expansion,
+as a polynomial identity, gives
+\begin{equation}\label{eq:recursion}
+ F_o=\prod_i P_i,\qquad
+ P=(s+d)\prod_i P_i-\sum_i a_if_iF_i\prod_{j\ne i}P_j,
+ \quad d=\lambda+\sum_i f_i.
+\end{equation}
+It can first be checked where the branch blocks are invertible and then
+extended polynomially; it asserts an identity of actual determinants.
+
+Keep the child rate vectors, including their leak $a_i$, and change the
+remaining variables from $(\lambda,(f_i))$ to $(d,(a_if_i))$.
+The determinant is $\prod_i a_i$, by its block triangular derivative,
+at all rate values. Scaling the monic $F_i$ by $b_i=a_if_i$ changes
+$(b_i,\coef F_i)$ into $\coef(b_iF_i)$ with determinant
+$b_i^{n_i-1}$ up to a fixed sign, even at $b_i=0$.
+Applying Lemma~\ref{lem:glue} and each actual child Jacobian gives
+\begin{equation}\label{eq:Jrec}
+ J_T=\sigma_T\prod_i a_i(a_if_i)^{n_i-1}J_{T_i}
+             \prod_{i<j}\Res(P_i,P_j)^2.
+\end{equation}
+All coordinate changes here are explicitly described; no inverse rate is used.
+Induction, starting with $P=s+\lambda,F=1,J=1$, flattens
+\eqref{eq:Jrec} into \eqref{eq:main} for $\ell=o$.
+The sign depends only on the rooted enumeration and the fixed permutations.
+
+\subsection{Leak relocation and removal of denominators}
+On the positive orthant, move a leak $\lambda$ at $v$ across an adjacent edge
+to $u$. Put $a=k_{u v}$ and $f=k_{v u}$. Replace only these three coordinates by
+\begin{equation}\label{eq:slide}
+ a'=a+\lambda,\qquad f'=\frac{af}{a+\lambda},\qquad
+ \lambda'=\frac{f\lambda}{a+\lambda},
+\end{equation}
+with the new leak at $u$. The diagonal entries stay the same, since
+$f'+\lambda'=f$ and $a'=a+\lambda$.
+Cutting that edge gives two components. A diagonal scaling constant on each
+component, with ratio $D_v/D_u=a/(a+\lambda)$, gives $A'=DAD^{-1}$.
+It preserves every principal characteristic polynomial and every edge product.
+In particular it preserves both $P,F_o$ and the entire core
+$W=\prod_{v\ne o}(a_vf_v)^{N_v-1}S_{o,\ell}$.
+
+A direct derivative of \eqref{eq:slide}, in order $(\lambda,a,f)$ and
+$(\lambda',a',f')$, has determinant $f/(a+\lambda)=\lambda'/\lambda$.
+Compose the slides on the unique path from $\ell$ to $o$. If $R$ is the
+resulting positive rate transformation and $\lambda_o$ its new leak,
+\[
+ C_{o,\ell}=C_{o,o}\circ R,\qquad
+ \det DR=\lambda_o/\lambda.
+\]
+The root-leak factorization and the chain rule imply
+\begin{equation}\label{eq:transport}
+ J_{o,\ell}=\varepsilon_o\frac{\lambda_o}{\lambda}F_o^{\rm new}(0)W.
+\end{equation}
+
+For any single-leak tree model, conservation and expansion in the leak give
+\begin{equation}\label{eq:cofactorzero}
+ P(0)=\lambda F_\ell(0),\qquad F_\ell(0)=L_\ell.
+\end{equation}
+For completeness, the leak-free matrix has zero determinant because its
+columns sum to zero, and the leak enters a single diagonal linearly.
+For the second identity root at $\ell$: eliminating a nonroot leaf in the
+positive model contributes its inward rate to the principal determinant,
+and its Schur correction cancels its outward contribution to the parent
+diagonal. Iterating gives exactly $L_\ell$. Since these are polynomial
+identities, they hold at every real specialization as well.
+
+The characteristic polynomial is invariant under $R$, so
+$\lambda_oF_o^{\rm new}(0)=\lambda F_\ell(0)$.
+Substitute into \eqref{eq:transport}. The result is
+$J_{o,\ell}=\varepsilon_oF_\ell(0)W$, with no transformed rate or denominator.
+Both sides are polynomial functions of the original coordinates. Equality
+on the product of positive half-lines proves polynomial equality, by applying
+the one-variable infinite-zero principle successively to each coordinate.
+Thus \eqref{eq:main} holds on all of $\R^{2N-1}$, with the same sign for
+every $\ell$. We have not divided at a zero-boundary point or asserted that
+the positive orthant is dense in the entire parameter space.
+
+\subsection{Exact coordinate powers}
+Fix a rate coordinate, or the leak coordinate. Root the tree instead at
+$\ell$, set all rates pointing away from $\ell$ to zero, and assign numbers
+$b_v$ to the inward rates at nonroot vertices and $b_\ell$ to the leak.
+Choose all $b_v$ distinct. Then $A$ is triangular in leak-root order, with
+diagonal $-b_v$. Every principal characteristic polynomial is the product
+of the diagonal factors for its original vertices, even when that principal
+set is defined in observation-root order. Sibling sets are disjoint;
+therefore all their resultants are nonzero, so $S_{o,\ell}\ne0$.
+
+This witness can put the selected coordinate on its zero hyperplane.
+An outward-from-leak rate is already zero. For an inward coordinate at $v$,
+set $b_v=0$ and choose every other $b_w$ distinct and nonzero.
+For the leak coordinate set $b_\ell=0$ instead. Signed choices are allowed
+because the claim is algebraic. Thus no coordinate variable divides the
+residual polynomial. Each coordinate variable is prime in the multivariate
+polynomial ring, so its exact power in \eqref{eq:main} is the displayed
+monomial exponent. The leak has exponent zero. Since the sign is nonzero,
+the stated real zero set follows directly from the product. This finishes
+the proof of Theorem~\ref{thm:jac}.
+
+\section{Full positive targets and exhaustive real fibers}
+Fix
+\begin{equation}\label{eq:target}
+ G(s)=\sum_{i=1}^N\frac{w_i}{s+r_i},\qquad
+ r_i>0\text{ distinct},\quad w_i>0,\quad\sum_iw_i=1.
+\end{equation}
+Equality of responses means equality on the common real nonpole domain,
+equivalently rational-function equality. A real competitor has the fixed
+labelled tree $T$ and one prescribed leak site, with no sign, stability,
+minimality or Jacobian condition imposed beforehand.
+
+\begin{theorem}[Complete real full-response classification]\label{thm:fiber}
+For each prescribed $\ell$, every real realization of \eqref{eq:target}
+has strictly positive directed rates and leak and a nonzero actual
+coefficient Jacobian. Its entire fiber is in bijection with recursive labelled
+pole allocations and has cardinality
+\begin{equation}\label{eq:count}
+ D(T,o)=\frac{(N-1)!}{\prod_{v\ne o}N_v}.
+\end{equation}
+If the leak site is unknown, the fiber contains exactly $N D(T,o)$ distinct
+physical matrices. Labels are retained; tree automorphisms are not quotiented.
+The singleton case has one realization. These conclusions hold for every
+target \eqref{eq:target}, not only a generic subset of that class.
+\end{theorem}
+
+\subsection{Reciprocal data and positive reconstruction}
+Order $r_1<\cdots<r_N$. On each interval between consecutive negative poles,
+$G'(s)=-\sum_i w_i/(s+r_i)^2<0$; its one-sided limits have opposite signs.
+Thus its numerator has exactly $N-1$ simple negative zeros $-\beta_j$.
+Partial fractions give the unique identity
+\begin{equation}\label{eq:reciprocal}
+ \frac1{G(s)}=s+d-\sum_{j=1}^{N-1}\frac{\gamma_j}{s+\beta_j},
+ \qquad \beta_j>0,\quad\gamma_j=-\frac1{G'(-\beta_j)}>0.
+\end{equation}
+The monic degrees determine the linear polynomial part. In particular
+\[
+ \lambda=d-\sum_j\gamma_j/\beta_j=1/G(0)>0.
+\]
+For root-child sizes $n_c$, allocate the $N-1$ reciprocal poles into labelled
+disjoint sets $I_c$ of those sizes. Put
+\[
+ b_c=\sum_{j\in I_c}\gamma_j,\qquad
+ G_c(s)=\sum_{j\in I_c}\frac{\gamma_j/b_c}{s+\beta_j}.
+\]
+Recursively realize $G_c$ on its labelled child tree. Its root leak is
+$a_c=1/G_c(0)>0$. Choose $f_c=b_c/a_c=\sum_{j\in I_c}\gamma_j/\beta_j$.
+The parent leak is $1/G(0)$, and its full root diagonal is
+$\lambda+\sum_c f_c=d$. Formula~\eqref{eq:recursion} recovers exactly the
+target characteristic polynomial and cofactor. This constructs a positive
+realization for every recursive allocation.
+
+\subsection{Reverse extraction and the entire root-leak fiber}
+Write the target monic denominator and numerator as $P,F$.
+They are coprime: at the pole $-r_i$, the numerator is
+$w_i\prod_{j\ne i}(r_j-r_i)\ne0$.
+For any $N$-vertex real competitor with equal response, cross multiplication
+gives $F_xP=FP_x$. Coprimality and the equal monic denominator degrees force
+$P_x=P$ and $F_x=F$. Coefficient equality is therefore recovered from the
+original response, not additional observed information.
+
+When the leak is at $o$, its actual child denominators are monic and multiply
+to $F=\prod_j(s+\beta_j)$. They must partition these distinct linear factors
+in exactly one labelled root allocation. In \eqref{eq:recursion}, compare
+their branch numerators with those of the positive reference for that allocation.
+Reducing the numerator difference modulo each $P_c$ isolates its term;
+the product of the other, coprime denominators is invertible modulo $P_c$.
+The term has degree below $n_c$, so it must be zero. Thus
+$a_cf_cF_c$ equals the reference branch numerator. Its leading coefficient
+gives $a_cf_c=b_c>0$ and its monic cofactor is the reference cofactor.
+Each actual child consequently has the full target $G_c$. Induction forces
+its real rates and its leak $a_c$ positive; then $f_c=b_c/a_c>0$, and
+the parent leak is $1/G(0)>0$. This is a proof about every real competitor.
+
+Forward assembly and reverse extraction are inverse on actual rate vectors.
+There are $(N-1)!/\prod_c n_c!$ labelled root allocations; permutations within
+a block do not make new allocations. Hence
+\[
+ D(T,o)=\frac{(N-1)!}{\prod_c n_c!}\prod_c D(T_c,c).
+\]
+Induction gives \eqref{eq:count}, with finiteness established by the explicit
+bijection. Different sibling branches receive disjoint poles at each depth,
+so every sibling resultant is nonzero. Theorem~\ref{thm:jac} now gives
+actual Jacobian regularity for all these realizations.
+
+\subsection{Automatic positivity at an arbitrary leak site}
+One must not move the leak of a signed competitor using positive-only
+formulas before proving admissibility. We instead use the following
+diagonal-gauge construction for general real tree-supported matrices.
+
+Let $M$ have this tree support and the full pair $P,F$ at $o$; no conservation
+or sign condition is imposed. The same child factor partition and
+partial-fraction uniqueness recover its root diagonal, child cofactors,
+and every boundary edge product $M_{oc}M_{co}=b_c>0$.
+Inductively each actual child matrix is diagonally similar to a positive
+child realization, with a nonzero real diagonal gauge normalized at its root.
+Attach the positive reference as above. On child component $c$, multiply
+its normalized gauge by $M_{co}/f_c$, which is nonzero because the edge
+product is positive. The outward boundary entry then matches $M_{co}$;
+the matching positive edge product forces the inward entry to match as well.
+The child blocks and root diagonal already match. Thus
+\begin{equation}\label{eq:gauge}
+ M=DBD^{-1},\qquad D_{oo}=1,\quad D_{vv}\ne0,
+\end{equation}
+where $B$ is a positive conservative root-leak realization. The singleton
+is immediate. This proves the construction for all tree sizes and permits
+signed gauges.
+
+For the actual competitor $A$ with leak at $\ell$, relocate the positive
+reference $B$ from $o$ to $\ell$ using \eqref{eq:slide}; call the resulting
+positive matrix $B_\ell$. It has the same full pair and is invertible
+because $P(0)=\prod_i r_i>0$. Equation~\eqref{eq:gauge} and the positive
+relocation give $A=H B_\ell H^{-1}$ with every diagonal $h_v$ nonzero.
+Conservation determines this gauge. Indeed, if the two leaks are
+$\lambda_A,\lambda_B$ at the same $\ell$, their column sums imply
+\[
+ h^T B_\ell=-\lambda_A h_\ell e_\ell^T,\qquad
+ \1^TB_\ell=-\lambda_B e_\ell^T.
+\]
+Invertibility and $\lambda_B>0$ show
+$h^T=(\lambda_Ah_\ell/\lambda_B)\1^T$.
+Its $\ell$ coordinate, with $h_\ell\ne0$, gives
+$\lambda_A=\lambda_B$ and $h$ constant. Therefore $A=B_\ell$.
+Every arbitrary-leak real competitor is positive, with no division by an
+unproved nonzero competitor rate or leak.
+
+For positive models, relocation along a fixed path is invertible: the reverse
+single-edge slide recovers all three coordinates in \eqref{eq:slide}.
+It gives a bijection between the root-leak fiber and each prescribed-site
+fiber. Principal resultants, edge products and positive rates preserve
+regularity. Finally, distinct sites yield distinct actual matrices: the
+column-sum vector $-\lambda e_\ell^T$, with $\lambda>0$, recovers the site
+and leak, while off-diagonal entries recover all rates. Summing the $N$
+disjoint fixed-site fibers proves the unknown-site count.
+
+\section{Actual continuous-input observations}
+For the target \eqref{eq:target}, write
+\[
+ g_G(t)=\sum_{i=1}^N w_i e^{-r_i t},\qquad
+ y_G(t)=\int_0^t g_G(t-\tau)u(\tau)\,d\tau\quad(t\ge0).
+\]
+The target zero-initial output below means precisely $y_G$.
+\begin{proposition}[History interpretation]\label{prop:history}
+For the tree and target of Theorem~\ref{thm:fiber}, equality with the target
+zero-initial output for every continuous real input is equivalent to
+equality of the collocated transfer response. The same exhaustive real
+fiber and site counts therefore apply to these actual ODE histories.
+Positive leak relocation preserves every zero-initial collocated history
+at any fixed observer. This preservation itself does not need a full-mode
+target.
+\end{proposition}
+\begin{proof}
+For any real finite matrix $A$ and continuous input, the actual solution is
+\[
+ x(t)=e^{tA}x(0)+\int_0^t e^{(t-\tau)A}e_o u(\tau)\,d\tau.
+\]
+This exists globally and is the unique classical solution. The observed
+zero-initial kernel is $g_A(t)=e_o^Te^{tA}e_o$.
+Equal transfer functions imply equal kernel moments at zero by expanding
+the resolvent at infinity. Since the matrix exponential is entire, all
+moments determine the same kernel and hence every convolution output.
+Conversely equal outputs for all continuous inputs include the constant
+input one; differentiating its integral output gives equal kernels for
+$t\ge0$. Their Laplace transforms agree for sufficiently large real $s$,
+giving equal rational responses. This reasoning requires no competitor
+stability or positivity and has actual solutions, so the quantified history
+predicate is not vacuous. Theorem~\ref{thm:fiber} applies.
+
+For relocation, normalize its positive diagonal similarity by $D_{oo}=1$.
+Then $D e_o=e_o$ and $e_o^TD=e_o^T$. It transports the forced equation,
+zero initial state and observed coordinate exactly, preserving every history.
+\end{proof}
+
+State observation at $o$ is distinct from measuring discharge
+$\lambda x_\ell$ at another leak vertex. The separately formalized
+collocated-discharge and signed-control results are not additional main
+claims here. In particular this paper does not assert arbitrary endpoint
+steering using nonnegative rainfall alone.
+
+\section{Proof correspondence, verification and limits}
+The accompanying \texttt{THEOREM\_MAP.md} was prepared before this manuscript.
+It maps every main statement and necessary bridge to existing source
+declarations; no new theorem root is introduced by publication preparation.
+Table~\ref{tab:map} gives compact navigation. Actual Lean types, including
+their hypotheses, are in the linked source and entrypoint index.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}p{.28\linewidth}p{.66\linewidth}@{}}
+\toprule
+Paper scope & Existing module families\\
+\midrule
+Theorem 1: all-real identity & LocatedAllRateJacobian; LocatedPolynomialWeight;
+LocatedExactMultiplicities; LocatedBoundarySingularSet\\[3pt]
+Exact powers and boundary & GraphResidualWitness; CoordinateMultiplicity\\[3pt]
+Corollary 2: original conjectures & CatenaryFormalPolynomial;
+FormalTreePolynomial; LocatedExactMultiplicities\\[3pt]
+Lemma 3 and root induction & FamilyGluing; FamilyResultants; RateChart;
+TreeJacobianRecurrence; AllTreeJacobian\\[3pt]
+Theorem 4: real fibers & RealFiberClassification; SupportedPositiveGauge;
+ConservationGaugeRigidity; RealLocatedClassification\\[3pt]
+Proposition 5: actual histories & RealLocatedODEClassification;
+MatrixTimeIdentification; LocatedLeakDynamics\\
+\bottomrule
+\end{tabular}
+\caption{Navigation into the fixed existing Lean package, not a new audit.}
+\label{tab:map}
+\end{table}
+
+The mathematical and public-scope source is fixed at
+\path{c2a2ce36ea6c5e000225574835f5a3ceddc748b4}.
+Lean is pinned to 4.34.1 (commit
+\path{5045d0056413266e57c625dcd7c365b10e377c52}); Mathlib is
+\path{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The original independent GitHub Actions run
+\href{https://github.com/mxym/math/actions/runs/38383557356}{38383557356}
+reports 220 owned modules, 1,677 exported roots and 53,370 used declarations,
+with trust-level-zero empty-kernel replay. Its allowed axioms are
+\texttt{Classical.choice}, \texttt{Quot.sound} and \texttt{propext};
+91 deliberately false source mutations were rejected.
+It starts with zero owned objects and builds the owned source afresh;
+this is not a claim that all of Mathlib was recompiled.
+
+On 14 October 2026, publication preparation independently compared all
+235 proof, reproduction and scope inputs against the current tree, the
+original source commit and the verified-source archive; all matched.
+The original ZIP digest was also matched to the GitHub API artifact
+metadata, and the corresponding job was confirmed successful.
+This is a source/archive/API readback of an existing independent run,
+not a new build or a newly expanded kernel audit.
+The preserved package provides its exact logs, lock manifests, negative
+controls and reproduction script. Our manuscript review is an internal
+assistant review, not external human peer review.
+
+The full-target assumptions exclude repeated poles, fewer-mode data and
+complex-parameter fibers. The algebraic Jacobian theorem permits signed
+and zero rates but retains the finite single-leak tree and collocated
+input/state-observation model. General cyclic graphs, multiple leaks,
+off-diagonal input/output, noise, nonlinear catchments and predictive
+performance are outside this manuscript. The results do not determine
+unknown tree topology, nor claim a new topology-count corollary.
+
+\clearpage
+\begin{samepage}
+\paragraph{Data and proof availability.}
+The fixed proof package and receipt are available in
+\href{https://github.com/mxym/math}{the author's repository}, under
+\path{formalizations/hydrology-tree-core} and
+\path{verification/hydrology-tree-core-c2a2ce36}.
+This paper's source, theorem map, review and preparation checks accompany
+it under \path{preprints/finite-tree-jacobian-2026-10}.
+The paper restates and organizes the existing finite-tree result, rather
+than attributing that result to a new research round.
+\end{samepage}
+
+\paragraph{Declarations.}
+The author received no external funding. OpenAI AI assistants assisted
+research, formalization, writing and internal review. Original material:
+copyright 2026 Yongxian Zhang, all rights reserved. Existing repository
+and third-party notices remain in force. This prepared manuscript does
+not itself assert an aiXiv submission, Release or DOI.
+
+\begin{thebibliography}{9}
+\bibitem{CLR}
+C. Cobelli, A. Lepschy and G. Romanin Jacur,
+Identifiability results on some constrained compartmental systems,
+\emph{Mathematical Biosciences} \textbf{47} (1979), 173--195.
+\href{https://doi.org/10.1016/0025-5564(79)90036-1}{doi:10.1016/0025-5564(79)90036-1}.
+The author-repository abstract was checked; a complete copy of this article
+was not obtained for the present comparison.
+
+\bibitem{GMS}
+E. Gross, N. Meshkat and A. Shiu,
+Identifiability of linear compartmental models: the singular locus,
+\emph{Advances in Applied Mathematics} \textbf{133} (2022), 102268.
+\href{https://doi.org/10.1016/j.aam.2021.102268}{doi:10.1016/j.aam.2021.102268};
+author version \href{https://arxiv.org/abs/1709.10013v3}{arXiv:1709.10013v3}.
+
+\bibitem{Ahmed}
+S. Ahmed, N. Crepeau, P. R. Dessauer Jr., A. Edozie, O. Garcia-Lopez,
+T. Grimsley, J. Lopez Garcia, V. Neri and A. Shiu,
+Identifiability of directed-cycle and catenary linear compartmental models,
+\emph{SIAM Journal on Applied Dynamical Systems} \textbf{25} (2026), 304--350.
+\href{https://doi.org/10.1137/25M1728636}{doi:10.1137/25M1728636};
+author version \href{https://arxiv.org/html/2412.05283v3}{arXiv:2412.05283v3}.
+\end{thebibliography}
+\end{document}
