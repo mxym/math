@@ -145,3 +145,37 @@ It tends pointwise to one and is dominated after multiplication by \(e^{-x^2/2}\
 \(\mathbb E[X^2\mid P=p]\to1\). Together with compact continuity and the zero boundary this proves (B).
 
 The conditional second moment is not constant: it tends to zero at the lower boundary and to one at infinity. Therefore this is not an independent pair or a U-conjecture counterexample. It removes the proposed bounded-operator shortcut while preserving the need to exploit **exact** isometry for all algebra elements.
+
+## Conditional-square and weighted-divergence route
+
+Original independence gives, for every integer \(r\geq1\),
+\[
+ \mathbb E[Q(X)^{2r}\mid P(X)]
+       =\mathbb E Q(X)^{2r}.                            \tag{C}
+\]
+These exact identities are stronger than the bounded multiplication diagnostic. A possible route is to prove a rigidity theorem for this entire conditional-square family and derive (U). No such general rigidity theorem is asserted here.
+
+For a polynomial vector field \(V\), use the Gaussian weighted divergence
+\[
+ \delta V=x\cdot V-\operatorname{div}V.
+\]
+If \(V\cdot\nabla P=0\), Gaussian integration by parts gives
+\[
+ \mathbb E[\delta V\,f(P)]
+   =\mathbb E[V\cdot\nabla(f(P))]=0
+\]
+for every smooth compactly supported scalar test function \(f\). Thus the weighted divergences of polynomial fields tangent to the fibers of \(P\) form a concrete subspace of the polynomial conditional-mean kernel. This is an exact ordinary identity; surjectivity onto that kernel has not been proved and cannot be assumed.
+
+For example, with \(P=XY\) and \(V=(X,-Y)\), \(\delta V=X^2-Y^2\). Taking \(a=X^2-Y^2\) yields
+\[
+ \delta(aV)=(X^2-Y^2)^2-2(X^2+Y^2),
+\qquad
+ \mathbb E[\delta(aV)\mid XY]=0.
+\]
+This is a nonzero linked signed polynomial with conditional mean zero. Adding a constant cannot turn it into a nonnegative polynomial: along \(X=Y\to\infty\) it tends to negative infinity. Thus the conditional-square positivity in (C) is substantive, not an automatic consequence of an arbitrary mean-zero identity.
+
+A naive equality of the full conditional-mean kernel and the tangent-divergence image is false even for a simple polynomial. Let \(P=X^2\) in one Gaussian coordinate. Then \(\mathbb E[X\mid P]=0\), whereas the only polynomial field tangent to \(P\) is zero, since \(2xV(x)=0\) as a polynomial. Adding independent unused coordinates does not repair that representation: every tangent field has zero \(x\)-component, and its weighted divergence has Gaussian mean zero over the unused coordinates for each fixed \(x\), while the polynomial \(x\) does not. The disconnected two-point fibers supply a kernel contribution absent from the tangent module.
+
+The active analytic gap is therefore a positivity-sensitive, component-sensitive rigidity statement for the full conditional-square family, or an independent proof from the exact multiplication isometry. Neither general Gaussian field "strong independence", an arbitrary tangent-module surjectivity assertion, nor a low-order covariance zero condition may be inserted as an unproved premise.
+
+One requested APPT service review was performed during this attempt, 19:40:22–19:43:57 UTC, and is explicitly excluded from its effective research-time budget. No further numerical campaign was launched for this U stage.
