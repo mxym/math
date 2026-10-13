@@ -278,69 +278,79 @@ MODULE HydrologyTree.ArrowDiagonalGauge
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedPositiveGauge
-HydrologyTree/SupportedPositiveGauge.lean:53:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  compartmentMatrix ?t ?x (↑?c) 0
-in the target expression
-  B (↑c) 0 ≠ 0
 
+MODULE HydrologyTree.ConservationGaugeRigidity
+HydrologyTree/ConservationGaugeRigidity.lean:25:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/ConservationGaugeRigidity.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/ConservationGaugeRigidity.lean:31:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.GraphLeakMatrix
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeakGauge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeakRelocationWalk
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RealLocatedPositivity
+HydrologyTree/RealLocatedPositivity.lean:29:8: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RealLocatedPositivity.lean:71:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  graphCompartmentMatrix G ell ↑((relocatePositiveLeak hG o ell) y0)
+in the target expression
+  diagonalGauge H (graphCompartmentMatrix G o ↑y0) = diagonalGauge (fun v => H v / k v) B
+
+V : Type u_1
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
 n : ℕ
-ih :
-  ∀ m < n,
-    ∀ (t : OrderedTree m) (A : TreeMatrix m),
-      HasTreeMatrixSupport t A →
-        ∀ (r w : Fin (m + 1) → ℝ),
-          Function.Injective r →
-            (∀ (i : Fin (m + 1)), 0 < r i) →
-              (∀ (i : Fin (m + 1)), 0 < w i) →
-                ∑ i, w i = 1 →
-                  charpoly A = stieltjesDenominator r →
-                    diagonalCofactor A 0 = stieltjesNumerator r w →
-                      ∃ x h, (∀ (v : Fin (m + 1)), h v ≠ 0) ∧ h 0 = 1 ∧ A = diagonalGauge h (compartmentMatrix t ↑x)
-t : OrderedTree n
-A : TreeMatrix n
-hA : HasTreeMatrixSupport t A
+hG : G.IsTree
+o : V
+p : RootedTreePresentation n G o
+ell : V
+y : GraphRates G
 r w : Fin (n + 1) → ℝ
 hr : Function.Injective r
 hpos : ∀ (i : Fin (n + 1)), 0 < r i
 hw : ∀ (i : Fin (n + 1)), 0 < w i
 hm : ∑ i, w i = 1
-hP : charpoly A = stieltjesDenominator r
-hF : diagonalCofactor A 0 = stieltjesNumerator r w
-b g : Fin n → ℝ
-d : ℝ
-hb : StrictMono b
-hbpos : ∀ (i : Fin n), 0 < b i
-hg : ∀ (i : Fin n), 0 < g i
-hFb : stieltjesNumerator r w = stieltjesDenominator b
-hPb : stieltjesDenominator r = (X + C d) * stieltjesDenominator b - stieltjesNumerator b g
-hl : 0 < d - ∑ i, g i / b i
-hFA : diagonalCofactor A 0 = stieltjesDenominator b
-hPA : charpoly A = (X + C d) * stieltjesDenominator b - stieltjesNumerator b g
-a : TreePoleAllocation t
-ha : ∀ (c : RootChild t), matrixChildP t A c = allocatedDenominator b a c
-hFc : ∀ (c : RootChild t), matrixChildF t A c = stieltjesNumerator (allocatedRates b a c) (allocatedWeights t g a c)
-y : (c : RootChild t) → PositiveStieltjesFiber (childTree t c) (allocatedRates b a c) (allocatedWeights t g a c)
-h : (c : RootChild t) → Fin (childEdgeCount t c + 1) → ℝ
-hh : ∀ (c : RootChild t) (i : Fin (childEdgeCount t c + 1)), h c i ≠ 0
-hroot : ∀ (c : RootChild t), h c 0 = 1
-hgauge :
-  ∀ (c : RootChild t), supportedChildMatrix t A c = diagonalGauge (h c) (compartmentMatrix (childTree t c) ↑(y c))
-z : PositiveReciprocalFiber t b g d
-hz : ∀ (c : RootChild t), childRates t c ↑z = ↑(y c)
-hzP : physicalCharacteristic t ↑z = stieltjesDenominator r
-hzF : physicalRootCofactor t ↑z = stieltjesNumerator r w
-hzc : ∀ (c : RootChild t), childCharacteristic t (↑z) c = allocatedDenominator b a c
-hcop : ∀ (c k : RootChild t), c ≠ k → IsCoprime (childCharacteristic t (↑z) c) (childCharacteristic t (↑z) k)
-hd :
-  A 0 0 = compartmentMatrix t (↑z) 0 0 ∧
-    ∀ (c : RootChild t),
-      matrixChildF t A c = childCofactor t (↑z) c ∧
-        A 0 ↑c * A (↑c) 0 = compartmentMatrix t (↑z) 0 ↑c * compartmentMatrix t (↑z) (↑c) 0
-B : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ := compartmentMatrix t ↑z
-c : RootChild t
-⊢ B (↑c) 0 ≠ 0
-
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  function expected
-    B ↑c
+hP : (graphCompartmentMatrix G ell y).charpoly = stieltjesDenominator r
+hF : diagonalCofactor (graphCompartmentMatrix G ell y) o = stieltjesNumerator r w
+A : Matrix V V ℝ := graphCompartmentMatrix G ell y
+M : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ := A.submatrix ⇑p.vertices ⇑p.vertices
+hMP : M.charpoly = stieltjesDenominator r
+hMF : diagonalCofactor M 0 = stieltjesNumerator r w
+x : PositiveStieltjesFiber p.tree r w
+h : Fin (n + 1) → ℝ
+hh : ∀ (v : Fin (n + 1)), h v ≠ 0
+left✝ : h 0 = 1
+hMx : M = diagonalGauge h (compartmentMatrix p.tree ↑x)
+y0 : PositiveGraphRateSpace G := ⟨(graphRateEquiv p) ↑x, ⋯⟩
+H : V → ℝ := fun v => h (p.vertices.symm v)
+hH : ∀ (v : V), H v ≠ 0
+hA : A = diagonalGauge H (graphCompartmentMatrix G o ↑y0)
+z : PositiveGraphRateSpace G := (relocatePositiveLeak hG o ell) y0
+B : Matrix V V ℝ := graphCompartmentMatrix G ell ↑z
+k : V → ℝ
+hk : ∀ (i : V), 0 < k i
+hB :
+  graphCompartmentMatrix G ell ↑((relocatePositiveLeak hG o ell) y0) = diagonalGauge k (graphCompartmentMatrix G o ↑y0)
+hkn : ∀ (v : V), k v ≠ 0
+⊢ diagonalGauge H (graphCompartmentMatrix G o ↑y0) = diagonalGauge (fun v => H v / k v) B
