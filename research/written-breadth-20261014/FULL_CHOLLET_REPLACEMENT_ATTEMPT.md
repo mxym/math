@@ -255,3 +255,42 @@ Nor can one discard phases with per|A|<=(per A)^2. For the legal rank-four corre
  \operatorname{per}|Y_5|-(\operatorname{per}Y_5)^2=1103/16384>0.
 \]
 Thus the absolute row-sum bound on the Schur power matrix cannot be closed by that strengthening. Neither auxiliary counterexample is a Chollet counterexample; entrywise-positive B even satisfies Chollet termwise, and order five is already solved.
+
+## C16. Gaussian interpolation and the actual missing complementary-block estimate
+
+Let G be the matching proper Gaussian of C2, independent of F, and put
+H_i(t)=sqrt(1-t)G_i+sqrt(t)F_i for0<=t<=1. Direct expansion gives
+\[
+ \mathbb E\prod_i|H_i(t)|^2
+ =\sum_{k=0}^n t^k(1-t)^{n-k}T_k,\quad
+ T_k=\sum_{\substack{S,T\subset[n]\\|S|=|T|=k}}
+ \operatorname{per}A[S,T]\operatorname{per}B[S,T]\,
+ \operatorname{per}(A\circ B)[S^c,T^c].
+\]
+The subsets use their inherited increasing row/column orders. The term for the empty matrix is one. Each T_k is real nonnegative: the three subset-indexed matrices are Gram matrices of homogeneous Gaussian products, their Schur product is PSD, and its sum of entries is the quadratic form on the all-ones vector. One has T_0=per(A circle B), T_1=n per(A circle B), and T_n=per A per B. This coefficient positivity does not imply monotonicity in t or dominance of the last endpoint.
+
+Equivalently, paired Wick matchings give the exact polynomial
+\[
+ \mathbb E\prod_i|H_i(t)|^2
+ =\sum_{\sigma,\tau}t^{n-\operatorname{fix}(\sigma^{-1}\tau)}
+   a_\sigma(A)a_\tau(B).
+\]
+Every nontrivial relative cycle must use F throughout, while a fixed relative matching can use F or G and contributes t+(1-t)=1. For Y3 this is39/32+(9/8)t^2-(3/32)t^3. Its negative coefficient again excludes coefficientwise reasoning; no monotonicity counterexample or proof is obtained.
+
+There is also an exact color-space realization of C3. Let rho_N be the tensor-position permutation representation on(C^N)^{tensor n} and put
+\[
+ K_{A,N}=\sum_\sigma a_\sigma(A)\rho_N(\sigma).
+\]
+Index its entries by colorings c,d in[N]^n. It is PSD, and an entry vanishes unless all corresponding color class sizes agree. Otherwise it is
+\[
+ (K_{A,N})_{c,d}
+ =\prod_{\ell=1}^N\operatorname{per}A[S_\ell,T_\ell],
+ \quad S_\ell=\{i:c_i=\ell\},\quad T_\ell=\{i:d_i=\ell\},
+\]
+up to a consistent harmless transpose convention. This follows equally from the Gram realization of products of independent Gaussian copies. In the self case
+\[
+ M_N=N^{-n}\|K_{A,N}\|_F^2.
+\]
+Diagonal entries are products of principal permanents, bounded by per A by the published Lieb block-supermultiplicativity theorem. Thus the known grouping result bounds the normalized TRACE of K, and proves the trivial diagonal-partner replica endpoint bound; it does not bound the normalized squared Frobenius norm needed here.
+
+The off-diagonal entries contain nonprincipal blocks. Their Gram Cauchy–Schwarz bounds do not close the sum, because the number of compatible colorings supplies additional multiplicities. A conjectural operator bound K<=per A I would recover the already false permanent-on-top strengthening as N grows. The actual missing claim is the particular normalized squared-norm comparison, or a weaker coupled complementary-block estimate sufficient for it. No fake independence, positivity of each permutation monomial, or unproved general-immanant input is used.
