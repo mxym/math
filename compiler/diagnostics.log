@@ -476,32 +476,65 @@ MODULE HydrologyTree.GraphDynamicalClassification
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphCoefficientJacobian
-HydrologyTree/GraphCoefficientJacobian.lean:28:22: error: typeclass instance problem is stuck
-  DecidableRel (SimpleGraph.Adj ?m.17)
 
-Note: Lean will not try to resolve this typeclass instance problem because the third type argument to `DecidableRel` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+MODULE HydrologyTree.GraphMassBalance
+HydrologyTree/GraphMassBalance.lean:17:10: warning: This simp argument is unused:
+  Matrix.single_apply
 
-Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
-HydrologyTree/GraphCoefficientJacobian.lean:57:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  endJacobian
-    (fun z =>
-      (graphRateEquiv p).toContinuousLinearEquiv
-        (normalizedPhysicalTree p.tree ((graphRateEquiv p).toContinuousLinearEquiv.symm z)))
-    y
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphMassBalance.lean:19:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_column_sum`:
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.GraphFullTheory
+
+MODULE HydrologyTree.LeakRelocationRates
+HydrologyTree/LeakRelocationRates.lean:50:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/LeakRelocationRates.lean:50:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/LeakRelocationRates.lean:59:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (slideLeakRates d y).2 d.symm + (slideLeakRates d y).1
 in the target expression
-  endJacobian (fun y => (graphRateEquiv p) (normalizedPhysicalTree p.tree ((graphRateEquiv p).symm y))) y =
-    treeCanonicalJacobian p.tree ((graphRateEquiv p).symm y)
+  (y.2 d + y.1) * (y.2 d.symm * y.1 / (y.2 d + y.1)) /
+      ((slideLeakRates d y).2 d.symm + y.2 d.symm * y.1 / (y.2 d + y.1)) =
+    y.1
 
+case fst
 V : Type u_1
-inst✝² : Fintype V
-inst✝¹ : DecidableEq V
+inst✝ : DecidableEq V
 G : SimpleGraph V
-inst✝ : DecidableRel G.Adj
-n : ℕ
-o : V
-p : RootedTreePresentation n G o
+d : G.Dart
 y : GraphRates G
-hf : DifferentiableAt ℝ (normalizedPhysicalTree p.tree) ((graphRateEquiv p).symm y)
-⊢ endJacobian (fun y => (graphRateEquiv p) (normalizedPhysicalTree p.tree ((graphRateEquiv p).symm y))) y =
-    treeCanonicalJacobian p.tree ((graphRateEquiv p).symm y)
-HydrologyTree/GraphCoefficientJacobian.lean:79:11: error(lean.unknownIdentifier): Unknown identifier `differentiable_graphCoefficientMap`
+ht : y.2 d + y.1 ≠ 0
+ha : y.2 d.symm ≠ 0
+⊢ (y.2 d + y.1) * (y.2 d.symm * y.1 / (y.2 d + y.1)) /
+      ((slideLeakRates d y).2 d.symm + y.2 d.symm * y.1 / (y.2 d + y.1)) =
+    y.1
+HydrologyTree/LeakRelocationRates.lean:66:48: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (slideLeakRates d y).2 d.symm + (slideLeakRates d y).1
+in the target expression
+  (y.2 d + y.1) * (y.2 d.symm * y.2 d / (y.2 d + y.1)) / (y.2 d.symm * y.2 d / (y.2 d + y.1) + (slideLeakRates d y).1) =
+    y.2 d
+
+case pos
+V : Type u_1
+inst✝ : DecidableEq V
+G : SimpleGraph V
+d : G.Dart
+y : GraphRates G
+ht : y.2 d + y.1 ≠ 0
+ha : y.2 d.symm ≠ 0
+h :
+  (slideLeakRates d.symm (slideLeakRates d y)).2 d =
+    (slideLeakRates d y).2 d * (slideLeakRates d y).2 d.symm / ((slideLeakRates d y).2 d.symm + (slideLeakRates d y).1)
+⊢ (y.2 d + y.1) * (y.2 d.symm * y.2 d / (y.2 d + y.1)) / (y.2 d.symm * y.2 d / (y.2 d + y.1) + (slideLeakRates d y).1) =
+    y.2 d
