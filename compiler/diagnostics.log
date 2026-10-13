@@ -197,6 +197,7 @@ MODULE HydrologyTree.CoprimeBranchRecovery
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedMatrixRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SizedSpectralAllocation
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
@@ -268,3 +269,33 @@ MODULE HydrologyTree.PositiveFiberTypes
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedStieltjesChildren
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.DiagonalGauge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ArrowDiagonalGauge
+HydrologyTree/ArrowDiagonalGauge.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.arrowGaugeWeight_nonzero`:
+  [Fintype C]
+  [DecidableEq C]
+  [(c : C) → Fintype (V c)]
+  [(c : C) → DecidableEq (V c)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype C] [DecidableEq C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/ArrowDiagonalGauge.lean:32:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LinearOrder C
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/ArrowDiagonalGauge.lean:33:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LinearOrder C
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+HydrologyTree/ArrowDiagonalGauge.lean:36:30: warning: This simp argument is unused:
+  arrowMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [diagonalGauge_apply, arrowGaugeWeight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
