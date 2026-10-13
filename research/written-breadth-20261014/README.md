@@ -20,12 +20,14 @@ assistant reads, not external human peer review or priority certification.
 [Literal source bindings](COROLLARY_SOURCE_HASHES.json) preserve the final
 bytes and [primary read scopes](GAUSSIAN_WISHART_SOURCES.json).
 
-The active complete target is [full real-degree Wishart determinant-product Conjecture 1.1](FULL_WISHART_STAGE.md).
+The Wishart stage for [full real-degree determinant-product Conjecture 1.1](FULL_WISHART_STAGE.md) is preserved without a complete solution.
 Integer-degree Gaussian trace consequences and the already solved two-block
 case do not solve it. Thirty singleton and thirty-six determinant-block
 starts found no admissible counterexample; exact moment polynomials and
 analytic obstacles are preserved as exploration only. Nonterminating
 real-power/inverse-block recursions remain an obstacle, not a proof.
+
+The active complete target is now the [general Gaussian polynomial U-conjecture](FULL_U_CONJECTURE_ATTEMPT.md): all finite dimensions and arbitrary real polynomial degrees, with no convexity or single-chaos restriction. The initial exact sign/projection obstacles are exploration only. The Wishart route switched after about 45 effective research minutes with no full proof or admissible exact counterexample; service reviews were excluded.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result
