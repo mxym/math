@@ -104,7 +104,7 @@
 
 ## 有限树储库模型可辨识性
 
-- [有限树模型定理与 Lean 工程](formalizations/hydrology-tree-core/README.md)：实际矩阵与系数 Jacobian 的全实参数分解、任意泄漏位置的精确重数和零边界奇异集、完整正目标的全部实解分类与精确计数，以及连续输入 ODE 和有符号控制桥接。范围限于文档明确的有限线性树模型；不宣称一般非线性水文问题已解决。 [独立空内核核验](verification/hydrology-tree-core-ad92bfe7/README.md) · [任意泄漏位置的完整书面证明](research/hydrology-tree-real-fibers/ALTERNATE_LEAK_JACOBIAN.md) · [已发表猜想的命题对应](research/hydrology-tree-real-fibers/PUBLISHED_CONJECTURE_ALIGNMENT.md)。
+- [有限树模型定理与 Lean 工程](formalizations/hydrology-tree-core/README.md)：实际矩阵与系数 Jacobian 的全实参数分解、任意泄漏位置的精确重数和零边界奇异集、完整正目标的全部实解分类与精确计数，以及连续输入 ODE 和有符号控制桥接。范围限于文档明确的有限线性树模型；不宣称一般非线性水文问题已解决。 [独立空内核核验](verification/hydrology-tree-core-c2a2ce36/README.md) · [任意泄漏位置的完整书面证明](research/hydrology-tree-real-fibers/ALTERNATE_LEAK_JACOBIAN.md) · [已发表猜想的命题对应](research/hydrology-tree-real-fibers/PUBLISHED_CONJECTURE_ALIGNMENT.md)。
 
 ## 探索项目与文献比较
 
