@@ -560,8 +560,10 @@ MODULE HydrologyTree.LocatedPolynomialWeight
 HydrologyTree/LocatedPolynomialWeight.lean:34:2: error: Type mismatch: After simplification, term
   hc
  has type
-  (MvPolynomial.eval ((graphRateArrayEquiv G) y)) ((graphCofactorOver ell ell (universalGraphRates G)).coeff 0) =
-    (diagonalCofactor (graphCompartmentMatrix G ell y) ell).coeff 0
+  eval 0
+      (Polynomial.map (MvPolynomial.eval ((graphRateArrayEquiv G) y))
+        (graphCofactorOver ell ell (universalGraphRates G))) =
+    eval 0 (diagonalCofactor (graphCompartmentMatrix G ell y) ell)
 but is expected to have type
-  (MvPolynomial.eval ((graphRateArrayEquiv G) y)) (symbolicLeakCofactor ell) =
+  (MvPolynomial.eval ((graphRateArrayEquiv G) y)) (eval 0 (graphCofactorOver ell ell (universalGraphRates G))) =
     eval 0 (diagonalCofactor (graphCompartmentMatrix G ell y) ell)
