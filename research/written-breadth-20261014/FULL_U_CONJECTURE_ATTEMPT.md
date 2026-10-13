@@ -211,3 +211,31 @@ this proves \(E_P\perp E_Q\) in the diagnostic case.
 All steps use only actual independence's necessary tilted-square identity, polynomial Gaussian moments, and positivity near a genuine Gaussian pole. No independence of arbitrary chaos projections or moment-determinacy converse is inserted.
 
 For degree at least three, this argument cannot be applied as written. The tilted measure is no longer Gaussian and its polynomial moments need not be rational in the tilt. Odd or indefinite high-degree polynomials may have no nonzero real exponential-moment interval at all. The missing general analytic replacement of the positive-pole argument remains part of the full target.
+
+## Explicit all-degree contraction target
+
+Write the finite Gaussian-chaos decompositions
+\[
+ P=\sum_{k=0}^d I_k(p_k),\qquad Q=\sum_{\ell=0}^e I_\ell(q_\ell),
+\]
+with symmetric real tensors and normalization
+\(\mathbb E I_k(p_k)^2=k!\|p_k\|^2\). Orthogonality of distinct derivative chaoses gives
+\[
+ (K_P)_{ij}
+ =\sum_{k\geq1}k\,k!\,
+       \langle p_k(e_i,\cdot),p_k(e_j,\cdot)\rangle.
+\]
+Consequently the **whole** essential-subspace defect in (U) is
+\[
+ H(P,Q)=\sum_{k,\ell\geq1}
+         k\,k!\,\ell\,\ell!\,\|p_k\otimes_1q_\ell\|^2.      \tag{H}
+\]
+To check the trace identity, expand the norm of
+\((p_k\otimes_1q_\ell)(u,v)=\sum_i p_k(e_i,u)q_\ell(e_i,v)\)
+and sum over \(u,v\). It is exactly the trace of the two positive coefficient-Gram matrices. All coefficients in (H) are positive.
+
+Vanishing of (H) forces every first contraction to vanish and thus the orthogonality of all coefficient-support subspaces. The earlier elementary essential-space argument then gives the original unlinking conclusion. No chosen degree, dimension, rank, or chaos level is discarded.
+
+The substantive missing implication is from actual ordinary independence of \(P(X),Q(X)\) to (H)=0. Assuming independence of each pair of chaos components would simply assume the desired stronger property. The fixed-class source proves it only through its special nonnegative covariance decomposition, which has been explicitly excluded for general polynomial bases.
+
+The all-polynomial isometry (I) is a necessary consequence of the original law independence, not asserted to be a converse. Even an infinite formal mixed-moment factorization is not automatically a law-independence certificate for high-degree moment-indeterminate marginals. A proof from (I) alone would be a sufficient stronger algebraic bridge; if that bridge cannot be established, the full sigma-field independence must still be available through the exact conditional identities (C) and bounded test functions. This distinction is retained in every potential counterexample or continuation.
