@@ -1,4 +1,4 @@
-digraph TreeCoreProof {
+digraph HydrologyTreeProof {
 rankdir=LR;
 "HydrologyTree.Coefficients" -> "HydrologyTree.LeadingCoefficients";
 "HydrologyTree.Coefficients" -> "HydrologyTree.BlockJacobian";
@@ -355,6 +355,24 @@ rankdir=LR;
 "HydrologyTree.RealLocatedClassification" -> "HydrologyTree.RealLocatedODEClassification";
 "HydrologyTree.MatrixTimeIdentification" -> "HydrologyTree.RealLocatedODEClassification";
 "HydrologyTree.LocatedLeakDynamics" -> "HydrologyTree.RealLocatedODEClassification";
+"HydrologyTree.TreeMatrixSupport" -> "HydrologyTree.MatrixSiblingWeight";
+"HydrologyTree.RingSiblingResidual" -> "HydrologyTree.MatrixSiblingWeight";
+"HydrologyTree.MatrixSiblingWeight" -> "HydrologyTree.MatrixGaugeWeight";
+"HydrologyTree.DiagonalGauge" -> "HydrologyTree.MatrixGaugeWeight";
+"HydrologyTree.PhysicalConstants" -> "HydrologyTree.MatrixGaugeWeight";
+"HydrologyTree.GraphMatrixTransport" -> "HydrologyTree.GraphPolynomialModel";
+"HydrologyTree.PolynomialMapJacobian" -> "HydrologyTree.GraphPolynomialModel";
+"HydrologyTree.LocatedLeakJacobian" -> "HydrologyTree.GraphPolynomialModel";
+"HydrologyTree.GraphPolynomialModel" -> "HydrologyTree.GraphFormalDifferential";
+"HydrologyTree.LinearConjugation" -> "HydrologyTree.GraphFormalDifferential";
+"HydrologyTree.GraphMatrixTransport" -> "HydrologyTree.GraphLeakCofactor";
+"HydrologyTree.PhysicalConstants" -> "HydrologyTree.GraphLeakCofactor";
+"HydrologyTree.MatrixGaugeWeight" -> "HydrologyTree.GraphPositiveWeight";
+"HydrologyTree.GraphLeakCofactor" -> "HydrologyTree.GraphPositiveWeight";
+"HydrologyTree.LocatedLeakJacobian" -> "HydrologyTree.GraphPositiveWeight";
+"HydrologyTree.GraphFormalDifferential" -> "HydrologyTree.LocatedPolynomialWeight";
+"HydrologyTree.GraphPositiveWeight" -> "HydrologyTree.LocatedPolynomialWeight";
+"HydrologyTree.LocatedPolynomialWeight" -> "HydrologyTree.LocatedAllRateJacobian";
 "HydrologyTree.Gluing" -> "HydrologyTree";
 "HydrologyTree.RootUpdate" -> "HydrologyTree";
 "HydrologyTree.PhysicalBridge" -> "HydrologyTree";
@@ -404,4 +422,5 @@ rankdir=LR;
 "HydrologyTree.LeakImpossibility" -> "HydrologyTree";
 "HydrologyTree.LocatedLeakJacobian" -> "HydrologyTree";
 "HydrologyTree.RealLocatedODEClassification" -> "HydrologyTree";
+"HydrologyTree.LocatedAllRateJacobian" -> "HydrologyTree";
 }

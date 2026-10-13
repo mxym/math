@@ -469,3 +469,35 @@ and exact coordinate multiplicities at zero boundaries remain separate; the
 full-target real classification, ODE equivalence and system properties are closed.
 This supersedes the scope limits in earlier incremental construction notes.
 New source bytes are certified only by their own independent CI receipt.
+
+
+## All-real alternate-leak Jacobian polynomial (new checkpoint)
+
+`formalLocatedJacobian` is independently defined by formal partial differentiation
+of the ACTUAL graph characteristic/cofactor coefficient polynomials.
+`formalLocatedJacobian_evaluate` proves its equality with the actual Frechet
+Jacobian at EVERY real graph rate vector. Differentiability is proved for all
+real rates, without requiring positivity or nonzero rates.
+
+`formalLocatedJacobian_factorization` proves a multivariate polynomial identity,
+using a positive-box identity and proved polynomial extensionality. Thus it
+includes zero directed rates, zero external leak, repeated spectra, and all
+signed real parameters; it is not merely the earlier rational positive-domain
+relocation theorem. `locatedGraphJacobian_all_real_factored` gives exactly
+
+    J_(o,ell) = epsilon_o * product_(edges directed toward ell) rate
+      * product_(observed-root edges e) (a_e f_e)^(|T_e|-1)
+      * product_(observed-root sibling pairs) Res(P_v,P_w)^2.
+
+The actual matrix edge-weight recursion is used in the formal statement.
+The leak-root cofactor product and observation-root principal weights are
+separately proved. The SAME sign epsilon_o=+1 or -1 works for every leak site
+and all rates in the explicitly fixed coordinate convention. Presentations
+are constructed from independent finite graph hypotheses in
+`finite_graph_all_leak_polynomial_jacobian`.
+
+The newly added source modules have compiled in the isolated development
+compiler. Independent verification is tied to this checkpoint's own CI run;
+no historical receipt is represented as verification of these new bytes.
+Exact alternate-leak coordinate multiplicities are still being completed in a
+separate extension, and the overall package remains labelled partial here.

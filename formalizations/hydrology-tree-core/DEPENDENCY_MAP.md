@@ -138,3 +138,13 @@ removes competing sign assumptions. MatrixStieltjesIdentification and
 MatrixTimeIdentification recover full pairs from actual resolvents and histories.
 RealLocatedClassification and RealLocatedODEClassification provide complete
 all-real fibers, exact counts and actual-Jacobian regularity.
+
+
+### Alternate-leak polynomial closure
+
+GraphPolynomialModel and GraphFormalDifferential construct and identify the
+actual symbolic/Frechet coefficient determinant. MatrixSiblingWeight and
+MatrixGaugeWeight prove actual principal-weight specialization and gauge
+invariance. GraphLeakCofactor and GraphPositiveWeight remove rational relocation
+from the formula. LocatedPolynomialWeight and LocatedAllRateJacobian close the
+all-real polynomial identity with every zero and signed boundary included.

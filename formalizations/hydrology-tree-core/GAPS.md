@@ -74,8 +74,12 @@ counts, are closed. Reverse history identification uses actual exponential probe
 solutions BEFORE positivity is derived; no vacuous existence premise is used.
 
 Still required for the broader alternate-leak scope:
-- Its all-real-rate Jacobian polynomial, orientation and exact coordinate
-  multiplicities, including zero boundaries.
+- Exact coordinate multiplicities of the all-real alternate-leak polynomial.
+  The independently defined formal Jacobian, all-real polynomial factorization,
+  original-matrix evaluation and common exact orientation are now proved in
+  LocatedAllRateJacobian, including all zero-rate and repeated-root boundaries.
+  The additional no-hidden-coordinate-factor witnesses and exact exponents
+  are a separate extension, not assumptions of the proved polynomial formula.
 
 Collocated input/state observation at o is distinct from measuring physical
 outflow at a DIFFERENT leak vertex ell. No equality of those different data

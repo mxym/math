@@ -47,3 +47,4 @@ import HydrologyTree.LeakLocationIdentifiability
 import HydrologyTree.LeakImpossibility
 import HydrologyTree.LocatedLeakJacobian
 import HydrologyTree.RealLocatedODEClassification
+import HydrologyTree.LocatedAllRateJacobian

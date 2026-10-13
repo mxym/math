@@ -459,3 +459,21 @@ fiber bijections, exact cardinalities and automatic positivity/regularity. The
 unknown-site fiber includes the actual site as a parameter and has |V| times the
 prescribed-site count. All-rate alternate-leak zero-boundary polynomial
 factorization and exact multiplicities remain outside this new full-target block.
+
+
+## All-rate alternate-leak formal polynomial
+
+For any independently presented finite tree, any observation o and leak ell,
+`formalLocatedJacobian` is the formal partial-derivative determinant of the
+actual symbolic graph characteristic/cofactor coefficients in the explicitly
+fixed coordinate order. Its evaluation equals `locatedGraphJacobian` at EVERY
+real vector. `formalLocatedJacobian_factorization` is an equality in the actual
+multivariate polynomial ring, not an assumed identity or a finite sample check.
+
+`locatedGraphJacobian_all_real_factored` gives a fixed observation-orientation
+sign times the product of actual edge rates toward the leak, actual observed-
+subtree edge-product weights, and all actual squared sibling resultants. The
+sign is exactly +/-1 and independent of ell and of every rate. Polynomial
+continuation is proved from an infinite-sided positive box; no boundary rate
+is divided out in the final identity. Exact multiplicities remain a separate
+claim until their boundary residual proof is checked.
