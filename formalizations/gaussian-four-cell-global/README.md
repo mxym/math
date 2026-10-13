@@ -43,6 +43,12 @@ off-diagonal facet weights are equal. The proof is kernel-checked and uses
 only explicit matrix identities; it still starts from the stationarity
 hypothesis and does not supply the missing global perimeter inequality.
 
+The same file records the resulting moment equation: at a full-rank
+directional local maximum, the four actual cell moments are an affine
+function of the four score vectors, with a single scalar coefficient equal
+to the common facet weight. This is a necessary interior criticality
+condition, not a tetrahedral classification.
+
 The reproducible build command is:
 
 ```text
