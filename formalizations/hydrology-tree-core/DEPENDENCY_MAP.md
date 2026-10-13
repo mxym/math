@@ -2,7 +2,7 @@
 
 Overall status: partial formalization. The all-tree rooted coefficient Jacobian
 and exact polynomial rate multiplicities are proved; positive existence/counting
-and the graph/leak/ODE variants remain.
+and the alternate-leak variant remains; the continuous ODE and independent graph bridges are now proved.
 
 | Statement | Main Lean entries | Exact scope |
 |---|---|---|
@@ -22,7 +22,7 @@ and the graph/leak/ODE variants remain.
 | Exact individual-rate polynomial multiplicities | `formalTreeJacobian_exact_powers`, `formalTreeJacobian_inward_multiplicity`, `formalTreeJacobian_outward_multiplicity` | Polynomial prime multiplicity of the formally differentiated actual coefficient determinant; nondivisibility by the next power proved, including zero exponents |
 | Exact signed resultant/Jacobian identity | `full_tree_resultant_jacobian`, `physicalResultant_jacobian_square` | Fixed tree-dependent sign, all real rates and all degenerate boundaries |
 | All positive realizations and factorial count | Not yet exported | Interlacing, residue signs, every partition's realization, completeness and count remain |
-| Nonroot leak / arbitrary external graph presentation | Not yet exported | Rooted OrderedTree main theorem does not silently include these transports |
+| Independent graph presentation | `finite_rooted_tree_presentation`, `finite_graph_continuous_fiber_classification`, `finite_graph_full_dynamical_properties` | Constructed graph/parent, actual-rate/matrix/ODE/fiber transport; alternate leak remains separate |
 | ODE all-input / controllability interpretations | Not yet exported | Algebraic resolvent and polynomial identities do not supply ODE semantics |
 
 The audit roots include all owned declarations and their used dependencies.

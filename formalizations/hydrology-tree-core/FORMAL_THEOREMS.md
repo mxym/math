@@ -325,3 +325,27 @@ quantifiers. `minimumEnergyInput_energy` proves the exact quadratic value d^T H^
 The continuous equality statement includes endpoints but deliberately imposes
 nothing outside the energy interval. Signed inputs and real state vectors are
 allowed; nonnegative-input reachability is not claimed.
+
+
+## Independently presented finite graphs
+
+For any finite vertex type V, SimpleGraph G, proof hG : G.IsTree, root o and
+card V=n+1, `finite_rooted_tree_presentation` constructs an adjacency- and
+root-preserving equivalence with an actual OrderedTree. `GraphRates G` is the
+root leak together with a real number on every graph dart. Its physical matrix
+is independently built from oriented transfers and column conservation.
+
+`finite_graph_coefficient_jacobian` proves the all-rate factorization for the
+actual graph characteristic/cofactor coefficient map in the explicit transported
+basis. `finite_graph_full_response_classification` and
+`finite_graph_continuous_fiber_classification` classify all actual real graph
+rates realizing a full positive N-mode target, with finite exact factorial count
+and automatic positivity. Presentations are constructed, not hypotheses.
+
+`finite_graph_full_dynamical_properties` gives global classical well-posedness,
+signed continuous steering in any T>0, and equality of entire state trajectories
+from the same forcing and equal root output on any nonempty open time window.
+`graph_full_response_minimum_energy` proves the exact energy decomposition and
+control equality on [0,T] for endpoint-feasible continuous inputs.
+`GraphMassBalance` gives the independently defined graph ODE's exact differential
+and integrated storage balance. None of these changes the root-leak convention.

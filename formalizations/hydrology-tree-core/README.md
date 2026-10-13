@@ -5,8 +5,9 @@ multiplicities, positive spectral characterization and full-response realization
 theorems are proved in Lean. The exhaustive recursive classification and exact
 count now cover **ALL REAL realizations** of a full positive Stieltjes target:
 positivity and Jacobian regularity are conclusions, not restrictions imposed on
-the competitors. The overall program remains **PARTIAL** for independent graph
-presentations, alternate leak location and actual ODE/system bridges.
+the competitors. The independent finite-simple-graph presentation, actual continuous ODE and
+system bridges are now also proved. The overall program remains **PARTIAL**
+for the separately stated alternate leak-location extension.
 
 ## Actual model and main theorem scope
 
@@ -296,3 +297,34 @@ steering using nonnegative rainfall only, nor global uniqueness of control value
 outside [0,T]. The result is a formally checked optimal-control refinement, not
 a claim of a historically new control theorem. Independent graph presentation
 and alternate leak-location obligations remain in GAPS.md.
+
+
+## Independent finite rooted graphs — completed presentation bridge
+
+`finite_rooted_tree_presentation` constructs the parent representation from an
+arbitrary finite simple graph G, its actual IsTree proof and a designated vertex.
+No topological numbering or parent-map premise is supplied by the caller.
+`GraphRates` assigns a rate to every actual oriented graph edge and the root leak.
+The independently constructed graph-conservative matrix is proved equal to the
+reindexed OrderedTree matrix. All real rates, including zero and negative rates,
+are included in these coordinate and matrix transports.
+
+`finite_graph_coefficient_jacobian` transports the actual Frechet derivative
+and exact all-rate factorization, with the coefficient permutation explicit.
+`finite_graph_full_response_classification` gives the full unrestricted-real
+fiber bijection/count and automatic positivity on the original graph rates.
+The root/branch sizes in the formula are those of the representation constructed
+from the graph; no assumption about its being the right graph is left unproved.
+
+`GraphODETransport` proves a bijection of the actual classical state trajectories
+and all endpoints. `finite_graph_continuous_fiber_classification` proves the
+same exhaustive count for actual continuous-input discharge histories, not only
+formal resolvents. `finite_graph_full_dynamical_properties` proves positivity,
+global existence/uniqueness, signed finite-horizon steering and actual finite-
+window trajectory observability. `graph_full_response_minimum_energy` transports
+the sharp energy decomposition and the complete equality case. `GraphMassBalance`
+independently proves exact differential and integrated water balance on ANY
+finite simple graph, without assuming acyclicity or positive rates.
+
+These new source modules have compiled. Source-bound independent verification
+is the new checkpoint's own CI; prior receipts are not substituted for it.

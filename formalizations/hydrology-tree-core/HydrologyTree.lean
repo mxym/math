@@ -41,3 +41,4 @@ import HydrologyTree.TrajectoryObservability
 import HydrologyTree.PhysicalControllability
 import HydrologyTree.FullRootLeakTheory
 import HydrologyTree.PhysicalMinimumEnergy
+import HydrologyTree.GraphFullTheory

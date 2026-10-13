@@ -26,13 +26,20 @@ and every pair of initial/final state vectors admit a constructed continuous
 real control with a unique classical trajectory and those exact endpoints.
 The actual integral Gramian is proved positive before taking its inverse.
 
-## 1. Independent finite rooted graph presentations
+## 1. Independent finite rooted graph presentations — now closed
 
-The principal theorem still uses OrderedTree: every nonroot vertex has one
-strictly lower-numbered parent. An independently presented finite rooted simple
-graph needs a proved root-parent construction, topological numbering and all
-actual matrix/rate/coefficient transports. Do not silently count that presentation
-bridge as established merely because every finite tree intuitively admits one.
+The representation is constructed from an arbitrary finite SimpleGraph with
+IsTree and a root, using proved leaf deletion. Graph dart-rate and vertex
+bijections, independently defined conservative matrices, characteristic/cofactor
+polynomials, actual derivatives, actual state trajectories and endpoints are
+transported by proved equalities. All-real response and continuous-discharge
+fibers, positivity, signed steering and finite-window observability are now
+exported without requiring a supplied parent presentation.
+
+The all-rate graph Jacobian uses an explicitly disclosed transported ascending
+coefficient basis. The count refers to the actual original graph parameter
+fiber, with subtree sizes in the constructed graph-isomorphic representation.
+It does not claim an unspecified external graph encoding is equal by definition.
 
 ## 2. Leak away from the observed root
 
@@ -56,8 +63,7 @@ catchments and empirical forecasting superiority remain outside these proofs.
 Each source checkpoint must pass its own fresh build, complete audit, empty
 trust-level-zero replay and rejected false mutations. A local compiler success
 or historical receipt does not certify new sources. The original model's
-matrix/fiber/continuous-ODE/system core is closed; the independent graph and
-alternate-leak extensions remain. No full-program Release or DOI is justified
+matrix/fiber/continuous-ODE/system core is closed; the alternate-leak extension remains. No full-program Release or DOI is justified
 until the declared intended scope has been completed and independently checked.
 
 
