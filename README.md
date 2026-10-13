@@ -68,11 +68,12 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 本专题收录**已有完整书面证明、所列主结论尚未完整 Lean 形式化**的成果。证明必须覆盖原对象、假设和量词；已发表外部定理须明确引用，未证明的猜想不能作为无条件结论的依据。部分 Lean 和有限计算只计入各自明确的验证范围。探索记录、数值猜测和核心论证未闭合的稿件不列入。
 
-以下是按证明状态整理的主要阅读入口，与预印本表有交叉，不重复计为独立突破。“已书面证明”不表示外部同行评审或历史优先权；本轮重算的是前两项，其他条目的审查与复核范围以原页面为准。
+以下是按证明状态整理的主要阅读入口，与预印本表有交叉，不重复计为独立突破。“已书面证明”不表示外部同行评审或历史优先权；本轮重算的是新增的 APPT、四行虚参数和 ECQC 临界亏秩项，其他条目的审查与复核范围以原页面为准。
 
 | 问题／成果 | 书面已证明的精确范围 | 完整证明与输入 | Lean 实际状态 |
 | --- | --- | --- | --- |
-| APPT 亚单位 Rényi 熵锐渐近 | 每个固定 0<α<1，m→∞ 时统一覆盖 n≥m；熵亏损系数 max{2α,1}+(α/2)max{4,n/m}，分界 α=1/2 | [完整新推导](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)与[本轮数学重算](research/appt-multilevel-counterexample/SUBUNIT_REVIEW.json)；明确使用仓库已证星形、图极限及平坦构造 | [实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)已内核复核；完整熵极限未 Lean 化 |
+| APPT 亚单位 Rényi 熵锐渐近 | 每个固定 0<α<1，m→∞ 时统一覆盖 n≥m；熵亏损系数 max{2α,1}+(α/2)max{4,n/m}，分界 α=1/2 | [锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)、[低阶谱刚性](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)与[本轮数学重算](research/appt-multilevel-counterexample/SUBUNIT_REVIEW.json)；明确使用仓库已证星形、图极限及平坦构造 | [实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)已内核复核；完整熵极限未 Lean 化 |
+| 四行虚参数永久量—行列式锐范数 | 任意实际复 4×4 矩阵、全部实数 t；虚轴最优常数 max{3/2, abs(t)+1/√3}，包含零行及取到 | [完整书面证明](research/four-row-imaginary-pencil/PAPER.md)；精确 256×256 代数身份、正 Gram 因子及标量延拓 | 新方向无 Lean；一般复参数和全部等号态仍未分类 |
 | ECQC 临界亏秩全部等号态 | 所有奇素数，r=(p+1)/2；p≡1 mod4 或 p=3 时恰 p⁴ 条指定 Weyl 轨道射线，其余 p≡3 mod4、p≥7 在该秩无等号 | [完整分类证明](research/ecqc-critical-rank-equality/PAPER.md)；引用 Holevo 等号必要条件，逐步证明 MUB／矩阵刚性桥接 | [有限域核心与矩阵引理](formalizations/ecqc-critical-rank-progress/README.md)部分 Lean；量子主定理未整体形式化；更低秩未分类 |
 | 图态 MMI 禁止子图定理 | Conjecture 1、无爪 vertex-minor 六类分量分类及七顶点连通阈值 | [完整证明与双独立 checker](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；全阶归纳与熵证明另行给出 | 未完整 Lean；有限图证书不替代一般定理 |
 | ECQC 满秩刚性与纯稳定子分类 | 任意奇素数全部满秩等号态、全部双 qudit 纯稳定子分数，p≡1 mod4 的全纯态最优比值 p/2 | [完整证明与文献范围](research/ecqc-stabilizer-saturation/README.md)；Holevo 定理为已发表外部输入 | 主分类未整体 Lean；不包括所有亏秩等号态 |

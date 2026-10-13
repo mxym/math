@@ -13,7 +13,7 @@
 | 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
 | qutrit–qudit APPT 最大纯度 | 全部 n≥3 的分段精确最大值、真实量子语义、上界与实际取到 | [完整 Lean、879 模块、155,787 声明空内核重放](formalizations/appt-qutrit-purity/README.md)；不含所有极值态分类 |
 | APPT 纯度与熵：锐渐近及极值谱结构 | qutrit 完整 Lean；10×38 真实 APPT 公式反例、联合充分性、白噪声正性裕量及排序熵头桥接已核验；充分长方形区域的精确最大值及全部极值谱／酉轨道分类已完整核验；统一锐渐近的匹配下界与完整熵结果仍按各自范围区分；宽区域及临界比值4的大长宽比渐近律现已完整 Lean | [既有合并预印本](preprints/appt-purity-unified-2026-10/README.md)；[高维 Lean 物理熵头审查](formalizations/appt-high-dimensional-review/README.md)；[解析研究笔记与精确附属检查](research/appt-multilevel-counterexample/README.md)；长宽比小于4时的多尺度匹配下界、完整熵极值、图极限和渐近刚性尚未整体形式化 |
-| APPT 亚单位 Rényi 阶数 | 每个固定 0<α<1 的统一联合增长锐熵亏损，α=1/2 的新谱分界；完整书面证明，真实半阶熵头与有限负尖峰构造已 Lean 核验 | [新推导与输入范围](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)；[8 模块、39 入口空内核复核](formalizations/appt-subunit-renyi/README.md)；完整熵渐近定理未整体 Lean 化 |
+| APPT 亚单位 Rényi 阶数 | 每个固定 0<α<1 的统一联合增长锐熵亏损，α=1/2 的新谱分界；完整书面证明，真实半阶熵头与有限负尖峰构造已 Lean 核验 | [锐渐近与输入范围](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)、[低阶谱刚性](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)；[8 模块、39 入口空内核复核](formalizations/appt-subunit-renyi/README.md)；完整熵渐近定理未整体 Lean 化 |
 | 图态 MMI 禁止子图 | 证明 Conjecture 1；无爪 vertex-minor 六类分量分类与七顶点连通阈值 | [独立预印本与完整书面证明](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)；双独立 checker，未完整 Lean 化 |
 | ECQC 极值结构与纯稳定子分类 | 全部满秩等号态；所有双 qudit 纯稳定子精确分数；p≡1 mod 4 的全纯态最优比值 p/2；一般等号的平坦谱与秩缺口 | [八页完整证明、来源与精确重放](research/ecqc-stabilizer-saturation/README.md)；不是一般秩亏等号分类，未完整 Lean 化 |
 | ECQC 临界亏秩全部等号 | 对所有奇素数、r=(p+1)/2：p≡1 mod4 或 p=3 时恰 p⁴ 条 Weyl 轨道射线；其余 p≡3 mod4、p≥7 在该秩无等号 | [完整书面证明与真实 Born 重算](research/ecqc-critical-rank-equality/README.md)；有限域核心及矩阵引理已有部分 Lean；更低秩及一般最优比值仍未分类 |
@@ -32,6 +32,7 @@
 | q-永久量半轴问题 | 指定 4 × 4 实有理矩阵在 q=49、50 之间下降；与原区间问题分开 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) |
 | 复三行永久量—行列式 | 所有复参数的精确范数主定理 | [预印本与完整 Lean](preprints/lean-certified-2026-10/complex-pencil-norm/README.md)；[完整书面研究](notes/complex-permanent-determinant/README.md)另含等号与张量化 |
 | 复四行永久量—行列式 | Theorem 1 锐不等式与全部等号分类完整 Lean，含所有权重和零行；最优常数及全实参数范数沿用已证结果 | [完整等号工程与本轮空内核复核](formalizations/four-row-complete-equality/README.md)；[旧版锐界工程](formalizations/four-row-permanent-tradeoff/README.md)；任意列数、定量稳定性及其他扩展未包含 |
+| 四行虚参数精确范数 | 对任意实际复 4×4 矩阵、全部实数 t，虚轴最优常数 max{3/2, abs(t)+1/√3}；零行、最优性与取到完整覆盖 | [完整书面证明与精确代数证书](research/four-row-imaginary-pencil/README.md)；无新增 Lean；一般复参数和等号分类仍未解决 |
 | Wakhare 熵多项式 | (k,r)=(11,10) 至少四个内部不同实根，反驳“恰有两个根” | [预印本](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md)；[新增完整 Lean 工程](formalizations/wakhare-entropy-four-roots-lean/README.md) |
 | 单峰 CGF 因子猜想 | 指定严格单峰 216 次多项式，无素数阶圆分因子 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) |
 | Ehrhart 实根性 | 指定 (132,213)-避免置换多面体族的全部维数实根性；使用已发表有限范围定理 | [完整书面证明与有理证书](notes/ehrhart-uniform-real-rootedness/README.md)；非完整 Lean |
