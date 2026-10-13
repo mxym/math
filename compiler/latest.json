@@ -1,6 +1,6 @@
 {
   "serial": 1791859147290,
-  "status": "COMPILING",
+  "status": "COMPILER_ERROR",
   "request_blob": "104530c00114c3dc65d40f175fdff7dfe52cb669",
   "modules": [
     "WeightedLocalization",
@@ -14,7 +14,24 @@
     "LogScaleCoordinates.lean": "8478664f3b8af9af8b9101886153dddcc48ad1c2669c615433178e6e46b6c6d5",
     "WeightedLocalization.lean": "dbd31180403a9e701feea7ad281b2f257f712eca109034029becd437c0321a71"
   },
-  "commands": [],
+  "commands": [
+    {
+      "module": "WeightedLocalization",
+      "returncode": 0,
+      "seconds": 2.766
+    },
+    {
+      "module": "FiniteProbability",
+      "returncode": 0,
+      "seconds": 2.135
+    },
+    {
+      "module": "FinitePairMass",
+      "returncode": 1,
+      "seconds": 2.103
+    }
+  ],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38337216012"
+  "run_id": "38337216012",
+  "diagnostics": "FinitePairMass.lean:24:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (finiteAtomicMeasure (fun z => p ?m.112 * p ?m.115) ?m.102).real ?S\nin the target expression\n  (finiteAtomicMeasure (fun z => p z.1 * p z.2) fun z => (\u2191(x z.1), \u2191(x z.2))).real (scaleBand d t) =\n    \u2211 i, \u2211 j, if |\u2191\u2191(x i) + \u2191\u2191(x j) - d| \u2264 t then p i * p j else 0\n\n\u03b9 : Type u_1\ninst\u271d : Fintype \u03b9\np : \u03b9 \u2192 \u211d\nx : \u03b9 \u2192 \u2191ScaleInterval\nhp : \u2200 (i : \u03b9), 0 \u2264 p i\nhs : \u2211 i, p i = 1\nd t : \u211d\n\u22a2 (finiteAtomicMeasure (fun z => p z.1 * p z.2) fun z => (\u2191(x z.1), \u2191(x z.2))).real (scaleBand d t) =\n    \u2211 i, \u2211 j, if |\u2191\u2191(x i) + \u2191\u2191(x j) - d| \u2264 t then p i * p j else 0\nFinitePairMass.lean:46:13: error: don't know how to synthesize implicit argument `s`\n  @Finset.sum_nonneg (Fin m) \u211d Real.instAddCommMonoid Real.instPreorder (fun i => F i i) ?m.56\n    IsOrderedAddMonoid.toAddLeftMono fun i x => hdiag i\ncontext:\nm : \u2115\nF : Fin m \u2192 Fin m \u2192 \u211d\nhF : \u2200 (i j : Fin m), F i j = F j i\nhdiag : \u2200 (i : Fin m), 0 \u2264 F i i\nhe : \u2211 i, \u2211 j, F i j = \u2211 i, F i i + 2 * \u2211 p, F (\u2191p).1 (\u2191p).2\n\u22a2 Finset (Fin m)\nFinitePairMass.lean:46:38: error(lean.inferBinderTypeFailed): Failed to infer binder type\nFinitePairMass.lean:46:7: error: failed to infer `have` declaration type\nFinitePairMass.lean:44:63: error: unsolved goals\nm : \u2115\nF : Fin m \u2192 Fin m \u2192 \u211d\nhF : \u2200 (i j : Fin m), F i j = F j i\nhdiag : \u2200 (i : Fin m), 0 \u2264 F i i\nhe : \u2211 i, \u2211 j, F i j = \u2211 i, F i i + 2 * \u2211 p, F (\u2191p).1 (\u2191p).2\n\u22a2 \u2211 p, F (\u2191p).1 (\u2191p).2 \u2264 (\u2211 i, \u2211 j, F i j) / 2\n"
 }
