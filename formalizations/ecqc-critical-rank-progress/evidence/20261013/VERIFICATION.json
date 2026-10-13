@@ -1,0 +1,114 @@
+{
+  "status": "FRESH_COMPILE_AND_EMPTY_KERNEL_REPLAY_PASS",
+  "started_utc": "2026-10-13T11:21:43.103554+00:00",
+  "completed_utc": "2026-10-13T11:22:12.126680+00:00",
+  "work_directory": "/tmp/ecqc-critical-fresh-8d_hsl20",
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "actual_lean_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "dependencies": {
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+  },
+  "module_count": 2,
+  "root_count": 11,
+  "closure_count": 20108,
+  "trust_level": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_hashes": {
+    "QuadraticResidueReflection.lean": "22a7ae05df14b1d4189573f974f1470ee199bbcd26258ef7681d2c3dee369f8d",
+    "DistinguishedColumn.lean": "02a0d44e3326276d41a106f58c81c4602c62a51b8add8d1e6c456603beb316e1",
+    "Replay.lean": "a3443646fb07386b98e1d72bb4c56105418497fc93e21fca6109befd04c5bacd",
+    "PositiveControls.lean": "51075cdd7383ed1e3bebcc9b1b403a36d6c6df2a659e10fed18ecfb3777ae9a7",
+    "RejectWrongResiduePreservation.lean": "bcd4485baff531413b07e9122f1597ca751e715fcc3a263337bfe3ffa9793001",
+    "ROOTS.txt": "b208c27173804759720b3bfeb7ea0863809a6040f6d37a17e0a6593141f68d0b",
+    "lakefile.toml": "c4c4a674ecf0239072d0d40223efc5612855887188476a512ca4f5a9fbf0dd8c",
+    "lake-manifest.json": "262a9805db549ce3bf7ce6d848cab7aafca942a9cebec14c988591e6311f192d",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "reproduce.py": "f42bcacabed7c78d6e16ca658815798b77b2b076059286468075295e76b91d30"
+  },
+  "olean_sha256": {
+    "QuadraticResidueReflection": "59756c15ae4c9b55f0072641982e076761803cf8a06c60db31fd4d1fe4f3d242",
+    "DistinguishedColumn": "25cd63c7e0876a21d99c17dfdc7fc963620c7f5437fef9425ab24a48ade6424a"
+  },
+  "commands": [
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/elan/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/QuadraticResidueReflection.olean",
+        "QuadraticResidueReflection.lean"
+      ],
+      "log": "build-QuadraticResidueReflection.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/elan/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/DistinguishedColumn.olean",
+        "DistinguishedColumn.lean"
+      ],
+      "log": "build-DistinguishedColumn.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/elan/bin/lake",
+        "build"
+      ],
+      "log": "clean-lake-build.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/elan/bin/lake",
+        "env",
+        "lean",
+        "PositiveControls.lean"
+      ],
+      "log": "positive-controls.log",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/mnt/d/mcp-workspace/math-research/elan/bin/lake",
+        "env",
+        "lean",
+        "Replay.lean"
+      ],
+      "log": "empty-kernel-replay.log",
+      "returncode": 0
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "RejectWrongResiduePreservation",
+      "returncode": 1,
+      "log": "RejectWrongResiduePreservation.log",
+      "sha256": "bef7b671367de1a6ca20afc58f09e408d4499bafba25a741bfe6932c983f4a18"
+    }
+  ],
+  "positive_control_count": 2,
+  "log_sha256": {
+    "build-QuadraticResidueReflection.log": "b1cc4398a87168ec8b6a1fa1439693d9887874f93b85718a9c42b123810fa6ab",
+    "build-DistinguishedColumn.log": "a9463719e11255c386cc5138b1a0f41f458b4d30f8c68d346f7dd1c7351213ca",
+    "clean-lake-build.log": "05f46f5db895b87491a06244caa36521d1443be7b891b63745ab629784f4a25a",
+    "positive-controls.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "empty-kernel-replay.log": "edbc3e169f06e40beb4f41c3cc5cb05696dff75411434cc1daea28842fe642a4"
+  }
+}
