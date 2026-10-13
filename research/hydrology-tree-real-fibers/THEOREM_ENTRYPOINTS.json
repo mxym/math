@@ -1,0 +1,119 @@
+{
+  "proof_source_commit": "08602003af46b2a16aa33d7c7c429a197ab607d6",
+  "entry": "import HydrologyTree",
+  "note": "All entries are in the audited root list; source-bound replay receipts establish their proof status. Hypotheses must be read from the linked actual source.",
+  "entries": [
+    {
+      "declaration": "HydrologyTree.finite_graph_complete_all_leak_algebra",
+      "module": "HydrologyTree.LocatedBoundarySingularSet",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedBoundarySingularSet.lean",
+      "line": 42,
+      "source_sha256": "90077e53bd1a53be40c5f7cb6cd3fd809c0c1be6b958ba1c724aa9d13d42e12b",
+      "scope": "Arbitrary leak, all real rates: independent graph presentation, formal Jacobian factorization and every exact coordinate power."
+    },
+    {
+      "declaration": "HydrologyTree.formalLocatedJacobian_exact_power",
+      "module": "HydrologyTree.LocatedExactMultiplicities",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedExactMultiplicities.lean",
+      "line": 37,
+      "source_sha256": "41a8f868645662657a9b2b82a34598bff20c96722f3f6dc3d831a17382dd9488",
+      "scope": "Exact coordinate multiplicity: the stated power divides and the next power does not."
+    },
+    {
+      "declaration": "HydrologyTree.locatedJacobian_zero_iff_all_rates",
+      "module": "HydrologyTree.LocatedBoundarySingularSet",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LocatedBoundarySingularSet.lean",
+      "line": 30,
+      "source_sha256": "90077e53bd1a53be40c5f7cb6cd3fd809c0c1be6b958ba1c724aa9d13d42e12b",
+      "scope": "Complete all-real zero-boundary criterion for the actual coefficient Jacobian."
+    },
+    {
+      "declaration": "HydrologyTree.catenary_standard_formal_polynomial",
+      "module": "HydrologyTree.CatenaryFormalPolynomial",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/CatenaryFormalPolynomial.lean",
+      "line": 34,
+      "source_sha256": "deb8f388c185f7fa0014c2cc8ee7ef7bf5869236d15ec316167031fb0273ba4d",
+      "scope": "Endpoint-path formal Jacobian monomial for every size and all rate values."
+    },
+    {
+      "declaration": "HydrologyTree.full_tree_resultant_jacobian",
+      "module": "HydrologyTree.AllTreeResultant",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/AllTreeResultant.lean",
+      "line": 91,
+      "source_sha256": "a9c52bd4b9b800c492407caccce7c8cee911a9f6d6dd6b8391824196243c106e",
+      "scope": "Exact signed root-leak characteristic/cofactor resultant versus actual Jacobian identity."
+    },
+    {
+      "declaration": "HydrologyTree.realResponseRecursiveEquiv",
+      "module": "HydrologyTree.RealFiberClassification",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberClassification.lean",
+      "line": 45,
+      "source_sha256": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955",
+      "scope": "Complete recursive classification of unrestricted real realizations of a full positive Stieltjes target."
+    },
+    {
+      "declaration": "HydrologyTree.real_root_response_fiber_exact_card",
+      "module": "HydrologyTree.RealFiberClassification",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealFiberClassification.lean",
+      "line": 68,
+      "source_sha256": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955",
+      "scope": "Actual finiteness and exact factorial/hook count, not a count of candidates."
+    },
+    {
+      "declaration": "HydrologyTree.real_discharge_fiber_exact_card",
+      "module": "HydrologyTree.DischargeFiber",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/DischargeFiber.lean",
+      "line": 106,
+      "source_sha256": "cf2269cc2f43292fe95c599a6622294ac10eb5c571d854d368b89b4b16424271",
+      "scope": "Exact count for co-located physical discharge, without a separately calibrated root leak."
+    },
+    {
+      "declaration": "HydrologyTree.finite_graph_all_real_leak_ODE_classification",
+      "module": "HydrologyTree.RealLocatedODEClassification",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedODEClassification.lean",
+      "line": 90,
+      "source_sha256": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8",
+      "scope": "Independent finite graph, arbitrary leak: unrestricted real continuous-input ODE fiber classification."
+    },
+    {
+      "declaration": "HydrologyTree.real_unknown_leak_continuous_exact_card",
+      "module": "HydrologyTree.RealLocatedODEClassification",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/RealLocatedODEClassification.lean",
+      "line": 76,
+      "source_sha256": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8",
+      "scope": "Exact unknown-leak-site continuous-history fiber count with actual site multiplicity."
+    },
+    {
+      "declaration": "HydrologyTree.real_full_response_trajectory_observable",
+      "module": "HydrologyTree.TrajectoryObservability",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/TrajectoryObservability.lean",
+      "line": 78,
+      "source_sha256": "5daf720927b87c16d4d966270eb1f7de5384faa2014bafebe52292acdbafc0c4",
+      "scope": "Actual trajectory observability within the explicitly quantified full-target and interval hypotheses."
+    },
+    {
+      "declaration": "HydrologyTree.real_full_response_controllable",
+      "module": "HydrologyTree.PhysicalControllability",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/PhysicalControllability.lean",
+      "line": 14,
+      "source_sha256": "8369824115f8218537f0b807142113ab5923d250369ad9cd14c644d169d9d27e",
+      "scope": "Constructed continuous signed endpoint steering within the positive-horizon hypotheses."
+    },
+    {
+      "declaration": "HydrologyTree.real_full_response_minimum_energy_control",
+      "module": "HydrologyTree.PhysicalMinimumEnergy",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/PhysicalMinimumEnergy.lean",
+      "line": 37,
+      "source_sha256": "0d333dec0ad189a437cbfc9c141f63a1df93bbc0c2aaa02e1755015a62ef40a4",
+      "scope": "Exact signed-control minimum energy and its equality condition on the stated time interval."
+    },
+    {
+      "declaration": "HydrologyTree.leak_location_all_input_indistinguishability",
+      "module": "HydrologyTree.LeakLocationIdentifiability",
+      "path": "formalizations/hydrology-tree-core/HydrologyTree/LeakLocationIdentifiability.lean",
+      "line": 35,
+      "source_sha256": "6cd1c43019cd8eabc8f7e63b93b54f667e2609db699ca2a39259cb10cdc07aec",
+      "scope": "Leak relocation preserves the specified collocated input/output experiments; off-diagonal observations are not asserted equivalent."
+    }
+  ]
+}

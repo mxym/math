@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "scope": "PARTIAL tree coefficient and Jacobian core; not the all-tree main theorem",
+  "started_utc": "2026-10-11T14:01:52.293827+00:00",
+  "commands": [
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lake",
+        "build"
+      ],
+      "returncode": 0,
+      "seconds": 18.826,
+      "log": "lake-build.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Coefficients.olean",
+        "HydrologyTree/Coefficients.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.623,
+      "log": "build-HydrologyTree.Coefficients.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeadingCoefficients.olean",
+        "HydrologyTree/LeadingCoefficients.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.271,
+      "log": "build-HydrologyTree.LeadingCoefficients.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BlockJacobian.olean",
+        "HydrologyTree/BlockJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.37,
+      "log": "build-HydrologyTree.BlockJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Scaling.olean",
+        "HydrologyTree/Scaling.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.127,
+      "log": "build-HydrologyTree.Scaling.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Triangular.olean",
+        "HydrologyTree/Triangular.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.67,
+      "log": "build-HydrologyTree.Triangular.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Gluing.olean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 0,
+      "seconds": 4.023,
+      "log": "build-HydrologyTree.Gluing.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootUpdate.olean",
+        "HydrologyTree/RootUpdate.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.273,
+      "log": "build-HydrologyTree.RootUpdate.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree.olean",
+        "HydrologyTree.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.618,
+      "log": "build-HydrologyTree.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "Audit.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.671,
+      "log": "audit.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "Replay.lean"
+      ],
+      "returncode": 0,
+      "seconds": 18.958,
+      "log": "replay.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Scaling.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.973,
+      "log": "negative-1.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RootUpdate.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.275,
+      "log": "negative-2.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.923,
+      "log": "negative-3.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 4.324,
+      "log": "negative-4.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/BlockJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.32,
+      "log": "negative-5.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Coefficients.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.573,
+      "log": "negative-6.log"
+    }
+  ],
+  "source_sha256": {
+    "HydrologyTree.lean": "d1ddba67bf8abf109f5b0c10d1d1bd5c536dddbdbf571442a407113f5b69736e",
+    "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
+    "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
+    "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
+    "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
+    "HydrologyTree/RootUpdate.lean": "42a9c1b2fe59ad4a99c0b477e48a6f16647344aae57bfc3a35ccc729cb37bb10",
+    "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
+    "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
+    "MODULES.json": "528b4dec6f809a5e8fe63132c5a4a96e1e5f0d3e5982cf046013ef6f10b71b9e",
+    "ROOTS.txt": "4d3b89fe2f7c6dfac5803d3f689af449e77b7d282a65c4787d057e0244087edd",
+    "audit/Audit.lean": "5a6d3bdb9d2ac685b8d432ed82c66a6799b112612f9e91b94aaa7509b57d45e3",
+    "audit/Replay.lean": "8ebb95faa0d1772a8d21194a4943474c935a228e5247f21573fbcaba5397946f",
+    "fetch_cache.sh": "831d1822ef6773460c2fc2e53e474bdad178acd423eb4914572a135a74752f8a",
+    "lake-manifest.json": "0297f4de1373f8583f95f0511a95a1a95255a8164192247feda5a9dfc479421b",
+    "lakefile.toml": "7c75d5225023ebd497a6ffbecfd9ce49c8f462036682231acbd3fbcd0ebfdc46",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "reproduce.py": "1a821a3341d18a783a8e47922697475b850b5e0ed34f27a1b2df0a88b6c39f5b",
+    "update_manifest.py": "57f10a6332635feb3412a6919d8cdc1d29230202abaa132d9347bdd565e4b248"
+  },
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "dependencies": {
+    "mathlib": {
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "source_blobs_checked": 9114
+    },
+    "plausible": {
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "source_blobs_checked": 31
+    },
+    "LeanSearchClient": {
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "source_blobs_checked": 11
+    },
+    "importGraph": {
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "source_blobs_checked": 57
+    },
+    "proofwidgets": {
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "source_blobs_checked": 48
+    },
+    "aesop": {
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "source_blobs_checked": 253
+    },
+    "Qq": {
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "source_blobs_checked": 31
+    },
+    "batteries": {
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "source_blobs_checked": 263
+    },
+    "Cli": {
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "source_blobs_checked": 8
+    }
+  },
+  "initial_owned_objects": 0,
+  "modules": [
+    "HydrologyTree.Coefficients",
+    "HydrologyTree.LeadingCoefficients",
+    "HydrologyTree.BlockJacobian",
+    "HydrologyTree.Scaling",
+    "HydrologyTree.Triangular",
+    "HydrologyTree.Gluing",
+    "HydrologyTree.RootUpdate",
+    "HydrologyTree"
+  ],
+  "object_sha256": {
+    "HydrologyTree/BlockJacobian.olean": "e676c08df817b6d8ff451e91c4d928889220958c29ebac790afd528ac3a98ca9",
+    "HydrologyTree/Coefficients.olean": "400b0e9e8ca376d381567963f5afcd9a24860f2819563368b69daff1ca509064",
+    "HydrologyTree/Gluing.olean": "133e1976e7aa344f2ebfd833951162548f01ad1acdf4643e4c9586d7ad286db6",
+    "HydrologyTree/LeadingCoefficients.olean": "64c5405b7abd42fbbeaa304863dd0e7ccd00f03a10681b965b270f31dd655ad9",
+    "HydrologyTree/RootUpdate.olean": "1f2cdc5975f4504cde829d4d5de156220d1a49f9fb2d480869e58fb290f3f4db",
+    "HydrologyTree/Scaling.olean": "0b02961128dad3831a676491c24984bb2ca2341eefdfd057705381cc4fab71da",
+    "HydrologyTree/Triangular.olean": "56b89bc16e8e23cb2954298befaac326bb4a63c2375f1fa4919eb13966204c32",
+    "HydrologyTree.olean": "d3bb0964829f9080a06cafcc9b7a4b382fcf9094cc6933113688d01f86e27e96"
+  },
+  "kernel_replay": {
+    "declarations": 26477,
+    "roots": 92,
+    "trust_level": 0,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "negative_controls": [
+    {
+      "source": "HydrologyTree/Scaling.lean",
+      "old": "monicScalingJacobian x = x.1 ^ n := by",
+      "new": "monicScalingJacobian x = x.1 ^ (n+1) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RootUpdate.lean",
+      "old": "rootCoefficientJacobian x = (-1 : \u211d)^n := by",
+      "new": "rootCoefficientJacobian x = 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Gluing.lean",
+      "old": "m n ^ 2 := by",
+      "new": "m n ^ 3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Gluing.lean",
+      "old": "repeatedBlock (monoSylv x.1) (lowSylv x.2)",
+      "new": "repeatedBlock (monoSylv x.1) 0",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/BlockJacobian.lean",
+      "old": ").det ^ 2 := by",
+      "new": ").det ^ 3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Coefficients.lean",
+      "old": "\u27e8X^n, Polynomial.mem_degreeLT.mpr",
+      "new": "\u27e8X^(n+1), Polynomial.mem_degreeLT.mpr",
+      "rejected": true
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "finished_utc": "2026-10-11T14:03:15.604665+00:00"
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.518,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "certificate",
+    "command": [
+      "python3",
+      "check_half_certificate.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.071,
+    "log": "certificate.log",
+    "sha256": "4112b05fe1a2641d1ac016083ded6b59f0b57e29f0463404a6d2104131bd9676"
+  },
+  {
+    "stage": "certificate-optimized",
+    "command": [
+      "python3",
+      "-O",
+      "check_half_certificate.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.07,
+    "log": "certificate-optimized.log",
+    "sha256": "4112b05fe1a2641d1ac016083ded6b59f0b57e29f0463404a6d2104131bd9676"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "APPTSubunit"
+    ],
+    "exit_code": 0,
+    "seconds": 32.688,
+    "log": "build.log",
+    "sha256": "8b0431f9687b023a49e9d46f13d5240a1fc4e339d8f2b1d24b0713d163a51b89"
+  },
+  {
+    "stage": "support",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "--root=/home/mxym/math-appt-multiscale-20261013/formalizations/appt-qutrit-purity",
+      "-o",
+      "/home/mxym/math-appt-multiscale-20261013/formalizations/appt-subunit-renyi/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+      "/home/mxym/math-appt-multiscale-20261013/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 1.223,
+    "log": "support.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 87.121,
+    "log": "kernel.log",
+    "sha256": "aceac458d13553df783f2bcf1e3004c0d221ecf65afbb1b1ea8d27bb9661c1ff"
+  }
+]

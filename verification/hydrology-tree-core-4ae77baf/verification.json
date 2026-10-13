@@ -1,0 +1,4423 @@
+{
+  "status": "PASS",
+  "scope": "Root-leak tree: exact all-real full-response fibers, actual continuous-input ODE equivalence and controllability/observability; independent graph and alternate-leak variants remain partial",
+  "started_utc": "2026-10-13T09:56:55.612434+00:00",
+  "commands": [
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lake",
+        "build"
+      ],
+      "returncode": 0,
+      "seconds": 232.531,
+      "log": "lake-build.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Coefficients.olean",
+        "HydrologyTree/Coefficients.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.774,
+      "log": "build-HydrologyTree.Coefficients.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeadingCoefficients.olean",
+        "HydrologyTree/LeadingCoefficients.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.323,
+      "log": "build-HydrologyTree.LeadingCoefficients.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BlockJacobian.olean",
+        "HydrologyTree/BlockJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.47,
+      "log": "build-HydrologyTree.BlockJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Scaling.olean",
+        "HydrologyTree/Scaling.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.124,
+      "log": "build-HydrologyTree.Scaling.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Triangular.olean",
+        "HydrologyTree/Triangular.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.621,
+      "log": "build-HydrologyTree.Triangular.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Gluing.olean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 0,
+      "seconds": 4.124,
+      "log": "build-HydrologyTree.Gluing.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootUpdate.olean",
+        "HydrologyTree/RootUpdate.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.327,
+      "log": "build-HydrologyTree.RootUpdate.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RateChart.olean",
+        "HydrologyTree/RateChart.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.773,
+      "log": "build-HydrologyTree.RateChart.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CompartmentMatrix.olean",
+        "HydrologyTree/CompartmentMatrix.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.121,
+      "log": "build-HydrologyTree.CompartmentMatrix.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalBridge.olean",
+        "HydrologyTree/PhysicalBridge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PhysicalBridge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/Resolvent.olean",
+        "HydrologyTree/Resolvent.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.871,
+      "log": "build-HydrologyTree.Resolvent.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/EdgeDeterminant.olean",
+        "HydrologyTree/EdgeDeterminant.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.669,
+      "log": "build-HydrologyTree.EdgeDeterminant.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/EdgeCharacteristic.olean",
+        "HydrologyTree/EdgeCharacteristic.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.618,
+      "log": "build-HydrologyTree.EdgeCharacteristic.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootAttachment.olean",
+        "HydrologyTree/RootAttachment.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.82,
+      "log": "build-HydrologyTree.RootAttachment.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BranchAssembly.olean",
+        "HydrologyTree/BranchAssembly.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.769,
+      "log": "build-HydrologyTree.BranchAssembly.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeafRecursion.olean",
+        "HydrologyTree/LeafRecursion.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.618,
+      "log": "build-HydrologyTree.LeafRecursion.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalLeaf.olean",
+        "HydrologyTree/PhysicalLeaf.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.PhysicalLeaf.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ProductDerivative.olean",
+        "HydrologyTree/ProductDerivative.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.42,
+      "log": "build-HydrologyTree.ProductDerivative.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/JacobianComposition.olean",
+        "HydrologyTree/JacobianComposition.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.47,
+      "log": "build-HydrologyTree.JacobianComposition.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyProduct.olean",
+        "HydrologyTree/FamilyProduct.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.072,
+      "log": "build-HydrologyTree.FamilyProduct.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyResultants.olean",
+        "HydrologyTree/FamilyResultants.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.871,
+      "log": "build-HydrologyTree.FamilyResultants.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilySmoothness.olean",
+        "HydrologyTree/FamilySmoothness.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.FamilySmoothness.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TangentJacobian.olean",
+        "HydrologyTree/TangentJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.32,
+      "log": "build-HydrologyTree.TangentJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyGluing.olean",
+        "HydrologyTree/FamilyGluing.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.FamilyGluing.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootBranches.olean",
+        "HydrologyTree/RootBranches.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.819,
+      "log": "build-HydrologyTree.RootBranches.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BranchMatrixSupport.olean",
+        "HydrologyTree/BranchMatrixSupport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.821,
+      "log": "build-HydrologyTree.BranchMatrixSupport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalRootDecomposition.olean",
+        "HydrologyTree/PhysicalRootDecomposition.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.819,
+      "log": "build-HydrologyTree.PhysicalRootDecomposition.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ChildTree.olean",
+        "HydrologyTree/ChildTree.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.971,
+      "log": "build-HydrologyTree.ChildTree.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixEntries.olean",
+        "HydrologyTree/MatrixEntries.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.MatrixEntries.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ChildRates.olean",
+        "HydrologyTree/ChildRates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.ChildRates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BranchConservation.olean",
+        "HydrologyTree/BranchConservation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.BranchConservation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ChildMatrix.olean",
+        "HydrologyTree/ChildMatrix.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.22,
+      "log": "build-HydrologyTree.ChildMatrix.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ChildIndex.olean",
+        "HydrologyTree/ChildIndex.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.92,
+      "log": "build-HydrologyTree.ChildIndex.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RateCoordinates.olean",
+        "HydrologyTree/RateCoordinates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.22,
+      "log": "build-HydrologyTree.RateCoordinates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootCoupling.olean",
+        "HydrologyTree/RootCoupling.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.873,
+      "log": "build-HydrologyTree.RootCoupling.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CouplingSemantics.olean",
+        "HydrologyTree/CouplingSemantics.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.CouplingSemantics.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/DependentBlocks.olean",
+        "HydrologyTree/DependentBlocks.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.669,
+      "log": "build-HydrologyTree.DependentBlocks.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ArrowDeterminant.olean",
+        "HydrologyTree/ArrowDeterminant.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.621,
+      "log": "build-HydrologyTree.ArrowDeterminant.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ArrowCharacteristic.olean",
+        "HydrologyTree/ArrowCharacteristic.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.669,
+      "log": "build-HydrologyTree.ArrowCharacteristic.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalRecursion.olean",
+        "HydrologyTree/PhysicalRecursion.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.072,
+      "log": "build-HydrologyTree.PhysicalRecursion.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FiniteCancellation.olean",
+        "HydrologyTree/FiniteCancellation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.618,
+      "log": "build-HydrologyTree.FiniteCancellation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalCancellation.olean",
+        "HydrologyTree/PhysicalCancellation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.PhysicalCancellation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeCancellation.olean",
+        "HydrologyTree/TreeCancellation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.769,
+      "log": "build-HydrologyTree.TreeCancellation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/EndJacobian.olean",
+        "HydrologyTree/EndJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.272,
+      "log": "build-HydrologyTree.EndJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathRootTransform.olean",
+        "HydrologyTree/PathRootTransform.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.122,
+      "log": "build-HydrologyTree.PathRootTransform.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathPolynomial.olean",
+        "HydrologyTree/PathPolynomial.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.974,
+      "log": "build-HydrologyTree.PathPolynomial.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathRates.olean",
+        "HydrologyTree/PathRates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.42,
+      "log": "build-HydrologyTree.PathRates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathNormalization.olean",
+        "HydrologyTree/PathNormalization.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.022,
+      "log": "build-HydrologyTree.PathNormalization.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathPhysical.olean",
+        "HydrologyTree/PathPhysical.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.PathPhysical.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ScalarCoupling.olean",
+        "HydrologyTree/ScalarCoupling.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.27,
+      "log": "build-HydrologyTree.ScalarCoupling.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PathInduction.olean",
+        "HydrologyTree/PathInduction.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.422,
+      "log": "build-HydrologyTree.PathInduction.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryJacobian.olean",
+        "HydrologyTree/CatenaryJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.873,
+      "log": "build-HydrologyTree.CatenaryJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryCanonical.olean",
+        "HydrologyTree/CatenaryCanonical.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.573,
+      "log": "build-HydrologyTree.CatenaryCanonical.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CoordinateEnergy.olean",
+        "HydrologyTree/CoordinateEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.CoordinateEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryOrientation.olean",
+        "HydrologyTree/CatenaryOrientation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.121,
+      "log": "build-HydrologyTree.CatenaryOrientation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalConstants.olean",
+        "HydrologyTree/PhysicalConstants.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.PhysicalConstants.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootRecovery.olean",
+        "HydrologyTree/RootRecovery.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.RootRecovery.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryGlobal.olean",
+        "HydrologyTree/CatenaryGlobal.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.CatenaryGlobal.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BalanceWeights.olean",
+        "HydrologyTree/BalanceWeights.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.BalanceWeights.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/WeightedEnergy.olean",
+        "HydrologyTree/WeightedEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.021,
+      "log": "build-HydrologyTree.WeightedEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GroundedPositivity.olean",
+        "HydrologyTree/GroundedPositivity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.921,
+      "log": "build-HydrologyTree.GroundedPositivity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SymmetricGenerator.olean",
+        "HydrologyTree/SymmetricGenerator.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.572,
+      "log": "build-HydrologyTree.SymmetricGenerator.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveSpectrum.olean",
+        "HydrologyTree/PositiveSpectrum.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.069,
+      "log": "build-HydrologyTree.PositiveSpectrum.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SpectralResolvent.olean",
+        "HydrologyTree/SpectralResolvent.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.SpectralResolvent.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalStieltjes.olean",
+        "HydrologyTree/PhysicalStieltjes.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.PhysicalStieltjes.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryCoprime.olean",
+        "HydrologyTree/CatenaryCoprime.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.CatenaryCoprime.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyScaling.olean",
+        "HydrologyTree/FamilyScaling.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.573,
+      "log": "build-HydrologyTree.FamilyScaling.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyNormalization.olean",
+        "HydrologyTree/FamilyNormalization.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.123,
+      "log": "build-HydrologyTree.FamilyNormalization.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/BranchStep.olean",
+        "HydrologyTree/BranchStep.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.422,
+      "log": "build-HydrologyTree.BranchStep.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesNumerator.olean",
+        "HydrologyTree/StieltjesNumerator.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.StieltjesNumerator.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalModes.olean",
+        "HydrologyTree/PhysicalModes.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.PhysicalModes.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CoprimeBranchRecovery.olean",
+        "HydrologyTree/CoprimeBranchRecovery.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.CoprimeBranchRecovery.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalBranchRecovery.olean",
+        "HydrologyTree/PhysicalBranchRecovery.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.672,
+      "log": "build-HydrologyTree.PhysicalBranchRecovery.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SubtreeAssignment.olean",
+        "HydrologyTree/SubtreeAssignment.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.SubtreeAssignment.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveChildModels.olean",
+        "HydrologyTree/PositiveChildModels.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.121,
+      "log": "build-HydrologyTree.PositiveChildModels.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveAssignment.olean",
+        "HydrologyTree/PositiveAssignment.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.82,
+      "log": "build-HydrologyTree.PositiveAssignment.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CanonicalTree.olean",
+        "HydrologyTree/CanonicalTree.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.922,
+      "log": "build-HydrologyTree.CanonicalTree.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PiSerialization.olean",
+        "HydrologyTree/PiSerialization.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.22,
+      "log": "build-HydrologyTree.PiSerialization.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FamilyCoordinateEnergy.olean",
+        "HydrologyTree/FamilyCoordinateEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.373,
+      "log": "build-HydrologyTree.FamilyCoordinateEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ScaledSerialization.olean",
+        "HydrologyTree/ScaledSerialization.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.ScaledSerialization.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/IndependentChildCoordinates.olean",
+        "HydrologyTree/IndependentChildCoordinates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.27,
+      "log": "build-HydrologyTree.IndependentChildCoordinates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/OriginalWorkCoordinates.olean",
+        "HydrologyTree/OriginalWorkCoordinates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.OriginalWorkCoordinates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SerializedNumerator.olean",
+        "HydrologyTree/SerializedNumerator.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.SerializedNumerator.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/DependentJacobian.olean",
+        "HydrologyTree/DependentJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.32,
+      "log": "build-HydrologyTree.DependentJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreePreparation.olean",
+        "HydrologyTree/TreePreparation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.576,
+      "log": "build-HydrologyTree.TreePreparation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeStepSemantics.olean",
+        "HydrologyTree/TreeStepSemantics.lean"
+      ],
+      "returncode": 0,
+      "seconds": 4.476,
+      "log": "build-HydrologyTree.TreeStepSemantics.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LinearConjugation.olean",
+        "HydrologyTree/LinearConjugation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.LinearConjugation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreePipeline.olean",
+        "HydrologyTree/TreePipeline.lean"
+      ],
+      "returncode": 0,
+      "seconds": 15.06,
+      "log": "build-HydrologyTree.TreePipeline.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeJacobianRecurrence.olean",
+        "HydrologyTree/TreeJacobianRecurrence.lean"
+      ],
+      "returncode": 0,
+      "seconds": 6.33,
+      "log": "build-HydrologyTree.TreeJacobianRecurrence.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/AllTreeJacobian.olean",
+        "HydrologyTree/AllTreeJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.AllTreeJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SubtreeProducts.olean",
+        "HydrologyTree/SubtreeProducts.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.SubtreeProducts.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/JacobianRegularity.olean",
+        "HydrologyTree/JacobianRegularity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.971,
+      "log": "build-HydrologyTree.JacobianRegularity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveJacobian.olean",
+        "HydrologyTree/PositiveJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.PositiveJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ZeroOutward.olean",
+        "HydrologyTree/ZeroOutward.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.ZeroOutward.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MonicResultantAlgebra.olean",
+        "HydrologyTree/MonicResultantAlgebra.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.568,
+      "log": "build-HydrologyTree.MonicResultantAlgebra.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SignedFamilyResultant.olean",
+        "HydrologyTree/SignedFamilyResultant.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.SignedFamilyResultant.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ResultantFamilyEnumeration.olean",
+        "HydrologyTree/ResultantFamilyEnumeration.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.ResultantFamilyEnumeration.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalResultantRecurrence.olean",
+        "HydrologyTree/PhysicalResultantRecurrence.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PhysicalResultantRecurrence.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/AllTreeResultant.olean",
+        "HydrologyTree/AllTreeResultant.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.AllTreeResultant.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ResidualFactors.olean",
+        "HydrologyTree/ResidualFactors.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.819,
+      "log": "build-HydrologyTree.ResidualFactors.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeBoundarySingularSet.olean",
+        "HydrologyTree/TreeBoundarySingularSet.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.TreeBoundarySingularSet.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ResultantBoundary.olean",
+        "HydrologyTree/ResultantBoundary.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.769,
+      "log": "build-HydrologyTree.ResultantBoundary.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RingTreeModel.olean",
+        "HydrologyTree/RingTreeModel.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.122,
+      "log": "build-HydrologyTree.RingTreeModel.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RingPairwiseResultants.olean",
+        "HydrologyTree/RingPairwiseResultants.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.669,
+      "log": "build-HydrologyTree.RingPairwiseResultants.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RingSiblingResidual.olean",
+        "HydrologyTree/RingSiblingResidual.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.971,
+      "log": "build-HydrologyTree.RingSiblingResidual.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SymbolicRates.olean",
+        "HydrologyTree/SymbolicRates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.819,
+      "log": "build-HydrologyTree.SymbolicRates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SymbolicTreeJacobian.olean",
+        "HydrologyTree/SymbolicTreeJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.SymbolicTreeJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CoordinateMultiplicity.olean",
+        "HydrologyTree/CoordinateMultiplicity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.418,
+      "log": "build-HydrologyTree.CoordinateMultiplicity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeExactMultiplicities.olean",
+        "HydrologyTree/TreeExactMultiplicities.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.92,
+      "log": "build-HydrologyTree.TreeExactMultiplicities.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MultivariateDifferential.olean",
+        "HydrologyTree/MultivariateDifferential.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.22,
+      "log": "build-HydrologyTree.MultivariateDifferential.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PolynomialMapJacobian.olean",
+        "HydrologyTree/PolynomialMapJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.PolynomialMapJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SymbolicCoefficients.olean",
+        "HydrologyTree/SymbolicCoefficients.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.SymbolicCoefficients.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FormalTreePolynomial.olean",
+        "HydrologyTree/FormalTreePolynomial.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.169,
+      "log": "build-HydrologyTree.FormalTreePolynomial.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/CatenaryFormalPolynomial.olean",
+        "HydrologyTree/CatenaryFormalPolynomial.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.42,
+      "log": "build-HydrologyTree.CatenaryFormalPolynomial.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesDegree.olean",
+        "HydrologyTree/StieltjesDegree.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.021,
+      "log": "build-HydrologyTree.StieltjesDegree.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesInterlacing.olean",
+        "HydrologyTree/StieltjesInterlacing.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.StieltjesInterlacing.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesZeroFactorization.olean",
+        "HydrologyTree/StieltjesZeroFactorization.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.StieltjesZeroFactorization.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesResidues.olean",
+        "HydrologyTree/StieltjesResidues.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.StieltjesResidues.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ReciprocalInterpolation.olean",
+        "HydrologyTree/ReciprocalInterpolation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.ReciprocalInterpolation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesReciprocal.olean",
+        "HydrologyTree/StieltjesReciprocal.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.StieltjesReciprocal.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesReindex.olean",
+        "HydrologyTree/StieltjesReindex.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.StieltjesReindex.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesGrouping.olean",
+        "HydrologyTree/StieltjesGrouping.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.StieltjesGrouping.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveRateAssembly.olean",
+        "HydrologyTree/PositiveRateAssembly.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.PositiveRateAssembly.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesChildAssembly.olean",
+        "HydrologyTree/StieltjesChildAssembly.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.069,
+      "log": "build-HydrologyTree.StieltjesChildAssembly.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveRealizationExistence.olean",
+        "HydrologyTree/PositiveRealizationExistence.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.PositiveRealizationExistence.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SizedSpectralAllocation.olean",
+        "HydrologyTree/SizedSpectralAllocation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.319,
+      "log": "build-HydrologyTree.SizedSpectralAllocation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SpectralFactorMatching.olean",
+        "HydrologyTree/SpectralFactorMatching.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.SpectralFactorMatching.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/AllocationPolynomials.olean",
+        "HydrologyTree/AllocationPolynomials.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.AllocationPolynomials.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveFiberAllocation.olean",
+        "HydrologyTree/PositiveFiberAllocation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PositiveFiberAllocation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveFiberTypes.olean",
+        "HydrologyTree/PositiveFiberTypes.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PositiveFiberTypes.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveFiberRecovery.olean",
+        "HydrologyTree/PositiveFiberRecovery.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.919,
+      "log": "build-HydrologyTree.PositiveFiberRecovery.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveFiberEquivalence.olean",
+        "HydrologyTree/PositiveFiberEquivalence.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PositiveFiberEquivalence.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeFiberCombinatorics.olean",
+        "HydrologyTree/TreeFiberCombinatorics.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.971,
+      "log": "build-HydrologyTree.TreeFiberCombinatorics.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveFiberCount.olean",
+        "HydrologyTree/PositiveFiberCount.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.PositiveFiberCount.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PositiveResponseFiber.olean",
+        "HydrologyTree/PositiveResponseFiber.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.371,
+      "log": "build-HydrologyTree.PositiveResponseFiber.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RecursiveFiberClassification.olean",
+        "HydrologyTree/RecursiveFiberClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.RecursiveFiberClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealFactorAllocation.olean",
+        "HydrologyTree/RealFactorAllocation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.RealFactorAllocation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealFiberRigidity.olean",
+        "HydrologyTree/RealFiberRigidity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.RealFiberRigidity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealFiberClassification.olean",
+        "HydrologyTree/RealFiberClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.RealFiberClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/DischargeFiber.olean",
+        "HydrologyTree/DischargeFiber.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.071,
+      "log": "build-HydrologyTree.DischargeFiber.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LinearForcedODE.olean",
+        "HydrologyTree/LinearForcedODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.069,
+      "log": "build-HydrologyTree.LinearForcedODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ScalarForcedODE.olean",
+        "HydrologyTree/ScalarForcedODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.069,
+      "log": "build-HydrologyTree.ScalarForcedODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RootModalData.olean",
+        "HydrologyTree/RootModalData.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.RootModalData.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ModalForcedODE.olean",
+        "HydrologyTree/ModalForcedODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.ModalForcedODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalModalConstruction.olean",
+        "HydrologyTree/PhysicalModalConstruction.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.674,
+      "log": "build-HydrologyTree.PhysicalModalConstruction.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/StieltjesWeightedMatching.olean",
+        "HydrologyTree/StieltjesWeightedMatching.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.92,
+      "log": "build-HydrologyTree.StieltjesWeightedMatching.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalForcedODE.olean",
+        "HydrologyTree/PhysicalForcedODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.PhysicalForcedODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FullResponseDynamics.olean",
+        "HydrologyTree/FullResponseDynamics.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.FullResponseDynamics.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalMassODE.olean",
+        "HydrologyTree/PhysicalMassODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.324,
+      "log": "build-HydrologyTree.PhysicalMassODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixFlow.olean",
+        "HydrologyTree/MatrixFlow.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.572,
+      "log": "build-HydrologyTree.MatrixFlow.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ExponentialODEProbe.olean",
+        "HydrologyTree/ExponentialODEProbe.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.171,
+      "log": "build-HydrologyTree.ExponentialODEProbe.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TimeDomainIdentification.olean",
+        "HydrologyTree/TimeDomainIdentification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.52,
+      "log": "build-HydrologyTree.TimeDomainIdentification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ContinuousOutputFiber.olean",
+        "HydrologyTree/ContinuousOutputFiber.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.ContinuousOutputFiber.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TimeDomainDischarge.olean",
+        "HydrologyTree/TimeDomainDischarge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.571,
+      "log": "build-HydrologyTree.TimeDomainDischarge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ContinuousDischargeFiber.olean",
+        "HydrologyTree/ContinuousDischargeFiber.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.ContinuousDischargeFiber.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ModalKalman.olean",
+        "HydrologyTree/ModalKalman.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.ModalKalman.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalKalman.olean",
+        "HydrologyTree/PhysicalKalman.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.969,
+      "log": "build-HydrologyTree.PhysicalKalman.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TrajectoryObservability.olean",
+        "HydrologyTree/TrajectoryObservability.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.271,
+      "log": "build-HydrologyTree.TrajectoryObservability.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ExponentialIndependence.olean",
+        "HydrologyTree/ExponentialIndependence.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.ExponentialIndependence.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ExponentialGramian.olean",
+        "HydrologyTree/ExponentialGramian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.ExponentialGramian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ModalSteering.olean",
+        "HydrologyTree/ModalSteering.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.ModalSteering.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalControllability.olean",
+        "HydrologyTree/PhysicalControllability.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.PhysicalControllability.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/FullRootLeakTheory.olean",
+        "HydrologyTree/FullRootLeakTheory.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.FullRootLeakTheory.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ControlEnergy.olean",
+        "HydrologyTree/ControlEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.ControlEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MinimumEnergyMoments.olean",
+        "HydrologyTree/MinimumEnergyMoments.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.MinimumEnergyMoments.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ModalMinimumEnergy.olean",
+        "HydrologyTree/ModalMinimumEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.021,
+      "log": "build-HydrologyTree.ModalMinimumEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/PhysicalMinimumEnergy.olean",
+        "HydrologyTree/PhysicalMinimumEnergy.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.PhysicalMinimumEnergy.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/OrderedTreeGraph.olean",
+        "HydrologyTree/OrderedTreeGraph.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.OrderedTreeGraph.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphPresentation.olean",
+        "HydrologyTree/GraphPresentation.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.GraphPresentation.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphRateTransport.olean",
+        "HydrologyTree/GraphRateTransport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.GraphRateTransport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphMatrixTransport.olean",
+        "HydrologyTree/GraphMatrixTransport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.273,
+      "log": "build-HydrologyTree.GraphMatrixTransport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphResponseClassification.olean",
+        "HydrologyTree/GraphResponseClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.GraphResponseClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphODETransport.olean",
+        "HydrologyTree/GraphODETransport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.323,
+      "log": "build-HydrologyTree.GraphODETransport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphDynamicalClassification.olean",
+        "HydrologyTree/GraphDynamicalClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.122,
+      "log": "build-HydrologyTree.GraphDynamicalClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphCoefficientJacobian.olean",
+        "HydrologyTree/GraphCoefficientJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.623,
+      "log": "build-HydrologyTree.GraphCoefficientJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphMassBalance.olean",
+        "HydrologyTree/GraphMassBalance.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.27,
+      "log": "build-HydrologyTree.GraphMassBalance.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphFullTheory.olean",
+        "HydrologyTree/GraphFullTheory.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.GraphFullTheory.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakRelocationRates.olean",
+        "HydrologyTree/LeakRelocationRates.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.LeakRelocationRates.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/DiagonalGauge.olean",
+        "HydrologyTree/DiagonalGauge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.071,
+      "log": "build-HydrologyTree.DiagonalGauge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphLeakMatrix.olean",
+        "HydrologyTree/GraphLeakMatrix.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.GraphLeakMatrix.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphLeakCut.olean",
+        "HydrologyTree/GraphLeakCut.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.97,
+      "log": "build-HydrologyTree.GraphLeakCut.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakGauge.olean",
+        "HydrologyTree/LeakGauge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.173,
+      "log": "build-HydrologyTree.LeakGauge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakRelocationWalk.olean",
+        "HydrologyTree/LeakRelocationWalk.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.LeakRelocationWalk.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedLeakFiber.olean",
+        "HydrologyTree/LocatedLeakFiber.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.LocatedLeakFiber.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GaugeODETransport.olean",
+        "HydrologyTree/GaugeODETransport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.473,
+      "log": "build-HydrologyTree.GaugeODETransport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedLeakODE.olean",
+        "HydrologyTree/LocatedLeakODE.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.171,
+      "log": "build-HydrologyTree.LocatedLeakODE.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedLeakDynamics.olean",
+        "HydrologyTree/LocatedLeakDynamics.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.LocatedLeakDynamics.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakLocationIdentifiability.olean",
+        "HydrologyTree/LeakLocationIdentifiability.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.07,
+      "log": "build-HydrologyTree.LeakLocationIdentifiability.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphModelInjectivity.olean",
+        "HydrologyTree/GraphModelInjectivity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.071,
+      "log": "build-HydrologyTree.GraphModelInjectivity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakImpossibility.olean",
+        "HydrologyTree/LeakImpossibility.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.LeakImpossibility.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakRelocationDifferential.olean",
+        "HydrologyTree/LeakRelocationDifferential.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.421,
+      "log": "build-HydrologyTree.LeakRelocationDifferential.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ScalarSlotJacobian.olean",
+        "HydrologyTree/ScalarSlotJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.024,
+      "log": "build-HydrologyTree.ScalarSlotJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LeakSlideJacobian.olean",
+        "HydrologyTree/LeakSlideJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.522,
+      "log": "build-HydrologyTree.LeakSlideJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedLeakJacobian.olean",
+        "HydrologyTree/LocatedLeakJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.623,
+      "log": "build-HydrologyTree.LocatedLeakJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/TreeMatrixSupport.olean",
+        "HydrologyTree/TreeMatrixSupport.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.371,
+      "log": "build-HydrologyTree.TreeMatrixSupport.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SupportedMatrixRecursion.olean",
+        "HydrologyTree/SupportedMatrixRecursion.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.824,
+      "log": "build-HydrologyTree.SupportedMatrixRecursion.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ArrowDiagonalGauge.olean",
+        "HydrologyTree/ArrowDiagonalGauge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.ArrowDiagonalGauge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SupportedStieltjesChildren.olean",
+        "HydrologyTree/SupportedStieltjesChildren.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.SupportedStieltjesChildren.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/SupportedPositiveGauge.olean",
+        "HydrologyTree/SupportedPositiveGauge.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.SupportedPositiveGauge.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/ConservationGaugeRigidity.olean",
+        "HydrologyTree/ConservationGaugeRigidity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.ConservationGaugeRigidity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealLocatedPositivity.olean",
+        "HydrologyTree/RealLocatedPositivity.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.371,
+      "log": "build-HydrologyTree.RealLocatedPositivity.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixStieltjesIdentification.olean",
+        "HydrologyTree/MatrixStieltjesIdentification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.019,
+      "log": "build-HydrologyTree.MatrixStieltjesIdentification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixTimeIdentification.olean",
+        "HydrologyTree/MatrixTimeIdentification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.MatrixTimeIdentification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealLocatedClassification.olean",
+        "HydrologyTree/RealLocatedClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.17,
+      "log": "build-HydrologyTree.RealLocatedClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/RealLocatedODEClassification.olean",
+        "HydrologyTree/RealLocatedODEClassification.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.071,
+      "log": "build-HydrologyTree.RealLocatedODEClassification.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixSiblingWeight.olean",
+        "HydrologyTree/MatrixSiblingWeight.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.321,
+      "log": "build-HydrologyTree.MatrixSiblingWeight.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/MatrixGaugeWeight.olean",
+        "HydrologyTree/MatrixGaugeWeight.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.221,
+      "log": "build-HydrologyTree.MatrixGaugeWeight.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphPolynomialModel.olean",
+        "HydrologyTree/GraphPolynomialModel.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.521,
+      "log": "build-HydrologyTree.GraphPolynomialModel.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphFormalDifferential.olean",
+        "HydrologyTree/GraphFormalDifferential.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.GraphFormalDifferential.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphLeakCofactor.olean",
+        "HydrologyTree/GraphLeakCofactor.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.GraphLeakCofactor.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/GraphPositiveWeight.olean",
+        "HydrologyTree/GraphPositiveWeight.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.GraphPositiveWeight.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedPolynomialWeight.olean",
+        "HydrologyTree/LocatedPolynomialWeight.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.12,
+      "log": "build-HydrologyTree.LocatedPolynomialWeight.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree/LocatedAllRateJacobian.olean",
+        "HydrologyTree/LocatedAllRateJacobian.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.02,
+      "log": "build-HydrologyTree.LocatedAllRateJacobian.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "-o",
+        "HydrologyTree.olean",
+        "HydrologyTree.lean"
+      ],
+      "returncode": 0,
+      "seconds": 1.869,
+      "log": "build-HydrologyTree.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "Audit.lean"
+      ],
+      "returncode": 0,
+      "seconds": 2.824,
+      "log": "audit.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "Replay.lean"
+      ],
+      "returncode": 0,
+      "seconds": 70.062,
+      "log": "replay.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GraphLeakCofactor.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.769,
+      "log": "negative-1.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LocatedAllRateJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.671,
+      "log": "negative-2.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RealLocatedPositivity.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.27,
+      "log": "negative-3.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ConservationGaugeRigidity.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.069,
+      "log": "negative-4.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RealLocatedClassification.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.072,
+      "log": "negative-5.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RealLocatedODEClassification.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.02,
+      "log": "negative-6.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LeakSlideJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.424,
+      "log": "negative-7.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LocatedLeakJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.174,
+      "log": "negative-8.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GraphModelInjectivity.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.97,
+      "log": "negative-9.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GaugeODETransport.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.322,
+      "log": "negative-10.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LocatedLeakODE.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.07,
+      "log": "negative-11.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LeakLocationIdentifiability.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.02,
+      "log": "negative-12.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LeakRelocationRates.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.921,
+      "log": "negative-13.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/DiagonalGauge.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.173,
+      "log": "negative-14.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/LocatedLeakFiber.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.023,
+      "log": "negative-15.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GraphRateTransport.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.97,
+      "log": "negative-16.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GraphResponseClassification.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.969,
+      "log": "negative-17.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GraphMassBalance.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.172,
+      "log": "negative-18.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/MinimumEnergyMoments.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.272,
+      "log": "negative-19.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/MinimumEnergyMoments.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.97,
+      "log": "negative-20.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ModalMinimumEnergy.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.02,
+      "log": "negative-21.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ExponentialGramian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.123,
+      "log": "negative-22.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ModalSteering.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.97,
+      "log": "negative-23.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/TimeDomainDischarge.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.471,
+      "log": "negative-24.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ModalKalman.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.07,
+      "log": "negative-25.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ExponentialODEProbe.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.121,
+      "log": "negative-26.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ContinuousOutputFiber.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.92,
+      "log": "negative-27.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ScalarForcedODE.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.019,
+      "log": "negative-28.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ModalForcedODE.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.171,
+      "log": "negative-29.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalMassODE.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.32,
+      "log": "negative-30.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/DischargeFiber.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.022,
+      "log": "negative-31.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RealFiberRigidity.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.919,
+      "log": "negative-32.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RealFiberClassification.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.869,
+      "log": "negative-33.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveFiberCount.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.869,
+      "log": "negative-34.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveFiberTypes.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.92,
+      "log": "negative-35.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveResponseFiber.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.32,
+      "log": "negative-36.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/SizedSpectralAllocation.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.267,
+      "log": "negative-37.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveFiberAllocation.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.223,
+      "log": "negative-38.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveRateAssembly.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.819,
+      "log": "negative-39.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/StieltjesChildAssembly.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.371,
+      "log": "negative-40.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/StieltjesDegree.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.971,
+      "log": "negative-41.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/StieltjesResidues.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.07,
+      "log": "negative-42.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ReciprocalInterpolation.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.12,
+      "log": "negative-43.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/StieltjesInterlacing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.12,
+      "log": "negative-44.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/FormalTreePolynomial.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.522,
+      "log": "negative-45.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/MultivariateDifferential.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.171,
+      "log": "negative-46.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CatenaryFormalPolynomial.lean"
+      ],
+      "returncode": 1,
+      "seconds": 4.275,
+      "log": "negative-47.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/TreeExactMultiplicities.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.82,
+      "log": "negative-48.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/SymbolicTreeJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.021,
+      "log": "negative-49.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ResultantBoundary.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.769,
+      "log": "negative-50.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/MonicResultantAlgebra.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.669,
+      "log": "negative-51.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/AllTreeResultant.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.871,
+      "log": "negative-52.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/SubtreeProducts.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.969,
+      "log": "negative-53.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/AllTreeJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.871,
+      "log": "negative-54.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PositiveJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.819,
+      "log": "negative-55.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ZeroOutward.lean"
+      ],
+      "returncode": 1,
+      "seconds": 16.81,
+      "log": "negative-56.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/SubtreeAssignment.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.769,
+      "log": "negative-57.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalBranchRecovery.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.571,
+      "log": "negative-58.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/BranchStep.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.272,
+      "log": "negative-59.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalModes.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.819,
+      "log": "negative-60.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/StieltjesNumerator.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.02,
+      "log": "negative-61.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalStieltjes.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.869,
+      "log": "negative-62.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/GroundedPositivity.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.869,
+      "log": "negative-63.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CatenaryCoprime.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.87,
+      "log": "negative-64.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CatenaryGlobal.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.069,
+      "log": "negative-65.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RootRecovery.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.87,
+      "log": "negative-66.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CatenaryOrientation.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.021,
+      "log": "negative-67.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CatenaryJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.723,
+      "log": "negative-68.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalConstants.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.819,
+      "log": "negative-69.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RateCoordinates.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.119,
+      "log": "negative-70.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/FiniteCancellation.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.568,
+      "log": "negative-71.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalRecursion.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.023,
+      "log": "negative-72.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ChildRates.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.82,
+      "log": "negative-73.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/ChildTree.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.92,
+      "log": "negative-74.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RootBranches.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.819,
+      "log": "negative-75.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalRootDecomposition.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.769,
+      "log": "negative-76.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/FamilyGluing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.969,
+      "log": "negative-77.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalLeaf.lean"
+      ],
+      "returncode": 1,
+      "seconds": 22.22,
+      "log": "negative-78.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/EdgeCharacteristic.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.569,
+      "log": "negative-79.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/BranchAssembly.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.919,
+      "log": "negative-80.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/PhysicalBridge.lean"
+      ],
+      "returncode": 1,
+      "seconds": 1.921,
+      "log": "negative-81.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/CompartmentMatrix.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.072,
+      "log": "negative-82.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Scaling.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.074,
+      "log": "negative-83.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/RootUpdate.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.325,
+      "log": "negative-84.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 4.074,
+      "log": "negative-85.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Gluing.lean"
+      ],
+      "returncode": 1,
+      "seconds": 4.374,
+      "log": "negative-86.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/BlockJacobian.lean"
+      ],
+      "returncode": 1,
+      "seconds": 2.37,
+      "log": "negative-87.log"
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/lean-4.34.1-linux/bin/lean",
+        "HydrologyTree/Coefficients.lean"
+      ],
+      "returncode": 1,
+      "seconds": 3.623,
+      "log": "negative-88.log"
+    }
+  ],
+  "source_sha256": {
+    "FORMAL_THEOREMS.md": "c2c5f8b00d3f2ac45ede87efaff1171c9fc5c74f2d47e8b566dbf33df147570b",
+    "HydrologyTree.lean": "39e5b918e58d07815a8843504839046e1dd36320ed6c353a90743ce10d7f2178",
+    "HydrologyTree/AllTreeJacobian.lean": "750dcba61d037df41574a03433c865e8f7d501ea5ffb0da78071b922b3e294af",
+    "HydrologyTree/AllTreeResultant.lean": "a9c52bd4b9b800c492407caccce7c8cee911a9f6d6dd6b8391824196243c106e",
+    "HydrologyTree/AllocationPolynomials.lean": "9b51cc907ea66cde35b64c1e5bdbc833d152c1a9ac8ac746c86f3af56494f1b6",
+    "HydrologyTree/ArrowCharacteristic.lean": "eccf072b7733ffdc88948a449b2768913e8613b0d9ffbeb1c3570d01bdf34c4b",
+    "HydrologyTree/ArrowDeterminant.lean": "c2289f9773d83922a3cbb9a716f0c51c6b4e209473cca61b89e0fca74de1ec82",
+    "HydrologyTree/ArrowDiagonalGauge.lean": "eab978408cb5233acabad175f49190569a705512939e5a7e6de68b3cc1464865",
+    "HydrologyTree/BalanceWeights.lean": "60be46a2b09483723c57421d6962de6ad49ef5cef8757092a726910cca51b251",
+    "HydrologyTree/BlockJacobian.lean": "949a9cc3afaf1c53bcdb9daa40fb6e96731e784c30b1750da75ae098cfca4779",
+    "HydrologyTree/BranchAssembly.lean": "59740e62c4946c1698f3c41ef66087893d415732ff9b8dc921e96df6d805395b",
+    "HydrologyTree/BranchConservation.lean": "4861fe63713cc44ede8ecf27a8bbf2b06491a73e5b4defbd82c88eea0dd036d8",
+    "HydrologyTree/BranchMatrixSupport.lean": "76c98a1551860f86ab532ecce8392b8cd4cc1f34ee37acb369ef67b4ebd43d6a",
+    "HydrologyTree/BranchStep.lean": "a556ff2126518854c16c40096a86917f03bfef024c85b594666295a24e36c102",
+    "HydrologyTree/CanonicalTree.lean": "6595e14156d1b9dc8d731795341c7a8ff629c4505b7483a5f75a265d47d0e24b",
+    "HydrologyTree/CatenaryCanonical.lean": "4957391b937adbb0e1689b223cab62c3ff14914387228b02a077ce28f3df69da",
+    "HydrologyTree/CatenaryCoprime.lean": "b4ede903f0d87b195c4144eb13ebbbd0f4a2fdafbca5b3067a468ebcaa95fea9",
+    "HydrologyTree/CatenaryFormalPolynomial.lean": "deb8f388c185f7fa0014c2cc8ee7ef7bf5869236d15ec316167031fb0273ba4d",
+    "HydrologyTree/CatenaryGlobal.lean": "8b0956b0b2e9d4ad817b9990171d85747ff9d7ce1195fcc91f49e9151aab6541",
+    "HydrologyTree/CatenaryJacobian.lean": "300b61b84ac764c7068a81fdd08030980108b638cc429992254877e477347f90",
+    "HydrologyTree/CatenaryOrientation.lean": "d944fb62f339fe82234b747c7c498ed8f0a10190febab2582b35cd197c1f45cc",
+    "HydrologyTree/ChildIndex.lean": "ef617ee19d93b8fd273cd70bbe441a54ce79a5ce3da694616adb67869356a1d7",
+    "HydrologyTree/ChildMatrix.lean": "eaa682115fb8c1959f3caabfd9b1d8d95d1650fccfa67118f01e1876fdfb2f7c",
+    "HydrologyTree/ChildRates.lean": "6c8a54086231d29e54a20e250a7ef53040fd0abbec8ad4db132b8de1a043feef",
+    "HydrologyTree/ChildTree.lean": "4c51c7ef03b157b4c138fdd478c43e6cfaca1450237acf551d8cd0aa30d1f120",
+    "HydrologyTree/Coefficients.lean": "7c21e791086dbd128f5d01b4d70fc518c5e178bc7bca019a7ee4429c946db59a",
+    "HydrologyTree/CompartmentMatrix.lean": "8bb060ab9bdf323e9e362b97003a716ad0b295b362bf3f751d6fa20d03f1875a",
+    "HydrologyTree/ConservationGaugeRigidity.lean": "065fb22671492cac6d631ebe474aaccf60cb210b24c689fffa9c3048a003f4d4",
+    "HydrologyTree/ContinuousDischargeFiber.lean": "157664d044eb37d196aa1324ace8c2cd9c753acafd5f1ea6d36b9e04858c6fcc",
+    "HydrologyTree/ContinuousOutputFiber.lean": "19a78031b916297a40363ae9555275de636ac3e1ed4763e6483888273b2f6305",
+    "HydrologyTree/ControlEnergy.lean": "508c48f54c700fc99c894ebbd79d5cd605f0cb8c4a0afc64fe5cc284e293c9ad",
+    "HydrologyTree/CoordinateEnergy.lean": "e64a3e93bbdadbe3f16c1ceecfef855fcc2d67f233e7e5250d2bb5b05b6d1eff",
+    "HydrologyTree/CoordinateMultiplicity.lean": "1827206e77614a3fe888cbda59e8788cafa1325e4daba307e85ff7fcd80440f8",
+    "HydrologyTree/CoprimeBranchRecovery.lean": "99038d46b663d1b5d5a09713549a51f101d25e7e95a1995feb258570e956f9f5",
+    "HydrologyTree/CouplingSemantics.lean": "e5e0f23fa69674c5dd75b68a1e759e7ee63c4d4d663e65af70a408b84a3e5a88",
+    "HydrologyTree/DependentBlocks.lean": "47d2d8d7e73869f14ec9ffe98b30d5ea1f9320ca8f9e9d1fd636863e7237ba5b",
+    "HydrologyTree/DependentJacobian.lean": "0d9764ff9b9275c335d8fe245486a1c91e1a50ddf70c9d43b5a4e8569983bffd",
+    "HydrologyTree/DiagonalGauge.lean": "5ad03ae672bb261faa17d77a0d78796f539eef5f942f31c3511358752a1dc743",
+    "HydrologyTree/DischargeFiber.lean": "cf2269cc2f43292fe95c599a6622294ac10eb5c571d854d368b89b4b16424271",
+    "HydrologyTree/EdgeCharacteristic.lean": "180456ffabbfde799b84ad102ee9f62e5c86ba2efe932ae739324ee0bb301a11",
+    "HydrologyTree/EdgeDeterminant.lean": "2b9f8b6fc2e4d3c827cf1af3ba7017d273aca7db8cff0df5bf59cd5a0d450159",
+    "HydrologyTree/EndJacobian.lean": "d996b6226fb47d8a71ebafb2eab0b69a7692e867452c5b8637aa6b3acbe3270a",
+    "HydrologyTree/ExponentialGramian.lean": "14163b524000c938c7e8570bf499129eee60604c4fa0eb2d77cca2904d4dffcd",
+    "HydrologyTree/ExponentialIndependence.lean": "fa91a004e4447f267d823c0b4a71d56323989ecd5e99d703dafd5b44ca69042c",
+    "HydrologyTree/ExponentialODEProbe.lean": "e7deaffaff88ed718ba6bf4d672cc30d22330a497e3b4848f103c9022e8b38b3",
+    "HydrologyTree/FamilyCoordinateEnergy.lean": "ebf2a831fae076892803f620b73733b5123bbb53548b0128617eebbd3e60e957",
+    "HydrologyTree/FamilyGluing.lean": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6",
+    "HydrologyTree/FamilyNormalization.lean": "237b96562567fe68a45e7eb31d3514f4b07c1468c91d31792e794ba1abb95f69",
+    "HydrologyTree/FamilyProduct.lean": "ad0e3af4e4a36faddb0916bc64ea8a5d483ae861298b77bdfc17bb27697b13ac",
+    "HydrologyTree/FamilyResultants.lean": "3972d33ce8cd099a90d348d66ade1c81f2b87ba7aef3ba6de9ade819cfdf1c93",
+    "HydrologyTree/FamilyScaling.lean": "3a244c8a3dddc41e18368fb4fff7783989094eb9963de47799926f9c9a74ab77",
+    "HydrologyTree/FamilySmoothness.lean": "80f1528bf353a12fb96c10ab682af456c88f726286cd0166297ab6f7709e3ecf",
+    "HydrologyTree/FiniteCancellation.lean": "13819e480250c6a3f79b4445ef0d68c8a5cf17c49abddadf8fcb9df44fc1c43f",
+    "HydrologyTree/FormalTreePolynomial.lean": "1081cea9be6d3f21144459c82c4f08b86dacb8567df7c3aaff4e13c97a6c18f0",
+    "HydrologyTree/FullResponseDynamics.lean": "dbb409f8bacd754c496a45648c39b8fb18cb4d5d8ab884ae74e696900b485aa0",
+    "HydrologyTree/FullRootLeakTheory.lean": "a73ba6b057d1d62a49394393bf3950581e45c449eff14aa5776f04bd34a8f491",
+    "HydrologyTree/GaugeODETransport.lean": "9285fb4e314b03b91bbbd19bd634c457d91f1122f7fa25116d52de9086504610",
+    "HydrologyTree/Gluing.lean": "d7ce77b0fab0a00365e2d8cdf37e979313c892cb1c416dbd654890fe232b75c6",
+    "HydrologyTree/GraphCoefficientJacobian.lean": "59c80e40dc214ed2e25ac7c2b666f21ace1d4f1a4cd289e7a5823558705b0ba6",
+    "HydrologyTree/GraphDynamicalClassification.lean": "5442b71ef3a5db2e1ae2ca859b843ca8609aa5c6512ea0d8cbffa6dda1293617",
+    "HydrologyTree/GraphFormalDifferential.lean": "96eb04c15e2eff77f801a2e096091c31a5ab65c494700770ed5f944797b22225",
+    "HydrologyTree/GraphFullTheory.lean": "c9d67613fee1102ab45b5b9f9865afe52ed910ad9ce3f5098ec37cff3d086955",
+    "HydrologyTree/GraphLeakCofactor.lean": "a71d33c4579cde7efb69cc2f746b04b67ed2cacb8ce28ea59ad2facaae12876d",
+    "HydrologyTree/GraphLeakCut.lean": "a723aef929047cd67591f6117217a0190783007d5f02b6d99d68841870ad8a51",
+    "HydrologyTree/GraphLeakMatrix.lean": "8f193bab20d93c2df6e35044496894fb83c964571e3759cfd2bcfe2f738701c3",
+    "HydrologyTree/GraphMassBalance.lean": "6a3d6c485c3d05075d903ed5240b2b5d7e5bc4af1da62cce65d23a015af4b2f4",
+    "HydrologyTree/GraphMatrixTransport.lean": "67641a4f4cb704b064413e9241c710845e972a2ee498265752d3badc351ca849",
+    "HydrologyTree/GraphModelInjectivity.lean": "31050e04ece2cbc663fd8e79c6f03b14fb2a5b7b9a3a3796124e6f26f8d2645e",
+    "HydrologyTree/GraphODETransport.lean": "5f0beb2b448f5d9886ed25bfc006627de5a01cb3a1ff67d04ea94f5d67cbffb0",
+    "HydrologyTree/GraphPolynomialModel.lean": "3214bbceedeac7ecf3da2a091f72f296b68de01d0d7fb3e279b5fb9799caf2ef",
+    "HydrologyTree/GraphPositiveWeight.lean": "024b9994d3638d84ca4fe01e2e469289de10d036927c6160801cd7f9484dfe34",
+    "HydrologyTree/GraphPresentation.lean": "20c596ebc69d9cb1f9ad5d1caffbf843c3f8947a8058e59205bade358929db98",
+    "HydrologyTree/GraphRateTransport.lean": "e3dcf1edb91948f7e6ff2f570987083cd9cf70ad3b954e7a2ce4dd95ae52f4d5",
+    "HydrologyTree/GraphResponseClassification.lean": "1995204955b88207395e9e9cf64099fd2f48be870328b82d24623aec4651a1a7",
+    "HydrologyTree/GroundedPositivity.lean": "9f3187914bead93a695dff894d3eb900b485e6b8da9f6d3f59708d173b3431c8",
+    "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
+    "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
+    "HydrologyTree/JacobianRegularity.lean": "c6e71a8c1c2c3fe3f978502483f36228571c1bde39d15632d90009cbed65441a",
+    "HydrologyTree/LeadingCoefficients.lean": "86c7d07a108b336daaa3b81eb2871155f55396110969dee4f65a5616ac532eb7",
+    "HydrologyTree/LeafRecursion.lean": "c039563085aea24353ffb08816d4b9cc3b29cc7e70d008508ffac646aff2d5de",
+    "HydrologyTree/LeakGauge.lean": "e42f6ba1d1207cb1340a9895dfd3dbd1c4419c064f0f006598fe8f818bcb91e3",
+    "HydrologyTree/LeakImpossibility.lean": "6c4aab9e762ab23d9d5ff09bbdf0d4635328832373c895c09bd892763c5e3297",
+    "HydrologyTree/LeakLocationIdentifiability.lean": "6cd1c43019cd8eabc8f7e63b93b54f667e2609db699ca2a39259cb10cdc07aec",
+    "HydrologyTree/LeakRelocationDifferential.lean": "d0722e2303207b5c7793613b35ca9af2e1e729847aac07a0aa1d896da861c9e8",
+    "HydrologyTree/LeakRelocationRates.lean": "5a8c6918f5e8e97d535a0a4cdf486f38abc148d6b54007c67c65930d4118c4ca",
+    "HydrologyTree/LeakRelocationWalk.lean": "73264f8c8c9a87d10ee5430a9cc9cbb020d6388ec078c05e68c6e437d8aa42c9",
+    "HydrologyTree/LeakSlideJacobian.lean": "99d0e3ee614a7dd347aa1d86f124a9d7867bfae7187c2c0a5bbaa951583890f9",
+    "HydrologyTree/LinearConjugation.lean": "050b3c4b024c31832c6d53207db0271c317f25eabde29180dde5414ceccad305",
+    "HydrologyTree/LinearForcedODE.lean": "317ede038033b19217c5524a07682919df21b1512d71b948c0820a25dac645a8",
+    "HydrologyTree/LocatedAllRateJacobian.lean": "72f72cf0fec21cb423555b33c93c5badc0064c1dcfdb5c4a78be138eb61da0c7",
+    "HydrologyTree/LocatedLeakDynamics.lean": "d2b25a187ed14a15cf521f674cfb92dcb96290341be7aa94a83db88e4755b3e8",
+    "HydrologyTree/LocatedLeakFiber.lean": "4ecc8532e86574d43fa81b2592ffe65ab63f1365732f395e729120e733313f19",
+    "HydrologyTree/LocatedLeakJacobian.lean": "8a094892fb68852e6e0c90c295ff19e3942ff4fd3662c15cc63a0ee77f1205ee",
+    "HydrologyTree/LocatedLeakODE.lean": "7b2b722a6806213bb2a8729a7acf98f133c8677983b283d2e9e4784411557b08",
+    "HydrologyTree/LocatedPolynomialWeight.lean": "d15c3c9becc57a416a100ffe8948c02d366b46030b5660f63b95bc0291d00555",
+    "HydrologyTree/MatrixEntries.lean": "affcd0f0f500308a8ba92206a3c71661c44b4d1fa8d477c094ada81e3b1019d4",
+    "HydrologyTree/MatrixFlow.lean": "1f2abead1ca9e15b7a676bad2e97818a7ad4d1828ea06333c027552cd56df6d0",
+    "HydrologyTree/MatrixGaugeWeight.lean": "225372f37bfa8b6462054afb91b0e8c8fc17695918f0963c8158ea3c59fbb6c5",
+    "HydrologyTree/MatrixSiblingWeight.lean": "14a7050bba0843886be40ac74c6f4e02f2fc8c405c5c09dc3543eefa0f17b295",
+    "HydrologyTree/MatrixStieltjesIdentification.lean": "522a6c52eb3257b15b76f0e58a1e04c969fc615d0473dec4e0ddcd5600da726f",
+    "HydrologyTree/MatrixTimeIdentification.lean": "839881ab1d92cc3e2208f8c08a79a3e14bcce1775a6305ea0367761a1b5e0973",
+    "HydrologyTree/MinimumEnergyMoments.lean": "e5a922d5b7b0b2b22d15794f71f004e63711fdfce1e3f5487cd23e1f2b2c2ada",
+    "HydrologyTree/ModalForcedODE.lean": "227128ed33cdbc4947159393343174ee307679a2b519dd608a474c574414f106",
+    "HydrologyTree/ModalKalman.lean": "986da9efe3dc4fd49ff232a2d92dc2d6c27ae0c76fc93a21b45b3522a3c4a765",
+    "HydrologyTree/ModalMinimumEnergy.lean": "c55ed4341b6eac221f6aa0a8a427485ba0d8938e99d5dfc6601e595d70993a5b",
+    "HydrologyTree/ModalSteering.lean": "1608257a20fc3e48842515763cf5eb64db8132e056adb0f0545270b54933281c",
+    "HydrologyTree/MonicResultantAlgebra.lean": "118b0cbeeda1c0d4a17e57e0e1a19196f37aad947c835b5b2adf475bc2c3051c",
+    "HydrologyTree/MultivariateDifferential.lean": "8456c4a88290485bff6de4e0ea86b6b44e5aa3347f6ef6bace4d2e9ac51922a4",
+    "HydrologyTree/OrderedTreeGraph.lean": "8d23e9e237879691d1360e74c55b2e2cf64b7b65776c193711c1497641d14f6a",
+    "HydrologyTree/OriginalWorkCoordinates.lean": "91de86ab666c28bbea34a07fa220f2ee4699ace41f657362892953748bd4b52d",
+    "HydrologyTree/PathInduction.lean": "39bb628b7afb4c7e298aad9f5782dae4109f147bf88119bf1c6a07df3a6c1d89",
+    "HydrologyTree/PathNormalization.lean": "dd253c2af5bb48cb0044fd5c941288011812af611f93e1efa97c7354416f115f",
+    "HydrologyTree/PathPhysical.lean": "4673ff25be81173452ae6c311b08b526453925bca35b3098569e7b43d31e6c66",
+    "HydrologyTree/PathPolynomial.lean": "232bad5c5f8debf9bb2dd95b2408bc2b88496de36f7209e7154ba0a60ef6558d",
+    "HydrologyTree/PathRates.lean": "9998ab3e20875a475612196ebef1323175bc53fcf73bd8cf01775f3cc28717fb",
+    "HydrologyTree/PathRootTransform.lean": "8600f114583bbd1f8c0569734359aab6ac90da283bf0f3228c509c1e83b12d12",
+    "HydrologyTree/PhysicalBranchRecovery.lean": "8c8dfc546169d8944768c5c1b1519da0f5a41415cb5acc128b85def1afb5d936",
+    "HydrologyTree/PhysicalBridge.lean": "54b6cbd39d7717bde62272659991fc865596af948da116486e1c07749677f628",
+    "HydrologyTree/PhysicalCancellation.lean": "96705736c35803c077494b58ec468271f9e6bcd0245667b772edd9494140faf1",
+    "HydrologyTree/PhysicalConstants.lean": "22d638b9ed435a34dc9a5c837e8bcfd75c03da2047f9a03008adcb41a95bf7ee",
+    "HydrologyTree/PhysicalControllability.lean": "8369824115f8218537f0b807142113ab5923d250369ad9cd14c644d169d9d27e",
+    "HydrologyTree/PhysicalForcedODE.lean": "77a257ebe3270fac835da1b4ac2dad33628aa653525df8e0d25681d1bc124072",
+    "HydrologyTree/PhysicalKalman.lean": "6c8f3627a4de0f1f6c496a82cc0aba79dfd29d1eaaf38fd712fc329b1d57c600",
+    "HydrologyTree/PhysicalLeaf.lean": "ef714d3cf4e0d0b83c9b078448a5b0d420f1bcff51bea5e25a060269b67b0675",
+    "HydrologyTree/PhysicalMassODE.lean": "6124b8d5ee01d30584af2bdd69990fb076c617a04dc221bbf93371bb0ebe9515",
+    "HydrologyTree/PhysicalMinimumEnergy.lean": "0d333dec0ad189a437cbfc9c141f63a1df93bbc0c2aaa02e1755015a62ef40a4",
+    "HydrologyTree/PhysicalModalConstruction.lean": "277d77f2690c74137fba2737138a316e9d6fe92b7d0d8a30acb1d69cc3d23064",
+    "HydrologyTree/PhysicalModes.lean": "c7030f31f95c398ccb28b7fdd7ed260a94519796db06c8fa8f804e508e202a6e",
+    "HydrologyTree/PhysicalRecursion.lean": "90df308d419817f922fe6bbee4e4ca915fc7b8b2071b83ce9cfb0c1d47cd2395",
+    "HydrologyTree/PhysicalResultantRecurrence.lean": "7d8e41036d4b9a7d1b6dec12dcf911bd7a28b77c4d4e5da69a60bca0891b54f6",
+    "HydrologyTree/PhysicalRootDecomposition.lean": "f65e980ab710562461dd48c436a4d11052e754cd6242521fc73de3924a8cce40",
+    "HydrologyTree/PhysicalStieltjes.lean": "015eec868d64076140b5197c72e7fdf5e1c5836e6551b997745ad9073a990cbf",
+    "HydrologyTree/PiSerialization.lean": "3690f80432bf61ff9b6826bb3007add5e8e338510340f3955994e2ef7d6cd331",
+    "HydrologyTree/PolynomialMapJacobian.lean": "2569926c94ec9acf97c415144fab2358caeb5a51e075b732b58704d5b80ff7a4",
+    "HydrologyTree/PositiveAssignment.lean": "a43923a901dbc4a39619fb3562c10efd680d05ed6d96136b88d4fb1a4f7b37c2",
+    "HydrologyTree/PositiveChildModels.lean": "4150a3040592ddcf4b82e1d7539be0d4d8c3f4e722d10c0386921f54369f6eb0",
+    "HydrologyTree/PositiveFiberAllocation.lean": "ff4611f1bc79745f75d40333b612335dab996335eb6d3ed313b79e51ef4df9c4",
+    "HydrologyTree/PositiveFiberCount.lean": "78448afd4ae6958332e151b10625ff6a77ef71741598981de1671dcd582cd439",
+    "HydrologyTree/PositiveFiberEquivalence.lean": "989e65bbd219618bd7af3b49ea07c4776156b832af044d29baa13a3d08dacb97",
+    "HydrologyTree/PositiveFiberRecovery.lean": "17bf5f009ef584ddcf2a84ee598bb0adcd7f03f29deb392236179e04e52f0fa9",
+    "HydrologyTree/PositiveFiberTypes.lean": "fd2ac4ba81181e2cbcdb09d6f01ec28c8050bd5dcb90bb95d2f3dd42181e1e11",
+    "HydrologyTree/PositiveJacobian.lean": "f76d845f7fc5b4ba47c1d7f14273d72585d51524ad2c572de49ac7e88e09a6c4",
+    "HydrologyTree/PositiveRateAssembly.lean": "804344de84f823b7e54e80f78cd000b7ff5b7a7f6cd9b28c9c8833f0ad03d865",
+    "HydrologyTree/PositiveRealizationExistence.lean": "c2702b3fbd9c1e155ab9729fdb4b1f47407d6ee9cae0955b08e72f7ba618e1a7",
+    "HydrologyTree/PositiveResponseFiber.lean": "889d39d9837b45bd8ac458658089958d85703f65f41df96efd1e4768b46fee09",
+    "HydrologyTree/PositiveSpectrum.lean": "516beb9b426ec802cdf0cbc1524677f44ba6a4a7c8ee6b3238c75d9db7649c01",
+    "HydrologyTree/ProductDerivative.lean": "5a8b9ae6886e81217f77d103ece2cbafbcb774e24ef3ec9096a9b22045e5f7a2",
+    "HydrologyTree/RateChart.lean": "7bc70245639139d6191f8c2f0ec44b80f78c9a889b9f932859160d6af4cf3f03",
+    "HydrologyTree/RateCoordinates.lean": "fd53efa9c07ddd97ac06375b8291dd312222b6a445c5c72404f75465e3c1ac2f",
+    "HydrologyTree/RealFactorAllocation.lean": "e8f32c5c84a18ccb5a9aa147879f9c32a1acd58bd8cd9ed3434f48472c2bbd23",
+    "HydrologyTree/RealFiberClassification.lean": "524e86e8fe98433b63f139fb7d2e8bf8ec7bc92091cb0102572d4da312896955",
+    "HydrologyTree/RealFiberRigidity.lean": "e932d4efd4493ba6d17fa440dcd1d804e7bff56274561c5b0bd5fe9c3f8c1b0b",
+    "HydrologyTree/RealLocatedClassification.lean": "72ca20a213dcc0dfefd224c9ece1442e1a7766c8df6c45f5fcc6399e343fa76b",
+    "HydrologyTree/RealLocatedODEClassification.lean": "6fb6ffbe76ffe9474a463b6d3505e74d5262822c9892b9e825971ef87fe5d9f8",
+    "HydrologyTree/RealLocatedPositivity.lean": "88f5e077ba4f899f74dd16f6636c407fd8d5c8ee4ded6d0551c6f7823b4fde03",
+    "HydrologyTree/ReciprocalInterpolation.lean": "8a28458ec83e628508db0a199453862b79d321068c844581a4c1e3135145ea03",
+    "HydrologyTree/RecursiveFiberClassification.lean": "085d444c6a916962a13d7fb638aec314ccb401c94405cc1444b7d9bb5cdde34b",
+    "HydrologyTree/ResidualFactors.lean": "43242463601198904ff3895c4f421f38624437ed26888c6284ca2417f8cdffa1",
+    "HydrologyTree/Resolvent.lean": "7723f0f4dfdfe7de6ad93b462b3d7ea310e215ae38c427714a629344efc062c3",
+    "HydrologyTree/ResultantBoundary.lean": "79223d9f987489b582f8b4a6334023d02e9c7b77f892545e203b78bd81f298ad",
+    "HydrologyTree/ResultantFamilyEnumeration.lean": "0dba8d2f792794ced9e9a7f8f6121baf11161ea6f79dc8e2d921240a99faa57e",
+    "HydrologyTree/RingPairwiseResultants.lean": "079cdcf23d09ae7a0857de1063bb30e1b9e97e7098d1606e3fbafb933b62eda8",
+    "HydrologyTree/RingSiblingResidual.lean": "c50d654a349af255b08fc55eb8a1b57a37f3738b1de9c72a8aa27bc6c08ff2d3",
+    "HydrologyTree/RingTreeModel.lean": "662ceff95096fbf3e1aaced5ce92ef8241a35bff2aa9b08240e3f8d0cfcecc5e",
+    "HydrologyTree/RootAttachment.lean": "a6376191302dfbb1199db7b7a40a9a163ea2ef05fdd36d784c6c7f5af0d4d9de",
+    "HydrologyTree/RootBranches.lean": "7fcf10deb851d042b7815a9910dc67fe9a8300d16e474651ea5c76805bf2d004",
+    "HydrologyTree/RootCoupling.lean": "487f5a86c65078e5757ef961a0ca54540d9fdba1ac232c4a95910130e6db2d26",
+    "HydrologyTree/RootModalData.lean": "a1354a2b3669ddf60cd7e762ec68c7f2f5f2cbfd85993cc8384f5c330aeaef82",
+    "HydrologyTree/RootRecovery.lean": "a029a8560b3318f369a4c37d5e1657c67acb5f863ec29b0c02228a22e6774579",
+    "HydrologyTree/RootUpdate.lean": "42a9c1b2fe59ad4a99c0b477e48a6f16647344aae57bfc3a35ccc729cb37bb10",
+    "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac",
+    "HydrologyTree/ScalarForcedODE.lean": "9b87b30297bdbf9a1610d2f9f63696987a94a5d456cbc5609fca12b04560fa80",
+    "HydrologyTree/ScalarSlotJacobian.lean": "4c8a27b6655b27f032e1706786817d2054e59ed3610b3a49b6b1e113ea1ac175",
+    "HydrologyTree/ScaledSerialization.lean": "6bdefc80a55a6dfb02a6ae9a72ff7f8d273450c2f2cc179b1f1996bd70c3876e",
+    "HydrologyTree/Scaling.lean": "fb50c6daa4bb636c5641d867da9afe018e7bf01c22078f7027d27e65cc2d23aa",
+    "HydrologyTree/SerializedNumerator.lean": "445672db9fd532f2537e31d334fa6882f5de0a1a4d69f250499ced6dcfa5b302",
+    "HydrologyTree/SignedFamilyResultant.lean": "4cc99ff42568ad376c7bb47df9a2cdfce3392e3b9347b8e400684ca360aa5009",
+    "HydrologyTree/SizedSpectralAllocation.lean": "b0e8bac533977fd5f2d5178312527028f8351e3fa4de2558b5543a300acaa947",
+    "HydrologyTree/SpectralFactorMatching.lean": "fb78a75866f2f8074de1758c354ed59a499f3bdd91ec2c97336d8d225d969c6c",
+    "HydrologyTree/SpectralResolvent.lean": "dfb32bc97fbb38e09bcecdb01645070507bf0dae2bd8e284be0dd92e05fd176c",
+    "HydrologyTree/StieltjesChildAssembly.lean": "87f111b149028a7ca053be57051f9ebb31dd6e3e138b4fe1910f46425d8dead0",
+    "HydrologyTree/StieltjesDegree.lean": "a35d9e35b9c6d09e0c3dfff440a9f6aabe3d5afa35f219d9eb72fe32e15c4a35",
+    "HydrologyTree/StieltjesGrouping.lean": "84df7b97e9dae02fb9da3c4c6f6d59a94866a24419470309fb5b55b9c8d6f810",
+    "HydrologyTree/StieltjesInterlacing.lean": "e6ea01461cc858aff0d305000a094dce578374d75d8f51f9c186811fcef08a9d",
+    "HydrologyTree/StieltjesNumerator.lean": "c51a92eeafc5ca920b1e8e511e4ae8c20935f76976028e7ef80f1781f1487e6a",
+    "HydrologyTree/StieltjesReciprocal.lean": "f6e347de2c1b610023bfc7329914aed4d3a71bb5de4105c30c53804019822199",
+    "HydrologyTree/StieltjesReindex.lean": "6207225c3589fb6bdd1ddd3d55c270c1b3e65bf795bc3d430188093d04b32073",
+    "HydrologyTree/StieltjesResidues.lean": "368b07ad2c4f10c9a3e3cf9d8d23087eb3899dd4c8be25668ed60bceab004e25",
+    "HydrologyTree/StieltjesWeightedMatching.lean": "4faf4a2ed415d9cf71bca04b298aab287a16e67112ca87cfc5854f3aed9b99fa",
+    "HydrologyTree/StieltjesZeroFactorization.lean": "e9fe66da19adfb1f2652017befd3d9814a6f07df6dd252daf3cbc8238c2105c5",
+    "HydrologyTree/SubtreeAssignment.lean": "fa651c64d04784d0a6a7a318e80137057a8e4c9af1ebc8a4452c04f63394b6bb",
+    "HydrologyTree/SubtreeProducts.lean": "353a1839e3b4e79d4360f10edede992d27614eacd3bf87edd606f02aeb6d5869",
+    "HydrologyTree/SupportedMatrixRecursion.lean": "3713242882b7855709c6b005b316a0084e4d57e539c94edd42c9d6fdddba8dec",
+    "HydrologyTree/SupportedPositiveGauge.lean": "541a2c117eeeb67d787a1213c0a8a29e6ad3285b7d31761198929629e3304ee0",
+    "HydrologyTree/SupportedStieltjesChildren.lean": "d4b7c1e4d5fb5f2cc8379b6839b64de03c619718a0345675323dee1aff4e31d7",
+    "HydrologyTree/SymbolicCoefficients.lean": "1f4811dc56094a81f07535c22cc76790d8ff13573d61d91136a4bf131fac8c73",
+    "HydrologyTree/SymbolicRates.lean": "f6245399008e0806e881de53bb4ed4dc2c7ca148b8ac55d0a8b1e2bd6902e40b",
+    "HydrologyTree/SymbolicTreeJacobian.lean": "8d7dc11bda01e7a627d42fbcae2449522544de045eff1b0ebfc213853f11bcf3",
+    "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
+    "HydrologyTree/TangentJacobian.lean": "83bba2fd600259419cb966e5eb2702a2a69deb8ded48957f8dfa08cc087e5cfb",
+    "HydrologyTree/TimeDomainDischarge.lean": "8fc75c58dd9b6d5b300938b8694ed72789a3666ea5036b76e3ebe1be4fb29c2c",
+    "HydrologyTree/TimeDomainIdentification.lean": "2d3d5307f290231bf540e163672e07f52a672086b2a016cce0382f4d64c46e04",
+    "HydrologyTree/TrajectoryObservability.lean": "5daf720927b87c16d4d966270eb1f7de5384faa2014bafebe52292acdbafc0c4",
+    "HydrologyTree/TreeBoundarySingularSet.lean": "4568bbd47f307dd8cfa78c3bbcc23e61eb8d4856a7e59162d216da5a681e4c9e",
+    "HydrologyTree/TreeCancellation.lean": "6c261aa9c2b914442885235042bab09ba5bbc5e1710764865b5e15f956ca2aea",
+    "HydrologyTree/TreeExactMultiplicities.lean": "56703c7d5e36a8538f73f162325f581e338b0188785b859fc6983e21971f334d",
+    "HydrologyTree/TreeFiberCombinatorics.lean": "1c1bb08633d962a1192b6868d8563e9a7e89d25df0897da23e796151f19904d1",
+    "HydrologyTree/TreeJacobianRecurrence.lean": "e17ab6035169dc7cdee790d4d4b2179f0b488f6079baf1b9f5f9cd07f2a9ed03",
+    "HydrologyTree/TreeMatrixSupport.lean": "c7f32ed159d9ed6cd51f99cd16af3eadcc7c3987c6b4258b0316333f2102e8fb",
+    "HydrologyTree/TreePipeline.lean": "1d966a90c50183e3a547c40a6e1fea707170502780956a6f4dc6515466cd7c03",
+    "HydrologyTree/TreePreparation.lean": "f54351141ffd872e0e28b918f27506a7ea98ba53f4e28db9c6ab88a307cb591c",
+    "HydrologyTree/TreeStepSemantics.lean": "6b6c7a4e4875eeab831c3f8235d840d303cf7a7c8e026fc38b6e20192a59de81",
+    "HydrologyTree/Triangular.lean": "f29aad7225b6df109c254d9362b7e7efd4c3df1da5a9c43f189870a38b23b429",
+    "HydrologyTree/WeightedEnergy.lean": "4d8fdcad99619718647b05bdd0c5d953e73bcfd3b5abcd8f9f5e5b379e3f2fbf",
+    "HydrologyTree/ZeroOutward.lean": "3639e16f29c310471430f1bc1501ca41ccf857a0a22c46f77398ea1ce1544375",
+    "MODULES.json": "18f05b9e4018ff0f3632662b722dfb3eb51017bee59387f8e3f918696b19db27",
+    "ROOTS.txt": "efa90216935c4a7c411bb822d1c8332d6d90a9e9c0b9bc213a786109a0fc4312",
+    "audit/Audit.lean": "fa7759125fd8a75ef089ae37d0c8f4dd98137b204841dfc8f2582c3ec5a4edca",
+    "audit/Replay.lean": "233293fc658e36772e148768b17093bd6f5259e974167d95bfb90974c1fce573",
+    "fetch_cache.sh": "831d1822ef6773460c2fc2e53e474bdad178acd423eb4914572a135a74752f8a",
+    "lake-manifest.json": "0297f4de1373f8583f95f0511a95a1a95255a8164192247feda5a9dfc479421b",
+    "lakefile.toml": "7c75d5225023ebd497a6ffbecfd9ce49c8f462036682231acbd3fbcd0ebfdc46",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "reproduce.py": "cc581d97a343124f362fe34cb735773ff2ecb36a346b379e47fd02d365ef8eed",
+    "update_manifest.py": "f1f44ce6281f6d3d88a538753e04661cf22ba2e442c615f227384c0084e48fe1"
+  },
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "dependencies": {
+    "mathlib": {
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "source_blobs_checked": 9114
+    },
+    "plausible": {
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "source_blobs_checked": 31
+    },
+    "LeanSearchClient": {
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "source_blobs_checked": 11
+    },
+    "importGraph": {
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "source_blobs_checked": 57
+    },
+    "proofwidgets": {
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "source_blobs_checked": 48
+    },
+    "aesop": {
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "source_blobs_checked": 253
+    },
+    "Qq": {
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "source_blobs_checked": 31
+    },
+    "batteries": {
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "source_blobs_checked": 263
+    },
+    "Cli": {
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "source_blobs_checked": 8
+    }
+  },
+  "initial_owned_objects": 0,
+  "modules": [
+    "HydrologyTree.Coefficients",
+    "HydrologyTree.LeadingCoefficients",
+    "HydrologyTree.BlockJacobian",
+    "HydrologyTree.Scaling",
+    "HydrologyTree.Triangular",
+    "HydrologyTree.Gluing",
+    "HydrologyTree.RootUpdate",
+    "HydrologyTree.RateChart",
+    "HydrologyTree.CompartmentMatrix",
+    "HydrologyTree.PhysicalBridge",
+    "HydrologyTree.Resolvent",
+    "HydrologyTree.EdgeDeterminant",
+    "HydrologyTree.EdgeCharacteristic",
+    "HydrologyTree.RootAttachment",
+    "HydrologyTree.BranchAssembly",
+    "HydrologyTree.LeafRecursion",
+    "HydrologyTree.PhysicalLeaf",
+    "HydrologyTree.ProductDerivative",
+    "HydrologyTree.JacobianComposition",
+    "HydrologyTree.FamilyProduct",
+    "HydrologyTree.FamilyResultants",
+    "HydrologyTree.FamilySmoothness",
+    "HydrologyTree.TangentJacobian",
+    "HydrologyTree.FamilyGluing",
+    "HydrologyTree.RootBranches",
+    "HydrologyTree.BranchMatrixSupport",
+    "HydrologyTree.PhysicalRootDecomposition",
+    "HydrologyTree.ChildTree",
+    "HydrologyTree.MatrixEntries",
+    "HydrologyTree.ChildRates",
+    "HydrologyTree.BranchConservation",
+    "HydrologyTree.ChildMatrix",
+    "HydrologyTree.ChildIndex",
+    "HydrologyTree.RateCoordinates",
+    "HydrologyTree.RootCoupling",
+    "HydrologyTree.CouplingSemantics",
+    "HydrologyTree.DependentBlocks",
+    "HydrologyTree.ArrowDeterminant",
+    "HydrologyTree.ArrowCharacteristic",
+    "HydrologyTree.PhysicalRecursion",
+    "HydrologyTree.FiniteCancellation",
+    "HydrologyTree.PhysicalCancellation",
+    "HydrologyTree.TreeCancellation",
+    "HydrologyTree.EndJacobian",
+    "HydrologyTree.PathRootTransform",
+    "HydrologyTree.PathPolynomial",
+    "HydrologyTree.PathRates",
+    "HydrologyTree.PathNormalization",
+    "HydrologyTree.PathPhysical",
+    "HydrologyTree.ScalarCoupling",
+    "HydrologyTree.PathInduction",
+    "HydrologyTree.CatenaryJacobian",
+    "HydrologyTree.CatenaryCanonical",
+    "HydrologyTree.CoordinateEnergy",
+    "HydrologyTree.CatenaryOrientation",
+    "HydrologyTree.PhysicalConstants",
+    "HydrologyTree.RootRecovery",
+    "HydrologyTree.CatenaryGlobal",
+    "HydrologyTree.BalanceWeights",
+    "HydrologyTree.WeightedEnergy",
+    "HydrologyTree.GroundedPositivity",
+    "HydrologyTree.SymmetricGenerator",
+    "HydrologyTree.PositiveSpectrum",
+    "HydrologyTree.SpectralResolvent",
+    "HydrologyTree.PhysicalStieltjes",
+    "HydrologyTree.CatenaryCoprime",
+    "HydrologyTree.FamilyScaling",
+    "HydrologyTree.FamilyNormalization",
+    "HydrologyTree.BranchStep",
+    "HydrologyTree.StieltjesNumerator",
+    "HydrologyTree.PhysicalModes",
+    "HydrologyTree.CoprimeBranchRecovery",
+    "HydrologyTree.PhysicalBranchRecovery",
+    "HydrologyTree.SubtreeAssignment",
+    "HydrologyTree.PositiveChildModels",
+    "HydrologyTree.PositiveAssignment",
+    "HydrologyTree.CanonicalTree",
+    "HydrologyTree.PiSerialization",
+    "HydrologyTree.FamilyCoordinateEnergy",
+    "HydrologyTree.ScaledSerialization",
+    "HydrologyTree.IndependentChildCoordinates",
+    "HydrologyTree.OriginalWorkCoordinates",
+    "HydrologyTree.SerializedNumerator",
+    "HydrologyTree.DependentJacobian",
+    "HydrologyTree.TreePreparation",
+    "HydrologyTree.TreeStepSemantics",
+    "HydrologyTree.LinearConjugation",
+    "HydrologyTree.TreePipeline",
+    "HydrologyTree.TreeJacobianRecurrence",
+    "HydrologyTree.AllTreeJacobian",
+    "HydrologyTree.SubtreeProducts",
+    "HydrologyTree.JacobianRegularity",
+    "HydrologyTree.PositiveJacobian",
+    "HydrologyTree.ZeroOutward",
+    "HydrologyTree.MonicResultantAlgebra",
+    "HydrologyTree.SignedFamilyResultant",
+    "HydrologyTree.ResultantFamilyEnumeration",
+    "HydrologyTree.PhysicalResultantRecurrence",
+    "HydrologyTree.AllTreeResultant",
+    "HydrologyTree.ResidualFactors",
+    "HydrologyTree.TreeBoundarySingularSet",
+    "HydrologyTree.ResultantBoundary",
+    "HydrologyTree.RingTreeModel",
+    "HydrologyTree.RingPairwiseResultants",
+    "HydrologyTree.RingSiblingResidual",
+    "HydrologyTree.SymbolicRates",
+    "HydrologyTree.SymbolicTreeJacobian",
+    "HydrologyTree.CoordinateMultiplicity",
+    "HydrologyTree.TreeExactMultiplicities",
+    "HydrologyTree.MultivariateDifferential",
+    "HydrologyTree.PolynomialMapJacobian",
+    "HydrologyTree.SymbolicCoefficients",
+    "HydrologyTree.FormalTreePolynomial",
+    "HydrologyTree.CatenaryFormalPolynomial",
+    "HydrologyTree.StieltjesDegree",
+    "HydrologyTree.StieltjesInterlacing",
+    "HydrologyTree.StieltjesZeroFactorization",
+    "HydrologyTree.StieltjesResidues",
+    "HydrologyTree.ReciprocalInterpolation",
+    "HydrologyTree.StieltjesReciprocal",
+    "HydrologyTree.StieltjesReindex",
+    "HydrologyTree.StieltjesGrouping",
+    "HydrologyTree.PositiveRateAssembly",
+    "HydrologyTree.StieltjesChildAssembly",
+    "HydrologyTree.PositiveRealizationExistence",
+    "HydrologyTree.SizedSpectralAllocation",
+    "HydrologyTree.SpectralFactorMatching",
+    "HydrologyTree.AllocationPolynomials",
+    "HydrologyTree.PositiveFiberAllocation",
+    "HydrologyTree.PositiveFiberTypes",
+    "HydrologyTree.PositiveFiberRecovery",
+    "HydrologyTree.PositiveFiberEquivalence",
+    "HydrologyTree.TreeFiberCombinatorics",
+    "HydrologyTree.PositiveFiberCount",
+    "HydrologyTree.PositiveResponseFiber",
+    "HydrologyTree.RecursiveFiberClassification",
+    "HydrologyTree.RealFactorAllocation",
+    "HydrologyTree.RealFiberRigidity",
+    "HydrologyTree.RealFiberClassification",
+    "HydrologyTree.DischargeFiber",
+    "HydrologyTree.LinearForcedODE",
+    "HydrologyTree.ScalarForcedODE",
+    "HydrologyTree.RootModalData",
+    "HydrologyTree.ModalForcedODE",
+    "HydrologyTree.PhysicalModalConstruction",
+    "HydrologyTree.StieltjesWeightedMatching",
+    "HydrologyTree.PhysicalForcedODE",
+    "HydrologyTree.FullResponseDynamics",
+    "HydrologyTree.PhysicalMassODE",
+    "HydrologyTree.MatrixFlow",
+    "HydrologyTree.ExponentialODEProbe",
+    "HydrologyTree.TimeDomainIdentification",
+    "HydrologyTree.ContinuousOutputFiber",
+    "HydrologyTree.TimeDomainDischarge",
+    "HydrologyTree.ContinuousDischargeFiber",
+    "HydrologyTree.ModalKalman",
+    "HydrologyTree.PhysicalKalman",
+    "HydrologyTree.TrajectoryObservability",
+    "HydrologyTree.ExponentialIndependence",
+    "HydrologyTree.ExponentialGramian",
+    "HydrologyTree.ModalSteering",
+    "HydrologyTree.PhysicalControllability",
+    "HydrologyTree.FullRootLeakTheory",
+    "HydrologyTree.ControlEnergy",
+    "HydrologyTree.MinimumEnergyMoments",
+    "HydrologyTree.ModalMinimumEnergy",
+    "HydrologyTree.PhysicalMinimumEnergy",
+    "HydrologyTree.OrderedTreeGraph",
+    "HydrologyTree.GraphPresentation",
+    "HydrologyTree.GraphRateTransport",
+    "HydrologyTree.GraphMatrixTransport",
+    "HydrologyTree.GraphResponseClassification",
+    "HydrologyTree.GraphODETransport",
+    "HydrologyTree.GraphDynamicalClassification",
+    "HydrologyTree.GraphCoefficientJacobian",
+    "HydrologyTree.GraphMassBalance",
+    "HydrologyTree.GraphFullTheory",
+    "HydrologyTree.LeakRelocationRates",
+    "HydrologyTree.DiagonalGauge",
+    "HydrologyTree.GraphLeakMatrix",
+    "HydrologyTree.GraphLeakCut",
+    "HydrologyTree.LeakGauge",
+    "HydrologyTree.LeakRelocationWalk",
+    "HydrologyTree.LocatedLeakFiber",
+    "HydrologyTree.GaugeODETransport",
+    "HydrologyTree.LocatedLeakODE",
+    "HydrologyTree.LocatedLeakDynamics",
+    "HydrologyTree.LeakLocationIdentifiability",
+    "HydrologyTree.GraphModelInjectivity",
+    "HydrologyTree.LeakImpossibility",
+    "HydrologyTree.LeakRelocationDifferential",
+    "HydrologyTree.ScalarSlotJacobian",
+    "HydrologyTree.LeakSlideJacobian",
+    "HydrologyTree.LocatedLeakJacobian",
+    "HydrologyTree.TreeMatrixSupport",
+    "HydrologyTree.SupportedMatrixRecursion",
+    "HydrologyTree.ArrowDiagonalGauge",
+    "HydrologyTree.SupportedStieltjesChildren",
+    "HydrologyTree.SupportedPositiveGauge",
+    "HydrologyTree.ConservationGaugeRigidity",
+    "HydrologyTree.RealLocatedPositivity",
+    "HydrologyTree.MatrixStieltjesIdentification",
+    "HydrologyTree.MatrixTimeIdentification",
+    "HydrologyTree.RealLocatedClassification",
+    "HydrologyTree.RealLocatedODEClassification",
+    "HydrologyTree.MatrixSiblingWeight",
+    "HydrologyTree.MatrixGaugeWeight",
+    "HydrologyTree.GraphPolynomialModel",
+    "HydrologyTree.GraphFormalDifferential",
+    "HydrologyTree.GraphLeakCofactor",
+    "HydrologyTree.GraphPositiveWeight",
+    "HydrologyTree.LocatedPolynomialWeight",
+    "HydrologyTree.LocatedAllRateJacobian",
+    "HydrologyTree"
+  ],
+  "object_sha256": {
+    "HydrologyTree/AllTreeJacobian.olean": "c484b57caa7017764ffc88b8b20e6176043a94de24f42265be0ae7643a42ce7a",
+    "HydrologyTree/AllTreeResultant.olean": "8d3be0dc5b0019f13d88e2096c34134bf6c6c80ac8419743ab96a19fd9dbdeaa",
+    "HydrologyTree/AllocationPolynomials.olean": "526139904aa11c6642ba346b0c2d6624eb41474d0daf5a65d85b3a697faa17b7",
+    "HydrologyTree/ArrowCharacteristic.olean": "5f5fea36de90c306fec6b5969b97b5c9f7c82aca73570ab8154aa3a6edda9604",
+    "HydrologyTree/ArrowDeterminant.olean": "d21476d1d5fa2ca2a8ed077a976598a18cec61bc8b72d5b87a6b6d113ca7aca5",
+    "HydrologyTree/ArrowDiagonalGauge.olean": "5a971538f1d9643a2a0bb37e3c92c8f7528541cf4847f42fac8cd3d2fe8e7e66",
+    "HydrologyTree/BalanceWeights.olean": "54b95c6979f44620369d38bdd3e8b15d23a4747e96e727a511912cecda34383d",
+    "HydrologyTree/BlockJacobian.olean": "e676c08df817b6d8ff451e91c4d928889220958c29ebac790afd528ac3a98ca9",
+    "HydrologyTree/BranchAssembly.olean": "29be2ad5224f4dee1edc54dccc165de5c3033bc02cf48acffe48d69936c75cc3",
+    "HydrologyTree/BranchConservation.olean": "1174d4fe70f9998a4e75c3287d03cf44661a2468df44ec84dcf769d9e7cb486f",
+    "HydrologyTree/BranchMatrixSupport.olean": "62498fabeeb720c8936f7c060f1677e67005060ef908bde2caacbf9fdd1e4cf1",
+    "HydrologyTree/BranchStep.olean": "56aec24e2b5f39dd1732f9afd5c9ef80f57ff0083b86bc335ec71f4c1da7287e",
+    "HydrologyTree/CanonicalTree.olean": "2de6d4117acb1204180c643332e7d785912f7fe4ad14cb0defc1fb739ccfb165",
+    "HydrologyTree/CatenaryCanonical.olean": "691ca22ddab183fb6a1dbd6c7b8a096e5ac8f60e09b5a0611f2a1fb722dfd479",
+    "HydrologyTree/CatenaryCoprime.olean": "6710725e9cd200e0cb7f920c1d524a3b9d77d0d80dade0e3b00a6fbb78815792",
+    "HydrologyTree/CatenaryFormalPolynomial.olean": "9163dfe1b4577bd53ce28ea82350e485cd7e08aca568c4e8f6da3744f26d3854",
+    "HydrologyTree/CatenaryGlobal.olean": "6ea64881290eeff6b1e2551f873eb20d23ba0aa65306bcc384b155b962be8d46",
+    "HydrologyTree/CatenaryJacobian.olean": "e08bd4c421ce2762e568e83048f6734083d16a91c4fccdbe9b3f7d394d2b3d39",
+    "HydrologyTree/CatenaryOrientation.olean": "ea7a52b08eda72765e0a5005c51f250930a3d626c28ff9a8c8700691c29fb9d6",
+    "HydrologyTree/ChildIndex.olean": "43cd2db41433fa6df8bf8cc0f927c4cd8c136bb8fe366a2cb021264d4547450d",
+    "HydrologyTree/ChildMatrix.olean": "ede10d14a1a0bcf202b47ce869ed4df2d75363d7aa8a83e3f38daa28389b8a52",
+    "HydrologyTree/ChildRates.olean": "6c6be1506a8f506ff8a325686d2ffee1961a1d5d357ff78a024122fe4879401f",
+    "HydrologyTree/ChildTree.olean": "c643760c06a11f0f34ce0d96d362fee73398c43c58a86cfef4b7d09b32de3676",
+    "HydrologyTree/Coefficients.olean": "400b0e9e8ca376d381567963f5afcd9a24860f2819563368b69daff1ca509064",
+    "HydrologyTree/CompartmentMatrix.olean": "4370f6c7ec48f0718d5bbbe1ac541317250cc95d7db809cba8d2873e574a847c",
+    "HydrologyTree/ConservationGaugeRigidity.olean": "f9be049a7dd6daafbb3e3bbb78a1f60967297efe21679910cc2fc3b9be54414a",
+    "HydrologyTree/ContinuousDischargeFiber.olean": "0409bc2bc90a3d175f4010a784f31482afcd3d355137623dd26f5e648d59bcde",
+    "HydrologyTree/ContinuousOutputFiber.olean": "536b40fdefc0f539d4338fa8964ac53bb0253cdbb4a53bad24cd274bd84dcbbd",
+    "HydrologyTree/ControlEnergy.olean": "691844c5c74d22720dced9e1c5219b9c3679b7abdbbebf2cfec6e5fadb957f1e",
+    "HydrologyTree/CoordinateEnergy.olean": "2a0db16ff07496e8b09ec6b7f034a6c12f81b57768eea37c9348f332b2f5a84b",
+    "HydrologyTree/CoordinateMultiplicity.olean": "95f850c395c3a1666401e05bdd042eabf74a144640ef0099ee05b741522423a8",
+    "HydrologyTree/CoprimeBranchRecovery.olean": "8a5a2c425e572fc4b3de045c926996c5869cd14fa55c8b865cc5f508827a6ee3",
+    "HydrologyTree/CouplingSemantics.olean": "4db46e22a75ec77b820a7b3f3dd911ca3076ea8abe368c2791aa7f9884d99438",
+    "HydrologyTree/DependentBlocks.olean": "b2d7db3f633855d920af51d7de4f6ba2ff5e29d55bf4ff5528513676f38c8804",
+    "HydrologyTree/DependentJacobian.olean": "520602ac46a0e759d9d2b6cbb25d4f14a28c1834bda5ffa8e9d918899185f996",
+    "HydrologyTree/DiagonalGauge.olean": "c26bbef1f132e838269acc72f6a835b5d1f3c68e24d54011c965160c623fa28e",
+    "HydrologyTree/DischargeFiber.olean": "ac4e73cdbe98243039d02b7c0d6921efa3d9c1d3b50045bb3763a6d41fab5964",
+    "HydrologyTree/EdgeCharacteristic.olean": "baf73e1a28e73a800ce1654ee844e33baf4a4964c768850d686c501ee1a746aa",
+    "HydrologyTree/EdgeDeterminant.olean": "2cb865e239e8196f8886f174ad0b372202fced7f856709b71eb385010c698e93",
+    "HydrologyTree/EndJacobian.olean": "ed1837e796ca4d59a42a36351f394455e60e9838ae98fb3cb4cf2aea15353275",
+    "HydrologyTree/ExponentialGramian.olean": "5c899fbd67a4f7f581887506b987acc05509e41368883c18b8cca4f352097b8a",
+    "HydrologyTree/ExponentialIndependence.olean": "65a5cc7c3067ef76cfb12135b00fdeee64599bc0120bebf5e7012a9dfc0e58a8",
+    "HydrologyTree/ExponentialODEProbe.olean": "15bbd9975dec019fd3549454a3a0476ef39dcc82381a80a8ff4533ab4863365b",
+    "HydrologyTree/FamilyCoordinateEnergy.olean": "f0a9004e396f223b5ca70cf3d2d91ebe77751eb9929c9492eff7e5ee888382c0",
+    "HydrologyTree/FamilyGluing.olean": "899e2f74a35cab0e022f5dcb92ce8e4a052b8149f290606fac3cc7ef254a4ad7",
+    "HydrologyTree/FamilyNormalization.olean": "a5c84a1799b8f2331f6137815db0cd222b74a14c267fe4843b26dd6008900f40",
+    "HydrologyTree/FamilyProduct.olean": "7b6090f6bf181ca4caca965af8b822d5fafb39d61397438bcbab46f3445a81a7",
+    "HydrologyTree/FamilyResultants.olean": "ff42167438e453911dc35619395f8e67123f8ba99f1a776034d5e72f25a3e31a",
+    "HydrologyTree/FamilyScaling.olean": "e3d77513add0a21bd404cb0507864fcd7ecada172ee93245812303dcb8c1b089",
+    "HydrologyTree/FamilySmoothness.olean": "baa63b48cd578330c173995fd7a31bd84c03593b73d71c5b1b3bdf89dd0ef94d",
+    "HydrologyTree/FiniteCancellation.olean": "0ea6bb26bc1d75de0b0707a50997d6f2b19c04270bc71c1543cb851a24589f44",
+    "HydrologyTree/FormalTreePolynomial.olean": "7fac79f52d79b7b1a64dba02188d937834c719851843f5f68e4b72fddc987a3c",
+    "HydrologyTree/FullResponseDynamics.olean": "8a012bd355741418bc4d6bee7e0ce05f6c73aa7a52a0724464e998f6e6e26ca3",
+    "HydrologyTree/FullRootLeakTheory.olean": "687f69a06e1260a4d5758de2e34cbfd759816d4336febc199dbe9cd0dacf0d8a",
+    "HydrologyTree/GaugeODETransport.olean": "629e2192f038d645a46aa0ccdfca5d552dcefc401e84408a3612732fa14a1332",
+    "HydrologyTree/Gluing.olean": "133e1976e7aa344f2ebfd833951162548f01ad1acdf4643e4c9586d7ad286db6",
+    "HydrologyTree/GraphCoefficientJacobian.olean": "d1a6a07bf4dc3b610aa33a809bc049290bd4b18ff464fe32d6ca95886bfa826e",
+    "HydrologyTree/GraphDynamicalClassification.olean": "3fa4f40a90e49fec55c2d167b1b630e34595cadb0998e4bcfaa3b3b028bd8203",
+    "HydrologyTree/GraphFormalDifferential.olean": "1519250d9b03921782d03734daa922b249fc82ef15ae002a5c992a71219ed34b",
+    "HydrologyTree/GraphFullTheory.olean": "323af61e25485728f04bffddb0bcb81de114c03c24b0be073d99c9976c22b45b",
+    "HydrologyTree/GraphLeakCofactor.olean": "ef238db6984bb504e93d5a9472a4c2d851a447a26848a908489195ae542bea5a",
+    "HydrologyTree/GraphLeakCut.olean": "5411c0361917d040f642dc91a378aeced69f2a612a1d6a31a0caad3445142958",
+    "HydrologyTree/GraphLeakMatrix.olean": "7bec024e0a361e41e655a6cfe8a6130db7f21bbd60e409c6d803cdfa0f1af3ba",
+    "HydrologyTree/GraphMassBalance.olean": "fa101ecc97723d2abdd38ef14dc0021374b103fb3d2dbaddf7f0e724a1ff0852",
+    "HydrologyTree/GraphMatrixTransport.olean": "e3aef81ce7363e20fc917c750acc3add16366a4343dd13deada058ddcc5fc315",
+    "HydrologyTree/GraphModelInjectivity.olean": "2396a3b00a61200a8d7d44f091f33a694b30c47fb9f9b52ff7922b4369f33f65",
+    "HydrologyTree/GraphODETransport.olean": "357e480416ab7ba84fa4038bc2d02f4fa54991352e3bb2822ece1fb5e8e3693d",
+    "HydrologyTree/GraphPolynomialModel.olean": "0f7719fa272de4800cb59a6bbb2768410452a2ce67b5e8cb660fdf6075e36f2e",
+    "HydrologyTree/GraphPositiveWeight.olean": "148c1e1f1e03cd497391c887cb2ff29aac845df861028c7c8cfd1d489b5d45ba",
+    "HydrologyTree/GraphPresentation.olean": "555755762b80e9a5a7f9e156b782686becab91ce85eddecdfb17940ea76d4ebe",
+    "HydrologyTree/GraphRateTransport.olean": "8b6da1ae24baa8e3940da3940f82400689d3e561de635acdb5c108862337be0f",
+    "HydrologyTree/GraphResponseClassification.olean": "e7a02e5aee4dceeeff324c1ca452b9b5adcf4f4933f0140747fe5e29feaf8455",
+    "HydrologyTree/GroundedPositivity.olean": "65d151ac62949442f056c6fffca0fcd10d8773f0de04431a6a26eb95a5b81122",
+    "HydrologyTree/IndependentChildCoordinates.olean": "02486f2be159c2e9363e8b61e7133d67e855468b0835fb913340dac48fc55827",
+    "HydrologyTree/JacobianComposition.olean": "0ff07d02a094eca326b836caa097b59da97544b793768a4e5df3e2bf007493ae",
+    "HydrologyTree/JacobianRegularity.olean": "438a84ff871e8f39de5d151a970e06fb26dce8ae17ccabd62f7e816c50e508e5",
+    "HydrologyTree/LeadingCoefficients.olean": "64c5405b7abd42fbbeaa304863dd0e7ccd00f03a10681b965b270f31dd655ad9",
+    "HydrologyTree/LeafRecursion.olean": "184f1fef1fce6eac2df03e5f08e5defa1c4b14e05d7c4f12c4d1e6fb89d76e7b",
+    "HydrologyTree/LeakGauge.olean": "f40f6311fbf78e9db11c71cd885e2a727901c701b7a0cf0e240ba3d47157e2b4",
+    "HydrologyTree/LeakImpossibility.olean": "863543ee3d08cf82bc68f64fe741b5a8bbb57767e6c615b1b747601a63b3b81d",
+    "HydrologyTree/LeakLocationIdentifiability.olean": "38de28a2221a2e819a93e251b9d3c3708fb83e0ccc147a70a5158796cc201171",
+    "HydrologyTree/LeakRelocationDifferential.olean": "f05e48de33d257ea960714e0d0617b38a8039002ef92f5cc59a49f953f3574b0",
+    "HydrologyTree/LeakRelocationRates.olean": "17825cd535a774dcb20bf47c53f5d44279e956fa747796b52c63ec2b030be613",
+    "HydrologyTree/LeakRelocationWalk.olean": "f009d168685e0f5efabebf198907a58cf8ccef1b508586b58350d6c6fd343005",
+    "HydrologyTree/LeakSlideJacobian.olean": "df5350750c0a9dac65fff31597c3163f7829a4cf5e7a08890fab3bf14b8da4e7",
+    "HydrologyTree/LinearConjugation.olean": "847542017eef5b88474262be04c8044a8f367669be77f7bdb6ad34c237471077",
+    "HydrologyTree/LinearForcedODE.olean": "7ead7a84fb047877ed654fe5c31d705cf1247589c2a9ecf82dc4fcb7464d0b31",
+    "HydrologyTree/LocatedAllRateJacobian.olean": "0173b6bda9a70293cef1170b3d1d78b7838918c9637550750f0bd56d8e11f01a",
+    "HydrologyTree/LocatedLeakDynamics.olean": "53af8884f5704ab9599cf1d6812240492f37e495eb5b044cb674941b6695f7a8",
+    "HydrologyTree/LocatedLeakFiber.olean": "7d329652e82c2accf8756fe3f572b3949518e1e04c1756371d8263c2ae300692",
+    "HydrologyTree/LocatedLeakJacobian.olean": "e9f7314918a5782dc871b1164a5534b1e85e4da4a0ca578314fd0eb622623a59",
+    "HydrologyTree/LocatedLeakODE.olean": "4cc8be5dbc916f99918e95c0783286190d4f5620ee5ac95269d2b9cbade81424",
+    "HydrologyTree/LocatedPolynomialWeight.olean": "19d597ed2447712d13c0130fb3413d20b9ff67367ea03ce580efaba8a4d91f9e",
+    "HydrologyTree/MatrixEntries.olean": "40f9adadf84feda52c1090bb846662dcf067772c4958d6660803bf96f94c3237",
+    "HydrologyTree/MatrixFlow.olean": "139bc91f721ecc85d7d57fb972c9e16694bf14d6ae1e787ec264db6a9568fe4a",
+    "HydrologyTree/MatrixGaugeWeight.olean": "373259d773dea721f70cb2e4c06a7a39570f63ebd9158c7749b2ce352c3d41b2",
+    "HydrologyTree/MatrixSiblingWeight.olean": "3b32c70262a859422dad38ee776a575cfbcc68ee7d703cf8d8b2adbd01d86176",
+    "HydrologyTree/MatrixStieltjesIdentification.olean": "1c186d5d857a2c3679c6bd0858e90a3f0117e135decb7007e9dc156b342d743b",
+    "HydrologyTree/MatrixTimeIdentification.olean": "3747465e50845b9e3411d1b86878c6473453309b2f0c1d09d0f363222c400fe3",
+    "HydrologyTree/MinimumEnergyMoments.olean": "b2a45b28aa97c675d43e9898a20a736eeefba6f4389d33fd71cead7128be6d08",
+    "HydrologyTree/ModalForcedODE.olean": "23b883d9d32d138152f98920a0a951c33fbf111d54ddebd3f3e0cbcd448690c1",
+    "HydrologyTree/ModalKalman.olean": "b7eb24bf6c797dc8910a30cff821bce1a2258c08b80e457ce6d81014a53e2976",
+    "HydrologyTree/ModalMinimumEnergy.olean": "dcec7cb4d93e9626e68797857191064f9100d4b77f491fc0eae708a98b5ff7ff",
+    "HydrologyTree/ModalSteering.olean": "5d966b990c2239cc3b574a7da288d31f28d1cb38d62135e5f96c768bb90239aa",
+    "HydrologyTree/MonicResultantAlgebra.olean": "6246267e4ec3d2603d7eb9947fcccc932832bf828b0bed48bb56241c9cf6227f",
+    "HydrologyTree/MultivariateDifferential.olean": "f21ad92642aa438f2d7d544df25508a61009a1bdfe20f6a3f440b71fdf049bd4",
+    "HydrologyTree/OrderedTreeGraph.olean": "61bde1c129e0dab52aab80c3afa83d557406eb226ce6631e44560d6ee68e3bb6",
+    "HydrologyTree/OriginalWorkCoordinates.olean": "325ac64f3804f6effd53e112b3561476ef1d6334362f1ba6e3b4b7dbf7737847",
+    "HydrologyTree/PathInduction.olean": "0a92db6147f229a079866160771bd5a85918e3eeb4278fdf928fefba705d9cd6",
+    "HydrologyTree/PathNormalization.olean": "fade7f230fd0aa3854180ac3a32bb9ce55bae4fb71b41121c4bbe3a014b17eef",
+    "HydrologyTree/PathPhysical.olean": "36d874b66bee233e65f8f9007954ee9c4d97a412f5b7c07b77b06275432b702e",
+    "HydrologyTree/PathPolynomial.olean": "d90770224bee01782eab8551e706c4f95ee318b67a97391f1a0c38208eaceec7",
+    "HydrologyTree/PathRates.olean": "91e9e73d9cff24e9b159665157f9a6b225e23ab10dc8a7a6f842b9264f80151d",
+    "HydrologyTree/PathRootTransform.olean": "b0f7704af86bdd8b6be346e267ce961edaeb68a8d530187ce7412c6aa34cc348",
+    "HydrologyTree/PhysicalBranchRecovery.olean": "a62bc50f07cdc8b512fbf861f8ada72b93f599ebb07c3b29b17236a6f86950e4",
+    "HydrologyTree/PhysicalBridge.olean": "f56753aa74352e6a492e20b5bad5baa6c2b6b178030430c784c688bd68ddeebd",
+    "HydrologyTree/PhysicalCancellation.olean": "2567dc3a3dd9b504bb82a13d12d95388b878b25f9590b7d189c4287e30e5d03a",
+    "HydrologyTree/PhysicalConstants.olean": "a8918289e805e2732a7a7f006e5f020b086e3c75f57229d6441c4babf86c964f",
+    "HydrologyTree/PhysicalControllability.olean": "2104f724a998a8cf02cf4d87017e60f0f211551f14794f5e8b2dff64285a5908",
+    "HydrologyTree/PhysicalForcedODE.olean": "bede5e14b79ca678359278325cb138cf95a85459f7d1914a0ef2a5aaf230bbc5",
+    "HydrologyTree/PhysicalKalman.olean": "c2c4a8c19012eef779ff3b529426c4355cda5a6f8dc18966bc5c400997a24371",
+    "HydrologyTree/PhysicalLeaf.olean": "c859b5d0e27c39ffbb71c3a60a76156268ed5e93bb776afb5cd66e69700fd8b3",
+    "HydrologyTree/PhysicalMassODE.olean": "b71f2f2531ac6e699bc29dc15510e1b531069b17d61318341bba167466cd1acf",
+    "HydrologyTree/PhysicalMinimumEnergy.olean": "5895f142281fc382e7da39616eda0943b46e17da977427905719e9dc4c068748",
+    "HydrologyTree/PhysicalModalConstruction.olean": "98fb81989c66fbdb8f3e6dece867a7f582ae0d831eb40d67caa2bbd6fc33fba0",
+    "HydrologyTree/PhysicalModes.olean": "4a6338c46e672bb22c9f83f7dc9fe4409895e43bb1a0f8587a2dee17640091e3",
+    "HydrologyTree/PhysicalRecursion.olean": "fdea67c2e8836f6a7ff331d18ea45b5c9d69cfd31abbe07cbdffa76ff89b60c6",
+    "HydrologyTree/PhysicalResultantRecurrence.olean": "9bc9d18bdbe9d18d25b8bad37ab3c3048fd1a60070719eb2f62b6c0cf32aa6d4",
+    "HydrologyTree/PhysicalRootDecomposition.olean": "16fde6c2004ab24742c9ed5828e7e15ba5027d162db91aab0014043ac33182bc",
+    "HydrologyTree/PhysicalStieltjes.olean": "344f6f1e4001be1fbbc4aeb18243de5fd4b59eb6ca3085cfa0b8964b9e3e6ccb",
+    "HydrologyTree/PiSerialization.olean": "ab7a73dcab3e2b90ca9b46381846babcc2235f93da5786d246a5291ef1762be8",
+    "HydrologyTree/PolynomialMapJacobian.olean": "5a99e470fbb73d289497b1df6ac6a3977cff7764dd706f9dc44bab79d5ed9cb4",
+    "HydrologyTree/PositiveAssignment.olean": "9543b364370638a5e65a0297a4070e5480631d2162e9bd1d4177232eb90fddf7",
+    "HydrologyTree/PositiveChildModels.olean": "468437f19a3b52c1c1141131376035b06cfa3068483becff46312b2e90f12ce4",
+    "HydrologyTree/PositiveFiberAllocation.olean": "0cb5c4fd730a1593d1c570400fd17edee1589e2347c7413c69dfae64d03142a1",
+    "HydrologyTree/PositiveFiberCount.olean": "87b3675fcfe5fab206e273892da2b51a8b592c5661b3bdbfa75149080578f0f6",
+    "HydrologyTree/PositiveFiberEquivalence.olean": "a6c1b8fab7bb7c7c0dfdf734d0821d15d11fa78c9725873fdf5ead775ae1fd48",
+    "HydrologyTree/PositiveFiberRecovery.olean": "e0d3c66f87052c5a53e89175453f209b9e957b525b250f5cebdf289ca13a4443",
+    "HydrologyTree/PositiveFiberTypes.olean": "73098f1f1c5292e2696abe032348bbe074680866afd393ea1837ce752bca3e81",
+    "HydrologyTree/PositiveJacobian.olean": "b927fa301a590c7149945efddd801f9f694376bd0346a81442ae68868fd52765",
+    "HydrologyTree/PositiveRateAssembly.olean": "933a0bbed29de6e55a26d329b638544a4c49665074818f49f49fb5f58fb73b5f",
+    "HydrologyTree/PositiveRealizationExistence.olean": "c9f6acefb279f1d574c3b6a16763a4d3ecf0c3d68ee46537fad44141f397c6fc",
+    "HydrologyTree/PositiveResponseFiber.olean": "69863902755d912b2eb0ef95ff37bff56b2170546b2b80386ccb56659b5da613",
+    "HydrologyTree/PositiveSpectrum.olean": "30208cd87dabffac61cb15a66749d3ec6d520b4a73500a194bb758b30a3e7da4",
+    "HydrologyTree/ProductDerivative.olean": "72a8334e881378dcc8be235e5d9d0ff19422b4453263ce507f0997ccd5be2129",
+    "HydrologyTree/RateChart.olean": "871136a81d44b6b53b9f7559d2f5663c31b7db3993115fcf729a13bfcd0ff7fb",
+    "HydrologyTree/RateCoordinates.olean": "24dca6ed7d57fb80f06fb25bcbfbbd62d1c724c1bea41bc9ef3ddc98627c90f5",
+    "HydrologyTree/RealFactorAllocation.olean": "995006828767e559bffe375fe01665f073a240dc490d16b82ad7247bce759ef3",
+    "HydrologyTree/RealFiberClassification.olean": "f90c1f72deba600818d90a563371528e5fac48666746dfe62e994c720f009696",
+    "HydrologyTree/RealFiberRigidity.olean": "b9869e2139288986b26c30379b05c5d243029f4b0d85d9fd7b430a6c4f43c24b",
+    "HydrologyTree/RealLocatedClassification.olean": "29b13ccde87b3bc8e0b533867316880a7f12243297f96980d0b70d9e65500153",
+    "HydrologyTree/RealLocatedODEClassification.olean": "30de9a0eb8d3500a0e301b99722466738f3d85dd9b885bb19e3f2192e00c5537",
+    "HydrologyTree/RealLocatedPositivity.olean": "b6ac1ecddd40a61446e30c907b8f514a667d741770fe304ff45a028e8f37a191",
+    "HydrologyTree/ReciprocalInterpolation.olean": "af1e3ee40af530315ec34feb7edaffd0883148bf59b4d588680c4d35b5e1dd01",
+    "HydrologyTree/RecursiveFiberClassification.olean": "b8f62cd1437d600283923281c0b29b8e80c912b874f6c4aa364c7a3a9ad51e2c",
+    "HydrologyTree/ResidualFactors.olean": "da85e27356ac6989840f4f15ed11e9a58a3f80f54133f56964d13b559aea80da",
+    "HydrologyTree/Resolvent.olean": "a61eab2f039aeb51d2a63ebb8db60fd506fa2a6d78b083af6076f76f666b33e8",
+    "HydrologyTree/ResultantBoundary.olean": "761e0d1a74e3f28f16875686bb7b0b487eb42a4d1879095bc799e0cbc9a9e9e3",
+    "HydrologyTree/ResultantFamilyEnumeration.olean": "855ac88a093799a89037f7c428755f4e4b2b535ec4b01d20051caf031722d09f",
+    "HydrologyTree/RingPairwiseResultants.olean": "847d9a6955bc1f4456477d1cd98d8c2f8335e0f05abf9f8c0833aaa299b44974",
+    "HydrologyTree/RingSiblingResidual.olean": "aa7499fa66f76f9de469529266c95f2c81b57c6c12faee6d43c5d2b0fef0143c",
+    "HydrologyTree/RingTreeModel.olean": "f1b03d34e07bab800babc4764f2c6cb648102cc0cc31e328ad56742984fe985a",
+    "HydrologyTree/RootAttachment.olean": "8dd7dded8f29f64bf7af16219ac847d629902036201e94e84360525e537168cf",
+    "HydrologyTree/RootBranches.olean": "91538d525c3cb818796193ffeda6ef88fc799d0991718d92d77056628859b080",
+    "HydrologyTree/RootCoupling.olean": "2aaef6d3b5cde94e61e8accb58ceb10f8c8c5ab3efea9b8f27918d5a169153d9",
+    "HydrologyTree/RootModalData.olean": "e85106f5354b231b89e7a2aae09476629f150d25426c92f848355e3a09c91b9f",
+    "HydrologyTree/RootRecovery.olean": "24ee4d5c43386fbe7327b61736139df0f440842cb25a47315997682f1d57b128",
+    "HydrologyTree/RootUpdate.olean": "1f2cdc5975f4504cde829d4d5de156220d1a49f9fb2d480869e58fb290f3f4db",
+    "HydrologyTree/ScalarCoupling.olean": "5a808005bc0e047063d0dcac8860e56843201ef296280c26bf0153cf66a7d5dd",
+    "HydrologyTree/ScalarForcedODE.olean": "a4d524d054de3953e4d0a1724cee04747062c56cccc22d65bb08b2fb284d1e74",
+    "HydrologyTree/ScalarSlotJacobian.olean": "ce1dd317c92c49ca2af792ce834c621b19ae14896f0c9017cb7501b67b23aa6f",
+    "HydrologyTree/ScaledSerialization.olean": "72b15ed7f2f0ae40f3972c1481a4c500f6a3710462737b9be03b324d13750792",
+    "HydrologyTree/Scaling.olean": "0b02961128dad3831a676491c24984bb2ca2341eefdfd057705381cc4fab71da",
+    "HydrologyTree/SerializedNumerator.olean": "eda32d8a97169d25577ba1055dc0af7dd94f9c339f97936afc70391b2b492ad4",
+    "HydrologyTree/SignedFamilyResultant.olean": "25dd3011aed1951f58250c1ac9014b77120d8374a0618c4655d02fa8c329426c",
+    "HydrologyTree/SizedSpectralAllocation.olean": "a7e3626d44aeaf0b98bba321c7f92069e36c583e0d817f7f415b5724cbfa4302",
+    "HydrologyTree/SpectralFactorMatching.olean": "c7a7ba76e2ecd29ac2f901ccaf1a912d02ca9d3f1299e28bdc116f4f0a6c9acc",
+    "HydrologyTree/SpectralResolvent.olean": "c54e5c3b8607a402dc335ca5414fc6241006aa5fdffb995349955014b3e16be5",
+    "HydrologyTree/StieltjesChildAssembly.olean": "1bab29a351cdcaae27636de4586058128c8b9f32da5414157b555397435b662e",
+    "HydrologyTree/StieltjesDegree.olean": "ab7833c6e86d0b535e5e0e7629f50718f6f1138ad2588b5ac4f0782213f2a394",
+    "HydrologyTree/StieltjesGrouping.olean": "a734a451df66f0436fc3b57c74f7027ec3b33f871088bf2a253bcab54b2019d2",
+    "HydrologyTree/StieltjesInterlacing.olean": "08938736476d15d197ad6a3403d74435488347e211dd645048ab5e45deb30564",
+    "HydrologyTree/StieltjesNumerator.olean": "242b72fb802cfec0518c2a5d9a6a07716d080249edbeec33292d904b3c622c60",
+    "HydrologyTree/StieltjesReciprocal.olean": "fe7421810ff9c03f0540846d14b03b2cc27c0acb7bf2c02bdc46a1ca3a25d922",
+    "HydrologyTree/StieltjesReindex.olean": "804187ce158ccb8e7c3bbb1abe8895013bc9b04ea07e8314ea01662630febeec",
+    "HydrologyTree/StieltjesResidues.olean": "8e3ea8b12a92027c5ea424be637470f2d0ba3a5710904b311599149cd9ec0a4a",
+    "HydrologyTree/StieltjesWeightedMatching.olean": "fb53b876b23bcb74929270e60ca0657f787bd92feb408482cdd831b8f4daa12e",
+    "HydrologyTree/StieltjesZeroFactorization.olean": "c7a36a9185bac30eb25d182ae7980027ae67df01ec3170d4e1096534ad207cca",
+    "HydrologyTree/SubtreeAssignment.olean": "4b541f3e831fce5542c444c573dd5c71572382e2f2efcd8079f2189a53316ecf",
+    "HydrologyTree/SubtreeProducts.olean": "f23e02759148043bdc69cf6168b86c2b6bdd32441ae85044fb9d3dc8d06f1963",
+    "HydrologyTree/SupportedMatrixRecursion.olean": "acf33f00040a967a22333628c44f4267cef16cf7fb17aff876f57ce725ad70f6",
+    "HydrologyTree/SupportedPositiveGauge.olean": "4ba02ae68628ac1fc26c5edd6fe3ee1ff6a148713c627a35dccadf15f92b79db",
+    "HydrologyTree/SupportedStieltjesChildren.olean": "d536d95ddbeb7964f4f48525a67651b0d8af7f299900f4b5d416691c72f9bb09",
+    "HydrologyTree/SymbolicCoefficients.olean": "e83b24daa8eae552abbd8e3011c6522bb8952a625b6241717796f563b49bf549",
+    "HydrologyTree/SymbolicRates.olean": "267e3b10505e84faa588c02d443d04597cbfc30a5c141c92a4702e4abc54589f",
+    "HydrologyTree/SymbolicTreeJacobian.olean": "841af29e3adcd7870b8dd499d119b9e55ef4066c60bd28b43b42501989929e62",
+    "HydrologyTree/SymmetricGenerator.olean": "85286c00c4d14d3a5cd0d7d321ff8999be8a4920a6b83f71c92c79fa869b2306",
+    "HydrologyTree/TangentJacobian.olean": "758fb8fa80764fbdc1433f2e7f3aca0cb55e08cc197707a5ae7a0ca35e1a41ca",
+    "HydrologyTree/TimeDomainDischarge.olean": "816ff9a56df74404abb88def76906c0017f7294969acdaa74d0fc356f3a0d117",
+    "HydrologyTree/TimeDomainIdentification.olean": "eb617c3a67359bc91af9c100d6fa67330b066fa1fb934be1019bd7f9a798f036",
+    "HydrologyTree/TrajectoryObservability.olean": "5547eb00dff62fc3c966777b9e5275725e0d216f118d81146886473bd8542861",
+    "HydrologyTree/TreeBoundarySingularSet.olean": "b690fb09878e96b24604e4ce71092fbdf12dae3a5927647839450c65a463c23a",
+    "HydrologyTree/TreeCancellation.olean": "6ac632a93a9e6da0464b52215439cac786e7140072dc19e20857c3be166492bf",
+    "HydrologyTree/TreeExactMultiplicities.olean": "769d3842c4a957b162c1458e397379738d8aa56a053db982e9260dd049de96cc",
+    "HydrologyTree/TreeFiberCombinatorics.olean": "b21e8d561563668cfed49752ec389075109cc5cbd8feeced8af975a72e781f4b",
+    "HydrologyTree/TreeJacobianRecurrence.olean": "8847fa59e1d277a7ad280d4d6e1f73858c3f30354a2148ae8e5b762c50a05a81",
+    "HydrologyTree/TreeMatrixSupport.olean": "0828820b3c40e8ef130701f21a6e788fa9196265d9d04cf0ce78183faa7c7578",
+    "HydrologyTree/TreePipeline.olean": "3cb6f7c878103d84e4192f27533365043b8954a54704f6ae3e0bb031cf62d06d",
+    "HydrologyTree/TreePreparation.olean": "d280a46c227d7dad8d472371d8e652b8978893488ff6ca86ad3e3dbc2020977d",
+    "HydrologyTree/TreeStepSemantics.olean": "4d18cad6d45628c2e7f46b4d4e8cf79962f96e50fb9d60c2f31e58d7e17b84c1",
+    "HydrologyTree/Triangular.olean": "56b89bc16e8e23cb2954298befaac326bb4a63c2375f1fa4919eb13966204c32",
+    "HydrologyTree/WeightedEnergy.olean": "eb58122e7ee0bccfb782952af379f5a207e23d8b7bdd99c014dcdd63e1d90b3d",
+    "HydrologyTree/ZeroOutward.olean": "7b785db9667ab22e101a7da0f81dbb4becbccc37cfdfb919c368962cb646bb19",
+    "HydrologyTree.olean": "6e0317fa58b0678d2c0c356f69434ac0935fde15256d1618d05f8d5398c3b74a"
+  },
+  "kernel_replay": {
+    "declarations": 53324,
+    "roots": 1639,
+    "trust_level": 0,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "negative_controls": [
+    {
+      "source": "HydrologyTree/GraphLeakCofactor.lean",
+      "old": "\u220f e : Fin n, y.2 (treeDartEquiv q (.inl e))",
+      "new": "\u220f e : Fin n, y.2 (treeDartEquiv q (.inr e))",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LocatedAllRateJacobian.lean",
+      "old": "formalLocatedJacobian p ell=symbolicLocatedWeight p ell := by",
+      "new": "formalLocatedJacobian p ell=symbolicLocatedWeight p ell + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RealLocatedPositivity.lean",
+      "old": "    PositiveGraphRates y := by",
+      "new": "    PositiveGraphRates (-y) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ConservationGaugeRigidity.lean",
+      "old": ": A=B \u2227 a=b \u2227 \u2200 v,h v=h ell := by",
+      "new": ": A=B \u2227 a= -b \u2227 \u2200 v,h v=h ell := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RealLocatedClassification.lean",
+      "old": "Nat.card (RealLocatedFiber (G := G) o ell r w)=\n        n.factorial/",
+      "new": "Nat.card (RealLocatedFiber (G := G) o ell r w)=\n        (n+1).factorial/",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RealLocatedODEClassification.lean",
+      "old": "HasLocatedContinuousRootOutput o ell y r w \u2194 HasLocatedStieltjesResponse o ell y r w := by",
+      "new": "HasLocatedContinuousRootOutput o ell y r w \u2194 \u00acHasLocatedStieltjesResponse o ell y r w := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LeakSlideJacobian.lean",
+      "old": "endJacobian (slideLeakRates d) y=y.2 d.symm/(y.2 d+y.1) := by",
+      "new": "endJacobian (slideLeakRates d) y= -y.2 d.symm/(y.2 d+y.1) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LocatedLeakJacobian.lean",
+      "old": "y.1*locatedGraphJacobian p ell y=(relocateLeakRates hG ell o y).1*",
+      "new": "y.1*locatedGraphJacobian p ell y= -(relocateLeakRates hG ell o y).1*",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GraphModelInjectivity.lean",
+      "old": "graphCompartmentMatrix G o y d.snd d.fst=y.2 d := by",
+      "new": "graphCompartmentMatrix G o y d.snd d.fst= -y.2 d := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GaugeODETransport.lean",
+      "old": "normalizedGaugeState h hh o z o=z o := by",
+      "new": "normalizedGaugeState h hh o z o= -z o := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LocatedLeakODE.lean",
+      "old": "Nat.card (PositiveLocatedContinuousFiber (G := G) o ell r w)=\n        n.factorial/",
+      "new": "Nat.card (PositiveLocatedContinuousFiber (G := G) o ell r w)=\n        (n+1).factorial/",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LeakLocationIdentifiability.lean",
+      "old": "\u2200 s : \u211d, z s o=q s o := by",
+      "new": "\u2200 s : \u211d, z s o=q s o+1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LeakRelocationRates.lean",
+      "old": "slideLeakRates d.symm (slideLeakRates d y)=y := by",
+      "new": "slideLeakRates d.symm (slideLeakRates d y)= -y := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/DiagonalGauge.lean",
+      "old": "diagonalCofactor (diagonalGauge h A) o=diagonalCofactor A o := by",
+      "new": "diagonalCofactor (diagonalGauge h A) o=diagonalCofactor A o+1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/LocatedLeakFiber.lean",
+      "old": "Fintype.card V*(n.factorial/",
+      "new": "(Fintype.card V+1)*(n.factorial/",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GraphRateTransport.lean",
+      "old": "(graphRateEquiv p x).2 (treeDartEquiv p (.inl i))=x.1 i.succ := by",
+      "new": "(graphRateEquiv p x).2 (treeDartEquiv p (.inl i))= -x.1 i.succ := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GraphResponseClassification.lean",
+      "old": "Finite (GraphResponseFiber (G := G) o r w) \u2227\n      Nat.card (GraphResponseFiber (G := G) o r w)=\n        n.factorial/",
+      "new": "Finite (GraphResponseFiber (G := G) o r w) \u2227\n      Nat.card (GraphResponseFiber (G := G) o r w)=\n        (n+1).factorial/",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GraphMassBalance.lean",
+      "old": "(u s-y.1*z s o) s := by",
+      "new": "(u s+y.1*z s o) s := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/MinimumEnergyMoments.lean",
+      "old": "controlEnergy T (minimumEnergyInput r d T) = d \u2b1d\u1d65 ((exponentialGramian r T)\u207b\u00b9*\u1d65d) := by",
+      "new": "controlEnergy T (minimumEnergyInput r d T) = -(d \u2b1d\u1d65 ((exponentialGramian r T)\u207b\u00b9*\u1d65d)) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/MinimumEnergyMoments.lean",
+      "old": "\u2200 s \u2208 Set.Icc 0 T, u s=minimumEnergyInput r d T s := by",
+      "new": "\u2200 s : \u211d, u s=minimumEnergyInput r d T s := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ModalMinimumEnergy.lean",
+      "old": "(\u222b s in 0..T, Real.exp (r*s)*u s)=(Real.exp (r*T)*y1-y0)/k := by",
+      "new": "(\u222b s in 0..T, Real.exp (r*s)*u s)=(Real.exp (r*T)*y1+y0)/k := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ExponentialGramian.lean",
+      "old": "(T : \u211d) (hT : 0 < T) : (exponentialGramian r T).PosDef := by",
+      "new": "(T : \u211d) (hT : 0 \u2264 T) : (exponentialGramian r T).PosDef := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ModalSteering.lean",
+      "old": "modalForcedSolution M (modalSteeringInput M T z0 z1) 0 z0 T=z1 := by",
+      "new": "modalForcedSolution M (modalSteeringInput M T z0 z1) 0 z0 T= -z1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/TimeDomainDischarge.lean",
+      "old": "(h : SameContinuousDischargeOutputs t v x y) : x.1 0=y.1 0 := by",
+      "new": "(h : SameContinuousDischargeOutputs t v x y) : x.1 0= -y.1 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ModalKalman.lean",
+      "old": "(rootKrylovMatrix A).det \u2260 0 \u2227 (rootObservationMatrix A).det \u2260 0 := by",
+      "new": "(rootKrylovMatrix A).det = 0 \u2227 (rootObservationMatrix A).det \u2260 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ExponentialODEProbe.lean",
+      "old": "q \u2022 resolventVector A b q-A*\u1d65resolventVector A b q=b := by",
+      "new": "q \u2022 resolventVector A b q-A*\u1d65resolventVector A b q= -b := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ContinuousOutputFiber.lean",
+      "old": "Nat.card (RealContinuousOutputFiber t r w)=n.factorial /",
+      "new": "Nat.card (RealContinuousOutputFiber t r w)=(n+1).factorial /",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ScalarForcedODE.lean",
+      "old": "(-r*scalarForcedSolution r u a y0 s + u s) s := by",
+      "new": "(-r*scalarForcedSolution r u a y0 s - u s) s := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ModalForcedODE.lean",
+      "old": "modalForcedSolution M u a z0 a=z0 := by",
+      "new": "modalForcedSolution M u a z0 a=0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalMassODE.lean",
+      "old": "(u s-x.1 0*z s 0) s := by",
+      "new": "(u s+x.1 0*z s 0) s := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/DischargeFiber.lean",
+      "old": "x.1 0=stieltjesLeak r w := by",
+      "new": "x.1 0= -stieltjesLeak r w := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RealFiberRigidity.lean",
+      "old": ": PositiveRateVector x := by",
+      "new": ": PositiveRateVector (-x) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RealFiberClassification.lean",
+      "old": "Nat.card (RealResponseFiber t r w) =\n        n.factorial /",
+      "new": "Nat.card (RealResponseFiber t r w) =\n        1 + n.factorial /",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveFiberCount.lean",
+      "old": "n.factorial / (\u220f e : Fin n, subtreeVertexCount t e.succ) := by",
+      "new": "(n+1).factorial / (\u220f e : Fin n, subtreeVertexCount t e.succ) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveFiberTypes.lean",
+      "old": "\u2203 x : PositiveReciprocalFiber t b g d, \u2200 c, childRates t c x.val=(y c).val := by",
+      "new": "\u2203 x : PositiveReciprocalFiber t b g d, \u2200 c, childRates t c x.val=0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveResponseFiber.lean",
+      "old": "physicalRootResponse t x s = \u2211 i, w i/(s+r i)",
+      "new": "physicalRootResponse t x s = -(\u2211 i, w i/(s+r i))",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/SizedSpectralAllocation.lean",
+      "old": "= n.factorial := by",
+      "new": "= (n+1).factorial := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveFiberAllocation.lean",
+      "old": "childCharacteristic t x c = allocatedDenominator b a c := by",
+      "new": "childCharacteristic t x c = allocatedDenominator b a c + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveRateAssembly.lean",
+      "old": "(assemblePositiveRates t l f y).1 0 = l := by",
+      "new": "(assemblePositiveRates t l f y).1 0 = -l := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/StieltjesChildAssembly.lean",
+      "old": "c/x.1 0 = \u2211 i, g i/b i := by",
+      "new": "c/x.1 0 = (\u2211 i, g i/b i) + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/StieltjesDegree.lean",
+      "old": "(hw : (\u2211 i, w i)=1) : (stieltjesNumerator r w).natDegree = n := by",
+      "new": "(hw : (\u2211 i, w i)=1) : (stieltjesNumerator r w).natDegree = n+1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/StieltjesResidues.lean",
+      "old": "0 < reciprocalResidue r w hr hw i := by",
+      "new": "reciprocalResidue r w hr hw i < 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ReciprocalInterpolation.lean",
+      "old": "P = (X+C ((P /\u2098 stieltjesDenominator b).coeff 0))*stieltjesDenominator b -",
+      "new": "P = (X+C ((P /\u2098 stieltjesDenominator b).coeff 0))*stieltjesDenominator b +",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/StieltjesInterlacing.lean",
+      "old": "r i.castSucc < b \u2227 b < r i.succ \u2227 (stieltjesNumerator r w).eval (-b)=0 := by",
+      "new": "r i.succ < b \u2227 b < r i.castSucc \u2227 (stieltjesNumerator r w).eval (-b)=0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/FormalTreePolynomial.lean",
+      "old": "MvPolynomial.C (treeProofOrientation t) * symbolicRateMonomial t * symbolicSiblingResidual t :=",
+      "new": "MvPolynomial.C (treeProofOrientation t) * symbolicRateMonomial t * symbolicSiblingResidual t + 1 :=",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/MultivariateDifferential.lean",
+      "old": "multivariateDifferential p x (Pi.single j 1) = MvPolynomial.eval x (MvPolynomial.pderiv j p) := by",
+      "new": "multivariateDifferential p x (Pi.single j 1) = MvPolynomial.eval x (MvPolynomial.pderiv j p) + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CatenaryFormalPolynomial.lean",
+      "old": "(MvPolynomial.X (.inr e))^(n-e.val-1) :=",
+      "new": "(MvPolynomial.X (.inr e))^(n-e.val) :=",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/TreeExactMultiplicities.lean",
+      "old": "multiplicity (MvPolynomial.X (.inl e.succ)) (symbolicJacobian t) = subtreeVertexCount t e.succ := by",
+      "new": "multiplicity (MvPolynomial.X (.inl e.succ)) (symbolicJacobian t) = subtreeVertexCount t e.succ + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/SymbolicTreeJacobian.lean",
+      "old": "MvPolynomial.eval (rateEvaluation x) (symbolicJacobian t) = treeCanonicalJacobian t x := by",
+      "new": "MvPolynomial.eval (rateEvaluation x) (symbolicJacobian t) = treeCanonicalJacobian t x + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ResultantBoundary.lean",
+      "old": "(\u2203 e : Fin n, x.2 e = 0) \u2228 treeCanonicalJacobian t x = 0 := by",
+      "new": "(\u2203 e : Fin n, x.2 e = 0) \u2227 treeCanonicalJacobian t x = 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/MonicResultantAlgebra.lean",
+      "old": "u.resultant r * v.resultant s * (u.resultant v)^2 := by",
+      "new": "u.resultant r * v.resultant s * (u.resultant v)^3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/AllTreeResultant.lean",
+      "old": "resultantJacobianOrientation t * (\u220f e : Fin n, x.2 e) * treeCanonicalJacobian t x := by",
+      "new": "resultantJacobianOrientation t * (\u220f e : Fin n, x.2 e + 1) * treeCanonicalJacobian t x := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/SubtreeProducts.lean",
+      "old": "treeCanonicalJacobian t x = \u03b5 * originalTreeRateMonomial t x * originalTreeSiblingProduct t x := by",
+      "new": "treeCanonicalJacobian t x = \u03b5 * originalTreeRateMonomial t x * originalTreeSiblingProduct t x + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/AllTreeJacobian.lean",
+      "old": "treeCanonicalJacobian t x ^ 2 = allTreeJacobianWeight t x ^ 2 := by",
+      "new": "treeCanonicalJacobian t x ^ 2 = allTreeJacobianWeight t x ^ 2 + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PositiveJacobian.lean",
+      "old": "treeCanonicalJacobian t x \u2260 0 \u2194 FullPositiveModes t x := by",
+      "new": "treeCanonicalJacobian t x = 0 \u2194 FullPositiveModes t x := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ZeroOutward.lean",
+      "old": "physicalCharacteristic t (a,0) = \u220f v : Fin (n+1), (X+C (a v)) := by",
+      "new": "physicalCharacteristic t (a,0) = 1 + \u220f v : Fin (n+1), (X+C (a v)) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/SubtreeAssignment.lean",
+      "old": "(hassign : SameSubtreeCharacteristics t x y) : x = y := by",
+      "new": "(hassign : SameSubtreeCharacteristics t x y) : x \u2260 y := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalBranchRecovery.lean",
+      "old": "x.1 c.val * outwardByVertex x.2 c.val = y.1 c.val * outwardByVertex y.2 c.val := by",
+      "new": "x.1 c.val * outwardByVertex x.2 c.val = y.1 c.val * outwardByVertex y.2 c.val + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/BranchStep.lean",
+      "old": "(-1 : \u211d)^(ChildFactorDegrees ms).sum *\n        pairwiseResultants (familyPolynomials (ChildFactorDegrees ms) z.1.1)^2 *\n          scaleFamilyWeight ms z.1.2 := by\n  have he",
+      "new": "(-1 : \u211d)^(ChildFactorDegrees ms).sum *\n        pairwiseResultants (familyPolynomials (ChildFactorDegrees ms) z.1.1)^2 := by\n  have he",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalModes.lean",
+      "old": "FullPositiveModes t x \u2194 \u2200 z : \u211d, \u00acSiblingCollisionSomewhere t x z := by",
+      "new": "FullPositiveModes t x \u2194 \u2200 z : \u211d, SiblingCollisionSomewhere t x z := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/StieltjesNumerator.lean",
+      "old": "w i * \u220f j \u2208 Finset.univ.erase i, (r j-r i) := by",
+      "new": "w i + \u220f j \u2208 Finset.univ.erase i, (r j-r i) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalStieltjes.lean",
+      "old": "(\u2211 i, w i) = 1 \u2227",
+      "new": "(\u2211 i, w i) = 2 \u2227",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/GroundedPositivity.lean",
+      "old": "(hg : \u2200 e, 0 < g e) (hell : 0 < ell)",
+      "new": "(hg : \u2200 e, 0 < g e) (hell : 0 \u2264 ell)",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CatenaryCoprime.lean",
+      "old": ": x = y := by\n  exact catenary_global_transfer_identification",
+      "new": ": x \u2260 y := by\n  exact catenary_global_transfer_identification",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CatenaryGlobal.lean",
+      "old": "\u2200 y : TreeRates n, pathCoefficientMap n y = pathCoefficientMap n x \u2192 y = x := by\n  have hr : PathRegularRates n x := by",
+      "new": "\u2200 y : TreeRates n, pathCoefficientMap n y = pathCoefficientMap n x \u2192 y \u2260 x := by\n  have hr : PathRegularRates n x := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RootRecovery.lean",
+      "old": "(h : physicalCoefficientMap t x = physicalCoefficientMap t y) : x.1 0 = y.1 0 := by",
+      "new": "(h : physicalCoefficientMap t x = physicalCoefficientMap t y) : x.1 0 = y.1 0 + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CatenaryOrientation.lean",
+      "old": "catenaryCanonicalJacobian n x ^ 2 =",
+      "new": "catenaryCanonicalJacobian n x ^ 4 =",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CatenaryJacobian.lean",
+      "old": "\u2203 i : Fin n, i.val+1 < n \u2227 x.2 i = 0) := by\n  rw [pathRateMonomial",
+      "new": "\u2203 i : Fin n, i.val < n \u2227 x.2 i = 0) := by\n  rw [pathRateMonomial",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalConstants.lean",
+      "old": "(physicalCharacteristic t x).eval 0 = x.1 0 * \u220f e : Fin n, x.1 e.succ := by",
+      "new": "(physicalCharacteristic t x).eval 0 = \u220f e : Fin n, x.1 e.succ := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RateCoordinates.lean",
+      "old": "(ratePartitionEquiv t x).1 = x.1 0 := rfl",
+      "new": "(ratePartitionEquiv t x).1 = 0 := rfl",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/FiniteCancellation.lean",
+      "old": "(ha : \u2200 c, a c \u2260 0)",
+      "new": "(ha : \u2200 c, True)",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalRecursion.lean",
+      "old": "physicalRootCofactor t x = \u220f c : RootChild t, childCharacteristic t x c := by",
+      "new": "physicalRootCofactor t x = 1 + \u220f c : RootChild t, childCharacteristic t x c := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ChildRates.lean",
+      "old": "(childRates t c x).1 0 = x.1 c.val := by",
+      "new": "(childRates t c x).1 0 = 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/ChildTree.lean",
+      "old": "childEdgeCount t c < n := by",
+      "new": "childEdgeCount t c < n-1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RootBranches.lean",
+      "old": "rootPartitionEquiv t (.inr \u27e8c,v\u27e9) = v.val := rfl",
+      "new": "rootPartitionEquiv t (.inr \u27e8c,v\u27e9) = 0 := rfl",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalRootDecomposition.lean",
+      "old": "(rootInwardRow t x) (rootOutwardColumn t x)",
+      "new": "0 (rootOutwardColumn t x)",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/FamilyGluing.lean",
+      "old": "familyGlueJacobian ms x = pairwiseResultants (familyPolynomials ms x.1)^2 := by",
+      "new": "familyGlueJacobian ms x = pairwiseResultants (familyPolynomials ms x.1)^3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalLeaf.lean",
+      "old": "(X + C (x.1 (terminalVertex n))) * (terminalMinor t x).charpoly -",
+      "new": "(X - C (x.1 (terminalVertex n))) * (terminalMinor t x).charpoly -",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/EdgeCharacteristic.lean",
+      "old": "A.charpoly * B.charpoly - C (a*f) *",
+      "new": "A.charpoly * B.charpoly - C (a*f+1) *",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/BranchAssembly.lean",
+      "old": "(branchRoot bs) = branchProduct bs := by",
+      "new": "(branchRoot bs) = branchProduct bs + 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/PhysicalBridge.lean",
+      "old": "matrixCoordinateJacobian t x = \u220f i : Fin n, x.1 i.succ := by",
+      "new": "matrixCoordinateJacobian t x = \u220f i : Fin n, x.2 i := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/CompartmentMatrix.lean",
+      "old": "(\u2211 v : Fin (n+1), (compartmentMatrix t x *\u1d65 s) v) = -x.1 0 * s 0 := by",
+      "new": "(\u2211 v : Fin (n+1), (compartmentMatrix t x *\u1d65 s) v) = 0 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Scaling.lean",
+      "old": "monicScalingJacobian x = x.1 ^ n := by",
+      "new": "monicScalingJacobian x = x.1 ^ (n+1) := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/RootUpdate.lean",
+      "old": "rootCoefficientJacobian x = (-1 : \u211d)^n := by",
+      "new": "rootCoefficientJacobian x = 1 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Gluing.lean",
+      "old": "m n ^ 2 := by",
+      "new": "m n ^ 3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Gluing.lean",
+      "old": "repeatedBlock (monoSylv x.1) (lowSylv x.2)",
+      "new": "repeatedBlock (monoSylv x.1) 0",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/BlockJacobian.lean",
+      "old": ").det ^ 2 := by",
+      "new": ").det ^ 3 := by",
+      "rejected": true
+    },
+    {
+      "source": "HydrologyTree/Coefficients.lean",
+      "old": "\u27e8X^n, Polynomial.mem_degreeLT.mpr",
+      "new": "\u27e8X^(n+1), Polynomial.mem_degreeLT.mpr",
+      "rejected": true
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "verified_source_archive_sha256": "c5bac6a502701a62c69398abb471eb19a1898b291ba471a98ef26ed7baf67307",
+  "finished_utc": "2026-10-13T10:13:53.138533+00:00"
+}

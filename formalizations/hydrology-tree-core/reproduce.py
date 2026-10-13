@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+"""Source-bound fresh builds, exact scope documents and empty trust-zero kernel replay."""
+from pathlib import Path
+import argparse, datetime, hashlib, json, os, re, shutil, subprocess, time
+ROOT=Path(__file__).resolve().parent
+ALLOWED={'propext','Classical.choice','Quot.sound'}
+
+def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+
+def strip_comments(s):
+ out=[];i=depth=0
+ while i<len(s):
+  if s.startswith('/-',i):depth+=1;i+=2
+  elif depth and s.startswith('-/',i):depth-=1;i+=2
+  elif depth:i+=1
+  elif s.startswith('--',i):
+   j=s.find('\n',i);i=len(s) if j<0 else j
+  else:out.append(s[i]);i+=1
+ if depth:raise RuntimeError('Unterminated comment')
+ return ''.join(out)
+
+def snapshot():
+ expected=json.loads((ROOT/'SOURCE_SHA256.json').read_text())
+ got={p:digest(ROOT/p) for p in expected}
+ if got!=expected:raise RuntimeError('Source manifest mismatch')
+ for module in json.loads((ROOT/'MODULES.json').read_text()):
+  s=strip_comments((ROOT/(module.replace('.','/')+'.lean')).read_text())
+  if re.search(r'\b(sorry|admit|axiom|native_decide|unsafe|implemented_by|extern)\b',s):
+   raise RuntimeError('Forbidden token in '+module)
+ return got
+
+def main():
+ ap=argparse.ArgumentParser(description=__doc__)
+ ap.add_argument('--output-dir',type=Path,required=True)
+ ap.add_argument('--mathlib-dir',type=Path,default=ROOT/'.lake/packages/mathlib')
+ ap.add_argument('--lean',default=shutil.which('lean'))
+ args=ap.parse_args()
+ if not args.lean:ap.error('Activate Lean 4.34.1 first')
+ out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=False)
+ report={'status':'RUNNING','scope':'Finite labelled bidirected tree theorem core: all-real arbitrary-leak Jacobian polynomial, exact multiplicities and zero sets; full-positive-target real fibers, independent graph presentation, continuous-input ODE and signed-control results; exact exclusions in hashed GAPS.md and FORMAL_THEOREMS.md','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
+ try:
+  before=snapshot();report['source_sha256']=before
+  lean=Path(args.lean).resolve();env=os.environ.copy();env['PATH']=str(lean.parent)+os.pathsep+env.get('PATH','');env.pop('LEAN_PATH',None);env.pop('LEAN_SRC_PATH',None)
+  version=subprocess.check_output([str(lean),'--version'],text=True).strip()
+  if 'version 4.34.1,' not in version or '5045d0056413266e57c625dcd7c365b10e377c52' not in version:raise RuntimeError(version)
+  report['lean_version']=version;report['lean_executable_sha256']=digest(lean)
+  dirs={};deps={};mathlib=args.mathlib_dir.resolve()
+  for d in json.loads((ROOT/'lake-manifest.json').read_text())['packages']:
+   if d['type']!='git':raise RuntimeError('Unexpected unpinned path dependency')
+   directory=mathlib if d['name']=='mathlib' else args.mathlib_dir.absolute().parent/d['name']
+   if not directory.is_dir() and d['name']!='mathlib':
+    directory=mathlib/'.lake/packages'/d['name']
+   directory=directory.resolve()
+   rev=subprocess.check_output(['git','-C',str(directory),'rev-parse','HEAD'],text=True).strip()
+   if rev!=d['rev']:raise RuntimeError('Dependency revision mismatch: '+d['name'])
+   tree=subprocess.check_output(['git','-C',str(directory),'ls-tree','-rz','HEAD'])
+   checked=0
+   for entry in tree.split(b'\0'):
+    if not entry:continue
+    meta,rel=entry.split(b'\t',1);mode,typ,wanted=meta.decode().split();rel=rel.decode()
+    if typ!='blob' or not (rel.endswith('.lean') or rel in {'lakefile.lean','lakefile.toml','lean-toolchain','lake-manifest.json'}):continue
+    p=directory/rel;data=os.readlink(p).encode() if mode=='120000' else p.read_bytes();data=data.replace(b'\r\n',b'\n')
+    actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+    if actual!=wanted:raise RuntimeError('Modified dependency source: '+str(p))
+    checked+=1
+   dirs[d['name']]=directory;deps[d['name']]={'revision':rev,'source_blobs_checked':checked}
+  report['dependencies']=deps
+  def run(cmd,cwd,name,neg=False):
+   start=time.monotonic()
+   with (out/name).open('w') as f:r=subprocess.run(cmd,cwd=cwd,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=1800)
+   s=(out/name).read_text(errors='replace');record={'command':list(map(str,cmd)),'returncode':r.returncode,'seconds':round(time.monotonic()-start,3),'log':name};report['commands'].append(record);print(json.dumps(record),flush=True)
+   if neg:
+    if r.returncode==0 or 'error' not in s.lower():raise RuntimeError('Negative control accepted: '+name)
+    if any(x in s.lower() for x in ['unknown module prefix','object file','already been declared']):raise RuntimeError('Infrastructure failure, not a negative control: '+name)
+   elif r.returncode:raise RuntimeError('Command failed: '+name+'\n'+s[-4000:])
+  lake=out/'lake-source';lake.mkdir()
+  for rel in before:
+   p=lake/rel;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/rel,p)
+  packages=lake/'.lake/packages';packages.mkdir(parents=True)
+  for name,d in dirs.items():(packages/name).symlink_to(d,target_is_directory=True)
+  report['initial_owned_objects']=len(list(lake.rglob('*.olean')))
+  run([str(lean.parent/'lake'),'build'],lake,'lake-build.log')
+  fresh=out/'fresh';fresh.mkdir();env['LEAN_PATH']=os.pathsep.join([str(fresh)]+[str(d/'.lake/build/lib/lean') for d in dirs.values()])
+  modules=json.loads((ROOT/'MODULES.json').read_text());report['modules']=modules
+  for m in modules:
+   rel=m.replace('.','/');dest=fresh/(rel+'.lean');dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/(rel+'.lean'),dest)
+   run([str(lean),'-o',rel+'.olean',rel+'.lean'],fresh,'build-'+m+'.log')
+  report['object_sha256']={str(p.relative_to(fresh)):digest(p) for p in sorted(fresh.rglob('*.olean'))}
+  for name in ['Audit','Replay']:
+   shutil.copyfile(ROOT/'audit'/(name+'.lean'),fresh/(name+'.lean'));run([str(lean),name+'.lean'],fresh,name.lower()+'.log')
+  text=(out/'replay.log').read_text();match=re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations; (\d+) roots; trust level zero',text)
+  if not match:raise RuntimeError('Missing replay completion marker')
+  axioms=set((fresh/'replayed-axioms.txt').read_text().splitlines())
+  if not axioms.issubset(ALLOWED):raise RuntimeError('Unexpected axioms')
+  report['kernel_replay']={'declarations':int(match[1]),'roots':int(match[2]),'trust_level':0,'axioms':sorted(axioms)}
+  for name in ['replayed-axioms.txt','replayed-closure.txt']:shutil.copyfile(fresh/name,out/name)
+  controls=[('HydrologyTree/LocatedExactMultiplicities.lean', '(locatedCoordinateExponent p q k : ℕ∞) := by', '((locatedCoordinateExponent p q k+1 : ℕ) : ℕ∞) := by'),('HydrologyTree/GraphResidualWitness.lean', '∃ y : GraphRates G, graphRateArrayEquiv G y k=0 ∧', '∃ y : GraphRates G, graphRateArrayEquiv G y k=1 ∧'),('HydrologyTree/LocatedBoundarySingularSet.lean', 'graphRateArrayEquiv G y k=0 ∧ 0<locatedCoordinateExponent p q k', 'graphRateArrayEquiv G y k=0 ∧ 1<locatedCoordinateExponent p q k'),('HydrologyTree/GraphLeakCofactor.lean', '∏ e : Fin n, y.2 (treeDartEquiv q (.inl e))', '∏ e : Fin n, y.2 (treeDartEquiv q (.inr e))'),('HydrologyTree/LocatedAllRateJacobian.lean', 'formalLocatedJacobian p ell=symbolicLocatedWeight p ell := by', 'formalLocatedJacobian p ell=symbolicLocatedWeight p ell + 1 := by'),('HydrologyTree/RealLocatedPositivity.lean', '    PositiveGraphRates y := by', '    PositiveGraphRates (-y) := by'),('HydrologyTree/ConservationGaugeRigidity.lean', ': A=B ∧ a=b ∧ ∀ v,h v=h ell := by', ': A=B ∧ a= -b ∧ ∀ v,h v=h ell := by'),('HydrologyTree/RealLocatedClassification.lean', 'Nat.card (RealLocatedFiber (G := G) o ell r w)=\n        n.factorial/', 'Nat.card (RealLocatedFiber (G := G) o ell r w)=\n        (n+1).factorial/'),('HydrologyTree/RealLocatedODEClassification.lean', 'HasLocatedContinuousRootOutput o ell y r w ↔ HasLocatedStieltjesResponse o ell y r w := by', 'HasLocatedContinuousRootOutput o ell y r w ↔ ¬HasLocatedStieltjesResponse o ell y r w := by'),('HydrologyTree/LeakSlideJacobian.lean', 'endJacobian (slideLeakRates d) y=y.2 d.symm/(y.2 d+y.1) := by', 'endJacobian (slideLeakRates d) y= -y.2 d.symm/(y.2 d+y.1) := by'),('HydrologyTree/LocatedLeakJacobian.lean', 'y.1*locatedGraphJacobian p ell y=(relocateLeakRates hG ell o y).1*', 'y.1*locatedGraphJacobian p ell y= -(relocateLeakRates hG ell o y).1*'),('HydrologyTree/GraphModelInjectivity.lean','graphCompartmentMatrix G o y d.snd d.fst=y.2 d := by','graphCompartmentMatrix G o y d.snd d.fst= -y.2 d := by'),('HydrologyTree/GaugeODETransport.lean', 'normalizedGaugeState h hh o z o=z o := by', 'normalizedGaugeState h hh o z o= -z o := by'),('HydrologyTree/LocatedLeakODE.lean', 'Nat.card (PositiveLocatedContinuousFiber (G := G) o ell r w)=\n        n.factorial/', 'Nat.card (PositiveLocatedContinuousFiber (G := G) o ell r w)=\n        (n+1).factorial/'),('HydrologyTree/LeakLocationIdentifiability.lean', '∀ s : ℝ, z s o=q s o := by', '∀ s : ℝ, z s o=q s o+1 := by'),('HydrologyTree/LeakRelocationRates.lean', 'slideLeakRates d.symm (slideLeakRates d y)=y := by', 'slideLeakRates d.symm (slideLeakRates d y)= -y := by'),('HydrologyTree/DiagonalGauge.lean', 'diagonalCofactor (diagonalGauge h A) o=diagonalCofactor A o := by', 'diagonalCofactor (diagonalGauge h A) o=diagonalCofactor A o+1 := by'),('HydrologyTree/LocatedLeakFiber.lean', 'Fintype.card V*(n.factorial/', '(Fintype.card V+1)*(n.factorial/'),('HydrologyTree/GraphRateTransport.lean', '(graphRateEquiv p x).2 (treeDartEquiv p (.inl i))=x.1 i.succ := by', '(graphRateEquiv p x).2 (treeDartEquiv p (.inl i))= -x.1 i.succ := by'),('HydrologyTree/GraphResponseClassification.lean', 'Finite (GraphResponseFiber (G := G) o r w) ∧\n      Nat.card (GraphResponseFiber (G := G) o r w)=\n        n.factorial/', 'Finite (GraphResponseFiber (G := G) o r w) ∧\n      Nat.card (GraphResponseFiber (G := G) o r w)=\n        (n+1).factorial/'),('HydrologyTree/GraphMassBalance.lean', '(u s-y.1*z s o) s := by', '(u s+y.1*z s o) s := by'),('HydrologyTree/MinimumEnergyMoments.lean', 'controlEnergy T (minimumEnergyInput r d T) = d ⬝ᵥ ((exponentialGramian r T)⁻¹*ᵥd) := by', 'controlEnergy T (minimumEnergyInput r d T) = -(d ⬝ᵥ ((exponentialGramian r T)⁻¹*ᵥd)) := by'),('HydrologyTree/MinimumEnergyMoments.lean', '∀ s ∈ Set.Icc 0 T, u s=minimumEnergyInput r d T s := by', '∀ s : ℝ, u s=minimumEnergyInput r d T s := by'),('HydrologyTree/ModalMinimumEnergy.lean', '(∫ s in 0..T, Real.exp (r*s)*u s)=(Real.exp (r*T)*y1-y0)/k := by', '(∫ s in 0..T, Real.exp (r*s)*u s)=(Real.exp (r*T)*y1+y0)/k := by'),('HydrologyTree/ExponentialGramian.lean', '(T : ℝ) (hT : 0 < T) : (exponentialGramian r T).PosDef := by', '(T : ℝ) (hT : 0 ≤ T) : (exponentialGramian r T).PosDef := by'),('HydrologyTree/ModalSteering.lean', 'modalForcedSolution M (modalSteeringInput M T z0 z1) 0 z0 T=z1 := by', 'modalForcedSolution M (modalSteeringInput M T z0 z1) 0 z0 T= -z1 := by'),('HydrologyTree/TimeDomainDischarge.lean', '(h : SameContinuousDischargeOutputs t v x y) : x.1 0=y.1 0 := by', '(h : SameContinuousDischargeOutputs t v x y) : x.1 0= -y.1 0 := by'),('HydrologyTree/ModalKalman.lean', '(rootKrylovMatrix A).det ≠ 0 ∧ (rootObservationMatrix A).det ≠ 0 := by', '(rootKrylovMatrix A).det = 0 ∧ (rootObservationMatrix A).det ≠ 0 := by'),('HydrologyTree/ExponentialODEProbe.lean', 'q • resolventVector A b q-A*ᵥresolventVector A b q=b := by', 'q • resolventVector A b q-A*ᵥresolventVector A b q= -b := by'),('HydrologyTree/ContinuousOutputFiber.lean', 'Nat.card (RealContinuousOutputFiber t r w)=n.factorial /', 'Nat.card (RealContinuousOutputFiber t r w)=(n+1).factorial /'),('HydrologyTree/ScalarForcedODE.lean', '(-r*scalarForcedSolution r u a y0 s + u s) s := by', '(-r*scalarForcedSolution r u a y0 s - u s) s := by'),('HydrologyTree/ModalForcedODE.lean', 'modalForcedSolution M u a z0 a=z0 := by', 'modalForcedSolution M u a z0 a=0 := by'),('HydrologyTree/PhysicalMassODE.lean', '(u s-x.1 0*z s 0) s := by', '(u s+x.1 0*z s 0) s := by'),('HydrologyTree/DischargeFiber.lean','x.1 0=stieltjesLeak r w := by','x.1 0= -stieltjesLeak r w := by'),('HydrologyTree/RealFiberRigidity.lean', ': PositiveRateVector x := by', ': PositiveRateVector (-x) := by'),('HydrologyTree/RealFiberClassification.lean', 'Nat.card (RealResponseFiber t r w) =\n        n.factorial /', 'Nat.card (RealResponseFiber t r w) =\n        1 + n.factorial /'),('HydrologyTree/PositiveFiberCount.lean', 'n.factorial / (∏ e : Fin n, subtreeVertexCount t e.succ) := by', '(n+1).factorial / (∏ e : Fin n, subtreeVertexCount t e.succ) := by'),('HydrologyTree/PositiveFiberTypes.lean', '∃ x : PositiveReciprocalFiber t b g d, ∀ c, childRates t c x.val=(y c).val := by', '∃ x : PositiveReciprocalFiber t b g d, ∀ c, childRates t c x.val=0 := by'),('HydrologyTree/PositiveResponseFiber.lean', 'physicalRootResponse t x s = ∑ i, w i/(s+r i)', 'physicalRootResponse t x s = -(∑ i, w i/(s+r i))'),('HydrologyTree/SizedSpectralAllocation.lean','= n.factorial := by','= (n+1).factorial := by'),('HydrologyTree/PositiveFiberAllocation.lean','childCharacteristic t x c = allocatedDenominator b a c := by','childCharacteristic t x c = allocatedDenominator b a c + 1 := by'),('HydrologyTree/PositiveRateAssembly.lean','(assemblePositiveRates t l f y).1 0 = l := by','(assemblePositiveRates t l f y).1 0 = -l := by'),('HydrologyTree/StieltjesChildAssembly.lean','c/x.1 0 = ∑ i, g i/b i := by','c/x.1 0 = (∑ i, g i/b i) + 1 := by'),('HydrologyTree/StieltjesDegree.lean','(hw : (∑ i, w i)=1) : (stieltjesNumerator r w).natDegree = n := by','(hw : (∑ i, w i)=1) : (stieltjesNumerator r w).natDegree = n+1 := by'),('HydrologyTree/StieltjesResidues.lean','0 < reciprocalResidue r w hr hw i := by','reciprocalResidue r w hr hw i < 0 := by'),('HydrologyTree/ReciprocalInterpolation.lean','P = (X+C ((P /ₘ stieltjesDenominator b).coeff 0))*stieltjesDenominator b -','P = (X+C ((P /ₘ stieltjesDenominator b).coeff 0))*stieltjesDenominator b +'),('HydrologyTree/StieltjesInterlacing.lean','r i.castSucc < b ∧ b < r i.succ ∧ (stieltjesNumerator r w).eval (-b)=0 := by','r i.succ < b ∧ b < r i.castSucc ∧ (stieltjesNumerator r w).eval (-b)=0 := by'),('HydrologyTree/FormalTreePolynomial.lean','MvPolynomial.C (treeProofOrientation t) * symbolicRateMonomial t * symbolicSiblingResidual t :=','MvPolynomial.C (treeProofOrientation t) * symbolicRateMonomial t * symbolicSiblingResidual t + 1 :='),('HydrologyTree/MultivariateDifferential.lean','multivariateDifferential p x (Pi.single j 1) = MvPolynomial.eval x (MvPolynomial.pderiv j p) := by','multivariateDifferential p x (Pi.single j 1) = MvPolynomial.eval x (MvPolynomial.pderiv j p) + 1 := by'),('HydrologyTree/CatenaryFormalPolynomial.lean','(MvPolynomial.X (.inr e))^(n-e.val-1) :=','(MvPolynomial.X (.inr e))^(n-e.val) :='),('HydrologyTree/TreeExactMultiplicities.lean','multiplicity (MvPolynomial.X (.inl e.succ)) (symbolicJacobian t) = subtreeVertexCount t e.succ := by','multiplicity (MvPolynomial.X (.inl e.succ)) (symbolicJacobian t) = subtreeVertexCount t e.succ + 1 := by'),('HydrologyTree/SymbolicTreeJacobian.lean','MvPolynomial.eval (rateEvaluation x) (symbolicJacobian t) = treeCanonicalJacobian t x := by','MvPolynomial.eval (rateEvaluation x) (symbolicJacobian t) = treeCanonicalJacobian t x + 1 := by'),('HydrologyTree/ResultantBoundary.lean','(∃ e : Fin n, x.2 e = 0) ∨ treeCanonicalJacobian t x = 0 := by','(∃ e : Fin n, x.2 e = 0) ∧ treeCanonicalJacobian t x = 0 := by'),('HydrologyTree/MonicResultantAlgebra.lean','u.resultant r * v.resultant s * (u.resultant v)^2 := by','u.resultant r * v.resultant s * (u.resultant v)^3 := by'),('HydrologyTree/AllTreeResultant.lean','resultantJacobianOrientation t * (∏ e : Fin n, x.2 e) * treeCanonicalJacobian t x := by','resultantJacobianOrientation t * (∏ e : Fin n, x.2 e + 1) * treeCanonicalJacobian t x := by'),('HydrologyTree/SubtreeProducts.lean', 'treeCanonicalJacobian t x = ε * originalTreeRateMonomial t x * originalTreeSiblingProduct t x := by', 'treeCanonicalJacobian t x = ε * originalTreeRateMonomial t x * originalTreeSiblingProduct t x + 1 := by'), ('HydrologyTree/AllTreeJacobian.lean', 'treeCanonicalJacobian t x ^ 2 = allTreeJacobianWeight t x ^ 2 := by', 'treeCanonicalJacobian t x ^ 2 = allTreeJacobianWeight t x ^ 2 + 1 := by'), ('HydrologyTree/PositiveJacobian.lean', 'treeCanonicalJacobian t x ≠ 0 ↔ FullPositiveModes t x := by', 'treeCanonicalJacobian t x = 0 ↔ FullPositiveModes t x := by'), ('HydrologyTree/ZeroOutward.lean', 'physicalCharacteristic t (a,0) = ∏ v : Fin (n+1), (X+C (a v)) := by', 'physicalCharacteristic t (a,0) = 1 + ∏ v : Fin (n+1), (X+C (a v)) := by'),('HydrologyTree/SubtreeAssignment.lean','(hassign : SameSubtreeCharacteristics t x y) : x = y := by','(hassign : SameSubtreeCharacteristics t x y) : x ≠ y := by'),('HydrologyTree/PhysicalBranchRecovery.lean','x.1 c.val * outwardByVertex x.2 c.val = y.1 c.val * outwardByVertex y.2 c.val := by','x.1 c.val * outwardByVertex x.2 c.val = y.1 c.val * outwardByVertex y.2 c.val + 1 := by'),('HydrologyTree/BranchStep.lean','(-1 : ℝ)^(ChildFactorDegrees ms).sum *\n        pairwiseResultants (familyPolynomials (ChildFactorDegrees ms) z.1.1)^2 *\n          scaleFamilyWeight ms z.1.2 := by\n  have he','(-1 : ℝ)^(ChildFactorDegrees ms).sum *\n        pairwiseResultants (familyPolynomials (ChildFactorDegrees ms) z.1.1)^2 := by\n  have he'),('HydrologyTree/PhysicalModes.lean','FullPositiveModes t x ↔ ∀ z : ℝ, ¬SiblingCollisionSomewhere t x z := by','FullPositiveModes t x ↔ ∀ z : ℝ, SiblingCollisionSomewhere t x z := by'),('HydrologyTree/StieltjesNumerator.lean','w i * ∏ j ∈ Finset.univ.erase i, (r j-r i) := by','w i + ∏ j ∈ Finset.univ.erase i, (r j-r i) := by'),('HydrologyTree/PhysicalStieltjes.lean','(∑ i, w i) = 1 ∧','(∑ i, w i) = 2 ∧'),('HydrologyTree/GroundedPositivity.lean','(hg : ∀ e, 0 < g e) (hell : 0 < ell)','(hg : ∀ e, 0 < g e) (hell : 0 ≤ ell)'),('HydrologyTree/CatenaryCoprime.lean',': x = y := by\n  exact catenary_global_transfer_identification',': x ≠ y := by\n  exact catenary_global_transfer_identification'),('HydrologyTree/CatenaryGlobal.lean','∀ y : TreeRates n, pathCoefficientMap n y = pathCoefficientMap n x → y = x := by\n  have hr : PathRegularRates n x := by','∀ y : TreeRates n, pathCoefficientMap n y = pathCoefficientMap n x → y ≠ x := by\n  have hr : PathRegularRates n x := by'),('HydrologyTree/RootRecovery.lean','(h : physicalCoefficientMap t x = physicalCoefficientMap t y) : x.1 0 = y.1 0 := by','(h : physicalCoefficientMap t x = physicalCoefficientMap t y) : x.1 0 = y.1 0 + 1 := by'),('HydrologyTree/CatenaryOrientation.lean','catenaryCanonicalJacobian n x ^ 2 =','catenaryCanonicalJacobian n x ^ 4 ='),('HydrologyTree/CatenaryJacobian.lean','∃ i : Fin n, i.val+1 < n ∧ x.2 i = 0) := by\n  rw [pathRateMonomial','∃ i : Fin n, i.val < n ∧ x.2 i = 0) := by\n  rw [pathRateMonomial'),('HydrologyTree/PhysicalConstants.lean','(physicalCharacteristic t x).eval 0 = x.1 0 * ∏ e : Fin n, x.1 e.succ := by','(physicalCharacteristic t x).eval 0 = ∏ e : Fin n, x.1 e.succ := by'),('HydrologyTree/RateCoordinates.lean','(ratePartitionEquiv t x).1 = x.1 0 := rfl','(ratePartitionEquiv t x).1 = 0 := rfl'),('HydrologyTree/FiniteCancellation.lean','(ha : ∀ c, a c ≠ 0)','(ha : ∀ c, True)'),('HydrologyTree/PhysicalRecursion.lean','physicalRootCofactor t x = ∏ c : RootChild t, childCharacteristic t x c := by','physicalRootCofactor t x = 1 + ∏ c : RootChild t, childCharacteristic t x c := by'),('HydrologyTree/ChildRates.lean','(childRates t c x).1 0 = x.1 c.val := by','(childRates t c x).1 0 = 0 := by'),('HydrologyTree/ChildTree.lean','childEdgeCount t c < n := by','childEdgeCount t c < n-1 := by'),('HydrologyTree/RootBranches.lean','rootPartitionEquiv t (.inr ⟨c,v⟩) = v.val := rfl','rootPartitionEquiv t (.inr ⟨c,v⟩) = 0 := rfl'),('HydrologyTree/PhysicalRootDecomposition.lean','(rootInwardRow t x) (rootOutwardColumn t x)','0 (rootOutwardColumn t x)'),('HydrologyTree/FamilyGluing.lean','familyGlueJacobian ms x = pairwiseResultants (familyPolynomials ms x.1)^2 := by','familyGlueJacobian ms x = pairwiseResultants (familyPolynomials ms x.1)^3 := by'),('HydrologyTree/PhysicalLeaf.lean','(X + C (x.1 (terminalVertex n))) * (terminalMinor t x).charpoly -','(X - C (x.1 (terminalVertex n))) * (terminalMinor t x).charpoly -'),('HydrologyTree/EdgeCharacteristic.lean','A.charpoly * B.charpoly - C (a*f) *','A.charpoly * B.charpoly - C (a*f+1) *'),('HydrologyTree/BranchAssembly.lean','(branchRoot bs) = branchProduct bs := by','(branchRoot bs) = branchProduct bs + 1 := by'),('HydrologyTree/PhysicalBridge.lean','matrixCoordinateJacobian t x = ∏ i : Fin n, x.1 i.succ := by','matrixCoordinateJacobian t x = ∏ i : Fin n, x.2 i := by'),('HydrologyTree/CompartmentMatrix.lean','(∑ v : Fin (n+1), (compartmentMatrix t x *ᵥ s) v) = -x.1 0 * s 0 := by','(∑ v : Fin (n+1), (compartmentMatrix t x *ᵥ s) v) = 0 := by'),('HydrologyTree/Scaling.lean','monicScalingJacobian x = x.1 ^ n := by','monicScalingJacobian x = x.1 ^ (n+1) := by'),('HydrologyTree/RootUpdate.lean','rootCoefficientJacobian x = (-1 : ℝ)^n := by','rootCoefficientJacobian x = 1 := by'),('HydrologyTree/Gluing.lean','m n ^ 2 := by','m n ^ 3 := by'),('HydrologyTree/Gluing.lean','repeatedBlock (monoSylv x.1) (lowSylv x.2)','repeatedBlock (monoSylv x.1) 0'),('HydrologyTree/BlockJacobian.lean',').det ^ 2 := by',').det ^ 3 := by'),('HydrologyTree/Coefficients.lean','⟨X^n, Polynomial.mem_degreeLT.mpr','⟨X^(n+1), Polynomial.mem_degreeLT.mpr')]
+  report['negative_controls']=[]
+  for i,(rel,old,new) in enumerate(controls):
+   text=(ROOT/rel).read_text()
+   if text.count(old)!=1:raise RuntimeError('Ambiguous mutation '+rel)
+   neg=out/('negative-'+str(i+1));(neg/rel).parent.mkdir(parents=True);(neg/rel).write_text(text.replace(old,new))
+   run([str(lean),rel],neg,'negative-'+str(i+1)+'.log',True);report['negative_controls'].append({'source':rel,'old':old,'new':new,'rejected':True})
+  if snapshot()!=before:raise RuntimeError('Source changed during verification')
+  report['source_hashes_unchanged']=True
+  import gzip, io, tarfile
+  bundle=out/'verified-source.tar.gz'
+  with bundle.open('wb') as raw:
+   with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
+    with tarfile.open(fileobj=gz,mode='w') as tar:
+     names=set(before)|{'SOURCE_SHA256.json','README.md','DEPENDENCY_MAP.md','GAPS.md','DEPENDENCIES.dot'}
+     for name in sorted(names):
+      p=ROOT/name
+      if not p.is_file():raise RuntimeError('Missing deliverable '+name)
+      data=p.read_bytes();info=tarfile.TarInfo('hydrology-tree-core/'+name)
+      info.size=len(data);info.mtime=0;info.mode=0o644
+      tar.addfile(info,io.BytesIO(data))
+  report['verified_source_archive_sha256']=digest(bundle)
+  report['status']='PASS'
+
+ except Exception as e:
+  report['status']='FAIL';report['error']=repr(e)
+ finally:
+  report['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();(out/'verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report),flush=True)
+ return 0 if report['status']=='PASS' else 1
+if __name__=='__main__':raise SystemExit(main())

@@ -1,0 +1,165 @@
+# Paper statements → actual Lean proof chain
+
+Overall status: partial formalization. The all-tree rooted coefficient Jacobian
+and exact polynomial rate multiplicities are proved; positive existence/counting
+and the alternate-leak variant remains; the continuous ODE and independent graph bridges are now proved.
+
+| Statement | Main Lean entries | Exact scope |
+|---|---|---|
+| Physical rate matrix and conservative balance | `compartmentMatrix`, `compartment_column_sum`, `compartment_total_flux` | Actual entries, arbitrary real rates |
+| Genuine principal child models | `physicalBranch_eq_childTree`, `physicalBranch_charpoly_eq`, `physicalBranch_cofactor_eq` | Original exit-to-parent diagonal retained |
+| Independent original rate coordinates | `originalWorkEquiv_apply`, `originalWorkEquiv_dot` | Rate-independent bijection and exact coefficient-dot preservation |
+| Actual child coefficient preparation | `prepareFamilyEquiv`, `prepareFamilyEquiv_dot`, `actualBranchInputs_coefficients` | Actual polynomials; no assumed child-Jacobian semantic bridge |
+| All-child polynomial scaling/gluing/root step | `familyGlueJacobian_eq_pairwise`, `normalizedBranchStep_jacobian` | All degrees/rates, including zero scales and repeated roots |
+| Full physical pipeline | `treePipeline_actual`, `treeCanonicalJacobian_recurrence` | End-to-end physical identification and discharged smaller-child induction |
+| Main all-tree standard Jacobian | `full_tree_standard_jacobian` | Actual Frechet derivative, fixed sign for all rates; products on original vertices/edges |
+| Jacobian regularity and sibling coprimality | `treeJacobian_ne_zero_iff_coprime` | Nonzero real internal rates; root leak unrestricted |
+| Positive spectral singular set | `positive_tree_jacobian_zero_iff_collision` | Positive internal rates; actual real sibling principal spectra |
+| Full positive Stieltjes modes | `positive_tree_jacobian_iff_full_modes` | Positive root leak and internal rates; energy/spectral proof imported, not assumed |
+| Global uniqueness per fixed subtree assignment | `regular_tree_assignment_unique` | Arbitrary real competitor; not uniqueness from root response alone |
+| Formal symbolic/analytic derivative identification | `formalTreeJacobian_evaluate`, `formal_catenary_jacobian_polynomial` | Actual symbolic characteristic/cofactor coefficients and formal partial derivatives, matched to actual Frechet derivatives at every real rate vector |
+| Uniform coordinate-boundary construction | `zero_outward_characteristic`, `zero_coordinate_coprime_witness` | All tree sizes; distinct inward rates, all outward rates zero |
+| Exact individual-rate polynomial multiplicities | `formalTreeJacobian_exact_powers`, `formalTreeJacobian_inward_multiplicity`, `formalTreeJacobian_outward_multiplicity` | Polynomial prime multiplicity of the formally differentiated actual coefficient determinant; nondivisibility by the next power proved, including zero exponents |
+| Exact signed resultant/Jacobian identity | `full_tree_resultant_jacobian`, `physicalResultant_jacobian_square` | Fixed tree-dependent sign, all real rates and all degenerate boundaries |
+| All positive realizations and factorial count | Not yet exported | Interlacing, residue signs, every partition's realization, completeness and count remain |
+| Independent graph presentation | `finite_rooted_tree_presentation`, `finite_graph_continuous_fiber_classification`, `finite_graph_full_dynamical_properties` | Constructed graph/parent, actual-rate/matrix/ODE/fiber transport; alternate leak remains separate |
+| ODE all-input / controllability interpretations | Not yet exported | Algebraic resolvent and polynomial identities do not supply ODE semantics |
+
+The audit roots include all owned declarations and their used dependencies.
+Development compiler receipts are separate from independent source-bound
+Lake/empty-kernel verification. No missing paper result is added as an axiom.
+
+
+### Positive fiber completion
+
+The prior existence/at-most-one-assignment obligations are now complemented by
+`PositiveFiberAllocation` (unique exhaustive factor extraction),
+`PositiveFiberRecovery` (actual child numerator recovery),
+`PositiveFiberEquivalence` (surjective and injective actual root assembly),
+`RecursiveFiberClassification` (complete recursive allocation bijection),
+`TreeFiberCombinatorics` (original-subtree factorial identity),
+`PositiveFiberCount` (actual finiteness and exact cardinality), and
+`PositiveResponseFiber` (response-only equivalence, exact count and regularity).
+These replace, rather than assume, the previously missing positive-fiber count.
+
+
+### Unrestricted real-fiber strengthening
+
+`RealFactorAllocation` proves real splitting and labelled allocation of every
+actual child factor without any sign condition on the competing rate vector.
+`RealFiberRigidity` recovers the normalized child data from a positive reference
+and proves automatic strict positivity by strong induction.
+`RealFiberClassification` transports the full recursive bijection and exact
+cardinality to ALL real models sharing the actual target root response. No
+additional sign-constrained domain is hidden in these unrestricted fibers.
+
+
+`DischargeFiber` proves the actual leak-scaled root transfer, identifies the
+leak from transfer equality, and gives exact all-real discharge-fiber cardinality.
+The real-fiber note under research/hydrology-tree-real-fibers explains the complete
+mathematical proof; it is not a replacement for the checked Lean dependencies.
+
+
+### Actual ODE forward bridge
+
+LinearForcedODE -> ScalarForcedODE; RootModalData plus the actual spectral
+construction -> PhysicalModalConstruction; scalar integral solutions and the
+proved coordinate witness -> ModalForcedODE. StieltjesWeightedMatching proves
+that the complete coefficient pair fixes every weighted spectral sum.
+PhysicalForcedODE and FullResponseDynamics discharge the modal and positivity
+inputs for original physical matrices. PhysicalMassODE proves the actual storage
+balance. The reverse time-domain identification and state-space reachability
+obligations remain explicit in GAPS.md.
+
+
+MatrixFlow -> ExponentialODEProbe -> TimeDomainIdentification prove the reverse
+actual ODE-to-transfer implication. ContinuousOutputFiber applies the complete
+real algebraic classification to actual root-output histories, with existence
+of the probing trajectories proved instead of assumed. This closes the previous
+reverse root-output gap, not the independent reachability/observability variants.
+
+
+TimeDomainDischarge and ContinuousDischargeFiber close the actual discharge-only
+history inverse and its exact finite fiber count. ModalKalman and PhysicalKalman
+prove original-coordinate Kalman ranks; TrajectoryObservability proves actual
+finite-window state recovery. No continuous-time steering statement is inferred
+without constructing its actual control and endpoint trajectory.
+
+
+ExponentialIndependence -> ExponentialGramian proves the actual finite-horizon
+integral positivity. ModalSteering constructs a continuous real input and checks
+both actual state endpoints. PhysicalControllability discharges every modal
+and regularity prerequisite from the original full response. This closes the
+previous finite-horizon steering gap, distinct from graph/alternate-leak variants.
+
+
+### Minimum energy with actual ODE endpoints
+
+ControlEnergy proves the actual integral expansion and continuous zero-energy
+criterion. MinimumEnergyMoments constructs the inverse-Gramian input and proves
+feasibility, exact cost, sharp energy gap and complete equality classification.
+ModalMinimumEnergy derives every moment condition from the actual endpoint ODE,
+then proves the sharp optimum and independence of modal coordinates.
+PhysicalMinimumEnergy constructs the physical simple modal witness from the
+full-response hypothesis and proves the unrestricted continuous-control theorem.
+
+
+### Alternate-leak physical extension
+
+`LeakRelocationRates` proves the exact rational inverse and positive-rate-space
+equivalence. `GraphLeakCut` constructs the cut from the finite graph tree.
+`DiagonalGauge`, `GraphLeakMatrix` and `LeakGauge` prove actual matrix similarity
+and diagonal cofactor/resolvent invariance. `LeakRelocationWalk` constructs arbitrary
+site movement; `LocatedLeakFiber` proves positive exact fibers and the extra
+|V| multiplicity of an unknown leak site. Unrestricted-real alternate-leak
+rigidity/Jacobian and the diagonal-gauge ODE transport remain separate.
+
+
+`GaugeODETransport` constructs input-preserving normalized state maps and exact
+solution/endpoint equivalence. `LocatedLeakODE` gives continuous-history/response
+bijections and counting; `LocatedLeakDynamics` gives actual existence, signed
+reachability, observability and complete minimum-energy rigidity at arbitrary
+leak sites. `LeakLocationIdentifiability` proves all-input, all-collocated-probe
+indistinguishability with nonvacuous unique actual solutions, and unknown-site
+trajectory-fiber counting. Alternate-leak unrestricted-real algebra remains.
+
+
+`LeakRelocationDifferential`, `ScalarSlotJacobian` and `LeakSlideJacobian`
+prove actual rational derivative/inverse/shear determinants, not assumed local
+diffeomorphisms. `LocatedLeakJacobian` reads the independent actual coefficient
+map, proves its differentiability and precise determinant transport, including
+positive singular points. All-real zero-boundary polynomial assembly remains.
+
+
+All-real alternate-leak closure: TreeMatrixSupport -> SupportedMatrixRecursion
+-> SupportedStieltjesChildren -> SupportedPositiveGauge; ArrowDiagonalGauge
+supplies exact child assembly. ConservationGaugeRigidity -> RealLocatedPositivity
+removes competing sign assumptions. MatrixStieltjesIdentification and
+MatrixTimeIdentification recover full pairs from actual resolvents and histories.
+RealLocatedClassification and RealLocatedODEClassification provide complete
+all-real fibers, exact counts and actual-Jacobian regularity.
+
+
+### Alternate-leak polynomial closure
+
+GraphPolynomialModel and GraphFormalDifferential construct and identify the
+actual symbolic/Frechet coefficient determinant. MatrixSiblingWeight and
+MatrixGaugeWeight prove actual principal-weight specialization and gauge
+invariance. GraphLeakCofactor and GraphPositiveWeight remove rational relocation
+from the formula. LocatedPolynomialWeight and LocatedAllRateJacobian close the
+all-real polynomial identity with every zero and signed boundary included.
+
+
+### Final alternate-leak boundary/multiplicity chain
+
+MatrixEdgeMonomial proves that the actual recursive edge weight has the original
+observed-root subtree exponents. LocatedCoordinateMonomial identifies the exact
+original graph-variable monomial with one additional factor toward the leak.
+RankedTriangularResidual proves hereditary principal triangular factorization in
+any vertex order. GraphResidualWitness constructs every coordinate-hyperplane
+witness and proves residual polynomial nondivisibility. LocatedExactMultiplicities
+combines this with the independently defined formal Jacobian polynomial to prove
+all exact multiplicities and next-power exclusions. LocatedBoundarySingularSet
+exports the complete all-real zero set and presentation-free finite-graph theorem.
+No final theorem has a missing classification, derivative, factorization,
+regularity, positivity or nondivisibility conclusion as its own assumption.
