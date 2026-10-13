@@ -27,7 +27,19 @@ starts found no admissible counterexample; exact moment polynomials and
 analytic obstacles are preserved as exploration only. Nonterminating
 real-power/inverse-block recursions remain an obstacle, not a proof.
 
-The active complete target is now the [general Gaussian polynomial U-conjecture](FULL_U_CONJECTURE_ATTEMPT.md): all finite dimensions and arbitrary real polynomial degrees, with no convexity or single-chaos restriction. The initial exact sign/projection obstacles are exploration only. The Wishart route switched after about 45 effective research minutes with no full proof or admissible exact counterexample; service reviews were excluded.
+The [general Gaussian polynomial U-conjecture](FULL_U_CONJECTURE_ATTEMPT.md)
+stage is preserved after about 45.5 effective research minutes with no complete
+proof or admissible exact counterexample. It retained all finite dimensions
+and arbitrary polynomial degrees; the quadratic base case and exact shortcut
+obstructions do not solve the full target. The preceding Wishart route also
+switched after about 45 effective research minutes; service reviews were excluded.
+
+The active complete target is now the [full complex Chollet conjecture](FULL_CHOLLET_REPLACEMENT_ATTEMPT.md),
+for all matrix sizes and arbitrary Hermitian PSD A and B. The Gaussian
+replacement route and exact replica controls are exploration only. Its
+negative shortcut controls are not Chollet counterexamples, new complete
+proofs or major-conjecture results. The same effective-time switching rule
+applies, with requested APPT manuscript reviews excluded.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

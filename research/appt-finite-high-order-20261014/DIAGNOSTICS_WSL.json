@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "proof_kind": "supporting exact and numerical diagnostics",
+  "complete_lean": false,
+  "unitary_sampling": false,
+  "endpoints": {
+    "exact_endpoint_comparisons": 12393,
+    "polynomial_coefficient_identities": 4,
+    "D8_alpha2_outer_tie": "1/6",
+    "D6_alpha4_pole": "43/2048"
+  },
+  "negative_control": {
+    "actual_partial_transpose_expectation": "-1/10",
+    "outer_test_passes": true,
+    "physical_rank_two_test_fails": true
+  },
+  "phase_formula": {
+    "exact_phase_matrix_entries": 354,
+    "rational_Schmidt_examples": 3,
+    "scope": "finite formula checks; the arbitrary-m identity is proved in writing"
+  },
+  "finite_real_powers": {
+    "real_power_vertex_cases": 370,
+    "integer_rank_cases": 370,
+    "sufficient_band_dimensions": 7,
+    "actual_qubit_competitors": [
+      {
+        "D": 40,
+        "alpha": "10",
+        "actual_qubit_rank2_to_pole_ratio": "1.2555936501036702458545818409299543976828175779230821036307449198276358603795801"
+      },
+      {
+        "D": 80,
+        "alpha": "20",
+        "actual_qubit_rank2_to_pole_ratio": "1.2351545914469351080206417637278785774252635022313154287972592674138589237011930"
+      },
+      {
+        "D": 160,
+        "alpha": "40",
+        "actual_qubit_rank2_to_pole_ratio": "1.2242684438166401082794100362792897693000066181314001170408497372772870831512416"
+      },
+      {
+        "D": 320,
+        "alpha": "80",
+        "actual_qubit_rank2_to_pole_ratio": "1.2187059032495607135889438616551483672822786361370626974193618737027407305469514"
+      }
+    ],
+    "precision_decimal_digits": 80,
+    "relative_tolerance": "1e-65",
+    "scope": "numerical evaluated formulas, not continuous optimization or sampled unitaries"
+  }
+}
