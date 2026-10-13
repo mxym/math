@@ -112,4 +112,20 @@ lemma four_laplacian_scalar_of_stationary
   rw [h0entry, hR01] at hbase
   nlinarith
 
+theorem centered_local_max_equal_flux_weights
+    (Q : Matrix (Fin 4) (Fin 4) ℝ)
+    (hQ : Q.IsHermitian)
+    (hzQ : ∀ i, (∑ j, Q i j) = 0)
+    (hprincipal : (principalCovariance Q).PosDef)
+    (hmax : CenteredDirectionalLocalMax 2 Q) :
+    ∃ w : Fin 4 → Fin 4 → ℝ,
+      (∀ i, w i i = 0) ∧
+      (∀ i j, i ≠ j → 0 < w i j) ∧
+      (∀ i j, w i j = w j i) ∧
+      (∀ i j, i ≠ j → w i j = w 0 1) := by
+  obtain ⟨w, hd, hp, hs, hstat⟩ :=
+    centered_local_max_flux_stationary Q hQ hzQ hprincipal hmax
+  refine ⟨w, hd, hp, hs, ?_⟩
+  exact four_laplacian_scalar_of_stationary w hd hs hstat
+
 end GaussianMeasureBridge
