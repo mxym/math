@@ -8,6 +8,7 @@ ORCID 0009-0000-3864-3536.
 [Complete limiting-order spectral criteria](SPECTRAL_PROFILE.md) ·
 [High-order proof](PAPER.md) · [Zero-order proof](SMALL_ORDER_BOUNDARY.md) ·
 [All-aspect macroscopic high-order law](MACROSCOPIC_HIGH_ORDER.md) ·
+[Exact finite small-order phase](EXACT_SMALL_ORDER.md) ·
 [Proof/Lean map](THEOREM_MAP.md) · [Literature and scope comparison](COMPARISON.md).
 
 The ordinary proof chain is complete in these stated ranges:
@@ -26,6 +27,10 @@ The ordinary proof chain is complete in these stated ranges:
   satisfy `E_α−[log(3D/(D+2))−log D/α]_+→0`, uniformly. This does not replace
   the first nonzero equivalent in the excluded unrestricted-aspect large-order
   range.
+* For every finite D=mn≥4 and `0<α≤1/(512D)`, the exact minimum is
+  `S_α=log(D−1)`, with all equality states `(I−vv*)/(D−1)`. This is an
+  explicitly sufficient positive-order band; its largest possible endpoint
+  is not claimed.
 
 The high-order moment law for α→∞, α=o(m) is
 

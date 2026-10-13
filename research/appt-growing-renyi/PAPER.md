@@ -491,8 +491,10 @@ aspect ratios of enormous integer size. The ordinary and assertion-disabled
 runs passed. These finite checks do not prove the all-dimension upper bound,
 the uniform lower limits or the spectral criteria; those proofs are above.
 
+The α→0 boundary is now proved in SMALL_ORDER_BOUNDARY.md, and the compact-order
+connection plus the stated complete ranges are proved in UNIFORM_PROFILE.md.
 Unresolved scope includes unrestricted-aspect orders α comparable to m or larger,
-fixed-m growing-order minima, the α→0 boundary, exact finite optimizers,
-historical-first certification and complete formalization. No absolute-separability
+fixed-m growing-order minima, exact finite optimizers outside any separately
+specified proved band, historical-first certification and complete formalization. No absolute-separability
 or generic entanglement-distillation conclusion is inferred. No new Release,
 DOI, aiXiv submission or external human peer-review status is asserted here.

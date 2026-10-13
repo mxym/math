@@ -372,8 +372,9 @@ certification. The elementary singular spectrum and the finite projection/
 negative-spike construction are credited as existing inputs. Their reuse does
 not count as additional independent breakthroughs.
 
-Unresolved scope includes arbitrary moving orders that stay away from both
-endpoints, α comparable to m with unrestricted aspect, fixed-m changing-order
-minima, exact finite minima and complete formalization. The proof does not
+Compact positive-order uniformity and the complete stated moving-order ranges
+are now proved in UNIFORM_PROFILE.md. Unresolved scope includes α comparable
+to m with unrestricted aspect, fixed-m changing-order minima, exact finite
+minima outside any separately specified proved band and complete formalization. The proof does not
 infer absolute separability from APPT. No new Release, DOI, aiXiv submission
 or external human peer-review status is asserted.
