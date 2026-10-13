@@ -145,3 +145,140 @@ It tends pointwise to one and is dominated after multiplication by \(e^{-x^2/2}\
 \(\mathbb E[X^2\mid P=p]\to1\). Together with compact continuity and the zero boundary this proves (B).
 
 The conditional second moment is not constant: it tends to zero at the lower boundary and to one at infinity. Therefore this is not an independent pair or a U-conjecture counterexample. It removes the proposed bounded-operator shortcut while preserving the need to exploit **exact** isometry for all algebra elements.
+
+## Conditional-square and weighted-divergence route
+
+Original independence gives, for every integer \(r\geq1\),
+\[
+ \mathbb E[Q(X)^{2r}\mid P(X)]
+       =\mathbb E Q(X)^{2r}.                            \tag{C}
+\]
+These exact identities are stronger than the bounded multiplication diagnostic. A possible route is to prove a rigidity theorem for this entire conditional-square family and derive (U). No such general rigidity theorem is asserted here.
+
+For a polynomial vector field \(V\), use the Gaussian weighted divergence
+\[
+ \delta V=x\cdot V-\operatorname{div}V.
+\]
+If \(V\cdot\nabla P=0\), Gaussian integration by parts gives
+\[
+ \mathbb E[\delta V\,f(P)]
+   =\mathbb E[V\cdot\nabla(f(P))]=0
+\]
+for every smooth compactly supported scalar test function \(f\). Thus the weighted divergences of polynomial fields tangent to the fibers of \(P\) form a concrete subspace of the polynomial conditional-mean kernel. This is an exact ordinary identity; surjectivity onto that kernel has not been proved and cannot be assumed.
+
+For example, with \(P=XY\) and \(V=(X,-Y)\), \(\delta V=X^2-Y^2\). Taking \(a=X^2-Y^2\) yields
+\[
+ \delta(aV)=(X^2-Y^2)^2-2(X^2+Y^2),
+\qquad
+ \mathbb E[\delta(aV)\mid XY]=0.
+\]
+This is a nonzero linked signed polynomial with conditional mean zero. Adding a constant cannot turn it into a nonnegative polynomial: along \(X=Y\to\infty\) it tends to negative infinity. Thus the conditional-square positivity in (C) is substantive, not an automatic consequence of an arbitrary mean-zero identity.
+
+A naive equality of the full conditional-mean kernel and the tangent-divergence image is false even for a simple polynomial. Let \(P=X^2\) in one Gaussian coordinate. Then \(\mathbb E[X\mid P]=0\), whereas the only polynomial field tangent to \(P\) is zero, since \(2xV(x)=0\) as a polynomial. Adding independent unused coordinates does not repair that representation: every tangent field has zero \(x\)-component, and its weighted divergence has Gaussian mean zero over the unused coordinates for each fixed \(x\), while the polynomial \(x\) does not. The disconnected two-point fibers supply a kernel contribution absent from the tangent module.
+
+The active analytic gap is therefore a positivity-sensitive, component-sensitive rigidity statement for the full conditional-square family, or an independent proof from the exact multiplication isometry. Neither general Gaussian field "strong independence", an arbitrary tangent-module surjectivity assertion, nor a low-order covariance zero condition may be inserted as an unproved premise.
+
+One requested APPT service review was performed during this attempt, 19:40:22–19:43:57 UTC, and is explicitly excluded from its effective research-time budget. No further numerical campaign was launched for this U stage.
+
+## A diagnostic where the conditional-square identity does close: quadratic poles
+
+For \(P(x)=x^{\mathsf T}Ax+b^{\mathsf T}x+c\), \(A=A^{\mathsf T}\), and an arbitrary polynomial \(Q\), the full unlinking conclusion follows from the necessary identity
+\[
+ \mathbb E[e^{sP}Q^2]=\mathbb E e^{sP}\,\mathbb E Q^2
+\]
+for real \(s\) in an interval around zero. This is a bounded-degree **base case only**, recorded to identify which analytic step fails beyond degree two; it is not promoted to the full arbitrary-polynomial theorem, or claimed as historically new.
+
+Diagonalize \(A\). Exponential tilting gives a Gaussian with covariance
+\[
+ C_s=(I-2sA)^{-1}
+\]
+and mean \(m_s=sC_sb\). The tilted expectation of \(Q^2\) is rational in \(s\), because polynomial Gaussian moments are polynomials in their means and covariances. Independence makes it a constant on an open interval, so it is the constant rational function.
+
+Suppose \(A\) has a positive eigenvalue and let \(\lambda\) be its largest positive eigenvalue. As \(s\uparrow1/(2\lambda)\), the covariance on its eigenspace is \(T I\), \(T\to\infty\). Covariances on every other eigenspace remain finite positive definite, and their means remain finite. If the polynomial degree of \(Q\) in this eigenspace is \(r\geq1\), conditional orthogonal Hermite decomposition in that Gaussian eigenspace gives a lower bound
+\[
+ \mathbb E_s Q^2\geq T^r\,r!\,\mathbb E_s\|q_r(Y)\|^2,
+\]
+with the symmetric-coefficient normalization chosen so that the displayed factor is the standard highest-chaos norm. The nonzero top coefficient polynomial \(q_r\) has positive squared Gaussian norm on the other coordinates, bounded away from zero near the pole. This remains true even if the mean in the divergent eigenspace moves: translating a polynomial leaves its top homogeneous coefficient unchanged. The bound diverges, contradicting the constant tilted moment. Therefore \(Q\) is independent of this entire eigenspace.
+
+Factor the tilted expectation over the eliminated eigenspace. On a smaller interval around zero its positive normalizing factor cancels, leaving the same constant identity for the remaining quadratic statistic. Its polynomial tilted moment is again rational, so one may repeat at its largest positive eigenvalue. If there are negative eigenvalues instead, use the most negative one and approach \(s=1/(2\lambda)<0\) from inside the admissible Gaussian interval. All non-eliminated other covariances are again finite positive at this first pole. Iterating removes every nonzero eigenspace of \(A\).
+
+On \(\ker A\), the remaining statistic is linear, \(b_0^{\mathsf T}x\), where \(b_0\) is the projection of \(b\) onto that kernel. Its Gaussian tilt translates by \(sb_0\). If \(Q\) has positive degree in that direction, its squared Gaussian norm under the translation is a nonconstant polynomial in \(s\) with a positive leading coefficient. Hence the constant identity forces \(Q\) to be independent of \(b_0\) as well. Since
+\[
+ E_P=\operatorname{range}A+\operatorname{span}\{b_0\},
+\]
+this proves \(E_P\perp E_Q\) in the diagnostic case.
+
+All steps use only actual independence's necessary tilted-square identity, polynomial Gaussian moments, and positivity near a genuine Gaussian pole. No independence of arbitrary chaos projections or moment-determinacy converse is inserted.
+
+For degree at least three, this argument cannot be applied as written. The tilted measure is no longer Gaussian and its polynomial moments need not be rational in the tilt. Odd or indefinite high-degree polynomials may have no nonzero real exponential-moment interval at all. The missing general analytic replacement of the positive-pole argument remains part of the full target.
+
+## Explicit all-degree contraction target
+
+Write the finite Gaussian-chaos decompositions
+\[
+ P=\sum_{k=0}^d I_k(p_k),\qquad Q=\sum_{\ell=0}^e I_\ell(q_\ell),
+\]
+with symmetric real tensors and normalization
+\(\mathbb E I_k(p_k)^2=k!\|p_k\|^2\). Orthogonality of distinct derivative chaoses gives
+\[
+ (K_P)_{ij}
+ =\sum_{k\geq1}k\,k!\,
+       \langle p_k(e_i,\cdot),p_k(e_j,\cdot)\rangle.
+\]
+Consequently the **whole** essential-subspace defect in (U) is
+\[
+ H(P,Q)=\sum_{k,\ell\geq1}
+         k\,k!\,\ell\,\ell!\,\|p_k\otimes_1q_\ell\|^2.      \tag{H}
+\]
+To check the trace identity, expand the norm of
+\((p_k\otimes_1q_\ell)(u,v)=\sum_i p_k(e_i,u)q_\ell(e_i,v)\)
+and sum over \(u,v\). It is exactly the trace of the two positive coefficient-Gram matrices. All coefficients in (H) are positive.
+
+Vanishing of (H) forces every first contraction to vanish and thus the orthogonality of all coefficient-support subspaces. The earlier elementary essential-space argument then gives the original unlinking conclusion. No chosen degree, dimension, rank, or chaos level is discarded.
+
+The substantive missing implication is from actual ordinary independence of \(P(X),Q(X)\) to (H)=0. Assuming independence of each pair of chaos components would simply assume the desired stronger property. The fixed-class source proves it only through its special nonnegative covariance decomposition, which has been explicitly excluded for general polynomial bases.
+
+The all-polynomial isometry (I) is a necessary consequence of the original law independence, not asserted to be a converse. Even an infinite formal mixed-moment factorization is not automatically a law-independence certificate for high-degree moment-indeterminate marginals. A proof from (I) alone would be a sufficient stronger algebraic bridge; if that bridge cannot be established, the full sigma-field independence must still be available through the exact conditional identities (C) and bounded test functions. This distinction is retained in every potential counterexample or continuation.
+
+## Same-point gradient orthogonality is not the target
+
+The independent-copy contraction in (U)/(H) cannot be replaced by
+\(\nabla P(x)\cdot\nabla Q(x)=0\) at the same point. For
+\[
+ P=X^2-Y^2,\qquad Q=2XY,
+\]
+the same-point gradient inner product vanishes identically, but
+\(K_P=K_Q=4I_2\), so \(H(P,Q)=32\). Direct Gaussian moments give
+\[
+ \mathbb EP^2=\mathbb EQ^2=4,\qquad
+ \mathbb EP^2Q^2=48>16,
+\]
+hence the variables are dependent. The unsymmetrized first contraction and the global essential spaces are the actual objects; a same-point cancellation of the symmetric gradient polynomial does not certify unlinking or independence.
+
+For completeness, the rational fourth-power obstruction (O2) has a short general-parameter expansion. Put \(A=H_2(X)\), \(B=H_2(Y)\), \(F=A-tB\), \(G=B-tA\). The one-variable moments are
+\[
+ M_r=\mathbb EH_2(Z)^r
+   =\sum_{j=0}^r {r\choose j}(-1)^{r-j}(2j-1)!!,
+\]
+with the \(j=0\) Gaussian moment equal to one. Independence of \(A,B\) gives
+\[
+ \mathbb EF^4=60+24t^2+60t^4,
+\]
+\[
+ \mathbb EF^4G^4
+ =\sum_{i,j=0}^4 {4\choose i}{4\choose j}
+       (-t)^{i+j}M_{4-i+j}M_{4+i-j}
+\]
+\[
+ =3600(1+t^8)-34816(t+t^7)+202560(t^2+t^6)
+       -208896(t^3+t^5)+2897504t^4.
+\]
+Substituting \(t=1/10\) proves every fraction in (O2) by finite integer arithmetic. This supplies the written expansion independent of the symbolic discovery check.
+
+## Bounded stage closure
+
+This stage starts at 19:30:25 UTC and reaches its natural boundary at 20:19:32 UTC on 13 October 2026 (14 October locally). Excluding the exact requested service interval 19:40:22–19:43:57 leaves about 45.5 effective minutes. No complete arbitrary-degree U proof or legal independent linked-polynomial counterexample was obtained.
+
+The exact essential-space/first-contraction target, conditional-square and multiplication identities, signed/divergence/projection obstructions, and quadratic-pole diagnostic are preserved. The latter remains a restricted base case with no historical novelty or major-result count. No finite numerical scan, fake law-independence certificate, strong-independence substitution, Lean extension, other-worktree edit, or publication action occurred.
+
+The all-degree law-to-contraction bridge is still missing. Under the inherited no-breakthrough switching rule, the next breadth step is a fresh primary-source check of the **complete complex Chollet conjecture**, followed, if its full range remains unclosed in the sources, by a new analytic Gaussian-replacement comparison route. Previously public small orders/ranks and the inherited weighted edge-addition obstacle will not be re-counted or subjected to a repeated unrestricted numerical campaign.
