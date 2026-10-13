@@ -578,4 +578,28 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq V] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/LocatedCoordinateMonomial.lean:65:2: error: `simp` made no progress
+
+MODULE HydrologyTree.ZeroOutward
+
+MODULE HydrologyTree.RankedTriangularResidual
+HydrologyTree/RankedTriangularResidual.lean:12:6: error: `HydrologyTree.pairwiseResultantsOver_real` has already been declared
+HydrologyTree/RankedTriangularResidual.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/RankedTriangularResidual.lean:32:60: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RankedTriangularResidual.lean:32:62: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
