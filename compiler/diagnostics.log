@@ -524,61 +524,28 @@ MODULE HydrologyTree.LocatedLeakJacobian
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphPolynomialModel
-HydrologyTree/GraphPolynomialModel.lean:67:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_leak`:
-  [Fintype V]
-  [DecidableEq V]
-  [DecidableRel G.Adj]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphPolynomialModel.lean:68:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_dart`:
-  [Fintype V]
-  [DecidableEq V]
-  [DecidableRel G.Adj]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphPolynomialModel.lean:73:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.universalGraphRates_eval`:
-  [Fintype V]
-  [DecidableEq V]
-  [DecidableRel G.Adj]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphFormalDifferential
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphModelInjectivity
-HydrologyTree/GraphModelInjectivity.lean:23:4: warning: `if_false` has been deprecated: Use `ite_false` instead
-HydrologyTree/GraphModelInjectivity.lean:11:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_offdiag_dart`:
-  [Fintype V]
-  [DecidableRel G.Adj]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype V] [DecidableRel G.Adj] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphModelInjectivity.lean:34:72: warning: `if_false` has been deprecated: Use `ite_false` instead
-HydrologyTree/GraphModelInjectivity.lean:55:50: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/GraphModelInjectivity.lean:61:36: warning: Variable name `ell` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _ell
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.TreeMatrixSupport
-HydrologyTree/TreeMatrixSupport.lean:84:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RingTreeModel
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RingPairwiseResultants
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RingSiblingResidual
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.MatrixSiblingWeight
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.MatrixGaugeWeight
 HydrologyTree/MatrixGaugeWeight.lean:43:6: warning: Unused tactic linter: `ring` does nothing
@@ -587,46 +554,41 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 HydrologyTree/MatrixGaugeWeight.lean:43:6: warning: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
-HydrologyTree/MatrixGaugeWeight.lean:85:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (∏ x ∈ ?m.190, ?m.192 x) * ∏ x ∈ ?m.190, ?m.193 x
-in the target expression
-  (treeSiblingResultant t x ^ 2 *
-        ∏ c, x.1 ↑c ^ (childEdgeCount t c + 1) * outwardByVertex x.2 ↑c ^ childEdgeCount t c) *
-      ∏ c,
-        (∏ e, (childRates t c x).1 e.succ) *
-          (matrixEdgeWeight (childTree t c) (compartmentMatrix (childTree t c) (childRates t c x)) *
-            matrixSiblingResidual (childTree t c) (compartmentMatrix (childTree t c) (childRates t c x))) =
-    (∏ c, x.1 ↑c * ∏ e, (childRates t c x).1 e.succ) *
-      ((∏ x_1,
-          (x.1 ↑x_1 * outwardByVertex x.2 ↑x_1) ^ childEdgeCount t x_1 *
-            matrixEdgeWeight (childTree t x_1) (compartmentMatrix (childTree t x_1) (childRates t x_1 x))) *
-        (treeSiblingResultant t x ^ 2 *
-          ∏ x_1, matrixSiblingResidual (childTree t x_1) (compartmentMatrix (childTree t x_1) (childRates t x_1 x))))
 
-case h
+MODULE HydrologyTree.GraphLeakCofactor
+HydrologyTree/GraphLeakCofactor.lean:11:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.presentation_card`:
+  [DecidableEq V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.GraphPositiveWeight
+HydrologyTree/GraphPositiveWeight.lean:31:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  matrixCoreWeight ?m.92 (diagonalGauge (fun i => h (?m.101 i)) ?m.93)
+in the target expression
+  matrixCoreWeight p.tree
+      (diagonalGauge (h ∘ ⇑p.vertices) ((graphCompartmentMatrix G ell ↑⟨y, hy⟩).submatrix ⇑p.vertices ⇑p.vertices)) =
+    graphCoreWeight p ell y
+
+V : Type u_1
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
 n : ℕ
-ih :
-  ∀ m < n,
-    ∀ (t : OrderedTree m) (x : TreeRates m),
-      allTreeJacobianWeight t x = (∏ e, x.1 e.succ) * matrixCoreWeight t (compartmentMatrix t x)
-t : OrderedTree n
-x : TreeRates n
-hsub :
-  ∏ c, allTreeJacobianWeight (childTree t c) (childRates t c x) =
-    ∏ c,
-      (∏ e, (childRates t c x).1 e.succ) *
-        matrixCoreWeight (childTree t c) (compartmentMatrix (childTree t c) (childRates t c x))
-hin : ∏ e, x.1 e.succ = ∏ c, x.1 ↑c * ∏ e, (childRates t c x).1 e.succ
-hres : pairwiseResultantsOver (principalChildPolynomialList t (compartmentMatrix t x)) = treeSiblingResultant t x
-⊢ (treeSiblingResultant t x ^ 2 *
-        ∏ c, x.1 ↑c ^ (childEdgeCount t c + 1) * outwardByVertex x.2 ↑c ^ childEdgeCount t c) *
-      ∏ c,
-        (∏ e, (childRates t c x).1 e.succ) *
-          (matrixEdgeWeight (childTree t c) (compartmentMatrix (childTree t c) (childRates t c x)) *
-            matrixSiblingResidual (childTree t c) (compartmentMatrix (childTree t c) (childRates t c x))) =
-    (∏ c, x.1 ↑c * ∏ e, (childRates t c x).1 e.succ) *
-      ((∏ x_1,
-          (x.1 ↑x_1 * outwardByVertex x.2 ↑x_1) ^ childEdgeCount t x_1 *
-            matrixEdgeWeight (childTree t x_1) (compartmentMatrix (childTree t x_1) (childRates t x_1 x))) *
-        (treeSiblingResultant t x ^ 2 *
-          ∏ x_1, matrixSiblingResidual (childTree t x_1) (compartmentMatrix (childTree t x_1) (childRates t x_1 x))))
+hG : G.IsTree
+o : V
+p : RootedTreePresentation n G o
+ell : V
+y : GraphRates G
+hy : PositiveGraphRates y
+h : V → ℝ
+hh : ∀ (i : V), 0 < h i
+hM :
+  graphCompartmentMatrix G o ↑((relocatePositiveLeak hG ell o) ⟨y, hy⟩) =
+    diagonalGauge h (graphCompartmentMatrix G ell ↑⟨y, hy⟩)
+⊢ matrixCoreWeight p.tree
+      (diagonalGauge (h ∘ ⇑p.vertices) ((graphCompartmentMatrix G ell ↑⟨y, hy⟩).submatrix ⇑p.vertices ⇑p.vertices)) =
+    graphCoreWeight p ell y
