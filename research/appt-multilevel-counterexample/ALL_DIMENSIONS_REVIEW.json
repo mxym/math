@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-14",
+  "client_timezone": "Asia/Shanghai",
+  "reviewer": {
+    "identity": "/root/written_breadth",
+    "kind": "OpenAI AI assistant, independent subagent of the current research continuation",
+    "fresh_review": true,
+    "external_peer_review": false
+  },
+  "review_type": "Ordinary mathematical, line-by-line source-bound review",
+  "worktree": "/home/mxym/math-written-breadth-20261014",
+  "branch": "research/written-breadth-20261014",
+  "source_commit": "a213abb337c774e8f8f4ee64974d40c2210ede5a",
+  "reviewed_source": {
+    "path": "research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md",
+    "sha256": "8e525a626084c74cf2ce6772abc59dfe72064536d6e701db75e6f009815e18c4",
+    "bytes": 11918,
+    "actual_read_lines": [
+      1,
+      278
+    ],
+    "actual_read_sections": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "claims": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9"
+    ]
+  },
+  "inherited_constraints": [
+    {
+      "path": "D:/math/handoff/research-20261013/HANDOFF.txt",
+      "sha256": "4d1d9419ce56ab4c15ffba3f3efbdcafe73ab95304a17165ecf5c88031e7a3ac"
+    },
+    {
+      "path": "D:/math/handoff/research-20261013/STATE.json",
+      "sha256": "5e999e3750d7770b1d384a0f9babec9584055b485e47c9d892917605ea7ce6b6"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "research/appt-multilevel-counterexample/SUBUNIT_RENYI.md",
+      "sha256": "4b1e749ce029a433b3a8311954e49c40b05280522f02f03ec1e1632c13c65131",
+      "actual_read_range": "Opening through the beginning of Section 4, including actual definitions and Section 1 theorem R1; first 115 source lines.",
+      "used_input": "For fixed 0 < alpha < 1, uniform joint-growth equivalent R1 as m tends to infinity, uniformly for n >= m.",
+      "independently_reproved_in_this_review": false,
+      "note": "The proof of the inherited R1 input was not reaudited. This review checks its stated range and the argument deriving A3 from R1 and A1-A2."
+    },
+    {
+      "name": "Finite-dimensional spectral theorem, Schmidt decomposition, trace/partial-transpose duality, strict concavity and Taylor expansion",
+      "status": "Standard ordinary mathematical inputs; checked as used in the reviewed manuscript."
+    },
+    {
+      "name": "APPTReview.absolutelyPPT_dimension_contraction",
+      "status": "Mentioned endpoint only; no Lean source audit or Lean execution performed. Section 4 contains an independent ordinary physical proof sufficient for this manuscript."
+    }
+  ],
+  "findings": [
+    {
+      "claims": [
+        "A4",
+        "A5"
+      ],
+      "lines": [
+        52,
+        98
+      ],
+      "result": "No mathematical error found",
+      "reasoning": "The uniform m-component Schmidt witness has exactly R negative and S positive slots, with R+S=m^2<=D. All-unitary APPT permits the asserted ordered eigenbasis assignment. The pivot is strictly positive; bulk count is D-(m^2-2), including m=2 and D=m^2. A separate rank-two witness implies lambda_1<=sum of the three least eigenvalues<=3(1-lambda_1)/(D-1), giving every normalized eigenvalue in [0,3]. The bulk-mean inequalities then give A5 for sufficiently large D at fixed m."
+    },
+    {
+      "claims": [
+        "A6",
+        "A1"
+      ],
+      "lines": [
+        100,
+        158
+      ],
+      "result": "No mathematical error found",
+      "reasoning": "The concave power lies above its endpoint chord; omitted powers are nonnegative, and their trace loss and bulk mass loss are O_m(1/D). A5 keeps the pivot in a compact positive neighborhood so the secant error is uniform over all APPT states for fixed m and alpha. F has one interior minimum and F_min=(c/alpha)z_*^(alpha-1); division by alpha-1 reverses the entropy upper bound. The actual I+2P/(m-1) construction is APPT for every global conjugate because the negative eigenvalue mass of each physical witness is at most (m-1)/2. Integer rank rounding realizes the endpoint mixture and closes A1."
+    },
+    {
+      "claims": [
+        "A2"
+      ],
+      "lines": [
+        160,
+        175
+      ],
+      "result": "No mathematical error found",
+      "reasoning": "The c expansion gives z_*=1-epsilon/2+O(epsilon^2) and q_*=1/2+O(epsilon). The endpoint distribution has mean one and variance epsilon^2/4+O(epsilon^3). The power expansion and entropy identity give alpha*epsilon^2/8+O(epsilon^3), equivalent to alpha/(2m^2). Alpha is fixed before the limit."
+    },
+    {
+      "claims": [
+        "A3"
+      ],
+      "lines": [
+        177,
+        198
+      ],
+      "result": "Valid conditional on the explicitly inherited uniform R1 input",
+      "reasoning": "The max operation is Lipschitz and the error in D*h is O_alpha((n/m)/m); relative to a_alpha+(alpha/2)max(4,n/m), it is uniformly O_alpha(1/m). An offending total-dimension sequence either has a fixed-m subsequence, ruled out by A1, or has m tending to infinity, ruled out by R1 and A2. No fixed-m O_m(1/D) estimate is used as an all-m uniform estimate."
+    },
+    {
+      "claims": [
+        "A7",
+        "A8"
+      ],
+      "lines": [
+        216,
+        255
+      ],
+      "result": "No mathematical error found",
+      "reasoning": "The limiting power mean and unique secant minimum force the actual pivot to z_*. The average nonnegative bulk secant gap tends to zero; strict concavity excludes positive limiting interior mass. The constant exceptional count has vanishing mass. All eigenvalues lie in compact [0,3], so weak limits preserve the mean and the continuous power function, including at zero. Mean one fixes the two endpoint weights; this proves both implications."
+    },
+    {
+      "claims": [
+        "A9"
+      ],
+      "lines": [
+        257,
+        274
+      ],
+      "result": "No mathematical error found; genuine extreme-eigenvalue conclusion checked",
+      "reasoning": "The upper endpoint has strictly positive mass. With fixed R, ordering gives liminf y_R>=r_m*z_*, while A4 gives the matching upper bound. The actual APPT witness inequality yields two nonnegative sums bounded by S*z-R*y_R, which tends to zero since R*r_m=S. The first controls every top-R outlier and the second every bottom-S outlier, forcing y_1 and y_D to the stated limits. Thus positive limiting endpoints imply eventual full rank; weak convergence alone is not used to exclude outliers."
+    }
+  ],
+  "verdict": "No mathematical error identified in A1-A9 after this fresh review; the joint-growth theorem remains an explicitly accepted inherited written input.",
+  "scope_limits": {
+    "external_peer_review": false,
+    "historical_priority_certification": false,
+    "complete_lean_formalization": false,
+    "new_lean_audit": false,
+    "lean_execution_performed": false,
+    "numerical_experiment_used_as_proof": false,
+    "finite_optimizer_classification": false,
+    "eigenvector_classification": false,
+    "varying_alpha_uniformity": false,
+    "source_changes_made": false
+  },
+  "distinction_from_prior_review": "This records only the fresh reading and reasoning performed by /root/written_breadth on 2026-10-14. It does not reuse the previous subagent reading as evidence of current work.",
+  "publication_actions": {
+    "pushed": false,
+    "published": false,
+    "submitted": false,
+    "release_created": false,
+    "doi_archived": false
+  }
+}
