@@ -69,19 +69,199 @@ Hint: Omit it from the simp argument list.
   [apply] simp [diagonalGauge_apply, hi, hj]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/DiagonalGauge.lean:40:65: error: unsolved goals
-case e_a
+
+MODULE HydrologyTree.LeafRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.OrderedTreeGraph
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphPresentation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootBranches
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.BranchMatrixSupport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ChildTree
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ChildRates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ChildIndex
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RateCoordinates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootCoupling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CouplingSemantics
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.BranchConservation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ChildMatrix
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalRootDecomposition
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.DependentBlocks
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ArrowDeterminant
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ArrowCharacteristic
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveRateAssembly
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphRateTransport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphLeakCut
+HydrologyTree/GraphLeakCut.lean:27:103: error: invalid `▸` notation, expected result type of cast is 
+  Fin.cases 0 t.parent e.succ ≠ 0
+however, the equality 
+  hp
+of type 
+  u = t.parent e
+does not contain the expected result type on either the left or the right hand side
+HydrologyTree/GraphLeakCut.lean:28:4: error: Type mismatch: After simplification, term
+  Eq.symm he
+ has type
+  rootBranchVertex t (parentVertex t v) = rootBranchVertex t v
+but is expected to have type
+  rootBranchVertex t u = rootBranchVertex t v
+HydrologyTree/GraphLeakCut.lean:29:103: error: invalid `▸` notation, expected result type of cast is 
+  Fin.cases 0 t.parent e.succ ≠ 0
+however, the equality 
+  hp
+of type 
+  v = t.parent e
+does not contain the expected result type on either the left or the right hand side
+HydrologyTree/GraphLeakCut.lean:30:4: error: Type mismatch: After simplification, term
+  he
+ has type
+  rootBranchVertex t u = rootBranchVertex t (parentVertex t u)
+but is expected to have type
+  rootBranchVertex t u = rootBranchVertex t v
+HydrologyTree/GraphLeakCut.lean:37:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => p.vertices.symm _a = 0
+Error: Application type mismatch: The argument
+  p
+has type
+  RootedTreePresentation n G d.toProd.1
+but is expected to have type
+  RootedTreePresentation n G _a
+in the application
+  p.vertices
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
 V : Type u_1
-inst✝¹ : Fintype V
 inst✝ : DecidableEq V
-h : V → ℝ
-hh : ∀ (v : V), h v ≠ 0
-i : V
-c : ℝ
-⊢ h i * c / h i = c
-HydrologyTree/DiagonalGauge.lean:87:33: error: Ambiguous term
-  mul_inv_rev
-Possible interpretations:
-  _root_.mul_inv_rev : ∀ (a b : ?m.27), (a * b)⁻¹ = b⁻¹ * a⁻¹
-  
-  Matrix.mul_inv_rev : ∀ (A B : Matrix ?m.27 ?m.27 ?m.28), (A * B)⁻¹ = B⁻¹ * A⁻¹
+G : SimpleGraph V
+n : ℕ
+d : G.Dart
+p : RootedTreePresentation n G d.toProd.1
+v : Fin (n + 1) := p.vertices.symm d.toProd.2
+⊢ p.vertices.symm d.toProd.1 = 0
+HydrologyTree/GraphLeakCut.lean:56:2: error: unsolved goals
+case pos
+V : Type u_1
+inst✝ : DecidableEq V
+G : SimpleGraph V
+n : ℕ
+d : G.Dart
+p : RootedTreePresentation n G d.toProd.1
+v : Fin (n + 1) := p.vertices.symm d.toProd.2
+hroot : p.vertices.symm d.toProd.1 = 0
+hvadj : (orderedTreeGraph p.tree).Adj 0 v
+hv : v ≠ 0 ∧ parentVertex p.tree v = 0
+side : V → Bool := fun w => decide (rootBranchVertex p.tree (p.vertices.symm w) = v)
+hs : side d.toProd.1 = false
+ht : side d.toProd.2 = true
+e : G.Dart
+hed : e ≠ d
+hes : e ≠ d.symm
+u : Fin (n + 1) := p.vertices.symm e.toProd.1
+w : Fin (n + 1) := p.vertices.symm e.toProd.2
+hadj : (orderedTreeGraph p.tree).Adj u w
+hu : u = 0
+he0 : e.toProd.1 = d.toProd.1
+hw : w ≠ 0 ∧ parentVertex p.tree w = 0
+hwv : w ≠ v
+⊢ ¬rootBranchVertex p.tree (p.vertices.symm d.toProd.1) = v
+HydrologyTree/GraphLeakCut.lean:68:4: error: unsolved goals
+case pos
+V : Type u_1
+inst✝ : DecidableEq V
+G : SimpleGraph V
+n : ℕ
+d : G.Dart
+p : RootedTreePresentation n G d.toProd.1
+v : Fin (n + 1) := p.vertices.symm d.toProd.2
+hroot : p.vertices.symm d.toProd.1 = 0
+hvadj : (orderedTreeGraph p.tree).Adj 0 v
+hv : v ≠ 0 ∧ parentVertex p.tree v = 0
+side : V → Bool := fun w => decide (rootBranchVertex p.tree (p.vertices.symm w) = v)
+hs : side d.toProd.1 = false
+ht : side d.toProd.2 = true
+e : G.Dart
+hed : e ≠ d
+hes : e ≠ d.symm
+u : Fin (n + 1) := p.vertices.symm e.toProd.1
+w : Fin (n + 1) := p.vertices.symm e.toProd.2
+hadj : (orderedTreeGraph p.tree).Adj u w
+hu : ¬u = 0
+hw : w = 0
+he0 : e.toProd.2 = d.toProd.1
+hu' : u ≠ 0 ∧ parentVertex p.tree u = 0
+huv : u ≠ v
+⊢ ¬rootBranchVertex p.tree (p.vertices.symm d.toProd.1) = v
+HydrologyTree/GraphLeakCut.lean:66:15: warning: This simp argument is unused:
+  ← hroot
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [side, he0, w, rootBranchVertex_child p.tree w hw.1 hw.2, hwv, Ne.symm hv.1]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphLeakCut.lean:66:75: warning: This simp argument is unused:
+  Ne.symm hv.1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [side, ← hroot, he0, w, rootBranchVertex_child p.tree w hw.1 hw.2, hwv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphLeakCut.lean:77:17: warning: This simp argument is unused:
+  ← hroot
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [side, he0, u, rootBranchVertex_child p.tree u hu'.1 hu'.2, huv, Ne.symm hv.1]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphLeakCut.lean:77:79: warning: This simp argument is unused:
+  Ne.symm hv.1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [side, ← hroot, he0, u, rootBranchVertex_child p.tree u hu'.1 hu'.2, huv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
