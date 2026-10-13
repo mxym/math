@@ -116,3 +116,37 @@ These form a noncentral Gaussian pair with SPD covariance. Their square-product 
  =2(9/10)^2-4(9/10)=-99/50<0.
 \]
 Hence the centered theorem fails after arbitrary noncentral conditioning. This is an exact obstruction to that proof step, not a counterexample to the actual central Wishart conjecture.
+
+## Shape-tilt interpolation: remaining exact sign problem
+
+There is a direct analytic route that would settle the original real-degree range, without interpolation from integer data. For fixed admissible scale and positive exponents, let \(A\) range over subsets of the active blocks and let \(\mathbb E_A\) denote expectation under the probability density proportional to
+\(\prod_{i\in A}\det(W_{ii})^{a_i}\) times the original central Wishart density. Let
+\[
+ J_\nu=\frac{\mathbb E\prod_i\det(W_{ii})^{a_i}}
+                    {\prod_i\mathbb E\det(W_{ii})^{a_i}} .
+\]
+Differentiating the actual density in the real degree, with all normalizing constants retained, gives exactly
+\[
+ \frac{d}{d\nu}\log J_\nu
+ =\frac12\left[
+   \mathbb E_{\mathrm{all}}\log\det W
+   -\sum_i\mathbb E_{\{i\}}\log\det W
+   +(d-1)\mathbb E_\varnothing\log\det W
+ \right].                                               \tag{T}
+\]
+The derivative of the density has the only matrix-dependent term
+\(\frac12\log\det W\); its gamma and scale derivatives cancel in each logarithmic tilted moment. Differentiation is justified on every compact degree interval inside \(\nu>p-1\): determinant powers have polynomial growth, and the density's boundary powers times an additional absolute log determinant remain integrable.
+
+For fixed scale and exponents, \(W/\nu\to\Sigma\) with uniformly bounded moments of every fixed finite order as \(\nu\to\infty\), by Bartlett's decomposition. Dominated moment convergence for the determinant powers therefore gives \(J_\nu\to1\). Thus a proof that the bracket in (T) is always nonpositive would prove the **entire** original conjecture. That sign has not been proved here; it is not supplied by scalar Gaussian GPI, pairwise determinant covariance, or the two-block formula. The identity isolates the exact missing global interaction inequality instead of silently interpolating.
+
+A stronger complete-monotonicity shortcut in the shape already fails at legally admissible real degrees. In dimension three with diagonal powers one, write \(s=\rho_{12}^2+\rho_{13}^2+\rho_{23}^2\) and \(q=\rho_{12}\rho_{13}\rho_{23}\). The normalized moment is
+\[
+ J_\beta=1+\frac{s}{\beta}+\frac{2q}{\beta^2}.
+\]
+For the exact SPD negative-control scale above, \(s=89/100\) and \(q=-9/250\). For every \(\beta>1\),
+\[
+ (-1)^k\frac{d^k}{d\beta^k}(J_\beta-1)
+ =\frac{k!}{\beta^{k+2}}
+       \left(\frac{89}{100}\beta-\frac{9}{125}(k+1)\right).
+\]
+This is negative for sufficiently large \(k\), at every fixed admissible shape. Hence complete monotonicity of the normalized excess cannot be assumed to turn positive integer/half-integer evidence into the full real-degree theorem. The weaker first-derivative sign (T) remains a substantive unclosed question.
