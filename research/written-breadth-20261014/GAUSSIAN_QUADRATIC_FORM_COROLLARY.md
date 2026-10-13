@@ -1,6 +1,10 @@
 # Positive quadratic-form and Gaussian block-norm product inequality
 
-Date: 2026-10-14 (Asia/Shanghai). Authoring agent: /root/written_breadth.
+Yongxian Zhang (张永贤), School of Computer Science and Engineering,
+South China University of Technology. ORCID 0009-0000-3864-3536;
+mxymmxym1@gmail.com. 14 October 2026, Asia/Shanghai.
+No external funding. OpenAI AI assistants assisted research and writing.
+Copyright 2026 Yongxian Zhang; all rights reserved for original material.
 Status: complete ordinary proof of an explicitly attributed corollary; not a solution credited here to the scalar Gaussian product conjecture, and not a new major-conjecture count.
 
 ## External input and exact scope
