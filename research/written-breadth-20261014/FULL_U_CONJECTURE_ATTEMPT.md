@@ -179,3 +179,35 @@ A naive equality of the full conditional-mean kernel and the tangent-divergence 
 The active analytic gap is therefore a positivity-sensitive, component-sensitive rigidity statement for the full conditional-square family, or an independent proof from the exact multiplication isometry. Neither general Gaussian field "strong independence", an arbitrary tangent-module surjectivity assertion, nor a low-order covariance zero condition may be inserted as an unproved premise.
 
 One requested APPT service review was performed during this attempt, 19:40:22–19:43:57 UTC, and is explicitly excluded from its effective research-time budget. No further numerical campaign was launched for this U stage.
+
+## A diagnostic where the conditional-square identity does close: quadratic poles
+
+For \(P(x)=x^{\mathsf T}Ax+b^{\mathsf T}x+c\), \(A=A^{\mathsf T}\), and an arbitrary polynomial \(Q\), the full unlinking conclusion follows from the necessary identity
+\[
+ \mathbb E[e^{sP}Q^2]=\mathbb E e^{sP}\,\mathbb E Q^2
+\]
+for real \(s\) in an interval around zero. This is a bounded-degree **base case only**, recorded to identify which analytic step fails beyond degree two; it is not promoted to the full arbitrary-polynomial theorem, or claimed as historically new.
+
+Diagonalize \(A\). Exponential tilting gives a Gaussian with covariance
+\[
+ C_s=(I-2sA)^{-1}
+\]
+and mean \(m_s=sC_sb\). The tilted expectation of \(Q^2\) is rational in \(s\), because polynomial Gaussian moments are polynomials in their means and covariances. Independence makes it a constant on an open interval, so it is the constant rational function.
+
+Suppose \(A\) has a positive eigenvalue and let \(\lambda\) be its largest positive eigenvalue. As \(s\uparrow1/(2\lambda)\), the covariance on its eigenspace is \(T I\), \(T\to\infty\). Covariances on every other eigenspace remain finite positive definite, and their means remain finite. If the polynomial degree of \(Q\) in this eigenspace is \(r\geq1\), conditional orthogonal Hermite decomposition in that Gaussian eigenspace gives a lower bound
+\[
+ \mathbb E_s Q^2\geq T^r\,r!\,\mathbb E_s\|q_r(Y)\|^2,
+\]
+with the symmetric-coefficient normalization chosen so that the displayed factor is the standard highest-chaos norm. The nonzero top coefficient polynomial \(q_r\) has positive squared Gaussian norm on the other coordinates, bounded away from zero near the pole. This remains true even if the mean in the divergent eigenspace moves: translating a polynomial leaves its top homogeneous coefficient unchanged. The bound diverges, contradicting the constant tilted moment. Therefore \(Q\) is independent of this entire eigenspace.
+
+Factor the tilted expectation over the eliminated eigenspace. On a smaller interval around zero its positive normalizing factor cancels, leaving the same constant identity for the remaining quadratic statistic. Its polynomial tilted moment is again rational, so one may repeat at its largest positive eigenvalue. If there are negative eigenvalues instead, use the most negative one and approach \(s=1/(2\lambda)<0\) from inside the admissible Gaussian interval. All non-eliminated other covariances are again finite positive at this first pole. Iterating removes every nonzero eigenspace of \(A\).
+
+On \(\ker A\), the remaining statistic is linear, \(b_0^{\mathsf T}x\), where \(b_0\) is the projection of \(b\) onto that kernel. Its Gaussian tilt translates by \(sb_0\). If \(Q\) has positive degree in that direction, its squared Gaussian norm under the translation is a nonconstant polynomial in \(s\) with a positive leading coefficient. Hence the constant identity forces \(Q\) to be independent of \(b_0\) as well. Since
+\[
+ E_P=\operatorname{range}A+\operatorname{span}\{b_0\},
+\]
+this proves \(E_P\perp E_Q\) in the diagnostic case.
+
+All steps use only actual independence's necessary tilted-square identity, polynomial Gaussian moments, and positivity near a genuine Gaussian pole. No independence of arbitrary chaos projections or moment-determinacy converse is inserted.
+
+For degree at least three, this argument cannot be applied as written. The tilted measure is no longer Gaussian and its polynomial moments need not be rational in the tilt. Odd or indefinite high-degree polynomials may have no nonzero real exponential-moment interval at all. The missing general analytic replacement of the positive-pole argument remains part of the full target.
