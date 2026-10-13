@@ -43,3 +43,26 @@ No original Gaussian worktree file was edited. No new Lean module/root, solver
 trust assumption, Release, DOI or aiXiv submission was introduced. The old
 importance-rated broad research objective is not certified complete by this
 APPT continuation or by a failed conjecture search.
+
+
+## Completed proof and integration checkpoint
+
+The subsequent ordinary proof chain closes the exact finite small-order
+band, linear-order peak/bulk coupling, and finally every positive order for
+arbitrary aspect as m grows. The last proof preserves finite protection
+coefficients and the exact u_D endpoint. Its comparable-peak range forces D
+exponentially large in alpha; its other range permits alpha much larger than
+D without a trace expansion. Vanishing sublinear moment excess is proved
+separately before taking logarithms.
+
+The independent assistant's initial, linear and all-order full-read records
+are now committed, with no unresolved mathematical changes. The previous
+draft-status sentence above records that earlier checkpoint. The result
+catalogues are updated only after these reviews. Parallel main 830a7f6c4,
+including its separately completed sharp-purity formalization, was merged
+without cherry-picking or altering its work. Its source-bound kernel receipt
+is inherited, not a new audit of these entropy papers.
+
+Read-only final checks again matched all 235 tree inputs to the original
+source archive/receipt, all 91 APPTSubunit bound inputs, and all 27 preserved
+Gaussian dirty files. No Lean build or root expansion was invoked.

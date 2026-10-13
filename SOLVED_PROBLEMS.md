@@ -8,6 +8,7 @@
 
 ## 本轮完整书面成果，主定理未整体 Lean 化
 
+- [APPT 全正阶与任意长宽比熵统一首项](research/appt-growing-renyi/README.md)：m→∞ 时，全部 n≥m、α>0 的首个非零熵缺口统一等价；含峰／体耦合、两个端点窗口、有限长宽比全极限阶数谱分类及有限 D 的显式小阶精确带。完整书面证明、三次源绑定内部复核；新目标与极限未整体 Lean 化，原审计范围不扩大；同一 APPT 方向的加强不重复计数。
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
