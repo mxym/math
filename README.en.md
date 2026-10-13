@@ -66,6 +66,8 @@ These reading entries can overlap with the preprint list and are not counted aga
 
 See the [research directory](RESEARCH.md) for other completed arguments and their independent scopes. Written results are accumulated first; formalization is prioritized separately.
 
+Attributed written consequence: [Gaussian block-norm/PSD quadratic-form products and every equality case](research/written-breadth-20261014/README.md), in all finite dimensions and positive real powers, with explicit Ouimet–Greaves input and proper/improper complex conditions. Internally reviewed, unformalized; neither the original GPC nor a new major conjecture is credited here.
+
 ## Claimed results
 
 The repository records the precise scope of each claimed proof, counterexample, or classification. It does not make unverified claims of first priority or worldwide novelty. See [SOLVED_PROBLEMS.md](SOLVED_PROBLEMS.md) for the full list, including unresolved limits.

@@ -17,6 +17,8 @@
 - [APPT 亚单位熵的全维统一首项与固定局域谱分类](research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md)：固定、增长及振荡较小局域维数，含 A1–A9 与实际极值无端外 outlier；[本轮源绑定内部审查](research/appt-multilevel-counterexample/ALL_DIMENSIONS_REVIEW.json)，未完整 Lean 化。
 - [APPT 亚单位熵近极小谱分类](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)：固定有限长宽比下 0<α<1/2 的唯一零孔型与 α=1/2 的两种端点型，含交替序列和最终满秩；完整书面证明，未整体 Lean 化。
 
+既有定理的完整书面推论：[高斯块范数与 PSD 二次型乘积及全部等号](research/written-breadth-20261014/README.md)。覆盖任意有限维、任意 PSD 协方差／二次型与全部正实幂，并明确复高斯的双协方差条件；借用并归属 Ouimet–Greaves 的版本固定定理。已独立内部核读，未 Lean 化，不计为本仓库解决原 GPC 或新增重大猜想。
+
 ## 完整 Lean 的主要入口
 
 - [有限树模型全实任意泄漏 Jacobian、精确重数与完整正目标实解分类](preprints/finite-tree-jacobian-2026-10/README.md)：[聚焦论文与定理映射](preprints/finite-tree-jacobian-2026-10/THEOREM_MAP.md)对应[固定 Lean 包](formalizations/hydrology-tree-core/README.md)，原独立运行 220 模块、1,677 入口；[本轮 235 输入／归档核对](verification/research-resume-20261014/INHERITED_SOURCE_CHECK.json)。严格限于实际有限单泄漏线性树和同点输入／状态观察，不扩大旧审计或宣称一般水文突破。

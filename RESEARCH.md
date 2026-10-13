@@ -43,6 +43,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 高斯块范数与 PSD 二次型乘积推论 | 任意有限维 centered Gaussian 块、PSD 协方差／二次型、全部正实幂与全部等号；复高斯含 improper 情形 | [完整书面推论与独立内部核读](research/written-breadth-20261014/README.md)；归属 Ouimet–Greaves 2609.20234v1 外部定理，未 Lean 化，不计新的原 GPC 解答；全实自由度 Wishart 行列式问题仍开放 |
 | 等质量全部 k | 精确一阶矩上界、足够维数下的最优值和全部等号情形；低维严格性 | [署名预印本](preprints/gaussian-equal-cells-2026-10/README.md)；基于已发表多泡定理的完整书面证明，全部 k 的 Lean 尚未完成 |
 | 等质量四胞全局定理 | 所有 d≥3 的协方差变形锐界与正四面体等号分类；独立解决四胞全局端点 | [独立预印本与审计](preprints/gaussian-four-cell-global-2026-10/README.md)；解析端点未完整 Lean 化 |
 | 三胞独立形式化 | 实际等质量高斯分数分区的锐界、等号分类及低维严格不等式 | [完整构建与公理审计](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)；源码在记录中的固定研究分支提交 |
