@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Constructive finite APPT spike-plateau lower bounds, all-total-dimension lower branch, exact wide-sector purity asymptotic and all fixed aspect ratios gamma>=4. Earlier finite classifications are retained. NOT the multiscale coefficient eight for gamma<4, full entropy laws or dimension-varying rigidity.",
+  "source_manifest_sha256": "54721513ea2db0f93401a2bb62f1d38df731bd26aff22d7e0135c0f6ac26efb7",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.815,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 146.895,
+      "log": "build.log",
+      "sha256": "17ab44e43bbc23515893372ba216599cd483eec4ba9ec98bf83785942d8a3f25"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.518,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.019,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 259.096,
+      "log": "kernel.log",
+      "sha256": "9b1f191bbc2a4739aa1d8edf9f2af7614655f431c56b2e699c6964898cc1a921"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 113
+}

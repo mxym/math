@@ -21,8 +21,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
-| [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md) · [PDF](preprints/appt-purity-unified-2026-10/main.pdf) | 合并 qutrit–qudit 精确最大值、一般维数反例、全域渐近律及充分长方形区间的精确最大值与极值谱分类 | qutrit 主定理、10×38 真实 APPT 公式反例及联合充分性、高维物理熵头桥接、固定局部维数极限及偶数秩二层 plateau 优化已完整 Lean；其余高维部分按覆盖表区分 | — |
-| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整书面证明；有限精确诊断与部分 Lean，解析端点未形式化 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
+| [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md) · [PDF](preprints/appt-purity-unified-2026-10/main.pdf) | 合并 qutrit–qudit 精确最大值、一般维数反例、全域渐近律及充分长方形区间的精确最大值与极值谱分类 | qutrit、10×38 反例、充分长方形区间精确最大值与全部极值态分类，以及长宽比至少4区域的完整渐近律已 Lean；临界比值4允许双侧趋近；小于4时的多尺度下界、完整熵与渐近刚性仍未闭合 | — |
+| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整数学证明，使用已发表 Gaussian multi-bubble 与 Gaussian 等周定理；Lean 验证除外部 Gaussian 多泡定理及部分 Gaussian 积分外的内部证明链 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
 | [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子 | 完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整 Erdős 猜想仍开放 | [23305280](https://doi.org/10.5281/zenodo.23305280) |
 | [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | 证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1；无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272728](https://doi.org/10.5281/zenodo.23272728) |
 | [全图强 Chollet 不等式](preprints/all-graph-chollet-2026-10/README.md) · [PDF](preprints/all-graph-chollet-2026-10/paper.pdf) | 任意有限简单无权图、全部主子矩阵，保留原图度数 | [完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) | [23252964](https://doi.org/10.5281/zenodo.23252964) |
@@ -41,6 +41,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | [复三行永久量—行列式全参数精确范数](preprints/lean-certified-2026-10/complex-pencil-norm/README.md) | 实际复 3 × 3 矩阵的全参数最优常数 | 范数主定理完整 Lean | [23249773](https://doi.org/10.5281/zenodo.23249773) |
 | [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23255145](https://doi.org/10.5281/zenodo.23255145) |
 | [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
+| [复四行永久量—行列式锐界与完整等号分类](preprints/four-row-permanent-determinant-2026-10/README.md) · [PDF](preprints/four-row-permanent-determinant-2026-10/paper.pdf) | 所有实际复 4 × 4 矩阵、c ≥ 0；最优常数、临界等号及实参数范数 | 主结论完整 Lean；本轮为独立排版稿，不宣称重新执行旧内核审计 | — |
 | [有限群轨道原始—对偶定理](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) | 通用有限作用定理、有理最优证书与锐性 | 主定理完整 Lean | [23249749](https://doi.org/10.5281/zenodo.23249749) |
 | [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | 参数 (11,10) 在 (0,1) 内至少四个不同实根 | 完整 Lean | [23253028](https://doi.org/10.5281/zenodo.23253028) |
 | [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
@@ -56,6 +57,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
 
 [17 篇稿件的文章与范围审计](reviews/manuscript-quality-2026-10-08/README.md) · [9 篇修订版 DOI 与公开附件核验](releases/manuscript-revisions-20261008/README.md)
+
+[aiXiv 发布、去重与当前许可证核对](verification/aixiv-publication-20261013/README.md)：9 篇补发，3 条主动重复记录已撤回；高斯四单元按作者单独授权的 CC BY-NC-ND 4.0 发布。
 
 余子式谱 Theorem 1 的[完整 Lean 形式化与范围核对](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)单独列出；后续 ramp／endpoint 结论不计入该形式化证书。
 

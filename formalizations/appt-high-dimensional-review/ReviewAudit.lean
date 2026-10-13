@@ -3,6 +3,147 @@ import Regression
 import Verification.ReplaySupport
 
 run_cmd APPTVerification.replayAndCorrupt [
+  ``APPTReview.lacunary_sparse_matrix_bound,
+  ``APPTReview.fractional_weight_cauchy,
+  ``APPTReview.fractional_strip_localization,
+  ``APPTReview.finiteScaleMeasure_apply,
+  ``APPTReview.finiteScaleMeasure_probability,
+  ``APPTReview.finiteScaleMeasure_real,
+  ``APPTReview.finiteScaleMeasure_prod,
+  ``APPTReview.finiteScaleMeasure_map,
+  ``APPTReview.finiteScaleProbability_band,
+  ``APPTReview.pair_square_mass,
+  ``APPTReview.pair_bad_mass,
+  ``APPTReview.weighted_pair_band_bound,
+  ``APPTReview.amplitudeScale_bounds,
+  ``APPTReview.amplitudeScale_clip_error,
+  ``APPTReview.amplitude_product_band,
+  ``APPTReview.small_amplitude_mass,
+  ``APPTReview.sparseScale_budget,
+  ``APPTReview.sparseScale_low_error,
+  ``APPTReview.sparseScale_high_error,
+  ``APPTReview.nonneg_mul_sqrt,
+  ``APPTReview.sparseScale_normalize_bound,
+  ``APPTReview.unit_amplitude_le_one,
+  ``APPTReview.sparse_scale_localization,
+  ``APPTReview.sparseScaleError_tendsto,
+  ``APPTReview.sqrt_two_energy,
+  ``APPTReview.sparse_multiscale_localization,
+  ``APPTReview.lacunary_fractional_uniform,
+  ``APPTReview.lacunary_fractional_graph_limit,
+  ``APPTReview.rayleigh_le_of_nonnegative_unit,
+  ``APPTReview.matrix_cap_of_nonnegative_unit,
+  ``APPTReview.sparseScaleRank_log,
+  ``APPTReview.sparseScaleCoefficient_log,
+  ``APPTReview.lacunarySparseMatrix_rayleigh,
+  ``APPTReview.fractional_weight_cap_cannot_be_dropped,
+  ``APPTReview.outside_band_mass_not_zero,
+  ``APPTReview.bad_pair_factor_cannot_be_one,
+  ``APPTReview.clipping_band_factor_cannot_be_two,
+  ``APPTReview.zero_amplitude_scale_defined,
+  ``APPTReview.nonsymmetric_rayleigh_not_operator_cap,
+
+  ``APPTReview.lacunary_uniform_all_smaller_bands,
+  ``APPTReview.lacunary_uniform_band_energy,
+  ``APPTReview.lacunary_moving_energy_eventually,
+  ``APPTReview.moving_scaleBand_eventually_lt,
+  ``APPTReview.probability_closed_eventually_lt,
+  ``APPTReview.markedScaleBand_mass,
+  ``APPTReview.scaleBand_zero,
+  ``APPTReview.scaleBandEnergy_mono,
+  ``APPTReview.lacunary_probability_energy,
+  ``APPTReview.lacunary_probability_energy_doubled,
+  ``APPTReview.lacunary_energy_budget,
+  ``APPTReview.lacunary_off_mass,
+  ``APPTReview.scale_center_mass,
+  ``APPTReview.scaleLine_measure_split,
+  ``APPTReview.lacunaryColor_separates,
+  ``APPTReview.LacunaryScales.nodup,
+  ``APPTReview.measurable_lacunaryColor,
+  ``APPTReview.nonlacunary_triangle_not_colorable,
+  ``APPTReview.separated_three_scales,
+  ``APPTReview.loop_dirac_line_mass,
+  ``APPTReview.loop_term_cannot_be_omitted,
+  ``APPTReview.empty_scale_energy,
+
+  ``APPTReview.appt_large_aspect_purity_limit,
+  ``APPTReview.effective_joint_pair,
+  ``APPTReview.effective_joint_background,
+  ``APPTReview.effective_joint_signed,
+  ``APPTReview.pure_effective_witness,
+  ``APPTReview.effectiveSpike_hermitian,
+  ``APPTReview.effectiveSpike_quadratic,
+  ``APPTReview.effectiveSpike_partialTranspose_posSemidef,
+  ``APPTReview.effectiveSpike_absolutelyPPT,
+  ``APPTReview.normalized_perturbation_excess,
+  ``APPTReview.effectiveTrace_pos,
+  ``APPTReview.effectivePurity_lower,
+  ``APPTReview.effectiveStateBase_eq,
+  ``APPTReview.effectiveStateBase_trace,
+  ``APPTReview.effectiveState_density,
+  ``APPTReview.effectiveState_appt,
+  ``APPTReview.effectiveStateBase_square,
+  ``APPTReview.effectiveState_purity,
+  ``APPTReview.exists_effective_lower,
+  ``APPTReview.effective_ratio_error,
+  ``APPTReview.appt_growing_branch_lower,
+  ``APPTReview.exists_projection_excess_lower,
+  ``APPTReview.branch_coefficient_identity,
+  ``APPTReview.appt_total_dimension_branch_lower,
+  ``APPTReview.appt_total_branch_sup_lower,
+  ``APPTReview.appt_wide_sup_two_sided,
+  ``APPTReview.appt_wide_relative_error,
+  ``APPTReview.appt_wide_purity_asymptotic,
+  ``APPTReview.large_aspect_sandwich,
+  ``APPTReview.effective_even_support_card,
+  ``APPTReview.effective_even_physical_regression,
+  ``APPTReview.effective_odd_support_card,
+  ``APPTReview.effective_odd_physical_regression,
+  ``APPTReview.effective_finite_not_limit,
+  ``APPTReview.naiveEffective_density,
+  ``APPTReview.naiveEffective_not_appt,
+
+  ``APPTReview.appt_rectangular_isGreatest_iff_unitary,
+  ``APPTReview.cutEdgePurity_lt_of_short,
+  ``APPTReview.cutEdge_middle_scaled,
+  ``APPTReview.cutEdge_middle_eq_rounded_iff,
+  ``APPTReview.rounded_plateau_rank_bounds,
+  ``APPTReview.plateauCrossing_entry,
+  ``APPTReview.uniformPrefix_last,
+  ``APPTReview.full_middle_crossing_spectrum,
+  ``APPTReview.full_prefix_edge_maximizer,
+  ``APPTReview.ordered_rectangular_cut_unique_spectrum,
+  ``APPTReview.density_appt_rectangular_spectrum,
+  ``APPTReview.roundedPlateauSpectrum_squares,
+  ``APPTReview.density_appt_rectangular_maximizer_iff,
+  ``APPTReview.eigenvalue_diagonal_eq_rounded,
+  ``APPTReview.hermitian_eq_unitary_rounded,
+  ``APPTReview.roundedPlateauMatrix_properties,
+  ``APPTReview.appt_rectangular_maximizer_iff_unitary,
+  ``APPTReview.rectangular_even_spectrum_control,
+  ``APPTReview.rectangular_odd_spectrum_control,
+  ``APPTReview.rectangular_floor_spectrum_rejected,
+  ``APPTReview.rectangular_reference_physical_control,
+
+  ``APPTReview.appt_rectangular_maximum_formula,
+  ``APPTReview.appt_rectangular_purity_isGreatest,
+  ``APPTReview.appt_rectangular_purity_sup_eq,
+  ``APPTReview.density_appt_two_branch_upper,
+  ``APPTReview.density_appt_prefix_mass,
+  ``APPTReview.density_appt_ordered_prefix_cut,
+  ``APPTReview.ordered_rectangular_cut_upper,
+  ``APPTReview.uniformPrefix_crossing_purity,
+  ``APPTReview.outerSpike_lt_roundedPlateau,
+  ``APPTReview.outerSpike_lt_rounded_model,
+  ``APPTReview.outerSpike_deficit_identity,
+  ``APPTReview.rectangular_cutoff_implies_dimensions,
+  ``APPTReview.roundedPlateauPurity_mem,
+  ``APPTReview.rectangular_4_58_maximum,
+  ``APPTReview.rectangular_4_59_maximum,
+  ``APPTReview.rectangular_cutoff_cannot_be_dropped,
+  ``APPTReview.ordered_spectrum_cut_unique,
+  ``APPTReview.convex_unique_spectral_sublevel,
+
   ``APPTReview.exists_projection_family_unique_rank_max,
   ``APPTReview.plateauScaledPurity_ceiling_unique,
   ``APPTReview.plateauScaledPurity_lt_ceiling,
@@ -259,3 +400,27 @@ run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.counterexample1038Int
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.boundaryPerturbation1038_not_appt "review-kernel-boundary-failure-control"
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_spectrum_cut_bound "review-kernel-ordered-cut-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_two_branch_upper "review-kernel-rectangular-upper-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.density_appt_rectangular_maximizer_iff "review-kernel-rectangular-spectrum-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.ordered_rectangular_cut_unique_spectrum "review-kernel-rectangular-cut-equality-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_wide_purity_asymptotic "review-kernel-wide-effective-limit-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.effectiveSpike_absolutelyPPT "review-kernel-effective-joint-physical-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.exists_effective_lower "review-kernel-effective-density-lower-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_total_dimension_branch_lower "review-kernel-effective-total-lower-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.lacunary_probability_energy "review-kernel-lacunary-measure-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.moving_scaleBand_eventually_lt "review-kernel-moving-band-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.sparse_scale_localization "review-kernel-sparse-localization-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.finiteScaleProbability_band "review-kernel-finite-probability-control"
+
+run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.matrix_cap_of_nonnegative_unit "review-kernel-homogeneous-matrix-control"

@@ -33,8 +33,8 @@
 - [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整猜想及二次对数间隙序列仍开放。
 - [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
 - [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)：对每个 `0<p<1/4` 的四胞质量族给出严格非正四面体改进；等质量情形不在结论内。完整书面反例、精确诊断与部分 Lean。
-- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3-m-2` 区间的精确最大值与极值谱分类；qutrit 主定理及 10×38 真实 APPT 公式反例已完整 Lean；高维渐近下界及完整极值谱分类仍以书面解析证明与精确 checker 为主。
-- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式，并完成 10×38 物理反例、联合充分性、固定局部维数首阶超额极限及偶数秩二层 plateau 族优化；高维匹配下界、完整熵极值、图极限和渐近刚性仍未完全闭合。
+- [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md)：合并 qutrit–qudit 全部 `n≥3` 的精确最大值、一般维数公式的 `10×38` APPT 反例、总维数增长时的统一首项，以及 `n≥m^3-m-2` 区间的精确最大值与极值谱分类；qutrit 主定理、10×38 真实 APPT 公式反例，以及充分长方形区域的精确最大值与全部极值谱／酉轨道分类已完整 Lean；维数增长匹配下界、完整熵及渐近刚性仍待闭合。 另已补齐长宽比至少4的宽区域渐近律及固定比值 gamma>=4 的完整 Lean 下界和极限（临界4可双侧趋近）；低于4的多尺度下界及完整熵、渐近刚性仍待验证。
+- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式，并完成 10×38 物理反例、联合充分性、固定局部维数首阶超额极限、唯一整数 plateau 秩优化及充分长方形区域完整最大化态分类；高维匹配下界、完整熵极值、图极限和渐近刚性仍未完全闭合。
 
 ## 新增高斯维数与质量预印本
 

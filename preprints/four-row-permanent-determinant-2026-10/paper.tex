@@ -1,0 +1,238 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage{microtype}
+\DeclareMathOperator{\per}{per}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{The sharp four-row permanent--determinant inequality and its complete equality classification}
+\author{Yongxian Zhang\\[2pt]
+\small School of Computer Science and Engineering\\
+\small South China University of Technology\\
+\small\texttt{mxymmxym1@gmail.com}\\
+\small ORCID: 0009-0000-3864-3536}
+\date{13 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every complex $4\times4$ matrix $A$ and every real $c\ge0$, we prove
+$|\operatorname{per} A|+c|\det A|\le\max\{3/2,1+c\}\prod_i\|A_{i,*}\|_2$.
+The coefficient is optimal. We classify equality, including zero rows and
+the transition $c=1/2$: the nondegenerate extremizers are the rank-one
+matrices with an equimodular common row direction, or the monomial matrices,
+with the relevant class selected by $c$. The exact real-coefficient norm
+of $\operatorname{per} A+t\det A$ is also determined. These principal results have
+complete Lean proofs for the actual matrix permanent and determinant.
+The written proof uses two-row identities and Laplace expansion.
+\end{abstract}
+
+\section{Definitions and principal results}
+For $A\in\mathbb C^{4\times4}$, let
+\[
+ \per A=\sum_{\sigma\in S_4}\prod_{i=1}^4 A_{i,\sigma(i)},\qquad
+ \det A=\sum_{\sigma\in S_4}\operatorname{sgn}(\sigma)
+                         \prod_{i=1}^4 A_{i,\sigma(i)},
+ \qquad R(A)=\prod_{i=1}^4\Big(\sum_{j=1}^4|A_{ij}|^2\Big)^{1/2}.
+\]
+A matrix is \emph{monomial} if there is a permutation $\sigma$ such that
+$A_{i,\sigma(i)}\ne0$ for every $i$ and all its other entries vanish.
+A nonzero \emph{flat rank-one} matrix has the form
+$A_{ij}=u_i v_j$, where every $u_i$ and $v_j$ is nonzero and
+$|v_1|=\cdots=|v_4|$.
+
+\begin{theorem}\label{thm:main}
+For every $A\in\mathbb C^{4\times4}$ and every real $c\ge0$,
+\begin{equation}\label{eq:main}
+ |\per A|+c|\det A|\le M(c)R(A),\qquad
+ M(c)=\max\{3/2,1+c\}.
+\end{equation}
+Equality holds if and only if at least one of the following applies:
+\begin{enumerate}
+\item $A$ has a zero row;
+\item $A$ is flat rank one and $c\le1/2$;
+\item $A$ is monomial and $c\ge1/2$.
+\end{enumerate}
+The constant $M(c)$ is attained and cannot be decreased.
+\end{theorem}
+
+The permanent endpoint agrees with the sharp Hadamard-type permanent
+inequality of Carlen, Lieb and Loss \cite{CLL}. The joint bound and its
+transition are proved below directly; their proof does not assume the
+sharp permanent bound. We make no exhaustive historical-priority claim.
+
+\begin{corollary}\label{cor:pencil}
+For every real $t$,
+\[
+ \sup_{A:\,R(A)>0}\frac{|\per A+t\det A|}{R(A)}
+       =\max\{3/2,1+|t|\}.
+\]
+\end{corollary}
+\begin{proof}
+The triangle inequality and Theorem~\ref{thm:main}, with $c=|t|$, give
+the upper bound. The matrix whose entries are all $1/2$ has $R=1$,
+$\per=3/2$ and $\det=0$. An even permutation matrix if $t\ge0$, and
+an odd permutation matrix if $t<0$, has $R=1$ and objective $1+|t|$.
+Thus the larger endpoint is attained.
+\end{proof}
+
+\section{The two-row calculation}
+For unit vectors $a,b\in\mathbb C^4$, define
+\[
+ S(a,b)=\sum_{j<k}|a_jb_k+a_kb_j|^2,\qquad
+ W(a,b)=\sum_{j<k}|a_jb_k-a_kb_j|^2.
+\]
+Write $\eta=|\sum_j a_j\overline{b_j}|^2$,
+$\tau=\sum_j|a_j|^2|b_j|^2$ and $\Delta=\tau-\eta/4$.
+Cauchy--Schwarz gives $0\le\eta\le1$ and $\Delta\ge0$.
+Expansion of the squares gives the exact identities
+\begin{equation}\label{eq:pair}
+ S=1+\eta-2\tau,\qquad W=1-\eta,\qquad
+ F_c:=S+cW=1+c+(1/2-c)\eta-2\Delta.
+\end{equation}
+In the second use of Cauchy--Schwarz, $\eta\le4\tau$ is applied
+to the four numbers $a_j\overline{b_j}$. Its equality condition is
+\begin{equation}\label{eq:product}
+ \Delta=0\quad\Longleftrightarrow\quad
+ a_j\overline{b_j}\text{ is independent of }j.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:pairbound}
+ 0\le F_c(a,b)\le M(c).
+\end{equation}
+If $c<1/2$, equality in the upper bound requires $\eta=1$ and
+$\Delta=0$. If $c>1/2$, it requires $\eta=\Delta=0$.
+At $c=1/2$, it requires exactly $\Delta=0$.
+
+\section{The four-row inequality and sharpness}
+If a row is zero, both multilinear expressions vanish, so
+\eqref{eq:main} is an equality. Otherwise divide each row by its positive
+Euclidean norm. It suffices to prove the assertion for unit rows
+$a,b,d,e$. For a two-column subset $J=\{j,k\}$, $j<k$, put
+\[
+ p_{ab}(J)=a_jb_k+a_kb_j,\qquad
+ w_{ab}(J)=a_jb_k-a_kb_j.
+\]
+The permanent and determinant Laplace expansions along the first two rows
+are
+\[
+ \per A=\sum_{|J|=2}p_{ab}(J)p_{de}(J^c),\qquad
+ \det A=\sum_{|J|=2}\varepsilon_J w_{ab}(J)w_{de}(J^c),
+\]
+where $\varepsilon_J\in\{-1,1\}$ is the column-shuffle sign.
+The complement map permutes the six two-column subsets. Hence
+Cauchy--Schwarz, first on these six terms and then on two real coordinates,
+gives
+\begin{align}
+ |\per A|+c|\det A|
+ &\le\sqrt{S(a,b)S(d,e)}+c\sqrt{W(a,b)W(d,e)}\notag\\
+ &\le\sqrt{F_c(a,b)F_c(d,e)}\le M(c).\label{eq:laplace}
+\end{align}
+The second step also holds at $c=0$; for $c>0$ it is the ordinary
+Cauchy--Schwarz inequality applied to
+$(\sqrt S,\sqrt{cW})$ for the two row pairs. Restoring the row norms
+proves~\eqref{eq:main}.
+
+The matrix with all entries $1/2$ has unit rows and objective $3/2$.
+Every permutation matrix has unit rows and objective $1+c$. These
+examples prove optimality and attainment of $M(c)$ for every $c\ge0$.
+
+\section{Complete equality classification}
+Assume all rows are nonzero and normalize them as above. Permuting rows
+preserves the absolute values of the permanent and determinant. Thus
+\eqref{eq:laplace} applies to every division of the four row indices into
+two pairs. If its left side equals $M(c)$, both pair factors must equal
+$M(c)$: each is nonnegative and at most the positive number $M(c)$.
+Every unordered pair occurs in such a division, so all six pairs satisfy
+the equality conditions following~\eqref{eq:pairbound}.
+
+If $c<1/2$, every pair has $\eta=1$, so all unit rows are proportional.
+For a pair of proportional unit rows, $\Delta=0$ says
+$\sum_j|a_j|^4=1/4$. Since $\sum_j|a_j|^2=1$, equality in
+Cauchy--Schwarz forces $|a_j|^2=1/4$ for all four columns.
+The matrix is therefore flat rank one.
+
+If $c>1/2$, every pair has $\eta=\Delta=0$, hence $\tau=0$.
+The row supports are pairwise disjoint. Four nonempty pairwise disjoint
+subsets of four columns must each be a distinct singleton, which gives
+exactly a monomial matrix.
+
+At $c=1/2$, each pair satisfies~\eqref{eq:product}. Denote its constant
+by $z_{ih}$, so
+\begin{equation}\label{eq:z}
+ a_{ij}\overline{a_{hj}}=z_{ih}\quad(i\ne h)
+\end{equation}
+for every column $j$. If the four row supports are pairwise disjoint, the
+same argument gives a monomial matrix. Otherwise two rows meet in one
+column, so their $z_{ih}$ is nonzero and~\eqref{eq:z} forces both rows
+to have full support. Each remaining nonzero row meets one of these full
+rows and therefore also has full support. All the $z_{ih}$ are now
+nonzero. Choose distinct rows $i,h,k$. For every column $j$,
+\[
+ |a_{ij}|^2=\frac{|z_{ih}|\,|z_{ik}|}{|z_{hk}|}.
+\]
+This is independent of $j$. Unit normalization makes every entry of
+every row have modulus $1/2$. Relative to a fixed reference row, division
+in~\eqref{eq:z} then makes each row a scalar multiple of that row.
+The matrix is flat rank one.
+
+Conversely, for a flat rank-one matrix $A_{ij}=u_i v_j$ with common
+modulus $|v_j|=r>0$,
+\[
+ |\per A|=24\Big(\prod_i|u_i|\Big)r^4
+          =\tfrac32 R(A),\qquad\det A=0.
+\]
+A monomial matrix satisfies $|\per A|=|\det A|=R(A)$.
+These formulas give equality precisely at the stated weights.
+Together with the zero-row case this finishes the proof of
+Theorem~\ref{thm:main}.
+
+\section{Formal verification and scope}
+The repository \url{https://github.com/mxym/math} contains the fixed
+Lean projects \nolinkurl{formalizations/four-row-permanent-tradeoff} and
+\nolinkurl{formalizations/four-row-complete-equality}. At repository
+revision \nolinkurl{07559d229} the latter exports
+\nolinkurl{FourRowTradeoff.sharp_four_row_complete}; its matrix classes
+are \texttt{IsFlatRankOne} and \texttt{IsMonomial}. It covers the actual
+complex matrix inequality, both directions of equality, zero rows and
+the critical weight. The former project supplies optimality, attainment
+and the real-coefficient pencil norm. The complete-equality project's
+\texttt{FORMALIZATION\_MAP.md} records the exact correspondence.
+
+Lean is pinned to 4.34.1 (commit
+\nolinkurl{5045d0056413266e57c625dcd7c365b10e377c52}); Mathlib is pinned to
+\nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}.
+The archived verification completed on 9 October 2026 and reports a
+fresh build of all 12 owned modules and a replay of 112 named roots with
+a 15,593-declaration dependency closure into an empty kernel at trust
+level zero. The only logical axioms are \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}; two invalid-proof
+controls were rejected. Reproduction commands and source hashes are in
+that project's README and \texttt{evidence/v2/VERIFICATION.json}.
+These are archived results; preparation of this reading edition does
+not claim a new Lean execution.
+
+This paper consolidates the principal fully formalized results of the
+repository note \texttt{notes/four-row-permanent-tradeoff/PAPER.md}.
+Its additional rectangular, quantitative, convex-power and tensor
+extensions are outside this paper's formalization claim. No external
+human peer-review acceptance or mathematical-priority certification is
+claimed. Research and manuscript preparation used OpenAI AI assistants;
+the author is responsible for the stated claims. There was no external
+funding. Original material is all rights reserved, subject to existing
+third-party licenses and notices.
+
+\begin{thebibliography}{9}
+\bibitem{CLL} E. Carlen, E. H. Lieb and M. Loss,
+\emph{An inequality of Hadamard type for permanents},
+Methods and Applications of Analysis \textbf{13} (2006), 1--18.
+\href{https://doi.org/10.4310/MAA.2006.v13.n1.a1}{doi:10.4310/MAA.2006.v13.n1.a1}.
+\bibitem{repo} Y. Zhang,
+\emph{Sharp four-row permanent--determinant tradeoff and parity tensor norms},
+research note and Lean source projects, 2026.
+\url{https://github.com/mxym/math/tree/07559d229/notes/four-row-permanent-tradeoff}.
+\end{thebibliography}
+\end{document}

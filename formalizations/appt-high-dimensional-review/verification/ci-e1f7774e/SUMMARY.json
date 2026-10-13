@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "Complete exact rectangular APPT maximum, ordered-spectrum and actual unitary-orbit equality classification; all listed finite dependencies. NOT growing-dimensional multiscale lower limits, full entropy laws or asymptotic rigidity.",
+  "source_manifest_sha256": "b6b818899bac7d60aec4a300ca530a0bfc9b53af83ea35d9f83b45f95b8bda52",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.565,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "APPTReview"
+      ],
+      "exit_code": 0,
+      "seconds": 126.293,
+      "log": "build.log",
+      "sha256": "b330e37ca6a2870eb6de3c6a6540a541cf9a782d74b7e5d8d3819f0b05a7bab5"
+    },
+    {
+      "stage": "support",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+        "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.467,
+      "log": "support.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "regressions",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "-o",
+        "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Regression.olean",
+        "Regression.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.819,
+      "log": "regressions.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "ReviewAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 168.985,
+      "log": "kernel.log",
+      "sha256": "9859354b146e1a34869b10697c02cbfa348aa9c9b848972f2724496758cec8c6"
+    }
+  ],
+  "empty_kernel_trust_level": 0,
+  "source_files": 104
+}

@@ -35,15 +35,36 @@ trace-zero direction. This is a new unconditional stationarity reduction; it
 does not yet classify the resulting weighted Laplacian or prove the global
 four-cell perimeter bound.
 
+`GaussianFourLaplacianStationarity.lean` closes the finite-dimensional part of
+that reduction for four labels: a symmetric facet Laplacian whose trace
+pairing vanishes on every centered trace-zero Hermitian direction is a scalar
+multiple of the regular centered projection. Consequently all six
+off-diagonal facet weights are equal. The proof is kernel-checked and uses
+only explicit matrix identities; it still starts from the stationarity
+hypothesis and does not supply the missing global perimeter inequality.
+
+The same file records the resulting moment equation: at a full-rank
+directional local maximum, the four actual cell moments are an affine
+function of the four score vectors, with a single scalar coefficient equal
+to the common facet weight. This is a necessary interior criticality
+condition, not a tetrahedral classification.
+
+`GaussianFourConstantElementary.lean` also verifies the exact elementary
+angular identity
+\(\int_{-\sqrt2}^{\sqrt2}(1+x^2)^{-1}dx=2\arctan\sqrt2\) and its normalized
+ratio. It deliberately does not identify the remaining Gaussian
+order-statistic integral with this angular expression.
+
 The reproducible build command is:
 
 ```text
 lake build GaussianProgress
 ```
 
-The current clean build completes all 3,887 jobs. A trust-zero replay of the
+The current clean build completes all 3,890 jobs. A trust-zero replay of the
 conditional four-cell interface, the unconditional two-cell boundary theorem,
-and the discrete ascent theorem reports only Lean's standard
+the discrete ascent theorem, and the two stationarity results reports only
+Lean's standard
 `propext`, `Classical.choice`, and `Quot.sound` axioms.
 
 Pinned toolchain: Lean 4.34.1 and Mathlib revision

@@ -1,5 +1,7 @@
 # Rectangular optimization dependencies: verified checkpoint
 
+**Subsequent completion:** the exact rectangular maximum and complete maximizing-spectrum/unitary-orbit classification are now independently kernel-verified in `verification/ci-e1f7774e/`. The historical checkpoint scope below is retained rather than relabeled. See `REVIEW_RECTANGULAR_CLASSIFICATION.md` and the current coverage map.
+
 This checkpoint is partial verification of the unrestricted rectangular maximum. It does not claim that the complete rectangular upper bound or its equality classification has been established.
 
 ## Closed mathematical dependencies

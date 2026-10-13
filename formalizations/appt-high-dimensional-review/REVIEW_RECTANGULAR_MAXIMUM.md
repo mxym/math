@@ -1,0 +1,11 @@
+# Exact rectangular maximum: completed physical proof
+
+**Subsequent completion:** the exact rectangular maximum and complete maximizing-spectrum/unitary-orbit classification are now independently kernel-verified in `verification/ci-e1f7774e/`. The historical checkpoint scope below is retained rather than relabeled. See `REVIEW_RECTANGULAR_CLASSIFICATION.md` and the current coverage map.
+
+For m>=3 and n>=m^3-m-2, the final theorem proves IsGreatest of the purity values of actual complex APPT density matrices, with the integer ceiling t=((m-1)n+1)/2 and value [mn(m-1)^2+4mt]/[mn(m-1)+2t]^2. The upper bound is unrestricted over spectra. APPT is the original all-global-unitary definition, not a substituted finite or spectral predicate.
+
+Dependency chain: PhysicalCut constructs the exact first-R versus last-S mass inequality; PrefixMass connects those actual labels to PrefixCut; PrefixVertex identifies each crossing objective; OuterValues handles all three prefix regions; OuterCutBound combines the already verified mass transport and endpoint quadratic; RectangularCutoff absorbs every integer rounding parity in a strict comparison; RectangularMaximum combines the unrestricted bound with an actual APPT projection-state witness. The 4x58 and odd-parity 4x59 maxima are explicit controls. The previously verified 10x38 counterexample rejects dropping the rectangular cutoff.
+
+Unpublished WSL modules were recovered and read before a fresh full package build and trust-zero replay. A CRLF/LF source difference was detected during transfer and normalized before a second complete build and exact source binding; it was not silently treated as identical audited bytes. Independent run 38238377463 then verified the exact committed 99-input source, 1a3f6275d7979121f6babd6608567fdecbe304fa. Original independent evidence and all corruption controls are in verification/ci-1a3f6275/.
+
+At this checkpoint the exact maximum is complete, while all maximizing spectra and the full unitary-orbit equivalence are not yet asserted as verified. Generic strict-convexity cut reduction is included for the next step. The cutoff is sufficient for this physical theorem, not claimed minimal. Growing-dimension matching lower bounds, full entropy laws and rigidity are not inferred. No preprint, existing quantum definition or immutable Release is changed.
