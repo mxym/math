@@ -572,39 +572,29 @@ MODULE HydrologyTree.ZeroOutward
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RankedTriangularResidual
-HydrologyTree/RankedTriangularResidual.lean:16:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HydrologyTree/RankedTriangularResidual.lean:26:60: warning: Variable name `i` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _i
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RankedTriangularResidual.lean:26:62: warning: Variable name `j` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _j
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphResidualWitness
-HydrologyTree/GraphResidualWitness.lean:31:49: error: Application type mismatch: The argument
-  e i
-has type
-  Fin (n + 1)
-of sort `Type` but is expected to have type
-  id ?m.105 < id ?m.104
-of sort `Prop` in the application
-  zero_outward_upper_triangular q.tree a (e i)
-HydrologyTree/GraphResidualWitness.lean:36:6: error: Type mismatch: After simplification, term
-  hij
+
+MODULE HydrologyTree.CoordinateMultiplicity
+HydrologyTree/CoordinateMultiplicity.lean:23:45: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/CoordinateMultiplicity.lean:27:69: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.SymbolicRates
+
+MODULE HydrologyTree.ResidualFactors
+
+MODULE HydrologyTree.SymbolicTreeJacobian
+
+MODULE HydrologyTree.TreeExactMultiplicities
+HydrologyTree/TreeExactMultiplicities.lean:34:64: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.LocatedExactMultiplicities
+
+MODULE HydrologyTree.LocatedBoundarySingularSet
+HydrologyTree/LocatedBoundarySingularSet.lean:21:6: error: Type mismatch: After simplification, term
+  hi
  has type
-  @Eq ℝ (-a (q.vertices.symm (p.vertices i))) (-a (q.vertices.symm (p.vertices j)))
+  1 = 0
 but is expected to have type
-  @Eq ℝ (-a (e i)) (-a (e j))
+  False
