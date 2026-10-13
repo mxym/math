@@ -566,24 +566,13 @@ MODULE HydrologyTree.MatrixEdgeMonomial
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.LocatedCoordinateMonomial
-HydrologyTree/LocatedCoordinateMonomial.lean:27:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphCoordinateMonomial_evaluate`:
-  [DecidableEq V]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq V] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/LocatedCoordinateMonomial.lean:57:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphCoordinateMonomial_add`:
-  [DecidableEq V]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq V] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.ZeroOutward
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RankedTriangularResidual
-HydrologyTree/RankedTriangularResidual.lean:12:6: error: `HydrologyTree.pairwiseResultantsOver_real` has already been declared
-HydrologyTree/RankedTriangularResidual.lean:22:2: warning: Try this: 
+HydrologyTree/RankedTriangularResidual.lean:16:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -591,15 +580,31 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HydrologyTree/RankedTriangularResidual.lean:32:60: warning: Variable name `i` is not explicitly referenced.
+HydrologyTree/RankedTriangularResidual.lean:26:60: warning: Variable name `i` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _i
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-HydrologyTree/RankedTriangularResidual.lean:32:62: warning: Variable name `j` is not explicitly referenced.
+HydrologyTree/RankedTriangularResidual.lean:26:62: warning: Variable name `j` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _j
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.GraphResidualWitness
+HydrologyTree/GraphResidualWitness.lean:31:49: error: Application type mismatch: The argument
+  e i
+has type
+  Fin (n + 1)
+of sort `Type` but is expected to have type
+  id ?m.105 < id ?m.104
+of sort `Prop` in the application
+  zero_outward_upper_triangular q.tree a (e i)
+HydrologyTree/GraphResidualWitness.lean:36:6: error: Type mismatch: After simplification, term
+  hij
+ has type
+  @Eq ℝ (-a (q.vertices.symm (p.vertices i))) (-a (q.vertices.symm (p.vertices j)))
+but is expected to have type
+  @Eq ℝ (-a (e i)) (-a (e j))
