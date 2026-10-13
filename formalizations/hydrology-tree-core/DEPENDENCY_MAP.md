@@ -102,3 +102,14 @@ ModalMinimumEnergy derives every moment condition from the actual endpoint ODE,
 then proves the sharp optimum and independence of modal coordinates.
 PhysicalMinimumEnergy constructs the physical simple modal witness from the
 full-response hypothesis and proves the unrestricted continuous-control theorem.
+
+
+### Alternate-leak physical extension
+
+`LeakRelocationRates` proves the exact rational inverse and positive-rate-space
+equivalence. `GraphLeakCut` constructs the cut from the finite graph tree.
+`DiagonalGauge`, `GraphLeakMatrix` and `LeakGauge` prove actual matrix similarity
+and diagonal cofactor/resolvent invariance. `LeakRelocationWalk` constructs arbitrary
+site movement; `LocatedLeakFiber` proves positive exact fibers and the extra
+|V| multiplicity of an unknown leak site. Unrestricted-real alternate-leak
+rigidity/Jacobian and the diagonal-gauge ODE transport remain separate.

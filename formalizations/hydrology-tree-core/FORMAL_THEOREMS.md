@@ -349,3 +349,25 @@ from the same forcing and equal root output on any nonempty open time window.
 control equality on [0,T] for endpoint-feasible continuous inputs.
 `GraphMassBalance` gives the independently defined graph ODE's exact differential
 and integrated storage balance. None of these changes the root-leak convention.
+
+
+## Arbitrary-site positive leakage classification
+
+For any finite SimpleGraph tree G, any fixed input/state observation o and any
+leak sites u,v, `relocatePositiveLeak` is an equivalence of the ENTIRE positive
+graph-rate spaces. `relocatePositiveLeak_similarity` constructs positive vertex
+weights h for the actual identity A_v(E(y))=diag(h) A_u(y) diag(h)^(-1).
+All graph rates and leakage positions are independent physical definitions.
+`relocatePositiveLeak_response` proves characteristic/cofactor and every diagonal
+resolvent invariant, with singular values only under the algebraic inverse
+convention. The physical response predicates use actual nonpole domains.
+
+`PositiveLocatedFiber o ell r w` explicitly requires strict positivity and the
+actual root response at o of the graph matrix with leak at ell. For N=n+1
+vertices and a full normalized positive Stieltjes target with N distinct positive
+rates, `finite_graph_arbitrary_leak_classification` constructs a full bijection
+to the recursive allocation type and proves finite cardinality
+n! / product_(v != o)|T_v|. `UnknownLeakFiber` includes the actual leak vertex as
+part of the parameters; its exact finite cardinality is |V| times that number.
+No positivity premise on an unrestricted competitor has been silently dropped:
+this extension is about the stated POSITIVE physical fibers.

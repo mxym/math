@@ -41,12 +41,28 @@ coefficient basis. The count refers to the actual original graph parameter
 fiber, with subtree sizes in the constructed graph-isomorphic representation.
 It does not claim an unspecified external graph encoding is equal by definition.
 
-## 2. Leak away from the observed root
+## 2. Alternate leak site — positive matrix/fiber theory now closed
 
-The current exact model puts input, observation and sole leakage at the same
-root. A leak at a different vertex needs the actual observation-root/leak-root
-coordinate and reindexing proof. Its parameter Jacobian and physical fiber
-variants are not silently inferred from the root-leak theorem.
+The actual single-edge rational rate transformation and its inverse are proved.
+Its finite-tree cut and positive diagonal matrix similarity are constructed,
+and finite walks give a full positive-rate equivalence between every pair of
+leak sites. The observation vertex stays fixed; ALL diagonal resolvents are
+preserved. Exact positive physical fiber classification and counting therefore
+hold at any prescribed leak site. The model space with an unknown site is proved
+finite of cardinality |V| times the prescribed-site count.
+
+Still required for the broader alternate-leak scope:
+- Automatic positivity and complete counting without ANY sign premise on the
+  initial REAL alternate-leak vector (the positive-space equivalence does not
+  itself assert this stronger statement).
+- Its all-real-rate Jacobian polynomial, orientation and exact coordinate
+  multiplicities, including zero boundaries.
+- The explicit actual ODE/state/endpoint transport of the new diagonal gauge.
+  A matrix-resolvent identity alone is not called that dynamical proof.
+
+Collocated input/state observation at o is distinct from measuring physical
+outflow at a DIFFERENT leak vertex ell. No equality of those different data
+models is asserted. The original co-located discharge theory is already closed.
 
 ## 3. Scope exclusions, not hidden assumptions
 

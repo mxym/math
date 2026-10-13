@@ -328,3 +328,35 @@ finite simple graph, without assuming acyclicity or positive rates.
 
 These new source modules have compiled. Source-bound independent verification
 is the new checkpoint's own CI; prior receipts are not substituted for it.
+
+
+## Arbitrary leak site: positive physical classification now closed
+
+The leak is now allowed at any vertex ell while the input and state observation
+remain at the original fixed vertex o. `slideLeakRates` gives the explicit
+edge transformation, for an edge directed from the old to the new leak:
+
+    (lambda,a,f) -> (a*lambda/(f+lambda), a*f/(f+lambda), f+lambda).
+
+The reverse edge is proved to give the exact inverse, and all positive graph
+rates stay positive. `GraphLeakCut` constructs the required single-edge cut from
+the actual finite tree. `LeakGauge` proves equality of the INDEPENDENT physical
+matrices by a positive diagonal similarity; no similarity premise is supplied.
+`LeakRelocationWalk` composes actual edge transformations and constructs an
+invertible move between ANY two leak sites. Every characteristic polynomial and
+every diagonal cofactor/diagonal resolvent at every observation vertex are preserved.
+
+`finite_graph_arbitrary_leak_classification` constructs the exact recursive
+allocation bijection and finite factorial count of positive models for ANY fixed
+leak site. `unknown_leak_fiber_exact_card` counts the actual models INCLUDING the
+unknown site itself: |V| times the fixed-site count. The leak cannot be identified
+from these collocated state-response data, even if all diagonal resolvents are
+known. This statement does not confuse such data with discharge measured at a
+DIFFERENT leakage vertex, which is a cross-transfer function.
+
+The positive domain of this extension is explicit. Automatic positivity of
+initially unrestricted REAL alternate-leak competitors, their all-rate polynomial
+Jacobian factorization and exact multiplicities remain distinct obligations.
+The earlier unrestricted-real theorem at a co-located root leak is unchanged.
+All new files compiled; the new source-specific independent CI certifies them,
+not an earlier receipt. The overall research program remains partial.
