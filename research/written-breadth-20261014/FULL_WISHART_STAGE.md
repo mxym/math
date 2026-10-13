@@ -81,3 +81,38 @@ Its Gaussian input is attributed and pre-existing. It covers arbitrary positive 
 4. The known two-block special-function inequality is not a license to multiply or iterate it over a correlated third block. That would require a stronger conditional or grouped inequality not supplied by the published theorem.
 
 The stage remains exploration until one complete general proof or an independently exact-certified admissible counterexample is obtained. Time spent on requested APPT manuscript service reviews is excluded from the 45–90 minute no-breakthrough switching threshold. No new Lean package, root edit, push, publication, or submission occurred.
+
+## Analytic checks after the finite discovery campaign
+
+For a fixed block partition, take \(R(t)=I+tH\), where \(H\) is symmetric and has zero diagonal blocks, and \(t\) is sufficiently small that the scale is positive definite. Let
+\[
+ J(t)=\frac{\mathbb E_{R(t)}\prod_i\det(W_{ii})^{a_i}}
+                 {\prod_i\mathbb E_{I}\det(W_{ii})^{a_i}},
+ \qquad W\sim W_p(\nu,R(t)),\quad \nu>p-1,\quad a_i>0.
+\]
+The density integral is analytic in \(t\) near zero: for scales in a compact SPD neighborhood, each derivative is bounded by a polynomial in the matrix norm times a fixed integrable Wishart exponential density. Block sign flips leave every diagonal determinant unchanged. Consequently a second-order cross-covariance term can involve only one unordered pair of blocks; terms joining two different pairs vanish by the sign parity at a block of odd incidence.
+
+Setting all other cross blocks to zero reduces each surviving second-order term to the already proved two-block formula. Its canonical correlation matrix is \(tH_{ij}\) up to an irrelevant sign. Expanding Theorem3.1's matrix hypergeometric function at zero gives
+\[
+ J(t)=1+\frac{2t^2}{\nu}\sum_{i<j}a_i a_j\|H_{ij}\|_{\mathrm F}^2
+          +O(t^3).                                      \tag{L}
+\]
+Thus the whole conjecture has a strict local minimum at independence along every nonzero fixed cross-covariance direction with active positive exponents. This is a route diagnostic, not a complete global theorem or a new major-problem count. It explains why an infinitesimal perturbation search at independence will not generate a counterexample.
+
+Termwise positivity of the higher Taylor series is already false in the solved scalar two-block case. For powers \(a_1=1/2,a_2=3/2\) and correlation \(t\),
+\[
+ {}_2F_1(-1/2,-3/2;\beta;t^2)
+ =1+\frac{3}{4\beta}t^2-\frac{3}{32\beta(\beta+1)}t^4+O(t^6).
+\]
+The negative fourth-order coefficient is exact although the full two-block inequality holds. Therefore proving only that low-order covariance coefficients are nonnegative cannot replace the required general resummation or sign argument.
+
+Conditioning cannot supply the missing theorem by invoking the centered Gaussian input at every conditional step. For independent standard \(Z,U\), set
+\[
+ X=1+Z,\quad Y=1-\tfrac9{10}Z+\sqrt{19/100}\,U .
+\]
+These form a noncentral Gaussian pair with SPD covariance. Their square-product deficit is
+\[
+ \mathbb E X^2Y^2-\mathbb E X^2\,\mathbb E Y^2
+ =2(9/10)^2-4(9/10)=-99/50<0.
+\]
+Hence the centered theorem fails after arbitrary noncentral conditioning. This is an exact obstruction to that proof step, not a counterexample to the actual central Wishart conjecture.
