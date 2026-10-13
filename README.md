@@ -41,6 +41,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | [复三行永久量—行列式全参数精确范数](preprints/lean-certified-2026-10/complex-pencil-norm/README.md) | 实际复 3 × 3 矩阵的全参数最优常数 | 范数主定理完整 Lean | [23249773](https://doi.org/10.5281/zenodo.23249773) |
 | [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23255145](https://doi.org/10.5281/zenodo.23255145) |
 | [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
+| [复四行永久量—行列式锐界与完整等号分类](preprints/four-row-permanent-determinant-2026-10/README.md) · [PDF](preprints/four-row-permanent-determinant-2026-10/paper.pdf) | 所有实际复 4 × 4 矩阵、c ≥ 0；最优常数、临界等号及实参数范数 | 主结论完整 Lean；本轮为独立排版稿，不宣称重新执行旧内核审计 | — |
 | [有限群轨道原始—对偶定理](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) | 通用有限作用定理、有理最优证书与锐性 | 主定理完整 Lean | [23249749](https://doi.org/10.5281/zenodo.23249749) |
 | [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | 参数 (11,10) 在 (0,1) 内至少四个不同实根 | 完整 Lean | [23253028](https://doi.org/10.5281/zenodo.23253028) |
 | [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
@@ -56,6 +57,8 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
 
 [17 篇稿件的文章与范围审计](reviews/manuscript-quality-2026-10-08/README.md) · [9 篇修订版 DOI 与公开附件核验](releases/manuscript-revisions-20261008/README.md)
+
+[aiXiv 发布、去重与当前许可证核对](verification/aixiv-publication-20261013/README.md)：8 篇补发，3 条主动重复记录已撤回；高斯四单元待新建投稿的许可证问题解决。
 
 余子式谱 Theorem 1 的[完整 Lean 形式化与范围核对](verification/cofactor-spectral-theorem1-lean-2026-10-09/README.md)单独列出；后续 ramp／endpoint 结论不计入该形式化证书。
 

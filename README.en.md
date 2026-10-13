@@ -35,8 +35,11 @@ The table lists the current version DOI for each published manuscript. Older imm
 | [Arbitrary-mass Gaussian centroid envelope](preprints/gaussian-centroid-mass-envelope-2026-10/README.md) · [PDF](preprints/gaussian-centroid-mass-envelope-2026-10/paper.pdf) | (U(p)-2Q(p)\le M_d(p)\le U(p)) for every positive mass vector, with two-logarithmic consequences | Complete written proof and exact interval replay | [10.5281/zenodo.23273177](https://doi.org/10.5281/zenodo.23273177) |
 | [Sharp cofactor spectral asymptotics](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | Large-order logarithmic asymptotics and rank-two endpoint statements | Theorem 1 fully Lean-verified; later ramp/endpoint claims remain written mathematics | [10.5281/zenodo.23255145](https://doi.org/10.5281/zenodo.23255145) |
 | [Bapat (q)-permanent counterexamples](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | Explicit complex rational counterexample and an existence theorem for real symmetric integer counterexamples | Both main results fully Lean-verified | [10.5281/zenodo.23252928](https://doi.org/10.5281/zenodo.23252928) |
+| [Four-row permanent–determinant inequality and complete equality](preprints/four-row-permanent-determinant-2026-10/README.md) · [PDF](preprints/four-row-permanent-determinant-2026-10/paper.pdf) | Actual complex 4 × 4 matrices, every c ≥ 0; optimal constant and all equality cases | Principal results fully Lean-verified; this reading edition does not claim a new execution of the archived audit | — |
 
 The complete catalog, including smaller formalized results and research notes, is in [SOLVED_PROBLEMS.md](SOLVED_PROBLEMS.md) and [RESEARCH.md](RESEARCH.md).
+
+[aiXiv publication, deduplication and license readback](verification/aixiv-publication-20261013/README.md) records eight additional papers and three withdrawn duplicates. The four-cell Gaussian submission is prepared but awaits resolution of the new-submission license behavior.
 
 ## Claimed results
 
