@@ -551,9 +551,8 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 HydrologyTree/GraphPolynomialModel.lean:109:4: error: Type mismatch: After simplification, term
   hcP 0
  has type
-  @Eq ℝ (φ ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0))
-    ((graphCompartmentMatrix G ell y).charpoly.coeff 0)
+  (MvPolynomial.eval ((graphRateArrayEquiv G) y)) ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0) =
+    (graphCompartmentMatrix G ell y).charpoly.coeff 0
 but is expected to have type
-  @Eq ℝ
-    ((MvPolynomial.eval ((graphRateArrayEquiv G) y)) ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0))
-    ((graphCompartmentMatrix G ell y).charpoly.coeff ↑0)
+  (MvPolynomial.eval ((graphRateArrayEquiv G) y)) ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0) =
+    (↑((cut (n + 1)) (graphCompartmentMatrix G ell y).charpoly)).coeff 0
