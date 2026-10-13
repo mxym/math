@@ -1,114 +1,72 @@
-# Remaining scope — partial overall program
+# Proof scope and remaining external questions
 
-## Closed for the original root-leak OrderedTree model
+## 1. Declared mathematical core: proof dependencies closed
 
-The complete all-rate actual coefficient-Jacobian and formal partial-derivative
-factorizations, exact multivariate coordinate multiplicities, signed resultant
-identity and boundary singularity distinction are proved. Positive spectrum,
-Stieltjes interlacing/reciprocal construction and every positive realization are
-proved from their actual objects. The complete unrestricted-real full-response
-fiber has a recursive labelled-allocation bijection and finite exact cardinality
-n! / product_(nonroot v) |T_v|. Every real competitor is automatically strictly
-positive and has nonzero actual coefficient Jacobian. Root leak identification
-and actual discharge-transfer fibers are included.
+The repository's finite labelled bidirected tree model has actual conservative
+matrices, one external leak, a collocated scalar inlet/state observer, and
+explicit real rate coordinates. The following mathematical chains are closed
+in source, with independent verification always bound to the exact checkpoint.
 
-The ODE bridges are now proved in BOTH directions for globally continuous real
-inputs, classical trajectories and zero-initial observed responses. Actual
-global existence/uniqueness, output formulas, input-output classification from
-root or discharge histories, and differential/integrated storage balance are
-proved. Exponential probe solutions prevent vacuous use of universal trajectory
-predicates, even for initially unrestricted competing real matrices.
+- All-rate actual coefficient-Jacobian and independent formal partial-derivative
+  polynomial factorization, signed resultant identity, exact coordinate
+  multiplicities, and complete zero-boundary singular sets.
+- All-real full-positive-Stieltjes target fibers: actual realization existence,
+  automatic strict positivity of unrestricted real competitors, complete
+  recursive allocation bijection and exact factorial/hook count; every counted
+  model's actual coefficient Jacobian is proved regular.
+- Independently presented finite SimpleGraph trees: root-preserving enumeration,
+  actual vertex/rate/matrix/coefficient transports and original graph fibers.
+- Actual classical ODEs for continuous real inputs: global existence/uniqueness,
+  all-input zero-initial output equivalence and its converse, storage balance,
+  finite-window trajectory observability, positive-horizon signed steering,
+  and the exact minimum-energy formula with its equality condition.
+- Every prescribed leak site and the unknown-site model: exact diagonal gauge,
+  all-real automatic positivity, exhaustive actual response and continuous-ODE
+  fiber classification, actual site/matrix injectivity, and non-identifiability
+  from all collocated experiments. Solutions are constructed; universal history
+  predicates are not allowed to be vacuous.
 
-Both original-coordinate Kalman matrices are proved nonsingular. Actual state
-trajectory observability on any nonempty open time interval is proved, not just
-its rank criterion. Actual finite-horizon steering is also proved: every T>0
-and every pair of initial/final state vectors admit a constructed continuous
-real control with a unique classical trajectory and those exact endpoints.
-The actual integral Gramian is proved positive before taking its inverse.
+The final former dependency gap was the alternate-leak all-real polynomial at
+zero boundaries and its exact coordinate factors. It is closed by
+`finite_graph_complete_all_leak_algebra`, `formalLocatedJacobian_exact_power`,
+and `locatedJacobian_zero_iff_all_rates`. The all-real derivative/polynomial
+bridge and uniform no-hidden-factor witnesses are proved, not supplied as
+assumptions. The same exact +/-1 sign works for every site and every real rate.
+For an observed-root edge e, each dart has exponent |T_e|-1, with an extra one
+precisely in the direction toward the leak. The external leak exponent is zero.
 
-## 1. Independent finite rooted graph presentations — now closed
+## 2. Explicit scope exclusions, not unproved inputs
 
-The representation is constructed from an arbitrary finite SimpleGraph with
-IsTree and a root, using proved leaf deletion. Graph dart-rate and vertex
-bijections, independently defined conservative matrices, characteristic/cofactor
-polynomials, actual derivatives, actual state trajectories and endpoints are
-transported by proved equalities. All-real response and continuous-discharge
-fibers, positivity, signed steering and finite-window observability are now
-exported without requiring a supplied parent presentation.
+The finite fiber enumeration concerns N-vertex models and N distinct positive
+target poles with strictly positive normalized weights. Fewer-mode targets,
+coincident target poles, and complex-parameter fibers are not enumerated here.
+Their absence from a theorem is not an assumption that they have no solutions.
 
-The all-rate graph Jacobian uses an explicitly disclosed transported ascending
-coefficient basis. The count refers to the actual original graph parameter
-fiber, with subtree sizes in the constructed graph-isomorphic representation.
-It does not claim an unspecified external graph encoding is equal by definition.
+The ODE notion is for classical trajectories driven by continuous real inputs.
+Measurable, impulsive or discontinuous forcing requires another solution notion.
+Controls in the arbitrary-endpoint and minimum-energy theorems are signed.
+Arbitrary endpoint steering by nonnegative rainfall alone is NOT claimed.
 
-## 2. Alternate leak site — positive matrix/fiber theory now closed
+A collocated inlet/state observer at o is NOT the same data model as physically
+measuring outflow at a different leaking vertex ell. The graph/site theory keeps
+the observer fixed. Original co-located discharge theory is proved; no equality
+of arbitrary off-diagonal transfer data or distinct output channels is asserted.
 
-The actual single-edge rational rate transformation and its inverse are proved.
-Its finite-tree cut and positive diagonal matrix similarity are constructed,
-and finite walks give a full positive-rate equivalence between every pair of
-leak sites. The observation vertex stays fixed; ALL diagonal resolvents are
-preserved. Exact positive physical fiber classification and counting therefore
-hold at any prescribed leak site. The model space with an unknown site is proved
-finite of cardinality |V| times the prescribed-site count.
+These are linear constant-rate finite tree results, not statements about all
+nonlinear catchments, uncertain forcing, measurement noise or forecast accuracy.
+Historical priority, research impact and external human peer review remain
+separate from correctness of the formal mathematical statements.
 
-The normalized diagonal gauge now also transports actual ODE trajectories,
-inputs and endpoints. Full continuous-input state-history fibers, their exact
-counts including unknown leak sites, well-posedness, signed steering, finite-
-window observability and exact minimum-energy equality are proved. The entire
-all-input leakage non-identifiability result is proved for any positive tree,
-not just a full-mode target. Solutions are constructed, so the universal history
-condition is not vacuous.
+## 3. Verification is source-specific
 
-The actual relocation derivatives are now proved. Their determinants telescope
-with the leak coefficient, giving an exact leak-weighted transport of the actual
-alternate-leak characteristic/cofactor Jacobian at every positive vector, even
-at positive spectral collisions. All full positive alternate-leak models are
-therefore regular. This is not an expanded zero-boundary polynomial theorem.
+A clean Lake build, separate owned-source compilation, complete root audit,
+empty-kernel trust-level-zero replay and all deliberately false mutations must
+pass for the exact final source. Standard allowed axioms are only propext,
+Classical.choice and Quot.sound. Development compilation or a previous source's
+CI success is not substituted for the new independent verification.
 
-Automatic positivity of EVERY initially unrestricted REAL full-target model
-at any leak site is now proved. A full diagonal realization theorem for arbitrary
-real tree-supported matrices and an exact single-site conservation rigidity
-theorem discharge all missing sign and similarity obligations. All-real
-response fibers and actual continuous-output fibers, including unknown-site
-counts, are closed. Reverse history identification uses actual exponential probe
-solutions BEFORE positivity is derived; no vacuous existence premise is used.
-
-Still required for the broader alternate-leak scope:
-- Exact coordinate multiplicities of the all-real alternate-leak polynomial.
-  The independently defined formal Jacobian, all-real polynomial factorization,
-  original-matrix evaluation and common exact orientation are now proved in
-  LocatedAllRateJacobian, including all zero-rate and repeated-root boundaries.
-  The additional no-hidden-coordinate-factor witnesses and exact exponents
-  are a separate extension, not assumptions of the proved polynomial formula.
-
-Collocated input/state observation at o is distinct from measuring physical
-outflow at a DIFFERENT leak vertex ell. No equality of those different data
-models is asserted. The original co-located discharge theory is already closed.
-
-## 3. Scope exclusions, not hidden assumptions
-
-The full-fiber count requires N distinct positive target poles, all positive
-weights summing to one, and N vertices. Fewer-mode targets and complex-rate
-fibers are not enumerated by that statement. Signed real-valued controls are
-allowed in the proved controllability theorem; arbitrary steering under a
-nonnegative-rainfall restriction is NOT claimed. Merely measurable, impulsive
-or discontinuous inputs require a separate solution notion and bridge. Nonlinear
-catchments and empirical forecasting superiority remain outside these proofs.
-
-## Verification boundary
-
-Each source checkpoint must pass its own fresh build, complete audit, empty
-trust-level-zero replay and rejected false mutations. A local compiler success
-or historical receipt does not certify new sources. The original model's
-matrix/fiber/continuous-ODE/system core is closed; the alternate-leak extension remains. No full-program Release or DOI is justified
-until the declared intended scope has been completed and independently checked.
-
-
-## Additional closed optimal-control refinement
-
-For the root-leak model, the exact global minimum energy among all continuous
-signed controls meeting arbitrary endpoints in T>0 is now proved, with a
-constructed attaining input, exact inverse-Gramian cost and complete equality
-classification on [0,T]. Moment feasibility is derived from the actual ODE.
-The value is independent of modal coordinates. This does not resolve the
-independent graph-presentation or alternate-leak variants stated above.
+At the source-writing checkpoint the final boundary modules have compiled.
+The final independent run and its preserved artifact must be consulted before
+calling those new bytes independently verified. No completion Release or DOI
+is implied by this source-level scope update. Existing frozen versions remain
+unchanged; any release must identify its own exact commit and scope.

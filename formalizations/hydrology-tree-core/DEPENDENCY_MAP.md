@@ -148,3 +148,18 @@ MatrixGaugeWeight prove actual principal-weight specialization and gauge
 invariance. GraphLeakCofactor and GraphPositiveWeight remove rational relocation
 from the formula. LocatedPolynomialWeight and LocatedAllRateJacobian close the
 all-real polynomial identity with every zero and signed boundary included.
+
+
+### Final alternate-leak boundary/multiplicity chain
+
+MatrixEdgeMonomial proves that the actual recursive edge weight has the original
+observed-root subtree exponents. LocatedCoordinateMonomial identifies the exact
+original graph-variable monomial with one additional factor toward the leak.
+RankedTriangularResidual proves hereditary principal triangular factorization in
+any vertex order. GraphResidualWitness constructs every coordinate-hyperplane
+witness and proves residual polynomial nondivisibility. LocatedExactMultiplicities
+combines this with the independently defined formal Jacobian polynomial to prove
+all exact multiplicities and next-power exclusions. LocatedBoundarySingularSet
+exports the complete all-real zero set and presentation-free finite-graph theorem.
+No final theorem has a missing classification, derivative, factorization,
+regularity, positivity or nondivisibility conclusion as its own assumption.

@@ -1,3 +1,9 @@
+> Current scope update: the all-real alternate-leak Jacobian polynomial,
+> exact original-coordinate multiplicities and complete zero-boundary criterion
+> are now proved. Earlier descriptions of these tasks as pending are historical
+> and are superseded by the final section below and the current GAPS.md. Each
+> independent verification receipt applies only to its own exact source bytes.
+
 # Mathematical scope of the proved tree Jacobian results
 
 ## Objects and conventions
@@ -477,3 +483,45 @@ sign is exactly +/-1 and independent of ell and of every rate. Polynomial
 continuation is proved from an infinite-sided positive box; no boundary rate
 is divided out in the final identity. Exact multiplicities remain a separate
 claim until their boundary residual proof is checked.
+
+
+## Closure: all-real arbitrary-leak polynomial, exact powers and zero set
+
+`finite_graph_complete_all_leak_algebra` starts with an independently presented
+finite SimpleGraph G with IsTree, an observation vertex o, and |V|=n+1. It
+constructs the observation-root and leak-root presentations, and proves for
+EVERY leak ell the independently defined formal partial-derivative determinant:
+
+    J_(o,ell) = C(epsilon_o) * product_(original coordinates k) X_k^m_k * S_(o,ell).
+
+The coefficient map uses actual characteristic and observed principal-cofactor
+polynomials in the explicitly specified fixed ordering. Evaluation at EVERY
+real vector equals its actual Frechet derivative determinant.
+
+For either dart of an observed-root edge e, m_d=|T_e|-1 plus one if that dart
+points toward the leak in its leak-root presentation. The external leak
+coefficient has exponent zero. `formalLocatedJacobian_emultiplicity` proves
+EXACT finite algebraic multiplicity, and `formalLocatedJacobian_exact_power`
+proves divisibility by that power and nondivisibility by the next. The collocated
+specializations separately recover the original inward/outward exponents.
+
+S_(o,ell) is built from ACTUAL observed-root principal characteristic polynomials
+and their pairwise squared resultants. `symbolicLocatedResidual_no_coordinate_factor`
+is proved by universal graph-coordinate hyperplane witnesses: triangulate at the
+leak root with all outward rates zero and injective inward values, including the
+selected zero coordinate. All observed-root principal blocks inherit a proved
+rank order, and disjoint sibling diagonal sets have coprime characteristic
+polynomials. This proof works for every original graph coordinate and every
+leak site. It is not a finite specialization test or a hidden nondivisibility input.
+
+`locatedJacobian_zero_iff_all_rates` gives the complete actual Jacobian zero set:
+a zero coordinate with positive displayed exponent OR a zero actual sibling
+residual. The external leak variable does not divide the polynomial, including
+when ell != o. Signed rates, zero rates, zero leak, repeated spectra and the
+singleton tree are not excluded.
+
+The intended root/alternate-leak algebraic, full-positive-target real-fiber,
+independent graph, continuous-input ODE and signed-control theorem families now
+have no missing mathematical dependencies within their explicitly stated scope.
+Independent empty-kernel verification of these new bytes is a separate source-
+bound CI run; no earlier receipt certifies the new exact-multiplicity extension.

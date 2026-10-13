@@ -48,3 +48,4 @@ import HydrologyTree.LeakImpossibility
 import HydrologyTree.LocatedLeakJacobian
 import HydrologyTree.RealLocatedODEClassification
 import HydrologyTree.LocatedAllRateJacobian
+import HydrologyTree.LocatedBoundarySingularSet
