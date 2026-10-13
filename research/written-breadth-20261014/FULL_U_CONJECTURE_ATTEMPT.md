@@ -81,3 +81,37 @@ The radial factor is \(\Gamma(4k+1)/\Gamma(2k+1)^2\), whose \(k\)-th root tends 
 The algebraic route must use all exact identities (I), without assuming one universal covariance sign or inferring unlinking solely from leading homogeneous moments. Convex/quasi-convex, one-chaos, bounded-degree or bounded-dimension cases will not be counted as a solution of the full target.
 
 No new Lean module/audit, root or Gaussian-tree modification, push, publication, or submission is part of this attempt.
+
+## Exact finite obstruction even for pure second-chaos bases
+
+The asymptotic sign obstruction persists after centering the two quadratic bases, so it cannot be repaired by merely putting each base variable in one Gaussian chaos. Let
+\[
+ F=H_2(X)-\tfrac1{10}H_2(Y),\qquad
+ G=H_2(Y)-\tfrac1{10}H_2(X),\qquad H_2(z)=z^2-1.
+\]
+Both \(F,G\) are centered, nonzero elements of the second Wiener chaos. Direct expansion using \(\mathbb E Z^{2r}=(2r-1)!!\) gives
+\[
+ \mathbb EF^4=\mathbb EG^4=\frac{30123}{500},\qquad
+ \mathbb EF^4G^4=\frac{2778705693}{1250000},
+\]
+\[
+ \mathbb EF^4G^4-\mathbb EF^4\,\mathbb EG^4
+ =-\frac{109891872}{78125}<0.                            \tag{O2}
+\]
+The finite rational arithmetic was independently checked by symbolic Gaussian monomial expansion. The analytic expansion, not a floating search, verifies (O2).
+
+There is no conflict with the known chaotic-square theorem: it compares \(F^2G^2\), while \(F^2\) and \(G^2\) themselves contain multiple chaoses when treated as bases for fourth powers. The variables \(F,G\) are not jointly Gaussian linear projections, and they are not PSD quadratic forms. No published full conjecture or new priority is attributed to the stronger false statement eliminated by (O2).
+
+## Why a naive finite-degree projection step fails
+
+Conditional expectation onto a polynomial-generated sigma field need not preserve polynomial degree or even polynomial form. For standard Gaussian \(Z\), let \(A=Z^2+Z\). Given \(A=a>-1/4\), its two roots are \(-1/2\pm u\), \(u=\sqrt{a+1/4}\). Their conditional weights are proportional to \(e^{u/2}\) and \(e^{-u/2}\), since both Jacobian magnitudes are \(2u\). Therefore
+\[
+ \mathbb E[Z\mid A=a]=-\frac12+u\tanh(u/2).
+\]
+This is not a polynomial in \(a\). Taking any independent Gaussian-coordinate polynomial for the second variable gives an already unlinked example, so the nonpolynomial projection occurs even in valid independent cases. A proof using the isometry (I) may use the ambient polynomial-degree filtration, but cannot assume that conditional projections onto the two subalgebras preserve that filtration.
+
+## Strong independence is not an automatic input
+
+The entire Section3.6 proof of the 2015 fixed-class unlinking theorem was subsequently read. Its decisive step is a sum of nonnegative pairwise chaotic-square covariances, followed by the Üstünel–Zakai first-contraction criterion. General mixed-chaos polynomial bases lack that sum-of-squares form.
+
+The literature also distinguishes ordinary from strong independence on Wiener space. An existing counterexample in Tudor's asymptotic Cramér work uses a stochastic sign integral with infinitely many Gaussian-chaos components. It is not a finite polynomial pair and cannot be relabelled as a counterexample to the original U-conjecture.
