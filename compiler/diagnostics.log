@@ -1,399 +1,134 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-No files to download
-Already decompressed 2985 file(s)
+Attempting to download 37 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 1 file(s) [attempted 1/37 = 2%, 253 KB/s], Decompressed: 0
+Downloaded: 7 file(s) [attempted 7/37 = 18%, 324 KB/s], Decompressed: 5
+Downloaded: 27 file(s) [attempted 27/37 = 72%, 40 KB/s], Decompressed: 19
+Downloaded: 37 file(s) [attempted 37/37 = 100%, 40 KB/s], Decompressed: 19
+Decompressed 37 file(s)
+Already decompressed 2994 file(s)
 
 MODULE HydrologyTree.Coefficients
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
+HydrologyTree/Coefficients.lean:42:22: warning: This simp argument is unused:
+  smul_mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/Coefficients.lean:44:22: warning: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.BlockJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.Triangular
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RateChart
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
+HydrologyTree/RateChart.lean:99:58: warning: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, childWeighted, parentIncidence, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RateChart.lean:113:26: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.sub_apply, childWeighted_mul_parent, hne, hneq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RateChart.lean:128:4: warning: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
 
 MODULE HydrologyTree.CompartmentMatrix
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
+HydrologyTree/CompartmentMatrix.lean:27:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:70:30: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [edgeMatrix, h1, h2, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:70:59: warning: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [edgeMatrix, Matrix.single_apply, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:85:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:87:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, sub_eq_add_neg, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:97:12: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hvw, Ne.symm hvw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:97:38: warning: This simp argument is unused:
+  Ne.symm hvw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.single_apply, hvw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:98:12: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/CompartmentMatrix.lean:98:37: warning: This simp argument is unused:
+  Ne.symm hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.single_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE HydrologyTree.PhysicalBridge
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.EdgeDeterminant
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.EdgeCharacteristic
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RootAttachment
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.LeafRecursion
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.OrderedTreeGraph
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.GraphPresentation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RootBranches
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.BranchMatrixSupport
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ChildTree
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.MatrixEntries
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ChildRates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ChildIndex
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RateCoordinates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RootCoupling
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CouplingSemantics
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.BranchConservation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.LeadingCoefficients
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.Resolvent
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ChildMatrix
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalRootDecomposition
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.DependentBlocks
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ArrowDeterminant
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ArrowCharacteristic
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalRecursion
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveRateAssembly
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.GraphRateTransport
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.GraphMatrixTransport
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SizedSpectralAllocation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.BalanceWeights
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.WeightedEnergy
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.GroundedPositivity
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SymmetricGenerator
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveSpectrum
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SpectralResolvent
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalStieltjes
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesNumerator
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesDegree
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesInterlacing
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesZeroFactorization
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesResidues
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ReciprocalInterpolation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesReciprocal
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesReindex
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.AllocationPolynomials
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SpectralFactorMatching
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesGrouping
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalConstants
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.StieltjesChildAssembly
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CoprimeBranchRecovery
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.EndJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.Scaling
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RootUpdate
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathRootTransform
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathPolynomial
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RootRecovery
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FiniteCancellation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalCancellation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalBranchRecovery
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SubtreeAssignment
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveChildModels
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreeCancellation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalModes
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveAssignment
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveRealizationExistence
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveFiberAllocation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RealFactorAllocation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveFiberTypes
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveFiberRecovery
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveFiberEquivalence
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RealFiberRigidity
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.Gluing
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ProductDerivative
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.JacobianComposition
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyProduct
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyScaling
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyResultants
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilySmoothness
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TangentJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyGluing
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyNormalization
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.BranchStep
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PiSerialization
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathRates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathNormalization
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CoordinateEnergy
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.FamilyCoordinateEnergy
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ScaledSerialization
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathPhysical
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ScalarCoupling
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PathInduction
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CatenaryJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CatenaryCanonical
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CanonicalTree
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.IndependentChildCoordinates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.OriginalWorkCoordinates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SerializedNumerator
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.DependentJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CatenaryOrientation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreePreparation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreeStepSemantics
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.LinearConjugation
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreePipeline
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreeJacobianRecurrence
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.AllTreeJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SubtreeProducts
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.TreeFiberCombinatorics
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveFiberCount
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.JacobianRegularity
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveJacobian
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.MonicResultantAlgebra
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.SignedFamilyResultant
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ResultantFamilyEnumeration
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PhysicalResultantRecurrence
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.AllTreeResultant
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.ResultantBoundary
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CatenaryGlobal
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.CatenaryCoprime
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.PositiveResponseFiber
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RecursiveFiberClassification
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.RealFiberClassification
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
-
-MODULE HydrologyTree.GraphResponseClassification
-HydrologyTree/GraphResponseClassification.lean:44:2: error: Type mismatch: After simplification, term
-  h
- has type
-  PositiveGraphRates
-    ((graphRateEquiv p)
-      ↑({ toFun := fun y => ⟨(graphRateEquiv p).symm ↑y, ⋯⟩, invFun := fun x => ⟨(graphRateEquiv p) ↑x, ⋯⟩,
-            left_inv := ⋯, right_inv := ⋯ }
-          y))
-but is expected to have type
-  PositiveGraphRates ↑y
-HydrologyTree/GraphResponseClassification.lean:60:2: warning: Try this: 
+HydrologyTree/EdgeDeterminant.lean:13:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.add_single_eq_updateRow`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/EdgeDeterminant.lean:19:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/EdgeDeterminant.lean:54:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -401,3 +136,559 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/EdgeDeterminant.lean:60:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/EdgeDeterminant.lean:60:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.EdgeCharacteristic
+HydrologyTree/EdgeCharacteristic.lean:46:14: warning: `Set.compl_setOf` has been deprecated: Use `Set.compl_ofPred` instead
+HydrologyTree/EdgeCharacteristic.lean:62:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.RootAttachment
+HydrologyTree/RootAttachment.lean:21:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/RootAttachment.lean:42:40: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.charmatrix_apply_eq, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootAttachment.lean:46:41: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.charmatrix_apply_ne, h, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootAttachment.lean:58:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeJoin_left_diagonal_add`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.LeafRecursion
+HydrologyTree/LeafRecursion.lean:47:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leaf_matrix_decomposition`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.OrderedTreeGraph
+
+MODULE HydrologyTree.GraphPresentation
+HydrologyTree/GraphPresentation.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/GraphPresentation.lean:36:6: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/GraphPresentation.lean:107:25: warning: This simp argument is unused:
+  appendLeafEnumeration_last
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [t, e, appendLeafEnumeration_old]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.RootBranches
+HydrologyTree/RootBranches.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.BranchMatrixSupport
+HydrologyTree/BranchMatrixSupport.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/BranchMatrixSupport.lean:113:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.ChildTree
+HydrologyTree/ChildTree.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.MatrixEntries
+HydrologyTree/MatrixEntries.lean:23:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+HydrologyTree/MatrixEntries.lean:36:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.ChildRates
+
+MODULE HydrologyTree.ChildIndex
+
+MODULE HydrologyTree.RateCoordinates
+HydrologyTree/RateCoordinates.lean:25:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+HydrologyTree/RateCoordinates.lean:34:11: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:35:12: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:36:11: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:36:13: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:37:12: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/RateCoordinates.lean:37:14: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.RootCoupling
+HydrologyTree/RootCoupling.lean:14:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.sumCoordinates_apply`:
+  [DecidableEq C]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq C] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/RootCoupling.lean:36:6: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.diagonal_apply, Pi.basisFun_apply,
+    Pi.single_apply, Finsupp.single_apply, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/RootCoupling.lean:37:23: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.toMatrix_apply, couplingFiber, sumCoordinates, Matrix.one_apply, Matrix.diagonal_apply,
+    Pi.basisFun_apply, Pi.single_apply, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.CouplingSemantics
+
+MODULE HydrologyTree.BranchConservation
+HydrologyTree/BranchConservation.lean:22:13: warning: This simp argument is unused:
+  rootPartitionEquiv_root
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rootPartitionEquiv_branch, Fintype.sum_unique]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.LeadingCoefficients
+HydrologyTree/LeadingCoefficients.lean:62:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:65:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:66:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeadingCoefficients.lean:106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+HydrologyTree/LeadingCoefficients.lean:108:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+MODULE HydrologyTree.Resolvent
+
+MODULE HydrologyTree.ChildMatrix
+
+MODULE HydrologyTree.PhysicalRootDecomposition
+
+MODULE HydrologyTree.DependentBlocks
+HydrologyTree/DependentBlocks.lean:25:37: warning: This simp argument is unused:
+  Matrix.toSquareBlockProp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [e, Matrix.toSquareBlock_def, Equiv.sigmaSubtype]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/DependentBlocks.lean:38:31: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.blockDiagonal'_apply_ne, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.ArrowDeterminant
+HydrologyTree/ArrowDeterminant.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/ArrowDeterminant.lean:75:8: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/ArrowDeterminant.lean:75:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.ArrowCharacteristic
+HydrologyTree/ArrowCharacteristic.lean:39:67: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/ArrowCharacteristic.lean:44:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/ArrowCharacteristic.lean:46:4: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+HydrologyTree/ArrowCharacteristic.lean:56:34: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ArrowCharacteristic.lean:56:51: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PhysicalRecursion
+
+MODULE HydrologyTree.PositiveRateAssembly
+
+MODULE HydrologyTree.GraphRateTransport
+
+MODULE HydrologyTree.GraphMatrixTransport
+HydrologyTree/GraphMatrixTransport.lean:18:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graph_single_transport`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GraphMatrixTransport.lean:23:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_inward_transport`:
+  [Fintype V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GraphMatrixTransport.lean:35:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_outward_transport`:
+  [Fintype V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.LinearForcedODE
+HydrologyTree/LinearForcedODE.lean:16:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrixOperator_apply`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LinearForcedODE.lean:26:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.forcedMatrixSolution_unique`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.RootModalData
+
+MODULE HydrologyTree.BalanceWeights
+HydrologyTree/BalanceWeights.lean:10:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/BalanceWeights.lean:51:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/BalanceWeights.lean:51:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.WeightedEnergy
+HydrologyTree/WeightedEnergy.lean:17:10: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/WeightedEnergy.lean:23:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.edgeGram_transpose`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/WeightedEnergy.lean:28:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.GroundedPositivity
+
+MODULE HydrologyTree.SymmetricGenerator
+HydrologyTree/SymmetricGenerator.lean:25:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, ne_of_gt (hpos i)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:25:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, ne_of_gt (hpos i)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:26:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SymmetricGenerator.lean:26:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveSpectrum
+HydrologyTree/PositiveSpectrum.lean:18:55: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_neg, Matrix.charpoly_diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.SpectralResolvent
+HydrologyTree/SpectralResolvent.lean:20:53: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_diagonal, Matrix.star_apply, star_trivial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:10: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/SpectralResolvent.lean:36:33: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PhysicalStieltjes
+HydrologyTree/PhysicalStieltjes.lean:22:52: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.one_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PhysicalStieltjes.lean:22:75: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.scalar_apply, Matrix.diagonal_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.StieltjesNumerator
+HydrologyTree/StieltjesNumerator.lean:17:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.stieltjesDenominator_monic`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/StieltjesNumerator.lean:20:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.eval_stieltjesDenominator`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.PhysicalModalConstruction
+HydrologyTree/PhysicalModalConstruction.lean:66:10: warning: This simp argument is unused:
+  Matrix.mulVec_single_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.star_apply, Matrix.conjTranspose_apply, star_trivial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/PhysicalModalConstruction.lean:66:53: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mulVec_single_one, Matrix.star_apply, star_trivial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.ScalarForcedODE
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/ScalarForcedODE.lean:20:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.ModalForcedODE
+HydrologyTree/ModalForcedODE.lean:34:65: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE HydrologyTree.StieltjesDegree
+
+MODULE HydrologyTree.StieltjesInterlacing
+
+MODULE HydrologyTree.StieltjesZeroFactorization
+HydrologyTree/StieltjesZeroFactorization.lean:75:2: warning: Try this: intro j hj he
+
+MODULE HydrologyTree.StieltjesResidues
+
+MODULE HydrologyTree.ReciprocalInterpolation
+HydrologyTree/ReciprocalInterpolation.lean:50:6: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.StieltjesReciprocal
+
+MODULE HydrologyTree.StieltjesReindex
+
+MODULE HydrologyTree.SpectralFactorMatching
+
+MODULE HydrologyTree.StieltjesWeightedMatching
+
+MODULE HydrologyTree.PhysicalForcedODE
+
+MODULE HydrologyTree.GraphODETransport
+HydrologyTree/GraphODETransport.lean:26:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTrajectoryEquiv_apply`:
+  [Fintype V]
+  [DecidableEq V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GraphODETransport.lean:30:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTrajectoryEquiv_symm_apply`:
+  [Fintype V]
+  [DecidableEq V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GraphODETransport.lean:48:4: error: Function expected at
+  graphCompartmentMatrix G o ((graphRateEquiv p) x) *ᵥ v + a • Pi.single o 1
+but this term has type
+  ?m.42
+
+Note: Expected a function because this term is being applied to the argument
+  (p.vertices i)
+HydrologyTree/GraphODETransport.lean:49:6: error: Function expected at
+  compartmentMatrix p.tree x *ᵥ (graphStateEquiv p) v + a • Pi.single 0 1
+but this term has type
+  ?m.74
+
+Note: Expected a function because this term is being applied to the argument
+  i
+HydrologyTree/GraphODETransport.lean:51:2: error: No goals to be solved
+HydrologyTree/GraphODETransport.lean:50:13: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.smul_apply, graph_mulVec_transport]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphODETransport.lean:50:26: warning: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, graph_mulVec_transport]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphODETransport.lean:50:40: warning: This simp argument is unused:
+  graph_mulVec_transport
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, Pi.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GraphODETransport.lean:56:8: warning: declaration uses `sorry`
+HydrologyTree/GraphODETransport.lean:66:4: warning: Unused tactic linter: `exact graph_field_transport p x (u s) (z s) i` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/GraphODETransport.lean:73:4: warning: Unused tactic linter: `exact (graph_field_transport p x (u s) (z s) i).symm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/GraphODETransport.lean:75:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graph_trajectory_endpoint_iff`:
+  [Fintype V]
+  [DecidableEq V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
