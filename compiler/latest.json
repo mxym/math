@@ -1,49 +1,24 @@
 {
-  "serial": 1791859272547,
-  "status": "COMPILER_ERROR",
-  "request_blob": "2c80d207772bf446f58552dcb6d64d8112576115",
+  "serial": 1791859619241,
+  "status": "COMPILING",
+  "request_blob": "17def1de38b9ae61f2cfa96e805982fc5bebd56f",
   "modules": [
     "WeightedLocalization",
     "FiniteProbability",
     "FinitePairMass",
     "LogScaleCoordinates",
-    "PairLocalization"
+    "PairLocalization",
+    "SchmidtEmpirical"
   ],
   "source_sha256": {
-    "PairLocalization.lean": "74935ce1e89a34af0d5d32b84ddd78a782ae153b550fdbf4cab826c58a201a6a",
+    "PairLocalization.lean": "c2e25dd9a624678291eec4a6bf4e28d0085590138d37d85810aceef2f38016bb",
+    "SchmidtEmpirical.lean": "3be485f93fd950f5ab2615f67f210ef4fe8969d4db00938cf3d7f4595b48c99d",
     "FinitePairMass.lean": "740050d9de8c2c8bc40fb4fe27fb69d6da66f9d42efb3af376a61de8d666d3a9",
     "FiniteProbability.lean": "2f666cc373fe44d70cb7ffee81406458274c2020a41088efd20ecb5be1151648",
     "LogScaleCoordinates.lean": "8478664f3b8af9af8b9101886153dddcc48ad1c2669c615433178e6e46b6c6d5",
     "WeightedLocalization.lean": "dbd31180403a9e701feea7ad281b2f257f712eca109034029becd437c0321a71"
   },
-  "commands": [
-    {
-      "module": "WeightedLocalization",
-      "returncode": 0,
-      "seconds": 2.759
-    },
-    {
-      "module": "FiniteProbability",
-      "returncode": 0,
-      "seconds": 2.172
-    },
-    {
-      "module": "FinitePairMass",
-      "returncode": 0,
-      "seconds": 2.204
-    },
-    {
-      "module": "LogScaleCoordinates",
-      "returncode": 0,
-      "seconds": 5.609
-    },
-    {
-      "module": "PairLocalization",
-      "returncode": 1,
-      "seconds": 2.051
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38337216012",
-  "diagnostics": "PairLocalization.lean:25:27: error: unexpected token 'then'; expected ':=' or '|'\nPairLocalization.lean:25:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  OfNat (Type ?u.151) 0\nnumerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is\n  Type ?u.151\ndue to the absence of the instance above\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nPairLocalization.lean:25:20: error(lean.unknownIdentifier): Unknown identifier `f`\nPairLocalization.lean:25:7: error: Missing cases:\nPairLocalization.lean:19:40: error: unsolved goals\nm : \u2115\np : Fin m \u2192 \u211d\nx : Fin m \u2192 \u2191ScaleInterval\nhp : \u2200 (i : Fin m), 0 \u2264 p i\nhs : \u2211 i, p i = 1\nC : Fin m \u2192 Fin m \u2192 Prop\ninst\u271d\u00b9 : DecidableRel C\nbad : Fin m \u2192 Prop\ninst\u271d : DecidablePred bad\nd t : \u211d\nhcover : \u2200 (i j : Fin m), C i j \u2192 |\u2191\u2191(x i) + \u2191\u2191(x j) - d| \u2264 t \u2228 bad i \u2228 bad j\nF : Fin m \u2192 Fin m \u2192 \u211d := fun i j => if |\u2191\u2191(x i) + \u2191\u2191(x j) - d| \u2264 t then p i * p j else 0\nH : Fin m \u2192 Fin m \u2192 \u211d := fun i j => (if bad i then p i else 0) * p j + p i * if bad j then p j else 0\n\u22a2 (\u2211 q, if C (\u2191q).1 (\u2191q).2 then p (\u2191q).1 * p (\u2191q).2 else 0) \u2264\n    (\u2191((scaleLift (finiteAtomicProbability p x hp hs)).prod (scaleLift (finiteAtomicProbability p x hp hs)))).real\n          (scaleBand d t) /\n        2 +\n      \u2211 i, if bad i then p i else 0\n"
+  "run_id": "38337216012"
 }
