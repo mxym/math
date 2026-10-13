@@ -277,59 +277,14 @@ DEVELOPMENT CACHE: source and all owned dependency keys matched.
 MODULE HydrologyTree.ArrowDiagonalGauge
 HydrologyTree/ArrowDiagonalGauge.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.arrowGaugeWeight_nonzero`:
   [Fintype C]
-  [DecidableEq C]
   [LinearOrder C]
   [(c : C) → Fintype (V c)]
   [(c : C) → DecidableEq (V c)]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype
-  C] [DecidableEq C] [LinearOrder C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
+  omit [Fintype C] [LinearOrder C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
 HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/ArrowDiagonalGauge.lean:58:10: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
-  inst✝³
-inferred
-  fun a b => LinearOrder.toDecidableEq a b
-HydrologyTree/ArrowDiagonalGauge.lean:58:41: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
-  inst✝³
-inferred
-  fun a b => LinearOrder.toDecidableEq a b
-HydrologyTree/ArrowDiagonalGauge.lean:61:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩
-in the target expression
-  blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
-
-case neg
-C : Type u_1
-inst✝⁴ : Fintype C
-inst✝³ : DecidableEq C
-inst✝² : LinearOrder C
-V : C → Type u_2
-inst✝¹ : (c : C) → Fintype (V c)
-inst✝ : (c : C) → DecidableEq (V c)
-d : ℝ
-A B : (c : C) → Matrix (V c) (V c) ℝ
-r : (c : C) → V c
-alpha beta a f : C → ℝ
-h : (c : C) → V c → ℝ
-hf : ∀ (c : C), f c ≠ 0
-hb : ∀ (c : C), beta c ≠ 0
-hh : ∀ (c : C) (i : V c), h c i ≠ 0
-hroot : ∀ (c : C), h c (r c) = 1
-hchild : ∀ (c : C), A c = diagonalGauge (h c) (B c)
-hprod : ∀ (c : C), alpha c * beta c = a c * f c
-c : C
-u : V c
-k : C
-v : V k
-hck : ¬c = k
-⊢ blockDiagonal' A ⟨c, u⟩ ⟨k, v⟩ = beta c / f c * h c u * blockDiagonal' B ⟨c, u⟩ ⟨k, v⟩ * (beta k / f k * h k v)⁻¹
-
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  function expected
-    blockDiagonal' A ⟨c, u⟩
 HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: This simp argument is unused:
   if_pos rfl
 
@@ -337,3 +292,77 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [hroot, one_mul, mul_one]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/ArrowDiagonalGauge.lean:60:10: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/ArrowDiagonalGauge.lean:60:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+MODULE HydrologyTree.SupportedPositiveGauge
+HydrologyTree/SupportedPositiveGauge.lean:53:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  compartmentMatrix ?t ?x (↑?c) 0
+in the target expression
+  B (↑c) 0 ≠ 0
+
+n : ℕ
+ih :
+  ∀ m < n,
+    ∀ (t : OrderedTree m) (A : TreeMatrix m),
+      HasTreeMatrixSupport t A →
+        ∀ (r w : Fin (m + 1) → ℝ),
+          Function.Injective r →
+            (∀ (i : Fin (m + 1)), 0 < r i) →
+              (∀ (i : Fin (m + 1)), 0 < w i) →
+                ∑ i, w i = 1 →
+                  charpoly A = stieltjesDenominator r →
+                    diagonalCofactor A 0 = stieltjesNumerator r w →
+                      ∃ x h, (∀ (v : Fin (m + 1)), h v ≠ 0) ∧ h 0 = 1 ∧ A = diagonalGauge h (compartmentMatrix t ↑x)
+t : OrderedTree n
+A : TreeMatrix n
+hA : HasTreeMatrixSupport t A
+r w : Fin (n + 1) → ℝ
+hr : Function.Injective r
+hpos : ∀ (i : Fin (n + 1)), 0 < r i
+hw : ∀ (i : Fin (n + 1)), 0 < w i
+hm : ∑ i, w i = 1
+hP : charpoly A = stieltjesDenominator r
+hF : diagonalCofactor A 0 = stieltjesNumerator r w
+b g : Fin n → ℝ
+d : ℝ
+hb : StrictMono b
+hbpos : ∀ (i : Fin n), 0 < b i
+hg : ∀ (i : Fin n), 0 < g i
+hFb : stieltjesNumerator r w = stieltjesDenominator b
+hPb : stieltjesDenominator r = (X + C d) * stieltjesDenominator b - stieltjesNumerator b g
+hl : 0 < d - ∑ i, g i / b i
+hFA : diagonalCofactor A 0 = stieltjesDenominator b
+hPA : charpoly A = (X + C d) * stieltjesDenominator b - stieltjesNumerator b g
+a : TreePoleAllocation t
+ha : ∀ (c : RootChild t), matrixChildP t A c = allocatedDenominator b a c
+hFc : ∀ (c : RootChild t), matrixChildF t A c = stieltjesNumerator (allocatedRates b a c) (allocatedWeights t g a c)
+y : (c : RootChild t) → PositiveStieltjesFiber (childTree t c) (allocatedRates b a c) (allocatedWeights t g a c)
+h : (c : RootChild t) → Fin (childEdgeCount t c + 1) → ℝ
+hh : ∀ (c : RootChild t) (i : Fin (childEdgeCount t c + 1)), h c i ≠ 0
+hroot : ∀ (c : RootChild t), h c 0 = 1
+hgauge :
+  ∀ (c : RootChild t), supportedChildMatrix t A c = diagonalGauge (h c) (compartmentMatrix (childTree t c) ↑(y c))
+z : PositiveReciprocalFiber t b g d
+hz : ∀ (c : RootChild t), childRates t c ↑z = ↑(y c)
+hzP : physicalCharacteristic t ↑z = stieltjesDenominator r
+hzF : physicalRootCofactor t ↑z = stieltjesNumerator r w
+hzc : ∀ (c : RootChild t), childCharacteristic t (↑z) c = allocatedDenominator b a c
+hcop : ∀ (c k : RootChild t), c ≠ k → IsCoprime (childCharacteristic t (↑z) c) (childCharacteristic t (↑z) k)
+hd :
+  A 0 0 = compartmentMatrix t (↑z) 0 0 ∧
+    ∀ (c : RootChild t),
+      matrixChildF t A c = childCofactor t (↑z) c ∧
+        A 0 ↑c * A (↑c) 0 = compartmentMatrix t (↑z) 0 ↑c * compartmentMatrix t (↑z) (↑c) 0
+B : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ := compartmentMatrix t ↑z
+c : RootChild t
+⊢ B (↑c) 0 ≠ 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    B ↑c
