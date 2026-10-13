@@ -254,3 +254,31 @@ the same-point gradient inner product vanishes identically, but
  \mathbb EP^2Q^2=48>16,
 \]
 hence the variables are dependent. The unsymmetrized first contraction and the global essential spaces are the actual objects; a same-point cancellation of the symmetric gradient polynomial does not certify unlinking or independence.
+
+For completeness, the rational fourth-power obstruction (O2) has a short general-parameter expansion. Put \(A=H_2(X)\), \(B=H_2(Y)\), \(F=A-tB\), \(G=B-tA\). The one-variable moments are
+\[
+ M_r=\mathbb EH_2(Z)^r
+   =\sum_{j=0}^r {r\choose j}(-1)^{r-j}(2j-1)!!,
+\]
+with the \(j=0\) Gaussian moment equal to one. Independence of \(A,B\) gives
+\[
+ \mathbb EF^4=60+24t^2+60t^4,
+\]
+\[
+ \mathbb EF^4G^4
+ =\sum_{i,j=0}^4 {4\choose i}{4\choose j}
+       (-t)^{i+j}M_{4-i+j}M_{4+i-j}
+\]
+\[
+ =3600(1+t^8)-34816(t+t^7)+202560(t^2+t^6)
+       -208896(t^3+t^5)+2897504t^4.
+\]
+Substituting \(t=1/10\) proves every fraction in (O2) by finite integer arithmetic. This supplies the written expansion independent of the symbolic discovery check.
+
+## Bounded stage closure
+
+This stage starts at 19:30:25 UTC and reaches its natural boundary at 20:19:32 UTC on 13 October 2026 (14 October locally). Excluding the exact requested service interval 19:40:22–19:43:57 leaves about 45.5 effective minutes. No complete arbitrary-degree U proof or legal independent linked-polynomial counterexample was obtained.
+
+The exact essential-space/first-contraction target, conditional-square and multiplication identities, signed/divergence/projection obstructions, and quadratic-pole diagnostic are preserved. The latter remains a restricted base case with no historical novelty or major-result count. No finite numerical scan, fake law-independence certificate, strong-independence substitution, Lean extension, other-worktree edit, or publication action occurred.
+
+The all-degree law-to-contraction bridge is still missing. Under the inherited no-breakthrough switching rule, the next breadth step is a fresh primary-source check of the **complete complex Chollet conjecture**, followed, if its full range remains unclosed in the sources, by a new analytic Gaussian-replacement comparison route. Previously public small orders/ranks and the inherited weighted edge-addition obstacle will not be re-counted or subjected to a repeated unrestricted numerical campaign.
