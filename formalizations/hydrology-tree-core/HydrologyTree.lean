@@ -45,3 +45,4 @@ import HydrologyTree.GraphFullTheory
 import HydrologyTree.LocatedLeakFiber
 import HydrologyTree.LeakLocationIdentifiability
 import HydrologyTree.LeakImpossibility
+import HydrologyTree.LocatedLeakJacobian

@@ -409,3 +409,31 @@ collocated output histories for every continuous input. The one alternative
 works for every observer and forcing, without any full-mode assumption.
 `unknownLeakContinuousMatrix_injective` verifies that the finite unknown-site
 trajectory-fiber count counts genuinely different physical matrices.
+
+
+## Exact alternate-leak differential transport
+
+`slideLeakJacobian_formula` proves the actual Frechet determinant of one rational
+leak move is a/(f+lambda), using two unit-determinant shears and an actual scalar
+slot derivative. The inverse determinant identity and differentiability are
+proved, not assumed. `leakWalkJacobian_leak_weight` telescopes the exact identity
+lambda_old * det DR = lambda_new along every finite walk.
+
+`locatedGraphCoefficientMap` independently reads the actual graph characteristic
+and observed-vertex cofactor with a separately specified leak location. A fixed
+explicit coefficient permutation defines its actual derivative determinant.
+`locatedGraphJacobian_leak_weight` proves
+
+    lambda_old * J_ell(y) = lambda_new * J_o(R(y)).
+
+This holds at ALL strictly positive rate vectors, including positive spectral
+collisions where the coefficient Jacobian vanishes. It includes no hidden
+normalization constant or sign. `locatedGraphJacobian_regular_iff` transports
+the complete positive singularity criterion, and every full positive alternate-
+leak realization is proved regular. `all_positive_located_jacobian_formula`
+substitutes the previously proved exact root factorization.
+
+These statements use the explicitly constructed rational rate relocation on its
+positive domain. They do not yet claim an expanded all-real polynomial identity
+at zero-rate boundaries, nor exact coordinate multiplicities there. The overall
+program's remaining alternate-leak scope is recorded precisely in GAPS.md.

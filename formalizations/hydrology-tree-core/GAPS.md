@@ -59,6 +59,12 @@ all-input leakage non-identifiability result is proved for any positive tree,
 not just a full-mode target. Solutions are constructed, so the universal history
 condition is not vacuous.
 
+The actual relocation derivatives are now proved. Their determinants telescope
+with the leak coefficient, giving an exact leak-weighted transport of the actual
+alternate-leak characteristic/cofactor Jacobian at every positive vector, even
+at positive spectral collisions. All full positive alternate-leak models are
+therefore regular. This is not an expanded zero-boundary polynomial theorem.
+
 Still required for the broader alternate-leak scope:
 - Automatic positivity and complete counting without ANY sign premise on the
   initial REAL alternate-leak vector (the positive-space equivalence does not

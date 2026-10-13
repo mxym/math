@@ -122,3 +122,10 @@ reachability, observability and complete minimum-energy rigidity at arbitrary
 leak sites. `LeakLocationIdentifiability` proves all-input, all-collocated-probe
 indistinguishability with nonvacuous unique actual solutions, and unknown-site
 trajectory-fiber counting. Alternate-leak unrestricted-real algebra remains.
+
+
+`LeakRelocationDifferential`, `ScalarSlotJacobian` and `LeakSlideJacobian`
+prove actual rational derivative/inverse/shear determinants, not assumed local
+diffeomorphisms. `LocatedLeakJacobian` reads the independent actual coefficient
+map, proves its differentiability and precise determinant transport, including
+positive singular points. All-real zero-boundary polynomial assembly remains.

@@ -414,3 +414,19 @@ Thus `positiveGraphModelMatrix_injective` and
 `distinct_leak_models_all_collocated_outputs` constructs genuinely distinct
 physical matrices at different leak locations with equal all-collocated transfer
 and actual continuous-input state histories. No full-mode assumption is needed.
+
+
+## Positive alternate-leak Jacobian with exact multiplier
+
+`slideLeakJacobian_formula` is a theorem about fderiv of the actual rational
+single-edge map, giving a/(f+lambda). Every derivative and its invertible inverse
+are proved. `locatedGraphJacobian` reads the ACTUAL alternate-leak coefficient
+map followed only by an explicit fixed coordinate permutation.
+`locatedGraphJacobian_leak_weight` gives lambda_old*J_ell=lambda_new*J_o(R(y))
+for every positive y. Neither coefficient Jacobian is assumed nonzero.
+`locatedGraphJacobian_regular_iff` and `positive_located_full_response_regular`
+prove the positive singular-set transport and full-target regularity.
+`all_positive_located_jacobian_formula` has one fixed root normalization sign,
+independent of ell and every y, and the exact previously proved root rate/subtree
+factors evaluated at the explicitly relocated actual graph model. This is not
+an assertion of zero-boundary all-real polynomial factorization.
