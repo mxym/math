@@ -1,0 +1,133 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.halfEntropyHead_le_two':
+(kernel) declaration type mismatch, 'APPTSubunit.halfEntropyHead_le_two' has type
+  True
+but it is expected to have type
+  {n : Nat} →
+    (a : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → Real) →
+      (β : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 2) → Real) →
+        ((i : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) → @LE.le Real Real.instLE 0 (a i)) →
+          ((i : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) → @LE.le Real Real.instLE (a i) (a 0)) →
+            ((i : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 2)) → @LE.le Real Real.instLE 0 (β i)) →
+              @Antitone (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 2)) Real
+                  (@PartialOrder.toPreorder (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 2))
+                    (Fin.instPartialOrder (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 2)))
+                  Real.instPreorder β →
+                @LE.le Real Real.instLE (β 0) 1 →
+                  @LE.le Real Real.instLE
+                      (@Finset.sum (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) Real
+                        Real.instAddCommMonoid
+                        (@Finset.univ (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                          (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)))
+                        fun i =>
+                        @HPow.hPow Real Nat Real
+                          (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) (a i)
+                            (β (Fin.succ (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) i)))
+                          2)
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 4
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) 1 (β 0))) →
+                    @LE.le Real Real.instLE (APPTSubunit.halfEntropyHead n a β) 2
+EMPTY_KERNEL_REPLAY_PASS 35882 declarations; 39 roots; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.halfEntropyHead_le_two
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.density_appt_paper_halfEntropyHead':
+(kernel) declaration type mismatch, 'APPTSubunit.density_appt_paper_halfEntropyHead' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 33545 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.density_appt_paper_halfEntropyHead
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.negativeSpike_absolutelyPPT':
+(kernel) declaration type mismatch, 'APPTSubunit.negativeSpike_absolutelyPPT' has type
+  True
+but it is expected to have type
+  {a : Type u_1} →
+    {b : Type u_2} →
+      [inst : @Fintype a] →
+        [inst_1 : @Fintype b] →
+          [inst_2 : @LinearOrder a] →
+            [inst_3 : @DecidableEq b] →
+              (h : Real) →
+                @LE.le Real Real.instLE 0 h →
+                  @LE.le Real Real.instLE 0
+                      (APPTSubunit.negativeSpikeSize (@Nat.cast Real Real.instNatCast (@Fintype.card a inst)) h) →
+                    (P : @Matrix (@Prod a b) (@Prod a b) Complex) →
+                      @Matrix.PosSemidef (@Prod a b) Complex Complex.instRing Complex.partialOrder Complex.instStarRing
+                          P →
+                        @Matrix.PosSemidef (@Prod a b) Complex Complex.instRing Complex.partialOrder
+                            Complex.instStarRing
+                            (@HSub.hSub (@Matrix (@Prod a b) (@Prod a b) Complex)
+                              (@Matrix (@Prod a b) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                              (@instHSub (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                (@Matrix.sub (@Prod a b) (@Prod a b) Complex Complex.instSub))
+                              1 P) →
+                          (v : @Prod a b → Complex) →
+                            @Eq Complex
+                                (@dotProduct (@Prod a b) Complex (@instFintypeProd a b inst inst_1) Complex.instMul
+                                  Complex.instAddCommMonoid
+                                  (@Star.star (@Prod a b → Complex)
+                                    (@Pi.instStarForall (@Prod a b) (fun a => Complex) fun i =>
+                                      @InvolutiveStar.toStar Complex
+                                        (@StarAddMonoid.toInvolutiveStar Complex
+                                          (@AddCommMonoid.toAddMonoid Complex
+                                            (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                    Complex.instNonUnitalCommRing)))))
+                                          (@StarRing.toStarAddMonoid Complex
+                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                  Complex.instNonUnitalCommRing)))
+                                            Complex.instStarRing)))
+                                    v)
+                                  v)
+                                1 →
+                              @APPT.Quantum.AbsolutelyPPT a b inst inst_1
+                                (fun a_1 b => @LinearOrder.toDecidableEq a inst_2 a_1 b) inst_3
+                                (@APPTSubunit.negativeSpike a b inst inst_2 inst_3 h P v)
+TYPE_CLOSURE_REPLAY_PASS 14716 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.negativeSpike_absolutelyPPT
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.exists_negative_rank_state':
+(kernel) declaration type mismatch, 'APPTSubunit.exists_negative_rank_state' has type
+  True
+but it is expected to have type
+  {m n k : Nat} →
+    @LT.lt Nat instLTNat 0 m →
+      @LT.lt Nat instLTNat 0 n →
+        @LT.lt Nat instLTNat k (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) m n) →
+          (h : Real) →
+            @LT.lt Real Real.instLT 0 h →
+              @LE.le Real Real.instLE h (@Nat.cast Real Real.instNatCast m) →
+                @Exists (@Matrix (@Prod (Fin m) (Fin n)) (@Prod (Fin m) (Fin n)) Complex) fun A =>
+                  And (@APPT.Quantum.IsDensity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                    (And
+                      (@APPT.Quantum.AbsolutelyPPT (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n)
+                        (instDecidableEqFin m) (instDecidableEqFin n) A)
+                      (@Eq Real (@APPT.Quantum.purity (Fin m) (Fin n) (Fin.fintype m) (Fin.fintype n) A)
+                        (APPTSubunit.negativePurity
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast m)
+                            (@Nat.cast Real Real.instNatCast n))
+                          (@Nat.cast Real Real.instNatCast m) h (@Nat.cast Real Real.instNatCast k))))
+TYPE_CLOSURE_REPLAY_PASS 8583 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.exists_negative_rank_state
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.halfHeadPolynomial_nonneg':
+(kernel) declaration type mismatch, 'APPTSubunit.halfHeadPolynomial_nonneg' has type
+  True
+but it is expected to have type
+  (r t : Real) →
+    @LE.le Real Real.instLE 0 r →
+      @LE.le Real Real.instLE r 1 →
+        @LE.le Real Real.instLE 0 t →
+          @LE.le Real Real.instLE t 1 → @LE.le Real Real.instLE 0 (APPTSubunit.halfHeadPolynomial r t)
+TYPE_CLOSURE_REPLAY_PASS 5904 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.halfHeadPolynomial_nonneg
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTSubunit.naiveNegative_not_appt':
+(kernel) declaration type mismatch, 'APPTSubunit.naiveNegative_not_appt' has type
+  True
+but it is expected to have type
+  Not
+    (@APPT.Quantum.AbsolutelyPPT (Fin 2) (Fin 2) (Fin.fintype 2) (Fin.fintype 2) (instDecidableEqFin 2)
+      (instDecidableEqFin 2) APPTSubunit.naiveNegativeDensity)
+TYPE_CLOSURE_REPLAY_PASS 8580 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTSubunit.naiveNegative_not_appt

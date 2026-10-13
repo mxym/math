@@ -10,7 +10,7 @@ Correspondence: [mxymmxym1@gmail.com](mailto:mxymmxym1@gmail.com) · ORCID: [000
 
 Independent research with no external funding. AI is used for research assistance; each project states its proof sources, verification scope, and reproduction instructions.
 
-[Preprints](#preprints) · [Claimed results](#claimed-results) · [Research directory](RESEARCH.md) · [Verification](#proof-and-reproduction)
+[Preprints](#preprints) · [Written proofs](#results-with-complete-written-proofs) · [Claimed results](#claimed-results) · [Research directory](RESEARCH.md) · [Verification](#proof-and-reproduction)
 
 ## Preprints
 
@@ -40,6 +40,27 @@ The table lists the current version DOI for each published manuscript. Older imm
 The complete catalog, including smaller formalized results and research notes, is in [SOLVED_PROBLEMS.md](SOLVED_PROBLEMS.md) and [RESEARCH.md](RESEARCH.md).
 
 [aiXiv publication, deduplication and license readback](verification/aixiv-publication-20261013/README.md) records nine additional papers and three withdrawn duplicates. The four-cell Gaussian paper uses CC BY-NC-ND 4.0 with the author's explicit approval.
+
+## Results with complete written proofs
+
+This section lists precise results with a complete written argument whose stated main theorem is not yet fully formalized in Lean. Published external inputs must be cited; an unproved conjecture does not support an unconditional result. Partial Lean proofs and finite certificates retain their exact coverage. Numerical conjectures and unfinished proof chains are excluded.
+
+These reading entries can overlap with the preprint list and are not counted again as independent breakthroughs. Written proof does not mean external peer review or verified historical priority. The first two entries received new mathematical checks in this research round; earlier verification boundaries remain those of their original packages.
+
+| Result | Written theorem and inputs | Formalization boundary |
+| --- | --- | --- |
+| Subunit APPT Rényi entropy | [Complete sharp joint-growth law](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md), fixed 0<α<1, uniformly n≥m; coefficient max{2α,1}+(α/2)max{4,n/m} | [Physical half-order head and finite downward-spike family](formalizations/appt-subunit-renyi/README.md) kernel checked; complete entropy limit unformalized |
+| Critical deficient-rank ECQC equality | [All equality states](research/ecqc-critical-rank-equality/PAPER.md) at r=(p+1)/2 for every odd prime; explicit Holevo input | [Field core and matrix lemmas](formalizations/ecqc-critical-rank-progress/README.md) only; lower ranks and full quantum classification not Lean checked |
+| Graph-state forbidden-claw theorem | [Complete arbitrary-order induction and entropy proof](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md), with two exact checkers | No complete Lean; finite graphs are supporting certificates |
+| ECQC full-rank and stabilizer classification | [Complete same-basis classification](research/ecqc-stabilizer-saturation/README.md), with cited Holevo theorem | Quantum classification not fully formalized |
+| Equal-mass Gaussian sharp bounds | [All k](preprints/gaussian-equal-cells-2026-10/README.md) and [four-cell theorem](preprints/gaussian-four-cell-global-2026-10/README.md), using published multi-bubble/isoperimetry inputs | Partial internal Lean; external theorem and some Gaussian integrals unformalized |
+| Prescribed-mass tetrahedral counterexamples | [Every 0<p<1/4 in the specified four-cell family](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) | Partial algebraic Lean; final geometric comparison unformalized |
+| All-integer Gaussian dimension order | [Matching quadratic-logarithmic order](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md), explicit Berry–Esseen input | No complete Lean |
+| State-independent entanglement extraction | [One universal global-preprocessing protocol family](research/universal-schur-extraction/README.md), explicit representation-theory and CLT inputs | Non-Lean; global entangling preprocessing is part of the model |
+| Specified Ehrhart family | [Every d≥3](notes/ehrhart-uniform-real-rootedness/README.md), using the original published finite-range theorem | Non-Lean; not arbitrary permutation polytopes |
+| Identity padding permanent inequality | [Direct consequence](notes/permanent-inequality-padding/README.md) of the original authors' Theorem 8.18 | Non-Lean; prior theorem is credited |
+
+See the [research directory](RESEARCH.md) for other completed arguments and their independent scopes. Written results are accumulated first; formalization is prioritized separately.
 
 ## Claimed results
 

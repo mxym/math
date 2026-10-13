@@ -2,6 +2,14 @@
 
 The arbitrary-dimensional purity formula in Ahiable--Kothakonda--Winter Conjecture 6.7 is false. The current primary v2 (18 September 2026) retains this conjecture and the same two candidate values. This checkpoint records a direct mathematical counterexample and the mechanism behind it. The counterexample, unrestricted asymptotic law and exact rectangular theorem are now incorporated in the [expanded APPT preprint](../../preprints/appt-purity-unified-2026-10/README.md). The earlier immutable qutrit proof release remains unchanged.
 
+## Subunit Rényi orders: new transition at one half
+
+[SUBUNIT_RENYI.md](SUBUNIT_RENYI.md) now closes the ordinary mathematical joint-growth law for every fixed 0<α<1, uniformly in n≥m:
+
+    mn [log(mn)−min_APPT S_α] ~ max{2α,1}+(α/2)max{4,n/m}.
+
+A negative normalized eigenvalue outlier tending to zero changes the optimal branch below α=1/2. The full proof specifies the actual all-unitary APPT constructions, centering and order of limits. The [new Lean dependency package](../../formalizations/appt-subunit-renyi/README.md) verifies the half-order head inequality on the actual sorted spectrum, its continuum rational certificate, and the finite downward-spike density/APPT family. The entire entropy limit is not yet Lean-formalized. [Independent assistant mathematical review](SUBUNIT_REVIEW.json) found no error in its stated scope; this is not external peer review or a priority certification. Exact finite minima, fixed-local subunit equivalents and rigidity remain separate.
+
 ## New entropy law and an outlier transition at Renyi order two
 
 [ENTROPY_ASYMPTOTIC.md](ENTROPY_ASYMPTOTIC.md) determines the leading UNRESTRICTED minimum-entropy deficit for every fixed finite Renyi order alpha>=1. With D=mn and n/m->gamma>=1 as m grows,
@@ -18,7 +26,7 @@ The upper entropy bound uses a new physical Schmidt-star assignment centered at 
 
 A separate finite rational example on 50x200, `diag(861,330[4899],319[5100])/3244431`, has an all-unitary SOS positivity proof and entropy strictly below all candidates for the original inscribed-polytope minimum. The logarithm gaps are enclosed by exact rational intervals. Its 1/1000 maximally mixed perturbation preserves the entropy violation and has uniformly positive orbit partial transposes.
 
-These new results are research notes, not additional preprints and not retroactively certified by the earlier Lean proof or concurrent manuscript. Run `python3 check_two_ended.py` and `python3 check_entropy.py`, also with `python3 -O`, for exact supporting calculations. Finite checks do not replace the graph compactness proof, all-unitary argument, or entropy optimization. The range 0<alpha<1, exact finite entropy minima, effective hierarchy thresholds, and absolute separability remain separate research questions.
+These new results are research notes, not additional preprints and not retroactively certified by the earlier Lean proof or concurrent manuscript. Run `python3 check_two_ended.py` and `python3 check_entropy.py`, also with `python3 -O`, for exact supporting calculations. Finite checks do not replace the graph compactness proof, all-unitary argument, or entropy optimization. The subunit joint-growth gap is now closed in the separate note above; exact finite entropy minima, effective hierarchy thresholds, and absolute separability remain separate research questions.
 
 ## New exact and structural results
 
