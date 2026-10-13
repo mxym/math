@@ -1,5 +1,9 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
+## Physical multiscale sufficiency checkpoint
+
+`canonical_lacunary_states_appt` now constructs actual integer-projection density matrices with a spike and proves eventual APPT under every global unitary, uniformly for all n>=m. Independent run **38383302058** passed; its exact source and downloaded evidence are retained in `verification/ci-3bfdc77f/`. The purity moment asymptotic and coefficient-eight lower bound remain separate at this checkpoint. See `REVIEW_MULTISCALE_BRIDGE.md`.
+
 ## Canonical sparse-matrix graph limit: complete dependency checkpoint
 
 The finite sparse-matrix localization is now connected to the existing common-measure compactness theorem. `lacunary_sparse_matrix_bound` proves a uniform actual PSD/operator-square bound for every symmetric fractional matrix family with canonical power edge budgets. Independent run **38349046520** passed with **131 pinned inputs**. See `REVIEW_SPARSE_LOCALIZATION.md` and `verification/ci-3ae4c512/`. This does not yet certify the coefficient-eight physical lower construction, full entropy laws or dimensional rigidity.
