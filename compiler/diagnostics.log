@@ -125,12 +125,30 @@ MODULE HydrologyTree.GraphRateTransport
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphLeakCut
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphMatrixTransport
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.LeakRelocationRates
-DEVELOPMENT CACHE: source and all owned dependency keys matched.
+HydrologyTree/LeakRelocationRates.lean:11:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakDart_symm_fst`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LeakRelocationRates.lean:12:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakDart_symm_snd`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LeakRelocationRates.lean:53:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/LeakRelocationRates.lean:53:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 
 MODULE HydrologyTree.GraphLeakMatrix
 HydrologyTree/GraphLeakMatrix.lean:14:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_eq_smul`:
@@ -147,28 +165,44 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [Fintype V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphLeakMatrix.lean:49:32: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.Dart.symm_fst`
-HydrologyTree/GraphLeakMatrix.lean:49:58: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.Dart.symm_snd`
-Try this:
-  [apply] abel_nf
-HydrologyTree/GraphLeakMatrix.lean:41:64: error: unsolved goals
-V : Type u_1
-inst✝² : Fintype V
-inst✝¹ : DecidableEq V
-G : SimpleGraph V
-inst✝ : DecidableRel G.Adj
-d : G.Dart
-y : GraphRates G
-ht : y.2 d + y.1 ≠ 0
-he :
-  ∑ e, graphTransfer (slideLeakRates d y) e =
-    ∑ e, graphTransfer y e + y.1 • dartTransferMatrix d - (slideLeakRates d y).1 • dartTransferMatrix d.symm
-⊢ ∑ e, graphTransfer y e +
-      (y.1 • single d.toProd.2 d.toProd.1 1 +
-        (-1 • y.1 • single d.toProd.1 d.toProd.1 1 +
-          (-1 • (slideLeakRates d y).1 • single d.symm.toProd.2 d.symm.toProd.1 1 +
-            ((slideLeakRates d y).1 • single d.symm.toProd.1 d.symm.toProd.1 1 +
-              -1 • (slideLeakRates d y).1 • single d.toProd.2 d.toProd.2 1)))) =
-    ∑ e, graphTransfer y e +
-      (y.1 • single d.toProd.2 d.toProd.1 1 +
-        (-1 • y.1 • single d.toProd.1 d.toProd.1 1 + -1 • (slideLeakRates d y).1 • single d.toProd.1 d.toProd.2 1))
+
+MODULE HydrologyTree.LeakGauge
+HydrologyTree/LeakGauge.lean:15:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakCutWeight_pos`:
+  [Fintype V]
+  [DecidableEq V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LeakGauge.lean:30:6: warning: `if_false` has been deprecated: Use `ite_false` instead
+HydrologyTree/LeakGauge.lean:30:15: warning: `if_true` has been deprecated: Use `ite_true` instead
+HydrologyTree/LeakGauge.lean:35:63: warning: `if_false` has been deprecated: Use `ite_false` instead
+HydrologyTree/LeakGauge.lean:35:72: warning: `if_true` has been deprecated: Use `ite_true` instead
+HydrologyTree/LeakGauge.lean:43:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphTransfer_eq_singles`:
+  [Fintype V]
+  [DecidableRel G.Adj]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableRel G.Adj] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LeakGauge.lean:47:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrix_single_sub`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/LeakGauge.lean:61:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+HydrologyTree/LeakGauge.lean:61:59: warning: `if_false` has been deprecated: Use `ite_false` instead
+HydrologyTree/LeakGauge.lean:66:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+HydrologyTree/LeakGauge.lean:66:36: warning: `if_true` has been deprecated: Use `ite_true` instead
+HydrologyTree/LeakGauge.lean:85:54: warning: This simp argument is unused:
+  diagonalGauge_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphCompartmentMatrix, diagonalGauge_sub, diagonalGauge_diagonal_single _ hh, Matrix.smul_single,
+    smul_eq_mul, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.LeakRelocationWalk
