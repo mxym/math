@@ -524,73 +524,7 @@ MODULE HydrologyTree.LocatedLeakJacobian
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.GraphPolynomialModel
-HydrologyTree/GraphPolynomialModel.lean:30:85: error: unsolved goals
-V : Type u_1
-inst✝⁴ : Fintype V
-inst✝³ : DecidableEq V
-G : SimpleGraph V
-inst✝² : DecidableRel G.Adj
-R : Type u_2
-S : Type u_3
-inst✝¹ : CommRing R
-inst✝ : CommRing S
-φ : R →+* S
-ell : V
-y : GraphRatesOver R G
-i j : V
-⊢ if ell = i ∧ ell = j then
-    (if ell = i ∧ ell = j then
-        (∑ x,
-            if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-            else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-          φ y.1 * 1
-      else
-        (∑ x,
-            if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-            else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-          φ y.1 * 0) =
-      (∑ x,
-          if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-          else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-        φ y.1 * 1
-  else
-    (if ell = i ∧ ell = j then
-        (∑ x,
-            if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-            else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-          φ y.1 * 1
-      else
-        (∑ x,
-            if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-            else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-          φ y.1 * 0) =
-      (∑ x,
-          if x.toProd.1 = i ∧ x.toProd.1 = j then φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 1)
-          else φ (y.2 x) * ((if x.toProd.2 = i ∧ x.toProd.1 = j then 1 else 0) - 0)) -
-        φ y.1 * 0
-HydrologyTree/GraphPolynomialModel.lean:48:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (charmatrix ?M).map (Polynomial.map ?f)
-in the target expression
-  (mapRingHom φ).mapMatrix (graphMatrixOver G ell y).charmatrix.adjugate o o =
-    ((mapRingHom φ).mapMatrix (graphMatrixOver G ell y).charmatrix).adjugate o o
-
-V : Type u_1
-inst✝⁴ : Fintype V
-inst✝³ : DecidableEq V
-G : SimpleGraph V
-inst✝² : DecidableRel G.Adj
-R : Type u_2
-S : Type u_3
-inst✝¹ : CommRing R
-inst✝ : CommRing S
-φ : R →+* S
-o ell : V
-y : GraphRatesOver R G
-h :
-  (mapRingHom φ).mapMatrix (graphMatrixOver G ell y).charmatrix.adjugate o o =
-    ((mapRingHom φ).mapMatrix (graphMatrixOver G ell y).charmatrix).adjugate o o
-⊢ Polynomial.map φ (graphCofactorOver o ell y) = graphCofactorOver o ell (graphRatesOverMap φ y)
-HydrologyTree/GraphPolynomialModel.lean:59:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_leak`:
+HydrologyTree/GraphPolynomialModel.lean:67:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_leak`:
   [Fintype V]
   [DecidableEq V]
   [DecidableRel G.Adj]
@@ -598,7 +532,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphPolynomialModel.lean:60:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_dart`:
+HydrologyTree/GraphPolynomialModel.lean:68:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.graphRateArray_dart`:
   [Fintype V]
   [DecidableEq V]
   [DecidableRel G.Adj]
@@ -606,7 +540,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphPolynomialModel.lean:65:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.universalGraphRates_eval`:
+HydrologyTree/GraphPolynomialModel.lean:73:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.universalGraphRates_eval`:
   [Fintype V]
   [DecidableEq V]
   [DecidableRel G.Adj]
@@ -614,25 +548,12 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [Fintype V] [DecidableEq V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/GraphPolynomialModel.lean:101:4: error: Type mismatch: After simplification, term
+HydrologyTree/GraphPolynomialModel.lean:109:4: error: Type mismatch: After simplification, term
   hcP 0
  has type
-  φ ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0) =
-    (graphCompartmentMatrix G ell y).charpoly.coeff 0
+  @Eq ℝ (φ ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0))
+    ((graphCompartmentMatrix G ell y).charpoly.coeff 0)
 but is expected to have type
-  (MvPolynomial.eval
-        ({ toFun := fun y => (fun x => y.1) ⊕ᵥ y.2, map_add' := ⋯, map_smul' := ⋯,
-            invFun := fun z => (z (Sum.inl ()), fun d => z (Sum.inr d)), left_inv := ⋯, right_inv := ⋯ }
-          y))
-      ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0) =
-    { toFun := fun y => (fun x => y.1) ⊕ᵥ y.2, map_add' := ⋯, map_smul' := ⋯,
-        invFun := fun z => (z (Sum.inl ()), fun d => z (Sum.inr d)), left_inv := ⋯, right_inv := ⋯ }
-      ({ toFun := fun x => (x.1 0, fun d => ((fun i => x.1 i.succ) ⊕ᵥ x.2) ((treeDartEquiv p).symm d)), map_add' := ⋯,
-          map_smul' := ⋯,
-          invFun := fun y =>
-            (Fin.cons y.1 fun i => y.2 ((treeDartEquiv p) (Sum.inl i)), fun i => y.2 ((treeDartEquiv p) (Sum.inr i))),
-          left_inv := ⋯, right_inv := ⋯ }
-        ((coefficientArrayEquiv n)
-          ((cut (n + 1)) (graphCompartmentMatrix G ell y).charpoly,
-            (cut n) (diagonalCofactor (graphCompartmentMatrix G ell y) o))))
-      (Sum.inl PUnit.unit)
+  @Eq ℝ
+    ((MvPolynomial.eval ((graphRateArrayEquiv G) y)) ((graphMatrixOver G ell (universalGraphRates G)).charpoly.coeff 0))
+    ((graphCompartmentMatrix G ell y).charpoly.coeff ↑0)
