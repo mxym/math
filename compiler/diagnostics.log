@@ -152,34 +152,23 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq V] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/LeakRelocationDifferential.lean:35:4: error: Type mismatch: After simplification, term
-  DifferentiableAt.mul (DifferentiableAt.mul ha hl) hi
- has type
-  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
-    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
-    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
-    (((fun z => z.2 d.symm) * fun z => z.1) * (fun y => y⁻¹) ∘ ((fun z => z.2 d) + fun z => z.1)) y
-but is expected to have type
-  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
-    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ
-    Real.normedAddCommGroup.toAddCommGroup RCLike.toInnerProductSpaceReal.toModule
-    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun x => x.2 d.symm * x.1 * (x.2 d + x.1)⁻¹) y
 HydrologyTree/LeakRelocationDifferential.lean:41:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 HydrologyTree/LeakRelocationDifferential.lean:44:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 HydrologyTree/LeakRelocationDifferential.lean:44:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/LeakRelocationDifferential.lean:45:8: error: Type mismatch: After simplification, term
-  DifferentiableAt.mul (DifferentiableAt.mul ha hf) hi
- has type
-  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.normedAddCommGroup.toAddCommGroup
-    Prod.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
-    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
-    (((fun z => z.2 d.symm) * fun z => z.2 d) * (fun y => y⁻¹) ∘ ((fun z => z.2 d) + fun z => z.1)) y
-but is expected to have type
-  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (GraphRates G) Prod.instAddCommGroup Prod.instModule
-    instTopologicalSpaceProd ℝ Real.instAddCommGroup Semiring.toModule
-    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun z => z.2 d.symm * z.2 d * (z.2 d + z.1)⁻¹) y
 HydrologyTree/LeakRelocationDifferential.lean:46:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 HydrologyTree/LeakRelocationDifferential.lean:46:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+HydrologyTree/LeakRelocationDifferential.lean:35:44: warning: Unused tactic linter: `simp [div_eq_mul_inv, Function.comp_def]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/LeakRelocationDifferential.lean:45:48: warning: Unused tactic linter: `simp [div_eq_mul_inv, Function.comp_def]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/LeakRelocationDifferential.lean:35:44: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/LeakRelocationDifferential.lean:45:48: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 HydrologyTree/LeakRelocationDifferential.lean:77:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.leakWalkRates_positive`:
   [Fintype V]
   [DecidableRel G.Adj]
@@ -194,3 +183,84 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [Fintype V] [DecidableRel G.Adj] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.ScalarSlotJacobian
+HydrologyTree/ScalarSlotJacobian.lean:54:8: warning: This simp argument is unused:
+  LinearMap.det_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.LeakSlideJacobian
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+HydrologyTree/LeakSlideJacobian.lean:30:6: error: unsolved goals
+case pos
+V : Type u_1
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+d : G.Dart
+y : GraphRates G
+ht : y.2 d + y.1 ≠ 0
+he : ¬d.symm = d
+⊢ y.2 d.symm * y.1 - y.2 d.symm * y.1 * y.2 d * (y.1 + y.2 d)⁻¹ - y.2 d.symm * y.1 ^ 2 * (y.1 + y.2 d)⁻¹ +
+      y.2 d.symm * y.2 d =
+    y.2 d.symm * y.2 d
+HydrologyTree/LeakSlideJacobian.lean:32:20: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slideByShears, Function.comp_apply, scalarVectorShear_apply, scalarSlotScale, edgeRatio, Prod.snd,
+    Pi.add_apply, Pi.smul_apply, smul_eq_mul, Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/LeakSlideJacobian.lean:32:29: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slideByShears, Function.comp_apply, scalarVectorShear_apply, scalarSlotScale, edgeRatio, Prod.fst,
+    Pi.add_apply, Pi.smul_apply, smul_eq_mul, Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/LeakSlideJacobian.lean:33:24: warning: This simp argument is unused:
+  Ne.symm d.symm_ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [d.symm_ne, slideLeak_reverse]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/LeakSlideJacobian.lean:37:44: warning: This simp argument is unused:
+  Ne.symm he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [slideByShears, scalarSlotScale, edgeRatio, scalarVectorShear_apply, slideLeak_other d e y he hr, he, hr,
+    Ne.symm hr, d.symm_ne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/LeakSlideJacobian.lean:37:55: warning: This simp argument is unused:
+  Ne.symm hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [slideByShears, scalarSlotScale, edgeRatio, scalarVectorShear_apply, slideLeak_other d e y he hr, he, hr,
+    Ne.symm he, d.symm_ne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/LeakSlideJacobian.lean:44:2: error: Type mismatch: After simplification, term
+  DifferentiableAt.mul ha hi
+ has type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (G.Dart → ℝ) Pi.normedAddCommGroup.toAddCommGroup
+    Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    ((fun v => v d.symm) * (fun y => y⁻¹) ∘ fun v => v d) v
+but is expected to have type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField (G.Dart → ℝ) Pi.addCommGroup
+    (Pi.Function.module G.Dart ℝ ℝ) Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (edgeRatio d) v
