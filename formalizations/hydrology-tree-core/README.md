@@ -395,3 +395,17 @@ The alternate-leak ODE bridge is now closed on its explicitly positive domain.
 Remaining extensions concern unrestricted-real alternate-leak rigidity and its
 all-rate polynomial Jacobian/multiplicity analysis, not the positive trajectory
 transport. Independent validation is the source-specific new CI run.
+
+
+## Genuine leakage-location impossibility, not duplicate parameter labels
+
+`positiveGraphModelMatrix_injective` proves that the full positive model
+parameterization (actual leak vertex and all directed graph rates) has no duplicate
+matrices. In particular, a different positive leakage site cannot merely rename
+the same physical matrix. `distinct_leak_models_all_collocated_outputs` proves
+that every positive tree model has a DISTINCT positive alternative at every other
+leak site, preserving ALL diagonal resolvents and all actual unique zero-initial
+collocated output histories for every continuous input. The one alternative
+works for every observer and forcing, without any full-mode assumption.
+`unknownLeakContinuousMatrix_injective` verifies that the finite unknown-site
+trajectory-fiber count counts genuinely different physical matrices.

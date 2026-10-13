@@ -1464,3 +1464,12 @@ import HydrologyTree
 #print axioms HydrologyTree.UnknownLeakContinuousFiber
 #print axioms HydrologyTree.unknown_leak_continuous_fiber_exact_card
 #print axioms HydrologyTree.finite_graph_all_leak_ODE_classification
+#print axioms HydrologyTree.graphTransfer_offdiag_dart
+#print axioms HydrologyTree.graphCompartment_dart_entry
+#print axioms HydrologyTree.graphRates_from_matrix_injective
+#print axioms HydrologyTree.equal_graph_matrices_identify_leak_site
+#print axioms HydrologyTree.positiveGraphModelMatrix
+#print axioms HydrologyTree.positiveGraphModelMatrix_injective
+#print axioms HydrologyTree.distinct_leak_models_all_collocated_outputs
+#print axioms HydrologyTree.unknownLeakContinuousMatrix
+#print axioms HydrologyTree.unknownLeakContinuousMatrix_injective

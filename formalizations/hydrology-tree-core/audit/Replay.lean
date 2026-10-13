@@ -1489,7 +1489,16 @@ run_cmd do
     ``HydrologyTree.leak_location_all_input_indistinguishability,
     ``HydrologyTree.UnknownLeakContinuousFiber,
     ``HydrologyTree.unknown_leak_continuous_fiber_exact_card,
-    ``HydrologyTree.finite_graph_all_leak_ODE_classification]
+    ``HydrologyTree.finite_graph_all_leak_ODE_classification,
+    ``HydrologyTree.graphTransfer_offdiag_dart,
+    ``HydrologyTree.graphCompartment_dart_entry,
+    ``HydrologyTree.graphRates_from_matrix_injective,
+    ``HydrologyTree.equal_graph_matrices_identify_leak_site,
+    ``HydrologyTree.positiveGraphModelMatrix,
+    ``HydrologyTree.positiveGraphModelMatrix_injective,
+    ``HydrologyTree.distinct_leak_models_all_collocated_outputs,
+    ``HydrologyTree.unknownLeakContinuousMatrix,
+    ``HydrologyTree.unknownLeakContinuousMatrix_injective]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg

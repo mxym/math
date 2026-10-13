@@ -401,3 +401,16 @@ continuous input at every collocated inlet/state observer, and proves identical
 output histories at every time. The leakage-location transformation is the
 same rate-space equivalence for all those collocated experiments. Cross-transfer
 and output at a different leaking compartment are not asserted invariant.
+
+
+## Distinct physical alternatives and nonredundant location counts
+
+`graphCompartment_dart_entry` proves that each actual oriented-edge rate is its
+matrix off-diagonal entry, and `graphRates_from_matrix_injective` proves full
+rate injectivity for a fixed site. `equal_graph_matrices_identify_leak_site`
+proves site injectivity when the leak is nonzero, using actual column sums.
+Thus `positiveGraphModelMatrix_injective` and
+`unknownLeakContinuousMatrix_injective` exclude duplicate matrix encodings.
+`distinct_leak_models_all_collocated_outputs` constructs genuinely distinct
+physical matrices at different leak locations with equal all-collocated transfer
+and actual continuous-input state histories. No full-mode assumption is needed.
