@@ -1,6 +1,7 @@
 # Growing-order APPT Rényi theorem: proof and formalization map
 
-Prepared 2026-10-14, before the full manuscript. All objects are actual density
+Prepared 2026-10-14. The map was started before the high-order draft and updated
+as the endpoint and profile statements were added. All objects are actual density
 matrices on C^m tensor C^n, with partial-transpose positivity after every global
 unitary. The new results are ordinary mathematical proofs. No new Lean module,
 audit root, trusted input or source-bound kernel claim is made.
@@ -14,6 +15,7 @@ audit root, trusted input or source-bound kernel claim is made.
 | Z2: finite (α log m, α n/m) near-minimizer classification | Uniform actual-state deficit identity; physical variance/least-value constraint; compactness with two critical branches | Not formalized. No old rigidity root or audit certifies these new moving-order limits. |
 | U1–U2: every positive order uniformly in bounded aspect, and every sublinear order uniformly in all aspects | New endpoint windows G1–G3 and Z1–Z2; inherited fixed-order Φ law; finite-grid monotonicity/continuity on compact order intervals; subsequence assembly | Complete ordinary profile proof, not formalized. This combines ranges of the same APPT research direction rather than counting separate guesses. |
 | S1: complete fixed-aspect spectral criteria on every limiting order, including both critical orders | Actual-state compact-order kernel Lipschitz estimate; inherited critical rigidity; strict mixed half/von-Neumann comparison; endpoint G3/Z1 identities | Written classification only. Source-bound audits keep their original roots; no new critical-order or moving-order coercivity claim is attributed to Lean. |
+| M1: macroscopic high-order law for arbitrary aspect and order growth | Bounded exceptional mass; second-largest gap; O(1/m) actual middle interval; pure-spike lower witness | Written absolute-error theorem only. It does not claim the first nonzero equivalent in the unresolved α≈m/unrestricted-aspect window. |
 | Exceptional/bulk physical estimates | `SHARP_ASPECT_RATIO.md` Section 3 (A8), `ENTROPY_ASYMPTOTIC.md` Sections 2 and 4 (E7, E8, E17, E18), uniform-Schmidt interval witness | Their complete ordinary derivations are identified, with definitions rechecked. No additional statement is attributed to Lean merely from a package name. |
 | Exact finite adaptive lower family | `ASYMPTOTIC.md` A1–A4 / `PROOF.md` joint construction; parameters are selected with H=ceil(sqrt(αm)); actual Schmidt SOS rederived in this manuscript | Complete ordinary all-unitary proof is included. Existing finite construction formalizations are not automatically claimed to cover the new adaptive-limit theorem. |
 | Exact operator-norm cap and pure spike | Rank-two physical witness; `ENTROPY_ASYMPTOTIC.md` Section 13 (E44); all-unitary pure-projector partial transpose bound | Elementary existing mathematical endpoint, explicitly reproved where used. It is not presented as a newly discovered endpoint. |

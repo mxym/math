@@ -128,6 +128,11 @@ from actual eigenvalues and physical paired tests, not a model spectrum.
 
 ## 3. A uniform small-order state identity
 
+The following Taylor and normalization comparisons are used once m exceeds a
+common threshold with ε_m<1/2 and ν_m<1/2. This threshold is independent of
+n and α. The preceding physical inequalities themselves hold in their
+specified finite-dimensional range.
+
 For 0<α≤1/2 let
 
     f_α(x)=[(1+x)^α−1−αx]/[α(α−1)],      x≥−1.

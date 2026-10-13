@@ -136,6 +136,10 @@ deviation is at most 2/h_0 by G9. The bottom-R negative magnitudes sum to at mos
 m; the remaining at most m bottom slots have magnitude at most g_R. Summing and
 dividing by D yields the stronger `m/D+2/h_0`, and G10 follows from D≥m².
 
+From this point take m sufficiently large that ν_m<1; every estimate involving
+1−ν_m below is used only after this common threshold. It is independent of n
+and α, so it does not restrict either stated uniform limit.
+
 Use the actual middle set B={R,...,j}; it has N_B=D−m²+2 entries. Its complement
 E has m²−2 entries. On B, G9 gives 0≤λ_i/b−1≤2/h_0, so for x_i=y_i−1,
 
