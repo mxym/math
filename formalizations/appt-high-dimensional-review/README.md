@@ -1,5 +1,9 @@
 # High-dimensional APPT: mathematical review and Lean verification
 
+## Canonical sparse-matrix graph limit: complete dependency checkpoint
+
+The finite sparse-matrix localization is now connected to the existing common-measure compactness theorem. `lacunary_sparse_matrix_bound` proves a uniform actual PSD/operator-square bound for every symmetric fractional matrix family with canonical power edge budgets. Independent run **38349046520** passed with **131 pinned inputs**. See `REVIEW_SPARSE_LOCALIZATION.md` and `verification/ci-3ae4c512/`. This does not yet certify the coefficient-eight physical lower construction, full entropy laws or dimensional rigidity.
+
 ## Lacunary probability and compactness checkpoint
 
 The canonical measurable bipartition, arbitrary common-probability-measure energy inequality, moving-strip weak limit, and uniform strip-width threshold over all probability measures on [0,1] are independently kernel-verified. Run **38337062170**, source **66f32a995d793bdbfe233e68ef4f851eaf3ea90a**, passed all stages: **3,124 build tasks, 50,471 transitive declarations, 326 roots, 121 pinned inputs**, trust zero and only the three standard axioms. All 21 unchanged-type corruption controls passed. Evidence: `verification/ci-66f32a99/`; dependency review: `REVIEW_LACUNARY_MEASURE.md`. This establishes the common-measure compactness portion, not the remaining finite sparse-graph localization, actual multiscale APPT construction or coefficient-eight sharpness below aspect ratio four.
