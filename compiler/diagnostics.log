@@ -2,7 +2,7 @@ CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 2063 file(s)
+Already decompressed 2275 file(s)
 
 MODULE WeightedLocalization
 WeightedLocalization.lean:31:5: warning: Variable name `hy` is not explicitly referenced.
@@ -45,11 +45,29 @@ Note: Simp arguments with `←` have the additional effect of removing the other
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 
 MODULE SchmidtLocalization
-SchmidtLocalization.lean:51:22: error: Application type mismatch: The argument
-  add_le_add_left hsmall Q
-has type
-  (∑ i, if s i < Real.exp (-(1 + η) * L / 2) then s i ^ 2 else 0) + Q ≤ Real.exp (-η * L) + Q
-but is expected to have type
-  (Q + ∑ i, if bad i then s i ^ 2 else 0) ≤ Q + B
-in the application
-  LE.le.trans hmass (add_le_add_left hsmall Q)
+SchmidtLocalization.lean:67:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SchmidtLocalization.lean:67:46: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+MODULE LacunaryFiniteGraph
+LacunaryFiniteGraph.lean:15:7: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LacunaryFiniteGraph.lean:15:24: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LacunaryFiniteGraph.lean:16:15: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
