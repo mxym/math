@@ -81,3 +81,80 @@ Its Gaussian input is attributed and pre-existing. It covers arbitrary positive 
 4. The known two-block special-function inequality is not a license to multiply or iterate it over a correlated third block. That would require a stronger conditional or grouped inequality not supplied by the published theorem.
 
 The stage remains exploration until one complete general proof or an independently exact-certified admissible counterexample is obtained. Time spent on requested APPT manuscript service reviews is excluded from the 45–90 minute no-breakthrough switching threshold. No new Lean package, root edit, push, publication, or submission occurred.
+
+## Analytic checks after the finite discovery campaign
+
+For a fixed block partition, take \(R(t)=I+tH\), where \(H\) is symmetric and has zero diagonal blocks, and \(t\) is sufficiently small that the scale is positive definite. Let
+\[
+ J(t)=\frac{\mathbb E_{R(t)}\prod_i\det(W_{ii})^{a_i}}
+                 {\prod_i\mathbb E_{I}\det(W_{ii})^{a_i}},
+ \qquad W\sim W_p(\nu,R(t)),\quad \nu>p-1,\quad a_i>0.
+\]
+The density integral is analytic in \(t\) near zero: for scales in a compact SPD neighborhood, each derivative is bounded by a polynomial in the matrix norm times a fixed integrable Wishart exponential density. Block sign flips leave every diagonal determinant unchanged. Consequently a second-order cross-covariance term can involve only one unordered pair of blocks; terms joining two different pairs vanish by the sign parity at a block of odd incidence.
+
+Setting all other cross blocks to zero reduces each surviving second-order term to the already proved two-block formula. Its canonical correlation matrix is \(tH_{ij}\) up to an irrelevant sign. Expanding Theorem3.1's matrix hypergeometric function at zero gives
+\[
+ J(t)=1+\frac{2t^2}{\nu}\sum_{i<j}a_i a_j\|H_{ij}\|_{\mathrm F}^2
+          +O(t^3).                                      \tag{L}
+\]
+Thus the whole conjecture has a strict local minimum at independence along every nonzero fixed cross-covariance direction with active positive exponents. This is a route diagnostic, not a complete global theorem or a new major-problem count. It explains why an infinitesimal perturbation search at independence will not generate a counterexample.
+
+Termwise positivity of the higher Taylor series is already false in the solved scalar two-block case. For powers \(a_1=1/2,a_2=3/2\) and correlation \(t\),
+\[
+ {}_2F_1(-1/2,-3/2;\beta;t^2)
+ =1+\frac{3}{4\beta}t^2-\frac{3}{32\beta(\beta+1)}t^4+O(t^6).
+\]
+The negative fourth-order coefficient is exact although the full two-block inequality holds. Therefore proving only that low-order covariance coefficients are nonnegative cannot replace the required general resummation or sign argument.
+
+Conditioning cannot supply the missing theorem by invoking the centered Gaussian input at every conditional step. For independent standard \(Z,U\), set
+\[
+ X=1+Z,\quad Y=1-\tfrac9{10}Z+\sqrt{19/100}\,U .
+\]
+These form a noncentral Gaussian pair with SPD covariance. Their square-product deficit is
+\[
+ \mathbb E X^2Y^2-\mathbb E X^2\,\mathbb E Y^2
+ =2(9/10)^2-4(9/10)=-99/50<0.
+\]
+Hence the centered theorem fails after arbitrary noncentral conditioning. This is an exact obstruction to that proof step, not a counterexample to the actual central Wishart conjecture.
+
+## Shape-tilt interpolation: remaining exact sign problem
+
+There is a direct analytic route that would settle the original real-degree range, without interpolation from integer data. For fixed admissible scale and positive exponents, let \(A\) range over subsets of the active blocks and let \(\mathbb E_A\) denote expectation under the probability density proportional to
+\(\prod_{i\in A}\det(W_{ii})^{a_i}\) times the original central Wishart density. Let
+\[
+ J_\nu=\frac{\mathbb E\prod_i\det(W_{ii})^{a_i}}
+                    {\prod_i\mathbb E\det(W_{ii})^{a_i}} .
+\]
+Differentiating the actual density in the real degree, with all normalizing constants retained, gives exactly
+\[
+ \frac{d}{d\nu}\log J_\nu
+ =\frac12\left[
+   \mathbb E_{\mathrm{all}}\log\det W
+   -\sum_i\mathbb E_{\{i\}}\log\det W
+   +(d-1)\mathbb E_\varnothing\log\det W
+ \right].                                               \tag{T}
+\]
+The derivative of the density has the only matrix-dependent term
+\(\frac12\log\det W\); its gamma and scale derivatives cancel in each logarithmic tilted moment. Differentiation is justified on every compact degree interval inside \(\nu>p-1\): determinant powers have polynomial growth, and the density's boundary powers times an additional absolute log determinant remain integrable.
+
+For fixed scale and exponents, \(W/\nu\to\Sigma\) with uniformly bounded moments of every fixed finite order as \(\nu\to\infty\), by Bartlett's decomposition. Dominated moment convergence for the determinant powers therefore gives \(J_\nu\to1\). Thus a proof that the bracket in (T) is always nonpositive would prove the **entire** original conjecture. That sign has not been proved here; it is not supplied by scalar Gaussian GPI, pairwise determinant covariance, or the two-block formula. The identity isolates the exact missing global interaction inequality instead of silently interpolating.
+
+A stronger complete-monotonicity shortcut in the shape already fails at legally admissible real degrees. In dimension three with diagonal powers one, write \(s=\rho_{12}^2+\rho_{13}^2+\rho_{23}^2\) and \(q=\rho_{12}\rho_{13}\rho_{23}\). The normalized moment is
+\[
+ J_\beta=1+\frac{s}{\beta}+\frac{2q}{\beta^2}.
+\]
+For the exact SPD negative-control scale above, \(s=89/100\) and \(q=-9/250\). For every \(\beta>1\),
+\[
+ (-1)^k\frac{d^k}{d\beta^k}(J_\beta-1)
+ =\frac{k!}{\beta^{k+2}}
+       \left(\frac{89}{100}\beta-\frac{9}{125}(k+1)\right).
+\]
+This is negative for sufficiently large \(k\), at every fixed admissible shape. Hence complete monotonicity of the normalized excess cannot be assumed to turn positive integer/half-integer evidence into the full real-degree theorem. The weaker first-derivative sign (T) remains a substantive unclosed question.
+
+## Stage boundary
+
+At about 03:30 local time on 14 October 2026, the present Wishart routes reached approximately 45 effective research minutes without a complete general proof or an admissible counterexample. This estimate counts the confirmed 18:42 UTC onward activity and approximately five confirmed pre-continuation minutes; it excludes the 18:33–18:42 continuation/compaction interval and approximately eight minutes of requested APPT service reviews. It is a conservative approximate active-time ledger, not an assertion that interruption wall time was research.
+
+The full Wishart conjecture remains unresolved here. Both bounded discovery processes ended naturally; no own process is left running. The exact moment data, source distinction, local variation, negative-coefficient/noncentral controls and real-degree shape-tilt identity are preserved for possible later return. No partial positive class is promoted to a complete answer.
+
+The active breadth target now changes to the full Gaussian polynomial U-conjecture. Its original arbitrary-degree/finite-dimension statement, current source boundary, exact essential-subspace criterion and first analytic route are recorded in FULL_U_CONJECTURE_ATTEMPT.md. This change is not counted as a theorem and does not replace or duplicate the root APPT entropy direction.
