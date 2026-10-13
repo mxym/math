@@ -320,3 +320,13 @@ for every finite n, every finite H and every fully separable permutation-invaria
 Conversely the displayed product twirls lie in that class, so C17 gives the self-conjugate target, and C2's Cauchy–Schwarz transfer gives arbitrary pairs.
 
 This is a full-object equivalent reformulation, not a proof. The complete separability assumption cannot be replaced by permutation invariance alone: a normalized antisymmetric projector has zero symmetric weight and positive purity. Nor is a PPT relaxation certificate or PPT violating state an actual separable/Chollet counterexample. No semidefinite relaxation or new positivity audit was run.
+
+## C18. Bounded stage closure and autonomous switch
+
+Stage closed at2026-10-13 21:10:15 UTC. Elapsed stage wall time was50 minutes43 seconds; the finite-APPT service review20:36:46–20:40:32 was3 minutes46 seconds and is excluded. The resulting effective active stage time is46 minutes57 seconds, including primary literature reading and the next-target status checks at its natural boundary.
+
+No complete Chollet proof or legal PSD reverse-inequality witness was obtained. Exact full-object equivalent formulations and proved shortcut obstructions were preserved; none is counted as a newly solved major conjecture. There was no infinite numerical campaign, repeated rank-three/order-seven attack, weighted-graph replay, new Lean scope or publication.
+
+Status screening at the boundary excluded Foregger's powers problem, whose complete uniform eventual inequality already has a September7 public candidate proof, and Dittert, whose2610.10545v1 Theorem1.2 already states the full all-n inequality and unique equality. The latter source was read at its actual original-object theorem statement, without certifying its entire long proof. The stale Minc index.html record still lists old Dittert gaps, whereas the directory URL is newer; no claim of new closure is made from a cached problem page.
+
+The next complete target is Ryser's design minimum-permanent conjecture (1960), for every eligible pair(v,k). The intended negative route searches actual regular binary matrices against the minimum over ALL configurations at the same pair; finding a nonconfiguration below one nonminimal design would not suffice. Known v<=12 cases and the public one/two-switch local positive results are not attacked as new theorems. A finite exact witness at a certified unique-configuration pair would refute the whole universal statement. Independent all-configuration matching and exact permanent verification are required before any claim.
