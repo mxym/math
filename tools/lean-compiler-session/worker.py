@@ -10,6 +10,8 @@ separate and must succeed before a formalization checkpoint is certified.
 from pathlib import Path
 import base64, hashlib, json, os, re, shutil, subprocess, time, urllib.request, urllib.error
 
+from request_validation import validate_request
+
 REPO='mxym/math'
 INPUT_REF='formal/hydrology-tree-compiler-input-20261011'
 OUTPUT_REF='formal/hydrology-tree-compiler-results-20261011'
@@ -71,18 +73,17 @@ last=None
 while time.monotonic()-START<3300:
  raw=api('GET','contents/compiler/request.json?ref='+INPUT_REF)
  if raw is None or raw['sha']==last:time.sleep(5);continue
- last=raw['sha'];request=json.loads(base64.b64decode(raw['content']))
- serial=request.get('serial')
- if not isinstance(serial,int) or serial<0:raise ValueError('Nonnegative integer serial required')
- if request.get('stop'):
+ last=raw['sha']
+ try:
+  request=json.loads(base64.b64decode(raw['content']))
+  validate_request(request)
+ except (ValueError, TypeError, KeyError) as err:
+  publish({'status':'REJECTED_REQUEST','request_blob':last,'diagnostics':str(err)})
+  continue
+ serial=request['serial']
+ if request.get('stop') is True:
   publish({'serial':serial,'status':'STOPPED','request_blob':last});break
  files=request.get('files',{});modules=request.get('modules',[])
- if len(files)>150 or len(modules)>150:raise ValueError('Request too large')
- for name,text in files.items():
-  if not re.fullmatch(r'(?:[A-Za-z_][A-Za-z_0-9]*/)*[A-Za-z_][A-Za-z_0-9]*\.lean',name):raise ValueError('Unsafe Lean path')
-  if not isinstance(text,str) or len(text)>300000:raise ValueError('Source text too large')
- for module in modules:
-  if not re.fullmatch(r'[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*',module):raise ValueError('Invalid module name')
  work=OUT/('request-'+str(serial)+'-'+last[:8]);work.mkdir()
  for module in modules:
   name=module.replace('.','/')+'.lean'
