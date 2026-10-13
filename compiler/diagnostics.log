@@ -191,49 +191,80 @@ MODULE HydrologyTree.GraphModelInjectivity
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.TreeMatrixSupport
-HydrologyTree/TreeMatrixSupport.lean:84:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.CoprimeBranchRecovery
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedMatrixRecursion
-HydrologyTree/SupportedMatrixRecursion.lean:48:54: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  diagonalCofactor (arrowMatrix ?d ?B ?r ?a ?f) (Sum.inl ())
-in the target expression
-  diagonalCofactor A 0 =
-    diagonalCofactor (arrowMatrix (A 0 0) (supportedChildMatrix t A) (fun x => 0) (fun c => A 0 ↑c) fun c => A (↑c) 0)
-      (Sum.inl ())
 
-n : ℕ
-t : OrderedTree n
-A : TreeMatrix n
-hA : HasTreeMatrixSupport t A
-h :
-  diagonalCofactor A 0 =
-    diagonalCofactor (arrowMatrix (A 0 0) (supportedChildMatrix t A) (fun x => 0) (fun c => A 0 ↑c) fun c => A (↑c) 0)
-      (Sum.inl ())
-⊢ diagonalCofactor A 0 = ∏ c, matrixChildP t A c
+MODULE HydrologyTree.SizedSpectralAllocation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
-Full error:
-  function expected
-    A 0
-HydrologyTree/SupportedMatrixRecursion.lean:59:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  (arrowMatrix ?d ?B ?r ?a ?f).charpoly
-in the target expression
-  charpoly A =
-    (arrowMatrix (A 0 0) (supportedChildMatrix t A) (fun x => 0) (fun c => A 0 ↑c) fun c => A (↑c) 0).charpoly
+MODULE HydrologyTree.AllocationPolynomials
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-n : ℕ
-t : OrderedTree n
-A : TreeMatrix n
-hA : HasTreeMatrixSupport t A
-h :
-  (submatrix A ⇑(numberedRootEquiv t) ⇑(numberedRootEquiv t)).charpoly =
-    (arrowMatrix (A 0 0) (supportedChildMatrix t A) (fun x => 0) (fun c => A 0 ↑c) fun c => A (↑c) 0).charpoly
-he : ((reindex (numberedRootEquiv t).symm (numberedRootEquiv t).symm) A).charpoly = charpoly A
-hh :
-  charpoly A =
-    (arrowMatrix (A 0 0) (supportedChildMatrix t A) (fun x => 0) (fun c => A 0 ↑c) fun c => A (↑c) 0).charpoly
-⊢ charpoly A =
-    (X - C (A 0 0)) * ∏ c, matrixChildP t A c - branchNumeratorSum (matrixChildP t A) (matrixChildNumerator t A)
+MODULE HydrologyTree.StieltjesGrouping
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalConstants
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesChildAssembly
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.EndJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.Scaling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootUpdate
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathRootTransform
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathPolynomial
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootRecovery
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FiniteCancellation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalCancellation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalBranchRecovery
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SubtreeAssignment
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveChildModels
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreeCancellation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalModes
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveAssignment
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveRealizationExistence
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveFiberAllocation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RealFactorAllocation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveFiberTypes
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SupportedStieltjesChildren
