@@ -1,0 +1,153 @@
+{
+  "schema": "internal-ordinary-manuscript-review-v1",
+  "review_date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "reviewer": "/root/written_breadth",
+  "review_start_utc": "2026-10-13 20:36:46 UTC",
+  "review_end_utc": "2026-10-13 20:40:32 UTC",
+  "root_worktree": "/home/mxym/math-appt-multiscale-20261013",
+  "root_head_during_read": "648ad3451ce2e839bb9a2e6ad338225c6dbd08a9",
+  "canonical_source_is_working_tree_bytes": true,
+  "root_head_does_not_certify_uncommitted_manuscripts": true,
+  "output_worktree": "/home/mxym/math-written-breadth-20261014",
+  "purpose": "One new complete source-bound ordinary mathematical review of the finite high-order APPT packet. No extension of prior reviews or Lean audit.",
+  "sources": [
+    {
+      "path": "research/appt-finite-high-order-20261014/POWER_ENVELOPE.md",
+      "sha256": "6e78adbb5d006359c75e68ed1e096410d87928a245e63fb3c3be64660556344e",
+      "lines": 235,
+      "actual_read_lines": "1-235",
+      "scope": "Full real-power theorem, physical necessity, known vertex rederivation, all size-biased comparisons, physical qubit attainment/equality and integer-rank calculation."
+    },
+    {
+      "path": "research/appt-finite-high-order-20261014/FINITE_SPIKE_PHASE.md",
+      "sha256": "fb9003a985cebe83ce8071c1b8a13870a64eba0b6caad8d2d0f9ba68466e4363",
+      "lines": 216,
+      "actual_read_lines": "1-216",
+      "scope": "Full finite-band theorem, D>=8 and D6 cases, both D4 regions, physical countercontrol, scale lower competitor and all equality/scope statements."
+    },
+    {
+      "path": "research/appt-finite-high-order-20261014/POLE_SEPARABILITY.md",
+      "sha256": "ac171b44c5ab1227319c3b267f5284493f8b4ff389a2a186b6bf1fd0cdc6fad9",
+      "lines": 81,
+      "actual_read_lines": "1-81",
+      "scope": "Full finite product-phase decomposition, zero Schmidt values, residual nonnegativity, normalization and every-global-unitary absolute separability."
+    },
+    {
+      "path": "research/appt-finite-high-order-20261014/THEOREM_MAP.md",
+      "sha256": "83ae2c45e35037c09b5d96ff5b23636984ae87b6528cbf47fc23d4b97fd0aecb",
+      "lines": 26,
+      "actual_read_lines": "1-26",
+      "scope": "All P1-P3/H1-H3 rows and stated input/verification exclusions."
+    }
+  ],
+  "total_manuscript_lines_read": 558,
+  "mathematical_checks": [
+    {
+      "id": "P1_physical_rank2",
+      "result": "No gap found.",
+      "detail": "Actual four distinct eigenvalue slots and nonnegative Schmidt coefficients give the 2x2 PSD determinant condition. Equal coefficients give the outer linear inequality; singularity forces only the uniform rank D-1 spectrum. Thus D8 alpha2 rank6 outer exception is excluded physically."
+    },
+    {
+      "id": "P7_vertices",
+      "result": "No gap found.",
+      "detail": "Ordered simplex cut has surviving R vertices and only cut edges joining opposite signs; exactly the T and pi families. New vertices cannot carry three positive simplex coordinates."
+    },
+    {
+      "id": "P9_P14_purity_inputs",
+      "result": "No gap found.",
+      "detail": "Checked both polynomial numerators, their translated positive expansions, all four residue classes for J, endpoint-support interval P12, large-i endpoint/mean comparison P13 and the two missed i1 comparisons P14. The credited purity result is not presented as new."
+    },
+    {
+      "id": "P10_P15_real_power",
+      "result": "No gap found.",
+      "detail": "The size-biased measures are probabilities; convex increasing x^(alpha-1) is valid for every real alpha>=2. Endpoint secants/strict mean gaps eliminate all T. Point-mass R comparisons leave exactly D8 alpha2 R6, with strict Jensen at alpha>2. Strict convexity of sum lambda^alpha excludes nonvertex maxima."
+    },
+    {
+      "id": "P5_actual_qubit_equality",
+      "result": "No gap found.",
+      "detail": "Rank-two Schmidt partial transpose has one negative eigenvalue of magnitude at most1/2. Every orthogonal projection, every rank and every global unitary therefore gives I+2P^Gamma>=0. Johnston's actual qubit-qudit APPT/ASEP equivalence matches the physical scope. Spectral theorem gives all equality states."
+    },
+    {
+      "id": "P16_P17_integer_rank",
+      "result": "No gap found.",
+      "detail": "Z=3^alpha-1>2alpha for all real alpha>=2, exact logarithmic derivative is linear in real rank, floor/ceiling clipped comparison includes all maxima and ties. alpha>=D/2+1 gives strict x_star<1, hence unique j1."
+    },
+    {
+      "id": "D6_H6_H7",
+      "result": "No gap found.",
+      "detail": "Independently checked F(4)=43/2048 and all three G_i(4). Uniform upper ratio <=64/81. Derivative ratio lower bound is strictly positive using e>8/3 and log3>13/12, for every real alpha>=4. No invalid use of D>=8 purity estimate."
+    },
+    {
+      "id": "D4_H8_H12_near",
+      "result": "No gap found.",
+      "detail": "Determinant constraint gives tail range squared <=8delta and variance sum <=6delta. At0<delta<1/16 all tail entries lie below7/5 and top exceeds19/10. Taylor plus integral losses gives the exact sufficient ratio (19/14)^(alpha-1)>1+(15/7)(alpha-1), strictly valid for every real alpha>=16 and every positive delta in this region. Equality delta0 forces the pole."
+    },
+    {
+      "id": "D4_far_real_order",
+      "result": "No gap found.",
+      "detail": "For delta>=1/16, sum y^alpha<=4p^(alpha-1) and2(31/32)^(alpha-1)<1 for every real alpha>=24. Verified exact four-term exp comparison400871/196608>2. Combined strict regions cover all physical spectra below the cap."
+    },
+    {
+      "id": "D4_actual_negative_control",
+      "result": "No gap found.",
+      "detail": "The stated mixture has spectrum(1/2,1/2,0,0) and partial-transpose expectation-1/10 on the stated normalized vector; this excludes a false linear-relaxation proof."
+    },
+    {
+      "id": "S2_S4_general_ASEP",
+      "result": "No gap found.",
+      "detail": "Independent cube-root phase charges range from-2 to2, so only true zero charges survive. The two index matchings intersect exactly once. Residual coefficients1-2s_i s_j are nonnegative, zero Schmidt coefficients cause no division, and trace normalization gives a finite convex product decomposition for every v and dimension. Repeating for Uv proves ASEP without assuming general APPT=ASEP."
+    },
+    {
+      "id": "H13_cutoff_scale",
+      "result": "No gap found.",
+      "detail": "Rank-two projection competitors are actual qubit APPT/ASEP. The ratio at alpha=cD tends to2exp(-2c), giving the claimed linear lower scale with no sharp-transition assertion."
+    },
+    {
+      "id": "scope_and_equality",
+      "result": "No material mismatch found.",
+      "detail": "All claims are finite exact within their displayed bands. Q covers2xn n>=4 alpha>=2; H coversallactualm,n withD>=6 alpha>=D/2+1 andD4 alpha>=24. General lower-order minima for m>=3 and small-qubit intermediate orders remain excluded."
+    }
+  ],
+  "literature_inputs_actually_read": [
+    {
+      "url": "https://arxiv.org/html/2609.18568v1",
+      "version": "v1",
+      "actual_read_scope": "Fresh abstract/introduction and full Lemma2.1 vertex proof (browser lines133-188), Theorem2.2 exact statement/equality cases (189-203). The entire purity/entropy/volume paper and finite certificate appendix were not audited.",
+      "matching": "Exactly the credited outer vertex classification, purity-optimal indices and D8 exception. The new manuscript independently writes the needed comparisons. No historical first claim certified."
+    },
+    {
+      "url": "https://arxiv.org/html/1309.2006",
+      "actual_read_scope": "Fresh Theorem1 actual statement and surrounding explanation (browser lines42-60); its full proof was not independently re-audited.",
+      "matching": "PPT-from-spectrum, separable-from-spectrum and the rank-two spectral condition are equivalent on2xn for arbitrary n. Adopted as disclosed published input."
+    },
+    {
+      "url": "https://arxiv.org/html/quant-ph/9806094",
+      "actual_read_scope": "Fresh Section4.B equation41, AppendixB.1 displayed product-phase construction B3-B9 and relevant B.2 white-noise endpoint argument B29-B33. The entire robustness paper was not independently re-audited.",
+      "matching": "Known pure-state white-noise threshold D s1 s2 and prior phase construction are correctly credited. The packet's independent cube-root finite construction was fully checked directly."
+    }
+  ],
+  "inherited_inputs": {
+    "ordinary_rank2_constraint": "Previously reviewed APPT rank-two witness/maximum-top cap input; fully rederived in the new packet.",
+    "older_review_records_unchanged": true,
+    "external_claimed_Lean_inputs_used_to_certify_new_optimization": false
+  },
+  "findings": [],
+  "mathematical_revisions_requested": false,
+  "root_source_edits_by_reviewer": false,
+  "outcome": "No mathematical gap or material scope/equality mismatch found in the actual558 lines read.",
+  "trust_and_limits": {
+    "internal_assistant_review": true,
+    "external_human_peer_review": false,
+    "complete_Lean_formalization": false,
+    "Lean_commands_run": false,
+    "new_Lean_audit_scope": false,
+    "numeric_or_finite_diagnostic_runs_by_this_review": false,
+    "proof_by_sampling": false,
+    "full_priority_certification": false,
+    "general_finite_APPT_minimum_all_orders_proved": false,
+    "displayed_finite_bands_and_qubit_envelope_ordinary_proofs_checked": true,
+    "service_review_not_new_breadth_or_major_problem_count": true
+  },
+  "after_review": "Resume active full complex Chollet Gaussian-replacement attempt. This review interval is excluded from effective breadth research time."
+}
