@@ -49,13 +49,19 @@ function of the four score vectors, with a single scalar coefficient equal
 to the common facet weight. This is a necessary interior criticality
 condition, not a tetrahedral classification.
 
+`GaussianFourConstantElementary.lean` also verifies the exact elementary
+angular identity
+\(\int_{-\sqrt2}^{\sqrt2}(1+x^2)^{-1}dx=2\arctan\sqrt2\) and its normalized
+ratio. It deliberately does not identify the remaining Gaussian
+order-statistic integral with this angular expression.
+
 The reproducible build command is:
 
 ```text
 lake build GaussianProgress
 ```
 
-The current clean build completes all 3,889 jobs. A trust-zero replay of the
+The current clean build completes all 3,890 jobs. A trust-zero replay of the
 conditional four-cell interface, the unconditional two-cell boundary theorem,
 the discrete ascent theorem, and the two stationarity results reports only
 Lean's standard
