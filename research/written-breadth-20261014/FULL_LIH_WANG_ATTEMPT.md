@@ -120,3 +120,29 @@ The independent verifier checks matching DP and inclusion-exclusion at
 four known controls: two permutation gaps 1/4, the nonuniform midpoint
 gap zero, and a gap -1/384 at inadmissible alpha=1/4. The latter is rejected
 by the original-domain gate. These are checks, not new major results.
+
+
+## L4. Exact discovery checkpoint and a failed stronger interpolation
+
+The fixed 300-second rational transport run finished with 17,370 starts
+and 831,707 accepted exact moves across its 24 selected (n,K,t) cases,
+with 48 independent inclusion-exclusion controls. All accepted cofactor
+deltas were rechecked by full weighted matching DP, and every matrix kept
+its exact nonnegative integer margins. No strict original-domain reverse
+chord gap was found. The selected n=5,...,10 and t=1/2,3/8,1/4,1/8 are
+only a discovery domain; neither all dimensions, all matrices nor the
+real parameter interval has been enumerated. The source and final raw
+records are preserved, not promoted to a positive theorem.
+
+A log-convex interpolation shortcut is false even on the known legal
+three-order control. For A=(I_3+C_3)/2, per A=1/4, per J_3=2/9, and
+per[(A+J_3)/2]=17/72. The square of the midpoint permanent exceeds
+(per A)(per J_3) by exactly 1/5184. Thus the geometric-mean upper bound
+that would immediately imply the desired arithmetic chord bound cannot
+be used. This is an exact shortcut obstruction, not a Lih-Wang counterexample.
+
+The published 2024 root-free hypotheses likewise cannot be dropped by
+assuming normalized subpermanent monotonicity: the stronger Holens-Djokovic
+assertion is already false, as recorded in Wanless's 1999 primary author
+abstract and the 2005 survey. Its existing counterexamples do not by
+themselves violate the distinct original half-segment chord assertion.
