@@ -40,15 +40,23 @@ proof or legal counterexample. Its replica, mixed-sector and separable-state
 formulations remain exploration; exact shortcut controls are not Chollet
 counterexamples or solved major results.
 
-The active complete target is the [Ryser design minimum-permanent conjecture](FULL_RYSER_DESIGN_ATTEMPT.md),
-over all eligible dimension/row-sum pairs. A strict binary regular witness
-must beat ALL configurations at its pair. The v=13 uniqueness and two
-independent exact baselines are supporting inputs, not the whole conjecture.
-The completed bounded 10,695-start search found no strict witness and is
-preserved without being repeated. Exact rook/matching diagnostics also
-remain exploration. Recovery excluded all stream-disconnection/idle gaps;
-the only active replacement breadth agent continues the inherited
-45–90-effective-minute switching rule, excluding manuscript service reviews.
+The [full Ryser design minimum-permanent stage](FULL_RYSER_DESIGN_ATTEMPT.md)
+closed after about 46.7 effective research minutes without a full proof or
+a legal binary witness below all configurations. The prior random search,
+exact centered-rook/switch obstacles and bounded matching-orbit cycle
+discovery are preserved with complete/incomplete coverage in
+[RYSER_STAGE_CLOSED](RYSER_STAGE_CLOSED.json). They remain exploration and
+are not counted as a major-conjecture solution.
+
+The active complete target is the [full Lih-Wang permanent chord conjecture](FULL_LIH_WANG_ATTEMPT.md):
+every integer n>=3, every real doubly stochastic matrix, and every original
+real parameter alpha in [1/2,1]. The [whole-domain theorem map](LIH_WANG_THEOREM_MAP.md)
+and [primary-source read record](LIH_WANG_SOURCES.json) distinguish the
+already solved order-four case and conditional order-six theorem from the
+full target. Neither a selected parameter band nor finite nonviolations
+are a complete solution. Recovery excludes all stream-disconnection/idle
+gaps; the sole active breadth role continues the inherited 45-90-effective-
+minute switching rule, excluding requested manuscript and index services.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result
