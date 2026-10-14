@@ -5,7 +5,7 @@ All rights reserved. No funding. OpenAI AI assistants assisted this internal ord
 
 ## C0 Original complete scope and activation
 
-The sole active breadth target is the entire [CH0/CH1 map](CACCETTA_HAGGKVIST_THEOREM_MAP.md): all finite digraph orders and every positive minimum-outdegree parameter. Antiparallel arcs are permitted. Every proposed reverse example must be an actual binary loopless adjacency matrix and must have no directed cycle through the conjectured length bound.
+The originally activated breadth target was the entire [CH0/CH1 map](CACCETTA_HAGGKVIST_THEOREM_MAP.md): all finite digraph orders and every positive minimum-outdegree parameter. Antiparallel arcs are permitted. Every proposed reverse example must be an actual binary loopless adjacency matrix and must have no directed cycle through the conjectured length bound.
 
 Current primary-source screening is recorded in [the source record](CACCETTA_HAGGKVIST_SOURCES.json). No complete resolution was located. The source-reading bounds are explicit; original1978 full text was not retrieved. Known small-degree, regular and path results do not become new major outcomes.
 
@@ -94,10 +94,82 @@ For any nonempty proper S, the smaller induced graph D-S obeys the full CH bound
 r-|N^+(v) intersection S| <= floor((n-|S|-1)/L).
 This is a conditional exact covering constraint, not a new proof of the conjecture.
 
-For a singleton S={x}, the right side is at most r-1, so every x has a predecessor in the exact-r graph. For |S|=L, the right side is at most r-2, so every L-subset has an outside vertex with at least two outgoing neighbors in it. Proving the existence of a proper L-subset with no such outside fork would finish this minimality route, but that universal statement is not established. Counting all L-subsets gives only a weak covering bound; it does not force a contradiction. Research continues on the actual coupled neighborhood structure.
+For a singleton S={x}, the right side is at most r-1, so every x has a predecessor in the exact-r graph. For |S|=L, the right side is at most r-2, so every L-subset has an outside vertex with at least two outgoing neighbors in it. A density-sensitive existence lemma for a proper L-subset with no such outside fork would finish this minimality route, but it remains unproved. The corresponding claim from girth alone is false by the existing arbitrary-high-girth S2 construction in C10. Counting all L-subsets gives only a weak covering bound; it does not force a contradiction.
 
-## C8 Current honest checkpoint
+## C8 Archival 15m35 checkpoint
 
 No complete all-n/all-r proof or legal binary counterexample. C2,C6,C7 are exact whole-target formulations/conditional constraints; C3–C5 reject shortcuts. The two actual finite controls satisfy CH and remain auxiliary. All data and the independent coefficient comparison are in exploration/caccetta_haggkvist_exact_controls.py and caccetta-haggkvist-exact-controls.json.
 
 Effective source work04:02:48–04:04:29 is1m41; resumed mathematics04:06:48–04:20:42 is13m54, for15m35 at this safe preservation boundary. Map/commit preservation04:04:29–04:06:48 and this checkpoint preservation are excluded. No requested service has interrupted CH yet. Its clock will continue, not reset.
+
+
+## C9 Integral characteristic polynomials still do not realize a graph
+
+For every odd integer s>=5 with3 not dividing s, put n=9s,r=3s,
+b^2=(29s^2-5)/6, c=(4s^2+15s+5)/6.
+Both displayed numbers are positive integers. The formal spectral list for A is
+3s; s+i b,s-i b;5s copies of -1; i sqrt(c),-i sqrt(c);4s-5 zeros.
+Its integer monic characteristic polynomial is
+(x-3s)(x^2-2sx+s^2+b^2)(x+1)^(5s)(x^2+c)x^(4s-5).
+This is not supplied with any binary realizing matrix.
+
+Its first three power sums vanish exactly. For A/r, all other moduli are below1 and
+sum |lambda|^2=(22s^2+10s)/(9s^2)<=8/3<3=n/r.
+The conjugate-pair squared radius is below35/54, the imaginary-pair squared radius is at most2/15, and the negative copies contribute at most1/2025 to any normalized power sum of order>=4. Thus, simultaneously for every j>=4,
+4511/36450 <= tr_formal((A/r)^j) < 2 < 3.
+These inequalities are scalar power-sum statements, not traces of an actual binary matrix.
+
+Even primitive closed-walk orbit integrality and signs can be imposed on this relaxation. The integer series det_formal(I-zA) has a unique formal Euler product
+product_(j>=1)(1-z^j)^(m_j) with integer m_j: cancel its coefficients recursively, using integer positive or negative exponents. Taking formal logarithms gives
+m_j=(1/j)sum_(d|j) mu(d)p_(j/d).
+The first three m_j vanish. Orders4 through7 have only vanished proper-divisor power sums and are positive. For j>=8, the total absolute proper-divisor contribution is less than2j r^(j/2). Since
+(4511/36450)15^4>16 and sqrt(15)>9/8>=(j+1)/j,
+induction gives (4511/36450)r^(j/2)>2j, so m_j>0 for every j>=8 as well.
+Neither these scalar conditions nor C3 furnish a CH counterexample. Principal submatrices, simultaneous entry bounds and binary row structure remain unaccounted for.
+
+The exact control program checks six s-values, integer Newton identities through order12, and orbit counts through64. These finite computations check the written algebra; the uniform inequalities above are the all-order argument. At s=5 the first four formal traces are0,0,0,46500. This is distinct from any earlier discarded numerical variant.
+
+## C10 Existing high-girth domination obstructs a girth-only deletion lemma
+
+Anbalagan–Huang–Lovett–Norin–Vetta–Wu, arXiv:1504.03602, Section4/Theorem4.3, constructs arbitrarily high-girth Cayley digraphs with property S2: every pair has a common predecessor outside that pair. Their construction uses Haight's earlier additive-set theorem, not a new construction here. Korandi–Sudakov's2017 primary introduction also states the arbitrary-girth S_k result.
+
+In any such graph of actual girth g>=3, every S of size g-1 induces an acyclic digraph. Choose its first two vertices in a topological order. S2 gives their common predecessor x. It cannot lie in S because the first vertex has no predecessor there. Thus every such S has an outside fork. The universal fork-free S assertion from girth alone is false. These known graphs do not supply the counterexample density n<=r(g-1); the density-sensitive C7 route remains open. No whole Haight1973 proof or new formal audit is claimed.
+
+## C11 Safe vertex bypass and exact minimum-counterexample obligation
+
+Let an actual r-out-regular digraph have girth>=g>=3. Delete v. For each u->v, choose
+w in N^+(v) minus (N^+(u) union {u})
+with dist_D(w,u)>=g-1, allowing infinite distance, and add u->w.
+This restores every row's degree r.
+
+Any new cycle using exactly one added arc has length>=g. If it uses m>=2 added arcs u_i->w_i, let ell_i be the length of the old segment from w_i to u_(i+1). The original graph contains the simple cycle
+v->w_i, that old segment, u_(i+1)->v,
+of length ell_i+2, hence ell_i>=g-2. The new cycle has length at least m(g-1)>=g. The choices therefore combine safely; there is no unproved independence assumption between them.
+
+In a minimum-order CH counterexample, every vertex v consequently has an incoming arc u->v such that every new target w in N^+(v) minus N^+(u) has dist_D(w,u)=g-2. The target set is nonempty because the equal-size out-neighborhood of u contains v and that of v does not. No two-cycle gives u outside N^+(v). The original two-edge path u->v->w forces dist(w,u)>=g-2; any larger distance would be safe. These selected blocked incoming arcs form a directed subgraph of minimum indegree>=1, and each lies on an original g-cycle. This necessary condition is not contradictory by itself.
+
+The weighted version also remains unclosed. In a vertex-minimal fractional counterexample with positive weights w and Aw=1, deletion is safe if, for every u->v, the total weight of the above safe new targets is at least w_v; add all of them. The same cycle argument applies. Therefore some incoming u has safe-target mass<w_v. Because N(v) has mass1 and N(v) intersection N(u) has mass<=1-w_v, at least one unsafe target exists. At a minimum-weight vertex all new targets are unsafe. This does not prove that condition for every vertex or yield the required global mass contradiction.
+
+## C12 Known sharp circulation control and nonuniform gap
+
+For r>=1,L>=2, take the standard circulant on n=rL+1 vertices with arcs i->i+a,1<=a<=r. It is strong and in/out-regular. No walk of length<=L can wrap around; the L successive r-steps followed by a1-step give girth L+1.
+
+For every arc0->a, all new targets are r+1,...,r+a, and their distance back to0 is L-1=g-2. Thus every arc is blocked in C11, although CH holds at its sharp boundary. The set {0,r,...,(L-1)r} is fork-free: every r-consecutive-vertex out-neighborhood meets it at most once. Its deletion leaves (r-1)L+1 vertices, again at the sharp boundary.
+
+Uniform primal and dual weights1/r give the exact fractional domination optimum L+1/r. These are known circulant controls, not a new class theorem. They rule out any fixed positive fractional gap above g-1 independent of r, so finite gaps in C13 cannot become a uniform estimate.
+
+## C13 Known complete fractional-domination equivalence and bounded discovery
+
+St-Louis–Gendron–Hertz, Total Domination and the Caccetta-Haggkvist Conjecture, dated2December2009, Theorems5–6, already proves equivalence with TDF(G)>g(G)-1, where TDF=min{sum w: w>=0,Aw>=1}. Their paper excludes loops and two-cycles; the latter lie in the elementary part of CH. It also gives the positive-support variant and the minimal-counterexample positive-basic/invertible-A reduction. These are attributed existing whole-domain inputs.
+
+For clarity, an exact rational negative witness w yields a binary graph directly. Take a common denominator M and replace vertex j by M w_j independent clones, omitting zero weights; put all directed clone arcs exactly where A has an arc. There are M sum w vertices, and each active row has at least M outgoing neighbors. Any clone cycle projects to a closed walk in G, hence has length at least g(G). If sum w<=g(G)-1 this is a genuine finite CH counterexample. Conversely uniform w=1/r gives TDF<=n/r. This bridge is not a weighted-matrix reverse witness.
+
+One300-second discovery run used selected Hamiltonian saturated bases and mutations with orders13,17,21,25,29,33,41 and thresholds4 through8:35 cells and70,699 starts. No exact rational negative witness was found. Every stored best graph is actual binary/loopless, with exact row degrees and BFS/closed-walk girth checks. Rational primal and dual certificates coincide for all35 stored optima; independent parsing/recomputation checks every row/column inequality and actual girth. The smallest certified gap is1/3. These selected finite inputs neither prove CH nor a graph class. Floating objectives alone were never accepted.
+
+The elementary weighted g=2 and g=3 cases agree with the known base cases. Multiply Aw>=1 by positive w and sum. In a loopless graph the arc sum is at most W^2-sum w_i^2, so W>1. With no antiparallel arcs it is at most (W^2-sum w_i^2)/2, so W>2. Nothing in this count supplies W>3 when directed triangles are also absent.
+
+## C14 Honest stage closure
+
+The complete target CH0/CH1 was retained throughout. No full proof or legal actual binary counterexample was obtained. C9 is an inadmissible spectral model; C10 uses existing results to reject an overstrong deletion assertion; C11 remains a necessary-condition route; C12 is a known sharp family; C13 is a known equivalent formulation with finite discovery only. New major-result count remains zero.
+
+Close at04:58:12UTC with approximately2706effective seconds (45m06): source1m41, first mathematics13m54, mathematics04:24:53.943317–04:43:56, and resumed mathematics04:47:43.037711–04:58:12. The checkpoint preservation04:20:42–04:24:53.943317 and conservative context-recovery04:43:56–04:47:43.037711 are excluded, as is the initial map/commit interval. There was no CH manuscript-service pause: the parent's new bulk review was handled by another authorized role. All discovery processes ended. Closing preservation is excluded. Next action is fresh primary screening of a different complete high-impact theoretical problem before any new map/mathematics; no next mathematical stage has started here.
