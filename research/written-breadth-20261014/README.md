@@ -76,9 +76,11 @@ full negative result; its original graph/graphon scope, actual pattern,
 host construction and independent-reading limits are recorded in
 [the primary exclusion](SIDORENKO_PRIMARY_EXCLUSION.json). No Sidorenko
 mathematical stage or independent complete-proof/Lean audit was started.
-The sole breadth role is now screening the complete Caccetta-Haggkvist
+The sole active breadth target is now the complete Caccetta-Haggkvist
 short-cycle conjecture over all finite digraph orders and positive
-minimum-outdegree parameters. A full map must precede mathematics.
+minimum-outdegree parameters. Current [primary screening](CACCETTA_HAGGKVIST_SOURCES.json)
+found no full resolution; the [complete map](CACCETTA_HAGGKVIST_THEOREM_MAP.md)
+precedes the [ordinary mathematical attempt](FULL_CACCETTA_HAGGKVIST_ATTEMPT.md).
 Foregger15/Kraeuter36 remain screening backups; the solved Foregger17 and
 old failed whole routes remain excluded. All stream disconnect/idle,
 preservation and authorized service time is excluded from the inherited
