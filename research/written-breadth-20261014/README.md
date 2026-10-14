@@ -97,10 +97,14 @@ distinguish those claims from independent full-proof or Lean certification.
 The [EPnI primary screen](EPNI_PRIMARY_EXCLUSION.json) found an existing public
 full finite-energy-domain proof claim and excludes duplicate central-domain
 research. Its original energy-assumption boundary is explicit; no infinite-energy
-extension or full32page/Lean audit is claimed. The current breadth action is
-original-model and current-primary screening of the complete Hamiltonian
-Quantum PCP conjecture. No new mathematical stage is activated before
-status, full parameters and the complete map are verified.
+extension or full32page/Lean audit is claimed. The current complete cross-theory target is
+[Hamiltonian Quantum PCP](QUANTUM_PCP_THEOREM_MAP.md), after original-model
+and current-primary screening confirmed the full target still open.
+[Actual primary read scopes](QUANTUM_PCP_SOURCES.json) distinguish the
+permitted quantum reductions, general-QMA promises and true energy gap
+from QSAT perfect completeness, already proved NLTS and combinatorial-only
+amplification. The [written attempt](FULL_QUANTUM_PCP_ATTEMPT.md) begins
+after the complete map is saved; no limited-model result is counted.
 Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
 replace the full log-rank target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
