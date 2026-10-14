@@ -69,13 +69,20 @@ Complement averaging/subset kernels, finite controls and rigorous shortcut
 obstructions remain exploration; old finite/sparse/dense results are not
 new full solutions.
 
-The sole breadth role will complete the separately requested manuscript
-service and then screen another full original unresolved conjecture,
-including the complete nearly-decomposable Foregger15 or Kraeuter36
-candidates. No candidate is activated before current primary verification;
-the already solved Foregger17 and old failed whole routes remain excluded.
-All stream disconnect/idle, preservation and authorized service time is
-excluded from the inherited45-90effective-minute switching rule.
+The new366-line APPT positive-axis ordinary review is saved separately in
+1a8aea4df. The current whole-target primary screen excludes Sidorenko from
+new-result research because an already public manuscript claims an exact
+full negative result; its original graph/graphon scope, actual pattern,
+host construction and independent-reading limits are recorded in
+[the primary exclusion](SIDORENKO_PRIMARY_EXCLUSION.json). No Sidorenko
+mathematical stage or independent complete-proof/Lean audit was started.
+The sole breadth role is now screening the complete Caccetta-Haggkvist
+short-cycle conjecture over all finite digraph orders and positive
+minimum-outdegree parameters. A full map must precede mathematics.
+Foregger15/Kraeuter36 remain screening backups; the solved Foregger17 and
+old failed whole routes remain excluded. All stream disconnect/idle,
+preservation and authorized service time is excluded from the inherited
+45-90effective-minute switching rule.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result
