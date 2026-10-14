@@ -76,15 +76,20 @@ full negative result; its original graph/graphon scope, actual pattern,
 host construction and independent-reading limits are recorded in
 [the primary exclusion](SIDORENKO_PRIMARY_EXCLUSION.json). No Sidorenko
 mathematical stage or independent complete-proof/Lean audit was started.
-The sole active breadth target is now the complete Caccetta-Haggkvist
-short-cycle conjecture over all finite digraph orders and positive
-minimum-outdegree parameters. Current [primary screening](CACCETTA_HAGGKVIST_SOURCES.json)
-found no full resolution; the [complete map](CACCETTA_HAGGKVIST_THEOREM_MAP.md)
-precedes the [ordinary mathematical attempt](FULL_CACCETTA_HAGGKVIST_ATTEMPT.md).
-Foregger15/Kraeuter36 remain screening backups; the solved Foregger17 and
-old failed whole routes remain excluded. All stream disconnect/idle,
-preservation and authorized service time is excluded from the inherited
-45-90effective-minute switching rule.
+The [complete Caccetta-Haggkvist stage](FULL_CACCETTA_HAGGKVIST_ATTEMPT.md)
+closed after approximately45m06effective without a full proof or legal binary
+counterexample. Every order and positive minimum-outdegree parameter in
+the [complete map](CACCETTA_HAGGKVIST_THEOREM_MAP.md) was retained.
+[Primary scopes](CACCETTA_HAGGKVIST_SOURCES.json) and
+[the stage boundary](CACCETTA_HAGGKVIST_STAGE_CLOSED.json) preserve known
+inputs, shortcut obstacles and finite exact discovery. No major result is
+counted. Current routing is fresh primary screening of a different complete
+high-impact theoretical problem across mathematics, theoretical computer
+science, theoretical physics or information theory; no new mathematical
+stage has started. Foregger15/Kraeuter36 remain screening backups; the solved
+Foregger17 and old failed whole routes remain excluded. All stream
+disconnect/idle, preservation and authorized service time is excluded from
+the inherited45-90effective-minute switching rule.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

@@ -18,3 +18,5 @@ Prepared before the mathematical phase,14October2026; all statements below refer
 - **CH12 Future breadth selection.** The user authorizes complete high-impact strictly stated theoretical problems across mathematics, theoretical computer science, theoretical physics and information theory; future candidates need not remain within mathematics. This does not change CH0 or reset its effective clock. No additional agent is authorized.
 
 The complete mathematical target is CH0. Reductions CH2,CH5,CH6 preserve that target; they do not replace it with a restricted regular or girth-three conjecture.
+
+Stage closed at04:58:12UTC after approximately45m06effective: no complete solution or legal binary witness. The map above remains the original whole target, not an active claim. See CACCETTA_HAGGKVIST_STAGE_CLOSED.json; next mathematical stage has not started.
