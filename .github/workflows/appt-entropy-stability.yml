@@ -1,0 +1,39 @@
+name: APPT physical entropy-head stability
+on:
+  push:
+    branches: ['review/appt-entropy-stability-20261014']
+    paths:
+      - 'formalizations/appt-high-dimensional-review/**'
+      - 'formalizations/appt-qutrit-purity/**'
+      - '.github/workflows/appt-entropy-stability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  entropy-stability:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Fresh selected closure and trust-zero physical audit
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 reproduce_entropy_stability.py --fresh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-entropy-stability-${{ github.sha }}
+          path: |
+            formalizations/appt-high-dimensional-review/verification/entropy-stability-reproduction/
+            formalizations/appt-high-dimensional-review/ENTROPY_STABILITY_HASHES.json
+            formalizations/appt-high-dimensional-review/APPTReview/
+            formalizations/appt-high-dimensional-review/EntropyStabilityAudit.lean
+            formalizations/appt-high-dimensional-review/reproduce_entropy_stability.py
