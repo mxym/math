@@ -142,7 +142,7 @@ The smallest observed maximum of the two parties' rank-k strip masses was3/5,7/1
 
 This auxiliary existence proof rejects a stronger greedy claim, not LR0 or L12. For all sufficiently large integers r, set
 c=floor((log_2 r)/8), N=floor(r^(3/2)), d=floor((r+3)/2).
-There exist finite families A,B of subsets of[r], with all cross intersections0/1, for which the intersection matrix has real rank exactly r and deterministic cost O(log^2 r), yet every complete row or column strip of rank<=d has relative mass O(r^(-1/8)). No priority is claimed for this elementary easy-family control.
+There exist finite families A,B of subsets of[r], with all cross intersections0/1, for which the intersection matrix has real rank exactly r and deterministic cost O(log r), yet every complete row or column strip of rank<=d has relative mass O(r^(-1/8)). No priority is claimed for this elementary easy-family control.
 
 First, for any linear subspace F of R^r of dimension<=d, some d coordinates (or fewer, extended to d) give an injective coordinate projection on F. Consequently F contains at most
 sum_{j=0}^c binomial(d,j)
@@ -161,7 +161,7 @@ The expected total bad pairs is O(r c^4). By Markov, with probability1-o(1) ther
 Append all r singletons again to the two retained families A,B. Every cross inner product is0 or1. Their intersection matrix contains the r-by-r identity on the singleton rows and columns, and its coordinate factorization has rank<=r. Therefore its exact rank is r; both coordinate families span R^r, so row and column strip ranks equal their coordinate-span dimensions. Deleting sets cannot increase a flat's count, and the denominator in either family is at least N-2r^(5/4)+r. Hence every rank<=d strip has mass at most
 (2p_r N+d+r)/(N-2r^(5/4)+r)=O(r^(-1/8)).
 
-A deterministic protocol sends Alice's at-most-c elements using c slots over labels0,...,r, padding with0; Bob computes the intersection and broadcasts its bit. Its cost is at most c ceil(log_2(r+1))+1=O(log^2 r). There are also exactly r positive disjoint all-one rectangles, one for each coordinate: overlap<=1 makes their supports disjoint, and rank r gives the matching lower bound. This family is thus especially easy for LR0.
+A deterministic protocol sends Alice's at-most-c elements using c slots over labels0,...,r, padding with0; Bob computes the intersection and broadcasts its bit. Its cost is at most c ceil(log_2(r+1))+1=O(log^2 r). A shorter protocol names Alice's row among at most N+r inputs, then Bob broadcasts its value; its cost is at most ceil(log_2(N+r))+1=O(log r). There are also exactly r positive disjoint all-one rectangles, one for each coordinate: overlap<=1 makes their supports disjoint, and rank r gives the matching lower bound. This family is thus especially easy for LR0.
 
 It follows that no fixed positive constant can replace the quasipolynomial mass guarantee in L12 for all actual matrices. The r^(-1/8) upper control is still compatible with that unresolved guarantee. This is an infinite auxiliary obstruction to constant-mass concentration, not a legal log-rank reverse family and not a complete major result.
 
@@ -174,3 +174,68 @@ Singer--Sudan2101.09592v5 supplies prior full-domain geometric/listability equiv
 ## L18 Same complete target, third active preservation
 
 At06:13:24UTC the earlier2594effective seconds plus05:53:17-05:58:07(290seconds) and06:01:36-06:13:24(708seconds) total3592seconds,59m52. Preservation05:51:05-05:53:17 and recovery05:58:07-06:01:36 are excluded. This new preservation is excluded too. The explicit120minute same-stage policy remains active, with no authorized review-service pause. LR0 is unresolved here: no all-matrix uniform polylog protocol and no admissible superpolylog reverse family. All discovery processes ended. Continue the remaining effective hour after this safe save, without resetting or substituting the stronger-lemma control for the target.
+
+## L19 Known all-graph equivalence, with explicit full-matrix bridge
+
+The graph-chromatic formulation is a known whole-target equivalence, not a new theorem. The current Beniamini--Linial--Shraibman primary statement and their short Section3 were read with bounded scopes. Here is a complete algebraic reduction that preserves every finite rectangular matrix.
+
+For each1-entry (x,y) of M, introduce a vertex. Join different vertices u=(x,y),v=(x',y') when M(x,y')M(x',y)=0. Its adjacency matrix C is symmetric, binary and has zero diagonal. If M=a_x^T b_y has rank r, then
+P[u,v]=M(x,y')M(x',y)=tr((a_x b_y^T)(a_x' b_y'^T))
+has rank<=r^2, by expanding the two r-coordinate sums. Hence C=J-P has real rank<=r^2+1. Every independent set in C lies inside an all-one rectangle of M: all pairwise cross corners are1, including the vertex's own1-entry. Conversely an all-one rectangle gives an independent set. Therefore the chromatic number of C is exactly the one-cover number of M, where covers may overlap. This is not the disjoint one-partition p(M).
+
+A uniform quasipolynomial chromatic bound for all simple finite graphs therefore gives quasipolynomial one-cover bounds for every M and J-M (the latter has rank<=r+1). The known two-sided nondeterministic-cover simulation then gives LR0. Conversely an LR0 protocol for a graph's adjacency matrix colors each vertex by the leaf reached on its diagonal input(v,v). If two vertices have the same leaf, both cross pairs are in that zero rectangle, so they are nonadjacent. There are at most2^D colors. Thus symmetry and zero diagonal can be studied without narrowing the full domain.
+
+For any independent set I in a graph, its complete adjacency row strip has rank<=rank(A_G)/2: in the block[0 B;B^T Z], rank(A_G)>=2rank(B), and the strip rank is rank(B). Its relative mass is not controlled by this identity. Schur complement of an edge partitions vertices by their two adjacency bits; most parts lose two ranks, and the common-neighbor part loses at least one. Iterating such fixed-size pivots only gives an exponential-in-r coloring recurrence, not the required quasi-polynomial bound.
+
+There is also an exact rank-one algebraic closure: with a minimal factorization, U_xy=a_x b_y^T satisfies
+U_xy U_x'y'=M(x',y) U_xy'.
+Every actual entry is0/1, so products are zero or another corner. One-corners are idempotent, zero-corners square to zero. This finite semigroup construction already encodes arbitrary M; its closure does not prove any new coloring or partition bound.
+
+The prior Rank-Ramsey constructions give fixed-power separations, not a full superpolylog family. Ordinary random adjacency matrices do not retain low real rank. Fixed-base products likewise do not close LR3. No polynomial bound on graph chromatic number in r is assumed: existing superpolynomial chromatic separations already exclude that stronger bound.
+
+## L20 Generic field, intersection-search and norm substitutions remain blocked
+
+For the standard inner-product matrix M_k(x,y)=sum_i x_i y_i modulo2 over all k-bit inputs, rank over F2 is k. Its real rank is instead2^k-1. After removing the zero row, the real row Gram matrix is(2^k/4)(I+J), with diagonal2^(k-1) and off-diagonal2^(k-2), and is nonsingular. The k1case is direct. Consequently the finite-field exponential gap is inadmissible for LR3. Both real rank and total-product constraints must remain.
+
+The old Ben-Sasson--Lovett--Ron-Zewi primary approximate-duality route uses F2 only after preserving a biased real-low-rank submatrix. Its historical PFR assumption must not be called open today: characteristic-two PFR is already proved by Gowers--Green--Manners--Tao, published in2025. The2011 implication gives only O(r/log r), and their Remark1.11 already describes a generic finite-field high-bias obstruction at root-dimension scale. It does not carry a small real-rank certificate and is not a full counterexample. The original modern PFR proof was not audited here.
+
+A small overlapping rectangle cover that guarantees a common witness does not guarantee a cheap protocol to find one. Gavinsky's prior inevitable-intersection total-product relation has n such witness rectangles and a polynomial-in-n randomized lower bound. Its definition and claimed lowerbound scope were actually read, not its whole13-page proof. Its decision predicate is constant on its product domain, so no Boolean decision lower bound or log-rank refutation follows. It blocks only a naive witness-matching step in cancellation elimination.
+
+Similarly gamma2/spectral or finite-alphabet relaxations do not supply the missing two-sided structure. The existing bounded-integral-matrix theorem has a root-rank scale; the existing norm-only and single-folding failures were already credited. No field, norm or larger-alphabet counterexample is promoted to LR3.
+
+## L21 Full-domain weighted cancellation condition, an unproved core
+
+Gavinsky--Lovett's original zero-communication definition requires a nonnegative probability distribution on labeled rectangles. Every individual input must be covered with probability at least2^(-c), and conditioned on coverage the label must be correct with probability at least2/3. Their Theorem3.1, whose complete short proof was actually read, gives deterministic cost O(c log^2(rank+1)), with finite ranks normalized. This is a prior whole-domain bridge. Ordinary signed sampling, a correlated input tilt and a quantum squared amplitude do not themselves meet its conditions.
+
+Their extended-discrepancy bridge leads to this useful explicitly unproved equivalent condition. Fix global constants C0>=1,C>=1,k>=1, set Q(rho)=2^[C log_2(rho+1)^k], and require that for EVERY finite sign matrix S of real rank rho and EVERY joint input probability distribution sigma, there is a signed primitive sum
+F=sum_(i=1)^q epsilon_i 1_(R_i), q<=Q(rho), epsilon_i in{-1,1},
+such that
+||S-F||_(L2(sigma))<=1/4 and L_sigma:=sum_i sigma(R_i)<=C0.
+The decomposition may depend on sigma; F need not be a sign matrix. This is an auxiliary positive-proof condition quantified over every original matrix, not an admissible negative witness or a proved construction.
+
+To check sufficiency, use alpha=1/(4C0), a fixed constant in(0,1/3). If sigma obeys every rectangle inequality
+|sum_R sigma(x,y)S(x,y)|<=1/K+alpha sigma(R),
+then Cauchy-Schwarz and ||S||_(L2(sigma))=1 give
+3/4<=sum sigma S F<=q/K+alpha L_sigma<=Q(rho)/K+1/4.
+Thus K<=2Q(rho). A uniform extended-discrepancy bound of this size gives LR0 via the existing logarithmic-cost bridge. Only quasipolynomial equivalence is used here, not a stronger literal constant-factor statement about K.
+
+Conversely LR0 provides a deterministic leaf decomposition F=S with q<=2^D and disjoint complete leaves, so L_sigma=1 for every sigma. Hence the quantified condition retains the whole target. No such universal sparse low-overlap decomposition has been constructed here.
+
+For an exact signed decomposition, the same calculation is1<=q/K+alpha L_sigma. The known short signed bridge controls q but only gives L_sigma<=q; it cannot yield a useful fixed-alpha bound. The actual easy cancellation-entropy family can keep L_sigma large in a fixed representation. Approximation or a new representation adapted to sigma must therefore be proved, not inferred from small signed rank. All joint sigma are required; product-cloning from L9 alone does not cover them.
+
+## L22 Compressed multiplication does not become a commutative algebra
+
+Add the constant column if necessary, so V=span{1,actualBooleancolumns} has dimension<=r+1. On the finite row probability space let P_V be orthogonal projection and let
+E_f=P_V D_f P_V restricted to V,
+where D_f multiplies by a Boolean column f. Then0<=E_f<=I, E_f1=f, E_f^2 1=f, and[E_f,E_g]1=0. These follow directly from f^2=f and P_V f=f. They preserve the actual input table but do not imply that all E_f commute.
+
+For an exact control, take all four inputs(x1,x2) in{-1,1}^2 and columns1,(1+x1)/2,(1+x2)/2. Its real rank is3. In the orthonormal basis(1,x1,x2), the two nonconstant compressions are
+E1=(1/2)[[1,1,0],[1,1,0],[0,0,1]],
+E2=(1/2)[[1,0,1],[0,1,0],[1,0,1]].
+Their commutator is(1/4)[[0,0,0],[0,0,1],[0,-1,0]], nonzero even though it annihilates1 and1,E1 1,E2 1 span V. This is an easy actual table, not a full negative example.
+
+If V were closed under multiplication, every nonempty Boolean pattern atom product(f_i or1-f_i) would lie in V, so there would be at mostdim V distinct row patterns and a short one-way protocol. That closure is false in general, as the control shows. No Jordan-algebra, independence, simultaneous isotropy or exact classical probability rule is silently substituted for the actual matrix constraints.
+
+## L23 Fourth active checkpoint, no closure at the old ninety-minute window
+
+At06:46:22UTC the prior3592seconds plus06:16:50-06:46:22(1772seconds) total5364effective seconds,89m24. Save06:13:24-06:16:50 is excluded. This preservation is excluded, and the remaining1836effective seconds continue the same complete LR0 stage. No manuscript-review service, idle wait, repeated random search, new agent or full theorem has occurred. The stronger constant-flat claim is blocked; the full quasipolynomial flat and weighted-cancellation claims remain unproved. No all-matrix protocol and no legal superpolylog reverse family. New major results remain zero.
