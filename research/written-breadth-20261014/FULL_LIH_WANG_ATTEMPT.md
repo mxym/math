@@ -4,7 +4,7 @@ Yongxian Zhang, School of Computer Science and Engineering, South China
 University of Technology; mxymmxym1@gmail.com; ORCID0009-0000-3864-3536.
 14 October 2026. No external funding. OpenAI AI assistants assisted.
 Original route exposition all rights reserved; prior results remain credited.
-Active ordinary research, not a solved theorem, Lean or priority claim.
+Preserved closed research stage; no solved theorem, Lean or priority claim.
 
 ## L0. The complete original target and clock
 
@@ -146,3 +146,96 @@ assuming normalized subpermanent monotonicity: the stronger Holens-Djokovic
 assertion is already false, as recorded in Wanless's 1999 primary author
 abstract and the 2005 survey. Its existing counterexamples do not by
 themselves violate the distinct original half-segment chord assertion.
+
+
+## L5. Exact verification boundary and an inadmissible root-model witness
+
+All 24 stored discovery matrices were independently rechecked with integer
+matching DP and inclusion-exclusion, including their actual margins and
+the exact saved chord numerators. An independently constructed centered
+rook polynomial, followed by exact real-root isolation/Sturm signs,
+certifies the original entire t interval [0,1/2] for each of these fixed
+matrices. This is only a finite-input exclusion, not the all-matrix or
+all-size conjecture. No legal strict reverse witness was obtained.
+
+A tempting reduction keeps only positive matching-root parameters gamma_i,
+sum gamma_i=n and product gamma_i>=n!/n^n. It is insufficient to preserve
+actual doubly stochastic feasibility. The exact three-parameter model
+(1/9,13/9,13/9) has r_1=3, r_2=65/27 and r_3=169/729>2/9. Its generating
+polynomial has three negative real roots, but its implied centered
+c_2=11/81, c_3=-92/729 give a negative half-chord gap -13/972. No actual
+matrix has been supplied; moreover a necessary actual matrix inequality
+rigorously rules it out. This is not a Lih-Wang counterexample.
+
+For any actual three-order doubly stochastic matrix, each row satisfies
+b_j=a_j-1/3, a_j>=0, sum a_j=1. With e_2 and e_3 the elementary row
+symmetric functions,
+
+    sum b_j^3+(1/6)sum b_j^2=(1-4e_2+9e_3)/3>=0.          (L7)
+
+To see the sign without invoking the conjecture, order a>=b>=c>=0. Then
+1-4e_2+9e_3=sum_cyclic a(a-b)(a-c)
+=(a-b)^2(a+b-c)+c(a-c)(b-c)>=0. Summing the three rows, and using the
+zero-margin identities c_2=sum b_ij^2/6 and c_3=(2/3)sum b_ij^3, gives
+
+    c_3>=-(2/3)c_2.                                      (L8)
+
+The fake root model has -92/729<-66/729, violating L8. The necessary
+feasibility gate excludes it independently of assuming Lih-Wang. For the
+actual known n=3 case, L8 also gives H_A(t)=c_2+c_3(1+t)
+>=c_2(1-2t)/3>=0. This only restates an already settled order-three bridge;
+it is not a new complete all-n result.
+
+## L6. Whole-domain radial reformulation and its limit
+
+Set A_s=J_n+s(A-J_n), 0<=s<=1, which is still an actual doubly stochastic
+matrix, and h_A(s)=[f_A(s)-c_0]/s for s>0. The original complete conjecture
+is equivalent to
+
+    h_A(x)<=h_A(s) whenever 0<x<=s/2 and 0<s<=1.           (L9)
+
+Indeed apply the original assertion to A_s at t=x/s to obtain L9.
+Conversely s=1 yields the original assertion; zero/endpoints follow by
+continuity. L9 compares slopes separated by at least a factor two, and
+does not require monotonicity at every pair of radii. In the known legal
+control, h_A(s)=s/12-s^2/18 decreases locally for s>3/4. Nevertheless
+h_A(s)-h_A(x)=(s-x)[1/12-(s+x)/18]>=0 for x<=s/2 and s<=1. Hence a failure
+of local slope monotonicity, including a stronger normalized-subpermanent
+route, does not by itself disprove the original conjecture. No all-size
+proof of L9 has been established here.
+
+## L7. Exact binomial formulation and a false coefficientwise shortcut
+
+For noncentered rook sums of the actual A, define
+
+    u_m=n^m r_m(A)/[binom(n,m)^2 m!], 0<=m<=n.
+
+Then u_0=u_1=1, u_n=per A/c_0, and multilinearity gives the exact full
+parameter identity
+
+    per[(1-t)J_n+tA]/c_0
+      =sum_m binom(n,m)t^m(1-t)^(n-m)u_m.                 (L10)
+
+Thus the complete assertion is E[u_B]<=1+t(u_n-1), with B distributed
+as Binomial(n,t) and every actual A, n>=3, t in [0,1/2]. The sufficient
+coefficientwise bounds u_m<=1+(m/n)(u_n-1) cannot be assumed: the actual
+known three-order control has u_2=u_3=9/8, while its proposed m=2 bound
+is 13/12<9/8. Binomial averaging still gives the correct half-interval
+sign, since its excess is (3t^2-2t^3)/8<=t/8. The exact representation
+therefore isolates another unproved whole-domain sign, rather than a
+proof or a finite-order major result.
+
+
+## L8. Natural full-stage boundary
+
+The whole-original-domain attempt closed at 2026-10-14 02:29:01 UTC
+after approximately 45m11s of effective work. The exact inherited
+service-before subtotal is 16m06s; all authorized manuscript/index
+service, preservation and the 02:21:20-02:24:46 recovery gap are excluded.
+The detailed ledger and literal artifact bindings are saved in
+LIH_WANG_STAGE_CLOSED.json. There is no complete proof or legal strict
+counterexample. All finite controls, whole-domain reformulations and
+shortcut obstructions are exploration, with zero new major results.
+After the separately requested critical-window manuscript service,
+primary-source screening will select another genuinely unclosed whole
+conjecture; no restricted Lih-Wang subcase is promoted as completion.
