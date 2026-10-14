@@ -94,10 +94,13 @@ result is counted. The complete Courtade-Kumar candidate was excluded before
 any own mathematics because multiple public September2026 full-domain proof
 claims cover its original parameters; [actual primary read limits](COURTADE_KUMAR_PRIMARY_EXCLUSION.json)
 distinguish those claims from independent full-proof or Lean certification.
-The current breadth action is fresh whole-domain primary screening of the
-bosonic entropy photon-number inequality. No new mathematical stage is
-activated before current status and original all-input/all-mode parameters
-are verified and mapped.
+The [EPnI primary screen](EPNI_PRIMARY_EXCLUSION.json) found an existing public
+full finite-energy-domain proof claim and excludes duplicate central-domain
+research. Its original energy-assumption boundary is explicit; no infinite-energy
+extension or full32page/Lean audit is claimed. The current breadth action is
+original-model and current-primary screening of the complete Hamiltonian
+Quantum PCP conjecture. No new mathematical stage is activated before
+status, full parameters and the complete map are verified.
 Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
 replace the full log-rank target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
