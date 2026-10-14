@@ -90,10 +90,21 @@ after120m03effective without a complete proof or legal infinite counterfamily.
 [Primary scopes](LOG_RANK_SOURCES.json), [the complete written attempt](FULL_LOG_RANK_ATTEMPT.md)
 and [the stage boundary](LOG_RANK_STAGE_CLOSED.json) preserve known inputs,
 unproved full-domain gates and exact stronger-route controls. No major
-result is counted. The current breadth action is fresh whole-domain primary
-screening for a next information-theory candidate, initially the complete
-Courtade-Kumar most-informative-Boolean-function problem; it is not activated
-until current status and original parameter domain are verified and mapped.
+result is counted. The complete Courtade-Kumar candidate was excluded before
+any own mathematics because multiple public September2026 full-domain proof
+claims cover its original parameters; [actual primary read limits](COURTADE_KUMAR_PRIMARY_EXCLUSION.json)
+distinguish those claims from independent full-proof or Lean certification.
+The [EPnI primary screen](EPNI_PRIMARY_EXCLUSION.json) found an existing public
+full finite-energy-domain proof claim and excludes duplicate central-domain
+research. Its original energy-assumption boundary is explicit; no infinite-energy
+extension or full32page/Lean audit is claimed. The current complete cross-theory target is
+[Hamiltonian Quantum PCP](QUANTUM_PCP_THEOREM_MAP.md), after original-model
+and current-primary screening confirmed the full target still open.
+[Actual primary read scopes](QUANTUM_PCP_SOURCES.json) distinguish the
+permitted quantum reductions, general-QMA promises and true energy gap
+from QSAT perfect completeness, already proved NLTS and combinatorial-only
+amplification. The [written attempt](FULL_QUANTUM_PCP_ATTEMPT.md) begins
+after the complete map is saved; no limited-model result is counted.
 Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
 replace the full log-rank target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
