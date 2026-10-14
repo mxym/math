@@ -416,8 +416,10 @@ the optional distinct-support flags). Correctness is uniform over all
 witnesses, not just the tomography inputs. Output Hamiltonians need not
 be identical on all successful runs; that stronger property is not assumed.
 
-This directly rederives the KNOWN qualified proof-verification-to-LH bridge.
-It does not prove QMA has such a given verifier. The unclosed full target
+This rederives the randomized all-state reconstruction COMPONENT of the
+KNOWN qualified proof-verification-to-LH bridge. It does not independently
+prove a fixed-output quantum reduction convention or that QMA has such a
+given verifier. The unclosed full target
 QP0 is precisely where an all-QMA constant-query construction is missing.
 
 ## Q14. The known reverse bridge preserves entangled-proof soundness
@@ -624,3 +626,249 @@ This is a rederivation of a known conditional bridge, not a new major
 result. The assumption that all constant-gap LH is in QCMA is not proved,
 nor is an all-QMA constant-query verifier constructed. The complete QP0
 gates are unchanged.
+
+
+## Q21. Direct positive compression estimate and its remaining depth loss
+
+Let 0<=h<=I and let G<=P be nested projections with
+P h P>=g(P-G), g>0. For any density operator rho set
+alpha=Tr(h rho) and eta=Tr((I-P)rho). Purify rho, if necessary.
+The triangle inequality gives
+||sqrt(h)P psi||<=(sqrt(alpha)+sqrt(eta)).
+Consequently
+Tr((I-G)rho)<=eta+(sqrt(alpha)+sqrt(eta))^2/g.
+In particular the upper bound is
+(1+2/g)eta+2alpha/g. No independent spectral gap of h is needed.
+For any t>0 one can also use
+[1+(1+1/t)/g]eta+[(1+t)/g]alpha.
+This is a direct all-state operator inequality, including arbitrary
+entanglement with an external reference.
+
+Apply it CONDITIONALLY to the displayed ABN compressed propagation
+formula (their Eq56, actually read), not to an unproved global decoder.
+Write L=4^k, u=L^(-1/2)sum_e |e>, D=Lambda^tensor k with
+Lambda=diag(delta,1,1,1), 0<delta<=1.
+The compressed matrix is
+C_k D(I-|u><u|)D, C_k=L delta^(2k)/(1+3delta^2)^k.
+Its kernel is the span of phi_0^tensor k, since it is D^(-1)u.
+The nonzero spectrum of D(I-uu^*)D equals that of
+(I-uu^*)D^2(I-uu^*) restricted to u-perpendicular.
+
+D^2 has its unique smallest entry delta^(2k) at the all-I coordinate,
+and every other entry is at least delta^(2k-2). For a unit vector
+y perpendicular to u, Cauchy-Schwarz gives |y_0|^2<=(L-1)/L.
+Therefore the nonzero compressed gap has the explicit lower bound
+g_k(delta)>=
+delta^(4k-2)[1+(L-1)delta^2]/(1+3delta^2)^k.
+Using P for the right k good resource pairs and G for both sides good,
+the preceding general inequality transfers purity with this g_k.
+For k=1 the compressed gap is exactly delta^2.
+
+For completeness the small-delta exponent can be determined directly.
+The weights delta^(2(k-r)) have multiplicities binomial(k,r)3^r.
+The determinant lemma shows that the lowest nonzero eigenvalue lambda
+of D(I-uu^*)D is the unique root between delta^(2k) and
+delta^(2k-2) of
+sum_(r=0)^k binomial(k,r)3^r/[delta^(2(k-r))-lambda]=0,
+for 0<delta<1. Scale lambda=c delta^(2k-2); as delta tends to0,
+the first two groups give -1/c+3k/(1-c)=0, and the remaining groups
+vanish in the scaled equation. Monotone bracketing around the unique
+root yields c tending to1/(3k+1). Thus the exact compressed gap is
+[4^k/(3k+1)+o(1)]delta^(4k-2).
+At delta=1 all nonzero eigenvalues of the compressed matrix are1.
+
+For k=2, putting e=delta^2, the two exceptional eigenvalues of
+D(I-uu^*)D have characteristic polynomial
+z^2-[(15e^2+10e+7)/16]z+e(1+3e)^2/16.
+The remaining nonzero eigenvalues are e (multiplicity5) and1
+(multiplicity8). The grouped determinant numerator
+(z-e)(z-1)+6(z-e^2)(z-1)+9(z-e^2)(z-e)
+was independently expanded symbolically and matched this polynomial
+after multiplication by16, residual0. This algebraic control does not
+certify a full Hamiltonian reduction.
+
+These estimates improve a SINGLE transfer step. Their direct repeated
+bounds still multiply the downstream error by a factor greater than1.
+They do not establish a depth-independent energy-density-to-fault bound,
+an efficient decoder, or the uniform full-QP0 constant promise gap.
+No restricted circuit class is promoted to a major result.
+
+## Q22. Local postselection escape for a sparse output-check template
+
+Let H_parent=sum_i h_i be a frustration-free parent Hamiltonian with
+M positive contraction terms, and H_out=sum_j o_j have P positive
+contraction terms supported inside a region R. Let K_R project onto
+their common kernel. Suppose some parent ground state psi satisfies
+K_R psi !=0. Then phi=K_R psi/||K_R psi|| has zero output energy.
+Every parent term disjoint from R commutes with K_R, so it still
+annihilates phi. If B_R is the set of parent terms meeting R,
+the variational principle gives
+lambda_min((H_parent+H_out)/(M+P))<=|B_R|/(M+P).
+No lower bound on the postselection probability is required: the remaining
+term expectations are at most1 on the NORMALIZED phi.
+
+Thus a bounded-degree parent with a small accessible accepting region
+cannot obtain a constant normalized NO energy from this template
+whenever the accepting projection has nonzero ground-state weight.
+Repeating the same output penalty does not remove the displayed escape.
+A construction can evade the premise by macroscopic protected readout,
+different parent structure, or an accepting kernel orthogonal to its
+whole ground space. This is not a general Quantum PCP impossibility.
+
+The related elementary count bound is also useful: any parent ground
+state has total output energy at most P, so the normalized minimum is
+at most P/(M+P). A spectral gap of the parent alone does not change
+these variational bounds. Full energy soundness must handle all states,
+not only the honest parent ground states.
+
+## Q23. Mixed-channel Choi support alone permits selective branches
+
+For a channel M(rho)=sum_a K_a rho K_a^*, its Choi support is spanned by
+the vectorizations |K_a>>. A projector penalty checking only membership
+in that support also accepts each nonzero individual |K_a>>.
+That resource corresponds, up to scaling, to the selective submap
+rho -> K_a rho K_a^*, which need not be trace preserving.
+
+For example dephasing has Kraus operators |0><0| and |1><1|.
+Its Choi support is span{|00>,|11>}. The pure resource |00> passes
+the support penalty and implements selection of the0 branch.
+More generally any PSD penalty having EXACT zero expectation on a
+mixed Choi state must annihilate every vector in its support, by
+positivity. Hence extra zero-energy support checks on that mixed
+state alone cannot enforce its decomposition weights.
+
+This obstructs a proposed substitution of general measured/adaptive
+processes by checks of mixed Choi support only. A purified environment,
+proper branch consistency or protected syndrome construction can change
+the premise. No fully general Clifford/instrument compiler or QP0
+impossibility follows. BGV's actual fault formalism explicitly handles
+certain nonphysical faults and postselected classical-function gates;
+it cannot be replaced by a naive independent-noise argument.
+
+## Q24. Merely coding the measurement record does not amplify its energy
+
+Consider the specific record template with a data projector Pi_i and
+a corresponding flag f_i:
+A_i=(I-Pi_i) tensor|1><1|_(f_i)+Pi_i tensor|0><0|_(f_i).
+It is a positive (k+1)-local projector enforcing the sharp check's
+data/flag relation. Suppose additional classical encoding/check terms
+on the flags and auxiliaries are frustration-free on the all-zero
+record, with some auxiliary zero-record state z.
+
+For every data state rho, rho tensor|0...0><0...0| tensor|z><z|
+has consistency energy sum_i Tr(Pi_i rho), and zero classical energy.
+The variational minimum of the combined normalized Hamiltonian is
+therefore at most lambda_min(sum_i Pi_i)/M_total.
+The encoding can be arbitrarily redundant; the all-zero sector remains.
+
+This direct record-only construction leaves the original small quantum
+energy in place. It does not invalidate ABN's different coherent tensor
+network, nor every possible coding/assignment-testing construction.
+Input-dependent threshold computation or additional quantum checks
+must be analyzed separately; no generic permitted quantum reduction is
+refuted by this template calculation.
+
+## Q25. Exact support flattening can destroy general-QMA completeness
+
+The two-projector input of Q2 also gives a fully legal inverse-polynomial
+promise control. For every integer N>=4 pad to N qubits, using
+H_delta=P_0+P_delta on one qubit and identity extension on the rest.
+All entries have polynomial rational descriptions.
+lambda_min(H_delta)=1-1/sqrt(1+delta^2).
+
+Use common thresholds a=1/(4N^2), b=1/(2N^2).
+For delta_Y=1/(2N), lambda_min<=delta_Y^2/2=1/(8N^2)<a.
+For delta_N=2/N,
+lambda_min>=delta_N^2/[2(1+delta_N^2)]
+=2/(N^2+4)>b.
+Both inputs have the same inverse-polynomial absolute promise gap b-a.
+
+For both positive deltas the exact support projector of the local
+sum H_delta is I. Thus replacing that local sum by its zero-cutoff
+support projector produces the SAME operator for the legal near-zero
+YES and NO pair. A branch-independent common output-threshold rule
+cannot distinguish them with a constant gap.
+This is a failure of that exact-kernel flattening recipe, not arbitrary
+spectral cutoffs or input-dependent quantum reductions. The variable
+constraint set is not a counterexample to BNZ's stated fixed-set theorem.
+
+## Q26. Numerical accuracy is not fixed-output coarse rounding
+
+Absolute scalar estimation error alone does not determine a fixed
+coarse binary prefix without a boundary margin. At p=1/2, take
+a Bernoulli sample mean from M=2r fair trials. The probabilities of
+being below and above p are each
+[1-binomial(2r,r)/4^r]/2.
+Both tend to1/2 even while the estimation error tends to0.
+With arbitrarily high probability the estimate is inside any fixed
+small neighborhood of p, yet ordinary binary truncation returns the
+two codes on opposite sides of this boundary. The same elementary
+issue occurs at a boundary of any interval coarse quantizer.
+
+The displayed BHW Algorithm1 variation and complete AppendixC were
+actually read, including the pinned v3 PDF pp51-52.
+Their numerical-error-to-correct-prefix step is not adopted as a
+certified unique-output argument here. This is a direct control of
+that simple inference, not a refutation of the conditional containment
+theorem or an independent full-paper audit. Our Q13 is a randomized
+common-witness reconstruction component; it need not always output
+the same Hamiltonian. Q20's explicit classical-packet validation proves
+its own conditional containment without relying on that property.
+A full QP0 construction must meet its chosen quantum-reduction convention.
+
+## Q27. A complete sufficient energy criterion, with its core unproved
+
+Suppose a uniform polynomial-time construction for ALL QMA promises
+produces constant-locality/dimension positive contraction term lists
+H_P=(1/M)sum_i p_i and H_O=(1/P)sum_j o_j.
+Assume there are fixed known positive rational epsilon_0,beta_0 such that:
+in every NO input, for EVERY global density operator rho,
+Tr(H_P rho)<=epsilon_0 implies Tr(H_O rho)>=beta_0.
+Assume every YES input has a state with both energies <=eta, where
+eta<=min(epsilon_0,beta_0)/8.
+Polynomial description/precision, and the intended reduction-success
+convention, are part of the construction hypothesis.
+
+Then F=(H_P+H_O)/2 has YES energy <=eta.
+For any NO state either its parent energy exceeds epsilon_0, or its
+output energy is at least beta_0; therefore its F energy is at least
+min(epsilon_0,beta_0)/2. The gap is at least
+3 min(epsilon_0,beta_0)/8, a universal positive constant.
+
+There is an exact equally weighted list realization: make P copies of
+each parent term and M copies of each output term. Its2MP terms are
+still positive contractions at the same constant locality/dimension
+and its normalized sum is F. This polynomial duplication fixes the
+relative list sizes WITHOUT supplying the unproved energy premise.
+Distinct-support conventions can use the optional Q12 flags.
+
+This conditional criterion covers general near-perfect completeness
+rather than requiring exact-zero QMA1. It identifies the needed
+all-state physical soundness statement. Q21's propagated bounds, BGV's
+fault-tolerance theorem with classical-side and vanishing-fraction
+qualifications, BNZ's combinatorial theorem, and the read ABN
+ground-space spectral comparison do not establish this premise.
+The criterion is an elementary sufficient condition, not a solution.
+
+## Final complete-stage outcome: full QP0 remains unresolved here
+
+The SAME original stage ended2026-10-14T10:11:06Z at7201effective
+seconds (120m01), including230premap primary seconds and6971seconds
+of mathematics/relevant source followup. All recovery/preservation
+intervals are recorded separately; requested service time was0.
+No full reduction, proof, complexity separation or refutation was obtained.
+The four complete gates remain:
+1. Every general-QMA promise, without substituting exact-zero/QMA1.
+2. True expectation-energy soundness against every coherent/entangled state.
+3. Constant locality/dimension and polynomial construction/precision,
+   without an unproved code/instant-decoder or reduction-output convention.
+4. Static noninteractive proof/Hamiltonian consistency, without replacing
+   it by an interactive, game, cryptographic, or classical-flag surrogate.
+
+Q1-Q27 are auxiliary controls, conditional criteria or explicitly
+attributed/rederived prior bridges. They do not increment the count of
+complete major problems solved. No new Lean/kernel/full-primary audit,
+external message or publication was performed by this role.
+Under the explicit finish-current-task instruction this role now
+preserves its material, reports to the parent, and becomes idle.
+No new target is activated or screened pending explicit user resume.
