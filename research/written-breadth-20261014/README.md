@@ -58,18 +58,24 @@ The [whole-domain theorem map](LIH_WANG_THEOREM_MAP.md),
 orders and finite candidates from the full target. Exact transport,
 radial/binomial formulations and shortcut obstructions remain exploration.
 
-The active complete target is [Minc's sixth normalized-minimum permanent conjecture](FULL_MINC_SIXTH_ATTEMPT.md):
-every integer n>=2 and every adjacent degree1<=k<n, over all actual binary
-regular matrices. The positive target is strict global-minimum decrease,
-covering both original readings; a negative result needs a strict reverse
-comparison with a universal next-degree lower certificate. The
-[whole-domain map](MINC_SIXTH_THEOREM_MAP.md) and
-[current primary/source and old-route screen](MINC_SIXTH_SOURCES.json)
-separate this object from old PSD/subgroup attempts and already proved
-finite, sparse, dense or fixed-degree results. No full1965-text, priority
-or complete conjecture resolution is claimed. Recovery excludes all stream
-disconnection/idle gaps; the inherited45-90-effective-minute switching
-rule excludes requested manuscript and index services.
+The [complete Minc-sixth normalized-minimum stage](FULL_MINC_SIXTH_ATTEMPT.md)
+closed after approximately45m12effective with no complete proof or strict
+reverse global-minimum certificate. It retained every n>=2 and every
+adjacent degree1<=k<n over all actual binary regular matrices, with n=1
+vacuous. The [whole-domain map](MINC_SIXTH_THEOREM_MAP.md),
+[primary and old-route record](MINC_SIXTH_SOURCES.json), and
+[stage boundary](MINC_SIXTH_STAGE_CLOSED.json) preserve the scope.
+Complement averaging/subset kernels, finite controls and rigorous shortcut
+obstructions remain exploration; old finite/sparse/dense results are not
+new full solutions.
+
+The sole breadth role will complete the separately requested manuscript
+service and then screen another full original unresolved conjecture,
+including the complete nearly-decomposable Foregger15 or Kraeuter36
+candidates. No candidate is activated before current primary verification;
+the already solved Foregger17 and old failed whole routes remain excluded.
+All stream disconnect/idle, preservation and authorized service time is
+excluded from the inherited45-90effective-minute switching rule.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

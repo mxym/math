@@ -4,7 +4,7 @@ Yongxian Zhang, School of Computer Science and Engineering, South China
 University of Technology; mxymmxym1@gmail.com; ORCID0009-0000-3864-3536.
 14 October2026. No external funding. OpenAI AI assistants assisted.
 Original exposition all rights reserved; prior results remain credited.
-Active complete research, no solved theorem, Lean or priority claim.
+Preserved closed complete research stage; no solved theorem, Lean or priority claim.
 
 ## M0. Full object and time boundary
 
@@ -161,3 +161,141 @@ comparison. All preservation verification, recording and the requested
 new304-line APPT root-tracking service after this boundary are excluded.
 The same complete target resumes after that independent service; this
 is a service pause, not a closed or solved research stage.
+
+ 
+## M5. Exact coupled subset kernels and balanced-distribution variant
+
+For each j let P_j(A) be the matrix of all order-j permanents, indexed by
+j-row subsets I and j-column subsets J, and put
+
+    T_j(C)_(I,J)=per C[I,J] per C[I^c,J^c]/per C.          (M6)
+
+Laplace expansion on a fixed I proves each row sum one; expansion on a
+fixed J proves each column sum one. T_j(C) is the probability that the
+same uniform actual complement matching sends I to J. Consequently
+
+    E_(P<=C)per(A+P)=sum_j <P_j(A),T_j(C)>.               (M7)
+
+All these nonnegative doubly stochastic kernels share the same underlying
+distribution on actual full complement matchings. They cannot be replaced
+by independently selected arbitrary stochastic kernels. The j=0,n terms
+are1 and per A, and j=1 is zero because A and C have disjoint supports.
+Doubly stochastic kernels/positive summands alone give no full M2 sign.
+
+Regular complement degree does not make the uniform matching marginal
+equal to C/(n-k). At actual n=5,k=2, A=I+P for a full cycle and C=E-A,
+per A=2, per C=13, but supported marginal values are4/13 and5/13, not1/3.
+All13 complement matchings were directly enumerated; independent DP and
+inclusion-exclusion agree, and all six subset kernels have row/column
+sums exactly one. M7 gives the actual average164/13. This is a precise
+probability-shortcut obstruction, not a full-conjecture reverse comparison.
+
+A different distribution with uniform edge marginals is always available:
+Hall removal repeatedly decomposes the d-regular complement C into d
+disjoint actual perfect matchings, d=n-k. Their equal mixture has mean C/d.
+Thus another sufficient whole-domain route is to find a probability
+distribution lambda on complement matchings with sum lambda_P P=C/d and
+
+    sum lambda_P per(A+P) < per A ((k+1)/k)^n.            (M8)
+
+The minimum of this linear objective over the indicated finite matching
+distribution polytope is an exact well-defined full-object obligation.
+No bound of M8, universal or on every global k-minimizer, is proved here.
+An extension route is sufficient and stronger than the original minimum
+comparison; failing all extensions of one A still would not compare every
+actual next-degree matrix.
+
+## M6. Safe resumed discovery scope
+
+The requested304-line APPT service, final four-line delta and preservation
+completed03:11:47 UTC; the full02:56:02-03:11:47 interval is excluded.
+The same complete mathematical target resumed with about20m10s effective
+already accumulated. A single bounded exact route screen now checked124
+actual regular matrices, including explicit incidence/graph controls and
+fixed-seed binary trades lowering the current permanent. All actual A/C
+full permanents agree independently with DP and inclusion-exclusion.
+No reverse total average was found. Observed degree-three values include
+24,33,42,60,83 at orders7-11, and114 at12; none is independently certified
+a global minimum here, and the latter is not the primary reported113.
+These finite inputs neither solve M2 nor the original whole-degree target.
+
+ 
+## M7. Complete-domain base bridges and a standard-bound limitation
+
+Order n=1 has no adjacent degree pair, so it is vacuous. All nonvacuous
+original orders and degrees are still retained in the n>=2,1<=k<n target.
+The finite sets Lambda(n,k) are nonempty, for example by sums of k
+disjoint cyclic permutation matrices; hence every actual minimum is attained.
+
+At k=1 any A is a permutation, and any complement P is disjoint from it.
+After permuting rows, per(A+P)=2^(number of relative cycles), each cycle
+having length at least two. This is at most2^(n/2)<2^n, proving the first
+normalized step. At k=n-1, A=E-P0, every augmenting complement is P0,
+and the normalized full matrix n!/n^n is strictly below per(A/(n-1))
+by the credited van der Waerden theorem and its unique uniform equality.
+These are elementary/already established bridges, not new major results.
+
+The standard Schrijver lower bound by itself cannot give a negative
+global-minimum certificate at any adjacent degree. Write the normalized
+lower base as a_k=((k-1)/k)^(k-1), a_1=1. For real x>1,
+
+    d[(x-1)log(1-1/x)]/dx=log(1-1/x)+1/x<0.              (M9)
+
+Thus a_(k+1)<a_k. Every actual current-degree permanent U satisfies
+U/k^n>=a_k^n>a_(k+1)^n. Consequently the next-degree Schrijver bound is
+already below every possible current candidate; it cannot strictly
+separate the global minima in the negative direction. A reverse complete
+result needs a stronger universal certificate, not another finite
+comparison or the same standard bound. No such certificate is obtained.
+
+The positive complete gap remains M2 or another rigorously valid
+construction on every actual global minimizer. Actual legality, exact
+parameter scope, independent integer controls, kernel positivity and
+standard lower bounds have not supplied the missing total quantitative
+comparison. The stage still has no full proof or complete negative witness.
+
+ 
+## M8. Why continuous and minimizer-trade relaxations do not close it
+
+For an actual global k-minimizer A, any actual Q<=A and P<=E-A are
+permutation matrices and A-Q+P is still binary k-regular. Global optimality
+therefore gives per(A-Q+P)>=per A. This is only a lower bound for the
+same-degree traded matrix. It supplies no upper bound for per(A+P), and
+does not prove the needed normalized next-degree comparison.
+
+The unrestricted real regular-margin relaxation is strictly too loose
+at every k<n. By the credited van der Waerden theorem,
+
+    min_(X>=0, all margins k)per X=k^n n!/n^n,
+    m(n,k)>k^n n!/n^n for every1<=k<n.                   (M10)
+
+The unique real minimizer is X=kJ_n. Every actual binary k-regular matrix
+at k<n has zeros, hence is nonuniform after dividing by k and has strict
+van der Waerden inequality. The class is finite, so its actual minimum
+remains strictly above the real relaxation value. The normalized real
+minimum is constant with degree, not the original binary sequence.
+Fractional interpolation/continuous descent consequently cannot be
+accepted as an original witness or used to round back without a new
+rigorous discrete bound. No such bound, complete sign or legal
+global-minimum reverse certificate has been found in this stage.
+
+ 
+Raw minimum monotonicity is elementary: every actual(k+1)-regular B
+contains a perfect matching Q, and B-Q is actual k-regular with
+per(B-Q)<=per B. Hence m(n,k)<=m(n,k+1). The missing complete assertion
+is the upper growth bound m(n,k+1)/m(n,k)<((k+1)/k)^n; raw monotonicity
+supplies the opposite one-sided comparison and cannot close it.
+
+ 
+## M9. Honest natural stage boundary
+
+The complete original-object stage closes03:36:49 UTC after approximately
+45m12s effective research, counting current-primary/formulation work and
+mathematics, excluding preservation and the full15m45 authorized service.
+The all-n/all-degree positive assertion and a strict reverse comparison
+between global binary minima remain unresolved. Exact identities and
+shortcut obstructions, existing credited matching families and finite
+nonviolations are exploration with zero new major-conjecture results.
+MINC_SIXTH_STAGE_CLOSED.json records the actual timer, source bindings and
+scope. After the requested independent366-line APPT service, screen a
+different genuinely unclosed full original target before activation.
