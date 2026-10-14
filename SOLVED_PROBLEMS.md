@@ -11,7 +11,7 @@
 - [APPT 全正阶与任意长宽比熵统一首项](research/appt-growing-renyi/README.md)及[α/m→∞ 的相变与全长宽比谱判据](research/appt-ultralinear-spectrum-20261014/README.md)：m→∞ 时，全部 n≥m、α>0 的首个非零熵缺口统一等价；含峰／体耦合、两个端点窗口、有限长宽比全极限阶数谱分类及有限 D 的显式小阶精确带。完整书面证明、源绑定内部复核；新目标与极限未整体 Lean 化，原审计范围不扩大；同一 APPT 方向的加强不重复计数。
 - [同一 APPT 方向的有限高阶精确极值](research/appt-finite-high-order-20261014/README.md)：实际 2⊗n、n≥4、所有实 α≥2 的精确整数秩包络与全部等号；任意 m⊗n 在 D≥6、α≥D/2+1，及 D=4、α≥24 的唯一 spike 极值，维数截止尺度 Θ(D)。完整书面证明与 558 行源绑定内部复核；明确归属已有谱顶点、纯度与可分离端点，未整体 Lean 化；同一方向加强不另计重大猜想。
 - [同一 APPT 主线的实阶扩展与锐截止](research/appt-log-order-phase-20261014/README.md)：实际 2⊗n、n≥8、全部实 α>1 的有限精确极值；n≥4 的所有 α>0 上，pole 最优当且仅当 α≥τ_D，含临界全部等号与锐主常数 log2/2。完整书面稿及 471 行加明确两行澄清的源绑定内部复核；未整体 Lean 化，不声称全部 subcritical 最小值或一般 APPT=ASEP，同一方向加强不另计重大猜想。
-- [同一 APPT 主线的非 qubit 对数阶极值](research/appt-nonqubit-log-band-20261014/README.md)：所有3≤m≤n、D≥9、实α≥32log D+1的 APPT/ASEP 精确 pole 最小熵与唯一等号；实际3⊗n APPT投影族给最坏情形截止尺度Θ(log D)。完整书面证明与249行内部源绑定复核；下界只对APPT且沿3⊗n，不宣称每分区或ASEP必要阈值，常数32非最优；未整体Lean，不另计重大猜想。
+- [同一 APPT 主线的锐对数截止层级与固定局部相变](research/appt-sharp-log-cutoff-20261014/README.md)：每个固定ℓ≥3、m≥ℓ统一高阶带的锐主系数κℓ=1/log[3(ℓ−1)/(ℓ+1)]；每c>κℓ、充分大D、所有α≥c logD+1的唯一APPT/ASEP pole；实际ℓ⊗n给APPT-only下界；固定m、所有α→∞及α/logD→0/有限/∞的完整熵缺口相变。[显式D≥9的32logD+1带](research/appt-nonqubit-log-band-20261014/README.md)保留。新240行与旧249行内部复核分别源绑定；无逐D或ASEP必要界、有限临界分类、联合增长ℓ宣称；未整体Lean，同一方向不另计重大猜想。
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
