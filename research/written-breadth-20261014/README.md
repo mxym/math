@@ -90,10 +90,14 @@ after120m03effective without a complete proof or legal infinite counterfamily.
 [Primary scopes](LOG_RANK_SOURCES.json), [the complete written attempt](FULL_LOG_RANK_ATTEMPT.md)
 and [the stage boundary](LOG_RANK_STAGE_CLOSED.json) preserve known inputs,
 unproved full-domain gates and exact stronger-route controls. No major
-result is counted. The current breadth action is fresh whole-domain primary
-screening for a next information-theory candidate, initially the complete
-Courtade-Kumar most-informative-Boolean-function problem; it is not activated
-until current status and original parameter domain are verified and mapped.
+result is counted. The complete Courtade-Kumar candidate was excluded before
+any own mathematics because multiple public September2026 full-domain proof
+claims cover its original parameters; [actual primary read limits](COURTADE_KUMAR_PRIMARY_EXCLUSION.json)
+distinguish those claims from independent full-proof or Lean certification.
+The current breadth action is fresh whole-domain primary screening of the
+bosonic entropy photon-number inequality. No new mathematical stage is
+activated before current status and original all-input/all-mode parameters
+are verified and mapped.
 Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
 replace the full log-rank target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
