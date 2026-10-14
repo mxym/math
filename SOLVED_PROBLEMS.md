@@ -15,6 +15,7 @@
 - [同一 APPT 主线的临界窗口和常数阶精确截止](research/appt-critical-window-20261014/README.md)：固定ℓ≥3、Xℓ=κℓ[logD−loglogD−log(e(qℓ−1)κℓ)]；所有实际m≥ℓ、充分大D、全部α≥Xℓ+ε唯一APPT/ASEP pole；实际ℓ⊗n在Xℓ−ε给APPT-only下界；固定m最终截止A=Xm+o(1)，有界临界偏移完整APPT矩与熵包络。新300行源绑定内部通读；未整体Lean，不宣称ASEP反向界、有限优化态分类或增长ℓ统一性；同一方向不另计重大猜想。
 - [同一 APPT 主线的定量最终截止与逆对数展开](research/appt-cutoff-root-tracking-20261014/README.md)：固定m≥3，实际A=wD+O(D^−β)、β>0，唯一显式标量模型根；完整首两项逆log修正及所有固定阶余项；固定m完整对数带矩包络的幂次相对误差；所有实际m≥ℓ、全部更高实阶充分界。新304行与最终四行实际核读源绑定；下界APPT-only，未整体Lean，不给有限阈值、最优误差率、优化态分类或增长m统一性；同一方向不另计重大猜想。
 - [同一 APPT 主线的固定局部全正阶熵轴](research/appt-all-positive-axis-20261014/README.md)：每固定m≥3，完整实际APPT熵缺口在全部0≤α≤∞统一近似max(bulk标量模型,精确pole)，误差O(D^−χm)；全部有界阶含趋0/跨1时O(1/D)，完整实际vonNeumann渐近和已知0/∞等号覆盖。新366行完整普通核读；已知标量/谱族明确归属，未整体Lean，不宣称ASEP bulk、有限优化态全分类或增长m统一性；同一方向不另计重大猜想。
+- [同一 APPT 主线的最终精确 bulk 熵与全部等号](research/appt-eventual-bulk-20261014/README.md)：固定m≥3，任意正阶紧区间及全部a≤α≤c logD、a>0、c<1/log(m−1)，在充分大D上完整实际极小熵由两层投影谱精确达到；相邻两整数秩作精确比较并保留平局，分类全部等号态。紧区间取整损失给出D^−2首项及O(D^−3)余项。独立380行内部普通核读，未整体Lean；对数系数是单半空间方法锐界而非实际APPT相变；全部有限D、增长m、趋零阶临界窗和ASEP bulk仍分开，不另计重大猜想。
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
