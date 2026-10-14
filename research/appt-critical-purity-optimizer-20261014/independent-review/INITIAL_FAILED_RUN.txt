@@ -1,0 +1,13 @@
+2026-10-14. First independent checker execution stopped at its symbolic
+assertion for the large-D contrast derivative. The checker had combined
+Y=D*y, Z=D*zz, and D=1/h in one Sympy dictionary substitution; Sympy's
+ordered replacement reintroduced unscaled D through Y and Z.
+
+Retained terminal output:
+Traceback (most recent call last):
+  File "/mnt/d/math/tmp/appt-critical-purity-optimizer-20261014/independent-review/check_independent.py", line 94, in <module>
+    assert s.simplify(s.limit(de, h, 0) -
+AssertionError
+
+Correction: substitute Y and Z first, then D. This fixes the independent
+test construction only. The author PAPER/MAP were not modified.
