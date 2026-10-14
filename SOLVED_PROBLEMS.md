@@ -14,6 +14,7 @@
 - [同一 APPT 主线的锐对数截止层级与固定局部相变](research/appt-sharp-log-cutoff-20261014/README.md)：每个固定ℓ≥3、m≥ℓ统一高阶带的锐主系数κℓ=1/log[3(ℓ−1)/(ℓ+1)]；每c>κℓ、充分大D、所有α≥c logD+1的唯一APPT/ASEP pole；实际ℓ⊗n给APPT-only下界；固定m、所有α→∞及α/logD→0/有限/∞的完整熵缺口相变。[显式D≥9的32logD+1带](research/appt-nonqubit-log-band-20261014/README.md)保留。新240行与旧249行内部复核分别源绑定；无逐D或ASEP必要界、有限临界分类、联合增长ℓ宣称；未整体Lean，同一方向不另计重大猜想。
 - [同一 APPT 主线的临界窗口和常数阶精确截止](research/appt-critical-window-20261014/README.md)：固定ℓ≥3、Xℓ=κℓ[logD−loglogD−log(e(qℓ−1)κℓ)]；所有实际m≥ℓ、充分大D、全部α≥Xℓ+ε唯一APPT/ASEP pole；实际ℓ⊗n在Xℓ−ε给APPT-only下界；固定m最终截止A=Xm+o(1)，有界临界偏移完整APPT矩与熵包络。新300行源绑定内部通读；未整体Lean，不宣称ASEP反向界、有限优化态分类或增长ℓ统一性；同一方向不另计重大猜想。
 - [同一 APPT 主线的定量最终截止与逆对数展开](research/appt-cutoff-root-tracking-20261014/README.md)：固定m≥3，实际A=wD+O(D^−β)、β>0，唯一显式标量模型根；完整首两项逆log修正及所有固定阶余项；固定m完整对数带矩包络的幂次相对误差；所有实际m≥ℓ、全部更高实阶充分界。新304行与最终四行实际核读源绑定；下界APPT-only，未整体Lean，不给有限阈值、最优误差率、优化态分类或增长m统一性；同一方向不另计重大猜想。
+- [同一 APPT 主线的固定局部全正阶熵轴](research/appt-all-positive-axis-20261014/README.md)：每固定m≥3，完整实际APPT熵缺口在全部0≤α≤∞统一近似max(bulk标量模型,精确pole)，误差O(D^−χm)；全部有界阶含趋0/跨1时O(1/D)，完整实际vonNeumann渐近和已知0/∞等号覆盖。新366行完整普通核读；已知标量/谱族明确归属，未整体Lean，不宣称ASEP bulk、有限优化态全分类或增长m统一性；同一方向不另计重大猜想。
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
