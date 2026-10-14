@@ -11,6 +11,9 @@ reproduced by the 2024 published introduction, equation (3), and the
 | Positive complete target | per(alpha J+(1-alpha)A)<=alpha n!/n^n+(1-alpha)per A for every original n,A,alpha | No restriction to alpha=1/2, finite orders, normality, rank, sparse mixtures or root-free polynomials. |
 | Known-dimension bridge | n=3 original result and n=4 published Theorem2.1; n=1,2 are elementary if included | These are credited prior inputs, not new solved-major counts. Published Theorem2.2 does not close unrestricted n=6. |
 | Whole-interval reduction | t=1-alpha in [0,1/2]; exact G=t(1-t) sum_m c_m sum_(j=0)^(m-2)t^j | Sign remains unproved on the full matrix/size domain. A midpoint proof requires a separate full-interval bridge. |
+| Full radial formulation | For every actual A, h_A(x)<=h_A(s) for all 0<x<=s/2, 0<s<=1 | Equivalent on the whole domain; local monotonicity at closer radii is not assumed and is false in a known legal n=3 control. |
+| Full binomial formulation | E[u_B]<=1+t(u_n-1), B~Binomial(n,t), for every actual A,n,t | Exact representation; the stronger coefficientwise linear upper bound already fails on the known n=3 control. |
+| Necessary feasibility gate | Actual n=3 rows imply c_3>=-(2/3)c_2 | Already settled base only; excludes a fake real-root model, not a new full conjecture result. |
 | Complete negative witness | One actual rational doubly stochastic A and rational alpha in the original interval with exact G<0 | Exact nonnegativity/margins plus independently structured matching DP and inclusion-exclusion. A single legal strict witness disproves the universal conjecture. |
 | Discovery limits | Only complete proofs or legal exact negative witnesses settle L1 | Finite nonviolations and examples with alpha<1/2 do not settle it; no Lean/publication/priority claim. |
 

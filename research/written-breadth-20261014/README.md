@@ -48,15 +48,22 @@ discovery are preserved with complete/incomplete coverage in
 [RYSER_STAGE_CLOSED](RYSER_STAGE_CLOSED.json). They remain exploration and
 are not counted as a major-conjecture solution.
 
-The active complete target is the [full Lih-Wang permanent chord conjecture](FULL_LIH_WANG_ATTEMPT.md):
-every integer n>=3, every real doubly stochastic matrix, and every original
-real parameter alpha in [1/2,1]. The [whole-domain theorem map](LIH_WANG_THEOREM_MAP.md)
-and [primary-source read record](LIH_WANG_SOURCES.json) distinguish the
-already solved order-four case and conditional order-six theorem from the
-full target. Neither a selected parameter band nor finite nonviolations
-are a complete solution. Recovery excludes all stream-disconnection/idle
-gaps; the sole active breadth role continues the inherited 45-90-effective-
-minute switching rule, excluding requested manuscript and index services.
+The [full Lih-Wang permanent chord stage](FULL_LIH_WANG_ATTEMPT.md)
+closed after approximately 45m11s of effective research without a complete
+proof or legal counterexample. It retained every integer n>=3, every real
+doubly stochastic matrix, and the entire original alpha interval [1/2,1].
+The [whole-domain theorem map](LIH_WANG_THEOREM_MAP.md),
+[primary-source read record](LIH_WANG_SOURCES.json), and
+[stage boundary](LIH_WANG_STAGE_CLOSED.json) distinguish already solved
+orders and finite candidates from the full target. Exact transport,
+radial/binomial formulations and shortcut obstructions remain exploration.
+
+The sole breadth role will screen the complete normalized regular-binary
+minimum monotonicity conjecture (Minc's sixth), after the separately
+requested manuscript service. It is not yet asserted solved or activated
+without current primary-source scope checks. Recovery excludes all stream
+disconnection/idle gaps; the inherited 45-90-effective-minute switching
+rule excludes requested manuscript and index services.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

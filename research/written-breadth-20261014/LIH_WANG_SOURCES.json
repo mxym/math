@@ -4,7 +4,7 @@
   "agent": "/root/written_breadth_live",
   "full_stage_start_utc": "2026-10-14T01:32:35Z",
   "whole_target": "All integer n>=3, all real doubly stochastic A, all real alpha in original [1/2,1], per(alpha J+(1-alpha)A)<=alpha n!/n^n+(1-alpha)per A.",
-  "current_status": "Active full original-domain attempt; no complete solution or legal counterexample.",
+  "current_status": "Closed after approximately45m11s effective work without complete solution or legal counterexample; all saved finite/analytical routes remain exploration.",
   "sources": [
     {
       "id": "lih_wang_1982_original",
@@ -40,6 +40,13 @@
       "id": "older_arxiv_abstract",
       "url": "https://arxiv.org/abs/2312.00464",
       "actual_read_scope": "Abstract only; its broad order-six wording was explicitly not used instead of the narrower published Theorem2.2."
+    },
+    {
+      "id": "wanless_1999_stronger_route_exclusion",
+      "url": "https://users.monash.edu.au/~iwanless/abstracts/djokovic.html",
+      "doi": "10.1016/S0024-3795(98)10177-5",
+      "actual_read_scope": "Primary author abstract, and Conjecture12 in the previously read 2005 survey. Not the complete 1999 construction/proof.",
+      "limit": "Existing disproof excludes assuming generalized normalized-subpermanent monotonicity. It is not adopted as a Lih-Wang counterexample or re-counted as our result."
     }
   ],
   "bounded_current_status_check": {
@@ -70,5 +77,18 @@
     "root_metadata_import_is_not_new_corollary_review": true,
     "saving_and_commit_interval_excluded": true
   },
-  "no_new_Lean_or_external_action": true
+  "no_new_Lean_or_external_action": true,
+  "service_intervals_excluded_utc": [
+    [
+      "2026-10-14T01:51:02Z",
+      "2026-10-14T01:56:29Z"
+    ]
+  ],
+  "stage_boundary_record": "LIH_WANG_STAGE_CLOSED.json",
+  "recovery_intervals_excluded_utc": [
+    [
+      "2026-10-14T02:21:20Z",
+      "2026-10-14T02:24:46Z"
+    ]
+  ]
 }
