@@ -1,7 +1,7 @@
 import APPTReview.EntropyGlobalControls
 import Verification.ReplaySupport
 
-run_cmd APPTVerification.replayAndCorrupt [
+run_cmd (APPTVerification.replayAndCorrupt [
   ``APPTReview.appt_entropy_saturation_iff_flat_purity,
   ``APPTReview.baseline_graph_head_budget,
   ``APPTReview.scalar_head_variance_bound,
@@ -55,7 +55,7 @@ run_cmd APPTVerification.replayAndCorrupt [
   ``APPTReview.entropy_nonuniform_pivot_control,
   ``APPTReview.entropy_bulk_partition_control,
   ``APPTReview.entropy_zero_remainder_control
-  ] "entropy-global-kernel"
+  ] "entropy-global-kernel")
 
 run_cmd APPTVerification.rejectCorruptTheorem ``APPTReview.appt_full_entropy_saturation_flat "entropy-global-control-0"
 
