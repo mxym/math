@@ -239,3 +239,107 @@ If V were closed under multiplication, every nonempty Boolean pattern atom produ
 ## L23 Fourth active checkpoint, no closure at the old ninety-minute window
 
 At06:46:22UTC the prior3592seconds plus06:16:50-06:46:22(1772seconds) total5364effective seconds,89m24. Save06:13:24-06:16:50 is excluded. This preservation is excluded, and the remaining1836effective seconds continue the same complete LR0 stage. No manuscript-review service, idle wait, repeated random search, new agent or full theorem has occurred. The stronger constant-flat claim is blocked; the full quasipolynomial flat and weighted-cancellation claims remain unproved. No all-matrix protocol and no legal superpolylog reverse family. New major results remain zero.
+
+## L24 Known sparse-density theorem and the unclosed amplification step
+
+The primary Hunter--Milojevic--Sudakov--Tomon2411.13510v1 has been checked directly, including the complete Section4 proof. Theorem4.8 applies to a real m-by-n matrix of rank r with each entry zero or at least1 and average p<=1/2. Its proof gives an all-zero rectangle with both side fractions at least2^[-O(sqrt(pr)+log r)]. This includes Boolean matrices; it is a prior theorem, not an achievement here. The abbreviated n-only size in the introductory/restated statement is read together with the explicit m-and-n conclusion in the proof.
+
+For any fixed a>=1, p<=[log(r+1)]^(2a)/r makes this known rectangle bound quasipolynomial in r. Applying the same input to J-M handles a very dense Boolean matrix with rank at most r+1. However, in the balanced regime p bounded away from0 and1, the theorem still supplies a root-rank exponent. Its proof explicitly descends through half-sided rectangles by mean increments of size proportional to sqrt(p/r), coupled to a variance potential. No quasipolynomial-cost reduction from a balanced arbitrary matrix to the required sparse regime has been proved here.
+
+The general Lovett conjecture in the same paper concerns arbitrary real sparse matrices, including signs and arbitrarily small nonzero entries. This broader conjecture is NOT solved by Theorem4.8. Conversely its larger-alphabet sharpness construction is not an admissible Boolean LR3 witness. The solved Singer--Sudan almost-cross-disjoint conjecture is not the adjacent-cross-intersection equivalence used for full LR0. No theorem is conflated across these domains.
+
+## L25 A flat-spectrum actual family blocks a row-type shortcut
+
+Let S_s be the sign matrix with rows(x,i), columns(j,y), where x,y range over{-1,1}^s and i,j over[s], and S_s[(x,i),(j,y)]=x_j y_i. Every entry is genuinely a sign and the domain is a full product. Both numbers of distinct input types are s2^s.
+
+Let X list the2^s sign vectors as rows. Then X^T X=2^s I_s, and
+(S_s S_s^T)[(x,i),(x',i')]=2^s 1_(i=i') <x,x'>.
+Thus S_s has rank s^2 and ALL its nonzero singular values equal2^s. Its row and column sums are zero. Consequently the actual Boolean matrix(1+S_s)/2 has real rank s^2+1.
+
+Alice sends i, Bob returns j and y_i, and Alice returns the product/output bit. Deterministic cost is at most2ceil(log_2 s)+2. Flat nonzero spectrum therefore does not force quasipolynomially many row/column types; nor does the high type count force hard interactive communication. The family only blocks this auxiliary one-way/type-counting inference. It is not LR3 and no novelty or full-domain closure is claimed.
+
+## L26 An actual easy family blocks every actual-column-basis Boolean extension shortcut
+
+This control concerns a specific stronger route: choose a basis of actual columns, encode a row by its Boolean values on those columns, encode the requested column by a binary index, and require a low-degree total Boolean extension on ALL bit strings of this encoding. It does not rule out different local preprocessing or other proofs of LR0.
+
+Fix t>=4 and k=floor(t/2). Put A={x in{0,1}^t: |x| in{k,k+1}}. Use the full row set A times A, writing a row as(x,y). The actual columns are
+1, x_1,...,x_t, y_1,...,y_t, s_x=|x|-k, s_y=|y|-k.
+All entries are exactly0/1. The column rank is R=2t+1: the constant and the2t coordinate functions are independent. To check independence, vary x within its weight-k layer to equate all x coefficients, then compare its two layers to make that coefficient zero; do the same for y, leaving the constant zero. The two remaining columns satisfy exactly the two independent relations
+s_x-sum_i x_i+k1=0, s_y-sum_i y_i+k1=0.
+Bob can send one of2t+3 column indices and Alice can return its bit, so D<=ceil(log_2(2t+3))+1=O(log R).
+
+Every actual-column basis omits exactly two columns. If it includes1, it must omit one member of{x_i,s_x} and one of{y_i,s_y}, otherwise it contains a full dependent circuit. If it omits1, it omits precisely one further nonconstant column v; the other block contains all its coordinates and its s-column, and can recover1.
+
+Fix the column selector to a missing nonconstant output v. Fix the other block at one allowed row, and if needed recover/fix the constant to1. If v=s_x, the remaining x-coordinate bits run through both full adjacent Hamming layers and the output is |x|-k. At a weight-k input, all t-k zero coordinates can be flipped separately to obtain value1. If v=x_j, additionally fix the included s_x to0. The other t-1 x bits z then run through the full layers |z|=k-1 and |z|=k, and the required output is k-|z|. At a weight-(k-1) input it is1, and flipping any of its t-k zeros makes it0. The y cases are identical. The same restrictions work whether or not1 belongs to the basis, because the intact other block fixes its value.
+
+Hence every total Boolean extension in ANY such actual-column-basis encoding has a restriction with sensitivity at least q=t-k. For completeness, the classical degree lower bound used here has this elementary specialization. Restrict the q sensitive coordinates at that input and complement the output if needed, obtaining a total Boolean g with g(0)=0 and g(e_i)=1. If its exact multilinear degree is d, then
+h(p)=E_(independent Bernoulli(p) bits) g
+is a univariate polynomial of degree<=d, lies in[0,1] for all real p in[0,1], and has h'(0)=q. Markov's polynomial inequality on[0,1] gives |h'(0)|<=2d^2. Thus
+d>=sqrt((t-k)/2)>=sqrt(t)/2.
+Restrictions cannot increase degree, so this lower bound applies to the entire proposed extension, including its index bits.
+
+This is a rigorous infinite family of cheap ACTUAL matrices, even after optimizing the actual column basis. It shows why the general total-query degree theorem cannot be applied after silently filling undefined encoding strings with Boolean values of polylogarithmic degree. It remains only a stronger-route control, is not a deterministic lower bound for LR0, and is not counted as a new major result.
+
+## L27 Current lower-bound status refined by another primary source
+
+Pabbaraju2608.02533v1 was submitted2026-08-03T17:26:54Z. Its complete statement/domain bridge in Corollaries4.1--4.2 was actually read: a full Boolean communication problem h on3n^2 bits per party has log Par_1(h)=O(n) and log Cov_0(h)=Omega(n^2), yielding D(h)>=Omega(log^2 rank_R(h)). The current manuscript's lifting proof was not independently audited in full here. This is already published primary preprint work, not a new result or a full LR3 refutation.
+
+The old Balodis--Ben-David--Goos--Jain--Kothari Corollary3 explicitly had tilde-Omega logarithmic losses. The HLS introduction abbreviates this as Omega(log^2 r); that historical shorthand is not adopted as an exact loss-free assertion. Song's particular alphabet-preserving improvement is likewise not labeled the strongest current general lower bound after this source check. None of these fixed quadratic lower bounds refutes the original existence of some fixed polylogarithmic exponent.
+
+## L28 The basis obstruction also covers Boolean linear features on the same row set
+
+For this refinement take t>=5. Every affine function b(x)=c0+sum_i c_i x_i on A which is Boolean on ALL of A belongs to the list
+0,1,x_i,1-x_i, s_x,1-s_x.
+Indeed, exchanging i and j inside a weight-k set shows c_i-c_j in{-1,0,1} for every pair. Thus the coefficients have at most two levels a and a+1. If h coefficients are at the higher level with2<=h<=t-2, their contribution on weight-k sets takes at least three consecutive integer values: its range is from max(0,k-t+h) to min(k,h), of width at least2. This is incompatible with a Boolean output. If h=1, both values occur on each of the k and k+1 layers, forcing a=0,c0=0 and b=x_j. If h=t-1 the same calculation gives b=1-x_j. If all coefficients coincide, the two layer values give only the constants and s_x or1-s_x. This proves the classification.
+
+Every element of V=span{1,x_i,y_i} is a sum of one affine x-function and one affine y-function. If both summands were nonconstant, the sum of their two finite real ranges would have at least three distinct values. Hence every Boolean element of V depends on at most one block and belongs to the corresponding list above.
+
+Consider ANY linearly independent Boolean feature basis of V, not just actual columns. Modulo the constant functions, V splits as the direct sum of its two t-dimensional block spaces. Spanning V requires at least t nonconstant features from each block. Since the entire basis has2t+1 elements, one block has exactly t. Those t functions belong to t distinct classes among{x_i,s_x}, up to complements: a complement pair would have the same image modulo constants and fail to span that block. They therefore omit one class from its t+1 possibilities.
+
+Fix the other block's encoded features at an allowed input. Complementing encoded coordinate bits is an affine change and preserves exact degree. If the missing class is s_x, all x_i are encoded and the adjacent-layer sensitivity proof in L26 applies. If it is x_j, the s_x value is encoded; fixing s_x=0 gives exactly the other adjacent-layer proof. The same holds for the y block. Thus every Boolean-linear-feature-basis total extension has degree at least sqrt((t-k)/2), despite D=O(log R).
+
+No arbitrary nonlinear features outside V are excluded: encoding all2t+3 actual outputs already makes an easy selector function for this family. The control rules out the specified basis-compression shortcut, not all local encodings and not LR0. No new-major-result count or priority claim is attached.
+
+For the same family, taking one all-one rectangle per actual column gives a positive partition of the ones into at most2t+3 primitives. Its average active count is at most1 under EVERY joint input distribution. The sign counterpart uses at most2(2t+3) disjoint column/output leaves, with signed labels and average overlap exactly1. Thus the family already has an inexpensive valid decomposition even though every Boolean-linear-feature-basis total extension has high degree. The degree obstruction supplies no failure of the actual weighted-cancellation gate.
+
+## L29 A precise full-domain sparse-rectangle core, still unproved
+
+The newly read prior sparse theorem yields another exact gate for the SAME original problem. For some fixed absolute C,a,b>=1 and all sufficiently large r, require for EVERY actual rank-r Boolean matrix M a product rectangle of relative area at least2^[-C log_2(r+1)^b] on which either color has density at most[log_2(r+1)]^(2a)/r.
+
+This is not a theorem established here. If it were established, the rectangle's rank is at most r (or r+1 after complementation), so the prior HMST bound would further restrict it to a genuine monochromatic rectangle at an additional quasipolynomial cost. The existing whole-domain rectangle-to-protocol bridge would then give LR0 with a fixed exponent. Conversely LR0 directly gives this condition with rare density zero. Normalizing the finitely many small ranks is harmless.
+
+The gate is weaker in appearance than finding an exact monochromatic rectangle, but it retains all matrices and is equivalent to the full target through an already proved theorem. A root-rank discrepancy descent, one almost-constant example, or a density assertion for only product distributions with one color already rare does not establish it. Neither this gate nor L21's all-joint-measure gate has been closed.
+
+## L30 The known scalar descent does not itself yield a polylogarithmic number of cuts
+
+On a Boolean matrix the exact variance is q=p(1-p), so the large-variance branch of the prior sparse proof cannot simply be discarded to claim a faster density gain. Its scalar inequalities allow the numerical recursion
+p_(i+1)=p_i-c sqrt(p_i/r), q_i=p_i(1-p_i),
+starting at p0=1/2 and stopping near1/(16r), with sufficiently small fixed c>0. While p_i<=1/2, variance decreases and certainly obeys q_(i+1)<=4q_i. Each mean decrement is at most c/sqrt(2r), so this admissible scalar recursion takes at least a constant times sqrt(r) steps to reach the sparse endpoint.
+
+These scalars are not asserted to come from one actual infinite matrix family. The point is narrower: the already proved mean/variance inequalities alone permit a root-rank number of half-sized cuts, so a relabeling of their potential cannot prove a quasipolynomial rectangle bound. Some additional Boolean structure or a different restriction operation is required. This is not a lower bound for arbitrary protocols or LR3.
+
+## L31 Local exact cancellation: overlap can drop, but term growth is unclosed
+
+Write an exact signed primitive representation of an actual Boolean matrix. Pad it by zero rectangles, if necessary, to Q positive and Q negative terms. Pair the two lists by a uniformly random bijection. For each pair R_plus-R_minus, remove the common rectangle and express each set difference as two disjoint rectangles:
+(A_plus minus A_minus) times B_plus,
+(A_plus intersect A_minus) times(B_plus minus B_minus),
+and the analogous two negative rectangles.
+The represented matrix is unchanged and remains the ORIGINAL actual0/1 table. The new representation uses at most4Q primitives.
+
+At any input let p,n be its active positive and negative term counts, so p-n equals its actual Boolean output. A pair active with both signs contributes zero after the rewrite, a singly active pair contributes one primitive, and an inactive pair contributes none. The expected rewritten active count is exactly
+p+n-2pn/Q.
+Thus the operation genuinely lowers average signed overlap under any fixed joint input measure, by2 E_sigma[pn]/Q. It does not prove L21 because the simultaneous term budget grows, and the known signed-rank theorem supplies no guarantee that rebuilding a short representation preserves this overlap reduction.
+
+To see the estimate's limitation at a scalar level, allowing the term budget to double at each round leads to decrements of order t_i^2/(2^i Q0). For initial t0/Q0 sufficiently small, the product bound product_i(1-a/2^i)>=1-2a shows that this numerical recurrence may retain a constant fraction of t0 forever. This is an analysis of what the displayed estimates can certify, not an actual matrix lower bound and not a general obstruction to all possible cancellation algorithms. No quasipolynomial-budget, constant-overlap conversion has been established.
+
+## L32 Independent exact control of the affine classification, auxiliary only
+
+A one-off Fraction-arithmetic enumeration selected t+1 independent evaluation rows of A for t5,6,7,8, enumerated ALL2^(t+1) Boolean assignments on that basis, solved the affine coefficients exactly and tested the entire A. It found respectively14,16,18,20 Boolean affine functions, exactly the proven2t+4 list, from20,35,70,126 actual rows. The64,128,256,512 assignment enumerations are finite semantic controls of L28, not its proof and not a full log-rank result. No new major result is counted.
+
+## L33 Complete-stage boundary after the user's two-hour window
+
+The full original LR0 research stage closes honestly at2026-10-14T07:24:59UTC,7203effective seconds=120m03. The fourth checkpoint5364seconds is followed by06:50:16-06:52:54(158seconds) and06:56:58-07:24:59(1681seconds). Save06:46:22-06:50:16 and recovery06:52:54-06:56:58 are excluded, along with all older disclosed preservation/recovery intervals. No manuscript-review service paused this LR0 stage.
+
+No uniform all-matrix protocol, equivalent all-domain gate proof, or actual infinite superpolylogarithmic deterministic lower-bound family has been obtained. The new sparse-rectangle, rank-halving and every-joint-measure cancellation gates remain unproved. Actual easy-family controls, finite discovery, primary-source updates and route obstructions remain auxiliary. Complete major-result count is zero; no narrower claim, stronger false shortcut or known published result substitutes for the original domain.
+
+This is closure of a bounded research attempt, not mathematical closure of the conjecture. Preservation begins at07:24:59UTC and is excluded. The next complete high-impact theory candidate must first pass original-semantics/current-primary screening and have a full map before its own mathematics. No new target's mathematics has begun at this boundary.
