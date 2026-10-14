@@ -34,12 +34,21 @@ and arbitrary polynomial degrees; the quadratic base case and exact shortcut
 obstructions do not solve the full target. The preceding Wishart route also
 switched after about 45 effective research minutes; service reviews were excluded.
 
-The active complete target is now the [full complex Chollet conjecture](FULL_CHOLLET_REPLACEMENT_ATTEMPT.md),
-for all matrix sizes and arbitrary Hermitian PSD A and B. The Gaussian
-replacement route and exact replica controls are exploration only. Its
-negative shortcut controls are not Chollet counterexamples, new complete
-proofs or major-conjecture results. The same effective-time switching rule
-applies, with requested APPT manuscript reviews excluded.
+The [full complex Chollet stage](FULL_CHOLLET_REPLACEMENT_ATTEMPT.md)
+closed after 46m57s of effective work without a complete all-size/all-PSD
+proof or legal counterexample. Its replica, mixed-sector and separable-state
+formulations remain exploration; exact shortcut controls are not Chollet
+counterexamples or solved major results.
+
+The active complete target is the [Ryser design minimum-permanent conjecture](FULL_RYSER_DESIGN_ATTEMPT.md),
+over all eligible dimension/row-sum pairs. A strict binary regular witness
+must beat ALL configurations at its pair. The v=13 uniqueness and two
+independent exact baselines are supporting inputs, not the whole conjecture.
+The completed bounded 10,695-start search found no strict witness and is
+preserved without being repeated. Exact rook/matching diagnostics also
+remain exploration. Recovery excluded all stream-disconnection/idle gaps;
+the only active replacement breadth agent continues the inherited
+45–90-effective-minute switching rule, excluding manuscript service reviews.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result
