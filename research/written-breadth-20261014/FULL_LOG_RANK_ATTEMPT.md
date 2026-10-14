@@ -129,3 +129,48 @@ Hatami–Hosseini–Lovett–Ostuni2312.09400v2 already refutes both a universal
 ## L14 Active two-hour checkpoint
 
 At05:51:05UTC, the prior1196effective seconds plus mathematics05:27:47-05:51:05 give2594seconds (43m14). No uniform whole-matrix solution or legal superpolylog infinite counterfamily. L9-L12 preserve the complete domain and explicit unresolved conditions; actual controls and known blocks remain auxiliary. Under the user's superseding120minute policy this is a preservation checkpoint, not a stage closure. All current scripts ended; no manuscript service or separate review role paused the clock. Resume the same target after preserving these bytes, without reset.
+
+## L15 Exact basis-block representation and bounded finite discovery
+
+Any rank-r actualBoolean matrix has an invertible r-by-r actualBoolean submatrix H. Record every row by its entries x on those r basis columns and every column by its entries y on the r basis rows. Then every actual entry is exactly x^T H^(-1)y. The row family contains the rows of H, the column family contains its columns, and both are binary coordinate patterns. Conversely any such two full families with all cross values in{0,1} give a complete actualBoolean matrix of exact rank r, certified by H. Rank of a complete row or column strip is the linear rank of its coordinate patterns.
+
+A single300.002second discovery run used selected r4..7 invertible binary blocks, exact rational inverse/adjugate, all bit-pattern compatibility and Galois closure. It completed31734starts, skipped11352singular and13089large configurations, and fully enumerated maximal flats in7293selected configurations with both orders<=18. It enumerated all independent k-subsets, k=floor((r+3)/2), and all their spans. RREF modulo1009 is exact for these binary minors of order<=7: Hadamard gives absolute determinant<=7^(7/2)<1009, so a nonzero real minor cannot vanish modulo this prime. Every lower-dimensional sample flat extends to dimension k because the family spans r. Membership uses the same binary-minor certificate.
+
+The smallest observed maximum of the two parties' rank-k strip masses was3/5,7/11,9/17,2/3 at r4,5,6,7 respectively. No selected configuration violated the stronger constant1/2 hypothesis. The selection and small ranks give neither a universal positive proof nor a full counterexample. The process ended normally; no repeat is needed for this control. Source and JSON retain the exact sampled configurations and enumeration scope.
+
+## L16 An actual infinite control against constant-mass half-rank strips
+
+This auxiliary existence proof rejects a stronger greedy claim, not LR0 or L12. For all sufficiently large integers r, set
+c=floor((log_2 r)/8), N=floor(r^(3/2)), d=floor((r+3)/2).
+There exist finite families A,B of subsets of[r], with all cross intersections0/1, for which the intersection matrix has real rank exactly r and deterministic cost O(log^2 r), yet every complete row or column strip of rank<=d has relative mass O(r^(-1/8)). No priority is claimed for this elementary easy-family control.
+
+First, for any linear subspace F of R^r of dimension<=d, some d coordinates (or fewer, extended to d) give an injective coordinate projection on F. Consequently F contains at most
+sum_{j=0}^c binomial(d,j)
+binary vectors of Hamming weight c. A uniformly random c-subset thus lies in F with probability at most h_r, this sum divided by binomial(r,c). Since c=O(log r), d=r/2+O(1),
+h_r<=(1+o(1))2^(-c)<=3r^(-1/8)=p_r
+for all sufficiently large r. Indeed successive lower binomial terms form a geometric upper bound with ratio c/(d-c+1)=o(1), and binomial(d,c)/binomial(r,c)<=[d/(r-c+1)]^c=2^(-c)exp(O(c^2/r)).
+
+Independently sample N uniform c-subsets for each of two labeled families, with replacement. Append the r singleton coordinate vectors to each sample family for the following concentration argument. A subspace spanned by at most d selected points, some deterministic singletons and some sampled points, can be conditioned on those selected samples. All remaining samples in its family stay independent with containment probability<=p_r. A Chernoff bound gives probability<=exp(-p_r N/3) that at least2p_r N of those remaining points lie in the span. There are at most(N+r+1)^(d+1) possible selected subsets of size<=d. Their union probability is o(1), because p_r N is of order r^(11/8), whereas the logarithm of that candidate count is O(r log r).
+
+This bound covers every subspace, including one chosen after seeing the sample: its intersection with the sample/singletons has a basis of at most d selected points, whose span contains exactly that intersection. Thus, with probability1-o(1), each family's every dimension<=d subspace contains at most2p_r N+d+r of its points, counted with sampled multiplicities.
+
+Next call an unordered pair among the combined2N sampled sets bad if its intersection has size>=2. For two independent c-subsets,
+Pr(bad)<=binomial(c,2)c(c-1)/(r(r-1))<=c^4/(2r(r-1)).
+The expected total bad pairs is O(r c^4). By Markov, with probability1-o(1) there are at most r^(5/4) bad pairs. Delete every sampled set incident to a bad pair. At most2r^(5/4) sets are deleted from the combined sample, so each family keeps at least N-2r^(5/4). All remaining sampled sets are different and pairwise intersect in at most one point, including across the two families. Both this event and the preceding all-flat concentration event hold simultaneously for sufficiently large r.
+
+Append all r singletons again to the two retained families A,B. Every cross inner product is0 or1. Their intersection matrix contains the r-by-r identity on the singleton rows and columns, and its coordinate factorization has rank<=r. Therefore its exact rank is r; both coordinate families span R^r, so row and column strip ranks equal their coordinate-span dimensions. Deleting sets cannot increase a flat's count, and the denominator in either family is at least N-2r^(5/4)+r. Hence every rank<=d strip has mass at most
+(2p_r N+d+r)/(N-2r^(5/4)+r)=O(r^(-1/8)).
+
+A deterministic protocol sends Alice's at-most-c elements using c slots over labels0,...,r, padding with0; Bob computes the intersection and broadcasts its bit. Its cost is at most c ceil(log_2(r+1))+1=O(log^2 r). There are also exactly r positive disjoint all-one rectangles, one for each coordinate: overlap<=1 makes their supports disjoint, and rank r gives the matching lower bound. This family is thus especially easy for LR0.
+
+It follows that no fixed positive constant can replace the quasipolynomial mass guarantee in L12 for all actual matrices. The r^(-1/8) upper control is still compatible with that unresolved guarantee. This is an infinite auxiliary obstruction to constant-mass concentration, not a legal log-rank reverse family and not a complete major result.
+
+## L17 Existing two-level geometry is not a new whole-target premise
+
+Kupavskii--Weltge2008.07153v1 already proves |A||B|<=(r+1)2^r for full spanning real configurations with every cross scalar product0/1. Its entire scalar-product theorem proof was actually read; the later polytope application was only partly exposed. Kupavskii--Tsarev2404.17933v1 already proves a sharp stability refinement. Only its introduction/statements/discussion and generalized conjecture were read, not its complete proof. Their cardinality bounds do not imply L12's weighted or uniform half-rank concentration.
+
+Singer--Sudan2101.09592v5 supplies prior full-domain geometric/listability equivalences and explicitly excludes constant incidence density alone as a route. Its introduction, selected Section2 statements and Section5 cross-intersection discussion were actually read, not the full paper. In particular, the cross0/1 positive-overlap class of L16 is already known to have a polylog protocol; adjacent nonzero intersection values retain the still-open core. No existing vertex/facet or stability theorem is counted as our solution.
+
+## L18 Same complete target, third active preservation
+
+At06:13:24UTC the earlier2594effective seconds plus05:53:17-05:58:07(290seconds) and06:01:36-06:13:24(708seconds) total3592seconds,59m52. Preservation05:51:05-05:53:17 and recovery05:58:07-06:01:36 are excluded. This new preservation is excluded too. The explicit120minute same-stage policy remains active, with no authorized review-service pause. LR0 is unresolved here: no all-matrix uniform polylog protocol and no admissible superpolylog reverse family. All discovery processes ended. Continue the remaining effective hour after this safe save, without resetting or substituting the stronger-lemma control for the target.
