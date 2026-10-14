@@ -176,3 +176,50 @@ Engineering, South China University of Technology; mxymmxym1@gmail.com;
 ORCID 0009-0000-3864-3536. No external funding. OpenAI AI assistants assisted.
 Original material all rights reserved; known identities and classifications
 are not claimed as new major results. No Lean, publication or priority claim.
+
+
+## R7. A decreasing fourth-order surrogate can increase the permanent
+
+The row-intersection square gap in R4 cannot serve as a permanent-decreasing
+switch potential. The exact actual binary matrices in
+exploration/ryser-variance-surrogate-obstruction.json both have row and
+column sums four. The first is obtained by the valid eight-cycle
+(0,1,2,4,3,5,6,9) in the first saved matching representative. Apply the valid
+switch at zero-based rows 3,5 and columns 5,0. Its ordered row-intersection
+variance decreases from 64 to 60, while its permanent increases from 4208
+to 4212. The saved row masks determine every entry; the separate verifier
+checks legality, the switch, both variances and both permanents by matching
+DP and inclusion-exclusion. Thus the centered fourth coefficient decreases
+by 13^4 but the permanent increases by four. Both permanents are above the
+configuration baseline 3852: this only refutes that stronger surrogate
+route and is not a Ryser counterexample or a solved major conjecture.
+
+
+## R8. Closed bounded stage and complete-target boundary
+
+The deterministic matching-orbit discovery completed all its represented
+length-two through length-seven cells: 1,172,034 actual binary matrices and
+their complements, with 60 independent inclusion-exclusion controls. Its
+separate 210-second length-eight extension checked 3,248,128 further actual
+matrices/complements and 10 controls. Four representative cells completed;
+the fifth stopped at 262,761 candidates and is explicitly incomplete.
+No strict integer permanent below either all-configuration baseline was
+found. Cycles whose removed partial matching does not extend to a saved
+full incidence matching, longer cycles and other regular matrices are
+outside this discovery. No search-absence statement is a positive proof.
+
+The full Ryser assertion remains unsolved here, and no legal full negative
+witness has been obtained. Exact identities, three route obstructions,
+source-reading limits and discovery coverage are preserved. The last
+mathematical verification completed at 01:25:20 UTC, after approximately
+47 effective research minutes; the long disconnected gaps and the
+00:57:57-01:03:41 UTC manuscript service were excluded. The confirmed
+original interval is 17m05 and the earlier replacement interval was
+inherited as approximately eight minutes, so the total is an estimate.
+The ensuing preservation and authorized service are charged zero research
+seconds. No formalization, publication, priority or major-result claim.
+
+Next complete target after the authorized new-manuscript service: the full
+Lih-Wang conjecture for every dimension and every original parameter
+alpha in [1/2,1]. Restricted rank, order, normality, root-free conditions
+and finite nonviolations are not complete major results.

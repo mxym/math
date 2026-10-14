@@ -1,0 +1,55 @@
+{
+  "whole_target": "Ryser design minimum-permanent conjecture at every eligible(v,k): SOME configuration attains the minimum over ALL binary k-regular matrices.",
+  "status": "closed_without_complete_solution_or_legal_counterexample",
+  "last_mathematical_verification_utc": "2026-10-14T01:25:20+00:00",
+  "preservation_record_written_utc": "2026-10-14T01:28:04.971530+00:00",
+  "timing": {
+    "confirmed_inherited_seconds": 1025,
+    "earlier_replacement_seconds_estimate": 480,
+    "new_active_interval_start_utc": "2026-10-14T01:03:41+00:00",
+    "new_active_interval_end_utc": "2026-10-14T01:25:20+00:00",
+    "new_active_seconds": 1299,
+    "effective_total_seconds_estimate": 2804,
+    "service_excluded_utc": [
+      "2026-10-14T00:57:57Z",
+      "2026-10-14T01:03:41Z"
+    ],
+    "disconnected_idle_and_ensuing_preservation_time_excluded": true,
+    "estimate_limit": "Earlier replacement interval is approximately 8 minutes, as inherited. No fabricated exact total."
+  },
+  "complete_result_count_increment": 0,
+  "route_obstructions": [
+    "Negative higher centered-rook differences for an actual regular binary matrix.",
+    "Real switch descent is inadmissible as a binary counterexample.",
+    "Legal switch decreases fourth-order variance 64 to 60 but raises permanent 4208 to 4212."
+  ],
+  "bounded_discovery": [
+    {
+      "file": "exploration/ryser-matching-cycle-discovery.json",
+      "actual_matrices_and_complements": 1172034,
+      "independent_controls": 60,
+      "all_listed_cells_complete": true
+    },
+    {
+      "file": "exploration/ryser-matching-cycle-discovery-length8.json",
+      "actual_matrices_and_complements": 3248128,
+      "independent_controls": 10,
+      "completed_representative_cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "incomplete_representative_cell": 4,
+      "incomplete_cell_candidates": 262761,
+      "wall_seconds": 210.024
+    }
+  ],
+  "coverage_limit": "Only matching-extensible single cycles represented, not all regular matrices. Both baseline values cover every configuration at (13,4)/(13,9) by the written unique-plane/complement argument. No strict witness found.",
+  "verification_artifacts": [
+    "exploration/ryser-centered-route-verification.json",
+    "exploration/ryser-variance-surrogate-obstruction.json"
+  ],
+  "next_full_target": "Full Lih-Wang permanent chord inequality for every n and alpha in [1/2,1], after requested APPT manuscript service.",
+  "no_push_publication_Lean_or_extra_agent": true
+}
