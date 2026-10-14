@@ -144,3 +144,189 @@ Thus permanent is not convex on the positive definite fixed-diagonal domain. Con
 ## C9. Current unresolved step
 
 The complete target remains the monomial product comparison in C2. A replica monotonicity proof could still work, but its coefficients and full test-function moment operator have unavoidable signs. A new proof must exploit the actual factorized Gaussian covariance/copy structure without assuming any of C4, C6, C7, or C8's false strengthenings. These are ordinary complete proofs of route obstructions, not a new solution of a major conjecture.
+
+## C10. Actual ordinary/doubled sectors cannot be paired separately
+
+Let m=2, H=J_2, x=(1,-1)^T. The normalized border is the actual PSD Gram matrix
+\[
+ A=\begin{pmatrix}2&0&1\\0&2&-1\\1&-1&1\end{pmatrix};
+\]
+Gram rows are (1,1),(1,-1),(0,1). Direct expansion gives
+\[
+ F(t)=2+2t^2,\qquad
+ \Gamma(a,b)=2(1+b)^2+8a^2.
+\]
+Thus ordinary alpha_1=0, although the doubled occupation profile with one label2 and one label3 has squared-norm coefficient4. Indeed its complete sector vector is -2 times the symmetric tensor of the two orthogonal unit label vectors; its squared norm is8, divided by m!=2. The two remaining profiles with two label2 or two label3 each contribute2, giving gamma_(2,0)=8. Consequently an individual-profile estimate against alpha_1 alpha_1 is false on an actual PSD border.
+
+Even the ordinary inductive deficit has a negative coefficient:
+\[
+ F(t)^2-\Gamma(t,t^2)=2(1-t^2)^2\geq0.
+\]
+Its middle coefficient is -4. At t=1 the smaller matrix R(1)=2I_2 is an equality case, so a pointwise inductive inequality does not yield coefficientwise dominance. The full border still has per A=8 and per(A circle A)=24<64; this is not a Chollet counterexample or new rank-two result.
+
+## C11. Nonnegative coefficients plus pointwise induction alone are insufficient
+
+This next example concerns an abstract implication, not actual PSD matrices. With m=64 set
+\[
+ F(t)=1+2^{-16}t^{64},\qquad \Gamma(a,b)=b^8/8.
+\]
+Their coefficients are nonnegative and in the usual degree ranges. For t>=0, put s=t^16/16. Then F(t)=1+s^4 and Gamma(t,t^2)=2s. Elementary differentiation gives
+\[
+ \inf_{s>0}\frac{(1+s^4)^2}{s}=\frac{64}{7^{7/4}}>2;
+\]
+the last sign is the exact integer comparison 32^4=1048576>823543=7^7. Hence Gamma(t,t^2)<=F(t)^2 for every t>=0. Nevertheless
+\[
+ \Gamma(1,1)+\partial_b\Gamma(1,1)=9/8
+   > (F(1)+F'(1))^2=(1+65/65536)^2.
+\]
+The exact squared comparison is 8(65601)^2<9(65536)^2.
+
+Therefore positivity of both coefficient lists and pointwise self-conjugate induction along every parabolic evaluation cannot by themselves imply the complete border inequality. This pair of abstract polynomials is expressly NOT a legal Gram witness: alpha_64>0 would force every x_i nonzero and gamma_(0,64)=alpha_64^2/64!>0, which the displayed Gamma lacks. The diagnostic isolates the additional actual sector relations that a valid complete proof must use.
+
+## C12. The polynomial-moment-operator obstruction persists in the self case
+
+The signed-test failure in C7 does not disappear after reducing to B=conjugate(A). Let Z and W be independent standard proper complex Gaussian vectors of dimension2, and set
+\[
+ F_1=Z_1W_1,\quad F_2=Z_2W_2,\quad
+ F_3=(Z_1+Z_2)(W_1+W_2),\quad
+ F_4=(Z_1+iZ_2)(W_1-iW_2).
+\]
+These have coefficients a_i and conjugate(a_i), for a_i=(1,0),(0,1),(1,1),(1,i), so the covariance is precisely A circle conjugate(A) for the PSD Gram A of these rows. Put
+\[
+ Q(z)=4z_1z_2-(z_3-z_1-z_2)^2-(z_4-z_1-z_2)^2.
+\]
+Writing u=Z_1W_1,v=Z_2W_2,a=Z_1W_2,b=Z_2W_1 shows Q(F)=4(uv-ab)=0 identically. The matching Gaussian vector is obtained by applying the same linear formulas to four independent standard complex Gaussian matrix entries H_11,H_22,H_12,H_21. Its covariance is A circle conjugate(A), and
+\[
+ Q(G)=4(H_{11}H_{22}-H_{12}H_{21}),\qquad
+ \mathbb E|Q(G)|^2=32.
+\]
+Thus a PSD replacement operator on all holomorphic polynomial squares would still be false in the exact self-conjugate setting. The determinant-like signed polynomial is not the required product of legal rank-one factors; its failure does not decide Chollet.
+
+## C13. Phase boundary and next analytic requirement
+
+At 20:46:03 UTC the active Chollet research time was22 minutes45 seconds: wall time since20:19:32 minus the independent finite-APPT service review20:36:46–20:40:32. The stage remains active. No stochastic optimization or exhaustive small-order rerun was performed. The remaining route must control actual coupled ordinary/doubled sectors, rather than use an abstract nonnegative-polynomial implication or PSD replacement operator. All diagnostics above are retained as exclusions, without promoting them to a complete result.
+
+## C14. Current quadratic Fourier conjecture is a sufficient input, not a theorem
+
+The September26 primary preprint of Yair Lavi states, for every PSD A and every irreducible character chi_lambda of S_n,
+\[
+ \operatorname{tr}F_\lambda(A)^2\leq
+ d_\lambda(\operatorname{per}A)^2,\qquad
+ F_\lambda(A)=\sum_{\sigma\in S_n}a_\sigma(A)\rho_\lambda(\sigma).
+ \tag{C14}
+\]
+All Fourier blocks are Hermitian PSD. The actual conjecture's character expression is chi_lambda(sigma tau) a_sigma a_tau; it is not a coefficientwise character sign claim. The current paper proves this only through n=5. Its complete Section2 implication proof and the analytic portions of Section4 were read. The order-four and order-five finite certificate packages were not audited or adopted as new work here.
+
+The ordinary immanant dominance already known in more orders controls tr F, not tr F^2, so it cannot be substituted for C14. A permanent-on-top eigenvalue violation likewise does not automatically violate this quadratic bound.
+
+Plancherel gives
+\[
+ n!\operatorname{per}(A\circ\overline A)
+   =\sum_{\lambda\vdash n}d_\lambda\operatorname{tr}F_\lambda(A)^2.
+\]
+Since sum d_lambda^2=n!, complete C14 would imply the self target. This is exactly the implication disclosed by Lavi; it is not a new proof.
+
+For integer replica N, Schur–Weyl decomposition of the character N^{c(rho)} in C3 also gives
+\[
+ M_N=N^{-n}\sum_{\lambda\vdash n}
+   s_\lambda(1^N)\operatorname{tr}F_\lambda(A)^2.
+\]
+The nonnegative Schur dimensions satisfy sum s_lambda(1^N)d_lambda=N^n. Hence complete C14 would bound M_N by M_1 for every integer N. Individual weights need not approach their limiting values monotonically: for n=5, lambda=(4,1), s_lambda(1^2)/2^5=1/8, whereas its limit is d_lambda/5!=1/30. No monotonicity conclusion is obtained just from these positive weights.
+
+Source: https://yair-lavi.com/publications/quadratic-permanent-conjecture/paper.pdf , dated26 September2026,8pages, SHA256 0a61b003335d9e18ebcbed80b90f1d335551aa8443cf32fb1cb9f40cb487978c (108108bytes, local reading snapshot outside repository). The displayed input remains an open all-order conjecture.
+
+## C15. Two further exact exclusions of uniform auxiliary estimates
+
+Lavi's Section4 proof uses a bound on the permanental adjugate of order-four correlation matrices. Its naive constant-two extension to every order is false. Let
+\[
+ B=(6I_7+J_7)/7.
+\]
+This is a positive definite correlation matrix. All adjugate entries are positive and its rows have equal sum, so that sum is its largest eigenvalue. Expanding per(aI+rJ) and differentiating in r at a=6,r=1 gives exactly
+\[
+ \frac{\lambda_{\max}(\operatorname{padj}B)}{\operatorname{per}B}
+  =\frac{22169}{10505}>2.
+\]
+Indeed per(6I+rJ)=sum_k (7)_k 6^{7-k}r^k, and diagonal scaling contributes the factor7 that cancels the derivative's row-sum factor1/7. This refutes only the proposed unrestricted auxiliary bound; it does not refute the actual order-four lemma or C14.
+
+Nor can one discard phases with per|A|<=(per A)^2. For the legal rank-four correlation matrix Y_5, with diagonal1 and off-diagonal-1/4, eigenvalues are0 and5/4 repeated4. Direct aI+rJ expansion gives
+\[
+ \operatorname{per}Y_5=185/128,\qquad
+ \operatorname{per}|Y_5|=69/32,\qquad
+ \operatorname{per}|Y_5|-(\operatorname{per}Y_5)^2=1103/16384>0.
+\]
+Thus the absolute row-sum bound on the Schur power matrix cannot be closed by that strengthening. Neither auxiliary counterexample is a Chollet counterexample; entrywise-positive B even satisfies Chollet termwise, and order five is already solved.
+
+## C16. Gaussian interpolation and the actual missing complementary-block estimate
+
+Let G be the matching proper Gaussian of C2, independent of F, and put
+H_i(t)=sqrt(1-t)G_i+sqrt(t)F_i for0<=t<=1. Direct expansion gives
+\[
+ \mathbb E\prod_i|H_i(t)|^2
+ =\sum_{k=0}^n t^k(1-t)^{n-k}T_k,\quad
+ T_k=\sum_{\substack{S,T\subset[n]\\|S|=|T|=k}}
+ \operatorname{per}A[S,T]\operatorname{per}B[S,T]\,
+ \operatorname{per}(A\circ B)[S^c,T^c].
+\]
+The subsets use their inherited increasing row/column orders. The term for the empty matrix is one. Each T_k is real nonnegative: the three subset-indexed matrices are Gram matrices of homogeneous Gaussian products, their Schur product is PSD, and its sum of entries is the quadratic form on the all-ones vector. One has T_0=per(A circle B), T_1=n per(A circle B), and T_n=per A per B. This coefficient positivity does not imply monotonicity in t or dominance of the last endpoint.
+
+Equivalently, paired Wick matchings give the exact polynomial
+\[
+ \mathbb E\prod_i|H_i(t)|^2
+ =\sum_{\sigma,\tau}t^{n-\operatorname{fix}(\sigma^{-1}\tau)}
+   a_\sigma(A)a_\tau(B).
+\]
+Every nontrivial relative cycle must use F throughout, while a fixed relative matching can use F or G and contributes t+(1-t)=1. For Y3 this is39/32+(9/8)t^2-(3/32)t^3. Its negative coefficient again excludes coefficientwise reasoning; no monotonicity counterexample or proof is obtained.
+
+There is also an exact color-space realization of C3. Let rho_N be the tensor-position permutation representation on(C^N)^{tensor n} and put
+\[
+ K_{A,N}=\sum_\sigma a_\sigma(A)\rho_N(\sigma).
+\]
+Index its entries by colorings c,d in[N]^n. It is PSD, and an entry vanishes unless all corresponding color class sizes agree. Otherwise it is
+\[
+ (K_{A,N})_{c,d}
+ =\prod_{\ell=1}^N\operatorname{per}A[S_\ell,T_\ell],
+ \quad S_\ell=\{i:c_i=\ell\},\quad T_\ell=\{i:d_i=\ell\},
+\]
+up to a consistent harmless transpose convention. This follows equally from the Gram realization of products of independent Gaussian copies. In the self case
+\[
+ M_N=N^{-n}\|K_{A,N}\|_F^2.
+\]
+Diagonal entries are products of principal permanents, bounded by per A by the published Lieb block-supermultiplicativity theorem. Thus the known grouping result bounds the normalized TRACE of K, and proves the trivial diagonal-partner replica endpoint bound; it does not bound the normalized squared Frobenius norm needed here.
+
+The off-diagonal entries contain nonprincipal blocks. Their Gram Cauchy–Schwarz bounds do not close the sum, because the number of compatible colorings supplies additional multiplicities. A conjectural operator bound K<=per A I would recover the already false permanent-on-top strengthening as N grows. The actual missing claim is the particular normalized squared-norm comparison, or a weaker coupled complementary-block estimate sufficient for it. No fake independence, positivity of each permutation monomial, or unproved general-immanant input is used.
+
+## C17. Equivalent fully separable permutation-twirl purity question
+
+For a correlation Gram matrix A, choose unit rows a_1,...,a_n in a common finite-dimensional Hilbert space H and put xi=a_1 tensor...tensor a_n. Let U_sigma permute tensor positions, let P_sym be the orthogonal symmetric projector, and form the actual fully separable permutation-invariant density
+\[
+ R_A=\frac1{n!}\sum_\sigma U_\sigma|\xi\rangle\langle\xi|U_\sigma^*.
+\]
+All trace normalizations here are physical. Direct relative-permutation counting gives
+\[
+ \operatorname{tr}R_A^2=\operatorname{per}(A\circ\overline A)/n!,
+ \qquad \operatorname{tr}(P_{\rm sym}R_A)=\operatorname{per}A/n!.
+\]
+Thus full Chollet is equivalent to
+\[
+ \operatorname{tr}R^2\leq
+ n![\operatorname{tr}(P_{\rm sym}R)]^2
+ \tag{C17}
+\]
+for every finite n, every finite H and every fully separable permutation-invariant density R on H^{tensor n}. The forward extension from product-generated twirls to all such R is rigorous: symmetrize any finite pure-product separable decomposition, then use the Hilbert–Schmidt triangle inequality
+\[
+ \|R\|_2\leq\sum_jw_j\|R_{A_j}\|_2
+ \leq\sqrt{n!}\sum_jw_j\operatorname{tr}(P_{\rm sym}R_{A_j}).
+\]
+Conversely the displayed product twirls lie in that class, so C17 gives the self-conjugate target, and C2's Cauchy–Schwarz transfer gives arbitrary pairs.
+
+This is a full-object equivalent reformulation, not a proof. The complete separability assumption cannot be replaced by permutation invariance alone: a normalized antisymmetric projector has zero symmetric weight and positive purity. Nor is a PPT relaxation certificate or PPT violating state an actual separable/Chollet counterexample. No semidefinite relaxation or new positivity audit was run.
+
+## C18. Bounded stage closure and autonomous switch
+
+Stage closed at2026-10-13 21:10:15 UTC. Elapsed stage wall time was50 minutes43 seconds; the finite-APPT service review20:36:46–20:40:32 was3 minutes46 seconds and is excluded. The resulting effective active stage time is46 minutes57 seconds, including primary literature reading and the next-target status checks at its natural boundary.
+
+No complete Chollet proof or legal PSD reverse-inequality witness was obtained. Exact full-object equivalent formulations and proved shortcut obstructions were preserved; none is counted as a newly solved major conjecture. There was no infinite numerical campaign, repeated rank-three/order-seven attack, weighted-graph replay, new Lean scope or publication.
+
+Status screening at the boundary excluded Foregger's powers problem, whose complete uniform eventual inequality already has a September7 public candidate proof, and Dittert, whose2610.10545v1 Theorem1.2 already states the full all-n inequality and unique equality. The latter source was read at its actual original-object theorem statement, without certifying its entire long proof. The stale Minc index.html record still lists old Dittert gaps, whereas the directory URL is newer; no claim of new closure is made from a cached problem page.
+
+The next complete target is Ryser's design minimum-permanent conjecture (1960), for every eligible pair(v,k). The intended negative route searches actual regular binary matrices against the minimum over ALL configurations at the same pair; finding a nonconfiguration below one nonminimal design would not suffice. Known v<=12 cases and the public one/two-switch local positive results are not attacked as new theorems. A finite exact witness at a certified unique-configuration pair would refute the whole universal statement. Independent all-configuration matching and exact permanent verification are required before any claim.
