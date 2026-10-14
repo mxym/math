@@ -74,3 +74,58 @@ At05:21:00UTC, source159seconds plus mathematics05:06:51-05:21:00 give1008effect
 ## L8 Explicit user extension, same active target
 
 The user now gives current/future whole-target stages approximately120effective research minutes and permits an earlier switch only on concrete evidence of near-impossibility or an already resolved original domain. The old45-minute stopping trigger is revoked. At05:26:38UTC the existing16m48 checkpoint plus188resumed seconds totals1196seconds (19m56); this is accumulated, not restarted. This policy preservation is excluded. CH closed before the new instruction, so its45m06 historical record remains unchanged. See BREADTH_RESEARCH_POLICY.json. LR0 and complete-result acceptance remain unchanged; no new major solution.
+
+
+## L9 Duplicate inputs and product-measure scope
+
+Duplicating a row or column preserves real rank, signed/positive partition numbers and deterministic communication complexity: collapse to its local type, or expand a rectangle/protocol back to all copies. Rectangle fractions are instead weighted by those multiplicities; do not silently equate fractions after deduplication.
+
+A uniform whole-matrix rectangle theorem also gives the same guarantee for any product probability measure. For rational row/column masses, duplicate according to common denominators, apply the theorem, and fill out any partial duplicate classes in the resulting monochromatic rectangle. For real masses, approximate and use the finite set of possible original rectangles to pass to a subsequence. Arbitrary joint distributions are not covered by this cloning argument. A Gibbs tilt of all entries may correlate the two parties, so its low relative entropy does not produce an allowed rectangle automatically.
+
+## L10 Actual signed-cancellation entropy can be large in an easy matrix
+
+For s>=2, let r=2s and gamma=(1,...,1,-1,...,-1), with s of each sign.
+Take all rows x in {0,1}^r such that gamma*x is0 or1. Use r coordinate columns x_i and r copies of the gamma column. Every input pair is defined and Boolean. There are
+m=binomial(2s+1,s)
+rows; its gamma-output counts are m0=binomial(2s,s) and m1=binomial(2s,s-1).
+The coordinate factorization has rank<=2s; rows e_i (positive coordinates) and e_1+e_j (negative coordinates), with all coordinate columns, give a triangular rank minor of determinant1. Thus its exact rank is2s.
+
+Use s positive rectangles covering coordinate i and gamma copies simultaneously, s positive coordinate rectangles for the negative indices, and s negative gamma rectangles. This is a3s-term signed primitive decomposition, within a factor3/2 of the optimal possible count because signed rank>=real rank=2s. At a gamma column its active-term pattern identifies x exactly. Under uniform rows and columns,
+H(active pattern | column)>=0.5 log_2 m,
+linear in s. Even after choosing a fixed gamma-output bit, the remaining pattern entropy is log_2 m0 or log_2 m1. Yet Bob can name his coordinate/gamma column type and Alice give the output using at most ceil(log_2(2s+1))+1 bits. The gamma-copy monochromatic rectangles have fractions m0/(2m) and m1/(2m), bounded away from zero.
+
+This is an exact actualBoolean shortcut obstruction, not a log-rank refutation: a fixed near-optimal signed representation can keep high private cancellation entropy even inside an easy monochromatic region. A successful protocol must be free to change the representation after restriction. Finite controls s2 through6 verify52,940 entries, signed reconstruction, identity/triangular rank witnesses, pattern injection and the protocol.
+
+## L11 Standard clique-versus-independent-set mechanism and overlap cap
+
+For a graph on Q vertices, the standard deterministic search protocol for a clique C and independent set I uses O(log^2(Q+1)) bits. On the current vertex set U, if C contains a vertex of degree<= (|U|-1)/2, Alice names it. If it belongs to I, it is their intersection; otherwise all possible intersection vertices lie among its neighbors, a set of at most half the size. If C contains no such vertex, Bob names a vertex of I of degree> (|U|-1)/2, if one exists. If it belongs to C, terminate; otherwise all intersection vertices lie among its other non-neighbors, again at most half. If neither kind exists, C and I are disjoint. Each round costs O(log(Q+1)) and halves U. This reproduced known mechanism is not a new result.
+
+Suppose signed term patterns A_x,B_y over[q] have a universal overlap cap |A_x intersection B_y|<=K on the entire current product domain. Lift them to families of K-subsets over a universe of binomial(q,K) coordinates. Join two different coordinates if they occur together in some row family. Each row gives a clique; every column is independent, because two common distinct K-subsets would imply an overlap of at leastK+1. The above search therefore either identifies the whole K-element intersection, giving its signed sum, or returns a product transcript region whose all cross overlaps are<=K-1. Rebuild and recurse on that region. Worst-case communication is O(K^3 log^2(q+1)); all computation is public and unrestricted, and every transcript region remains a product.
+
+For K1 this recovers the easier positive-disjoint case. At K=q it does not improve the known rank bound. A polylogarithmic essential-overlap cap after cheap restrictions would help, but is unproved; the signed difference0/1 does not itself bound total overlap. Likewise a squared-intersection matrix (1-|A intersection B|)^2 has rank<=1+q+binomial(q,2) but nonBoolean values when intersections exceed2. Product-family restrictions with all intersections<=2 become Boolean but have an exact polylog-q protocol by this overlap mechanism. An arbitrary nonproduct unique-disjointness promise is not a full target witness.
+
+## L12 Whole-target heavy rank-strip reformulation, still unproved
+
+For an actualBoolean matrix of rank r>=5, seek a row strip or column strip occupying at least
+delta(r)=2^[-C log_2(r+1)^k]
+of that party's inputs and having rank<= (r+3)/2<=4r/5. This quantified existence statement for every matrix is equivalent to LR0 up to polynomial exponents; it is not proved here.
+
+To verify the bridge, a monochromatic rectangle R in a block matrix [R A; B Z] gives
+rank(A)+rank(B)<=r+1,
+by replacing R with zero and eliminating the two disjoint off-diagonal blocks. Therefore the two complete strips [R A] and [R;B] have ranks summing to at most r+3, so one has the required rank bound. Its mass is at least the rectangle fraction. A complete LR0 protocol supplies a large leaf, establishing this conditional direction.
+
+Conversely assume the strip statement holds uniformly. Initially collapse duplicate row/column types, leaving at most2^r of each. A party sends one bit for membership in the strip. An accepted branch decreases rank by4/5; a rejected branch decreases the input product size by1-delta(r). With the initial rank r0, there are O(log r0) accepted branches and O(r0/delta(r0)) rejected branches on every path. The number of leaves is at most
+2^[O(log r0 (log r0+log(1/delta(r0))))],
+with ranks<=4 handled by the elementary finite-rank protocol. A deterministic protocol tree with L leaves can be rebalanced to O(log L) bits: choose a subtree containing betweenL/3 and2L/3 leaves, test membership in its rectangle using at most2bits, and restrict to the surviving subtree or to the branch excluding it. Repeat. This standard existing simulation applies to protocol trees, not arbitrary partitions. The resulting full cost is polylog(r0).
+
+Thus the remaining matroid/flat concentration assertion must use both actualBoolean vector configurations. The quadratic-span inequalities in L2 alone do not imply it. No rank-halving assertion is adopted as a theorem.
+
+## L13 Existing norm and single-parity blockers, credited precisely
+
+Balla–Hambardzumyan–Tomon2506.23989v1 Theorem1.4/Section6 is a prior actualBoolean construction with gamma2<=gamma and no square monochromatic submatrix above a relative side scale2^[-gamma+O(1)]. Its full short construction was read, alongside the final2026 primary theorem/status excerpt. It shows that tightening a universal gamma2-only guarantee cannot by itself give a polylog-rank theorem through gamma2<=sqrt(r). Its actual rank is only bounded by its larger ground-set size; no rank~gamma^2 or log-rank counterexample is inferred. Published32-page/full-v1 proof audit is not claimed.
+
+Hatami–Hosseini–Lovett–Ostuni2312.09400v2 already refutes both a universally large single Fourier-folding direction and a frequent-large-folding approach for XOR functions. The actual primary statement and introduction were read; the remainder of the counterexample proof was not audited. These existing failures exclude those stronger greedy assumptions. They do not refute LR0 or the arbitrary full-product rank-strip condition in L12.
+
+## L14 Active two-hour checkpoint
+
+At05:51:05UTC, the prior1196effective seconds plus mathematics05:27:47-05:51:05 give2594seconds (43m14). No uniform whole-matrix solution or legal superpolylog infinite counterfamily. L9-L12 preserve the complete domain and explicit unresolved conditions; actual controls and known blocks remain auxiliary. Under the user's superseding120minute policy this is a preservation checkpoint, not a stage closure. All current scripts ended; no manuscript service or separate review role paused the clock. Resume the same target after preserving these bytes, without reset.
