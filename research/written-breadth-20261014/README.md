@@ -92,16 +92,21 @@ Randomized/quantum, approximate-rank, promise and AND/XOR subclasses do not
 replace this whole target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
 Foregger17 and old failed whole routes remain excluded. All stream
-disconnect/idle, preservation and authorized service time is excluded from
-the inherited45-90effective-minute switching rule.
+disconnect/idle, preservation and authorized service time is excluded.
+The user's new [research-window policy](BREADTH_RESEARCH_POLICY.json) gives
+the current and future complete stages approximately120effective minutes;
+the accumulated log-rank clock continues. An early switch needs concrete
+original-domain resolution or structural evidence of near-impossibility,
+beyond one failed shortcut or finite search. Historical stage times remain
+unchanged.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result
 and older grouped Gaussian counterexample are excluded from new-result
 counts. No numerical observation or incomplete route enters the proven
 result catalogue. Effective research time excludes requested APPT service
-reviews; a route with no substantial result is switched within the inherited
-45–90 minute bound.
+reviews. Current and future stage decisions follow the explicit user
+two-hour policy, with full scope and honest result counts.
 
 No new major-conjecture importance score, Lean package, audit root, Release,
 DOI or submission is asserted by this breadth checkpoint.
