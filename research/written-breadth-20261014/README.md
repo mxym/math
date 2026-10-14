@@ -115,7 +115,10 @@ the current and future complete stages approximately120effective minutes;
 the closed log-rank clock is preserved without reset. An early switch needs concrete
 original-domain resolution or structural evidence of near-impossibility,
 beyond one failed shortcut or finite search. Historical stage times remain
-unchanged.
+unchanged. The latest explicit user instruction is to finish this SAME
+complete Quantum PCP stage, report together, and temporarily stop.
+No next target will be screened or started after the current outcome;
+continuation then requires the user to resume.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

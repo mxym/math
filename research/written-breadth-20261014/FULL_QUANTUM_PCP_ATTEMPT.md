@@ -159,3 +159,110 @@ precision, without an unproved good-qLTC assumption;
 (4) noninteractive static-proof or Hamiltonian compilation preserving the
 full gap. Neither BNZ combinatorial amplification nor qIOP interaction has
 supplied these four gates in this attempt. Full QP0 remains unproved.
+
+## Q7. Friendly filter balancing and its exact norm sensitivity
+
+In the BNZ overview toy situation of one colluding readout share per
+d-share repetition block, with 0<gamma<1/2 noisy readout and d>=3, write
+r0=gamma+(1-2gamma)eta, r1=1-r0.
+The displayed branch-balance condition
+(1-gamma)r0^(d-1)=gamma r1^(d-1)
+has the unique solution
+r0=1/(1+exp(L/(d-1))),
+eta=(r0-gamma)/(1-2gamma), L=ln((1-gamma)/gamma)>0.
+It obeys0<eta<1/2. For fixed gamma and d->infinity,
+eta=1/2-L/[4(1-2gamma)(d-1)]+O_gamma((d-1)^-3).
+
+For A_eta=diag(sqrt(eta),sqrt(1-eta)) and R(d-1) honest readout
+shares, F=A_eta^(tensor R(d-1)) has
+ln cond(F)=R(d-1)/2 * ln((1-eta)/eta)
+=R L/[2(1-2gamma)]+O_gamma(R/(d-1)^2).
+Thus making the block larger does not remove exponential-in-R condition
+growth in this TOY exact branch-balancing operator. This calculation
+does not reprove the full BNZ soundness analysis or refute their construction.
+
+For any positive invertible F with condition number kappa, the normalized
+postselection map rho -> F rho F /Tr(F rho F) has trace-distance bound
+||P_F(rho)-P_F(sigma)||_1 <=2 kappa^2 ||rho-sigma||_1.
+Expand the difference over one common normalization denominator; each
+trace is >=s_min(F)^2 and both the operator trace norm and trace change
+are bounded by s_max(F)^2||rho-sigma||_1.
+
+The condition-number dependence cannot simply be omitted. For
+F=diag(a,b), kappa=b/a, rho=|0><0| and
+sigma=(1-epsilon)|0><0|+epsilon|1><1|,
+the input trace distance is2epsilon, whereas the output distance is
+2epsilon kappa^2/(1-epsilon+epsilon kappa^2).
+Taking epsilon=kappa^-2 makes the input distance vanish and the output
+distance tend to1. This is an exact elementary filter-control pair,
+NOT a low-energy Hamiltonian counterexample or a Quantum PCP result.
+
+Likewise, the injective teleportation filter Q_delta=P+delta(I-P) on
+L disjoint resource pairs has condition number delta^-L. A global
+norm-perturbation comparison alone may lose exponentially in L; actual
+circuit geometry can improve this bound and must be used if this route
+is to prove true energy soundness. ABN's read robust propagation lemma
+has depth-dependent loss eta/delta^8+alpha/delta^16 at each backward step;
+merely iterating the displayed lemma does not supply a constant-density
+logical-fault extraction estimate.
+
+## Q8. Protected readout flags: precise limited-code tension
+
+Exact erasure privacy on a set B means V^*A_B V=c_A I for every operator
+supported on B. A postselection operator E_B then has
+V^*E_B^*E_B V=c I, so its success probability is independent of ALL
+encoded logical states (also of an external reference's logical marginal).
+This protects a coherent readout flag against that particular small bad set.
+
+If every k'-site set is protected this way, the same identity makes every
+k'-local readout energy scalar on the code. A logical flag projector which
+distinguishes encoded0 and1 therefore cannot itself be a k'-local
+observable on that protected code. This is the direct algebraic property,
+not an obstruction to every more elaborate code/proof construction.
+
+Protecting each small flag block separately is also insufficient for a
+generic global postselection argument. Consider a classical correlated
+mixture epsilon |0...0><0...0|+(1-epsilon)|1...1><1...1| of logical flags.
+A bad operator large enough to read just ONE unprotected logical block
+can select the all-zero branch, despite touching only one of arbitrarily
+many blocks. Every proper-block privacy guarantee must be checked on the
+ACTUAL adversarial support; small density of fully bad blocks alone does
+not rule out this toy branch selection. No claim is made that this mixture
+satisfies all terms of a BNZ or ABN Hamiltonian.
+
+The active possible escape is a construction-specific coherent-noise or
+logical-fault estimate which bounds bad-path WEIGHT rather than demanding
+global norm closeness or assuming independent blocks. Such an estimate
+has not been established here; its complete endpoint remains QP0.
+
+## Q9. New adversarial fault tolerance is a prior ingredient, not closure
+
+The latest Breuckmann-Golowich-Vazirani2608.16857v2 theorem uses constant
+physical qudit dimension and tolerates an almost-linear number of fully
+adversarial faults per time step. The read first6pages explicitly retain
+a vanishing fault fraction, subpolynomial depth overhead, and noiseless
+classical side computation. Its constant-alphabet circuit simulation is
+not a gap-preserving constant-alphabet Hamiltonian assignment tester.
+The authors explicitly leave the ABN low-energy extraction conjecture
+as the main missing connection to even a subpolynomial-gap quantum PCP.
+
+The ABN model's injective parent Hamiltonian is frustration-free before
+the output check. Its code-space/rotated-state and noise apparatus avoids
+the simplistic exact-code barrier Q4; this was checked in their actual
+Section2.5, including Claim2.3's direct local distinction argument.
+Thus Q4 is not asserted to invalidate ABN. The main restricted spectral
+question is whether small TRUE parent-energy density forces a state to
+encode a computation with few logical damaging faults, uniformly in
+depth and without uncontrolled conditioning. Neither the displayed old
+propagation inequalities nor the new fault-tolerance statement proves it.
+
+All four full-QMA/energy/constant-resource/static-compilation gates remain.
+No new complete solution, full negative result, restricted-major credit
+or additional formal verification has been obtained.
+
+## Current-task-only user boundary
+
+The user explicitly requested completing current tasks, reporting together,
+then temporarily stopping. Finish this SAME QP0 stage with its original
+approximately120-effective-minute clock; do not start another candidate
+after its preserved outcome. No independent root review pauses this clock.
