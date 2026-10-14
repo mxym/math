@@ -15,4 +15,6 @@ Prepared before the mathematical phase,14October2026; all statements below refer
 - **CH10 Novelty/state boundary.** No full solution, legal counterexample or new major-result count at activation. Finite diagnostics and exact shortcut obstructions are exploration only.
 - **CH11 Stage rule.** Source screening since04:02:48UTC counts toward this new complete stage. Preservation, requested manuscript service, recovery/disconnection and idle time are excluded. At45–90effective minutes without a substantial complete result, preserve and screen a genuinely different complete major target.
 
+- **CH12 Future breadth selection.** The user authorizes complete high-impact strictly stated theoretical problems across mathematics, theoretical computer science, theoretical physics and information theory; future candidates need not remain within mathematics. This does not change CH0 or reset its effective clock. No additional agent is authorized.
+
 The complete mathematical target is CH0. Reductions CH2,CH5,CH6 preserve that target; they do not replace it with a restricted regular or girth-three conjecture.
