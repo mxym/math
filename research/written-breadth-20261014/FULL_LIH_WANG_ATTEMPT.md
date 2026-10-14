@@ -82,3 +82,41 @@ combinations do not inherit a lower bound merely from vertex values.
 
 No new major-conjecture result, full Lean build, source audit, publication
 or external peer review is asserted by this active route record.
+
+
+## L3. Exact feasible transport direction for a whole-target negative route
+
+For a four-slot direction H with -1 at (r,c),(s,d) and +1 at
+(r,d),(s,c), let L_X be the cofactor sum in its positive slots minus that
+in its negative slots, and M_X the permanent of X with those two rows and
+columns deleted. Multilinearity gives per(X+sH)=per X+L_X s+2M_X s^2.
+For C=J_n+t(A-J_n), the full chord gap therefore obeys
+
+    G_(A+sH)(t)=G_A(t)+t(L_A-L_C)s
+                           +2t(M_A-tM_C)s^2.              (L5)
+
+The feasible interval is exactly
+[-min(A_rd,A_sc), min(A_rc,A_sd)], since this preserves all margins and
+changes only four entries. The squared distance S=||A-J_n||_F^2 changes as
+S+2s<A-J_n,H>+4s^2. There is no uniform concavity reduction: already at
+A=J_n, M_A=M_C>0, so the quadratic gap coefficient is positive for 0<t<1.
+This and the exact known three-order nonconcavity control prevent proving
+the whole domain merely by moving to permutation vertices.
+
+For discovery, integral-margin M with A=M/K allows exact integer trades,
+with a common-denominator integer chord gap at t=a/b. It is
+
+    b^(n-1)[(b-a)K^n n!+a n^n per M]
+                         -per[a n M+(b-a)K E],             (L6)
+
+divided by (b n K)^n. Here 0<a<=b/2 is precisely the full original-domain
+condition. A negative exact numerator for a legal M is an actual whole-
+conjecture disproof, requiring the independent weighted integer verifier;
+a finite nonnegative sample is not a positive proof. Normalize a discovery
+score by S to avoid mistaking convergence to the known uniform equality
+for substantial progress; the acceptance sign remains the exact L6 sign.
+
+The independent verifier checks matching DP and inclusion-exclusion at
+four known controls: two permutation gaps 1/4, the nonuniform midpoint
+gap zero, and a gap -1/384 at inadmissible alpha=1/4. The latter is rejected
+by the original-domain gate. These are checks, not new major results.
