@@ -1,0 +1,139 @@
+{
+  "role": "independent finite supporting controls",
+  "not_a_proof_or_formal_audit": true,
+  "source_bindings": {
+    "INITIAL_PAPER.md": "ae5f04557e63a4af6f1d4329448f81d7ca30ea41099770b88a748bba68ce4927",
+    "INITIAL_THEOREM_MAP.md": "5e36d29cefa57f69dddccff7337db73bb633805983565ab7eb7b273b0cabb6c3",
+    "check_exact_bulk_review.py": "1b225ecd29cf550c1df5b8b94a15fd6b02d2861f8a2f58fd829a4dc72094b661"
+  },
+  "symbolic": {
+    "checks": 9,
+    "result": "PASS"
+  },
+  "all_omitted_mass": {
+    "checks": 7,
+    "result": "PASS",
+    "details": [
+      {
+        "m": 6,
+        "all_positive_slots": 15,
+        "all_negative_slots": 21,
+        "omitted_mass": "197/84000",
+        "strict_gap": "32718574369398632545132749914227372858138650112505271/77121646239581857531624327845660458662721301224595796317365"
+      },
+      {
+        "m": 7,
+        "all_positive_slots": 21,
+        "all_negative_slots": 28,
+        "omitted_mass": "837/300125",
+        "strict_gap": "804054594230050634366663375396165653335179144707021737832240695826101/1573547278681656577456923047220648203290125522466318918836487286140312925000"
+      },
+      {
+        "m": 8,
+        "all_positive_slots": 28,
+        "all_negative_slots": 36,
+        "omitted_mass": "723/224000",
+        "strict_gap": "761698783626085558361206830989122148236610432504084428098533641806606944/1269202856947977123177048141979860265032856988918328966901546729840419887564625"
+      },
+      {
+        "m": 9,
+        "all_positive_slots": 36,
+        "all_negative_slots": 45,
+        "omitted_mass": "47/13500",
+        "strict_gap": "531910067050064131266099819216253863833804504351189365080606452924194308673745169954707181822/781418827345022451727636197991911643660908584970074054820910895372549157830883444697628278305546875"
+      },
+      {
+        "m": 10,
+        "all_positive_slots": 45,
+        "all_negative_slots": 55,
+        "omitted_mass": "2753/700000",
+        "strict_gap": "101809669189958930161786609685505341234163319750894020459089141897405482704133217709412516156349260676953442157/131245185566451891412681852634726274531162959284465314190737973395918598334565166026078841898037288406759518763873585"
+      },
+      {
+        "m": 11,
+        "all_positive_slots": 55,
+        "all_negative_slots": 66,
+        "omitted_mass": "53/12100",
+        "strict_gap": "4094203117686835183160634975796921865040648520645528022605822660041216854055964326039631244144031359/4696183529534477962927277425029107569640748164994448845873396307940475123841369914132419786002587086410584"
+      },
+      {
+        "m": 12,
+        "all_positive_slots": 66,
+        "all_negative_slots": 78,
+        "omitted_mass": "3/640",
+        "strict_gap": "372790747207804862667283061344061872061846877491113598099235022017631785709272108692762525943677604411361146846338336037320432022171220929486636/388158295771147703978921676898834668217565968267606488563486835936240943332851734697439661582197304588671423861108337872909318954720105537394532085875"
+      }
+    ]
+  },
+  "O_m_lower_band": {
+    "checks": 5,
+    "result": "PASS",
+    "details": [
+      {
+        "m": 128,
+        "n": 2048,
+        "integer_bulk_ranks": [
+          130048
+        ],
+        "clipped_exact_rank": 130064,
+        "purity_profit_numerator_positive": true,
+        "finite_all_unitary_single_edge_test": true
+      },
+      {
+        "m": 256,
+        "n": 12288,
+        "integer_bulk_ranks": [
+          1566720
+        ],
+        "clipped_exact_rank": 1566768,
+        "purity_profit_numerator_positive": true,
+        "finite_all_unitary_single_edge_test": true
+      },
+      {
+        "m": 512,
+        "n": 57344,
+        "integer_bulk_ranks": [
+          14651392
+        ],
+        "clipped_exact_rank": 14651504,
+        "purity_profit_numerator_positive": true,
+        "finite_all_unitary_single_edge_test": true
+      },
+      {
+        "m": 1024,
+        "n": 245760,
+        "integer_bulk_ranks": [
+          125706240
+        ],
+        "clipped_exact_rank": 125706480,
+        "purity_profit_numerator_positive": true,
+        "finite_all_unitary_single_edge_test": true
+      },
+      {
+        "m": 2048,
+        "n": 1015808,
+        "integer_bulk_ranks": [
+          1039679488
+        ],
+        "clipped_exact_rank": 1039679984,
+        "purity_profit_numerator_positive": true,
+        "finite_all_unitary_single_edge_test": true
+      }
+    ],
+    "scope": "Exact rational one-positive-head actual construction at alpha=2 only; proof handles all fixed positive orders."
+  },
+  "relative_subtraction": {
+    "checks": 168,
+    "precision_decimal_digits": 320,
+    "result": "PASS",
+    "max_scaled_residual": "3.47567381440257219278409113839",
+    "scope": "Subtraction identity (13) controls, including 1e-80 single anomalies and beta=1. These raw controls do not claim APPT feasibility."
+  },
+  "wrong_extension": {
+    "wrong_rule": "Use an uncanceled D e = centered power + o(1) at unbounded D/m^3.",
+    "D": 1000000000000,
+    "m": 100,
+    "error": "5000.6667416746675000857230366",
+    "result": "REJECTED"
+  }
+}
