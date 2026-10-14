@@ -58,11 +58,17 @@ The [whole-domain theorem map](LIH_WANG_THEOREM_MAP.md),
 orders and finite candidates from the full target. Exact transport,
 radial/binomial formulations and shortcut obstructions remain exploration.
 
-The sole breadth role will screen the complete normalized regular-binary
-minimum monotonicity conjecture (Minc's sixth), after the separately
-requested manuscript service. It is not yet asserted solved or activated
-without current primary-source scope checks. Recovery excludes all stream
-disconnection/idle gaps; the inherited 45-90-effective-minute switching
+The active complete target is [Minc's sixth normalized-minimum permanent conjecture](FULL_MINC_SIXTH_ATTEMPT.md):
+every integer n>=2 and every adjacent degree1<=k<n, over all actual binary
+regular matrices. The positive target is strict global-minimum decrease,
+covering both original readings; a negative result needs a strict reverse
+comparison with a universal next-degree lower certificate. The
+[whole-domain map](MINC_SIXTH_THEOREM_MAP.md) and
+[current primary/source and old-route screen](MINC_SIXTH_SOURCES.json)
+separate this object from old PSD/subgroup attempts and already proved
+finite, sparse, dense or fixed-degree results. No full1965-text, priority
+or complete conjecture resolution is claimed. Recovery excludes all stream
+disconnection/idle gaps; the inherited45-90-effective-minute switching
 rule excludes requested manuscript and index services.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
