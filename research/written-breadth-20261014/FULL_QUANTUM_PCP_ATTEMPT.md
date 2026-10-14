@@ -461,3 +461,166 @@ does not by itself establish a forbidden fault DENSITY in the many-wire
 adversarial model. The exact program and observed floats are preserved in
 QUANTUM_PCP_IDENTITY_SPECTRAL_CONTROL.py / .json. This is auxiliary discovery,
 not a solved class or full Quantum PCP result.
+
+
+## Q16. Joint classical sharp flags are an additional restricted requirement
+
+This section concerns a compiler demanding ONE common-state joint flag law
+for all proposed sharp checks. Quantum PCP itself does not require such a
+compiler and allows incompatible measurements selected in different runs.
+
+For two projective measurements {P_a},{Q_b}, a positive joint POVM
+{G_ab} with marginals P_a,Q_b exists if and only if every P_a commutes with
+every Q_b. Indeed 0<=G_ab<=P_a and <=Q_b imply
+P_a G_ab=G_ab=G_ab P_a and Q_b G_ab=G_ab=G_ab Q_b.
+Summing gives P_a Q_b=G_ab=Q_b P_a. Conversely use G_ab=P_a Q_b.
+For instance SWAP_12 and SWAP_23 do not commute on three qubit registers:
+their two product orders send |010> to |001> and |100>. Their associated
+symmetric-subspace sharp checks cannot all be precomputed as joint flags.
+
+There is also a direct error floor. Suppose one binary joint POVM has
+marginals A,B approximating projectors P,Q with operator errors <=epsilon.
+Its canonical dilation V psi=sum_ab sqrt(G_ab)psi tensor|ab> is an isometry
+with commuting flag projections Phat,Qhat and
+A=V^*Phat V, B=V^*Qhat V. Put Pi=VV^*, and
+L_P=(I-Pi)Phat V, L_Q=(I-Pi)Qhat V.
+Then ||L_P||^2=||A-A^2||<=3epsilon, likewise for Q, because both A,P
+are contractions and ||A^2-P^2||<=2epsilon. Commutativity upstairs gives
+[A,B]=-L_P^*L_Q+L_Q^*L_P, hence ||[A,B]||<=6epsilon.
+Also ||[P,Q]-[A,B]||<=4epsilon, so ||[P,Q]||<=10epsilon.
+For P=(I+X)/2,Q=(I+Z)/2 the commutator norm is1/2, forcing epsilon>=1/20.
+
+These are direct elementary calculations, not an audited general
+measurement-compatibility literature theorem. A custom encoded witness or
+a verifier selecting one incompatible context can evade the joint-flag
+requirement. No full QP0 impossibility follows.
+
+## Q17. Literal local equality testing cannot reproduce global SWAP
+
+Let psi_+=(|0^n>+|1^n>)/sqrt(2) and
+psi_-=(|0^n>-|1^n>)/sqrt(2). They are orthogonal, yet their density matrices
+have identical marginals on EVERY proper subset of the n data qubits.
+Thus psi_+ tensor psi_+ and psi_+ tensor psi_- have identical marginals
+on every set of fewer than n sites of the two literal registers.
+
+Every sum of k<n-local observables has identical expectation on these
+two states. The same holds for a qualified measured-index adaptive
+q<n-query verifier: each complete-path effect accesses a proper subset
+of each register, so its probability is identical. A global SWAP instead
+accepts the equal pure pair with probability1 and the orthogonal pair
+with probability1/2. This rules out the literal, unencoded replacement
+of that comparator by fewer-than-n data queries, not Quantum PCP.
+Encoding, additional checked proof structure and input-dependent
+constructions are outside this restricted control.
+
+## Q18. An elementary trace gate for overly strong query parameters
+
+For a GIVEN q-query measured-index verifier, its accepting effect E is a
+sum of positive effects on at most q proof qubits. For every positive
+q-local effect A on N qubits,
+||A||<=Tr_local A<=2^q Tr(A)/2^N.
+Consequently ||E||<=2^q Tr(E)/2^N, by triangle inequality and positivity.
+If a YES input admits acceptance >=c, the maximally mixed proof accepts
+with probability at least c/2^q. On a NO input it accepts at most s.
+When c/2^q-s has a positive inverse-polynomial lower bound, sampling this
+explicit mixed proof distinguishes the input in BQP. If ALL QMA had such
+verifiers with these parameters, this would imply QMA=BQP; no separation
+is asserted. The original existential parameters need not satisfy this
+strong inequality, so this is not a refutation of QP0.
+
+The analogous Hamiltonian calculation is also exact. For
+H=(1/M)sum_i h_i, 0<=h_i<=I, at most q sites of dimension d,
+A=I-H is a sum of positive q-local effects. If lambda_min(H)<=a then
+Tr(H)/d^N<=1-(1-a)/d^q. If lambda_min(H)>=b then Tr(H)/d^N>=b.
+Thus b>1-(1-a)/d^q, with an efficiently resolvable margin, makes that
+particular promise distinguishable by the explicitly computable trace.
+It does not cover arbitrary constant-relative-gap thresholds.
+
+One cannot improve the query budget for free by ordinary error reduction.
+For a t-copy accepting-AND procedure the acceptance ratio changes from
+s/c to (s/c)^t, while the queried proof size becomes tq; comparison with
+2^(-tq) retains the same exponent inequality. General majority
+amplification also increases the query bound. This restricted calculation
+does not preclude a more efficient structural error reduction.
+
+## Q19. Keep the quantum reduction qualification in complexity consequences
+
+QP0 permits quantum polynomial-time reductions, not just classical
+deterministic transformations. A smaller classical target class therefore
+cannot automatically be composed using the closure facts for classical
+reductions. For example one cannot infer that LH in NP refutes QP0 merely
+by assuming QMA differs from NP. The precise reduction convention and
+the simulation of its quantum output computation must be supplied.
+An arbitrary BQP computation with an NP oracle gives a BQP^NP upper
+bound; a suitable fixed quantum-output transformation followed by a
+classical-certificate test can give QCMA under its actual error/size
+conditions. Neither statement proves a needed class separation.
+
+BHW's conditional QPCP-to-QCMA theorem is an attributed prior result.
+Only the actual statement and selected learning/rounding/oracle passages
+listed in the source record were read, not its entire proof. Q13's own
+random tomography outputs need not coincide across successful runs.
+No unique successful classical-output certificate is asserted here, and
+no generic closure of QCMA under arbitrary random quantum reductions is
+adopted. The following direct witness-validation route states its own
+qualification instead.
+
+## Q20. A known conditional QPCP-in-QCMA bridge via witness validation
+
+Assume the constant-relative-gap Local Hamiltonian problem at the relevant
+fixed locality and local dimension is in QCMA. Given a constant-query
+QPCP verifier with c>s and q fixed, its rejection effects R_p are as in
+Q13, with R=sum_p R_p=I-E_accept and D0=2^q.
+Put nu=(c-s)/100. Merlin supplies a polynomial-bit classical packet
+of rational Hermitian PSD matrices C_p on the known path supports, plus
+a classical QCMA certificate for the local Hamiltonian specified below.
+Check their local positivity exactly in constant dimension and require
+S=sum_p Tr_local C_p<=2D0. Then U=max(1,S) and
+H_C=(sum_p C_p)/U define a valid PSD local operator 0<=H_C<=I.
+
+Its absolute thresholds are
+a=(1-c+4nu)/U, b=(1-s-4nu)/U,
+with gap >=(c-s-8nu)/(2D0).
+Q12 converts this to a polynomial explicit norm-one multiset having a
+constant relative gap at the same locality (or q+1 if an optional
+distinct-support convention requires flags). All factors and thresholds
+are rational functions of the packet. Only a classical polynomial-time
+transformation is needed after the packet has been supplied.
+
+A quantum verifier with NO quantum witness independently learns all
+R_p to the following cumulative entry norm within nu/4, with failure
+probability delta=.01:
+Delta_row(A,B)=sum_p D0 max_(u,v)
+              (|Re(A_p-B_p)_(uv)|+|Im(A_p-B_p)_(uv)|).
+This dominates sum_p ||A_p-B_p|| and obeys triangle inequality.
+Constant local dimension and polynomially many paths make the sampling
+and precision polynomial, using the path-local tomography from Q13.
+The learning-good event controls all packets simultaneously.
+Accept a supplied packet for further checking only if
+Delta_row(C,estimated_R)<=nu.
+
+For honest YES there exist PSD rational packets with
+Delta_row(C,R)<=nu/4 and S<=2D0: sufficiently precise PSD-shifted
+tomography as in Q13 supplies such matrices with polynomial bit length.
+These pass validation on the good event and
+lambda_min(sum C_p)<=1-c+nu/4<aU.
+For ANY accepted packet on that event,
+||sum C_p-R||<=5nu/4<2nu.
+A NO input consequently satisfies
+lambda_min(sum C_p)>=1-s-2nu>bU, so the derived packet instance is
+genuinely in the NO branch even though Merlin selected the packet.
+
+Run the hypothesized QCMA verification algorithm on this explicit
+constant-gap instance, using the remaining classical certificate.
+Its error may be amplified to delta using the same classical
+certificate and fresh verifier workspace. For YES there is an honest
+packet and certificate succeeding with probability >=1-2delta.
+For NO every certificate succeeds with probability <=2delta,
+including the learning-failure contribution. This is a uniform QCMA
+verifier and proves the stated CONDITIONAL containment for the qualified
+QPCP model. It avoids requiring identical random Hamiltonian outputs.
+
+This is a rederivation of a known conditional bridge, not a new major
+result. The assumption that all constant-gap LH is in QCMA is not proved,
+nor is an all-QMA constant-query verifier constructed. The complete QP0
+gates are unchanged.

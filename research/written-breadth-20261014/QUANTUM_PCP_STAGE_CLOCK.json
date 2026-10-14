@@ -2,10 +2,10 @@
   "schema": "complete-quantum-pcp-active-clock-v1",
   "status": "active-same-complete-QP0-no-full-result",
   "original_source_start_utc": "2026-10-14T07:42:57Z",
-  "last_counted_boundary_utc": "2026-10-14T08:51:27Z",
+  "last_counted_boundary_utc": "2026-10-14T09:21:07Z",
   "primary_before_map_seconds": 230,
-  "mathematical_phase_including_relevant_primary_followup_seconds": 3178,
-  "total_effective_seconds": 3408,
+  "mathematical_phase_including_relevant_primary_followup_seconds": 4563,
+  "total_effective_seconds": 4793,
   "target_effective_seconds": 7200,
   "counted_intervals": [
     {
@@ -37,6 +37,12 @@
       "end_utc": "2026-10-14T08:51:27Z",
       "seconds": 1595,
       "kind": "same-full-QP0-mathematics-primary-followup-and18-finite-actual-controls"
+    },
+    {
+      "start_utc": "2026-10-14T08:58:02Z",
+      "end_utc": "2026-10-14T09:21:07Z",
+      "seconds": 1385,
+      "kind": "same-full-QP0-mathematics-relevant-primary-and-read-only-catalog-screen"
     }
   ],
   "excluded_intervals": [
@@ -69,16 +75,28 @@
       "end_utc": "2026-10-14T08:24:52Z",
       "seconds": 162,
       "kind": "second-checkpoint-and-current-task-only-policy-preservation"
+    },
+    {
+      "start_utc": "2026-10-14T08:51:27Z",
+      "end_utc": "2026-10-14T08:58:02Z",
+      "seconds": 395,
+      "kind": "third-checkpoint-transcription-and-preservation"
+    },
+    {
+      "start_utc": "2026-10-14T09:21:07Z",
+      "end_utc": "2026-10-14T09:25:08Z",
+      "seconds": 241,
+      "kind": "compaction-recovery"
     }
   ],
-  "current_preservation_start_utc": "2026-10-14T08:51:27Z",
+  "current_preservation_start_utc": "2026-10-14T09:25:08Z",
   "service_seconds": 0,
   "new_major_results": 0,
   "next_action": "Continue SAME fullQP0 after preservation, no reset; complete current stage then report/idle at explicit user request, no next target.",
   "literal_bindings": {
-    "FULL_QUANTUM_PCP_ATTEMPT.md": "cc32d46840bbb048dc50527966793d0dff4dc527d830d46cd09f61e0475f271e",
+    "FULL_QUANTUM_PCP_ATTEMPT.md": "57d037f9ecd11df2ff37bfb78bdf52d09b6f89660cd7df4924c479e2d9f7e597",
     "QUANTUM_PCP_THEOREM_MAP.md": "d41b82fccc0cd3870609d99e05b228b482a7188ba3dd4e41817da39c0087c808",
-    "QUANTUM_PCP_SOURCES.json": "259c058badd6bacd1ebef4afb5b34f0e2b9611049519f9e524e5811b9eaae3f8",
+    "QUANTUM_PCP_SOURCES.json": "b47624239422a5dd15051c452e091057e2031f2398715e5628c174a095b95d84",
     "QUANTUM_PCP_IDENTITY_SPECTRAL_CONTROL.py": "dfd3f4ecdd460c979441563f0c6c84e9c5ebfecccef02b4647270e8b85123edf",
     "QUANTUM_PCP_IDENTITY_SPECTRAL_CONTROL.json": "0bcd5f26c1e33558db1db1d4966671e959c86597c7a788621050c7d5cfb14f8c"
   }
