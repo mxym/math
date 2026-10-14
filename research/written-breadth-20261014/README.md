@@ -83,10 +83,14 @@ the [complete map](CACCETTA_HAGGKVIST_THEOREM_MAP.md) was retained.
 [Primary scopes](CACCETTA_HAGGKVIST_SOURCES.json) and
 [the stage boundary](CACCETTA_HAGGKVIST_STAGE_CLOSED.json) preserve known
 inputs, shortcut obstacles and finite exact discovery. No major result is
-counted. Current routing is fresh primary screening of a different complete
-high-impact theoretical problem across mathematics, theoretical computer
-science, theoretical physics or information theory; no new mathematical
-stage has started. Foregger15/Kraeuter36 remain screening backups; the solved
+counted. The sole active breadth target is now the complete theoretical-CS
+[deterministic log-rank conjecture](LOG_RANK_THEOREM_MAP.md), over every
+finite total Boolean matrix with real rank and uniform absolute constants.
+[Current primary screening](LOG_RANK_SOURCES.json) found no full resolution;
+the map precedes [its written attempt](FULL_LOG_RANK_ATTEMPT.md).
+Randomized/quantum, approximate-rank, promise and AND/XOR subclasses do not
+replace this whole target. The broader multi-theory selection preference
+remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
 Foregger17 and old failed whole routes remain excluded. All stream
 disconnect/idle, preservation and authorized service time is excluded from
 the inherited45-90effective-minute switching rule.
