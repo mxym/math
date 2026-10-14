@@ -55,3 +55,9 @@ over increasing assigned-column subsets, and
        \prod_i\sum_{j\in S}A_{ij}.
 \]
 The first counts partial matchings; the second is inclusion–exclusion on missing columns in all row choices. These finite count identities do not replace any universal positive proof. They supply the complete all-configuration baseline that a strict actual witness would have to beat.
+
+## R4. Preserved bounded discovery and resumed analytic stage
+
+The completed600-second actual-binary search used10695 starts and214726 descent steps, with24 exact delta controls. Best values remain3852 at(13,4) and64803969 at(13,9), both configuration values. The best nonconfiguration values seen were3884 and64839709. These are discovery minima only; neither global minimality nor any universal positive result follows. The separate exact cofactor diagnostic for the plane gives963 on incidence entries and777 on zero entries. All original data are in exploration/ryser-nonlocal-discovery.json and exploration/ryser-design-cofactor-diagnostic.json.
+
+After the original agent disconnected, replacement active work resumed at 2026-10-14T00:42:04.771005+00:00. The completed search will not be repeated. The next route examines exact alternating-trade expansions and large-order regular graph bounds against ALL configuration baselines. No relaxation or finite positive axis is accepted as a major conjecture solution.
