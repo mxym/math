@@ -18,6 +18,7 @@
 - [同一 APPT 主线的最终精确 bulk 熵与全部等号](research/appt-eventual-bulk-20261014/README.md)：固定m≥3，任意正阶紧区间及全部a≤α≤c logD、a>0、c<1/log(m−1)，在充分大D上完整实际极小熵由两层投影谱精确达到；相邻两整数秩作精确比较并保留平局，分类全部等号态。紧区间取整损失给出D^−2首项及O(D^−3)余项。独立380行内部普通核读，未整体Lean；对数系数是单半空间方法锐界而非实际APPT相变；全部有限D、增长m、趋零阶临界窗和ASEP bulk仍分开，不另计重大猜想。
 - [同一 APPT 主线的精确零阶转变与完整最终低阶谱](research/appt-zero-order-transition-20261014/README.md)：每固定m≥3及c<1/log(m−1)，充分大D上的全部0≤α≤c logD精确由缺一谱与整数秩bulk择优，含全部矩阵等号；唯一tau_D=1/(C0D)+[1/(2C0)−C1/C0³]/D²+O(D^−3)。α=β/D全紧区间一致律、所有α趋0统一等价、低/高/临界完整领先谱分类与两支交替。独立488行内部普通核读，未整体Lean；固定m/eventualD，无全部有限D、增长m、ASEP bulk或高阶物理临界优化谱，不另计重大猜想。
 - [同一 APPT 主线的固定m全阶精确熵与全部最优谱](research/appt-all-order-exact-20261014/README.md)：每固定m≥3，一个充分大D门槛同时覆盖0≤α≤∞；实际最小熵精确由缺一谱、精确选秩两层谱与单峰谱择优，含全部矩阵等号与秩平局。恰好两次谱族转变，高阶整数最大值交点唯一且eta_D=X_m(D)+o(1)，内部bulk秩仍可改变。独立405行初稿普通核读及第125行范围修订、第158行等价排版复核；在fixedm/eventualD闭合此前高阶优化谱缺口，未整体Lean，无任意有限D、增长m、ASEP bulk或最小有效阈值，不另计重大猜想。
+- [同一 APPT 主线的完整立方尺度熵次阶](research/appt-cubic-entropy-20261014/README.md)：每固定 α>0、D/m³→δ>0，全实际全局酉 APPT 熵在精确整数 bulk 之后的 D⁻¹ 修正闭合为完整正负异常谱的图逆矩阵公式，含 O(1/L) 有限逼近、准确极限 bulk 门槛和全部近极值谱条件。α≥2 的完整值归为单正异常，纯度门槛 δ=1/4；α<2 保留全图公式。独立完整 479 行初稿核读及真实状态修订核查，普通书面、未整体 Lean；不宣称有限维 exact bulk 等号，不扩大旧审核或独立重大计数。
 - [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
 - [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
 
