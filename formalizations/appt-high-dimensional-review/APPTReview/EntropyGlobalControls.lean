@@ -1,4 +1,4 @@
-import APPTReview.FullEntropySaturation
+import APPTReview.FullEntropyPurityRigidity
 
 open scoped BigOperators ComplexOrder
 open Matrix

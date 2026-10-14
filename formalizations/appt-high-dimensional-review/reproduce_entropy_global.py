@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parent
 OLD=ROOT.parent/'appt-qutrit-purity'
 PIN='d13f23b723b8a846827a245b89c10fc7d3f11612'
 MANIFEST=ROOT/'ENTROPY_GLOBAL_HASHES.json'
-SCOPE='Full physical von Neumann fixed-finite-aspect upper half, full entropy coefficient saturation implies head saturation and uniform all-eigenvalue flatness. No matching entropy-attainment construction, complete entropy minimum, fixed-local/all-regime entropy law or other Renyi order is certified.'
+SCOPE='Full physical von Neumann fixed-finite-aspect upper half and complete equivalence between entropy-coefficient saturation and purity-coefficient saturation with uniformly flat actual spectra. No matching entropy-attainment construction, complete entropy minimum, fixed-local/all-regime entropy law or other Renyi order is certified.'
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def inventory():
     paths={ROOT/Path(__file__).name,ROOT/'lean-toolchain',ROOT/'lakefile.toml',ROOT/'lake-manifest.json'}
