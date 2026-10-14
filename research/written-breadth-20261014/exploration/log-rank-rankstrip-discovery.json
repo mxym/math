@@ -1,0 +1,774 @@
+{
+  "schema": "finite-boolean-rankstrip-discovery-v1",
+  "scope": "Selected finite complete Boolean configurations only; not full LR0, not an infinite counterfamily, not a proof of a uniform concentration bound.",
+  "new_major_results": 0,
+  "seed": 202610140607,
+  "requested_seconds": 300,
+  "actual_seconds": 300.0019501669958,
+  "counts": {
+    "starts": 31734,
+    "singular": 11352,
+    "too_large": 13089,
+    "evaluated": 7293
+  },
+  "maximal_flat_method": "All independent k-subsets, canonical RREF modulo1009, exact real ranks because every binary minor of order<=7 has absolute determinant<1009 by Hadamard. Lower-dimensional flats can be extended to dimension k within the rank-r family.",
+  "best_by_rank": {
+    "4": {
+      "r": 4,
+      "H": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "determinant": -1,
+      "adjugate": [
+        [
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          0,
+          -1,
+          1
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        11,
+        12,
+        13
+      ],
+      "columns": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        10,
+        12,
+        14,
+        15
+      ],
+      "basis_row_patterns": [
+        12,
+        13,
+        11,
+        3
+      ],
+      "basis_column_patterns": [
+        14,
+        12,
+        3,
+        7
+      ],
+      "strip_rank_threshold": 3,
+      "row_flat": {
+        "count": 3,
+        "mass": [
+          3,
+          5
+        ],
+        "basis": [
+          3,
+          9,
+          11
+        ],
+        "points": [
+          3,
+          9,
+          11
+        ],
+        "distinct_flats": 10
+      },
+      "column_flat": {
+        "count": 5,
+        "mass": [
+          5,
+          9
+        ],
+        "basis": [
+          2,
+          3,
+          4
+        ],
+        "points": [
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "distinct_flats": 15
+      },
+      "best_party_strip_mass": [
+        3,
+        5
+      ]
+    },
+    "5": {
+      "r": 5,
+      "H": [
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "determinant": 1,
+      "adjugate": [
+        [
+          0,
+          -1,
+          1,
+          -1,
+          2
+        ],
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1,
+          1,
+          -2
+        ],
+        [
+          -1,
+          -1,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          -1,
+          1
+        ]
+      ],
+      "rows": [
+        3,
+        4,
+        5,
+        13,
+        15,
+        16,
+        18,
+        26,
+        27,
+        28,
+        31
+      ],
+      "columns": [
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        19,
+        25,
+        26,
+        27
+      ],
+      "basis_row_patterns": [
+        5,
+        18,
+        28,
+        15,
+        3
+      ],
+      "basis_column_patterns": [
+        25,
+        26,
+        13,
+        12,
+        6
+      ],
+      "strip_rank_threshold": 4,
+      "row_flat": {
+        "count": 7,
+        "mass": [
+          7,
+          11
+        ],
+        "basis": [
+          3,
+          4,
+          5,
+          26
+        ],
+        "points": [
+          3,
+          4,
+          5,
+          26,
+          27,
+          28,
+          31
+        ],
+        "distinct_flats": 50
+      },
+      "column_flat": {
+        "count": 6,
+        "mass": [
+          6,
+          10
+        ],
+        "basis": [
+          5,
+          6,
+          7,
+          12
+        ],
+        "points": [
+          5,
+          6,
+          7,
+          12,
+          13,
+          14
+        ],
+        "distinct_flats": 30
+      },
+      "best_party_strip_mass": [
+        7,
+        11
+      ]
+    },
+    "6": {
+      "r": 6,
+      "H": [
+        [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "determinant": 1,
+      "adjugate": [
+        [
+          1,
+          0,
+          -1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          -1,
+          -1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "rows": [
+        2,
+        5,
+        7,
+        11,
+        15,
+        20,
+        23,
+        31,
+        32,
+        40,
+        43,
+        48,
+        52,
+        56,
+        58,
+        61,
+        63
+      ],
+      "columns": [
+        1,
+        2,
+        5,
+        6,
+        11,
+        15,
+        19,
+        23,
+        41,
+        42,
+        49,
+        50,
+        59
+      ],
+      "basis_row_patterns": [
+        61,
+        58,
+        20,
+        40,
+        48,
+        32
+      ],
+      "basis_column_patterns": [
+        1,
+        2,
+        5,
+        11,
+        23,
+        59
+      ],
+      "strip_rank_threshold": 4,
+      "row_flat": {
+        "count": 9,
+        "mass": [
+          9,
+          17
+        ],
+        "basis": [
+          2,
+          5,
+          11,
+          52
+        ],
+        "points": [
+          2,
+          5,
+          7,
+          11,
+          52,
+          56,
+          58,
+          61,
+          63
+        ],
+        "distinct_flats": 415
+      },
+      "column_flat": {
+        "count": 6,
+        "mass": [
+          6,
+          13
+        ],
+        "basis": [
+          1,
+          2,
+          5,
+          11
+        ],
+        "points": [
+          1,
+          2,
+          5,
+          6,
+          11,
+          15
+        ],
+        "distinct_flats": 239
+      },
+      "best_party_strip_mass": [
+        9,
+        17
+      ]
+    },
+    "7": {
+      "r": 7,
+      "H": [
+        [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "determinant": 1,
+      "adjugate": [
+        [
+          1,
+          0,
+          -1,
+          0,
+          -1,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          -1,
+          -1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "rows": [
+        18,
+        27,
+        32,
+        36,
+        41,
+        42,
+        52,
+        54,
+        61,
+        63,
+        64,
+        74,
+        80,
+        82,
+        89,
+        91,
+        104,
+        108
+      ],
+      "columns": [
+        1,
+        2,
+        5,
+        14,
+        15,
+        17,
+        29,
+        31,
+        40,
+        45,
+        56,
+        57,
+        70,
+        94,
+        96,
+        110,
+        120,
+        125
+      ],
+      "basis_row_patterns": [
+        61,
+        74,
+        108,
+        104,
+        80,
+        32,
+        64
+      ],
+      "basis_column_patterns": [
+        1,
+        2,
+        5,
+        15,
+        17,
+        45,
+        94
+      ],
+      "strip_rank_threshold": 5,
+      "row_flat": {
+        "count": 12,
+        "mass": [
+          12,
+          18
+        ],
+        "basis": [
+          18,
+          27,
+          36,
+          52,
+          64
+        ],
+        "points": [
+          18,
+          27,
+          36,
+          52,
+          54,
+          61,
+          63,
+          64,
+          80,
+          82,
+          89,
+          91
+        ],
+        "distinct_flats": 1357
+      },
+      "column_flat": {
+        "count": 11,
+        "mass": [
+          11,
+          18
+        ],
+        "basis": [
+          1,
+          14,
+          17,
+          40,
+          70
+        ],
+        "points": [
+          1,
+          14,
+          15,
+          17,
+          31,
+          40,
+          56,
+          57,
+          70,
+          96,
+          110
+        ],
+        "distinct_flats": 751
+      },
+      "best_party_strip_mass": [
+        2,
+        3
+      ]
+    }
+  },
+  "stronger_delta_half_failures": []
+}
