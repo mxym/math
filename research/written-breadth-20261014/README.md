@@ -83,19 +83,25 @@ the [complete map](CACCETTA_HAGGKVIST_THEOREM_MAP.md) was retained.
 [Primary scopes](CACCETTA_HAGGKVIST_SOURCES.json) and
 [the stage boundary](CACCETTA_HAGGKVIST_STAGE_CLOSED.json) preserve known
 inputs, shortcut obstacles and finite exact discovery. No major result is
-counted. The sole active breadth target is now the complete theoretical-CS
-[deterministic log-rank conjecture](LOG_RANK_THEOREM_MAP.md), over every
-finite total Boolean matrix with real rank and uniform absolute constants.
-[Current primary screening](LOG_RANK_SOURCES.json) found no full resolution;
-the map precedes [its written attempt](FULL_LOG_RANK_ATTEMPT.md).
-Randomized/quantum, approximate-rank, promise and AND/XOR subclasses do not
-replace this whole target. The broader multi-theory selection preference
+counted. The complete theoretical-CS
+[deterministic log-rank stage](LOG_RANK_THEOREM_MAP.md), over every finite
+total Boolean matrix with real rank and uniform absolute constants, closed
+after120m03effective without a complete proof or legal infinite counterfamily.
+[Primary scopes](LOG_RANK_SOURCES.json), [the complete written attempt](FULL_LOG_RANK_ATTEMPT.md)
+and [the stage boundary](LOG_RANK_STAGE_CLOSED.json) preserve known inputs,
+unproved full-domain gates and exact stronger-route controls. No major
+result is counted. The current breadth action is fresh whole-domain primary
+screening for a next information-theory candidate, initially the complete
+Courtade-Kumar most-informative-Boolean-function problem; it is not activated
+until current status and original parameter domain are verified and mapped.
+Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
+replace the full log-rank target. The broader multi-theory selection preference
 remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
 Foregger17 and old failed whole routes remain excluded. All stream
 disconnect/idle, preservation and authorized service time is excluded.
 The user's new [research-window policy](BREADTH_RESEARCH_POLICY.json) gives
 the current and future complete stages approximately120effective minutes;
-the accumulated log-rank clock continues. An early switch needs concrete
+the closed log-rank clock is preserved without reset. An early switch needs concrete
 original-domain resolution or structural evidence of near-impossibility,
 beyond one failed shortcut or finite search. Historical stage times remain
 unchanged.
