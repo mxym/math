@@ -47,3 +47,12 @@ All new mathematical notes are explicitly exploratory, SC0 unresolved,
 new-major count zero. Finite search scope, stronger-route failures and the
 original universal gates stay separate. No Lean/audit scope, Gaussian work,
 public index, external message, submission, Release, merge or push is changed.
+
+The first default Git whitespace check flagged CRLF line endings of the
+Windows-generated, hash-bound JSON artifacts. The preservation draft was
+committed locally before resolving that formatting report. A subsequent
+scoped check with Git's `cr-at-eol` option retained the normal trailing-space,
+blank-end-of-file and indentation checks and passed with exit code zero
+and zero output. The evidence bytes were not rewritten to evade the
+bindings. Copied artifact file modes were then normalized to 0644. This
+style handling is recorded separately from mathematical validation.
