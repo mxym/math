@@ -593,3 +593,64 @@ MODULE HydrologyTree.BoundedPositiveProbe
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.TotalStorageProbe
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.JetOrderNecessity
+HydrologyTree/JetOrderNecessity.lean:20:68: error(lean.unknownIdentifier): Unknown constant `Fin.one_ne_zero`
+HydrologyTree/JetOrderNecessity.lean:20:68: error(lean.unknownIdentifier): Unknown constant `Fin.one_ne_zero`
+HydrologyTree/JetOrderNecessity.lean:21:6: error: linarith failed to find a contradiction
+case left.«0»
+t : ℝ
+ht : 0 < t
+ht1 : t < 1
+a✝ : (if ⟨0, ⋯⟩ = 0 then 2 - t else 1) ≤ 0
+⊢ False
+failed
+HydrologyTree/JetOrderNecessity.lean:20:49: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [twoStoreJetFamily, ite_false, Fin.one_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/JetOrderNecessity.lean:20:58: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [twoStoreJetFamily, ite_true, Fin.one_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/JetOrderNecessity.lean:29:66: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [compartmentMatrix, edgeMatrix, pathTree, twoStoreJetFamily]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/JetOrderNecessity.lean:29:87: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+HydrologyTree/JetOrderNecessity.lean:53:26: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_apply, Fin.sum_univ_two, Matrix.of_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.head_fin_const, mul_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/JetOrderNecessity.lean:53:43: warning: This simp argument is unused:
+  Matrix.head_fin_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_apply, Fin.sum_univ_two, Matrix.of_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.head_cons, mul_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/JetOrderNecessity.lean:53:65: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_apply, Fin.sum_univ_two, Matrix.of_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.head_cons, Matrix.head_fin_const, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
