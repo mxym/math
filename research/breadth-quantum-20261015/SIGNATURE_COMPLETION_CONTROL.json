@@ -1,0 +1,35 @@
+{
+  "schema": "exact-fixed-H-completion-controls-v1",
+  "utc": "2026-10-15T08:29:02.016842+00:00",
+  "scope": "Checks illustrate the written all-completion argument for one fixed H. This lies within known two-copy Werner undistillability, and is not a full N0 solution or new major result.",
+  "rows": [
+    {
+      "E": "Matrix([[0, 0], [0, 0]])",
+      "unitary_U": "Matrix([[1, 0], [0, 1]])",
+      "trace_E2": "0",
+      "trace_E": "0",
+      "actual_completion_rank": 2,
+      "exact_QK": "4"
+    },
+    {
+      "E": "Matrix([[3/4, 0], [0, 4/3]])",
+      "unitary_U": "Matrix([[3/5, 4/5], [-4/5, 3/5]])",
+      "trace_E2": "337/144",
+      "trace_E": "25/12",
+      "actual_completion_rank": 2,
+      "exact_QK": "(625*lambda**2 - 481*lambda + 481)/36"
+    },
+    {
+      "E": "Matrix([[0, 3*I/4], [-3*I/4, 0]])",
+      "unitary_U": "Matrix([[1, 0], [0, I]])",
+      "trace_E2": "9/8",
+      "trace_E": "0",
+      "actual_completion_rank": 2,
+      "exact_QK": "-(9*lambda - 34)/4"
+    }
+  ],
+  "all_completion_written_bound": "Q_2(K)>=4+(4-6lambda+8lambda^2)Tr(E^2)>=4 for0<=lambda<=1/2",
+  "minimum_QH_plus_QK": "8-12lambda>=2",
+  "complete_target_solved": false,
+  "new_major_results": 0
+}
