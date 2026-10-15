@@ -163,3 +163,36 @@ The old green status is NOT a certificate for the new files.
 The actual whole-experiment classification, one redundant-coefficient removal,
 and the mixed-input observation refinement remain subsequent extension tasks.
 They are not hypotheses of the old completed core or of the new moment theorem.
+
+
+## Completed actual short-time identification protocol (2026-10-15)
+
+The new protocol is now proved through actual classical ODEs. At each original
+node v inject a constant unit input and observe its own zero-initial state.
+The second derivative is A_vv; the third is (A*A)_vv. N second derivatives and
+N-1 third derivatives suffice: ANY one third derivative may be omitted.
+`actual_punctured_step_jets_suffice` proves this from actual trajectories.
+These coefficients are exact derivatives, not a finite sample/noise guarantee.
+
+For EVERY strictly positive reference on the known tree, including hidden modes
+and repeated spectra, the complete unrestricted-real all-node fiber is exactly
+one distinct matrix per leakage site. `all_node_jets_determine_all_collocated_histories`
+proves no further collocated continuous-input experiment can distinguish them.
+
+`actual_positive_mixed_probe_identification` adds an adaptive positive rational
+mixed-input/mixed-output experiment and proves recovery of BOTH the true leakage
+site and every rate. The chosen weights have the explicit form 1+1/(k+2), hence
+lie strictly between 1 and 2. A single scalar second output derivative separates
+all candidates. The mixed experiment's actual solution exists uniquely and the
+output derivative is proved to be c^T A b. No impulse or unchecked solver enters.
+
+This result permits simultaneous inputs and a weighted observation across ALL
+nodes. It is not one additional physical point sensor, not one fixed universal
+probe, and not a robustness guarantee. The existence proof chooses weights
+from an infinite rational grid; a bounded finite search theorem is a separate
+possible strengthening. It does not classify nonminimal SINGLE-node fibers.
+
+All five additional modules compiled in source-isolated diagnostics with matching
+source hashes. The new 229-module checkpoint has its own independent audit/replay.
+A source-coverage guard now rejects tracked owned modules omitted from MODULES,
+so source-only additions cannot silently receive an incomplete green certificate.

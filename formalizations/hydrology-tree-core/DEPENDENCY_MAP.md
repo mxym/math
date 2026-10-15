@@ -173,3 +173,13 @@ moments to independent graphs; AllNodeJetClassification proves exhaustive real
 site fibers; ConstantInputJets identifies actual classical time derivatives.
 This is a DIFFERENT all-node protocol and does not rebrand the still excluded
 nonminimal single-observer fiber classification as solved.
+
+
+AllNodeStepExperiments closes actual trajectory existence and jet semantics.
+PuncturedJetData proves one omitted coefficient redundant on every tree.
+PositiveMatrixProbe proves finite distinct real matrices separated by one
+strictly positive rational bilinear functional; MixedInputJets establishes
+actual positive-input superposition and output differentiation. CompletePositiveProbe
+combines these results into full site-and-rate identification. The stronger
+all-node/mixed data assumptions are explicit, not silently substituted for the
+original single-node observational model.
