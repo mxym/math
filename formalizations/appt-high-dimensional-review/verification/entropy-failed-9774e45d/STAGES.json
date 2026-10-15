@@ -1,0 +1,60 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.967,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "APPTReview.EntropyGlobalControls"
+    ],
+    "exit_code": 0,
+    "seconds": 139.002,
+    "log": "build.log",
+    "sha256": "0be02707e666539d7283523d068c27910a986c45b161693f0606c4c372ba6c86"
+  },
+  {
+    "stage": "support",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "--root=/home/runner/work/math/math/formalizations/appt-qutrit-purity",
+      "-o",
+      "/home/runner/work/math/math/formalizations/appt-high-dimensional-review/.lake/build/lib/lean/Verification/ReplaySupport.olean",
+      "/home/runner/work/math/math/formalizations/appt-qutrit-purity/Verification/ReplaySupport.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 2.72,
+    "log": "support.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "EntropyGlobalAudit.lean"
+    ],
+    "exit_code": 1,
+    "seconds": 224.186,
+    "log": "kernel.log",
+    "sha256": "4f40ea0e5ab6550f1de049458d97b7b4b5c81fd724d32c8eb886fbe3ebc3b158"
+  }
+]

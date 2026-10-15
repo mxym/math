@@ -1,0 +1,277 @@
+EntropyGlobalAudit.lean:4:8: error: Type mismatch
+  APPTVerification.replayAndCorrupt
+    (let y :=
+      let y :=
+        let y :=
+          [`APPTReview.appt_full_entropy_head_saturation, `APPTReview.entropy_taylor_radius_one_rejected,
+            `APPTReview.retained_head_cannot_be_deleted, `APPTReview.entropy_nonuniform_pivot_control,
+            `APPTReview.entropy_bulk_partition_control, `APPTReview.entropy_zero_remainder_control];
+        `APPTReview.entropy_dimension_limits ::
+          `APPTReview.paperNormalization_pos ::
+            `APPTReview.entropy_deficit_normalization ::
+              `APPTReview.appt_paperNormalization_tendsto ::
+                `APPTReview.entropy_tail_cap_identity :: `APPTReview.appt_vonNeumann_fixed_aspect_upper :: y;
+      let y :=
+        `APPTReview.antitone_nonnegative_prefix_square ::
+          `APPTReview.sorted_bulk_deviation_square ::
+            `APPTReview.density_appt_entropy_bulk_smallness ::
+              `APPTReview.entropyVarianceCap_nonneg ::
+                `APPTReview.density_appt_entropy_mean_smallness ::
+                  `APPTReview.density_appt_dimension_entropy_bound :: y;
+      `APPTReview.density_appt_full_entropy_taylor_bound ::
+        `APPTReview.ordered_low_pivot_variance ::
+          `APPTReview.ordered_two_sided_pivot_variance ::
+            `APPTReview.ordered_normalized_moment_budget ::
+              `APPTReview.paper_pivot_quarter_bounds :: `APPTReview.density_appt_entropy_normalization_budget :: y;
+    let y :=
+      let y :=
+        `APPTReview.entropyKernel_quadratic_bounds ::
+          `APPTReview.entropyRemainder_bounds ::
+            `APPTReview.entropy_bulk_partition ::
+              `APPTReview.entropy_remainder_partition ::
+                `APPTReview.density_appt_full_entropy_rest_bound :: `APPTReview.entropy_rest_taylor_bound :: y;
+      `APPTReview.scaled_entropyKernel ::
+        `APPTReview.spectrum_entropy_centering ::
+          `APPTReview.spectrum_quadratic_centering ::
+            `APPTReview.spectrum_entropy_remainder_identity ::
+              `APPTReview.interval_zero_minimum :: `APPTReview.entropyKernel_hasDerivAt :: y;
+    let y :=
+      `APPTReview.residual_first_row_le_head ::
+        `APPTReview.density_appt_head_retained_variance ::
+          `APPTReview.pairedPivot_eq_paperPivot ::
+            `APPTReview.density_appt_normalized_head_variance ::
+              `APPTReview.entropy_head_corrected_variance :: `APPTReview.density_appt_entropy_corrected_variance :: y;
+    `APPTReview.appt_full_entropy_saturation_flat ::
+      `APPTReview.baseline_graph_head_budget ::
+        `APPTReview.scalar_head_variance_bound ::
+          `APPTReview.strictMono_fin_val_lower :: `APPTReview.rowRank_first_row_lower :: y)
+has type
+  String → Lean.Elab.Command.CommandElabM Unit
+but is expected to have type
+  Lean.Elab.Command.CommandElabM ?m.2
+EntropyGlobalAudit.lean:52:2: error: unexpected token; expected command
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_full_entropy_head_saturation':
+(kernel) declaration type mismatch, 'APPTReview.appt_full_entropy_head_saturation' has type
+  True
+but it is expected to have type
+  (k n : Nat → Nat) →
+    (γ : Real) →
+      (A :
+          (j : Nat) →
+            @Matrix (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j)))
+              (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j))) Complex) →
+        (hmn : (j : Nat) → @LE.le Nat instLENat (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2) (n j)) →
+          (hρ :
+              (j : Nat) →
+                @APPT.Quantum.IsDensity (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j))
+                  (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin.fintype (n j))
+                  (@A j)) →
+            ((j : Nat) →
+                @APPT.Quantum.AbsolutelyPPT (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (Fin (n j)) (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (Fin.fintype (n j)) (instDecidableEqFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (instDecidableEqFin (n j)) (@A j)) →
+              @Filter.Tendsto Nat Nat k (@Filter.atTop Nat Nat.instPreorder) (@Filter.atTop Nat Nat.instPreorder) →
+                @Filter.Tendsto Nat Real
+                    (fun j =>
+                      @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                        (@Nat.cast Real Real.instNatCast (n j))
+                        (@Nat.cast Real Real.instNatCast (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)))
+                    (@Filter.atTop Nat Nat.instPreorder)
+                    (@nhds Real
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                      γ) →
+                  @Filter.Tendsto Nat Real
+                      (fun j =>
+                        @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (@Nat.cast Real Real.instNatCast
+                            (@Fintype.card
+                              (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j)))
+                              (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                                (Fin (n j)) (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                                (Fin.fintype (n j)))))
+                          (APPTReview.vonNeumannDeficit (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)
+                            (n j) (@A j) (@hρ j)))
+                      (@Filter.atTop Nat Nat.instPreorder)
+                      (@nhds Real
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                          (@Max.max Real Real.instMax 8 (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 4 γ))
+                          2)) →
+                    @Filter.Tendsto Nat Real (fun j => APPTReview.paperHeadDeficit (k j) (n j) (@hmn j) (@A j) (@hρ j))
+                      (@Filter.atTop Nat Nat.instPreorder)
+                      (@nhds Real
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                        0)
+TYPE_CLOSURE_REPLAY_PASS 33553 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_full_entropy_head_saturation
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.appt_vonNeumann_fixed_aspect_upper':
+(kernel) declaration type mismatch, 'APPTReview.appt_vonNeumann_fixed_aspect_upper' has type
+  True
+but it is expected to have type
+  (k n : Nat → Nat) →
+    (γ : Real) →
+      (A :
+          (j : Nat) →
+            @Matrix (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j)))
+              (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j))) Complex) →
+        ((j : Nat) → @LE.le Nat instLENat (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2) (n j)) →
+          (hρ :
+              (j : Nat) →
+                @APPT.Quantum.IsDensity (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j))
+                  (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin.fintype (n j))
+                  (@A j)) →
+            ((j : Nat) →
+                @APPT.Quantum.AbsolutelyPPT (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (Fin (n j)) (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (Fin.fintype (n j)) (instDecidableEqFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                  (instDecidableEqFin (n j)) (@A j)) →
+              @Filter.Tendsto Nat Nat k (@Filter.atTop Nat Nat.instPreorder) (@Filter.atTop Nat Nat.instPreorder) →
+                @Filter.Tendsto Nat Real
+                    (fun j =>
+                      @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                        (@Nat.cast Real Real.instNatCast (n j))
+                        (@Nat.cast Real Real.instNatCast (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)))
+                    (@Filter.atTop Nat Nat.instPreorder)
+                    (@nhds Real
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                      γ) →
+                  (ε : Real) →
+                    @LT.lt Real Real.instLT 0 ε →
+                      @Filter.Eventually Nat
+                        (fun j =>
+                          @LE.le Real Real.instLE
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                              (@Nat.cast Real Real.instNatCast
+                                (@Fintype.card
+                                  (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)) (Fin (n j)))
+                                  (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                                    (Fin (n j))
+                                    (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2))
+                                    (Fin.fintype (n j)))))
+                              (APPTReview.vonNeumannDeficit (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (k j) 2)
+                                (n j) (@A j) (@hρ j)))
+                            (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                              (@HDiv.hDiv Real Real Real
+                                (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                (@Max.max Real Real.instMax 8
+                                  (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) 4 γ))
+                                2)
+                              ε))
+                        (@Filter.atTop Nat Nat.instPreorder)
+TYPE_CLOSURE_REPLAY_PASS 33503 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.appt_vonNeumann_fixed_aspect_upper
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.density_appt_dimension_entropy_bound':
+(kernel) declaration type mismatch, 'APPTReview.density_appt_dimension_entropy_bound' has type
+  True
+but it is expected to have type
+  {k n : Nat} →
+    (hmn : @LE.le Nat instLENat (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2) n) →
+      {A :
+          @Matrix (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n))
+            (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)) Complex} →
+        (hρ :
+            @APPT.Quantum.IsDensity (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+              (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin.fintype n) A) →
+          @APPT.Quantum.AbsolutelyPPT (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+              (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin.fintype n)
+              (instDecidableEqFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (instDecidableEqFin n) A →
+            @LT.lt Real Real.instLT (APPTReview.entropyBulkRadius k) 1 →
+              @LT.lt Real Real.instLT (APPTReview.entropyMeanRadius k n) 1 →
+                have D :=
+                  @Fintype.card (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n))
+                    (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+                      (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin.fintype n));
+                have b :=
+                  @Matrix.IsHermitian.eigenvalues₀ Complex Complex.instRCLike
+                    (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n))
+                    (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+                      (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin.fintype n))
+                    A
+                    (fun a b =>
+                      @instDecidableEqProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+                        (instDecidableEqFin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2))
+                        (instDecidableEqFin n) a b)
+                    (@Matrix.PosSemidef.isHermitian
+                      (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)) Complex
+                      Complex.instRing Complex.partialOrder Complex.instStarRing A
+                      (And.left
+                        (@Matrix.PosSemidef
+                          (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)) Complex
+                          Complex.instRing Complex.partialOrder Complex.instStarRing A)
+                        (@Eq Complex
+                          (@Matrix.trace (@Prod (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n))
+                            Complex
+                            (@instFintypeProd (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin n)
+                              (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2)) (Fin.fintype n))
+                            Complex.instAddCommMonoid A)
+                          1)
+                        hρ))
+                    (APPTReview.paperPivot k n hmn);
+                @LE.le Real Real.instLE
+                  (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                    (APPTReview.vonNeumannDeficit (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2) n A hρ) b)
+                  (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                    (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                      (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                          (@Max.max Real Real.instMax 4
+                            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                              (@Nat.cast Real Real.instNatCast D)
+                              (@HPow.hPow Real Nat Real
+                                (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                (@Nat.cast Real Real.instNatCast
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 1))
+                                2)))
+                          2)
+                        2)
+                      (APPTReview.paperHeadDeficit k n hmn A hρ))
+                    (APPTReview.entropyTaylorError k n))
+TYPE_CLOSURE_REPLAY_PASS 33563 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.density_appt_dimension_entropy_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.density_appt_head_retained_variance':
+(kernel) declaration type mismatch, 'APPTReview.density_appt_head_retained_variance' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 33531 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.density_appt_head_retained_variance
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'APPTReview.spectrum_entropy_centering':
+(kernel) declaration type mismatch, 'APPTReview.spectrum_entropy_centering' has type
+  True
+but it is expected to have type
+  {D : Nat} →
+    @LT.lt Nat instLTNat 0 D →
+      (f : Fin D → Real) →
+        ((i : Fin D) → @LE.le Real Real.instLE 0 (f i)) →
+          @Eq Real (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i => f i)
+              1 →
+            (b : Real) →
+              @LT.lt Real Real.instLT 0 b →
+                @Eq Real
+                  (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                      (Real.log (@Nat.cast Real Real.instNatCast D))
+                      (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i =>
+                        @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (f i) (Real.log (f i))))
+                    b)
+                  (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                    (@Finset.sum (Fin D) Real Real.instAddCommMonoid (@Finset.univ (Fin D) (Fin.fintype D)) fun i =>
+                      APPTReview.entropyKernel
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                            (f i) b)
+                          1))
+                    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast D)
+                      (APPTReview.entropyKernel
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) 1
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast D)
+                              b))
+                          1))))
+TYPE_CLOSURE_REPLAY_PASS 15845 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED APPTReview.spectrum_entropy_centering

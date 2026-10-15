@@ -1,5 +1,9 @@
 # High-dimensional APPT: verified sharp purity law
 
+## Full entropy upper and saturation continuation
+
+The full von Neumann fixed-finite-aspect upper bound and the equivalence between entropy-coefficient saturation and flat purity-coefficient saturation are now independently checked. `appt_full_entropy_head_saturation` closes the previous missing implication from the FULL entropy objective to head saturation. This does not prove existence of an entropy-attaining family or the complete minimum-entropy law. See `ENTROPY_GLOBAL_COVERAGE.md`, `REVIEW_ENTROPY_GLOBAL.md`, and source-bound evidence in `verification/entropy-ci-d2a9ff63/` (run 38536151448, 75 inputs, 41806 declarations, 53 roots, trust zero). The original purity and entropy-head audits retain their own unchanged scopes.
+
 **The complete leading excess-purity asymptotic is now Lean-verified uniformly over all dimension pairs 2<=m<=n as mn grows. The overall research is not fully formalized: complete entropy extrema, dimension-varying spectral rigidity, and several more refined hierarchy claims remain separate obligations.**
 
 All physical endpoints use actual complex density matrices, the original trace(A*A).re purity, and positivity after partial transposition of EVERY global-unitary conjugate. No assumed graph cap, spectral ansatz, lower bound, or main conclusion is a final physical hypothesis.
