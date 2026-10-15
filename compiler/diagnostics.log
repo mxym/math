@@ -4,141 +4,759 @@ Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
 Already decompressed 2996 file(s)
 
-MODULE HydrologyTree.PositiveMatrixProbe
-HydrologyTree/PositiveMatrixProbe.lean:18:41: error: Type mismatch
-  n
-has type
-  ℕ
-but is expected to have type
-  ℝ
-HydrologyTree/PositiveMatrixProbe.lean:18:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Inv ℕ
+MODULE HydrologyTree.Coefficients
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:18:38: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  HAdd ℕ ℕ ℝ
+MODULE HydrologyTree.BlockJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:21:19: error(lean.unknownIdentifier): Unknown identifier `ℝ`
-HydrologyTree/PositiveMatrixProbe.lean:28:37: error: don't know how to synthesize implicit argument `β`
-  @Function.Injective ℕ ?m.3 boundedProbeWeight
-context:
-⊢ Type ?u.4
+MODULE HydrologyTree.Triangular
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
-HydrologyTree/PositiveMatrixProbe.lean:28:56: error: don't know how to synthesize implicit argument `ℝ`
-  @boundedProbeWeight ?m.3
-context:
-⊢ Type ?u.4
+MODULE HydrologyTree.RateChart
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
-HydrologyTree/PositiveMatrixProbe.lean:30:18: error(lean.unknownIdentifier): Unknown identifier `ℝ`
-HydrologyTree/PositiveMatrixProbe.lean:30:32: error(lean.unknownIdentifier): Unknown identifier `ℝ`
-HydrologyTree/PositiveMatrixProbe.lean:30:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Inv ℕ
+MODULE HydrologyTree.CompartmentMatrix
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:30:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  Inv ℕ
+MODULE HydrologyTree.PhysicalBridge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:38:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  AddCommMonoid ℝ
+MODULE HydrologyTree.EdgeDeterminant
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:38:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  NonUnitalNonAssocSemiring ℝ
+MODULE HydrologyTree.EdgeCharacteristic
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:41:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
+MODULE HydrologyTree.RootAttachment
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:42:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
+MODULE HydrologyTree.LeafRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:42:49: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.inl` could not be determined
+MODULE HydrologyTree.OrderedTreeGraph
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Using one of these would be unambiguous:
-  [apply] `AddMonoidHom.inl`
-  [apply] `LinearMap.inl`
-  [apply] `MonoidHom.inl`
-  [apply] `NonUnitalAlgHom.inl`
-  [apply] `NonUnitalStarAlgHom.inl`
-  [apply] `Or.inl`
-  [apply] `PSum.inl`
-  [apply] `Sum.inl`
-  [apply] `Finset.Nonempty.inl`
-  [apply] `Function.Embedding.inl`
-  [apply] `Set.Nonempty.inl`
-  [apply] `Sum.Lex.inl`
-  [apply] `Sum.LiftRel.inl`
-HydrologyTree/PositiveMatrixProbe.lean:42:73: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.inr` could not be determined
+MODULE HydrologyTree.GraphPresentation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Using one of these would be unambiguous:
-  [apply] `AddMonoidHom.inr`
-  [apply] `LinearMap.inr`
-  [apply] `MonoidHom.inr`
-  [apply] `NonUnitalAlgHom.inr`
-  [apply] `NonUnitalStarAlgHom.inr`
-  [apply] `Or.inr`
-  [apply] `PSum.inr`
-  [apply] `Sum.inr`
-  [apply] `Finset.Nonempty.inr`
-  [apply] `Function.Embedding.inr`
-  [apply] `Set.Nonempty.inr`
-  [apply] `Sum.Lex.inr`
-  [apply] `Sum.LiftRel.inr`
-HydrologyTree/PositiveMatrixProbe.lean:45:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
+MODULE HydrologyTree.RootBranches
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:56:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  OfNat ℝ 1
-numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
-  ℝ
-due to the absence of the instance above
+MODULE HydrologyTree.BranchMatrixSupport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:56:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  V → Zero ℝ
+MODULE HydrologyTree.ChildTree
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:56:61: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  OfNat ℝ 1
-numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
-  ℝ
-due to the absence of the instance above
+MODULE HydrologyTree.MatrixEntries
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:56:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  V → Zero ℝ
+MODULE HydrologyTree.ChildRates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:56:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
+MODULE HydrologyTree.ChildIndex
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:60:60: error: don't know how to synthesize implicit argument `ℝ`
-  @matrixProbePolynomial V ?m.3
-context:
+MODULE HydrologyTree.RateCoordinates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootCoupling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CouplingSemantics
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.BranchConservation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeadingCoefficients
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.Resolvent
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ChildMatrix
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalRootDecomposition
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.DependentBlocks
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ArrowDeterminant
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ArrowCharacteristic
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveRateAssembly
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphRateTransport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphLeakCut
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphMatrixTransport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LinearForcedODE
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootModalData
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.BalanceWeights
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.WeightedEnergy
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GroundedPositivity
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SymmetricGenerator
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PositiveSpectrum
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SpectralResolvent
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalStieltjes
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesNumerator
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalModalConstruction
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ScalarForcedODE
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ModalForcedODE
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesDegree
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesInterlacing
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesZeroFactorization
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesResidues
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ReciprocalInterpolation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesReciprocal
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesReindex
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SpectralFactorMatching
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.StieltjesWeightedMatching
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalForcedODE
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphODETransport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalMassODE
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphMassBalance
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeakRelocationRates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphModelInjectivity
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreeMatrixSupport
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreeMomentRigidity
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RingTreeModel
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RingPairwiseResultants
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.EndJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.Scaling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.Gluing
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ProductDerivative
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.JacobianComposition
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyProduct
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyScaling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyResultants
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilySmoothness
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TangentJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyGluing
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootUpdate
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathRootTransform
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathPolynomial
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyNormalization
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.BranchStep
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PiSerialization
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathRates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathNormalization
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CoordinateEnergy
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FamilyCoordinateEnergy
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ScaledSerialization
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathPhysical
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ScalarCoupling
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PathInduction
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CatenaryJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CatenaryCanonical
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CanonicalTree
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.IndependentChildCoordinates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.OriginalWorkCoordinates
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CoprimeBranchRecovery
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SerializedNumerator
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.DependentJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.CatenaryOrientation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreePreparation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalConstants
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RootRecovery
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.FiniteCancellation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalCancellation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.PhysicalBranchRecovery
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreeStepSemantics
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LinearConjugation
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreePipeline
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.TreeJacobianRecurrence
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.AllTreeJacobian
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.SubtreeProducts
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.RingSiblingResidual
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.MatrixSiblingWeight
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.DiagonalGauge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.MatrixGaugeWeight
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphLeakMatrix
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeakGauge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.LeakRelocationWalk
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphLeakCofactor
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.GraphDiagonalJets
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.AllNodeJetClassification
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
+
+MODULE HydrologyTree.ConstantInputJets
+HydrologyTree/ConstantInputJets.lean:12:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.constant_input_velocity`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.GaugeODETransport
+HydrologyTree/GaugeODETransport.lean:19:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.normalizedGaugeState_apply`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GaugeODETransport.lean:22:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.normalizedGaugeState_root`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GaugeODETransport.lean:25:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.normalizedGaugeState_symm_root`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GaugeODETransport.lean:53:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+HydrologyTree/GaugeODETransport.lean:53:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+HydrologyTree/GaugeODETransport.lean:55:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.normalizedGaugeState_input`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/GaugeODETransport.lean:61:10: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GaugeODETransport.lean:61:29: warning: This simp argument is unused:
+  Ne.symm hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+HydrologyTree/GaugeODETransport.lean:99:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.normalizedGauge_endpoint_iff`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.SizedSpectralAllocation
+HydrologyTree/SizedSpectralAllocation.lean:41:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.assembleAllocationMap_bijective`:
+  [Fintype B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/SizedSpectralAllocation.lean:74:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.equivFiberMap_bijective`:
+  [Fintype B]
+  [DecidableEq B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype B] [DecidableEq B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.AllocationPolynomials
+
+MODULE HydrologyTree.StieltjesGrouping
+HydrologyTree/StieltjesGrouping.lean:11:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.stieltjesDenominator_sigma`:
+  [DecidableEq B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.StieltjesChildAssembly
+
+MODULE HydrologyTree.SubtreeAssignment
+
+MODULE HydrologyTree.PositiveChildModels
+
+MODULE HydrologyTree.TreeCancellation
+
+MODULE HydrologyTree.PhysicalModes
+
+MODULE HydrologyTree.PositiveAssignment
+
+MODULE HydrologyTree.PositiveRealizationExistence
+
+MODULE HydrologyTree.PositiveFiberAllocation
+
+MODULE HydrologyTree.RealFactorAllocation
+
+MODULE HydrologyTree.PositiveFiberTypes
+HydrologyTree/PositiveFiberTypes.lean:42:22: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+HydrologyTree/PositiveFiberTypes.lean:47:6: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+MODULE HydrologyTree.PositiveFiberRecovery
+
+MODULE HydrologyTree.PositiveFiberEquivalence
+
+MODULE HydrologyTree.RealFiberRigidity
+
+MODULE HydrologyTree.TreeFiberCombinatorics
+HydrologyTree/TreeFiberCombinatorics.lean:67:2: warning: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+MODULE HydrologyTree.PositiveFiberCount
+HydrologyTree/PositiveFiberCount.lean:33:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.JacobianRegularity
+HydrologyTree/JacobianRegularity.lean:16:25: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+MODULE HydrologyTree.PositiveJacobian
+
+MODULE HydrologyTree.MonicResultantAlgebra
+
+MODULE HydrologyTree.SignedFamilyResultant
+
+MODULE HydrologyTree.ResultantFamilyEnumeration
+HydrologyTree/ResultantFamilyEnumeration.lean:44:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.resultantEnumeration_nodup`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.PhysicalResultantRecurrence
+
+MODULE HydrologyTree.AllTreeResultant
+
+MODULE HydrologyTree.ResultantBoundary
+
+MODULE HydrologyTree.CatenaryGlobal
+
+MODULE HydrologyTree.CatenaryCoprime
+HydrologyTree/CatenaryCoprime.lean:88:16: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/CatenaryCoprime.lean:94:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.PositiveResponseFiber
+HydrologyTree/PositiveResponseFiber.lean:86:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.RecursiveFiberClassification
+HydrologyTree/RecursiveFiberClassification.lean:26:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.RealFiberClassification
+HydrologyTree/RealFiberClassification.lean:62:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/RealFiberClassification.lean:75:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.GraphResponseClassification
+HydrologyTree/GraphResponseClassification.lean:61:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.LocatedLeakFiber
+HydrologyTree/LocatedLeakFiber.lean:78:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HydrologyTree/LocatedLeakFiber.lean:111:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.MatrixFlow
+HydrologyTree/MatrixFlow.lean:17:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrixFlow_zero`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/MatrixFlow.lean:24:20: warning: `ContinuousLinearMap.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+HydrologyTree/MatrixFlow.lean:20:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrixFlow_hasDerivAt`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+MODULE HydrologyTree.ExponentialODEProbe
+
+MODULE HydrologyTree.TimeDomainIdentification
+HydrologyTree/TimeDomainIdentification.lean:69:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.DischargeFiber
+HydrologyTree/DischargeFiber.lean:47:18: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/DischargeFiber.lean:53:16: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+HydrologyTree/DischargeFiber.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.FullResponseDynamics
+
+MODULE HydrologyTree.ContinuousOutputFiber
+HydrologyTree/ContinuousOutputFiber.lean:66:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.LocatedLeakODE
+HydrologyTree/LocatedLeakODE.lean:118:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.ExponentialIndependence
+
+MODULE HydrologyTree.ExponentialGramian
+
+MODULE HydrologyTree.ModalSteering
+
+MODULE HydrologyTree.ModalKalman
+
+MODULE HydrologyTree.PhysicalKalman
+
+MODULE HydrologyTree.PhysicalControllability
+
+MODULE HydrologyTree.TimeDomainDischarge
+HydrologyTree/TimeDomainDischarge.lean:65:16: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+MODULE HydrologyTree.ContinuousDischargeFiber
+HydrologyTree/ContinuousDischargeFiber.lean:58:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.TrajectoryObservability
+HydrologyTree/TrajectoryObservability.lean:55:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+MODULE HydrologyTree.FullRootLeakTheory
+
+MODULE HydrologyTree.ControlEnergy
+
+MODULE HydrologyTree.MinimumEnergyMoments
+
+MODULE HydrologyTree.ModalMinimumEnergy
+
+MODULE HydrologyTree.PhysicalMinimumEnergy
+
+MODULE HydrologyTree.GraphDynamicalClassification
+HydrologyTree/GraphDynamicalClassification.lean:67:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.GraphCoefficientJacobian
+
+MODULE HydrologyTree.GraphFullTheory
+
+MODULE HydrologyTree.LocatedLeakDynamics
+
+MODULE HydrologyTree.LeakLocationIdentifiability
+HydrologyTree/LeakLocationIdentifiability.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+MODULE HydrologyTree.AllNodeStepExperiments
+HydrologyTree/AllNodeStepExperiments.lean:30:13: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `Exists.casesOn` can only eliminate into `Prop`
+
 V : Type u_1
-inst✝¹ : Fintype V
-inst✝ : DecidableEq V
-⊢ Type ?u.9
-
-Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
-HydrologyTree/PositiveMatrixProbe.lean:75:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:82:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-HydrologyTree/PositiveMatrixProbe.lean:84:44: error(lean.unknownIdentifier): Unknown identifier `hD`
-HydrologyTree/PositiveMatrixProbe.lean:87:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  CommSemiring ℝ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+n : ℕ
+hG : G.IsTree
+o : V
+p : RootedTreePresentation n G o
+ell : V
+x : PositiveGraphRateSpace G
+y : GraphRates G
+h : SameAllNodeStepJets o ell (↑x) y
+v : V
+x✝ :
+  ∃ z q,
+    IsLocatedGraphSolution v o (↑x) (fun x => 1) z ∧
+      z 0 = 0 ∧
+        IsLocatedGraphSolution v ell y (fun x => 1) q ∧
+          q 0 = 0 ∧ (stepOutputJet fun s => z s v) = stepOutputJet fun s => q s v
+⊢ ?m.39 v
