@@ -1,0 +1,12 @@
+# Actual control and replay history
+
+All six main execution records below are PASS. This does not relabel their intentionally failed private negative children: four critical-certificate and four global-certificate child executions actually exited with AssertionError; exact damaged inputs and stdout/stderr remain in their case directories. The independently written auxiliary programs also retain their actual caught wrong-variant AssertionErrors. There were no unexpected execution failures or required author mathematical corrections.
+
+- `runs/20261015T124716.398448Z/RESULT.json` SHA-256 `4b73997646370c8862d1cffc71363a8596035db3805a7ee1d1a0482023a1914c`: actual private replay of unchanged author certificate checker; not independent code or Lean.
+- `runs/20261015T125457.850334Z/RESULT.json` SHA-256 `067f9f5b80c0027443593befbeca192e4ce9eeee7bacdcd7c3f61b7388f04fe3`: new independent auxiliary diagnostics, not author replay or Lean.
+- `runs/20261015T125541.063539Z/RESULT.json` SHA-256 `3a3f5be864c6fbaa4d03d56830e385d5056bc68ef6315dafec901ade363914e8`: independent adversarial selections, actual authored replayer executions on private corrupted copies.
+- `global-mixed/runs/20261015T130646.989405Z/RESULT.json` SHA-256 `92a6e803be80c1e0f5fff9cf515525952efee95b549ae99ae3ba9fcdf04c67a1`: actual private execution of authored global-turn replayer; no independent engine claim.
+- `global-mixed/runs/20261015T131155.884755Z/RESULT.json` SHA-256 `e63f8baa04481277c590d33a2d13fbb86b140a904a6150c4db6876a214aef62b`: new independent global-mixed auxiliary checks; no author imports.
+- `global-mixed/runs/20261015T131258.239438Z/RESULT.json` SHA-256 `87a7b081d7d34db28b3af246a5c3ea084af4c6b3c3cb16d67995afa34a78bfb0`: independently chosen corrupted copies, actual unchanged authored global replayer executions.
+
+Author-code replay is distinguished from independently written auxiliary code. Neither frozen certificate generator was executed, neither original certificate UTC or mathematical source was modified, and both owner archives remain literal. All interval-engine soundness and analytic-to-certificate reasoning were read as stated in each scope report; finite diagnostics are not substituted for full-domain proofs. The older three-scope reports remain unchanged; COMBINED_REVIEW_FOUR supplies the fourth current disposition. No Lean, root/author mutation, external human review, priority or future transport certification.

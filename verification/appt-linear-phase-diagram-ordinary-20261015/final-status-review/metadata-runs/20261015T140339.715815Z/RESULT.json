@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-15T14:03:44.969238+00:00",
+  "initial_execution": "Earlier actual terminal stdin execution, saved here verbatim as first-source-comparison.py; this is a preserved same-source reproduction.",
+  "actual_original_tool_chunk": "f5f82c",
+  "initial_exit_code": 1,
+  "reproduction_returncode": 1,
+  "source_sha256": "ff78c1df401441ca9695cca4117c6f8c549b6db0a48ce49212b0b931a374ac4d",
+  "finding": "Unfiltered reviewer file-set equality included15 generated __pycache__/*.pyc files absent from the public source evidence. All186 durable files match exactly; no durable source/report/result is missing.",
+  "resolution": "Only explicit interpreter bytecode caches may be excluded from the durable-source comparison; retain all raw original files privately. No certificate or mathematics rerun.",
+  "source_or_candidate_modified": false
+}

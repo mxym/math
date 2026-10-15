@@ -1,0 +1,55 @@
+{
+  "utc": "20261015T131258.239438Z",
+  "kind": "independently chosen corrupted copies, actual unchanged authored global replayer executions",
+  "original_owner_files_or_UTC_changed": false,
+  "independent_interval_engine_claim": false,
+  "cases": [
+    {
+      "name": "equal_area_gap_and_overlap",
+      "purpose": "Duplicate one box and remove a different equal-area box: total area is unchanged, tiling is false.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "b6722fa05f74051e2d7a0faee46c37cab703bdefba7abaa1c1a8724a7e520a03",
+      "stderr_sha256": "65a6def711e62b9c3b43d6028f33407ed2908d941d019b3cc2eb1d2e981f70a9",
+      "case_directory": "runs/20261015T131258.239438Z/equal_area_gap_and_overlap"
+    },
+    {
+      "name": "false_outside_K_cap",
+      "purpose": "An admissible middle box may not be discarded as outside the cap.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "96bf47b7ff8e7f928cb71053c6b35c2e632169bfdf34f00e40119406df41e204",
+      "stderr_sha256": "553d8652ca8167eaf9a39407faaef44b1438f3b88f45671fc6cf67383af0a1d9",
+      "case_directory": "runs/20261015T131258.239438Z/false_outside_K_cap"
+    },
+    {
+      "name": "omit_arbitrarily_small_K",
+      "purpose": "Remove every K=0 first-axis edge without changing the declared full domain.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "665bb5121f7012260056c8f26714ddd312c08b008903b236f343cfedc519d735",
+      "stderr_sha256": "e294c5c5c84092ed1719f5fa5caf1fb60d63b16549a6d4d21aab537862385070",
+      "case_directory": "runs/20261015T131258.239438Z/omit_arbitrarily_small_K"
+    },
+    {
+      "name": "forged_turn_derivative_bound",
+      "purpose": "A strict derivative bound must match exact recomputation.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "eb988e8c6b3044cb00953ce73cfbafef5a3bf0f35c1b5b09b58b3bb9ecd2ff6e",
+      "stderr_sha256": "77df4c699ba4953528c9c6a23ec2697180ddd6a0130a00c20304561db272b3b6",
+      "case_directory": "runs/20261015T131258.239438Z/forged_turn_derivative_bound"
+    }
+  ],
+  "unchanged_original_inputs": {
+    "global_mixed_turn_certificate.py": "f7934ad3a2c0581754f443fb51d58dbf58cb27da0aaa03be589baffe375bfdce",
+    "GLOBAL_MIXED_TURN_CERTIFICATE.json": "4570686e01edda036ea7c3eafbff6fe1719730eb9d72a3059a2e9f269f1f0cbb",
+    "replay_global_turn_certificate.py": "7a95738b0fab0c3b1ca43f953e6b6505357b21b23c42ce936d1c20ae63e2e87c",
+    "critical_exact_intervals.py": "78ab0341d6079ceedb7be01abc9eba8608d50df0ad2136fa53b554a547c6ce1c",
+    "GLOBAL_MIXED_PHASE.md": "5712392f1e74b9c1d1999bacb42cf21f0d0fac3c3cd963954774972dd487c4cb"
+  },
+  "expected_actual_child_failures": 4,
+  "status": "PASS",
+  "decision": "PASS",
+  "executed_countercontrol_sha256": "6e1092da764b25948ce734adac8fbb41e925bfe15a9301ea9646218ae6e00fb3"
+}
