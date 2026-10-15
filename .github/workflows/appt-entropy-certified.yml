@@ -1,0 +1,36 @@
+name: APPT uniform entropy and spectral error
+on:
+  push:
+    branches: ['review/appt-entropy-uniform-certified-proof-20261015']
+    paths: ['formalizations/appt-high-dimensional-review/**', '.github/workflows/appt-entropy-certified.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  entropy-certified:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/appt-high-dimensional-review
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Fresh complete selected closure and trust-zero replay
+        working-directory: formalizations/appt-high-dimensional-review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 reproduce_entropy_certified.py --fresh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appt-entropy-certified-${{ github.sha }}
+          path: |
+            formalizations/appt-high-dimensional-review/verification/entropy-certified-reproduction/
+            formalizations/appt-high-dimensional-review/ENTROPY_CERTIFIED_HASHES.json
+            formalizations/appt-high-dimensional-review/APPTReview/
+            formalizations/appt-high-dimensional-review/EntropyCertifiedAudit.lean
+            formalizations/appt-high-dimensional-review/reproduce_entropy_certified.py
