@@ -554,77 +554,31 @@ MODULE HydrologyTree.LeakLocationIdentifiability
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.AllNodeStepExperiments
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedMatrixRecursion
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedStieltjesChildren
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.ArrowDiagonalGauge
-HydrologyTree/ArrowDiagonalGauge.lean:16:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.arrowGaugeWeight_nonzero`:
-  [Fintype C]
-  [LinearOrder C]
-  [(c : C) → Fintype (V c)]
-  [(c : C) → DecidableEq (V c)]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype C] [LinearOrder C] [(c : C) → Fintype (V c)] [(c : C) → DecidableEq (V c)] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
-HydrologyTree/ArrowDiagonalGauge.lean:42:17: warning: This simp argument is unused:
-  if_pos rfl
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [hroot, one_mul, mul_one]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/ArrowDiagonalGauge.lean:60:10: warning: Unused tactic linter: `ring` does nothing
-
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
-HydrologyTree/ArrowDiagonalGauge.lean:60:10: warning: this tactic is never executed
-
-Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.SupportedPositiveGauge
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.ConservationGaugeRigidity
-HydrologyTree/ConservationGaugeRigidity.lean:25:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/ConservationGaugeRigidity.lean:26:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HydrologyTree/ConservationGaugeRigidity.lean:31:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.RealLocatedPositivity
-HydrologyTree/RealLocatedPositivity.lean:29:8: warning: This simp argument is unused:
-  Matrix.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [he]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-HydrologyTree/RealLocatedPositivity.lean:76:8: warning: Unused tactic linter: `ring` does nothing
-
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
-HydrologyTree/RealLocatedPositivity.lean:76:8: warning: this tactic is never executed
-
-Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.PuncturedJetData
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.PositiveMatrixProbe
-HydrologyTree/PositiveMatrixProbe.lean:45:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrixProbePolynomial_eval`:
-  [DecidableEq V]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq V] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/PositiveMatrixProbe.lean:107:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.MixedInputJets
 HydrologyTree/MixedInputJets.lean:15:8: warning: automatically included section variable(s) unused in theorem `HydrologyTree.probeObservation_apply`:
@@ -633,27 +587,9 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [DecidableEq V] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/MixedInputJets.lean:29:2: error: Type mismatch: After simplification, term
-  HasDerivAt.deriv he
+HydrologyTree/MixedInputJets.lean:58:4: error: Type mismatch: After simplification, term
+  Eq.symm (map_sum (matrixOperator A) (fun v => b v • z v s) Finset.univ)
  has type
-  @Eq ℝ (deriv (⇑L ∘ fun x => A *ᵥ z x + b) 0) (L (A *ᵥ b))
+  True
 but is expected to have type
-  @Eq ℝ (deriv (fun s => L (A *ᵥ z s + b)) 0) (L (A *ᵥ b))
-HydrologyTree/MixedInputJets.lean:47:2: error: Tactic `apply` failed: could not unify the conclusion of `HasDerivAt.congr_deriv he`
-  HasDerivAt (∑ i, b i • z i) ?m.88 s
-with the goal
-  HasDerivAt (fun s => ∑ v, b v • z v s) (A *ᵥ (fun s => ∑ v, b v • z v s) s + (fun x => 1) s • b) s
-
-Note: The full type of `HasDerivAt.congr_deriv he` is
-  ∑ i, b i • (A *ᵥ z i s + Pi.single i 1) = ?m.88 → HasDerivAt (∑ i, b i • z i) ?m.88 s
-
-V : Type u_1
-inst✝¹ : Fintype V
-inst✝ : DecidableEq V
-A : Matrix V V ℝ
-b : V → ℝ
-z : V → ℝ → V → ℝ
-hz : ∀ (v : V), IsForcedMatrixSolution A (Pi.single v 1) (fun x => 1) (z v)
-s : ℝ
-he : HasDerivAt (∑ i, b i • z i) (∑ i, b i • (A *ᵥ z i s + Pi.single i 1)) s
-⊢ HasDerivAt (fun s => ∑ v, b v • z v s) (A *ᵥ (fun s => ∑ v, b v • z v s) s + (fun x => 1) s • b) s
+  ∑ v, b v • A *ᵥ z v s = A *ᵥ ∑ v, b v • z v s
