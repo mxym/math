@@ -52,3 +52,4 @@ import HydrologyTree.LocatedBoundarySingularSet
 import HydrologyTree.AllNodeJetClassification
 import HydrologyTree.ConstantInputJets
 import HydrologyTree.CompletePositiveProbe
+import HydrologyTree.SingleLeakResidence

@@ -585,3 +585,19 @@ All five additional modules compiled in source-isolated diagnostics with matchin
 source hashes. The new 229-module checkpoint has its own independent audit/replay.
 A source-coverage guard now rejects tracked owned modules omitted from MODULES,
 so source-only additions cannot silently receive an incomplete green certificate.
+
+
+## New multiple-leak extension — partial formalization
+
+The new MultiLeakSimplex, ResidenceGauge and SingleLeakResidence modules prove
+actual residence-inverse positivity for positive finite single-leak trees and
+the exact simplex/normalized-scale equivalence for nonnegative ACTUAL column
+losses. Physical stationary fractions and zero-loss faces are proved. The
+general intermediate inverse hypotheses are discharged at the physical graph
+entry graphLeakSimplexEquivGauge. No positive-inverse theorem is assumed there.
+
+The exhaustive multi-leak full-response fibre, original multi-leak rate mapping,
+homeomorphism, total-storage sample count and sharp residual ambiguity still
+require their own new proofs and source-specific independent verification.
+These are an extension beyond the earlier closed single-leak core, not claims
+covered by its old certificate. See research/hydrology-multileak/README.md.

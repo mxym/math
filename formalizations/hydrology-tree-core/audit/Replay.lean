@@ -1755,7 +1755,32 @@ run_cmd do
     ``HydrologyTree.positive_graph_mixed_step_existsUnique,
     ``HydrologyTree.all_node_fiber_has_positive_probe,
     ``HydrologyTree.positive_probe_identifies_site_and_rates,
-    ``HydrologyTree.actual_positive_mixed_probe_identification]
+    ``HydrologyTree.actual_positive_mixed_probe_identification,
+    ``HydrologyTree.matrixLeak,
+    ``HydrologyTree.residenceMatrix,
+    ``HydrologyTree.LeakSimplex,
+    ``HydrologyTree.simplexLossWeight,
+    ``HydrologyTree.simplexGauge,
+    ``HydrologyTree.matrixLeak_diagonalGauge,
+    ``HydrologyTree.simplexGauge_root,
+    ``HydrologyTree.simplexGauge_pos,
+    ``HydrologyTree.simplexGauge_weighted_loss,
+    ``HydrologyTree.simplexGauge_actual_leak,
+    ``HydrologyTree.NonnegativeLeakGauge,
+    ``HydrologyTree.simplexToLeakGauge,
+    ``HydrologyTree.leakGauge_weighted_nonneg,
+    ``HydrologyTree.leakGauge_inverse_recovery,
+    ``HydrologyTree.leakGaugeToSimplex,
+    ``HydrologyTree.leakSimplexEquivGauge,
+    ``HydrologyTree.residenceMatrix_gauge,
+    ``HydrologyTree.normalized_positive_gauge_injective,
+    ``HydrologyTree.residenceColumn_stationary,
+    ``HydrologyTree.simplex_stationary_leak_fraction,
+    ``HydrologyTree.simplex_leak_zero_iff,
+    ``HydrologyTree.single_leak_inverse_row,
+    ``HydrologyTree.positive_graph_residence_nonsingular,
+    ``HydrologyTree.positive_graph_residence_entry_pos,
+    ``HydrologyTree.graphLeakSimplexEquivGauge]
   let cs ← match collect env roots {} with
     | .ok cs => pure cs
     | .error msg => throwError msg
