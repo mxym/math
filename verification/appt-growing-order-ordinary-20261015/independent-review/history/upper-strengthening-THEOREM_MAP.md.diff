@@ -1,0 +1,21 @@
+--- v2/THEOREM_MAP.md
++++ v3/THEOREM_MAP.md
+@@ -8,7 +8,7 @@
+ T=max{log q_m, log3-logD/a}, prove explicit finite inequalities
+ 
+  T-[log(2alpha)/a+4/alpha+4/D] <= E_alpha
+- <=T+2m/(D-m)+2exp(-sqrt a)+2/sqrt a+log48/a.
++ <=T+2m/(D-m)+[2log a+log48+2]/a.
+ 
+ Actual normalization and finite integer projection ranks must remain.
+ Use actual all-unitary sufficient constructions, not an outer-polytope
+@@ -17,7 +17,8 @@
+ P1: Derive a SINGLE uniform absolute-error equivalent for all integers
+ 2<=m<=n, D->infinity and alpha->infinity, with arbitrary dependence:
+ 
+- E_alpha=max{log((m+1)/(m-1)), log3-logD/(alpha-1)}+o(1).
++ E_alpha=max{log((m+1)/(m-1)), log3-logD/(alpha-1)}
++                            +O(D^(-1/2)+log(alpha)/alpha).
+ 
+ P2: State logarithmic-order transitions accurately: when m->infinity and
+ alpha/logD->c in (0,infinity], the limit is max(0,log3-1/c); c=0 also

@@ -1,0 +1,17 @@
+# Author-only theoretical-CS research stage, 15 October 2026
+
+Author: Yongxian Zhang (张永贤), South China University of Technology. No external funding. OpenAI AI assistants assisted. Original material all rights reserved; third-party rights and attribution retained.
+
+The SC0 stage ended after **7205.608192 effective seconds**. The strong labeled sample compression conjecture remains unresolved here: size at most actual VC dimension d, every total binary class on every domain, all finite realizable samples, improper output allowed, and no auxiliary bits, message order or sample-domain header. **New major problems solved: zero.** No independent mathematical review or Lean proof is claimed.
+
+[The closing gate audit](SC0_GATE_AUDIT.md) records the original open quantifiers. [The target map](SAMPLE_COMPRESSION_THEOREM_MAP.md), [global compatibility notes](GLOBAL_COMPATIBILITY_NOTES.md), and [finite certificates and conditional bridges](FINITE_CERTIFICATES_AND_GLOBAL_GATES.md) preserve complete arguments within their scopes. Compactness is a known conditional bridge; its universal finite premise remains missing.
+
+Auxiliary written analyses concern [the fractional relaxation](FRACTIONAL_GATE_AND_EXACT_ROUNDING_OBSTRUCTION.md), [testing a given decoder](FIXED_DECODER_VERIFICATION.md), [the failure formula and augmentation gap](FAILURE_CNF_AND_AUGMENTATION_GATE.md), and [forced labels and restricted default rules](FORCED_LABELS_AND_FIXED_DEFAULT_OBSTRUCTION.md). They remain author-only and are not entered in the public solved-problem index. The [single-shift example](A_SINGLE_SHIFT_COMPATIBILITY_OBSTRUCTION.md) concerns k=1 below VC=2. The [withdrawn-route recheck](WITHDRAWN_ROUTE_RECHECK.md) excludes prescribed failed constructions, including an improper repair; it does not refute SC0.
+
+Five listed finite classes have complete legal decoder certificates. The three later ones are archived as deterministic gzip and checked by the standard-library [late checker](check_late_certificates.py). [Its results](LATE_CERTIFICATE_CONTROLS.json) state which partial samples were directly enumerated and which use complete deletion-DAG induction. These finite controls do not supply a universal theorem. [Archive hashes](ARCHIVE_MANIFEST.json), [source hashes](SOURCE_HASHES.json), and [execution limitations and corrections](RESUMED_EXECUTION_LOG.md) bind the exact evidence.
+
+For a separate replay directory, run `python3 materialize_controls.py --output /mnt/d/math/tmp/breadth-tcs-20261015/replay`, then run `python3 check_late_certificates.py` in that replay directory. The materializer checks archive and raw hashes and refuses to overwrite different files. Other programs use the native packages listed in [the runtime record](RUNTIME_VERSIONS.json); these packages are unnecessary for the integer DAG checker.
+
+The complete Unique Games target was excluded before own mathematics because a public primary manuscript claims its full domain; only its introduction was checked. [Initial primary scopes](PRIMARY_SCREEN.json), [resumed reads](RESUMED_PRIMARY_READS.json), and [later exact scopes](LATE_PRIMARY_SCOPES.json) distinguish actual reads, withdrawal metadata and restricted or approximate external claims. No exhaustive priority certification is asserted.
+
+Only this isolated prefix was changed and committed locally. No push, merge, public solved-index update, Lean-audit expansion, new preprint or Release was performed.

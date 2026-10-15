@@ -1,0 +1,14 @@
+--- v2/REVIEW_HISTORY.md
++++ v3/REVIEW_HISTORY.md
+@@ -22,3 +22,11 @@
+ this P2 quantifier error. Their PASS is not claimed to certify the original
+ entire P2 statement. These are internal AI-agent ordinary reviews and
+ finite diagnostics, not Lean, external peer review or priority certificates.
++
++After the quantifier correction, the author optimized the freely chosen
++head cutoff from exp(-sqrt(a)) to 1/a. The same proof then gives the
++sharper explicit upper error 2m/(D-m)+(2log(a)+log48+2)/a, and the
++uniform rate O(D^(-1/2)+log(alpha)/alpha). This strengthens P0/P1 and
++requires an independent read of the updated statement/map/proof, rather
++than silently extending any earlier read. The previous corrected source,
++map, checker and history remain in author-versions/before-sharper-upper-rate/.

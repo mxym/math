@@ -1,0 +1,51 @@
+{
+  "plain_integer_certificate_verified": true,
+  "roots": 65,
+  "reachable_nodes": 3406,
+  "messages": 288,
+  "all_partial_samples_of_listed_class_covered_by_induction": true,
+  "actual_VC_dimension_checked": 2,
+  "scope": "Only one listed 12-coordinate VC-two finite decoder certificate; same-author plain controls, not independent review or a proof of SC0.",
+  "directly_enumerated_realizable_partial_samples": 89056,
+  "direct_enumeration_agrees": true,
+  "mutations": [
+    {
+      "mutation": "remove complete concept root",
+      "rejected": true
+    },
+    {
+      "mutation": "remove required deletion child edge",
+      "rejected": true
+    },
+    {
+      "mutation": "duplicate deletion child edge",
+      "rejected": true
+    },
+    {
+      "mutation": "change a root decoder output by one bit",
+      "rejected": true
+    },
+    {
+      "mutation": "misdeclare VC dimension and compression size as one",
+      "rejected": true
+    },
+    {
+      "mutation": "duplicate certificate node",
+      "rejected": true
+    },
+    {
+      "mutation": "claim an unfinished synthesis record is a certificate",
+      "rejected": true
+    },
+    {
+      "mutation": "delete a concept without matching the root set",
+      "rejected": true
+    }
+  ],
+  "certificate_sha256": "f7836d566a84b2e315c8c1630866ad49d26db5ebe631e4065f556dbd0d918b93",
+  "source_sha256": {
+    "certificate_controls.py": "463225c13fd37e61dd76d015d99c61534d99df36c52743ace9731e7616b2d847",
+    "check_dag_certificate.py": "85ee9c55e321b2c6b0431c691bba7008c39215c6381b892ab0f35d6549d3b2a8",
+    "finite_decoder.py": "bb8cfcb2645aedde9f5d55ede6a67efa1efd6bc93b4e87ac2fed7fd3690bfe66"
+  }
+}

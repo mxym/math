@@ -1,0 +1,39 @@
+{
+  "status": "FAIL",
+  "author_only": true,
+  "new_Lean": false,
+  "full_APPT_enumeration": false,
+  "source_sha256": {
+    "checks.py": "7914d6e0fe79d6fa497aa785c7f39fd13488c4f7ff0e0f7bc5c9872d3878fcec",
+    "PAPER.md": "42df41bc2d1e93e5ff1530d206a168f652325c1f6ce00851991c896735049031",
+    "THEOREM_MAP.md": "0d6134fd820843c1a88292a58f3a16aa53e8ff39f97dcb2037d541cad0f118db"
+  },
+  "groups": {
+    "symbolic_exact_trace_and_cases": {
+      "exact_checks": 5,
+      "purity_J": "1",
+      "purity_linear": "5/4",
+      "half_linear": "(27-11sqrt(5))/2"
+    },
+    "all_fixed_order_trace_crossing": {
+      "full_formula_crossing_derivative_cases": 270,
+      "near_one_cases": 60,
+      "maximum_absolute_identity_error": "2.9072311584589243844569693611403342e-196",
+      "decimal_digits": 220,
+      "rejected_mutations": [
+        "reverse Q/(alpha r) in real optimum"
+      ]
+    },
+    "linear_onset_expansion": {
+      "expansion_cases": 270,
+      "maximum_absolute_after_quadratic_linear": "10.945717164566813887055857599862475",
+      "maximum_scaled_g_quadratic_residual": "3.1261473964888017182265424452262959",
+      "rejected_mutations": [
+        "omit contrast derivative J from linear onset"
+      ]
+    }
+  },
+  "exception": "scalar diagnostic found no interior local maximum",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/math/tmp/research-resume-20261015/onset-refinement/checks.py\", line 202, in <module>\n    group('two_sign_scalar_diagnostics',scalar_diagnostics)\n  File \"/mnt/d/math/tmp/research-resume-20261015/onset-refinement/checks.py\", line 20, in group\n    print('START '+n,flush=True);record['groups'][n]=f();save();print('PASS '+n,flush=True)\n  File \"/mnt/d/math/tmp/research-resume-20261015/onset-refinement/checks.py\", line 180, in scalar_diagnostics\n    zz,value=multi_start(lambda v:crossing(alpha,m,v,ss),*I)\n  File \"/mnt/d/math/tmp/research-resume-20261015/onset-refinement/checks.py\", line 164, in multi_start\n    require(candidates,'scalar diagnostic found no interior local maximum')\n  File \"/mnt/d/math/tmp/research-resume-20261015/onset-refinement/checks.py\", line 17, in require\n    if not t:raise AssertionError(msg)\nAssertionError: scalar diagnostic found no interior local maximum\n",
+  "utc_end": "2026-10-15T05:28:02.873334+00:00"
+}

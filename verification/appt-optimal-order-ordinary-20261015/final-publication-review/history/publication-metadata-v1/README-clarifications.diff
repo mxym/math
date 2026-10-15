@@ -1,0 +1,23 @@
+--- initial-metadata/README.md
++++ clarified-metadata/README.md
+@@ -5,7 +5,7 @@
+ The quantum domain is the original complex density matrices remaining PPT
+ after **every global unitary**. Let E_alpha=max_APPT(log D-S_alpha) and
+ G_alpha be the exact integer projection bulk, D=mn. N_alpha(m) is the
+-least N such that E_alpha(m,n)=G_alpha(m,mn) for **every integer n>=N**;
++least integer N>=m such that E_alpha(m,n)=G_alpha(m,mn) for **every integer n>=N**;
+ allow +infinity if no such N exists. The order stays fixed across those n.
+ 
+ For sufficiently large m, the minimum over all alpha>0 is finite and
+@@ -54,7 +54,10 @@
+ [retained evidence](../../verification/appt-optimal-order-ordinary-20261015/README.md).
+ The ordinary reads are internal AI-agent reviews, not external human peer
+ review or Lean verification. Reviewer algebraic contributions and source
+-versions are disclosed. Finite controls support the analytic proof; they
++versions are disclosed. One independent M checker run initially failed
++because its chosen rank-loss constant was too small; its original executed
++source/output and subsequent successful runs remain, with no mathematical
++source change. Finite controls support the analytic proof; they
+ do not numerically enumerate the full quantum feasible set or certify a
+ global continuous-envelope optimizer.
+ 

@@ -1,0 +1,20 @@
+--- 20261015T083604.420048Z
++++ 20261015T084023.622885Z
+@@ -39,7 +39,7 @@
+     return mp.log1p(x) / x if x else mp.mpf(1)
+ 
+ def phi(a, y):
+-    """psi_a(y)/a, regular even at a=0. Used only for a<=1/2."""
++    """psi_a(y)/a, regular at a=0; all uses here stay away from a=1."""
+     L = mp.log(y)
+     return (L * exp_ratio(a * L) - (y - 1)) / (a - 1)
+ 
+@@ -122,7 +122,7 @@
+                 (2 - p) * fp / (2 * aa * p) - (1 - beta) * fm / (aa * beta))
+     ax, p0, beta0 = mp.findroot(equations, (mp.mpf('.55'), mp.mpf('.85'), mp.mpf('.61')))
+     d0 = (2 - p0) * psi(ax, 1 + p0) / (2 * ax * p0)
+-    old_result = HERE.parent / 'independent-optimal-order-review' / 'runs' / '20261015T081127.835786Z' / 'RESULT.json'
++    old_result = HERE / 'snapshot' / 'L-review' / 'independent-RESULT.json'
+     old_data = json.loads(old_result.read_text())
+     ac = mp.mpf(old_data['groups']['independently_evaluated_constants']['ac_illustration'])
+     (RUN / 'previous-independent-L-RESULT.json').write_bytes(old_result.read_bytes())

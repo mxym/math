@@ -1,0 +1,286 @@
+{
+  "status": "PASS",
+  "reviewer_written": true,
+  "author_code_executed": false,
+  "private_only": true,
+  "Lean": false,
+  "arbitrary_depth_formally_verified": false,
+  "script_sha256": "cbc586b31ebf660d78443c381e5206e320deb7161d9697c286098be60669e2da",
+  "input_manifest_sha256": "f4b03cc700b0eb960acfedfc58a1cb5638688019e8eed4f576aa51ec9fb8620b",
+  "groups": {
+    "symbolic": {
+      "identities": 7,
+      "sympy_version": "1.9"
+    },
+    "family_examples": {
+      "depths": 5,
+      "all_coordinates": 31,
+      "direct_restriction_coordinates": 15,
+      "method": "gate-polynomial multiplication and direct truth/edge evaluation",
+      "not_author_Walsh_execution": true,
+      "rows": [
+        {
+          "depth": 0,
+          "variables": 1,
+          "truth_entries": 2,
+          "coordinates": 1,
+          "gate_signs_bottom_to_top": [],
+          "mean": "0",
+          "single_coordinate_influence": "1",
+          "A_over_single_coordinate_I": "0",
+          "L_over_I": "0"
+        },
+        {
+          "depth": 1,
+          "variables": 2,
+          "truth_entries": 4,
+          "coordinates": 2,
+          "gate_signs_bottom_to_top": [
+            -1
+          ],
+          "mean": "1/2",
+          "single_coordinate_influence": "1/2",
+          "A_over_single_coordinate_I": "1",
+          "L_over_I": "4"
+        },
+        {
+          "depth": 2,
+          "variables": 4,
+          "truth_entries": 16,
+          "coordinates": 4,
+          "gate_signs_bottom_to_top": [
+            -1,
+            1
+          ],
+          "mean": "1/8",
+          "single_coordinate_influence": "3/8",
+          "A_over_single_coordinate_I": "1",
+          "L_over_I": "4"
+        },
+        {
+          "depth": 3,
+          "variables": 8,
+          "truth_entries": 256,
+          "coordinates": 8,
+          "gate_signs_bottom_to_top": [
+            -1,
+            1,
+            1
+          ],
+          "mean": "-47/128",
+          "single_coordinate_influence": "27/128",
+          "A_over_single_coordinate_I": "111/64",
+          "L_over_I": "111/16"
+        },
+        {
+          "depth": 4,
+          "variables": 16,
+          "truth_entries": 65536,
+          "coordinates": 16,
+          "gate_signs_bottom_to_top": [
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "mean": "2143/32768",
+          "single_coordinate_influence": "4725/32768",
+          "A_over_single_coordinate_I": "30559/16384",
+          "L_over_I": "30559/4096"
+        }
+      ]
+    },
+    "exhaustive_monotone_3": {
+      "functions": 20,
+      "essential_gate_coordinate_cases": 84,
+      "zero_influence_cases_checked_without_division": 36
+    },
+    "deep_scalar_recurrence": {
+      "through_depth": 16,
+      "finite_only_not_all_depth_computer_proof": true,
+      "rows": [
+        {
+          "depth": 0,
+          "bias_denominator_bits": 2,
+          "influence_denominator_bits": 1,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 1,
+          "bias_denominator_bits": 3,
+          "influence_denominator_bits": 2,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 2,
+          "bias_denominator_bits": 5,
+          "influence_denominator_bits": 4,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 3,
+          "bias_denominator_bits": 9,
+          "influence_denominator_bits": 8,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 4,
+          "bias_denominator_bits": 17,
+          "influence_denominator_bits": 16,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 5,
+          "bias_denominator_bits": 33,
+          "influence_denominator_bits": 32,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 6,
+          "bias_denominator_bits": 65,
+          "influence_denominator_bits": 64,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 7,
+          "bias_denominator_bits": 129,
+          "influence_denominator_bits": 128,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 8,
+          "bias_denominator_bits": 257,
+          "influence_denominator_bits": 256,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 9,
+          "bias_denominator_bits": 513,
+          "influence_denominator_bits": 512,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 10,
+          "bias_denominator_bits": 1025,
+          "influence_denominator_bits": 1024,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 11,
+          "bias_denominator_bits": 2049,
+          "influence_denominator_bits": 2048,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 12,
+          "bias_denominator_bits": 4097,
+          "influence_denominator_bits": 4096,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 13,
+          "bias_denominator_bits": 8193,
+          "influence_denominator_bits": 8192,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 14,
+          "bias_denominator_bits": 16385,
+          "influence_denominator_bits": 16384,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 15,
+          "bias_denominator_bits": 32769,
+          "influence_denominator_bits": 32768,
+          "lower_bound_checked_exactly": true
+        },
+        {
+          "depth": 16,
+          "bias_denominator_bits": 65537,
+          "influence_denominator_bits": 65536,
+          "lower_bound_checked_exactly": true
+        }
+      ]
+    }
+  },
+  "expected_rejections": [
+    {
+      "variant": "omit-restriction-factor-four",
+      "observations": {
+        "L": "2",
+        "A": "1/2"
+      },
+      "explanation": "The exact normalization is L=4A.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-restriction-factor-four')"
+    },
+    {
+      "variant": "omit-absolute-values",
+      "observations": {
+        "signed_difference": "0",
+        "true_L": "2"
+      },
+      "explanation": "Both restrictions have Parseval mass one; a signed sum cancels.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-absolute-values')"
+    },
+    {
+      "variant": "signed-instead-of-absolute-terminal-mean",
+      "observations": {
+        "mean": "-47/128",
+        "wrong_R": "4",
+        "true_R": "111/16"
+      },
+      "explanation": "The terminal potential must use absolute mean.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('signed-instead-of-absolute-terminal-mean')"
+    },
+    {
+      "variant": "replace-coordinate-by-total-influence",
+      "observations": {
+        "A_over_I_i": "1",
+        "A_over_total_I": "1/4"
+      },
+      "explanation": "Han uses single-coordinate influence, not FEI total influence.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('replace-coordinate-by-total-influence')"
+    },
+    {
+      "variant": "one-bad-coordinate-negates-exists-good",
+      "observations": {
+        "all_coordinates_essential": true,
+        "all_five_ratios": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      "explanation": "Specified bad coordinates do not rule out another essential good coordinate.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('one-bad-coordinate-negates-exists-good')"
+    },
+    {
+      "variant": "drop-adaptive-bias-control",
+      "observations": {
+        "AND_64_ratio": "9223372036854775807/4611686018427387904",
+        "incorrect_depth6_lower": "9/4"
+      },
+      "explanation": "All-AND composition has ratio below two; the maintained bias interval matters.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('drop-adaptive-bias-control')"
+    },
+    {
+      "variant": "apply-monotone-identity-to-parity",
+      "observations": {
+        "true_joined_R": "0",
+        "wrong_monotone_formula": "4"
+      },
+      "explanation": "For nonmonotone parity, first Fourier coefficient is not influence.",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('apply-monotone-identity-to-parity')"
+    }
+  ]
+}

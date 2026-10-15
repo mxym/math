@@ -1,0 +1,11 @@
+--- 20261015T091232.667475Z
++++ 20261015T091753.210538Z
+@@ -44,7 +44,7 @@
+     a = alpha - 1
+     T = max(mp.log(mp.mpf(m + 1) / (m - 1)), mp.log(3) - mp.log(D) / a)
+     L = mp.log(2 * alpha) / a + 4 / alpha + mp.mpf(4) / D
+-    U = mp.mpf(2) * m / (D - m) + 2 * mp.exp(-mp.sqrt(a)) + 2 / mp.sqrt(a) + mp.log(48) / a
++    U = mp.mpf(2) * m / (D - m) + (2 * mp.log(a) + mp.log(48) + 2) / a
+     return T, L, U
+ 
+ def value_at(histogram, rank):

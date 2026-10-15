@@ -1,0 +1,26 @@
+{
+  "status": "FAIL",
+  "reviewer_agent_written": true,
+  "author_script_executed": false,
+  "new_Lean": false,
+  "full_quantified_proof": false,
+  "full_quantum_optimization": false,
+  "input_manifest_sha256": "9e336be6a62afca887a920933b6d7cf9e831cbc389f1f3f33397c7ebc1ea9b95",
+  "script_sha256": "601aad5e7c6e4d44e2084f7877a7f8b5f36a7a59b54794beeffb483f40cc3e68",
+  "groups": {
+    "symbolic": {
+      "checks": 4,
+      "result": "PASS"
+    },
+    "constants": {
+      "independently_resolved_alpha0": "0.5525205507080827568080946855373675077",
+      "independently_resolved_d0": "0.17738478766342500060689848129154949154",
+      "ac_from_previous_independent_L_diagnostic": "0.921104196825711919208482234349933046",
+      "previous_result_sha256": "57285cd03578b37bc6a8a1d386c9a86a1296113fde4ef88ee9ecce0590a34714",
+      "numeric_illustrations_not_intervals": true
+    }
+  },
+  "expected_rejections": [],
+  "error": "Tiny-order factored physical-rank loss",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-global-order-review/independent_checks.py\", line 158, in <module>\n    need(loss >= -mp.mpf('1e-180') and abs(loss) * m**8 < 10,\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-global-order-review/independent_checks.py\", line 30, in need\n    raise AssertionError(message)\nAssertionError: Tiny-order factored physical-rank loss\n"
+}

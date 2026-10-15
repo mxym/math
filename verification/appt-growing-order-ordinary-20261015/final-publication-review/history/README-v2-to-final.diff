@@ -1,0 +1,28 @@
+--- v2-to-final/old-README.md
++++ v2-to-final/new-README.md
+@@ -21,9 +21,10 @@
+ 
+ The upper proof counts large positive anomalies using the finite physical
+ sum p_i^2<=8 and keeps the exact mean bound 1-m/D. The two lower states
+-are the trace-one normalizations of I+2|v><v| and I+2/(m-1)P, both actual
+-all-unitary APPT, with the latter having physical
+-integer rank max(1,floor(D/alpha)). Fractional ranks are not substituted
++are (I+2|v><v|)/(D+2) and (I+tP)/(D+t*k), where t=2/(m-1),
++v is unit, and the projection P has actual integer rank
++k=max(1,floor(D/alpha)). Both normalized states are all-unitary APPT
++and have matrix rank D. Fractional projection ranks are not substituted
+ when alpha>D. The [full P0-P2 proof](PAPER.md) gives every estimate.
+ 
+ ![Limiting growing-order transition across local dimensions](figures/growing-order-transition.png)
+@@ -31,8 +32,9 @@
+ For m->infinity and alpha/logD->c>0, the limit is
+ max(0,log3-1/c); c=infinity gives log3. The c=0 limit is zero for m->infinity
+ even for arbitrary positive orders. With m fixed, **D->infinity** and
+-alpha->infinity, the limit keeps log((m+1)/(m-1)); at finite c it is the
+-maximum with log3-1/c. These fixed-m curves are shown above.
++alpha->infinity, the limit keeps log((m+1)/(m-1)); for 0<c<infinity it is
++the maximum with log3-1/c. At c=0 this fixed-m limit is log((m+1)/(m-1)),
++still requiring alpha->infinity. These fixed-m curves are shown above.
+ [Plot source](figure.py) and [provenance](figures/PROVENANCE.json) are
+ included. The figure illustrates the proved limit, not exact finite extrema.
+ 

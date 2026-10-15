@@ -1,0 +1,266 @@
+{
+  "status": "PASS",
+  "author_only": true,
+  "new_Lean": false,
+  "not_full_quantum_feasible_set_enumeration": true,
+  "source_sha256": {
+    "PAPER.md": "c76f83bf7bb4a42eee81cafbab6fd8cdb430312fc7026503acbc86a9dfbda58b",
+    "THEOREM_MAP.md": "4e52fe369cdfb0214aa7396eb0a8de608e6891cb093cf3de78e0ad085b1a7fc7",
+    "checks.py": "745f56a514b46ea2f115ec80561c61ad3dc6a68ccb1471da11a1e63d052877c5"
+  },
+  "groups": {
+    "constants": {
+      "alpha0": "0.552520550708082756808094685537",
+      "d0": "0.177384787663425000606898481292",
+      "uc": "4.46632711582834039326287986583",
+      "ac": "0.92110419682571191920848223435",
+      "numerical_illustrations_only": true
+    },
+    "continuous_envelope": {
+      "cases": 5,
+      "samples": [
+        {
+          "m": 80,
+          "order": "0.605111354365100192780603452504",
+          "m2_order_remainder": "-20.7250258613556412369742806805",
+          "center_minus_quadratic_linear": "0.661935753935784545874507671887",
+          "unshifted_loss_over_m": "0.261770108843311119775272049852",
+          "unit_level_points": [
+            {
+              "sign": "-",
+              "m2_order_width": "16.4053170644171818586441573836"
+            },
+            {
+              "sign": "+",
+              "m2_order_width": "24.8671005341195198693375870074"
+            }
+          ]
+        },
+        {
+          "m": 160,
+          "order": "0.579606867885269703553507912657",
+          "m2_order_remainder": "-21.2026187965486262394821642628",
+          "center_minus_quadratic_linear": "0.654628552809666925343000429448",
+          "unshifted_loss_over_m": "0.253915385088523088632143073593",
+          "unit_level_points": [
+            {
+              "sign": "-",
+              "m2_order_width": "17.2462826048524065659916177197"
+            },
+            {
+              "sign": "+",
+              "m2_order_width": "26.0866221401991185187224752063"
+            }
+          ]
+        },
+        {
+          "m": 320,
+          "order": "0.566268332994177038948373387288",
+          "m2_order_remainder": "-21.4517709690144346795824978462",
+          "center_minus_quadratic_linear": "0.651128534773289312072952441359",
+          "unshifted_loss_over_m": "0.250077806782671615281151615822",
+          "unit_level_points": [
+            {
+              "sign": "-",
+              "m2_order_width": "17.6840606579321909335241141988"
+            },
+            {
+              "sign": "+",
+              "m2_order_width": "26.7209416149359635043292821332"
+            }
+          ]
+        },
+        {
+          "m": 640,
+          "order": "0.559446503593589441009473996508",
+          "m2_order_remainder": "-21.5790522266000028032773404953",
+          "center_minus_quadratic_linear": "0.649415439568687983658729138773",
+          "unshifted_loss_over_m": "0.248180183763260829129368968402",
+          "unit_level_points": [
+            {
+              "sign": "-",
+              "m2_order_width": "17.9074681788665235107555670768"
+            },
+            {
+              "sign": "+",
+              "m2_order_width": "27.0444875912066747603472824184"
+            }
+          ]
+        },
+        {
+          "m": 1280,
+          "order": "0.555996658693791079818945009135",
+          "m2_order_remainder": "-21.6433844757592823993160459447",
+          "center_minus_quadratic_linear": "0.648567943962779128403499186125",
+          "unshifted_loss_over_m": "0.247236514068738067052110661356",
+          "unit_level_points": [
+            {
+              "sign": "-",
+              "m2_order_width": "18.020326926219227385644365433"
+            },
+            {
+              "sign": "+",
+              "m2_order_width": "27.2078891666151027031676363001"
+            }
+          ]
+        }
+      ],
+      "scope": "local stationary crossings and unit-level points, not a global numerical M_I certificate"
+    },
+    "actual_barrier": {
+      "cases": 21,
+      "includes_von_Neumann": true,
+      "finite_B0": "8.46432396969632370106061666122",
+      "samples": [
+        {
+          "alpha": "0.15",
+          "m": 200,
+          "n": 6453,
+          "sign": "-",
+          "m4_actual_entropy_gain": "17.8946270184832218554420143444"
+        },
+        {
+          "alpha": "0.15",
+          "m": 600,
+          "n": 68241,
+          "sign": "-",
+          "m4_actual_entropy_gain": "15.3598779410450175523360298823"
+        },
+        {
+          "alpha": "0.15",
+          "m": 1800,
+          "n": 644643,
+          "sign": "-",
+          "m4_actual_entropy_gain": "14.6770846015789573831693878988"
+        },
+        {
+          "alpha": "0.4",
+          "m": 200,
+          "n": 5759,
+          "sign": "-",
+          "m4_actual_entropy_gain": "45.4463150480232688965973019987"
+        },
+        {
+          "alpha": "0.4",
+          "m": 600,
+          "n": 61994,
+          "sign": "-",
+          "m4_actual_entropy_gain": "38.2848909458673267966481169813"
+        },
+        {
+          "alpha": "0.4",
+          "m": 1800,
+          "n": 588422,
+          "sign": "-",
+          "m4_actual_entropy_gain": "36.3957486405117457521837972968"
+        },
+        {
+          "alpha": "0.55",
+          "m": 200,
+          "n": 5408,
+          "sign": "-",
+          "m4_actual_entropy_gain": "61.2789129242808086388003636147"
+        },
+        {
+          "alpha": "0.55",
+          "m": 600,
+          "n": 58830,
+          "sign": "-",
+          "m4_actual_entropy_gain": "51.0696942948888220221980834138"
+        },
+        {
+          "alpha": "0.55",
+          "m": 1800,
+          "n": 559941,
+          "sign": "-",
+          "m4_actual_entropy_gain": "48.4116422495890183141646175015"
+        },
+        {
+          "alpha": "0.75",
+          "m": 200,
+          "n": 5702,
+          "sign": "+",
+          "m4_actual_entropy_gain": "74.3235419517115218263424905068"
+        },
+        {
+          "alpha": "0.75",
+          "m": 600,
+          "n": 61480,
+          "sign": "+",
+          "m4_actual_entropy_gain": "62.4918372941586049228319474551"
+        },
+        {
+          "alpha": "0.75",
+          "m": 1800,
+          "n": 583792,
+          "sign": "+",
+          "m4_actual_entropy_gain": "59.3802571884584888694364876862"
+        },
+        {
+          "alpha": "1.0",
+          "m": 200,
+          "n": 6117,
+          "sign": "+",
+          "m4_actual_entropy_gain": "97.5949678427888810923542264004"
+        },
+        {
+          "alpha": "1.0",
+          "m": 600,
+          "n": 65218,
+          "sign": "+",
+          "m4_actual_entropy_gain": "83.0055412635910372609977362892"
+        },
+        {
+          "alpha": "1.0",
+          "m": 1800,
+          "n": 617439,
+          "sign": "+",
+          "m4_actual_entropy_gain": "79.1104655907543500049533814092"
+        },
+        {
+          "alpha": "1.5",
+          "m": 200,
+          "n": 7091,
+          "sign": "+",
+          "m4_actual_entropy_gain": "142.098513491142037294640246665"
+        },
+        {
+          "alpha": "1.5",
+          "m": 600,
+          "n": 73978,
+          "sign": "+",
+          "m4_actual_entropy_gain": "123.655773317270930141644933819"
+        },
+        {
+          "alpha": "1.5",
+          "m": 1800,
+          "n": 696281,
+          "sign": "+",
+          "m4_actual_entropy_gain": "118.572299559810466634714549699"
+        },
+        {
+          "alpha": "4.0",
+          "m": 200,
+          "n": 17937,
+          "sign": "+",
+          "m4_actual_entropy_gain": "342.048957400968372040289765589"
+        },
+        {
+          "alpha": "4.0",
+          "m": 600,
+          "n": 171590,
+          "sign": "+",
+          "m4_actual_entropy_gain": "326.730665755672299890145501488"
+        },
+        {
+          "alpha": "4.0",
+          "m": 1800,
+          "n": 1574785,
+          "sign": "+",
+          "m4_actual_entropy_gain": "322.03336670768073376660921224"
+        }
+      ]
+    },
+    "rejected_mutation": "Setting the best order equal to alpha0 omits a positive O(m) continuous-onset penalty."
+  }
+}

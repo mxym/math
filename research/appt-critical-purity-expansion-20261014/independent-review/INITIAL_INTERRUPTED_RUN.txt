@@ -1,0 +1,59 @@
+Reviewer stopped ONLY the verified reviewer process PID 112843 after more than
+four CPU minutes in an unnecessarily expanded SymPy rational loss identity.
+No author mathematics, author checker, formal process, or shared process changed.
+The initial source is retained as INITIAL_CHECK_INDEPENDENT.py and the partial
+raw report as RUN_20261014T093729.780230Z.json. Its missing result field is retained.
+The correction clears the loss identity's denominators in abstract a,B,S and
+checks the physical chord separately. The exact identity is unchanged.
+
+Verbatim terminal output from the interrupted reviewer execution:
+{
+  "report": "/mnt/d/math/tmp/appt-critical-purity-expansion-20261014/independent-review/RUN_20261014T093729.780230Z.json",
+  "result": null,
+  "counts": {
+    "binding": 2,
+    "symbolic": 1
+  },
+  "error": null
+}
+Traceback (most recent call last):
+  File "/mnt/d/math/tmp/appt-critical-purity-expansion-20261014/independent-review/check_independent.py", line 145, in <module>
+    report['symbolic_coefficients']=symbolic()
+  File "/mnt/d/math/tmp/appt-critical-purity-expansion-20261014/independent-review/check_independent.py", line 43, in symbolic
+    add('symbolic','exact_integer_trace_loss',s.cancel(Pb-PQ-aa*aa*(S-Sstar)**2/(4*B*S*S))==0)
+  File "/usr/lib/python3/dist-packages/sympy/polys/polytools.py", line 6700, in cancel
+    R, (F, G) = sring((p, q), *gens, **args)
+  File "/usr/lib/python3/dist-packages/sympy/polys/rings.py", line 164, in sring
+    reps, opt = _parallel_dict_from_expr(exprs, opt)
+  File "/usr/lib/python3/dist-packages/sympy/polys/polyutils.py", line 326, in _parallel_dict_from_expr
+    exprs = [ expr.expand() for expr in exprs ]
+  File "/usr/lib/python3/dist-packages/sympy/polys/polyutils.py", line 326, in <listcomp>
+    exprs = [ expr.expand() for expr in exprs ]
+  File "/usr/lib/python3/dist-packages/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/sympy/core/expr.py", line 3622, in expand
+    expr, hit = Expr._expand_hint(expr, hint, deep=deep, **hints)
+  File "/usr/lib/python3/dist-packages/sympy/core/expr.py", line 3555, in _expand_hint
+    arg, arghit = Expr._expand_hint(arg, hint, **hints)
+  File "/usr/lib/python3/dist-packages/sympy/core/expr.py", line 3563, in _expand_hint
+    newexpr = getattr(expr, hint)(**hints)
+  File "/usr/lib/python3/dist-packages/sympy/core/mul.py", line 961, in _eval_expand_mul
+    terms = self.func._expandsums(sums)
+  File "/usr/lib/python3/dist-packages/sympy/core/mul.py", line 926, in _expandsums
+    terms = [Mul(a, b) for a in left for b in right]
+  File "/usr/lib/python3/dist-packages/sympy/core/mul.py", line 926, in <listcomp>
+    terms = [Mul(a, b) for a in left for b in right]
+  File "/usr/lib/python3/dist-packages/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/sympy/core/operations.py", line 88, in __new__
+    obj = cls._exec_constructor_postprocessors(obj)
+  File "/usr/lib/python3/dist-packages/sympy/core/basic.py", line 1848, in _exec_constructor_postprocessors
+    for k, v in chain.from_iterable(postprocessor_mappings):
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/d/math/tmp/appt-critical-purity-expansion-20261014/independent-review/check_independent.py", line 157, in <module>
+    if report['result']!='PASS': sys.exit(1)
+KeyError: 'result'

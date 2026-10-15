@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T09:51:58.179877+00:00",
+  "input_sha256": {
+    "PAPER.md": "47b4eb47302661b0043e14f422e32e7fcf503de2ac9915a80074749275636a15",
+    "THEOREM_MAP.md": "334ba11428a955e0ae40bb71174ba8b3a80818b50284a2637581ba08fce3a956",
+    "checks.py": "d73e9203eb80743193d952f9368f531b999ff3d7046638953c680c9bad49cc92"
+  },
+  "counts": {
+    "exact_rational_remainder_cases": 810,
+    "real_order_remainder_cases": 210,
+    "actual_projection_upper_comparisons": 600,
+    "actual_width_adapted_integer_rank_lower_comparisons": 51,
+    "scalar_profile_sample_bracket_checks": 1296,
+    "superlinear_naive_quadratic_counterexamples": 3
+  },
+  "rejected_false_variants": [
+    {
+      "status": "REJECTED",
+      "name": "omit-linear-taylor-term",
+      "reason": "alpha=2,v=1,p=1/100 needs its positive linear term"
+    },
+    {
+      "status": "REJECTED",
+      "name": "alpha-free-remainder-without-three-power",
+      "reason": "v=1,p=2,alpha=10 has remainder larger than p^2"
+    },
+    {
+      "status": "REJECTED",
+      "name": "omit-trace-normalization",
+      "reason": "actual (I+P)/(D+k) differs from its unnormalized raw spectrum"
+    },
+    {
+      "status": "REJECTED",
+      "name": "finite-projection-entropy-equals-log-q",
+      "reason": "the exact finite m=3,alpha=2 projection entropy is not logq; this is not a bound on the unknown full optimum"
+    }
+  ],
+  "precision_decimal_digits": 110,
+  "full_APPT_optimization_numerically_certified": false,
+  "finite_cases_are_not_proofs_of_limits_or_universal_quantifiers": true,
+  "independent_review": false,
+  "new_Lean": false
+}

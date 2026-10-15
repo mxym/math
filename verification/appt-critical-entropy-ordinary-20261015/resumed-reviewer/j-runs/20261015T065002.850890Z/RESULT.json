@@ -1,0 +1,26 @@
+{
+  "status": "FAIL",
+  "independent_of_author": true,
+  "Lean": false,
+  "written_by": "resumed independent review agent",
+  "source": {
+    "H/FOLLOWUP_TARGET.md": "ec65e184c7666af345ab9cdd81cf7a60b0adec5c72b09fdeb7b419ab3fe36d91",
+    "H/PAPER.md": "2faea5eb7112950d80602b07bfbfbf2cc82b851ff162acdfe997b3d05f29d105",
+    "H/THEOREM_MAP.md": "0bff543f6700fb463c674206654a8791f17e89fa058d8414900313f1a4fd61cf",
+    "I/CONTROL_HISTORY.md": "4e00e3be4b5681f36ac52325d7a6f5abd7404b74ccf814a818b8ca424411f956",
+    "I/PAPER.md": "593735fc7bfcd1988df370134a6b5b5b7e3a4204e56013ac1c574031d2b0a1f2",
+    "I/THEOREM_MAP.md": "0d6134fd820843c1a88292a58f3a16aa53e8ff39f97dcb2037d541cad0f118db",
+    "J/checks.py": "62f80d031abcee308bb71fd8d8764341706d54eb6bbfd0877b128c5eef054c3f",
+    "J/PAPER.md": "c2d5c37b950a029cf3919e4de0bf8950d6462b773fffc9b38499f5373fa0df8e",
+    "J/THEOREM_MAP.md": "73d73651e6b4e7be8ae42e11c28323c42653e0c8d9a6b86be34990885b10bcb6"
+  },
+  "groups": {
+    "exact_calculus": {
+      "exact_derivative_identities": 15,
+      "exact_inequality_controls": 2
+    }
+  },
+  "error": "integral strict envelope derivative",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-review-resume/j_independent_checks.py\", line 137, in <module>\n    group('independent_critical_derivatives',monotonic_controls)\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-review-resume/j_independent_checks.py\", line 28, in group\n    print('START '+n,flush=True); out['groups'][n]=f(); save(); print('PASS '+n,flush=True)\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-review-resume/j_independent_checks.py\", line 88, in monotonic_controls\n    need(abs(partial-integral)<mp.mpf('1e-90')*max(1,abs(partial)),'integral strict envelope derivative')\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-review-resume/j_independent_checks.py\", line 25, in need\n    if not test:raise AssertionError(msg)\nAssertionError: integral strict envelope derivative\n",
+  "ended_utc": "2026-10-15T06:50:04.879365+00:00"
+}

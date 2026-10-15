@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "scope": "Complete written auxiliary negation of Han Question 3.1 / Eq.3.18, every coordinate and arbitrary finite depth; limited source/metadata correction binding, not priority or full FEI",
+  "review_type": "private internal AI-agent independent ordinary read; not external human peer review or Lean",
+  "reviewer_agent": "/root/critical_entropy_review_resume_20261015",
+  "created_utc": "2026-10-15T10:05:55.809918+00:00",
+  "paper_sha256": "0250c4792fdecbf5e14b4ea1300253329e7385d8593a4044efafa0a2767cb1ef",
+  "v1_commit": "d83f9be16b9e4fb00437ca59fa79316b9de80960",
+  "v1_input_manifest_sha256": "f4b03cc700b0eb960acfedfc58a1cb5638688019e8eed4f576aa51ec9fb8620b",
+  "final_v2_inputs": {
+    "HAN_Q31_EXACT_CONTROLS.json": {
+      "bytes": 7128,
+      "sha256": "61c458a39ab80cb3ca4f89b3a4c2e71d955ad226e912921ecdb565a5af04facc"
+    },
+    "HAN_Q31_TARGET_AND_SOURCE_MAP.json": {
+      "bytes": 10903,
+      "sha256": "ebcf8f3e33a26d29eb1971e4b850668084eb6302adac8d165f6275312aa60545"
+    },
+    "HAN_QUESTION_3_1_NEGATIVE_ANSWER.md": {
+      "bytes": 7854,
+      "sha256": "0250c4792fdecbf5e14b4ea1300253329e7385d8593a4044efafa0a2767cb1ef"
+    },
+    "README.md": {
+      "bytes": 1274,
+      "sha256": "506f4e1009f7c39a8dcb608b5906f1b07368361c234e2a704f1ce39bedb42e71"
+    },
+    "REVISION_FROM_V1.diff": {
+      "bytes": 925,
+      "sha256": "84e496adc74b7c090aa80842f6a784bfddc9278651243607f4f84ffd1d89b385"
+    },
+    "REVISION_NOTE.json": {
+      "bytes": 678,
+      "sha256": "89e0a7128e99cfb011fb577b84a7f1d1be404479bb046be7fa39d2ea627e4893"
+    },
+    "SHA256_MANIFEST.json": {
+      "bytes": 1176,
+      "sha256": "5ea98fcab52518077e4a0ff333eacac2ba49aeafc70a89a24d5b72edd08f3b6a"
+    },
+    "han_q31_exact_controls.py": {
+      "bytes": 4210,
+      "sha256": "7b7604346c5660575ad7e0da5b4960e321156707e52f8cb6872e84ed1e805543"
+    }
+  },
+  "v2_metadata_binding": {
+    "map_exactly_one_field_corrected": true,
+    "paper_and_two_controls_byte_identical": true,
+    "new_README_revision_note_read": true,
+    "manifest_verified": true,
+    "source_commit_not_asserted": true,
+    "captures_sha256": "ef988471d2dc1f296032c7ce0642e913bdaf90bc915a851347d462e88f8ed872",
+    "byte_check_sha256": "2d3599c510de1a85523bf0cbdfac3bbf0ac05b2bb63d111e9dc150937baaa1f1"
+  },
+  "mathematical_coverage": [
+    "Exact uniform Fourier and Pr-flip coordinate-influence normalization",
+    "Universal c and every-function/some-coordinate quantifier negated by all-essential all-coordinate family",
+    "Both gate branches, arbitrary-depth bias invariant, monotonicity, read-once and transitive leaf action",
+    "L=4A and all empty/nonempty block coefficient cases with retained absolute values",
+    "Strictly positive coordinate influence, not total influence",
+    "Exact ratio recurrence and telescoping bound >=3d/8 for every leaf"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "status": "RESOLVED_IN_V2",
+      "kind": "source-map factual scope error",
+      "details": "First Atom result actually has29 entries, v1 said100; requested max_results100 is not returned count. Second feed100. V1 retained; single-field v2 correction verified. No mathematics changed."
+    }
+  ],
+  "independent_execution": {
+    "run": "/mnt/d/math/tmp/research-resume-20261015/independent-han-q31-review-20261015/runs/20261015T094830.926423Z",
+    "result_sha256": "0128ba445a695450796d6dd4bfcb603a9d8e45517da86beafe1ea4855bf6013c",
+    "script_sha256": "cbc586b31ebf660d78443c381e5206e320deb7161d9697c286098be60669e2da",
+    "status": "PASS",
+    "counts": {
+      "symbolic_identities": 7,
+      "all_family_coordinates": 31,
+      "direct_restriction_coordinates": 15,
+      "monotone_three_variable_functions": 20,
+      "essential_gate_coordinate_cases": 84,
+      "zero_influence_cases": 36,
+      "scalar_depth_through": 16,
+      "actual_expected_rejections": 7
+    },
+    "author_code_imported_or_executed": false,
+    "arbitrary_depth_computer_proof": false,
+    "unexpected_mathematical_failures": 0,
+    "metadata_assertion_failure": {
+      "actual": "AssertionError: README.md",
+      "cause": "Reviewer initial unchanged-file assumption wrongly included new version README",
+      "subsequent": "New README fully read/diffed; corrected byte-scope validation PASS",
+      "preserved": "CONTROL_HISTORY.md"
+    }
+  },
+  "author_execution": {
+    "checker_read_fully": true,
+    "stored_result_read_fully": true,
+    "executed_by_reviewer": false,
+    "result_sha256": "61c458a39ab80cb3ca4f89b3a4c2e71d955ad226e912921ecdb565a5af04facc"
+  },
+  "literature_scope": {
+    "limited_primary_screen": true,
+    "priority_certified": false,
+    "exact_prior_negative_answer_identified_in_inspected_scopes": false,
+    "full_citation_graph_obtained": false,
+    "author_origin_downloads_not_fresh_reviewer_downloads": true,
+    "primary_capture_sha256": "a76d2401ff116fbb4d80adb6117255371390b3b43f5b1075a00e256990332966",
+    "actual_feed_record_sha256": "775e41d899bf71eca3cdc412ac25c113c089119471ac8e452e9c5c78ecb0eb48",
+    "read_scopes_and_queries": "LITERATURE_SCREEN.md"
+  },
+  "not_claimed": [
+    "Full Fourier entropy-influence conjecture",
+    "Balanced-only variant",
+    "Formal proof",
+    "Exhaustive all-Boolean computation",
+    "Comprehensive literature novelty/priority certificate",
+    "Major-result score4",
+    "Submission/publication/README solved entry authorization"
+  ],
+  "actions": {
+    "private_only": true,
+    "author_prefix_edited": false,
+    "commit_or_push": false,
+    "README_or_public_index_changed": false,
+    "submission_or_release": false,
+    "subagents_spawned": false,
+    "Lean_or_Lake_or_kernel_replay": false,
+    "mathematical_controls_rerun_for_v2_metadata": false
+  },
+  "report_files": {
+    "REVIEW.md": "ee1d439d6b1949f705b8b18b154d27d6551449780e89747f6af449c5240bbeff",
+    "CONTROL_HISTORY.md": "ff56de1768e7e0303e4ca7e30fd3e412574d25bb6d4e50b27a73a253fd85387c",
+    "LITERATURE_SCREEN.md": "13cada5cd25bddc7000c4250715dd80a6cc6866438984d7caf672ec4df584e46",
+    "REVIEWER_README_md.diff": "48cac815f7d6b0f0c3f2cbe75d3af7e859726338e58090064c7bef00e0e4a3fd",
+    "REVIEWER_HAN_Q31_TARGET_AND_SOURCE_MAP_json.diff": "d159937761986c2efa17f5c231db7c9399103ddcf587260f45896b115af1a023"
+  }
+}

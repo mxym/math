@@ -1,0 +1,29 @@
+--- first-reviewed/PAPER.md
++++ clarified/PAPER.md
+@@ -32,7 +32,7 @@
+ 
+     H(m,D,alpha)=max{log q, log3-logD/a}.                  (R1)
+ 
+-**R0 (stronger finite upper bound).** For EVERY integer 3<=m<=n and
++**R0 (finite upper bound with an O(1/alpha) order term).** For EVERY integer 3<=m<=n and
+ EVERY real alpha>=2, on the full original quantum domain,
+ 
+     E_alpha <= H+log27/a+4m/(D-m).                        (R2)
+@@ -42,8 +42,15 @@
+ 
+     E_alpha >= log q-[log(2alpha*t)+1]/a.                 (R3)
+ 
+-These are finite inequalities, not eventual bounds. They sharpen the
+-upper estimate and adapt the lower rank to the width t, respectively.
++These are finite inequalities, not eventual bounds. The upper bound
++removes the logarithmic order loss, at the cost of a larger dimension
++term; it need not dominate the older TOTAL finite error pointwise.
++Together with the already proved P0 upper bound, one may use
++
++    E_alpha<=H+min{log27/a+4m/(D-m),
++                  2m/(D-m)+(2log a+log48+2)/a}.          (R2b)
++
++The lower bound adapts the actual rank to the width t.
+ 
+ **R1 (all superlinear orders, every aspect).** Whenever m->infinity,
+ n>=m and alpha/m->infinity, without ANY additional order/dimension or

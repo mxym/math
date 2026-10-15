@@ -90,13 +90,28 @@ after120m03effective without a complete proof or legal infinite counterfamily.
 [Primary scopes](LOG_RANK_SOURCES.json), [the complete written attempt](FULL_LOG_RANK_ATTEMPT.md)
 and [the stage boundary](LOG_RANK_STAGE_CLOSED.json) preserve known inputs,
 unproved full-domain gates and exact stronger-route controls. No major
-result is counted. The current breadth action is fresh whole-domain primary
-screening for a next information-theory candidate, initially the complete
-Courtade-Kumar most-informative-Boolean-function problem; it is not activated
-until current status and original parameter domain are verified and mapped.
+result is counted. The complete Courtade-Kumar candidate was excluded before
+any own mathematics because multiple public September2026 full-domain proof
+claims cover its original parameters; [actual primary read limits](COURTADE_KUMAR_PRIMARY_EXCLUSION.json)
+distinguish those claims from independent full-proof or Lean certification.
+The [EPnI primary screen](EPNI_PRIMARY_EXCLUSION.json) found an existing public
+full finite-energy-domain proof claim and excludes duplicate central-domain
+research. Its original energy-assumption boundary is explicit; no infinite-energy
+extension or full32page/Lean audit is claimed. The complete cross-theory
+[Hamiltonian Quantum PCP stage](QUANTUM_PCP_THEOREM_MAP.md) closed at
+2026-10-14T10:11:06UTC after7201effective seconds (120m01), with no complete
+proof or refutation. [The exact stage outcome](QUANTUM_PCP_STAGE_CLOSED.json)
+preserves the unchanged full target, four unclosed gates and excluded intervals.
+[Actual primary read scopes](QUANTUM_PCP_SOURCES.json) retain quantum
+reductions, general-QMA promises and true energy requirements, with each
+partial/full displayed source read stated literally. The
+[written attempt](FULL_QUANTUM_PCP_ATTEMPT.md) contains Q1-Q27 auxiliary
+controls and conditional/prior bridges; no limited result is a major solution.
+This role has completed its current stage and is idle pending explicit resume;
+no next target is activated or scheduled.
 Randomized/quantum, approximate-rank, promise and AND/XOR subclasses did not
 replace the full log-rank target. The broader multi-theory selection preference
-remains in force for later stages. Foregger15/Kraeuter36 remain screening backups; the solved
+remains in force if the user later resumes. Foregger15/Kraeuter36 are unactivated backups; the solved
 Foregger17 and old failed whole routes remain excluded. All stream
 disconnect/idle, preservation and authorized service time is excluded.
 The user's new [research-window policy](BREADTH_RESEARCH_POLICY.json) gives
@@ -104,7 +119,10 @@ the current and future complete stages approximately120effective minutes;
 the closed log-rank clock is preserved without reset. An early switch needs concrete
 original-domain resolution or structural evidence of near-impossibility,
 beyond one failed shortcut or finite search. Historical stage times remain
-unchanged.
+unchanged. The SAME complete Quantum PCP stage is now finished under the
+latest explicit instruction to report together and temporarily stop.
+No next target will be screened or started after the current outcome;
+continuation then requires the user to resume.
 
 The earlier [general Lieb/Marcus stage](exploration/GENERAL_LIEB_STAGE.md)
 also remains exploration. The already public rank-three/order-seven result

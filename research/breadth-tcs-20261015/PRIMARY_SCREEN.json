@@ -1,0 +1,75 @@
+{
+  "schema": "breadth-tcs-primary-screen-v1",
+  "client_date": "2026-10-15",
+  "author": "Yongxian Zhang (张永贤), South China University of Technology",
+  "no_external_funding": true,
+  "ai_assistance": "OpenAI AI assistants",
+  "original_material_rights": "All rights reserved; third-party rights and attribution retained.",
+  "base_commit": "292241d2a3a9e0c1a8f7818949331a34393110f6",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/The-Unique-Games-Theorem-September-23-2026/build/sections/00-introduction.tex",
+      "auxiliary_file": "ugc-introduction.tex",
+      "bytes": 18348,
+      "sha256": "500522d4bf64a2b4891cf8d9db872c0f3e0a116db9e707f2768f2f9023987879",
+      "fetched_utc": "2026-10-15T05:24:09.959981+00:00",
+      "read_scope": "Specified below; downloading is not a full read."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "auxiliary_file": "openai-overview.tex",
+      "bytes": 321928,
+      "sha256": "aa54c8e14b7647226264045ae846df7ce6803d2ded48aa3183195e45f9f91962",
+      "fetched_utc": "2026-10-15T05:25:01.318287+00:00",
+      "read_scope": "Specified below; downloading is not a full read."
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.04131",
+      "auxiliary_file": "compression-2201.04131-current.html",
+      "bytes": 38283,
+      "sha256": "87b7254e5a196e60a8cc9dfc0b85d3697c01e0216b9e932c7f6387a56428635d",
+      "fetched_utc": "2026-10-15T05:25:01.995639+00:00",
+      "read_scope": "Specified below; downloading is not a full read."
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.23561",
+      "auxiliary_file": "compression-2603.23561-current.html",
+      "bytes": 39855,
+      "sha256": "b68b45aef7bdf2d8c7305d1af91dab48714aa5d216715cf7be1f9489eff6d4a8",
+      "fetched_utc": "2026-10-15T05:25:02.717422+00:00",
+      "read_scope": "Specified below; downloading is not a full read."
+    },
+    {
+      "url": "https://arxiv.org/html/2405.17120v1",
+      "auxiliary_file": "dual-vc-2405.17120v1.html",
+      "bytes": 549605,
+      "sha256": "a2d440f84e14215ea7c956b9bd2522dd884b34e271707a5af73ccc29f8458c9f",
+      "fetched_utc": "2026-10-15T05:25:04.315552+00:00",
+      "read_scope": "Specified below; downloading is not a full read."
+    }
+  ],
+  "UGC": {
+    "target": "For every fixed epsilon,delta in (0,1/2), choose a constant finite alphabet so that approximating edge value of arbitrary finite Unique Games between YES >=1-epsilon and NO <=delta is NP-hard under deterministic polynomial-time reductions.",
+    "read": "Complete 298-line introduction displayed by primary raw GitHub web view, especially theorem and independent error quantifiers. Not the complete proof, Lean package, or human review.",
+    "collision": "Public manuscript The-Unique-Games-Theorem-September-23-2026 explicitly claims the original full domain, from 3SAT, with explicit unweighted instances.",
+    "action": "Excluded before own mathematical stage to avoid duplicate central-domain work; public full-domain claim is not independently certified here."
+  },
+  "sample_compression": {
+    "current_target": "Strong labeled size <= d, no side information, arbitrary improper reconstruction allowed; every binary concept class on every domain of finite VC dimension d, every finite realizable sample.",
+    "withdrawn_claims": [
+      {
+        "arxiv": "2201.04131v2",
+        "current_metadata_read": "Abstract, withdrawal banner, comment and version history; comment states invalid Proposition 3.2 and thus main theorem."
+      },
+      {
+        "arxiv": "2603.23561v4",
+        "current_metadata_read": "Abstract, withdrawal banner, comment and version history; current title is No-Clash Teaching Dimension and comment states Lemma 2 proof is wrong. v1 introduction/definitions through displayed line 92 were read; no validity inferred."
+      }
+    ],
+    "positive_current_input": "2025 PMLR Sample Compression Scheme Reductions abstract was read; O(d) universal binary compression remains an explicit conditional input there, not a claimed theorem.",
+    "known_obstacle": "2405.17120v1 abstract was read: arbitrary VC classes may require exponential dimension increase when embedded in extremal classes. Full proof not yet read.",
+    "definitional_primary": "Darnstaedt, Doliwa, Simon, Zilles Order Compression Schemes author PDF, displayed text lines 0-351 (pages 0-8 portion): no-sidebit compression definition, improper option, finite-to-general reduction claim and cyclic versus ordered distinction. Remainder not read.",
+    "screen_limit": "Bounded current primary search, not an exhaustive priority certificate. The two withdrawn proofs do not establish resolution."
+  },
+  "mutations": "Only this isolated worktree prefix and its separate auxiliary directory. No push, merge, public-index, old Lean, Gaussian, email or preprint mutation."
+}
