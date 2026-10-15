@@ -1,0 +1,47 @@
+{
+  "schema": "honest-effective-stage-clock-v1",
+  "target": "SC0",
+  "approx_budget_seconds": 7200,
+  "status": "stage_budget_exhausted_original_target_unresolved",
+  "active_intervals": [
+    {
+      "start_utc": "2026-10-15T05:25:04.502569+00:00",
+      "end_utc": "2026-10-15T05:27:52+00:00"
+    },
+    {
+      "start_utc": "2026-10-15T06:32:07+00:00",
+      "end_utc": "2026-10-15T07:10:00+00:00"
+    },
+    {
+      "start_utc": "2026-10-15T07:12:54.414765+00:00",
+      "end_utc": "2026-10-15T08:32:19.525526+00:00"
+    }
+  ],
+  "excluded_intervals": [
+    {
+      "start_utc": "2026-10-15T05:27:52+00:00",
+      "end_utc": "2026-10-15T06:32:07+00:00",
+      "reason": "Unverified interrupted/disconnected interval and conservative resumption recovery; not counted as active research."
+    },
+    {
+      "start_utc": "2026-10-15T07:10:00+00:00",
+      "end_utc": "2026-10-15T07:12:54.414765+00:00",
+      "reason": "Conservative local preservation/commit/style bookkeeping interval, excluded from effective mathematics."
+    },
+    {
+      "start_utc": "2026-10-15T08:32:19.525526+00:00",
+      "end_utc": "2026-10-15T08:39:54.517090+00:00",
+      "reason": "Post-stage preservation, archive/hash checks and local commits; excluded from effective research."
+    }
+  ],
+  "primary_screen_before_mathematics": true,
+  "new_major_results": 0,
+  "resumed_role": "breadth_tcs_resume_20261015",
+  "initial_confirmed_seconds": 167.497431,
+  "remaining_at_resumption_seconds": 7032.502569,
+  "clock_note": "Only confirmed work is counted. No sleeping to consume the budget. Approximate cap is a research-stage allocation, not proof evidence.",
+  "frozen_effective_seconds": 7205.608192,
+  "stage_end_utc": "2026-10-15T08:32:19.525526+00:00",
+  "post_stage_all_time_excluded": true,
+  "preservation_note": "All times after the frozen research end, including local Git finalization, are outside effective research. Original SC0 remains unresolved."
+}
