@@ -1,0 +1,13 @@
+Initial snapshot-helper setup failure, copied from the actual tool output:
+
+Traceback (most recent call last):
+  File "/mnt/d/math/tmp/research-resume-20261015/independent-growing-order-review/capture_inputs.py", line 29, in <module>
+    assert len(sharp) == 1, sharp
+AssertionError: ['preprints/appt-purity-unified-2026-10/supplementary/SHARP_ASYMPTOTIC.md', 'research/appt-multilevel-counterexample/SHARP_ASYMPTOTIC.md']
+
+This was an incorrect uniqueness assumption in the reviewer snapshot
+helper, not a mathematical control or a manuscript finding. The initial
+helper bytes are retained as capture-initial-two-path-assumption.py.
+The corrected helper explicitly selects the research copy and retains
+the preprint copy too. Both copies have identical SHA-256
+49b71670f33283f1018c915d07b11c509266395f3a201dc19bb627cd932bc2f9.

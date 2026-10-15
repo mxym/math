@@ -1,0 +1,60 @@
+--- v2/PAPER.md
++++ v3/PAPER.md
+@@ -14,7 +14,7 @@
+ 
+     T(m,D,alpha)=max{log q, log3-logD/a},
+     L(D,alpha)=log(2alpha)/a+4/alpha+4/D,
+-    U(m,D,alpha)=2m/(D-m)+2exp(-sqrt a)+2/sqrt a+log48/a.
++    U(m,D,alpha)=2m/(D-m)+[2log a+log48+2]/a.
+ 
+ **P0.** The following are actual finite inequalities, with no hidden
+ dimension or order threshold:
+@@ -28,7 +28,9 @@
+ 
+ UNIFORMLY over all integer 2<=m<=n and all simultaneous growth patterns.
+ The smaller dimension may be fixed, grow or oscillate. This is absolute
+-o(1), not a relative equivalent when the displayed value tends to zero.
++o(1), with the uniform quantitative rate
++O(D^(-1/2)+log(alpha)/alpha), not a relative equivalent when the displayed
++value tends to zero.
+ 
+ ## 2. Finite physical spectral inputs, with no large-aspect hypothesis
+ 
+@@ -66,7 +68,7 @@
+ 
+ ## 3. Uniform upper bound for the whole quantum feasible set
+ 
+-Take epsilon=exp(-sqrt a). If x_i>q+epsilon, then i<=R and p_i>epsilon,
++Take epsilon=1/a. If x_i>q+epsilon, then i<=R and p_i>epsilon,
+ since 1+kappa<=q. Equation (3) therefore bounds the number of these
+ indices by 8/epsilon^2, regardless of dimension, order or multiplicities.
+ All other indices have x_i<=q+epsilon; every index has x_i<=3. Thus
+@@ -83,7 +85,7 @@
+ 
+     e_alpha<=-(alpha/a)log s + max{
+        (alpha/a)log(q+epsilon),
+-       log3-logD/a+(log24)/a+2/sqrt a}+log2/a.             (7)
++       log3-logD/a+[log24+2log a]/a}+log2/a.              (7)
+ 
+ Here alpha/a<=2. Since 1<q<=3,
+ 
+@@ -91,7 +93,7 @@
+        <=log q+(log3)/a+2epsilon.
+ 
+ The two branches in (7) are therefore bounded by their respective
+-branches in T plus the common error 2epsilon+2/sqrt a+log24/a.
++branches in T plus the common error [2log a+log24+2]/a.
+ By (4) and -log(1-u)<=u/(1-u), the mean term is <=2m/(D-m).
+ The remaining log2/a combines with log24/a to give log48/a. This proves
+ the upper inequality in (1) for EVERY actual density, and hence its
+@@ -143,8 +145,8 @@
+ 
+ ## 5. Uniform limit and logarithmic-order transitions
+ 
+-Because m<=sqrt D, m/(D-m)<=1/(sqrt D-1). Every term of L and U tends
+-to zero uniformly when D->infinity and alpha->infinity, proving P1.
++Because m<=sqrt D, m/(D-m)<=1/(sqrt D-1). Also a>=alpha/2 for alpha>=2.
++Hence L and U are uniformly O(D^(-1/2)+log(alpha)/alpha), proving P1.
+ No assumption on alpha/logD, m/n, or a fixed smaller dimension is needed.
+ 
+ **P2.** If m->infinity and alpha/logD->c in (0,infinity], (2) gives
