@@ -1,0 +1,82 @@
+Extraction.finite_projection_fidelity_extractor (a b d K : ℕ) (hd : 0 < d) (hdk : d ≤ K)
+  (P : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ) (hP : P.IsHermitian) (hPP : P * P = P)
+  (hr : P.rank ≤ a / d * (b / d)) :
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          APPT.Quantum.IsDensity X →
+            P * X * P = X →
+              (Extraction.bellProjector *
+                      Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose)).trace.re =
+                ↑d / ↑K
+'Extraction.finite_projection_fidelity_extractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.finite_projection_density_extractor (a b d : ℕ) (hd : 0 < d) (P : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ)
+  (hP : P.IsHermitian) (hPP : P * P = P) (hr : P.rank ≤ a / d * (b / d)) :
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          APPT.Quantum.IsDensity X →
+            P * X * P = X →
+              Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose) =
+                Extraction.bellProjector
+'Extraction.finite_projection_density_extractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.finite_projection_exact_extractor (a b d : ℕ) (hd : 0 < d) (P : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ)
+  (hP : P.IsHermitian) (hPP : P * P = P) (hr : P.rank ≤ a / d * (b / d)) :
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          P * X * P = X →
+            Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose) =
+              X.trace • Extraction.bellProjector
+'Extraction.finite_projection_exact_extractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.kraus_target_overlap_unitary_le.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} {d : Type u_3}
+  {κ : Type u_4} [Fintype a] [Fintype b] [Fintype d] [Fintype κ] [DecidableEq a] [DecidableEq b] [DecidableEq d]
+  [Nonempty d] (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (X : Matrix (a × b) (a × b) ℂ) (hX : X.IsHermitian)
+  (U : ↥(Matrix.unitaryGroup (a × b) ℂ)) :
+  (Extraction.bellProjector * Extraction.krausApply A (↑U * X * (↑U).conjTranspose)).trace.re ≤
+    √((X * X).trace.re * (↑(Fintype.card a) * ↑(Fintype.card b) / ↑(Fintype.card d) ^ 2))
+'Extraction.kraus_target_overlap_unitary_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.kraus_target_overlap_le.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3} {d : Type u_4} {κ : Type u_5}
+  [Fintype a] [Fintype b] [Fintype d] [Fintype κ] [DecidableEq a] [DecidableEq b] [DecidableEq d] [Nonempty d]
+  (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (X : Matrix (a × b) (a × b) ℂ) (hX : X.IsHermitian) :
+  (Extraction.bellProjector * Extraction.krausApply A X).trace.re ≤
+    √((X * X).trace.re * (↑(Fintype.card a) * ↑(Fintype.card b) / ↑(Fintype.card d) ^ 2))
+'Extraction.kraus_target_overlap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.targetEffect_rains.{u_3, u_4, u_5, u_6} {κ : Type u_3} [Fintype κ] {a : Type u_4} {b : Type u_5}
+  {d : Type u_6} [Fintype a] [Fintype b] [Fintype d] [DecidableEq a] [DecidableEq b] [DecidableEq d] [Nonempty d]
+  (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) : Extraction.RainsEffect (Fintype.card d) (Extraction.targetEffect A)
+'Extraction.targetEffect_rains' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.productEraseKraus_encoded.{u_1, u_2, u_3} {d : Type u_1} {u : Type u_2} {v : Type u_3} [Fintype d]
+  [Fintype u] [Fintype v] [DecidableEq d] [DecidableEq u] [DecidableEq v] (c : ℂ) (X : Matrix (u × v) (u × v) ℂ) :
+  Extraction.krausApply Extraction.productEraseKraus
+      (Extraction.codeEmbedding c * X * (Extraction.codeEmbedding c).conjTranspose) =
+    X.trace • Matrix.vecMulVec (Extraction.bellVector c) (star (Extraction.bellVector c))
+'Extraction.productEraseKraus_encoded' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.exists_unitary_between_isometries.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ]
+  [DecidableEq ι] [DecidableEq κ] (C E : Matrix ι κ ℂ) (hC : C.conjTranspose * C = 1) (hE : E.conjTranspose * E = 1) :
+  ∃ U, ↑U * C = E
+'Extraction.exists_unitary_between_isometries' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.exists_projection_factor.{u} {ι : Type u} [Fintype ι] [DecidableEq ι] (P : Matrix ι ι ℂ) (hP : P.IsHermitian)
+  (hPP : P * P = P) : ∃ κ x x_1 C, C.conjTranspose * C = 1 ∧ C * C.conjTranspose = P ∧ Fintype.card κ = P.rank
+'Extraction.exists_projection_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.completedKraus_complete.{u_1, u_2, u_3, u_4} {ι : Type u_1} {α : Type u_2} {ο : Type u_3} {κ : Type u_4}
+  [Fintype ι] [Fintype α] [Fintype ο] [Fintype κ] [DecidableEq ι] [DecidableEq α] [DecidableEq ο] (E : Matrix ι α ℂ)
+  (hE : E.conjTranspose * E = 1) (A : κ → Matrix ο α ℂ) (hA : ∑ j, (A j).conjTranspose * A j = 1) (o₀ : ο) :
+  ∑ j, (Extraction.completedKraus E A o₀ j).conjTranspose * Extraction.completedKraus E A o₀ j = 1
+'Extraction.completedKraus_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+Extraction.embedded_bell_overlap.{u_5, u_6} {d : Type u_5} {e : Type u_6} [Fintype d] [Fintype e] [DecidableEq d]
+  [DecidableEq e] [Nonempty d] [Nonempty e] (f : d ↪ e) :
+  (Extraction.bellProjector *
+          (Matrix.kroneckerMap (fun x1 x2 => x1 * x2) (Extraction.coordinateIsometry f)
+                (Extraction.coordinateIsometry f) *
+              Extraction.bellProjector *
+            (Matrix.kroneckerMap (fun x1 x2 => x1 * x2) (Extraction.coordinateIsometry f)
+                (Extraction.coordinateIsometry f)).conjTranspose)).trace.re =
+    ↑(Fintype.card d) / ↑(Fintype.card e)
+'Extraction.embedded_bell_overlap' depends on axioms: [propext, Classical.choice, Quot.sound]

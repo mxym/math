@@ -1,0 +1,184 @@
+⚠ [2691/2694] Replayed APPT.Quantum.Basic
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2692/2694] Replayed Extraction.RainsBudget
+warning: Extraction/RainsBudget.lean:18:0: automatically included section variable(s) unused in theorem `Extraction.trace_congruence_diagonal`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/RainsBudget.lean:40:43: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, RCLike.ofReal_eq_complex_ofReal,
+    Function.comp_def] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:57:31: This simp argument is unused:
+  Matrix.mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one,
+    smul_add, smul_sub, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:58:48: This simp argument is unused:
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_add, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
+    Matrix.mul_one, smul_add, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:70:0: automatically included section variable(s) unused in theorem `Extraction.trace_partialTranspose_pairing`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2693/2694] Replayed Extraction.Kraus
+warning: Extraction/Kraus.lean:16:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_posSemidef`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:22:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_trace`:
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:59:0: automatically included section variable(s) unused in theorem `Extraction.krausAmplification_apply`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:70:19: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:70:37: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:74:0: automatically included section variable(s) unused in theorem `Extraction.congruence_pure`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [2694/2694] Building Extraction.BellPacking (1.7s)
+trace: .> LEAN_PATH=/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/Cli/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/batteries/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/Qq/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/aesop/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/importGraph/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/plausible/.lake/build/lib/lean:/home/mxym/submission-lean-deps-20261016/mathlib/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/appt-qutrit-purity/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean /root/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/Extraction/BellPacking.lean -o /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean/Extraction/BellPacking.olean -i /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean/Extraction/BellPacking.ilean -c /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/ir/Extraction/BellPacking.c --setup /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/ir/Extraction/BellPacking.setup.json --json
+warning: Extraction/BellPacking.lean:22:53: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eraseKraus, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, Matrix.sum_apply,
+    apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Extraction/BellPacking.lean:53:69: unsolved goals
+d : Type u_1
+u : Type u_2
+v : Type u_3
+inst✝⁵ : Fintype d
+inst✝⁴ : Fintype u
+inst✝³ : Fintype v
+inst✝² : DecidableEq d
+inst✝¹ : DecidableEq u
+inst✝ : DecidableEq v
+h :
+  ∀ (j : u) (l : v),
+    (productEraseKraus (j, l))ᴴ * productEraseKraus (j, l) =
+      kroneckerMap (fun x1 x2 => x1 * x2) ((eraseKraus j)ᴴ * eraseKraus j) ((eraseKraus l)ᴴ * eraseKraus l)
+p q : (d × u) × d × v
+⊢ (∑ j, ∑ l, kroneckerMap (fun x1 x2 => x1 * x2) ((eraseKraus j)ᴴ * eraseKraus j) ((eraseKraus l)ᴴ * eraseKraus l)) p
+      q =
+    (∑ j, (eraseKraus j)ᴴ * eraseKraus j) p.1 q.1 * (∑ l, (eraseKraus l)ᴴ * eraseKraus l) p.2 q.2
+warning: Extraction/BellPacking.lean:55:37: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.kroneckerMap_apply, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/BellPacking.lean:55:53: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.kroneckerMap_apply, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/BellPacking.lean:64:6: aesop: failed to prove the goal after exhaustive search.
+error: Extraction/BellPacking.lean:60:53: unsolved goals
+d : Type u_1
+u : Type u_2
+v : Type u_3
+inst : Fintype d
+inst_1 : Fintype u
+inst_2 : Fintype v
+inst_3 : DecidableEq d
+inst_4 : DecidableEq u
+inst_5 : DecidableEq v
+c : ℂ
+j : u
+l : v
+y : d
+⊢ c = bellVector c (y, y)
+
+d : Type u_1
+u : Type u_2
+v : Type u_3
+inst : Fintype d
+inst_1 : Fintype u
+inst_2 : Fintype v
+inst_3 : DecidableEq d
+inst_4 : DecidableEq u
+inst_5 : DecidableEq v
+c : ℂ
+j' : u
+l : v
+x y : d
+h : ¬y = x
+⊢ 0 = bellVector c (x, y)
+error: Extraction/BellPacking.lean:71:63: unsolved goals
+d : Type u_1
+u : Type u_2
+v : Type u_3
+inst✝⁵ : Fintype d
+inst✝⁴ : Fintype u
+inst✝³ : Fintype v
+inst✝² : DecidableEq d
+inst✝¹ : DecidableEq u
+inst✝ : DecidableEq v
+c : ℂ
+j : u
+l : v
+⊢ vecMulVec (bellVector c) (star (bellVector c)) =
+    ∑ x,
+      ∑ x_1,
+        vecMulVec (if j = x ∧ l = x_1 then bellVector c else 0) (star (if j = x ∧ l = x_1 then bellVector c else 0))
+Some required targets logged failures:
+- Extraction.BellPacking
+error: build failed

@@ -1,0 +1,15 @@
+name = "spectralExtractionCore"
+version = "0.1.0"
+defaultTargets = ["Extraction"]
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
+[[require]]
+name = "apptQutritPurity"
+path = "../appt-qutrit-purity"
+[[lean_lib]]
+name = "Extraction"
+
+[[lean_lib]]
+name = "Verification"

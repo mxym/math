@@ -1,0 +1,1116 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.finite_projection_fidelity_extractor':
+(kernel) declaration type mismatch, 'Extraction.finite_projection_fidelity_extractor' has type
+  True
+but it is expected to have type
+  (a b d K : Nat) →
+    @LT.lt Nat instLTNat 0 d →
+      @LE.le Nat instLENat d K →
+        (P : @Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex) →
+          @Matrix.IsHermitian Complex (@Prod (Fin a) (Fin b))
+              (@InvolutiveStar.toStar Complex
+                (@StarAddMonoid.toInvolutiveStar Complex
+                  (@AddCommMonoid.toAddMonoid Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              P →
+            @Eq (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                (@HMul.hMul (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                  (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                  (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                    (@Prod (Fin a) (Fin b)) Complex (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                    Complex.instMul Complex.instAddCommMonoid)
+                  P P)
+                P →
+              @LE.le Nat instLENat
+                  (@Matrix.rank (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex
+                    (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) Complex.instCommSemiring P)
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)
+                    (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) →
+                @Exists
+                  (@Subtype (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex) fun x =>
+                    @Membership.mem (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                      (@Submonoid (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                        (@MulZeroOneClass.toMulOneClass
+                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                          (@instMulZeroOneClassOfSemiring
+                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                            (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                              (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) fun a_1 b_1 =>
+                              @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a) (instDecidableEqFin b) a_1
+                                b_1))))
+                      (@SetLike.instMembership
+                        (@Submonoid (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                          (@MulZeroOneClass.toMulOneClass
+                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                            (@instMulZeroOneClassOfSemiring
+                              (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                              (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                                (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) fun a_1 b_1 =>
+                                @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a) (instDecidableEqFin b) a_1
+                                  b_1))))
+                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                        (@Submonoid.instSetLike (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                          (@MulZeroOneClass.toMulOneClass
+                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                            (@instMulZeroOneClassOfSemiring
+                              (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                              (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                                (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) fun a_1 b_1 =>
+                                @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a) (instDecidableEqFin b) a_1
+                                  b_1)))))
+                      (@Matrix.unitaryGroup (@Prod (Fin a) (Fin b))
+                        (fun a_1 b_1 =>
+                          @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a) (instDecidableEqFin b) a_1 b_1)
+                        (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) Complex Complex.commRing
+                        Complex.instStarRing)
+                      x)
+                  fun U =>
+                  @Exists
+                    (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin a) →
+                      @Matrix (Fin K) (Fin a) Complex)
+                    fun A =>
+                    @Exists
+                      (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) (Fin b) →
+                        @Matrix (Fin K) (Fin b) Complex)
+                      fun B =>
+                      And
+                        (@Eq (@Matrix (Fin a) (Fin a) Complex)
+                          (@Finset.sum (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin a))
+                            (@Matrix (Fin a) (Fin a) Complex)
+                            (@Matrix.addCommMonoid (Fin a) (Fin a) Complex Complex.instAddCommMonoid)
+                            (@Finset.univ (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin a))
+                              (@instFintypeSum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin a)
+                                (Fin.fintype (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin.fintype a)))
+                            fun j =>
+                            @HMul.hMul (@Matrix (Fin a) (Fin K) Complex) (@Matrix (Fin K) (Fin a) Complex)
+                              (@Matrix (Fin a) (Fin a) Complex)
+                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (Fin a) (Fin K) (Fin a) Complex
+                                (Fin.fintype K) Complex.instMul Complex.instAddCommMonoid)
+                              (@Matrix.conjTranspose (Fin K) (Fin a) Complex
+                                (@InvolutiveStar.toStar Complex
+                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                    (@AddCommMonoid.toAddMonoid Complex
+                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))))
+                                    (@StarRing.toStarAddMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))
+                                      Complex.instStarRing)))
+                                (@A j))
+                              (@A j))
+                          1)
+                        (And
+                          (@Eq (@Matrix (Fin b) (Fin b) Complex)
+                            (@Finset.sum (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) (Fin b))
+                              (@Matrix (Fin b) (Fin b) Complex)
+                              (@Matrix.addCommMonoid (Fin b) (Fin b) Complex Complex.instAddCommMonoid)
+                              (@Finset.univ
+                                (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) (Fin b))
+                                (@instFintypeSum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) (Fin b)
+                                  (Fin.fintype (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d))
+                                  (Fin.fintype b)))
+                              fun j =>
+                              @HMul.hMul (@Matrix (Fin b) (Fin K) Complex) (@Matrix (Fin K) (Fin b) Complex)
+                                (@Matrix (Fin b) (Fin b) Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (Fin b) (Fin K) (Fin b) Complex
+                                  (Fin.fintype K) Complex.instMul Complex.instAddCommMonoid)
+                                (@Matrix.conjTranspose (Fin K) (Fin b) Complex
+                                  (@InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                  (@B j))
+                                (@B j))
+                            1)
+                          ((X : @Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex) →
+                            @APPT.Quantum.IsDensity (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b) X →
+                              @Eq (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                  (@HMul.hMul (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                    (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                    (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin a) (Fin b))
+                                      (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex
+                                      (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b)) Complex.instMul
+                                      Complex.instAddCommMonoid)
+                                    (@HMul.hMul (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin a) (Fin b))
+                                        (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex
+                                        (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                        Complex.instMul Complex.instAddCommMonoid)
+                                      P X)
+                                    P)
+                                  X →
+                                @Eq Real
+                                  (Complex.re
+                                    (@Matrix.trace (@Prod (Fin K) (Fin K)) Complex
+                                      (@instFintypeProd (Fin K) (Fin K) (Fin.fintype K) (Fin.fintype K))
+                                      Complex.instAddCommMonoid
+                                      (@HMul.hMul (@Matrix (@Prod (Fin K) (Fin K)) (@Prod (Fin K) (Fin K)) Complex)
+                                        (@Matrix (@Prod (Fin K) (Fin K)) (@Prod (Fin K) (Fin K)) Complex)
+                                        (@Matrix (@Prod (Fin K) (Fin K)) (@Prod (Fin K) (Fin K)) Complex)
+                                        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin K) (Fin K))
+                                          (@Prod (Fin K) (Fin K)) (@Prod (Fin K) (Fin K)) Complex
+                                          (@instFintypeProd (Fin K) (Fin K) (Fin.fintype K) (Fin.fintype K))
+                                          Complex.instMul Complex.instAddCommMonoid)
+                                        (@Extraction.bellProjector (Fin K) (Fin.fintype K) (instDecidableEqFin K))
+                                        (@Extraction.krausApply (@Prod (Fin a) (Fin b)) (@Prod (Fin K) (Fin K))
+                                          (@Prod
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d))
+                                              (Fin a))
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d))
+                                              (Fin b)))
+                                          (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                          (@instFintypeProd
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d))
+                                              (Fin a))
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d))
+                                              (Fin b))
+                                            (@instFintypeSum
+                                              (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d)) (Fin a)
+                                              (Fin.fintype (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d))
+                                              (Fin.fintype a))
+                                            (@instFintypeSum
+                                              (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d)) (Fin b)
+                                              (Fin.fintype (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d))
+                                              (Fin.fintype b)))
+                                          (@Extraction.productKraus (Fin a) (Fin b) (Fin K) (Fin K)
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) a d))
+                                              (Fin a))
+                                            (@Sum (Fin (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) b d))
+                                              (Fin b))
+                                            A B)
+                                          (@HMul.hMul (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin a) (Fin b))
+                                              (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex
+                                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                              Complex.instMul Complex.instAddCommMonoid)
+                                            (@HMul.hMul
+                                              (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                              (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                              (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (Fin a) (Fin b))
+                                                (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex
+                                                (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                                Complex.instMul Complex.instAddCommMonoid)
+                                              (@Subtype.val
+                                                (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                (fun x =>
+                                                  @Membership.mem
+                                                    (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                    (@Submonoid
+                                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                              (Fin.fintype b))
+                                                            fun a_3 b_1 =>
+                                                            @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a)
+                                                              (instDecidableEqFin b) a_3 b_1))))
+                                                    (@SetLike.instMembership
+                                                      (@Submonoid
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@MulZeroOneClass.toMulOneClass
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@instMulZeroOneClassOfSemiring
+                                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                              Complex)
+                                                            (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                              (@CommSemiring.toSemiring Complex
+                                                                (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                                (Fin.fintype b))
+                                                              fun a_3 b_1 =>
+                                                              @instDecidableEqProd (Fin a) (Fin b)
+                                                                (instDecidableEqFin a) (instDecidableEqFin b) a_3
+                                                                b_1))))
+                                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                      (@Submonoid.instSetLike
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@MulZeroOneClass.toMulOneClass
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@instMulZeroOneClassOfSemiring
+                                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                              Complex)
+                                                            (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                              (@CommSemiring.toSemiring Complex
+                                                                (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                                (Fin.fintype b))
+                                                              fun a_3 b_1 =>
+                                                              @instDecidableEqProd (Fin a) (Fin b)
+                                                                (instDecidableEqFin a) (instDecidableEqFin b) a_3
+                                                                b_1)))))
+                                                    (@Matrix.unitaryGroup (@Prod (Fin a) (Fin b))
+                                                      (fun a_3 b_1 =>
+                                                        @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a)
+                                                          (instDecidableEqFin b) a_3 b_1)
+                                                      (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                                      Complex Complex.commRing Complex.instStarRing)
+                                                    x)
+                                                U)
+                                              X)
+                                            (@Matrix.conjTranspose (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                              Complex
+                                              (@InvolutiveStar.toStar Complex
+                                                (@StarAddMonoid.toInvolutiveStar Complex
+                                                  (@AddCommMonoid.toAddMonoid Complex
+                                                    (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                            Complex.instNonUnitalCommRing)))))
+                                                  (@StarRing.toStarAddMonoid Complex
+                                                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                          Complex.instNonUnitalCommRing)))
+                                                    Complex.instStarRing)))
+                                              (@Subtype.val
+                                                (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                (fun x =>
+                                                  @Membership.mem
+                                                    (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                    (@Submonoid
+                                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                              (Fin.fintype b))
+                                                            fun a_3 b_1 =>
+                                                            @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a)
+                                                              (instDecidableEqFin b) a_3 b_1))))
+                                                    (@SetLike.instMembership
+                                                      (@Submonoid
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@MulZeroOneClass.toMulOneClass
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@instMulZeroOneClassOfSemiring
+                                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                              Complex)
+                                                            (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                              (@CommSemiring.toSemiring Complex
+                                                                (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                                (Fin.fintype b))
+                                                              fun a_3 b_1 =>
+                                                              @instDecidableEqProd (Fin a) (Fin b)
+                                                                (instDecidableEqFin a) (instDecidableEqFin b) a_3
+                                                                b_1))))
+                                                      (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b)) Complex)
+                                                      (@Submonoid.instSetLike
+                                                        (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                          Complex)
+                                                        (@MulZeroOneClass.toMulOneClass
+                                                          (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                            Complex)
+                                                          (@instMulZeroOneClassOfSemiring
+                                                            (@Matrix (@Prod (Fin a) (Fin b)) (@Prod (Fin a) (Fin b))
+                                                              Complex)
+                                                            (@Matrix.semiring (@Prod (Fin a) (Fin b)) Complex
+                                                              (@CommSemiring.toSemiring Complex
+                                                                (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                              (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a)
+                                                                (Fin.fintype b))
+                                                              fun a_3 b_1 =>
+                                                              @instDecidableEqProd (Fin a) (Fin b)
+                                                                (instDecidableEqFin a) (instDecidableEqFin b) a_3
+                                                                b_1)))))
+                                                    (@Matrix.unitaryGroup (@Prod (Fin a) (Fin b))
+                                                      (fun a_3 b_1 =>
+                                                        @instDecidableEqProd (Fin a) (Fin b) (instDecidableEqFin a)
+                                                          (instDecidableEqFin b) a_3 b_1)
+                                                      (@instFintypeProd (Fin a) (Fin b) (Fin.fintype a) (Fin.fintype b))
+                                                      Complex Complex.commRing Complex.instStarRing)
+                                                    x)
+                                                U)))))))
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                    (@Nat.cast Real Real.instNatCast d) (@Nat.cast Real Real.instNatCast K))))
+EMPTY_KERNEL_REPLAY_PASS 34818 declarations; 83 roots; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.finite_projection_fidelity_extractor
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.kraus_target_overlap_unitary_le':
+(kernel) declaration type mismatch, 'Extraction.kraus_target_overlap_unitary_le' has type
+  True
+but it is expected to have type
+  {a : Type u_1} →
+    {b : Type u_2} →
+      {d : Type u_3} →
+        {κ : Type u_4} →
+          [inst : @Fintype a] →
+            [inst_1 : @Fintype b] →
+              [inst_2 : @Fintype d] →
+                [inst_3 : @Fintype κ] →
+                  [inst_4 : @DecidableEq a] →
+                    [inst_5 : @DecidableEq b] →
+                      [inst_6 : @DecidableEq d] →
+                        [@Nonempty d] →
+                          (A : κ → @Matrix (@Prod d d) (@Prod a b) Complex) →
+                            @Eq (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                (@Finset.sum κ (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                  (@Matrix.addCommMonoid (@Prod a b) (@Prod a b) Complex Complex.instAddCommMonoid)
+                                  (@Finset.univ κ inst_3) fun j =>
+                                  @HMul.hMul (@Matrix (@Prod a b) (@Prod d d) Complex)
+                                    (@Matrix (@Prod d d) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod d d) (@Prod a b)
+                                      Complex (@instFintypeProd d d inst_2 inst_2) Complex.instMul
+                                      Complex.instAddCommMonoid)
+                                    (@Matrix.conjTranspose (@Prod d d) (@Prod a b) Complex
+                                      (@InvolutiveStar.toStar Complex
+                                        (@StarAddMonoid.toInvolutiveStar Complex
+                                          (@AddCommMonoid.toAddMonoid Complex
+                                            (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                    Complex.instNonUnitalCommRing)))))
+                                          (@StarRing.toStarAddMonoid Complex
+                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                  Complex.instNonUnitalCommRing)))
+                                            Complex.instStarRing)))
+                                      (@A j))
+                                    (@A j))
+                                1 →
+                              @Extraction.PTConjugatePositive κ inst_3 a b d inst inst_1 A →
+                                (X : @Matrix (@Prod a b) (@Prod a b) Complex) →
+                                  @Matrix.IsHermitian Complex (@Prod a b)
+                                      (@InvolutiveStar.toStar Complex
+                                        (@StarAddMonoid.toInvolutiveStar Complex
+                                          (@AddCommMonoid.toAddMonoid Complex
+                                            (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                    Complex.instNonUnitalCommRing)))))
+                                          (@StarRing.toStarAddMonoid Complex
+                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                  Complex.instNonUnitalCommRing)))
+                                            Complex.instStarRing)))
+                                      X →
+                                    (U :
+                                        @Subtype (@Matrix (@Prod a b) (@Prod a b) Complex) fun x =>
+                                          @Membership.mem (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                            (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                              (@MulZeroOneClass.toMulOneClass (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                (@instMulZeroOneClassOfSemiring
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix.semiring (@Prod a b) Complex
+                                                    (@CommSemiring.toSemiring Complex
+                                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                    (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                    @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                            (@SetLike.instMembership
+                                              (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                (@MulZeroOneClass.toMulOneClass
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@instMulZeroOneClassOfSemiring
+                                                    (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                    (@Matrix.semiring (@Prod a b) Complex
+                                                      (@CommSemiring.toSemiring Complex
+                                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                      (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                      @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                              (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                              (@Submonoid.instSetLike (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                (@MulZeroOneClass.toMulOneClass
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@instMulZeroOneClassOfSemiring
+                                                    (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                    (@Matrix.semiring (@Prod a b) Complex
+                                                      (@CommSemiring.toSemiring Complex
+                                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                      (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                      @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)))))
+                                            (@Matrix.unitaryGroup (@Prod a b)
+                                              (fun a_1 b_1 => @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)
+                                              (@instFintypeProd a b inst inst_1) Complex Complex.commRing
+                                              Complex.instStarRing)
+                                            x) →
+                                      @LE.le Real Real.instLE
+                                        (Complex.re
+                                          (@Matrix.trace (@Prod d d) Complex (@instFintypeProd d d inst_2 inst_2)
+                                            Complex.instAddCommMonoid
+                                            (@HMul.hMul (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                              (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                              (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod d d) (@Prod d d)
+                                                (@Prod d d) Complex (@instFintypeProd d d inst_2 inst_2) Complex.instMul
+                                                Complex.instAddCommMonoid)
+                                              (@Extraction.bellProjector d inst_2 inst_6)
+                                              (@Extraction.krausApply (@Prod a b) (@Prod d d) κ
+                                                (@instFintypeProd a b inst inst_1) inst_3 A
+                                                (@HMul.hMul (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod a b)
+                                                    (@Prod a b) Complex (@instFintypeProd a b inst inst_1)
+                                                    Complex.instMul Complex.instAddCommMonoid)
+                                                  (@HMul.hMul (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                    (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                    (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b)
+                                                      (@Prod a b) (@Prod a b) Complex (@instFintypeProd a b inst inst_1)
+                                                      Complex.instMul Complex.instAddCommMonoid)
+                                                    (@Subtype.val (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                      (fun x =>
+                                                        @Membership.mem (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                          (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                            (@MulZeroOneClass.toMulOneClass
+                                                              (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@instMulZeroOneClassOfSemiring
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@Matrix.semiring (@Prod a b) Complex
+                                                                  (@CommSemiring.toSemiring Complex
+                                                                    (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                                  (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                  @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                                          (@SetLike.instMembership
+                                                            (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@MulZeroOneClass.toMulOneClass
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@instMulZeroOneClassOfSemiring
+                                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                  (@Matrix.semiring (@Prod a b) Complex
+                                                                    (@CommSemiring.toSemiring Complex
+                                                                      (@CommRing.toCommSemiring Complex
+                                                                        Complex.commRing))
+                                                                    (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                    @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                                            (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                            (@Submonoid.instSetLike
+                                                              (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@MulZeroOneClass.toMulOneClass
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@instMulZeroOneClassOfSemiring
+                                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                  (@Matrix.semiring (@Prod a b) Complex
+                                                                    (@CommSemiring.toSemiring Complex
+                                                                      (@CommRing.toCommSemiring Complex
+                                                                        Complex.commRing))
+                                                                    (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                    @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)))))
+                                                          (@Matrix.unitaryGroup (@Prod a b)
+                                                            (fun a_1 b_1 =>
+                                                              @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)
+                                                            (@instFintypeProd a b inst inst_1) Complex Complex.commRing
+                                                            Complex.instStarRing)
+                                                          x)
+                                                      U)
+                                                    X)
+                                                  (@Matrix.conjTranspose (@Prod a b) (@Prod a b) Complex
+                                                    (@InvolutiveStar.toStar Complex
+                                                      (@StarAddMonoid.toInvolutiveStar Complex
+                                                        (@AddCommMonoid.toAddMonoid Complex
+                                                          (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing
+                                                                Complex
+                                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                                  Complex.instNonUnitalCommRing)))))
+                                                        (@StarRing.toStarAddMonoid Complex
+                                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                                Complex.instNonUnitalCommRing)))
+                                                          Complex.instStarRing)))
+                                                    (@Subtype.val (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                      (fun x =>
+                                                        @Membership.mem (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                          (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                            (@MulZeroOneClass.toMulOneClass
+                                                              (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@instMulZeroOneClassOfSemiring
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@Matrix.semiring (@Prod a b) Complex
+                                                                  (@CommSemiring.toSemiring Complex
+                                                                    (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                                  (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                  @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                                          (@SetLike.instMembership
+                                                            (@Submonoid (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@MulZeroOneClass.toMulOneClass
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@instMulZeroOneClassOfSemiring
+                                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                  (@Matrix.semiring (@Prod a b) Complex
+                                                                    (@CommSemiring.toSemiring Complex
+                                                                      (@CommRing.toCommSemiring Complex
+                                                                        Complex.commRing))
+                                                                    (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                    @instDecidableEqProd a b inst_4 inst_5 a_1 b_1))))
+                                                            (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                            (@Submonoid.instSetLike
+                                                              (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                              (@MulZeroOneClass.toMulOneClass
+                                                                (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                (@instMulZeroOneClassOfSemiring
+                                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                                  (@Matrix.semiring (@Prod a b) Complex
+                                                                    (@CommSemiring.toSemiring Complex
+                                                                      (@CommRing.toCommSemiring Complex
+                                                                        Complex.commRing))
+                                                                    (@instFintypeProd a b inst inst_1) fun a_1 b_1 =>
+                                                                    @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)))))
+                                                          (@Matrix.unitaryGroup (@Prod a b)
+                                                            (fun a_1 b_1 =>
+                                                              @instDecidableEqProd a b inst_4 inst_5 a_1 b_1)
+                                                            (@instFintypeProd a b inst inst_1) Complex Complex.commRing
+                                                            Complex.instStarRing)
+                                                          x)
+                                                      U)))))))
+                                        (Real.sqrt
+                                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                            (Complex.re
+                                              (@Matrix.trace (@Prod a b) Complex (@instFintypeProd a b inst inst_1)
+                                                Complex.instAddCommMonoid
+                                                (@HMul.hMul (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod a b)
+                                                    (@Prod a b) Complex (@instFintypeProd a b inst inst_1)
+                                                    Complex.instMul Complex.instAddCommMonoid)
+                                                  X X)))
+                                            (@HDiv.hDiv Real Real Real
+                                              (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                                (@Nat.cast Real Real.instNatCast (@Fintype.card a inst))
+                                                (@Nat.cast Real Real.instNatCast (@Fintype.card b inst_1)))
+                                              (@HPow.hPow Real Nat Real
+                                                (@instHPow Real Nat
+                                                  (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                                (@Nat.cast Real Real.instNatCast (@Fintype.card d inst_2)) 2))))
+TYPE_CLOSURE_REPLAY_PASS 12045 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.kraus_target_overlap_unitary_le
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.targetEffect_rains':
+(kernel) declaration type mismatch, 'Extraction.targetEffect_rains' has type
+  True
+but it is expected to have type
+  {κ : Type u_3} →
+    [inst : @Fintype κ] →
+      {a : Type u_4} →
+        {b : Type u_5} →
+          {d : Type u_6} →
+            [inst_1 : @Fintype a] →
+              [inst_2 : @Fintype b] →
+                [inst_3 : @Fintype d] →
+                  [inst_4 : @DecidableEq a] →
+                    [inst_5 : @DecidableEq b] →
+                      [inst_6 : @DecidableEq d] →
+                        [@Nonempty d] →
+                          (A : κ → @Matrix (@Prod d d) (@Prod a b) Complex) →
+                            @Eq (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                (@Finset.sum κ (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                  (@Matrix.addCommMonoid (@Prod a b) (@Prod a b) Complex Complex.instAddCommMonoid)
+                                  (@Finset.univ κ inst) fun j =>
+                                  @HMul.hMul (@Matrix (@Prod a b) (@Prod d d) Complex)
+                                    (@Matrix (@Prod d d) (@Prod a b) Complex) (@Matrix (@Prod a b) (@Prod a b) Complex)
+                                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod a b) (@Prod d d) (@Prod a b)
+                                      Complex (@instFintypeProd d d inst_3 inst_3) Complex.instMul
+                                      Complex.instAddCommMonoid)
+                                    (@Matrix.conjTranspose (@Prod d d) (@Prod a b) Complex
+                                      (@InvolutiveStar.toStar Complex
+                                        (@StarAddMonoid.toInvolutiveStar Complex
+                                          (@AddCommMonoid.toAddMonoid Complex
+                                            (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                    Complex.instNonUnitalCommRing)))))
+                                          (@StarRing.toStarAddMonoid Complex
+                                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                  Complex.instNonUnitalCommRing)))
+                                            Complex.instStarRing)))
+                                      (@A j))
+                                    (@A j))
+                                1 →
+                              @Extraction.PTConjugatePositive κ inst a b d inst_1 inst_2 A →
+                                @Extraction.RainsEffect a b inst_4 inst_5 (@Fintype.card d inst_3)
+                                  (@Extraction.targetEffect κ inst a b d inst_3 inst_6 A)
+TYPE_CLOSURE_REPLAY_PASS 13898 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.targetEffect_rains
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.productEraseKraus_encoded':
+(kernel) declaration type mismatch, 'Extraction.productEraseKraus_encoded' has type
+  True
+but it is expected to have type
+  {d : Type u_1} →
+    {u : Type u_2} →
+      {v : Type u_3} →
+        [inst : @Fintype d] →
+          [inst_1 : @Fintype u] →
+            [inst_2 : @Fintype v] →
+              [inst_3 : @DecidableEq d] →
+                [inst_4 : @DecidableEq u] →
+                  [inst_5 : @DecidableEq v] →
+                    (c : Complex) →
+                      (X : @Matrix (@Prod u v) (@Prod u v) Complex) →
+                        @Eq (@Matrix (@Prod d d) (@Prod d d) Complex)
+                          (@Extraction.krausApply (@Prod (@Prod d u) (@Prod d v)) (@Prod d d) (@Prod u v)
+                            (@instFintypeProd (@Prod d u) (@Prod d v) (@instFintypeProd d u inst inst_1)
+                              (@instFintypeProd d v inst inst_2))
+                            (@instFintypeProd u v inst_1 inst_2)
+                            (@Extraction.productEraseKraus d u v inst_3 inst_4 inst_5)
+                            (@HMul.hMul (@Matrix (@Prod (@Prod d u) (@Prod d v)) (@Prod u v) Complex)
+                              (@Matrix (@Prod u v) (@Prod (@Prod d u) (@Prod d v)) Complex)
+                              (@Matrix (@Prod (@Prod d u) (@Prod d v)) (@Prod (@Prod d u) (@Prod d v)) Complex)
+                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (@Prod d u) (@Prod d v)) (@Prod u v)
+                                (@Prod (@Prod d u) (@Prod d v)) Complex (@instFintypeProd u v inst_1 inst_2)
+                                Complex.instMul Complex.instAddCommMonoid)
+                              (@HMul.hMul (@Matrix (@Prod (@Prod d u) (@Prod d v)) (@Prod u v) Complex)
+                                (@Matrix (@Prod u v) (@Prod u v) Complex)
+                                (@Matrix (@Prod (@Prod d u) (@Prod d v)) (@Prod u v) Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod (@Prod d u) (@Prod d v))
+                                  (@Prod u v) (@Prod u v) Complex (@instFintypeProd u v inst_1 inst_2) Complex.instMul
+                                  Complex.instAddCommMonoid)
+                                (@Extraction.codeEmbedding d u v inst_3 inst_4 inst_5 c) X)
+                              (@Matrix.conjTranspose (@Prod (@Prod d u) (@Prod d v)) (@Prod u v) Complex
+                                (@InvolutiveStar.toStar Complex
+                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                    (@AddCommMonoid.toAddMonoid Complex
+                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))))
+                                    (@StarRing.toStarAddMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))
+                                      Complex.instStarRing)))
+                                (@Extraction.codeEmbedding d u v inst_3 inst_4 inst_5 c))))
+                          (@HSMul.hSMul Complex (@Matrix (@Prod d d) (@Prod d d) Complex)
+                            (@Matrix (@Prod d d) (@Prod d d) Complex)
+                            (@instHSMul Complex (@Matrix (@Prod d d) (@Prod d d) Complex)
+                              (@Matrix.smul (@Prod d d) (@Prod d d) Complex Complex
+                                (@instSMulOfMul Complex Complex.instMul)))
+                            (@Matrix.trace (@Prod u v) Complex (@instFintypeProd u v inst_1 inst_2)
+                              Complex.instAddCommMonoid X)
+                            (@Matrix.vecMulVec (@Prod d d) (@Prod d d) Complex Complex.instMul
+                              (@Extraction.bellVector d inst_3 c)
+                              (@Star.star (@Prod d d → Complex)
+                                (@Pi.instStarForall (@Prod d d) (fun a => Complex) fun i =>
+                                  @InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                (@Extraction.bellVector d inst_3 c))))
+TYPE_CLOSURE_REPLAY_PASS 5669 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.productEraseKraus_encoded
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.exists_unitary_between_isometries':
+(kernel) declaration type mismatch, 'Extraction.exists_unitary_between_isometries' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    {κ : Type u_2} →
+      [inst : @Fintype ι] →
+        [@Fintype κ] →
+          [inst_2 : @DecidableEq ι] →
+            [inst_3 : @DecidableEq κ] →
+              (C E : @Matrix ι κ Complex) →
+                @Eq (@Matrix κ κ Complex)
+                    (@HMul.hMul (@Matrix κ ι Complex) (@Matrix ι κ Complex) (@Matrix κ κ Complex)
+                      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid κ ι κ Complex inst Complex.instMul
+                        Complex.instAddCommMonoid)
+                      (@Matrix.conjTranspose ι κ Complex
+                        (@InvolutiveStar.toStar Complex
+                          (@StarAddMonoid.toInvolutiveStar Complex
+                            (@AddCommMonoid.toAddMonoid Complex
+                              (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                      Complex.instNonUnitalCommRing)))))
+                            (@StarRing.toStarAddMonoid Complex
+                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                    Complex.instNonUnitalCommRing)))
+                              Complex.instStarRing)))
+                        C)
+                      C)
+                    1 →
+                  @Eq (@Matrix κ κ Complex)
+                      (@HMul.hMul (@Matrix κ ι Complex) (@Matrix ι κ Complex) (@Matrix κ κ Complex)
+                        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid κ ι κ Complex inst Complex.instMul
+                          Complex.instAddCommMonoid)
+                        (@Matrix.conjTranspose ι κ Complex
+                          (@InvolutiveStar.toStar Complex
+                            (@StarAddMonoid.toInvolutiveStar Complex
+                              (@AddCommMonoid.toAddMonoid Complex
+                                (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                        Complex.instNonUnitalCommRing)))))
+                              (@StarRing.toStarAddMonoid Complex
+                                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                      Complex.instNonUnitalCommRing)))
+                                Complex.instStarRing)))
+                          E)
+                        E)
+                      1 →
+                    @Exists
+                      (@Subtype (@Matrix ι ι Complex) fun x =>
+                        @Membership.mem (@Matrix ι ι Complex)
+                          (@Submonoid (@Matrix ι ι Complex)
+                            (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                              (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                (@Matrix.semiring ι Complex
+                                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                                  inst inst_2))))
+                          (@SetLike.instMembership
+                            (@Submonoid (@Matrix ι ι Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                  (@Matrix.semiring ι Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    inst inst_2))))
+                            (@Matrix ι ι Complex)
+                            (@Submonoid.instSetLike (@Matrix ι ι Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                  (@Matrix.semiring ι Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    inst inst_2)))))
+                          (@Matrix.unitaryGroup ι inst_2 inst Complex Complex.commRing Complex.instStarRing) x)
+                      fun U =>
+                      @Eq (@Matrix ι κ Complex)
+                        (@HMul.hMul (@Matrix ι ι Complex) (@Matrix ι κ Complex) (@Matrix ι κ Complex)
+                          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ι κ Complex inst Complex.instMul
+                            Complex.instAddCommMonoid)
+                          (@Subtype.val (@Matrix ι ι Complex)
+                            (fun x =>
+                              @Membership.mem (@Matrix ι ι Complex)
+                                (@Submonoid (@Matrix ι ι Complex)
+                                  (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                                    (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                      (@Matrix.semiring ι Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        inst inst_2))))
+                                (@SetLike.instMembership
+                                  (@Submonoid (@Matrix ι ι Complex)
+                                    (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                                      (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                        (@Matrix.semiring ι Complex
+                                          (@CommSemiring.toSemiring Complex
+                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                          inst inst_2))))
+                                  (@Matrix ι ι Complex)
+                                  (@Submonoid.instSetLike (@Matrix ι ι Complex)
+                                    (@MulZeroOneClass.toMulOneClass (@Matrix ι ι Complex)
+                                      (@instMulZeroOneClassOfSemiring (@Matrix ι ι Complex)
+                                        (@Matrix.semiring ι Complex
+                                          (@CommSemiring.toSemiring Complex
+                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                          inst inst_2)))))
+                                (@Matrix.unitaryGroup ι inst_2 inst Complex Complex.commRing Complex.instStarRing) x)
+                            U)
+                          C)
+                        E
+TYPE_CLOSURE_REPLAY_PASS 7838 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.exists_unitary_between_isometries
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.exists_projection_factor':
+(kernel) declaration type mismatch, 'Extraction.exists_projection_factor' has type
+  True
+but it is expected to have type
+  {ι : Type u} →
+    [inst : @Fintype ι] →
+      [@DecidableEq ι] →
+        (P : @Matrix ι ι Complex) →
+          @Matrix.IsHermitian Complex ι
+              (@InvolutiveStar.toStar Complex
+                (@StarAddMonoid.toInvolutiveStar Complex
+                  (@AddCommMonoid.toAddMonoid Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              P →
+            @Eq (@Matrix ι ι Complex)
+                (@HMul.hMul (@Matrix ι ι Complex) (@Matrix ι ι Complex) (@Matrix ι ι Complex)
+                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ι ι Complex inst Complex.instMul
+                    Complex.instAddCommMonoid)
+                  P P)
+                P →
+              @Exists (Type u) fun κ =>
+                @Exists (@Fintype κ) fun x =>
+                  @Exists (@DecidableEq κ) fun x_1 =>
+                    @Exists (@Matrix ι κ Complex) fun C =>
+                      And
+                        (@Eq (@Matrix κ κ Complex)
+                          (@HMul.hMul (@Matrix κ ι Complex) (@Matrix ι κ Complex) (@Matrix κ κ Complex)
+                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid κ ι κ Complex inst Complex.instMul
+                              Complex.instAddCommMonoid)
+                            (@Matrix.conjTranspose ι κ Complex
+                              (@InvolutiveStar.toStar Complex
+                                (@StarAddMonoid.toInvolutiveStar Complex
+                                  (@AddCommMonoid.toAddMonoid Complex
+                                    (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))))
+                                  (@StarRing.toStarAddMonoid Complex
+                                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                          Complex.instNonUnitalCommRing)))
+                                    Complex.instStarRing)))
+                              C)
+                            C)
+                          1)
+                        (And
+                          (@Eq (@Matrix ι ι Complex)
+                            (@HMul.hMul (@Matrix ι κ Complex) (@Matrix κ ι Complex) (@Matrix ι ι Complex)
+                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι κ ι Complex x Complex.instMul
+                                Complex.instAddCommMonoid)
+                              C
+                              (@Matrix.conjTranspose ι κ Complex
+                                (@InvolutiveStar.toStar Complex
+                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                    (@AddCommMonoid.toAddMonoid Complex
+                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))))
+                                    (@StarRing.toStarAddMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))
+                                      Complex.instStarRing)))
+                                C))
+                            P)
+                          (@Eq Nat (@Fintype.card κ x) (@Matrix.rank ι ι Complex inst Complex.instCommSemiring P)))
+TYPE_CLOSURE_REPLAY_PASS 10319 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.exists_projection_factor
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.completedKraus_complete':
+(kernel) declaration type mismatch, 'Extraction.completedKraus_complete' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    {α : Type u_2} →
+      {ο : Type u_3} →
+        {κ : Type u_4} →
+          [inst : @Fintype ι] →
+            [inst_1 : @Fintype α] →
+              [inst_2 : @Fintype ο] →
+                [inst_3 : @Fintype κ] →
+                  [inst_4 : @DecidableEq ι] →
+                    [inst_5 : @DecidableEq α] →
+                      [inst_6 : @DecidableEq ο] →
+                        (E : @Matrix ι α Complex) →
+                          @Eq (@Matrix α α Complex)
+                              (@HMul.hMul (@Matrix α ι Complex) (@Matrix ι α Complex) (@Matrix α α Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid α ι α Complex inst Complex.instMul
+                                  Complex.instAddCommMonoid)
+                                (@Matrix.conjTranspose ι α Complex
+                                  (@InvolutiveStar.toStar Complex
+                                    (@StarAddMonoid.toInvolutiveStar Complex
+                                      (@AddCommMonoid.toAddMonoid Complex
+                                        (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                Complex.instNonUnitalCommRing)))))
+                                      (@StarRing.toStarAddMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))
+                                        Complex.instStarRing)))
+                                  E)
+                                E)
+                              1 →
+                            (A : κ → @Matrix ο α Complex) →
+                              @Eq (@Matrix α α Complex)
+                                  (@Finset.sum κ (@Matrix α α Complex)
+                                    (@Matrix.addCommMonoid α α Complex Complex.instAddCommMonoid)
+                                    (@Finset.univ κ inst_3) fun j =>
+                                    @HMul.hMul (@Matrix α ο Complex) (@Matrix ο α Complex) (@Matrix α α Complex)
+                                      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid α ο α Complex inst_2
+                                        Complex.instMul Complex.instAddCommMonoid)
+                                      (@Matrix.conjTranspose ο α Complex
+                                        (@InvolutiveStar.toStar Complex
+                                          (@StarAddMonoid.toInvolutiveStar Complex
+                                            (@AddCommMonoid.toAddMonoid Complex
+                                              (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                      Complex.instNonUnitalCommRing)))))
+                                            (@StarRing.toStarAddMonoid Complex
+                                              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                    Complex.instNonUnitalCommRing)))
+                                              Complex.instStarRing)))
+                                        (@A j))
+                                      (@A j))
+                                  1 →
+                                (o₀ : ο) →
+                                  @Eq (@Matrix ι ι Complex)
+                                    (@Finset.sum (@Sum κ ι) (@Matrix ι ι Complex)
+                                      (@Matrix.addCommMonoid ι ι Complex Complex.instAddCommMonoid)
+                                      (@Finset.univ (@Sum κ ι) (@instFintypeSum κ ι inst_3 inst)) fun j =>
+                                      @HMul.hMul (@Matrix ι ο Complex) (@Matrix ο ι Complex) (@Matrix ι ι Complex)
+                                        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ο ι Complex inst_2
+                                          Complex.instMul Complex.instAddCommMonoid)
+                                        (@Matrix.conjTranspose ο ι Complex
+                                          (@InvolutiveStar.toStar Complex
+                                            (@StarAddMonoid.toInvolutiveStar Complex
+                                              (@AddCommMonoid.toAddMonoid Complex
+                                                (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                        Complex.instNonUnitalCommRing)))))
+                                              (@StarRing.toStarAddMonoid Complex
+                                                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                      Complex.instNonUnitalCommRing)))
+                                                Complex.instStarRing)))
+                                          (@Extraction.completedKraus ι α ο κ inst_1 inst_4 inst_6 E A o₀ j))
+                                        (@Extraction.completedKraus ι α ο κ inst_1 inst_4 inst_6 E A o₀ j))
+                                    1
+TYPE_CLOSURE_REPLAY_PASS 5679 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.completedKraus_complete
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'Extraction.embedded_bell_overlap':
+(kernel) declaration type mismatch, 'Extraction.embedded_bell_overlap' has type
+  True
+but it is expected to have type
+  {d : Type u_5} →
+    {e : Type u_6} →
+      [inst : @Fintype d] →
+        [inst_1 : @Fintype e] →
+          [inst_2 : @DecidableEq d] →
+            [inst_3 : @DecidableEq e] →
+              [@Nonempty d] →
+                [@Nonempty e] →
+                  (f : @Function.Embedding d e) →
+                    @Eq Real
+                      (Complex.re
+                        (@Matrix.trace (@Prod e e) Complex (@instFintypeProd e e inst_1 inst_1)
+                          Complex.instAddCommMonoid
+                          (@HMul.hMul (@Matrix (@Prod e e) (@Prod e e) Complex)
+                            (@Matrix (@Prod e e) (@Prod e e) Complex) (@Matrix (@Prod e e) (@Prod e e) Complex)
+                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod e e) (@Prod e e) (@Prod e e) Complex
+                              (@instFintypeProd e e inst_1 inst_1) Complex.instMul Complex.instAddCommMonoid)
+                            (@Extraction.bellProjector e inst_1 inst_3)
+                            (@HMul.hMul (@Matrix (@Prod e e) (@Prod d d) Complex)
+                              (@Matrix (@Prod d d) (@Prod e e) Complex) (@Matrix (@Prod e e) (@Prod e e) Complex)
+                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod e e) (@Prod d d) (@Prod e e) Complex
+                                (@instFintypeProd d d inst inst) Complex.instMul Complex.instAddCommMonoid)
+                              (@HMul.hMul (@Matrix (@Prod e e) (@Prod d d) Complex)
+                                (@Matrix (@Prod d d) (@Prod d d) Complex) (@Matrix (@Prod e e) (@Prod d d) Complex)
+                                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod e e) (@Prod d d) (@Prod d d)
+                                  Complex (@instFintypeProd d d inst inst) Complex.instMul Complex.instAddCommMonoid)
+                                (@Matrix.kroneckerMap Complex Complex Complex e d e d
+                                  (fun x1 x2 =>
+                                    @HMul.hMul Complex Complex Complex (@instHMul Complex Complex.instMul) x1 x2)
+                                  (@Extraction.coordinateIsometry e d inst_3 f)
+                                  (@Extraction.coordinateIsometry e d inst_3 f))
+                                (@Extraction.bellProjector d inst inst_2))
+                              (@Matrix.conjTranspose (@Prod e e) (@Prod d d) Complex
+                                (@InvolutiveStar.toStar Complex
+                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                    (@AddCommMonoid.toAddMonoid Complex
+                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                              Complex.instNonUnitalCommRing)))))
+                                    (@StarRing.toStarAddMonoid Complex
+                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                            Complex.instNonUnitalCommRing)))
+                                      Complex.instStarRing)))
+                                (@Matrix.kroneckerMap Complex Complex Complex e d e d
+                                  (fun x1 x2 =>
+                                    @HMul.hMul Complex Complex Complex (@instHMul Complex Complex.instMul) x1 x2)
+                                  (@Extraction.coordinateIsometry e d inst_3 f)
+                                  (@Extraction.coordinateIsometry e d inst_3 f)))))))
+                      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                        (@Nat.cast Real Real.instNatCast (@Fintype.card d inst))
+                        (@Nat.cast Real Real.instNatCast (@Fintype.card e inst_1)))
+TYPE_CLOSURE_REPLAY_PASS 10986 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED Extraction.embedded_bell_overlap

@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Actual finite common-projection extraction with integer floors and exact d/K overlap; complete local Kraus construction, global unitary extension, actual Rains necessity and purity envelope. NOT Haar/Schur identifications or full asymptotic protocol theorems.",
+  "fresh_own_and_appt_output_build": true,
+  "source_files": 32,
+  "roots": 83,
+  "kernel_declarations": 34818,
+  "kernel_trust": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "same_type_forged_proof_controls": 8,
+  "source_manifest_sha256": "10bf32571c6701ed7488ea4bb47c31e29702e5225eae69b6146e84ea17c66fc9",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.468,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "Extraction",
+        "Verification"
+      ],
+      "exit_code": 0,
+      "seconds": 30.832,
+      "log": "build.log",
+      "sha256": "33b3471cc360772d4bd0f1cf0681e052de1486896e4c41db2b90c32471fccd86"
+    },
+    {
+      "stage": "types-and-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.624,
+      "log": "types-and-axioms.log",
+      "sha256": "3a0ba39fbe29596628ce1ac1c7e5342d64c3320724840c06c3b234858d879629"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 65.605,
+      "log": "kernel.log",
+      "sha256": "fc32f68d53b59ecabf1d99484c6ea37c2a2008c3ac8336f7d1cf697dad427f16"
+    }
+  ]
+}

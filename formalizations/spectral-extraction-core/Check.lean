@@ -1,0 +1,24 @@
+import Extraction
+
+#check Extraction.finite_projection_fidelity_extractor
+#print axioms Extraction.finite_projection_fidelity_extractor
+#check Extraction.finite_projection_density_extractor
+#print axioms Extraction.finite_projection_density_extractor
+#check Extraction.finite_projection_exact_extractor
+#print axioms Extraction.finite_projection_exact_extractor
+#check Extraction.kraus_target_overlap_unitary_le
+#print axioms Extraction.kraus_target_overlap_unitary_le
+#check Extraction.kraus_target_overlap_le
+#print axioms Extraction.kraus_target_overlap_le
+#check Extraction.targetEffect_rains
+#print axioms Extraction.targetEffect_rains
+#check Extraction.productEraseKraus_encoded
+#print axioms Extraction.productEraseKraus_encoded
+#check Extraction.exists_unitary_between_isometries
+#print axioms Extraction.exists_unitary_between_isometries
+#check Extraction.exists_projection_factor
+#print axioms Extraction.exists_projection_factor
+#check Extraction.completedKraus_complete
+#print axioms Extraction.completedKraus_complete
+#check Extraction.embedded_bell_overlap
+#print axioms Extraction.embedded_bell_overlap

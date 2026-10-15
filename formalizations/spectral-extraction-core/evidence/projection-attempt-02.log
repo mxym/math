@@ -1,0 +1,65 @@
+⚠ [2691/2693] Replayed APPT.Quantum.Basic
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2692/2693] Replayed Extraction.RainsBudget
+warning: Extraction/RainsBudget.lean:18:0: automatically included section variable(s) unused in theorem `Extraction.trace_congruence_diagonal`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/RainsBudget.lean:40:43: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, RCLike.ofReal_eq_complex_ofReal,
+    Function.comp_def] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:57:31: This simp argument is unused:
+  Matrix.mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one,
+    smul_add, smul_sub, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:58:48: This simp argument is unused:
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_add, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
+    Matrix.mul_one, smul_add, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:70:0: automatically included section variable(s) unused in theorem `Extraction.trace_partialTranspose_pairing`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2693/2693] Built Extraction.ProjectionBudget (1.4s)
+warning: Extraction/ProjectionBudget.lean:12:0: automatically included section variable(s) unused in theorem `Extraction.positive_trace_re`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProjectionBudget.lean:45:8: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.sub_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.trace_sub,
+    Matrix.trace_smul, Complex.sub_re, Complex.smul_re, smul_eq_mul, hPP, Matrix.trace_mul_comm M P]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/ProjectionBudget.lean:54:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Build completed successfully (2693 jobs).

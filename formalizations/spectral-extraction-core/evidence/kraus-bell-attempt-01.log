@@ -1,0 +1,148 @@
+⚠ [2691/2694] Replayed APPT.Quantum.Basic
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2692/2694] Replayed Extraction.RainsBudget
+warning: Extraction/RainsBudget.lean:18:0: automatically included section variable(s) unused in theorem `Extraction.trace_congruence_diagonal`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/RainsBudget.lean:40:43: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, RCLike.ofReal_eq_complex_ofReal,
+    Function.comp_def] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:57:31: This simp argument is unused:
+  Matrix.mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one,
+    smul_add, smul_sub, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:58:48: This simp argument is unused:
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_add, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
+    Matrix.mul_one, smul_add, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:70:0: automatically included section variable(s) unused in theorem `Extraction.trace_partialTranspose_pairing`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [2693/2694] Building Extraction.Kraus (1.6s)
+trace: .> LEAN_PATH=/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/Cli/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/batteries/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/Qq/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/aesop/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/importGraph/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/packages/plausible/.lake/build/lib/lean:/home/mxym/submission-lean-deps-20261016/mathlib/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/appt-qutrit-purity/.lake/build/lib/lean:/home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean /root/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/Extraction/Kraus.lean -o /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean/Extraction/Kraus.olean -i /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/lib/lean/Extraction/Kraus.ilean -c /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/ir/Extraction/Kraus.c --setup /home/mxym/math-submission-lean-core-20261016/formalizations/spectral-extraction-core/.lake/build/ir/Extraction/Kraus.setup.json --json
+warning: Extraction/Kraus.lean:16:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_posSemidef`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:27:11: Possibly looping simp theorem: `trace_mul_cycle`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+error: Extraction/Kraus.lean:27:11: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: Extraction/Kraus.lean:56:53: unsolved goals
+ι : Type u_1
+ο : Type u_2
+κ : Type u_3
+inst✝⁶ : Fintype ι
+inst✝⁵ : Fintype ο
+inst✝⁴ : Fintype κ
+inst✝³ : DecidableEq ι
+inst✝² : DecidableEq ο
+A : κ → Matrix ο ι ℂ
+τ : Type u_4
+inst✝¹ : Fintype τ
+inst✝ : DecidableEq τ
+X : Matrix (ι × τ) (ι × τ) ℂ
+o p : ο
+s t : τ
+⊢ (∑ x, kroneckerMap (fun x1 x2 => x1 * x2) (A x) 1 * X * (kroneckerMap (fun x1 x2 => x1 * x2) (A x) 1)ᴴ) (o, s)
+      (p, t) =
+    (∑ j, (A j * fun i j => X (i, s) (j, t)) * (A j)ᴴ) o p
+warning: Extraction/Kraus.lean:57:40: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:57:58: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.kroneckerMap_apply, Fintype.sum_prod_type,
+    Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:58:4: This simp argument is unused:
+  Matrix.kroneckerMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.conjTranspose_apply, Fintype.sum_prod_type,
+    Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:58:31: This simp argument is unused:
+  Fintype.sum_prod_type
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    Matrix.one_apply, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:58:54: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    Fintype.sum_prod_type, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:58:72: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    Fintype.sum_prod_type, Matrix.one_apply, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:58:81: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [krausAmplification, krausApply, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    Fintype.sum_prod_type, Matrix.one_apply, mul_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:61:0: automatically included section variable(s) unused in theorem `Extraction.congruence_pure`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Some required targets logged failures:
+- Extraction.Kraus
+error: build failed

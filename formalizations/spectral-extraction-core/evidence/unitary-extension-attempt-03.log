@@ -1,0 +1,205 @@
+⚠ [2691/2699] Replayed APPT.Quantum.Basic
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2692/2699] Replayed Extraction.RainsBudget
+warning: Extraction/RainsBudget.lean:18:0: automatically included section variable(s) unused in theorem `Extraction.trace_congruence_diagonal`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/RainsBudget.lean:40:43: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, RCLike.ofReal_eq_complex_ofReal,
+    Function.comp_def] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:57:31: This simp argument is unused:
+  Matrix.mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one,
+    smul_add, smul_sub, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:58:48: This simp argument is unused:
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_add, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
+    Matrix.mul_one, smul_add, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:70:0: automatically included section variable(s) unused in theorem `Extraction.trace_partialTranspose_pairing`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2693/2699] Replayed Extraction.Kraus
+warning: Extraction/Kraus.lean:16:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_posSemidef`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:22:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_trace`:
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:59:0: automatically included section variable(s) unused in theorem `Extraction.krausAmplification_apply`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:70:19: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:70:37: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:74:0: automatically included section variable(s) unused in theorem `Extraction.congruence_pure`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2694/2699] Replayed Extraction.BellPacking
+warning: Extraction/BellPacking.lean:22:53: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eraseKraus, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, Matrix.sum_apply,
+    apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2695/2699] Replayed Extraction.BellCoherent
+warning: Extraction/BellCoherent.lean:25:0: automatically included section variable(s) unused in theorem `Extraction.single_readout_congruence`:
+  [Fintype d]
+  [DecidableEq d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] [DecidableEq d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellCoherent.lean:32:43: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, Matrix.conjTranspose_apply, hB, Matrix.vecMulVec_apply, Matrix.smul_apply, apply_ite,
+    ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/BellCoherent.lean:69:0: automatically included section variable(s) unused in theorem `Extraction.bellCoeff_normalized`:
+  [DecidableEq d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellCoherent.lean:88:26: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [codeEmbedding, bellCode, bellVector, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply,
+    Fintype.sum_prod_type, apply_ite, ite_mul, eq_comm, ← mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2696/2699] Replayed Extraction.BellOrder
+warning: Extraction/BellOrder.lean:17:0: automatically included section variable(s) unused in theorem `Extraction.swapMatrix_hermitian`:
+  [Fintype d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellOrder.lean:93:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2697/2699] Replayed Extraction.ProjectionBudget
+warning: Extraction/ProjectionBudget.lean:12:0: automatically included section variable(s) unused in theorem `Extraction.positive_trace_re`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProjectionBudget.lean:45:8: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.sub_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.trace_sub,
+    Matrix.trace_smul, Complex.sub_re, Complex.smul_re, smul_eq_mul, hPP, Matrix.trace_mul_comm M P]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/ProjectionBudget.lean:54:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2698/2699] Replayed Extraction.KrausRains
+warning: Extraction/KrausRains.lean:11:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_add`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:15:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_sub`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:19:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_real_smul`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:23:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_hermitian`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:32:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_trace_duality`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:43:0: automatically included section variable(s) unused in theorem `Extraction.trace_mul_pure`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2699/2699] Built Extraction.UnitaryExtension (2.7s)
+Build completed successfully (2699 jobs).
