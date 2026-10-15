@@ -1,0 +1,315 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "reviewed_utc": "2026-10-15T11:58:51.705675+00:00",
+  "reviewer": "/root/critical_entropy_review_resume_20261015, separate internal AI agent",
+  "review_kind": "full ordinary mathematical read of the new exact source, with separately written independent diagnostics",
+  "external_human_peer_review": false,
+  "Lean_verification": false,
+  "priority_certificate": false,
+  "new_major_problem_count": false,
+  "new_Lean_audit_roots": 0,
+  "author_code_executed_or_imported": false,
+  "source_or_root_modified": false,
+  "subagents_spawned": false,
+  "repository_mutations": false,
+  "global_proof_from_finite_diagnostics": false,
+  "independent_unexpected_failures": [],
+  "future_metadata_figures_transport_layout_guarantee": false,
+  "scope": "B1--B19: all-c positive attained lower threshold; sufficiently small-c unique analytic onset; exact coefficients, r interval and iterated physical consequences",
+  "source": {
+    "path": "PAPER_V1.md",
+    "original_path": "snapshot/PAPER.md",
+    "sha256": "3e1f67ee40b28af0b9de3a643488524fdb38f508d663f63e2ec82f7bc4322804",
+    "bytes": 11627,
+    "full_text_read": true
+  },
+  "theorem_map": {
+    "path": "snapshot/THEOREM_MAP.md",
+    "sha256": "a05d1f856f0988466354dda368cd510c750b480476541dda6d163858f0a859be",
+    "full_text_read": true
+  },
+  "input_manifest": {
+    "path": "INPUT.json",
+    "sha256": "a132f2788e70e49723fd7c458d3db689e4e6aa32c297291fa82d03ecf7dfc469",
+    "captured_files": 26
+  },
+  "dependency_byte_comparison": {
+    "path": "DEPENDENCY_BYTE_COMPARISON.json",
+    "sha256": "b098cd2f34583885dc6e021905d419f50ba8a6d387ac49589671afe420d4c102",
+    "count": 11
+  },
+  "report": {
+    "path": "REVIEW.md",
+    "sha256": "7ee88747daae39e9bd8066c976c368c7bfc8099e2c9490213ce67a79cbfd5445"
+  },
+  "dependencies": {
+    "prior_full_reads_reused_after_exact_byte_comparison": true,
+    "immutable_repository_commit": "c4e0d9e713ba349d376469231789bb7b36915b7d",
+    "actual_used_theorems": [
+      "L1 value and compact continuity",
+      "pure-bulk calculation",
+      "T v2 T2 all-c pole threshold",
+      "S full all-actual criterion and integer realization"
+    ],
+    "companion_T_v2_sha256": "83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79",
+    "new_c1_extension_used_as_dependency": false,
+    "V_already_complete_value_scope_credited": true
+  },
+  "mathematical_gates": [
+    "U positive for all c>0; endpoint delta exp(C/delta) divergence locally uniform in c yields attained continuous threshold",
+    "exact F-b=P(r-U) retains every threshold minimizer and every boundary tie",
+    "strict h convexity gives max(0,hU); logarithmic B6 only on hU>0 branch",
+    "all global small-c minimizers first satisfy 2-L=O(c), then rescaled t cannot tend to zero by t exp(2/(3t))/8",
+    "analytic Phi extension and fixed compact localization precede unique implicit-function branch",
+    "all B7 coefficients recomputed, including tprime=16/9 and quartic threshold correction -28e/9",
+    "positive Hessian via Schur complement proves unique local mixed branch and active slope jump",
+    "weighted U-Q identity proves a single r mixed interval without claiming connected c set",
+    "all actual near-optimizers retain distance to both phases, spread loss J and actual peak loss",
+    "body laws are W1 subsequential consequences, peak correction only for interior mixed width, fixed-c limit precedes c->0"
+  ],
+  "independent_runs": [
+    {
+      "path": "bulk-onset-review/runs/20261015T115337.425416Z/RESULT.json",
+      "status": "PASS",
+      "result_sha256": "45d997fb2b7f4ce5bbfd43455dd0825b3de5f973da5aee09986a26a9a391b7f4",
+      "script_sha256": "c29ff5c07a14fc4fe435b28931367572b1ab2036c51df28a97a210bc6442b761",
+      "groups": {
+        "symbolic": {
+          "exact_symbolic_identities": 13,
+          "independently_derived_B7": {
+            "t_prime": "16/9",
+            "L_c2": "-16/9",
+            "h_c2": "-4/9",
+            "r_c3": "4e/3",
+            "r_c4": "-28e/9",
+            "psi_curvature": "3e/16"
+          }
+        },
+        "convex_elimination_and_global_bounds": {
+          "clamped_widths": 15,
+          "interior_widths": 27,
+          "mixing_comparisons": 210,
+          "exact_weighted_threshold_identity_diagnostics": 42,
+          "global_gap_diagnostics": 96,
+          "thin_layer_lower_bound_diagnostics": [
+            {
+              "t": ".3",
+              "rescaled_lower_bound": "0.3460430382052321612913075"
+            },
+            {
+              "t": ".1",
+              "rescaled_lower_bound": "9.822149927842716242221581"
+            },
+            {
+              "t": ".03",
+              "rescaled_lower_bound": "16788803.8251038984368565"
+            },
+            {
+              "t": ".01",
+              "rescaled_lower_bound": "1.121696780147397210636991e+26"
+            }
+          ],
+          "global_tightness_is_analytic_not_certified_by_samples": true
+        },
+        "analytic_branch_diagnostics": {
+          "stationary_branch_diagnostics": [
+            {
+              "c": ".01",
+              "t": "2.6846879593441391277952236697622909",
+              "L": "1.9731531204065586087220477633023771",
+              "h": "0.49828814334335795095884404901669373",
+              "r_over_c3": "3.540803561164582407916411736455016",
+              "log_right_slope": "0.3765585700354422342551083872279706",
+              "positive_hessian_schur": "0.004846454116470207886833618"
+            },
+            {
+              "c": ".003",
+              "t": "2.6720215052471400912787855770165429",
+              "L": "1.9919839354842585797261636432689504",
+              "h": "0.49949598017342312502777885984065121",
+              "r_over_c3": "3.5990954730436644999337473777940305",
+              "log_right_slope": "0.37046309205042323677477898897020308",
+              "positive_hessian_schur": "0.001506221285165058167540972"
+            },
+            {
+              "c": ".001",
+              "t": "2.6684468211511183178913251756030585",
+              "L": "1.9973315531788488816821086748243969",
+              "h": "0.49983288815770464342174206236849518",
+              "r_over_c3": "3.6159289519060122530831296801999142",
+              "log_right_slope": "0.36873876790844490887391033189598193",
+              "positive_hessian_schur": "0.0005071340333945170850927444"
+            },
+            {
+              "c": ".0001",
+              "t": "2.6668444681544706637747521643537859",
+              "L": "1.9997333155531845529336225247835646",
+              "h": "0.49998332888815910415764133209375931",
+              "r_over_c3": "3.623530184265576054976022464317597",
+              "log_right_slope": "0.36796528911031475959269921000640456",
+              "positive_hessian_schur": "0.0000509423049778322846986312"
+            },
+            {
+              "c": ".000001",
+              "t": "2.6666684444468148211358177448959826",
+              "L": "1.9999973333315555531851788641822551",
+              "h": "0.49999983333288888815925770863798741",
+              "r_over_c3": "3.6243673144119950303017736122950823",
+              "log_right_slope": "0.36788029955774519254595199135283419",
+              "positive_hessian_schur": "0.0000005096752944514438945238353"
+            },
+            {
+              "c": "1e-20",
+              "t": "2.6666666666666666666844444444444444",
+              "L": "1.9999999999999999999733333333333333",
+              "h": "0.49999999999999999999833333333333333",
+              "r_over_c3": "3.6243757712787269803958145271403797",
+              "log_right_slope": "0.36787944117144232160410762378879452",
+              "positive_hessian_schur": "5.0967784283607098160457e-21"
+            }
+          ],
+          "global_uniqueness_basis": "written global compactness plus analytic IFT, not findroot"
+        },
+        "integer_state_diagnostics": {
+          "exact_integer_rank_normalized_family_diagnostics": [
+            {
+              "m": 3000,
+              "n_digits": 17,
+              "D_digits": 20,
+              "projection_rank_digits": 20,
+              "alpha": "30.0",
+              "trace_error": "0.0",
+              "moment_error": "0.00000158026342463361029288001730164",
+              "head_height_error": "13.6424282560149759494246064732",
+              "actual_peak_moment": "0.00000137498074715950485248558421502",
+              "fixed_c_peak_limit": "0.00000133338659306112091481858303314"
+            },
+            {
+              "m": 9000,
+              "n_digits": 45,
+              "D_digits": 49,
+              "projection_rank_digits": 49,
+              "alpha": "90.0",
+              "trace_error": "0.0",
+              "moment_error": "0.000000526576372052327511882337835005",
+              "head_height_error": "4.6926543911756507149429450265",
+              "actual_peak_moment": "0.00000134742696381700393367720660892",
+              "fixed_c_peak_limit": "0.00000133338659306112091481858303314"
+            },
+            {
+              "m": 18000,
+              "n_digits": 88,
+              "D_digits": 92,
+              "projection_rank_digits": 92,
+              "alpha": "180.0",
+              "trace_error": "2.13341709738e-401",
+              "moment_error": "0.000000263265577841396297026638549854",
+              "head_height_error": "2.36520450145118409066102736915",
+              "actual_peak_moment": "0.00000134042908239250268721579049722",
+              "fixed_c_peak_limit": "0.00000133338659306112091481858303314"
+            }
+          ],
+          "all_global_unitary_APPT_justification": "credited analytic Schmidt SOS for actual I+kappa P+d vv*, not sampled unitaries",
+          "full_nearoptimizer_iff": "retains all S argmax/spread/peak hypotheses; not proved by finite family"
+        },
+        "false_variants": {
+          "expected_assertion_errors": [
+            {
+              "name": "replace first coexistence by the bare quadratic crossing",
+              "observed_exception": "replace first coexistence by the bare quadratic crossing",
+              "witness": {
+                "r_over_bare_crossing": "0.000724706035443964585156413225855"
+              }
+            },
+            {
+              "name": "reverse the quartic threshold correction",
+              "observed_exception": "reverse the quartic threshold correction",
+              "witness": {
+                "wrong_minus_actual_over_c4": "16.9127469311596179980625358815"
+              }
+            },
+            {
+              "name": "force mixing equal to one half before expanding the threshold",
+              "observed_exception": "force mixing equal to one half before expanding the threshold",
+              "witness": {
+                "strict_positive_threshold_error": "1.51020688609093658692059027924e-17"
+              }
+            },
+            {
+              "name": "apply the interior logarithmic elimination to a clamped mixing minimum",
+              "observed_exception": "apply the interior logarithmic elimination to a clamped mixing minimum",
+              "witness": {
+                "negative_unconstrained_h": "-473.974605403860617801831019465",
+                "formal_minus_actual": "-0.132457850124419910051741943869"
+              }
+            },
+            {
+              "name": "omit the reciprocal-q factor in B6 and retain the quartic coefficient",
+              "observed_exception": "omit the reciprocal-q factor in B6 and retain the quartic coefficient",
+              "witness": {
+                "difference_over_c4": "-3.62292626256398323916481250403"
+              }
+            },
+            {
+              "name": "delete the protection exponential from the lower threshold",
+              "observed_exception": "delete the protection exponential from the lower threshold",
+              "witness": {
+                "ratio": "0.36800208318526519021461890086"
+              }
+            },
+            {
+              "name": "merge the two coexistence thresholds when c is small",
+              "observed_exception": "merge the two coexistence thresholds when c is small",
+              "witness": {
+                "r_bulk": "3.62353018426557605497602246432e-12",
+                "bare": "0.00000000500000000972222223163580247428"
+              }
+            },
+            {
+              "name": "set the pure-bulk surviving peak moment equal to its positive-r interior value",
+              "observed_exception": "set the pure-bulk surviving peak moment equal to its positive-r interior value",
+              "witness": {
+                "exact_P_at_width_2": "0",
+                "interior_peak_limit": "1.3333333385199014792040150823e-12"
+              }
+            }
+          ],
+          "count": 8
+        }
+      },
+      "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+      "sympy": "1.9",
+      "mpmath": "1.2.1",
+      "decimal_precision": 400
+    }
+  ],
+  "author_evidence_read_only": {
+    "path": "bulk-onset-review/snapshot/control-runs/20261015T113652.131637Z/RESULT.json",
+    "status": "PASS",
+    "result_sha256": "49ac013d796c8c85d630f74a6f8bf9d2ed944538b554349dc892f30a80145d7e",
+    "input_hashes": {
+      "PAPER.md": "3e1f67ee40b28af0b9de3a643488524fdb38f508d663f63e2ec82f7bc4322804",
+      "THEOREM_MAP.md": "a05d1f856f0988466354dda368cd510c750b480476541dda6d163858f0a859be",
+      "CREDITED_INPUTS.json": "f7b09ccd936a6fcd73062680f6bfb46d33b13f37f2756bb3ac6fe0b27dd30610",
+      "PRIMARY_SCOPE.json": "dbde7a43653c93f4ab374051bd9150a4349268f6c11d3947db59b7820d80815e",
+      "checks.py": "9b8fc9595ba1b72f73a1576f98f044983d8f400fa330fcfe9b6f8f1522327efa",
+      "requirements.txt": "de7fa8918731cfc91dfaeb37870fa39125acb26a35e3515e7a0e9624102a1c7e"
+    },
+    "full_checker_and_result_read": true,
+    "reviewer_executed": false,
+    "counts_are_not_global_proof": true
+  },
+  "findings": [],
+  "literature_scope": "PRIMARY_SCOPE is unchanged bounded screen with original date and abstract-only limits; no fresh full-text audit or priority certificate",
+  "not_claimed": [
+    "explicit sufficiently-small-c cutoff",
+    "unique thresholds for every c",
+    "no c islands",
+    "complete intermediate-c phase diagram",
+    "new all-order value closure",
+    "simultaneous c_m->0 physical uniformity",
+    "exact finite extrema",
+    "all-order spectral rigidity"
+  ]
+}

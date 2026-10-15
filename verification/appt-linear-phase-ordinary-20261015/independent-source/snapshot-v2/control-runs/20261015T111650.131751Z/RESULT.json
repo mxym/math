@@ -1,0 +1,261 @@
+{
+  "utc": "2026-10-15T11:16:50.131751+00:00",
+  "kind": "author controls, not independent proof",
+  "inputs_sha256": {
+    "PAPER.md": "83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79",
+    "THEOREM_MAP.md": "66511887ede11be41e0603cd44b6cb9079ea61403adcfd97ff539f8728d6fd99",
+    "PRIMARY_SCOPE.json": "dbde7a43653c93f4ab374051bd9150a4349268f6c11d3947db59b7820d80815e",
+    "CREDITED_INPUTS.json": "e64afbfac65224ea01731854ed324f5b0167adaecf77d76343b459e7453fc4a9",
+    "requirements.txt": "de7fa8918731cfc91dfaeb37870fa39125acb26a35e3515e7a0e9624102a1c7e",
+    "checks.py": "12aea7872cb171d092e4602a43d92afa3796f9b5274cd42909310b11ceb24394",
+    "V1_TO_V2.diff": "923b52389ad8c8919e6b4205ce146b6366a904dad2f518f9e4fb7565eced8ede"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "sympy": "1.9",
+  "mpmath": "1.2.1",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "groups": {
+    "exact_symbolic": {
+      "exact_symbolic_identities": 10,
+      "cubic_bracket": "1/3<h0<3/8",
+      "positive_qprime_lower_bound": "9/4",
+      "finite_sample_maximization_claim": false
+    },
+    "exact_constants": {
+      "e2_lower": "7 with strictly positive remainder",
+      "e_lower": "163/60",
+      "e10_lower": 16807,
+      "tail_bound": "60/361<1/6",
+      "checks": 6
+    },
+    "global_endpoint_estimates": {
+      "tested_parameter_triples": 384,
+      "decimal_precision": 100,
+      "vanishing_width_and_mixing_endpoints_included": true,
+      "claim": "diagnostic finite cases only; the proof is the uniform analytic bound"
+    },
+    "small_c_analytic_branch": {
+      "h0": "0.364975775043958679683358782975641329750607877",
+      "L0": "0.850513852225956808597066119604290450739216826",
+      "K0": "0.11483997371118687696803180829528945562796008",
+      "K1": "0.0507059547859256655462611090478307743727505841",
+      "A0": "0.729951550087917359366717565951282659501215753",
+      "Hessian_determinant": "0.208061409490391534168816805311058490595345676",
+      "local_branch_diagnostics": [
+        {
+          "c": "0.001",
+          "L": "0.851020754879335029213999592041",
+          "h": "0.365039788316273572443063319078",
+          "rcrit_branch": "0.00011489071717210434042486299865",
+          "K1_estimate": "0.0507434609174634568311903551751"
+        },
+        {
+          "c": "0.0001",
+          "L": "0.850564494613777372406785082584",
+          "h": "0.364982171807124062267669827451",
+          "rcrit_branch": "0.000011484504468138638796987675998",
+          "K1_estimate": "0.0507097019951100184495168493974"
+        },
+        {
+          "c": "0.00001",
+          "L": "0.85051891598662456092961955459",
+          "h": "0.364976414674693004371061793596",
+          "rcrit_branch": "0.00000114840480774481605431040013535",
+          "K1_estimate": "0.0507063294728463008205240016482"
+        }
+      ],
+      "local_search_is_not_global_uniqueness_proof": true
+    },
+    "large_c_full_rectangle_diagnostics": {
+      "parameter_triples": 378,
+      "affine_r_controls_per_triple": 5,
+      "log_derivative_cases": 7,
+      "largest_c": "1000",
+      "sample_is_not_full_quantifier_proof": true
+    },
+    "actual_integer_quantum_lower_family": {
+      "actual_integer_dimension_and_rank_sequences": [
+        {
+          "c": 10,
+          "critical_r_factor": "0.5",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 400,
+              "integer_D_digits": 185,
+              "actual_r_relative_error": "1.0063317e-183",
+              "relative_moment_discrepancy": "0.0199582576784275927"
+            },
+            {
+              "m": 80,
+              "alpha": 800,
+              "integer_D_digits": 376,
+              "actual_r_relative_error": "8.5870407e-375",
+              "relative_moment_discrepancy": "0.0109160631215490099"
+            },
+            {
+              "m": 160,
+              "alpha": 1600,
+              "integer_D_digits": 757,
+              "actual_r_relative_error": "3.5114195e-756",
+              "relative_moment_discrepancy": "0.00569628889360354694"
+            }
+          ]
+        },
+        {
+          "c": 10,
+          "critical_r_factor": "1.0",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 400,
+              "integer_D_digits": 184,
+              "actual_r_relative_error": "1.5235094e-183",
+              "relative_moment_discrepancy": "1.02717151518931719e-181"
+            },
+            {
+              "m": 80,
+              "alpha": 800,
+              "integer_D_digits": 375,
+              "actual_r_relative_error": "6.3129832e-374",
+              "relative_moment_discrepancy": "2.86867491523935417e-372"
+            },
+            {
+              "m": 160,
+              "alpha": 1600,
+              "integer_D_digits": 757,
+              "actual_r_relative_error": "3.5114195e-756",
+              "relative_moment_discrepancy": "1.15267680939729986e-753"
+            }
+          ]
+        },
+        {
+          "c": 10,
+          "critical_r_factor": "2.0",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 400,
+              "integer_D_digits": 184,
+              "actual_r_relative_error": "1.5235094e-183",
+              "relative_moment_discrepancy": "2.02387284640287746e-181"
+            },
+            {
+              "m": 80,
+              "alpha": 800,
+              "integer_D_digits": 375,
+              "actual_r_relative_error": "6.3129832e-374",
+              "relative_moment_discrepancy": "5.73734983027780084e-372"
+            },
+            {
+              "m": 160,
+              "alpha": 1600,
+              "integer_D_digits": 757,
+              "actual_r_relative_error": "5.4122421e-755",
+              "relative_moment_discrepancy": "2.30535361875423589e-753"
+            }
+          ]
+        },
+        {
+          "c": 12,
+          "critical_r_factor": "0.5",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 480,
+              "integer_D_digits": 221,
+              "actual_r_relative_error": "3.0079617e-220",
+              "relative_moment_discrepancy": "0.0193551739101326019"
+            },
+            {
+              "m": 80,
+              "alpha": 960,
+              "integer_D_digits": 450,
+              "actual_r_relative_error": "3.1229292e-449",
+              "relative_moment_discrepancy": "0.0108154711301774374"
+            },
+            {
+              "m": 160,
+              "alpha": 1920,
+              "integer_D_digits": 908,
+              "actual_r_relative_error": "1.1840595e-906",
+              "relative_moment_discrepancy": "0.00569690106514640812"
+            }
+          ]
+        },
+        {
+          "c": 12,
+          "critical_r_factor": "1.0",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 480,
+              "integer_D_digits": 221,
+              "actual_r_relative_error": "4.7793861e-220",
+              "relative_moment_discrepancy": "3.78572080452633344e-218"
+            },
+            {
+              "m": 80,
+              "alpha": 960,
+              "integer_D_digits": 450,
+              "actual_r_relative_error": "3.1229292e-449",
+              "relative_moment_discrepancy": "7.20022861218790651e-447"
+            },
+            {
+              "m": 160,
+              "alpha": 1920,
+              "integer_D_digits": 908,
+              "actual_r_relative_error": "1.1840595e-906",
+              "relative_moment_discrepancy": "1.31851174877783938e-904"
+            }
+          ]
+        },
+        {
+          "c": 12,
+          "critical_r_factor": "2.0",
+          "cases": [
+            {
+              "m": 40,
+              "alpha": 480,
+              "integer_D_digits": 221,
+              "actual_r_relative_error": "1.0795309e-219",
+              "relative_moment_discrepancy": "7.47585388672033004e-218"
+            },
+            {
+              "m": 80,
+              "alpha": 960,
+              "integer_D_digits": 450,
+              "actual_r_relative_error": "3.1229292e-449",
+              "relative_moment_discrepancy": "1.43379986402176187e-446"
+            },
+            {
+              "m": 160,
+              "alpha": 1920,
+              "integer_D_digits": 908,
+              "actual_r_relative_error": "1.1840595e-906",
+              "relative_moment_discrepancy": "2.63702349755483311e-904"
+            }
+          ]
+        }
+      ],
+      "decimal_precision": 1100,
+      "APPT_source": "credited analytic projection/pole sufficient theorem; no sampled-unitary certificate",
+      "full_alpha_over_m_unbounded_extension_claim": false
+    },
+    "false_variant_regressions": {
+      "actual_rejected_false_statements": [
+        "pure envelope for all c",
+        "remove the vanishing denominator in Q",
+        "replace linear onset K0*c by c^2/2",
+        "delete either active phase at equality",
+        "apply finite interior peak correction at width two",
+        "use maximum moment identity below order one"
+      ],
+      "count": 6
+    }
+  },
+  "new_Lean": false,
+  "new_audit_roots": 0,
+  "grid_is_not_a_proof": true,
+  "status": "PASS"
+}

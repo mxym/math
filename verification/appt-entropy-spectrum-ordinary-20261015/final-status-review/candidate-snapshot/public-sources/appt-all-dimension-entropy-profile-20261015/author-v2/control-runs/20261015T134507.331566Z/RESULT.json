@@ -1,0 +1,116 @@
+{
+  "kind": "finite author controls, not independent review or proof by sampling",
+  "started_utc": "2026-10-15T13:45:07.424272+00:00",
+  "source_hashes": {
+    "checks.py": "6c129ec8e4317998e116cd7b1f53297a4d74a19c991426b65221ab66bfe7a800",
+    "CREDITED_INPUTS.json": "f77f11a7f7d71186fb6abb0640f52cc4c47b7d3875d2a20e2b0d84fd0605b064",
+    "PAPER.md": "b7d51f6b49ab2fb35245883f18f81d5bee478c4fcb707681437ffd7ebc1ddec2",
+    "PRIMARY_SCOPE.json": "eb2b26e3b63170ec6dc8aac925123415baec0401dfef66d8e044439442de045d",
+    "THEOREM_MAP.md": "d0038482b14fbe8fd7a4c58bca1ef3a2090ea51f08f35050d9e97d50c6d54d1b"
+  },
+  "new_Lean_executions": 0,
+  "checks": {
+    "credited_files_literal": 20,
+    "symbolic_identities": {
+      "variance_stationary": true,
+      "variance_value": true,
+      "moment_stationary_equation": true,
+      "A_trace": true,
+      "B_trace": true,
+      "C_trace": true,
+      "A_boundary": true,
+      "B_C_boundary": true
+    },
+    "exact_qubit_family_trace_boundary_membership": 224,
+    "small_width_all_order_kernel": {
+      "cases": 50,
+      "max_relative_errors_by_m": {
+        "16": "0.002448421585352077013831631",
+        "64": "0.0006096173225163912098419788",
+        "256": "0.0001940629840588763109119076",
+        "1024": "0.00005197088840052380844626479",
+        "4096": "0.00001331473107606401309236022"
+      }
+    },
+    "finite_lattice_loss": {
+      "cases": 156,
+      "max_loss_times_D2_over_alpha": "0.0555572016906733729955922106408"
+    },
+    "fixed_local_low_profile": [
+      {
+        "m": 3,
+        "D": 3000,
+        "max_relative_difference_to_three_actual_families": "0.01126715114919056469358214"
+      },
+      {
+        "m": 3,
+        "D": 300000,
+        "max_relative_difference_to_three_actual_families": "0.0001126713206493299544546937"
+      },
+      {
+        "m": 3,
+        "D": 30000000,
+        "max_relative_difference_to_three_actual_families": "0.000001126713185663485972630625"
+      },
+      {
+        "m": 4,
+        "D": 4000,
+        "max_relative_difference_to_three_actual_families": "0.01549462216322538092212912"
+      },
+      {
+        "m": 4,
+        "D": 400000,
+        "max_relative_difference_to_three_actual_families": "0.0001549462216322538092212912"
+      },
+      {
+        "m": 4,
+        "D": 40000000,
+        "max_relative_difference_to_three_actual_families": "0.000001549462216322538092212912"
+      },
+      {
+        "m": 7,
+        "D": 7000,
+        "max_relative_difference_to_three_actual_families": "0.03655395182583234443548646"
+      },
+      {
+        "m": 7,
+        "D": 700000,
+        "max_relative_difference_to_three_actual_families": "0.0003662533080593339681373731"
+      },
+      {
+        "m": 7,
+        "D": 70000000,
+        "max_relative_difference_to_three_actual_families": "0.000003662604579535343295690219"
+      },
+      {
+        "m": 16,
+        "D": 16000,
+        "max_relative_difference_to_three_actual_families": "0.1870767389456244889768533"
+      },
+      {
+        "m": 16,
+        "D": 1600000,
+        "max_relative_difference_to_three_actual_families": "0.001875876901448699559954415"
+      },
+      {
+        "m": 16,
+        "D": 160000000,
+        "max_relative_difference_to_three_actual_families": "0.0000187592816484847756000203"
+      }
+    ],
+    "finite_V_sandwich_at_sampled_parameters": {
+      "cases": 396,
+      "scope": "checks explicit scalar formulas and endpoint lower bounds; samples do not establish its global maximum"
+    },
+    "actual_rejected_wrong_extensions": [
+      "omit hole floor when alpha is much smaller than 1/D",
+      "replace finite-m bulk coefficient by alpha/(2m^2) at fixed m",
+      "take maximum of separately optimized head and body terms",
+      "delete balanced-aspect surplus variance",
+      "omit trace normalization of a projection spectrum",
+      "claim continuous rank gives the exact finite projection maximum"
+    ]
+  },
+  "status": "PASS",
+  "completed_utc": "2026-10-15T13:45:07.883119+00:00"
+}

@@ -1,0 +1,150 @@
+{
+  "utc": "20261015T125457.850334Z",
+  "kind": "new independent auxiliary diagnostics, not author replay or Lean",
+  "author_modules_imported": false,
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "sympy": "1.9",
+  "mpmath": "1.2.1",
+  "precision_digits": 650,
+  "groups": {
+    "exact_symbolic": {
+      "exact_symbolic_identities": 14,
+      "barrier_second_derivative_factor": "192(2E-1)(E-1)<=0 on [1/2,1]"
+    },
+    "analytic_diagnostics": {
+      "curvature_and_sprime_cases": 10,
+      "conditional_elasticity_cases": 6,
+      "strict_admissible_WK_cases": 18,
+      "strict_v_concavity_cases": 30,
+      "explicit_last_boundary_witnesses": [
+        {
+          "c": ".000001",
+          "strict_excess": "1.24999416667009548365355043055e-13"
+        },
+        {
+          "c": ".001",
+          "strict_excess": "0.000000124417009302959675714924373491"
+        },
+        {
+          "c": ".01",
+          "strict_excess": "0.0000119200710148213431549560645833"
+        },
+        {
+          "c": ".1",
+          "strict_excess": "0.000698597662242725751685295111788"
+        }
+      ],
+      "finite_cases_not_continuous_proof": true
+    },
+    "exact_certificate_structure": {
+      "covers": [
+        {
+          "name": "upper_full_cover",
+          "leaves": 27,
+          "start": "1/10",
+          "end": "9/10",
+          "methods": {
+            "strict_positive_W": 27
+          }
+        },
+        {
+          "name": "outside_core_left",
+          "leaves": 32,
+          "start": "1/10",
+          "end": "1/2",
+          "methods": {
+            "Wx_excludes_zero": 23,
+            "W_excludes_zero": 9
+          }
+        },
+        {
+          "name": "outside_core_right",
+          "leaves": 13,
+          "start": "11/20",
+          "end": "9/10",
+          "methods": {
+            "Wx_excludes_zero": 13
+          }
+        },
+        {
+          "name": "core_convexity_cover",
+          "leaves": 1,
+          "start": "1/2",
+          "end": "11/20",
+          "methods": {
+            "strict_positive_Wxx_and_admissible": 1
+          }
+        }
+      ],
+      "total_leaves": 73,
+      "whole_K_strip_leaves": 45,
+      "engine_transcendental_math_and_rounding_review": "manual complete code/proof read; this separate helper verifies exact partition/sign serialization, not a new implementation of the author interval engine"
+    },
+    "triple_point_illustration": {
+      "illustrative_c": "0.2596735326882962842162779010214378191255",
+      "illustrative_L": "1.041930238259588554998194823959404807055",
+      "illustrative_h": "0.3871188019244892170838713823803937490243",
+      "P": "0.74015008929537681889384009818242183",
+      "WK": "0.58123850848908557552727165984058999",
+      "Wxx": "1.5242480207249692771747128223939608",
+      "mixed_window_linear_coefficient": "0.15282036643756541449955570477656793",
+      "root_search_is_not_the_interval_proof": true
+    },
+    "false_variants": {
+      "actual_expected_assertion_errors": [
+        {
+          "name": "drop v>0 from the logarithmic strict mixed test",
+          "actual_exception": "AssertionError: drop v>0 from the logarithmic strict mixed test",
+          "witness": {
+            "K": "2",
+            "x": ".01",
+            "v": "-0.464457980459415473404129278511",
+            "W": "-0.23655408418430426372132125049",
+            "actual_constrained_U_over_r0": "1.00013468920445664174702340479"
+          }
+        },
+        {
+          "name": "apply e<1-w/4 without the e>1/2 condition",
+          "actual_exception": "AssertionError: apply e<1-w/4 without the e>1/2 condition",
+          "witness": {
+            "t": "10",
+            "e": "0.00408824146797440759428093375975",
+            "right_side": "-0.924342376511395956693126024739"
+          }
+        },
+        {
+          "name": "reverse the curvature lower bound",
+          "actual_exception": "AssertionError: reverse the curvature lower bound",
+          "witness": {
+            "t": "1",
+            "positive_margin": "0.0081903866388474676485155196353"
+          }
+        },
+        {
+          "name": "replace the decreasing phi(v)/v^2 ratio by an increasing one",
+          "actual_exception": "AssertionError: replace the decreasing phi(v)/v^2 ratio by an increasing one",
+          "witness": {
+            "v": "1",
+            "actual_derivative": "-0.103638323514326964786571310484"
+          }
+        },
+        {
+          "name": "reverse the closing-window sign on the mixed side",
+          "actual_exception": "AssertionError: reverse the closing-window sign on the mixed side",
+          "witness": {
+            "exact_p": "1/2",
+            "exact_r": "1",
+            "exact_A": "1",
+            "c_star_minus_c": "1/100",
+            "wrong_negative_width": "-1/25",
+            "correct_positive_width": "1/25"
+          }
+        }
+      ],
+      "count": 5
+    }
+  },
+  "status": "PASS",
+  "decision": "PASS",
+  "executed_script_sha256": "20e9e3ef3006ac64bfb63f1b096ae6bdd0605f706703f9f7e329a5697a4c48e9"
+}

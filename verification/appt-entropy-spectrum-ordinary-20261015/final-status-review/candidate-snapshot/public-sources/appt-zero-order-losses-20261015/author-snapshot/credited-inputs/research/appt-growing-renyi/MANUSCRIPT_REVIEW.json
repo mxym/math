@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-14",
+  "client_timezone": "Asia/Shanghai",
+  "reviewer": {
+    "identity": "/root/written_breadth",
+    "kind": "OpenAI AI assistant, independent subagent",
+    "external_peer_review": false
+  },
+  "review_type": "Fresh ordinary mathematical review of the actual growing-order APPT manuscript package; no new Lean audit",
+  "source_worktree": "/home/mxym/math-appt-multiscale-20261013",
+  "source_commit": "4647786e2099a1d5ab3e599e9b2c35f701b00cc7",
+  "record_worktree": "/home/mxym/math-written-breadth-20261014",
+  "mathematical_verdict": "No mathematical error or proof gap identified in the reviewed G, Z, U, S, M and exact finite E1 results, conditional on the explicitly inherited fixed-order companion theorems.",
+  "scope_wording_status": "Both reported stale unresolved-scope sentences were corrected by the root agent and their exact diffs were read. No required mathematical or scope correction remains.",
+  "findings": [
+    {
+      "scope": "PAPER.md G7-G15 and G19",
+      "result": "No error identified",
+      "checked": "Actual uniform-Schmidt and shifted-star witnesses use disjoint physical slots. The paired eight-unit bound is an all-aspect physical input. The middle normalized spectrum has O(1/m) deviations, while the m^2-2 exceptional square mass remains O(1) uniformly in n. The actual second eigenvalue is bounded away from three. Isolating the largest power leaves an exponentially smaller exceptional term and a middle Taylor term; in the sublinear order window its relative error is independent of aspect."
+    },
+    {
+      "scope": "PAPER.md G24-G30, especially G28",
+      "result": "No error identified",
+      "checked": "The projection-plus-spike Schmidt SOS expands exactly with nonnegative coefficients. The adaptive integer H=ceil(sqrt(alpha*m)) gives alpha/(H+3)<=sqrt(alpha/m), H/m->0 and alpha/m->0 uniformly, so the actual peak error is o(1/alpha). The exact normalized spectrum and rest-variance expression retain trace normalization and integer rank rounding. Dividing the rest variance by gamma controls its corrections uniformly, matching the sum of the two moment contributions rather than their maximum."
+    },
+    {
+      "scope": "PAPER.md G3-G6 and G22-G34",
+      "result": "No error identified",
+      "checked": "The actual-state power reduction has a uniform additive error after division by u_D^alpha. Relative entropy optimality is first shown to force the top eigenvalue to three, including supercritical chi; only then is the reduction made relative to the actual largest power. The softplus ratio gives h->0 for bounded-above chi and h/chi->0 for chi->infinity, combined by h/(1+chi_+)->0. The moment condition is the stricter h->0. Shifted-star rigidity makes all remaining actual eigenvalues flat and excludes singular near-optimizers."
+    },
+    {
+      "scope": "SMALL_ORDER_BOUNDARY.md Z3-Z12, especially Z11/Z12",
+      "result": "No error identified",
+      "checked": "The least pivot-relative q=t*ell is kept distinct from the actual normalized least eigenvalue. The shifted star controls the rest of the exceptional head and bounds the full smallest paired width by min(1,h_0*q). Multiplying the singular kernel by alpha before comparison gives a bounded endpoint contribution. Exact pivot centering retains D*f_alpha(t-1). Taylor errors are bounded by alpha*(epsilon_m+nu_m)*C and hence are o(1+alpha*gamma), with no lower bound on alpha."
+    },
+    {
+      "scope": "SMALL_ORDER_BOUNDARY.md Z13-Z16",
+      "result": "No error identified",
+      "checked": "The entropy-log error is uniformly negligible because A_alpha/D=O(D^-1+alpha/m^2), even when alpha*gamma is unbounded. The sharper variance cap is applied before optimization. On q<=1/h_0 the scalar expression is convex, so its maximum is one of the two endpoints; on q>=1/h_0 the best point is 1/h_0. Replacing h_0 by m creates only o(1+alpha*gamma). The target W is comparable to 1+alpha*gamma throughout the range."
+    },
+    {
+      "scope": "SMALL_ORDER_BOUNDARY.md Z18-Z23 lower construction",
+      "result": "No error identified",
+      "checked": "The adaptive negative-family integer H tends to infinity uniformly while H/m->0 and alpha*log H->0. Its actual Schmidt SOS is valid and the least eigenvalue is positive. The normalized least power is m^-alpha+o(1) uniformly, while the rest variance divided by gamma tends to one. The singular and full-rank families match both branches without a surrogate-spectrum or existence gap."
+    },
+    {
+      "scope": "SMALL_ORDER_BOUNDARY.md Theorem Z2 and Z24-Z25",
+      "result": "No error identified",
+      "checked": "At finite tau,c with c>0, gamma diverges and Q/gamma is compact. A limiting least-power value below a=e^-tau forces (m*ell)^alpha below one by a fixed margin; since alpha->0, m*ell->0 and the variance coordinate tends to zero. This yields the stated low/high criteria. At c=2a only (0,0) and (a,1) can saturate; the distance-to-two-points condition permits alternation. The c=0 case uses alpha*Q->0 without incorrectly requiring Q/gamma->0."
+    },
+    {
+      "scope": "UNIFORM_PROFILE.md U3-U5 and U1/U2 assembly",
+      "result": "No error identified",
+      "checked": "For each actual state, Renyi entropy monotonicity follows from convexity of the positive-eigenvalue power log, including the continuous alpha=1 value. The optimized deficit is therefore monotone. A finite order grid and the relative continuity modulus of Phi, uniform over gamma>=1, yield compact-order uniformity from inherited fixed-order uniform-in-n statements. No moving-order uniformity is presumed. Endpoint and compact subsequence arguments prove the stated suprema; unrestricted-aspect alpha comparable to m is not silently inserted."
+    },
+    {
+      "scope": "SPECTRAL_PROFILE.md S1-S4 and all moving finite transition rows",
+      "result": "No error identified",
+      "checked": "On compact positive-order intervals the normalized kernel is Lipschitz in order with a bound proportional to x^2, including x=-1 by an integrable endpoint majorant. The actual-state entropy expansion has no artificial pole at alpha=1. Thus moving alpha_j toward a finite alpha_0 changes every scaled state deficit by o(1), and the transition rows inherit the fixed transition theorem rather than a one-sided coercivity estimate. The 1/2<alpha<1 row is proved through a strict positive mixture of the half-order and von Neumann kernel bounds. The alpha->0 and infinity rows use their new endpoint state identities."
+    },
+    {
+      "scope": "MACROSCOPIC_HIGH_ORDER.md M1-M6",
+      "result": "No error identified",
+      "checked": "For arbitrary aspect and all diverging alpha, the middle factor (1+delta_m)^alpha is kept until division of its logarithm by alpha-1. The pure spike plus Jensen give the lower positive-part bound. The upper error is O(1/m)+O((1+log alpha)/(alpha-1)), uniform in n and alpha>=L_m. The statement is an absolute-error law and does not claim the unresolved first nonzero relative window."
+    },
+    {
+      "scope": "THEOREM_MAP.md and COMPARISON.md",
+      "result": "No material mathematical coverage mismatch identified",
+      "checked": "All new endpoint/profile/rigidity results are stated as ordinary mathematical work with no complete Lean coverage. The fixed 39-root and positive-lacunary receipts retain their original scope. Existing finite constructions and fixed-order inputs are credited. The external entropy comparisons are contextual primary literature, not unproved bridge assumptions or priority certification."
+    },
+    {
+      "scope": "EXACT_SMALL_ORDER.md E1-E14, lines 1-162",
+      "result": "No error identified",
+      "checked": "The actual variable-Schmidt rank-two discriminant gives the singular classification and the spread bound for all D>=4. In the near-boundary zone u<=mu/16, the tail lies in [mu/2,2mu], Popoviciu variance is bounded by 2N*u*mu, and the concave-power loss is at most 5*alpha*D*u*N^(1-alpha). The extra least power is at least u*N^(1-alpha), making every positive-u state strictly worse. In the far zone the normalized spectrum lies in (1/16,3); the second derivative bound and variance<=2 yield M_alpha>=1-(1-alpha)/(2D), strictly above ((D-1)/D)^(1-alpha). The full m=2,D=4 boundary, arbitrarily small positive u and every equality state are covered. The constant 512 is sufficient, not claimed sharp."
+    }
+  ],
+  "inherited_inputs": {
+    "policy": "The prior sharp fixed-order joint-growth laws and rigidity results are accepted as clearly identified ordinary mathematical inputs. Their entire dependency chains were not independently re-proved in this review.",
+    "actual_read": [
+      {
+        "path": "research/appt-multilevel-counterexample/SHARP_ASPECT_RATIO.md",
+        "scope": "Physical rearrangement and rectangular/star proof Sections 2-4, including the all-aspect A8 gap bound.",
+        "sha256": "58aaa3ad0fca4201733efc2f8017d657db835ad4a2bd4faef1ac99dc28405772"
+      },
+      {
+        "path": "research/appt-multilevel-counterexample/ENTROPY_ASYMPTOTIC.md",
+        "scope": "Opening through Section 7 beginning; Sections 2-6 actual star, variance, normalization and von Neumann rigidity arguments; Sections 12.1-13 high-order rigidity and exact rank/operator endpoints.",
+        "sha256": "80c2363988e83a31a7e4bc0a76d1dfcc600bedf3e2915a47ca5898e49d23fe79"
+      },
+      {
+        "path": "research/appt-multilevel-counterexample/SUBUNIT_RENYI.md",
+        "scope": "Opening, fixed-order R1/R2 statements and named companion dependencies through the beginning of Section 3.",
+        "sha256": "4b1e749ce029a433b3a8311954e49c40b05280522f02f03ec1e1632c13c65131"
+      },
+      {
+        "path": "research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md",
+        "scope": "Opening fixed-order L1-L3 criteria and Section 2 beginning; accepted as the inherited full fixed-order theorem, not a fresh complete re-audit.",
+        "sha256": "585c56df75a58290eb8948156af354601574dd26be6614dedada41590275597b"
+      }
+    ]
+  },
+  "primary_literature_scope": [
+    {
+      "url": "https://arxiv.org/html/2608.03390v2",
+      "actual_read": "Current primary version, abstract/context and Section 6.2 minimum von Neumann entropy statements; no matching moving-order statement found in those read sections.",
+      "priority_certification": false
+    },
+    {
+      "url": "https://arxiv.org/html/2609.18568v1",
+      "actual_read": "Current primary version, abstract/context and Section 3 universal relaxation/exact qubit-qudit entropy statements; no matching moving-order statement found in those read sections.",
+      "priority_certification": false
+    }
+  ],
+  "trust_and_scope_limits": {
+    "external_human_peer_review": false,
+    "historical_priority_certification": false,
+    "lean_execution": false,
+    "new_lean_module": false,
+    "new_audit_root": false,
+    "expanded_kernel_audit": false,
+    "new_manuscripts_certified_by_old_kernel_receipts": false,
+    "finite_python_checks_executed_by_this_reviewer": false,
+    "numerical_observations_used_as_proof": false,
+    "arbitrary_aspect_alpha_comparable_to_m_relative_equivalent_proved": false,
+    "fixed_m_moving_order_theorem_proved": false,
+    "new_independent_breadth_theorem_count": 0,
+    "general_exact_finite_minimum_proved": false,
+    "explicit_band_exact_finite_minimum_proved": true
+  },
+  "reviewed_files": [
+    {
+      "path": "research/appt-growing-renyi/PAPER.md",
+      "sha256": "52cb6dc209373fe696093b94799e60fd034ac82044099f7b789c56f864dcc987",
+      "bytes": 23132,
+      "line_count": 500,
+      "actual_read_scope": "Original complete file plus the exact post-review scope/map diff; mathematical body unchanged except the separately full-read new E1 theorem file."
+    },
+    {
+      "path": "research/appt-growing-renyi/SMALL_ORDER_BOUNDARY.md",
+      "sha256": "b3804f45e13496fc9f5e3324d2dc282e0d8f315020fd67e846a7f886b8b63c9d",
+      "bytes": 16812,
+      "line_count": 380,
+      "actual_read_scope": "Original complete file plus the exact post-review scope/map diff; mathematical body unchanged except the separately full-read new E1 theorem file."
+    },
+    {
+      "path": "research/appt-growing-renyi/UNIFORM_PROFILE.md",
+      "sha256": "80a88fac23e2697a0fada560ca2914e8abb5df5d55a0420dc0ccc759f00231f4",
+      "bytes": 9241,
+      "line_count": 181,
+      "actual_read_scope": "Entire file"
+    },
+    {
+      "path": "research/appt-growing-renyi/SPECTRAL_PROFILE.md",
+      "sha256": "50673b7b42f8dddcd904792b803314a1cf0d45519e7db705dddca5ce259af637",
+      "bytes": 7925,
+      "line_count": 157,
+      "actual_read_scope": "Entire file"
+    },
+    {
+      "path": "research/appt-growing-renyi/MACROSCOPIC_HIGH_ORDER.md",
+      "sha256": "c867492b5cb26c9401f472d39d356f074ff6a4ecd01c8f9270084315d0294c1e",
+      "bytes": 3484,
+      "line_count": 82,
+      "actual_read_scope": "Entire file"
+    },
+    {
+      "path": "research/appt-growing-renyi/EXACT_SMALL_ORDER.md",
+      "sha256": "b9e8d823756b8c0f6196751241ae17837f8267fad4c1f306f03e866fc4826fa7",
+      "bytes": 6914,
+      "line_count": 162,
+      "actual_read_scope": "Entire file"
+    },
+    {
+      "path": "research/appt-growing-renyi/THEOREM_MAP.md",
+      "sha256": "d9409eaf8c9ad57c3304002dd9a24afafb222590ceee28973c473b9c4a599df3",
+      "bytes": 5720,
+      "line_count": 30,
+      "actual_read_scope": "Original complete file plus the exact post-review scope/map diff; mathematical body unchanged except the separately full-read new E1 theorem file."
+    },
+    {
+      "path": "research/appt-growing-renyi/COMPARISON.md",
+      "sha256": "6c7a2244022ea4210c62627d2439ab59fc1c292eb690deda0aaa5119db3794c0",
+      "bytes": 3093,
+      "line_count": 30,
+      "actual_read_scope": "Entire file"
+    }
+  ],
+  "unresolved_required_changes": [],
+  "resolved_wording_feedback": [
+    {
+      "path": "research/appt-growing-renyi/PAPER.md",
+      "original_lines": [
+        494,
+        496
+      ],
+      "issue": "The unresolved-scope paragraph still lists the alpha->0 boundary, while the package's Z1 closes that stated growing-m range.",
+      "severity": "Scope/status synchronization; no mathematical proof defect",
+      "suggestion": "Refer to the companion zero-order theorem and retain only genuine unresolved ranges.",
+      "status": "resolved"
+    },
+    {
+      "path": "research/appt-growing-renyi/SMALL_ORDER_BOUNDARY.md",
+      "original_lines": [
+        375,
+        377
+      ],
+      "issue": "The unresolved-scope paragraph still lists arbitrary moving orders staying away from both endpoints, although U5/U1/U2 now provide the stated compact and assembled ranges.",
+      "severity": "Scope/status synchronization; no mathematical proof defect",
+      "suggestion": "Refer to UNIFORM_PROFILE.md and retain unrestricted-aspect orders comparable to m or larger, fixed-m and exact finite/Lean gaps.",
+      "status": "resolved"
+    }
+  ],
+  "version_history": {
+    "first_full_package_read_commit": "4647786e2099a1d5ab3e599e9b2c35f701b00cc7",
+    "initial_paper_sha256": "6d5a2c33b7b51fdb1d5ee8ae27303e121d32174f06559b848bb63d5500977cc8",
+    "initial_small_order_sha256": "e79b2604520a8b110d633281a24d9e11009142741cafa51b9595ce2344336571",
+    "post_review_changes": "The root corrected only the two reported scope paragraphs, added EXACT_SMALL_ORDER.md, and added its E1 theorem-map row. The new proof and literal scope/map diffs were read.",
+    "new_exact_finite_proof_read_in_full": true,
+    "canonical_tree_includes_changes_after_source_commit": true
+  }
+}

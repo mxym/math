@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "review_kind": "fresh_internal_assistant_ordinary_mathematical_review",
+  "reviewer": {
+    "agent_task": "/root/written_breadth",
+    "date_local": "2026-10-14",
+    "timezone": "Asia/Shanghai",
+    "authoring_agent_distinct_from_root": true
+  },
+  "root_source_tree": "/home/mxym/math-appt-multiscale-20261013",
+  "reported_root_source_commit": "92c6a4749",
+  "disposition": "No mathematical gap or material quantifier mismatch found in the complete all-order supplement actually read.",
+  "source_files": [
+    {
+      "path": "research/appt-growing-renyi/ALL_ORDER_VARIATIONAL.md",
+      "sha256": "7b9846a394673aee0fe97a1f0b7b2c01a197ab6b3e9854fac7201e0eb562b269",
+      "lines_read": [
+        1,
+        267
+      ],
+      "scope": "Entire V1/V2 manuscript, V1-V18 and final restrictions."
+    },
+    {
+      "path": "research/appt-growing-renyi/ALL_ORDER_MAP.md",
+      "sha256": "da4c84cdf7abc2656756835d462bf100dbf264629995f3180d5a98cae5590817",
+      "lines_read": [
+        1,
+        16
+      ],
+      "scope": "Entire proof-obligation map and restrictions."
+    }
+  ],
+  "inherited_reviewed_inputs": [
+    {
+      "path": "research/appt-growing-renyi/LINEAR_ORDER_VARIATIONAL.md",
+      "sha256": "49b33ee7edb2e326619a144f4343e78d896c47cfe4d9e524c16cd6790a0e001d",
+      "status": "Fresh complete ordinary proof review in LINEAR_ORDER_REVIEW.json, including physical L6-L7 and full parameter family."
+    },
+    {
+      "path": "research/appt-growing-renyi/PAPER.md",
+      "sha256": "52cb6dc209373fe696093b94799e60fd034ac82044099f7b789c56f864dcc987",
+      "status": "Current-run complete prior review; G1/G11/G13/G15/G26 checked as explicit written inputs. No new Lean coverage."
+    },
+    {
+      "path": "research/appt-growing-renyi/UNIFORM_PROFILE.md",
+      "sha256": "80a88fac23e2697a0fada560ca2914e8abb5df5d55a0420dc0ccc759f00231f4",
+      "status": "Current-run complete prior review; U2 applied only below sqrt(m)=o(m)."
+    }
+  ],
+  "checks": [
+    {
+      "id": "finite_profile_and_physical_bridge",
+      "finding": "Finite rectangle is compact and eta denominator remains positive. d>=0 at both width endpoints. Exact family I+kappa P+d vv* and parameterized G26 supply genuine APPT states for every width/mixing competitor, not a characterization assumption about all spectra."
+    },
+    {
+      "id": "dimension_dichotomy",
+      "finding": "For R<=K T and alpha>=epsilon*m, u_D/(1+delta_m)>=2 eventually, so D>=2^alpha/K. Explicit supremum alpha*m^2*2^-alpha and exponential width bound prove all V8 errors uniformly, independent of n or alpha. Fixed K thresholds precede the limit K->infinity."
+    },
+    {
+      "id": "upper_comparable_peak",
+      "finding": "Actual secant estimate and coupled head give V9; middle mean error is O(m^2/D) before exponentiation. Calibration factor (3/u_D)^alpha=(1+2/D)^alpha tends to one only in this branch. All remaining exceptional moments are o(R)<=o(V*) by the physical second-peak gap."
+    },
+    {
+      "id": "lower_rank_and_removed_slot",
+      "finding": "V12 has actual multiplicities k-1 and D-k. Rank rounding <=1/D, trace normalization d/D<=2/D, and removed baseline slot are explicitly controlled uniformly using V8. Calibrated head <=physical numerator head, and scalar numerator >=1; hence the relative lower estimate is valid even when mixing approaches either endpoint."
+    },
+    {
+      "id": "peak_dominant_arbitrary_order",
+      "finding": "Pure spike has largest normalized eigenvalue exactly u_D and contributes exactly R to the moment for every alpha>1. No t_D expansion is used here, including alpha>>D. Actual remaining exceptional moments are o(R); middle <=T. Scalar bulk <=(1+2/(m-1))^alpha<=T, because the inherited explicit delta_m=(2/(m-1)+nu_m)/(1-nu_m)>=2/(m-1)."
+    },
+    {
+      "id": "uniform_two_branch_limit",
+      "finding": "For R>=K T, both moment and scalar lie between R and R+T+o(R), giving uniform discrepancy O(1/K)+o(1). Combine with comparable branch for fixed K, then K->infinity; this proves V2 without an aspect or upper-order condition."
+    },
+    {
+      "id": "positive_logarithmic_separation",
+      "finding": "Width endpoint with theta=1/2 has bulk moment ((1+1/m)^alpha+(1-1/m)^alpha)/2. Its log is convex with nonnegative derivative at alpha=1, so it is nondecreasing for alpha>=1. At alpha=epsilon*m it tends to cosh(epsilon)>1. The uniform positive log lower bound justifies relative entropy and additive log error V3."
+    },
+    {
+      "id": "sublinear_moment_excess",
+      "finding": "V18 is independently proved, not inferred from M*/V* convergence. Exact mean-one two-point variance <=1/(m-1)^2 and alpha*width->0 give upper excess. H=ceil(sqrt(alpha*m)) gives variance*m^2->1 and alpha*eta,alpha*log(1+kappa/2)->0, preserving the full calibrated head. Lower error is relative to the sum R+alpha(alpha-1)/(2m^2), for every n>=m."
+    },
+    {
+      "id": "all_positive_orders_quantifiers",
+      "finding": "Above sqrt(m) orders diverge. Any failed uniform sequence admits either alpha/m->0, where V18 and prior G1 control positive moment excesses and hence their logs relatively, or a subsequence alpha/m>=epsilon, where V3 applies even for unbounded alpha/m. Below sqrt(m), U2 gives the stated uniformity. Alpha=1 lies in the continuous finite-order branch."
+    },
+    {
+      "id": "scope",
+      "finding": "Asymptotic entropy value as m->infinity across all n>=m and all positive orders is proved. Exact finite optimization, fixed-m limits, all-aspect rigidity, absolute separability and full formalization remain expressly excluded."
+    }
+  ],
+  "changes_requested": [],
+  "scope_limits": {
+    "external_human_peer_review": false,
+    "historical_priority_certification": false,
+    "lean_execution": false,
+    "new_lean_modules": false,
+    "expanded_audit": false,
+    "old_kernel_receipts_certify_new_manuscript": false,
+    "numerics_used_as_proof": false,
+    "previous_review_range_changed": false,
+    "exact_finite_optimization_proved": false,
+    "fixed_m_moving_order_solution_proved": false,
+    "all_aspect_rigidity_proved": false,
+    "new_major_breadth_problem_count": 0
+  }
+}

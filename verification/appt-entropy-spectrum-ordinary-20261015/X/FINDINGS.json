@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-15T13:59:56.405360+00:00",
+  "source_findings": [
+    {
+      "id": "F1",
+      "severity": "nonblocking endpoint derivative wording",
+      "original_paper": {
+        "bytes": 22821,
+        "sha256": "20d6c3ac68c5523bb7557f0bcc81cbe614404a4fc2370510fb3e24e326606b66"
+      },
+      "status": "RESOLVED_IN_V2",
+      "witness": {
+        "alpha": 2,
+        "kappa": 1,
+        "theta": 0,
+        "actual_derivative": 0,
+        "old_proxy": 1
+      },
+      "resolution": "Write the full nonnegative derivative including theta, and theta=0/1 zero endpoints. Required monotonicity and all theorem targets were already correct; no quantifier changed.",
+      "author_delta": {
+        "bytes": 831,
+        "sha256": "b232451bc0735ee9fdf0ca1d8e7f8127df3a8795932a24541569cbb00f8d9ee6"
+      },
+      "final_paper": {
+        "bytes": 22928,
+        "sha256": "b7d51f6b49ab2fb35245883f18f81d5bee478c4fcb707681437ffd7ebc1ddec2"
+      }
+    }
+  ],
+  "unresolved_mathematical_findings": [],
+  "reviewer_control_failures": [
+    {
+      "id": "C1",
+      "status": "RESOLVED_WITH_VALID_DERIVED_CONTROL_BOUND",
+      "original_run": "runs/20261015T135229.946566Z",
+      "diagnosis": {
+        "bytes": 1064,
+        "sha256": "c8017c020bcddc3110787a06b571ad949b2a6d93b244c8474524f4302a83376b"
+      },
+      "m": 3,
+      "D": 300,
+      "alpha": "7.0",
+      "actual_value": "14.7723999884555379368171223156305875049431635635865910076005586974467416671479825350425727",
+      "wrong_checker_constant": 10,
+      "resolution": "J_D(0)=J_D(1)=0; interpolation remainder |J_D/[a(a-1)]|<=sup|J_D_second|/2. J_D_second=(log3)^2(D-1)3^a/(D-1+3^a)^2 <= (log3)^2 3^7/(D-1). For D>=2, (D/(2(D-1)))<=1, so p_D D/a<=3^7(log3)^2. The source only claims an unspecified compact-order C_A, not 10.",
+      "source_math_changed_for_this_failure": false
+    }
+  ],
+  "reproduced_same_control_failure": true,
+  "distinct_expected_false_variants": 8,
+  "actual_expected_negative_children_across_two_runs": 16,
+  "old_runs_versions_utc_and_prior_reports_preserved": true
+}

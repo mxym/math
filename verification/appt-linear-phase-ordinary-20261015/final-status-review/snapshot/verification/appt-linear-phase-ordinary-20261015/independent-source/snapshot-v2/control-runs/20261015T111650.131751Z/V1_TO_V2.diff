@@ -1,0 +1,23 @@
+--- v1/PAPER.md
++++ v2/PAPER.md
+@@ -16,7 +16,8 @@
+ 
+ Let rho be an actual complex PSD trace-one APPT density on C^m tensor C^n:
+ partial transposition is positive after every global unitary. Let m<=n,
+-D=mn, y_i=D lambda_i with eigenvalues in decreasing order, and set
++D=mn and y_i=D lambda_i with eigenvalues in decreasing order. For real
++orders alpha>1 set
+ 
+     M_alpha(rho)=D^-1 sum_i y_i^alpha,
+     M*_alpha=max_APPT M_alpha,
+@@ -184,7 +185,9 @@
+     f_hh=-L/(h+a)<0.
+ 
+ Also v''(h0)=-6h0 q'(h0)/(3h0^2-4h0+2)^2<0. The maximizing
+-h is strictly increasing in L, so the optimized value as a function of L
++h has strictly positive derivative in L: a'(L)=4/[3(2-L)^2]>0 and
++dh/da=(2a+1)/(2sqrt(a^2+a))-1>0, since (2a+1)^2-4(a^2+a)=1.
++Thus the optimized value as a function of L
+ has strictly negative second derivative there. Equivalently the Schur
+ complement f_LL-f_Lh^2/f_hh is negative. Together with f_hh<0 this
+ makes the full Hessian negative definite.

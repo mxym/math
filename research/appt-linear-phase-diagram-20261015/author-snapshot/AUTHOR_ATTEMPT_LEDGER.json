@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-10-15T12:56:55.416411+00:00",
+  "coverage": "This phase-4 author investigation, not rewriting prior stages",
+  "actual_mathematical_control_failures_in_this_phase": [],
+  "failure_statement": "No phase-4 mathematical control returned FAIL in the retained runs. Do not turn this into an independent PASS; preserve any later actual finding.",
+  "entries": [
+    {
+      "kind": "SCOPE_GUARD",
+      "item": "Do not claim fixed-width H monotonicity outside v=w(Kx)-g(K)>0",
+      "evidence": "At x->0 with fixed K, unconstrained H has behavior that does not yield an admissible interior h; root independently warned of this restriction",
+      "resolution": "NO_ISLANDS explicitly proves only the admissible initial interval and uses that condition at the normalized increment inequality"
+    },
+    {
+      "kind": "DISCOVERY_ONLY",
+      "item": "90-digit W=Wk candidate root",
+      "files": [
+        "CRITICAL_EQUATION_DISCOVERY.json",
+        "explore_critical_equations.py"
+      ],
+      "resolution": "Not an exhaustive root count or proof. Replaced as evidence by full exact intervals; original historical JSON retained"
+    },
+    {
+      "kind": "DISCOVERY_ONLY",
+      "item": "Finite sufficient-bound and stationary-curve probes",
+      "files": [
+        "MONOTONIC_SUFFICIENT_BOUNDS_DISCOVERY.json",
+        "STATIONARY_CURVE_DISCOVERY.json"
+      ],
+      "resolution": "Never used as whole-domain sign proofs; analytic NO_ISLANDS and exact GLOBAL certificate provide those proofs"
+    },
+    {
+      "kind": "AUTHOR_CONTROL_SUCCESS_NOT_REVIEW",
+      "item": "No-islands algebra and 92 admissible floating falsification points",
+      "file": "NO_ISLANDS_AUTHOR_CONTROL.json",
+      "resolution": "Auxiliary only, does not approve the analytic theorem"
+    },
+    {
+      "kind": "PREFREEZE_STRENGTHENING",
+      "item": "Critical interval producer added exact endpoint adjacency before freezing",
+      "resolution": "No failed bound was discarded. Accepted final source/certificate and all exact mathematical leaves are bound; current replayer also validates every leaf"
+    },
+    {
+      "kind": "AUTHOR_CONTROL_SUCCESS_NOT_REVIEW",
+      "item": "Critical 73-leaf full exact replay",
+      "file": "CRITICAL_CERTIFICATE_AUTHOR_REPLAY.json",
+      "resolution": "All source/paper/certificate bytes bound; independent mathematical read still required"
+    },
+    {
+      "kind": "AUTHOR_CONTROL_SUCCESS_NOT_REVIEW",
+      "item": "Global five scaling/derivative identities and 74-leaf exact partition replay",
+      "files": [
+        "GLOBAL_TURN_ALGEBRA_CONTROL.json",
+        "GLOBAL_MIXED_AUTHOR_REPLAY.json"
+      ],
+      "resolution": "Includes K=0 charts and seven explicit above-cap leaves; these are not omitted failures"
+    },
+    {
+      "kind": "UPSTREAM_FINDING_REPORTED_BY_PARENT",
+      "item": "Root T-v1 omitted finite alpha>1 domain",
+      "upstream_v1_sha256": "b270516f97cf719b2e64d4738d328d09d84ac133d8c44cc1620fd1126733e263",
+      "upstream_v2_sha256": "83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79",
+      "resolution": "Parent preserved v1 and corrected v2. Neither draft is a dependency here; all present max-moment/min-entropy statements explicitly retain alpha>1"
+    },
+    {
+      "kind": "FROZEN_HISTORY",
+      "item": "Inherited README/TARGET and early discovery say full geometry open",
+      "resolution": "Those are exact historical records, not silently rewritten. REVIEW_README and this new metadata describe author completion and pending independent status"
+    },
+    {
+      "kind": "NEXT_UNFROZEN_RESEARCH",
+      "item": "Monotone coexistence derivative observation",
+      "formulas": [
+        "M_c/M=4T x^2/[3(1-x)^2]>0",
+        "M_c/(2M)<g_prime(k)<g_prime(K)",
+        "r_P_prime=M_c/(1-P)>0",
+        "r_B_prime=(2b_prime(K)-M_c)/P>0"
+      ],
+      "resolution": "Author working observation only, not added to four frozen theorem scopes or claimed reviewed; preserve before the next research step"
+    }
+  ]
+}

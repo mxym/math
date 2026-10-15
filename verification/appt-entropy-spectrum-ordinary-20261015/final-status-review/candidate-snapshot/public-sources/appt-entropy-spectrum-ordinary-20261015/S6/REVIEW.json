@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "utc": "2026-10-15T14:28:11.494026+00:00",
+  "review_type": "Independent internal AI-agent ordinary full mathematical read, not external human/Lean/priority review",
+  "source": {
+    "paper_sha256": "2374564f1f2cd3c576c3528d8acfda3f9a729ae08f506621f930ed42b33fd227",
+    "paper_bytes": 14789,
+    "owner_zip_sha256": "4cf416671bacc623e24492d95769e22f75fdf3822c3b172a37cd4c35f24e6803",
+    "manifest_sha256": "c3ac74c2808473892a46302a934a59fa0dc9d9063b4e77ab7b386fa264086b1e"
+  },
+  "domain": {
+    "fixed_constant": "Every fixed finite C>0",
+    "matrix": "Original complex PSD trace-one, PPT after every global unitary",
+    "integers": "Every 2<=m<=n; m->infinity",
+    "orders": "Real alpha->infinity, alpha<=Cm eventually",
+    "window": "chi=alpha log[3D/(D+2)]-logD -> +infinity",
+    "oscillation": "All n/m and bounded alpha/m oscillations permitted"
+  },
+  "decisions": {
+    "A": "PASS: uniform each-actual-state peak profile and both moment equivalences",
+    "B": "PASS: relative entropy iff h/chi->0, with actual peak necessity before logging",
+    "C": "PASS: full actual tail flatness, eventual full rank, second-peak power and entire tail moment decay"
+  },
+  "source_findings": [],
+  "read_scope": {
+    "new_paper": "Complete",
+    "new_metadata_and_author_scripts": "Complete, no author execution",
+    "credited_scientific_texts": 12,
+    "method": "Byte-equal reuse of earlier complete old-input scientific reading; G relevant sections reread",
+    "not_reused": "No inference of S6 from S5 or phase4 PASS"
+  },
+  "proof_checks": [
+    "Uniform K_C independent of n and state",
+    "Bounded exceptional square mass rather than cardinality",
+    "Exact trace-centered real powers at zero eigenvalues",
+    "Actual all-unitary APPT spike lower bound",
+    "Entropy forces actual peak before log estimate",
+    "State-relative bounded log error for chi/alpha->0",
+    "All growing tail powers, not just second peak",
+    "Physical star budget implies all nonpeak eigenvalues flatten",
+    "Actual integer exponential-ceiling and reduced-spike counterexamples"
+  ],
+  "independent_control": {
+    "run": "runs/20261015T142527.968604Z",
+    "status": "PASS",
+    "source_sha256": "67297f304c8df0cfb42568d44f42388ba3093cd5ce50f4a1b9d7cc85681f75a9",
+    "counts": {
+      "symbolic_identities": 7,
+      "exact_compressed_actual_state_order_cases": 576,
+      "finite_all_state_bound_diagnostics": 54,
+      "actual_exponential_ceiling_paths": 4,
+      "actual_entropy_vs_moment_paths": 4
+    },
+    "actual_expected_false_variant_failures": 7,
+    "unexpected_first_run_failure": "runs/20261015T142447.829759Z; Sympy structural comparison; original source and trace retained",
+    "scope": "Finite diagnostics, not proof of universal feasible set"
+  },
+  "author_control": {
+    "source_read": true,
+    "stored_result_read": true,
+    "executed_by_this_reviewer": false,
+    "finite_cases": 21,
+    "original_utc": "2026-10-15T13:34:37.291155+00:00"
+  },
+  "not_covered": [
+    "alpha/m->infinity",
+    "fixed m",
+    "bounded alpha",
+    "alpha->0",
+    "finite chi",
+    "exact finite optimizer",
+    "all-diverging-order synthesis",
+    "future metadata or transport",
+    "new Lean/audit scope",
+    "historical priority"
+  ],
+  "author_root_source_mutations": false,
+  "lean_run": false,
+  "subagents_spawned": false,
+  "git_mutations": false
+}

@@ -1,0 +1,632 @@
+{
+  "schema": "ordinary-internal-manuscript-review-v1",
+  "reviewer_role": "Separately user-authorized independent ordinary mathematical review subagent; OpenAI AI assistant, not external human peer review",
+  "review_agent": "/root/ordinary_review_all_orders",
+  "source_tree": "/home/mxym/math-appt-multiscale-20261013",
+  "source_git_head_observed": "020a7bbfd0ca414e0efda04f56f9f1762b004366",
+  "source_worktree_observed": "New all-order packet uncommitted during review; reviewer writes only REVIEW.md and REVIEW.json. Concurrent breadth merge did not change the bound mathematical sources.",
+  "source_files": [
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/PAPER.md",
+      "sha256_literal": "4aa5a044de833f34b4a3535f9b890ddccd1b3d542c288c0892319ba691d56844",
+      "physical_line_count": 387,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          387
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "initial_sha256_literal": "9714ab4015237cc370516c4b53fe8bfd9a16ce65db32bcb668678abfe402be7e",
+      "complete_initial_read_ranges_inclusive": [
+        [
+          1,
+          387
+        ]
+      ],
+      "complete_initial_ordinary_read": true,
+      "reading_mode": "Complete initial387-line source plus complete final changed lines125/158 and their114-142/149-166 contexts. No second complete final387-line reread or single broad125-158 reread is claimed. Unchanged bytes are bound by exact two-step reverse reconstruction.",
+      "final_delta_after_complete_read": {
+        "file": "PAPER.md",
+        "initial_sha256_literal": "9714ab4015237cc370516c4b53fe8bfd9a16ce65db32bcb668678abfe402be7e",
+        "intermediate_after_range_sha256_literal": "a4c4db95f9d26eafeab9c41522ef0ba430ec1a464be754b5a8b9422daa0e8254",
+        "final_sha256_literal": "4aa5a044de833f34b4a3535f9b890ddccd1b3d542c288c0892319ba691d56844",
+        "initial_physical_line_count": 387,
+        "final_physical_line_count": 387,
+        "changes": [
+          {
+            "kind": "mathematical input-range clarification",
+            "changed_line": 125,
+            "before": "argument gives, at everyalpha>1,",
+            "after": "argument gives, at everyalpha>=2,",
+            "actual_final_delta_read_ranges_inclusive": [
+              [
+                125,
+                125
+              ]
+            ],
+            "actual_final_context_read_ranges_inclusive": [
+              [
+                114,
+                142
+              ]
+            ],
+            "complete_final_delta_read": true,
+            "reason": "The inherited second-derivative Taylor bound is established for alpha>=2. Every new application already has alpha>=2.",
+            "effect": "Corrected input range; Theorems A and T and every application are unchanged.",
+            "review_timing": "Previously completed range-delta review, retained unchanged; not reread as a new broad range during this formatting-only follow-up."
+          },
+          {
+            "kind": "formatting only",
+            "changed_line": 158,
+            "before": "lambda=sum_v[a_v(sumv)/Z](v/sumv); all weights are positive whena_v>0.",
+            "after": "lambda=sum_v {a_v(sumv)/Z} (v/sumv); all weights are positive whena_v>0.",
+            "actual_final_delta_read_ranges_inclusive": [
+              [
+                158,
+                158
+              ]
+            ],
+            "actual_final_context_read_ranges_inclusive": [
+              [
+                149,
+                166
+              ]
+            ],
+            "complete_final_delta_read": true,
+            "mathematical_change": false,
+            "reason": "Avoid unintended Markdown link syntax in the projective convex-weight formula.",
+            "independent_equivalence_check": "The coefficient av Zv/Z and multiplication by v/Zv are unchanged. Sum of weights is sum av Zv/Z=1, and positive av gives a positive weight. The projective vertex argument is unchanged."
+          }
+        ],
+        "actual_final_delta_read_ranges_inclusive": [
+          [
+            125,
+            125
+          ],
+          [
+            158,
+            158
+          ]
+        ],
+        "actual_final_context_read_ranges_inclusive": [
+          [
+            114,
+            142
+          ],
+          [
+            149,
+            166
+          ]
+        ],
+        "complete_final_delta_read": true,
+        "unchanged_lines_independently_bound": true,
+        "verification": "Reverse line158 in memory to recover a4c4db95... exactly, then reverse line125 to recover the fully read initial9714ab40... exactly. No other mathematical or map line changed.",
+        "no_single_broad_changed_or_reread_range_claim": true,
+        "second_complete_final_387_line_read_claimed": false,
+        "effect": "One mathematical input-range correction and one mathematically equivalent formatting correction; all theorem conclusions and applications unchanged."
+      }
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/THEOREM_MAP.md",
+      "sha256_literal": "5a8f7f7200e6abbf544b5e1cac3a16a072d85494c3b1d6a6fe85fb6f2dbcba8a",
+      "physical_line_count": 18,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          18
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    }
+  ],
+  "complete_initial_new_line_count": 405,
+  "complete_new_line_count": 405,
+  "new_unique_physical_mathematical_line_count": 405,
+  "final_delta": {
+    "file": "PAPER.md",
+    "initial_sha256_literal": "9714ab4015237cc370516c4b53fe8bfd9a16ce65db32bcb668678abfe402be7e",
+    "intermediate_after_range_sha256_literal": "a4c4db95f9d26eafeab9c41522ef0ba430ec1a464be754b5a8b9422daa0e8254",
+    "final_sha256_literal": "4aa5a044de833f34b4a3535f9b890ddccd1b3d542c288c0892319ba691d56844",
+    "initial_physical_line_count": 387,
+    "final_physical_line_count": 387,
+    "changes": [
+      {
+        "kind": "mathematical input-range clarification",
+        "changed_line": 125,
+        "before": "argument gives, at everyalpha>1,",
+        "after": "argument gives, at everyalpha>=2,",
+        "actual_final_delta_read_ranges_inclusive": [
+          [
+            125,
+            125
+          ]
+        ],
+        "actual_final_context_read_ranges_inclusive": [
+          [
+            114,
+            142
+          ]
+        ],
+        "complete_final_delta_read": true,
+        "reason": "The inherited second-derivative Taylor bound is established for alpha>=2. Every new application already has alpha>=2.",
+        "effect": "Corrected input range; Theorems A and T and every application are unchanged.",
+        "review_timing": "Previously completed range-delta review, retained unchanged; not reread as a new broad range during this formatting-only follow-up."
+      },
+      {
+        "kind": "formatting only",
+        "changed_line": 158,
+        "before": "lambda=sum_v[a_v(sumv)/Z](v/sumv); all weights are positive whena_v>0.",
+        "after": "lambda=sum_v {a_v(sumv)/Z} (v/sumv); all weights are positive whena_v>0.",
+        "actual_final_delta_read_ranges_inclusive": [
+          [
+            158,
+            158
+          ]
+        ],
+        "actual_final_context_read_ranges_inclusive": [
+          [
+            149,
+            166
+          ]
+        ],
+        "complete_final_delta_read": true,
+        "mathematical_change": false,
+        "reason": "Avoid unintended Markdown link syntax in the projective convex-weight formula.",
+        "independent_equivalence_check": "The coefficient av Zv/Z and multiplication by v/Zv are unchanged. Sum of weights is sum av Zv/Z=1, and positive av gives a positive weight. The projective vertex argument is unchanged."
+      }
+    ],
+    "actual_final_delta_read_ranges_inclusive": [
+      [
+        125,
+        125
+      ],
+      [
+        158,
+        158
+      ]
+    ],
+    "actual_final_context_read_ranges_inclusive": [
+      [
+        114,
+        142
+      ],
+      [
+        149,
+        166
+      ]
+    ],
+    "complete_final_delta_read": true,
+    "unchanged_lines_independently_bound": true,
+    "verification": "Reverse line158 in memory to recover a4c4db95... exactly, then reverse line125 to recover the fully read initial9714ab40... exactly. No other mathematical or map line changed.",
+    "no_single_broad_changed_or_reread_range_claim": true,
+    "second_complete_final_387_line_read_claimed": false,
+    "effect": "One mathematical input-range correction and one mathematically equivalent formatting correction; all theorem conclusions and applications unchanged."
+  },
+  "final_delta_new_changed_line_count": 2,
+  "fresh_supporting_source_reading": [
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/README.md",
+      "sha256_literal": "e3776463abbf4e21539d73312fe9ff8426306c5b3e2d10ada3b2397e65b89b04",
+      "physical_line_count": 27,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          27
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/LITERATURE.md",
+      "sha256_literal": "b00e7369083f9153a1dd446f7d255c6c22d09bde59cfdcc9e8799f5cd881aef5",
+      "physical_line_count": 33,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          33
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/check_all.py",
+      "sha256_literal": "758cc72bb77d661a89762bb981017075e542d084b9f241ec3dfc6be12a1ca76b",
+      "physical_line_count": 219,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          219
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/AUTHOR_RANGE_DELTA.json",
+      "sha256_literal": "046aec64cc48a57ccd6d772d6c061d98984c19a4905258c8c0a43aedc1bedb46",
+      "physical_line_count": 12,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          12
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/INITIAL_DIAGNOSTIC_FAILURE.json",
+      "sha256_literal": "f90e9ce184237299c129201fd278a1a1570cb673410508e3c321920aa2cb192c",
+      "physical_line_count": 14,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          14
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-all-order-exact-20261014/AUTHOR_FORMAT_DELTA.json",
+      "sha256_literal": "4f778dc160bd4e041041d752512fc55f7ac09e90156275e860855d5aaaab836f",
+      "physical_line_count": 13,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          13
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "final_delta_after_complete_read": null,
+      "scope": "New formatting-only provenance record read in full. Historical AUTHOR_RANGE_DELTA.json remains unchanged and binds the previous9714... to a4c4... step, not the new final source hash."
+    }
+  ],
+  "fresh_supporting_line_counts_excluded_from_new_mathematics": {
+    "README_and_literature": 60,
+    "diagnostic_code": 219,
+    "range_delta_record": 12,
+    "initial_failure_record": 14,
+    "total": 318,
+    "original_supporting_total": 305,
+    "new_format_delta_record": 13
+  },
+  "inherited_inputs_actual_reading": [
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-zero-order-transition-20261014/PAPER.md",
+      "sha256_literal": "3d19bdffea6cf62deea66d27ffde00998b67a0504bcf2e6f685d5df4464ee99b",
+      "physical_line_count": 466,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          374
+        ]
+      ],
+      "complete_ordinary_read": false,
+      "scope": "Exact actual APPT low-order theorem/equality, singularity, strict near-hole exclusion, full floor-cut argument and exact crossing proof. The unrelated leading rigidity proof376-451 is not newly read or used."
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-zero-order-transition-20261014/REVIEW.md",
+      "sha256_literal": "64a9a65e18e0ba5ad94612fe3a140e348ca85b401bda34220738c64d33410024",
+      "physical_line_count": 96,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          96
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "scope": "Complete96-line inherited review read as ordinary evidence, not as a replacement for independently checking the actual theorem and required proof."
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-zero-order-transition-20261014/REVIEW.json",
+      "sha256_literal": "6dd041f47f03c0fca89499408662fd61b2e17dc0ad596728293e39ffd8188373",
+      "physical_line_count": 375,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          50
+        ],
+        [
+          85,
+          375
+        ]
+      ],
+      "complete_ordinary_read": false,
+      "scope": "Explicitly read1-50 and85-375. Lines51-84 are not claimed read. This is the prior reviewer record, not a new inherited mathematical source audit."
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-critical-window-20261014/PAPER.md",
+      "sha256_literal": "0e462bebae2b78a6e395addf03b41bb1f22b467935321400c42b08afe5e4df6f",
+      "physical_line_count": 284,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          284
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "scope": "Complete284-line ordinary paper read, including common pivot/circle, the actual near-pole bound at the used alpha>=2, high-order theorem and reverse bulk comparison."
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-critical-window-20261014/MANUSCRIPT_REVIEW.json",
+      "sha256_literal": "312efa6c447b401c427d1ab1f00673d3c45cd3a4bb5d1a62ded7b298f4c27a60",
+      "physical_line_count": 206,
+      "actual_read_ranges_inclusive": [
+        [
+          1,
+          206
+        ]
+      ],
+      "complete_ordinary_read": true,
+      "scope": "Complete206-line source-bound ordinary review record read. Prior breadth-service accounting remains historical; no breadth service is charged for this new separate reviewer."
+    },
+    {
+      "path": "/home/mxym/math-appt-multiscale-20261013/research/appt-nonqubit-log-band-20261014/PAPER.md",
+      "sha256_literal": "7ae6f4608e36baa133546eeff9187137fb5c28841692e38a6e717742f69fe29a",
+      "physical_line_count": 232,
+      "actual_read_ranges_inclusive": [
+        [
+          40,
+          106
+        ]
+      ],
+      "complete_ordinary_read": false,
+      "scope": "Only40-106 independently read to rederive actual rank-two/cap-tail trace stability and its arbitrarily-small-delta scope. No full232-line reread is claimed."
+    }
+  ],
+  "fresh_primary_reading": [
+    {
+      "url": "https://arxiv.org/html/2608.03390v2#S6.SS2",
+      "actual_rendered_line_ranges_inclusive": [
+        [
+          881,
+          995
+        ]
+      ],
+      "scope": "Theorem6.10 inscribed-polytope von Neumann entropy, credited hole/pole/projection spectra and stationary integer rule, followed by numerical full-set comparisons. No full paper or exhaustive priority audit."
+    },
+    {
+      "url": "https://arxiv.org/html/2609.18568v1#S3",
+      "actual_rendered_line_ranges_inclusive": [
+        [
+          304,
+          326
+        ]
+      ],
+      "scope": "Targeted outer entropy Proposition3.1 statement. Surrounding web output is not promoted to a complete qubit proof or source audit."
+    }
+  ],
+  "per_section_scope": [
+    {
+      "file": "THEOREM_MAP.md",
+      "lines": [
+        1,
+        18
+      ],
+      "finding": "Complete predeclared target, all-order quantifiers, conditional cap, actual exhaustion, two family transitions and exact integer crossing scopes agree with the manuscript."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        1,
+        87
+      ],
+      "finding": "Actual complex APPT states and all global unitary orbits, extended orders0/1/infinity, exact neighboring-rank selection and all ties retained. Fixed m>=3/eventual D remains essential."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        89,
+        142
+      ],
+      "finding": "Actual Schmidt assignments give topR/bottomK, positive common pivot, rank-two cap and three-Schmidt circle. Independent actual tail-trace derivation verifies arbitrary-small-delta stability. The only author delta correctly restricts the Taylor moment input to alpha>=2, which covers every application."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        144,
+        197
+      ],
+      "finding": "Projective normalization is a segment bijection with positive weights. The uncut geometry is exactly the product of both ordered simplices, including bottom zeros. All factor edges, not merely adjacent ones, are included; surviving boundary vertices are retained. Cut formulas and the uniform strict nonbulk ratio gap are complete."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        199,
+        253
+      ],
+      "finding": "Strict scalar ratio monotonicity and compact-plus-tail limits give a uniform nonbulk gap. Stationary-neighbor rounding is O(alpha^2/D^2) uniformly up to c logD. Finite exceptional counts and c log(p/q)<1 make every nonbulk vertex strictly worse throughout the continuous band. Actual q-projection vertices attain the outer bound."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        255,
+        323
+      ],
+      "finding": "Fixed c,p,eta,h,S exhaust capped, moderate-head, separated near-head and arbitrarily-close-pole states. Relative errors vanish uniformly and the last physical Taylor loss is strictly proportional to every positive delta. Low[0,2], middle[2,X+1], high[X+1,infinity] and cap equality at infinity yield a finite maximum of dimension thresholds valid for every order."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        325,
+        375
+      ],
+      "finding": "Small ranks are strictly majorized by the pole. Other ranks yield four distinct exponential bases and at most three real zeros counted with multiplicity, already including0 and1. Each rank is either always pole-losing or has a single simple high-order root. The largest rank root gives the unique integer-max crossing, without a monotonic optimizer assumption. Prior low crossing and critical reverse/upper comparisons give both phase transitions and eta=X+o(1)."
+    },
+    {
+      "file": "PAPER.md",
+      "lines": [
+        377,
+        387
+      ],
+      "finding": "Complete fixed-local eventual APPT theorem only. No all-finite, effective onset, growing-m, ASEP bulk, general APPT=ASEP, new formal audit or independent major-count claim."
+    }
+  ],
+  "theorem_review": [
+    {
+      "entry": "A0 / Theorem A",
+      "verdict": "PASS ordinary mathematical review of final corrected manuscript",
+      "independent_derivation": "Choose one fixed c>kappa, then a fixed p just above q with c log(p/q)<1. The conditional cap theorem, two physical head gaps, and a near-pole loss at every delta>0 cover every actual state in[2,X+1]. Actual candidate membership and strict exclusions give exact value and every equality orbit. The unchanged low and high theorems cover the remaining orders; the rank endpoint and maximal-eigenvalue equality cover0/infinity. Every constant is chosen before D, so one maximum of finitely many thresholds works on the entire extended axis.",
+      "equality_scope": "Exactly the winning one-hole, every exactly winning integer-rank q-projection, and pole families. Strict objectives and physical region exclusions retain all ties and rule out additional minimizers or nontrivial positive-order mixtures."
+    },
+    {
+      "entry": "A1 / conditional head-cap lemma",
+      "verdict": "PASS ordinary mathematical review",
+      "independent_derivation": "The projective image has upper and lower ordered-simplex factors with fixed pivot1. A new cut vertex is an intersection with a one-dimensional old face; every product edge changes exactly one factor, including every non-adjacent pair. Old/bottom-edge survivors have bounded heads. Upper cuts with j>=R satisfy r=q-[s+(p-q)i]/(R-i). Only i=s=0 is bulk; all others have a fixed ratio gap. Chord moments and normalization give A20/A21, while p^alpha/(D Fq)<=C logD D^(c log(p/q)-1). Uniform integer rounding and strict convexity finish all equality cases.",
+      "quantifier_scope": "Fixed m,p,a>1,c with c log(p/q)<1; one eventual threshold uniform in every real a<=alpha<=c logD. Outer-polytope membership is not treated as APPT sufficiency."
+    },
+    {
+      "entry": "A2 / physical exhaustion",
+      "verdict": "PASS ordinary mathematical review",
+      "independent_derivation": "The actual three-Schmidt witness cancels its third negative pair against the positive-pair upper bound and yields the two-head circle. If a relative head exceeds p but remains below3-eta, topR/bottomK forces the entire middle ratio below q. If the relative head is nearer3, the circle forces all tails below v<q. A positive physical cap gap makes its peak negligible against Fq; a tiny gap is handled first by a fixed scalar separation S and then by the strictly negative inherited Taylor bracket for every delta>0. Normalization and finite bottom counts remain explicit."
+    },
+    {
+      "entry": "A3 / Theorem T two family transitions",
+      "verdict": "PASS ordinary mathematical review",
+      "independent_derivation": "For tk<=2, exact partial sums give strict majorization. For tk>2, A>B>C>F are distinct positive bases. A nonzero n-term real exponential sum has at most n-1 real zeros with multiplicity by dividing by one base and inductive Rolle; zeros0/1 leave at most one above1. Tangencies above1 would have multiplicity at least2 and are impossible. A negative branch must therefore persist throughout(1,rk) and end at its single simple root. One negative rank at2 exists by the inherited low theorem. The maximum rk is the unique crossing against the finite rank maximum.",
+      "scope_note": "Exactly two transitions among the three named families. Integer maximizing ranks may switch or tie inside the bulk phase; no claim of only two rank changes is made."
+    },
+    {
+      "entry": "A4 / exact eta and asymptotic",
+      "verdict": "PASS ordinary mathematical review",
+      "independent_derivation": "The exact crossing uses the integer maximum throughout. For every fixed epsilon, the inherited actual projection lower comparison at X-epsilon and actual unique pole at X+epsilon bracket the already-proved single crossing for sufficiently large dimensions. This gives eta=X+o_m(1); it supplies no finite sample bracket or effective onset."
+    }
+  ],
+  "independent_challenges": [
+    "Omitting non-adjacent edges in either simplex factor would invalidate completeness; both factors are exhaustively included.",
+    "Bottom zeros and old h=0 vertices are retained; only genuinely opposite signs create new cut vertices.",
+    "Projective normalization cannot be treated as affine scalar weights; the correctly transformed positive weights are av Zv/Z.",
+    "A tiny positive pole deviation cannot be discarded as an asymptotic error: the near-pole loss is exactly proportional to delta with a uniformly negative bracket.",
+    "The inherited Taylor bound was disclosed for alpha>=2, not every alpha>1; line125 was corrected and completely reread with context.",
+    "A pairwise rank comparison that touches zero above1 must count even multiplicity. Counting only distinct roots would not justify crossing uniqueness.",
+    "Changing integer optimal ranks does not imply a monotone selected rank, and none is assumed.",
+    "Exactly two named family transitions does not exclude internal integer bulk-rank changes or ties.",
+    "The eventual critical asymptotic is not a finite X+-1 bracket; the preserved finite failure is correctly kept rather than relabeled a theorem counterexample."
+  ],
+  "independent_finite_checks": {
+    "execution": "Separate temporary stdin Python calculations; no extra file or script written, and author diagnostic script was not rerun.",
+    "exact_geometry_scope": "Fraction arithmetic, m=3..6,D=2m^2, p=q+w(3-q), w in{1/10,1/2}; all factor edges and boundary old vertices.",
+    "exact_geometry_cases": 8,
+    "surviving_old_vertices": 147,
+    "boundary_old_vertices": 13,
+    "upper_factor_edge_cuts": 4507,
+    "upper_factor_nonadjacent_cuts": 4476,
+    "lower_factor_edge_cuts": 1596,
+    "lower_factor_nonadjacent_cuts": 1563,
+    "exact_q_bulk_upper_cuts": 180,
+    "strict_nonbulk_middle_upper_cuts": 3581,
+    "bounded_head_upper_cuts": 746,
+    "edge_cuts_with_zero_tails": 4398,
+    "geometry_checks": "Exact cut equation, positive pivot/normalization, three-level identities, exhaustive head bounds, q case and strict r_star bound.",
+    "scalar_scope": "mpmath90 decimal digits,m in{3,4,8},D=12m^2; every rank,85 root bisections on each negative branch, selected finite signs.",
+    "negative_rank_roots": 947,
+    "exact_majorization_ranks": 12,
+    "exact_majorization_partial_sums": 6168,
+    "finite_sign_samples": 4224,
+    "largest_root_controls": [
+      {
+        "m": 3,
+        "D": 108,
+        "negative_rank_roots": 96,
+        "largest_root_rank": 23,
+        "eta": "4.93201761814421015"
+      },
+      {
+        "m": 4,
+        "D": 192,
+        "negative_rank_roots": 170,
+        "largest_root_rank": 55,
+        "eta": "4.43610486604514717"
+      },
+      {
+        "m": 8,
+        "D": 768,
+        "negative_rank_roots": 681,
+        "largest_root_rank": 304,
+        "eta": "4.09479244354563631"
+      }
+    ],
+    "infinite_proof_certificate": false,
+    "scope_limit": "These controls neither certify every relaxation vertex as APPT nor prove an onset or a continuous-order infinite theorem."
+  },
+  "diagnostic_script_support": {
+    "complete_code_read": true,
+    "code_lines": 219,
+    "reviewer_reran_author_script": false,
+    "author_reports_read": [],
+    "implementation_count": 1,
+    "initial_failure_record_read": true,
+    "range_delta_record_read": true,
+    "independent_actual_nonflat_kernel_check": "The m=3 control has unnormalized levels5/2,17/10,1. The all-Schmidt worst arrangement is bounded by one half of a3x3 kernel with diagonal2 and off-diagonal-3/2,-7/10,-7/10, up to permutation. Positive2x2 principal minors and determinant7/100 prove PSD, hence actual all-unitary APPT membership of that control; sampled moment comparisons remain finite.",
+    "precision_scope": "The author uses one260-digit Decimal/Fraction implementation. No completed author report is adopted as an infinite certificate or independent proof. The old finite X+-1 bracket failure and small-D relaxation losses are preserved. Three execution modes of the same implementation are not three independent proofs."
+  },
+  "findings": {
+    "blocking_mathematical_gaps": [],
+    "author_corrections_completed": [
+      {
+        "file": "PAPER.md",
+        "line": 125,
+        "issue": "Inherited Taylor input range overstatement",
+        "resolution": "alpha>1 changed to alpha>=2, final delta and context actually read, all applications already in range"
+      },
+      {
+        "file": "PAPER.md",
+        "line": 158,
+        "issue": "Unintended Markdown link in projective convex-weight formula",
+        "resolution": "Square-bracket coefficient followed by parentheses replaced by explicit curly-brace coefficient and multiplication; mathematically equivalent, complete line/context149-166 read, no other source change."
+      }
+    ],
+    "nonblocking_scope_observations": [
+      "The two named family transitions allow internal bulk-rank switches/ties.",
+      "Only the disclosed inherited reading ranges are covered by this reviewer."
+    ],
+    "verdict": "PASS ordinary mathematical review of final range-corrected and formatting-corrected PAPER and unchanged THEOREM_MAP"
+  },
+  "unread_and_unexecuted_scope": [
+    "The zero-order PAPER was newly read only1-374 of466; its leading-rigidity proof is not newly audited or used.",
+    "The zero-order REVIEW.json was explicitly read1-50 and85-375; no reading of51-84 is claimed.",
+    "The nonqubit log-band PAPER was newly read only40-106 of232, for physical tail stability.",
+    "No full48-page primary paper, full qubit proof or exhaustive historical priority audit.",
+    "No author completed diagnostic reports were read; no author diagnostic script was rerun.",
+    "No Lean source or builds, Lake, kernel replay, old APPT/finite-tree/purity or parallel entropy-stability audit, Gaussian dirty-tree inspection/mutation, commits, pushes, submissions, Release or DOI.",
+    "No breadth-clock service, external human peer review, independent major-conjecture count, growing-m or all-finite threshold claim."
+  ],
+  "mathematical_modifications_made_by_reviewer": false,
+  "only_files_written_by_reviewer": [
+    "REVIEW.md",
+    "REVIEW.json"
+  ],
+  "record_created_utc": "2026-10-14T06:11:47.458302+00:00",
+  "final_delta_mathematical_range_changed_line_count": 1,
+  "final_delta_formatting_only_changed_line_count": 1,
+  "format_delta_followup": {
+    "actual_new_read_ranges": {
+      "PAPER.md": [
+        [
+          149,
+          166
+        ]
+      ],
+      "AUTHOR_FORMAT_DELTA.json": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    "prior_review_sha256_literal": {
+      "REVIEW.md": "d89212543d53c2c5b24e18770e74500f149cd570a0089e15f912cb20338a7525",
+      "REVIEW.json": "944847e8d8cd12c549a371f5dca19d7f2edec002a02063c9c270d7dce07d1388"
+    },
+    "root_reported_prior_packet_preservation": "/mnt/d/math/tmp/appt-all-order-exact-20261014/reviewed-packet-before-math-link-format-fix.tar.gz",
+    "preservation_archive_independently_audited": false,
+    "independent_controls_rerun": false,
+    "additional_mathematical_sources_read": false,
+    "review_record_updated_utc": "2026-10-14T06:21:51.145032+00:00"
+  }
+}

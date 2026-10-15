@@ -12,7 +12,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 个人独立开展研究，无外部研究经费。使用AI进行辅助研究；各项目公开证明来源、验证范围和复现材料。
 
-[预印本](#预印本) · [已书面证明的问题](#已书面证明的问题) · [已宣称解决的问题](#已宣称解决的问题) · [全部专题成果](SOLVED_PROBLEMS.md) · [分类研究目录](RESEARCH.md) · [证明与复现](#证明与复现)
+[预印本](#预印本) · [已书面证明的问题](#已书面证明的问题) · [尝试过的问题](#尝试过的问题) · [全部专题成果](SOLVED_PROBLEMS.md) · [分类研究目录](RESEARCH.md) · [证明与复现](#证明与复现)
 
 ## 预印本
 
@@ -23,37 +23,38 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | [有限树模型的全实 Jacobian 与精确实解纤维](preprints/finite-tree-jacobian-2026-10/README.md) · [PDF](preprints/finite-tree-jacobian-2026-10/paper.pdf) | 任意泄漏位置的全实分解、精确重数、完整正目标的全部实解及计数 | 主定理对应既有固定 Lean；235 输入／原归档独立核对，论文为公开准备稿 | — |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
 | [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md) · [PDF](preprints/appt-purity-unified-2026-10/main.pdf) | 合并 qutrit–qudit 精确最大值、一般维数反例、全域渐近律及充分长方形区间的精确最大值与极值谱分类 | qutrit、10×38 反例、充分长方形区域精确最大值及全部极值态分类、所有维数增长方式的统一首阶纯度渐近律均已完整 Lean；完整熵极值及渐近谱刚性仍按覆盖表区分 | — |
-| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；Heilman 2014 Conjecture 3 的三维情形 | 完整数学证明，使用已发表 Gaussian multi-bubble 与 Gaussian 等周定理；Lean 验证除外部 Gaussian 多泡定理及部分 Gaussian 积分外的内部证明链 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
-| [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子 | 完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整 Erdős 猜想仍开放 | [23305280](https://doi.org/10.5281/zenodo.23305280) |
-| [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | 证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1；无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272728](https://doi.org/10.5281/zenodo.23272728) |
-| [全图强 Chollet 不等式](preprints/all-graph-chollet-2026-10/README.md) · [PDF](preprints/all-graph-chollet-2026-10/paper.pdf) | 任意有限简单无权图、全部主子矩阵，保留原图度数 | [完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) | [23252964](https://doi.org/10.5281/zenodo.23252964) |
-| [纯态 ECQC：素数维数完整分类](research/ecqc-pure-state-counterexamples/README.md) · [PDF](research/ecqc-pure-state-counterexamples/paper.pdf) | 普遍成立当且仅当 p=2；每个奇素数维数有满 Schmidt 秩纯态反例；三维、五维比值最优 | 三维真实量子反例[完整 Lean 与空内核重放](formalizations/ecqc-pure-qutrit-counterexample/README.md)；全分类未整体 Lean 化 | [23256948](https://doi.org/10.5281/zenodo.23256948) |
-| [高斯等质量单纯形一阶矩：全部 k](preprints/gaussian-equal-cells-2026-10/README.md) · [PDF](preprints/gaussian-equal-cells-2026-10/paper.pdf) | 所有 k ≥ 2 的上界、足够维数下的最优值与等号分类 | 完整书面证明；全部 k 的 Lean 为部分覆盖 | [23250730](https://doi.org/10.5281/zenodo.23250730) |
-| [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) · [PDF](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/paper.pdf) | 对每个 0<p<1/4 的四胞质量族严格否定正四面体最优性；等质量情形不受影响 | 完整书面反例；精确 Q(√2) 诊断与部分 Lean，几何端点未完整形式化 | [23272917](https://doi.org/10.5281/zenodo.23272917) |
+| [四个等质量高斯单元：协方差变形与四面体刚性](preprints/gaussian-four-cell-global-2026-10/README.md) · [PDF](preprints/gaussian-four-cell-global-2026-10/paper.pdf) | 所有 d≥3 的全局锐界与正四面体等号分类；包括 Heilman 2014 Conjecture 3 的三维命题 | 完整数学证明，使用已发表 Gaussian multi-bubble 与 Gaussian 等周定理；Lean 验证除外部 Gaussian 多泡定理及部分 Gaussian 积分外的内部证明链 | [23272806](https://doi.org/10.5281/zenodo.23272806) |
+| [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md) · [PDF](preprints/erdos-similarity-growing-gaps-2026-10/paper.pdf) | 对满足晚期环带填充条件的一类序列证明正测度仿射非普适性，含相邻比值趋零与间歇环带例子；完整 Erdős 猜想仍开放 | 完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整 Erdős 猜想仍开放 | [23305280](https://doi.org/10.5281/zenodo.23305280) |
+| [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) · [PDF](preprints/graph-state-mmi-forbidden-subgraph-2026-10/paper.pdf) | Fuentes–Keeler–Munizzi–Pollack Conjecture 1：正三重信息蕴含局部等价图有诱导 claw；另给无爪 vertex-minor 分类与七顶点连通阈值 | 完整书面证明与双独立精确 checker；未完整 Lean 化 | [23272728](https://doi.org/10.5281/zenodo.23272728) |
+| [全图强 Chollet 不等式](preprints/all-graph-chollet-2026-10/README.md) · [PDF](preprints/all-graph-chollet-2026-10/paper.pdf) | Pant–Singh Section 6 的强／self-Chollet 问题：任意有限简单无权图、全部主子矩阵，保留原图度数 | [完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) | [23252964](https://doi.org/10.5281/zenodo.23252964) |
+| [纯态 ECQC：素数维数完整分类](research/ecqc-pure-state-counterexamples/README.md) · [PDF](research/ecqc-pure-state-counterexamples/paper.pdf) | Iqbal Conjecture 3.1 的纯态问题（arXiv:2509.08286v2 §5）：素数维仅 p=2 普遍成立，奇素数均有满 Schmidt 秩反例，p=3 超出一比特；三维、五维比值最优；已有混合态反例另行归属 | 三维真实量子反例[完整 Lean 与空内核重放](formalizations/ecqc-pure-qutrit-counterexample/README.md)；全分类未整体 Lean 化 | [23256948](https://doi.org/10.5281/zenodo.23256948) |
+| [高斯等质量单纯形一阶矩：全部 k](preprints/gaussian-equal-cells-2026-10/README.md) · [PDF](preprints/gaussian-equal-cells-2026-10/paper.pdf) | Heilman 2019 Conjecture 1.16 的等质量子情形：所有 k≥2 的上界，d≥k−1 时最优值及全部等号，低维严格上界 | 完整书面证明；全部 k 的 Lean 为部分覆盖 | [23250730](https://doi.org/10.5281/zenodo.23250730) |
+| [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) · [PDF](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/paper.pdf) | Heilman 2019 Conjecture 1.16 任意质量表述的反例：对每个 0<p<1/4 的指定四胞质量族，所有正四面体模型严格非最优；等质量情形保持原结论 | 完整书面反例；精确 Q(√2) 诊断与部分 Lean，几何端点未完整形式化 | [23272917](https://doi.org/10.5281/zenodo.23272917) |
 | [全整数高斯维数阶](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md) · [PDF](preprints/gaussian-quadratic-dimension-all-k-2026-10/paper.pdf) | 对所有充分大的整数 k 建立匹配的 Θ((log k)^2) 维数阶 | 完整书面证明、Berry–Esseen 外部定理和精确复核；非 Lean 完整化 | [23273190](https://doi.org/10.5281/zenodo.23273190) |
 | [ECQC 满秩极值刚性与纯稳定子完整分类](research/ecqc-stabilizer-saturation/README.md) · [PDF](research/ecqc-stabilizer-saturation/paper.pdf) | 所有奇素数满秩等号态；全部双 qudit 纯稳定子分数；p≡1 mod 4 时全纯态最优比值 p/2 | 完整书面证明、两套精确重放；非完整 Lean | [23256934](https://doi.org/10.5281/zenodo.23256934) |
 | [高斯维数—精度常数精化](preprints/gaussian-sharp-dimension-rate-2026-10/README.md) · [PDF](preprints/gaussian-sharp-dimension-rate-2026-10/paper.pdf) | 给出误差与 log² k 维数系数的显式权衡及球冠常数精化 | 完整书面证明与精确复核；非 Lean 完整化 | [23273299](https://doi.org/10.5281/zenodo.23273299) |
-| [一般互信息连续性拟议界的三元反例](preprints/mutual-information-continuity-2026-10/README.md) · [PDF](preprints/mutual-information-continuity-2026-10/paper.pdf) | 实际 3×3 概率表；任意小正距离下反驳拟议界，两侧边缘均变化 | 经典反例完整 Lean；量子嵌入及必要系数下界为书面证明 | [23253944](https://doi.org/10.5281/zenodo.23253944) |
+| [一般互信息连续性拟议界的三元反例](preprints/mutual-information-continuity-2026-10/README.md) · [PDF](preprints/mutual-information-continuity-2026-10/paper.pdf) | Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106) 拟议界的实际 3×3 反例：任意小正距离、两侧边缘均变化；固定一侧边缘版本未解决 | 经典反例完整 Lean；量子嵌入及必要系数下界为书面证明 | [23253944](https://doi.org/10.5281/zenodo.23253944) |
 | [单纯形稳定性与锐指数](preprints/lean-certified-2026-10/sharp-simplex-stability/README.md) | 所有 d ≥ 3；上界与指数不可改进 | 完整 Lean，常数不声称最优 | [23253001](https://doi.org/10.5281/zenodo.23253001) |
 | [指定质量高斯重心椭球不等式](preprints/article-revisions-2026-10/gaussian-prescribed-mass/README.md) · [PDF](preprints/article-revisions-2026-10/gaussian-prescribed-mass/paper.pdf) | 所有正质量向量的质量依赖矩阵度量锐界 | 完整书面证明；部分 Lean | [23252992](https://doi.org/10.5281/zenodo.23252992) |
 | [高斯球冠维数下界](preprints/gaussian-spherical-cap-converse-2026-10/README.md) · [PDF](preprints/gaussian-spherical-cap-converse-2026-10/paper.pdf) | 证明加性 O(1/k) 逼近必须满足 Ω((log k)^2) 维数 | 完整书面证明与有理区间复核；非 Lean 完整化 | [23273187](https://doi.org/10.5281/zenodo.23273187) |
-| [指定置换多面体族的 Ehrhart 实根性](preprints/article-revisions-2026-10/ehrhart-real-rootedness/README.md) · [PDF](preprints/article-revisions-2026-10/ehrhart-real-rootedness/paper.pdf) | (132,213)-避免族全部 d ≥ 3 的结论 | 书面证明与有理证书，引用既有有限范围定理 | [23252971](https://doi.org/10.5281/zenodo.23252971) |
+| [指定置换多面体族的 Ehrhart 实根性](preprints/article-revisions-2026-10/ehrhart-real-rootedness/README.md) · [PDF](preprints/article-revisions-2026-10/ehrhart-real-rootedness/paper.pdf) | de Castro Conjecture 10.1（arXiv:2609.06096v1）：(132,213)-避免族全部 d≥3 的实根性，结合既有 d≤1000 定理 | 书面证明与有理证书，引用既有有限范围定理；[书面证明与精确证书](notes/ehrhart-uniform-real-rootedness/README.md) | [23252971](https://doi.org/10.5281/zenodo.23252971) |
 | [任意质量高斯质心包络](preprints/gaussian-centroid-mass-envelope-2026-10/README.md) · [PDF](preprints/gaussian-centroid-mass-envelope-2026-10/paper.pdf) | 对所有正质量向量给出 U(p)-2Q(p) ≤ M_d(p) ≤ U(p) 及两对数尺度推论 | 完整书面证明与精确区间复核；非 Lean 完整化 | [23273177](https://doi.org/10.5281/zenodo.23273177) |
 | [复三行永久量—行列式全参数精确范数](preprints/lean-certified-2026-10/complex-pencil-norm/README.md) | 实际复 3 × 3 矩阵的全参数最优常数 | 范数主定理完整 Lean | [23249773](https://doi.org/10.5281/zenodo.23249773) |
 | [永久量余子式谱的锐渐近](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | 全大阶对数渐近及秩二 ramp／endpoint limsup 常数 | Theorem 1 完整 Lean；后续 ramp／endpoint 仍为书面证明 | [23255145](https://doi.org/10.5281/zenodo.23255145) |
-| [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | 指定复数有理反例与实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
+| [Bapat q-永久量单调性猜想的反例](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | Bapat 原区间 q-永久量单调性反例：指定复 Hermitian 有理矩阵及实对称整数反例存在定理 | 两项主结论完整 Lean | [23252928](https://doi.org/10.5281/zenodo.23252928) |
 | [复四行永久量—行列式锐界与完整等号分类](preprints/four-row-permanent-determinant-2026-10/README.md) · [PDF](preprints/four-row-permanent-determinant-2026-10/paper.pdf) | 所有实际复 4 × 4 矩阵、c ≥ 0；最优常数、临界等号及实参数范数 | 主结论完整 Lean；本轮为独立排版稿，不宣称重新执行旧内核审计 | — |
 | [有限群轨道原始—对偶定理](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) | 通用有限作用定理、有理最优证书与锐性 | 主定理完整 Lean | [23249749](https://doi.org/10.5281/zenodo.23249749) |
-| [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | 参数 (11,10) 在 (0,1) 内至少四个不同实根 | 完整 Lean | [23253028](https://doi.org/10.5281/zenodo.23253028) |
+| [Wakhare 熵多项式根猜想反例](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | Wakhare Conjecture 2 的“两内部根”断言反例：(11,10) 在 (0,1) 至少四个不同实根；另一熵不等式保持原状态 | 完整 Lean；[完整 Lean](formalizations/wakhare-entropy-four-roots-lean/README.md) | [23253028](https://doi.org/10.5281/zenodo.23253028) |
 | [归一化永久量余子式谱无界性](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/README.md) · [PDF](preprints/article-revisions-2026-10/cofactor-spectrum-unbounded/paper.pdf) | 排除任何维数无关的谱比值上界 | 完整书面证明与独立整数证书 | [23252977](https://doi.org/10.5281/zenodo.23252977) |
 | [二次整环中的有界步长图](preprints/lean-certified-2026-10/quadratic-order-moats/README.md) | 所有二次整环、固定步长界下的分量一致有界 | 完整 Lean；不声称有效数值界 | [23249743](https://doi.org/10.5281/zenodo.23249743) |
 | [连续幂渐近的稳健避让](preprints/lean-certified-2026-10/continuum-power-avoidance/README.md) | 给定可数有界对数间隙族的避让定理 | 主定理完整 Lean | [23249747](https://doi.org/10.5281/zenodo.23249747) |
-| [单峰 CGF 素数阶因子猜想反例](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) | 指定 216 次多项式反例 | 完整 Lean；不声称次数最小 | [23249757](https://doi.org/10.5281/zenodo.23249757) |
-| [周期图染色系数的无限对数凹性分类](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md) | 全部 C_n，n ≥ 3；当且仅当 3 ≤ n ≤ 11 | 完整 Lean | [23249722](https://doi.org/10.5281/zenodo.23249722) |
-| [q-永久量半轴单调性反例](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) | 指定实有理 4 × 4 矩阵在 q=49、50 间下降 | 指定反例完整 Lean | [23249758](https://doi.org/10.5281/zenodo.23249758) |
-| [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3 | 既有 Theorem 8.18 的书面推论 | [23252976](https://doi.org/10.5281/zenodo.23252976) |
+| [单峰 CGF 素数阶因子猜想反例](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) | Billey–Swanson Conjecture 48 反例：指定 216 次非恒定基本单峰 CGF 没有任何素数阶圆分因子；不声称次数最小 | 完整 Lean；不声称次数最小；[完整 Lean](formalizations/cyclotomic-prime-factor-counterexample/README.md) | [23249757](https://doi.org/10.5281/zenodo.23249757) |
+| [周期图染色系数的无限对数凹性分类](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md) | Amdeberhan–Moll Conjecture 21／早期 13.1 的一般断言有 C17 反例；全部 C_n、n≥3 的无限对数凹性当且仅当 3≤n≤11 | 完整 Lean；[反例](notes/chromatic-infinite-logconcavity-counterexample/README.md)；[全周期图 Lean 分类](formalizations/chromatic-cycles-all-n-lean/README.md) | [23249722](https://doi.org/10.5281/zenodo.23249722) |
+| [q-永久量半轴单调性反例](preprints/lean-certified-2026-10/q-permanent-halfline/README.md) | da Fonseca 半轴扩展的实有理 4×4 反例在 q=49、50 间下降；书面结果另给最小阶为4及每个 t>1 的负导数族 | 指定反例完整 Lean；最小阶和全 t>1 实参族为书面证明；[书面证明](notes/q-permanent-halfline-counterexample/README.md) | [23249758](https://doi.org/10.5281/zenodo.23249758) |
+| [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3：由原作者 Theorem 8.18 经恒等补齐直接推出 | 既有 Theorem 8.18 的书面推论；[完整书面推导](notes/permanent-inequality-padding/README.md) | [23252976](https://doi.org/10.5281/zenodo.23252976) |
 | [未知态纠缠提取：精确指数、可靠性与高斯阈值](research/universal-schur-extraction/README.md) · [PDF](research/universal-schur-extraction/main.pdf) | 全部固定局域维数与任意谱；同一无状态信息协议达到已知态基准，并确定严格直接区间及高斯窗口 | 完整解析论证与精确附属检查；非 Lean、未外部同行评审；含显式全局酉预处理 | — |
 | [全局酉预处理后的纠缠提取容量与强逆指数](research/global-unitary-ppt-extraction/README.md) · [PDF](research/global-unitary-ppt-extraction/main.pdf) | 任意固定 m≤n 与任意谱；LO、LOCC、完全 PPT 的容量和全速率指数一致 | 完整书面论证与精确附属检查；非 Lean、未外部同行评审；不声称解决普通固定态蒸馏 | — |
+| [全比值仿射几何序列避让](notes/continuum-power-avoidance/README.md) | Burgin–Goldberg–Keleti–MacMahon–Wang Question 1（arXiv:2210.09284v1）的全比值问题给出否定回答；不声称此前仍未解决 | [完整 Lean 几何避让](formalizations/geometric-avoidance/README.md)；限定原版本命题 | — |
 
 [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
 
@@ -73,7 +74,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 问题／成果 | 书面已证明的精确范围 | 完整证明与输入 | Lean 实际状态 |
 | --- | --- | --- | --- |
-| APPT 全正阶熵统一首项与阶数转变 | m→∞、任意 n≥m、每个 α>0 的首个非零熵缺口统一等价；有限长宽比全部极限阶数的近极小谱分类；有限 D 下 0<α≤1/(512D) 的精确极小值与全部等号 | [全阶完整证明](research/appt-growing-renyi/ALL_ORDER_VARIATIONAL.md)、[α/m→∞ 的全长宽比相变与谱判据](research/appt-ultralinear-spectrum-20261014/README.md)、[窗口与谱分类](research/appt-growing-renyi/README.md)、[源绑定内部复核](research/appt-growing-renyi/ALL_ORDER_REVIEW.json) | 完整书面证明，未整体 Lean 化；原有限构造审计不扩展至新熵目标与极限；同一 APPT 方向的加强不重复计数 |
+| APPT 全维数、全扩展阶数的相对熵统一式 | 一个总维数阈值同时覆盖全部2≤m≤n、0≤α≤∞，包括固定／增长／振荡m及任意趋零阶；有限m主体、缺一floor和已知多尺度项保留，qubit用归属明确的精确紧标量归约 | [完整统一稿与独立全读](research/appt-all-dimension-entropy-profile-20261015/README.md)；[原增长m全阶证明](research/appt-growing-renyi/ALL_ORDER_VARIATIONAL.md)、[超线性阶谱](research/appt-ultralinear-spectrum-20261014/README.md)、[原窗口与谱分类](research/appt-growing-renyi/README.md)、[原内部复核](research/appt-growing-renyi/ALL_ORDER_REVIEW.json) | 普通书面，未整体Lean；沿用已知子范围与外部Song–Chen输入，无有效阈值、全有限维最优谱或完整变阶谱刚性，不增重大计数 |
 | 同一 APPT 方向：有限高阶 Rényi 精确极值 | 实际 2⊗n、n≥4、所有实 α≥2 的精确整数秩公式与全部等号；任意 m⊗n 在 D≥6、α≥D/2+1，及 D=4、α≥24 的唯一 spike 极值；维数截止尺度 Θ(D) | [完整有限维书面证明与受审版本](research/appt-finite-high-order-20261014/README.md)；已有谱顶点／纯度及可分离端点明确归属 | 未整体 Lean 化；有限高阶带的常数不宣称最优；同一方向加强，不新增重大猜想计数 |
 | 同一 APPT 方向：实阶扩展与锐截止 | 实际 2⊗n、n≥8、全部实 α>1 的有限精确极值；n≥4 的 pole 最优当且仅当 α≥τ_D，覆盖全部正阶；临界全部等号及锐常数 τ_D/D→log2/2 | [完整书面证明、精确截止方程与源绑定内部复核](research/appt-log-order-phase-20261014/README.md)；一般 m≥3 给充分界与临界唯一性 | 未整体 Lean 化；不声称所有 subcritical 最小值或一般 APPT=ASEP；同一方向加强不另计重大猜想 |
 | 同一 APPT 方向：对数阶锐主系数与固定局部相变 | 所有固定ℓ≥3、m≥ℓ，κℓ=1/log[3(ℓ−1)/(ℓ+1)]；任意c>κℓ、充分大D、全部α≥c logD+1的唯一APPT/ASEP pole；实际ℓ⊗n给APPT-only锐下界；固定m、所有α→∞的完整logD相变 | [锐系数与全增长阶证明、240行独立内审](research/appt-sharp-log-cutoff-20261014/README.md)；[D≥9的显式32logD+1带及249行内审](research/appt-nonqubit-log-band-20261014/README.md) | 普通书面稿，未整体Lean；必要界沿ℓ⊗n，未称逐D/ASEP下界、有限临界窗口或增长ℓ统一性；同一方向，不另计重大猜想 |
@@ -96,6 +97,9 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | 同一 APPT 方向：全维数增长阶 Rényi 熵的统一公式 | 对所有 2≤m≤n，在 D=mn→∞且 α→∞ 时，一致有实际 Eα=max{log((m+1)/(m−1)),log3−logD/(α−1)}+o(1)；给每个 α≥2 的显式有限上下误差，涵盖固定/增长/振荡 m 与 α>D | [完整 P0–P2 稿及独立全读](research/appt-growing-renyi-order-20261015/README.md) | 普通书面、未整体 Lean；绝对误差而非零主项处相对等价；固定m推论必须D→∞，原量词错误/修订保全，不作精确有限极值或重大计数扩张 |
 | 同一 APPT 方向：有限熵误差与超线性阶简式 | 所有3≤m≤n、α≥2有 Eα≤H+log27/(α−1)+4m/(D−m)，可与旧界取min；m→∞且α/m→∞时 Eα~H，H=max{log((m+1)/(m−1)),log3−logD/(α−1)} | [完整 R0–R2 与独立全读](research/appt-finite-entropy-bounds-20261015/README.md) | 普通书面；旧V已完成全阶范围，此处为有限估计/简化，不重复计首次闭合；新总误差不逐点优于旧界，无新重大计数或Lean |
 | 同一 APPT 方向：线性阶临界窗口的实际谱刚性 | m→∞、所有整数n≥m、α/m→c>0、3^α/D→r有限时，所有实际近最优谱 iff 完整标量argmax距离、主体端点spread J、实际peak损失P均趋零；r=0给唯一主体两点law，r>0内点给峰高修正，保留全部ties | [完整谱判据与独立全读](research/appt-linear-critical-rigidity-20261015/README.md) | 普通书面未Lean；适用于此全原域窗口，非所有阶/长宽比刚性或精确有限谱；同一主线，无新重大计数 |
+| 同一 APPT 方向：线性阶窗口完整相图 | 所有c>0、r≥0的完整标量极值分类；唯一c_*∈(0.2595,0.26)、唯一非退化混合分支、两条解析共存曲线与全部双／三相等号；原S实际谱距离、J和峰损失保留 | [四份完整证明、精确证书与分别独立全读](research/appt-linear-phase-diagram-20261015/README.md)；[原双阈值与小c展开](research/appt-linear-phase-geometry-20261015/README.md) | 普通书面，未Lean；实际矩阵转移限固定正c、有限r窗口；非有限维精确极值、全阶谱刚性或新重大计数 |
+| 同一 APPT 方向：两个全长宽比增长阶谱窗口 | α→∞且α=o(m)的peak/body加权和充要判据；任意固定C、α≤Cm且χ→∞的峰损失与全tail条件；sharp moment和relative entropy尺度分别保留，允许所有n及振荡 | [两份完整稿与分别独立全读](research/appt-growing-order-rigidity-20261015/README.md) | 普通书面，未Lean；W2仅保留主体权重子序列，不合称全阶／固定m谱分类，不增重大计数 |
+| 同一 APPT 方向：零阶边界的三项非负谱损失 | m→∞、所有n≥m、任意非负α→0路径的相对熵近优充要条件；实际least power与减8的pivot方差、独立rank端点，退化moving tie可有连续方差极限 | [完整稿与独立全读](research/appt-zero-order-losses-20261015/README.md) | 普通书面，未Lean；最优熵值沿用旧Z1，非所有经验谱律／全阶几何分类，不增重大计数 |
 | Han Fourier 重叠辅助问题 Q3.1：全坐标反例 | 对任意深度d，构造N=2^d的单调传递read-once函数，每个坐标均essential且Aᵢ/Iᵢ≥3d/8，否定原“存在一个好坐标”的统一常数命题 | [完整稿与独立全读](research/han-fourier-overlap-20261015/README.md) | 普通书面、未Lean；只解完整辅助问题，FEI本身仍未解，不作重大猜想计数/优先权认证 |
 | APPT 亚单位 Rényi 熵锐渐近与谱分类 | 每个固定 0<α<1，覆盖固定、增长及振荡的较小局域维数；联合增长有 α=1/2 分界，固定局域维数有精确首项及全部近极小谱分类 | [联合增长](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)、[全维统一式与固定局域分类](research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md)、[有限长宽比低阶刚性](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)、[源绑定内审](research/appt-multilevel-counterexample/ALL_DIMENSIONS_REVIEW.json) | [实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)已内核复核；全维熵极限及谱分类未整体 Lean 化 |
 | 四行虚参数永久量—行列式锐范数及全部等号 | 任意实际复 4×4 矩阵与全部实数 t；锐常数 max{3/2, abs(t)+1/√3}，含零行、flat 与定向 Fourier 块的完整分支分类 | [范数证明](research/four-row-imaginary-pencil/PAPER.md)、[全部等号证明](research/four-row-imaginary-pencil/EQUALITY.md)；精确 256×256 代数身份与正 Gram 证书 | 新方向无 Lean；整个一般复参数平面仍未解决 |
@@ -114,30 +118,20 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 既有定理的完整书面推论：[高斯块范数与 PSD 二次型乘积及全部等号](research/written-breadth-20261014/README.md)。覆盖任意有限维、任意 PSD 协方差／二次型与全部正实幂，并明确复高斯的双协方差条件；借用并归属 Ouimet–Greaves 的版本固定定理。已独立内部核读，未 Lean 化，不计为本仓库解决原 GPC 或新增重大猜想。
 
-## 已宣称解决的问题
+## 尝试过的问题
 
-以下按仓库公开证明的**实际命题**列出。相同论文可对应多个命题，限定情形与一般猜想分开；此表不自动作出首次解决或历史优先权认定。
+按领域记录已有探索与阶段结果；详细目标、阅读范围和保全记录见
+[分类尝试目录](research/research-attempts-20261015/README.md)。已完成证明的
+精确成果列在上面的预印本与书面证明栏。
 
-| 问题／来源 | 仓库结论及范围 | 证明入口 |
+| 领域 | 尝试过的问题 | 阶段结果与入口 |
 | --- | --- | --- |
-| Heilman 2014 Conjecture 3 | 证明；四个等质量高斯单元在三维的正四面体极值及等号分类 | [独立四胞预印本](preprints/gaussian-four-cell-global-2026-10/README.md)；[全部 k 扩展](preprints/gaussian-equal-cells-2026-10/README.md) |
-| Erdős 相似性猜想的限定增长间隙类 | 证明满足晚期环带填充条件的一类正测度仿射非普适性；不解决完整猜想 | [独立预印本](preprints/erdos-similarity-growing-gaps-2026-10/README.md) |
-| Fuentes–Keeler–Munizzi–Pollack Conjecture 1 | 证明；正三重信息蕴含局部等价图含诱导四星（claw） | [图态 MMI 预印本](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md) |
-| Pant–Singh Section 6 的全图强／self-Chollet 问题 | 证明并加强到全部主子矩阵；仅限有限简单无权图 Laplacian | [完整论文](preprints/all-graph-chollet-2026-10/README.md)；[完整 Lean](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress) |
-| Iqbal ECQC Conjecture 3.1 的纯态问题（arXiv:2509.08286v2 Section 5） | 素数维数中仅 p=2 普遍成立；p=3 即有精确一比特超出，奇素数反例完整覆盖；此前一般混合态反例另行致谢 | [完整证明、定义、文献范围与重放](research/ecqc-pure-state-counterexamples/README.md) |
-| Heilman 2019 Conjecture 1.16 的等质量子情形 | 证明；覆盖所有 k，达到等号要求 d ≥ k−1，低维仅得严格上界 | [书面证明与部分 Lean 范围](preprints/gaussian-equal-cells-2026-10/README.md) |
-| Heilman 2019 Conjecture 1.16 的任意质量原表述 | 反例；对每个 0<p<1/4 的四胞非均匀质量族，所有正四面体模型均严格非最优 | [独立预印本与完整书面反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md) |
-| Berta–Lami–Tomamichel，arXiv:2408.15226v2 Eq. (106) 的一般互信息连续性拟议界 | 反例；任意小正距离均存在，两侧边缘均变化；固定一侧边缘版本未解决 | [署名论文与完整经典 Lean 范围](preprints/mutual-information-continuity-2026-10/README.md) |
-| de Castro Conjecture 10.1，arXiv:2609.06096v1 | 证明；指定避免置换多面体族全部 d ≥ 3 的实根性，结合既有 d ≤ 1000 定理 | [书面证明与精确证书](notes/ehrhart-uniform-real-rootedness/README.md) |
-| Bapat 原区间 q-永久量单调性猜想 | 反例；复 Hermitian 版本及实对称限制均不成立，实反例为有限存在性结论 | [合并证明与完整 Lean](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) |
-| Wakhare Conjecture 2 的“两内部根”断言 | 反例；(11,10) 至少四个不同内部根，不涉及另一熵不等式 | [完整 Lean](formalizations/wakhare-entropy-four-roots-lean/README.md) |
-| Burgin–Goldberg–Keleti–MacMahon–Wang Question 1，arXiv:2210.09284v1 | 对该版本的全比值仿射几何序列问题给出否定回答；不声称其在本工作前仍未解决 | [来源说明](notes/continuum-power-avoidance/README.md)；[完整 Lean 几何避让](formalizations/geometric-avoidance/README.md) |
-| Billey–Swanson Conjecture 48 | 反例；非恒定基本单峰 CGF 可没有任何素数阶圆分因子 | [完整 Lean](formalizations/cyclotomic-prime-factor-counterexample/README.md) |
-| Amdeberhan–Moll Conjecture 21／早期 Conjecture 13.1 | 一般染色系数无限对数凹性断言被 C17 反驳；周期图族另有完整分类 | [反例](notes/chromatic-infinite-logconcavity-counterexample/README.md)；[全周期图 Lean 分类](formalizations/chromatic-cycles-all-n-lean/README.md) |
-| da Fonseca 半轴 q-永久量单调性扩展 | 反例；4 阶最小，书面证明另给出每个 t > 1 的负导数族 | [书面证明](notes/q-permanent-halfline-counterexample/README.md)；指定矩阵完整 Lean |
-| Pan–Skandera–Wang Conjecture 9.3 | 证明；由原作者 Theorem 8.18 经恒等补齐直接推出 | [完整书面推导](notes/permanent-inequality-padding/README.md) |
-
-此外，仓库已证明通用有限群对偶、全固定秩 Chebyshev 锐渐近、全子集秩 5/14 精确值、锐单纯形稳定指数、递归投影体层级及首个嵌套维数、有限筛 minimax 与最优界等专题结果。全部入口按领域列在 [已证明专题清单](SOLVED_PROBLEMS.md)。一般 PSD Chollet、正相关高斯噪声稳定性、完整 Erdős 相似性猜想、Ryser rank-six 等未解决目标仍单独标明。
+| 高斯分析与概率 | Wishart 行列式乘积猜想；一般高斯多项式 U 猜想 | 完整目标未闭合；[阶段记录](research/research-attempts-20261015/README.md#高斯分析与概率) |
+| 永久量、矩阵与设计 | 一般复 PSD Chollet；Ryser 设计；Lih–Wang；Minc 第六猜想；Ryser rank-six | 保留有限控制与路线分析；[分类记录](research/research-attempts-20261015/README.md#永久量矩阵不等式与设计) |
+| 极值图论与离散几何 | Frankl union-closed；Caccetta–Häggkvist；八维 Borsuk 的平衡切片路线 | 原目标仍开放；[尝试范围](research/research-attempts-20261015/README.md#极值图论与离散几何) |
+| 理论计算机科学、学习与布尔分析 | 确定性 log-rank；强有标号样本压缩；完整 FEI | 完整猜想未闭合；Han Q3.1 辅助反例另列已审成果；[阶段记录](research/research-attempts-20261015/README.md#理论计算机科学学习与布尔分析) |
+| 量子信息与理论物理 | NPT bound entanglement；全维 SIC；去极化容量阈值；Quantum PCP | NPT／容量／PCP 未闭合；SIC 因已有完整主张而结束该阶段；[状态与实际阅读范围](research/research-attempts-20261015/README.md#量子信息与理论物理) |
+| 文献筛查与去重 | Sidorenko；Courtade–Kumar；有限能量 EPnI；Unique Games | 按已有完整主张及实际读限保留筛查记录；[候选筛查](research/research-attempts-20261015/README.md#文献筛查后未继续的候选) |
 
 ## 证明与复现
 

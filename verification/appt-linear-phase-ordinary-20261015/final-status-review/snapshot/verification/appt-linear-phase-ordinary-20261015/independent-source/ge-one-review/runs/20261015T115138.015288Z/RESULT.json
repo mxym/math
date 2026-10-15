@@ -1,0 +1,126 @@
+{
+  "utc": "20261015T115138.015288Z",
+  "kind": "independent internal AI reviewer diagnostics",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "mpmath": "1.2.1",
+  "sympy": "1.9",
+  "decimal_precision": 500,
+  "inputs": {
+    "PURE_ENVELOPE_GE_ONE.md": "ad1a5aabca9d3fcf2e960cbf43bcf7cfbdfd232cc58b86bbaf355229656016a9",
+    "INPUT.json": "da4a7f00fca909e72ddb7968a6c6e465cece424f91e13819a1a111b35f0e55fa"
+  },
+  "author_code_imported_or_executed": false,
+  "groups": {
+    "exact_algebra": {
+      "symbolic_identities": 8,
+      "sign_proof_factors": "K-u, 4K+u, 6u are strictly positive for 0<u<K"
+    },
+    "strict_and_convex": {
+      "strict_s_samples": [
+        {
+          "t": "1e-100",
+          "s_minus_half": "8.33333333333333333e-102"
+        },
+        {
+          "t": "1e-25",
+          "s_minus_half": "8.33333333333333333e-27"
+        },
+        {
+          "t": ".00001",
+          "s_minus_half": "8.33333333331944444e-7"
+        },
+        {
+          "t": ".1",
+          "s_minus_half": "0.00833194477504962405"
+        },
+        {
+          "t": "1",
+          "s_minus_half": "0.0819767068693264244"
+        },
+        {
+          "t": "2",
+          "s_minus_half": "0.156517642749665652"
+        },
+        {
+          "t": "10",
+          "s_minus_half": "0.400045401991009688"
+        },
+        {
+          "t": "40",
+          "s_minus_half": "0.475000000000000004"
+        }
+      ],
+      "tangent_diagnostics": 24,
+      "exact_rational_strict_endpoint_cases": 16
+    },
+    "envelope_diagnostics": {
+      "finite_profile_cases": 900,
+      "strict_positive_width_mixing_endpoint_cases": 40,
+      "two_width_endpoint_attainment_diagnostics": 50,
+      "full_scalar_argmax_proof": "written compactness/interior contradiction, not this grid"
+    },
+    "false_variants": {
+      "expected_assertion_errors": [
+        {
+          "name": "reverse the convex tangent inequality",
+          "observed_exception": "reverse the convex tangent inequality",
+          "witness": {
+            "k": "0.4",
+            "K": "2"
+          }
+        },
+        {
+          "name": "replace the strict D6 bound at c=1 by equality",
+          "observed_exception": "replace the strict D6 bound at c=1 by equality",
+          "witness": {
+            "exact_value": "4001333/3998000",
+            "strictly_above": "1"
+          }
+        },
+        {
+          "name": "extend the c>=1 theorem to every positive c",
+          "observed_exception": "extend the c>=1 theorem to every positive c",
+          "witness": {
+            "c": "0.01",
+            "r": "0.0003",
+            "L": "0.85",
+            "h": "0.365",
+            "positive_excess": "0.0000061999750075796436916300188524"
+          }
+        },
+        {
+          "name": "use the interior eliminated value when its mixing parameter is negative",
+          "observed_exception": "use the interior eliminated value when its mixing parameter is negative",
+          "witness": {
+            "h_unconstrained": "-59.9126950397654333977544434232",
+            "formal_minus_constrained": "0.222512452113621525664599730598"
+          }
+        },
+        {
+          "name": "drop the protection derivative in the interior contradiction",
+          "observed_exception": "drop the protection derivative in the interior contradiction",
+          "witness": {
+            "u_times_s_only": "0.96583069507259428568754688947",
+            "u_times_s_plus_a_prime": "1.10267280033575218042438899473"
+          }
+        },
+        {
+          "name": "body law alone certifies positive-r near-optimality",
+          "observed_exception": "body law alone certifies positive-r near-optimality",
+          "witness": {
+            "actual_state": "I/D, all-global-unitary APPT",
+            "body_spread": "0",
+            "m": 100,
+            "n": "5153775207320113310364611297656212727021075220",
+            "head_slack": "1.0",
+            "actual_moment": "1.0"
+          }
+        }
+      ],
+      "count": 6
+    }
+  },
+  "finite_diagnostics_are_not_global_quantified_proof": true,
+  "status": "PASS",
+  "executed_script_sha256": "09893a1367538855073da000d8d348fc3b0502c7d4df6c4e67cac5917eeba86a"
+}

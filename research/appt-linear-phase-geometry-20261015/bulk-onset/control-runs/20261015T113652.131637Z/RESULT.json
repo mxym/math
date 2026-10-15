@@ -1,0 +1,159 @@
+{
+  "utc": "2026-10-15T11:36:52.131637+00:00",
+  "kind": "author diagnostics, separate from independent read",
+  "input_sha256": {
+    "PAPER.md": "3e1f67ee40b28af0b9de3a643488524fdb38f508d663f63e2ec82f7bc4322804",
+    "THEOREM_MAP.md": "a05d1f856f0988466354dda368cd510c750b480476541dda6d163858f0a859be",
+    "CREDITED_INPUTS.json": "f7b09ccd936a6fcd73062680f6bfb46d33b13f37f2756bb3ac6fe0b27dd30610",
+    "PRIMARY_SCOPE.json": "dbde7a43653c93f4ab374051bd9150a4349268f6c11d3947db59b7820d80815e",
+    "checks.py": "9b8fc9595ba1b72f73a1576f98f044983d8f400fa330fcfe9b6f8f1522327efa",
+    "requirements.txt": "de7fa8918731cfc91dfaeb37870fa39125acb26a35e3515e7a0e9624102a1c7e"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "sympy": "1.9",
+  "mpmath": "1.2.1",
+  "decimal_precision": 120,
+  "groups": {
+    "exact_symbolic": {
+      "exact_symbolic_checks": 10,
+      "g_series": "x**6/25920 - x**4/576 + x**2/8",
+      "limiting_curvature": "3e/16",
+      "first_width_shift": "16/9"
+    },
+    "convex_mixing": {
+      "width_parameter_pairs": 49,
+      "h_comparisons_per_pair": 5,
+      "width_two_singularity_controlled_analytically": true
+    },
+    "global_localization": {
+      "global_gap_cases": 160,
+      "thin_layer_lower_bounds": [
+        {
+          "t": "0.1",
+          "rescaled_lower_bound": "9.822149927842716242221581"
+        },
+        {
+          "t": "0.03",
+          "rescaled_lower_bound": "16788803.8251038984368565"
+        },
+        {
+          "t": "0.01",
+          "rescaled_lower_bound": "1.121696780147397210636991e+26"
+        },
+        {
+          "t": "0.003",
+          "rescaled_lower_bound": "1.213154560384100096059553e+93"
+        }
+      ],
+      "finite_cases_do_not_establish_global_compactness": true
+    },
+    "small_c_branch": {
+      "analytic_branch_diagnostics": [
+        {
+          "c": "0.001",
+          "t": "2.6684468211511183178913251756030585",
+          "L": "1.9973315531788488816821086748243969",
+          "h": "0.49983288815770464342174206236849518",
+          "r_over_c3": "3.6159289519060122530831296801999142",
+          "peak_slope": "0.36873895227786471270227146427764418"
+        },
+        {
+          "c": "0.0003",
+          "t": "2.6672002135041238306530421507700622",
+          "L": "1.999199839935948762850804087354769",
+          "h": "0.49994995998028743030166962815661877",
+          "r_over_c3": "3.6218396140549698938760122478564089",
+          "peak_slope": "0.3681370579920761518594820576831727"
+        },
+        {
+          "c": "0.0001",
+          "t": "2.6668444681544706637747521643537859",
+          "L": "1.9997333155531845529336225247835646",
+          "h": "0.49998332888815910415764133209375931",
+          "r_over_c3": "3.623530184265576054976022464317597",
+          "peak_slope": "0.36796529095014120872171332222849822"
+        },
+        {
+          "c": "0.00001",
+          "t": "2.6666844446814878026218970057644806",
+          "L": "1.9999733331555531851219737810299424",
+          "h": "0.49999833328888815924375268762017074",
+          "r_over_c3": "3.6242912035174912330699370712839714",
+          "peak_slope": "0.36788802513747892684594363831037634"
+        }
+      ],
+      "global_uniqueness_proof": "analytic paper, not findroot"
+    },
+    "actual_integer_quantum_family": {
+      "actual_integer_rank_and_dimension_sequences": [
+        {
+          "c": "0.01",
+          "cases": [
+            {
+              "m": 1999,
+              "alpha": 20,
+              "D_digits": 15,
+              "absolute_moment_error": "0.000002325332695307211020394247",
+              "relative_excess_error": "0.04650574961892364805549327"
+            },
+            {
+              "m": 5999,
+              "alpha": 60,
+              "D_digits": 35,
+              "absolute_moment_error": "0.0000007741888994448872986766515",
+              "relative_excess_error": "0.01548347691837588480245251"
+            },
+            {
+              "m": 11999,
+              "alpha": 120,
+              "D_digits": 63,
+              "absolute_moment_error": "0.0000003869781182638536120320148",
+              "relative_excess_error": "0.007739411875255711702780656"
+            }
+          ]
+        },
+        {
+          "c": "0.02",
+          "cases": [
+            {
+              "m": 999,
+              "alpha": 20,
+              "D_digits": 15,
+              "absolute_moment_error": "0.00000863626993440004631769131",
+              "relative_excess_error": "0.04317799125372173138328491"
+            },
+            {
+              "m": 2999,
+              "alpha": 60,
+              "D_digits": 34,
+              "absolute_moment_error": "0.000002871768782270023689942373",
+              "relative_excess_error": "0.01435772715598660375834516"
+            },
+            {
+              "m": 5999,
+              "alpha": 120,
+              "D_digits": 62,
+              "absolute_moment_error": "0.000001435003439006918546875139",
+              "relative_excess_error": "0.007174459159931952524372522"
+            }
+          ]
+        }
+      ],
+      "APPT_justification": "credited analytic all-global-unitary sufficient theorem, not sampled matrices"
+    },
+    "false_variant_regressions": {
+      "false_variants_rejected": [
+        "replace the lower-onset cubic scale by the bare quadratic crossing",
+        "reverse the c4 correction sign",
+        "drop the protection exponent when minimizing U",
+        "force zero width or merge both onset thresholds",
+        "replace exact mixing by one half before higher-order expansion",
+        "apply interior surviving-peak formula at width two"
+      ],
+      "count": 6
+    }
+  },
+  "new_Lean": false,
+  "finite_grid_is_not_a_global_proof": true,
+  "status": "PASS"
+}

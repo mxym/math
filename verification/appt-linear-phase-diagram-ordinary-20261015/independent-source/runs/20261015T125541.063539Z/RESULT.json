@@ -1,0 +1,58 @@
+{
+  "utc": "20261015T125541.063539Z",
+  "kind": "independent adversarial selections, actual authored replayer executions on private corrupted copies",
+  "independent_interval_engine_claim": false,
+  "original_author_certificate_or_UTC_modified": false,
+  "cases": [
+    {
+      "case": "upper_cover_hole",
+      "purpose": "A full positive upper-value cover cannot omit an interior interval.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "d3ee03fed0b6916f81f060ffe16ca2482fbb3c5a8d102e75d6d6ac2767fe7f74",
+      "stderr_sha256": "400ef2aee83809e87eae1da42acdf9180a7b372be4da2ec3a41b1cbf25cf89c8",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained_case_directory": "runs/20261015T125541.063539Z/upper_cover_hole"
+    },
+    {
+      "case": "whole_K_strip_hole",
+      "purpose": "A whole-K stationary exclusion cannot omit one positive-length x strip.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "7bbbf23a77362186c1f369812921357d832bf19fd79be80560581b48b0441a00",
+      "stderr_sha256": "2104499d53d488a36cea5ac624bbbbcb207763d773891f37573a0b4e44896c6a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained_case_directory": "runs/20261015T125541.063539Z/whole_K_strip_hole"
+    },
+    {
+      "case": "forged_core_curvature_bound",
+      "purpose": "Stored box bounds must equal exact outward recomputation, not merely assert a sign.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "88c0faf9b4e5c57775180e132408bfe202bad984b34b5e56da3764c600743719",
+      "stderr_sha256": "6af198cad404ae004ffeeb23f4a1c44a6f486ea2ba38934f4517f773b8e7c541",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained_case_directory": "runs/20261015T125541.063539Z/forged_core_curvature_bound"
+    },
+    {
+      "case": "widened_K_scope",
+      "purpose": "The original 0.52 certificate must not be relabeled as a wider K domain.",
+      "actual_returncode": 1,
+      "actual_exception": "AssertionError",
+      "modified_certificate_sha256": "3c9fd791177c21392c1876d9b30888785d224743a3b78cefb12d1c7fdc154406",
+      "stderr_sha256": "7fa11322b3596f05e9daf743bb6a41048edc6e095a6677a91cc96cb466e27c12",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained_case_directory": "runs/20261015T125541.063539Z/widened_K_scope"
+    }
+  ],
+  "unchanged_original_inputs": {
+    "critical_exact_intervals.py": "78ab0341d6079ceedb7be01abc9eba8608d50df0ad2136fa53b554a547c6ce1c",
+    "replay_critical_certificate.py": "a50e67cb61b643818d14957fa6e8b2d25a3ebca1d054f85d297bc78959fe8d35",
+    "CRITICAL_EXACT_INTERVAL_CERTIFICATE.json": "f9dd26bc8b4769a22aac06d07ba76587da18ccbc0ec62292856fcf1ae7eee878",
+    "CRITICAL_UNIQUENESS_CERTIFICATE.md": "be76b90de9277fab91c1f676f8de7619c2d58a5b79cf65cf06839d7ce8e7637e"
+  },
+  "status": "PASS",
+  "decision": "PASS",
+  "expected_real_replayer_failures": 4,
+  "executed_countercontrol_sha256": "7252b34d6c5930cc1a73103f291ca5e5677a212a0bd27e03a13fa5b1e9c9e7d8"
+}

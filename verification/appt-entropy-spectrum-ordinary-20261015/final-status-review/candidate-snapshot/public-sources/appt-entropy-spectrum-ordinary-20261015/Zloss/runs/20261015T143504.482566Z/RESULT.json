@@ -1,0 +1,671 @@
+{
+  "utc": "2026-10-15T14:35:04.482566+00:00",
+  "status": "PASS",
+  "source_sha256": "01b22a908f1fd12fadfc6c019df8b2f8489ef024575aad91093917deab5792fb",
+  "paper_sha256": "5b1fa3732ec3dd2448e0cf5c54a79e321b08928aeaf9c7fbd6bd6f61e56c2602",
+  "runtime": {
+    "python": "3.10.12",
+    "sympy": "1.9",
+    "mpmath": "1.2.1",
+    "initial_mp_dps": 1250
+  },
+  "author_programs_imported_or_executed": false,
+  "scope": "Independent finite controls, not global APPT optimization or quantified proof",
+  "counts": {
+    "exact_symbolic_identities": 5,
+    "exact_actual_compressed_integer_states": 84,
+    "loss_deflation_and_actual_entropy_cases_including_alpha_1e_1000": 336,
+    "actual_collapsing_tie_examples": 25,
+    "other_degenerate_corner_actual_diagnostics": 36
+  },
+  "details": {
+    "deflation_branches": {
+      "active": 8,
+      "inactive": 328
+    },
+    "collapsing_tie": [
+      {
+        "l": 2,
+        "strength": "0",
+        "variance_target": "0",
+        "Q_over_gamma": "0.2102405372379206599867232",
+        "v": "0.0",
+        "least_power": "0.5374052752278028745694459",
+        "D_entropy": "0.3114004110070695419026114",
+        "relative_loss_profile": "0.4357268293933993317854882",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 2,
+        "strength": "1/3",
+        "variance_target": "1/9",
+        "Q_over_gamma": "0.2588424086437328318036744",
+        "v": "0.0",
+        "least_power": "0.5355536723712193726489055",
+        "D_entropy": "0.337497431612997676202007",
+        "relative_loss_profile": "0.443219321452295120085251",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 2,
+        "strength": "1/2",
+        "variance_target": "1/4",
+        "Q_over_gamma": "0.3177279006482011402766719",
+        "v": "0.0",
+        "least_power": "0.5346397305555716360788161",
+        "D_entropy": "0.3678132865069105872604994",
+        "relative_loss_profile": "0.4469317027723766448346814",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 2,
+        "strength": "3/4",
+        "variance_target": "9/16",
+        "Q_over_gamma": "0.4466591430251358318770982",
+        "v": "0.0",
+        "least_power": "0.5332833039158149846767077",
+        "D_entropy": "0.4335779031545261584400822",
+        "relative_loss_profile": "0.4524575531894861094092859",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 2,
+        "strength": "1",
+        "variance_target": "1",
+        "Q_over_gamma": "0.6216789891368606836448466",
+        "v": "0.0",
+        "least_power": "0.531943911367751145819868",
+        "D_entropy": "0.5224048866161981730421854",
+        "relative_loss_profile": "0.4579317702382873594263799",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 4,
+        "strength": "0",
+        "variance_target": "0",
+        "Q_over_gamma": "0.1249999998137354851471403",
+        "v": "0.0",
+        "least_power": "0.2688511399854064527672383",
+        "D_entropy": "0.7132254507319036543629322",
+        "relative_loss_profile": "0.7311488599321365214258304",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 4,
+        "strength": "1/3",
+        "variance_target": "1/9",
+        "Q_over_gamma": "0.1961111109160162785266181",
+        "v": "0.0",
+        "least_power": "0.2688511399843631730344414",
+        "D_entropy": "0.7310032285085866844166905",
+        "relative_loss_profile": "0.7311488599551683413718935",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 4,
+        "strength": "1/2",
+        "variance_target": "1/4",
+        "Q_over_gamma": "0.2849999997839331627820397",
+        "v": "0.0",
+        "least_power": "0.2688511399838415331680688",
+        "D_entropy": "0.7532254507261223213349676",
+        "relative_loss_profile": "0.7311488599666842513438508",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 4,
+        "strength": "3/4",
+        "variance_target": "9/16",
+        "Q_over_gamma": "0.4849999997131526471382058",
+        "v": "0.0",
+        "least_power": "0.2688511399830590733685421",
+        "D_entropy": "0.8032254507092618162059487",
+        "relative_loss_profile": "0.7311488599839581163004441",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 4,
+        "strength": "1",
+        "variance_target": "1",
+        "Q_over_gamma": "0.7649999995753169061512224",
+        "v": "0.0",
+        "least_power": "0.2688511399822766135690541",
+        "D_entropy": "0.8732254506756375047420955",
+        "relative_loss_profile": "0.7311488600012319812554261",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 8,
+        "strength": "0",
+        "variance_target": "0",
+        "Q_over_gamma": "0.0625",
+        "v": "0.0",
+        "least_power": "0.1288906862176296690588037",
+        "D_entropy": "0.8690634298741539869878819",
+        "relative_loss_profile": "0.8711093137823703309411963",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 8,
+        "strength": "1/3",
+        "variance_target": "1/9",
+        "Q_over_gamma": "0.1502914951989026063100137",
+        "v": "0.0",
+        "least_power": "0.1288906862176296690588037",
+        "D_entropy": "0.8800373667740168127766337",
+        "relative_loss_profile": "0.8711093137823703309411963",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 8,
+        "strength": "1/2",
+        "variance_target": "1/4",
+        "Q_over_gamma": "0.2600308641975308641975309",
+        "v": "0.0",
+        "least_power": "0.1288906862176296690588037",
+        "D_entropy": "0.8937547878988453450125733",
+        "relative_loss_profile": "0.8711093137823703309411963",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 8,
+        "strength": "3/4",
+        "variance_target": "9/16",
+        "Q_over_gamma": "0.5069444444444444444444444",
+        "v": "0.006944444444444444444444444",
+        "least_power": "0.1288906862176296690588037",
+        "D_entropy": "0.9246189854297095425434375",
+        "relative_loss_profile": "0.8719773693379258864967518",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 8,
+        "strength": "1",
+        "variance_target": "1",
+        "Q_over_gamma": "0.8526234567901234567901235",
+        "v": "0.3526234567901234567901235",
+        "least_power": "0.1288906862176296690588037",
+        "D_entropy": "0.9678288619729194190866474",
+        "relative_loss_profile": "0.9151872458811357630399617",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 16,
+        "strength": "0",
+        "variance_target": "0",
+        "Q_over_gamma": "0.03125",
+        "v": "0.0",
+        "least_power": "0.06316562004506173091008319",
+        "D_entropy": "0.9365866716410360662236028",
+        "relative_loss_profile": "0.9368343799549382690899168",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 16,
+        "strength": "1/3",
+        "variance_target": "1/9",
+        "Q_over_gamma": "0.1296736831987697039600154",
+        "v": "0.0",
+        "least_power": "0.06316562004506173091008319",
+        "D_entropy": "0.9427381518409591727211037",
+        "relative_loss_profile": "0.9368343799549382690899168",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 16,
+        "strength": "1/2",
+        "variance_target": "1/4",
+        "Q_over_gamma": "0.2527032871972318339100346",
+        "v": "0.002703287197231833910034602",
+        "least_power": "0.06316562004506173091008319",
+        "D_entropy": "0.9504275020908630558429799",
+        "relative_loss_profile": "0.937003335404765258709294",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 16,
+        "strength": "3/4",
+        "variance_target": "9/16",
+        "Q_over_gamma": "0.5295198961937716262975779",
+        "v": "0.2795198961937716262975779",
+        "least_power": "0.06316562004506173091008319",
+        "D_entropy": "0.9677285401531467928672014",
+        "relative_loss_profile": "0.9543043734670489957335154",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 16,
+        "strength": "1",
+        "variance_target": "1",
+        "Q_over_gamma": "0.9170631487889273356401384",
+        "v": "0.6670631487889273356401384",
+        "least_power": "0.06316562004506173091008319",
+        "D_entropy": "0.9919499934403440247011114",
+        "relative_loss_profile": "0.9785258267542462275674255",
+        "mp_dps": 1250,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 32,
+        "strength": "0",
+        "variance_target": "0",
+        "Q_over_gamma": "0.015625",
+        "v": "0.0",
+        "least_power": "0.03135500280492710285239382",
+        "D_entropy": "0.9686143471434551775944758",
+        "relative_loss_profile": "0.9686449971950728971476062",
+        "mp_dps": 3244,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 32,
+        "strength": "1/3",
+        "variance_target": "1/9",
+        "Q_over_gamma": "0.1201041347821650851953882",
+        "v": "0.0",
+        "least_power": "0.03135500280492710285239382",
+        "D_entropy": "0.9718793201053978365068317",
+        "relative_loss_profile": "0.9686449971950728971476062",
+        "mp_dps": 3244,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 32,
+        "strength": "1/2",
+        "variance_target": "1/4",
+        "Q_over_gamma": "0.2507030532598714416896235",
+        "v": "0.1257030532598714416896235",
+        "least_power": "0.03135500280492710285239382",
+        "D_entropy": "0.9759605363078261601472765",
+        "relative_loss_profile": "0.9725732176094438797004069",
+        "mp_dps": 3244,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 32,
+        "strength": "3/4",
+        "variance_target": "9/16",
+        "Q_over_gamma": "0.5445506198347107438016529",
+        "v": "0.4195506198347107438016529",
+        "least_power": "0.03135500280492710285239382",
+        "D_entropy": "0.9851432727632898883382774",
+        "relative_loss_profile": "0.9817559540649076078914078",
+        "mp_dps": 3244,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      },
+      {
+        "l": 32,
+        "strength": "1",
+        "variance_target": "1",
+        "Q_over_gamma": "0.955937213039485766758494",
+        "v": "0.830937213039485766758494",
+        "least_power": "0.03135500280492710285239382",
+        "D_entropy": "0.9979991038009391078056787",
+        "relative_loss_profile": "0.9946117851025568273588091",
+        "mp_dps": 3244,
+        "full_rank": true,
+        "rank_zero_entropy_deficit": 0,
+        "scope": "Known asymptotic scale W=1, not a finite exact optimum"
+      }
+    ],
+    "other_corners": [
+      {
+        "l": 4,
+        "gamma": 1,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.71322545073190365437",
+        "loss_profile": "0.73114886001459354723"
+      },
+      {
+        "l": 4,
+        "gamma": 1,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.71822545073264157937",
+        "loss_profile": "0.73114886001615846683"
+      },
+      {
+        "l": 4,
+        "gamma": 1,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.73322545072779156892",
+        "loss_profile": "0.73114886001772338643"
+      },
+      {
+        "l": 4,
+        "gamma": 8,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.71322545073190365436",
+        "loss_profile": "0.73114885993213652143"
+      },
+      {
+        "l": 4,
+        "gamma": 8,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.75322545072612232133",
+        "loss_profile": "0.73114885996668425134"
+      },
+      {
+        "l": 4,
+        "gamma": 8,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.87322545067563750474",
+        "loss_profile": "0.73114886000123198126"
+      },
+      {
+        "l": 4,
+        "gamma": 16,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.57058036058552292349",
+        "loss_profile": "0.58491908790442750617"
+      },
+      {
+        "l": 4,
+        "gamma": 16,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.63458036057493739259",
+        "loss_profile": "0.58491908794857837449"
+      },
+      {
+        "l": 4,
+        "gamma": 16,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.82658036049282628799",
+        "loss_profile": "0.66591908793164437724"
+      },
+      {
+        "l": 4,
+        "gamma": 64,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.25935470935705587431",
+        "loss_profile": "0.26587231264289014482"
+      },
+      {
+        "l": 4,
+        "gamma": 64,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.37571834569962482079",
+        "loss_profile": "0.30269049446839019513"
+      },
+      {
+        "l": 4,
+        "gamma": 64,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.72480925463941999689",
+        "loss_profile": "0.65178140344237194306"
+      },
+      {
+        "l": 8,
+        "gamma": 1,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.86906342987415398699",
+        "loss_profile": "0.87110931378237033094"
+      },
+      {
+        "l": 8,
+        "gamma": 1,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.87060663975069719686",
+        "loss_profile": "0.87110931378237033094"
+      },
+      {
+        "l": 8,
+        "gamma": 1,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.87523626938032682649",
+        "loss_profile": "0.87110931378237033094"
+      },
+      {
+        "l": 8,
+        "gamma": 16,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.86906342987415398699",
+        "loss_profile": "0.87110931378237033094"
+      },
+      {
+        "l": 8,
+        "gamma": 16,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.89375478789884534501",
+        "loss_profile": "0.87110931378237033094"
+      },
+      {
+        "l": 8,
+        "gamma": 16,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.96782886197291941909",
+        "loss_profile": "0.91518724588113576304"
+      },
+      {
+        "l": 8,
+        "gamma": 64,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.63204613081756653599",
+        "loss_profile": "0.6335340463871784225"
+      },
+      {
+        "l": 8,
+        "gamma": 64,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.70387553598030503206",
+        "loss_profile": "0.66559072427718964585"
+      },
+      {
+        "l": 8,
+        "gamma": 64,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.91936375146852052028",
+        "loss_profile": "0.88107893976540513406"
+      },
+      {
+        "l": 8,
+        "gamma": 512,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.17826942151264697169",
+        "loss_profile": "0.17868909000664006789"
+      },
+      {
+        "l": 8,
+        "gamma": 512,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.34034602803369793719",
+        "loss_profile": "0.32954774780974231543"
+      },
+      {
+        "l": 8,
+        "gamma": 512,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.82657584759685083367",
+        "loss_profile": "0.81577756737289521192"
+      },
+      {
+        "l": 16,
+        "gamma": 1,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.93658667164103606622",
+        "loss_profile": "0.93683437995493826909"
+      },
+      {
+        "l": 16,
+        "gamma": 1,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.93701919759259315965",
+        "loss_profile": "0.93683437995493826909"
+      },
+      {
+        "l": 16,
+        "gamma": 1,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.93831677544726443993",
+        "loss_profile": "0.93683437995493826909"
+      },
+      {
+        "l": 16,
+        "gamma": 32,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.93658667164103606622",
+        "loss_profile": "0.93683437995493826909"
+      },
+      {
+        "l": 16,
+        "gamma": 32,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.95042750209086305584",
+        "loss_profile": "0.93700333540476525871"
+      },
+      {
+        "l": 16,
+        "gamma": 32,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.9919499934403440247",
+        "loss_profile": "0.97852582675424622757"
+      },
+      {
+        "l": 16,
+        "gamma": 256,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.65153855418506856781",
+        "loss_profile": "0.6517108730121309698"
+      },
+      {
+        "l": 16,
+        "gamma": 256,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.72856578451454051004",
+        "loss_profile": "0.71922723377638552073"
+      },
+      {
+        "l": 16,
+        "gamma": 256,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.95964747550295633673",
+        "loss_profile": "0.95030892476480134742"
+      },
+      {
+        "l": 16,
+        "gamma": 4096,
+        "strength": "0",
+        "D_entropy_over_known_W": "0.10479291430948655286",
+        "loss_profile": "0.10482062992502805808"
+      },
+      {
+        "l": 16,
+        "gamma": 4096,
+        "strength": "1/2",
+        "D_entropy_over_known_W": "0.30301683571679896364",
+        "loss_profile": "0.30151483105262018913"
+      },
+      {
+        "l": 16,
+        "gamma": 4096,
+        "strength": "1",
+        "D_entropy_over_known_W": "0.89768859993873619595",
+        "loss_profile": "0.89618659527455742145"
+      }
+    ]
+  },
+  "actual_rejected_wrong_variants": [
+    {
+      "variant": "unde\ufb02ated_variance",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "signed_variance",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "drop_upper_phase_loss",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "drop_lower_phase_loss",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "finite_tie_rule_at_zero_corner",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "positive_order_forces_zero_rank",
+      "returncode": 1,
+      "intended_assertion_error": true
+    },
+    {
+      "variant": "ignore_normalization",
+      "returncode": 1,
+      "intended_assertion_error": true
+    }
+  ],
+  "finished_utc": "2026-10-15T14:35:09.593217+00:00"
+}

@@ -1,0 +1,11 @@
+# Three separately completed independent mathematical reads
+
+Decision: **PASS for each exact scope below.** This is an index of completed internal AI-agent ordinary reads, not a new proof or an extension of old C1 coverage.
+
+- **LAST: every positive finite boundary of strict mixed-c set; uniform interior compactness and at least three actual body laws**. Source SHA-256 `6e4f77e2bbecbc5e71f426925d444e8e1a9b69d2ffebcbef88badc1f4e87f0a0`; decision PASS. Full report `last-boundary/REVIEW.md` SHA `45912429e382af7a23f44e91b9a5066103ea5923140def04e0c7b535bcfd2806`; structured report `last-boundary/REVIEW.json` SHA `6bd8fc5b1c6443d2e7d8bf582fd0a4cda33c6adc76fa98fd74981d160c1c1798`.
+- **NO_ISLANDS: one strict mixed-c interval, analytic per-width crossing and finitely many last-boundary widths**. Source SHA-256 `f7509ff124d76f12855a55705f317c51133c8e1a93fcadc7f230bebd91b8ad16`; decision PASS. Full report `no-islands/REVIEW.md` SHA `4929402c2bd025d0497cdf3a34a74f29f7a228a597d655a1c9f34246f11174df`; structured report `no-islands/REVIEW.json` SHA `2fa1171303a59a860d154c9ef46db7aae3c7ac9edbdebfdc52221470f02c59db`.
+- **CRITICAL: rigorously bracketed unique nondegenerate last interior phase and full local analytic coexistence diagram**. Source SHA-256 `be76b90de9277fab91c1f676f8de7619c2d58a5b79cf65cf06839d7ce8e7637e`; decision PASS. Full report `critical-uniqueness/REVIEW.md` SHA `87f8521d4f75c71acb0db1651eefaada0c8690c8ec69ee68473d5410b816edd5`; structured report `critical-uniqueness/REVIEW.json` SHA `f5b72eed063541a2746e6c170b4d71f2e857d80ff3037821339ba2589f9c5293`.
+
+The original owner ZIP, unmodified certificate and UTC, actual private author-code replay, new independently written symbolic/structural controls and four real expected tamper failures are retained. These execution types are distinguished in every report. Full quantum transfers retain original complex all-global-unitary APPT, full argmax, J and actual peak losses and the original fixed-c physical limit. No Lean, external human review, priority, major count or future publication/transport is certified.
+
+**Fourth GLOBAL_MIXED_PHASE scope remains PENDING.** Its newly frozen owner archive will be reviewed separately. None of these three decisions proves uniqueness of every mixed optimizer at arbitrary c,r. Final status/README/index binding is also a separate future task.

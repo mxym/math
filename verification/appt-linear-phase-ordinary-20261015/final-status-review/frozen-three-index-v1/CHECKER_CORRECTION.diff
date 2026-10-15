@@ -1,0 +1,11 @@
+--- first-failed-checker
++++ corrected-checker
+@@ -47,7 +47,7 @@
+     actual=set()
+     for name,prefix in M['new_projects'].items():
+         for p in (STAGE/'public-sources'/name).rglob('*'):
+-            if p.is_file() and p.name!='FINAL_STATUS_BINDING.json':
++            if p.is_file() and p.relative_to(STAGE/'public-sources'/name)!=Path('FINAL_STATUS_BINDING.json'):
+                 actual.add(prefix+'/'+str(p.relative_to(STAGE/'public-sources'/name)))
+     actual.update(['README.md','README.en.md','RESEARCH.md'])
+     assert actual==set(M['files']),{'unexpected':sorted(actual-set(M['files'])),'missing':sorted(set(M['files'])-actual)}

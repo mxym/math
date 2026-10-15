@@ -1,0 +1,19 @@
+--- owner-v1/PAPER.md
++++ author-v2/PAPER.md
+@@ -429,9 +429,13 @@
+ 
+ For the lower bounds use k=t_m and k=0, respectively. For the upper
+ bound the peak term is at most R, while the normalized two-point moment
+-is increasing in k at fixed theta. The latter follows because its
+-logarithmic derivative has the sign of
+-(1-theta)[(1+k)^(alpha-1)-1]>=0. This proves (19) on the whole rectangle.
++is nondecreasing in k at fixed theta. Its exact logarithmic derivative is
++
++    alpha theta(1-theta)[(1+k)^(alpha-1)-1]
++      / { [1+theta((1+k)^alpha-1)](1+k theta) } >= 0.
++
++This formula includes theta=0 and theta=1, where the derivative is zero.
++It proves (19) on the whole rectangle.
+ 
+ Consider any sequence alpha>sqrt(m). On a bounded subsequence extract
+ alpha->a>=sqrt(m)>1. R tends to zero uniformly on bounded alpha ranges,

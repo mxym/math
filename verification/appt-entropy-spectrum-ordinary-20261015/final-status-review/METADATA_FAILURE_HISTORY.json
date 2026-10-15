@@ -1,0 +1,30 @@
+{
+  "status": "PRESERVED_ACTUAL_FAILURES",
+  "recorded_utc": "2026-10-15T15:11:25.030846+00:00",
+  "initial_read_path_failure": {
+    "status": "RETAINED_NONBLOCKING_READ_PATH_FAILURE",
+    "tool_chunk_id": "baadb4",
+    "returncode": 1,
+    "requested_path": "D:/math/tmp/research-resume-20261015/entropy-spectrum-publication/PREPARED_CANDIDATES.json",
+    "actual_error": "Get-Content: Cannot find path because it does not exist.",
+    "cause": "Reviewer guessed a wrapper filename used by an earlier publication stage. Parent had actually provided FINAL_CANDIDATE_INPUTS.json and SOURCE_PREPARATION.json.",
+    "recovery": "Listed the actual current stage and read the provided manifests. No candidate file or mathematical scope was changed.",
+    "mathematical_or_candidate_finding": false
+  },
+  "initial_metadata_run": {
+    "run": "runs/20261015T150422.448708Z",
+    "status": "FAIL",
+    "returncode": 1,
+    "tool_chunk_id": "f9e126",
+    "source_sha256": "dd1d998991f20b9abaa4eeed2fa90d881a86fe4e9fde67e72b3141a55d99ee95",
+    "actual_failure": "Traceback (most recent call last):\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-spectrum-final-binding-review-20261015/independent_metadata_checks.py\", line 222, in main\n    try:perform(folder,result);result['status']='PASS'\n  File \"/mnt/d/math/tmp/research-resume-20261015/independent-entropy-spectrum-final-binding-review-20261015/independent_metadata_checks.py\", line 60, in perform\n    assert actual_files==set(x['source_files']),scope\nAssertionError: X\n",
+    "diagnosis": "Reviewer omitted legitimate independent report copies in X/S5/S6 author destinations; corrected checker limits extras to those two files and verifies exact original bytes"
+  },
+  "subsequent_run": {
+    "run": "runs/20261015T150526.205159Z",
+    "status": "PASS",
+    "source_sha256": "89ac397206a00a76bcdaa5582c33779e72c2598c2df544956f6ec8890792fcee"
+  },
+  "candidate_revision_needed_or_made": false,
+  "mathematical_controls_rerun": false
+}

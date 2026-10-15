@@ -1,0 +1,190 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "reviewed_utc": "2026-10-15T11:58:51.705675+00:00",
+  "reviewer": "/root/critical_entropy_review_resume_20261015, separate internal AI agent",
+  "review_kind": "full ordinary mathematical read of the new exact source, with separately written independent diagnostics",
+  "external_human_peer_review": false,
+  "Lean_verification": false,
+  "priority_certificate": false,
+  "new_major_problem_count": false,
+  "new_Lean_audit_roots": 0,
+  "author_code_executed_or_imported": false,
+  "source_or_root_modified": false,
+  "subagents_spawned": false,
+  "repository_mutations": false,
+  "global_proof_from_finite_diagnostics": false,
+  "independent_unexpected_failures": [],
+  "future_metadata_figures_transport_layout_guarantee": false,
+  "scope": "D1: exact pure envelope and full argmax for every real c>=1 and r>=0",
+  "source": {
+    "path": "PURE_ENVELOPE_GE_ONE.md",
+    "sha256": "ad1a5aabca9d3fcf2e960cbf43bcf7cfbdfd232cc58b86bbaf355229656016a9",
+    "bytes": 6535,
+    "full_text_read": true,
+    "wsl_and_windows_mirrors_byte_compared": true
+  },
+  "input_manifest": {
+    "path": "INPUT.json",
+    "sha256": "da4a7f00fca909e72ddb7968a6c6e465cece424f91e13819a1a111b35f0e55fa"
+  },
+  "report": {
+    "path": "REVIEW.md",
+    "sha256": "e7cf2b17488c91d77a0633e0711b742fe3b9c6efe89dea28c1c353c3213c5c4d"
+  },
+  "dependencies": {
+    "prior_full_reads_reused_after_exact_byte_comparison": true,
+    "immutable_commit": "c4e0d9e713ba349d376469231789bb7b36915b7d",
+    "actual_used_theorems": [
+      "L1 value and continuity",
+      "L20 conditional exact mixing elimination",
+      "L21 unique pure bulk",
+      "S all-actual near-optimizer criterion"
+    ],
+    "V_already_complete_all_order_value_credited": true,
+    "old_T_c10_PASS_automatically_extended": false
+  },
+  "mathematical_gates": [
+    "s>1/2 proved for every t>0 by H(0)=Hprime(0)=0 and Hsecond=t exp(t)>0",
+    "g convex as maximum of fixed Bernoulli log MGFs, explicit differentiability yields tangent inequality",
+    "putative global interior maximum at bare crossing forces h interior, so L20 formula and local stationarity apply",
+    "exact a derivative and strict u(s+aprime)>K/2+(K-u)(4K+u)/(6u)>K/2 exclude K>=2 including K=2",
+    "compactness excludes all interior ties, not only stationary candidates of a selected family",
+    "affinity in r proves all branches and exact equality cases including redundant zero-width face",
+    "actual quantum transfer retains complex density matrices and every global unitary, all n>=m and finite critical r",
+    "at limiting c=1 approaches from either side allowed; both S physical losses retained"
+  ],
+  "independent_runs": [
+    {
+      "path": "ge-one-review/runs/20261015T115138.015288Z/RESULT.json",
+      "status": "PASS",
+      "result_sha256": "a1d1004c078eed0cba8aab2ec00953aadde6db64999ae83fba8a48b85f000506",
+      "script_sha256": "09893a1367538855073da000d8d348fc3b0502c7d4df6c4e67cac5917eeba86a",
+      "groups": {
+        "exact_algebra": {
+          "symbolic_identities": 8,
+          "sign_proof_factors": "K-u, 4K+u, 6u are strictly positive for 0<u<K"
+        },
+        "strict_and_convex": {
+          "strict_s_samples": [
+            {
+              "t": "1e-100",
+              "s_minus_half": "8.33333333333333333e-102"
+            },
+            {
+              "t": "1e-25",
+              "s_minus_half": "8.33333333333333333e-27"
+            },
+            {
+              "t": ".00001",
+              "s_minus_half": "8.33333333331944444e-7"
+            },
+            {
+              "t": ".1",
+              "s_minus_half": "0.00833194477504962405"
+            },
+            {
+              "t": "1",
+              "s_minus_half": "0.0819767068693264244"
+            },
+            {
+              "t": "2",
+              "s_minus_half": "0.156517642749665652"
+            },
+            {
+              "t": "10",
+              "s_minus_half": "0.400045401991009688"
+            },
+            {
+              "t": "40",
+              "s_minus_half": "0.475000000000000004"
+            }
+          ],
+          "tangent_diagnostics": 24,
+          "exact_rational_strict_endpoint_cases": 16
+        },
+        "envelope_diagnostics": {
+          "finite_profile_cases": 900,
+          "strict_positive_width_mixing_endpoint_cases": 40,
+          "two_width_endpoint_attainment_diagnostics": 50,
+          "full_scalar_argmax_proof": "written compactness/interior contradiction, not this grid"
+        },
+        "false_variants": {
+          "expected_assertion_errors": [
+            {
+              "name": "reverse the convex tangent inequality",
+              "observed_exception": "reverse the convex tangent inequality",
+              "witness": {
+                "k": "0.4",
+                "K": "2"
+              }
+            },
+            {
+              "name": "replace the strict D6 bound at c=1 by equality",
+              "observed_exception": "replace the strict D6 bound at c=1 by equality",
+              "witness": {
+                "exact_value": "4001333/3998000",
+                "strictly_above": "1"
+              }
+            },
+            {
+              "name": "extend the c>=1 theorem to every positive c",
+              "observed_exception": "extend the c>=1 theorem to every positive c",
+              "witness": {
+                "c": "0.01",
+                "r": "0.0003",
+                "L": "0.85",
+                "h": "0.365",
+                "positive_excess": "0.0000061999750075796436916300188524"
+              }
+            },
+            {
+              "name": "use the interior eliminated value when its mixing parameter is negative",
+              "observed_exception": "use the interior eliminated value when its mixing parameter is negative",
+              "witness": {
+                "h_unconstrained": "-59.9126950397654333977544434232",
+                "formal_minus_constrained": "0.222512452113621525664599730598"
+              }
+            },
+            {
+              "name": "drop the protection derivative in the interior contradiction",
+              "observed_exception": "drop the protection derivative in the interior contradiction",
+              "witness": {
+                "u_times_s_only": "0.96583069507259428568754688947",
+                "u_times_s_plus_a_prime": "1.10267280033575218042438899473"
+              }
+            },
+            {
+              "name": "body law alone certifies positive-r near-optimality",
+              "observed_exception": "body law alone certifies positive-r near-optimality",
+              "witness": {
+                "actual_state": "I/D, all-global-unitary APPT",
+                "body_spread": "0",
+                "m": 100,
+                "n": "5153775207320113310364611297656212727021075220",
+                "head_slack": "1.0",
+                "actual_moment": "1.0"
+              }
+            }
+          ],
+          "count": 6
+        }
+      },
+      "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+      "sympy": "1.9",
+      "mpmath": "1.2.1",
+      "decimal_precision": 500
+    }
+  ],
+  "findings": [],
+  "literature_scope": "no new full-text collision or priority audit; prior bounded official abstract/version screen remains with its original limits",
+  "not_claimed": [
+    "sharp c threshold",
+    "connectedness of mixed c set",
+    "intermediate-c phase diagram",
+    "exact finite-dimensional quantum optimizers",
+    "all-order spectral rigidity",
+    "body law replacing positive-r physical losses",
+    "width-2 interior peak expansion"
+  ]
+}

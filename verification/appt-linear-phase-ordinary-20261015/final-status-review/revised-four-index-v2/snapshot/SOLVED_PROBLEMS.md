@@ -1,0 +1,219 @@
+# 问题与专题成果索引
+
+[返回首页](README.md) · [已书面证明专题](README.md#已书面证明的问题) · [预印本与问题对应](README.md#预印本) · [分类研究目录与证明状态](RESEARCH.md)
+
+本页汇总仓库已有公开证明所主张的结论，并提供全部主要专题入口。具名问题的来源、证明或反例结论及具体范围列在首页；下列条目包括完整分类、锐界、结构定理、方法障碍和限定情形的解答。同一研究的多个版本或加强并不重复计为独立猜想突破。
+
+标题只作导航，不替代命题的假设、量词或证明。书面证明、完整 Lean、部分 Lean 和计算证书分别由各项目注明；此清单不表示本次重新审查了所有数学证明，也不自动认定原创性或历史优先权。借用已有定理的直接推论与继承方法在源文件中注明。
+
+## 本轮完整书面成果，主定理未整体 Lean 化
+
+- [APPT 全正阶与任意长宽比熵统一首项](research/appt-growing-renyi/README.md)及[α/m→∞ 的相变与全长宽比谱判据](research/appt-ultralinear-spectrum-20261014/README.md)：m→∞ 时，全部 n≥m、α>0 的首个非零熵缺口统一等价；含峰／体耦合、两个端点窗口、有限长宽比全极限阶数谱分类及有限 D 的显式小阶精确带。完整书面证明、源绑定内部复核；新目标与极限未整体 Lean 化，原审计范围不扩大；同一 APPT 方向的加强不重复计数。
+- [同一 APPT 方向的有限高阶精确极值](research/appt-finite-high-order-20261014/README.md)：实际 2⊗n、n≥4、所有实 α≥2 的精确整数秩包络与全部等号；任意 m⊗n 在 D≥6、α≥D/2+1，及 D=4、α≥24 的唯一 spike 极值，维数截止尺度 Θ(D)。完整书面证明与 558 行源绑定内部复核；明确归属已有谱顶点、纯度与可分离端点，未整体 Lean 化；同一方向加强不另计重大猜想。
+- [同一 APPT 主线的实阶扩展与锐截止](research/appt-log-order-phase-20261014/README.md)：实际 2⊗n、n≥8、全部实 α>1 的有限精确极值；n≥4 的所有 α>0 上，pole 最优当且仅当 α≥τ_D，含临界全部等号与锐主常数 log2/2。完整书面稿及 471 行加明确两行澄清的源绑定内部复核；未整体 Lean 化，不声称全部 subcritical 最小值或一般 APPT=ASEP，同一方向加强不另计重大猜想。
+- [同一 APPT 主线的锐对数截止层级与固定局部相变](research/appt-sharp-log-cutoff-20261014/README.md)：每个固定ℓ≥3、m≥ℓ统一高阶带的锐主系数κℓ=1/log[3(ℓ−1)/(ℓ+1)]；每c>κℓ、充分大D、所有α≥c logD+1的唯一APPT/ASEP pole；实际ℓ⊗n给APPT-only下界；固定m、所有α→∞及α/logD→0/有限/∞的完整熵缺口相变。[显式D≥9的32logD+1带](research/appt-nonqubit-log-band-20261014/README.md)保留。新240行与旧249行内部复核分别源绑定；无逐D或ASEP必要界、有限临界分类、联合增长ℓ宣称；未整体Lean，同一方向不另计重大猜想。
+- [同一 APPT 主线的临界窗口和常数阶精确截止](research/appt-critical-window-20261014/README.md)：固定ℓ≥3、Xℓ=κℓ[logD−loglogD−log(e(qℓ−1)κℓ)]；所有实际m≥ℓ、充分大D、全部α≥Xℓ+ε唯一APPT/ASEP pole；实际ℓ⊗n在Xℓ−ε给APPT-only下界；固定m最终截止A=Xm+o(1)，有界临界偏移完整APPT矩与熵包络。新300行源绑定内部通读；未整体Lean，不宣称ASEP反向界、有限优化态分类或增长ℓ统一性；同一方向不另计重大猜想。
+- [同一 APPT 主线的定量最终截止与逆对数展开](research/appt-cutoff-root-tracking-20261014/README.md)：固定m≥3，实际A=wD+O(D^−β)、β>0，唯一显式标量模型根；完整首两项逆log修正及所有固定阶余项；固定m完整对数带矩包络的幂次相对误差；所有实际m≥ℓ、全部更高实阶充分界。新304行与最终四行实际核读源绑定；下界APPT-only，未整体Lean，不给有限阈值、最优误差率、优化态分类或增长m统一性；同一方向不另计重大猜想。
+- [同一 APPT 主线的固定局部全正阶熵轴](research/appt-all-positive-axis-20261014/README.md)：每固定m≥3，完整实际APPT熵缺口在全部0≤α≤∞统一近似max(bulk标量模型,精确pole)，误差O(D^−χm)；全部有界阶含趋0/跨1时O(1/D)，完整实际vonNeumann渐近和已知0/∞等号覆盖。新366行完整普通核读；已知标量/谱族明确归属，未整体Lean，不宣称ASEP bulk、有限优化态全分类或增长m统一性；同一方向不另计重大猜想。
+- [同一 APPT 主线的最终精确 bulk 熵与全部等号](research/appt-eventual-bulk-20261014/README.md)：固定m≥3，任意正阶紧区间及全部a≤α≤c logD、a>0、c<1/log(m−1)，在充分大D上完整实际极小熵由两层投影谱精确达到；相邻两整数秩作精确比较并保留平局，分类全部等号态。紧区间取整损失给出D^−2首项及O(D^−3)余项。独立380行内部普通核读，未整体Lean；对数系数是单半空间方法锐界而非实际APPT相变；全部有限D、增长m、趋零阶临界窗和ASEP bulk仍分开，不另计重大猜想。
+- [同一 APPT 主线的精确零阶转变与完整最终低阶谱](research/appt-zero-order-transition-20261014/README.md)：每固定m≥3及c<1/log(m−1)，充分大D上的全部0≤α≤c logD精确由缺一谱与整数秩bulk择优，含全部矩阵等号；唯一tau_D=1/(C0D)+[1/(2C0)−C1/C0³]/D²+O(D^−3)。α=β/D全紧区间一致律、所有α趋0统一等价、低/高/临界完整领先谱分类与两支交替。独立488行内部普通核读，未整体Lean；固定m/eventualD，无全部有限D、增长m、ASEP bulk或高阶物理临界优化谱，不另计重大猜想。
+- [同一 APPT 主线的固定m全阶精确熵与全部最优谱](research/appt-all-order-exact-20261014/README.md)：每固定m≥3，一个充分大D门槛同时覆盖0≤α≤∞；实际最小熵精确由缺一谱、精确选秩两层谱与单峰谱择优，含全部矩阵等号与秩平局。恰好两次谱族转变，高阶整数最大值交点唯一且eta_D=X_m(D)+o(1)，内部bulk秩仍可改变。独立405行初稿普通核读及第125行范围修订、第158行等价排版复核；在fixedm/eventualD闭合此前高阶优化谱缺口，未整体Lean，无任意有限D、增长m、ASEP bulk或最小有效阈值，不另计重大猜想。
+- [同一 APPT 主线的完整立方尺度熵次阶](research/appt-cubic-entropy-20261014/README.md)：每固定 α>0、D/m³→δ>0，全实际全局酉 APPT 熵在精确整数 bulk 之后的 D⁻¹ 修正闭合为完整正负异常谱的图逆矩阵公式，含 O(1/L) 有限逼近、准确极限 bulk 门槛和全部近极值谱条件。α≥2 的完整值归为单正异常，纯度门槛 δ=1/4；α<2 保留全图公式。独立完整 479 行初稿核读及真实状态修订核查，普通书面、未整体 Lean；不宣称有限维 exact bulk 等号，不扩大旧审核或独立重大计数。
+- [同一 APPT 主线的完整精确主体谱起效尺度](research/appt-exact-cubic-bulk-20261014/README.md)：每固定有限正阶 α、充分大 m，所有 n≥δcrit(α)m²+Aαm 的实际全局酉 APPT 熵极值精确由整数秩 q 主体谱取得，全部矩阵等号与整数秩平局分类。最小最终起效门槛 Nα(m)=δcrit(α)m²+Oα(m)，实际纯度 N₂(m)=m²/4+O(m)。独立完整 395 行初稿核读及真实状态差异复核；普通书面、未整体 Lean，未给全部有限维门槛或 O(m) 系数，不扩大旧审核或独立重大计数。
+- [同一 APPT 主线的最小最终纯度门槛精确整数公式](research/appt-exact-purity-onset-20261014/README.md)：充分大 m 的 N₂(m)=⌈(m²+5m+7)/4⌉；覆盖所有更大 n、唯一整数秩和全部等号矩阵，并给 N₂−1 的实际 APPT 胜出态。独立完整 398 行初稿及真实状态字节核读；普通书面、未整体 Lean，无有效起始 M 或全小维数公式，不扩审核或独立重大计数。
+- [同一 APPT 主线的有限临界窗口全部纯度极值谱](research/appt-critical-purity-optimizer-20261014/README.md)：每固定 A、充分大 m 的完整 abs(n−m²/4)≤Am 窗口，实际极值精确等于紧一实参与两整数秩公式；门槛下全部极值恰单正异常、无负异常、边界 PSD、端点主体，所有真实平局保留。独立完整 328 行初稿及相对质量变形审核；普通书面未整体 Lean，精确变分值而非每个标量参数闭式解，不称全有限维或新重大问题解决。
+- [同一 APPT 主线的统一临界二阶纯度与全部极值谱速率](research/appt-critical-purity-expansion-20261014/README.md)：每固定 A 的完整线性临界窗口，实际 D²(Pmax−PG)=[(5−4a)/m+(16a²−44a+37)/m²]₊+O_A(m⁻³)，覆盖反复跨相变；所有门槛下真实极值的 z、p、c、整数秩统一速率并保留平局。独立完整 224 行初稿及最终状态/真实测试披露差异核读；普通书面未整体 Lean，非全部维数增长的下一阶纯度定理、无有效 cutoff，不扩大旧审核或新重大计数。
+- [APPT 亚单位 Rényi 熵锐渐近](research/appt-multilevel-counterexample/SUBUNIT_RENYI.md)：每个固定 0<α<1 的统一联合增长公式及 α=1/2 新分界；[实际半阶熵头与有限负尖峰](formalizations/appt-subunit-renyi/README.md)有本轮空内核证据，完整熵极限未形式化。
+- [ECQC 临界亏秩全部等号分类](research/ecqc-critical-rank-equality/README.md)：所有奇素数在 r=(p+1)/2 的完整分类、p⁴ 条轨道射线及同余障碍；引用已发表 Holevo 输入，有限域与矩阵核心部分 Lean，量子主定理未整体形式化，更低秩仍未分类。
+
+- [四行虚参数永久量—行列式锐范数与全部等号](research/four-row-imaginary-pencil/README.md)：任意实际复 4×4 矩阵、全部实数 t，包含零行、flat／定向 Fourier 块及临界两类的完整分类；精确代数证书，未 Lean 化，一般复参数平面仍未解决。
+- [任意权环及限定块图的强 Chollet](research/weighted-cycle-chollet/README.md)：任意非负实权、全部环长、全部原图度数主子矩阵及非负对角增量；完整书面证明，无新增 Lean；任意加权非二分块不在范围内。
+- [APPT 亚单位熵的全维统一首项与固定局域谱分类](research/appt-multilevel-counterexample/SUBUNIT_ALL_DIMENSIONS.md)：固定、增长及振荡较小局域维数，含 A1–A9 与实际极值无端外 outlier；[本轮源绑定内部审查](research/appt-multilevel-counterexample/ALL_DIMENSIONS_REVIEW.json)，未完整 Lean 化。
+- [APPT 亚单位熵近极小谱分类](research/appt-multilevel-counterexample/SUBUNIT_RIGIDITY.md)：固定有限长宽比下 0<α<1/2 的唯一零孔型与 α=1/2 的两种端点型，含交替序列和最终满秩；完整书面证明，未整体 Lean 化。
+
+既有定理的完整书面推论：[高斯块范数与 PSD 二次型乘积及全部等号](research/written-breadth-20261014/README.md)。覆盖任意有限维、任意 PSD 协方差／二次型与全部正实幂，并明确复高斯的双协方差条件；借用并归属 Ouimet–Greaves 的版本固定定理。已独立内部核读，未 Lean 化，不计为本仓库解决原 GPC 或新增重大猜想。
+
+## 完整 Lean 的主要入口
+
+- [有限树模型全实任意泄漏 Jacobian、精确重数与完整正目标实解分类](preprints/finite-tree-jacobian-2026-10/README.md)：[聚焦论文与定理映射](preprints/finite-tree-jacobian-2026-10/THEOREM_MAP.md)对应[固定 Lean 包](formalizations/hydrology-tree-core/README.md)，原独立运行 220 模块、1,677 入口；[本轮 235 输入／归档核对](verification/research-resume-20261014/INHERITED_SOURCE_CHECK.json)。严格限于实际有限单泄漏线性树和同点输入／状态观察，不扩大旧审计或宣称一般水文突破。
+
+- [一般维数 APPT 候选纯度公式：真实 10×38 反例](formalizations/appt-high-dimensional-review/REVIEW_JOINT_SUFFICIENCY.md)：维数通用的投影加尖峰充分性、原始复密度矩阵、任意全局酉 APPT、精确 trace-square 及候选公式的全称否定已闭合；白噪声版本的严格统一正性裕量和实际非 APPT 扰动对照也已核验。独立 CI 38202563748：42,496 声明、208 根、trust zero。此项不表示后续渐近下界、完整熵极值或源论文的独立多面体优化定理已全部形式化。
+
+- [qutrit–qudit APPT 最大纯度：全部 n≥3](formalizations/appt-qutrit-purity/README.md)：真实复密度矩阵及任意全局酉变换下的部分转置正性；n≤8 时为 (3n+8)/(3n+2)^2，n≥9 时为 3/(8n)，含上界与实际取到。879 模块构建和 155,787 声明空内核重放通过，保留失败对照、源码哈希及完整复现脚本。
+
+- [复四行永久量—行列式主定理与完整等号分类](formalizations/four-row-complete-equality/README.md)：实际复 4×4 矩阵，所有 c≥0 的锐界、临界两类极值矩阵、两侧权重的完整分类及零行边界；保留已证最优常数、取到和全实参数范数。12 模块干净构建与 15,593 声明空内核重放通过；不将整篇论文的其他扩展纳入证书。
+
+- [余子式谱 Theorem 1 的完整 Lean 形式化](formalizations/cofactor-spectral-asymptotics-progress/README.md)：三类输入矩阵的六个对数主项极限，复方向为 1、实方向为 1/2；后续 ramp／endpoint 命题不在证书范围内。
+- [一般互信息连续性拟议界的经典反例](formalizations/mutual-information-continuity-counterexample/README.md)：实际 3×3 概率表、熵、总变差及任意小正距离反例；两侧边缘变化。量子嵌入及必要系数下界仍为书面证明。
+- [Bapat 指定复数有理反例](formalizations/bapat-q-permanent-explicit-rational/README.md)与[实对称整数反例存在定理](formalizations/bapat-real-symmetric-existence-counterexample/README.md)。
+- [全图强 Chollet 固定工程](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress)：任意有限简单无权图、所有主子矩阵、原图度数；[源码与复核记录核对](verification/chollet-all-graphs-index-2026-10-08.json)。
+- [所有周期图染色多项式的完整分类](formalizations/chromatic-cycles-all-n-lean/README.md)，以及[原 C17 一般猜想反例](formalizations/chromatic-infinite-logconcavity-counterexample/README.md)。
+- [Wakhare 原始定义的四根反例](formalizations/wakhare-entropy-four-roots-lean/README.md)与[CGF Conjecture 48 反例](formalizations/cyclotomic-prime-factor-counterexample/README.md)。
+- [单纯形上界](formalizations/sharp-simplex-upper-bound/README.md)与[实际截角体的锐指数障碍](formalizations/simplex-truncation-sharpness/README.md)，保留各自常数和量词。
+- [所有二次整环有界步长主定理](formalizations/quadratic-orders-main/README.md)。
+- [全实比值仿射几何避让](formalizations/geometric-avoidance/README.md)与[连续幂／余项避让](formalizations/continuum-remainder-avoidance/README.md)。
+- [有限群通用轨道原始—对偶](formalizations/orbital-primal-dual/README.md)。
+- [真实高斯测度上的价格与原始—对偶定理](formalizations/gaussian-measure-primal-dual/README.md)；[独立三胞锐界与等号分类](verification/gaussian-three-cell-independent-ci-2026-10-08/README.md)。全部 k 的几何锐比较仍为书面证明与部分 Lean。
+- 复三行精确范数、指定 q-永久量半轴反例等的完整主定理入口统一见[预印本证明范围索引](preprints/lean-certified-2026-10/README.md)。
+
+## 完整书面证明的新预印本
+
+- [图态 MMI 禁止子图定理](preprints/graph-state-mmi-forbidden-subgraph-2026-10/README.md)：证明 Fuentes–Keeler–Munizzi–Pollack Conjecture 1，并给出无爪 vertex-minor 的六类分量分类与七顶点连通阈值；完整书面证明与双独立精确 checker，未完整 Lean 化。
+- [Erdős 相似性的增长对数间隙扩展](preprints/erdos-similarity-growing-gaps-2026-10/README.md)：对满足晚期环带填充条件的一类正测度仿射非普适性给出完整书面证明；题目所述 Theorem 2 及其连续间隙特例已完整 Lean 内核复核；完整猜想及二次对数间隙序列仍开放。
+- [四个等质量高斯单元的全局锐界](preprints/gaussian-four-cell-global-2026-10/README.md)：所有 d≥3 的正四面体极值与等号分类；完整书面证明，解析端点依赖已发表 Gaussian multi-bubble theorem，Lean 仅覆盖部分代数。
+- [高斯固定质量正四面体猜想反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)：对每个 `0<p<1/4` 的四胞质量族给出严格非正四面体改进；等质量情形不在结论内。完整书面反例、精确诊断与部分 Lean。
+- [APPT 纯度：精确定理与完整首阶渐近律](formalizations/appt-high-dimensional-review/README.md)：qutrit 全部 n>=3、真实10×38反例、充分长方形区域精确最大值和全部极值态分类保持已验证；现完整 Lean 闭合所有 2<=m<=n、mn 趋于无穷时的超额纯度统一等价式，系数 max(8,4+mn/(m^2-1))，以及全部固定有限长宽比。独立 CI 38441930508；完整熵极值、渐近谱刚性及区域外有限维精确最大值仍属不同任务。
+- [APPT 高维物理熵头桥接](formalizations/appt-high-dimensional-review/README.md)：从真实排序特征值和全局酉 APPT 条件推出论文熵头不等式，并完成 10×38 物理反例、联合充分性、固定局部维数首阶超额极限、唯一整数 plateau 秩优化及充分长方形区域完整最大化态分类；高维匹配纯度下界现已闭合；完整熵极值、双端精细图理论和渐近谱刚性仍未完全闭合。
+
+## 新增高斯维数与质量预印本
+
+- [任意质量高斯质心包络](preprints/gaussian-centroid-mass-envelope-2026-10/README.md)：所有正质量向量的碰撞概率误差界与两对数尺度推论。
+- [高斯球冠维数下界](preprints/gaussian-spherical-cap-converse-2026-10/README.md)：加性 O(1/k) 逼近的全局 Ω((log k)^2) 维数障碍。
+- [全整数高斯维数阶](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md)：全整数 k 的 Θ((log k)^2) 维数阶。
+- [高斯维数—精度常数精化](preprints/gaussian-sharp-dimension-rate-2026-10/README.md)：显式常数与球冠渐近精化。
+
+## 主要专题结果目录
+
+以下保留原稿标题，覆盖仓库顶层 `notes/` 与已完成的 `research/` 专题说明；历史加强和独立交叉证明也保留阅读入口。
+
+### 信息论与互信息连续性
+
+- [Extremal same-basis correlations: full-rank rigidity and a stabilizer classification](research/ecqc-stabilizer-saturation/README.md)：不预设稳定子的满 Schmidt 秩等号态完整分类（p≡1 mod 4 时恰 2p² 个射线，否则无满秩取到）；全部奇素数维双 qudit 纯稳定子 ECQC 分数与违反态；每个 p≡1 mod 4 的素数全纯态最优比值 p/2。另证一般等号态的平坦 Schmidt 谱及秩缺口；不声称完成一般秩亏等号分类。
+- [The pure-state ECQC conjecture: counterexamples and a prime-dimensional classification](research/ecqc-pure-state-counterexamples/README.md)：完整解决纯态素数维数的普遍有效性（当且仅当 p=2）；三维与五维最优比值为 3/2、5/2；所有奇素数满 Schmidt 秩反例。完整书面证明与精确 checker；三维纯态量子反例现有[完整 Lean 与空内核重放](formalizations/ecqc-pure-qutrit-counterexample/README.md)，全分类、最优性与满 Schmidt 秩结论尚未整体 Lean 化；此前一般混合态反例不归于本项。
+- [A ternary counterexample to a proposed mutual-information continuity bound](preprints/mutual-information-continuity-2026-10/README.md)：反驳 Berta–Lami–Tomamichel arXiv:2408.15226v2 Eq. (106) 的一般拟议界。对每个 0 < ε ≤ 1/16，互信息差为 2 h(ε) − ε log 2，严格超过 h(ε) + ε log 8；因此任意小正距离下都有反例。
+- [完整经典 Lean 及独立复核材料](formalizations/mutual-information-continuity-counterexample/README.md)，[不可变发布及源码核对](verification/mutual-information-index-2026-10-08/README.md)。量子对角嵌入与必要主导系数至少 2 为书面证明；固定一侧边缘问题及有限距离的完整最优模量未解决。
+
+### 矩阵永久量、余子式谱与多项式
+
+- [A counterexample to Bapat's q-permanent monotonicity conjecture](notes/bapat-q-permanent-counterexample/README.md)
+- [Real symmetric counterexamples to Bapat's q-permanent conjecture](notes/bapat-real-symmetric-existence-counterexample/README.md)
+- [Cycles refute chromatic infinite log-concavity](notes/chromatic-infinite-logconcavity-counterexample/README.md)
+- [Unbounded normalized cofactor spectra](notes/cofactor-spectrum-unbounded/README.md)
+- [Exact operator norm for the complete complex three-row permanent–determinant pencil](notes/complex-permanent-determinant/README.md)
+- [A counterexample to Billey–Swanson Conjecture 48](notes/cyclotomic-prime-factor-counterexample/README.md)
+- [Uniform real-rootedness of the (132,213)-avoiding permutation-polytope family](notes/ehrhart-uniform-real-rootedness/README.md)
+- [A counterexample to Wakhare's entropy polynomial root conjecture](notes/entropy-polynomial-counterexample/README.md)
+- [Sharp four-row permanent–determinant tradeoff](notes/four-row-permanent-tradeoff/README.md)
+- [A strong Chollet inequality for every simple graph Laplacian](notes/laplacian-chollet-general/README.md)
+- [Identity padding and a permanent inequality](notes/permanent-inequality-padding/README.md)
+- [q-permanent half-line monotonicity counterexample](notes/q-permanent-halfline-counterexample/README.md)
+- [Sharp cofactor extrema: stage package](notes/sharp-cofactor-spectral-asymptotics/README.md)
+
+### 高斯分区与重心极值
+
+- [Complete equal-mass Gaussian four-cell theorem](research/gaussian-balanced-four-global/README.md)
+- [Equal Gaussian cells: the sharp simplex first-moment theorem](research/gaussian-balanced-simplex-all-k/README.md)
+- [Gaussian centroid dimension–rate theorem](research/gaussian-centroid-dimension-rate/README.md)
+- [Gaussian centroid partitions: arbitrary-mass two-collision envelope](research/gaussian-centroid-mass-envelope/README.md)
+- [Gaussian centroid symmetry–rigidity](research/gaussian-centroid-symmetry-rigidity/README.md)
+- [Counterexample to the arbitrary-mass Gaussian regular-simplex conjecture](research/gaussian-fixed-mass-propeller-counterexample/README.md)
+- [A sharp Gaussian first-moment inequality for every prescribed mass vector](research/gaussian-prescribed-mass-centroid-ellipsoid/README.md)
+- [Sharp mass-constrained Gaussian propeller fans](research/gaussian-propeller-balanced-fans/README.md)
+- [Quadratic-logarithmic Gaussian dimension: all integer cell counts](research/gaussian-quadratic-dimension-all-k/README.md)
+- [Sharp-constant Gaussian centroid dimension–accuracy tradeoffs](research/gaussian-sharp-dimension-rate/README.md)
+- [Spherical-cap obstruction for Gaussian centroid partitions](research/gaussian-spherical-cap-converse/README.md)
+
+### 单纯形稳定性与递归投影体
+
+- [Dimension structure in simplex stability](notes/dimension-structure-simplex-stability/README.md)
+- [Sharp projection-body optima for arbitrary product/join trees, dimensions 1–48](notes/exact-product-join-finite-optima/README.md)
+- [Independent arities in simplex product/join recursions](notes/independent-arity-simplex-recursions/README.md)
+- [Integrated witness simplex stability](notes/integrated-witness-simplex-stability/README.md)
+- [Improved certified mixed Bellman ceiling](notes/mixed-bellman-product-join-improved/README.md)
+- [A certified mixed Bellman envelope for projection-body growth](notes/mixed-bellman-product-join/README.md)
+- [Polynomial-dimensional simplex stability](notes/polynomial-dimensional-simplex-stability/README.md)
+- [A rigorous all-degree barrier to sharp positive-power projection-body Bellman bounds](notes/projection-bellman-power-obstruction/README.md)
+- [A universal second-order oscillation obstruction for sharp projection-body Bellman potentials](notes/projection-bellman-quadratic-oscillation/README.md)
+- [Dimension 55 is the first where product/join nesting is necessary for optimal projection-body volume](notes/projection-first-nesting-d55/README.md)
+- [Permanent and sharply quantified projection-body nesting gap](notes/projection-persistent-nesting-gap/README.md)
+- [Exact second-level projection spectrum and a strict hierarchy at every product depth](notes/projection-product-depth-hierarchy/README.md)
+- [Quadratic-dimensional sharp simplex stability](notes/quadratic-dimensional-simplex-stability/README.md)
+- [Effective simplex rigidity for the projection cone invariant](notes/quantitative-projection-simplex-stability/README.md)
+- [Effective stability at the symmetric projection-cone endpoint](notes/quantitative-symmetric-projection-stability-bibliographic-correction/README.md)
+- [Effective stability at the symmetric projection-cone endpoint](notes/quantitative-symmetric-projection-stability/README.md)（后续文献勘误见相邻 correction 项）
+- [Sharp lower-end simplex stability](notes/sharp-simplex-stability/README.md)
+- [Exact exponent obstruction for lower-end simplex stability](notes/simplex-truncation-stability/README.md)
+- [Stronger symmetric projection stability](notes/stronger-symmetric-projection-stability/README.md)
+- [Sharp two-layer projection spectrum and a certified nesting-depth gap](notes/two-layer-projection-depth-separation/README.md)
+- [Complete classification of independent homogeneous product–join arities](notes/unbalanced-homogeneous-projection-recursion/README.md)
+
+### 二次整环与格点筛法
+
+- [Exact Eisenstein irreducible-component bounds and sharp periodic sieves](notes/eisenstein-prime-components/README.md)
+- [Higher-degree arithmetic sieves](notes/higher-degree-rank-one-sieves/README.md)
+- [Exact CRT minimax duality for arbitrary finite lattice sieves](notes/periodic-sieve-admissibility-minimax/README.md)
+- [Exact universal finite principal-sieve optimum: 197](notes/sqrt-minus-two-exact-sieve-optimum/README.md)
+- [Layered norm refinement: global prime-component bound 241](notes/sqrt-minus-two-prime-bound-241/README.md)（历史较弱界；当前结果见 197 筛法）
+- [Sharp radius-two transition and complete period-six sieve rigidity](notes/sqrt-minus-two-radius-two/README.md)
+- [Sharp small-radius prime graphs and optimal periodic sieves in Z[sqrt(-2)]](notes/sqrt-minus-two-sharp-moats/README.md)
+- [Complete seven-generator rigidity at the sharp norm-six period](notes/sqrt-minus-two-sqrt6-generator-rigidity/README.md)
+- [Sharp period 1122 at the norm-six threshold in Z[sqrt(-2)]](notes/sqrt-minus-two-sqrt6-period/README.md)
+- [A universal 197-point obstruction to every finite principal-ideal sieve](notes/sqrt-minus-two-universal-sieve-barrier/README.md)
+
+### 相似性与避让
+
+- [Bounded cluster avoidance for uncountable selector families](notes/bounded-cluster-avoidance/README.md)
+- [Large closed sets avoiding a continuum of power asymptotics](notes/continuum-power-avoidance-unified/README.md)
+- [Continuum power avoidance for bounded logarithmic gaps](notes/continuum-power-avoidance/README.md)
+- [Arbitrarily slow critical covering excess in Banach nonembedding obstructions](notes/critical-covering-gauge/README.md)
+- [Erdős similarity: growing logarithmic gaps](research/erdos-similarity-growing-gaps/README.md)
+
+### 有限群、张量与覆盖
+
+- [Improved two-band lower family for binary tensor rigidity](notes/binary-tensor-two-band-lower-bound/README.md)
+- [Boundary-profile lower bounds for binary tensor rigidity](notes/boundary-profile-binary-tensor-rigidity/README.md)
+- [Diffuse optimal fractional covers and integer recovery](notes/diffuse-fractional-cover-rounding/README.md)
+- [Fock-profile ceiling for binary tensor rigidity](notes/fock-profile-ceiling-binary-tensor-rigidity/README.md)
+- [Fractional extremizers force near-design cores](notes/fractional-design-stability/README.md)
+- [Universal fractional cover envelope](notes/fractional-intersecting-cover-envelope/README.md)
+- [The complete bounded-packing fractional matching spectrum](notes/fractional-matching-spectrum/README.md)
+- [Global quantitative orthogonal tensor rigidity](notes/global-orthogonal-tensor-rigidity/README.md)
+- [Fixed-k Johnson orbital compression and exact four-subset moduli](notes/johnson-short-cycle-spectrum/README.md)
+- [A 10/3 asymptotic partite edge lower bound](notes/partite-cover-number-linearization/README.md)
+- [Partite intersecting cover-number bounds](notes/partite-cover-number-lower-bound/README.md)
+- [Intersection excess and partite cover numbers](notes/partite-intersection-defect-cover/README.md)
+- [Rank-six counterexamples require at least twenty edges](notes/rank-six-twenty-edge-bound/README.md)
+- [Sharp binary tensor rigidity](notes/sharp-binary-tensor-rigidity/README.md)
+- [The sharp fractional cover frontier](notes/sharp-fractional-cover-frontier/README.md)
+- [Robust permutation permanent inequalities: all arities, sharp-order radius](notes/sharp-robust-permanent/README.md)
+- [Simultaneous integer-degree failures of harmonic dimension comparison](notes/simultaneous-harmonic-degree-blocks/README.md)
+- [Sparse nearly linear intersecting hypergraphs: cover law and rigidity](notes/sparse-near-linear-cover-law/README.md)
+- [Superlinear edge necessity for near-linear Ryser equality families](notes/superlinear-near-linear-partite-cover/README.md)
+- [Three-row collision energies: sharp infinite families](research/three-row-collision-tradeoff/README.md)
+
+### 最优传输、熵与动力学
+
+- [A sharp target-atom budget at the critical boundary](notes/critical-atom-budget/README.md)
+- [Cubic hard-sphere contact and mean correction](notes/cubic-hard-sphere-contact/README.md)
+- [Full-density virial and collisional stress](notes/full-density-virial-stress/README.md)
+- [Semiconvex Gaussian entropy loss](notes/semiconvex-gaussian-entropy/README.md)
+- [Sharp logarithmic corrections under stretched exponential target bounds](notes/stretched-exponential-sharpness/README.md)
+- [Source overlap and target tails in quantitative Brenier stability](notes/transport-source-tail-synthesis/README.md)
+- [Sharp transport stability for finite and binary targets](notes/transport-stability-series/README.md)
+
+### 其他限定模型的定量定理
+
+- [Quantitative strict bounds in complete numerical range calculus](notes/complete-crouzeix-deficit/README.md)
+- [Complete similarity transfer and the scope of the strict bound](notes/crouzeix-complete-transfer-comparison/README.md)
+- [Quantitative stability for power Hadamard matrices](notes/hadamard-power-stability/README.md)
+- [Pinned distance densities in nested train-track models](notes/pinned-distance-densities/README.md)
+- [Vertex excess and the sharp exponent in simplex stability](notes/vertex-excess-sharp-exponent/README.md)
+
+### 独立论文和跨项目加强
+
+- [所有有限 (n,k) 的精确有理行列式公式](notes/sharp-robust-permanent/universal-exact/README.md)：有限最大值公式，而非无枚举的简单闭式。
+- [全固定秩 Chebyshev 锐渐近论文](notes/sharp-robust-permanent/focused-paper/README.md)与[独立全 k 验证](notes/johnson-short-cycle-spectrum/ALL_K_CHEBYSHEV_ASYMPTOTICS.md)。
+- [全部子集秩同时约束的精确 5/14 定律](notes/johnson-short-cycle-spectrum/ALL_RANK_SHARP_FIVE_FOURTEENTHS.md)。
+- [单纯形稳定性](manuscripts/sharp-simplex-stability/README.md)、[连续幂避让](manuscripts/continuum-power-avoidance/README.md)、[分数覆盖谱](manuscripts/fractional-cover-spectrum/README.md)、[永久量范数](manuscripts/complex-permanent-pencil/README.md)和[轨道原子稳定性](manuscripts/orbital-atom-stability/README.md)的整合稿。各稿保留不同结论的证明范围。
+- [001–009 原稿及扩展索引](CONTENTS.md)：最优传输、全二次整环、紧集不可嵌入、密度避让、投影体演算、非线性避让和函数型动力学极限。研究稿的外部输入与假设不因入选目录而删除。
+
+## 条件结论与仍未解决的目标
+
+- [真实 197 素元分量的条件定理](notes/sqrt-minus-two-conditional-prime-197/README.md)依赖未证明的 Schinzel H；无条件只得 90 ≤ B_D ≤ 197。有限主理想筛最优值 197 已证明，两者不同。
+- 全图 Laplacian 强 Chollet 不等于任意 Hermitian PSD 矩阵的 Chollet 猜想，也不覆盖任意加权图。
+- 高斯等质量一阶矩定理不解决正相关标准单纯形噪声稳定性；固定低维精确最优值也未在该论文中确定。
+- [Ryser rank-six](research/ryser-rank-six/README.md)、[Kahn 三重交一般问题](research/kahn-triple-intersection/README.md)、[Bell–Skandera 原问题](notes/bell-skandera-scalar-arithmetic-stage-20261008/README.md)、一般六行碰撞不等式、Lieb 与 Marcus 一般永久量猜想等仍未解决。
+- 相似性结果针对明确的序列类、密度条件或余项范围，不等于完整 Erdős 相似性猜想。
+- [Borsuk 切片记录](notes/balanced_borsuk_slice.md)只排除一个拟议构造，不解决八维一般问题。
+
+[文献比较](comparisons/) · [证明与验证记录](verification/) · [历史首页档案](RESEARCH_HISTORY.md)

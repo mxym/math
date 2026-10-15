@@ -1,0 +1,15 @@
+{
+  "status": "RETAINED_ACTUAL_REVIEWER_CHECKER_FAILURE",
+  "tool_chunk_id": "892ca5",
+  "returncode": 1,
+  "failure": "AssertionError at independent_checks.py line 102: expanded Sympy expression was compared structurally to an unexpanded equivalent product",
+  "original_source": "The original source bytes are copied at the start of the first runs/ timestamp directory before the assertion",
+  "mathematical_identity": "(2-e+b)^2-(2-e)^2=b*(4-2*e+b)",
+  "diagnosis": "This identity is exact. The reviewer's structural equality test was wrong; replace it by expand(left-right)==0.",
+  "author_source_unchanged": true,
+  "source_finding": false,
+  "original_stderr": "Traceback (most recent call last):\n  File independent_checks.py, line 194, in <module>\n    else: main()\n  File independent_checks.py, line 102, in main\n    assert sy.expand((2-e+b)**2-(2-e)**2)==b*(4-2*e+b)\nAssertionError\n",
+  "original_stderr_field_is": "Normalized excerpt; complete exact tool-returned traceback separately in first run ACTUAL_TOOL_STDERR.txt",
+  "first_run": "runs/20261015T142447.829759Z",
+  "first_source_sha256": "121d9e6a39b132516a898b9deb00a68a2e8ff0aedffedafa95744c20a85b006b"
+}
