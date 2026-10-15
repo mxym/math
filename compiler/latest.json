@@ -1,9 +1,8 @@
 {
-  "serial": 276,
-  "status": "COMPILER_ERROR",
-  "request_blob": "caabea387874c36cd6656af52093516ba74e1b76",
+  "serial": 277,
+  "status": "COMPILING",
+  "request_blob": "51e2a9724722cd616512b566cbbc2c1ffa4ddf35",
   "modules": [
-    "HydrologyTree.PositiveMatrixProbe",
     "HydrologyTree.Coefficients",
     "HydrologyTree.BlockJacobian",
     "HydrologyTree.Triangular",
@@ -194,12 +193,16 @@
     "HydrologyTree.SupportedPositiveGauge",
     "HydrologyTree.ConservationGaugeRigidity",
     "HydrologyTree.RealLocatedPositivity",
-    "HydrologyTree.PuncturedJetData"
+    "HydrologyTree.PuncturedJetData",
+    "HydrologyTree.PositiveMatrixProbe",
+    "HydrologyTree.MixedInputJets",
+    "HydrologyTree.CompletePositiveProbe"
   ],
   "source_sha256": {
     "HydrologyTree/TreePipeline.lean": "1d966a90c50183e3a547c40a6e1fea707170502780956a6f4dc6515466cd7c03",
     "HydrologyTree/SymmetricGenerator.lean": "33b5c034dee6d959bcda681afe6845a9d738262df629496c2216087d5e31c8c6",
     "HydrologyTree/JacobianComposition.lean": "a1ebc3a5f8552d4876b39c9b98072d2067036b5f027f82bbda383c4c713764aa",
+    "HydrologyTree/MixedInputJets.lean": "747a5fbad584076afe1370ed412e11f8db53842f57ae1b5988cd6061b0451167",
     "HydrologyTree/FamilyScaling.lean": "3a244c8a3dddc41e18368fb4fff7783989094eb9963de47799926f9c9a74ab77",
     "HydrologyTree/StieltjesChildAssembly.lean": "87f111b149028a7ca053be57051f9ebb31dd6e3e138b4fe1910f46425d8dead0",
     "HydrologyTree/AllNodeJetClassification.lean": "94af36b0649910bb1a9ea1238661e527bbc7a694fa9fd13858c4e94e67982793",
@@ -303,6 +306,7 @@
     "HydrologyTree/PhysicalResultantRecurrence.lean": "7d8e41036d4b9a7d1b6dec12dcf911bd7a28b77c4d4e5da69a60bca0891b54f6",
     "HydrologyTree/LeakLocationIdentifiability.lean": "6cd1c43019cd8eabc8f7e63b93b54f667e2609db699ca2a39259cb10cdc07aec",
     "HydrologyTree/FullRootLeakTheory.lean": "a73ba6b057d1d62a49394393bf3950581e45c449eff14aa5776f04bd34a8f491",
+    "HydrologyTree/CompletePositiveProbe.lean": "d80aead21602cea45d436fb74fec2e937f5b4fc3b522342ff63a4c6044a04f48",
     "HydrologyTree/FamilyGluing.lean": "4853459750d908b3f7719665eaa73538b5fc81d69751e8971dfdd84fd0e38df6",
     "HydrologyTree/PhysicalMassODE.lean": "6124b8d5ee01d30584af2bdd69990fb076c617a04dc221bbf93371bb0ebe9515",
     "HydrologyTree/SubtreeProducts.lean": "353a1839e3b4e79d4360f10edede992d27614eacd3bf87edd606f02aeb6d5869",
@@ -390,16 +394,7 @@
     "HydrologyTree/IndependentChildCoordinates.lean": "3229c4c54652f3f501c6b1f66a0df419ad355d4dd88f7ea447f90d55b3b6bfe6",
     "HydrologyTree/ScalarCoupling.lean": "b51b5fe1627a2c0915003da36e8ea88cf6f2d76dee0e7082c5f066d34ad728ac"
   },
-  "commands": [
-    {
-      "module": "HydrologyTree.PositiveMatrixProbe",
-      "returncode": 1,
-      "seconds": 1.506,
-      "development_cache_reused": false,
-      "source_dependency_key": "466e37d0297ac7d593f2976b7256ef13bf2dc5cc68b3308ea201c9ccf78cb709"
-    }
-  ],
+  "commands": [],
   "scope": "DEVELOPMENT_DIAGNOSTICS_ONLY; not empty-kernel or full-theorem certification",
-  "run_id": "38731595888",
-  "diagnostics": "HydrologyTree/PositiveMatrixProbe.lean:18:41: error: Type mismatch\n  n\nhas type\n  \u2115\nbut is expected to have type\n  \u211d\nHydrologyTree/PositiveMatrixProbe.lean:18:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Inv \u2115\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:18:38: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  HAdd \u2115 \u2115 \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:21:19: error(lean.unknownIdentifier): Unknown identifier `\u211d`\nHydrologyTree/PositiveMatrixProbe.lean:28:37: error: don't know how to synthesize implicit argument `\u03b2`\n  @Function.Injective \u2115 ?m.3 boundedProbeWeight\ncontext:\n\u22a2 Type ?u.4\n\nNote: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be\nHydrologyTree/PositiveMatrixProbe.lean:28:56: error: don't know how to synthesize implicit argument `\u211d`\n  @boundedProbeWeight ?m.3\ncontext:\n\u22a2 Type ?u.4\n\nNote: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be\nHydrologyTree/PositiveMatrixProbe.lean:30:18: error(lean.unknownIdentifier): Unknown identifier `\u211d`\nHydrologyTree/PositiveMatrixProbe.lean:30:32: error(lean.unknownIdentifier): Unknown identifier `\u211d`\nHydrologyTree/PositiveMatrixProbe.lean:30:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Inv \u2115\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:30:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Inv \u2115\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:38:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  AddCommMonoid \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:38:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  NonUnitalNonAssocSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:41:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:42:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:42:49: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.inl` could not be determined\n\nHint: Using one of these would be unambiguous:\n  [apply] `AddMonoidHom.inl`\n  [apply] `LinearMap.inl`\n  [apply] `MonoidHom.inl`\n  [apply] `NonUnitalAlgHom.inl`\n  [apply] `NonUnitalStarAlgHom.inl`\n  [apply] `Or.inl`\n  [apply] `PSum.inl`\n  [apply] `Sum.inl`\n  [apply] `Finset.Nonempty.inl`\n  [apply] `Function.Embedding.inl`\n  [apply] `Set.Nonempty.inl`\n  [apply] `Sum.Lex.inl`\n  [apply] `Sum.LiftRel.inl`\nHydrologyTree/PositiveMatrixProbe.lean:42:73: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.inr` could not be determined\n\nHint: Using one of these would be unambiguous:\n  [apply] `AddMonoidHom.inr`\n  [apply] `LinearMap.inr`\n  [apply] `MonoidHom.inr`\n  [apply] `NonUnitalAlgHom.inr`\n  [apply] `NonUnitalStarAlgHom.inr`\n  [apply] `Or.inr`\n  [apply] `PSum.inr`\n  [apply] `Sum.inr`\n  [apply] `Finset.Nonempty.inr`\n  [apply] `Function.Embedding.inr`\n  [apply] `Set.Nonempty.inr`\n  [apply] `Sum.Lex.inr`\n  [apply] `Sum.LiftRel.inr`\nHydrologyTree/PositiveMatrixProbe.lean:45:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:56:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  OfNat \u211d 1\nnumerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is\n  \u211d\ndue to the absence of the instance above\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:56:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  V \u2192 Zero \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:56:61: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  OfNat \u211d 1\nnumerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is\n  \u211d\ndue to the absence of the instance above\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:56:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  V \u2192 Zero \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:56:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:60:60: error: don't know how to synthesize implicit argument `\u211d`\n  @matrixProbePolynomial V ?m.3\ncontext:\nV : Type u_1\ninst\u271d\u00b9 : Fintype V\ninst\u271d : DecidableEq V\n\u22a2 Type ?u.9\n\nNote: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be\nHydrologyTree/PositiveMatrixProbe.lean:75:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:82:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHydrologyTree/PositiveMatrixProbe.lean:84:44: error(lean.unknownIdentifier): Unknown identifier `hD`\nHydrologyTree/PositiveMatrixProbe.lean:87:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  CommSemiring \u211d\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n"
+  "run_id": "38731595888"
 }
