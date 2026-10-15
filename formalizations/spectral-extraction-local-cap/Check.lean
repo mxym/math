@@ -1,0 +1,24 @@
+import ExtractionLocalCap
+
+#check ExtractionLocalCap.kraus_target_overlap_full_envelope
+#print axioms ExtractionLocalCap.kraus_target_overlap_full_envelope
+#check ExtractionLocalCap.kraus_target_overlap_unitary_local_cap
+#print axioms ExtractionLocalCap.kraus_target_overlap_unitary_local_cap
+#check ExtractionLocalCap.local_order_cap
+#print axioms ExtractionLocalCap.local_order_cap
+#check ExtractionLocalCap.pure_partialTranspose_pairing_le
+#print axioms ExtractionLocalCap.pure_partialTranspose_pairing_le
+#check ExtractionLocalCap.rainsEffect_local_order_cap
+#print axioms ExtractionLocalCap.rainsEffect_local_order_cap
+#check ExtractionLocalCap.rainsEffect_density_overlap_le
+#print axioms ExtractionLocalCap.rainsEffect_density_overlap_le
+#check ExtractionLocalCap.kraus_target_overlap_local_cap
+#print axioms ExtractionLocalCap.kraus_target_overlap_local_cap
+#check ExtractionLocalCap.compression_order_interval
+#print axioms ExtractionLocalCap.compression_order_interval
+#check ExtractionLocalCap.order_interval_diagonal
+#print axioms ExtractionLocalCap.order_interval_diagonal
+#check ExtractionLocalCap.trace_signed_congruence_le
+#print axioms ExtractionLocalCap.trace_signed_congruence_le
+#check ExtractionLocalCap.schmidtSigned_absolute_mass
+#print axioms ExtractionLocalCap.schmidtSigned_absolute_mass

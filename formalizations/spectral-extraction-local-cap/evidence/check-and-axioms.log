@@ -1,0 +1,58 @@
+ExtractionLocalCap.kraus_target_overlap_full_envelope.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} [Fintype a]
+  [Fintype b] [LinearOrder a] [DecidableEq b] {d : Type u_3} {κ : Type u_4} [Fintype d] [Fintype κ] [DecidableEq d]
+  [Nonempty d] (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X)
+  (U : ↥(Matrix.unitaryGroup (a × b) ℂ)) :
+  (Extraction.bellProjector * Extraction.krausApply A (↑U * X * (↑U).conjTranspose)).trace.re ≤
+    min 1
+      (min (↑(Fintype.card a) / ↑(Fintype.card d))
+        √((X * X).trace.re * (↑(Fintype.card a) * ↑(Fintype.card b) / ↑(Fintype.card d) ^ 2)))
+'ExtractionLocalCap.kraus_target_overlap_full_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.kraus_target_overlap_unitary_local_cap.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} [Fintype a]
+  [Fintype b] [LinearOrder a] [DecidableEq b] {d : Type u_3} {κ : Type u_4} [Fintype d] [Fintype κ] [DecidableEq d]
+  [Nonempty d] (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X)
+  (U : ↥(Matrix.unitaryGroup (a × b) ℂ)) :
+  (Extraction.bellProjector * Extraction.krausApply A (↑U * X * (↑U).conjTranspose)).trace.re ≤
+    ↑(Fintype.card a) / ↑(Fintype.card d)
+'ExtractionLocalCap.kraus_target_overlap_unitary_local_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.local_order_cap.{u_1, u_2} {a : Type u_1} {b : Type u_2} [Fintype a] [Fintype b] [LinearOrder a]
+  [DecidableEq b] (M : Matrix (a × b) (a × b) ℂ) (hM : M.IsHermitian) (c : ℝ) (hc : 0 ≤ c)
+  (hlo : (c • 1 + APPT.Quantum.partialTranspose M).PosSemidef)
+  (hhi : (c • 1 - APPT.Quantum.partialTranspose M).PosSemidef) : ((c * ↑(Fintype.card a)) • 1 - M).PosSemidef
+'ExtractionLocalCap.local_order_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.pure_partialTranspose_pairing_le.{u_1, u_2} {a : Type u_1} {b : Type u_2} [Fintype a] [Fintype b]
+  [LinearOrder a] [DecidableEq b] (X : Matrix (a × b) (a × b) ℂ) (c : ℝ) (hc : 0 ≤ c) (hlo : (c • 1 + X).PosSemidef)
+  (hhi : (c • 1 - X).PosSemidef) (w : a × b → ℂ) :
+  (X * APPT.Quantum.partialTranspose (Matrix.vecMulVec w (star w))).trace.re ≤ c * ↑(Fintype.card a) * (star w ⬝ᵥ w).re
+'ExtractionLocalCap.pure_partialTranspose_pairing_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.rainsEffect_local_order_cap.{u_1, u_2} {a : Type u_1} {b : Type u_2} [Fintype a] [Fintype b]
+  [LinearOrder a] [DecidableEq b] (K : ℕ) (M : Matrix (a × b) (a × b) ℂ) (hM : Extraction.RainsEffect K M) :
+  ((↑(Fintype.card a) / ↑K) • 1 - M).PosSemidef
+'ExtractionLocalCap.rainsEffect_local_order_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.rainsEffect_density_overlap_le.{u_1, u_2} {a : Type u_1} {b : Type u_2} [Fintype a] [Fintype b]
+  [LinearOrder a] [DecidableEq b] (K : ℕ) (M X : Matrix (a × b) (a × b) ℂ) (hM : Extraction.RainsEffect K M)
+  (hX : APPT.Quantum.IsDensity X) : (M * X).trace.re ≤ ↑(Fintype.card a) / ↑K
+'ExtractionLocalCap.rainsEffect_density_overlap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.kraus_target_overlap_local_cap.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} [Fintype a]
+  [Fintype b] [LinearOrder a] [DecidableEq b] {d : Type u_3} {κ : Type u_4} [Fintype d] [Fintype κ] [DecidableEq d]
+  [Nonempty d] (A : κ → Matrix (d × d) (a × b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X) :
+  (Extraction.bellProjector * Extraction.krausApply A X).trace.re ≤ ↑(Fintype.card a) / ↑(Fintype.card d)
+'ExtractionLocalCap.kraus_target_overlap_local_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.compression_order_interval.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ]
+  [DecidableEq ι] [DecidableEq κ] (X : Matrix ι ι ℂ) (L : Matrix ι κ ℂ) (c : ℝ) (hc : 0 ≤ c)
+  (hL : (1 - L * L.conjTranspose).PosSemidef) (hlo : (c • 1 + X).PosSemidef) (hhi : (c • 1 - X).PosSemidef) :
+  (c • 1 + L.conjTranspose * X * L).PosSemidef ∧ (c • 1 - L.conjTranspose * X * L).PosSemidef
+'ExtractionLocalCap.compression_order_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.order_interval_diagonal.{u_2} {κ : Type u_2} [Fintype κ] [DecidableEq κ] (B : Matrix κ κ ℂ) (c : ℝ)
+  (hlo : (c • 1 + B).PosSemidef) (hhi : (c • 1 - B).PosSemidef) (i : κ) : -c ≤ (B i i).re ∧ (B i i).re ≤ c
+'ExtractionLocalCap.order_interval_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.trace_signed_congruence_le.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype ι] [Fintype κ]
+  [DecidableEq ι] [DecidableEq κ] (X : Matrix ι ι ℂ) (L : Matrix ι κ ℂ) (d : κ → ℝ) (c : ℝ) (hc : 0 ≤ c)
+  (hL : (1 - L * L.conjTranspose).PosSemidef) (hlo : (c • 1 + X).PosSemidef) (hhi : (c • 1 - X).PosSemidef) :
+  (X * ((L * Matrix.diagonal fun i => ↑(d i)) * L.conjTranspose)).trace.re ≤ c * ∑ i, |d i|
+'ExtractionLocalCap.trace_signed_congruence_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionLocalCap.schmidtSigned_absolute_mass.{u_1} {a : Type u_1} [Fintype a] [LinearOrder a] (s : a → ℝ)
+  (hs : ∀ (i : a), 0 ≤ s i) : ∑ p, |APPTReview.schmidtSigned s p| = (∑ i, s i) ^ 2
+'ExtractionLocalCap.schmidtSigned_absolute_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
