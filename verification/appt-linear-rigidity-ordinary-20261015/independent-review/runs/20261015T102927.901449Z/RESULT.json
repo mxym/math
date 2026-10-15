@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T10:29:28.193840+00:00",
+  "script_sha256": "51ce66acc55d10e2dda6e4a4523552096f2ee51214d46f0778a42689dab20465",
+  "input_manifest_sha256": "b4d01695a119cd87ac786b50ccad94ea68358259a5dc3802bfa9554ad43a268c",
+  "counts": {
+    "symbolic_identities": 3,
+    "exact_sparse_physical_loss_cases": 408,
+    "exact_mean_preserving_endpoint_couplings": 168,
+    "exact_clipped_rank_and_redundant_theta_cases": 48,
+    "real_order_chord_cases": 5,
+    "moving_window_geometry_cases": 9
+  },
+  "expected_rejections": [
+    {
+      "name": "omit-middle-spread-loss",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-middle-spread-loss')",
+      "detail": {
+        "actual_C": "29243665536079537377894640800681/52621298807495872376607500000000"
+      }
+    },
+    {
+      "name": "omit-actual-peak-slack",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-actual-peak-slack')",
+      "detail": {
+        "actual_P": "8694608176111169229761377451638784/7768205433717376298112278666107"
+      }
+    },
+    {
+      "name": "use-m-kappa-as-closed-width",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('use-m-kappa-as-closed-width')",
+      "detail": {
+        "actual_closed_L": "2",
+        "m_kappa": "5/2"
+      }
+    },
+    {
+      "name": "nominal-width-survives-rank-one-middle",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('nominal-width-survives-rank-one-middle')",
+      "detail": {
+        "nominal_width": "1/9",
+        "actual_width": "0",
+        "actual_L": "0",
+        "actual_theta": "0"
+      }
+    },
+    {
+      "name": "exact-pole-realizes-nonzero-redundant-theta",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('exact-pole-realizes-nonzero-redundant-theta')",
+      "detail": {
+        "actual_pole_theta": "0",
+        "required_redundant_limit": "2/5",
+        "remedy": "use positive width1/m^2, checked separately"
+      }
+    },
+    {
+      "name": "weak-law-alone-controls-unbounded-exponential",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('weak-law-alone-controls-unbounded-exponential')",
+      "detail": {
+        "toy_peak": 4,
+        "physical_APPT_cap_less_than": 3,
+        "head_moment": "0.9999999999999999999999801476652987273358030865855055139828692217066295000998148056430881434290295191800128243560913757039077840410584866502666390440132418846153297372123749447063261577487045920529822553275565117726638387053308027851939659778866219535373034410009307479950484133830414481025055348031153970775964726000733819419772322419430397597489477624897769769917150585044165291307419905742009464471",
+        "bulk_weak_mass_of_atom": "0.0000000000000000000000008271806125530276748713922706035840471157622237708291743830982046606904571033674994656518295260123371756649558963895722233731661149214743612609494843773039030767604706419977924060280184786761390067206112165506169180842547240852692790232916278855002063161090399396623956027165368584551001469749969424190842819899190400100104605098962592926253452058956493112862190837260749605647042498963115587004816048",
+        "not_a_counterexample_to_actual_theorem": true
+      }
+    },
+    {
+      "name": "same-limiting-bulk-forces-same-outlier",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('same-limiting-bulk-forces-same-outlier')",
+      "detail": {
+        "projection_top": "1.007307348574703648844626162979862160483350553780784922587641485229233704426169177566782917321711703200883314877961687269427740395964713856888892120822756699850830930591565984870322257115240791767479263553763181563468328181920507519344243903096752941279681789656897776520453216718638989640919973258842478818434270843474601571842518519189940901287002952190636384960754884480019123341119135724315499026",
+        "protected_top": "2.561669528992734687720742490724554948914816393471722755606444501055083691177062461834866121500109518336914231926196436833813403016389634886949001000793041454245314119617217226893125211005339840361639242838567308031726621186836163331509052146832397563771286002892282702894814845752592168837955627664232105466594596300815909556278189478236775561321510227063848034485065148405726703552300343580355902489",
+        "same_limiting_bulk_parameters": "L->2,theta->h_c; written limit proof required",
+        "finite_example_only": true
+      }
+    }
+  ],
+  "author_code_imported_or_executed": false,
+  "reviewer_written": true,
+  "finite_diagnostics_not_full_optimizer_proof": true,
+  "Lean": false,
+  "mpmath_precision": 400
+}

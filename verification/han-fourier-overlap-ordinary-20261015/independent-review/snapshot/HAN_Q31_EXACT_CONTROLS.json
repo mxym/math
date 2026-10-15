@@ -1,0 +1,258 @@
+{
+  "created_utc": "2026-10-15T09:30:56.593605+00:00",
+  "scope": "One explicit homogeneous read-once formula per depth 0..4. All coordinates and complete truth tables. Integer and rational checks only; no entropy floating approximations.",
+  "proof_scope": "Finite consistency checks, not the arbitrary-depth induction and not an independent review.",
+  "passed": true,
+  "checks": [
+    {
+      "depth": 0,
+      "number_of_variables": 1,
+      "truth_table_entries": 2,
+      "gates_bottom_to_top": [],
+      "mean": "0",
+      "all_coordinates_checked": [
+        {
+          "coordinate": 0,
+          "physical_influence": "1",
+          "fourier_influence": "1",
+          "A_over_I": "0"
+        }
+      ],
+      "predicted_L1_over_I": "0"
+    },
+    {
+      "depth": 1,
+      "number_of_variables": 2,
+      "truth_table_entries": 4,
+      "gates_bottom_to_top": [
+        "OR"
+      ],
+      "mean": "1/2",
+      "all_coordinates_checked": [
+        {
+          "coordinate": 0,
+          "physical_influence": "1/2",
+          "fourier_influence": "1/2",
+          "A_over_I": "1"
+        },
+        {
+          "coordinate": 1,
+          "physical_influence": "1/2",
+          "fourier_influence": "1/2",
+          "A_over_I": "1"
+        }
+      ],
+      "predicted_L1_over_I": "4"
+    },
+    {
+      "depth": 2,
+      "number_of_variables": 4,
+      "truth_table_entries": 16,
+      "gates_bottom_to_top": [
+        "OR",
+        "AND"
+      ],
+      "mean": "1/8",
+      "all_coordinates_checked": [
+        {
+          "coordinate": 0,
+          "physical_influence": "3/8",
+          "fourier_influence": "3/8",
+          "A_over_I": "1"
+        },
+        {
+          "coordinate": 1,
+          "physical_influence": "3/8",
+          "fourier_influence": "3/8",
+          "A_over_I": "1"
+        },
+        {
+          "coordinate": 2,
+          "physical_influence": "3/8",
+          "fourier_influence": "3/8",
+          "A_over_I": "1"
+        },
+        {
+          "coordinate": 3,
+          "physical_influence": "3/8",
+          "fourier_influence": "3/8",
+          "A_over_I": "1"
+        }
+      ],
+      "predicted_L1_over_I": "4"
+    },
+    {
+      "depth": 3,
+      "number_of_variables": 8,
+      "truth_table_entries": 256,
+      "gates_bottom_to_top": [
+        "OR",
+        "AND",
+        "AND"
+      ],
+      "mean": "-47/128",
+      "all_coordinates_checked": [
+        {
+          "coordinate": 0,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 1,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 2,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 3,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 4,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 5,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 6,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        },
+        {
+          "coordinate": 7,
+          "physical_influence": "27/128",
+          "fourier_influence": "27/128",
+          "A_over_I": "111/64"
+        }
+      ],
+      "predicted_L1_over_I": "111/16"
+    },
+    {
+      "depth": 4,
+      "number_of_variables": 16,
+      "truth_table_entries": 65536,
+      "gates_bottom_to_top": [
+        "OR",
+        "AND",
+        "AND",
+        "OR"
+      ],
+      "mean": "2143/32768",
+      "all_coordinates_checked": [
+        {
+          "coordinate": 0,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 1,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 2,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 3,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 4,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 5,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 6,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 7,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 8,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 9,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 10,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 11,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 12,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 13,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 14,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        },
+        {
+          "coordinate": 15,
+          "physical_influence": "4725/32768",
+          "fourier_influence": "4725/32768",
+          "A_over_I": "30559/16384"
+        }
+      ],
+      "predicted_L1_over_I": "30559/4096"
+    }
+  ]
+}

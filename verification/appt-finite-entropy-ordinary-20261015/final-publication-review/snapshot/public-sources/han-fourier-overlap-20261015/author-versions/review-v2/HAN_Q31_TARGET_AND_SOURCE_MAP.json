@@ -1,0 +1,174 @@
+{
+  "created_utc": "2026-10-15T09:32:24.295202+00:00",
+  "status": "author-only complete written auxiliary argument; independent ordinary review pending",
+  "full_fei_status": "Neither proved nor refuted here; new major solutions = 0",
+  "original_question": {
+    "author": "Xiao Han",
+    "publication": "Combinatorica 45, article 4 (2025), published 2024-12-20",
+    "publisher_url": "https://link.springer.com/article/10.1007/s00493-024-00133-z",
+    "arxiv": "2312.08271v2",
+    "locator": "Question 3.1, Eq. (3.18)",
+    "exact_quantifiers": "exists finite c>0, for every n>=1 and every f:{-1,+1}^n->{-1,+1} under uniform measure, exists i in [n] with sum_{S not containing i}|fhat(S) fhat(S union {i})| <= c I_i(f)",
+    "dummy_coordinates": "Original question permits a zero-influence coordinate, which would satisfy its inequality. Our counterexamples have every coordinate essential."
+  },
+  "proved_negation": "For every finite c>0 choose integer d>8c/3. The explicitly recursively defined monotone read-once f_d on 2^d uniform variables satisfies, for every coordinate i, I_i(f_d)>0 and A_i(f_d)/I_i(f_d)>=3d/8>c.",
+  "proof_dependency_map": [
+    {
+      "step": "Bias invariant",
+      "dependency": "Two elementary gate probability polynomials p^2 and 2p-p^2 keep p in [1/4,3/4]."
+    },
+    {
+      "step": "Transitivity and essentiality",
+      "dependency": "Identical disjoint subtrees, leaf swaps, and influence multiplication by beta=max(p,1-p) in [1/2,3/4], starting at 1."
+    },
+    {
+      "step": "L_i=4 A_i",
+      "dependency": "Restriction Fourier coefficients c+d and c-d; difference of squares is 4cd."
+    },
+    {
+      "step": "Exact recurrence",
+      "dependency": "Separate empty/nonempty Fourier indices in both child blocks, retain old and new constant coefficients, use Parseval in independent sibling and monotone identity fhat({i})=I_i."
+    },
+    {
+      "step": "Unbounded every-coordinate ratio",
+      "dependency": "R_{j+1}=R_j-4|mu_j|+2(1-mu_j^2)+4|mu_{j+1}| telescopes to R_d=2 sum_{j<d}(1-mu_j^2)+4|mu_d| >=3d/2; divide by 4."
+    }
+  ],
+  "not_assumed": [
+    "FEI itself",
+    "an unproved compression, concentration or adaptive split gate",
+    "a numerical limit",
+    "finite exhaustive search over all Boolean functions",
+    "large-d floating-point behavior"
+  ],
+  "current_followup_collision_screen": {
+    "screen_date_utc": "2026-10-15T09:32:24.295202+00:00",
+    "outcome": "No prior primary negative answer to the exact all-coordinate Han Question 3.1 was identified in the bounded current screen. Priority is not certified; original-question nonwithdrawal alone was not used to infer that the question is currently open.",
+    "query_terms": [
+      "\"Han\" \"Question 3.1\" \"Fourier\"",
+      "\"Fourier\" \"3.18\" \"counterexample\" \"Han\"",
+      "\"Fourier entropy\" \"absolute\" \"read-once\" 2026",
+      "\"Fourier Entropy Influence\" \"Han\" \"negative\" 2026"
+    ],
+    "metadata_only_exclusions": [
+      {
+        "id": "2511.07739v3",
+        "reason": "Biased-cube lower entropy bound, not the uniform all-coordinate overlap question; metadata/abstract only."
+      },
+      {
+        "id": "2308.00509v3",
+        "reason": "Earlier Han thesis, not a later independent resolution; metadata/abstract only."
+      },
+      {
+        "id": "2512.03117v3",
+        "reason": "Withdrawn as an already known bound; metadata only, not a resolution of this question."
+      }
+    ],
+    "failed_discovery_requests": [
+      {
+        "service": "OpenAlex DOI lookup",
+        "observed": "Free IP daily budget exhausted; no citation list obtained."
+      },
+      {
+        "service": "Semantic Scholar citation graph",
+        "observed": "HTTP 429; no citation list obtained."
+      }
+    ],
+    "publisher_access": "The current publisher page was successfully read with web tool (Question 3.1/3.18, approximately lines 324-352). The native HTTP download returned a 3038-byte anti-bot page, so that local HTML is not treated as the paper text.",
+    "limits": "Not a comprehensive citation graph or full independent audit of later papers. A later collision would change priority assessment, not the elementary local counterexample proof."
+  },
+  "primary_sources": [
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/han-2312.08271v2.pdf",
+      "url": "https://arxiv.org/abs/2312.08271v2",
+      "bytes": 369433,
+      "sha256": "b582013db22a48da85ff6dc0e19c38808ad60ef430c948574871e1f9a189dc89",
+      "actual_read_scope": "Question 3.1, Eq. (3.18), Remark 3.2 and immediately preceding Eq. (3.16)-(3.17), pdftotext approximately lines 615-703; metadata checked current.",
+      "role": "Exact original uniform-Boolean universal-constant coordinate-existence target.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/gmp-2606.00246v2.pdf",
+      "url": "https://arxiv.org/abs/2606.00246v2",
+      "bytes": 554711,
+      "sha256": "0cbdddd0c99e9aa6c525b60cddfdf292b4abccd34aafbf7e669d097fdf11a8f4",
+      "actual_read_scope": "Introduction; Sections 4 and 5.1-5.2 on splitting conditions and the specified-coordinate obstruction; Appendix B entropy algebra. Not a complete independent audit.",
+      "role": "Current June 2026 primary follow-up: Proposition 5.1 chooses one bad variable; Section 5.2 explicitly chooses another variable that works for those delta-tribes. It does not supply an all-coordinate obstruction.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/shmalo-2610.16069.pdf",
+      "url": "https://arxiv.org/abs/2610.16069v1",
+      "bytes": 628661,
+      "sha256": "d033ee3e69be7f12e88b6cf99a4bd300dd03f13f01e7a5b47f2baaf2df883dea",
+      "actual_read_scope": "Introduction and scope of Theorems A-C; selector and rare-activation Sections 8.3-8.4; bounded text search for Han, Question 3.1, 3.18, absolute overlap and read-once.",
+      "role": "October 12, 2026 primary follow-up. Restricted regular/threshold and composition results; no negative answer to Han Q3.1 identified in inspected scopes.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/shmalo-percolation-2609.15388v1.pdf",
+      "url": "https://arxiv.org/abs/2609.15388v1",
+      "bytes": 549084,
+      "sha256": "3d94a22b5769729ce658ea7d8aa6697037220facdfc5c75a14f68f7ee0f17433",
+      "actual_read_scope": "Metadata and abstract; introduction scope; bounded full-text searches for Han, Question 3.1, 3.18, absolute overlap and read-once; relevant Han bibliography entry. No complete proof read.",
+      "role": "September 14, 2026 primary follow-up concerning planar-percolation spectral/pivotal entropy. No unrestricted Boolean or all-coordinate Han-Q3.1 resolution identified.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/ot-1304.1347.pdf",
+      "url": "https://arxiv.org/abs/1304.1347",
+      "bytes": 218158,
+      "sha256": "8e3c986d79db932cfd837dca6f2eb62bbba360034dd192bb5ecd27ce1069a70f",
+      "actual_read_scope": "Metadata, introductory bounded-arity read-once FEI theorem, and biased composition identities and their proof (pdftotext approximately lines 120-213 and 308-422).",
+      "role": "Prior FEI theorem for the counterexample class. Prevents confusing the proxy counterexample with an FEI counterexample.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/arxiv-fourier-entropy.atom",
+      "url": "https://export.arxiv.org/api/query?search_query=ti:Fourier+AND+ti:entropy&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending",
+      "bytes": 54411,
+      "sha256": "867b430f0efca1ff6bf85e2a84c274a4c89ac5ea6cba04f4f444f9e748d3e612",
+      "actual_read_scope": "Returned 29-entry title/metadata list (the request used max_results=100). Recent relevant entries inspected and screened by title and abstract. Not full-text citation discovery.",
+      "role": "Current follow-up discovery beyond the original 2023/v2 question.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/arxiv-fei-current.atom",
+      "url": "https://export.arxiv.org/api/query?search_query=ti:%22entropy%22+AND+all:%22influence%22&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending",
+      "bytes": 228851,
+      "sha256": "61ce2d251fdcd8fd98195ea4e973f2f600d9d3c1c663657cf93342bfaf8063e9",
+      "actual_read_scope": "Returned 100-entry broad title/metadata list; relevance filtering, including many unrelated entropy results.",
+      "role": "Additional current primary metadata discovery; no exhaustive absence claim.",
+      "full_proof_independently_verified": false
+    },
+    {
+      "file_in_aux_only": "/mnt/d/math/tmp/breadth-tcs-20261015/phase-2/openai-math-overview.tex",
+      "url": "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "bytes": 321928,
+      "sha256": "aa54c8e14b7647226264045ae846df7ce6803d2ded48aa3183195e45f9f91962",
+      "actual_read_scope": "Bounded case-insensitive text searches for Fourier entropy/influence and Han arXiv identifier; no relevant hit. Not the full repository.",
+      "role": "Additional current public-claim collision check; absence of a text hit is not evidence that no resolution exists.",
+      "full_proof_independently_verified": false
+    }
+  ],
+  "finite_controls": {
+    "script": "han_q31_exact_controls.py",
+    "result": "HAN_Q31_EXACT_CONTROLS.json",
+    "dependencies": "Python 3 standard library only",
+    "covered": "The one explicitly defined formula at each depth 0..4: 1,2,4,8,16 variables; full truth tables of sizes 2,4,16,256,65536; all 31 coordinates.",
+    "checks": [
+      "Boolean truth values",
+      "Parseval using integer Walsh numerators",
+      "Bias invariant",
+      "Fourier influence equals direct physical edge count",
+      "Adjacent coefficient overlap equals direct restricted squared-spectrum L1/4",
+      "Exact rational recurrence and lower bound for every coordinate"
+    ],
+    "not_covered": "No arbitrary-depth computer enumeration and no formal proof. The manuscript supplies the arbitrary-depth written induction."
+  },
+  "author": "Yongxian Zhang (张永贤), South China University of Technology",
+  "funding": "No external funding",
+  "ai_assistance": "OpenAI assisted; author responsible for content",
+  "rights": "Original material all rights reserved; third-party questions/results retain original attribution",
+  "publication": "No submission, publication, Release, external distribution or solved-index entry authorized or performed."
+}

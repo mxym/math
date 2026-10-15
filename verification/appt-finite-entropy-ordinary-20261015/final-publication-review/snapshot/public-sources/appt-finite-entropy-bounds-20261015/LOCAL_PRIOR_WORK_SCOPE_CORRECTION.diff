@@ -1,0 +1,159 @@
+--- initial/PAPER.md
++++ corrected/PAPER.md
+@@ -1,10 +1,10 @@
+-# A relative APPT entropy profile at every positive order and every aspect ratio
++# Finite APPT entropy bounds and a simpler superlinear relative formula
+ 
+ Yongxian Zhang (张永贤), South China University of Technology.
+ 15 October 2026, Asia/Shanghai. Complete author manuscript; independent
+ ordinary review pending. Same APPT research direction, no new major count.
+ 
+-## 1. Original problem and the missing superlinear orders
++## 1. Original problem and relation to the existing all-order theorem
+ 
+ Let APPT(m,n) be the actual complex positive semidefinite trace-one matrices
+ on C^m tensor C^n remaining PPT under EVERY global unitary. Integers satisfy
+@@ -17,6 +17,17 @@
+ all positive real orders; it does not assert the same relative statement
+ with a fixed smaller dimension merely from D->infinity.
+ 
++The existing ALL_ORDER_VARIATIONAL.md already proves a relative equivalent
++for ALL positive orders and ALL n>=m as m grows, by a calibrated finite
++scalar profile, with the stronger moment comparison at large orders.
++This manuscript does NOT first close that range. Its contributions are
++the explicit finite bound R0, an elementary maximum of two branches in
++the superlinear regime, and an alternative entropy-only simplification.
++The initial local literature screen missed that later companion and
++incorrectly framed the range as open; the original source and correction
++are retained. No mathematical error in the displayed bounds was found
++by that discovery, but the initial novelty/range-closure framing was false.
++
+ Put q=(m+1)/(m-1), t=q-1 and, for alpha>1, a=alpha-1. Define
+ 
+     H(m,D,alpha)=max{log q, log3-logD/a}.                  (R1)
+@@ -48,7 +59,7 @@
+ relative first-order result, including when H and E_alpha tend to zero;
+ the earlier uniform absolute growing-order formula alone did not imply it.
+ 
+-## 2. One profile for all positive orders
++## 2. An alternative entropy profile on an already proved range
+ 
+ The credited linear-order manuscript defines, for c>0,r>=0,
+ 
+@@ -82,7 +93,11 @@
+ It retains the first nonzero relative size. It uses a two-variable scalar
+ profile rather than a finite-dimensional exact optimizer formula. No
+ interchange of nonuniform limits or claim about all finite equality
+-spectra is implicit in R8.
++spectra is implicit in R8. This range was already proved by the calibrated
++V_* theorem. Here the same uncalibrated limiting F_* is used at every
++large order, at the ENTROPY scale only. No unrestricted-order relative
++MOMENT statement with 3^alpha replacing u_D^alpha is claimed; that stronger
++statement would fail when alpha is much larger than D.
+ 
+ ## 3. Credited physical inputs and a dimension-free power remainder
+ 
+@@ -259,7 +274,14 @@
+ remainder inequality, superlinear relative theorem and all-order assembly
+ require their own independent complete read; that review is pending.
+ 
+-This closes an asymptotic relative-accuracy gap, not every exact finite
++The older calibrated V1/V2 theorem already closed the all-order
++relative-accuracy gap; its full manuscript and prior review are explicitly
++credited and bound in CREDITED_INPUTS.json. The present finite estimate
++and entropy-profile simplification do not replace its stronger relative
++moment comparison. The earlier missed local source, original incorrect
++scope framing and correction remain in author-versions/ and RESEARCH_LOG.md.
++
++This supplies finite bounds and a simpler asymptotic corollary, not every exact finite
+ entropy extremum, its equality spectra, or full changing-dimension spectral
+ rigidity. It does not prove absolute separability of projection competitors
+ or general APPT=ASEP. The fixed-m small-order problem is not subsumed by
+--- initial/THEOREM_MAP.md
++++ corrected/THEOREM_MAP.md
+@@ -1,12 +1,12 @@
+-# New all-aspect all-order targets
++# Finite sharpening and simplified-profile targets
+ 
+ Author source, 2026-10-15. Independent full ordinary read pending.
+ 
+ | Target | Original quantifiers | Inputs and new argument | Status |
+ | --- | --- | --- | --- |
+ | R0 finite upper/lower | Every integer 3<=m<=n, every real alpha>=2 for upper; lower also alpha*t>=2 and D/(alpha*t)>=2 | Actual P0-P2 physical inequalities, monotone divided Taylor remainder and sum p^2<=8; actual integer-rank projection with width-adapted rank | Complete author proof, not yet independently read |
+-| R1/R4-R5 relative superlinear | m->infinity, n>=m arbitrary, alpha/m->infinity; equivalently every diverging lower cutoff V_m | R0, actual pole finite bound; split tau>=log3/2 or exponentially large D; vanishing-scale errors controlled relative to logq~2/m | Complete author proof, not yet independently read |
+-| R2/R8 all-positive all-aspect profile | Supremum over ALL integer n>=m and ALL positive real alpha, as m->infinity | Existing U2 sublinear relative profile and existing linear-order L2/L5; new superlinear theorem; uniform-in-r large-c scalar comparison and subsequence exhaustion | Complete author proof, not yet independently read |
++| R1/R4-R5 simplified superlinear formula | m->infinity, n>=m arbitrary, alpha/m->infinity; equivalently every diverging lower cutoff V_m | R0, actual pole finite bound; split tau>=log3/2 or exponentially large D; vanishing-scale errors controlled relative to logq~2/m | Complete author proof of an elementary corollary on an already covered range, not yet independently read |
++| R2/R8 alternative all-positive all-aspect profile | Supremum over ALL integer n>=m and ALL positive real alpha, as m->infinity | Existing U2 and linear L2/L5; superlinear elementary formula; large-c scalar comparison and subsequence exhaustion | Complete author proof of a simpler entropy-only profile, not first range closure and not yet independently read |
+ 
+ All densities are the original complex PSD trace-one objects with EVERY
+ global unitary quantified in APPT. The scalar maximum is an asymptotic
+@@ -14,6 +14,12 @@
+ optimizer classification. Projection ranks are actual integers and both
+ lower states have their exact trace denominators. The density has rank D.
+ 
++The pre-existing ALL_ORDER_VARIATIONAL.md Theorems V1/V2 already prove
++the all-positive-order, all-aspect relative range, with a stronger calibrated
++moment theorem. The initial local screen missed it and wrongly called that
++range open; original source and metadata remain in author-versions/.
++No duplicate new range-closure or major-conjecture credit is claimed.
++
+ No claim covers fixed-m all-positive-order relative asymptotics from this
+ m->infinity theorem alone. Exact endpoints alpha=0/infinity remain separate.
+ No new formalization or old audit expansion; no APPT=ASEP conclusion, new
+--- initial/LITERATURE_SCREEN.md
++++ corrected/LITERATURE_SCREEN.md
+@@ -16,8 +16,17 @@
+ order, arbitrary-aspect relative theorem. No new full-paper reading is
+ claimed here; older local source comparisons remain credited as such.
+ 
+-The local existing U2 and linear-order manuscripts were read before
+-selecting the gap. The new target is their excluded alpha/m->infinity
+-unrestricted-aspect relative regime and its resulting uniform assembly.
+-The P0-P2 all-dimension absolute formula alone does not prove this result.
++The local U2 and linear-order manuscripts were read first, but selecting a
++gap from the latter's old scope paragraph MISSED its later companion
++ALL_ORDER_VARIATIONAL.md. That manuscript was then fully read at about
++10:00 UTC, along with its explicit V1/V2 scope and source-bound review
++metadata: it ALREADY covers the all-positive-order, unrestricted-aspect
++relative range, using a calibrated finite scalar maximum. The original
++incorrect local novelty/range framing is retained in author-versions/.
++
++The revised scope is an explicit finite upper sharpening, a simpler
++superlinear formula, and an entropy-only profile simplification. It is
++not a first solution of that previously covered asymptotic range. The
++P0-P2 absolute formula alone still does not imply relative accuracy at
++zero, but the older V theorem already supplies it by a different argument.
+ No historical-priority certificate or independent major-conjecture claim.
+--- initial/RESEARCH_LOG.md
++++ corrected/RESEARCH_LOG.md
+@@ -5,8 +5,9 @@
+ target, the existing sharp fixed-local cutoff, root-tracking, sublinear
+ uniform profile and coupled linear-order manuscripts were checked. Their
+ excluded unrestricted-aspect alpha/m->infinity relative regime remains
+-the distinct target here; the old cutoff/pole and bounded-c statements
+-are not reproved as new results.
++the initially selected target. That selection was incomplete: see the
++subsequent local-prior-work correction below. The old cutoff/pole and
++bounded-c statements are not reproved as new results.
+ 
+ The new upper step is a monotone second divided Taylor remainder. It
+ uses the full existing square-mass budget eight, not an epsilon-dependent
+@@ -32,3 +33,18 @@
+ papers or a historical-priority claim. Credited local ordinary sources
+ are copied literally with a separate manifest; they do not enlarge any
+ old Lean audit. No new Lean/Lake/kernel, email, submission, Release or DOI.
++
++At approximately 10:00 UTC a direct read of ALL_ORDER_VARIATIONAL.md and
++ALL_ORDER_REVIEW.json revealed that the same-repository later V1/V2 paper
++already closed the supposed all-order relative gap. The first selection
++had relied on the LINEAR manuscript's old scope paragraph and failed to
++inspect this later companion. This was a real local-source/novelty-scope
++mistake; the first finite PASS did not check completeness of that screen.
++All six initial source/metadata files were copied literally into
++author-versions/before-local-prior-work-correction/, with their actual
++hashes, before editing. No R source was published or put in a proved index.
++The mathematical inequalities remain, but the revised title, opening,
++target map, literature comparison and limitations explicitly credit the
++pre-existing full range. The work is now a finite estimate/simplification,
++not another first closure. No mathematical control was rerun merely to
++repair this scope metadata, and the first run retains its original source.

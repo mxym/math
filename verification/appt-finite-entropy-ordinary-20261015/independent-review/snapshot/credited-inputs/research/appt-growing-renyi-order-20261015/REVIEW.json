@@ -1,0 +1,411 @@
+{
+  "decision": "PASS",
+  "scope": "corrected and strengthened final P0-P2 only, not original false fixed-D P2 range",
+  "reviewer": "internal AI agent /root/critical_entropy_review_resume_20261015",
+  "reviewed_utc": "2026-10-15T09:22:25.706718+00:00",
+  "blind_review": false,
+  "external_human_peer_review": false,
+  "formal_verification": false,
+  "new_Lean": false,
+  "old_audit_expanded": false,
+  "author_sources_edited_by_reviewer": false,
+  "automatic_coverage_from_L_M_or_previous_reviews": false,
+  "final_math_sources": {
+    "PAPER.md": {
+      "sha256": "3d038944ad35c16fb1c3c99db4fcc096f3a12e543016048a002c035712516e06",
+      "bytes": 8559,
+      "lines": 192
+    },
+    "THEOREM_MAP.md": {
+      "sha256": "d2976594b5780cdf94b3bbbacbc90de48033ab9fb19fcb4683cc791ded864f10",
+      "bytes": 1484,
+      "lines": 31
+    },
+    "REVIEW_HISTORY.md": {
+      "sha256": "825d85c91ef3b52d8c47bb66a7a8b13070d5eb0df9caf5d5b3f5ac8f5ebc1047",
+      "bytes": 1983,
+      "lines": 32
+    },
+    "checks.py": {
+      "sha256": "0af2d1b2ced8445f6a3266e60508e9fc44523da627c88f071739c2aef422cd29",
+      "bytes": 5331,
+      "lines": 93
+    }
+  },
+  "all_source_versions": {
+    "P": {
+      "meaning": "original range error",
+      "files": {
+        "PAPER.md": {
+          "sha256": "c719b61b25e536d39221ac91a518a1c7c292e2935d2dce75f8de53a20fa480ee",
+          "bytes": 8363,
+          "lines": 188
+        },
+        "THEOREM_MAP.md": {
+          "sha256": "85a416fd9cc41e43fc206dc4b117cd4d10e278728eb354ccab756bc7eaf7e4f4",
+          "bytes": 1379,
+          "lines": 29
+        }
+      }
+    },
+    "P-v2": {
+      "meaning": "corrected P2, weaker upper",
+      "files": {
+        "PAPER.md": {
+          "sha256": "50d2092695d687b526f7d52dccaba05bfb9926bf8f8beb3bb94c29a68164428c",
+          "bytes": 8519,
+          "lines": 190
+        },
+        "THEOREM_MAP.md": {
+          "sha256": "8481ff220637e8a30d56b624a8282baade71a8b61f70d841b32fc4f27177dcef",
+          "bytes": 1443,
+          "lines": 30
+        },
+        "REVIEW_HISTORY.md": {
+          "sha256": "cc7a6f16e1e74645f40ccf4e065249460bd295b3a71ffd063654742a866a9ad4",
+          "bytes": 1480,
+          "lines": 24
+        },
+        "checks.py": {
+          "sha256": "1b68a935540ab640c1cd678802ac3c13ccdd47dc8950b2ed79f519474beedd1c",
+          "bytes": 5350,
+          "lines": 93
+        }
+      }
+    },
+    "P-v3": {
+      "meaning": "final corrected and strengthened",
+      "files": {
+        "PAPER.md": {
+          "sha256": "3d038944ad35c16fb1c3c99db4fcc096f3a12e543016048a002c035712516e06",
+          "bytes": 8559,
+          "lines": 192
+        },
+        "THEOREM_MAP.md": {
+          "sha256": "d2976594b5780cdf94b3bbbacbc90de48033ab9fb19fcb4683cc791ded864f10",
+          "bytes": 1484,
+          "lines": 31
+        },
+        "REVIEW_HISTORY.md": {
+          "sha256": "825d85c91ef3b52d8c47bb66a7a8b13070d5eb0df9caf5d5b3f5ac8f5ebc1047",
+          "bytes": 1983,
+          "lines": 32
+        },
+        "checks.py": {
+          "sha256": "0af2d1b2ced8445f6a3266e60508e9fc44523da627c88f071739c2aef422cd29",
+          "bytes": 5331,
+          "lines": 93
+        }
+      }
+    }
+  },
+  "actual_read": {
+    "original_P": "full 188-line manuscript and 29-line map",
+    "corrected_v2": "full 190-line manuscript, 30-line map, 24-line history and 93-line checker",
+    "final_v3": "full 192-line manuscript, 31-line map, 32-line history and 93-line checker",
+    "SHARP": "full 259-line source, especially finite Sections2-4 and all-rank/finite purity Section8",
+    "C": "previous same-reviewer full frozen read; current Section4 finite physical inequalities reread and separated from later cubic estimates",
+    "author_runs": "all three parsed/copied/hash-checked, result summaries inspected; no author execution",
+    "literature": "no new exhaustive search or priority investigation"
+  },
+  "resolved_mathematical_findings": [
+    {
+      "original_source_sha256": "c719b61b25e536d39221ac91a518a1c7c292e2935d2dce75f8de53a20fa480ee",
+      "finding": "fixed-m c=infinity corollary omitted D->infinity and was literally false at fixed D",
+      "counterexample": "m=n=2: actual max lambda_1=1/2 by maximally entangled test and normalized I+2vv* attainment, so E_alpha->log2 not log3",
+      "correction": "fixed-m branch explicitly requires D=mn->infinity, including c=infinity; source and map changed and originals retained",
+      "not_an_unchanged_target_or_status_edit": true,
+      "initial_author_PASS_failed_to_detect_it": true
+    }
+  ],
+  "unresolved_mathematical_findings": [],
+  "author_strengthening": {
+    "separate_from_range_fix": true,
+    "cutoff": "epsilon=1/(alpha-1)",
+    "upper_error": "2m/(D-m)+(2log(alpha-1)+log48+2)/(alpha-1)",
+    "uniform_absolute_rate": "O(D^-1/2+log(alpha)/alpha)",
+    "full_updated_read_and_actual_independent_rerun": true,
+    "previous_corrected_source_preserved": true
+  },
+  "theorem_scope": {
+    "P0": "EVERY integer 2<=m<=n and EVERY real alpha>=2; explicit T-L<=actual E<=T+U with no hidden cutoff",
+    "P1": "D->infinity AND alpha->infinity, uniform across fixed/growing/oscillating m and arbitrary order-dimension relations; absolute rate, not relative equivalent",
+    "P2_m_growing_positive_c": "m->infinity, alpha/logD->c in (0,infinity], limit max(0,log3-1/c)",
+    "P2_m_growing_zero_c": "m->infinity and alpha/logD->0 for arbitrary positive alpha, even tiny/bounded/oscillating, by order monotonicity",
+    "P2_fixed_m": "D->infinity AND alpha->infinity with alpha/logD->c in [0,infinity], bulk logq retained and no bounded-order extension",
+    "original_domain": "actual complex trace-one PSD matrices PPT after every global unitary",
+    "physical_inputs": "exact finite graph head-square bound8, b>0, m=2 p1=0, D-dependent mean; actual spike and arbitrary integer-rank projections",
+    "alpha_greater_D": "rank=max(1,floor(D/alpha)), never fractional below one"
+  },
+  "not_claimed": [
+    "exact finite entropy or every equality spectrum",
+    "sharp next terms",
+    "relative accuracy at vanishing leading value",
+    "fixed-order small-deficit asymptotic",
+    "absolute separability",
+    "new Lean",
+    "external human review",
+    "new major-conjecture count",
+    "finite diagnostics as exhaustive full-feasible-set certificate",
+    "priority certificate"
+  ],
+  "dependencies": {
+    "C-PAPER.md": {
+      "sha256": "a2e940d320950c258d2aed13bb5afa81ea3bc41efa74acc09dca703d0a817449",
+      "bytes": 21505,
+      "lines": 461
+    },
+    "SHARP_ASYMPTOTIC.md": {
+      "sha256": "49b71670f33283f1018c915d07b11c509266395f3a201dc19bb627cd932bc2f9",
+      "bytes": 15046,
+      "lines": 259
+    },
+    "preprint-copy-SHARP_ASYMPTOTIC.md": {
+      "sha256": "49b71670f33283f1018c915d07b11c509266395f3a201dc19bb627cd932bc2f9",
+      "bytes": 15046,
+      "lines": 259
+    }
+  },
+  "ordinary_report": {
+    "sha256": "dd3fa6feda0dd4fd68df699dd2931a10ae1fd1d71471853e8d2232de8477782a",
+    "bytes": 13596,
+    "lines": 253
+  },
+  "control_history": {
+    "sha256": "ceae45f5300abdf8aeff3acfe98edefb5bbd4019d6063e439c3c46ac92ac5d79",
+    "bytes": 4758,
+    "lines": 78
+  },
+  "input_manifest": {
+    "sha256": "85d5741119f94183b9a9bd9222d4c8967fd67f626b1a2798bee934436dab4f1d",
+    "bytes": 10309,
+    "lines": 205
+  },
+  "independent_runs": [
+    {
+      "run": "20261015T091232.667475Z",
+      "status": "PASS",
+      "result": {
+        "sha256": "0262df811eb42d16758ec21396316a037a2843d8f77c9189f2a53f15343647f2",
+        "bytes": 48896,
+        "lines": 1153
+      },
+      "executed_script": {
+        "sha256": "af015b36a0c9b7fe78b949bbc31796130a76d8fec85f41dc7c1ca5090cb378af",
+        "bytes": 11956,
+        "lines": 233
+      },
+      "expected_rejections": [
+        {
+          "variant": "original-fixed-D-c-infinity-corollary",
+          "observations": {
+            "m": 2,
+            "n": 2,
+            "all_order_E_upper_from_lambda_max_le_half": "0.69314718055994530941723212145818",
+            "attaining_spike_deficit_at_order_1e6": "0.69314648741207160159821488520882",
+            "original_claimed_limit": "1.0986122886681096913952452369225"
+          },
+          "explanation": "Maximally entangled two-qubit witness forces lambda_1<=1/2; the spike attains it at infinite order.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('original-fixed-D-c-infinity-corollary')"
+        },
+        {
+          "variant": "omit-exact-mean-normalization",
+          "observations": {
+            "raw_power_score": "-0.047947012075296821239869834332305",
+            "correct_singular_APPT_deficit": "0.28768207245178092743921900599383"
+          },
+          "explanation": "Dropping the trace mean even gives a negative score for this actual singular APPT state.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('omit-exact-mean-normalization')"
+        },
+        {
+          "variant": "drop-fixed-m-log-q-branch",
+          "observations": {
+            "actual_projection_deficit": "0.6072490746481668832996728009374",
+            "false_spike_only_formula": "0.0"
+          },
+          "explanation": "A fixed-m bulk plateau persists when the logarithmic spike branch is below zero.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('drop-fixed-m-log-q-branch')"
+        },
+        {
+          "variant": "fractional-rank-below-one",
+          "observations": {
+            "D": 100,
+            "alpha": "10000.0",
+            "unphysical_fractional_rank": "0.01",
+            "physical_rank": 1
+          },
+          "explanation": "A positive fractional multiplicity below one is not a finite density-matrix rank.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('fractional-rank-below-one')"
+        },
+        {
+          "variant": "fixed-m-c-zero-with-bounded-order",
+          "observations": {
+            "m": 2,
+            "alpha": 2,
+            "D": 2000000000000,
+            "all_APPT_deficit_upper_from_F16": "0.28768207245953092743920347474383",
+            "incorrect_bulk_endpoint_claim": "1.0986122886681096913952452369225"
+          },
+          "explanation": "Fixed-m c=0 requires alpha->infinity; at bounded order two the whole-set purity bound stays near log(4/3).",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('fixed-m-c-zero-with-bounded-order')"
+        },
+        {
+          "variant": "row-degree-bound-without-decreasing-order",
+          "observations": {
+            "m": 4,
+            "tail_square_sum": "1",
+            "degree_square_mean": "1/2"
+          },
+          "explanation": "The graph input uses decreasing paired gaps. Removing that hypothesis is false.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('row-degree-bound-without-decreasing-order')"
+        }
+      ]
+    },
+    {
+      "run": "20261015T091753.210538Z",
+      "status": "PASS",
+      "result": {
+        "sha256": "db98424910098a09a087d4d6c265797dd868f3afc3f38f0e653caec5822ac215",
+        "bytes": 48888,
+        "lines": 1153
+      },
+      "executed_script": {
+        "sha256": "1003996c6bdedb38d59546c5b9e00ee4136153ef4bb843e780d1f674882736b4",
+        "bytes": 11935,
+        "lines": 233
+      },
+      "expected_rejections": [
+        {
+          "variant": "original-fixed-D-c-infinity-corollary",
+          "observations": {
+            "m": 2,
+            "n": 2,
+            "all_order_E_upper_from_lambda_max_le_half": "0.69314718055994530941723212145818",
+            "attaining_spike_deficit_at_order_1e6": "0.69314648741207160159821488520882",
+            "original_claimed_limit": "1.0986122886681096913952452369225"
+          },
+          "explanation": "Maximally entangled two-qubit witness forces lambda_1<=1/2; the spike attains it at infinite order.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('original-fixed-D-c-infinity-corollary')"
+        },
+        {
+          "variant": "omit-exact-mean-normalization",
+          "observations": {
+            "raw_power_score": "-0.047947012075296821239869834332305",
+            "correct_singular_APPT_deficit": "0.28768207245178092743921900599383"
+          },
+          "explanation": "Dropping the trace mean even gives a negative score for this actual singular APPT state.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('omit-exact-mean-normalization')"
+        },
+        {
+          "variant": "drop-fixed-m-log-q-branch",
+          "observations": {
+            "actual_projection_deficit": "0.6072490746481668832996728009374",
+            "false_spike_only_formula": "0.0"
+          },
+          "explanation": "A fixed-m bulk plateau persists when the logarithmic spike branch is below zero.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('drop-fixed-m-log-q-branch')"
+        },
+        {
+          "variant": "fractional-rank-below-one",
+          "observations": {
+            "D": 100,
+            "alpha": "10000.0",
+            "unphysical_fractional_rank": "0.01",
+            "physical_rank": 1
+          },
+          "explanation": "A positive fractional multiplicity below one is not a finite density-matrix rank.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('fractional-rank-below-one')"
+        },
+        {
+          "variant": "fixed-m-c-zero-with-bounded-order",
+          "observations": {
+            "m": 2,
+            "alpha": 2,
+            "D": 2000000000000,
+            "all_APPT_deficit_upper_from_F16": "0.28768207245953092743920347474383",
+            "incorrect_bulk_endpoint_claim": "1.0986122886681096913952452369225"
+          },
+          "explanation": "Fixed-m c=0 requires alpha->infinity; at bounded order two the whole-set purity bound stays near log(4/3).",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('fixed-m-c-zero-with-bounded-order')"
+        },
+        {
+          "variant": "row-degree-bound-without-decreasing-order",
+          "observations": {
+            "m": 4,
+            "tail_square_sum": "1",
+            "degree_square_mean": "1/2"
+          },
+          "explanation": "The graph input uses decreasing paired gaps. Removing that hypothesis is false.",
+          "status": "REJECTED",
+          "actual_exception": "AssertionError('row-degree-bound-without-decreasing-order')"
+        }
+      ]
+    }
+  ],
+  "unexpected_independent_mathematical_checker_failures": 0,
+  "snapshot_setup_failure": {
+    "count": 1,
+    "cause": "unique SHARP path assertion found two byte-identical research/preprint copies",
+    "trace": {
+      "sha256": "bb562f8726bf1873a5cba51e9de6b20a8cc8e6fb64c113a15194c15c2d9b8080",
+      "bytes": 828,
+      "lines": 13
+    },
+    "initial_helper": {
+      "sha256": "6851b0fbc293764ccd40fe8c50942469387b7955211a659b3af744b098b8bf98",
+      "bytes": 1782,
+      "lines": 36
+    },
+    "not_a_mathematical_checker_failure": true
+  },
+  "author_runs": [
+    {
+      "run": "20261015T090459.816232Z",
+      "status": "PASS",
+      "result": {
+        "sha256": "dfc73a43120a9549efd17d87b8769529d605589eb79da51e049ae98266febb8e",
+        "bytes": 42703,
+        "lines": 1095
+      },
+      "executed_by_reviewer": false,
+      "finite_cases": 104,
+      "original_P2_error_detected_by_this_run": false
+    },
+    {
+      "run": "20261015T090615.061888Z",
+      "status": "PASS",
+      "result": {
+        "sha256": "932e93a314d2e9a442a1a121ad5eb9bc0e2eef013c7a095ca7c5dcbcbdb5c8c4",
+        "bytes": 43077,
+        "lines": 1104
+      },
+      "executed_by_reviewer": false,
+      "finite_cases": 104,
+      "original_P2_error_detected_by_this_run": true
+    },
+    {
+      "run": "20261015T091342.637637Z",
+      "status": "PASS",
+      "result": {
+        "sha256": "8cc8177058f24db1fcca67ff8cbabfd32ba935b6da6056dcad521a2959c9bcba",
+        "bytes": 43087,
+        "lines": 1104
+      },
+      "executed_by_reviewer": false,
+      "finite_cases": 104,
+      "original_P2_error_detected_by_this_run": true
+    }
+  ],
+  "final_publication_metadata_binding": "pending; this record binds mathematical source only"
+}

@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T10:11:18.323945+00:00",
+  "script_sha256": "b8563b464cd93264baeb8385105c342603c28a5f88126a424a1ee6586d2d443d",
+  "input_manifest_sha256": "1910d4332d192372f795eb31f7b26527806a98588ef67f7f0894b886f8b37ae0",
+  "counts": {
+    "symbolic_identities": 2,
+    "exact_rational_remainder_cases": 480,
+    "real_order_remainder_cases": 120,
+    "actual_physical_spectrum_upper_cases": 720,
+    "applicable_integer_rank_lower_cases": 51,
+    "actual_physical_types": [
+      "maximally mixed",
+      "pole",
+      "two noncommuting pure-spike mixture",
+      "singular I-vv*",
+      "all-rank projection"
+    ],
+    "scalar_bracket_sample_cases": 1512,
+    "expected_rejections": 7
+  },
+  "rejected": [
+    {
+      "name": "omit-linear-Taylor-term",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-linear-Taylor-term')",
+      "observations": {
+        "v": 1,
+        "p": "1/100",
+        "alpha": 2
+      }
+    },
+    {
+      "name": "drop-peak-exponential-from-remainder",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('drop-peak-exponential-from-remainder')",
+      "observations": {
+        "v": 1,
+        "p": 2,
+        "alpha": 10
+      }
+    },
+    {
+      "name": "omit-exact-trace-normalization",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('omit-exact-trace-normalization')",
+      "observations": {
+        "raw_deficit": "0.3881925643898275611173371228823366527378959979117275924789970761572489467088393489160113037189229845157354738683970873476506124857973441856164989494586088081212",
+        "actual": "0.1617595332140954592987627459455135670550157642869312472880262450765926928328017668595933298771046592809519677151247515419426832692674909219221504081598098606308",
+        "trace": "31",
+        "D": 25
+      }
+    },
+    {
+      "name": "use-floor-without-rank-conditions",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('use-floor-without-rank-conditions')",
+      "observations": {
+        "m": 3,
+        "D": 9,
+        "alpha_t": 20,
+        "rank": 0
+      }
+    },
+    {
+      "name": "replace-integer-rank-by-real-D-over-width",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('replace-integer-rank-by-real-D-over-width')",
+      "observations": {
+        "D": 25,
+        "alpha_t": 3,
+        "fractional_rank": "25/3",
+        "physical_floor_rank": 8
+      }
+    },
+    {
+      "name": "promote-entropy-profile-to-unrestricted-relative-moment",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('promote-entropy-profile-to-unrestricted-relative-moment')",
+      "observations": {
+        "m": 10,
+        "D": 100,
+        "alpha": "10000.0",
+        "log_lower_bound_F_over_Mstar": "194.4999124371809688706239021116726279862435719650894108181448730329770301475294031992774384895373500087816907483633572632955806216200474216051920741507355510466"
+      }
+    },
+    {
+      "name": "new-upper-error-pointwise-dominates-old",
+      "status": "REJECTED",
+      "actual_exception": "AssertionError('new-upper-error-pointwise-dominates-old')",
+      "observations": {
+        "m": 3,
+        "D": 9,
+        "alpha": "1000000.0",
+        "new_error": "2.000003295840161844490918676654387421964535907007580475828831032914033826516706172533073153920418361614627978538065735939333166437179114970674433832839445141277",
+        "old_error": "1.000033502253629089068225681629693930229731392440065534576000685413160698411040780236862098244497332625640227125483624766484800389021326975719948899726345294256",
+        "kind": "wording-scope witness; both theorem inequalities can remain true"
+      }
+    }
+  ],
+  "author_code_executed": false,
+  "reviewer_written": true,
+  "finite_diagnostics_only": true,
+  "full_feasible_optimization_numerically_certified": false,
+  "arbitrary_depth_or_unbounded_quantifiers_computer_proved": false,
+  "Lean": false,
+  "precision": 160
+}
