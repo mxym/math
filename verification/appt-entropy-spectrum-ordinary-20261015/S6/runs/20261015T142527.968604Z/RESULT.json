@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T14:25:27.968604+00:00",
+  "finished_utc": "2026-10-15T14:25:31.431026+00:00",
+  "scope": "Independent finite diagnostics and actual rejected false variants, not universal proof/Lean",
+  "source_sha256": "67297f304c8df0cfb42568d44f42388ba3093cd5ce50f4a1b9d7cc85681f75a9",
+  "paper_sha256": "2374564f1f2cd3c576c3528d8acfda3f9a729ae08f506621f930ed42b33fd227",
+  "runtime": {
+    "python": "3.10.12",
+    "sympy": "1.9",
+    "mpmath": "1.2.1",
+    "mp_dps": 800
+  },
+  "counts": {
+    "symbolic_identities": 7,
+    "exact_compressed_actual_state_order_cases": 576,
+    "finite_all_state_bound_diagnostics": 54,
+    "actual_exponential_ceiling_paths": 4,
+    "actual_entropy_vs_moment_paths": 4
+  },
+  "details": {
+    "largest_observed_lhs_over_proved_rhs": "1.71672597714442969e-7",
+    "exponential_ceiling_paths": [
+      {
+        "chi": "3.999954589884106781735885",
+        "h": "4.602897939177472787672347",
+        "y1": "2.249996432798845051245619",
+        "M": "1.547172031913226971488427",
+        "Tp": "0.5471986666833958755094567",
+        "tail_ratio": "1.827441158237336320010966"
+      },
+      {
+        "chi": "8.0",
+        "h": "8.546009127969447881365992",
+        "y1": "2.625",
+        "M": "1.579256943916963640062187",
+        "Tp": "0.5792569439169636400621867",
+        "tail_ratio": "1.726349611345099020006147"
+      },
+      {
+        "chi": "16.0",
+        "h": "16.52186141121821994826852",
+        "y1": "2.8125",
+        "M": "1.593414930076748797311344",
+        "Tp": "0.5934149300767487973113439",
+        "tail_ratio": "1.685161510632477482128045"
+      },
+      {
+        "chi": "32.0",
+        "h": "32.51066707413022838476419",
+        "y1": "2.90625",
+        "M": "1.600095137323252056838775",
+        "Tp": "0.6000951373232520568387749",
+        "tail_ratio": "1.666402438220944930476799"
+      }
+    ],
+    "entropy_vs_moment_paths": [
+      {
+        "chi": "61.96217793495159006",
+        "h": "2.7218631212379765114",
+        "M": "5.342466773232925851e+25",
+        "r": "8.1251607863270201543e+26"
+      },
+      {
+        "chi": "270.14657862928382033",
+        "h": "5.3894286213540245537",
+        "M": "9.6065908195018731129e+114",
+        "r": "2.104594367373745719e+117"
+      },
+      {
+        "chi": "1111.1140868618080606",
+        "h": "10.722580546590121369",
+        "M": "7.8335591291006820839e+477",
+        "r": "3.5539939899976775406e+482"
+      },
+      {
+        "chi": "4483.2799137699177124",
+        "h": "21.389078732100448345",
+        "M": "5.9507062402303235445e+1937",
+        "r": "1.1580501788019860953e+1947"
+      }
+    ]
+  },
+  "wrong_variants": [
+    {
+      "variant": "omit_centering",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "finite_peak_identity",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "entropy_implies_sharp_loss",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "divide_loss_by_alpha",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "coarse_error_relative_to_peak",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "second_peak_controls_tail_sum",
+      "returncode": 1,
+      "actual_assertion_error": true
+    },
+    {
+      "variant": "forget_trace_normalization",
+      "returncode": 1,
+      "actual_assertion_error": true
+    }
+  ],
+  "author_code_imported_or_executed": false
+}

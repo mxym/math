@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T13:53:29.454244+00:00",
+  "reviewer_script_sha256": "50d80d20a0830c9d3b7655f43ffb1b66abdb5fae2ec7da67be4e5ac150d396a3",
+  "reviewed_current_paper_sha256": "b7d51f6b49ab2fb35245883f18f81d5bee478c4fcb707681437ffd7ebc1ddec2",
+  "authorship": "Reviewer-written helper and harness, no author imports/AST/execution.",
+  "jobs": [
+    {
+      "name": "symbolic_and_qubit",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "checked": true,
+      "negative_control": false
+    },
+    {
+      "name": "uniform_scalars",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "checked": true,
+      "negative_control": false
+    },
+    {
+      "name": "v1_derivative_sign_at_theta_zero",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "omit_hole_floor",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "replace_finite_m_bulk",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "replace_sum_by_max",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "omit_surplus",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "continuous_rank_is_exact",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "operator_convexity_substitute",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    },
+    {
+      "name": "extend_C_outside_domain",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "checked": true,
+      "negative_control": true
+    }
+  ],
+  "not_an_infinite_proof_or_global_optimizer_certificate": true
+}

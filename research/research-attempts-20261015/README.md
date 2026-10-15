@@ -31,6 +31,7 @@
 | --- | --- | --- |
 | Caccetta–Häggkvist 猜想 | 原全阶、正最小出度目标未闭合 | [完整尝试](../written-breadth-20261014/FULL_CACCETTA_HAGGKVIST_ATTEMPT.md) |
 | 八维 Borsuk 问题的一条平衡切片构造路线 | 排除该构造；原八维问题保持未解决 | [路线记录](../../notes/balanced_borsuk_slice.md) |
+| Frankl 并封闭集猜想（完整半数命题） | 一次完整阶段7203.967775有效秒后仍未解决；有限C5／Horn搜索及归约均为未审作者记录，无新重大成果 | [冻结结段记录](uc0-completed/STAGE_CLOSED.json)、[原结段状态](uc0-completed/FINAL_MATHEMATICAL_STATUS.md)、[原字节绑定](UC0_SOURCE_BINDING.json) |
 
 ## 理论计算机科学、学习与布尔分析
 
@@ -63,6 +64,10 @@
 | Unique Games | [原候选筛查与只读范围](../breadth-tcs-20261015/PRIMARY_SCREEN.json) |
 
 ## 记录与后续研究
+
+本轮另补的UC0结段文件按不可变提交逐字保存，来源见
+[UC0绑定](UC0_SOURCE_BINDING.json)。它们只证明本地阶段状态与实际计时，
+辅助数学内容未因此获得独立审核或已解决状态。
 
 [来源字节与冻结阶段摘要](STAGE_SOURCES.json)记录本页补充的三份作者
 阶段材料。其全文源尚未整体合入 main；这里仅公开相应的作者结段摘要
