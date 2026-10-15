@@ -1,0 +1,11 @@
+--- 20261015T083524.651443Z
++++ 20261015T083604.420048Z
+@@ -155,7 +155,7 @@
+             need(gain > 0, 'Factored tiny-order actual witness')
+             real_head = normalized_deficit_over_order(aa, negative_histogram(D, rr, beta, kh))
+             loss = real_head - head
+-            need(loss >= -mp.mpf('1e-180') and abs(loss) * m**8 < 10,
++            need(loss >= -mp.mpf('1e-180') and abs(loss) * m**8 < 2 / d0**2,
+                  'Tiny-order factored physical-rank loss')
+             tiny_rows.append({'m': m, 'alpha': scalar(aa), 'D_gain_divided_by_alpha': scalar(gain),
+                               'm8_rank_loss_divided_by_alpha': scalar(loss * m**8),
